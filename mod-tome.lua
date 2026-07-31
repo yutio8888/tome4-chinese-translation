@@ -5039,7 +5039,7 @@ t([[There are two main groups in the population here, Humans and Elves.
 Humans came here in the Age of Pyre. Our ancestors were part of a Mardrop expedition to find what had happened to the Naloren lands that sunk under the sea. Their ship was wrecked and the survivors landed on this continent.
 They came across a group of elves, seemingly native to those lands, and befriended them - founding the Sunwall and the Gates of Morning.
 Then the orc pride came and we have been fighting for our survival ever since.]], [[这里主要有两个种族，人类和精灵。
-人类在派尔纪便来到了这里。我们的祖先是马卓普探险队的一部分人员，他们是去调查沉入海底的纳鲁精灵大陆秘密的。他们的船失事沉没，侥幸活下来的人就漂流到了这块大陆。
+人类在烈火纪便来到了这里。我们的祖先是马卓普探险队的一部分人员，他们是去调查沉入海底的纳鲁精灵大陆秘密的。他们的船失事沉没，侥幸活下来的人就漂流到了这块大陆。
 他们碰到了一群精灵，似乎是这块大陆的原住民，他们成为了朋友并一起生活，创建了太阳堡垒和晨曦之门。
 后来兽人来到了这里，从那时开始我们就一直与他们战斗。]], "_t")
 t("Thank you, my lady.", "谢谢你，我的女士。", "_t")
@@ -6433,7 +6433,7 @@ He believes he can use it to #{italic}#improve#{normal}# nagas.
 But he has become mad and now looks upon all other intelligent water life as a threat, and that includes myself.
 I cannot leave this sanctuary, but perhaps you could help me?
 After all, it would be an act of mercy to end his madness.]], [[等下！你看上去有点价值，让我告诉你一个故事。
-在派尔纪，世界被魔法大爆炸的余波撕裂，马基·埃亚尔的一部分大陆架被撕裂出去漂向了海洋。
+在烈火纪，世界被魔法大爆炸的余波撕裂，马基·埃亚尔的一部分大陆架被撕裂出去漂向了海洋。
 纳鲁精灵种族灭亡了……至少世界上的人都这么认为。事实上他们之中的一些人使用古代夏·图尔的魔法存活了下来，他们转而在水下生活。
 他们现在被称为娜迦，他们生活在马基·埃亚尔和远东大陆之间的海洋深处。
 他们中的一个，萨拉苏尔，违抗了他的使命，妄图控制整个水上和水下世界，他发现了一个有可能残留有夏·图尔遗迹的古代神庙，叫做造物者神庙。
@@ -14844,7 +14844,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 “我也想知道。”我回答道。我们有自己的记录——当然，这些记录不曾与那些短命的种族相分享。不过不可否认的是，这些记录与传播了无数年的神话传说比起来，还是逊色了许多。
 
-我们到达了中央甬道。随着夏·图尔魔法的驱动，我们缓缓上升，眼前一层层废弃的屋室从上方进入我们的视线，然后缓缓地在视野中消失。卧房、工坊、储藏室、还有很多房间就连我们的博学之人也没法猜测出是用来干什么的。在经过几分钟的上升后，我们到达了远古传送门所在的大厅，尼耶拉不禁因惊讶而倒吸一口冷气。她的眼睛很快看到了夏·图尔的远古传送门，闪耀着映照着着几百英尺之上的天花板上的图案。在传送门的周围，一大群身穿高级丝绸长袍的永恒精灵法师正在紧张地工作中，而伊菲尼亚斯陛下正亲自指挥着他们。
+我们到达了中央甬道。随着夏·图尔魔法的驱动，我们缓缓上升，眼前一层层废弃的屋室从上方进入我们的视线，然后缓缓地在视野中消失。卧房、工坊、储藏室、还有很多房间就连我们的博学之人也没法猜测出是用来干什么的。在经过几分钟的上升后，我们到达了远古传送门所在的大厅，尼耶拉不禁因惊讶而倒吸一口冷气。她的眼睛很快看到了夏·图尔的远古传送门，闪耀、映照着几百英尺之上的天花板上的图案。在传送门的周围，一大群身穿高级丝绸长袍的永恒精灵法师正在紧张地工作中，而伊菲尼亚斯陛下正亲自指挥着他们。
 
 当他看到我们的到来时，他先行从一旁围绕的皇家顾问身边脱开身来，怀着自信的笑容向我们走来。尽管他穿着魔法研究院的灰色长袍，他的手中仍然拿着那把金色的法杖，辉光杖，作为他国王身份的证明。
 
@@ -15378,7 +15378,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 我试图斩断那个发光的生物，但我的剑穿过他的身体时似乎没有受到任何阻挡，我召唤的火焰似乎也没有什么效果。它向我伸出一根触手，一束强烈的光线从中发射出来，穿透我的身体，我的血肉感受到灼烧一般的痛苦。我向回跳了一步，向它发出一团冰风，撕下了它的一根触手，并将它推了开来。与此同时，莱娜尼尔将其中一个长着尖刺的生物化为了灰烬，但她的奥术护盾在其他生物的攻击下坍塌了，更多怪物的从天花板溢出。那团蠕虫怪物也占据了入口正在向前，倒下的尸体的口中吐出了燃烧的酸性物质。
 
-我们在这个狭窄的空间会有很大的被包围的风险，他们的数量是在太多，无法立刻解决。“走这里！”莱娜尼尔大声喊道，她冲破了她分开的门。我紧跟向前，用我的刀片切开了那些蠕虫团，使它在痛苦中尖叫起来。同时，我发出一道闪电，穿过了了某个长着尖刺的怪物，打破了他的脑袋。它试图继续攻击我，但我格挡了它，切下了它的手臂，在怪物的包围下起舞般闪避着他们的攻击，最终了到达门口。我面对着背后的怪物，建起一座水墙，然后释放一股洪水冲进了这个房间，把那些恐魔推到了外面，顺便跳进了我背后的门中。
+我们在这个狭窄的空间会有很大的被包围的风险，他们的数量是在太多，无法立刻解决。“走这里！”莱娜尼尔大声喊道，她冲破了她分开的门。我紧跟向前，用我的刀片切开了那些蠕虫团，使它在痛苦中尖叫起来。同时，我发出一道闪电，穿过了某个长着尖刺的怪物，打破了他的脑袋。它试图继续攻击我，但我格挡了它，切下了它的手臂，在怪物的包围下起舞般闪避着他们的攻击，最终了到达门口。我面对着背后的怪物，建起一座水墙，然后释放一股洪水冲进了这个房间，把那些恐魔推到了外面，顺便跳进了我背后的门中。
 
 在我通过的同时，莱娜尼尔将自己的法杖猛戳地面，一根石柱向上升起，封闭了入口。我可以听到另一边发出的撕裂和撞击声，但现在我们似乎已经安全了。“那些东西是什么？！”我怀疑地问道，同时观察这这个开放的洞穴，寻找有没有其他生物的迹象。这个洞穴似乎是一个很大的空间，但一切都很平静，我也看不到其他入口。
 
@@ -15414,7 +15414,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 我向莱娜尼尔的身体靠近，同时切下了一个有尖刺的怪物的脑袋，然后用一道火墙阻隔了剩下的怪物。她看上去就像死了一样，没有任何活动和呼吸的迹象，但是我没有时间仔细检查了。那些发着光的触手怪物轻松穿过了我所造出的火墙，我冲上前去，试图用我的剑刃刺穿这个怪物的核心。它射出一道光芒穿透了我的身体，我咳出血来，但我奋力将我的剑刃刺入更深，往里面灌注了一道奥术能量，将那个怪物炸了个粉碎。更多长着尖刺的怪物冲了过来，我迈动步伐，在左侧格挡和切开它们的同时，向着右侧射出了一团团火焰。
 
-那团蠕虫团穿透了墙壁，伴随着它的是另外两个闪烁着光辉的恐魔，还有一些某种暗影和噩梦的魔鬼。我能看到，还有更多的恐魔在朝我们涌来。当那道光线射向我的时候，我打开了一个能量护盾，然后向他们发射了霜冻之球。一个发光的怪物倒下了，而另一个的行动则被减缓了。那个黑暗的东西也走了过来，那团蠕虫团则紧随其后。我把我的剑划过地面，将热能传到到地面上，把地上的石头化为了灼热的岩浆。那个黑暗的存在朝我接近过来，我能感受到它的身上散发出致死的寒意。我拼命地砍向它，而它则把它的触手如同长矛一般直射过来，准备吸走我的力量。我大吼一声，射出一团火焰，烧毁了它的触手。那些蠕虫踩着岩浆直冲过来，它们中的大部分都被烧成了灰烬，但它们整体的速度没有丝毫减弱。我调整了我的剑柄，随时准备轻快地躲开它们的攻势。然而就在这时，一束光线击中了我的大腿，我单膝跪地，发出痛苦的尖叫。那团蠕虫团继续冲向我，我试图用剑刺入蠕虫团的中央，但蠕虫很快爬遍了我的手臂，用他们酸性的牙齿啃噬着我的血肉，接近我的脖子。我仅存的左手释放出一团火焰，烧向我右臂上的虫子。虫群微微推开了，但那个发光的生物从另一侧接近了我，它的触手闪耀着光辉的能量。三个长着刺的恐魔围绕在它的后面。我的右臂严重烧伤，我的左臂也受了伤，我的锁甲已经满目疮痍，而我的法力也已经快要消耗光了。但我决心咬牙坚持——在这场战斗中我无路可逃。我紧握手中的剑，冲向那团蠕虫团。
+那团蠕虫团穿透了墙壁，伴随着它的是另外两个闪烁着光辉的恐魔，还有一些某种暗影和噩梦的魔鬼。我能看到，还有更多的恐魔在朝我们涌来。当那道光线射向我的时候，我打开了一个能量护盾，然后向他们发射了霜冻之球。一个发光的怪物倒下了，而另一个的行动则被减缓了。那个黑暗的东西也走了过来，那团蠕虫团则紧随其后。我把我的剑划过地面，将热能传导到地面上，把地上的石头化为了灼热的岩浆。那个黑暗的存在朝我接近过来，我能感受到它的身上散发出致死的寒意。我拼命地砍向它，而它则把它的触手如同长矛一般直射过来，准备吸走我的力量。我大吼一声，射出一团火焰，烧毁了它的触手。那些蠕虫踩着岩浆直冲过来，它们中的大部分都被烧成了灰烬，但它们整体的速度没有丝毫减弱。我调整了我的剑柄，随时准备轻快地躲开它们的攻势。然而就在这时，一束光线击中了我的大腿，我单膝跪地，发出痛苦的尖叫。那团蠕虫团继续冲向我，我试图用剑刺入蠕虫团的中央，但蠕虫很快爬遍了我的手臂，用他们酸性的牙齿啃噬着我的血肉，接近我的脖子。我仅存的左手释放出一团火焰，烧向我右臂上的虫子。虫群微微推开了，但那个发光的生物从另一侧接近了我，它的触手闪耀着光辉的能量。三个长着刺的恐魔围绕在它的后面。我的右臂严重烧伤，我的左臂也受了伤，我的锁甲已经满目疮痍，而我的法力也已经快要消耗光了。但我决心咬牙坚持——在这场战斗中我无路可逃。我紧握手中的剑，冲向那团蠕虫团。
 
 然而，它却在我的面前炸成了一团火焰。一股强大力量的波动席卷了整个山洞，火焰在周围炸开，将其他的恐魔化为了灰烬，甚至连那些发光的存在也不例外——当火焰把它烧尽时，它发出一声低沉的哀鸣。我喘息着，不知道这股强大的烈焰到底从哪里来，直到我回头看到了莱娜尼尔的身影。她正屹立在我的面前，长袍已经被烈焰烧毁。火焰在她的身旁起舞，她的眼睛放射出明亮的光芒。她的身边散发着灼热的气息。我手中紧握着我的长剑，不知道这到底是我知道的那个莱娜尼尔，还是因为她和已死之神的融合中产生的另一种存在。
 
@@ -15438,7 +15438,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 我挖开冰块和岩石，发现了已死之神奎科加的力量还有一些残余，尽管所剩的已经十分微弱。我把剩下的遗骸全部收集起来，把它们带回了埃尔瓦拉。在那里，我回到我的实验室，研究遗骸多年，终于揭开了它的秘密。从此，我们的种族获得了不朽的力量，这永远改变了我们对世界的看法。
 
-我们独立于其它种族之间的纷争，并不参与毫无意义的战争，寻求一种对生命的新的尊重。直到吞噬者加库尔在派尔纪袭击了我们的大门，我们才重新开始了大规模战争，而我则亲自在战场上直面了他。
+我们独立于其它种族之间的纷争，并不参与毫无意义的战争，寻求一种对生命的新的尊重。直到吞噬者加库尔在烈火纪袭击了我们的大门，我们才重新开始了大规模战争，而我则亲自在战场上直面了他。
 
 啊，不过，这就是另一个故事了。那是在漫长而充实的历史之中，马基埃亚尔的传说中的另一个故事…]], "_t")
 
@@ -15510,7 +15510,7 @@ Me likes to club!#{normal}#]], [[#{bold}#“我爱大棒槌”
 瘦弱的精灵呀，
 碧蓝的眼珠子，
 磨碎了排骨哇，
-美美的炖一锅！
+美美地炖一锅！
 
 毛茸茸的矮人，
 闻起来像陀屎，
@@ -15655,7 +15655,7 @@ No further aid awaits you, for we do not tolerate the dependent. All that remain
 
 #{italic}#德斯镇#{normal}#：似乎并没有正式传闻表示死灵法师出现在这个偏远的小镇里，目前也没有死灵法师能在这区域周围开展工作，对此事的谣言可谓真假参半……有些说这里所有的居民都已经被变成了身披欺诈之袍的不死族，又或者是此处早已成为崔恩流死灵法术创始人的秘密基地。不管原因为何，请务必小心。
 
-#{italic}#伊格#{normal}#：在此处，敌人的敌人可不是我们的朋友。如果那些普通的魔法，已足以引发居住在这里的狂热者们的暴怒的话，一名死灵法师的出现，则绝对能挑动第二次派尔纪的来临！
+#{italic}#伊格#{normal}#：在此处，敌人的敌人可不是我们的朋友。如果那些普通的魔法，已足以引发居住在这里的狂热者们的暴怒的话，一名死灵法师的出现，则绝对能挑动第二次烈火纪的来临！
 
 对你的帮助到此为止了，依赖他人的毛病在死灵法师中是不可容忍的。接下来就是你证明自己价值并练习这美好艺术的时刻了……]], "_t")
 t("of halfling feet", "半身人的脚", "_t")
@@ -15840,7 +15840,7 @@ As to how to actually destroy one? Well, tell you what. If you manage to defeat 
 
 偶尔，有人会质问我：“难道世上所有的死灵法师都是邪恶的吗？”，“死灵法术也能造福群众啊！”，“只是因为法术流派不同而给人戴大帽子赶尽杀绝是正确的吗？” 对于这些人，在我一拳把他们打的亲娘都不认识之前，就是你给我先去看看食尸鬼。给我仔仔细细，好好的看看你亲爱的食尸鬼。它的腐肉不停散布着疾病，暴露的器官渗出腥臭的浓汁，五官与毛发缓缓软化如稻草般覆盖在它们身上。它以前也是个人，它也曾有过家庭，也有妹子爱。现在它却只是一具行尸走肉，唯一的欲望只是用活人之肉填补自己无尽的空虚。死灵法师都是邪恶的吗？我要大声回答一千次——是啊！
 
-就算这只不死族是最基本的单位，也能以出人意料的方式散布恐惧。一只普通食尸鬼身上的多种疾病能以出人意料的方式传染给众多的冒险者，更为可怕的是直到他们发现自己被食尸鬼抓破的小伤口周围出现大面积溃烂，腐败，爬满蛆虫时才会意识到大事不妙。这类伤口本应该立刻处理：如果你被食尸鬼咬了，立刻将受感染处浸入沸水，然后快速用干净的衣物撒上艾蒿和石灰粉将伤口包扎。这些伤口必须被包扎三周之久，每四天换一次药，可别忘了把上次换下的衣服烧掉哦！如果没有及时按上述步骤处理，狂暴纹身对伤员也疗效极佳。
+就算这只不死族是最基本的单位，也能以出人意料的方式散布恐惧。一只普通食尸鬼身上的多种疾病能以出人意料的方式传染给众多的冒险者，更为可怕的是直到他们发现自己被食尸鬼抓破的小伤口周围出现大面积溃烂，腐败，爬满蛆虫时才会意识到大事不妙。这类伤口本应该立刻处理：如果你被食尸鬼咬了，立刻将受感染处浸入沸水，然后快速用干净的衣物撒上艾蒿和石灰粉将伤口包扎。这些伤口必须被包扎三周之久，每四天换一次药，可别忘了把上次换下的衣服烧掉哦！如果没有及时按上述步骤处理，野性纹身对伤员也疗效极佳。
 
     * * *
 
@@ -16612,7 +16612,7 @@ t("The Diaries of King Toknor the Brave", "勇气之王图库纳的笔记", "_t"
 t([[#{italic}#68th of Dusk, Year of Pyre 710#{normal}#
 The orcish tribe have routed us. We have retreated to some Mardrop ruins and secured ourselves amongst the fortifications. I have just shy of 2,000 men under my banner, some of the best warriors I have ever served with, but we are simply no match for the numbers we face. Counting them is difficult, but I would put a minimum estimate at 10,000. The tribe has camped a league away - they seem to be waiting for reinforcements. This does not bode well...
 
-I have sent messenger crows to all the kingdoms. I can but hope they send aid in time.]], [[#{italic}#派尔纪710年，黄昏月68日#{normal}#
+I have sent messenger crows to all the kingdoms. I can but hope they send aid in time.]], [[#{italic}#烈火纪710年，黄昏月68日#{normal}#
 兽人部落已经追踪到了我们。我们已经撤到一些马卓普遗迹里并修建起了军事工事。虽然我帐下已聚集了2000士兵，有些家伙是我生平罕见的勇者，但我们还是处于数量上的绝对劣势。我也没办法算清到底有多少兽人，最起码也有上万只吧。 他们按兵不动——看上去像是在等待增援的样子，真要命……
 
 我已派出信使向王国方面请求增援。剩下的只能祈求上天让援军及时赶到了。]], "_t")
@@ -16621,7 +16621,7 @@ Five men tried deserting last night. Today I had them flogged in front of all th
 
 Our supplies are holding steady for now, but I fear they may not last. I've received word that it will take at least fifty days to muster a force that can save us. Alas, food may well be the least of our worries, for the orcs have begun to attack our strongholds. Thankfully we have had time to reinforce the existing structures. Indeed, little work was needed, for the foundations of this place are strong. My loremaster tells me it was abandoned following the Crimson Pox, but was once the capital of Mardrop. The men have taken a fondness to the place, and have named it "Last Hope". Though I normally discourage such romantic notions I cannot help but feel the same. These stone walls give strength to my heart - I feel we can fight through this.
 
-Their attack has begun again. They seem to have mages now. Ah, it will be a long night...]], [[#{italic}#派尔纪710年，混沌月25日#{normal}#
+Their attack has begun again. They seem to have mages now. Ah, it will be a long night...]], [[#{italic}#烈火纪710年，混沌月25日#{normal}#
 昨晚出现了五个逃兵。今天我在众人面前对他们处以了鞭刑，并警告剩下的人：若再有临阵叛逃者，将处以绞杀。虽然我也不喜欢这样，但非常时期需用非常手段。
 
 虽然军中粮草还能坚持，但这样下去诚也难以为济了。我已经收到消息说他们最快也要在50天后才能聚集起一一支能来增援的部队。哎，粮食够不够吃已经不重要了，因为兽人对我们要塞群的攻势已经开始。谢天谢地之前我们获得了休整并改造此地建筑物的机会。基于这里本来就有的基础建筑物，我们很容易就修筑起了一片强大的工事。我的历史学家说这片区域以前是马卓普的首都，因大规模流行的猩红热而被遗弃。那些曾热爱这里的人们将此地命名为“最后的希望”。 尽管我对浪漫主义不屑一顾，现在的我却真正感到这个名字取的好。面前的石墙支撑了我的希望——冥冥中我觉得这次能依靠它们挺过去。
@@ -16632,7 +16632,7 @@ Rations low. Men demoralised. Winterhaze wind is making conditions unbearable. T
 
 I can hear their blasted trumpets again. Accursed swine! We have no rest or sleep, not the slightest sojourn without their braying, howling, jeering, taunting, insufferable cantations! It is driving me from my wits! But I must remain strong... I must put on a brave face for the men. They are relying on me, and though the burden feels close to crushing me I must bear it with the dignity of a king.
 
-It is getting dark again. Who will die this night? I am so very afraid... but I cannot show it...]], [[#{italic}#派尔纪710年，混沌月47日#{normal}#
+It is getting dark again. Who will die this night? I am so very afraid... but I cannot show it...]], [[#{italic}#烈火纪710年，混沌月47日#{normal}#
 粮草不足，士气低落。刺骨的北风让我们的处境雪上加霜。要塞虽然还能勉强守住，但每晚我们的人员都会出现不少伤亡。我们抵抗的瓦解看来也只是时间问题了。
 
 我又听见他们吵嚷这该死的战歌了。这群该死的猪猡！我们没有任何睡眠和休息的机会，他们整日整夜震耳欲聋的叫骂、嘲讽、战歌、挑衅弄的人心神不宁！过度的疲劳和吵杂的噪音搅得我意识都模糊了！ 但我必须坚强……必须在我的人面前摆出一张无畏的面容。他们可都指望我了，尽管方方面面的沉重负担感觉快要将我压垮了，但我赌上身为一名国王的尊严必须担负起这一切。
@@ -16645,7 +16645,7 @@ Last night as dusk approached, the orcish armies began to prepare a major attack
 
 The orcish army suddenly forgot about us, turning upon their new enemy. But foolish is any who ignores the wrath of a caged lion which sees its chance for vengeance! I led my men immediately into battle, taking the enemy swiftly from the rear, and throwing their organisation into madness. When the halfling army came upon their flank it was a massacre, and we drove them mercilessly towards the southern lake. There upon the shores we beat them to the last number, and their blood stained the water a horrific black.
 
-Our victory sealed, I immediately met with the halfling leader, and found it to be no less than the princess Mirvenia! Truly words cannot express my joy when I saw her face flushed red in the last embers of the setting sun. I almost felt... no, I should not think such things.]], [[#{italic}#派尔纪710年，混沌月51日#{normal}#
+Our victory sealed, I immediately met with the halfling leader, and found it to be no less than the princess Mirvenia! Truly words cannot express my joy when I saw her face flushed red in the last embers of the setting sun. I almost felt... no, I should not think such things.]], [[#{italic}#烈火纪710年，混沌月51日#{normal}#
 啊，快乐的日子！欢乐的制裁！在关键时刻我们得救了，我从来没这么兴奋过！
 
 昨天的黄昏时分，兽人军队准备发动一次大规模的进攻。我的部下也都准备好了，我已经下定决心，我们每死一个都要让对方付出三倍的代价。但是当太阳在西边缓缓落下时，我突然看到一蓬金色的雨点砸向兽人部队，他们顷刻间阵脚大乱。另一波雨点又砸了下来，我终于发现，它们并不是什么金子，而是钢质的箭头反射出的落日余辉。“是半身人！”我的侦查员叫道，紧接着我看见了一大批半身人军队出现在兽人部队的侧翼。
@@ -16660,7 +16660,7 @@ Mirvenia has been key to the discussions and the plans. She is a tactical genius
 
 She is a remarkable force for good, Mirvenia, popular with all the troops. I feel my normal iron rule smoothed by her presence. Too long have I led the cold life of a soldier... alone...
 
-Ah, the beating of my heart cannot be silenced. I must speak to Mirvenia, and tell her how I feel... I only hope she shares some inkling of my emotion.]], [[#{italic}#派尔纪710年，厄流月2日#{normal}#
+Ah, the beating of my heart cannot be silenced. I must speak to Mirvenia, and tell her how I feel... I only hope she shares some inkling of my emotion.]], [[#{italic}#烈火纪710年，厄流月2日#{normal}#
 我们巩固了最后的希望的防御工事，从各个国家收编了更多的军队。海边的要塞提供了一个绝佳的打击兽人的战术地理位置。我希望能够继续扩大我们的优势。我正在和其他领导人起草一个盟约，只有大家团结合作，才能够消灭这所有王国的威胁。
 
 米雯尼雅在计划中起到了关键性的作用。她是一个战术天才，我完全被她的博学多才震惊了。然而有个奇怪的女人始终陪伴她左右，那个女人有着长长的头发、穿着丝质长袍——她的名字叫莱娜尼尔。我的一个部下发誓说他看到这个女人踏着一团火焰切入了战场，将她周围所有的兽人化为灰烬。大魔导师在我们中间令大家很不安，但是米雯尼雅说我们应该信任她。既然米雯尼雅这么说，我也必须相信她。
@@ -16675,14 +16675,14 @@ Mirvenia's convoy was attacked by a rogue band of orcs. Though the brutes were r
 
 The baby... our baby. My son! Mirvenia is still recovering, but the boy seems hale as any freshly-born child. But still I worry... How I wish that he were born into a more perfect world. How I worry for my wife and child in this age of suffering. I want to make a new age for them, free from such threats as almost took away the woman I love. I want to give my son the chance to reign in an era of peace.
 
-Too long have we been content with repelling orcish raids and pushing back small tribes. Last Hope is now a gleaming city, and a focal point for all the armies of the west. Now is the time for us to drive forward and root out every orcish colony on the continent. I will not rest until Maj'Eyal is free from their vile influence, till every accursed brood is burned to ashes and every pig-spawn orc is cast from existence. I shall end this terrible Age of Pyre and usher in a new Age of Ascendancy! This I do solemnly swear.]], [[#{italic}#派尔纪713年，辉耀月6日#{normal}#
+Too long have we been content with repelling orcish raids and pushing back small tribes. Last Hope is now a gleaming city, and a focal point for all the armies of the west. Now is the time for us to drive forward and root out every orcish colony on the continent. I will not rest until Maj'Eyal is free from their vile influence, till every accursed brood is burned to ashes and every pig-spawn orc is cast from existence. I shall end this terrible Age of Pyre and usher in a new Age of Ascendancy! This I do solemnly swear.]], [[#{italic}#烈火纪713年，辉耀月6日#{normal}#
 为什么只有在黑暗时期我才会翻开日记？今天是过去2年里最黑暗的一天，但是它本可以更加黑暗。
 
 米雯尼雅的车队遭到了兽人盗贼小队的袭击。虽然敌人被击退了，但她也在战斗中受了重伤，而且她提前分娩了。她在死亡大厅里躺了数个小时。谢天谢地她的人民有着高超的医疗手段，她和孩子都活了下来。
 
 孩子……我们的孩子。我的儿子！米雯尼雅仍在恢复中，但是这孩子看起来却比任何新生儿都更加强壮。但是我依旧忧心忡忡……我多么希望他能出生在一个更加完美的世界。我是多么担心我的妻儿在这乱世中所承受的苦难。我希望给他们带来新的世界，没有如此苦难和威胁——差点要了我深爱的女人性命的威胁。我要给我的儿子在和平中成长的机会。
 
-自从我们击退兽人并清除残余的小股兽人部落后已经过去了很长一段时间。最后的希望已经成为了西部军队的枢纽。现在，是时候让我们向前推进并铲除这块大陆的每个兽人部落了。直到那肮脏的兽人们在马基·埃亚尔消失，直到每个可恶的兽人化为灰烬，直到每个畜生般的兽人被消灭，我才会休息。我将结束派尔纪并开启新的纪元——卓越纪！我郑重发誓。]], "_t")
+自从我们击退兽人并清除残余的小股兽人部落后已经过去了很长一段时间。最后的希望已经成为了西部军队的枢纽。现在，是时候让我们向前推进并铲除这块大陆的每个兽人部落了。直到那肮脏的兽人们在马基·埃亚尔消失，直到每个可恶的兽人化为灰烬，直到每个畜生般的兽人被消灭，我才会休息。我将结束烈火纪并开启新的纪元——卓越纪！我郑重发誓。]], "_t")
 t("All Hail King Tolak the Fair!", "公正之王托拉克万岁！", "_t")
 t([[Twice blessed is he of the union of King Toknor of the humans and Queen Mirvenia of the halflings! Praise his glory!
 By royal decree it is under absolute conditions forbidden to show racial prejudice against humans or halflings. There shall be no preference of price or service, and no discrimination of trade or business or employment. No halfling shall be named fur-toes, midget or shortbum, and no human shall be named lanklegs, cloudhead or stumpfoot.
@@ -16704,7 +16704,7 @@ t([[Born the 5th Flare, Year of Pyre 688
 Died the 2th Summertide, Year of Ascendancy 113
 
 Saviour of the Battle of Last Hope, Bringer of Unity, Soother of Hearts and Minds. Greatly is missed the alchemist that could change sorrow to joy, despair to hope, defeat to victory.
-Quoth Queen Mirvenia: "Nothing moves me more than seeing the sun set over Last Hope, seeing all the joy and beauty we have brought here bathed in glorious light. At moments like this I still feel him next to me, and I know I have lived a good life. Today has been a good day... Today I think I shall die."]], [[生于派尔纪688年，辉耀月5日
+Quoth Queen Mirvenia: "Nothing moves me more than seeing the sun set over Last Hope, seeing all the joy and beauty we have brought here bathed in glorious light. At moments like this I still feel him next to me, and I know I have lived a good life. Today has been a good day... Today I think I shall die."]], [[生于烈火纪688年，辉耀月5日
 死于卓越纪113年，夏殇2日
 
 最后的希望战役的救世主，团结的缔造者，人民心中的女神。她用奇迹般的手段使我们转悲为喜，让绝望变成希望，引领我们走向胜利。
@@ -16846,7 +16846,7 @@ To those who oppose this, let thee be afeared, for a new dawn is rising and it s
 
 All hail the reign of King Toknor and Queen Mirvenia! All hail the Allied Kingdoms! All hail the Age of Ascendancy!]], [[为了联合王国的可持续发展，图库纳国王和米雯尼雅皇后特此声明。任何违抗或破坏法律者将受到严惩和制裁，严重者将处以死刑。
 
-在派尔纪714年厄流月1日，以及从今以后将为众人所知的卓越纪1年，所有的人类和半身人王国都将统一在联合王国的旗帜之下。这包括了每一个村庄，每一个城镇，每一个农场以及每一块土地超过50%马基·埃亚尔人口的人类或半身人。
+在烈火纪714年厄流月1日，以及从今以后将为众人所知的卓越纪1年，所有的人类和半身人王国都将统一在联合王国的旗帜之下。这包括了每一个村庄，每一个城镇，每一个农场以及每一块土地超过50%马基·埃亚尔人口的人类或半身人。
 
 联合王国将由图库纳国王和米雯尼雅皇后共同治理，愿他们长命百岁。他们的皇宫和王座将建设于最后的希望，并且那里也会变成政治和文化中心。联合王国的所有子民都可以进行自由贸易，贸易税收将被储存于国库之中。联合王国的每片土地都要展开定期巡逻，以保证一方安定。这条法规适用于每一个人。
 
@@ -17793,7 +17793,7 @@ Last night I spotted a red star in the early dawn. How very peculiar... Could th
 
 我们的先祖潜心研究群星的力量才创造出了属于它们的魔法，然而现在的年轻人只知道整天研究它们怎么在战斗中使用，对真正纯粹的魔法研究毫无兴趣。我知道我们现在和兽人交战的局势十分紧张，但是可别忘了，我们一切能量的根基都来自苍穹无限的智慧！我们只有从太阳、月亮和群星中才能获得真正的智慧与力量。
 
-唉，总之，现在我至少可以可以在这里潜心研究魔法了。我最近研发的隐形戒指让我可以轻松绕过那些兽人巡逻队，而在月亮石一旁的山洞十分寂静宜人，非常适合我的研究活动。我已经在月亮山谷里找了一个好地方架起了我的望远镜，是时候享受美丽的夜空了。
+唉，总之，现在我至少可以在这里潜心研究魔法了。我最近研发的隐形戒指让我可以轻松绕过那些兽人巡逻队，而在月亮石一旁的山洞十分寂静宜人，非常适合我的研究活动。我已经在月亮山谷里找了一个好地方架起了我的望远镜，是时候享受美丽的夜空了。
 
 顺带一提，就在昨晚黎明尚未到来之时，我在夜空中发现了一颗闪耀着红光的星星。真奇怪……或许这颗新的天体很值得作为我下一步的研究对象？]], "_t")
 t("Rassir's journal part 2", "拉希尔的旅行日记 第二部分", "_t")
@@ -17884,7 +17884,7 @@ All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and 
 
 高等人类基本身高在6英英尺左右，有着金色的头发、白皙的皮肤和蓝灰色的眼睛。大多数的学者是高等人类，贵族阶层中也不乏他们的身影。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期孔克雷夫法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与其他种族通婚会极大的降低这种血统的优越。
 
-在派尔纪，狮心王图库纳统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。]], "_t")
+在烈火纪，狮心王图库纳统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 2 - Halflings", "博学者格雷诺特关于人种的调查——第二章——半身人", "_t")
 t([[There are two main kingdoms of halflings, the Eldoral and the Nargol, though both mix often. All halflings are just under 4' tall, and are generally noted for their large feet and curly hair. Eldoral are usually fair-haired and blue-eyed. Nargol tend to be darker in hair and complexion, with hazel eyes, and oft slightly shorter than their cousins. Halflings are known for their intelligence and quick wit, but also their arrogance in dealing with other races - something they do not deny, for they say it is well-deserved.
 
@@ -17897,11 +17897,11 @@ The Nargols once had many strong fortifications in the south of Maj'Eyal, but th
 The most famous of all halflings is Queen Mirvenia, most famed for her saving of King Toknor in Last Hope from a siege of orcs. Mystery still surrounds how she managed to bypass the winter's icy floes with her army to reach the citadel in time to rescue Toknor. Some have hypothesised that she enlisted the aid of sorcerers, but none of her troops would talk about the journey afterwards. She wed King Toknor in the second year of the Age of Ascendancy, and gave birth to the first known mixed race child - Tolak the Fair.
 ]], [[主要的半身人王国有2个，艾德瑞尔和纳格尔，虽然他们经常生活在一起。所有的半身人都只有4英尺高，并且以他们的大脚板和卷曲的头发而闻名。艾德瑞尔人有着卷发和蓝色的眼睛。纳格尔人则有着颜色较深的头发和皮肤以及褐色的眼睛，通常比艾德瑞尔人要稍矮一些。半身人以聪明机智而闻名，还有他们和其他种族共事时的火爆脾气——他们不否认，因为他们认为这是应得的荣誉。
 
-半身人曾经是马基·埃亚尔最具威慑力的种族，他们控制了大部分的夏·图尔废墟并拥有广袤的土地。史书上记载，人类和半身人之间曾发生过许多次交锋，半身人通常是最后的赢家。但是派尔纪带给他们巨大的灾难，因为兽人们对半身人种族格外仇视，他们的许多族群都被杀光。这使得他们在现代更加依赖于和其他种族的交流，尤其是和人类。
+半身人曾经是马基·埃亚尔最具威慑力的种族，他们控制了大部分的夏·图尔废墟并拥有广袤的土地。史书上记载，人类和半身人之间曾发生过许多次交锋，半身人通常是最后的赢家。但是烈火纪带给他们巨大的灾难，因为兽人们对半身人种族格外仇视，他们的许多族群都被杀光。这使得他们在现代更加依赖于和其他种族的交流，尤其是和人类。
 
 艾德瑞尔人曾经在大陆的北面有一个王国，但是大部分在兽人战争时期被完全摧毁，只有少部分重建。不过他们仍有着如德斯镇一样和其他种族共同管理的农场。艾德瑞尔人擅长治疗师和农民，并且他们的投石者被认为是世界上最优秀的。
 
-纳格尔人曾经在马基·埃亚尔的南部建造了坚固的防御工事，虽然他们在派尔纪遭受了相对艾德瑞尔来说较少的苦难，他们仍然失去了很多人，并且他们的许多人口聚居区被摧毁。最后希望的崛起加速了这一进程，许多市民迁移到了最后希望的城市边缘。纳格尔人擅长珠宝匠、炼金术师和符文制造，并且他们拥有世界上最好的军事家。许多军事家和顾问都来自于他们国家。
+纳格尔人曾经在马基·埃亚尔的南部建造了坚固的防御工事，虽然他们在烈火纪遭受了相对艾德瑞尔来说较少的苦难，他们仍然失去了很多人，并且他们的许多人口聚居区被摧毁。最后希望的崛起加速了这一进程，许多市民迁移到了最后希望的城市边缘。纳格尔人擅长珠宝匠、炼金术师和符文制造，并且他们拥有世界上最好的军事家。许多军事家和顾问都来自于他们国家。
 
 在半身人中最著名的则是王后米雯尼雅，她在一场和兽人对抗的战役中将狮心王图库纳拯救出来，自此一战成名。她如何带领军队通过严寒地带，并及时的出现在战场上拯救图库纳始终是个未解之谜。有人猜想她雇佣了一些术士，但是她的军队之后从未有人透露过关于那次援救的详细情况。她在卓越纪的第二年嫁给了狮心王图库纳，并生下了第一位著名的混血儿——公正之王托拉克。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 3 - Dwarves", "博学者格雷诺特关于人种的调查——第三章——矮人", "_t")
@@ -17997,9 +17997,9 @@ Recent investigations of orcish ruins have revealed a surprising amount of cultu
 
 There have been no substantiated reports of orcs for over 100 years. What reported sightings there are tend to be from such unreliable sources as adventurers and hermits, and have never been verified. We should be thankful that these horrible creatures have been banished to the annals of history, surviving only as stories to be told to misbehaving children.]], [[兽人们，很高兴的说，已经在马基·埃亚尔大陆上绝迹了，紧接着的便是图库纳国王揭开的新纪元——卓越纪。但是对它们之前文化风俗的学术研究却是非常有趣的，虽然可能会比较原始。
 
-兽人们大约在6英尺1英寸左右，有着绿色或黑色的皮肤。他们擅长物理领域多样化的职业，这似乎与他们惊人的繁殖速度有关。大部分兽人拥有雄壮的体型和发达的肌肉，关于兽人军队的这部分记忆仍旧存在于老人们的心中。然而在派尔纪，一群相对瘦弱却更加强大的兽人出现了，他们掌握了毁灭性的法术。
+兽人们大约在6英尺1英寸左右，有着绿色或黑色的皮肤。他们擅长物理领域多样化的职业，这似乎与他们惊人的繁殖速度有关。大部分兽人拥有雄壮的体型和发达的肌肉，关于兽人军队的这部分记忆仍旧存在于老人们的心中。然而在烈火纪，一群相对瘦弱却更加强大的兽人出现了，他们掌握了毁灭性的法术。
 
-与兽人发生第一次接触的是艾德瑞尔半身人，他们只想将兽人当做奴隶，但是在发现兽人们过于凶残后放弃了这一想法。在随后的数个世纪中，战争与争斗始终是为了对抗这些野兽。他们压倒性的数量，一度对所有文明产生过巨大的威胁，即使是在魔法大爆炸的影响之后。最可怕的年代是在派尔纪，当兽人们掌握了魔法，并且在吞噬者加库尔的领导下时，他们几乎扫除了面前的一切障碍。最终，上万的半身人士兵在纳格尔之战中为了毁灭兽族恶魔般的领袖和军团献出了生命。之后各种族的文明开始缓慢恢复，最终图库纳国王和米雯尼雅王后统一了人类和半身人王国，使大家团结一致击退了兽人，并将它们一网打尽。
+与兽人发生第一次接触的是艾德瑞尔半身人，他们只想将兽人当做奴隶，但是在发现兽人们过于凶残后放弃了这一想法。在随后的数个世纪中，战争与争斗始终是为了对抗这些野兽。他们压倒性的数量，一度对所有文明产生过巨大的威胁，即使是在魔法大爆炸的影响之后。最可怕的年代是在烈火纪，当兽人们掌握了魔法，并且在吞噬者加库尔的领导下时，他们几乎扫除了面前的一切障碍。最终，上万的半身人士兵在纳格尔之战中为了毁灭兽族恶魔般的领袖和军团献出了生命。之后各种族的文明开始缓慢恢复，最终图库纳国王和米雯尼雅王后统一了人类和半身人王国，使大家团结一致击退了兽人，并将它们一网打尽。
 
 最近通过对兽族废墟的调查研究，我们发现了惊人的文化资料，甚至有战争时期的粗糙艺术品。有些证据显示他们的文化里有着强大的社交元素，主要集中于体育运动和节日狂欢项目上。然而这些粗陋的文化仍落后于我们先进的文化许多，并且不管他们如何尝试，都掩盖不了他们凶残的本质，极端的暴力以及战争的欲望。
 
@@ -18033,7 +18033,7 @@ Nagas were once believed to be mere myth, but reliable reports and even the capt
 
 The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]], [[没有任何文字可以诠释那些影响我们世界的野蛮种族。他们没有任何文化遗留，也没有任何先进的智慧或文化，但是他们仍能激起大家研究原始种族的兴趣。
 
-巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生存与东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度，并且以移动迅速和能够使用精工武器闻名，尽管他们没有那么发达的肌肉和强壮的身躯。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在派尔纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且巨魔们的广泛分布和令人惊讶的生育率使得他们至今仍活跃在马基·埃亚尔的舞台上。
+巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生存与东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度，并且以移动迅速和能够使用精工武器闻名，尽管他们没有那么发达的肌肉和强壮的身躯。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且巨魔们的广泛分布和令人惊讶的生育率使得他们至今仍活跃在马基·埃亚尔的舞台上。
 
 巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英英尺高。他们看起来就像是具有浮肿面部特征和更长的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者攻击市民，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的优越文化和语言，但是却向我们揭示了有限智慧的运用和团结一致的精神。
 
@@ -18408,7 +18408,7 @@ I have done it! My fool of a master said I was not ready for the rites of lichdo
 Zilquick the Eternal, hah! What an unbearable buffoon, and I am glad his pride was his undoing. The young fool used up the Ruby of Eldoral in creating his phylactery, however; I must acquire a new phylactery for myself. On the bright side, my incompetent apprentice did illustrate why a bone from a creature slain by my own hand is important: the dragon bone he chose had left to fester a mold infection, and the mold somehow infused itself with the bone's inherent magical properties, altering the magical composition of the spell. I do hope whoever finds this note shall kill this "lich" using the most painful means available, and shall deposit him someplace where he is sure to be found.
 Oh, look. He is trying to harm me with spells, but all he can manage is a corruption of his own name: Z'quikzshl.]], [[#{italic}#(这篇手写的日记看起来竭尽了全力。写日记之人似乎疾病缠身。)
 
-#{bold}#派尔纪603年，厄流月53日#{normal}#
+#{bold}#烈火纪603年，厄流月53日#{normal}#
 
 我完成了！我愚蠢的主人说我没有做巫妖的条件，我没有足够的能力……说什么蠢话。我已经感觉到了身上的变化，并且我确信这脆弱的身躯只是我短暂的居所。我的主人竟然愚蠢到忘记合上《死亡转化禁书》！我需要的只是一副有着魔力的骨架，幸运的是，我在塔周围不远处找到了一具龙族的骨架。其他材料都太次，并且完全被主人所掌控……他肯定会震惊于我，不朽的兹基克，将会超越生死！
 
@@ -18647,15 +18647,15 @@ The Age of Pyre was our age, the time when we showed ourselves the strongest of 
 
 那时，魔法给我们带来了非常严重的影响，而我们也知道了，必须为生存而学会它。几个世纪以来，我们一直在研究魔法大爆炸的影响，同时我们也俘虏了一些敌方的法师来做实验。最终我们还是解开了魔法的奥秘，并学会了它。我们秘密建设了自己的基地，等待着合适的时机来发动毁灭性的复仇。吞噬者加库尔，是我族中最优秀的战士，他使我们的计划更加完美。在他的领导下，我们气势如虹，半身人王国终于在我们脚下毁灭。 多么完美的复仇！所有的城池在我们愤怒的军队面前都不堪一击！我们无论走到哪里，都把殉难者的尸体堆积起来付之一炬，冲天的火焰，象征着我们不屈不挠的意志。
 
-派尔纪是我们的年代，那时候我们是最强的种族，打遍天下无敌手。]], "_t")
+烈火纪是我们的年代，那时候我们是最强的种族，打遍天下无敌手。]], "_t")
 t("Records of Lorekeeper Hadak part four", "博学者哈达克的记录，第四部分", "_t")
 t([[How greatly our race advanced during the Age of Pyre! Truly none of the weaker races can compare. For it was vengeance that drove us, and so fervently we pursued our goals at the thought of our just retribution on the races that had punished us and beaten us for so long before.
 
 During the Age of Pyre we discovered the farportal, deep beneath the dwarven cities. We were more cautious than the foolish elves before us, and managed to harness the portal's power to open a gateway to the lost east. We sent military forces over, and easily beat back the puny elves and humans that were hoveling there already. We established the Prides there - training camps for our soldiers where they could hone their battle skills before returning to fight the wars in the west.
 
-But all in the west did not go well. We conquered many lands, and came close to wiping out many races, but we became spread thin. As the other races began to fight back our Age of Pyre was to dwindle.]], [[在派尔纪我们是多么的优越！真的没有任何其他种族可比拟。因为复仇驱使着我们，我们不顾一切地追求复仇的快感，这使我们在很长一段时间内遭受接连的失败和惩罚。
+But all in the west did not go well. We conquered many lands, and came close to wiping out many races, but we became spread thin. As the other races began to fight back our Age of Pyre was to dwindle.]], [[在烈火纪我们是多么的优越！真的没有任何其他种族可比拟。因为复仇驱使着我们，我们不顾一切地追求复仇的快感，这使我们在很长一段时间内遭受接连的失败和惩罚。
 	
-在派尔纪，我们发现了远程传送门，在矮人城堡的深处。我们比之前那些愚蠢的精灵要谨慎的多，利用传送门的力量，我们打开了通往失落远东的道路。我们的军队，轻易的击退了已经到那的精灵和人类。我们在那建立了普莱德训练营——我们的战士可以在那磨练自己的技能，为西部地区的战事做准备。
+在烈火纪，我们发现了远程传送门，在矮人城堡的深处。我们比之前那些愚蠢的精灵要谨慎的多，利用传送门的力量，我们打开了通往失落远东的道路。我们的军队，轻易的击退了已经到那的精灵和人类。我们在那建立了普莱德训练营——我们的战士可以在那磨练自己的技能，为西部地区的战事做准备。
 
 但是西部的战事并不顺利。我们征服了许多国家，灭掉了许多种族，但是随着战斗的分散，我们的力量日渐薄弱。当其他种族开始反击时，我们的黄金时代走向了尾声。]], "_t")
 t("Records of Lorekeeper Hadak part five", "博学者哈达克的记录，第五部分", "_t")
@@ -18788,7 +18788,7 @@ The pyre could be seen for miles around, and the other races sent out scouts to 
 
 These early victories came easy, but as they advanced they met more resistance, as the races had more forewarning of their attacks. But Garkul was always master of any situation, and his strategy and tactics overcame all defences. And after each victory was always the great pyre, and our armies would chant songs of victory as the flames reached into the cold night sky. The battles would become known as the Pyre Wars, and the flames of conquest would spread across all of Maj'Eyal.
 
-Within three months the Eldoral kingdom was broken, and refugees flooded south to the halfling kingdom of Nargol, desperate to escape the deadly pyres. Garkul then consolidated his forces, building new bases in the conquered lands, before advancing out against the other races. None would escape the wrath of the people that had suffered so long from the attacks of the other races. Centuries of oppression had hardened us, and now the flames of vengeance that rose in our hearts could not be quenched.]], [[#{bold}#第三章：派尔纪的领导者#{normal}#
+Within three months the Eldoral kingdom was broken, and refugees flooded south to the halfling kingdom of Nargol, desperate to escape the deadly pyres. Garkul then consolidated his forces, building new bases in the conquered lands, before advancing out against the other races. None would escape the wrath of the people that had suffered so long from the attacks of the other races. Centuries of oppression had hardened us, and now the flames of vengeance that rose in our hearts could not be quenched.]], [[#{bold}#第三章：烈火纪的领导者#{normal}#
 
 #{italic}#“火是一个所有种族都能理解的符号，燃烧即毁灭。每当我征服一个城池，我都会留下一场大火——每栋房子、每片农田、每具尸体都化作乌有。这是我们意志的象征，并且火焰会将这股意志传达给我们的敌人。对于他们来说，我就是一团熊熊大火，而我的部队则会带来无尽烈焰般的恐惧。”
 - 吞噬者加库尔#{normal}#
@@ -18803,7 +18803,7 @@ Within three months the Eldoral kingdom was broken, and refugees flooded south t
 
 山顶上的熊熊火焰方圆百里可见，各族的探子被派出查清真相。加库尔命令军队不要阻止他们，让他们把屠城的消息带回给其他各族的首领。开始，一些首领完全不相信探子所说的话，但紧接着同样的事情再次发生在艾德瑞尔王国不远的城市，接下来的好几个晚上整片地区都被火焰给烧焦了。加库尔的军队用火焰展示了无坚不摧的力量，而其他种族则感到，宁静的生活不复存在。
 
-这些早期的胜利来得相当容易，但随着战争的深入他们遇到了更加激烈的抵抗，因为其他种族有着更为先进的科技。但是加库尔总能未卜先知，他的战术策略摧毁了对方所有的防御工事。每次胜利后，加库尔总是燃烧起熊熊的火炬，我们军队胜利的歌声随着火焰直扑寒冷的夜空。每场战役都成为了派尔纪战争时期的经典，而征服的火焰终将蔓延整个马基·埃亚尔。
+这些早期的胜利来得相当容易，但随着战争的深入他们遇到了更加激烈的抵抗，因为其他种族有着更为先进的科技。但是加库尔总能未卜先知，他的战术策略摧毁了对方所有的防御工事。每次胜利后，加库尔总是燃烧起熊熊的火炬，我们军队胜利的歌声随着火焰直扑寒冷的夜空。每场战役都成为了烈火纪战争时期的经典，而征服的火焰终将蔓延整个马基·埃亚尔。
 
 只用了三个月，艾德瑞尔王国便陨落了，难民们拼命的逃离致命的火炬，全部涌向了南部的纳格尔王国。在进一步攻打其他种族前，加库尔巩固了他的军队，在掠夺的土地上建立了新的基地。没有人能承受被他族侵略了如此长时间的种族怒火。几个世纪的压迫使我们变的坚强，复仇的火焰在我们心中绽放出永不熄灭的玫瑰。]], "_t")
 t([[#{bold}#Chapter Four: Conqueror of West and East#{normal}#
@@ -19586,7 +19586,7 @@ Well, I won't have it.  I've been selling potions and inscriptions on the side f
 
 唉，可惜我的正义言论只受到了那些愚蒙之人的白眼和背后的议论，只有一对年轻的情侣被我对那篇关于“道德”的演讲进行的慷慨激昂仗义执言的回应深深感动，不过不久之后他们突然消失了。他们中的某些野蛮人无法在论点上击败我，就只能从别的方面对我造谣污蔑，别有用心地指责我“魔法技巧不精”，说什么我在我那伟大的龙傀儡身上浪费了太多时间！那些蠢人自以为自己可以用他们“干净”的方法保护这个世界；而事实上，兽人的入侵已经证明了他们是一群眼高手低的无能之徒。并且，一旦恶魔们强大的侵略部队真的到达这里，我们根本没有办法与他们为敌——是啊，我们甚至在伊格兰斯面前卑躬屈膝，东躲西藏，如果我们可以自由地在这片土地上漫游，我们的治疗师本来可以消除世界上那么多的疾病和痛苦。并且，只需要抓住几个他们的走狗进行实验，我们很快就能知道到打破他们防御的方法。
 
-不，我绝对不会向那些权威屈服。几年来，通过违反安格列文的规章偷偷出售药水和符文，我已经积攒了一大笔钱，足以让我在没有安格列文人监视的地方建造一个我自己的实验室。在那里，我可以秘密进行我自己的实验——那些娇气的同事们绝对没有本事做到这样的事情。我相信他们绝对不会同意，但是我不在乎——有些事情绝不能等到为时已晚再去了解，即使付出几个伊格狂徒或者罪犯的生命也没什么关系，我的研究成果最终将会拯救无数人的生命。建造工程明天就开始——我把任务交给了三个独立的建筑团队，这样没有人真正知道这座塔的详细构造。我已经和一些有权有势的商人达成了协议，这样我可以公开进行其中一些实验（他们希望一个用于贸易的传送门，而我向他们证明我的实验绝对不会再来一次魔法大爆炸），这样可以作为一些更加……有争议的实验提供掩饰。我可以让我的龙傀儡带上那些敏感的设备，这样我就不用亲自去回答那些烦人的问题。我可不想让被一群高傲自大的傻子再没收掉一个骨巨人——那种东西一个就要花掉我不少钱。]], "_t")
+不，我绝对不会向那些权威屈服。几年来，通过违反安格列文的规章偷偷出售药水和刻印，我已经积攒了一大笔钱，足以让我在没有安格列文人监视的地方建造一个我自己的实验室。在那里，我可以秘密进行我自己的实验——那些娇气的同事们绝对没有本事做到这样的事情。我相信他们绝对不会同意，但是我不在乎——有些事情绝不能等到为时已晚再去了解，即使付出几个伊格狂徒或者罪犯的生命也没什么关系，我的研究成果最终将会拯救无数人的生命。建造工程明天就开始——我把任务交给了三个独立的建筑团队，这样没有人真正知道这座塔的详细构造。我已经和一些有权有势的商人达成了协议，这样我可以公开进行其中一些实验（他们希望一个用于贸易的传送门，而我向他们证明我的实验绝对不会再来一次魔法大爆炸），这样可以作为一些更加……有争议的实验提供掩饰。我可以让我的龙傀儡带上那些敏感的设备，这样我就不用亲自去回答那些烦人的问题。我可不想让被一群高傲自大的傻子再没收掉一个骨巨人——那种东西一个就要花掉我不少钱。]], "_t")
 t("Personal note (2)", "个人笔记（2）", "_t")
 t([[Well...  that was interesting.
 
@@ -32414,7 +32414,7 @@ Now move on to the west.
 
 你发现的物品是一个纹身，纹身和符文可以将一种能力印刻到你的身上，获得新的技能。
 纹身来自于自然而符文则是由魔法创造。
-这个纹身的功能是能使你在你需要的时候回复生命值。你只能印刻有限数量的纹身，但
+这个纹身的功能是能使你在你需要的时候回复生命值。你只能印刻有限数量的刻印，但
 你可以非常方便的切换他们。
 
 现在继续向西前进。
@@ -34022,7 +34022,7 @@ Class features:#YELLOW#
 
 All mages use mana to cast their spells.
 It slowly replenishes over time.
-]], [[在猎魔行动行动之后魔法并没有从马基埃亚尔消失。
+]], [[猎魔行动之后魔法并没有从马基埃亚尔消失。
 
 在黄昏纪元，当猎魔行动接近尾声时，卡·克鲁尔的一名强大的法师——莱娜尼尔——为剩余的各种族的法师们建立了一个避风港。
 这个地方就是安格利文，魔法之城，在这里，魔法得以保留并传承了超过两千年。
@@ -34122,7 +34122,7 @@ It slowly replenishes over time.
 ]], [[死灵法术，被禁忌的魔法。
 死灵法术，黑暗的魔法。
 
-在黄昏纪元和派尔纪元，世界进入了一个扭曲的时代。国家分裂，所有种族的人们都受到压迫，疫病肆虐，杀死了数百万人。
+在黄昏纪元和烈火纪元，世界进入了一个扭曲的时代。国家分裂，所有种族的人们都受到压迫，疫病肆虐，杀死了数百万人。
 这是一个黑暗的时代，恐怖的制造者——死灵法师来到了这个混乱的时代。
 他们是永生的而我们的灵魂却会受到诱惑而堕落。这个时代是他们荣耀的时代。
 那些所谓的“高贵”的元素法师们认为死灵法师是他们走入歧途的兄弟，必须予以纠正或者消灭。但是死灵法师们认为他们被误
@@ -34397,7 +34397,7 @@ Race features:#YELLOW#
 ]], [[食人魔是被魔法改变的人类，在永恒精灵的艾尔瓦拉避难。
 他们有着庞大的身躯，这个身躯由覆盖在他们皮肤上发光的复杂符文网支撑。食人魔的外貌令人生畏，但他们实际上有着认真和谦虚的性格。
 在厄流战争中，孔克雷夫创造了食人魔作为工人和战士，但最后他们成为了被遗弃的种族。他们庞大的体型和身上闪光的符文让他们成为了魔法狩猎的首要目标，只有那些逃去永恒精灵领地的少量族群幸免于难。
-因为他们必须要维护自己身上的符文存活下去，他们操纵符文和纹身的能力无可比拟，并且这份知识一直世代传承下去。他们解决问题的时候习惯使用最简单直接的手段，再加上他们稍微有些…暴躁的脾性，这一切让他们获得了一些粗暴的野蛮人的坏名声。然而进来，他们在符文和纹身制作领域的成就，渐渐抹去了人们对他们的坏印象。
+因为他们必须要维护自己身上的刻印存活下去，他们操纵刻印的能力无可比拟，并且这份知识一直世代传承下去。他们解决问题的时候习惯使用最简单直接的手段，再加上他们稍微有些…暴躁的脾性，这一切让他们获得了一些粗暴的野蛮人的坏名声。然而进来，他们在符文和纹身制作领域的成就，渐渐抹去了人们对他们的坏印象。
 
 你学习了食人魔的过去，并解决掉了他们恐怖的创造者。随着孔克雷夫最后残余的毁灭，厄流战争终于迎来了真正的结束。现在，你可以创造新的#LIGHT_GREEN#食人魔#WHITE#角色，在实战中发挥他们的魔法力量吧！
 
@@ -34736,7 +34736,7 @@ Race features:#YELLOW#
 他们的身体长着白色的毛发，另外他们有着不成比例的巨大脑袋使他们看上去样子有点滑稽。
 不过他们是非常灵巧而且意志强大的种族。
 尽管在马基埃亚尔几乎没有听说过他们，他们作为半身人国家纳格尔的附庸国已经存在了几个世纪。
-他们在派尔纪元获得了独立，并开始信仰“维网”——一个由他们的灵能构建成的精神联合网络。
+他们在烈火纪元获得了独立，并开始信仰“维网”——一个由他们的灵能构建成的精神联合网络。
 
 你救了一个夺心魔，现在你可以在创建人物时选择新的种族： #LIGHT_GREEN# 夺心魔 #WHITE#。
 
@@ -42956,7 +42956,7 @@ You are an adventurer, set out to discover wonders, explore old places, and vent
 ]], [[欢迎来到马基埃亚尔的世界！
 
 现在的埃亚尔大陆是卓越纪。在长达一万年的冲突痛苦和混乱之后，我们所知的世界终于进入了一个相对和平的时期。
-#FF0000#“魔法大爆炸”#WHITE#所造成的影响已经渐渐减轻，大地的伤痕也慢慢开始愈合。在派尔纪末，各个文明也纷纷开始重建家园。
+#FF0000#“魔法大爆炸”#WHITE#所造成的影响已经渐渐减轻，大地的伤痕也慢慢开始愈合。在烈火纪末，各个文明也纷纷开始重建家园。
 #14fffc#图库纳国王#ffffff#和他的半身人皇后#14fffc#米雯尼雅#ffffff#建立并统治联合王国已有122年了。
 在他们的统治下，王国天下太平，无论是人类还是半身人的居住地都欣欣向荣，一片繁华。
 十四年前，国王因年纪过大而去世了，他的儿子，#14fffc#托拉克#ffffff#继承了王位。
@@ -42979,7 +42979,7 @@ t("In the Age of Pyre the orcs learned the secrets of magic, and with their newf
 t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们几乎已经灭绝，不过传言他们正准备秘密地卷土重来。", "init.lua load_tips")
 t("Intense willpower lets wyrmics take on the natural powers of dragons.", "高强度的意志使龙战士可以获得龙族的自然力量。", "init.lua load_tips")
 t("Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.", "炼金术士可以转化宝石制造强大的爆炸，同时他们还可以召唤傀儡来守护他们。", "init.lua load_tips")
-t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在派尔纪，人们建造了傀儡之王阿塔玛森以对抗兽人首领吞噬者加库尔所领导的兽人军队。加库尔不仅孤身一人亲自干掉了傀儡王，在他倒下之前，还单枪匹马斩杀了上千人的部队。", "init.lua load_tips")
+t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在烈火纪，人们建造了傀儡之王阿塔玛森以对抗兽人首领吞噬者加库尔所领导的兽人军队。加库尔不仅孤身一人亲自干掉了傀儡王，在他倒下之前，还单枪匹马斩杀了上千人的部队。", "init.lua load_tips")
 t("None know what the Sher'Tul looked like, or what caused them all to disappear thousands of years ago. Their rare ruins are a source of mystery and terror.", "无人知晓夏·图尔人的长相，也没有人知道为什么他们在几千年前突然消失了。至今我们仍能从他们仅存的废墟里感受到他们的神秘和恐怖。", "init.lua load_tips")
 t("In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.", "地城深处潜藏着无法用语言描述或理解的黑暗事物，无人知道它们是从哪里而来。", "init.lua load_tips")
 t("Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.", "天知道是怎样的堕落思想才能使一个人成为死灵法师。这门艺术就像魔法一样历史悠久，它的出现在最初的岁月里给所有种族带来了非常的劫难。", "init.lua load_tips")
