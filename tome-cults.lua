@@ -3619,7 +3619,7 @@ t("blood", "血", "effect subtype")
 t("Spikeskin", "尖刺皮肤", "_t")
 t("Empowered by the sight of black blood, granting %d%% all resistances.", "被黑血强化，获得 %d%% 全体抗性。", "tformat")
 t("slime", "史莱姆", "effect subtype")
-t("corrupted", "堕落者", "effect subtype")
+t("corrupted", "腐化", "effect subtype")
 t("Slimy Tendril", "黏稠触须", "_t")
 t("Caught in a slimy tendril, reducing all damage by %d%%.", "被触须抓住，造成的所有伤害降低 %d%% 。", "tformat")
 t("#Target# is caught by a slimy tendril.", "#Target#被黏稠触须捕获", "_t")
@@ -4584,7 +4584,7 @@ t("portal to the Maggot", "到蛆虫内的传送门", "entity name")
 section "tome-cults/data/zones/town-kroshkkur/npcs.lua"
 
 t("horror", "恐魔", "entity type")
-t("eldritch", "艾尔德里奇", "entity subtype")
+t("eldritch", "骇异", "entity subtype")
 t("Destroy @himher@!", "摧毁@himher@!", "_t")
 t("drem cultist", "德瑞姆邪教徒", "entity name")
 t("A drem cultist.", "一位德瑞姆邪教徒", "_t")
@@ -5099,5 +5099,3 @@ t("All prophecies that can be used with Twofold Curse.", "所有可以使用双�
 --[==[
 t("", "", "_t")
 --]==]
-
-
