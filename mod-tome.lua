@@ -268,7 +268,7 @@ t("%s is too afraid to use %s.", "%s非常恐惧，无法使用%s。", "logSeen"
 t("%s is silenced and cannot use %s.", "%s被沉默，无法使用%s。", "logSeen")
 t("The spell fizzles.", "法术失败了。", "logSeen")
 t("%s is too disconnected from Nature to use %s.", "%s扰乱了自然平衡而无法使用%s。", "logSeen")
-t("%s is unable to use this kind of inscription.", "%s无法使用这类纹身。", "logSeen")
+t("%s is unable to use this kind of inscription.", "%s无法使用这类刻印。", "logSeen")
 t("%s is too heavily armoured to use this talent.", "%s身穿重甲，无法使用该技能。", "logSeen")
 t("%s can't use this talent while holding a weapon or shield.", "%s在装备武器或盾牌的时候，无法使用该技能。", "logSeen")
 t("%s is sleeping and unable to do this.", "%s正处于睡眠中，不能这样做。", "logPlayer")
@@ -2253,6 +2253,32 @@ The use of spells or arcane-powered equipment is impossible.
 ]], "_t")
 
 ------------------------------------------------
+t([[#GOLD#Vim#LAST#
+Vim represents the amount of life energy you control. Each corruption talent requires some.
+It does not regenerate naturally; you need to drain it from yourself or your victims.
+Each time you kill a creature you gain 50% of your Willpower + 1 as Vim.  This value is multiplied by the rank of the creature.
+If you can't pay for the Vim cost of a talent you may instead pay with life at a rate of 200% of the Vim cost.
+]], [[#GOLD#活力#LAST#
+活力是你控制的生命能量。施放堕落系法术需要消耗活力值。
+活力值不会自动回复，你需要从你自身和你的目标身上吸取。
+每杀死一个生物可以吸收意志属性50%+1的活力值。从高分级的生物获得的活力值会乘以分级倍率。
+如果你无法支付使用一个技能的活力值，你可以改为支付活力值消耗200%的生命值。
+]], "_t")
+t([[#GOLD#Global Speed#LAST#
+Global speed represents how fast you are and affects everything you do.
+Higher is faster, so at 200% global speed you can perform twice as many actions as you would at 100% speed.
+Note that the amount of time to perform various actions like moving, casting spells, and attacking is also affected by their respective speeds.
+]], [[#GOLD#整体速度#LAST#
+整体速度表示你的速度有多快，并影响你所做的一切。
+越高越快，所以在200%的整体速度下，您可以执行的操作数是在100%速度下的两倍。
+注意，移动、施法和攻击等各种动作的执行时间也会受到它们各自速度的影响。
+]], "_t")
+t([[#GOLD#Shield Block Value#LAST#
+The base amount of damage a shield will block when actively used in defense.
+Mind damage cannot be blocked. Against other damage types you gain a 50%% bonus to the block value if the shield used grants resistance to that damage type.
+]], [[#GOLD#盾牌格挡值#LAST#
+盾牌在激活时所能阻挡的伤害量。精神伤害无法被格挡。如果盾牌具有某种伤害抗性，那么你在使用该盾牌进行格挡时，对这种伤害可以额外吸收50%伤害。]], "_t")
+
 section "mod-tome/class/interface/WorldAchievements.lua"
 
 t("Maj'Eyal", "马基埃亚尔", "_t")
@@ -2606,7 +2632,7 @@ t("Got to level 500 of the infinite dungeon.", "到达无尽地下城第500层�
 section "mod-tome/data/achievements/items.lua"
 
 t("Deus Ex Machina", "上帝之佑", "achievement name")
-t("Found the Blood of Life and the four unique inscriptions: Primal Infusion, Infusion of Wild Growth, Rune of Reflection and Rune of the Rift.", "获得生命之血与四种特殊符文：原初纹身，野性生长纹身，反射符文，时空裂缝符文。", "_t")
+t("Found the Blood of Life and the four unique inscriptions: Primal Infusion, Infusion of Wild Growth, Rune of Reflection and Rune of the Rift.", "获得生命之血与四种特殊刻印：原初纹身，野性生长纹身，反射符文，时空裂缝符文。", "_t")
 t("Treasure Hunter", "宝藏猎人", "achievement name")
 t("Amassed 1000 gold pieces.", "积累1000金币。", "_t")
 t("Treasure Hoarder", "藏金库", "achievement name")
@@ -3770,7 +3796,7 @@ t("One race, one mind, one way. Our oppression shall end, and we shall inherit E
 t("Yeeks are a mysterious race of small humanoids native to the tropical island of Rel.", "夺心魔是一支神秘的矮小人形种族，生活于热带岛屿瑞尔。", "_t")
 t("Their body is covered with white fur and their disproportionate heads give them a ridiculous look.", "他们的身体覆盖着白色的皮肤，他们奇怪的身材比例使他们看上去滑稽可笑。", "_t")
 t("Although they are now nearly unheard of in Maj'Eyal, they spent many thousand years as secret slaves to the Halfling nation of Nargol.", "尽管他们在马基·埃亚尔中几乎不曾人们被提到过，他们已经作为半身人王国纳格尔的奴隶存在了数个世纪。", "_t")
-t("They gained their freedom during the Age of Pyre and have since then followed 'The Way' - a unity of minds enforced by their powerful psionics.", "他们在派尔纪获得了自由并在那个时候建立了维网——一个由他们灵能思维组成的网络。", "_t")
+t("They gained their freedom during the Age of Pyre and have since then followed 'The Way' - a unity of minds enforced by their powerful psionics.", "他们在烈火纪获得了自由并在那个时候建立了维网——一个由他们灵能思维组成的网络。", "_t")
 t("Skin Color 1", "皮肤颜色1", "_t")
 t("Skin Color 2", "皮肤颜色2", "_t")
 t("Skin Color 3", "皮肤颜色3", "_t")
@@ -8022,7 +8048,7 @@ section "mod-tome/data/general/npcs/canine.lua"
 t("animal", "动物", "entity type")
 t("canine", "犬类", "entity subtype")
 t("wolf", "狼", "entity name")
-t("Lean, mean, and shaggy, it stares at you with hungry eyes.", "瘦弱，狡猾，蓬头垢面，它正用贪婪的眼神盯着你。", "_t")
+t("Lean, mean, and shaggy, it stares at you with hungry eyes.", "一头瘦弱的、狡猾的皮毛蓬松的饿狼，它正用贪婪的眼神看着你。", "_t")
 t("great wolf", "巨狼", "entity name")
 t("Larger than a normal wolf, it prowls and snaps at you.", "它比普通的狼更大，在你面前徘徊咆哮。", "_t")
 t("dire wolf", "狂狼", "entity name")
@@ -8030,9 +8056,9 @@ t("Easily as big as a horse, this wolf menaces you with its claws and fangs.", "
 t("white wolf", "白狼", "entity name")
 t("A large and muscled wolf from the northern wastes. Its breath is cold and icy, and its fur coated in frost.", "一头来自北部荒野的狼，它膘肥身健，体型匀称。它呼吸冰冷，毛覆寒霜。", "_t")
 t("warg", "座狼", "entity name")
-t("It is a large wolf with eyes full of cunning.", "一只大狼，眼睛里充满了狡猾。", "_t")
+t("It is a large wolf with eyes full of cunning.", "这是一只狡猾且体型巨大的狼。", "_t")
 t("fox", "狐狸", "entity name")
-t("The quick brown fox jumps over the lazy dog.", "这只伶俐的棕色狐狸跳过一只懒惰的狗。", "_t")
+t("The quick brown fox jumps over the lazy dog.", "这只灵巧的棕色狐狸从一只懒狗身上跳了过去。", "_t")
 t("Rungof the Warg Titan", "泰坦座狼郎格夫", "entity name")
 t("It is a large wolf with eyes full of cunning, thrice the size of a normal warg.", "一只超级大狼，眼睛里充满了狡猾，比普通座狼大两倍。", "_t")
 
@@ -8199,7 +8225,7 @@ t("A giant black-skinned humanoid covered in spikey scabrous deposits.  Its face
 t("drem master", "德瑞姆领主", "entity name")
 t("A disfigured humanoid with vaguely Dwarven features dressed in patched-together and rusted mail armor.  It seems to be in command of others, though its mouth is sewn shut.", "丑陋且具有部分矮人特征的人形怪物，它装备了一件破烂不堪的重甲。尽管它无法说话，但是它却领导着其他矮人。", "_t")
 t("brecklorn", "布瑞克隆", "entity name")
-t("A giant hairless bat with the face of a Dwarf twisted into a constant scream.  Pustulant sores cover its malformed body, and your heart weakens as it nears.", "一只巨大的无毛蝙蝠，它有着一张不停尖叫且扭曲的矮人脸。躁狂症症在它畸形的身体内蔓延，当它靠近时，你感觉心跳都快停止了。", "_t")
+t("A giant hairless bat with the face of a Dwarf twisted into a constant scream.  Pustulant sores cover its malformed body, and your heart weakens as it nears.", "一只巨大的无毛蝙蝠，它有着一张不停尖叫且扭曲的矮人脸。躁狂症在它畸形的身体内蔓延，当它靠近时，你感觉心跳都快停止了。", "_t")
 t("grannor'vor", "格兰诺伏尔", "entity name")
 t("A large sluglike creature that moves slowly, leaving a trail of acid in its wake.  Its head has strangely humanoid features.", "一只长的类似蛞蝓的生物，当它缓慢经过时，会留下一滩酸性的踪迹。它的头部有着奇怪的人类特征。", "_t")
 t("grannor'vin", "格兰诺文", "entity name")
@@ -8234,7 +8260,7 @@ t([[A bulging rotten robe seems to tear at the seams, with masses of bloated wor
 Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], "一件鼓鼓囊囊的腐烂长袍，长袍的缝隙里不断蠕动着浮肿的蠕虫。它有着两只臂膀一样的附属物，每只手都由重叠的蠕虫组成，各握着一柄覆有胆汁的斧子。每次挥舞武器的时候，它都会溅出尸僵毒液，每滴毒液在落到地面前都在沸腾和翻滚着。", "_t")
 t("#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", "#LIGHT_RED#一团腐肉虫从%s的伤口孵化了出来。", "logSeen")
 t("bloated horror", "浮肿恐魔", "entity name")
-t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "一个球状的人形存在漂浮在这里，孩子似的光头大得不成比例，并且还有着满身恶臭的脓疮。", "_t")
+t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "这是一只有着人头的漂浮物。它的孩子似的光头大的不成比例，并且它还有着满身恶臭的脓疮。", "_t")
 t("nightmare horror", "梦魇恐魔", "entity name")
 t("A shifting form of darkest night that seems to reflect your deepest fears.", "在漆黑的深夜中不断变幻的存在，映照出你内心深处的恐惧。", "_t")
 t("headless horror", "无头恐魔", "entity name")
@@ -8247,10 +8273,10 @@ t("+Blind", "+致盲", "_t")
 t("%s is blinded by the loss of all its eyes.", "%s 失去了它所有的眼睛，无法看见东西。", "logSeen")
 t("luminous horror", "金色恐魔", "entity name")
 t("A lanky humanoid shape composed of yellow light.", "一个身材瘦长的人形，由金色的光芒组成。", "_t")
-t("radiant horror", "灼眼恐魔", "entity name")
+t("radiant horror", "光芒恐魔", "entity name")
 t("A lanky four-armed humanoid shape composed of bright golden light.  It's so bright it's hard to look at, and you can feel heat radiating outward from it.", "一个身材瘦长的四臂人形，由金色的光芒组成，令人无法直视，甚至感受到高温从它身上不断的向外辐射。", "_t")
 t("devourer", "吞噬者", "entity name")
-t("A headless, round creature with stubby legs and arms.  Its body seems to be all teeth.", "一个无头的圆形生物，有粗壮的腿和胳膊。 它的身体似乎都是牙齿。", "_t")
+t("A headless, round creature with stubby legs and arms.  Its body seems to be all teeth.", "一只无头怪物，它有着圆润的体型和又粗又短的四肢。它的牙齿似乎占据了整个身体。", "_t")
 t("blade horror", "刀锋恐魔", "entity name")
 t("Blades whirl in the air around this thin, floating figure. The air around it swirls with force, threatening to tear apart anything that approches, if the blades don't do it first.", "刀锋环绕这只瘦弱的漂浮生物。周围的空气中猛烈旋转，和刀片一同撕裂任何靠近的物体。", "_t")
 t("oozing horror", "黏液恐魔", "entity name")
@@ -12192,7 +12218,7 @@ t("When Elmio Panason, captain of the Vanguard, first sought shelter for his shi
 t("Glows brightly in the light of dawn.", "在黎明下闪耀光芒。", "_t")
 t("Scorched Boots", "烧焦的长靴", "entity name")
 t("pair of blackened boots", "一双熏黑的靴子", "_t")
-t("The master blood mage Ru'Khan was the first orc to experiment with the power of the Sher'Tul farportals in the Age of Pyre.  However, that first experiment was not particularly successful, and after the explosion of energy all that could be found of Ru'Khan was a pair of scorched boots.", "血魔导师鲁·克汉是派尔纪第一个使用夏·图尔远程传送门进行试验的兽人。试验不是很成功，能量爆炸后，只剩下了一双烧焦的靴子。", "_t")
+t("The master blood mage Ru'Khan was the first orc to experiment with the power of the Sher'Tul farportals in the Age of Pyre.  However, that first experiment was not particularly successful, and after the explosion of energy all that could be found of Ru'Khan was a pair of scorched boots.", "血魔导师鲁·克汉是烈火纪第一个使用夏·图尔远程传送门进行试验的兽人。试验不是很成功，能量爆炸后，只剩下了一双烧焦的靴子。", "_t")
 t("Goedalath Rock", "高达勒斯之石", "entity name")
 t("demonic", "恶魔", "entity subtype")
 t("unearthly black stone", "神秘的黑色石头", "_t")
@@ -12257,7 +12283,7 @@ t("unleash a destructive wail, destroying terrain and dealing %0.2f physical dam
 t("%s uses the %s!", "%s 使用了 %s！", "logSeen")
 t("Daneth's Neckguard", "丹纳斯的护颈", "entity name")
 t("a thick steel gorget", "一个沉重的钢制护颈", "_t")
-t("A thick steel gorget designed to protect its wearer from fatal attacks to the neck.  This particular gorget was worn by the Halfling General Daneth Tendermourn during the pyre wars, and judging by the marks along its surface may have saved the General's life on more than one occasion.", "一个厚重的钢护喉，旨在保护其穿着者颈部免受致命攻击。这个特殊的护喉是半身人将军丹纳斯·坦德莫恩在派尔纪战争中佩戴过的，上面的各种伤痕表明其可能救过这位将军不止一次。", "_t")
+t("A thick steel gorget designed to protect its wearer from fatal attacks to the neck.  This particular gorget was worn by the Halfling General Daneth Tendermourn during the pyre wars, and judging by the marks along its surface may have saved the General's life on more than one occasion.", "一个厚重的钢护喉，旨在保护其穿着者颈部免受致命攻击。这个特殊的护喉是半身人将军丹纳斯·坦德莫恩在烈火纪战争中佩戴过的，上面的各种伤痕表明其可能救过这位将军不止一次。", "_t")
 t("#LIGHT_BLUE#You feel invincible!", "#LIGHT_BLUE#你感觉自己不可战胜！", "logPlayer")
 t("Thaloren-Tree Longbow", "精灵树长弓", "entity name")
 t("glowing elven-wood longbow", "光辉的精灵木长弓", "_t")
@@ -12298,7 +12324,7 @@ t("Fists of the Desert Scorpion", "沙蝎之拳", "entity name")
 t("viciously spiked gauntlets", "有着锋利尖刺的拳套", "_t")
 t([[These wickedly spiked gauntlets belonged to an orc captain in the Age of Pyre who conquered the western sands, using them as a base to lay raids on Elvala to the south.  Known as The Scorpion, he seemed unconquerable in battle, able to pull enemies towards him with vicious mental force and lay down lethal blows on them.  Often a flurry of these yellow and black gauntlets would be the last thing great Shaloren mages would see before having the life crushed from them.
 
-Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这只有着锋利尖刺的拳套属于一位派尔纪统治西部荒野的兽人领主，他依靠它们对埃尔瓦拉发动了数次袭击。他外号沙蝎，在战场上所向披靡，他可以用精神力量将敌人拉过来，也可以用拳套把箭矢挡下。通常永恒精灵法师们在死前看到的最后物品，便是这只黄黑相间的拳套残影。最终沙蝎在决斗中，被炼金术师奈瑟莉亚击败。当这副拳套的主人将精灵拉向他，还没来得及将她撕成两半时，精灵掀开了她的长袍——下面捆着的是八十多枚炼金炸弹。精灵指尖的火花，引发了数里外都能看到的大爆炸。直到今天，民间仍流传着奈瑟莉亚为保护她的子民而牺牲的诗歌。", "_t")
+Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这只有着锋利尖刺的拳套属于一位烈火纪统治西部荒野的兽人领主，他依靠它们对埃尔瓦拉发动了数次袭击。他外号沙蝎，在战场上所向披靡，他可以用精神力量将敌人拉过来，也可以用拳套把箭矢挡下。通常永恒精灵法师们在死前看到的最后物品，便是这只黄黑相间的拳套残影。最终沙蝎在决斗中，被炼金术师奈瑟莉亚击败。当这副拳套的主人将精灵拉向他，还没来得及将她撕成两半时，精灵掀开了她的长袍——下面捆着的是八十多枚炼金炸弹。精灵指尖的火花，引发了数里外都能看到的大爆炸。直到今天，民间仍流传着奈瑟莉亚为保护她的子民而牺牲的诗歌。", "_t")
 t("Wind's Whisper", "风之密语", "entity name")
 t("flowing light cloak", "流彩斗篷", "_t")
 t("When the enchanter Razeen was cornered by Spellhunters near the Daikara mountain pass she wrapped her cloak about her and fled down a narrow ravine.  The hunters fired volley after volley of arrows at her, but by miracle or magic they all missed.  Razeen was able to escape and flee to the hidden city in the west.", "当魔法师瑞兹恩被猎魔人在岱卡拉的山隘逼入绝境时，她用斗篷包裹着自己逃下了峡谷。猎手们接连不断的把箭射向她，但由于奇迹或是魔法，他们全部射空了。瑞兹恩得以逃生并躲进了西部的隐秘之城。", "_t")
@@ -12391,7 +12417,7 @@ t("blue", "蓝宝石", "entity subtype")
 t("windy gem", "微风环绕的宝石", "_t")
 t("Air currents swirl around this bright blue jewel.", "空气在这块亮蓝色宝石周围旋转。", "_t")
 t("Primal Infusion", "原初之纹身", "entity name")
-t("This wild infusion has evolved.", "这个纹身已经进化了", "_t")
+t("This wild infusion has evolved.", "这个野性纹身已经进化了", "_t")
 t("pulsing infusion", "有活力的纹身", "_t")
 t("Prismatic Rune", "棱彩符文", "entity name")
 t("Mirror Image Rune", "镜像符文", "entity name")
@@ -13108,7 +13134,7 @@ t("Exiler", "放逐", "entity name")
 t([[The chronomancer known as Solith was renowned across all of Eyal. He always seemed to catch his enemies alone.
 In the case of opponents who weren't alone, he had to improvise.]], "时空法师索利斯在马基埃亚尔的世界中十分有名。他总是抓住了他的敌人落单之时。即使对手不是独自一人,他也能临场发挥。", "_t")
 t("insignia ring", "荣誉之戒", "_t")
-t("attempt to inflict %0.2f temporal damage (based on Spellpower and Paradox, if any) on foes in a radius %d ball out to range %d (chance depends on rank, summons are always affected), removing any that survive from time for up to %d turn(s)", "对半径%d内所有目标目标造成 %0.2f 时空伤害（基于魔法和紊乱），射程%d。如果仍存活则移出时间线%d回合。", "tformat", {2,1,3,4})
+t("attempt to inflict %0.2f temporal damage (based on Spellpower and Paradox, if any) on foes in a radius %d ball out to range %d (chance depends on rank, summons are always affected), removing any that survive from time for up to %d turn(s)", "对半径%d内所有目标造成 %0.2f 时空伤害（基于魔法和紊乱），射程%d。如果仍存活则移出时间线%d回合。", "tformat", {2,1,3,4})
 t("%s focuses time flows through %s %s!", "%s将时间线集中在%s%s!", "logSeen")
 t("Piercing Gaze", "锐利目光", "entity name")
 t("stone-eyed shield", "刻有岩石眼的盾牌", "_t")
@@ -13205,7 +13231,7 @@ t("%s revels in the bloodlust of %s %s!", "%s激发了%s%s的嗜血渴望!", "lo
 t("Blood Charges: %d", "鲜血吸收：%d", "tformat")
 t("Decayed Visage", "堕落视觉", "entity name")
 t("mask of mummified skin", "木乃伊皮面罩", "_t")
-t("A desiccated mask of human skin, all that remains of a necromancer from the Age of Pyre who failed to achieve lichdom.  The transformative process partially succeeded, leaving him unable to die as his body slowly rotted from the inside out over several years.  Now his spirit resides within this last bit of mummified flesh, still hungering for eternal life.", "一小片人皮面具，是派尔纪一位死灵法师的遗物。他试图变成巫妖，但是没有成功。他的身体逐渐腐烂，但由于未成功的法术而不能死去，就这样过了数年。现在，他的灵魂仍藏身于这小块皮肤中，渴求着永恒的生命。", "_t")
+t("A desiccated mask of human skin, all that remains of a necromancer from the Age of Pyre who failed to achieve lichdom.  The transformative process partially succeeded, leaving him unable to die as his body slowly rotted from the inside out over several years.  Now his spirit resides within this last bit of mummified flesh, still hungering for eternal life.", "一小片人皮面具，是烈火纪一位死灵法师的遗物。他试图变成巫妖，但是没有成功。他的身体逐渐腐烂，但由于未成功的法术而不能死去，就这样过了数年。现在，他的灵魂仍藏身于这小块皮肤中，渴求着永恒的生命。", "_t")
 t("Dream Malleus", "梦境之槌", "entity name")
 t("keening hammer", "发光木锤", "_t")
 t("A large shimmering maul that seems to produce a ringing in your ears.  It is both as malleable as thought and as hard as the strongest steel.", "一个闪闪发光的大木槌,你的耳朵里似乎能听到它发出的声音.它既像思想一样有可塑性也像最强的钢铁那样坚硬.", "_t")
@@ -13584,7 +13610,7 @@ t("Translucent and delicate-looking, but surprisingly durable.", "半透明的�
 t("If you've not encountered hummerhorns before, they're like wasps, only gigantic and lethal.", " 如果你以前没看过杀人蜂，你可以想象下……它们像大黄蜂一样，只不过变的巨大而致命。", "_t")
 t("pouch of luminous horror dust", "一袋金色恐魔的粉尘", "entity name")
 t("Weightless and glowing; not your usual dust.", "不同于通常意义上的灰尘，这些粉尘毫无重量并发出阵阵光芒。", "_t")
-t("Not to be confused with radiant horrors. If you encounter the latter, then I suppose there are always more adventurers.", " 不要被恐魔发出的强光所吓倒，如果你被吓倒，我会考虑更多的冒险者来接替你的使命。", "_t")
+t("Not to be confused with radiant horrors. If you encounter the latter, then I suppose there are always more adventurers.", " 不要和光芒恐魔弄混。如果你遇到后者，我会考虑更多的冒险者来接替你的使命。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/keybinds/tome.lua"
@@ -16129,7 +16155,7 @@ t([[#{bold}#412: #{normal}#Diseases and food shortages force increased trade wit
 #{bold}#1430：#{normal}#数个法师来此造访并用他们的法术解除了折磨我们多个世纪的瘟疫。他们还拒绝了我们的报酬。真是群古怪的家伙。
 #{bold}#1490：#{normal}#现在生产力已经恢复到接近法术大爆炸时期前，利润很高，和其它种族的交易与日俱增。
 #{bold}#1567：#{normal}#强烈的地震几乎完全摧毁了我们所有的生产设施。人力资源的损失严重，特别是重要的生产专家们，这对我们的经济预期有极大的负面影响。]], "_t")
-t("Iron Throne Profits History: Age of Pyre", "钢铁王座的盈利历史　派尔纪", "_t")
+t("Iron Throne Profits History: Age of Pyre", "钢铁王座的盈利历史　烈火纪", "_t")
 t([[#{bold}#240: #{normal}#Market forecasts recovering better than expected. Increasing expansion in external trade areas.
 #{bold}#490: #{normal}#Orcish attacks have become much worse - seem to be using higher magic and some demonic forces. Potential threat to resources.
 #{bold}#581: #{normal}#Several key cities overwhelmed from underground by attacks from orcs and strange horrors. Have collapsed lower caverns to prevent further penetration. Working on continued resource protection measures.
@@ -19941,7 +19967,7 @@ t("arcane crystal", "奥术水晶", "_t")
 section "mod-tome/data/maps/zones/halfling-ruins-last.lua"
 
 t("Long tunnel to the island of Rel", "通向夺心魔之岛的通道", "_t")
-t("Long tunnel", "长长的通道", "_t")
+t("Long tunnel", "漫长的通道", "_t")
 t("As you enter the tunnel you feel a strange compulsion to go backward.", "在你试图进入隧道时，有种奇怪的力量把你推了回去。", "_t")
 
 ------------------------------------------------
@@ -20061,7 +20087,7 @@ t("elixir of foundations", " 领悟药剂 ", "_t")
 section "mod-tome/data/quests/charred-scar.lua"
 
 t("The Doom of the World!", "世界末日！", "_t")
-t("You were sent to the Charred Scar at the heart of which lies a huge volcano. In the Age of Pyre it destroyed the old Sher'Tul ruins that stood there, absorbing much of their latent magic.", " 你被送到了灼烧之痕，其中部是一个巨大的火山，在派尔纪元这里曾是夏·图尔遗址的所在，吸收了大量潜藏的魔法。", "_t")
+t("You were sent to the Charred Scar at the heart of which lies a huge volcano. In the Age of Pyre it destroyed the old Sher'Tul ruins that stood there, absorbing much of their latent magic.", " 你被送到了灼烧之痕，其中部是一个巨大的火山，在烈火纪元这里曾是夏·图尔遗址的所在，吸收了大量潜藏的魔法。", "_t")
 t("This place is still full of that power and the orcs intend to absorb this power using the Staff of Absorption!", " 这里仍然充满了那种能量，兽人打算用吸能法杖的力量来吸收这里的能量。", "_t")
 t("Whatever their plan may be, they must be stopped at all cost.", " 不管他们的目的是要干什么，必须不惜一切代价阻止他们。", "_t")
 t("The volcano is attacked by orcs. A few Sun Paladins made it there with you. They will hold the line at the cost of their lives to buy you some time.", " 火山受到了兽人的攻击，一些太阳骑士正顶在最前线用他们的生命来帮助你争取一些时间。", "_t")
@@ -20691,8 +20717,8 @@ section "mod-tome/data/quests/strange-new-world.lua"
 t("Strange new world", "奇怪的世界", "_t")
 t("You arrived through the farportal in a cave, probably in the Far East.", " 你穿过了山洞的远古传送门，可能会到达远东大陆。", "_t")
 t("Upon arrival you met an Elf and an orc fighting.", " 你碰到了一个精灵在和一个兽人战斗。", "_t")
-t("You decided to side with the Elven lady.", " 你决定帮帮那个精灵。", "_t")
-t("You decided to side with the orc.", " 你决定帮帮那个兽人。", "_t")
+t("You decided to side with the Elven lady.", " 你决定帮助那个精灵。", "_t")
+t("You decided to side with the orc.", " 你决定帮助那个兽人。", "_t")
 t("Fillarel told you to go to the southeast and meet with High Sun Paladin Aeryn.", " 菲拉瑞尔告诉你去东南方会见高阶太阳骑士艾琳。", "_t")
 t("Krogar told you to go to the west and look for the Kruk Pride.", " 克洛加尔告诉你去西面寻找克鲁克部落。", "_t")
 t("%s go to the west, and find Kruk Pride!", "%s，去西边，寻找克鲁克部落！", "tformat")
@@ -20900,7 +20926,7 @@ t([[You chant the glory of the Sun, empowering your light and fire elemental att
 		Your lite radius is also increased by %d.
 		You may only have one Chant active at once and this Chant costs less power to sustain.
 		The effects will increase with your Spellpower.]], [[颂赞日之荣耀，强化你的光系与火系伤害，伤害加成增加 %d%% 。
-		此外它提供你光之护盾，对任何攻击你的目标造成 %0.1f 光系伤害。 
+		此外它提供你光之护盾，对任何攻击你的目标造成 %0.1f 光系伤害。
 		你的光照范围同时增加 %d 码。 
 		同时只能激活 1 个圣歌，另外此赞歌消耗能量较少。 
 		效果受法术强度加成。]], "tformat")
@@ -20972,7 +20998,7 @@ t("Your Weapon of Light nows pulls in all foes in radius 5.", "你的光明之�
 t("Weapon of Light", "光明之刃", "talent name")
 t([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.
 		Additionally, if you have a temporary damage shield active, melee hits will increase its power by %d once per turn.
-		The damage dealt and shield bonus will increase with your Spellpower.]], [[使你的武器充满太阳能量，每击造成 %0.1f 光系伤害。 
+		The damage dealt and shield bonus will increase with your Spellpower.]], [[使你的武器充满太阳能量，每击造成 %0.1f 光系伤害。
 		如果你同时打开了临时伤害护盾，每回合一次，你的近战攻击命中可以增加护盾 %d 强度。
 		伤害和护盾加成受法术强度加成。]], "tformat")
 t("Wave of Power", "光明冲击", "talent name")
@@ -20994,6 +21020,12 @@ t("Second Life", "第二生命", "talent name")
 t("Any attack that would drop you below 1 hit point instead triggers Second Life, deactivating the talent, setting your hit points to 1, then healing you for %d.", "任何使你生命值降到 1 点以下的攻击都会激活第二生命，自动中断此技能并将你的生命值恢复到 1 点,然后受到 %d 点治疗。", "tformat")
 
 ------------------------------------------------
+t([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.
+		Additionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.
+		The damage dealt and shield bonus will increase with your Spellpower.]], [[使你的武器充满太阳能量，每击造成 %0.1f 光系伤害。
+		如果你同时打开了临时伤害护盾，每回合一次，你的近战攻击命中可以增加护盾 %d 强度，并且可以延长当前护盾持续时间至2回合。
+		伤害和护盾加成受法术强度加成。]], "tformat")
+
 section "mod-tome/data/talents/celestial/crusader.lua"
 
 t("Absorption Strike", "吸能一击", "talent name")
@@ -23717,6 +23749,9 @@ t(" (%s)", " (%s)", "tformat")
 
 
 ------------------------------------------------
+t("Creates a radius 5 gravitic anomaly lasting up to %d turns.  Hostile creatures are dealt %d temporal damage and pulled in.  Triggers out to range 1.", "制造范围 5 的重力异常，持续 %d 回合。敌对生物受到 %d 时空伤害并被拉过去。触发距离最小为1。", "tformat")
+t("%s resists the silence!", "%s抵抗了沉默！", "logSeen")
+
 section "mod-tome/data/talents/cursed/advanced-shadowmancy.lua"
 
 t("Merge", "融合", "talent name")
@@ -25560,7 +25595,7 @@ t("This huge treant-like being is embedded with the fury of winter itself.", "�
 t([[Summon a Rimebark for %d turns to harass your foes. Rimebarks cannot move, but they have a permanent ice storm around them, damaging and freezing anything coming close in a radius of 3.
 		It will get %d Willpower, %d Cunning and %d Constitution.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Willpower and Cunning will increase with your Mindpower.]], [[召唤 1 棵雾凇来来骚扰敌人，持续 %d 回合。 
+		Their Willpower and Cunning will increase with your Mindpower.]], [[召唤 1 棵持续 %d 回合的雾凇骚扰敌人。
 		雾凇不可移动，但是永远有寒冰风暴围绕着它们，伤害并冰冻 3 码半径范围内的任何人。 
 		它拥有 %d 点意志， %d 点灵巧和 %d 点体质。 
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
@@ -25823,6 +25858,8 @@ t([[Latch on to the target and suck their blood, doing %0.2f physical and %0.2f 
 		]], "tformat")
 
 ------------------------------------------------
+t("Open a hole in space, summoning an animated blade for 15 turns.", "在空间中打开一个孔洞，召唤一个次元之刃15回合。", "tformat")
+
 section "mod-tome/data/talents/misc/inscriptions.lua"
 
 t("- will only auto use when no saturation effect exists", "- 只会在没有纹身/符文饱和效果的时候使用。", "_t")
@@ -25888,8 +25925,8 @@ t("damage %d; dur %d; cd %d", "伤害 %d; 持续 %d; 冷却 %d", "tformat")
 t("Rune: Acid Wave", "符文：酸浪", "talent name")
 t([[Activate the rune to unleash a cone dealing %0.2f acid damage.
 			The corrosive acid will also disarm enemies struck for %d turns.
-			This effect can be resisted but not saved against.]], [[发射锥形酸性冲击波造成 %0.2f 酸性伤害。
-			酸性冲击波会缴械目标 %d 回合。
+			This effect can be resisted but not saved against.]], [[发射锥形酸浪，造成 %0.2f 酸性伤害。
+			腐蚀性酸液会缴械目标 %d 回合。
 			效果可以被抵抗，但不能被豁免。]], "tformat")
 t("Rune: Manasurge", "符文：法力涌动", "talent name")
 t("Your negative mana regeneration rate is unaffected by the rune.", "你的负法力回复率不受符文影响。", "logPlayer")
@@ -25924,7 +25961,7 @@ t([[Activate the rune to summon a protective storm around you for %d turns.
 			当符文生效时，风暴可以抵挡大于 %d 的任何伤害最多 %d 次。]], "tformat")
 t("threshold %d; blocks %d; dur %d; cd %d", "阈值 %d; 次数 %d; 持续 %d; 冷却 %d", "tformat")
 t("Rune: Prismatic", "符文：棱彩", "talent name")
-t("Activate the rune to create a shield for %d turns blocking several instances of damage of the following types:%s", "激活符文展开一个护盾，在 %d 回合内，抵挡以下类型的伤害 : %s", "tformat")
+t("Activate the rune to create a shield for %d turns blocking several instances of damage of the following types:%s", "激活符文展开一个护盾，在 %d 回合内，按次数抵挡以下类型的伤害 : %s", "tformat")
 t("%d turns; %s", "%d 回合; %s", "tformat")
 t("Rune: Mirror Image", "符文：镜像", "talent name")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
@@ -25983,7 +26020,7 @@ t("Activate the rune to increase your global speed by %d%% for %d turns.", "激�
 t("speed %d%% for %d turns", "提速 %d%% 持续 %d 回合", "tformat")
 t("Rune: Vision", "符文：视野", "talent name")
 t([[Activate the rune to get a vision of the area surrounding you (%d radius) and to allow you to see invisible and stealthed creatures (power %d) for %d turns.
-		Your mind will become more receptive for %d turns, allowing you to sense any %s around.]], [[激活这个符文可以使你查看周围环境（ %d 有效范围）使你你查看隐形生物（ %d 侦测隐形等级）持续 %d 回合。 
+		Your mind will become more receptive for %d turns, allowing you to sense any %s around.]], [[激活这个符文可以使你查看周围环境（ %d 有效范围），使你能看到隐身和潜行生物（ %d 强度），持续 %d 回合。
 		你的精神更加敏锐，能感知到周围的 %s ，持续 %d 回合。]], "tformat", {1,2,3,5,4})
 t("radius %d; dur %d; see %s", "范围 %d; 持续 %d; 感知 %s", "tformat")
 t("Rune: Phase Door", "符文：相位之门", "talent name")
@@ -26019,6 +26056,15 @@ t(" ", " ", "tformat")
 
 
 ------------------------------------------------
+t([[Activate the infusion to endure even the most grievous of wounds for %d turns.
+		While Heroism is active, you will only die when reaching -%d life.
+		The duration and life will increase by 1%% for every 1%% life you have lost, to a maximum of 100%% at 0 life or less (currently %d life, %d duration)
+		If your life is below 0 when this effect wears off it will be set to 1.]], [[激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。
+		当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。
+		你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%% ，最多提高100%%。
+		（目前 %d 生命值， %d 持续时间）
+		效果结束时，如果你的生命值在 0 以下，会变为 1 点。]], "tformat")
+
 section "mod-tome/data/talents/misc/misc.lua"
 
 t("base", "基础", "talent category")
@@ -26028,11 +26074,11 @@ t("race", "种族技能", "talent type")
 t("The various racial bonuses a character can have.", " 多种多样的种族天赋。", "_t")
 t("inscriptions", "刻印", "talent category")
 t("infusions", "纹身", "talent type")
-t("Infusions are not class abilities, you must find them or learn them from other people.", " 纹身不是技能，你必须找到它们或从其他人那获得它们。", "_t")
+t("Infusions are not class abilities, you must find them or learn them from other people.", " 纹身不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
 t("runes", "符文", "talent type")
-t("Runes are not class abilities, you must find them or learn them from other people.", " 符文不是技能，你必须找到它们或从其他人那获得它们。", "_t")
+t("Runes are not class abilities, you must find them or learn them from other people.", " 符文不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
 t("taints", "污印", "talent type")
-t("Taints are not class abilities, you must find them or learn them from other people.", " 印记不是技能，你必须找到它们或从其他人那获得它们。", "_t")
+t("Taints are not class abilities, you must find them or learn them from other people.", " 污印不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
 t("Attack", "攻击", "talent name")
 t("#Source# attacks empty space.", "#Source#打到了空地。", "logCombat")
 t("Hack and slash, baby!", "尽情砍杀吧，宝贝！", "tformat")
@@ -26256,7 +26302,7 @@ t("Silence", "沉默", "talent name")
 t("Sends a telepathic attack, silencing the target for %d turns.  The chance to silence improves with Mindpower.", "施放灵能狂热沉默目标 %d 回合，沉默几率受精神强度加成。", "tformat")
 t("Telekinetic Blast", "念力爆炸", "talent name")
 t([[Sends a telekinetic attack, knocking back the target up to 3 grids and doing %0.2f physical damage.
-		The damage will increase with Mindpower.]], [[施放灵能狂热击退目标至多 3 格并造成 %0.2f 物理伤害。 
+		The damage will increase with Mindpower.]], [[施放灵能攻击击退目标至多 3 格并造成 %0.2f 物理伤害。
 		伤害受精神强度加成。]], "tformat")
 t("Blightzone", "枯萎区域", "talent name")
 t([[Corrupted vapour rises at the target location (radius 4) doing %0.2f blight damage every turn for %d turns.
@@ -26858,13 +26904,13 @@ t("Grisly Constitution", "强大体魄", "talent name")
 t([[An ogre's body is acclimated to spells and inscriptions.
 		Increases spell save by %d and improves the contribution of primary stats on infusions and runes by %d%%.
 		At level 5 your body is so strong you can use a two handed weapon in your main hand while still using an offhand item.
-		When using a two handed weapon this way you suffer a 20%% accuracy, physical power, spellpower and mindpower penalty, decreasing by 5%% per size category above #{italic}#big#{normal}#; further, all damage procs from your weapons are reduced by 50%%.]], [[食人魔的身体对法术和符文亲和力很强。
-		增加 %d 法术豁免，增加纹身和符文的属性加成效果 %d%% 。
+		When using a two handed weapon this way you suffer a 20%% accuracy, physical power, spellpower and mindpower penalty, decreasing by 5%% per size category above #{italic}#big#{normal}#; further, all damage procs from your weapons are reduced by 50%%.]], [[食人魔的身体对法术和刻印的亲和力很强。
+		增加 %d 法术豁免，增加刻印的属性加成效果 %d%% 。
 		技能等级 5 时，你的身体变得如此强壮，能在主手持有双手武器的同时，副手持有其他副手武器。
 		这样做的话，你的命中、物理、法术、精神强度会下降 20%% ，体型超过#{italic}#'较大'#{normal}#时，每增加一体型，惩罚减少 5%% 。同时你的武器附加伤害减少 50%% 。]], "tformat")
 t("Scar-Scripted Flesh", "血肉伤痕", "talent name")
 t([[When you crit you have a %d%% chance to reduce by 1 the remaining cooldown of one of your inscriptions and of any saturations effects.
-		This effect can only happen once per turn.]], [[每次暴击时有 %d%% 几率减少随机一个纹身或符文 1 回合冷却时间，或减少符文紊乱或纹身紊乱 1 回合持续时间。
+		This effect can only happen once per turn.]], [[每次暴击时有 %d%% 几率减少随机一个刻印 1 回合冷却时间，或减少符文紊乱或纹身紊乱 1 回合持续时间。
 		该效果每回合最多触发一次。]], "tformat")
 t("Writ Large", "符文亲和", "talent name")
 t("#PURPLE#Your mastery over inscriptions is unmatched! One more inscriptions slot available to buy.", "#PURPLE#你对刻印的掌握无人能及！你可以消耗一个大系点进一步解锁一个刻印位", "logPlayer")
@@ -29028,11 +29074,19 @@ t([[By creating an arcane link with your minion army you are able to redirect pa
 		Anytime you take damage %d%% of it is instead redirected to a random minion within your aura of undeath.
 		The minion takes 300%% damage from that effect.
 		The damage redirected percent depends on your Spellpower.]], [[你与你的不死大军之间建立奥术连接，将你所收到的任何伤害转移到他们的身上。
-		每当你受到伤害的时候， %d%% 的伤害转移到到随机一个不死光环内的随从身上。
+		每当你受到伤害的时候， %d%% 的伤害转移到随机一个不死光环内的随从身上。
 		那个随从将会受到 3 倍伤害。
 		伤害转移比例受法术强度加成。]], "tformat")
 
 ------------------------------------------------
+t([[Your mastery of necromancy becomes so total that an aura of undeath radiates around you in radius %d.
+		Any undead minion standing inside of it is protected, increasing all their resistances by %d%%.
+		In addition when you create new minions they inherit %d%% of your spellpower (applied to any powers), spell crit chance (applied to any crit chances), saves, resists, and highest damage increase (applied to all elements).
+		]], [[你对死灵法术的掌握是如此强大，你可以在周围 %d 码范围内放射出不死能量的光环。
+		所有在光环内的不死随从会被光环保护，增加 %d%% 全体伤害抗性。
+		另外，当你创造不死随从的时候，它们会以 %d%% 比例继承你的法术强度（附加于所有强度），法术暴击率（附加于所有暴击率），豁免，抗性和最高伤害加成效果（附加于所有伤害加成）。
+		]], "tformat")
+
 section "mod-tome/data/talents/spells/master-of-bones.lua"
 
 t("Call of the Crypt", "墓穴召唤", "talent name")
@@ -29059,8 +29113,8 @@ t([[Any time one of your skeleton or bone giant dies, it shatters in radius %d, 
 		如果你杀死自己的随从，这一效果不会触发。
 		]], "tformat")
 t("Assemble", "亡灵组合", "talent name")
-t("A towering creature, made from the bones of dozens of dead bodies. It is covered by an unholy aura.", "像铁塔一样的生物，由数不清的骨头构成。它全身围绕着邪恶的气息。", "_t")
-t("A towering creature, made from the bones of hundreds of dead bodies. It is covered by an unholy aura.", "像铁塔一样的生物，由数不清的骨头构成。它全身围绕着邪恶的气息。", "_t")
+t("A towering creature, made from the bones of dozens of dead bodies. It is covered by an unholy aura.", "一个高大的生物，由数不清的骨头构成。它全身围绕着邪恶的气息。", "_t")
+t("A towering creature, made from the bones of hundreds of dead bodies. It is covered by an unholy aura.", "一个高大的生物，由数不清的骨头构成。它全身围绕着邪恶的气息。", "_t")
 t([[Every army of undead minions needs its spearhead. To that end you combine 3 skeleton minions into a bone giant of level %d.
 		The minions used are selected from the weakest first, and a Lord of Skulls will never be used. 
 		At level 3 an eternal bone giant is created instead.
@@ -29151,6 +29205,22 @@ t([[Whenever you would be affected by a detrimental physical effect you instead 
 		不会转移越层负面效果（失去平衡，法术冲击和思维封锁）。]], "tformat")
 
 ------------------------------------------------
+t([[You control dead matter around you, lying in the ground, decaying.
+		When you enter combat and every %d turns thereafter a ghoul of level %d automatically raises to fight for you.
+		At level 3 you can forcefully activate this spell to summon up to %d ghasts around you.
+		At level 5 every 4 summoned ghouls or ghasts a ghoulking is summoned for free.
+		Ghouls, ghasts and ghoulkings last for %d turns.
+		%s
+		#GREY##{italic}#Ghoul minions come in larger numbers than skeleton minions but are generally more frail and disposable.#{normal}#
+		]], [[你操控大地上的死亡血肉，让其腐烂。
+		你进入战斗时，以及之后每隔 %d 个回合，将会自动召唤一个等级 %d 的食尸鬼来为你而战。
+		技能等级 3 时，你可以主动激活该技能，在身边召唤最多 %d 个妖鬼。
+		技能等级 5 时，你每召唤 4 个食尸鬼或妖鬼，将会额外召唤一个食尸鬼王。
+		食尸鬼，妖鬼和食尸鬼王持续 %d 个回合。
+		%s
+		#GREY##{italic}#食尸鬼通常数量比骷髅更多，但是它们是相对更加脆弱，容易被击倒的消耗品。#{normal}#
+		]], "tformat")
+
 section "mod-tome/data/talents/spells/meta.lua"
 
 t("Disperse Magic", "驱散", "talent name")
@@ -35727,6 +35797,8 @@ t("%d%%", "%d%%", "tformat")
 
 
 ------------------------------------------------
+t("dirge", "挽歌", "effect subtype")
+
 section "mod-tome/data/timed_effects/mental.lua"
 
 t("Exposed", "暴露", "_t")
@@ -36915,7 +36987,7 @@ t("#Target# is constricted!", "#Target#被缠绕！", "_t")
 t("+Constricted", "+缠绕", "_t")
 t("#Target# is free to breathe.", "#Target#恢复了呼吸。", "_t")
 t("-Constricted", "-缠绕", "_t")
-t(" was constricted to death by %s.", "被%s缠绕而死。", "tformat")
+t(" was constricted to death by %s.", "被%s扼制而死。", "tformat")
 t("Dazed", "眩晕", "_t")
 t("The target is dazed, rendering it unable to move, halving all damage done, defense, saves, accuracy, spell, mind and physical power. Any damage will remove the daze.", "目标被眩晕，无法移动，所有攻击伤害、闪避、豁免、命中、法术、精神和物理强度减半。任何伤害均会打断眩晕效果。", "_t")
 t("#Target# is dazed!", "#Target#被眩晕！", "_t")
@@ -38422,7 +38494,7 @@ t("Cancel", "取消", "_t")
 section "mod-tome/data/zones/golem-graveyard/npcs.lua"
 
 t("Atamathon the Giant Golem", "傀儡之王阿塔玛森", "entity name")
-t("This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer. Someone foolish has tried to reconstruct it, but has lost control of it, and now it rampages in search of its original creators, who are long dead. Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. At over 40 feet tall, it towers above you, and its crimson orbs seem to glow with rage.", "这只巨大的傀儡是半身人在派尔纪对抗兽人时所造，但是被吞噬者加库尔摧毁。有些笨蛋试图重修它，但是控制核心已经丢失，现在它在疯狂的寻找它的制造者——某个死了无数年的家伙。它的躯体由花岗岩制成，它的关节由沃瑞钽制成，它的眼睛则是纯净的红宝石。它有着40英尺高，像铁塔般站在你面前，它闪亮的红宝石眼睛似乎散发着怒意。", "_t")
+t("This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer. Someone foolish has tried to reconstruct it, but has lost control of it, and now it rampages in search of its original creators, who are long dead. Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. At over 40 feet tall, it towers above you, and its crimson orbs seem to glow with rage.", "这只巨大的傀儡是半身人在烈火纪对抗兽人时所造，但是被吞噬者加库尔摧毁。有些笨蛋试图重修它，但是控制核心已经丢失，现在它在疯狂的寻找它的制造者——某个死了无数年的家伙。它的躯体由花岗岩制成，它的关节由沃瑞钽制成，它的眼睛则是纯净的红宝石。它有着40英尺高，像铁塔般站在你面前，它闪亮的红宝石眼睛似乎散发着怒意。", "_t")
 t("DESTROY!", "毁灭一切!", "_t")
 t("LIFE-ENDING SYSTEMS ACTIVATED!", "屠杀系统已启动!", "_t")
 t("GLORY TO THE HALFLINGS!", "半身人万岁!", "_t")
@@ -38439,7 +38511,7 @@ section "mod-tome/data/zones/golem-graveyard/objects.lua"
 t("red", "红宝石", "entity subtype")
 t("Atamathon's Ruby Eye", "阿塔玛森的红宝石眼睛", "entity name")
 t([[One of the ruby eyes of the legendary giant golem Atamathon.
-It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed, it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], "那只传奇傀儡——阿塔玛森的一只眼睛。据说它是半身人在派尔纪为了对抗兽人所造的武器。虽然它被破坏了，但是它也成功的使对方的首领吞噬者加库尔走向死亡。", "_t")
+It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed, it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], "那只传奇傀儡——阿塔玛森的一只眼睛。据说它是半身人在烈火纪为了对抗兽人所造的武器。虽然它被破坏了，但是它也成功的使对方的首领吞噬者加库尔走向死亡。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/golem-graveyard/zone.lua"
@@ -39526,7 +39598,7 @@ t("red", "红宝石", "entity subtype")
 t("Atamathon's Lost Ruby Eye", "阿塔玛森丢失的红宝石眼睛", "entity name")
 t([[One of the ruby eyes of the legendary giant golem Atamathon.
 It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], [[那只传奇傀儡——阿塔玛森的另一只眼睛。
-据说它是半身人在派尔纪为了对抗兽人所造的武器。
+据说它是半身人在烈火纪为了对抗兽人所造的武器。
 虽然它被破坏了，但是它也成功的使对方的首领吞噬者加库尔走向死亡。]], "_t")
 
 ------------------------------------------------
@@ -41041,7 +41113,7 @@ t("A mysterious hole in the beach", "沙滩上的一个秘密洞穴", "entity na
 t("Tunnel into the ritchs grounds", "里奇通道", "entity name")
 t("Charred Scar Volcano", "灼烧之痕火山", "entity name")
 t("Tunnel to Maj'Eyal", "马基埃亚尔通道", "entity name")
-t("Long tunnel", "长长的通道", "_t")
+t("Long tunnel", "漫长的通道", "_t")
 t("You cannot abandon the yeeks of Rel to the dangers that lie within the island.", "岛屿的安全仍然在威胁之中，你不能丢下瑞尔岛的夺心魔出去。", "_t")
 t("Unremarkable cave", "不显眼的山洞", "entity name")
 t("A gate into the old kingdom of Reknor", "古代王国瑞库纳的大门", "entity name")
@@ -42214,7 +42286,7 @@ t("Prodigies: %s", "觉醒点：%s", "tformat")
 t([[#LIGHT_GREEN#Number available: %d#LAST#
 Prodigies are special talents that only the most powerful of characters can attain.%s
 All of them require at least 50 in a core stat and many also have more special demands. You can learn a new prodigy at level 25 and 42.]], [[#LIGHT_GREEN#当前可用觉醒技能点： %d
-觉醒技是角色足够强大时才能获得的特殊技能。
+觉醒技是角色足够强大时才能获得的特殊技能。 %s
 所有觉醒技能必须在人物某项核心属性达到50点并满足所需的特殊要求后才能习得。
 你可以在人物等级达到25级和42级时各获得一个觉醒技能点。]], "_t")
 t("\
@@ -42975,7 +43047,7 @@ t("Though magic is still shunned in Maj'Eyal, rumours abound of secret havens of
 t("The Rush talent lets you close in on an enemy quickly and daze them, disabling them whilst you hack down their friends.", "冲锋技能可以让你快速接近敌人并眩晕目标，你可以借此时机击倒它的同伴。", "init.lua load_tips")
 t("Stunning an opponent slows down their movement and reduces their damage output, giving you the opportunity to tactically reposition or finish them off at less risk.", "震慑可以减缓目标的移动速度，降低其伤害输出，这样可以为你制造机会解决它们，或者降低他们对你的威胁。", "init.lua load_tips")
 t("Movement is key on the battlefield. A stationary fighter will become a dead fighter. One must always seek the position of greatest tactical advantage and continue to re-evaluate throughout the battle.", "移动是战斗制胜的关键。一个固定不动的战士只会变成一个死的战士。战斗过程中你必须随时调整你的走位以保持你的优势。", "init.lua load_tips")
-t("In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.", "在派尔纪，兽人秘密学习了魔法，他们恐怖的魔法力量差一点毁灭了整个埃亚尔大陆。", "init.lua load_tips")
+t("In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.", "在烈火纪，兽人秘密学习了魔法，他们恐怖的魔法力量差一点毁灭了整个埃亚尔大陆。", "init.lua load_tips")
 t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们几乎已经灭绝，不过传言他们正准备秘密地卷土重来。", "init.lua load_tips")
 t("Intense willpower lets wyrmics take on the natural powers of dragons.", "高强度的意志使龙战士可以获得龙族的自然力量。", "init.lua load_tips")
 t("Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.", "炼金术士可以转化宝石制造强大的爆炸，同时他们还可以召唤傀儡来守护他们。", "init.lua load_tips")
@@ -42992,7 +43064,7 @@ t("Some Sher'Tul artifacts can still be found in hidden places, but it is said t
 t("Drakes and wyrms are the strongest natural creatures in the world, capable of powers far beyond most other beings.", "龙与巨龙是这个世界上最强大的自然生物，它们所拥有的力量远在其他生物之上。", "init.lua load_tips")
 t("Giant worms tear open huge passageways through the deserts in the west. It is said great riches lie buried beneath the sand, still decorating the corpses of those who went there seeking great riches.", "西部沙漠中的巨型蠕虫挖掘出了很多巨大的通道。传说在那沙洞深处埋藏着很多诱人的宝物。不过除了宝物之外，更多的便是那些寻宝人的尸体。", "init.lua load_tips")
 t("Arcane Blades employ a fusion of melee and magical combat. Their training is harsh but the most dedicated rise to great powers.", "奥术之刃是一个混合了魔法与近战的职业。他们的训练非常严酷，同时他们的力量也极其强大。", "init.lua load_tips")
-t("Wild infusions call upon the powers of nature to protect the flesh and rid oneself of afflictions.", "自然纹身可以召唤自然的力量来保护你的肉体免于伤害。", "init.lua load_tips")
+t("Wild infusions call upon the powers of nature to protect the flesh and rid oneself of afflictions.", "野性纹身可以召唤自然的力量来保护你的肉体免于伤害。", "init.lua load_tips")
 t("Shield runes act instantly, letting one protect oneself quickly whilst also preparing to flee or launch a counter attack.", "护盾符文为瞬发技能，可以在你准备逃跑或者反击的同时提供防护。", "init.lua load_tips")
 t("Greater training in the use of armour lets it be used more effectively, blocking more damage and reducing the chance of an enemy hitting a critical spot.", "高级的护甲训练可以有效提高你的防护能力，使你格挡更多伤害并降低你受到致命一击的几率。", "init.lua load_tips")
 t("The Thick Skin talent reduces all incoming damage, letting you survive for longer before needing to heal.", "硬化皮肤技能可以降低所有受到的伤害，让你在能够使用治疗以前存活更长的时间。", "init.lua load_tips")
@@ -43065,7 +43137,7 @@ t("This is your readied tool, always available immediately.", "这是你准备�
 t("Quiver", "弹药袋", "_t")
 t("Your readied ammo.", "你准备好的弹药", "_t")
 t("Socketed Gems", "镶嵌宝石", "_t")
-t("Gems worn in/on the body, providing their worn bonuses.", "装在在身体内/外的宝石，提供宝石的装备属性。", "_t")
+t("Gems worn in/on the body, providing their worn bonuses.", "装在身体内/外的宝石，提供宝石的装备属性。", "_t")
 t("Second weapon set: In main hand", "第二套武器：在主手", "_t")
 t("Weapon Set 2: Most weapons are wielded in the main hand. Press 'x' to switch weapon sets.", "第二套武器：大部分武器使用主手抓握。按x切换武器套。", "_t")
 t("Second weapon set: In off hand", "第二套武器：在副手", "_t")
