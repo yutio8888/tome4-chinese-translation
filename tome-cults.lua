@@ -424,7 +424,7 @@ t("wall", "墙壁", "entity type")
 t("godfeaster wall", "噬神者墙", "entity name")
 t("godfeaster door", "噬神者门", "entity name")
 t("open godfeaster door", "打开的噬神者门", "entity name")
-t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封住了，你觉得你可以打开它。", "_t")
+t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封印了，你觉得你可以打开它。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/general/grids/maggot.lua"
@@ -440,7 +440,7 @@ t("wall", "墙壁", "entity type")
 t("maggot wall", "蛆虫墙", "entity name")
 t("maggot door", "蛆虫门", "entity name")
 t("open maggot door", "打开的蛆虫门", "entity name")
-t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封住了，你觉得你可以打开它。", "_t")
+t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封印了，你觉得你可以打开它。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/general/grids/scourge.lua"
@@ -472,7 +472,7 @@ t("wall", "墙壁", "entity type")
 t("slimy_godfeaster wall", "史莱姆噬神者墙", "entity name")
 t("slimy_godfeaster door", "史莱姆噬神者门", "entity name")
 t("open slimy_godfeaster door", "打开的史莱姆噬神者门", "entity name")
-t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封住了，你觉得你可以打开它。", "_t")
+t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封印了，你觉得你可以打开它。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/general/grids/spacedwarf-creep.lua"
@@ -3163,7 +3163,7 @@ t("Quantum Tunnelling", "量子隧道", "talent name")
 t("You do not have line of sight.", "你没有视线", "logPlayer")
 t("You must target a void rift.", "你必须瞄准虚空裂隙。", "logPlayer")
 t("%s's space-time folding fizzles!", "%s的时空折叠失败了！", "logSeen")
-t("%s emerges from a space-time rift!", "%s从时空裂隙中出现！", "logSeen")
+t("%s emerges from a space-time rift!", "%s从时空虫洞中出现！", "logSeen")
 t([[You briefly open a tunnel through spacetime, teleporting to a void rift in range %d. This destroys the rift, granting you a shield for %d turns absorbing %d damage.
 		The damage absorbed will scale with your Spellpower]], [[你短暂地在时空中打开一个通道 , 传送到范围 %d 内的一个虚空裂隙。这将摧毁那个虚空裂隙，使你获得一个护盾，吸收 %d 点伤害，持续 %d 回合。
 		护盾吸收的伤害随法术强度提高而提高。]], "tformat", {1,3,2})
@@ -3740,7 +3740,7 @@ t("#Target# seems more focused.", "#Target#恢复了理智。", "_t")
 t("-Cacophony", "-心灵尖啸", "_t")
 t("Entropic Wasting", "熵能冲击", "_t")
 t("The target is wasting away from entropic forces, taking %0.2f damage per turn.", "目标被熵能冲击中，每回合受到 %0.2f 伤害。", "tformat")
-t("#Target# is wasting away!", "#Target# 被消耗！", "_t")
+t("#Target# is wasting away!", "#Target#的时间被消耗！", "_t")
 t("+Entropic Wasting", "+熵能冲击", "_t")
 t("#Target#'s is no longer wasting away.", "#Target# 不再被消耗。", "_t")
 t("-Entropic Wasting", "-熵能冲击", "_t")
