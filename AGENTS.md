@@ -2,6 +2,24 @@
 
 本文件适用于整个仓库。
 
+## 汉化工具入口
+
+- 当前版本的自动化入口统一为 `python3 -B tools/i18n <command>`；`tools/i18n` 可执行位可用时也可直接调用。
+- 首次运行先执行 `tools/i18n doctor`，译文修改后执行 `tools/i18n lint`。
+- 工具会在启动 LuaJIT 子进程时自动设置本文件规定的 `LUA_PATH` 和 `LUA_CPATH`，不得要求用户手动导出。
+- `extract`、`lint`、`status`、`merge`、`workset`、`context`、`proposal`、`review` 和 `build` 的报告或候选文件只写入已忽略的 `.artifacts/i18n/`；没有显式安装命令时不得改写游戏源码仓库或发布模组仓库。
+- Pi 翻译入口为 `tools/pi-subagent --workset <workset.json>`。该进程必须保持无工具、无会话、无项目上下文，只能输出 proposal artifact；其结果必须通过 `proposal --strict`，不得直接写规范 Lua。
+- Pi 审核入口为 `tools/i18n review` 生成 bundle，再用 `tools/pi-review --bundle <bundle.json>` 执行。审核 bundle 可以覆盖全部规范翻译条目（按批次）和当前公开工作区代码 diff；Pi 必须保持无工具、无会话、无项目上下文，只能输出结构化 findings artifact，不得直接修改文件。
+- Pi 处理审核意见入口为 `tools/pi-remediate --bundle <bundle.json> --review <review.json>`。该进程只能输出绑定到 finding/item 的 remediation proposal；主代理必须独立校验并应用修订，再重新运行 `tools/pi-review`，不得让 Pi 直接写规范 Lua 或代码。
+- 当用户要求 Codex 调用 Pi 开展审核时，使用项目 Skill `$tome4-pi-review`。首次向外部 provider 发送 bundle 前，必须明确报告 provider、model、bundle 类型和条目数量并取得用户授权；不得用项目级全局网络放行绕过该授权。
+
+## 闭源 DLC 输入边界
+
+- `/Users/yun/projects/t-engine4/game/dlcs` 及 `TOME_DLC_ROOT` 指向的目录是闭源受保护输入。代理不得用 `ls`、`find`、`rg`、`grep`、`cat`、`sed`、Git 命令、Python/Node 文件 API 或编辑器直接读取、枚举或搜索其中的文件和目录。
+- 只有仓库内受审计的 Lua 提取脚本可以读取受保护目录。非 Lua 调度层只能传入预先声明的组件路径，且只能读取 Lua 生成的文本快照和去敏摘要。
+- 受保护提取不得保存或显示源码、源码片段、原始解析日志、绝对 DLC 路径或未声明的目录清单。解析失败必须静默、失败关闭，只报告组件和错误类别。
+- Pi 翻译、Pi 审核、其他 subagent 以及人工审校输入都不能获得受保护源码路径或文件读取工具。翻译审校只能接收规范翻译条目的有界 bundle；代码审校只能接收去除绝对路径后的公开代码 diff。任何审核结果都只能写入 `.artifacts/i18n/`，不得自动应用到规范 Lua 或代码。
+
 ## Lua 运行环境
 
 - Tome4 及本仓库的旧汉化工具按 Lua 5.1 语义运行。

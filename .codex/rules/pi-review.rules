@@ -1,0 +1,15 @@
+# Pi review sends a validated, bounded bundle to an external model provider.
+# Always surface an approval instead of granting repository-wide network access.
+prefix_rule(
+    pattern = ["tools/pi-review"],
+    decision = "prompt",
+    justification = "Pi review sends a bounded review bundle to the configured external provider; confirm the provider and data scope before continuing.",
+    match = [
+        "tools/pi-review --bundle /tmp/review-bundle.json",
+        "tools/pi-review --bundle /tmp/review-bundle.json --timeout 900",
+    ],
+    not_match = [
+        "tools/pi-subagent --workset /tmp/workset.json",
+        "pi --print prompt",
+    ],
+)
