@@ -10,12 +10,16 @@
 - 原样复制 `schema_version`、`review_contract` 和 `bundle_id`。
 - `findings` 必须是数组；没有问题时返回空数组。
 - 每条 finding 必须包含：`finding_id`、`severity`、`category`、`item_id`、`title`、`body`。
+- `finding_id` 只是本次模型输出内不重复的临时别名；宿主校验后会按规范 finding identity 分配
+  `R-NNN`，不要试图延续其他会话中的编号。
 - `severity` 只能是 `blocker`、`major`、`minor` 或 `note`。
 - `category` 只能是 `translation`、`format`、`markup`、`code`、`security`、`scope` 或 `catalog`。
 - `item_id` 必须逐字复制 bundle 中对应翻译条目或代码文件对象的 `item_id` 字段；
   对代码 bundle，`item_id` 是 `files` 数组里的标识符，不是 `path`，不能填写文件路径。
   输出前逐条对照 bundle 的 item_id 清单；无法对应时不要猜测，删除该 finding。
 - 不要输出完整文件、完整译文或大段引用；只给出必要的短评和可执行建议。
+- 不要增加未声明字段。`suggested_fix` 只能是供主代理判断的短文本建议，不得包含命令、可执行脚本、
+  完整 patch 或要求宿主自动运行的内容。
 
 ## 审核要求
 

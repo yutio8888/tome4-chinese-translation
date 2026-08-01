@@ -22,7 +22,9 @@ tools/i18n workset --merge-report <merge-run>/tome/merge.json --limit 50
 tools/pi-subagent --workset <workset.json>
 tools/i18n context --component tome --query Dreadfell --limit 20
 tools/i18n proposal --workset <workset.json> --proposal <proposal.json> --strict
-tools/i18n review --all-translations --include-code
+tools/i18n review --scope code
+tools/i18n review --scope translations
+tools/i18n review --scope code --scope translations
 tools/pi-review --bundle <review-bundle.json>
 tools/pi-remediate --bundle <review-bundle.json> --review <review.json>
 ```
@@ -57,9 +59,11 @@ provider，首次调用前仍需明确确认 provider、model 和数据范围；
 - `core-addon` 只包含 `tome`，对应命令为
   `tools/i18n build --profile addon --component tome --require-complete`，当前可作为
   核心发布基线。
-- `dlc-addon` 单独包含五个 DLC。`ashes-urhrok`、`cults`、`orcs` 已登记受保护
-  提取快照哈希；`items-vault` 和 `possessors` 的受保护来源当前不可用，因此该层
-  仍为 `baseline-pending`，不能被核心构建隐式继承。
+- `dlc-addon` 当前只包含 `ashes-urhrok`、`cults`、`orcs`，三者已登记受保护
+  提取快照哈希。该层仍为 `baseline-pending`，不能被核心构建隐式继承。
+- `items-vault` 和 `possessors` 暂时忽略：规范译文文件仍保留并参与 lint，
+  但 manifest 不再声明其受保护来源映射，也不把它们列为 addon 候选或发布层组件。
+  后续恢复时应同时还原受保护来源映射、addon eligibility 和发布层归属。
 - `legacy-lore-addon` 与 `nullpack-addon` 是独立可选外部层。它们的来源、版本或
   归属组件尚未固定，不计入核心 addon 的完整性判断。
 
@@ -75,12 +79,14 @@ provider，首次调用前仍需明确确认 provider、model 和数据范围；
 - `proposal` 校验 Pi 或人工返回的结构化译文：workset 内容身份、条目覆盖率、原文、
   `source_tag`、Lua 值、printf 参数及首选术语。成功后只生成内容寻址的
   `*.validated.json`；`--allow-partial` 允许分批返回，`--strict` 会阻断警告。
-- `review` 生成只读 Pi 审核 bundle：默认把所有规范翻译条目按批次打包，并附加当前
-  公开工作区的代码/config/doc diff。bundle 只写入 `.artifacts/i18n/`，会去除绝对路径，
-  不包含受保护 DLC 源码或受保护源码路径。
+- `review` 生成只读 Pi 审核 bundle；必须用 `--scope code` 或
+  `--scope translations` 显式选择范围，重复参数才会同时选择两者。bundle 只写入
+  `.artifacts/i18n/`，会去除绝对路径，不包含受保护 DLC 源码或受保护源码路径。
 - `tools/pi-review --bundle` 使用独立的 reviewer prompt，在无工具、无会话、无项目
-  上下文的 Pi 进程中运行，只生成结构化 findings artifact；它不会修改 Lua、Python
-  或其他工作区文件。
+  上下文的 Pi 进程中运行，只生成结构化 findings artifact；宿主会分配稳定的
+  `R-NNN` 引用，并在启动 Pi 前复用 provider/model/prompt/bundle 完全一致且已严格
+  校验的缓存结果。`--force` 可做一次不改写缓存的 fresh run，`--no-cache` 可完全禁用
+  缓存。该入口不会修改 Lua、Python 或其他工作区文件，也不会执行模型建议。
 - `tools/pi-remediate --bundle --review` 把已校验的 findings 和原 bundle 交给独立的
   remediation prompt，只生成按 `finding_id`/`item_id` 绑定的修订建议。主代理必须
   复核、应用并重新审核；Pi 没有文件写入权限。

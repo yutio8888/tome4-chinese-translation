@@ -33,6 +33,7 @@ PUBLIC_REVIEW_FILES = (
     ".gitignore",
     "AGENTS.md",
     "handoff.md",
+    "pi-agent-analysis.md",
     "TERMINOLOGY.md",
     "terminology.tsv",
 )
@@ -228,6 +229,42 @@ def _bundle_id(payload: dict[str, Any]) -> str:
     return _canonical_sha256(payload)
 
 
+def _review_index_id(payload: dict[str, Any]) -> str:
+    """Hash semantic review selection without run-local artifact paths."""
+    bundles = payload.get("bundles", [])
+    identity_bundles = [
+        {
+            key: item[key]
+            for key in ("bundle_id", "kind", "component", "offset", "count", "total")
+            if key in item
+        }
+        for item in bundles
+        if isinstance(item, dict)
+    ]
+    identity_bundles.sort(
+        key=lambda item: (
+            str(item.get("kind", "")),
+            str(item.get("component", "")),
+            int(item.get("offset", 0)),
+            str(item.get("bundle_id", "")),
+        )
+    )
+    return _canonical_sha256(
+        {
+            "schema_version": payload.get("schema_version"),
+            "review_contract": payload.get("review_contract"),
+            "tool_version": payload.get("tool_version"),
+            "version": payload.get("version"),
+            "manifest_sha256": payload.get("manifest_sha256"),
+            "scope": payload.get("scope"),
+            "redacted_absolute_path_count": payload.get(
+                "redacted_absolute_path_count"
+            ),
+            "bundles": identity_bundles,
+        }
+    )
+
+
 def _write_translation_bundles(
     run_directory: Path,
     manifest: Manifest,
@@ -335,8 +372,8 @@ def create_review_index(
     manifest: Manifest,
     *,
     batch_size: int = DEFAULT_REVIEW_BATCH_SIZE,
-    include_translations: bool = True,
-    include_code: bool = True,
+    include_translations: bool,
+    include_code: bool,
 ) -> dict[str, Any]:
     if not 1 <= batch_size <= MAX_REVIEW_BATCH_SIZE:
         raise ValidationError(
@@ -375,7 +412,7 @@ def create_review_index(
     }
     index_path = run_directory / "review-index.json"
     index_payload["index"] = str(index_path)
-    index_payload["review_id"] = _bundle_id(index_payload)
+    index_payload["review_id"] = _review_index_id(index_payload)
     write_json(index_path, index_payload)
     return index_payload
 

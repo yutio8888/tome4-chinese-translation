@@ -163,21 +163,16 @@ def _parser() -> argparse.ArgumentParser:
     context.add_argument("--limit", type=int, default=50)
 
     review = subparsers.add_parser(
-        "review", help="create bounded Pi review bundles for all translations and public code"
+        "review", help="create bounded Pi review bundles for an explicit scope"
     )
     _add_common_arguments(review)
     review.add_argument("--batch-size", type=int, default=50)
     review.add_argument(
-        "--all-translations",
-        action=argparse.BooleanOptionalAction,
-        default=True,
-        help="include every canonical translation entry in bounded batches",
-    )
-    review.add_argument(
-        "--include-code",
-        action=argparse.BooleanOptionalAction,
-        default=True,
-        help="include the current public worktree diff",
+        "--scope",
+        action="append",
+        choices=("translations", "code"),
+        required=True,
+        help="review scope; repeat to include both translations and code",
     )
 
     proposal = subparsers.add_parser(
@@ -612,11 +607,12 @@ def _context(arguments: argparse.Namespace) -> int:
 
 def _review(arguments: argparse.Namespace) -> int:
     manifest = _manifest(arguments)
+    scopes = frozenset(arguments.scope)
     index = create_review_index(
         manifest,
         batch_size=arguments.batch_size,
-        include_translations=arguments.all_translations,
-        include_code=arguments.include_code,
+        include_translations="translations" in scopes,
+        include_code="code" in scopes,
     )
     if arguments.json:
         _print_json(index)

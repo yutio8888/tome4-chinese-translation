@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import atexit
+import contextlib
 import hashlib
+import io
 import sys
 import json
 import os
@@ -26,9 +28,11 @@ atexit.register(_cleanup_test_fixtures)
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
+from i18nlib import TOOL_VERSION
 from i18nlib.config import load_manifest
 from i18nlib.build import _lua_string, build_addon_locale
-from i18nlib.errors import ValidationError
+from i18nlib.cli import _parser as cli_parser
+from i18nlib.errors import AgentError, ValidationError
 from i18nlib.git_source import GitRepository
 from i18nlib.lint import (
     Policy,
@@ -41,13 +45,15 @@ from i18nlib.locale_model import LocaleLoader
 from i18nlib.merge import classify_merge
 from i18nlib.pi_agent import run_pi_translation
 from i18nlib.pi_remediate import run_pi_remediation
-from i18nlib.pi_review import run_pi_review
+from i18nlib.pi_review import _validate_findings, run_pi_review
 from i18nlib.proposal import validate_proposal
 from i18nlib.review import (
     REVIEW_CONTRACT,
     REVIEW_SCHEMA_VERSION,
     _bundle_id,
+    _is_public_review_path,
     _redact_absolute_paths,
+    _review_index_id,
     validate_review_bundle,
 )
 from i18nlib.runtime import LuaRuntime
@@ -131,7 +137,7 @@ class ManifestTests(unittest.TestCase):
                 for component in manifest.components
                 if component.protected_source is not None
             },
-            {"ashes-urhrok", "cults", "items-vault", "orcs", "possessors"},
+            {"ashes-urhrok", "cults", "orcs"},
         )
         ashes = manifest.component("ashes-urhrok")
         self.assertIsNone(ashes.source_repository)
@@ -160,6 +166,15 @@ class ManifestTests(unittest.TestCase):
         )
         self.assertEqual(core_layer.components, ("tome",))
         self.assertEqual(core_layer.external_requirements, ())
+        dlc_layer = next(
+            layer for layer in manifest.release_layers if layer.id == "dlc-addon"
+        )
+        self.assertEqual(dlc_layer.components, ("ashes-urhrok", "cults", "orcs"))
+        for component_id in ("items-vault", "possessors"):
+            ignored = manifest.component(component_id)
+            self.assertIsNone(ignored.protected_source)
+            self.assertFalse(ignored.addon_eligible)
+            self.assertTrue((manifest.root / ignored.translation).is_file())
 
     def test_pinned_official_locale_is_a_regular_blob(self) -> None:
         manifest = load_manifest()
@@ -171,6 +186,21 @@ class ManifestTests(unittest.TestCase):
             component.official_locale,
         )
         self.assertTrue(data.startswith(b'locale "zh_hans"'))
+
+
+class ReviewScopeTests(unittest.TestCase):
+    def test_pi_agent_analysis_is_in_public_review_scope(self) -> None:
+        self.assertTrue(_is_public_review_path("pi-agent-analysis.md"))
+        self.assertFalse(_is_public_review_path("private/pi-agent-analysis.md"))
+
+    def test_review_cli_requires_an_explicit_scope(self) -> None:
+        with contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit):
+                cli_parser().parse_args(["review"])
+        arguments = cli_parser().parse_args(
+            ["review", "--scope", "code", "--scope", "translations"]
+        )
+        self.assertEqual(arguments.scope, ["code", "translations"])
 
 
 class AddonBuildTests(unittest.TestCase):
@@ -457,7 +487,7 @@ class ReviewBundleTests(unittest.TestCase):
         return {
             "schema_version": REVIEW_SCHEMA_VERSION,
             "review_contract": REVIEW_CONTRACT,
-            "tool_version": "0.4.0",
+            "tool_version": TOOL_VERSION,
             "version": self.manifest.version,
             "manifest_sha256": hashlib.sha256(self.manifest.raw_bytes).hexdigest(),
             "kind": kind,
@@ -510,6 +540,113 @@ class ReviewBundleTests(unittest.TestCase):
         pattern, pattern_count = _redact_absolute_paths("gsub(\"([/])\")")
         self.assertEqual(pattern_count, 0)
         self.assertIn("([/])", pattern)
+
+    def test_review_index_identity_ignores_run_local_paths(self) -> None:
+        payload = {
+            "schema_version": REVIEW_SCHEMA_VERSION,
+            "review_contract": REVIEW_CONTRACT,
+            "tool_version": TOOL_VERSION,
+            "version": self.manifest.version,
+            "manifest_sha256": hashlib.sha256(self.manifest.raw_bytes).hexdigest(),
+            "scope": {"translations": False, "code": True, "protected_sources": False},
+            "redacted_absolute_path_count": 0,
+            "bundles": [
+                {
+                    "bundle_id": "bundle-fixture",
+                    "kind": "code",
+                    "offset": 0,
+                    "count": 1,
+                    "total": 1,
+                    "path": "/first/run/bundle.json",
+                }
+            ],
+            "run_directory": "/first/run",
+            "index": "/first/run/review-index.json",
+        }
+        first = _review_index_id(payload)
+        payload["run_directory"] = "/second/run"
+        payload["index"] = "/second/run/review-index.json"
+        payload["bundles"][0]["path"] = "/second/run/bundle.json"
+        self.assertEqual(first, _review_index_id(payload))
+
+    def test_strict_review_normalizes_host_finding_refs(self) -> None:
+        bundle = self._base("code")
+        bundle["files"] = [
+            {
+                "item_id": "code-b",
+                "path": "tools/b.py",
+                "status": "M ",
+                "diff": "fixture",
+            },
+            {
+                "item_id": "code-a",
+                "path": "tools/a.py",
+                "status": "M ",
+                "diff": "fixture",
+            },
+        ]
+        bundle["bundle_id"] = _bundle_id(bundle)
+        output = {
+            "schema_version": REVIEW_SCHEMA_VERSION,
+            "review_contract": REVIEW_CONTRACT,
+            "bundle_id": bundle["bundle_id"],
+            "findings": [
+                {
+                    "finding_id": "model-b",
+                    "severity": "minor",
+                    "category": "code",
+                    "item_id": "code-b",
+                    "path": "tools/b.py",
+                    "title": "B",
+                    "body": "B body",
+                },
+                {
+                    "finding_id": "model-a",
+                    "severity": "major",
+                    "category": "code",
+                    "item_id": "code-a",
+                    "path": "tools/a.py",
+                    "title": "A",
+                    "body": "A body",
+                },
+            ],
+        }
+        summary, normalized = _validate_findings(bundle, output, strict=True)
+        self.assertEqual(summary["findings"], 2)
+        self.assertEqual(
+            [finding["finding_id"] for finding in normalized["findings"]],
+            ["R-001", "R-002"],
+        )
+        self.assertEqual(
+            [finding["model_finding_id"] for finding in normalized["findings"]],
+            ["model-a", "model-b"],
+        )
+        self.assertEqual(len(normalized["decision_digest"]), 64)
+        self.assertEqual(len(normalized["review_id"]), 64)
+
+    def test_strict_review_rejects_unknown_model_fields(self) -> None:
+        bundle = self._base("code")
+        bundle["files"] = [
+            {
+                "item_id": "code-fixture",
+                "path": "tools/i18n",
+                "status": "M ",
+                "diff": "fixture",
+            }
+        ]
+        bundle["bundle_id"] = _bundle_id(bundle)
+        output = {
+            "schema_version": REVIEW_SCHEMA_VERSION,
+            "review_contract": REVIEW_CONTRACT,
+            "bundle_id": bundle["bundle_id"],
+            "verdict": "approved",
+            "findings": [],
+        }
+        with self.assertRaises(ValidationError):
+            _validate_findings(bundle, output, strict=True)
+        summary, normalized = _validate_findings(bundle, output, strict=False)
+        self.assertEqual(summary["findings"], 0)
+        self.assertNotIn("verdict", normalized)
 
 
 class MergeTests(unittest.TestCase):
@@ -815,7 +952,7 @@ print(json.dumps(proposal, ensure_ascii=False))
             bundle = {
                 "schema_version": REVIEW_SCHEMA_VERSION,
                 "review_contract": REVIEW_CONTRACT,
-                "tool_version": "0.4.0",
+                "tool_version": TOOL_VERSION,
                 "version": self.manifest.version,
                 "manifest_sha256": hashlib.sha256(self.manifest.raw_bytes).hexdigest(),
                 "kind": "translations",
@@ -875,6 +1012,7 @@ print(json.dumps({
                     timeout=30,
                     strict=True,
                     pi_executable=str(fake_pi),
+                    use_cache=False,
                 )
             finally:
                 if previous is None:
@@ -884,6 +1022,16 @@ print(json.dumps({
             arguments = json.loads(arguments_path.read_text())
         self.assertTrue(report["ok"])
         self.assertEqual(report["summary"]["findings"], 0)
+        self.assertEqual(report["cache_decision"], "disabled")
+        self.assertEqual(report["mode"], "findings-only-v1")
+        self.assertFalse(report["pi_tools"])
+        self.assertFalse(report["pi_session"])
+        self.assertFalse(report["candidate_execution"])
+        self.assertEqual(report["concurrency"], 1)
+        self.assertEqual(report["attempts"], 1)
+        self.assertEqual(report["charged_or_possible_transfers"], 1)
+        self.assertEqual(report["validated_results"], 1)
+        self.assertGreaterEqual(report["elapsed_seconds"], 0)
         self.assertIn("--no-tools", arguments)
         self.assertIn("--no-context-files", arguments)
         self.assertIn("--no-session", arguments)
@@ -891,13 +1039,120 @@ print(json.dumps({
         self.assertEqual(sum(value.startswith("@") for value in arguments), 1)
         self.assertTrue(Path(report["review"]).is_file())
 
+    def test_pi_reviewer_reuses_exact_validated_cache_before_starting_pi(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-review-cache-test-") as temporary:
+            directory = Path(temporary)
+            bundle = {
+                "schema_version": REVIEW_SCHEMA_VERSION,
+                "review_contract": REVIEW_CONTRACT,
+                "tool_version": TOOL_VERSION,
+                "version": self.manifest.version,
+                "manifest_sha256": hashlib.sha256(self.manifest.raw_bytes).hexdigest(),
+                "kind": "translations",
+                "component": "boot",
+                "items": [
+                    {
+                        "item_id": "translation-cache-fixture",
+                        "component": "boot",
+                        "section": "fixture/cache.lua",
+                        "source": "Cache",
+                        "target": "缓存",
+                        "source_tag": "nil",
+                        "args_order": None,
+                        "special": None,
+                    }
+                ],
+            }
+            bundle["bundle_id"] = _bundle_id(bundle)
+            bundle_path = directory / "bundle.json"
+            bundle_path.write_text(
+                json.dumps(bundle, ensure_ascii=False), encoding="utf-8"
+            )
+            fake_pi = directory / "fake-pi-review-cache"
+            fake_pi.write_text(
+                """#!/usr/bin/env python3
+import json
+import sys
+from pathlib import Path
+
+bundle_path = next(Path(value[1:]) for value in sys.argv[1:] if value.startswith("@"))
+bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
+print(json.dumps({
+    "schema_version": bundle["schema_version"],
+    "review_contract": bundle["review_contract"],
+    "bundle_id": bundle["bundle_id"],
+    "findings": [],
+}, ensure_ascii=False))
+""",
+                encoding="utf-8",
+            )
+            fake_pi.chmod(0o700)
+            provider = f"fixture-cache-{directory.name}"
+            first = run_pi_review(
+                bundle_path=bundle_path,
+                provider=provider,
+                model="fixture-model",
+                thinking="high",
+                timeout=30,
+                strict=True,
+                pi_executable=str(fake_pi),
+                use_cache=True,
+            )
+            cache_path = (
+                ROOT
+                / ".artifacts"
+                / "i18n"
+                / "cache"
+                / "pi-review"
+                / f"{first['result_cache_key']}.json"
+            )
+            try:
+                second = run_pi_review(
+                    bundle_path=bundle_path,
+                    provider=provider,
+                    model="fixture-model",
+                    thinking="high",
+                    timeout=30,
+                    strict=True,
+                    pi_executable=str(directory / "does-not-exist"),
+                    use_cache=True,
+                )
+                tampered = json.loads(cache_path.read_text(encoding="utf-8"))
+                tampered["review"]["review_id"] = "tampered"
+                cache_path.write_text(
+                    json.dumps(tampered, ensure_ascii=False), encoding="utf-8"
+                )
+                with self.assertRaises(AgentError):
+                    run_pi_review(
+                        bundle_path=bundle_path,
+                        provider=provider,
+                        model="fixture-model",
+                        thinking="high",
+                        timeout=30,
+                        strict=True,
+                        pi_executable=str(directory / "does-not-exist"),
+                        use_cache=True,
+                    )
+            finally:
+                cache_path.unlink(missing_ok=True)
+        self.assertEqual(first["cache_decision"], "miss")
+        self.assertEqual(first["attempts"], 1)
+        self.assertEqual(second["cache_decision"], "hit")
+        self.assertEqual(second["attempts"], 0)
+        self.assertEqual(second["charged_or_possible_transfers"], 0)
+        self.assertEqual(second["validated_results"], 1)
+        self.assertEqual(
+            json.loads(Path(first["review"]).read_text(encoding="utf-8")),
+            json.loads(Path(second["review"]).read_text(encoding="utf-8")),
+        )
+
     def test_pi_remediator_binds_proposals_to_findings(self) -> None:
         with tempfile.TemporaryDirectory(prefix="tome4-pi-remediate-test-") as temporary:
             directory = Path(temporary)
             bundle = {
                 "schema_version": REVIEW_SCHEMA_VERSION,
                 "review_contract": REVIEW_CONTRACT,
-                "tool_version": "0.4.0",
+                "tool_version": TOOL_VERSION,
                 "version": self.manifest.version,
                 "manifest_sha256": hashlib.sha256(self.manifest.raw_bytes).hexdigest(),
                 "kind": "translations",

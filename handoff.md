@@ -24,7 +24,7 @@
 ### 工具链
 
 - `doctor`、`extract`、`lint`、`status`、`merge`、`workset`、`context`、`proposal`、`review`、`build` 已统一到 `python3 -B tools/i18n` 入口。
-- 审核流程：`tools/i18n review` 生成只读 Pi 审核 bundle，`tools/pi-review --bundle` 产生 findings，`tools/pi-remediate --bundle --review` 产生修订建议；修订需由主代理校验后应用。
+- 审核流程：`tools/i18n review --scope code|translations` 显式生成只读 Pi 审核 bundle，`tools/pi-review --bundle` 严格校验 findings、分配宿主 `R-NNN` 并优先复用精确缓存，`tools/pi-remediate --bundle --review` 产生修订建议；修订需由主代理校验后应用，MVP 不自动执行模型建议。
 - 构建工具现在支持最小 addon 覆盖层：官方已有且语义未改变的译文只计入继承统计，不写入插件。
 - 显式指定组件时，例如：
 
@@ -39,7 +39,7 @@
 ### 本次发布边界决策
 
 - 核心发布层固定为 `tome`，继续使用 `build --profile addon --component tome --require-complete`；DLC 和外部覆盖层不再作为核心构建的隐式依赖。
-- `ashes-urhrok`、`cults`、`orcs` 已登记受保护提取快照的哈希基线；`items-vault`、`possessors` 已登记为受保护组件，但当前探测不到来源，仍属于 DLC 可选层的 `baseline-pending` 状态。
+- `ashes-urhrok`、`cults`、`orcs` 已登记受保护提取快照的哈希基线；`items-vault`、`possessors` 暂时忽略，保留规范译文但不再探测来源，也不计入 addon 候选或 DLC 发布层完整性。
 - `legacy-lore-overlay` 与 `nullpackreloaded` 各自拆为独立可选外部层。当前不把 addon 仓库提交当作它们的官方源码基线，也不把它们计入核心发布完整性。
 - 以上边界已写入 `i18n/versions/tome-1.7.6.json` 的 `release_layers`；后续严格构建需要按层选择并验证，不应通过忽略缺失来源来伪造全量通过。
 
@@ -47,7 +47,7 @@
 
 以下结果是当前工作区最近一次验证的基线：
 
-- 单元测试：30 项通过。
+- 单元测试：36 项通过。
 - 普通 lint：0 个错误、51 个警告。
 - 核心最小 addon：构建成功，219 个覆盖键，其中 18,804 个官方已有译文未进入插件，210 个覆盖译文，9 个新增译文。
 - full 构建：`engine`、`boot`、`tome`、`example`、`example-realtime` 均成功。
@@ -59,7 +59,7 @@
 
 ### P0：发布基线
 
-- [ ] 为 `ashes-urhrok`、`cults`、`orcs`、`items-vault`、`possessors` 建立可验证的官方/源码基线，或在 manifest 中明确它们属于可选发布层。
+- [ ] 为当前 DLC 发布层中的 `ashes-urhrok`、`cults`、`orcs` 建立可验证的官方/源码基线；`items-vault`、`possessors` 仅在重新纳入发布范围时恢复来源映射并补建基线。
 - [ ] 为 `legacy-lore-overlay` 固定来源、版本和归属组件。
 - [ ] 为 `nullpackreloaded` 固定源码来源和版本，或拆成独立可选插件。
 - [ ] 明确发布策略：核心 `tome` 插件与 DLC/外部层是否分别发布；不要为了让全量构建通过而跳过基线校验。

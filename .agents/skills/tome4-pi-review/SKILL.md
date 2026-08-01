@@ -17,9 +17,9 @@ limit; do not silently shorten it for a large bundle.
 1. Read the active `AGENTS.md`. For translation review, also read `TERMINOLOGY.md`
    and `terminology.tsv` before generating bundles.
 2. Select the smallest requested scope:
-   - Translations: `python3 -B tools/i18n review --all-translations --no-include-code`
-   - Public changes: `python3 -B tools/i18n review --no-all-translations --include-code`
-   - Both: `python3 -B tools/i18n review --all-translations --include-code`
+   - Translations: `python3 -B tools/i18n review --scope translations`
+   - Public changes: `python3 -B tools/i18n review --scope code`
+   - Both: `python3 -B tools/i18n review --scope translations --scope code`
 3. Read the generated `review-index.json`, not protected source paths. Report the bundle
    count and scope before invoking Pi.
 
@@ -42,7 +42,8 @@ tools/pi-review --bundle <absolute-bundle-path>
 
 Use the provider/model/thinking defaults unless the user requests overrides. For a large
 index, process a bounded batch, report progress, and continue only within the authorized
-scope. Reuse completed `review.json` artifacts instead of paying for duplicate calls.
+scope. Exact validated results are reused before Pi starts; use `--force` only for an
+explicitly requested fresh observation and never to bypass external-transfer authorization.
 
 The remediation command uses the same 20-minute per-bundle limit:
 
