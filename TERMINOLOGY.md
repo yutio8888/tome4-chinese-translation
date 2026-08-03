@@ -11,6 +11,7 @@
 | `source` | 游戏源码中的英文字符串，大小写敏感 |
 | `target` | 当前采用的中文译名 |
 | `category` | 本术语库的规范类别，见下表 |
+| `domain` | 游戏领域（功能域），见“领域分类”一节 |
 | `source_tag` | 现有翻译系统 `t(...)` 的第三参数，保留原始上下文 |
 | `status` | `existing` 表示从当前翻译中整理，`review` 表示需要统一或复核，`preferred` 表示已确认的规范译法 |
 | `scope` | `core`、`addon`、`dlc` 或 `global` |
@@ -42,6 +43,26 @@
 | `T.RUNTIME.LOG` | 战斗日志、系统提示 | `log`、`logSeen`、`logPlayer`、`logCombat` |
 | `T.TECH.FORMAT` | 带占位符的格式模板 | `tformat` |
 | `T.TECH.INTERNAL` | 仅供脚本或调试使用的内部字符串 | `nil`、`easing`、`dialog_portal` |
+
+## 领域分类
+
+`domain` 是比 `category` 更高的游戏功能域维度，用于按领域浏览、统计和维护术语表。同一领域可包含多个类别；`T.GAME.ENTITY` 按语义细分到物品、生物或地点领域。
+
+| 领域 | 说明 | 主要类别 | 条目数 |
+| --- | --- | --- | --- |
+| `combat` | 战斗机制：伤害类型、状态效果、战斗属性 | `T.GAME.DAMAGE`、`T.GAME.EFFECT`、`T.GAME.STAT` | 133 |
+| `talents` | 技能与技能树 | `T.GAME.TALENT`、`T.GAME.TALENT_CATEGORY` | 213 |
+| `classes` | 职业与成长 | `T.GAME.CLASS` | 45 |
+| `resources` | 角色资源 | `T.GAME.RESOURCE` | 12 |
+| `items` | 装备、物品与材料 | `T.GAME.ENTITY`（物品/材料子集） | 50 |
+| `creatures` | 生物与种族 | `T.GAME.ENTITY`（生物子集）、`T.PN.RACE` | 69 |
+| `places` | 地点、地形与世界 | `T.PN.PLACE`、`T.PN.WORLD`、`T.GAME.ENTITY`（地形/场所子集） | 42 |
+| `society` | 势力、组织与人物 | `T.PN.PERSON`、`T.PN.FACTION` | 33 |
+| `narrative` | 叙事、传说与成就 | `T.NARRATIVE.LORE`、`T.NARRATIVE.ACHIEVEMENT` | 52 |
+| `ui` | 界面与交互 | `T.UI.LABEL` | 7 |
+| `tech` | 技术格式与内部字符串 | `T.TECH.FORMAT`、`T.GAME.MISC` | 2 |
+
+术语表按 `domain → category → 原行序` 排序；新增条目时请先确认领域归属，再选择类别。
 
 ## 使用规则
 

@@ -39,10 +39,27 @@ TERMINOLOGY_FIELDS = (
     "source",
     "target",
     "category",
+    "domain",
     "source_tag",
     "status",
     "scope",
     "notes",
+)
+
+TERMINOLOGY_DOMAINS = frozenset(
+    {
+        "combat",
+        "talents",
+        "classes",
+        "resources",
+        "items",
+        "creatures",
+        "places",
+        "society",
+        "narrative",
+        "ui",
+        "tech",
+    }
 )
 
 
@@ -448,6 +465,18 @@ def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
                     "error",
                     "terminology-category",
                     f"terminology category must start with 'T.': {category!r}",
+                    str(path),
+                    offset,
+                )
+            )
+        domain = row.get("domain", "")
+        if domain and domain not in TERMINOLOGY_DOMAINS:
+            issues.append(
+                Issue(
+                    "error",
+                    "terminology-domain",
+                    f"terminology domain must be one of "
+                    f"{sorted(TERMINOLOGY_DOMAINS)}: {domain!r}",
                     str(path),
                     offset,
                 )
