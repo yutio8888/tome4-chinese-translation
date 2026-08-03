@@ -103,7 +103,10 @@ def _terminology_rows(path: Path) -> tuple[list[dict[str, str]], str]:
     ):
         raise ValidationError(f"terminology header is invalid: {path}")
     for row_number, row in enumerate(rows, start=2):
-        if any(not isinstance(row.get(field), str) for field in required):
+        if any(
+            row.get(field) is not None and not isinstance(row.get(field), str)
+            for field in required
+        ):
             raise ValidationError(
                 f"terminology row {row_number} is malformed: {path}"
             )

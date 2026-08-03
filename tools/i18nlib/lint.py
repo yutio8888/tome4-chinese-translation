@@ -448,7 +448,7 @@ def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
     contexts: dict[tuple[str, str, str], list[tuple[dict[str, str], int]]] = defaultdict(list)
     for offset, row in enumerate(rows, start=2):
         for field in TERMINOLOGY_FIELDS[:-1]:
-            if not row.get(field, "").strip():
+            if not (row.get(field) or "").strip():
                 issues.append(
                     Issue(
                         "error",
@@ -458,7 +458,7 @@ def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
                         offset,
                     )
                 )
-        category = row.get("category", "")
+        category = row.get("category") or ""
         if category and not category.startswith("T."):
             issues.append(
                 Issue(
@@ -469,7 +469,7 @@ def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
                     offset,
                 )
             )
-        domain = row.get("domain", "")
+        domain = row.get("domain") or ""
         if domain and domain not in TERMINOLOGY_DOMAINS:
             issues.append(
                 Issue(
@@ -481,18 +481,18 @@ def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
                     offset,
                 )
             )
-        key = (row.get("source", ""), row.get("source_tag", ""), row.get("scope", ""))
+        key = (row.get("source") or "", row.get("source_tag") or "", row.get("scope") or "")
         contexts[key].append((row, offset))
 
     alternative_contexts = 0
     for declarations in contexts.values():
         if len(declarations) < 2:
             continue
-        targets = {row.get("target", "") for row, _ in declarations}
+        targets = {(row.get("target") or "") for row, _ in declarations}
         preferred = [
             (row, line)
             for row, line in declarations
-            if row.get("status", "") == "preferred"
+            if (row.get("status") or "") == "preferred"
         ]
         if len(targets) > 1 and len(preferred) == 1:
             # A preferred row plus historical/review alternatives is an
