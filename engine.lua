@@ -1500,7 +1500,7 @@ This is all optional, you are not forced to use this feature at all, but the dev
 * 帮助游戏开发者调整游戏平衡，让这个游戏变得更好。
 
 你也会获得一个 #LIGHT_BLUE#https://te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
-这一切都是可选的，你可以自愿使用或者关闭这些功能。开发者会根据你的用户反馈来协助调整游戏平衡。]], "_t")
+这一切都是可选的，你可以自愿使用或者关闭这些功能。如果你愿意开启它们，开发者会感谢你的，因为这会让平衡调整变得更简单。]], "_t")
 t("Logging in...", "登录中…", "_t")
 t("Please wait...", "请等待…", "_t")
 t("Profile logged in!", "账户登录成功！", "_t")
