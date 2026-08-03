@@ -4427,7 +4427,7 @@ t([[#LIGHT_GREEN#*A gigantic bone giant walks through the main gate.
 #LIGHT_GREEN#这只巨大的不死生物用不可思议的睿智眼神紧盯着你。
 #LIGHT_GREEN#你曾经听说过他。铁塔·瑞尔，你的第一个障碍！
 #LIGHT_GREEN#它的眼睛位置有着一团诡异的蓝色火焰
-#LIGHT_GREEN#，这只巨大的不死生物咆哮着并展开骨翼向你径直冲来！*
+#LIGHT_GREEN#，这只巨大的不死生物咆哮着，数根骨头朝你飞来！*
 ]], "_t")
 t("Have at you!!", "杀了你！！", "_t")
 t([[#LIGHT_GREEN#*After taking several hits, the undead giant finally succumbs
@@ -4568,7 +4568,7 @@ Good luck...
 ]], "_t")
 t("I will defeat you, Master of the Arena!!!", "我将打败你，竞技场主宰！！！", "_t")
 t("I will become Master of the Arena instead of the Master of the Arena!!", "我将代替你成为竞技场主宰！！", "_t")
-t("Wealth and glory! Wealth and glory!", "金钱和妹子！胜利与荣耀！", "_t")
+t("Wealth and glory! Wealth and glory!", "财富与荣耀！财富与荣耀！", "_t")
 t([[#LIGHT_GREEN#*Finally, the master of the arena comes into the gates!
 #LIGHT_GREEN#The public roars with excitement as he faces you with confidence!*
 I applaud you, @playerdescriptor.race@! You have fought with might and courage!
@@ -4592,7 +4592,7 @@ Pursue glory with all your might, @playerdescriptor.race@!!
 力量就是荣耀，@playerdescriptor.race@！！
 #LIGHT_GREEN#*竞技场主宰大步向前，进入沙地*
 ]], "_t")
-t("Wealth and glory!!!", "金钱和妹子！胜利与荣耀！！！", "_t")
+t("Wealth and glory!!!", "财富与荣耀！！！", "_t")
 t([[#LIGHT_GREEN#*After a glorious battle, the Master falls!*
 Hah...haha. You did it, @playerdescriptor.race@...
 #LIGHT_GREEN#*The master of the arena, defeated, stands up with a wide smile.
@@ -4636,8 +4636,8 @@ But meanwhile, this is your place! Welcome to paradise, @playerdescriptor.race@!
 #YELLOW#直到某天有人打败你，你将会一直保持竞技场主宰的地位！
 #YELLOW#当你再玩此模式时，你将会面对现在的这个人物！
 ]], "_t")
-t("WEALTH!! AND!! GLORYYYYY!!", "妹子！！和！！荣耀！！", "_t")
-t("I won't need to save chicks from cults anymore!", "我再也不需要去什么鬼地窖砍邪教徒了！哦耶！", "_t")
+t("WEALTH!! AND!! GLORYYYYY!!", "财富！！和！！荣耀！！", "_t")
+t("I won't need to save chicks from cults anymore!", "我再也不用从邪教那里救姑娘们了！", "_t")
 t("I hereby stand victorious, awaiting future challenges!", "吾凯旋而归，待岁月流逝，笑群雄谁能挡我！", "_t")
 t("#LIGHT_GREEN#*dance*", "#LIGHT_GREEN#*跳舞*", "_t")
 
@@ -4744,7 +4744,7 @@ t("You still haven't told me who or what you are.", "你还是没有告诉我你
 t([[#YELLOW#YOU NEED NOT CONCERN YOURSELF WITH SUCH THINGS. I KNOW YOU CRAVE POWER. I KNOW THE WEIGHT OF THE WORLD IS ON YOUR SHOULDERS. SO, ACCEPT MY BOONS. ALLOW ME TO HELP YOU.
 ]], [[#YELLOW#你不需要关心这些小事。我知道你渴望力量。我知道你肩负着整个世界的重任。所以，接受我的恩惠吧。让我帮助你。
 ]], "chat")
-t("#YELLOW#I AM GETTING PLENTY OUT OF THIS.", "#YELLOW#我受够了。", "chat")
+t("#YELLOW#I AM GETTING PLENTY OUT OF THIS.", "#YELLOW#我从这件事中获益良多。", "chat")
 t("#YELLOW#I TIRE OF YOUR NAGGING QUESTIONS. TALK, TALK, TALK. YOU HAVE A SIMPLE CHOICE BEFORE YOU. WILL YOU BECOME POWERFUL? OR WILL YOU BE WEAK AND ALONE?", "#YELLOW#你总是提出琐碎的问题。不断地说，说，说。在你面前有一个简单的选择。你要变强吗？还是要独自弱小？", "chat")
 t("I don't trust you. Please go away.", "我不相信你。请离开。", "chat")
 t("#YELLOW#I HAVE LITTLE PATIENCE FOR TIME WASTERS. THIS SHALL BE THE LAST TIME WE SPEAK.", "#YELLOW#浪费时间。我不会再来找你了。", "chat")
@@ -4779,23 +4779,23 @@ section "mod-tome/data/chats/command-staff.lua"
 
 t("Greetings. How can I help you?", "你好，我能帮你什么忙么？", "_t")
 t("Hurry up and make with the foe-blasting.", "快点，我们要去把敌人打爆。", "_t")
-t("O wise wielder, instruct me that I may better serve you.", "智慧的长者，请指示我让我更好的为您服务。", "_t")
+t("O wise wielder, instruct me that I may better serve you.", "睿智的持杖者，请指示我让我更好地为您服务。", "_t")
 t("Make amends, magic-user, for the harm ye have wrought is beyond compare.", "赎罪吧，法师们，你们带来了罄竹难书的危害。", "_t")
 t("You really could have chosen a better home for me, you know. I was reasonably happy in my old crystal. This stick smells like armpit.", "要知道，你可以给我找个更好的环境。我原本在我的旧水晶里住得挺舒服的。这根法杖有一股狐臭的味道。", "_t")
 t("Tremble before the might of Telos!", "在泰勒斯的强大力量下颤抖吧！", "_t")
-t("It is not yet your place to command such a staff as this. To do so invites obliteration.", "你无法对其释放掌控法杖。这样做会带来破坏。", "_t")
+t("It is not yet your place to command such a staff as this. To do so invites obliteration.", "你还没有资格掌控这支法杖；强行去做只会招致毁灭。", "_t")
 t("Call on which aspect of the staff?", "召唤哪种法杖的元素力量？", "_t")
 t("error!", "错误！", "_t")
-t("Oh, I was once a mighty Eldritch Channeler. Mighty and absentminded, as it turns out. Had a bit of a mishap with an Inverted Kugala's Soul-infusion technique. Long story short, my soul is now stuck in this stick, and the soul I was working with... well, I don't rightly know where he got to. But I hope we never meet him.", "哦，我曾经是一个强大埃尔德里奇主宰者。事实证明，那时的我，强大而又不可一世。某次事故扭曲了古加拉的灵魂镶嵌技术。长话短说吧，我的灵魂被困在了这根棍子里——和我曾经研究的灵魂一起……好吧，我也不知道它从何处而来。但是我希望我们能和它永别。", "_t")
-t("Argh! Bollocksed up a tricky bit of soul magic and the fool that I was supposed to be imprisoning for all eternity flitted away. My body, like all the targets of my spells, intended or otherwise, got reduced to elementary particles. Fortunately, I had this soul-cage of a staff all prepped and ready for a stray soul, so I'm not completely gone. But enough chit-chat. Let's fry somebody.", "哈！拜某次实验事故和那个被永久囚禁的傻X灵魂所赐，我的身体，像所有其他被法术轰击过的物体一样，有意或无意，灰飞烟灭了。幸运的是，我还有这根可以容纳灵魂的法杖容器，所以我没有完全湮灭。好了，不多说了，让我们去打爆敌人吧！", "_t")
+t("Oh, I was once a mighty Eldritch Channeler. Mighty and absentminded, as it turns out. Had a bit of a mishap with an Inverted Kugala's Soul-infusion technique. Long story short, my soul is now stuck in this stick, and the soul I was working with... well, I don't rightly know where he got to. But I hope we never meet him.", "哦，我曾经是一位强大的埃尔德里奇主宰者。事实证明，那时的我强大而健忘。有一次，我在倒转库加拉灵魂灌注术时出了点岔子。长话短说吧，我的灵魂如今被困在这根法杖里，而当时与我一同施法的那个灵魂……嗯，我也不太清楚他跑到哪里去了。但我希望我们永远不会遇到他。", "_t")
+t("Argh! Bollocksed up a tricky bit of soul magic and the fool that I was supposed to be imprisoning for all eternity flitted away. My body, like all the targets of my spells, intended or otherwise, got reduced to elementary particles. Fortunately, I had this soul-cage of a staff all prepped and ready for a stray soul, so I'm not completely gone. But enough chit-chat. Let's fry somebody.", "啊！我搞砸了一个棘手的灵魂法术，本该被我永久囚禁的那个蠢货趁机溜走了。我的身体，和所有被我法术波及的东西一样，无论有意还是无意，都被分解成了基本粒子。幸运的是，我早已备好这根灵魂牢笼法杖，随时欢迎流浪的灵魂入住，所以我还没有彻底完蛋。好了，闲话少说，去烤个人吧！", "_t")
 t("My old master-- who, though a powerful enchanter, did not compare to you and your glory-- saw fit to imprison me in this fine staff to aid him in his work. Alas, he is long gone, but I despair not, for I have found a mighty new master.", "我的旧主人——虽然他的法术很强大，但却比不上你和你的荣耀——他认为，把我囚禁在这根法杖里可以为他更好的服务。唉，虽然他已经不复存在了，但我并不感到绝望，因为我找到了一个强大的新主人。", "_t")
 t("I am a portion of the very spirit of the world that was ripped free during the Spellblaze. I speak that I might enlighten those who bear me.", "我是世界之灵在魔法大爆炸中被撕裂出的一部分。我可以教导给你所需的知识，只要你愿意聆听我。", "_t")
-t("What's the good of immortality if you can't even speak? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. And, by the way, your energy manipulation techniques are on the same level as those of my average pair of shoes. Best study up if you don't want to die forgotten and incompetent.", "如果不能说话，那这样的永生还有何意义？凡是想要达到永生不死的大法师，没有一个留下一种方法让自己的伟大知识永久流传。而且，顺便说一句，你的能量操纵水平只配给我提鞋，给我仔细的听着，如果你不想因为遗漏我说的话而死的不明不白。", "_t")
+t("What's the good of immortality if you can't even speak? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. And, by the way, your energy manipulation techniques are on the same level as those of my average pair of shoes. Best study up if you don't want to die forgotten and incompetent.", "如果不能说话，那这样的永生还有何意义？但凡有点本事的大法师，在策划某种死后续命的邪恶计划时，都会给自己留一条表达意见的途径。顺便说一句，你的能量操纵水平跟我那双普通鞋子差不多。不想默默无闻地死得不明不白，就好好学着点。", "_t")
 t("Of course. Which aspect?", "当然。哪个方面？", "_t")
 t("I highly recommend the mage aspect and the fire element. You're not going to find anything better for turning a piece of meat into a cloud of vapor.", "我强烈推荐法师领域和火焰元素。你不会找到比这更好的能让一块肉变成蒸汽的方法了。", "_t")
 t("I live to serve-- though my use of the word 'live' is perhaps loose here.", "我毕生为你效劳——虽然“毕生”在这里对于我而言并不是那么准确。", "_t")
-t("Choose wisely. Powers beyond your comprehension will tolerate only so much interference in their carefully-laid natural order.", "明智地进行选择。只有那些仔细维护自然秩序的人才会被那些超越你们理解的力量所容忍。", "_t")
-t("Back in my day, we didn't need to go changing our staves around willy-nilly. We picked an element and stuck with it, by the gods.", "在我的时代，我们并不需要用棍子挥来挥去来施法。我们只需要抓取一种元素，就可以任意的使用它——像诸神一样。", "_t")
+t("Choose wisely. Powers beyond your comprehension will tolerate only so much interference in their carefully-laid natural order.", "明智地进行选择。那些超越你理解的力量，对它们精心安排的自然秩序所受的干涉，忍耐是有限的。", "_t")
+t("Back in my day, we didn't need to go changing our staves around willy-nilly. We picked an element and stuck with it, by the gods.", "在我那个年代，我们不会随便更换法杖。选定一种元素就用到底，诸神在上。", "_t")
 t("Certainly. You should be impressed, by the way, that I can do such a thing. Most lesser practitioners of my art would have difficulties with this. What shall I change?", "当然。顺带一提，我可以做的事情会让你印象深刻。大多数较弱者实践我的艺术时会感觉有困难。你想让我改变什么？", "_t")
 t("Fine, as long as it leads to blasting something soon. What do you want me to change?", "很好，只要它能快速的引爆某物。你要我换成什么？", "_t")
 t("Choose different aspect", "选择其他领域", "_t")
@@ -4822,13 +4822,13 @@ t("#CRIMSON#NARGOL SCUM!  WE'RE UNDER ATTACK!", "#CRIMSON#纳格尔王国的半�
 t([[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately snap to attention. The one on the right speaks:*#WHITE#
 Ah!  Reinforcements!  I don't know how long it's been, but I'll get Astelrid up here to--  wait a minute, where are the rest of them?  #LIGHT_GREEN#*He frowns.*#WHITE# What's your identification number?
 ]], [[#LIGHT_GREEN#*当你进入这个房间时，你发现两个身形魁梧的食人魔站在你的面前，仿佛刚刚从无尽的长眠中醒来。他们在看到你的瞬间迅速立正，右边的一个向你大喊道:*#WHITE#
-太好了！我们的援军终于到了！我不知道已经过了多久，不过我想亚斯特莉可以告诉你们——等等，其他人呢？  #LIGHT_GREEN#*他的眉头紧锁。*#WHITE# 你的部队番号是什么！
+太好了！我们的援军终于到了！我不知道已经过了多久，不过我去把阿斯泰尔瑞德叫上来——等等，其他人呢？  #LIGHT_GREEN#*他的眉头紧锁。*#WHITE# 你的部队番号是什么！
 ]], "_t")
 t("Wait! The war's over! It's been thousands of years, the Conclave doesn't exist anymore!", "等等！战争已经结束了！已经过去了几千年了，孔克雷夫也早已灭亡了！", "_t")
 t([[#LIGHT_GREEN#*They look at each other and scowl, drawing their weapons.  The one on the left growls:*#WHITE#
 LIES!  The Conclave could not have lost!  I don't know who you are, but we can't afford witnesses!
 ]], [[#LIGHT_GREEN#*他们怒目而视，举起武器。左边的一个大喊道：*#WHITE#
-一派胡言！孔克雷夫是不可能战败的！我不知道你到底是谁，但是你别想骗得了我们！
+一派胡言！孔克雷夫是不可能战败的！我不知道你到底是谁，但我们不能留活口！
 ]], "_t")
 
 ------------------------------------------------
@@ -4881,7 +4881,7 @@ There are also those Zigur-something people that claim to fight magic. Why are t
 我听到有一个传说，说在群山中隐居着一群足智多谋的贤士。也许他们能帮上忙？要是他们真的存在的话……
 还有一群被称为什么伊格的号称与魔法战斗的人，那些人怎么不在这儿？！]], "_t")
 t("You mean the Ziguranth. That would be me.", "你是指伊格兰斯吧？我就是。", "_t")
-t("I will not let you down.", "我不会让你死的。", "_t")
+t("I will not let you down.", "我不会让你失望的。", "_t")
 t("Well then please do something about this evil magic!", "那就对这邪恶的魔法做点什么吧！", "_t")
 t("I will!", "我会的！", "chat_derth-attack-over")
 
@@ -4907,7 +4907,7 @@ We have been watching Tannen for some time, and were pleased to see you reveal h
 We have studied his portal research, and if you give me the components I will create the portal for you, here and now!]], [[#LIGHT_GREEN#*当你走出传送门时，一个穿着长袍的人正在那里等着你。*
 #WHITE#见到你很高兴，@playername@!
 我是马雷纳斯，安格利文的传令官。我接到托拉克国王的命令在此等候你，他一直很担心你。
-我们已经观察了泰恩一段时间，我们非常高兴地看到你揭露了他的真面目并阻止了他。因此我们非常荣幸地请你回来。
+我们已经观察了泰恩一段时间，我们非常高兴地看到你揭露了他的真面目并阻止了他。为此我们很感激，我想我们可以报答你。
 我们已经分析了他关于传送门的研究，如果你把那些相关的部件给我，我就可以立即给你创造一个传送门，就是此时此刻。]], "_t")
 t("Yes, Tannen was not exactly friendly. I thank you for your help. Here are the components. [hand him the diamond and the athame]", "是的，泰恩的确不是个好人。感谢你的帮助，这些就是传送门的部件。[把宝石和仪式匕首交给他]", "_t")
 
@@ -13026,7 +13026,7 @@ t("The Untouchable", "不可触及", "entity name")
 t("tough leather coat", "硬皮甲", "_t")
 t([[This rugged jacket is the subject of many a rural legend.
 Some say it was fashioned by an adventurous mage turned rogue, in times before the Spellblaze, but was since lost.
-All manner of shady gamblers have since claimed to have worn it at one point or another. To fail, but live, is what it means to be untouchable, they said.]], "这件破旧的夹克流传在许多乡村传说中。有人说，它属于魔法大爆炸前的一位法师转职成的盗贼，在此之后就遗失了。行行色色的人都声称曾穿过这件衣服，并且在千钧一发时救过他的命，他们说，这就是其名为“不可触及”的原因。", "_t")
+All manner of shady gamblers have since claimed to have worn it at one point or another. To fail, but live, is what it means to be untouchable, they said.]], "这件破旧的夹克是许多乡村传说的主角。有人说，在魔法大爆炸之前的年代，一位转行盗贼的冒险法师制作了它，但此后便遗失了。形形色色的神秘赌徒都声称自己曾穿过它。他们说，失败却活下来，这就是“不可触及”的含义。", "_t")
 t("When you take a hit of more than 20% of your max life a shield is created equal to 130% the damage taken.", "当你受到一次攻击损失超过20%最大生命值时，你获得一个护盾，可吸收那个数值130%的伤害。", "_t")
 t("#LIGHT_BLUE#A barrier bursts from the leather jacket!", "#LIGHT_BLUE#这件皮夹克突然爆发出一股护盾能量！", "logPlayer")
 t("Honeywood Chalice", "蜂蜜木酒杯", "entity name")
@@ -26173,7 +26173,7 @@ t("@Source@ envelops @target@ with acid.", "@Source@用酸液覆盖@target@。",
 t("Crawl onto the target, covering it in acid.", "攀附到目标身上，使其覆满酸液。", "tformat")
 t("Blinding Spores", "致盲孢子", "talent name")
 t("@Source@ releases blinding spores at @target@.", "@Source@向@target@喷射致盲孢子。", "_t")
-t("%s resists the blinding!", "%s抵抗了致盲!", "logSeen")
+t("%s resists the blinding!", "%s抵抗了致盲！", "logSeen")
 t("Releases stinging spores at the target, blinding it for %d turns.", "向目标喷射孢子，使目标致盲 %d 回合。", "tformat")
 t("Poisonous Spores", "毒性孢子", "talent name")
 t("@Source@ releases poisonous spores at @target@.", "@Source@朝@target@释放毒素孢子。", "_t")
@@ -35576,7 +35576,7 @@ t("+Blight Poison", "+枯萎毒素", "_t")
 t("#Target# is free from the blighted poison.", "#Target#的枯萎毒素解除了。", "_t")
 t("-Blight Poison", "-枯萎毒素", "_t")
 t("Insidious Blight", "阴险枯萎毒素", "_t")
-t("The target is poisoned, taking %0.2f blight damage per turn and decreasing all heals received by %d%%.", "目标中毒，每回合受到 %0.2f 枯萎伤害并降低所有治疗效果 %d%% 。", "tformat")
+t("The target is poisoned, taking %0.2f blight damage per turn and decreasing all heals received by %d%%.", "目标中毒，每回合受到 %0.2f 枯萎伤害并降低所有治疗效果 %d%%。", "tformat")
 t("#Target# is poisoned with insidious blight!!", "#Target#中了阴险枯萎毒素!!", "_t")
 t("+Insidious Blight", "+阴险枯萎毒素", "_t")
 t("#Target# is free from the insidious blight.", "#Target#的阴险枯萎毒素解除了。", "_t")
@@ -35588,7 +35588,7 @@ t("+Crippling Blight", "+致残枯萎毒素", "_t")
 t("#Target# is free from the crippling blight.", "#Target#的致残枯萎毒素解除了。", "_t")
 t("-Crippling Blight", "-致残枯萎毒素", "_t")
 t("Numbing Blight", "麻痹枯萎毒素", "_t")
-t("The target is poisoned and sick, doing %0.2f blight damage per turn. All damage it does is reduced by %d%%.", "目标中毒，每回合受到 %0.2f 枯萎伤害并减少其造成伤害 %d%% 。", "tformat")
+t("The target is poisoned and sick, doing %0.2f blight damage per turn. All damage it does is reduced by %d%%.", "目标中毒，每回合受到 %0.2f 枯萎伤害并减少其造成的伤害 %d%%。", "tformat")
 t("#Target# is poisoned numbing blight!", "#Target#中了麻痹枯萎毒素!", "_t")
 t("+Numbing Blight", "+麻痹枯萎毒素", "_t")
 t("#Target# is free from the numbing blight.", "#Target#的麻痹枯萎毒素解除了。", "_t")

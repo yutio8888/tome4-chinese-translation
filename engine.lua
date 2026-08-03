@@ -868,8 +868,7 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 t([[Purge all Steam Cloud saves.
 This will remove all saves from the cloud cloud (but not your local copy). Only use if you somehow encounter storage problems on it (which should not happen, the game automatically manages it for you).#WHITE#]], [[删除所有Steam云存档。
-这会在Steam云中删除所有的云存档，但不会删除你的本地存档。只有在你遇到存储问题的时候才使用这一功能。(一般情况下这不会发生，游戏会自动管理云存档)
-#WHITE#]], "_t")
+这会在Steam云中删除所有的云存档，但不会删除你的本地存档。只有在你遇到存储问题的时候才使用这一功能。(一般情况下这不会发生，游戏会自动管理云存档)#WHITE#]], "_t")
 t("#GOLD##{bold}#Purge Cloud Saves#WHITE##{normal}#", "#GOLD##{bold}#清除云存档#WHITE##{normal}#", "_t")
 t("Steam Cloud Purge", "清除Steam云存档", "_t")
 t("Confirm purge?", "确认删除？", "_t")
@@ -1712,11 +1711,8 @@ If you disable this option you can always re-activate it in the Online category 
 - 角色备份：不能在te4.org上保存你的角色信息(用来给其他人分享你的炫酷角色)。
 - 物品仓库：不能访问你的在线物品仓库(包括存入和取回)。
 - 游戏内聊天：聊天要联网, 谢谢。
-- 氪金福利：联网才能获取你的氪金状态。
-- 扩展包&DLC：和氪金状态一样, 无法获取DLC的购买状态。
 - 便捷的插件安装：无法在游戏内看见插件列表, 但是你还可以手动安装插件。
 - 插件版本更新：无法更新插件的版本。
-- Steam：无法使用Steam相关的任何功能。
 - Discord：无法同步到Discord的实时状态。
 - 游戏内新闻：主菜单将不再显示新闻。
 注意这个设置只影响游戏本身。如果你使用游戏启动器，它的唯一目的就是确保游戏是最新的，因此它仍然会连接网络。
@@ -1989,7 +1985,7 @@ t([[#{bold}##GOLD#%s#GREEN# High Scores#WHITE##{normal}#
 ]], "tformat")
 t([[#{bold}##GOLD#%s(%s)#GREEN# High Scores#WHITE##{normal}#
 
-]], [[#{bold}##GOLD#%s(%s)#GREEN# 高分榜 #WHITE##{normal}#
+]], [[#{bold}##GOLD#%s(%s)#GREEN#高分榜#WHITE##{normal}#
 
 ]], "tformat")
 

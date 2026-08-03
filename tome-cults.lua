@@ -2623,7 +2623,7 @@ section "tome-cults/data/quests/krogs-rescue.lua"
 
 t("Cleaning the trash", "清理垃圾", "_t")
 t([[Protector Myssil has requested that you go at once to the ruins on the eastern shores of the sea of Sash to rescue a party of Krogs taken by necromancers filth.
-Save our people and show the evildoers the wrongness of their way. Permanently.]], [[守护者米歇尔请求你前往东海岸去拯救被邪恶死灵法师抓住的一群克罗格。
+Save our people and show the evildoers the wrongness of their way. Permanently.]], [[守护者米歇尔请求你立即前往萨什海东岸的废墟，去拯救被邪恶死灵法师抓住的一群克罗格。
 去拯救人民，并*永久*修正邪恶的错误。]], "_t")
 t("#LIGHT_RED#* You have killed the necromancers but not in time to save any of the captive Krogs.", "#LIGHT_RED#* 你杀死了死灵法师，但没能及时拯救任何被抓走的克罗格。", "_t")
 t("#LIGHT_GREEN#* You have killed the necromancers and saved some of the Krogs.", "#LIGHT_GREEN#* 你杀死了死灵法师，同时拯救了一部分克罗格。", "_t")
@@ -2978,7 +2978,7 @@ t([[You and your Worm that Walks both teleport to an enemy in range %d and make 
 t("Shared Insanity", "共享疯狂", "talent name")
 t([[You establish a powerful mental link with your Worm that Walks.
 		As long as you remain within radius 3 of your worm that walks each of you gains %d%% all resistance for 5 turns.
-		Additionally, your Worm that Walks permanently gains an inscription slot every 2 raw talent levels (%d).]], [[ 你和蠕虫合体建立强大的精神链接。
+		Additionally, your Worm that Walks permanently gains an inscription slot every 2 raw talent levels (%d).]], [[你和蠕虫合体建立强大的精神链接。
 		只要你和它的距离不超过 3 格，你们均获得持续 5 回合的 %d%% 全体抗性。
 		该技能每增加两级原始等级，你的蠕虫合体获得一个纹身位（当前： %d ）。]], "tformat")
 t("Terrible Sight", "恐怖景象", "talent name")
@@ -4190,7 +4190,7 @@ t("#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and pape
 section "tome-cults/data/zones/ft-horrors/npcs.lua"
 
 t("The One That Writes", "写故事的东西", "entity name")
-t("Even as this creature focuses its attention on you, many of its tentacles are preoccupied with writing letters onto sheets of strange, wispy parchment. With every word it finishes, the environment around you changes its shape, objects become more defined and patches of ground appear to be more detailed. You don't want to know the ending it has planned for your story.", "尽管它注意到了你，它的众多触须仍然继续专注地在一张奇怪的纤细羊皮纸上书写着文字。随着它的书写，你周围的一切都在发生着变化，身边的物体和地面变得更加清晰。你可不想让他决定你人生故事的结尾。", "_t")
+t("Even as this creature focuses its attention on you, many of its tentacles are preoccupied with writing letters onto sheets of strange, wispy parchment. With every word it finishes, the environment around you changes its shape, objects become more defined and patches of ground appear to be more detailed. You don't want to know the ending it has planned for your story.", "即使这个生物把注意力集中在你身上，它的许多触手仍忙于在一张张奇怪而纤细的羊皮纸上书写文字。每写完一个字，你周围的环境就会改变形状，物体变得更加清晰，地面也出现更多细节。你不会想知道它为你的故事安排了什么结局。", "_t")
 t("and written off the story", "并被从故事里移除了", "_t")
 
 ------------------------------------------------
@@ -4386,7 +4386,7 @@ t("#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and pape
 section "tome-cults/data/zones/ft-yaech/npcs.lua"
 
 t("The One That Writes", "写故事的东西", "entity name")
-t("A strange creature sporting 7 formless tentacles each with some kind of pen attached. It is ever focused on its book and does not seem to notice you, yet you can feel its hatred and hostility towards you.", "尽管它注意到了你，它的众多触须仍然继续专注地在一张奇怪的纤细羊皮纸上书写着文字。随着它的书写，你周围的一切都在发生着变化，身边的物体和地面变得更加清晰。你可不想让他决定你人生故事的结尾。", "_t")
+t("A strange creature sporting 7 formless tentacles each with some kind of pen attached. It is ever focused on its book and does not seem to notice you, yet you can feel its hatred and hostility towards you.", "一只奇怪的生物，长着七条无定形的触手，每条触手上都绑着某种笔。它始终专注地盯着自己的书，似乎没有注意到你，但你却能感受到它对你的仇恨与敌意。", "_t")
 t("and written off the story", "并被从故事里移除了", "_t")
 
 ------------------------------------------------
