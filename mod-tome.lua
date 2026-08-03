@@ -6278,7 +6278,7 @@ t("[leave]", "[离开]", "_t")
 t("#LIGHT_GREEN#*Nobody answers. Tannen is probably still busy studying the orb.*#WHITE#", "#LIGHT_GREEN#*没人回答，泰恩估计还在忙着研究水晶球。*#WHITE#", "_t")
 t("How may I be of service, good @playerdescriptor.race@?", "我能为你提供什么服务？我亲爱的 @playerdescriptor.race@？", "_t")
 t("[Relate to him the story of the staff and the Orb of Many Ways and the portals.]", "[告诉他关于法杖、多元水晶球和传送门的事。]", "_t")
-t("I have the diamond and the athame. [Hand over the Athame and Diamond]", "我有共鸣宝石和血符仪式匕首。[把血符仪式匕首和共鸣宝石交给他]", "_t")
+t("I have the diamond and the athame. [Hand over the Athame and Diamond]", "我有共鸣钻石和血符仪式匕首。[把血符仪式匕首和共鸣钻石交给他]", "_t")
 t("Thieving, murderous wretch. Prepare to die!", "窃贼，卑鄙的凶手，准备去死吧！", "_t")
 t("How fares your research? Are we ready to create the portal?", "你研究的怎么样了？我们可以创造传送门了么？", "_t")
 t("Nothing, excuse me. Bye!", "没事，抱歉打扰了，再见！", "_t")
@@ -6286,7 +6286,7 @@ t("Astonishing! I have heard tell of this Orb in ancient texts and legends. Migh
 t("[Show him the Orb of Many Ways]", "[给他看多元水晶球]", "_t")
 t("Truly, it is the work of a great master. Perhaps Linaniil herself had a hand in its making. And you say you come bearing instructions in its usage?", "确实，这是一位杰出伟人的杰作。也许莱娜尼尔她自己也曾经参与过建造。你说你带来了它的使用说明？", "_t")
 t("I do. [Show him Zemekkys's scribbled notes]", "是的。[给他看伊莫克斯潦草的笔记]", "_t")
-t("#LIGHT_GREEN#*He spends a few minutes reading*#WHITE# Ah! I see. I did not at first grasp this Zemekkys's methods, but I see now that they are sound, and it is simply his penmanship that needs improvement. We can manage to reproduce his work here, but, as he says, we will need the Blood-Runed Athame and a Resonating Diamond.", "#LIGHT_GREEN#*他花了几分钟阅读笔记*#WHITE# 啊！我明白了。一开始我没看懂伊莫克斯的方法，现在看来方法本身没有问题，只是他的字迹需要改进。我们可以在这里重现他的成果，不过，正如他所说，我们需要一把血符仪式匕首和一块共鸣宝石。", "_t")
+t("#LIGHT_GREEN#*He spends a few minutes reading*#WHITE# Ah! I see. I did not at first grasp this Zemekkys's methods, but I see now that they are sound, and it is simply his penmanship that needs improvement. We can manage to reproduce his work here, but, as he says, we will need the Blood-Runed Athame and a Resonating Diamond.", "#LIGHT_GREEN#*他花了几分钟阅读笔记*#WHITE# 啊！我明白了。一开始我没看懂伊莫克斯的方法，现在看来方法本身没有问题，只是他的字迹需要改进。我们可以在这里重现他的成果，不过，正如他所说，我们需要一把血符仪式匕首和一块共鸣钻石。", "_t")
 t("Have you any idea where they might be found?", "你知道去哪里寻找这两样东西么？", "_t")
 t("If the orcs created a portal in the depths of Reknor, they must have had access to such items. And if these items cannot pass through the portal they created, then it stands to reason that they must still be in Maj'Eyal. I would search Reknor, starting near the portal itself. Perhaps they did not move the Athame and Diamond far after its creation.", "假如兽人在瑞库纳深处制造了这样一个传送门，他们肯定拥有这两样东西。如果这些物品无法穿过他们制造的传送门，那么它们理应还在马基·埃亚尔。我会从传送门附近开始搜寻瑞库纳；或许造好传送门后，他们并没有把仪式匕首和宝石搬得太远。", "_t")
 t("I'll get searching. Thank you.", "我会去寻找的，谢谢你。", "_t")
@@ -6294,9 +6294,9 @@ t("One last thing. I will need to hold onto the Orb of Many Ways while you searc
 t("[Hand him the Orb] ", "[交给他水晶球] ", "_t")
 t("I still require the Orb for now.", "我现在还需要水晶球", "_t")
 t("Thank you. I will treat it with the utmost care.", "谢谢，我会小心谨慎使用的。", "_t")
-t("Farewell. I'll return with the Athame and Diamond.", "再见，我会把血符仪式匕首和共鸣宝石带回来的。", "_t")
+t("Farewell. I'll return with the Athame and Diamond.", "再见，我会把血符仪式匕首和共鸣钻石带回来的。", "_t")
 t("Very well. There is no hurry. But I will need to spend a number of days studying it before we can create your portal.", "好极了，不用着急。要创造你需要的传送门我还得花上几天来学习一下呢。", "_t")
-t("I understand. I'll return with the Athame and Diamond.", "我明白了，我会把血符仪式匕首和共鸣宝石带回来的。", "_t")
+t("I understand. I'll return with the Athame and Diamond.", "我明白了，我会把血符仪式匕首和共鸣钻石带回来的。", "_t")
 t("Excellent. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields,\" return with it and your odds of surviving our portal attempt will go up drastically.", "很好，几天后你回来，我肯定把一切都准备好了。哦，带上这个。#LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖塔尔人封印的地方。要是你在废墟之中找到一份标题是《关于力场翻转与回复的可能性研究》的文献请帮我带回来，这能大大提高你通过传送门时存活的几率。", "_t")
 t("Thank you, and farewell.", "谢谢，再见！", "_t")
 t("Excellent. Are you yet willing to leave the Orb in my care for a time?", "太好了，那你同意把水晶球留给我研究一段时间了？", "_t")
@@ -6659,8 +6659,8 @@ t([[#LIGHT_GREEN#*A slot in the door opens and a pair of wild eyes peer out.*#WH
 What do you want, @playerdescriptor.race@?]], [[#LIGHT_GREEN#*门上开了一个小洞，一副野蛮的眼睛凝视着你。*#WHITE#
 你想干什么，@playerdescriptor.race@？]], "_t")
 t("Paladin Aeryn told me that you could help me. I need to get to Maj'Eyal.", "太阳骑士艾琳跟我说你能帮助我，我想去马基·埃亚尔。", "_t")
-t("I found the Blood-Runed Athame, but there was no Resonating Diamond.", "我找到了血符仪式匕首，不过没找到共鸣宝石。", "_t")
-t("I have a Resonating Diamond.", "我找到了共鸣宝石。", "_t")
+t("I found the Blood-Runed Athame, but there was no Resonating Diamond.", "我找到了血符仪式匕首，不过没找到共鸣钻石。", "_t")
+t("I have a Resonating Diamond.", "我找到了共鸣钻石。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_zemekkys")
 t([[Pfaugh! Her goal in life is to waste my time! Maj'Eyal? Why not Narnia or Chicago? Just as easy to send you someplace entirely fictional as Maj'Eyal. Go away.
 #LIGHT_GREEN#*Slot slams shut.*#WHITE#]], [[呸！她的生活目标就是在浪费我的时间！马基·埃亚尔？怎么不是纳尼亚或者芝加哥？就像送你到小说里的马基·埃亚尔一样简单，走开。
@@ -6682,18 +6682,18 @@ The Gates of the Morning has a slab of Marble that once could have served, but a
 It'll require a Resonating Diamond to get it properly prepared. Oh, and I want 100 gold.]], [[你认为我会让一个肮脏的 @playerdescriptor.race@ 带着多元水晶球进我家么？
 谢了，没有那东西在屋里，我已经够经常把自己炸得够呛了。
 况且，我没法帮助你，除非你搞到一把血符仪式匕首来开启这个传送门。
-呃……要想把它准备好，还需要一块共鸣宝石。
+呃……要想把它准备好，还需要一块共鸣钻石。
 晨曦之门原来有这么一块共鸣石头可以起作用，不过过去发生过一些……呃……事故，对它造成了损伤。
-另外还有一块共鸣宝石，哦，我还要收取100金币费用。]], "_t")
+另外还有一块共鸣钻石，哦，我还要收取100金币费用。]], "_t")
 t("Where can I find all that?", "我上哪儿去找那些东西？", "_t")
-t("Try your purse for the 100 gold. As for an Athame and a Resonating Diamond, I assume the orcs have some if they're cooking up portals to use that Orb on. Try the Vor Armory. It so happens that I know a back way in. Never mind why.", "100 金币嘛……你摸摸自己的钱袋就有了。至于仪式匕首和共鸣宝石，既然那些兽人正准备配合多元水晶球开启传送门，我猜他们手上就有。去沃尔军械库找找吧。碰巧我知道一条后门，别问为什么。", "_t")
+t("Try your purse for the 100 gold. As for an Athame and a Resonating Diamond, I assume the orcs have some if they're cooking up portals to use that Orb on. Try the Vor Armory. It so happens that I know a back way in. Never mind why.", "100 金币嘛……你摸摸自己的钱袋就有了。至于仪式匕首和共鸣钻石，既然那些兽人正准备配合多元水晶球开启传送门，我猜他们手上就有。去沃尔军械库找找吧。碰巧我知道一条后门，别问为什么。", "_t")
 t("Thank you.", "谢谢。", "_t")
-t("Of course there was no Resonating Diamond. What makes you think Briagh would let one loose for even a second?", "你当然找不到共鸣宝石，你想想布莱亚弗怎么会放松一秒钟警惕？", "_t")
+t("Of course there was no Resonating Diamond. What makes you think Briagh would let one loose for even a second?", "你当然找不到共鸣钻石，你想想布莱亚弗怎么会放松一秒钟警惕？", "_t")
 t("Briagh?", "布莱亚弗？", "_t")
-t("Briagh the Great Sand Wyrm. Where do you think Resonating Diamonds come from? They're just regular diamonds until they get stuck between Briagh's scales for a few centuries and get infused with his life rhythms. He sleeps on a hoard of precious gems and metals, you see.", "布莱亚弗，那条巨型土龙，要不然你认为共鸣宝石是哪里来的？它本来只是那个栖息地里普通的宝石，经过几个世纪之后布莱亚弗将它的生命活力注入进了这些宝石。你看，它正是睡在一堆矿石和宝石上呢。", "_t")
+t("Briagh the Great Sand Wyrm. Where do you think Resonating Diamonds come from? They're just regular diamonds until they get stuck between Briagh's scales for a few centuries and get infused with his life rhythms. He sleeps on a hoard of precious gems and metals, you see.", "布莱亚弗，那条巨型土龙，要不然你认为共鸣钻石是哪里来的？它本来只是那个栖息地里普通的宝石，经过几个世纪之后布莱亚弗将它的生命活力注入进了这些宝石。你看，它正是睡在一堆矿石和宝石上呢。", "_t")
 t("Where might I find Briagh's lair??", "布莱亚弗的老巢在什么地方？？", "_t")
 t("Well south of the Sunwall. I'll mark it for you on your map.", "在太阳堡垒的南面，我会在你的地图上给你做个记号。", "_t")
-t("I'll be back with a Resonating Diamond.", "我会带回共鸣宝石。", "_t")
+t("I'll be back with a Resonating Diamond.", "我会带回共鸣钻石。", "_t")
 t("Yes? You got the Athame, the gem and 100 gold?", "怎么，你拿到仪式匕首、宝石和 100 金币了？", "_t")
 t("[Give him the gem, the athame and 100 gold]", "[把宝石、仪式匕首和 100 金币交给他]", "_t")
 t("Sorry, it seems I lack some stuff. I will be back.", "抱歉，我去拿点材料，马上回来。", "_t")
@@ -15950,7 +15950,7 @@ section "mod-tome/data/lore/high-peak.lua"
 t("high peak", "巅峰", "newLore category")
 t("closing the void farportal", "关闭虚空传送门", "_t")
 t("The void farportal is closed, preventing untold horrors from assaulting Eyal.", "虚空的传送门已经被封闭，这防止了未知的可怕事件侵袭埃亚尔。", "_t")
-t("a blood-soaked resonating diamond", "渗透鲜血的共鸣宝石", "_t")
+t("a blood-soaked resonating diamond", "渗透鲜血的共鸣钻石", "_t")
 t([[#{italic}#On touching the still-wet diamond, you find yourself experiencing memories that are not your own, memories that slowly seep into your mind with increasing detail.  You cannot tell if the initial haze covering them is a side-effect of the absorption process, or if it's from being dazed and waking from unconsciousness in these memories...#{normal}#
 
 #FIREBRICK#Pain#LAST#.  Everywhere, but where is worst...
@@ -19624,7 +19624,7 @@ I've "officially" agreed to their deal - they'll supply me with materials, subje
 
 Now, I just need to get a genuine orb before the demons catch on...]], [[嗯……发生了有趣的事情。
 
-出乎意料的是，建立一个传送门并不需要花费我很多的精力——用魔法仿制的血符仪式匕首和共鸣宝石看起来可以完美地产生一个传送门。虽然在完成了一个传送门后它们就烧毁了，但是这并不是什么大问题。问题在于，同样的方法对于多元水晶球就不适用了——如果它在使用一次之后就坏掉了，那么就意味着你永远被困在传送门的另一边了。因而，我开始试着制作更加仿真的复制品。我注意到，大部分这样的复制品都被某种形式的干涉所扰乱了，或许是魔法大爆炸的回响。我刚刚在我最成功的水晶球复制品上进行的几次实验主要出于我个人的好奇，我想试着利用它们来锁定这些干涉的来源。我把一个强盗和水晶球绑在一起扔进传送门里。（我的龙傀儡的飞行技能和悄无声息接近敌人的能力被证明在获取实验目标方面十分有效！）我本以为，他会掉进魔法的漩涡之中，很快被传送回来，浑身重度烧伤迅速死去，就像前四个实验品那样。
+出乎意料的是，建立一个传送门并不需要花费我很多的精力——用魔法仿制的血符仪式匕首和共鸣钻石看起来可以完美地产生一个传送门。虽然在完成了一个传送门后它们就烧毁了，但是这并不是什么大问题。问题在于，同样的方法对于多元水晶球就不适用了——如果它在使用一次之后就坏掉了，那么就意味着你永远被困在传送门的另一边了。因而，我开始试着制作更加仿真的复制品。我注意到，大部分这样的复制品都被某种形式的干涉所扰乱了，或许是魔法大爆炸的回响。我刚刚在我最成功的水晶球复制品上进行的几次实验主要出于我个人的好奇，我想试着利用它们来锁定这些干涉的来源。我把一个强盗和水晶球绑在一起扔进传送门里。（我的龙傀儡的飞行技能和悄无声息接近敌人的能力被证明在获取实验目标方面十分有效！）我本以为，他会掉进魔法的漩涡之中，很快被传送回来，浑身重度烧伤迅速死去，就像前四个实验品那样。
 
 在传送门的旋涡中，那个强盗没有回来，相反，一个小恶魔从里面掉了出来。
 
@@ -20124,11 +20124,11 @@ section "mod-tome/data/quests/east-portal.lua"
 t("Back and there again", "去而复返", "_t")
 t("You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back.", " 你创造了一个回到马基埃亚尔的传送门，你应该试试找最后的希望的某个人谈谈关于这件事。", "_t")
 t("You talked to the Elder in Last Hope who in turn told you to talk to Tannen, who lives in the north of the city.", " 你和最后的希望的长者交谈，得知要去找城市北边的泰恩 ", "_t")
-t("You gave the Orb of Many Ways to Tannen to study while you look for the athame and diamond in Reknor.", "你把多元水晶球交给泰恩研究，自己则去瑞库纳寻找仪式匕首和共鸣宝石。", "_t")
-t("You kept the Orb of Many Ways despite Tannen's request to study it. You must now look for the athame and diamond in Reknor.", "尽管泰恩想要研究多元水晶球，你还是把它留在了自己手中。现在你必须去瑞库纳寻找仪式匕首和共鸣宝石。", "_t")
-t("You brought back the diamond and athame to Tannen who asked you to check the tower of Telmur, looking for a text of portals, although he is not sure it is even there. He told you to come back in a few days.", "你把共鸣宝石和仪式匕首带回给泰恩；他让你去泰尔玛之塔寻找一本有关传送门的典籍，尽管他也不确定那里是否真有。他让你过几天再回来。", "_t")
-t("You brought back the diamond and athame to Tannen who asked you to contact Zemekkys to ask some delicate questions.", "你把共鸣宝石和仪式匕首带回给泰恩；他让你联系伊莫克斯，询问一些敏感问题。", "_t")
-t("You brought back the diamond and athame to Tannen who asked you to come back in a few days.", "你把共鸣宝石和仪式匕首带回给泰恩；他让你过几天再回来。", "_t")
+t("You gave the Orb of Many Ways to Tannen to study while you look for the athame and diamond in Reknor.", "你把多元水晶球交给泰恩研究，自己则去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
+t("You kept the Orb of Many Ways despite Tannen's request to study it. You must now look for the athame and diamond in Reknor.", "尽管泰恩想要研究多元水晶球，你还是把它留在了自己手中。现在你必须去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
+t("You brought back the diamond and athame to Tannen who asked you to check the tower of Telmur, looking for a text of portals, although he is not sure it is even there. He told you to come back in a few days.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你去泰尔玛之塔寻找一本有关传送门的典籍，尽管他也不确定那里是否真有。他让你过几天再回来。", "_t")
+t("You brought back the diamond and athame to Tannen who asked you to contact Zemekkys to ask some delicate questions.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你联系伊莫克斯，询问一些敏感问题。", "_t")
+t("You brought back the diamond and athame to Tannen who asked you to come back in a few days.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你过几天再回来。", "_t")
 t("Tannen has tricked you! He swapped the orb for a false one that brought you to a demonic plane. Find the exit, and get revenge!", " 泰恩把你耍了！他换了个错的水晶球给你，把你传送到了恶魔的空间，找到出口回去找他算账！ ", "_t")
 t("Tannen revealed himself as the vile scum he really is and trapped you in his tower.", " 泰恩暴露出了他的确是个卑鄙的人渣，他把你囚禁在他的塔牢里。", "_t")
 t("#LIGHT_GREEN#* The portal to the Far East is now functional and can be used to go back.#WHITE#", "#LIGHT_GREEN#* 通向远东的传送门开始运作了，你可以用它来回去。#WHITE#", "_t")
@@ -20789,8 +20789,8 @@ t("There and back again", "穿越回来", "_t")
 t("Zemekkys in the Gates of Morning can build a portal back to Maj'Eyal for you.", " 晨曦之门的伊莫克斯可以为你制造一个传送门使你回到马基埃亚尔。", "_t")
 t("#LIGHT_GREEN#* You have found a Blood-Runed Athame.#WHITE#", "#LIGHT_GREEN#* 你找到了血符仪式匕首。#WHITE#", "_t")
 t("#SLATE#* Find a Blood-Runed Athame.#WHITE#", "#SLATE#* 寻找血符仪式匕首。#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have found the Resonating Diamond.#WHITE#", "#LIGHT_GREEN#* 你找到了共鸣宝石。#WHITE#", "_t")
-t("#SLATE#* Find a Resonating Diamond.#WHITE#", "#SLATE#* 寻找共鸣宝石。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have found the Resonating Diamond.#WHITE#", "#LIGHT_GREEN#* 你找到了共鸣钻石。#WHITE#", "_t")
+t("#SLATE#* Find a Resonating Diamond.#WHITE#", "#SLATE#* 寻找共鸣钻石。#WHITE#", "_t")
 t("#LIGHT_GREEN#* The portal to Maj'Eyal is now functional and can be used to go back, although, like all portals, it is one-way only.#WHITE#", "#LIGHT_GREEN#* 到马基埃亚尔的传送门被激活了，你可以用它返回，不过和其他传送门一样，传送过去之后不能传回来。#WHITE#", "_t")
 t("Zemekkys points to the location of Vor Armoury on your map.", "伊莫克斯在你的地图上指出了沃尔军械库的位置。", "logPlayer")
 t("Zemekkys points to the location of Briagh's lair on your map.", "伊莫克斯在你的地图上指出了布莱亚的巢穴的位置。", "logPlayer")
@@ -39331,7 +39331,7 @@ t("major", "大恶魔", "entity subtype")
 t("Lithfengel", "里斯丰格", "entity name")
 t("A terrible demon of decay and atrophy, drawn to the energy of the farportal. A beast of blight!", "一只缠绕着枯萎和衰竭的可怕恶魔，他被传送门的能量吸引而来。这只瘟神！", "_t")
 t("Back and there again", "去而复返", "_t")
-t("A careful examination of the demon's body turns up a Blood-Runed Athame and a Resonating Diamond, both covered in soot and gore but otherwise in good condition.", "仔细检查恶魔的尸体，你发现了一把血符仪式匕首和一块共鸣宝石。两者都沾满烟尘和血污，但除此之外仍完好无损。", "_t")
+t("A careful examination of the demon's body turns up a Blood-Runed Athame and a Resonating Diamond, both covered in soot and gore but otherwise in good condition.", "仔细检查恶魔的尸体，你发现了一把血符仪式匕首和一块共鸣钻石。两者都沾满烟尘和血污，但除此之外仍完好无损。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/reknor/objects.lua"
