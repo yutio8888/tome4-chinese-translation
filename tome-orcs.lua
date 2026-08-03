@@ -2451,7 +2451,7 @@ Cheer!  CHEER, DAMN YOU!
 Now...  as your new Lord, you are lucky that I am a merciful one.  I grant you all a tremendous honor, the opportunity to serve me and personally witness the fall of all who would oppose me.  Gone are the days of hiding from the Steam Giants, gone are the days of treating those Kruk Orcs as equals.  Gone are the days of the living claiming dominion over this world; they shall bow to us for the mercy of being made undead, or I shall personally annihilate them.  The living - and those who would not join me - shall be crushed under our hooves, and the world shall be ours!
 ]], [[克里布尔部族的男女们！我今天到你们面前来，是因为我的心中觉醒了伟大的天命，那是我们必须分享的命运。新时代的黎明已经到来，你们若在沉睡中错过它，可不会有什么好结果。让我睁开你们的眼睛，然后带领你们走向终极的天命！
 
-独角兽！我想，你们都知道有关这种传奇生物的传说，知道他们的优雅美丽和强大力量。无论是人类，兽人还是蒸汽巨人——他们的传说里，都有关于独角兽的传奇。传说中，有这样一种独角的魅力生物，他们有着难以置信的魔法力量，一种他们独有的力量。在这么多年里，我一直告诉你们，我和卡巴萨是这种“传奇”种族的后裔，但你们却不相信我！在很长时间里，我都没有办法证明这一切……但我看到一台飞行的机器坠入了湖中的那一天，一切都改变了。你们这些愚蠢的懦夫，谁也不敢亲自潜到水中去查看，没有人——所以，我自愿承担责任，前去查看究竟。
+独角兽！我想，你们都知道有关这种传奇生物的传说，知道他们的优雅美丽和强大力量。无论是人类，兽人还是蒸汽巨人——他们的传说里，都有关于独角兽的传奇。传说中，有这样一种难以寻觅的独角生物，他们有着难以置信的魔法潜力，却极难被找到。在这么多年里，我一直告诉你们，我和卡巴萨是这种“传奇”种族的后裔，但你们却不相信我！在很长时间里，我都没有办法证明这一切……但我看到一台飞行的机器坠入了湖中的那一天，一切都改变了。你们这些愚蠢的懦夫，谁也不敢亲自潜到水中去查看，没有人——所以，我自愿承担责任，前去查看究竟。
 
 感到幸运吧，你们的无知得到了回报。没有你们这些废物把它们吓走，那些过去因为你们靠得太近而一直躲着我的传说独角兽，终于在无人打扰时找上我并赐予祝福。尽管它们没有直接出现在我的面前……但它们用自己的方式，唤醒了这份在我的身体中潜伏已久的力量，这份我一直拥有的力量。我的力量觉醒了！
 
@@ -2553,7 +2553,7 @@ My point is, when you're writing those letters, write them like King Tolak's loo
 
 PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't understand subtlety, so I can't assume you'd understand a subtly-written letter.  Yes, I'm aware there's a chance this letter could end up in enemy hands.  No, the irony of that situation would not be lost on me.  Yes, I will hurt whoever thinks they're clever by bringing up any of the preceding.]], [[我们知道：远古传送门邮递系统并不完美这件事当然是我们的过错。我们还在努力修复那个导致传送门不停传送所有不是活物的东西的问题——如果我们搞砸了的话，那么很快就会又有人被传送到墙里了。你能够这样穿过远古传送门，而不是裸体出现在另一边，包里的东西都完好无损，已经他妈的是一件奇迹了，好不好。
 
-与此同时：我们的邮递系统仍然会丢失大量邮件，这些丢失的邮件可能会出现在任何地方。据我所知，可能会出现在传送门十码以内的地方，也有可能出现在某个联合王国好事者的手里，还有可能出现在乌鲁洛克的鼻子底下，都有可能。也就是说，你写的每一封信都有可能出现在你最不希望出现的地方，不管那是多么遥远的地方，明白吗。
+与此同时：我们的邮递系统仍然会丢失大量邮件，这些丢失的邮件可能会出现在任何地方。据我所知，可能会出现在传送门十英尺以内的地方，也有可能出现在某个联合王国好事者的手里，还有可能出现在乌鲁洛克的鼻子底下，都有可能。也就是说，你写的每一封信都有可能出现在你最不希望出现的地方，不管那是多么遥远的地方，明白吗。
 
 我想说的就是，当你写信的时候，请你想象一下，托拉克国王就在你左边看着，你奶奶站在你右边看着——或者，至少你得明白什么叫隐晦一点，好吗？别再抱怨“非法药剂”的价格了，你能说“大力药”吗？别再讨论使用“奴隶”的安全设施了，可以用“私人仆人”这词吗？还有，拜托，为了莱娜尼尔的爱，[i]别再把远古传送门叫做远古传送门了，好吗！[/i]联合王国甚至还不知道我们[i]有[/i]这个东西，可以不要再给他们侦查的线索了吗？随便你叫他什么，快递员，邮递傀儡，训练好的乌尔维拉斯，随你怎么说都行，拜托了。
 
@@ -2658,7 +2658,7 @@ We will miss their company, their ancient wisdom, and their cautious kindness.  
 唉，可是这样的认可再也没法增长也不会持续下去了。在一个命运的夜晚，大工匠克鲁克在和其他部落首领开完会后跑回来，告诉我们得立即离开，并且女人先走。直到今天我们也没完全确定，到底是什么让她如此慌张……她只是告诉我们，如果我们知道了那是什么，就再也不想和别的部落和平了，而我们或许有一天需要那份和平。我们在接下来的几天内，迅速地建了一座通往克拉克半岛的桥，一边建着一边注意着身后那些部落的动静。在最后一个兽人通过的当天晚上，克鲁克用燃烧箭点着了那座桥。在远处的海岸线上，我们只能看到自己惊险逃过的追兵手中举着的火把。
 我们刚刚得以放松喘息，一个东西在我们头上发出雷鸣般的呼啸。一束强光从天上打下，照亮了我们，周围的地面却仍然是暗的。一种奇特的傀儡从那东西上降落，它以弹簧和齿轮而不是符文和石头制成。它用一种沙哑又像是活物发出的声音说话，问我们发生了什么，为何在沉寂的夜晚发出光和噪声；我们告诉它，我们刚刚为了自身的安危从大陆逃来，我们只是想找个地方生存。盘旋的飞艇从上面伸下了钩子，把那个机械拉了回去，然后一言不发地离开了。
 我们在山脉的远端找到了一个合适的家园，以周围的群山做防御，却又有足够肥沃的土地来养活我们。我们一入住，那些飞艇和机械就开始越来越频繁地造访。他们一开始仅仅是袖手旁观，后来与我们打起交道，甚至帮我们建造房屋。不久以后，那些机械的一个主人终于亲自来和我们会面；他自称为气之部族的一员，也就是蒸汽巨人，我们很长时间都认为只是古代神话才有的部族。他们是一群奇怪的人，我们很快与他们交好并敬爱着他们。他们珍视理性而又重视力量，性格不卑不亢……尽管有时有些轻浮和古怪，不过我们想，独自在山顶待上长久时光的人都会这么对待其他人。相应地，他们也认为我们是他们那难以控制却又充满天赋的子女。当他们开始教我们使用那些蒸汽机械科技时，他们对于我们很快适应并改造它的表现充满了惊喜。他们给予我们指导和智慧，我们给他们动机和灵感；如果有足够长的时间，我们双方本可以变成真正的盟友。
-然而，好景不长。一天，一个惊慌的斥候跑进大营，告诉我们，一支兽人军队走水路到达克拉克半岛的海岸上，带着敌意向我们袭来。不管当初他们把大工匠克鲁克赶走的原因是什么，他们现在已经决心要将我们赶尽杀绝。
+然而，好景不长。一天，一个惊慌的斥候跑进大营，告诉我们，一支兽人军队走水路到达克拉克半岛的海岸上，带着敌意向我们袭来。不管当初他们把大工匠克鲁克赶走的原因是什么，他们已不再满足于得不到那件东西。
 我们告诉气之部族，他们却跟我们说只要和兽人军队谈谈就行；这些巨人们从来没有受过攻击！在我们这样生死存亡的关头，我们从那些巨人那里得不到任何援助。相反，大工匠克鲁克给我们展示了一系列她的设计图，这是一些她之前不敢公开，生怕气之部族看到的东西————这些设计能把我们那些有益又奇特的蒸汽装置，变成可怕又有效的武器。其中有一种背带，能把那些旋转的巨大链锯当做武器装备；便携的蒸汽发生器，让我们可以和气之部族的巨人一样轻松地驱动机械，而不用像他们那样连接气管或喷管；一个把射钉枪的保险装置取消，同时把枪管翻转到外面的方案，这样能让它们以难以置信的高速发射投石索弹药；一个巨人们给我们的珠宝电镀设备的巨型版本，可以同时电击大量的入侵者……
 当其他兽人部落袭来时，我们组成了强力的防御部队，挥舞着他们从未见过的武器战斗，造成了他们从未知道如何忍受和治愈的伤势，使用着他们没法理解更不用说掌控的力量。链锯发出尖啸，撕碎护甲切断肢体；巨大的钩子抓住了加伯特的龙战士的身躯，只听到他们从空中坠落的哀嚎；兽人们被电击或是被蒸汽流烫伤，四周散发出血肉被灼烧的气味；蒸汽枪发出砰砰声，将敌阵化为一堆尸体————这些景象对于气之部族和其他兽人部落来说是可怖的噩梦，但对于我们，这些甜美的声音、景象和味道代表了胜利和安全。我们获得压倒性的胜利，只有极少的阵亡，而它们则落荒而逃。克鲁克部落不会被征服。
 然而气之部族看不到我们所处的危急局面。他们看不到我们面临的威胁。而且我怀疑，即使大工匠告诉他们这一切，他们也不会听我们的话。他们看到的，却是自己创造性的工具用来毁灭，他们美丽的发明变成了如此可怕的东西，他们亲爱的聪慧“子女”们，造成了远超自己所见过场面百倍的血腥屠杀。他们谴责我们，那些本来准备和我们共同居住的巨人们也迅速地撤回了山里。他们不再欢迎我们使用他们的技术，甚至不欢迎我们住在他们的群山附近。
@@ -2906,7 +2906,7 @@ TANTALOS: "As I thought.  Nashal, prepare the G.E.M. and a retinue of guards and
 
 坦塔洛斯：“听起来真不错。那个你提到过的备用武器————叫什么来着，#{bold}#毁天灭地、无礼的贯穿者————#{normal}#”
 
-托马克：“它不见了。那些我派给潘多尔的传令兵的法师……他们的隐形咒语不准。兽人们找到了他们……运气好的话，他们不知道钥匙是用来做什么的，或者武器能做什么。我……我很抱歉。”
+托马克：“它不见了。那些我派给潘多尔的传令兵的法师……他们的隐形咒语不准。兽人们找到了他们……若这算是一点安慰，他们似乎还没意识到钥匙是做什么用的，也不知道那些武器能做什么。我……我很抱歉。”
 
 漫长的沉默。
 
@@ -3619,7 +3619,7 @@ t("Winner", "游戏胜利", "_t")
 t("#GOLD#Well done! You have won the Tales of Maj'Eyal: Embers of Rage!#WHITE#", "#GOLD#干得不错！你通关了马基·埃亚尔的传说：余烬怒火#WHITE#", "_t")
 t("You have thwarted the Steam Giants' genocidal plans, and avenged those killed in the attack on Kruk Pride.  Their desperate pact with the High Priest did nothing to stop you; the priest and his god lay dead at your feet, and you have ensured they will #{italic}#stay#{normal}# dead for the foreseeable future.", "你挫败了蒸汽巨人灭绝你们的邪恶计划，并为那些在他们残忍袭击中丧生的部落同胞复仇。他们绝望中与夏·图尔祭司订立的邪恶契约也未能阻止你，祭司和他的神倒在你的脚下，你已经确保他们在可预见的将来会#{italic}#一直#{normal}#长眠下去。", "_t")
 t("The humans, elves, and halflings will not be able to hurt your people again.  By destroying the farportal and denying King Tolak's army its glorious battle, you have ensured the safety of your people from the Allied Kingdoms, and by storming the Gates of Morning you have eliminated the last bearers of the West's hateful aggression in Var'Eyal.", "无论是人类、精灵还是半身人，都再也无法伤害你的族人。你摧毁了远古传送门，使托拉克国王的军队失去了这场光荣的战斗，从而确保族人免受联合王国侵害。你攻下晨曦之门，也消灭了西方在瓦·埃亚尔施行可恨侵略的最后一批爪牙。", "_t")
-t("For now, peace reigns.  You know that this will not last forever.  You may have repelled its vanguard, but the Kar'Haïb Dominion bides its time waiting for a weakness it can exploit; the smugglers' portals from Maj'Eyal remain undiscovered, and while neither you nor King Tolak has any remaining desire to take the other's continent, the fear of invasion will linger in the backs of your minds.", "眼下，和平降临了。但你知道这不会永远持续下去。虽然你击退了卡尔·亥巴帝国的先锋，它却仍在等待可乘之机；走私者通往马基·埃亚尔的传送门依然没有被发现。即使你和托拉克国王都已无意夺取对方的大陆，对入侵的恐惧仍会萦绕在你们心底。", "_t")
+t("For now, peace reigns.  You know that this will not last forever.  You may have repelled its vanguard, but the Kar'Haïb Dominion bides its time waiting for a weakness it can exploit; the smugglers' portals from Maj'Eyal remain undiscovered, and while neither you nor King Tolak has any remaining desire to take the other's continent, the fear of invasion will linger in the backs of your minds.", "眼下，和平降临了。但你知道这不会永远持续下去。虽然你击退了卡尔·亥巴帝国的先锋，它却仍在等待可乘之机；走私者们从马基·埃亚尔通往这里的传送门依然没有被发现。即使你和托拉克国王都已无意夺取对方的大陆，对入侵的恐惧仍会萦绕在你们心底。", "_t")
 t("  The messages of the Lost City give you cause to remain ever vigilant for the threats they warned of, including their authors, and you wonder what your people will do now that their struggle to escape eradication, one that has defined them for their entire recorded history, has ceased to be a concern.", "  来自失落之城的消息让你充满警醒，无论是那些他们警告的恐怖威胁，还是他们本身。你想知道，当你的人民所极力摆脱的灭亡威胁：那个镌刻在你们整个历史中的威胁，现在已经不复存在的时候，你们的人民又将何去何从？", "_t")
 t("Regardless...  You just killed a god and gave your people the first chance to relax in thousands of years.  It's been a pretty good day.", "不管怎样…你杀死了一个神，而你的人民在数千年的征战中终于有了放松的机会。多么愉快的一天。", "_t")
 t("You may continue playing and enjoy the rest of the world.  Your soldiers may want to speak with you outside...", "你可以继续游戏，享受这个世界。你的士兵在外面，有些话要说……", "_t")
@@ -3791,7 +3791,7 @@ section "tome-orcs/data/quests/ritch-hive.lua"
 t("A Ritch Party", "里奇派对", "_t")
 t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地清除太阳堡垒的威胁。", "_t")
 t("To do that we will prepare a special surprise to help our final attack.", "为此，我们必须为最终的突袭做好准备，给他们一个“惊喜”。", "_t")
-t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect a big pile of ritch eggs.  About 30 viable eggs should be sufficient.", "前去艾露安沙漠北部丘陵中的里奇巢穴，收集大量的里奇虫卵。至少要30个才够。", "_t")
+t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect a big pile of ritch eggs.  About 30 viable eggs should be sufficient.", "前去艾露安沙漠以北群山中的里奇巢穴，收集大量的里奇虫卵。至少要 30 个才够。", "_t")
 t("When you have enough, find a tunnel leading north and use the special sand shredder gloves tinker to open a path under the Gates of Morning.", "当你有了足够的里奇虫卵，找到一条向北的隧道，使用特殊的挖沙手套插件来挖出一条通向晨曦之门的道路。", "_t")
 t("Finally, place the eggs in a protected spot to hatch.  With luck, they will provide a distraction while you later assault the city.", "最后，将虫卵放在安全的地方让它们孵化。运气好的话，等你日后进攻城市时，它们能帮你分散敌人的注意力。", "_t")
 t("#LIGHT_GREEN#* You have collected enough eggs.#WHITE#", "#LIGHT_GREEN#* 你收集了足够多的虫卵#WHITE#", "_t")
