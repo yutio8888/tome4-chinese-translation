@@ -2624,7 +2624,7 @@ section "tome-cults/data/quests/krogs-rescue.lua"
 t("Cleaning the trash", "清理垃圾", "_t")
 t([[Protector Myssil has requested that you go at once to the ruins on the eastern shores of the sea of Sash to rescue a party of Krogs taken by necromancers filth.
 Save our people and show the evildoers the wrongness of their way. Permanently.]], [[守护者米歇尔请求你立即前往萨什海东岸的废墟，去拯救被邪恶死灵法师抓住的一群克罗格。
-去拯救人民，并*永久*修正邪恶的错误。]], "_t")
+去拯救人民，并永久修正邪恶的错误。]], "_t")
 t("#LIGHT_RED#* You have killed the necromancers but not in time to save any of the captive Krogs.", "#LIGHT_RED#* 你杀死了死灵法师，但没能及时拯救任何被抓走的克罗格。", "_t")
 t("#LIGHT_GREEN#* You have killed the necromancers and saved some of the Krogs.", "#LIGHT_GREEN#* 你杀死了死灵法师，同时拯救了一部分克罗格。", "_t")
 t("#LIGHT_GREEN#* You have killed the necromancers and saved all of the Krogs, well done Ziguranth!", "#LIGHT_GREEN#* 你杀死了死灵法师，拯救了所有的克罗格，干得好，伊格兰斯！", "_t")
@@ -2687,7 +2687,7 @@ t([[Each time you apply Jinx to an enemy, you have a %d%% chance to siphon some 
 t("Fatebreaker", "打破宿命", "talent name")
 t([[You form a link between yourself and the chosen target for %d turns, tying your fates together. If during this time you receive fatal damage, you reflexively warp reality, ending the effect and attempting to force them to die in your place.
 		As long as your target remains alive this redirects all damage you take to it as temporal and darkness damage for 1 turn.
-		Any Fortune stacks you have and any Jinx stacks the enemy have will then be consumed to heal you for %d life per stack.]], [[在你和目标之间建立一个持续 %d 回合的命运链接。如果在这期间你收到了致命的伤害，你将条件反射般扭曲现实，尝试迫使目标在你的位置死亡并中断连接。
+		Any Fortune stacks you have and any Jinx stacks the enemy have will then be consumed to heal you for %d life per stack.]], [[在你和目标之间建立一个持续 %d 回合的命运链接。如果在这期间你受到了致命的伤害，你将条件反射般扭曲现实，尝试迫使目标在你的位置死亡并中断连接。
 		在 1 回合内，只要目标还活着，你会将所有受到的伤害作为时空和暗影伤害转移给目标。
 		同时，你身上的幸运效果和目标携带的厄运效果将被消耗，每层效果将会治疗 %d 点生命值。]], "tformat")
 
@@ -3182,7 +3182,7 @@ t([[Pouring more energy into your rifts, you have a %d%% chance for each one to 
 The stats of your Void Skitterers will scale with your Magic stat and level.]], [[向你的裂隙注入能量，你将有 %d%% 概率让每一个裂口进化成为更强大的形态。
 #PURPLE#彼世裂隙：#LAST# 向半径 10 内随机敌人发射光束，造成 %0.2f 暗影伤害。
 #PURPLE#时空漩涡：#LAST# 每回合对半径 4 内的敌人造成 %0.2f 时空伤害，并使其整体速度降低 30%% 。
-#PURPLE#维度之门 :#LAST# 每回合有 50%% 概率召唤一个虚空造物，持续 %d 回合 , 是一个能传送的高速物理输出
+#PURPLE#维度之门 :#LAST# 每回合有 50%% 概率召唤一个虚空造物，持续 %d 回合 , 是一个能传送的高速近战攻击者
 你的虚空造物属性随你的等级和魔法属性提高而提高。]], "tformat")
 t("Dimensional Skitter", "维度迅击", "talent name")
 t("%s's Dimensional Skitter fizzles!", "%s的维度迅击失败了!", "logSeen")
@@ -3518,7 +3518,7 @@ t([[Your affinity with things that dwell deep beneath the surface allows you to 
 		The mouth has %d bonus life, lasts for %d turns, and deals no damage.
 		Each turn the mouth will draw all enemies in radius 10 2 spaces towards itself.
 		Its bonus life depends on your Constitution stat and talent level.  Many other stats will scale with level.]], [[ 你同地下深处某物的联系让你能召唤一只饥饿巨口。
-		每回合它将周围 10 码内生物朝自身拉近 2 码。
+		每回合它将周围 10 码内所有敌人朝自身拉近 2 码。
 		它有 %d 额外生命，存在 %d 回合，不造成伤害。
 		它的额外生命取决于你的体质和技能等级。许多其他属性受等级影响。]], "tformat")
 t("\
@@ -3885,7 +3885,7 @@ t("Your body can not function properly here, it is slowly wasting away. Each tur
 t("threat", "威胁", "effect subtype")
 t("Save Kroshkkur", "拯救克诺什库尔", "_t")
 t("Kroshkkur is still under threat from %s.", "克诺什库尔仍处于 %s 威胁中。", "tformat")
-t("#CRIMSON#You waited too long, Kroshkkur has been destroyed by %s!", "#CRIMSON#你等的太久了，克诺什库尔被%s摧毁了!", "say")
+t("#CRIMSON#You waited too long, Kroshkkur has been destroyed by %s!", "#CRIMSON#你等得太久了，克诺什库尔被%s摧毁了！", "say")
 t("Covered in Gastric Fluids", "被胃液覆盖", "_t")
 t("Reduces all damage taken by %d%% and remove all detrimental effects on application.", "降低受到的伤害 %d%%。施加该效果的时候会解除所有负面状态", "tformat")
 t("debilitate", "虚弱", "effect subtype")
@@ -3964,7 +3964,7 @@ section "tome-cults/data/zones/dremshor-tunnel/npcs.lua"
 t("half formed drem", "半成型的德瑞姆", "entity name")
 t("A small faceless humanoid with vaguely Dwarven features.  Its waraxe and shield look battered, rusted, and generally in ill repair.", "一个没有面孔、身材矮小且带有部分矮人特征的人形怪物。它的战斧和盾牌看起来又锈又钝，几乎从未修理过。", "_t")
 t("The Amalgamation", "融合怪", "entity name")
-t("Creating a living being from scratch is not an easy process. There are plenty of things which can go wrong, including multiple eyes, surplus limbs, too few brains and multiple bodies being fused into a single, raging mass of flesh and bone. Despite how bulky the creature is, it moves with supple ease, quickly closing the gap between you and it.", "从零开始创造一个生物并不是一件容易的事情。有很多地方可能出错，比如多了点眼睛，多了点四肢，少了点脑子，或者把无数躯体融合成一团狂暴的血肉与骨骸组成的庞大躯体。尽管这个生物体型庞大，它仍然可以轻快地移动，很快缩小了和你之间的距离", "_t")
+t("Creating a living being from scratch is not an easy process. There are plenty of things which can go wrong, including multiple eyes, surplus limbs, too few brains and multiple bodies being fused into a single, raging mass of flesh and bone. Despite how bulky the creature is, it moves with supple ease, quickly closing the gap between you and it.", "从零开始创造一个生物并不是一件容易的事情。有很多地方可能出错，比如多了点眼睛，多了点四肢，少了点脑子，或者把无数躯体融合成一团狂暴的血肉与骨骸组成的庞大躯体。尽管这个生物体型庞大，它仍然可以轻快地移动，很快缩小了和你之间的距离。", "_t")
 t("and absorbed into the foul thing", "并被吸收到了那个肮脏的东西体内。", "_t")
 t("#CRIMSON#As %s takes an other blow you see part of it split into a drem!", "#CRIMSON#当%s受到打击时，你会看到它的一部分分裂成一个德瑞姆！", "logSeen")
 
@@ -4022,7 +4022,7 @@ t("Safe Multiverse Arena for Commotion and Killing", "杀戮与战争的安全�
 section "tome-cults/data/zones/ft-cultist/npcs.lua"
 
 t("Unspeakable Thing", "不可名状之物", "entity name")
-t("Through idiotic pride, one of the students has called this thing to your world. Thick, impenetrable darkness billows from its form, devouring all light around it. As the darkness touches you, you feel only one thing... Hunger. Bottomless, infinite hunger, as vast and unending as the void of space itself.", "一位学徒因为愚蠢的骄傲而错误的把这样东西召唤到了你的世界。深不可测的黑暗从它的形体中喷涌而出，吞噬着周围的一切光芒。当黑暗触及你的时候，你只感受到一件事…饥饿，无尽的饥饿，如同宇宙的虚空一样广阔而无穷无尽。", "_t")
+t("Through idiotic pride, one of the students has called this thing to your world. Thick, impenetrable darkness billows from its form, devouring all light around it. As the darkness touches you, you feel only one thing... Hunger. Bottomless, infinite hunger, as vast and unending as the void of space itself.", "一位学徒因为愚蠢的骄傲而错误地把这样东西召唤到了你的世界。深不可测的黑暗从它的形体中喷涌而出，吞噬着周围的一切光芒。当黑暗触及你的时候，你只感受到一件事…饥饿，无尽的饥饿，如同宇宙的虚空一样广阔而无穷无尽。", "_t")
 t("unknown", "未知", "entity type")
 t("unknown", "未知", "entity subtype")
 t("The Teacher", "导师", "entity name")
