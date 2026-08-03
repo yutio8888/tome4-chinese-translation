@@ -4813,7 +4813,7 @@ section "mod-tome/data/chats/conclave-vault-greeting.lua"
 t([[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately snap to attention. The one on the right speaks:*#WHITE#
 YOU!  Name, rank, and identification.  NOW.
 ]], [[#LIGHT_GREEN#*当你进入这个房间时，你发现两个身形魁梧的食人魔站在你的面前，仿佛刚刚从无尽的长眠中醒来。他们在看到你的瞬间迅速立正，右边的一个向你大喊到:*#WHITE#
-你是谁！立刻报上你的姓名、军衔、部队番号！
+你是谁！立刻报上你的姓名、军衔、身份编号！
 ]], "_t")
 t("My what?", "我的什么？", "_t")
 t("[attack]", "[攻击]", "_t")
@@ -16276,7 +16276,7 @@ I can feel in my dreams, the dark depths. Bound, buried, forgotten. My mouth wan
 
 Must stay down here to be close to the dreams, yes yes. Must plant my mouth in the soil and watch it grow! It will devour me, and grow and grow, hmm hmm. It will call from the dark place, and bring back Him from the deepest below, oh yes.
 
--- Ta...moth... The mouth... yes yes!]], [[啊，我的嘴，它尝起来，感觉起来，恩，恩，它在生长，是的，生长！其他人也在变异，有长翅膀会飞的，有尖叫的，有压抑的，有扭曲的。糟糕的利润，嗯，嗯。我的牙齿，它们在生长，它们很饥渴，是的。他们想要逃跑！
+-- Ta...moth... The mouth... yes yes!]], [[啊，我的嘴，它尝起来，感觉起来，恩，恩，它在生长，是的，生长！其他人也在变异，有长出翅膀飞走的，有尖叫的，有湿软扑哧作响的，有扭曲变形的。糟糕的利润，嗯，嗯。我的牙齿，它们在生长，它们很饥渴，是的。他们想要逃跑！
 
 我能在梦里感受到黑暗的深渊，束缚着的、埋葬着的、被遗忘的深渊。我想张开嘴咆哮，去毁灭一切！恩，恩，深渊，是的……我想出去！
 
@@ -17521,7 +17521,7 @@ Weisman]], [[亲爱的罗尔夫，
 
 想像一下，一只庞大如熊的饿狼，赤眼如炙，饥渴的吞噬着它周围一切的生命。这只暴君所带来的威胁远超一整群它弱小的同类。你也许亦曾对付一些当地人口中所谓的座狼，但想象一下这只如同熊一般巨大的“好家伙”。事实上，当我在周围的旅行时，不巧就遭遇到了这样一只令人生畏的贪婪怪物，它挥舞的獠牙比我的剑还要长。于是我与这只座狼王和它的狼子狼孙们展开了激烈的搏斗。可惜的是我最终并没有杀死这只野兽，但我能自豪的说，能从这场战斗中存活就已经是值得称道的了。
 
-再说，杀死这样的生物又能有多大荣耀呢？对，我确实会得到一大堆狼毛，让德斯镇的工匠们为我所有的衣物打上褶，但我的内心告诉自己这种传说中的生物必须让其繁衍下去。因为正是它们，赋予了我们在这个世界冒险的意义!
+再说，杀死这样的生物又能有多大荣耀呢？对，我确实会得到一大堆狼毛，多到足以给德斯镇每双靴子和每顶帽子做毛皮衬里，但我的内心告诉自己这种传说中的生物必须让其繁衍下去。因为正是它们，赋予了这个世界真正的灵魂!
 
 殷切的期盼着你的回信，
 威斯曼]], "_t")
@@ -17536,7 +17536,7 @@ And yet I live. Weisman, I sincerely hope that my letter has revealed to you you
 
 Rolf]], [[亲爱的威斯曼，
 
-哈哈，你上次的来信真是带给我不少笑料！你这家伙到底要用这些挥舞木剑、纠缠没牙野狗的故事骚扰我到几时？就让我来演示一下你那封信件的正确读法：有一天，我与一只老狗大战300回合，差点杀掉它。这真是充满勇气与血性的战斗！
+哈哈，你上次的来信真是带给我不少笑料！你这家伙到底要用这些挥舞木剑、纠缠没牙野狗的故事骚扰我到几时？就让我来演示一下你那封信件的正确读法：有一天，我没能杀死一只狗。这真是充满勇气！
 
 你的“英雄事迹”在我近日克服的可怕梦魇面前根本不值一提。数天前我徒步穿越了远古丛林(这可是在德斯镇之外的地域，威斯曼！你可是要被吓的腿软了吧！) 在那里，我不幸的遭遇了世上最可怕、最犀利、最凶猛的生物！ 
 
@@ -17905,7 +17905,7 @@ All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and 
 
 肖塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身师或猎龙者行走于世。
 
-在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以对魔法亲和著称，而这类人通常是猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍能在某些偏远的地方找到。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
+在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以对魔法亲和著称，而这类人通常是猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在遥远后裔的身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
 
 高等人类基本身高在6英英尺左右，有着金色的头发、白皙的皮肤和蓝灰色的眼睛。大多数的学者是高等人类，贵族阶层中也不乏他们的身影。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期孔克雷夫法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与其他种族通婚会极大的降低这种血统的优越。
 
@@ -18042,7 +18042,7 @@ What caused them to become extinct is unknown, though many theories abound. The 
 
 夏·图尔生活在距今一万年前，被称为混沌纪的时代。这个种族的名字来源于精灵族，他们以敬畏之情述说着古代种族，即便如此，他们也对其知之甚少。在马基·埃亚尔大陆上，夏·图尔如梦似幻的废墟结构被找出并探索，有的废墟甚至位于海洋中沉没的大陆上，暗示着夏·图尔人曾经一度统治过整个世界。
 
-传送门的首次发现是在厄流纪，被半身人发现，在大量的实验后他们发现可以将物品和生物传送到很远的地方。这些奇迹背后的奥术原理仍远远超出我们能够理解的范围。那些试图刨根挖底的人，现在湮灭在了历史中——那些永恒精灵法师将所有已知的传送门搬到了一个靠近他们首都的地方，并且他们的魔导师们的过于自信开启了魔法大爆炸，他们瞬间化为了灰烬并且整个大陆分崩离析。那些在大陆上剩下的传送门，至今无人敢碰。
+传送门的首次发现是在厄流纪，被半身人发现，在大量的实验后他们发现可以将物品和生物传送到很远的地方。这些奇迹背后的奥术原理仍远远超出我们能够理解的范围。那些试图刨根挖底的人，现在湮灭在了历史中——那些永恒精灵法师将所有已知的传送门搬到了一个靠近他们首都的地方，并且他们的法师被释放出的能量所淹没，从而引发了魔法大爆炸，他们瞬间化为了灰烬并且整个大陆分崩离析。那些在大陆上剩下的传送门，至今无人敢碰。
 
 关于他们的长相几乎没有人说得清，因为毫无历史文献或者是记录来描述他们的样子。然而他们肯定与其他种族有着类似的特征，因为他们的废墟中存在着适合人类的楼梯、门廊和房间。欧卡顿通过研究他们的工具和遗迹，得出了这样的结论：他们大约高5英尺4英寸左右，有着异常修长的四肢和手指。
 
@@ -18058,7 +18058,7 @@ Nagas were once believed to be mere myth, but reliable reports and even the capt
 
 The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]], [[任何完整的著述都少不了至少简要提及那些肆虐于我们世界的野蛮种族。他们没有任何值得一提的文明社会，一般来说也不具备高等思维或文化，但是对于那些热衷于分析低等智慧生物的人而言，他们仍然值得研究。
 
-巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生存与东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度，并且以移动迅速和能够使用精工武器闻名，尽管他们没有那么发达的肌肉和强壮的身躯。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且巨魔们的广泛分布和令人惊讶的生育率使得他们至今仍活跃在马基·埃亚尔的舞台上。
+巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生存与东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度和更为发达的言语能力，并且以移动迅速和能够使用精工武器闻名，尽管他们没有那么发达的肌肉和强壮的身躯。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且巨魔们的广泛分布和令人惊讶的生育率使得他们至今仍活跃在马基·埃亚尔的舞台上。
 
 巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英英尺高。他们看起来就像是具有浮肿面部特征和更长的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者攻击市民，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的优越文化和语言，但是却向我们揭示了有限智慧的运用和团结一致的精神。
 
@@ -18907,7 +18907,7 @@ Our forces never full recovered from the loss of our great leader. The wars cont
 
 半身人们惊慌失措，虽然兽人部队即将被消灭，但是他们的伟大武器也毁灭了。接着他们走向废墟查看傀儡的状况，没想到，吞噬者加库尔居然还活着。他的头部严重受创，满脸鲜血，胳膊也满是淤青，但他找到了他的战斧，咧着嘴站在他们面前。
 
-他知道，他现在是光杆司令了，在他和傀儡战斗的同时，他的部队被消灭殆尽。虽然他们英勇杀敌，但在他的面前仍有上万敌军。但他哈哈大笑，因为他是一个真正的战士，没有比击败战场上“不可战胜”的对手更令他快乐的了。这辈子值了。
+他知道，他现在是光杆司令了，在他和傀儡战斗的同时，他的部队被消灭殆尽。虽然他们英勇杀敌，但在他的面前仍有上万敌军。但他哈哈大笑，因为他是一个真正的战士，没有比击败战场上“不可战胜”的对手更令他快乐的了。他发起了冲锋。
 
 他勇猛的穿过半身人的部队，成片的尸体倒在他的身后。他格挡开所有的箭矢，将一柄战斧使用的淋漓尽致。他切开对方的头颅，将他们的血肉连同盔甲一起撕裂。当对方试图抓住他的武器时，他或用拳头打趴他们，或用牙齿咬断他们的喉咙。他在人群中来去如风，鲜血不断的洒在他的脸上。在杀死了上百人后，他的斧头终于开裂了，但他依然紧握着斧柄，挥舞着它继续与敌人战斗。
 
@@ -18957,7 +18957,7 @@ Pumping nutrients directly into their stomach is proving a difficulty with the i
 
 虽然这些子宫以极快的速度运作，我们仍在抑制她们的重要器官，以延长她们的寿命。也许她们可以活上数百年，甚至数千年。
 
-随着实验体的腹部一天天增大，如何将高蛋白营养注入她们的胃部逐渐变的困难。我正在研究如何将营养散播到空气中，这样实验体直接靠呼吸就可以吸收。初步结果显示，这样会导致皮肤下面有块状物聚积，不过没有任何副作用。]], "_t")
+随着实验体的腹部一天天增大，如何将高蛋白营养注入她们的胃部逐渐变的困难。我正在研究如何将营养散播到空气中，这样实验体直接靠呼吸就可以吸收。初步结果显示，这样会导致皮肤上出现黏液沉积，面有块状物聚积，不过没有任何副作用。]], "_t")
 t("Clinician Korbek's experimental notes part four", "巫医库贝克的实验报告，第四部分", "_t")
 t([[#{bold}#Clinician Korbek's experimental notes part four#{normal}#
 
@@ -19479,7 +19479,7 @@ In their effect on their environment you should be wary of the following:
 Note that a spellweaver will doubtless deny any accusation against them, and will show great emotion when evidence is laid before them. But one should not delay in bringing swift judgement, lest they try to cast a hex or escape by arcane means.]], [[那些拥有不洁巫术的人通常可以从他们的表现来判断，他们的癖好，他们的个人收藏和对周围环境的影响。密切注意你周围的人，因为他们可能就是其中一员。甚至妇女儿童和瘸子都有可能是聪明的恶魔术士和死灵法师伪装的。
 
 他们的表现通常有以下几个特点：
-* 面色苍白
+* 面色污秽
 * 非正常的或者是“精灵般”的美貌
 * 特别瘦弱，有突出的骨骼
 * 尖尖的或末端锐利的耳朵——尤其要提防那些用长发或者帽子遮住耳朵的人。
@@ -19501,7 +19501,7 @@ Note that a spellweaver will doubtless deny any accusation against them, and wil
 * 妇女的例假会更加频繁
 * 非自然和不可思议的事情在他们周围发生
 
-注意一个巫师绝对会否认对他的指控，并且在证据面前会表现出极大的无辜。不用通过繁琐的审判，他们应速速处决，否则他们会施展邪术或者用一些魔法的手段逃跑。]], "_t")
+注意，当证据摆到巫师面前时，他们会表现出极大的情绪波动。不用通过繁琐的审判，他们应速速处决，否则他们会施展邪术或者用一些魔法的手段逃跑。]], "_t")
 t("Spellhunter's Guide part 2: How to Battle a Magic-User", "猎魔人指南第二部分：怎样与法师战斗", "_t")
 t([[Those who rape the forces of nature with their malign wills doubtless unlock great powers to their advantage. We of noble cause, with our abilities aligned to nature's threads, can struggle to equal the terrible might of these unholy mages. But we must persist, for our cause is just, and the threat to this world from the terrors of the arcane evils cannot be under-stated. Too long has Eyal suffered the torture of their presence, and so we must fight with all the powers that nature can give us.
 
