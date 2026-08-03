@@ -4822,7 +4822,7 @@ t("#CRIMSON#NARGOL SCUM!  WE'RE UNDER ATTACK!", "#CRIMSON#纳格尔王国的半�
 t([[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately snap to attention. The one on the right speaks:*#WHITE#
 Ah!  Reinforcements!  I don't know how long it's been, but I'll get Astelrid up here to--  wait a minute, where are the rest of them?  #LIGHT_GREEN#*He frowns.*#WHITE# What's your identification number?
 ]], [[#LIGHT_GREEN#*当你进入这个房间时，你发现两个身形魁梧的食人魔站在你的面前，仿佛刚刚从无尽的长眠中醒来。他们在看到你的瞬间迅速立正，右边的一个向你大喊道:*#WHITE#
-太好了！我们的援军终于到了！我不知道已经过了多久，不过我去把阿斯泰尔瑞德叫上来——等等，其他人呢？  #LIGHT_GREEN#*他的眉头紧锁。*#WHITE# 你的部队番号是什么！
+太好了！我们的援军终于到了！我不知道已经过了多久，不过我去把阿斯泰尔瑞德叫上来——等等，其他人呢？  #LIGHT_GREEN#*他的眉头紧锁。*#WHITE# 你的身份编号是什么！
 ]], "_t")
 t("Wait! The war's over! It's been thousands of years, the Conclave doesn't exist anymore!", "等等！战争已经结束了！已经过去了几千年了，孔克雷夫也早已灭亡了！", "_t")
 t([[#LIGHT_GREEN#*They look at each other and scowl, drawing their weapons.  The one on the left growls:*#WHITE#
@@ -16248,7 +16248,7 @@ Some Sher'Tul relics have been found. Perhaps great profit to be had here! High 
 
 Some miners saying they feel ill, hrm hrm. The drem fools have likely been gorging on too much mead. Will deduct it from their pay, yes yes!
 
--- Foreman Tamoth]], [[经过了10天的深入考察，哈！最近我们已经打开了新的矿坑，但是我们必须小心翼翼的工作以确保它们在施工前的稳定性。是的！开始的很顺利，机器在正确的位置安装好并且没有检测到可燃性气体，恩，恩，真不错。
+-- Foreman Tamoth]], [[经过了10天的深入考察，哈！最近的地震震开了新的深渊裂缝，但我们在进行主要作业前必须小心翼翼地确保其稳定。是的！开始的很顺利，机器在正确的位置安装好并且没有检测到可燃性气体，恩，恩，真不错。
 
 一些夏·图尔的遗迹被发现。也许这里潜藏着巨大的利益！是的是的，我们将在永恒精灵的市场大赚一笔。
 
@@ -17956,7 +17956,7 @@ The Shaloren have a long history of magic-use which continues to this day. Thoug
 
 Their capital city is Elvala, in the south-west peninsula, and they have very few settlements outside of this. They have naturally long lives, and their mastery of the arcane arts has allowed them to extend their lives indefinitely. The eldest immortals make up their Council of Elders, which is headed by their King Aranion Gayaeil. Death is a particular fascination amongst the Shaloren, and early kings of their race were said to build great tombs for themselves whilst experimenting in flesh preservation and necromancy. The Shaloren of course deny this.
 
-They deal with other races seldom, preferring to keep a low profile, and most of their trade is done through halfling intermediaries. A few rune-crafters and enchanters sometimes travel to other major cities to do business, and some brash youths are known to explore further afield.]], [[虽然乍一看，精灵们都差不多，但是他们还是有着不同的历史、文化、观念和许多微妙的生理特征，所以我将会分开写他们。所有的精灵都有着非常明显的标志——尖尖的耳朵和高颧骨，至于其他特征就太普遍了。必须说的是，他们称自己为整体的“Elore”，意即“兄弟”，然而这些兄弟姐妹间的关系通常是比较紧张的。
+They deal with other races seldom, preferring to keep a low profile, and most of their trade is done through halfling intermediaries. A few rune-crafters and enchanters sometimes travel to other major cities to do business, and some brash youths are known to explore further afield.]], [[虽然乍一看，精灵们都差不多，但是他们还是有着不同的历史、文化、观念和许多微妙的生理特征，所以我将会分开写他们。所有的精灵都有着非常明显的标志——尖尖的耳朵和高颧骨，至于其他特征则差异极大。必须说的是，他们称自己为整体的“Elore”，意即“兄弟”，然而这些兄弟姐妹间的关系通常是比较紧张的。
 
 永恒精灵（或不朽精灵——“不朽恩赐”）通常身高6英尺2英寸左右，有着阳光般灿烂的头发和蓝紫色的眼睛。他们身材苗条，体重较轻，有着魔法运用上的巨大优势。他们以迅捷的移动速度和轻快的步伐而闻名。但是最值得注意的是他们的魔法亲和力，这一点其他任何种族中都是无法相提并论的，同时他们还拥有强大的意志。
 
@@ -18495,7 +18495,7 @@ t([[I have found a body, a fellow Thaloren by the looks of things. Her face was 
 
 There are strange things in this land, and I am afeared. I saw a large ant earlier, and when I tried to stomp it underfoot it screamed at me, and called me names. I crushed it, and its eyes went red and burst, and it let out a shrill death cry that still echoes round my skull, scattering my thoughts.
 
-My head aches, and with each pounding the earth visibly shakes beneath my feet. Is this a fever? I must get out of here!]], [[我找到了一具尸体，这家伙看样子是个自然精灵。她的脸上满是惊恐，她的四肢痛苦的扭曲着。虽然没有任何创伤，但是我大概能猜到她死亡的原因。是那团阴影吗？尽我所能，还是让她入土为安吧。
+My head aches, and with each pounding the earth visibly shakes beneath my feet. Is this a fever? I must get out of here!]], [[我找到了一具尸体，这家伙看样子是个自然精灵。她的脸上满是惊恐，她的四肢痛苦的扭曲着。虽然没有任何创伤，但我看不出她是怎么被杀的。是那团阴影吗？尽我所能，还是让她入土为安吧。
 
 这片土地上有着一些很诡异的事物，我很害怕。之前我看到过一只大蚂蚁。当我试图一脚踩死它时，它朝我尖叫，还辱骂我。我碾碎了它，它的眼睛迅速变红并爆裂，发出的刺耳临死尖叫至今仍回荡在我脑海里，搅乱着我的思绪。
 
@@ -18647,7 +18647,7 @@ t([[Our history is a history of battles, a history of wars. We orcs have always 
 
 It was the halflings we first did war with, in the Age of Allure. We were weak then, and disorganised, and in their arrogance they sought to enslave us. But we fought back! And we have been fighting back ever since. They used magic on us, though we had never come in touch with the arts before. They used whips and chains and tried to beat us down. They used us for labour, butchering any young that were not strong enough for them, burning any constructions we tried to make for ourselves.
 
-At first we escaped and fled, and hid in dark caves. Our numbers grew, though we had to endure squalor and hardship. After many years we could hide no longer, as starvation and disease threatened to kill us all. And so seeing our enemy weak we rose upon them in wrath. We were not organised, but we were determined. The elves and the humans and the dwarves tried to oppose us too, but we would not allow ourselves to be beaten! They tried to use their magics against us, but we overcame them with numbers, five of us dying for every mage we managed to kill. With blood we paid and finally we had lands for our own!]], [[我们的历史是一部战乱史。在岁月的长河中，我们经常受到其他种族的侵略，面对其他种族的优越科技，我们不得不奋起反抗。其他种族把我们当做恶魔，他们潜意识里认为，我们就是纯粹的野兽。胡说八道！说我们残忍，其实是他们一手造成。说我们无情，也是因为他们曾从我们的胸膛中掏出仍在跳动的心脏，再踩在脚下！
+At first we escaped and fled, and hid in dark caves. Our numbers grew, though we had to endure squalor and hardship. After many years we could hide no longer, as starvation and disease threatened to kill us all. And so seeing our enemy weak we rose upon them in wrath. We were not organised, but we were determined. The elves and the humans and the dwarves tried to oppose us too, but we would not allow ourselves to be beaten! They tried to use their magics against us, but we overcame them with numbers, five of us dying for every mage we managed to kill. With blood we paid and finally we had lands for our own!]], [[我们的历史是一部战乱史。在岁月的长河中，我们经常受到其他种族的侵略，面对其他种族无情的进犯，我们不得不奋起反抗。其他种族把我们当做恶魔，他们潜意识里认为，我们就是纯粹的野兽。胡说八道！说我们残忍，其实是他们一手造成。说我们无情，也是因为他们曾从我们的胸膛中掏出仍在跳动的心脏，再踩在脚下！
 
 第一次战争发生在厄流纪，在我们和半身人之间展开。我们当时很弱小，并且缺乏头脑，他们傲慢的认为，我们天生就要被他人奴役。但是我们反击了！而且我们一直抵抗至今。他们向我们释放魔法，并认为我们永远不会领略魔法的魅力。他们还使用鞭子和镣铐，试图使我们屈服。他们把我们当做苦工，任何不够健壮的青年兽人都会被无情的杀害，甚至我们为自己所造的小屋也全部被焚毁。
 
@@ -18829,7 +18829,7 @@ Within three months the Eldoral kingdom was broken, and refugees flooded south t
 
 这些早期的胜利来得相当容易，但随着战争深入，他们遭遇了更加激烈的抵抗，因为其他种族对他们的袭击有了更多预警。不过加库尔总能掌控局势，他的战略和战术攻破了一切防御。每次胜利后，总会燃起巨大的火堆，我们的军队则随着直冲寒冷夜空的火焰高唱凯歌。这些战斗后来被称为烈火战争，而征服之火也蔓延到了整个马基·埃亚尔。
 
-只用了三个月，艾德瑞尔王国便陨落了，难民们拼命的逃离致命的火炬，全部涌向了南部的纳格尔王国。在进一步攻打其他种族前，加库尔巩固了他的军队，在掠夺的土地上建立了新的基地。没有人能承受被他族侵略了如此长时间的种族怒火。几个世纪的压迫使我们变的坚强，复仇的火焰在我们心中绽放出永不熄灭的玫瑰。]], "_t")
+只用了三个月，艾德瑞尔王国便陨落了，难民们拼命的逃离致命的火炬，全部涌向了南部的纳格尔王国。在进一步攻打其他种族前，加库尔巩固了他的军队，在掠夺的土地上建立了新的基地。没有人能承受被他族侵略了如此长时间的种族怒火。几个世纪的压迫使我们变得坚强，复仇的火焰在我们心中升起出永不熄灭的玫瑰。]], "_t")
 t([[#{bold}#Chapter Four: Conqueror of West and East#{normal}#
 
 #{italic}#"Our strength must come through our pride, and our pride must rise from our strength. Many are our powers and abilities, and we are unified in our pride of them. Be proud in our great race and revel in the glories we can achieve together."
@@ -43028,7 +43028,7 @@ You are an adventurer, set out to discover wonders, explore old places, and vent
 
 现在的埃亚尔大陆是卓越纪。在长达一万年的冲突痛苦和混乱之后，我们所知的世界终于进入了一个相对和平的时期。
 #FF0000#“魔法大爆炸”#WHITE#所造成的影响已经渐渐减轻，大地的伤痕也慢慢开始愈合。在烈火纪末，各个文明也纷纷开始重建家园。
-#14fffc#图库纳国王#ffffff#和他的半身人皇后#14fffc#米雯尼雅#ffffff#建立并统治联合王国已有122年了。
+#14fffc#图库纳国王#ffffff#和他的半身人皇后#14fffc#米雯尼雅#ffffff#联合王国在图库纳与其妻的统治下建立至今已有122年了。
 在他们的统治下，王国天下太平，无论是人类还是半身人的居住地都欣欣向荣，一片繁华。
 十四年前，国王因年纪过大而去世了，他的儿子，#14fffc#托拉克#ffffff#继承了王位。
 
