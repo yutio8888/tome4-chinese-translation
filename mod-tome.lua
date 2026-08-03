@@ -428,8 +428,8 @@ t("learnt", "学习了", "_t")
 t("[%s talent %s (+%d level(s))]", "[%s 技能 %s (+%d 等级)]", "tformat")
 t("Improve", "提升", "_t")
 t("Learn", "学习", "_t")
-t("gained talent category %s (at mastery %0.2f)", "解锁技能树 %s (技能等级 %0.2f)", "tformat")
-t("[Allow training of talent category %s (at mastery %0.2f)]", "[解锁技能树 %s (技能等级 %0.2f)]", "tformat")
+t("gained talent category %s (at mastery %0.2f)", "解锁技能树 %s（熟练度 %0.2f）", "tformat")
+t("[Allow training of talent category %s (at mastery %0.2f)]", "[允许训练技能树 %s（熟练度 %0.2f）]", "tformat")
 t([[#GOLD#%s / %s#LAST#
 %s]], [[#GOLD#%s/%s#LAST#
 %s]], "tformat")
@@ -473,9 +473,9 @@ t("#LIGHT_RED#You may not change level so soon after a kill (%d game turns left 
 t("#LIGHT_RED#You may not change level without your own body!", "#LIGHT_RED#你只能用自己的身体离开地图!", "logPlayer")
 t("#LIGHT_RED#You may not leave the zone with this character!", "#LIGHT_RED#你不能用这个角色离开地图!", "logPlayer")
 t("#LIGHT_RED#You cannot escape your fate by leaving the level!", "#LIGHT_RED#你不能离开地图以求逃避命运!", "logPlayer")
-t("Stay: level %s of %s", "待在：%s第%s层", "tformat")
-t("Keep Trying: level %s of %s", "继续尝试：%s第%s层", "tformat")
-t("Log the problem, Stay: level %s of %s", "记录问题，待在：%s第%s层", "tformat")
+t("Stay: level %s of %s", "待在：%s地图的第%s层", "tformat")
+t("Keep Trying: level %s of %s", "继续尝试：%s地图的第%s层", "tformat")
+t("Log the problem, Stay: level %s of %s", "记录问题，待在：%s地图的第%s层", "tformat")
 t("Debug the problem (move to the failed zone/level)", "调试问题 (进入失败的地图/楼层)", "_t")
 t("Information logged", "信息已记录。", "_t")
 t("Information on the failed zone and level dumped to the log file.", "有关失败的地图和楼层的信息，已被输出到日志文件。", "_t")
@@ -556,9 +556,9 @@ section "mod-tome/class/GameState.lua"
 
 t("#AQUAMARINE#Most stores should have new stock now.", "#AQUAMARINE#大部分商店现在应该有新货物了。", "log")
 t("glowing", "发光的", "_t")
-t("scintillating", "有趣的", "_t")
+t("scintillating", "闪烁的", "_t")
 t("rune-covered", "符文的", "_t")
-t("unblemished", "不羁的", "_t")
+t("unblemished", "无瑕的", "_t")
 t("jewel-encrusted", "宝石覆盖的", "_t")
 t("humming", "嗡嗡作响的", "_t")
 t("gleaming", "闪耀的", "_t")
@@ -683,7 +683,7 @@ t("%s's %s", "%s的%s", "tformat")
 section "mod-tome/class/NPC.lua"
 
 t("#PINK#Your summoned %s disappears.", "#PINK#你召唤的%s消失了。", "logPlayer")
-t("her", "她的", "_t")
+t("her", "她", "_t")
 t("him", "他", "_t")
 t("Killed by you: %s", "被你杀死：%s", "tformat")
 t("Target: ", "目标：", "_t")
@@ -707,7 +707,7 @@ t("You are silenced!", "你被沉默了！", "_t")
 t("You must wear this object to use it!", "你必须装备这件物品才能使用它！", "_t")
 t("You can not use items during a battle frenzy!", "你处于战斗狂热中，无法使用物品！", "_t")
 t("You can not use objects while sleeping!", "睡眠状态下无法使用物品！", "_t")
-t("Object can be used.", "物品无法使用", "_t")
+t("Object can be used.", "物品可以使用。", "_t")
 t("%s is still recharging.", "%s 还在充能。", "logPlayer")
 t("%s can not be used anymore.", "%s 无法再继续使用了。", "logPlayer")
 t("You see one more object.", "还有一件物品。", "_t")
@@ -935,7 +935,7 @@ t("Chance to avoid any damage: ", "无视伤害几率：", "_t")
 t("Defense after a teleport: ", "传送后增加闪避：", "_t")
 t("Resist all after a teleport: ", "传送后增加所有抵抗：", "_t")
 t("New effects duration reduction after a teleport: ", "传送后减少效果持续时间：", "_t")
-t("Damage Resonance (when hit): ", "伤害共振(当击中时)：", "_t")
+t("Damage Resonance (when hit): ", "伤害共振(受到攻击时)：", "_t")
 t("Size category: ", "体积等级：", "_t")
 t("Max wilder summons: ", "最大自然召唤数：", "_t")
 t("Life regen bonus (wilder-summons): ", "生命回复加成(自然召唤)：", "_t")
@@ -961,7 +961,7 @@ t("This item allows the wearer to swap to their secondary weapon without spendin
 t("Avoid Pressure Traps: ", "避免压力陷阱: ", "_t")
 t("The wearer never triggers traps that require pressure.", "该物品可防止装备者触发压力式陷阱。", "_t")
 t("Allows you to speak and read the old Sher'Tul language.", "让你学会古老的夏·图尔语言。", "_t")
-t("When used to modify unarmed attacks:", "徒手伤害加成：", "_t")
+t("When used to modify unarmed attacks:", "当用于徒手攻击时：", "_t")
 t("Learn an unarmed attack talent or enable 'Always show glove combat' to see combat stats.", "学习空手攻击技能，或者开启 '强制显示手套战斗数据' 选项来查看战斗数据", "_t")
 t("When used to attack (with talents):", "使用技能攻击时：", "_t")
 t("Learn shield attack talent or enable 'Always show shield combat' to see combat stats.", "学习盾牌攻击技能，或者开启 '强制显示盾牌战斗数据' 选项来查看战斗数据", "_t")
@@ -1220,7 +1220,7 @@ t("You successfully dismantled the trap.", "你成功地拆除了这个陷阱。
 t("You were interrupted.", "你被打扰了。", "_t")
 t("Dismantle Carefully", "小心地拆除", "_t")
 t("Disarm Normally", "普通地拆除", "_t")
-t("ignore", "无视了", "_t")
+t("ignore", "无视", "_t")
 t("simply ignore", "轻松无视了", "_t")
 t("carefully avoid", "小心避开了", "_t")
 t("somehow avoid", "不知怎么避开了", "_t")
@@ -1362,13 +1362,13 @@ t("%s", "%s", "logSeen")
 ------------------------------------------------
 section "mod-tome/class/interface/Archery.lua"
 
-t("You need a missile launcher (%s)!", "你需要导弹发射器(%s)!", "logPlayer")
+t("You need a missile launcher (%s)!", "你需要一件远程投射武器(%s)!", "logPlayer")
 t("You do not have enough ammo left!", "你没有足够的弹药！", "logPlayer")
 t("#ORCHID#Your %s CANNOT SHOOT (Resource: %s%s#LAST#).", "#ORCHID#你的%s无法射击(资源：%s%s#LAST#).", "logPlayer")
 t("#ORCHID#Target out of range.  Hold <ctrl> to force all weapons to fire at targets out of ranges (%d - %d).", "#ORCHID#目标超出范围。按住<ctrl>来强制射击超出范围(%d-%d)的目标.", "logPlayer")
 t("#ORCHID#Target out of range.  Hold <ctrl> to force your weapon to fire at targets beyond its range (%d).", "#ORCHID#目标超出范围。按住<ctrl>来强制射击超出范围(%d)的目标.", "logPlayer")
 t("#ORCHID#You COULD NOT SHOOT your %s (Resource: %s%s#LAST#).", "#ORCHID#无法使用%s射击(资源:%s%s#LAST#).", "logPlayer")
-t("%s(%d parried#LAST#)", "%s(%d 匕首格挡#LAST#)", "tformat")
+t("%s(%d parried#LAST#)", "%s(%d 被格挡#LAST#)", "tformat")
 t("#{bold}##Source# performs a ranged critical strike against #Target#!#{normal}#", "#{bold}##Source#对#Target#发起一次远程暴击!#{normal}#", "logCombat")
 t("#Source# misses #target#.", "#Source#没有命中#target#.", "logCombat")
 t("The siege arrow creates a shockwave!", "攻城矢引发了冲击波！", "logSeen")
@@ -1381,12 +1381,12 @@ section "mod-tome/class/interface/Combat.lua"
 t("%s is too afraid to attack.", "%s由于恐惧而无法攻击。", "logSeen")
 t("%s is too terrified to attack.", "%s由于恐惧而无法攻击。", "logSeen")
 t("#Target# notices you at the last moment!", "#Target#在最后时刻注意到了你！", "logCombat")
-t("#ORCHID#%s cleverly deflects the attack with %s shield!#LAST#", "#ORCHID#%s用%s盾牌机智地躲避了攻击!#LAST#", "logSeen")
+t("#ORCHID#%s cleverly deflects the attack with %s shield!#LAST#", "#ORCHID#%s用%s的盾牌机智地偏转了这次攻击!#LAST#", "logSeen")
 t("#ORCHID#%s parries the attack with %s dual weapons!#LAST#", "#ORCHID#%s用%s双持武器使这次攻击发生偏斜!#LAST#", "logSeen")
 t("#ORCHID#%s instinctively hardens %s skin and ignores the attack!#LAST#", "#ORCHID#%s本能地硬化%s皮肤，无视了这次攻击！#LAST#", "logSeen")
 t("#Target# repels an attack from #Source#.", "#Target#击退了#Source#的进攻.", "logCombat")
 t("#Target# evades #Source#.", "#Target#躲闪了#Source#。", "logCombat")
-t("%s(%d parried#LAST#)", "%s(%d 匕首格挡#LAST#)", "tformat")
+t("%s(%d parried#LAST#)", "%s(%d 被格挡#LAST#)", "tformat")
 t("%s(%d gestured#LAST#)", "%s(%d 手势格挡#LAST#)", "tformat")
 t("#{bold}##Source# performs a melee critical strike against #Target#!#{normal}#", "#{bold}##Source#向#Target#发起一次近战暴击!#{normal}#", "logCombat")
 t("#Source# misses #Target#.", "#Source#未命中#Target#。", "logCombat")
@@ -1403,7 +1403,7 @@ t("%s resists the grapple!", "%s抵抗了抓取！", "logSeen")
 section "mod-tome/class/interface/PartyDeath.lua"
 
 t("unknown", "未知", "entity name")
-t("her", "她的", "_t")
+t("her", "她", "_t")
 t("him", "他", "_t")
 t("herself", "她自己", "_t")
 t("himself", "他自己", "_t")
@@ -1500,7 +1500,7 @@ Normally, you will die if this drops below zero, though some effects will allow 
 Death is usually permanent so beware!
 It is increased by Constitution.
 ]], [[#GOLD#生命值#LAST#
-这是你的生命力量，你收到伤害时会不减少。
+这是你的生命力量，每次你受到伤害都会减少。
 当生命值低于0时角色死亡，不过有些效果可以让你在生命值小于0的时候继续存活。
 注意死亡通常是永久的！
 提升体质属性可以增加你的生命值。
@@ -1705,7 +1705,7 @@ While active, a sustained talent produces some effects on the user that stay in 
 Deactivating a sustained talent causes it to go on cooldown.
 Specific information on each talent appears its tooltip.]], [[#GOLD#持续技能#LAST#
 持续技能可以调整开或关。
-当开启时，持续技能会在用户身上产生一些效果，这些效果会在技能关闭的时候失效。启用持续技能一般需要用户耗费一定量的某项资源，并且在被关闭之后，也无法取回这些资源。
+当开启时，持续技能会在用户身上产生一些效果，这些效果会在技能关闭的时候失效。启用大多数持续技能需要用户暂时留出一定量的某项资源，这些资源在技能关闭之前将不可用。
 关闭持续技能会使其立刻进入冷却状态。
 有关技能的详细信息，请参阅技能的提示框。]], "_t")
 t([[#GOLD#Global Speed#LAST#
@@ -2058,7 +2058,7 @@ This is applied after normal damage resistance and is not affected by resistance
 t([[#GOLD#Damage resistance: specific#LAST#
 All damage of this type that you receive, through any means, is reduced by this percentage.
 ]], [[#GOLD#伤害抗性：指定#LAST#
-任何方式受到指定类型的伤害按此值减免。
+任何方式对你造成的所有类型伤害都会按此比例减免。
 ]], "_t")
 t([[#GOLD#Damage resistance: by speed#LAST#
 All damage you receive, through any means, is decreased by this percentage, which increases as your total movement speed (global times movement) decreases.
@@ -2077,7 +2077,7 @@ All damage you receive, through any means, also heals you for this percentage of
 This stacks with individual damage type affinities.
 Important: Affinity healing happens after damage has been taken, it can not prevent death.
 ]], [[#GOLD#伤害吸收：全体#LAST#
-任何方式受到指定类型的伤害，都会按此比例治疗你。
+任何方式对你造成的所有类型伤害，都会按此比例治疗你。
 可以与独立类型的伤害吸收效果叠加。
 注意：伤害吸收的治疗效果在伤害产生后处理，不能防止秒杀。
 ]], "_t")
@@ -2085,7 +2085,7 @@ t([[#GOLD#Damage affinity: specific#LAST#
 All damage of this type that you receive, through any means, also heals you for this percentage of the damage.
 Important: Affinity healing happens after damage has been taken, it can not prevent death.
 ]], [[#GOLD#伤害吸收：指定#LAST#
-任何方式受到指定类型的伤害，都会按此比例治疗你。
+任何方式对你造成的所有类型伤害，都会按此比例治疗你。
 注意：伤害吸收的治疗效果在伤害产生后处理，不能防止秒杀。
 ]], "_t")
 t([[#GOLD#Status resistance#LAST#
@@ -2241,8 +2241,8 @@ t([[#GOLD#Detect Traps#LAST#
 Your power to find hidden traps. The higher it is, the more likely you are to notice a trap before setting it off  (based on its own detection score).
 If you do not have any detect traps score, you can not detect traps without triggering them.
 ]], [[#GOLD#侦察陷阱#LAST#
-你侦察陷阱的能力，该属性越高，你就越容易发现陷阱并拆出它们。（基于它们自己的反侦察能力）
-如果你没有侦查陷阱能力，你将会无法发现陷阱，只能主动踩上它们。
+你发现隐藏陷阱的能力。该属性越高，你越有可能在触发陷阱之前就注意到它（取决于陷阱自身的侦测难度）。
+如果你没有任何侦测陷阱的能力，你将无法在不触发陷阱的情况下发现它们。
 ]], "_t")
 t([[#GOLD#Antimagic User#LAST#
 Dedicated to opposing and destroying magical and arcane influence in the world.
@@ -2562,7 +2562,7 @@ t("Donated at least 16 euros to Tales of Maj'Eyal.", "为马基埃亚尔的传�
 t("Stralite Donator", "蓝锆石捐赠者", "achievement name")
 t("Donated at least 31 euros to Tales of Maj'Eyal.", "为马基埃亚尔的传说捐赠至少 31 欧元。", "_t")
 t("Voratun Donator", "沃瑞钽捐赠者", "achievement name")
-t("Donated more than 60 euros to Tales of Maj'Eyal.", "为马基埃亚尔的传说捐赠至少 60 欧元。", "_t")
+t("Donated more than 60 euros to Tales of Maj'Eyal.", "为马基埃亚尔的传说捐赠超过 60 欧元。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/achievements/events.lua"
@@ -2581,9 +2581,9 @@ t("Shasshhiy'Kaish", "莎西·凯希", "achievement name")
 t("Killed Shasshhiy'Kaish after letting her grow as powerful as possible.", "在莎西·凯希成长到非常强大时杀死她。", "_t")
 t("Bringer of Doom", "厄运行者", "achievement name")
 t("Killed a Bringer of Doom.", "杀死一名厄运行者。", "_t")
-t("A living one!", "一只活着的夏·图尔人！", "achievement name")
+t("A living one!", "一个活着的！", "achievement name")
 t("Was teleported into Caldizar's Fortress, far into the void between the stars.", "传送进凯尔帝勒的堡垒，群星中的虚空地带。", "_t")
-t("Slimefest", "淤泥巢穴", "achievement name")
+t("Slimefest", "史莱姆狂欢节", "achievement name")
 t("Have 100 walls on the sludgenest turn into hostile creatures.", "淤泥巢穴里有超过100个墙变成了敌对生物。", "_t")
 t("Slime killer party", "史莱姆杀手聚会", "achievement name")
 t("Have 200 walls on the sludgenest turn into hostile creatures.", "淤泥巢穴里有超过200个墙变成了敌对生物。", "_t")
@@ -2635,7 +2635,7 @@ t("Deus Ex Machina", "上帝之佑", "achievement name")
 t("Found the Blood of Life and the four unique inscriptions: Primal Infusion, Infusion of Wild Growth, Rune of Reflection and Rune of the Rift.", "获得生命之血与四种特殊刻印：原初纹身，野性生长纹身，反射符文，时空裂缝符文。", "_t")
 t("Treasure Hunter", "宝藏猎人", "achievement name")
 t("Amassed 1000 gold pieces.", "积累1000金币。", "_t")
-t("Treasure Hoarder", "藏金库", "achievement name")
+t("Treasure Hoarder", "财宝囤积者", "achievement name")
 t("Amassed 3000 gold pieces.", "积累3000金币。", "_t")
 t("Dragon's Greed", "龙之贪婪", "achievement name")
 t("Amassed 8000 gold pieces.", "积累8000金币。", "_t")
@@ -2651,12 +2651,12 @@ t("Size is everything", "伤害就是一切", "achievement name")
 t("Did over 1500 damage in one attack.", "在一次攻击中造成1500点伤害。", "_t")
 t("The bigger the better!", "越大越好！", "achievement name")
 t("Did over 3000 damage in one attack.", "在一次攻击中造成3000点伤害。", "_t")
-t("Overpowered!", "屠夫", "achievement name")
+t("Overpowered!", "过于强大！", "achievement name")
 t("Did over 6000 damage in one attack.", "在一次攻击中造成6000点伤害。", "_t")
 t("Exterminator", "屠夫", "achievement name")
 t("Killed 1000 creatures.", "杀死1000个怪物。", "_t")
 t("Pest Control", "害虫防治", "achievement name")
-t("Killed 1000 reproducing vermin.", "杀死1000个召唤出的害虫。", "_t")
+t("Killed 1000 reproducing vermin.", "杀死1000个自行繁殖的害虫。", "_t")
 t("Reaver", "收割者", "achievement name")
 t("Killed 1000 humanoids.", "杀死1000个人形怪物。", "_t")
 t("Backstabbing Traitor", "背后伤人", "achievement name")
@@ -2674,16 +2674,16 @@ t("Killed the giant golem Atamathon after foolishly reactivating it.", "在愚�
 t("Huge Appetite", "大胃王", "achievement name")
 t("Ate 20 bosses.", "使用大地吞噬吃掉20个BOSS。", "_t")
 t("Headbanger", "铁头功大师", "achievement name")
-t("Headbanged 20 bosses to death.", "用铁头功艹爆20个BOSS。", "_t")
+t("Headbanged 20 bosses to death.", "用头槌撞死了20个BOSS。", "_t")
 t("Are you out of your mind?!", "你犯2了吗？！", "achievement name")
 t("Caught the attention of overpowered greater multi-hued wyrms in Vor Armoury. Perhaps fleeing is in order.", "在沃尔的军械库进入超级七彩龙的地盘。也许，离开是最好的主意。", "_t")
 t("I cleared the room of death and all I got was this lousy achievement!", "我清完“死亡之屋”后发现我只得到了这个无聊的成就！", "achievement name")
 t("Killed the seven overpowered wyrms in the \"Room of Death\" in Vor Armoury.", "在沃尔的军械库的“死亡之屋”杀死7只超级七彩龙。", "_t")
 t("I'm a cool hero", "我是超级英雄！", "achievement name")
 t("Saved Derth without a single inhabitant dying.", "在拯救德斯镇任务中没有村民死亡。", "_t")
-t("Kickin' it old-school", "挥挥衣袖，挥死一片闪电", "achievement name")
+t("Kickin' it old-school", "复古风格", "achievement name")
 t("Killed Urkis, the Tempest, causing him to drop the Rod of Recall.", "杀死厄奇斯，使他掉落回归之杖。", "_t")
-t("Leave the big boys alone", "千里杀一人", "achievement name")
+t("Leave the big boys alone", "别惹大块头", "achievement name")
 t("Killed The Master, causing him to drop the Rod of Recall.", "杀死主人，使他掉落回归之杖。", "_t")
 t("You know who's to blame", "你知道谁才是罪人！", "achievement name")
 t("Killed the Grand Corruptor, causing him to drop the Rod of Recall.", "杀死大腐化者，使他掉落回归之杖。", "_t")
@@ -2695,7 +2695,7 @@ t("Fear of Fours", "恐惧四人组", "achievement name")
 t("Killed all four bosses of the Slime Tunnels.", "杀死史莱姆通道的4个boss", "_t")
 t("Well trained", "训练有素", "achievement name")
 t("Deal one million damage to training dummies in a single training session.", "在一次训练中对假人造成攻击一百万伤害。", "_t")
-t("I meant to do that...", "我说…", "achievement name")
+t("I meant to do that...", "我就是故意的……", "achievement name")
 t("Avoid death 50 times with a life-saving talent.", "使用技能躲避50次死亡", "_t")
 
 ------------------------------------------------
@@ -2730,7 +2730,7 @@ t("Killed oneself as a halfling.", "选择半身人种族并杀死自己。", "_
 t("Emancipation", "自由了！", "achievement name")
 t("Had the golem kill a boss while its master was already dead.", "当傀儡杀死BOSS时，炼金术师已死亡。", "_t")
 t("Take you with me", "同归于尽", "achievement name")
-t("Killed a boss while already dead.", "与BOSS同时死亡。", "_t")
+t("Killed a boss while already dead.", "在已死亡的状态下杀死一个BOSS。", "_t")
 t("Look at me, I'm playing a roguelike!", "看！我正在玩Roguelike！", "achievement name")
 t("Linked yourself in the in-game chat.", "将自己的数据链接到聊天框。", "_t")
 t("Fear me not!", "恐惧无法挡我！", "achievement name")
@@ -2746,12 +2746,12 @@ t("Destroyed the Master in its lair of the Dreadfell.", "杀死恐惧王座的�
 t("A dangerous secret", "危险的秘密", "achievement name")
 t("Found the mysterious staff and told Last Hope about it.", "找到神秘法杖并通知最后的希望。", "_t")
 t("The secret city", "秘密城市", "achievement name")
-t("Discovered the truth about mages.", "发现法师城。", "_t")
+t("Discovered the truth about mages.", "发现了关于法师的真相。", "_t")
 t("Burnt to the ground", "烟花灿烂", "achievement name")
 t("Gave the staff of absorption to the apprentice mage and watched the fireworks.", "把吸能法杖交给法师学徒并观看烟火。", "_t")
-t("Against all odds", "挑战不平等", "achievement name")
+t("Against all odds", "逆境取胜", "achievement name")
 t("Killed Ukruk in the ambush.", "在埋伏战里杀死乌克鲁克。", "_t")
-t("Sliders", "激活触点", "achievement name")
+t("Sliders", "穿梭者", "achievement name")
 t("Activated a portal using the Orb of Many Ways.", "用多元水晶球激活传送门。", "_t")
 t("Destroyer's bane", "毁灭者的末日", "achievement name")
 t("Killed Golbug the Destroyer.", "杀死毁灭者高尔布格。", "_t")
@@ -2858,15 +2858,15 @@ t("Experienced and completed all the dreams in the Dogroth Caldera.", "经历并
 t("Oozemancer", "软泥使", "achievement name")
 t("Destroyed the corrupted oozemancer.", "杀死堕落的粘液使者。", "_t")
 t("Lucky Girl", "幸运女孩", "achievement name")
-t("Saved Melinda again and invited her to the Fortress to cure her.", "再次拯救梅琳达并邀请她到堡垒去。", "_t")
+t("Saved Melinda again and invited her to the Fortress to cure her.", "再次拯救梅琳达，并邀请她到堡垒去治愈她。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/achievements/talents.lua"
 
 t("Pyromancer", "烈焰术士", "achievement name")
-t("Unlocked Archmage class and did over one million fire damage (with any item/talent/class).", "解锁焱系并造成累计100万火焰伤害（通过物品、技能、天赋）。", "_t")
+t("Unlocked Archmage class and did over one million fire damage (with any item/talent/class).", "解锁大法师职业并造成累计100万火焰伤害（使用任意物品/技能/职业）。", "_t")
 t("Cryomancer", "冰霜术士", "achievement name")
-t("Unlocked Archmage class and did over one million cold damage (with any item/talent/class).", "解锁冰系并造成累计100万冰冷伤害（通过物品、技能、天赋）。", "_t")
+t("Unlocked Archmage class and did over one million cold damage (with any item/talent/class).", "解锁大法师职业并造成累计100万冰冷伤害（使用任意物品/技能/职业）。", "_t")
 t("Lichform", "巫妖转生", "achievement name")
 t("Achieved your wild dreams of power and eternal life: you turned into a Lich!", "成就你的野心并获得永恒的生命，你终于成为了巫妖！", "_t")
 t("Best album ever!", "最佳唱片", "achievement name")
@@ -2904,7 +2904,7 @@ t("They can use these forces to their advantage, but at a cost...", "他们能�
 t("Cursed", "被诅咒者", "birth descriptor name")
 t("Affliction can run to the soul, and hatred can fill one's entire being. Overcome someone else's hated curse to know its dreaded meaning.", "诅咒可以深入灵魂，使某人充满憎恨。战胜另外一个人的憎恨诅咒来领会这种可怕的力量。", "_t")
 t("Through ignorance, greed or folly the Cursed served some dark design and are now doomed to pay for their sins.", "被诅咒者曾经因为无知、贪婪或者愚昧，服从于黑暗的指示。现在，他们因罪恶而身受灾难折磨。", "_t")
-t("Their only master now is the hatred they carry for every living thing.", "他们现在唯一的主人，是对那些生者心中的憎恨。", "_t")
+t("Their only master now is the hatred they carry for every living thing.", "他们现在唯一的主人，是他们心中对一切生灵怀有的憎恨。", "_t")
 t("Drawing strength from the death of all they encounter, the Cursed become terrifying combatants.", "他们从他们遇到的死亡中吸取力量，成为恐怖的战士。", "_t")
 t("Worse, any who approach the Cursed can be driven mad by their terrible aura.", "更可怕的是，任何接近被诅咒者的人，会受可怕光环的影响而发狂。", "_t")
 t("Their most important stats are: Strength and Willpower", "他们最重要的属性是：力量和意志。", "_t")
@@ -2913,7 +2913,7 @@ t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +
 t("#LIGHT_BLUE# * +0 Magic, +4 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法 , +4 意志 , +0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +2", "_t")
 t("Doomed", "末日使者", "birth descriptor name")
-t("In shaded places in unknown lands thou must overcome thyself and see thy doom.", "在遥远大陆的一个一男的地方，你必须战胜你自己并看到你自己的末日。", "_t")
+t("In shaded places in unknown lands thou must overcome thyself and see thy doom.", "在未知之地的阴影之中，你必须战胜自己，直面自己的末日。", "_t")
 t("The Doomed are fallen mages who once wielded powerful magic wrought by ambition and dark bargains.", "末日使者是一些堕落的法师，他们曾经由于野心，通过黑暗的契约，获得了强大的魔法。", "_t")
 t("Stripped of their magic by the dark forces that once served them, they have learned to harness the hatred that burns in their minds.", "被黑暗剥夺了魔法力量的他们，开始学习如何驱使他们心头燃烧的憎恨的力量。", "_t")
 t("Only time will tell if they can choose a new path or are doomed forever.", "只有时间会证明他们是选择了一条新的道路还是一条永远的末日惩罚之路。", "_t")
@@ -4953,7 +4953,7 @@ Are you sure?]], [[#LIGHT_GREEN#*它看着你，对你的回答感到不可思�
 你确定吗？]], "_t")
 t("Just let me go please.", "请让我死吧。", "_t")
 t("asked the Eidolon to let %s die in peace", "请求艾德隆让 %s 安息。", "tformat")
-t("her", "她的", "_t")
+t("her", "她", "_t")
 t("him", "他", "_t")
 t("brought down by Eidolon", "被艾德隆杀死", "_t")
 t("No actually, perhaps life is still worth it!", "不，也许还是值得活下去的。", "_t")
@@ -43081,7 +43081,7 @@ t("Trolls were once seen as little more than beasts or pests, but the orcs train
 t("Some say that the foot of a halfling is lucky to own. Halflings do not take well to those who enquire too forcefully.", "有人说半身人的脚是幸运护身符。对于这一点半身人可并不赞成。", "init.lua load_tips")
 t("The Nargol empire was once the largest force in Maj'Eyal, but a combination of the Spellblaze and orcish attacks have dwindled it into insignificance.", "纳格尔王国曾经是马基埃亚尔最强大的国家。但是经历了魔法大爆炸和兽人的入侵之后他们已经变得无足轻重了。", "init.lua load_tips")
 t("Some of the most powerful undead do not fall easily, and only through extreme persistence can they be put to rest.", "那些最强大的不死族并不是那么容易被打败的，只有通过不懈的战斗才能将它们彻底置于死地。", "init.lua load_tips")
-t("History says little of the ancient race of yeeks that lived in halfling territory, but vanished before the time of the Spellblaze.", "据史书记载，有极少数的古代夺心魔族居住在半身人的国度，不过自从魔法大爆炸之后他们就销声匿迹了。", "init.lua load_tips")
+t("History says little of the ancient race of yeeks that lived in halfling territory, but vanished before the time of the Spellblaze.", "据史书记载，有极少数的古代夺心魔族居住在半身人的国度，不过他们在魔法大爆炸之前就已销声匿迹。", "init.lua load_tips")
 t("Dwarves are naturally a inquisitive people, but do not enjoy such inquisition turned on them. Most live secretive lives in their closed-off city, the Iron Throne.", "矮人们好管闲事，但他们自己却不喜欢别人来打搅，他们大多数居住在秘密的地下城市——钢铁王座之中。", "init.lua load_tips")
 t("Alchemists can bind gems to armour to grant them magical effects, to protect the wearer or improve their powers. Some commercial alchemists can imbue gems into jewellery.", "炼金术士可以把宝石中的魔法效果附到盔甲上，保护他们或者提高他们的能力。一些高级炼金师还能把宝石制成首饰。", "init.lua load_tips")
 t("The Spellblaze was followed by the Age of Dusk, when disease was rife and civilisation collapsed. Necromancers and fell sorcerers took advantage of the chaos to spread their vile deeds.", "魔法大爆炸之后到来的是黄昏纪，那是一个疫病肆虐文明溃败的时代。死灵法师和一些堕落法师利用当时的混乱来散播他们的恶行。", "init.lua load_tips")
@@ -43093,11 +43093,11 @@ t("Rumours tell of a shadowy cult kidnapping women and performing strange rites.
 t("Though slavery is illegal there is still a black market for it, and in some areas men are even used for blood sports.", "尽管贩奴被严令禁止但地下交易却仍然存在。有些地方奴隶甚至被作为一种血腥运动项目的道具。", "init.lua load_tips")
 t("Maj'Eyal is the biggest continent in the world of Eyal. Though records suggest other continents and islands may exist it has not been possible to cross the wide and stormy oceans since the Spellblaze and the Cataclysm.", "马基埃亚尔是埃亚尔世界中最大的一块大陆。虽然有记载世界上有可能还存在着其他大陆或者岛屿，但自从魔法大爆炸和大灾变发生之后，穿越浩瀚的风暴之海已经不大可能了。", "init.lua load_tips")
 t("The effects of the Spellblaze were not all instant, and many centuries later the Cataclysm tore the continent apart once more, devastating coastal areas the destroying all of the Naloren lands.", "魔法大爆炸造成的影响并非仅局限于那一瞬间，这场大灾难过去了几个世纪，大陆一次又一次被撕裂，沿海的纳鲁精灵王国受到了毁灭性的打击而从此灭绝。", "init.lua load_tips")
-t("Archers are fast and deadly, and with pinning shots can render their foes helpless as they swiftly dispatch them.", "弓箭手行动迅捷而致命，他们可以使用定身射击将敌人分散并各个击破。", "init.lua load_tips")
+t("Archers are fast and deadly, and with pinning shots can render their foes helpless as they swiftly dispatch them.", "弓箭手行动迅捷而致命，他们可以使用定身射击使敌人无力反抗，然后迅速解决他们。", "init.lua load_tips")
 t("Reavers are powerful fighters with corrupted blood, and the strength to wield a one-handed weapon in each arm.", "收割者是流着堕落之血的强大战士，他们双手各可以装备一件单手武器。", "init.lua load_tips")
 t("Corruptors feed off the essence of others, and can use their own corrupted blood to launch deadly magical attacks.", "腐化者可以吸取他人的精华，并使用他们的堕落力量发动致命的魔法攻击。", "init.lua load_tips")
 t("Clever rogues can lay traps to damage or debilitate their foes without having to go near them.", "聪明的盗贼可以在不近身的情况下安置陷阱对敌人造成伤害或者削弱他们。", "init.lua load_tips")
-t("Rogues can move silently and stealthily, letting them approach foes unaware or avoid them entirely.", "盗贼可以悄无声息的移动，在敌人毫无察觉的情况下悄悄近身。", "init.lua load_tips")
+t("Rogues can move silently and stealthily, letting them approach foes unaware or avoid them entirely.", "盗贼可以悄无声息的移动，在敌人毫无察觉的情况下悄悄近身，或者完全避开敌人。", "init.lua load_tips")
 t("A movement infusion can let you quickly approach a ranged opponent, or quickly escape a melee one.", "移动纹身可以使你快速地接近一个远程敌人或者逃离近战敌人。", "init.lua load_tips")
 t("Invisibility lets you escape notice, giving you the freedom to move or recover your resources, but reduces your damage.", "隐身可以使敌人忽略你，让你自由移动、恢复能量，不过这会降低你的伤害和治疗能力。", "init.lua load_tips")
 t("Poison is the domain of assassins and master rogues, and its cunning use can cripple or kill enemies over a long fight.", "毒药学是盗贼大师和刺客的技能，它可以在一场长时间的战斗中削弱或杀死敌人。", "init.lua load_tips")
@@ -43123,7 +43123,7 @@ t("Amulets are worn around the neck.", "项链戴在脖子上。", "_t")
 t("Light source", "光源", "_t")
 t("A light source allows you to see in the dark places of the world.", "光源可以让你看清这个世界的黑暗角落。", "_t")
 t("Main armor", "主护甲", "_t")
-t("Armor protects you from physical attacks. The heavier the armor the more it hinders the use of talents and spells.", "护甲保护你面授物理攻击。护甲越重，穿着它释放技能和法术就越难。", "_t")
+t("Armor protects you from physical attacks. The heavier the armor the more it hinders the use of talents and spells.", "护甲保护你免受物理攻击。护甲越重，穿着它释放技能和法术就越难。", "_t")
 t("Cloak", "斗篷", "_t")
 t("A cloak can simply keep you warm or grant you wondrous powers should you find a magical one.", "斗篷可以让你保持温暖，而一些魔法斗篷可以给你神奇的力量", "_t")
 t("On head", "在头上", "_t")
@@ -43164,7 +43164,7 @@ t("wil", "意志", "stat short_name")
 t("Willpower defines your character's ability to concentrate. It increases your mana, stamina and PSI capacity, and your chance to resist mental attacks.", "意志属性是你的专注能力，提升意志可以提升你的法力值、体力值、灵能值、精神力和精神豁免。", "_t")
 t("Cunning", "灵巧", "stat name")
 t("cun", "灵巧", "stat short_name")
-t("Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your mental capabilities and chance of critical hits.", "灵巧属性提升你学习、思考和反应能力。提升灵巧可以让你学习更多的技能，提升意志力，提升暴击几率。", "_t")
+t("Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your mental capabilities and chance of critical hits.", "灵巧属性提升你学习、思考和反应能力。提升灵巧可以让你学习更多的技能，提升精神能力和暴击几率。", "_t")
 t("Constitution", "体质", "stat name")
 t("con", "体质", "stat short_name")
 t("Constitution defines your character's ability to withstand and resist damage. It increases your maximum life and physical resistance.", "体质属性影响你抵抗和承受伤害的能力，提升体质可以提高你的最大生命值和物理豁免。", "_t")
