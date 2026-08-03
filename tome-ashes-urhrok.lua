@@ -30,7 +30,7 @@ t("Weapon in hand and sheathed in flame, a Doombringer is a terrifying force in 
 t("Doombringers are engines of war, cleaving and burning their way through entire armies.", "毁灭使者是纯粹的战争机器，使用利刃和烈焰直接凿穿敌人的军队。", "_t")
 t("The most powerful Doombringers can harness the full power of their demonic ties and transform themselves into a gigantic demon.", "最强大的毁灭使者可以全面激发恶魔血脉，变身成为巨大的恶魔。", "_t")
 t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +4 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +4 力量, +0 敏捷, +2 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, +0 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔法, +0 意志, +1 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +3", "_t")
@@ -40,7 +40,7 @@ t("Contrary to popular beliefs Demonologists are not the pawns of demons, they e
 t("They use those demonic powers for their own purpose, often evil but a few have been known to use demonic powers to fight demons.", "他们利用恶魔之力达成所愿，无论善恶，亦有少数人以此反击恶魔。", "_t")
 t("Demonologists are melee fighters, bashing their foes skulls with their shields while calling down rains of fire and darkness.", "恶魔使者是近身格斗的战士，用盾牌击碎敌人的头颅，同时能呼唤黑暗与火焰之力。", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量, +0 敏捷, +2 体质", "_t")
-t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法 , +0 意志 , +0 灵巧", "_t")
+t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +2", "_t")
 
 ------------------------------------------------
@@ -61,7 +61,7 @@ and then you may witness a new elf's conception...]], [[玛·洛克的恶魔绝�
 t("Doomelves are not a real race, they are Shaloren that have been taken by demons and transformed into harbingers of doom.", "魔化精灵并不是一个真正的种族，他们曾是永恒精灵，而被恶魔抓去，变为末日的使者。", "_t")
 t("They enjoy unleashing torments and suffering on their victims.", "他们对折磨敌人感到享受。", "_t")
 t("They possess the #GOLD#Haste of the Doomed#WHITE# talent which allows them to phase away once in a while.", "他们拥有#GOLD#末日加速#WHITE#技能，可以不时脱离相位并传送。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -2 力量, +1 敏捷, +1 体质", "_t")
 t("#LIGHT_BLUE# * +3 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +3 魔法, +2 意志, +0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 9", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 9", "_t")
@@ -136,7 +136,7 @@ t("Demon Statue of %s", "%s的恶魔雕像", "tformat")
 t("Do you #{strong}#really#{normal}# want to touch that?", "你#{strong}#确定#{normal}#要触摸它么？", "_t")
 t("No", "否", "_t")
 t("Yes", "是", "_t")
-t("#CRIMSON#The %s glows ominously.", "#CRIMSON#%s闪耀着奇怪的光芒。", "log")
+t("#CRIMSON#The %s glows ominously.", "#CRIMSON#%s发出不祥的光芒。", "log")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/general/npcs/aquatic-demon.lua"
@@ -966,7 +966,7 @@ t([[Whenever you take direct damage, there is a %d%% chance that your your disea
 		这一效果最多每回合触发一次。
 		伤害受法术强度加成。]], "tformat")
 t("Volcanic Skin", "火山皮肤", "talent name")
-t("raging volcano", "活火山", "_t")
+t("raging volcano", "喷发中的火山", "_t")
 t([[For every turn where you take damage you have a %d%% chance to store a seismic charge.
 		You can activate this spell to consume the charges, spawning a raging volcano that lasts for 2 turns per charges.
 		Each turn the volcano spews 2 flaming boulders that deal %0.2f fire and %0.2f physical damage.
@@ -1136,7 +1136,7 @@ t([[Pay %d%% of your current life and gain 100%% darkness damage conversion for 
 			If Dark Reign is active you also gain %d stamina and %d vim per stack.]], [[支付 %d%% 当前生命值， 1 回合内你造成的所有伤害转化为黑暗伤害。
 		如果黑暗支配开启，每有一层，你获得 %d 体力与 %d 活力。]], "tformat")
 t("Erupting Darkness", "黑暗爆发", "talent name")
-t("raging volcano", "活火山", "_t")
+t("raging volcano", "喷发中的火山", "_t")
 t([[When Dread End creates pools of darkness you can focus your raging thoughts on them to make them erupt into volcanos.
 		Up to %d pools in radius %d will erupt, producing a volcano for %d turns.
 		Each turn the volcano will send out fiery boulders that deal %0.2f fire and %0.2f physical damage.

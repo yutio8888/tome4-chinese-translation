@@ -1402,7 +1402,7 @@ t("a ", "一个", "_t")
 t("she", "她", "_t")
 t("it", "它", "_t")
 t("he", "他", "_t")
-t("her", "她的", "_t")
+t("her", "她", "_t")
 t("its", "它的", "_t")
 t("his", "他的", "_t")
 t("him", "他", "_t")
@@ -1651,7 +1651,7 @@ t("Auto-update on start", "启动时自动更新", "_t")
 t("Game Module", "游戏模组", "_t")
 t("Version", "版本", "_t")
 t("Addon", "插件", "_t")
-t("Active", "启动", "_t")
+t("Active", "激活", "_t")
 t("#GREY#Developer tool", "#GREY#开发者工具", "_t")
 t("#LIGHT_RED#Donator Status: Disabled", "#LIGHT_RED#捐赠者状态：禁用", "_t")
 t("#LIGHT_GREEN#Manual: Active", "#LIGHT_GREEN#手动：启动", "_t")
@@ -1955,7 +1955,7 @@ section "engine/modules/boot/dialogs/UpdateAll.lua"
 
 t("Update all game modules", "更新所有游戏模组", "_t")
 t([[All those components will be updated:
-]], [[所有需要更新的模组: 
+]], [[需要更新的组件：
 ]], "_t")
 t("Component", "组件", "_t")
 t("Version", "版本", "_t")

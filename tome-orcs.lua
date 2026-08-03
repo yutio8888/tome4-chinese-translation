@@ -84,7 +84,7 @@ t("A formidable behemoth of war using steamsaws to improve his deadliness.", "�
 t("Their most important stats are: Strength and Cunning", "他们最重要的属性是：力量和灵巧", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +5 力量, +0 敏捷, +1 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法, +0 意志, +3 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+3 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 2", "#GOLD#每等级生命加值:#LIGHT_BLUE# 2", "_t")
 t("Gunslinger", "枪手", "birth descriptor name")
 t("A tinker who dual-wields steamguns to great effect.", "双持蒸汽枪的工匠。", "_t")
@@ -104,7 +104,7 @@ t("The Annihilator is a master of destruction, wielding the most devastating ste
 t("While normally wielding a steamgun loaded with experimental ammunition and an electrically charged shield, they can equip heavy weapons such as flamethrowers.", "他们通常装备着装载着实验性弹药的蒸汽枪和一面电力充能的盾牌，但他们也可以装备像火焰喷射器那样的重装武器。", "_t")
 t("More adept at technology than most other tinkers, they supplement their weapons with automated turrets, mechanical minions and other such devices.", "他们比其他的工匠更加精通科学技术，他们使用自动炮台、机械随从和各种各样的强大发明来充实自己的武器库。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量, +4 敏捷, +0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +5 Cunning", "#LIGHT_BLUE# * +0 魔法, +0 意志, +5 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +5 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+5 灵巧", "_t")
 t("Research. Tinker. Annihilate.", "研究。制造。歼灭。", "_t")
 
 ------------------------------------------------
@@ -500,7 +500,7 @@ I would like to talk to you.]], [[#LIGHT_GREEN#*在你面前站着一位引人�
 我有一些话想对你说。]], "_t")
 t("Yes?", "嗯？", "_t")
 t("Your clan is free Metash, the tyrant is no more.", "梅塔什，你的氏族被解放了，暴君已经不复存在。", "_t")
-t("Not now.", "现在不行。", "_t")
+t("Not now.", "暂时不用。", "_t")
 t("Soft-foot of the Kruk, I come to give you a warning, an apology, and a plea for help.  An incredible magical force has awakened within one of our elders, Nektosh the One-Horned, and he has gone mad with its power.  Those who stood up against him were reduced to less than ashes by a beam from his horn, a beam that tunneled far up through the rock above him until we could see the sky.  He has convinced some of us that he can use this terrible force to conquer Eyal and terrified others into going along with him; he has announced that his first step will be to lead his followers in an attack on Kruk Pride.", "克鲁克部落的软蹄者，我来到这里，是为了给你警告和道歉，并请求你的帮助。我们的长老-独角者纳克托什，他的身上觉醒了一种强大的魔法力量，而他不能承受这股力量，逐渐疯狂。所有阻挡他的人，都在他的独角射线下化为灰烬。他的射线射程极长，能穿过岩石，直至天际。他让我们中某些人相信，他能用这股强大力量征服埃亚尔世界，同时他恐吓其他族人和他一起。他宣布，他的第一步行动将是带着追随者们攻击克鲁克部落。", "_t")
 t("[listen]", "[听他说话]", "_t")
 t("The rest of us have fled, hiding in caverns across the peninsula...  I cannot in good conscience ask you to face certain death before his magic for our sakes, but striking first may be the only way to save your people.  He appears to be stalling the invasion, buying you some time, but if you cannot catch him off-guard before he finally commits to it...  I've seen his power cut through a mountain like it was a leaf, soft-foot.  There can be no victory against that kind of magic.  Run, hide, and hope he falls victim to an accident or loses the remaining fragments of his sanity that keep him capable of casting spells.", "我们其他人都跑了，藏身在洞穴中... 凭良心说，我不应让你直面他的魔法，那一定会带来死亡。但只有抢先下手，才能拯救你的族民。他暂时不会进攻，为你赢得了一些时间。但如果你不能在他进攻前打他个措手不及...软蹄者，我曾经看着他的力量洞穿山脉，仿佛穿过一片树叶般轻松。算了，不可能战胜这种魔法的。跑吧，躲起来，希望他能意外身亡，或者进一步失去理智以至于不能施法吧。", "_t")
@@ -786,9 +786,9 @@ t("wall", "墙壁", "entity type")
 t("corrupted cave walls", "被污染的山洞墙", "entity name")
 t("corrupted cave door", "被污染的山洞门", "entity name")
 t("corrupted cave door (open)", "被污染的山洞门(已打开)", "entity name")
-t("ladder to the next level", "通往下一层的台阶", "entity name")
-t("ladder to the previous level", "通往上一层的台阶", "entity name")
-t("ladder to worldmap", "通往世界地图的台阶", "entity name")
+t("ladder to the next level", "通往下一层的梯子", "entity name")
+t("ladder to the previous level", "通往上一层的梯子", "entity name")
+t("ladder to worldmap", "通往世界地图的梯子", "entity name")
 
 ------------------------------------------------
 section "tome-orcs/data/general/grids/snow_mountains.lua"
@@ -2938,7 +2938,7 @@ t("him", "他", "_t")
 t("he", "他", "_t")
 t("He", "他", "_t")
 t("his", "他的", "_t")
-t("her", "她的", "_t")
+t("her", "她", "_t")
 t("she", "她", "_t")
 t("She", "她", "_t")
 t("pocket of distorted time", "扭曲时间之隙", "newLore category")
@@ -3791,7 +3791,7 @@ section "tome-orcs/data/quests/ritch-hive.lua"
 t("A Ritch Party", "里奇派对", "_t")
 t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地清除太阳堡垒的威胁。", "_t")
 t("To do that we will prepare a special surprise to help our final attack.", "为此，我们必须为最终的突袭做好准备，给他们一个“惊喜”。", "_t")
-t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect a big pile of ritch eggs.  About 30 viable eggs should be sufficient.", "前去艾露安沙漠北部丘陵中的里奇虫巢，收集大量的里奇虫卵。至少要30个才够。", "_t")
+t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect a big pile of ritch eggs.  About 30 viable eggs should be sufficient.", "前去艾露安沙漠北部丘陵中的里奇巢穴，收集大量的里奇虫卵。至少要30个才够。", "_t")
 t("When you have enough, find a tunnel leading north and use the special sand shredder gloves tinker to open a path under the Gates of Morning.", "当你有了足够的里奇虫卵，找到一条向北的隧道，使用特殊的挖沙手套插件来挖出一条通向晨曦之门的道路。", "_t")
 t("Finally, place the eggs in a protected spot to hatch.  With luck, they will provide a distraction while you later assault the city.", "最后，将虫卵放在安全的地方让它们孵化。运气好的话，等你日后进攻城市时，它们能帮你分散敌人的注意力。", "_t")
 t("#LIGHT_GREEN#* You have collected enough eggs.#WHITE#", "#LIGHT_GREEN#* 你收集了足够多的虫卵#WHITE#", "_t")
@@ -4658,7 +4658,7 @@ t([[Throw a tremor engine on the battlefield that will trigger after 2 turns.
 		触发后的 5 回合内，它会持续震动地面，使半径 %d 格内的任意生物被震慑、定身或缴械 %d 回合。
 		#{italic}#你脚下只是纸张，并非大地。颤抖吧！#{normal}#]], "tformat")
 t("Seismic Activity", "地震爆发", "talent name")
-t("raging volcano", "活火山", "_t")
+t("raging volcano", "喷发中的火山", "_t")
 t([[On its last pulse, your Tremor Engine shakes violently, raising a volcano for %d turns.
 		Each turn, the volcano will send out fiery boulders that deal %0.2f fire and %0.2f physical damage.
 		Damage scales with your Steampower.
@@ -6168,7 +6168,7 @@ t("confusion", "混乱", "effect subtype")
 t("Unclear Thoughts", "不清醒", "_t")
 t("Can not discern foes from friends.", "不能区分敌人和盟友。", "tformat")
 t("#Target# wakes up from the nightmare very confused!", "#Target#从噩梦中醒来，非常混乱!", "_t")
-t("#Target# is less afraid.", "#Target#不再恐惧。", "_t")
+t("#Target# is less afraid.", "#Target#不再那么恐惧了。", "_t")
 t("Psy Worm", "灵能蠕虫", "_t")
 t("Infected by a psionic worm, doing %0.2f mind damage per turn. Damage doubled on stunned or feared foes, can spread to nearby creatures.", "目标被灵能蠕虫感染，每回合受到 %0.2f 点精神伤害。对震慑或恐惧的敌人伤害加倍，并可传播到附近生物。", "tformat")
 t("#Target# is infected by a psy worm!", "#Target#被灵能蠕虫感染！", "_t")
@@ -7373,7 +7373,7 @@ t("Is that... an ovipositor?", "这是……产卵管？", "_t")
 ------------------------------------------------
 section "tome-orcs/data/zones/ritch-hive/zone.lua"
 
-t("Ritch Hive", "里奇虫巢", "_t")
+t("Ritch Hive", "里奇巢穴", "_t")
 t([[You arrive in a maze of shifty sand tunnels.
 But you have with you the power of technology! You have been given a #GOLD#Stralite Sand Shredder#LAST#. Use it to dig yourself a path should there be none to be found.
 #{italic}#Simply walk into a wall with the shredder equipped and the sand will crumble before you!#{normal}#
@@ -7598,7 +7598,7 @@ t("bamboo wall", "竹制墙壁", "entity name")
 t("door", "门", "entity name")
 t("open door", "敞开的门", "entity name")
 t("rock", "岩石", "entity subtype")
-t("ladder to the next level", "通往下一层的台阶", "entity name")
+t("ladder to the next level", "通往下一层的梯子", "entity name")
 t("cave", "山洞", "entity subtype")
 t("tunnel weakness", "隧道弱点", "entity name")
 
@@ -7712,7 +7712,7 @@ t("Entrance to the Sunwall Outpost", "太阳堡垒前哨站入口", "entity name
 t("Way into old ruins in the Erúan desert", "通向艾露安沙漠古老遗迹的路", "entity name")
 t("Entrance to the Dominion Port", "巨魔帝国港口入口", "entity name")
 t("Destroyed Dominion Port", "被摧毁的巨魔帝国港口", "entity name")
-t("Entrance to a Ritch Hive", "里奇虫巢入口", "entity name")
+t("Entrance to a Ritch Hive", "里奇巢穴入口", "entity name")
 t("Path to a peak leading to the Sunwall Observatory", "通往太阳堡垒观星台的路", "entity name")
 t("Entrance to the Pride's Internment Camp", "部落拘留营入口", "entity name")
 t("Gates of Morning (Town)", "晨曦之门（城镇）", "entity name")
@@ -8131,7 +8131,7 @@ t("You may not shoot while using a heavy weapon.", "使用重装武器的时候�
 t("lost tinker", "迷路的工匠", "_t")
 t("Please help me! I am afraid I lost myself in this place while testing some new steamtech. I know there is a recall portal left around here by a friend, but I have fought too many battles, and I fear I will not make it. Would you help me?", "帮帮我！我在测试某种蒸汽科技，结果在这地方迷路了。我有个朋友给我留下了一个传送门，不过我打了太多仗，恐怕靠我自己是到不了那里了，你能帮我一下吗？", "_t")
 t("%s, the experimenting tinker", "%s, 实验的工匠", "_t")
-t("She looks tired and wounded.", "她看起来又累又饿，且身受重伤。", "_t")
+t("She looks tired and wounded.", "她看起来疲惫又受伤。", "_t")
 t("[Ask where to learn tinkers crafting]", "[问她哪里可以学到蒸汽技术]", "_t")
 t("Reveal the location of a teacher.", "揭示工匠大师的位置", "_t")
 t("Tinker's Master", "工匠大师", "_t")
