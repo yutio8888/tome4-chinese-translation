@@ -489,7 +489,7 @@ t("I can indeed offer some training (talent category Steamtech/Physics and Steam
 t("Please train me in physics.", "教我物理学知识吧。", "_t")
 t("The tinker spends some time with you, teaching you the basics of smithing.", "工匠花费时间传授你铁匠的基础知识。", "logPlayer")
 t("Please train me in chemistry.", "教我化学知识吧。", "_t")
-t("The tinker spends some time with you, teaching you the basics of therapeutics.", "工匠花费时间传授你药剂学的基础知识。", "logPlayer")
+t("The tinker spends some time with you, teaching you the basics of therapeutics.", "工匠花费时间传授你治疗学的基础知识。", "logPlayer")
 t("No thanks.", "不用了，谢谢。", "_t")
 
 ------------------------------------------------
@@ -1711,7 +1711,7 @@ t("Frostbite", "霜咬", "entity name")
 t("icy steamsaw", "冰冷的蒸汽锯", "_t")
 t("Fashioned from magical ice, and perfect for carving ice - especially ice with someone else inside it.", "由魔法冰制成，非常适合雕刻冰块——尤其是里面冻着人的冰块。", "_t")
 t("The Lumberator", "播种机", "entity name")
-t("vined coated steamsaw", "爬满藤蔓的蒸汽锯", "_t")
+t("vined coated steamsaw", "爬满藤蔓的蒸汽链锯", "_t")
 t("\"Spread the wonders of nature even quicker than ever with this seed injecting steamsaw! Your former enemies will be freshly grown trees before you even know it!\"", "这台能够注射种子的蒸汽锯可以更快的传播自然的奇迹。在你意识到之前，你的敌人体内将会长出一棵树！", "_t")
 t("summon a treant (5 turn cooldown)", "召唤一个树人 (5回合冷却)", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
@@ -5200,7 +5200,7 @@ t([[Push your heavy weapon beyond its normal limits to trigger a powerful effect
 #AQUAMARINE#Flamethrower#LAST#: Detonate your fuel tanks, creating a radius 4 explosion that launches you to a chosen tile in range %d. Enemies caught within the explosion take %0.2f fire damage, and further fire damage equal to %d%% of their current burning damage from the volatile fuel.
 #AQUAMARINE#Shockstaff#LAST#: Drive your staff into the ground, discharging all remaining power to deal %d%% shockstaff damage as lightning in radius %d. Those struck will be knocked back %d tiles, and if they strike a wall they will emit a static pulse dealing %0.2f lightning damage in radius 1 and stunning them for 5 turns.
 #AQUAMARINE#Boltgun#LAST#: Overcharge your boltgun, firing a single deadly bolt dealing %d%% steamgun damage as acid in a piercing line. For each negative physical, magical, or mental effect on the target, they take an additional %d%% damage (to a maximum of %d%%) and the duration of each negative effect is increased by %d turns.]], [[让你的重装武器突破正常极限，触发一个强大的效果。这会立即停用重装武器，并消耗所有剩余弹药。
-#AQUAMARINE#喷火器#LAST#: 引爆燃料箱，制造半径 4 的爆炸，将你抛至距离 %d 内的指定格。爆炸范围内的敌人受到 %0.2f 点火焰伤害；不稳定燃料还会使其额外受到相当于当前燃烧伤害 %d%% 的火焰伤害。
+#AQUAMARINE#火焰喷射器#LAST#: 引爆燃料箱，制造半径 4 的爆炸，将你抛至距离 %d 内的指定格。爆炸范围内的敌人受到 %0.2f 点火焰伤害；不稳定燃料还会使其额外受到相当于当前燃烧伤害 %d%% 的火焰伤害。
 #AQUAMARINE#电击棒#LAST#: 将电击棒砸入地面，释放所有剩余能量，造成相当于 %d%% 电击棒伤害的闪电伤害，半径为 %d。受击目标会被击退 %d 格；若撞上墙壁，便会释放一道半径 1 的静电脉冲，造成 %0.2f 点闪电伤害，并震慑其 5 回合。
 #AQUAMARINE#爆矢枪#LAST#: 超载爆矢枪，射出一枚致命弹矢，对直线上的目标造成相当于 %d%% 蒸汽枪伤害的酸性伤害。目标每有一种物理、魔法或精神负面效果，便额外受到 %d%% 伤害（最多 %d%%），且每种负面效果的持续时间增加 %d 回合。]], "tformat")
 
@@ -5968,7 +5968,7 @@ t([[Set up some cunning contingency plans in case of death.
 		When rising this way you will keep access to your racial tree and gain access to the ghoul or skeleton racial tree with 2 levels of each talents already learnt.
 		As undead will not able to use infusions anymore.
 		If you choose to become a skeleton, the Re-assemble talent will consider that you already used your resurrection.]], [[准备一个应对死亡的应急方案。
-		如果你死了，你可以选择从死亡归来，代价则是你将成为一个骷髅或者食尸鬼（由你选择）。
+		如果你死了，你可以选择从死亡归来一次，代价则是你将成为一个骷髅或者食尸鬼（由你选择）。
 		以这种方式复活时，你会保留原有的种族技能树，并获得食尸鬼或骷髅的种族技能树，其中每项技能均已习得 2 级。
 		成为亡灵后，你将无法再使用纹身。
 		如果选择成为骷髅，重组技能会视为你已经使用过一次复活。]], "tformat")

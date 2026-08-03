@@ -19078,7 +19078,7 @@ But no more! The time will come when the truth shall be known, and retribution w
 
 事实上，魔法大爆炸只是一场失败的实验。我们的许多精英法师都死于辐射的能量，一些靠近的陆地甚至都被烧焦了。但是其他种族并没有伤亡——都是他们自己的战争导致的，他们肮脏的社会带来了紧随其后的灾难。许多世纪后，一场大地震使整个大陆支离破碎，那些种族才开始厚颜无耻的指责我们。
 
-因为这个原因，他们在猎魔行动中迫害我们。我们的许多法师被残忍杀害，甚至那些没有任何魔法亲和力的无辜者都在这次可怕的屠杀中牺牲。直到今天，我们仍备受歧视和迫害，经常会听到无辜的埃罗兰人受到火刑或凌迟的消息。长老会做了什么？他们只会保持沉默，期待人们忘记过去。
+因为这个原因，他们在猎魔行动中迫害我们。我们的许多法师被残忍杀害，甚至那些没有任何魔法亲和力的无辜者都在这次可怕的屠杀中牺牲。直到今天，我们仍备受歧视和迫害，经常会听到无辜的永恒精灵受到火刑或凌迟的消息。长老会做了什么？他们只会保持沉默，期待人们忘记过去。
 
 不是不报，时候未到！真相大白之日，报应降临之时。
 
@@ -22163,7 +22163,7 @@ t("%s resists the stun!", "%s抵抗了震慑！", "logSeen")
 t([[Violently fold the space between yourself and another point within range.
 		You teleport to the target location, and leave a temporal wake behind that stuns for %d turns and deals %0.2f temporal and %0.2f physical warp damage to targets in the path.
 		The damage will scale with your Spellpower.]], [[强行折叠你与范围内另一点之间的空间。
-		你传送至目标地点，并在身后留下一道时空尾迹，使路径上的目标震慑 %d 回合，并对其造成 %0.2f 时空伤害和 %0.2f 物理（折叠）伤害。
+		你传送至目标地点，并在身后留下一道时空尾迹，使路径上的目标震慑 %d 回合，并对其造成 %0.2f 时空伤害和 %0.2f 物理（扭曲）伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Carbon Spikes", "碳化钉刺", "talent name")
 t([[Fragile spikes of carbon protrude from your flesh, clothing, and armor, increasing your armor rating by %d and inflicting %0.2f bleed damage over six turns on attackers.   Each time you're struck, the armor increase will be reduced by 1.  Each turn the spell will regenerate 1 armor up to its starting value.
@@ -31832,7 +31832,7 @@ t([[Bathes the target in frost doing %0.2f damage
 		伤害受法术强度加成。]], "tformat")
 t("Doomed For Eternity", "永恒毁灭", "talent name")
 t([[While this ability is active, you will continually call up to %d level %d shadows to aid you in battle. Shadows are weak combatants that can: Use Arcane Reconstruction to heal themselves (level %d), Blindside their opponents (level %d), and Phase Door from place to place.
-		Shadows ignore %d%% of the damage dealt to them by their master.]], [[维持此技能时，你会不断召唤最多 %d 个等级为 %d 的阴影协助战斗。阴影是脆弱的战士，可以使用奥术重组治疗自己（等级 %d）、使用闪电突袭攻击敌人（等级 %d），以及使用相位之门移动。
+		Shadows ignore %d%% of the damage dealt to them by their master.]], [[维持此技能时，你会不断召唤最多 %d 个等级为 %d 的阴影协助战斗。阴影是脆弱的战士，可以使用奥术重组治疗自己（等级 %d）、使用背后偷袭攻击敌人（等级 %d），以及使用相位之门移动。
 		主人对阴影造成的伤害降低 %d%%。]], "tformat")
 t("Commander of the Dead", "亡者领袖", "talent name")
 t([[You are so full with power that it overflows out of you whenever you cast a spell.
@@ -37039,7 +37039,7 @@ t("+Frozen", "+冰冻", "_t")
 t("#Target# warms up.", "#Target#的坚冰融化了。", "_t")
 t("-Frozen", "-冰冻", "_t")
 t("Frozen", "冰冻", "_t")
-t("The target is encased in ice. All damage done to it will be split, 40%% absorbed by the ice and 60%% by the target. The target's defense is nullified while in the ice, and it may only attack the ice, but it is also immune to any new detrimental status effects (except Wet and Frozen Feet). The target cannot teleport or heal while frozen. %d HP on the iceblock remaining.", "目标被冻结在冰块中，对其造成的所有伤害有 40%%被冰块吸收，目标则受到余下的 60%%伤害。冰冻状态下你的闪避无效，你只能攻击冰块，但同时你也不会受到其他负面状态影响（湿润和冻足除外）。目标被冻结时无法传送也不能回复生命。冰块剩余 %d HP。", "tformat")
+t("The target is encased in ice. All damage done to it will be split, 40%% absorbed by the ice and 60%% by the target. The target's defense is nullified while in the ice, and it may only attack the ice, but it is also immune to any new detrimental status effects (except Wet and Frozen Feet). The target cannot teleport or heal while frozen. %d HP on the iceblock remaining.", "目标被冻结在冰块中，对其造成的所有伤害有 40%%被冰块吸收，目标则受到余下的 60%%伤害。冰冻状态下其闪避无效，只能攻击冰块，但同时也不会受到其他负面状态影响（湿润和冻足除外）。目标被冻结时无法传送也不能回复生命。冰块剩余 %d HP。", "tformat")
 t("#Target# is encased in ice!", "#Target#被冻结在冰块中！", "_t")
 t("#Target# is free from the ice.", "#Target#从冰块中解脱。", "_t")
 t("Iceblock", "冰块", "_t")
@@ -38725,7 +38725,7 @@ t([[Carved with runes of power, this staff seems to have been made long ago, yet
 Light around it seems to dim and you can feel its tremendous power simply by touching it.
 The Sorcerers seem to have awakened its power.
 #{italic}#"And lo they came to Amakthel himself, and thousands were killed in the assault on his throne, and three of the Godslayers were broken beneath his feet. But Falion with his dying breath pierced the great god on his knee with the icy sword Arkil, and seeing his opportunity Caldizar, leader of the Godslayers, advanced with the Staff of Absorption and struck a terrifying blow against Amakthel. So fell the greatest of the gods by the hands of his own children, and his face was forced into the dust."#{normal}#]], [[杖身铭刻着符文，这根法杖似乎是很久以前制造的，虽然它毫无侵蚀的痕迹。它周围的光线会变的暗淡，当你触摸它时可以感受到惊人的魔力。
-恶魔法师们似乎唤醒了它的力量。
+巫师们似乎唤醒了它的力量。
 #{italic}#“终于他们直面了阿马克泰尔，并且上千人牺牲在了他的王座前，其中有三名弑神者倒在了他的脚下。但是法利恩用他死前最后的力量将冰刃阿奇尔插入了真神的膝盖，看到这一机会，凯尔帝勒，弑神者的首领，立刻上前并用吸能法杖对阿马克泰尔造成了致命的一击。这样真神最终倒在了他自己的儿女手中，他的脸被压入了尘土之中。”#{normal}#]], "_t")
 t("absorb the essence (ignoring resistance and bypassing most defenses) of a target in range %d, draining 30%% of its life and increasing your own damage by 30%% for %d turns", "吸收%d码范围内某个目标生物的精华（无视抗性和大部分防御技能），直接吸收30%%生命值，并增加自身伤害加成30%%，持续%d回合", "tformat")
 t("was absorbed by the %s held by %s", "被%s（由%s持有）吸能致死", "tformat")
@@ -38874,7 +38874,7 @@ t("caravan porter", "商队搬运工", "entity name")
 t("A caravan porter.", "一个商队里的搬运工", "_t")
 t("war dog", "战犬", "entity name")
 t("This is a large dog, bred and trained for fighting.", "这是一条大型犬，被培育和训练用于战斗。", "_t")
-t("corrupted war dog", "腐化的猎犬", "entity name")
+t("corrupted war dog", "腐化的战犬", "entity name")
 t("This is a large dog, bred and trained for fighting. Something about the way it moves doesn't look normal.", "这是一条大型犬，被培育和训练用于战斗。不过，它运动起来的方式似乎有些不太正常。", "_t")
 t("undead", "亡灵", "entity type")
 t("shadow", "阴影", "entity subtype")
@@ -39600,7 +39600,7 @@ t("Atamathon's Lost Ruby Eye", "阿塔玛森丢失的红宝石眼睛", "entity n
 t([[One of the ruby eyes of the legendary giant golem Atamathon.
 It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], [[传奇巨像阿塔玛森的红宝石眼睛之一。
 据说它是半身人在烈火纪为了对抗兽人所造的武器。
-虽然它被破坏了，但是它也成功的使对方的首领吞噬者加库尔走向死亡。]], "_t")
+虽然它被破坏了，但是它也成功地使对方的首领吞噬者加库尔走向死亡。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/sandworm-lair/zone.lua"
@@ -39667,7 +39667,7 @@ t([[A farportal is a way to travel incredible distances in the blink of an eye. 
 This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
 It should automatically create a portal back, but it might not be near your arrival zone.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。
 这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。
-它应该会自动建立起回城法阵，但可能该法阵不在你所传送的位置。]], "_t")
+它应该会自动建立起返回的传送门，但可能该传送门不在你所传送的位置。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个熟悉的地方，在另一个远古传送门旁边...", "log")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in strange empty space...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个陌生的空地…", "log")
 t("Exploratory Farportal", "探索用远古传送门", "_t")
@@ -39700,7 +39700,7 @@ section "mod-tome/data/zones/shertul-fortress/npcs.lua"
 t("Weirdling Beast", "异形触手", "entity name")
 t("A roughly humanoid creature, with tentacle-like appendages in the place of arms and legs. You gasp in horror as you notice it has no head. Putrid warts form quickly on its skin and explode as quickly.", "一只类人生物，在四肢的位置它长出了触须状的关节。当你发现他没有头时你吓了一跳。瘤状物在它的皮肤上不断的冒出又爆炸。", "_t")
 t("and slowly consumed", "并被慢慢消化", "_t")
-t("#LIGHT_RED#As the Weirdling beast falls it shrieks one last time and the door behind it shatters and explodes, revealing the room behind it. The stair up vanishes!", "#LIGHT_RED#随着异形触手的倒下，它发出了最后一声尖叫。它身后的门被炸开，里面出现了一个房间，楼梯消失了！", "log")
+t("#LIGHT_RED#As the Weirdling beast falls it shrieks one last time and the door behind it shatters and explodes, revealing the room behind it. The stair up vanishes!", "#LIGHT_RED#随着怪诞野兽的倒下，它发出了最后一声尖叫。它身后的门被炸开，里面出现了一个房间，楼梯消失了！", "log")
 t("Teleportation portal to the Sher'Tul Fortress", "通向夏·图尔堡垒的传送阵", "_t")
 t("Sher'Tul", "夏·图尔", "entity subtype")
 t("Fortress Shadow", "堡垒之影", "entity name")
@@ -39740,7 +39740,7 @@ t([[A farportal is a way to travel incredible distances in the blink of an eye. 
 This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
 It should automatically create a portal back, but it might not be near your arrival zone.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。
 这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。
-它应该会自动建立起回城法阵，但可能该法阵不在你所传送的位置。]], "_t")
+它应该会自动建立起返回的传送门，但可能该传送门不在你所传送的位置。]], "_t")
 t("Farportal", "远古传送门", "_t")
 t("The farportal seems to be inactive", "这个远古传送门关闭着", "_t")
 

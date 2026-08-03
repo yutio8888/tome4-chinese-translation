@@ -92,8 +92,8 @@ t("Demonic Tatoos 8", "恶魔纹身8", "_t")
 section "tome-ashes-urhrok/data/general/events/demon-statue.lua"
 
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
-t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving no traces.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，没留下一点痕迹。", "logSeen")
-t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a nasty looking %s nearby.", "#CRIMSON#恶魔空间的力量触及了%s，随后消散，在附近留下了一个面目狰狞的%s。", "logSeen")
+t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving no traces.", "#CRIMSON#恐惧空间的力量触及了%s，然后消褪了，没留下一点痕迹。", "logSeen")
+t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a nasty looking %s nearby.", "#CRIMSON#恐惧空间的力量触及了%s，随后消散，在附近留下了一个面目狰狞的%s。", "logSeen")
 t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a nasty effect upon you.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，留下一个负面效果。", "logPlayer")
 t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a strange effect upon you.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，留下一个奇怪的效果。", "logPlayer")
 t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a strange item behind.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，留下一个奇怪的物品。", "logSeen")
