@@ -6089,7 +6089,7 @@ t("I was sent by Ukllmswwik to stop your mad schemes to control all underwater l
 t([[I see. So the dragon sent you. He told you I am insane, I assume?
 But which of us is truly evil? Myself, working to better my people, doing no harm to anyone, or you, who comes here to kill me, destroying my friends and planning to do the same to me?
 Who is the insane one?]], [[我明白了，是那条龙叫你来的。他告诉你我疯了，我猜？
-但我们到底谁才是恶魔？我自己，为人们做好事，对任何人都没有伤害，而你，来这里想要杀死我，杀死了我的朋友，现在还想连我一起干掉？
+但我们到底谁才是恶魔？我自己，为我的族人做好事，对任何人都没有伤害，而你，来这里想要杀死我，杀死了我的朋友，现在还想连我一起干掉？
 谁才是疯子？]], "_t")
 t("Your feeble attempt to sway me from the side of good will not work. Pay for you sins!", "你想用狡辩动摇我的立场么？这可不起作用，为你犯下的罪恶付出代价吧。", "_t")
 t("If you refuse to see reason, you leave me no choice!", "既然你不听我解释，那我别无选择！", "_t")
@@ -6253,7 +6253,7 @@ t([[The Creator. The God who made this world, He who watched silently as the rac
 He who felt great sorrow for this world. He who shall now shatter the barriers of this world to remake it, only better!
 The staff has allowed us to drain enough energy from this world to open the portal to the Void and summon Him through!
 It is already too late. He is coming through as we speak -- it is only a matter of hours!]], [[造物主，创造这个世界的神，他默默的看着你们这些种族在这个大陆上争战不休。
-他为这个世界感到悲伤，它现在将要扫清这个世界所有的障碍，然后重新创造它，使它更美好！
+他为这个世界感到悲伤，他现在将要扫清这个世界所有的障碍，然后重新创造它，使它更美好！
 法杖的力量使我们吸收了足够的能量来开启虚空传送门召唤他的降临！
 已经太晚了！在我们说话的时刻他已经在穿越传送门了！只需几个小时的时间！]], "_t")
 t("I *WILL* stop you! The world will not end today!", "我要阻止你，世界不会在今天灭亡！", "_t")
@@ -6262,7 +6262,7 @@ t([[The Creator. The God who made this world, He who watched silently as the rac
 He who felt great sorrow for this world. He who shall now shatter the barriers of this world to remake it, only better!
 The staff will allow us to drain enough energy from this world to open the portal to the Void and summon Him through!
 You cannot stop us now!]], [[造物之主，创造这个世界的神，他默默的看着你们在这个大陆上争战不休。
-他为这个世界感到悲伤，它现在将要扫清这个世界所有的障碍，然后重新创造它，使它更好！
+他为这个世界感到悲伤，他现在将要扫清这个世界所有的障碍，然后重新创造它，使它更好！
 法杖的力量使我们吸收了足够的能量开启虚空传送门来召唤他的降临！
 你已经无法阻止我们了！]], "_t")
 t([[#LIGHT_GREEN#*The air whirls at your side and suddenly High Sun Paladin Aeryn appears!*#WHITE#
@@ -6351,7 +6351,7 @@ section "mod-tome/data/chats/tarelion.lua"
 
 t([[I say, you there. Yes, you, young one!
 You seem like the adventuring fare, up to all sorts of doo-daddle in the outside world, I imagine. Well, don't forget to pay patronage to our good library here in the city. The riches of the world are all well and good, but where would we be without the gift of knowledge? And all proceeds go towards the funding of further research. No greater cause, yes?]], [[我说，那边那个，对对，就是你，年轻人！
-你看上去像一个冒险者之类的，大不了算是一个在外面世界闯荡的小子。好吧，别忘了为这个城里最好的图书馆捐点钱。世间的财富固然很好，但若没有知识的馈赠，我们又会怎样？所有搜集的资金都会直接用于进一步研究。没有其他理由了，对么？]], "_t")
+你看上去像一个冒险者之类的，大不了算是一个在外面世界闯荡的小子。好吧，别忘了为这个城里最好的图书馆捐点钱。世间的财富固然很好，但若没有知识的馈赠，我们又会怎样？所有募集的资金都会直接用于进一步研究。没有比这更崇高的理由了，对吧？]], "_t")
 t("Uh, yes, of course... I'll be moving on now.", "啊，是的，当然……我得继续赶路了。", "_t")
 t("Hold on! You... You're that apprentice mage I met in the wilds!", "打住！你……你不就是那个荒野之中的法师学徒么？", "_t")
 t("Why, well-spotted, whippersnapper! Indeed, when the mood takes me I sometimes travel under the guise of an apprentice. It permits me to traverse the land unnoticed in my research, and if I meet any I deem worthy and sympathetic to Angolwen's cause, then so much the better. And it does provide the odd chortle, I tell you!", "眼力不错嘛，小家伙！的确我有时会心血来潮假扮成一个学徒到处旅行，这样在我的研修旅行中就不会引人注意。如果我遇到值得信赖、且认同安格利文事业的人，那就更好了。而且我告诉你，这偶尔也确实让我觉得好笑！", "_t")
@@ -7261,7 +7261,7 @@ t("This crown of pure flames possesses a myriad of small molten rocks floating w
 t([[A terrible shout thunders across the level: 'Come my darling, come, I will be ssssooo *nice* to you!'
 You should flee from this level!]], [[一个恐怖的声音突然自空中传来：“来吧，亲爱的，来吧，我将会好好的“疼”你的。”
 你必须逃离此地！]], "_t")
-t("%s pulls a dagger and opens his own chest, piercing his beating heart. The stone glows with malevolent colors.", "%s拿出了一把匕首，扎进了自己的胸膛。石头泛起了邪恶的光芒。", "logSeen")
+t("%s pulls a dagger and opens his own chest, piercing his beating heart. The stone glows with malevolent colors.", "%s拔出一把匕首，剖开自己的胸膛，刺穿了跳动的心脏。石头泛起了邪恶的光芒。", "logSeen")
 
 ------------------------------------------------
 section "mod-tome/data/general/events/damp-cave.lua"
@@ -8302,7 +8302,7 @@ t("parasitic horror", "寄生恐魔", "entity name")
 t("You don't want to think about what sort of creature this lamprey-like horror was feeding on to grow so large.  Its skin pulsates and writhes, like things are moving underneath...", "你不想知道这个像七鳃鳗一样的恐魔是吃什么才能长这么大的。它的皮肤不停的扭动，就像有东西在下面移动一样...", "_t")
 t("%s's severed flesh starts crawling!", "%s被切割的血肉开始爬行！", "logSeen")
 t("mass of parasitic leeches", "大团寄生水蛭", "entity name")
-t("Dozens - hundreds maybe? - of blood-gorged worms, of varying shapes and sizes, making a writhing, ichor-soaked sea of tooth-lined maws and sickly green skin, ready to latch onto you and drink until they burst or your veins run dry.", "几十个，也许几百个？各种形状和大小的血腥蠕虫，形成一个扭动的，布满锋利牙齿的血盆大口和生病的绿色皮肤组成的脓水海洋，随时准备缠住你并吸你的血，直到它们胀破或者你的静脉干涸。", "_t")
+t("Dozens - hundreds maybe? - of blood-gorged worms, of varying shapes and sizes, making a writhing, ichor-soaked sea of tooth-lined maws and sickly green skin, ready to latch onto you and drink until they burst or your veins run dry.", "几十个，也许几百个？各种形状和大小的血腥蠕虫，由布满利齿的血盆大口和病态绿色皮肤组成的、翻腾的脓水海洋，随时准备缠住你并吸你的血，直到它们胀破或者你的静脉干涸。", "_t")
 t("Grgglck the Devouring Darkness", "格尔格勒克·黑暗吞噬者", "entity name")
 t([[A horror from the deepest pits of the earth. It looks like a huge pile of tentacles all trying to reach for you.
 You can discern a huge round mouth covered in razor-sharp teeth.]], "这是来自地底最深处的恐魔。看起来像是一团巨大触手，它在不断的向你靠近。你可以在它那血盆大口里看到剃刀般的牙齿。", "_t")
@@ -8442,7 +8442,7 @@ t("champion of Urh'Rok", "乌鲁洛克的冠军", "entity name")
 t("One of Urh'Rok's own champions. A thousand nightmares made flesh and screaming steel tower before you in the form of a massive, armored humanoid.", "乌鲁洛克本人的冠军之一。一千个噩梦化作血肉与尖啸的钢铁，以庞大的装甲人形之姿耸立在你面前。", "_t")
 t("forge-giant", "锻造巨人", "entity name")
 t("A burning giant wielding a forge hammer of the underworld in each hand -- weapons imbued by Urh'Rok himself with the power to crush and shape felsteel. Enter their range at your peril.", "锻造巨人的每只手都有一柄地底锻造巨锤——被乌鲁洛克加持以锻造魔钢的巨锤。进入他们的领地是极度危险的事情。", "_t")
-t("Khulmanar, General of Urh'Rok", "库马纳·乌鲁洛克将军", "entity name")
+t("Khulmanar, General of Urh'Rok", "库马纳，乌鲁洛克的将军", "entity name")
 t("This massive form, sheathed in dark flames, stands tall above a legion of lesser demons. In his hands he holds a massive blackened battleaxe, flames dancing around the blades.", "这个庞大的躯体笼罩在黑暗之炎中，他在一群小恶魔中显得鹤立鸡群。在他手里握着一柄沉重的双手斧，火焰在刀锋处舞动。", "_t")
 
 ------------------------------------------------
@@ -8778,7 +8778,7 @@ t("A towering creature, humanoid but huge. It wields a giant maul and does not l
 t("snow giant boulder thrower", "雪巨人投石者", "entity name")
 t("snow giant chieftain", "雪巨人酋长", "entity name")
 t("Burb the snow giant champion", "雪巨人勇士巴布", "entity name")
-t("A maddened, enraged snow giant that towers over his comrades. You've heard legends mentioning this particular monstrosity; they say that when he's not rampaging around frothing at the mouth, he sits, almost childlike, engraving stories and mysterious patterns on any flat stone surface he can find.", "一个被激怒的、远远高于其他雪巨人的勇士。你以前听说过关于这个雪巨人的故事：据说，平时他不像现在这样愤怒的口沫横飞时，他会坐下来，像个孩子一样，在他能找到的任何一块平整的石头表面雕刻故事和神秘的图案。", "_t")
+t("A maddened, enraged snow giant that towers over his comrades. You've heard legends mentioning this particular monstrosity; they say that when he's not rampaging around frothing at the mouth, he sits, almost childlike, engraving stories and mysterious patterns on any flat stone surface he can find.", "一个疯狂而暴怒的雪巨人，远远高于他的同胞。你以前听说过关于这个雪巨人的故事：据说，平时他不像现在这样愤怒的口沫横飞时，他会坐下来，像个孩子一样，在他能找到的任何一块平整的石头表面雕刻故事和神秘的图案。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/spider.lua"
@@ -13511,7 +13511,7 @@ t("The skull of a skeleton mage. The eyes have stopped glowing... for now.", "�
 t("If the eyes are still glowing, please bash it around a bit until they fade. I'll not have another one of those coming alive and wreaking havoc in my lab.", "如果它的眼睛仍然亮着，请猛击它直到不再发光为止。我不想再要一个会突然活过来并把我的实验室搞得一塌糊涂的头骨了。", "_t")
 t("ritch stinger", "里奇螫针", "entity name")
 t("A ritch stinger, still glistening with venom.", "一只里奇的螫针，还残留着许多粘稠的毒液。", "_t")
-t("Keep as much venom in it as possible.", "请尽可能多的保持螫针的毒液。", "_t")
+t("Keep as much venom in it as possible.", "请尽可能多地保留其中的毒液。", "_t")
 t("orc heart", "兽人心脏", "entity name")
 t("The heart of an orc. Perhaps surprisingly, it isn't green.", "一颗兽人的心脏。很惊讶吧，它不是绿色的。", "_t")
 t("If you can fetch me a still-beating orc heart, that would be even better. But you don't look like a master necromancer to me.", "如果你能给我一个新鲜的、跳动着的兽人心脏，那就太好了。但是在我看来，你不像是一个死灵魔导师。", "_t")
@@ -13529,7 +13529,7 @@ t("Wickedly sharp and still freezing cold.", "异乎寻常的锋利且散发着�
 t("If you've the means to eliminate the little venom problem, these make miraculous instant drink-chilling straws.", "如果你有方法消除小小的毒液问题，这些螫针可以成为不可思议的冷冻吸管。", "_t")
 t("minotaur nose", "米诺陶的鼻子", "entity name")
 t("The severed front half of a minotaur snout, ring and all.", "一只米诺陶的鼻子的前半部分，上面有圆环装饰。", "_t")
-t("You'll need to find one with a ring, preferably an expensive one.", "你要寻找 1 个带有圆环的，最好是比较贵的那个。", "_t")
+t("You'll need to find one with a ring, preferably an expensive one.", "你要寻找一个带有圆环的，最好是贵一些的那种。", "_t")
 t("vial of elder vampire blood", "一瓶长老吸血鬼的血液", "entity name")
 t("Thick, clotted, and foul. The vial is cold to the touch.", "粘稠的、凝固的、污秽的液体。瓶子摸起来很冷。", "_t")
 t("Once you've gotten it, cross some moving water on your way back.", "拿到之后，回来时记得渡过一处流水。", "_t")
@@ -14818,7 +14818,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 “当然了，因为你的实力是那么的强啊”，她回答道，“我觉得你是你同族中战斗能力最强的一位，这样强大的力量足以让你成为他们的领袖。”
 
-我微笑道，“光靠武力是无法引领族人的。一个优秀的领袖需要用于承担责任，审慎做出决定，并具有灵活的政治手腕。我对于这方面的事情可没有什么兴趣，毕竟，伊菲尼亚斯陛下在这方面比我擅长多了。只要给我一把剑，让我能够和部下一起驰骋沙场，我就已经心满意足了，让真正的领袖来思考我和我的战士应该与谁作战吧。”
+我微笑道，“光靠武力是无法引领族人的。一个优秀的领袖需要勇于承担责任，审慎做出决定，并具有灵活的政治手腕。我对于这方面的事情可没有什么兴趣，毕竟，伊菲尼亚斯陛下在这方面比我擅长多了。只要给我一把剑，让我能够和部下一起驰骋沙场，我就已经心满意足了，让真正的领袖来思考我和我的战士应该与谁作战吧。”
 
 她沉默半晌，看上去对我的回答并不满意，“呐，不过呢，你看起来对目前的计划并不满意。”
 
@@ -14826,7 +14826,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 关于魔法大爆炸计划的筹备工作正在有条不紊地进行当中。卡库罗尔首领特塞尔已经返回了他位于北方的城堡，然而他的两个女儿仍然作为双方合作的大使留在这里，为我们在魔法技术上提供指导。这意味着莱娜尼尔和我可以时常相见，然而我们始终保守秘密。我高傲的同族们仍然难以接受精灵与人类的浪漫关系，而我们也无法接受可能迎来的流言蜚语。即使这样，我也难以抵御她的魅力，而她也是一样。
 
-“我是一个战士，”许久的沉思后，我从床上爬起，整理我的长袍，“我喜欢面对面与我的敌人作战，而不是一个人呆在后方玩弄考古这样的小把戏。这种懦夫一般的行为真是另一个真正的战士作呕。”
+“我是一个战士，”许久的沉思后，我从床上爬起，整理我的长袍，“我喜欢面对面与我的敌人作战，而不是一个人呆在后方玩弄考古这样的小把戏。这种懦夫一般的行为真让一个真正的战士作呕。”
 
 “然而，开发夏·图尔人遗迹中失落的力量不是那么让人心潮澎湃吗？”她呢喃着，手指轻触下唇，光滑的皮肤置身于柔软的被子的紧紧环绕中，仿佛已经被她那恢弘的梦想深深吸引，“这样强大的能量已经在世间沉眠了那么长时间，直到今天，我们强大的魔法可以让我们亲自驾驭它们，把雷霆万钧的恢弘气势掌握在不及盈寸的掌心之中……唉，要是我能亲自进行这一伟大的冒险，那该多好！”
 
@@ -15376,7 +15376,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 莱娜尼尔释放了一个照明术，光亮从莱娜尼尔的杖尖射出，照亮了通向洞穴内部的狭长的寒冰通道。周围寒冷刺骨，我们缓步向前，呼出的水汽在空气中结成了云雾。我满身鸡皮疙瘩，感觉我的感官快要到极限了。
 
-“下面到底是什么？”，我怀着好奇心问到。
+“下面到底是什么？”我怀着好奇心问道。
 
 “力量。”莱娜尼尔答道。说话时她并未看我，只继续沿路前行。“我所寻求的正是力量。我为我的族人忧心，却没有足够的力量如愿保护他们。有了这里的东西，或许我就有力量建起一处安全的避风港。此地在我的族人中只存在于传说，而我已侦察多年。今日，我终于会抵达它的中心。”
 
@@ -15404,9 +15404,9 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 我试图斩断那个发光的生物，但我的剑穿过他的身体时似乎没有受到任何阻挡，我召唤的火焰似乎也没有什么效果。它向我伸出一根触手，一束强烈的光线从中发射出来，穿透我的身体，我的血肉感受到灼烧一般的痛苦。我向回跳了一步，向它发出一团冰风，撕下了它的一根触手，并将它推了开来。与此同时，莱娜尼尔将其中一个长着尖刺的生物化为了灰烬，但她的奥术护盾在其他生物的攻击下坍塌了，更多怪物从天花板上涌出。那团蠕虫怪物也占据了入口正在向前，倒下的尸体的口中吐出了燃烧的酸性物质。
 
-我们在这个狭窄的空间会有很大的被包围的风险，他们的数量是在太多，无法立刻解决。“走这里！”莱娜尼尔大声喊道，她冲破了她分开的门。我紧跟向前，用我的刀片切开了那些蠕虫团，使它在痛苦中尖叫起来。同时，我发出一道闪电，穿过了某个长着尖刺的怪物，打破了他的脑袋。它试图继续攻击我，但我格挡了它，切下了它的手臂，在怪物的包围下起舞般闪避着他们的攻击，最终了到达门口。我面对着背后的怪物，建起一座水墙，然后释放一股洪水冲进了这个房间，把那些恐魔推到了外面，顺便跳进了我背后的门中。
+我们在这个狭窄的空间会有很大的被包围的风险，他们的数量是在太多，无法立刻解决。“走这里！”莱娜尼尔大声喊道，她冲破了她分开的门。我紧跟向前，用我的刀片切开了那些蠕虫团，使它在痛苦中尖叫起来。同时，我发出一道闪电，穿过了某个长着尖刺的怪物，打破了他的脑袋。它试图继续攻击我，但我格挡了它，切下了它的手臂，在怪物的包围下起舞般闪避着他们的攻击，终于到达了门口。我面对着背后的怪物，建起一座水墙，然后释放一股洪水冲进了这个房间，把那些恐魔推到了外面，顺便跳进了我背后的门中。
 
-在我通过的同时，莱娜尼尔将自己的法杖猛戳地面，一根石柱向上升起，封闭了入口。我可以听到另一边发出的撕裂和撞击声，但现在我们似乎已经安全了。“那些东西是什么？！”我怀疑地问道，同时观察这这个开放的洞穴，寻找有没有其他生物的迹象。这个洞穴似乎是一个很大的空间，但一切都很平静，我也看不到其他入口。
+在我通过的同时，莱娜尼尔将自己的法杖猛戳地面，一根石柱向上升起，封闭了入口。我可以听到另一边发出的撕裂和撞击声，但现在我们似乎已经安全了。“那些东西是什么？！”我怀疑地问道，同时观察这个开放的洞穴，寻找有没有其他生物的迹象。这个洞穴似乎是一个很大的空间，但一切都很平静，我也看不到其他入口。
 
 “阿马克泰尔的子嗣”，她冷静地回答道。“被肢解的已死之神想要突破他的束缚，但他需要更多的力量…而这个阴暗，被遗忘的地方有着他想要的一部分能量。”
 
@@ -15418,7 +15418,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 “是的，就是这样。 但即使是已死之神也还残留着力量。 你看看后面，艾伦尼恩。”
 
-我转过身，想知道她想让我看到的到底是什么。我花了一点时间才发现了它，但在发现它的一瞬间我惊慌失措。这个巨大洞穴的墙不仅仅是一面墙而已。它被覆盖在厚厚的冰层里，但在冰层的中心，我看到了一个巨大的黄色眼睛。顺着那个眼睛周围搜寻，我找到了这个庞然大物的身体。深灰色的皮肤覆盖着它凸起的头部，顶部有三个巨大的弯角，长着有着六肢的长而厚的身体之上。它已经死了，冰冷古老的身躯看起来就像是岩石的一部分，而不是某种曾经活着的东西。我不敢相信我看到的东西，但我能够感受到它的存在。在那尸体里仍然有着力量，有着巨大的力量，那是我以前从未感受过的力量。
+我转过身，想知道她想让我看到的到底是什么。我花了一点时间才发现了它，但在发现它的一瞬间我惊慌失措。这个巨大洞穴的墙不仅仅是一面墙而已。它被覆盖在厚厚的冰层里，但在冰层的中心，我看到了一个巨大的黄色眼睛。顺着那个眼睛周围搜寻，我找到了这个庞然大物的身体。深灰色的皮肤覆盖着它凸起的头部，顶部有三个巨大的弯角，长着六肢的长而厚的身体之上。它已经死了，冰冷古老的身躯看起来就像是岩石的一部分，而不是某种曾经活着的东西。我不敢相信我看到的东西，但我能够感受到它的存在。在那尸体里仍然有着力量，有着巨大的力量，那是我以前从未感受过的力量。
 
 “它就在这里”，莱娜尼尔说道。“这是在埃亚尔还能找到的为数不多的已死之神的尸体。现在，我要取走它的力量为我所用。”
 
@@ -22565,7 +22565,7 @@ t("Transport yourself to a safe place for %d turns.", "将自己传送至安全�
 t("Echoes From The Past", "往昔回响", "talent name")
 t([[Creates a temporal echo in a radius of %d around you.  Affected targets take %0.2f temporal damage, as well as up to %d%% of the difference between their current life and max life as additional temporal damage.
 		The additional damage will be divided by the target's rank and the damage scales with your Spellpower.]], [[在你周围半径 %d 范围内制造时空回响。受影响的目标受到 %0.2f 时空伤害，并额外受到时空伤害，最高相当于其已损失生命值的 %d%%。
-		额外伤害会除以目标品级；基础时空伤害随法术强度提高。]], "tformat")
+		额外伤害会除以目标品级；伤害随法术强度提高。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/corruptions/blight.lua"
@@ -32098,7 +32098,7 @@ After days of travel, you have found the caves and entered it. What will you fin
 
 你面临着世界对你的种族的轻蔑和恐惧，猎魔行动几乎摧毁了你的种族，如果不是永恒精灵对你们的同情让他们允许你的祖先定居埃尔瓦拉。
 现在，你的同族开始改变他们的旧形象，但这并不是你外出冒险的原因。你在这个世界中找到了无数问题，你希望自己寻找答案。
-你的种族是人工制造的，为了战斗和工作，现在马基埃亚尔大陆正需要这些。
+你的种族生来就是为战斗和苦工而造就的，现在马基埃亚尔大陆正需要这些。
 
 你来到了永恒精灵首都埃尔瓦拉北部，寻找闪光洞穴，那里被寄生虫和一种有生命的水晶所占据。
 西部还有一个危险的地方：罗兰精灵营地。他们是永恒精灵的叛徒，不愿限制魔法的使用。阻止他们总体上有益于这个世界，尤其有益于庇护你们的永恒精灵恩人。
@@ -35600,7 +35600,7 @@ t("explodes!", "爆炸了！", "_t")
 t("crumbles.", "碎裂了。", "_t")
 t("elemental", "元素", "effect subtype")
 t("Deeprock Form", "深岩形态", "_t")
-t(", +%d%% Arcane damage and +%d%% Arcane damage penetration,", "，+%d%% 奥术伤害及 +%d%% 奥术伤害穿透", "tformat")
+t(", +%d%% Arcane damage and +%d%% Arcane damage penetration,", "，+%d%% 奥术伤害及 +%d%% 奥术伤害穿透，", "tformat")
 t(", +%d%% Nature damage and +%d%% Nature damage penetration", "，+%d%% 自然伤害及 +%d%% 自然伤害穿透", "tformat")
 t(", %d%% bleeding, poison, disease, and stun immunity", "，获得 %d%% 流血、毒素、疾病及震慑免疫", "tformat")
 t("The target has turned into a huge deeprock elemental.  It gains 2 size categories%s and +%d%% Physical damage and +%d%% Physical damage penetration.%s", "目标化作巨大的深岩元素形态，体型增大 2 级%s，并获得 +%d%% 物理伤害及 +%d%% 物理伤害穿透。%s", "tformat")
@@ -41279,7 +41279,7 @@ t("[L]evelup", "升级[L]", "_t")
 t([[Values #00FF00#in brackets ( )#LAST# show changes made from last character sheet checking.
 Keyboard: #00FF00#'u'#LAST# to save character dump. #00FF00#TAB key#LAST# to switch between tabs.
 Mouse: Hover over stat for info
-]], [[括弧#00FF00#( )#LAST#内显示的是与最近一次载入角色面板属性值属性的变化。
+]], [[括号#00FF00#( )#LAST#内显示的是与上次打开角色面板时相比的属性值变化。
 按键盘(#00FF00#u#LAST#)键来保存角色资料，按(#00FF00#TAB#LAST#)键在各分类面板中切换。
 鼠标滑动查看数据。
 ]], "_t")
