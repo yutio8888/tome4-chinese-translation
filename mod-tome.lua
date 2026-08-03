@@ -208,13 +208,13 @@ t("#YELLOW#%s has been healed by a blast of positive energy!#LAST#", "#YELLOW#%s
 t("%s fades for a moment and then reforms whole again!", "%s消失了一阵之后又完好无损地出现了！", "logSeen")
 t("#CRIMSON##Source# leeches life from #Target#!", "#CRIMSON##Source#从#Target#身上吸取生命！", "delayedLogMessage")
 t("#CRIMSON##Source# steals life from #Target#!", "#CRIMSON##Source#从#Target#处偷取生命!", "delayedLogMessage")
-t("#SLATE#(%d to stone)#LAST#", "#SLATE#(%d 石头吸收)#LAST#", "tformat")
+t("#SLATE#(%d to stone)#LAST#", "#SLATE#(%d 转化为石头)#LAST#", "tformat")
 t("#OLIVE_DRAB##Source# redirects damage from #Target# to %s!#LAST#", "#OLIVE_DRAB##Source#将来自#Target#的伤害转移到%s！#LAST#", "delayedLogMessage")
 t("#OLIVE_DRAB#(%d redirected)#LAST#", "#OLIVE_DRAB#(%d 伤害转移)#LAST#", "tformat")
 t("#OLIVE_DRAB#%d redirected#LAST#", "#OLIVE_DRAB#%d 伤害转移#LAST#", "tformat")
 t("#CRIMSON##Source# leeches energies from #Target#!", "#CRIMSON##Source#从#Target#身上吸取能量！", "delayedLogMessage")
 t("#RED#(%d refused)#LAST#", "#RED#(%d 伤害无视)#LAST#", "tformat")
-t("#RED##Source# is unstoppable!", "#RED##Source#势不可挡！!", "delayedLogMessage")
+t("#RED##Source# is unstoppable!", "#RED##Source#势不可挡！", "delayedLogMessage")
 t("RESURRECT!", "复活!", "_t")
 t("You feel a surge of power as a powerful creature falls nearby.", "你感受到一股力量的涌动，附近有个强大的生物倒下。", "logPlayer")
 t("%s feeds you hate from its latest victim. (+%d hate)", "%s 从它最近的受害者身上为你提供仇恨。（+%d 仇恨）", "logPlayer")
@@ -248,7 +248,7 @@ t("#FF0000#Drop some of your items.", "#FF0000#丢弃一些东西。", "logPlaye
 t("+ENCUMBERED!", "+超重!", "_t")
 t("#00FF00#You are no longer encumbered.", "#00FF00#你不再超重。", "logPlayer")
 t("-ENCUMBERED!", "-超重!", "_t")
-t("You cannot switch equipment while sleeping!", "你不能在睡眠中切换装备", "logPlayer")
+t("You cannot switch equipment while sleeping!", "你不能在睡眠中切换装备！", "logPlayer")
 t("unarmed", "徒手", "_t")
 t("%s warps space-time to equip: %s.", "%s扭曲空间，切换武器至：%s 。", "logSeen")
 t("%s switches %s weapons to: %s.", "%s切换%s武器至%s。", "logSeen")
@@ -261,13 +261,13 @@ t("#STEEL_BLUE#You've moved to another time thread.", "#STEEL_BLUE#你移动到�
 t("#LIGHT_RED#You lose control and unleash an anomaly!", "#LIGHT_RED#你失去控制产生了异常！", "logPlayer")
 t("#LIGHT_RED#You feel the edges of spacetime begin to ripple and bend!", "#LIGHT_RED#你感到时空的边际开始弯曲振荡。", "logPlayer")
 t("#LIGHT_BLUE#Spacetime feels more stable.", "#LIGHT_BLUE#时空变得更加稳定。", "logPlayer")
-t("#LIGHT_RED#Spacetime fights against your control!", "#LIGHT_RED#时空失去了控制！", "logPlayer")
+t("#LIGHT_RED#Spacetime fights against your control!", "#LIGHT_RED#时空在抗拒你的控制！", "logPlayer")
 t("#LIGHT_BLUE#Spacetime has calmed...  somewhat.", "#LIGHT_BLUE#时空稍微稳定了些...", "logPlayer")
 t("You already tried to use %s, an instant use talent, this turn and failed.", "你在本回合尝试使用瞬间技能%s失败，这回合无法再次使用。", "logPlayer")
 t("%s is too afraid to use %s.", "%s非常恐惧，无法使用%s。", "logSeen")
 t("%s is silenced and cannot use %s.", "%s被沉默，无法使用%s。", "logSeen")
 t("The spell fizzles.", "法术失败了。", "logSeen")
-t("%s is too disconnected from Nature to use %s.", "%s扰乱了自然平衡而无法使用%s。", "logSeen")
+t("%s is too disconnected from Nature to use %s.", "%s与自然的联系过于微弱，无法使用%s。", "logSeen")
 t("%s is unable to use this kind of inscription.", "%s无法使用这类刻印。", "logSeen")
 t("%s is too heavily armoured to use this talent.", "%s身穿重甲，无法使用该技能。", "logSeen")
 t("%s can't use this talent while holding a weapon or shield.", "%s在装备武器或盾牌的时候，无法使用该技能。", "logSeen")
@@ -310,7 +310,7 @@ t("Removes", "移除", "_t")
 t("Drains", "吸收", "_t")
 t("Replenishes", "补充", "_t")
 t("Range: ", "使用范围：", "_t")
-t("melee/personal", "近战/单体", "_t")
+t("melee/personal", "近战/自身", "_t")
 t("%sCooldown: ", "%s冷却时间：", "tformat")
 t("Fixed ", "固定", "_t")
 t("Travel Speed: ", "飞行速度：", "_t")
@@ -328,10 +328,10 @@ t("Will Deactivate: ", "会解除：", "_t")
 t("Description: ", "介绍：", "_t")
 t("can only learn one evolution", "只能学习一项进阶", "_t")
 t("- Not other class or race evolution", "- 没有选择其他职业进阶或种族进阶", "_t")
-t("Automatic use enabled", "技能启用自动使用", "_t")
+t("Automatic use enabled", "自动使用已启用", "_t")
 t("%s will now be used as often as possible automatically.", "%s将会尽可能多地自动使用", "tformat")
 t("- requires a turn to use", "- 需要一回合来使用", "_t")
-t("- requires a target, your last hostile one will be automatically used", "- 需要目标，会自动使用在你最后一个敌对生物身上。", "_t")
+t("- requires a target, your last hostile one will be automatically used", "- 需要目标，会自动以最后一个敌对目标为对象", "_t")
 t("- will only trigger if no enemies are visible", "- 在没有可见敌人时触发", "_t")
 t("- will automatically target you if a target is required", "- 如果需要目标，会自动选取你为目标", "_t")
 t("- will only trigger if enemies are visible", "- 在有可见敌人时触发", "_t")
@@ -343,7 +343,7 @@ t([[%s:
  Are you sure?]], [[%s:
 %s
  你确认吗？]], "tformat")
-t("Automatic use disabled", "关闭技能自动使用", "_t")
+t("Automatic use disabled", "自动使用已关闭", "_t")
 t("%s will not be automatically used.", "%s 不会被自动使用。", "tformat")
 t("%s resists the dispelling of %s!", "%s 抵抗了 %s 的解除效果！", "logSeen")
 t("#LIGHT_RED#%s starts suffocating to death!", "#LIGHT_RED#%s窒息了！", "logSeen")
@@ -480,7 +480,7 @@ t("Debug the problem (move to the failed zone/level)", "调试问题 (进入失�
 t("Information logged", "信息已记录。", "_t")
 t("Information on the failed zone and level dumped to the log file.", "有关失败的地图和楼层的信息，已被输出到日志文件。", "_t")
 t("The game could not generate level %s of %s after %s attempts. What do you want to do?", "在经过 %s 次尝试后，游戏未能成功生成 %s 地图的第 %s 层。你想要做什么？", "tformat", {3,2,1})
-t("Level Generation Failure", "地图生成失败", "_t")
+t("Level Generation Failure", "楼层生成失败", "_t")
 t("Loading level", "正在读取楼层", "_t")
 t("Please wait while loading the level...", "正在读取楼层，请稍候…", "_t")
 t("Easy!", "小菜一碟！", "_t")
@@ -506,11 +506,11 @@ t("Kill (%d)!", "杀死 (%d)!", "tformat")
 t("#{bold}##Source# killed #Target#!#{normal}#", "#{bold}##Source#击杀了#Target#!#{normal}#", "_t")
 t("Showing big healthbars and tactical borders.", "显示大血条+边框", "log")
 t("Showing healthbars only.", "只显示血条信息", "log")
-t("Showing no tactical information.", "不显示血条信息", "log")
+t("Showing no tactical information.", "不显示战术信息", "log")
 t("Showing small healthbars and tactical borders.", "显示小血条+边框", "log")
 t("You cannot do that on the world map.", "你在世界地图上不能这样做。", "logPlayer")
 t("Run in which direction?", "朝哪个方向跑？", "log")
-t("You may not auto-explore this level.", "你不能自动探索这一层", "log")
+t("You may not auto-explore this level.", "你不能自动探索这一层。", "log")
 t("You may not auto-explore with enemies in sight (%s to the %s%s)!", "当有敌人在视野里时，你不能自动探索！ (%s 在 %s方%s)!", "log")
 t("There is nowhere left to explore.", "这一层没有地方可以探索了。", "log")
 t("Hotkey page %d is now displayed.", "当前显示快捷键第%d页。", "log")
@@ -521,7 +521,7 @@ t("Inventory", "物品栏", "_t")
 t("#GOLD#Automatic talent usage: %s", "#GOLD#自动技能使用：%s", "log")
 t("#LIGHT_GREEN#enabled", "#LIGHT_GREEN#启用", "_t")
 t("#LIGHT_RED#disabled", "#LIGHT_RED#禁用", "_t")
-t("#GOLD#Automatic accept target mode: %s", "#GOLD#技能自动选择目标：%s", "log")
+t("#GOLD#Automatic accept target mode: %s", "#GOLD#自动接受目标模式：%s", "log")
 t("Message Log", "消息日志", "_t")
 t("Displaying creatures.", "显示生物。", "log")
 t("Displaying talents.", "显示技能。", "log")
@@ -562,18 +562,18 @@ t("unblemished", "无瑕的", "_t")
 t("jewel-encrusted", "宝石覆盖的", "_t")
 t("humming", "嗡嗡作响的", "_t")
 t("gleaming", "闪耀的", "_t")
-t("immaculate", "整洁的", "_t")
+t("immaculate", "完美无瑕的", "_t")
 t("flawless", "无缺陷的", "_t")
-t("crackling", "爆裂", "_t")
-t("glistening", "明亮的", "_t")
-t("plated", "镀制", "_t")
+t("crackling", "噼啪作响的", "_t")
+t("glistening", "闪闪发光的", "_t")
+t("plated", "覆甲的", "_t")
 t("twisted", "扭曲的", "_t")
 t("silvered", "银白的", "_t")
-t("faceted", "镶嵌的", "_t")
+t("faceted", "多面的", "_t")
 t("faded", "暗淡的", "_t")
 t("sigiled", "印记的", "_t")
 t("shadowy", "阴影的", "_t")
-t("laminated", "粘合的", "_t")
+t("laminated", "层压的", "_t")
 t("%s the %s", "%s %s", "tformat", {2,1})
 t("Ambush!", "伏击！", "_t")
 t("You have been ambushed!", "你被伏击了！", "_t")
@@ -594,7 +594,7 @@ t("\
 ", "\
 #ORCHID#决胜时刻:剩余%s回合!\
 ", "log")
-t("Proceed to the next Infinite Dungeon level! An exit has been marked on your map.", "前往到达无尽地下城的下一层！出口已被标记在地图上。", "_t")
+t("Proceed to the next Infinite Dungeon level! An exit has been marked on your map.", "前往无尽地下城的下一层！出口已被标记在地图上。", "_t")
 t("Dream Hunter", "梦境猎手", "_t")
 t("Wake up and kill the dreaming horror boss '%s'.", "唤醒并杀死梦境恐魔Boss '%s'。", "tformat")
 t("Mirror Match", "镜像战斗", "_t")
@@ -603,7 +603,7 @@ t("An evil twin of %s%s", "%s的邪恶双生子%s", "tformat")
 t("Mirror Challenge of %s", "%s的镜像挑战", "tformat")
 t("but nobody knew why they suddenly became evil", "但是没有人知道为什么他/她突然变得邪恶了", "_t")
 t("#ORCHID#%s does not recognize you.", "#ORCHID#%s 没有认出你。", "logPlayer")
-t("Challenge: #PURPLE#Mirror Match", "挑战：#PURPLE#镜像挑战", "_t")
+t("Challenge: #PURPLE#Mirror Match", "挑战：#PURPLE#镜像战斗", "_t")
 t("Challenge your mirror clone and triumph!", "挑战你的镜像克隆体，并取得胜利！", "_t")
 t("#CRIMSON#The Fight Is Joined!", "#CRIMSON#战斗开始了！", "say")
 t("Refuse", "拒绝", "_t")
@@ -613,7 +613,7 @@ t("Proceed to the next Infinite Dungeon level with -7 sight range for a reward."
 t("Near Sighted", "近视眼", "_t")
 t("Proceed to the next Infinite Dungeon level with -7 sight range.", "在-7视野下到达无尽地下城的下一层。", "_t")
 t("Challenge: #PURPLE#Multiplicity", "挑战：#PURPLE#复制", "_t")
-t("All foes (including bosses) gain the ability to multiply up to 3 times.  You must survive for at least %d turns before exiting.", "所有敌人(包括boss)都有能力复制 3 次。你需要至少存活 %d 个回合才能离开。", "tformat")
+t("All foes (including bosses) gain the ability to multiply up to 3 times.  You must survive for at least %d turns before exiting.", "所有敌人(包括boss)都能最多复制 3 次。你需要至少存活 %d 个回合才能离开。", "tformat")
 t("Multiplicity", "复制", "_t")
 t("All foes have the multiply talent!", "所有敌人都有复制能力", "_t")
 t("#LIGHT_GREEN#Multiplicity: You have survived so far. Exit for your reward!", "#LIGHT_GREEN#复制：你存活了下来。离开楼层，领取奖励吧！", "say")
@@ -654,7 +654,7 @@ t("spot", "点", "_t")
 t("%s's %s", "%s的%s", "tformat")
 t(" (range: ", " (距离：", "_t")
 t("Min.level: ", "最低等级：", "_t")
-t("Max.level: ", "最高等级： ", "_t")
+t("Max.level: ", "最高等级：", "_t")
 t("Never visited yet", "尚未探索区域", "_t")
 t("In sight", "视线内", "_t")
 t("Lit", "被照亮区域", "_t")
@@ -688,7 +688,7 @@ t("him", "他", "_t")
 t("Killed by you: %s", "被你杀死：%s", "tformat")
 t("Target: ", "目标：", "_t")
 t("none", "没有", "_t")
-t(" looking %s", "寻找%s", "tformat")
+t(" looking %s", "正看着%s", "tformat")
 t(" looking at you.", "正在看着你。", "_t")
 t("UID: ", "UID：", "_t")
 t("%s says: '%s'", "%s说道：“%s”", "logSeen")
@@ -766,7 +766,7 @@ t("#YELLOW#On weapon hit:#LAST#", "#YELLOW#武器击中时：#LAST#", "_t")
 t("#YELLOW#On weapon crit:#LAST#", "#YELLOW#武器暴击时：#LAST#", "_t")
 t("#YELLOW#On weapon kill:#LAST#", "#YELLOW#武器击杀时：#LAST#", "_t")
 t("When used from stealth a simple attack with it will not break stealth.", "潜行中使用，单纯攻击不会取消潜行。", "_t")
-t("Crushing Blows: ", "毁灭打击: ", "_t")
+t("Crushing Blows: ", "毁灭打击：", "_t")
 t("Damage dealt by this weapon is increased by half your critical multiplier, if doing so would kill the target.", "这把武器造成的伤害将增加一半的暴击加成，如果这样能秒杀目标。", "_t")
 t("Travel speed: ", "飞行速度：", "_t")
 t("Damage Shield penetration (this weapon only): ", "伤害护盾穿透(仅该武器)：", "_t")
@@ -792,14 +792,14 @@ t("Type: %s / %s", "类型：%s/%s", "tformat")
 t("unknown", "未知", "_t")
 t(" ; tier ", " ; 材质等级 ", "_t")
 t("It must be held with both hands.", "你必须使用双手装备。", "_t")
-t("It can be used as a weapon and offhand.", "能当作单手武器+副手使用", "_t")
+t("It can be used as a weapon and offhand.", "能当作单手武器和副手使用。", "_t")
 t("Weapon Damage: ", "武器伤害：", "_t")
 t(", ", "，", "_t")
 t("#YELLOW#It can cause special effects when it strikes in combat.#LAST#", "#YELLOW#近战击中时触发特殊效果。#LAST#", "_t")
 t("#ORCHID#It can cause special effects when a melee attack is blocked.#LAST#", "#ORCHID#近战格挡时触发特殊效果。#LAST#", "_t")
-t("It %s ambient light (%+d radius).", "它%s光照。 (%+d 光照范围).", "tformat")
+t("It %s ambient light (%+d radius).", "它%s光照 (%+d 光照范围)。", "tformat")
 t("provides", "提供", "_t")
-t("dims", "熄灭", "_t")
+t("dims", "减弱", "_t")
 t("#ORANGE#It has an activatable power.#LAST#", "#ORANGE#它具有一项可激活的能力。#LAST#", "_t")
 t("It is part of a set of items.", "它是某个套装中的一件。", "_t")
 t("The set is complete.", "套装已完成。", "_t")
@@ -944,9 +944,9 @@ t("Damage Shield Power: ", "护盾强度增加：", "_t")
 t("Ice block penetration: ", "冰块穿透：", "_t")
 t("Slows Projectiles: ", "减缓抛射物速度：", "_t")
 t("Bonus block near projectiles: ", "附近有抛射物时获得额外格挡：", "_t")
-t("Reduces paradox anomalies(equivalent to willpower): ", "时空技能异常阈值(基于意志)：", "_t")
-t("Damage Backlash: ", "伤害回火：", "_t")
-t("Reduce all damage from unseen attackers: ", "降低不可见目标伤害：", "_t")
+t("Reduces paradox anomalies(equivalent to willpower): ", "减少紊乱异常(等同意志)：", "_t")
+t("Damage Backlash: ", "伤害反冲：", "_t")
+t("Reduce all damage from unseen attackers: ", "减少来自不可见攻击者的伤害：", "_t")
 t("The wearer is treated as an undead.", "装备者将被视为不死族。", "_t")
 t("The wearer is treated as a demon.", "装备者将被视为恶魔。", "_t")
 t("The wearer is blinded.", "装备者处于失明状态。", "_t")
@@ -956,7 +956,7 @@ t("This item allows the wearer to attack unseen targets without any penalties.",
 t("Lucid Dreamer: ", "清晰梦境: ", "_t")
 t("This item allows the wearer to act while sleeping.", "此装备允许装备者边睡觉边行动。", "_t")
 t("The wearer no longer has to breathe.", "装备者不需要呼吸。", "_t")
-t("Quick Weapon Swap:", "无影手: ", "_t")
+t("Quick Weapon Swap:", "快速切换武器：", "_t")
 t("This item allows the wearer to swap to their secondary weapon without spending a turn.", "该武器允许装备者在切换至副武器时无需消耗一回合。", "_t")
 t("Avoid Pressure Traps: ", "避免压力陷阱: ", "_t")
 t("The wearer never triggers traps that require pressure.", "该物品可防止装备者触发压力式陷阱。", "_t")
@@ -1007,7 +1007,7 @@ Activation costs %d power out of %d/%d.]], [[它可以用于%s
 t("It can be used to %s.", "它可以用于%s。", "tformat")
 t("Power cost: ", "能量消耗：", "_t")
 t("%d out of %d/%d.", "%d，总计%d/%d.", "tformat")
-t("It can be used to activate talent %s, placing all other charms into a %s cooldown :", "它可以用于触发技能%s，将所有其他物品置入%s回合冷却：", "tformat")
+t("It can be used to activate talent %s, placing all other charms into a %s cooldown :", "它可以用于触发技能%s，将所有其他护符置入%s回合冷却：", "tformat")
 t("It can be used to activate talent %s (costing %s power out of %s/%s) :", "它可以用于触发技能%s (消耗%s能量，总计%s/%s)：", "tformat")
 t("When used:", "当使用时：", "_t")
 t("%s%% chance to %s", "%s%% 几率触发 %s", "tformat")
@@ -1084,7 +1084,7 @@ t("Level change (%s)!", "地图切换 (%s)!", "tformat")
 t("#FF0000#You carry too much--you are encumbered!", "#FF0000#你拿了太多东西——超重了！", "logPlayer")
 t("#FF0000#Drop some of your items.", "#FF0000#丢弃一些东西。", "logPlayer")
 t("#PINK#Your summoned %s disappears.", "#PINK#你召唤的%s消失了。", "logPlayer")
-t("#LIGHT_RED#LIFE LOST WARNING!", "#LIGHT_RED#生命值过低警告！", "say")
+t("#LIGHT_RED#LIFE LOST WARNING!", "#LIGHT_RED#生命流失警告！", "say")
 t("Game Turn %d", "游戏回合 %d", "log")
 t("taken damage", "受到伤害", "_t")
 t("LOW HEALTH!", "生命值低!", "_t")
@@ -1335,7 +1335,7 @@ section "mod-tome/class/interface/ActorInscriptions.lua"
 t("You are unable to use this kind of inscription.", "你无法使用这种刻印。", "logPlayer")
 t("You already have too many of this inscription.", "你已经拥有太多的同种刻印。", "logPlayer")
 t("You have no more inscription slots.", "你没有更多刻印槽了。", "logPlayer")
-t("You are now inscribed with %s.", "你的刻印更新为： %s 。", "logPlayer")
+t("You are now inscribed with %s.", "你现在铭刻了 %s。", "logPlayer")
 t("Your %s is depleted!", "你的 %s 被耗尽！", "logPlayer")
 
 ------------------------------------------------
@@ -1365,7 +1365,7 @@ section "mod-tome/class/interface/Archery.lua"
 t("You need a missile launcher (%s)!", "你需要一件远程投射武器(%s)!", "logPlayer")
 t("You do not have enough ammo left!", "你没有足够的弹药！", "logPlayer")
 t("#ORCHID#Your %s CANNOT SHOOT (Resource: %s%s#LAST#).", "#ORCHID#你的%s无法射击(资源：%s%s#LAST#).", "logPlayer")
-t("#ORCHID#Target out of range.  Hold <ctrl> to force all weapons to fire at targets out of ranges (%d - %d).", "#ORCHID#目标超出范围。按住<ctrl>来强制射击超出范围(%d-%d)的目标.", "logPlayer")
+t("#ORCHID#Target out of range.  Hold <ctrl> to force all weapons to fire at targets out of ranges (%d - %d).", "#ORCHID#目标超出范围。按住<ctrl>来强制所有武器射击超出范围(%d-%d)的目标。", "logPlayer")
 t("#ORCHID#Target out of range.  Hold <ctrl> to force your weapon to fire at targets beyond its range (%d).", "#ORCHID#目标超出范围。按住<ctrl>来强制射击超出范围(%d)的目标.", "logPlayer")
 t("#ORCHID#You COULD NOT SHOOT your %s (Resource: %s%s#LAST#).", "#ORCHID#无法使用%s射击(资源:%s%s#LAST#).", "logPlayer")
 t("%s(%d parried#LAST#)", "%s(%d 被格挡#LAST#)", "tformat")
@@ -1393,7 +1393,7 @@ t("#Source# misses #Target#.", "#Source#未命中#Target#。", "logCombat")
 t("The shattering blow creates a shockwave!", "这次攻击引发了冲击波！", "logSeen")
 t("#F53CBE#You revel in attacking a weakened foe! (+%d hate)", "#F53CBE#你沉醉于攻击一个虚弱的敌人！（+%d 仇恨）", "logPlayer")
 t("#F53CBE#Your rampage is invigorated by your fierce attack! (+1 duration)", "#F53CBE#你强力的攻击延长了你的暴走时间！ (+1持续时间)", "logPlayer")
-t("#Source# counter attacks #Target# with %s shield shards!", "#Source# 用%s的盾牌碎片反击了 #Target# !", "logCombat")
+t("#Source# counter attacks #Target# with %s shield shards!", "#Source#用%s枚盾牌碎片反击了#Target#！", "logCombat")
 t("#{bold}#%s's spell attains critical power!#{normal}#", "#{bold}#%s的法术造成了致命一击！#{normal}#", "logSeen")
 t("#{bold}#%s's mind surges with critical power!#{normal}#", "#{bold}#%s的精神攻击造成了致命一击！#{normal}#", "logSeen")
 t("#Source#'s grapple fails because #Target# is too big!", "#Source#的抓取失败了，因为#Target#体型过大!", "logCombat")
@@ -1492,7 +1492,7 @@ The Blood of Life courses through your veins.
 This can save you from death and restore you to full health (once) if you would otherwise die.
 ]], [[#GOLD#生命之血#LAST#
 生命之血在你体内流淌。
-能将你从死亡边缘挽救一次，并将你的体力恢复到满。
+能将你从死亡边缘挽救一次，并将你的生命值恢复到满。
 ]], "_t")
 t([[#GOLD#Life#LAST#
 This is your life force, which is reduced each time you take damage.
@@ -1605,10 +1605,10 @@ As your Paradox grows so does your Spellpower, but you may be shifted to a more 
 When your modified Paradox is above 600 the shifts will become more violent.
 Your control over chronomancy spells increases with your Willpower.
 ]], [[#GOLD#紊乱值#LAST#
-紊乱值是你对时空连续性的破坏度。
-当紊乱值增加时，你的法术强度也会提升，但你在使用法术的有可能会引发异常的效果。
-当矫正紊乱值达到600以上的时候，这样的异常效果会变得十分严重。
-你掌控时空法术的能力受意志值提升。
+紊乱值代表当前时间线的稳定程度。
+当紊乱值增加时，你的法术强度也会提升，但当你尝试使用法术时，可能会被转移到一条更稳定的时间线。
+当修正后的紊乱值超过600时，这种转移会变得更加剧烈。
+你对时空法术的掌控会随意志提升。
 ]], "_t")
 t([[#GOLD#Psi#LAST#
 Psi represents how much energy your mind can harness. Like matter, it can be neither created nor destroyed.
@@ -1697,7 +1697,7 @@ When learned, passive talents permanently alter the user in some way.
 The effects are always present and are usually not dispellable or removable, though other effects may counteract or negate them.
 Specific information on each talent appears its tooltip.]], [[#GOLD#被动技能#LAST#
 当你学会被动技能之后，它会以某种方式永久性的给玩家带来改变。
-这些效果始终存在，不会被解除，也不会被移除，但是有些特殊效果可能会无视或者反击它们。
+这些效果始终存在，不会被解除，也不会被移除，但是有些特殊效果可能会抵消或消除它们。
 有关技能的详细信息，请参阅技能的提示框。]], "_t")
 t([[#GOLD#Sustained Talents#LAST#
 Sustained talents are turned on and left on.
@@ -1789,7 +1789,7 @@ t([[#GOLD#Cunning#LAST#
 Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your Mindpower, Mental Save, and critical chance.
 ]], [[#GOLD#灵巧#LAST#
 灵巧属性提升你学习、思考和反应能力。
-提升灵巧可以让你学习更多的技能，提升意志力，提升意志豁免和暴击几率。
+提升灵巧可以让你学习更多的技能，并提升精神力和精神豁免，以及暴击几率。
 ]], "_t")
 t([[#AQUAMARINE#Physical stats#LAST#
 ---
@@ -1831,6 +1831,7 @@ The amount of damage a shield will block when actively used in defense.
 Usually this is only effective against Physical damage, but some special shields (and talents) allow the wearer to block other types.
 ]], [[#GOLD#盾牌格挡值#LAST#
 盾牌在激活时所能阻挡的伤害量。
+通常只对物理伤害有效，但一些特殊的盾牌（和技能）可以让装备者格挡其他类型的伤害。
 ]], "_t")
 t([[#GOLD#Armour Penetration#LAST#
 Armour penetration allows you to ignore a part of the target's armour (this only works for armour, not damage resistance).
@@ -1852,7 +1853,7 @@ t([[#GOLD#Attack speed#LAST#
 Attack speed represents how fast your attacks are compared to normal.
 Higher is faster, representing more attacks performed in the same amount of time.
 ]], [[#GOLD#攻击速度#LAST#
-攻击速度表示你在每个回合内攻击速度。
+攻击速度表示与正常情况相比，你的攻击有多快。
 值越高你的攻击速度越快。
 ]], "_t")
 t([[#GOLD#Firing range#LAST#
@@ -1954,8 +1955,8 @@ Some talents allow you to increase this percentage, and it may be modified by yo
 It is improved by Cunning.
 ]], [[#GOLD#物理暴击#LAST#
 每次造成物理伤害时你都有一定几率暴击造成额外伤害。
-一些技能可以提高这个几率。
-提升灵巧属性值可以提高物理暴击率。
+一些技能可以提高这个几率，它也可能受你的武器影响。
+灵巧属性可以提升这个几率。
 ]], "_t")
 t([[#GOLD#Spellpower#LAST#
 Your spellpower represents how powerful your magical spells are.  It is opposed by your opponent's spell save.
@@ -2091,7 +2092,7 @@ Important: Affinity healing happens after damage has been taken, it can not prev
 t([[#GOLD#Status resistance#LAST#
 Most bad status effects can be avoided by having an appropriate immunity, represented by a percent chance to completely avoid the effect in question.  This chance is applied in addition to any saving throws or other checks that may apply.
 ]], [[#GOLD#状态免疫#LAST#
-大部分状态效果可以被特定的免疫来抵消，以百分比表示你完全免疫该效果的几率的几率。这一几率与豁免或其他效果各自独立生效。
+大部分状态效果可以被特定的免疫来抵消，以百分比表示你完全免疫该效果的几率。这一几率会与任何适用的豁免或其他判定叠加计算。
 ]], "_t")
 t([[#GOLD#Effect resistance chance#LAST#
 This represents your chance to completely resist this specific effect.
@@ -2318,10 +2319,10 @@ t("Right click to configure", "右键点击设定", "_t")
 t("Press 'm' to setup", "按M键设置", "_t")
 t("Unbind %s", "解除绑定%s", "tformat")
 t("Remove this object from your hotkeys?", "从快捷栏去掉该物品？", "_t")
-t("Donator", "捐助者", "_t")
+t("Donator", "捐赠者", "_t")
 t("Developer", "开发者", "_t")
 t("Moderator / Helper", "管理员/协助者", "_t")
-t("Recurring Donator", "长期捐助者", "_t")
+t("Recurring Donator", "长期捐赠者", "_t")
 t("Playing: ", "正在玩：", "_t")
 t("Game: ", "游戏：", "_t")
 t("Linked by: ", "链接者: ", "_t")
@@ -2478,7 +2479,7 @@ Passive: when trying to move onto a creature it will not attack (use ctrl+direct
 被动：向一个生物移动不会攻击（可以使用Ctrl+ 方向键或者右键点击来攻击）。]], "_t")
 t("Show character infos", "显示角色信息", "_t")
 t("Click to assign stats and talents!", "点击分配属性点和技能点！", "_t")
-t("Show available cosmetic & fun microtransation", "选择可用的装饰效果/内购", "_t")
+t("Show available cosmetic & fun microtransation", "显示可用的装饰与趣味内购", "_t")
 t([[Left mouse to move
 Right mouse to scroll
 Middle mouse to show full map]], [[左键点击移动
@@ -2495,17 +2496,17 @@ Right mouse to show ingredients]], [[左键点击显示物品栏
 t("Left mouse to show known talents", "左键点击显示技能", "_t")
 t("Left mouse to show message/chat log.", "左键点击显示信息/聊天栏。", "_t")
 t([[Left mouse to show quest log.
-Right mouse to show all known lore.]], [[左键点击显示任务栏
-右键点击显示手札。]], "_t")
+Right mouse to show all known lore.]], [[左键点击显示任务日志
+右键点击显示所有已知手札。]], "_t")
 t("Tales of Maj'Eyal Lore", "马基埃亚尔的传说手札", "_t")
 t("Left mouse to show main menu", "左键点击显示主菜单", "_t")
 t("Unlock all interface elements so they can be moved and resized.", "解锁所有界面元素，使其可以移动和改变大小。", "_t")
 t("Lock all interface elements so they can not be moved nor resized.", "锁定所有界面元素，使其无法移动和改变大小。", "_t")
 t("Clicking will open#LIGHT_BLUE##{italic}#%s#WHITE##{normal}# in your browser", "点击将会在你的默认浏览器中打开#LIGHT_BLUE##{italic}#%s#WHITE##{normal}# ", "_t")
-t("Donator", "捐助者", "_t")
+t("Donator", "捐赠者", "_t")
 t("Developer", "开发者", "_t")
 t("Moderator / Helper", "管理员/协助者", "_t")
-t("Recurring Donator", "长期捐助者", "_t")
+t("Recurring Donator", "长期捐赠者", "_t")
 t("Playing: ", "正在玩：", "_t")
 t("Game: ", "游戏：", "_t")
 t("Clicking will open ", "点击将会打开 ", "_t")
@@ -2578,7 +2579,7 @@ t("Disturbed an old battlefield and survived the consequences.", "踏入古战�
 t("The Rat Lich", "巫妖鼠", "achievement name")
 t("Killed the terrible Rat Lich.", "杀死可怕的巫妖鼠。", "_t")
 t("Shasshhiy'Kaish", "莎西·凯希", "achievement name")
-t("Killed Shasshhiy'Kaish after letting her grow as powerful as possible.", "在莎西·凯希成长到非常强大时杀死她。", "_t")
+t("Killed Shasshhiy'Kaish after letting her grow as powerful as possible.", "在莎西·凯希成长到尽可能强大之后杀死她。", "_t")
 t("Bringer of Doom", "厄运行者", "achievement name")
 t("Killed a Bringer of Doom.", "杀死一名厄运行者。", "_t")
 t("A living one!", "一个活着的！", "achievement name")
@@ -33867,7 +33868,7 @@ This has no effect on gameplay at all but it is fun!
 
 #{bold}#另外，如果你始终穿着比基尼/男性比基尼从未脱下并赢得游戏，你会获得一个成就！#{normal}#
 
-#LIGHT_GREEN#这项功能仅对捐助者可用。感谢你的支持！
+#LIGHT_GREEN#这项功能仅对捐赠者可用。感谢你的支持！
 ]], "_t")
 
 ------------------------------------------------
@@ -33887,7 +33888,7 @@ Drolems look awesome and can eventually learn to breathe poison.
 你现在可以创建使用龙傀儡代替普通傀儡的炼金术师角色。
 龙傀儡看起来更炫酷，并且可以学习喷吐毒液。
 
-#LIGHT_GREEN#这项功能仅对捐助者可用。感谢你的支持！
+#LIGHT_GREEN#这项功能仅对捐赠者可用。感谢你的支持！
 ]], "_t")
 
 ------------------------------------------------
@@ -41797,7 +41798,7 @@ A full exit and restart of the game is neccessary to apply this setting.#{normal
 - 角色备份：不能在te4.org上保存你的角色信息(用来给其他人分享你的炫酷角色)。
 - 物品仓库：不能访问你的在线物品仓库(包括存入和取回)。
 - 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
-- 购买者/捐助者福利：基础游戏免费，公平发放捐助者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
+- 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
 - 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。
 - 插件版本更新：无法更新插件的版本。
 - Steam：无法使用Steam相关的任何功能。
