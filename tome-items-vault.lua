@@ -62,7 +62,7 @@ t("Place an item in the Item's Vault", "将物品放入共享仓库", "_t")
 t("Caution", "注意", "_t")
 t("Continue?", "继续吗？", "_t")
 t("[Retrieve an item from the vault]", "[从共享仓库中取回物品]", "_t")
-t("#GOLD#I wish to help the funding of this game and donate#WHITE#", "#GOLD#我想帮助这个游戏的资金，并且捐赠这个游戏#WHITE#", "_t")
+t("#GOLD#I wish to help the funding of this game and donate#WHITE#", "#GOLD#我想资助这个游戏并捐款#WHITE#", "_t")
 t("[Leave the orb alone]", "[离开水晶球]", "_t")
 
 ------------------------------------------------

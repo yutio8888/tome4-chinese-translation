@@ -4991,8 +4991,8 @@ t("", "", "_t")
 section "tome-cults/overload/mod/dialogs/RingOfTheHunter.lua"
 
 t("Impossible", "不可能", "_t")
-t("The Writhing Ring seems unable to learn this prodigy.", "戒指似乎不能学习这个觉醒技能。", "_t")
-t("#PURPLE#The Ring writhes and contracts around your finger and suddently you realize your now possess the prodigy #LIGHT_GREEN#%s%s!", "#PURPLE#戒指环绕着你的指尖，突然间，你掌握了觉醒技#LIGHT_GREEN#%s%s！", "log")
+t("The Writhing Ring seems unable to learn this prodigy.", "蠕动之戒似乎无法学习这个觉醒技能。", "_t")
+t("#PURPLE#The Ring writhes and contracts around your finger and suddently you realize your now possess the prodigy #LIGHT_GREEN#%s%s!", "#PURPLE#戒指在你指间扭动收缩，突然间，你掌握了觉醒技#LIGHT_GREEN#%s%s！", "log")
 
 ------------------------------------------------
 section "tome-cults/superload/mod/class/Actor.lua"
@@ -5008,7 +5008,7 @@ t("Race: Krog", "种族：克罗格", "_t")
 t("Class tree: Scourge drake", "职业技能树：天谴之龙", "_t")
 t("Class feature: Alchemist's Glass Golem", "职业特性：炼金术师的玻璃傀儡", "_t")
 t("Saving is not possible in the S.M.A.C.K. Do you want to cancel the fight?", "不能在S.M.A.C.K里面存档。你确定要取消这场战斗吗？", "_t")
-t("Urgent affair in Zigur", "来自伊格的紧急事件", "_t")
+t("Urgent affair in Zigur", "发生在伊格的紧急事件", "_t")
 t([[As you enter Last Hope a courier finds you to deliver a letter from Protector Myssil of Zigur:
 
 %s, while you were away destroying arcane filth I have received grave news.

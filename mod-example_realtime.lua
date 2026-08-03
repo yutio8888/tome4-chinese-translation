@@ -15,7 +15,7 @@ t("%s deactivates %s.", "%s deactivates %s.", "logSeen")
 ------------------------------------------------
 section "mod-example_realtime/class/Game.lua"
 
-t("There is no way out of this level here.", "这里不是离开该层的出口。", "log")
+t("There is no way out of this level here.", "这里没有离开该层的出口。", "log")
 t("Saving game...", "保存游戏...", "log")
 
 ------------------------------------------------
