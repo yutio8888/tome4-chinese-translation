@@ -51,7 +51,20 @@
 | `e1c4528`（2026-08-03） | steamtech 领域修正；Air 资源补录 |
 | 历次批次（b7–b22、note1–2、补修 `5d26960`） | farportal 空格、#GOLD#Stat modifiers 无空格形式、致盲！全角、吸血鬼领主、骇异 subtype 等 |
 
-## 五、维护规则
+## 六、重复运行键分类（2026-08-03，阶段 1 产出）
+
+工具：`python3 -B tools/classify_runtime_keys.py`（报告在 `.artifacts/i18n/runtime-key-classification/`）。
+
+- **规模**：1,717 个重复键，**全部同 target**（无运行时覆盖差异）；`duplicate_runtime_keys` 仅计数，无风险。
+- **结论**：1,717 个全部为**跨文件合法重复**（桶 A）；**0 个同文件内冗余**（桶 C 为空）。
+  - 各数据文件（`data/general/npcs`、`grids`、`birth/classes`、`zones` 等）按 ToME 惯例独立声明 `t()`，同键同译是源码结构，保留。
+  - 构建产物按 runtime key 合并（build 验证 expected_runtime_keys 19,023 vs 译文 30,170），译文中的重复声明**不影响产物**；清理无收益且有风险（破坏与源文件对应性），故全部保留。
+- **tag 分布**：`_t` 698 / `entity name` 353 / `entity subtype` 114 / `entity keyword` 103 / `entity type` 71 / `logPlayer` 69 / `effect subtype` 68 / `tformat` 66 / `logSeen` 50 …
+- **目录模式**：`data/general` 1,664 / `data/zones` 756 / `data/talents` 433 / `data/birth` 426 / `data/timed_effects` 296 / `data/chats` 145…
+- **术语表交叉验证**：重复键中 294/1,717 的 source 已入术语表；未覆盖者主要是地形内部键（wall/floor/grass/door，按 TERMINOLOGY.md 原设计不提升）。
+- **补录**（随本阶段）：`way to the next/previous level`（出口提示 12 处）、`%s resists the stun!`（震慑抵抗日志 11 处）。
+
+## 七、维护规则
 
 1. 每次译文批量修改后运行 `python3 -B tools/scan_runtime_collisions.py`，将新增/消失项同步到本档案。
 2. 新发现的同键多译先补入本档案（状态=待统一/待裁决），再按批次修复；修复 commit 后更新状态并记录 commit 号。
