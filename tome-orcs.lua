@@ -274,7 +274,7 @@ t("The Scourge from the West is back in the west, but her legacy stays strong: t
 t("But not all hope is lost.", "即使如此，希望仍存。", "_t")
 t("On the isolated Clork Peninsula lies the fifth pride: Kruk's Pride; unseen and unharmed by the Scourge.", "在与世隔绝的克洛尔克半岛上栖息着兽人第五部落：克鲁克部落；他们并没有被这场灾难伤害。", "_t")
 t("Yet not all is great there either, the Sunwall offensive has set up an outpost blocking the way to the mainland.", "不幸的是，晨曦之门建立了前哨站阻断了通向大陆的道路。", "_t")
-t("But the worst threat comes from the peninsula itself, the main inhabitants are not the orcs, but the Atmos Tribe.", "然而，最大的威胁来自半岛本身。岛上的主要居民并非兽人，而是气之部落。", "_t")
+t("But the worst threat comes from the peninsula itself, the main inhabitants are not the orcs, but the Atmos Tribe.", "然而，最大的威胁来自半岛本身。岛上的主要居民并非兽人，而是气之部族。", "_t")
 t("A civilization of steam giants whose mastery of steamtech makes them incredible foes.", "蒸汽巨人的文明掌控蒸汽科技，他们是无比强大的敌人。", "_t")
 t("Play an orc, prove your worth! Use steamtech against the giants, reclaim the far east and free it from Sunwall scum!", "用兽人种族进行游戏，证明你的价值！使用蒸汽科技对抗巨人，回到远东，并将其从晨曦之门手中夺回！", "_t")
 t("Craft your own steamsaws, rocket boots, steam powered armours, and all kind of steamy technology!", "制造自己的蒸汽锯，火箭靴，蒸汽护甲，以及其他各式各样的蒸汽科技！", "_t")
