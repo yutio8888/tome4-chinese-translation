@@ -133,7 +133,7 @@ t([[Addons on Steam Workshop need a "preview" image for the listing.
 The game has generated a default one, however it is best if you make a custom one and place it in the folder #LIGHT_GREEN#%s#LAST# named #LIGHT_BLUE#%s#LAST# (512x512 is a good size for it)
 You can still upload now and place it later.]], [[Steam创意工坊上的插件需要一张预览图。
 游戏已经创建了一张默认的预览图，不过你最好自己制作一个，然后放置在文件夹#LIGHT_GREEN#%s#LAST#内，文件名为#LIGHT_BLUE#%s#LAST#（512x512是一个合适的图片大小）
-You can still upload now and place it later.]], "_t")
+你也可以现在先上传，之后再放置预览图。]], "_t")
 t("Upload now", "现在上传", "_t")
 t("Wait", "等待", "_t")
 t("Generate Addon's MD5", "生成插件MD5", "_t")

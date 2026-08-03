@@ -6,7 +6,7 @@ t("Read a Forbidden Tome.", "读一本禁忌之书", "_t")
 t("Bookception!", "书中之书！", "achievement name")
 t("Found the Forbidden Tome reward inside the Forbidden Tome: \"Of Knowledge And Horrors\".", "在禁忌之书《知识与恐怖》中，找到禁忌之书的奖励。", "_t")
 t("Recursive Home of Recursion", "递归之家", "achievement name")
-t("Left the Forbidden Tome: \"Home, Horrific Home\" on the floor of The Home Which Is Not.", "将禁忌之书《家，可怕的家》扔在家的地板上。", "_t")
+t("Left the Forbidden Tome: \"Home, Horrific Home\" on the floor of The Home Which Is Not.", "将禁忌之书《家，可怕的家》留在了“非家之家”的地板上。", "_t")
 t("They Came From Outer Space!", "他们来自外太空！", "achievement name")
 t("Discovered the true origin of dwarves and drems.", "发现矮人和德瑞姆的来历。", "_t")
 t("The True Coward", "真正的懦夫", "achievement name")
@@ -30,7 +30,7 @@ t("Destroyed the Hypostasis of Entropy.", "消灭熵的本质。", "_t")
 section "tome-cults/data/birth/demented.lua"
 
 t("Demented", "疯狂系", "birth descriptor name")
-t("The thirst for knowledge is seen by most arcane users as as good thing.", "对知识的渴望是大部分奥术使用者的共同特点。", "_t")
+t("The thirst for knowledge is seen by most arcane users as as good thing.", "对知识的渴望被大多数奥术使用者视为一件好事。", "_t")
 t("But some take it too far, some delve into lost knowledge. They may gain huge power from it, but at what cost?", "但某些人走得太远，某些人陷入失落的知识中。他们或许得到了巨大的力量，但代价是什么呢？", "_t")
 t("Writhing One", "蜿蜒怪人", "birth descriptor name")
 t("Writhing Ones know that what we call #{italic}#horrors#{normal}# hold the key to some ancient knowledge and power from the Age of Haze and they are ready to do anything to access it.", "蜿蜒怪人了解我们所谓的 #{italic}#恐魔#{normal}# 是通往远古知识和混沌纪力量的钥匙。他们愿意付出一切代价来获取。", "_t")
@@ -61,7 +61,7 @@ t("Special", "特殊", "birth facial category")
 t("Drem", "德瑞姆", "birth descriptor name")
 t("Faceless, but not mindless.", "无面，但不无心。", "_t")
 t("Drem are mindless mutants who live deep in the earth. It is only recently that thinking Drem have appeared among them. They still remain deep below Eyal's surface, believing that they would not be welcomed among the surface races.", "德瑞姆是生存于地底深处的异变种，直到最近才发现具有思维能力的个体。他们仍生存于地底，认为他们不会被地上种族欢迎。", "_t")
-t("They possess the #GOLD#Frenzy#WHITE# talent which allows them to ignore cooldowns once in a while.", "他们拥有 #GOLD#狂热#WHITE# 技能，让他们能在短时间内无视冷却时间。", "_t")
+t("They possess the #GOLD#Frenzy#WHITE# talent which allows them to ignore cooldowns once in a while.", "他们拥有 #GOLD#狂热#WHITE# 技能，让他们偶尔能无视冷却时间。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +3 力量, +1 敏捷, +1 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, -1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +2 魔法, -1 意志, +0 灵巧", "_t")
@@ -254,7 +254,7 @@ t("voidburn", "虚空灼烧", "damage type")
 t("slowing void", "减速之虚", "damage type")
 t("draining void", "汲取之虚", "damage type")
 t("#Source# drains life from #Target#!", "#Source#从#Target#吸取了生命！", "logCombat")
-t("mesmerize", "吸引", "damage type")
+t("mesmerize", "催眠", "damage type")
 t("obliterating void", "湮灭之虚", "damage type")
 t("aging temporal", "衰老", "damage type")
 t("%s resists the blindness!", "%s抵抗了致盲!", "logSeen")
@@ -349,7 +349,7 @@ t([[The thing in front of you appears to be a strange dome made from green glass
 
 You are fairly sure that the dwarves aren't capable of making something like this and they definitely don't dress like that. So, where did this odd dwarf come from? Taking a closer look, you find a strange device attached to the dwarf's arm. You remove it with no small amount of effort. It is completely unlike anything you have seen before and you're not really sure what to make of it. Perhaps if you hold onto it, you might be able to discern its functionality later.]], [[出现在你眼前的是一个被绿色玻璃遮罩的太空舱，根据附近的弹坑判断，这个太空舱曾以极快的速度撞击地面，里面仍坐着一个奇怪的生物，穿着不明材质的衣服，带着绿色玻璃做成的头罩。透过绿色的玻璃看去，能看到矮人标志性的大鼻子，你清楚的发现这是一个矮人！从气味判断，他已经死了很久了。
 
-你很肯定矮人不会做出这样的东西，而且他们绝对不会穿那样的衣服。那么，这个奇怪的矮人是从哪里来的？仔细观察，你会发现一个奇怪的装置附在矮人的手臂上。你不费吹灰之力就把它取下来了。它和你见过的任何东西都不一样，你也不知道该怎么做。如果你留下它，也许你以后可以辨别出它的功能。]], "_t")
+你很肯定矮人不会做出这样的东西，而且他们绝对不会穿那样的衣服。那么，这个奇怪的矮人是从哪里来的？仔细观察，你会发现一个奇怪的装置附在矮人的手臂上。你费了不小的力气才把它取下来。它和你见过的任何东西都不一样，你也不知道该怎么做。如果你留下它，也许你以后可以辨别出它的功能。]], "_t")
 t("previous level", "前往上一层", "_t")
 t("ladder back to %s", "返回%s的楼梯", "tformat")
 t("Eerie Cave", "诡异洞穴", "_t")
@@ -544,7 +544,7 @@ t("This strange cell can somehow connect to Eyal itself.", "这个奇怪的细�
 t("acidic digestor", "酸胞消化者", "entity name")
 t("You look like nutriments.", "你看起来像是营养成分。", "_t")
 t("protosentient globula", "原球胞", "entity name")
-t("A huge globula of protoplasma. You can feel a kind of protosentience emanating from it, and you can tell it is hungry.", "一团球状的巨大的原生质细胞。从他的身上渗出原生质，你感觉他很饥饿。", "_t")
+t("A huge globula of protoplasma. You can feel a kind of protosentience emanating from it, and you can tell it is hungry.", "一大团原生质球体。你能感觉到某种原始感知从它身上散发出来，并且能看出它很饥饿。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/general/npcs/corrupted_blobs.lua"
@@ -563,7 +563,7 @@ t("This strange cell can somehow connect to Eyal itself.", "这个奇怪的细�
 t("corrupted acidic digestor", "腐化的酸胞消化者", "entity name")
 t("You look like nutriments.", "你看起来像是营养成分。", "_t")
 t("corrupted protosentient globula", "腐化的原球胞", "entity name")
-t("A huge globula of protoplasma. You can feel a kind of protosentience emanating from it, and you can tell it is hungry.", "一团球状的巨大的原生质细胞。从他的身上渗出原生质，你感觉他很饥饿。", "_t")
+t("A huge globula of protoplasma. You can feel a kind of protosentience emanating from it, and you can tell it is hungry.", "一大团原生质球体。你能感觉到某种原始感知从它身上散发出来，并且能看出它很饥饿。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/general/npcs/horror-special.lua"
@@ -580,7 +580,7 @@ t("searing horror", "灼光恐魔", "entity name")
 t("And you thought radiant horrors were bad.", "听说你觉得光芒恐魔还不够厉害？", "_t")
 t("#GOLD#The Searing Horror adds a reflective shield to its allies!#LAST#", "#GOLD#灼光恐魔为它的盟友施加了反射护盾！#LAST#", "say")
 t("ravaging entropic rip", "肆虐的熵之裂口", "entity name")
-t("A strange crystal/tear in the fabric of reality. You dare not think how it came to be.", "撕裂了现实的一团奇怪的水晶。你不敢想它是从哪里来的。", "_t")
+t("A strange crystal/tear in the fabric of reality. You dare not think how it came to be.", "现实之幔上的一道奇异水晶裂隙。你不敢去想它是如何形成的。", "_t")
 t("bursting entropic shard", "爆裂的熵之碎片", "entity name")
 t("A strange tall crystal pusling with nether energies. It's broken. Tentacles come out of it to get you! #{bold}#RUN!#{normal}#", "一团发射出虚空能量的高大水晶。它的破裂处伸出触手抓向你。#{bold}#快跑!#{normal}#", "_t")
 t("nethergate", "彼世之门", "entity name")
@@ -665,7 +665,7 @@ section "tome-cults/data/general/objects/world-artifacts.lua"
 
 t("Spinal Cage", "脊笼", "entity name")
 t("gross mass of spinal matter", "一堆脊柱碎片", "_t")
-t("A gross mass of spinal matter hastily assembled into armour.", "一堆脊柱碎片，差不多可以用来当做护甲", "_t")
+t("A gross mass of spinal matter hastily assembled into armour.", "一大团令人作呕的、被匆忙拼装成护甲的脊柱物质。", "_t")
 t("Infused Cerebrum", "被灌注的大脑", "entity name")
 t("a disgusting pile of brain-matter", "一团令人厌恶的大脑组织", "_t")
 t("This #{italic}#headwear#{normal}# seems made entirely out of half-rotten brain matter. Do you really want to put that over your head?", "这个 #{italic}# “帽子” #{normal}# 似乎是由已经半腐烂的大脑组成的。你真的还想把它呆在自己的头上吗？", "_t")
@@ -749,7 +749,7 @@ Judging by the way the walls constantly shift and change themselves, you can be 
 
 城堡的墙壁正在不断移动、变化。你可以确信，这个地方很难探索。]], "_t")
 t("misc", "杂项", "entity type")
-t("gross", "杂项", "entity subtype")
+t("gross", "恶心的", "entity subtype")
 t("Cut Drem Arm", "被切下来的德瑞姆手臂", "entity name")
 t("bloody arm", "血淋淋的手臂", "_t")
 t("The arm appears desiccated, but you swear that you see something wriggling underneath its ashen skin.", "这条手臂看上去已经风干了，但你可以发誓，你看到有什么东西在它的皮肤下蠕动。", "_t")
@@ -759,7 +759,7 @@ t("Monolith Armour", "巨石铠甲", "entity name")
 t("black stone armour", "黑色的石头铠甲", "_t")
 t("This 'armour' seems to mostly consist of chunks of a rune etched stone somehow fused with a highly flexible black mesh. The titanic pieces of stone would undoubtedly deflect any blow thrown at you, but you would need obscene strength just to move while wearing this. The glyphs and runes carved into the chunks sometimes light up of their own accord, letting out small bursts of magic.", "这块护甲似乎是由一整块符文巨石组成，它与某种高度灵活的黑色网状物融为一体。毋庸置疑，巨大的石块可以阻挡对你身上的任何打击，但你需要巨大的力量才能穿着它移动。刻在上面的符文有时候会自动点亮，放出小型的魔法爆炸。", "_t")
 t([[15% chance when hit to shatter reality around you creating rifts to help you (free cast of a Reality Fracture talent, level 4). This effect has a 30 turns cooldown.
-#PURPLE#If your constitution drops below requirement while using it, it is so heavy you will automatically unequip it. Beware.#LAST#]], [[击中时有15%的几率撕裂周围的现实，在身边创造一个时空裂隙来帮助你（免费释放一次等级4的实境撕裂）这个效果的冷却时间为30回合。
+#PURPLE#If your constitution drops below requirement while using it, it is so heavy you will automatically unequip it. Beware.#LAST#]], [[被击中时有15%的几率撕裂周围的现实，在身边创造一个时空裂隙来帮助你（免费释放一次等级4的实境撕裂）这个效果的冷却时间为30回合。
 #PURPLE#如果在你使用它的时候你的体质值降低到了装备的需求以下，因为它太重了，你会立刻解除装备。要小心#LAST#]], "_t")
 t("#LIGHT_RED#Your %s is too heavy to carry with your punny constitution anymore. You remove it.", "#LIGHT_RED#你的%s太重，你的体质无法装备它。你放下了它。", "logPlayer")
 t("Fanged Collar", "利牙项环", "entity name")

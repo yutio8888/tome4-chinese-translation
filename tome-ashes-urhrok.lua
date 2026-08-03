@@ -177,7 +177,7 @@ t("fire a bolt of plaguefire, dealing damage over time based on your magic stat"
 t("Dethblyd", "死忘太剑", "entity name")
 t("pitch black sword", "黑色的剑", "_t")
 t("Grushgore the Destroyer was as famous for his incredible brutality as he was for his childlike intelligence. He wasn't known for his subtlety of naming, but there's no denying the power of his massive sword.", "毁灭者格鲁什戈尔以头脑简单四肢发达闻名。他从不擅长谋略，但他的力量无以伦比。", "_t")
-t("Increases all damage dealt, and reduces all damage taken, by 1%, stacking up to 10 times. Resets after 10 turns without attacking.", "增加全体伤害并减少受到的伤害各1%效果持续10回合，最多叠加至10层", "_t")
+t("Increases all damage dealt, and reduces all damage taken, by 1%, stacking up to 10 times. Resets after 10 turns without attacking.", "增加全部伤害并减少受到的伤害各 1%，最多叠加至 10 层。若 10 回合未攻击则重置。", "_t")
 t("Quasit's Skull", "夸塞魔之颅", "entity name")
 t("rocky helm", "岩石头盔", "_t")
 t("Some enterprising adventurer seems to have noticed the skin of quasits is actually tougher than most metals, and fashioned this helm from one. Shame about the smell.", "一些有魄力的冒险者已经注意到了夸塞魔的皮肤其实比大多数金属都要坚硬，这个头盔就是一个夸塞魔的颅骨制成的。呣，气味浓郁。", "_t")
@@ -230,7 +230,7 @@ t("Grants spell-crit equal to half of your Shadow Power.", "每点“阴影强�
 t("The Black Plate", "黑之铠", "entity name")
 t("pitch black breastplate", "黑曜石胸甲", "_t")
 t("\"Wreckage all about you. Is there anything left inside?\"", "己身若残，何物能存?", "_t")
-t("Grants physical power equal to your Shadow Power.", "每点“阴影强度”增加1%点物理强度", "_t")
+t("Grants physical power equal to your Shadow Power.", "每点“阴影强度”增加1点物理强度", "_t")
 t("The Black Maul", "黑之锤", "entity name")
 t("massive black hammer", "巨大的黑曜石战锤", "_t")
 t("\"A fitting weapon for the Champion.\"", "冠军之锤，举重若轻", "_t")
@@ -418,7 +418,7 @@ Above all else, remember: despite <?=player:his_her()?> brute strength, this is 
 
 这个该死的小 <?=_t(player.descriptor.subrace, "birth descriptor name")?> 目前是我们的眼中钉、肉中刺。我们已经加强了我们的防御，避免在发生类似于陨石冲击导致像<?=player:his_her()?>这样的犯人逃跑这样的意外。然而，由于<?=player:he_she()?>在<?=player:his_her()?>逃跑路上砸坏了水晶，我们无法直接跟踪到<?=player:his_her()?>当前的位置。不过这不要紧——尽管如此，我们在<?=player:him_her()?>的身上注入的魔法痕迹仍然让我们可以侦测到<?=player:him_her()?>身上的魔法能量信号。我们的占卜师已经发现<?=player:him_her()?>在使用某种特定的魔法传送自己——似乎是某种夏·图尔人的发明。我们发出了干扰的魔法信号，将传送落点重定向到我们的平台。在那里，<?=player:he_she()?>可以被“安全”地保护起来，惩罚<?=player:him_her()?>违抗命令的举动，并使用我们的启蒙石板来恢复<?=player:his_her()?>忠诚。
 
-这就是说，由于<?=player:he_she()?>的实力从<?=player:his_her()?>上一次逃跑开始计算已经大幅增长，把明确的战略战术铭记在心对我们来说是极为重要的。长期曝露在我们的改良魔法之下，<?=player:he_she()?>在近战格斗中表现令人生畏。如果我们在<?=player:he_she()?>到来前妥善组织防御对抗他的魔法，<?=player:he_she()?>可能会对我们的部队造成极大的损伤。我们在任何情况下都绝不能让<?=player:him_her()?>击穿我们部队的后防线；也就是说，如果我们仅仅是把<?=player:him_her()?>引诱到一个狭窄的角落，我们的火力或许没有办法阻止他冲破重围。正确的方法应当是，先用一支由玛诺陶（或者其他任何我们能够调动的高阶近战部队）带领的佯攻小队将<?=player:him_her()?>引诱到空旷地带，然后让我们的法师部队在前线酸液树魔和夸塞魔的掩护下发动攻击。我们可能会损失大量的前线部队，但是这可以有效阻拦<?=player:him_her()?>前进的脚步。在此期间，我们的法术力量足以将他打成马蜂窝。
+这就是说，由于<?=player:he_she()?>的实力从<?=player:his_her()?>上一次逃跑开始计算已经大幅增长，把明确的战略战术铭记在心对我们来说是极为重要的。长期曝露在我们的改良魔法之下，<?=player:he_she()?>在近战格斗中表现令人生畏。如果我们无法在<?=player:his_her()?>到来前及时布下针对该魔法的防护，<?=player:he_she()?>若得不到妥善应对，可能会对我们的部队造成极大的损伤。我们在任何情况下都绝不能让<?=player:him_her()?>击穿我们部队的后防线；也就是说，如果我们仅仅是把<?=player:him_her()?>引诱到一个狭窄的角落，我们的火力或许没有办法阻止他冲破重围。正确的方法应当是，先用一支由玛诺陶（或者其他任何我们能够调动的高阶近战部队）带领的佯攻小队将<?=player:him_her()?>引诱到空旷地带，然后让我们的法师部队在前线酸液树魔和夸塞魔的掩护下发动攻击。我们可能会损失大量的前线部队，但是这可以有效阻拦<?=player:him_her()?>前进的脚步。在此期间，我们的法术力量足以将他打成马蜂窝。
 
 最重要的是：请记住，尽管<?=player:his_her()?>有一身蛮力，<?=player:he_she()?>只是一个可怜的，下等的埃亚尔人，只是出于幸运才有机会窃取了我们恶魔的强大力量。<?=player:he_she()?>并不真正了解如何正确使用自己的能力，也不像我们那样有着长期丰富的作战经验。我们有数量优势、有团结精神、有战术协作、还有乌鲁洛克大人的祝福。像对待演习一样对待这场战斗，只要保持审慎和专注，我们不会受到什么损失。
 ]], "_t")
@@ -467,7 +467,7 @@ Above all else, remember: despite <?=player:his_her()?> enhancements, this is a 
 
 这就是说，由于<?=player:he_she()?>的实力从<?=player:his_her()?>上一次逃跑开始计算已经大幅增长，把明确的战略战术铭记在心对我们来说是极为重要的。我们调整了永恒精灵天赋的加速能力，让<?=player:him_her()?>可以像小恶魔德瑞宝那样使用短距离传送技能，并在传送后大幅提升闪避能力。就连<?=player:his_her()?>内部器官也受到了影响，使其可以自动把一些瞄准要害的攻击转移到其他并不那么重要的地方。与普通的永恒精灵相比，<?=player:he_she()?>并不能直接隐身，但似乎采取了转化成多瑟顿的方式来隐藏自己。即使有人使用照明的方式寻找到了<?=player:him_her()?>的位置，也可以使用多瑟顿制造暗影爆炸的能力来解决问题。此外，<?=player:he_she()?>可以集中精力冲击对方的精神来打断对方的高级战斗策略，并且在恶魔空间的试炼增强了<?=player:his_her()?>的韧性，使其可以快速摆脱异常状态。
 
-这意味着什么？很显然，只需要先击伤<?=player:him_her()?>，等着<?=player:him_her()?>自己选择传送逃跑，然后乘胜追击将<?=player:him_her()?>堵在狭小的角落发动集中攻击直到其放弃移动。就是这么简单，接下来只要考虑我们对付<?=_t(player.descriptor.subclass)?>的一般策略就可以了。记住，在<?=player:he_she()?>潜入黑暗的时候不要轻举妄动，保持阵型，很快我们就能将其击败。
+这意味着什么？很显然，只需要先击伤<?=player:him_her()?>，等着<?=player:him_her()?>自己选择传送逃跑，然后乘胜追击将<?=player:him_her()?>堵在狭小的角落发动集中攻击直到其放弃移动。就是这么简单，接下来只要考虑我们对付<?=_t(player.descriptor.subclass, "birth descriptor name")?>的一般策略就可以了。记住，在<?=player:he_she()?>潜入黑暗的时候不要轻举妄动，保持阵型，很快我们就能将其击败。
 
 最重要的是：请记住，尽管<?=player:his_her()?>获得了一些强化，<?=player:he_she()?>只是一个可怜的，下等的埃亚尔人，只是出于幸运才有机会窃取了我们恶魔的强大力量。<?=player:he_she()?>并不真正了解如何正确使用自己的能力，也不像我们那样有着长期丰富的作战经验。我们有数量优势、有团结精神、有战术协作、还有乌鲁洛克大人的祝福。像对待演习一样对待这场战斗，只要保持审慎和专注，我们不会受到什么损失。
 ]], "_t")
@@ -516,7 +516,7 @@ t("Behold, the humble wretchling, a testament to our devotion to our Father!  Th
 t("demon statue: fire imp", "恶魔雕像：火魔婴", "_t")
 t("If the Wretchling speaks to our worship, the Fire Imp speaks to our commitment and loyalty.  When a child of ruby goes out onto the battlefield, she fuses some of the Eyal-scarred earth from our planet to her hands, having perfected a type of magic that uses the raging magic contained within to blast our foes with the fires they've caused.  Aside from this means of appropriate justice being pleasing to Urh'Rok (as he showed when dealing with the dust-mages), it shows how dedicated we are to our cause: without hands, there's very little a Fire Imp would be able to do if she deserted or became demoralized.  Fighting and destroying is what we live for, and what better way to show it than making oneself unable to do anything but fight and destroy?  Although the bulk of the ruby species do not pursue this path, instead focusing on magical research and furthering our alteration projects, the example that the Fire Imp sets is a shining standard of commitment for all of Urh'Rok's children.", "如果说酸液树魔证明了我们对父亲的崇拜，那么火魔婴则证明了我们的忠诚。当红宝石色的孩子来到战场时，她将我们星球上被埃亚尔灼烧的土壤拿在手里，完美运用一种特殊的狂暴魔法——使用敌人曾经伤害我们的火焰来消灭我们的敌人。除了展现恰如乌鲁洛克之意的公正（正如他对尘埃法师们所做的一样），这同样体现了我们对目标的专注：没有手的话，灰心丧气的火魔婴们通常什么也干不了，战斗和毁灭是我们的与生俱来的本性，除了让一个生物只拥有杀戮和战斗的能力外，还有什么能更好的表达这一点呢？尽管红宝石的种族没有沿着近身厮杀的道路走下去，他们以魔法的力量取而代之，火魔婴们作为我们的榜样，为我们——所有乌鲁洛克的孩子们展现忠诚的标准。", "_t")
 t("demon statue: water imp", "恶魔雕像：小水怪", "_t")
-t("Though they retain use of their hands, this altered offshoot of the Fire Imp has made a much more powerful sacrifice: the ability to breathe air.  Most of the dominant species of Eyal reside above the water, making its oceans and lakes a prime location for carrying out covert operations, conducting experiments too dangerous to perform on our own soil, and preparing portals for a full-scale invasion.  As our scouts and servants beneath the seas, water imps forego the fire-slinging abilities shared by their brethren, instead focusing on ice-magic that is similarly effective underwater.  Like a wretchling, a Water Imp does not expect to live to see peacetime, and thus has no need to breathe above the surface.  Remember to pay tribute to the Water Imp whenever you can; since they do not fight alongside our land-based forces, it's all too easy to forget the selfless sacrifices they've made, and their enormous contributions in gathering intelligence and setting up remote bases.", [[尽管他们依旧使用双手作战，这群变种的火魔婴做出了更加伟大的牺牲：他们放弃了呼吸空气的能力。大部分占据主导地位的埃亚尔种族生活在水上，让海洋和湖泊成为我们的藏身的主要根据地，实施那些对于我们的土壤来说过于危险的实验，同时为制造全面侵略的传送门做准备。作为我们在海里的使者，小水怪们放弃了同胞们使用火焰的能力，转而使用在水里同样有效的冰系法术。和酸液树魔类似，小水怪们并不指望能活到和平到来，因此没有必要在地表呼吸。请记得随时为小水怪们奉上礼物，不能因为他们没有同大家在地表作战，就轻易遗忘他们做出的无私牺牲，以及为汇集群众智慧、建立远方基地做出的巨大贡献。
+t("Though they retain use of their hands, this altered offshoot of the Fire Imp has made a much more powerful sacrifice: the ability to breathe air.  Most of the dominant species of Eyal reside above the water, making its oceans and lakes a prime location for carrying out covert operations, conducting experiments too dangerous to perform on our own soil, and preparing portals for a full-scale invasion.  As our scouts and servants beneath the seas, water imps forego the fire-slinging abilities shared by their brethren, instead focusing on ice-magic that is similarly effective underwater.  Like a wretchling, a Water Imp does not expect to live to see peacetime, and thus has no need to breathe above the surface.  Remember to pay tribute to the Water Imp whenever you can; since they do not fight alongside our land-based forces, it's all too easy to forget the selfless sacrifices they've made, and their enormous contributions in gathering intelligence and setting up remote bases.", [[尽管他们依旧使用双手作战，这群变种的火魔婴做出了更加伟大的牺牲：他们放弃了呼吸空气的能力。大部分占据主导地位的埃亚尔种族生活在水上，让海洋和湖泊成为我们的藏身的主要根据地，实施那些对于我们的土壤来说过于危险的实验，同时为制造全面侵略的传送门做准备。作为我们在海里的使者，小水怪们放弃了同胞们使用火焰的能力，转而使用在水里同样有效的冰系法术。和酸液树魔类似，小水怪们并不指望能活到和平到来，因此没有必要在地表呼吸。请记得随时为小水怪们奉上礼物，不能因为他们没有同大家在地表作战，就轻易遗忘他们做出的无私牺牲，以及在收集情报和建立远方基地方面做出的巨大贡献。
 ]], "_t")
 t("demon statue: quasit", "恶魔雕像：夸塞魔", "_t")
 t("Clever and tough, the engineers and warriors of our kind, making armor for our forces and holding the front lines against the hordes of Eyal.  While the children of ruby study new magical spells for our arsenal, and the children of emerald study ways to make our own bodies deadlier, the children of onyx focus on making new constructs from scratch, lashing flesh, magic, and steel together into towering creations that strike fear into Eyal.  Those who fight on the front lines have been created to do so rather than born, churned out in a semi-mature state by factories with Forge-Giant-produced armor bolted onto their skin at \"birth.\"  Though they are mostly flesh, the warrior onyx known as Quasits are very much machines, made with bolstered muscles without losing the clever minds they come from.  As eager as they are brilliant, Quasits are well-disciplined and capable in combat, and their armor allows them to easily take blows that would devastate a Wretchling or Fire Imp.  Devotion will get us far on its own, but the Quasit shows how much more we can do when we have fervor and patience working hand-in-hand.", [[聪明而顽强，我们中的工程师与战士，为我们制造护甲，同时奋战在埃亚尔边界前线。红宝石的孩子们学习兵工厂新的魔法，绿翡翠的孩子们学习令身躯更加致命的技巧，而玛瑙色的孩子们专心学习新的构架体，将魔法、血肉和钢铁融为一体，在埃亚尔大陆制造恐惧。那些奋战在前线的，与其说是生出来，不如说是制造出来——在工厂里由半成熟态大量炮制，一“出生”就身着锻造巨人亲制的护甲。尽管仍是血肉之躯，玛瑙战士——或者说夸塞魔——有着钢铁般的纪律和强大的近战能力，同时他们的护甲能抵抗重击，即使那重击能轻易毁灭一只酸液树魔或者火魔婴。奉献让我们向前迈进，但夸塞魔展示出，当我们拥有热情和耐心携手并进时，我们将走得更远！
@@ -546,10 +546,10 @@ t("demon statue: dolleg", "恶魔雕像：多雷格", "_t")
 t("A walking monument to times of prosperity, the dolleg was once a beast of burden, carrying loads of trade goods through the Sher'Tul portals.  Reliable, friendly, and rather intelligent for a beast, dollegs were often taken in as beloved pets as well - their joyous chirps when seeing their master get home could brighten up anyone's day, and despite their large size they were gentle enough to play with our young.  Their kind temperament and dutiful labor were the pride of our breeding practices, and two-thirds of our population either owned, lived in a home with, or worked with a dolleg.  In the wake of Mal'Rok's destruction, the children of emerald developed an effective process to convert these companions into beasts of war, covered in acidic spines and thick plating, and loyally tearing through our enemies with incredible force.  Unfortunately, their friendly demeanor was lost in order to make them merciless in combat; of all the sacrifices we've had to make for our war, it might be the loss of our gentle companions that troubles us the most.", [[活着的繁荣纪念碑——多雷格曾是负重的野兽，身载货物经过夏·图尔传送门。可信，友善，同时比野兽更有智力，多雷格也一度充当爱宠——当看见主人回家时他们发出的欢鸣能让人快活一整天，同时，尽管体型庞大，他们动作却十分温柔，和孩子们玩耍时也不必担心。他们温和的脾性与本分的劳作是我们繁衍中的荣耀，三分之二的人在生活中都有一只多雷格陪伴，一起工作或者生活。在玛·洛克毁灭后，绿翡翠的孩子们发明了一种有效的方法将多雷格转化为战争巨兽，身躯被酸刺与厚甲覆盖，忠诚驱使他们以巨力猛冲向敌人。不幸的是，他们温和的举止在培育其无情战斗的能力时丧失殆尽；尽数我们为战争作出的牺牲，失去温柔伙伴可能是最大、也是最困扰我们的一项。
 ]], "_t")
 t("demon statue: uruivellas", "恶魔雕像：乌尔维拉斯", "_t")
-t("The minotaur is one of Eyal's more interesting creatures, and a good example of the devious designs the Sher'Tul had in mind while creating or altering Eyal's races.  Its instincts draw it toward narrow corridors, twisted passages, magical artifacts, and surges of magical energy, resulting in horned beast-men frequently blundering their way into our bases and encampments.  They also seem to soak up empowering magic very readily, and alter their forms accordingly - a typical minotaur is no match for our forces, but occasionally blight will mutate one into an extremely dangerous horror.  Said blighted forms are too unstable for use among our ranks, but with some effort by the children of emerald and ruby, we can give one the gifts of massively increased strength and the ability to unleash waves of flame on our enemies.  While we currently need to keep most of them enthralled to ensure their loyalty, we've recently begun breeding minotaurs on our continent so we can train them from birth to know our cause of righteous revenge - and already some wandering minotaurs accept our cause and our blessings willingly!  It seems the natives of Eyal are no kinder to their own brethren than they are to us.", [[米诺陶是埃亚尔大陆上颇为神奇的生物，同时也是夏·图尔人制造或者改变埃亚尔种族的一个绝妙的例子。它的本能吸引它前往狭窄的走廊，扭曲的通道，魔法神器和魔法能量之所在，并相应改变其形态——一只正常的牛头人不是我们需要的，不过偶尔枯萎力量能将其变异为极其危险的恐魔。这些枯萎形态不够稳定，不能为我们所用，但经过红宝石和绿翡翠的孩子们的努力后，我们能将无比的力量与释放火焰的能力赋予之。我们现在不得不奴役大部分乌尔维拉斯以确保忠诚，同时最近我们也开始在我们的大陆上饲养米诺陶，这样我们就能从小灌输我们正义的复仇——已经有部分米诺陶自愿接受了我们的理由和祝福！似乎埃亚尔的原住民对其同胞也并不比对我们友善。
+t("The minotaur is one of Eyal's more interesting creatures, and a good example of the devious designs the Sher'Tul had in mind while creating or altering Eyal's races.  Its instincts draw it toward narrow corridors, twisted passages, magical artifacts, and surges of magical energy, resulting in horned beast-men frequently blundering their way into our bases and encampments.  They also seem to soak up empowering magic very readily, and alter their forms accordingly - a typical minotaur is no match for our forces, but occasionally blight will mutate one into an extremely dangerous horror.  Said blighted forms are too unstable for use among our ranks, but with some effort by the children of emerald and ruby, we can give one the gifts of massively increased strength and the ability to unleash waves of flame on our enemies.  While we currently need to keep most of them enthralled to ensure their loyalty, we've recently begun breeding minotaurs on our continent so we can train them from birth to know our cause of righteous revenge - and already some wandering minotaurs accept our cause and our blessings willingly!  It seems the natives of Eyal are no kinder to their own brethren than they are to us.", [[米诺陶是埃亚尔大陆上颇为神奇的生物，同时也是夏·图尔人制造或者改变埃亚尔种族的一个绝妙的例子。它的本能驱使它走向狭窄的走廊、曲折的通道、魔法神器和魔法能量的涌动之处，结果这些长角的兽人经常误打误撞闯入我们的基地和营地。它们也很容易吸收强化魔法并随之改变形态——普通的米诺陶根本不是我军对手，但偶尔枯萎之力会将其中一只变异成极其危险的恐魔。这些枯萎形态不够稳定，不能为我们所用，但经过红宝石和绿翡翠的孩子们的努力后，我们能将无比的力量与释放火焰的能力赋予之。我们现在不得不奴役大部分乌尔维拉斯以确保忠诚，同时最近我们也开始在我们的大陆上饲养米诺陶，这样我们就能从小灌输我们正义的复仇——已经有部分米诺陶自愿接受了我们的理由和祝福！似乎埃亚尔的原住民对其同胞也并不比对我们友善。
 ]], "_t")
 t("demon statue: daelach", "恶魔雕像：达莱奇", "_t")
-t("Any one of us who's read up on our history will remember the story of the wicked dust-mages, tormenting us with sentient storms from the safety of their hidden cities.  Although we were tempted at the time to erase all vestiges of their knowledge and culture like they did to us, we knew their magic could come in handy someday, and when their cities lay in ruin, we plundered their libraries for their writings, then dutifully copied down the practical details from these while stripping out the rest.  Once the portals were unleashed on us, the children of ruby (after some controversy) managed to use their old spells to create a new kind of storm, one of swirling flames and coals rather than dust and sand.  Obedient and cheap (if hazardous) to make, these living spells will torment and raze Eyal with their fiery onslaught, like their predecessors once did to Mal'Rok.", "任何读过我们历史的人都将铭记尘埃法师的故事，他们躲在隐藏的城市里，用有感知能力的风暴折磨我们。尽管我们最终抹消了他们所有知识和文化的传承，正如他们对我们所做的，我们仍清楚地认识到，他们的魔法终有一日会重现。于是，我们在他们城市沦为废墟时，夺走了其图书馆内的知识，将有实际价值的内容摘抄下来，其他的统统抹去。当传送门解开后，红宝石的孩子们（在矛盾的抉择后）成功地使用古旧的咒语释放出全新的风暴——火焰和煤炭代替了尘土和沙子。更加易于制造，这些法术将屠戮生灵，折磨并毁灭埃亚尔大陆，正如它们的前任居民曾经对玛·洛克做的一样。", "_t")
+t("Any one of us who's read up on our history will remember the story of the wicked dust-mages, tormenting us with sentient storms from the safety of their hidden cities.  Although we were tempted at the time to erase all vestiges of their knowledge and culture like they did to us, we knew their magic could come in handy someday, and when their cities lay in ruin, we plundered their libraries for their writings, then dutifully copied down the practical details from these while stripping out the rest.  Once the portals were unleashed on us, the children of ruby (after some controversy) managed to use their old spells to create a new kind of storm, one of swirling flames and coals rather than dust and sand.  Obedient and cheap (if hazardous) to make, these living spells will torment and raze Eyal with their fiery onslaught, like their predecessors once did to Mal'Rok.", "任何读过我们历史的人都将铭记尘埃法师的故事，他们躲在隐藏的城市里，用有感知能力的风暴折磨我们。尽管我们当时也曾受诱惑，想像他们对我们那样抹去他们知识和文化的一切痕迹，但我们明白他们的魔法日后或有用处。于是，当他们的城市沦为废墟时，我们劫掠了他们的图书馆，取走典籍，认真抄录其中有实际价值的内容，而将其余部分尽数剔除。当传送门解开后，红宝石的孩子们（在矛盾的抉择后）成功地使用古旧的咒语释放出全新的风暴——火焰和煤炭代替了尘土和沙子。这些活体法术服从命令、成本低廉（尽管危险），将以炽烈的攻势折磨并摧毁埃亚尔大陆，正如它们的前身曾对玛·洛克所做的那样。", "_t")
 t("demon statue: champion of Urh'Rok", "恶魔雕像：乌鲁洛克的精英卫兵", "_t")
 t("The Divine Tournament of Combat is the most straightforward of our competitions for the spectator, but those competing have a huge variety of possible divisions to enter.  Most are based on the maximum amount of energy consumed by their entrants since (and including) birth; others include those set in an open field for direct combat, or a difficult-to-navigate forest of pillars to properly evaluate those who use hit-and-run tactics or excel at setting up or detecting ambushes.  In the high-energy divisions, those competing are typically not born in the conventional manner, usually being constructs made by a team performing a collaborative effort.  The constructs we now call Champions of Urh'Rok have utterly devastated most of the high-energy open-field divisions, while performing adequately in the less-direct ones, making them a solid fit for production and deployment in the invasion.  Their development team has earned a place of honor for their ingenious methods of creating such incredible strength with a sustainable amount of energy-input, and once mass-production is in order, these gigantic creatures will become the backbone of our military.  Once they arrive on the surface, Eyal will experience a few fleeting moments of terror before their utter annihilation.", [[神圣战斗锦标赛是对我们的观众来说最为熟悉的比赛，然而有些人不知道的是，这场锦标赛有非常多的组别。大部分的组别划分来自于选手从出生开始所消耗的能量，而其他的一些分类方法包括在开放场地的直接战斗，亦或是在难以辨认方向的复杂迷宫里进行，以选拔那些能够灵活地使用游击战术、精巧的发动和判别突袭的选手。在最高能量的组别，那些挑战者并不是正常出生的天才，而是在各个比赛有关的研究团队团结合作，精心设计的产物。这些造物现在被我们称为乌鲁洛克的精英卫兵，他们在高能组的开放场地直接战斗领域几乎所向披靡，在其他复杂的环境下也有相当出色的表现，让他们可以在未来侵略部队的组成和部署中发挥极大的作用。制造他们的研究团队为他们的伟大创造——通过很少的能量就能创造拥有如此强大力量的造物——获得了崇高的赞誉。这些巨大的怪物将会成为我们军队的中流砥柱。只要他们组成的军队成批到达埃亚尔，那些弱小的生物瞬间就会被他们强大的力量彻底歼灭。
 ]], "_t")
@@ -722,7 +722,7 @@ t([[Your actions foreshadow a bleak outcome for your foes.
 		每有一层诅咒，你杀死被诅咒目标时获得的活力值增加 100%% 。
 		获得活力值基础值取决于意志。]], "tformat")
 t("Weakened Soul", "灵魂弱化", "talent name")
-t("For each stack of Bleak Outcome up to %d the afflicted creatures are weakened, reducing their resistances by 2%%.", "你施加的每层悲惨结局效果，将会影响最多 %d 个生物，使其抗性降低2%%。", "tformat")
+t("For each stack of Bleak Outcome up to %d the afflicted creatures are weakened, reducing their resistances by 2%%.", "悲惨结局每叠加一层（至多 %d 层），受影响的生物都会削弱，抗性降低 2%%。", "tformat")
 t("Grim Future", "无情未来", "talent name")
 t([[The future looks grim indeed... for your foes.
 		You can target a creature affected by Bleak Outcome to consume up to %s stacks, dealing %0.2f darkness damage to it for every stack and increasing your Spellpower by 4 per stacks for 6 turns.
@@ -876,7 +876,7 @@ t([[You curse a target for 5 turns to sever its connection to Nature.
 		伤害受法术强度加成。]], "tformat")
 t("Acid Burst", "酸性爆发", "talent name")
 t([[Whenever you block an attack with your shield, you release a cloud of acidic vapour, dealing %d damage in an area of radius 3 over %d turns.
-		The damage will increase with your spellpower.]], [[每次你格挡攻击时，将释放少量酸性气体，在半径 3 的范围内造成持续 %d 回合的 %d 伤害。
+		The damage will increase with your spellpower.]], [[每次你格挡攻击时，将释放少量酸性气体，在半径 3 的范围内造成 %d 伤害，持续 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Corrosive Cone", "锥形酸液", "talent name")
 t([[When you deal a critical strike in melee, you send out a cone of acid, dealing %d damage to all enemies and melting walls you hit.
@@ -1140,7 +1140,7 @@ t([[When Dread End creates pools of darkness you can focus your raging thoughts 
 		Up to %d pools in radius %d will erupt, producing a volcano for %d turns.
 		Each turn the volcano will send out fiery boulders that deal %0.2f fire and %0.2f physical damage.
 		The effects will improve with your Spellpower.]], [[当黑暗终结制造出黑暗能量池时，你能将愤怒集中在内，将其转变为火山。
-		半径 %d 内至多 %d 个能量池将会喷发，转化为火山，持续 %d 回合。
+		至多 %d 个能量池将会喷发（半径 %d 内），转化为火山，持续 %d 回合。
 		每回合火山将喷射火焰巨石，造成 %0.2f 火焰与 %0.2f 物理伤害。
 		效果受法术强度加成。]], "tformat")
 
@@ -1155,11 +1155,12 @@ t([[You infuse your shield with the energies of Urh'Rok, bringing about a magica
 		At level 3 if a damage dealt is at least twice as high you have %d%% chance to also remove a physical detrimental effect. This effect can only happen once per turn.
 		This spell disabled automatically on rest or run.
 		#{bold}#Activating the shield takes no time but de-activating it does.#{normal}#
-		The damage increases with spellpower.]], [[你的盾牌充满了恶魔能量，带来一层魔法护盾，每回合受到第一次伤害时给予你持续 3 回合的治疗（基于格挡值），治疗效果可以叠加。
-		治疗量等于 5+ %d%% 格挡值（当前 %d 点）。
-		技能等级 3 时，如果伤害在治疗量两倍以上，有 %d%% 几率解除你一个负面物理状态。
+		The damage increases with spellpower.]], [[你的盾牌充满了恶魔能量，带来一层魔法护盾：在 3 回合内，你受到的所有伤害的最初几点（基于你的盾牌格挡值）将转化为治疗。此效果可以叠加。
+		治疗量等于 5 + %d%% 格挡值（当前 %d 点）。
+		技能等级 3 时，如果伤害在治疗量两倍以上，有 %d%% 几率额外移除一个物理负面效果。此效果每回合只能触发一次。
 		在休息和跑步时，该技能自动终止。
-		#{bold}#开启护盾不消耗时间，关闭护盾消耗时间。#{normal}#]], "tformat")
+		#{bold}#开启护盾不消耗时间，关闭护盾消耗时间。#{normal}#
+		伤害受法术强度加成。]], "tformat")
 t("Hardened Core", "硬化之核", "talent name")
 t([[Taking example from Mal'Rok, the demon's homeworld you harden yourself.
 		Increases total armour by %d%% + 10 and spellpower by %d.]], [[从恶魔家乡玛·洛克中学习，强化自身。
@@ -1214,7 +1215,7 @@ t("Burning Sacrifice", "燃烧献祭", "talent name")
 t([[Whenever you kill a burning enemy, you will instantly deal a melee attack against a random adjacant enemy at %d%% power. 
 		Additionally, Incinerating Blows will always trigger on this attack (or your next attack), dealing %d%% of its normal damage to all enemies hit and stunning, ignoring the cooldown.
 		This can only trigger once every 5 turns.]], [[每次你击杀一个燃烧的敌对生物时，会立刻对一个随机相邻敌对生物进行一次攻击，造成 %d%% 武器伤害。
-	另外，焚尽强击必定被此效果触发（或者下一次攻击），对所有击中的敌对生物造成 %d%% 倍伤害。
+	另外，焚尽强击必定被此效果触发（或者下一次攻击），对所有击中的敌对生物造成 %d%% 正常伤害并使其眩晕，无视冷却时间。
 	此效果每 5 回合才能触发一次。]], "tformat")
 t("Fiery Aegis", "火焰守护", "talent name")
 t([[Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.
@@ -1339,8 +1340,8 @@ t([[You chant the destruction of Mal'Rok, the demon's homeworld.
 		Each time you kill a creature you send out a magical ripple in radius %d that applies a bane of blindness or confusion for %d turns.
 		Baned creatures also suffer %0.2f darkness damage per turn.
 		Damage increases with your spellpower.]], [[你赞颂恶魔家乡玛·洛克的毁灭。
-		每次你杀死生物时，你将释放魔法波动，在半径 %d 范围内的生物将承受 %d 回合的混乱或目盲毒素。
-		中毒的生物每回合将受到 %0.2f 暗影伤害。
+		每次你杀死生物时，你将释放魔法波动，在半径 %d 范围内施加持续 %d 回合的目盲或混乱灾祸。
+		受到灾祸影响的生物每回合还将受到 %0.2f 暗影伤害。
 		伤害受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -1367,6 +1368,7 @@ t([[Hits the target with your weapon doing %d%% weapon damage. If the attack hit
 		Demons under fiery torment will be burned by the flames of the Fearscape.]], [[用武器攻击敌人，造成 %d%% 武器伤害。如果命中，目标受到灼魂之罚的影响，持续 %d 回合 , 火焰抗性降低 %d%% 。
 	当灼魂之罚结束，敌人会受到 %d 点火焰伤害。 
 	在灼魂之罚持续时间内目标受到的所有伤害，有 %d%% 会加成到火焰伤害中。
+	效果的伤害会随法术强度提升。
 	被灼魂之罚影响的恶魔会被恶魔空间中的火焰焚烧。]], "tformat")
 t("Eternal Suffering", "无尽苦痛", "talent name")
 t([[Your strikes are imbued with a vile power that extends your victim's suffering. When hitting in melee, you have a (%d%%) chance to extend the length of all negative effects and reduce the length of all positive effects on the target by %d turn(s).
@@ -1500,7 +1502,7 @@ t("Devouring flames", "吞噬之焰", "_t")
 t("This character's flames are feeding the source, healing them for %d per turn and giving them %d vim.", "该生物身上的火焰正向来源生物提供能量，每回合给予其 %d 生命与 %d 活力。", "tformat")
 t("#Target#'s is surrounded with an all-consuming flame!", "#Target#被吞噬性的火焰环绕！", "_t")
 t("+Devoured", "+吞噬", "_t")
-t("-Devoured", "-烈焰", "_t")
+t("-Devoured", "-吞噬", "_t")
 t("Overwhelming Fear", "无尽恐惧", "_t")
 t("The target is losing faith that it can defeat you, reducing its damage by %d%% and slowing it by %d%%", "目标对打败你失去信心，伤害减少 %d%%，速度减慢 %d%%", "tformat")
 t("#Target# begins to fear you.", "#Target#开始畏惧你。", "_t")
@@ -1521,14 +1523,14 @@ t("#Target# is purified by fire.", "#Target#被火焰净化。", "_t")
 t("+Fire", "+火焰", "_t")
 t("#Target#'s purification is complete.", "#Target#的火焰净化结束了。", "_t")
 t("-Fire", "-火焰", "_t")
-t("Damage from soulburn.", "净化之焰伤害", "_t")
+t("Damage from soulburn.", "来自灵魂燃烧的伤害", "_t")
 t("Blazing Rebirth", "烈焰重生", "_t")
 t("The target is burning, taking %d damage per turn, split among it and burning foes in radius %d.", "目标正在燃烧，每回合损失 %d 生命值，和半径 %d 内的正在燃烧的敌人分摊。", "tformat")
 t("%s loses %d health to the soulburn.", "%s 因为灵魂燃烧流失 %d 生命值。", "logSeen")
 t("pin", "定身", "effect subtype")
 t("Fiery Grasp", "炙炎之牢", "_t")
-t("The target is pinned and on fire, taking %0.2f fire damage per turn. They are also silenced.", "目标着火了，每回合受到 %0.2f 点火焰伤害并被沉默。", "tformat")
-t("The target is pinned and on fire, taking %0.2f fire damage per turn.", "目标着火了，每回合受到 %0.2f 点火焰伤害。", "tformat")
+t("The target is pinned and on fire, taking %0.2f fire damage per turn. They are also silenced.", "目标被定身并着火，每回合受到 %0.2f 点火焰伤害，并被沉默。", "tformat")
+t("The target is pinned and on fire, taking %0.2f fire damage per turn.", "目标被定身并着火，每回合受到 %0.2f 点火焰伤害。", "tformat")
 t("#Target# is grabbed!", "#Target#被抓住了！", "_t")
 t("+Fiery Grasp", "+炙炎之牢", "_t")
 t("#Target# is released.", "#Target#解脱了。", "_t")
@@ -1536,7 +1538,7 @@ t("-Fiery Grasp", "-炙炎之牢", "_t")
 t("arcane", "奥术", "effect subtype")
 t("shield", "护盾", "effect subtype")
 t("Fiery Aegis", "火焰守护", "_t")
-t("The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.", "目标被一层魔法护盾包围，吸收 %d/%d 伤害。护盾破碎时在半径 %d 范围内造成 %d 伤害。", "tformat")
+t("The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.", "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾破碎时造成 %d 伤害（半径 %d）。", "tformat")
 t("A shield forms around #target#.", "#target#的周围产生了一道护盾。", "_t")
 t("+Shield", "+护盾", "_t")
 t("The shield around #target# crumbles.", "#target#周围的护盾消失了。", "_t")
@@ -1647,14 +1649,14 @@ t("Fire Haven", "火焰庇护", "_t")
 t("The target is surrounded by a fire haven, granting 40% fire damage affinity but -15% to blight resistance.", "目标被火焰庇护围绕，获得 40% 火焰伤害吸收，但减少 15% 枯萎抗性。", "_t")
 t("vim", "活力", "effect subtype")
 t("Bleak Outcome", "悲惨结局", "_t")
-t("Victim is tormented with impending death.  When it dies, it will restore to the source (%s) up to %d times the normal amount of Vim.", "受害者为即将到来的死亡而痛苦。当它死时，将会使来源 （ %s ）获得 %d 于平常的活力值。", "tformat")
+t("Victim is tormented with impending death.  When it dies, it will restore to the source (%s) up to %d times the normal amount of Vim.", "受害者因即将到来的死亡而备受折磨。当其死亡时，将为来源（%s）恢复至多 %d 倍于正常数值的活力值。", "tformat")
 t("none", "没有", "_t")
 t("Grim Future", "无情未来", "_t")
 t("Spellpower increased by %d.", "法术强度增加 %d 。", "tformat")
 t("death", "死亡", "effect subtype")
 t("Blood Drinker", "饮血者", "_t")
 t("Triggers Blood Drinker if this creature dies.", "这个生物死后会触发饮血者效果", "_t")
-t("%d vim regen and %d%% evasion chance.", "获得%d活力值恢复，%d%%暴击率", "tformat")
+t("%d vim regen and %d%% evasion chance.", "获得 %d 活力值恢复，%d%% 闪避率。", "tformat")
 t("#Target# is drunk with blood!", "#Target#饮血狂欢！", "_t")
 t("The bloodlust of #target# subsides.", "#target#的嗜血狂热消退了。", "_t")
 t("affinity", "伤害吸收", "effect subtype")
@@ -1785,7 +1787,7 @@ Features:
 
 游戏特性:
 * 使用全新职业开局，毁灭使者! 他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。他们释放火海削弱敌群，随后吸收周围的火焰和痛苦，将任何敌人迅速化为灰烬。
-* 解锁全新职业，恶魔使者, 拥有全新的物品强化机制！这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量的魔法，可以在倒下的敌人的身上终止恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！你是否曾经看着巨大的恶魔牛头人，希望它能为你作战？现在，你*确实*可以召唤出来，你在远处释放法术的同时，他可以将敌人捣成浆糊。你也可以召唤火焰恶魔将敌人烧成灰烬，同时看着敌人在你铁壁般的防御面前无可奈何!恶魔具有更持久的生命值，比死灵法易碎的骷髅或者自然召唤师的野生更加珍贵，但仍然可以从死亡中复活。
+* 解锁全新职业，恶魔使者, 拥有全新的物品强化机制！这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！你是否曾经看着巨大的恶魔牛头人，希望它能为你作战？现在，你*确实*可以召唤出来，你在远处释放法术的同时，他可以将敌人捣成浆糊。你也可以召唤火焰恶魔将敌人烧成灰烬，同时看着敌人在你铁壁般的防御面前无可奈何!恶魔具有更持久的生命值，比死灵法易碎的骷髅或者自然召唤师的野生更加珍贵，但仍然可以从死亡中复活。
 * 两个新地区，具有全新的艺术，敌人和Boss！你以前曾经看过恶魔空间的平原，现在则可以看到恶魔自己的巢穴和总部！
 * 数万字的的新手札！恶魔曾经是开明的和平种族，来自遥远的行星玛·洛克。了解是什么驱使他们策划给予埃亚尔永恒的折磨！探索恶魔物种和著名人物的纪念碑，展示每个人在其中的荣誉地位！瞥见这些嗜虐侵略者及其洗脑奴隶的文化和日常生活！
 * 解锁一个新种族，魔化精灵：那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。闪烁至安全处；变身为多瑟顿形态，在阴影中隐藏或给予敌人黑暗打击；坚韧缓和了负面状态和暴击伤害；在战斗中攻击敌人的精神，使他们难以为继！
@@ -1986,7 +1988,7 @@ To begin your adventures as a fiery bringer of doom simply create a character wi
 Have fun crushing your foes!
 ]], [[感谢你购买#CRIMSON#乌鲁洛克之烬#WHITE#，《马基埃亚尔的传说》的第一个扩展包。
 
-若要开始一段与恶魔共舞的毁灭旅程，请您选择#LIGHT_GREEN#毁灭使者#WHITE#（堕落系）作为您的职业，选择#LIGHT_BLUE#%s#WHITE#作为你的职业。
+若要开始一段与恶魔共舞的毁灭旅程，请您选择#LIGHT_GREEN#毁灭使者#WHITE#（堕落系）作为您的职业，选择#LIGHT_BLUE#%s#WHITE#作为你的种族。
 
 恶魔之力，毁灭一切！
 ]], "tformat")

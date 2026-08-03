@@ -84,10 +84,10 @@ This is all optional, you are not forced to use this feature at all, but the dev
 * 记录你的击杀数量，死亡次数，以及最喜欢的职业…
 * 统计你的游戏数据，来记录你的游戏风格
 * 在游戏里直接安装官方扩展包和第三方插件，免去手动安装的麻烦
-* 如果你购买了游戏或是在 https:/te4.org/ 上进行了捐助，你可以获得你的购买者/赞助者独享权益
+* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/赞助者独享权益
 * 帮助游戏开发者调整游戏平衡，让这个游戏变得更好。
 
-你也会在获得一个 #LIGHT_BLUE#https:/te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
+你也会在获得一个 #LIGHT_BLUE#https://te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
 这一切都是可选的，你可以自愿使用或者关闭这些功能。开发者会根据你的用户反馈来协助调整游戏平衡。]], "_t")
 t("Logging in...", "登录中…", "_t")
 t("Please wait...", "请等待…", "_t")
@@ -193,7 +193,7 @@ t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-c
 t("stone troll", "岩石巨魔", "entity name")
 t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现他的腰带是用矮人头骨制成。", "_t")
 t("cave troll", "洞穴巨魔", "entity name")
-t("This huge troll wields a massive spear and has a disturbingly intelligent look in its piggy eyes.", "这只巨魔手握一根笨重的长矛，同时在它那贪婪的眼睛里，你看出了一丝令人不安的信息。", "_t")
+t("This huge troll wields a massive spear and has a disturbingly intelligent look in its piggy eyes.", "这只巨魔手握一根笨重的长矛，它那双小猪般的眼睛里透露出一种令人不安的聪明神情。", "_t")
 t("mountain troll", "山岭巨魔", "entity name")
 t("A large and athletic troll with an extremely tough and warty hide.", "一只高大且强壮的巨魔，身披一张丑陋但异常坚硬的兽皮。", "_t")
 t("mountain troll thunderer", "闪电山岭巨魔", "entity name")
@@ -298,17 +298,12 @@ If you disable this option you can always re-activate it in the Online category 
 - 用户信息：不能登录或者注册。
 - 角色备份：不能在te4.org上保存你的角色信息(用来给其他人分享你的炫酷角色)。
 - 物品仓库：不能访问你的在线物品仓库(包括存入和取回)。
-- 游戏内聊天：聊天要联网, 谢谢。
-- 氪金福利：联网才能获取你的氪金状态。
-- 扩展包&DLC：和氪金状态一样, 无法获取DLC的购买状态。
-- 便捷的插件安装：无法在游戏内看见插件列表, 但是你还可以手动安装插件。
-- 插件版本更新：无法更新插件的版本。
-- Steam：无法使用Steam相关的任何功能。
-- Discord：无法同步到Discord的实时状态。
-- 游戏内新闻：主菜单将不再显示新闻。
-注意这个设置只影响游戏本身。如果你使用游戏启动器，它的唯一目的就是确保游戏是最新的，因此它仍然会连接网络。
-如果你不想这样，直接运行游戏即可。启动器只是用来更新游戏的。
-
+- 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
+- 购买者/捐助者福利：基础游戏免费，公平发放捐助者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
+- 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。
+- 插件版本检查：插件将不再检查新版本。
+- Discord：如果你是 Discord 用户，此设置也会禁用 Rich Presence 集成。
+- 游戏内新闻：主菜单将不再显示游戏更新信息。
 
 #{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已, 推荐你不要打开它, 这会让你失去很多好用的功能和一些游戏体验。#{normal}#
 关闭后，可以通过游戏设置菜单的在线选项卡打开。]], "_t")
