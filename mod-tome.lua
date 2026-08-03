@@ -19591,7 +19591,7 @@ Oh, and I can't risk this note getting into anyone else's hands, can I?  It's go
 
 唉，我真的是很抱歉：如果境遇不同的话，我们或许已经成为了朋友，在我的武器与魔法的帮助下你一定可以战胜威胁马基·埃亚尔的一切威胁。不过，在我目前的立场下，抱歉，你的存在对我来说实在是造成了不小的麻烦。
 
-看吧，我的资金全都来自于最后的希望的富商们，他们希望制造一个传送门；而一旦计划完成，他们的资助就会停止。此外，我的传送门研究对于我正在这里搭建的实验是一个很好的掩饰。而现在，你这个不知从哪里冒出来的毛头小子却准备要在整个城市的众目睽睽之下搭建一个传送门，我的一切都会被毁掉——而世界上还有那么多的知识等着我去探求！比如说，死灵法术在医学上的应用——这个课题除此之外唯一的研究者在她丈夫死后很快就失踪了，而其他人都跟伊格兰斯的疯子一样激烈反对以任何形式使用这种魔法。还有，选择性的幼龙育种试验，对于那些伊格狂徒做一些小测试来想办法击碎他们的反魔法障壁，以及研究恶魔来了解他们体态所经历的变化，让他们强大的魔法能够为我们所用……我可以继续往下写很多的研究课题，但是我实在是不想浪费我昂贵的附魔墨水。问题在于，你如果继续你的传送门计划，就会终结我伟大的实验。我本来希望你彻底消失，不过万一你侥幸从我的基地里逃出来，身负伤痕到处大喊大叫地说着在我小小的塔里藏着恐怖的怪兽……好吧，不过本来我也需要多进行几次传送门的研究来确保安全地使用它们，不是吗？
+看吧，我的资金全都来自于最后的希望的富商们，他们希望制造一个传送门；而一旦计划完成，他们的资助就会停止。此外，我的传送门研究对于我正在这里搭建的实验是一个很好的掩饰。而现在，你这个不知从哪里冒出来的毛头小子却准备要在整个城市的众目睽睽之下搭建一个传送门，我的一切都会被毁掉——而世界上还有那么多的知识等着我去探求！比如说，死灵法术在医学上的应用——这个课题除此之外唯一的研究者在她丈夫死后很快就失踪了，而其他人都跟伊格兰斯的疯子一样激烈反对以任何形式使用这种魔法。还有，选择性的幼龙育种试验，对于那些伊格狂徒做一些小测试来想办法击碎他们的反魔法障壁，以及研究恶魔来了解他们体态所经历的变化，让他们强大的魔法能够为我们所用……我可以继续往下写很多的研究课题，但是我实在是不想浪费我昂贵的附魔墨水。问题在于，你如果继续你的传送门计划，就会终结我伟大的实验。我本来希望你彻底消失，不过万一你侥幸从我的地下室里逃出来，身负伤痕到处大喊大叫地说着在我小小的塔里藏着恐怖的怪兽……好吧，不过本来我也需要多进行几次传送门的研究来确保安全地使用它们，不是吗？
 
 #{italic}#当你读到下一段的时候，你注意到上面的字样开始变得渐渐模糊，最终消失，卷轴在你的手里微微发烫。#{normal}#
 
@@ -29664,7 +29664,7 @@ t([[Surround yourself with a Tempest, increasing all your lightning damage by %d
 section "mod-tome/data/talents/spells/temporal.lua"
 
 t("Congeal Time", "时间凝固", "talent name")
-t("Project a bolt of time distortion, decreasing the target's global speed by %d%% and all projectiles it fires by %d%% for 7 turns.", "制造一个扭曲时间的力场，减少目标 %d%% 的全局速度，目标所释放的抛射物减速 %d%% ，持续 7 回合。", "tformat")
+t("Project a bolt of time distortion, decreasing the target's global speed by %d%% and all projectiles it fires by %d%% for 7 turns.", "发射一枚时间扭曲弹，减少目标 %d%% 的全局速度，并使目标所释放的抛射物减速 %d%% ，持续 7 回合。", "tformat")
 t("Temporal Shield", "时光之盾", "talent name")
 t([[This intricate spell instantly erects a time shield around the caster, preventing any incoming damage and sending it forward in time.
 		Once either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal restoration field over time (5 turns).
@@ -29680,7 +29680,7 @@ t([[Removes the target from the flow of time for %d turns. In this state, the ta
 		对于目标来说，时间是静止的，技能无法冷却，也没有能量回复…… 
 		持续时间受法术强度加成。]], "tformat")
 t("Essence of Speed", "时间加速", "talent name")
-t("Increases the caster's global speed by %d%%.", "增加施法者 %d%% 全局速度。", "tformat")
+t("Increases the caster's global speed by %d%%.", "使施法者的全局速度提高 %d%%。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/thaumaturgy.lua"
@@ -29811,7 +29811,7 @@ t([[When you stand in your Burning Wake or Inferno ground effect, you can self i
 		While the effect lasts you will take %0.2f fire damage per turn.
 		Each turn there is a %d%% chance for any creature taking damage from Burning Wake, Inferno or Cleansing Flames to remove a status effect (physical or magical).
 		If the target is hostile, it will remove a beneficial effect.
-		If the target is friendly, it will remove a detrimental effect.]], [[当你站在你的无尽之焰或地狱火地面效果上的时候，你可以用净化之焰引燃自己，持续 %d 回合。
+		If the target is friendly, it will remove a detrimental effect.]], [[当你站在你的无尽之焰或地狱火地面效果上的时候，你可以引燃自己以触发净化之焰，持续 %d 回合。
 		在这一效果持续的时候，你会每回合受到 %0.2f 火焰伤害。
 		在每一回合内，对于每个从无尽之焰，地狱火或净化之焰中受到伤害的生物，将会有 %d%% 几率移除一个物理或魔法状态。
 		如果目标是敌人，则移除其增益状态。 
@@ -30323,7 +30323,7 @@ t("Whirlwind", "旋风斩", "talent name")
 t("The target location must be within range and within view.", "目标区域需要在视野内、技能范围内。", "logPlayer")
 t("There is no open space in which to land near there.", "目标周围没有空余空间。", "logPlayer")
 t("%s becomes a whirlwind of weapons!", "%s 化作武器的旋风！", "logSeen")
-t("You quickly move up to %d tiles to arrive adjacent to a target location you can see, leaping around or over anyone in your way.  During your movement, you attack all foes within one grid of your path with both weapons for %d%% weapon damage, causing those struck to bleed for 50%% of the damage dealt over 5 turns.", "你迅速跳跃至 %d 格内的敌人身边，并在移动中用 2 把武器对路径周围的所有敌人造成 %d%% 武器伤害，使被击中的敌人在 5 回合内流血，流血总量相当于本次伤害的 50%%。", "tformat")
+t("You quickly move up to %d tiles to arrive adjacent to a target location you can see, leaping around or over anyone in your way.  During your movement, you attack all foes within one grid of your path with both weapons for %d%% weapon damage, causing those struck to bleed for 50%% of the damage dealt over 5 turns.", "你迅速跳跃至 %d 格内可见的目标位置附近，并在移动中用 2 把武器对路径沿途的所有敌人造成 %d%% 武器伤害，使被击中的敌人在 5 回合内流血，流血总量相当于本次伤害的 50%%。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/duelist.lua"

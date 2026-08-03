@@ -1712,7 +1712,7 @@ With a smile I replied back "I'm sure you will be let in. Tell me what it is I n
 
 Then from behind me came a voice, "What is this about ogres?" I turned around to see a young female shalore, who I recognized as being one of the mages who saw me off from Elvala. Seeing me, she seemed to oddly cool a bit and address me saying "Ooo, you're that thalore. We've never personally met but I helped teleport you out of Elvala a short while ago. Welcome back to Elvala." Catching my breathe I explained the situation involving the ogres outside, the zealots chasing them, and how they were looking to seek refuge in Elvala. As I finished talking the young shalore stated, "Judging from what you have told me, it would likely be best if those ogres were brought in quickly."
 
-Approaching the guards to communicate something, their bewildered faces quickly became somewhat distressed both by the actions and words of the shalore woman. I don't know what the mage had said, but it seemed as if the guards were almost pleading with the young shaloren woman about something. Eventually she called for me to follow her and began to move in the direction I had come when I entered the city with the Rune of Return. I could tell that this shalore seemed to have some plan in mind, perhaps one that would allow the ogres passage into the city. Before turning to follow her, I noticed the two guards murmer something to each other before one of them rushed inside the building. The other seemed to look at worriedly in the direction of me and the mage as we walked away.]], [[[i]我想强调的是，我来自一个几乎没有任何魔法实践的社会，更不用说像符文这样的魔法产品了。虽然有自然精灵可以使用魔法，但他们的知识是自学的，秘密地做；更不用说，使用魔法的自然精灵通常被排斥在社区的其他人所排斥，乃至赶出自然精灵领土。即使是现在，我仍然不太了解移植到我身上的返回符文的内部运作，尽管我正在努力学习符文的基本知识和背后的奥术力量的更大主题。[/i]
+Approaching the guards to communicate something, their bewildered faces quickly became somewhat distressed both by the actions and words of the shalore woman. I don't know what the mage had said, but it seemed as if the guards were almost pleading with the young shaloren woman about something. Eventually she called for me to follow her and began to move in the direction I had come when I entered the city with the Rune of Return. I could tell that this shalore seemed to have some plan in mind, perhaps one that would allow the ogres passage into the city. Before turning to follow her, I noticed the two guards murmer something to each other before one of them rushed inside the building. The other seemed to look at worriedly in the direction of me and the mage as we walked away.]], [[[i]我想强调的是，我来自一个几乎没有任何魔法实践的社会，更不用说像符文这样的魔法产品了。虽然有自然精灵可以使用魔法，但他们的知识是自学的，秘密地做；更不用说，使用魔法的自然精灵通常会被社区的其他成员排斥，乃至被赶出自然精灵的领土。即使是现在，我仍然不太了解移植到我身上的返回符文的内部运作，尽管我正在努力学习符文的基本知识和背后的奥术力量的更大主题。[/i]
 
 我们继续深入到永恒精灵的领土，狂热分子的侦察兵继续跟踪我们，但总是小心翼翼地保持距离，决不走得太近。再过几天我们才能到达埃尔瓦拉帷幕的边缘，在移动到我第一次穿过迷雾之墙进入城市的地方之后，我把手伸进背包，找回了很久以前收到的返回符文。我伸出一只手把它交给了食人魔指挥官。我本以为他会接受的，但他只是点了点头，并指出：“一个返回符文。”片刻之后，我仍然站着伸出手保持着刚才的动作，指挥官似乎和我一样困惑我们的互动。直到这位战略家最后插嘴说：“你根本不知道你持有的那个符文是怎么运作的，是吗？”
 
@@ -1724,7 +1724,7 @@ Approaching the guards to communicate something, their bewildered faces quickly 
 
 我微笑着回答道：“我相信你们会被接纳的，告诉我，我需要做什么。”她抬起头，擦去脸上的泪水，我开始了激活符文的过程。在完成这些步骤之前，我庄严地向食人魔点头。不一会儿，我的周围环境完全改变了，因为我能听到周围永恒精灵的喧闹声。我能感觉到我脖子上刻着符文的地方有一种沉重的感觉，但除此之外，我没有感觉到什么不同。有几个永恒精灵转向我的方向，似乎对我的进入感到惊讶，尽管没有我想象的那么多。其中一个永恒精灵很快喊道：“你就是那个从前帮助我们的自然精灵？欢迎回来！”
 
-“哦，啊，谢谢你，”我回答道，慢慢地适应了我突然进入埃尔瓦拉的事实。很快，我意识到食人魔还在埃尔瓦拉的外面等我。原谅我自己，我继续跑到城市中央，在那里我以前见过将军。尽管我走近时他们认出了我，但楼房外仍像从前一样站着卫兵。我气喘吁吁，喘不过气来，我花了很短的时间吸气和呼气，然后上气不接下气地匆忙说到：“食人魔……寻求庇护……在这里……埃尔瓦拉”我前面的警卫听到我说的那句话后，不知所措地站在那里，似乎领会了我说的话，但无法决定该怎么做。
+“哦，啊，谢谢你，”我回答道，慢慢地适应了我突然进入埃尔瓦拉的事实。很快，我意识到食人魔还在埃尔瓦拉的外面等我。我告了声罪，继续跑到城市中央，在那里我以前见过将军。尽管我走近时他们认出了我，但楼房外仍像从前一样站着卫兵。我停下来喘了口气，平复呼吸，然后上气不接下气地匆忙说道：“食人魔……寻求庇护……在这里……埃尔瓦拉”我前面的警卫听到我说的那句话后，不知所措地站在那里，似乎领会了我说的话，但无法决定该怎么做。
 
 从我身后传来一个声音：“关于食人魔的什么？”我转过身去，看到一个年轻的女永恒精灵，我认出她是从埃尔瓦拉送我出去的法师之一。看到我，她似乎有点奇怪地冷静，对我说：“哦，你就是那个自然精灵。我们从来没有见过面，但不久前我帮你传送出埃尔瓦拉过。欢迎回到埃尔瓦拉。”我屏住呼吸，解释了外面的食人魔，狂热者追逐他们的情况，以及他们是如何寻求在埃尔瓦拉避难的。我说完，年轻的永恒精灵说：“从你告诉我的情况来看，最好尽快把那些食人魔带进来。”
 
@@ -1942,7 +1942,7 @@ As the front lines drew closer, we would be caught off guard when the ghouls mad
 
 当我们沿着埃尔瓦拉的一条狭窄的街道奔跑时，守望队长看到了一个机会，命令法师们组成一条火线。穿过街道追击着我们的骷髅排成了一个紧密的队形，给我们提供了一个绝佳的机会，可以用一连串的咒语来对付他们。闪电、火焰和寒潮席卷战场，把它们的骨头散落在街上。看到大部分骷髅被击败，防守队员们爆发出一片欢呼，直到他们意识到还有更多的东西要来。透过倒下的骷髅，我们可以看到一股不死族的洪流正从城门涌出。
 
-食尸鬼的喉音开始弥漫在空气中，与这些食尸鬼一起行走的还有几排骷髅。然而，正是在他们身后，一个真正可怕的不死族开始移动，那是和耸立在埃尔瓦拉的许多建筑物一样高的高耸的骨巨人。最后一排骷髅也出现了，但与其他骷髅不同的是，这些骷髅似乎配备了法杖和弓箭。很快，不死族开始组织自己，然后朝着我们的方向移动。我们的法师试图准备另一套法术，但很快发现我们很难对抗不死族的箭雨和法术的弹幕。意识到我们必须与不死族充分交战，我们举起盾牌，继续向前迈进。
+食尸鬼的喉音开始弥漫在空气中，与这些食尸鬼一同行进的还有另外几支骷髅军团。然而，正是在他们身后，一个真正可怕的不死族开始移动，那是和耸立在埃尔瓦拉的许多建筑物一样高的高耸的骨巨人。最后一排骷髅也出现了，但与其他骷髅不同的是，这些骷髅似乎配备了法杖和弓箭。很快，不死族开始组织自己，然后朝着我们的方向移动。我们的法师试图准备另一套法术，但很快发现我们很难对抗不死族的箭雨和法术的弹幕。意识到我们必须与不死族充分交战，我们举起盾牌，继续向前迈进。
 
 随着前线越来越近，食尸鬼从我们的队伍上方跳过，让我们会措手不及。我们很快发现自己被包围了起来，食尸鬼在后面抓我们，而剩下的不死力量从前面撞向我们。我们后面的永恒精灵弓箭手和法师几乎没有任何回旋的余地，他们被砍倒了，而前面的士兵只能把盾牌放在前面阻挡攻击。惊慌失措之时，那些可以传送的人脱离了防线，留下我们其他人来抵御入侵的不死部落。我们发现自己被不死生物困住了，一切都乱成一团，情况看起来相当惨淡。]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 3] - Leadership From The Front", "菲·维莉欧斯的冒险 [第5卷, 第3章] - 前线的领袖", "_t")
@@ -2036,7 +2036,7 @@ The bone giant quickly began to falter and become clumsy, my chaotic energies in
 
 意识到我需要尽快结束这一切，我举起我的手臂，立即将我的热能射线符文释放到另一个法师身上，然后冲向已经射出箭的弓箭手。看到我的前进，它又朝我的方向射出一支箭，我轻松地避开了。下一刻，我站在弓箭手的面前，用力地猛击弓箭手，用无情的猛击击倒了它。当弓箭手被干掉后，我再次转向骷髅法师的方向。我轻松走到它跟前，伸出胳膊，在它有机会施展另一个咒语之前，把它的头骨从骨架上敲了下来。
 
-在接下来的几分钟里，我喘着粗气，因为我内心的仇恨又开始慢慢平息。我慢慢地屏住呼吸，然后听到明显的掌声，寻找来源，我发现了附近穿着长袍的死灵法师。拍手声结束后，死灵法师开始说：“干得好，干得好。”我观察着周围的环境，发现在附近看不到艾伦尼恩，不知道他到底怎么了。我决定询问艾伦尼恩的下落，问道：“艾伦尼恩在哪儿。”对此，我得到的回答是“哦？你说艾伦尼恩·加威尔？嗯，将军现在不在，至少目前是这样。他很可能很快就会回来，但现在我想现在和你好好玩玩。”
+在接下来的几分钟里，我喘着粗气，因为我内心的仇恨又开始慢慢平息。我慢慢喘了口气，然后听到明显的掌声，寻找来源，我发现了附近穿着长袍的死灵法师。拍手声结束后，死灵法师开始说：“干得好，干得好。”我观察着周围的环境，发现在附近看不到艾伦尼恩，不知道他到底怎么了。我决定询问艾伦尼恩的下落，问道：“艾伦尼恩在哪儿。”对此，我得到的回答是“哦？你说艾伦尼恩·加威尔？嗯，将军现在公务繁忙，至少目前是这样。他很可能很快就会回来，不过现在我想先和你好好玩玩。”
 
 死灵法师说完这句话，突然开始喘息和咯咯笑，一种冰冷的感觉立刻抓住了我。我拿着武器走近，准备挥舞我的武器，死灵法师突然从斗篷中伸出手，传送到一堆粉碎的骨头上。当我看见死灵法师拿出一样东西的时候，我感受到了一种黑暗的力量而愣住了。我知道那样东西拥有巨大的力量，巨大而可怕。我试着辨认出那东西，看到那是一根又短又细的法杖，但却不像是用我以前见过的法杖做的材料做的。也许是感觉到我的表情，死灵法师又对我说：“哦？你好像不是法师，但你能感觉到这种黑暗力量，不是吗？”
 
@@ -2082,7 +2082,7 @@ The necromancer continued to talk aloud for several moments as he circled around
 
 不过，我忘记了死灵法师的存在。一瞬间，我突然感觉到身体麻木了，很快就注意到自己的身体周围结冰了。我一动不动地四处张望，发现了对着我伸出一只手的死灵法师。死灵法师慢慢地靠近我，走向我的左臂，在那里刻着我的热束符文。死灵法师把手放在我认为是它下巴的地方，说道：“你打败了我的骨巨人，不是一次而是两次。我以前以为你也许能干掉它一次，但能够紧接着再次干掉它，确实出乎我的意料。现在，我真的想知道你是谁？在我看来，你是一个自然精灵，但你在埃尔瓦拉做什么？嗯……”
 
-死灵法师从我的前面，慢慢绕到我的右边，继续发出“嗯，嗯”的声音。终于，死灵法师停了下来，又一次说道：“很惊讶看到你能使用符文。你是不是被放逐到森林里的罪犯？等等，你刻的第二个符文是什么？”尽管我看不见死灵法师，我能感觉到它凝视着刻在我脖子后面的返回符文。一句话从后面响起，“啊，有趣。一个永恒精灵的设计，但从标记来看，如果我没有记错的话，铭刻这个符文似乎是食人魔的工艺。很有趣。”
+死灵法师从我的前面，慢慢绕到我的右边，继续发出“嗯，嗯”的声音。终于，死灵法师停了下来，又一次说道：“很惊讶看到你能使用符文。你该不会是个被从森林里放逐出来的罪犯吧？等等，你刻的第二个符文是什么？”尽管我看不见死灵法师，我能感觉到它凝视着刻在我脖子后面的返回符文。一句话从后面响起，“啊，有趣。一个永恒精灵的设计，但从标记来看，如果我没有记错的话，铭刻这个符文似乎是食人魔的工艺。很有趣。”
 
 死灵法师在我周围一圈又一圈地转来转去，他继续大声地说了几句话，这对我来说是一个好机会。我能感觉到我的热能射线符文重新聚集着奥术能量，只要再等一会儿，我就可以重新激活它，把自己从冰冷的监牢中释放出来。或许感受到了我的意图，死灵法师很快瞥了我一眼，然后说：“你真是个怪人，不是吗？不过，你不太健谈，所以我没什么理由让你活着。我可以很容易地研究你的尸体，而不需要让你活着，”我可以感觉到死灵法师的一只手开始积聚魔法，他最后说，“永别了，自然精灵。”]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 7] - Powers of Undeath", "菲·维莉欧斯的冒险 [第5卷, 第7章] - 不死的力量", "_t")
@@ -2418,7 +2418,7 @@ t([[No, no! Your minds aren't focused enough! I told you that you must have a cl
 
 ...It is too late. Something is coming. Even I do not know what. I knew that this was a mistake.]], [[不，不！你们的精神还不够集中！我告诉过你们，一定要在头脑中有一个清晰的印象！千万不要因为愚蠢的骄傲自满占上风！你无法控制从撕裂的空间中出现的存在的！
 
-……太迟了。那个东西即将降临了。那是连我也不知道的存在。我知道，我们失败了。]], "_t")
+……太迟了。那个东西即将降临了。那是连我也不知道的存在。我从一开始就知道这是个错误。]], "_t")
 t("Lessons of Inevitability - Epilogue", "有关必然性的课程——尾声", "_t")
 t([[Only one person escaped alive from the summoning of the Unspeakable Thing. She believed that, despite the failure of her fellow students and the horror of what she saw, The Teacher's wisdom still had value in the apocalyptic world created by the Spellblaze. After all, is it not better to know about the horrors out there than it is to be ignorant of their existence? She began to pass on the power of entropy onto others, and they too passed it on. The ones who learned this forbidden lore became known as the Cultists of Entropy.
 
