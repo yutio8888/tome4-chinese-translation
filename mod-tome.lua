@@ -2820,7 +2820,7 @@ t("Anti-Antimagic!", "摧毁反魔法！", "achievement name")
 t("Destroyed the Ziguranth camp with your Rhaloren allies.", "和罗兰精灵的同盟队伍一起，摧毁伊格兰斯训练营。", "_t")
 t("There and back again", "穿越回来", "achievement name")
 t("Opened a portal to Maj'Eyal from the Far East.", "从远东打开回到马基埃亚尔的传送门。", "_t")
-t("Back and there again", "穿越过去", "achievement name")
+t("Back and there again", "去而复返", "achievement name")
 t("Opened a portal to the Far East from Maj'Eyal.", "从马基埃亚尔打开去远东的传送门。", "_t")
 t("Arachnophobia", "蜘蛛杀手", "achievement name")
 t("Destroyed the spydric menace.", "清除蜘蛛威胁。", "_t")
@@ -3879,9 +3879,9 @@ t("You are an adventurer, setting out to find lost treasure and glory.", "你是
 t("But what lurks in the shadows of the world?", "在世界的阴影之下究竟潜伏着什么呢？", "_t")
 t("Infinite Dungeon: The Neverending Descent", "无尽地下城：永无止境的下降", "_t")
 t("Ever deeper, never ending, no reprieve, keep descending. In ruins old, through barred gate, once riddle solved, find thy fate.", "无尽深度，没有终点，没有重复，不断深入，在古老的废墟里，穿过关闭的大门，解开谜题，寻找你的宿命。", "_t")
-t("Play as your favorite race and class and venture into the infinite dungeon.", "选择你最喜欢的种族和职业，进入无尽地城冒险。", "_t")
+t("Play as your favorite race and class and venture into the infinite dungeon.", "选择你最喜欢的种族和职业，进入无尽地下城冒险。", "_t")
 t("The only limit to how far you can go is your own skill!", "能够前进多远取决于你的个人技术！", "_t")
-t("Inside the infinite dungeon you will yourself be limitless. You can level up beyond level 50 and continue to gain stat and talent points (at a reduced rate).", "在无尽地城中你不受限制，你可以突破 50 级的等级上限并继续获得属性和技能点数（以一个较低的比例获得）。", "_t")
+t("Inside the infinite dungeon you will yourself be limitless. You can level up beyond level 50 and continue to gain stat and talent points (at a reduced rate).", "在无尽地下城中你不受限制，你可以突破 50 级的等级上限并继续获得属性和技能点数（以一个较低的比例获得）。", "_t")
 t("Every level after level 50 the maximum of stats will increase by one.", "50 级之后每级，属性最大值增加 1 点。", "_t")
 t("Every 10 levels after level 50 the maximum points of each talent will increase by one.", "50 级之后每 10 级，技能的最大等级增加 1 点。", "_t")
 t("The Arena: Challenge of the Master", "竞技场：领主的挑战", "_t")
@@ -7214,7 +7214,7 @@ t("Agrimley the Hermit", "隐居者亚格雷姆利", "entity name")
 t("Agrimley the Hermit", "隐居者亚格雷姆利", "_t")
 t("Ring of Blood", "鲜血之环", "entity name")
 t("Hidden compound", "隐藏的竞技场", "_t")
-t("Tranquil Meadow", "宁静的草原", "entity name")
+t("Tranquil Meadow", "宁静的草地", "entity name")
 t("tranquil meadow", "宁静的草原", "_t")
 
 ------------------------------------------------
@@ -12284,7 +12284,7 @@ t("unleash a destructive wail, destroying terrain and dealing %0.2f physical dam
 t("%s uses the %s!", "%s 使用了 %s！", "logSeen")
 t("Daneth's Neckguard", "丹纳斯的护颈", "entity name")
 t("a thick steel gorget", "一个沉重的钢制护颈", "_t")
-t("A thick steel gorget designed to protect its wearer from fatal attacks to the neck.  This particular gorget was worn by the Halfling General Daneth Tendermourn during the pyre wars, and judging by the marks along its surface may have saved the General's life on more than one occasion.", "一个厚重的钢护喉，旨在保护其穿着者颈部免受致命攻击。这个特殊的护喉是半身人将军丹纳斯·坦德莫恩在烈火纪战争中佩戴过的，上面的各种伤痕表明其可能救过这位将军不止一次。", "_t")
+t("A thick steel gorget designed to protect its wearer from fatal attacks to the neck.  This particular gorget was worn by the Halfling General Daneth Tendermourn during the pyre wars, and judging by the marks along its surface may have saved the General's life on more than one occasion.", "一个厚重的钢护喉，旨在保护其穿着者颈部免受致命攻击。这个特殊的护喉是半身人将军丹纳斯·坦德莫恩在烈火战争中佩戴过的，上面的各种伤痕表明其可能救过这位将军不止一次。", "_t")
 t("#LIGHT_BLUE#You feel invincible!", "#LIGHT_BLUE#你感觉自己不可战胜！", "logPlayer")
 t("Thaloren-Tree Longbow", "精灵树长弓", "entity name")
 t("glowing elven-wood longbow", "光辉的精灵木长弓", "_t")
@@ -12692,7 +12692,7 @@ t("Powerful telepathic forces emanate from the arrows of this quiver. The tips a
 t("dominate the target", "支配目标", "_t")
 t("Blightstopper", "枯萎终结者", "entity name")
 t("vine coated shield", "藤蔓覆盖的盾牌", "_t")
-t("This voratun shield, coated with thick vines, was imbued with nature's power long ago by the Halfling General Almadar Riul, who used it to stave off the magic and diseases of orcish corruptors during the peak of the Pyre Wars.", "这块沃瑞钽盾牌表面被厚实的藤蔓所缠绕，其中注入了许多年前的半身人将军阿尔曼达·鲁伊尔的自然力量，他在派尔之战中用这个盾牌驱散了兽人堕落者的魔法疫病。", "_t")
+t("This voratun shield, coated with thick vines, was imbued with nature's power long ago by the Halfling General Almadar Riul, who used it to stave off the magic and diseases of orcish corruptors during the peak of the Pyre Wars.", "这块沃瑞钽盾牌表面被厚实的藤蔓所缠绕，其中注入了许多年前的半身人将军阿尔曼达·鲁伊尔的自然力量，他在烈火战争中用这个盾牌驱散了兽人堕落者的魔法疫病。", "_t")
 t("purge up to %d diseases (based on Willpower) and gain disease immunity, %d%% blight resistance, and %d spell save for 5 turns", "除去至多 %d 项疾病（基于意志），并获得疾病免疫、%d%% 枯萎抗性和 %d 法术豁免，持续 5 回合。", "tformat")
 t("%s holds %s %s close, cleansing %s of corruption!", "%s将%s %s紧贴自身，净化%s身上的腐化！", "logSeen")
 t("%s is purged of diseases!", "%s 除去了疾病!", "logSeen")
@@ -13654,7 +13654,7 @@ t("Toggle automatic accept target option", "切换自动接受目标选项", "_t
 section "mod-tome/data/lore/age-allure.lua"
 
 t("age of allure", "厄流纪", "newLore category")
-t("research log of halfling mage Hompalan", "半身人法师红帕兰的研究", "_t")
+t("research log of halfling mage Hompalan", "半身人法师红帕兰的研究日志", "_t")
 t([[#{bold}#Hompalan's Log Entry1#{normal}#
 #{italic}#Age of Allure Year 4537#{normal}#
 
@@ -14094,7 +14094,7 @@ t("age of pyre", "烈火纪", "newLore category")
 t("Atamathon, the giant golem", "阿塔玛森·傀儡之王", "_t")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. One of its eyes seems to be missing. At over 40 feet high it towers above you.
-Someone foolish has tried to reconstruct it, but it seems like it misses an eye to be completed.]], [[这尊傀儡之王是由半身人在派尔大战中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
+Someone foolish has tried to reconstruct it, but it seems like it misses an eye to be completed.]], [[这尊傀儡之王是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
 它的躯干是用大理石铸造，关节部分则灌入沃瑞钽衔接，双眼由纯净的红宝石构成。它的一只眼睛似乎已经失落。四十多尺高的巨像似乎默默的俯视着你。
 一些蠢货似乎想要重塑他，但由于找不到那只眼睛而没有完成。]], "_t")
 
@@ -20122,7 +20122,7 @@ t("Perhaps you should explore it and find the truth, and the treasures, for your
 ------------------------------------------------
 section "mod-tome/data/quests/east-portal.lua"
 
-t("Back and there again", "穿越过去", "_t")
+t("Back and there again", "去而复返", "_t")
 t("You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back.", " 你创造了一个回到马基埃亚尔的传送门，你应该试试找最后的希望的某个人谈谈关于这件事。", "_t")
 t("You talked to the Elder in Last Hope who in turn told you to talk to Tannen, who lives in the north of the city.", " 你和最后的希望的长者交谈，得知要去找城市北边的泰恩 ", "_t")
 t("You gave the Orb of Many Ways to Tannen to study while you look for the athame and diamond in Reknor.", "你把多元水晶球交给泰恩研究，自己则去瑞库纳寻找仪式匕首和共鸣宝石。", "_t")
@@ -33696,7 +33696,7 @@ Campaign features:#YELLOW#
 - No win condition: you WILL die in the dungeon, but you can prove your worth by going as deep as possible.
 - Pure hack and slash MAYHEM!#WHITE#
 ]], [[在混沌纪元，九个弑神者被派去刺杀众神。
-瑞尔克·欺诈之神，在逃离弑神者追杀时创造了这个无尽地城。
+瑞尔克·欺诈之神，在逃离弑神者追杀时创造了这个无尽地下城。
 他撤退到哪里，弑神者就追到哪里，每当快要被追上时，瑞尔克就会创造新的一层。
 直到现在，追杀还在继续，瑞尔克已经逃至了无尽的深渊。
 
@@ -37711,7 +37711,7 @@ t("#VIOLET#The wormhole absorbs energies and stabilizes. You can now use it to t
 ------------------------------------------------
 section "mod-tome/data/zones/abashed-expanse/npcs.lua"
 
-t("Spacial Disturbance", "虚空虫洞", "entity name")
+t("Spacial Disturbance", "空间扰动", "entity name")
 t("A hole in the fabric of space, it seems to be the source of the expanse instability.", "一个由虚空构成的虫洞，它似乎是空间不稳的原因。", "_t")
 t("and folded out of existence", "并从时空中被抹杀", "_t")
 
@@ -37755,8 +37755,8 @@ section "mod-tome/data/zones/ancient-elven-ruins/objects.lua"
 t("ancient papyrus scroll", "古老的莎草卷轴", "entity name")
 t("This seems to be an account of the last days of a great Shaloren mage.", "这里记录着一位伟大永恒精灵法师的最后时日。", "_t")
 t("Bindings of Eternal Night", "永夜绷带", "entity name")
-t("blackened, slithering mummy wrappings", "染黑的滑腻木乃伊绷带", "_t")
-t("Woven through with fell magics of undeath, these bindings suck the light and life out of everything they touch. Any who don them will find themselves suspended in a nightmarish limbo between life and death.", "这根由亡灵能量编织成的绷带，给任何它们接触到的东西带来死亡。任何穿上它们的人会发现他处于生死的边缘。", "_t")
+t("blackened, slithering mummy wrappings", "染黑、蜿蜒滑动的木乃伊绷带", "_t")
+t("Woven through with fell magics of undeath, these bindings suck the light and life out of everything they touch. Any who don them will find themselves suspended in a nightmarish limbo between life and death.", "这些由亡灵邪恶魔法编织的绷带会吸走一切触及之物的光与生命。任何穿上它们的人都会发现自己悬浮在生与死之间的噩梦般地带。", "_t")
 t("A complementing item would be your crowning glory.", "能与其匹敌的只有永夜无上的荣耀。", "_t")
 t("Crown of Eternal Night", "永夜王冠", "entity name")
 t("blackened crown", "染黑的王冠", "_t")
@@ -37786,7 +37786,7 @@ t("and devoured alongside a Sun Paladin", "并和那位太阳骑士一起葬身�
 t("Sun Paladin Rashim", "太阳骑士拉希姆", "_t")
 t("xhaiak", "哉阿克", "entity subtype")
 t("xhaiak arachnomancer", "哉阿克蛛网术士", "entity name")
-t("A strange looking humanoid spiderkin, its body half covered by a light flowing robe. It looks like tiny spiders are crawling on his skin.", "一个奇怪的人形蜘蛛，它的身体一半被流光的长袍覆盖。看起来小蜘蛛正在他的皮肤上爬行。", "_t")
+t("A strange looking humanoid spiderkin, its body half covered by a light flowing robe. It looks like tiny spiders are crawling on his skin.", "一个奇怪的人形蜘蛛，它的身体一半被轻薄飘逸的长袍覆盖。看起来小蜘蛛正在他的皮肤上爬行。", "_t")
 t("shiaak", "希阿克", "entity subtype")
 t("shiaak venomblade", "希阿克毒刃", "entity name")
 t("A strange looking humanoid, covered in black chitinous skin. He dual wields sinuous daggers and seems bent on plunging them in your body.", "一个奇怪的人形，覆盖着黑色的角质皮肤。他双手挥舞着蜿蜒的匕首，似乎一心想把它们插入你的身体里。", "_t")
@@ -37831,7 +37831,7 @@ t("Will fight for a meal.", "为一餐温饱而战！", "_t")
 t("golden crystal", "金色水晶体", "entity name")
 t("A formation of golden crystal. It emits a golden radiance equalling the sun itself.", "一块金色的水晶体。它向外辐射出像太阳一样的光芒。", "_t")
 t("master alchemist", "炼金魔导师", "entity name")
-t("Deadly fighters using explosive gems to attack.", "使用宝石进行攻击的致命斗士。", "_t")
+t("Deadly fighters using explosive gems to attack.", "使用爆炸宝石进行攻击的致命斗士。", "_t")
 t("multihued wyrmic", "七彩龙战士", "entity name")
 t("A powerful wyrmic with mastery over several elements.", "一位精通数种元素的强大龙战士。", "_t")
 t("master slinger", "投石索大师", "entity name")
@@ -37842,15 +37842,15 @@ t("Mercenaries hired by the arena for the sole purpose of entertainment. They ma
 t("reaver", "收割者", "entity name")
 t("A warrior of death.", "致命的战士。", "_t")
 t("headless horror", "无头恐魔", "entity name")
-t("A headless gangly humanoid with a large distended stomach. Was captured and tamed by the first master of the arena.", "一只高高瘦瘦的无头人形怪物，它有着巨大的胃。它被竞技场的第一任主人捕获并生存至今。", "_t")
+t("A headless gangly humanoid with a large distended stomach. Was captured and tamed by the first master of the arena.", "一只高高瘦瘦的无头人形怪物，它有着巨大的胃。它被竞技场的第一任主人捕获并驯服。", "_t")
 t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上。", "logSeen")
 t("Ryal", "瑞尔", "entity name")
-t("A gargantuan bone giant resembling a wingless wyrm. He is fully sentient and surprisingly fast.", "一只巨大的骨头巨兽，它的前身似乎是一只地行龙。它有着敏锐的意识和惊人的速度。", "_t")
+t("A gargantuan bone giant resembling a wingless wyrm. He is fully sentient and surprisingly fast.", "一只巨大的骨巨人，形似无翼巨龙。他完全具有自我意识，而且快得惊人。", "_t")
 t("Fryjia Loren", "弗里嘉·劳伦", "entity name")
 t("A young girl with skin pale as snow. She is small, but deadly in battle, unleashing a constant barrage of ice shards.", "一位有着雪白肌肤的年轻女孩。虽然她很小，但却擅长战斗，她可以在战斗中射出密集的冰箭。", "_t")
 t("Riala Shalarak", "里娅拉·夏洛克", "entity name")
 t("A strong female magician. Years of experience make her a dangerous combatant.", "一位强大的女法师。多年的经验使她成为非常致命的决斗者。", "_t")
-t("Valfren Loren", "瓦弗伦·劳尔", "entity name")
+t("Valfren Loren", "瓦弗伦·劳伦", "entity name")
 t("A massive suit of armor with a massive axe containing a massively cursed person. He is cursed to fight eternally.", "身穿重甲手持巨斧的被诅咒之人。他被诅咒战斗不止。", "_t")
 t("Rej Arkatis", "瑞吉·阿卡提斯", "entity name")
 t("A Cornac fighter of respectable talent. He emerged from nowhere and became the true master of fighting.", "一位有着优秀战技的科纳克人斗士。他来历不明却成为了战斗大师。", "_t")
@@ -37859,11 +37859,11 @@ t("Ranged fighters coming to the arena looking for wealth and glory, just like y
 t("high slinger", "高阶投石者", "entity name")
 t("alchemist", "炼金术师", "entity name")
 t("blood mage", "血法师", "entity name")
-t("A man dressed in black robes. You feel weak as you hear his ominous chanting.", "一位穿着黑色长袍的人。当你听到他们的低吟时，你感到一阵虚弱。", "_t")
+t("A man dressed in black robes. You feel weak as you hear his ominous chanting.", "一位穿着黑色长袍的人。当你听到他邪恶的低吟时，你感到一阵虚弱。", "_t")
 t("hexer", "诅咒者", "entity name")
 t("A man dressed in black robes. You feel a thousand curses being put on you.", "一位穿着黑色长袍的人。你感到身上中了许多诅咒。", "_t")
 t("rogue", "盗贼", "entity name")
-t("Stealthy fighters trying to achieve victory with trickery. Be careful or they will steal your sight!", "善用诡计的潜行斗士。当心你的背后！", "_t")
+t("Stealthy fighters trying to achieve victory with trickery. Be careful or they will steal your sight!", "善用诡计的潜行斗士。小心他们偷走你的视觉！", "_t")
 t("trickster", "欺诈者", "entity name")
 t("Stealthy ranged fighters trying to achieve victory with trickery. Be careful or they will shoot your heart!", "善用诡计的潜行远程斗士。小心他们射穿你的心脏！", "_t")
 t("shadowblade", "暗影之刃", "entity name")
@@ -37965,7 +37965,7 @@ section "mod-tome/data/zones/blighted-ruins/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Necromancer", "死灵法师", "entity name")
-t("A Human dressed in black robes. He mumbles in a harsh tongue. He seems to think you are his slave.", "一位穿着黑色长袍的人类。他发出刺耳的声音，看起来他想把你变为他的奴隶。", "_t")
+t("A Human dressed in black robes. He mumbles in a harsh tongue. He seems to think you are his slave.", "一位穿着黑色长袍的人类。他用刺耳的语言喃喃自语。他似乎认为你是他的奴隶。", "_t")
 t("Half-Finished Bone Giant", "未完成的骨巨人", "entity name")
 t([[A towering creature, made from the bones of hundreds of dead bodies. It is covered by an unholy aura.
 This specimen looks like it was hastily assembled and is not really complete yet.]], [[一只铁塔一样的怪物，由上百只尸体的骨头组成。它周身环绕着不洁的光环。
@@ -37975,7 +37975,7 @@ t("This pile of rotting flesh twitches and makes horrid noises.", "这团腐肉�
 t("boney experiment", "骨骸试验品", "entity name")
 t("This pile of bones appears to move on its own, but it can't seem to organise itself into something dangerous.", "这团骨头试着想要自己移动起来，但是看来它好像没法把自己变成更加强大的形态。", "_t")
 t("sanguine experiment", "鲜血试验品", "entity name")
-t("It looks like a giant blood clot. Is that what its creator intended?", "它看起来就像一个巨大的血块。它的创造者到底想做啥？", "_t")
+t("It looks like a giant blood clot. Is that what its creator intended?", "它看起来就像一个巨大的血块。这是它的创造者的本意吗？", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/blighted-ruins/objects.lua"
@@ -37984,7 +37984,7 @@ t("armor", "护甲", "entity type")
 t("cloak", "斗篷", "entity subtype")
 t("Cloak of Deception", "欺诈斗篷", "entity name")
 t("black cloak", "黑色斗篷", "_t")
-t("A black cloak, with subtle illusion enchantments woven into its very fabric.", "一只黑色的斗篷，它在编织的过程中加入了幻觉特效。", "_t")
+t("A black cloak, with subtle illusion enchantments woven into its very fabric.", "一件黑色斗篷，微妙的幻术被织入了它的织物之中。", "_t")
 t("journal page", "日记书页", "entity name")
 t("A paper scrap, left by the Necromancer.", "一张死灵法师留下的纸片。", "_t")
 
@@ -37999,12 +37999,12 @@ section "mod-tome/data/zones/briagh-lair/npcs.lua"
 t("dragon", "龙", "entity type")
 t("sand", "沙", "entity subtype")
 t("Briagh, Great Sand Wyrm", "巨型沙虫布莱亚", "entity name")
-t("A towering sand drake stands before you. This wingless worm is mighty and could easily crush you.", "一只铁塔般的沙龙战士站在你面前。这只陆行龙非常强大且可以轻易撕碎你。", "_t")
+t("A towering sand drake stands before you. This wingless worm is mighty and could easily crush you.", "一只铁塔般的沙龙站在你面前。这只无翼巨虫非常强大，可以轻易碾碎你。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/briagh-lair/objects.lua"
 
-t("Resonating Diamond", "共鸣宝石", "entity name")
+t("Resonating Diamond", "共鸣钻石", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/zones/briagh-lair/zone.lua"
@@ -38017,7 +38017,7 @@ section "mod-tome/data/zones/charred-scar/grids.lua"
 t("floor", "地板", "entity type")
 t("lava", "岩浆", "entity subtype")
 t("Farportal: the Far East", "远古传送门：至远东大陆", "entity name")
-t("A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use.", " 传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。", "_t")
+t("A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use.", "传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。", "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you are back to the far east.", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你回到了远东大陆。", "_t")
 
 ------------------------------------------------
@@ -38041,7 +38041,7 @@ t("Fyrk, Faeros High Guard", "炎魔守卫弗莱克", "entity name")
 t([[Faeros are highly intelligent fire elementals, rarely seen outside volcanoes. They are probably not native to this world.
 This one looks even nastier and looks toward you with what seems to be disdain. Flames swirl all around him.]], [[炎魔是高智慧的火焰元素，在火山以外的其他地方很少看到。它们很可能不属于这个世界。
 这只看起来更加凶残，它用蔑视的眼神看着你。火焰在它的身上流转。]], "_t")
-t("and a sole piece of char was sent to his masters as a totem", "并将你烧尽的余烬交给他的主人作为完成任务的证物", "_t")
+t("and a sole piece of char was sent to his masters as a totem", "只有一块焦炭被送往他的主人那里作为信物", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/charred-scar/zone.lua"
@@ -38070,12 +38070,12 @@ t("vat", "槽", "entity subtype")
 t("degenerated ogric mass", "腐化的食人魔碎肉", "entity name")
 t("This huge mass of deformed flesh was probably once an ogre, but something had gone wrong.", "这团巨大的畸形血肉很可能曾经是一个食人魔，但出了什么差错。", "_t")
 t("ogric abomination", "憎恶食人魔", "entity name")
-t("This ogre seems to have tried to graft golem parts on its own body. To various interresting results.", "这个食人魔似乎试图把傀儡的身躯嫁接在自己的身体上。各种意义上有趣的结果。", "_t")
+t("This ogre seems to have tried to graft golem parts on its own body. To various interresting results.", "这个食人魔似乎试图把傀儡的部件嫁接在自己身上。结果多种多样，颇为有趣。", "_t")
 t("ogre sentry", "食人魔哨兵", "entity name")
 t("This greatsword-wielding ogre looks at you with contempt and hatred.", "这个挥舞着大剑的食人魔用带着鄙视和仇恨的眼神凝视着你。", "_t")
 t("Healer Astelrid", "孔克雷夫治疗师亚斯特莉", "entity name")
 t("An enormous ogre, clad in a tattered set of robes with an officer's badge.  She clutches a healer's staff, wrapped in casting plaster and scalpels for use as a massive spiked club.", "一个巨大的食人魔，身上穿着的破烂长袍上是一枚亮闪闪的官员徽章。她用手抓住一把治疗用的法杖，被石膏浇铸并裹挟着手术刀，用作一个巨大的狼牙棒。", "_t")
-t("and spliced for experiments", "并被作为实验对象", "_t")
+t("and spliced for experiments", "并被拼接用于实验", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/conclave-vault/objects.lua"
@@ -38107,7 +38107,7 @@ section "mod-tome/data/zones/crypt-kryl-feijan/npcs.lua"
 
 t("Kryl-Feijan", "卡洛·斐济", "entity name")
 t("This huge demon is covered in darkness. The ripped flesh of its \"mother\" still hangs from its sharp claws.", "这只巨大的恶魔被黑暗所包围。它的“母亲”的碎肉仍悬挂在它的利爪上。", "_t")
-t("and devoured as a demonic breakfast", "并作为恶魔的午餐", "_t")
+t("and devoured as a demonic breakfast", "并被恶魔当作早餐吞噬", "_t")
 t("Melinda", "梅琳达", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
@@ -38124,7 +38124,7 @@ She stumbles on her feet, her naked body still dripping in blood. 'Please get me
 section "mod-tome/data/zones/crypt-kryl-feijan/objects.lua"
 
 t("Writhing Essence of Nightmares", "翻腾的噩梦精华", "entity name")
-t("Whispers seem to ceaselessly emanate from this writhing mass of black tentacles, murmuring unspeakable horrors into the ears of any unfortunate enough to hear them.", "从这黑色触须的扭动似乎中不停地发出耳语，对任何不幸听到的人带来难以言喻的恐惧。", "_t")
+t("Whispers seem to ceaselessly emanate from this writhing mass of black tentacles, murmuring unspeakable horrors into the ears of any unfortunate enough to hear them.", "从这团扭动的黑色触须中似乎不停地传出耳语，向任何不幸听到的人低语着难以言喻的恐怖。", "_t")
 t("writhing mindstar", "翻腾的灵晶", "_t")
 
 ------------------------------------------------
@@ -38175,8 +38175,8 @@ section "mod-tome/data/zones/daikara/zone.lua"
 t("Daikara", "岱卡拉", "_t")
 t("BOOM!", "火山喷发!", "_t")
 t([[As you walk toward the Daikara you can not fail to notice the huge volcano that erupts in the center of it, right where the path is taking you.
-You see pyroclasts ejected from the heart of the volcano, they look relatively harmless but very impressive.]], [[当你走过岱卡拉时，你发现岱卡拉中心的火山正在爆发。
-你看到碎屑从火山中心不断喷发，虽然没有什么危害，不过让你印象深刻。]], "_t")
+You see pyroclasts ejected from the heart of the volcano, they look relatively harmless but very impressive.]], [[当你走向岱卡拉时，你不可能注意不到岱卡拉中心的巨大火山正在喷发，那正是小路通向的地方。
+你看到火山口喷出火山碎屑，看起来相对无害，却令人印象深刻。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/deep-bellow/grids.lua"
@@ -38220,7 +38220,7 @@ section "mod-tome/data/zones/demon-plane/grids.lua"
 
 t("Demonic Portal", "恶魔传送门", "entity name")
 t("This portal seems to be connected with Maj'Eyal; you could probably use it to go back.", "这个传送门似乎与马基·埃亚尔相连，你也许能通过它回去。", "_t")
-t("Back and there again", "穿越过去", "_t")
+t("Back and there again", "去而复返", "_t")
 t("Enter the portal back to Maj'Eyal? (Warning loot Draebor first)", "进入传送门回到马基埃亚尔？（记得先捡走德瑞宝的掉落）", "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you are back to Maj'Eyal, near the Daikara.", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经回到了马基埃亚尔的岱卡拉附近！", "logPlayer")
 t("Stay", "呆在这里", "_t")
@@ -38233,7 +38233,7 @@ t("demon", "恶魔", "entity type")
 t("minor", "小恶魔", "entity subtype")
 t("Draebor, the Imp", "小恶魔德瑞宝", "entity name")
 t("An intensely irritating git of a monster.", "一只令人极其讨厌的小怪物。", "_t")
-t("Back and there again", "穿越过去", "_t")
+t("Back and there again", "去而复返", "_t")
 t("As the annoying imp falls a portal appears under its corpse.", "当这只讨厌的小恶魔被击败后，一个传送门从它的尸体下露了出来。", "_t")
 
 ------------------------------------------------
@@ -38354,12 +38354,12 @@ t("What?!", "纳尼？！", "_t")
 t("Who are you?", "你是谁？", "_t")
 t("What do you want?", "你想要什么？", "_t")
 t("Why are you here?", "你为什么在这里？", "_t")
-t("Where are you going?", "你要到那里去？", "_t")
+t("Where are you going?", "你要到哪里去？", "_t")
 t("Do you have anything worth living for?", "你有什么值得为之活下去的东西吗？", "_t")
 t("GRrrrrrllllll!", "噶呃～！", "_t")
 t("lost wife", "迷路的妻子", "entity name")
 t("bloated horror", "浮肿恐魔", "entity subtype")
-t("Your wife has been turned into a giant, bloated form that towers above you. Mucus and slime ooze from every orifice, dripping onto the floor. The sight and the smell make you retch.", "你的妻子变成了一只铁塔般的浮肿怪物。囊肿和粘糊糊的液体从每个毛孔向外溢出，不断的滴落在地板上。此情此景使你异常反胃。", "_t")
+t("Your wife has been turned into a giant, bloated form that towers above you. Mucus and slime ooze from every orifice, dripping onto the floor. The sight and the smell make you retch.", "你的妻子变成了一只铁塔般的浮肿怪物。黏液和粘稠的液体从每个孔洞向外渗出，不断滴落在地板上。此情此景使你异常反胃。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/dreams/zone.lua"
@@ -38432,7 +38432,7 @@ section "mod-tome/data/zones/eruan/grids.lua"
 
 t("Farportal: Charred Scar", "远距传送门：灼烧之痕", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to the west, to Charred Scar. A fiery volcano that can only spell death...]], [[ 传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。 
+This one seems to go to the west, to Charred Scar. A fiery volcano that can only spell death...]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
  这道门似乎通向西方，通向灼烧之痕——一个能带来死亡的活火山…… ]], "_t")
 t("#VIOLET#You enter the swirling portal while it fades away and in the blink of an eye you set foot on hellish land, the heart of a volcano...", "#VIOLET#你进入了快要消逝的传送漩涡，一眨眼的功夫你便到了危险之地——一座火山的腹地……", "_t")
 
@@ -38442,7 +38442,7 @@ section "mod-tome/data/zones/eruan/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Sun Paladin Guren", "太阳骑士古伦", "entity name")
-t("A Human warrior, clad in shining plate armour. Power radiates from him.", "一位身披板甲的人类战士。他身上洋溢着光辉。", "_t")
+t("A Human warrior, clad in shining plate armour. Power radiates from him.", "一位身披板甲的人类战士。力量从他身上散发出来。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/eruan/zone.lua"
@@ -38481,8 +38481,8 @@ section "mod-tome/data/zones/golem-graveyard/grids.lua"
 t("the remains of Atamathon", "阿塔玛森的遗骸", "entity name")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its sole eye of purest ruby; the other one seems to be missing. At over 40 feet tall, it towers above you.
-Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.]], [[ 这尊傀儡之王是由半身人在派尔大战中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。 
- 它的躯干是用大理石铸造，关节部分则灌入沃瑞钽衔接，一只眼由纯净的红宝石构成。它的另一只眼睛似乎已经失落。四十多尺高的巨像似乎默默地俯视着你。 
+Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.]], [[这尊傀儡之王是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
+它的躯干是用大理石铸造，关节部分则灌入沃瑞钽衔接，一只眼由纯净的红宝石构成。它的另一只眼睛似乎已经失落。四十多尺高的巨像似乎默默地俯视着你。
  一些蠢货似乎想要重塑他，但由于找不到那只眼睛而没有完成。]], "_t")
 t("Atamathon", "阿塔玛森", "_t")
 t("It seems that your %s is made to fit inside the empty eye socket of Atamathon. This is probably very unwise.", "你手中%s的外形看上去似乎可以安装到阿塔玛森的空眼窝内，但也许这样做并不明智。", "tformat")
@@ -38599,12 +38599,12 @@ section "mod-tome/data/zones/halfling-ruins/npcs.lua"
 t("Subject Z", "代号“Z”", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("This seems to be the 'subject Z' the notes spoke about. He looks human, but this cannot be -- he would be about five thousand years old!", "这个似乎是文献中提到的代号“Z”。它看起来和人类一样，但却不是人类，它至少有5000多岁了！", "_t")
+t("This seems to be the 'subject Z' the notes spoke about. He looks human, but this cannot be -- he would be about five thousand years old!", "这个似乎是文献中提到的“Z号实验体”。他看起来像人类，但这不可能——他应该有大约五千岁了！", "_t")
 t("and bloodily smeared across the granite walls", "飞散的鲜血和碎肉溅满花岗岩墙壁", "_t")
 t("Sacrifice for the Way!", "为维网而献身！", "_t")
 t("#LIGHT_RED#Intense fight", "#LIGHT_RED#激烈的战斗", "_t")
 t([[As you approach you come upon an other Wayist and receive a very clear mental message:
-#{italic}##UMBER#RUN AWAY! I am done for but you can save yourself still!#{normal}#]], [[当你走向维网的另一个成员，你收到了一个清晰的灵能消息:
+#{italic}##UMBER#RUN AWAY! I am done for but you can save yourself still!#{normal}#]], [[当你走向另一位维网信徒，你收到了一个清晰的灵能消息:
 #{italic}##UMBER#快跑! 我已经完蛋了，但是你还可以得救!#{normal}#]], "_t")
 t("#GOLD#You hastily activate your Rod of Recall, vowing to come back later!", "#GOLD#你紧急启动了回归之杖，答应之后回来救他！", "say")
 t("Space around you starts to dissolve...", "你周围的空间开始消解...", "logPlayer")
@@ -38613,14 +38613,14 @@ t("Stay and fight!", "留下继续战斗！", "_t")
 t("Halfling?! DIE!!!!!", "半身人？！去死吧！！！", "_t")
 t("The Way sent you?", "是维网带你来的吗？", "_t")
 t("You.. saved me?", "你…救了我？", "_t")
-t("Yeek Wayist", "夺心魔灵能力者", "entity name")
+t("Yeek Wayist", "夺心魔维网信徒", "entity name")
 t("yeek", "夺心魔", "entity subtype")
 t("This creature is about as tall as a halfling. It is covered in white silky fur and has a disproportionate head. The weirdest thing about it though, its weapon simply floats in front of it.", "这只生物像半身人一样高。他浑身被有白色的毛发并有一颗不相称的大头。最不可思议的是，他的武器就那样悬浮在他面前。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/halfling-ruins/objects.lua"
 
-t("research log of halfling mage Hompalan", "半身人法师红帕兰的研究", "entity name")
+t("research log of halfling mage Hompalan", "半身人法师红帕兰的研究日志", "entity name")
 t("A very faded research note, nearly unreadable.", "极度磨损的研究笔记，几乎无法阅读。", "_t")
 t("order for Director Hompalan", "致红帕兰主管的命令", "entity name")
 t("A very faded note, nearly unreadable.", "极度磨损的笔记，几乎无法阅读。", "_t")
@@ -38670,17 +38670,17 @@ section "mod-tome/data/zones/high-peak/grids.lua"
 
 t("Farportal: the Far East", "远古传送门：至远东大陆", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to the Far East.]], [[ 传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。 
+This one seems to go to the Far East.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
  这道门似乎通向远东。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the Far East, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经回到了远东大陆，此间毫无传送门的痕迹……", "_t")
 t("Farportal: Iron Throne", "远古传送门：钢铁王座", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to the Iron Throne in the West.]], [[ 传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。 
+This one seems to go to the Iron Throne in the West.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
  这道门似乎通向西方的钢铁王座。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the slopes of the Iron Throne, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经到了钢铁王座附近，此间毫无传送门的痕迹……", "_t")
 t("Farportal: the Void", "远古传送门：虚空", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to an unknown place, seemingly out of this world. You dare not use it.]], [[ 传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。 
+This one seems to go to an unknown place, seemingly out of this world. You dare not use it.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
  这道门似乎通向未知之地，似乎为世外之地，你不太敢使用它。]], "_t")
 t("#LIGHT_BLUE#You use the orb on the portal, shutting it down easily.", "#LIGHT_BLUE#你在传送门上使用了水晶球，很轻易的关闭了它。", "logPlayer")
 t("%s (disabled)", "%s (已禁用)", "tformat")
@@ -38727,7 +38727,7 @@ Light around it seems to dim and you can feel its tremendous power simply by tou
 The Sorcerers seem to have awakened its power.
 #{italic}#"And lo they came to Amakthel himself, and thousands were killed in the assault on his throne, and three of the Godslayers were broken beneath his feet. But Falion with his dying breath pierced the great god on his knee with the icy sword Arkil, and seeing his opportunity Caldizar, leader of the Godslayers, advanced with the Staff of Absorption and struck a terrifying blow against Amakthel. So fell the greatest of the gods by the hands of his own children, and his face was forced into the dust."#{normal}#]], [[杖身铭刻着符文，这根法杖似乎是很久以前制造的，虽然它毫无侵蚀的痕迹。它周围的光线会变的暗淡，当你触摸它时可以感受到惊人的魔力。
 恶魔法师们似乎唤醒了它的力量。
-#{italic}#“终于他们直面了阿马克泰尔，并且上千人牺牲在了他的王座前，其中有三名弑神者倒在了他的脚下。但是法利恩用他死前最后的力量将冰刃阿奇尔插入了真神的膝盖，看到这一机会，凯尔帝勒，弑神者的首领，立刻上前并用吸能法杖对阿马克泰尔造成了致命的一击。这样真神最终倒在了他自己的儿女手中，他的头颅也化作了尘埃。”#{normal}#]], "_t")
+#{italic}#“终于他们直面了阿马克泰尔，并且上千人牺牲在了他的王座前，其中有三名弑神者倒在了他的脚下。但是法利恩用他死前最后的力量将冰刃阿奇尔插入了真神的膝盖，看到这一机会，凯尔帝勒，弑神者的首领，立刻上前并用吸能法杖对阿马克泰尔造成了致命的一击。这样真神最终倒在了他自己的儿女手中，他的脸被压入了尘土之中。”#{normal}#]], "_t")
 t("absorb the essence (ignoring resistance and bypassing most defenses) of a target in range %d, draining 30%% of its life and increasing your own damage by 30%% for %d turns", "吸收%d码范围内某个目标生物的精华（无视抗性和大部分防御技能），直接吸收30%%生命值，并增加自身伤害加成30%%，持续%d回合", "tformat")
 t("was absorbed by the %s held by %s", "被%s（由%s持有）吸能致死", "tformat")
 t("#Source# brandishes %s %s, absorbing the essence of #target#!", "#Source#挥舞着%s%s, 吸收了#target#的精华!", "logCombat")
@@ -38786,7 +38786,7 @@ t("lava wall", "熔岩墙壁", "entity name")
 section "mod-tome/data/zones/infinite-dungeon/objects.lua"
 
 t("The Hunter and the Hunted", "猎人与猎物", "entity name")
-t("The infinite hunt.", " 无尽狩猎。", "_t")
+t("The infinite hunt.", "无尽狩猎。", "_t")
 t("potion", "药水", "entity type")
 t("potion", "药水", "entity subtype")
 t("Potion of Martial Prowess", "尚武药剂", "entity name")
@@ -38808,22 +38808,22 @@ t("You cannot use your %s anymore; it is tainted by magic.", "你不能再使用
 ------------------------------------------------
 section "mod-tome/data/zones/infinite-dungeon/zone.lua"
 
-t("Infinite Dungeon", "无尽地城", "_t")
+t("Infinite Dungeon", "无尽地下城", "_t")
 t(", carefully excavated area", "，精心挖掘的区域", "_t")
 t(" wilderness", "野外", "_t")
 t(" cavern", "山洞", "_t")
 t(" network of corridors", "隧道网络", "_t")
 t(", settled area", "，居民区", "_t")
 t(", constructed area", "，建筑区", "_t")
-t(", subsided area", "，分割的区域", "_t")
+t(", subsided area", "，沉降的区域", "_t")
 t(", geometrically ordered area", "，几何排列的区域", "_t")
-t("hewn", "地牢", "_t")
+t("hewn", "开凿的", "_t")
 t("sylvan", "森林", "_t")
 t("subterranean", "地下", "_t")
 t("crystalline", "水晶", "_t")
 t("sandy", "沙漠", "_t")
 t("arrid", "干旱", "_t")
-t("slimey", "史莱姆", "_t")
+t("slimey", "粘液", "_t")
 t("humid, tropical", "潮湿热带", "_t")
 t("unhewn", "未成型", "_t")
 t("burned", "烧灼", "_t")
@@ -38833,7 +38833,7 @@ t("cold, wooded", "寒带森林", "_t")
 t("empty", "空", "_t")
 t("flooded", "水下", "_t")
 t("molten", "熔融", "_t")
-t("temperate", "秋日", "_t")
+t("temperate", "温带", "_t")
 t("\
 Encroaching terrain:\
 %s%s", "\
@@ -38873,7 +38873,7 @@ t("caravan guard", "商队守卫", "entity name")
 t("A caravan guard.", "一个商队里的守卫", "_t")
 t("caravan porter", "商队搬运工", "entity name")
 t("A caravan porter.", "一个商队里的搬运工", "_t")
-t("war dog", "猎犬", "entity name")
+t("war dog", "战犬", "entity name")
 t("This is a large dog, bred and trained for fighting.", "这是一条大型犬，被培育和训练用于战斗。", "_t")
 t("corrupted war dog", "腐化的猎犬", "entity name")
 t("This is a large dog, bred and trained for fighting. Something about the way it moves doesn't look normal.", "这是一条大型犬，被培育和训练用于战斗。不过，它运动起来的方式似乎有些不太正常。", "_t")
@@ -38882,7 +38882,7 @@ t("shadow", "阴影", "entity subtype")
 t("shadow claw", "阴影之爪", "entity name")
 t("A shadow, almost humanoid in shape. Long claws extend in front of it as is swims through the air.", "一个影子，看起来几乎是人类的形状。长长的利爪伸在它面前，如同在空气中游动。", "_t")
 t("shadow stalker", "阴影潜行者", "entity name")
-t("A shadow, almost humanoid in shape. It seems to move carefully and with cunning before swiftly striking.", "一个影子，看起来几乎是人类的形状。它狡猾地闪现，出其不意地发动攻击。", "_t")
+t("A shadow, almost humanoid in shape. It seems to move carefully and with cunning before swiftly striking.", "一个影子，看起来几乎是人类的形状。它谨慎而狡猾地移动，然后迅猛出击。", "_t")
 t("A shadow, almost humanoid in shape. At times its form seems to be a force of will rather than something real.", "一个影子，看起来几乎是人类的形状。有时它的形态看上去不像是某种真实存在的物体，而是某种意志的力量。", "_t")
 t("thalore", "自然精灵", "entity subtype")
 t("Companion Warrior", "同伴战士", "entity name")
@@ -38904,15 +38904,15 @@ t("A folded up piece of paper with a few notes written on it.", "一张折叠起
 t("Iron Acorn", "铁质橡果", "entity name")
 t("misc", "杂项", "entity type")
 t("trinket", "饰品", "entity subtype")
-t("A small acorn, crafted crudely out of iron.", "一只小巧的橡果，似乎是用粗糙的手法将铁球打磨而成。", "_t")
+t("A small acorn, crafted crudely out of iron.", "一颗用铁粗制而成的小橡果。", "_t")
 t("You cannot bring yourself to drop the %s", "你无法丢弃 %s", "logPlayer")
-t("A small acorn, crafted crudely out of iron. It once belonged to Bander, but now it is yours. You find having the acorn helps to anchor your mind and prepare you for the trials ahead.", "一只小巧的橡果，似乎是用粗糙的手法将铁球打磨而成。它曾经属于班德，但现在是你的。带着它可以坚定你的意志，使你在面对前方的挑战时能有充分的准备。", "_t")
-t("Cold Iron Acorn", "冰冷的铁质橡果", "entity name")
-t("A small acorn, crafted crudely out of iron. It once belonged to Bander, but now it is yours. The acorn serves as a reminder of who and what you are.", "一只小巧的橡果，似乎是用粗糙的手法将铁球打磨而成。它曾经属于班德，但现在是你的。这只橡果时刻提醒着你，你是何人，去往何处。", "_t")
+t("A small acorn, crafted crudely out of iron. It once belonged to Bander, but now it is yours. You find having the acorn helps to anchor your mind and prepare you for the trials ahead.", "一颗用铁粗制而成的小橡果。它曾经属于班德，但现在是你的。带着它可以坚定你的意志，使你在面对前方的挑战时能有充分的准备。", "_t")
+t("Cold Iron Acorn", "寒铁橡果", "entity name")
+t("A small acorn, crafted crudely out of iron. It once belonged to Bander, but now it is yours. The acorn serves as a reminder of who and what you are.", "一颗用铁粗制而成的小橡果。它曾经属于班德，但现在是你的。这只橡果时刻提醒着你，你是谁、你是什么。", "_t")
 t("journal page", "日记书页", "entity name")
 t("A page containing an entry from Kyless' journal.", "克里斯日记上的一页", "_t")
 t("Kyless' Book", "克里斯的书", "entity name")
-t("This was the book that gave power to Kyless and eventually led to his doom. The book is simple in appearance, bound in leather with no markings on the cover. All of the pages are blank.", "这就是那本带给克里斯力量和诅咒的书。书本用牛皮简单的装订着，封面上没有任何标记，翻开书本，入目尽是空白页。", "_t")
+t("This was the book that gave power to Kyless and eventually led to his doom. The book is simple in appearance, bound in leather with no markings on the cover. All of the pages are blank.", "这就是那本赋予克里斯力量、并最终导致他毁灭的书。书本用牛皮简单的装订着，封面上没有任何标记，翻开书本，入目尽是空白页。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/keepsake-meadow/traps.lua"
@@ -38928,7 +38928,7 @@ t("A shadow traces across the floor.", "地板上留下了阴影的痕迹。", "
 ------------------------------------------------
 section "mod-tome/data/zones/keepsake-meadow/zone.lua"
 
-t("Tranquil Meadow", "宁静的草原", "_t")
+t("Tranquil Meadow", "宁静的草地", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/lake-nur/grids.lua"
@@ -38963,7 +38963,7 @@ t("cobblestone road", "鹅卵石路", "entity name")
 t("grave", "坟墓", "entity name")
 t("coffin", "棺材", "entity name")
 t("open coffin", "被打开的棺材", "entity name")
-t("open mausoleum", "被打开的坟墓", "entity name")
+t("open mausoleum", "敞开的陵墓", "entity name")
 t("floor", "地板", "entity subtype")
 t("ritualistic symbol", "仪式标志", "entity name")
 
@@ -38973,12 +38973,11 @@ section "mod-tome/data/zones/last-hope-graveyard/npcs.lua"
 t("Celia", "赛利亚", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("A tall woman stands before you in a stained robe. Her sallow skin is marked by pox and open sores, but her eyes are bright and keen. The bulge around her abdomen would indicate that she is several months pregnant.", "一位穿着肮脏长袍的高瘦女人。她灰色的皮肤上满是疮痕，但她的眼睛清澈明亮。她肚子上的反映出她至少有几个月的身孕了。", "_t")
+t("A tall woman stands before you in a stained robe. Her sallow skin is marked by pox and open sores, but her eyes are bright and keen. The bulge around her abdomen would indicate that she is several months pregnant.", "一位穿着肮脏长袍的高瘦女人。她灰色的皮肤上满是疮痕，但她的眼睛清澈明亮。她隆起的腹部表明她已怀有数月身孕。", "_t")
 t("You receive: %s.", "你收到： %s 。", "logPlayer")
 t("Celia", "赛利亚", "_t")
 t([[As you deal the last blow you quickly carve out Celia's heart for your Lichform ritual.
-Carefully weaving magic around it to keep it beating.]], [[当你挥出最后一击后，你迅速的挖出赛利亚的心脏为巫妖
-仪式做准备。小心的用魔法环绕它来保持它的跳动。]], "_t")
+Carefully weaving magic around it to keep it beating.]], [[当你挥出最后一击后，你迅速挖出赛利亚的心脏，为巫妖仪式做准备。小心的用魔法环绕它来保持它的跳动。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/last-hope-graveyard/objects.lua"
@@ -39308,7 +39307,7 @@ section "mod-tome/data/zones/reknor/grids.lua"
 
 t("Farportal: the Far East", "远古传送门：至远东大陆", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to the Far East, a continent of which only rumours are known...]], [[ 传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。 
+This one seems to go to the Far East, a continent of which only rumours are known...]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
  这道门似乎通向远东大陆，一块传说中的大陆…… ]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on an unfamiliar cave, with no trace of the portal...", "#VIOLET#你进入了传送门，一眨眼功夫你发现你到达了一个陌生的洞穴，此间毫无传送门的痕迹……", "_t")
 t("Iron Throne Edict", "钢铁王座布告", "entity name")
@@ -39332,7 +39331,7 @@ t("demon", "恶魔", "entity type")
 t("major", "大恶魔", "entity subtype")
 t("Lithfengel", "里斯丰格", "entity name")
 t("A terrible demon of decay and atrophy, drawn to the energy of the farportal. A beast of blight!", "一只缠绕着枯萎和衰竭的可怕恶魔，他被传送门的能量吸引而来。这只瘟神！", "_t")
-t("Back and there again", "穿越过去", "_t")
+t("Back and there again", "去而复返", "_t")
 t("A careful examination of the demon's body turns up a Blood-Runed Athame and a Resonating Diamond, both covered in soot and gore but otherwise in good condition.", "仔细检查恶魔的尸体，你发现了一把血符仪式匕首和一块共鸣宝石。两者都沾满烟尘和血污，但除此之外仍完好无损。", "_t")
 
 ------------------------------------------------
@@ -39340,7 +39339,7 @@ section "mod-tome/data/zones/reknor/objects.lua"
 
 t("Sealed Scroll of Last Hope", "最后希望的密封卷轴", "entity name")
 t("open the seal and read the message", "打开封印，阅读信息", "_t")
-t("Resonating Diamond", "共鸣宝石", "entity name")
+t("Resonating Diamond", "共鸣钻石", "entity name")
 t("You cannot bring yourself to drop the %s", "你无法丢弃 %s", "logPlayer")
 t("misc", "杂项", "entity type")
 t("misc", "杂项", "entity subtype")
@@ -39483,7 +39482,7 @@ section "mod-tome/data/zones/ruined-dungeon/grids.lua"
 
 t("inscription", "铭文", "entity name")
 t("way into the infinite dungeon", "通往无尽地下城的路", "entity name")
-t("Infinite Dungeon", "无尽地城", "_t")
+t("Infinite Dungeon", "无尽地下城", "_t")
 t("You have accomplished great deads, but if you enter the infinite dungeon there will be no way back you will go on and on until you meet your glorious death.", "你已经完成了你的伟大使命，不过当你进入无尽地下城之后就永远不能再回来，你只有不断的前进直到你光荣地死去。", "_t")
 t("You should not go there. There is no way back. Ever. Maybe later when you have done all you must do.", "你不应该去那里，那里没有回头路。也许等你做完了该做的事之后你可以来这里试一试。", "_t")
 t("sealed door", "被封印的门", "entity name")
@@ -39667,7 +39666,7 @@ t("Sher'Tul Control Orb", "夏·图尔控制水晶球", "entity name")
 t("Exploratory Farportal", "探索用远古传送门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race.
 This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
-It should automatically create a portal back, but it might not be near your arrival zone.]], [[ 传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。 
+It should automatically create a portal back, but it might not be near your arrival zone.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。
  这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。 
  它应该会自动建立起回城法阵，但可能该法阵不在你所传送的位置。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个熟悉的地方，在另一个远古传送门旁边...", "log")
@@ -39740,7 +39739,7 @@ t("Sher'Tul Control Orb", "夏·图尔控制水晶球", "entity name")
 t("Exploratory Farportal", "探索用远古传送门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race.
 This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
-It should automatically create a portal back, but it might not be near your arrival zone.]], [[ 传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。 
+It should automatically create a portal back, but it might not be near your arrival zone.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。
  这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。 
  它应该会自动建立起回城法阵，但可能该法阵不在你所传送的位置。]], "_t")
 t("Farportal", "远古传送门", "_t")
@@ -39929,7 +39928,7 @@ section "mod-tome/data/zones/tannen-tower/grids.lua"
 
 t("Portal to Last Hope", "通往最后的希望的传送门", "entity name")
 t("This portal seems to be connected with Last Hope; you could probably use it to go back.", "这道传送门似乎通向最后的希望，你也许能通过它回去。", "_t")
-t("Back and there again", "穿越过去", "_t")
+t("Back and there again", "去而复返", "_t")
 t("Enter the portal back to Last Hope?", "进入传送门，回到最后的希望？", "_t")
 t("Stay", "呆在这里", "_t")
 t("Enter", "进入", "_t")
@@ -39951,7 +39950,7 @@ It is so huge that it blocks sight beyond it.]], "这是泰恩的作品，一只
 ------------------------------------------------
 section "mod-tome/data/zones/tannen-tower/objects.lua"
 
-t("Resonating Diamond", "共鸣宝石", "entity name")
+t("Resonating Diamond", "共鸣钻石", "entity name")
 t("You cannot bring yourself to drop the %s", "你无法丢弃 %s", "logPlayer")
 t("misc", "杂项", "entity type")
 t("misc", "杂项", "entity subtype")
@@ -39984,7 +39983,7 @@ t("ghost", "幽灵", "entity subtype")
 t("The Shade of Telos", "泰勒之影", "entity name")
 t("Everybody thought Telos dead and his spirit destroyed, but it seems he still lingers in his old place of power.", "所有人都认为泰勒已经形神俱灭了，但现在看起来他似乎仍徘徊在他的能量之源。", "_t")
 t("and was savagely mutilated, a show of his rage towards all living things", "并被残忍肢解，作为他对所有生物的无尽怒火的体现", "_t")
-t("Back and there again", "穿越过去", "_t")
+t("Back and there again", "去而复返", "_t")
 t("As the shade dissipates, you see no sign of the text entitled \"Inverted and Reverted Probabilistic Fields\". You should go back to Tannen.", "当阴影消退，你没有找到任何《关于力场翻转与回复的可能性研究》标题的文本。你必须回到泰恩那。", "_t")
 
 ------------------------------------------------
@@ -40406,7 +40405,7 @@ t("floor", "地板", "entity subtype")
 t("old road", "古老的路", "entity name")
 t("Farportal: Gates of Morning", "远古传送门：晨曦之门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go near the Gates of Morning in the Far East.]], [[ 传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。 
+This one seems to go near the Gates of Morning in the Far East.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
  这扇门似乎通向远东的晨曦之门附近。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in sight of the Gates of Morning, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经到了晨曦之门的山脚下，此间毫无传送门的痕迹……", "_t")
 
@@ -41094,7 +41093,7 @@ t("Capital city of Shaloren lands, ruled by Aranion Gayaeil", " 永恒精灵首�
 t("Gates of Morning (Town)", "晨曦之门（城镇）", "entity name")
 t("A massive hole in the Sunwall.", " 在太阳之墙的巨大孔洞。", "_t")
 t("Irkkk (Town)", "伊尔克（城镇）", "entity name")
-t("Yeek Wayist main village", " 夺心魔的聚居点 ", "_t")
+t("Yeek Wayist main village", "夺心魔维网信徒主村", "_t")
 t("Zigur (Town)", "伊格（城镇）", "entity name")
 t("Ziguranth main training ground", " 伊格兰斯的主要训练基地 ", "_t")
 t("Zigur", "伊格", "_t")
