@@ -20,13 +20,19 @@
 
 即判定为跨组件运行时覆盖风险项。
 
-## 三、当前问题清单（1 条，扫描于 2026-08-03 修复批次后）
+## 三、当前问题清单（0 条，扫描于 2026-08-03 light 裁决后）
 
-| # | source | tag | 组件变体 | 状态 |
-|---|---|---|---|---|
-| 1 | `light` | `entity subtype` | tome：「光」（光球/发光体场景，2 处）+「轻甲」（皮甲场景）；orcs：「轻甲」（仅此场景） | **有意保留**（语境区分，术语表已双行记录：preferred「光」+ existing「轻甲」；同一组件内 tome 自身即为双译且均已标注语境） |
+当前无跨组件同键多译。
 
 ## 四、已修复记录
+
+### 4.0 light 共享键裁决（2026-08-03）
+
+`light`（entity subtype）在 tome 组件内同键双译（crystal.lua「光」/ light-armors.lua「轻甲」）触发 `runtime-collision` error；经源码统计裁决：
+
+- **用法分布**：护甲材质 `type="armor", subtype="light"` 45 处（出生装备/NPC 装备/商店/`light-armors.lua` 6 件）；光元素生物 `type="elemental", subtype="light"` 1 处（crystal.lua wisp）；光球召唤物 `type="orb", subtype="light"` 1 处（world-artifacts.lua Lightbringer）。
+- **机制**：引擎 `Object.lua:1216`、`Actor.lua:2037`、`Inventory.lua:289` 等均以 `_t(subtype, "entity subtype")` 显示，**不带 type 参数**，同一运行时键同时服务全部 type。
+- **裁决**：统一为「轻甲」（45:2 多数 + 物品分类 UI 高频；wisp 提示显示「元素 / 轻甲」为已知局限，已记入术语表 notes）。术语表删除「光」行，轻甲行升 preferred。
 
 ### 4.1 2026-08-03 修复批次（`<待填 commit>`）
 
