@@ -2585,7 +2585,7 @@ t("Killed a Bringer of Doom.", "杀死一名厄运行者。", "_t")
 t("A living one!", "一个活着的！", "achievement name")
 t("Was teleported into Caldizar's Fortress, far into the void between the stars.", "传送进凯尔帝勒的堡垒，群星中的虚空地带。", "_t")
 t("Slimefest", "史莱姆狂欢节", "achievement name")
-t("Have 100 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的100个墙变成敌对生物。", "_t")
+t("Have 100 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的 100 面墙变成敌对生物。", "_t")
 t("Slime killer party", "史莱姆杀手聚会", "achievement name")
 t("Have 200 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的200个墙变成敌对生物。", "_t")
 t("Mad slime dash", "疯狂史莱姆冲刺", "achievement name")
@@ -2677,9 +2677,9 @@ t("Ate 20 bosses.", "吃掉20个BOSS。", "_t")
 t("Headbanger", "铁头功大师", "achievement name")
 t("Headbanged 20 bosses to death.", "用头槌撞死了20个BOSS。", "_t")
 t("Are you out of your mind?!", "你犯2了吗？！", "achievement name")
-t("Caught the attention of overpowered greater multi-hued wyrms in Vor Armoury. Perhaps fleeing is in order.", "在沃尔的军械库引起了超级七彩龙的注意。也许，离开是最好的主意。", "_t")
+t("Caught the attention of overpowered greater multi-hued wyrms in Vor Armoury. Perhaps fleeing is in order.", "在沃尔的军械库引起了超强的远古七彩巨龙的注意。也许，离开是最好的主意。", "_t")
 t("I cleared the room of death and all I got was this lousy achievement!", "我清完“死亡之屋”后发现我只得到了这个无聊的成就！", "achievement name")
-t("Killed the seven overpowered wyrms in the \"Room of Death\" in Vor Armoury.", "在沃尔的军械库的“死亡之屋”杀死7只超级七彩龙。", "_t")
+t("Killed the seven overpowered wyrms in the \"Room of Death\" in Vor Armoury.", "在沃尔的军械库的“死亡之屋”杀死7只超强的远古七彩巨龙。", "_t")
 t("I'm a cool hero", "我是超级英雄！", "achievement name")
 t("Saved Derth without a single inhabitant dying.", "在拯救德斯镇任务中没有村民死亡。", "_t")
 t("Kickin' it old-school", "复古风格", "achievement name")
@@ -2959,7 +2959,7 @@ section "mod-tome/data/birth/classes/chronomancer.lua"
 
 t("Chronomancer", "时空系", "birth descriptor name")
 t("Some do not walk upon the straight road others follow. Seek the hidden paths outside the normal course of life.", "他们是一些另辟蹊径的人，在平凡的道路上寻找出一条隐藏的路。", "_t")
-t("Exploiting a hole in the fabric of spacetime, Chronomancers learn to pull threads from other timelines into their own.", "通过利用时空结构上的孔洞，时空法师学会了将其他时间线的线索拉入自己的时间线。", "_t")
+t("Exploiting a hole in the fabric of spacetime, Chronomancers learn to pull threads from other timelines into their own.", "通过利用时空结构上的孔洞，时空法师学会了将其他时间线的丝线拉入自己的时间线。", "_t")
 t("Pulling these threads creates tension and the harder they pull the more tension is produced.", "这些穿梭时空的行为会在时空中留下张力，他们改变现实的程度越大，造成的张力就越大。", "_t")
 t("Constantly they manage this tension, which they call Paradox, to avoid or control the anomalies they inevitably unleash on the world around them.", "他们时刻维系着这种被他们称为紊乱值的张力，以避免或控制其不可避免地在周围世界引发的异常现象。", "_t")
 t("Paradox Mage", "时空法师", "birth descriptor name")
@@ -3966,7 +3966,7 @@ Enjoy your reward.]], [[#LIGHT_GREEN#*炼金师终于回来了，他递给你一
 t("Thank you. I'll be off.", "谢谢，我走了。", "_t")
 t([[#LIGHT_GREEN#*The alchemist finally returns with a vial and a green gem.*#WHITE#
 Enjoy the fruits of your labors, adventurer. I know I will. To show my appreciation, I shall name my firstborn after... er, what was your name, then? Haha, I jest. Oh, I do go on when I'm giddy. Fare you well.]], [[#LIGHT_GREEN#*炼金师终于回来了，手里拿着一颗翡翠宝石和一个药水瓶。*#WHITE#
-尽情享用你的劳动成果吧，我的冒险家。为了表示我的敬意，我打算给我的长子取名为……呃，你叫什么名字来着？哈哈，开个玩笑，啊～在我被喜悦冲昏头脑之前，我必须得继续我的工作，那么，再见了我的朋友。]], "_t")
+尽情享用你的劳动成果吧，我的冒险家。为了表示我的敬意，我打算给我的长子取名为……呃，你叫什么名字来着？哈哈，开个玩笑，啊～我一兴奋就会说个没完。好了，再见吧，我的朋友。]], "_t")
 t("Excellent. With which would you like to aid me?", "好极了，你准备帮我做哪一个？", "_t")
 t("Here's a list of the ingredients I'm missing. Please attempt to not lose your life in their pursuit. I'll be most put out if I must wait another year.", "这里有一张配方，上面写着我目前缺少的材料。当心别丢了你的小命，要是我错过这次机会就得等明年了。", "_t")
 t("Terribly sorry, but I've already made the elixir without your aid. I've no reward to give you, and no reason to do so if I did.", "非常抱歉，我已经自己把那些药剂都做好了，我可没理由再给你任何奖励。", "_t")
@@ -4423,7 +4423,7 @@ t([[#LIGHT_GREEN#*A gigantic bone giant walks through the main gate.
 #LIGHT_GREEN#roars and multiple bones fly in your general direction!*
 ]], [[#LIGHT_GREEN#*一只巨大的骨质巨兽从大门走了进来。
 #LIGHT_GREEN#它有着复杂而尖锐的形状，类似一头龙的样子，
-#LIGHT_GREEN#但是有着更多的角质物来代替翅膀。
+#LIGHT_GREEN#但是有着无数尖刺取代了翅膀。
 #LIGHT_GREEN#这只巨大的不死生物用不可思议的睿智眼神紧盯着你。
 #LIGHT_GREEN#你曾经听说过他。铁塔·瑞尔，你的第一个障碍！
 #LIGHT_GREEN#它的眼睛位置有着一团诡异的蓝色火焰
@@ -5916,7 +5916,7 @@ Then you see darkness; it seems like the shadow does not know what followed thos
 You shake your head as the vision dissipates, and your normal sight comes back slowly.
 #WHITE#*
 ]], [[*#LIGHT_GREEN#那个生物集中精神注视着你，你“看到”了脑海中的影像。
-你看到了已被人遗忘的泰坦之战。你看到了夏·图尔军队的阴影。
+你看到了已被人遗忘的泰坦之战。你看到了一支军队，你推测它们是夏·图尔人，因为它们看起来很像那个阴影生物。
 他们使用魔法、武器和其他东西战斗，他们和众神战斗，将他们击倒、杀死、驱散。
 你看到巨大的类似这里的堡垒飘浮在埃亚尔的上空，在阳光之下释放出强大的能量光芒。
 你看到众神都被击败、杀死，除了一个。
@@ -5944,7 +5944,7 @@ Take this Transmogrification Chest. It is linked by a permanent farportal to the
 There are, however, unwanted byproducts to this operation: the generation of a metal known as gold. It is of no use to the Fortress and thus will be sent back to you.]], [[这个堡垒是弑神者们的移动堡垒，它可以飞行。
 它还装备了其他设施：探索用远古传送门、紧急防护场、远程存储……
 然而，堡垒已经严重损坏，而且已经休眠了太久了。它的能量几近枯竭。
-拿着这个转化之盒。它与堡垒有永久链接，所有放进去的装备都可以使用它分解，转化为堡垒的能量。
+拿着这个转化之盒。它与堡垒有永久链接，所有放进去的物品都可以使用它分解，转化为堡垒的能量。
 不过它还有这样一个副作用：转化物品会产生一种叫做金子的金属，它们对于要塞是没有用的，所以会变成金币返还给你。]], "_t")
 t("I will, thanks.", "我知道了，谢谢。", "_t")
 t("I have already found such a chest in my travel. Will it work?", "我已经在我的旅途中找到了一个，它有发挥效用么？", "_t")
@@ -9321,7 +9321,7 @@ t("crystalline armour", "水晶护甲", "_t")
 t("recover the Crystal Heart (destroys this armour)", "取回水晶之心（摧毁护甲）", "_t")
 t("Rod of Annulment", "废除之杖", "entity name")
 t("dark rod", "黑暗的法杖", "_t")
-t("You can feel magic draining out around this rod. Even nature itself seems affected.", "你可以感受到这根枝条周围的魔力流失，甚至自然本身也似乎受到了影响。", "_t")
+t("You can feel magic draining out around this rod. Even nature itself seems affected.", "你可以感受到这根法杖周围的魔力流失，甚至自然本身也似乎受到了影响。", "_t")
 t("put up to 3 of the target's runes, infusions or talents on cooldown for 3-5 turns (range %d)", "将一个目标至多3个符文、纹身或技能打入3-5回合的冷却（范围 %d）。", "tformat")
 t("#Source# aims %s %s at #target#!", "#Source#用%s%s瞄准了#target#!", "logCombat")
 t("%s's %s is disrupted!", "%s的%s被打断了！", "logSeen")
@@ -12324,7 +12324,7 @@ t("Fists of the Desert Scorpion", "沙蝎之拳", "entity name")
 t("viciously spiked gauntlets", "有着锋利尖刺的拳套", "_t")
 t([[These wickedly spiked gauntlets belonged to an orc captain in the Age of Pyre who conquered the western sands, using them as a base to lay raids on Elvala to the south.  Known as The Scorpion, he seemed unconquerable in battle, able to pull enemies towards him with vicious mental force and lay down lethal blows on them.  Often a flurry of these yellow and black gauntlets would be the last thing great Shaloren mages would see before having the life crushed from them.
 
-Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这只有着锋利尖刺的拳套属于一位烈火纪统治西部荒野的兽人领主，他依靠它们对埃尔瓦拉发动了数次袭击。他外号沙蝎，在战场上所向披靡，他能以凶狠的精神力量将敌人拉近，然后对其施以致命的打击。通常永恒精灵法师们在死前看到的最后物品，便是这只黄黑相间的拳套残影。最终沙蝎在决斗中，被炼金术师奈瑟莉亚击败。当这副拳套的主人将精灵拉向他，还没来得及将她撕成两半时，精灵掀开了她的长袍——下面捆着的是八十多枚炼金炸弹。精灵指尖的火花，引发了数里外都能看到的大爆炸。直到今天，民间仍流传着奈瑟莉亚为保护她的子民而牺牲的诗歌。", "_t")
+Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这只有着锋利尖刺的拳套属于一位烈火纪统治西部荒野的兽人领主，他依靠它们对埃尔瓦拉发动了数次袭击。他外号沙蝎，在战场上所向披靡，他能以凶狠的精神力量将敌人拉近，然后对其施以致命的打击。通常永恒精灵法师们在死前看到的最后物品，便是这只黄黑相间的拳套残影。最终沙蝎在决斗中，被炼金术师奈瑟莉亚击败。当这副拳套的主人将精灵拉向他，还没来得及将她撕成两半时，精灵掀开了她的长袍——下面捆着的是八十枚炼金炸弹。精灵指尖的火花，引发了数里外都能看到的大爆炸。直到今天，民间仍流传着奈瑟莉亚为保护她的子民而牺牲的诗歌。", "_t")
 t("Wind's Whisper", "风之密语", "entity name")
 t("flowing light cloak", "流彩斗篷", "_t")
 t("When the enchanter Razeen was cornered by Spellhunters near the Daikara mountain pass she wrapped her cloak about her and fled down a narrow ravine.  The hunters fired volley after volley of arrows at her, but by miracle or magic they all missed.  Razeen was able to escape and flee to the hidden city in the west.", "当魔法师瑞兹恩被猎魔人在岱卡拉的山隘逼入绝境时，她用斗篷包裹着自己逃下了峡谷。猎手们接连不断的把箭射向她，但由于奇迹或是魔法，他们全部射空了。瑞兹恩得以逃生并躲进了西部的隐秘之城。", "_t")
@@ -12366,7 +12366,7 @@ t("surround yourself with a magical shield (strength %d, based on Magic) for %d 
 t("%s invokes the memory of Neira!", "%s呼唤了尼耶拉的记忆!", "logSeen")
 t("Nature's Blessing", "自然之赐", "entity name")
 t("supple leather armour entwined with willow bark", "柔韧的皮甲缠绕着柳树皮", "_t")
-t("Worn by Protector Ardon, who first formed the Ziguranth during the mage wars between the Humans and the Halflings.  This armour is infused with the powers of nature, and protected against the disruptive forces of magic.", "曾被守护者亚当穿著，他在魔法战争中首次于人类和半身人之间建立了伊格兰斯。这件护甲灌注了大自然的力量，能够抵御魔法的破坏之力。", "_t")
+t("Worn by Protector Ardon, who first formed the Ziguranth during the mage wars between the Humans and the Halflings.  This armour is infused with the powers of nature, and protected against the disruptive forces of magic.", "曾被守护者阿尔登穿着，他在魔法战争中首次于人类和半身人之间建立了伊格兰斯。这件护甲灌注了大自然的力量，能够抵御魔法的破坏之力。", "_t")
 t("#DARK_GREEN#You feel especially blessed.", "#DARK_GREEN#你感觉自己被特别祝福了。", "logPlayer")
 t("Plate Armor of the King", "国王的板甲", "entity name")
 t("suit of gleaming voratun plate", "隐隐放光的沃瑞钽板甲", "_t")
@@ -13083,7 +13083,7 @@ t("This impressive looking sword features two massive blades aligned in parallel
 t("25% chance to strike the target again.", "25%几率再次攻击", "_t")
 t("Butcher", "屠夫", "entity name")
 t("blood drenched shortsword", "血迹斑斑的短刃", "_t")
-t("Be it corruption, madness or eccentric boredom, the halfling butcher by the name of Caleb once took to eating his kin instead of cattle. His spree was never ended and nobody knows where he disappeared to. Only the blade remained, stuck fast in a bloodied block. Beneath, a carving said \"This was fun, let's do it again some time.\"", "无论是堕落、疯狂还是古怪的无聊，名为凯莱布的半身人屠夫曾一度开始吃掉自己的亲人以代替牲口。他的狂欢从未结束，没有人知道他去了哪里。只留下这把刀刃，深嵌在一块血迹斑斑的肉墩上。下面刻着一行字“真有趣，下次再试试”。", "_t")
+t("Be it corruption, madness or eccentric boredom, the halfling butcher by the name of Caleb once took to eating his kin instead of cattle. His spree was never ended and nobody knows where he disappeared to. Only the blade remained, stuck fast in a bloodied block. Beneath, a carving said \"This was fun, let's do it again some time.\"", "无论是堕落、疯狂还是古怪的无聊，名为凯莱布的半身人屠夫曾一度开始吃掉自己的亲人以代替牲口。他的杀戮狂欢从未结束，没有人知道他去了哪里。只留下这把刀刃，深嵌在一块血迹斑斑的肉墩上。下面刻着一行字“真有趣，下次再试试”。", "_t")
 t("Enter Rampage if health falls below 20%%%s", "当生命值降低到20%%%s时，进入暴走。", "tformat")
 t(" (cooling down: %d turns)", " (冷却时间：%d 回合)", "tformat")
 t("Attempt to devour a low HP enemy, striking again and possibly killing it instantly.", "试图吞噬一个低生命的敌人，再次攻击并有几率秒杀目标。", "_t")
@@ -23324,7 +23324,7 @@ t([[Learn how to enhance your Deadly Poison, adding additional effects. Each lev
 	等级 2：阴险毒素
 	等级 3：致残毒素
 	等级 4：吸血毒素
-	等级 5：传染毒素
+	等级 5：易爆毒素
 	还能向世界中的特殊导师学习新的毒素强化。
 	毒素效果提高 %d%%（具体效果因毒素而异）。
 	调整武器涂层不消耗时间，也不会打破潜行。
@@ -23340,7 +23340,7 @@ t([[Numbing Poison - Reduces global speed by %d%% for 5 turns.
 		阴险毒素——使目标中毒，在 5 回合内受到 %0.2f 点自然伤害。
 		致残毒素——令 %d 个技能进入 %d 回合冷却。
 		吸血毒素——为你恢复 %d 点生命。
-		传染毒素——额外造成 %0.2f 点自然伤害，波及半径 %d 内的敌人。
+		易爆毒素——额外造成 %0.2f 点自然伤害，波及半径 %d 内的敌人。
 		]], "tformat")
 t([[You strike your target with your melee or ranged weapon, doing %d%% weapon damage as nature and inflicting additional effects based on your active vile poisons:
 		
@@ -23359,7 +23359,7 @@ t("Crippling Poison", "致残毒素", "talent name")
 t("Enhances your Deadly Poison with a crippling agent, giving enemies a %d%% chance on using a talent to fail and lose a turn.", "在你的武器上涂上致残毒素, 中毒目标每次使用技能都有 %d%% 概率失败并流失 1 回合时间。", "tformat")
 t("Leeching Poison", "吸血毒素", "talent name")
 t("Enhances your Deadly Poison with a leeching agent, causing it to heal you for %d%% of the damage it does to its target.", "在你的武器上涂上吸血毒素, 你受到中毒伤害 %d%% 的治疗。", "tformat")
-t("Volatile Poison", "传染毒素", "talent name")
+t("Volatile Poison", "易爆毒素", "talent name")
 t("Enhances your Deadly Poison with a volatile agent, causing the poison to deal %d%% increased damage to the victim and damage all of your enemies adjacent to it for 50%%.", "在你的武器上涂上传染毒素, 毒素造成额外 %d%% 伤害，且会对周围敌人造成 50%% 的伤害。", "tformat")
 t("Vulnerability Poison", "脆弱毒素", "talent name")
 t("Whenever you apply Deadly Poison, you also apply an unresistable magical poison dealing %0.2f arcane damage (based on your Magic) each turn. This poison reduces all damage resistance by 10%% and poison immunity by 50%%.", "每当你施加致命毒素时，还会施加一种不可抵抗的魔法毒素。该毒素每回合造成 %0.2f 点奥术伤害（伤害随魔法属性提高），并使所有伤害抗性降低 10%%、毒素免疫降低 50%%。", "tformat")
@@ -28491,7 +28491,7 @@ t([[Summon a Dread of level %d that will annoyingly blink around, hexing your fo
 		]], [[召唤一个等级 %d 的噩灵。噩灵会四处传送，并对敌人释放邪术。
 		它会使用以下技能：
 		- 燃烧邪术等级 %d
-		- 转移邪术等级 %d
+		- 移情邪术等级 %d
 		- 宁神邪术等级 %d
 		- 模糊视觉等级 %d
 		- 相位之门等级 %d
@@ -36040,9 +36040,9 @@ t("The powerful thermal shield around #target# crumbles.", "#target#的热能护
 t("Spiked Charged Shield", "尖刺充能护盾", "_t")
 t(", darkness", ", 暗影", "_t")
 t(", mind", ", 精神", "_t")
-t("The target erects a powerful charged shield capable of absorbing %d/%d lightning%s or blight damage before it crumbles.", "目标施放一个充电护盾吸收 %d/%d 闪电 %s 或枯萎伤害。", "tformat")
-t("A powerful charged shield forms around #target#.", "#target#获得了充电护盾。", "_t")
-t("The powerful charged shield around #target# crumbles.", "#target#的充电护盾消失了。", "_t")
+t("The target erects a powerful charged shield capable of absorbing %d/%d lightning%s or blight damage before it crumbles.", "目标施放一个充能护盾吸收 %d/%d 闪电 %s 或枯萎伤害。", "tformat")
+t("A powerful charged shield forms around #target#.", "#target#获得了充能护盾。", "_t")
+t("The powerful charged shield around #target# crumbles.", "#target#的充能护盾消失了。", "_t")
 t("Perfect control", "完美控制", "_t")
 t("The target's combat attack and crit chance are improved by %d and %d%%, respectively.", "增加 %d 命中和 %d%% 暴击率。", "tformat")
 t("psychic_drain", "灵能吸收", "effect subtype")
@@ -37435,7 +37435,7 @@ t("Natural Acid", "自然酸化", "_t")
 t("Nature damage increased by %d%%.", "自然伤害增加 %d%%.", "tformat")
 t("#Target#'s nature damage is more potent.", "#Target#的自然伤害增加。", "_t")
 t("+Natural Acid", "+自然酸化", "_t")
-t("#Target#'s nature damage is no longer so potent.", "#Target#的自然伤害不再增加。", "_t")
+t("#Target#'s nature damage is no longer so potent.", "#Target#的自然伤害不再那么强大。", "_t")
 t("-Nature Acid", "-自然酸化", "_t")
 t("%s's natural acid becomes more concentrated!", "%s的自然酸化之力增强了！", "logSeen")
 t("Corrode", "腐蚀", "_t")
@@ -41957,7 +41957,7 @@ Some races or items may increase them as well.]], [[技能树解锁点有以下�
 某些种族和物品可以获得额外的点数。]], "_t")
 t([[Prodigies are special talents that only the most powerful of characters can attain.
 All of them require at least 50 in a core stat and many also have more special demands. You can learn a new prodigy at level 25 and 42.]], [[觉醒技是角色足够强大时才能获得的特殊技能。 
-所有觉醒技能必须在人物某项核心属性达到 50 点并满足所需的特殊要求后才能习得。 
+所有觉醒技都要求某项核心属性达到 50 点，其中许多还有更特殊的额外要求。 
 你可以在人物等级达到 25 级和 42 级时各获得一个觉醒技能点。]], "_t")
 t("You can use a category point to unlock a new inscription slot (up to 5 slots).", "你可以消耗 1 个技能树解锁点来解锁一个新的刻印位（最多 5 个）。", "_t")
 t("Prodigies", "觉醒技", "_t")
@@ -42286,7 +42286,7 @@ t([[#LIGHT_GREEN#Number available: %d#LAST#
 Prodigies are special talents that only the most powerful of characters can attain.%s
 All of them require at least 50 in a core stat and many also have more special demands. You can learn a new prodigy at level 25 and 42.]], [[#LIGHT_GREEN#当前可用觉醒技能点： %d#LAST#
 觉醒技是角色足够强大时才能获得的特殊技能。 %s
-所有觉醒技能必须在人物某项核心属性达到50点并满足所需的特殊要求后才能习得。
+所有觉醒技都要求某项核心属性达到 50 点，其中许多还有更特殊的额外要求。
 你可以在人物等级达到25级和42级时各获得一个觉醒技能点。]], "_t")
 t("\
 Evolutions are special prodigies specific to a class or race. Only one evolution can be choosen, if any are available at all.", "\
