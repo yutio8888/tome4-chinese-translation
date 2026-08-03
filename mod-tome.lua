@@ -3335,7 +3335,7 @@ t("Skin", "皮肤", "birth facial category")
 t("Hairs", "发型", "birth facial category")
 t("Facial features", "脸部特征", "birth facial category")
 t("Special", "特殊", "birth facial category")
-t("They possess the #GOLD#Resilience of the Dwarves#WHITE# which allows them to increase their armour, physical and spell saves for a few turns.", "他们天生掌握 #GOLD# 钢筋铁骨 #WHITE#，允许他们在短时间内提高护甲、物理豁免和法术豁免。", "_t")
+t("They possess the #GOLD#Resilience of the Dwarves#WHITE# which allows them to increase their armour, physical and spell saves for a few turns.", "他们天生掌握 #GOLD#钢筋铁骨#WHITE#，允许他们在短时间内提高护甲、物理豁免和法术豁免。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +4 Strength, -2 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +4 力量，-2 敏捷，+3 体质", "_t")
 t("#LIGHT_BLUE# * -2 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔法，+3 意志，+0 灵巧", "_t")
@@ -3593,7 +3593,7 @@ t("Redhead 2", "红发2", "_t")
 t("Redhead 3", "红发3", "_t")
 t("Redhead 4", "红发4", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
-t("They possess the #GOLD#Luck of the Little Folk#WHITE# which allows them to increase their critical strike chance and saves for a few turns.", "他们天生掌握 #GOLD# 小不点的幸运 #WHITE# 技能可以使他们在几个回合内提高暴击几率和豁免。", "_t")
+t("They possess the #GOLD#Luck of the Little Folk#WHITE# which allows them to increase their critical strike chance and saves for a few turns.", "他们天生掌握 #GOLD#小不点的幸运#WHITE# 技能可以使他们在几个回合内提高暴击几率和豁免。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -3 Strength, +3 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -3 力量，+3 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+3 灵巧", "_t")
@@ -4382,7 +4382,7 @@ Good luck in your adventures, and come visit us when you are done!
 ]], [[#LIGHT_GREEN#*那位科纳克人盗贼从阴影中走了出来*#WHITE#
 干得好！ @playerdescriptor.race@！我就知道你有潜力。
 #LIGHT_GREEN#*那个盗贼取下了兜帽
-#LIGHT_GREEN#，那是一个相当年轻但是饱经战斗的男子。#WHITE#
+#LIGHT_GREEN#那是一个相当年轻但是饱经战斗的男子。#WHITE#
 我的名字叫瑞吉。我为竞技场工作，寻找能够提供精彩表演，
 而不是三拳两脚就被打败的强力斗士……你的确就是其中一个！
 我不会打断你的继续冒险，我自己也是一个冒险家，很久以前是。
@@ -20085,7 +20085,7 @@ t("elixir of foundations", " 领悟药剂 ", "_t")
 section "mod-tome/data/quests/charred-scar.lua"
 
 t("The Doom of the World!", "世界末日！", "_t")
-t("You were sent to the Charred Scar at the heart of which lies a huge volcano. In the Age of Pyre it destroyed the old Sher'Tul ruins that stood there, absorbing much of their latent magic.", " 你被送到了灼烧之痕，其中部是一个巨大的火山，在烈火纪元这里曾是夏·图尔遗址的所在，吸收了大量潜藏的魔法。", "_t")
+t("You were sent to the Charred Scar at the heart of which lies a huge volcano. In the Age of Pyre it destroyed the old Sher'Tul ruins that stood there, absorbing much of their latent magic.", "你被送到了灼烧之痕，其中部是一个巨大的火山，在烈火纪元这里曾是夏·图尔遗址的所在，吸收了大量潜藏的魔法。", "_t")
 t("This place is still full of that power and the orcs intend to absorb this power using the Staff of Absorption!", " 这里仍然充满了那种能量，兽人打算用吸能法杖的力量来吸收这里的能量。", "_t")
 t("Whatever their plan may be, they must be stopped at all cost.", " 不管他们的目的是要干什么，必须不惜一切代价阻止他们。", "_t")
 t("The volcano is attacked by orcs. A few Sun Paladins made it there with you. They will hold the line at the cost of their lives to buy you some time.", " 火山受到了兽人的攻击，一些太阳骑士正顶在最前线用他们的生命来帮助你争取一些时间。", "_t")
@@ -20546,13 +20546,13 @@ section "mod-tome/data/quests/staff-absorption.lua"
 t("A mysterious staff", "奇怪的法杖", "_t")
 t("Deep in the Dreadfell you fought and destroyed the Master, a powerful vampire.", " 在恐惧王座深处你和一个强大的吸血鬼大法师战斗并杀死了他。", "_t")
 t("On your way out of the Dreadfell you were ambushed by a band of orcs.", " 当你走出恐惧王座的时候你受到了一队兽人小队的偷袭。", "_t")
-t("They asked about the staff.", " 他们问起了法杖的事。", "_t")
-t("On your way out of the Dreadfell you were ambushed by a band of orcs and left for dead.", " 当你走出恐惧王座时，你遭到一队兽人伏击，并被他们丢下等死。", "_t")
+t("They asked about the staff.", "他们问起了法杖的事。", "_t")
+t("On your way out of the Dreadfell you were ambushed by a band of orcs and left for dead.", "当你走出恐惧王座时，你遭到一队兽人伏击，并被他们丢下等死。", "_t")
 t("They asked about the staff and stole it from you.", " 他们从你那里得知了法杖的消息，把法杖抢走了。", "_t")
 t("#LIGHT_GREEN#Go at once to Last Hope to report those events!", "#LIGHT_GREEN#立刻到最后的希望汇报所发生的情况！", "_t")
-t("You told them nothing and vanquished them.", " 你什么也没告诉他们，并把他们全都消灭了。", "_t")
+t("You told them nothing and vanquished them.", "你什么也没告诉他们，并把他们全都消灭了。", "_t")
 t("In its remains, you found a strange staff. It radiates power and danger and you dare not use it yourself.", " 在他的尸体上，你发现了一根奇怪的法杖，它辐射出的力量和危险使你不敢使用它。", "_t")
-t("You should bring it to the elders of Last Hope in the southeast.", " 你应该把它带给位于东南方的最后的希望长老们。", "_t")
+t("You should bring it to the elders of Last Hope in the southeast.", "你应该把它带给位于东南方的最后的希望长老们。", "_t")
 t("#00FFFF#You can feel the power of this staff just by carrying it. This is both ancient and dangerous.", "#00FFFF#你拿着法杖就可以感受到它的力量。它既古老又危险。", "logPlayer")
 t("#00FFFF#It should be shown to the wise elders in Last Hope!", "#00FFFF#应该把它交给最后的希望的智慧长老看看！", "logPlayer")
 t("#VIOLET#As you come out of the Dreadfell, you encounter a band of orcs!", "#VIOLET#当你走出恐惧王座，你遭遇了一队兽人！", "logPlayer")
@@ -20639,7 +20639,7 @@ section "mod-tome/data/quests/start-sunwall.lua"
 
 t("Serpentine Invaders", "蛇形的侵略者", "_t")
 t([[Nagas are invading the slazish fens. The Sunwall cannot fight on two fronts; you need to stop the invaders before it is too late.
- Locate and destroy the invaders' portal.]], [[ 娜迦正在攻击斯拉伊什沼泽，太阳堡垒不能同时两线作战，你必须抓紧时间阻止那些侵略者，以免为时过晚。
+ Locate and destroy the invaders' portal.]], [[娜迦正在攻击斯拉伊什沼泽，太阳堡垒不能同时两线作战，你必须抓紧时间阻止那些侵略者，以免为时过晚。
  找到并摧毁侵略者的传送门。]], "_t")
 t("#LIGHT_GREEN#* You have destroyed the naga portal. The invasion is stopped.#WHITE#", "#LIGHT_GREEN#* 你摧毁了娜迦的传送门，侵略者被阻止了。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You are back in Var'Eyal, the Far East as the people from the west call it.#WHITE#", "#LIGHT_GREEN#* 你回到了瓦·埃亚尔——来自西方的人称呼远东大陆的名字。#WHITE#", "_t")
@@ -20715,8 +20715,8 @@ section "mod-tome/data/quests/strange-new-world.lua"
 t("Strange new world", "陌生的新世界", "_t")
 t("You arrived through the farportal in a cave, probably in the Far East.", " 你穿过了山洞的远古传送门，可能会到达远东大陆。", "_t")
 t("Upon arrival you met an Elf and an orc fighting.", " 你碰到了一个精灵在和一个兽人战斗。", "_t")
-t("You decided to side with the Elven lady.", " 你决定帮助那个精灵。", "_t")
-t("You decided to side with the orc.", " 你决定帮助那个兽人。", "_t")
+t("You decided to side with the Elven lady.", "你决定帮助那个精灵。", "_t")
+t("You decided to side with the orc.", "你决定帮助那个兽人。", "_t")
 t("Fillarel told you to go to the southeast and meet with High Sun Paladin Aeryn.", " 菲拉瑞尔告诉你去东南方会见高阶太阳骑士艾琳。", "_t")
 t("Krogar told you to go to the west and look for the Kruk Pride.", " 克洛加尔告诉你去西面寻找克鲁克部落。", "_t")
 t("%s go to the west, and find Kruk Pride!", "%s，去西边，寻找克鲁克部落！", "tformat")
@@ -22905,7 +22905,7 @@ t([[Call upon the essence of the supreme demon overlord Urh'Rok to turn into a d
 		While in demon form, you gain %d%% fire resistance, %d%% darkness resistance, and your global speed is increased by %d%%.
 		The flames of the Fearscape will heal you while in demon form.
 		The resistances and heal will increase with your Spellpower.]], [[召唤伟大的恶魔领主乌鲁洛克的实体，转化为恶魔。 
-		当你处于恶魔形态时，你增加 %d%% 火焰抗性， %d%% 暗影抗性并且全局速度提升 %d%% 。
+		当你处于恶魔形态时，你增加 %d%% 火焰抗性， %d%% 暗影抗性并且全局速度提升 %d%%。
 		当你处于恶魔形态时，恶魔空间的火焰会治疗你。 
 		抵抗和治疗量受法术强度加成。]], "tformat")
 t("Fearscape", "恶魔空间", "talent name")
@@ -26632,7 +26632,7 @@ t("Removes up to %d detrimental magical effects and empowers you with arcane ene
 t("Attune Mindstar", "灵晶调谐", "talent name")
 t("@Source@ refocuses the energies of %s mindstar.", "@Source@重新汇集%s灵晶中的能量。", "tformat")
 t("You attune your %s to deal #ORANGE#mind#LAST# damage.", "你调谐了你的 %s ，使其造成#ORANGE#精神#LAST#伤害。", "logPlayer")
-t("You attune your %s to deal #LIGHT_GREEN#nature#LAST# damage.", "你调谐了你的 %s ，使其造成#LIGHT_GREEN#自然#LAST#伤害。", "logPlayer")
+t("You attune your %s to deal #LIGHT_GREEN#nature#LAST# damage.", "你调谐了你的 %s，使其造成#LIGHT_GREEN#自然#LAST#伤害。", "logPlayer")
 t("Alter the flow of energies of your equiped mindstars, changing their damage type between nature and mind.", "改变灵晶中流动的能量性质，将伤害类型在自然伤害和精神伤害间切换。", "tformat")
 t("Command Staff", "法杖掌控", "talent name")
 t("@Source@ refocuses the energies of %s staff.", "@Source@重新汇集%s法杖中的能量。", "tformat")
@@ -35184,7 +35184,7 @@ t("Time Dilation", "时间膨胀", "_t")
 t("Increases attack, spell, and mind speed by %d%%.", "增加攻击、施法和精神速度 %d%% 。", "tformat")
 t("%d Time Dilation", "%d 时间膨胀", "tformat")
 t("Haste", "加速", "_t")
-t("Increases global action speed by %d%%.", "全局速度提升 %d%% 。", "tformat")
+t("Increases global action speed by %d%%.", "全局速度提升 %d%%。", "tformat")
 t("#Target# speeds up.", "#Target#速度加快。", "_t")
 t("+Haste", "+加速", "_t")
 t("#Target# slows down.", "#Target#速度减慢了。", "_t")
@@ -36010,7 +36010,7 @@ t("#F53CBE##Source# panics but fails to flee from #Target#.", "#F53CBE##Source#�
 t("telekinesis", "念力", "effect subtype")
 t("speed", "速度", "effect subtype")
 t("Quick", "提速", "_t")
-t("Increases global speed by %d%%.", "全局速度提升 %d%% 。", "tformat")
+t("Increases global speed by %d%%.", "全局速度提升 %d%%。", "tformat")
 t("#Target# speeds up.", "#Target#速度加快。", "_t")
 t("+Quick", "+提速", "_t")
 t("#Target# slows down.", "#Target#速度减慢了。", "_t")
@@ -36098,7 +36098,7 @@ t("The target's armour penetration is increased by %d.", "目标护甲穿透提�
 t("Frenzy", "狂热", "_t")
 t([[Increases global action speed by %d%% and physical crit by %d%%.
 Additionally the target will continue to fight until its Life reaches -%d%%.]], [[全局速度提升 %d%% 并提高物理暴击率 %d%%。
-此外，目标会继续战斗，直到生命值降至 -%d%% 。]], "tformat")
+此外，目标会继续战斗，直到生命值降至 -%d%%。]], "tformat")
 t("#Target# goes into a killing frenzy.", "#Target#陷入杀戮狂热。", "_t")
 t("#Target# calms down.", "#Target#冷静了下来。", "_t")
 t("Falls dead!", "死亡!", "_t")
@@ -36476,7 +36476,7 @@ t([[An aura of death surrounds you.
 #CRIMSON#Power 1+: %sPower over Death: %+d%% damage against the undead.
 #CRIMSON#Power 2+: %s%+d Luck, %+d Strength, %+d Magic
 #CRIMSON#Power 3+: %sLiving Death: Ghoulish retch heals you. Once every %d turns, retch (level %d) when you fall below %d%% health
-#CRIMSON#Power 4+: %sReprieve from Death: Humanoids you slay have a %d%% chance to rise to fight beside you as ghouls for 6 turns.]], [[一个死亡的光环笼罩着你.
+#CRIMSON#Power 4+: %sReprieve from Death: Humanoids you slay have a %d%% chance to rise to fight beside you as ghouls for 6 turns.]], [[一个死亡的光环笼罩着你。
 #CRIMSON# 惩罚 ：#WHITE# 死亡恐惧： %+d%% 对亡灵的伤害抗性。
 #CRIMSON# 强度 1+：%s 死亡力量： %+d%% 对亡灵的伤害加成。
 #CRIMSON# 强度 2+：%s%+d 幸运 , %+d 力量 , %+d 魔法
@@ -36667,7 +36667,7 @@ t("madness", "疯狂", "effect subtype")
 t("Hunter!", "捕猎中！", "_t")
 t("Knows where you are!", "知道你在哪里！", "_t")
 t("Through The Crowd", "穿梭人群", "_t")
-t("Increases physical save, spell save, and mental save by %d. Global speed increased by %d%%.", "增加物理、法术、精神豁免 %d 点,增加全局速度 %d%% 。", "tformat")
+t("Increases physical save, spell save, and mental save by %d. Global speed increased by %d%%.", "增加物理、法术、精神豁免 %d 点，增加全局速度 %d%%。", "tformat")
 t("disarm", "缴械", "effect subtype")
 t("Reloading", "装填弹药", "_t")
 t("The target has replenished some ammo.", "目标已补充了一些弹药。", "_t")
@@ -37006,7 +37006,7 @@ t("#Target# is no longer evading attacks.", "#Target#不再躲闪攻击。", "_t
 t("-Evasion", "-躲闪", "_t")
 t("speed", "速度", "effect subtype")
 t("Speed", "加速", "_t")
-t("Increases global action speed by %d%%.", "全局速度提升 %d%% 。", "tformat")
+t("Increases global action speed by %d%%.", "全局速度提升 %d%%。", "tformat")
 t("#Target# speeds up.", "#Target#速度加快。", "_t")
 t("+Fast", "+加速", "_t")
 t("#Target# slows down.", "#Target#速度减慢了。", "_t")
@@ -37243,7 +37243,7 @@ t("The target's physical resistance has been reduced by %d%%.", "目标物理抗
 t("Waters of Life", "生命之水", "_t")
 t("The target purifies all diseases and poisons, turning them into healing effects.", "目标净化所有毒素和疾病效果，并将它们转化为治疗。", "_t")
 t("Elemental Harmony", "元素和谐", "_t")
-t("Increases global speed by %d%%.", "全局速度提升 %d%% 。", "tformat")
+t("Increases global speed by %d%%.", "全局速度提升 %d%%。", "tformat")
 t("Increases armour by %d.", "增加护甲值 %d 。", "tformat")
 t("Increases all stats by %d.", "增加所有属性 %d 。", "tformat")
 t("Increases life regen by %0.2f.", "增加生命回复 %0.2f 。", "tformat")
@@ -37262,7 +37262,7 @@ t("+Paralyzed", "+麻痹", "_t")
 t("#Target# shakes free of the telekinetic binding", "#Target#从念力约束中逃脱。", "_t")
 t("-Paralyzed", "-麻痹", "_t")
 t("Imploding (slow)", "碎骨压制（减速）", "_t")
-t("Slowed by 50%% and taking %d crushing damage per turn.", " 全局速度下降 50%% , 每回合受到 %d 碾压伤害。", "tformat")
+t("Slowed by 50%% and taking %d crushing damage per turn.", "全局速度下降 50%%，每回合受到 %d 点碾压伤害。", "tformat")
 t("+Imploding", "+压制", "_t")
 t("#Target# shakes off the crushing forces.", "#Target#脱离压碎效果。", "_t")
 t("-Imploding", "-压制", "_t")
@@ -37490,7 +37490,7 @@ t("+Trained Reactions", "+受训反应", "_t")
 t("Trained Reactions may not trigger.", "受训反应暂时不能触发。", "_t")
 t("Superb Agility", "身轻如燕", "_t")
 t("#Target# has sped up!", "#Target#速度上升！", "_t")
-t("The target's reactions have quickened, giving +%d%% global speed.", "目标的反应速度变快了，全局速度提升 %d%% 。", "tformat")
+t("The target's reactions have quickened, giving +%d%% global speed.", "目标的反应速度变快了，全局速度提升 %d%%。", "tformat")
 t("spacetime", "时空", "effect subtype")
 t("Anti-Gravity", "反重力", "_t")
 t("Target is caught in an anti-gravity field, halving its knockback resistance.", "目标被反重力力量击中，减半击退免疫。", "tformat")
@@ -40472,7 +40472,7 @@ t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Ben Cruthdar, the Cursed", "被诅咒者本·克鲁塞达尔", "entity name")
 t([[This madman looks extremely dangerous. He wields a big axe and means to use it.
-A gloomy aura emanates from him.]], "这个疯子看起来极其危险。他手持一把巨斧，而且真的打算用它。黑暗光环从他身上向周围扩散。", "_t")
+A gloomy aura emanates from him.]], "这个疯子看起来极其危险。他手持一把巨斧，而且真的打算用它。\n他身上散发出一股阴郁的光环。", "_t")
 t("lumberjack", "伐木工", "entity name")
 t("A lumberjack. Cutting wood is his job, dream and passion.", "一名伐木工。伐木是他的工作、梦想与热忱。", "_t")
 

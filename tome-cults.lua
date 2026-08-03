@@ -20,7 +20,7 @@ t("Let a parasitic horror take over your body and watch it grow in power.", "让
 t("Myths of an age past", "神代奥秘", "achievement name")
 t("Learned all there is to learn about the Gods and the Godslayers.", "了解目前关于神和噬神者的所有信息。", "_t")
 t("Dethroned", "废黜", "achievement name")
-t("Vanquished the Glass Golem without letting it use the glass throne to heal.", "在不使用玻璃王座治疗的情况下击败玻璃傀儡", "_t")
+t("Vanquished the Glass Golem without letting it use the glass throne to heal.", "在不使用玻璃王座治疗的情况下击败玻璃傀儡。", "_t")
 t("A View From The Gallery", "画廊一瞥", "achievement name")
 t("Briefly lived as a lowly halfling during the time of the Sher'tuls.", "短暂地作为一名半身人活在夏·图尔的时代。", "_t")
 t("Entropy's End", "熵之终结", "achievement name")
@@ -285,7 +285,7 @@ t("Godfeaster", "噬神者", "entity name")
 t("hostile", "敌对", "entity type")
 t("Encounter", "遭遇", "_t")
 t([[The ground suddenly shakes under your feet and a giant worm appears to gobble you up!
-You could try to escape using the Rod of Recall or accept your fate.]], [[你脚下的大地在颤动，一只巨大的蠕虫突然出现，将你吞了进去 !
+You could try to escape using the Rod of Recall or accept your fate.]], [[你脚下的大地在颤动，一只巨大的蠕虫突然出现，将你吞了进去！
 你可以尝试使用回归之杖来逃离，或者接受你的命运。]], "_t")
 t("You manage in extremis to activate the rod in emergency. As you keep on falling towards the maw of the worm the rod finishes charging up and you re-appear nearby, safe from the monstrosity.", "你在千钧一发之际启动了回归之杖。当你不断坠向虫子的巨口时，回归之杖充能完毕，你在附近重新出现，脱离了那怪物的威胁。", "log")
 t("Accept your fate", "接受你的命运", "_t")
