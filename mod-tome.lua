@@ -37840,7 +37840,7 @@ t("Expert slingers on hire by the arena. They are great at their jobs.", "受竞
 t("gladiator", "角斗者", "entity name")
 t("Mercenaries hired by the arena for the sole purpose of entertainment. They make a living beating people up.", "竞技场雇来专供娱乐的雇佣兵。他们靠与人搏斗为生。", "_t")
 t("reaver", "收割者", "entity name")
-t("A warrior of death.", "致命的战士。", "_t")
+t("A warrior of death.", "侍奉死亡的战士。", "_t")
 t("headless horror", "无头恐魔", "entity name")
 t("A headless gangly humanoid with a large distended stomach. Was captured and tamed by the first master of the arena.", "一只高高瘦瘦的无头人形怪物，它有着巨大的胃。它被竞技场的第一任主人捕获并驯服。", "_t")
 t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上。", "logSeen")
@@ -37861,7 +37861,7 @@ t("alchemist", "炼金术师", "entity name")
 t("blood mage", "血法师", "entity name")
 t("A man dressed in black robes. You feel weak as you hear his ominous chanting.", "一位穿着黑色长袍的人。当你听到他邪恶的低吟时，你感到一阵虚弱。", "_t")
 t("hexer", "诅咒者", "entity name")
-t("A man dressed in black robes. You feel a thousand curses being put on you.", "一位穿着黑色长袍的人。你感到身上中了许多诅咒。", "_t")
+t("A man dressed in black robes. You feel a thousand curses being put on you.", "一位穿着黑色长袍的人。你感到一千个诅咒施加在你身上。", "_t")
 t("rogue", "盗贼", "entity name")
 t("Stealthy fighters trying to achieve victory with trickery. Be careful or they will steal your sight!", "善用诡计的潜行斗士。小心他们偷走你的视觉！", "_t")
 t("trickster", "欺诈者", "entity name")
@@ -38714,7 +38714,7 @@ t("A creature stands before you, with long tentacle-like appendages and a squat 
 ------------------------------------------------
 section "mod-tome/data/zones/high-peak/objects.lua"
 
-t("bloodsoaked diamond", "血染的宝石", "entity name")
+t("bloodsoaked diamond", "血染的钻石", "entity name")
 t("A strangely wet diamond.", "奇怪的潮湿宝石", "_t")
 t("bloodsoaked athame", "浸血的仪式匕首", "entity name")
 t("A strangely wet athame.", "一把莫名湿润的仪式匕首。", "_t")
@@ -39562,7 +39562,7 @@ t("Before you stands the queen of the sandworms. Massive and bloated, she slithe
 t("and swallowed whole", "并被整个吞下", "_t")
 t("Rumbling...", "轰隆隆…", "_t")
 t("The ground shakes.  Something very large is stirring in the distance.", "大地震颤起来，远处好像有一个巨大的东西正搅动着大地。", "_t")
-t("Did you hear? Something seems to have devoured all the last sandworms!", "你听说了吗？有什么东西把所有的沙虫都吞噬了！", "_t")
+t("Did you hear? Something seems to have devoured all the last sandworms!", "你听说了吗？有什么东西把所有剩下的沙虫都吞噬了！", "_t")
 t("dragon", "龙", "entity type")
 t("sand", "沙", "entity subtype")
 t("Corrupted Sand Wyrm", "堕落沙龙", "entity name")
@@ -40239,7 +40239,7 @@ t("shalore", "永恒精灵", "entity subtype")
 t("Catch @himher@!", "抓住@himher@!", "_t")
 t("elvala guard", "埃尔瓦拉守卫", "entity name")
 t("A stern-looking guard, he will not let you disturb the town.", "一名严肃的守卫，他不会允许任何人打扰镇子的宁静。", "_t")
-t("shalore rune master", "精灵符文大师", "entity name")
+t("shalore rune master", "永恒精灵符文大师", "entity name")
 t("A tall Elf, his skin covered in runes.", "一名高大的精灵，他的皮肤上布满了符文。", "_t")
 t("giant", "巨人", "entity type")
 t("ogre", "食人魔", "entity subtype")
@@ -40260,7 +40260,7 @@ t("Swordsmith", "长剑铁匠铺", "entity name")
 t("Staff carver", "法杖雕刻者", "entity name")
 t("Runemaster", "大师符文店", "entity name")
 t("Home of Marus the Alchemist", "炼金师马鲁斯的家", "entity name")
-t("Shady Library", "不显眼的图书馆", "entity name")
+t("Shady Library", "幽暗图书馆", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-elvala/zone.lua"
@@ -40709,14 +40709,14 @@ section "mod-tome/data/zones/tutorial-combat-stats/grids.lua"
 t("Lobby Portal", "前厅传送门", "entity name")
 t("This portal will bring you back to the Tutorial Lobby.", " 这道传送门将把你带回教程大厅。", "_t")
 t("Tutorial Lobby Portal", "传送至大厅", "_t")
-t("Enter the portal back to the lobby?", "你要进入传送门返回教学大厅么？", "_t")
+t("Enter the portal back to the lobby?", "你要进入传送门返回大厅吗？", "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you are back in the lobby.", "#VIOLET#你进入了传送漩涡，一眨眼功夫你回到了大厅。", "logPlayer")
 t("Stay", "呆在这里", "_t")
 t("Enter", "进入", "_t")
 t("floor", "地板", "entity type")
 t("grass", "草地", "entity subtype")
 t("grass", "草地", "entity name")
-t("Sign", "标记", "entity name")
+t("Sign", "标志", "entity name")
 t("Contains a snippet of ToME wisdom.", " 包含了 ToME 智慧的残片 ", "_t")
 t("Rune of Enlightenment: Summer Vacation", "启蒙符文：暑假", "entity name")
 t("Causes the player's brain to jettison all recently-acquired knowledge.", " 可以净化玩家的大脑，使玩家遗忘所有最近所学的技能。", "_t")
@@ -40765,7 +40765,7 @@ t("It is a large wolf with eyes full of cunning, only 3 times bigger than a norm
 t("Orc", "兽人", "entity name")
 t("Quick-healing orc", "快速自愈的兽人", "entity name")
 t("Robe-clad elf", "披着长袍的精灵", "entity name")
-t("An elf that looks as though he spends a good amount of his time wiggling his fingers and chanting.", "这名精灵看起来一生都花费在了手势和颂歌中。", "_t")
+t("An elf that looks as though he spends a good amount of his time wiggling his fingers and chanting.", "这名精灵看起来把大量时间花在摆动手指和吟唱上。", "_t")
 t("Stubborn orc", "顽固的兽人", "entity name")
 t("Obstinate orc", "固执的兽人", "entity name")
 t("Pushy orc", "爱出风头的兽人", "entity name")
@@ -40898,7 +40898,7 @@ section "mod-tome/data/zones/unremarkable-cave/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("elf", "精灵", "entity subtype")
 t("Fillarel Aldaren", "菲拉瑞尔·阿达兰", "entity name")
-t("An Elven woman. She wears a tight robe decorated with symbols of the Sun and the Moon and wields a staff.", "一名精灵女子。她穿着日月图案的长袍，手持一根法杖。", "_t")
+t("An Elven woman. She wears a tight robe decorated with symbols of the Sun and the Moon and wields a staff.", "一名精灵女子。她穿着绣有日月图案的紧身长袍，手持一根法杖。", "_t")
 t("orc", "兽人", "entity subtype")
 t("Krogar", "克罗加尔", "entity name")
 t("An orc clad in mail armour, he wields a staff and looks menacing.", "一名穿着锁甲的兽人，他手持法杖并且看起来凶残异常。", "_t")
@@ -41647,7 +41647,7 @@ t([[If disabled lore popups will only appear the first time you see the lore on 
 If enabled it will appear the first time you see it with each character.#WHITE#]], [[关闭后，手札提示只会在该手札首次出现在你的档案中时弹出。
 开启后，每个角色首次看到该手札时都会弹出。#WHITE#]], "_t")
 t("#GOLD##{bold}#Always show lore popup#WHITE##{normal}#", "#GOLD##{bold}#手札始终弹出#WHITE##{normal}#", "_t")
-t("If disabled items with activations will not be auto-added to your hotkeys, you will need to manually drag them from the inventory screen.#WHITE#", "如果关闭，能使用的物品不会自动添加至快捷栏，你需要手动把他们从物品栏拖到快捷栏#WHITE#", "_t")
+t("If disabled items with activations will not be auto-added to your hotkeys, you will need to manually drag them from the inventory screen.#WHITE#", "如果关闭，能使用的物品不会自动添加至快捷栏，你需要手动把它们从物品栏拖到快捷栏。#WHITE#", "_t")
 t("#GOLD##{bold}#Always add objects to hotkeys#WHITE##{normal}#", "#GOLD##{bold}#物品自动添加入快捷栏#WHITE##{normal}#", "_t")
 t([[Toggles between various tactical information display:
 - Combined healthbar and small tactical frame
@@ -42728,7 +42728,7 @@ t("Filter/Data/Resolver Reference", "筛选器/数据/解析器文档", "_t")
 t("#LIGHT_BLUE#Lua Inspect [%s] %s", "#LIGHT_BLUE#Lua 检查 [%s] %s", "log")
 t("#LIGHT_BLUE#Nothing to Lua inspect", "#LIGHT_BLUE#没有用于Lua检查的物品", "log")
 t("#LIGHT_BLUE#Bad %s: %s", "#LIGHT_BLUE#错误的%s: %s", "log")
-t("table definition", "表格定义", "_t")
+t("table definition", "表定义", "_t")
 t("#LIGHT_BLUE# Generate Random object using resolver: %s", "#LIGHT_BLUE# 使用解析器生成随机物品: %s", "log")
 t("#LIGHT_BLUE# New random%s object: %s", "#LIGHT_BLUE# 新随机%s 物品: %s", "log")
 t(" (resolver: %s)", " (解析器: %s)", "tformat")
@@ -42781,7 +42781,7 @@ t("???", "???", "_t")
 section "mod-tome/dialogs/orders/Behavior.lua"
 
 t("Set behavior: %s", "设置行为：%s", "tformat")
-t("%s behavior set to %s.", "%s 的行动被设定为 %s 。", "logPlayer")
+t("%s behavior set to %s.", "%s 的行为被设定为 %s。", "logPlayer")
 t("Default", "默认", "_t")
 t("Melee", "近战", "_t")
 t("Ranged", "远程", "_t")
@@ -42827,7 +42827,7 @@ t("Search: ", "搜索：", "_t")
 t("Name", "名称", "_t")
 t("\
 #{italic}##CRIMSON#This cosmetic feature is only available to donators/buyers. You can only preview.#WHITE##{normal}#", "\
-#{italic}##CRIMSON#这项时装特性仅对捐赠者/购买者可用。你只能预览#WHITE##{normal}#", "_t")
+#{italic}##CRIMSON#这项时装特性仅对捐赠者/购买者可用。你只能预览。#WHITE##{normal}#", "_t")
 t([[You can alter %s to look like another item of the same type/slot.
 #{bold}#This is a purely cosmetic change.#{normal}#%s]], [[你可以改变%s的外形，让它看起来像是同一类型/槽位的另一个物品。
 #{bold}#这个改变只会带来视觉上的变化。#{normal}#%s]], "tformat")
@@ -42852,7 +42852,7 @@ t("Search: ", "搜索：", "_t")
 t("Name", "名称", "_t")
 t("\
 #{italic}##CRIMSON#This cosmetic feature is only available to donators/buyers. You can only preview.#WHITE##{normal}#", "\
-#{italic}##CRIMSON#这项时装特性仅对捐赠者/购买者可用。你只能预览#WHITE##{normal}#", "_t")
+#{italic}##CRIMSON#这项时装特性仅对捐赠者/购买者可用。你只能预览。#WHITE##{normal}#", "_t")
 t([[You can alter your look.
 #{bold}#This is a purely cosmetic change.#{normal}#%s]], [[你可以改变你的外观。
 #{bold}#这个改变只会带来视觉上的变化。#{normal}#%s]], "tformat")
@@ -42889,7 +42889,7 @@ t("Name", "名称", "_t")
 t("Active", "激活", "_t")
 t("\
 #{italic}##CRIMSON#This cosmetic feature is only available to donators/buyers. You can only preview.#WHITE##{normal}#", "\
-#{italic}##CRIMSON#这项时装特性仅对捐赠者/购买者可用。你只能预览#WHITE##{normal}#", "_t")
+#{italic}##CRIMSON#这项时装特性仅对捐赠者/购买者可用。你只能预览。#WHITE##{normal}#", "_t")
 t([[#{bold}##CRIMSON#WARNING: this is an EXPERIMENTAL feature. It may explode!#LAST##{normal}#
 Sustains auras with name in #YELLOW#yellow#LAST# can not be automatically turned back on if disabled. After turning them on here, you need to unsustain and resustain them manually.
 
@@ -43143,7 +43143,7 @@ t("Second weapon set: In main hand", "第二套武器：在主手", "_t")
 t("Weapon Set 2: Most weapons are wielded in the main hand. Press 'x' to switch weapon sets.", "第二套武器：大部分武器使用主手抓握。按x切换武器套。", "_t")
 t("Second weapon set: In off hand", "第二套武器：在副手", "_t")
 t("Weapon Set 2: You can use shields or a second weapon in your off-hand, if you have the talents for it. Press 'x' to switch weapon sets.", "第二套武器：如果你有对应的技能，你可以副手使用盾牌或第二把武器。按x切换武器套。", "_t")
-t("Second weapon set: psionic focus", "第二套武器：心灵传动", "_t")
+t("Second weapon set: psionic focus", "第二套武器：灵能聚焦物", "_t")
 t("Weapon Set 2: Object held in your telekinetic grasp. It can be a weapon or some other item to provide a benefit to your psionic powers. Press 'x' to switch weapon sets.", "第二套武器：使用你的念动力抓取的物品。你可以抓取武器，或者抓取其他物品来为你的心灵力量提供增益。按x切换武器套。", "_t")
 t("Second weapon set: Quiver", "第二套武器：箭袋", "_t")
 t("Weapon Set 2: Your readied ammo.", "第二套武器：你准备好的弹药。", "_t")
