@@ -2683,7 +2683,7 @@ t("Killed the seven overpowered wyrms in the \"Room of Death\" in Vor Armoury.",
 t("I'm a cool hero", "我是超级英雄！", "achievement name")
 t("Saved Derth without a single inhabitant dying.", "在拯救德斯镇任务中没有村民死亡。", "_t")
 t("Kickin' it old-school", "复古风格", "achievement name")
-t("Killed Urkis, the Tempest, causing him to drop the Rod of Recall.", "杀死厄奇斯，使他掉落回归之杖。", "_t")
+t("Killed Urkis, the Tempest, causing him to drop the Rod of Recall.", "杀死暴风厄奇斯，使他掉落回归之杖。", "_t")
 t("Leave the big boys alone", "别惹大块头", "achievement name")
 t("Killed The Master, causing him to drop the Rod of Recall.", "杀死领主，使他掉落回归之杖。", "_t")
 t("You know who's to blame", "你知道谁才是罪人！", "achievement name")
@@ -3503,7 +3503,7 @@ to start, look where halflings once tinkered with portals...]], [[他们铸造�
 过去的窃贼失败了，但他们的数据将永远保存；
 要想找到它们，先去半身人曾经摆弄传送门的地方找找……]], "_t")
 t("Ogres are an altered form of Human, created in the Age of Allure as workers and warriors for the Conclave.", "食人魔是变种人类，在厄流纪被孔克雷夫作为工人和战士而制造。", "_t")
-t("Inscriptions have granted them magical and physical power far beyond their natural limits, but their dependence on runic magic made them a favored target during the Spellhunt, forcing them to take refuge among the Shalore.", "刻印给他们超过自然界限的强大力量，但他们对符文魔法的依赖使之成为猎魔行动绝佳的目标，而不得不依附于永恒精灵。", "_t")
+t("Inscriptions have granted them magical and physical power far beyond their natural limits, but their dependence on runic magic made them a favored target during the Spellhunt, forcing them to take refuge among the Shalore.", "刻印赋予他们远超自然极限的魔法与物理力量，但他们对符文魔法的依赖使之成为猎魔行动绝佳的目标，而不得不依附于永恒精灵。", "_t")
 t("Their preference for simple and direct solutions has given them an undeserved reputation as dumb brutes, despite their extraordinary talent with runes and their humble, dutiful nature.", "他们偏爱简单直接的解决办法，这让他们被不公平地冠以蠢笨蛮牛的恶名，尽管他们对符文有着惊人的天赋，而且天性谦逊尽责。", "_t")
 t("They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.", "他们拥有 #GOLD#食人魔之怒#WHITE# 技能，当他们的攻击落空或被格挡时，能提供暴击几率和暴击伤害，并提高对混乱和眩晕的抗性。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
@@ -5451,7 +5451,7 @@ t([[#LIGHT_GREEN#*She looks at you cheerfully*#WHITE#
 Ah the plan to sleep with me is finally revealed!
 Shhh you dummy, I thought we were past such silliness, I will come, both for my health and because I want to be with you.
 #LIGHT_GREEN#*She kisses you tenderly*#WHITE#]], [[#LIGHT_GREEN#*她兴奋地看着你*#WHITE#
-你的计划终于暴露了！
+你想和我一起睡的计划终于暴露了！
 嘘，你这个傻瓜，我还以为我们已经过了这种傻乎乎的年纪。我当然会去，不仅为了我的健康，也为了和你在一起。
 #LIGHT_GREEN#*她温柔地和你接吻*#WHITE#]], "_t")
 t("Then my lady, if you will follow me. #LIGHT_GREEN#[take her to the Fortress]", "我的女士，如果你愿意，就跟我来吧。#LIGHT_GREEN#[带她去堡垒]", "_t")
@@ -6753,7 +6753,7 @@ Worry not, though, Ogre - we can replace your unclean runes with a newly-discove
 请不要担心，虽然你是个食人魔，我们可以用我们最新研究出的新型复合纹身来取代你身上的不洁符文，从而永久消除了你对他们的依赖。这个过程可能有些……不适，并且会大幅缩短你的寿命，但是在此之后，你终于能够从奥术力量的依赖中得到解脱！\
 ", "_t")
 t([[We'll also reinforce the infusions you've been granted to replace your runes - the newest mixture should give you about five years of your life that the initial mixture took from you.
-]], [[我们还会加强那些你身上的纹身——最新配方能弥补最初配方从你身上夺走的约五年寿命。
+]], [[我们还会加强授予你的那些纹身，用来替代你的符文——最新配方能弥补最初配方从你身上夺走的约五年寿命。
 ]], "_t")
 t([[Very well. Before you start, we will make sure no magic can help you:
 - You will not be able to use any spells or magical devices
@@ -6768,7 +6768,7 @@ t("I am ready", "我准备好了。", "_t")
 t("I need to prepare.", "我需要准备一下。", "_t")
 t([[#VIOLET#*You are grabbed by two olive-clad warriors and thrown into a crude arena!*
 #LIGHT_GREEN#*You hear the voice of the Fighter ring above you.*#WHITE#
-%s! Your training begins! I want to see you prove your superiority over the works of magic! Fight!]], [[#VIOLET#*你被两个战士抓了起来，扔进了一个露天角斗场里！*
+%s! Your training begins! I want to see you prove your superiority over the works of magic! Fight!]], [[#VIOLET#*你被两个身着橄榄色服装的战士抓了起来，扔进了一个简陋的角斗场里！*
 #LIGHT_GREEN#*你听到斗士的声音在你头顶上方响起！*#WHITE#
 %s！你的训练开始了！我们要看到你超越魔法的能力，战斗吧！]], "tformat")
 t("But wha.. [you notice your first opponent is already there]", "但什……[你注意到你的第一个对手已经出现在战场上了]", "_t")
@@ -12386,7 +12386,7 @@ t("#STEEL_BLUE#You feel a swell of arcane energy.", "#STEEL_BLUE#你感受到一
 t("Hat of Arcane Understanding", "奥术理解之帽", "entity name")
 t("silver-runed hat", "银色符文帽子", "_t")
 t([[A traditional pointed wizard's hat, made of fine purple elven-silk and decorated with bright silver runes. You sense it has been passed from ancient times, and has been born on the heads of great mages.
-Touching the cloth you feel a sense of knowledge and power from bygone ages, yet it is partly sealed away, waiting for a trigger to release it.]], "一只传统巫师的尖帽子，由精美的紫色精灵丝绸制成，装饰着亮银色的符文。你意识到它来自远古时代，一个拥有众多伟大法师的时代。通过触摸你可以感受到远古的知识和能量，但仍有一部分被密封着，等待有缘人来释放它。", "_t")
+Touching the cloth you feel a sense of knowledge and power from bygone ages, yet it is partly sealed away, waiting for a trigger to release it.]], "一只传统巫师的尖帽子，由精美的紫色精灵丝绸制成，装饰着亮银色的符文。你感觉到它曾经被众多伟大的法师戴在头上。通过触摸你可以感受到远古的知识和能量，但仍有一部分被密封着，等待有缘人来释放它。", "_t")
 t("Only supremacy of the arcane can release its full power.", "只有奥术至尊才能完全发挥它的力量。", "_t")
 t("#STEEL_BLUE#The arcane energies surrounding you dissipate.", "#STEEL_BLUE#围绕着你的奥术能量消退了。", "logPlayer")
 t("Mirror Shards", "镜影碎片", "entity name")
@@ -35587,7 +35587,7 @@ t("+Crippling Blight", "+致残枯萎毒素", "_t")
 t("#Target# is free from the crippling blight.", "#Target#的致残枯萎毒素解除了。", "_t")
 t("-Crippling Blight", "-致残枯萎毒素", "_t")
 t("Numbing Blight", "麻痹枯萎毒素", "_t")
-t("The target is poisoned and sick, doing %0.2f blight damage per turn. All damage it does is reduced by %d%%.", "目标中毒，每回合受到 %0.2f 枯萎伤害并减少其造成的伤害 %d%%。", "tformat")
+t("The target is poisoned and sick, doing %0.2f blight damage per turn. All damage it does is reduced by %d%%.", "目标中毒且患病，每回合受到 %0.2f 枯萎伤害并减少其造成的伤害 %d%%。", "tformat")
 t("#Target# is poisoned numbing blight!", "#Target#中了麻痹枯萎毒素!", "_t")
 t("+Numbing Blight", "+麻痹枯萎毒素", "_t")
 t("#Target# is free from the numbing blight.", "#Target#的麻痹枯萎毒素解除了。", "_t")
@@ -36950,7 +36950,7 @@ t("+Numbing Poison", "+麻痹毒素", "_t")
 t("-Numbing Poison", "-麻痹毒素", "_t")
 t("earth", "土", "effect subtype")
 t("Stoning Poison", "石化毒素", "_t")
-t("The target is taking %0.2f nature damage per turn from a potent earth-based poison.  In %d more turn(s), or when the poison has run its course (%d%% chance), the target will be turned to stone for %d turns.", "目标每回合受到 %0.2f 自然伤害。在 %d 回合后，或者毒素效果结束时（%d%% 几率），目标将被石化 %d 回合。", "tformat")
+t("The target is taking %0.2f nature damage per turn from a potent earth-based poison.  In %d more turn(s), or when the poison has run its course (%d%% chance), the target will be turned to stone for %d turns.", "目标每回合受到来自强效土系毒素的 %0.2f 自然伤害。在 %d 回合后，或者毒素效果结束时（%d%% 几率），目标将被石化 %d 回合。", "tformat")
 t("#Target# is infused with stone poison!", "#Target#被石化毒素影响！", "_t")
 t("+Stoning Poison", "+石化毒素", "_t")
 t("#Target# is free of the stone poison!", "#Target#脱离了石化毒素影响！", "_t")
@@ -39104,7 +39104,7 @@ t("humanoid", "人形生物", "entity type")
 t("naga", "娜迦", "entity subtype")
 t("naga tidewarden", "娜迦潮汐守卫", "entity name")
 t("naga tidecaller", "娜迦潮汐呼唤者", "entity name")
-t("A slithering noise accompanies the movement of this strange creature, whose snake-like tail gives rise to the body of a beautiful elf-like woman. As she moves her delicate hands water rises from the ground, and you feel that here is no mere monster, but a creature of awe and power.", "这只奇怪的生物移动时发出滑行的声响，蛇一样的尾巴之上是美丽精灵般的躯体。当她移动纤细的双手时，水从地面升起，你感到面前的并非普通怪物，而是一种令人敬畏的力量。", "_t")
+t("A slithering noise accompanies the movement of this strange creature, whose snake-like tail gives rise to the body of a beautiful elf-like woman. As she moves her delicate hands water rises from the ground, and you feel that here is no mere monster, but a creature of awe and power.", "这只奇怪的生物移动时发出滑行的声响，蛇一样的尾巴之上是美丽精灵般的躯体。当她移动纤细的双手时，水从地面升起，你感到面前的并非普通怪物，而是一个令人敬畏而强大的生物。", "_t")
 t("naga nereid", "娜迦海卫", "entity name")
 t("Green eyes stare out from behind strands of long, golden hair, which falls down in waves over smooth, pale skin. Your eyes are drawn to the bare flesh, but as they look further they see dark scales stretching out into a long serpent's tail. You look up as she moves, her hair parting to reveal a slim and beautiful face with high cheekbones and full lips. Yet for all the allure of this wondrous creature the terror of the serpentine tail sends shivers down your spine.", "绿色的眼睛后面是披落在白皙肩膀的金发。你的眼睛被裸露的肌肤所吸引，但是当你往下看时，你会发现黑色的长蛇尾巴。当她移动时你看向她的脸部，在金发之下是红润而美丽的脸庞，有着高颧骨和丰满的嘴唇。虽然从各方面看来，她都很完美，但是仍掩饰不住你眼皮底下的蛇尾巴带来的恐怖。", "_t")
 t("Lady Nashva the Streambender", "激流盘旋者纳纱瓦女士", "entity name")
@@ -39779,7 +39779,7 @@ t("naga", "娜迦", "entity subtype")
 t("naga tidewarden", "娜迦潮汐守卫", "entity name")
 t("Before you stands a tall figure, propped high by a serpent's tail in place of where his legs should rightly be. His torso is slim and muscular, and his face has an elven beauty to it, framed by locks of blonde hair. But there is a fierceness to this creature too, and his bright eyes veil a smouldering anger.", "在你的面前站着一位高大的生物，在他的腿部是像蛇一样的尾巴。他的身躯看起来高大威猛，并且他还有着一张精灵般美貌的脸庞和一头秀丽的长发。但同样的，这个生物也异常危险，你可以从他的眼睛中看到潜藏的愤怒。", "_t")
 t("naga tidecaller", "娜迦潮汐呼唤者", "entity name")
-t("A slithering noise accompanies the movement of this strange creature, whose snake-like tail gives rise to the body of a beautiful Elf-like woman. As she moves her delicate hands, water rises from the ground, and you feel that here is no mere monster, but a creature of awe and power.", "这只奇怪的生物移动时发出滑行的声响，蛇一样的尾巴之上是美丽精灵般的躯体。当她移动纤细的双手时，水从地面升起，你感到面前的并非普通怪物，而是一种令人敬畏的力量。", "_t")
+t("A slithering noise accompanies the movement of this strange creature, whose snake-like tail gives rise to the body of a beautiful Elf-like woman. As she moves her delicate hands, water rises from the ground, and you feel that here is no mere monster, but a creature of awe and power.", "这只奇怪的生物移动时发出滑行的声响，蛇一样的尾巴之上是美丽精灵般的躯体。当她移动纤细的双手时，水从地面升起，你感到面前的并非普通怪物，而是一个令人敬畏而强大的生物。", "_t")
 t("naga nereid", "娜迦海卫", "entity name")
 t("Green eyes stare out from behind strands of long, golden hair, which falls down in waves over smooth, pale skin. Your eyes are drawn to the bare flesh, but as they look further they see dark scales stretching out into a long serpent's tail. You look up as she moves, her hair parting to reveal a slim and beautiful face with high cheekbones and full lips. Yet for all the allure of this wondrous creature the terror of the serpentine tail sends shivers down your spine.", "绿色的眼睛后面是披落在白皙肩膀的金发。你的眼睛被裸露的肌肤所吸引，但是当你往下看时，你会发现黑色的长蛇尾巴。当她移动时你看向她的脸部，在金发之下是红润而美丽的脸庞，有着高颧骨和丰满的嘴唇。虽然从各方面看来，她都很完美，但是仍掩饰不住你眼皮底下的蛇尾巴带来的恐怖。", "_t")
 t("Lady Zoisla the Tidebringer", "潮汐使者佐西拉夫人", "entity name")
