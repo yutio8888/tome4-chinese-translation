@@ -5033,7 +5033,7 @@ section "mod-tome/data/chats/fallen-aeryn.lua"
 t("%s grabs her amulet and disappears in a whirl of arcane energies.", "%s 抓住了她的项链在一股奥术漩涡中消失了。", "logPlayer")
 t([[#LIGHT_GREEN#*She lies nearly dead at your feet*#WHITE#
 So, now you will kill me and complete the cycle of destruction?]], [[#LIGHT_GREEN#*她倒在你的脚下，快要死了。*#WHITE#
-那么，现在你会杀死我然后完成毁灭法阵？]], "_t")
+那么，现在你会杀死我，完成这个毁灭的循环？]], "_t")
 t("What are you talking about? Why did you attack me?", "你在说什么？你为什么要攻击我？", "_t")
 t("Speak and I might spare you. Why did you attack me?", "说吧，也许我会饶恕你，你为什么要攻击我？", "_t")
 t("[kill her]", "[杀了她]", "_t")
@@ -5079,7 +5079,7 @@ Aside from a few early attempts with questionable results, he hasn't had much lu
 
 Actually... maybe it would benefit you if you meet Zemekkys. He would surely be intrigued by that Orb of Many Ways you possess. He lives in a small house just to the north.]], [[你看到的那些人很可能是伊莫克斯关于远古传送门实验的志愿者。
 他是居住在太阳堡垒的一个法师，脾气古怪但是很有能力，他坚信可以创造一个远古传送门达到马基·埃亚尔。
-除了他早期的一些尝试获得了一点可疑的结论外，他并不算走运。不过还是很高兴听到他的实验对象还活着的消息，尽管立场上我们不一致，不过毕竟是生活在同一片阳光下的人。
+除了他早期的一些尝试获得了一点可疑的结论外，他并不算走运。不过还是很高兴听到他的实验对象还活着，无论他们身在何方。毕竟我们都生活在同一片阳光下。
 
 事实上……也许去见见伊莫克斯对你有好处。他一定会对你手上的多元水晶球感兴趣。他就住在北边的小屋里。]], "_t")
 t("Maybe I'll visit him. Thank you.", "也许我会见见他，谢谢。", "_t")
@@ -5161,7 +5161,7 @@ t("Sorry, I have to go!", "抱歉，我要走了！", "chat_gates-of-morning-wel
 t([[Maj'Eyal! For many years have we tried to contact your people. We always failed.
 In any event, what is your purpose here?]], [[马基·埃亚尔！我们的人民尝试了很多年与你们取得联系，但都失败了。
 不管怎样，你来这里是干什么的？]], "_t")
-t("It seems that I am stranded in these unfamiliar lands. #LIGHT_GREEN#*Tell her about your hunt for orcs and your encounter with Fillarel.*#WHITE#", "好像我在这块陌生的大陆上迷路了。#LIGHT_GREEN#*告诉她关于你追杀兽人并遭遇了菲拉瑞尔的事。*#WHITE#", "_t")
+t("It seems that I am stranded in these unfamiliar lands. #LIGHT_GREEN#*Tell her about your hunt for orcs and your encounter with Fillarel.*#WHITE#", "好像我在这片陌生的土地上被困住了。#LIGHT_GREEN#*告诉她关于你追杀兽人并遭遇了菲拉瑞尔的事。*#WHITE#", "_t")
 t("Sun Paladins? What do you mean? We know of no such thing where I come from.", "太阳骑士？你是什么意思？在我的家乡，我们没听说过这种东西。", "_t")
 t([[We are the mighty warriors of the Sunwall, channeling the power of the Sun and merging it with martial training.
 For hundreds of years, we stood between the Orc Pride and the free people. Our numbers are diminishing, but we will stand firm until our last breath.]], [[我们是太阳堡垒里强大的战士，汲取太阳的力量，并将其注入到我们的军事训练中。
@@ -5181,7 +5181,7 @@ t([[#VIOLET#*As you open the door you notice a huge orc in the distance, covered
 @playerdescriptor.race@! You should never have come! Your doom awaits!
 The Orc Pride will never yield to anybody! They have their precious and there is nothing you can do.]], [[#VIOLET#*当你打开门，你注意到远处一个巨大的兽人，同时被冰与火包围着。*
 #LAST#@playerdescriptor.race@！你不应该来这里！你的死期到了！
-兽人部落不会为任何人让步！他们有他们的荣耀，你什么也做不了！]], "_t")
+兽人部落不会为任何人让步！他们有他们珍视的东西，你什么也做不了！]], "_t")
 t("The Orc Pride obeys a master? I see... 'pride' indeed!", "整个兽人部落会服从一个主人？我明白了……还真是“骄傲”啊！", "_t")
 t("#LIGHT_GREEN#[Attack]", "#LIGHT_GREEN#[攻击]", "_t")
 t("The Pride chooses its allies. It has no master! ATTACK!", "部落只会选择自己的盟友，我们从不屈服于人！攻击！", "_t")
@@ -5215,14 +5215,14 @@ t("Sorry I have to go!", "抱歉，我必须得走了。", "_t")
 t([[Then you are at the right place, for I am an expert jeweler.
 If you bring me a gem and a ring, I can create a new ring imbued with the properties of the gem.  The original traits of the ring will be lost in the process but new ones of similar quality will be generated.
 There is a small fee dependent on the level of the ring, and you need a quality ring to use a quality gem.]], [[你算找对地方了，我可是一个珠宝专家。
-如果你给我找来一颗宝石和一枚戒指，我可以帮你把宝石的力量镶嵌到戒指里去。这颗戒指里面原来所有的属性会丢失掉，不过会也生成一些质量相似的新属性。
-不过根据不同戒指品质我要收取一小笔费用。你得寻找高品质的戒指来用于高品质的宝石。]], "_t")
+如果你给我找来一颗宝石和一枚戒指，我可以帮你把宝石的力量镶嵌到戒指里去。这颗戒指里面原来所有的属性会丢失掉，不过也会生成一些质量相似的新属性。
+不过根据戒指等级我要收取一小笔费用。你得寻找高品质的戒指来用于高品质的宝石。]], "_t")
 t("I need your services.", "我需要你的服务。", "_t")
 t("Not now, thanks.", "暂时不用，谢了。", "_t")
 t([[Yes! Thanks to you this place is now free from the corruption. I will stay on this island to study the magical aura, and as promised I can make you powerful amulets.
 Bring me a an amulet and two different gems and I will turn them into a powerful amulet, though the original properties of the amulet will be lost.
-I will not make you pay a fee for it since you helped me so much, but I am afraid the ritual requires a gold plating. This should be equal to about 1000 gold pieces.]], [[对！感谢你让这个地方从腐化中脱离了出来。我会留在这个岛上学习魔法光环，我会遵守我的诺言帮你制作一枚强力的项链。
-给我带来一条项链还有两颗不同的宝石，我会利用它们给制作一枚强力的项链。
+I will not make you pay a fee for it since you helped me so much, but I am afraid the ritual requires a gold plating. This should be equal to about 1000 gold pieces.]], [[对！感谢你让这个地方从腐化中脱离了出来。我会留在这个岛上学习魔法光环，我会遵守我的诺言帮你制作一条强力的项链。
+给我带来一条项链还有两颗不同的宝石，我会利用它们制作一条强力的项链。
 你帮了我那么多，这次我不收任何费用。不过制作过程中需要镀金工艺，这大约得花费1000金币。]], "_t")
 t([[#LIGHT_GREEN#*He quickly looks at the tome and looks amazed.*#WHITE# This is an amazing find! Truly amazing!
 With this knowledge I could create potent amulets. However, it requires a special place of power to craft such items.
@@ -5231,7 +5231,7 @@ A lake formed in the crater of the crash. The water of this lake, soaked in inte
 Go to the lake and then summon me with this scroll. I will retire to study the tome, awaiting your summon.]], [[#LIGHT_GREEN#*他快速浏览了那本手册，露出了惊讶的表情。*#WHITE# 这真是神奇的发现！太神奇了！
 有了这些知识我就能制造更强大的项链了。不过这需要一个特殊的地方来完成制作过程。
 传言在南部山脉之中有个地方充满能量。有个古老的传说，当冬月与太阳距离太接近的时候它的一部分从空中掉落了下来并融入了大地，使那个地方充满能量。
-在坠落的地方形成了一个湖泊，湖水吸收了万年月光的力量，应该有足够的神力来制作这件艺术品。
+在坠落的地方形成了一个湖泊，湖水吸收了万年月光的力量，应该足以锻造出强大的神器。
 去找到那个湖泊，然后使用这个卷轴将我召唤过去，从现在开始我要潜心研修你的这本手册，等待你召唤我的那一刻。]], "_t")
 t("I will see if I can find it.", "我看看能不能找到那个地方。", "_t")
 
@@ -5253,7 +5253,7 @@ t("#LIGHT_GREEN#[Attack]", "#LIGHT_GREEN#[攻击]", "_t")
 section "mod-tome/data/chats/keepsake-caravan-destroyed.lua"
 
 t([[#VIOLET#*As the last member of the caravan lies dying, you look at him and see the hate that fills his eyes.*#LAST#
-We should have finished you off that day. You deserved no mercy!]], [[#VIOLET#*作为商队最后的牺牲者，你看到他的双眼中满是仇恨。*#LAST#
+We should have finished you off that day. You deserved no mercy!]], [[#VIOLET#*当商队最后一名成员垂死之际，你看着他，看到他眼中充满仇恨。*#LAST#
 我们那天应该杀了你。你不应该得到怜悯！]], "_t")
 t("And I will show you no mercy. #LIGHT_GREEN#[Kill him]#LAST#", "那就让我来告诉你什么是无情。 #LIGHT_GREEN#[杀了他]#LAST#", "_t")
 t("I am sorry. #LIGHT_GREEN#[Help him]#LAST#", "对不起。 #LIGHT_GREEN#[帮助他]#LAST#", "_t")
@@ -5283,7 +5283,7 @@ t([[#LIGHT_GREEN#*He remains silent for a while*#WHITE# Indeed you were right to
 The staff you describe reminds me of an artifact of great power from ancient times. May I see it?]], [[#LIGHT_GREEN#*他沉默了一段时间*#WHITE# 的确你来这里是对的。
 你描述的法杖让我想起了一件在古代有强大力量的神器，能让我看一下么？]], "_t")
 t("Here it is. #LIGHT_GREEN#*Tell him about the encounter with the orcs*#LAST# You should keep it. I can feel its power and it would be safer if it were guarded by the armies of the kingdom.", "就是这个。 #LIGHT_GREEN#*告诉他有关被兽人部队伏击的事。*#LAST# 你应该拿着它。我能感受到它的力量，法杖在王国军队的保护下才是安全的。", "_t")
-t("I am afraid I lost it. #LIGHT_GREEN#*Tell him about the encounter with the orcs*", "抱歉我没能把它带来。 #LIGHT_GREEN#*告诉他有关被兽人部队伏击的事。*", "_t")
+t("I am afraid I lost it. #LIGHT_GREEN#*Tell him about the encounter with the orcs*", "恐怕我把它弄丢了。 #LIGHT_GREEN#*告诉他有关被兽人部队伏击的事。*", "_t")
 t("I had it briefly but have lost it somehow.  It could have been some orcs I encountered ...", "我本来有它，但不知怎么弄丢了。大概是被我遇到的兽人抢走了……", "_t")
 t([[I am truly astonished by your strength; surviving that encounter was an epic feat.
 As for the orcs, it is deeply troubling.  We have not seen any for eighty years... could they have come from the far east?
@@ -5293,17 +5293,17 @@ Anyway, thank you again, @playername@, for your help.]], [[我很惊讶你的力
 t("Thank you, my lord.", "谢谢你，阁下。", "_t")
 t([[Orcs?! In the west?! This is deeply alarming! We have not seen any for nearly eighty years. They must have come from the far east...
 But do not let me trouble you; you brought important news and you are lucky to be alive.]], [[兽人？在西部大陆？！这非常令人担忧！我们几乎已经80年没有见到过兽人了，他们肯定是从远东大陆来的……
-不过你不必自责，你带来了重要的消息，而且你还能活下来已经很幸运了。]], "_t")
+不过别让我耽误你了，你带来了重要的消息，而且你还能活下来已经很幸运了。]], "_t")
 t([[We have heard rumours from the Dwarves that there may still be an orc presence deep in the old kingdom of Reknor, in the Iron Throne.
 I know you have been through a lot, but we need somebody to investigate and determine if there is a connection with the staff.]], [[有来自矮人的传说，在钢铁王座古王国瑞库纳深处可能仍有兽人的踪迹。
 我知道你已经经历了很多事，不过我们还是需要一个人去调查一下，确认他们与法杖之间的联系。]], "_t")
 t("I will check the mines.", "我会去矿坑那里调查。", "_t")
 t("That's extraordinary! I know a number of merchant princes who will salivate at the idea of new trade routes opening. But tell me, how fares your quest for the staff?", "真不可思议！对于新商路的开辟，我知道一些富商知道这个消息后肯定会高兴的直流口水。不过你还没告诉我，关于法杖的事情，进行的怎么样了？", "_t")
-t("The staff is recovered and the culprits slain. They will trouble us no more. [tell him the whole story]", "法杖已经复原，罪犯已经被处决，他们不会再困扰我们了。[告诉他整个事情经过。]", "_t")
-t("The hunt continues. The construction of this portal will be of great assistance in the staff's recovery.", "还在继续调查，传送门的建立对于法杖的修复会有极大的帮助。", "_t")
-t("Excellent! Well then, concerning this fascinating portal, I'm afraid that men have largely forgotten whatever they once knew about the great magics of old. I know of only one man in these lands who might be able to help you, a wise man and recent arrival to Last Hope named Tannen. He claims to hail from Angolwen, a supposed haven for practitioners of magic and mysticism. He arrived just months ago with fabulous wealth and has already constructed his own tower in the northern part of the city. I know little of him, but if he is to be believed, then he is your best hope.", "太棒了！但是，关于这个有趣的传送门，恐怕很多人早已将古老魔法遗忘了。我只知道在这个大陆上有一个人可能能够帮助你，一个最近才来到最后希望的智者。他的名字叫泰恩，他自称他是从安格利文来的，那是传说中的神秘魔法港湾，他几个月前刚和一个富商来到这里，他在城市北部边境建造了他的塔楼。我对他了解不多，不过如果他是个可信之人的话，应该是最有可能帮上你的。", "_t")
+t("The staff is recovered and the culprits slain. They will trouble us no more. [tell him the whole story]", "法杖已经找回，罪犯已经被处决，他们不会再困扰我们了。[告诉他整个事情经过。]", "_t")
+t("The hunt continues. The construction of this portal will be of great assistance in the staff's recovery.", "追查仍在继续。建造这座传送门将极大地帮助我们找回法杖。", "_t")
+t("Excellent! Well then, concerning this fascinating portal, I'm afraid that men have largely forgotten whatever they once knew about the great magics of old. I know of only one man in these lands who might be able to help you, a wise man and recent arrival to Last Hope named Tannen. He claims to hail from Angolwen, a supposed haven for practitioners of magic and mysticism. He arrived just months ago with fabulous wealth and has already constructed his own tower in the northern part of the city. I know little of him, but if he is to be believed, then he is your best hope.", "太棒了！但是，关于这个有趣的传送门，恐怕很多人早已将古老魔法遗忘了。我只知道在这个大陆上有一个人可能能够帮助你，一个最近才来到最后希望的智者。他的名字叫泰恩，他自称他是从安格利文来的，那是传说中的神秘魔法港湾，他几个月前刚带着巨额财富来到这里，他在城市北部边境建造了他的塔楼。我对他了解不多，不过如果他是个可信之人的话，应该是最有可能帮上你的。", "_t")
 t("Thank you.", "谢谢。", "_t")
-t("In that case, let us proceed as quickly as possible. Now, concerning this fascinating portal. I'm afraid that men have largely forgotten whatever they once knew about the great magics of old. I know of only one man in these lands who might be able to help you, a wise man and recent arrival to Last Hope named Tannen. He claims to hail from Angolwen, a supposed haven for practitioners of magic and mysticism. He arrived just months ago with fabulous wealth and has already constructed his own tower in the northern part of the city. I know little of him, but if he is to be believed, then he is your best hope.", "那样的话，我们就长话短说，关于这个有趣的传送门，恐怕很多人早已将古老魔法遗忘了。我只知道在这个大陆上有一个人可能能够帮助你，一个最近才来到最后希望的智者。他的名字叫泰恩，他自称他是从安格利文来的，那是传说中的神秘魔法港湾，他几个月前刚和一个富商来到这里，他在城市北部边境建造了他的塔楼。我对他了解不多，不过如果他是个可信之人的话，应该是最有可能帮上你的。", "_t")
+t("In that case, let us proceed as quickly as possible. Now, concerning this fascinating portal. I'm afraid that men have largely forgotten whatever they once knew about the great magics of old. I know of only one man in these lands who might be able to help you, a wise man and recent arrival to Last Hope named Tannen. He claims to hail from Angolwen, a supposed haven for practitioners of magic and mysticism. He arrived just months ago with fabulous wealth and has already constructed his own tower in the northern part of the city. I know little of him, but if he is to be believed, then he is your best hope.", "那样的话，我们就长话短说，关于这个有趣的传送门，恐怕很多人早已将古老魔法遗忘了。我只知道在这个大陆上有一个人可能能够帮助你，一个最近才来到最后希望的智者。他的名字叫泰恩，他自称他是从安格利文来的，那是传说中的神秘魔法港湾，他几个月前刚带着巨额财富来到这里，他在城市北部边境建造了他的塔楼。我对他了解不多，不过如果他是个可信之人的话，应该是最有可能帮上你的。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/last-hope-lost-merchant.lua"
@@ -5321,7 +5321,7 @@ t(" organizing my inventory, I came across some #YELLOW#Smelly Toxin#LAST# that 
 t("\
 You would not happen to be interested, by any chance?", "你应该会对它感兴趣吧？", "_t")
 t("\
-Oh my friend, good news! As I told you I can now request a truly #{italic}#unique#{normal}# object to be crafted just for you. For a truly unique price...", "噢我的好朋友，我告诉过你我可以为你打造一件真正的 #{italic}#史诗#{normal}# 物品，专门为你量身定做哦，而且价格非常公道……", "_t")
+Oh my friend, good news! As I told you I can now request a truly #{italic}#unique#{normal}# object to be crafted just for you. For a truly unique price...", "噢我的好朋友，我告诉过你我可以为你打造一件真正的 #{italic}#史诗#{normal}# 物品，专门为你量身定做哦，而且价格也同样独一无二……", "_t")
 t("\
 I eventually plan to arrange a truly unique service for the most discerning of customers. If you come back later when I'm fully set up I shall be able to order for you something quite marvellous. For a perfectly #{italic}#suitable#{normal}# price, of course.", "\
 我准备为最有眼光的那位顾客提供一件真正独特的服务。如果你过会儿回来，我将做好充分准备后给你一个大大的惊喜。而且价格绝对#{italic}#公道#{normal}#哦！当然！", "_t")
@@ -5341,7 +5341,7 @@ t([[Ungrol told me this substance contains some exceedingly rare components.
 "More Toxin than Medicine" he said.  Allas, he had not the funds to buy it.  On the other hand, because of our special relationship, I'm willing to let you have it #{italic}#at cost#{normal}# -- only 1500 gold pieces!]], [[温格勒发现这种物质含有某些稀有成分，
 “与其说是药，不如说是毒。”他说，但他没钱买下来。 基于我们的良好关系，我很愿意卖给你，#{italic}#只需要#{normal}# -- 1500 金币!]], "_t")
 t("Fairly pricey, but seems useful.  We have a deal!", "有点贵，不过应该能派上用场。我要了！", "_t")
-t("That price ... er stuff really stinks ...", "这个价格 ... 还是算了吧...", "_t")
+t("That price ... er stuff really stinks ...", "这价格……呃，真够臭的……", "_t")
 t("Here you are.  Just be sure not to get any on yourself!", "给你了。别洒在自己身上了", "_t")
 t("I normally offer this service only for a truly deserved price, but for you my friend I am willing to offer a 20% discount - #{italic}#only#{normal}# 4000 gold to make an utterly unique item of your choice.  What do you say?", "对于这项服务，只有到了合理的价位我才会愿意提供给别人，不过对你，我的朋友，我准备给你打个20%的折扣—— #{italic}#只要#{normal}# 4000 金币就可以打造一个真真正正你特有的装备哦，怎么样？", "_t")
 t("Why, 'tis a paltry sum - take my order, man, and be quick about it!", "什么？这点小钱无所谓，赶紧给我弄出来吧！", "_t")
@@ -5397,9 +5397,9 @@ Ah well, the bad dreams are still better than the fate you saved me from!]], [[�
 不过，这比起你救我之前的处境，确实好多了！]], "_t")
 t("Should I come across a way to help you during my travels, I will try to help.", "如果在我的旅程中能帮到你的话，我会尽力的。", "_t")
 t("Thank you, you are most welcome.", "谢谢，你真是个好人。", "_t")
-t("Most certainly, so what are your plans now?", "那么，你现在有什么计划么？", "_t")
+t("Most certainly, so what are your plans now?", "当然，那么你现在有什么计划么？", "_t")
 t("Hi @playername@! I am feeling better now, even starting to grow restless...", "你好 @playername@! 我感觉好多了，甚至开始有点闲不住了……", "_t")
-t("So what are your plans now?", "那么，你有什么计划么", "_t")
+t("So what are your plans now?", "那么，你有什么计划么？", "_t")
 t("About that, I was thinking that maybe you'd like to go out with me sometime ...", "呃，我觉得你也许喜欢和我出去走走……", "_t")
 t([[#LIGHT_GREEN#*Melinda appears at the door and kisses you*#WHITE#
 Hi my dear, I'm so happy to see you!]], [[#LIGHT_GREEN#*梅琳达出现在门口，亲吻了你*#WHITE#
@@ -5415,7 +5415,7 @@ t("I have seen how you fought those corruptors, the way you destroyed their magi
 t([[Or maybe, well I suppose I can trust you with this, I've always secretly dreamed of learning magic. Real magic I mean not alchemist tricks!
 I've learnt about a secret place, Angolwen, where I could learn it.]], [[或许，呃，我可以相信你吧，我一直想学魔法。是真正的魔法，而不是炼金术士的小把戏！
 我听说过一个秘密的地方，叫做安格利文，在那里我就能学习魔法。]], "_t")
-t("Derth has its up and downs but I think they could do with a smart girl yes.", "德斯镇有自己的起起落落，但我相信像你这样的聪明女孩一定能生活下去。", "_t")
+t("Derth has its up and downs but I think they could do with a smart girl yes.", "德斯镇有自己的起起落落，但我想他们正需要像你这样的聪明女孩。", "_t")
 t("Thanks!", "谢谢！", "_t")
 t("You wish to join our noble crusade against magic? Wonderful! I will talk to them for you.", "你希望加入我们高尚的反魔组织么？太好了！我会和他们说的。", "_t")
 t("That would be very nice!", "那真是太好了！", "_t")
@@ -5430,7 +5430,7 @@ t([[#LIGHT_GREEN#*She looks at you cheerfully.*#WHITE#
 Just kidding. I would love that!]], [[#LIGHT_GREEN#*她兴奋地看着你*#WHITE#
 开玩笑的，我很喜欢!]], "_t")
 t("#LIGHT_GREEN#[walk away with her]#WHITE#What about a little trip to the south, from the coastline we can see the Charred Scar Volcano, it is a wonderous sight.", "#LIGHT_GREEN#[和她一起离开]#WHITE#我们去南边来一趟小旅行吧，从海岸线上可以看到焦痕火山，那是一幅壮丽的景象。", "_t")
-t("Joke's on you really, goodbye!", "开什么玩笑，再见了！", "_t")
+t("Joke's on you really, goodbye!", "被耍的人是你，再见了！", "_t")
 t("But... ok goodbye.", "但是……好吧，再见。", "_t")
 t([[#LIGHT_GREEN#*You take Melinda in your arms and press her against you. The warmth of the contact lightens your heart.*#WHITE#
 I feel safe in your arms. Please, I know you must leave, but promise to come back soon and hold me again.]], [[#LIGHT_GREEN#*你把梅琳达紧紧拥在怀里，身体的接触使你感受到她的体温照亮了你的内心。*#WHITE#
@@ -5444,15 +5444,15 @@ Please tell me you can help!]], [[#LIGHT_GREEN#*梅琳达面露忧愁*#WHITE#
 请帮帮我!]], "_t")
 t("Yes, I think so. Some time ago I assumed ownership of a very special home... #LIGHT_GREEN#[tell her the Fortress story]#WHITE#", "呃，不久前，我拥有了一座非常特别的房子... #LIGHT_GREEN#[告诉她关于堡垒的事]#WHITE#", "_t")
 t([[An ancient fortress of a mythical race?! How #{bold}#exciting#{normal}#!
-And you say it could cure me?]], [[一座神秘种族的古代堡垒#{bold}#真不可思议！#{normal}#!
-你觉得那会治疗我么]], "_t")
+And you say it could cure me?]], [[一座神话种族的古代堡垒？！真#{bold}#令人兴奋#{normal}#！
+你说它能治好我？]], "_t")
 t("The Fortress seems to think so. I know this might sound a bit .. inappropriate .. but you would need to come live there, at least for a while.", "堡垒应该是可以的。我知道，这听上去有一点，呃，不太合适。不过，你应该到那里去住上一小段时间。", "_t")
 t([[#LIGHT_GREEN#*She looks at you cheerfully*#WHITE#
 Ah the plan to sleep with me is finally revealed!
 Shhh you dummy, I thought we were past such silliness, I will come, both for my health and because I want to be with you.
 #LIGHT_GREEN#*She kisses you tenderly*#WHITE#]], [[#LIGHT_GREEN#*她兴奋地看着你*#WHITE#
 你的计划终于暴露了！
-傻瓜，两个大傻瓜。我当然会去，不仅为了我的健康，也为了和你在一起。
+嘘，你这个傻瓜，我还以为我们已经过了这种傻乎乎的年纪。我当然会去，不仅为了我的健康，也为了和你在一起。
 #LIGHT_GREEN#*她温柔地和你接吻*#WHITE#]], "_t")
 t("Then my lady, if you will follow me. #LIGHT_GREEN#[take her to the Fortress]", "我的女士，如果你愿意，就跟我来吧。#LIGHT_GREEN#[带她去堡垒]", "_t")
 
@@ -5588,7 +5588,7 @@ t("I do. The Ziguranth are not raving zealots, you know. We will look for a way 
 t("This is terrible! What is happening to me?!? You must help me!", "天啊!到底发生了什么?!?你一定要帮我!", "_t")
 t("I will. We will find a cure for this together.", "我当然会帮你。我们一起来想办法。", "_t")
 t("I'm a very lucky girl, am I not... This is the second time I've had you to save me now.", "我真是幸运的女孩，不是吗... 这是你第二次拯救我了。", "_t")
-t("Over the last weeks you've become very important to me, and I am glad to have you. This is certainly not the place to talk, though, let's go.", "最近的几个星期里，你对我非常重要，我很乐意这样做。不过，这里不是说话的地方，我们找个安全的地方吧。", "_t")
+t("Over the last weeks you've become very important to me, and I am glad to have you. This is certainly not the place to talk, though, let's go.", "最近的几个星期里，你对我非常重要，有你在身边我很高兴。不过，这里显然不是说话的地方，我们走吧。", "_t")
 t("You're right, let's get out of here.", "你说得对！快点离开这。", "_t")
 t("#LIGHT_GREEN#[go back to Last Hope]", "#LIGHT_GREEN#[回到最后的希望]", "_t")
 
@@ -5601,14 +5601,14 @@ The air is fresh, the sand shimmers, and the surf roars softly.*#WHITE#
 This was such a lovely idea!
 I have had a wonderful time with you today.
 
-#LIGHT_GREEN#*She looks longingly into your eyes.*#WHITE#]], [[#LIGHT_GREEN#*你们两个在沙滩上放松一了阵子。
+#LIGHT_GREEN#*She looks longingly into your eyes.*#WHITE#]], [[#LIGHT_GREEN#*你们两个在沙滩上放松了一阵子。
 空气清新无比，阳光照射在砂砾上，闪耀五颜六色的光芒，
 耳边传来海浪轻柔地呼啸。*#WHITE#
 
 出来旅行真好！
 今天和你玩得很开心啊。
 
-#LIGHT_GREEN#*她直视着你，眼睛里闪耀莫名的光芒。*#WHITE#]], "_t")
+#LIGHT_GREEN#*她含情脉脉地凝视着你。*#WHITE#]], "_t")
 t("#LIGHT_GREEN#[Lean closer and kiss her]#WHITE#", "#LIGHT_GREEN#[你靠了过去，亲吻了她]#WHITE#", "_t")
 t([[Just before your lips touch, you sense that something is very wrong.
 ]], [[在你们俩嘴唇相碰之前，你注意到有什么不对劲……
@@ -5634,13 +5634,13 @@ Do you remember, I once told you %s Maybe we could find a way to get me there du
 t("Oh yes, I think we could arrange that. Shadow, would it be possible to create a portal for her?", "当然可以，我相信我们能做到。堡垒幻影，能为她制造一个传送门么？", "_t")
 t([[Yes Master. I will arrange for that right now.
 She will be able to come and go unnoticed.]], [[是的，主人。我马上做。
-她将能够无声无息的来往于俩地之间。]], "_t")
+她将能够无声无息地来往于两地之间。]], "_t")
 t("That is perfect.", "很好。", "_t")
-t("Oh this is great, thank you! My own secret lair, my own life.", "噢，太棒了！谢谢！属于我自己的通道，属于我自己的人生。", "_t")
+t("Oh this is great, thank you! My own secret lair, my own life.", "噢，太棒了！谢谢！属于我自己的秘密巢穴，属于我自己的人生。", "_t")
 t("I only wish your happiness, I am glad to provide.", "只要你过得幸福，我什么都愿意做。", "_t")
 t([[#LIGHT_GREEN#*Looking all glamorous she comes closer*#WHITE#
 Now my sweet one, where were we the last time?]], [[#LIGHT_GREEN#*看上去充满魅力，梅琳达走近了你*#WHITE#
-亲爱的，我们上一次是什么时候？]], "_t")
+亲爱的，我们上次进行到哪儿了？]], "_t")
 t("My memory fails me, care to help me remember? #LIGHT_GREEN#[smile playfully at her]", "我都忘了，你能帮我想起来么？#LIGHT_GREEN#[你调皮地笑着]", "_t")
 
 ------------------------------------------------
@@ -5650,7 +5650,7 @@ t([[Well met, @playername@. I was sent with a message from King Tolak of Last Ho
 I followed the trail of bodies that you left - very impressive! We are lucky to have you on our side.
 But enough talk; take this message. I must go now.
 #LIGHT_GREEN#He gives you a sealed scroll and vanishes into the shadows.#LAST#]], [[终于见到你了，@playername@。我是最后的希望国王托拉克派来给你送信的。
-我追随你的足迹找到你，令人印象深刻！很荣幸你是站在我们这一边的。
+我循着你留下的尸体痕迹一路找来，令人印象深刻！很荣幸你是站在我们这一边的。
 不聊了，信我已送到，我必须得走了。
 #LIGHT_GREEN#他递给你一个密封的卷轴，然后消失在阴影中。#LAST#]], "_t")
 t("Thank you for your courage.", "感谢你的勇气。", "_t")
@@ -5680,7 +5680,7 @@ t("You can count on me, Protector.", "你可以信任我，守护者。", "_t")
 t([[So I have heard, @playername@. You prove worthy of your training. Go with the blessing of nature, @playername@ of Zigur.
 #LIGHT_GREEN#*She touches your skin. You can feel nature infusing your very being.*#WHITE#
 This shall help you on your travels. Farewell!]], [[我已经听说了，@playername@。你已经证明了你训练的价值。愿自然赐福于你，伊格勇士 @playername@。
-#LIGHT_GREEN#她将手放到你的身上，你感到自然的力量充斥着你的每个毛孔。*#WHITE#
+#LIGHT_GREEN#*她将手放到你的身上，你感到自然的力量充斥着你的每个毛孔。*#WHITE#
 这个应该会对你的旅途有所帮助。保重！]], "_t")
 t("Thank you, Protector.", "感谢你，守护者。", "_t")
 t("#00FF00#You gain the fungus talents school and your Mana Clash is enhanced.", "#00FF00#你获得了真菌技能树，你的奥术对撞也被强化了", "logPlayer")
@@ -5700,7 +5700,7 @@ section "mod-tome/data/chats/orc-breeding-pits.lua"
 
 t([[#LIGHT_GREEN#*A ray of light illuminates the gleam of steal amidst the grass. Investigating, you find a lone sun paladin lying stricken on the ground. Her wounds are minor, but her pallid features bely a poison that is taking its final toll. She whispers to you.*#WHITE#
 Help, Help me.
-]], [[#LIGHT_GREEN#*闪烁的光线照亮在草地上。经过调查,你发现一个孤单的太阳骑士躺在地上。她的伤口很小,但她苍白的神色显示出她身中剧毒。她无力的对你呼唤。* #WHITE#
+]], [[#LIGHT_GREEN#*一道光线照亮了草丛中钢铁的闪光。经过调查,你发现一个孤单的太阳骑士躺在地上。她的伤口很小,但她苍白的神色显示出她身中剧毒。她无力的对你呼唤。* #WHITE#
 救命,请帮我。
 ]], "_t")
 t("What should I do?", "我该做些什么", "_t")
@@ -5709,10 +5709,10 @@ t([[I found it... the abomination Aeryn sent me to seek out. The breeding pits o
 
 This could be the final solution, the end to the war... forever. We must strike soon, before reinforcements...
 
-#LIGHT_GREEN#*She looks hard at you, exerting all her effort into a final pleading stare.*#WHITE#]], [[我找到了...艾琳让我去寻找的那个令人憎恶的东西。兽人育种棚...比你能想象的还要邪恶一万倍...他们把它隐藏在远离他们的营地的地方,远离他们所有人的视线。他们的母亲、孩子，全在那里！
+#LIGHT_GREEN#*She looks hard at you, exerting all her effort into a final pleading stare.*#WHITE#]], [[我找到了...艾琳让我去寻找的那个令人憎恶的东西。兽人育种棚...比你能想象的还要邪恶一万倍...他们把它隐藏在远离他们的营地的地方,远离他们所有人的视线。他们的母亲和孩子都在那里——全都毫无防备！
 #LIGHT_GREEN#*她掏出一张地图，努力地递到你手中。*#WHITE#
 
-这将是最后的解决方案，让战争终结...永远终结。我们必须马上行动，在那里的防御被增强之前...
+这将是最后的解决方案，让战争终结...永远终结。我们必须马上行动，在援军到来之前...
 
 #LIGHT_GREEN#*她努力地盯着你，用她所有的力气来祈求。*#WHITE#]], "_t")
 t("I cannot do this myself... I will tell Aeryn about it, it is in her hands.", "我一个人做不到...我会告诉艾琳，让她来决定。", "_t")
@@ -5744,8 +5744,8 @@ t("You have too many of this type of inscription. You can only override an exist
 t([[You have reached your maximum number of inscriptions (infusions/runes).
 If you have unassigned #{bold}#talent category points#{normal}# you can use one to create a new slot (up to 5).
 You can replace an existing one or cancel.
-The old inscription will be lost.]], [[你的刻印数量已经到达了上限。
-如果你还有未使用的 #{bold}#技能树解锁点#{normal}# 你可以用它来开启一个新的刻印位。
+The old inscription will be lost.]], [[你的刻印（注入/符文）数量已经达到上限。
+如果你还有未使用的 #{bold}#技能树解锁点#{normal}# 你可以用一个来开启一个新的刻印位（最多 5 个）。
 你可以替换掉一个现存的刻印，或者取消。
 被替换掉的旧刻印将消失。]], "_t")
 -- untranslated text
@@ -5767,7 +5767,7 @@ Listen, someday you will encounter me again but it will not be me you see now. I
 This is very important: do not tell my previous me about me. Understood?]], [[啊，对你来说也许是的，不过对我来说可不是。
 听着，某一天你会再次遇到我，不过那不是现在的我。如果你见到他，那他一定是过去的我。
 记住这一点很重要：不要告诉那个以前的我有关现在的我的事，明白么？]], "_t")
-t("I think so...", "我想这……", "_t")
+t("I think so...", "我想是吧……", "_t")
 t("Yes, Grand Keeper.", "是，伟大的守护者。", "_t")
 
 ------------------------------------------------
@@ -5808,7 +5808,7 @@ t("So it would seem. What is going on here?", "有可能，这里发生了什么
 t([[This is my Ring of Blood! Listen, you have now two choices.
 Since you do not look like slave fodder to me I will offer to let you pay to play the game.
 If you feel you cannot take part in a slaver's game, I am afraid you will need to... disappear.]], [[这里是鲜血之环！听着，你现在有两个选择。
-既然你看上去不像那些奴隶一样的炮灰，我会给你一个机会来玩一个游戏。
+既然你看上去不像那些奴隶一样的炮灰，我可以让你付费参加这个游戏。
 要是你不愿参加奴隶贩子的游戏，恐怕你就得……消失了。]], "_t")
 t("Slavers? This is so wrong! [attack]", "奴隶贩子？这太邪恶了！[攻击]", "_t")
 t("You think so? Die.", "你这样认为？去死吧。", "_t")
@@ -5883,7 +5883,7 @@ t("I think so too, farewell my clone.", "我也是这么想的，再见了，我
 section "mod-tome/data/chats/shertul-fortress-butler.lua"
 
 t([[*#LIGHT_GREEN#The creature slowly turns to you. You hear its terrible voice directly in your head.#WHITE#*
-Welcome, master.]], [[*#LIGHT_GREEN#那个生物慢慢向你走来，你的头顶上响起一个可怕的嗓音。#WHITE#*
+Welcome, master.]], [[*#LIGHT_GREEN#那个生物慢慢转向你。你听到它可怕的声音直接在你脑海中响起。#WHITE#*
 欢迎你，主人。]], "_t")
 t("What are you, and what is this place?", "你是什么东西？这是什么地方？", "_t")
 t("Master? I am not your mas...", "主人？我不是你的主……", "_t")
@@ -5980,7 +5980,7 @@ t([[Ah yes, you seem to master the simple art of alchemy. I can change the chest
 However, I will need to use 25 energy to do this.]], [[嗯可以，你似乎掌握了基本的炼金术。如果转化宝石能获得更多能量，我可以让转化之盒自动使用你的力量来提取宝石，
 不过这需要耗费 25 点能量值。]], "_t")
 t("Maybe sometime later.", "以后再说。", "_t")
-t("I can alter the Fortress holographic projection matrix to accomodate your racial tastes. This will require 60 energy, however.", "我可以通过堡垒改变我自身的结构以符合主人的口味，不过这得耗费60能量值。", "_t")
+t("I can alter the Fortress holographic projection matrix to accomodate your racial tastes. This will require 60 energy, however.", "我可以通过堡垒的全息投影矩阵来调整外观，以适应你的种族审美。这需要耗费60能量值。", "_t")
 t("Can you try for a human female appearance please?", "请你变成一个女性人类的样子吧？", "_t")
 t("Can you try for a human male appearance please?", "请你变成一个男性人类的样子吧？", "_t")
 t("Please revert to your default appearance.", "请变回原来默认的样子。", "_t")
@@ -5990,14 +5990,14 @@ However, I suggest you still carry it with you in case something manages to remo
 不过，我建议你还是随身携带，以备万一特效被从你身上消除时使用。]], "_t")
 t("Not now.", "暂时不用。", "_t")
 t([[Demonic taint. Yes I have a way to help in the archives. However this is a long process, the subject will need to live here for a while.
-She will have to spend 8 hours per day in the regeneration tank.]], [[恶魔的污染么，是的，我有方法帮忙。不过这需要一段时间，目标生物必须在这里住上一段时间。
-她每天至少要在这里呆上8小时。]], "_t")
+She will have to spend 8 hours per day in the regeneration tank.]], [[恶魔的污染么，是的，档案区里有办法帮忙。不过这需要一段时间，目标生物必须在这里住上一段时间。
+她每天必须在再生槽中呆上8小时。]], "_t")
 t("This is great news! I will tell her at once.", "太好了！我马上告诉她。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/shertul-fortress-caldizar.lua"
 
-t("\"You should not be here. How di-\"#{normal}# It stops abruptly, and its attention seems to turn to the staff in your hands. #{italic}#\"How did you get that?! You fool, you do not know what forces you play with! Get it away from here - BEGONE!\"", "\"你不应该来这里。你怎么……\"#{normal}#它突然停了下来，似乎被你手中的法杖所吸引。 #{italic}#\"你怎么弄到这个的？蠢货，你知不知道你手中掌握着什么力量！离开这里！给我消失！\"", "_t")
+t("\"You should not be here. How di-\"#{normal}# It stops abruptly, and its attention seems to turn to the staff in your hands. #{italic}#\"How did you get that?! You fool, you do not know what forces you play with! Get it away from here - BEGONE!\"", "\"你不应该来这里。你怎么……\"#{normal}#它突然停了下来，似乎被你手中的法杖所吸引。 #{italic}#\"你怎么弄到这个的？蠢货，你知不知道你手中掌握着什么力量！把它从这里带走——滚开！\"", "_t")
 t("\"You should not be here. How did you get here?! BEGONE!\"", "\"你不应该来这里，你是怎么过来的，给我消失！!\"", "_t")
 t([[#{italic}#As you open the door you stare in amazement at what is beyond. A creature stands before you, with long tentacle-like appendages and a squat bump in place of a head. An intense aura of power radiates from this being unlike anything you've ever felt before. It can only be a Sher'Tul. A living Sher'Tul!
 
@@ -6022,7 +6022,7 @@ t([[You do not understand the inscriptions there.#WHITE#*
 #{italic}#"Rokzan krilt copru."#{normal}#]], [[你没有明白上面铭文的意思。#WHITE#*
 #{italic}#"Rokzan krilt copru."#{normal}#]], "_t")
 t("#WHITE#*#{italic}#\"Insert control rod.\"#{normal}#", "#WHITE#*#{italic}#\"插入魔杖。\"#{normal}#", "_t")
-t("[Examine the orb]", "[测试水晶球]", "_t")
+t("[Examine the orb]", "[检查水晶球]", "_t")
 t("[Fly the fortress -- #LIGHT_RED#FOR TESTING ONLY#LAST#]", "[飞起堡垒 -- #LIGHT_RED#仅测试模式！#LAST#]", "_t")
 t("[Begin the Lichform ceremory]", "[开始巫妖形态仪式]", "_t")
 t("[Leave the orb alone]", "[离开水晶球]", "_t")
@@ -6088,10 +6088,10 @@ t("So be it... Die now!", "那好……你去死吧！", "_t")
 t("I was sent by Ukllmswwik to stop your mad schemes to control all underwater life!", "我是乌克勒姆斯维奇派来的，阻止你试图控制所有水下生物的疯狂计划。", "_t")
 t([[I see. So the dragon sent you. He told you I am insane, I assume?
 But which of us is truly evil? Myself, working to better my people, doing no harm to anyone, or you, who comes here to kill me, destroying my friends and planning to do the same to me?
-Who is the insane one?]], [[我明白了，是那个龙人叫你来的，是他告诉你我疯了，我图谋不轨？
+Who is the insane one?]], [[我明白了，是那条龙叫你来的。他告诉你我疯了，我猜？
 但我们到底谁才是恶魔？我自己，为人们做好事，对任何人都没有伤害，而你，来这里想要杀死我，杀死了我的朋友，现在还想连我一起干掉？
 谁才是疯子？]], "_t")
-t("Your feeble attempt to sway me from the side of good will not work. Pay for you sins!", "你想狡辩动摇的我立场么？这可不起作用，为你犯下的罪恶付出代价吧。", "_t")
+t("Your feeble attempt to sway me from the side of good will not work. Pay for you sins!", "你想用狡辩动摇我的立场么？这可不起作用，为你犯下的罪恶付出代价吧。", "_t")
 t("If you refuse to see reason, you leave me no choice!", "既然你不听我解释，那我别无选择！", "_t")
 t("Your words are... disturbing. Why should I spare you?", "你说的话让我有点……搞不清楚了，但我为什么要宽恕你？", "_t")
 t([[Spare me?#LIGHT_GREEN#*He laughs.*#WHITE#
@@ -6166,7 +6166,7 @@ t("#LIGHT_GREEN#[slip peacefully into death.]", "#LIGHT_GREEN#[平静地走向�
 t("sacrificing %s to stop the mad sun's plans", "牺牲 %s 以阻止疯狂太阳的计划", "tformat")
 t([[<<<The precious seconds fly by, but as you feel your mind breaking and burning you see a strange figure appearing in front of you, it radiates of immense power.>>>
 <<<The strange, amorphous figure in front of you remains completely silent. With a gesture of one of its tendrils, the staff is ripped from your hands. A surge of energy goes through the room as it grips the staff. Then you remember the old myth of the Godslayers. This is none other than a ***Sher'Tul***#{italic}#, and it knows you have been colluding with a god. That alone tells you everything you need to know.>>>
-]], [[<<<珍贵的数秒种飞快地过去，你头痛欲裂燃烧不止的同时，看到前面出现了奇怪的身影，它充满了能量。>>>
+]], [[<<<珍贵的数秒钟飞快地过去，你头痛欲裂燃烧不止的同时，看到前面出现了奇怪的身影，它充满了能量。>>>
 <<<站在你面前的怪异无定形生物保持着沉默。它伸出触手，法杖从你手中脱落。当它握住法杖时，一股能量充满了房间。这时，你想起了关于弑神者的古代传说。这是一个 ***夏图尔人***#{italic}#，它知道你和神明的密谋。这就是你现在需要知道的一切。>>>
 ]], "_t")
 t("#CRIMSON#[Your mind is burnt by your patron sun! Fight for your sun god now!]", "#CRIMSON#[你的思维已被遥远太阳灼烧！为太阳神而战！]", "_t")
@@ -6191,7 +6191,7 @@ t("sister", "姐妹", "_t")
 t("brother", "兄弟", "_t")
 t("#LIGHT_GREEN#[sacrifice yourself to bring the Way to every sentient creature.]", "#LIGHT_GREEN#[牺牲你自己，将维网传播到所有智慧生命。]", "_t")
 t("sacrificing %s to bring the Way to all", "%s牺牲自己，把维网传播到全世界", "tformat")
-t("But... I did so much, I could do so much more for the Way by staying alive!", "但是……我已经做了那么多，我活着一样可以为维网做那么多！", "_t")
+t("But... I did so much, I could do so much more for the Way by staying alive!", "但是……我已经做了那么多，我活着还能为维网做更多！", "_t")
 t([[#LIGHT_GREEN#*You feel the Way taking over your mind, your body.*#WHITE#
 You will do as asked, for the good of all Yeeks! The Way is always right.
 ]], [[#LIGHT_GREEN#*你感到维网充斥了你的身心*#WHITE#
@@ -6253,7 +6253,7 @@ t([[The Creator. The God who made this world, He who watched silently as the rac
 He who felt great sorrow for this world. He who shall now shatter the barriers of this world to remake it, only better!
 The staff has allowed us to drain enough energy from this world to open the portal to the Void and summon Him through!
 It is already too late. He is coming through as we speak -- it is only a matter of hours!]], [[造物主，创造这个世界的神，他默默的看着你们这些种族在这个大陆上争战不休。
-他对这个世界感到非常失望，它现在将要扫清这个世界所有的障碍，然后重新创造它，使它更美好！
+他为这个世界感到悲伤，它现在将要扫清这个世界所有的障碍，然后重新创造它，使它更美好！
 法杖的力量使我们吸收了足够的能量来开启虚空传送门召唤他的降临！
 已经太晚了！在我们说话的时刻他已经在穿越传送门了！只需几个小时的时间！]], "_t")
 t("I *WILL* stop you! The world will not end today!", "我要阻止你，世界不会在今天灭亡！", "_t")
@@ -6262,7 +6262,7 @@ t([[The Creator. The God who made this world, He who watched silently as the rac
 He who felt great sorrow for this world. He who shall now shatter the barriers of this world to remake it, only better!
 The staff will allow us to drain enough energy from this world to open the portal to the Void and summon Him through!
 You cannot stop us now!]], [[造物之主，创造这个世界的神，他默默的看着你们在这个大陆上争战不休。
-他对这个世界感到非常失望，它现在将要扫清这个世界所有的障碍，然后重新创造它，使它更好！
+他为这个世界感到悲伤，它现在将要扫清这个世界所有的障碍，然后重新创造它，使它更好！
 法杖的力量使我们吸收了足够的能量开启虚空传送门来召唤他的降临！
 你已经无法阻止我们了！]], "_t")
 t([[#LIGHT_GREEN#*The air whirls at your side and suddenly High Sun Paladin Aeryn appears!*#WHITE#
