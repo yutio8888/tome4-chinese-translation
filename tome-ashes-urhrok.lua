@@ -954,9 +954,9 @@ t([[By seathing yourself in flames you phase to a distant location.
 t("Frost Grab", "冰霜飞爪", "talent name")
 t([[Grab a target and pull it next to you, covering it with frost while reducing its movement speed by 50%% for %d turns.
 		The ice will also deal %0.2f cold damage.
-		The damage and chance to slow will increase with your Spellpower.]], [[抓住目标并使其传送至你身边，冰冻目标使其移动速度 50%% 持续 %d 回合。
-		冰同时也会造成 %0.2f 冰冷伤害。
-		伤害和减速几率都会随你的法术强度提升。]], "tformat")
+		The damage and chance to slow will increase with your Spellpower.]], [[抓住一个目标并将其拉到你身边，以寒霜覆盖它，使其移动速度降低 50%%，持续 %d 回合。
+		寒冰还会造成 %0.2f 点寒冷伤害。
+		伤害和减速几率受法术强度加成。]], "tformat")
 t("Diseased Body", "疫病躯体", "talent name")
 t([[Whenever you take direct damage, there is a %d%% chance that your your diseased body erupts in blight, diseasing your attacker with a random disease for %d turns.
 		Each turn the disease deals %0.2f blight damage and reduce one random attribute (strength, dexterity, constitution) by %d.

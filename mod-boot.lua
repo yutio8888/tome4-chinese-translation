@@ -165,7 +165,7 @@ section "mod-boot/data/general/npcs/canine.lua"
 t("animal", "动物", "entity type")
 t("canine", "犬类", "entity subtype")
 t("wolf", "狼", "entity name")
-t("Lean, mean, and shaggy, it stares at you with hungry eyes.", "一头精瘦、结实、毛发蓬松的狼，正用饥饿的眼神盯着你。", "_t")
+t("Lean, mean, and shaggy, it stares at you with hungry eyes.", "一头瘦弱的、狡猾的皮毛蓬松的饿狼，它正用贪婪的眼神看着你。", "_t")
 t("white wolf", "白狼", "entity name")
 t("A large and muscled wolf from the northern wastes. Its breath is cold and icy and its fur coated in frost.", "一头来自北部荒野的狼，体型庞大、肌肉结实。它的呼吸冰冷刺骨，皮毛上结满了冰霜。", "_t")
 t("warg", "座狼", "entity name")
@@ -195,7 +195,7 @@ t("A giant troll with scabrous black skin. With a shudder, you notice the belt o
 t("cave troll", "洞穴巨魔", "entity name")
 t("This huge troll wields a massive spear and has a disturbingly intelligent look in its piggy eyes.", "这只巨魔手握一根笨重的长矛，它那双小猪般的眼睛里透露出一种令人不安的聪明神情。", "_t")
 t("mountain troll", "山岭巨魔", "entity name")
-t("A large and athletic troll with an extremely tough and warty hide.", "一只高大健壮的巨魔，皮肤极其坚韧，长满疣状疙瘩。", "_t")
+t("A large and athletic troll with an extremely tough and warty hide.", "一只高大且强壮的巨魔，身披一张丑陋但异常坚硬的兽皮。", "_t")
 t("mountain troll thunderer", "闪电山岭巨魔", "entity name")
 
 ------------------------------------------------
@@ -232,7 +232,7 @@ section "mod-boot/dialogs/Addons.lua"
 t("Configure Addons", "设置插件", "_t")
 t("You can get new addons at #LIGHT_BLUE##{underline}#Te4.org Addons#{normal}#", "在以下位置可以获得新的插件： #LIGHT_BLUE##{underline}#Te4.org 插件页面#{normal}#", "_t")
 t(" and #LIGHT_BLUE##{underline}#Te4.org DLCs#{normal}#", " 和 #LIGHT_BLUE##{underline}#Te4.org DLC页面#{normal}#", "_t")
-t("You can get new addons on #LIGHT_BLUE##{underline}#Steam Workshop#{normal}#", "在以下位置可以获得新的插件： #LIGHT_BLUE##{underline}#Steam 创意工坊#{normal}# ", "_t")
+t("You can get new addons on #LIGHT_BLUE##{underline}#Steam Workshop#{normal}#", "在以下位置可以获得新的插件：#LIGHT_BLUE##{underline}#Steam 创意工坊#{normal}#", "_t")
 t(", #LIGHT_BLUE##{underline}#Te4.org Addons#{normal}#", ", #LIGHT_BLUE##{underline}#Te4.org 插件页面#{normal}#", "_t")
 t("Show incompatible", "显示不兼容版本", "_t")
 t("Auto-update on start", "启动时自动更新", "_t")
@@ -566,12 +566,12 @@ t("Version", "版本", "_t")
 t("World", "世界", "_t")
 t([[#{bold}##GOLD#%s#GREEN# High Scores#WHITE##{normal}#
 
-]], [[#{bold}##GOLD#%s#GREEN# 高分榜 #WHITE##{normal}#
+]], [[#{bold}##GOLD#%s#GREEN# 高分榜#WHITE##{normal}#
 
 ]], "tformat")
 t([[#{bold}##GOLD#%s(%s)#GREEN# High Scores#WHITE##{normal}#
 
-]], [[#{bold}##GOLD#%s(%s)#GREEN# 高分榜 #WHITE##{normal}#
+]], [[#{bold}##GOLD#%s(%s)#GREEN# 高分榜#WHITE##{normal}#
 
 ]], "tformat")
 
