@@ -22419,7 +22419,7 @@ t([[Attack the target with either your ranged or melee weapons for %d%% damage.
 		If the attack hits you'll breach the target's immunities, reducing armor hardiness, stun, pin, blindness, and confusion immunity by 50%% for %d turns.
 		Breach chance scales with your Spellpower.]], [[使用远程或近战武器攻击目标，造成 %d%% 武器伤害。
 		若攻击命中，你会破坏目标的免疫力，使其护甲强度以及震慑、定身、致盲和混乱免疫降低 50%%，持续 %d 回合。
-		破灭几率随法术强度提高。]], "tformat")
+		突破几率随法术强度提高。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/chronomancy/temporal-hounds.lua"
@@ -22821,7 +22821,7 @@ t("Worm Walk", "蠕虫行走", "talent name")
 t("You do not have line of sight to this location.", "你没有这个位置的视野。", "logPlayer")
 t("The worm walk fizzles!", "蠕虫行走失败了!", "logSeen")
 t([[You disperse into a mass of carrion worms, reforming near the target location (%d teleport accuracy).
-If used on a worm mass, you merge with it, moving to it's location, healing you for %d, restoring %d vim, and destroying the mass.]], [[你分散成一群腐肉虫，并在目标位置附近重组（传送误差 %d）。
+If used on a worm mass, you merge with it, moving to it's location, healing you for %d, restoring %d vim, and destroying the mass.]], [[你分散成一群腐肉虫，并在目标位置附近重组（传送精确度 %d）。
 若对腐肉虫群使用，你会与其融合，移动到其位置，恢复 %d 点生命值和 %d 点活力，并摧毁该虫群。]], "tformat")
 t("Pestilent Blight", "致命枯萎", "talent name")
 t([[You have a %d%% chance on dealing blight damage to cause the target to rot away, silencing, disarming, blinding or pinning them for %d turns. This effect has a cooldown.
@@ -23114,7 +23114,7 @@ t([[You conceal spring loaded blades within your equipment. On scoring a critica
 This talent has a cooldown.
 #YELLOW#Prepared with: %s#LAST#]], [[你将刀片隐藏在装备中，当你对临近目标造成暴击时，刀片自动弹出，造成 %d%% 徒手武器伤害。
 该技能有冷却时间。 
-#YELLOW#准备于：%s#LAST#]], "tformat")
+#YELLOW#已装填：%s#LAST#]], "tformat")
 t("Assassinate", "暗杀", "talent name")
 t("You must have Hidden Blades prepared to use this talent.", "你必须准备好隐藏刀片来使用该技能。", "logPlayer")
 t("#Source# strikes at a vital spot on #target#!", "#Source#攻向#target#的要害!", "logCombat")
@@ -23127,7 +23127,7 @@ t("%s is cured!", "%s 被治愈！", "logSeen")
 t("Prepare a potion that restores %d life, %d stamina, and cures %d negative physical effects. 20 turn cooldown.", "准备药剂，回复 %d 生命, %d 体力, 解除 %d 项物理负面状态。20 回合冷却。", "tformat")
 t([[Imbibe a potent mixture of energizing and restorative substances, restoring %d life, %d stamina and curing %d detrimental physical effects.  The restorative effects improve with your Cunning.
 	#YELLOW#Prepared with: %s#LAST#]], [[制造强效恢复药酒, 使用后回复 %d 生命, %d 体力并解除 %d 项物理负面效果。该效果受灵巧加成。
-	#YELLOW#准备于：%s#LAST#]], "tformat")
+	#YELLOW#已装填：%s#LAST#]], "tformat")
 t("Rogue's Brew Mastery", "佳酿强化", "talent name")
 t("Your Rogue's Brew fortifies you for 8 turns, preventing you from dying until you reach -%d life.", "你的盗贼佳酿会强化你 8 回合，使你在生命值降至 -%d 之前不会死亡。", "tformat")
 t("Adjust your Rogue's Brew formulation so that it fortifies you for 8 turns, preventing you from dying until you reach -%d life.", "调整盗贼佳酿的配方，使其强化你 8 回合；在此期间，你的生命值降至 -%d 之前不会死亡。", "tformat")
@@ -23137,7 +23137,7 @@ t([[Throw a vial of volatile liquid that explodes in a radius %d cloud of smoke 
 		Use of this talent will not break stealth, and creatures affected by the smokes can never prevent you from activating stealth, even if their proximity would normally forbid it.
 		#YELLOW#Prepared with: %s#LAST#]], [[扔出烟雾弹，产生半径 %d 的烟雾，持续 %d 回合。烟雾阻挡视野，所有烟雾中的敌人视野下降 %d 。
 		使用该技能不解除潜行。被烟雾影响的生物不能阻止你潜行。
-		#YELLOW#准备于：%s#LAST#]], "tformat")
+		#YELLOW#已装填：%s#LAST#]], "tformat")
 t("Smokescreen Mastery", "强化烟雾弹", "talent name")
 t("Your Smokescreen is infused with chokedust. Enemies in the smoke take %0.2f nature damage and may be silenced.", "你的烟雾弹中加入了窒息粉尘。每回合烟雾中的敌人将受到 %0.2f 自然伤害并有几率被沉默。", "tformat")
 t("You infuse your smoke bomb with chokedust. Each turn, enemies in the smoke take %0.2f nature damage and are 50%% likely to be silenced.", "你的烟雾弹中加入了窒息粉尘。每回合烟雾中的敌人将受到 %0.2f 自然伤害并有 50%% 几率被沉默。", "tformat")
@@ -23148,7 +23148,7 @@ t([[Fire a poisoned dart from a silent, concealed launcher on your person that d
 This can be used without breaking stealth.
 #YELLOW#Prepared with: %s#LAST#]], [[从身上隐蔽的无声发射器中射出毒镖，造成 %0.2f 物理伤害，并使目标（仅限活物）沉睡 4 回合，期间无法行动。目标每受到 %d 点伤害，距离苏醒便提前 1 回合。
 使用该技能不解除潜行。
-#YELLOW#准备于：%s#LAST#]], "tformat")
+#YELLOW#已装填：%s#LAST#]], "tformat")
 t("Dart Launcher Mastery", "毒镖强化", "talent name")
 t("Your darts ignore poison and sleep immunity and waking targets are slowed by %d%% for 4 turns.", "睡眠毒素无视免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
 t("The sleeping poison of your Dart Launcher becomes potent enough to ignore immunity, and upon waking the target is slowed by %d%% for 4 turns.", "睡眠毒素无视免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
@@ -23168,7 +23168,7 @@ t([[Toss out a grappling hook to a target within range %d.  If this strikes eith
 		Your grapple target must be at least 2 tiles from you.
 #YELLOW#Prepared with: %s#LAST#]], [[朝 %d 格范围内的目标发射钩爪，如果目标是墙壁、目标不能移动或目标体型比你大，你将被拉过去，否则将目标拉过来。之后，目标将被定身 2 回合。
 		钩爪至少要发射到两格外。
-#YELLOW#准备于：%s#LAST#]], "tformat")
+#YELLOW#已装填：%s#LAST#]], "tformat")
 t("Grappling Hook Mastery", "钩爪强化", "talent name")
 t("Your grappling hook deals %d%% unarmed damage when it hits, plus a further %0.2f physical and %0.2f nature damage over 4 turns.", "被钩爪击中的生物受到 %d%% 徒手伤害 ,在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。", "tformat")
 t("Your grappling hook is tipped with vicious, venomous barbs. Creatures struck by it will be hit for %d%% unarmed damage, bleed for %0.2f physical damage and be poisoned for %0.2f nature damage over 4 turns.", "你的钩爪上涂有毒素且装有尖刺，被击中的生物受到 %d%% 徒手伤害 ,在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。", "tformat")
