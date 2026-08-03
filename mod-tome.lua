@@ -24194,7 +24194,7 @@ t("Gesture of Guarding", "守护手势", "talent name")
 t("#F53CBE##Source# lashes back at #Target#!", "#F53CBE##Source#反击#Target#!", "logCombat")
 t([[You guard against melee damage with a sweep of your hand. So long as you can use Gestures (Requires two free or mindstar-equipped hands), you deflect up to %d damage (%0.1f%% of your best free hand melee damage) from up to %0.1f melee attack(s) each turn (based on your cunning). Deflected attacks cannot be crits.
 		If Gesture of Pain is active, you also have a %0.1f%% chance to counterattack.]], [[ 你通过手势来防御近战伤害。只要你能使用手势（要求两只手都可用于手势，每只手须为空手或装备灵晶），你最多偏移 %d 点伤害（你的单手最大伤害的 %0.1f%% ），每回合最多触发 %0.1f 次（基于你的灵巧）。成功防御的攻击不会暴击。
-		如果痛苦手势被激活，你将有 %0.1f%% 的概率造成反击状态。]], "tformat")
+		如果痛苦手势被激活，你将有 %0.1f%% 的概率发动反击。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/gloom.lua"
