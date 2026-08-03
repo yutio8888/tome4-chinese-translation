@@ -41599,7 +41599,7 @@ t("The number of lines to display in the combat log (for the Classic HUD).", "�
 t("#GOLD##{bold}#Log lines#WHITE##{normal}#", "#GOLD##{bold}#日志行数#WHITE##{normal}#", "_t")
 t("Log lines", "日志行数", "_t")
 t("From 5 to 50", "从 5 到 50", "_t")
-t("Draw faint lines to separate each grid, making visual positioning easier to see.#WHITE#", "为每一个格子画线，令位置显示更清晰可见。#WHITE#", "_t")
+t("Draw faint lines to separate each grid, making visual positioning easier to see.#WHITE#", "画出淡淡的线条分隔每个格子，让视觉定位更清晰。#WHITE#", "_t")
 t("#GOLD##{bold}#Display map grid lines#WHITE##{normal}#", "#GOLD##{bold}#显示地图网格线#WHITE##{normal}#", "_t")
 t([[Select the fonts look. Fantasy is the default one. Basic is simplified and smaller.
 You must restart the game for the change to take effect.]], [[选择字体样式。默认为Fantasy。Basic 为简化的小字体。
@@ -41637,15 +41637,15 @@ t("Number of icons rows", "图标栏行数", "_t")
 t("From 1 to 4", "从 1 到 4", "_t")
 t("When you activate a hotkey, either by keyboard or click a visual feedback will appear over it in the hotkeys bar.#WHITE#", "当你点击快捷栏或者使用快捷键时，将在快捷栏对应技能上有视觉反馈。#WHITE#", "_t")
 t("#GOLD##{bold}#Visual hotkeys feedback#WHITE##{normal}#", "#GOLD##{bold}#可视化快捷键反馈#WHITE##{normal}#", "_t")
-t("When the player or an NPC uses a talent shows a quick popup with the talent's icon and name over its head.#WHITE#", "当玩家或者NPC使用技能时，将在其头顶显示。#WHITE#", "_t")
+t("When the player or an NPC uses a talent shows a quick popup with the talent's icon and name over its head.#WHITE#", "当玩家或NPC使用技能时，会在其头顶弹出带有技能图标和名称的快捷提示。#WHITE#", "_t")
 t("#GOLD##{bold}#Talents activations map display#WHITE##{normal}#", "#GOLD##{bold}#地图显示使用技能#WHITE##{normal}#", "_t")
 t("Size of the icons in the hotkeys toolbar.#WHITE#", "调整快捷栏图标大小。#WHITE#", "_t")
 t("#GOLD##{bold}#Icons hotkey toolbar icon size#WHITE##{normal}#", "#GOLD##{bold}#快捷栏图标大小#WHITE##{normal}#", "_t")
 t("Icons size", "图标大小", "_t")
 t("From 32 to 64", "从 32 到 64", "_t")
 t([[If disabled lore popups will only appear the first time you see the lore on your profile.
-If enabled it will appear the first time you see it with each character.#WHITE#]], [[关闭后相同手札只会弹出一次。
-开启后，手札只会在你第一次看见时弹出。#WHITE#]], "_t")
+If enabled it will appear the first time you see it with each character.#WHITE#]], [[关闭后，手札提示只会在该手札首次出现在你的档案中时弹出。
+开启后，每个角色首次看到该手札时都会弹出。#WHITE#]], "_t")
 t("#GOLD##{bold}#Always show lore popup#WHITE##{normal}#", "#GOLD##{bold}#手札始终弹出#WHITE##{normal}#", "_t")
 t("If disabled items with activations will not be auto-added to your hotkeys, you will need to manually drag them from the inventory screen.#WHITE#", "如果关闭，能使用的物品不会自动添加至快捷栏，你需要手动把他们从物品栏拖到快捷栏#WHITE#", "_t")
 t("#GOLD##{bold}#Always add objects to hotkeys#WHITE##{normal}#", "#GOLD##{bold}#物品自动添加入快捷栏#WHITE##{normal}#", "_t")
@@ -41688,7 +41688,7 @@ t("Always display combat properties of shields even if you don't know shield att
 t("#GOLD##{bold}#Always show shield combat properties#WHITE##{normal}#", "#GOLD##{bold}#强制显示盾牌战斗数据#WHITE##{normal}#", "_t")
 t("When you do a mouse gesture (right click + drag) a color coded trail is displayed.#WHITE#", "当你用右键拖动画出鼠标手势时，会显示彩色的轨迹提示。#WHITE#", "_t")
 t("#GOLD##{bold}#Display mouse gesture trails#WHITE##{normal}#", "#GOLD##{bold}#显示鼠标手势轨迹#WHITE##{normal}#", "_t")
-t("If enabled new quests and quests updates will display a big popup, if not a simple line of text will fly on the screen.#WHITE#", "如果开启，任何任务信息变化都将以更明显的方式显示在屏幕上。#WHITE#", "_t")
+t("If enabled new quests and quests updates will display a big popup, if not a simple line of text will fly on the screen.#WHITE#", "如果开启，新任务和任务更新会以大弹窗显示；如果关闭，只会有一行文字在屏幕上飘过。#WHITE#", "_t")
 t("#GOLD##{bold}#Big Quest Popups#WHITE##{normal}#", "#GOLD##{bold}#大号任务提示#WHITE##{normal}#", "_t")
 t("Enable the WASD movement keys. Can be used to move diagonaly by pressing two directions at once.#WHITE#", "启用WASD键移动。当你同时按两个键的时候，可以实现对角线移动。#WHITE#", "_t")
 t("#GOLD##{bold}#Enable WASD movement keys#WHITE##{normal}#", "#GOLD##{bold}#启用 WASD 键移动#WHITE##{normal}#", "_t")
@@ -41702,7 +41702,7 @@ t("Scroll distance", "滚动距离", "_t")
 t("From 1 to 50", "从 1 到 50", "_t")
 t("If you lose more than this percentage of life in a turn, a warning will display and all key/mouse input will be ignored for 2 seconds to prevent mistakes.#WHITE#", "当你在一回合内损失了超过该百分比的生命时，将弹出提醒并暂时关闭鼠标、键盘操作2秒。#WHITE#", "_t")
 t("#GOLD##{bold}#Life Lost Warning#WHITE##{normal}#", "#GOLD##{bold}#生命损失百分比提醒#WHITE##{normal}#", "_t")
-t("Life lost percentage (out of max life)", "生命损失百分比", "_t")
+t("Life lost percentage (out of max life)", "生命损失百分比（占最大生命值）", "_t")
 t("From 1 to 99 (100 to disable)", "从 1 到 99 (100 为禁用)", "_t")
 t([[Enables or disables weather effects in some zones.
 Disabling it can gain some performance. It will not affect previously visited zones.#WHITE#]], [[开启/关闭天气效果。
@@ -41715,7 +41715,7 @@ t("#GOLD##{bold}#Use mouse to move#WHITE##{normal}#", "#GOLD##{bold}#鼠标点�
 t([[Enables quick melee targeting.
 Talents that require a melee target will automatically target when pressing a direction key instead of requiring a confirmation.#WHITE#]], [[开启快捷近战目标选定。
 使用近战攻击技能时，可以用方向键指定目标，无需确认。#WHITE#]], "_t")
-t("#GOLD##{bold}#Quick melee targeting#WHITE##{normal}#", "#GOLD##{bold}#快捷近战攻击#WHITE##{normal}#", "_t")
+t("#GOLD##{bold}#Quick melee targeting#WHITE##{normal}#", "#GOLD##{bold}#快捷近战目标选定#WHITE##{normal}#", "_t")
 t([[Enables quick melee targeting auto attacking.
 Talents that require a melee target will automatically target and confirm if there is only one hostile creature around.#WHITE#]], [[开启快捷近战目标自动选定。
 使用近战攻击技能时，若只有一个临近敌对目标，则自动攻击这个目标。#WHITE#]], "_t")
@@ -41761,7 +41761,7 @@ t([[Enable Discord's Rich Presence integration to show your current character on
 t("#GOLD##{bold}#Discord's Rich Presence#WHITE##{normal}#", "#GOLD##{bold}#Discord实时状态#WHITE##{normal}#", "_t")
 t([[Keep a copy of your character sheets (not the whole savefile) on the online vault at te4.org.
 For each character you will be given a link to this online character sheet so that you can brag about your heroic deeds or sad deaths to your friends or the whole community.#WHITE#]], [[在te4.org上保存一份你的角色信息(不是整个存档)。
-每个角色你都会得到一个链接, 用来和你的朋友和整个社区分享你的巅峰时刻和突然死亡。#WHITE#]], "_t")
+每个角色你都会得到一个链接, 用来向你的朋友或整个社区炫耀你的英雄事迹或悲壮之死。#WHITE#]], "_t")
 t("#GOLD##{bold}#Upload characters sheets to the online vault#WHITE##{normal}#", "#GOLD##{bold}#上传角色信息到在线角色库#WHITE##{normal}#", "_t")
 t([[Allow various events that are pushed by the server when playing online
 #{bold}#All#{normal}#: Allow all server events (bonus zones, random events, ...)
@@ -41822,7 +41822,7 @@ This makes it save more often but the game will use less memory when deep in a d
 #LIGHT_RED#Changing this option will not affect already visited zones.
 *THIS DOES NOT MAKE A FULL SAVE EACH LEVEL*.
 #LIGHT_RED#Disabling it is not recommended#WHITE#]], [[在地图的每一层自动存档。
-会增加存档次数，同时节省存档时间。
+会增加存档次数，但在深入地下城时占用更少内存。
 
 #LIGHT_RED#不影响已探索区域。
 *注意：并不会在每一层完整存档！*.
@@ -41831,7 +41831,7 @@ t("#GOLD##{bold}#Zone save per level#WHITE##{normal}#", "#GOLD##{bold}#每层地
 t("Disallow boot images that could be found 'offensive'.#WHITE#", "不允许可能令人不快的启动画面图片。#WHITE#", "_t")
 t("#GOLD##{bold}#Censor boot#WHITE##{normal}#", "#GOLD##{bold}#启动画面审查#WHITE##{normal}#", "_t")
 t("Replace headwear images by cloak hoods if a cloak is worn#WHITE#", "当戴着斗篷时，用斗篷代替头部装备图像。#WHITE#", "_t")
-t("#GOLD##{bold}#Show cloak hoods#WHITE##{normal}#", "#GOLD##{bold}#显示斗篷#WHITE##{normal}#", "_t")
+t("#GOLD##{bold}#Show cloak hoods#WHITE##{normal}#", "#GOLD##{bold}#显示斗篷兜帽#WHITE##{normal}#", "_t")
 
 ------------------------------------------------
 section "mod-tome/dialogs/GraphicMode.lua"
@@ -41844,7 +41844,7 @@ t("Change graphic mode", "切换图形模式", "_t")
 t([[You can configure the game to use a custom tileset.
 You must place all files of your tileset in a subfolder of the modules's data/gfx/ folder, just like the existing tilesets.
 Each tile must be correctly named according to the existing tilesets.]], [[你可以设置游戏的自定义贴图。
-你必须把你的贴图材质文件放在模组文件中的 data/gfx/ 文件夹内，和当前的贴图一样。
+你必须把贴图的所有文件放在模块 data/gfx/ 文件夹的子文件夹中，就像现有的贴图一样。
 所有材质的文件名必须和已存在的默认材质文件名相同。]], "_t")
 t("Folder: ", "文件夹：", "_t")
 t("Use moddable tiles (equipment showing on player)", "使用纸娃娃 (在玩家身上显示装备)", "_t")
@@ -41883,9 +41883,9 @@ t("Not enough stat points", "属性点不足", "_t")
 t("You have no stat points left!", "你的属性点不足！", "_t")
 t("Stat is at the maximum for your level", "已达到当前等级的最高属性", "_t")
 t("You cannot increase this stat further until next level!", "在升级之前，你无法再次提升这项属性！", "_t")
-t("Stat is at the maximum", "已达到最高属性", "_t")
+t("Stat is at the maximum", "该属性已达到上限", "_t")
 t("You cannot increase this stat further!", "你不能继续提升该属性！", "_t")
-t("You cannot take out more points!", "你不能遗忘更多点数！", "_t")
+t("You cannot take out more points!", "你不能取出更多点数！", "_t")
 t("unknown", "未知", "_t")
 t("not enough stat", "属性值不足", "_t")
 t("class", "职业", "_t")
@@ -41901,7 +41901,7 @@ t("Impossible here", "不能在这里这么做", "_t")
 t("You must be out of combat or in a quiet place like a #{bold}#town#{normal}# to unlearn this talent.", "你只能在战斗外或在 #{bold}#城市#{normal}# 这样安全的地方遗忘这个技能。", "_t")
 t("You cannot unlearn this talent!", "你不能遗忘这个技能！", "_t")
 t("You cannot unlearn this talent because of talent(s): ", "由于以下技能，你不能遗忘这个技能：", "_t")
-t("You can only improve a category mastery once!", "你只能提升技能树等级一次！", "_t")
+t("You can only improve a category mastery once!", "你只能提升一次技能类别掌握度！", "_t")
 t("Not enough talent category points", "技能树解锁点不足", "_t")
 t("You have no category points left!", "你的技能树解锁点不够！", "_t")
 t("Too low level", "等级太低", "_t")
@@ -42001,16 +42001,16 @@ t("A generic talent allows you to perform various utility actions and improve yo
 t("Class talent tree", "职业技能树", "_t")
 t("A class talent allows you to perform new combat moves, cast spells, and improve your character. It represents the core function of your class. You gain one point every level and two every 5th level. You may also find trainers or artifacts that allow you to learn more.", "职业技能让你能够施展新的战斗招式、施放法术并强化角色。它代表你职业的核心功能。你每升 1 级获得一点职业技能点，每第 5 级获得两点，也可以通过训练师或神器获得更多。", "_t")
 t("This talent was recently learnt; you can still unlearn it.", "你刚在此技能上加点，你还可以遗忘它。", "_t")
-t("The last %d %s talents you learnt are always unlearnable.", "你总是可以移除最近的 %d 点%s 技能点。", "tformat")
+t("The last %d %s talents you learnt are always unlearnable.", "你最近学习的 %d 个%s技能始终可以遗忘。", "tformat")
 t(" generic", " 通用", "_t")
 t(" class", " 职业", "_t")
 t("This talent can alter the world in a permanent way; as such, you can never unlearn it once known.", "本技能会永久性的影响这个游戏世界，所以学习之后无法移除。", "_t")
-t("This talent was recently learnt; you can still unlearn it if you are out of combat or in a quiet area like a #{bold}#town#{normal}#.", "你刚在此技能上加点，你还可以在战斗外或者  #{bold}# 城市 #{normal}# 这样安全的地方遗忘它。", "_t")
-t("Current talent level: ", "当前等级： ", "_t")
+t("This talent was recently learnt; you can still unlearn it if you are out of combat or in a quiet area like a #{bold}#town#{normal}#.", "你刚在此技能上加点，你还可以在战斗外或者#{bold}#城市#{normal}#这样安全的地方遗忘它。", "_t")
+t("Current talent level: ", "当前技能等级： ", "_t")
 t(" (%+0.1f bonus level)", " (%+0.1f 额外等级)", "tformat")
 t("<Press 'x' to swap to simple display>", "<按x键切换简单显示>", "_t")
-t("First talent level: ", "第一级需求： ", "_t")
-t("Next talent level", "下一等级", "_t")
+t("First talent level: ", "第一级技能等级： ", "_t")
+t("Next talent level", "下一技能等级", "_t")
 t("<Press 'x' to swap to advanced display>", "<按x键切换进阶显示>", "_t")
 
 ------------------------------------------------
@@ -42028,7 +42028,7 @@ t("Pickup item", "拾取物品", "_t")
 t("Move to", "移动到", "_t")
 t("Control", "控制", "_t")
 t("Give order", "下达指令", "_t")
-t("Target player", "设为目标", "_t")
+t("Target player", "指定玩家", "_t")
 t("Lua inspect [Actor]", "在 Lua 中查看 [角色]", "_t")
 t("Lua inspect [Terrain]", "在 Lua 中查看 [地形]", "_t")
 t("Lua inspect [Trap]", "在 Lua 中查看 [陷阱]", "_t")
@@ -42056,7 +42056,7 @@ t("Set the target [current: %s]", "设置目标 [当前：%s]", "tformat")
 t("none", "没有", "_t")
 t("Set behavior [current: %s]", "设置行为 [当前：%s]", "tformat")
 t("default", "默认", "_t")
-t("Set the leash anchor [current: %s]", "设置跟随目标 [当前：%s]", "tformat")
+t("Set the leash anchor [current: %s]", "设置拴绳锚点 [当前：%s]", "tformat")
 t("Set the leash distance [current: %d]", "设置跟随距离 [当前：%d]", "tformat")
 t("Define tactical talents usage", "设定技能使用策略", "_t")
 t("Rename", "重命名", "_t")
@@ -42085,7 +42085,7 @@ section "mod-tome/dialogs/QuestPopup.lua"
 t("#LIGHT_GREEN#New#LAST# Quest!", "#LIGHT_GREEN#新#LAST# 任务!", "_t")
 t("Quest #AQUAMARINE#Updated!", "任务 #AQUAMARINE#更新了！", "_t")
 t("Quest #LIGHT_GREEN#Completed!", "任务 #LIGHT_GREEN#已完成！", "_t")
-t("Quest #LIGHT_GREEN#Done!", "任务 #LIGHT_GREEN#结束！", "_t")
+t("Quest #LIGHT_GREEN#Done!", "任务 #LIGHT_GREEN#完成！", "_t")
 t("Quest #CIMSON#Failed!", "任务 #CIMSON#失败了！", "_t")
 t("#ANTIQUE_WHITE#Quest: #AQUAMARINE#%s", "#ANTIQUE_WHITE#任务：#AQUAMARINE#%s", "tformat")
 t("#ANTIQUE_WHITE#(See your Journal for further details or click here)", "#ANTIQUE_WHITE#(点击此处或者打开任务面板查看详情)", "_t")
@@ -42105,10 +42105,10 @@ t("Spellpower", "法术强度", "_t")
 t("Spellcrit", "法术暴击", "_t")
 t("Not enough stat points", "属性点不足", "_t")
 t("You have no stat points left!", "你的属性点不足！", "_t")
-t("Stat is at the maximum", "已达到最高属性", "_t")
+t("Stat is at the maximum", "该属性已达到上限", "_t")
 t("You can not increase this stat further!", "你无法进一步提升此项属性！", "_t")
 t("Impossible", "不可能", "_t")
-t("You cannot take out more points!", "你不能遗忘更多点数！", "_t")
+t("You cannot take out more points!", "你不能取出更多点数！", "_t")
 t("Stats points left: #00FF00#%s", "剩余属性点：#00FF00#%s", "tformat")
 t("Strength", "力量", "_t")
 t("Dexterity", "敏捷", "_t")
@@ -42229,7 +42229,7 @@ t("", "", "_t")
 ------------------------------------------------
 section "mod-tome/dialogs/SwiftHands.lua"
 
-t("Managed readied tools", "调整待准备的工具", "_t")
+t("Managed readied tools", "管理已准备好的工具", "_t")
 t("Readied tools", "准备好的工具", "_t")
 t("Inventory", "物品栏", "_t")
 -- untranslated text
@@ -42265,7 +42265,7 @@ t(" (prepared)", " (准备完毕)", "_t")
 t(" (preparing)", " (准备中)", "_t")
 t(" (dismantling)", " (分解中)", "_t")
 t(" (need more skill)", " (需要更多技能)", "_t")
-t("%s) Tier %d: %s%s", "%s) 材质等级 %d：%s%s", "tformat")
+t("%s) Tier %d: %s%s", "%s) 等级 %d：%s%s", "tformat")
 t("#LIGHT_BLUE#You cannot prepare this trap: %s.", "#LIGHT_BLUE#你不能准备这个陷阱：%s.", "logPlayer")
 t("#LIGHT_BLUE#You need more skill to prepare this trap.", "#LIGHT_BLUE#你需要学习更多技能才能准备这个陷阱。", "logPlayer")
 t("#LIGHT_BLUE#Preparing trap with normal trigger.", "#LIGHT_BLUE#准备了常规触发的陷阱", "logPlayer")
@@ -42283,7 +42283,7 @@ t(" (%s)", " (%s)", "tformat")
 ------------------------------------------------
 section "mod-tome/dialogs/UberTalent.lua"
 
-t("Prodigies: %s", "觉醒点：%s", "tformat")
+t("Prodigies: %s", "觉醒技：%s", "tformat")
 t([[#LIGHT_GREEN#Number available: %d#LAST#
 Prodigies are special talents that only the most powerful of characters can attain.%s
 All of them require at least 50 in a core stat and many also have more special demands. You can learn a new prodigy at level 25 and 42.]], [[#LIGHT_GREEN#当前可用觉醒技能点： %d#LAST#
@@ -42310,7 +42310,7 @@ t("You must wear this object to use it!", "你必须装备这件物品才能使�
 t("Drop how many?", "丢下多少？", "_t")
 t("1 to %d", "1 到 %d", "tformat")
 t("Attach to item", "附加到物品", "_t")
-t("You do not have any equipped items that it can be attached to.", "你没有装备任何可以附加的物品", "_t")
+t("You do not have any equipped items that it can be attached to.", "你没有装备任何可以附加它的物品", "_t")
 t("Select which item to attach it to:", "选择要附加到哪个物品：", "_t")
 t("Really %s %s", "真的要 %s %s", "tformat")
 t("Tag object (tagged objects can not be destroyed or dropped)", "标记物品（被标记的物品无法丢下或摧毁）", "_t")
@@ -42333,14 +42333,14 @@ t("Untag", "解除标记", "_t")
 ------------------------------------------------
 section "mod-tome/dialogs/UseTalents.lua"
 
-t("Active", "启动", "_t")
+t("Active", "激活", "_t")
 t("%s turns", "%s 回合", "tformat")
 t("Unavailable", "不可用", "_t")
 t("Object", "物品", "_t")
 t("Sustaining", "正在持续", "_t")
 t("Sustain", "持续", "_t")
 t("Passive", "被动技能", "_t")
-t("Use Talents: %s", "技能设定：%s", "tformat")
+t("Use Talents: %s", "使用技能：%s", "tformat")
 t([[You can bind a non-passive talent to a hotkey by pressing the corresponding hotkey while selecting a talent or by right-clicking on the talent.
 Check out the keybinding screen in the game menu to bind hotkeys to a key (default is 1-0 plus control, shift, or alt).
 Right click or press '~' to configure talent confirmation and automatic use.
@@ -42358,7 +42358,7 @@ t("Unbind", "取消绑定", "_t")
 t("Bind to left mouse click (on a target)", "绑定至鼠标左键点击目标", "_t")
 t("Bind to middle mouse click (on a target)", "绑定至鼠标中键点击目标", "_t")
 t("Link in chat", "在聊天中链接", "_t")
-t("#YELLOW#Disable talent confirmation", "#YELLOW#停用自动使用技能确认", "_t")
+t("#YELLOW#Disable talent confirmation", "#YELLOW#禁用技能使用确认", "_t")
 t("%sRequest confirmation before using this talent", "%s使用技能前确认", "tformat")
 t("#YELLOW#Disable ", "#YELLOW#禁用 ", "_t")
 t("Auto-use when available", "当可用时自动使用", "_t")
@@ -42401,7 +42401,7 @@ t([[Welcome, wandering one! The Wanderer class uses a randomly selected set of t
 You can now choose how this set is selected:]], [[欢迎，流浪者! 流浪者职业具有随机的技能树。
 现在你将选择随机模式：]], "_t")
 t("Simply make a random set of trees, this is the default option. If you want to share it with friends, you will find the seed in the character's sheet later on.", "完全随机，这也是默认选项。稍后你可以在角色面板中找到随机种子以分享给朋友。", "_t")
-t("If an other player gave you a seed to play, you can enter it here. Do note that while a seed will always work, you will only get the same talents set if you use the same DLC/addons.", "如果其他玩家给你随机种子，可以在此输入。注意，虽然种子通常都可以生效，但你需要开启和他一样的DLC/插件才能保证具有相同的技能树组合。", "_t")
+t("If an other player gave you a seed to play, you can enter it here. Do note that while a seed will always work, you will only get the same talents set if you use the same DLC/addons.", "如果其他玩家给你随机种子，可以在此输入。注意，种子总是会生效，但只有使用相同的DLC/插件，你才能获得相同的技能组合。", "_t")
 t("Play!", "开始游戏！", "_t")
 t("#{bold}##ANTIQUE_WHITE#Random#{normal}##LAST#", "#{bold}##ANTIQUE_WHITE#随机模式#{normal}##LAST#", "_t")
 t("#{bold}##ANTIQUE_WHITE#Seed#{normal}##LAST#", "#{bold}##ANTIQUE_WHITE#种子模式#{normal}##LAST#", "_t")
@@ -42422,7 +42422,7 @@ The actor is backed up before changes are made.  (Use the "Restore" button to re
 t(" Advance to Level: ", " 升级到等级: ", "_t")
 t("Restore: %s (v%d)", "恢复: %s (v%d)", "tformat")
 t("Restore: none", "恢复：无", "_t")
-t("#LIGHT_BLUE#Restoring [%s]%s from backup version %d", "#LIGHT_BLUE#恢复 [%s]%s 到备份版本 %d", "log")
+t("#LIGHT_BLUE#Restoring [%s]%s from backup version %d", "#LIGHT_BLUE#恢复 [%s]%s（来自备份版本 %d）", "log")
 t("Gain points for stats, talents, and prodigies (unlimited respec)", "获得属性点，技能点和觉醒点（无限次重置）", "_t")
 t(" Force all BASE stats to: ", " 设置所有主属性为: ", "_t")
 t(" Force all BONUS stats to: ", " 设置所有额外属性为: ", "_t")
@@ -42432,7 +42432,7 @@ t("maximum allowed", "最高等级", "_t")
 t("Ignore requirements", "无视技能需求", "_t")
 t("Force all talent mastery levels to (0.1-5.0): ", "将所有技能树系数设置到 (0.1-5.0): ", "_t")
 t("no change", "不变", "_t")
-t("Unlock all talent types (slow)", "解锁所有技能树（缓慢", "_t")
+t("Unlock all talent types (slow)", "解锁所有技能树（缓慢）", "_t")
 t("Accept", "接受", "_t")
 t("Cancel", "取消", "_t")
 t("#LIGHT_BLUE#AdvanceActor inputs: %s", "#LIGHT_BLUE#升级角色 输入: %s", "log")
@@ -42503,7 +42503,7 @@ t([[Error:
 %s]], "tformat")
 t("#LIGHT_BLUE#Could not add object to %s at (%d, %d)", "#LIGHT_BLUE#无法将物品添加到%s（位于(%d, %d)）", "log")
 t("#LIGHT_BLUE#No creature to add object to at (%d, %d)", "#LIGHT_BLUE#在(%d, %d)上没有生物", "log")
-t("#LIGHT_BLUE#No object to create", "#LIGHT_BLUE#没有创建物品", "log")
+t("#LIGHT_BLUE#No object to create", "#LIGHT_BLUE#没有可创建的物品", "log")
 t("Place Object", "放置物品", "_t")
 t("Place the object where?", "将物品放置到哪里？", "_t")
 t("Inventory of %s%s", "%s%s的物品栏", "tformat")
@@ -42518,7 +42518,7 @@ t("Enter 1-100%s", "输入 1-100%s", "tformat")
 t(", or 0 for the example item", ", 或输入0获得样品", "_t")
 t("#LIGHT_BLUE# Creating %d items:", "#LIGHT_BLUE# 正在创建 %d 件物品：", "log")
 t("Ego", "词缀", "_t")
-t("Add an ego enhancement if possible?", "制作一个有词缀的物品么（假如可以的话）？?", "_t")
+t("Add an ego enhancement if possible?", "要添加词缀增强吗（如果可能的话）？", "_t")
 t("#LIGHT_BLUE#Created %s", "#LIGHT_BLUE#已制造 %s", "log")
 t("Greater Ego", "高级词缀", "_t")
 t("Add a greater ego enhancement if possible?", "制作一个有高级词缀的物品么（假如可以的话）？", "_t")
@@ -42548,7 +42548,7 @@ t("#LIGHT_BLUE#God mode ON", "#LIGHT_BLUE#天神模式打开", "log")
 t("#LIGHT_BLUE#Demi-God mode OFF", "#LIGHT_BLUE#半神模式关闭", "log")
 t("#LIGHT_BLUE#Demi-God mode ON", "#LIGHT_BLUE#半神模式打开", "log")
 t("#LIGHT_BLUE#Weakdamage mode OFF", "#LIGHT_BLUE#伤害减弱模式关闭", "log")
-t("#LIGHT_BLUE#Weakdamage mode ON", "#LIGHT_BLUE#伤害模式减弱开启", "log")
+t("#LIGHT_BLUE#Weakdamage mode ON", "#LIGHT_BLUE#弱伤害模式：开启", "log")
 t("#LIGHT_BLUE#Revealing Map.", "#LIGHT_BLUE#地图全开。", "log")
 t("Zone: %s", "地图：%s", "tformat")
 t("Level 1-%s", "楼层 1-%s", "tformat")
@@ -42652,8 +42652,8 @@ t([[#LIGHT_BLUE#Base actor could not be generated with filter [%s].
 t("#LIGHT_BLUE#Bad data for random boss actor: %s", "#LIGHT_BLUE#随机Boss数据错误: %s", "log")
 t("#LIGHT_BLUE#Could not generate a base actor with data: %s", "#LIGHT_BLUE#无法使用以下数据生成基础角色: %s", "log")
 t([[#LIGHT_BLUE#ERROR: Random Boss could not be generated with data [%s].
- Error:%s]], [[#LIGHT_BLUE#错误: 无法使用以下数据生成随机Boss [%s].
- Error:%s]], "log")
+ Error:%s]], [[#LIGHT_BLUE#错误：无法使用数据 [%s] 生成随机Boss。
+错误：%s]], "log")
 
 ------------------------------------------------
 section "mod-tome/dialogs/debug/RandomObject.lua"
@@ -42671,7 +42671,7 @@ t("Object added to main inventory (dropped on death)", "物品加入主要物品
 t("Attach Tinker", "装载插件", "_t")
 t("Tinker will be attached to a worn object", "插件将会被插到一个穿戴的物品上。", "_t")
 t("Drop Randart (auto data)", "掉落随机神器（自动数据）", "_t")
-t("Random Artifact (dropped on death) added to main inventory, uses the Base Object or Base Filter plus Randart Data as input", "随机神器（死亡后掉落）将会被加入到主要物品栏，使用基础物品或基础物品的筛选器以及随机神器数据作为输入。", "_t")
+t("Random Artifact (dropped on death) added to main inventory, uses the Base Object or Base Filter plus Randart Data as input", "随机神器（死亡后掉落）将会被加入到主要物品栏，使用基础物品或基础过滤器，加上随机神器数据作为输入。", "_t")
 t("Drop Randart", "掉落随机神器", "_t")
 t("Random Artifact (dropped on death) added to main inventory", "随机神器（死亡后掉落）将会被加入到主要物品栏", "_t")
 t("DEBUG -- Create Random Object", "调试模式 -- 创建随机物品", "_t")
@@ -42684,10 +42684,10 @@ They use the #LIGHT_GREEN#Random filter#LAST# as input unless noted otherwise an
 Filters are interpreted by ToME and engine entity/object generation functions (game.zone:checkFilter, etc.).
 Interpretation of tables is within the _G environment (used by the Lua Console) using the current zone's #YELLOW_GREEN#object_list#LAST#.
 Hotkeys: #GOLD#'F1'#LAST# :: context sensitive help, #GOLD#'C'#LAST# :: Working Character Sheet, #GOLD#'I'#LAST# :: Working Character Inventory.
-]], [[使用筛选器生成随机物品，或者生成随机神器。
+]], [[按筛选器随机生成物品，并创建随机神器。
 使用“生成”按钮生成物品用于预览和检查。
 使用“添加物品”按钮选择将物品放到哪里，并将其加入游戏。
-鼠标移动到物品上方，将可以看到生成的物品/使用的角色的预览（请按#GOLD#'L'#LAST#键进行Lua检查。
+将鼠标悬停在控件上，可以预览生成的物品/使用的角色（请按#GOLD#'L'#LAST#键进行Lua检查。
 #SALMON#解析器#LAST#工作在工作角色上（默认：玩家），用于生成单个物品。
 除非特别说明，它们使用#LIGHT_GREEN#随机筛选器#LAST#作为输入，并决定物品的去向。
 筛选器由ToME游戏引擎的实体/物品处理函数解析(game.zone:checkFilter等)。
@@ -42740,10 +42740,10 @@ t("#LIGHT_BLUE#Could not generate a base object with filter: %s", "#LIGHT_BLUE#�
 t([[#LIGHT_BLUE#ERROR generating base object with filter [%s].
  Error:%s]], [[#LIGHT_BLUE#错误：使用该筛选器生成基础物品时发生错误 [%s].
  错误:%s]], "log")
-t("#LIGHT_BLUE#Could not generate a Randart with data: %s", "#LIGHT_BLUE#无法使用该筛选器生成随机神器: %s", "log")
+t("#LIGHT_BLUE#Could not generate a Randart with data: %s", "#LIGHT_BLUE#无法使用数据生成随机神器: %s", "log")
 t([[#LIGHT_BLUE#ERROR generating Randart with data [%s].
- Error:%s]], [[#LIGHT_BLUE#错误：使用该筛选器生成随机神器时发生错误 [%s].
- 错误:%s]], "log")
+ Error:%s]], [[#LIGHT_BLUE#错误：使用数据 [%s] 生成随机神器时发生错误。
+错误：%s]], "log")
 t("#LIGHT_BLUE#No object to add", "#LIGHT_BLUE#没有待添加的物品", "log")
 t([[#LIGHT_BLUE#ERROR accepting object with resolver %s.
  Error:%s]], [[#LIGHT_BLUE#使用解析器%s接受物品时出错。
@@ -42796,7 +42796,7 @@ t([[%s is listening attentively, and wants to know what talents to use.
 You can modify the tactical weights of various talents to increase or decrease their use.  The weights are multiplicative (zero will turn the talent off) and relative (changing everything to a weight of 2 will not alter how talents are used relative to each other).
 Word travels fast in Maj'Eyal, and if %s is a summon all future summons of the same type will remember your preferences.
 ]], [[%s正在仔细地听着你，向你询问该怎么使用它的技能。
-你可以修改他的技能使用策略中每个技能的权重，增加或减少某些技能使用的概率。这些权重是乘法性的（权重为零表示这个技能永远不会被使用）和相关性的（把所有技能的权重调整为二和全部调整为一没有区别） 
+你可以修改他的技能使用策略中每个技能的权重，增加或减少某些技能使用的概率。这些权重是乘法性的（权重为零表示该技能永远不会被使用）和相对性的（把所有技能的权重都调整为 2，并不会改变各技能之间的相对使用）
 在马基·埃亚尔消息传播得很快。如果 %s 是一个召唤生物，所有同类的召唤生物都会记住你的设置。
 ]], "tformat")
 t("Talent Name", "技能名", "_t")
@@ -42829,10 +42829,10 @@ t("\
 #{italic}##CRIMSON#This cosmetic feature is only available to donators/buyers. You can only preview.#WHITE##{normal}#", "\
 #{italic}##CRIMSON#这项时装特性仅对捐赠者/购买者可用。你只能预览#WHITE##{normal}#", "_t")
 t([[You can alter %s to look like another item of the same type/slot.
-#{bold}#This is a purely cosmetic change.#{normal}#%s]], [[你可以改变%s的外形，让它看起来像是同一槽位的另一个物品。
+#{bold}#This is a purely cosmetic change.#{normal}#%s]], [[你可以改变%s的外形，让它看起来像是同一类型/槽位的另一个物品。
 #{bold}#这个改变只会带来视觉上的变化。#{normal}#%s]], "tformat")
 t("Donator Cosmetic Feature", "捐赠者时装特性", "_t")
-t("This cosmetic feature is only available to donators/buyers.", "这项时装特性只对仅对捐赠者/购买者可用。", "_t")
+t("This cosmetic feature is only available to donators/buyers.", "这项时装特性仅对捐赠者/购买者可用。", "_t")
 t("shimmer ingame", "游戏内幻化", "_t")
 t("Donate", "捐赠", "_t")
 t("Cancel", "取消", "_t")
@@ -42857,7 +42857,7 @@ t([[You can alter your look.
 #{bold}#This is a purely cosmetic change.#{normal}#%s]], [[你可以改变你的外观。
 #{bold}#这个改变只会带来视觉上的变化。#{normal}#%s]], "tformat")
 t("Donator Cosmetic Feature", "捐赠者时装特性", "_t")
-t("This cosmetic feature is only available to donators/buyers.", "这项时装特性只对仅对捐赠者/购买者可用。", "_t")
+t("This cosmetic feature is only available to donators/buyers.", "这项时装特性仅对捐赠者/购买者可用。", "_t")
 t("shimmer ingame", "游戏内幻化", "_t")
 t("Donate", "捐赠", "_t")
 t("Cancel", "取消", "_t")
@@ -42873,9 +42873,9 @@ t([[You can switch your appearance to a saved set of shimmers.
 #{bold}#This is a purely cosmetic change.#{normal}#]], [[你可以把你的幻化切换到一套保存好的套装。
 #{bold}#这个改变只会带来视觉上的变化。#{normal}#]], "_t")
 t("Save Outfit", "保存套装", "_t")
-t("Outfit name?", "套装名称?", "_t")
+t("Outfit name?", "套装名称？", "_t")
 t("Donator Cosmetic Feature", "捐赠者时装特性", "_t")
-t("This cosmetic feature is only available to donators/buyers.", "这项时装特性只对仅对捐赠者/购买者可用。", "_t")
+t("This cosmetic feature is only available to donators/buyers.", "这项时装特性仅对捐赠者/购买者可用。", "_t")
 t("shimmer ingame", "游戏内幻化", "_t")
 t("Donate", "捐赠", "_t")
 t("Cancel", "取消", "_t")
@@ -42886,7 +42886,7 @@ section "mod-tome/dialogs/shimmer/ShimmerRemoveSustains.lua"
 
 t("Shimmer: Remove Sustains Effects", "幻化：移除持续技能效果", "_t")
 t("Name", "名称", "_t")
-t("Active", "启动", "_t")
+t("Active", "激活", "_t")
 t("\
 #{italic}##CRIMSON#This cosmetic feature is only available to donators/buyers. You can only preview.#WHITE##{normal}#", "\
 #{italic}##CRIMSON#这项时装特性仅对捐赠者/购买者可用。你只能预览#WHITE##{normal}#", "_t")
@@ -42898,7 +42898,7 @@ Sustains auras with name in #YELLOW#yellow#LAST# can not be automatically turned
 
 #{bold}#这个改变只会带来视觉上的变化。#{normal}#]], "_t")
 t("Donator Cosmetic Feature", "捐赠者时装特性", "_t")
-t("This cosmetic feature is only available to donators/buyers.", "这项时装特性只对仅对捐赠者/购买者可用。", "_t")
+t("This cosmetic feature is only available to donators/buyers.", "这项时装特性仅对捐赠者/购买者可用。", "_t")
 t("shimmer ingame", "游戏内幻化", "_t")
 t("Donate", "捐赠", "_t")
 t("Cancel", "取消", "_t")
@@ -43068,7 +43068,7 @@ t("Arcane Blades employ a fusion of melee and magical combat. Their training is 
 t("Wild infusions call upon the powers of nature to protect the flesh and rid oneself of afflictions.", "野性纹身召唤自然之力保护血肉，并驱除自身的不良状态。", "init.lua load_tips")
 t("Shield runes act instantly, letting one protect oneself quickly whilst also preparing to flee or launch a counter attack.", "护盾符文为瞬发技能，可以在你准备逃跑或者反击的同时提供防护。", "init.lua load_tips")
 t("Greater training in the use of armour lets it be used more effectively, blocking more damage and reducing the chance of an enemy hitting a critical spot.", "高级的护甲训练可以有效提高你的防护能力，使你格挡更多伤害并降低你受到致命一击的几率。", "init.lua load_tips")
-t("The Thick Skin talent reduces all incoming damage, letting you survive for longer before needing to heal.", "硬化皮肤技能可以降低所有受到的伤害，让你在能够使用治疗以前存活更长的时间。", "init.lua load_tips")
+t("The Thick Skin talent reduces all incoming damage, letting you survive for longer before needing to heal.", "硬化皮肤技能可以降低所有受到的伤害，让你在需要治疗前存活更久。", "init.lua load_tips")
 t("Regeneration infusions act over several turns, letting you anticipate damage that will be taken and prepare for it.", "恢复纹身的效果持续数个回合，开启后每回合会恢复一定的生命值，使你的战斗更加从容不迫。", "init.lua load_tips")
 t("In the most dire circumstances teleportation can be the best escape, but is not without risk.", "在最危急的时刻，传送可能是最好的逃生手段，但也并非没有风险。", "init.lua load_tips")
 t("The Ziguranth are an ancient order vehemently opposed to magic. Some have become so attuned to nature they can resist arcane forces with their will alone.", "伊格兰斯是一个古老的反魔阵营，他们中的一些人可以依靠自身的意志力来抵抗奥术能量。", "init.lua load_tips")
@@ -43091,14 +43091,14 @@ t("It's said that some rare powers can save your soul from the edge of death.", 
 t("Rumours tell of a shadowy cult kidnapping women and performing strange rites. Their intentions are unknown, and they have so far evaded capture.", "传说有一个邪教组织，他们绑架妇女举行奇怪的仪式，没人知道他们真正的目的，至今他们还没有被抓捕。", "init.lua load_tips")
 t("Though slavery is illegal there is still a black market for it, and in some areas men are even used for blood sports.", "尽管贩奴被严令禁止但地下交易却仍然存在。有些地方奴隶甚至被作为一种血腥运动项目的道具。", "init.lua load_tips")
 t("Maj'Eyal is the biggest continent in the world of Eyal. Though records suggest other continents and islands may exist it has not been possible to cross the wide and stormy oceans since the Spellblaze and the Cataclysm.", "马基埃亚尔是埃亚尔世界中最大的一块大陆。虽然有记载世界上有可能还存在着其他大陆或者岛屿，但自从魔法大爆炸和大灾变发生之后，穿越浩瀚的风暴之海已经不大可能了。", "init.lua load_tips")
-t("The effects of the Spellblaze were not all instant, and many centuries later the Cataclysm tore the continent apart once more, devastating coastal areas the destroying all of the Naloren lands.", "魔法大爆炸造成的影响并非仅局限于那一瞬间，这场大灾难过去了几个世纪，大陆一次又一次被撕裂，沿海的纳鲁精灵王国受到了毁灭性的打击而从此灭绝。", "init.lua load_tips")
+t("The effects of the Spellblaze were not all instant, and many centuries later the Cataclysm tore the continent apart once more, devastating coastal areas the destroying all of the Naloren lands.", "魔法大爆炸造成的影响并非仅局限于那一瞬间，数个世纪之后，大灾变再次撕裂了大陆，摧毁了沿海地区，并灭绝了所有纳鲁精灵的领地。", "init.lua load_tips")
 t("Archers are fast and deadly, and with pinning shots can render their foes helpless as they swiftly dispatch them.", "弓箭手行动迅捷而致命，他们可以使用定身射击使敌人无力反抗，然后迅速解决他们。", "init.lua load_tips")
 t("Reavers are powerful fighters with corrupted blood, and the strength to wield a one-handed weapon in each arm.", "收割者是流着堕落之血的强大战士，他们双手各可以装备一件单手武器。", "init.lua load_tips")
 t("Corruptors feed off the essence of others, and can use their own corrupted blood to launch deadly magical attacks.", "腐化者可以吸取他人的精华，并使用他们的堕落力量发动致命的魔法攻击。", "init.lua load_tips")
 t("Clever rogues can lay traps to damage or debilitate their foes without having to go near them.", "聪明的盗贼可以在不近身的情况下安置陷阱对敌人造成伤害或者削弱他们。", "init.lua load_tips")
 t("Rogues can move silently and stealthily, letting them approach foes unaware or avoid them entirely.", "盗贼可以悄无声息的移动，在敌人毫无察觉的情况下悄悄近身，或者完全避开敌人。", "init.lua load_tips")
 t("A movement infusion can let you quickly approach a ranged opponent, or quickly escape a melee one.", "移动纹身可以使你快速地接近一个远程敌人或者逃离近战敌人。", "init.lua load_tips")
-t("Invisibility lets you escape notice, giving you the freedom to move or recover your resources, but reduces your damage.", "隐身可以使敌人忽略你，让你自由移动、恢复能量，不过这会降低你的伤害和治疗能力。", "init.lua load_tips")
+t("Invisibility lets you escape notice, giving you the freedom to move or recover your resources, but reduces your damage.", "隐身可以使敌人忽略你，让你自由移动、恢复能量，不过这会降低你的伤害输出。", "init.lua load_tips")
 t("Poison is the domain of assassins and master rogues, and its cunning use can cripple or kill enemies over a long fight.", "毒药学是盗贼大师和刺客的技能，它可以在一场长时间的战斗中削弱或杀死敌人。", "init.lua load_tips")
 t("Summoners can call upon a variety of natural creatures to protect and support them, reducing the risk to their own flesh considerably.", "召唤师可以召唤不同的自然生物来支援和保护他们，这样可以减少他们直面敌人的危险。", "init.lua load_tips")
 t("The highest sorcerers are known as archmages, and the masters amongst them are said to have the power to change the world. They are feared immensely.", "元素法师被认为是最高级别的法师，而其中的魔导师更是拥有改变世界的强大法力，他们也是世人最惧怕之人。", "init.lua load_tips")
