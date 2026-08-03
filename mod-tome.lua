@@ -5925,7 +5925,7 @@ You shake your head as the vision dissipates, and your normal sight comes back s
 #WHITE#*
 ]], "_t")
 t("Those are Sher'Tuls? They fought the gods?!", "那是夏·图尔？他们和众神战斗？！", "_t")
-t("They had to. They forged terrible weapons of war. They won.", "他们曾经是，他们锻造了可怕的武器用于战争，并取得了胜利。", "_t")
+t("They had to. They forged terrible weapons of war. They won.", "他们别无选择。他们锻造了可怕的战争武器。他们胜利了。", "_t")
 t("But then where are they now if they won?", "他们是胜利了，但是现在他们又在哪里呢？", "_t")
 t("They are gone now. I cannot tell you more.", "他们已经消失，我不能告诉你更多了。", "_t")
 t("But I am the master!", "我是你的主人！", "_t")
@@ -5976,8 +5976,8 @@ t("\
 #{italic}##CRIMSON#此功能仅限捐赠者/购买者使用。您可以解锁房间并使用预览，但无法生效您的选择。#{normal}#", "_t")
 t("That could be quite nice. Yes, please do it.", "非常好，就这么做吧。", "_t")
 t([[Ah yes, you seem to master the simple art of alchemy. I can change the chest to automatically use your power to extract a gem if the transmogrification of the gem would reward more energy.
-However, I will need to use 25 energy to do this.]], [[嗯可以，你似乎掌握了基本的炼金术，我可以使转化之盒自动转化宝石提供能量，
-不过这需要耗费25能量值。]], "_t")
+However, I will need to use 25 energy to do this.]], [[嗯可以，你似乎掌握了基本的炼金术。如果转化宝石能获得更多能量，我可以让转化之盒自动使用你的力量来提取宝石，
+不过这需要耗费 25 点能量值。]], "_t")
 t("Maybe sometime later.", "以后再说。", "_t")
 t("I can alter the Fortress holographic projection matrix to accomodate your racial tastes. This will require 60 energy, however.", "我可以通过堡垒改变我自身的结构以符合主人的口味，不过这得耗费60能量值。", "_t")
 t("Can you try for a human female appearance please?", "请你变成一个女性人类的样子吧？", "_t")
@@ -6002,7 +6002,7 @@ t([[#{italic}#As you open the door you stare in amazement at what is beyond. A c
 
 But your wonder is cut short as the Sher'Tul notices you, and you feel its intense concentration bear down on you like an unstoppable force. A voice in your head booms, #{normal}#%s#{italic}#
 
-A wave of mental and magical power blasts into you with the might of a falling star. You are lifted into the air, and intense pressure bears down on every inch of your skin, threatening to crush you into nothingness. You try to resist for a moment, until--#{normal}#]], [[#{italic}#当你打开门时，你很吃惊的看着眼前的一切。一个生物站在你面前，长着触手一样的附属物，在脑袋的位置有个肿块一样的鼓起物。它的身上放射出一种你从来没有碰到过的力量光环。有可能是一只夏·图尔，活着的夏·图尔！
+A wave of mental and magical power blasts into you with the might of a falling star. You are lifted into the air, and intense pressure bears down on every inch of your skin, threatening to crush you into nothingness. You try to resist for a moment, until--#{normal}#]], [[#{italic}#当你打开门时，你很吃惊的看着眼前的一切。一个生物站在你面前，长着触手一样的附属物，在脑袋的位置有个肿块一样的鼓起物。它的身上放射出一种你从来没有碰到过的力量光环。这只能是夏·图尔，活着的夏·图尔！
 
 不过你的惊愕没有持续多久，那个夏·图尔注意到了你，你感觉到它身上释放出一种令你窒息的压倒性的力量。一个声音在你的脑海中响起 #{normal}#%s#{italic}#
 
@@ -6034,7 +6034,7 @@ A shadow appears in a corner of the room! You retract the rod immediately but th
 It looks like the horrors you fought when coming inside, only less degenerated.
 The thing looks roughly humanoid, but it has no head and its limbs look like tentacles. It does not seem hostile.#WHITE#*]], [[*#LIGHT_GREEN#当你用魔杖接近水晶球时，你感觉到它发生了感应和共鸣。
 一个影子从房间的角落里出现了！你赶紧拿回了法杖，但是那个影子还在。
-当你走近时它看上去像你以前战斗过的恐魔，只是稍稍感觉有些退化。
+它看起来很像你进来时战斗过的恐魔，只是退化程度较轻。
 那个东西有着粗略的人形，但它没有脑袋，只有像触角一样的肢体。看上去似乎不像是敌人。#WHITE#*]], "_t")
 
 ------------------------------------------------
@@ -6103,14 +6103,14 @@ Recently, that water dragon that sent you here started sending "agents" to secur
 我会告诉你我的故事，你们地面上的居民并不了解娜迦，让我告诉你：我们目前的处境并不是我们自己的选择。
 当纳鲁大陆沉没时，我们很多人死了，因此我们求助于这间神庙的魔法。它起作用了，它救了我们，但是我们受到了诅咒。在这种可怕的魔法下我们变成了现在这副模样。
 要是你不相信我所说的，至少你应该相信这个：夏·图尔只是隐藏了起来，并没有消失，而且它们并不是友善的种族。
-现在，那个“水龙”派你来这里，开始派代理人来保护神庙。我只能猜测他的真正目的，肯定不是出于善意。]], "_t")
+最近，那条派你来这里的水龙开始派“代理人”来控制这座神庙。我只能猜测他的真正目的，肯定不是出于善意。]], "_t")
 t("You do not sound mad to me... could Ukllmswwik have lied?", "听上去你不像是个疯子，难道乌克勒姆斯维奇说谎了么？", "_t")
 t("I will not be deceived by your lies! I will make your pay for your victims!", "我不会被你的谎言所欺骗，你必须为你的牺牲者付出代价！", "_t")
 t("As you wish. It did not have to come to this...", "如你所愿吧，本来不至于如此……", "_t")
 t("Use this portal. It will bring you back to his cave; ask him the truth.", "使用这个传送门，可以把你传送回他的洞穴，去问他事情的真相吧。", "_t")
 t("I will make him pay for his treachery.", "我会让他的背叛付出代价。", "_t")
 t("Thank you for listening to me.", "谢谢你听我说完。", "_t")
-t("The dragon was lying, I can feel it. I have decided to embrace your cause.", "那头巨龙在说谎，我能看出来。我准备接受你的力量。", "_t")
+t("The dragon was lying, I can feel it. I have decided to embrace your cause.", "那头巨龙在说谎，我能看出来。我决定支持你的事业。", "_t")
 t("Farewell, Slasul.", "再见，萨拉苏尔。", "_t")
 t([[I secretly hoped you would.
 Then let us seal this alliance. Share your lifeforce with me! So long you should live I shall not be killed!
@@ -6118,7 +6118,7 @@ In return let me offer you this powerful trident.]], [[我希望你能配合。
 现在，让我们开始履行同盟仪式。将你的生命与我同享！这样只要你活着，我就永远不死！
 作为回报，我会赐予你这柄强大的三叉戟。]], "_t")
 t("I shall accept your offer, my liege.", "我接受你的馈赠，我的主人。", "_t")
-t("LET US BE BOUND!", "我们合体吧！", "_t")
+t("LET US BE BOUND!", "让我们缔结契约吧！", "_t")
 t("This sounds strange. I need to think about it.", "听起来有点奇怪，我要考虑一下。", "_t")
 
 ------------------------------------------------
@@ -6239,7 +6239,7 @@ section "mod-tome/data/chats/sorcerer-fight.lua"
 t("High Sun Paladin Aeryn appears next to you!", "高阶太阳骑士艾琳在你的身边出现了！", "logPlayer")
 t([[#LIGHT_GREEN#*The two Sorcerers stands before you, shining like the Sun.*#WHITE#
 Ah! Our guest is finally here. I take it you found the peak entertaining?]], [[#LIGHT_GREEN#*两个魔法师站在你面前，像太阳一样闪闪发光。*#WHITE#
-喔～！我们的客人终于来到了这里。看来我们是到了舞会的高潮了，不是么？]], "_t")
+喔～！我们的客人终于来到了这里。我想你在山巅看得很尽兴？]], "_t")
 t("Spare me the small talk. I am here to stop you!", "我不是来和你们聊天的，我是来阻止你们的！", "_t")
 t("Why are you doing all that? You were supposed to help people!", "你们为什么这么做？你们本来是被期望帮助别人的！", "_t")
 t([[Oh, but all we want is to help people. We have come to the self-evident conclusion that common people are just unfit to govern themselves, always bickering, arguing...
@@ -6283,7 +6283,7 @@ t("How fares your research? Are we ready to create the portal?", "你研究的�
 t("Nothing, excuse me. Bye!", "没事，抱歉打扰了，再见！", "_t")
 t("Astonishing! I have heard tell of this Orb in ancient texts and legends. Might I see it?", "真令人惊讶！我在古代的文献和传说中读到过关于这个水晶球的资料。能让我看看么？", "_t")
 t("[Show him the Orb of Many Ways]", "[给他看多元水晶球]", "_t")
-t("Truly, it is the work of a great master. Perhaps Linaniil herself had a hand in its making. And you say you come bearing instructions in its usage?", "确实，这是一位杰出伟人的杰作。也许莱娜尼尔她自己也曾经参与过建造。你说你看不懂它的使用说明么？", "_t")
+t("Truly, it is the work of a great master. Perhaps Linaniil herself had a hand in its making. And you say you come bearing instructions in its usage?", "确实，这是一位杰出伟人的杰作。也许莱娜尼尔她自己也曾经参与过建造。你说你带来了它的使用说明？", "_t")
 t("I do. [Show him Zemekkys's scribbled notes]", "是的。[给他看伊莫克斯潦草的笔记]", "_t")
 t("#LIGHT_GREEN#*He spends a few minutes reading*#WHITE# Ah! I see. I did not at first grasp this Zemekkys's methods, but I see now that they are sound, and it is simply his penmanship that needs improvement. We can manage to reproduce his work here, but, as he says, we will need the Blood-Runed Athame and a Resonating Diamond.", "#LIGHT_GREEN#*他花了几分钟阅读笔记*#WHITE# 啊！我明白了。一开始我没看懂伊莫克斯的方法，现在看来方法本身没有问题，只是他的字迹需要改进。我们可以在这里重现他的成果，不过，正如他所说，我们需要一把血符仪式匕首和一块共鸣宝石。", "_t")
 t("Have you any idea where they might be found?", "你知道去哪里寻找这两样东西么？", "_t")
@@ -6296,7 +6296,7 @@ t("Thank you. I will treat it with the utmost care.", "谢谢，我会小心谨�
 t("Farewell. I'll return with the Athame and Diamond.", "再见，我会把血符仪式匕首和共鸣宝石带回来的。", "_t")
 t("Very well. There is no hurry. But I will need to spend a number of days studying it before we can create your portal.", "好极了，不用着急。要创造你需要的传送门我还得花上几天来学习一下呢。", "_t")
 t("I understand. I'll return with the Athame and Diamond.", "我明白了，我会把血符仪式匕首和共鸣宝石带回来的。", "_t")
-t("Excellent. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields,\" return with it and your odds of surviving our portal attempt will go up drastically.", "很好，几天后你回来，我肯定把一切都准备好了。哦，带上这个。#LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#他可以打开泰尔玛废墟,许多年以前肖塔人被封印在那里。要是你在废墟之中找到一份标题是《关于力场翻转与回复的可能性研究》的文献请帮我带回来，这样可以使传送门保留机会大大提高。", "_t")
+t("Excellent. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields,\" return with it and your odds of surviving our portal attempt will go up drastically.", "很好，几天后你回来，我肯定把一切都准备好了。哦，带上这个。#LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖塔尔人封印的地方。要是你在废墟之中找到一份标题是《关于力场翻转与回复的可能性研究》的文献请帮我带回来，这能大大提高你通过传送门时存活的几率。", "_t")
 t("Thank you, and farewell.", "谢谢，再见！", "_t")
 t("Excellent. Are you yet willing to leave the Orb in my care for a time?", "太好了，那你同意把水晶球留给我研究一段时间了？", "_t")
 t("I dare not let it out of my sight. I'm sorry.", "我可不希望它离开我的视线，抱歉。", "_t")
@@ -6305,9 +6305,9 @@ t("#LIGHT_GREEN#*The old man sighs*#WHITE# Very well. I suppose I must make do w
 t("[Hand him the orb]", "[交给他水晶球]", "_t")
 t("Thank you. Give me a few minutes. #LIGHT_GREEN#*He begins to pace back and forth absently, staring at the Orb.*#WHITE#", "谢谢，给我一点时间。#LIGHT_GREEN#*他开始心不在焉地前后踱着步，盯着水晶球。*#WHITE#", "_t")
 t("[Wait]", "[等待]", "_t")
-t("#LIGHT_GREEN#*He stops pacing and returns the Orb to you.*#WHITE# I believe I know most of what I need to. But I need a few details cleared up. You'll have to return to this Elven Chronomancer and ask him whether he meant an inverted probabilistic field or a reverted probabilistic field. I dare not guess, as the result could be quite unpleasant for you.", "#LIGHT_GREEN#*他停下踱步，回到水晶球前来。*#WHITE# 我想我知道大多数我需要的东西，不过一些细节内容还得搞搞清楚。必须回去找到那个精灵时空法师，问问他到底是使用回复力场还是反转力场，我可不敢瞎猜，要不然结果很可能令你不太高兴。", "_t")
+t("#LIGHT_GREEN#*He stops pacing and returns the Orb to you.*#WHITE# I believe I know most of what I need to. But I need a few details cleared up. You'll have to return to this Elven Chronomancer and ask him whether he meant an inverted probabilistic field or a reverted probabilistic field. I dare not guess, as the result could be quite unpleasant for you.", "#LIGHT_GREEN#*他停下踱步，把水晶球交还给你。*#WHITE# 我想我知道大多数我需要的东西，不过一些细节内容还得搞搞清楚。你得回去找那个精灵时空法师，问问他到底指的是反转概率场还是回复概率场。我可不敢瞎猜，要不然结果很可能令你不太高兴。", "_t")
 t("I'll return with the answer.", "我会回去寻找答案的。", "_t")
-t("Fear not. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields\", return with it and your odds of surviving our portal attempt will go up drastically.", "别害怕，几天后你回来，我肯定把一切都准备好了。哦，带上这个。 #LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#他可以打开泰尔玛废墟,许多年以前肖塔人被封印在那里。要是你在废墟之中找到一份标题是《关于力场翻转与回复的可能性研究》的文献请帮我带回来，这样可以使传送门保留机会大大提高。", "_t")
+t("Fear not. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields\", return with it and your odds of surviving our portal attempt will go up drastically.", "别害怕，几天后你回来，我肯定把一切都准备好了。哦，带上这个。 #LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖塔尔人封印的地方。要是你在废墟之中找到一份标题是《关于力场翻转与回复的可能性研究》的文献请帮我带回来，这能大大提高你通过传送门时存活的几率。", "_t")
 t([[I think not, fool. Look down.
 #LIGHT_GREEN#*You notice you're standing on an etched portal.*#WHITE#]], [[我可不这么想，笨蛋，低头看看。
 #LIGHT_GREEN#*你注意到你正站在一个铭文传送门上。*#WHITE#]], "_t")
@@ -6333,7 +6333,7 @@ Because it was once part of a land we know well we can teleport you there. You w
 The instability is also to your advantage there, your simple phase door spell will be fully controllable.
 
 So, you think you can help us ?]], [[魔法大爆炸把这个世界分裂成了几个碎片。其中一部分，我们称它为次元浮岛，从这个世界分离了出去，落入了群星之中的无尽虚空。
-我们试图使它稳定下来，但是现在它正在向埃亚尔大陆飞来。最近我们在那儿也注意到一些骚动，如果我们任其发展它会撞向埃亚尔大陆造成极大的灾难。
+我们设法让它稳定了下来，如今它正环绕埃亚尔运行。最近我们在那儿也注意到一些骚动，如果我们任其发展它会撞向埃亚尔大陆造成极大的灾难。
 由于我们以前对那块大陆比较熟悉，我们可以将你传送至那里，你需要向三个不稳定的虫洞施放各种攻击性法术使它们稳定下来。
 虽然那里的时空很不稳定，它同时也能给你带来好处，你的相位之门法术在那里可以变得完全受你控制。
 
@@ -6350,10 +6350,10 @@ section "mod-tome/data/chats/tarelion.lua"
 
 t([[I say, you there. Yes, you, young one!
 You seem like the adventuring fare, up to all sorts of doo-daddle in the outside world, I imagine. Well, don't forget to pay patronage to our good library here in the city. The riches of the world are all well and good, but where would we be without the gift of knowledge? And all proceeds go towards the funding of further research. No greater cause, yes?]], [[我说，那边那个，对对，就是你，年轻人！
-你看上去像一个冒险者之类的，大不了算是一个在外面世界闯荡的小子。好吧，别忘了为这个城里最好的图书馆捐点钱。这个世界的有钱人大多数是好人，但是要是我们没有知识赐予力量怎么办？所有搜集的资金都会直接用于进一步研究。没有其他理由了，对么？]], "_t")
+你看上去像一个冒险者之类的，大不了算是一个在外面世界闯荡的小子。好吧，别忘了为这个城里最好的图书馆捐点钱。世间的财富固然很好，但若没有知识的馈赠，我们又会怎样？所有搜集的资金都会直接用于进一步研究。没有其他理由了，对么？]], "_t")
 t("Uh, yes, of course... I'll be moving on now.", "啊，是的，当然……我得继续赶路了。", "_t")
 t("Hold on! You... You're that apprentice mage I met in the wilds!", "打住！你……你不就是那个荒野之中的法师学徒么？", "_t")
-t("Why, well-spotted, whippersnapper! Indeed, when the mood takes me I sometimes travel under the guise of an apprentice. It permits me to traverse the land unnoticed in my research, and if I meet any I deem worthy and sympathetic to Angolwen's cause, then so much the better. And it does provide the odd chortle, I tell you!", "眼力不错嘛，小家伙！的确我有时会心血来潮假扮成一个学徒到处旅行，这样在我的研修旅行中就不会引人注意。我会搜集一切对安格利文有价值的东西，多多益善。不过我告诉你，确实有人借此来嘲笑我！", "_t")
+t("Why, well-spotted, whippersnapper! Indeed, when the mood takes me I sometimes travel under the guise of an apprentice. It permits me to traverse the land unnoticed in my research, and if I meet any I deem worthy and sympathetic to Angolwen's cause, then so much the better. And it does provide the odd chortle, I tell you!", "眼力不错嘛，小家伙！的确我有时会心血来潮假扮成一个学徒到处旅行，这样在我的研修旅行中就不会引人注意。如果我遇到值得信赖、且认同安格利文事业的人，那就更好了。而且我告诉你，这偶尔也确实让我觉得好笑！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/temporal-rift-end.lua"
@@ -6376,7 +6376,7 @@ Oh no, another *adventurer*! You should not mess with things beyond your compreh
 Do not meddle in the affairs of Time, for it passes swiftly and is easily disrupted!
 #LIGHT_GREEN#*He looks at you more closely.*#WHITE#
 You seem capable. Help me, fight the abominations while I repair the timeline. It is your only way out!]], [[#LIGHT_GREEN#*一个高大的男人，全身像星星一样闪耀着光芒，在你面前出现了。*#WHITE#
-噢，不，又来了一个“冒险家”！你不能把超出你理解范围的东西混为一谈！
+噢，不，又来了一个“冒险家”！你不该插手超出你理解范围的事物！
 不要搅进有关时间的事物里，时间流逝非常快，而且很容易被搅乱！
 #LIGHT_GREEN#*他靠近并注视着你*#WHITE#
 你看上去很强，帮帮我，在我修理时间线的时候帮我干掉那些憎恶，只有这样你才能离开这里！]], "_t")
@@ -6429,7 +6429,7 @@ If you need a reminder of which key does what, you can access the game menu by p
 If this is your first time with the game, you will find the selection of races and classes limited. Don't worry; many, many more will become available as you unlock them during your adventures. \
 \
 Now go boldly and remember: #GOLD#have fun!#WHITE#\
-Press #GOLD#Escape#WHITE#, then select #GOLD#Save and Exit#WHITE#, and create a new character!", [[你已经完成了所有的教程，现在你对ToME4的基本情况应该有所了解了。你现在已经准备好去世界中寻找荣耀和财富，就算遭遇一大群残忍恐怖的怪物你也可以应对了！
+Press #GOLD#Escape#WHITE#, then select #GOLD#Save and Exit#WHITE#, and create a new character!", [[你已经完成了所有的教程，现在你对ToME4的基本情况应该有所了解了。你现在已经准备好去世界中寻找荣耀和财富，然后被一大群你以为自己能应付的怪物无情地屠杀！
 
 在教学过程中，一些怪物为了教学目的被相应地做过修改，不过在真实的埃亚尔世界中，怪物可不会这么简单！
 
@@ -6564,7 +6564,7 @@ Tell High Sun Paladin Aeryn that you met me. I'll send word to let you pass.]], 
 t("Thank you, I will talk with Aeryn.", "谢谢你，我会找艾琳谈谈的。", "_t")
 t([[Gone? Wait, this face.. you are @playername@! We thought you died in the naga portal explosion!
 Thanks to your courage the Gates of Morning still stand.
-You should go there at once.]], [[流浪？等一下，你是……你是 @playername@！我们都以为你在娜迦传送门爆炸的时候死了！
+You should go there at once.]], [[离开了？等一下，这张脸……你是 @playername@！我们都以为你在娜迦传送门爆炸的时候死了！
 因你的壮举，晨曦之门依然屹立不倒。
 你应该马上去那里。]], "_t")
 t("Sadly I am the bringer of bad news, the orcs are planning something. Good luck, my lady.", "恐怕我带来了一些坏消息，兽人正筹划着什么阴谋，祝你好运，女士。", "_t")
@@ -6679,10 +6679,10 @@ Besides, I still can't help you unless you have a Blood-Runed Athame to etch a p
 Err, and that portal must be etched on a piece of prepared Resonating Marble.
 The Gates of the Morning has a slab of Marble that once could have served, but a number of, um, incidents have taken their toll.
 It'll require a Resonating Diamond to get it properly prepared. Oh, and I want 100 gold.]], [[你认为我会让一个肮脏的 @playerdescriptor.race@ 带着多元水晶球进我家么？
-谢了，我的房间已经够乱了。
+谢了，没有那东西在屋里，我已经够经常把自己炸得够呛了。
 况且，我没法帮助你，除非你搞到一把血符仪式匕首来开启这个传送门。
 呃……传送门还必须在一块共鸣石头上才能开启。
-晨曦之门原来有这么一块共鸣石头可以起作用，不过现在，有一群……嗯……东西占据了那儿。
+晨曦之门原来有这么一块共鸣石头可以起作用，不过过去发生过一些……呃……事故，对它造成了损伤。
 另外还有一块共鸣宝石，哦，我还要收取100金币费用。]], "_t")
 t("Where can I find all that?", "我上哪儿去找那些东西？", "_t")
 t("Try your purse for the 100 gold. As for an Athame and a Resonating Diamond, I assume the orcs have some if they're cooking up portals to use that Orb on. Try the Vor Armory. It so happens that I know a back way in. Never mind why.", "100 金币嘛……你摸摸自己的钱袋就有了。至于仪式匕首和共鸣宝石，既然那些兽人正准备配合多元水晶球开启传送门，我猜他们手上就有。去沃尔军械库找找吧。碰巧我知道一条后门，别问为什么。", "_t")
@@ -6738,9 +6738,9 @@ You will be challenged against magical foes. Should you defeat them, we will tea
 %s，我们观察了你很久，你很有潜力。
 我们都知道，禁忌的奥术力量是我们这片大地上每一场痛苦和灾难的根源。如果继续放任不管，它们最终会毁灭这个世界。因此，我们决定召唤自然的力量，战胜那些奥术力量使用者。
 我们可以训练你，不过你得保证你的纯粹，没有接触奥术力量，并且准备和魔法战斗到底。
-你会挑战几个魔法对手，要是你打败他们，我们就会将我们的技能教给你，今后你再也不会被魔法污染了。
+你会挑战几个魔法对手，要是你打败他们，我们就会将我们的技能教给你，今后你再也不能被魔法玷污，也不能再使用魔法。
 
-#LIGHT_RED#注：完成此任务会使该角色永久无法使用由奥术之力灌输而成的物品。取而代之的，是你可以获得一支精神力量的通用技能树——反魔法，同时你可以开启由反魔法力量灌输而成物品的隐藏属性。]], "tformat")
+#LIGHT_RED#注：完成此任务会使该角色永久无法使用法术或由奥术之力驱动的物品。取而代之的，是你可以获得一支精神力量的通用技能树——反魔法，同时你可以开启由反魔法力量灌输而成物品的隐藏属性。]], "tformat")
 t("I will face your challenge!", "我接受挑战！", "_t")
 t("I'm not interested.", "我没什么兴趣。", "_t")
 t("Very well. I will say that this is disappointing, but it is your choice. Farewell.", "好吧，不得不说我有点失望，不过这是你自己的选择，再见。", "_t")
@@ -6826,16 +6826,16 @@ t("smashed", "被粉碎", "_t")
 t("cleaved", "被裂颅", "_t")
 t("swiped", "被砍掉脑袋", "_t")
 t("struck", "被重拳击中要害", "_t")
-t("mutilated", "被切掉丁丁", "_t")
+t("mutilated", "被肢解", "_t")
 t("tortured", "被折磨", "_t")
 t("skewered", "被烤成肉串", "_t")
 t("squished", "被压成照片", "_t")
 t("mauled", "被殴打", "_t")
 t("chopped into tiny pieces", "被切成肉末", "_t")
-t("splattered", "被打出翔", "_t")
+t("splattered", "被击成肉泥", "_t")
 t("ground", "被磨成豆浆", "_t")
 t("minced", "被切成葱花", "_t")
-t("punctured", "被异物捅破菊花", "_t")
+t("punctured", "被刺穿", "_t")
 t("hacked apart", "被腰斩", "_t")
 t("eviscerated", "被掏心", "_t")
 t("arcane", "奥术", "damage type")
@@ -6871,11 +6871,11 @@ t("zapped", "被劈成渣渣", "_t")
 t("acid", "酸性", "damage type")
 t("dissolved", "被溶解", "_t")
 t("corroded", "被腐蚀", "_t")
-t("scalded", "被慢炖", "_t")
+t("scalded", "被烫伤", "_t")
 t("melted", "被融化", "_t")
 t("nature", "自然", "damage type")
-t("slimed", "被史莱姆XXOO", "_t")
-t("splurged", "被眩晕", "_t")
+t("slimed", "被黏液覆盖", "_t")
+t("splurged", "被黏液溅射", "_t")
 t("treehugged", "被树藤缠绕", "_t")
 t("naturalised", "被自然同化", "_t")
 t("blight", "枯萎", "damage type")
@@ -6885,7 +6885,7 @@ t("infected", "被感染", "_t")
 t("plagued", "感染瘟毒", "_t")
 t("debilitated by noxious blight before falling", "死前吸入过多剧毒瘴气", "_t")
 t("fouled", "被玷污", "_t")
-t("tainted", "被魔法烙印", "_t")
+t("tainted", "被污染", "_t")
 t("light", "光系", "damage type")
 t("radiated", "受到辐射", "_t")
 t("seared", "被烧焦", "_t")
@@ -6905,11 +6905,11 @@ t("winter", "寒冬", "damage type")
 t("temporal", "时空", "damage type")
 t("timewarped", "被时空隔断", "_t")
 t("temporally distorted", "被时空扭曲", "_t")
-t("spaghettified across the whole of space and time", "被时空的网格凌迟", "_t")
+t("spaghettified across the whole of space and time", "被时空之力拉成了面条", "_t")
 t("paradoxed", "遇到时空异常", "_t")
 t("replaced by a time clone (and no one ever knew the difference)", "被时空克隆（其他人均不会感到任何差别）", "_t")
 t("grandfathered", "因弹指间度过了无数美好的青葱岁月，转瞬间你已白发苍苍", "_t")
-t("time dilated", "因时间线扩张", "_t")
+t("time dilated", "因时间膨胀", "_t")
 t("temporal stun", "时空震慑", "damage type")
 t("%s resists the stun!", "%s抵抗了震慑！", "logSeen")
 t("lite", "光照", "damage type")
@@ -7041,7 +7041,7 @@ t("prismatic repulsion", "防护排斥", "damage type")
 t("mind slow", "精神减速", "damage type")
 t("mind freeze", "精神冻结", "damage type")
 t("%s resists the freezing!", "%s抵抗了冰冻！", "logSeen")
-t("implosion", "爆裂", "damage type")
+t("implosion", "内爆", "damage type")
 t("regressive temporal", "时空退化", "damage type")
 t("wasting temporal", "时空耗竭", "damage type")
 t("stop", "静止", "damage type")
@@ -7052,14 +7052,14 @@ t("draining physical", "物理吸收", "damage type")
 t("#Source# consumes %d life from #Target#!", "#Source#从#Target#身上吸取了%d生命!", "logCombat")
 t("temporal slow", "时空减速", "damage type")
 t("molten rock", "熔岩", "damage type")
-t("entangle", "困惑", "damage type")
+t("entangle", "纠缠", "damage type")
 t("%s resists entanglement!", "%s抵抗了纠缠！", "logSeen")
 t("manaworm arcane", "法力蠕虫", "damage type")
-t("%s has no mana to burn.", "%s没有法力值，无法奥术对撞。", "logSeen")
+t("%s has no mana to burn.", "%s没有法力可供燃烧。", "logSeen")
 t("arcane blast", "奥术爆炸", "damage type")
 t("circle of death", "死亡法阵", "damage type")
-t("%s resists the baneful energy!", "%s抵抗了毒素！", "logSeen")
-t("decaying darkness", "暗影虚弱", "damage type")
+t("%s resists the baneful energy!", "%s抵抗了厄运能量！", "logSeen")
+t("decaying darkness", "衰败黑暗", "damage type")
 t("abyssal darkness", "暗影深渊", "damage type")
 t("% chance to summon an orc spirit", "%几率召唤一个兽人灵魂", "damage type")
 t("%s<%d%%%% orc summon chance>#LAST#", "%s<%d%%%%几率召唤兽人>#LAST#", "tformat")
@@ -7075,7 +7075,7 @@ t("manaburn arcane", "法力燃烧", "damage type")
 t("leaves", "叶片", "damage type")
 t("distorting physical", "物理扭曲", "damage type")
 t("dreamforge", "梦之熔炉", "damage type")
-t("%s resists the forge bellow!", "%s抵抗了熔炉击退！", "logSeen")
+t("%s resists the forge bellow!", "%s抵抗了熔炉鼓风！", "logSeen")
 t("%s resists the dream forge!", "%s抵抗了梦境熔炉！", "logSeen")
 t("natural mucus", "自然粘液", "damage type")
 t("disarming acid", "酸性缴械", "damage type")
@@ -7096,7 +7096,7 @@ t("wormblight", "蠕虫枯萎", "damage type")
 t("pestilent blight", "枯萎瘟疫", "damage type")
 t("* #LIGHT_GREEN#%d%%#LAST# chance to cause #GREEN#random blight#LAST#%s", "* #LIGHT_GREEN#%d%%#LAST#几率触发#GREEN#随机枯萎效果#LAST#%s", "tformat")
 t("blight poison", "枯萎毒素", "damage type")
-t("terror", "暗夜恐魔", "damage type")
+t("terror", "恐惧", "damage type")
 t("%s<terror chance>#LAST#", "%s<恐惧几率>#LAST#", "tformat")
 t("random poison", "随机毒素", "damage type")
 t("blinding powder", "致盲粉", "damage type")
@@ -7234,7 +7234,7 @@ section "mod-tome/data/general/events/conclave-vault.lua"
 t("Director Hompalan", "研究主管红帕兰", "_t")
 t([[Only crumbling bones are left of what once was the proud Director Hompalan, chief of this facility.
 Now those remains look at you with empty eyes but you can not mistake their intent.]], [[这个研究设施的主人，曾经如此高傲的研究主管红帕兰，现在已经只剩下摇摇欲坠的枯骨。
-尽管这具遗骸只剩下空洞无神的眼窝，你也能从中察觉到他凝视着你的神情。]], "_t")
+尽管这具遗骸只剩下空洞无神的眼窝，但你绝不会弄错它们的意图。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/events/cultists.lua"
@@ -7243,7 +7243,7 @@ t("monolith", "符文巨石", "_t")
 t("Cultist", "邪教徒", "_t")
 t("An elven cultist. He doesn't seem to mind you.", "一个精灵邪教徒。它似乎没有注意到你的存在。", "_t")
 t("My soul for her!", "我的灵魂属于她！", "_t")
-t("The Dark Queen shall reign!", "黑暗女王会再次降临！", "_t")
+t("The Dark Queen shall reign!", "黑暗女王将君临天下！", "_t")
 t("Take me! Take me!", "把我带走！把我带走吧！", "_t")
 t("From death comes life!", "我的牺牲将带来永生！", "_t")
 t("corrupted monolith", "被污染的符文巨石", "_t")
