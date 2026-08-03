@@ -8299,9 +8299,9 @@ To begin your steamy adventures of hot metal mayhem simply select the #LIGHT_GRE
 Have fun crushing the foes of the Pride!
 ]], [[感谢你购买#CRIMSON#余烬怒火#WHITE#，《马基·埃亚尔的传说》的第二个扩展包。
 
-想要开始你的蒸汽旅程，请选择#LIGHT_GREEN#兽人战役·余烬怒火#WHITE#，开始追寻荣耀的旅程吧！
+想要开始你那些炽热金属轰鸣的蒸汽冒险，请选择#LIGHT_GREEN#兽人战役·余烬怒火#WHITE#，开始追寻荣耀的旅程吧！
 
-前进，粉碎部落的一切敌人！
+祝你愉快地粉碎部落的一切敌人！
 ]], "tformat")
 
 ------------------------------------------------

@@ -1140,7 +1140,7 @@ t("raging volcano", "喷发中的火山", "_t")
 t([[When Dread End creates pools of darkness you can focus your raging thoughts on them to make them erupt into volcanos.
 		Up to %d pools in radius %d will erupt, producing a volcano for %d turns.
 		Each turn the volcano will send out fiery boulders that deal %0.2f fire and %0.2f physical damage.
-		The effects will improve with your Spellpower.]], [[当黑暗终结制造出黑暗能量池时，你能将愤怒集中在内，将其转变为火山。
+		The effects will improve with your Spellpower.]], [[当黑暗终结制造出黑暗能量池时，你能将狂怒集中于这些能量池，将其转变为火山。
 		至多 %d 个能量池将会喷发（半径 %d 内），转化为火山，持续 %d 回合。
 		每回合火山将喷射火焰巨石，造成 %0.2f 火焰与 %0.2f 物理伤害。
 		效果受法术强度加成。]], "tformat")
@@ -1474,7 +1474,7 @@ t("#Target#'s weapon looks less threatening.", "#Target#的危险度看起来降
 t("-Demon Blade", "-恶魔之刃", "_t")
 t("curse", "诅咒", "effect subtype")
 t("Fiery Torment", "灼魂之罚", "_t")
-t("The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment", "目标的火焰抗性下降 %d%%，并会被恶魔空间的火焰灼伤。效果结束时将受到 %d 火焰伤害，并追加 %d%% 效果期间受到的总伤害。", "tformat")
+t("The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment", "目标的火焰抗性下降 %d%%，并会被恶魔空间的火焰灼伤。效果结束时将受到 %d 火焰伤害，并追加效果期间受到的总伤害的 %d%%。", "tformat")
 t("#Target# is surrounded by a vile flame!", "#Target#被邪恶的火焰包围", "_t")
 t("+Fiery Torment", "+灼魂之罚", "_t")
 t("The black flame around #Target# dies down", "#Target#周围的邪恶火焰熄灭了", "_t")
