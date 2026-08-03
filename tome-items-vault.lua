@@ -81,7 +81,7 @@ t("\
 t("Transfering...", "传输中…", "_t")
 t("Teleporting object to the vault, please wait...", "正在将物品传输到共享仓库，请稍候…", "_t")
 t("unknown reason", "原因不明", "_t")
-t("#LIGHT_BLUE#You transfer %s to the online item's vault.", "#LIGHT_BLUE#你将%s传输到在想共享仓库。", "logPlayer")
+t("#LIGHT_BLUE#You transfer %s to the online item's vault.", "#LIGHT_BLUE#你将%s传输到在线共享仓库。", "logPlayer")
 t("#LIGHT_RED#Error while transfering %s to the online item's vault, please retry later.", "#LIGHT_RED#将物品%s传输到在线共享仓库时发生错误，请稍后再试", "logPlayer")
 t("#CRIMSON#Server said: %s", "#CRIMSON#服务器信息: %s", "logPlayer")
 t("#LIGHT_BLUE#You transfer %s to the offline item's vault.", "#LIGHT_BLUE#你将%s传输到离线共享仓库", "logPlayer")

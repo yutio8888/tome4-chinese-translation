@@ -6,7 +6,7 @@ t("Kill your own Doomed Shade in the body of Bill.", "使用比尔的身体杀�
 t("Unneshasshhary Kryl'ty", "相爱相杀", "achievement name")
 t("Kill Kryl'Feijan with the body of Shasshhiy'Kaish, or vice-versa.", "使用卡洛·斐济的身体杀死莎西·凯希，或者使用莎西·凯希的身体杀死卡洛·斐济。", "_t")
 t("Unneshasshhary Kryl'ty (Redux)", "相爱相杀（重复）", "achievement name")
-t("Kill High Paladin Aeryn with the body of Sun Paladin John.", "使用太阳骑士约翰的身体杀死太阳骑士艾琳", "_t")
+t("Kill High Paladin Aeryn with the body of Sun Paladin John.", "使用太阳骑士约翰的身体杀死高阶圣骑士艾琳", "_t")
 
 ------------------------------------------------
 section "tome-possessors/data/birth/psionic.lua"
@@ -115,7 +115,7 @@ t([[Your mere presence is a blight in your foes minds. Using this link you are a
 		偷取的技能不消耗任何能量。
 		在等级 5 时，可选择偷取的技能。
 		偷取的技能等级被限制成最高为 %d 级。]], "tformat")
-t("Spectral Dash", "光谱冲锋", "talent name")
+t("Spectral Dash", "幽灵冲锋", "talent name")
 t([[For a brief moment your whole body becomes etheral and you dash into a nearby creature and all those in straight line behind it (in range %d).
 		You reappear on the other side, with %d more psi and having dealt %0.2f mind damage to your targets.
 		]], [[短暂的一瞬间，你的整个身体变得飘渺，你对附近一个生物进行一次直线冲锋 (范围 %d )。
@@ -161,7 +161,7 @@ t([[Discard a body from your psionic reserve.
 		%s]], "tformat")
 t("Assume Form", "附身", "talent name")
 t("You have no stored bodies to use.", "你没有可以用于附身的身体。", "logPlayer")
-t("#CRIMSON#A strange feeling comes over you as two words imprint themselves on your mind: '#{italic}#Not yet.#{normal}#'", "#CRIMSON#一种奇怪的感觉油然而生，印在你的脑海里时: '#{italic}#不是现在。#{normal}#'", "logPlayer")
+t("#CRIMSON#A strange feeling comes over you as two words imprint themselves on your mind: '#{italic}#Not yet.#{normal}#'", "#CRIMSON#一种奇怪的感觉油然而生，两个词印入你的脑海：'#{italic}#还不是时候。#{normal}#'", "logPlayer")
 t([[You call upon one of your reserve bodies, assuming its form.
 		A body used this way may not be healed in any way.
 		You can choose to exit the body at any moment by using this talent again, returning it to your reserve as it is.
@@ -171,13 +171,12 @@ t([[You call upon one of your reserve bodies, assuming its form.
 		While in another body your currently equiped objects are #{italic}#merged#{normal}# in you, you can not take them of or wear new ones.
 		Bodies possessed:
 		%s]], [[选择一个身体，附身。
-		以这种方式使用的身体可能不会被任何方式治愈。
-		你可以随时通过再次使用这个技能来选择退出身体，将其恢复原状，包括任何物理效果。精神 , 魔法和“其他”效果仍然对你有效。
+		以这种方式使用的身体不能以任何方式被治愈。
+		你可以随时通过再次使用这个技能来选择退出身体，将其按原样送回你的备用身体库。
 		当生命为 0 时被迫离开身体，冲击对你最大血量造成 %d%% 的损失并降低 50%% 移动速度和 60%% 伤害，持续 6 回合。
 		技能冷却仅在恢复正常形式时开始冷却。
 		附身时仍会获得经验，但不会被应用，直到你离开身体。
 		附身时你现有的装备被#{italic}#合并#{normal}#到你身上，你无法更换装备。
-		冷却时间随主宰技能等级提高。
 		拥有的身体 :
 		%s]], "tformat")
 t("Possess", "支配", "talent name")
@@ -250,7 +249,7 @@ t([[You lash out your psionic fury at a distant creature, doing %0.2f mind damag
 		If you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[对一个生物释放你的灵能怒气造成 %0.2f 精神伤害。
 		鞭子可同时对目标身边的一个敌人造成伤害。
 		如果你没有双持灵晶，但是在副手栏里装备了，你会立刻自动切换。此技能与心灵利刃不兼容。]], "tformat")
-t("Psychic Wipe", "精神鞭打", "talent name")
+t("Psychic Wipe", "精神抹除", "talent name")
 t([[You project ethereal fingers inside the target's brain.
 		Over %d turns it will take %0.2f total mind damage and have its mental save reduced by %d.
 		This powerful effect uses 130%% of your Mindpower to try to overcome your target's initial mental save.
@@ -273,9 +272,9 @@ t([[You point your ghastly finger at a foe affected by Ghastly Wail and send a p
 		On targets of rank boss or higher the damage is limited to %d.
 		If the target dies from the Finger and is of a type you can already absorb it is directly absorbed into your bodies reserve.
 		If you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[用手指对受到恐怖嚎叫效果影响的敌人射出一道冲击波。
-		对目标已造成 %d%% 已损失生命值的精神伤害。
+		目标将受到相当于其已损失生命值 %d%% 的精神伤害。
 		对 boss 或者更高阶级的目标伤害最高为 %d 。
-		如果目标从死亡，并且是你经可以占有类型，则直接吸收到你的身体储备中。
+		如果目标死于死亡一指，且其类型是你已经可以吸收的，则直接吸收到你的身体储备中。
 		如果你没有双持灵晶，但是在副手栏里装备了，你会立刻自动切换。此技能与心灵利刃不兼容。]], "tformat")
 
 ------------------------------------------------
@@ -349,10 +348,9 @@ t("#ORANGE#%s channels pain to %s!", "#ORANGE#%s连接痛苦到%s！", "logSeen"
 t("#ORANGE#%s channels pain!", "#ORANGE#%s连接痛苦！", "logSeen")
 t([[As long as you have at least a stack of Sadist whenever you take damage you use %d psi to harness your stacks of Sadist to divide the damage by your stacks + 1.
 		Each time this happens a random foe in sight with 80%% or less life left will take a backlash of %d%% of the absorbed damage as mind damage.
-		This effect can only happen once per turn and only triggers for hits over 10%% of your max life.]], [[当你至少有一层虐待狂效果时，每当你受到伤害你使用虐待狂效果减免伤害，最终受到的伤害为受到伤害除以虐待狂效果层数。
-		计算时层数 + 1 ，每层效果消耗 %d 灵能值。
-		每次生效时，视野内随机一个生命值低于 80%% 的敌人，会受到伤害反弹，伤害为所吸收伤害的 %d%% 的精神伤害。
-		该效果每回合一次，且只会在伤害超过你 10%% 最大生命值时才触发。]], "tformat")
+		This effect can only happen once per turn and only triggers for hits over 10%% of your max life.]], [[当你至少有一层虐待狂效果时，每当你受到伤害，你消耗 %d 灵能值，利用你的虐待狂叠加层数将伤害除以（层数 + 1）。
+		每次触发时，视野内一个生命值剩余 80%% 或以下的随机敌人将受到所吸收伤害 %d%% 的精神伤害反弹。
+		该效果每回合只能触发一次，且只对超过你最大生命值 10%% 的伤害生效。]], "tformat")
 t("Radiate Agony", "痛苦辐射", "talent name")
 t("You need a Sadist stack to use this talent.", "你需要有一层虐待狂效果才能使用这一技能。", "logPlayer")
 t([[As long as you have at least a stack of Sadist you can radiate agony to all those you see in radius %d with 80%% or lower life left.
@@ -396,7 +394,7 @@ t("#Target#'s mind is convulsing.", "#Target#的精神在抽搐。", "_t")
 t("#Target#'s mind is not convulsing anymore.", "#Target#的精神不再抽搐。", "_t")
 t("#PURPLE##Source# shatters #Target#'s mind and takes possession of its body.", "#PURPLE##Source#粉碎了#Target#的精神，控制了它的身体。", "logCombat")
 t("#PURPLE##Source# shatters #Target#'s mind, utterly destroying it.", "#PURPLE##Source#粉碎了#Target#的精神，完全摧毁了它。", "logCombat")
-t("Psychic Wipe", "精神鞭打", "_t")
+t("Psychic Wipe", "精神抹除", "_t")
 t("Ethereal fingers destroy the brain dealing %0.2f mind damage per turn and reducing mental save by %d.", "空灵手指摧毁目标大脑，每回合造成 %0.2f 精神伤害，并减少 %d 精神豁免。", "tformat")
 t("#Target# suddently feels strange in the brain.", "#Target# 突然觉得脑袋里很奇怪。", "_t")
 t("#Target# feels less strange.", "#Target#不再觉得奇怪。", "_t")

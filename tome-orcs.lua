@@ -20,7 +20,7 @@ t("Tricked Nektosh into killing one of his own people.", "令独角者纳克托�
 t("We weren't kidding!", "认真点，这不是个玩笑！", "achievement name")
 t("Die to Nektosh's beam without being pinned, stunned, asleep, dazed, or confused.", "在没有被定身、震慑、沉睡、眩晕或混乱的情况下，被独角者纳克托什的光束杀死。", "_t")
 t("Make Him Squirm", "榨干他", "achievement name")
-t("Made Nektosh use up the last of his power, then left the area and ignored him until beating the game. The other Whitehooves will catch on any second now...", "让纳克托什用尽能量，然后离开区域并无视他，直到胜利为止。  The other Whitehooves will catch on any second now...", "_t")
+t("Made Nektosh use up the last of his power, then left the area and ignored him until beating the game. The other Whitehooves will catch on any second now...", "让纳克托什用尽能量，然后离开区域并无视他，直到胜利为止。其他白蹄兽人随时都会发现真相……", "_t")
 t("True Savior", "真正的救星", "achievement name")
 t("Freed all the Orc Prides without killing a single mind-controlled orc.", "释放所有兽人部落，并且不杀死任何一名被精神控制的兽人。", "_t")
 t("Mender", "修理工", "achievement name")
@@ -94,7 +94,7 @@ t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法
 t("#GOLD#Life per level:#LIGHT_BLUE# -1", "#GOLD# 每等级生命加值： #LIGHT_BLUE# -1", "_t")
 t("Psyshot", "灵能射手", "birth descriptor name")
 t("Bend the mind, bend the tech. All around inspire dread.", "扭曲精神，扭曲科技，一切都是为了激发恐惧。", "_t")
-t("Powerful psionics are able to enter a gestalt with steam generators and technology to enhance their own mental prowess.", "强大的灵能能进入蒸汽科技的格式塔中，以增强其金属力量。", "_t")
+t("Powerful psionics are able to enter a gestalt with steam generators and technology to enhance their own mental prowess.", "强大的灵能能够与蒸汽发生器和科技形成格式塔联结，以增强自身的精神力量。", "_t")
 t("The Psyshot combines this ability to gestalt to enhance his mindstar all the while shooting her steamgun to devastate the enemy lines.", "念力射手将这项能力与格式塔结合，来强化灵晶的力量，同时使用蒸汽枪毁灭敌人。", "_t")
 t("Their most important stats are: Cunning, Willpower and Dexterity", "他们最重要的属性是：灵巧、意志和敏捷", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量 , +3 敏捷 , +0 体质", "_t")
@@ -116,7 +116,7 @@ t("Tatoos", "纹身", "birth facial category")
 t("Horns", "角", "birth facial category")
 t("Special", "特殊", "birth facial category")
 t("Orc", "兽人", "birth descriptor name")
-t("Orcs have a long and sad history. They are seen, and are, as an aggressive race that more than one time managed to imperil all of Maj'Eyal.", "兽人拥有久远而悲伤的历史。他们是，而且被见证为多次试图统治埃亚尔世界的侵略性种族。", "_t")
+t("Orcs have a long and sad history. They are seen, and are, as an aggressive race that more than one time managed to imperil all of Maj'Eyal.", "兽人拥有久远而悲伤的历史。他们被视为（也确实如此）一个侵略性种族，曾不止一次危及整个埃亚尔世界。", "_t")
 t("But one year ago the Scourge from the West came and wiped four of the five Prides. And a hundred years ago King Toknor wiped all traces of orcs from Maj'Eyal.", "但是一年前，西方来的灾星消灭了四个部落。一百年前，图库纳国王消灭了马基埃亚尔本土的所有兽人。", "_t")
 t("The orc race is dangerously on the brink of destruction. One wrong move is all that is needed.", "兽人种族处于灭绝边际，仅仅一步之遥。", "_t")
 t("But they are strong and will face whatever is needed to ensure a future of their own!", "但他们意志强大，敢于直面任何磨难，来创造属于他们的未来！", "_t")
@@ -201,7 +201,7 @@ t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("Whitehoof", "白蹄", "birth descriptor name")
 t("A clan of minotaurs turned to necromancy when faced with imminent destruction.", "一支米诺陶氏族在灭亡迫近时转而研究死灵法术。", "_t")
 t("Whitehooves are resilient and magic imbued undead, hardened by their trials and made stronger by their undeath.", "白蹄族是强韧而充满魔法力量的亡灵，因试验而硬化，因不死而强大。", "_t")
-t("They now seek to help their orc allies, in hope they will help them back.", "他们现在试图帮助兽人盟友，希望兽人能帮他们回来。", "_t")
+t("They now seek to help their orc allies, in hope they will help them back.", "他们现在试图帮助兽人盟友，希望兽人将来也能回报他们。", "_t")
 t("They have access to #GOLD#special talents#WHITE# and a wide range of undead abilities:", "他们拥有 #GOLD# 特殊天赋 #WHITE# 和一系列不死族能力：", "_t")
 t("- silence resistance", "- 沉默抗性", "_t")
 t("- bleeding immunity", "- 流血免疫", "_t")
@@ -267,9 +267,9 @@ t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚： #LIGHT_BLU
 section "tome-orcs/data/birth/worlds.lua"
 
 t("Orcs: Embers of Rage", "兽人战役：余烬怒火", "_t")
-t("The Prides lie in ruins!", "荣耀毁于一旦！", "_t")
+t("The Prides lie in ruins!", "各兽人部落已沦为废墟！", "_t")
 t("The Sorcerers have been defeated!", "法师惨遭失败！", "_t")
-t("Orcs in all Var'Eyal are in dismay, hunted by the Sunwall and their newfound allies from the west.", "埃亚尔大陆的兽人们惊慌失措，被晨曦之门和他们新的东方盟友追猎。", "_t")
+t("Orcs in all Var'Eyal are in dismay, hunted by the Sunwall and their newfound allies from the west.", "瓦尔·埃亚尔各地的兽人们惊慌失措，被晨曦之门和他们新结盟的西方盟友追猎。", "_t")
 t("The Scourge from the West is back in the west, but her legacy stays strong: the orc race is once again upon the brink of destruction!", "西方的灾星来自西方，又回归西方，但她带来的后遗症如此强大：整个兽人种族再次来到灭亡边际", "_t")
 t("But not all hope is lost.", "即使如此，希望仍存。", "_t")
 t("On the isolated Clork Peninsula lies the fifth pride: Kruk's Pride; unseen and unharmed by the Scourge.", "在与世隔绝的克洛尔克半岛上栖息着兽人第五部落：克鲁克部落；他们并没有被这场灾难伤害。", "_t")
@@ -297,7 +297,7 @@ t([[#LIGHT_GREEN#*Before you stands a strange triangular device, some kind of au
 It seems to be able to teach you the tinker crafting techniques, but requires input to do so (500 gold and a talent category point).]], [[#LIGHT_GREEN#*你面前有一个奇怪的三角形设备，似乎是某种自动设施。*#WHITE#
 	似乎它能教授你制造配件的技巧，但需要你一些投入（500金币+一点大系点）。]], "_t")
 t("[pay 500 gold and a talent category points]", "[支付500金币和一点大系点]", "_t")
-t("#PURPLE#The %s teaches you: #GOLD#Steamtech/Physics#LAST#, #GOLD#Steamtech/Chemistry#LAST# and two starter crafting talents.", "#PURPLE#%s教会你: #GOLD#蒸汽/机械#LAST#, #GOLD#蒸汽/药剂#LAST#和两项基础技能。", "log")
+t("#PURPLE#The %s teaches you: #GOLD#Steamtech/Physics#LAST#, #GOLD#Steamtech/Chemistry#LAST# and two starter crafting talents.", "#PURPLE#%s教会你: #GOLD#蒸汽科技/物理#LAST#, #GOLD#蒸汽科技/化学#LAST#和两项入门制造技能。", "log")
 t("[access store]", "[进入商店]", "_t")
 t("[leave]", "[离开]", "_t")
 t([[The machine gives you a small metallic box labelled as #{italic}#"Automated Portable Extractor"#{normal}#.
@@ -327,7 +327,7 @@ section "tome-orcs/data/chats/destructicus.lua"
 t("DESTRUCTICUS!", "“毁天灭地！”", "_t")
 t("Fire Imp", "火焰小鬼", "_t")
 t("Steam Giant Airship", "蒸汽巨人飞船", "_t")
-t("#LIGHT_GREEN#*#{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# stands before you, and as much as it pains you to admit it, Kaltor's advertisement wasn't flattering enough.  This may be the most unreasonably lethal device you've ever seen.  The sunlight, gleaming off its voratun body, seems dull compared to the intensely glowing mass of unstable runes on its tip; its surface has the ornate grooves of a metal that has been psionically reforged through hours of migraine-inducing concentration.  The bayonet mounted on the launching tube just seems like gloating.  This particular model appears to be equipped with an enclosed, fireproof booth around its control panel, and a built-in tea dispenser in said booth, which your fellow orcs have already taken the liberty of filling with looted Dwarven ale.  It is truly a thing of beauty.*#WHITE#", "#LIGHT_GREEN#*#{bold}#裂天者 毁灭号#{normal}# 站在你面前，让你痛苦地承认，卡托尔的广告并不全是垃圾。这是你见过的最无端致命的设备。阳光照耀在它的沃瑞钽躯壳上，在它边缘上镶嵌的强大而不稳定的符文面前黯然失色;它的表面有着金属历经数个小时精心打磨而成的华丽沟槽，在发射管上搭载的刺刀能轻盈地上下游走。控制组件上环绕着一层密封的防火隔间，操作室内建的自动饮水机还能提供矮人的佳酿。这简直就是美的化身。*#WHITE#", "_t")
+t("#LIGHT_GREEN#*#{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# stands before you, and as much as it pains you to admit it, Kaltor's advertisement wasn't flattering enough.  This may be the most unreasonably lethal device you've ever seen.  The sunlight, gleaming off its voratun body, seems dull compared to the intensely glowing mass of unstable runes on its tip; its surface has the ornate grooves of a metal that has been psionically reforged through hours of migraine-inducing concentration.  The bayonet mounted on the launching tube just seems like gloating.  This particular model appears to be equipped with an enclosed, fireproof booth around its control panel, and a built-in tea dispenser in said booth, which your fellow orcs have already taken the liberty of filling with looted Dwarven ale.  It is truly a thing of beauty.*#WHITE#", "#LIGHT_GREEN#*#{bold}#裂天者 毁灭号#{normal}# 站在你面前，让你痛苦地承认，卡托尔的广告还远不够夸耀。这可能是你见过的最无端致命的设备。阳光照耀在它的沃瑞钽躯壳上，与它尖端那团散发着炽烈光芒的不稳定符文相比显得黯淡；它的表面有着华丽的沟槽，那是经过数小时令人头痛欲裂的专注心灵锻造重塑的金属。发射管上安装的刺刀仿佛在炫耀一般。这个型号似乎还配备了一个密封防火的控制舱，舱内有一台内置的自动饮水机，你的兽人同胞们已经擅自往里面灌满了抢来的矮人麦酒。这真是一件美得惊人的造物。*#WHITE#", "_t")
 t("[continue]", "[继续]", "_t")
 t("#LIGHT_GREEN#*You enter the booth, sit down, and insert the key.  #{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# whirrs to life, its base slightly rotating underneath you.  A strange beaded panel slides in front of you, pins pushing out and pulling back by magnetic force to display the outline of an airship (and a tiny speck), and the words #{italic}#\"AERIAL TARGETS FOUND: 2.\"#{normal}#*#WHITE#", "#LIGHT_GREEN#*你进入了操作室，坐好，插入钥匙。#{bold}#裂天者 毁灭号#{normal}# 启动了它的生命,它的基座开始运转。一块奇怪的珍珠板从你前方滑过，针伸了出来，被电磁力量控制，显示出飞船的轮廓（以及一个小黑点）与以下短语：#{italic}#“发现空中目标-数目：2”。#{normal}#*#WHITE#", "_t")
 t([[#LIGHT_GREEN#*#{italic}#"OBTAINING SCRYING LOCK...  OBTAINED."#{normal}#
@@ -336,12 +336,12 @@ The beaded panel is suddenly awash with colors, showing the colossal interior of
  
 This airship appears to be evacuating what's left of the Atmos Tribe.  With the press of a single button, you could eradicate the Steam Giant species forever.
  
-You press a button labelled #{italic}#"SELECT NEXT TARGET"#{normal}#, and the panel shifts to show a very lost and very confused Fire Imp, flying in the air near nothing of importance.  Firing on it would have little effect whatsoever, aside from showing off DESTRUCTICUS's power in the most harmless way possible.*#WHITE#]], [[#LIGHT_GREEN#*#{italic}#"解除锁定中...  解除成功."#{normal}#
+You press a button labelled #{italic}#"SELECT NEXT TARGET"#{normal}#, and the panel shifts to show a very lost and very confused Fire Imp, flying in the air near nothing of importance.  Firing on it would have little effect whatsoever, aside from showing off DESTRUCTICUS's power in the most harmless way possible.*#WHITE#]], [[#LIGHT_GREEN#*#{italic}#"获取侦测锁定中……已获取。"#{normal}#
  
-珍珠面板突然充满色彩，显示飞船的巨大内部结构。蒸汽巨人们拥挤而哭泣，带着少量东西逃走。一名守卫用手抱头，坐在储藏室前。视角切换到船舱，你看见一些成员匆忙走过船长室和引擎室，偶尔忧虑地瞥向窗外——看向你。
-飞船似乎开始计算气之部落还剩下些什么。只要按下一个按钮，你将能永久摧毁蒸汽巨人这个种族。
+珍珠面板突然充满色彩，显示飞船的巨大内部结构。蒸汽巨人们拥挤而哭泣，整理着逃离时仅能带走的少量财物；一名守卫双手抱头，坐在一堆行李和储物箱上。视角切换到船舱，你看见一些成员匆忙走过船长室和引擎室，偶尔忧虑地瞥向窗外——看向你。
+飞船似乎正在疏散气之部落的残余成员。只要按下一个按钮，你将能永久摧毁蒸汽巨人这个种族。
 
-你按下按钮 #{italic}#"选择下个目标"#{normal}#，面板显示出一个迷茫而混乱的火焰恶魔，在空中无害地飞舞。向他开火没什么意义，只是以最无害的方式炫耀毁灭号的力量。*#WHITE#]], "_t")
+你按下按钮 #{italic}#"选择下个目标"#{normal}#，面板显示出一个迷茫而混乱的火焰小鬼，在空中无害地飞舞。向他开火没什么意义，只是以最无害的方式炫耀毁灭号的力量。*#WHITE#]], "_t")
 t("[shoot down the airship]", "[击落飞船]", "_t")
 t("[shoot down the imp]", "[击落小鬼]", "_t")
 t("#LIGHT_GREEN#*Are you SURE you want to ERADICATE THE STEAM GIANTS?*#WHITE#", "#LIGHT_GREEN#*你确认要消灭蒸汽巨人么?*#WHITE#", "_t")
@@ -361,7 +361,7 @@ A nagging thought in the back of your head insists that you now know how the Sun
 
 蒸汽巨人消失了。
 
-第二发导弹带着火光坠落大海，这场持续的烟火盛宴成为大陆上所有兽人，甚至所有能看到这一盛景的生物的信号：
+弹头的次级装药引爆，燃烧的残骸坠入大海，这场持续的烟火盛宴成为大陆上所有兽人，甚至所有能看到这一盛景的生物的信号：
 这就是所有试图消灭兽人的种族的命运。千年的压制、欺凌和屠杀被终结了：你的人民再也不会沦落如斯。
 
 无法摆脱的念头自你脑后升腾，你现在明白了太阳骑士的感受，明白了图库纳国王的感受，明白了半身人的感受，明白了所有对曾兽人施以暴行的人的感受。
@@ -379,13 +379,13 @@ As the secondary charges go off, the ongoing pyrotechnic display acts as a celeb
 
 这些难民不再是威胁，很长时间内都不可能成为威胁……但最好能让他们充分意识到你的力量，你本能轻易带来的毁灭命运，向他们展示这一切，让他们永远铭记：他们的生死取决于你的仁慈。
 
-你瞄准了火焰小鬼，令武器开火。巨大的轰鸣声和火光闪过，#{bold}#裂天者 毁灭号#{normal}#朝那只虚弱的恶魔冲过去。它惊恐无比，试图躲避，而#{bold}#裂天者 毁灭号#{normal}#相对修正了行进路线，直到它彻底放弃，沮丧地颤抖。在导弹的轰鸣声中，你不能听见飞船里的声音，不过你能肯定恶魔的嘴型在说'这真滑稽'。
+你瞄准了火焰小鬼，令武器开火。巨大的轰鸣声和火光闪过，#{bold}#裂天者 毁灭号#{normal}#朝那只越来越惊慌的小鬼冲过去。它惊恐无比，试图躲避，而#{bold}#裂天者 毁灭号#{normal}#相对修正了行进路线，直到它彻底放弃，沮丧地耸了耸肩。在导弹的轰鸣声中，你不能听见飞船里的声音，不过你能肯定恶魔的嘴型在说'这真滑稽'。
 
 导弹到达了目的地，巨大的爆炸堵塞了你透过窗户的视线。碎片无害地坠落在山顶，整个大陆都听见了巨大的爆鸣声。
 
-痛饮刚分下来的美酒，你将已经空仓的#{bold}#裂天者 毁灭号#{normal}#指向飞船，不出所料看见巨人们欢呼拥抱，在安心和喜悦中痛苦流涕。少数大声质疑你为什么这么做，而大部分人明白这是仁慈的表示。
+痛饮刚分下来的美酒，你将已经空仓的#{bold}#裂天者 毁灭号#{normal}#指向飞船，不出所料看见巨人们欢呼拥抱，喜极而泣。少数大声质疑你为什么这么做，而大部分人明白这是仁慈的表示。
 
-第二发导弹带着火光坠落大海，这场持续的烟火盛宴成为大陆上所有蒸汽巨人，所有兽人，甚至所有能看到这一盛景的生物的庆典：
+当次级装药引爆时，这场持续的烟火盛宴成为大陆上所有蒸汽巨人，所有兽人，甚至所有能看到这一盛景的生物的庆典：
 战争结束了。
 千年以来，埃亚尔大陆，以及拥有它的兽人们，第一次明白了和平的意义。*#WHITE#]], "_t")
 
@@ -514,7 +514,7 @@ t([[I came here to warn the Kruk Pride of the threat Nektosh poses and ask for t
 Unfortunately, they cannot afford to spare the warriors to retake the Mana Caves from that tyrant, and I need to stay here to help them defend their land.  The task of freeing our clan is in your hands, when you feel ready for it.]], [[我来这里是为了警告克鲁克部落独角者纳克托什的危险，并请求他们的帮助。但他们有更迫切的威胁需要处理...我们应该帮他们抵抗蒸汽巨人。他们是唯一尊重我们的人，如果他们被气之部落或者联合王国摧毁，下一个就是我们。他们的成功就是我们的生存希望。
 
 不幸的是，他们现在没有空闲的战士来帮我们从暴君手中夺回魔法洞穴。我需要留在这保护他们。解放我们氏族的任务就交给你了，做好准备去吧。]], "_t")
-t("Nektosh claims he is the invincible, omnipotent descendant of a unicorn, but I don't believe that bull for a second.  While the great magical power that suddenly awakened within him is as fearsome as it is insanity-inducing,  he has yet to use it to make a shield or teleport himself, and even with his all-powerful beam, his aim isn't always perfect...  I think he has a weakness he's trying to hide.  Fight with courage, fellow Whitehoof, and the Krimbul Clan may be free once more!", "独角者纳克托什声称他是无可战胜无所不能的独角兽后裔。但他说的每一句话我都不信。自从他体内的恐怖而疯狂的魔法力量觉醒后，他用能这股力量制造护盾或者传送，甚至发射强力射线。但他的瞄准能力似乎并不精确...他一定有着某个隐藏的弱点。勇敢战斗吧，我的白蹄伙伴，氏族的解放就交给你了", "_t")
+t("Nektosh claims he is the invincible, omnipotent descendant of a unicorn, but I don't believe that bull for a second.  While the great magical power that suddenly awakened within him is as fearsome as it is insanity-inducing,  he has yet to use it to make a shield or teleport himself, and even with his all-powerful beam, his aim isn't always perfect...  I think he has a weakness he's trying to hide.  Fight with courage, fellow Whitehoof, and the Krimbul Clan may be free once more!", "独角者纳克托什声称他是无可战胜无所不能的独角兽后裔。但他说的每一句话我都不信。尽管他体内突然觉醒的魔法力量既强大得可怕又令人疯狂，但他还从未用它制造过护盾或传送自己；即便使用他那全能的射线，他的准头也不总是完美……我想他有个想要隐藏的弱点。勇敢战斗吧，我的白蹄伙伴，克林布尔氏族也许就能重获自由！", "_t")
 t("I will!", "我会的！", "_t")
 t([[He...  he found a wand?  And he realized it was running dry, but only after taking over the tribe?  I pity him, but I cannot forgive him for being willing to sacrifice so many Whitehooves and Orcs to escape the consequences of his brief lapse into madness...  still, as a personal request I ask that you not tell others of his last thoughts.  The Nektosh we once knew saved our tribe from the corrupted magic deep under Eyal; he deserves to, at worst, be remembered as one who tragically succumbed to its influence.
 
@@ -550,16 +550,16 @@ And it #{bold}#speaks#{normal}# to you!*#WHITE#
 Welcome @playername@. We have been waiting for you.]], [[#LIGHT_GREEN#*在你面前的是一台非常古老的机器。它似乎充满了某种灵能，听上去不可思议。
 现在，它朝你 #{bold}#说话#{normal}#了！*#WHITE#
 你好啊@playername@，我们等你很久了。]], "_t")
-t("What are you?", "你是?", "_t")
+t("What are you?", "你是什么？", "_t")
 t("Waiting for me?", "等我?", "_t")
 t("What do you need me for?", "你要我干啥?", "_t")
 t("I have muscle tissue for you.", "我有一些肌肉组织要给你.", "_t")
 t("[leave]", "[离开]", "_t")
-t("#LIGHT_GREEN#*You feel a powerful presence in your mind.*#WHITE#", "#LIGHT_GREEN#*你感觉到大脑里浮现出强大的预言。*#WHITE#", "_t")
+t("#LIGHT_GREEN#*You feel a powerful presence in your mind.*#WHITE#", "#LIGHT_GREEN#*你感觉到脑海中出现一股强大的存在。*#WHITE#", "_t")
 t("I see...", "我明白了...", "_t")
 t("Yes. We predict you will be useful to us. If you are not, another will be.", "是的。我们预测你将对我们有所助益。当然，如果你不是，也会有其他人。", "_t")
 t([[We require recent yeti muscle tissue from powerful specimens. You will help us, or you will not. Either way they will come to us.
-If you do so we shall reward you with petty knowledge so that you may postpone your death.]], [[我们需要强大雪人种族的肌肉组织。你可以帮我们，也可以选择不帮。这取决于你。
+If you do so we shall reward you with petty knowledge so that you may postpone your death.]], [[我们需要从强大的雪人个体身上取得新鲜的肌肉组织。你可以帮我们，也可以选择不帮；无论如何，它们都会到我们手上。
 如果你帮了我们，我们将传授你知识，可以延缓你的死亡。]], "_t")
 t("That is... generous of you.", "这真是... 慷慨。", "_t")
 t("Talent categories", "技能树", "_t")
@@ -567,7 +567,7 @@ t("Talents", "技能", "_t")
 t("Improved core stats", "提升核心属性", "_t")
 t([[#LIGHT_GREEN#*The muscle tissue suddenly vanishes from your inventory.*#WHITE#
 Thank you @playername@, this is indeed a suitable specimen. We shall honor our bargain with you. What do you wish to learn?]], [[#LIGHT_GREEN#*肌肉组织突然消失了。*#WHITE#
-感谢你@playername@，这真是有趣的物种。你的帮助我们将铭记于心。你想学什么？]], "_t")
+感谢你@playername@，这确实是一份合适的样本。我们会履行与你的约定。你想学什么？]], "_t")
 t("What do you wish to learn?", "你想学什么?", "_t")
 t("You cannot use your %s anymore; it is tainted by magic.", "你不能再使用 %s ，它已被魔法所污染。", "logPlayer")
 t([[Antimagic is a very special category. If you learn it you will never be able to use arcane powered items or talents again.
@@ -590,7 +590,7 @@ t("Learn", "学习", "_t")
 t([[Antimagic talents are very special. To learn one means you will never be able to use arcane powered items or talents again.
 Do you still wish to take this path?]], [[反魔法技能是非常特殊的。你学习后将不能使用奥术装备和法术技能。
 确定要学习么？]], "_t")
-t("Very well. We can teach you a talent (unlocking the talent category is separate). Which do you want?", "很好，我们能教你一个技能树(需解锁)，你想要哪种？", "_t")
+t("Very well. We can teach you a talent (unlocking the talent category is separate). Which do you want?", "很好，我们可以教你一个技能（解锁该技能树是另一回事）。你想要哪个？", "_t")
 t("[Improve %s by +%d]", "[提升 %s +%d]", "tformat")
 t("Very well. We can increase one of your core stats by 4, which one?", "很好，我们能强化你一项属性4点。选择哪个？", "_t")
 
