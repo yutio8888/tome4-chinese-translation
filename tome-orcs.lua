@@ -94,7 +94,7 @@ t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法
 t("#GOLD#Life per level:#LIGHT_BLUE# -1", "#GOLD# 每等级生命加值： #LIGHT_BLUE# -1", "_t")
 t("Psyshot", "灵能射手", "birth descriptor name")
 t("Bend the mind, bend the tech. All around inspire dread.", "扭曲精神，扭曲科技，一切都是为了激发恐惧。", "_t")
-t("Powerful psionics are able to enter a gestalt with steam generators and technology to enhance their own mental prowess.", "强大的灵能能够与蒸汽发生器和科技形成格式塔联结，以增强自身的精神力量。", "_t")
+t("Powerful psionics are able to enter a gestalt with steam generators and technology to enhance their own mental prowess.", "强大的灵能使用者能够与蒸汽发生器和科技形成格式塔联结，以增强自身的精神力量。", "_t")
 t("The Psyshot combines this ability to gestalt to enhance his mindstar all the while shooting her steamgun to devastate the enemy lines.", "灵能射手将这项能力与格式塔结合，来强化灵晶的力量，同时使用蒸汽枪毁灭敌人。", "_t")
 t("Their most important stats are: Cunning, Willpower and Dexterity", "他们最重要的属性是：灵巧、意志和敏捷", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+3 敏捷，+0 体质", "_t")
@@ -339,7 +339,7 @@ This airship appears to be evacuating what's left of the Atmos Tribe.  With the 
 You press a button labelled #{italic}#"SELECT NEXT TARGET"#{normal}#, and the panel shifts to show a very lost and very confused Fire Imp, flying in the air near nothing of importance.  Firing on it would have little effect whatsoever, aside from showing off DESTRUCTICUS's power in the most harmless way possible.*#WHITE#]], [[#LIGHT_GREEN#*#{italic}#"获取侦测锁定中……已获取。"#{normal}#
  
 珍珠面板突然充满色彩，显示飞船的巨大内部结构。蒸汽巨人们拥挤而哭泣，整理着逃离时仅能带走的少量财物；一名守卫双手抱头，坐在一堆行李和储物箱上。视角切换到船舱，你看见一些成员匆忙走过船长室和引擎室，偶尔忧虑地瞥向窗外——看向你。
-飞船似乎正在疏散气之部落的残余成员。只要按下一个按钮，你将能永久摧毁蒸汽巨人这个种族。
+飞船似乎正在疏散气之部族的残余成员。只要按下一个按钮，你将能永久摧毁蒸汽巨人这个种族。
 
 你按下按钮 #{italic}#"选择下个目标"#{normal}#，面板显示出一个迷茫而混乱的火焰小鬼，在空中无害地飞舞。向他开火没什么意义，只是以最无害的方式炫耀毁灭号的力量。*#WHITE#]], "_t")
 t("[shoot down the airship]", "[击落飞船]", "_t")
@@ -365,7 +365,7 @@ A nagging thought in the back of your head insists that you now know how the Sun
 这就是所有试图消灭兽人的种族的命运。千年的压制、欺凌和屠杀被终结了：你的人民再也不会沦落如斯。
 
 无法摆脱的念头自你脑后升腾，你现在明白了太阳骑士的感受，明白了图库纳国王的感受，明白了半身人的感受，明白了所有对曾兽人施以暴行的人的感受。
-它能继续哀诉一切————但你的人民终于安全了。*#WHITE#]], "_t")
+随它哀诉去吧————但你的人民终于安全了。*#WHITE#]], "_t")
 t("[leave]", "[离开]", "_t")
 t([[#LIGHT_GREEN#*No...  you will not sink to the depths that King Toknor did, that the Sun Paladins did, that so many others have sunk to.  These refugees are not a threat, and could not possibly become one for quite some time...  but it might be for the best that they're made fully aware of what you're capable of, the fate you could've given them through so little effort, and given a display that'll make sure they remember that they owe their lives to your mercy.
  
@@ -379,11 +379,11 @@ As the secondary charges go off, the ongoing pyrotechnic display acts as a celeb
 
 这些难民不再是威胁，很长时间内都不可能成为威胁……但最好能让他们充分意识到你的力量，你本能轻易带来的毁灭命运，向他们展示这一切，让他们永远铭记：他们的生死取决于你的仁慈。
 
-你瞄准了火焰小鬼，令武器开火。巨大的轰鸣声和火光闪过，#{bold}#裂天者 毁灭号#{normal}#朝那只越来越惊慌的小鬼冲过去。它惊恐无比，试图躲避，而#{bold}#裂天者 毁灭号#{normal}#相对修正了行进路线，直到它彻底放弃，沮丧地耸了耸肩。在导弹的轰鸣声中，你不能听见飞船里的声音，不过你能肯定恶魔的嘴型在说'这真滑稽'。
+你瞄准了火焰小鬼，令武器开火。巨大的轰鸣声和火光闪过，#{bold}#裂天者 毁灭号#{normal}#朝那只越来越惊慌的小鬼冲过去。它惊恐无比，试图躲避，而#{bold}#裂天者 毁灭号#{normal}#相对修正了行进路线，直到它彻底放弃，沮丧地耸了耸肩。在导弹的轰鸣声中，你不能听见飞船里的声音，不过你能肯定那只小鬼的嘴型在说'这真滑稽'。
 
 导弹到达了目的地，巨大的爆炸堵塞了你透过窗户的视线。碎片无害地坠落在山顶，整个大陆都听见了巨大的爆鸣声。
 
-痛饮刚分下来的美酒，你将已经空仓的#{bold}#裂天者 毁灭号#{normal}#指向飞船，不出所料看见巨人们欢呼拥抱，喜极而泣。少数大声质疑你为什么这么做，而大部分人明白这是仁慈的表示。
+痛饮刚分下来的美酒，你将已经空膛的#{bold}#裂天者 毁灭号#{normal}#指向飞船，不出所料看见巨人们欢呼拥抱，喜极而泣。少数大声质疑你为什么这么做，而大部分人明白这是仁慈的表示。
 
 当次级装药引爆时，这场持续的烟火盛宴成为大陆上所有蒸汽巨人，所有兽人，甚至所有能看到这一盛景的生物的庆典：
 战争结束了。
@@ -511,7 +511,7 @@ t("Hail, @playername@!", "嘿, @playername@!", "_t")
 t("Our is free Metash, the tyrant is no more.", "我们自由了梅塔什，暴君被打败了！", "_t")
 t([[I came here to warn the Kruk Pride of the threat Nektosh poses and ask for their help, but they have some more immediate threats to deal with...  We should help them repel these Steam Giants.  They are the only people who have ever treated us with respect and dignity; if they are crushed by the Atmos Tribe or the Allied Kingdoms, we will surely be next.  Their success is our survival.
 
-Unfortunately, they cannot afford to spare the warriors to retake the Mana Caves from that tyrant, and I need to stay here to help them defend their land.  The task of freeing our clan is in your hands, when you feel ready for it.]], [[我来这里是为了警告克鲁克部落独角者纳克托什的危险，并请求他们的帮助。但他们有更迫切的威胁需要处理...我们应该帮他们抵抗蒸汽巨人。他们是唯一尊重我们的人，如果他们被气之部落或者联合王国摧毁，下一个就是我们。他们的成功就是我们的生存希望。
+Unfortunately, they cannot afford to spare the warriors to retake the Mana Caves from that tyrant, and I need to stay here to help them defend their land.  The task of freeing our clan is in your hands, when you feel ready for it.]], [[我来这里是为了警告克鲁克部落独角者纳克托什的危险，并请求他们的帮助。但他们有更迫切的威胁需要处理...我们应该帮他们抵抗蒸汽巨人。他们是唯一尊重我们的人，如果他们被气之部族或者联合王国摧毁，下一个就是我们。他们的成功就是我们的生存希望。
 
 不幸的是，他们现在没有空闲的战士来帮我们从暴君手中夺回魔法洞穴。我需要留在这保护他们。解放我们氏族的任务就交给你了，做好准备去吧。]], "_t")
 t("Nektosh claims he is the invincible, omnipotent descendant of a unicorn, but I don't believe that bull for a second.  While the great magical power that suddenly awakened within him is as fearsome as it is insanity-inducing,  he has yet to use it to make a shield or teleport himself, and even with his all-powerful beam, his aim isn't always perfect...  I think he has a weakness he's trying to hide.  Fight with courage, fellow Whitehoof, and the Krimbul Clan may be free once more!", "独角者纳克托什声称他是无可战胜无所不能的独角兽后裔。但他说的每一句话我都不信。尽管他体内突然觉醒的魔法力量既强大得可怕又令人疯狂，但他还从未用它制造过护盾或传送自己；即便使用他那全能的射线，他的准头也不总是完美……我想他有个想要隐藏的弱点。勇敢战斗吧，我的白蹄伙伴，克林布尔氏族也许就能重获自由！", "_t")
@@ -3600,7 +3600,7 @@ t("Far East", "远东", "_t")
 t("Var'Eyal", "瓦·埃亚尔", "_t")
 t("WARNING", "警告", "_t")
 t("Danger!", "危险！", "_t")
-t("Warning, to the west is #CRIMSON##{bold}#Atmos Tribe#{normal}##LAST# territory. Likely far too dangerous for you!", "警告，西边是#CRIMSON##{bold}#气之部落#{normal}##LAST#的领地。似乎对你来说太危险了！", "_t")
+t("Warning, to the west is #CRIMSON##{bold}#Atmos Tribe#{normal}##LAST# territory. Likely far too dangerous for you!", "警告，西边是#CRIMSON##{bold}#气之部族#{normal}##LAST#的领地。似乎对你来说太危险了！", "_t")
 t("Clork Peninsula", "克拉克半岛", "_t")
 
 ------------------------------------------------
@@ -3812,7 +3812,7 @@ t("Of Steamwork and Pain", "苦痛和蒸汽", "_t")
 t([[To win the war you must help the Pride by striking a blow to the giant's morale and supply lines.
 ]], [[为了让部落赢得和蒸汽巨人的战争，你必须打击敌人的士气和补给线。
 ]], "_t")
-t("#LIGHT_GREEN#* You have assaulted the Vaporous Emporium, crushing the morale of the Atmos tribe.#WHITE#", "#LIGHT_GREEN#* 你已经袭击了蒸汽商场，摧垮了气之部落的士气。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have assaulted the Vaporous Emporium, crushing the morale of the Atmos tribe.#WHITE#", "#LIGHT_GREEN#* 你已经袭击了蒸汽商场，摧垮了气之部族的士气。#WHITE#", "_t")
 t("#SLATE#* You must assault the Vaporous Emporium to crush the morale of the Atmos tribe!#WHITE#", "#SLATE#* 你必须袭击蒸汽商场，摧垮气之部族的士气！#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the yeti cave and vanquished the Yeti Patriarch.#WHITE#", "#LIGHT_GREEN#* 你已经探索了雪人洞穴，打败了雪人族长。#WHITE#", "_t")
 t("#SLATE#* You must explore the Yeti Cave and destroy the patriarch!#WHITE#", "#SLATE#* 你必须探索雪人洞穴并击败他们的族长！#WHITE#", "_t")
