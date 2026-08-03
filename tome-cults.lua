@@ -3562,7 +3562,7 @@ t([[Since ziguranth removed those filthy magic runes from your body you have nee
 		当你学会该技能时，你变得如此强大，以至于能双持任何单手武器。]], "tformat", {1,3,2,4,5,6})
 t("Fuel Pain", "升华痛苦", "talent name")
 t([[Your body is used to pain. When you take a hit of 20%% or more of your max life one of your inscriptions is taken off cooldown and infusion saturation is removed.
-		This effect has a cooldown of %d turns.]], [[你的身体习惯于痛苦。每次你受到超过 20%% 最大生命的伤害时，你的一个纹身将立刻冷却完毕，并移除符文饱和效果。
+		This effect has a cooldown of %d turns.]], [[你的身体习惯于痛苦。每次你受到最大生命 20%% 或以上的伤害时，你的一个纹身将立刻冷却完毕，并移除符文饱和效果。
 		该效果冷却时间为 %d 回合。]], "tformat")
 t("Drakeblood Strike", "龙血打击", "talent name")
 t([[You were created by ziguranth for one purpose only, to wage war on magic!
@@ -3590,7 +3590,7 @@ t([[Without the distraction of #{bold}#thoughts#{normal}# or #{bold}#self#{norma
 		整体速度增加 %d%% 。]], "tformat")
 t("Corrupting Influence", "堕落影响", "talent name")
 t([[The parasite corruption seeps into your body, strengthening it.
-		Increases blight, darkness, temporal and acid resistances by %d%% but decreases nature and light resistances by %d%%.]], [[ 寄生在你身体里的堕落力量渗出了你的身体，给予你强化。
+		Increases blight, darkness, temporal and acid resistances by %d%% but decreases nature and light resistances by %d%%.]], [[寄生在你身体里的堕落力量渗入你的身体，给予你强化。
 		增加 %d%% 枯萎、黑暗、时空和酸性伤害抗性，同时减少 %d%% 自然和光系伤害抗性。]], "tformat")
 t("Horror Shell", "恐惧外壳", "talent name")
 t([[Creates a shell around you, absorbing %d damage. Lasts for 10 turns.
@@ -3600,8 +3600,8 @@ t([[Creates a shell around you, absorbing %d damage. Lasts for 10 turns.
 ------------------------------------------------
 section "tome-cults/data/talents/spell/necro.lua"
 
-t("The massive ribcage in the middle beats with loud, audible cracks, as many a skeletal hand protrude forth, entwining, fusing, forming long skeletal appendages to support itself, while others crumble and collapse inward. During all this, somehow, it seems they grasp for you.", "中空的胸腔里传出巨大的破碎声，似乎许多骷髅在里面，突出，缠绕，融合，形成长长的骨架来支撑它，而其他部分倒塌向内。与此同时，似乎它们都想抓住你。", "_t")
-t("#VIOLET#As the bone horror is destroyed you see the remaining bones reassembling in the form of new skeletons!", "#VIOLET#白骨恐魔被摧毁了，你看到剩余的骨头组成了骷髅!", "logSeen")
+t("The massive ribcage in the middle beats with loud, audible cracks, as many a skeletal hand protrude forth, entwining, fusing, forming long skeletal appendages to support itself, while others crumble and collapse inward. During all this, somehow, it seems they grasp for you.", "中间的巨大胸腔搏动着，传出碎裂声，无数骷髅手臂从中伸出，缠绕、融合成支撑自身的长长骨骼附肢，其余部分则向内坍塌。与此同时，它们似乎都想抓住你。", "_t")
+t("#VIOLET#As the bone horror is destroyed you see the remaining bones reassembling in the form of new skeletons!", "#VIOLET#白骨恐魔被摧毁了，你看到剩余的骨头重新组装成了新的骷髅！", "logSeen")
 
 ------------------------------------------------
 section "tome-cults/data/timed_effects.lua"
@@ -3641,10 +3641,10 @@ t("#Target# suddently grows.", "#Target#突然变大。", "_t")
 t("#Target# shrinks back.", "#Target#缩小了。", "_t")
 t("corruption", "堕落", "effect subtype")
 t("slow", "减速", "effect subtype")
-t("Decaying Guts", "腐化气息", "_t")
+t("Decaying Guts", "腐烂内脏", "_t")
 t("Reduces global action speed by %d%%.", "整体速度下降 %d%% 。", "tformat")
-t("#Target# is covered in decaying guts.", "#Target#被腐化气息覆盖。", "_t")
-t("#Target# is free from the decaying guts.", "#Target#逃脱腐化气息。", "_t")
+t("#Target# is covered in decaying guts.", "#Target#被腐烂内脏覆盖。", "_t")
+t("#Target# is free from the decaying guts.", "#Target#摆脱了腐烂内脏。", "_t")
 t("miscellaneous", "杂项", "effect subtype")
 t("Worm that Walks out of sight", "蠕虫合体在视野外", "_t")
 t("The Worm that Walks is out of sight of the alchemist; direct control will be lost!", "蠕虫合体在主人的视野外；无法直接控制它！", "_t")
@@ -3657,7 +3657,7 @@ t("Linked to their horror ally gaining %d%% all damage resistance.", "和恐魔�
 t("#Target# links closer to his ally!", "#Target#与盟友联结！", "_t")
 t("#Target# no longer seems to be in sync with his ally.", "#Target#不再和盟友同步。", "_t")
 t("Terrible Sight", "恐怖景象", "_t")
-t("Terrified of the horror duo attacking them reducing defense and spell save by %d.", "被两个恐魔惊恐，闪避和法术豁免降低 %d 。", "tformat")
+t("Terrified of the horror duo attacking them reducing defense and spell save by %d.", "因两只恐魔的现身而惊恐，闪避和法术豁免降低 %d 。", "tformat")
 t("#Target# is terrified of the horrors attacking him!", "#Target#因攻击他的恐魔惊恐。", "_t")
 t("#Target# is no longer afraid of the horrors attacking him.", "#Target#不再因恐魔而惊恐。", "_t")
 t("chaos", "混沌", "effect subtype")
@@ -3684,7 +3684,7 @@ t("leech", "吸血", "effect subtype")
 t("Inner Tentacles", "内部触手", "_t")
 t("Life leech %d%% chance, %d%% power.", "%d%% 吸血几率，%d%% 强度。", "tformat")
 t("#Target# is empowered by the pain of its victim.", "#Target#被牺牲者的痛苦强化", "_t")
-t("#Target# is less powerfull.", "#Target#的强化效果消失了。", "_t")
+t("#Target# is less powerfull.", "#Target#的力量减弱了。", "_t")
 t("morph", "变形", "effect subtype")
 t("Horrific Display", "恐魔具现化", "_t")
 t("Appearance changed to an horror, everything is hostile to it.", "外貌变化为恐魔，令其他人和它敌对。", "tformat")
@@ -3698,15 +3698,15 @@ t("Blood and gore cover the target, dealing %0.2f darkness damage and %0.2f blig
 t("#Target# is covered in gore.", "#Target#被血肉覆盖。", "_t")
 t("#Target# is no longer covered in gore.", "#Target#不再被血肉覆盖。", "_t")
 t("fear", "恐惧", "effect subtype")
-t("Glimpse of True Horror", "恐怖无边", "_t")
+t("Glimpse of True Horror", "一瞥真惧", "_t")
 t("Target briefly saw what True Horror means, deeply scaring it. %d%% chances to fail using a talent.", "目标被真正的恐惧吓倒， %d%% 几率使用技能失败。", "tformat")
 t("#Target# saw true horror.", "#Target#看到了真正的恐怖。", "_t")
-t("#Target# is less afraid.", "#Target#不再恐惧。", "_t")
-t("Empowered by the fear of its foes, darkness and blight damage penetration increased by %d%%.", "被敌人的恐惧强化，获得 %d%% 黑暗和枯萎抗性穿透。", "tformat")
+t("#Target# is less afraid.", "#Target#不再那么恐惧了。", "_t")
+t("Empowered by the fear of its foes, darkness and blight damage penetration increased by %d%%.", "被敌人的恐惧强化，获得 %d%% 暗影和枯萎抗性穿透。", "tformat")
 t("#Target# is empowered by the fear of #hisher# foes.", "#Target#被#hisher#敌人的恐惧强化。", "_t")
 t("stone", "石", "effect subtype")
 t("Writhing Hairs", "蜿蜒之发", "_t")
-t("Half turned to stone, reducing movement speed by %d%% and 35%% chances to shatter on damage, increasing damge taken by %d%%.", "半石化中，移动速度降低 %d%%，35%% 几率增加 %d%% 受到的伤害。", "tformat")
+t("Half turned to stone, reducing movement speed by %d%% and 35%% chances to shatter on damage, increasing damge taken by %d%%.", "半石化中，移动速度降低 %d%%，受到伤害时有 35%% 几率碎裂，使受到的伤害提高 %d%%。", "tformat")
 t("#Target# is half-turned to stone.", "#Target#被半石化。", "_t")
 t("#Target# looks less like a statue.", "#Target#不再被石化。", "_t")
 t("temporal", "时空", "effect subtype")
@@ -3732,16 +3732,16 @@ t("+Dark Whispers", "+黑暗低语", "_t")
 t("#Target#'s whispers fade.", "#Target#的低语消退了。", "_t")
 t("-Dark Whispers", "-黑暗低语", "_t")
 t("Hideous Visions", "惊骇幻象", "_t")
-t("The target is being distracted by a hallucination, reducing all damage dealt to non-hallucinations targets by %d%%.", "目标被幻觉所困 , 降低其对非幻觉单位造成的伤害 %d%% 。", "tformat")
+t("The target is being distracted by a hallucination, reducing all damage dealt to non-hallucinations targets by %d%%.", "目标被幻觉所困，降低其对非幻觉单位造成的伤害 %d%%。", "tformat")
 t("Cacophony", "心灵尖啸", "_t")
-t("The target is overwhelmed by voices from the void, giving them a 20%% higher chance to spawn hallucinations from Dark Whispers and causing them to take an additional %d%% temporal damage from Dark Whispers and Hideous Visions.", "目标被虚空之声淹没 , 让他们从黑暗低语中产生幻觉的几率增加 20%% ，并使他们从黑暗低语和丑恶幻视中受到额外 %d%% 点时空伤害。", "tformat")
+t("The target is overwhelmed by voices from the void, giving them a 20%% higher chance to spawn hallucinations from Dark Whispers and causing them to take an additional %d%% temporal damage from Dark Whispers and Hideous Visions.", "目标被虚空之声淹没 , 让他们从黑暗低语中产生幻觉的几率增加 20%% ，并使他们从黑暗低语和惊骇幻象中受到额外 %d%% 点时空伤害。", "tformat")
 t("#Target#'s mind is shattered by the void!", "#Target#的精神被虚空粉碎！", "_t")
 t("+Cacophony", "+心灵尖啸", "_t")
 t("#Target# seems more focused.", "#Target#恢复了理智。", "_t")
 t("-Cacophony", "-心灵尖啸", "_t")
 t("Entropic Wasting", "熵能衰竭", "_t")
 t("The target is wasting away from entropic forces, taking %0.2f damage per turn.", "目标正因熵之力而衰竭，每回合受到 %0.2f 伤害。", "tformat")
-t("#Target# is wasting away!", "#Target#的时间被消耗！", "_t")
+t("#Target# is wasting away!", "#Target#正在衰竭！", "_t")
 t("+Entropic Wasting", "+熵能衰竭", "_t")
 t("#Target#'s is no longer wasting away.", "#Target# 不再被消耗。", "_t")
 t("-Entropic Wasting", "-熵能衰竭", "_t")
@@ -3767,7 +3767,7 @@ t("#Target# is doomed to ruin!", "#Target#被预言毁灭！", "_t")
 t("+Prophecy of Ruin", "+毁灭预言", "_t")
 t("-Prophecy of Ruin", "-毁灭预言", "_t")
 t("Prophecy of Treason", "背叛预言", "_t")
-t("The target is doomed to treason. Each turn they have a %d%% chance to attack an adjacent creature.  If no creatures are adjacent they will attack themself.", "目标被诅咒进入背叛状态。每回合由 %d%%几率攻击友方单位，若无临近友方单位则攻击自身。", "tformat")
+t("The target is doomed to treason. Each turn they have a %d%% chance to attack an adjacent creature.  If no creatures are adjacent they will attack themself.", "目标被诅咒进入背叛状态。每回合有 %d%% 几率攻击一个相邻生物，若无相邻生物则攻击自身。", "tformat")
 t("#Target# is doomed to treason!", "#Target#因预言背叛！", "_t")
 t("+Prophecy of Treason", "+背叛预言", "_t")
 t("-Prophecy of Treason", "-背叛预言", "_t")
@@ -3857,7 +3857,7 @@ t("You are yanked out of this place!", "你“呼”的一下被带离了这个�
 t("Space restabilizes around you.", "你周围的空间稳定了下来。", "logPlayer")
 t("book", "书", "effect subtype")
 t("Forbidden Tome", "禁忌之书", "_t")
-t("Slowly transfered to a Forbidden Tome.", "正在缓慢转换到禁忌之书", "_t")
+t("Slowly transfered to a Forbidden Tome.", "正在被缓慢转移到禁忌之书", "_t")
 t("#Target# is entering a Forbidden Tome!", "#Target#正在进入禁忌之书！", "_t")
 t("#Target# enters a Forbidden Tome!", "#Target#进入了禁忌之书！", "_t")
 t("Inside Forbidden Tome: \"Home, Horrific Home\" for %d turns.", "进入禁忌之书中：\"家，可怕的家 \" %d 回合。", "tformat")
@@ -3878,17 +3878,17 @@ Each turn a radius 2 explosion will occur in a random space dealing %0.2f darkne
 
 移除所有负面效果，所有技能冷却时间被重置。
 
-每回合，一个半径 2 码的爆炸将会在周围的空间爆发， 造成 %0.2f 暗影和时空伤害，并摧毁所有可摧毁的墙。]], "tformat")
+每回合，一个半径 2 码的爆炸会在一个随机空间爆发，造成 %0.2f 暗影和时空伤害，并摧毁所有可挖掘的墙。]], "tformat")
 t("entropy", "熵", "effect subtype")
 t("Total Collapse", "完全崩溃", "_t")
 t("Your body can not function properly here, it is slowly wasting away. Each turn you take %0.2f void damage and any new debuff on you lasts %d%% longer. Each turn those penalties increase until the effect is removed.", "你的身体无法正常运转，被逐渐损耗。每回合你受到 %0.2f 虚空伤害，任何新的负面效果持续时间延长 %d%%。每回合这些惩罚都会增长，直到效果结束。", "tformat")
 t("threat", "威胁", "effect subtype")
 t("Save Kroshkkur", "拯救克诺什库尔", "_t")
 t("Kroshkkur is still under threat from %s.", "克诺什库尔仍处于 %s 威胁中。", "tformat")
-t("#CRIMSON#You waited too long, Kroshkkur has been destroyed by %s!", "#CRIMSON#你等的太久了，克罗什库尔被%s摧毁了!", "say")
+t("#CRIMSON#You waited too long, Kroshkkur has been destroyed by %s!", "#CRIMSON#你等的太久了，克诺什库尔被%s摧毁了!", "say")
 t("Covered in Gastric Fluids", "被胃液覆盖", "_t")
 t("Reduces all damage taken by %d%% and remove all detrimental effects on application.", "降低受到的伤害 %d%%。施加该效果的时候会解除所有负面状态", "tformat")
-t("debilitate", "毁灭", "effect subtype")
+t("debilitate", "虚弱", "effect subtype")
 t("Reduces all damage done by %d%% and increase all detrimental effects durations by 6 turns on application.", "降低造成的伤害 %d%%。施加该效果的时候会将所有负面效果持续时间延长6回合。", "tformat")
 t("blind", "致盲", "effect subtype")
 t("Blinded", "致盲", "_t")
@@ -3922,7 +3922,7 @@ t("Twisted Evolution: Form", "扭曲进化：形体", "_t")
 t("The target is evolved increasing all its stats by %d.", "目标进化了，全属性增加%d。", "tformat")
 t("#Target#'s body is evolved!", "#Target#的身体进化了!", "_t")
 t("#Target#'s body' is no longer evolved.", "#Target#的身体解除进化。", "_t")
-t("Twisted Evolution: Power", "扭曲形态：力量", "_t")
+t("Twisted Evolution: Power", "扭曲进化：力量", "_t")
 t("The target is evolved increasing its damage by %d%%.", "目标进化了，全伤害增加 %d%%。", "tformat")
 t("#Target# is evolved to deal more damage!", "#Target#进化了，伤害增加！", "_t")
 t("#Target# is no longer evolved to deal more damage.", "#Target#解除进化，伤害降低。", "_t")
@@ -3936,7 +3936,7 @@ t("armor", "护甲", "effect subtype")
 t("Horrific Fortress", "恐怖堡垒", "_t")
 t("All damages except physical reduced by %d as long as %s is alive.", "只要%s还存活着，所有除物理外的伤害将会降低%d", "tformat", {2,1})
 t("#Target# is bolstered at the sight of the horror!", "#Target#在恐魔的视线中被强化了!", "_t")
-t("#Target# is less armoured.", "#Target#的防御不再被强化。", "_t")
+t("#Target# is less armoured.", "#Target#的护甲降低了。", "_t")
 -- untranslated text
 --[==[
 t("S.M.A.C.K.", "S.M.A.C.K.", "_t")
@@ -3950,21 +3950,21 @@ t("floor", "地板", "entity type")
 t("floor", "地板", "entity subtype")
 t("floor", "地板", "entity name")
 t("cave", "山洞", "entity subtype")
-t("portal back to the occult egress", "返回奇怪的入口的传送门", "entity name")
+t("portal back to the occult egress", "返回神秘出口的传送门", "entity name")
 t("stairs down", "向下的楼梯", "entity name")
 t("back to the tunnels", "返回通道", "entity name")
 t("incubator", "孵化器", "entity name")
 t("A strange kind of huge glass tube, something seems to be floating inside...", "一种奇怪的巨大玻璃管，里面好像漂浮着什么东西……", "_t")
 t("wall", "墙壁", "entity type")
-t("wheeing and buzzing thing", "嗡嗡叫的东西", "entity name")
+t("wheeing and buzzing thing", "喘息并嗡嗡作响的东西", "entity name")
 
 ------------------------------------------------
 section "tome-cults/data/zones/dremshor-tunnel/npcs.lua"
 
 t("half formed drem", "半成型的德瑞姆", "entity name")
-t("A small faceless humanoid with vaguely Dwarven features.  Its waraxe and shield look battered, rusted, and generally in ill repair.", "身材矮小且拥有部分矮人特征的人形怪物。它的战斧和盾牌看起来又锈又钝，几乎从未修理过。", "_t")
+t("A small faceless humanoid with vaguely Dwarven features.  Its waraxe and shield look battered, rusted, and generally in ill repair.", "一个矮小无脸、拥有部分矮人特征的人形怪物。它的战斧和盾牌看起来破旧生锈、疏于保养。", "_t")
 t("The Amalgamation", "融合怪", "entity name")
-t("Creating a living being from scratch is not an easy process. There are plenty of things which can go wrong, including multiple eyes, surplus limbs, too few brains and multiple bodies being fused into a single, raging mass of flesh and bone. Despite how bulky the creature is, it moves with supple ease, quickly closing the gap between you and it.", "从零开始创造一个生物并不是一件容易的事情。有很多地方可能出错，比如多了点眼睛，多了点四肢，少了点脑子，或者把无数躯体融合成这样一团血肉和骨骸组成的，蠕动着的巨大怪物。尽管这个生物体型庞大，它仍然可以轻快地移动，很快缩小了和你之间的距离", "_t")
+t("Creating a living being from scratch is not an easy process. There are plenty of things which can go wrong, including multiple eyes, surplus limbs, too few brains and multiple bodies being fused into a single, raging mass of flesh and bone. Despite how bulky the creature is, it moves with supple ease, quickly closing the gap between you and it.", "从零开始创造一个生物并不是一件容易的事情。有很多地方可能出错，比如多了点眼睛，多了点四肢，少了点脑子，或者把无数躯体融合成一团狂暴的血肉与骨骸组成的庞大躯体。尽管这个生物体型庞大，它仍然可以轻快地移动，很快缩小了和你之间的距离", "_t")
 t("and absorbed into the foul thing", "并被吸收到了那个肮脏的东西体内。", "_t")
 t("#CRIMSON#As %s takes an other blow you see part of it split into a drem!", "#CRIMSON#当%s受到打击时，你会看到它的一部分分裂成一个德瑞姆！", "logSeen")
 
@@ -3990,7 +3990,7 @@ t("The rift leads... somewhere.", "裂缝通向…某个地方", "_t")
 section "tome-cults/data/zones/entropic-void/npcs.lua"
 
 t("Hypostasis of Entropy", "熵之源质", "entity name")
-t("The twisting mass of limbs and maws that floats in front of you is no less than inevitability personified. All civilisation, all life, all matter, all energy and all light will one day succumb to entropy. You feel terribly cold as a horrifying realisation comes to the forefront of your mind. The heat death of the universe itself is coming for you.", "扭曲的躯体张开巨口，在你的眼前浮现。所有的文明，所有的生命，所有的物质，所有的光芒终究会屈服在熵的面前。恐惧让你感到冰冷，你意识到了这一最可怕的可能性。宇宙热寂的本质即将吞噬你。", "_t")
+t("The twisting mass of limbs and maws that floats in front of you is no less than inevitability personified. All civilisation, all life, all matter, all energy and all light will one day succumb to entropy. You feel terribly cold as a horrifying realisation comes to the forefront of your mind. The heat death of the universe itself is coming for you.", "扭曲的躯体张开巨口，在你的眼前浮现。所有的文明、所有的生命、所有的物质、所有的能量和所有的光芒终究会屈服在熵的面前。恐惧让你感到冰冷，你意识到了这一最可怕的可能性：它就是必然性的化身。宇宙热寂的本质即将吞噬你。", "_t")
 t("These energies are not for you!", "这份能量不是给你的！", "_t")
 
 ------------------------------------------------
@@ -4022,11 +4022,11 @@ t("Safe Multiverse Arena for Commotion and Killing", "杀戮与战争的安全�
 section "tome-cults/data/zones/ft-cultist/npcs.lua"
 
 t("Unspeakable Thing", "不可名状之物", "entity name")
-t("Through idiotic pride, one of the students has called this thing to your world. Thick, impenetrable darkness billows from its form, devouring all light around it. As the darkness touches you, you feel only one thing... Hunger. Bottomless, infinite hunger, as vast and unending as the void of space itself.", "一位学徒因为愚蠢的骄傲而错误的把这样东西召唤到了你的世界。深不可测的黑暗从他的身边喷涌而来，吞噬着周围的一切光芒。当黑暗触及你的时候，你只感受到一件事…饥饿，无尽的饥饿，如同宇宙的虚空一样广阔而无穷无尽。", "_t")
+t("Through idiotic pride, one of the students has called this thing to your world. Thick, impenetrable darkness billows from its form, devouring all light around it. As the darkness touches you, you feel only one thing... Hunger. Bottomless, infinite hunger, as vast and unending as the void of space itself.", "一位学徒因为愚蠢的骄傲而错误的把这样东西召唤到了你的世界。深不可测的黑暗从它的形体中喷涌而出，吞噬着周围的一切光芒。当黑暗触及你的时候，你只感受到一件事…饥饿，无尽的饥饿，如同宇宙的虚空一样广阔而无穷无尽。", "_t")
 t("unknown", "未知", "entity type")
 t("unknown", "未知", "entity subtype")
 t("The Teacher", "导师", "entity name")
-t("A being from another world, or so it claims. Despite its wholly alien appearance, it is not particularly threatening nor does it appear to be malevolent. It will not say how it learned to manipulate the powers of entropy, merely stating that it has been to many different places and experienced many different things.", "这是一位来自另一个世界的生物，起码它是这么说的。尽管它的外形十分怪异，但是它并没有表现出威胁，也没有什么恶意。他从不说出自己是怎么获得操纵熵的力量的，只是告诉你他曾经去过无数不同的地方，经历无数不同的事情。", "_t")
+t("A being from another world, or so it claims. Despite its wholly alien appearance, it is not particularly threatening nor does it appear to be malevolent. It will not say how it learned to manipulate the powers of entropy, merely stating that it has been to many different places and experienced many different things.", "这是一位来自另一个世界的生物，起码它是这么说的。尽管它的外形十分怪异，但是它并没有表现出威胁，也没有什么恶意。它从不说出自己是怎么获得操纵熵的力量的，只是告诉你它曾经去过无数不同的地方，经历无数不同的事情。", "_t")
 t("training", "训练", "entity type")
 t("dummy", "傀儡", "entity subtype")
 t("Training Dummy", "训练用傀儡", "entity name")
@@ -4075,7 +4075,7 @@ t("floor", "地板", "entity type")
 t("underground", "地下", "entity subtype")
 t("return home", "回家", "entity name")
 t("Grung", "格朗格", "_t")
-t("Grung story does not end yet, find more food and bring it here.", "格朗格的故事还没有结束，收集更多的食物吧。", "_t")
+t("Grung story does not end yet, find more food and bring it here.", "格朗格的故事还没有结束，收集更多的食物并带到这里来吧。", "_t")
 t("Grung story ends there, he manages to gather enough food to survive some more days.", "格朗格的故事结束了，他成功收集到了足够的食物，可以存活几天。", "_t")
 t("cave", "山洞", "entity subtype")
 t("dead creature", "死亡的生物", "entity name")
@@ -4111,7 +4111,7 @@ t("lump of flesh", "一团肉", "_t")
 t("flesh piece", "血肉碎片", "_t")
 t("heart", "心脏", "_t")
 t("kidney", "肾脏", "_t")
-t("intestine", "内脏", "_t")
+t("intestine", "肠子", "_t")
 t("eye", "眼睛", "_t")
 t("name", "名字", "entity name")
 
@@ -4123,7 +4123,7 @@ t("%d Food Collected", "食物已收集：%d", "tformat")
 t("Hungry", "饥饿", "_t")
 t([[It's a cold night and you did not find anything to eat during the day. Your fur pelt doesn't do much to keep the cold out either. You're about to go out to hunt, but everyone else has warned you that you must not do that. The night is dangerous and there appears to be strange lights in the sky. An ill omen, to say the least. Food has been hard to come by lately, so everyone is just as famished as you are.
 
-The many tentacled ones who sometimes come down from the sky to look at you say that they are going to battle with themselves. You did not really understand why they would fight among themselves, even as it tried to explain it to you. You reconsider the idea of going outside when its warnings come across your mind, but the rumbling in your belly renews your resolve. Everyone in your tribe tonight must eat, no matter what.]], [[这是一个寒冷的夜晚，白天你没有找到任何可以果腹的东西，你的储备的皮毛也不足以御寒。于是你决定外出狩猎，但其他人都警告你不要这样做。夜晚很危险，而且天空也闪烁着诡异的光芒，如此不详的预兆。但近来食物已经越来越难得，每个人都和你一样饥饿。
+The many tentacled ones who sometimes come down from the sky to look at you say that they are going to battle with themselves. You did not really understand why they would fight among themselves, even as it tried to explain it to you. You reconsider the idea of going outside when its warnings come across your mind, but the rumbling in your belly renews your resolve. Everyone in your tribe tonight must eat, no matter what.]], [[这是一个寒冷的夜晚，白天你没有找到任何可以果腹的东西，你的皮毛也不足以御寒。于是你决定外出狩猎，但其他人都警告你不要这样做。夜晚很危险，而且天空也闪烁着诡异的光芒，如此不祥的预兆。但近来食物已经越来越难得，每个人都和你一样饥饿。
 
 有许多长着触手的怪物从天而降，告诉你，他们将要相互交战。你不知道他们为什么要整天自相残杀，即使他们想要向你解释，你也无法听懂。当它的警告出现在你脑海中时，你有重新考虑是否要走出去的想法，但肚子里的隆隆声会让你重新下定决心。不管怎样，今晚你们部落的每个人都必须吃上东西。]], "_t")
 t("Why is there a dead tentacled one here?", "为什么这里有一只死掉的触手怪？", "_t")
@@ -4137,7 +4137,7 @@ t("You do not have the words you need to articulate your horror.", "你无法用
 t("Are the many tentacled ones using these creatures against each another?", "那些触手怪物是不是在用这些生物互相攻击？", "_t")
 t("Little of what you're seeing makes sense to you. You simply don't have the words to articulate the terror you're feeling.", "你所看到的一切都无法理解。你根本无法用语言表达你所感受到的恐惧。", "_t")
 t("Great blasts of light come from the sky.", "天空发出巨大的光。", "_t")
-t("Indescribable things are emerging from the darkness.", "无法形容的事情正在从黑暗中浮现。", "_t")
+t("Indescribable things are emerging from the darkness.", "无法形容的东西正在从黑暗中浮现。", "_t")
 t("Looking up, you see something writhing between the stars. You look away before curiosity gets the better of you.", "抬头一看，你看到星星间有东西在扭动。你要在好奇心战胜你之前把目光移开。", "_t")
 t("The lights nearly blind you as cascades of swirling colours explode in the darkness above your head.", "当漩涡般的色彩在你头顶的黑暗中爆发时，强光几乎使你失明。", "_t")
 t("Terrified by the carnage around it, the rabbit has become easy prey.", "兔子被周围的大屠杀吓坏了，成了容易被捕食的猎物。", "_t")
@@ -4218,13 +4218,12 @@ Thoughts treasured when they are alone.
 #RED#Reading this tome will slowly pull you in over 5 turns.]], [[在安全中发现清晰。
 在舒适中找到清晰。
 让思绪和空想在虚空中飘荡。
-不要被任何食物伤害。
+没有人会伤害你。
 不要被任何东西打扰
 只要思考。
 努力思考。
 冥想。
-痛苦只是一种错觉。
-全神贯注。
+痛苦是一面透镜，透过它凝聚心神。
 让肉体成为你的画布。
 让肉体点燃梦想。
 思想是财富。
@@ -4277,10 +4276,10 @@ t("glass throne", "玻璃王座", "entity name")
 ------------------------------------------------
 section "tome-cults/data/zones/ft-illusory-castle/npcs.lua"
 
-t("minotaur mindscrew", "米诺陶灵能之锤", "entity name")
+t("minotaur mindscrew", "米诺陶心灵拧转者", "entity name")
 t("A belligerent minotaur with a frightening amount of mind powers, and armed with a hammer and a pack of huge rocks.", "这个好战的米诺陶有着强大的精神力量。他一手拿着锤子，一手拿着巨大的石块。", "_t")
 t("The Glass Golem", "玻璃傀儡", "entity name")
-t("A huge golem-like construct made entirely out of glass. It seems to be the custodian of the whole castle and likely the key to those nice looking chests around the throne.", "这是一个巨大的机械傀儡，完全由玻璃制成。它似乎是整个城堡的卫士，看守着王座周围的宝箱。", "_t")
+t("A huge golem-like construct made entirely out of glass. It seems to be the custodian of the whole castle and likely the key to those nice looking chests around the throne.", "这是一个完全由玻璃制成的巨大傀儡造物。它似乎是整座城堡的看守者，也很可能是打开王座周围那些漂亮宝箱的关键。", "_t")
 t("and turned into glass", "并被变成了玻璃", "_t")
 t("#AQUAMARINE#As the Glass Golem's life dwindles too low it teleports to its throne to heal!", "#AQUAMARINE#当玻璃傀儡的生命下降到一定程度，它传送到了自己的宝座来治疗！", "say")
 t("#AQUAMARINE#As the Glass Golem's life dwindles too low it rushes toward its throne to heal!", "#AQUAMARINE#当玻璃傀儡的生命下降到一定程度，它冲向了自己的宝座来治疗！", "say")
@@ -4345,7 +4344,7 @@ t("It's Character Forming", "这是性格形成", "_t")
 t("Jaundiced Outlook", "偏见的看法", "_t")
 t("Problem Child", "问题儿童", "_t")
 t("Reasonable Excuse", "合理的借口", "_t")
-t("Recent Convert", "最近的转换", "_t")
+t("Recent Convert", "新皈依者", "_t")
 t("Tactical Grace", "战术优雅", "_t")
 t("Unacceptable Behaviour", "不可接受的行为", "_t")
 t("Steely Glint", "钢铁般的闪光", "_t")
@@ -4365,7 +4364,7 @@ t("What Is The Answer and Why?", "答案是什么？为什么？", "_t")
 t("Wisdom Like Silence", "智慧如沉默", "_t")
 t("Zero Gravitas", "零重力", "_t")
 t("Serious Callers Only", "只有严肃的来电者", "_t")
-t("Not Invented Here", "不是在这里发明的", "_t")
+t("Not Invented Here", "非我发明", "_t")
 t("Illusory Castle", "虚幻城堡", "_t")
 t("Illusory Castle - %s", "虚幻城堡 - %s", "tformat")
 t("illusory beam endpoint", "虚幻光束端点", "_t")
@@ -4521,12 +4520,12 @@ t("#CRIMSON#The ground shakes as you finish the glyph sequence %s%s%s%s!", "#CRI
 section "tome-cults/data/zones/scourged-pits/npcs.lua"
 
 t("awoken tentacle tree", "被唤醒的触手树", "entity name")
-t("One of the tentacle tree has awakened!", "触手树活起来了！", "_t")
+t("One of the tentacle tree has awakened!", "其中一棵触手树活起来了！", "_t")
 t("dragon", "龙", "entity type")
 t("scourge", "天灾", "entity subtype")
 t("Kroltar the Scourge", "天灾巨龙库洛塔", "entity name")
 t("Kroltar, the mightiest fire wyrm to have ever walked Eyal. It was said that a group of dwarves had slain him, but something has taken up residence in the once proud creature's body, reanimating it into a twisted new lifeform.", "库洛塔，埃亚尔历史上最为伟大的火龙。传说矮人远征队杀死了他，不过另外一些东西似乎占据了这个曾经骄傲的巨龙的躯体，让它重新变成一种新的扭曲的生命形态。", "_t")
-t("and fed to the corrupt writhing tentacles", "并被喂给了枯萎的扭动触手", "_t")
+t("and fed to the corrupt writhing tentacles", "并被喂给了腐化的扭动触手", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/zones/scourged-pits/objects.lua"
@@ -4545,7 +4544,7 @@ section "tome-cults/data/zones/test/npcs.lua"
 
 t("humanoid", "人形生物", "entity type")
 t("thalore", "自然精灵", "entity subtype")
-t("some merchant", "某些商人", "entity name")
+t("some merchant", "某个商人", "entity name")
 t("A stern-looking guard, he will not let you disturb the town.", "一名严肃的守卫，他不会允许任何人打扰镇子的宁静。", "_t")
 t("thalore wilder", "精灵自然师", "entity name")
 t("A tall elf, his skin covered in green moss.", "一名高大的精灵，他的皮肤覆有青苔。", "_t")
@@ -4638,13 +4637,13 @@ t("Is there anything else you can do?", "你还能做什么吗？", "_t")
 t("#GREY##{italic}#The staff shudders.#{normal}##LAST# My finest services are only available to real necromancers. Stop bothering me, inferior creature.", "#GREY##{italic}#法杖抖动了一下。#{normal}##LAST# 我最好的服务只提供给真正的死灵法师。别烦我了，低等生物。", "_t")
 t("I am ready to use your powers!", "我准备好使用你的力量了！", "_t")
 t("I want you to start summoning the bone horror again.", "我想让你开始召唤骨灵恐魔。", "_t")
-t("I want you to stop summoning the bone horror.", "我想让你开始停止召唤骨灵恐魔。", "_t")
+t("I want you to stop summoning the bone horror.", "我想让你停止召唤骨灵恐魔。", "_t")
 t([[#GREY##{italic}#You feel the staff writhing in your hand with dark intents.#{normal}##LAST# Once you will have collected one hundred souls and one class talent point I will be able to enhance your pathetic summons with a mighty bone horror!
 Anytime you use your Create Minions spell I will make sure one of them is a Bone Horror, if none are present.
 
 #ANTIQUE_WHITE#The Bone Horror is a powerful undead bone construct with multiple bone-based attacks and a bone shield. Upon death it splits into 3 skeleton minions.
 #GREY#You have captured %d souls out of the 100 needed.]], [[#GREY##{italic}#你感受到手中的法杖随着黑暗的意图旋转。#{normal}##LAST# 一旦你收集了100个灵魂和一个职业技能点，我将能够增强你可怜的召唤能力，让你可以召唤骨灵恐魔！
-任何时候的，当你召唤不死随从的时候，你将可以召唤一个骨灵恐魔，如果当前没有的话。
+任何时候，当你使用召唤不死随从的技能时，如果当前没有骨灵恐魔，你将可以召唤一个。
 
 #ANTIQUE_WHITE#骨灵恐魔是强大的不死白骨生物，拥有多种骨系攻击技能，并且具有骨盾。骨灵恐魔死亡的时候会分裂出三个骷髅随从。
 #GREY#你已经收集了%d个灵魂，共需要收集100个灵魂。]], "tformat")
@@ -4665,7 +4664,7 @@ t("I can't. (#LIGHT_RED#you need one class point#LAST#)", "我不行。(#LIGHT_R
 t("Not now.", "暂时不用。", "_t")
 t("#GREY##{italic}#The staff shudders.#{normal}##LAST# Pathetic.", "#GREY##{italic}#法杖颤抖着。#{normal}##LAST# 真可怜。", "_t")
 t([[#GREY##{italic}#The staff vibrates with great intensity.#{normal}##LAST# POWER! YES!
-ALL SHALL BOW BEFORE MY MIGH... your might.]], [[#GREY##{italic}#法杖剧烈地颤动这#{normal}##LAST# 力量！是的！
+ALL SHALL BOW BEFORE MY MIGH... your might.]], [[#GREY##{italic}#法杖剧烈地颤动着#{normal}##LAST# 力量！是的！
 所有人都将屈服于我的…啊不，你的力量。]], "_t")
 t("Great!", "太棒了!", "_t")
 t("#GREY##{italic}#The staff stays calm.#{normal}##LAST# Stupid useless pathetic excuse of a #{italic}#\"necromancer\"#{normal}#! Why refuse to use true power?!", "#GREY##{italic}#法杖平静了下来。#{normal}##LAST#像你这样的#{italic}#\"死灵法师\"#{normal}#竟然会用这样蹩脚的借口! 为什么要拒绝使用真正的力量?!", "_t")
@@ -4699,7 +4698,7 @@ As with all things here, nothing restrains you in what path you #{bold}#ultimate
 
 在这里，没有任何规则限制任何人，不管你研究的主题和方法是什么。这使得你们中的许多人成为了其他人眼中的疯子，而你们的研究内容也被普通人的社会所禁止。如果克诺什库尔被发现，它一定会被摧毁。因此，在避难所的唯一规则就是必须对在里面学到的知识进行严格的保密和保护。
 
-然而今天，避难所却面临着一条直接冲向克诺什库尔的巨型蠕虫的威胁。如果再不迅速做出决断，它将会直接撞向并摧毁古代堡垒的残骸。有一个击败蠕虫的办法，那就是是将某一个人传送到蠕虫的大脑里，然后摧毁它。或者，你也可以考虑在蠕虫到来之前离开，在外面的世界找到你自己的目的。
+然而今天，避难所却面临着一条直接冲向克诺什库尔的巨型蠕虫的威胁。如果再不迅速做出决断，它将会直接撞向并摧毁古代堡垒的残骸。有一个击败蠕虫的办法，那就是将某一个人传送到蠕虫的大脑里，然后摧毁它。或者，你也可以考虑在蠕虫到来之前离开，在外面的世界找到你自己的目的。
 
 就像这里的一切一样，没有人会干涉#{bold}#你自己的选择#{normal}#. 你可以现在#{bold}#踏入通向巨型蠕虫体内的传送门#{normal}#或者就这样离开#{bold}#任由克诺什库尔被巨型蠕虫摧毁#{normal}#。
 ]], "_t")
@@ -4756,7 +4755,7 @@ Class features:#YELLOW#
 Cultist of Entropy use "insanity" to power their special abilities.
 Insanity is a measure of their own dementia and makes them more and more chaotic.
 ]], [[熵是混乱的能量，它们总是在宇宙间不断制造更多的混乱。
-大部分人意味掌握和使用这种能量是不可能的，但是他们是错的
+大部分人认为掌握和使用这种能量是不可能的，但他们错了
 在很久以前，一个神秘的生物来到了埃亚尔，它帮助了一群难民，教会了他们掌握熵的能量的方法。
 
 你阅读了一本描述了熵魔法的来源的古书，现在你可以创造职业是#LIGHT_GREEN#熵教徒#WHITE#的新角色。
@@ -4789,7 +4788,7 @@ Race features:#YELLOW#
 #WHITE#
 ]], [[德瑞姆是矮人的变异亚种。
 在很久以前，一台似乎是矮人源头的机器失灵了，开始创造出各种怪物，包括德瑞姆。
-一些来自克诺什库尔的人似乎想要#{italic}#修正#{normal}#他们，给予了他们智慧。
+克诺什库尔中的某种东西似乎想要#{italic}#修正#{normal}#他们，给予了他们智慧。
 
 你已经了解了德瑞姆的起源，你现在可以创造新的#LIGHT_GREEN#德瑞姆#WHITE#角色！
 
@@ -4873,7 +4872,7 @@ Both the chance and size of effects will increase with insanity.]], [[你的精�
 
 浮动的几率和浮动的效果都会随疯狂值提升而上升。]], "_t")
 t("%d%%%% (%d%%%% chaotic)", "%d%%%% (%d%%%% 混沌度)", "tformat")
-t("Use the book-like display for Forbidden Tomes. This option requires both framebuffers and shaders to be active in the video options.#WHITE#", "在禁忌之书中使用书本般的现实效果。这一效果需要在图像设置里开启帧缓冲和着色器。#WHITE#", "_t")
+t("Use the book-like display for Forbidden Tomes. This option requires both framebuffers and shaders to be active in the video options.#WHITE#", "在禁忌之书中使用书本式显示效果。这一效果需要在图像设置里开启帧缓冲和着色器。#WHITE#", "_t")
 t("#GOLD##{bold}#Forbidden Cults: Use Book visual for forbidden tomes#WHITE##{normal}#", "#GOLD##{bold}#禁忌邪教：禁忌之书使用书本效果#WHITE##{normal}#", "_t")
 t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
@@ -4883,7 +4882,7 @@ t("#CRIMSON#[The parasite is hungry and promptly swallows and eat Melinda].", "#
 t("#CRIMSON#[The parasite is hungry and promptly swallows and eat Aeryn].", "#CRIMSON#[寄生兽很饿，吃下了艾琳].", "_t")
 t("#CRIMSON#[The parasite is hungry and attacks Slasul].", "#CRIMSON#[寄生兽很饿，攻击了萨拉苏尔].", "_t")
 t("#CRIMSON#[The parasite is hungry and promptly swallows and eat %s].", "#CRIMSON#[寄生兽很饿，吃下了%s]。", "tformat")
-t("#CRIMSON#[The parasite is hungry and takes over the conversation.]#LAST# I smelled a weakling here and wanted a nice meal. [point your finger at the captured merchant]", "#CRIMSON#[寄生兽很饿，终止了你的对话。]#LAST#我闻到这里有股弱者的味道，我想要一顿美餐。[把你的手指指向被抓住的商人]", "_t")
+t("#CRIMSON#[The parasite is hungry and takes over the conversation.]#LAST# I smelled a weakling here and wanted a nice meal. [point your finger at the captured merchant]", "#CRIMSON#[寄生兽很饿，接管了你们的对话。]#LAST#我闻到这里有股弱者的味道，我想要一顿美餐。[把你的手指指向被抓住的商人]", "_t")
 t("Ah I see, you are a ...thing... of special tastes. Very well, I'd rather have you as a friend so have your meal and someday we may have some more business to do together.", "啊，我明白了，你是一个…品味独特的…家伙。很好，我希望你是我的朋友，所以吃吧，总有一天我们会有更多的生意要做。", "_t")
 t("[eat the merchant]", "[吃掉商人]", "_t")
 t("#CRIMSON#[The parasite is hungry and promptly swallows and eat Fillarel]#LAST# No I have not...", "#CRIMSON#[寄生兽很饿，直接吃掉了菲拉瑞尔]#LAST# 不，我不…", "_t")
@@ -4965,7 +4964,7 @@ t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as thi
 t("Select a properties set", "选择属性", "_t")
 t("Select properties set #{bold}#\"%s\"#{normal}# ?", "选择属性#{bold}#\"%s\"#{normal}#？", "tformat")
 t("Error!", "错误！", "_t")
-t("The gizmocombobulator of the font seems to have failed, you have not been billed.", "牺牲之泉的组合装置失败了，你得到了全额退款。", "_t")
+t("The gizmocombobulator of the font seems to have failed, you have not been billed.", "牺牲之泉的组合装置失败了，你没有因此被扣款。", "_t")
 
 ------------------------------------------------
 section "tome-cults/overload/mod/dialogs/ForbiddenTome.lua"
