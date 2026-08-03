@@ -2880,7 +2880,7 @@ t("Adventurer", "冒险家", "birth descriptor name")
 t("Adventurers can learn to do a bit of everything, getting training in whatever they happen to find.", "冒险家可以学习很多技能，他们可以学习任何碰巧发现的技能。", "_t")
 t("#{bold}##GOLD#This is a bonus class for winning the game.  It is by no means balanced.#WHITE##{normal}#", "#{bold}##GOLD#这是通关后获得的奖励职业，显然它绝对是不平衡的。#WHITE##{normal}#", "_t")
 t("Their most important stats depend on what they wish to do.", "他们的职业倾向决定了他们的主属性。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +2 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +2 力量, +2 敏捷, +2 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, +2 Willpower, +2 Cunning", "#LIGHT_BLUE# * +2 魔力, +2 意志, +2 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +0", "_t")
@@ -2909,7 +2909,7 @@ t("Their only master now is the hatred they carry for every living thing.", "他
 t("Drawing strength from the death of all they encounter, the Cursed become terrifying combatants.", "他们从他们遇到的死亡中吸取力量，成为恐怖的战士。", "_t")
 t("Worse, any who approach the Cursed can be driven mad by their terrible aura.", "更可怕的是，任何接近被诅咒者的人，会受可怕光环的影响而发狂。", "_t")
 t("Their most important stats are: Strength and Willpower", "他们最重要的属性是：力量和意志。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +5 力量，+0 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +4 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法，+4 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +2", "_t")
@@ -2939,7 +2939,7 @@ t("Their way of life is well represented by their motto 'The Sun is our giver, o
 t("They can channel the power of the Sun to smite all who seek to destroy the Sunwall.", "他们能施展太阳之力将任何试图破坏太阳堡垒的力量击退。", "_t")
 t("Competent in both weapon and shield combat and magic, they usually burn their foes from afar before bashing them in melee.", "他们同时精通武器和盾战术并熟悉魔法，在近身猛击对手之前他们通常在远处就可以灼烧敌人。", "_t")
 t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +5 力量，+0 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +2", "_t")
@@ -2968,7 +2968,7 @@ t("A Paradox Mage studies the very fabric of spacetime, learning not just to ben
 t("Most Paradox Mages lack basic skills that others take for granted (like general fighting sense), but they make up for it through control of cosmic forces.", "大多数时空法师缺乏他人习以为常的基本技能（如基本的战斗意识），但他们能通过掌控宇宙力量来弥补。", "_t")
 t("Paradox Mages start off with knowledge of all but the most complex Chronomantic schools.", "时空法师开局便通晓除最复杂的时空学派之外的所有时空学派。", "_t")
 t("Their most important stats are: Magic and Willpower", "他们最重要的属性是：魔法和意志。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+2 体质", "_t")
 t("#LIGHT_BLUE# * +5 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +5 魔法，+2 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +0", "_t")
@@ -2992,7 +2992,7 @@ t("Reap thee the souls of thine enemies, and the powers of darkness shall enter 
 t("Reavers are terrible foes, charging their enemies with a weapon in each hand.", "收割者是一个恐怖的对手，他可以向敌人挥舞两把单手武器。", "_t")
 t("They can harness the blight of evil, infecting their foes with terrible contagious diseases while crushing their skulls with devastating combat techniques.", "他们可以驾驭邪恶的枯萎术，将恐怖的疾病传染给目标，然后击碎他们的头颅。", "_t")
 t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +4 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +4 力量，+1 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +2", "_t")
@@ -3018,7 +3018,7 @@ t("They do not use the forbidden arcane arts practised by the mages of old - suc
 t("Alchemists can transmute gems to bring forth elemental effects, turning them into balls of fire, torrents of acid, and other effects.  They can also reinforce armour with magical effects using gems, and channel arcane staffs to produce bolts of energy.", "炼金术士可以将元素力量输入各种宝石，使它们变成火球、酸液和其他效果。另外他们也可以利用宝石来强化装甲并使用法杖发射能量球。", "_t")
 t("Though normally physically weak, most alchemists are accompanied by magical golems which they construct and use as bodyguards.  These golems are enslaved to their master's will, and can grow in power as their master advances through the arts.", "炼金术士自身非常脆弱，但是他们可以建造炼金傀儡来保护他们。傀儡服从主人的意志，并依靠主人来强化它们的力量。", "_t")
 t("Their most important stats are: Magic and Constitution", "他们最重要的属性是：魔法和体质。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+3 体质", "_t")
 t("#LIGHT_BLUE# * +5 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +5 魔法，+1 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -1", "#GOLD# 每等级生命加值： #LIGHT_BLUE# -1", "_t")
@@ -3056,7 +3056,7 @@ t("A thought can inspire; a thought can kill. After centuries of oppression, yea
 t("Mindslayers specialize in direct and brutal application of mental forces to their immediate surroundings.", "心灵杀手专门使用直接而残酷的精神力量来对付周围的敌人。", "_t")
 t("When Mindslayers do battle, they will most often be found in the thick of the fighting, vast energies churning around them and telekinetically-wielded weapons hewing nearby foes at the speed of thought.", "心灵杀手在战斗时，他们总是在战场中心，庞大的能量在他们周围翻涌，念动力操控的武器以思想般的速度砍伐附近的敌人。", "_t")
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +1 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +1 力量，+0 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +4 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法，+4 意志，+4 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -2", "#GOLD# 每等级生命加值： #LIGHT_BLUE# -2", "_t")
@@ -3077,7 +3077,7 @@ t("Rogues are masters of tricks; they can strike from the shadows, and lure mons
 t("Rogues are masters of tricks. A Rogue can get behind you unnoticed and stab you in the back for tremendous damage.", "盗贼是诡计专家。盗贼可以潜行到你背后而不被发现，然后通过背后刺杀中造成巨大伤害。", "_t")
 t("Rogues usually prefer to dual-wield daggers. They can also become trapping experts, detecting and disarming traps as well as setting them.", "盗贼通常双持匕首，他们同样可以成为陷阱专家，除了安装陷阱以外他们可以侦测并拆除陷阱。", "_t")
 t("Their most important stats are: Dexterity and Cunning", "他们最重要的属性是：敏捷和灵巧", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +1 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +1 力量，+3 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +5 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+5 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +0", "_t")
@@ -3117,7 +3117,7 @@ t("Berserker", "狂战士", "birth descriptor name")
 t("A Berserker wields huge two-handed weapons of destruction, bringing pain and death to his foes as he cleaves them in two.", "狂战士手持双手武器，以毁灭性的伤害将他的敌人砍成两半。", "_t")
 t("A Berserker usually forfeits all ideas of self-defense to concentrate on what he does best: killing things.", "狂战士通常专注于造成伤害而忽视自我防御。", "_t")
 t("Their most important stats are: Strength and Constitution", "他们最重要的属性是力量和体质。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, +1 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +5 力量，+1 敏捷，+3 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +3", "_t")
@@ -3167,7 +3167,7 @@ t("Not all might comes from within. Hear the invocations of nature, hear its cal
 t("Summoners never fight alone. They are always ready to summon one of their many minions to fight at their side.", "召唤师从不孤身战斗，他们时刻准备召唤出宠物为他们而战。", "_t")
 t("Summons can range from a combat hound to a fire drake.", "召唤师可以召唤从战争猎犬到火龙的各种生物。", "_t")
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+1 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +5 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法，+5 意志，+3 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +0", "_t")
@@ -3288,7 +3288,7 @@ t("Special", "特殊", "birth facial category")
 t("Runic Golem", "符文傀儡", "birth descriptor name")
 t("Runic Golems are creatures made of solid rock and animated using arcane forces.", "符文傀儡是由坚固岩石构成的创造物，由奥术力量驱动。", "_t")
 t("They cannot be of any class, but they have many intrinsic abilities.", "它们无法选择任何职业，但是它们有着许多的天赋能力。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -2 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +3 力量，-2 敏捷，+3 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, +2 Willpower, -5 Cunning", "#LIGHT_BLUE# * +2 魔法，+2 意志，-5 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 13", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 13", "_t")
@@ -3336,7 +3336,7 @@ t("Hairs", "发型", "birth facial category")
 t("Facial features", "脸部特征", "birth facial category")
 t("Special", "特殊", "birth facial category")
 t("They possess the #GOLD#Resilience of the Dwarves#WHITE# which allows them to increase their armour, physical and spell saves for a few turns.", "他们天生掌握 #GOLD# 钢筋铁骨 #WHITE#，允许他们在短时间内提高护甲、物理豁免和法术豁免。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +4 Strength, -2 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +4 力量，-2 敏捷，+3 体质", "_t")
 t("#LIGHT_BLUE# * -2 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔法，+3 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 14", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 14", "_t")
@@ -3464,7 +3464,7 @@ t("Shalore", "永恒精灵", "birth descriptor name")
 t("Shaloren elves have close ties with the magic of the world, and produced in the past many great mages.", "永恒精灵与魔法世界有着很强的联系，曾一度出现过许多伟大的魔法师。", "_t")
 t("Yet they remain quiet and try to hide their magic from the world, for they remember too well the Spellblaze - and the Spellhunt that followed.", "尽管如此，他们仍试图保持避世并隐藏他们的魔法能力。因为他们深深记得那一段血腥的历史——魔法大爆炸还有紧随其后的猎魔行动。", "_t")
 t("They possess the #GOLD#Grace of the Eternals#WHITE# talent which allows them a boost of speed every once in a while.", "他们天生掌握 #GOLD#不朽的恩赐#WHITE#，允许他们每隔一段时间获得一次速度提升。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * -2 力量，+1 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, +3 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔法，+3 意志，+1 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 9", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 9", "_t")
@@ -3506,7 +3506,7 @@ t("Ogres are an altered form of Human, created in the Age of Allure as workers a
 t("Inscriptions have granted them magical and physical power far beyond their natural limits, but their dependence on runic magic made them a favored target during the Spellhunt, forcing them to take refuge among the Shalore.", "刻印给他们超过自然界限的强大力量，但他们对符文魔法的依赖使之成为猎魔行动绝佳的目标，而不得不依附于永恒精灵。", "_t")
 t("Their preference for simple and direct solutions has given them an undeserved reputation as dumb brutes, despite their extraordinary talent with runes and their humble, dutiful nature.", "他们偏爱简单直接的解决办法，这让他们被不公平地冠以蠢笨蛮牛的恶名，尽管他们对符文有着惊人的天赋，而且天性谦逊尽责。", "_t")
 t("They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.", "他们拥有 #GOLD#食人魔之怒#WHITE# 技能，当他们的攻击落空或被格挡时，能提供暴击几率和暴击伤害，并提高对混乱和眩晕的抗性。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，-1 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, -2 Willpower, +2 Cunning", "#LIGHT_BLUE# * +2 魔法，-2 意志，+2 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 13", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 13", "_t")
@@ -3594,7 +3594,7 @@ t("Redhead 3", "红发3", "_t")
 t("Redhead 4", "红发4", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("They possess the #GOLD#Luck of the Little Folk#WHITE# which allows them to increase their critical strike chance and saves for a few turns.", "他们天生掌握 #GOLD# 小不点的幸运 #WHITE# 技能可以使他们在几个回合内提高暴击几率和豁免。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -3 Strength, +3 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -3 力量，+3 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+3 灵巧", "_t")
 t("#LIGHT_BLUE# * +5 Luck", "#LIGHT_BLUE# * +5 幸运", "_t")
@@ -3666,7 +3666,7 @@ t("Higher", "高等人类", "birth descriptor name")
 t("Highers are a special branch of Humans that have been imbued with latent magic since the Age of Allure.", "自厄流纪起，高等人类就是人类种族的一支特殊分支，他们的身体里潜藏着魔力。", "_t")
 t("They usually do not breed with other Humans, trying to keep their blood 'pure'.", "为了保持血统的纯正，他们一般不和普通人类通婚。", "_t")
 t("They possess the #GOLD#Wrath of the Highborn#WHITE# which allows them to increase damage dealt and decrease damage taken once in a while.", "他们天生掌握 #GOLD#高等人类之怒#WHITE#，允许他们每隔一段时间提升造成的伤害并减少受到的伤害。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +1 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +1 力量，+1 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +1 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +1 魔法，+1 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 11", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 11", "_t")
@@ -3710,7 +3710,7 @@ t("- stun resistance", "- 震慑抵抗", "_t")
 t("- fear immunity", "- 恐惧免疫", "_t")
 t("- special ghoul talents: ghoulish leap, gnaw and retch", "- 独有食尸鬼技能：定向跳跃、啃噬和腐秽呕吐", "_t")
 t("The rotting bodies of ghouls also force them to act a bit more slowly than most creatures.", "食尸鬼腐烂的身体同时使它比别的生物行动要慢一些。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +5 Constitution", "#LIGHT_BLUE# * +3 力量，+1 敏捷，+5 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, -2 Willpower, -2 Cunning", "#LIGHT_BLUE# * +0 魔法，-2 意志，-2 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 14", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 14", "_t")
@@ -3736,7 +3736,7 @@ t("Beard 2", "络腮胡2", "_t")
 t("Redhead Beard 1", "红色络腮胡1", "_t")
 t("Redhead Beard 2", "红色络腮胡2", "_t")
 t("White Beard 1", "白色络腮胡1", "_t")
-t("White Beard 2", "白色络腮胡12", "_t")
+t("White Beard 2", "白色络腮胡2", "_t")
 t("Alternative Face", "改变脸部", "_t")
 t("Fangs 1", "尖牙1", "_t")
 t("Fangs 2", "尖牙2", "_t")
@@ -3754,7 +3754,7 @@ t("Skeletons are animated bones, undead creatures both strong and dexterous.", "
 t("They have access to #GOLD#special skeleton talents#WHITE# and a wide range of undead abilities:", "它们天生具有独特的 #GOLD# 骷髅 #WHITE# 技能和一系列不死系技能：", "_t")
 t("- poison immunity", "- 毒素免疫", "_t")
 t("- no need to breathe", "- 不需要呼吸", "_t")
-t("- special skeleton talents: bone armour, resilient bones, re-assemble", "- 独特骷髅技能：骨质盔甲、弹力骨骼、重组", "_t")
+t("- special skeleton talents: bone armour, resilient bones, re-assemble", "- 特殊骷髅技能：骨质盔甲、坚韧骨骼、重组", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +4 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，+4 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 12", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 12", "_t")
@@ -3765,8 +3765,8 @@ t("Eyes 3", "眼睛3", "_t")
 t("Teeth 1", "牙齿1", "_t")
 t("Teeth 2", "牙齿2", "_t")
 t("Cracks", "碎裂", "_t")
-t("Iron Bolt", "铁箍", "_t")
-t("Molds", "苔藓", "_t")
+t("Iron Bolt", "铁螺栓", "_t")
+t("Molds", "霉菌", "_t")
 t("Rust", "锈蚀", "_t")
 t("Lich", "巫妖", "birth descriptor name")
 t("You should not see this!", "你不应该看见这个！", "_t")
@@ -3847,13 +3847,13 @@ t("Bodypaint 1", "身体彩绘1", "_t")
 t("Bodypaint 2", "身体彩绘2", "_t")
 t("Tatoos 1", "纹身1", "_t")
 t("Tatoos 2", "纹身2", "_t")
-t("Redfur", "红发", "_t")
+t("Redfur", "红毛", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("Yeeks are a mysterious race native to the tropical island of Rel.", "夺心魔是一支神秘的种族，生活于热带岛屿瑞尔。", "_t")
 t("Although they are now nearly unheard of in Maj'Eyal, they spent many centuries as secret slaves to the Halfling nation of Nargol.", "尽管如今在马基·埃亚尔几乎无人知晓他们，但他们曾作为纳格尔半身人王国的秘密奴隶度过数百年。", "_t")
 t("They possess the #GOLD#Dominant Will#WHITE# talent which allows them to temporarily subvert the mind of a lesser creature. When the effect ends, the creature dies.", "他们天生掌握 #GOLD# 主导思维 #WHITE#，允许他们在短时间内控制一个较弱生物的思维。当效果结束时，被控制目标死亡。", "_t")
 t("While Yeeks are not amphibians, they still have an affinity for water, allowing them to survive longer without breathing.", "虽然夺心魔不是两栖生物，但他们天生对水有种特殊的亲和力，允许他们屏息更长时间。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -3 Strength, -2 Dexterity, -5 Constitution", "#LIGHT_BLUE# * -3 力量，-2 敏捷，-5 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +6 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法，+6 意志，+4 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 7", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 7", "_t")
@@ -3865,7 +3865,7 @@ section "mod-tome/data/birth/sexes.lua"
 
 t("Female", "女性", "birth descriptor name")
 t("You are a female of the species.", "你是一位女性角色。", "_t")
-t("There is no in-game difference between the two sexes.", "除了外貌性别在实际游戏中没有任何分别。", "_t")
+t("There is no in-game difference between the two sexes.", "两种性别在实际游戏中没有任何区别。", "_t")
 t("Male", "男性", "birth descriptor name")
 t("You are a male of the species.", "你是一位男性角色。", "_t")
 
@@ -3874,17 +3874,17 @@ section "mod-tome/data/birth/worlds.lua"
 
 t("Maj'Eyal: The Age of Ascendancy", "马基埃亚尔:卓越纪", "_t")
 t("The people of Maj'Eyal: Humans, Halflings, Elves and Dwarves.", "马基埃亚尔生活着人类、半身人、精灵和矮人。", "_t")
-t("The known world has been at relative peace for over one hundred years, and people are prospering again.", "世界已经保持了超过一百年的和平，各大种族再次繁荣起来", "_t")
+t("The known world has been at relative peace for over one hundred years, and people are prospering again.", "世界已经保持了超过一百年的和平，各大种族再次繁荣起来。", "_t")
 t("You are an adventurer, setting out to find lost treasure and glory.", "你是一位冒险者，出发去寻找失落的宝藏和荣耀。", "_t")
 t("But what lurks in the shadows of the world?", "在世界的阴影之下究竟潜伏着什么呢？", "_t")
-t("Infinite Dungeon: The Neverending Descent", "无尽地下城：无尽的试炼", "_t")
+t("Infinite Dungeon: The Neverending Descent", "无尽地下城：永无止境的下降", "_t")
 t("Ever deeper, never ending, no reprieve, keep descending. In ruins old, through barred gate, once riddle solved, find thy fate.", "无尽深度，没有终点，没有重复，不断深入，在古老的废墟里，穿过关闭的大门，解开谜题，寻找你的宿命。", "_t")
 t("Play as your favorite race and class and venture into the infinite dungeon.", "选择你最喜欢的种族和职业，进入无尽地城冒险。", "_t")
 t("The only limit to how far you can go is your own skill!", "能够前进多远取决于你的个人技术！", "_t")
 t("Inside the infinite dungeon you will yourself be limitless. You can level up beyond level 50 and continue to gain stat and talent points (at a reduced rate).", "在无尽地城中你不受限制，你可以突破 50 级的等级上限并继续获得属性和技能点数（以一个较低的比例获得）。", "_t")
-t("Every level after level 50 the maximum of stats will increase by one.", "级之后属性最大值每级增加 1 点。", "_t")
+t("Every level after level 50 the maximum of stats will increase by one.", "50 级之后每级，属性最大值增加 1 点。", "_t")
 t("Every 10 levels after level 50 the maximum points of each talent will increase by one.", "50 级之后每 10 级，技能的最大等级增加 1 点。", "_t")
-t("The Arena: Challenge of the Master", "竞技场：竞技场主宰的挑战", "_t")
+t("The Arena: Challenge of the Master", "竞技场：领主的挑战", "_t")
 t("Blood spilled on sand, only the strong survive. Prove yourself worthy to enter.", "血溅沙场，勇者生存，需证明你有进入的资格。", "_t")
 t("Play as a lone warrior facing the Arena's challenge!", "孤身一人直面竞技场的挑战！", "_t")
 t("You can use any class and race for it.", "你可以使用任何职业和种族。", "_t")
@@ -3926,7 +3926,7 @@ t("Shortage", "短缺月", "calendar dwarf")
 section "mod-tome/data/chats/alchemist-derth.lua"
 
 t("Pfaugh. You're too late. %s has already finished. But I suppose it doesn't do any harm to take these and give you your undeserved reward.", "额哦……你来的太晚了，%s 已经完成了。不过这些东西给你也没什么坏处，虽然……你本不应该得到这些奖励。", "tformat")
-t("Ah, excellent. Hand them over, if you please. You should know that in your overlong absence, %s has managed to create a %s. I'll be most put out if he steals my rightful spot.", "啊，好极了，如果你愿意，请交给我吧，要知道你离开的那么长时间里，%s 已经制造了 %s。如果他抢了我的位置，我估计我就要被解雇了。", "tformat")
+t("Ah, excellent. Hand them over, if you please. You should know that in your overlong absence, %s has managed to create a %s. I'll be most put out if he steals my rightful spot.", "啊，好极了，如果你愿意，请交给我吧，要知道你离开的那么长时间里，%s 已经制造了 %s。如果他抢走了我应有的位置，我会非常不高兴。", "tformat")
 t([[#LIGHT_GREEN#*A human robed in immaculate white satin opens the door and eyes you appraisingly.*#WHITE#
 Ah, an adventurer. I was just thinking that I needed a new one.]], [[#LIGHT_GREEN#*一个穿着一尘不染白缎面长袍的人打开了门，他上下打量着你。*#WHITE#
 啊，一个冒险者，我正好在考虑是不是要重新找个人帮忙。]], "_t")
@@ -3936,7 +3936,7 @@ t("Indeed, it is both promising and ominous. I can reward you handsomely for you
 t("What do you propose?", "那……你的建议呢？", "_t")
 t("Good adventurer, I am an alchemist, and quite a good one. This year, for the first time, the great Brotherhood of Alchemists has invited my application to their number. I'll not try your patience with the details of the application process, but suffice to say that it is grueling. Fortunately, a mere three tasks now stand between me and acceptance.", "非常好，我是一个炼金术师，水平很高超的那种。今年，炼金术士兄弟会第一次邀请我成为他们的会员。加入的条件……我就不多啰嗦了，估计你也不想听，反正复杂的很，我都快累死了。幸好，我现在就剩下三件事没办了。", "_t")
 t("How can I help?", "我怎么帮你？", "_t")
-t("I require ingredients for three potent mixtures. Obviously, since I seek your aid, none of them is to be found by simply strolling to the local herbalist's. No, they will need to be forcibly parted from their owners who will, just as obviously, put up a fight. I've yet to encounter a naga who would be persuaded to hand over his tongue! Ha! Oh, I am droll at times.", "我需要一些材料来制作三瓶药剂。很显然，既然我找你帮忙，那么，想简单从那些草药师那里搞到这些材料是几乎不可能的。没错，你得从这些材料的拥有者那里强行搞来，当然你免不了一场大战。我曾经试图说服一位娜迦把它的舌头给我……哈！我偶尔会开开玩笑。", "_t")
+t("I require ingredients for three potent mixtures. Obviously, since I seek your aid, none of them is to be found by simply strolling to the local herbalist's. No, they will need to be forcibly parted from their owners who will, just as obviously, put up a fight. I've yet to encounter a naga who would be persuaded to hand over his tongue! Ha! Oh, I am droll at times.", "我需要一些材料来制作三瓶药剂。很显然，既然我找你帮忙，那么，想简单从那些草药师那里搞到这些材料是几乎不可能的。没错，你得从这些材料的拥有者那里强行搞来，当然你免不了一场大战。我还没遇到过肯被说服交出舌头的娜迦！哈！我偶尔还挺风趣的。", "_t")
 t("I specialize in separating vital body parts from monsters. What do you offer in return?", "对于从怪物身上把你要的东西给活剥下来，我可是个行家，但是我能得到什么好处？", "_t")
 t("Why, I will let you share in the fruits of my labors! Each of the three mixtures I shall produce in a quantity sufficient to create three doses: one for me, one for the Brotherhood and their confounded trial... and one for you. I must tell you that time is of the essence. I am not the only one who the Brotherhood invited this year, yet they will accept only one applicant-- the first to complete their trials. I know of at least three others laboring furiously to take my rightful place. Should your aid see me through, then I will reward you beyond even the remarkable elixirs. I've an ancient Lifebinding Emerald that grants great powers of health and healing when used properly. What say you?", "什么？我会和你分享我的劳动成果！三瓶药剂每个我都会制造三份：一份给自己，一份给炼金术士兄弟会交差，而另外一份给你。必须告诉你的是，时间非常紧迫，我不是今年炼金术士兄弟会邀请的唯一一个，只有第一个完成他们要求的人才会被接受。据我所知，至少还有三个人在抢我这个位置。如果你帮我成功入会的话，除了药剂之外，我还有更好的东西回报你。我有一块古老的生命宝石，合理使用可以大大增强你的治疗能力。怎么样，有兴趣么？", "_t")
 t("I accept.", "我接受了。", "_t")
@@ -3951,7 +3951,7 @@ t([[#LIGHT_GREEN#*The alchemist opens his door.*#WHITE#
 Ah, you again.]], [[#LIGHT_GREEN#*炼金师打开了门。*#WHITE#
 啊，你回来了。]], "_t")
 t("I've returned with the ingredients for the %s.", "我回来了，我找到了%s的材料。", "tformat")
-t("I've come to offer more aid.", "我来接下一步任务。", "_t")
+t("I've come to offer more aid.", "我来提供更多帮助。", "_t")
 t("[Give him the monster bits.]", "[给他材料。]", "_t")
 t([[#LIGHT_GREEN#*The alchemist grins and motions impatiently for the ingredients.*#WHITE#
 Wonderful, absolutely wonderful! The final step! Here, let me have those!]], [[#LIGHT_GREEN#*炼金师看到材料有点急不可耐，他咧着嘴开心的笑了起来。*#WHITE#
@@ -3966,7 +3966,7 @@ Enjoy your reward.]], [[#LIGHT_GREEN#*炼金师终于回来了，他递给你一
 t("Thank you. I'll be off.", "谢谢，我走了。", "_t")
 t([[#LIGHT_GREEN#*The alchemist finally returns with a vial and a green gem.*#WHITE#
 Enjoy the fruits of your labors, adventurer. I know I will. To show my appreciation, I shall name my firstborn after... er, what was your name, then? Haha, I jest. Oh, I do go on when I'm giddy. Fare you well.]], [[#LIGHT_GREEN#*炼金师终于回来了，手里拿着一颗翡翠宝石和一个药水瓶。*#WHITE#
-尽情享用你的劳动成果吧，我的冒险家。为了表示我的敬意，我准备给我的新作品取名为……呃……你叫什么名字？哈哈，开个玩笑，啊～在我被喜悦冲昏头脑之前，我必须得继续我的工作，那么，再见了我的朋友。]], "_t")
+尽情享用你的劳动成果吧，我的冒险家。为了表示我的敬意，我打算给我的长子取名为……呃，你叫什么名字来着？哈哈，开个玩笑，啊～在我被喜悦冲昏头脑之前，我必须得继续我的工作，那么，再见了我的朋友。]], "_t")
 t("Excellent. With which would you like to aid me?", "好极了，你准备帮我做哪一个？", "_t")
 t("Here's a list of the ingredients I'm missing. Please attempt to not lose your life in their pursuit. I'll be most put out if I must wait another year.", "这里有一张配方，上面写着我目前缺少的材料。当心别丢了你的小命，要是我错过这次机会就得等明年了。", "_t")
 t("Terribly sorry, but I've already made the elixir without your aid. I've no reward to give you, and no reason to do so if I did.", "非常抱歉，我已经自己把那些药剂都做好了，我可没理由再给你任何奖励。", "_t")
@@ -3982,20 +3982,20 @@ Another adventurer? Or have we met? I can't tell people apart unless they wear b
 又来了一个冒险者？我们碰过面么？除非人们头上扎一根颜色鲜明点的发带，要不然我就分不清楚谁是谁……你得帮我个忙。]], "_t")
 t("I am indeed an adventurer. Go on.", "其实我是个冒险者，请继续。", "_t")
 t("[leave]", "[离开]", "_t")
-t("Three elixirs stand between me and acceptance into the Brotherhood of Alchemists, unless I've been through that already. I'm never quite sure. But I think that's the case. Bring me the ingredients.", "必须制造三瓶药剂我才能加入炼金术士兄弟会，我不是很确定，不过我觉得这是个麻烦，你得把材料给我。", "_t")
+t("Three elixirs stand between me and acceptance into the Brotherhood of Alchemists, unless I've been through that already. I'm never quite sure. But I think that's the case. Bring me the ingredients.", "必须制造三瓶药剂我才能加入炼金术士兄弟会——除非我已经经历过这一切了。我从来不太确定，但我觉得应该如此。把材料给我吧。", "_t")
 t("What elixirs? What ingredients?", "什么药剂？什么材料？", "_t")
 t("The ones that I need to get before the other alchemists get them. Can't have some lesser hack sneaking into the Brotherhood.", "必须在别的炼金师之前弄到手，可不能让哪个不入流的家伙混进兄弟会。", "_t")
 t("You're making little sense.", "你最好把话讲明白些。", "_t")
 t([[#LIGHT_GREEN#*He raises his voice and gestures exaggeratedly, seemingly taking you for an idiot.*#WHITE#
 Me need pieces of scary monsters for happy-making drink. You get me pieces. You probably get eaten by monsters, me have this conversation yet again with other bonehead.]], [[#LIGHT_GREEN#*他提高了嗓门，并做着夸张的手势，似乎觉得你是一个白痴。*#WHITE#
 我需要一些怪物的碎片来制作一些有趣的药水，你得把那些碎片给我，你也许会被怪物吃掉，之前我和另外一个傻瓜也说过这些话。]], "_t")
-t("I've been known to kill the occasional monster. Is there a reward in it for me?", "我知道要杀一些怪物，有什么奖励么？", "_t")
+t("I've been known to kill the occasional monster. Is there a reward in it for me?", "我偶尔也会杀些怪物。有什么奖励吗？", "_t")
 t("It finally understands! You get a dose of every elixir you help me make. And if your help gets me into the Brotherhood, I've got half an Elixir of Invulnerability lying around that I'll give you. Don't try anything; I've already downed the other half.", "总算明白了！你每帮我做成一份药剂我也会给你一瓶。要是你帮我加入炼金术士兄弟会，我这儿还有半瓶无敌药水也给你，另外半瓶不用找了，因为已经被我喝掉了。", "_t")
 t("I accept.", "我接受了。", "_t")
 t("I cannot aid you at this time.", "我现在没空帮你。", "_t")
 t("Three elixirs I need. I'll show you the ingredients to one at a time. Are you interested in the Elixir of Mysticism, the Elixir of the Savior, or the Elixir of Mastery?", "我需要三种药剂，每次我会告诉你其中一个的配方。你对哪个比较感兴趣？神秘药剂？守护药剂？还是掌握药剂？", "_t")
 t("The %s.", "%s。", "tformat")
-t("Here's a list of the monster bits I need. I've already got a bunch of idiots out looking for these, by the way, so you best hurry up; they've got a head start on you and I'm not getting any saner here.", "这里有一张记录材料的纸，顺便说一声，之前我已经找了几个傻瓜帮我去找这些东西了，所以你最好动作快点。他们已经走在你前面了，就是还没找到个脑子聪明点的。", "_t")
+t("Here's a list of the monster bits I need. I've already got a bunch of idiots out looking for these, by the way, so you best hurry up; they've got a head start on you and I'm not getting any saner here.", "这里有一张记录材料的纸，顺便说一声，之前我已经找了几个傻瓜帮我去找这些东西了，所以你最好动作快点。他们已经领先于你了，而我在这儿等得越来越烦躁。", "_t")
 t("So I see. I'll be off.", "了解，那我走了。", "_t")
 t("#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#", "#LIGHT_GREEN#*门锁住了，没人注意到你的敲门声。*#WHITE#", "_t")
 t("[Leave]", "[离开]", "_t")
@@ -4003,7 +4003,7 @@ t([[#LIGHT_GREEN#*The shabby elf opens his door.*#WHITE#
 Do I know you?]], [[#LIGHT_GREEN#*那个衣衫褴褛的精灵开了门。*#WHITE#
 我们认识么？]], "_t")
 t("I've returned with the ingredients for the %s.", "我回来了，我找到了%s的材料。", "tformat")
-t("I've come to offer more aid.", "我来接下一步任务。", "_t")
+t("I've come to offer more aid.", "我来提供更多帮助。", "_t")
 t("[Give him the monster bits.]", "[给他材料。]", "_t")
 t([[#LIGHT_GREEN#*The elf claps his scarred hands together.*#WHITE#
 Exceptional work, lackey! The final elixir awaits! Oh, yes. Membership will be mine. And revenge. Ohhhh yes.]], [[#LIGHT_GREEN#*那个精灵拍着他那满是伤疤的双手。*#WHITE#
@@ -4063,11 +4063,11 @@ IT'S NOT ENOUGH THAT I WORK ALL MORNING TO MAKE A POTION THAT ENDS UP NEARLY BLO
 这一上午搞这天杀的药剂差点搞的我屁股开花，我听到有个白痴敲我家的门敲的跟攻城槌一样，行了！我听见了！虽然我的耳朵已经差不多快聋掉了！找我有什么事么？]], "_t")
 t("Perhaps there's something that I can help you with.", "也许我能帮上什么忙。", "_t")
 t("[leave]", "[离开]", "_t")
-t("SPEAK UP, HAMBRAIN. I'VE JUST GOTTEN MY EARDRUMS BLOWN OUT BY YET ANOTHER BY-THE-PYRE POTION GONE SOUTH, REMEMBER? THRICE-DAMNED THING WAS GOING PERFECTLY, TOO. TOKNOR'S TACKLE!", "说大声点，笨蛋！我的耳膜最近在调制药剂的时候被炸破了，谢天谢地，你最好将你的嗓门提高三倍！", "_t")
+t("SPEAK UP, HAMBRAIN. I'VE JUST GOTTEN MY EARDRUMS BLOWN OUT BY YET ANOTHER BY-THE-PYRE POTION GONE SOUTH, REMEMBER? THRICE-DAMNED THING WAS GOING PERFECTLY, TOO. TOKNOR'S TACKLE!", "说大声点，笨蛋！我的耳膜刚又被一瓶该死的药剂炸破了，记得吗？那该死的东西本来一切顺利！托克纳的钓具！", "_t")
 t("I SAID, MAYBE THERE'S SOMETHING THAT I CAN HELP YOU WITH!", "我说，也许我能帮上什么忙！！", "_t")
 t("STILL CAN'T HEAR YOU, BUT LISTEN UP. THE BROTHERHOOD OF ALCHEMISTS IS ACCEPTING THE FIRST NEW APPLICANT TO DEMONSTRATE, AMONG OTHER THINGS, THREE VERY COMPLICATED ELIXIRS. I WOULDN'T BOTHER TRYING TO JOIN SUCH A BUNCH OF ADDLE-BRAINED DEGENERATES, BUT IT SO HAPPENS THAT THE BROTHERHOOD OF ALCHEMISTS HOLDS THE SECRET CURE FOR THE COMMON BLOWN-OFF ASS, WHICH IT SO HAPPENS IS OF SOME INTEREST TO ME.", "还是听不见，不过听着，炼金术士兄弟会最近会吸收最先做好三瓶指定药剂的炼金师作为会员。我本来对那些呆瓜组成的团体没什么兴趣，不过碰巧兄弟会有一种治疗烂屁股的秘方，我对这个很感兴趣。", "_t")
 t("HOW CAN I HELP?", "我怎么帮你？", "_t")
-t("THE BROTHERHOOD KNOWS DAMNED WELL WHAT ADVANCES IN THE FIELD OF ALCHEMY WOULD DO FOR EVERY CIVILIZATION IN EXISTENCE, BUT THEY HOARD THEIR FEW WORTHWHILE SECRETS LIKE A GREAT BROWN WYRM SITTING ON ITS PILE OF CRAP. YOU KNOW WHAT? I DON'T EVEN WANT THE ASS-CURE FOR ME. I'M GOING TO STEAL EVERY SECRET THEY'VE GOT, WRITE THEM DOWN, MAKE A HUNDRED COPIES, AND NAIL ONE TO A TREE IN EVERY VILLAGE IN MAJ'EYAL.", "兄弟会精通该死的炼金领域，而他们却像一头大棕龙坐在它的粪堆上一样保守着他们的秘密！要知道，其实我才不想要那什么蛋疼的秘方，我准备把他们的秘密都偷出来，写在纸上，抄上一百份，然后贴到马基埃亚尔所有村庄的树上去！", "_t")
+t("THE BROTHERHOOD KNOWS DAMNED WELL WHAT ADVANCES IN THE FIELD OF ALCHEMY WOULD DO FOR EVERY CIVILIZATION IN EXISTENCE, BUT THEY HOARD THEIR FEW WORTHWHILE SECRETS LIKE A GREAT BROWN WYRM SITTING ON ITS PILE OF CRAP. YOU KNOW WHAT? I DON'T EVEN WANT THE ASS-CURE FOR ME. I'M GOING TO STEAL EVERY SECRET THEY'VE GOT, WRITE THEM DOWN, MAKE A HUNDRED COPIES, AND NAIL ONE TO A TREE IN EVERY VILLAGE IN MAJ'EYAL.", "兄弟会非常清楚炼金术的进步对每个文明意味着什么，但他们却像一头大棕龙坐在粪堆上一样，把为数不多的有价值秘密捂得严严实实！要知道，其实我才不想要那什么蛋疼的秘方，我准备把他们的秘密都偷出来，写在纸上，抄上一百份，然后贴到马基埃亚尔所有村庄的树上去！", "_t")
 t("THAT'S NOT A VERY HERMIT-LIKE ATTITUDE.", "这可不像一个隐士的态度。", "_t")
 t("AND THEN WHAT WILL THEY DO? ONCE THEIR PRECIOUS SECRETS-- WHICH, IN ALL PROBABILITY, EITHER DON'T EXIST OR ARE THINGS LIKE RECIPES FOR ELIXIRS OF WHO-GIVES-A-FLYING-DUCK-- ARE OUT IN THE OPEN, THE BROTHERHOOD OF ASSWIPES WILL HAVE NOTHING TO HOLD IT TOGETHER BUT ELIXIRS OF THEIR TEARS AND WIDESPREAD DISDAIN FROM THE REST OF THE WORLD. SPEAK UP, THEN. ARE YOU IN OR OUT?", "然后他们会怎么样？当他们的宝贝秘密，或许根本就不存在，或者就是些操蛋秘方公之于众之后，除了用他们的泪水做药剂和被大家鄙视之外，“蠢货兄弟会”将一无所有。现在，说大声点！你是接受任务还是拒绝？", "_t")
 t("I'M IN.", "我接受！", "_t")
@@ -4124,7 +4124,7 @@ t("Aiding you with getting into some Brotherhood. What's in it for me?", "帮你
 t("Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest, and possibly your eyelids and fingernails. And, if your aid proves the deciding factor, then I've got a real treat for you: perhaps the last Taint of Purging left in Maj'Eyal.", "很简单，每份药剂我都会让你先喝个痛快的。喝下这些药剂会让你长出有男子汉气概的胸毛，可能还能长你脸上或者指甲盖里。而且，要是你的帮助能起决定性作用的话，我还会额外给你一件真正的宝物：传说中马基埃亚尔唯一的堕落印记——清除印记哦！", "_t")
 t("I accept.", "我接受了。", "_t")
 t("I cannot aid you at this time.", "我现在没空帮你。", "_t")
-t("One last thing. There's a few other fellows angling for the same slot in the Brotherhood that I am. They're not going to be sitting on their hands while we're at work here, so best move quick-like. Now, which of these do you want to help me with first: the Brew of Brawn, the Brew of Stoneskin, or the Brew of Foundations? Or Elixirs, rather. Not Brews. Best get in the habit now, I suppose.", "最后一件事，除我之外还有几个家伙对炼金术士兄弟会的这个会员资格虎视眈眈，他们肯定不希望我来坐这个位置的，因此你越快动身越好。现在，你选择帮我完成哪个药剂吧：蛮牛药剂？石肤药剂？还是领悟药剂？最好马上行动，我建议。", "_t")
+t("One last thing. There's a few other fellows angling for the same slot in the Brotherhood that I am. They're not going to be sitting on their hands while we're at work here, so best move quick-like. Now, which of these do you want to help me with first: the Brew of Brawn, the Brew of Stoneskin, or the Brew of Foundations? Or Elixirs, rather. Not Brews. Best get in the habit now, I suppose.", "最后一件事，除我之外还有几个家伙对炼金术士兄弟会的这个会员资格虎视眈眈，他们肯定不希望我来坐这个位置的，因此你越快动身越好。现在，你选择帮我完成哪个药剂吧：蛮牛药剂？石肤药剂？还是领悟药剂？哦，应该说药剂（Elixirs）。不是酿造物（Brews）。最好现在就开始改口，我想。", "_t")
 t("The %s.", "%s。", "tformat")
 t("Right, here's the list. Oh, one more thing. Got me some fellas already out hunting for this stuff, and I'll not play favorites. One of them brings me those ingredients before you do, and you're out of luck. Hurry back.", "OK，这里是材料的清单。哦对了，另外还有一件事，有几个家伙已经出发帮我找这些材料了，我一视同仁，要是其中有人先把材料找到给我带来的话，那你就只能自认倒霉了，动作快点吧。", "_t")
 t("I'll be off.", "我走了。", "_t")
@@ -4141,7 +4141,7 @@ t([[#LIGHT_GREEN#*The mailed dwarf opens his door.*#WHITE#
 Aha, my favorite adventurer.]], [[#LIGHT_GREEN#*那个穿锁甲的矮人打开了门。*#WHITE#
 啊～我亲爱的冒险家。]], "_t")
 t("I've returned with the ingredients for the %s.", "我回来了，我找到了%s的材料。", "tformat")
-t("I've come to offer more aid.", "我来接下一步任务。", "_t")
+t("I've come to offer more aid.", "我来提供更多帮助。", "_t")
 t("[Give him the monster bits.]", "[给他材料。]", "_t")
 t([[#LIGHT_GREEN#*He gleefully claps you on the shoulder.*#WHITE#
 Ha ha! This is the last one! Stire and Marus and that damned hermit can suck on my beard! And so can my wife! YES, I KNOW YOU CAN HEAR ME. Good work, friend. Let's have them.]], [[#LIGHT_GREEN#*他欢快地拍着你的肩膀。*#WHITE#
@@ -4194,7 +4194,7 @@ I will not lie to thee: we can send thee thence, but this could be a death trap,
 净化天空需要花费不少时间，同时，假如你乐意的话，我们会传送你到厄奇斯的老巢帮我们直接对付他。
 坦白的说，我们送你去的地方，很可能就是一个死亡陷阱，而且我们没有办法再把你从他的巢穴里传送出去，因为他的老巢在岱卡拉山脉的最高峰。]], "_t")
 t("I need to prepare myself. I will be back soon.", "我要做些准备工作，我马上就回来。", "_t")
-t("I am ready. Send me. I will not let the good people of Derth down.", "我准备好了，传送我过去吧。我不会再让德斯人民遭受灾难了。", "_t")
+t("I am ready. Send me. I will not let the good people of Derth down.", "我准备好了，传送我过去吧。我不会辜负德斯的好人们的。", "_t")
 t("Good luck to thee. Thou hast the blessings of Angolwen.", "祝你好运，愿安格利文的祝福与你同在。", "_t")
 t("Thank you.", "谢谢。", "_t")
 t("I see the storm is calmed.  Take this rune as a token of my appreciation.", "我看到风暴平息了。拿走这符文，作为我的谢意。", "_t")
@@ -4207,14 +4207,14 @@ t("Let me see your wares.", "让我看看你的商品吧。", "_t")
 t("I am looking for staff training.", "我是来学习法杖格斗的。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_angolwen-staves-store")
 t("I can teach you staff combat (talent category Spell/Staff combat).  Learning the basics costs 100 gold, while more intensive tutelage to gain proficiency costs 500 gold.  Once you're proficient, I can teach you more refined techniques for an additional 750 gold.", "我能教授你法杖格斗(法术/法杖格斗 技能树)。学会基础消耗100金币，想学的更多就得花上500金币。当你学会之后，只要750金币，我就能传授你一些进阶技巧。", "_t")
-t("Just give me the basics (reveals locked talent category) - 100 gold.", "只学习基础（显示带解锁的技能树）- 100 金币。", "_t")
+t("Just give me the basics (reveals locked talent category) - 100 gold.", "只学习基础（揭示锁定的技能树）- 100 金币。", "_t")
 t("The staff carver spends some time with you, teaching you the basics of staff combat.", "法杖商人花了一些时间，教授你法杖格斗的基础知识。", "logPlayer")
 t("He is surprised at how quickly you are able to follow his tutelage.", "他对你学习速度之快感到惊讶。", "logPlayer")
-t("Please teach me what I need to know (unlocks talent category) - %d gold.", "请教授我需要知道的一切（显示已解锁的技能树）。 -%d 金币。", "tformat")
+t("Please teach me what I need to know (unlocks talent category) - %d gold.", "请教授我需要知道的一切（解锁技能树）- %d 金币。", "tformat")
 t("The staff carver spends a substantial amount of time teaching you all of the techniques of staff combat.", "法杖商人花了大量时间，教授你法杖格斗的全部知识", "logPlayer")
 t("He is impressed with your mastery and shows you a few extra techniques.", "他对你的掌握程度表示惊讶，并对你展示了一些额外的技巧。", "logPlayer")
 t("I'm already proficient, but I want to be an expert (improves talent mastery by 0.2) - 750 gold.", "我已经学会了，但我想成为一名专家。(增加技能树系数0.2) - 750 金币。", "_t")
-t("The staff carver spends a great deal of time going over the finer details of staff combat with you%s.", "法杖商人花了大量时间，教授你法杖格斗的最终知识%s。", "tformat")
+t("The staff carver spends a great deal of time going over the finer details of staff combat with you%s.", "法杖商人花了大量时间，教授你法杖格斗的精细技巧%s。", "tformat")
 t(", including some esoteric techniques", "，包括一些秘密流传的技巧。", "_t")
 t("No thanks.", "不用了，谢谢。", "_t")
 
@@ -4301,7 +4301,7 @@ All you need to do is beat three of my men in battle, and you shall be rewarded.
 #LIGHT_GREEN#*你考虑了一会兜帽人给你的这个任务。*
 ]], "_t")
 t("Interesting. Tell me more about that Arena.", "有意思，告诉我更多关于竞技场的事。", "_t")
-t("I am strong! What do you have to offer?", "我很强壮！告诉我该做什么？", "_t")
+t("I am strong! What do you have to offer?", "我很强壮！你有什么可提供的？", "_t")
 t("I don't accept deals from shady hooded men.", "我不接受鬼鬼祟祟的人的邀请。", "_t")
 t([[#LIGHT_GREEN#*You can feel the man smiling from inside his hood*#WHITE#
 I have wealth and glory to offer, and some very useful
@@ -4350,7 +4350,7 @@ If I am still around, we can have a deal. Think about it, @playerdescriptor.race
 我会#YELLOW#在德斯镇逗留几天。#WHITE#
 要是我还在的话，我们可以做笔交易，好好考虑一下吧，@playerdescriptor.race@。
 ]], "_t")
-t("We'll see. [Leave]", "我们会再见面的。[离开]", "_t")
+t("We'll see. [Leave]", "我们拭目以待。[离开]", "_t")
 t([[#LIGHT_GREEN#*The man smiles in approval*#WHITE#
 Excellent! A great fighter is always willing to head into battle.
 You certainly won't regret meeting us, indeed...
@@ -4388,7 +4388,7 @@ Good luck in your adventures, and come visit us when you are done!
 我不会打断你的继续冒险，我自己也是一个冒险家，很久以前是。
 但是我们能使你成为冠军，受所有人尊敬还有享不完的荣华富贵。
 
-#LIGHT_GREEN#*你在那个盗贼一起返回了德斯小镇，他和你讨论着在丛林中的冒险经验。
+#LIGHT_GREEN#*你和那个盗贼一起返回了德斯小镇，他和你讨论着在丛林中的冒险经验。
 #LIGHT_GREEN#他极大地提高了你的战斗经验(#WHITE#+2 通用技能点数#LIGHT_GREEN#)*
 #WHITE#很好，@playername@，我现在必须得走了。
 祝你在冒险中好运，记得回来看我们！
@@ -4396,11 +4396,11 @@ Good luck in your adventures, and come visit us when you are done!
 t("I will. Farewell for now.", "我会的，再见吧。", "_t")
 t("exit to Derth", "通向德斯镇的出口", "_t")
 t("Select the party member to receive the +2 generic talent points:", "选择接受+2点通用技能点的队伍成员：", "_t")
-t("#WHITE#I see. I will be waiting... #YELLOW#But not for long.", "#WHITE#我会的，我会等你……#YELLOW#不过不会很久。", "_t")
+t("#WHITE#I see. I will be waiting... #YELLOW#But not for long.", "#WHITE#我明白了。我会等你……#YELLOW#不过不会很久。", "_t")
 t([[#LIGHT_GREEN#*The Cornac rogue displays a welcoming smile*#WHITE#
 Welcome back, @playerdescriptor.race@. Have you reconsidered my generous offer?
 ]], [[#LIGHT_GREEN#*那个科纳克人盗贼露出了欢迎的微笑*#WHITE#
-欢迎你回来，@playerdescriptor.race@。有没有重新考虑一下你的决定？
+欢迎你回来，@playerdescriptor.race@。有没有重新考虑我慷慨的提议？
 ]], "_t")
 t("Yes, tell me more.", "是的，说说细节吧。", "_t")
 t("No, see you.", "没有，再见。", "_t")
@@ -4467,7 +4467,7 @@ t([[#LIGHT_GREEN#*With your final blow, Fryjia falls, unable to continue*
 #LIGHT_GREEN#*Leaving you wondering what she was talking about, the young girl walks
 #LIGHT_GREEN#towards the gate. As it closes, you realize her eyes are wet with tears.
 ]], [[#LIGHT_GREEN#*随着你的最后一击，弗里嘉倒下了，无法再战。
-#LIGHT_GREEN#她艰难的站起来但是似乎没受到重创。*
+#LIGHT_GREEN#*她艰难的站起来，但似乎没有受到重创。*
 #WHITE# 我……我承认我输了。
 #LIGHT_GREEN#*观众席一片“唔”的敬畏声。弗里嘉留给你一个背影*
 #WHITE# @playerdescriptor.race@。你不是我要找的人……
@@ -4475,7 +4475,7 @@ t([[#LIGHT_GREEN#*With your final blow, Fryjia falls, unable to continue*
 #LIGHT_GREEN#当它关上时，你突然发觉刚才女孩的眼睛湿润了。
 ]], "_t")
 t("...", "……", "_t")
-t("w...what was that about?", "到……到底是什么？", "_t")
+t("w...what was that about?", "什……那是怎么回事？", "_t")
 t([[#LIGHT_GREEN#*The gate opens, revealing a mature human woman in crimson robes.
 #LIGHT_GREEN#She looks at you with a wide smile*
 #WHITE# My, my, what a fine @playerdescriptor.race@ you are. What was your name again, @playername@? I am soo delighted to be your rival today.
@@ -4510,7 +4510,7 @@ So, it's been my pleasure, @playername@. #LIGHT_GREEN#*She vanishes in a spiral 
 还有，如果你能坚持像这样战斗，你的梦想真的会很快实现的。
 所以，这是我的荣幸，@playername@。#LIGHT_GREEN#*她化作一团盘旋的火焰消失不见*]], "_t")
 t("I am pumped up! What's next?", "我热切期待着！接下来是什么？", "_t")
-t("Am I the only person with a name that can die here?", "难道我是唯一一个有资格死在这里的吗？", "_t")
+t("Am I the only person with a name that can die here?", "难道我是唯一一个有名有姓却会死在这里的人吗？", "_t")
 t([[#LIGHT_GREEN#*You suddenly realize everything has turned dark.
 #LIGHT_GREEN#You look around searching for your rival. And then you notice it. Standing
 #LIGHT_GREEN#right before you, a massive battle armor with an equally massive battle axe.
@@ -4551,8 +4551,8 @@ Good luck...
 #LIGHT_GREEN#*There it is. Your goal. Your heart beats fast, as the time has come*
 #LIGHT_GREEN#*The Master of the Arena smiles proudly*
 #RED#The final battle begins when the gate closes, just this final time!!
-]], [[#LIGHT_GREEN#*你英勇的打出最后一击！
-#LIGHT_GREEN#当光明重归，瓦弗伦彻底垮倒了。
+]], [[#LIGHT_GREEN#*你英勇的打出最后一击！*
+#LIGHT_GREEN#*当光明重归，瓦弗伦彻底垮倒了。
 #LIGHT_GREEN#你短暂的闭上眼睛一段时间。当你睁开眼时，你看到了弗里嘉*
 爸爸…… #LIGHT_GREEN#*她沉默的站在那儿*#WHITE#你赢了，@playerdescriptor.race@。
 你做的很好。准备好你的最终战吧……如果你赢了，我们将为你服务。
@@ -4564,7 +4564,7 @@ Good luck...
 
 #LIGHT_GREEN#*那就是你的目标了。当这一刻来临时，你的心跳不由自主的加快了。*
 #LIGHT_GREEN#*竞技场主宰自豪的笑着。*
-#RED#*当大门关上时，决战将会开始，只有最后一次机会！！
+#RED#当大门关上时，决战将会开始，只有最后一次机会！！
 ]], "_t")
 t("I will defeat you, Master of the Arena!!!", "我将打败你，竞技场主宰！！！", "_t")
 t("I will become Master of the Arena instead of the Master of the Arena!!", "我将代替你成为竞技场主宰！！", "_t")
@@ -4629,7 +4629,7 @@ But meanwhile, this is your place! Welcome to paradise, @playerdescriptor.race@!
 #LIGHT_GREEN#提供他许多优厚的条件和待遇。
 #LIGHT_GREEN#你开怀大笑，胜利了，从此荣耀将伴随你的一生！
 #LIGHT_GREEN#因为即使你在将来的某一天被打败……
-#LIGHT_GREEN#你的高大形象仍会长存于人们心中。
+#LIGHT_GREEN#你随时可以靠贩卖自己的形象，过上阔绰的生活。
 
 #YELLOW#祝贺你！
 #YELLOW#你现在是新的竞技场主宰了！传奇而荣耀！
@@ -4711,7 +4711,7 @@ section "mod-tome/data/chats/avatar-distant-sun-unlock.chat"
 t("Uhh, okay. Sure. Mind showing me?", "啊，好的，行啊，不介意的话就展示给我看吧？", "chat")
 t([[<<<You feel a gentle warmth in your mind. Something speaks directly to your mind!>>>
 #YELLOW#HELLO FRIEND. I AM A STAR FROM FAR AWAY. I HAVE HEARD YOU PRAISING YOUR SUN. WHY NOT PRAISE ME INSTEAD? I AM A MUCH BETTER SUN THAN THAT DULL, LIFELESS GAS ORB IN YOUR VICINITY. PLEASE, ALLOW ME TO DEMONSTRATE MY GOOD INTENTIONS.]], [[<<<你在脑海中感受到温暖，有什么东西直接在你脑海中对话！>>>
-#YELLOW#你好啊朋友。我是一颗遥远的恒星。我听到了你赞美太阳的声音。为什么不赞美我呢？ 相比于你附近那颗了无生趣的气态球体，我作为太阳要好得啊。可以的话，请允许我向你展示我的善意。]], "chat")
+#YELLOW#你好啊朋友。我是一颗遥远的恒星。我听到了你赞美太阳的声音。为什么不赞美我呢？ 相比于你附近那颗了无生趣的气态球体，我作为太阳要好得多啊。可以的话，请允许我向你展示我的善意。]], "chat")
 t("I don't take unsolicited messages from... stars.", "我不接受来自……星星的自荐消息。", "chat")
 t("#YELLOW#YOU ONLY HAD TO ASK, MY FRIEND.", "#YELLOW#如你所愿，我的朋友。", "chat")
 t("#CRIMSON#[The area around you erupts in flames, burning your foes]", "#CRIMSON#[火焰在你周围爆发，灼烧你的敌人。]", "chat")
@@ -4771,7 +4771,7 @@ t("#PURPLE#A paradox has already destroyed other timelines!", "#PURPLE#一个时
 t("#LIGHT_BLUE#You select the timeline and re-arrange the universe to your liking!", "#LIGHT_BLUE#你选择了时间线，依照你喜欢的方式重组了这个世界！", "logPlayer")
 t("You have lived %d turns in three different timelines. Which do you choose to be the real timeline?", "你在三条不同的时间线里度过了 %d 个回合，你选择哪一条成为现实时间线？", "tformat")
 t("The first.", "第一条。", "_t")
-t("The second.", "第二条、", "_t")
+t("The second.", "第二条。", "_t")
 t("The third.", "第三条。", "_t")
 
 ------------------------------------------------
@@ -4781,7 +4781,7 @@ t("Greetings. How can I help you?", "你好，我能帮你什么忙么？", "_t"
 t("Hurry up and make with the foe-blasting.", "快点，我们要去把敌人打爆。", "_t")
 t("O wise wielder, instruct me that I may better serve you.", "智慧的长者，请指示我让我更好的为您服务。", "_t")
 t("Make amends, magic-user, for the harm ye have wrought is beyond compare.", "赎罪吧，法师们，你们带来了罄竹难书的危害。", "_t")
-t("You really could have chosen a better home for me, you know. I was reasonably happy in my old crystal. This stick smells like armpit.", "要知道，你可以给我找个更好的环境。现在嘛，我还是留在我原来的旧水晶里吧，这根法杖有一股狐臭的味道。", "_t")
+t("You really could have chosen a better home for me, you know. I was reasonably happy in my old crystal. This stick smells like armpit.", "要知道，你可以给我找个更好的环境。我原本在我的旧水晶里住得挺舒服的。这根法杖有一股狐臭的味道。", "_t")
 t("Tremble before the might of Telos!", "在泰勒斯的强大力量下颤抖吧！", "_t")
 t("It is not yet your place to command such a staff as this. To do so invites obliteration.", "你无法对其释放掌控法杖。这样做会带来破坏。", "_t")
 t("Call on which aspect of the staff?", "召唤哪种法杖的元素力量？", "_t")
@@ -4789,17 +4789,17 @@ t("error!", "错误！", "_t")
 t("Oh, I was once a mighty Eldritch Channeler. Mighty and absentminded, as it turns out. Had a bit of a mishap with an Inverted Kugala's Soul-infusion technique. Long story short, my soul is now stuck in this stick, and the soul I was working with... well, I don't rightly know where he got to. But I hope we never meet him.", "哦，我曾经是一个强大埃尔德里奇主宰者。事实证明，那时的我，强大而又不可一世。某次事故扭曲了古加拉的灵魂镶嵌技术。长话短说吧，我的灵魂被困在了这根棍子里——和我曾经研究的灵魂一起……好吧，我也不知道它从何处而来。但是我希望我们能和它永别。", "_t")
 t("Argh! Bollocksed up a tricky bit of soul magic and the fool that I was supposed to be imprisoning for all eternity flitted away. My body, like all the targets of my spells, intended or otherwise, got reduced to elementary particles. Fortunately, I had this soul-cage of a staff all prepped and ready for a stray soul, so I'm not completely gone. But enough chit-chat. Let's fry somebody.", "哈！拜某次实验事故和那个被永久囚禁的傻X灵魂所赐，我的身体，像所有其他被法术轰击过的物体一样，有意或无意，灰飞烟灭了。幸运的是，我还有这根可以容纳灵魂的法杖容器，所以我没有完全湮灭。好了，不多说了，让我们去打爆敌人吧！", "_t")
 t("My old master-- who, though a powerful enchanter, did not compare to you and your glory-- saw fit to imprison me in this fine staff to aid him in his work. Alas, he is long gone, but I despair not, for I have found a mighty new master.", "我的旧主人——虽然他的法术很强大，但却比不上你和你的荣耀——他认为，把我囚禁在这根法杖里可以为他更好的服务。唉，虽然他已经不复存在了，但我并不感到绝望，因为我找到了一个强大的新主人。", "_t")
-t("I am a portion of the very spirit of the world that was ripped free during the Spellblaze. I speak that I might enlighten those who bear me.", "我是在魔法大爆炸期间被撕裂灵魂的一部分。我可以教导给你所需的知识，只要你愿意聆听我。", "_t")
+t("I am a portion of the very spirit of the world that was ripped free during the Spellblaze. I speak that I might enlighten those who bear me.", "我是世界之灵在魔法大爆炸中被撕裂出的一部分。我可以教导给你所需的知识，只要你愿意聆听我。", "_t")
 t("What's the good of immortality if you can't even speak? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. And, by the way, your energy manipulation techniques are on the same level as those of my average pair of shoes. Best study up if you don't want to die forgotten and incompetent.", "如果不能说话，那这样的永生还有何意义？凡是想要达到永生不死的大法师，没有一个留下一种方法让自己的伟大知识永久流传。而且，顺便说一句，你的能量操纵水平只配给我提鞋，给我仔细的听着，如果你不想因为遗漏我说的话而死的不明不白。", "_t")
-t("Of course. Which aspect?", "当然。哪一种？", "_t")
-t("I highly recommend the mage aspect and the fire element. You're not going to find anything better for turning a piece of meat into a cloud of vapor.", "我强烈推荐术士类火焰元素。你不会找到比这更好的能让一块肉变成蒸汽的方法了。", "_t")
+t("Of course. Which aspect?", "当然。哪个方面？", "_t")
+t("I highly recommend the mage aspect and the fire element. You're not going to find anything better for turning a piece of meat into a cloud of vapor.", "我强烈推荐法师领域和火焰元素。你不会找到比这更好的能让一块肉变成蒸汽的方法了。", "_t")
 t("I live to serve-- though my use of the word 'live' is perhaps loose here.", "我毕生为你效劳——虽然“毕生”在这里对于我而言并不是那么准确。", "_t")
 t("Choose wisely. Powers beyond your comprehension will tolerate only so much interference in their carefully-laid natural order.", "明智地进行选择。只有那些仔细维护自然秩序的人才会被那些超越你们理解的力量所容忍。", "_t")
 t("Back in my day, we didn't need to go changing our staves around willy-nilly. We picked an element and stuck with it, by the gods.", "在我的时代，我们并不需要用棍子挥来挥去来施法。我们只需要抓取一种元素，就可以任意的使用它——像诸神一样。", "_t")
-t("Certainly. You should be impressed, by the way, that I can do such a thing. Most lesser practitioners of my art would have difficulties with this. What shall I change?", "当然。顺带一提，我可以做的事情会让你印象深刻。大多数较弱者实践我的艺术时会感觉有困难。我要不要改变一下？", "_t")
+t("Certainly. You should be impressed, by the way, that I can do such a thing. Most lesser practitioners of my art would have difficulties with this. What shall I change?", "当然。顺带一提，我可以做的事情会让你印象深刻。大多数较弱者实践我的艺术时会感觉有困难。你想让我改变什么？", "_t")
 t("Fine, as long as it leads to blasting something soon. What do you want me to change?", "很好，只要它能快速的引爆某物。你要我换成什么？", "_t")
 t("Choose different aspect", "选择其他领域", "_t")
-t("Never mind.", "别介意。", "_t")
+t("Never mind.", "算了。", "_t")
 t("Call forth which element?", "召唤哪种元素", "_t")
 t("staff", "法杖", "_t")
 t("How is it that you speak?", "你居然能说话？", "_t")
@@ -4851,7 +4851,7 @@ t("The world suffered from the Spellblaze enough. Magic must serve people, not e
 t("What do you propose, then?", "那你的建议呢？", "_t")
 t([[Let us end this meaningless fight. Have you ever heard of a group of people called the Ziguranth?
 These rambling madmen think magic should not be permitted to exist! They fear us; they fear our powers.
-Let us join forces and crush the fools!]], [[让我们停止这无畏的争斗。你有没有听说过一群叫做伊格兰斯的人？
+Let us join forces and crush the fools!]], [[让我们停止这场毫无意义的争斗。你有没有听说过一群叫做伊格兰斯的人？
 这些疯子认为魔法不应该存在！他们害怕我们，害怕我们的力量。
 让我们联合起来干掉那些笨蛋！]], "_t")
 t("Magic shall triumph!", "魔法必胜！", "_t")
@@ -4874,7 +4874,7 @@ t("Be at ease. I have dispatched those monstrosities. Do you know where they cam
 t([[From nowhere! From the sky!
 I do not know. I was tending my crop just outside the town when I heard screaming. As I entered the town, I saw the dark cloud over here. Those... those... things were coming from it in blasts of lightning!]], [[不知道从哪儿来的！从天上！
 我真不知道。我当时正在农田里照看我的庄稼，然后我听到了哭喊声。当我走进村子，我看到了天上的乌云。那些……那些……东西正喷出一道道闪电！]], "_t")
-t("It seems they have stopped coming for now. I will look for somebody who could help dispose of this nefarious cloud.", "好像它们现在不会再来了。我会找到人来帮我弄清楚这些邪恶乌云的来龙去脉的。", "_t")
+t("It seems they have stopped coming for now. I will look for somebody who could help dispose of this nefarious cloud.", "好像它们现在不会再来了。我会找人来帮我处理掉这片邪恶的乌云。", "_t")
 t([[Thank you! You have saved many people today!
 I have heard of rumours of a reclusive town of wise and powerful men somewhere in the mountains. Maybe they could help? If they even exist...
 There are also those Zigur-something people that claim to fight magic. Why are they not here?!]], [[多谢！你今天救了很多人！
@@ -4909,7 +4909,7 @@ We have studied his portal research, and if you give me the components I will cr
 我是马雷纳斯，安格利文的传令官。我接到托拉克国王的命令在此等候你，他一直很担心你。
 我们已经观察了泰恩一段时间，我们非常高兴地看到你揭露了他的真面目并阻止了他。因此我们非常荣幸地请你回来。
 我们已经分析了他关于传送门的研究，如果你把那些相关的部件给我，我就可以立即给你创造一个传送门，就是此时此刻。]], "_t")
-t("Yes, Tannen was not exactly friendly. I thank you for your help. Here are the components. [hand him the diamond and the athame]", "是的，泰恩的确不是个好人。感谢你的帮助，这些就是传送门的部件。[把宝石和仪式匕首交给他]。", "_t")
+t("Yes, Tannen was not exactly friendly. I thank you for your help. Here are the components. [hand him the diamond and the athame]", "是的，泰恩的确不是个好人。感谢你的帮助，这些就是传送门的部件。[把宝石和仪式匕首交给他]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/eidolon-plane.lua"
@@ -4968,9 +4968,9 @@ t("[You do not gain any knowledge.]", "[你没有获得任何信息。]", "_t")
 t("You pause and recall past memories.", "你停了下来，开始回忆过去。", "_t")
 t("[You do not recognize anything new.]", "[你没想起什么新东西。]", "_t")
 t("Oh, hi @playername@, have you got something new to show me?", "啊，你好 @playername@ ，有什么新东西给我看么？", "_t")
-t("Yes, Elisa, could you have a look at these objects please? [show her the items the orb could not identify]", "是的，埃莉萨，你能帮我看看这个物品么？[给她看看水晶球无法辨识的物品。]", "_t")
+t("Yes, Elisa, could you have a look at these objects please? [show her the items the orb could not identify]", "是的，埃莉萨，你能帮我看看这些东西么？[给她看看水晶球无法辨识的物品。]", "_t")
 t("Err, no... sorry, I just wanted to hear a friendly voice.", "呃，没有……抱歉，我只想听听你甜美的声音。", "_t")
-t("Not yet sorry!", "没事，抱歉！", "_t")
+t("Not yet sorry!", "还没呢，抱歉！", "_t")
 t([[#LIGHT_GREEN#*You hear something akin to a muffled giggle*#WHITE#
 Oh, you are #{bold}#SOOOO#{normal}# cute!]], [[#LIGHT_GREEN#*你听到捂着嘴巴咯咯笑的声音*#WHITE#
 呵，你实在#{bold}#太……#{normal}# 可爱了！]], "_t")
@@ -5011,7 +5011,7 @@ t("Escort", "护送", "_t")
 t("Go away; I do not help filthy arcane users!", "走开，我不会帮助肮脏的奥术魔法信徒！", "_t")
 t("Lead on; I will protect you.", "带路，我会保护你的。", "_t")
 t([[#LIGHT_GREEN#[Pretend to help but when it is time you will use a technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#
-Lead on; I will protect you.]], [[#LIGHT_GREEN#[假装帮忙，制造一个传送门将 @npcname@ 传送至伊格，他会得到“妥善”处置。]#WHITE#
+Lead on; I will protect you.]], [[#LIGHT_GREEN#[假装帮忙，但时机一到，你将使用技巧让传送门失效。@npcname@ 将被送到伊格，得到“妥善”处置。]#WHITE#
 带路，我会保护你。]], "_t")
 t("Go away; I do not care for the weak.", "走开，我可没有义务帮助弱者。", "_t")
 
@@ -6418,7 +6418,7 @@ section "mod-tome/data/chats/tutorial-start.lua"
 t("Hello there. What subject interests you?", "你好，你对哪一个主题比较感兴趣？", "_t")
 t("Basic gameplay", "基本游戏玩法。", "_t")
 t("Combat stat mechanics", "战斗属性。", "_t")
-t("Never mind.", "别介意。", "_t")
+t("Never mind.", "算了。", "_t")
 t("Is there nothing more for me to learn here?", "没别的东西可以学了么？", "_t")
 t("\
 You have completed all the tutorials, and should now know the basics of ToME4. You are ready to step forward into the world to find glory, treasures and be mercilessly slaughtered by hordes of creatures you thought you could handle!\
@@ -6710,10 +6710,10 @@ t("Let me see your wares.", "让我看看你的商品吧。", "_t")
 t("I am looking for mindstar training.", "我是来学习灵晶掌握的", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_zigur-mindstar-store")
 t("I can teach you mindstar mastery (talent category Wild-gift/Mindstar mastery).  Learning the basics costs 100 gold, while more intensive training to gain proficiency costs 500 gold.  Once you're proficient, I can teach you some additional skills for 750 gold.", "我能教授你灵晶掌握（自然/灵晶掌握 技能树）。学会基础消耗100金币，想学的更多就得花上500金币。当你学会之后，只要750金币，我就能传授你一些进阶技巧。", "_t")
-t("Just give me the basics (reveals locked talent category) - 100 gold.", "只学习基础（显示带解锁的技能树）- 100 金币。", "_t")
+t("Just give me the basics (reveals locked talent category) - 100 gold.", "只学习基础（揭示锁定的技能树）- 100 金币。", "_t")
 t("The shopkeeper spends some time with you, teaching you the basics of channeling energy through mindstars.", "商人花了一些时间，教授你使用灵晶的基础技巧", "logPlayer")
 t("He is impressed with your affinity for natural forces.", "他对你同自然力量的亲和度感到惊讶", "logPlayer")
-t("Please teach me what I need to know (unlocks talent category) - 500 gold.", "请教授我需要知道的一切（显示已解锁的技能树）。-500 金币。", "_t")
+t("Please teach me what I need to know (unlocks talent category) - 500 gold.", "请教授我需要知道的一切（解锁技能树）- 500 金币。", "_t")
 t("The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you.", "商人花了大量时间，教授你使用灵晶的全部技巧。", "logPlayer")
 t("He is impressed with your mastery and shows you a few tricks to handle stronger energy flows.", "他对你已经掌握的知识印象深刻，并展示给你一些对抗强敌的技巧", "logPlayer")
 t("I'm already proficient, but I want to be an expert (improves talent mastery by 0.2) - 750 gold.", "我已经学会了，但我想成为一名专家。(增加技能树系数0.2) - 750 金币。", "_t")
@@ -20044,7 +20044,7 @@ t("The Arena", "竞技场", "_t")
 t("Seeking wealth, glory, and a great fight, you challenge the Arena!", " 寻找财富、荣耀和强大的对手，去挑战竞技场吧！ ", "_t")
 t("Can you defeat your foes and become Master of Arena?", "你能打败对手，成为竞技场主宰吗？", "_t")
 t("Winner", "游戏胜利", "_t")
-t("#GOLD#Well done! You have won the Arena: Challenge of the Master#WHITE#", "#GOLD#干得好！你赢得了竞技场：竞技场主宰的挑战#WHITE#", "_t")
+t("#GOLD#Well done! You have won the Arena: Challenge of the Master#WHITE#", "#GOLD#干得好！你赢得了竞技场：领主的挑战#WHITE#", "_t")
 t("You valiantly fought every creature the arena could throw at you and you emerged victorious!", " 你勇敢地战胜了竞技场里的所有生物并赢得了最终胜利！ ", "_t")
 t("Glory to you, you are now the new master and your future characters will challenge you.", "荣耀属于你！你已成为新的竞技场主宰，未来的角色将向你发起挑战。", "_t")
 -- untranslated text
@@ -33682,7 +33682,7 @@ Campaign features:#YELLOW#
 ------------------------------------------------
 section "mod-tome/data/texts/unlock-campaign_infinite_dungeon.lua"
 
-t("New game campaign: #LIGHT_GREEN#Infinite Dungeon: The Neverending Descent", "新战役： #LIGHT_GREEN# 无尽地下城模式", "_t")
+t("New game campaign: #LIGHT_GREEN#Infinite Dungeon: The Neverending Descent", "新战役： #LIGHT_GREEN# 无尽地下城：永无止境的下降", "_t")
 t([[During the Age of Haze, the nine Godslayers set out to destroy the gods.
 The god Ralkur, while trying to escape one of the Godslayers, created the Infinite Dungeon.
 He retreated there, but the Godslayer followed, and each time he would reach the god, Ralkur would create a new level.
