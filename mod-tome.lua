@@ -2278,7 +2278,7 @@ t([[#GOLD#Shield Block Value#LAST#
 The base amount of damage a shield will block when actively used in defense.
 Mind damage cannot be blocked. Against other damage types you gain a 50%% bonus to the block value if the shield used grants resistance to that damage type.
 ]], [[#GOLD#盾牌格挡值#LAST#
-盾牌在激活时所能阻挡的伤害量。精神伤害无法被格挡。如果盾牌具有某种伤害抗性，那么你在使用该盾牌进行格挡时，对这种伤害可以额外吸收50%伤害。]], "_t")
+盾牌在激活时所能阻挡的伤害量。精神伤害无法被格挡。如果盾牌具有某种伤害抗性，那么你在使用该盾牌进行格挡时，对这种伤害可以额外吸收50%%伤害。]], "_t")
 
 section "mod-tome/class/interface/WorldAchievements.lua"
 
@@ -3150,7 +3150,7 @@ t("The ravages of the Spellblaze stretched armies thin and left many unprotected
 t("Without steel or iron, poor communities of all races turned to the strength of their own bodies for defense against the darkness.", "没有钢铁，各个种族的贫穷社群只能依靠自身的力量来抵御黑暗。", "_t")
 t("Whether a pit-fighter, a boxer, or just an amateur practitioner, the Brawler's skills are still handy today.", "无论是一个职业拳手还是个业余的门外汉，格斗技能直到现在仍然十分有用", "_t")
 t("Many of the Brawler's abilities will earn combo points which they can use on finishing moves that will have added effect.", "格斗家的许多技能可以累积连击点数然后用一个终结技能造成额外的打击效果。", "_t")
-t("The unarmed fighting styles the Brawler uses rely on maneuverability and having both hands available. As such, they cannot make use of their training wearing massive armour or while a weapon or shield is equipped.", "格斗家徒手战斗依靠双手的灵活机动性，因此，在身穿重甲或装备武器、盾牌时，他们无法使用这些训练成果。", "_t")
+t("The unarmed fighting styles the Brawler uses rely on maneuverability and having both hands available. As such, they cannot make use of their training wearing massive armour or while a weapon or shield is equipped.", "格斗家的徒手战斗风格依赖机动性以及双手空出可用，因此，在身穿重甲或装备武器、盾牌时，他们无法使用这些训练成果。", "_t")
 t("Their most important stats are: Strength, Dexterity, and Cunning", "他们最重要的属性是：力量、敏捷和灵巧", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，+3 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+3 灵巧", "_t")
@@ -3229,7 +3229,7 @@ t("#GOLD##{bold}#Nightmare mode#WHITE##{normal}#", "#GOLD##{bold}#噩梦难度#W
 t("Unfair game setting", "高难度游戏设定", "_t")
 t("All zone levels increased by 25% by the time Player reaches level 10", "玩家达到 10 级时，所有区域等级提高 25%", "_t")
 t("All creature talent levels increased by 30%", "所有生物技能等级提高 30%", "_t")
-t("Unique (fixed) bosses advance in bonus classes 30% faster", "独有（固定）Boss的职业技能等级上升速度增加 30%", "_t")
+t("Unique (fixed) bosses advance in bonus classes 30% faster", "独有（固定）Boss 的额外职业等级提升速度快 30%", "_t")
 t("Rare creatures are slightly more frequent", "稀有生物出现率略微增加", "_t")
 t("Stairs can not be used for 3 turns after a kill.", "你杀死生物 3 回合内不能使用楼梯。", "_t")
 t("Player can earn Nightmare version of achievements if also playing in Roguelike or Adventure permadeath mode.", "玩家如果选择永久死亡模式或冒险模式可以达成噩梦难度成就。", "_t")
@@ -4786,7 +4786,7 @@ t("Tremble before the might of Telos!", "在泰勒斯的强大力量下颤抖吧
 t("It is not yet your place to command such a staff as this. To do so invites obliteration.", "你还没有资格掌控这支法杖；强行去做只会招致毁灭。", "_t")
 t("Call on which aspect of the staff?", "召唤哪种法杖的元素力量？", "_t")
 t("error!", "错误！", "_t")
-t("Oh, I was once a mighty Eldritch Channeler. Mighty and absentminded, as it turns out. Had a bit of a mishap with an Inverted Kugala's Soul-infusion technique. Long story short, my soul is now stuck in this stick, and the soul I was working with... well, I don't rightly know where he got to. But I hope we never meet him.", "哦，我曾经是一位强大的埃尔德里奇主宰者。事实证明，那时的我强大而健忘。有一次，我在倒转库加拉灵魂灌注术时出了点岔子。长话短说吧，我的灵魂如今被困在这根法杖里，而当时与我一同施法的那个灵魂……嗯，我也不太清楚他跑到哪里去了。但我希望我们永远不会遇到他。", "_t")
+t("Oh, I was once a mighty Eldritch Channeler. Mighty and absentminded, as it turns out. Had a bit of a mishap with an Inverted Kugala's Soul-infusion technique. Long story short, my soul is now stuck in this stick, and the soul I was working with... well, I don't rightly know where he got to. But I hope we never meet him.", "哦，我曾经是一位强大的埃尔德里奇主宰者。事实证明，那时的我强大而健忘。有一次，我在倒转库加拉灵魂灌注术时出了点岔子。长话短说吧，我的灵魂如今被困在这根法杖里，而我当时正在处理的那个灵魂……嗯，我也不太清楚他跑到哪里去了。但我希望我们永远不会遇到他。", "_t")
 t("Argh! Bollocksed up a tricky bit of soul magic and the fool that I was supposed to be imprisoning for all eternity flitted away. My body, like all the targets of my spells, intended or otherwise, got reduced to elementary particles. Fortunately, I had this soul-cage of a staff all prepped and ready for a stray soul, so I'm not completely gone. But enough chit-chat. Let's fry somebody.", "啊！我搞砸了一个棘手的灵魂法术，本该被我永久囚禁的那个蠢货趁机溜走了。我的身体，和所有被我法术波及的东西一样，无论有意还是无意，都被分解成了基本粒子。幸运的是，我早已备好这根灵魂牢笼法杖，随时欢迎流浪的灵魂入住，所以我还没有彻底完蛋。好了，闲话少说，去烤个人吧！", "_t")
 t("My old master-- who, though a powerful enchanter, did not compare to you and your glory-- saw fit to imprison me in this fine staff to aid him in his work. Alas, he is long gone, but I despair not, for I have found a mighty new master.", "我的旧主人——虽然他的法术很强大，但却比不上你和你的荣耀——他认为，把我囚禁在这根法杖里可以为他更好的服务。唉，虽然他已经不复存在了，但我并不感到绝望，因为我找到了一个强大的新主人。", "_t")
 t("I am a portion of the very spirit of the world that was ripped free during the Spellblaze. I speak that I might enlighten those who bear me.", "我是世界之灵在魔法大爆炸中被撕裂出的一部分。我可以教导给你所需的知识，只要你愿意聆听我。", "_t")
@@ -4909,7 +4909,7 @@ We have studied his portal research, and if you give me the components I will cr
 我是马雷纳斯，安格利文的传令官。我接到托拉克国王的命令在此等候你，他一直很担心你。
 我们已经观察了泰恩一段时间，我们非常高兴地看到你揭露了他的真面目并阻止了他。为此我们很感激，我想我们可以报答你。
 我们已经分析了他关于传送门的研究，如果你把那些相关的部件给我，我就可以立即给你创造一个传送门，就是此时此刻。]], "_t")
-t("Yes, Tannen was not exactly friendly. I thank you for your help. Here are the components. [hand him the diamond and the athame]", "是的，泰恩的确不是个好人。感谢你的帮助，这些就是传送门的部件。[把宝石和仪式匕首交给他]", "_t")
+t("Yes, Tannen was not exactly friendly. I thank you for your help. Here are the components. [hand him the diamond and the athame]", "是的，泰恩的确不是个好人。感谢你的帮助，这些就是传送门的部件。[把钻石和仪式匕首交给他]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/eidolon-plane.lua"
@@ -5042,7 +5042,7 @@ A few hours after you entered this place a raid of orcs fell upon us. They were 
 My land is no more! All because you could not stop them at the Charred Scar! You failed us! People died to protect you, and you failed!
 #LIGHT_GREEN#*She starts to weep...*#WHITE#]], [[你……你不知道？
 你进入这个地方几个小时以后，兽人突袭了我们。他们不是单独来的——还有大量恶魔跟随着他们。我们寡不敌众！被彻底击败了！
-我的领地已经不复存在！全都是因为你，没能在灼烧之痕阻止他们！你背叛了我们！这么多人为你而死，而你却背叛了我们！
+我的领地已经不复存在！全都是因为你，没能在灼烧之痕阻止他们！你辜负了我们！这么多人为你而死，而你却辜负了我们！
 #LIGHT_GREEN#*她开始哭泣……*#WHITE#]], "_t")
 t("I know my mistakes and I intend to correct them. Please let me pass. I cannot save your people, but I can make their deaths mean something!", "我知道我所犯下的错误，我会设法弥补。请让我通过这里，我没办法拯救你的人民，但是我不会让他们白白牺牲！", "_t")
 
@@ -18284,7 +18284,7 @@ I'm going to enjoy hearing his screams, a log on the pyre a gold he cost us. Nic
 
 很好，叫我的人杀掉任何胆敢闯进来的人，守卫的密度增加三倍。我们需要尽可能在他们过来之前抓紧时间，绝对不能泄露任何消息。在我们找到新的藏身地之后，我要把那个蠢货穿在柱子上作为祭品，希望我们不会被他们抓到。
 
-我要好好品尝他的哀嚎，他给我们每造成每个金币的损失就是火堆上的一根圆木。把这家伙文火慢烤，可别便宜他，让他死的太快了。]], "_t")
+我要好好品尝他的哀嚎，他让我们每损失一枚金币，火堆上就多一根木柴。把这家伙文火慢烤，可别便宜他，让他死的太快了。]], "_t")
 t("How to Summon a Phoenix", "如何召唤凤凰", "_t")
 t([[#{bold}#How to Summon a Phoenix#{normal}#
 	  10 pouches faeros ash
@@ -18693,7 +18693,7 @@ But what was left of our people in the east was a broken picture. Gone were the 
 
 We still have a secret presence in the west, in our rightful lands across which we have spilled rivers of our own blood. We are building up our military force at an accelerating rate, and when the time comes we shall sweep across Maj'Eyal with a vengeance that cannot be held back. The other races will suffer as they have made us suffer, and all that they have built will be brought to ruin.]], [[人类和半身人已经达成盟约，联合保卫他们的王国，很快精灵和矮人也加入了盟军，我们被击退了。我们的战术很快变为防守，因为他们很快就要攻入我们的领土。
 
-我们尽全力战斗，但是我们没想到他们会采取如此卑鄙的战争策略。他们放弃了我们的军事基地，改为攻击城市和乡镇，他们杀死了我们所有的平民。甚至连母亲手中刚出生的婴儿都被残忍杀害，他们没放过任何一个女人或孩子。这是敌方最高层指示的种族屠杀。
+我们尽全力战斗，但是我们没想到他们会采取如此卑鄙的战争策略。他们放弃了我们的军事基地，改为攻击城市和乡镇，他们杀死了我们所有的平民。甚至连母亲手中刚出生的婴儿都被残忍杀害，他们没放过任何一个女人或孩子。这是彻头彻尾的种族灭绝。
 
 我们集合残余族人，把他们送到远东，由敢死队掩护他们的撤退，误导他们相信种族屠杀已经完成了。
 
@@ -19359,7 +19359,7 @@ t([[#{italic}#Touching the conch makes it emit a sound. As you put it to your ea
 
 "嗨，我不能那么肯定……我想我要把这关了，我们要出发了。"
 
-"嗨，急什么呢？这是我们第一次独自离开一周时间。也许我们可以……"
+"嗨，急什么呢？这是我们这一周以来第一次独自相处。也许我们可以……"
 
 "什么？你确定你不是要——？如果其他人跟过来怎么办？"
 
@@ -19375,7 +19375,7 @@ t([[#{italic}#Touching the conch makes it emit a sound. As you put it to your ea
 
 "踏浪者塔米尔报告。周边已经安全，不过我仍派出几名成员侦察邻近区域。等我们绘制好陆地地图，并做好供养更大队伍的准备，我才能更加安心。只要陆上居民还不知道我们的存在，我们就应该绝对安全。即使他们胆敢来到这里，佐西拉的魔法也会令他们那微不足道的星辰崇拜黯然失色。
 
-"我就怕有些分队没有认真执行我们的命令。他们知道主交给我们的责任吗？在这片远方的大陆，我们就是他的左膀右臂，我们也有义务去保护那将带给我们更多力量的传送门。我们就是他对抗那些很久以前背叛我们的近亲种族的第一道防线。并且，通过我们的努力，我们将带领整个种族达到巅峰，走向主所赐予的辉煌的未来。萨拉苏尔万岁！吞噬者军团万岁！"]], "_t")
+"我就怕有些分队没有认真执行我们的命令。他们知道主交给我们的责任吗？在这片远方的大陆，我们就是他的左膀右臂，我们也有义务去保护那将带给我们更多力量的传送门。我们就是他对抗那些很久以前毁灭我们种族的那些人的第一道防线。并且，通过我们的努力，我们将带领整个种族达到巅峰，走向主所赐予的辉煌的未来。萨拉苏尔万岁！吞噬者军团万岁！"]], "_t")
 t("conch (3)", "海螺 (3)", "_t")
 t([[#{italic}#Touching the conch makes it emit a sound. As you put it to your ear you hear a charismatic and commanding voice emanating from within:#{normal}#
 
@@ -24395,7 +24395,7 @@ t("Self-Judgement", "自裁", "talent name")
 t("#CRIMSON##Target# suffers from %s from #Source#, mitigating the blow!#LAST#.", "#CRIMSON##Target# 承受了来自#Source#的 %s , 降低了伤害!#LAST#.", "logCombat")
 t("an attack", "一次攻击", "_t")
 t("damage", "伤害", "_t")
-t("%s(%d bled out#LAST#%s)#LAST#", "%s(%d 转为流血#LAST#%s)#LAST#", "tformat")
+t("%s(%d bled out#LAST#%s)#LAST#", "%s(%d 流血而死#LAST#%s)#LAST#", "tformat")
 t([[Any direct damage that exceeds %d%% of your maximum life has the excess damage converted to a shallow wound that bleeds over the next %d turns. This bleed cannot be resisted or removed, but can be reduced by Bloodstained. Extremely powerful hits (more than %d%% of your max life) are not fully converted.
 
 #{italic}#You can't just die. That would be too easy.#{normal}#]], [[任何超过你最大生命 %d%% 的伤害中的额外部分会变成一道浅表伤口，在接下来的 %d 回合中造成流血伤害。此流血效果不能被抵抗或去除，但强度可以被血染系技能降低。极其强力的攻击（超过 %d%% 最大生命）无法被完全转化。
@@ -24780,7 +24780,7 @@ t([[From the ground around you, you form living stone vines extending from your 
 		A creature entangled by the vines will have a chance to break free each turn, and will automatically succeed if it is more than %d grids away from you.
 		The chance to affect targets and damage increase with talent level and Willpower.]], [[你周围的地面开始生成岩石藤蔓。
 		每回合藤蔓将试图抓住半径 %d 内的一个随机目标。
-		受影响的目标将被定身，同时每回合受到 %0.1f 自然伤害 %s, 持续 %d 回合。
+		受影响的目标将被定身，同时每回合受到 %0.1f 点自然伤害，%s持续 %d 回合。
 		被岩石藤蔓抓住的生物每回合有一定几率逃脱，如果距离你超过 %d 码则自动逃脱。 
 		藤蔓抓住目标的几率和伤害随技能等级和意志提高。]], "tformat")
 t("Eldritch Vines", "奥术藤蔓", "talent name")
@@ -24796,7 +24796,7 @@ t([[Merge with one of your stone vines, traversing it to emerge near an entangle
 t("Rockswallow", "岩石吞噬", "talent name")
 t([[Merge your target (within range %d) with one of your stone vines that has seized it, forcing it to traverse the vine and reappear near you.
 		Merging with the stone is detrimental for the target, dealing %0.1f nature damage.
-		The damage will increases with your Willpower.]], [[将半径 %d 内的目标连同岩石藤蔓一起拉过来，造成 %0.1f 自然伤害。
+		The damage will increases with your Willpower.]], [[将已被你的岩石藤蔓抓住的、半径 %d 内的目标拉过来，使其强制穿越藤蔓，造成 %0.1f 自然伤害。
 		伤害受意志加成。]], "tformat")
 
 ------------------------------------------------
@@ -24914,7 +24914,7 @@ t("The art of calling creatures adept in melee combat to your aid.", " 召唤近
 t("summoning (distance)", "召唤(远程)", "talent type")
 t("The art of calling creatures adept in elemental destruction to your aid.", " 召唤远程元素攻击类生物来协助你战斗的艺术。", "_t")
 t("summoning (utility)", "召唤(通用)", "talent type")
-t("The art of calling versatile creatures to your aid.", "召唤辅助类生物来协助你战斗的艺术。", "_t")
+t("The art of calling versatile creatures to your aid.", "召唤多种多样的生物来协助你战斗的艺术。", "_t")
 t("summoning (augmentation)", "召唤(增益)", "talent type")
 t("The art of manipulating the lifespan and location of your summons.", " 操纵召唤物寿命和位置的战斗艺术。", "_t")
 t("summoning (advanced)", "高级召唤", "talent type")
@@ -27845,7 +27845,7 @@ t([[You now substitute %d%% of your Mental Save for %d%% of your Physical and Sp
 t("Clarity", "唯我论：明晰", "talent name")
 t([[For every percent that your Psi pool exceeds %d%%, you gain 1%% global speed (up to a maximum of %+d%%).
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25 and will increase your solipsism threshold by 10%% (currently %d%%).]], [[当你的灵能值超过 %d%% 时，每超过 1%% 你增加 1%% 全局速度（最大值 %+d%% ）。
-		学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限），增加你 10%% 唯我临界点（当前 %d%% ）。]], "tformat")
+		学习此技能时，每点意志会额外增加 0.5 点灵能值上限，而每点体质会减少 0.25 点生命上限，增加你 10%% 唯我临界点（当前 %d%% ）。]], "tformat")
 t("Dismissal", "唯我论：豁免", "talent name")
 t("#TAN##Source# mentally dismisses some damage!", "#TAN##Source#精神上豁免了部分伤害!", "delayedLogMessage")
 t("#TAN#(%d dismissed)#LAST#", "#TAN#（豁免 %d 点伤害）#LAST#", "tformat")
@@ -43078,7 +43078,7 @@ t("Trolls were once seen as little more than beasts or pests, but the orcs train
 t("Some say that the foot of a halfling is lucky to own. Halflings do not take well to those who enquire too forcefully.", "有人说半身人的脚是幸运护身符。对于这一点半身人可并不赞成。", "init.lua load_tips")
 t("The Nargol empire was once the largest force in Maj'Eyal, but a combination of the Spellblaze and orcish attacks have dwindled it into insignificance.", "纳格尔王国曾经是马基埃亚尔最强大的国家。但是经历了魔法大爆炸和兽人的入侵之后他们已经变得无足轻重了。", "init.lua load_tips")
 t("Some of the most powerful undead do not fall easily, and only through extreme persistence can they be put to rest.", "那些最强大的不死族并不是那么容易被打败的，只有通过不懈的战斗才能将它们彻底置于死地。", "init.lua load_tips")
-t("History says little of the ancient race of yeeks that lived in halfling territory, but vanished before the time of the Spellblaze.", "据史书记载，有极少数的古代夺心魔族居住在半身人的国度，不过他们在魔法大爆炸之前就已销声匿迹。", "init.lua load_tips")
+t("History says little of the ancient race of yeeks that lived in halfling territory, but vanished before the time of the Spellblaze.", "历史对居住在半身人领地上的古代夺心魔族记载甚少，他们在魔法大爆炸之前就已销声匿迹。", "init.lua load_tips")
 t("Dwarves are naturally a inquisitive people, but do not enjoy such inquisition turned on them. Most live secretive lives in their closed-off city, the Iron Throne.", "矮人们好管闲事，但他们自己却不喜欢别人来打搅，他们大多数居住在秘密的地下城市——钢铁王座之中。", "init.lua load_tips")
 t("Alchemists can bind gems to armour to grant them magical effects, to protect the wearer or improve their powers. Some commercial alchemists can imbue gems into jewellery.", "炼金术士可以把宝石中的魔法效果附到盔甲上，保护他们或者提高他们的能力。一些高级炼金师还能把宝石制成首饰。", "init.lua load_tips")
 t("The Spellblaze was followed by the Age of Dusk, when disease was rife and civilisation collapsed. Necromancers and fell sorcerers took advantage of the chaos to spread their vile deeds.", "魔法大爆炸之后到来的是黄昏纪，那是一个疫病肆虐文明溃败的时代。死灵法师和一些堕落法师利用当时的混乱来散播他们的恶行。", "init.lua load_tips")

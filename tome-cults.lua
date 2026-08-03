@@ -4764,7 +4764,7 @@ Insanity is a measure of their own dementia and makes them more and more chaotic
 职业特色：#YELLOW#
 - 在治疗时和释放伤害技能时会受到熵反馈，但可以将熵反馈转化成攻击。
 - 撕裂时间线，创造时间裂缝。
-- 解构你敌人的存在，召唤出可怕的帮手。
+- 解构你敌人的存在，召唤出可怕的敌人来对付他们。
 - 操纵预言的线索。#WHITE#
 
 熵教徒使用疯狂值来释放他们的特殊能力。
@@ -4792,7 +4792,7 @@ Race features:#YELLOW#
 
 你已经了解了德瑞姆的起源，你现在可以创造新的#LIGHT_GREEN#德瑞姆#WHITE#角色！
 
-职业特色： #YELLOW#
+种族特色： #YELLOW#
 - 进入狂热状态，使技能不进入冷却
 - 让黑血溅到攻击你的人身上
 - 可以学会召唤一个恐魔！
