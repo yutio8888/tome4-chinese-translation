@@ -8220,7 +8220,7 @@ section "mod-tome/data/general/npcs/horror-corrupted.lua"
 t("horror", "恐魔", "entity type")
 t("corrupted", "腐化", "entity subtype")
 t("drem", "德瑞姆", "entity name")
-t("A small faceless humanoid with vaguely Dwarven features.  Its waraxe and shield look battered, rusted, and generally in ill repair.", "一个没有面孔、身材矮小且带有部分矮人特征的人形怪物。它的战斧和盾牌看起来又锈又钝，几乎从未修理过。", "_t")
+t("A small faceless humanoid with vaguely Dwarven features.  Its waraxe and shield look battered, rusted, and generally in ill repair.", "一个没有面孔、身材矮小且带有部分矮人特征的人形怪物。它的战斧和盾牌看起来破旧、生锈，几乎从未修理过。", "_t")
 t("dremling", "德瑞姆亚种", "entity name")
 t("A giant black-skinned humanoid covered in spikey scabrous deposits.  Its face is featureless; its eyesockets, empty and hollow.", "皮肤粗糙且长有角质骨刺的黑色巨人。它的脸没有五官；眼窝空空荡荡。", "_t")
 t("drem master", "德瑞姆领主", "entity name")
@@ -20232,12 +20232,12 @@ section "mod-tome/data/quests/keepsake.lua"
 
 t("Keepsake", "往昔信物", "_t")
 t("You have begun to look for a way to overcome the curse that afflicts you.", "你开始寻求方法以驱除一直困扰着你的诅咒。", "_t")
-t("You have found a small iron acorn which you keep as a reminder of your past.", "你找到了一个小小的铁质橡果，似乎可以让你回想起以前的往事。", "_t")
+t("You have found a small iron acorn which you keep as a reminder of your past.", "你找到了一个小小的铁质橡果，将它保留下来，作为对过去的提醒。", "_t")
 t("You have destroyed the merchant caravan that you once considered family.", "你摧毁了那个你曾经视作家人的商队。", "_t")
 t("Kyless, the one who brought the curse, is dead by your hand.", "克里斯，那个曾经为你带来诅咒的人，死在了你的手上。", "_t")
 t("Berethh is dead, may he rest in peace.", "贝里斯已死，但愿他能安息。", "_t")
 t("Your curse has changed the iron acorn which now serves as a cruel reminder of your past and present.", "你的诅咒使铁橡果成为了使你回忆起残酷过去和现实的信物。", "_t")
-t("You have found a small iron acorn which you keep as a reminder of your past", "你找到了一个小小的铁质橡果，似乎可以让你回想起以前的往事。", "_t")
+t("You have found a small iron acorn which you keep as a reminder of your past", "你找到了一个小小的铁质橡果，将它保留下来，作为对过去的提醒。", "_t")
 t("Your curse has defiled the iron acorn which now serves as a reminder of your vile nature.", "你的诅咒污浊了铁橡果，它成为了使你回想起你卑劣本性的信物。", "_t")
 t("#LIGHT_GREEN#You need to find Berethh, the last person who may be able to help you.", "#LIGHT_GREEN#你得找到贝里斯，也许他是最后一个可以帮助你的人。", "_t")
 t("#LIGHT_GREEN#Seek out Kyless' cave in the northern part of the meadow and end him. Perhaps the curse will end with him.", "#LIGHT_GREEN#找出位于草原北部的克里斯的洞穴，然后杀掉他，他的死也许会解除这个诅咒。", "_t")
@@ -20271,7 +20271,7 @@ t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "�
 t("They were trying to bring it back into the world using a human sacrifice.", "他们试图用献祭活人来召唤恶魔到这个世界上。", "_t")
 t("You defeated the acolytes and saved the woman. She told you she is the daughter of a rich merchant of Last Hope.", "你打败了那些侍僧并救下了这个女人。她告诉你，她是最后的希望城中一位富商的女儿。", "_t")
 t("You failed to protect her when escorting her out of the crypt.", "你没能成功地将她护送出这个地穴。", "_t")
-t("You failed to defeat the acolytes in time - the woman got torn apart by the demon growing inside her.", "你没能及时杀死那些侍僧，那个女人被从她体内召唤出的恶魔撕成了碎片。", "_t")
+t("You failed to defeat the acolytes in time - the woman got torn apart by the demon growing inside her.", "你没能及时杀死那些侍僧，那个女人被在她体内成长的恶魔撕成了碎片。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/quests/lichform.lua"
@@ -20521,8 +20521,8 @@ The fortress's current energy level is: #LIGHT_GREEN#%d#WHITE#.", "\
 t("Fortress Shadow", "堡垒之影", "_t")
 t("Master, you have sent enough energy to improve your rod of recall. Please return to the fortress.", "主人，你已经收集了足够升级回归之杖的能量。请尽快回到堡垒来。", "_t")
 t([[Master, you have sent enough energy to activate the exploratory farportal.
-However, there seems to be a disturbance in that room. Please return as soon as possible.]], [[主人，你已经收集了足够启动探索用远古传送门的能量。
-然而，在那个房间里引发了一些骚动。请尽快回来。]], "_t")
+However, there seems to be a disturbance in that room. Please return as soon as possible.]], [[主人，你已经注入了足够启动探索用远古传送门的能量。
+然而，那个房间里似乎有些异动。请尽快回来。]], "_t")
 t("The energy is too low. It needs to be at least 15.", "能量过低，至少需要15点能量。", "_t")
 t("#VIOLET#Your rod of recall glows brightly for a moment.", "#VIOLET#你的回归之杖短暂地闪耀起来。", "log")
 t("The energy is too low. It needs to be at least 25.", "能量过低，至少需要25点能量。", "_t")
@@ -31231,8 +31231,8 @@ t([[Surround yourself with a malevolent aura that stores damage you deal.
 
 		Each effect can only happen once per 10 player turns.  This does not count as a typical cooldown.
 		The damage and effect power increase with your Cunning, the threshold with your level, and the apply power is the highest of your mind or spell power.
-		%s]], [[你被灾厄光环笼罩，存储你造成的元素伤害。
-		当你积累的元素伤害达到 %d 时，你会向一个随机的敌人发射一次强力的爆炸，造成 %d 的该类型伤害，爆炸半径 %d 码，并对其中的敌人附加以下的附加效果：
+		%s]], [[你被灾厄光环笼罩，存储你造成的伤害。
+		当你积累的某类伤害达到 %d 时，你会向一个随机的敌人发射一次强力的爆炸，造成 %d 的该类型伤害，爆炸半径 %d 码，并对其中的敌人附加以下的附加效果：
 		物理：降低 20%% 攻击、施法和精神速度
 		#GREEN#酸性 :#LAST#  每回合受到 %d 酸性伤害，持续 5 回合(总计 %d)。
 		#DARK_GREEN#枯萎 :#LAST#  每回合受到 %d 枯萎伤害，力量、体质和敏捷减少 %d ，持续 5 回合
@@ -31269,7 +31269,7 @@ t([[Surround yourself with an elemental aura that stores damage you deal.
 		Each effect can only happen once per 10 player turns.  This does not count as a typical cooldown.
 		The damage and some effect powers increase with your Cunning and the threshold with your level.
 		%s]], [[你被元素光环笼罩，存储你造成的元素伤害。
-		当你积累的元素伤害达到 %d 时，你会向一个随机的敌人发射一次强力的爆炸，造成 %d 的该类型伤害，爆炸半径 %d 码，并对你自己附加以下的附加效果：
+		当你积累的某类伤害达到 %d 时，你会向一个随机的敌人发射一次强力的爆炸，造成 %d 的该类型伤害，爆炸半径 %d 码，并对你自己附加以下的附加效果：
 
 		物理 ：清除 1 个物理负面特效并给予 2 回合物理负面特效豁免。
 		#PURPLE#奥术 :#LAST# 增加你的精神和施法速度 30%% ，持续 3 回合。
@@ -34577,7 +34577,7 @@ Race features:#YELLOW#
 - Stun resistance
 - Fear immunity
 - Special ghoul talents: ghoulish leap, gnaw and retch#WHITE#
-]], [[食尸鬼是不死亡灵。通常是被死灵法师召唤出来的无脑随从。不过有些食尸鬼设法保留了他们的意识并走向这个混乱的世界。
+]], [[食尸鬼是不死亡灵。通常是被死灵法师召唤出来的无脑随从。不过有些食尸鬼设法保留了他们的意识，在世界上留下一条燃烧的毁灭之路。
 你杀死了主人，一个恶毒的不死亡灵。现在你在创建人物时可以选择新的种族： #LIGHT_GREEN# 食尸鬼 #WHITE#。
 
 种族特色： #YELLOW#
