@@ -39026,7 +39026,7 @@ t("Corrupt", "腐化", "_t")
 section "mod-tome/data/zones/mark-spellblaze/npcs.lua"
 
 t("Grand Corruptor", "大腐化者", "entity name")
-t("An Elven corruptor, drawn to these blighted lands.", "一位堕落精灵，他生活在这片荒芜大陆上。", "_t")
+t("An Elven corruptor, drawn to these blighted lands.", "一位精灵腐化者，被这片枯萎之地所吸引。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/mark-spellblaze/objects.lua"
@@ -40168,7 +40168,7 @@ t("An archmage specializing in lightning magic.", "一位精通闪电法术的�
 ------------------------------------------------
 section "mod-tome/data/zones/town-angolwen/objects.lua"
 
-t("lecture on humility", "有关人性的手记", "entity subtype")
+t("lecture on humility", "关于谦逊的讲座", "entity subtype")
 t("Lecture on Humility by Archmage Linaniil", "大法师莱娜尼尔关于谦卑的演讲", "entity name")
 t("Lecture on Humility by Archmage Linaniil. A tale of the first ages and the Spellblaze.", "大法师莱娜尼尔关于谦卑的演讲。这是有关过去的时代和魔法大爆炸的传说。", "_t")
 t("magic teaching", "魔法教学", "entity subtype")
@@ -40325,7 +40325,7 @@ t("humanoid", "人形生物", "entity type")
 t("yeek", "夺心魔", "entity subtype")
 t("Catch @himher@!", "抓住@himher@!", "_t")
 t("yeek mindslayer", "夺心魔心灵杀手", "entity name")
-t("A mindslayer in training.", "一名正在训练的夺心魔杀手。", "_t")
+t("A mindslayer in training.", "一名正在训练中的心灵杀手。", "_t")
 t("yeek psionic", "夺心魔灵能力者", "entity name")
 t("You can literaly feel the mental energies emitted by this yeek.", "你可以感受到这名夺心魔周围的能量。", "_t")
 t("gem crafter", "珠宝匠", "entity name")
@@ -40451,7 +40451,7 @@ t("Herk's Cutting Edge", "赫克武器店", "entity name")
 t("Yulek's Tools of the Night", "约勒克黑夜工具店", "entity name")
 t("Vortal's Trees Choppers", "沃塔尔刀斧店", "entity name")
 t("Raber's Blunt Paradise", "雷柏钝器天堂", "entity name")
-t("Dala's Far Reaching Implements", "达拉远古工具店", "entity name")
+t("Dala's Far Reaching Implements", "达拉远及工具店", "entity name")
 t("Sarah's Herbal Infusions", "萨拉的草本纹身店", "entity name")
 t("Sook's Runes and other Harmless Contraptions", "苏克符文道具店", "entity name")
 t("Library", "图书馆", "entity name")
@@ -40473,7 +40473,7 @@ t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Ben Cruthdar, the Cursed", "被诅咒者本·克鲁塞达尔", "entity name")
 t([[This madman looks extremely dangerous. He wields a big axe and means to use it.
-A gloomy aura emanates from him.]], "这个疯子看起来相当危险。他手持巨斧并精通战技。黑暗光环从他身上向周围扩散。", "_t")
+A gloomy aura emanates from him.]], "这个疯子看起来极其危险。他手持一把巨斧，而且真的打算用它。黑暗光环从他身上向周围扩散。", "_t")
 t("lumberjack", "伐木工", "entity name")
 t("A lumberjack. Cutting wood is his job, dream and passion.", "一名伐木工。伐木是他的工作，梦幻而激情。", "_t")
 
@@ -40501,13 +40501,13 @@ section "mod-tome/data/zones/town-point-zero/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Catch @himher@!", "抓住@himher@!", "_t")
-t("guardian of reality", "时空守卫", "entity name")
-t("A stern-looking guardian, ever vigilant against the threats of the paradox.", "一名严肃的守卫，他时刻警惕着对零点圣域的威胁。", "_t")
+t("guardian of reality", "现实守卫", "entity name")
+t("A stern-looking guardian, ever vigilant against the threats of the paradox.", "一名神情严肃的守卫，时刻警惕着悖论的威胁。", "_t")
 t("elemental", "元素", "entity type")
 t("void", "虚空", "entity subtype")
 t("Losgoroth are mighty void elementals, native to the void between the stars; they are rarely seen on the planet's surface.", "洛斯格罗斯是强大的虚空生物，居住于群星之间的星空中。在星球表面几乎看不到这种生物。", "_t")
 t("monstrous losgoroth", "大型洛斯格罗斯", "entity name")
-t("Zemekkys, Grand Keeper of Reality", "伊莫克斯·时空守护者", "entity name")
+t("Zemekkys, Grand Keeper of Reality", "伊莫克斯，现实至高守护者", "entity name")
 t("shalore", "永恒精灵", "entity subtype")
 t("A timeless elf stands before you. Even though his age is impossible to determine, you feel he has seen many things.", "一位中年精灵站在你面前，岁月不曾在其脸上留下痕迹。尽管你不知道他活了多久，但是你仍能感到他已经遍览世间万物。", "_t")
 t("horror", "恐魔", "entity type")
@@ -40575,7 +40575,7 @@ t("Shatur", "夏特尔", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/town-zigur/grids.lua"
 
-t("Zigur Postsign", "伊格的岗哨", "entity name")
+t("Zigur Postsign", "伊格路标", "entity name")
 t("The laws of the Ziguranth", "伊格兰斯的规则", "_t")
 t("lava pit", "熔岩矿坑", "entity name")
 t("cultivated fields", "耕地", "entity name")
@@ -40590,7 +40590,7 @@ t("open gate", "敞开的大门", "entity name")
 section "mod-tome/data/zones/town-zigur/npcs.lua"
 
 t("Grand Corruptor", "大腐化者", "entity name")
-t("An Elven corruptor, drawn to these blighted lands.", "一位堕落精灵，他生活在这片荒芜大陆上。", "_t")
+t("An Elven corruptor, drawn to these blighted lands.", "一位精灵腐化者，被这片枯萎之地所吸引。", "_t")
 t("Protector Myssil", "守护者米歇尔", "entity name")
 t("halfling", "半身人", "entity subtype")
 t("A Halfling Ziguranth, clad in dark steel plates. She is the current leader of Zigur.", "一名身穿黑色板甲的半身人伊格兰斯。她是伊格目前的首领。", "_t")
@@ -40746,7 +40746,7 @@ t("#VIOLET#You have learned the talent Confusion.", "#VIOLET#你学会了技能�
 t("wall", "墙壁", "entity type")
 t("floor", "地板", "entity subtype")
 t("glowing door", "发光的门", "entity name")
-t("#VIOLET#You must achieve Enlightenment before you can pass. Seek ye to the west to discover the ancient art of Shoving Stuff.", "#VIOLET#你必须完成地下城启蒙成就才能通过。往西部寻找古代宝物：冲击法杖。", "logPlayer")
+t("#VIOLET#You must achieve Enlightenment before you can pass. Seek ye to the west to discover the ancient art of Shoving Stuff.", "#VIOLET#你必须先达到“启蒙”境界才能通过。前往西方，探寻古老的“推物之术”。", "logPlayer")
 t("sealed door", "被封印的门", "entity name")
 
 ------------------------------------------------
@@ -40755,7 +40755,7 @@ section "mod-tome/data/zones/tutorial-combat-stats/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Nain the Guide", "指引者耐恩", "entity name")
-t("A pitchfork-wielding human with a welcoming smile.", "一名带着微笑留着扫把头的人类。", "_t")
+t("A pitchfork-wielding human with a welcoming smile.", "一名手持草叉、面带友善微笑的人类。", "_t")
 t("skeleton mage", "骷髅法师", "entity name")
 t("half-dead forest troll", "半死的森林巨魔", "entity name")
 t([[Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.
@@ -40774,7 +40774,7 @@ t("Troll", "巨魔", "entity name")
 t("Ugly troll", "丑陋的巨魔", "entity name")
 t("Gross troll", "粗野的巨魔", "entity name")
 t("Ghastly troll", "可怕的巨魔", "entity name")
-t("Forum troll", "高等巨魔", "entity name")
+t("Forum troll", "论坛巨魔", "entity name")
 t("Pushy elf", "冲动的精灵", "entity name")
 t("Blustering elf", "狂暴的精灵", "entity name")
 t("Breezy elf", "活泼的精灵", "entity name")
@@ -40783,14 +40783,14 @@ t("spider", "蜘蛛", "entity subtype")
 t("Arachnophobia...", "我有蜘蛛恐惧症……", "_t")
 t("giant spider", "巨型蜘蛛", "entity name")
 t("A huge arachnid.", "一只巨大的蛛形纲生物。", "_t")
-t("chittering spider", "肥胖的蜘蛛", "entity name")
-t("A huge, chittering arachnid.", "一只巨大的肥胖蜘蛛。", "_t")
+t("chittering spider", "吱吱叫的蜘蛛", "entity name")
+t("A huge, chittering arachnid.", "一只巨大的、吱吱叫的蛛形生物。", "_t")
 t("hairy spider", "毛蜘蛛", "entity name")
 t("A huge, hairy arachnid.", "一只巨大的毛蜘蛛。", "_t")
 t("Bored elf", "无聊的精灵", "entity name")
 t("Idle elf", "懒惰的精灵", "entity name")
 t("Loitering elf", "流浪的精灵", "entity name")
-t("Dull-eyed orc", "笨拙的兽人", "entity name")
+t("Dull-eyed orc", "眼神呆滞的兽人", "entity name")
 t("Keen-eyed orc", "敏锐的兽人", "entity name")
 
 ------------------------------------------------
@@ -40803,7 +40803,7 @@ t("Amulet of Mindpower (+3)", "精神强度之项链（+3）", "entity name")
 t("Glittering amulet.", "闪光的项链。", "_t")
 t("A beautiful amulet that increases your Mindpower by 3.", "可以提高你3点精神强度的项链。", "_t")
 t("Helmet of Accuracy (+6)", "命中之头盔（+6）", "entity name")
-t("Hard-looking helmet.", "难看的头盔。", "_t")
+t("Hard-looking helmet.", "坚硬的头盔。", "_t")
 t("A finely-wrought helmet that increases your Accuracy by 6.", "一只可以提高你6点命中的精工头盔。", "_t")
 t("Ring of Mental Save (+6)", "精神豁免之戒指（+6）", "entity name")
 t("Smooth ring.", "光滑的戒指。", "_t")
@@ -41025,7 +41025,7 @@ t("#00FFFF#You read the tome and learn about ancient forgotten fire magic!", "#0
 t("#00FFFF#You read the tome and perfect your mastery of fire magic!", "#00FFFF#你阅读了那本册子，完善了对火系魔法的掌握！", "logPlayer")
 t("Tome of Uttercold", "冰之书", "entity name")
 t("frozen book", "冰冻的书", "_t")
-t("This huge book is covered in slowly shifting patterns of ice. Yet they do not harm you.", "这本巨大的书本被无尽的雪花所围绕。但它们不会伤害你。", "_t")
+t("This huge book is covered in slowly shifting patterns of ice. Yet they do not harm you.", "这本巨大的书覆盖着缓缓流动的冰纹。但它们并不会伤害你。", "_t")
 t("#00FFFF#You read the tome and learn about ancient forgotten ice magic!", "#00FFFF#你阅读了那本册子，学会了已被遗忘的古老冰系魔法！", "logPlayer")
 t("#00FFFF#You read the tome and perfect your mastery of ice magic!", "#00FFFF#你阅读了那本册子，完善了对冰系魔法的掌握！", "logPlayer")
 t("draft note", "草稿笔记", "entity name")
@@ -41135,7 +41135,7 @@ t("Backdoor to the Vor Armoury", "沃尔军工厂后门", "entity name")
 t("Entrance into the sandpit of Briagh", "布莱亚沙坑入口", "entity name")
 t("Cavern leading to the valley of the moon", "通向月之山谷的洞穴", "entity name")
 t("A way into the caverns of Ardhungol", "通向阿尔德胡格洞穴的路", "entity name")
-t("The arid wastes of Erúan", "艾露安·腐化之地", "entity name")
+t("The arid wastes of Erúan", "艾露安的干旱荒原", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/zones/wilderness/zone.lua"
@@ -41256,7 +41256,7 @@ t("I want to help!", "我想要帮忙！", "_t")
 t("Dismiss", "放弃", "_t")
 t("Birth Options", "角色创建设置", "_t")
 t("Confirm", "确认", "_t")
-t("Apply the selected cosmetics to %s?", "确认%s选择的自定义外观？", "tformat")
+t("Apply the selected cosmetics to %s?", "将所选的外观应用到%s身上？", "tformat")
 
 ------------------------------------------------
 section "mod-tome/dialogs/CharacterSheet.lua"
@@ -41281,7 +41281,7 @@ t([[Values #00FF00#in brackets ( )#LAST# show changes made from last character s
 Keyboard: #00FF00#'u'#LAST# to save character dump. #00FF00#TAB key#LAST# to switch between tabs.
 Mouse: Hover over stat for info
 ]], [[括弧#00FF00#( )#LAST#内显示的是与最近一次载入角色面板属性值属性的变化。
-按键盘(#00FF00#d#LAST#)键来保存角色资料，按(#00FF00#TAB#LAST#)键在各分类面板中切换。
+按键盘(#00FF00#u#LAST#)键来保存角色资料，按(#00FF00#TAB#LAST#)键在各分类面板中切换。
 鼠标滑动查看数据。
 ]], "_t")
 t("days", "天", "_t")
@@ -41412,7 +41412,7 @@ t("All damage    : #00ff00#%s", "所有伤害    ：#00ff00#%s", "tformat")
 t("vs ", "对", "_t")
 t([[#GOLD#Restance Penetration#LAST#
 Ability to reduce opponent resistances to your damage]], [[#GOLD#抗性穿透#LAST#
-降低对手对你造成的伤害的抗性。]], "_t")
+降低对手对你伤害的抗性的能力。]], "_t")
 t("#LIGHT_BLUE#Damage penetration:", "#LIGHT_BLUE#抗性穿透：", "_t")
 t("#LIGHT_BLUE#Additional Melee Damage:", "#LIGHT_BLUE#近战附加伤害：", "_t")
 t("#LIGHT_BLUE#Additional Ranged Damage:", "#LIGHT_BLUE#远程附加伤害：", "_t")
@@ -41729,7 +41729,7 @@ Default target is always either one of:
  - The last creature hovered by the mouse
  - The last attacked creature
  - The closest creature]], [[自动选择目标。使用技能、装备等时不再要求指定目标。
-#LIGHT_RED#注意：这非常危险。#WHITE#
+#LIGHT_RED#注意：这非常危险。除非你确切知道自己在做什么，否则不要启用。#WHITE#
 
 默认目标会遵循以下规则选择：
  - 最后一个鼠标划过的目标。
@@ -41796,10 +41796,9 @@ A full exit and restart of the game is neccessary to apply this setting.#{normal
 - 用户信息：不能登录或者注册。
 - 角色备份：不能在te4.org上保存你的角色信息(用来给其他人分享你的炫酷角色)。
 - 物品仓库：不能访问你的在线物品仓库(包括存入和取回)。
-- 游戏内聊天：聊天要联网, 谢谢。
-- 氪金福利：联网才能获取你的氪金状态。
-- 扩展包&DLC：和氪金状态一样, 无法获取DLC的购买状态。
-- 便捷的插件安装：无法在游戏内看见插件列表, 但是你还可以手动安装插件。
+- 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
+- 购买者/捐助者福利：基础游戏免费，公平发放捐助者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
+- 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。
 - 插件版本更新：无法更新插件的版本。
 - Steam：无法使用Steam相关的任何功能。
 - Discord：无法同步到Discord的实时状态。
@@ -41968,7 +41967,7 @@ t("Inscriptions", "刻印", "_t")
 t("You have learnt all the inscription slots you could.", "你已经解锁了所有的刻印位。", "_t")
 t("You can learn %d new slot(s). Do you wish to buy one with one category point?", "您可以解锁 %d 个新的刻印位。你希望用 1 个技能树解锁点解锁 1 个刻印位吗", "tformat")
 t("Category points: %s", "技能树解锁点：%s", "tformat")
-t("You can still learn %d new slot(s) but you need a category point.", "你还可以学习 %d 个新的刻印位，但是你需要一个大系点来学习", "tformat")
+t("You can still learn %d new slot(s) but you need a category point.", "你还可以学习 %d 个新的刻印位，但你需要一个技能树点数。", "tformat")
 t("Stats: %s", "属性: %s", "tformat")
 t("Class points: %s", "职业点：%s", "tformat")
 t("Generic points: %s", "通用点：%s", "tformat")
@@ -41996,11 +41995,11 @@ t("Shrug off criticals chance: ", "暴击摆脱率：", "_t")
 t("Class powers:", "职业能力：", "_t")
 t("Talent Category", "技能树", "_t")
 t([[A talent category contains talents you may learn. You gain a talent category point at level 10, 20 and 34. You may also find trainers or artifacts that allow you to learn more.
-A talent category point can be used either to learn a new category or increase the mastery of a known one.]], "一个技能树包括一些你可以学习的技能。你分别在等级达到 10、 20、 34 级时可以获得一个技能分类点数，你也能在游戏中找到技能训练师来学习更多技能。每一点技能分类点数可以解锁一个未知的技能树或者强化一个已知的技能树。", "_t")
+A talent category point can be used either to learn a new category or increase the mastery of a known one.]], "一个技能树包含你可以学习的技能。你会在 10、20 和 34 级时各获得一个技能树点数，也可以找到训练师或神器来学习更多。每一点技能树点数可以用来学习一个新的技能树，或者提升一个已知技能树的熟练度。", "_t")
 t("Generic talent tree", "通用技能树", "_t")
-t("A generic talent allows you to perform various utility actions and improve your character. It represents a skill anybody can learn (should you find a trainer for it). You gain one point every level (except every 5th level). You may also find trainers or artifacts that allow you to learn more.", "一个通用技能树可以为你的角色增加一些实用的技能。这些技能所有人都可以学习（只要你受到过相应的训练或者能找到对应的训练师）。你每升 1 级可以获得一个通用技能点数（每第 5 级时除外），你可以找到不同的训练师学习更多通用技能。", "_t")
+t("A generic talent allows you to perform various utility actions and improve your character. It represents a skill anybody can learn (should you find a trainer for it). You gain one point every level (except every 5th level). You may also find trainers or artifacts that allow you to learn more.", "通用技能让你能够执行各种实用动作并强化角色。它代表任何人都能学习的技能（只要能找到训练师）。你每升 1 级获得一点通用技能点（每第 5 级除外），也可以通过训练师或神器获得更多。", "_t")
 t("Class talent tree", "职业技能树", "_t")
-t("A class talent allows you to perform new combat moves, cast spells, and improve your character. It represents the core function of your class. You gain one point every level and two every 5th level. You may also find trainers or artifacts that allow you to learn more.", "职业技能树可以让你学习到与你选择的职业相关的一些战斗、施法和强化角色的技能。每升 1 级可以获得 1 点职业技能点数，每升第 5 级时获得 2 点职业技能点数，你也可以找到训练师来学习更多的职业技能。", "_t")
+t("A class talent allows you to perform new combat moves, cast spells, and improve your character. It represents the core function of your class. You gain one point every level and two every 5th level. You may also find trainers or artifacts that allow you to learn more.", "职业技能让你能够施展新的战斗招式、施放法术并强化角色。它代表你职业的核心功能。你每升 1 级获得一点职业技能点，每第 5 级获得两点，也可以通过训练师或神器获得更多。", "_t")
 t("This talent was recently learnt; you can still unlearn it.", "你刚在此技能上加点，你还可以遗忘它。", "_t")
 t("The last %d %s talents you learnt are always unlearnable.", "你总是可以移除最近的 %d 点%s 技能点。", "tformat")
 t(" generic", " 通用", "_t")
@@ -42135,7 +42134,7 @@ t("Open profile(in browser)", "打开用户信息（在浏览器里打开）", "
 t("Report for bad behavior", "举报不良行为", "_t")
 t("Open charsheet(in browser)", "打开角色信息（在浏览器里打开）", "_t")
 t("User: ", "用户：", "tformat")
-t("Action", "行为", "_t")
+t("Action", "动作", "_t")
 t("Ignore user", "无视用户", "_t")
 t("Really ignore all messages from: %s", "确认忽略所有来自%s的消息", "tformat")
 t("Reason to report: %s", "举报原因：%s", "tformat")
@@ -42345,7 +42344,7 @@ t("Use Talents: %s", "技能设定：%s", "tformat")
 t([[You can bind a non-passive talent to a hotkey by pressing the corresponding hotkey while selecting a talent or by right-clicking on the talent.
 Check out the keybinding screen in the game menu to bind hotkeys to a key (default is 1-0 plus control, shift, or alt).
 Right click or press '~' to configure talent confirmation and automatic use.
-]], [[你可以将一个非被动技能绑定至相应的快捷键，通过右键点击技能来进行设置。
+]], [[你可以通过选中技能时按下对应快捷键，或右键点击技能，将非被动技能绑定到快捷键上。
 仔细检查一下游戏菜单中关于快捷键绑定的设置（默认情况下的快捷键是0～9以及Ctrl、Shift与数字组合键）。
 点击右键或者'*'键来设置。
 ]], "_t")
@@ -42438,7 +42437,7 @@ t("Accept", "接受", "_t")
 t("Cancel", "取消", "_t")
 t("#LIGHT_BLUE#AdvanceActor inputs: %s", "#LIGHT_BLUE#升级角色 输入: %s", "log")
 t("%s #GOLD#Forcing all Base Stats to %s", "%s #GOLD#正在将所有基础属性值设置为 %s", "log")
-t("%s #GOLD#Resetting all talents_types_mastery to %s", "%s #GOLD#正在将所有技能树系数设置为 to %s", "log")
+t("%s #GOLD#Resetting all talents_types_mastery to %s", "%s #GOLD#正在将所有技能树系数重置为 %s", "log")
 t("%s #GOLD#Unlocking All Talent Types", "%s #GOLD#正在解锁所有技能树", "log")
 t("#GOLD#Checking %s Talents (%s)", "#GOLD#检查 %s 技能 (%s)", "log")
 t("#LIGHT_BLUE#Talent %s learned to level %d", "#LIGHT_BLUE#技能 %s 学习到等级 %d", "log")
@@ -42517,7 +42516,7 @@ t("#LIGHT_BLUE#OBJECT:#LAST# %s%s: #LIGHT_BLUE#[%s] %s {%s, slot %s} at (%s, %s)
 t("Number of items to make", "制作的物品数量", "_t")
 t("Enter 1-100%s", "输入 1-100%s", "tformat")
 t(", or 0 for the example item", ", 或输入0获得样品", "_t")
-t("#LIGHT_BLUE# Creating %d items:", "#LIGHT_BLUE# Creating %d items：", "log")
+t("#LIGHT_BLUE# Creating %d items:", "#LIGHT_BLUE# 正在创建 %d 件物品：", "log")
 t("Ego", "词缀", "_t")
 t("Add an ego enhancement if possible?", "制作一个有词缀的物品么（假如可以的话）？?", "_t")
 t("#LIGHT_BLUE#Created %s", "#LIGHT_BLUE#已制造 %s", "log")
@@ -42709,7 +42708,7 @@ t("The #LIGHT_BLUE#Base Filter#LAST# is to generate a base object for building a
 t("#LIGHT_BLUE#Base Object#LAST#", "#LIGHT_BLUE#基础物品#LAST#", "_t")
 t("#LIGHT_BLUE#Base Filter:#LAST# ", "#LIGHT_BLUE#基础筛选器:#LAST# ", "_t")
 t("#SALMON#Resolver selected:#LAST# ", "#SALMON#选定的解析器:#LAST# ", "tformat")
-t("An object resolver interprets additional filter fields to generate an object and determine where it will go.", "物品解析器将会用于在生成物品的时候解析物品的附加字段，并决定附加字段的结果。", "_t")
+t("An object resolver interprets additional filter fields to generate an object and determine where it will go.", "物品解析器解释附加的过滤字段以生成物品，并决定它将被放入何处。", "_t")
 t("Dropdown text", "下拉文字", "_t")
 t("No Tooltip", "没有提示", "_t")
 t("Use this selector to choose which resolver to use", "使用这个选项选择想要使用的解析器。", "_t")
@@ -42730,7 +42729,7 @@ t("#LIGHT_BLUE#Lua Inspect [%s] %s", "#LIGHT_BLUE#Lua 检查 [%s] %s", "log")
 t("#LIGHT_BLUE#Nothing to Lua inspect", "#LIGHT_BLUE#没有用于Lua检查的物品", "log")
 t("#LIGHT_BLUE#Bad %s: %s", "#LIGHT_BLUE#错误的%s: %s", "log")
 t("table definition", "表格定义", "_t")
-t("#LIGHT_BLUE# Generate Random object using resolver: %s", "#LIGHT_BLUE# 使用解析器生成随机物品失败: %s", "log")
+t("#LIGHT_BLUE# Generate Random object using resolver: %s", "#LIGHT_BLUE# 使用解析器生成随机物品: %s", "log")
 t("#LIGHT_BLUE# New random%s object: %s", "#LIGHT_BLUE# 新随机%s 物品: %s", "log")
 t(" (resolver: %s)", " (解析器: %s)", "tformat")
 t("#LIGHT_BLUE#Could not generate a random object with filter: %s", "#LIGHT_BLUE#无法使用以下筛选器生成随机物品: %s", "log")
@@ -42747,7 +42746,7 @@ t([[#LIGHT_BLUE#ERROR generating Randart with data [%s].
  错误:%s]], "log")
 t("#LIGHT_BLUE#No object to add", "#LIGHT_BLUE#没有待添加的物品", "log")
 t([[#LIGHT_BLUE#ERROR accepting object with resolver %s.
- Error:%s]], [[#LIGHT_BLUE#错误物品无法接受该解析器%s。
+ Error:%s]], [[#LIGHT_BLUE#使用解析器%s接受物品时出错。
  错误:%s]], "log")
 t("#LIGHT_BLUE#Working Actor set to [%s]%s at (%d, %d)", "#LIGHT_BLUE#将生成角色设置为[%s]%s 位于(%d, %d)", "log")
 
@@ -42895,7 +42894,7 @@ t([[#{bold}##CRIMSON#WARNING: this is an EXPERIMENTAL feature. It may explode!#L
 Sustains auras with name in #YELLOW#yellow#LAST# can not be automatically turned back on if disabled. After turning them on here, you need to unsustain and resustain them manually.
 
 #{bold}#This is a purely cosmetic change.#{normal}#]], [[#{bold}##CRIMSON#警告：这是一项实验性功能。它随时可能出现问题!#LAST##{normal}#
-显示为#YELLOW#黄色#LAST#的持续技能的光效，如果设置为禁用，不会被自动关闭。在你在这里调整之后，需要手动重启这些持续技能。
+名称显示为#YELLOW#黄色#LAST#的持续技能光环，如果被禁用，将无法自动重新开启。在你在这里调整之后，需要手动重新启用这些持续技能。
 
 #{bold}#这个改变只会带来视觉上的变化。#{normal}#]], "_t")
 t("Donator Cosmetic Feature", "捐赠者时装特性", "_t")
@@ -42911,7 +42910,7 @@ section "mod-tome/dialogs/talents/ChronomancyContingency.lua"
 
 t("Contingency", "意外术", "_t")
 t([[You may select a spell for Contingency to automatically use when your life falls below a percentage.  Only active spells that do not require a target may be chosen.
-]], [[你可以选择一个技能释放意外术。当你受到伤害并使生命值降低到一定百分比以下时，这个技能会被自动释放。
+]], [[你可以为意外术选择一个法术：当你的生命值降到一定百分比以下时，它会自动施放。只能选择无需目标的主动法术。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("#{bold}#Choose a talent#{normal}#", "#{bold}#选择一个技能#{normal}#", "_t")
@@ -43040,7 +43039,7 @@ You are an adventurer, set out to discover wonders, explore old places, and vent
 
 一百年来，钢铁王座的矮人们一直小心谨慎的和联合王国的人类们开展贸易活动，尽管他们的种族为人所知甚少，甚至也不知道他们的统治者姓甚名谁。
 
-尽管马基埃亚尔大陆上的居民都知道是魔法师们帮忙终止了恐怖的魔法大爆炸，但他们也没有忘记正是魔法本身造成了这场灾难。因此尽管大家并没有公然抓捕魔法师，法师们也宁愿避开公众生活。
+尽管马基埃亚尔大陆上的居民都知道是魔法师们帮忙终止了恐怖的魔法大爆炸，但他们也没有忘记正是魔法本身造成了这场灾难。因此法师们遭到排斥，甚至被猎杀，大多数法师宁愿避开公众的视线。
 无论如何，这是个黄金时代，所有的文明在过去数千年中经历的不幸正在好转，甚至人类和半身人之间已经形成了长久的和平。
 
 你是一个冒险者，追寻古老的力量、宝藏和荣耀。你勇敢的踏入被遗忘的大陆、未被开发的森林，和神秘封印的废墟。在这个所谓的和平年代，谁也不知道最终会找到些什么。
@@ -43066,12 +43065,12 @@ t("Some Sher'Tul artifacts can still be found in hidden places, but it is said t
 t("Drakes and wyrms are the strongest natural creatures in the world, capable of powers far beyond most other beings.", "龙与巨龙是这个世界上最强大的自然生物，它们所拥有的力量远在其他生物之上。", "init.lua load_tips")
 t("Giant worms tear open huge passageways through the deserts in the west. It is said great riches lie buried beneath the sand, still decorating the corpses of those who went there seeking great riches.", "西部沙漠中的巨型蠕虫挖掘出了很多巨大的通道。传说在那沙洞深处埋藏着很多诱人的宝物。不过除了宝物之外，更多的便是那些寻宝人的尸体。", "init.lua load_tips")
 t("Arcane Blades employ a fusion of melee and magical combat. Their training is harsh but the most dedicated rise to great powers.", "奥术之刃是一个混合了魔法与近战的职业。他们的训练非常严酷，同时他们的力量也极其强大。", "init.lua load_tips")
-t("Wild infusions call upon the powers of nature to protect the flesh and rid oneself of afflictions.", "野性纹身可以召唤自然的力量来保护你的肉体免于伤害。", "init.lua load_tips")
+t("Wild infusions call upon the powers of nature to protect the flesh and rid oneself of afflictions.", "野性纹身召唤自然之力保护血肉，并驱除自身的不良状态。", "init.lua load_tips")
 t("Shield runes act instantly, letting one protect oneself quickly whilst also preparing to flee or launch a counter attack.", "护盾符文为瞬发技能，可以在你准备逃跑或者反击的同时提供防护。", "init.lua load_tips")
 t("Greater training in the use of armour lets it be used more effectively, blocking more damage and reducing the chance of an enemy hitting a critical spot.", "高级的护甲训练可以有效提高你的防护能力，使你格挡更多伤害并降低你受到致命一击的几率。", "init.lua load_tips")
 t("The Thick Skin talent reduces all incoming damage, letting you survive for longer before needing to heal.", "硬化皮肤技能可以降低所有受到的伤害，让你在能够使用治疗以前存活更长的时间。", "init.lua load_tips")
 t("Regeneration infusions act over several turns, letting you anticipate damage that will be taken and prepare for it.", "恢复纹身的效果持续数个回合，开启后每回合会恢复一定的生命值，使你的战斗更加从容不迫。", "init.lua load_tips")
-t("In the most dire circumstances teleportation can be the best escape, but is not without risk.", "大多数情况下，传送技能是逃命的首选方法，不过也有一定的风险。", "init.lua load_tips")
+t("In the most dire circumstances teleportation can be the best escape, but is not without risk.", "在最危急的时刻，传送可能是最好的逃生手段，但也并非没有风险。", "init.lua load_tips")
 t("The Ziguranth are an ancient order vehemently opposed to magic. Some have become so attuned to nature they can resist arcane forces with their will alone.", "伊格兰斯是一个古老的反魔阵营，他们中的一些人可以依靠自身的意志力来抵抗奥术能量。", "init.lua load_tips")
 t("Records say that giants once lived civilised lives, with mastery of many crafts and sciences. Now, though, they have adopted nomadic cultures, turning hostile against those that encroach on their lands.", "据史书记载，巨人族曾经也有高度发达的文明，掌握着许多手工和科学技术。不过现在他们已经适应了游牧生活，他们会攻击任何试图侵略的敌人。", "init.lua load_tips")
 t("Zigur was founded by escapees of Conclave experiments during the Allure wars between humans and halflings.", "伊格是由厄流纪人类与半身人战争中的孔克雷夫实验逃亡者创立的。", "init.lua load_tips")
