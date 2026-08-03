@@ -119,6 +119,7 @@
 2. ✅ 已处理 2 条 blocker（`303f788`），完成事实核验、译文修订、关联台账和定向验证。
 3. ✅ 已将 565 条 major 按 `component + section + ordinal` 切成有界批次（15 批，每批 40 条）全部处理完毕，优先覆盖机制反转、参数/占位符、伤害类型、触发条件和长篇错配；每批独立提交并逐条记账。
 4. ✅ 已处理 1,053 条 minor 与 68 条 note（1,053/1,053、68/68），队列 `pending` 清零；跨条目术语先走术语库流程，重复运行键在同批同步，但不得无证据全局替换。
+4b. ✅ 与基线（相邻仓库 HEAD `84e5573`，即本分支基线）逐条对比后，发现早期批次约 14 条标记 `applied` 但条目未落盘的遗漏，已全部补修（`5d26960`，tome 8 / ashes 3 / cults 2 / engine 1 及标点统一 1 处），并全量复检确认除有意保留项外无遗漏。
 5. 每批结束后更新 `remediation-queue.json`、`remediation-ledger.json` 和人类可读台账，运行严格 lint 与相关定向测试；涉及公开机制时记录固定 commit，涉及 DLC 时只使用已复制的有界规范 bundle。
 6. 队列清零后运行完整 doctor、lint、39 项测试和核心严格 build，再对最终 diff 生成有界 Pi 复审；只有复审无未处置 finding，才更新为审核闭环完成。
 7. 随后再审定 3 条 `review` 术语、分类 1,717 个重复运行键，并继续 DLC、legacy lore、Nullpack、CI 与发布基线工作。
@@ -140,9 +141,10 @@ python3 -B tools/i18n build --profile addon --require-complete --json
 ## 七、当前分支与工作区范围
 
 - 当前分支：`codex/review-findings-20260802`。
-- 分支相对 `origin/master` 领先 46 个提交：原工具链/术语库/测试批次 10 个，加本轮 finding 处置 36 个（冻结 1 + blocker 1 + major 15 + minor 18 + note 2，minor/note 批次中个别文件合并提交）。
+- 分支相对 `origin/master` 领先 47 个提交：原工具链/术语库/测试批次 10 个，加本轮 finding 处置 37 个（冻结 1 + blocker 1 + major 15 + minor 18 + note 2 + 遗漏补修 1，minor/note 批次中个别文件合并提交）。
 - 本轮 finding 处置涉及文件：`engine.lua`、`mod-tome.lua`、`tome-ashes-urhrok.lua`、`tome-cults.lua`、`tome-orcs.lua`、`tome-addon-dev.lua`、`tome-possessors.lua`、`tome-items-vault.lua`、`mod-boot.lua`、`mod-example.lua`、`mod-example_realtime.lua`。
 - 当前工作区干净（无未提交改动、无已暂存文件）；分支未配置 upstream，提交、推送和发布均尚未执行。
 - 工作树状态快照：`remediation-queue.json` 的 `pending` 为 0（全部处置），`applied_pending_commit` 2,945、`already_resolved` 135；`remediation-ledger.json` 已关联 2,795 条处置记录。
+- 已处置但未改动规范文件的条目（有意保留）共 168 条：`already_resolved` 135（已含修复/与源码一致/术语裁决/代码基线已修复）+ `false_positive` 33（不采纳，原因均记录在台账 `verification_note`）。
 
 上述状态说明核心插件已通过本地发布门槛，首轮全量“发现”已完成并同步到 review 工作树；1,688 条新增 finding 已全部处置（blocker 2/2、major 565/565、minor 1,053/1,053、note 68/68），队列 `pending=0`；下一步按进度第 6 条执行队列清零后的完整 doctor、lint、39 项测试与核心严格 build，再对最终 diff 生成有界 Pi 复审，之后再审定 3 条 `review` 术语并分类 1,717 个重复运行键。DLC 与外部层仍不属于已完成发布范围。
