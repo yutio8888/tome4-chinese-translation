@@ -3488,7 +3488,7 @@ section "tome-cults/data/talents/misc/races.lua"
 
 t("race", "种族技能", "talent category")
 t("drem", "德瑞姆", "talent type")
-t("The various racial bonuses a character can have.", " 多种多样的种族天赋。", "_t")
+t("The various racial bonuses a character can have.", "角色可能拥有的各种种族加成。", "_t")
 t("Frenzy", "狂热", "talent name")
 t([[Enter a killing frenzy for 3 turns.
 		During the frenzy the first time you use a class talent it has no cooldown (but does if used twice).

@@ -58,7 +58,13 @@ from i18nlib.review import (
 )
 from i18nlib.runtime import LuaRuntime
 from i18nlib.snapshot import read_snapshot
-from i18nlib.workset import _plain_source, _relevant_terms, create_workset
+from i18nlib.workset import (
+    _plain_source,
+    _relevant_terms,
+    _resolve_manifest_path,
+    create_workset,
+    validate_workset_items,
+)
 
 
 EMPTY_POLICY = Policy(frozenset(), frozenset(), frozenset())
@@ -464,6 +470,30 @@ output:close()
         self.assertIn('section "dlc%fixture/secret.lua"', extracted)
         self.assertNotIn("i18n_list.lua", extracted)
 
+    def test_lua_broker_rejects_stale_output_on_false_success(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-protected-test-") as temporary:
+            directory = Path(temporary)
+            source = directory / "protected-source"
+            source.mkdir()
+            extractor = directory / "fake-extractor.lua"
+            extractor.write_text("os.exit(0)\n", encoding="utf-8")
+            output = directory / "extracted.lua"
+            output.write_text("stale output", encoding="utf-8")
+            result = self.runtime.run_protected(
+                [
+                    self.broker,
+                    "extract",
+                    extractor,
+                    output,
+                    "dlc-fixture",
+                    source,
+                ],
+                cwd=directory,
+                timeout=30,
+            )
+        self.assertEqual(result.returncode, 24)
+        self.assertFalse(output.exists())
+
 
 class TerminologyTests(unittest.TestCase):
     def test_current_terminology_structure_is_valid(self) -> None:
@@ -749,6 +779,10 @@ class MergeTests(unittest.TestCase):
 
 
 class WorksetTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.manifest = load_manifest()
+
     def test_control_tokens_do_not_trigger_terminology_matches(self) -> None:
         self.assertEqual(
             _plain_source("#LIGHT_BLUE##{underline}#%s#LAST##{normal}#").strip(),
@@ -793,6 +827,24 @@ class WorksetTests(unittest.TestCase):
         self.assertEqual([term["target"] for term in core_terms], ["噩灵"])
         self.assertEqual(core_terms[0]["matched_entry_ids"], ["entity"])
         self.assertEqual([term["target"] for term in dlc_terms], ["惊骇"])
+
+    def test_workset_items_reject_empty_editorial_keys(self) -> None:
+        base = {
+            "entry_id": "unused",
+            "component": "boot",
+            "section": "fixture/dialog.lua",
+            "source": "Source text",
+            "source_tag": "_t",
+        }
+        for field in ("section", "source"):
+            item = {**base, field: ""}
+            with self.subTest(field=field), self.assertRaises(ValidationError):
+                validate_workset_items("boot", [item])
+
+    def test_workset_merge_report_path_must_stay_in_manifest_root(self) -> None:
+        outside = self.manifest.root.parent / "outside-merge-report.json"
+        with self.assertRaisesRegex(ValidationError, "inside the manifest root"):
+            _resolve_manifest_path(self.manifest, outside, "workset merge_report")
 
 
 class ProposalTests(unittest.TestCase):

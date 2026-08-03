@@ -9,11 +9,11 @@ t("Well Seeded", "种子培育专家", "achievement name")
 t("Created 500 demon seeds.", "制造500个恶魔种子。", "_t")
 t("Demonic Party!", "恶魔狂欢！", "achievement name")
 t("Have your party composed of at least 5 demons.", "同时召唤至少5个恶魔。", "_t")
-t("Hell has no fury like a demon scorned!", "地狱逃脱", "achievement name")
+t("Hell has no fury like a demon scorned!", "地狱之怒，不及受辱恶魔！", "achievement name")
 t("Escaped the Searing Halls.", "逃离灼热大厅。", "_t")
 t("Once bitten, twice shy", "一朝被蛇咬，十年怕井绳", "achievement name")
-t("Escaped the Anteroom of Agony.", "逃离痛苦之屋。", "_t")
-t("The Old Ones", "古老神话", "achievement name")
+t("Escaped the Anteroom of Agony.", "逃离了痛苦前厅。", "_t")
+t("The Old Ones", "远古者", "achievement name")
 t("Kill all the three demons that are on Eyal since before the Spellblaze: Shasshhiy'Kaish, Kryl'Feijan and Walrog.", "杀死三个在魔法大爆炸前就来到埃亚尔的古老恶魔：莎西·凯希、卡洛·斐济和乌尔罗格。", "_t")
 t("#LIGHT_GREEN#Shasshhiy'Kaish#LAST#", "#LIGHT_GREEN#莎西·凯希#LAST#", "_t")
 t("Shasshhiy'Kaish", "莎西·凯希", "_t")
@@ -26,7 +26,7 @@ t("Walrog", "乌尔罗格", "_t")
 section "tome-ashes-urhrok/data/birth/corrupted.lua"
 
 t("Doombringer", "毁灭使者", "birth descriptor name")
-t("Weapon in hand and sheathed in flame, a Doombringer is a terrifying force in combat.", "利刃在手，烈焰匿踪，毁灭使者是战斗中的强大力量。", "_t")
+t("Weapon in hand and sheathed in flame, a Doombringer is a terrifying force in combat.", "利刃在手，身披烈焰，毁灭使者是战场上令人胆寒的存在。", "_t")
 t("Doombringers are engines of war, cleaving and burning their way through entire armies.", "毁灭使者是纯粹的战争机器，使用利刃和烈焰直接凿穿敌人的军队。", "_t")
 t("The most powerful Doombringers can harness the full power of their demonic ties and transform themselves into a gigantic demon.", "最强大的毁灭使者可以全面激发恶魔血脉，变身成为巨大的恶魔。", "_t")
 t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
@@ -60,7 +60,7 @@ and then you may witness a new elf's conception...]], [[玛·洛克的恶魔绝�
 新的精灵终将诞生…]], "_t")
 t("Doomelves are not a real race, they are Shaloren that have been taken by demons and transformed into harbingers of doom.", "魔化精灵并不是一个真正的种族，他们曾是永恒精灵，而被恶魔抓去，变为末日的使者。", "_t")
 t("They enjoy unleashing torments and suffering on their victims.", "他们对折磨敌人感到享受。", "_t")
-t("They possess the #GOLD#Haste of the Doomed#WHITE# talent which allows them to phase away once in a while.", "他们具有#GOLD# 加速 #WHITE# 技能，能每隔一段时间让自己脱离相位空间。", "_t")
+t("They possess the #GOLD#Haste of the Doomed#WHITE# talent which allows them to phase away once in a while.", "他们拥有#GOLD#末日加速#WHITE#技能，可以不时脱离相位并传送。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
 t("#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -2 力量, +1 敏捷, +1 体质", "_t")
 t("#LIGHT_BLUE# * +3 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +3 魔法, +2 意志, +0 灵巧", "_t")
@@ -93,7 +93,7 @@ section "tome-ashes-urhrok/data/general/events/demon-statue.lua"
 
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
 t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving no traces.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，没留下一点痕迹。", "logSeen")
-t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a nasty looking %s nearby.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，留下%s站在你面前", "logSeen")
+t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a nasty looking %s nearby.", "#CRIMSON#恶魔空间的力量触及了%s，随后消散，在附近留下了一个面目狰狞的%s。", "logSeen")
 t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a nasty effect upon you.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，留下一个负面效果。", "logPlayer")
 t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a strange effect upon you.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，留下一个奇怪的效果。", "logPlayer")
 t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a strange item behind.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，留下一个奇怪的物品。", "logSeen")
@@ -206,7 +206,7 @@ t("#GREEN#The skull embossed in the ring twists around momentarily. ...Did it ju
 t("Helm of the Dominated", "支配头盔", "entity name")
 t("horned helm", "长角的头盔", "_t")
 t("An experimental helmet designed to enhance the effects of the Doomelf corruption.", "这个头盔是为了提高魔化精灵的能力，而作为实验产品被制造出来。", "_t")
-t("Increases the range of Haste of the Doomed by 1.", "增加种族技能“加速”的范围1码", "_t")
+t("Increases the range of Haste of the Doomed by 1.", "“末日加速”的范围增加 1 格。", "_t")
 t("The Black Crown", "黑之冠", "entity name")
 t("cracked obsidian crown", "破碎的黑曜石头盔", "_t")
 t("\"For the demon who has everything.\"", "魔中之魔，加冕为王", "_t")
@@ -683,7 +683,7 @@ You must find a way to escape, again.
 t("#LIGHT_GREEN#* You have found your way out of the primary ambush.#WHITE#", "#LIGHT_GREEN#* 你找到摆脱面前伏击的方法。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have destroyed Rogroth the Eater of Souls and made your escape possible. Flee!#WHITE#", "#LIGHT_GREEN#* 你已经消灭了罗格洛斯灵魂吞噬者，趁现在赶快逃！#WHITE#", "_t")
 t("#SLATE#* Find a way back to Eyal.#WHITE#", "#SLATE#* 寻找回到埃亚尔大陆的路。#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have escaped the Anteroom of Agony.#WHITE#", "#LIGHT_GREEN#* 你成功地再一次逃离恶魔。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have escaped the Anteroom of Agony.#WHITE#", "#LIGHT_GREEN#* 你已逃离痛苦前厅。#WHITE#", "_t")
 -- untranslated text
 --[==[
 t("#LIGHT_GREEN#* #WHITE#", "#LIGHT_GREEN#* #WHITE#", "_t")
@@ -1386,7 +1386,7 @@ t([[Swing your weapon with incredible force, striking all enemies in a radius %d
 t("Detonating Charge", "爆裂冲锋", "talent name")
 t("You require a two handed weapon and being able to move to use this talent.", "你需要装备一把双手武器且可以移动，才能施展这个技能", "logPlayer")
 t("You can not do that currently.", "目前你不能这样做。", "logPlayer")
-t("You are too close to build up momentum!", "离开目标太近无法施展！", "logPlayer")
+t("You are too close to build up momentum!", "距离目标太近，无法蓄势！", "logPlayer")
 t([[Launch yourself toward a target. If the target is reached you get a free attack doing %d%% weapon damage.
 		If the attack hits you release a massive burst of fire in radius %d, knocking away all enemies except your target and dealing %d damage.
 		You must charge from at least 2 tiles away.]], [[向目标冲锋，如果到达目标位置，则攻击目标造成 %d%% 武器伤害。
@@ -1424,8 +1424,8 @@ section "tome-ashes-urhrok/data/talents/misc/races.lua"
 
 t("race", "种族技能", "talent category")
 t("doomelf", "魔化精灵", "talent type")
-t("The various racial bonuses a character can have.", " 多种多样的种族天赋。", "_t")
-t("Haste of the Doomed", "加速", "talent name")
+t("The various racial bonuses a character can have.", "角色可能拥有的各种种族加成。", "_t")
+t("Haste of the Doomed", "末日加速", "talent name")
 t("You must have an empty space to teleport to.", "你必须寻找一片空地以供传送到。", "logPlayer")
 t([[Hasten yourself out of phase, teleporting you to a specific location up to %d spaces away.
 		You can activate this talent up to twice within the same turn, but the second activation will not be instant.
@@ -1452,7 +1452,7 @@ t([[Your original invisibility talent was corrupted and twisted.
 		- 你获得永久潜行 (强度 %d )
 		- 你的暗影伤害增加 %d%%
 		- 每当你造成超过 %d 点的非物理非精神伤害时，在半径 1 的范围内产生一次暗影爆炸，造成额外 50%% 伤害（每回合至多 1 次）。
-		- 变形时重置种族技能“加速”与种族技能“无情”
+		- 变形时重置种族技能“末日加速”与种族技能“无情”
 		]], "tformat")
 t("Pitiless", "无情", "talent name")
 t([[You launch a mental assault on the target.
@@ -1992,4 +1992,3 @@ Have fun crushing your foes!
 ]], "tformat")
 t(", ", "，", "_t")
 t(" or ", "或", "_t")
-
