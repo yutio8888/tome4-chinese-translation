@@ -4455,7 +4455,7 @@ t([[You build %d micro spiderbot(s) from the earthly elements around you. Spider
 t("Cryogenic Digs", "低温掘进", "talent name")
 t([[Each time a spiderbot expires it digs around, producing either a Glacial Vapour (%0.2f cold damage and doing 30%% more damage to wet targets) or Earthquake (%0.2f physical damage and 25%% chances to stun for 2 turns) of radius 1 that last for %d turns.
 		Those special kinds of Glacial Vapour and Earthquake do not affect the caster.
-		The damage will increase with your Spellpower.]], [[每当一个蜘蛛机器人的持续时间结束时，它会掘地，在周围产生寒霜冰雾（造成 %0.2f 寒冷伤害，对湿润目标额外造成 30%% 伤害）或地震（造成 %0.2f 物理伤害，有 25%% 几率震慑 2 回合），半径为 1，持续 %d 回合。
+		The damage will increase with your Spellpower.]], [[每当一个蜘蛛机器人的持续时间结束时，它会掘地，在周围产生寒霜冰雾（造成 %0.2f 寒冷伤害，对浸湿目标额外造成 30%% 伤害）或地震（造成 %0.2f 物理伤害，有 25%% 几率震慑 2 回合），半径为 1，持续 %d 回合。
 		这些特殊的寒霜冰雾和地震不会影响施法者。
 		伤害随法术强度提高。]], "tformat")
 t("Ramming Bot", "机器人冲撞", "talent name")
@@ -4464,7 +4464,7 @@ t([[Command a random spiderbot to jump onto your target at ramming speed. The im
 		This creates a radius %d explosion dealing %0.2f terrene damage to all creatures while also freezing them for %d turns and rendering them wet for %d turns.
 		The cooldown of this spell is affected by Body of Stone.
 		The damage will increase with your Spellpower.]], [[命令一个随机的蜘蛛机器人以冲撞速度跃向目标。撞击会摧毁机器人（可能触发低温掘进）。
-		这会产生半径为 %d 的爆炸，对所有生物造成 %0.2f 寒岩伤害，同时将它们冻结 %d 回合并使其湿润 %d 回合。
+		这会产生半径为 %d 的爆炸，对所有生物造成 %0.2f 寒岩伤害，同时将它们冻结 %d 回合并使其浸湿 %d 回合。
 		此法术的冷却时间受岩石身躯影响。
 		伤害随法术强度提高。]], "tformat")
 t("Spiderbot Shield", "机器人护盾", "talent name")
@@ -5708,7 +5708,7 @@ t("Boiling Shot", "沸腾射击", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
 t([[Using psionic energies you overheat your shot, making it deal %d%% damage.
 		If the shot hits a wet foe it will vaporize, removing the wet effect and dealing %0.2f fire damage in a radius 4.]], [[使用灵能加热子弹，造成 %d%% 武器伤害。
-		子弹命中处于湿润状态的目标时将气化，除去湿润状态，在半径 4 范围内造成 %0.2f 火焰伤害。
+		子弹命中处于浸湿状态的目标时将气化，除去浸湿状态，在半径 4 范围内造成 %0.2f 火焰伤害。
 		]], "tformat")
 t("Blunt Shot", "迟钝射击", "talent name")
 t("Fire a relatively low-powered shot at a foe doing %d%% weapon damage, if it hits a cone-shaped shockwave of radius 4 emanates from the impact, stunning it and all creatures caught inside for %d turns.", [[发射相对低能量的子弹，造成 %d%% 武器伤害。
