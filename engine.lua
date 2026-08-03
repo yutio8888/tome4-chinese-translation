@@ -111,7 +111,7 @@ t("unarmed", "徒手", "nil")
 t("undead", "亡灵", "nil")
 t("unliving", "非活物", "nil")
 t("unnatural", "非自然生物", "nil")
-t("unseen", "没有看见", "nil")
+t("unseen", "未被看见", "nil")
 t("vilestaff", "邪恶法杖", "nil")
 t("volcanic mountains", "火山山脉", "nil")
 t("war hound", "战争猎犬", "nil")
@@ -161,7 +161,7 @@ t("Show game calendar", "显示游戏内日期", "_t")
 t("Show character sheet", "显示角色面板", "_t")
 t("Switch graphical modes", "切换图形模式", "_t")
 t("Accept action", "确认操作", "_t")
-t("Exit menu", "退出目录", "_t")
+t("Exit menu", "退出菜单", "_t")
 
 ------------------------------------------------
 section "engine/data/keybinds/chat.lua"
@@ -589,7 +589,7 @@ section "engine/engine/dialogs/ChatChannels.lua"
 
 t("Chat channels", "聊天频道", "_t")
 t("Global", "全局", "_t")
-t(" [spoilers]", " [详情]", "_t")
+t(" [spoilers]", " [剧透]", "_t")
 t("Select which channels to listen to. You can join new channels by typing '/join <channelname>' in the talkbox and leave channels by typing '/part <channelname>'", "选择你参与的聊天频道。你可以在聊天框输入指令 '/join <频道名>' 来加入频道，并通过输入指令 '/part <频道名>' 来离开频道。", "_t")
 
 ------------------------------------------------
