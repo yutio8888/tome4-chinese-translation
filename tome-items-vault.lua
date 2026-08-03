@@ -101,7 +101,7 @@ t("Impossible to contact the server, please wait a few minutes and try again.", 
 t("Item's Vault (%d/%d)", "共享仓库 (%d/%d)", "tformat")
 t([[Retrieve an item from the vault. When you place an item in the vault the paradox energies around it are so powerful you must wait one hour before retrieving it.
 	#CRIMSON#Warning: while you *can* retrieve items made with previous versions of the game, no guarantee is given that the universe (or your character) will not explode.]], [[从共享仓库中拿取物品。当你将物品放入共享仓库的时候，会产生强大的悖论能量，你需要等待1小时才能取回它。
-	#CRIMSON#警告: 尽管你 *可以* 取回来自以前游戏版本的物品，没有人保证这不会导致你的游戏（或你的角色）崩溃。]], "_t")
+	#CRIMSON#警告: 尽管你 *可以* 取回来自以前游戏版本的物品，没有人保证宇宙（或你的角色）不会爆炸。]], "_t")
 t("Name", "名称", "_t")
 t("Usable", "可用", "_t")
 t("#LIGHT_GREEN#Yes", "#LIGHT_GREEN#是", "_t")
@@ -120,7 +120,7 @@ t("Impossible to contact the server, please wait a few minutes and try again.", 
 t("Item's Vault (%d/%d)", "共享仓库 (%d/%d)", "tformat")
 t([[Retrieve an item from the vault. When you place an item in the vault the paradox energies around it are so powerful you must wait one hour before retrieving it.
 	#CRIMSON#Warning: while you *can* retrieve items made with previous versions of the game, no guarantee is given that the universe (or your character) will not explode.]], [[从共享仓库中拿取物品。当你将物品放入共享仓库的时候，会产生强大的悖论能量，你需要等待1小时才能取回它。
-	#CRIMSON#警告: 尽管你 *可以* 取回来自以前游戏版本的物品，没有人保证这不会导致你的游戏（或你的角色）崩溃。]], "_t")
+	#CRIMSON#警告: 尽管你 *可以* 取回来自以前游戏版本的物品，没有人保证宇宙（或你的角色）不会爆炸。]], "_t")
 t("Name", "名称", "_t")
 t("Usable", "可用", "_t")
 t("#LIGHT_GREEN#Yes", "#LIGHT_GREEN#是", "_t")

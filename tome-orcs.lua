@@ -6,11 +6,11 @@ t("Killed 1000 steam giants civilians.", "杀死 1000 名蒸汽巨人居民。",
 t("Mercy, mercy!", "慈悲为怀", "achievement name")
 t("Killed Talosis without any civilians deaths.", "杀死泰勒西斯但不杀死其他居民。", "_t")
 t("This will make a big Omelette!", "搞个大家伙！", "achievement name")
-t("Collected 40 ritch eggs in the Ritch Hive.", "收集 40 枚里奇蛋", "_t")
+t("Collected 40 ritch eggs in the Ritch Hive.", "在里奇巢穴中收集 40 枚里奇蛋", "_t")
 t("An Other Brick in the Wall", "特立独行", "achievement name")
 t("Defeated Aeryn in the Gates of Morning without destroying the Observatory nor using ritches help.", "在晨曦之门打败艾琳，但不摧毁观星台，也不借助里奇的帮助。", "_t")
 t("No Steam, No Palace. No Palace, No Palace!", "若无蒸汽，则无宫殿。若无宫殿，亦无宫殿！", "achievement name")
-t("Destroyed the Palace of Fumes without first destroying the geothermal valves in the Steam Quarry.", "在不摧毁蒸汽阀的情况下摧毁烟雾宫殿。", "_t")
+t("Destroyed the Palace of Fumes without first destroying the geothermal valves in the Steam Quarry.", "在不先摧毁蒸汽采石场中的地热阀的情况下摧毁烟雾宫殿。", "_t")
 t("Here, I Think You Dropped This", "这是你掉的么？", "achievement name")
 t("Killed Ureslak the Eternal while wielding Ureslak's Femur.", "拿着乌瑞斯拉克的大腿打败永恒的乌瑞斯拉克。", "_t")
 t("Do not go gentle into that good night", "不要温和地走进那个良夜", "achievement name")
@@ -28,25 +28,25 @@ t("Destroyed the bosses of the Primal Forest without killing any uncorrupted tre
 t("Sufficiently Advanced Technology", "高科技", "achievement name")
 t("Put five points into each of the tinker-crafting talents as any mage class.", "作为任何法师职业，将每个蒸汽配件制造技能均投入5点技能点数。", "_t")
 t("Radiant Horrorc", "光明克星", "achievement name")
-t("While fighting in a Sunwall zone, use a Fiery Salve to reach at least 66% affinity for Fire and Light. Pointing and laughing is optional.", "在晨曦之门的区域内战斗时，开启烈火药剂，并获得至少 66% 火焰和光明吸收。", "_t")
+t("While fighting in a Sunwall zone, use a Fiery Salve to reach at least 66% affinity for Fire and Light. Pointing and laughing is optional.", "在晨曦之门的区域内战斗时，开启烈火药剂，并获得至少 66% 火焰和光明吸收。指指点点和嘲笑，随你便。", "_t")
 t("Blood on the Moon", "月上血痕", "achievement name")
 t("Kill all of the Star Gazers within 7 game turns.", "7个游戏回合内击杀所有观星者。", "_t")
 t("Once Upon A Time, In the West...", "很久很久以前，在西方...", "achievement name")
-t("Hear the Eidolon's retelling of the Scourge from the West's journey.", "听艾德隆讲述西方过去的天灾。", "_t")
+t("Hear the Eidolon's retelling of the Scourge from the West's journey.", "听艾德隆讲述西方天灾的旅程。", "_t")
 t("A Fistful of Gold", "一大堆金币", "achievement name")
 t("Buy an item from an AAA.", "从 AAA 买东西。", "_t")
 t("For a Few Gold More", "更多金币", "achievement name")
 t("Completely deplete an AAA's stock.", "清空一个AAA的库存。", "_t")
-t("The Good, The Bad, and The Yeti", "红与黑，与雪人", "achievement name")
+t("The Good, The Bad, and The Yeti", "好人、坏人和雪人", "achievement name")
 t("Use mind-controlled yetis to kill 30 foes.", "使用被精神控制的雪人，击杀30名敌人。", "_t")
-t("Total Annihilation: Redundancy", "完全歼灭：重置版", "achievement name")
+t("Total Annihilation: Redundancy", "完全歼灭：多此一举", "achievement name")
 t("Wield the Annihilator as an Annihilator.", "作为歼灭者（职业），装备歼灭者（武器）", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/achievements/story.lua"
 
 t("Across the Narrow Sea", "跨越狭海", "achievement name")
-t("Destroyed the Sunwall Outpost to secure a way to the mainland.", "消灭太阳堡垒前哨站，拯救通向大陆的道路。", "_t")
+t("Destroyed the Sunwall Outpost to secure a way to the mainland.", "消灭太阳堡垒前哨站，以确保通往大陆的道路。", "_t")
 t("Reclaiming Garkul's Heritage", "加库尔之遗产", "achievement name")
 t("Freed the remnants of the Prides from the Internment Camp.", "释放拘留营中的部落成员。", "_t")
 t("The High Lady's Destiny (Finale)", "艾琳的陨落", "achievement name")
@@ -58,15 +58,15 @@ t("You have defeated the Sher'tul Priest trying to resurrect Amakthel, saving bo
 t("To the Bitter End", "直至最后", "achievement name")
 t("You have destroyed the last remnants of the Atmos Tribe, ending their civilization.", "你消灭了气之部族的最后成员，终结了他们的文明。", "_t")
 t("Imp'ing Away", "飞走的小鬼", "achievement name")
-t("You have spared the last remnants of the Atmos Tribe, showing mercy where others gave none to the orcs.", "你拯救了气之部落的最后成员，展现了兽人未曾得到的仁慈。", "_t")
+t("You have spared the last remnants of the Atmos Tribe, showing mercy where others gave none to the orcs.", "你拯救了气之部族的最后成员，展现了兽人未曾得到的仁慈。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/birth/classes/empyreal.lua"
 
 t("Empyreal", "高天者", "birth descriptor name")
 t("Their most important stats are: Magic and Constitution", "他们最重要的属性是：魔法和体质。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
-t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +0 力量 , +0 敏捷 , +3 体质", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
+t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +0 力量, +0 敏捷, +3 体质", "_t")
 t("#LIGHT_BLUE# * +6 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +6 魔法, +0 意志, +0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +0", "_t")
 
@@ -74,7 +74,7 @@ t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD# 每等级生命加值： #LIGH
 section "tome-orcs/data/birth/classes/tinker.lua"
 
 t("Tinker", "工匠系", "birth descriptor name")
-t("Tinkers use steamtech to power their attacks, defenses, ...", "工程师们使用蒸汽科技来强化攻击、防御，……", "_t")
+t("Tinkers use steamtech to power their attacks, defenses, ...", "工匠们使用蒸汽科技来强化攻击、防御，……", "_t")
 t("Build, experiment, discover. The path of inventions is never over!", "制造、实验、发现。创造之路永无止境！", "_t")
 t("%s healing salve", "%s 治疗药剂", "tformat")
 t("simple", "简单的", "_t")
@@ -82,12 +82,12 @@ t("%s frost salve", "%s 寒霜药剂", "tformat")
 t("Sawbutcher", "链锯屠夫", "birth descriptor name")
 t("A formidable behemoth of war using steamsaws to improve his deadliness.", "可怕的战争巨兽，使用蒸汽链锯增加致命杀伤力。", "_t")
 t("Their most important stats are: Strength and Cunning", "他们最重要的属性是：力量和灵巧", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
-t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +5 力量 , +0 敏捷 , +1 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法 , +0 意志 , +3 灵巧", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
+t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +5 力量, +0 敏捷, +1 体质", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法, +0 意志, +3 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 2", "#GOLD#每等级生命加值:#LIGHT_BLUE# 2", "_t")
 t("Gunslinger", "枪手", "birth descriptor name")
-t("A tinker who dual-wields steamguns to great effect.", "双持蒸汽枪的工程师。", "_t")
+t("A tinker who dual-wields steamguns to great effect.", "双持蒸汽枪的工匠。", "_t")
 t("Their most important stats are: Cunning and Dexterity", "他们最重要的属性是：灵巧和敏捷", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +0 力量, +4 敏捷, +1 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法, +0 意志, +4 灵巧", "_t")
@@ -95,16 +95,16 @@ t("#GOLD#Life per level:#LIGHT_BLUE# -1", "#GOLD# 每等级生命加值： #LIGH
 t("Psyshot", "灵能射手", "birth descriptor name")
 t("Bend the mind, bend the tech. All around inspire dread.", "扭曲精神，扭曲科技，一切都是为了激发恐惧。", "_t")
 t("Powerful psionics are able to enter a gestalt with steam generators and technology to enhance their own mental prowess.", "强大的灵能能够与蒸汽发生器和科技形成格式塔联结，以增强自身的精神力量。", "_t")
-t("The Psyshot combines this ability to gestalt to enhance his mindstar all the while shooting her steamgun to devastate the enemy lines.", "念力射手将这项能力与格式塔结合，来强化灵晶的力量，同时使用蒸汽枪毁灭敌人。", "_t")
+t("The Psyshot combines this ability to gestalt to enhance his mindstar all the while shooting her steamgun to devastate the enemy lines.", "灵能射手将这项能力与格式塔结合，来强化灵晶的力量，同时使用蒸汽枪毁灭敌人。", "_t")
 t("Their most important stats are: Cunning, Willpower and Dexterity", "他们最重要的属性是：灵巧、意志和敏捷", "_t")
-t("#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量 , +3 敏捷 , +0 体质", "_t")
+t("#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量, +3 敏捷, +0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +3 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法, +3 意志, +3 灵巧", "_t")
 t("Annihilator", "歼灭者", "birth descriptor name")
 t("The Annihilator is a master of destruction, wielding the most devastating steamtech inventions to lay waste to their foes.", "歼灭者是破坏的大师，他们掌握着最具破坏力的蒸汽科技成果，可以给他们的敌人带来无尽的毁灭。", "_t")
 t("While normally wielding a steamgun loaded with experimental ammunition and an electrically charged shield, they can equip heavy weapons such as flamethrowers.", "他们通常装备着装载着实验性弹药的蒸汽枪和一面电力充能的盾牌，但他们也可以装备像火焰喷射器那样的重装武器。", "_t")
 t("More adept at technology than most other tinkers, they supplement their weapons with automated turrets, mechanical minions and other such devices.", "他们比其他的工匠更加精通科学技术，他们使用自动炮台、机械随从和各种各样的强大发明来充实自己的武器库。", "_t")
-t("#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量 , +4 敏捷 , +0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +5 Cunning", "#LIGHT_BLUE# * +0 魔法 , +0 意志 , +5 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量, +4 敏捷, +0 体质", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +5 Cunning", "#LIGHT_BLUE# * +0 魔法, +0 意志, +5 灵巧", "_t")
 t("Research. Tinker. Annihilate.", "研究。制造。歼灭。", "_t")
 
 ------------------------------------------------
@@ -117,8 +117,8 @@ t("Horns", "角", "birth facial category")
 t("Special", "特殊", "birth facial category")
 t("Orc", "兽人", "birth descriptor name")
 t("Orcs have a long and sad history. They are seen, and are, as an aggressive race that more than one time managed to imperil all of Maj'Eyal.", "兽人拥有久远而悲伤的历史。他们被视为（也确实如此）一个侵略性种族，曾不止一次危及整个埃亚尔世界。", "_t")
-t("But one year ago the Scourge from the West came and wiped four of the five Prides. And a hundred years ago King Toknor wiped all traces of orcs from Maj'Eyal.", "但是一年前，西方来的灾星消灭了四个部落。一百年前，图库纳国王消灭了马基埃亚尔本土的所有兽人。", "_t")
-t("The orc race is dangerously on the brink of destruction. One wrong move is all that is needed.", "兽人种族处于灭绝边际，仅仅一步之遥。", "_t")
+t("But one year ago the Scourge from the West came and wiped four of the five Prides. And a hundred years ago King Toknor wiped all traces of orcs from Maj'Eyal.", "但是一年前，来自西方的天灾消灭了五个兽人部落中的四个。一百年前，图库纳国王消灭了马基埃亚尔本土的所有兽人。", "_t")
+t("The orc race is dangerously on the brink of destruction. One wrong move is all that is needed.", "兽人种族正危险地处于毁灭边缘。只需走错一步，就足以毁灭。", "_t")
 t("But they are strong and will face whatever is needed to ensure a future of their own!", "但他们意志强大，敢于直面任何磨难，来创造属于他们的未来！", "_t")
 t("Skin Color 1", "皮肤颜色1", "_t")
 t("Skin Color 2", "皮肤颜色2", "_t")
@@ -151,7 +151,7 @@ t("Demonic Horns 7", "恶魔角7", "_t")
 t("Demonic Horns 8", "恶魔角8", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("They possess the #GOLD#Orcish Fury#WHITE# which allows them to increase all their damage for a few turns.", "他们拥有 #GOLD#兽人之怒#WHITE# ，让他们能在几回合内增加伤害。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +2 力量, +1 敏捷, +1 体质", "_t")
 t("#LIGHT_BLUE# * -1 Magic, +1 Willpower, +1 Cunning", "#LIGHT_BLUE# * -1 魔法, +1 意志, +1 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 12", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 12", "_t")
@@ -200,7 +200,7 @@ t("Demonic Horns 8", "恶魔角8", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("Whitehoof", "白蹄", "birth descriptor name")
 t("A clan of minotaurs turned to necromancy when faced with imminent destruction.", "一支米诺陶氏族在灭亡迫近时转而研究死灵法术。", "_t")
-t("Whitehooves are resilient and magic imbued undead, hardened by their trials and made stronger by their undeath.", "白蹄族是强韧而充满魔法力量的亡灵，因试验而硬化，因不死而强大。", "_t")
+t("Whitehooves are resilient and magic imbued undead, hardened by their trials and made stronger by their undeath.", "白蹄族是强韧而充满魔法力量的亡灵，在磨砺中变得坚韧，因不死而更加强大。", "_t")
 t("They now seek to help their orc allies, in hope they will help them back.", "他们现在试图帮助兽人盟友，希望兽人将来也能回报他们。", "_t")
 t("They have access to #GOLD#special talents#WHITE# and a wide range of undead abilities:", "他们拥有 #GOLD# 特殊天赋 #WHITE# 和一系列不死族能力：", "_t")
 t("- silence resistance", "- 沉默抗性", "_t")
@@ -208,7 +208,7 @@ t("- bleeding immunity", "- 流血免疫", "_t")
 t("- fear immunity", "- 恐惧免疫", "_t")
 t("- no need to breathe", "- 不需要呼吸", "_t")
 t("- special whitehoof talents: dead hide, lifeless rush, essence drain", "- 特殊白蹄天赋: 亡者之皮，无生突袭，吸取精华。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量, -1 敏捷, +2 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, -3 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔法, -3 意志, +1 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 14", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 14", "_t")
@@ -223,7 +223,7 @@ t("Facial features", "脸部特征", "birth facial category")
 t("Horns", "角", "birth facial category")
 t("Special", "特殊", "birth facial category")
 t("Yeti", "雪人", "birth descriptor name")
-t("Infuse the mind, sacrifice the body but the Pride remains.", "鼓舞精神，牺牲肉体，荣耀永存。", "_t")
+t("Infuse the mind, sacrifice the body but the Pride remains.", "强化心智，牺牲肉体，但部落犹存。", "_t")
 t("Yetis are a towering mass of muscle.", "雪人族具有强大的肉体。", "_t")
 t("Skin Color 1", "皮肤颜色1", "_t")
 t("Skin Color 2", "皮肤颜色2", "_t")
@@ -255,9 +255,9 @@ t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("Kruk Yeti", "克鲁克雪人", "birth descriptor name")
 t("Yetis are a towering mass of muscle. While normal yetis are non-sentient beasts this kind is special.", "雪人族具有强大的肉体。通常，他们只是无知觉的野兽，但这种有所不同。", "_t")
 t("A few orcs of the Kruk pride have mastered techno-psionics, allowing them to literally hijack a yeti's mind and transfer their own mind inside.", "少数克鲁克部落的兽人掌握了灵能，让他们能操控雪人族的思维，并用自己的意志取代。", "_t")
-t("Doing so drains their old knowledge and they need to start afresh, gaining considerable strength in the process; for the good of the Prides.", "这样做的话，他们旧的知识将失去效力，必须重新开始，在这个过程中他们能获得强大力量。", "_t")
-t("They possess the #GOLD#Algid Rage#WHITE# talent which allows them to encase their foes in blocks of ice.", "他们拥有 #GOLD# 寒冰之怒 #WHITE# 技能，让他们能将敌人封在冰块中。", "_t")
-t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
+t("Doing so drains their old knowledge and they need to start afresh, gaining considerable strength in the process; for the good of the Prides.", "这样做会耗尽他们旧有的知识，必须重新开始，但在此过程中能获得强大的力量；这一切都是为了部落的利益。", "_t")
+t("They possess the #GOLD#Algid Rage#WHITE# talent which allows them to encase their foes in blocks of ice.", "他们拥有 #GOLD#寒冰之怒#WHITE#技能，让他们能将敌人封在冰块中。", "_t")
+t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, -3 Dexterity, +4 Constitution", "#LIGHT_BLUE# * +5 力量, -3 敏捷, +4 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +1 Willpower, -1 Cunning", "#LIGHT_BLUE# * +0 魔法, +1 意志, -1 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 13", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 13", "_t")
@@ -270,7 +270,7 @@ t("Orcs: Embers of Rage", "兽人战役：余烬怒火", "_t")
 t("The Prides lie in ruins!", "各兽人部落已沦为废墟！", "_t")
 t("The Sorcerers have been defeated!", "法师惨遭失败！", "_t")
 t("Orcs in all Var'Eyal are in dismay, hunted by the Sunwall and their newfound allies from the west.", "瓦尔·埃亚尔各地的兽人们惊慌失措，被晨曦之门和他们新结盟的西方盟友追猎。", "_t")
-t("The Scourge from the West is back in the west, but her legacy stays strong: the orc race is once again upon the brink of destruction!", "西方的灾星来自西方，又回归西方，但她带来的后遗症如此强大：整个兽人种族再次来到灭亡边际", "_t")
+t("The Scourge from the West is back in the west, but her legacy stays strong: the orc race is once again upon the brink of destruction!", "西方天灾回到了西方，但她的影响依旧深远：整个兽人种族再次濒临毁灭！", "_t")
 t("But not all hope is lost.", "即使如此，希望仍存。", "_t")
 t("On the isolated Clork Peninsula lies the fifth pride: Kruk's Pride; unseen and unharmed by the Scourge.", "在与世隔绝的克洛尔克半岛上栖息着兽人第五部落：克鲁克部落；他们并没有被这场灾难伤害。", "_t")
 t("Yet not all is great there either, the Sunwall offensive has set up an outpost blocking the way to the mainland.", "不幸的是，晨曦之门建立了前哨站阻断了通向大陆的道路。", "_t")
@@ -317,14 +317,14 @@ section "tome-orcs/data/chats/destructicus-lead.lua"
 t([[#LIGHT_GREEN#*Several loyal Orcs are eagerly waiting outside the palace to meet you; one steps forward, handing you a set of keys.  The word 'DESTRUCTICUS' is etched into one.*#WHITE#
 Chief @playername@!  The Giants are fleeing, and we intercepted a scout carrying this!  We believe they can be used with...  well, you should see for yourself!  Please, come with us to the mountains just south of Kruk Pride!
 #LIGHT_GREEN#*This sounds important.  You should probably head there right away!*#WHITE#]], [[#LIGHT_GREEN#*数名忠诚的兽人在宫殿外焦急地等待着你;其中一名兽人走上前，交给你一串钥匙，上面写着'毁灭号'。*#WHITE#
-@playername@首领! 巨人们在逃跑，我们抓住了一名侦查兵，他身上带着这个!我们认为它是用于... 算了，您应该亲自来看看! 请跟我来，在部落南部的山脉里!
+@playername@首领! 巨人们在逃跑，我们抓住了一名侦查兵，他身上带着这个!我们认为它是用于... 算了，您应该亲自来看看! 请跟我们来克鲁克部落南边的山脉！
 #LIGHT_GREEN#*这听起来非常重要，你应该马上过去*#WHITE#]], "_t")
 t("Lead the way.", "带路吧。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/chats/destructicus.lua"
 
-t("DESTRUCTICUS!", "“毁天灭地！”", "_t")
+t("DESTRUCTICUS!", "“毁灭号！”", "_t")
 t("Fire Imp", "火焰小鬼", "_t")
 t("Steam Giant Airship", "蒸汽巨人飞船", "_t")
 t("#LIGHT_GREEN#*#{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# stands before you, and as much as it pains you to admit it, Kaltor's advertisement wasn't flattering enough.  This may be the most unreasonably lethal device you've ever seen.  The sunlight, gleaming off its voratun body, seems dull compared to the intensely glowing mass of unstable runes on its tip; its surface has the ornate grooves of a metal that has been psionically reforged through hours of migraine-inducing concentration.  The bayonet mounted on the launching tube just seems like gloating.  This particular model appears to be equipped with an enclosed, fireproof booth around its control panel, and a built-in tea dispenser in said booth, which your fellow orcs have already taken the liberty of filling with looted Dwarven ale.  It is truly a thing of beauty.*#WHITE#", "#LIGHT_GREEN#*#{bold}#裂天者 毁灭号#{normal}# 站在你面前，让你痛苦地承认，卡托尔的广告还远不够夸耀。这可能是你见过的最无端致命的设备。阳光照耀在它的沃瑞钽躯壳上，与它尖端那团散发着炽烈光芒的不稳定符文相比显得黯淡；它的表面有着华丽的沟槽，那是经过数小时令人头痛欲裂的专注心灵锻造重塑的金属。发射管上安装的刺刀仿佛在炫耀一般。这个型号似乎还配备了一个密封防火的控制舱，舱内有一台内置的自动饮水机，你的兽人同胞们已经擅自往里面灌满了抢来的矮人麦酒。这真是一件美得惊人的造物。*#WHITE#", "_t")
@@ -437,8 +437,8 @@ t("What?", "什么?", "_t")
 section "tome-orcs/data/chats/kaltor-entry.lua"
 
 t([[#LIGHT_GREEN#*As you open the door to the shop, you are greeted by a pair of Steam Giant guards, staring at you and holding their steamguns tightly, at the ready but not aimed at you.*#WHITE#
-No sudden moves, @playername@. Kaltor's orders are to consider you a customer for now. Try anything foolish, and you'll be a live demonstration for his newest guns instead.  Understand?]], [[#LIGHT_GREEN#*当你打开商店大门，你被一群蒸汽巨人警卫包围，他们盯着你看，手中紧握蒸汽枪，准备就绪，但并没有瞄准你。*#WHITE#
-别乱动， @playername@。卡托尔的指令让我们将你视为顾客。做蠢事的话，你将被他最新的枪支毁灭。明白了么]], "_t")
+No sudden moves, @playername@. Kaltor's orders are to consider you a customer for now. Try anything foolish, and you'll be a live demonstration for his newest guns instead.  Understand?]], [[#LIGHT_GREEN#*当你打开商店大门，你被两名蒸汽巨人守卫迎接，他们盯着你看，手中紧握蒸汽枪，准备就绪，但并没有瞄准你。*#WHITE#
+别乱动， @playername@。卡托尔的指令让我们将你视为顾客。做蠢事的话，你就会成为他新枪的活体演示。明白了么]], "_t")
 t("I have gold, you have equipment. This doesn't need to be any more complicated than that.", "我有钱，你们有装备。没什么更复杂的东西。", "_t")
 t("Those are some pretty fancy guns. Think it'll be hard to get your blood out of the gears?", "这些枪看起来挺有趣的。你们以为有了这些装备，我就不能打得你们头破血流了么？", "_t")
 t([[#LIGHT_GREEN#*She smiles, relieved but also slightly disappointed.*#WHITE#
@@ -447,7 +447,7 @@ Couldn't have said it better myself. Come on in - and try not to scare the other
 t("[enter]", "[进入]", "_t")
 t([[Good luck with that, savage.
 #LIGHT_GREEN#*She smirks, and pulls a cord on the wall beside her as her and her partner duck behind cover; a loud bell rings, and you hear a commotion from further inside the shop.*#WHITE#]], [[祝你好运，野蛮人。
-#LIGHT_GREEN#*她假笑着，拉下她身边墙上的绳子，她的同伴从角落里出来。一阵铃响，你听见商店里的骚动。*#WHITE#]], "_t")
+#LIGHT_GREEN#*她假笑着，拉下她身边墙上的绳子，她和同伴蹲到掩体后面。一阵铃响，你听见商店里的骚动。*#WHITE#]], "_t")
 t("[fight]", "[战斗]", "_t")
 
 ------------------------------------------------
@@ -460,7 +460,7 @@ t([[#LIGHT_GREEN#*A well-dressed giant stands in front of you, covered in expens
 Ah, welcome, @playername@! #LIGHT_GREEN#*he yells in a voice loud enough to catch the attention of all in the shop, as he lifts his head to look around.*#WHITE# Yes, you heard me right, @playername@! The very same one who's been running rampant through the Vaporous Emporium is coming to ME for armaments! I don't think I could've asked for a stronger endorsement! #LIGHT_GREEN#*He looks back down to you, leaning over the counter to point out a glass display case loaded with exotic weaponry and armor.*#WHITE#
 Well, I'm not one to turn down anyone with gold, and seeing as you've already made me rich, I'll even give you a discount, down to my pre-attack prices. #LIGHT_GREEN#*He leans in uncomfortably close, staring you in the eyes.* #WHITE#Or, if you came to do here what you did in the Emporium... #LIGHT_GREEN#*He directs his glare toward the multiple well-armed guards staring at you and standing still on the sides of the room.*#WHITE# I'm sure my #{italic}#emergency safety measures#{normal}# would just #{italic}#love#{normal}# an opportunity to try out their shiny new toys.]], [[#LIGHT_GREEN#*一名衣着讲究的巨人站在你面前，戴满昂贵的珠宝；从他松垮的项链扣上看，你猜测他是最近才拿到的。他微笑着从柜台往下看，注视着你。*#WHITE#
 哦，欢迎，@playername@! #LIGHT_GREEN#*他的声音大的让店里所有人都听见，同时他抬起头张望四周。*#WHITE# 是的，听见了么， @playername@！就是那个在蒸汽商场猖獗无比的家伙，他到我这来买装备了!我认为不会有比这更好的宣传了! #LIGHT_GREEN#*他转过头看你，指出一个玻璃展台，那上面装满异种武器和护甲。*#WHITE#
-好吧，我不会拒绝任何带着钱过来的人，同时你也已经让我富裕不少了。我还能给你打个折。 #LIGHT_GREEN#*他靠得过近，让你感觉不太舒服。他直视着你的眼睛。* #WHITE#或者，你也可以试试你在蒸汽商店里干的事情...
+好吧，我不会拒绝任何带着钱过来的人，同时你也已经让我富裕不少了。我甚至还能给你打个折，降到进攻前的价格。 #LIGHT_GREEN#*他靠得过近，让你感觉不太舒服。他直视着你的眼睛。* #WHITE#或者，你也可以试试你在蒸汽商店里干的事情...
 #LIGHT_GREEN#*他指向周围和房间里那些装备良好的警卫。*#WHITE# 
 我相信我的#{italic}#紧急安全保卫#{normal}#一定#{italic}#爱死了#{normal}#每一个尝试新玩具的机会。]], "_t")
 t([[Welcome back, @playername@!  You see this, customers?  This fearsome, savage master of battle was so impressed by my products that he came back for more!
@@ -474,7 +474,7 @@ t([[#LIGHT_GREEN#*Kaltor is busy packing some of his goods away in crates; he ha
 	Make it quick, @playername@. Not to be rude, but there's a private airship out there with my name on it, and I'd rather have a bird's-eye view of what you're about to do than a front-row seat.]], [[#LIGHT_GREEN#*卡托尔忙着打包货物；他将箱子递给一个工人带到后门，然后转过头和你说话。*#WHITE#
 	快点吧, @playername@. 不是我粗鲁，但现在有一艘我的飞船在外面，我更想站在上面鸟瞰你要做的事情，而不是坐在椅子上。]], "_t")
 t([[#LIGHT_GREEN#*He frowns in mock disappointment, as he presses a button on his stylish coat; it hisses, and you hear motors whirring*#WHITE#
-Oh, what a pity.  Guards?  Ten thousand gold to whoever gets the killing blow.  Store credit, of course.]], [[#LIGHT_GREEN#*他脸上露出失望的深色，按下外套上的按钮。它发出嘶嘶声，你听见引擎的轰鸣。*#WHITE#
+Oh, what a pity.  Guards?  Ten thousand gold to whoever gets the killing blow.  Store credit, of course.]], [[#LIGHT_GREEN#*他假装失望地皱起眉头，按下外套上的按钮。它发出嘶嘶声，你听见引擎的轰鸣。*#WHITE#
 真遗憾。警卫？谁杀了他，就有一万金的赏钱。当然，记在商店账上。]], "_t")
 t("DEATH!", "去死吧!", "_t")
 
@@ -487,9 +487,9 @@ t("I am looking for special training.", "我是来寻求特殊训练的。", "_t
 t("Sorry, I have to go!", "抱歉，我要走了！", "_t")
 t("I can indeed offer some training (talent category Steamtech/Physics and Steamtech/Chemistry) for a fee of 100 gold pieces each.", "我能教你物理学或者化学知识，学费100金一次。", "_t")
 t("Please train me in physics.", "教我物理学知识吧。", "_t")
-t("The tinker spends some time with you, teaching you the basics of smithing.", "工程师花费时间传授你铁匠的基础知识。", "logPlayer")
+t("The tinker spends some time with you, teaching you the basics of smithing.", "工匠花费时间传授你铁匠的基础知识。", "logPlayer")
 t("Please train me in chemistry.", "教我化学知识吧。", "_t")
-t("The tinker spends some time with you, teaching you the basics of therapeutics.", "工程师花费时间传授你药剂学的基础知识。", "logPlayer")
+t("The tinker spends some time with you, teaching you the basics of therapeutics.", "工匠花费时间传授你药剂学的基础知识。", "logPlayer")
 t("No thanks.", "不用了，谢谢。", "_t")
 
 ------------------------------------------------
@@ -500,12 +500,12 @@ I would like to talk to you.]], [[#LIGHT_GREEN#*在你面前站着一位引人�
 我有一些话想对你说。]], "_t")
 t("Yes?", "嗯？", "_t")
 t("Your clan is free Metash, the tyrant is no more.", "梅塔什，你的氏族被解放了，暴君已经不复存在。", "_t")
-t("Not now.", "暂时不用。", "_t")
+t("Not now.", "现在不行。", "_t")
 t("Soft-foot of the Kruk, I come to give you a warning, an apology, and a plea for help.  An incredible magical force has awakened within one of our elders, Nektosh the One-Horned, and he has gone mad with its power.  Those who stood up against him were reduced to less than ashes by a beam from his horn, a beam that tunneled far up through the rock above him until we could see the sky.  He has convinced some of us that he can use this terrible force to conquer Eyal and terrified others into going along with him; he has announced that his first step will be to lead his followers in an attack on Kruk Pride.", "克鲁克部落的软蹄者，我来到这里，是为了给你警告和道歉，并请求你的帮助。我们的长老-独角者纳克托什，他的身上觉醒了一种强大的魔法力量，而他不能承受这股力量，逐渐疯狂。所有阻挡他的人，都在他的独角射线下化为灰烬。他的射线射程极长，能穿过岩石，直至天际。他让我们中某些人相信，他能用这股强大力量征服埃亚尔世界，同时他恐吓其他族人和他一起。他宣布，他的第一步行动将是带着追随者们攻击克鲁克部落。", "_t")
 t("[listen]", "[听他说话]", "_t")
 t("The rest of us have fled, hiding in caverns across the peninsula...  I cannot in good conscience ask you to face certain death before his magic for our sakes, but striking first may be the only way to save your people.  He appears to be stalling the invasion, buying you some time, but if you cannot catch him off-guard before he finally commits to it...  I've seen his power cut through a mountain like it was a leaf, soft-foot.  There can be no victory against that kind of magic.  Run, hide, and hope he falls victim to an accident or loses the remaining fragments of his sanity that keep him capable of casting spells.", "我们其他人都跑了，藏身在洞穴中... 凭良心说，我不应让你直面他的魔法，那一定会带来死亡。但只有抢先下手，才能拯救你的族民。他暂时不会进攻，为你赢得了一些时间。但如果你不能在他进攻前打他个措手不及...软蹄者，我曾经看着他的力量洞穿山脉，仿佛穿过一片树叶般轻松。算了，不可能战胜这种魔法的。跑吧，躲起来，希望他能意外身亡，或者进一步失去理智以至于不能施法吧。", "_t")
 t("I will check it out", "我要去看看", "_t")
-t("We of the Krimbul Clan have faced our near-certain deaths all too many times, even after our hearts stopped beating; this is the first time we have been shown the kindness of utter salvation by an outsider.  Those who were not enthralled by Nektosh and are not delusionally faithful to his \"cause\" will reclaim the Mana Caves in time; until then, we will join your Pride in your revolution.  You have liberated us, and we will not rest until you are freed of your oppressors as well.", "我们氏族曾无数次直面灭族危机，哪怕是在我们的心脏停止跳动之后；然而，这是第一次，我们被外人的友善所拯救。没被纳克托什和他的借口迷惑的人马上将重返魔法洞穴。在此之前，我们将加入你的部落，参与你的革命。你解放了我们，在你们脱离压迫者之前，我们都不会停下脚步。", "_t")
+t("We of the Krimbul Clan have faced our near-certain deaths all too many times, even after our hearts stopped beating; this is the first time we have been shown the kindness of utter salvation by an outsider.  Those who were not enthralled by Nektosh and are not delusionally faithful to his \"cause\" will reclaim the Mana Caves in time; until then, we will join your Pride in your revolution.  You have liberated us, and we will not rest until you are freed of your oppressors as well.", "我们氏族曾无数次直面灭族危机，哪怕是在我们的心脏停止跳动之后；然而，这是第一次，我们被外人的友善所拯救。那些未被纳克托什蛊惑、也未执迷于他的“事业”的人，终将收复魔法洞穴。在此之前，我们将加入你的部落，参与你的革命。你解放了我们，在你们脱离压迫者之前，我们都不会停下脚步。", "_t")
 t("Thanks.", "多谢。", "_t")
 t("Hail, @playername@!", "嘿, @playername@!", "_t")
 t("Our is free Metash, the tyrant is no more.", "我们自由了梅塔什，暴君被打败了！", "_t")
@@ -518,7 +518,7 @@ t("Nektosh claims he is the invincible, omnipotent descendant of a unicorn, but 
 t("I will!", "我会的！", "_t")
 t([[He...  he found a wand?  And he realized it was running dry, but only after taking over the tribe?  I pity him, but I cannot forgive him for being willing to sacrifice so many Whitehooves and Orcs to escape the consequences of his brief lapse into madness...  still, as a personal request I ask that you not tell others of his last thoughts.  The Nektosh we once knew saved our tribe from the corrupted magic deep under Eyal; he deserves to, at worst, be remembered as one who tragically succumbed to its influence.
 
-Ultimately, though, the choice is yours; it is more important that he is no longer a threat.  There are some who may still cling to the false hope he gave them, but we will retake the Mana Caves from them in time.  We owe you a great debt, and now that we have no more pressing concerns, we can aid Kruk Pride in their rebellion.  Good travels, @playername@.]], [[他...  他找到了一根魔棒？然后等到他掌控了我们氏族，才发现能量快用完了？我对此感到遗憾，但我不能原谅他。为了逃避自己陷入疯狂的责任，他准备牺牲这么多的白蹄族人和兽人……尽管如此，我请求你不要告诉别人他的想法。纳克托什是曾经将我们从埃亚尔深处的堕落魔法中拯救出来的英雄，至少，让大家以为她是在这种魔法的影响之下光荣牺牲的吧。
+Ultimately, though, the choice is yours; it is more important that he is no longer a threat.  There are some who may still cling to the false hope he gave them, but we will retake the Mana Caves from them in time.  We owe you a great debt, and now that we have no more pressing concerns, we can aid Kruk Pride in their rebellion.  Good travels, @playername@.]], [[他...  他找到了一根魔棒？然后等到他掌控了我们氏族，才发现能量快用完了？我对此感到遗憾，但我不能原谅他。为了逃避自己陷入疯狂的责任，他准备牺牲这么多的白蹄族人和兽人……尽管如此，我请求你不要告诉别人他的想法。纳克托什是曾经将我们从埃亚尔深处的堕落魔法中拯救出来的英雄，他至少应该被铭记为一个悲剧性地屈服于那种影响的人。
 
 当然，选择权在你手中；重要是他的威胁解除了。虽然仍有人沉醉于他给予的虚假希望中，但我们马上就能夺回魔法洞穴了。我们都欠你很多。现在，我们紧迫的危机已经解除了，该是帮助克鲁克部落的时候了。祝你好运, @playername@。]], "_t")
 t("To you too, Metash.", "也祝你好运，梅塔什。", "_t")
@@ -536,7 +536,7 @@ t([[#LIGHT_GREEN#*Before you stands a tentaculous horror which you recognize for
 Who are you, young creature, to stand up to a High Priest of Amakthel? Do you not know that you are before a servant of the Almighty Creator, the Sunfather, the God of Gods, Lord of all Eyal? In the millenia I have lived I have killed whole races like yourself. I have even wrenched the spirits of immortal gods from this world. So who are you, little one, who dare defy me?]], [[#LIGHT_GREEN#*站在你面前的是一个触手般的恐魔，然后你认出了他，
 一个活着的 #{bold}#夏·图尔人#{normal}#!.*#WHITE#
 	
-站在阿马克泰尔的大祭司面前的年轻生物啊，你是谁呢？你难道不清楚，站在你面前的，是伟大的创造者、太阳之父、神上之神、埃亚尔的主人的仆从？千年以来，我曾终结过许多像你这样的种族，我甚至扭曲过这世界上不朽神明的灵魂。小家伙，你认为自己是谁，竟敢妄言打败我？]], "_t")
+站在阿马克泰尔的大祭司面前的年轻生物啊，你是谁呢？你难道不清楚，站在你面前的，是伟大的创造者、太阳之父、神上之神、埃亚尔的主人的仆从？千年以来，我曾终结过许多像你这样的种族，我甚至曾将不朽神明的灵魂从这世界扯出。小家伙，你认为自己是谁，竟敢妄言打败我？]], "_t")
 t("I... am %s, of the seed of Garkul the Devourer. Garkul taught us to fight legends, and to flinch not from even the most desperate deed. Here and now I face you without fear or hesitation, for the spirit of Garkul burns within me. And in his name I will #{bold}#break#{normal}# you!", "我... 名为%s, 是吞噬者加库尔的后裔。 加库尔教导我们挑战传奇，即使面前是绝望和死亡也绝不退缩。现在，我站在这里面对着你，毫无恐惧，毫不犹豫，因为加库尔之意志在我体内燃烧。以他之名，我一定会#{bold}#打败#{normal}# 你!", "tformat")
 t("I... am %s, though I lack my original body my mind is bound to Garkul the Devourer. Garkul taught us to fight legends, and to flinch not from even the most desperate deed. Here and now I face you without fear or hesitation, for the spirit of Garkul burns within me. And in his name I will #{bold}#break#{normal}# you!", "我... 名为%s, 尽管我失去了原本的身体，我的精神仍属于吞噬者加库尔。加库尔教导我们挑战传奇，即使面前是绝望和死亡也绝不退缩。现在，我站在这里面对着你，毫无恐惧，毫不犹豫，因为加库尔之意志在我体内燃烧。以他之名，我一定会#{bold}#打败#{normal}# 你!", "tformat")
 t("I... am %s and I am not mortal! Garkul taught the orcs to fight legends, and to flinch not from even the most desperate deed. We learned that from them! Here and now I face you without fear or hesitation, for cold touch of undeath is within me. And I will #{bold}#break#{normal}# you!", "我... 名为%s，我超越死亡！加库尔教导兽人挑战传奇，即使面前是绝望和死亡也绝不退缩。我们从他们身上学会了这些！现在，我站在这里面对着你，毫无恐惧，毫不犹豫，因为亡灵冰冷的力量在我体内流淌。我一定会#{bold}#打败#{normal}# 你!", "tformat")
@@ -581,7 +581,7 @@ t("Physical techniques", "战斗技术", "_t")
 t("Arcane spells", "法术", "_t")
 t("Nature/Psionic talents", "自然/灵能", "_t")
 t("Hum no let me change my mind.", "啊，不，让我再想想。", "_t")
-t("[Allow training of talent category %s (at mastery %0.2f)]", "[解锁技能树 %s (技能等级 %0.2f)]", "tformat")
+t("[Allow training of talent category %s (at mastery %0.2f)]", "[解锁技能树 %s (掌握度 %0.2f)]", "tformat")
 t("Very well. We can teach you a talent.  Which do you want?", "很好。我们能教授你技能。你想学哪个？", "_t")
 t("Very well. We can teach you a talent; which type do you want?", "很好。我们能教授你技能；你想学哪个？", "_t")
 t("[%s talent %s (+%d level(s))]", "[%s 技能 %s (+%d 等级)]", "tformat")
@@ -1852,7 +1852,7 @@ t("The core wood of a great tree.", "伟大树木的核心之木。", "_t")
 section "tome-orcs/data/lore/destructicus.lua"
 
 t("kaltor's shop", "卡托尔商店", "newLore category")
-t("DESTRUCTICUS!", "“毁天灭地！”", "_t")
+t("DESTRUCTICUS!", "“毁灭号！”", "_t")
 t([[INTRODUCING!
 
 The most powerful, most fearsome, most awesome weapon ever conceived by giants, men, nature, or anything before us:
@@ -7722,8 +7722,8 @@ t("Path to a Ureslak's Host", "通往乌瑞斯拉克沉睡处的道路", "entity
 t("Entrance to the Steam Quarry", "蒸汽采石场入口", "entity name")
 t("Entrance to the Palace of Fumes", "烟雾宫殿入口", "entity name")
 t("Way into a primal forest", "通往原始森林的路", "entity name")
-t("DESTRUCTICUS!", "“毁天灭地！”", "entity name")
-t("DESTRUCTICUS!", "“毁天灭地！”", "_t")
+t("DESTRUCTICUS!", "“毁灭号！”", "entity name")
+t("DESTRUCTICUS!", "“毁灭号！”", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/yeti-caves/grids.lua"
@@ -8057,7 +8057,7 @@ All Tinker classes use Steam for their powers.
 ------------------------------------------------
 section "tome-orcs/overload/data/texts/unlock-tinker_psyshot.lua"
 
-t("New Class: #LIGHT_GREEN#Psyshot (Tinker)", "新职业： #LIGHT_GREEN# 念力射手（工匠系）", "_t")
+t("New Class: #LIGHT_GREEN#Psyshot (Tinker)", "新职业： #LIGHT_GREEN# 灵能射手（工匠系）", "_t")
 t([[You have found extremely old machines powered by advanced psionics and technology. Psionics without a living mind was never thought possible.
 You can now create new characters with the #LIGHT_GREEN#Psyshot class#WHITE#.
 
@@ -8070,9 +8070,9 @@ Class features:#YELLOW#
 
 All Tinker classes use Steam for their powers.
 ]], [[你找到了一台由灵能和科技驱动的古老机器。由机械引发的灵能不再是不可能的想象。
-现在你可以在创建人物时选择新的职业： #LIGHT_GREEN# 念力射手 #WHITE#。
+现在你可以在创建人物时选择新的职业： #LIGHT_GREEN# 灵能射手 #WHITE#。
 
-念力射手是混合使用灵能和蒸汽科技的恐怖敌人，一手持蒸汽枪一手持灵晶。
+灵能射手是混合使用灵能和蒸汽科技的恐怖敌人，一手持蒸汽枪一手持灵晶。
 职业特色：#YELLOW#
 - 将灵晶的攻击投射到你发射的子弹中。
 - 激发敌人的恐惧，让敌人在你的枪法前无处遁形。

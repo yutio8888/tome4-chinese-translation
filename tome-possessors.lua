@@ -2,7 +2,7 @@
 section "tome-possessors/data/achievements/possessors.lua"
 
 t("Bill Kill!", "比尔杀死！", "achievement name")
-t("Kill your own Doomed Shade in the body of Bill.", "使用比尔的身体杀死你的影子", "_t")
+t("Kill your own Doomed Shade in the body of Bill.", "使用比尔的身体杀死你自己的被诅咒的影子", "_t")
 t("Unneshasshhary Kryl'ty", "相爱相杀", "achievement name")
 t("Kill Kryl'Feijan with the body of Shasshhiy'Kaish, or vice-versa.", "使用卡洛·斐济的身体杀死莎西·凯希，或者使用莎西·凯希的身体杀死卡洛·斐济。", "_t")
 t("Unneshasshhary Kryl'ty (Redux)", "相爱相杀（重复）", "achievement name")
@@ -66,9 +66,9 @@ section "tome-possessors/data/talents/psionic/body-snatcher.lua"
 
 t("Bodies Reserve", "躯体储备", "talent name")
 t([[Your mind is so powerful it can bend reality, providing you with an extra-natural #{italic}#storage#{normal}# for bodies you snatch.
-		You can store up to %d bodies.]], [[你的头脑是如此强大，它可以扭曲现实，为你提供一个非自然的 #{italic}#仓库#{normal}# 让你储存抢夺过来的身体。
-		仓库容量增加 %d 。]], "tformat")
-t("Psionic Minion", "灵能奴役", "talent name")
+		You can store up to %d bodies.]], [[你的头脑是如此强大,它可以扭曲现实,为你提供一个超自然的 #{italic}#仓库#{normal}# 来储存你抢夺的身体。
+		你最多可以储存 %d 具身体。]], "tformat")
+t("Psionic Minion", "灵能仆从", "talent name")
 t("Not enough space to invoke your minion!", "没有足够空间召唤随从！", "logPlayer")
 t("%s (Psionic Minion)", "%s (灵能仆从)", "tformat")
 t([[You imbue a part of your own mind into a body without actually taking its form.
@@ -82,18 +82,18 @@ t("Psionic Duplication", "灵能复制", "talent name")
 t([[When you store a body you also store %d more identical copies of it that you can use later.
 		When you store a rare/unique/boss or higher rank creature you only get a third of the uses (but never less than one).]], [[当你获得一个身体时复制 %d 个克隆体.
 		当你获得稀有/史诗/Boss 或者更高阶级的身体时，复制的数量除以 3 (至少一个)。]], "tformat")
-t("Cannibalize", "合并", "talent name")
-t("You require need to assume a form first.", "你需要现在占据一个身体。", "logPlayer")
+t("Cannibalize", "吞噬", "talent name")
+t("You require need to assume a form first.", "你需要先占据一个身体。", "logPlayer")
 t("Rank of body too low.", "这个身体的阶级太低。", "logPlayer")
 t([[When you assume a form you may cannibalize a body in your reserve to replenish your current body.
 		You can only use bodies that are of same or higher rank for the effect to work and each time you heal a body the effect will be reduced by 33%% for that body.
 		Your current body will heal for %d%% of the max life of the cannibalized one and you will also regenerate 50%% of this value as psi.
 		The healing effect is more psionic in nature than a real heal. As such may things that prevent healing will not prevent cannibalize from working.
 		Cannibalize is the only possible way to heal a body.
-		]], [[合并一个身体，用来补充现在使用的身体。
-		你只能合并同阶级或者更高阶级的身体且每次治疗效果降低 33%% 。
-		生命值恢复被合并的身体的最大血量 %d%% 且你的灵能值恢复这个数值的 50%% 。
-		该治疗不会被其他效果减低，合并是治疗身体的唯一方法。
+		]], [[吞噬一具储备的身体，用来补充现在的身体。
+		你只能吞噬同阶级或更高阶级的身体，且每次治疗后该身体的治疗效果降低 33%% 。
+		当前身体恢复被吞噬身体最大生命值 %d%% 的生命，同时恢复该数值 50%% 的灵能。
+		该治疗在本质上比真正的治疗更接近灵能，因此阻止治疗的效果无法阻止吞噬生效。吞噬是治疗身体的唯一方法。
 		]], "tformat")
 
 ------------------------------------------------
@@ -121,7 +121,7 @@ t([[For a brief moment your whole body becomes etheral and you dash into a nearb
 		]], [[短暂的一瞬间，你的整个身体变得飘渺，你对附近一个生物进行一次直线冲锋 (范围 %d )。
 		你再次出现在另一边，获得 %d 灵能值并对目标造成 %0.2f 精神伤害。
 		]], "tformat")
-t("Writhing Psionic Mass", "扭曲装甲", "talent name")
+t("Writhing Psionic Mass", "扭动灵能团", "talent name")
 t([[Your physical form is but a mere extension of your mind, you can bend it at will for %d turns.
 		While under the effect you gain %d%% all resistances and have %d%% chance to ignore all critical hits.
 		On activation you also remove up to %d physical or mental effects.
@@ -189,7 +189,7 @@ t("Possess", "支配", "_t")
 t("Permanently learn to possess creatures of type #LIGHT_BLUE#%s#LAST# (you may only do that a few times, based on talent level) ?", "确认要永久性地学习占据#LIGHT_BLUE#%s#LAST#身体的能力吗（你只能学习有限次，基于技能等级）？", "tformat")
 t("No", "否", "_t")
 t("Yes", "是", "_t")
-t("You may not possess this kind of creature.", "你不能附身这类生物，", "logPlayer")
+t("You may not possess this kind of creature.", "你不能附身这类生物。", "logPlayer")
 t("You have no more room available to store a new body.", "你没有足够的位置来存放新的身体。", "logPlayer")
 t("Your target is dead!", "你的目标死了！", "logPlayer")
 t([[You cast a psionic web at a target that lasts for %d turns. Each turn it deals %0.2f mind damage.
@@ -234,7 +234,7 @@ t([[When you assume the form of an other body you gain more control over the bod
 		- 在等级 2 时，可额外获得一个技能位
 		- 在等级 3 时，可获得抗性和固定减伤
 		- 在等级 4 时，可额外获得一个技能位
-		- 在等级 5 时，可获得得所有速度（只有当他们优于你时）
+		- 在等级 5 时,可获得所有速度(只有当他们优于你时)
 		- 在等级 6 以上时，可额外获得一个技能位
 		]], "tformat")
 
@@ -284,7 +284,7 @@ t("psionic", "灵能", "talent category")
 t("possession", "支配", "talent type")
 t("Learn to possess the bodies of your foes!", "学会支配敌人的身体！", "_t")
 t("body snatcher", "躯体夺取", "talent type")
-t("Manipulate your dead foes bodies for power and success!", "复制敌人的身体，获取力量和胜利！", "_t")
+t("Manipulate your dead foes bodies for power and success!", "操纵敌人的尸体，获取力量与胜利！", "_t")
 t("psionic menace", "灵能威吓", "talent type")
 t("Laught terrible mind attacks to wear down your foes from afar with your double mindstars!", "使用双持灵晶远程击败敌人", "_t")
 t("psychic blows", "灵能打击", "talent type")
@@ -323,7 +323,7 @@ t("Unleashed Mind", "心灵释放", "talent name")
 t([[You concentrate your powerful psionic powers on your weapon and briefly unleash your fury.
 		All foes in radius %d will take a melee attack dealing %d%% weapon damage as mind damage.
 		Any psionic clones in the radius will have its remaining time extended by %d turns.
-		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你将强大的灵能力集中在你的武器上，并简单地释放你的愤怒。	
+		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你将强大的灵能力集中在你的武器上,并短暂地释放你的愤怒。
 		半径 %d 内的敌人受到近战攻击造成 %d%% 武器精神伤害。
 		范围内的所有灵能克隆体将延长 %d 回合。
 		如果你没有装备双手武器，但是在副手栏里装备了，你会立刻自动切换。]], "tformat")
@@ -354,7 +354,7 @@ t([[As long as you have at least a stack of Sadist whenever you take damage you 
 t("Radiate Agony", "痛苦辐射", "talent name")
 t("You need a Sadist stack to use this talent.", "你需要有一层虐待狂效果才能使用这一技能。", "logPlayer")
 t([[As long as you have at least a stack of Sadist you can radiate agony to all those you see in radius %d with 80%% or lower life left.
-		For 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you.]], [[当你至少有一层虐待狂效果时，你可以分享你的痛苦给半径 %d 所有可见的生命值少于 80%% 的敌人。
+		For 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you.]], [[当你至少有一层虐待狂效果时,你可以分享你的痛苦给半径 %d 所有可见的生命值 80%% 或更低的敌人。
 		持续 5 回合，他们的头脑将如此专注于自己的痛苦，对你的伤害减少 %d%% 。]], "tformat")
 t("Torture Mind", "精神拷打", "talent name")
 t([[As long as you have at least a stack of Sadist you can mentally lash out at a target, sending horrible images to its mind.
@@ -376,7 +376,7 @@ t("was killed by possession aftershock", "被附身的影响杀死", "_t")
 t("Kryl-Feijan", "卡洛·斐济", "_t")
 t("Your possessed body's eyelids briefly flutter, and a tear rolls down its cheek. You didn't tell it to do that.", "你控制的身躯眼睑微微颤动，眼泪顺着脸颊滚落。你没有让它这么做。", "_t")
 t("Shasshhiy'Kaish", "莎西·凯希", "_t")
-t("The flames surrounding Shasshhiy'Kaish slowly die as she falls to her knees.  \"Fiend...  and I thought #{italic}#I#{normal}# could cause suffering.  It's the one thing Eyalites always did best,\" she spits.  \"I heard what had happened to him, and my followers have given more than enough of their life to restore me after this.  All you've accomplished here - [cough] - is giving us a worthwhile new goal...  and target.  All will be repaid tenfold, Eyalite.\"  Her coughing grows weaker, until she abruptly bursts into flame; her ashes scatter into the wind.", "莎西·凯希跪倒在地，她周围的火焰慢慢熄灭。“你们才是真正的恶魔……我以为#{italic}#我#{normal}#是制造痛苦的大师。但现在看来，你们埃亚尔人才是最擅长带来折磨的人。”她催了一口唾沫。“我听说了他所发生的事情，我的追随者给了我足够的生命，让我可以东山再起。你对我所做的一切——【咳嗽】——只是给了我一个新的目标……一个复仇的对象。你们所做的一切都将被十倍偿还，埃亚尔人”她的咳嗽声越来越轻，直到最终迸发成一团火焰。她的灰烬散落在风中。", "_t")
+t("The flames surrounding Shasshhiy'Kaish slowly die as she falls to her knees.  \"Fiend...  and I thought #{italic}#I#{normal}# could cause suffering.  It's the one thing Eyalites always did best,\" she spits.  \"I heard what had happened to him, and my followers have given more than enough of their life to restore me after this.  All you've accomplished here - [cough] - is giving us a worthwhile new goal...  and target.  All will be repaid tenfold, Eyalite.\"  Her coughing grows weaker, until she abruptly bursts into flame; her ashes scatter into the wind.", "莎西·凯希跪倒在地，她周围的火焰慢慢熄灭。“你们才是真正的恶魔……我以为#{italic}#我#{normal}#是制造痛苦的大师。但现在看来，你们埃亚尔人才是最擅长带来折磨的人。”她啐了一口唾沫。“我听说了他所发生的事情，我的追随者给了我足够的生命，让我可以东山再起。你对我所做的一切——【咳嗽】——只是给了我一个新的目标……一个复仇的对象。你们所做的一切都将被十倍偿还，埃亚尔人。”她的咳嗽声越来越轻，直到最终迸发成一团火焰。她的灰烬散落在风中。", "_t")
 t("High Sun Paladin Aeryn", "太阳骑士艾琳", "_t")
 t("Aeryn's bewildered and terrified cries grow quiet, but...  your ears don't ring or hurt as screams of horror and rage surround you, louder than should be deafening.  When they shift to accusations, an unfamiliar guilt dominates your thoughts; you are forced to abandon your body before it can compel you to punish yourself.", "艾琳困惑而惊恐的哭声渐渐平静下来，但是……当恐惧和愤怒的尖叫声围绕着你，比震耳欲聋还要响亮的时候，你的耳朵不会响也不会痛。当他们转向指责时，一种陌生的罪恶感支配着你的思想；在它迫使你惩罚自己之前，你被迫放弃你的身体。", "_t")
 t("stun", "震慑", "effect subtype")
@@ -389,7 +389,7 @@ t("-Stunned", "-震慑", "_t")
 t("possess", "支配", "effect subtype")
 t("mind", "精神", "effect subtype")
 t("Possess", "支配", "_t")
-t("The victim is snared in a psionic web that is destroying its mind and preparing its body for possession.  It takes %0.2f Mind damage per turn.", "目标被灵能网困住，将会被支配，每回合受到 %0.2f 精神伤害。", "tformat")
+t("The victim is snared in a psionic web that is destroying its mind and preparing its body for possession.  It takes %0.2f Mind damage per turn.", "目标被困在灵能网中，其心智正被摧毁，身体正为附身做准备。每回合受到 %0.2f 精神伤害。", "tformat")
 t("#Target#'s mind is convulsing.", "#Target#的精神在抽搐。", "_t")
 t("#Target#'s mind is not convulsing anymore.", "#Target#的精神不再抽搐。", "_t")
 t("#PURPLE##Source# shatters #Target#'s mind and takes possession of its body.", "#PURPLE##Source#粉碎了#Target#的精神，控制了它的身体。", "logCombat")
@@ -409,7 +409,7 @@ t("Stolen talent: %s", "偷取技能: %s", "tformat")
 t("#Target# stole a talent!", "#Target#偷取了一个技能！", "_t")
 t("#Target# forgot a talent.", "#Target#忘掉了一个技能。", "_t")
 t("%s can not use %s because it was stolen!", "%s无法使用%s，因为它被偷走了！", "_t")
-t("Writhing Psionic Mass", "扭曲装甲", "_t")
+t("Writhing Psionic Mass", "扭动灵能团", "_t")
 t("All resists increased by %d%%, chance to be crit reduced by %d%%.", "所有抗性增加 %d%%, 被暴击率减少 %d%%。", "tformat")
 t("#Target#'s body writhe in psionic energies!", "#Target#的身体在灵能中扭曲！", "_t")
 t("#Target#'s body looks more at rest.", "#Target#的身体恢复了原状。", "_t")
@@ -435,7 +435,7 @@ t("lock", "封锁", "effect subtype")
 t("Tortured Mind", "精神拷打", "_t")
 t("%d talents unusable.", "%d 项技能不能使用。", "tformat")
 t("#Target# is tormented!", "#Target#被折磨！", "_t")
-t("#Target# is less tormented.", "#Target#不再被折磨。", "_t")
+t("#Target# is less tormented.", "#Target#的痛苦减轻了。", "_t")
 t("%s can not use %s because of Tortured Mind!", "由于精神拷打，%s无法使用%s！", "_t")
 
 ------------------------------------------------
@@ -448,14 +448,14 @@ t("Possessor class.", "支配者职业。", "init.lua description")
 section "tome-possessors/overload/mod/dialogs/AssumeForm.lua"
 
 t("Assume Form", "附身", "_t")
-t("Possess Body", "使用身体", "_t")
+t("Possess Body", "附身", "_t")
 t("#SLATE##{italic}#Choose which body to assume. Bodies can never be healed and once they reach 0 life they are permanently destroyed.", "#SLATE##{italic}#选择附身哪个身体。身体不能被治疗，死亡时永久摧毁。", "_t")
 t("Create Minion", "制造随从", "_t")
 t("Summon", "召唤", "_t")
 t("#SLATE##{italic}#Choose which body to summon. Once the effect ends the body will be lost.", "#SLATE##{italic}#选择召唤哪个身体。效果结束后，身体将消失。", "_t")
-t("Cannibalize Body", "合并身体", "_t")
-t("Cannibalize", "合并", "_t")
-t("#SLATE##{italic}#Choose which body to cannibalize. The whole stack of clones will be destroyed.", "#SLATE##{italic}#选择合并哪个身体。所有克隆体将同时被摧毁。", "_t")
+t("Cannibalize Body", "吞噬身体", "_t")
+t("Cannibalize", "吞噬", "_t")
+t("#SLATE##{italic}#Choose which body to cannibalize. The whole stack of clones will be destroyed.", "#SLATE##{italic}#选择吞噬哪个身体。所有克隆体将同时被摧毁。", "_t")
 t("Destroy Body", "摧毁身体", "_t")
 t("#SLATE##{italic}#Choose which body to destroy.", "#SLATE##{italic}#选择摧毁哪个身体。", "_t")
 t("You have no bodies to use.", "你没有能使用的身体。", "logPlayer")
@@ -482,7 +482,7 @@ t("#FFD700#M. power#FFFFFF#: ", "#FFD700#精神强度#FFFFFF#：", "_t")
 t("#0080FF#M. save#FFFFFF#:  ", "#0080FF#精神豁免#FFFFFF#：", "_t")
 t("#00FF80#Str/Dex/Con#FFFFFF#:  ", "#00FF80#力/敏/体#FFFFFF#:  ", "_t")
 t("#00FF80#Mag/Wil/Cun#FFFFFF#:  ", "#00FF80#魔/意/灵#FFFFFF#:  ", "_t")
-t("Cannibalize penalty: %d%%", "合并惩罚: %d%%", "tformat")
+t("Cannibalize penalty: %d%%", "吞噬惩罚: %d%%", "tformat")
 t("Resists: ", "抗性：", "_t")
 t("Hardiness/Armour: ", "护甲强度/护甲值：", "_t")
 t("Size: ", "体型：", "_t")
@@ -495,7 +495,7 @@ t("Active Talents: ", "主动技能: ", "_t")
 section "tome-possessors/overload/mod/dialogs/AssumeFormSelectTalents.lua"
 
 t("Assume Form: Select Talents (max talent level %0.1f)", "附身: 选择技能 (最大技能等级 %0.1f)", "tformat")
-t("Possess Body", "使用身体", "_t")
+t("Possess Body", "附身", "_t")
 t("Cancel", "取消", "_t")
 t("#SLATE##{italic}#Your level of #LIGHT_BLUE#Full Control talent#LAST# is not high enough to use all the talents of this body. Select which to keep, your choice will be permanent for this body and its clones.", "#SLATE##{italic}#你的 #LIGHT_BLUE#完全控制#LAST# 技能 等级 不足，无法使用该身体的所有技能，选择需要保留的技能。 你的选择对该身体及其克隆永久生效。", "_t")
 
