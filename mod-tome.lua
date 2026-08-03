@@ -8783,7 +8783,7 @@ t("A maddened, enraged snow giant that towers over his comrades. You've heard le
 ------------------------------------------------
 section "mod-tome/data/general/npcs/spider.lua"
 
-t("spiderkin", "蜘蛛", "entity type")
+t("spiderkin", "蜘蛛亚种", "entity type")
 t("spider", "蜘蛛", "entity subtype")
 t("Arachnophobia...", "我有蜘蛛恐惧症……", "_t")
 t("giant spider", "巨型蜘蛛", "entity name")
@@ -9353,7 +9353,7 @@ t("hare-skin sling", "兔皮投石索", "_t")
 t([[This well-tended sling is made from the leather and sinews of a large hare. It feels smooth to the touch, yet very durable. Some say that the skin of a hare brings luck and fortune.
 Hard to tell if that really helped its former owner, but it's clear that the skin is at least also strong and reliable.]], [[这把投石索是由一只巨大的野兔皮精制而成。它摸起来光滑柔软却十分耐用。有人说，野兔皮可以带来幸运。
 很难说它是否真的帮助了它的前任使用者，但是很显然这副毛皮既结实又可靠。]], "_t")
-t("Prox's Lucky Halfling Foot", "普洛克斯的幸运半身人脚", "entity name")
+t("Prox's Lucky Halfling Foot", "普罗克斯的幸运半身人脚", "entity name")
 t("a mummified halfling foot", "一只风干的半身人脚", "_t")
 t([[A large hairy foot, very recognizably a halfling's, is strung on a piece of thick twine. In its decomposed state it's hard to tell how long ago it parted with its owner, but from what look like teeth marks around the ankle you get the impression that it wasn't given willingly.
 It has been kept somewhat intact with layers of salt and clay, but in spite of this it's clear that nature is beginning to take its toll on the dead flesh. Some say the foot of a halfling brings luck to its bearer - right now the only thing you can be sure of is that it stinks.]], [[一只用细线串起来的巨大毛脚，很显然这是一位半身人的。目前的状态，很难讲它多久以前被割了下来，但是从脚踝处的齿痕来看，应该不是出于自愿。
@@ -20574,7 +20574,7 @@ t([[Explore the caves below the ruins of Kor'Pul and the Trollmire in search of 
 ]], [[到卡·普尔废墟和食人魔沼泽的地下城去发现宝藏和荣耀！
 ]], "_t")
 t("#LIGHT_GREEN#* You have explored the Trollmire and vanquished Shax the Troll.#WHITE#", "#LIGHT_GREEN#* 你已经探索了食人魔沼泽并击败了食人魔夏克斯。#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have explored the Trollmire and vanquished Prox the Troll.#WHITE#", "#LIGHT_GREEN#* 你已经探索了食人魔沼泽并击败了食人魔普洛克斯。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have explored the Trollmire and vanquished Prox the Troll.#WHITE#", "#LIGHT_GREEN#* 你已经探索了食人魔沼泽并击败了食人魔普罗克斯。#WHITE#", "_t")
 t("#SLATE#* You must explore the Trollmire and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你必须进入食人魔沼泽去调查那里潜伏着什么怪物并找到那里的宝藏！#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Possessed.#WHITE#", "#LIGHT_GREEN#* 你探索了卡·普尔废墟并击败了恶灵附身的强盗头目。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Shade.#WHITE#", "#LIGHT_GREEN#* 你探索了卡·普尔废墟并击败了暗影骷髅。#WHITE#", "_t")
@@ -38685,7 +38685,7 @@ This one seems to go to an unknown place, seemingly out of this world. You dare 
 t("#LIGHT_BLUE#You use the orb on the portal, shutting it down easily.", "#LIGHT_BLUE#你在传送门上使用了水晶球，很轻易的关闭了它。", "logPlayer")
 t("%s (disabled)", "%s (已禁用)", "tformat")
 t("Invocation Portal: Undeath", "召唤传送门：亡灵", "entity name")
-t("An invocation portal, perpetually summoning beings through it.", " 一个仪式传送门，可以不断的从另一边召唤生物。", "_t")
+t("An invocation portal, perpetually summoning beings through it.", "一个仪式传送门，不断地从另一边召唤生物。", "_t")
 t("Invocation Portal: Elements", "召唤传送门：元素", "entity name")
 t("Invocation Portal: Dragons", "召唤传送门：龙", "entity name")
 t("Invocation Portal: Destruction", "召唤传送门：毁灭", "entity name")
@@ -38706,7 +38706,7 @@ t("Renegade mages from Angolwen, the Sorcerers have set up in the Far East, slow
 t("human", "人类", "entity subtype")
 t("Argoniel", "艾格尼尔", "entity name")
 t("Fallen Sun Paladin Aeryn", "堕落太阳骑士艾琳", "entity name")
-t("A beautiful woman, clad in shining plate armour. Power radiates from her.", "一位身披板甲的美女。她的周身闪耀着光辉。", "_t")
+t("A beautiful woman, clad in shining plate armour. Power radiates from her.", "一位身披板甲的美女。力量从她身上散发出来。", "_t")
 t("High Sun Paladin Aeryn", "高阶太阳骑士艾琳", "entity name")
 t("Caldizar", "凯尔帝勒", "entity name")
 t("A creature stands before you, with long tentacle-like appendages and a squat bump in place of a head. An intense aura of power radiates from this being unlike anything you've ever felt before. It can only be a Sher'Tul. A living Sher'Tul!", "四肢是触须，头部由某种突起代替的奇怪生物。一种强烈的能量在他周围流动，这股能量不同于你之前认识的任何一种。他只能是夏·图尔人。一名活生生的夏·图尔人！", "_t")
@@ -39308,7 +39308,7 @@ section "mod-tome/data/zones/reknor/grids.lua"
 t("Farportal: the Far East", "远古传送门：至远东大陆", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to the Far East, a continent of which only rumours are known...]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
- 这道门似乎通向远东大陆，一块传说中的大陆…… ]], "_t")
+这道门似乎通向远东大陆，一块传说中的大陆……]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on an unfamiliar cave, with no trace of the portal...", "#VIOLET#你进入了传送门，一眨眼功夫你发现你到达了一个陌生的洞穴，此间毫无传送门的痕迹……", "_t")
 t("Iron Throne Edict", "钢铁王座布告", "entity name")
 t("\"AN EDICT TO ALL CITIZENS OF THE IRON THRONE. LONG MAY OUR EMPIRE ENDURE\"", "“致钢铁王座全体市民的布告。愿帝国长存。”", "_t")
@@ -40151,8 +40151,8 @@ t("A tall, pale woman dressed in a revealing silk robe. Her gaze is so intense i
 t("Remove @himher@!", "干掉@himher@!", "_t")
 t("#GOLD#Linaniil concentrates her formidable will to restore her body!", "#GOLD#莱娜尼尔集中了她强大的意志，复原了她的身体！", "saySimple")
 t("shalore", "永恒精灵", "entity subtype")
-t("Archmage Tarelion", "魔导师泰尔兰", "entity name")
-t("A tall Shalore in a flowing robe, he looks calm and at peace, but you can feel his tremendous power.", "一位穿着光滑长袍的高大永恒精灵，他看起来很稳重，你可以感受到他体内蕴含的强大能量。", "_t")
+t("Archmage Tarelion", "大法师泰尔兰", "entity name")
+t("A tall Shalore in a flowing robe, he looks calm and at peace, but you can feel his tremendous power.", "一位穿着飘逸长袍的高大永恒精灵，他看起来平静安详，但你能感受到他体内蕴含的强大力量。", "_t")
 t("Catch @himher@!", "抓住@himher@!", "_t")
 t("apprentice mage", "法师学徒", "entity name")
 t("An apprentice, learning the ways of the arcane arts.", "一位学徒，正在学习法术的奥秘。", "_t")
@@ -40182,7 +40182,7 @@ section "mod-tome/data/zones/town-angolwen/traps.lua"
 t("Shining Jewel", "闪光的珠宝", "entity name")
 t("Alchemist", "炼金术师", "entity name")
 t("Library", "图书馆", "entity name")
-t("Tools of the Art", "艺术工具", "entity name")
+t("Tools of the Art", "秘法工具", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-angolwen/zone.lua"
@@ -40207,7 +40207,7 @@ t("halfling slinger", "半身人投石者", "entity name")
 t("halfling", "半身人", "entity subtype")
 t("A Halfling, with a sling. Beware.", "一位携带投石索的半身人。当心。", "_t")
 t("human farmer", "人类农民", "entity name")
-t("A weather-worn Human farmer.", "穿着普通的人类农民。", "_t")
+t("A weather-worn Human farmer.", "一位饱经风霜的人类农民。", "_t")
 t("halfling gardener", "半身人园丁", "entity name")
 t("A Halfling, he seems to be looking for plants.", "一名正在寻找植物的半身人。", "_t")
 t("Shady cornac man", "鬼鬼祟祟的科纳克人", "entity name")
@@ -40220,7 +40220,7 @@ t("Armoury", "护甲店", "entity name")
 t("Tanner", "皮革店", "entity name")
 t("Swordsmith", "长剑铁匠铺", "entity name")
 t("Knives and daggers", "小刀与匕首", "entity name")
-t("Death from Afar", "远处的死亡气息", "entity name")
+t("Death from Afar", "远方之死", "entity name")
 t("Herbalist", "草药馆", "entity name")
 t("Jewelry", "珠宝店", "entity name")
 t("Survival Supplies", "野外生存用品", "entity name")
@@ -40240,7 +40240,7 @@ t("Catch @himher@!", "抓住@himher@!", "_t")
 t("elvala guard", "埃尔瓦拉守卫", "entity name")
 t("A stern-looking guard, he will not let you disturb the town.", "一名严肃的守卫，他不会允许任何人打扰镇子的宁静。", "_t")
 t("shalore rune master", "精灵符文大师", "entity name")
-t("A tall Elf, his skin covered in runes.", "一名高大的精灵，他的皮肤刻上了各种纹身。", "_t")
+t("A tall Elf, his skin covered in runes.", "一名高大的精灵，他的皮肤上布满了符文。", "_t")
 t("giant", "巨人", "entity type")
 t("ogre", "食人魔", "entity subtype")
 t("ogre rune-spinner", "食人魔符文师", "entity name")
@@ -40289,7 +40289,7 @@ section "mod-tome/data/zones/town-gates-of-morning/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("High Sun Paladin Aeryn", "高阶太阳骑士艾琳", "entity name")
-t("A beautiful woman, clad in shining plate armour. Power radiates from her.", "一位身披板甲的美女。她的周身闪耀着光辉。", "_t")
+t("A beautiful woman, clad in shining plate armour. Power radiates from her.", "一位身披板甲的美女。力量从她身上散发出来。", "_t")
 t("You find a note containing the location of the Orc Prides on Aeryn's body.", "你在艾琳的尸体上找到了一张纸条，上面写着兽人部落的位置。", "logPlayer")
 
 ------------------------------------------------
@@ -40316,7 +40316,7 @@ t("Gates of Morning", "晨曦之门", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/town-irkkk/grids.lua"
 
-t("cooking pit", "烹饪凹地", "entity name")
+t("cooking pit", "烹饪坑", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-irkkk/npcs.lua"
@@ -40365,7 +40365,7 @@ t("crystals", "水晶", "entity name")
 t("Escape route from Reknor", "瑞库纳逃生之路", "entity name")
 t("The Deep Bellow", "无尽深渊", "entity name")
 t("The Dwarven Empire Incarnate", "矮人帝国的化身", "entity name")
-t("Mystic of the Empire", "帝国的奥秘", "entity name")
+t("Mystic of the Empire", "帝国秘法师", "entity name")
 t("Warrior of the Empire", "帝国的战士", "entity name")
 t("Defender of the Empire", "帝国的保卫者", "entity name")
 
@@ -40376,7 +40376,7 @@ t("humanoid", "人形生物", "entity type")
 t("dwarf", "矮人", "entity subtype")
 t("Catch @himher@!", "抓住@himher@!", "_t")
 t("dwarven guard", "矮人守卫", "entity name")
-t("A stocky dwarf, he looks angry.", "一名严肃的矮人守卫，他看起来脾气火爆。", "_t")
+t("A stocky dwarf, he looks angry.", "一名敦实的矮人，他看起来很生气。", "_t")
 t("dwarven earthwarden", "矮人岩石守卫", "entity name")
 
 ------------------------------------------------
@@ -40406,7 +40406,7 @@ t("old road", "古老的路", "entity name")
 t("Farportal: Gates of Morning", "远古传送门：晨曦之门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go near the Gates of Morning in the Far East.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
- 这扇门似乎通向远东的晨曦之门附近。]], "_t")
+这扇门似乎通向远东的晨曦之门附近。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in sight of the Gates of Morning, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经到了晨曦之门的山脚下，此间毫无传送门的痕迹……", "_t")
 
 ------------------------------------------------
@@ -40423,14 +40423,14 @@ t("A Halfling, with a sling. Beware.", "一位携带投石索的半身人。当�
 t("human citizen", "人类市民", "entity name")
 t("A clean-looking Human resident of Last Hope.", "一位面容清秀的最后希望市民。", "_t")
 t("halfling citizen", "半身人市民", "entity name")
-t("A clean-looking Halfling resident of Last Hope.", "一位面容清秀的最后希望市民。", "_t")
+t("A clean-looking Halfling resident of Last Hope.", "一位穿着整洁的最后希望半身人居民。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-last-hope/objects.lua"
 
 t("last hope foundation", "最后的希望的建立", "entity subtype")
-t("The Diaries of King Toknor the Brave (%d)", "狮心王图库纳的日记 (%d)", "tformat")
-t("A part of the history of Last Hope, and King Toknor the Brave.", "有关最后的希望和狮心王图库纳的历史。", "_t")
+t("The Diaries of King Toknor the Brave (%d)", "勇敢者图库纳王的日记 (%d)", "tformat")
+t("A part of the history of Last Hope, and King Toknor the Brave.", "这是最后的希望历史的一部分，也关于勇敢者图库纳王。", "_t")
 t("analysis", "分析", "entity subtype")
 t("southspar", "南晶岛", "entity subtype")
 t("the Pale King part %s", "亡灵国王 第%s章", "tformat")
@@ -40475,7 +40475,7 @@ t("Ben Cruthdar, the Cursed", "被诅咒者本·克鲁塞达尔", "entity name")
 t([[This madman looks extremely dangerous. He wields a big axe and means to use it.
 A gloomy aura emanates from him.]], "这个疯子看起来极其危险。他手持一把巨斧，而且真的打算用它。黑暗光环从他身上向周围扩散。", "_t")
 t("lumberjack", "伐木工", "entity name")
-t("A lumberjack. Cutting wood is his job, dream and passion.", "一名伐木工。伐木是他的工作，梦幻而激情。", "_t")
+t("A lumberjack. Cutting wood is his job, dream and passion.", "一名伐木工。伐木是他的工作、梦想与热忱。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-lumberjack-village/zone.lua"
@@ -40513,7 +40513,7 @@ t("A timeless elf stands before you. Even though his age is impossible to determ
 t("horror", "恐魔", "entity type")
 t("temporal", "时空", "entity subtype")
 t("Temporal Defiler", "时空污秽魔", "entity name")
-t("A huge, slender, metallic monstrosity with long claws in place of fingers, and razor-sharp teeth. It seems to seek something here.", "一只瘦长的生物，在其手指部位有着锋利的剃刀般的爪子，此外，它还拥有锋利的牙齿。它似乎在这里寻找着什么。", "_t")
+t("A huge, slender, metallic monstrosity with long claws in place of fingers, and razor-sharp teeth. It seems to seek something here.", "一只巨大而细长的金属怪物，手指的位置长着长长的爪子，还有剃刀般锋利的牙齿。它似乎在这里寻找着什么。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-point-zero/objects.lua"
@@ -40528,7 +40528,7 @@ section "mod-tome/data/zones/town-point-zero/traps.lua"
 t("Tailor", "裁缝店", "entity name")
 t("Tanner", "皮革店", "entity name")
 t("Knives and daggers", "小刀与匕首", "entity name")
-t("Death from Afar", "远处的死亡气息", "entity name")
+t("Death from Afar", "远方之死", "entity name")
 t("Swordsmith", "长剑铁匠铺", "entity name")
 t("Staff carver", "法杖雕刻者", "entity name")
 t("Runemaster", "大师符文店", "entity name")
@@ -40551,7 +40551,7 @@ section "mod-tome/data/zones/town-shatur/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("thalore", "自然精灵", "entity subtype")
 t("Catch @himher@!", "抓住@himher@!", "_t")
-t("thalore hunter", "精灵猎人", "entity name")
+t("thalore hunter", "自然精灵猎人", "entity name")
 t("A stern-looking guard, he will not let you disturb the town.", "一名严肃的守卫，他不会允许任何人打扰镇子的宁静。", "_t")
 t("thalore wilder", "精灵自然师", "entity name")
 t("A tall elf, his skin covered in green moss.", "一名高大的精灵，他的皮肤覆有青苔。", "_t")
@@ -40642,9 +40642,9 @@ t("troll", "巨魔", "entity subtype")
 t("Prox the Mighty", "大力巨魔普罗克斯", "entity name")
 t("A huge troll, he might move slowly but he does look dangerous nonetheless.", "一只巨大的巨魔，虽然他行动缓慢，但是毫无疑问他看起来危险无比。", "_t")
 t("and eaten raw", "并被生吞活剥", "_t")
-t("Prox staggers for a moment. A note seems to drop at his feet.", "普洛克斯蹒跚了几步，一张纸条似乎掉在了他脚下。", "logSeen")
+t("Prox staggers for a moment. A note seems to drop at his feet.", "普罗克斯蹒跚了几步，一张纸条似乎掉在了他脚下。", "logSeen")
 t("... and we thought the trollmire was safer now!", "…谁说巨魔沼泽比以前安全了！", "_t")
-t("Shax the Slimy", "水上巨魔夏克斯", "entity name")
+t("Shax the Slimy", "黏糊糊的夏克斯", "entity name")
 t("A huge troll, he seems to be adapted to aquatic life.", "一只巨大的巨魔，他似乎已经习惯了水中的生活。", "_t")
 t("Shax staggers for a moment. A note seems to drop at his feet.", "夏克斯蹒跚了几步，一张纸条似乎掉在了他脚下。", "logSeen")
 t("Bill the Stone Troll", "岩石巨魔比尔", "entity name")
@@ -40727,22 +40727,22 @@ t("#VIOLET#You have learned the talent Shove.", "#VIOLET#你学会了技能推�
 t("#VIOLET#The sound of an ancient door grinding open echoes down the tunnel!", "#VIOLET#推开古老大门产生的吱呀声音回荡在通道里！", "logPlayer")
 t("Rune of Enlightenment: Mana Gale", "启蒙符文：法力风暴", "entity name")
 t("Teaches the player 'Mana Gale'.", " 可习得技能“法力风暴” ", "_t")
-t("#VIOLET#You have learned the talent Mana Gale.", "#VIOLET#你学会了技能法力风暴", "logPlayer")
+t("#VIOLET#You have learned the talent Mana Gale.", "#VIOLET#你学会了技能法力风暴。", "logPlayer")
 t("Rune of Enlightenment: Telekinetic Punt", "启蒙符文：念力推送", "entity name")
-t("Teaches the player 'Telekinetic Punt'.", " 可习得技能“念力打击” ", "_t")
-t("#VIOLET#You have learned the talent Telekinetic Punt.", "#VIOLET#你学会了技能念力冲撞", "logPlayer")
+t("Teaches the player 'Telekinetic Punt'.", "可习得技能“念力推送”", "_t")
+t("#VIOLET#You have learned the talent Telekinetic Punt.", "#VIOLET#你学会了技能念力推送。", "logPlayer")
 t("Rune of Enlightenment: Blink", "启蒙符文：闪现", "entity name")
-t("Teaches the player 'Blink'.", " 可习得技能“闪光术” ", "_t")
-t("#VIOLET#You have learned the talent Blink.", "#VIOLET#你学会了技能闪现", "logPlayer")
+t("Teaches the player 'Blink'.", "可习得技能“闪现”", "_t")
+t("#VIOLET#You have learned the talent Blink.", "#VIOLET#你学会了技能闪现。", "logPlayer")
 t("Rune of Enlightenment: Fear", "启蒙符文：恐惧", "entity name")
 t("Teaches the player 'Fear'.", " 可习得技能“恐惧” ", "_t")
-t("#VIOLET#You have learned the talent Fear.", "#VIOLET#你学会了技能恐惧术", "logPlayer")
+t("#VIOLET#You have learned the talent Fear.", "#VIOLET#你学会了技能恐惧。", "logPlayer")
 t("Rune of Enlightenment: Bleed", "启蒙符文：流血", "entity name")
 t("Teaches the player 'Bleed'.", " 可习得技能“流血” ", "_t")
-t("#VIOLET#You have learned the talent Bleed.", "#VIOLET#你学会了技能流血", "logPlayer")
+t("#VIOLET#You have learned the talent Bleed.", "#VIOLET#你学会了技能流血。", "logPlayer")
 t("Rune of Enlightenment: Confusion", "启蒙符文：混乱", "entity name")
 t("Teaches the player 'Confusion'.", " 可习得技能“混乱” ", "_t")
-t("#VIOLET#You have learned the talent Confusion.", "#VIOLET#你学会了技能混乱", "logPlayer")
+t("#VIOLET#You have learned the talent Confusion.", "#VIOLET#你学会了技能混乱。", "logPlayer")
 t("wall", "墙壁", "entity type")
 t("floor", "地板", "entity subtype")
 t("glowing door", "发光的门", "entity name")
@@ -40767,18 +40767,18 @@ t("Quick-healing orc", "快速自愈的兽人", "entity name")
 t("Robe-clad elf", "披着长袍的精灵", "entity name")
 t("An elf that looks as though he spends a good amount of his time wiggling his fingers and chanting.", "这名精灵看起来一生都花费在了手势和颂歌中。", "_t")
 t("Stubborn orc", "顽固的兽人", "entity name")
-t("Obstinate orc", "顽强的兽人", "entity name")
-t("Pushy orc", "冲动的兽人", "entity name")
+t("Obstinate orc", "固执的兽人", "entity name")
+t("Pushy orc", "爱出风头的兽人", "entity name")
 t("Rude orc", "粗暴的兽人", "entity name")
 t("Troll", "巨魔", "entity name")
 t("Ugly troll", "丑陋的巨魔", "entity name")
 t("Gross troll", "粗野的巨魔", "entity name")
 t("Ghastly troll", "可怕的巨魔", "entity name")
 t("Forum troll", "论坛巨魔", "entity name")
-t("Pushy elf", "冲动的精灵", "entity name")
-t("Blustering elf", "狂暴的精灵", "entity name")
+t("Pushy elf", "爱出风头的精灵", "entity name")
+t("Blustering elf", "虚张声势的精灵", "entity name")
 t("Breezy elf", "活泼的精灵", "entity name")
-t("spiderkin", "蜘蛛", "entity type")
+t("spiderkin", "蜘蛛亚种", "entity type")
 t("spider", "蜘蛛", "entity subtype")
 t("Arachnophobia...", "我有蜘蛛恐惧症……", "_t")
 t("giant spider", "巨型蜘蛛", "entity name")
@@ -40863,11 +40863,11 @@ t("crack in spacetime", "时空裂隙", "entity name")
 ------------------------------------------------
 section "mod-tome/data/zones/unhallowed-morass/npcs.lua"
 
-t("spiderkin", "蜘蛛", "entity type")
+t("spiderkin", "蜘蛛亚种", "entity type")
 t("spider", "蜘蛛", "entity subtype")
 t("Arachnophobia...", "我有蜘蛛恐惧症……", "_t")
 t("weaver hatchling", "编织者幼体", "entity name")
-t("A nearly translucent spider hatchling.", "一只小小的蜘蛛，它在不断的出入相位现实。", "_t")
+t("A nearly translucent spider hatchling.", "一只近乎半透明的蜘蛛幼体。", "_t")
 t("orb spinner", "球蛛纺织者", "entity name")
 t("A large brownish arachnid, its fangs drip with a strange fluid.", "一只巨大的褐色蜘蛛，它的尖牙不断的滴落奇怪的液体。", "_t")
 t("orb weaver", "球蛛编织者", "entity name")
@@ -40906,7 +40906,7 @@ t("An orc clad in mail armour, he wields a staff and looks menacing.", "一名�
 ------------------------------------------------
 section "mod-tome/data/zones/unremarkable-cave/zone.lua"
 
-t("Unremarkable Cave", "隐蔽的洞穴", "_t")
+t("Unremarkable Cave", "不起眼的洞穴", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/valley-moon/grids.lua"
@@ -40915,7 +40915,7 @@ t("moonstone", "月亮石", "entity name")
 t("floor", "地板", "entity type")
 t("grass", "草地", "entity subtype")
 t("Fearscape Portal", "恶魔空间传送门", "entity name")
-t("An invocation portal, perpetually summoning beings through it.", " 一个仪式传送门，可以不断的从另一边召唤生物。", "_t")
+t("An invocation portal, perpetually summoning beings through it.", "一个仪式传送门，不断地从另一边召唤生物。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/valley-moon/npcs.lua"
@@ -40933,7 +40933,7 @@ t("#VIOLET#Limmir is attacked! Defend him!", "#VIOLET#利米尔被攻击了！�
 ------------------------------------------------
 section "mod-tome/data/zones/valley-moon/zone.lua"
 
-t("Ithilthum, Valley of the Moon", "伊塞尔森`月之谷", "_t")
+t("Ithilthum, Valley of the Moon", "伊塞尔森·月之谷", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/valley-moon-caverns/grids.lua"
@@ -40968,7 +40968,7 @@ t([[During the Age of Haze nearly all gods were destroyed by the Sher'tul Godsla
 Gerlyk, the creator of the Human race, prefered to flee into the void between the stars than to face death. He has been trapped ever since.
 The sorcerers tried to bring him back and nearly succeeded.
 Now you have come to finish what the Sher'tul began. Become a Godslayer yourself.]], [[在混沌纪几乎大部分神祗被夏·图尔的弑神者所杀。但仍有少部分逃离。
-盖里克，人类缔造者，则选择走进群星间的虚空来避免死亡。他至今仍毫无踪迹。
+盖里克，人类缔造者，则选择走进群星间的虚空来避免死亡。他从此一直被困在那里。
 恶魔法师们正在试图将他召回，并已经接近成功。
 现在是你结束夏·图尔人未完成事业的时刻了，去成为一名弑神者吧！]], "_t")
 
@@ -41010,7 +41010,7 @@ t("reading candle", "阅读蜡烛", "entity name")
 section "mod-tome/data/zones/vor-pride/npcs.lua"
 
 t("Vor, Grand Geomancer of the Pride", "普莱德地卜师将军沃尔", "entity name")
-t("An old orc, wearing multi-colored robes. Ice shards fly around him, leaving a trail of fire and lightning bursts.", "一名身穿彩色长袍的年老兽人。冰霜在他周围盘旋，他在走过的路上留下一条雷火之径。", "_t")
+t("An old orc, wearing multi-colored robes. Ice shards fly around him, leaving a trail of fire and lightning bursts.", "一名身穿彩色长袍的年老兽人。冰晶在他周围飞舞，在身后留下一道燃烧着火焰与闪电的轨迹。", "_t")
 t("and used as target practice for initiate mages", "并作为新兵法师的人肉靶子", "_t")
 
 ------------------------------------------------
@@ -41019,11 +41019,11 @@ section "mod-tome/data/zones/vor-pride/objects.lua"
 t("tome", "书册", "entity subtype")
 t("Tome of Wildfire", "焱之书", "entity name")
 t("burning book", "燃烧的书", "_t")
-t("This huge book is covered in searing flames. Yet they do not harm you.", "这本巨大的书本被明亮的火焰所围绕。但它们不会伤害你。", "_t")
+t("This huge book is covered in searing flames. Yet they do not harm you.", "这本巨大的书本被灼烧的火焰覆盖。但它们不会伤害你。", "_t")
 t("learn the ancient secrets", "学习古老的秘术", "_t")
 t("#00FFFF#You read the tome and learn about ancient forgotten fire magic!", "#00FFFF#你阅读了那本册子，学会了已被遗忘的古老火系魔法！", "logPlayer")
 t("#00FFFF#You read the tome and perfect your mastery of fire magic!", "#00FFFF#你阅读了那本册子，完善了对火系魔法的掌握！", "logPlayer")
-t("Tome of Uttercold", "冰之书", "entity name")
+t("Tome of Uttercold", "极寒之书", "entity name")
 t("frozen book", "冰冻的书", "_t")
 t("This huge book is covered in slowly shifting patterns of ice. Yet they do not harm you.", "这本巨大的书覆盖着缓缓流动的冰纹。但它们并不会伤害你。", "_t")
 t("#00FFFF#You read the tome and learn about ancient forgotten ice magic!", "#00FFFF#你阅读了那本册子，学会了已被遗忘的古老冰系魔法！", "logPlayer")
@@ -41080,16 +41080,16 @@ t("Derth (Town)", "德斯镇（城镇）", "entity name")
 t("A quiet town at the crossroads of the north", " 一个位于北方十字要道的宁静村庄。", "_t")
 t("Last Hope (Town)", "最后的希望（城镇）", "entity name")
 t("Capital city of the Allied Kingdoms ruled by King Tolak", " 联合王国首都（托拉克统治） ", "_t")
-t("Angolwen, the hidden city of magic", "安格利文，隐藏的魔法城（城镇）", "entity name")
+t("Angolwen, the hidden city of magic", "安格利文，隐藏的魔法之城", "entity name")
 t([[Secret place of magic, set apart from the world to protect it.
 Lead by the Supreme Archmage Linaniil.]], [[ 魔法的隐藏圣地，隔绝于世。 
 （魔导师莱娜尼尔守护） ]], "_t")
 t("Hidden teleportation portal to Angolwen, the hidden city of magic", "隐藏的安格利文魔法城传送点", "entity name")
 t("The portal fizzles.", "传送门失败了。", "log")
 t("Shatur (Town)", "夏特尔（城镇）", "entity name")
-t("Capital city of Thaloren lands, ruled by Nessilla Tantaelen", " 自然精灵首都（奈希拉·坦泰兰守护） ", "_t")
+t("Capital city of Thaloren lands, ruled by Nessilla Tantaelen", "自然精灵领地的首都，由奈希拉·坦泰兰统治", "_t")
 t("Elvala (Town)", "埃尔瓦拉（城镇）", "entity name")
-t("Capital city of Shaloren lands, ruled by Aranion Gayaeil", " 永恒精灵首都（阿兰尼恩·葛艾尔守护） ", "_t")
+t("Capital city of Shaloren lands, ruled by Aranion Gayaeil", "永恒精灵领地的首都，由阿兰尼恩·葛艾尔统治", "_t")
 t("Gates of Morning (Town)", "晨曦之门（城镇）", "entity name")
 t("A massive hole in the Sunwall.", " 在太阳之墙的巨大孔洞。", "_t")
 t("Irkkk (Town)", "伊尔克（城镇）", "entity name")
@@ -41121,7 +41121,7 @@ t("Unremarkable cave", "不显眼的山洞", "entity name")
 t("A gate into the old kingdom of Reknor", "古代王国瑞库纳的大门", "entity name")
 t("Entrance into Telmur, tower of Telos", "泰勒斯之塔泰尔玛的入口", "entity name")
 t("Way into the lair of Murgol", "穆格尔巢穴的入口", "entity name")
-t("Long road to the Tempest Peak", "通向风暴之颠的长道", "entity name")
+t("Long road to the Tempest Peak", "通向风暴之巅的长道", "entity name")
 t("Danger...", "小心……", "_t")
 t([[After walking many hours, you finally reach the end of the way. You are nearly on top of one of the highest peaks you can see.
 The storm is raging above your head.]], [[在行走了几个小时后，你终于到达了终点。你站在了你能看到的最高峰位置。
@@ -41212,7 +41212,7 @@ Donators will also gain access to the custom tiles for their characters.]], [[�
 
 如果你喜欢这类游戏并且你觉得这款游戏很好，你可以考虑捐赠。
 这会帮助延长这款游戏的寿命。尽管这只是我自娱自乐所做的一款游戏，如果它还能帮助我分担一点养家糊口的压力的话，我就谢天谢地，不会再抱怨现实的诸多压力了。
-你可能需要一个在线账号来激活此模式。如果你已经捐赠，你只要重启游戏便可以获得此模式。
+你需要一个已激活并保持连接的在线档案，贴图选择器才能启用。如果你现在选择捐赠，你需要重启游戏才能获得权限。
 
 捐赠者也可以使用自定义贴图来DIY他们的角色。]], "_t")
 t("Later", "以后再说", "_t")
@@ -41229,7 +41229,7 @@ Donators will also gain access to the Exploration Mode featuring infinite lives.
 你可以从近180个（以后还会添加）图标中选择一个你喜欢的角色个性贴图，从特殊的人形生物到各种奇怪的贴图都有。
 
 如果你喜欢这类游戏并且你觉得这款游戏很好，你可以考虑捐赠。这会帮助延长这款游戏的寿命。尽管这只是我自娱自乐所做的一款游戏，如果它还能帮助我分担一点养家糊口的压力的话，我就谢天谢地，不会再抱怨现实的诸多压力了。
-你可能需要一个在线账号来激活此模式。如果你已经捐赠，你只要重启游戏便可以获得此模式。
+你需要一个已激活并保持连接的在线档案，贴图选择器才能启用。如果你现在选择捐赠，你需要重启游戏才能获得权限。
 捐赠者也可以在游戏选项中激活探索模式获得无限的生命数。]], "_t")
 t("Select a Tile", "选择贴图", "_t")
 t("Use default tile", "选择默认贴图", "_t")
@@ -41331,7 +41331,7 @@ t("Type : ", "类型：", "_t")
 t("Class: ", "职业：", "_t")
 t("Stype: ", "子类：", "_t")
 t("Zigur follower", "伊格追随者", "_t")
-t("Antimagic adherent", "反魔志愿者", "_t")
+t("Antimagic adherent", "反魔拥护者", "_t")
 t("- Seed: #LIGHT_STEEL_BLUE#%s", "- 种子： #LIGHT_STEEL_BLUE#%s", "tformat")
 t("Click to copy to clipboard. You can share the wanderer seed with your friends, this way they can play with the same set of talents.", "点击复制。你可以将流浪者随机种子分享给朋友，这样你们可以用同一套技能组合进行游玩。", "_t")
 t("Size : ", "体积：", "_t")
@@ -41372,7 +41372,7 @@ t("Stealth        : #00ff00#%s", "潜行强度：#00ff00#%s", "tformat")
 t("See stealth    : #00ff00#%s", "侦测潜行：#00ff00#%s", "tformat")
 t("Invisibility   : #00ff00#%s", "隐形强度：#00ff00#%s", "tformat")
 t("See invisible  : #00ff00#%s", "侦测隐形：#00ff00#%s", "tformat")
-t("Telepathy range: #00ff00#%s", "感应范围：#00ff00#%s", "tformat")
+t("Telepathy range: #00ff00#%s", "心灵感应范围：#00ff00#%s", "tformat")
 t("#LIGHT_BLUE#Stats:        Base/Current", "#LIGHT_BLUE#属性值：       基础值/当前值", "_t")
 t("#AQUAMARINE#Inscriptions (%d/%d)", "#AQUAMARINE#刻印位 (%d/%d)", "tformat")
 t("Telepathy of: ", "心灵感应：", "_t")
@@ -41407,7 +41407,7 @@ t("#LIGHT_BLUE#Mental:", "#LIGHT_BLUE#精神属性：", "_t")
 t("Mindpower: #00ff00#%s", "精神强度：#00ff00#%s", "tformat")
 t("Mind speed : #00ff00#%s", "精神速度：#00ff00#%s", "tformat")
 t("#LIGHT_BLUE#Damage Modifiers:", "#LIGHT_BLUE#伤害修正：", "_t")
-t("Critical mult.: #00ff00#%s", "暴击伤害：#00ff00#%s", "tformat")
+t("Critical mult.: #00ff00#%s", "暴击倍率：#00ff00#%s", "tformat")
 t("All damage    : #00ff00#%s", "所有伤害    ：#00ff00#%s", "tformat")
 t("vs ", "对", "_t")
 t([[#GOLD#Restance Penetration#LAST#
@@ -41493,7 +41493,7 @@ t("#LIGHT_RED#From the brink of death you seem to be yanked to another plane.", 
 t("Message Log", "消息日志", "_t")
 t("#LIGHT_BLUE#You resurrect! CHEATER!", "#LIGHT_BLUE#你复活了！作弊者！", "logPlayer")
 t("#LIGHT_RED#The Blood of Life rushes through your dead body. You come back to life!", "#LIGHT_RED#生命之血在你的尸体里流淌。你复活了！", "logPlayer")
-t("#YELLOW#Your bones magically knit back together. You are once more able to dish out pain to your foes!", "#YELLOW#你的骨头魔法般拼合在一起，你复活了！", "logPlayer")
+t("#YELLOW#Your bones magically knit back together. You are once more able to dish out pain to your foes!", "#YELLOW#你的骨头魔法般重新拼合在一起。你再次能够向敌人倾泻痛苦了！", "logPlayer")
 t("#YELLOW#Your %s is consumed and disappears! You come back to life!", "#YELLOW#你的%s耗尽并消失了！你复活了！", "logPlayer")
 t("You managed to die on the eidolon plane! DIE!", "你成功死于艾德隆位面！安息吧！", "logPlayer")
 t("Resurrect by cheating", "使用作弊复活", "_t")
@@ -41503,7 +41503,7 @@ t("Resurrect by consuming %s", "消耗%s复活", "tformat")
 t("Resurrect with Adventurer Mode (%d life(s) left)", "以冒险模式复活 (%d 剩余生命)", "tformat")
 t("Resurrect with Exploration Mode", "以探索模式复活", "_t")
 t("Message/Chat log (allows to talk)", "消息/聊天日志(允许聊天)", "_t")
-t("Character dump", "存储角色", "_t")
+t("Character dump", "角色信息导出", "_t")
 t("Restart the same character", "以这个角色重新开始", "_t")
 t("Restart with a new character", "以新角色重新开始", "_t")
 t("Exit to main menu", "退回主菜单", "_t")
@@ -41564,7 +41564,7 @@ Note: This does not affect the turn-based idea of the game. You can move again w
 数值越高，画面显示的移动速度越慢。
 
 注意：这并不会改变该游戏的回合制机制。
-在你的角色图像仍在移动的时候，你仍旧可以移动它。]], "_t")
+你可以在角色仍在移动时再次移动，游戏会正确更新并计算新的动画。]], "_t")
 t("#GOLD##{bold}#Smooth creatures movement#WHITE##{normal}#", "#GOLD##{bold}#平滑生物移动#WHITE##{normal}#", "_t")
 t("Enter movement speed(lower is faster)", "设置动画速度(越低越快)", "_t")
 t("From 0 to 60", "从 0 到 60", "_t")
@@ -41584,7 +41584,7 @@ You must restart the game for the change to take effect.]], [[界面样式，默
 t("#GOLD##{bold}#Interface Style#WHITE##{normal}#", "#GOLD##{bold}#界面样式#WHITE##{normal}#", "_t")
 t("Dark", "黑暗", "_t")
 t("Metal", "金属", "_t")
-t("Stone", "石化", "_t")
+t("Stone", "石头", "_t")
 t("Simple", "简单", "_t")
 t("Interface style", "界面样式", "_t")
 t("Select style", "选择样式", "_t")
