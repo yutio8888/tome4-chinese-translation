@@ -43144,7 +43144,7 @@ t("Weapon Set 2: Most weapons are wielded in the main hand. Press 'x' to switch 
 t("Second weapon set: In off hand", "第二套武器：在副手", "_t")
 t("Weapon Set 2: You can use shields or a second weapon in your off-hand, if you have the talents for it. Press 'x' to switch weapon sets.", "第二套武器：如果你有对应的技能，你可以副手使用盾牌或第二把武器。按x切换武器套。", "_t")
 t("Second weapon set: psionic focus", "第二套武器：心灵传动", "_t")
-t("Weapon Set 2: Object held in your telekinetic grasp. It can be a weapon or some other item to provide a benefit to your psionic powers. Press 'x' to switch weapon sets.", "第二套武器：使用你的念动力抓取的物品。你可以抓取武器，或者抓取其他物品来为你的心灵力量提供增益按x切换武器套。", "_t")
+t("Weapon Set 2: Object held in your telekinetic grasp. It can be a weapon or some other item to provide a benefit to your psionic powers. Press 'x' to switch weapon sets.", "第二套武器：使用你的念动力抓取的物品。你可以抓取武器，或者抓取其他物品来为你的心灵力量提供增益。按x切换武器套。", "_t")
 t("Second weapon set: Quiver", "第二套武器：箭袋", "_t")
 t("Weapon Set 2: Your readied ammo.", "第二套武器：你准备好的弹药。", "_t")
 t("Swift Hands", "无影手", "_t")
