@@ -12,7 +12,7 @@ t("Discovered the true origin of dwarves and drems.", "发现矮人和德瑞姆�
 t("The True Coward", "真正的懦夫", "achievement name")
 t("Win without having saved Kroshkkur, Derth, the lost merchant, Melinda and lady Aeryn.", "在不拯救克诺什库尔、德斯镇、商人、米琳达和艾琳的情况下获得胜利。", "_t")
 t("Sequence Master", "序列大师", "achievement name")
-t("Use 5 different glyph sequences.", "使用5种不同序列。", "_t")
+t("Use 5 different glyph sequences.", "使用5种不同的符文序列。", "_t")
 t("Is that how it feels to be an escort quest?!", "这就是被护送的感受么？！", "achievement name")
 t("Got saved from death in the Godfeaster by Malyu and managed to escape.", "被马虑护送离开巨大蠕虫噬神者。", "_t")
 t("Not Really Yourself", "并非自我", "achievement name")
@@ -20,7 +20,7 @@ t("Let a parasitic horror take over your body and watch it grow in power.", "让
 t("Myths of an age past", "神代奥秘", "achievement name")
 t("Learned all there is to learn about the Gods and the Godslayers.", "了解目前关于神和噬神者的所有信息。", "_t")
 t("Dethroned", "废黜", "achievement name")
-t("Vanquished the Glass Golem without letting it use the glass throne to heal.", "在不让玻璃傀儡使用王座治疗的情况下，打败它", "_t")
+t("Vanquished the Glass Golem without letting it use the glass throne to heal.", "在不使用玻璃王座治疗的情况下击败玻璃傀儡", "_t")
 t("A View From The Gallery", "画廊一瞥", "achievement name")
 t("Briefly lived as a lowly halfling during the time of the Sher'tuls.", "短暂地作为一名半身人活在夏·图尔的时代。", "_t")
 t("Entropy's End", "熵之终结", "achievement name")
@@ -59,7 +59,7 @@ t("Facial features", "脸部特征", "birth facial category")
 t("Horns", "角", "birth facial category")
 t("Special", "特殊", "birth facial category")
 t("Drem", "德瑞姆", "birth descriptor name")
-t("Faceless, but not mindless.", "无面，但不无心。", "_t")
+t("Faceless, but not mindless.", "没有面孔，但并非无脑。", "_t")
 t("Drem are mindless mutants who live deep in the earth. It is only recently that thinking Drem have appeared among them. They still remain deep below Eyal's surface, believing that they would not be welcomed among the surface races.", "德瑞姆是生存于地底深处的异变种，直到最近才发现具有思维能力的个体。他们仍生存于地底，认为他们不会被地上种族欢迎。", "_t")
 t("They possess the #GOLD#Frenzy#WHITE# talent which allows them to ignore cooldowns once in a while.", "他们拥有 #GOLD#狂热#WHITE# 技能，让他们偶尔能无视冷却时间。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
@@ -106,7 +106,7 @@ t("Special", "特殊", "birth facial category")
 t("Krog", "克罗格", "birth descriptor name")
 t("Once an abomination, now a weapon.", "曾为憎恶，现为兵器。", "_t")
 t("Krogs were formerly Ogres, that have been radically changed. Stripped of the runes from their bodies, the Ziguranth have managed to prevent the Krog from dying by injecting them with a concoction of natural infusions and drake blood. The Krog are entirely devoted to the anti-magic cause and seemingly know of nothing else in their lives.", "克罗格是从食人魔转变而来的种族。除去了身上的魔法符文，伊格兰斯使用自然纹身和龙血维持他们的生命。克罗格专注于反魔战争，似乎不了解也不关心其他事物。", "_t")
-t("They possess the #GOLD#Wrath of the Wilds#WHITE# talent which allows them to stun/daze their foes.", "他们拥有 #GOLD#自然之怒 #WHITE# 技能，让他们能震慑敌人。", "_t")
+t("They possess the #GOLD#Wrath of the Wilds#WHITE# talent which allows them to stun/daze their foes.", "他们拥有 #GOLD#自然之怒#WHITE# 技能，让他们能震慑/眩晕敌人。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD# 属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量, -1 敏捷, +2 体质", "_t")
 t("#LIGHT_BLUE# * -2 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔法, +2 意志, +0 灵巧", "_t")
@@ -218,7 +218,7 @@ section "tome-cults/data/chats/space-dwarf-trinket.lua"
 
 t([[#YELLOW_GREEN##{bold}#Suddenly the strange metallic device emits some beeps and starts to speak. Somehow.#{normal}##LAST#
 Uplink established with remote satellite. Activating emergency communication array.
-Current user does not match with previous user records. Performing scan.]], [[#YELLOW_GREEN##{bold}#突然，奇怪的金属的机器发出了哔哔声，然后，开始说话了#{normal}##LAST#
+Current user does not match with previous user records. Performing scan.]], [[#YELLOW_GREEN##{bold}#突然，这台奇怪的金属装置发出了哔哔声，然后开始说话了。不知怎么地。#{normal}##LAST#
 与卫星建立上行链接。启动紧急通信阵列。
 当前用户和之前的用户记录不匹配。正在扫描。]], "_t")
 t("..what?", "…啥啥啥？", "_t")
@@ -226,14 +226,14 @@ t([[#YELLOW_GREEN##{bold}#The device beeps again and speaks.#{normal}##LAST#
 User's biological signature matches expected species, but does not match any identity records in database. Sending information for further analysis.
 
 User added to database. I am now your personal assistant and will help you survive until further assistance can arrive. Enabling protective electromagnetic barrier and real time health monitoring.]], [[#YELLOW_GREEN##{bold}#这个机器哔哔了几下，又说了起来。#{normal}##LAST#
-用户的生理学特征符合目标物种，但是在数据库里并没有记录。正在发送信息以供进一步分析。
+用户的生理学特征符合预期物种，但在数据库中没有记录。正在发送信息以供进一步分析。
 
 用户已添加到数据库。我现在是你的私人助理，直到进一步的救援前来之前，我会持续照料你。已启动保护性电磁屏障和实时健康监测程序。]], "_t")
 t("Expected species?", "目标物种？", "_t")
 t([[#YELLOW_GREEN##{bold}#The device beeps again and speaks.#{normal}##LAST#
 User's biological signature indicates dangerous degeneration of genome due to unknown factors. Sending information for further analysis.]], [[#YELLOW_GREEN##{bold}#这个机器哔哔了几下，又说了起来。#{normal}##LAST#
 由于不明原因，用户的生理特征表现出危险的基因劣化。正在发送信息以供进一步分析。]], "_t")
-t("Genome?", "基因？", "_t")
+t("Genome?", "基因组？", "_t")
 t([[#YELLOW_GREEN##{bold}#The device beeps again and speaks.#{normal}##LAST#
 No signs of life detected. User appears to be still moving despite absence of living tissue. Sending information for further analysis.]], [[#YELLOW_GREEN##{bold}#这个机器哔哔了几下，又说了起来。#{normal}##LAST#
 没有检测到生命信号。目标看上去在活动，但没有活着的生物组织。正在发送信息以供进一步分析。]], "_t")
@@ -287,7 +287,7 @@ t("Encounter", "遭遇", "_t")
 t([[The ground suddenly shakes under your feet and a giant worm appears to gobble you up!
 You could try to escape using the Rod of Recall or accept your fate.]], [[你脚下的大地在颤动，一只巨大的蠕虫突然出现，将你吞了进去 ! 
 你可以尝试使用回归之杖来逃离，或者接受你的命运。]], "_t")
-t("You manage in extremis to activate the rod in emergency. As you keep on falling towards the maw of the worm the rod finishes charging up and you re-appear nearby, safe from the monstrosity.", "你勉强开启了回归之杖。当你落在虫子嘴里时，魔杖充能完毕，你重新出现在地面其他位置，逃离了怪物。", "log")
+t("You manage in extremis to activate the rod in emergency. As you keep on falling towards the maw of the worm the rod finishes charging up and you re-appear nearby, safe from the monstrosity.", "你在千钧一发之际启动了回归之杖。当你不断坠向虫子的巨口时，回归之杖充能完毕，你在附近重新出现，脱离了那怪物的威胁。", "log")
 t("Accept your fate", "接受你的命运", "_t")
 t("Use the rod", "使用回归之杖", "_t")
 
@@ -318,7 +318,7 @@ t("\
 #DARK_SEA_GREEN#这个物品被消化袋强化了。", "_t")
 t("\
 #DARK_SEA_GREEN#It was changed by the digestive sack.", "\
-#DARK_SEA_GREEN#这个物品被消化袋改变了了。", "_t")
+#DARK_SEA_GREEN#这个物品被消化袋改变了。", "_t")
 t("corrupted #base#", "腐化的 #base#", "_t")
 t("giant digestive sack", "巨大的消化袋", "_t")
 t("Giant Digestive Sack", "巨大的消化袋", "_t")
@@ -368,7 +368,7 @@ t("inside a giant tentacle", "巨大触手内部", "_t")
 t("#rng# the Blightborn", "枯萎之子#rng#", "_t")
 t("#DARK_SEA_GREEN#You can feel tremors in the tentacle.. A gastric wave is coming!", "#DARK_SEA_GREEN#你能感觉到触手的颤动……一波胃液来了！", "say")
 t("#DARK_SEA_GREEN#The gastric wave is upon you!", "#DARK_SEA_GREEN#一波胃液冲到你的身上！", "say")
-t("#DARK_SEA_GREEN#As you approach to touch it, the tentacle shrivels and disappears, leaving behind %s.", "#DARK_SEA_GREEN#当你触碰它时，触手收缩并消失，留下了%s。", "logSeen")
+t("#DARK_SEA_GREEN#As you approach to touch it, the tentacle shrivels and disappears, leaving behind %s.", "#DARK_SEA_GREEN#当你靠近并伸手触碰它时，触手收缩并消失，留下%s。", "logSeen")
 
 ------------------------------------------------
 section "tome-cults/data/general/grids/fonts.lua"
@@ -454,7 +454,7 @@ t("wall", "墙壁", "entity type")
 t("tentacle 'tree'", "触手“树”", "entity name")
 t("huge loose rock", "巨大的松动石头", "entity name")
 t("This rock is loose, you think you can move it away.", "这块岩石看起来有些松动，你觉得你可以移开它。", "_t")
-t("ladder to the next level", "通往下一层的台阶", "entity name")
+t("ladder to the next level", "通往下一层的梯子", "entity name")
 t("ladder to the previous level", "通往上一层的台阶", "entity name")
 t("ladder to worldmap", "通往世界地图的台阶", "entity name")
 
@@ -511,7 +511,7 @@ t("cave walls", "山洞壁", "entity name")
 t("grass", "草地", "entity subtype")
 t("huge loose rock", "巨大的松动石头", "entity name")
 t("This rock is loose, you think you can move it away.", "这块岩石看起来有些松动，你觉得你可以移开它。", "_t")
-t("ladder to the next level", "通往下一层的台阶", "entity name")
+t("ladder to the next level", "通往下一层的梯子", "entity name")
 t("ladder to the previous level", "通往上一层的台阶", "entity name")
 t("ladder to worldmap", "通往世界地图的台阶", "entity name")
 
@@ -525,7 +525,7 @@ t("Tentacle Tree", "触手树", "_t")
 t("Do you #{strong}#really#{normal}# want to touch that?", "你#{strong}#确定#{normal}#要触摸它么？", "_t")
 t("No", "否", "_t")
 t("Yes", "是", "_t")
-t("#CRIMSON#The %s glows ominously.", "#CRIMSON#%s闪耀着奇怪的光芒。", "log")
+t("#CRIMSON#The %s glows ominously.", "#CRIMSON#%s发出不祥的光芒。", "log")
 
 ------------------------------------------------
 section "tome-cults/data/general/npcs/blobs.lua"
@@ -543,7 +543,7 @@ t("dendritic hemospinner", "树突胞递呈者", "entity name")
 t("This strange cell can somehow connect to Eyal itself.", "这个奇怪的细胞似乎可以通过某种方法连接到埃亚尔本身。", "_t")
 t("acidic digestor", "酸胞消化者", "entity name")
 t("You look like nutriments.", "你看起来像是营养成分。", "_t")
-t("protosentient globula", "原球胞", "entity name")
+t("protosentient globula", "原知觉球体", "entity name")
 t("A huge globula of protoplasma. You can feel a kind of protosentience emanating from it, and you can tell it is hungry.", "一大团原生质球体。你能感觉到某种原始感知从它身上散发出来，并且能看出它很饥饿。", "_t")
 
 ------------------------------------------------
@@ -668,7 +668,7 @@ t("gross mass of spinal matter", "一堆脊柱碎片", "_t")
 t("A gross mass of spinal matter hastily assembled into armour.", "一大团令人作呕的、被匆忙拼装成护甲的脊柱物质。", "_t")
 t("Infused Cerebrum", "被灌注的大脑", "entity name")
 t("a disgusting pile of brain-matter", "一团令人厌恶的大脑组织", "_t")
-t("This #{italic}#headwear#{normal}# seems made entirely out of half-rotten brain matter. Do you really want to put that over your head?", "这个 #{italic}# “帽子” #{normal}# 似乎是由已经半腐烂的大脑组成的。你真的还想把它呆在自己的头上吗？", "_t")
+t("This #{italic}#headwear#{normal}# seems made entirely out of half-rotten brain matter. Do you really want to put that over your head?", "这个 #{italic}# “帽子” #{normal}# 似乎是由已经半腐烂的大脑组成的。你真的想把它戴在自己头上吗？", "_t")
 t("assault the mind of a foe to utterly dominate it", "打击目标的精神，彻底控制它", "_t")
 t("%s resists the mental assault!", "%s抵抗了精神攻击！", "logSeen")
 t("Writhing Ring of the Hunter", "猎手的扭曲指环", "entity name")
@@ -683,14 +683,14 @@ t("A staff made out of the bones of fallen foes. Disgustingly powerful.", "由�
 t("It seems willing and able to talk to you (use Command Staff).", "它似乎愿意和你交谈（使用法杖掌控）", "_t")
 t("Growing more powerful? Still pathetic compared to a True Necromancer!", "变得更强了？你离真正的死灵法师还差得很远！", "_t")
 t("Ahh the rush of power... I love that!", "啊，这股能量……我喜欢这种感觉！", "_t")
-t("What feeble power you wield now is nothing!", "你现在掌握的力量多么微弱啊！", "_t")
+t("What feeble power you wield now is nothing!", "你现在掌握的那点微弱力量根本不值一提！", "_t")
 t("Yes yes you've leveled up, so what?", "是的，是的，你已经升级了，那又怎样？", "_t")
-t("One more level, that's hardly impressive you know?", "又升了一级，这一点也不意外，你明白吗？", "_t")
-t("If you weren't so useless I'd be nearly impressed by that new level...", "如果不是因为你这么没用，我大概会对升级有点兴趣…", "_t")
+t("One more level, that's hardly impressive you know?", "又升了一级，这也没什么了不起的，你明白吗？", "_t")
+t("If you weren't so useless I'd be nearly impressed by that new level...", "要不是你这么没用，这次升级几乎能让我刮目相看……", "_t")
 t("KILL! KILL!", "杀！杀！杀！", "_t")
 t("We require more souls!", "我们需要更多灵魂！", "_t")
 t("Destroy them all! OBEY!", "摧毁他们！服从我！", "_t")
-t("FEED ME!", "成为我的食粮吧！", "_t")
+t("FEED ME!", "喂我！", "_t")
 t("I nee ..err.. you need more souls. Yes you...", "我需…啊，不，你需要更多灵魂。是的，你…", "_t")
 t("Pain and misery, spread them!", "散播痛苦和不幸吧！", "_t")
 t("I love the smell of a fresh corpse.", "我最喜欢新鲜尸体的味道了。", "_t")
@@ -720,7 +720,7 @@ Read now for a fate worse than death inside awaits.
 ]], "_t")
 t("Forbidden Tome: \"The Day It Came\"", "禁忌之书：《到来之日》", "entity name")
 t("The cover of this tome is old and withered. As you hold it, you get the impression of many things. Despair, misery, desperation and hopelessness all assail you at once. Something about the book also promises great power, but at what cost?", "这本书的封皮老而枯干。当你拿着它的时候，你感受到绝望、困难，痛苦，无助的感情向你袭来。书中的存在许诺着强大的力量，但是，代价是什么呢？", "_t")
-t("In the Age of Pyre, it seemed that the world was ending to many of Eyal's inhabitants. The destruction caused by the Spellblaze left the land withered and scorched. Food was scarce, paranoia was rampant and everyone was desperate. For a select few, their salvation came from an unlikely visitor. An entity they simply came to knew as The Teacher visited Eyal from somewhere beyond the stars, emerging from an ancient Sher'tul farportal. It discovered a group of survivors in the depths of Eyal which begged it for knowledge, anything they could use as a weapon against the horrors ravaging their world.", "烈火纪对于埃亚尔的许多住民来说如同世界末日一般。魔法大爆炸带来的毁灭让大地干枯焦灼。食物稀缺，偏执和狂热在人群中蔓延，人们生活在绝望之中。他们中的少数人从一个不速之客那里得到了拯救。那位被称为“导师”的大师来自遥远的群星之间，从一座古老的夏图尔传送门中出现。它在埃亚尔召集了一群渴求知识的幸存者，他们愿意使用任何东西作为武器，对抗这片大地上肆虐的恐怖。", "_t")
+t("In the Age of Pyre, it seemed that the world was ending to many of Eyal's inhabitants. The destruction caused by the Spellblaze left the land withered and scorched. Food was scarce, paranoia was rampant and everyone was desperate. For a select few, their salvation came from an unlikely visitor. An entity they simply came to knew as The Teacher visited Eyal from somewhere beyond the stars, emerging from an ancient Sher'tul farportal. It discovered a group of survivors in the depths of Eyal which begged it for knowledge, anything they could use as a weapon against the horrors ravaging their world.", "烈火纪对于埃亚尔的许多住民来说如同世界末日一般。魔法大爆炸带来的毁灭让大地干枯焦灼。食物稀缺，偏执和狂热在人群中蔓延，人们生活在绝望之中。他们中的少数人从一个不速之客那里得到了拯救。那位被称为“导师”的大师来自遥远的群星之间，从一座古老的夏图尔传送门中出现。它在埃亚尔深处发现了一群幸存者，他们向它乞求知识，任何能用来对抗肆虐世界的恐怖的武器都可以。", "_t")
 t("Hithre died. Somehow this is not what should have happened.", "希瑟尔死了。啊，好像故事本来不应该是这样的。", "_t")
 t("Hithre", "希瑟尔", "_t")
 t("Main protagonist", "主角", "_t")
@@ -729,7 +729,7 @@ t("The importance of thought (+10 spell save)", "思考的重要性(+10 法术�
 t("The importance of magic (+5 magic)", "魔法的重要性(+5 魔力)", "_t")
 t("The importance of wisdom (+5 willpower)", "智慧的重要性(+5 意志)", "_t")
 t("The Day It Came", "到来之日", "_t")
-t("This chapter has taught your some important lesson. What did you learn?", "本书教会你许多重要的课程，你学到了什么吗？", "_t")
+t("This chapter has taught your some important lesson. What did you learn?", "这一章教会了你重要的一课。你学到了什么？", "_t")
 t("Forbidden Tome: \"A View From The Gallery\"", "禁忌之书：《画廊一瞥》", "entity name")
 t("The story of Grung, a halfling separated from his tribe that is just trying to survive while a terrible war, very long ago, rages on.", "这本书讲述着格朗格的故事，他是远古时代的一个半身人，从部落中走散。他只是想生存下去，然而一场毁天灭地的大战正在他的身边肆虐。", "_t")
 t("It's a cold night and you did not find anything to eat during the day. Your fur pelt doesn't do much to keep the cold out either. You're about to go out to hunt, but everyone else has warned you that you must not do that. The night is dangerous and there appears to be strange lights in the sky. An ill omen, to say the least. Food has been hard to come by lately, so everyone is just as famished as you are.", "今天晚上很冷，白天你没有找到吃的东西，身上的皮衣此时也起不到什么御寒的作用。你正准备出去打猎，但其他人都警告你千万不要这样做。夜晚很危险，天空中似乎有奇怪的光线。至少，可以说是一个不好的预兆。但是，最近食物难得，所以大家和你一样饥肠辘辘。", "_t")
@@ -740,9 +740,9 @@ t("The importance of speed (+10% movement speed)", "速度的重要性 (+10% 移
 t("The importance of reflexes (+5 dexterity)", "反应力的重要性 (+5 敏捷)", "_t")
 t("The importance of a honed mind (+5 cunning)", "磨砺心智的重要性 (+5 灵巧)", "_t")
 t("A View From The Gallery", "画廊一瞥", "_t")
-t("This chapter has taught your some survival tips. What did you learn?", "本书教会教会你一些生存技巧，你学到了什么吗？", "_t")
+t("This chapter has taught your some survival tips. What did you learn?", "这一章教会你一些生存技巧。你学到了什么？", "_t")
 t("Forbidden Tome: \"The Illusory Castle\"", "禁忌之书：《虚幻城堡》", "entity name")
-t("The tome in front of you seems to be as much made of dreamstuff as it is from leather and parchment. Crystalline shards dance underneath its surface, giving you an impression of a world altering itself to the tune of some indiscernable logic.", "在你面前的似乎是皮革和羊皮纸制成的梦幻般的东西。水晶般的碎片在它的表面起舞，让你觉得似乎世界在你的眼前以你无法察觉的逻辑发生着变化的感觉。", "_t")
+t("The tome in front of you seems to be as much made of dreamstuff as it is from leather and parchment. Crystalline shards dance underneath its surface, giving you an impression of a world altering itself to the tune of some indiscernable logic.", "你面前的这本书既像由皮革和羊皮纸制成，也像由梦境物质构成。水晶碎片在它的表面下方舞动，让你觉得世界正以一种难以理解的逻辑在你眼前改变。", "_t")
 t([[The world inside the tome depicts a castle. At least, it gives the impression of a castle. It has a dreamlike feeling to it, enough so to make you wonder if you're awake or not. The glass walls shimmer brightly with countless brilliant lights, reflected from some unknown source.
 
 Judging by the way the walls constantly shift and change themselves, you can be certain that this place will be difficult to explore.]], [[书中的世界描绘了一座城堡。至少，它给人的感觉是一座城堡。它有一种如梦似幻的感觉，不禁让你怀疑自己是否清醒。玻璃墙壁上闪烁着无数绚丽的灯光，不知从哪里反射过来的。
@@ -764,7 +764,7 @@ t([[15% chance when hit to shatter reality around you creating rifts to help you
 t("#LIGHT_RED#Your %s is too heavy to carry with your punny constitution anymore. You remove it.", "#LIGHT_RED#你的%s太重，你的体质无法装备它。你放下了它。", "logPlayer")
 t("Fanged Collar", "利牙项环", "entity name")
 t("a necklace with fangs", "有尖牙的项链", "_t")
-t("This strange creature seems to melt around your neck, keeping its mouth open just wide enough so that its teeth do not touch you. You suspect that in the case your head somehow goes missing, the creature is going to make itself at home in your neck stump.", "这个奇怪的生物围绕着你的脖子，把嘴大长到牙齿刚好不会碰到你的距离。你怀疑，如果你哪天掉了脑袋，这个生物就会把你的脖子当做它的家。", "_t")
+t("This strange creature seems to melt around your neck, keeping its mouth open just wide enough so that its teeth do not touch you. You suspect that in the case your head somehow goes missing, the creature is going to make itself at home in your neck stump.", "这个奇怪的生物围绕着你的脖子，把嘴张到牙齿刚好不会碰到你的程度。你怀疑，如果你哪天掉了脑袋，这个生物就会把你的脖子当做它的家。", "_t")
 t("You have died, but that does not bother the collar at all...", "你已经死了，不过看起来这个项环上的生物一点也不在乎…", "_t")
 t("Try to not die...", "你最好不要死……", "_t")
 t("Perseverance", "毅力", "entity name")
@@ -786,18 +786,18 @@ t("#LIGHT_BLUE#As you wear the mace you feel it attuning to your Krog body, incr
 t("charm", "护符", "entity type")
 t("totem", "图腾", "entity subtype")
 t("Persistent Will", "不息意志", "entity name")
-t("ever burning stake", "燃烧的木棍", "_t")
+t("ever burning stake", "永燃之桩", "_t")
 t([[During the Age of Dusk a rash of anti-magic activities took place in the Nargol Kingdom immediately after the Spellblaze. Citizens would turn on those with magical powers, burning them alive on stakes of wood. When the authorities found the perpetrators they executed them and planted their heads on stakes throughout their capital city.
 Despite this however, the citizenry continued to burn alive the enemies of nature. Unbeknownst to the authorities, the heads of the dead perpetrators continued to spread their message long after their deaths.
 
 This stake of wood appears to one of those used to prop up one of the executed heads. It has seemingly absorbed the will of the head it propped up, and holding it you can hear the Ziguranth's message echo through your mind.]], [[在黄昏纪的魔法大爆炸后，纳格尔王国迅速爆发了反对法师的活动。民众包围那些使用魔法的人，将他们绑在木头上活活烧死。纳格尔王国镇压了这些肇事者，把他们的人头插在遍布首都的柱子上。
 然而尽管如此，人民还是继续与大自然的敌人战斗。当局所不知道的是，那些死去的反抗者的头颅在他们死后仍然继续传递着他们的反抗意志。
 
-这段木头似乎是曾经戳着一个被处决的人的人头的。它似乎吸收了被它刺穿的头颅的意志，拿着它，你可以感受到伊格兰斯的意志在你在你的脑海回响。]], "_t")
+这段木头似乎是曾经戳着一个被处决的人的人头的。它似乎吸收了被它刺穿的头颅的意志，拿着它，你可以感受到伊格兰斯的意志在你的脑海中回响。]], "_t")
 t("convince all non arcane users in radius 10 to turn on their spellcasting friends for 6 turns (chance increases with your Mindpower)", "使半径10码范围内的非奥术魔法使用者攻击奥术魔法使用者，持续6回合（几率随精神强度提升）", "tformat")
 t("Worm Nest", "虫穴", "entity name")
 t("disgusting robe", "恶心的长袍", "_t")
-t("This unusually thick robe constantly wriggles and squirms. Small worms sometimes pop out of it, dropping to the floor. The worms will cushion attacks against your person, but you somehow do not like the idea of having so many parasitic creatures so close to your vulnerable flesh.", "这件异常厚重的长袍不断蠕动。上面的小蠕虫有时会从上面跳出来，掉到地板上。这些蠕虫会缓冲敌人对你的攻击，但是让这这么多寄生生物如此接近你脆弱的肉体…实在是太恶心了", "_t")
+t("This unusually thick robe constantly wriggles and squirms. Small worms sometimes pop out of it, dropping to the floor. The worms will cushion attacks against your person, but you somehow do not like the idea of having so many parasitic creatures so close to your vulnerable flesh.", "这件异常厚重的长袍不断蠕动。上面的小蠕虫有时会从上面跳出来，掉到地板上。这些蠕虫会缓冲敌人对你的攻击，但是让这么多寄生生物如此接近你脆弱的肉体……实在是太恶心了", "_t")
 t("#GREEN#The worms embed themselves easily in your mutated skin.", "#GREEN#蠕虫很容易嵌入你的变异皮肤中。", "logPlayer")
 t("Light of Revelation", "揭示之光", "entity name")
 t("disturbing lantern", "令人不安的灯笼", "_t")
@@ -806,7 +806,7 @@ t("Sometimes reveals the hidden truths you'd rather not see.", "有时会揭示�
 t("#YELLOW#Light of Revelation shines on %s revealing its true nature as %s!", "#YELLOW#揭示之光照耀着%s，揭示了它实际上是%s！", "say")
 t("Glowing Core", "光亮之核", "entity name")
 t("burning core", "燃烧的核心", "_t")
-t("This is all that's left of the Searing Horror. Even after its death, the object in your hand glows just as brightly as it did before.", "这是光灼热恐魔的残余部分。即使是在它死后，这个物体还是在你手中如同它活着的时候一样发出闪耀的光芒。", "_t")
+t("This is all that's left of the Searing Horror. Even after its death, the object in your hand glows just as brightly as it did before.", "这是灼热恐魔仅存的残余。即使它已经死去，你手中的物体依然如从前一样闪耀着光芒。", "_t")
 t("Shoes of Moving Slowly", "缓步之靴", "entity name")
 t("restful shoes", "放松的鞋子", "_t")
 t([[Fast does not always win.
@@ -816,7 +816,7 @@ t([[Fast does not always win.
 #GOLD#有人说这可以和疾行之靴结合。]], "_t")
 t("Each turn you spend not moving gain a buff for 2 defense and armour. Stacks up to 12 times.", "每个你没有移动的回合都能得到2点防御和护甲值增益。最多叠加12次。", "_t")
 t("combine it with the Shoes of Moving Quickly", "与疾行之靴结合", "_t")
-t("You need to have the Shoes of Moving Quickly in your inventory.", "你需要一件疾行之鞋。", "logPlayer")
+t("You need to have the Shoes of Moving Quickly in your inventory.", "你需要拥有一双疾行之靴（疾行之靴需在背包中）。", "logPlayer")
 t("Shoes of Slowly Moving Quickly", "缓步疾行之靴", "_t")
 t("A wonder of footwear! You can set a shoe to stay in place while the other one goes very fast, spinning around to create tornados!", "这是鞋子的奇迹！你可以让一只脚待在原地不动，另一只脚走得飞快，形成一道龙卷风！", "_t")
 t([[Each turn you spend not moving gain a buff for 2 defense and armour. Stacks up to 12 times.
@@ -826,7 +826,7 @@ t("As you combine the two pair of shoes you make something marvelous: %s", "当�
 t("Rod of Entropy", "熵之魔杖", "entity name")
 t("light sucking rod", "吸收光的魔杖", "_t")
 t("This rod seems to make light die around it. You feel tired just looking at it.", "这根魔杖似乎能够熄灭周围的光。光是看着它你就觉得很累了。", "_t")
-t("temporarily causes the target to receive entropic backlash from any healing they receive for %d turns up to %d%% of the healing done. This effect scales with your Magic stat.", "暂时使目标从他们的治疗中受到熵反冲，在%d回合内受到%d%%治疗量伤害。效果受魔力值加成。", "tformat")
+t("temporarily causes the target to receive entropic backlash from any healing they receive for %d turns up to %d%% of the healing done. This effect scales with your Magic stat.", "暂时使目标从所受治疗中受到熵反冲，在 %d 回合内最多受到相当于治疗量 %d%% 的伤害。效果受魔力值加成。", "tformat")
 t("%s activates %s %s!", "%s激活了%s%s!", "logSeen")
 t("Seeds of the Black Tree", "黑色树之种", "entity name")
 t("corrupt stone", "被污染的石头", "_t")
@@ -873,7 +873,7 @@ t("You feel this portal leads to a place from where you are likely to not come b
 t("Enter", "进入", "_t")
 t("Save your life and stay!", "保命要紧，留下来吧！", "_t")
 t("#PURPLE#A portal appears inside the Occult Egress, this is likely where the adventurer went!", "#PURPLE#一个传送门在神秘的出口里出现了，大概这里就是那个冒险家所去的地方！", "_t")
-t("splattered remains of an adventurer", "一个冒险家留下的东西", "_t")
+t("splattered remains of an adventurer", "一名冒险家被击碎的血肉残骸", "_t")
 t("log entry", "日志条目", "_t")
 t("A paper scrap.", "一张碎纸片。", "_t")
 t("#PURPLE#An item appears on the egress!", "#PURPLE#一个物品在出口里出现了！", "_t")
@@ -882,7 +882,7 @@ t("#PURPLE#For an instant you feel as if time slowed down over the world! #{ital
 ------------------------------------------------
 section "tome-cults/data/glyph_sequences/orcs.lua"
 
-t("#YELLOW#A pair of ... brains in jar appear on the Egress! You quickly put them in your ingredients cache.", "#YELLOW#一组……瓶中脑出现在了出口里！你赶紧把它们加入了你的材料库里。", "_t")
+t("#YELLOW#A pair of ... brains in jar appear on the Egress! You quickly put them in your ingredients cache.", "#YELLOW#一对……瓶中脑出现在了出口！你赶紧把它们放进了你的材料库里。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/lore/dremwarves.lua"
@@ -1010,11 +1010,11 @@ A bit perplexed by this I sat there looking confused. For a moment we stared at 
 	
 就在那时，我决定前往永恒精灵的土地。我当时觉得，我是自愿做出这个决定的，要对永恒精灵实施报复，不过现在我不知道这是否是真的。不管我的理由如何，我回到家里收集我在瓦砾中找到的东西，第二天我离开了森林的边界。在接下来的几天里，我穿过了黑暗焦灼的土地，几乎找不到吃的和喝的。由于散落在大地上的碎片，旅行十分缓慢，更不用说获得食物是多么困难了。当我看到一个逃过毁灭的小定居点时，我已经饿坏了。
 	
-我进了我遇到的第一家旅馆，很快就买了些食物。当我吃完饭时，我无意中听到几个顾客在争论最近发生的事情。一个人类高声喊道：“即使是兽人也不可能带来这种毁灭！”我转过头去听，很快听到一个半身人反驳道：“你说的对，但是兽人很快就会到达这些地方，你会死得毫无价值。”“是的，好吧，现在多亏了那些被诅咒的法师，不计其数的人都死了。死了！”“兽人杀的更多，他们不会留下任何一个活口。你至少还有一些朋友和亲人幸存下来，而我曾经认识的人全都死了。死了！”
+我进了我遇到的第一家旅馆，很快就买了些食物。当我吃完饭时，我无意中听到几个顾客在争论最近发生的事情。一个人类高声喊道：“即使是兽人也不可能带来这种毁灭！”我转过头去听，很快听到一个半身人反驳道：“你说的对，但是兽人很快就会到达这些地方，你早就死了，根本顾不上这些。”“是的，好吧，现在多亏了那些被诅咒的法师，不计其数的人都死了。死了！”“兽人杀的更多，他们不会留下任何一个活口。你至少还有一些朋友和亲人幸存下来，而我曾经认识的人全都死了。死了！”
 	
 空气中弥漫着寂静。我能感觉到人类内心的愤怒，就像我能感觉到自己的愤怒一样，但他很快就起身离开了。我希望我可以说我也做了同样的事，但不幸的是，我不能。当那半身人开始收拾他的东西离开时，我跟着他走出了那个定居点。他似乎意识到我跟随了他，我们面对面对峙了起来。我们之间激烈地争吵，然后开始大喊大叫。我不完全记得接下来发生了什么，但我确实记得，那一刻，当我看着我沾满鲜血的双手，以及倒在地上死去的半身人的尸体的时候，我意识到了我所做的一切，很快逃离了定居点。
 	
-在接下来的两天里，我仍然不眠不休。我穿过了几个已经废弃的定居点，似乎被那些幸存的人遗弃了。我一直在想我杀的那个半身人，虽然永恒精灵仍然是我愤怒的焦点，但我开始怀疑，我到底在做什么。当我来到最近的战场时，我很快就有了更多的问题要思考。兽人烧焦的尸体散落在地上，数量不计其数。但在他们尸体的对面，我很快就看到了永恒精灵士兵的尸体，这让我非常困惑。
+在接下来的两天里，我仍然不眠不休。我穿过了几个已经废弃的定居点，似乎被那些幸存的人遗弃了。我一直在想我杀的那个半身人，虽然永恒精灵仍然是我愤怒的焦点，但我开始怀疑，我到底在做什么。当我来到一处新近的战场时，我很快就有了更多的问题要思考。兽人烧焦的尸体散落在地上，数量不计其数。但在他们尸体的对面，我很快就看到了永恒精灵士兵的尸体，这让我非常困惑。
 	
 我对永恒精灵的愤怒现在变成了困惑。他们是怎么死的？他们是为了杀死兽人而牺牲的吗？他们是自愿这样做的吗？永恒精灵真的是一切的罪魁祸首吗？我仔细思考我该怎么做，但我想不出任何问题的答案。最后，我继续往前走，找到了永恒精灵定居点的郊区。透过倒塌的建筑物，我可以看到野狼在享用当地居民尸体的残骸。我还听到远处传来了呼救声。
 	
@@ -1144,7 +1144,7 @@ The soldier led me to the center of the city where a grand building lay. After m
 
 过了一段时间，受伤的士兵开始减少，因为他们中的大多数人在痊愈后不需要休息。当痊愈士兵的数量开始达到一定程度时，主治医师代表永恒精灵来感谢我的努力。我突然想起我来这里的全部原因，意识到我已经完成了我的交易。当一名士兵走近时，主治医师向我点头，看着我，回答说：“中尉会护送你去见将军。”我对此感到有些吃惊，但我认为这位将军对所发生的事件有了答案。
 
-士兵把我带到市中心，那里有一座宏伟的建筑物。在会见了几个身穿闪亮装甲从头武装到脚的警卫后，我们被允许进入。我们在大楼的大厅里走了几分钟，似乎走到了大楼的尽头。最后，我来到了一个豪华的房间，墙壁上有着斜长石和黄金做成的装饰，并展示了一些我认为是永恒精灵历史上重要人物的画像。在这里，中尉让我等着，然后走进附近的一个房间。]], "_t")
+士兵把我带到市中心，那里有一座宏伟的建筑物。在会见了几个身穿闪亮装甲从头武装到脚的警卫后，我们被允许进入。我们在大楼的大厅里走了几分钟，似乎走到了大楼的尽头。最后，我来到了一个豪华的房间，墙壁上有着蓝锆石和黄金做成的装饰，并展示了一些我认为是永恒精灵历史上重要人物的画像。在这里，中尉让我等着，然后走进附近的一个房间。]], "_t")
 t("Escapades of Fay Willows [Book 1, Chapter 5] - General Aranion Gawaeil", "菲·维莉欧斯的冒险 [第1卷, 第5章] - 艾伦尼恩·加威尔将军", "_t")
 t([[[i]General Aranion Gaweil, leader of the Grand Council of Elvala. This was perhaps the first name I ever learned from someone outside my family. While Aranion never gave his name to me personally, the rest of the shaloren certainly banter it around enough to the point that I eventually remembered it. While perhaps there is little to acknowledge from one who readily gives their name, I can perhaps respect Aranion whose name I learned from those around him, and the idolization and fondness that they seemed to speak it with.[/i]
 
@@ -1178,7 +1178,7 @@ The discomfort within my mind was obviously made clear across the desk, but the 
 
 我静静地听着对方告诉我的一切，直到他把一切的故事都转达给我。当他给我讲完魔法大爆炸的故事时，我对如何判断永恒精灵的行为感到心情复杂。一方面，魔法大爆炸的破坏在世界各地蔓延开来，留下了永远无法愈合的伤疤，但我明白，他们的行动阻止了他认为是前所未有的威胁。由于他们的行为，我知道所有的永恒精灵现在都在承受着极其巨大的困难，我想，这样的惩罚对于它们已经足够了。
 
-我心里的不安很明显在桌子的另一边清楚地表现出来，但是将军什么也没说。也许，这是因为他在魔法大爆炸中所扮演的角色带来的潜在的内疚感，或者，这仅仅是因为他不能说任何有助于我理顺思路的话。我们沉默地坐了一会儿，不久他就站起来朝窗户走去。他转过身来，我看不出他的表情，但我可以看出他正在对事态的发展深思熟虑。[i]艾伦尼恩，如果你现在正在读这本书的话，请知道，起码现在我已经原谅了你。[/i] ]], "_t")
+我心里的不安很明显在桌子的另一边清楚地表现出来，但是将军什么也没说。也许，这是因为他在魔法大爆炸中所扮演的角色带来的潜在的内疚感，或者，这仅仅是因为他不能说任何有助于我理顺思路的话。我们沉默地坐了一会儿，不久他就站起来朝窗户走去。他背对着我，我看不出他的表情，但我可以看出他正在对事态的发展深思熟虑。[i]艾伦尼恩，如果你现在正在读这本书的话，请知道，起码现在我已经原谅了你。[/i] ]], "_t")
 t("Escapades of Fay Willows [Book 1, Chapter 6] - Leaving Elvala", "菲·维莉欧斯的冒险 [第1卷, 第6章] - 离开埃尔瓦拉", "_t")
 t([[[i]At the time I had thought Aranion to be quite paranoid, but his ability to perceive the thoughts of others and the activities taking place in the world can be described as unnaturally accurate. While the group that instigates the Spellhunt remains unknown while I write this, they were out there and I would witness their activities firsthand.[/i]
 
@@ -1250,11 +1250,11 @@ Soon smiling at me, the messenger began to gesture towards a nearby seat. I wasn
 
 我为这一切感到悲哀，也为弥漫在空气中的失落感感到悲伤，我决定继续前进。我朝着居民的房屋走去，毁坏的建筑物的废墟横躺在街道上，一些房子的屋顶和墙壁都倒塌了。我能从一幢损坏的房屋的石缝中看到一户半身人人家。再往前走，地上有一个酒馆的木制路标。这时我感到有点饿了，就朝路标旁边的房子走去，希望能够买些食物。
 
-酒馆里充斥着各类种族，半身人，人类和矮人坐在桌旁。相比于外面的难民们，这里似乎更活跃一些。一些难民们在聊天，一些在赌博。当我进入酒馆的时候，一个人类立刻注意到了我，走了过来说，“嗨，你不就是以前的哪个自然精灵吗？是的，就是你。”我不知道这个人类是谁，我也不知道他是不是疯了。他似乎感受到了这种异样的气氛，立刻说到，“哈，你可能没有认出我。我是北边酒馆的信使，兴许你还记得我和艾德瑞尔的死矮子争论过” 
+酒馆里充斥着各类种族，半身人，人类和矮人坐在桌旁。相比于外面的难民们，这里似乎更活跃一些。一些难民们在聊天，一些在赌博。当我进入酒馆的时候，一个人类立刻注意到了我，走了过来说，“嗨，你不就是以前的那个自然精灵吗？是的，就是你。”我不知道这个人类是谁，我也不知道他是不是疯了。他似乎感受到了这种异样的气氛，立刻说到，“哈，你可能没有认出我。我是北边酒馆的信使，兴许你还记得我和那个艾德瑞尔的蠢货争论过”
 
 我微微咬紧牙关，在想我是不是会遇到麻烦。然而，那个人类又做了一个简短的补充，“别担心，我觉得你不会找到任何一个反对你做过的事情的人，如果我是你，我也会这么做的。他最终一定会因为他说过的话而被人干掉。迟早会有人让他闭嘴的。”对于信使的话我很好奇，我谨慎的回应他说：“你是什么意思？” 信使挑了一下眉，说：“什么？你觉得这里的那些士兵能够阻止像那个半身人那样的人被杀吗？这样的事情现在已经很常见了。”
 
-随后，信使微笑的看着我，对着附近的座位打手势。我不是很想和他聊天，但是考虑到他或许能够告诉我一些情报，我决定接受他的邀请。我走过来坐下，点了一些吃的充饥。信使开始闲聊起来，特别提到了魔法大爆炸造成的破坏，他的每一句话都恶毒的攻击“法师们”，然后又表现出失去朋友的悲伤。我一边吃饭，一边让他一直说，持续了整整一段时间。奇怪的是，这位信使并没有告诉我他的名字，也没有问我的，或许他至少在这方面对自然精灵的风俗有一定的了解。一开始我并么有意识到这一点，之后再后来的事情中我才知道。]], "_t")
+随后，信使微笑的看着我，对着附近的座位打手势。我不是很想和他聊天，但是考虑到他或许能够告诉我一些情报，我决定接受他的邀请。我走过来坐下，点了一些吃的充饥。信使开始闲聊起来，特别提到了魔法大爆炸造成的破坏，他的每一句话都恶毒的攻击“法师们”，然后又表现出失去朋友的悲伤。我一边吃饭，一边让他一直说，持续了整整一段时间。奇怪的是，这位信使并没有告诉我他的名字，也没有问我的，或许他至少在这方面对自然精灵的风俗有一定的了解。一开始我并没有意识到这一点，后来发生的事情中我才知道。]], "_t")
 t("Escapades of Fay Willows [Book 2, Chapter 2] - Exchange of Information", "菲·维莉欧斯的冒险 [第2卷, 第2章] - 交换情报", "_t")
 t([[[i]You know, it is really hard to know someone. The messenger was a good example of this, as I would soon find out. I had pegged him for being a disgruntled human that had suffered greatly because of the Spellblaze. In reality he was much more than just disgruntled, and I believe he may have been a member of the group instigating the Spellhunt. I'm sure he and the others who had left after with that human in the dark cloak died taking part in a nefarious plot that I would learn the day after. But did he die willingly? That's the real question I think about now in regards to him.[/i]
 
@@ -1292,7 +1292,7 @@ His words made me think for a moment, but I simply got up and left. I remember h
 
 很显然，这个信使很可能就是永恒精灵的将军所担心的那个组织的一员。我觉得那个信使一定参与了他们所说的那个计划，不管那个计划是什么。并且，从他与之前来过的穿斗篷的人的对话的反应来看，他们进行的计划还需要保密。我本来考虑去参加他的朋友聚会，但是我又对参与他们精心设计的计划不感兴趣，而且我能嗅到一丝危险的气息。“感谢你的邀请，但是我必须拒绝。”我最终说道。听到这个回答，信使挑了下眉，然后快速回答我：“说真的，像你这样的自然精灵，难道不想抓住任何机会，对玷污自然的人进行报复吗？”
 
-他的话让我想了一会儿，但是我最终站起来，然后离开了。我记得他大声说道，如果我能改变主意，我会被“作为一个新兵而受到欢迎”。当我离开酒馆时，太阳已经开始落山了。考虑到我应该找一个地方过夜，我找到一个旅店然后开了一个房间。我打算早上的时候去市场买一些食物和补给为回家做准备。我睡得很沉，直到在清晨，太阳还没有升起的时候，我的耳朵里充满了尖叫声。我想知道发生了什么事情，打开了房间的窗户，发现远处的大楼燃起了大火，冒着浓烟。]], "_t")
+他的话让我想了一会儿，但是我最终站起来，然后离开了。我记得他大声说道，如果我能改变主意，我会被“作为新成员而受到欢迎”。当我离开酒馆时，太阳已经开始落山了。考虑到我应该找一个地方过夜，我找到一个旅店然后开了一个房间。我打算早上的时候去市场买一些食物和补给为回家做准备。我睡得很沉，直到在清晨，太阳还没有升起的时候，我的耳朵里充满了尖叫声。我想知道发生了什么事情，打开了房间的窗户，发现远处的大楼燃起了大火，冒着浓烟。]], "_t")
 t("Escapades of Fay Willows [Book 2, Chapter 3] - Blazing Madness", "菲·维莉欧斯的冒险 [第2卷, 第3章] - 燃烧的疯狂", "_t")
 t([[[i]In the market I purchased several items to help me for when I forged my way back towards Thaloren lands. I bought about three weeks worth of rations for myself as I had planned to perhaps 'explore' a little bit before finally arriving home. I also procured a fine steel utility knife and a steel hatchet. I wasn't sure I would really need this much for my journey, I could likely have explored the entirety of Maj'Eyal with it, but I never imagined what role everything I bought in that market would soon come to play in the future.[/i]
 
@@ -1726,7 +1726,7 @@ Approaching the guards to communicate something, their bewildered faces quickly 
 
 “哦，啊，谢谢你，”我回答道，慢慢地适应了我突然进入埃尔瓦拉的事实。很快，我意识到食人魔还在埃尔瓦拉的外面等我。原谅我自己，我继续跑到城市中央，在那里我以前见过将军。尽管我走近时他们认出了我，但楼房外仍像从前一样站着卫兵。我气喘吁吁，喘不过气来，我花了很短的时间吸气和呼气，然后上气不接下气地匆忙说到：“食人魔……寻求庇护……在这里……埃尔瓦拉”我前面的警卫听到我说的那句话后，不知所措地站在那里，似乎领会了我说的话，但无法决定该怎么做。
 
-从我身后传来一个声音：“关于食人魔的什么？”我转过身去，看到一个年轻的女永恒精灵，我认出她是从埃尔瓦拉送我出去的法师之一。看到我，她似乎有点奇怪地冷静，对我说：“哦，你就是那个自然精灵。”。我们从来没有见过面，但不久前我帮你传送出埃尔瓦拉过。欢迎回到埃尔瓦拉。”我屏住呼吸，解释了外面的食人魔，狂热者追逐他们的情况，以及他们是如何寻求在埃尔瓦拉避难的。我说完，年轻的永恒精灵说：“从你告诉我的情况来看，最好尽快把那些食人魔带进来。”
+从我身后传来一个声音：“关于食人魔的什么？”我转过身去，看到一个年轻的女永恒精灵，我认出她是从埃尔瓦拉送我出去的法师之一。看到我，她似乎有点奇怪地冷静，对我说：“哦，你就是那个自然精灵。我们从来没有见过面，但不久前我帮你传送出埃尔瓦拉过。欢迎回到埃尔瓦拉。”我屏住呼吸，解释了外面的食人魔，狂热者追逐他们的情况，以及他们是如何寻求在埃尔瓦拉避难的。我说完，年轻的永恒精灵说：“从你告诉我的情况来看，最好尽快把那些食人魔带进来。”
 
 那个女永恒精灵，走近卫兵并和他们交流，他们困惑的脸似乎因为她的言行变得有点痛苦。我不知道法师说了些什么，但似乎卫兵们几乎是在向年轻的永恒精灵女人求情。最后，她叫我跟着她，并开始向我使用返回符文进入城市的方向移动。我猜想，这个永恒精灵似乎有一些计划，一个允许食人魔进入城市的计划。在转身跟在她后面之前，我注意到两个卫兵互相默默无语，在我们走开之后，其中一个冲进楼内，另一个似乎在担忧地看着我和法师的方向。]], "_t")
 t("Escapades of Fay Willows [Book 4, Chapter 3] - The Enchantress", "菲·维莉欧斯的冒险 [第4卷, 第3章] - 女巫", "_t")

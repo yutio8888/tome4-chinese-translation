@@ -96,11 +96,11 @@ t("Your online profile is now active. Have fun!", "你的在线账户已可用�
 t("Login failed!", "登录失败！", "_t")
 t("Check your login and password or try again in in a few moments.", "请确认你的用户名和密码，或在几分钟后再试。", "_t")
 t("Registering...", "正在注册", "_t")
-t("Registering on https://te4.org/, please wait...", "正在在 https://te4.org/ 上注册，请稍候…", "_t")
+t("Registering on https://te4.org/, please wait...", "正在 https://te4.org/ 上注册，请稍候…", "_t")
 t("Logged in!", "登录成功！", "_t")
 t("Profile created!", "账户创建成功！", "_t")
 t("Profile creation failed!", "账户创建失败！", "_t")
-t("Creation failed: %s (you may also register on https://te4.org/)", "创建失败: %s (你也可以在 https://te4.org/ 网站上注册）", "tformat")
+t("Creation failed: %s (you may also register on https://te4.org/)", "创建失败: %s（你也可以在 https://te4.org/ 网站上注册）", "tformat")
 t("Try again in in a few moments, or try online at https://te4.org/", "请过几分钟后再试，或在 https://te4.org/ 网站上注册", "_t")
 
 ------------------------------------------------
@@ -167,7 +167,7 @@ t("canine", "犬类", "entity subtype")
 t("wolf", "狼", "entity name")
 t("Lean, mean, and shaggy, it stares at you with hungry eyes.", "一头瘦弱的、狡猾的皮毛蓬松的饿狼，它正用贪婪的眼神看着你。", "_t")
 t("white wolf", "白狼", "entity name")
-t("A large and muscled wolf from the northern wastes. Its breath is cold and icy and its fur coated in frost.", "一头来自北部荒野的狼，它膘肥身健，体型匀称。它的呼吸冰冷而急促且全身都凝结着冰霜。", "_t")
+t("A large and muscled wolf from the northern wastes. Its breath is cold and icy and its fur coated in frost.", "一头来自北部荒野的狼，体型庞大、肌肉结实。它的呼吸冰冷刺骨，皮毛上结满了冰霜。", "_t")
 t("warg", "座狼", "entity name")
 t("It is a large wolf with eyes full of cunning.", "这是一只狡猾且体型巨大的狼。", "_t")
 t("fox", "狐狸", "entity name")
@@ -181,7 +181,7 @@ t("skeleton", "骷髅", "entity subtype")
 t("degenerated skeleton warrior", "腐化骷髅战士", "entity name")
 t("skeleton warrior", "骷髅战士", "entity name")
 t("skeleton mage", "骷髅法师", "entity name")
-t("armoured skeleton warrior", "武装骷髅战士", "entity name")
+t("armoured skeleton warrior", "装甲骷髅战士", "entity name")
 
 ------------------------------------------------
 section "mod-boot/data/general/npcs/troll.lua"
@@ -393,14 +393,14 @@ t([[#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#
 #LIGHT_UMBER#A ton#WHITE# of artifacts, lore, zones, events... 
 
 ]], [[#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#
-#{italic}##ANTIQUE_WHITE#自从被兽人成为“西方灾星”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远古传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
+#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方灾星”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远古传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#全新战役：#WHITE# 这场战役在主游戏战役以后，决定兽人部落的最终命运。探索全新的远东大陆吧！
 #LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，念力射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！
 #LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些奇特的“盟友”，团结起来，将兽人一族从“西方灾星”带来的灾难中拯救出来。
 #LIGHT_UMBER#插件系统：#WHITE# 合成强大的插件，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的插件。
-#LIGHT_UMBER#药剂系统：#WHITE# 在插件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代就有的纹身和符文系统。
+#LIGHT_UMBER#药剂系统：#WHITE# 在插件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。
 #LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！
 
 ]], "_t")
@@ -423,8 +423,8 @@ t([[#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#新职业：#WHITE# 苦痛者。 它们被赋予了腐化的力量，最终将自己的身体转化成了恐魔。它们可以召唤恐魔在战斗中协助自己，撕裂你的皮肤，融化你的脸庞，作为攻击敌人的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
 #LIGHT_UMBER#新职业：#WHITE# 熵教徒。 这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
-#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。 他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全孵化成为没有意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
-#LIGHT_UMBER#新种族：#WHITE# 克罗格。 他们是被本来应当杀死他们的那群人转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
+#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。 他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
+#LIGHT_UMBER#新种族：#WHITE# 克罗格。 他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
 #LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路(不要问我你是怎么*进来*的)，探索神秘的出口，以及更多奇异的，充满触手的地图！
 #LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢灼眼恐魔吗？你一定会喜欢上灼热恐魔的！还有虚空蠕虫，还有熵之碎片，还有其他更多怪物！
 #LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个悠闲的寄生兽吧！
@@ -485,13 +485,13 @@ t("Create Account", "创建账户", "_t")
 ------------------------------------------------
 section "mod-boot/dialogs/ProfileLogin.lua"
 
-t("Online profile ", "在线账户", "_t")
+t("Online profile ", "在线账户：", "_t")
 t("Username: ", "用户名：", "_t")
 t("Password: ", "密码：", "_t")
 t("Login", "登录", "_t")
 t("Cancel", "取消", "_t")
 t("Password again: ", "重复密码：", "_t")
-t("Email: ", "邮箱", "_t")
+t("Email: ", "邮箱：", "_t")
 t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)", "_t")
 t("You at least 16 years old, or have parental authorization to play the game.", "游玩此游戏时你已年满16岁，或已得到了家长的许可。", "_t")
 t("Create", "创建", "_t")
@@ -518,7 +518,7 @@ Luckily this is very easy to do: you only require a profile name and optionally 
 幸运的是，这非常容易：你只需要提供你的Steam用户名，也可以提供你的邮箱。（我们基本上不会给你发送邮件，每年最多发送一两份）
 ]], "_t")
 t("Username: ", "用户名：", "_t")
-t("Email: ", "邮箱", "_t")
+t("Email: ", "邮箱：", "_t")
 t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)", "_t")
 t("You at least 16 years old, or have parental authorization to play the game.", "游玩此游戏时你已年满16岁，或已得到了家长的许可。", "_t")
 t("Register", "注册", "_t")
@@ -531,7 +531,7 @@ t("Your email does not look right.", "你的邮件地址有问题。", "_t")
 t("Age Check", "年龄确认", "_t")
 t("You need to be 16 years old or more or to have parental authorization to play this game.", "你需要年满16岁以上，或者得到了家长的许可，才可以游玩本游戏。", "_t")
 t("Registering...", "正在注册", "_t")
-t("Registering on https://te4.org/, please wait...", "正在在 https://te4.org/ 上注册，请稍候…", "_t")
+t("Registering on https://te4.org/, please wait...", "正在 https://te4.org/ 上注册，请稍候…", "_t")
 t("Steam client not found.", "找不到Steam客户端", "_t")
 t("Error", "错误", "_t")
 t("Username or Email already taken, please select an other one.", "用户名或邮件地址已被使用，请选择其他用户名或邮件地址", "_t")
@@ -541,7 +541,7 @@ section "mod-boot/dialogs/UpdateAll.lua"
 
 t("Update all game modules", "更新所有游戏模组", "_t")
 t([[All those components will be updated:
-]], [[所有需要更新的模组: 
+]], [[需要更新的组件：
 ]], "_t")
 t("Component", "组件", "_t")
 t("Version", "版本", "_t")
