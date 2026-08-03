@@ -6764,7 +6764,7 @@ To be used with the medical injector implant.]], [[一个强大的治疗药剂�
 需通过医疗注射器植入体使用。]], "_t")
 t("Pain Suppressor Salve", "痛苦压制药剂", "_t")
 t([[A powerful salve that steels your body for a while, letting you survive below 0 life while increasing resistances.
-To be used with the medical injector implant.]], [[一个可以增强你体格的坚韧程度的强大药剂，它可以让你在0生命值以下时仍然存活，并提升你的伤害抗性。
+To be used with the medical injector implant.]], [[一种能暂时强化你身体的强力药剂，它可以让你在 0 生命值以下时仍然存活，并提升你的伤害抗性。
 需通过医疗注射器植入体使用。]], "_t")
 t("Frost Salve", "寒霜药剂", "_t")
 t([[A powerful salve that can clean physical detrimental effects from your body and grant a frost aura (cold, darkness and nature affinity).

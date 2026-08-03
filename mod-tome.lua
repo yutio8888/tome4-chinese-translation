@@ -3673,7 +3673,7 @@ t("#GOLD#Life per level:#LIGHT_BLUE# 11", "#GOLD# 每等级生命加值： #LIGH
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 0%", "#GOLD#经验惩罚： #LIGHT_BLUE# 0%", "_t")
 t("Cornac", "科纳克人", "birth descriptor name")
 t("Cornacs are Humans from the northern parts of the Allied Kingdoms.", "科纳克人是来自联合王国北部的普通人类。", "_t")
-t("Humans are an inherently very adaptable race and as such they gain a #GOLD#talent category point#WHITE# at birth (others only gain one at levels 10, 20 and 34). They also gain #GOLD#a class and a generic talent point#WHITE# at birth and every 10 levels.", "人类天生适应性强，他们可以在出生时获得1点#GOLD#技能树解锁点#WHITE#（其他种族只能在10、20和34级时获得1点）。此外，出生时以及每10级时，他们可以获得额外1点#GOLD#职业技能点和通用技能点#WHITE#。", "_t")
+t("Humans are an inherently very adaptable race and as such they gain a #GOLD#talent category point#WHITE# at birth (others only gain one at levels 10, 20 and 34). They also gain #GOLD#a class and a generic talent point#WHITE# at birth and every 10 levels.", "人类天生适应性强，他们可以在出生时获得1点#GOLD#技能树解锁点#WHITE#（其他种族只能在10、20和34级时获得1点）。此外，出生时以及每10级时，他们可以额外获得1点#GOLD#职业技能点和通用技能点#WHITE#（各1点）。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 10", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 10", "_t")
@@ -9166,7 +9166,7 @@ t("This dragon scale harness shines with multiple colors, quickly shifting throu
 t("Glory of the Pride", "普莱德之荣耀", "entity name")
 t("The most prized treasure of the Battlemaster of the Pride, Grushnak. This gold ring is inscribed in the now lost orc tongue.", "这是普莱德的战争领主格鲁希纳克最宝贵的财富。这枚金戒指上铭刻着失传的兽人语。", "_t")
 t("deep black ring", "深黑色的戒指", "_t")
-t("Black Robe", "暗黑长袍", "entity name")
+t("Black Robe", "黑色长袍", "entity name")
 t("black robe", "黑色长袍", "_t")
 t("A silk robe, darker than the darkest night sky, it radiates power.", "一件比夜色还黑的丝绸礼服，它向外辐射出能量。", "_t")
 t("Crown of the Elements", "元素王冠", "entity name")
@@ -17558,7 +17558,7 @@ Weisman]], [[亲爱的弑蚁者罗尔夫，
 
 真是厉害！真是可怕的梦魇！哈哈哈哈哈。去他妈的巨龙与恶魔，这下我们有了一位战胜了蚂蚁的英雄！我真该用加急快递将你这英雄事迹传到最后的希望，也许那里的人会为你的壮举准备一场隆重的庆典！
 
-我虽然对你满信的不屑与嘲讽并不意外，但真没想到你这在蝼蚁之中挣扎的家伙竟也敢来笑我。
+我希望你听懂了我之前话语中的讽刺，不过我显然不能对一个连蚂蚁都对付不了的人抱有太多期望。真没想到你这在蝼蚁之中挣扎的家伙竟也敢来笑我。
 
 请允许在下与你分享这一则真正冒险家必备的野兽知识吧。我一路向南，当某天晚上我途径一条废弃的山道，我正满脑子想着第二天将会遇到的刺激冒险与惊人的宝藏时，突然一道冲天的亮光几乎闪瞎了我的双眼！在这光芒之下，我的四周亮如白昼，便是此时我看见了它。
 
@@ -17940,7 +17940,7 @@ Their skill with metal is renowned above all else. Dwarven steel is considered t
 
 As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非你给他们点好处，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次无缘无故的切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，之后他们会对外界积极开放，我甚至很荣幸的得到了去他们的首都——钢铁王座游玩的资格，并有幸与他们的主要领导人对话。
 
-矮人们基本身高在5英英尺左右，有着棕色或灰色的头发。他们通常有着施瓦辛格般的肌肉和体魄，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过绑成珠状的胡须来区分。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
+矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常有着施瓦辛格般的肌肉和体魄，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过绑成珠状的胡须来区分。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
 
 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在协会之间几乎没有贫富差距，每一只协会都有公正委员会来控制。矮人的信仰是不为外界所知的，再多的金钱也不能使他们吐露分毫信息。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。
 
@@ -26503,7 +26503,7 @@ t([[You have learned how to be stealthy even when in plain sight of your foes.  
 		You always succeed if you are not directly observed.
 		This resets the cooldown of your Stealth talent, and, if successful, all creatures currently following you will lose track of your position.
 		You estimate your current chance to hide as %0.1f%%.]], [[即使在你的敌人面前，你也学会了如何隐身。不管你与敌人有多近，你都可以尝试潜行，但敌人越少，距离越远成功率越高。
-		你的成功率取决于你潜行强度的%0.2f倍（当前值 %d ），以及所有能在视野里看到你敌人的侦测潜行能力（离你距离每有一格则下降10%%）。
+		你的成功率取决于你潜行强度的%0.2f倍（当前值 %d ），以及所有视线能及你的敌人的侦测潜行能力（离你距离每有一格则下降10%%）。
 		如果没有敌人能看到你，你一定会潜行成功。
 		这一技能会重置潜行技能的冷却时间。如果使用成功的话，所有敌人都会失去对你位置的感知。
 		你估计你目前使用这一技能的成功率为%0.1f%%。]], "tformat")
@@ -26512,7 +26512,7 @@ t([[You are able to perform usually unstealthy actions (attacking, using objects
 		Success is more likely against fewer opponents and is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection (reduced by 10%% per tile distance) of all enemies that have a clear line of sight to you.
 		Your base chance of success is 100%% if you are not directly observed, and good or bad luck may also affect it.
 		You estimate your current chance to maintain stealth as %0.1f%%.]], [[你学会在潜行状态下使用一些通常会打破潜行的技能（如攻击，使用物品……）当你在隐身状态下这么做的时候，你有一定概率不会打破潜行状态。
-		你的成功率取决于你潜行强度的%0.2f倍（当前值 %d ），以及所有能在视野里看到你敌人的侦测潜行能力（离你距离每有一格则下降10%%）。
+		你的成功率取决于你潜行强度的%0.2f倍（当前值 %d ），以及所有视线能及你的敌人的侦测潜行能力（离你距离每有一格则下降10%%）。
 		当你不在敌人的视野内时，基础成功率为 100%% ，这一几率还受你的运气影响。
 		你估计当前成功率为 %0.1f%% 。]], "tformat")
 t("Hack'n'Back", "燕回斩", "talent name")
@@ -26907,7 +26907,7 @@ t([[An ogre's body is acclimated to spells and inscriptions.
 		这样做的话，你的命中、物理、法术、精神强度会下降 20%% ，体型超过#{italic}#'较大'#{normal}#时，每增加一体型，惩罚减少 5%% 。同时你的武器附加伤害减少 50%% 。]], "tformat")
 t("Scar-Scripted Flesh", "血肉伤痕", "talent name")
 t([[When you crit you have a %d%% chance to reduce by 1 the remaining cooldown of one of your inscriptions and of any saturations effects.
-		This effect can only happen once per turn.]], [[每次暴击时有 %d%% 几率减少随机一个刻印 1 回合冷却时间，或减少符文紊乱或纹身紊乱 1 回合持续时间。
+		This effect can only happen once per turn.]], [[每次暴击时有 %d%% 几率减少随机一个刻印 1 回合冷却时间，并减少符文紊乱或纹身紊乱 1 回合持续时间。
 		该效果每回合最多触发一次。]], "tformat")
 t("Writ Large", "符文亲和", "talent name")
 t("#PURPLE#Your mastery over inscriptions is unmatched! One more inscriptions slot available to buy.", "#PURPLE#你对刻印的掌握无人能及！你可以消耗一个大系点进一步解锁一个刻印位", "logPlayer")
@@ -36721,7 +36721,7 @@ t([[Currently Twisted Anomaly: %s
 t("+Twist Fate", "+扭曲命运", "_t")
 t("-Twist Fate", "-扭曲命运", "_t")
 t("tactic", "战术", "effect subtype")
-t("Warden's Focus Target", "专注守卫的目标", "_t")
+t("Warden's Focus Target", "守卫者专注的目标", "_t")
 t("%s is focusing on this target.", "%s被选为目标.", "tformat")
 t("+Warden's Focus", "+专注守卫", "_t")
 t("-Warden's Focus", "-专注守卫", "_t")
@@ -36945,7 +36945,7 @@ t("The target is poisoned and sick, doing %0.2f nature damage per turn. Each tim
 t("+Crippling Poison", "+致残毒素", "_t")
 t("-Crippling Poison", "-致残毒素", "_t")
 t("Numbing Poison", "麻痹毒素", "_t")
-t("The target is poisoned and sick, doing %0.2f nature damage per turn. All damage it does is reduced by %d%%.", "目标中毒，每回合受到 %0.2f 自然伤害并减少其造成伤害 %d%%。", "tformat")
+t("The target is poisoned and sick, doing %0.2f nature damage per turn. All damage it does is reduced by %d%%.", "目标中毒且不适，每回合受到 %0.2f 自然伤害，并使其造成的伤害减少 %d%%。", "tformat")
 t("+Numbing Poison", "+麻痹毒素", "_t")
 t("-Numbing Poison", "-麻痹毒素", "_t")
 t("earth", "土", "effect subtype")
