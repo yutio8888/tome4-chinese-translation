@@ -142,11 +142,14 @@ Spell Save	法术豁免	T.GAME.STAT	combat	_t	preferred	core	角色面板 Spell 
 Mental Save	精神豁免	T.GAME.STAT	combat	_t	preferred	core	角色面板 Mental Save 行；与 Physical Save 物理豁免、Spell Save 法术豁免并列
 Resistances	抗性	T.GAME.STAT	combat	_t	preferred	core	角色面板 Resistances base/cap 行；单系抗性为“X抗性”，全抗为 All Resists 全部抗性
 All Resists	全部抗性	T.GAME.STAT	combat	_t	preferred	core	角色面板 All Resists 行；对应 resists.all
+#GOLD#Stat modifiers:	#GOLD#属性修正：	T.GAME.STAT	combat	_t	preferred	core	属性面板格式行（29 处）；标记后不保留空格
 Life	生命	T.GAME.RESOURCE	combat	_t	preferred	core	角色面板第一资源行；生命值语境统一用“生命值”，面板标签“生命”
 Positive energy	正能量	T.GAME.RESOURCE	combat	_t	preferred	core	太阳骑士/赞歌职业资源；与 Negative energy 负能量区分
 Negative energy	负能量	T.GAME.RESOURCE	combat	_t	preferred	core	星空法师/死亡赞歌职业资源；与 Positive energy 正能量区分
 Souls	灵魂	T.GAME.RESOURCE	combat	_t	preferred	core	死灵法师资源；Maximum souls 灵魂上限
 Air	空气	T.GAME.RESOURCE	combat	_t	preferred	core	核心资源（resources.lua 定义 11 种之一）；面板 Air 行、空气容量/空气值语境统一
+Not enough space to summon!	没有足够的空间召唤。	T.RUNTIME.LOG	combat	logSeen	preferred	global	召唤失败日志（22 处）
+%s resists!	%s抵抗了效果！	T.RUNTIME.LOG	combat	logSeen	preferred	global	通用抵抗日志（18 处）
 class	职业	T.GAME.TALENT_CATEGORY	talents	talent type	existing	core
 race	种族技能	T.GAME.TALENT_CATEGORY	talents	talent type	existing	core
 technique	格斗	T.GAME.TALENT_CATEGORY	talents	talent category	existing	core
@@ -245,6 +248,7 @@ artillery	火炮	T.GAME.TALENT_CATEGORY	talents	talent type	existing	dlc	Embers 
 mecharachnid	机械蜘蛛	T.GAME.TALENT_CATEGORY	talents	talent type	existing	dlc	Embers of Rage 技能树/技能类别名
 chemical warfare	化学武器	T.GAME.TALENT_CATEGORY	talents	talent type	existing	dlc	Embers of Rage 技能树/技能类别名
 elusiveness	飘忽身法	T.GAME.TALENT_CATEGORY	talents	talent type	preferred	dlc	Embers of Rage 斗篷机动技能树类别名；指难以捉摸的身法，不作“狡诈”
+steamtech	蒸汽科技	T.GAME.TALENT_CATEGORY	talents	talent category	existing	dlc
 Manathrust	奥术射线	T.GAME.TALENT	talents	talent name	existing	core
 Garkul's Revenge	加库尔的复仇	T.GAME.TALENT	talents	talent name	existing	core
 Life Tap	生命分流	T.GAME.TALENT	talents	talent name	existing	core
@@ -465,8 +469,12 @@ Athame	仪式匕首	T.GAME.ENTITY	items	_t	preferred	core	句中首字母大写�
 athame	仪式匕首	T.GAME.ENTITY	items	_t	preferred	core	仪式匕首通用名；不作“祭剑”或“祭祀短剑”
 throwing knives	飞刀	T.GAME.ENTITY	items	talent type	preferred	core	灵巧系远程投掷武器类别；在技能说明中与普通匕首 knives 并列
 throwing knives	飞刀	T.GAME.ENTITY	items	tformat	preferred	core	技能机制说明中的投掷匕首；沿用飞刀类别名
+voratun	沃瑞钽	T.GAME.ENTITY	items	entity subtype	preferred	global	最高级金属材料（22 处）；与 iron 铁、steel 钢并列
+iron	铁	T.GAME.ENTITY	items	entity subtype	preferred	global	基础金属材料（22 处）
+steel	钢	T.GAME.ENTITY	items	entity subtype	preferred	global	二级金属材料（18 处）
+open door	敞开的门	T.GAME.ENTITY	items	entity name	preferred	global	地形物实体名（21 处）；与 door 内部键区分
+trap	陷阱	T.GAME.ENTITY	items	entity name	preferred	global	陷阱实体（20 处）
 corrupted	腐化	T.GAME.EFFECT	creatures	effect subtype	preferred	global	状态效果语境
-steamtech	蒸汽科技	T.GAME.TALENT_CATEGORY	talents	talent category	existing	dlc
 animal	动物	T.GAME.ENTITY	creatures	entity type	existing	global
 construct	构装体	T.GAME.ENTITY	creatures	entity type	preferred	global	机械或魔法制造的生物实体类型；与种族 Construct“构装生物”区分，不作“机关”
 demon	恶魔	T.GAME.ENTITY	creatures	entity type	existing	global
@@ -515,6 +523,7 @@ shivgoroth	西弗格罗斯	T.GAME.ENTITY	creatures	entity name	preferred	core	�
 The Withering Thing	凋零之物	T.GAME.ENTITY	creatures	entity name	preferred	core	黑暗之心中的首领实体；保留 Thing 的名词性，不省略为“凋零”
 The Dreaming One	沉梦者	T.GAME.ENTITY	creatures	entity name	preferred	core	黑暗之心中的沉睡首领；与 Eye of the Dreaming One“梦境之眼”物品名区分
 DESTRUCTICUS	毁灭号	T.GAME.ENTITY	creatures	_t	preferred	dlc	Embers of Rage 武器“裂天者 毁灭号”的简称；欢呼与叙词统一为“毁灭号”，不写作“毁天灭地”
+light	光	T.GAME.ENTITY	creatures	entity subtype	preferred	global	光球/发光体实体子类（如魔法光球）；护甲材质语境用“轻甲”（existing 行）
 Shalore	永恒精灵	T.PN.RACE	creatures	nil	existing	core
 Sher'Tul	夏·图尔	T.PN.RACE	creatures	nil	existing	core
 Thalore	自然精灵	T.PN.RACE	creatures	nil	existing	core
@@ -552,6 +561,8 @@ primal trunk	原始树干	T.GAME.ENTITY	places	entity name	preferred	dlc	Embers 
 primal trunk	原始树干	T.GAME.ENTITY	places	entity subtype	preferred	dlc	同名网格子类型；与实体名统一
 cracks	裂缝	T.GAME.ENTITY	places	entity subtype	preferred	dlc	地面裂缝的实体子类型；与 dug rubble“挖出的碎石”区分
 Spacetime Tear	时空裂口	T.GAME.ENTITY	places	_t	preferred	core	时空异常生成的裂口实体及关闭日志所指对象；与 space-time rift“时空裂隙”区分
+next level	前往下一层	T.GAME.ENTITY	places	entity name	preferred	global	楼梯/出口提示（19 处）
+previous level	前往上一层	T.GAME.ENTITY	places	entity name	preferred	global	楼梯/出口提示（18 处）
 Angolwen	安格利文	T.PN.PLACE	places	nil	existing	core	现有译文另有“安格列文”写法，需统一
 Dreadfell	恐惧王座	T.PN.PLACE	places	nil	existing	core
 Gates of Morning	晨曦之门	T.PN.PLACE	places	_t	existing	core
@@ -672,5 +683,10 @@ Horns	角	T.UI.LABEL	ui	birth facial category	existing	global	角色外观分类
 Special	特殊	T.UI.LABEL	ui	birth facial category	existing	global	角色外观分类
 Tatoos	纹身	T.UI.LABEL	ui	birth facial category	existing	global	游戏源码拼写为 Tatoos
 The Arena	竞技场	T.UI.LABEL	ui	_t	existing	core	与成就名称同源但分类不同
+Cancel	取消	T.UI.LABEL	ui	_t	preferred	global	通用界面按钮（42 处）；对话框/菜单取消操作
+Summon	召唤	T.UI.LABEL	ui	_t	preferred	global	召唤界面/技能按钮（18 处）；与召唤师职业名区分
+Name	名称	T.UI.LABEL	ui	_t	preferred	global	界面标签（17 处）
+[leave]	[离开]	T.UI.LABEL	ui	_t	preferred	global	地图/传送界面离开选项（16 处），保留半角方括号
+unknown	未知	T.UI.LABEL	ui	_t	preferred	global	未知条目/名称占位（15 处）
 reload rate	每次装填弹药数	T.TECH.FORMAT	tech	tformat	preferred	core	弓与投石索机制属性；实际增加每次自动装填的弹药数量，并非缩短装填耗时
 Donator	捐赠者	T.GAME.MISC	tech	_t	preferred	core	聊天徽章与成就名称统一为“捐赠者”；不写作“捐助者”
