@@ -35,7 +35,7 @@ t([[You imbue your offhand mindstar with wild psionic forces.
 		生效时，灵晶的精神强度和精神暴击几率增加 %d%% 。
 		每次攻击，都会给目标附加 1 层灵能瓦解效果。
 		每层效果持续 %d 回合造成 %0.2f 精神伤害 (最多 %d 层).
-		如果你没有装备单手武器和灵晶，但是在副手栏里装备了，你会立刻自动切换。此技能与心灵利刃不兼容。]], "tformat")
+		如果你没有装备单手武器和灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 t("Shockstar", "震撼之星", "talent name")
 t([[You make a first attack with your mainhand for %d%% weapon damage.
 		If the attack hits the target is distracted and you use that to violently slam your mindstar into it, dealing %d%% damage.
@@ -45,13 +45,13 @@ t([[You make a first attack with your mainhand for %d%% weapon damage.
 		如果命中目标立刻用灵晶攻击目标造成 %d%% 伤害。
 		震慑目标 %d 回合且半径 %d 范围内的生物眩晕同样的回合。
 		灵能瓦解层数决定震慑和眩晕的持续时间，已给出的数据是灵能瓦解 4 层的情况下。
-		如果你没有装备单手武器和灵晶，但是在副手栏里装备了，你会立刻自动切换。此技能与心灵利刃不兼容。]], "tformat")
+		如果你没有装备单手武器和灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 t("Dazzling Lights", "炫目之光", "talent name")
 t([[Raising your mindstar in the air you channel a bright flash of light through it. Any creatures in radius %d is blinded for %d turns.
 		If any foe in melee range is blinded by the effect you quickly use that to your advantage by striking them with a blow of your main hand weapon doing %d%% damage.
 		If you do not have a one handed weapon and a mindstar equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[举起灵晶，致盲半径 %d 内的生物 %d 回合。
 		在近战范围内的敌人被此效果致盲，立刻用主手武器造成 %d%% 伤害。
-		如果你没有装备单手武器和灵晶，但是在副手栏里装备了，你会立刻自动切换。此技能与心灵利刃不兼容。]], "tformat")
+		如果你没有装备单手武器和灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 t("Psionic Block", "灵能格挡", "talent name")
 t([[You concentrate to create a psionic block field all around you for 5 turns.
 		While the effect holds all damage against you have a %d%% chance to be fully ignored.
@@ -248,7 +248,7 @@ t([[You lash out your psionic fury at a distant creature, doing %0.2f mind damag
 		The whip can cleave to one nearby foe.
 		If you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[对一个生物释放你的灵能怒气造成 %0.2f 精神伤害。
 		鞭子可同时对目标身边的一个敌人造成伤害。
-		如果你没有双持灵晶，但是在副手栏里装备了，你会立刻自动切换。此技能与心灵利刃不兼容。]], "tformat")
+		如果你没有双持灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 t("Psychic Wipe", "精神抹除", "talent name")
 t([[You project ethereal fingers inside the target's brain.
 		Over %d turns it will take %0.2f total mind damage and have its mental save reduced by %d.
@@ -256,13 +256,13 @@ t([[You project ethereal fingers inside the target's brain.
 		If you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[你在目标脑中投射空灵的手指。
 		持续 %d 回合总共造成 %0.2f 精神伤害并减少 %d 精神豁免。
 		这个强大的效果尝试使用 130%% 你的精神强度去对抗目标的精神豁免。
-		如果你没有双持灵晶，但是在副手栏里装备了，你会立刻自动切换。此技能与心灵利刃不兼容。]], "tformat")
+		如果你没有双持灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 t("Ghastly Wail", "恐怖嚎叫", "talent name")
 t([[You let your mental forces go unchecked for an instant. All foes in a radius %d are knocked 3 grids away from you.
 		Creatures that fail a mental save are also dazed for %d turns and take %0.2f mind damage.
 		If you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[释放你的心灵力量，把你身边半径 %d 内的敌人击退 3 格。
 		没有通过精神豁免的生物会眩晕 %d 回合并受到 %0.2f 精神伤害。
-		如果你没有双持灵晶，但是在副手栏里装备了，你会立刻自动切换。此技能与心灵利刃不兼容。]], "tformat")
+		如果你没有双持灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 t("Finger of Death", "死亡一指", "talent name")
 t("#PURPLE##Source# shatters #Target#'s mind, utterly destroying it.", "#PURPLE##Source#粉碎了#Target#的精神，完全摧毁了它。", "logCombat")
 t("#PURPLE##Source# shatters #Target#'s mind, utterly destroying it but has no room to store the body.", "#PURPLE##Source#粉碎了#Target#的精神，完全摧毁了它，但是没有空间存储它的身体。", "logCombat")
@@ -275,7 +275,7 @@ t([[You point your ghastly finger at a foe affected by Ghastly Wail and send a p
 		目标将受到相当于其已损失生命值 %d%% 的精神伤害。
 		对 boss 或者更高阶级的目标伤害最高为 %d 。
 		如果目标死于死亡一指，且其类型是你已经可以吸收的，则直接吸收到你的身体储备中。
-		如果你没有双持灵晶，但是在副手栏里装备了，你会立刻自动切换。此技能与心灵利刃不兼容。]], "tformat")
+		如果你没有双持灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 
 ------------------------------------------------
 section "tome-possessors/data/talents/psionic/psionic.lua"
@@ -312,13 +312,13 @@ t([[Using both your mind and your arms you propel your two handed weapon to deal
 		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[用双手武器攻击敌人造成 %d%% 武器精神伤害。
 		如果命中且目标没有通过精神豁免有 %d%% 几率剥夺目标的心灵印记。
 		它会出现在附近，并为你服务 %d 回合。
-		如果你没有装备双手武器，但是在副手栏里装备了，你会立刻自动切换。]], "tformat")
+		如果你没有装备双手武器，但在备用武器组里装备了它，你会立刻自动切换到那组武器。]], "tformat")
 t("Force Shield", "力场盾", "talent name")
 t([[You create a psionic shield from your weapon that prevents you from ever taking blows that deal more than %d%% of your maximum life and gives you %d%% evasion.
 		In addition, each time you take a melee hit the attacker automatically takes revenge strike that deals %d%% weapon damage as mind damage. (This effect can only happen once per turn)
 		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你通过你的武器创造力场盾，每次受到伤害时，伤害不会超过最大生命值 %d%% 并有 %d%% 回避攻击。
 		此外，每次受到近战攻击时，攻击者会受到 %d%% 武器精神伤害的反击，(每回合一次)
-		如果你没有装备双手武器，但是在副手栏里装备了，你会立刻自动切换。]], "tformat")
+		如果你没有装备双手武器，但在备用武器组里装备了它，你会立刻自动切换到那组武器。]], "tformat")
 t("Unleashed Mind", "心灵释放", "talent name")
 t([[You concentrate your powerful psionic powers on your weapon and briefly unleash your fury.
 		All foes in radius %d will take a melee attack dealing %d%% weapon damage as mind damage.
@@ -326,7 +326,7 @@ t([[You concentrate your powerful psionic powers on your weapon and briefly unle
 		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你将强大的灵能力集中在你的武器上,并短暂地释放你的愤怒。
 		半径 %d 内的敌人受到近战攻击造成 %d%% 武器精神伤害。
 		范围内的所有灵能克隆体将延长 %d 回合。
-		如果你没有装备双手武器，但是在副手栏里装备了，你会立刻自动切换。]], "tformat")
+		如果你没有装备双手武器，但在备用武器组里装备了它，你会立刻自动切换到那组武器。]], "tformat")
 t("Seismic Mind", "心灵地震", "talent name")
 t([[You shatter your weapon in the ground, projecting a psionic shockwave in a cone of radius %d.
 		Any foes in the area will take %d%% weapon damage as mind damage.
@@ -334,7 +334,7 @@ t([[You shatter your weapon in the ground, projecting a psionic shockwave in a c
 		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你在地面上打碎你的武器，将一个心灵的冲击波投射在半径为 %d 的圆锥上。
 		范围内的所有敌人受到 %d%% 武器精神伤害。
 		任何被击中的灵能克隆体将立即破碎，在半径 1 的范围内爆炸造成 %0.2f 物理伤害。
-		如果你没有装备双手武器，但是在副手栏里装备了，你会立刻自动切换。]], "tformat")
+		如果你没有装备双手武器，但在备用武器组里装备了它，你会立刻自动切换到那组武器。]], "tformat")
 
 ------------------------------------------------
 section "tome-possessors/data/talents/psionic/ravenous-mind.lua"

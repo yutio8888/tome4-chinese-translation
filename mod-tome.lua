@@ -473,9 +473,9 @@ t("#LIGHT_RED#You may not change level so soon after a kill (%d game turns left 
 t("#LIGHT_RED#You may not change level without your own body!", "#LIGHT_RED#你只能用自己的身体离开地图!", "logPlayer")
 t("#LIGHT_RED#You may not leave the zone with this character!", "#LIGHT_RED#你不能用这个角色离开地图!", "logPlayer")
 t("#LIGHT_RED#You cannot escape your fate by leaving the level!", "#LIGHT_RED#你不能离开地图以求逃避命运!", "logPlayer")
-t("Stay: level %s of %s", "待在：%s地图的第%s层", "tformat")
-t("Keep Trying: level %s of %s", "继续尝试：%s地图的第%s层", "tformat")
-t("Log the problem, Stay: level %s of %s", "记录问题，待在：%s地图的第%s层", "tformat")
+t("Stay: level %s of %s", "待在：第%s层，%s地图", "tformat")
+t("Keep Trying: level %s of %s", "继续尝试：第%s层，%s地图", "tformat")
+t("Log the problem, Stay: level %s of %s", "记录问题，待在：第%s层，%s地图", "tformat")
 t("Debug the problem (move to the failed zone/level)", "调试问题 (进入失败的地图/楼层)", "_t")
 t("Information logged", "信息已记录。", "_t")
 t("Information on the failed zone and level dumped to the log file.", "有关失败的地图和楼层的信息，已被输出到日志文件。", "_t")
@@ -2059,7 +2059,7 @@ This is applied after normal damage resistance and is not affected by resistance
 t([[#GOLD#Damage resistance: specific#LAST#
 All damage of this type that you receive, through any means, is reduced by this percentage.
 ]], [[#GOLD#伤害抗性：指定#LAST#
-任何方式对你造成的所有类型伤害都会按此比例减免。
+任何方式对你造成的此类型伤害都会按此比例减免。
 ]], "_t")
 t([[#GOLD#Damage resistance: by speed#LAST#
 All damage you receive, through any means, is decreased by this percentage, which increases as your total movement speed (global times movement) decreases.
@@ -2086,7 +2086,7 @@ t([[#GOLD#Damage affinity: specific#LAST#
 All damage of this type that you receive, through any means, also heals you for this percentage of the damage.
 Important: Affinity healing happens after damage has been taken, it can not prevent death.
 ]], [[#GOLD#伤害吸收：指定#LAST#
-任何方式对你造成的所有类型伤害，都会按此比例治疗你。
+任何方式对你造成的此类型伤害，都会按此比例治疗你。
 注意：伤害吸收的治疗效果在伤害产生后处理，不能防止秒杀。
 ]], "_t")
 t([[#GOLD#Status resistance#LAST#
@@ -6682,7 +6682,7 @@ The Gates of the Morning has a slab of Marble that once could have served, but a
 It'll require a Resonating Diamond to get it properly prepared. Oh, and I want 100 gold.]], [[你认为我会让一个肮脏的 @playerdescriptor.race@ 带着多元水晶球进我家么？
 谢了，没有那东西在屋里，我已经够经常把自己炸得够呛了。
 况且，我没法帮助你，除非你搞到一把血符仪式匕首来开启这个传送门。
-呃……传送门还必须在一块共鸣石头上才能开启。
+呃……要想把它准备好，还需要一块共鸣宝石。
 晨曦之门原来有这么一块共鸣石头可以起作用，不过过去发生过一些……呃……事故，对它造成了损伤。
 另外还有一块共鸣宝石，哦，我还要收取100金币费用。]], "_t")
 t("Where can I find all that?", "我上哪儿去找那些东西？", "_t")
@@ -8261,7 +8261,7 @@ t([[A bulging rotten robe seems to tear at the seams, with masses of bloated wor
 Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], "一件鼓鼓囊囊的腐烂长袍，长袍的缝隙里不断蠕动着浮肿的蠕虫。它有着两只臂膀一样的附属物，每只手都由重叠的蠕虫组成，各握着一柄覆有胆汁的斧子。每一次挥舞都会向前溅出脓液，每一滴脓液在空中扭动翻滚，然后啪嗒一声落在地上。", "_t")
 t("#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", "#LIGHT_RED#一团腐肉虫从%s的伤口孵化了出来。", "logSeen")
 t("bloated horror", "浮肿恐魔", "entity name")
-t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "这是一只有着人头的漂浮物。它的孩子似的光头大的不成比例，并且它还有着满身恶臭的脓疮。", "_t")
+t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "一个臃肿的人形生物漂浮在这里。它的光头像个孩子，与身体相比大得不成比例，皮肤上布满痘坑，长着狰狞的红色脓疮。", "_t")
 t("nightmare horror", "梦魇恐魔", "entity name")
 t("A shifting form of darkest night that seems to reflect your deepest fears.", "在漆黑的深夜中不断变幻的存在，映照出你内心深处的恐惧。", "_t")
 t("headless horror", "无头恐魔", "entity name")
@@ -8287,7 +8287,7 @@ t("A dark shifting shape stalks through the shadows, blending in seamlessly.", "
 t("dreaming horror", "梦境恐魔", "entity name")
 t([[A vaguely tentacled yet constantly changing form rests here apparently oblivious to your existence.
 With each slow breath it takes reality distorts around it.  Blue twirls into red, green twists into yellow, and the air sings softly before bursting into a myriad of pastel shapes and colors.]], [[这是一只混沌状的触手生物，它在这里惬意的休息并不断的变幻着颜色，显然无视了你的存在。
-每一次呼吸，你都能感到现实在扭曲、碎裂、崩坏。蓝色烧成红色，绿色爆成黄色，空气噼啪嘶鸣，随后炸裂成千片尖锐的形状与色彩。]], "_t")
+它每一次缓慢的呼吸都会让现实扭曲变形。蓝色旋成红色，绿色扭成黄色，空气轻声吟唱，随后绽开成无数柔和色彩的形状。]], "_t")
 t("It looks asleep and dreamy.", "它看上去沉浸在睡梦之中。", "_t")
 t("It looks awake, beware!", "它醒来了，小心！", "_t")
 t("#LIGHT_BLUE#A dream seed escapes %s's sleeping mind.", "#LIGHT_BLUE#一个梦境之种从%s的沉眠中释放。", "logSeen")
@@ -8516,7 +8516,7 @@ section "mod-tome/data/general/npcs/naga.lua"
 t("humanoid", "人形生物", "entity type")
 t("naga", "娜迦", "entity subtype")
 t("naga myrmidon", "娜迦侍从", "entity name")
-t("Before you stands a tall figure -- a very tall figure, propped high by a thick serpent's tail in place of where his legs should rightly be. His torso is human-like, with bulging muscles beneath fitted armour, and large hands gripping a fiercely sharp trident. He glares at you with dark intensity, like a wolf about to pounce on unsuspecting prey.", "在你面前站着一个高大的人影——一个非常高的人型怪物，在腿部长着巨大的蛇尾巴，他以此来支撑他的身体。他的上半身是人形,护甲下面隐约可见发达的肌肉，两只巨大的双手紧握着锋利的三叉戟。他带着阴沉的锐利目光盯着你，像一头随时准备扑向毫无防备猎物的狼。物。", "_t")
+t("Before you stands a tall figure -- a very tall figure, propped high by a thick serpent's tail in place of where his legs should rightly be. His torso is human-like, with bulging muscles beneath fitted armour, and large hands gripping a fiercely sharp trident. He glares at you with dark intensity, like a wolf about to pounce on unsuspecting prey.", "在你面前站着一个高大的人影——一个非常高的人形怪物，在腿部长着巨大的蛇尾巴，他以此来支撑他的身体。他的上半身是人形,护甲下面隐约可见发达的肌肉，两只巨大的双手紧握着锋利的三叉戟。他带着阴沉的锐利目光盯着你，像一头随时准备扑向毫无防备猎物的狼。", "_t")
 t("naga tide huntress", "娜迦潮汐女猎手", "entity name")
 t("Though the sharp point of an arrow pointed steadily at your head is of concern, more unnerving is the creature that wields it: a slim and lithe woman from the waist up, but a terrifying giant serpent beneath, her tail stretching for several feet behind her. Her eyes turn cold and ice seems to magically condense on the tip of her barbed arrow. Suddenly it is of concern again.", "尽管一支利箭稳稳地指着你的脑袋令人担忧，但更让人不安的是握着它的生物：上半身是一个纤细柔美的女人，下半身却是可怕的巨蛇，尾巴在身后延伸数英尺。她的眼神变得冰冷，冰似乎神奇地凝结在她带刺箭矢的尖端。突然间，那箭矢又令你心生恐惧了。", "_t")
 t("naga psyren", "娜迦海妖", "entity name")
@@ -11366,7 +11366,7 @@ t("lite", "光照", "entity subtype")
 t("Light up the dark places of the world!", "点亮世界的黑暗角落！", "_t")
 t("brass lantern", "黄铜灯笼", "entity name")
 t("brass", "黄铜", "entity short_name")
-t("A brass container with a wick emerging from it, protected from draughts by a sheet of greased paper. It can be carried by a handle.", "一个有引线的黄铜容器，用一张涂油的纸挡风。它有一只把手，可以提着。", "_t")
+t("A brass container with a wick emerging from it, protected from draughts by a sheet of greased paper. It can be carried by a handle.", "一个黄铜容器，灯芯从中伸出，用一张涂油的纸挡风。它有一只把手，可以提着。", "_t")
 t("alchemist's lamp", "炼金灯笼", "entity name")
 t("alchemist", "炼金术师", "entity short_name")
 t("A normal brass lantern, enhanced by alchemy to make it brighter.", "一个普通的黄铜灯笼，炼金的力量增强了它的亮度。", "_t")
@@ -12231,12 +12231,11 @@ t("Untouched by the ravages of time, this fine spun white cloak appears to be cr
 t("Blood-Edge", "饮血剑", "entity name")
 t("red crystalline sword", "红色的水晶剑", "_t")
 t([[This deep red sword weeps blood continuously. It was born in the labs of the orcish corrupter Hurik, who sought to make a crystal that would house his soul after death. But his plans were disrupted by a band of sun paladins, and though most died purging his keep of dread minions, their leader Raasul fought through to Hurik's lab, sword in hand. There the two did battle, blade against blood magic, till both fell to the floor with weeping wounds. The orc with his last strength crawled towards his fashioned phylactery, hoping to save himself, but Raasul saw his plans and struck the crystal with his light-bathed sword. It shattered, and in the sudden impulse of energies the steel, crystal and blood were fused into one.
-Now the broken fragments of Raasul's soul are trapped in this terrible artifact, his mind warped beyond all sanity by decades of imprisonment. Only the taste of blood calls him forth, his soul stealing the lifeblood of others to take on physical form again, that he may thrash and wail against the living.]], [[这把深红色的剑不断的向下滴血。它诞生于兽人堕落者胡里克的实验室。最初，胡里克寻找了一枚水晶来制造他的命匣，但他的计划很快被一群太阳骑士打断，尽管大部分骑士死于不死军团的阻拦，但骑士团团长瑞苏尔却单枪匹马杀入了胡里克的实验室。在那里，两位强者展开了对决，利剑与血魔法你来我往，直到他们都重伤倒地。兽人想拼尽最后一分力气，拿到他的命匣，希望能拯救自己，但是瑞苏尔识破了他的阴谋，将浸满鲜血的利剑掷向了命匣。命匣破碎的瞬间，钢铁、水晶与鲜血融为了一体。
+Now the broken fragments of Raasul's soul are trapped in this terrible artifact, his mind warped beyond all sanity by decades of imprisonment. Only the taste of blood calls him forth, his soul stealing the lifeblood of others to take on physical form again, that he may thrash and wail against the living.]], [[这把深红色的剑不断的向下滴血。它诞生于兽人堕落者胡里克的实验室。最初，胡里克寻找了一枚水晶来制造他的命匣，但他的计划很快被一群太阳骑士打断，尽管大部分骑士死于不死军团的阻拦，但骑士团团长瑞苏尔却单枪匹马杀入了胡里克的实验室。在那里，两位强者展开了对决，利剑与血魔法你来我往，直到他们都重伤倒地。兽人想拼尽最后一分力气，拿到他的命匣，希望能拯救自己，但是瑞苏尔识破了他的阴谋，挥起沐浴着圣光的利剑击碎了水晶。命匣破碎的瞬间，钢铁、水晶与鲜血融为了一体。
 如今，瑞苏尔残破的灵魂被困在这件可怕的造物中，数十年的囚禁早已扭曲了他的心智。只有鲜血的味道能唤醒他，他的灵魂窃取他人的生命之血以重获形体，好向生者咆哮哀嚎。]], "_t")
 t("15% chance to animate a bleeding foe's blood", "15%几率活化流血敌人的血液", "_t")
 t("animated blood", "活化血液", "_t")
-t("A haze of blood, vibrant and pulsing through the air, possessed by a warped and cracked soul. Every now and then a scream or wail of agony garbles through it, telling of the mindless suffering undergone by its possessor.", [[这把深红色的剑不断的向下滴血。它诞生于兽人堕落者胡里克的实验室。最初，胡里克寻找了一枚水晶来制造他的命匣，但他的计划很快被一群太阳骑士打断，尽管大部分骑士死于不死军团的阻拦，但骑士团团长瑞苏尔却单枪匹马杀入了胡里克的实验室。在那里，两位强者展开了对决，利剑与血魔法你来我往，直到他们都重伤倒地。兽人想拼尽最后一分力气，拿到他的命匣，希望能拯救自己，但是瑞苏尔识破了他的阴谋，将浸满鲜血的利剑掷向了命匣。命匣破碎的瞬间，钢铁、水晶与鲜血融为了一体。
-如今，瑞苏尔残破的灵魂被困在这件可怕的造物中，数十年的囚禁早已扭曲了他的心智。只有鲜血的味道能唤醒他，他的灵魂窃取他人的生命之血以重获形体，好向生者咆哮哀嚎。]], "_t")
+t("A haze of blood, vibrant and pulsing through the air, possessed by a warped and cracked soul. Every now and then a scream or wail of agony garbles through it, telling of the mindless suffering undergone by its possessor.", [[一团血雾在空气中鲜艳地搏动翻涌，被一个扭曲破碎的灵魂所占据。时不时有痛苦的尖叫或哀嚎从雾中传出，诉说着其占据者所遭受的无意识苦难。]], "_t")
 t("Summon", "召唤", "_t")
 t("#GOLD#As the blade touches %s's spilt blood, the blood rises, animated!", "#GOLD#饮血剑接触到%s喷出的血液，血液开始活化，动了起来!", "logSeen")
 t("#GOLD#%s draws power from the spilt blood!", "#GOLD#%s从洒出的血液中汲取能量！", "logSeen")
@@ -12769,7 +12768,7 @@ t("#Source# manifests a psychic assult with %s %s!", "#Source#使用%s%s发动�
 t("Latafayn", "焱剑·拉塔法", "entity name")
 t("flame covered greatsword", "附着火焰的大剑", "_t")
 t("This massive, flame-coated greatsword was stolen by the adventurer Kestin Highfin, during the Age of Dusk. It originally belonged to a demon named Frond'Ral the Red.  It roars with vile flames and its very existence seems to be a blight upon the lands.", "这把巨大、覆满火焰的大剑在黄昏纪被冒险者科斯汀·赫菲因偷走。它原本属于一个名叫赤红之弗朗拉尔的恶魔。它燃烧着邪恶的火焰，它的存在本身似乎就是这片土地的灾祸。", "_t")
-t("accelerate burning effects on all creatures in a radius %d ball within range %d, consuming them to instantly inflict 125%% of all remaining burn damage", "加速射程 %d 内半径 %d 球体中所有生物身上的燃烧效果，消耗它们，立即造成剩余燃烧伤害的125%。", "tformat")
+t("accelerate burning effects on all creatures in a radius %d ball within range %d, consuming them to instantly inflict 125%% of all remaining burn damage", "加速射程 %d 内半径 %d 球体中所有生物身上的燃烧效果，消耗它们，立即造成剩余燃烧伤害的125%%。", "tformat")
 t("%s's %s lashes out in a flaming arc, intensifying the burning of %s enemies!", "%s的%s划出一条烈焰的弧线，加速了%s个敌人身上的燃烧!", "logSeen")
 t("Robe of Force", "灵能长袍", "entity name")
 t("rippling cloth robe", "无风自动的长袍", "_t")
@@ -13297,7 +13296,7 @@ t("Lightning Catcher", "雷电接收器", "entity name")
 t("coiled metal belt", "螺旋形金属腰带", "_t")
 t("A fine mesh of metal threads held together by a sturdy chain. Sparks dance across it.", "一圈细密的金属丝网由一条坚固的锁链串起。火花在其上跳跃。", "_t")
 t([[Taking lightning damage or making critical hits builds 2 energy charges, which give you +5% lightning damage and +1 to all stats.
-The charges decay at a rate of 1 per turn. Max 10 charges.]], [[受到雷电伤害或造成任意暴击时获得两点充能，每点充能提供 5%% 雷电伤害加成和 1 点全属性。
+The charges decay at a rate of 1 per turn. Max 10 charges.]], [[受到雷电伤害或造成任意暴击时会获得 2 点充能，这些充能总共提供 5%% 雷电伤害加成和 1 点全属性。
 充能每回合衰减 1 点，最多 10 点充能。]], "_t")
 
 ------------------------------------------------
@@ -13599,7 +13598,7 @@ t("Unremarkable grey ash.", "不起眼的灰色灰烬。", "_t")
 t("They're creatures of pure flame, and likely of extraplanar origin, but the ash of objects consumed by their fire has remarkable properties.", "它们是由纯粹的火焰组成的生物，似乎来自另一个世界。然而，由它们的火焰燃烧成的灰烬有着非凡的功效。", "_t")
 t("wretchling eyeball", "酸液树魔之眼", "entity name")
 t("Small and bloodshot. Its dead gaze still burns your skin.", "小而充血。它死去后的凝视仍灼痛着你的皮肤。", "_t")
-t("Evil little things, wretchlings. Feel free to kill as many as you can, though I just need the one intact eyeball.", "邪恶的小恶魔，酸液树魔。你可以尽情的杀戮它们，尽管我只需要一只完整的眼球。", "_t")
+t("Evil little things, wretchlings. Feel free to kill as many as you can, though I just need the one intact eyeball.", "邪恶的小东西——小劣魔。你可以尽情地杀戮它们，尽管我只需要一只完整的眼球。", "_t")
 t("faerlhing fang", "费尔荷毒牙", "entity name")
 t("It still drips venom and crackles with magical energy.", "它仍滴着毒液，魔法能量在上面噼啪作响。", "_t")
 t("I've lost a number of adventurers to this one, but I'm sure you'll be fine.", "我已经在这个工作中失去了许多冒险者，但我确信你会安全归来。", "_t")
@@ -13774,7 +13773,7 @@ Subject Z currently raving, but I believe this is due to stressful conditions, n
 #{italic}#厄流纪 4547年#{normal}#
 
 试验品 O：在传送过程中体内发生爆裂。
-试验品 P：在第一次传送中存活，但疯了，需要被强制按下。
+试验品 P：在第一次传送中存活，但疯了，不得不被处死。
 试验品 Q：在第一次传送中存活，在传送回来的过程中体内发生爆裂。
 试验品 R：在第一次传送中死亡。
 试验品 S-T：在传送回来的过程中死亡。
@@ -14627,7 +14626,7 @@ Turthel paused reflectively before nodding his head slowly, and it was clear tha
 
 尼耶拉首先回答了问话，脸上闪耀着光彩，声音饱含着情感。“我认为永恒精灵的国王十分自负，和我们关系疏远。尽管他试图表现同情，却利用我们对母亲的感情。而且，就算他说得再好，我们又怎么能相信真能解开夏·图尔遗迹里的秘密呢？要知道，这秘密流传千年无人能解，隐藏的力量毫无头绪。究竟是何等骄傲，让你们以为如今可以随意摆弄这些遗物？大胆挥舞一把不知用法的未知武器，难道不是一桩危险而荒唐的行为吗？”
 
-房间里的空气顿时变得一片寂静，我几乎能看到我们的国王陛下——伊菲尼亚斯正气得冒烟，显然他从未听过也不能习惯如此激烈直接的批评反对。莱娜尼尔这时开口了，尽管语调低沉清冷，所有人都竖起耳朵听着，“在那个辉煌年代诞生的伟大杰作已经沉眠上千年。我们如今的精妙艺术、宏伟城市、美好社会从何而来？我不能给出答案，但我知道，这些和那沉睡已久的艺术品毫无瓜葛。我相信，对伟大的模仿不应该、也不可能让人感觉耻辱。但是我们长久以来错误的谦逊铸就了真正的错误。太久了，夏·图尔遗留的强大力量已经埋藏太久，那些早已被恐惧和胆怯填满的内心将它们拒之门外。”我仿佛看到她的眼睛里闪烁着激动的光。“想想我们将要解开的奇迹！结束对兽人的战争只是一个开始，我们将会从中受益良多。我要说，要是我们将这股力量再度深藏地下，等待不知多少年后的人来小心翼翼地重头发掘，将是埃亚尔大陆上最大的罪行。”
+房间里的空气顿时变得一片寂静，我几乎能看到我们的国王陛下——伊菲尼亚斯正气得冒烟，显然他从未听过也不能习惯如此激烈直接的批评反对。莱娜尼尔这时开口了，尽管语调低沉清冷，所有人都竖起耳朵听着，“在那个辉煌年代诞生的伟大杰作已经沉眠上千年。我们如今的精妙艺术、宏伟城市、美好社会从何而来？多少个世纪以来，有多少骄傲的杰作辉煌诞生。我们伟大的艺术品、宏伟的城市、塑造社会的奥术编织，从何而来？它们的创作中找不到一丝谦卑。出于骄傲行事并不羞耻，而错误的谦逊让我们一无所获。太久了，夏·图尔遗留的强大力量已经埋藏太久，那些早已被恐惧和胆怯填满的内心将它们拒之门外。”我仿佛看到她的眼睛里闪烁着激动的光。“想想我们将要解开的奇迹！结束对兽人的战争只是一个开始，我们将会从中受益良多。我要说，要是我们将这股力量再度深藏地下，等待不知多少年后的人来小心翼翼地重头发掘，将是埃亚尔大陆上最大的罪行。”
 
 特塞尔停了一会儿，慢慢地点头，显然莱娜尼尔的想法和他更为接近。“非常好，”他慢慢地宣布，同时再度直视伊菲尼亚斯。“我们会加入你们。”尼耶拉沉默了，表现出深深的担忧，而她的妹妹莱娜尼尔显露了一丝满意的神色。]], "_t")
 t("The Spellblaze Chronicles(2): A Night to Remember", "魔法大爆炸纪事(2)：难忘之夜", "_t")
@@ -16097,7 +16096,7 @@ But Ralkur, in a last desperate effort, took on a pathetic and piteous form, and
 
 最后，他们来到了塔·埃亚尔的远岸，瑞尔克已经精疲力尽，耗光了所有的力量，他变回原型，翻滚着跌落在沙滩里。布兰伊尔从他身后的水中现身，旅途中积蓄的杀意让布兰伊尔的身形显得更加高大和无法匹敌，这个胆小的神灵只能面对逃亡的终结。布兰伊尔从刀鞘中抽出大剑玛卓斯，抵在了猎物的喉咙上。
 
-瑞尔克在最后的绝望中可怜的挣扎，他哭嚎着哀求布兰伊尔的怜悯，承诺永远的离开埃亚尔。布兰伊尔注视着远处的落日，心中涌起一丝感触，他同意了瑞尔克的乞求。布兰伊尔用庄严的语气宣誓：“应所有凡人的意愿，你，瑞尔克必须从这个世界上消失！你必须抹除你对埃亚尔世界造成的一切影响，并永远不许回头！如果你忘记了对我的敬畏，背弃了我的信任，你将再也不敢大口喘气，不使用飞行术的话连一步也不敢迈出，你充满背叛的心脏每一次跳动都将被恐惧所占据！那时我必将找到你，追杀你至无尽的深渊，直至我的双手卡住你的喉咙，你的生命化为尘土前，永不停息！”他说出这番话时，海风陷入了沉默，天空变成了黑色，当一个夏·图尔庄严宣誓的时候，他的誓言将化为真理永远的改变这个世界的法则。瑞尔克听到这些话时，恐惧已经超出了他的极限，瑞尔克忘记了所有的疲惫，变成燕子飞窜而去，逃入云霄，消失在视线之外。]], "_t")
+瑞尔克在最后的绝望中可怜的挣扎，他哭嚎着哀求布兰伊尔的怜悯，承诺永远的离开埃亚尔。布兰伊尔看着这位身陷如此境地、堕落至此的神明之形，心中涌起一丝感触，同意了瑞尔克的乞求。布兰伊尔用庄严的语气宣誓：“应所有凡人的意愿，你，瑞尔克必须从这个世界上消失！你必须抹除你对埃亚尔世界造成的一切影响，并永远不许回头！如果你忘记了对我的敬畏，背弃了我的信任，你将再也不敢大口喘气，不使用飞行术的话连一步也不敢迈出，你充满背叛的心脏每一次跳动都将被恐惧所占据！那时我必将找到你，追杀你至无尽的深渊，直至我的双手卡住你的喉咙，你的生命化为尘土前，永不停息！”他说出这番话时，海风陷入了沉默，天空变成了黑色，当一个夏·图尔庄严宣誓的时候，他的誓言将化为真理永远的改变这个世界的法则。瑞尔克听到这些话时，恐惧已经超出了他的极限，瑞尔克忘记了所有的疲惫，变成燕子飞窜而去，逃入云霄，消失在视线之外。]], "_t")
 t("The Hunter and the Hunted chapter 3", "猎人与猎物　第三章", "_t")
 t([[Branzir returned to his people, and continued the hunt for the other gods, till but one god remained: Amakthel. Then the last great Godhunt began, as the Sher'Tul fought to overcome their maker and master. And this was no easy feat, for Amakthel was by far the strongest of all the gods, and many Sher'Tul were still loyal to their creator. Much blood was spilled before ever the assault on his throne could begin, and much blood would spill still after.
 
@@ -18374,7 +18373,7 @@ PS: You might encounter a... benefactor of sorts in your travels. You'll know it
 	
 不过，相信我——“足够的耐心”已经是足够令人讨厌的限制了。如果你曾经花费整整一周的时间，试图拆解黄昏纪暴君你方唱罢我登场的政治游戏，既不意外导致矮人的灭绝，也没有因为突然爆发的瘟疫毁掉你满盘的计划，尝试了六次也没能得出结果的话——很快你也会丧失耐心的。
 
-看。这就是问题的关键。就像那些任务说明和邀请可不能由那些没有亲自上战场的人撰写——你也有同样的幸运，我们知道在你的工作中需要的“灵活性”远比理想主义更重要。我们的小队知道要保持理智，我们也知道“每过一秒就有一秒钟的时间流过”也只是我们要打破的众多规律之一。如果你能够预见到一个有罪判决，在时空中不经审判处理掉一个潜在的罪犯也不是什么大事——只要你的调查可以被证明是确凿可信的（而且总有一天你要亲自做这件事，否则你只能看到自己不停拖延）而且，如果你只是想要一个不被监视的地方，你知道，在黄昏纪的一些时代被我和其他几个小队当做了“公平竞赛”的区域——无论你想要做什么样的实验，或者想要给其他人带来怎样的恐怖，只要你到那些有关无尽的被遗忘的邪恶的时间段去做，这不会对事情的大局产生任何影响。相信我，我们已经确认了——这段时间发生的一切事情都无足轻重，除非你真有本事引发第二次魔法大爆炸。
+看。这就是问题的关键。那些任务说明和邀请可不是由没上过战场的人撰写的——你也有同样的幸运，我们知道在你的工作中需要的“灵活性”远比理想主义更重要。我们的小队知道要保持理智，我们也知道“每过一秒就有一秒钟的时间流过”也只是我们要打破的众多规律之一。如果你能够预见到一个有罪判决，在时空中不经审判处理掉一个潜在的罪犯也不是什么大事——只要你的调查可以被证明是确凿可信的（而且总有一天你要亲自做这件事，否则你只能看到自己不停拖延）而且，如果你只是想要一个不被监视的地方，你知道，在黄昏纪的一些时代被我和其他几个小队当做了“公平竞赛”的区域——无论你想要做什么样的实验，或者想要给其他人带来怎样的恐怖，只要你到那些有关无尽的被遗忘的邪恶的时间段去做，这不会对事情的大局产生任何影响。相信我，我们已经确认了——这段时间发生的一切事情都无足轻重，除非你真有本事引发第二次魔法大爆炸。
 
 不过你还是要知道一些最重要的事情：虽然伊莫克斯比我还懒，但他也有他要维持的东西。如果你不停违抗他的意志，总有一天，你会被告知，你已经被抓到了，请你停止抵抗。接受他为你安排的命运。如果你仍然负隅顽抗的话，很快，他会不得不把你作为一个严厉的例子，以至于整个宇宙都会注意到你的灭亡。很显然，我们也不确定他真的对谁做过这样的事情，或者是他到底会做什么，不过，我们可以确定，你的命运会和某个以“W-”开头的东西差不多。
 
@@ -18547,7 +18546,7 @@ Rumours are growing of trees roaming in its depths, moving as you or I would. So
  
 然而，现在他们所有的遗迹都被我们忘记了，被风吹蚀的废墟以及他们隐居圣人的研究中所发现的未知技术的小细节。亲爱的读者，他们的神秘性有没有像引起我的好奇本能一样引起你的兴趣呢？
 
-我的任务将我带到了远古丛林。什么样的地方能叫“远古丛林”呢？首先它是一个森林，然后它很古老。从它老土的名字，我们不难想到它对当地的德斯镇居民是多么的重要：这是当地的炼金术师学徒冒险寻找炼金材料的好地方，新手猎人们也会将此作为打猎的好地方。不管怎样，关于远古丛林的故事现在有了戏剧性的转折……
+我的任务将我带到了远古丛林。什么样的地方能叫“远古丛林”呢？首先它是一个森林，然后它很古老。从它平淡无奇的名字，你大概就能猜到这地方对德斯镇居民来说有多重要了：只有新手的炼金术学徒会来这儿寻找炼金材料，新晋猎人也把它当作练手的地方。不管怎样，关于远古丛林的故事现在有了戏剧性的转折……
 
 有传言说在丛林深处，有着像你我一样能自由移动的树木。有人甚至声称，它们如今已萌生了灵智的火花。另外，据说夏·图尔人掌握着赋予万物灵性的力量……这只是巧合吗？]], "_t")
 t([[#{italic}#From the notes of Darwood Oakton, explorer:
@@ -18728,7 +18727,7 @@ Verikor kept Garkul as his guest for many months, and though Garkul had no inkli
 
 加库尔是我族有史以来最伟大的战士，他在世的年代也是我族最强大的年代。他统一了整个部落，率领我们取得多次胜利，威震八方，数不清的尸体倒在他的脚下。
 
-他出生在一个动乱的年代，那时我族一直过着藏头掩面的生活，只能从黑暗的洞穴中偷袭对方。他来自一个不起眼的支脉，但是在很小的时候他就表现出了优秀的战斗天赋和杰出的战术头脑。注意，包括其他种族在内都没有像加库尔一样杰出的人物。他们把自己的后辈惯坏了，那些被奴役的种族在这期间却得到了飞速的成长。我们兽族生来平等，每个人都展示出了优越的战斗能力。成王败寇，适者生存。
+他出生在一个动乱的年代，那时我族一直过着藏头掩面的生活，只能从黑暗的洞穴中偷袭对方。他来自一个不起眼的支脉，但是在很小的时候他就表现出了优秀的战斗天赋和杰出的战术头脑。注意，包括其他种族在内都没有像加库尔一样杰出的人物。他们娇惯自己的贵族，使其变得软弱；而那些真正经受艰辛磨难的种族，却注定要过一辈子的奴役生活。我们兽族生来平等，每个人都展示出优越的战斗能力。成王败寇，适者生存。
 
 加库尔组建了自己的街头团伙，见识过他力量的人迅速投身于他。很快，他便强大到足以接管整个部落。但有一天，他被选中承担更伟大的命运。创法者威瑞克走访各个部落，为自己的魔法实验招募志愿者。当他来到加库尔的部落时，这名年轻兽人嘲笑了他，并夸口说埃亚尔所有的法术都比不上他左臂的肌肉。威瑞克对这少年意气的夸口颇为欣赏，更在年轻人身上看到了别的特质，便邀请加库尔用蛮力挑战新一代最强的法师。加库尔答应了，两人一同前往威瑞克的大厅。
 
@@ -19544,7 +19543,7 @@ The best method, if time and situation allows, is to very slowly slice the caste
 
 火刑在一些不发达的地区是最流行的，但要知道没有哪个巫师或法师会自愿被抓住，他们肯定想尽办法逃跑。只是简单的把柴火堆到一起就要消耗大量的时间，即使有准备好的柴火。通常处以火刑的都是一些魔法同情者，而非真正的魔法师。不过，客观的来说，虽然这不一定能烧死法师，但这可以给法师们一个警告，让他们远离此地。
 
-最好的办法，如果时间和条件允许的话，是将施法者凌迟至死。法师必须被锁在密封的房间里，将他们的四肢紧紧绑住。每个人都应该从手指和脚趾处缓缓切割，再到四肢，最后到整个身体。不要切开头颅，防止他们的恶魔灵魂逃脱。处刑后，头颅必须被放在金属盒子里24小时。做这项任务必须要有极其锋利的工具，不要感到惊讶我们需要重复几次，因为这些术士会通过使自己的骨头变硬来装死的把戏，做最后的欺骗。
+最好的办法，如果时间和条件允许的话，是将施法者凌迟至死。法师必须被锁在密封的房间里，将他们的四肢紧紧绑住。每个人都应该从手指和脚趾处缓缓切割，再到四肢，最后到整个身体。不要切开头颅，防止其中的恶魔灵魂逃脱。头颅应与身体其余部分一起放入金属盒中焚毁 24 小时。这项工作需要极其锋利的工具；不必惊讶于刀具需要多次重新磨利，因为事先硬化自己的骨头正是术士的典型把戏。
 
 ]], "_t")
 
@@ -19558,7 +19557,7 @@ With that said I shall be starting this project by investigating the Elves and t
 ...
 Unfortunately though, our local Elves are also unwilling to talk to me about their history, saying they do not have records of the earlier times. However, there is a fellow Thanchir who I hear would be happy to help. The only problem is that he lies on the other side of a huge encampment of orcs, so I will need an escort to help me. We will see how that goes. I have heard things about those adventurer escorts ...]], [[学者温罗提在此。我被派来写一部关于太阳堡垒的正史。这将会是我到每个地方采访的手记。如果你正在读它，你要么是我的赞助人（再次感谢您，先生！），要么是个偷看者（别偷看我的日记！），要么是发现了我的尸体。如果是最后一种，请将这个带给太阳堡垒的领主弗洛萨斯领赏，告诉我的妻子我怎么死的，也替我告诉孩子们我爱他们。
 	
-这样的话，我将开始着手调查精灵族和太阳堡垒之间的联系。考虑到他们的寿命和对种族历史的记忆，他们应该是最容易调查的一个种族。当然，也不是每个精灵都是这样……
+这样的话，我将开始着手调查精灵族和太阳堡垒之间的联系。考虑到他们的寿命和对种族历史的记忆，他们应该是最容易调查的一个种族。当然，如今他们的数量已不如从前那么多了。
 ...
 很不幸，当地的精灵们似乎不准备告诉我他们的历史，他们说之前的事情他们都记不得了。不管怎样，我听说有个乐于助人的叫桑切尔的家伙。唯一的问题是，他住在兽人营地的另一边，所以我需要一名护卫。我们走着瞧，我听说过一些冒险者护卫的故事……]], "_t")
 t([[And boy were all the rumors about unreliable adventurers true. I'd heard that many, many escorted people die when their adventurer flees and protects himself. It is TRUE. Once I got an escort, I headed off in the right direction immediately. However, for some reason, he did not immediately follow, let alone lead. Didn't he know the way to go? Foolish man. Why am I offering my special trainings to someone who doesn't even know where the local portals are! Fortunately I survived, but no thanks to him. I won't even mention his snoring...
@@ -19569,7 +19568,7 @@ And yes, unfortunately I will be travelling by adventurer again. By all the gods
 并且是的，倒霉啊，我又要和冒险者一起旅行了。诸神在上，我为什么就不能拿到更充足的预算？这真是件可怕的事。这是一段相当长的旅途，长得远超我的想象，实际上，我已经断粮了。这很傻，我知道，但我以为可以向护卫要一些吃的。这块傲慢的巨魔肝居然说他不吃饭！这可真是个弥天大谎。他真以为这样能糊弄我？希望这个东方历史协会值得我受这些罪……]], "_t")
 t([[Finally arrived in Vor safe and mostly sound. (Though I do have some burns on my stomach from mage fire and my coat is a complete wreck. I wonder if I can expense a new coat.) However, the Eastern Historical Society is everything I could have hoped. Who can doubt that Humans are the superior race! You'd never see an Elf or an orc keep neat paper records like this!
 In short: Aethidry was the first Human to map out these shores. EHS has his map preserved in good crackly yellow parchment. However, he travelled on and later died on distant shores, so he was neither the first Human to arrive here, nor the one who organized the first settlement. Some historians guess that the first Human to arrive in the east was one Vaeryn Gorthol. At the least, many of the first explorers mention him as a precursor, so he may well have been. A few of the important first settlers were Oweodry Arandur, Aethor (or perhaps Aethur) the Wronged, and Bloran the Black.]], [[终于平安抵达沃省，身体也大致无恙。（不过我的腹部被法师之火烧伤了几处，外套也彻底毁了。不知道我能不能报销一件新外套。）东方历史协会（EHS）的一切都不负我的期待。谁还能怀疑人类才是优越的种族！你绝不会看到精灵或兽人把纸质记录整理得这么井井有条！
-简而言之：阿斯顿是第一个画出地图的人类。EHS有他最完好的泛黄原本。不管怎样，他到处旅行，最终死在了异地，所以他既不是第一个到这的人，也不是第一个组织了移民的人。有的历史学家猜想第一个到东方的人应该是维恩·加索尔。至少，许多探险家提到这个先驱者的名字，所以他应该是的。最早的一批移民者是欧文德·安瑞达，奴隶埃索尔（或者埃萨尔）和黑人布罗伦。]], "_t")
+简而言之：阿斯顿是第一个画出地图的人类。EHS有他最完好的泛黄原本。不管怎样，他到处旅行，最终死在了异地，所以他既不是第一个抵达这里的人，也不是组织首个定居点的人。有的历史学家猜想第一个到东方的人应该是维恩·加索尔。至少，许多探险家提到这个先驱者的名字，所以他应该是的。最早一批重要的定居者包括欧文德·安瑞达、蒙冤者埃索尔（或埃萨尔），以及黑者布罗伦。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/tannen.lua"
@@ -19609,7 +19608,7 @@ My arguments have just gotten me blank stares and an increasing amount of whispe
 Well, I won't have it.  I've been selling potions and inscriptions on the side for a couple of years now, in spite of Angolwen's regulations, and managed to amass enough money to set up a laboratory far away from Angolwen.  There, I intend to do the experiments my cowardly, squeamish peers won't.  I'm sure they won't approve, but I'm beyond caring - there are certain things we need to know before it's too late, and if a few zealots or criminals die in the process, it won't matter when my data saves countless lives in the long run.  Construction begins tomorrow - I've got three separate sets of contractors lined up to work on it, so none know the tower's full layout, and I've made arrangements with powerful merchants in Last Hope so I can conduct some of my experiments publicly (they want working portals for trade, and I convinced them I won't cause another Spellblaze trying to make one), providing a convenient cover story for the more...  controversial experiments.  I can have my drolem carry in sensitive equipment so I don't have to answer any problematic questions.  I will NOT escape one band of stuck-up fools just to have another confiscate bone-giants which I spent a fortune on.
 ]], [[安格列文的人都是一群胆小鬼。一群只知道整天重复阐述着过去的错误的偏执狂。一群“谨慎”到只知空谈不知实干却又对别人指手划脚的人。他们只知道去避免那些微小的罪过，毫无大局观念。我已经一遍遍告诉它们我们先祖的错误并不是试着去启动夏·图尔传送门，而是试图在对其毫无了解的情况下试着将它作为武器——难道我们不能乘火打劫没收那些纳格尔王国的设施来获得更多研究资料，或者仅仅是绑架一些兽人探险队来作为我们最初的实验品？为什么非要让时局的绝望逼迫我们在充分了解夏·图尔人_之前_将半个世界炸烂？不，正是因为我们脑中那些“禁忌的魔法”“我们这样的凡人不能篡改这么强大的东西”那样陈腐的观念束缚了我们的思想，直到我们终于明白力量有多么重要。这就像一个和平主义者最终不得不拿起连枷自卫，结果不小心打烂了自己的脑袋。正是我们对知识的极度缺乏导致了这样可怕的灾难。
 
-唉，可惜我的正义言论只受到了那些愚蒙之人的白眼和背后的议论，只有一对年轻的情侣被我对那篇关于“道德”的演讲进行的慷慨激昂仗义执言的回应深深感动，不过不久之后他们突然消失了。他们中的某些野蛮人无法在论点上击败我，就只能从别的方面对我造谣污蔑，别有用心地指责我“魔法技巧不精”，说什么我在我那伟大的龙傀儡身上浪费了太多时间！那些蠢人自以为自己可以用他们“干净”的方法保护这个世界；而事实上，兽人的入侵已经证明了他们是一群眼高手低的无能之徒。并且，一旦恶魔们强大的侵略部队真的到达这里，我们根本没有办法与他们为敌——是啊，我们甚至在伊格兰斯面前卑躬屈膝，东躲西藏，如果我们可以自由地在这片土地上漫游，我们的治疗师本来可以消除世界上那么多的疾病和痛苦。并且，只需要抓住几个他们的走狗进行实验，我们很快就能知道到打破他们防御的方法。
+唉，可惜我的正义言论只受到了那些愚蒙之人的白眼和背后的议论，（除了一对年轻夫妇，他们的突然离开也许是受了我某次针对“道德”讲座的激烈抨击的启发。）他们中的某些野蛮人无法在论点上击败我，就只能从别的方面对我造谣污蔑，别有用心地指责我“魔法技巧不精”，说什么我在我那伟大的龙傀儡身上浪费了太多时间！那些蠢人自以为自己可以用他们“干净”的方法保护这个世界；而事实上，兽人的入侵已经证明了他们是一群眼高手低的无能之徒。并且，一旦恶魔们强大的侵略部队真的到达这里，我们根本没有办法与他们为敌——是啊，我们甚至在伊格兰斯面前卑躬屈膝，东躲西藏，如果我们可以自由地在这片土地上漫游，我们的治疗师本来可以消除世界上那么多的疾病和痛苦。并且，只需要抓住几个他们的走狗进行实验，我们很快就能知道到打破他们防御的方法。
 
 不，我绝对不会向那些权威屈服。几年来，通过违反安格列文的规章偷偷出售药水和刻印，我已经积攒了一大笔钱，足以让我在没有安格列文人监视的地方建造一个我自己的实验室。在那里，我可以秘密进行我自己的实验——那些娇气的同事们绝对没有本事做到这样的事情。我相信他们绝对不会同意，但是我不在乎——有些事情绝不能等到为时已晚再去了解，即使付出几个伊格狂徒或者罪犯的生命也没什么关系，我的研究成果最终将会拯救无数人的生命。建造工程明天就开始——我把任务交给了三个独立的建筑团队，这样没有人真正知道这座塔的详细构造。我已经和一些有权有势的商人达成了协议，这样我可以公开进行其中一些实验（他们希望一个用于贸易的传送门，而我向他们证明我的实验绝对不会再来一次魔法大爆炸），这样可以作为一些更加……有争议的实验提供掩饰。我可以让我的龙傀儡带上那些敏感的设备，这样我就不用亲自去回答那些烦人的问题。我可不想让被一群高傲自大的傻子再没收掉一个骨巨人——那种东西一个就要花掉我不少钱。]], "_t")
 t("Personal note (2)", "个人笔记（2）", "_t")
@@ -19695,8 +19694,8 @@ These are the rules we live by, these are the rules by which we will save our wo
 3. 你将不能使用任何被魔法诅咒过的物品。
 4. 你必须远离奥术符文的邪恶影响，并烧灼任何接触过它们的皮肤。
 5. 你不得帮助或教唆任何你怀疑会巫术或召唤术的人。
-6. 你将记录任何你觉得可能有危险的秘术并且将它们的名字和使用地点汇报给长老。
-7. 你将积极的追捕，并给任何有危险的实施魔法、控制灵魂、崇拜邪恶等行为带去痛苦。
+6. 你必须记下任何你怀疑施展法术的人，并向长老报告他们的姓名和住址。
+7. 你必须积极追捕并惩治任何你怀疑使用魔法、与灵魂沟通、崇拜恶魔的人，以及任何你怀疑协助他人从事这些行为的人。
 8. 你将把所有你认为有危险的邪教和异端分子的证据汇报给长老。
 
 这些准则让我们得以生存，也维系着我们拯救世界的希望。任何违反这些准则的人都将受到火焰的吞噬。]], "_t")
@@ -19723,19 +19722,19 @@ We must never forget the terrors of the Great Evil, and the suffering brought up
 
 但总有一些族类不满于此。他们试图通过非自然的力量来滥用这些世界的奇迹。他们用奥术的力量打破自然之间的联系，然后又将其恢复到他们认为合适的程度，并且毫不在意他们所造成的破坏。他们这么做的原因有时是出于好奇，有时是出于好的目的但不合时宜的想法，但通常是出于贪婪、怨恨和对力量的着迷而走上了邪路。即便那些造成破坏结果的人，他们使用魔法是出于好意，但他们打乱自然平衡所得来的力量最终还是不可避免的伤害了大自然。
 
-历史的经验很好地教训了我们这些力量是多么的危险。首当其中的就是夏·图尔人。对于他们，我们所知甚少，但我们知道他们善于操纵魔法，远甚于当今所有的魔法师。而他们最终导致了自身的彻底毁灭。但这些教训没有能够警醒那些年轻的种族。我们历史所记载的第一次战争源于人类和半身人对夏·图尔废墟的争夺。魔法在战争中被滥用，残忍的杀戮一直持续了两千多年，两败俱伤的结局使得双方不得不停止下来。直到那时，我们的秩序才建立起来，努力避免一切疯狂和血腥的举动。但我们失败了。
+历史的经验很好地教训了我们这些力量是多么的危险。首当其中的就是夏·图尔人。对于他们，我们所知甚少，但我们知道他们善于操纵魔法，远甚于当今所有的魔法师。而他们最终导致了自身的彻底毁灭。但这些教训没有能够警醒那些年轻的种族。我们历史所记载的第一次战争源于人类和半身人对夏·图尔废墟的争夺。魔法在战争中被滥用，残忍的杀戮一直持续了两千多年，两败俱伤的结局使得双方不得不停止下来。直到那时，我们的教团才建立起来，努力阻止那场疯狂与杀戮。但我们失败了。
 
 充斥着魔法的战争给我们带来了沉重的打击，最终我们被人口大大超越我们的兽人所侵犯。但是那些愚蠢的精灵们却认为只有依靠奥术而不是其他力量才能保护我们。他们简直愚蠢至极……他们阴毒的魔法引发了夏·图尔废墟中的邪恶，使其释放出灾难性的力量，让半个世界变成焦土。山河破碎，燃烧的烈焰四处蔓延。带来的破坏无法用言语表达。这也是无法忘怀，并且绝对不可饶恕的。永恒精灵想推脱责任，但他们手上已经沾满了数百万人的鲜血。
 
-幸存者在随后的几个世纪中仍遭受磨难，这些超自然的力量带来了瘟疫，使无数土地变成废土。邪恶的术士和巫师利用这些混乱来培植军队，壮大力量。卡·普尔是这些人中最为致命的，我们的军队进行了一次又一次艰苦的战斗，终于干掉了他。我们通过努力地战斗来保护马基·埃亚尔的人民不再遭受任何痛苦。
+幸存者在随后的几个世纪中仍遭受磨难，这些超自然的力量带来了瘟疫，使无数土地变成废土。邪恶的术士和巫师利用这些混乱来培植军队，壮大力量。卡·普尔是这些人中最为致命的，我们的教团与其进行了漫长而艰苦的战斗，一次又一次地将他杀死。我们通过努力地战斗来保护马基·埃亚尔的人民不再遭受任何痛苦。
 
 但是我们的努力依然阻止不了最终的结局。瘟疫仅仅只是魔法大爆炸带给这片大陆的可怕影响之一。这些影响带来了一个黑暗和恐怖的大灾变，灾难性的力量吞噬了整个世界的心脏。大陆被分裂成两块，地震让岩浆喷出地面，我们大陆的东部边缘被撕裂并沉入海底深渊。这是史无前例的灾难。
 
-当我们的文明正在复苏，兽人的数量却在不断的增长，而且很明显他们也学会了那些阴暗的伎俩。数百年来，我们不断遭受着他们的攻击，只有种族联盟才让我们控制并消灭了他们。我们压制了他们的火焰和血祭法术，无数的先烈为了保护西方的军队和城镇献出了生命。
+当我们的文明正在复苏，兽人的数量却在不断的增长，而且很明显他们也学会了那些阴暗的伎俩。数百年来，我们不断遭受着他们的攻击，只有种族联盟才让我们控制并消灭了他们。我们的教团在镇压他们的火焰法师和血法师方面至关重要，无数教众为了保卫西方的军队和城镇献出了生命。
 
 但我们现在还没有脱离危险。魔法依然存在，虽然他们经常是隐秘的。黑暗时代的记忆正在退去，炼金术士和附魔师们甚至大摇大摆地走在街上，毫不在意他们的先人给世界所带来的痛苦。但更糟糕的是——一些组织藏身于隐秘的位置，企图给马基·埃亚尔带来更大的毁灭。黑暗邪教悄悄地盛行，无辜的人被绑架，来进行肮脏的献祭仪式。我们尽最大的努力去搜捕这些恶徒，将他们连根拔除，终结他们的邪恶阴谋。但我们还需要更加努力，因为如果这些恶徒继续恣意妄为的话，将会给我们的世界带来更多的灾难。
 
-我们不能忘记罪恶之源和那些用奥术力量腐蚀自然的人带给我们的痛苦和恐怖。旅途中要格外警惕，并牢记你的使命。我们的战争很艰难，但却是正义和真实的，只要一天不清除马基·埃亚尔的不洁魔法，我们就一天得不到安宁。我们是世界的守护者，依靠我们的力量以及自然同盟，我们将会拯救世界。
+我们绝不能忘记大邪恶的恐怖，以及那些选择用奥术力量腐蚀自然的人带给我们的苦难。旅途中要格外警惕，并牢记你的使命。我们的战争很艰难，但却是正义和真实的，只要一天不清除马基·埃亚尔的不洁魔法，我们就一天得不到安宁。我们是世界的守护者，依靠我们的力量以及自然同盟，我们将会拯救世界。
 
 -- 保护者 米歇尔]], "_t")
 t("The story of my salvation", "我的救赎", "_t")
@@ -20204,8 +20203,8 @@ t("Through an incredible display of willpower you resisted long enough to ask Ae
 t("She sadly agreed and ran her sword through you, enabling you to do the last sacrifice you could for the world.", "她怀着悲痛的心情用长剑刺穿了你的身躯，你终于为这个世界做出了最后的贡献。", "_t")
 t("Through an incredible display of willpower you resisted for a few decisive seconds. During this time a Sher'tul appeared, took the Staff and killed you.", "你以惊人的意志力抵抗了关键的数秒，夏图尔人出现了，取走了法杖并杀死了你。", "_t")
 t("Though you succumbed to the fight, your mind was already gone, burnt to ashes by your mad patron sun. But the world was saved.", "虽然你最终屈服了，思维消散，被疯狂的太阳烧成灰烬。但世界被拯救了。", "_t")
-t("Your sacrifice worked. Your mental energies were imbued with farportal energies. The Way radiated from the High Peak toward the rest of Eyal like a mental tidal wave.", "你的牺牲起作用了，你的精神能量被原自传送门的能量所感染，从巅峰通往埃亚尔的辐射状维网形成了一股精神冲击波。", "_t")
-t("Every sentient being in Eyal is now part of the Way. Peace and happiness are enforced for all.", "所有埃亚尔有感觉的生物都成为了维网的一部分，和平和幸福被传输给大家。", "_t")
+t("Your sacrifice worked. Your mental energies were imbued with farportal energies. The Way radiated from the High Peak toward the rest of Eyal like a mental tidal wave.", "你的牺牲起作用了，你的精神能量被远传送门能量所灌注。维网从巅峰向埃亚尔各处辐射出一股精神冲击波。", "_t")
+t("Every sentient being in Eyal is now part of the Way. Peace and happiness are enforced for all.", "所有埃亚尔有知觉的生物都成为了维网的一部分，和平与幸福被强加于所有生物。", "_t")
 t("Only the mages of Angolwen were able to withstand the mental shock and thus are the only unsafe people left. But what can they do against the might of the Way?", "只有安格利文的法师能够抵制住这道精神冲击，从而他们成为了仅存的危险人类，不过他们又能对强大的维网怎么样呢？", "_t")
 t("In the aftermath of the battle the Way tried to force you to act as a vessel to bring the Way to every sentient being.", "在战斗结束后，维网试图强迫你用你的身躯作为通道将维网传输到所有知觉生物的身体中。", "_t")
 t("You have prevented the portal to the Void from opening and thus stopped the Creator from bringing about the end of the world.", "你阻止了虚空传送门的开启，并终止了世界末日的到来。", "_t")
@@ -20268,7 +20267,7 @@ t("#VIOLET#Berethh lies dead.", "#VIOLET#贝里斯死了。", "logPlayer")
 section "mod-tome/data/quests/kryl-feijan-escape.lua"
 
 t("The Sect of Kryl-Feijan", "卡洛·斐济教派", "_t")
-t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地城内发现了一个膜拜恶魔的教派，卡洛·斐济教派", "_t")
+t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地穴中发现了一个崇拜名为卡洛·斐济的恶魔的教派。", "_t")
 t("They were trying to bring it back into the world using a human sacrifice.", "他们试图用献祭活人来召唤恶魔到这个世界上。", "_t")
 t("You defeated the acolytes and saved the woman. She told you she is the daughter of a rich merchant of Last Hope.", "你打败了那些侍僧并救下了这个女人。她告诉你，她是最后的希望城中一位富商的女儿。", "_t")
 t("You failed to protect her when escorting her out of the crypt.", "你没能成功地将她护送出这个地穴。", "_t")
@@ -21242,8 +21241,8 @@ t("Shield of Light", "光能沁盾", "talent name")
 t([[Infuse your shield with light, healing you for %0.2f each time you take damage at the expense of up to 2 positive energy.
 		If you do not have any positive energy, the effect will not trigger.
 		Additionally, once per turn successful melee attacks will trigger a bonus attack with your shield dealing %d%% light damage.
-		The healing done will increase with your Spellpower.]], [[为盾牌注入光能。每次受到伤害时，消耗等同于本次伤害、最多 2 点的正能量，并恢复 %0.2f 点生命。
-		如果正能量不足以支付此次消耗，效果不会触发。
+		The healing done will increase with your Spellpower.]], [[为盾牌注入光能。每次受到伤害时，以最多 2 点正能量为代价恢复 %0.2f 点生命。
+		如果你没有任何正能量，效果不会触发。
 		此外，每回合一次，近战攻击命中时会触发一次额外盾击，造成 %d%% 光系伤害。
 		治疗量随法术强度提高。]], "tformat")
 t("Brandish", "剑盾之怒", "talent name")
@@ -22097,7 +22096,7 @@ t("Moment of Prescience", "预知时刻", "talent name")
 t([[You pull your awareness fully into the moment, increasing your stealth detection, see invisibility, defense, and accuracy by %d for %d turns.
 		If you have Spin Fate active when you cast this spell, you'll gain a bonus to these values equal to 50%% of your spin.
 		This spell takes no time to cast.]], [[你将意识完全收束于当下，使潜行侦测、隐形侦测、闪避和命中提高 %d，持续 %d 回合。
-		若施放时命运之丝处于激活状态，上述数值还会获得相当于单层命运之丝加成值 50%% 的额外加成。
+		若施放时命运之丝处于激活状态，上述数值还会获得相当于你当前命运之丝总量 50%% 的额外加成。
 		施放此法术不消耗回合。]], "tformat")
 t("Gather the Threads", "聚拢时间线", "talent name")
 t([[You begin to gather energy from other timelines. Your Spellpower will increase by %0.2f on the first turn and %0.2f more each additional turn.
@@ -22474,7 +22473,7 @@ t("You cannot use Thread Walk without an appropriate weapon!", "你需要装备�
 t([[Attack with your bow or dual-weapons for %d%% damage.  If you shoot an arrow you'll teleport near the target location.  If you use your dual-weapons you'll teleport up to your bow's range away.
 		Additionally you now go Out of Phase for five turns after any teleport, gaining %d defense and %d%% resist all.
 		The Out of Phase bonuses will scale with your Magic stat.]], [[使用弓或双持武器攻击，造成 %d%% 武器伤害。
-		如果使用弓箭，你会被传送到目标位置附近；如果使用双持武器，你会传送至目标周围，最远距离等于弓的射程。
+		如果使用弓箭，你会被传送到目标位置附近；如果使用双持武器，你会向远离目标的方向传送，最远距离等于弓的射程。
 		此外，每次传送后你都会进入“脱离现实”状态 5 回合，获得 %d 闪避和 %d%% 全体抗性。
 		“脱离现实”的加成受魔力属性加成。]], "tformat")
 t("Blended Threads", "混合螺旋", "talent name")
@@ -23734,7 +23733,7 @@ t("#LIGHT_BLUE#Aim the catapult", "#LIGHT_BLUE#请瞄准弹射陷阱", "logPlaye
 t("Target knocked back %d grids and dazed.", "目标被击退 %d 格并眩晕。", "tformat")
 t([[Deploy a hidden spring-loaded catapult that will trigger (by pressure) for any creature passing over it.  Victims will be knocked back towards a target location up to %d grids away and be dazed for 5 turns.
 		This trap has a %d%% chance to reset itself after triggering, but can only trigger once per turn.
-		The chance to affect the target improves with your combat accuracy.]], [[放置一个隐藏的压力触发式弹射陷阱，任何生物从上面经过时都会触发。受害者会朝指定位置被击退最多 %d 格，并被震慑 5 回合。
+		The chance to affect the target improves with your combat accuracy.]], [[放置一个隐藏的压力触发式弹射陷阱，任何生物从上面经过时都会触发。受害者会朝指定位置被击退最多 %d 格，并被眩晕 5 回合。
 		该陷阱触发后有 %d%% 几率自行重置，但每回合最多触发一次。
 		影响目标的成功率随你的战斗命中提高。]], "tformat")
 t("Nightshade Trap", "颠茄陷阱", "talent name")
@@ -25805,7 +25804,7 @@ t("Abyssal Shroud", "堕入深渊", "talent name")
 t("Creates a shroud of darkness over a radius 3 area that lasts %d turns.  The shroud causes %0.2f darkness damage each turn, reduces light radius by %d, and darkness resistance by %d%% of those within.", "在半径 3 格区域制造一片持续 %d 回合的暗影帷幕。帷幕每回合造成 %0.2f 点暗影伤害，使区域内生物的光照半径降低 %d、暗影抗性降低 %d%%。", "tformat")
 t("Echoes From The Void", "虚空回响", "talent name")
 t("@Source@ shows @Target@ the madness of the void.", "@Source@向 @Target@ 展示了虚空的疯狂。", "_t")
-t("Shows the target the madness of the void.  Each turn for 6 turns the target must make a mental save or suffer %0.2f mind damage as well as resource damage (based off the mind damage and nature of the resource).", "向目标展示虚空的疯狂。若目标未能抵抗此效果，接下来 6 回合每回合受到 %0.2f 点精神伤害，并损失一定资源值；资源损失量取决于精神伤害和资源类型。", "tformat")
+t("Shows the target the madness of the void.  Each turn for 6 turns the target must make a mental save or suffer %0.2f mind damage as well as resource damage (based off the mind damage and nature of the resource).", "向目标展示虚空的疯狂。在接下来的 6 回合中，目标每回合都必须进行一次精神豁免，否则将受到 %0.2f 点精神伤害，并损失一定资源值；资源损失量取决于精神伤害和资源类型。", "tformat")
 t("Void Shards", "虚空碎片", "talent name")
 t("@Source@ summons void shards.", "@Source@召唤出虚空碎片。", "_t")
 t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
@@ -25847,7 +25846,8 @@ t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
 t("Open a hole in space, summoning an animated blade for 10 turns.", "在空间中打开一个孔洞，召唤一个次元之刃 10 回合。", "tformat")
 t("Drench", "浸湿", "talent name")
 t([[Blast a wave of water all around you with a radius of %d, making all creatures Wet for 10 turns.
-		The damage will increase with your Spellpower.]], [[在你周围半径 %d 格内激起水浪，使所有生物进入湿润状态 10 回合。]], "tformat")
+		The damage will increase with your Spellpower.]], [[在你周围半径 %d 格内激起水浪，使所有生物进入湿润状态 10 回合。
+		伤害将随你的法术强度提高。]], "tformat")
 t("Blood Suckers", "吸血者", "talent name")
 t("@Source@ tries to latch on and suck blood!", "@Source@尝试抓住目标吸血！", "_t")
 t([[Latch on to the target and suck their blood, doing %0.2f physical and %0.2f acid damage per turn.
@@ -26674,7 +26674,7 @@ t("The target has a %d%% chance (stacking to a maximum of %d%%) to fail to cast 
 t("Battle Trance", "战意勃发", "talent name")
 t("You overdose on the honeyroot sap!", "你服用蜜根汁过量了！", "logPlayer")
 t([[You enter into a fighting trance, gaining 15%% resist all, losing 15 mindpower, but gaining 20 mental save. However, each turn after the fifth that this talent is active, there is a chance that you will be overcome and become confused.
-This does not take a turn to use.]], [[你进入战斗狂热状态，获得 15%% 全体伤害抗性，精神强度降低 15 点，但精神豁免提高 20 点。然而，从技能生效后的第 6 回合起，你每回合都有一定几率不支，终止战斗狂热并陷入混乱。
+This does not take a turn to use.]], [[你进入战斗狂热状态，获得 15%% 全体伤害抗性，精神强度降低 15 点，但精神豁免提高 20 点。然而，从技能生效后的第 6 回合起，你每回合都有一定几率被压倒而陷入混乱。
 使用此技能不消耗回合。]], "tformat")
 t("Soul Purge", "解放灵魂", "talent name")
 t("Remove any talent Morrigor has absorbed.", "除去 Morrigor 吸收的所有技能。", "tformat")
@@ -27186,7 +27186,7 @@ t([[When an attack would deal 15%% or more of your effective total health, you f
 		At talent level 5, the block effect will last two turns.
 		This damage reduction scales with your Mindpower.]], [[当一次攻击将造成你有效总生命值 15%% 或更多的伤害时，你会锻造梦境屏障保护自己，使该类型的所有攻击减少 %0.2f 点伤害，持续 %d 回合。
 		你可以同时格挡多种伤害类型，但护盾每多格挡一种伤害类型，基础伤害阈值便提高 15%%。
-		若你完全格挡一次攻击的全部伤害，攻击者会进入持续 1 回合的致命反击状态（其下一次普通近战或远程攻击将改为造成 200%% 伤害）。
+		若你完全格挡一次攻击的全部伤害，攻击者会进入持续 1 回合的致命反击状态（对其发起的下一次普通近战或远程攻击将造成 200%% 伤害）。
 		技能等级 5 时，格挡效果将持续 2 回合。
 		伤害减免受精神强度加成。]], "tformat")
 t("Forge Bellows", "熔炉风箱", "talent name")
@@ -27702,7 +27702,6 @@ t([[Focus your will into a powerful thrust of your telekinetically-wielded weapo
 		The bleeding damage increases with your Mindpower.]], [[将你的意志灌入你的念动武器，使它猛力推进并刺穿你的目标并恶毒的绞开它的身体。
 		这次攻击将造成 %d%% 武器伤害，并使目标流血 4 回合，累计造成 %0.1f 物理伤害。
 		在 3 级时，武器将势不可挡地突进，有 %d%% 几率击碎目标身上一个临时性的伤害护盾（如果存在）。
-		判定此次攻击的伤害和命中时，将分别以意志替代力量、以灵巧替代敏捷。
 		流血伤害受精神强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -28531,7 +28530,7 @@ t([[The caster's skin grows as hard as stone, granting a %d bonus to Armour.
 		护甲受法术强度加成。]], "tformat")
 t("Mudslide", "山崩地裂", "talent name")
 t([[Conjures a mudslide, dealing %0.2f physical damage in a radius of %d. Any creatures caught inside will be knocked back 8 spaces.
-		The damage will increase with your Spellpower.]], [[召唤一次泥石流，造成 %0.2f 点物理伤害，范围为半径 %d 的锥形区域。
+		The damage will increase with your Spellpower.]], [[召唤一次泥石流，造成 %0.2f 点物理伤害，范围为半径 %d。
 		范围内的所有生物都会被击退 8 格。
 		伤害受法术强度加成。]], "tformat")
 t("Stone Wall", "岩石堡垒", "talent name")
@@ -30911,7 +30910,7 @@ t("You require ammo to use this talent.", "你需要弹药来使用技能。", "
 t("Your ammo cannot be used.", "你的弹药不能使用。", "_t")
 t("Your ammo is incompatible with your missile launcher.", "你的弹药类型与导弹发射器不匹配。", "_t")
 t("bow", "弓", "_t")
-t("You require a missile launcher and ammo for this talent.", "你需要导弹发射器和弹药才能使用这一技能。", "_t")
+t("You require a missile launcher and ammo for this talent.", "你需要一件远程武器（弓、投石索等）和弹药才能使用这一技能。", "_t")
 t("You do not have enough ammo left!", "你没有足够的弹药！", "logPlayer")
 
 ------------------------------------------------
@@ -31186,7 +31185,7 @@ t([[Fungal spores have colonized your blood, so that each time you use an infusi
 		The amount of fungal power produced and the maximum heal possible increase with your Constitution and maximum life.]], [[真菌充斥在你的血液中，每当使用纹身时你都会储存 %d 的真菌能量。 
 		当使用此技能时，可释放能量治愈伤口 ( 恢复值不超过 %d ), 并解除至多 10 个负面魔法效果。 
 		真菌之力最多保存 6 回合，每回合减少 10 点或当前真菌之力的 10%%，取较大者。
-		真菌能量的保存数量和治疗上限受体质值加成。]], "tformat")
+		真菌能量的产生量和治疗上限随你的体质和最大生命值提高。]], "tformat")
 t("Corrupted Shell", "堕落之壳", "talent name")
 t("Have received at least 3500 blight damage and destroyed Zigur with the Grand Corruptor.", "承受过至少 3500 点枯萎伤害并和大腐化者一起摧毁伊格。", "_t")
 t([[Thanks to your newfound knowledge of corruption, you've learned some tricks for toughening your body... but only if you are healthy enough to withstand the strain from the changes.
@@ -31652,7 +31651,7 @@ section "mod-tome/data/talents/uber/uber.lua"
 
 t("uber", "觉醒技", "talent category")
 t("strength", "力量", "talent type")
-t("Ultimate talents you may only know one.", "强大的觉醒技，通常只能习得少数几个。", "_t")
+t("Ultimate talents you may only know one.", "终极觉醒技，你只能习得一个。", "_t")
 t("dexterity", "敏捷", "talent type")
 t("constitution", "体质", "talent type")
 t("magic", "魔法", "talent type")
@@ -34808,7 +34807,7 @@ Race features:#YELLOW#
 ]], [[夺心魔是热带小岛瑞尔岛上比较神秘的人形原住民种族。
 他们的身体长着白色的毛发，另外他们有着不成比例的巨大脑袋使他们看上去样子有点滑稽。
 不过他们是非常灵巧而且意志强大的种族。
-尽管在马基埃亚尔几乎没有听说过他们，他们作为半身人国家纳格尔的附庸国已经存在了几个世纪。
+尽管在马基埃亚尔几乎没有听说过他们，但在烈火纪元之前的漫长岁月里，他们曾是半身人国家纳格尔的秘密奴隶。
 他们在烈火纪元获得了独立，并开始信仰“维网”——一个由他们的灵能构建成的精神联合网络。
 
 你救了一个夺心魔，现在你可以在创建人物时选择新的种族： #LIGHT_GREEN# 夺心魔 #WHITE#。
@@ -34923,7 +34922,7 @@ t("-Ethereal", "-虚幻形态", "_t")
 t("lightning", "闪电", "effect subtype")
 t("shield", "护盾", "effect subtype")
 t("Stormshield", "风暴之盾", "_t")
-t("The target is protected a raging storm deflecting up to %d instances of damage over %d.", "目标受到狂暴风暴的保护，可以偏转至多 %d 次不低于 %d 点的伤害。", "tformat")
+t("The target is protected a raging storm deflecting up to %d instances of damage over %d.", "目标受到狂暴风暴的保护，在 %d 回合内可以偏转至多 %d 次伤害。", "tformat")
 t("#Target# summons a storm to protect them!", "#Target#召唤风暴来保护自己!", "_t")
 t("+Stormshield", "+风暴之盾", "_t")
 t("#Target#'s storm dissipates.", "#Target#的风暴消失了。", "_t")
@@ -36512,7 +36511,7 @@ t([[A shroud of darkness seems to fall across your path.
 #CRIMSON#Power 2+: %s%+d Luck, %+d Constitution
 #CRIMSON#Power 3+: %sShroud of Passing: Your form seems to fade as you move, reducing all damage taken by %d%% for 1 turn after movement.
 #CRIMSON#Power 4+: %sShroud of Death: The power of every kill seems to envelop you like a shroud, reducing all damage taken by %d%% for 3 turns.]], [[一道黑暗屏障降临在你的面前。
-#CRIMSON# 惩罚 ：#WHITE# 消逝之纱：你的身形在移动时逐渐隐去 ( 降低所造成伤害 %d%%) 持续 4 回合。
+#CRIMSON# 惩罚 ：#WHITE# 虚弱之纱：有较小几率被虚弱之纱包裹（使你造成的伤害降低 %d%%）持续 4 回合。
 #CRIMSON# 强度 1+：%s 暗夜行者： %+d 暗影抗性， %+d%% 最大暗影抗性， %+d 看破隐形强度
 #CRIMSON# 强度 2+：%s%+d 幸运， %+d 体质
 #CRIMSON# 强度 3+：%s 穿越屏障：你的身形在移动时消失，移动后 1 回合减少 %d%% 所受伤害。
@@ -39224,7 +39223,7 @@ t("young orc", "年轻兽人", "entity name")
 t("This young orc is almost fully formed, with hard muscles prominently visible beneath its thick skin. Whilst it has lost some of the wild energy of its younger siblings you can see the gleams of intelligence and cold calculation behind its dark eyes.", "这只年轻兽人已近乎成年，厚实的皮肤下肌肉贲张。虽然它已不像年幼的同类那样野性十足，但你能从它漆黑的双眼背后看到智慧与冷酷算计的光芒。", "_t")
 t("orc mother", "兽人母体", "entity name")
 t([[This giant, bloated form towers above you. Mucus and slime ooze from every orifice, dripping onto the cavern floor. Orc children fight over the right to feed from her distended teats whilst small babies are regularly emerge from folds of flesh. The sight and the smell make you retch.
-Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]], "站在我们面前的是一只跟龙差不多体型的怪物。皮肤下鼓起了无数浮肿的肉块，粗大的毛孔里不断流淌出粘稠的液体。上百个垂挂的乳头喂养着一群争吵打斗的年轻兽人——只有最强壮的才能获得宝贵的营养变得更强，弱小的只能在发霉的地面上枯萎。在这只庞然大物的顶端是一颗枯萎的头颅，覆着一头蓬乱纠结的长发。茫然的眼神中混合着悲伤与痛苦，但当它们锁定你时，便转为愤怒，这张脸因护崽的强烈渴望而扭曲。", "_t")
+Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]], "这个巨大臃肿的身影耸立在你面前。粘液和脓液从它身上的每个孔洞渗出，滴落在洞穴的地面上。兽人幼崽们争抢着吸奶的权利，婴儿从它的肉褶中出生，眼前的景象和气味令人作呕。\n\n站在我们面前的是一只跟龙差不多体型的怪物。皮肤下鼓起了无数浮肿的肉块，粗大的毛孔里不断流淌出粘稠的液体。上百个垂挂的乳头喂养着一群争吵打斗的年轻兽人——只有最强壮的才能获得宝贵的营养变得更强，弱小的只能在发霉的地面上枯萎。在这只庞然大物的顶端是一颗枯萎的头颅，覆着一头蓬乱纠结的长发。茫然的眼神中混合着悲伤与痛苦，但当它们锁定你时，便转为愤怒，这张脸因护崽的强烈渴望而扭曲。", "_t")
 t("Orc Greatmother", "巨型兽人母体", "entity name")
 t("and given to the children as a plaything", "并成为孩子们的玩具", "_t")
 t("#PURPLE#As the orc greatmother falls you realize you have dealt a crippling blow to the orcs.", "#PURPLE#当兽人母体倒下时你意识到你对兽人部落造成了致命的打击。", "log")
@@ -41800,7 +41799,6 @@ A full exit and restart of the game is neccessary to apply this setting.#{normal
 - 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
 - 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。
 - 插件版本更新：无法更新插件的版本。
-- Steam：无法使用Steam相关的任何功能。
 - Discord：无法同步到Discord的实时状态。
 - 游戏内新闻：主菜单将不再显示新闻。
 注意这个设置只影响游戏本身。如果你使用游戏启动器，它的唯一目的就是确保游戏是最新的，因此它仍然会连接网络。
@@ -42345,8 +42343,8 @@ t([[You can bind a non-passive talent to a hotkey by pressing the corresponding 
 Check out the keybinding screen in the game menu to bind hotkeys to a key (default is 1-0 plus control, shift, or alt).
 Right click or press '~' to configure talent confirmation and automatic use.
 ]], [[你可以通过选中技能时按下对应快捷键，或右键点击技能，将非被动技能绑定到快捷键上。
-仔细检查一下游戏菜单中关于快捷键绑定的设置（默认情况下的快捷键是0～9以及Ctrl、Shift与数字组合键）。
-点击右键或者'*'键来设置。
+仔细检查一下游戏菜单中关于快捷键绑定的设置（默认情况下的快捷键是0～9，以及 Ctrl、Shift 或 Alt 与数字的组合键）。
+点击右键或者'~'键来设置。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("Status", "状态", "_t")

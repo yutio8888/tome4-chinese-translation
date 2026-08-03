@@ -1970,7 +1970,7 @@ t([[OPERATIONS PERFORMED:
 
 - 我们与马基亚埃尔的黑市的那些合约，以及在那里建立一个安全的交易枢纽的行动持续创收大量利润。并且，这还让我们增加了一个有利的途径，让我们想要的东西进入马基亚埃尔。“汽化液之径”一直是一个热诚的参与者，我们靠向联合王国的走私者卖蒸汽牌苦艾酒以及埃尔瓦拉产的葡萄酒和白兰地大赚了一笔。我将每两个月送一艘船回来，满载着我们的获利（有用的金属、炼金术原料、奴隶）；在船员中搜查他们是否揩油了，如果你抓住了就都绑在船底拖行。
 
-- 船员的不服从以及他们的士气不足是一个持续存在的问题。我们已经受够了他们，即使经常鞭笞他们，也没法从他们身上得到什么了。也就是说，请继续多送点服刑的犯人来我们这儿：只要我们给足够的酒类和鼓舞之花，他们就会努力工作了。
+- 船员的不服从以及他们的士气不足是一个持续存在的问题。尽管我们经常鞭笞他们，但我们仍留住了足够的人手，也从他们身上得到了不少用处。也就是说，请继续多送点服刑的犯人来我们这儿：只要我们给足够的酒类和鼓舞之花，他们就会努力工作了。
 ]], "_t")
 t("overall analysis", "总体分析", "_t")
 t([[OVERALL ANALYSIS:
@@ -3617,7 +3617,7 @@ t("#CRIMSON#You feel as if your Rod of Recall is working again in this area.", "
 t("Orc Warrior", "兽人战士", "_t")
 t("Winner", "游戏胜利", "_t")
 t("#GOLD#Well done! You have won the Tales of Maj'Eyal: Embers of Rage!#WHITE#", "#GOLD#干得不错！你通关了马基·埃亚尔的传说：余烬怒火#WHITE#", "_t")
-t("You have thwarted the Steam Giants' genocidal plans, and avenged those killed in the attack on Kruk Pride.  Their desperate pact with the High Priest did nothing to stop you; the priest and his god lay dead at your feet, and you have ensured they will #{italic}#stay#{normal}# dead for the foreseeable future.", "你挫败了蒸汽巨人灭绝你们的邪恶计划，并为那些在他们残忍袭击中丧生的部落同胞复仇。他们绝望中与夏·图尔祭司订立的邪恶契约也未能阻止你，祭司和他的神在地底逝去，你相信他们将会#{italic}#永远#{normal}#长眠在那里。", "_t")
+t("You have thwarted the Steam Giants' genocidal plans, and avenged those killed in the attack on Kruk Pride.  Their desperate pact with the High Priest did nothing to stop you; the priest and his god lay dead at your feet, and you have ensured they will #{italic}#stay#{normal}# dead for the foreseeable future.", "你挫败了蒸汽巨人灭绝你们的邪恶计划，并为那些在他们残忍袭击中丧生的部落同胞复仇。他们绝望中与夏·图尔祭司订立的邪恶契约也未能阻止你，祭司和他的神倒在你的脚下，你已经确保他们在可预见的将来会#{italic}#一直#{normal}#长眠下去。", "_t")
 t("The humans, elves, and halflings will not be able to hurt your people again.  By destroying the farportal and denying King Tolak's army its glorious battle, you have ensured the safety of your people from the Allied Kingdoms, and by storming the Gates of Morning you have eliminated the last bearers of the West's hateful aggression in Var'Eyal.", "无论是人类、精灵还是半身人，都再也无法伤害你的族人。你摧毁了远古传送门，使托拉克国王的军队失去了这场光荣的战斗，从而确保族人免受联合王国侵害。你攻下晨曦之门，也消灭了西方在瓦·埃亚尔施行可恨侵略的最后一批爪牙。", "_t")
 t("For now, peace reigns.  You know that this will not last forever.  You may have repelled its vanguard, but the Kar'Haïb Dominion bides its time waiting for a weakness it can exploit; the smugglers' portals from Maj'Eyal remain undiscovered, and while neither you nor King Tolak has any remaining desire to take the other's continent, the fear of invasion will linger in the backs of your minds.", "眼下，和平降临了。但你知道这不会永远持续下去。虽然你击退了卡尔·亥巴帝国的先锋，它却仍在等待可乘之机；走私者通往马基·埃亚尔的传送门依然没有被发现。即使你和托拉克国王都已无意夺取对方的大陆，对入侵的恐惧仍会萦绕在你们心底。", "_t")
 t("  The messages of the Lost City give you cause to remain ever vigilant for the threats they warned of, including their authors, and you wonder what your people will do now that their struggle to escape eradication, one that has defined them for their entire recorded history, has ceased to be a concern.", "  来自失落之城的消息让你充满警醒，无论是那些他们警告的恐怖威胁，还是他们本身。你想知道，当你的人民所极力摆脱的灭亡威胁：那个镌刻在你们整个历史中的威胁，现在已经不复存在的时候，你们的人民又将何去何从？", "_t")
@@ -5476,7 +5476,7 @@ t([[Throw a cone of healing with radius %d, healing other mechanical creatures (
 　　治疗量受蒸汽强度加成。]], "tformat")
 t("Arcane Disruption Wave", "奥术干扰波 ", "talent name")
 t([[Let out a technopsionic wave that silences for %d turns all those affected in a radius of %d, including the user.
-		The silence chance will increase with your Steampower.]], [[制造一道奥术干扰波，使所有受影响者（包括使用者）沉默 %d 回合，作用半径为 %d 格。
+		The silence chance will increase with your Steampower.]], [[制造一道科技灵能波，使所有受影响者（包括使用者）沉默 %d 回合，作用半径为 %d 格。
 沉默几率随蒸汽强度提高。]], "tformat")
 t("Mind Crush", "精神碾压", "talent name")
 t("%s resists the mental assault!", "%s抵抗了精神攻击！", "logSeen")
@@ -7718,7 +7718,7 @@ t("Entrance to the Pride's Internment Camp", "部落拘留营入口", "entity na
 t("Gates of Morning (Town)", "晨曦之门（城镇）", "entity name")
 t("A massive hole in the Sunwall.", "太阳堡垒上有一个巨大的孔洞。", "_t")
 t("Strange mechanical mole", "奇怪的机械鼹鼠", "entity name")
-t("Path to a Ureslak's Host", "通往乌瑞斯拉克沉睡处的道路", "entity name")
+t("Path to a Ureslak's Host", "通往乌瑞斯拉克宿主处的道路", "entity name")
 t("Entrance to the Steam Quarry", "蒸汽采石场入口", "entity name")
 t("Entrance to the Palace of Fumes", "烟雾宫殿入口", "entity name")
 t("Way into a primal forest", "通往原始森林的路", "entity name")
@@ -8072,7 +8072,7 @@ All Tinker classes use Steam for their powers.
 ]], [[你找到了一台由灵能和科技驱动的古老机器。由机械引发的灵能不再是不可能的想象。
 现在你可以在创建人物时选择新的职业： #LIGHT_GREEN# 灵能射手 #WHITE#。
 
-灵能射手是混合使用灵能和蒸汽科技的恐怖敌人，一手持蒸汽枪一手持灵晶。
+灵能射手是融合灵能与蒸汽科技、形成致命组合的工匠职业，一手持蒸汽枪一手持灵晶。
 职业特色：#YELLOW#
 - 将灵晶的攻击投射到你发射的子弹中。
 - 激发敌人的恐惧，让敌人在你的枪法前无处遁形。
