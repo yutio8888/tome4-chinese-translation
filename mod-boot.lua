@@ -8,7 +8,7 @@ When inside a module remember you can press Escape to bring up a menu to change 
 
 Remember that in most roguelikes death is usually permanent so be careful!
 
-Now go and have some fun!]], [[#GOLD#马·基埃亚尔的传说#WHITE# 是主游戏，你也可以在 https://te4.org/ 下载到更多游戏插件和游戏模组。
+Now go and have some fun!]], [[#GOLD#马基·埃亚尔的传说#WHITE# 是主游戏，你也可以在 https://te4.org/ 下载到更多游戏插件和游戏模组。
 
 在游戏模组内，你可以按ESC键打开菜单，改变按键绑定，游戏分辨率和其他和模组有关的设置。
 
@@ -58,7 +58,7 @@ Check out the following folder on your computer:
 ]], "_t")
 t("Updating addon: #LIGHT_GREEN#%s", "正在更新插件: #LIGHT_GREEN#%s", "tformat")
 t("Quit", "退出", "_t")
-t("Really exit T-Engine/ToME?", "真的要退出 T-Engine/马基·埃亚尔的传说", "_t")
+t("Really exit T-Engine/ToME?", "真的要退出 T-Engine/马基·埃亚尔的传说吗？", "_t")
 t("Continue", "继续", "_t")
 t([[Welcome to #LIGHT_GREEN#Tales of Maj'Eyal#LAST#!
 
@@ -87,17 +87,17 @@ This is all optional, you are not forced to use this feature at all, but the dev
 * 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/赞助者独享权益
 * 帮助游戏开发者调整游戏平衡，让这个游戏变得更好。
 
-你也会在获得一个 #LIGHT_BLUE#https://te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
+你也会获得一个 #LIGHT_BLUE#https://te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
 这一切都是可选的，你可以自愿使用或者关闭这些功能。开发者会根据你的用户反馈来协助调整游戏平衡。]], "_t")
 t("Logging in...", "登录中…", "_t")
 t("Please wait...", "请等待…", "_t")
 t("Profile logged in!", "账户登录成功！", "_t")
 t("Your online profile is now active. Have fun!", "你的在线账户已可用。玩得开心！", "_t")
-t("Login failed!", "登陆失败！", "_t")
+t("Login failed!", "登录失败！", "_t")
 t("Check your login and password or try again in in a few moments.", "请确认你的用户名和密码，或在几分钟后再试。", "_t")
 t("Registering...", "正在注册", "_t")
 t("Registering on https://te4.org/, please wait...", "正在在 https://te4.org/ 上注册，请稍候…", "_t")
-t("Logged in!", "登陆成功！", "_t")
+t("Logged in!", "登录成功！", "_t")
 t("Profile created!", "账户创建成功！", "_t")
 t("Profile creation failed!", "账户创建失败！", "_t")
 t("Creation failed: %s (you may also register on https://te4.org/)", "创建失败: %s (你也可以在 https://te4.org/ 网站上注册）", "tformat")
