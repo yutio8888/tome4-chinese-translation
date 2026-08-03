@@ -1,6 +1,6 @@
 # ToME4 汉化项目交接清单
 
-更新时间：2026-08-03
+更新时间：2026-08-03（晚，第一轮审核 finding 处置进行中）
 
 本文记录当前翻译工具、术语库和发布流程的状态，供后续继续开发、审校或发布使用。
 
@@ -21,7 +21,7 @@
 - DLC 首轮候选已通过受审计提取器处理 `ashes-urhrok`、`cults`、`orcs`，未直接读取受保护源码。
 - 当前仍保留 3 条待审校术语：`Constrict`、`eldritch` 和 `Atmos Tribe`。
 - 已保留翻译条目的 `source_tag`，并为术语补充 `T.*` 分类及语境说明。
-- 核心与 DLC 规范 Lua 正在进行一轮大批量术语统一和译文校正；本轮改动尚未提交，不能视为已发布版本。
+- 核心与 DLC 规范 Lua 已完成一轮大批量术语统一和译文校正，并已连同回归测试提交冻结（commit `89744ab`），后续 finding 修订在冻结基线上分批提交，不能视为已发布版本。
 
 ### 工具链
 
@@ -68,7 +68,18 @@
 - review 工作树原队列中有 1,365 条与该权威库存精确关联；另有历史/代码审核观察，使原台账已处置总数为 1,425 条。
 - 本次从尚未关联的 1,853 条中排除主仓库已裁决不采纳的 165 条，新增 1,688 条 `pending`：2 blocker、565 major、1,053 minor、68 note；其中 1,609 条确认、79 条部分确认。
 - 同步清单为 `.artifacts/i18n/imports/pi-first-round-20260803/manifest.json`，完整差集为同目录的 `first-round-remaining-findings.json`；同时复制了 362 份 validated `review.json` 与 362 份绑定的有界 translation bundle，未复制 `raw-output.txt` 或含绝对源路径的 Pi 运行元数据。
-- `remediation-queue.json` 现有 3,113 条：1,425 条已处置、1,688 条待处理；`remediation-ledger.json` 保留既有逐条处置记录并关联本次 import。首轮“发现”阶段已经完成，但在待处理项修订、回归验证和修订后复审完成前，仍不能宣称审核闭环完成。
+- `remediation-queue.json` 现有 3,113 条：1,425 条为冻结前已处置、1,688 条为本次新增 pending；`remediation-ledger.json` 保留既有逐条处置记录并关联本次 import。首轮“发现”阶段已经完成，修订阶段正在推进（见下）。
+
+### 审核闭环处置进度（2026-08-03 晚）
+
+- 冻结批次：已处置的 1,425 条对应工作树改动已复跑严格 lint（0/0）、39 项测试和 `git diff --check` 后提交为 `89744ab`（8 个文件，+2,945/−2,673），与新增队列隔离。
+- blocker：2 条全部处置（`303f788`）：R-002 删除 ShowPurchasable 中文末尾残留英文句并恢复“包括你自己”；R-007 补全 world-artifacts 的【待翻译】句并本地化 Veluca 为“维卢卡”。
+- major：565 条全部处置（`d8d25db` 至 `c1c2771` 共 15 个批次，每批 40 条独立提交），覆盖 engine/boot/addon-dev/ashes-urhrok/cults/orcs/possessors/items-vault/tome 各组件；其中约 10 条经核验在冻结提交中已修复，按 `already_resolved` 记账，未重复改动。
+- minor：已处置 250 条（`020741b` 至 `718575a` 共 5 个批次，每批 50 条独立提交），剩余 803 条；优先处理了 boot/cults/engine 与 addon-dev、example、items-vault 组件，tome 组件从下一批开始。
+- note：尚未开始（68 条）。
+- 处置原则：每条 finding 以有界 bundle 的 source/target 为准独立核验（涉及公开机制时另核验固定源码），不直接照抄 Pi 建议；每批修改后运行 `lint --strict`（0 错误 0 警告）与 `git diff --check`，并在 `remediation-queue.json`/`remediation-ledger.json` 中逐条记账（`verification`、`verification_note`、`changes`）。
+- 批次切分注意：生成批次时须从**当前 pending 列表**固定取 `[0:40]`/`[0:50]`，不得使用随列表缩短而漂移的 `[40n:40n+40]` 索引；此前曾因此系统性跳过条目，已通过剩余 pending 复核修正。
+- 当前 pending 余量：871 条 = minor 803 + note 68；`queue summary.pending` 与 ledger `queued_bundle_findings_not_assessed` 同步维护。
 
 ## 四、待办事项
 
@@ -85,8 +96,10 @@
 
 - [x] 清理控制标记、`@token` 大小写/缺失和格式差异等 lint 问题；当前严格 lint 为 0/0。
 - [x] 同步首轮全面审核余量，建立 1,688 条待处理 finding 的本地快照、队列和台账关联。
-- [ ] 先处理 2 条 blocker，再处理 565 条 major；每项均以有界 bundle、术语库及必要的固定公开源码独立核验，不能直接套用 Pi 建议。
-- [ ] 分组件处理 1,053 条 minor 和 68 条 note；高复用术语先更新 `terminology.tsv`，再同步规范 Lua。
+- [x] 冻结已处置的 1,425 条工作树并形成可审核提交（`89744ab`），与新增队列隔离。
+- [x] 处理 2 条 blocker（`303f788`）；每项均以有界 bundle、术语库及必要的固定公开源码独立核验，不能直接套用 Pi 建议。
+- [x] 处理 565 条 major（`d8d25db`–`c1c2771` 共 15 批，每批 40 条独立提交并逐条记账）。
+- [ ] 分组件处理 1,053 条 minor 和 68 条 note；高复用术语先更新 `terminology.tsv`，再同步规范 Lua。（进度：minor 250/1,053，note 0/68）
 - [ ] 审定 `Constrict`、`eldritch`、`Atmos Tribe` 等多译法术语，并按术语库流程先改 TSV，再改 Lua。
 - [ ] 检查 1,717 个重复运行键，确认是合法覆盖、历史重复，还是需要清理的冲突来源。
 - [ ] 对每个 remediation 批次运行严格 lint 和定向测试、更新台账；全部完成后对最终 diff 做有界 Pi 复审，并为接受、修订或撤销的 finding 留下闭环证据。
@@ -101,10 +114,10 @@
 
 ## 五、推荐工作顺序
 
-1. 先冻结当前已处置 1,425 条 finding 的工作树：复跑严格 lint、39 项测试和 `git diff --check`，按译文/术语/测试/文档确认范围后形成可审核提交，避免与新增队列混写。
-2. 处理新增队列中的 2 条 blocker；完成事实核验、译文修订、关联台账和定向验证后单独提交。
-3. 将 565 条 major 按 `component + section + ordinal` 切成有界批次，优先处理机制反转、参数/占位符、伤害类型、触发条件和长篇错配；建议每批 25–50 条并独立提交。
-4. 处理 1,053 条 minor 与 68 条 note；跨条目术语先走术语库流程，重复运行键在同批同步，但不得无证据全局替换。
+1. ✅ 已冻结已处置 1,425 条 finding 的工作树：复跑严格 lint、39 项测试和 `git diff --check` 后形成提交 `89744ab`，避免与新增队列混写。
+2. ✅ 已处理 2 条 blocker（`303f788`），完成事实核验、译文修订、关联台账和定向验证。
+3. ✅ 已将 565 条 major 按 `component + section + ordinal` 切成有界批次（15 批，每批 40 条）全部处理完毕，优先覆盖机制反转、参数/占位符、伤害类型、触发条件和长篇错配；每批独立提交并逐条记账。
+4. ⏳ 处理 1,053 条 minor 与 68 条 note（当前 minor 250/1,053、note 0/68）；跨条目术语先走术语库流程，重复运行键在同批同步，但不得无证据全局替换。
 5. 每批结束后更新 `remediation-queue.json`、`remediation-ledger.json` 和人类可读台账，运行严格 lint 与相关定向测试；涉及公开机制时记录固定 commit，涉及 DLC 时只使用已复制的有界规范 bundle。
 6. 队列清零后运行完整 doctor、lint、39 项测试和核心严格 build，再对最终 diff 生成有界 Pi 复审；只有复审无未处置 finding，才更新为审核闭环完成。
 7. 随后再审定 3 条 `review` 术语、分类 1,717 个重复运行键，并继续 DLC、legacy lore、Nullpack、CI 与发布基线工作。
@@ -126,8 +139,9 @@ python3 -B tools/i18n build --profile addon --require-complete --json
 ## 七、当前分支与工作区范围
 
 - 当前分支：`codex/review-findings-20260802`。
-- 分支相对 `origin/master` 领先 10 个提交，已提交部分涉及 49 个文件，主要包括工具链、术语库、版本清单、Pi 审核 MVP、翻译迁移和 lint 修复。
-- 当前尚未提交的活跃批次包括：`engine.lua`、`mod-tome.lua`、`terminology.tsv`、`tests/i18n/test_toolchain.py`、`tome-ashes-urhrok.lua`、`tome-cults.lua`、`tome-orcs.lua`，以及本次更新的 `handoff.md`。
-- 当前没有已暂存文件，分支也没有配置 upstream；提交、推送和发布均尚未执行。
+- 分支相对 `origin/master` 领先 31 个提交：原工具链/术语库/测试批次 10 个，加本轮 finding 处置 21 个（冻结 1 + blocker 1 + major 15 + minor 5，minor 批次中个别文件合并提交）。
+- 本轮 finding 处置涉及文件：`engine.lua`、`mod-tome.lua`、`tome-ashes-urhrok.lua`、`tome-cults.lua`、`tome-orcs.lua`、`tome-addon-dev.lua`、`tome-possessors.lua`、`tome-items-vault.lua`、`mod-boot.lua`、`mod-example.lua`、`mod-example_realtime.lua`。
+- 当前工作区干净（无未提交改动、无已暂存文件）；分支未配置 upstream，提交、推送和发布均尚未执行。
+- 工作树状态快照：`remediation-queue.json` 的 `pending` 为 871（minor 803 + note 68），`remediation-ledger.json` 已关联 1,425 + 817 = 2,242 条处置/关联记录（含本次 817 条）。
 
-上述状态说明核心插件已通过本地发布门槛，首轮全量“发现”已完成并同步到 review 工作树，但 1,688 条新增 finding 尚待处置，现有大批量译文修订也仍需整理提交和修订后复审；DLC 与外部层仍不属于已完成发布范围。
+上述状态说明核心插件已通过本地发布门槛，首轮全量“发现”已完成并同步到 review 工作树；1,688 条新增 finding 已处置 817 条（blocker 2/2、major 565/565、minor 250/1,053），剩余 871 条待继续处置；全部修订提交后仍需修订后复审与队列清零验证，DLC 与外部层仍不属于已完成发布范围。
