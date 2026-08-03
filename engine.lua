@@ -1151,9 +1151,8 @@ t("You need %s more coins to purchase those options. Do you want to go to the do
 t([[#{bold}##GOLD#Community Online Event#WHITE##{normal}#: Once you have purchased a community event you will be able to trigger it at any later date, on whichever character you choose.
 Community events once triggered will activate for #{bold}#every player currently logged on#{normal}# including yourself. Every player receiving it will know you sent it and thus that you are to thank for it.
 To activate it you will need to have your online events option set to "all" (which is the default value).]], [[#{bold}##GOLD#社区在线事件#WHITE##{normal}#：成功购买一次社区事件后，你可以在任何时间、任何角色上触发。
-社区事件对 #{bold}#当前所有在线角色#{normal}# 生效，所有收到这次事件的玩家将知晓你的名字，并因此而感激你。
-你需要将在线事件选项设置为“全部”才能激活这个效果，注意，默认值即为“全部”。
-To activate it you will need to have your online events option set to "all" (which is the default value).]], "_t")
+社区事件一旦激活，将对 #{bold}#当前所有在线玩家（包括你自己）#{normal}# 生效，所有收到这次事件的玩家将知晓你的名字，并因此而感激你。
+你需要将在线事件选项设置为“全部”才能激活这个效果，注意，默认值即为“全部”。]], "_t")
 t([[#{bold}##GOLD#Event#WHITE##{normal}#: Once you have purchased an event you will be able to trigger it at any later date, on whichever character you choose.
 To activate it you will need to have your online events option set to "all" (which is the default value).]], [[#{bold}##GOLD#Event#WHITE##{normal}#：成功购买一次事件后，你可以在任何时间、任何角色上触发。
 你需要将在线事件选项设置为“全部”才能激活这个效果，注意，默认值即为“全部”。]], "_t")
