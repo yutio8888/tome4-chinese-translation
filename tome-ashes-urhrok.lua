@@ -581,7 +581,7 @@ t("The onslaught of the Sher'Tul portals never truly stopped.  Magic still pours
 t("demon statue: Draebor, the Imp", "恶魔雕像：小恶魔德瑞宝", "_t")
 t("Teleportation is one of the most crucial areas of magical research to our cause of revenge; until we break the Sher'Tul-made shield surrounding Eyal, it will remain our only means of reaching the surface.  One of our leading scholars, a child of onyx known as Draebor, has perfected short-range teleportation and has been studying methods to work his skills into a mass-producible artifact to grant this ability to all of our troops.  He's kept his work under wraps as of late, but rumor has it that he's been reverse-engineering the Sher'Tul portals, letting our invasion get through via their own weapons.  Whatever he's up to, keep an eye out - big things are just around the corner, courtesy of his dedicated research!", [[传送术是完成我们复仇行动的重要研究领域。在我们打破围绕埃亚尔大陆的夏·图尔之盾之前，传送术将是我们达到大陆表面唯一的手段。我们的领军学者之一—缟玛瑙之子德瑞宝——掌握着完美的短距传送术，并且一直在研究方案将他的技术融入工艺品并量产化，使我们的军队都具备这样的能力。他一直将研究的进程保密，但是有谣言说他正在反向驱动夏·图尔的传送门，让我们通过夏·图尔的武器发动侵略。无论他做到哪一步，我们都要拭目以待——多亏了他的专注的研究，即将有重大的事件发生！
 ]], "_t")
-t("demon statue: Shasshhiy'Kaish", "恶魔雕像:莎西凯希", "_t")
+t("demon statue: Shasshhiy'Kaish", "恶魔雕像：莎西凯希", "_t")
 t([[Once a naturalist and explorer, this scholar frequently made trips to Eyal in the period before Mal'Rok's destruction.  Her journals about a wide assortment of curious species living in the shadow of the Sher'Tul were a delightful read for our citizens, and she had a genuine love for these pitiable, uncivilized creatures.  She, along with two of her companions, were trapped on Eyal when the portal network was destroyed; for a long time, she was feared dead, or worse, turned traitor and working with the natives against her old home.  In any case, it was assumed she would have expired of old age by the time we arrived in orbit around the planet.  Once we got there, though, something curious happened: by magic we still haven't been able to reverse-engineer, a handful of Eyalites dressed in strange robes appeared on our continent, proclaiming devotion to Shasshhiy'Kaish and wishing to be subjected to our experiments.  Ever since then, batches of these willing captives have been delivered with great regularity.  Sadly, they have not been as great a boon to our research as this would sound - all of them appear with nearly every shred of their essence drained, leaving them on the edge of death, and that's not counting the frequent cases of internal bleeding and the rare occasion of them appearing with a rewired nervous system that perceives pain as pleasure, frustrating our attempts to create better methods of punishment.  Nonetheless, they are both cooperative and plentiful, and have been quite helpful.  We cannot be sure that Shasshhiy'Kaish herself is still alive, but if she is, we can be sure her allegiances are with our cause.
 
 #{italic}#A short message is etched below the main text.#{normal}#
@@ -1474,7 +1474,7 @@ t("#Target#'s weapon looks less threatening.", "#Target#的危险度看起来降
 t("-Demon Blade", "-恶魔之刃", "_t")
 t("curse", "诅咒", "effect subtype")
 t("Fiery Torment", "灼魂之罚", "_t")
-t("The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment", "目标的火焰抗性下降 %d%% , 并会被恶魔空间的火焰灼伤。效果结束时将受到 %d 火焰伤害，并追加 %d%% 效果期间受到的总伤害。", "tformat")
+t("The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment", "目标的火焰抗性下降 %d%%，并会被恶魔空间的火焰灼伤。效果结束时将受到 %d 火焰伤害，并追加 %d%% 效果期间受到的总伤害。", "tformat")
 t("#Target# is surrounded by a vile flame!", "#Target#被邪恶的火焰包围", "_t")
 t("+Fiery Torment", "+灼魂之罚", "_t")
 t("The black flame around #Target# dies down", "#Target#周围的邪恶火焰熄灭了", "_t")
@@ -1714,7 +1714,7 @@ t("tattered paper scrap", "破烂的碎纸片", "entity name")
 t("A written message.", "手写的信息。", "_t")
 t("A hastily written message.", "匆忙写下的信息。", "_t")
 t("crystalline tablets", "水晶片", "entity name")
-t("A pile of crystalline tablets.", "一堆水晶片", "_t")
+t("A pile of crystalline tablets.", "一堆水晶片。", "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/zones/anteroom-agony/zone.lua"
@@ -1760,7 +1760,7 @@ t("and teleported to Mal'Rok for more experiments", "并被带去玛·洛克做�
 section "tome-ashes-urhrok/data/zones/searing-halls/objects.lua"
 
 t("crystalline tablets", "水晶片", "entity name")
-t("A pile of crystalline tablets.", "一堆水晶片", "_t")
+t("A pile of crystalline tablets.", "一堆水晶片。", "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/zones/searing-halls/zone.lua"

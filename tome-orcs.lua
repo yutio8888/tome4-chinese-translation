@@ -527,7 +527,7 @@ t("To you too, Metash.", "也祝你好运，梅塔什。", "_t")
 section "tome-orcs/data/chats/phonograph.lua"
 
 t("[insert %s]", "[插入 %s]", "tformat")
-t("#LIGHT_GREEN#*This machine seems to have a slot for some kind of disks.*#WHITE#", "#LIGHT_GREEN#*这台机器上有一个槽，似乎能将光盘放进去。*#WHITE#", "_t")
+t("#LIGHT_GREEN#*This machine seems to have a slot for some kind of disks.*#WHITE#", "#LIGHT_GREEN#*这台机器上似乎有一个用于某种磁盘的插槽。*#WHITE#", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/chats/shertul-priest.lua"
