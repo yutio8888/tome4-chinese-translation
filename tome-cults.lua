@@ -262,9 +262,9 @@ t("%s resists the pin!", "%s抵抗了定身！", "logSeen")
 t("%s resists the confusion!", "%s抵抗了混乱！", "logSeen")
 t("decaying ground", "腐朽之地", "damage type")
 t("defiled blood", "污血", "damage type")
-t("antropy energies", "㷧", "damage type")
-t("#PURPLE#The %s fully awakens as you absorb antropic forces!", "#PURPLE#在你汲取㷧能量的时候，%s完全觉醒了！", "logSeen")
-t("#PURPLE#The %s seems to shudder as you absorb some antropic forces.", "#PURPLE#在你汲取㷧能量的时候，%s似乎隐约颤抖。", "logSeen")
+t("antropy energies", "反熵", "damage type")
+t("#PURPLE#The %s fully awakens as you absorb antropic forces!", "#PURPLE#在你汲取反熵能量的时候，%s完全觉醒了！", "logSeen")
+t("#PURPLE#The %s seems to shudder as you absorb some antropic forces.", "#PURPLE#在你汲取反熵能量的时候，%s似乎隐约颤抖。", "logSeen")
 
 ------------------------------------------------
 section "tome-cults/data/factions.lua"
@@ -1092,7 +1092,7 @@ As the healer finished writing he handed the paper to me "The shalore and thalor
 
 在隧道里，我完全迷失了方向。沙尘和风的声音似乎在我们的周围发出不协调的尖啸。我也看到了，在烟雾中静静躺着一些人类尸体，恐怕是被人杀死的。当这座城市映入眼帘时，我很快就看到了一片荒凉的景色。当我和游侠走在街上时，我只看到其他永恒精灵的脸上一片空白。似乎他们都在四处游荡，仿佛置身于某种阴霾之中。在我见到的每一位永恒精灵的脸上，都有一种奇怪的恐慌感，我能看出，他们失去了一些对他们来说很珍贵的东西。
 
-尽管我来这里是为了向他们寻求复仇，但看到这里的民众，我不知道我是否还会这样做。永恒精灵成为了一个破碎的民族，尽管他们的罪魁祸首对埃亚尔犯下了卑劣的暴行，但我在这里见到的那些人只受到了严厉的惩罚。直到当时，我仍然能够感受到深深的愤怒，但他们现在的遭遇已经是过于严苛的惩罚，我对他们的任何敌对情绪都几乎都被平息了。他们似乎已经为自己的罪行付出了全部的代价。
+尽管我来这里是为了向他们寻求复仇，但看到这里的民众，我不知道我是否还会这样做。永恒精灵成为了一个破碎的民族，尽管他们的罪魁祸首对埃亚尔犯下了卑劣的暴行，但我在这里见到的那些人只受到了严厉的惩罚。直到当时，我仍然能够感受到深深的愤怒，但他们现在的生活似乎已是一种恰如其分的惩罚，我对他们的任何敌对情绪几乎都平息了。他们似乎已经为自己的罪行付出了全部的代价。
 
 我们带来的难民很快就被护送到市中心的一块空地上，那里匆忙搭建了帐篷。一些难民似乎在哀悼，而另一些似乎试图保持他们的理智。当最后一批难民离开我们时，一个身穿白色长袍的永恒精灵走近我们。我从他的长袍里看到了一些纹身。终于，我想，看来有常识的永恒精灵也是会使用纹身的。很快有人问我们是否有人受伤，游侠队长摇了摇头。
 
@@ -1210,7 +1210,7 @@ Putting the chest in my pack, I began to make my way towards the road leading to
 
 将军的视线和我交汇，他严肃的态度吸引了我。我迫不及待地问：“他们喊了什么？”他用和之前一样严肃的语气说：“他们高喊，‘永恒精灵要为魔法大爆炸付出代价！’”我有点笨拙地问：“你为什么要害怕那些表明他们对你正当愤怒的话呢？”对此，我得到了坚定的回答，“因为只有少数人知道，我们把我们的宏伟计划称为‘魔法大爆炸’。对于其他种族的领袖，甚至是你的国王和王后，我们只提到，我们将利用夏·图尔废墟来完成一项伟大的魔法壮举。有人告诉那些人类平民，我们对此负有责任，但他们失手了。我可以说，有人正在针对我的人民正在进行某种秘密行动。”
 
-我沉默了一会儿，最后才从座位上站起来。我做出了最后的决定，坚定地说：“那我就替你运输你的援助物资。你要我怎么办？”将军放松下来，马上回答我说：“我确信你会这么做的。永恒精灵并没有充分利用纹身或其他任何自然疗法。不过，我们确实储存了不少原料，它们可以更好地用于帮助其他地方。我会采购一个特殊的箱子，可以用来储存所有可以使用的原料，让你把它送到附近的纳格尔王国。现在，许多来自其他种族的难民涌入他们的首都，他们可能没有足够的原料来制造他们需要的所有纹身。”
+我沉默了一会儿，最后才从座位上站起来。我做出了最后的决定，坚定地说：“那我就替你运输你的援助物资。你要我怎么办？”将军放松下来，马上回答我说：“想必你也清楚，永恒精灵并不常用纹身或其他任何自然疗法。不过，我们确实储存了不少原料，它们可以更好地用于帮助其他地方。我会采购一个特殊的箱子，可以用来储存所有可以使用的原料，让你把它送到附近的纳格尔王国。现在，许多来自其他种族的难民涌入他们的首都，他们可能没有足够的原料来制造他们需要的所有纹身。”
 
 我点头示意，准备离开，但将军举起手示意我停下。他继续走到我进来时他第一次被安排在房间里的桌子旁。在转身去拿东西之前，永恒精灵看着我，走近我，把一个符文紧紧地压在我的手掌上，发出粉红色的光芒，然后说：“你可以用这个返回符文，从任何你可能在的地方重新进入埃尔瓦拉。我们随时都会欢迎你回来。”我点了点头，将军也给了我一张申请单，让我从他的游侠那里拿些旅行装备来旅行。
 
@@ -2492,7 +2492,7 @@ It wants me to go back. It wants me to return so it can finish what it started. 
 t("entropic void", "熵之虚空", "_t")
 t([[It's cold. Terribly cold. The unreality around you seems to be draining you slowly, making your body lock up and your limbs go stiff. There is entropy at work here, but you can see small patches of light defiantly standing out against the darkness. The warm glow infuses you with vigour, driving away the terrible cold. There must be an antropic force at work here, the only thing which can defeat entropy. You can plainly see that it is fighting a losing battle.
 
-As you get your bearings, you can sense that there is something in here with you. Its presence looms over this entire void, filling you with a primordial sense of dread. The battle that will be fought here will be unlike any you have been through. And perhaps it will be your last.]], [[周围很冷，寒冷刺骨。环绕着你的非现实感，正在慢慢抽光你的一切。你的身体僵硬，四肢麻木。这里是被熵支配的场所，但是，你能看到一束虚弱的微光在无尽的黑暗中坚强挺立。这份温暖的光芒给予了你力量，驱散了环绕全身的刺骨寒冷。这里一定有㷧的力量，那是唯一可以战胜熵魔的东西。你可以看到，它正在一场必败的战斗中顽强地抗争着。
+As you get your bearings, you can sense that there is something in here with you. Its presence looms over this entire void, filling you with a primordial sense of dread. The battle that will be fought here will be unlike any you have been through. And perhaps it will be your last.]], [[周围很冷，寒冷刺骨。环绕着你的非现实感，正在慢慢抽光你的一切。你的身体僵硬，四肢麻木。这里是被熵支配的场所，但是，你能看到一束虚弱的微光在无尽的黑暗中坚强挺立。这份温暖的光芒给予了你力量，驱散了环绕全身的刺骨寒冷。这里一定有反熵的力量，那是唯一可以战胜熵魔的东西。你可以看到，它正在一场必败的战斗中顽强地抗争着。
 
 在你重新取回你的感觉的瞬间，你感受到，有一种东西正支配着这里。它的存在在虚空中咆哮，让你的心中涌满了来自本能的恐惧。你明白，在这里发生的这场战斗，和你所经历的任何一次都不同，可能也将是你的最后一场战斗。]], "_t")
 t("hypostasis of entropy", "熵的本质", "_t")
@@ -2532,7 +2532,7 @@ With that in mind, my only option is to kill it from the inside. Dunno how I'm g
 
 考虑到这一点，我唯一的选择就是从内部杀死它。不知道我现在该怎么做。]], "_t")
 t("godflesh", "神之肉", "_t")
-t("This strange, rubbery substance appears to be the flesh of some unknown creature. Small sparks of antropic power surge from it at times, filling you with incredible vitality. You suspect that it was part of the Maggot's last meal before it transformed into the monstrosity that swallowed you.", "这个奇怪的橡胶状物质像是某种不明生物的血肉。在上面不时涌动着㷧的能量，充满不可思议的活力。你怀疑，是在那个蛆虫吞下了这个东西之后，才变成了吞噬你的怪物。", "_t")
+t("This strange, rubbery substance appears to be the flesh of some unknown creature. Small sparks of antropic power surge from it at times, filling you with incredible vitality. You suspect that it was part of the Maggot's last meal before it transformed into the monstrosity that swallowed you.", "这个奇怪的橡胶状物质像是某种不明生物的血肉。在上面不时涌动着反熵的能量，充满不可思议的活力。你怀疑，是在那个蛆虫吞下了这个东西之后，才变成了吞噬你的怪物。", "_t")
 t("the egress (1)", "出口 (1)", "_t")
 t([[Being an adventurer is supposed to be fun. You know, get out there, kill a couple monsters, grab some loot, spend all the loot money you made and repeat. There's always something new out there to plunder, if you get in there before everyone else. But sometimes, people like to lock their loot behind dumb puzzles. Like this one. I've been sitting here just trying different combinations in this thing. All day, all night, different combinations. The way this stupid thing works doesn't make any sense at all! Most people who make puzzles like these usually leave some hints, but I've got nothing to work with!
 
@@ -3997,7 +3997,7 @@ t("These energies are not for you!", "这份能量不是给你的！", "_t")
 section "tome-cults/data/zones/entropic-void/zone.lua"
 
 t("Entropic Void", "熵之虚空", "_t")
-t("#GOLD#An #{bold}#antropy#{normal}# zone appears, run to it!", "#GOLD#一个#{bold}#㷧#{normal}#领域出现了，快跑过去！", "say")
+t("#GOLD#An #{bold}#antropy#{normal}# zone appears, run to it!", "#GOLD#一个#{bold}#反熵#{normal}#领域出现了，快跑过去！", "say")
 
 ------------------------------------------------
 section "tome-cults/data/zones/fortress-arena/grids.lua"
