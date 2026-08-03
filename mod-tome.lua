@@ -13508,7 +13508,7 @@ t("A length of troll intestines. Fortunately, the troll appears to have eaten no
 t("Kindly empty it before returning.", "在把它带回来之前请把它清理干净。", "_t")
 t("skeleton mage skull", "骷髅法师头骨", "entity name")
 t("The skull of a skeleton mage. The eyes have stopped glowing... for now.", "一颗骷髅法师的头骨。现在……它的眼睛已经暗淡了。", "_t")
-t("If the eyes are still glowing, please bash it around a bit until they fade. I'll not have another one of those coming alive and wreaking havoc in my lab.", "如果它的眼睛仍然亮着，请猛击它直到不再发光为止。我不想再要一个会突然活过来并把我的实验室搞的一塌糊涂的头骨了。", "_t")
+t("If the eyes are still glowing, please bash it around a bit until they fade. I'll not have another one of those coming alive and wreaking havoc in my lab.", "如果它的眼睛仍然亮着，请猛击它直到不再发光为止。我不想再要一个会突然活过来并把我的实验室搞得一塌糊涂的头骨了。", "_t")
 t("ritch stinger", "里奇螫针", "entity name")
 t("A ritch stinger, still glistening with venom.", "一只里奇的螫针，还残留着许多粘稠的毒液。", "_t")
 t("Keep as much venom in it as possible.", "请尽可能多的保持螫针的毒液。", "_t")
@@ -14093,7 +14093,7 @@ t("age of pyre", "烈火纪", "newLore category")
 t("Atamathon, the giant golem", "阿塔玛森·傀儡之王", "_t")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. One of its eyes seems to be missing. At over 40 feet high it towers above you.
-Someone foolish has tried to reconstruct it, but it seems like it misses an eye to be completed.]], [[这尊傀儡之王是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
+Someone foolish has tried to reconstruct it, but it seems like it misses an eye to be completed.]], [[这尊巨型傀儡是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
 它的躯干是用大理石铸造，关节部分则灌入沃瑞钽衔接，双眼由纯净的红宝石构成。它的一只眼睛似乎已经失落。四十多尺高的巨像似乎默默的俯视着你。
 一些蠢货似乎想要重塑他，但由于找不到那只眼睛而没有完成。]], "_t")
 
@@ -16423,8 +16423,8 @@ Together the dog and the shadows rise up to face you.
 你能发现，似乎很久以前此地曾发生过一场激烈的战斗。地上躺着两个穿着手工制护甲的骷髅，它们的手里仍握着简单却被精心打磨过的武器。
 尸体看起来还没有老到足以腐烂，却像是被啃咬得很厉害。此外，还有几只大型犬的遗骸躺在旁边。
 突然间，你看到角落里有什么东西动了一下。其中一只狗似乎还活着。它又脏又瘦，动作也很不自然。
-你注意到了一些阴影，在向那条狗靠近。这只狼侧了侧头，似乎在倾听着什么。
-突然，这些阴影伴随着这只狼狗向你迎面扑来……
+你注意到了一些阴影，在向那条狗靠近。这只狗侧了侧头，似乎在倾听着什么。
+突然，这些阴影伴随着这只狗向你迎面扑来……
 ]], "_t")
 t("Kyless' Journal: First Entry", "克里斯的日记：第一页", "_t")
 t([[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
@@ -16551,7 +16551,7 @@ The cold iron hardens your resolve. Whether the curse consumes you or not, you w
 As the iron cuts your flesh, you slowly become aware of a sound coming from the direction of the meadow.
 Dogs barking. Following that come the voices of men. These must be Berethh's companions. Arriving too late.
 You rise and prepare to kill again.
-]], [[贝里斯扑街了。克里斯也被杀死了。商队分崩离析了。你过去的一切都不复存在。
+]], [[贝里斯倒下了。克里斯也被杀死了。商队分崩离析了。你过去的一切都不复存在。
 你曾以为能在这里找到想要的答案，但是却只找到了一个真相——你被诅咒了。
 当你试图将这些想法从头脑里赶出时，你发现自己又掏出了那个铁质橡果放在手中。
 冰冷的铁质橡果坚定了你的信念。不管诅咒是否会了断你的生命，你都要继续前行。
@@ -16566,7 +16566,7 @@ The acorn now serves as a focus for your anger. Though the curse may consume you
 As the iron cuts your flesh, you slowly become aware of a sound coming from the direction of the meadow.
 Dogs barking. Following that come the voices of men. These must be Berethh's companions. Arriving too late.
 You rise and prepare to kill again.
-]], [[贝里斯扑街了。克里斯也被杀死了。商队分崩离析了。你过去的一切都不复存在。
+]], [[贝里斯倒下了。克里斯也被杀死了。商队分崩离析了。你过去的一切都不复存在。
 你曾以为能在这里找到想要的答案，但是却只找到了一个真相——你被诅咒了。
 当你试图将这些想法从头脑里赶出时，你发现自己又掏出了那个铁质橡果放在手中。
 冰冷的橡果将你心中的怒火彻底点燃。尽管诅咒可能会随时了断你的生命，但仍然有许多该死的人等着你去宣泄怒火。他们会尝到这怒火的滋味。
@@ -16686,7 +16686,7 @@ Mirvenia has been key to the discussions and the plans. She is a tactical genius
 She is a remarkable force for good, Mirvenia, popular with all the troops. I feel my normal iron rule smoothed by her presence. Too long have I led the cold life of a soldier... alone...
 
 Ah, the beating of my heart cannot be silenced. I must speak to Mirvenia, and tell her how I feel... I only hope she shares some inkling of my emotion.]], [[#{italic}#烈火纪711年，厄流月2日#{normal}#
-我们巩固了最后的希望的防御工事，从各个国家收编了更多的军队。海边的要塞提供了一个绝佳的打击兽人的战术地理位置。我希望能够继续扩大我们的优势。我正在和其他领导人起草一个盟约，只有大家团结合作，才能够消灭这所有王国的威胁。
+我们巩固了最后的希望的防御工事，从各个国家收编了更多的军队。海边的要塞提供了一个绝佳的打击兽人的战术地理位置。我希望能够在这里进一步扩建我们的设施。我正在和其他领导人起草一个盟约，只有大家团结合作，才能够消灭这所有王国的威胁。
 
 米雯尼雅在计划中起到了关键性的作用。她是一个战术天才，我完全被她的博学多才震惊了。然而有个奇怪的女人始终陪伴她左右，那个女人有着长长的头发、穿着丝质长袍——她的名字叫莱娜尼尔。我的一个部下发誓说他看到这个女人踏着一团火焰切入了战场，将她周围所有的兽人化为灰烬。大魔导师在我们中间令大家很不安，但是米雯尼雅说我们应该信任她。既然米雯尼雅这么说，我也必须相信她。
 
@@ -16705,7 +16705,7 @@ Too long have we been content with repelling orcish raids and pushing back small
 
 米雯尼雅的车队遭到了兽人盗贼小队的袭击。虽然敌人被击退了，但她也在战斗中受了重伤，而且她提前分娩了。她在死亡大厅里躺了数个小时。谢天谢地她的人民有着高超的医疗手段，她和孩子都活了下来。
 
-孩子……我们的孩子。我的儿子！米雯尼雅仍在恢复中，但是这孩子看起来却比任何新生儿都更加强壮。但是我依旧忧心忡忡……我多么希望他能出生在一个更加完美的世界。我是多么担心我的妻儿在这乱世中所承受的苦难。我希望给他们带来新的世界，没有如此苦难和威胁——差点要了我深爱的女人性命的威胁。我要给我的儿子在和平中成长的机会。
+孩子……我们的孩子。我的儿子！米雯尼雅仍在恢复中，但是这孩子看起来却比任何新生儿都更加强壮。但是我依旧忧心忡忡……我多么希望他能出生在一个更加完美的世界。我是多么担心我的妻儿在这乱世中所承受的苦难。我希望给他们带来新的世界，没有如此苦难和威胁——差点要了我深爱的女人性命的威胁。我要给我的儿子一个在和平时代执掌王权的机会。
 
 我们满足于仅仅击退兽人的袭击、驱逐小股部落已经太久了。最后的希望已经成为了西部军队的枢纽。现在，是时候让我们向前推进并铲除这块大陆的每个兽人部落了。直到那肮脏的兽人们在马基·埃亚尔消失，直到每个可恶的兽人化为灰烬，直到每个畜生般的兽人被消灭，我才会休息。我将结束烈火纪并开启新的纪元——卓越纪！我郑重发誓。]], "_t")
 t("All Hail King Tolak the Fair!", "公正之王托拉克万岁！", "_t")
@@ -31370,7 +31370,7 @@ t([[You have learned to take a few hits when needed and can flow with the tide o
 		每回合一次，当你被近战或弓箭攻击命中时，你会免费后退一格，并获得持续 1 回合的 200%% 移动速度加成。
 		该伤害减免随敏捷提高，并在抗性减免后结算。]], "tformat")
 t("Vital Shot", "要害射击", "talent name")
-t("Have dealt over 50000 damage with ranged weapons", "曾使用远程武器累计造成至少 50000 点伤害", "_t")
+t("Have dealt over 50000 damage with ranged weapons", "曾使用远程武器累计造成超过 50000 点伤害", "_t")
 t([[You fire a shot straight at your enemy's vital areas, wounding them terribly.
 		Enemies hit by this shot will take 450%% weapon damage and will be stunned and crippled (losing 50%% physical, magical and mental attack speeds) for five turns due to the devastating impact of the shot.
 		The stun and cripple chances increase with your Accuracy.]], [[你对着目标要害射出一发，使目标受到重创。 
@@ -31547,7 +31547,7 @@ t([[Thaumaturgists have unlocked a deeper understanding of their spells, allowin
 		- 多重施法: 当你释放射线类法术的时候，有一定几率追加释放一个其他的元素法师法术。
 		- 能量滑流: 释放射线类法术的时候可以移动。
 		- 元素阵爆发: 发射强力的多元素射线，会造成各种元素的伤害，无法被元素抗性抵抗
-		#CRIMSON#只有在身穿长袍的时候，才可以使用宽度为3的射线以及奇术技能。使用重甲会阻碍你的施法。]], "tformat")
+		#CRIMSON#只有在身穿长袍的时候，才可以使用宽度为3的射线以及奇术技能。任何更重的护甲都会阻碍你的施法。]], "tformat")
 -- untranslated text
 --[==[
 t([[%s
@@ -31797,7 +31797,7 @@ t([[Gnaw your target for %d%% damage.  If your attack hits, the target may be in
 		如果你的攻击命中，目标会感染食尸鬼腐烂疫病持续 %d 回合。 
 		食尸鬼腐烂疫病每回合造成 %0.2f 枯萎伤害。 
 		目标被杀死时会变成你的可以完全控制的食尸鬼傀儡。 
-		食尸鬼傀儡持续 %d 回合，可以使用啃噬、定向跳跃、震慑和腐烂疫病。
+		食尸鬼傀儡持续 %d 回合，可以使用啃噬、食尸鬼跳跃、震慑和腐烂疫病。
 		受体质影响，枯萎伤害按比例加成。]], "tformat")
 
 ------------------------------------------------
@@ -37841,7 +37841,7 @@ t("Mercenaries hired by the arena for the sole purpose of entertainment. They ma
 t("reaver", "收割者", "entity name")
 t("A warrior of death.", "侍奉死亡的战士。", "_t")
 t("headless horror", "无头恐魔", "entity name")
-t("A headless gangly humanoid with a large distended stomach. Was captured and tamed by the first master of the arena.", "一只高高瘦瘦的无头人形怪物，它有着巨大的胃。它被竞技场的第一任主人捕获并驯服。", "_t")
+t("A headless gangly humanoid with a large distended stomach. Was captured and tamed by the first master of the arena.", "一只高高瘦瘦的无头人形怪物，它有着巨大而鼓胀的腹部。它被竞技场的第一任主人捕获并驯服。", "_t")
 t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上。", "logSeen")
 t("Ryal", "瑞尔", "entity name")
 t("A gargantuan bone giant resembling a wingless wyrm. He is fully sentient and surprisingly fast.", "一只巨大的骨巨人，形似无翼巨龙。他完全具有自我意识，而且快得惊人。", "_t")
@@ -37858,7 +37858,7 @@ t("Ranged fighters coming to the arena looking for wealth and glory, just like y
 t("high slinger", "高阶投石者", "entity name")
 t("alchemist", "炼金术师", "entity name")
 t("blood mage", "血法师", "entity name")
-t("A man dressed in black robes. You feel weak as you hear his ominous chanting.", "一位穿着黑色长袍的人。当你听到他邪恶的低吟时，你感到一阵虚弱。", "_t")
+t("A man dressed in black robes. You feel weak as you hear his ominous chanting.", "一位穿着黑色长袍的人。当你听到他不祥的吟唱时，你感到一阵虚弱。", "_t")
 t("hexer", "诅咒者", "entity name")
 t("A man dressed in black robes. You feel a thousand curses being put on you.", "一位穿着黑色长袍的人。你感到一千个诅咒施加在你身上。", "_t")
 t("rogue", "盗贼", "entity name")
@@ -38290,7 +38290,7 @@ Now and then she seems to see something and her jaw pulls back, her whole face s
 t("and offered to her dark Master", "并为她的不死主人永世效忠", "_t")
 t("Filio Flightfond", "菲里奥·弗莱特冯德", "entity name")
 t([[A short, furtive-looking skeleton with padded feet. He moves quickly and silently, and seems to meld into the shadows with ease. In one hand he holds a sling, and the other a short dagger.
-There is a cunning air to his hollow skull, and his empty sockets reveal nothing of what tricks and tactics he has planned.]], [[一个矮小的猥琐骷髅，它的脚底有着一层肉垫。他迅捷而隐蔽，并且擅长融入黑暗。他的左手拿着投石索，右手则拿着一柄匕首。
+There is a cunning air to his hollow skull, and his empty sockets reveal nothing of what tricks and tactics he has planned.]], [[一个矮小的、鬼鬼祟祟的骷髅，它的脚底有着一层肉垫。他迅捷而隐蔽，并且擅长融入黑暗。一只手拿着投石索，另一只手则拿着一柄匕首。
 他空洞的头骨透着一股狡黠的气息，而空荡荡的眼窝丝毫看不出他盘算着什么诡计与战术。]], "_t")
 
 ------------------------------------------------
@@ -38480,9 +38480,9 @@ section "mod-tome/data/zones/golem-graveyard/grids.lua"
 t("the remains of Atamathon", "阿塔玛森的遗骸", "entity name")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its sole eye of purest ruby; the other one seems to be missing. At over 40 feet tall, it towers above you.
-Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.]], [[这尊傀儡之王是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
+Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.]], [[这尊巨型傀儡是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
 它的躯干是用大理石铸造，关节部分则灌入沃瑞钽衔接，一只眼由纯净的红宝石构成。它的另一只眼睛似乎已经失落。四十多尺高的巨像似乎默默地俯视着你。
- 一些蠢货似乎想要重塑他，但由于找不到那只眼睛而没有完成。]], "_t")
+某个蠢货似乎想要重塑它，但由于找不到那只眼睛而没有完成。]], "_t")
 t("Atamathon", "阿塔玛森", "_t")
 t("It seems that your %s is made to fit inside the empty eye socket of Atamathon. This is probably very unwise.", "你手中%s的外形看上去似乎可以安装到阿塔玛森的空眼窝内，但也许这样做并不明智。", "tformat")
 t("The socket seems broken.", "插槽似乎已经损坏。", "log")
@@ -39756,7 +39756,7 @@ section "mod-tome/data/zones/shertul-fortress-caldizar/zone.lua"
 t("Unknown Sher'Tul Fortress", "未知的夏·图尔堡垒", "_t")
 t("Unknown Sher'Tul Fortress (%s)", "未知的夏·图尔堡垒 (%s)", "tformat")
 t("Unknown the Sher'Tul Fortress", "未知的夏·图尔堡垒", "_t")
-t("With a sudden jolt you find yourself... somewhere familiar. The smooth walls and gentle lighting remind you of your fortress. And yet it feels different too. There is a gentle humming noise in the background, and your whole body feels light, almost weightless, such that the slightest movement propels you into the air. You have the odd feeling that you are not on Maj'Eyal any longer... From ahead you sense something both terrible and wonderful, and trepidation fills every corner of your being.", "随着突然的震动，你发现你自己……某些地方变的熟悉了。那光滑的墙壁和温暖的灯光提醒你这是你的堡垒。不过它仍然有所不同。背后传来轻柔的嗡嗡声，你感觉整个身体轻飘飘的，几乎像羽毛一样，似乎你轻轻的移动都能跃至半空。你有着一种奇异的感觉——你似乎不在马基·埃亚尔了……在你的前方你感到了某种可怕和完美，恐慌和奇妙感充满了你身心的每个角落。", "_t")
+t("With a sudden jolt you find yourself... somewhere familiar. The smooth walls and gentle lighting remind you of your fortress. And yet it feels different too. There is a gentle humming noise in the background, and your whole body feels light, almost weightless, such that the slightest movement propels you into the air. You have the odd feeling that you are not on Maj'Eyal any longer... From ahead you sense something both terrible and wonderful, and trepidation fills every corner of your being.", "随着突然的震动，你发现自己身处某个熟悉的地方。那光滑的墙壁和温暖的灯光提醒你这是你的堡垒。不过它仍然有所不同。背后传来轻柔的嗡嗡声，你感觉整个身体轻飘飘的，几乎像羽毛一样，似乎你轻轻的移动都能跃至半空。你有着一种奇异的感觉——你似乎不在马基·埃亚尔了……在你的前方你感到了某种可怕和完美，恐慌和奇妙感充满了你身心的每个角落。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/slazish-fen/grids.lua"
@@ -39944,7 +39944,7 @@ t("construct", "构装体", "entity type")
 t("golem", "傀儡", "entity subtype")
 t("Drolem", "卓勒姆", "entity name")
 t([[This is Tannen's construct, a HUGE golem in the rough shape of a dragon.
-It is so huge that it blocks sight beyond it.]], "这是泰恩的作品，一只巨大的龙形傀儡。它如此庞大，遮蔽了它身后的视线。", "_t")
+It is so huge that it blocks sight beyond it.]], "这是泰恩的构装体，一只巨大的龙形傀儡。它如此庞大，遮蔽了它身后的视线。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/tannen-tower/objects.lua"
