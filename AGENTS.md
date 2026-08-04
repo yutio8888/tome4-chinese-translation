@@ -17,7 +17,7 @@
 
 - ToME4 及三个官方 DLC（Ashes of Urh'Rok、Cults of Entropy、Embers of Rage）以 **GPL v3（or later）** 发布，源码可自由读取、分析、提取。许可证依据：`t-engine4/COPYING`（GPL v3 全文）、各 DLC `init.lua` 头部声明；公开正式版位于 `/Users/yun/projects/tome4-dlcs/`（ashes/cults/orcs，version 1.7.4）。
 - GPL v3 §2：不分发的使用（读取/分析/提取/翻译）无条件允许；禁止条款不适用于本场景。但**分发**基于 DLC 的衍生作品（含译文）时须遵守 §5：保留版权声明、以 GPL v3 兼容许可发布、提供对应源码。本项目译文与发布 addon 应随附 GPL v3 声明。
-- 不再禁止直接读取 DLC 源码；可复现基线仍建议使用受审计提取脚本（extract 生成规范化快照 + SHA-256 基线，doctor/extract 自动校验）。切换提取来源（如公开版 vs 仓库内 `game/dlcs` 副本）前必须核对版本与基线——公开版 version 1.7.4，当前基线基于仓库内副本，两者可能不同，切换需重建基线。
+- 不再禁止直接读取 DLC 源码；可复现基线仍建议使用受审计提取脚本（extract 生成规范化快照 + SHA-256 基线，doctor/extract 自动校验）。提取来源已切换至公开正式版 `/Users/yun/projects/tome4-dlcs/`（2026-08-04 验证：两处副本 t() 的 src 序列完全一致，ashes 完全一致；cults 37 个 / orcs 2 个非 t() 内容差异不影响提取）。快照基线含 origin 元数据（section/origin_line），来源切换后若 extract 报基线 mismatch，属预期，重建基线即可（tdef_count 不应变化）。
 - Pi 翻译、Pi 审核、其他 subagent 以及人工审校的输入边界不变：翻译审校只能接收规范翻译条目的有界 bundle；代码审校只能接收去除绝对路径后的公开代码 diff。任何审核结果都只能写入 `.artifacts/i18n/`，不得自动应用到规范 Lua 或代码。
 
 ## Lua 运行环境

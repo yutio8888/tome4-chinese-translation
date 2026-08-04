@@ -86,10 +86,11 @@ provider，首次调用前仍需明确确认 provider、model 和数据范围；
 许可证说明（2026-08-04）：ToME4 与三个官方 DLC 均以 **GPL v3（or later）**
 发布（依据：`t-engine4/COPYING` 全文、各 DLC `init.lua` 头部声明）。GPL v3 §2
 允许不分发的任何使用，包括 AI 读取、分析与提取；仅分发衍生作品（含译文）时
-须遵守 §5（保留版权声明、GPL v3 兼容许可、提供对应源码）。公开正式版位于
-`/Users/yun/projects/tome4-dlcs/`（version 1.7.4）；当前 extract 基线基于仓库内
-`game/dlcs` 副本，两者版本可能不同，切换来源前须重建基线。受保护提取机制保留
-为可复现基线工具，不再视为闭源限制。
+须遵守 §5（保留版权声明、GPL v3 兼容许可、提供对应源码）。提取来源已切换至
+公开正式版 `/Users/yun/projects/tome4-dlcs/`（version 1.7.4；两处副本 t() src
+序列验证一致，cults/orcs 仅非 t() 内容差异）。受保护提取机制保留为可复现基线
+工具，不再视为闭源限制；快照含 origin 元数据，来源切换后 extract 若报基线
+mismatch 属预期，重建基线即可（tdef_count 不变）。
 - `merge` 将新快照、可选的旧快照和当前规范译文三方分类，只在 artifact 中生成
   `candidate.lua`、未翻译清单、疑似英文改写建议及废弃/未提取报告。没有
   `--base-snapshot` 时进入 bootstrap 覆盖率模式；疑似英文改写永远不会自动继承译文。

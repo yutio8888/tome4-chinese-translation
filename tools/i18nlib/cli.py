@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any, Iterable
@@ -726,7 +727,33 @@ def _publish(arguments: argparse.Namespace) -> int:
     return 0
 
 
+_PUBLIC_DLC_ROOT = Path("/Users/yun/projects/tome4-dlcs")
+_PUBLIC_DLC_PATHS = {
+    "TOME_DLC_ASHES_ROOT": "ashes-urhrok/tome-ashes-urhrok",
+    "TOME_DLC_CULTS_ROOT": "cults/tome-cults",
+    "TOME_DLC_ORCS_ROOT": "orcs/tome-orcs",
+}
+
+
+def _inject_public_dlc_env() -> None:
+    """Point DLC extraction at the public GPL v3 release when the env is unset.
+
+    The official DLC sources are GPL v3 public (see AGENTS.md). The public
+    release under _PUBLIC_DLC_ROOT is the canonical extraction input; the
+    legacy TOME_DLC_*_ROOT values (if set by the user) still take precedence.
+    """
+    if not _PUBLIC_DLC_ROOT.is_dir():
+        return
+    for env_name, relative in _PUBLIC_DLC_PATHS.items():
+        if env_name in os.environ:
+            continue
+        candidate = _PUBLIC_DLC_ROOT / relative
+        if candidate.is_dir():
+            os.environ[env_name] = str(candidate)
+
+
 def main(argv: list[str] | None = None) -> int:
+    _inject_public_dlc_env()
     arguments = _parser().parse_args(argv)
     try:
         if arguments.command == "doctor":
