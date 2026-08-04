@@ -3466,7 +3466,7 @@ t("%s resists the splinters!", "%s 抵抗了玻璃碎片!", "logSeen")
 t([[Smash your target with a splintering glass attack doing %d%% arcane weapon damage.
 		If this attack hits the target will have glass splinters for 6 turns.
 		Each turn the target will bleed for 8%% of the attack damage. The splinters are very painful and if the target moves it will instantly take %d%% of the attack damage.
-		At level 5 the target suffers so much it has 15%% chances to fail using talents.]], [[ 使用玻璃碎片攻击敌人，造成 %d%% 奥术武器伤害。
+		At level 5 the target suffers so much it has 15%% chances to fail using talents.]], [[使用玻璃碎片攻击敌人，造成 %d%% 奥术武器伤害。
 		如果攻击命中，目标将被玻璃碎片扎 6 回合。
 		每回合目标将受到 8%% 攻击伤害的流血伤害。
 		同时每当目标移动时，受到 %d%% 攻击伤害。
@@ -3734,7 +3734,7 @@ t("-Dark Whispers", "-黑暗低语", "_t")
 t("Hideous Visions", "惊骇幻象", "_t")
 t("The target is being distracted by a hallucination, reducing all damage dealt to non-hallucinations targets by %d%%.", "目标被幻觉所困，降低其对非幻觉单位造成的伤害 %d%%。", "tformat")
 t("Cacophony", "心灵尖啸", "_t")
-t("The target is overwhelmed by voices from the void, giving them a 20%% higher chance to spawn hallucinations from Dark Whispers and causing them to take an additional %d%% temporal damage from Dark Whispers and Hideous Visions.", "目标被虚空之声淹没 , 让他们从黑暗低语中产生幻觉的几率增加 20%% ，并使他们从黑暗低语和惊骇幻象中受到额外 %d%% 点时空伤害。", "tformat")
+t("The target is overwhelmed by voices from the void, giving them a 20%% higher chance to spawn hallucinations from Dark Whispers and causing them to take an additional %d%% temporal damage from Dark Whispers and Hideous Visions.", "目标被虚空之声淹没 , 让他们从黑暗低语中产生幻觉的几率增加 20%%，并使他们从黑暗低语和惊骇幻象中受到额外 %d%% 点时空伤害。", "tformat")
 t("#Target#'s mind is shattered by the void!", "#Target#的精神被虚空粉碎！", "_t")
 t("+Cacophony", "+心灵尖啸", "_t")
 t("#Target# seems more focused.", "#Target#恢复了理智。", "_t")
@@ -3817,10 +3817,10 @@ t("-Suspend", "-暂停", "_t")
 t("The target is removed from the normal time stream, unable to act but unable to take any damage. Each turn, negative effects and cooldowns will decrease in duration.", "目标从常规时间流中移除，无法行动，免疫伤害。每回合负面效果和技能冷却正常衰减。", "_t")
 t("Jinxed", "不幸", "_t")
 t([[The target has %d reduced saves and defense, and %d%% reduced critical chance.
-This effect will fade in 2 turns if the source is not in line of sight.]], [[目标豁免和闪避降低 %d , 暴击率降低 %d%%。
+This effect will fade in 2 turns if the source is not in line of sight.]], [[目标豁免和闪避降低 %d，暴击率降低 %d%%。
 若效果来源不在视野内，则该效果会在 2 回合后消失。]], "_t")
 t([[The target has %d reduced saves and defense, %d%% reduced critical chance, and %d%% chance to fail talent use.
-This effect will fade in 2 turns if the source is not in line of sight.]], [[目标豁免和闪避降低 %d , 暴击率降低 %d%%，使用技能有 %d%% 几率失败。
+This effect will fade in 2 turns if the source is not in line of sight.]], [[目标豁免和闪避降低 %d，暴击率降低 %d%%，使用技能有 %d%% 几率失败。
 若效果来源不在视野内，则该效果会在 2 回合后消失。]], "_t")
 t("%d Jinx", "%d 不幸", "tformat")
 t("Fortune", "幸运", "_t")

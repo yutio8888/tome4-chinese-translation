@@ -6332,7 +6332,7 @@ t("-Pain Suppressor", "-痛苦压制", "_t")
 t("frost", "冰冻", "effect subtype")
 t("Frost Salve", "寒霜药剂", "_t")
 t("Provides a frost aura, giving you +%d%% cold, nature and darkness affinity.", "提供寒霜光环，使你获得 +%d%% 寒冷、自然和暗影伤害吸收。", "tformat")
-t("#Target# uses a frost salve.", "#Target# 使用了寒霜药剂。", "_t")
+t("#Target# uses a frost salve.", "#Target#使用了寒霜药剂。", "_t")
 t("+Frost Salve", "+寒霜药剂", "_t")
 t("-Frost Salve", "-寒霜药剂", "_t")
 t("fire", "火焰", "effect subtype")
@@ -8056,7 +8056,7 @@ All Tinker classes use Steam for their powers.
 ------------------------------------------------
 section "tome-orcs/overload/data/texts/unlock-tinker_psyshot.lua"
 
-t("New Class: #LIGHT_GREEN#Psyshot (Tinker)", "新职业： #LIGHT_GREEN# 灵能射手（工匠系）", "_t")
+t("New Class: #LIGHT_GREEN#Psyshot (Tinker)", "新职业： #LIGHT_GREEN#灵能射手（工匠系）", "_t")
 t([[You have found extremely old machines powered by advanced psionics and technology. Psionics without a living mind was never thought possible.
 You can now create new characters with the #LIGHT_GREEN#Psyshot class#WHITE#.
 
@@ -8069,7 +8069,7 @@ Class features:#YELLOW#
 
 All Tinker classes use Steam for their powers.
 ]], [[你找到了一台由灵能和科技驱动的古老机器。由机械引发的灵能不再是不可能的想象。
-现在你可以在创建人物时选择新的职业： #LIGHT_GREEN# 灵能射手 #WHITE#。
+现在你可以在创建人物时选择新的职业： #LIGHT_GREEN#灵能射手#WHITE#。
 
 灵能射手是融合灵能与蒸汽科技、形成致命组合的工匠职业，一手持蒸汽枪一手持灵晶。
 职业特色：#YELLOW#
