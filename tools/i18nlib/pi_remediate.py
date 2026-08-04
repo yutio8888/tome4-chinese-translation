@@ -15,7 +15,7 @@ from . import TOOL_VERSION
 from .config import load_manifest
 from .errors import AgentError, I18nToolError, ValidationError
 from .pi_agent import DEFAULT_MODEL, DEFAULT_PROVIDER, DEFAULT_THINKING, _pi_environment
-from .proposal import decode_json_object
+from .proposal import decode_json_object, extract_event_stream_output
 from .report import atomic_write_bytes, create_run_directory, write_json
 from .review import (
     DEFAULT_REVIEW_TIMEOUT,
@@ -162,7 +162,7 @@ def build_remediation_command(
         "--provider", provider,
         "--model", model,
         "--thinking", thinking,
-        "--mode", "text",
+        "--mode", "json",
         "--no-session", "--no-approve", "--no-context-files", "--no-skills",
         "--no-prompt-templates", "--no-themes", "--no-extensions", "--no-tools",
         "--system-prompt", system_prompt,
@@ -273,7 +273,12 @@ def run_pi_remediation(
         write_json(report_path, report)
         raise AgentError(f"Pi exited with status {result.returncode}; report: {report_path}")
     try:
-        output = decode_json_object(result.stdout, "Pi remediation output")
+        output = decode_json_object(
+            extract_event_stream_output(
+                result.stdout, "Pi remediation output"
+            ),
+            "Pi remediation output",
+        )
         summary = _validate_remediation(bundle, review, output)
     except ValidationError as error:
         report["error"] = str(error)

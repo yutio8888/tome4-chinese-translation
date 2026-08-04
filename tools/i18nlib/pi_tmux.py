@@ -53,7 +53,7 @@ from .pi_review import (
     _write_cached_review,
     build_review_command,
 )
-from .proposal import decode_json_object, read_json_object, validate_proposal
+from .proposal import decode_json_object, extract_event_stream_output, read_json_object, validate_proposal
 from .report import create_run_directory, write_json
 from .review import (
     DEFAULT_REVIEW_TIMEOUT,
@@ -239,7 +239,93 @@ def wait_for_worker(
 # ---------------------------------------------------------------------------
 
 
+class PaneStreamRenderer:
+    """Render the pi `--mode json` event stream like a normal terminal.
+
+    Fragments are assembled into complete lines (flushed on newline),
+    reasoning deltas are dimmed, status events become short cyan markers,
+    and non-event lines pass through unchanged. The raw stream written to
+    raw-output.txt is never styled and drops message_update events entirely
+    (they carry the full accumulated partial and bloat the file by GBs).
+    """
+
+    _STATUS = ("agent_start", "agent_end", "turn_start", "turn_end")
+    _MAX_LINE = 240
+
+    def __init__(self, mirror: Any, use_color: bool) -> None:
+        self.mirror = mirror
+        self.use_color = use_color
+        self.buffer = ""
+        self.mode = "text"
+
+    def _write(self, text: str) -> None:
+        self.mirror.write(text.encode("utf-8"))
+        self.mirror.flush()
+
+    def _status(self, text: str) -> None:
+        if self.use_color:
+            self._write(f"\x1b[36m{text}\x1b[0m\n")
+        else:
+            self._write(text + "\n")
+
+    def _emit_line(self, text: str) -> None:
+        text = text.rstrip("\r")
+        if not text:
+            return
+        if self.use_color and self.mode == "thinking":
+            self._write(f"\x1b[2m{text}\x1b[0m\n")
+        else:
+            self._write(text + "\n")
+
+    def _append(self, delta: str) -> None:
+        self.buffer += delta
+        while "\n" in self.buffer:
+            line, self.buffer = self.buffer.split("\n", 1)
+            self._emit_line(line)
+        if len(self.buffer) > self._MAX_LINE:
+            self._emit_line(self.buffer[: self._MAX_LINE] + "…")
+            self.buffer = ""
+
+    def feed_line(self, line: bytes) -> None:
+        try:
+            event = json.loads(line)
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            self._write(line.decode("utf-8", errors="replace") + "\n")
+            return
+        if not isinstance(event, dict) or not isinstance(event.get("type"), str):
+            self._write(line.decode("utf-8", errors="replace") + "\n")
+            return
+        event_type = event["type"]
+        if event_type == "message_update":
+            assistant_event = event.get("assistantMessageEvent")
+            if not isinstance(assistant_event, dict):
+                return
+            event_kind = assistant_event.get("type")
+            if event_kind == "thinking_start":
+                self.mode = "thinking"
+            elif event_kind == "text_start":
+                self.mode = "text"
+            delta = assistant_event.get("delta")
+            if isinstance(delta, str) and delta:
+                self._append(delta)
+            return
+        if event_type in self._STATUS:
+            self._status(f"[pi] {event_type}")
+            return
+        if event_type in ("message_start", "message_end"):
+            message = event.get("message")
+            role = message.get("role") if isinstance(message, dict) else "?"
+            self._status(f"[pi] {event_type} role={role}")
+            return
+
+    def flush(self) -> None:
+        if self.buffer:
+            self._emit_line(self.buffer)
+            self.buffer = ""
+
+
 def _pump(stream: Any, path: Path, mirror: Any) -> None:
+    """Write a raw stream to path while mirroring it unchanged."""
     try:
         with path.open("wb") as handle:
             for chunk in iter(lambda: stream.read(65536), b""):
@@ -248,6 +334,39 @@ def _pump(stream: Any, path: Path, mirror: Any) -> None:
                 mirror.write(chunk)
                 mirror.flush()
     finally:
+        stream.close()
+
+
+def _is_message_update_line(line: bytes) -> bool:
+    try:
+        event = json.loads(line)
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        return False
+    return isinstance(event, dict) and event.get("type") == "message_update"
+
+
+def _pump_with_preview(stream: Any, path: Path, mirror: Any) -> None:
+    """Write the raw stream to path (minus message_update deltas) while
+    mirroring a readable line-oriented preview to the pane/caller."""
+    renderer = PaneStreamRenderer(mirror, use_color=bool(getattr(mirror, "isatty", lambda: False)()))
+    pending = b""
+    try:
+        with path.open("wb") as handle:
+            for chunk in iter(lambda: stream.read(65536), b""):
+                pending += chunk
+                while b"\n" in pending:
+                    line, pending = pending.split(b"\n", 1)
+                    if not _is_message_update_line(line):
+                        handle.write(line + b"\n")
+                        handle.flush()
+                    renderer.feed_line(line)
+            if pending:
+                if not _is_message_update_line(pending):
+                    handle.write(pending + b"\n")
+                    handle.flush()
+                renderer.feed_line(pending)
+    finally:
+        renderer.flush()
         stream.close()
 
 
@@ -297,7 +416,7 @@ def run_worker_job(job: dict[str, Any], job_path: Path) -> dict[str, Any]:
         print(f"[pi-tmux] worker failed to start Pi: {error}", file=sys.stderr, flush=True)
         return status
     stdout_thread = threading.Thread(
-        target=_pump, args=(process.stdout, raw_output_path, sys.stdout.buffer)
+        target=_pump_with_preview, args=(process.stdout, raw_output_path, sys.stdout.buffer)
     )
     stderr_thread = threading.Thread(
         target=_pump, args=(process.stderr, stderr_path, sys.stderr.buffer)
@@ -635,7 +754,10 @@ def run_tmux_review(
         _fail(report, report_path, "Pi returned an empty response")
         raise AgentError(f"Pi returned an empty response; report: {report_path}")
     try:
-        model_output = decode_json_object(raw, "Pi review output")
+        model_output = decode_json_object(
+            extract_event_stream_output(raw, "Pi review output"),
+            "Pi review output",
+        )
         summary, output = _validate_findings(bundle, model_output, strict=strict)
     except ValidationError as error:
         _fail(report, report_path, str(error))
@@ -794,7 +916,10 @@ def run_tmux_remediation(
         _fail(report, report_path, message)
         raise AgentError(f"{message}; report: {report_path}")
     try:
-        output = decode_json_object(raw, "Pi remediation output")
+        output = decode_json_object(
+            extract_event_stream_output(raw, "Pi remediation output"),
+            "Pi remediation output",
+        )
         summary = _validate_remediation(bundle, review, output)
     except ValidationError as error:
         _fail(report, report_path, str(error))
@@ -955,7 +1080,10 @@ def run_tmux_translation(
         _fail(report, report_path, "Pi returned an empty response")
         raise AgentError(f"Pi returned an empty response; report: {report_path}")
     try:
-        output_value = decode_json_object(raw, "Pi output")
+        output_value = decode_json_object(
+            extract_event_stream_output(raw, "Pi output"),
+            "Pi output",
+        )
     except ValidationError as error:
         _fail(report, report_path, str(error))
         raise AgentError(f"{error}; Pi report: {report_path}") from error

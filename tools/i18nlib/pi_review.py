@@ -20,7 +20,7 @@ from .pi_agent import (
     DEFAULT_THINKING,
     _pi_environment,
 )
-from .proposal import decode_json_object
+from .proposal import decode_json_object, extract_event_stream_output
 from .report import atomic_write_bytes, create_run_directory, write_json
 from .review import (
     DEFAULT_REVIEW_TIMEOUT,
@@ -391,7 +391,7 @@ def build_review_command(
         "--thinking",
         thinking,
         "--mode",
-        "text",
+        "json",
         "--no-session",
         "--no-approve",
         "--no-context-files",
@@ -582,7 +582,12 @@ def run_pi_review(
         write_json(report_path, report)
         raise AgentError(f"Pi returned an empty response; report: {report_path}")
     try:
-        model_output = decode_json_object(result.stdout, "Pi review output")
+        model_output = decode_json_object(
+            extract_event_stream_output(
+                result.stdout, "Pi review output"
+            ),
+            "Pi review output",
+        )
         summary, output = _validate_findings(bundle, model_output, strict=strict)
     except ValidationError as error:
         report["error"] = str(error)

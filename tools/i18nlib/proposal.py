@@ -51,6 +51,52 @@ def decode_json_object(raw: bytes, label: str) -> dict[str, Any]:
     return value
 
 
+def extract_event_stream_output(raw: bytes, label: str) -> bytes:
+    """Extract the final assistant text from a pi `--mode json` event stream.
+
+    pi buffers `--mode text` output until completion, which makes tmux panes
+    look dead for minutes. `--mode json` streams one JSON event per line
+    (message_start/message_update/message_end) in real time, so the pane shows
+    live progress; the final assistant `message_end` carries the complete text.
+    Plain non-event output (fixtures, older runs) is returned unchanged.
+    """
+    saw_event = False
+    text_parts: list[str] = []
+    for line in raw.splitlines():
+        if not line.strip():
+            continue
+        try:
+            event = json.loads(line)
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            continue
+        if not isinstance(event, dict) or not isinstance(event.get("type"), str):
+            # plain JSON output (fixtures, non-event lines) is not a stream
+            continue
+        saw_event = True
+        if event.get("type") != "message_end":
+            continue
+        message = event.get("message")
+        if not isinstance(message, dict) or message.get("role") != "assistant":
+            continue
+        content = message.get("content")
+        if not isinstance(content, list):
+            continue
+        parts = [
+            block["text"]
+            for block in content
+            if (
+                isinstance(block, dict)
+                and block.get("type") == "text"
+                and isinstance(block.get("text"), str)
+            )
+        ]
+        if parts:
+            text_parts = parts
+    if not saw_event:
+        return raw
+    return "\n".join(text_parts).encode("utf-8")
+
+
 def read_json_object(path: Path, label: str) -> tuple[Path, dict[str, Any], bytes]:
     resolved = path.expanduser().resolve()
     try:

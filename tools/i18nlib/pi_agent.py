@@ -15,7 +15,7 @@ from typing import Any
 from . import TOOL_VERSION
 from .config import load_manifest
 from .errors import AgentError, I18nToolError, ValidationError
-from .proposal import decode_json_object, read_json_object, validate_proposal
+from .proposal import decode_json_object, extract_event_stream_output, read_json_object, validate_proposal
 from .report import atomic_write_bytes, create_run_directory, write_json
 from .workset import proposal_template_for, validate_workset
 
@@ -26,14 +26,14 @@ DEFAULT_THINKING = "high"
 MAX_WORKSET_ITEMS = 50
 
 
-def _credential_from_pi_auth(path: Path) -> str | None:
+def _credential_from_pi_auth(path: Path, provider: str = "opencode-go") -> str | None:
     try:
         value = json.loads(path.read_bytes())
     except (OSError, UnicodeDecodeError, json.JSONDecodeError):
         return None
     if not isinstance(value, dict):
         return None
-    credential = value.get("opencode-go")
+    credential = value.get(provider)
     if not isinstance(credential, dict) or credential.get("type") != "api_key":
         return None
     key = credential.get("key")
@@ -86,6 +86,20 @@ def _pi_environment(root: Path, provider: str) -> dict[str, str]:
                 "OPENCODE_API_KEY, or the codex-pi-opencode-go Keychain item"
             )
         environment["OPENCODE_API_KEY"] = key
+    if provider == "deepseek" and not environment.get("DEEPSEEK_API_KEY"):
+        auth_path = Path(
+            environment.get(
+                "PI_SUBAGENT_PI_AUTH_FILE",
+                str(Path.home() / ".pi" / "agent" / "auth.json"),
+            )
+        ).expanduser()
+        key = _credential_from_pi_auth(auth_path, provider="deepseek")
+        if key is None:
+            raise AgentError(
+                "no DeepSeek credential is available; configure Pi "
+                "(login with provider deepseek) or set DEEPSEEK_API_KEY"
+            )
+        environment["DEEPSEEK_API_KEY"] = key
     agent_directory = root / ".artifacts" / "i18n" / "pi-agent"
     agent_directory.mkdir(parents=True, exist_ok=True, mode=0o700)
     agent_directory.chmod(0o700)
@@ -125,7 +139,7 @@ def build_translation_command(
         "--thinking",
         thinking,
         "--mode",
-        "text",
+        "json",
         "--no-session",
         "--no-approve",
         "--no-context-files",
@@ -258,7 +272,10 @@ def run_pi_translation(
         _write_failure(report, report_path, "Pi returned an empty response")
         raise AgentError(f"Pi returned an empty response; report: {report_path}")
     try:
-        output_value = decode_json_object(result.stdout, "Pi output")
+        output_value = decode_json_object(
+            extract_event_stream_output(result.stdout, "Pi output"),
+            "Pi output",
+        )
     except ValidationError as error:
         _write_failure(report, report_path, str(error))
         raise AgentError(f"{error}; Pi report: {report_path}") from error
