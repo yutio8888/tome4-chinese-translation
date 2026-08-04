@@ -128,9 +128,10 @@ def publish_addon(
     locale_path.write_bytes(artifact_bytes)
 
     if bump:
-        init_text = init_path.read_text(encoding="utf-8")
+        init_bytes = init_path.read_bytes()
+        init_text = init_bytes.decode("utf-8")  # keep \r\n line endings
         new_init_text, _ = _bump_init_version(init_text)
-        init_path.write_text(new_init_text, encoding="utf-8")
+        init_path.write_bytes(new_init_text.encode("utf-8"))
 
     if commit:
         message = (
