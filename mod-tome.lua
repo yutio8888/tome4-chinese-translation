@@ -1704,7 +1704,7 @@ Sustained talents are turned on and left on.
 While active, a sustained talent produces some effects on the user that stay in effect until the talent is deactivated. Activating most sustained talents require the user to put aside some resources, which become unavailable until the talent is turned off.
 Deactivating a sustained talent causes it to go on cooldown.
 Specific information on each talent appears its tooltip.]], [[#GOLD#持续技能#LAST#
-持续技能可以调整开或关。
+持续技能一旦开启就会保持开启。
 当开启时，持续技能会在用户身上产生一些效果，这些效果会在技能关闭的时候失效。启用大多数持续技能需要用户暂时留出一定量的某项资源，这些资源在技能关闭之前将不可用。
 关闭持续技能会使其立刻进入冷却状态。
 有关技能的详细信息，请参阅技能的提示框。]], "_t")
@@ -9193,7 +9193,7 @@ t("icy vapors", "冰霜雾气", "_t")
 t("Blighted Maul", "枯萎之锤", "entity name")
 t("rotten stone limb", "腐烂的石化肢体", "_t")
 t("The massive stone limb of the Rotting Titan, a mass of stone and rotting flesh. You think you can lift it, but it is very heavy.", "这是腐化泰坦的一部分沉重肢体，一大块腐烂的石化躯体。你认为你可以轻易举起它，但事实证明，它重的不可思议。", "_t")
-t("Blasts creatures in a radius 1 shockwave around your target for %0.2f to %0.2f physical damage (based on Strength).", "制造半径 1 的冲击波，造成 %0.2f 到 %0.2f 物理伤害(基于力量)。", "tformat")
+t("Blasts creatures in a radius 1 shockwave around your target for %0.2f to %0.2f physical damage (based on Strength).", "在目标周围制造半径 1 的冲击波，轰击范围内的生物，造成 %0.2f 到 %0.2f 物理伤害（基于力量）。", "tformat")
 t("%s's %s shakes the ground with its impact!", "%s的%s震动了大地！", "logSeen")
 t("knock away other creatures within radius %d), dealing %0.2f to %0.2f physical damage (based on Strength) to each", "击退半径 %d 的生物，造成 %0.2f 到 %0.2f 物理伤害(基于力量)。", "tformat")
 t("%s slams %s %s into the ground, sending out a shockwave!", "%s将%s%s砸入地面，释放冲击波!", "logSeen")
@@ -32288,7 +32288,7 @@ This calls for urgency; should you find this Golbug or the portal, please invest
                #GOLD#-- Tolak, King of the Allied Kingdoms]], [[@playername@，这份报告极其重要。
 
 你留在最后的希望的法杖不见了。一群兽人伏击了正将它押送往秘密金库的守卫。
-我们的部队设法追上了其中的一个兽人，并强迫他开了口。
+我们的部队设法俘虏了其中一个兽人，并让他开了口。
 他知道的不多，但他提到了远东大陆的“主人”。
 他提到了高尔布格，貌似是瑞库纳的一个战士头领，带队将一个神秘的包裹穿过了传送门。
 
@@ -32413,7 +32413,7 @@ Attack them!
 如果目标不是敌对的你会和他交谈或者和他交换位置。
 
 近战攻击主要用到以下 5 个属性：
-* #GOLD#攻击#WHITE#：你的命中几率。
+* #GOLD#命中#WHITE#：你的命中几率。
 * #GOLD#伤害#WHITE#：你所造成的伤害值。
 * #GOLD#闪避#WHITE#：你躲闪攻击的几率。
 * #GOLD#护甲值#WHITE#：能减少的伤害量。
@@ -39196,7 +39196,7 @@ t("cute little bunny", "可爱的小白兔", "entity name")
 t("It looks at you with cute little eyes before jumping at you with razor sharp teeth.", "它用无辜的眼神看着你，同时用剃刀般锋利的牙齿扑向你。", "_t")
 t("(how pathetic)", "（真可怜！）", "_t")
 t("Snaproot", "远古树精", "entity name")
-t("This ancient Treant's bark is scorched almost black. It sees humanity as a scourge, to be purged.", "这棵远古树人焦黑的树皮几乎变成了黑色。它视人类为必须清除的祸害。", "_t")
+t("This ancient Treant's bark is scorched almost black. It sees humanity as a scourge, to be purged.", "这棵远古树人的树皮被烧得几乎焦黑。它视人类为必须清除的祸害。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/old-forest/objects.lua"

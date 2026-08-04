@@ -6,7 +6,7 @@ t("Kill your own Doomed Shade in the body of Bill.", "使用比尔的身体杀�
 t("Unneshasshhary Kryl'ty", "相爱相杀", "achievement name")
 t("Kill Kryl'Feijan with the body of Shasshhiy'Kaish, or vice-versa.", "使用卡洛·斐济的身体杀死莎西·凯希，或者使用莎西·凯希的身体杀死卡洛·斐济。", "_t")
 t("Unneshasshhary Kryl'ty (Redux)", "相爱相杀（重复）", "achievement name")
-t("Kill High Paladin Aeryn with the body of Sun Paladin John.", "使用太阳骑士约翰的身体杀死高阶圣骑士艾琳", "_t")
+t("Kill High Paladin Aeryn with the body of Sun Paladin John.", "使用太阳骑士约翰的身体杀死高阶太阳骑士艾琳", "_t")
 
 ------------------------------------------------
 section "tome-possessors/data/birth/psionic.lua"
@@ -33,7 +33,7 @@ t([[You imbue your offhand mindstar with wild psionic forces.
 		Each stack lasts for %d turns and deals %0.2f mind damage over the duration (max %d stacks).
 		If you do not have a one handed weapon and a mindstar equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[向副手灵晶灌注狂暴的灵能力量。
 		生效时，灵晶的精神强度和精神暴击几率增加 %d%% 。
-		每次攻击，都会给目标附加 1 层灵能瓦解效果。
+		每次近战攻击，都会给目标附加 1 层灵能瓦解效果。
 		每层效果持续 %d 回合造成 %0.2f 精神伤害 (最多 %d 层).
 		如果你没有装备单手武器和灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 t("Shockstar", "震撼之星", "talent name")
@@ -255,7 +255,7 @@ t([[You project ethereal fingers inside the target's brain.
 		This powerful effect uses 130%% of your Mindpower to try to overcome your target's initial mental save.
 		If you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[你在目标脑中投射空灵的手指。
 		持续 %d 回合总共造成 %0.2f 精神伤害并减少 %d 精神豁免。
-		这个强大的效果尝试使用 130%% 你的精神强度去对抗目标的精神豁免。
+		这个强大的效果尝试使用你 130%% 的精神强度去对抗目标的精神豁免。
 		如果你没有双持灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 t("Ghastly Wail", "恐怖嚎叫", "talent name")
 t([[You let your mental forces go unchecked for an instant. All foes in a radius %d are knocked 3 grids away from you.
@@ -316,7 +316,7 @@ t([[Using both your mind and your arms you propel your two handed weapon to deal
 t("Force Shield", "力场盾", "talent name")
 t([[You create a psionic shield from your weapon that prevents you from ever taking blows that deal more than %d%% of your maximum life and gives you %d%% evasion.
 		In addition, each time you take a melee hit the attacker automatically takes revenge strike that deals %d%% weapon damage as mind damage. (This effect can only happen once per turn)
-		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你通过你的武器创造力场盾，每次受到伤害时，伤害不会超过最大生命值 %d%% 并有 %d%% 回避攻击。
+		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你通过武器创造灵能力场盾，每次受到伤害时，伤害不会超过最大生命值 %d%%，并有 %d%% 的几率闪避攻击。
 		此外，每次受到近战攻击时，攻击者会受到 %d%% 武器精神伤害的反击，(每回合一次)
 		如果你没有装备双手武器，但在备用武器组里装备了它，你会立刻自动切换到那组武器。]], "tformat")
 t("Unleashed Mind", "心灵释放", "talent name")
@@ -325,7 +325,7 @@ t([[You concentrate your powerful psionic powers on your weapon and briefly unle
 		Any psionic clones in the radius will have its remaining time extended by %d turns.
 		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你将强大的灵能力集中在你的武器上,并短暂地释放你的愤怒。
 		半径 %d 内的敌人受到近战攻击造成 %d%% 武器精神伤害。
-		范围内的所有灵能克隆体将延长 %d 回合。
+		范围内所有灵能克隆体的剩余持续时间延长 %d 回合。
 		如果你没有装备双手武器，但在备用武器组里装备了它，你会立刻自动切换到那组武器。]], "tformat")
 t("Seismic Mind", "心灵地震", "talent name")
 t([[You shatter your weapon in the ground, projecting a psionic shockwave in a cone of radius %d.
@@ -354,7 +354,7 @@ t([[As long as you have at least a stack of Sadist whenever you take damage you 
 t("Radiate Agony", "痛苦辐射", "talent name")
 t("You need a Sadist stack to use this talent.", "你需要有一层虐待狂效果才能使用这一技能。", "logPlayer")
 t([[As long as you have at least a stack of Sadist you can radiate agony to all those you see in radius %d with 80%% or lower life left.
-		For 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you.]], [[当你至少有一层虐待狂效果时,你可以分享你的痛苦给半径 %d 所有可见的生命值 80%% 或更低的敌人。
+		For 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you.]], [[当你至少有一层虐待狂效果时,你可以将自己的痛苦分享给半径 %d 内所有可见的、生命值 80%% 或更低的敌人。
 		持续 5 回合，他们的头脑将如此专注于自己的痛苦，对你的伤害减少 %d%% 。]], "tformat")
 t("Torture Mind", "精神拷打", "talent name")
 t([[As long as you have at least a stack of Sadist you can mentally lash out at a target, sending horrible images to its mind.
