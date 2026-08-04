@@ -64,16 +64,19 @@ def already_done(bundle_id: str) -> bool:
     return False
 
 
-def run_one(bundle_path: str, retries: int, progress: Progress) -> tuple[str, bool]:
+def run_one(bundle_path: str, retries: int, progress: Progress, force: bool = False) -> tuple[str, bool]:
     bundle_id = Path(bundle_path).stem
-    if already_done(bundle_id):
+    if not force and already_done(bundle_id):
         progress.tick(True)
         return bundle_id, True
     delay = 10
+    cmd = [str(PI_REVIEW), "--bundle", bundle_path]
+    if force:
+        cmd.append("--force")
     for attempt in range(retries + 1):
         try:
             result = subprocess.run(
-                [str(PI_REVIEW), "--bundle", bundle_path],
+                cmd,
                 capture_output=True,
                 text=True,
                 timeout=1250,
@@ -106,6 +109,8 @@ def main() -> int:
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--skip", type=int, default=0)
     parser.add_argument("--retries", type=int, default=2)
+    parser.add_argument("--force", action="store_true",
+                        help="bypass cache and force fresh Pi review for every bundle")
     args = parser.parse_args()
 
     index = json.loads(args.index.read_text(encoding="utf-8"))
@@ -124,7 +129,7 @@ def main() -> int:
     started = time.time()
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futures = {
-            pool.submit(run_one, b["path"], args.retries, progress): b["bundle_id"]
+            pool.submit(run_one, b["path"], args.retries, progress, args.force): b["bundle_id"]
             for b in bundles
         }
         for future in as_completed(futures):
