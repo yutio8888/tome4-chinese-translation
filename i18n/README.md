@@ -86,7 +86,9 @@ provider，首次调用前仍需明确确认 provider、model 和数据范围；
 许可证说明（2026-08-04）：ToME4 与三个官方 DLC 均以 **GPL v3（or later）**
 发布（依据：`t-engine4/COPYING` 全文、各 DLC `init.lua` 头部声明）。GPL v3 §2
 允许不分发的任何使用，包括 AI 读取、分析与提取；仅分发衍生作品（含译文）时
-须遵守 §5（保留版权声明、GPL v3 兼容许可、提供对应源码）。提取来源已切换至
+须遵守 §5（保留版权声明、GPL v3 兼容许可、提供对应源码；发布仓库 tome-chn-mod 已于
+2026-08-04 随附 COPYING（GPL v3 官方全文）与 LICENSE（衍生作品声明，提交
+`29a0280`））。提取来源已切换至
 公开正式版 `/Users/yun/projects/tome4-dlcs/`（version 1.7.4；两处副本 t() src
 序列验证一致，cults/orcs 仅非 t() 内容差异）。受保护提取机制保留为可复现基线
 工具，不再视为闭源限制；快照含 origin 元数据，来源切换后 extract 若报基线
