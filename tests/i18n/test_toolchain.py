@@ -243,6 +243,32 @@ class AddonBuildTests(unittest.TestCase):
             component["delta_entries"],
         )
 
+    def test_publish_dry_run_does_not_touch_release_repository(self) -> None:
+        from i18nlib.publish import publish_addon
+
+        addon_root = self.manifest.repository_path("addon")
+        locale_file = addon_root / "data" / "locales" / "zh_hans.lua"
+        before = locale_file.read_bytes() if locale_file.is_file() else None
+        report = publish_addon(
+            self.manifest,
+            self.loader,
+            apply=False,
+            bump=False,
+            commit=False,
+        )
+        self.assertFalse(report["applied"])
+        self.assertTrue(report["new_entries"] > 0)
+        after = locale_file.read_bytes() if locale_file.is_file() else None
+        self.assertEqual(before, after)
+
+    def test_publish_bump_version_regex(self) -> None:
+        from i18nlib.publish import _bump_init_version
+
+        text = 'addon_version = {0,2,0}\n'
+        updated, version = _bump_init_version(text)
+        self.assertEqual(updated, "addon_version = {0,2,1}\n")
+        self.assertEqual(version, "0.2.1")
+
 
 class FormatTests(unittest.TestCase):
     def test_printf_tokenizer_skips_literal_percent(self) -> None:

@@ -19,6 +19,7 @@ from .lint import Issue, lint_documents, lint_terminology, load_policy
 from .locale_model import LocaleLoader
 from .merge import run_merge
 from .proposal import validate_proposal
+from .publish import publish_addon
 from .report import create_run_directory, write_json
 from .review import create_review_index, review_index_summary
 from .runtime import LuaRuntime
@@ -117,6 +118,30 @@ def _parser() -> argparse.ArgumentParser:
         "--require-complete",
         action="store_true",
         help="fail an addon build when any required component/layer is unavailable",
+    )
+
+    publish = subparsers.add_parser(
+        "publish",
+        help=(
+            "publish the core addon overlay into the release addon repository "
+            "(dry run by default; use --apply to write)"
+        ),
+    )
+    _add_common_arguments(publish)
+    publish.add_argument(
+        "--apply",
+        action="store_true",
+        help="write the artifact into the release repository (default: dry run)",
+    )
+    publish.add_argument(
+        "--bump",
+        action="store_true",
+        help="bump addon_version patch in release init.lua",
+    )
+    publish.add_argument(
+        "--commit",
+        action="store_true",
+        help="git add/commit the published files in the release repository",
     )
 
     merge = subparsers.add_parser(
@@ -663,6 +688,44 @@ def _proposal(arguments: argparse.Namespace) -> int:
     return 0
 
 
+def _publish(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    runtime = LuaRuntime(manifest)
+    runtime.doctor()
+    loader = LocaleLoader(runtime)
+    report = publish_addon(
+        manifest,
+        loader,
+        apply=arguments.apply,
+        bump=arguments.bump,
+        commit=arguments.commit,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"Release repository: {report['release_repository']}")
+        print(f"Locale file:        {report['locale_file']}")
+        print(
+            f"Entries:            {report['old_entries']} -> {report['new_entries']} "
+            f"(delta {report['delta_runtime_keys']} runtime keys)"
+        )
+        print(f"SHA-256:            {report['old_sha256'][:16]} -> {report['new_sha256'][:16]}")
+        if report.get("bump_addon_version"):
+            print(
+                f"addon_version:      {report['old_addon_version']} -> "
+                f"{report['new_addon_version']}"
+            )
+        if report["applied"]:
+            print(
+                f"Applied:            OK (verified {report['verified_entries']} entries)"
+            )
+            if report.get("release_head"):
+                print(f"Release HEAD:       {report['release_head']}")
+        else:
+            print("Applied:            dry run (re-run with --apply to publish)")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     arguments = _parser().parse_args(argv)
     try:
@@ -676,6 +739,8 @@ def main(argv: list[str] | None = None) -> int:
             return _status(arguments)
         if arguments.command == "build":
             return _build(arguments)
+        if arguments.command == "publish":
+            return _publish(arguments)
         if arguments.command == "merge":
             return _merge(arguments)
         if arguments.command == "workset":
