@@ -2241,7 +2241,7 @@ If you do not have any see invisible score you will never be able to see invisib
 t([[#GOLD#Detect Traps#LAST#
 Your power to find hidden traps. The higher it is, the more likely you are to notice a trap before setting it off  (based on its own detection score).
 If you do not have any detect traps score, you can not detect traps without triggering them.
-]], [[#GOLD#侦察陷阱#LAST#
+]], [[#GOLD#侦测陷阱#LAST#
 你发现隐藏陷阱的能力。该属性越高，你越有可能在触发陷阱之前就注意到它（取决于陷阱自身的侦测难度）。
 如果你没有任何侦测陷阱的能力，你将无法在不触发陷阱的情况下发现它们。
 ]], "_t")
@@ -2587,7 +2587,7 @@ t("Was teleported into Caldizar's Fortress, far into the void between the stars.
 t("Slimefest", "史莱姆狂欢节", "achievement name")
 t("Have 100 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的 100 面墙变成敌对生物。", "_t")
 t("Slime killer party", "史莱姆杀手聚会", "achievement name")
-t("Have 200 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的200个墙变成敌对生物。", "_t")
+t("Have 200 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的 200 面墙变成敌对生物。", "_t")
 t("Mad slime dash", "疯狂史莱姆冲刺", "achievement name")
 t("Have 300 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的300个墙变成敌对生物。", "_t")
 t("Don't mind the slimy smell", "别在意这股史莱姆味～", "achievement name")
@@ -7128,7 +7128,7 @@ t("annihilated", "被歼灭", "_t")
 t("disintegrated", "被分解", "_t")
 t("black-hole gravity", "黑洞引力", "damage type")
 t("%s is pulled in!", "%s 被拉了进去！", "logSeen")
-t("%s resists the gravity!", "%s 抵抗引力！", "logSeen")
+t("%s resists the gravity!", "%s抵抗了引力！", "logSeen")
 t("solar blood", "太阳之血", "damage type")
 
 ------------------------------------------------
@@ -7235,7 +7235,7 @@ section "mod-tome/data/general/events/conclave-vault.lua"
 t("Director Hompalan", "研究主管红帕兰", "_t")
 t([[Only crumbling bones are left of what once was the proud Director Hompalan, chief of this facility.
 Now those remains look at you with empty eyes but you can not mistake their intent.]], [[这个研究设施的主人，曾经如此高傲的研究主管红帕兰，现在已经只剩下摇摇欲坠的枯骨。
-尽管这具遗骸只剩下空洞无神的眼窝，但你绝不会弄错它们的意图。]], "_t")
+尽管这具遗骸只剩下空洞无神的眼窝，但你绝不会弄错它的意图。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/events/cultists.lua"
@@ -14094,7 +14094,7 @@ t("Atamathon, the giant golem", "阿塔玛森·傀儡之王", "_t")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. One of its eyes seems to be missing. At over 40 feet high it towers above you.
 Someone foolish has tried to reconstruct it, but it seems like it misses an eye to be completed.]], [[这尊巨型傀儡是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
-它的躯干是用大理石铸造，关节部分则灌入沃瑞钽衔接，双眼由纯净的红宝石构成。它的一只眼睛似乎已经失落。四十多尺高的巨像似乎默默的俯视着你。
+它的躯干是用大理石铸造，关节部分则灌入沃瑞钽衔接，双眼由纯净的红宝石构成。它的一只眼睛似乎已经失落。四十多英尺高的巨像似乎默默地俯视着你。
 一些蠢货似乎想要重塑他，但由于找不到那只眼睛而没有完成。]], "_t")
 
 ------------------------------------------------
@@ -28024,7 +28024,7 @@ t([[You draw electical potential energy from your surroundings to replenish your
 		This deals %0.1f (max %0.1f) Lightning damage to all targets around you within radius %d, and has a %d%% (max %d%%) chance to daze them for 3 turns.
 		You replenish %d (max %d) Psi from the first target, with each additional target restoring 20%% less than the one before it.
 		The strength of these effects increases as your Psi depletes and with your Mindpower.]], [[你从周围吸取电能，以补充自己的灵能值。
-		对半径 %d 格内的所有目标造成 %0.1f（最多 %0.1f）点闪电伤害，并有 %d%%（最多 %d%%）几率使其震慑 3 回合。
+		对半径 %d 格内的所有目标造成 %0.1f（最多 %0.1f）点闪电伤害，并有 %d%%（最多 %d%%）几率使其眩晕 3 回合。
 		从第一个目标处恢复 %d（最多 %d）点灵能值，此后每多一个目标，恢复量比前一个减少 20%%。
 		灵能值越低、精神强度越高，这些效果就越强。]], "tformat", {3,1,2,4,5,6,7})
 t("Insatiable", "贪得无厌", "talent name")
@@ -38480,7 +38480,7 @@ t("the remains of Atamathon", "阿塔玛森的遗骸", "entity name")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its sole eye of purest ruby; the other one seems to be missing. At over 40 feet tall, it towers above you.
 Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.]], [[这尊巨型傀儡是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
-它的躯干是用大理石铸造，关节部分则灌入沃瑞钽衔接，一只眼由纯净的红宝石构成。它的另一只眼睛似乎已经失落。四十多尺高的巨像似乎默默地俯视着你。
+它的躯干是用大理石铸造，关节部分则灌入沃瑞钽衔接，一只眼由纯净的红宝石构成。它的另一只眼睛似乎已经失落。四十多英尺高的巨像似乎默默地俯视着你。
 某个蠢货似乎想要重塑它，但由于找不到那只眼睛而没有完成。]], "_t")
 t("Atamathon", "阿塔玛森", "_t")
 t("It seems that your %s is made to fit inside the empty eye socket of Atamathon. This is probably very unwise.", "你手中%s的外形看上去似乎可以安装到阿塔玛森的空眼窝内，但也许这样做并不明智。", "tformat")
@@ -41962,7 +41962,7 @@ t("You can use a category point to unlock a new inscription slot (up to 5 slots)
 t("Prodigies", "觉醒技", "_t")
 t("Inscriptions", "刻印", "_t")
 t("You have learnt all the inscription slots you could.", "你已经解锁了所有的刻印位。", "_t")
-t("You can learn %d new slot(s). Do you wish to buy one with one category point?", "您可以解锁 %d 个新的刻印位。你希望用 1 个技能树解锁点解锁 1 个刻印位吗", "tformat")
+t("You can learn %d new slot(s). Do you wish to buy one with one category point?", "您可以解锁 %d 个新的刻印位。你希望用 1 个技能树点数解锁 1 个刻印位吗？", "tformat")
 t("Category points: %s", "技能树解锁点：%s", "tformat")
 t("You can still learn %d new slot(s) but you need a category point.", "你还可以学习 %d 个新的刻印位，但你需要一个技能树点数。", "tformat")
 t("Stats: %s", "属性: %s", "tformat")
