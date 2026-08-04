@@ -403,7 +403,7 @@ t([[#{italic}#More memories rush into your mind...#{normal}#
 
 That crystal.  That crystal is how they're keeping track of you, and it has most of what you helped them discover trapped within it.  If you break it, you'll be able to escape their notice for the first time since you arrived here, allowing you to get away without them finding you again, and as an added bonus you'll undo most of what you helped them accomplish.  You need to destroy it, then flee for your life!]], [[#{italic}#更多记忆涌入了你的脑海……#{normal}#
 
-“记住，这是你的幸运日，”你的“主人”带着你到一块巨大的闪耀水晶面前，“你非常合作，因此你将从一般实验中解放。现在你被提升为研究助理！”闻言，你欣喜若狂！“好了，现在我们需要先做一些事情。火焰防护在这，忠诚强化在那，标准化思维修改，呃，不过主要还是将你的意识链接到这里，”他一边说，一边指着水晶体,“有了这个，你看到的、听到的、嗅到的、尝到的、感觉到的全都能体现在这块美丽精巧的水晶里。不仅如此，不管你去哪，不管你想什么，都能记录下来，以供研究。”你突然发现自己能帮助他们研究如此之多！“站在那里别动，举起胳膊，这样我就能把它放好……”
+“记住，这是你的幸运日，<?=player.name?>，”你的“主人”带着你到一块巨大的闪耀水晶面前，“你非常合作，因此你将从一般实验中解放。现在你被提升为研究助理！”闻言，你欣喜若狂！“好了，现在我们需要先做一些事情。火焰防护在这，忠诚强化在那，标准化思维修改，呃，不过主要还是将你的意识链接到这里，”他一边说，一边指着水晶体,“有了这个，你看到的、听到的、嗅到的、尝到的、感觉到的全都能体现在这块美丽精巧的水晶里。不仅如此，不管你去哪，不管你想什么，都能记录下来，以供研究。”你突然发现自己能帮助他们研究如此之多！“站在那里别动，举起胳膊，这样我就能把它放好……”
 
 那块水晶，对，那就是他们追踪你的方式，同时也封存着你帮助他们取得的大部分发现。如果你摧毁了它，你就能避开他们的注意，逃出这里，不被他们发现，并抵消你帮助他们完成的大部分成果。你必须要摧毁它，然后逃跑！
 ]], "_t")

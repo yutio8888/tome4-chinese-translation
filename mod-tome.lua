@@ -2589,11 +2589,11 @@ t("Have 100 walls on the sludgenest turn into hostile creatures.", "让淤泥巢
 t("Slime killer party", "史莱姆杀手聚会", "achievement name")
 t("Have 200 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的 200 面墙变成敌对生物。", "_t")
 t("Mad slime dash", "疯狂史莱姆冲刺", "achievement name")
-t("Have 300 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的300个墙变成敌对生物。", "_t")
+t("Have 300 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的 300 面墙变成敌对生物。", "_t")
 t("Don't mind the slimy smell", "别在意这股史莱姆味～", "achievement name")
-t("Have 400 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的400个墙变成敌对生物。", "_t")
+t("Have 400 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的 400 面墙变成敌对生物。", "_t")
 t("In the company of slimes", "史莱姆大军", "achievement name")
-t("Have 500 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的500个墙变成敌对生物。", "_t")
+t("Have 500 walls on the sludgenest turn into hostile creatures.", "让淤泥巢穴中的 500 面墙变成敌对生物。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/achievements/infinite-dungeon.lua"
@@ -16096,7 +16096,7 @@ But Ralkur, in a last desperate effort, took on a pathetic and piteous form, and
 
 最后，他们来到了塔·埃亚尔的远岸，瑞尔克已经精疲力尽，耗光了所有的力量，他变回原型，翻滚着跌落在沙滩里。布兰伊尔从他身后的水中现身，旅途中积蓄的杀意让布兰伊尔的身形显得更加高大和无法匹敌，这个胆小的神灵只能面对逃亡的终结。布兰伊尔从刀鞘中抽出大剑玛卓斯，抵在了猎物的喉咙上。
 
-瑞尔克在最后的绝望中可怜的挣扎，他哭嚎着哀求布兰伊尔的怜悯，承诺永远的离开埃亚尔。布兰伊尔看着这位身陷如此境地、堕落至此的神明之形，心中涌起一丝感触，同意了瑞尔克的乞求。布兰伊尔用庄严的语气宣誓：“应所有凡人的意愿，你，瑞尔克必须从这个世界上消失！你必须抹除你对埃亚尔世界造成的一切影响，并永远不许回头！如果你忘记了对我的敬畏，背弃了我的信任，你将再也不敢大口喘气，不使用飞行术的话连一步也不敢迈出，你充满背叛的心脏每一次跳动都将被恐惧所占据！那时我必将找到你，追杀你至无尽的深渊，直至我的双手卡住你的喉咙，你的生命化为尘土前，永不停息！”他说出这番话时，海风陷入了沉默，天空变成了黑色，当一个夏·图尔庄严宣誓的时候，他的誓言将化为真理永远的改变这个世界的法则。瑞尔克听到这些话时，恐惧已经超出了他的极限，瑞尔克忘记了所有的疲惫，变成燕子飞窜而去，逃入云霄，消失在视线之外。]], "_t")
+瑞尔克在最后的绝望中可怜的挣扎，他哭嚎着哀求布兰伊尔的怜悯，承诺永远的离开埃亚尔。布兰伊尔看着这位身陷如此境地、堕落至此的神明之形，心中涌起一丝感触，同意了瑞尔克的乞求。布兰伊尔用庄严的语气宣誓：“应所有凡人的意愿，你，瑞尔克必须从这个世界上消失！你必须抹除你对埃亚尔世界造成的一切影响，并永远不许回头！如果你忘记了对我的敬畏，背弃了我的信任，你将再也不敢大口喘气，每迈出一步都只能是在奔逃，你充满背叛的心脏每一次跳动都将被恐惧所占据！那时我必将找到你，追杀你至无尽的深渊，直至我的双手卡住你的喉咙，你的生命化为尘土前，永不停息！”他说出这番话时，海风陷入了沉默，天空变成了黑色，当一个夏·图尔庄严宣誓的时候，他的誓言将化为真理永远的改变这个世界的法则。瑞尔克听到这些话时，恐惧已经超出了他的极限，瑞尔克忘记了所有的疲惫，变成燕子飞窜而去，逃入云霄，消失在视线之外。]], "_t")
 t("The Hunter and the Hunted chapter 3", "猎人与猎物　第三章", "_t")
 t([[Branzir returned to his people, and continued the hunt for the other gods, till but one god remained: Amakthel. Then the last great Godhunt began, as the Sher'Tul fought to overcome their maker and master. And this was no easy feat, for Amakthel was by far the strongest of all the gods, and many Sher'Tul were still loyal to their creator. Much blood was spilled before ever the assault on his throne could begin, and much blood would spill still after.
 
@@ -16248,7 +16248,7 @@ Some Sher'Tul relics have been found. Perhaps great profit to be had here! High 
 
 Some miners saying they feel ill, hrm hrm. The drem fools have likely been gorging on too much mead. Will deduct it from their pay, yes yes!
 
--- Foreman Tamoth]], [[经过了10天的深入考察，哈！最近的地震震开了新的深渊裂缝，但我们在进行主要作业前必须小心翼翼地确保其稳定。是的！开始的很顺利，机器在正确的位置安装好并且没有检测到可燃性气体，恩，恩，真不错。
+-- Foreman Tamoth]], [[经过了10天的深入考察，哈！最近的地震震开了新的深渊裂缝，但我们在进行主要作业前必须小心翼翼地确保其稳定。是的！开始得很顺利，支护已架设好，并且没有检测到可燃性气体，嗯，嗯，真不错。
 
 一些夏·图尔的遗迹被发现。也许这里潜藏着巨大的利益！是的是的，我们将在永恒精灵的市场大赚一笔。
 
@@ -16336,7 +16336,7 @@ t([[#{italic}#You find a folded up piece of paper with some notes on it...#{norm
 
 * 在死去的人中，有的身上有明显的'正常'创伤，而有的就是'毫无生气'或者'脸色苍白'。2个月前，贾克的死法也是如此诡异。
 
-* 袭击者都是灵魂或者是黑暗中的幻影。就我所知，每个人都遭遇过攻击，尽管一些人活下来了。我需要调查下死者们的生平经历。
+* 袭击者都是灵魂或者是黑暗中的幻影。就我所知，每个人都遭遇过攻击，尽管一些人活下来了。我需要查证一下他们的说法。
 
 * 当我问到此事时，人们通常会提到新雇佣的3个人。为什么会提到他们？我只听说贝里斯是这一代的英雄。阿尔瓦认为克里斯是一个烂人，据我所知，不止她一个人这么讲过。
 
@@ -16690,7 +16690,7 @@ Ah, the beating of my heart cannot be silenced. I must speak to Mirvenia, and te
 
 米雯尼雅在计划中起到了关键性的作用。她是一个战术天才，我完全被她的博学多才震惊了。然而有个奇怪的女人始终陪伴她左右，那个女人有着长长的头发、穿着丝质长袍——她的名字叫莱娜尼尔。我的一个部下发誓说他看到这个女人踏着一团火焰切入了战场，将她周围所有的兽人化为灰烬。大魔导师在我们中间令大家很不安，但是米雯尼雅说我们应该信任她。既然米雯尼雅这么说，我也必须相信她。
 
-她是一只了不起的力量，米雯尼雅，在各个军队中都备受欢迎。我觉得我的铁腕政策因她的出现而被抹平了。我作为一名将领太久太久，这冰冷的孤独感……
+她是一股了不起的力量，米雯尼雅，在各个军队中都备受欢迎。我觉得我的铁腕政策因她的出现而被抹平了。我作为将领度过了太久太久冰冷孤独的岁月……
 
 啊，我的心跳个不停。我必须告诉米雯尼雅，告诉她我的感受……我只希望她能懂得我的爱意。]], "_t")
 t([[#{italic}#6th of Flare, Year of Pyre 713#{normal}#
@@ -20715,7 +20715,7 @@ section "mod-tome/data/quests/strange-new-world.lua"
 t("Strange new world", "陌生的新世界", "_t")
 t("You arrived through the farportal in a cave, probably in the Far East.", " 你穿过了山洞的远古传送门，可能会到达远东大陆。", "_t")
 t("Upon arrival you met an Elf and an orc fighting.", " 你碰到了一个精灵在和一个兽人战斗。", "_t")
-t("You decided to side with the Elven lady.", "你决定帮助那个精灵。", "_t")
+t("You decided to side with the Elven lady.", "你决定帮助那位精灵女士。", "_t")
 t("You decided to side with the orc.", "你决定帮助那个兽人。", "_t")
 t("Fillarel told you to go to the southeast and meet with High Sun Paladin Aeryn.", " 菲拉瑞尔告诉你去东南方会见高阶太阳骑士艾琳。", "_t")
 t("Krogar told you to go to the west and look for the Kruk Pride.", " 克洛加尔告诉你去西面寻找克鲁克部落。", "_t")
