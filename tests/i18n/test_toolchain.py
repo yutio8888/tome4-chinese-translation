@@ -46,6 +46,7 @@ from i18nlib.merge import classify_merge
 from i18nlib.pi_agent import run_pi_translation
 from i18nlib.pi_remediate import run_pi_remediation
 from i18nlib.pi_review import _validate_findings, run_pi_review
+from i18nlib.pi_tmux import run_tmux_remediation, run_tmux_review, run_worker_job
 from i18nlib.proposal import validate_proposal
 from i18nlib.review import (
     REVIEW_CONTRACT,
@@ -1294,6 +1295,386 @@ print(json.dumps({
         self.assertTrue(report["ok"])
         self.assertEqual(report["summary"]["replace_translation"], 1)
         self.assertTrue(Path(report["remediation"]).is_file())
+
+
+FAKE_TMUX_SCRIPT = """#!/usr/bin/env python3
+import json
+import os
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+log = Path(os.environ["FAKE_TMUX_LOG"])
+state = Path(os.environ["FAKE_TMUX_STATE"])
+with log.open("a") as handle:
+    handle.write(json.dumps(sys.argv[1:]) + "\\n")
+command = sys.argv[1]
+if command == "has-session":
+    sys.exit(0)
+if command == "display-message":
+    fmt = sys.argv[-1]
+    if "{pane_dead}" in fmt:
+        job_dir = state.read_text().strip() if state.exists() else ""
+        dead = "1" if job_dir and (Path(job_dir) / "worker-status.json").exists() else "0"
+        print(dead)
+    elif "{session_name}" in fmt:
+        print("fake-session")
+    sys.exit(0)
+if command == "split-window":
+    shell_command = sys.argv[-1]
+    match = re.search(r"worker --job (\\S+)", shell_command)
+    job_dir = match.group(1) if match else ""
+    state.write_text(job_dir)
+    subprocess.Popen(
+        ["sh", "-c", shell_command],
+        stdin=subprocess.DEVNULL,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    print("%99")
+    sys.exit(0)
+if command in ("rename-pane", "kill-pane"):
+    sys.exit(0)
+sys.exit(0)
+"""
+
+
+FAKE_PI_REVIEW_SCRIPT = """#!/usr/bin/env python3
+import json
+import os
+import sys
+from pathlib import Path
+
+Path(os.environ["FAKE_PI_ARGUMENTS"]).write_text(
+    json.dumps(sys.argv[1:]), encoding="utf-8"
+)
+bundle_path = next(Path(value[1:]) for value in sys.argv[1:] if value.startswith("@"))
+bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
+print(json.dumps({
+    "schema_version": bundle["schema_version"],
+    "review_contract": bundle["review_contract"],
+    "bundle_id": bundle["bundle_id"],
+    "findings": [],
+}, ensure_ascii=False))
+"""
+
+
+class PiTmuxTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.manifest = load_manifest()
+
+    def _review_bundle(self, directory: Path) -> tuple[dict[str, object], Path]:
+        bundle = {
+            "schema_version": REVIEW_SCHEMA_VERSION,
+            "review_contract": REVIEW_CONTRACT,
+            "tool_version": TOOL_VERSION,
+            "version": self.manifest.version,
+            "manifest_sha256": hashlib.sha256(self.manifest.raw_bytes).hexdigest(),
+            "kind": "translations",
+            "component": "boot",
+            "items": [
+                {
+                    "item_id": "translation-tmux-fixture",
+                    "component": "boot",
+                    "section": "fixture/dialog.lua",
+                    "source": "%s has %d",
+                    "target": "%d 属于 %s",
+                    "source_tag": "tformat",
+                    "args_order": [2, 1],
+                    "special": None,
+                }
+            ],
+        }
+        bundle["bundle_id"] = _bundle_id(bundle)
+        bundle_path = directory / "bundle.json"
+        bundle_path.write_text(json.dumps(bundle, ensure_ascii=False), encoding="utf-8")
+        return bundle, bundle_path
+
+    def _fake_tmux(self, directory: Path) -> tuple[Path, Path]:
+        fake_tmux = directory / "fake-tmux"
+        fake_tmux.write_text(FAKE_TMUX_SCRIPT, encoding="utf-8")
+        fake_tmux.chmod(0o700)
+        tmux_log = directory / "tmux-log.jsonl"
+        tmux_state = directory / "tmux-state"
+        os.environ["FAKE_TMUX_LOG"] = str(tmux_log)
+        os.environ["FAKE_TMUX_STATE"] = str(tmux_state)
+        return fake_tmux, tmux_log
+
+    def _fake_pi_review(self, directory: Path) -> Path:
+        fake_pi = directory / "fake-pi-tmux-review"
+        fake_pi.write_text(FAKE_PI_REVIEW_SCRIPT, encoding="utf-8")
+        fake_pi.chmod(0o700)
+        os.environ["FAKE_PI_ARGUMENTS"] = str(directory / "pi-arguments.json")
+        return fake_pi
+
+    def test_tmux_review_runs_pi_in_pane_and_validates(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-tmux-test-") as temporary:
+            directory = Path(temporary)
+            _, bundle_path = self._review_bundle(directory)
+            fake_tmux, tmux_log = self._fake_tmux(directory)
+            fake_pi = self._fake_pi_review(directory)
+            report = run_tmux_review(
+                bundle_path=bundle_path,
+                provider="fixture",
+                model="fixture-model",
+                thinking="high",
+                timeout=60,
+                strict=True,
+                use_cache=False,
+                force=False,
+                pi_executable=str(fake_pi),
+                tmux_executable=str(fake_tmux),
+                session="fake-session",
+                fallback="error",
+            )
+            arguments = json.loads(
+                (directory / "pi-arguments.json").read_text(encoding="utf-8")
+            )
+            tmux_calls = [
+                json.loads(line) for line in tmux_log.read_text().splitlines()
+            ]
+        self.assertTrue(report["ok"])
+        self.assertEqual(report["execution"], "tmux")
+        self.assertEqual(report["pane"], "%99")
+        self.assertEqual(report["summary"]["findings"], 0)
+        self.assertEqual(report["attempts"], 1)
+        self.assertEqual(report["charged_or_possible_transfers"], 1)
+        self.assertEqual(report["cache_decision"], "disabled")
+        self.assertTrue(Path(report["review"]).is_file())
+        self.assertIn("--no-tools", arguments)
+        self.assertIn("--no-session", arguments)
+        self.assertIn("--no-context-files", arguments)
+        self.assertEqual(sum(value.startswith("@") for value in arguments), 1)
+        self.assertTrue(any(call[0] == "split-window" for call in tmux_calls))
+        self.assertTrue(any(call[0] == "select-pane" for call in tmux_calls))
+
+    def test_tmux_review_cache_hit_skips_pane(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-tmux-cache-test-") as temporary:
+            directory = Path(temporary)
+            _, bundle_path = self._review_bundle(directory)
+            fake_tmux, tmux_log = self._fake_tmux(directory)
+            fake_pi = self._fake_pi_review(directory)
+            provider = f"fixture-tmux-cache-{directory.name}"
+            first = run_tmux_review(
+                bundle_path=bundle_path,
+                provider=provider,
+                model="fixture-model",
+                thinking="high",
+                timeout=60,
+                strict=True,
+                use_cache=True,
+                force=False,
+                pi_executable=str(fake_pi),
+                tmux_executable=str(fake_tmux),
+                session="fake-session",
+                fallback="error",
+            )
+            cache_path = (
+                ROOT
+                / ".artifacts"
+                / "i18n"
+                / "cache"
+                / "pi-review"
+                / f"{first['result_cache_key']}.json"
+            )
+            try:
+                second = run_tmux_review(
+                    bundle_path=bundle_path,
+                    provider=provider,
+                    model="fixture-model",
+                    thinking="high",
+                    timeout=60,
+                    strict=True,
+                    use_cache=True,
+                    force=False,
+                    pi_executable=str(directory / "does-not-exist"),
+                    tmux_executable=str(fake_tmux),
+                    session="fake-session",
+                    fallback="error",
+                )
+            finally:
+                cache_path.unlink(missing_ok=True)
+            tmux_calls = [
+                json.loads(line) for line in tmux_log.read_text().splitlines()
+            ]
+        self.assertEqual(first["cache_decision"], "miss")
+        self.assertEqual(second["cache_decision"], "hit")
+        self.assertEqual(second["execution"], "cache")
+        self.assertIsNone(second["pane"])
+        self.assertEqual(second["attempts"], 0)
+        self.assertEqual(second["charged_or_possible_transfers"], 0)
+        self.assertEqual(
+            json.loads(Path(first["review"]).read_text(encoding="utf-8")),
+            json.loads(Path(second["review"]).read_text(encoding="utf-8")),
+        )
+        self.assertEqual(
+            sum(call[0] == "split-window" for call in tmux_calls), 1
+        )
+
+    def test_tmux_review_falls_back_to_foreground(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-tmux-foreground-test-") as temporary:
+            directory = Path(temporary)
+            _, bundle_path = self._review_bundle(directory)
+            fake_pi = self._fake_pi_review(directory)
+            previous_tmux = os.environ.pop("TMUX", None)
+            previous_pane = os.environ.pop("TMUX_PANE", None)
+            try:
+                report = run_tmux_review(
+                    bundle_path=bundle_path,
+                    provider="fixture",
+                    model="fixture-model",
+                    thinking="high",
+                    timeout=60,
+                    strict=True,
+                    use_cache=False,
+                    force=False,
+                    pi_executable=str(fake_pi),
+                    session=None,
+                    fallback="foreground",
+                )
+            finally:
+                if previous_tmux is not None:
+                    os.environ["TMUX"] = previous_tmux
+                if previous_pane is not None:
+                    os.environ["TMUX_PANE"] = previous_pane
+        self.assertTrue(report["ok"])
+        self.assertEqual(report["execution"], "foreground")
+        self.assertIsNone(report["pane"])
+        self.assertEqual(report["summary"]["findings"], 0)
+        self.assertTrue(Path(report["review"]).is_file())
+
+    def test_tmux_remediation_runs_in_pane_and_validates(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-tmux-remediate-test-") as temporary:
+            directory = Path(temporary)
+            _, bundle_path = self._review_bundle(directory)
+            review = {
+                "schema_version": REVIEW_SCHEMA_VERSION,
+                "review_contract": REVIEW_CONTRACT,
+                "bundle_id": json.loads(
+                    bundle_path.read_text(encoding="utf-8")
+                )["bundle_id"],
+                "review_id": "review-tmux-fixture",
+                "findings": [
+                    {
+                        "finding_id": "finding-tmux-fixture",
+                        "severity": "minor",
+                        "category": "translation",
+                        "item_id": "translation-tmux-fixture",
+                        "title": "fixture",
+                        "body": "fixture finding",
+                    }
+                ],
+            }
+            review_path = directory / "review.json"
+            review_path.write_text(
+                json.dumps(review, ensure_ascii=False), encoding="utf-8"
+            )
+            fake_tmux, _ = self._fake_tmux(directory)
+            fake_pi = directory / "fake-pi-tmux-remediate"
+            fake_pi.write_text(
+                """#!/usr/bin/env python3
+import json
+import sys
+from pathlib import Path
+
+bundle_path = next(
+    Path(value[1:]) for value in sys.argv[1:]
+    if value.startswith("@") and "bundle" in value
+)
+review_path = next(
+    Path(value[1:]) for value in sys.argv[1:]
+    if value.startswith("@") and "review" in value
+)
+bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
+review = json.loads(review_path.read_text(encoding="utf-8"))
+item = bundle["items"][0]
+print(json.dumps({
+    "schema_version": bundle["schema_version"],
+    "remediation_contract": "tome4-review-remediation-v1",
+    "bundle_id": bundle["bundle_id"],
+    "review_id": review["review_id"],
+    "proposals": [{
+        "finding_id": review["findings"][0]["finding_id"],
+        "item_id": item["item_id"],
+        "action": "replace-translation",
+        "source": item["source"],
+        "source_tag": item["source_tag"],
+        "original_target": item["target"],
+        "target": "%d 属于 %s",
+        "args_order": item["args_order"],
+        "special": item["special"],
+        "rationale": "fixture remediation",
+    }],
+}, ensure_ascii=False))
+""",
+                encoding="utf-8",
+            )
+            fake_pi.chmod(0o700)
+            report = run_tmux_remediation(
+                bundle_path=bundle_path,
+                review_path=review_path,
+                provider="fixture",
+                model="fixture-model",
+                thinking="high",
+                timeout=60,
+                strict=True,
+                pi_executable=str(fake_pi),
+                tmux_executable=str(fake_tmux),
+                session="fake-session",
+                fallback="error",
+            )
+        self.assertTrue(report["ok"])
+        self.assertEqual(report["execution"], "tmux")
+        self.assertEqual(report["pane"], "%99")
+        self.assertEqual(report["summary"]["replace_translation"], 1)
+        self.assertTrue(Path(report["remediation"]).is_file())
+
+    def test_tmux_worker_tees_streams_and_reports_timeout(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-tmux-worker-test-") as temporary:
+            directory = Path(temporary)
+            fake_pi = directory / "fake-slow-pi"
+            fake_pi.write_text(
+                """#!/usr/bin/env python3
+import sys
+import time
+print("streamed stdout")
+print("streamed stderr", file=sys.stderr)
+sys.stderr.flush()
+sys.stdout.flush()
+time.sleep(30)
+""",
+                encoding="utf-8",
+            )
+            fake_pi.chmod(0o700)
+            job_path = directory / "job.json"
+            job_path.write_text(
+                json.dumps(
+                    {
+                        "job_schema_version": 1,
+                        "tool_version": TOOL_VERSION,
+                        "kind": "review",
+                        "root": str(ROOT),
+                        "provider": "fixture",
+                        "cwd": str(directory),
+                        "argv": [str(fake_pi)],
+                        "timeout_seconds": 2,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            status = run_worker_job(
+                json.loads(job_path.read_text(encoding="utf-8")), job_path
+            )
+            raw = (directory / "raw-output.txt").read_text(encoding="utf-8")
+            stderr = (directory / "pi-stderr.txt").read_text(encoding="utf-8")
+            status_written = (directory / "worker-status.json").is_file()
+        self.assertTrue(status["timed_out"])
+        self.assertIn("Pi timed out", status["error"])
+        self.assertIn("streamed stdout", raw)
+        self.assertIn("streamed stderr", stderr)
+        self.assertTrue(status_written)
 
 
 if __name__ == "__main__":

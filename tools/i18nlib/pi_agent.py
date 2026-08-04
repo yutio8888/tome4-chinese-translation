@@ -106,6 +106,46 @@ def _write_failure(
     write_json(report_path, report)
 
 
+def build_translation_command(
+    *,
+    executable: str,
+    provider: str,
+    model: str,
+    thinking: str,
+    system_prompt: str,
+    workset_resolved: Path,
+    template_path: Path,
+) -> list[str]:
+    return [
+        executable,
+        "--provider",
+        provider,
+        "--model",
+        model,
+        "--thinking",
+        thinking,
+        "--mode",
+        "text",
+        "--no-session",
+        "--no-approve",
+        "--no-context-files",
+        "--no-skills",
+        "--no-prompt-templates",
+        "--no-themes",
+        "--no-extensions",
+        "--no-tools",
+        "--system-prompt",
+        system_prompt,
+        "--print",
+        f"@{workset_resolved}",
+        f"@{template_path}",
+        (
+            "Translate every workset item and return only the completed proposal "
+            "JSON object. Do not omit entries."
+        ),
+    ]
+
+
 def run_pi_translation(
     *,
     workset_path: Path,
@@ -173,34 +213,15 @@ def run_pi_translation(
         "raw_output": str(raw_output_path),
         "report": str(report_path),
     }
-    command = [
-        executable,
-        "--provider",
-        provider,
-        "--model",
-        model,
-        "--thinking",
-        thinking,
-        "--mode",
-        "text",
-        "--no-session",
-        "--no-approve",
-        "--no-context-files",
-        "--no-skills",
-        "--no-prompt-templates",
-        "--no-themes",
-        "--no-extensions",
-        "--no-tools",
-        "--system-prompt",
-        system_prompt,
-        "--print",
-        f"@{workset_resolved}",
-        f"@{template_path}",
-        (
-            "Translate every workset item and return only the completed proposal "
-            "JSON object. Do not omit entries."
-        ),
-    ]
+    command = build_translation_command(
+        executable=executable,
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        system_prompt=system_prompt,
+        workset_resolved=workset_resolved,
+        template_path=template_path,
+    )
     try:
         result = subprocess.run(
             command,

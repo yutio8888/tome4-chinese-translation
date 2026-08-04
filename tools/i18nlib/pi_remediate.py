@@ -138,6 +138,46 @@ def _validate_remediation(
     }
 
 
+def build_remediation_command(
+    *,
+    executable: str,
+    provider: str,
+    model: str,
+    thinking: str,
+    system_prompt: str,
+    bundle: dict[str, Any],
+    bundle_resolved: Path,
+    review_resolved: Path,
+    review_id: str,
+) -> list[str]:
+    inventory = [
+        {"item_id": item.get("item_id"), "path": item.get("path")}
+        for item in bundle.get("files", [])
+    ] if bundle.get("kind") == "code" else [
+        {"item_id": item.get("item_id")}
+        for item in bundle.get("items", [])
+    ]
+    return [
+        executable,
+        "--provider", provider,
+        "--model", model,
+        "--thinking", thinking,
+        "--mode", "text",
+        "--no-session", "--no-approve", "--no-context-files", "--no-skills",
+        "--no-prompt-templates", "--no-themes", "--no-extensions", "--no-tools",
+        "--system-prompt", system_prompt,
+        "--print", f"@{bundle_resolved}", f"@{review_resolved}",
+        (
+            "Process every supplied finding and return only one JSON object. "
+            "Use schema_version=1, remediation_contract='tome4-review-remediation-v1', "
+            f"bundle_id='{bundle['bundle_id']}', review_id='{review_id}'. "
+            "Do not use review_contract and do not return Markdown. "
+            "For patch-code, copy an exact item_id/path pair from this inventory: "
+            f"{json.dumps(inventory, ensure_ascii=False)}."
+        ),
+    ]
+
+
 def run_pi_remediation(
     *,
     bundle_path: Path,
@@ -190,32 +230,17 @@ def run_pi_remediation(
         "raw_output": str(raw_output_path),
         "report": str(report_path),
     }
-    inventory = [
-        {"item_id": item.get("item_id"), "path": item.get("path")}
-        for item in bundle.get("files", [])
-    ] if bundle.get("kind") == "code" else [
-        {"item_id": item.get("item_id")}
-        for item in bundle.get("items", [])
-    ]
-    command = [
-        executable,
-        "--provider", provider,
-        "--model", model,
-        "--thinking", thinking,
-        "--mode", "text",
-        "--no-session", "--no-approve", "--no-context-files", "--no-skills",
-        "--no-prompt-templates", "--no-themes", "--no-extensions", "--no-tools",
-        "--system-prompt", system_prompt,
-        "--print", f"@{bundle_resolved}", f"@{review_resolved}",
-        (
-            "Process every supplied finding and return only one JSON object. "
-            "Use schema_version=1, remediation_contract='tome4-review-remediation-v1', "
-            f"bundle_id='{bundle['bundle_id']}', review_id='{review['review_id']}'. "
-            "Do not use review_contract and do not return Markdown. "
-            "For patch-code, copy an exact item_id/path pair from this inventory: "
-            f"{json.dumps(inventory, ensure_ascii=False)}."
-        ),
-    ]
+    command = build_remediation_command(
+        executable=executable,
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        system_prompt=system_prompt,
+        bundle=bundle,
+        bundle_resolved=bundle_resolved,
+        review_resolved=review_resolved,
+        review_id=review["review_id"],
+    )
     try:
         result = subprocess.run(
             command,

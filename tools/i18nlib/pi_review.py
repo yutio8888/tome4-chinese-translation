@@ -367,6 +367,49 @@ def _write_cached_review(
     )
 
 
+def build_review_command(
+    *,
+    executable: str,
+    provider: str,
+    model: str,
+    thinking: str,
+    system_prompt: str,
+    bundle: dict[str, Any],
+    bundle_resolved: Path,
+) -> list[str]:
+    inventory = (
+        [item.get("item_id") for item in bundle.get("items", [])]
+        if bundle.get("kind") == "translations"
+        else [item.get("item_id") for item in bundle.get("files", [])]
+    )
+    return [
+        executable,
+        "--provider",
+        provider,
+        "--model",
+        model,
+        "--thinking",
+        thinking,
+        "--mode",
+        "text",
+        "--no-session",
+        "--no-approve",
+        "--no-context-files",
+        "--no-skills",
+        "--no-prompt-templates",
+        "--no-themes",
+        "--no-extensions",
+        "--no-tools",
+        "--system-prompt",
+        system_prompt,
+        "--print",
+        f"@{bundle_resolved}",
+        "Review only this bundle and return the required JSON object. Do not omit the envelope. "
+        "The exact allowed item_id inventory for this bundle is "
+        f"{json.dumps(inventory, ensure_ascii=False)}; copy item_id values verbatim, never use paths.",
+    ]
+
+
 def run_pi_review(
     *,
     bundle_path: Path,
@@ -481,37 +524,15 @@ def run_pi_review(
         report["elapsed_seconds"] = round(time.monotonic() - started, 6)
         write_json(report_path, report)
         raise AgentError(f"pi is not available on PATH; report: {report_path}")
-    inventory = (
-        [item.get("item_id") for item in bundle.get("items", [])]
-        if bundle.get("kind") == "translations"
-        else [item.get("item_id") for item in bundle.get("files", [])]
+    command = build_review_command(
+        executable=executable,
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        system_prompt=system_prompt,
+        bundle=bundle,
+        bundle_resolved=bundle_resolved,
     )
-    command = [
-        executable,
-        "--provider",
-        provider,
-        "--model",
-        model,
-        "--thinking",
-        thinking,
-        "--mode",
-        "text",
-        "--no-session",
-        "--no-approve",
-        "--no-context-files",
-        "--no-skills",
-        "--no-prompt-templates",
-        "--no-themes",
-        "--no-extensions",
-        "--no-tools",
-        "--system-prompt",
-        system_prompt,
-        "--print",
-        f"@{bundle_resolved}",
-        "Review only this bundle and return the required JSON object. Do not omit the envelope. "
-        "The exact allowed item_id inventory for this bundle is "
-        f"{json.dumps(inventory, ensure_ascii=False)}; copy item_id values verbatim, never use paths.",
-    ]
     report.update(
         {
             "attempts": 1,
