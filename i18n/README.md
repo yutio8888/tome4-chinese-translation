@@ -61,11 +61,24 @@ provider，首次调用前仍需明确确认 provider、model 和数据范围；
   核心发布基线。
 - `dlc-addon` 当前只包含 `ashes-urhrok`、`cults`、`orcs`，三者已登记受保护
   提取快照哈希。该层仍为 `baseline-pending`，不能被核心构建隐式继承。
+  **基线已验证（2026-08-04）**：`extract` 对三组件的快照 SHA-256 与条目数
+  与 manifest `source_baseline` 完全一致（ashes 999 / cults 2444 / orcs 4493 tDef），
+  基线可复现；DLC 层的构建路径仍待 `merge` 快照产物接入后启用。
 - `items-vault` 和 `possessors` 暂时忽略：规范译文文件仍保留并参与 lint，
   但 manifest 不再声明其受保护来源映射，也不把它们列为 addon 候选或发布层组件。
   后续恢复时应同时还原受保护来源映射、addon eligibility 和发布层归属。
-- `legacy-lore-addon` 与 `nullpack-addon` 是独立可选外部层。它们的来源、版本或
-  归属组件尚未固定，不计入核心 addon 的完整性判断。
+- `legacy-lore-addon` 与 `nullpack-addon` 是独立可选外部层，不计入核心 addon
+  的完整性判断；归属记录见 manifest `addon_external_requirements`：
+  - `nullpackreloaded`：译文快照固定于发布仓库 tome-chn-mod `8dd657d`
+    （`data/null_translation.lua`，464 个 `t()` 条目，section `nullpackreloaded`；
+    运行时挂钩在 `hooks/load.lua`，覆盖 `/data-nullpackreloaded` 物品与特殊物品）；
+    addon 上游源码/版本未固定。
+  - `legacy-lore-overlay`：2026-08-04 调查结论——tome-chn-mod 历史与引擎公开源码树
+    均无独立 legacy-lore 实体；来源与归属组件仍未固定，恢复前保持 optional。
+
+核心 artifact 独立验证（2026-08-04）：同一输入两次构建 SHA-256 一致
+（`aa712264…`，确定性构建）；产物在模拟 addon 运行时环境下经 LuaJIT 加载成功，
+共 4,158 个运行时条目。完整门禁一键运行：`tools/ci-gates.sh`。
 
 受保护组件的 baseline 只记录提取器 commit、规范化快照 SHA-256 和条目数量，不
 保存 DLC 源码路径、源码片段或原始解析日志。

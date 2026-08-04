@@ -88,10 +88,10 @@
 
 - [x] 将核心 `tome`、DLC 和外部覆盖层拆为独立发布边界，并让核心层通过严格构建。
 - [ ] 整理并提交当前术语、译文和回归测试批次；提交前对最终 diff 做一次有界独立复审。
-- [ ] 为当前 DLC 发布层中的 `ashes-urhrok`、`cults`、`orcs` 建立可验证的官方/源码基线；`items-vault`、`possessors` 仅在重新纳入发布范围时恢复来源映射并补建基线。
-- [ ] 为 `legacy-lore-overlay` 固定来源、版本和归属组件。
-- [ ] 为 `nullpackreloaded` 固定源码来源和版本，或拆成独立可选插件。
-- [ ] 在发布仓库工作区干净且归属明确后，生成并独立验证核心发布 artifact。
+- [x] 为当前 DLC 发布层中的 `ashes-urhrok`、`cults`、`orcs` 建立可验证的官方/源码基线（2026-08-04 extract 验证：快照 SHA-256 与 tDef 数与 manifest 一致）；`items-vault`、`possessors` 仅在重新纳入发布范围时恢复来源映射并补建基线。
+- [x] 为 `legacy-lore-overlay` 固定来源、版本和归属组件（2026-08-04 调查：tome-chn-mod 与引擎公开源码均无独立 legacy-lore 实体，结论记录于 manifest external_requirements 与 i18n/README）。
+- [x] 为 `nullpackreloaded` 固定源码来源和版本，或拆成独立可选插件（译文快照固定于 tome-chn-mod `8dd657d`：null_translation.lua 464 条目 + hooks/load.lua；上游 addon 版本未固定，保持 optional 层）。
+- [x] 在发布仓库工作区干净且归属明确后，生成并独立验证核心发布 artifact（核心 addon 确定性重建 SHA-256 一致 `aa712264…`；产物经 LuaJIT 加载验证 4,158 条目；`tools/ci-gates.sh` 一键门禁 10 步全过）。
 
 ### P1：翻译质量
 
