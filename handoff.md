@@ -109,7 +109,7 @@
 ### P0：发布基线
 
 - [x] 将核心 `tome`、DLC 和外部覆盖层拆为独立发布边界，并让核心层通过严格构建。
-- [ ] 整理并提交当前术语、译文和回归测试批次；提交前对最终 diff 做一次有界独立复审。
+- [x] 整理并提交当前术语、译文和回归测试批次；最终 diff 已完成有界独立复审，源码核验变体与 M4 dry-run 收敛批次提交为 `aa382da`。
 - [x] 为当前 DLC 发布层中的 `ashes-urhrok`、`cults`、`orcs` 建立可验证的官方/源码基线（2026-08-04 extract 验证：快照 SHA-256 与 tDef 数与 manifest 一致）；`items-vault`、`possessors` 仅在重新纳入发布范围时恢复来源映射并补建基线。
 - [x] 为 `legacy-lore-overlay` 固定来源、版本和归属组件（2026-08-04 调查：tome-chn-mod 与引擎公开源码均无独立 legacy-lore 实体，结论记录于 manifest external_requirements 与 i18n/README）。
 - [x] 为 `nullpackreloaded` 固定源码来源和版本，或拆成独立可选插件（译文快照固定于 tome-chn-mod `8dd657d`：null_translation.lua 464 条目 + hooks/load.lua；上游 addon 版本未固定，保持 optional 层）。
@@ -167,12 +167,12 @@ python3 -B tools/i18n quality validate --dry-run --sample <dry-run.json> --asses
 ## 七、当前分支与工作区范围
 
 - 当前分支：`codex/review-findings-20260802`。
-- 分支相对 `origin/master` 领先 146 个提交：工具链/术语库/测试批次、本轮 finding 处置 37 个（冻结 1 + blocker 1 + major 15 + minor 18 + note 2 + 遗漏补修 1，minor/note 批次中个别文件合并提交）、术语表系统工程与三轮 Pi 复审闭环、翻译质量系统 M0–M3 与 M4 dry-run 批次。
+- 分支相对 `origin/master` 领先 148 个提交：工具链/术语库/测试批次、本轮 finding 处置 37 个（冻结 1 + blocker 1 + major 15 + minor 18 + note 2 + 遗漏补修 1，minor/note 批次中个别文件合并提交）、术语表系统工程与三轮 Pi 复审闭环、翻译质量系统 M0–M3、M4 dry-run 与源码核验审核变体。
 - 本轮 finding 处置涉及文件：`engine.lua`、`mod-tome.lua`、`tome-ashes-urhrok.lua`、`tome-cults.lua`、`tome-orcs.lua`、`tome-addon-dev.lua`、`tome-possessors.lua`、`tome-items-vault.lua`、`mod-boot.lua`、`mod-example.lua`、`mod-example_realtime.lua`。
-- 当前工作区有未提交改动（源码核验变体 + 质量 M4 dry-run，待提交）：新增 `tools/i18nlib/pi_file_review.py`、`tools/pi-review-files`、`i18n/prompts/pi-reviewer-files.md`、`.agents/skills/tome4-pi-file-review/SKILL.md`；修改 `tools/i18nlib/pi_tmux.py`（新增 `review-files` 子命令）、`tools/i18nlib/quality.py`（`quality validate --dry-run`，adjudication 可选）、`tools/i18nlib/cli.py`、`tests/i18n/test_toolchain.py`（+10 测试）、`AGENTS.md`（新增变体入口说明）、`docs/translation-quality-phase-1.md`（M4 dry-run 状态）、`handoff.md`（本文）。门禁 1–5 全过（lint 0/0、102 项测试、碰撞扫描 0、diff 干净），冒烟验证 headless 与 tmux 两条路径均产出合法 `review.json`/`pi-review.json`，dry-run 冻结清单见 `.artifacts/i18n/quality/runs/*-dry-run/dry-run-frozen-manifest.json`；分支未配置 upstream，提交、推送和发布均尚未执行。
+- 当前工作区干净；源码核验变体 + 质量 M4 dry-run 收敛批次已提交为 `aa382da`：新增 `tools/i18nlib/pi_file_review.py`、`tools/pi-review-files`、`i18n/prompts/pi-reviewer-files.md`、`.agents/skills/tome4-pi-file-review/SKILL.md`，并完成 tmux 接入、dry-run validation 与 10 项回归测试。提交前门禁 1–5 全过（lint 0/0、102 项测试、碰撞扫描 0、diff 干净），冒烟验证 headless 与 tmux 两条路径均产出合法 `review.json`/`pi-review.json`；dry-run 冻结清单见 `.artifacts/i18n/quality/runs/*-dry-run/dry-run-frozen-manifest.json`。分支未配置 upstream，推送和发布均尚未执行。
 - 工作树状态快照：`remediation-queue.json` 的 `pending` 为 0（全部处置），`applied_pending_commit` 2,945、`already_resolved` 135；`remediation-ledger.json` 已关联 2,795 条处置记录。
 - 已处置但未改动规范文件的条目（有意保留）共 168 条：`already_resolved` 135（已含修复/与源码一致/术语裁决/代码基线已修复）+ `false_positive` 33（不采纳，原因均记录在台账 `verification_note`）。
 - 术语表系统工程（2026-08）：新增 `domain` 列（11 领域 + lint 白名单）、静态/动态审计、补录基础术语（资源/面板属性/免疫/高频词）、3 条 review 术语裁决、33+26 条同键多译统一、light 共享键裁决、重复运行键分类（1,717 全部跨文件合法重复）、`tools/scan_runtime_collisions.py` / `classify_runtime_keys.py` / `review_diff.py` / `pi-review-batch.py`。
 - 三轮 Pi 复审闭环（2026-08-03/04）：diff bundle 复审 3 轮，major 66→54→21→0，全部处置（含裁决保留）；处置记录在 `.artifacts/i18n/terminology-audit/findings_review{1,2,3}*.json`；worker 调优测试见 `docs/pi-review-worker-tuning.md`（最优 6 workers，4.2× 加速）。
 
-上述状态说明核心插件已通过本地发布门槛，首轮全量“发现”已完成并同步到 review 工作树；1,688 条新增 finding 已全部处置（blocker 2/2、major 565/565、minor 1,053/1,053、note 68/68），队列 `pending=0`；3 条 review 术语与 1,717 个重复运行键分类均已完成，质量 M4 dry-run 已冻结（正式 120 条双独立评价待做）；队列清零后的完整 doctor、lint、102 项测试、运行键门禁与核心严格 build 已通过，最终 diff 的五轮有界 Pi 复审及 finding 独立核验/修订已完成，当前待提交工作区批次。DLC 与外部层仍不属于已完成发布范围。
+上述状态说明核心插件已通过本地发布门槛，首轮全量“发现”已完成并同步到 review 工作树；1,688 条新增 finding 已全部处置（blocker 2/2、major 565/565、minor 1,053/1,053、note 68/68），队列 `pending=0`；3 条 review 术语与 1,717 个重复运行键分类均已完成，质量 M4 dry-run 已冻结（正式 120 条双独立评价待做）；队列清零后的完整 doctor、lint、102 项测试、运行键门禁与核心严格 build 已通过，最终 diff 的五轮有界 Pi 复审及 finding 独立核验/修订已完成，源码核验变体与 M4 dry-run 收敛批次已提交为 `aa382da`。DLC 与外部层仍不属于已完成发布范围。
