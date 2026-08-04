@@ -327,7 +327,7 @@ section "tome-orcs/data/chats/destructicus.lua"
 t("DESTRUCTICUS!", "“毁灭号！”", "_t")
 t("Fire Imp", "火焰小鬼", "_t")
 t("Steam Giant Airship", "蒸汽巨人飞船", "_t")
-t("#LIGHT_GREEN#*#{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# stands before you, and as much as it pains you to admit it, Kaltor's advertisement wasn't flattering enough.  This may be the most unreasonably lethal device you've ever seen.  The sunlight, gleaming off its voratun body, seems dull compared to the intensely glowing mass of unstable runes on its tip; its surface has the ornate grooves of a metal that has been psionically reforged through hours of migraine-inducing concentration.  The bayonet mounted on the launching tube just seems like gloating.  This particular model appears to be equipped with an enclosed, fireproof booth around its control panel, and a built-in tea dispenser in said booth, which your fellow orcs have already taken the liberty of filling with looted Dwarven ale.  It is truly a thing of beauty.*#WHITE#", "#LIGHT_GREEN#*#{bold}#裂天者 毁灭号#{normal}# 站在你面前，让你痛苦地承认，卡托尔的广告还远不够夸耀。这可能是你见过的最无端致命的设备。阳光照耀在它的沃瑞钽躯壳上，与它尖端那团散发着炽烈光芒的不稳定符文相比显得黯淡；它的表面有着华丽的沟槽，那是经过数小时令人头痛欲裂的专注心灵锻造重塑的金属。发射管上安装的刺刀仿佛在炫耀一般。这个型号似乎还配备了一个密封防火的控制舱，舱内有一台内置的自动饮水机，你的兽人同胞们已经擅自往里面灌满了抢来的矮人麦酒。这真是一件美得惊人的造物。*#WHITE#", "_t")
+t("#LIGHT_GREEN#*#{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# stands before you, and as much as it pains you to admit it, Kaltor's advertisement wasn't flattering enough.  This may be the most unreasonably lethal device you've ever seen.  The sunlight, gleaming off its voratun body, seems dull compared to the intensely glowing mass of unstable runes on its tip; its surface has the ornate grooves of a metal that has been psionically reforged through hours of migraine-inducing concentration.  The bayonet mounted on the launching tube just seems like gloating.  This particular model appears to be equipped with an enclosed, fireproof booth around its control panel, and a built-in tea dispenser in said booth, which your fellow orcs have already taken the liberty of filling with looted Dwarven ale.  It is truly a thing of beauty.*#WHITE#", "#LIGHT_GREEN#*#{bold}#裂天者 毁灭号#{normal}# 站在你面前，让你痛苦地承认，卡托尔的广告还远不够夸耀。这可能是你见过的最无端致命的设备。阳光照耀在它的沃瑞钽躯壳上，与它尖端那团散发着炽烈光芒的不稳定符文相比显得黯淡；它的表面有着华丽的沟槽，那是经过数小时令人头痛欲裂的专注心灵锻造重塑的金属。发射管上安装的刺刀仿佛在炫耀一般。这个型号似乎还配备了一个密封防火的控制舱，舱内有一台内置的茶饮机，你的兽人同胞们已经擅自往里面灌满了抢来的矮人麦酒。这真是一件美得惊人的造物。*#WHITE#", "_t")
 t("[continue]", "[继续]", "_t")
 t("#LIGHT_GREEN#*You enter the booth, sit down, and insert the key.  #{bold}#DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY#{normal}# whirrs to life, its base slightly rotating underneath you.  A strange beaded panel slides in front of you, pins pushing out and pulling back by magnetic force to display the outline of an airship (and a tiny speck), and the words #{italic}#\"AERIAL TARGETS FOUND: 2.\"#{normal}#*#WHITE#", "#LIGHT_GREEN#*你进入了操作室，坐好，插入钥匙。#{bold}#裂天者 毁灭号#{normal}# 启动了它的生命,它的基座开始运转。一块奇怪的珍珠板从你前方滑过，针伸了出来，被电磁力量控制，显示出飞船的轮廓（以及一个小黑点）与以下短语：#{italic}#“发现空中目标-数目：2”。#{normal}#*#WHITE#", "_t")
 t([[#LIGHT_GREEN#*#{italic}#"OBTAINING SCRYING LOCK...  OBTAINED."#{normal}#
@@ -357,7 +357,7 @@ The secondary charges from the warhead detonate, as burning debris falls into th
  
 A nagging thought in the back of your head insists that you now know how the Sun Paladins felt, how King Toknor felt, how the halflings felt, how everyone that has always committed such atrocities against the Orcs felt.  It can keep whining all it wants - your people are finally safe.*#WHITE#]], [[#LIGHT_GREEN#*让蒸汽巨人们逃离太过危险 - 你不能允许他们这样简单的离开，然后将来某日再实现其图谋, 消灭你的部落。你按下#{italic}#"上一名目标"#{normal}# 按钮，朝飞船开火。一阵巨大的轰鸣声和一道强烈的火光闪过，你从窗户里看见导弹朝目标飞去，飞向你视线远处，拥挤的飞船里惊恐的乘客那边。
 
-导弹到达了目的地，巨大的爆炸堵塞了你透过窗户的视线，令操作舱的光线变得黑暗低沉。
+导弹到达了目的地，巨大的爆炸堵塞了你透过窗户的视线，面板随之变暗。
 
 蒸汽巨人消失了。
 
@@ -511,7 +511,7 @@ t("Hail, @playername@!", "嘿, @playername@!", "_t")
 t("Our is free Metash, the tyrant is no more.", "我们自由了梅塔什，暴君被打败了！", "_t")
 t([[I came here to warn the Kruk Pride of the threat Nektosh poses and ask for their help, but they have some more immediate threats to deal with...  We should help them repel these Steam Giants.  They are the only people who have ever treated us with respect and dignity; if they are crushed by the Atmos Tribe or the Allied Kingdoms, we will surely be next.  Their success is our survival.
 
-Unfortunately, they cannot afford to spare the warriors to retake the Mana Caves from that tyrant, and I need to stay here to help them defend their land.  The task of freeing our clan is in your hands, when you feel ready for it.]], [[我来这里是为了警告克鲁克部落独角者纳克托什的危险，并请求他们的帮助。但他们有更迫切的威胁需要处理...我们应该帮他们抵抗蒸汽巨人。他们是唯一尊重我们的人，如果他们被气之部族或者联合王国摧毁，下一个就是我们。他们的成功就是我们的生存希望。
+Unfortunately, they cannot afford to spare the warriors to retake the Mana Caves from that tyrant, and I need to stay here to help them defend their land.  The task of freeing our clan is in your hands, when you feel ready for it.]], [[我来这里是为了警告克鲁克部落独角者纳克托什的危险，并请求他们的帮助。但他们有更迫切的威胁需要处理...我们应该帮他们抵抗蒸汽巨人。他们是唯一以尊重和尊严对待我们的人，如果他们被气之部族或者联合王国摧毁，下一个就是我们。他们的成功就是我们的生存希望。
 
 不幸的是，他们现在没有空闲的战士来帮我们从暴君手中夺回魔法洞穴。我需要留在这保护他们。解放我们氏族的任务就交给你了，做好准备去吧。]], "_t")
 t("Nektosh claims he is the invincible, omnipotent descendant of a unicorn, but I don't believe that bull for a second.  While the great magical power that suddenly awakened within him is as fearsome as it is insanity-inducing,  he has yet to use it to make a shield or teleport himself, and even with his all-powerful beam, his aim isn't always perfect...  I think he has a weakness he's trying to hide.  Fight with courage, fellow Whitehoof, and the Krimbul Clan may be free once more!", "独角者纳克托什声称他是无可战胜无所不能的独角兽后裔。但他说的每一句话我都不信。尽管他体内突然觉醒的魔法力量既强大得可怕又令人疯狂，但他还从未用它制造过护盾或传送自己；即便使用他那全能的射线，他的准头也不总是完美……我想他有个想要隐藏的弱点。勇敢战斗吧，我的白蹄伙伴，克林布尔氏族也许就能重获自由！", "_t")
@@ -565,7 +565,7 @@ t("Talent categories", "技能树", "_t")
 t("Talents", "技能", "_t")
 t("Improved core stats", "提升核心属性", "_t")
 t([[#LIGHT_GREEN#*The muscle tissue suddenly vanishes from your inventory.*#WHITE#
-Thank you @playername@, this is indeed a suitable specimen. We shall honor our bargain with you. What do you wish to learn?]], [[#LIGHT_GREEN#*肌肉组织突然消失了。*#WHITE#
+Thank you @playername@, this is indeed a suitable specimen. We shall honor our bargain with you. What do you wish to learn?]], [[#LIGHT_GREEN#*背包中的肌肉组织突然消失了。*#WHITE#
 感谢你@playername@，这确实是一份合适的样本。我们会履行与你的约定。你想学什么？]], "_t")
 t("What do you wish to learn?", "你想学什么?", "_t")
 t("You cannot use your %s anymore; it is tainted by magic.", "你不能再使用 %s ，它已被魔法所污染。", "logPlayer")

@@ -4812,7 +4812,7 @@ section "mod-tome/data/chats/conclave-vault-greeting.lua"
 
 t([[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately snap to attention. The one on the right speaks:*#WHITE#
 YOU!  Name, rank, and identification.  NOW.
-]], [[#LIGHT_GREEN#*当你进入这个房间时，你发现两个身形魁梧的食人魔站在你的面前，仿佛刚刚从无尽的长眠中醒来。他们在看到你的瞬间迅速立正，右边的一个向你大喊到:*#WHITE#
+]], [[#LIGHT_GREEN#*当你进入这个房间时，你发现两个身形魁梧的食人魔站在你的面前，仿佛刚刚从无尽的长眠中醒来。他们在看到你的瞬间迅速立正，右边的一个向你大喊道:*#WHITE#
 你是谁！立刻报上你的姓名、军衔、身份编号！
 ]], "_t")
 t("My what?", "我的什么？", "_t")
@@ -12098,7 +12098,7 @@ section "mod-tome/data/general/objects/staves.lua"
 t("weapon", "武器", "entity type")
 t("staff", "法杖", "entity subtype")
 t("staff", "法杖", "entity combat talented")
-t("Staves designed for wielders of magic, by the greats of the art.", "由艺术大师为魔法使用者设计的法杖。", "_t")
+t("Staves designed for wielders of magic, by the greats of the art.", "由魔法技艺大师为魔法使用者设计的法杖。", "_t")
 t("elm staff", "榆木法杖", "entity name")
 t("elm", "榆木", "entity short_name")
 t("ash staff", "白蜡法杖", "entity name")
@@ -20281,7 +20281,7 @@ t("The affairs of this mortal world are trifling compared to your true goal: To 
 t("Your studies have uncovered much surrounding this subject, but now you must prepare for your glorious rebirth.", "你关于这个主题的研究已经令你发现了很多东西，现在，你必须准备你辉煌的重生仪式。", "_t")
 t("You will need:", "你需要：", "_t")
 t("#LIGHT_GREEN#* You are experienced enough.#WHITE#", "#LIGHT_GREEN#* 你有足够的经验。#WHITE#", "_t")
-t("#SLATE#* The ceremony will require that you are worthy, experienced, and possessed of a certain amount of power (level 25, Magic over 50, Willpower over 25 and one prodigy point available).#WHITE#", "#SLATE#* 仪式要求你具备资格、经验丰富，并拥有足够的力量（达到 25 级、魔力至少 50、意志至少 25，且有 1 点可用的觉醒点）。#WHITE#", "_t")
+t("#SLATE#* The ceremony will require that you are worthy, experienced, and possessed of a certain amount of power (level 25, Magic over 50, Willpower over 25 and one prodigy point available).#WHITE#", "#SLATE#* 仪式要求你具备资格、经验丰富，并拥有足够的力量（达到 25 级、魔力超过 50、意志超过 25，且有 1 点可用的觉醒点）。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have 'extracted' the heart of one of your fellow necromancers.#WHITE#", "#LIGHT_GREEN#* 你已经取得了你死灵法师同类的心脏。#WHITE#", "_t")
 t("#SLATE#* The beating heart of a powerful necromancer.#WHITE#", "#SLATE#* 一个死灵法师跳动的心脏。#WHITE#", "_t")
 t("#LIGHT_GREEN#* Yiilkgur the Sher'tul Fortress is a suitable location.#WHITE#", "#LIGHT_GREEN#* 夏·图尔堡垒伊克格是个合适的地方。#WHITE#", "_t")
@@ -38289,7 +38289,7 @@ Now and then she seems to see something and her jaw pulls back, her whole face s
 t("and offered to her dark Master", "并为她的不死主人永世效忠", "_t")
 t("Filio Flightfond", "菲里奥·弗莱特冯德", "entity name")
 t([[A short, furtive-looking skeleton with padded feet. He moves quickly and silently, and seems to meld into the shadows with ease. In one hand he holds a sling, and the other a short dagger.
-There is a cunning air to his hollow skull, and his empty sockets reveal nothing of what tricks and tactics he has planned.]], [[一个矮小的、鬼鬼祟祟的骷髅，它的脚底有着一层肉垫。他迅捷而隐蔽，并且擅长融入黑暗。一只手拿着投石索，另一只手则拿着一柄匕首。
+There is a cunning air to his hollow skull, and his empty sockets reveal nothing of what tricks and tactics he has planned.]], [[一个矮小的、鬼鬼祟祟的骷髅，它的脚上裹着软垫。他迅捷而隐蔽，并且擅长融入黑暗。一只手拿着投石索，另一只手则拿着一柄匕首。
 他空洞的头骨透着一股狡黠的气息，而空荡荡的眼窝丝毫看不出他盘算着什么诡计与战术。]], "_t")
 
 ------------------------------------------------
@@ -39755,7 +39755,7 @@ section "mod-tome/data/zones/shertul-fortress-caldizar/zone.lua"
 t("Unknown Sher'Tul Fortress", "未知的夏·图尔堡垒", "_t")
 t("Unknown Sher'Tul Fortress (%s)", "未知的夏·图尔堡垒 (%s)", "tformat")
 t("Unknown the Sher'Tul Fortress", "未知的夏·图尔堡垒", "_t")
-t("With a sudden jolt you find yourself... somewhere familiar. The smooth walls and gentle lighting remind you of your fortress. And yet it feels different too. There is a gentle humming noise in the background, and your whole body feels light, almost weightless, such that the slightest movement propels you into the air. You have the odd feeling that you are not on Maj'Eyal any longer... From ahead you sense something both terrible and wonderful, and trepidation fills every corner of your being.", "随着突然的震动，你发现自己身处某个熟悉的地方。那光滑的墙壁和温暖的灯光提醒你这是你的堡垒。不过它仍然有所不同。背后传来轻柔的嗡嗡声，你感觉整个身体轻飘飘的，几乎像羽毛一样，似乎你轻轻的移动都能跃至半空。你有着一种奇异的感觉——你似乎不在马基·埃亚尔了……在你的前方你感到了某种可怕和完美，恐慌和奇妙感充满了你身心的每个角落。", "_t")
+t("With a sudden jolt you find yourself... somewhere familiar. The smooth walls and gentle lighting remind you of your fortress. And yet it feels different too. There is a gentle humming noise in the background, and your whole body feels light, almost weightless, such that the slightest movement propels you into the air. You have the odd feeling that you are not on Maj'Eyal any longer... From ahead you sense something both terrible and wonderful, and trepidation fills every corner of your being.", "随着突然的震动，你发现自己身处某个熟悉的地方。那光滑的墙壁和温暖的灯光提醒你这是你的堡垒。不过它仍然有所不同。背后传来轻柔的嗡嗡声，你感觉整个身体轻飘飘的，几乎像羽毛一样，似乎你轻轻的移动都能跃至半空。你有着一种奇异的感觉——你似乎不在马基·埃亚尔了……在你的前方你感到了某种既可怕又美妙的东西，恐惧充满了你身心的每个角落。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/slazish-fen/grids.lua"

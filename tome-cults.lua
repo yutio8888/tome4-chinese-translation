@@ -2546,7 +2546,7 @@ So, my approach has been to just keep trying different combinations until someth
 #{italic}#(这个列表上列举着的几乎所有的组合都打着叉，除了最后一行以外。令人奇怪的是，这个组合既没有打钩也没有打叉。也许，他已经没有机会去试试这个组合到底好不好了？)#{normal}#
 %s]], "tformat")
 t("the egress (2)", "出口 (2)", "_t")
-t("Some puzzle this is! I finally enter the right combination and it dumps me in some forsaken corner of the world! I don't even know what to make of my surroundings, they're utterly bizarre! Why did this have to happen to me? I was supposed to be the one who got in first and got the treasure... Now look at me! I've wandered all over this place, but I can't find any exit! It's like this entire place is conspiring to keep me trapped here!", "这是什么鬼谜题！我终于输入了正确的组合，结果它把我扔到了世界遗忘的角落！我甚至不知道周围的建筑是怎么建造出来的，真见鬼！为什么我要倒这种霉！我本来以为我是第一个到这里的，终于可以有机会搜刮财宝了…现在呢？我在这里到处游荡，结果连出口都找不到！这个地方简直就是为了困死我而设计出来的！", "_t")
+t("Some puzzle this is! I finally enter the right combination and it dumps me in some forsaken corner of the world! I don't even know what to make of my surroundings, they're utterly bizarre! Why did this have to happen to me? I was supposed to be the one who got in first and got the treasure... Now look at me! I've wandered all over this place, but I can't find any exit! It's like this entire place is conspiring to keep me trapped here!", "这是什么鬼谜题！我终于输入了正确的组合，结果它把我扔到了世界遗忘的角落！我甚至不知道该如何理解周围的环境，真见鬼！为什么我要倒这种霉！我本来以为我是第一个到这里的，终于可以有机会搜刮财宝了…现在呢？我在这里到处游荡，结果连出口都找不到！这个地方简直就是为了困死我而设计出来的！", "_t")
 t("the truth beyond the veil (1)", "穿透纱幕的真相 (1)", "_t")
 t([[Thought is treasure. Treasure thoughts. Spin fates, tell tales, words of gods, smith into fables. All that is can be rewritten and all writing is defined by what is. Cascades upon cascades which blend into reality, ever altering, ever changing, ever being, ever ceasing.
 
@@ -2753,7 +2753,7 @@ At talent level 3, your Decaying Devourers spell will summon 4 additional Devour
 At talent level 5, victims of your Horrific Display spell will pull enemies in radius 10 1 space towards them each turn.
 The damage increase is based on your Spellpower.]], [[ 你将你的恐魔和已死之神阿马克泰尔同化，增加恐魔 %d%% 伤害。
 		技能等级 3 后，你的腐败的吞噬者法术将额外召唤四名吞噬者在随机敌人周围，你的浮肿恐魔将学会极度痛苦。
-		技能等级 5 后，你的恐魔具现化的目标每回合会把范围 10 码内的敌人拉近 1 码。
+		技能等级 5 后，恐怖展示的受害者每回合会把范围 10 码内的敌人拉近 1 码。
 伤害加成受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -2959,7 +2959,7 @@ t([[You invoke a long standing pact with a fellow horror, a Worm that Walks, to 
 		Level 5:  Ring, Ring, Trinket
 
 		To change your horror's equipment and talents first transfer the equipment from your inventory then take control of it.]], [[你激活同蠕虫合体的契约，令其帮助你。
-		你可以完全控制、升级并装备它。
+		你可以完全控制、升级、更换它的装备和技能。
 		使用该法术将复活已死亡的单位，使其获得 %d%% 生命。
 		原始技能等级提升将带来更多装备格：
 		等级 1 ：主手 /副手武器
@@ -3294,7 +3294,7 @@ t([[Spin around, extending your weapon and damaging all targets around you for %
 		#YELLOW_GREEN#When constricting:#WHITE# Your tentacle attack is centered around your constricted target (but not your weapon attack) and only in radius 1 but it also dazes anything hit for 5 turns.]], [[飞速旋转，伸展武器对周围单位造成 %d%% 武器伤害，并且伸展触手对 3 码内单位造成 %d%% 触手伤害。
 		如果武器击中敌人，你获得 %d 疯狂值。
 		如果触手击中敌人，你获得 %d 疯狂值。
-		#YELLOW_GREEN# 当触手处于缠绕状态 :#WHITE# 你的触手攻击以被缠绕目标为中心展开，攻击范围只有 1 码，但是会使被击中单位眩晕 5 回合。]], "tformat")
+		#YELLOW_GREEN# 当触手处于缠绕状态 :#WHITE# 你的触手攻击以被缠绕目标为中心展开，攻击范围只有 1 码（武器攻击除外），但是会使被击中单位眩晕 5 回合。]], "tformat")
 t("Tendrils Eruption", "触手地狱", "talent name")
 t("%s resists the slimy tendril!", "%s抵挡了黏液触手！", "logSeen")
 t([[You plant your tentacle hand in the ground where it splits up and extends to a target zone of radius %d.
