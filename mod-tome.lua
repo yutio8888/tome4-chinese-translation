@@ -18829,7 +18829,7 @@ Within three months the Eldoral kingdom was broken, and refugees flooded south t
 
 这些早期的胜利来得相当容易，但随着战争深入，他们遭遇了更加激烈的抵抗，因为其他种族对他们的袭击有了更多预警。不过加库尔总能掌控局势，他的战略和战术攻破了一切防御。每次胜利后，总会燃起巨大的火堆，我们的军队则随着直冲寒冷夜空的火焰高唱凯歌。这些战斗后来被称为烈火战争，而征服之火也蔓延到了整个马基·埃亚尔。
 
-只用了三个月，艾德瑞尔王国便陨落了，难民们拼命的逃离致命的火炬，全部涌向了南部的纳格尔王国。在进一步攻打其他种族前，加库尔巩固了他的军队，在掠夺的土地上建立了新的基地。没有人能承受被他族侵略了如此长时间的种族怒火。几个世纪的压迫使我们变得坚强，复仇的火焰在我们心中升起出永不熄灭的玫瑰。]], "_t")
+只用了三个月，艾德瑞尔王国便陨落了，难民们拼命的逃离致命的火炬，全部涌向了南部的纳格尔王国。在进一步攻打其他种族前，加库尔巩固了他的军队，在掠夺的土地上建立了新的基地。没有人能承受被他族侵略了如此长时间的种族怒火。几个世纪的压迫使我们变得坚强，复仇的火焰在我们心中升起，永不熄灭。]], "_t")
 t([[#{bold}#Chapter Four: Conqueror of West and East#{normal}#
 
 #{italic}#"Our strength must come through our pride, and our pride must rise from our strength. Many are our powers and abilities, and we are unified in our pride of them. Be proud in our great race and revel in the glories we can achieve together."
@@ -33010,7 +33010,7 @@ section "mod-tome/data/texts/tutorial/stats-scale/scale12.lua"
 t([[This gets expensive! It's entirely possible-- even likely-- for a game-winning character to never have any #8d55ff#Tier 5#WHITE# scores.
 
 There are stairs ahead. Descend further into the #GOLD#Dungeon of Adventurer Enlightenment#WHITE# to learn how exactly #GOLD#combat stat#WHITE# scores affect gameplay.
-]], [[这代价可真大！对于这个游戏来说，很难将你的角色数据堆至 #8d55ff#层级5#WHITE# 。
+]], [[这代价可真大！一个通关角色完全可能——甚至很可能——没有任何一项属性达到 #8d55ff#层级5#WHITE#。
 
 前方有一段楼梯。继续深入 #GOLD#冒险者启蒙地下城#WHITE#，了解 #GOLD#战斗属性#WHITE#的数值如何影响游戏。
 ]], "_t")
