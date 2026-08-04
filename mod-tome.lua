@@ -6167,7 +6167,7 @@ t("sacrificing %s to stop the mad sun's plans", "牺牲 %s 以阻止疯狂太阳
 t([[<<<The precious seconds fly by, but as you feel your mind breaking and burning you see a strange figure appearing in front of you, it radiates of immense power.>>>
 <<<The strange, amorphous figure in front of you remains completely silent. With a gesture of one of its tendrils, the staff is ripped from your hands. A surge of energy goes through the room as it grips the staff. Then you remember the old myth of the Godslayers. This is none other than a ***Sher'Tul***#{italic}#, and it knows you have been colluding with a god. That alone tells you everything you need to know.>>>
 ]], [[<<<珍贵的数秒钟飞快地过去，你头痛欲裂燃烧不止的同时，看到前面出现了奇怪的身影，它充满了能量。>>>
-<<<站在你面前的怪异无定形生物保持着沉默。它伸出触手，法杖从你手中脱落。当它握住法杖时，一股能量充满了房间。这时，你想起了关于弑神者的古代传说。这是一个 ***夏图尔人***#{italic}#，它知道你和神明的密谋。这就是你现在需要知道的一切。>>>
+<<<站在你面前的怪异无定形生物保持着沉默。它伸出触手，法杖从你手中脱落。当它握住法杖时，一股能量充满了房间。这时，你想起了关于弑神者的古代传说。这是一个 ***夏·图尔人***#{italic}#，它知道你和神明的密谋。这就是你现在需要知道的一切。>>>
 ]], "_t")
 t("#CRIMSON#[Your mind is burnt by your patron sun! Fight for your sun god now!]", "#CRIMSON#[你的思维已被遥远太阳灼烧！为太阳神而战！]", "_t")
 t([[#LIGHT_GREEN#*The two Sorcerers lie dead before you.*#WHITE#
@@ -14413,7 +14413,7 @@ You must have aspirations. I am not content with just the rule of Dreadfell. No,
 做骷髅要有抱负。吾的目标可不光是对恐惧王座的统治而已。不久吾就会拥有更多，更多啊！吾将再次踏足地表，群山将为吾折服，大地将因吾沉陷。而那时的汝等又身居何职，难道那时的汝甘心做一名默默无闻的尸妖而已吗，吾期待汝等之中的杰出精英替我掌管妖鬼大军，一马平川横扫大陆，成就吾千秋霸业啊……]], "_t")
 t([[MINIONS: You are foolish sods. Have you heard of the great Kor'Pul? Perhaps not, because you know very little and he died long before you were so stupid as to be born. However, he was great and had the chance to be greater still. He let himself be cooped into a small hellhole and was destroyed when the right hero invaded it and destroyed his plaything. Now he is but a mere shade of his former glory.
 
-I shall not make this mistake. Be ready, for soon we shall march out upon the lands. Soon we shall conquer as even he could not. Pity the fool who thinks he can keep me stuck in even the grandest of pits, Dreadfell.]], [[奴才们：愚钝的汝等可曾听过伟大的卡·普尔的故事? 也许没有吧，因为他传奇的时代远在闭塞又狭隘的汝等出生以前。他当时是那样的不可一世的巫妖，并有机会变得更加伟大。但他居然作起了宅男，将自己龟缩在一个小小的迷宫之类，直到一名天命英雄侵入迷宫并摧毁了他的灵魂匣。现在它仅仅是徘徊在自己过去荣光中的阴影而已。
+I shall not make this mistake. Be ready, for soon we shall march out upon the lands. Soon we shall conquer as even he could not. Pity the fool who thinks he can keep me stuck in even the grandest of pits, Dreadfell.]], [[奴才们：愚钝的汝等可曾听过伟大的卡·普尔的故事? 也许没有吧，因为他传奇的时代远在闭塞又狭隘的汝等出生以前。他当时是那样的不可一世的巫妖，并有机会变得更加伟大。但他居然作起了宅男，将自己龟缩在一个小小的迷宫之类，直到一名天命英雄侵入迷宫并摧毁了他的玩物。现在它仅仅是徘徊在自己过去荣光中的阴影而已。
 
 吾绝不能重蹈他的覆辙。磨亮汝等的刀，清空汝等的肚腩，不久汝等将随吾以雷霆万钧之势冲上地表，征服一切。可怜那些以为哪怕是恐惧王座这般宏伟的深坑也能困住吾的蠢货。]], "_t")
 t([[MINIONS: To my newest vampire: burn, foolish adventurer, burn! I bet you are sorry for that flame spell now, aren't you? Suffer as I revisit it upon you.
@@ -15064,7 +15064,7 @@ But mine was just one voice, one torment, a single note in the great cacophony t
 
 又一股冲击波袭来，我试图强化我的护盾，然而这股力量太过强大，直接将我从地上连根拔起，掀飞出去。我被冲击波掀到空中，仿佛暴风中的一片树叶，只能在灾难中颤抖着试图保全自己。我们的军队在那一瞬间被彻底毁灭，无数士兵和法师被强大的能量烧成灰烬，撕成碎片。兽人的命运也是同样悲惨，大地的裂变将他们的军队吞噬，掉入无尽深渊。喷涌而出的岩浆直射而出，在被完全摧毁的大地上横贯几英里，形成了一条撕裂大地的死亡的河流。
 
-我不知道，我是怎么在这样恐怖的灾难中幸存的。巨大的冲击力无数次让我几乎失去意识，然而不知是什么样的韧性让我坚持集中注意力，不让自己的防护盾被攻击打破。灾难的景象渐渐在视野中变得模糊，我不知道包裹我的这个小小泡泡是否仍然在这篇充满火与血的空气中浮动，还是已经坠入了撕裂的大地中无人知晓的无尽深渊。在经过了对我来说如同一个世纪一样漫长的痛苦折磨之后，一阵阵的冲击波终于停止了。我发现我独自躺在一篇被撕裂烧灼的大地上，空气中弥漫着酷热。
+我不知道，我是怎么在这样恐怖的灾难中幸存的。巨大的冲击力无数次让我几乎失去意识，然而不知是什么样的韧性让我坚持集中注意力，不让自己的防护盾被攻击打破。灾难的景象渐渐在视野中变得模糊，我不知道包裹我的这个小小泡泡是否仍然在这片充满火与血的空气中浮动，还是已经坠入了撕裂的大地中无人知晓的无尽深渊。在经过了对我来说如同一个世纪一样漫长的痛苦折磨之后，一阵阵的冲击波终于停止了。我发现我独自躺在一片被撕裂烧灼的大地上，空气中弥漫着酷热。
 
 我挣扎着站起来，环顾四周，只看到四面八方的荒凉景象。蒸汽和烟雾从地面的裂缝中涌出，四周只剩下散落的血肉，残肢和灰烬。周围没有看到任何一个幸存者。在一瞬间的茫然中，我很快感受到了那份绝望：不久前站在这里的数十万人中，只剩下我一个幸存者。无论是朋友还是战友，无论是导师还是学生，无论是我从未认识的人还是我曾经非常接近的人——一切都逝去了。当我想到莱娜尼尔的时候，一股剧烈的痛苦刺穿了我的心房。她是不会死的，对吧？
 
@@ -27290,8 +27290,8 @@ t([[Your Feedback decay now heals you for %0.1f times the loss, and the decay ra
 		治疗效果受意志加成。]], "tformat")
 t("Resonance Field", "共鸣领域", "talent name")
 t([[Activate to create a resonance field that will absorb 50%% of all damage you take (%d max absorption).  The field will not interfere with Feedback gain.
-		The max absorption value will scale with your Mindpower, and the effect lasts up to ten turns.]], [[激活此技能可产生一个吸收所受全部伤害的 50%% 的共鸣领域（最大吸收值 %d ）。此领域不会干扰反馈值的增长。
-		最大吸收值受精神强度加成 
+		The max absorption value will scale with your Mindpower, and the effect lasts up to ten turns.]], [[激活此技能可产生一个吸收所受全部伤害 50%% 的共鸣领域（最大吸收值 %d）。此领域不会干扰反馈值的增长。
+		最大吸收值受精神强度加成。
 		此技能最多维持 10 回合。]], "tformat")
 t("Amplification", "强化反馈", "talent name")
 t([[Increases your maximum Feedback by %d, and increases your base Feedback gain ratio to %d%%.
@@ -34366,7 +34366,7 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
 新的力量#YELLOW#
 - 血染：让敌人流血！
 - 背光面：有光的地方就有阴影，你的阴影格外强大。
-- 憎恨：使用流血来操纵你的憎恨。
+- 憎恨：通过流血显现你的憎恨。
 - 挽歌：悲伤和死亡之歌，强化你的意志。#WHITE#
 调整的职业能力：#YELLOW#
 - 光辉系转变为黑暗光环：将憎恨投射到他人身上，阻碍他们。

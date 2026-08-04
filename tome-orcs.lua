@@ -1441,11 +1441,11 @@ t("heal %d", "治疗%d", "_t")
 t("%s pain suppressor salve", "%s 痛苦压制药剂", "tformat")
 t("let you fight up to -%%d life and reduces all damage by %d%%%% for %d turns (takes no time to activate)", "让你能继续战斗直到-%%d生命值，同时获得%d%%%%全体伤害抗性。效果持续%d回合，使用不消耗时间。", "tformat")
 t("%s frost salve", "%s 寒霜药剂", "tformat")
-t("remove %d physical effects and grants a frost aura (%s cold, darkness and nature affinity)", "清除%d项物理负面效果并制造寒霜光环，获得%s寒冷、暗影和自然伤害吸收。", "tformat")
+t("remove %d physical effects and grants a frost aura (%s cold, darkness and nature affinity)", "清除%d项物理负面效果并制造寒霜光环，获得%s寒冷、暗影和自然的亲和。", "tformat")
 t("%s fiery salve", "%s 烈火药剂", "tformat")
-t("remove %d magical effects and grants a fiery aura (%s fire, light and lightning affinity)", "清除%d项魔法负面效果并制造烈火光环，获得%s火焰、光系和闪电伤害吸收。", "tformat")
+t("remove %d magical effects and grants a fiery aura (%s fire, light and lightning affinity)", "清除%d项魔法负面效果并制造烈火光环，获得%s火焰、光系和闪电的亲和。", "tformat")
 t("%s water salve", "%s 静水药剂", "tformat")
-t("remove %d mental effects and grants a water aura (%s blight, mind and acid affinity).", "清除%d项精神负面效果并制造静水光环，获得%s枯萎、精神和酸性伤害吸收。", "tformat")
+t("remove %d mental effects and grants a water aura (%s blight, mind and acid affinity).", "清除%d项精神负面效果并制造静水光环，获得%s枯萎、精神和酸性的亲和。", "tformat")
 t("%s unstoppable force salve", "%s 势不可挡药剂", "tformat")
 t("increases all saves by %d and healing factor by half", "增加全豁免%d点，增加一半治疗系数", "_t")
 t("armor", "护甲", "entity type")
@@ -6331,7 +6331,7 @@ t("#Target# is not affected anymore by the salve.", "#Target# 不再受药剂影
 t("-Pain Suppressor", "-痛苦压制", "_t")
 t("frost", "冰冻", "effect subtype")
 t("Frost Salve", "寒霜药剂", "_t")
-t("Provides a frost aura, giving you +%d%% cold, nature and darkness affinity.", "提供寒霜光环，使你获得 +%d%% 寒冷、自然和暗影伤害吸收。", "tformat")
+t("Provides a frost aura, giving you +%d%% cold, nature and darkness affinity.", "提供寒霜光环，使你获得 +%d%% 寒冷、自然和暗影的亲和。", "tformat")
 t("#Target# uses a frost salve.", "#Target#使用了寒霜药剂。", "_t")
 t("+Frost Salve", "+寒霜药剂", "_t")
 t("-Frost Salve", "-寒霜药剂", "_t")
@@ -6767,15 +6767,15 @@ To be used with the medical injector implant.]], [[一种能暂时强化你身�
 需通过医疗注射器植入体使用。]], "_t")
 t("Frost Salve", "寒霜药剂", "_t")
 t([[A powerful salve that can clean physical detrimental effects from your body and grant a frost aura (cold, darkness and nature affinity).
-To be used with the medical injector implant.]], [[一个可以清除你身上的负面物理效果并获得一个寒霜光环（增加寒冷、暗影和自然伤害吸收）的强大药剂。
+To be used with the medical injector implant.]], [[一个可以清除你身上的负面物理效果并获得一个寒霜光环（增加寒冷、暗影和自然的亲和）的强大药剂。
 需通过医疗注射器植入体使用。]], "_t")
 t("Fiery Salve", "烈火药剂", "_t")
 t([[A powerful salve that can clean magical detrimental effects from your body and grant a fiery aura (fire, light and lightning affinity).
-To be used with the medical injector implant.]], [[一个可以清除你身上的负面魔法效果并获得一个烈火光环（火焰、光系、闪电伤害吸收）的强大药剂。
+To be used with the medical injector implant.]], [[一个可以清除你身上的负面魔法效果并获得一个烈火光环（火焰、光系、闪电的亲和）的强大药剂。
 需通过医疗注射器植入体使用。]], "_t")
 t("Water Salve", "静水药剂", "_t")
 t([[A powerful salve that can clean mental detrimental effects from your body and grant a water aura (blight, mind and acid affinity).
-To be used with the medical injector implant.]], [[一个可以清除你身上的负面精神效果并获得一个静水光环（枯萎、精神、酸性伤害吸收）的强大药剂。
+To be used with the medical injector implant.]], [[一个可以清除你身上的负面精神效果并获得一个静水光环（枯萎、精神、酸性的亲和）的强大药剂。
 需通过医疗注射器植入体使用。]], "_t")
 t("Unstoppable Force Salve", "势不可挡药剂", "_t")
 t([[A powerful salve that makes you more resilient to physical, mental and magic effects and grants increased healing.
