@@ -19062,7 +19062,7 @@ More have joined our cause. Their eyes have been opened to the injustice our peo
 Trust in his power, for he shall bring us all to glory.
 
 -- The Inquisitor]], [[闪光洞穴必须受到重点保护——我们的伟大领袖所下的命令，他的话比任何法律都更具有约束力。虽然我们的数量极少，并且我们行动隐蔽，但是在洞穴里放上一个固定的侦查之眼却是有必要的。任何被发现的人都必须被带到我们的力量大厅，来到我的面前接受审判。
-	更多的人加入了我们的伟大事业。他们亲眼见证了我们的人民所遭受的不幸以及魔法大爆炸所带来的灾难。他们已经厌倦了议会的怯懦，那帮小丑只会保持沉默。而我们却可以指点江山，向这个世界发泄我们的愤怒。但最重要的是他们被我们的伟大领袖所鼓舞，他通过研究魔法大爆炸来获得力量。只有他能挖掘我们的潜力，只有他才能看到我们真正的能力。他拯救了我，使我脱离苦海并感受他的伟大。只有他才能指引我们！在他的领导下，世界将会见证我们这股不容小觑的力量。相信他的力量，他会带来荣耀。
+	更多的人加入了我们的伟大事业。他们亲眼见证了我们的人民所遭受的不幸以及魔法大爆炸所带来的灾难。他们已经厌倦了议会的怯懦，那帮小丑只会保持沉默，而我们在世界各地被蔑视和仇视。但最重要的是他们被我们的伟大领袖所鼓舞，他通过研究魔法大爆炸来获得力量。只有他能挖掘我们的潜力，只有他才能看到我们真正的能力。他拯救了我，使我脱离苦海并感受他的伟大。只有他才能指引我们！在他的领导下，世界将会见证我们这股不容小觑的力量。相信他的力量，他会带来荣耀。
 
 -- 审判者]], "_t")
 t([[For too long we have been taught that the Spellblaze was a tragedy, that we are responsible for the deaths of millions and for suffering across the world. These are lies! Lies spread to defame us, to prevent our people from using magic to its rightful degree. The lesser races are jealous of our powers, of our amazing potential, and so they think to keep us underfoot, to stop us from ascending to our rightful place in the world. They fear us.
@@ -19363,7 +19363,7 @@ t([[#{italic}#Touching the conch makes it emit a sound. As you put it to your ea
 
 "什么？你确定你不是要——？如果其他人跟过来怎么办？"
 
-"噢，离开这，谁能赶上我俩？来吧～"
+"噢，在这儿谁会撞见我们？来吧～"
 
 "我，额，好吧，我想……我应该停止记录。"]], "_t")
 t("conch (2)", "海螺 (2)", "_t")
@@ -19417,7 +19417,7 @@ Your disobedient son]], [[亲爱的父亲，
 
 收到你的“叛徒”儿子的来信，你一定很高兴吧。不必太过担心；我和我的人一直很好地躲避着你那卑微的议会。我知道你有多在意自己在那些蠢货中的地位。
 
-我写信给你是因为我发现了一些很神奇的东西。在我开始旅途前我都没有想过，竟然能找到一个像这样完美的地方。它是魔法大爆炸残留下来的一部分，埃亚尔大陆特有构造的一块痕迹。多美啊！啊，这里还藏匿着什么惊天的力量！ 悠闲坐在石头大厅的您肯定想不到！
+我写信给你是因为我发现了一些很神奇的东西。在我开始旅途前我都没有想过，竟然能找到一个像这样完美的地方。它是魔法大爆炸残留下来的一部分，是埃亚尔世界构造上的一道伤疤。多美啊！啊，这里还藏匿着什么惊天的力量！ 悠闲坐在石头大厅的您肯定想不到！
 
 我能肯定关于魔法大爆炸的事您是错误的。看到的这些东西彻底开阔了我的眼界。我们祖先的成就是不能被完全否定的！它在释放出来如此强大的能量后，还能持续2646年。它还保存着这么多没有释放出来的能量！您可以继续漫谈他们所引起的破坏，但是我不得不认为您在夸大其词。兽人不也没被击败么？伟大的目标还是达到了。哦，你还要闲扯那些瘟疫和荒地，但是我已经看到了那些肮脏的人类是如何生存的，还有那些躲在阴暗洞穴里面的半身人。他们之中到处传播着鼠疫。还有，我似乎弄明白了，来一点物竞天择对于那些劣等种族来说只有好处。其实，我做了一些实验，正好证明了刚才的理论。哎呀，我想以您短浅的目光肯定只会对我的探险作呕。
 
@@ -19498,10 +19498,10 @@ Note that a spellweaver will doubtless deny any accusation against them, and wil
 * 动物们会警告他们的存在，尤其是狗
 * 农作物枯萎，牛奶变酸
 * 当他们存在时，会不断的发生争吵
-* 妇女的例假会更加频繁
+* 妇女的经血量会变得更大
 * 非自然和不可思议的事情在他们周围发生
 
-注意，当证据摆到巫师面前时，他们会表现出极大的情绪波动。不用通过繁琐的审判，他们应速速处决，否则他们会施展邪术或者用一些魔法的手段逃跑。]], "_t")
+注意，巫师受到指控时必定会矢口否认，但当证据摆在面前时，他们会表现出极大的情绪波动。不要拖延审判，迅速作出裁决，否则他们会施展邪术或用魔法手段逃跑。]], "_t")
 t("Spellhunter's Guide part 2: How to Battle a Magic-User", "猎魔人指南第二部分：怎样与法师战斗", "_t")
 t([[Those who rape the forces of nature with their malign wills doubtless unlock great powers to their advantage. We of noble cause, with our abilities aligned to nature's threads, can struggle to equal the terrible might of these unholy mages. But we must persist, for our cause is just, and the threat to this world from the terrors of the arcane evils cannot be under-stated. Too long has Eyal suffered the torture of their presence, and so we must fight with all the powers that nature can give us.
 
@@ -19539,11 +19539,11 @@ The best method, if time and situation allows, is to very slowly slice the caste
 
 有时也会让动物将其吞食，但不建议那么做，因为轻则会让动物严重腹泻，重则会使你面对一群受魔力使用者气息腐化、口吐烈焰的地狱犬。
 
-冰冻是无效的，没有任何一个法师会被冻死。尽管你可能听说过被冻死的传闻，但也许那个是假装的。
+冰冻是无效的，没有任何一个法师会被冻死。尽管你可能听说过有人被冻死的传闻，但他们要么根本不是法师，要么就是假装的。
 
 火刑在一些不发达的地区是最流行的，但要知道没有哪个巫师或法师会自愿被抓住，他们肯定想尽办法逃跑。只是简单的把柴火堆到一起就要消耗大量的时间，即使有准备好的柴火。通常处以火刑的都是一些魔法同情者，而非真正的魔法师。不过，客观地说，虽然严格来说这并不构成死罪，但足以警示他人，让法师们远离此地。
 
-最好的办法，如果时间和条件允许的话，是将施法者凌迟至死。法师必须被锁在密封的房间里，将他们的四肢紧紧绑住。每个人都应该从手指和脚趾处缓缓切割，再到四肢，最后到整个身体。不要切开头颅，防止其中的恶魔灵魂逃脱。头颅应与身体其余部分一起放入金属盒中焚毁 24 小时。这项工作需要极其锋利的工具；不必惊讶于刀具需要多次重新磨利，因为事先硬化自己的骨头正是术士的典型把戏。
+最好的办法，如果时间和条件允许的话，是将施法者凌迟至死。法师必须被锁在密封的房间里，用柳树皮或山毛榉木围绕他们的手腕和颅骨绑缚。每个人都应该从手指和脚趾处缓缓切割，再到四肢，最后到整个身体。不要切开头颅，防止其中的恶魔灵魂逃脱。头颅应与身体其余部分一起放入金属盒中焚毁 24 小时。这项工作需要极其锋利的工具；不必惊讶于刀具需要多次重新磨利，因为事先硬化自己的骨头正是术士的典型把戏。
 
 ]], "_t")
 
@@ -19606,7 +19606,7 @@ t([[Angolwen is too timid.  Too paranoid about repeating the mistakes of the pas
 My arguments have just gotten me blank stares and an increasing amount of whispering behind my back (aside from a young couple whose abrupt departure might've been inspired by a particularly passionate rant in response to a lecture on "ethics").  Some of them have even resorted to deflecting my arguments, blaming them on my lack of magical power and saying I've spent too much time working on my drolem!  They think they can inspire the world and protect it from danger without getting their hands dirty; the orc invasions proved that, no, they can't, and I fear that if the demons ever start arriving in full force, we'll be even more woefully unprepared for it.  We even cower from the Ziguranth, no matter how many people die from diseases our healers could cure if they could roam freely, and no matter how easily we could find a way around their defenses if we started capturing a few of their agents.
 
 Well, I won't have it.  I've been selling potions and inscriptions on the side for a couple of years now, in spite of Angolwen's regulations, and managed to amass enough money to set up a laboratory far away from Angolwen.  There, I intend to do the experiments my cowardly, squeamish peers won't.  I'm sure they won't approve, but I'm beyond caring - there are certain things we need to know before it's too late, and if a few zealots or criminals die in the process, it won't matter when my data saves countless lives in the long run.  Construction begins tomorrow - I've got three separate sets of contractors lined up to work on it, so none know the tower's full layout, and I've made arrangements with powerful merchants in Last Hope so I can conduct some of my experiments publicly (they want working portals for trade, and I convinced them I won't cause another Spellblaze trying to make one), providing a convenient cover story for the more...  controversial experiments.  I can have my drolem carry in sensitive equipment so I don't have to answer any problematic questions.  I will NOT escape one band of stuck-up fools just to have another confiscate bone-giants which I spent a fortune on.
-]], [[安格列文的人都是一群胆小鬼。一群只知道整天重复阐述着过去的错误的偏执狂。一群“谨慎”到只知空谈不知实干却又对别人指手划脚的人。他们只知道去避免那些微小的罪过，毫无大局观念。我已经一遍遍告诉它们我们先祖的错误并不是试着去启动夏·图尔传送门，而是试图在对其毫无了解的情况下试着将它作为武器——难道我们不能乘火打劫没收那些纳格尔王国的设施来获得更多研究资料，或者仅仅是绑架一些兽人探险队来作为我们最初的实验品？为什么非要让时局的绝望逼迫我们在充分了解夏·图尔人_之前_将半个世界炸烂？不，正是因为我们脑中那些“禁忌的魔法”“我们这样的凡人不能篡改这么强大的东西”那样陈腐的观念束缚了我们的思想，直到我们终于明白力量有多么重要。这就像一个和平主义者最终不得不拿起连枷自卫，结果不小心打烂了自己的脑袋。正是我们对知识的极度缺乏导致了这样可怕的灾难。
+]], [[安格列文的人都是一群胆小鬼。一群对重蹈过去覆辙过于偏执的人。一群“谨慎”到只知空谈不知实干却又对别人指手划脚的人。他们只知道去避免那些微小的罪过，毫无大局观念。我已经一遍遍告诉它们我们先祖的错误并不是试着去启动夏·图尔传送门，而是试图在对其毫无了解的情况下试着将它作为武器——难道我们不能乘火打劫没收那些纳格尔王国的设施来获得更多研究资料，或者仅仅是绑架一些兽人探险队来作为我们最初的实验品？为什么非要让时局的绝望逼迫我们在充分了解夏·图尔人_之前_将半个世界炸烂？不，正是因为我们脑中那些“禁忌的魔法”“我们这样的凡人不能篡改这么强大的东西”那样陈腐的观念束缚了我们的思想，直到我们终于明白力量有多么重要。这就像一个和平主义者最终不得不拿起连枷自卫，结果不小心打烂了自己的脑袋。正是我们对知识的极度缺乏导致了这样可怕的灾难。
 
 唉，可惜我的正义言论只受到了那些愚蒙之人的白眼和背后的议论，（除了一对年轻夫妇，他们的突然离开也许是受了我某次针对“道德”讲座的激烈抨击的启发。）他们中的某些野蛮人无法在论点上击败我，就只能从别的方面对我造谣污蔑，别有用心地指责我“魔法技巧不精”，说什么我在我那伟大的龙傀儡身上浪费了太多时间！那些蠢人自以为自己可以用他们“干净”的方法保护这个世界；而事实上，兽人的入侵已经证明了他们是一群眼高手低的无能之徒。并且，一旦恶魔们强大的侵略部队真的到达这里，我们根本没有办法与他们为敌——是啊，我们甚至在伊格兰斯面前卑躬屈膝，东躲西藏，如果我们可以自由地在这片土地上漫游，我们的治疗师本来可以消除世界上那么多的疾病和痛苦。并且，只需要抓住几个他们的走狗进行实验，我们很快就能知道到打破他们防御的方法。
 
@@ -19732,7 +19732,7 @@ We must never forget the terrors of the Great Evil, and the suffering brought up
 
 当我们的文明正在复苏，兽人的数量却在不断的增长，而且很明显他们也学会了那些阴暗的伎俩。数百年来，我们不断遭受着他们的攻击，只有种族联盟才让我们控制并消灭了他们。我们的教团在镇压他们的火焰法师和血法师方面至关重要，无数教众为了保卫西方的军队和城镇献出了生命。
 
-但我们现在还没有脱离危险。魔法依然存在，虽然他们经常是隐秘的。黑暗时代的记忆正在退去，炼金术士和附魔师们甚至大摇大摆地走在街上，毫不在意他们的先人给世界所带来的痛苦。但更糟糕的是——一些组织藏身于隐秘的位置，企图给马基·埃亚尔带来更大的毁灭。黑暗邪教悄悄地盛行，无辜的人被绑架，来进行肮脏的献祭仪式。我们尽最大的努力去搜捕这些恶徒，将他们连根拔除，终结他们的邪恶阴谋。但我们还需要更加努力，因为如果这些恶徒继续恣意妄为的话，将会给我们的世界带来更多的灾难。
+但我们现在还没有脱离危险。魔法依然存在，虽然他们经常是隐秘的。黑暗时代的记忆正在退去，炼金术士和附魔师们甚至大摇大摆地走在街上，毫不在意他们这类人给世界带来的痛苦。但更糟糕的是——一些组织藏身于隐秘的位置，企图给马基·埃亚尔带来更大的毁灭。黑暗邪教悄悄地盛行，无辜的人被绑架，来进行肮脏的献祭仪式。我们尽最大的努力去搜捕这些恶徒，将他们连根拔除，终结他们的邪恶阴谋。但我们还需要更加努力，因为如果这些恶徒继续恣意妄为的话，将会给我们的世界带来更多的灾难。
 
 我们绝不能忘记大邪恶的恐怖，以及那些选择用奥术力量腐蚀自然的人带给我们的苦难。旅途中要格外警惕，并牢记你的使命。我们的战争很艰难，但却是正义和真实的，只要一天不清除马基·埃亚尔的不洁魔法，我们就一天得不到安宁。我们是世界的守护者，依靠我们的力量以及自然同盟，我们将会拯救世界。
 
@@ -42307,7 +42307,7 @@ t("You must wear this object to use it!", "你必须装备这件物品才能使�
 t("Drop how many?", "丢下多少？", "_t")
 t("1 to %d", "1 到 %d", "tformat")
 t("Attach to item", "附加到物品", "_t")
-t("You do not have any equipped items that it can be attached to.", "你没有装备任何可以附加它的物品", "_t")
+t("You do not have any equipped items that it can be attached to.", "你没有已装备的、可供它附加的物品", "_t")
 t("Select which item to attach it to:", "选择要附加到哪个物品：", "_t")
 t("Really %s %s", "真的要 %s %s", "tformat")
 t("Tag object (tagged objects can not be destroyed or dropped)", "标记物品（被标记的物品无法丢下或摧毁）", "_t")
@@ -42343,7 +42343,7 @@ Check out the keybinding screen in the game menu to bind hotkeys to a key (defau
 Right click or press '~' to configure talent confirmation and automatic use.
 ]], [[你可以通过选中技能时按下对应快捷键，或右键点击技能，将非被动技能绑定到快捷键上。
 仔细检查一下游戏菜单中关于快捷键绑定的设置（默认情况下的快捷键是0～9，以及 Ctrl、Shift 或 Alt 与数字的组合键）。
-点击右键或者'~'键来设置。
+右键点击或按'~'键可配置技能确认和自动使用。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("Status", "状态", "_t")
@@ -42684,8 +42684,8 @@ Hotkeys: #GOLD#'F1'#LAST# :: context sensitive help, #GOLD#'C'#LAST# :: Working 
 ]], [[按筛选器随机生成物品，并创建随机神器。
 使用“生成”按钮生成物品用于预览和检查。
 使用“添加物品”按钮选择将物品放到哪里，并将其加入游戏。
-将鼠标悬停在控件上，可以预览生成的物品/使用的角色（请按#GOLD#'L'#LAST#键进行Lua检查。
-#SALMON#解析器#LAST#工作在工作角色上（默认：玩家），用于生成单个物品。
+将鼠标悬停在控件上，可以预览生成的物品/使用的角色（请按#GOLD#'L'#LAST#键进行 Lua 检查）。
+#SALMON#解析器#LAST#作用于工作角色（默认：玩家），用于生成单个物品。
 除非特别说明，它们使用#LIGHT_GREEN#随机筛选器#LAST#作为输入，并决定物品的去向。
 筛选器由ToME游戏引擎的实体/物品处理函数解析(game.zone:checkFilter等)。
 解析将会工作在_G环境下，这也是Lua控制台的工作环境，并使用当前地图的#YELLOW_GREEN#object_list#LAST#。
