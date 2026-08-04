@@ -141,10 +141,12 @@ python3 -B tools/i18n build --profile addon --require-complete --json
 ## 七、当前分支与工作区范围
 
 - 当前分支：`codex/review-findings-20260802`。
-- 分支相对 `origin/master` 领先 47 个提交：原工具链/术语库/测试批次 10 个，加本轮 finding 处置 37 个（冻结 1 + blocker 1 + major 15 + minor 18 + note 2 + 遗漏补修 1，minor/note 批次中个别文件合并提交）。
+- 分支相对 `origin/master` 领先 70+ 个提交：原工具链/术语库/测试批次 10 个，加本轮 finding 处置 37 个（冻结 1 + blocker 1 + major 15 + minor 18 + note 2 + 遗漏补修 1，minor/note 批次中个别文件合并提交），加术语表系统工程与三轮 Pi 复审闭环 25+ 个。
 - 本轮 finding 处置涉及文件：`engine.lua`、`mod-tome.lua`、`tome-ashes-urhrok.lua`、`tome-cults.lua`、`tome-orcs.lua`、`tome-addon-dev.lua`、`tome-possessors.lua`、`tome-items-vault.lua`、`mod-boot.lua`、`mod-example.lua`、`mod-example_realtime.lua`。
 - 当前工作区干净（无未提交改动、无已暂存文件）；分支未配置 upstream，提交、推送和发布均尚未执行。
 - 工作树状态快照：`remediation-queue.json` 的 `pending` 为 0（全部处置），`applied_pending_commit` 2,945、`already_resolved` 135；`remediation-ledger.json` 已关联 2,795 条处置记录。
 - 已处置但未改动规范文件的条目（有意保留）共 168 条：`already_resolved` 135（已含修复/与源码一致/术语裁决/代码基线已修复）+ `false_positive` 33（不采纳，原因均记录在台账 `verification_note`）。
+- 术语表系统工程（2026-08）：新增 `domain` 列（11 领域 + lint 白名单）、静态/动态审计、补录基础术语（资源/面板属性/免疫/高频词）、3 条 review 术语裁决、33+26 条同键多译统一、light 共享键裁决、重复运行键分类（1,717 全部跨文件合法重复）、`tools/scan_runtime_collisions.py` / `classify_runtime_keys.py` / `review_diff.py` / `pi-review-batch.py`。
+- 三轮 Pi 复审闭环（2026-08-03/04）：diff bundle 复审 3 轮，major 66→54→21→0，全部处置（含裁决保留）；处置记录在 `.artifacts/i18n/terminology-audit/findings_review{1,2,3}*.json`；worker 调优测试见 `docs/pi-review-worker-tuning.md`（最优 6 workers，4.2× 加速）。
 
 上述状态说明核心插件已通过本地发布门槛，首轮全量“发现”已完成并同步到 review 工作树；1,688 条新增 finding 已全部处置（blocker 2/2、major 565/565、minor 1,053/1,053、note 68/68），队列 `pending=0`；下一步按进度第 6 条执行队列清零后的完整 doctor、lint、39 项测试与核心严格 build，再对最终 diff 生成有界 Pi 复审，之后再审定 3 条 `review` 术语并分类 1,717 个重复运行键。DLC 与外部层仍不属于已完成发布范围。
