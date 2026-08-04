@@ -9337,7 +9337,7 @@ t("These blackened boots have lost all vestiges of any former glory they might h
 t("Withering Orbs", "枯萎眼球", "entity name")
 t("shadow-strung orbs", "阴影缠绕的眼球", "_t")
 t([[These opalescent orbs stare at you with deathly knowledge, undeceived by your vanities and pretences.  They have lived and died through horrors you could never imagine, and now they lie strung in black chords watching every twitch of the shadows.
-If you close your eyes a moment, you can almost imagine what dread sights they see...]], "这些泛着乳白色光芒的眼球用死亡般的知识凝视着你，你的虚荣和伪装欺骗不了它们。它们曾在你无法想象的恐惧中生生死死，如今被黑色丝线串起，注视着阴影的每一下颤动。如果你闭上眼睛片刻，几乎能想象出它们所见过的恐怖景象……", "_t")
+If you close your eyes a moment, you can almost imagine what dread sights they see...]], "这些泛着乳白色光芒的眼球用死亡般的知识凝视着你，你的虚荣和伪装欺骗不了它们。它们曾在你无法想象的恐惧中生生死死，如今被黑色丝线串起，注视着阴影的每一下颤动。\n如果你闭上眼睛片刻，几乎能想象出它们所见过的恐怖景象……", "_t")
 t("Borfast's Cage", "波法斯特的牢笼", "entity name")
 t("a suit of pitted and pocked plate-mail", "一套满是凹痕的板甲", "_t")
 t([[Inch-thick stralite plates lock together with voratun joints. The whole suit looks impenetrable, but has clearly been subjected to terrible treatment - great dents and misshaping warps, and caustic fissures bored across the surface.
@@ -12590,7 +12590,7 @@ t("glittering robe", "闪闪发光的长袍", "_t")
 t("A plain elven-silk robe. It would be unremarkable if not for the sheer power it radiates.", "朴素的精灵丝绸长袍。如果不是它放射出的惊人威力，它真的毫不起眼。", "_t")
 t("Temporal Augmentation Robe - Designed In-Style", "时空增益·引领时尚", "entity name")
 t("stylish robe with a scarf", "配有围巾的时髦长袍", "_t")
-t("Designed by a slightly quirky Paradox Mage, this robe always appears to be stylish in any time the user finds him, her, or itself in. Crafted to aid Paradox Mages through their adventures, this robe is of great help to those that understand what a wibbly-wobbly, timey-wimey mess time actually is. Curiously, as a result of a particularly prolonged battle involving its fourth wearer, the robe appends a very long, multi-coloured scarf to its present wearers.", "被有些古怪的时空法师设计出来，无论穿戴者在哪个时代，这袍子都显得格外时髦。它为协助时空法师冒险而制作。这件法袍对掌握时间多样性的人来说有着巨大的作用。有趣的是，由于它第四任主人参与了一场相当漫长的战斗，长袍上附带了一条很长的多彩围巾。", "_t")
+t("Designed by a slightly quirky Paradox Mage, this robe always appears to be stylish in any time the user finds him, her, or itself in. Crafted to aid Paradox Mages through their adventures, this robe is of great help to those that understand what a wibbly-wobbly, timey-wimey mess time actually is. Curiously, as a result of a particularly prolonged battle involving its fourth wearer, the robe appends a very long, multi-coloured scarf to its present wearers.", "被有些古怪的时空法师设计出来，无论穿戴者在哪个时代，这袍子都显得格外时髦。它为协助时空法师冒险而制作。这件法袍对擅长摆弄那团乱糟糟、缠来绕去的时间的人来说有着巨大的作用。有趣的是，由于它第四任主人参与了一场相当漫长的战斗，长袍上附带了一条很长的多彩围巾。", "_t")
 t("Oddly it never produces a hat.", "奇怪的是，它没有一顶帽子。", "_t")
 t("Un'fezan's Cap", "Un'fezan之帽", "entity name")
 t("red stylish hat", "时尚的红色毡帽", "_t")
@@ -12889,7 +12889,7 @@ t("totem", "图腾", "entity subtype")
 t("The Guardian's Totem", "守卫者图腾", "entity name")
 t("a cracked stone totem", "损坏的石头图腾", "_t")
 t("This totem of ancient stone oozes a thick slime from myriad cracks. Nonetheless, you sense great power within it.", "这个古老的石制图腾的石缝里不断涌出粘液。尽管如此，你仍能感受到它的巨大能量。", "_t")
-t("call forth an immobile antimagic pillar for 10 turns.  (It spits slime, pulls in, stuns, and burns the arcane resources of your foes, while emitting an aura of silence against them within range 5, and will silence you for 5 turns when first summoned.)", "召唤一个无法移动的反魔图腾10回合。（它可以喷吐史莱姆、拉拽、震慑并燃烧敌人的奥术资源，同时在5码范围内对它们施放沉默光环，并且首次召唤时会沉默你5回合。）", "_t")
+t("call forth an immobile antimagic pillar for 10 turns.  (It spits slime, pulls in, stuns, and burns the arcane resources of your foes, while emitting an aura of silence against them within range 5, and will silence you for 5 turns when first summoned.)", "召唤一个无法移动的反魔石柱 10 回合。（它可以喷吐史莱姆、拉拽、震慑并燃烧敌人的奥术资源，同时在5码范围内对它们施放沉默光环，并且首次召唤时会沉默你5回合。）", "_t")
 t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
 t("Stone Guardian", "石制守护者", "_t")
 t("This massive stone pillar drips with a viscous slime. Nature's power flows through it, obliterating magic all around it...", "这根巨大的石柱滴落着粘稠的粘液。自然之力在其中奔涌，湮灭周围的一切魔法……", "_t")
@@ -13231,7 +13231,7 @@ t("%s revels in the bloodlust of %s %s!", "%s激发了%s%s的嗜血渴望!", "lo
 t("Blood Charges: %d", "鲜血充能：%d", "tformat")
 t("Decayed Visage", "腐朽面容", "entity name")
 t("mask of mummified skin", "木乃伊皮面罩", "_t")
-t("A desiccated mask of human skin, all that remains of a necromancer from the Age of Pyre who failed to achieve lichdom.  The transformative process partially succeeded, leaving him unable to die as his body slowly rotted from the inside out over several years.  Now his spirit resides within this last bit of mummified flesh, still hungering for eternal life.", "一小片人皮面具，是烈火纪一位死灵法师的遗物。他试图变成巫妖，但是没有成功。他的身体逐渐腐烂，但由于未成功的法术而不能死去，就这样过了数年。现在，他的灵魂仍藏身于这小块皮肤中，渴求着永恒的生命。", "_t")
+t("A desiccated mask of human skin, all that remains of a necromancer from the Age of Pyre who failed to achieve lichdom.  The transformative process partially succeeded, leaving him unable to die as his body slowly rotted from the inside out over several years.  Now his spirit resides within this last bit of mummified flesh, still hungering for eternal life.", "一小片人皮面具，是烈火纪一位死灵法师的遗物。转化过程部分成功了：他的身体逐渐腐烂，却无法死去，就这样过了数年。现在，他的灵魂仍藏身于这小块皮肤中，渴求着永恒的生命。", "_t")
 t("Dream Malleus", "梦境之槌", "entity name")
 t("keening hammer", "哀号之锤", "_t")
 t("A large shimmering maul that seems to produce a ringing in your ears.  It is both as malleable as thought and as hard as the strongest steel.", "一个闪闪发光的大战槌，你的耳朵里似乎能听到它发出的鸣响。它既像思想一样可塑，又像最强的钢铁一样坚硬。", "_t")
@@ -13296,7 +13296,7 @@ t("Lightning Catcher", "雷电接收器", "entity name")
 t("coiled metal belt", "螺旋形金属腰带", "_t")
 t("A fine mesh of metal threads held together by a sturdy chain. Sparks dance across it.", "一圈细密的金属丝网由一条坚固的锁链串起。火花在其上跳跃。", "_t")
 t([[Taking lightning damage or making critical hits builds 2 energy charges, which give you +5% lightning damage and +1 to all stats.
-The charges decay at a rate of 1 per turn. Max 10 charges.]], [[受到雷电伤害或造成任意暴击时会获得 2 点充能，这些充能总共提供 5%% 雷电伤害加成和 1 点全属性。
+The charges decay at a rate of 1 per turn. Max 10 charges.]], [[受到雷电伤害或造成任意暴击时会获得 2 点充能，这些充能总共提供 5% 雷电伤害加成和 1 点全属性。
 充能每回合衰减 1 点，最多 10 点充能。]], "_t")
 
 ------------------------------------------------
@@ -24432,7 +24432,7 @@ t("Summon", "召唤", "_t")
 t([[While this ability is active, you will continually call up to %d level %d shadows to aid you in battle. Each shadow costs 5 hate to summon. Shadows are weak combatants that can: Use Arcane Reconstruction to heal themselves (level %d), Blindside their opponents (level %d), and Phase Door from place to place.
 		Shadows ignore %d%% of the damage dealt to them by their master.]], [[当此技能激活时，你可以召唤 %d 个等级 %d 的阴影帮助你战斗。每个阴影需消耗 5 点仇恨值召唤。
 		阴影是脆弱的战士，它们能够：使用奥术重组治疗自己（等级 %d ），使用闪电突袭攻击敌人（等级 %d ），使用相位之门进行传送。
-		阴影无视 %d%% 主人造成的伤害。]], "tformat")
+		阴影无视主人对它们造成的 %d%% 伤害。]], "tformat")
 t("Shadow Warriors", "阴影战士", "talent name")
 t("Instill hate in your shadows, strengthening their attacks. They gain %d%% extra Accuracy and %d%% extra damage. The fury of their attacks gives them the ability to try to Dominate their foes, increasing all damage taken by that foe for 4 turns (level %d, %d%% chance at range 1). They also gain the ability to Fade when hit, avoiding all damage until their next turn (%d turn cooldown).", [[将仇恨注入你的阴影，强化他们的攻击。他们获得 %d%% 额外命中和 %d%% 额外伤害加成。
 		他们疯狂的攻击可以令他们支配对手，提高被支配目标所受到的所有伤害 4 回合（等级 %d ， %d%% 几率 1 码范围）。
@@ -29040,7 +29040,7 @@ t([[Shatter all frozen targets in your line of sight, doing %0.2f cold damage.
 		If you are yourself Frozen, it will instantly be destroyed.
 		The damage will increase with your Spellpower.]], [[粉碎视野内所有被冻结的目标，造成 %0.2f 寒冷伤害。
 		根据目标品级，还会产生额外效果：
-		* 小怪会被立即杀死
+		* 小生物会被立即杀死
 		* 对普通品级目标的暴击率 +50%%
 		* 对精英或首领的暴击率 +25%%
 		所有受影响的敌人都会获得湿润效果。
@@ -29059,7 +29059,7 @@ t("Aura of Undeath", "不死光环", "talent name")
 t([[Your mastery of necromancy becomes so total that an aura of undeath radiates around you in radius %d.
 		Any undead minion standing inside of it is protected, increasing all their resistances by %d%%.
 		In addition when you create new minions they inherit %d%% of your spellpower (applied to any powers), spell crit chance (applied to any crit chances), saves, resists and damage increases (applied to all elements).
-		]], [[你对死灵法术的掌握是如此强大，你可以在周围 %d 码范围内放射出不死能量的光环。
+		]], [[你对死灵法术的掌握是如此强大，你可以在周围 %d 格范围内放射出不死能量的光环。
 		所有在光环内的不死随从会被光环保护，增加 %d%% 全体伤害抗性。
 		另外，当你创造不死随从的时候，它们会以 %d%% 比例继承你的法术强度（附加于所有强度），法术暴击率（附加于所有暴击率），豁免，抗性和伤害加成效果（附加于所有伤害加成）。
 		]], "tformat")
@@ -29097,7 +29097,7 @@ t([[By creating an arcane link with your minion army you are able to redirect pa
 t([[Your mastery of necromancy becomes so total that an aura of undeath radiates around you in radius %d.
 		Any undead minion standing inside of it is protected, increasing all their resistances by %d%%.
 		In addition when you create new minions they inherit %d%% of your spellpower (applied to any powers), spell crit chance (applied to any crit chances), saves, resists, and highest damage increase (applied to all elements).
-		]], [[你对死灵法术的掌握是如此强大，你可以在周围 %d 码范围内放射出不死能量的光环。
+		]], [[你对死灵法术的掌握是如此强大，你可以在周围 %d 格范围内放射出不死能量的光环。
 		所有在光环内的不死随从会被光环保护，增加 %d%% 全体伤害抗性。
 		另外，当你创造不死随从的时候，它们会以 %d%% 比例继承你的法术强度（附加于所有强度），法术暴击率（附加于所有暴击率），豁免，抗性和最高伤害加成效果（附加于所有伤害加成）。
 		]], "tformat")
@@ -29346,7 +29346,7 @@ t([[Surround yourself with a phantasmal shield of pure light.
 		If you do get hit, the shield glows brightly, sending triggering a flash of light on the attacker, dealing %0.2f light damage in radius %d around it and dazzling any affected creature (deal 10%% less damage) for 5 turns. This can only happen every %d turns.
 		The damage and ignore chance will increase with your Spellpower.]], [[使用纯净的光构成幻象护盾，保护你自己。
 		每当你受到伤害时，你有 %d%% 的几率瞬间变得虚无，完全无视这一伤害。
-		如果伤害未被无视而确实命中你，护盾会发出强光，在攻击者周围 %d 码范围内引发闪光，造成 %0.2f 光系伤害，并炫目所有受影响的生物（造成的伤害减少 10%%），持续 5 回合。这一效果最多每 %d 回合触发一次。
+		如果伤害未被无视而确实命中你，护盾会发出强光，在攻击者周围 %d 格范围内引发闪光，造成 %0.2f 光系伤害，并炫目所有受影响的生物（造成的伤害减少 10%%），持续 5 回合。这一效果最多每 %d 回合触发一次。
 		光系伤害和无视伤害几率受法术强度加成。]], "tformat", {1,3,2,4})
 t("Invisibility", "隐形", "talent name")
 t([[Weave a net of arcane disturbances around your body, removing yourself from the sight of all, granting %d bonus to invisibility for 7 turns.
@@ -31350,7 +31350,7 @@ t([[You like to keep your most precious tools always at hand. This talent lets y
 		你可以在战斗中使用这些工具。
 		此外，切换主/副武器(默认 Q 键)不再消耗回合。]], "tformat")
 t("Windblade", "剑刃风暴", "talent name")
-t("Have dealt over 50000 damage with dual wielded weapons", "曾使用双持武器累计造成至少 50000 点伤害", "_t")
+t("Have dealt over 50000 damage with dual wielded weapons", "曾使用双持武器累计造成超过 50000 点伤害", "_t")
 t("You spin madly, generating a sharp gust of wind with your weapons that deals 320%% weapon damage to all targets within radius 4 and disarms them for 4 turns.", "你挥动武器疯狂旋转，产生剑刃风暴，对 4 码范围内所有敌人造成 320%% 的武器伤害，并缴械它们 4 回合。", "tformat")
 t("Windtouched Speed", "和风守护", "talent name")
 t("Know at least 10 talent levels of equilibrium-using talents", "掌握至少10级使用失衡值的技能", "_t")
@@ -37966,7 +37966,7 @@ t("Necromancer", "死灵法师", "entity name")
 t("A Human dressed in black robes. He mumbles in a harsh tongue. He seems to think you are his slave.", "一位穿着黑色长袍的人类。他用刺耳的语言喃喃自语。他似乎认为你是他的奴隶。", "_t")
 t("Half-Finished Bone Giant", "未完成的骨巨人", "entity name")
 t([[A towering creature, made from the bones of hundreds of dead bodies. It is covered by an unholy aura.
-This specimen looks like it was hastily assembled and is not really complete yet.]], [[一只铁塔一样的怪物，由上百只尸体的骨头组成。它周身环绕着不洁的光环。
+This specimen looks like it was hastily assembled and is not really complete yet.]], [[一座铁塔一样的怪物，由数百具尸体的骨头组成。它周身环绕着不洁的光环。
 这个标本看起来像是仓促拼凑而成，尚未真正完成。]], "_t")
 t("fleshy experiment", "血肉试验品", "entity name")
 t("This pile of rotting flesh twitches and makes horrid noises.", "这团腐肉抽动着，发出可怕的噪音。", "_t")
