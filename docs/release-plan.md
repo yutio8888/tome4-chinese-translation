@@ -1,6 +1,8 @@
 # 对外公布方案（release plan）
 
-> 状态：草案，待用户决策后执行。当前两个仓库均无 remote。
+> 状态：选项 A 已执行（2026-08-04）。发布仓库已推送至
+> **https://github.com/yutio8888/tome4-chn-mod**（public，master @ `947e624`，
+> 含 README）。
 
 ## 一、发布内容
 
