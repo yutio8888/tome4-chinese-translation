@@ -13,12 +13,12 @@
 - Pi 处理审核意见入口为 `tools/pi-tmux remediate --bundle <bundle.json> --review <review.json>`（headless 可用 `tools/pi-remediate`）。该进程只能输出绑定到 finding/item 的 remediation proposal；主代理必须独立校验并应用修订，再重新运行审核，不得让 Pi 直接写规范 Lua 或代码。
 - 当用户要求开展 Pi 审核时（无论主代理是 Codex 还是 Pi），使用项目 Skill `$tome4-pi-review`；交互式审核默认在 tmux 分屏中运行，pane 保留至 `tmux kill-pane -t <pane>`。首次向外部 provider 发送 bundle 前，必须明确报告 provider、model、bundle 类型和条目数量并取得用户授权；不得用项目级全局网络放行绕过该授权。
 
-## 闭源 DLC 输入边界
+## DLC 源码输入（GPL v3 公开）
 
-- `/Users/yun/projects/t-engine4/game/dlcs` 及 `TOME_DLC_ROOT` 指向的目录是闭源受保护输入。代理不得用 `ls`、`find`、`rg`、`grep`、`cat`、`sed`、Git 命令、Python/Node 文件 API 或编辑器直接读取、枚举或搜索其中的文件和目录。
-- 只有仓库内受审计的 Lua 提取脚本可以读取受保护目录。非 Lua 调度层只能传入预先声明的组件路径，且只能读取 Lua 生成的文本快照和去敏摘要。
-- 受保护提取不得保存或显示源码、源码片段、原始解析日志、绝对 DLC 路径或未声明的目录清单。解析失败必须静默、失败关闭，只报告组件和错误类别。
-- Pi 翻译、Pi 审核、其他 subagent 以及人工审校输入都不能获得受保护源码路径或文件读取工具。翻译审校只能接收规范翻译条目的有界 bundle；代码审校只能接收去除绝对路径后的公开代码 diff。任何审核结果都只能写入 `.artifacts/i18n/`，不得自动应用到规范 Lua 或代码。
+- ToME4 及三个官方 DLC（Ashes of Urh'Rok、Cults of Entropy、Embers of Rage）以 **GPL v3（or later）** 发布，源码可自由读取、分析、提取。许可证依据：`t-engine4/COPYING`（GPL v3 全文）、各 DLC `init.lua` 头部声明；公开正式版位于 `/Users/yun/projects/tome4-dlcs/`（ashes/cults/orcs，version 1.7.4）。
+- GPL v3 §2：不分发的使用（读取/分析/提取/翻译）无条件允许；禁止条款不适用于本场景。但**分发**基于 DLC 的衍生作品（含译文）时须遵守 §5：保留版权声明、以 GPL v3 兼容许可发布、提供对应源码。本项目译文与发布 addon 应随附 GPL v3 声明。
+- 不再禁止直接读取 DLC 源码；可复现基线仍建议使用受审计提取脚本（extract 生成规范化快照 + SHA-256 基线，doctor/extract 自动校验）。切换提取来源（如公开版 vs 仓库内 `game/dlcs` 副本）前必须核对版本与基线——公开版 version 1.7.4，当前基线基于仓库内副本，两者可能不同，切换需重建基线。
+- Pi 翻译、Pi 审核、其他 subagent 以及人工审校的输入边界不变：翻译审校只能接收规范翻译条目的有界 bundle；代码审校只能接收去除绝对路径后的公开代码 diff。任何审核结果都只能写入 `.artifacts/i18n/`，不得自动应用到规范 Lua 或代码。
 
 ## Lua 运行环境
 

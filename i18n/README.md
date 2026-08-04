@@ -35,7 +35,7 @@ provider，首次调用前仍需明确确认 provider、model 和数据范围；
 网络权限。
 
 - `doctor` 检查 LuaJIT 5.1、项目 LuaRocks 树、LPeg 0.10.2、固定 Git commit
-  和所有规范译文文件。对于闭源 DLC，它只让 Lua 代理探测清单中预声明的组件，
+  和所有规范译文文件。对于 DLC 它只让 Lua 代理探测清单中预声明的组件，
   不遍历或列出 DLC 目录；包含 DLC 的 engine 工作树也不执行 Git 状态扫描。
 - `extract` 默认提取 engine、boot 和 tome。可用 `--component boot` 缩小范围，
   用 `--component ashes-urhrok` 显式提取单个 DLC，或用 `--all` 尝试所有公开与
@@ -82,6 +82,14 @@ provider，首次调用前仍需明确确认 provider、model 和数据范围；
 
 受保护组件的 baseline 只记录提取器 commit、规范化快照 SHA-256 和条目数量，不
 保存 DLC 源码路径、源码片段或原始解析日志。
+
+许可证说明（2026-08-04）：ToME4 与三个官方 DLC 均以 **GPL v3（or later）**
+发布（依据：`t-engine4/COPYING` 全文、各 DLC `init.lua` 头部声明）。GPL v3 §2
+允许不分发的任何使用，包括 AI 读取、分析与提取；仅分发衍生作品（含译文）时
+须遵守 §5（保留版权声明、GPL v3 兼容许可、提供对应源码）。公开正式版位于
+`/Users/yun/projects/tome4-dlcs/`（version 1.7.4）；当前 extract 基线基于仓库内
+`game/dlcs` 副本，两者版本可能不同，切换来源前须重建基线。受保护提取机制保留
+为可复现基线工具，不再视为闭源限制。
 - `merge` 将新快照、可选的旧快照和当前规范译文三方分类，只在 artifact 中生成
   `candidate.lua`、未翻译清单、疑似英文改写建议及废弃/未提取报告。没有
   `--base-snapshot` 时进入 bootstrap 覆盖率模式；疑似英文改写永远不会自动继承译文。
