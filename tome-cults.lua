@@ -2136,7 +2136,7 @@ Outside of the various movements of such distasteful groups, some of the shalore
 
 [i]I won't be discouraged from leaving Elvala because of the battle I lost with the necromancer, though that doesn't mean I will rashly throw my life away either. There are people who need help and villainous schemes to be thwarted and if I can help with this task then I shall. I will be cautious in whatever I pursue in the outside world and you can be sure, Awain, that I will soon be writing another book of my escapades. Wait for me my dear husband for when I come home you know that the first thing I will do is return to your arms. But for now I set off from this land I call home to offer aid where I can.[/i] ]], [[最后，我从我丈夫那里知道了那一天发生的故事，并详细地了解了战斗后发生的事情。死灵法师显然已经逃走了，或者也许，他默许了艾伦尼恩和我一起撤退回埃尔瓦拉。我差点就要死了，但是治疗人员不知疲倦地工作来稳定我的病情，尽管由于魔法大爆炸对我的身体产生的奇怪影响，以及死灵法师的咒语对我身体造成的可怕伤害，他们的工作十分艰难。我在医疗机构呆了很多天，医生们努力挽救我的生命，最后在我丈夫的照顾下被重新安置到我自己的家里。
 
-这时，我丈夫的脸上显露出了一种阴沉的表情，他的眼睛朝着我身体的方向望去。掀开被子，我很快就明白了为什么，因为我看到了自己的身体上刻着的黑色伤疤，这是我最近地战斗带来的结果。他谦恭地告诉我，虽然治疗师确信我会活着，但我身上的伤口会留下永远无法愈合的畸形疤痕。我静静地坐了一会儿，想着说什么。然后毫不犹豫地微笑着，我抬起头，扯下被子，站了起来。当我这样做的时候，痛苦涌上心头，但我还是这样赤身站在我丈夫面前。
+这时，我丈夫的脸上显露出了一种阴沉的表情，他的眼睛朝着我身体的方向望去。掀开被子，我很快就明白了为什么，因为我看到了自己的身体上刻着的黑色伤疤，这是我最近的战斗带来的结果。他谦恭地告诉我，虽然治疗师确信我会活着，但我身上的伤口会留下永远无法愈合的畸形疤痕。我静静地坐了一会儿，想着说什么。然后毫不犹豫地微笑着，我抬起头，扯下被子，站了起来。当我这样做的时候，痛苦涌上心头，但我还是这样赤身站在我丈夫面前。
 
 艾尔温的眼睛飞快地转来转去，嘴里结巴着，我看着他的眼睛，走过去与他相吻。我抬起头，平静地对他说：“只要你还爱我，我不在乎我的样子，这一点就足够了。”在这一刻，他的身体放松了下来，我慢慢蹲下身体，再次亲吻他，拥抱在他的怀里。我贴近他的身体，他平静地回答说：“是的，菲，我仍然爱你”，然后他又一次吻上了我的嘴唇了。那晚是我一生中最珍贵的时刻之一。尽管我经历过许多旅行和生活，但那一夜我绝不会拿任何东西去交换。
 
@@ -2144,7 +2144,7 @@ Outside of the various movements of such distasteful groups, some of the shalore
 
 根据我从永恒精灵侦察兵那里听到的消息，现在，在埃尔瓦拉的城墙外发生了值得我关注的事情。一群法外狂徒正在附近的土地上游荡，有些人因绝望而沦为土匪，另一些人则因为纳格尔人无法像以前那样掌控对自己领土的控制，而找到了乘机占山为王的机会。尽管我们与世隔绝，但这也是影响在埃尔瓦拉的我们的一个重要问题，因为这让我们与外界仅有的少许互动变得更加困难。据信，在这里北边的古老森林里是这群土匪的一个主要的藏身处和攻击集结地。
 
-关于那些憎恨魔法的狂热者的谣言比比皆是，他们犯下的令人发指的暴行也是如此。他们的势力范围很广，据信他们正在影响许多人类王国和艾德瑞尔半身人的政治。他们不再满足于在黑暗中行动，排除训练有素的反魔法战士们，在土地上搜捕任何施放魔法或拥有奥术装备的人。奇怪的是，有人说还有一些食人魔会在他们的队伍中战斗，尽管我不知道这是怎么做到的。不过，如果我遇到他们的巡逻队，还是要万分小心，因为这肯定会是一场艰难的战斗。
+关于那些憎恨魔法的狂热者的谣言比比皆是，他们犯下的令人发指的暴行也是如此。他们的势力范围很广，据信他们正在影响许多人类王国和艾德瑞尔半身人的政治。他们不再满足于在黑暗中行动，派出训练有素的反魔法战士，在各地搜捕任何施放魔法或拥有奥术装备的人。奇怪的是，有人说还有一些食人魔会在他们的队伍中战斗，尽管我不知道这是怎么做到的。不过，如果我遇到他们的巡逻队，还是要万分小心，因为这肯定会是一场艰难的战斗。
 
 除了这些令人厌恶的群体的各种活动之外，一些研究魔法大爆炸所造成影响的永恒精灵人认为，最普遍的破坏痕迹很可能出现在埃尔瓦拉以东变黑的海岸线上。这是魔法大爆炸破坏能量的最初路径，如果访问这片区域，能对魔法大爆炸的影响产生更加深入理解。然而，永恒精灵人知道，冒险穿过帷幕已经足够危险，更不用说那些土地有多危险了。尽管危险重重，但重要的是要知道魔法大爆炸给我们的世界带来了什么样的持久伤害。
 
@@ -2453,7 +2453,7 @@ As they have only recently come out of their previously mindless states, the Dre
 
 德瑞姆的身高与矮人差不多，并且有着大致相似的面部结构。这两个种族的相似点也就到此为止了。德瑞姆没有明显的面部特征，也没有矮人那样的胡须。相应的，他们有着厚度变化很大的蓬松毛发。由于缺乏诸如眼睛，耳朵，嘴巴或是鼻子这样的面部特征，目前既不知道德瑞姆吃什么，也不知道他们如何感知周围的事物。德瑞姆的智力似乎有着很大的个体差异。有的德瑞姆的智力不比野生的怪物好多少，而有的德瑞莫则获得了能够和埃亚尔最聪明的头脑们相媲美的智慧。
 
-由于他们才刚刚脱离过去那种毫无智慧的阶段，德瑞姆是与外部世界完全脱节的一群人。他们没有文化认同，没有历史。他们文明的命运高悬在再悬崖之间，一边是埃亚尔地面上的文明种族，一边是埃亚尔地下的恐魔。许多人怀疑，他们和矮人有某种联系，普遍的理论是，他们是这种骄傲的种族的某种被腐化的后裔。对这个问题的研究很少，而且也很少有证据支持这种说法。目前还不知道德瑞姆会对埃亚尔的未来产生怎么样的影响。]], "_t")
+由于他们才刚刚脱离过去那种毫无智慧的阶段，德瑞姆是与外部世界完全脱节的一群人。他们没有文化认同，没有历史。他们文明的命运高悬在悬崖之间，一边是埃亚尔地面上的文明种族，一边是埃亚尔地下的恐魔。许多人怀疑，他们和矮人有某种联系，普遍的理论是，他们是这种骄傲的种族的某种被腐化的后裔。对这个问题的研究很少，而且也很少有证据支持这种说法。目前还不知道德瑞姆会对埃亚尔的未来产生怎么样的影响。]], "_t")
 
 ------------------------------------------------
 section "tome-cults/data/lore/zones.lua"
@@ -2476,7 +2476,7 @@ I am not the only one who has been dreaming about the pits. One of my men was hy
 
 Whatever is here is touching our minds. Any fool could guess that. I woke up to find that I had been writing notes in my sleep. I do not wish to guess what unspeakable blasphemies these symbols represent. It wants me to keep writing. It wants me to do its bidding. I can feel its whispers gnawing at the back of my head. We must act while we can still think for ourselves. I dread what will become of us if we succumb to the whispers... The whispers. They won't stop.
 
-[i](He appears to have attached those notes he mentioned to this letter. What you see is a series of incomprehensible scribbles and symbols which don't resemble any language you have seen before. Such an bizarre script could have only been produced by a madman or something that thinks in ways completely alien to your own.)[/i] ]], [[在我的梦中，我看到了坑的内部。那些幼龙在同类相食的狂热中互相吞噬，脆弱的个体被拖入到触手群体的表面之下……我的内心中只剩下深切的恐惧而已。一种魔鬼般的形体，如同高塔一般，高耸在那些扭曲的存在之上，这是龙与触手之间的一种噩梦般的融合……强烈的恶心让我不忍注视这种邪恶的存在。它朝我发出不可名状的低语，那是凡人永远无法模仿的语言。
+[i](He appears to have attached those notes he mentioned to this letter. What you see is a series of incomprehensible scribbles and symbols which don't resemble any language you have seen before. Such an bizarre script could have only been produced by a madman or something that thinks in ways completely alien to your own.)[/i] ]], [[在我的梦中，我看到了坑的内部。那些幼龙在同类相食的狂热中互相吞噬，脆弱的个体被拖入到触手群体的表面之下……我的内心中只剩下深切的恐惧而已。一种魔鬼般的形体，如同高塔一般，高耸在那些扭曲的存在之上，这是龙与触手之间的一种噩梦般的融合……强烈的恶心让我不忍注视这种邪恶的存在，却又无法移开视线。它朝我发出不可名状的低语，那是凡人永远无法模仿的语言。
 
 我不是唯一一个做噩梦的人。我们曾经的一位战友，今天突然变得歇斯底里。他的口中发出胡言乱语，低语着太空中黑暗的深渊。黑暗的存在选择了承载自己的容器，准备征服这个世界。我们用强制措施让他冷静了下来。
 
@@ -2494,7 +2494,7 @@ t([[It's cold. Terribly cold. The unreality around you seems to be draining you 
 
 As you get your bearings, you can sense that there is something in here with you. Its presence looms over this entire void, filling you with a primordial sense of dread. The battle that will be fought here will be unlike any you have been through. And perhaps it will be your last.]], [[周围很冷，寒冷刺骨。环绕着你的非现实感，正在慢慢抽光你的一切。你的身体僵硬，四肢麻木。这里是被熵支配的场所，但是，你能看到一束虚弱的微光在无尽的黑暗中坚强挺立。这份温暖的光芒给予了你力量，驱散了环绕全身的刺骨寒冷。这里一定有反熵的力量，那是唯一可以战胜熵魔的东西。你可以看到，它正在一场必败的战斗中顽强地抗争着。
 
-在你重新取回你的感觉的瞬间，你感受到，有一种东西正支配着这里。它的存在在虚空中咆哮，让你的心中涌满了来自本能的恐惧。你明白，在这里发生的这场战斗，和你所经历的任何一次都不同，可能也将是你的最后一场战斗。]], "_t")
+在你重新取回你的感觉的瞬间，你感受到，有一种东西正支配着这里。它的存在笼罩着整个虚空，让你的心中涌满了来自本能的恐惧。你明白，在这里发生的这场战斗，和你所经历的任何一次都不同，可能也将是你的最后一场战斗。]], "_t")
 t("hypostasis of entropy", "熵的本质", "_t")
 t("A towering manifestation of entropy stands before you. You feel tiny.", "熵的本质在你面前显现了。在它眼里，你是多么渺小。", "_t")
 t("a new threat (1)", "新的威胁 (1)", "_t")
