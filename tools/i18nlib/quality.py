@@ -40,6 +40,7 @@ SAMPLE_CONTRACT = "tome4-quality-sample-v1"
 ASSESSMENT_CONTRACT = "tome4-quality-assessment-v1"
 ADJUDICATION_CONTRACT = "tome4-quality-adjudication-v1"
 VALIDATION_CONTRACT = "tome4-quality-validation-v1"
+DRY_RUN_CONTRACT = "tome4-quality-dry-run-v1"
 REPORT_CONTRACT = "tome4-quality-report-v1"
 IDENTITY_CONTRACT = "tome4-translation-revision-v1"
 DEFAULT_SAMPLE_SEED = "tome4-quality-pilot-v1"
@@ -1970,10 +1971,11 @@ def _validate_adjudication(
     return {"items": normalized}, errors
 
 
-def _load_sample_file(path: Path) -> dict[str, Any]:
+def _load_sample_file(path: Path, *, dry_run: bool = False) -> dict[str, Any]:
     sample = _read_json(path, "quality sample")
     errors: list[str] = []
-    if sample.get("quality_contract") != SAMPLE_CONTRACT:
+    allowed_contracts = (SAMPLE_CONTRACT, DRY_RUN_CONTRACT) if dry_run else (SAMPLE_CONTRACT,)
+    if sample.get("quality_contract") not in allowed_contracts:
         errors.append(f"{path}: unsupported sample contract")
     if sample.get("schema_version") != 1:
         errors.append(f"{path}: unsupported sample schema")
@@ -1993,8 +1995,9 @@ def validate_quality_run(
     manifest: Manifest,
     sample_path: Path,
     assessment_paths: list[Path],
-    adjudication_path: Path,
+    adjudication_path: Path | None,
     strict: bool | None = None,
+    dry_run: bool = False,
 ) -> dict[str, Any]:
     taxonomy = load_taxonomy(manifest)
     qpolicy = load_quality_policy(manifest)
@@ -2002,7 +2005,13 @@ def validate_quality_run(
     # overrides it, but the policy default applies when the flag is absent.
     if strict is None:
         strict = bool(qpolicy.get("strict_unknown_fields", False))
-    sample = _load_sample_file(sample_path)
+    sample = _load_sample_file(sample_path, dry_run=dry_run)
+    warnings: list[str] = []
+    if dry_run and sample.get("quality_contract") == SAMPLE_CONTRACT:
+        warnings.append(
+            "dry-run validation is using the official sample contract; "
+            "this result is non-official and cannot satisfy the adjudicated pilot gate"
+        )
     sample_revisions = {item["revision_id"] for item in sample["items"]}
     revision_ids = [item["revision_id"] for item in sample["items"]]
     if len(revision_ids) != len(set(revision_ids)):
@@ -2026,15 +2035,18 @@ def validate_quality_run(
         )
         errors.extend(item_errors)
         assessments.append(normalized)
-    adjudication = _read_json(adjudication_path, "quality adjudication")
     normalized_adjudication: dict[str, Any] = {"items": []}
-    try:
-        normalized_adjudication, adjudication_errors = _validate_adjudication(
-            adjudication, sample, assessments, taxonomy, qpolicy, strict
-        )
-        errors.extend(adjudication_errors)
-    except ValidationError as error:
-        errors.append(str(error))
+    if adjudication_path is not None:
+        adjudication = _read_json(adjudication_path, "quality adjudication")
+        try:
+            normalized_adjudication, adjudication_errors = _validate_adjudication(
+                adjudication, sample, assessments, taxonomy, qpolicy, strict
+            )
+            errors.extend(adjudication_errors)
+        except ValidationError as error:
+            errors.append(str(error))
+    elif not dry_run:
+        errors.append("an adjudication is required for the official pilot sample")
 
     normalized_assessments = [
         {
@@ -2050,11 +2062,12 @@ def validate_quality_run(
         "tool_version": TOOL_VERSION,
         "version": manifest.version,
         "sample_id": sample["sample_id"],
+        "dry_run": dry_run,
         "strict": strict,
         "taxonomy_sha256": _canonical_sha256(taxonomy),
         "policy_sha256": _canonical_sha256(qpolicy),
         "errors": errors,
-        "warnings": [],
+        "warnings": warnings,
         "sample": sample,
         "assessments": normalized_assessments,
         "adjudication": normalized_adjudication,
@@ -2067,21 +2080,24 @@ def run_validation(
     manifest: Manifest,
     sample_path: Path,
     assessment_paths: list[Path],
-    adjudication_path: Path,
+    adjudication_path: Path | None,
     strict: bool,
+    dry_run: bool = False,
 ) -> dict[str, Any]:
     validation = validate_quality_run(
-        manifest, sample_path, assessment_paths, adjudication_path, strict
+        manifest, sample_path, assessment_paths, adjudication_path, strict,
+        dry_run=dry_run,
     )
     run_directory = create_quality_run_directory(manifest.root, "validation")
     _write_jsonl(
         run_directory / "normalized-assessments.jsonl",
         validation["assessments"],
     )
-    _write_jsonl(
-        run_directory / "normalized-adjudications.jsonl",
-        validation["adjudication"].get("items", []),
-    )
+    if validation["adjudication"].get("items"):
+        _write_jsonl(
+            run_directory / "normalized-adjudications.jsonl",
+            validation["adjudication"].get("items", []),
+        )
     write_json(run_directory / "validation.json", validation)
     summary = {
         "ok": validation["ok"],

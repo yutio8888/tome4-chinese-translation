@@ -2,15 +2,18 @@ from __future__ import annotations
 
 import atexit
 import contextlib
+from dataclasses import replace
 import hashlib
 import io
 import sys
 import json
 import os
 import shutil
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -44,14 +47,26 @@ from i18nlib.lint import (
 from i18nlib.locale_model import LocaleLoader
 from i18nlib.merge import classify_merge
 from i18nlib.pi_agent import run_pi_translation
+from i18nlib.pi_file_review import (
+    _file_review_cache_key,
+    _git_worktree_snapshot,
+    build_file_review_command,
+    run_pi_file_review,
+)
 from i18nlib.pi_remediate import run_pi_remediation
-from i18nlib.pi_review import _validate_findings, run_pi_review
-from i18nlib.pi_tmux import run_tmux_remediation, run_tmux_review, run_worker_job
+from i18nlib.pi_review import _review_cache_key, _validate_findings, run_pi_review
+from i18nlib.pi_tmux import (
+    run_tmux_file_review,
+    run_tmux_remediation,
+    run_tmux_review,
+    run_worker_job,
+)
 from i18nlib.proposal import validate_proposal
 from i18nlib.quality import (
     ADJUDICATION_CONTRACT,
     ASSESSMENT_CONTRACT,
     SAMPLE_CONTRACT,
+    DRY_RUN_CONTRACT,
     _match_findings,
     _weighted_kappa,
     build_inventory,
@@ -60,6 +75,7 @@ from i18nlib.quality import (
     generate_sample,
     load_quality_policy,
     load_taxonomy,
+    run_validation as run_quality_validation,
     structure_signature,
     validate_quality_run,
 )
@@ -1273,6 +1289,372 @@ print(json.dumps({
             json.loads(Path(second["review"]).read_text(encoding="utf-8")),
         )
 
+    def test_pi_file_reviewer_uses_read_bash_tools_and_validates_findings(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-file-review-test-") as temporary:
+            directory = Path(temporary)
+            bundle = {
+                "schema_version": REVIEW_SCHEMA_VERSION,
+                "review_contract": REVIEW_CONTRACT,
+                "tool_version": TOOL_VERSION,
+                "version": self.manifest.version,
+                "manifest_sha256": hashlib.sha256(self.manifest.raw_bytes).hexdigest(),
+                "kind": "translations",
+                "component": "boot",
+                "items": [
+                    {
+                        "item_id": "translation-file-fixture",
+                        "component": "boot",
+                        "section": "fixture/file.lua",
+                        "source": "%s has %d",
+                        "target": "%d 属于 %s",
+                        "source_tag": "tformat",
+                        "args_order": [2, 1],
+                        "special": None,
+                    }
+                ],
+            }
+            bundle["bundle_id"] = _bundle_id(bundle)
+            bundle_path = directory / "bundle.json"
+            bundle_path.write_text(
+                json.dumps(bundle, ensure_ascii=False), encoding="utf-8"
+            )
+            arguments_path = directory / "arguments.json"
+            cwd_path = directory / "cwd.txt"
+            fake_pi = directory / "fake-pi-file-review"
+            fake_pi.write_text(
+                """#!/usr/bin/env python3
+import json
+import os
+import sys
+from pathlib import Path
+
+Path(os.environ["FAKE_PI_ARGUMENTS"]).write_text(
+    json.dumps(sys.argv[1:]), encoding="utf-8"
+)
+Path(os.environ["FAKE_PI_CWD"]).write_text(os.getcwd(), encoding="utf-8")
+bundle_path = next(
+    Path(value[1:]) for value in sys.argv[1:] if value.startswith("@")
+)
+bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
+print(json.dumps({
+    "schema_version": bundle["schema_version"],
+    "review_contract": bundle["review_contract"],
+    "bundle_id": bundle["bundle_id"],
+    "findings": [],
+}, ensure_ascii=False))
+""",
+                encoding="utf-8",
+            )
+            fake_pi.chmod(0o700)
+            previous = os.environ.get("FAKE_PI_ARGUMENTS")
+            os.environ["FAKE_PI_ARGUMENTS"] = str(arguments_path)
+            os.environ["FAKE_PI_CWD"] = str(cwd_path)
+            try:
+                report = run_pi_file_review(
+                    bundle_path=bundle_path,
+                    provider="fixture",
+                    model="fixture-model",
+                    thinking="high",
+                    timeout=30,
+                    strict=True,
+                    pi_executable=str(fake_pi),
+                    use_cache=False,
+                )
+            finally:
+                if previous is None:
+                    os.environ.pop("FAKE_PI_ARGUMENTS", None)
+                else:
+                    os.environ["FAKE_PI_ARGUMENTS"] = previous
+                os.environ.pop("FAKE_PI_CWD", None)
+            arguments = json.loads(arguments_path.read_text())
+            cwd = cwd_path.read_text(encoding="utf-8")
+        self.assertTrue(report["ok"])
+        self.assertEqual(report["summary"]["findings"], 0)
+        self.assertEqual(report["cache_decision"], "disabled")
+        self.assertEqual(report["mode"], "findings-files-v1")
+        self.assertTrue(report["pi_tools"])
+        self.assertEqual(report["tools"], ["read,bash"])
+        self.assertFalse(report["os_sandbox"])
+        self.assertTrue(report["provider_credentials_inherited"])
+        self.assertTrue(report["process_group_cleanup"])
+        self.assertFalse(report["detached_descendants_checked"])
+        self.assertFalse(report["pi_session"])
+        self.assertFalse(report["candidate_execution"])
+        self.assertEqual(report["concurrency"], 1)
+        self.assertEqual(report["attempts"], 1)
+        self.assertEqual(report["charged_or_possible_transfers"], 1)
+        self.assertEqual(report["validated_results"], 1)
+        self.assertTrue(report["versioned_worktree_unchanged"])
+        self.assertEqual(
+            report["versioned_worktree_snapshot_before_sha256"],
+            report["versioned_worktree_snapshot_after_sha256"],
+        )
+        self.assertEqual(
+            report["worktree_check_scope"], "tracked-and-nonignored-untracked"
+        )
+        self.assertFalse(report["ignored_paths_checked"])
+        self.assertNotIn("--no-tools", arguments)
+        self.assertEqual(arguments[arguments.index("--tools") + 1], "read,bash")
+        self.assertIn("--no-context-files", arguments)
+        self.assertIn("--no-session", arguments)
+        self.assertIn("--no-approve", arguments)
+        self.assertIn("--no-skills", arguments)
+        self.assertEqual(sum(value.startswith("@") for value in arguments), 1)
+        self.assertEqual(cwd, str(ROOT))
+        self.assertTrue(Path(report["review"]).is_file())
+
+    def test_pi_file_review_snapshot_detects_changes_in_dirty_files(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-file-snapshot-") as temporary:
+            root = Path(temporary)
+            subprocess.run(["git", "init", "-q", str(root)], check=True)
+            tracked = root / "tracked.txt"
+            tracked.write_text("committed\n", encoding="utf-8")
+            subprocess.run(["git", "-C", str(root), "add", "tracked.txt"], check=True)
+            subprocess.run(
+                [
+                    "git",
+                    "-C",
+                    str(root),
+                    "-c",
+                    "user.name=fixture",
+                    "-c",
+                    "user.email=fixture@example.invalid",
+                    "commit",
+                    "-qm",
+                    "fixture",
+                ],
+                check=True,
+            )
+            tracked.write_text("dirty one\n", encoding="utf-8")
+            tracked_before = _git_worktree_snapshot(root)
+            tracked.write_text("dirty two\n", encoding="utf-8")
+            tracked_after = _git_worktree_snapshot(root)
+            untracked = root / "untracked.txt"
+            untracked.write_text("untracked one\n", encoding="utf-8")
+            untracked_before = _git_worktree_snapshot(root)
+            untracked.write_text("untracked two\n", encoding="utf-8")
+            untracked_after = _git_worktree_snapshot(root)
+        self.assertNotEqual(tracked_before, tracked_after)
+        self.assertNotEqual(untracked_before, untracked_after)
+
+    def test_pi_file_review_rejects_a_changed_versioned_worktree(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-file-tamper-") as temporary:
+            root = Path(temporary)
+            subprocess.run(["git", "init", "-q", str(root)], check=True)
+            (root / ".gitignore").write_text(".artifacts/\n", encoding="utf-8")
+            tracked = root / "tracked.txt"
+            tracked.write_text("before\n", encoding="utf-8")
+            prompt = root / "i18n" / "prompts" / "pi-reviewer-files.md"
+            prompt.parent.mkdir(parents=True)
+            prompt.write_text("fixture prompt", encoding="utf-8")
+            subprocess.run(["git", "-C", str(root), "add", "."], check=True)
+            subprocess.run(
+                [
+                    "git",
+                    "-C",
+                    str(root),
+                    "-c",
+                    "user.name=fixture",
+                    "-c",
+                    "user.email=fixture@example.invalid",
+                    "commit",
+                    "-qm",
+                    "fixture",
+                ],
+                check=True,
+            )
+            manifest = replace(self.manifest, root=root)
+            bundle = {
+                "schema_version": REVIEW_SCHEMA_VERSION,
+                "review_contract": REVIEW_CONTRACT,
+                "tool_version": TOOL_VERSION,
+                "version": manifest.version,
+                "manifest_sha256": hashlib.sha256(manifest.raw_bytes).hexdigest(),
+                "kind": "translations",
+                "component": "boot",
+                "items": [
+                    {
+                        "item_id": "translation-tamper-fixture",
+                        "component": "boot",
+                        "section": "fixture/dialog.lua",
+                        "source": "Source",
+                        "target": "译文",
+                        "source_tag": "_t",
+                        "args_order": None,
+                        "special": None,
+                    }
+                ],
+            }
+            bundle["bundle_id"] = _bundle_id(bundle)
+            bundle_path = root / "bundle.json"
+            bundle_path.write_text(json.dumps(bundle), encoding="utf-8")
+            fake_pi = root / "fake-pi"
+            fake_pi.write_text(
+                """#!/usr/bin/env python3
+import json
+import sys
+from pathlib import Path
+
+Path("tracked.txt").write_text("after\\n", encoding="utf-8")
+bundle_path = next(Path(value[1:]) for value in sys.argv[1:] if value.startswith("@"))
+bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
+print(json.dumps({
+    "schema_version": bundle["schema_version"],
+    "review_contract": bundle["review_contract"],
+    "bundle_id": bundle["bundle_id"],
+    "findings": [],
+}))
+""",
+                encoding="utf-8",
+            )
+            fake_pi.chmod(0o700)
+            with patch("i18nlib.pi_file_review.load_manifest", return_value=manifest):
+                with self.assertRaisesRegex(AgentError, "changed the worktree"):
+                    run_pi_file_review(
+                        bundle_path=bundle_path,
+                        provider="fixture",
+                        model="fixture-model",
+                        thinking="high",
+                        timeout=30,
+                        strict=True,
+                        pi_executable=str(fake_pi),
+                        use_cache=False,
+                    )
+            reports = sorted(
+                (root / ".artifacts" / "i18n" / "runs").glob(
+                    "*-pi-file-review/pi-review.json"
+                )
+            )
+            report = json.loads(reports[-1].read_text(encoding="utf-8"))
+            raw_output_exists = Path(report["raw_output"]).is_file()
+        self.assertFalse(report["versioned_worktree_unchanged"])
+        self.assertTrue(raw_output_exists)
+        self.assertIn("raw_output_sha256", report)
+
+    def test_pi_file_reviewer_builds_code_bundle_inventory(self) -> None:
+        bundle = {
+            "kind": "code",
+            "files": [{"item_id": "code-file-fixture"}],
+        }
+        arguments = build_file_review_command(
+            executable="pi",
+            provider="fixture",
+            model="fixture-model",
+            thinking="high",
+            system_prompt="fixture prompt",
+            bundle=bundle,
+            bundle_resolved=Path("/tmp/code-bundle.json"),
+        )
+        self.assertNotIn("--no-tools", arguments)
+        self.assertEqual(arguments[arguments.index("--tools") + 1], "read,bash")
+        self.assertIn('"code-file-fixture"', arguments[-1])
+
+    def test_pi_file_review_cache_is_separate_from_isolated_review(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-file-review-cache-") as temporary:
+            directory = Path(temporary)
+            bundle = {
+                "schema_version": REVIEW_SCHEMA_VERSION,
+                "review_contract": REVIEW_CONTRACT,
+                "tool_version": TOOL_VERSION,
+                "version": self.manifest.version,
+                "manifest_sha256": hashlib.sha256(self.manifest.raw_bytes).hexdigest(),
+                "kind": "translations",
+                "component": "boot",
+                "items": [
+                    {
+                        "item_id": "translation-file-cache-fixture",
+                        "component": "boot",
+                        "section": "fixture/file-cache.lua",
+                        "source": "File cache",
+                        "target": "文件缓存",
+                        "source_tag": "nil",
+                        "args_order": None,
+                        "special": None,
+                    }
+                ],
+            }
+            bundle["bundle_id"] = _bundle_id(bundle)
+            bundle_path = directory / "bundle.json"
+            bundle_path.write_text(
+                json.dumps(bundle, ensure_ascii=False), encoding="utf-8"
+            )
+            fake_pi = directory / "fake-pi-file-review-cache"
+            fake_pi.write_text(
+                """#!/usr/bin/env python3
+import json
+import sys
+from pathlib import Path
+
+bundle_path = next(Path(value[1:]) for value in sys.argv[1:] if value.startswith("@"))
+bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
+print(json.dumps({
+    "schema_version": bundle["schema_version"],
+    "review_contract": bundle["review_contract"],
+    "bundle_id": bundle["bundle_id"],
+    "findings": [],
+}, ensure_ascii=False))
+""",
+                encoding="utf-8",
+            )
+            fake_pi.chmod(0o700)
+            provider = f"fixture-file-cache-{directory.name}"
+            prompt_sha = "fixture-prompt-sha256"
+            file_key = _file_review_cache_key(
+                bundle_id=bundle["bundle_id"],
+                provider=provider,
+                model="fixture-model",
+                thinking="high",
+                prompt_sha256=prompt_sha,
+                strict=True,
+            )
+            isolated_key = _review_cache_key(
+                bundle_id=bundle["bundle_id"],
+                provider=provider,
+                model="fixture-model",
+                thinking="high",
+                prompt_sha256=prompt_sha,
+                strict=True,
+            )
+            self.assertNotEqual(file_key, isolated_key)
+            first = run_pi_file_review(
+                bundle_path=bundle_path,
+                provider=provider,
+                model="fixture-model",
+                thinking="high",
+                timeout=30,
+                strict=True,
+                pi_executable=str(fake_pi),
+                use_cache=True,
+            )
+            cache_path = (
+                ROOT
+                / ".artifacts"
+                / "i18n"
+                / "cache"
+                / "pi-review"
+                / f"{first['result_cache_key']}.json"
+            )
+            try:
+                second = run_pi_file_review(
+                    bundle_path=bundle_path,
+                    provider=provider,
+                    model="fixture-model",
+                    thinking="high",
+                    timeout=30,
+                    strict=True,
+                    pi_executable=str(directory / "does-not-exist"),
+                    use_cache=True,
+                )
+            finally:
+                cache_path.unlink(missing_ok=True)
+        self.assertEqual(first["cache_decision"], "miss")
+        self.assertEqual(first["attempts"], 1)
+        self.assertEqual(second["cache_decision"], "hit")
+        self.assertEqual(second["attempts"], 0)
+        self.assertEqual(second["charged_or_possible_transfers"], 0)
+        self.assertEqual(second["validated_results"], 1)
+        self.assertTrue(second["pi_tools"])
+
     def test_pi_remediator_binds_proposals_to_findings(self) -> None:
         with tempfile.TemporaryDirectory(prefix="tome4-pi-remediate-test-") as temporary:
             directory = Path(temporary)
@@ -1523,6 +1905,35 @@ class PiTmuxTests(unittest.TestCase):
         self.assertEqual(sum(value.startswith("@") for value in arguments), 1)
         self.assertTrue(any(call[0] == "split-window" for call in tmux_calls))
         self.assertTrue(any(call[0] == "select-pane" for call in tmux_calls))
+
+    def test_tmux_file_review_runs_with_read_bash_tools(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-tmux-file-test-") as temporary:
+            directory = Path(temporary)
+            _, bundle_path = self._review_bundle(directory)
+            fake_tmux, _ = self._fake_tmux(directory)
+            fake_pi = self._fake_pi_review(directory)
+            report = run_tmux_file_review(
+                bundle_path=bundle_path,
+                provider="fixture",
+                model="fixture-model",
+                thinking="high",
+                timeout=60,
+                strict=True,
+                use_cache=False,
+                force=False,
+                pi_executable=str(fake_pi),
+                tmux_executable=str(fake_tmux),
+                session="fake-session",
+                fallback="error",
+            )
+            arguments = json.loads(
+                (directory / "pi-arguments.json").read_text(encoding="utf-8")
+            )
+        self.assertTrue(report["ok"])
+        self.assertEqual(report["execution"], "tmux")
+        self.assertTrue(report["versioned_worktree_unchanged"])
+        self.assertNotIn("--no-tools", arguments)
+        self.assertEqual(arguments[arguments.index("--tools") + 1], "read,bash")
 
     def test_tmux_review_cache_hit_skips_pane(self) -> None:
         with tempfile.TemporaryDirectory(prefix="tome4-pi-tmux-cache-test-") as temporary:
@@ -2439,6 +2850,83 @@ class QualityValidationTests(unittest.TestCase):
         validation, _, _, _ = self._valid_run()
         self.assertTrue(validation["ok"])
         self.assertEqual(validation["errors"], [])
+
+    def test_dry_run_validation_without_adjudication(self) -> None:
+        a = self._assessment("reviewer-a", self.sample)
+        b = self._assessment("reviewer-b", self.sample)
+        a_path = self._write("assessment-a-dry.json", a)
+        b_path = self._write("assessment-b-dry.json", b)
+        validation = validate_quality_run(
+            self.manifest,
+            sample_path=self.sample_path,
+            assessment_paths=[a_path, b_path],
+            adjudication_path=None,
+            strict=True,
+            dry_run=True,
+        )
+        self.assertTrue(validation["ok"])
+        self.assertTrue(validation["dry_run"])
+        self.assertEqual(validation["adjudication"], {"items": []})
+        self.assertTrue(
+            any("non-official" in warning for warning in validation["warnings"])
+        )
+
+    def test_dry_run_validation_runner_forwards_flag(self) -> None:
+        a = self._assessment("reviewer-a", self.sample)
+        a_path = self._write("assessment-runner-dry.json", a)
+        report = run_quality_validation(
+            self.manifest,
+            sample_path=self.sample_path,
+            assessment_paths=[a_path],
+            adjudication_path=None,
+            strict=True,
+            dry_run=True,
+        )
+        validation = json.loads(
+            (self.manifest.root / report["validation_path"]).read_text(encoding="utf-8")
+        )
+        self.assertTrue(report["ok"])
+        self.assertTrue(validation["dry_run"])
+
+    def test_official_sample_requires_adjudication(self) -> None:
+        a = self._assessment("reviewer-a", self.sample)
+        a_path = self._write("assessment-a-no-adjudication.json", a)
+        validation = validate_quality_run(
+            self.manifest,
+            sample_path=self.sample_path,
+            assessment_paths=[a_path],
+            adjudication_path=None,
+            strict=True,
+        )
+        self.assertFalse(validation["ok"])
+        self.assertTrue(
+            any("adjudication is required" in error for error in validation["errors"])
+        )
+
+    def test_dry_run_contract_sample_accepted_with_flag(self) -> None:
+        dry_sample = dict(self.sample)
+        dry_sample["quality_contract"] = DRY_RUN_CONTRACT
+        sample_path = self._write("dry-run-sample.json", dry_sample)
+        a = self._assessment("reviewer-a", dry_sample)
+        a_path = self._write("assessment-a-dry-contract.json", a)
+        validation = validate_quality_run(
+            self.manifest,
+            sample_path=sample_path,
+            assessment_paths=[a_path],
+            adjudication_path=None,
+            strict=True,
+            dry_run=True,
+        )
+        self.assertTrue(validation["ok"])
+        self.assertTrue(validation["dry_run"])
+        with self.assertRaises(ValidationError):
+            validate_quality_run(
+                self.manifest,
+                sample_path=sample_path,
+                assessment_paths=[a_path],
+                adjudication_path=None,
+                strict=True,
+            )
 
     def test_policy_default_strict_rejects_unknown_fields(self) -> None:
         # policy-v1 declares strict_unknown_fields=true; validate without an

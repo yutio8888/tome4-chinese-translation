@@ -1,6 +1,6 @@
 # ToME4 汉化项目交接清单
 
-更新时间：2026-08-03（深夜，第一轮审核 finding 处置完成，队列清零）
+更新时间：2026-08-04（新增 Pi 源码核验审核变体：Skill `$tome4-pi-file-review` 与 `tools/pi-review-files`、`tools/pi-tmux review-files`；翻译质量 M4 dry-run 完成：12 条双评估+裁决冻结）
 
 本文记录当前翻译工具、术语库和发布流程的状态，供后续继续开发、审校或发布使用。
 
@@ -16,10 +16,10 @@
 ### 翻译与术语
 
 - 已建立 `terminology.tsv` 和 `TERMINOLOGY.md` 的术语库工作流。
-- 当前术语表共 653 条：`existing` 440 条、`preferred` 210 条、`review` 3 条。
-- 相比上一版交接基线净增 183 条术语，并修订 7 条既有术语；新增内容主要覆盖核心技能、实体、状态、专名和 DLC 术语。
+- 当前术语表共 693 条：`existing` 439 条、`preferred` 254 条、`review` 0 条（相比交接基线 653 条净增 40 条，含 16 条高频术语与 light 共享键裁决后的补录）。
+- 相比更早的 510 条术语基线净增 183 条，并修订 7 条既有术语；新增内容主要覆盖核心技能、实体、状态、专名和 DLC 术语。
 - DLC 首轮候选已通过受审计提取器处理 `ashes-urhrok`、`cults`、`orcs`，未直接读取受保护源码。
-- 当前仍保留 3 条待审校术语：`Constrict`、`eldritch` 和 `Atmos Tribe`。
+- 3 条待审校术语已全部裁决（2026-08）：`Constrict`→缠绕、`eldritch`→骇异、`Atmos Tribe`→气之部族，均升为 `preferred` 并按术语库流程先改 TSV 再同步规范 Lua。
 - 已保留翻译条目的 `source_tag`，并为术语补充 `T.*` 分类及语境说明。
 - 核心与 DLC 规范 Lua 已完成一轮大批量术语统一和译文校正，并已连同回归测试提交冻结（commit `89744ab`），后续 finding 修订在冻结基线上分批提交，不能视为已发布版本。
 
@@ -27,6 +27,7 @@
 
 - `doctor`、`extract`、`lint`、`status`、`merge`、`workset`、`context`、`proposal`、`review`、`build` 已统一到 `python3 -B tools/i18n` 入口。
 - 审核流程：`tools/i18n review --scope code|translations` 显式生成只读 Pi 审核 bundle，`tools/pi-review --bundle` 严格校验 findings、分配宿主 `R-NNN` 并优先复用精确缓存，`tools/pi-remediate --bundle --review` 产生修订建议；修订需由主代理校验后应用，MVP 不自动执行模型建议。
+- 源码核验变体（Skill `$tome4-pi-file-review`，2026-08-04 新增）：`tools/pi-review-files --bundle`（headless）与 `tools/pi-tmux review-files --bundle`（tmux 分屏可见）与隔离审核共用 bundle、findings 契约、严格校验、报告格式与授权门槛，但 Pi 以 `--tools read,bash` 白名单启动，可按提示契约只读核验仓库、公开游戏源码（`/Users/yun/projects/t-engine4`）与公开 DLC 源码（`/Users/yun/projects/tome4-dlcs/`）来验证证据；`edit`/`write` 永不启用、cwd=仓库根、缓存命名空间与隔离审核分离；系统提示为 `i18n/prompts/pi-reviewer-files.md`，可读范围与禁止范围（`.artifacts/`、凭据、网络、一切写入）写死在提示中。Pi 内置 `bash` 不是 OS 沙箱，会继承 Pi 进程权限与 provider 凭据；工具现自动比较运行前后的版本控制范围的内容级 worktree 快照（受管 diff、非忽略未跟踪文件内容与 Git exclude；不覆盖其他忽略路径或其余 `.git` 元数据），主代理仍须独立确认工作树未被改动。需要强隔离时必须在只读挂载、网络/凭据隔离的容器或 VM 中运行。
 - 构建工具现在支持最小 addon 覆盖层：官方已有且语义未改变的译文只计入继承统计，不写入插件。
 - 显式指定组件时，例如：
 
@@ -46,7 +47,7 @@
 - `legacy-lore-overlay` 与 `nullpackreloaded` 各自拆为独立可选外部层。当前不把 addon 仓库提交当作它们的官方源码基线，也不把它们计入核心发布完整性。
 - 以上边界已写入 `i18n/versions/tome-1.7.6.json` 的 `release_layers`；后续严格构建需要按层选择并验证，不应通过忽略缺失来源来伪造全量通过。
 
-### 翻译质量系统（第一阶段 M0–M3，2026-08-04）
+### 翻译质量系统（第一阶段 M0–M3 + M4 dry-run，2026-08-04）
 
 - 设计文档：`docs/translation-quality-system.md`（整体方案）与 `docs/translation-quality-phase-1.md`（阶段计划）。
 - 权威规则已版本化：`i18n/quality/taxonomy-v1.json`（37 个 MQM 风格错误码、8 类 profile、severity、门禁、risk flag、profile 分类规则）、`i18n/quality/policy-v1.json`（身份契约、120 条试点参数与 6 项覆盖约束）、四份 JSON schema。
@@ -54,10 +55,16 @@
 - 全量 current revision inventory：**30,177 个 revision**（与 LocaleLoader 条目数守恒），含结构签名、profile、相关术语、确定性 gate signal 与 risk flag；相同输入重复运行 SHA-256 一致（`048359c2…`）。
 - 120 条试点样本（代表性 60 / 风险富集 40 / 对照 20±1）满足全部覆盖约束，固定 seed `tome4-quality-pilot-v1` 可逐字节复现；对照桶覆盖近重复原文、尾空格多译、跨语境同源等真实争议案例。
 - strict validate 已能拒绝：未知错误码/等级、绝对路径、重复 finding ID、不完整覆盖、sample 不匹配、悬空裁决、confirmed blocker/major 晋级 Gold 等；report 输出一致率、加权 κ、错误分布与校准目标对照。
-- 门禁全过：lint --strict 0/0、89 项单元测试（其中质量系统相关 41 项）、运行时键扫描 0 冲突、`git diff --check` 通过。
+- 门禁全过：lint --strict 0/0、102 项单元测试（其中质量系统相关 45 项）、运行时键扫描 0 冲突、`git diff --check` 通过。
 - 2026-08-04 首轮 Pi 代码审核（provider opencode-go / model deepseek-v4-flash，bundle `3a6898f1…`）：8 条 finding 全部独立核验属实并已修复——术语匹配最长优先+前缀归并（R-001）、可合并错误码对称匹配（R-002）、profile 分歧改从 assessment 推导（R-003）、新增 format_shape_match 信号（R-004）、新增 cross_component_variant 事实（R-005）、对照桶组原子性（R-006）、relevant_terms 携带 domain（R-007）、handoff 测试数对齐（R-008）。修复后全量 inventory 重建：domain_hints 3,120 条、跨组件变体 0、格式形状差异 0；120 条样本可逐字节复现。
 - 2026-08-04 第二轮 Pi 代码审核（provider deepseek / model deepseek-v4-flash，bundle `3176637b…`，tmux pane 实时流式 293s）：3 条 finding 全部核验属实并已处置——对照组兜底超员有界并补注释说明（R-001）、handoff 内部数字矛盾已对齐（R-002，测试数 87、minor/note 完成态、pending=0）、quality validate 默认执行 policy 的 strict_unknown_fields（R-003）。
 - 2026-08-04 第三轮 Pi 代码审核（provider deepseek / model deepseek-v4-flash，bundle `2e1d3535…`，pane 渲染升级后 302s）：5 条 finding 全部核验属实并已处置——section 模式改段感知匹配（R-001，`ui` 不再误伤 `data/guilds`）、category 指标双侧计入合并匹配（R-002）、inventory 空 target 回读放行（R-003）、strict 未知字段覆盖根级/evaluator（R-004）、handoff 测试数统一为 89（R-005）。
+- 2026-08-04 质量 M4 dry-run 里程碑：12 条 dry-run 样本完成 reviewer-a/reviewer-b 两份完整 assessment 与裁决（`quality validate --dry-run --strict` 通过，severity 加权 κ=0.92、实质缺陷一致率 91.7%、风险标志覆盖率 1.0），`quality report` 管线在 dry-run 集全链路验证；冻结清单 `.artifacts/i18n/quality/runs/*-dry-run/dry-run-frozen-manifest.json`（含 4 条 rubric 观察：物品未识别名/天赋名 profile 应归 term-name、zones 长叙事应归 narrative、术语表缺组合实体词、contrast finding 身份记账）；`quality validate` 新增 `--dry-run` 模式（adjudication 可选）。dry-run 两份评估由同一代理会话产生，按 M4 约定不计入正式一致性与缺陷率，正式 120 条需两位真正独立的 evaluator。
+- 2026-08-04 最终工作区代码 diff 有界 Pi 复审（provider deepseek / model deepseek-v4-flash，bundle `0bb8d57f…`）：5 条 finding 已独立核验。R-002（runner 未自动核验 worktree）与 R-003（code bundle/tmux 测试缺口）确认并修复：headless/tmux 初步增加前后 `git status --porcelain` 快照，新增 code bundle 与 tmux 回归测试；R-005（术语净增基线表述）确认并改为明确的 510 条早期基线；R-004（测试数应为 94）不采纳，实际 HEAD 为 92、复审时工作区为 97，模型把更早的 89 条叙述误当直接基线，首次修订后实测为 99。R-001（`bash` 无 OS 沙箱且继承凭据）部分确认：Pi 官方文档明确内置工具不是沙箱，已在 AGENTS/Skill/handoff/系统提示中纠正“硬性只读”表述、记录强隔离要求；provider 通信凭据无法在同一 Pi 进程内彻底与内置 bash 隔离，当前只允许经逐次授权、受监控运行，强安全场景必须使用只读挂载及网络/凭据隔离的容器或 VM。
+- 2026-08-04 修订后二轮 Pi 复审（同 provider/model，bundle `0ea1ff0c…`）：3 条 finding 全部确认并修复。R-002 指出脏工作树下 porcelain 状态不随已修改/未跟踪文件内容变化，现改为哈希 HEAD、受管 binary diff、非忽略未跟踪文件内容与 Git exclude 的版本控制范围内容级快照，并新增脏 tracked/untracked 文件回归测试；R-001 指出 headless 篡改路径在落盘 raw output 前失败，现调整为先保存 stdout/stderr 与哈希再检查快照；R-003 指出系统提示中的禁止范围只是受监控契约，现明确其非 OS 技术边界及强隔离要求。测试总数升至 100。
+- 2026-08-04 三轮修订复审（同 provider/model，bundle `bb20a5ff…`）：3 条 finding 已独立核验。R-001 部分确认：忽略路径与绝大多数 `.git` 元数据不属于版本控制工作树且 `.artifacts` 会被宿主正常写入，无法纳入同一无噪音快照；已把报告字段与 AGENTS/Skill/handoff 表述收窄为 `versioned_worktree_*` 和“受管 + 非忽略未跟踪 + info/exclude”的最佳努力范围，强隔离要求不变。R-002 确认并新增 fake Pi 实际篡改 tracked 文件的集成测试，断言运行失败、`versioned_worktree_unchanged=false` 且 raw output/report 已落盘。R-003 不采纳：`cli.py` 明确将 `run_validation` 导入别名为 `quality_run_validation`，`dry_run` 已在该函数签名中接收并透传；为消除回归疑虑仍新增 runner 级 dry-run 测试。测试总数升至 102。
+- 2026-08-04 收敛复审（同 provider/model，bundle `2f14a759…`）：2 条 finding 均已处置。R-001 确认：headless 与 tmux worker 现均以独立进程组启动 Pi，并在成功、失败或超时时清理整个进程组后再取 worktree 快照；报告显式记录 `process_group_cleanup=true` 与无法覆盖自行脱离进程组的 `detached_descendants_checked=false`，强隔离场景仍按容器/VM 要求执行。R-002 作为防误用建议采纳：dry-run 使用官方 `SAMPLE_CONTRACT` 时继续允许管线试跑，但 validation/report 现产生明确的 non-official 警告，不能作为已裁决正式 pilot 门禁证据；既有测试增加警告断言。
+- 2026-08-04 最终收敛复审（同 provider/model，bundle `cad8ed9c…`）：3 条 finding 已核验。R-001 与 R-002 确认：headless 不再用 `communicate()` 全量缓冲事件流，改为 daemon pump 流式落盘并过滤累积 `message_update`；headless/tmux 的 stream reader 均使用有界 join，无法在进程组清理后收敛时报告失败而非无限挂起。R-003（正常退出后清理同组残留存在极低概率 PGID 复用）不采纳：正常退出后杀同组残留是防止后台写绕过快照的必要步骤，调用紧随已记录 PID 的退出且复用窗口可忽略；自行 `setsid` 的后代仍按已记录残余边界处理。
 - pane 可见性改造：pi 审核/修订/翻译命令从 `--mode text`（完全缓冲）切换为 `--mode json`（实时事件流），新增事件流提取（`extract_event_stream_output`）与 pane 增量预览（`_preview_event_line`），reasoning/文本增量实时可见；deepseek provider 凭据经 `_pi_environment` 注入 `DEEPSEEK_API_KEY`（此前因 `PI_CODING_AGENT_DIR` 重定向找不到 auth.json）。
 - pane 渲染二次升级（`PaneStreamRenderer`）：增量按换行组装成完整行、推理暗色/状态行青色，与常规终端一致；`message_update` 行不再写入 raw 文件（每行携带累积 partial，曾致单次运行 5.9GB，现 ~756KB）。
 
@@ -66,8 +73,8 @@
 以下结果是当前工作区最近一次验证的基线：
 
 - `doctor`：清单、Lua 5.1 / LuaJIT 2.1、LPeg 0.10.2 和受保护输入代理均正常。
-- 单元测试：89 项通过，其中质量系统相关新增 41 项（身份/结构/抽样/校验/指标/事件流/预览/渲染）。
-- 严格 lint：30,170 条翻译、653 条术语，0 个错误、0 个警告；`lint --strict` 已可作为当前门槛。
+- 单元测试：102 项通过，其中质量系统相关 45 项（身份/结构/抽样/校验/指标/事件流/预览/渲染）；本轮新增 6 项源码核验变体测试（`--tools read,bash` 白名单 + cwd=仓库根、脏工作树内容级快照与篡改失败路径、code bundle 与 tmux 路径、缓存命名空间与隔离审核分离）与 4 项 dry-run 校验/runner 透传测试。
+- 严格 lint：30,177 条翻译、693 条术语，0 个错误、0 个警告；`lint --strict` 已可作为当前门槛。
 - lint 仍统计到 1,717 个重复运行键；这不是当前构建失败项，但仍需分类审校。
 - 核心最小 addon：严格构建成功，19,023 个预期运行键全部验证通过。
 - 核心补丁包含 1,391 个运行键：17,632 个官方已有译文继承不打包，1,382 个覆盖译文，9 个新增译文。
@@ -116,10 +123,10 @@
 - [x] 处理 2 条 blocker（`303f788`）；每项均以有界 bundle、术语库及必要的固定公开源码独立核验，不能直接套用 Pi 建议。
 - [x] 处理 565 条 major（`d8d25db`–`c1c2771` 共 15 批，每批 40 条独立提交并逐条记账）。
 - [ ] 分组件处理 1,053 条 minor 和 68 条 note；高复用术语先更新 `terminology.tsv`，再同步规范 Lua。（已完成：minor 1,053/1,053、note 68/68，见推荐工作顺序 §4）
-- [ ] 审定 `Constrict`、`eldritch`、`Atmos Tribe` 等多译法术语，并按术语库流程先改 TSV，再改 Lua。
-- [ ] 检查 1,717 个重复运行键，确认是合法覆盖、历史重复，还是需要清理的冲突来源。
-- [ ] 对每个 remediation 批次运行严格 lint 和定向测试、更新台账；全部完成后对最终 diff 做有界 Pi 复审，并为接受、修订或撤销的 finding 留下闭环证据。
-- [ ] 翻译质量系统 M4–M6：12 条 dry-run 试评 → 两位 evaluator 独立完成正式 120 条（reviewer-a/reviewer-b 模板已由 `quality sample` 生成）→ 人工裁决 → `quality validate --strict` + `quality report`，对照校准目标给出 Go/No-Go；涉及外部 provider 时先完成授权。
+- [x] 审定 `Constrict`→缠绕、`eldritch`→骇异、`Atmos Tribe`→气之部族（2026-08 裁决，先改 TSV 再同步 Lua）。
+- [x] 检查 1,717 个重复运行键（2026-08-03 `930b9c2` 分类完成：全部为跨文件合法重复，0 个同文件冗余；分类结果见 `tools/classify_runtime_keys.py` 报告）。
+- [x] 对每个 remediation 批次运行严格 lint 和定向测试、更新台账；全部完成后对最终 diff 做有界 Pi 复审，并为接受、修订或撤销的 finding 留下闭环证据（2026-08-04，`0bb8d57f…` 至 `cad8ed9c…` 五轮收敛复审，处置记录见本节）。
+- [ ] 翻译质量系统 M4–M6：12 条 dry-run 试评已完成（两份 assessment + 裁决冻结，strict validate 通过，κ=0.92；`quality validate --dry-run` 支持无 adjudication 校验）；下一步需两位**真正独立**的 evaluator 完成正式 120 条（reviewer-a/reviewer-b 模板已由 `quality sample` 生成，dry-run 两份评估由同一代理会话产生、不计入正式一致性）→ 人工裁决 → `quality validate --strict` + `quality report`，对照校准目标给出 Go/No-Go；涉及外部 provider 时先完成授权。
 
 ### P2：流程与工程化
 
@@ -127,7 +134,7 @@
 - [ ] 建立持续集成检查：LuaJIT 加载、普通 lint、单元测试、核心 build，以及禁止受保护目录越界读取。
 - [ ] 评估是否需要安全的人工审核后 apply 流程；当前 `merge`/`proposal` 只生成候选和校验结果，不会原地修改规范 Lua。
 - [x] 新增的 `i18n/`、`tools/`、`tests/` 文件已纳入本次工具链提交；发布仍需单独执行。
-- [x] 为受保护提取器陈旧输出、空编辑键和越界 merge report 路径补充回归测试；当前测试总数为 77（含质量系统测试）。
+- [x] 为受保护提取器陈旧输出、空编辑键和越界 merge report 路径补充回归测试；当前测试总数为 102（含质量系统测试与 Pi 审核/翻译/修订/findings 测试）。
 
 ## 五、推荐工作顺序
 
@@ -137,8 +144,8 @@
 4. ✅ 已处理 1,053 条 minor 与 68 条 note（1,053/1,053、68/68），队列 `pending` 清零；跨条目术语先走术语库流程，重复运行键在同批同步，但不得无证据全局替换。
 4b. ✅ 与基线（相邻仓库 HEAD `84e5573`，即本分支基线）逐条对比后，发现早期批次约 14 条标记 `applied` 但条目未落盘的遗漏，已全部补修（`5d26960`，tome 8 / ashes 3 / cults 2 / engine 1 及标点统一 1 处），并全量复检确认除有意保留项外无遗漏。
 5. 每批结束后更新 `remediation-queue.json`、`remediation-ledger.json` 和人类可读台账，运行严格 lint 与相关定向测试；涉及公开机制时记录固定 commit，涉及 DLC 时只使用已复制的有界规范 bundle。
-6. 队列清零后运行完整 doctor、lint、当前全套测试（89 项）和核心严格 build，再对最终 diff 生成有界 Pi 复审；只有复审无未处置 finding，才更新为审核闭环完成。
-7. 随后再审定 3 条 `review` 术语、分类 1,717 个重复运行键，并继续 DLC、legacy lore、Nullpack、CI 与发布基线工作。
+6. 队列清零后运行完整 doctor、lint、当前全套测试（102 项）和核心严格 build，再对最终 diff 生成有界 Pi 复审（需要对照源码核验证据时可用 `$tome4-pi-file-review` 变体）；只有复审无未处置 finding，才更新为审核闭环完成。
+7. 随后分类 1,717 个重复运行键（已判定全部为跨文件合法重复）并继续 DLC、legacy lore、Nullpack、CI 与发布基线工作；3 条 `review` 术语已裁决（见 P1）。
 
 ## 六、常用命令
 
@@ -150,6 +157,9 @@ python3 -B tools/i18n lint --strict
 python3 -B tools/i18n status --json
 python3 -B tools/i18n build --profile addon --component tome --require-complete --json
 python3 -B tools/i18n build --profile addon --require-complete --json
+python3 -B tools/pi-review-files --bundle <bundle.json>
+python3 -B tools/pi-tmux review-files --bundle <bundle.json>
+python3 -B tools/i18n quality validate --dry-run --sample <dry-run.json> --assessment <reviewer-a.json> --assessment <reviewer-b.json> --strict
 ```
 
 执行 Lua 相关检查时必须遵守 `AGENTS.md` 中的 LuaJIT 5.1 和模块路径要求。任何 DLC 提取、快照或上下文操作都必须通过仓库内受审计的工具完成；不得使用通用文件搜索、脚本 API 或 Git 命令直接读取受保护 DLC 输入。
@@ -157,12 +167,12 @@ python3 -B tools/i18n build --profile addon --require-complete --json
 ## 七、当前分支与工作区范围
 
 - 当前分支：`codex/review-findings-20260802`。
-- 分支相对 `origin/master` 领先 70+ 个提交：原工具链/术语库/测试批次 10 个，加本轮 finding 处置 37 个（冻结 1 + blocker 1 + major 15 + minor 18 + note 2 + 遗漏补修 1，minor/note 批次中个别文件合并提交），加术语表系统工程与三轮 Pi 复审闭环 25+ 个。
+- 分支相对 `origin/master` 领先 146 个提交：工具链/术语库/测试批次、本轮 finding 处置 37 个（冻结 1 + blocker 1 + major 15 + minor 18 + note 2 + 遗漏补修 1，minor/note 批次中个别文件合并提交）、术语表系统工程与三轮 Pi 复审闭环、翻译质量系统 M0–M3 与 M4 dry-run 批次。
 - 本轮 finding 处置涉及文件：`engine.lua`、`mod-tome.lua`、`tome-ashes-urhrok.lua`、`tome-cults.lua`、`tome-orcs.lua`、`tome-addon-dev.lua`、`tome-possessors.lua`、`tome-items-vault.lua`、`mod-boot.lua`、`mod-example.lua`、`mod-example_realtime.lua`。
-- 当前工作区干净（无未提交改动、无已暂存文件）；分支未配置 upstream，提交、推送和发布均尚未执行。
+- 当前工作区有未提交改动（源码核验变体 + 质量 M4 dry-run，待提交）：新增 `tools/i18nlib/pi_file_review.py`、`tools/pi-review-files`、`i18n/prompts/pi-reviewer-files.md`、`.agents/skills/tome4-pi-file-review/SKILL.md`；修改 `tools/i18nlib/pi_tmux.py`（新增 `review-files` 子命令）、`tools/i18nlib/quality.py`（`quality validate --dry-run`，adjudication 可选）、`tools/i18nlib/cli.py`、`tests/i18n/test_toolchain.py`（+10 测试）、`AGENTS.md`（新增变体入口说明）、`docs/translation-quality-phase-1.md`（M4 dry-run 状态）、`handoff.md`（本文）。门禁 1–5 全过（lint 0/0、102 项测试、碰撞扫描 0、diff 干净），冒烟验证 headless 与 tmux 两条路径均产出合法 `review.json`/`pi-review.json`，dry-run 冻结清单见 `.artifacts/i18n/quality/runs/*-dry-run/dry-run-frozen-manifest.json`；分支未配置 upstream，提交、推送和发布均尚未执行。
 - 工作树状态快照：`remediation-queue.json` 的 `pending` 为 0（全部处置），`applied_pending_commit` 2,945、`already_resolved` 135；`remediation-ledger.json` 已关联 2,795 条处置记录。
 - 已处置但未改动规范文件的条目（有意保留）共 168 条：`already_resolved` 135（已含修复/与源码一致/术语裁决/代码基线已修复）+ `false_positive` 33（不采纳，原因均记录在台账 `verification_note`）。
 - 术语表系统工程（2026-08）：新增 `domain` 列（11 领域 + lint 白名单）、静态/动态审计、补录基础术语（资源/面板属性/免疫/高频词）、3 条 review 术语裁决、33+26 条同键多译统一、light 共享键裁决、重复运行键分类（1,717 全部跨文件合法重复）、`tools/scan_runtime_collisions.py` / `classify_runtime_keys.py` / `review_diff.py` / `pi-review-batch.py`。
 - 三轮 Pi 复审闭环（2026-08-03/04）：diff bundle 复审 3 轮，major 66→54→21→0，全部处置（含裁决保留）；处置记录在 `.artifacts/i18n/terminology-audit/findings_review{1,2,3}*.json`；worker 调优测试见 `docs/pi-review-worker-tuning.md`（最优 6 workers，4.2× 加速）。
 
-上述状态说明核心插件已通过本地发布门槛，首轮全量“发现”已完成并同步到 review 工作树；1,688 条新增 finding 已全部处置（blocker 2/2、major 565/565、minor 1,053/1,053、note 68/68），队列 `pending=0`；下一步按进度第 6 条执行队列清零后的完整 doctor、lint、89 项测试与核心严格 build，再对最终 diff 生成有界 Pi 复审，之后再审定 3 条 `review` 术语并分类 1,717 个重复运行键。DLC 与外部层仍不属于已完成发布范围。
+上述状态说明核心插件已通过本地发布门槛，首轮全量“发现”已完成并同步到 review 工作树；1,688 条新增 finding 已全部处置（blocker 2/2、major 565/565、minor 1,053/1,053、note 68/68），队列 `pending=0`；3 条 review 术语与 1,717 个重复运行键分类均已完成，质量 M4 dry-run 已冻结（正式 120 条双独立评价待做）；队列清零后的完整 doctor、lint、102 项测试、运行键门禁与核心严格 build 已通过，最终 diff 的五轮有界 Pi 复审及 finding 独立核验/修订已完成，当前待提交工作区批次。DLC 与外部层仍不属于已完成发布范围。

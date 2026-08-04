@@ -1,8 +1,9 @@
 """Run bounded Pi audits inside a tmux pane so the operator can watch live.
 
 The wrapper builds the exact same isolated Pi command as ``tools/pi-review``,
-``tools/pi-remediate`` and ``tools/pi-subagent``, but executes it inside a
-tmux split pane.  A small ``worker`` subprocess runs inside the pane, tees
+``tools/pi-remediate`` and ``tools/pi-subagent`` (plus the file-reading
+``review-files`` variant of ``tools/pi-review-files``), but executes it inside
+a tmux split pane.  A small ``worker`` subprocess runs inside the pane, tees
 Pi's stdout/stderr into the run directory (``raw-output.txt`` /
 ``pi-stderr.txt``) while mirroring both streams to the pane, and finally
 writes ``worker-status.json``.  The wrapper waits for that status file and
@@ -44,6 +45,14 @@ from .pi_remediate import (
     _read_review,
     _validate_remediation,
     build_remediation_command,
+)
+from .pi_file_review import (
+    TOOLS_ALLOWLIST,
+    _file_review_cache_key,
+    _git_worktree_snapshot,
+    _kill_process_group,
+    _record_worktree_check,
+    build_file_review_command,
 )
 from .pi_review import (
     _cached_review_path,
@@ -401,6 +410,7 @@ def run_worker_job(job: dict[str, Any], job_path: Path) -> dict[str, Any]:
             env=environment,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
+            start_new_session=True,
         )
     except OSError as error:
         status = {
@@ -416,10 +426,14 @@ def run_worker_job(job: dict[str, Any], job_path: Path) -> dict[str, Any]:
         print(f"[pi-tmux] worker failed to start Pi: {error}", file=sys.stderr, flush=True)
         return status
     stdout_thread = threading.Thread(
-        target=_pump_with_preview, args=(process.stdout, raw_output_path, sys.stdout.buffer)
+        target=_pump_with_preview,
+        args=(process.stdout, raw_output_path, sys.stdout.buffer),
+        daemon=True,
     )
     stderr_thread = threading.Thread(
-        target=_pump, args=(process.stderr, stderr_path, sys.stderr.buffer)
+        target=_pump,
+        args=(process.stderr, stderr_path, sys.stderr.buffer),
+        daemon=True,
     )
     stdout_thread.start()
     stderr_thread.start()
@@ -428,19 +442,35 @@ def run_worker_job(job: dict[str, Any], job_path: Path) -> dict[str, Any]:
         process.wait(timeout=timeout)
     except subprocess.TimeoutExpired:
         timed_out = True
-        process.kill()
+    _kill_process_group(process)
+    if process.poll() is None:
         process.wait()
-    stdout_thread.join()
-    stderr_thread.join()
+    stdout_thread.join(timeout=5)
+    stderr_thread.join(timeout=5)
+    assert process.stdout is not None and process.stderr is not None
+    if stdout_thread.is_alive() or stderr_thread.is_alive():
+        process.stdout.close()
+        process.stderr.close()
+        stdout_thread.join(timeout=1)
+        stderr_thread.join(timeout=1)
+    process.stdout.close()
+    process.stderr.close()
+    streams_terminated = not stdout_thread.is_alive() and not stderr_thread.is_alive()
     raw_sha = None
     if raw_output_path.exists():
         raw_sha = hashlib.sha256(raw_output_path.read_bytes()).hexdigest()
     status = {
         "schema_version": WORKER_STATUS_SCHEMA_VERSION,
         "tool_version": TOOL_VERSION,
-        "pi_returncode": process.returncode,
+        "pi_returncode": process.returncode if streams_terminated else None,
         "timed_out": timed_out,
-        "error": f"Pi timed out after {timeout} seconds" if timed_out else None,
+        "stream_threads_terminated": streams_terminated,
+        "error": (
+            f"Pi timed out after {timeout} seconds"
+            if timed_out
+            else None if streams_terminated
+            else "Pi stream readers did not terminate after process-group cleanup"
+        ),
         "elapsed_seconds": round(time.monotonic() - started, 6),
         "raw_output_sha256": raw_sha,
     }
@@ -762,6 +792,254 @@ def run_tmux_review(
     except ValidationError as error:
         _fail(report, report_path, str(error))
         raise AgentError(f"Pi review validation failed: {error}; report: {report_path}") from error
+    write_json(review_path, output)
+    if use_cache and not force:
+        _write_cached_review(
+            path=cache_path,
+            cache_key=cache_key,
+            bundle=bundle,
+            provider=provider,
+            model=model,
+            thinking=thinking,
+            prompt_sha256=prompt_sha256,
+            strict=strict,
+            review=output,
+        )
+    report.update(
+        {
+            "ok": True,
+            "summary": summary,
+            "review": str(review_path),
+            "validated_results": 1,
+            "elapsed_seconds": round(time.monotonic() - started, 6),
+        }
+    )
+    write_json(report_path, report)
+    return report
+
+
+# ---------------------------------------------------------------------------
+# file-reading review
+# ---------------------------------------------------------------------------
+
+
+def run_tmux_file_review(
+    *,
+    bundle_path: Path,
+    provider: str,
+    model: str,
+    thinking: str,
+    timeout: int,
+    strict: bool,
+    use_cache: bool,
+    force: bool,
+    pi_executable: str | None = None,
+    tmux_executable: str | None = None,
+    session: str | None = None,
+    layout: str = "vertical",
+    percent: int = 35,
+    keep_pane: bool = True,
+    fallback: str = "error",
+) -> dict[str, Any]:
+    """Review a bundle in a pane with read/bash tools enabled (no write tools).
+
+    Same bounded bundle and findings contract as ``run_tmux_review``, but the
+    Pi subprocess is allowed to read project, game and DLC sources to verify
+    evidence; ``edit``/``write`` stay disabled and the worker runs with the
+    manifest root as cwd so relative source paths resolve.
+    """
+    started = time.monotonic()
+    manifest = load_manifest()
+    bundle_resolved = bundle_path.expanduser().resolve()
+    bundle = validate_review_bundle(manifest, bundle_resolved)
+    if timeout < 1:
+        raise ValidationError("--timeout must be a positive integer")
+    if not provider or not model or not thinking:
+        raise ValidationError("Pi provider, model, and thinking level must be non-empty")
+
+    run_directory = create_run_directory(manifest.root, "pi-file-review-tmux")
+    run_directory.chmod(0o700)
+    review_path = run_directory / "review.json"
+    report_path = run_directory / "pi-review.json"
+    prompt_path = manifest.root / "i18n" / "prompts" / "pi-reviewer-files.md"
+    try:
+        system_prompt = prompt_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError) as error:
+        raise AgentError(f"cannot read Pi file reviewer prompt: {prompt_path}") from error
+    prompt_sha256 = hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()
+    cache_key = _file_review_cache_key(
+        bundle_id=bundle["bundle_id"],
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        prompt_sha256=prompt_sha256,
+        strict=strict,
+    )
+    cache_path = _cached_review_path(manifest.root, cache_key)
+    cache_decision = "disabled" if not use_cache else ("bypass" if force else "miss")
+    report: dict[str, Any] = {
+        "schema_version": REVIEW_SCHEMA_VERSION,
+        "review_contract": REVIEW_CONTRACT,
+        "tool_version": TOOL_VERSION,
+        "ok": False,
+        "version": manifest.version,
+        "provider": provider,
+        "model": model,
+        "thinking": thinking,
+        "strict": strict,
+        "mode": "findings-files-v1",
+        "pi_tools": True,
+        "tools": [TOOLS_ALLOWLIST],
+        "os_sandbox": False,
+        "provider_credentials_inherited": True,
+        "process_group_cleanup": True,
+        "detached_descendants_checked": False,
+        "pi_session": False,
+        "candidate_execution": False,
+        "concurrency": 1,
+        "run_id": run_directory.name,
+        "bundle": str(bundle_resolved),
+        "bundle_id": bundle["bundle_id"],
+        "kind": bundle["kind"],
+        "prompt_sha256": prompt_sha256,
+        "result_cache_key": cache_key,
+        "cache_decision": cache_decision,
+        "timeout_seconds": timeout,
+        "attempts": 0,
+        "charged_or_possible_transfers": 0,
+        "provider_confirmed_requests": None,
+        "validated_results": 0,
+        "execution": "cache" if cache_decision == "hit" else "tmux",
+        "session": session,
+        "pane": None,
+        "keep_pane": keep_pane,
+        "run_directory": str(run_directory),
+        "raw_output": str(run_directory / "raw-output.txt"),
+        "report": str(report_path),
+        "_started": started,
+    }
+    if use_cache and not force:
+        try:
+            cached = _load_cached_review(
+                path=cache_path,
+                cache_key=cache_key,
+                bundle=bundle,
+                provider=provider,
+                model=model,
+                thinking=thinking,
+                prompt_sha256=prompt_sha256,
+                strict=strict,
+            )
+        except ValidationError as error:
+            report["error"] = f"Pi file review cache validation failed: {error}"
+            report["elapsed_seconds"] = round(time.monotonic() - started, 6)
+            write_json(report_path, report)
+            raise AgentError(f"{report['error']}; report: {report_path}") from error
+        if cached is not None:
+            summary, output = cached
+            write_json(review_path, output)
+            report.update(
+                {
+                    "ok": True,
+                    "cache_decision": "hit",
+                    "execution": "cache",
+                    "summary": summary,
+                    "review": str(review_path),
+                    "validated_results": 1,
+                    "elapsed_seconds": round(time.monotonic() - started, 6),
+                }
+            )
+            write_json(report_path, report)
+            return report
+
+    executable = pi_executable or shutil.which("pi")
+    if not executable:
+        _fail(report, report_path, "pi is not available on PATH")
+        raise AgentError(f"pi is not available on PATH; report: {report_path}")
+    _pi_environment(manifest.root, provider)  # fail fast on missing credentials
+    command = build_file_review_command(
+        executable=executable,
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        system_prompt=system_prompt,
+        bundle=bundle,
+        bundle_resolved=bundle_resolved,
+    )
+    job = {
+        "job_schema_version": JOB_SCHEMA_VERSION,
+        "tool_version": TOOL_VERSION,
+        "kind": "review-files",
+        "root": str(manifest.root),
+        "provider": provider,
+        "cwd": str(manifest.root),
+        "argv": command,
+        "timeout_seconds": timeout,
+    }
+    report.update(
+        {
+            "attempts": 1,
+            "charged_or_possible_transfers": 1,
+        }
+    )
+    worktree_before = _git_worktree_snapshot(manifest.root)
+    try:
+        status, pane_id = execute_in_pane(
+            run_directory=run_directory,
+            title=f"pi-file-review:{bundle['bundle_id'][:12]}",
+            job=job,
+            timeout=timeout,
+            tmux_executable=tmux_executable,
+            session=session,
+            layout=layout,
+            percent=percent,
+            keep_pane=keep_pane,
+            fallback=fallback,
+        )
+    except AgentError as error:
+        unchanged = _record_worktree_check(
+            report, worktree_before, _git_worktree_snapshot(manifest.root)
+        )
+        message = str(error) if unchanged else "Pi file review changed the worktree"
+        _fail(report, report_path, message)
+        if unchanged:
+            raise
+        raise AgentError(f"{message}; report: {report_path}") from error
+    if not _record_worktree_check(
+        report, worktree_before, _git_worktree_snapshot(manifest.root)
+    ):
+        message = "Pi file review changed the worktree"
+        _fail(report, report_path, message)
+        raise AgentError(f"{message}; report: {report_path}")
+    report["pane"] = pane_id
+    if pane_id is None:
+        report["execution"] = "foreground"
+    stderr_path = run_directory / "pi-stderr.txt"
+    if stderr_path.exists() and stderr_path.stat().st_size:
+        report["stderr"] = str(stderr_path)
+    report["pi_returncode"] = status.get("pi_returncode")
+    report["raw_output_sha256"] = status.get("raw_output_sha256")
+    raw = (run_directory / "raw-output.txt").read_bytes() if (run_directory / "raw-output.txt").exists() else b""
+    if status.get("timed_out"):
+        message = f"Pi timed out after {timeout} seconds"
+        _fail(report, report_path, message)
+        raise AgentError(f"{message}; report: {report_path}")
+    if status.get("pi_returncode") != 0:
+        message = f"Pi exited with status {status.get('pi_returncode')}"
+        _fail(report, report_path, message)
+        raise AgentError(f"{message}; report: {report_path}")
+    if not raw.strip():
+        _fail(report, report_path, "Pi returned an empty response")
+        raise AgentError(f"Pi returned an empty response; report: {report_path}")
+    try:
+        model_output = decode_json_object(
+            extract_event_stream_output(raw, "Pi file review output"),
+            "Pi file review output",
+        )
+        summary, output = _validate_findings(bundle, model_output, strict=strict)
+    except ValidationError as error:
+        _fail(report, report_path, str(error))
+        raise AgentError(f"Pi file review validation failed: {error}; report: {report_path}") from error
     write_json(review_path, output)
     if use_cache and not force:
         _write_cached_review(
@@ -1217,6 +1495,26 @@ def _parser() -> argparse.ArgumentParser:
     _add_pi_options(review)
     _add_tmux_options(review)
 
+    review_files = subparsers.add_parser(
+        "review-files",
+        help="review a bundle in a tmux pane with read/bash tools (no write tools)",
+    )
+    review_files.add_argument("--bundle", required=True, type=Path)
+    review_files.add_argument("--timeout", type=int, default=DEFAULT_REVIEW_TIMEOUT)
+    review_files.add_argument(
+        "--cache",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="reuse an exact validated result before starting Pi (default: true)",
+    )
+    review_files.add_argument(
+        "--force",
+        action="store_true",
+        help="bypass cache lookup and do not replace the cached observation",
+    )
+    _add_pi_options(review_files)
+    _add_tmux_options(review_files)
+
     remediate = subparsers.add_parser(
         "remediate", help="produce remediation proposals in a tmux pane"
     )
@@ -1272,6 +1570,24 @@ def main(argv: list[str] | None = None) -> int:
                 keep_pane=arguments.keep_pane,
                 fallback=arguments.fallback,
             )
+        elif arguments.command == "review-files":
+            report = run_tmux_file_review(
+                bundle_path=arguments.bundle,
+                provider=arguments.provider,
+                model=arguments.model,
+                thinking=arguments.thinking,
+                timeout=arguments.timeout,
+                strict=arguments.strict,
+                use_cache=arguments.cache,
+                force=arguments.force,
+                pi_executable=arguments.pi_executable,
+                tmux_executable=arguments.tmux_executable,
+                session=arguments.session,
+                layout=arguments.layout,
+                percent=arguments.percent,
+                keep_pane=arguments.keep_pane,
+                fallback=arguments.fallback,
+            )
         elif arguments.command == "remediate":
             report = run_tmux_remediation(
                 bundle_path=arguments.bundle,
@@ -1308,10 +1624,11 @@ def main(argv: list[str] | None = None) -> int:
     except I18nToolError as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return error.exit_code
-    if arguments.command == "review":
+    if arguments.command in ("review", "review-files"):
         summary = report["summary"]
+        label = "Pi review" if arguments.command == "review" else "Pi file review"
         print(
-            f"OK  Pi review {report['bundle_id'][:16]}  "
+            f"OK  {label} {report['bundle_id'][:16]}  "
             f"kind={report['kind']} findings={summary['findings']} "
             f"cache={report['cache_decision']} attempts={report['attempts']}"
         )

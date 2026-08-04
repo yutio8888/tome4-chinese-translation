@@ -278,7 +278,16 @@ def _parser() -> argparse.ArgumentParser:
         metavar="ASSESSMENT",
         help="assessment JSON; may be repeated (pilot: exactly two)",
     )
-    quality_validate.add_argument("--adjudication", required=True, type=Path)
+    quality_validate.add_argument(
+        "--adjudication",
+        type=Path,
+        help="adjudication JSON (required for the official pilot sample)",
+    )
+    quality_validate.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="validate a dry-run sample; adjudication is optional",
+    )
     quality_validate.add_argument("--strict", action="store_true")
     quality_report = quality_subparsers.add_parser(
         "report",
@@ -902,12 +911,18 @@ def _quality_sample(arguments: argparse.Namespace) -> int:
 
 def _quality_validate(arguments: argparse.Namespace) -> int:
     manifest = _manifest(arguments)
+    if not arguments.dry_run and arguments.adjudication is None:
+        raise ValidationError(
+            "quality validate requires --adjudication for the official "
+            "pilot sample (or pass --dry-run)"
+        )
     report = quality_run_validation(
         manifest,
         sample_path=arguments.sample,
         assessment_paths=arguments.assessment,
         adjudication_path=arguments.adjudication,
         strict=arguments.strict or None,
+        dry_run=arguments.dry_run,
     )
     if arguments.json:
         _print_json(report)

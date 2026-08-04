@@ -5,7 +5,10 @@
 > `tools/i18nlib/quality.py` 与 `tools/i18n quality {inventory,sample,validate,report}`；
 > 全量 inventory 30,177 个 revision（确定性 SHA-256 已验证），
 > 120 条试点样本满足全部覆盖约束且可逐字节复现。
-> M4–M6（dry-run、两轮独立评价、人工裁决、报告与 Go/No-Go）尚未开始。
+> M4 dry-run 已完成（2026-08-04）：12 条 dry-run 样本由 reviewer-a/reviewer-b 完成
+> 两份完整 assessment 并经裁决（strict validate 通过，κ=0.92），报告管线在 dry-run
+> 集上全链路验证；`quality validate` 新增 `--dry-run` 模式（adjudication 可选）。
+> 正式 120 条两轮独立评价与 M5/M6 尚未开始。
 > 上位设计：[`translation-quality-system.md`](./translation-quality-system.md)。
 > 本阶段性质：建立可验证的数据契约和小规模校准基准，不建设生产级模糊匹配。
 
@@ -536,10 +539,14 @@ runtime_collision=false
 
 ### M4：完成两轮独立评价
 
-- 先用不进入正式 120 条样本的 12 条 dry-run 条目检查 rubric 是否可理解；
-- 冻结 dry-run 原始结果；如需修改 rubric，提升 `method_version`，不得查看对方答案后回写个人原始 assessment；
-- rubric 稳定后，两位 evaluator 从头独立完成正式 120 条；
-- 每份 assessment 严格校验后冻结 content hash。
+- [x] 12 条 dry-run 条目：reviewer-a/reviewer-b 两份完整 assessment + 裁决已完成并冻结
+  （`.artifacts/i18n/quality/runs/*-dry-run/dry-run-frozen-manifest.json`，strict validate
+  通过，报告管线全链路验证）；rubric 观察 OBS-001–004 已记录（profile 分类：物品未识别名/
+  天赋名应归 term-name、zones 长叙事应归 narrative、术语表缺组合实体词、contrast 身份记账）。
+- [x] `quality validate` 支持 `--dry-run`（dry-run contract 样本 + adjudication 可选）。
+- [ ] rubric 稳定后，两位**真正独立**的 evaluator 从头完成正式 120 条（dry-run 两份 assessment
+  由同一代理会话产生，仅用于 rubric 可用性检验，不计入正式一致性和缺陷率）；
+  每份 assessment 严格校验后冻结 content hash。
 
 **完成条件：** 两份 assessment 均覆盖正式 120 条、schema 有效、相互独立且绑定 sample ID；dry-run 不计入正式一致性和缺陷率。
 
