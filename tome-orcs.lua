@@ -4405,7 +4405,7 @@ section "tome-orcs/data/talents/spells/other-technomancy.lua"
 
 t("Electron Incantation", "电子咒式", "talent name")
 t("You need an arcane dynamo to cast this spell.", "你需要奥术发电机才能释放这一法术。", "logPlayer")
-t("You can only cast this spell after casting an other technomancy spell.", "你只能在施放另一个科技法术后施放此法术。", "logPlayer")
+t("You can only cast this spell after casting an other technomancy spell.", "你只能在施放其他科技法术后施放此法术。", "logPlayer")
 t([[After casting a technomancy spell you store some of its energies that you can then use to overload your arcane dynamo, increasing the steam it generates per 10 mana spent by 4 for 4 turns.
 		In addition the energies spills outward in radius 3, dealing %0.2f damage (damage type based on the type of technomancy spell used).
 		This spell is only usable after casting a technomancy spell and until you use any other spell or talent.

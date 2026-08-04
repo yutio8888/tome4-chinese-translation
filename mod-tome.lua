@@ -8437,7 +8437,7 @@ t("thaurhereg", "修尔希瑞格", "entity name")
 t("This terrible demon is covered in blood, which flows *on* its skin in ever-changing patterns that disturb you simply when looking at it.", "这只可怕的恶魔浑身是血，鲜血在其皮肤*表面*以不断变化的图案流淌，光是看着就让你浑身不舒服。", "_t")
 t("daelach", "达莱奇", "entity name")
 t([[You can only guess at the real shape of this demon. Its body is surrounded by a cloud of fiery darkness.
-It moves swiftly toward you, casting terrible spells and swinging its weapons at you.]], "你无法猜测这只恶魔的真实形态。它的身体被一层炽热的黑暗所笼罩。\n它迅速向你逼近，一边施放可怕的法术，一边挥舞武器攻击你。", "_t")
+It moves swiftly toward you, casting terrible spells and swinging its weapons at you.]], "你只能猜测这只恶魔的真实形态。它的身体被一层炽热的黑暗所笼罩。\n它迅速向你逼近，一边施放可怕的法术，一边挥舞武器攻击你。", "_t")
 t("champion of Urh'Rok", "乌鲁洛克的冠军", "entity name")
 t("One of Urh'Rok's own champions. A thousand nightmares made flesh and screaming steel tower before you in the form of a massive, armored humanoid.", "乌鲁洛克本人的冠军之一。一千个噩梦化作血肉与尖啸的钢铁，以庞大的装甲人形之姿耸立在你面前。", "_t")
 t("forge-giant", "锻造巨人", "entity name")
@@ -16364,7 +16364,7 @@ And they can feel it now. Each in turn grabs a weapon and begins to head your wa
 ]], [[这条小径一直引导向一片空地，有一大群人坐在那里聊天。
 那是你曾经工作过的商队。很长一段时间，你已经记不清他们了，但是现在他们却出现在了你的梦境中。
 
-你突然感到你是如此的憎恨他们。是因为诅咒点燃了仇恨之火吗？
+你突然感到你是如此的憎恨他们。是这份仇恨在给诅咒添柴吗？
 他们曾经想杀死你，但最终却选择抛弃你，让你自生自灭。他们可能察觉到了你的变化。
 现在，他们也能感觉到你变成了什么。他们一个接一个拿起武器，开始朝你走来……
 ]], "_t")
@@ -20980,7 +20980,7 @@ t([[Conjure a surge of celestial power through your circles. Any foe standing wi
 		Residual power from the surge will emanate from your circles for %d turns; each circle you stand in will increase your celestial resources.
 		Shifting Shadows: +1 negative.
 		Sanctity: +1 postive.
-		Warding: +0.5 postive and negative.]], [[从你的法阵中召唤天体能量的潮涌。任何站在你的法阵中的敌人将会受到持续 %d 回合的 %d%% 减速效果，并受到 %d 光系和 %d 暗影伤害。
+		Warding: +0.5 postive and negative.]], [[从你的法阵中召唤天体能量的潮涌。任何站在你的法阵中的敌人将会受到 %d%% 的减速效果，持续 %d 回合，并受到 %d 光系和 %d 暗影伤害。
 		能量潮涌的残余力量将会从你的法阵中发出。在 %d 回合内，你每站在一个法阵中，都会获得额外的天体能量恢复。
 		暗影之阵：获得 +1 负能量。
 		圣洁之阵：获得 +1 正能量。
@@ -21173,7 +21173,7 @@ t("Corona", "日冕", "talent name")
 t([[Each time one of your spells criticals, you project a bolt of light or shadow at up to %d targets within radius %d, doing %0.2f light damage or %0.2f darkness damage per bolt.
 		This effect costs 2 positive or 2 negative energy each time it's triggered, and will not activate if either your positive or negative energy is below 2.
 		The damage scales with your Spellpower.
-		This spell cannot crit.]], [[每当你的法术打出暴击时，你会对 %d 码内 %d 个目标发射一颗光球或暗影球，造成 %0.2f 光系或 %0.2f 暗影伤害。
+		This spell cannot crit.]], [[每当你的法术打出暴击时，你会对最多 %d 个目标发射一颗光球或暗影球，作用半径 %d，造成 %0.2f 光系或 %0.2f 暗影伤害。
 		每次触发该效果时消耗 2 点正能量或 2 点负能量；当你的正能量或负能量低于 2 时不会触发。
 		受法术强度影响，伤害按比例加成。
 		该法术造成的伤害不能暴击。]], "tformat", {2,1,3,4})
@@ -21286,7 +21286,7 @@ t([[Chant the glory of the Moons, granting you stealth detection (+%d power), an
 		The stealth and invisibility detection will increase with your Spellpower.]], [[赞颂月之荣耀，使你的潜行侦测强度提高 %d，隐形侦测强度提高 %d。
 		你也能无惩罚地攻击不可见生物，并使暴击伤害提高 %d%%。
 		同时只能激活一种圣诗。
-		潜行与隐形侦测强度，以及暴击伤害加成，均随法术强度提高。]], "tformat")
+		潜行与隐形侦测强度随法术强度提高。]], "tformat")
 t("Hymn of Perseverance", "坚毅圣诗", "talent name")
 t([[Chant the glory of the Moons, granting you %d%% stun, blindness and confusion resistance.
 		You may only have one Hymn active at once.]], [[赞美月之荣耀，增加你 %d%% 震慑、致盲和混乱抵抗。 
@@ -27845,7 +27845,7 @@ t([[You now substitute %d%% of your Mental Save for %d%% of your Physical and Sp
 t("Clarity", "唯我论：明晰", "talent name")
 t([[For every percent that your Psi pool exceeds %d%%, you gain 1%% global speed (up to a maximum of %+d%%).
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25 and will increase your solipsism threshold by 10%% (currently %d%%).]], [[当你的灵能值超过 %d%% 时，每超过 1%% 你增加 1%% 全局速度（最大值 %+d%% ）。
-		学习此技能时，每点意志会额外增加 0.5 点灵能值上限，而每点体质会减少 0.25 点生命上限，增加你 10%% 唯我临界点（当前 %d%% ）。]], "tformat")
+		学习此技能时，每点意志使灵能值上限额外增加 0.5 点，每点体质使生命上限减少 0.25 点，并增加 10%% 唯我临界点（当前 %d%% ）。]], "tformat")
 t("Dismissal", "唯我论：豁免", "talent name")
 t("#TAN##Source# mentally dismisses some damage!", "#TAN##Source#精神上豁免了部分伤害!", "delayedLogMessage")
 t("#TAN#(%d dismissed)#LAST#", "#TAN#（豁免 %d 点伤害）#LAST#", "tformat")
@@ -36075,7 +36075,7 @@ t("#Target# is free from the nightmare.", "#Target#摆脱了噩梦。", "_t")
 t("-Night Terrors", "-梦魇恐怖", "_t")
 t("#F53CBE#%s succumbs to the nightmare!", "#F53CBE#%s受噩梦控制！", "logSeen")
 t("Inner Demons", "心魔", "_t")
-t("The target is plagued by inner demons and each turn there's a %d%% chance that one will appear.  If the caster is killed or the target resists setting his demons loose the effect will end early.", "目标被内心恶魔困扰，每回合有 %d%% 的几率出现一个恶魔。如果施法者被杀死，或目标抵抗并释放出自己的心魔，效果将提前结束。", "tformat")
+t("The target is plagued by inner demons and each turn there's a %d%% chance that one will appear.  If the caster is killed or the target resists setting his demons loose the effect will end early.", "目标被内心恶魔困扰，每回合有 %d%% 的几率出现一个恶魔。如果施法者被杀死，或目标抵抗而不释放自己的心魔，效果将提前结束。", "tformat")
 t("#F53CBE##Target# is plagued by inner demons!", "#F53CBE##Target#受心魔困扰。", "_t")
 t("+Inner Demons", "+心魔", "_t")
 t("#Target# is freed from the demons.", "#Target#摆脱了心魔。", "_t")
