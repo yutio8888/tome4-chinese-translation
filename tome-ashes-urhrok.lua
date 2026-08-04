@@ -914,8 +914,8 @@ t("Doom Storm", "毁灭风暴", "talent name")
 t("firestorm", "火焰风暴", "_t")
 t([[A furious fire storm rages around the caster, doing %0.2f fire damage in a radius of 3 each turn for %d turns.
 		You closely control the firestorm, preventing it from harming your party members.
-		The damage and duration will increase with your Spellpower.]], [[制造一片激烈的火焰风暴，每回合对施法者周围 3 码范围内的目标造成 %0.2f 火焰伤害，持续 %d 回合。 
-		你精确的操控火焰风暴，阻止它伤害你的队友。 
+		The damage and duration will increase with your Spellpower.]], [[制造一片激烈的火焰风暴，每回合对施法者周围 3 码范围内的目标造成 %0.2f 火焰伤害，持续 %d 回合。
+		你精确的操控火焰风暴，阻止它伤害你的队友。
 		伤害和持续时间受法术强度加成。]], "tformat")
 t("Frostfire Nova", "霜火爆炸", "talent name")
 t([[Fire a blast of frostfire in radius %d, doing %0.2f fire damage and freezing creatures in ice blocks for 4 turns.
@@ -1015,7 +1015,7 @@ t([[Strike a blow with your weapon for %d%% blight damage.
 		Implanting a seed into unique demons, if successful, will always try to grant a seed of that type, if available.]], [[对目标造成 %d%% 枯萎武器伤害。
 		如果攻击命中，你会将恶魔种子植入目标体内，然后用盾牌攻击目标，造成 %d%% 盾牌伤害并眩晕 敌人 %d 回合。
 
-		种子需要足够强大的宿主来成长，它只能寄生在有经验的生物里，不能寄生在召唤物中。
+		种子需要足够强大的宿主来成长，它只能寄生在值得获取经验值的生物体内，不能寄生在被召唤的恶魔体内。
 		种子的存活几率基于宿主的级别：
 		%s普通生物#LAST#:5%%
 		%s精英生物#LAST#:20%%
@@ -1450,7 +1450,7 @@ t([[Your original invisibility talent was corrupted and twisted.
 		- any non mind and non physical damage you deal above %d triggers a darkness explosion of radius 1 for half the damage (this can only happen once per turn)
 		- when you transform the cooldowns of Haste of the Doomed and Pitiless are reset
 		]], [[你原本的隐身技能被腐化扭曲了。
-		当你受到一次伤害超过 10%% 总生命值时，有 %d%% 几率转变成多瑟顿形态 5 回合。
+		当你受到一次至少为你总生命值 10%% 的伤害时，有 %d%% 几率转变成多瑟顿形态 5 回合。
 		在多瑟顿形态下：
 		- 你获得永久潜行 (强度 %d )
 		- 你的暗影伤害增加 %d%%
@@ -1653,7 +1653,7 @@ t("Bleak Outcome", "悲惨结局", "_t")
 t("Victim is tormented with impending death.  When it dies, it will restore to the source (%s) up to %d times the normal amount of Vim.", "受害者因即将到来的死亡而备受折磨。当其死亡时，将为来源（%s）恢复至多 %d 倍于正常数值的活力值。", "tformat")
 t("none", "没有", "_t")
 t("Grim Future", "无情未来", "_t")
-t("Spellpower increased by %d.", "法术强度增加 %d 。", "tformat")
+t("Spellpower increased by %d.", "法术强度增加 %d。", "tformat")
 t("death", "死亡", "effect subtype")
 t("Blood Drinker", "饮血者", "_t")
 t("Triggers Blood Drinker if this creature dies.", "这个生物死后会触发饮血者效果", "_t")
