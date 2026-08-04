@@ -687,7 +687,7 @@ t("#SLATE#* Find a way back to Eyal.#WHITE#", "#SLATE#* 寻找回到埃亚尔大
 t("#LIGHT_GREEN#* You have escaped the Anteroom of Agony.#WHITE#", "#LIGHT_GREEN#* 你已逃离痛苦前厅。#WHITE#", "_t")
 -- untranslated text
 --[==[
-t("#LIGHT_GREEN#* #WHITE#", "#LIGHT_GREEN#* #WHITE#", "_t")
+t("#LIGHT_GREEN#*#WHITE#", "#LIGHT_GREEN#*#WHITE#", "_t")
 --]==]
 
 
@@ -720,7 +720,7 @@ t([[Your actions foreshadow a bleak outcome for your foes.
 		The vim you get for killing the creature is increased by 100%% for every stack of Bleak Outcome.
 		The vim's worth of a creature depends on your Willpower.]], [[你的一举一动都是敌人悲惨结局的预兆。
 		每次你造成暗影、火焰、枯萎或酸性伤害时，你诅咒你的目标，最多叠加至 %d 次（每个敌人每回合最多触发一次）。
-		每有一层诅咒，你杀死被诅咒目标时获得的活力值增加 100%% 。
+		每有一层诅咒，你杀死被诅咒目标时获得的活力值增加 100%%。
 		获得活力值基础值取决于意志。]], "tformat")
 t("Weakened Soul", "灵魂弱化", "talent name")
 t("For each stack of Bleak Outcome up to %d the afflicted creatures are weakened, reducing their resistances by 2%%.", "悲惨结局每叠加一层（至多 %d 层），受影响的生物都会削弱，抗性降低 2%%。", "tformat")
@@ -1221,7 +1221,7 @@ t([[Whenever you kill a burning enemy, you will instantly deal a melee attack ag
 t("Fiery Aegis", "火焰守护", "talent name")
 t([[Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.
 		When the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.]], [[吸取燃烧中的烈焰，将自己包裹其中。
-		除去半径 5 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 轮的 %d 强度的护盾，每吸收一层燃烧效果护盾强度增加 15%% 。
+		除去半径 5 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 轮的 %d 强度的护盾，每吸收一层燃烧效果护盾强度增加 15%%。
 		当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧周围生物 3 回合，造成等于护盾初始值的伤害。]], "tformat")
 t("Devouring Flames", "吞噬之焰", "talent name")
 t([[Your connection to fire nourishes you. Whenever you strike an enemy in melee, you inflict a burning curse upon them. As long as they continue to burn, you gain %0.2f health and %0.2f vim per turn.
@@ -1239,7 +1239,7 @@ t("Flame Leash", "火焰束缚", "talent name")
 t([[Tendrils of flame fire from your hands in a narrow cone. Any foes caught inside will be pulled in towards you and have its movement speed reduced by %d%% for 4 turns.
 		Each tendril will leave a trail of fire in its path dealing %0.2f fire damage for 4 turns.
 		The damage increases with spellpower.]], [[火焰触须从你的手中伸出，在锥形范围内伸展。
-		被火焰触须抓住的生物将被拉过来，同时移动速度减少 %d%% ，持续 4 回合。
+		被火焰触须抓住的生物将被拉过来，同时移动速度减少 %d%%，持续 4 回合。
 		每个触须会留下火焰痕迹，每回合造成 %0.2f 火焰伤害，持续 4 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Demon Blade", "恶魔之刃", "talent name")
@@ -1303,7 +1303,7 @@ t([[Your successful melee hits apply a stacking effect that decreases damage don
 	技能 5 级时，可以影响到 %d 码内的所有敌对生物。
 	此技能无视豁免和免疫。]], "tformat")
 t("Mass Hysteria", "恐惧之潮", "talent name")
-t("Amplifies the power of your fear on the target by %d%% per stack and sets its duration to %d.  The amplified fear spreads to all enemies in a radius of %d.", "增强目标的恐惧，目标身上每有一次恐惧叠加，效果增强 %d%% ，持续时间增大到 %d 回合。增强后的恐惧效果影响 %d 码内所有敌对生物。", "tformat")
+t("Amplifies the power of your fear on the target by %d%% per stack and sets its duration to %d.  The amplified fear spreads to all enemies in a radius of %d.", "增强目标的恐惧，目标身上每有一次恐惧叠加，效果增强 %d%%，持续时间增大到 %d 回合。增强后的恐惧效果影响 %d 码内所有敌对生物。", "tformat")
 t("Fearfeast", "恐惧盛宴", "talent name")
 t("You gain %.1f turns!", "你获得了%.1f个回合！", "logPlayer")
 t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[汲取 %d 码内敌对生物身上的恐惧，每汲取一层恐惧，恢复 %d 生命并获得 %0.1f%% 额外回合。
@@ -1329,7 +1329,7 @@ t([[Bringing about the darkest days of the Spellblaze you hasten the death of yo
 		When you deal damage to a creature in radius %d or less around you and it dips below 33%% life you automatically unleash the fury of the Spellblaze.
 		Affected foes will start taking %0.2f darkness damage each turn until it dies as long as it remains in radius %d of you.
 		The damage increases with spellpower.]], [[通过引发魔法大爆炸最黑暗的时候的场景，你加速了敌人的死亡。
-		每次你对半径 %d 内的生物造成伤害后，如果它生命值低于 33%% ，将会承受魔法大爆炸的力量。
+		每次你对半径 %d 内的生物造成伤害后，如果它生命值低于 33%%，将会承受魔法大爆炸的力量。
 		受影响的敌人每回合将受到 %0.2f 暗影伤害，直到死亡或者离开你范围 %d 码范围。
 		伤害受法术强度加成。]], "tformat")
 t("Shattered Mind", "精神破碎", "talent name")
@@ -1366,7 +1366,7 @@ t("Fiery Torment", "灼魂之罚", "talent name")
 t([[Hits the target with your weapon doing %d%% weapon damage. If the attack hits, the target is afflicted with Fiery Torment for %d turns, reducing their fire resistance by %d%%.
 		When Fiery Torment ends the victim will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment.
 		The damage dealt by the effect will increase with spellpower.
-		Demons under fiery torment will be burned by the flames of the Fearscape.]], [[用武器攻击敌人，造成 %d%% 武器伤害。如果命中，目标受到灼魂之罚的影响，持续 %d 回合 , 火焰抗性降低 %d%% 。
+		Demons under fiery torment will be burned by the flames of the Fearscape.]], [[用武器攻击敌人，造成 %d%% 武器伤害。如果命中，目标受到灼魂之罚的影响，持续 %d 回合 , 火焰抗性降低 %d%%。
 	当灼魂之罚结束，敌人会受到 %d 点火焰伤害。 
 	在灼魂之罚持续时间内目标受到的所有伤害，有 %d%% 会加成到火焰伤害中。
 	效果的伤害会随法术强度提升。
@@ -1398,7 +1398,7 @@ t([[Launch yourself toward a target. If the target is reached you get a free att
 t("Voracious Blade", "饕餮之刃", "talent name")
 t([[Your blade drinks in death. Whenever you score a kill with this talent off cooldown, your next %d melee attacks within 6 turns will always critically strike, and you gain %d%% critical multiplier for the duration.
 		Additionally, you gain an extra %d vim per kill.]], [[你的利刃充满着对杀戮的渴望。
-	在技能冷却完毕后，当杀死敌人时，接下来 6 回合内的 %d 次近战攻击必定暴击，在持续时间内，暴击系数增加 %d%% 。
+	在技能冷却完毕后，当杀死敌人时，接下来 6 回合内的 %d 次近战攻击必定暴击，在持续时间内，暴击系数增加 %d%%。
 	另外，每次击杀时额外获得 %d 点活力。]], "tformat")
 t("Destroyer", "毁灭者", "talent name")
 t([[Your body overflows with the power of the Fearscape, turning you into a powerful demon for %d turns. This increases your stamina regen and physical power by %d, and your disarm and stun immunity by %d%%.
@@ -1411,14 +1411,14 @@ t([[Your body overflows with the power of the Fearscape, turning you into a powe
 		-Incinerating Blows: Increases chance of bonus damage to %d%%.
 		-Fearfeast: Gain %0.1f vim per stack.
 		-Maw of Urh'rok: Increases cone width by %d degrees.]], [[恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。 
-	变身期间，体力恢复和物理强度增加 %d ，缴械和震慑抗性增加 %d%% 。
+	变身期间，体力恢复和物理强度增加 %d ，缴械和震慑抗性增加 %d%%。
 	物理强度、体力恢复和状态抗性加值受法术强度加成。
 	变身期间，其他技能也受到强化：
 	汲魂痛击：冷却时间减少 %d 。
 	舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。
 	歼灭挥斩：增加半径 %d 。
 	锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。
-	焚尽强击：增加额外伤害几率至 %d%% 。
+	焚尽强击：增加额外伤害几率至 %d%%。
 	恐惧盛宴：每汲取一层叠加的恐惧，获得 %0.1f 点活力。
 	乌鲁洛克之口：角度增加 %d 。]], "tformat")
 
@@ -1435,12 +1435,12 @@ t([[Hasten yourself out of phase, teleporting you to a specific location up to %
 		Afterwards you stay out of phase for 5 turns. In this state your defense is increased by %d and all your resistances by %d%%.
 		The bonus will increase with your Willpower.]], [[加速自身，以至于脱离空间，传送半径 %d 。
 		你在同一回合内至多连用两次该技能，且第二次使用会消耗时间。
-		之后，你停留在相位外 5 回合，闪避增加 %d , 全体抗性增加 %d%% 。
+		之后，你停留在相位外 5 回合，闪避增加 %d , 全体抗性增加 %d%%。
 		效果受意志加成。]], "tformat")
 t("Resilience of the Doomed", "强韧", "talent name")
 t([[The tortures you had to endure on the Fearscape have increased your resilience.
 		All detrimental status effects last %d%% less on you and all direct critical hits (physical, mental, spells) against you have a %d%% lower critical multiplier (but always do at least normal damage).]], [[你在恶魔空间忍受的折磨让你更加强韧。
-		所有负面状态持续时间减少 %d%% ，所有直接暴击（物理、精神、法术）的暴击倍率降低 %d%% （但至少仍会造成普通伤害）。]], "tformat")
+		所有负面状态持续时间减少 %d%%，所有直接暴击（物理、精神、法术）的暴击倍率降低 %d%% （但至少仍会造成普通伤害）。]], "tformat")
 t("Corruption of the Doomed", "腐化形态", "talent name")
 t([[Your original invisibility talent was corrupted and twisted.
 		You have %d%% chance to turn into a dúathedlen for 5 turns, when hit by a blow doing at least 10%% of your total life.
@@ -1865,7 +1865,7 @@ As you recover, and your platform of searing earth splits from the main continen
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/data/texts/unlock-corrupter_demonologist.lua"
 
-t("New Class: #LIGHT_GREEN#Corruptor (Demonologist)", "新职业: #LIGHT_GREEN# 堕落系(恶魔使者)", "_t")
+t("New Class: #LIGHT_GREEN#Corruptor (Demonologist)", "新职业: #LIGHT_GREEN#堕落系(恶魔使者)", "_t")
 t([[Demons in their invasion of Eyal have abducted natives of the planet and mindwiped them to serve as double agents.
 Trained in the use of the demon's own forces they have created many dark cults to spread fear and terror.
 Some have managed to escape their programming and chose to follow their own desires instead.
@@ -1887,7 +1887,7 @@ Vim is the life force of all beings. It does not regenerate, and can only be sto
 
 也有一些人成功逃脱了恶魔的控制，选择追随自己的渴望与意志。
 
-你打败了无数的恶魔，掌握了他们本质的运作，见证了如何束缚恶魔为你所用，现在在你创建人物时可以选择新的职业 #LIGHT_GREEN# 恶魔使者 #WHITE# 。
+你打败了无数的恶魔，掌握了他们本质的运作，见证了如何束缚恶魔为你所用，现在在你创建人物时可以选择新的职业 #LIGHT_GREEN#恶魔使者#WHITE# 。
 
 堕落系是施法职业,能使用魔法攻击敌人。
 职业特点：#YELLOW#
@@ -1903,7 +1903,7 @@ Vim is the life force of all beings. It does not regenerate, and can only be sto
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/data/texts/unlock-cosmetic_doomhorns.lua"
 
-t("New Cosmetic Race Option: #LIGHT_GREEN#Doomhorns", "新的种族皮肤 : #LIGHT_GREEN# 恶魔之角", "_t")
+t("New Cosmetic Race Option: #LIGHT_GREEN#Doomhorns", "新的种族皮肤 : #LIGHT_GREEN#恶魔之角", "_t")
 t([[You have killed a creature by infusing your shield with demon horns, and you loved it!
 
 You can now create new characters with a pair of demonic horns.
@@ -1915,7 +1915,7 @@ You can now create new characters with a pair of demonic horns.
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/data/texts/unlock-cosmetic_red_skin.lua"
 
-t("New Cosmetic Race Option: #LIGHT_GREEN#Red Skin", "新的种族皮肤 : #LIGHT_GREEN# 红色皮肤", "_t")
+t("New Cosmetic Race Option: #LIGHT_GREEN#Red Skin", "新的种族皮肤 : #LIGHT_GREEN#红色皮肤", "_t")
 t([[You have used a lot of demon seeds to increase your power, proving your devotion to the corrupting forces.
 
 You can now create new characters with a demonic red skin.
