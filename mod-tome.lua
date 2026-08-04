@@ -2669,7 +2669,7 @@ t("Saved all escorted adventurers.", "在护送任务中搭救所有的冒险者
 t("Earth Master", "大地领主", "achievement name")
 t("Killed Harkor'Zun.", "杀死哈克祖。", "_t")
 t("Kill Bill!", "杀死比尔！", "achievement name")
-t("Killed Bill in the Trollmire without leveling beyond your starting level.", "用初始级别的人物杀死食人魔沼泽的比尔。", "_t")
+t("Killed Bill in the Trollmire without leveling beyond your starting level.", "用初始级别的人物杀死巨魔沼泽的比尔。", "_t")
 t("Atamathoned!", "阿塔玛森！", "achievement name")
 t("Killed the giant golem Atamathon after foolishly reactivating it.", "在愚蠢地启动巨型傀儡阿塔玛森后杀死它。", "_t")
 t("Huge Appetite", "大胃王", "achievement name")
@@ -20568,12 +20568,12 @@ t([[You are surprised to still be alive.
 ------------------------------------------------
 section "mod-tome/data/quests/start-allied.lua"
 
-t("Of trolls and damp caves", "食人魔巢穴", "_t")
+t("Of trolls and damp caves", "巨魔巢穴", "_t")
 t([[Explore the caves below the ruins of Kor'Pul and the Trollmire in search of treasure and glory!
-]], [[到卡·普尔废墟和食人魔沼泽的地下城去发现宝藏和荣耀！
+]], [[到卡·普尔废墟和巨魔沼泽的地下城去发现宝藏和荣耀！
 ]], "_t")
-t("#LIGHT_GREEN#* You have explored the Trollmire and vanquished Shax the Troll.#WHITE#", "#LIGHT_GREEN#* 你已经探索了食人魔沼泽并击败了食人魔夏克斯。#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have explored the Trollmire and vanquished Prox the Troll.#WHITE#", "#LIGHT_GREEN#* 你已经探索了食人魔沼泽并击败了食人魔普罗克斯。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have explored the Trollmire and vanquished Shax the Troll.#WHITE#", "#LIGHT_GREEN#* 你已经探索了巨魔沼泽并击败了巨魔夏克斯。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have explored the Trollmire and vanquished Prox the Troll.#WHITE#", "#LIGHT_GREEN#* 你已经探索了巨魔沼泽并击败了巨魔普罗克斯。#WHITE#", "_t")
 t("#SLATE#* You must explore the Trollmire and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你必须进入食人魔沼泽去调查那里潜伏着什么怪物并找到那里的宝藏！#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Possessed.#WHITE#", "#LIGHT_GREEN#* 你探索了卡·普尔废墟并击败了恶灵附身的强盗头目。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Shade.#WHITE#", "#LIGHT_GREEN#* 你探索了卡·普尔废墟并击败了暗影骷髅。#WHITE#", "_t")
@@ -20753,7 +20753,7 @@ t("Hidden treasure", "隐藏的财宝", "_t")
 t("You have found all the clues leading to the hidden treasure. There should be a way on the third level of the Trollmire.", " 你已经找到了所有有关秘密财宝的线索，在食人魔沼泽第三层应该能找到一条通往那里的路。", "_t")
 t("It looks extremely dangerous, however - beware.", " 注意：看样子那里非常危险。", "_t")
 t("You have slain Bill. His treasure is yours for the taking.", " 你已经干掉了比尔，他的财宝现在归你了。", "_t")
-t("way to the hidden trollmire treasure", "通往食人魔沼泽隐藏宝藏的路", "_t")
+t("way to the hidden trollmire treasure", "通往巨魔沼泽隐藏宝藏的路", "_t")
 t("Beware!", "小心！", "_t")
 t("Danger...", "小心……", "_t")
 t("This way leads to the lair of a mighty troll. Traces of blood are everywhere. Are you sure?", "这条路通往巨魔的巢穴，一路上到处都是血迹，你确定要进去么？", "_t")
@@ -31968,7 +31968,7 @@ After days of travel, you have found the forest and entered it. What will you fi
 人类是这片土地上最主要的种族，而你就是其中的一员。为了证明你的价值，你决定到野外那些古老的地方去冒险，寻找财富和荣耀。
 
 你来到了自然精灵森林西部边界附近一个叫做德斯荒野的地方，
-寻找食人魔沼泽。这是一个被食人魔和野生动物占据的古老树林。
+寻找巨魔沼泽。这是一个被巨魔和野生动物占据的古老树林。
 向西走还有另一个危险的区域：卡·普尔废墟。你听说那里的地下盘踞着大量的亡灵生物和寄生虫。
 
 经过了几天的旅行，你终于发现并进入了这片树林，你会在那里发现什么呢……
@@ -32038,7 +32038,7 @@ After days of travel, you have found the forest and entered it. What will you fi
 
 你被那些古老废墟中有关龙、黄金和宝物的传说所吸引，你决定进入那些古迹去冒险寻找荣誉和财富。
 
-你来到了自然精灵森林西部边境一个叫做德斯荒野的地方，寻找食人魔沼泽。这是一个被巨魔和野生动物占据的古老树林。向西走还有另一个危险的区域：卡·普尔废墟。你听说那里的地下盘踞着大量的亡灵生物和寄生虫。
+你来到了自然精灵森林西部边境一个叫做德斯荒野的地方，寻找巨魔沼泽。这是一个被巨魔和野生动物占据的古老树林。向西走还有另一个危险的区域：卡·普尔废墟。你听说那里的地下盘踞着大量的亡灵生物和寄生虫。
 
 经过了几天的旅行，你终于发现并进入了这个树林，你会在那里发现什么呢……
 ]], "_t")
@@ -32057,7 +32057,7 @@ To the west lies another dangerous place: the old ruins of Kor'Pul. You heard th
 你是高等人类中的一员，拥有强大和受人尊敬的人类高贵血统。很多你的同类人成为了联合王国各大城市的高级顾问。
 但你不是，你有更多的打算，你想要证明你的价值，并在这个世界上找到属于你自己的领地，你决定深入野外那些古老的地方，探寻宝藏和荣誉。
 
-你来到了自然精灵森林西部边境一个叫做德斯荒野的地方，寻找食人魔沼泽。这是一个被巨魔和野生动物占据的古老树林。向西走还有另一个危险的区域：卡·普尔废墟。你听说那里的地下盘踞着大量的亡灵生物和寄生虫。
+你来到了自然精灵森林西部边境一个叫做德斯荒野的地方，寻找巨魔沼泽。这是一个被巨魔和野生动物占据的古老树林。向西走还有另一个危险的区域：卡·普尔废墟。你听说那里的地下盘踞着大量的亡灵生物和寄生虫。
 
 ]], "_t")
 
