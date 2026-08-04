@@ -3054,7 +3054,7 @@ t("Psionics find their power within themselves. Their highly trained minds can h
 t("Mindslayer", "心灵杀手", "birth descriptor name")
 t("A thought can inspire; a thought can kill. After centuries of oppression, years of imprisonment, a thought shall break us free and vengeance will strike from our darkest dreams.", "思想可以鼓舞人，思想也能杀人，在几个世纪的压抑、数年的监禁之后，我们心中的复仇思想会从我们最黑暗的梦境中爆发。", "_t")
 t("Mindslayers specialize in direct and brutal application of mental forces to their immediate surroundings.", "心灵杀手专门使用直接而残酷的精神力量来对付周围的敌人。", "_t")
-t("When Mindslayers do battle, they will most often be found in the thick of the fighting, vast energies churning around them and telekinetically-wielded weapons hewing nearby foes at the speed of thought.", "心灵杀手在战斗时，他们总是在战场中心，庞大的能量在他们周围翻涌，念动力操控的武器以思想般的速度砍伐附近的敌人。", "_t")
+t("When Mindslayers do battle, they will most often be found in the thick of the fighting, vast energies churning around them and telekinetically-wielded weapons hewing nearby foes at the speed of thought.", "心灵杀手在战斗时，大多会出现在战场中心，庞大的能量在他们周围翻涌，念动力操控的武器以思想般的速度砍伐附近的敌人。", "_t")
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +1 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +1 力量，+0 敏捷，+0 体质", "_t")
@@ -3966,7 +3966,7 @@ Enjoy your reward.]], [[#LIGHT_GREEN#*炼金师终于回来了，他递给你一
 t("Thank you. I'll be off.", "谢谢，我走了。", "_t")
 t([[#LIGHT_GREEN#*The alchemist finally returns with a vial and a green gem.*#WHITE#
 Enjoy the fruits of your labors, adventurer. I know I will. To show my appreciation, I shall name my firstborn after... er, what was your name, then? Haha, I jest. Oh, I do go on when I'm giddy. Fare you well.]], [[#LIGHT_GREEN#*炼金师终于回来了，手里拿着一颗翡翠宝石和一个药水瓶。*#WHITE#
-尽情享用你的劳动成果吧，我的冒险家。为了表示我的敬意，我打算给我的长子取名为……呃，你叫什么名字来着？哈哈，开个玩笑，啊～我一兴奋就会说个没完。好了，再见吧，我的朋友。]], "_t")
+尽情享用你的劳动成果吧，我的冒险家。为了表示我的敬意，我打算给我的长子取名为……呃，你叫什么名字来着？哈哈，开个玩笑。啊～我一兴奋就会说个没完，不过我肯定会尽情的。好了，再见吧，我的朋友。]], "_t")
 t("Excellent. With which would you like to aid me?", "好极了，你准备帮我做哪一个？", "_t")
 t("Here's a list of the ingredients I'm missing. Please attempt to not lose your life in their pursuit. I'll be most put out if I must wait another year.", "这里有一张配方，上面写着我目前缺少的材料。当心别丢了你的小命，要是我错过这次机会就得等明年了。", "_t")
 t("Terribly sorry, but I've already made the elixir without your aid. I've no reward to give you, and no reason to do so if I did.", "非常抱歉，我已经自己把那些药剂都做好了，我可没理由再给你任何奖励。", "_t")
@@ -4466,7 +4466,7 @@ t([[#LIGHT_GREEN#*With your final blow, Fryjia falls, unable to continue*
 #WHITE# @playerdescriptor.race@. You are not the person I am looking for...
 #LIGHT_GREEN#*Leaving you wondering what she was talking about, the young girl walks
 #LIGHT_GREEN#towards the gate. As it closes, you realize her eyes are wet with tears.
-]], [[#LIGHT_GREEN#*随着你的最后一击，弗里嘉倒下了，无法再战。
+]], [[#LIGHT_GREEN#*随着你的最后一击，弗里嘉倒下了，无法再战。*
 #LIGHT_GREEN#*她艰难的站起来，但似乎没有受到重创。*
 #WHITE# 我……我承认我输了。
 #LIGHT_GREEN#*观众席一片“唔”的敬畏声。弗里嘉留给你一个背影*
@@ -12324,7 +12324,7 @@ t("Fists of the Desert Scorpion", "沙蝎之拳", "entity name")
 t("viciously spiked gauntlets", "有着锋利尖刺的拳套", "_t")
 t([[These wickedly spiked gauntlets belonged to an orc captain in the Age of Pyre who conquered the western sands, using them as a base to lay raids on Elvala to the south.  Known as The Scorpion, he seemed unconquerable in battle, able to pull enemies towards him with vicious mental force and lay down lethal blows on them.  Often a flurry of these yellow and black gauntlets would be the last thing great Shaloren mages would see before having the life crushed from them.
 
-Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这只有着锋利尖刺的拳套属于一位烈火纪统治西部荒野的兽人领主，他以这片被征服的荒野为基地，对埃尔瓦拉发动了数次袭击。他外号沙蝎，在战场上所向披靡，他能以凶狠的精神力量将敌人拉近，然后对其施以致命的打击。通常永恒精灵法师们在死前看到的最后物品，便是这只黄黑相间的拳套残影。最终沙蝎在决斗中，被炼金术师奈瑟莉亚击败。当这副拳套的主人将精灵拉向他，还没来得及将她撕成两半时，精灵掀开了她的长袍——下面捆着的是八十枚炼金炸弹。精灵指尖的火花，引发了数里外都能看到的大爆炸。直到今天，民间仍流传着奈瑟莉亚为保护她的子民而牺牲的诗歌。", "_t")
+Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这副锋利的尖刺拳套属于一位烈火纪的兽人队长，他曾征服西部沙地，并以这片被征服的沙地为基地，对埃尔瓦拉发动了数次袭击。他外号沙蝎，在战场上所向披靡，他能以凶狠的精神力量将敌人拉近，然后对其施以致命的打击。通常永恒精灵法师们在死前看到的最后物品，便是这副黄黑相间的拳套残影。最终沙蝎在决斗中，被炼金术师奈瑟莉亚击败。当这副拳套的主人将精灵拉向他，还没来得及将她撕成两半时，精灵掀开了她的长袍——下面捆着的是八十枚炼金炸弹。精灵指尖的火花，引发了数里外都能看到的大爆炸。直到今天，民间仍流传着奈瑟莉亚为保护她的子民而牺牲的诗歌。", "_t")
 t("Wind's Whisper", "风之密语", "entity name")
 t("flowing light cloak", "流彩斗篷", "_t")
 t("When the enchanter Razeen was cornered by Spellhunters near the Daikara mountain pass she wrapped her cloak about her and fled down a narrow ravine.  The hunters fired volley after volley of arrows at her, but by miracle or magic they all missed.  Razeen was able to escape and flee to the hidden city in the west.", "当魔法师瑞兹恩被猎魔人在岱卡拉的山隘逼入绝境时，她用斗篷包裹着自己逃下了峡谷。猎手们接连不断的把箭射向她，但由于奇迹或是魔法，他们全部射空了。瑞兹恩得以逃生并躲进了西部的隐秘之城。", "_t")
@@ -12365,7 +12365,7 @@ t("Ages ago this belt was worn by Linaniil herself in her youth, using its power
 t("surround yourself with a magical shield (strength %d, based on Magic) for %d turns", "制造一层魔法护盾（强度%d，基于魔法），持续%d回合。", "tformat")
 t("%s invokes the memory of Neira!", "%s呼唤了尼耶拉的记忆!", "logSeen")
 t("Nature's Blessing", "自然之赐", "entity name")
-t("supple leather armour entwined with willow bark", "柔韧的皮甲缠绕着柳树皮", "_t")
+t("supple leather armour entwined with willow bark", "与柳树皮交织的柔韧皮甲", "_t")
 t("Worn by Protector Ardon, who first formed the Ziguranth during the mage wars between the Humans and the Halflings.  This armour is infused with the powers of nature, and protected against the disruptive forces of magic.", "曾被守护者阿尔登穿着，他在魔法战争中首次于人类和半身人之间建立了伊格兰斯。这件护甲灌注了大自然的力量，能够抵御魔法的破坏之力。", "_t")
 t("#DARK_GREEN#You feel especially blessed.", "#DARK_GREEN#你感觉自己被特别祝福了。", "logPlayer")
 t("Plate Armor of the King", "国王的板甲", "entity name")
@@ -16592,7 +16592,7 @@ But all I've found so far is rats. I hate rats...]], [[该死的伊莫克斯！�
 
 要是我早知道传送过后会一丝不挂，我一定会重新考虑他们的提议！想象一下我尴尬地出现在一片陌生的土地上，连私处都暴露在外……谢天谢地，我总算从一名友善的农民那里借来了一件法袍，还帮他干活挣了些钱，够我买一点食物、一本日记和一把锈迹斑斑的旧剑。当我听说附近的遗迹里满是不死族时，我知道命运的召唤终于来了！于是我来了，伟大的太阳骑士泰尔沙，要在这陌生的西方大陆证明我的实力！
 
-但我在那只找到了老鼠，我讨厌老鼠……]], "_t")
+但我在那里找到了老鼠，我讨厌老鼠……]], "_t")
 t([[Aha, I have found the accursed undead that plague this nefarious dungeon! The skeletal fool was thankfully no match for me! I suppose it helped that he had no arms...
 
 I've found myself an old shield that in spite of a few dents seems serviceable enough. Some of these rats are BIG, and giving them a strong bash with the shield helps to stop their poisonous bites before I get my sword to their necks. I also found a few gems - I may have to hunt round for more. Not out of any personal greed of course, but my noble quest requires that I gather resources to defeat the great evils in this land and back home!
@@ -16638,7 +16638,7 @@ t([[#{italic}#68th of Dusk, Year of Pyre 710#{normal}#
 The orcish tribe have routed us. We have retreated to some Mardrop ruins and secured ourselves amongst the fortifications. I have just shy of 2,000 men under my banner, some of the best warriors I have ever served with, but we are simply no match for the numbers we face. Counting them is difficult, but I would put a minimum estimate at 10,000. The tribe has camped a league away - they seem to be waiting for reinforcements. This does not bode well...
 
 I have sent messenger crows to all the kingdoms. I can but hope they send aid in time.]], [[#{italic}#烈火纪710年，黄昏月68日#{normal}#
-兽人部落已经追踪到了我们。我们已经撤到一些马卓普遗迹里并修建起了军事工事。虽然我帐下已聚集了2000士兵，有些家伙是我生平罕见的勇者，但我们还是处于数量上的绝对劣势。我也没办法算清到底有多少兽人，最起码也有上万只吧。 他们按兵不动——看上去像是在等待增援的样子，真要命……
+兽人部落已经击溃了我们。我们已经撤到一些马卓普遗迹里并修建起了军事工事。虽然我帐下已聚集了2000士兵，有些家伙是我生平罕见的勇者，但我们还是处于数量上的绝对劣势。我也没办法算清到底有多少兽人，最起码也有上万只吧。 他们按兵不动——看上去像是在等待增援的样子，真要命……
 
 我已派出信使向王国方面请求增援。剩下的只能祈求上天让援军及时赶到了。]], "_t")
 t([[#{italic}#25th of Haze, Year of Pyre 710#{normal}#
@@ -16828,7 +16828,7 @@ I leave you with a copy of one of the last pieces of Southspar's history, a part
 
 "Time grows pressi... ... ome in the boat... ... found. The binding w... a success. Now, to the sea, to l... ... ew, and Dreadfe... ... oble king. Rot in my new du... as you will!"]], [[#{bold}#3、德瑞克和孔克雷夫法师。#{normal}#
 
-当它的国界再也没有受到攻击，它的金库逐渐堆满了矮人的金币时，许多人认为南晶岛已经无法更进一步了。但是对于德瑞克来说，不管怎样他还有最后一项任务——那就是孔克雷夫。
+当它的国界再也没有受到攻击，金库逐渐堆满矮人的金币时，许多人认为南晶岛已经无法更进一步了。但是对于德瑞克来说，不管怎样他还有最后一项任务——那就是孔克雷夫。
 
 一直以来，南晶岛都存在着一批定居于此的孔克雷夫法师。偏远的位置和昏庸的国王使他们能够毫无顾忌的实验和练习禁术。由于法师们基本不问世事，只有少部分人知道新国王的上任，并且他们丝毫不以为意。直到德瑞克的禁卫军踹开了他们实验室的大门，国王的亲自到来终于引起了他们足够的重视。德瑞克给他们下达了最后通牒：
 
@@ -36026,7 +36026,7 @@ t("Spiked Kinetic Shield", "尖刺念力护盾", "_t")
 t(", nature", ", 自然", "_t")
 t(", temporal", ", 时空", "_t")
 t("The target erects a powerful kinetic shield capable of absorbing %d/%d physical%s or acid damage before it crumbles.", "目标施放一个念力护盾吸收 %d/%d 物理 %s 或酸性伤害。", "tformat")
-t("A powerful kinetic shield forms around #target#.", "#target#四周形成了念力护盾。", "_t")
+t("A powerful kinetic shield forms around #target#.", "#target#四周形成了强大的念力护盾。", "_t")
 t("+Shield", "+护盾", "_t")
 t("The powerful kinetic shield around #target# crumbles.", "#target#的念力护盾消失了。", "_t")
 t("-Shield", "-护盾", "_t")
