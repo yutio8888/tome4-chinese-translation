@@ -10,7 +10,8 @@
 | 文件 | contract | 说明 |
 |---|---|---|
 | `taxonomy-v1.json` | `tome4-quality-taxonomy-v1` | 文本 profile、severity、MQM 风格错误码、可合并错误码、门禁、置信度、等级、risk flag、profile 分类规则、长度桶 |
-| `policy-v1.json` | `tome4-quality-policy-v1` | 身份契约、试点参数（seed/规模/桶/覆盖约束）、风险富集标志、质量向量维度、组件分组 |
+| `policy-v1.json` | `tome4-quality-policy-v1` | 身份契约、试点参数（seed/规模/桶/覆盖约束）、dry-run 参数、风险富集标志、质量向量维度、组件分组 |
+| `rubric-v1.md` | `mqm-pilot-v1` | 评审指引：assessment 填写规则、错误码速查、severity 判定、评审纪律 |
 | `schemas/inventory-v1.schema.json` | `tome4-quality-inventory-v1` | inventory.jsonl 条目契约 |
 | `schemas/assessment-v1.schema.json` | `tome4-quality-assessment-v1` | 单评审者 assessment 契约 |
 | `schemas/adjudication-v1.schema.json` | `tome4-quality-adjudication-v1` | 裁决契约 |

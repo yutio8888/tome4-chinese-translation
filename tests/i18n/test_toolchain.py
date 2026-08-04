@@ -2248,6 +2248,24 @@ class QualitySamplingTests(unittest.TestCase):
         with self.assertRaises(ValidationError):
             generate_sample(self.manifest, path, size=99)
 
+    def test_dry_run_is_deterministic_and_disjoint_from_official(self) -> None:
+        from i18nlib.quality import generate_dry_run
+
+        path = self._write_inventory(self.inventory)
+        first = generate_dry_run(self.manifest, path)
+        second = generate_dry_run(self.manifest, path)
+        self.assertEqual(first["sample_id"], second["sample_id"])
+        self.assertEqual(first["items"], second["items"])
+        self.assertEqual(first["size"], 12)
+        self.assertEqual(first["unmet_constraints"], [])
+        official = generate_sample(self.manifest, path)
+        dry_ids = {item["revision_id"] for item in first["items"]}
+        official_ids = {item["revision_id"] for item in official["items"]}
+        self.assertTrue(dry_ids.isdisjoint(official_ids))
+        self.assertEqual(first["official_sample_id"], official["sample_id"])
+        revisions = [item["revision_id"] for item in first["items"]]
+        self.assertEqual(len(revisions), len(set(revisions)))
+
 
 class QualityValidationTests(unittest.TestCase):
     """Phase-1 doc section 10.4: assessment/adjudication safety checks."""

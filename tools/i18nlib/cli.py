@@ -22,6 +22,7 @@ from .merge import run_merge
 from .proposal import validate_proposal
 from .publish import publish_addon
 from .quality import (
+    run_dry_run as quality_run_dry_run,
     run_inventory as quality_run_inventory,
     run_report as quality_run_report,
     run_sample as quality_run_sample,
@@ -251,6 +252,14 @@ def _parser() -> argparse.ArgumentParser:
         "--seed",
         default=None,
         help="deterministic sampling seed (default: policy seed)",
+    )
+    quality_sample.add_argument(
+        "--dry-run",
+        action="store_true",
+        help=(
+            "build the 12-item rubric try-out bundle that never enters the "
+            "official pilot sample (size/seed come from policy dry_run)"
+        ),
     )
     quality_validate = quality_subparsers.add_parser(
         "validate",
@@ -843,6 +852,33 @@ def _quality_inventory(arguments: argparse.Namespace) -> int:
 
 def _quality_sample(arguments: argparse.Namespace) -> int:
     manifest = _manifest(arguments)
+    if arguments.dry_run:
+        if arguments.size is not None or arguments.seed is not None:
+            raise ValidationError(
+                "--dry-run uses the policy dry_run size/seed; "
+                "--size/--seed cannot be combined with --dry-run"
+            )
+        report = quality_run_dry_run(
+            manifest,
+            inventory_path=arguments.inventory,
+        )
+        if arguments.json:
+            _print_json(report)
+        else:
+            print(
+                f"OK  quality dry-run {report['sample_id'][:16]}  "
+                f"size={report['size']} "
+                f"official={report['official_sample_id'][:16]}"
+            )
+            if report["unmet_constraints"]:
+                for unmet in report["unmet_constraints"]:
+                    print(
+                        f"    UNMET {unmet['id']}: "
+                        f"{unmet.get('value', '')} "
+                        f"{unmet['actual']}/{unmet['target_min']}"
+                    )
+            print(f"Output: {report['dry_run_path']}")
+        return 0
     report = quality_run_sample(
         manifest,
         inventory_path=arguments.inventory,

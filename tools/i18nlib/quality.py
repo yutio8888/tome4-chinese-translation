@@ -1175,6 +1175,54 @@ def generate_sample(
         selected, key=lambda entry: (entry["unit_id"], entry["revision_id"])
     )
 
+    items = _build_sample_items(
+        entries=entries,
+        ordered=ordered,
+        contrast_ids=contrast_ids,
+        risk_selected_ids=risk_selected_ids,
+        contrast_group_of=contrast_group_of,
+        contrast=contrast,
+        qpolicy=qpolicy,
+    )
+
+    identity = {
+        "schema_version": 1,
+        "quality_contract": SAMPLE_CONTRACT,
+        "seed": seed,
+        "size": size,
+        "taxonomy_sha256": _canonical_sha256(taxonomy),
+        "policy_sha256": _canonical_sha256(qpolicy),
+        "manifest_sha256": hashlib.sha256(manifest.raw_bytes).hexdigest(),
+        "inventory_sha256": inventory_info["inventory_sha256"],
+        "bucket_targets": bucket_targets,
+        "bucket_counts": dict(sorted(bucket_counts.items())),
+        "revisions": [
+            {"revision_id": item["revision_id"], "bucket": item["bucket"]}
+            for item in items
+        ],
+    }
+    sample_id = _canonical_sha256(identity)
+    sample: dict[str, Any] = {
+        **identity,
+        "sample_id": sample_id,
+        "unmet_constraints": unmet,
+        "coverage": counts,
+        "items": items,
+    }
+    return sample
+
+
+def _build_sample_items(
+    *,
+    entries: list[dict[str, Any]],
+    ordered: list[dict[str, Any]],
+    contrast_ids: set[str],
+    risk_selected_ids: set[str],
+    contrast_group_of: dict[str, str],
+    contrast: list[dict[str, Any]],
+    qpolicy: dict[str, Any],
+) -> list[dict[str, Any]]:
+    """Build the bounded context-packet items shared by sample and dry-run."""
     neighbors_index: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for entry in entries:
         neighbors_index[entry["component"]].append(entry)
@@ -1188,7 +1236,6 @@ def generate_sample(
                 entry["occurrences"][0]["ordinal"],
             )
         )
-
     limit = int(qpolicy.get("context_neighbor_limit", 2))
     items: list[dict[str, Any]] = []
     for index, entry in enumerate(ordered):
@@ -1261,32 +1308,173 @@ def generate_sample(
                 "context_neighbors": neighbors,
             }
         )
+    return items
 
+
+def generate_dry_run(
+    manifest: Manifest, inventory_path: Path
+) -> dict[str, Any]:
+    """12 rubric try-out items that never enter the official pilot sample.
+
+    The official 120-item sample is regenerated with its fixed seed and its
+    revision ids are excluded, so dry-run items are always disjoint from it.
+    """
+    qpolicy = load_quality_policy(manifest)
+    taxonomy = load_taxonomy(manifest)
+    dry = qpolicy["dry_run"]
+    entries, inventory_info = read_inventory_file(inventory_path)
+    for entry in entries:
+        entry["_features"] = _entry_features(entry, qpolicy)
+    constraints = dry.get("coverage_constraints", [])
+    target = int(dry["size"])
+
+    official = generate_sample(manifest, inventory_path)
+    official_ids = {item["revision_id"] for item in official["items"]}
+    pool = [entry for entry in entries if entry["revision_id"] not in official_ids]
+    by_revision = {entry["revision_id"]: entry for entry in pool}
+
+    rng = random.Random(dry["seed"])
+    contrast_ids: set[str] = set()
+    contrast_group_of: dict[str, str] = {}
+    contrast: list[dict[str, Any]] = []
+    groups = _contrast_groups(pool, qpolicy)
+    group_order = list(groups)
+    rng.shuffle(group_order)
+    for group_id, members in group_order:
+        if len(members) > 4:
+            continue
+        for member in members:
+            contrast_ids.add(member["revision_id"])
+            contrast_group_of[member["revision_id"]] = group_id
+            contrast.append(member)
+        break
+
+    selected: list[dict[str, Any]] = list(contrast)
+    remaining_pool = [entry for entry in pool if entry["revision_id"] not in contrast_ids]
+    filled = _select_bucket(remaining_pool, target - len(contrast), selected, constraints, rng)
+    selected.extend(filled)
+    if len(selected) != target:
+        raise ValidationError(
+            f"cannot build a {target}-item dry-run: only {len(selected)} items available"
+        )
+
+    counts = _constraint_counts(selected, constraints)
+    unmet = []
+    for constraint in constraints:
+        count = counts[constraint["id"]]
+        if constraint.get("mode") == "each":
+            for value in constraint["values"]:
+                if count[value] < constraint["min"]:
+                    unmet.append(
+                        {
+                            "id": constraint["id"],
+                            "value": value,
+                            "description": constraint.get("description", ""),
+                            "target_min": constraint["min"],
+                            "actual": count[value],
+                        }
+                    )
+        elif count < constraint["min"]:
+            unmet.append(
+                {
+                    "id": constraint["id"],
+                    "description": constraint.get("description", ""),
+                    "target_min": constraint["min"],
+                    "actual": count,
+                }
+            )
+
+    ordered = sorted(selected, key=lambda entry: (entry["unit_id"], entry["revision_id"]))
+    items = _build_sample_items(
+        entries=pool,
+        ordered=ordered,
+        contrast_ids=contrast_ids,
+        risk_selected_ids=set(),
+        contrast_group_of=contrast_group_of,
+        contrast=contrast,
+        qpolicy=qpolicy,
+    )
     identity = {
         "schema_version": 1,
-        "quality_contract": SAMPLE_CONTRACT,
-        "seed": seed,
-        "size": size,
+        "quality_contract": dry["contract"],
+        "seed": dry["seed"],
+        "size": target,
+        "official_sample_id": official["sample_id"],
         "taxonomy_sha256": _canonical_sha256(taxonomy),
         "policy_sha256": _canonical_sha256(qpolicy),
         "manifest_sha256": hashlib.sha256(manifest.raw_bytes).hexdigest(),
         "inventory_sha256": inventory_info["inventory_sha256"],
-        "bucket_targets": bucket_targets,
-        "bucket_counts": dict(sorted(bucket_counts.items())),
         "revisions": [
             {"revision_id": item["revision_id"], "bucket": item["bucket"]}
             for item in items
         ],
     }
     sample_id = _canonical_sha256(identity)
-    sample: dict[str, Any] = {
+    return {
         **identity,
         "sample_id": sample_id,
-        "unmet_constraints": unmet,
         "coverage": counts,
+        "unmet_constraints": unmet,
         "items": items,
     }
-    return sample
+
+
+def run_dry_run(manifest: Manifest, inventory_path: Path) -> dict[str, Any]:
+    dry_run = generate_dry_run(manifest, inventory_path)
+    qpolicy = load_quality_policy(manifest)
+    run_directory = create_quality_run_directory(manifest.root, "dry-run")
+    dry_run_path = run_directory / "dry-run.json"
+    write_json(dry_run_path, dry_run)
+    items = dry_run.pop("items")
+    templates = []
+    for evaluator_id in qpolicy["pilot"]["evaluator_ids"]:
+        templates.append(
+            {
+                "schema_version": 1,
+                "quality_contract": ASSESSMENT_CONTRACT,
+                "sample_id": dry_run["sample_id"],
+                "evaluator": {
+                    "kind": "human",
+                    "id": evaluator_id,
+                    "method_version": qpolicy["pilot"]["method_version"],
+                },
+                "items": [
+                    {
+                        "revision_id": item["revision_id"],
+                        "context_sufficient": None,
+                        "profile_confirmed": None,
+                        "findings": [],
+                        "reuse_recommendation": None,
+                    }
+                    for item in items
+                ],
+            }
+        )
+    template_paths = []
+    for template in templates:
+        name = f"assessment-template-{template['evaluator']['id']}.json"
+        write_json(run_directory / name, template)
+        template_paths.append(name)
+    dry_run["items"] = items
+    manifest_report = {
+        "schema_version": 1,
+        "quality_contract": dry_run["quality_contract"],
+        "sample_id": dry_run["sample_id"],
+        "official_sample_id": dry_run["official_sample_id"],
+        "seed": dry_run["seed"],
+        "size": dry_run["size"],
+        "coverage": dry_run["coverage"],
+        "unmet_constraints": dry_run["unmet_constraints"],
+        "dry_run": os_path_relative(dry_run_path, manifest),
+        "assessment_templates": [
+            os_path_relative(run_directory / name, manifest) for name in template_paths
+        ],
+        "run_directory": os_path_relative(run_directory, manifest),
+    }
+    write_json(run_directory / "dry-run-manifest.json", manifest_report)
+    dry_run["dry_run_path"] = os_path_relative(dry_run_path, manifest)
+    dry_run["run_directory"] = os_path_relative(run_directory, manifest)
+    return dry_run
 
 
 def run_sample(

@@ -25,6 +25,23 @@
     "evaluator_ids": ["reviewer-a", "reviewer-b"],
     "method_version": "mqm-pilot-v1"
   },
+  "dry_run": {
+    "seed": "tome4-quality-dry-run-v1",
+    "size": 12,
+    "contract": "tome4-quality-dry-run-v1",
+    "description": "Rubric try-out items that never enter the official 120-item pilot sample",
+    "coverage_constraints": [
+      {"id": "dry-profile-diversity", "mode": "each", "feature": "profile", "min": 1,
+       "values": ["mechanics", "term-name", "ui", "runtime-log", "dialogue", "narrative", "unknown"],
+       "description": "dry-run 覆盖尽量多的 profile"},
+      {"id": "dry-structural-risk", "mode": "any", "feature": "structural_risk", "min": 3,
+       "values": [true],
+       "description": "至少 3 条含 printf/markup/token/多行结构风险"},
+      {"id": "dry-term-evidence", "mode": "any", "feature": "term_evidence", "min": 2,
+       "values": [true],
+       "description": "至少 2 条含术语证据"}
+    ]
+  },
   "coverage_constraints": [
     {"id": "profile-min", "mode": "each", "feature": "profile", "min": 8,
      "values": ["mechanics", "term-name", "ui", "runtime-log", "dialogue", "narrative"],
