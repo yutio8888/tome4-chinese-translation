@@ -269,6 +269,39 @@ class AddonBuildTests(unittest.TestCase):
         self.assertEqual(updated, "addon_version = {0,2,1}\n")
         self.assertEqual(version, "0.2.1")
 
+    def test_publish_dlc_entries_are_official_disjoint(self) -> None:
+        from i18nlib.publish import _dlc_overlay_entries, _official_locale_keys
+
+        official = _official_locale_keys(self.manifest, self.loader)
+        entries = _dlc_overlay_entries(self.manifest, self.loader, official)
+        self.assertGreater(len(entries), 0)
+        keys = {(e["source"], e["source_tag"]) for e in entries}
+        self.assertTrue(
+            keys.isdisjoint(official),
+            "DLC overlay entries must not shadow official locale keys",
+        )
+        for component_id in ("ashes-urhrok", "cults", "orcs"):
+            count = sum(1 for e in entries if e.get("section") == component_id)
+            self.assertGreater(count, 0, f"no overlay entries for {component_id}")
+
+    def test_publish_dry_run_reports_dlc_merge(self) -> None:
+        from i18nlib.publish import publish_addon
+
+        report = publish_addon(
+            self.manifest,
+            self.loader,
+            apply=False,
+            bump=False,
+            commit=False,
+        )
+        self.assertGreater(report["dlc_entries"], 0)
+        self.assertEqual(
+            report["new_entries"],
+            report["delta_runtime_keys"] + report["dlc_entries"],
+        )
+        for component_id in ("ashes-urhrok", "cults", "orcs"):
+            self.assertGreater(report["dlc_entries_by_component"][component_id], 0)
+
 
 class FormatTests(unittest.TestCase):
     def test_printf_tokenizer_skips_literal_percent(self) -> None:
