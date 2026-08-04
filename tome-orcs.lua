@@ -8313,3 +8313,66 @@ t("Steampower: ", "蒸汽强度：", "_t")
 section "tome-orcs/superload/mod/dialogs/debug/DebugMain.lua"
 
 t("Learn all schematics", "学习所有配方", "_t")
+t([[We recognize that times are changing.  Within a year, the Allied Kingdoms have gone from begrudgingly tolerating magic to openly embracing it, due to the influence of our rediscovered allies in the East.  Furthermore, if the reports are to be believed, the ecosystem of Var'Eyal remains healthy and intact, despite millennia of continuous magic-use.  Therefore, our views and approach must change with the times; we are not ignorant to new knowledge.
+
+At this point, it should go without saying that reckless use of magic is a dire threat to...  everything, more or less.  Eyal has yet to fully recover from even the rampant necromancy of the Age of Dusk, let alone the Spellblaze itself.  Eliminating all use of magic is the only way to be safe from this situation repeating...  but it is possible that lesser uses of arcane magic do not have any inherent corrupting or harmful effect, judging from the Sun Paladins and Anorithil.  They have, contrary to our long-held beliefs, managed to use magic responsibly and safely.  We are not so blind as to deny that this is an incredible reassurance.  That said, this proves nothing about the most terrible potential of magic.  Maybe no Sun Paladin or Anorithil has yet sunk to the depths of depravity of the Age of Dusk sorcerers, or the tragically reckless mages responsible for the Spellblaze, but that is no indication that their magic does not have the potential for abuse.
+
+Fortunately, there is an alternative available!  With the proper respect, care, and concentration given to Nature, one can be rewarded with powers rivaling or besting the popular uses of magic.  On the civilian level, summoned fireflies can replace magical lighting, regeneration salves can replace healing spells, and accelerated crop growth makes for a far more nutritious diet than conjured foodstuffs.  For martial purposes, there's very little that can stand up to the powers of Nature.  An experienced disciple of Eyal can summon loyal beasts faster than any mage can blast them, crush spellswords of all types with draconic might, or dissolve a necromancer's army in a tide of corrosive ooze.  And if the disciple in question is familiar with the practices of the Ziguranth...  We do not condone their approach to defending nature, but their techniques speak for themselves when facing a hostile mage.  The best part about these abilities, though, is that they are self-limiting!  There is no potential for a runaway chain reaction, or a lone megalomaniac destroying much of Eyal.  The planet willingly gives us its power, and is conscious enough to take it away if we start abusing its gifts.  Even the most powerful of Wilders cannot abuse their power to the perverse degree that a necromancer can.
+
+Thus, we're putting our efforts into two areas.  The first is advocacy of Natural alternatives to magic, talking to spellcasters to determine what they use magic for and figuring out ways to use Nature's abilities to do the same task just as well (if not more so).  We've continued the Ziguranth efforts to make all-natural replacements for Ogric runes (we predict that life expectancy is now only reduced by 40% with our newest mixtures), developed fertilizing recipes that outperform arcane methods of producing food, created wells near desert settlements otherwise dependent on water magic, and developed so many other techniques and applications that make magic just as obsolete as it is hazardous.  The second is minimizing the harm done by the arcane, by educating spellcasters on the safe, responsible, and Nature-conscious use of magic.  Not every spellcaster is evil, and in fact, some may enrich the lives of those around them!  Runic magic is at least somewhat self-limiting, and we are working with the Living Fossils guild in hopes of developing a new type of magic, one inherently linked to and limited by Nature.  Their stone-wardens have maintained perfect harmony with Nature despite constant use of the arcane; if this is truly the way forward, then we shall welcome it with open arms.
+]], [[我们必须承认，现在世道变了。在不到一年的时间里，在东方重新发现的那些盟友的影响之下，联合王国已经开始从不情愿地容忍魔法，迅速转变为公开接受魔法的使用。此外，如果那些报导确认属实的话，尽管在那里的人们长期使用魔法长达几千年，瓦·埃亚尔的生态系统仍然健康而完整。因此，我们绝不能对新知识一无所知，我们的观点和方法必须随着时代而改变。
+
+在这种情况下，某种意义上，我们必须抛弃过去那种，认为鲁莽的使用魔法是对……世间一切的最大威胁的观点了。黄昏纪里死灵魔法的猖獗使用，对埃亚尔所造成的影响至今还没有恢复，更不用说魔法大爆炸的影响了。消除所有魔法的使用，看起来是避免这种状况重演的唯一方法……但是，从太阳骑士和星月术士的情况来看，少量使用奥术魔法，本身并不会对世界带来任何腐蚀和有害的影响。与我们长期以来的信念相反，他们成功地，安全而负责任地控制了魔法的使用。我们不会盲目到否认这是一个令人难以置信的保证。同时，魔法仍然可能造成极其可怕的后果。可以说，太阳骑士和星月术士，远远没有堕落到黄昏纪法师那样邪恶，也并不像那些引发魔法大爆炸的法师一样，鲁莽到可悲。但是这并不能证明，他们的魔法不会被滥用。
+
+幸运的是，我们还有另一种选择！只要给予大自然足够的尊重，关心和专注，人们就可以获得和普遍应用的魔法匹敌，乃至更强的力量。在民用领域，召唤萤火虫可以替代魔法灯笼，治疗药剂可以替代治疗魔法，而加速谷物成熟的技术做出来的菜肴，可比法师制作的魔法食品对身体健康多了。在军用领域，很少有人能够抵挡自然强大的力量。那些埃亚尔忠实的学徒，可以比法师的火球速度更快地召唤忠诚的兽群，用巨龙的力量粉碎各种类型的魔法剑，或是用一股腐蚀性的粘液，瞬间融解死灵法师的军团。另外，如果那些学徒还了解那些伊格兰斯曾经使用过的力量的话……我们不能容忍他们为了保卫自然做出的一系列举措，但他们的技术在面对敌对法师的时候，总是能够脱颖而出。有关这些自然能力，最重要的一点是，它们是会进行自我约束的！他们绝对不会像奥术魔法一样，引发一场失控的连锁反应，在妄自尊大的狂妄中给埃亚尔大部分的地方带来毁灭。这颗星球自愿给予了我们力量，当我们开始滥用它们的时候，它就会有意识的从我们的身边拿走。即使是最强大的野性系能力者，也不会像死灵法师一样，把他们的力量滥用到如此反常的程度。
+
+因此，我们目前的事业有两个主要的目标。第一个目标是推广使用自然力量代替法术的方法。我们要和那些法师交谈，知道他们用魔法来做什么，然后想办法用自然的力量来达成同样的目标，乃至做的更好。我们继续伊格兰斯把食人魔的符文替换成纯天然产品的努力（现在，使用我们的新技术，预计只会减少40%的寿命），发展新的肥料技术，让它们远远超出使用奥术力量生产食物的方法，还有在沙漠地区创造水井，让那些地方不再只能依靠水魔法。我们创造了各种各样其他使用自然力量的技术与应用，让过去那些使用魔法的方法看上去既落后又危险。第二个目标是最大限度地减少奥术魔法造成的危害，我们会教育法师，如何安全地、负责任地、有保护自然的意识地去使用魔法。并不是每个法师都是邪恶的，他们中的许多人，都可以给他们身边人的生活带来好处！符文魔法就是某种意义上有自我限制能力的魔法，我们也在和那个活化石组织合作，希望能够开发出一种新的魔法，一种和自然联结，受自然约束的魔法。那些岩石守卫就是这样的例子，他们经常使用奥术力量，却仍然和自然之间保持着完美的和谐。如果这就是我们前进的道路，我们将张开双臂欢迎它。]], "_t")
+t([[The Steam Council has been called to order, with Chief Councilor Tantalos presiding.
+
+TANTALOS: "Greetings, my fellow- heh, now [i]lesser[/i] Councilors!  It is my pleasure to finally lead the proceedings.  The agenda for today..." Ruffles through papers. "Is irrelevant, for I have a solution to every malady mentioned therein.  The first order--"
+
+KASYROS: "With all due respect, Chief Councilor, the agenda--"
+
+TANTALOS: "Is.  [i]Irrelevant.[/i]  Tormak?  You've been scrying on potential sources of geothermal energy, would you care to inform the others where you see the most potential?"
+
+TORMAK: Sighs. "Right under the Kruk orcs, unfortunately.  It's a promising source for sure, the magma powering it hasn't drained out like it has under us, but digging there would...  well, we all know how quickly they turned construction tools into weapons to rival our own.  If we went in there with the state-of-the-art mining equipment necessary to--"
+
+TANTALOS: Laughter. "Mining equipment!  What manner of fool do you take me for?  Palaquie, tell me what's going through the minds of those silly little waist-height warriors, rummaging through the mainland for Orcish rebels." Holds up hand to silence Councilor Emeritus Kasyros. "This IS relevant, I assure you."
+
+PALAQUIE: "Discontent...  revolving around hidden, long-fermented resentment. Some want the Kruk exterminated, others imprisoned.  Neither can afford direct intervention, but some form of support will assuredly be available."
+
+TANTALOS: "So, with the right negotiation, we can get these tinies, who have [i]endless[/i] experience fighting Orcs, to assist us and make any sort of action in Kruk territory more manageable.  At a bare minimum, we can obtain weaponry that has long proved sufficient for slashing Orcish throats...  although we'll need it custom-fit for our size, naturally."
+
+PALAQUIE: "They have a race whose armor would work.  A tight fit, but sufficient."
+
+TANTALOS: "Even better!  And...  Kasyros, I'm going to let [i]you[/i] tell me what the people care about most.  I'm sure your bruises are adequate reminders of the citizens' will?"
+
+KASYROS: [Statement was deemed excessively profane and stricken from the record by 4-2 vote.]
+
+TANTALOS: "Such undignified conduct!  All because you can't accept that the public wants their steam back.  More than they want those filthy little greenskins around, more than they fear getting their hands dirty, more than they want [i]your[/i] way of doing things.  So!  It's resolved that we have much to gain from this, it's resolved that we have or can obtain the means to carry it out, and it's resolved that it is what the voting public desires.  I see no need for further debate.  Nashal, I'd like to speak to you after this about a wand.  Meeting adjourned."
+
+[At this time, Councilor Kasyros gave a lengthy speech before officially resigning from the Council.  It has been recorded in a separate document.] ]], [[在坦塔洛斯议长的主持下，蒸汽议会正式开会。
+
+坦塔洛斯：“你们好啊，我的同……哈，现在是[i]下级[/i]议员们！这是我的荣幸，能够终于主事。今日的议程……”翻动手中的文件。“无关紧要，因为我已经为所有要解决的问题有了一个对应的方案。首先————”
+
+卡西罗斯：“尊敬的议长, 议程————”
+
+坦塔洛斯： “这是[i]无关紧要[/i] 的。托马克？你一直在占卜潜在的地热能源，你能告诉大家哪里最有潜力吗？”
+
+托马克：叹气。“不幸的是，就在克鲁克兽人的地盘底下。那确实是个有潜力的源头，提供能源的岩浆可不像我们地盘底下的都枯竭了，但是在那里挖掘会……好吧，我们都知道他们能多快的把建筑工具变成能威胁我们的武器。如果我们把能用来开采的最新式采矿工具带过去————”
+
+坦塔洛斯：大笑。“采矿工具！你把我当成是怎样的傻瓜？帕拉奎，告诉我那些在大陆上到处搜寻兽人反叛者的齐腰高的小傻战士们在想什么。”举起手打断荣誉终身议员卡西罗斯。“我保证，真的无关紧要。”
+
+帕拉奎：“不满……以及隐藏的，长期发酵的怒火。有些人想消灭克鲁克兽人，也有人想监禁他们。不论是哪种，我们都没法直接介入，不过确实可以提供某种支持。”
+
+坦塔洛斯：“那么，在恰当的协商后，我们可以让那些有[i]无数[/i]兽人作战经验的小东西，来协助我们，让在克鲁克兽人境内的一切行动更易掌控。最少，我们可以取得那些已被长期证明能割断兽人喉咙的武器装备……自然，我们确实得想法子改成我们的尺寸。”
+
+帕拉奎：“他们有个种族，护甲可以给我们用。穿起来有点紧，但是足够了。”
+
+坦塔洛斯：“那就更好了！还有……卡西罗斯，我想让[i]你[/i]告诉我人民最在意什么。我敢肯定，你身上的伤痕一定能提醒你，公民们的意志是什么，对吧？”
+
+卡西罗斯：[这一表述被视作过分的亵渎，以4比2的投票，通过从记录中削除。]
+
+坦塔洛斯：“真是不成体统的发言啊！只是你们不能接受群众想要回他们的蒸汽。比起想要那些狡猾的小绿人们在身边，比起他们害怕把自己的手弄脏，比起想要以[i]你们[/i]的方法做事，更想要蒸汽。所以！这决定了我们从这方案里获益良多，决定了我们有或能找到解决困难的方式，也决定了这是选民们想要的。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”
+
+[同时，卡西罗斯议员也在从议会正式辞职时做了一个不短的演讲。演讲被另一个文件记载。] ]], "_t")
