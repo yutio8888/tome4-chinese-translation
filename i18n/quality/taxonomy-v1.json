@@ -1,0 +1,172 @@
+{
+  "contract": "tome4-quality-taxonomy-v1",
+  "schema_version": 1,
+  "description": "MQM-inspired error taxonomy, text profiles, gates, grades, risk flags and profile classification rules for ToME4 Chinese canonical translations. Rule file for the quality system (see docs/translation-quality-system.md).",
+  "profiles": [
+    {"id": "mechanics", "description": "技能、效果、物品机制说明；评价重点：准确性、条件、数字、机制事实"},
+    {"id": "term-name", "description": "技能名、职业、实体、专名；评价重点：术语、专名一致性、简洁性"},
+    {"id": "ui", "description": "菜单、按钮、标签、提示；评价重点：操作含义、长度、实际呈现"},
+    {"id": "runtime-log", "description": "战斗日志、系统消息；评价重点：主客体、参数角色、时态、可扫读性"},
+    {"id": "dialogue", "description": "对话、选项、角色发言；评价重点：指代、人物口吻、自然度"},
+    {"id": "narrative", "description": "lore、剧情、成就描述；评价重点：完整性、文体、世界观一致性"},
+    {"id": "technical-internal", "description": "调试、内部键、技术文本；评价重点：结构安全、是否确实玩家可见"},
+    {"id": "unknown", "description": "自动分类证据不足；必须补充上下文，不能晋级 Gold"}
+  ],
+  "severities": [
+    {"id": "blocker", "description": "译文不可运行、破坏格式或会造成系统性错误（Lua 加载失败、参数缺失、关键 token 损坏）"},
+    {"id": "major", "description": "实质改变含义、机制或玩家决策（伤害类型错误、否定反转、关键条件遗漏）"},
+    {"id": "minor", "description": "确有问题，但不改变核心机制和主要决策（局部生硬、次要术语不一致、明显标点问题）"},
+    {"id": "note", "description": "非缺陷的可选优化；不计入缺陷分"}
+  ],
+  "error_categories": [
+    "accuracy", "terminology", "fluency", "style", "ui", "technical", "context", "catalog", "source"
+  ],
+  "error_codes": [
+    {"code": "ACC_MISTRANSLATION", "category": "accuracy", "default_severity": "major", "description": "一般错译"},
+    {"code": "ACC_OMISSION", "category": "accuracy", "default_severity": "major", "description": "漏译有效信息"},
+    {"code": "ACC_ADDITION", "category": "accuracy", "default_severity": "major", "description": "无依据增译"},
+    {"code": "ACC_UNTRANSLATED", "category": "accuracy", "default_severity": "major", "description": "应翻译内容残留英文或占位文本"},
+    {"code": "ACC_POLARITY", "category": "accuracy", "default_severity": "major", "description": "否定、肯定、增减方向反转"},
+    {"code": "ACC_CONDITION", "category": "accuracy", "default_severity": "major", "description": "条件、例外、范围、时序或比较关系错误"},
+    {"code": "ACC_NUMBER_UNIT", "category": "accuracy", "default_severity": "major", "description": "数字、概率、回合、距离、单位错误"},
+    {"code": "ACC_ENTITY_ROLE", "category": "accuracy", "default_severity": "major", "description": "施法者、目标、主客体、指代对象错位"},
+    {"code": "ACC_MECHANICS", "category": "accuracy", "default_severity": "major", "description": "与固定版本实际游戏机制不符"},
+    {"code": "TERM_PREFERRED", "category": "terminology", "default_severity": "minor", "description": "未采用适用的 preferred 术语且无例外证据"},
+    {"code": "TERM_PROPER_NAME", "category": "terminology", "default_severity": "minor", "description": "人名、地名、组织等专名错误"},
+    {"code": "TERM_INCONSISTENT", "category": "terminology", "default_severity": "minor", "description": "同一适用上下文中无理由多译"},
+    {"code": "FLU_GRAMMAR", "category": "fluency", "default_severity": "minor", "description": "语法错误"},
+    {"code": "FLU_WORD_CHOICE", "category": "fluency", "default_severity": "minor", "description": "搭配或用词不当"},
+    {"code": "FLU_AWKWARD", "category": "fluency", "default_severity": "minor", "description": "生硬、欧化、冗余但含义基本可辨"},
+    {"code": "FLU_AMBIGUITY", "category": "fluency", "default_severity": "minor", "description": "中文引入原文没有的歧义"},
+    {"code": "FLU_PUNCTUATION", "category": "fluency", "default_severity": "minor", "description": "标点、空格和中文排版问题"},
+    {"code": "STYLE_REGISTER", "category": "style", "default_severity": "minor", "description": "语体不符合文本功能"},
+    {"code": "STYLE_VOICE", "category": "style", "default_severity": "minor", "description": "人物口吻或称谓不一致"},
+    {"code": "STYLE_NARRATIVE", "category": "style", "default_severity": "minor", "description": "叙事风格和世界观表达不一致"},
+    {"code": "UI_CLARITY", "category": "ui", "default_severity": "minor", "description": "按钮、标签或提示不清楚"},
+    {"code": "UI_LENGTH", "category": "ui", "default_severity": "note", "description": "明显过长或截断风险"},
+    {"code": "UI_RENDER", "category": "ui", "default_severity": "major", "description": "换行、颜色或动态渲染后不可读"},
+    {"code": "TECH_FORMAT", "category": "technical", "default_severity": "blocker", "description": "printf 数量、类型、宽度或精度问题"},
+    {"code": "TECH_ARGS_ORDER", "category": "technical", "default_severity": "major", "description": "参数顺序或参数语义角色错误"},
+    {"code": "TECH_MARKUP", "category": "technical", "default_severity": "minor", "description": "颜色、富文本等标记错误"},
+    {"code": "TECH_TOKEN", "category": "technical", "default_severity": "blocker", "description": "@token@ 缺失、大小写或数量错误"},
+    {"code": "TECH_LUA", "category": "technical", "default_severity": "blocker", "description": "Lua 字面量、编码或加载问题"},
+    {"code": "TECH_RUNTIME_KEY", "category": "technical", "default_severity": "major", "description": "运行时键覆盖或冲突风险"},
+    {"code": "CTX_SOURCE_TAG", "category": "context", "default_severity": "note", "description": "使用了错误 source_tag 语境的译法"},
+    {"code": "CTX_DOMAIN", "category": "context", "default_severity": "note", "description": "使用了错误领域或类别的译法"},
+    {"code": "CTX_ALIGNMENT", "category": "context", "default_severity": "note", "description": "原文与译文条目错位、复制错段"},
+    {"code": "CTX_INSUFFICIENT", "category": "context", "default_severity": "note", "description": "现有上下文不足以形成可靠结论"},
+    {"code": "CATALOG_DUPLICATE", "category": "catalog", "default_severity": "major", "description": "不合法重复或冲突声明"},
+    {"code": "CATALOG_STALE", "category": "catalog", "default_severity": "major", "description": "对应旧原文、旧机制或旧术语依赖"},
+    {"code": "SOURCE_AMBIGUOUS", "category": "source", "default_severity": "note", "description": "原文自身有歧义，暂不归责于译文"},
+    {"code": "SOURCE_INCORRECT", "category": "source", "default_severity": "note", "description": "原文与实际机制不符，译文存在有证据的修正"}
+  ],
+  "mergeable_codes": [
+    ["ACC_OMISSION", "ACC_MISTRANSLATION"],
+    ["ACC_ADDITION", "ACC_MISTRANSLATION"],
+    ["ACC_POLARITY", "ACC_MISTRANSLATION"],
+    ["ACC_CONDITION", "ACC_MISTRANSLATION"],
+    ["ACC_NUMBER_UNIT", "ACC_MISTRANSLATION"],
+    ["ACC_ENTITY_ROLE", "ACC_MISTRANSLATION"],
+    ["ACC_MECHANICS", "ACC_MISTRANSLATION"],
+    ["TERM_INCONSISTENT", "TERM_PREFERRED"],
+    ["FLU_AWKWARD", "FLU_WORD_CHOICE"],
+    ["FLU_AMBIGUITY", "FLU_WORD_CHOICE"],
+    ["CTX_DOMAIN", "CTX_SOURCE_TAG"],
+    ["TECH_ARGS_ORDER", "TECH_FORMAT"],
+    ["TECH_MARKUP", "TECH_FORMAT"],
+    ["TECH_TOKEN", "TECH_FORMAT"]
+  ],
+  "reuse_scopes": [
+    {"id": "general", "description": "在明确 locale/version/scope 内可广泛复用，通常只适合规范术语和极稳定标签"},
+    {"id": "same-domain", "description": "仅在相同 domain/category/profile 中复用"},
+    {"id": "same-tag", "description": "还必须匹配 source_tag 和结构签名"},
+    {"id": "exact-context", "description": "仅限原 component/section 或相同运行键"},
+    {"id": "no-reuse", "description": "双关、强角色口吻、来源问题或上下文不足，不进入联想"}
+  ],
+  "gates": [
+    {"id": "QG_LOAD", "description": "UTF-8、LuaJIT 加载和条目结构有效"},
+    {"id": "QG_NONEMPTY", "description": "target 非空，且不含未裁决占位翻译"},
+    {"id": "QG_FORMAT", "description": "printf、args_order 和参数语义角色已验证"},
+    {"id": "QG_MARKUP", "description": "markup、@token@、换行等差异相同或已裁决"},
+    {"id": "QG_RUNTIME", "description": "组件内及跨组件运行时键没有未解决冲突"},
+    {"id": "QG_CURRENT", "description": "证据绑定当前 version 和当前 revision"},
+    {"id": "QG_SEVERE", "description": "没有未解决的 confirmed blocker/major"},
+    {"id": "QG_CONTEXT", "description": "profile、source_tag 和必要上下文已确定"},
+    {"id": "QG_TERMS", "description": "相关 preferred 术语一致，或存在明确例外裁决"}
+  ],
+  "confidence_levels": [
+    {"id": "C0", "description": "未检查或 revision 已变化"},
+    {"id": "C1", "description": "当前 revision 仅通过确定性自动门禁"},
+    {"id": "C2", "description": "一次完整、可追踪的语义评估，且上下文充分"},
+    {"id": "C3", "description": "针对完整条目的人工裁决，或两次真正独立且经过校准的评估一致"},
+    {"id": "C4", "description": "C3 基础上完成必要的源码机制、运行时呈现或第二位人工审核验证"}
+  ],
+  "grades": [
+    {"id": "Gold", "description": "全部门禁通过；无未解决 confirmed 缺陷；通常要求 C3 以上；适用范围明确"},
+    {"id": "Silver", "description": "全部门禁通过；无未解决 confirmed 缺陷；至少 C2"},
+    {"id": "Candidate", "description": "自动门禁通过，但语义评估不足或尚未裁决"},
+    {"id": "Quarantine", "description": "任一门禁失败、存在 confirmed 缺陷、版本过时或语境冲突"}
+  ],
+  "quality_vector_dimensions": [
+    "accuracy", "mechanics_context", "terminology", "fluency", "style", "ui_render", "corpus_consistency"
+  ],
+  "risk_flags": [
+    "has-printf", "has-args-order", "has-markup", "has-at-token", "multiline",
+    "short-ambiguous-source", "long-source", "profile-uncertain",
+    "preferred-term-present", "term-variant-or-review", "repeated-runtime-key",
+    "source-has-number-or-unit", "source-has-negation-or-condition",
+    "source-target-length-outlier", "possible-untranslated-residue"
+  ],
+  "source_tag_profiles": {
+    "tformat": "mechanics",
+    "log": "runtime-log",
+    "logSeen": "runtime-log",
+    "logCombat": "runtime-log",
+    "logPlayer": "runtime-log",
+    "logMessage": "runtime-log",
+    "delayedLogMessage": "runtime-log",
+    "say": "dialogue",
+    "saySimple": "dialogue",
+    "easing": "ui",
+    "easingSimple": "ui"
+  },
+  "term_category_profiles": {
+    "T.GAME.TALENT": "term-name",
+    "T.GAME.TALENT_CATEGORY": "term-name",
+    "T.GAME.CLASS": "term-name",
+    "T.GAME.ENTITY": "term-name",
+    "T.GAME.EFFECT": "term-name",
+    "T.GAME.DAMAGE": "term-name",
+    "T.GAME.STAT": "term-name",
+    "T.GAME.RESOURCE": "term-name",
+    "T.GAME.MISC": "term-name",
+    "T.PN.PERSON": "term-name",
+    "T.PN.PLACE": "term-name",
+    "T.PN.RACE": "term-name",
+    "T.PN.FACTION": "term-name",
+    "T.PN.WORLD": "term-name",
+    "T.UI.LABEL": "ui",
+    "T.RUNTIME.LOG": "runtime-log",
+    "T.NARRATIVE.LORE": "narrative",
+    "T.NARRATIVE.ACHIEVEMENT": "narrative",
+    "T.TECH.FORMAT": "technical-internal"
+  },
+  "section_pattern_profiles": [
+    {"pattern": "data/talents", "profile": "mechanics", "confidence": "high"},
+    {"pattern": "data/chats", "profile": "dialogue", "confidence": "high"},
+    {"pattern": "data/lore", "profile": "narrative", "confidence": "high"},
+    {"pattern": "achievements", "profile": "narrative", "confidence": "high"},
+    {"pattern": "dialogs", "profile": "dialogue", "confidence": "high"},
+    {"pattern": "data/zones", "profile": "mechanics", "confidence": "medium"},
+    {"pattern": "data/grids", "profile": "mechanics", "confidence": "medium"},
+    {"pattern": "ui", "profile": "ui", "confidence": "low"}
+  ],
+  "length_bins": [
+    {"id": "short", "max": 20},
+    {"id": "medium", "max": 60},
+    {"id": "long", "max": 200},
+    {"id": "very-long", "max": null}
+  ],
+  "profile_classifier_version": "profile-v1",
+  "risk_rule_version": "risk-v1"
+}

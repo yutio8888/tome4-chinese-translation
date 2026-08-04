@@ -46,12 +46,27 @@
 - `legacy-lore-overlay` 与 `nullpackreloaded` 各自拆为独立可选外部层。当前不把 addon 仓库提交当作它们的官方源码基线，也不把它们计入核心发布完整性。
 - 以上边界已写入 `i18n/versions/tome-1.7.6.json` 的 `release_layers`；后续严格构建需要按层选择并验证，不应通过忽略缺失来源来伪造全量通过。
 
+### 翻译质量系统（第一阶段 M0–M3，2026-08-04）
+
+- 设计文档：`docs/translation-quality-system.md`（整体方案）与 `docs/translation-quality-phase-1.md`（阶段计划）。
+- 权威规则已版本化：`i18n/quality/taxonomy-v1.json`（37 个 MQM 风格错误码、8 类 profile、severity、门禁、risk flag、profile 分类规则）、`i18n/quality/policy-v1.json`（身份契约、120 条试点参数与 6 项覆盖约束）、四份 JSON schema。
+- `tools/i18n quality {inventory,sample,validate,report}` 已接入统一入口；实现位于 `tools/i18nlib/quality.py`。
+- 全量 current revision inventory：**30,177 个 revision**（与 LocaleLoader 条目数守恒），含结构签名、profile、相关术语、确定性 gate signal 与 risk flag；相同输入重复运行 SHA-256 一致（`048359c2…`）。
+- 120 条试点样本（代表性 60 / 风险富集 40 / 对照 20±1）满足全部覆盖约束，固定 seed `tome4-quality-pilot-v1` 可逐字节复现；对照桶覆盖近重复原文、尾空格多译、跨语境同源等真实争议案例。
+- strict validate 已能拒绝：未知错误码/等级、绝对路径、重复 finding ID、不完整覆盖、sample 不匹配、悬空裁决、confirmed blocker/major 晋级 Gold 等；report 输出一致率、加权 κ、错误分布与校准目标对照。
+- 门禁全过：lint --strict 0/0、89 项单元测试（其中质量系统相关 41 项）、运行时键扫描 0 冲突、`git diff --check` 通过。
+- 2026-08-04 首轮 Pi 代码审核（provider opencode-go / model deepseek-v4-flash，bundle `3a6898f1…`）：8 条 finding 全部独立核验属实并已修复——术语匹配最长优先+前缀归并（R-001）、可合并错误码对称匹配（R-002）、profile 分歧改从 assessment 推导（R-003）、新增 format_shape_match 信号（R-004）、新增 cross_component_variant 事实（R-005）、对照桶组原子性（R-006）、relevant_terms 携带 domain（R-007）、handoff 测试数对齐（R-008）。修复后全量 inventory 重建：domain_hints 3,120 条、跨组件变体 0、格式形状差异 0；120 条样本可逐字节复现。
+- 2026-08-04 第二轮 Pi 代码审核（provider deepseek / model deepseek-v4-flash，bundle `3176637b…`，tmux pane 实时流式 293s）：3 条 finding 全部核验属实并已处置——对照组兜底超员有界并补注释说明（R-001）、handoff 内部数字矛盾已对齐（R-002，测试数 87、minor/note 完成态、pending=0）、quality validate 默认执行 policy 的 strict_unknown_fields（R-003）。
+- 2026-08-04 第三轮 Pi 代码审核（provider deepseek / model deepseek-v4-flash，bundle `2e1d3535…`，pane 渲染升级后 302s）：5 条 finding 全部核验属实并已处置——section 模式改段感知匹配（R-001，`ui` 不再误伤 `data/guilds`）、category 指标双侧计入合并匹配（R-002）、inventory 空 target 回读放行（R-003）、strict 未知字段覆盖根级/evaluator（R-004）、handoff 测试数统一为 89（R-005）。
+- pane 可见性改造：pi 审核/修订/翻译命令从 `--mode text`（完全缓冲）切换为 `--mode json`（实时事件流），新增事件流提取（`extract_event_stream_output`）与 pane 增量预览（`_preview_event_line`），reasoning/文本增量实时可见；deepseek provider 凭据经 `_pi_environment` 注入 `DEEPSEEK_API_KEY`（此前因 `PI_CODING_AGENT_DIR` 重定向找不到 auth.json）。
+- pane 渲染二次升级（`PaneStreamRenderer`）：增量按换行组装成完整行、推理暗色/状态行青色，与常规终端一致；`message_update` 行不再写入 raw 文件（每行携带累积 partial，曾致单次运行 5.9GB，现 ~756KB）。
+
 ## 三、最近验证结果
 
 以下结果是当前工作区最近一次验证的基线：
 
 - `doctor`：清单、Lua 5.1 / LuaJIT 2.1、LPeg 0.10.2 和受保护输入代理均正常。
-- 单元测试：39 项通过，其中当前工作区新增 3 项安全/边界回归测试。
+- 单元测试：89 项通过，其中质量系统相关新增 41 项（身份/结构/抽样/校验/指标/事件流/预览/渲染）。
 - 严格 lint：30,170 条翻译、653 条术语，0 个错误、0 个警告；`lint --strict` 已可作为当前门槛。
 - lint 仍统计到 1,717 个重复运行键；这不是当前构建失败项，但仍需分类审校。
 - 核心最小 addon：严格构建成功，19,023 个预期运行键全部验证通过。
@@ -80,7 +95,7 @@
 - 队列终态：`remediation-queue.json` `pending=0`，`applied_pending_commit=2945`，`already_resolved=135`；`remediation-ledger.json` 已关联 2,795 条 finding 处置记录。
 - 处置原则：每条 finding 以有界 bundle 的 source/target 为准独立核验（涉及公开机制时另核验固定源码），不直接照抄 Pi 建议；每批修改后运行 `lint --strict`（0 错误 0 警告）与 `git diff --check`，并在 `remediation-queue.json`/`remediation-ledger.json` 中逐条记账（`verification`、`verification_note`、`changes`）。
 - 批次切分注意：生成批次时须从**当前 pending 列表**固定取 `[0:40]`/`[0:50]`，不得使用随列表缩短而漂移的 `[40n:40n+40]` 索引；此前曾因此系统性跳过条目，已通过剩余 pending 复核修正。
-- 当前 pending 余量：871 条 = minor 803 + note 68；`queue summary.pending` 与 ledger `queued_bundle_findings_not_assessed` 同步维护。
+- 当前 pending 余量曾为 871 条（minor 803 + note 68）；后续批次全部处置完毕后 `pending` 已清零（见队列终态）。
 
 ## 四、待办事项
 
@@ -100,10 +115,11 @@
 - [x] 冻结已处置的 1,425 条工作树并形成可审核提交（`89744ab`），与新增队列隔离。
 - [x] 处理 2 条 blocker（`303f788`）；每项均以有界 bundle、术语库及必要的固定公开源码独立核验，不能直接套用 Pi 建议。
 - [x] 处理 565 条 major（`d8d25db`–`c1c2771` 共 15 批，每批 40 条独立提交并逐条记账）。
-- [ ] 分组件处理 1,053 条 minor 和 68 条 note；高复用术语先更新 `terminology.tsv`，再同步规范 Lua。（进度：minor 250/1,053，note 0/68）
+- [ ] 分组件处理 1,053 条 minor 和 68 条 note；高复用术语先更新 `terminology.tsv`，再同步规范 Lua。（已完成：minor 1,053/1,053、note 68/68，见推荐工作顺序 §4）
 - [ ] 审定 `Constrict`、`eldritch`、`Atmos Tribe` 等多译法术语，并按术语库流程先改 TSV，再改 Lua。
 - [ ] 检查 1,717 个重复运行键，确认是合法覆盖、历史重复，还是需要清理的冲突来源。
 - [ ] 对每个 remediation 批次运行严格 lint 和定向测试、更新台账；全部完成后对最终 diff 做有界 Pi 复审，并为接受、修订或撤销的 finding 留下闭环证据。
+- [ ] 翻译质量系统 M4–M6：12 条 dry-run 试评 → 两位 evaluator 独立完成正式 120 条（reviewer-a/reviewer-b 模板已由 `quality sample` 生成）→ 人工裁决 → `quality validate --strict` + `quality report`，对照校准目标给出 Go/No-Go；涉及外部 provider 时先完成授权。
 
 ### P2：流程与工程化
 
@@ -111,7 +127,7 @@
 - [ ] 建立持续集成检查：LuaJIT 加载、普通 lint、单元测试、核心 build，以及禁止受保护目录越界读取。
 - [ ] 评估是否需要安全的人工审核后 apply 流程；当前 `merge`/`proposal` 只生成候选和校验结果，不会原地修改规范 Lua。
 - [x] 新增的 `i18n/`、`tools/`、`tests/` 文件已纳入本次工具链提交；发布仍需单独执行。
-- [x] 为受保护提取器陈旧输出、空编辑键和越界 merge report 路径补充回归测试；当前测试总数为 39。
+- [x] 为受保护提取器陈旧输出、空编辑键和越界 merge report 路径补充回归测试；当前测试总数为 77（含质量系统测试）。
 
 ## 五、推荐工作顺序
 
@@ -121,7 +137,7 @@
 4. ✅ 已处理 1,053 条 minor 与 68 条 note（1,053/1,053、68/68），队列 `pending` 清零；跨条目术语先走术语库流程，重复运行键在同批同步，但不得无证据全局替换。
 4b. ✅ 与基线（相邻仓库 HEAD `84e5573`，即本分支基线）逐条对比后，发现早期批次约 14 条标记 `applied` 但条目未落盘的遗漏，已全部补修（`5d26960`，tome 8 / ashes 3 / cults 2 / engine 1 及标点统一 1 处），并全量复检确认除有意保留项外无遗漏。
 5. 每批结束后更新 `remediation-queue.json`、`remediation-ledger.json` 和人类可读台账，运行严格 lint 与相关定向测试；涉及公开机制时记录固定 commit，涉及 DLC 时只使用已复制的有界规范 bundle。
-6. 队列清零后运行完整 doctor、lint、39 项测试和核心严格 build，再对最终 diff 生成有界 Pi 复审；只有复审无未处置 finding，才更新为审核闭环完成。
+6. 队列清零后运行完整 doctor、lint、当前全套测试（89 项）和核心严格 build，再对最终 diff 生成有界 Pi 复审；只有复审无未处置 finding，才更新为审核闭环完成。
 7. 随后再审定 3 条 `review` 术语、分类 1,717 个重复运行键，并继续 DLC、legacy lore、Nullpack、CI 与发布基线工作。
 
 ## 六、常用命令
@@ -149,4 +165,4 @@ python3 -B tools/i18n build --profile addon --require-complete --json
 - 术语表系统工程（2026-08）：新增 `domain` 列（11 领域 + lint 白名单）、静态/动态审计、补录基础术语（资源/面板属性/免疫/高频词）、3 条 review 术语裁决、33+26 条同键多译统一、light 共享键裁决、重复运行键分类（1,717 全部跨文件合法重复）、`tools/scan_runtime_collisions.py` / `classify_runtime_keys.py` / `review_diff.py` / `pi-review-batch.py`。
 - 三轮 Pi 复审闭环（2026-08-03/04）：diff bundle 复审 3 轮，major 66→54→21→0，全部处置（含裁决保留）；处置记录在 `.artifacts/i18n/terminology-audit/findings_review{1,2,3}*.json`；worker 调优测试见 `docs/pi-review-worker-tuning.md`（最优 6 workers，4.2× 加速）。
 
-上述状态说明核心插件已通过本地发布门槛，首轮全量“发现”已完成并同步到 review 工作树；1,688 条新增 finding 已全部处置（blocker 2/2、major 565/565、minor 1,053/1,053、note 68/68），队列 `pending=0`；下一步按进度第 6 条执行队列清零后的完整 doctor、lint、39 项测试与核心严格 build，再对最终 diff 生成有界 Pi 复审，之后再审定 3 条 `review` 术语并分类 1,717 个重复运行键。DLC 与外部层仍不属于已完成发布范围。
+上述状态说明核心插件已通过本地发布门槛，首轮全量“发现”已完成并同步到 review 工作树；1,688 条新增 finding 已全部处置（blocker 2/2、major 565/565、minor 1,053/1,053、note 68/68），队列 `pending=0`；下一步按进度第 6 条执行队列清零后的完整 doctor、lint、89 项测试与核心严格 build，再对最终 diff 生成有界 Pi 复审，之后再审定 3 条 `review` 术语并分类 1,717 个重复运行键。DLC 与外部层仍不属于已完成发布范围。

@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "tome4-quality-assessment-v1",
+  "title": "ToME4 quality assessment (one evaluator, one sample)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "quality_contract", "sample_id", "evaluator", "items"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "quality_contract": {"const": "tome4-quality-assessment-v1"},
+    "sample_id": {"type": "string"},
+    "evaluator": {"$ref": "#/definitions/evaluator"},
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/definitions/item"}
+    }
+  },
+  "definitions": {
+    "evaluator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id", "method_version"],
+      "properties": {
+        "kind": {"enum": ["human", "model"]},
+        "id": {"type": "string"},
+        "method_version": {"type": "string"},
+        "provider": {"type": "string"},
+        "model": {"type": "string"},
+        "thinking": {"type": "string"},
+        "prompt_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "bundle_id": {"type": "string"}
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "revision_id", "context_sufficient", "profile_confirmed",
+        "findings", "reuse_recommendation"
+      ],
+      "properties": {
+        "revision_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "context_sufficient": {"type": "boolean"},
+        "profile_confirmed": {"type": ["string", "null"]},
+        "findings": {"type": "array", "items": {"$ref": "#/definitions/finding"}},
+        "reuse_recommendation": {"type": ["string", "null"]}
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finding_id", "error_code", "severity", "source_span",
+        "target_span", "body", "evidence_refs"
+      ],
+      "properties": {
+        "finding_id": {"type": "string"},
+        "error_code": {"type": "string"},
+        "severity": {"type": "string"},
+        "source_span": {"type": "string"},
+        "target_span": {"type": "string"},
+        "body": {"type": "string"},
+        "evidence_refs": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}

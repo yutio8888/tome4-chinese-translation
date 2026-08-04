@@ -21,6 +21,12 @@ from .locale_model import LocaleLoader
 from .merge import run_merge
 from .proposal import validate_proposal
 from .publish import publish_addon
+from .quality import (
+    run_inventory as quality_run_inventory,
+    run_report as quality_run_report,
+    run_sample as quality_run_sample,
+    run_validation as quality_run_validation,
+)
 from .report import create_run_directory, write_json
 from .review import create_review_index, review_index_summary
 from .runtime import LuaRuntime
@@ -209,6 +215,68 @@ def _parser() -> argparse.ArgumentParser:
     proposal.add_argument("--proposal", required=True, type=Path)
     proposal.add_argument("--allow-partial", action="store_true")
     proposal.add_argument("--strict", action="store_true")
+
+    quality = subparsers.add_parser(
+        "quality",
+        help=(
+            "translation quality: current-revision inventory, deterministic "
+            "pilot sampling, strict assessment/adjudication validation and "
+            "consistency reports"
+        ),
+    )
+    quality_subparsers = quality.add_subparsers(dest="quality_command", required=True)
+    quality_inventory = quality_subparsers.add_parser(
+        "inventory",
+        help="build the current revision inventory with deterministic gate/risk facts",
+    )
+    _add_common_arguments(quality_inventory)
+    quality_sample = quality_subparsers.add_parser(
+        "sample",
+        help="deterministic stratified pilot sample and assessment templates",
+    )
+    _add_common_arguments(quality_sample)
+    quality_sample.add_argument(
+        "--inventory",
+        required=True,
+        type=Path,
+        help="inventory.jsonl produced by 'quality inventory'",
+    )
+    quality_sample.add_argument(
+        "--size",
+        type=int,
+        default=None,
+        help="sample size (default: policy pilot size 120)",
+    )
+    quality_sample.add_argument(
+        "--seed",
+        default=None,
+        help="deterministic sampling seed (default: policy seed)",
+    )
+    quality_validate = quality_subparsers.add_parser(
+        "validate",
+        help=(
+            "strictly validate sample, assessments and adjudication against "
+            "taxonomy/policy and revision identity"
+        ),
+    )
+    _add_common_arguments(quality_validate)
+    quality_validate.add_argument("--sample", required=True, type=Path)
+    quality_validate.add_argument(
+        "--assessment",
+        action="append",
+        default=[],
+        type=Path,
+        metavar="ASSESSMENT",
+        help="assessment JSON; may be repeated (pilot: exactly two)",
+    )
+    quality_validate.add_argument("--adjudication", required=True, type=Path)
+    quality_validate.add_argument("--strict", action="store_true")
+    quality_report = quality_subparsers.add_parser(
+        "report",
+        help="build the consistency and calibration report from a validation run",
+    )
+    _add_common_arguments(quality_report)
+    quality_report.add_argument("--validation", required=True, type=Path)
     return parser
 
 
@@ -752,6 +820,110 @@ def _inject_public_dlc_env() -> None:
             os.environ[env_name] = str(candidate)
 
 
+def _quality_inventory(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    runtime = LuaRuntime(manifest)
+    runtime.doctor()
+    loader = LocaleLoader(runtime)
+    report = quality_run_inventory(manifest, loader)
+    if arguments.json:
+        _print_json(report)
+    else:
+        summary = report["summary"]
+        print(
+            f"OK  quality inventory {report['version']}  "
+            f"entries={summary['entries']} occurrences={summary['occurrences']}"
+        )
+        print(f"    sha256={report['inventory_sha256'][:16]}")
+        print(f"    profiles={summary['profiles']}")
+        print(f"    risk flags={summary['risk_flags']}")
+        print(f"Output: {report['inventory']}")
+    return 0
+
+
+def _quality_sample(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    report = quality_run_sample(
+        manifest,
+        inventory_path=arguments.inventory,
+        size=arguments.size,
+        seed=arguments.seed,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(
+            f"OK  quality sample {report['sample_id'][:16]}  "
+            f"size={report['size']} buckets={report['bucket_counts']}"
+        )
+        print(f"    coverage={report['coverage']}")
+        if report["unmet_constraints"]:
+            for unmet in report["unmet_constraints"]:
+                print(f"    UNMET {unmet['id']}: {unmet['actual']}/{unmet['target_min']}")
+        print(f"Output: {report['sample_path']}")
+    return 0
+
+
+def _quality_validate(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    report = quality_run_validation(
+        manifest,
+        sample_path=arguments.sample,
+        assessment_paths=arguments.assessment,
+        adjudication_path=arguments.adjudication,
+        strict=arguments.strict or None,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        status = "OK" if report["ok"] else "FAIL"
+        print(f"{status} quality validate {report['sample_id'][:16]}")
+        for error in report["errors"]:
+            print(f"    ERROR {error}")
+        for warning in report["warnings"]:
+            print(f"    WARN  {warning}")
+        for assessment in report["assessments"]:
+            print(
+                f"    {assessment['evaluator_id']}: {assessment['items']} items"
+            )
+        print(f"Output: {report['validation_path']}")
+    if not report["ok"]:
+        raise ValidationError(
+            "quality validation failed: "
+            + "; ".join(report["errors"][:5])
+        )
+    return 0
+
+
+def _quality_report(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    report = quality_run_report(
+        manifest,
+        validation_path=arguments.validation,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  quality report {report['sample_id'][:16]}")
+        for assessment in report.get("assessments", []):
+            print(
+                f"    {assessment['evaluator_id']}: items={assessment['items']} "
+                f"findings={assessment['findings']}"
+            )
+        agreement = report.get("agreement", {})
+        if "note" not in agreement:
+            print(
+                f"    context agreement={agreement.get('context_sufficient_agreement')} "
+                f"defect agreement={agreement.get('defect_presence_agreement')}"
+            )
+            print(
+                f"    major agreement={agreement.get('major_or_worse_agreement')} "
+                f"kappa={agreement.get('severity_weighted_kappa')}"
+            )
+        print(f"Output: {report['report_md']}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     _inject_public_dlc_env()
     arguments = _parser().parse_args(argv)
@@ -778,6 +950,18 @@ def main(argv: list[str] | None = None) -> int:
             return _review(arguments)
         if arguments.command == "proposal":
             return _proposal(arguments)
+        if arguments.command == "quality":
+            if arguments.quality_command == "inventory":
+                return _quality_inventory(arguments)
+            if arguments.quality_command == "sample":
+                return _quality_sample(arguments)
+            if arguments.quality_command == "validate":
+                return _quality_validate(arguments)
+            if arguments.quality_command == "report":
+                return _quality_report(arguments)
+            raise AssertionError(
+                f"unhandled quality command: {arguments.quality_command}"
+            )
         raise AssertionError(f"unhandled command: {arguments.command}")
     except I18nToolError as error:
         print(f"ERROR: {error}", file=sys.stderr)
