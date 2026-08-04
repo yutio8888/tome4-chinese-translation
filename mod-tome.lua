@@ -13025,8 +13025,7 @@ t("The Untouchable", "不可触及", "entity name")
 t("tough leather coat", "硬皮甲", "_t")
 t([[This rugged jacket is the subject of many a rural legend.
 Some say it was fashioned by an adventurous mage turned rogue, in times before the Spellblaze, but was since lost.
-All manner of shady gamblers have since claimed to have worn it at one point or another. To fail, but live, is what it means to be untouchable, they said.]], "这件破旧的夹克是许多乡村传说的主角。有人说，在魔法大爆炸之前的年代，一位转行盗贼的冒险法师制作了它，但此后便遗失了。
-形形色色的神秘赌徒都声称自己曾穿过它。他们说，失败却活下来，这就是“不可触及”的含义。", "_t")
+All manner of shady gamblers have since claimed to have worn it at one point or another. To fail, but live, is what it means to be untouchable, they said.]], "这件破旧的夹克是许多乡村传说的主角。有人说，在魔法大爆炸之前的年代，一位转行盗贼的冒险法师制作了它，但此后便遗失了。\n形形色色的神秘赌徒都声称自己曾穿过它。他们说，失败却活下来，这就是“不可触及”的含义。", "_t")
 t("When you take a hit of more than 20% of your max life a shield is created equal to 130% the damage taken.", "当你受到一次攻击损失超过20%最大生命值时，你获得一个护盾，可吸收那个数值130%的伤害。", "_t")
 t("#LIGHT_BLUE#A barrier bursts from the leather jacket!", "#LIGHT_BLUE#这件皮夹克突然爆发出一股护盾能量！", "logPlayer")
 t("Honeywood Chalice", "蜂蜜木酒杯", "entity name")
