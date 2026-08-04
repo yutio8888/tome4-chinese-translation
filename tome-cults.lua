@@ -2572,7 +2572,7 @@ That's when I found this place. Everyone else avoided it because people never le
 
 However, I also found that this still didn't deter people from coming to kill me. They all swarmed in and although a lot of them got lost in the hallways, a few actually managed to reach me. I had grown rather attached to the place at this point, but neither could I stay there. My solution came with a bizarre tome I had found in my adventures. When I opened the cover and pointed it in the right direction, it could suck things into its very pages.
 
-So, being the savvy adventurer I am, I opened the tome and sucked the entire castle inside of it. It seems like the tome could only suck so much inside its covers, so it could no longer hold anything else in it. Although I had to sacrifice a great treasure, I now had a sanctuary away from the real world which I could escape to whenever I needed shelter.]], [[那么，当一个冒险者厌倦了有关冒险的一切时，他们会做什么呢？对我而言，我想在乡村的某个地方建造一座漂亮的城堡，并在休闲和娱乐中度过愉快的晚年。问题在于，我有不少仇人，他们可是很乐意见到我呆在一个地方束手就擒，因此我得想出一个解决方案。
+So, being the savvy adventurer I am, I opened the tome and sucked the entire castle inside of it. It seems like the tome could only suck so much inside its covers, so it could no longer hold anything else in it. Although I had to sacrifice a great treasure, I now had a sanctuary away from the real world which I could escape to whenever I needed shelter.]], [[那么，当一个冒险者厌倦了有关冒险的一切时，他们会做什么呢？对我而言，我想在乡村的某个地方找一座漂亮的城堡，并在休闲和娱乐中度过愉快的晚年。问题在于，我有不少仇人，他们可是很乐意见到我呆在一个地方束手就擒，因此我得想出一个解决方案。
 
 所以，我找到了这个地方。其他人都对它避之不及，因为据说进入这里的人从来没有回来过。不过习惯了冒险生活的我看来，这样的事情无疑是一种挑战。事实证明，这个被诅咒的城堡，正如人们所说的那样，正在不断地改变着它的内部布局。没有人真正知道，它是如何做到这一切，以及为什么要这样做的，但我也不是一个非得刨根问底的人。只要我能弄清楚，尽管它的结构不断的改变，这种改变的内部仍然蕴含了某种逻辑，我就拥有了一个无懈可击的堡垒。
 

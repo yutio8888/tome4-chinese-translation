@@ -116,7 +116,7 @@ t("Tatoos", "纹身", "birth facial category")
 t("Horns", "角", "birth facial category")
 t("Special", "特殊", "birth facial category")
 t("Orc", "兽人", "birth descriptor name")
-t("Orcs have a long and sad history. They are seen, and are, as an aggressive race that more than one time managed to imperil all of Maj'Eyal.", "兽人拥有久远而悲伤的历史。他们被视为（也确实如此）一个侵略性种族，曾不止一次危及整个埃亚尔世界。", "_t")
+t("Orcs have a long and sad history. They are seen, and are, as an aggressive race that more than one time managed to imperil all of Maj'Eyal.", "兽人拥有久远而悲伤的历史。他们被视为（也确实如此）一个侵略性种族，曾不止一次危及整个马基埃亚尔世界。", "_t")
 t("But one year ago the Scourge from the West came and wiped four of the five Prides. And a hundred years ago King Toknor wiped all traces of orcs from Maj'Eyal.", "但是一年前，来自西方的天灾消灭了五个兽人部落中的四个。一百年前，图库纳国王消灭了马基埃亚尔本土的所有兽人。", "_t")
 t("The orc race is dangerously on the brink of destruction. One wrong move is all that is needed.", "兽人种族正危险地处于毁灭边缘。只需走错一步，就足以毁灭。", "_t")
 t("But they are strong and will face whatever is needed to ensure a future of their own!", "但他们意志强大，敢于直面任何磨难，来创造属于他们的未来！", "_t")
@@ -520,14 +520,14 @@ t([[He...  he found a wand?  And he realized it was running dry, but only after 
 
 Ultimately, though, the choice is yours; it is more important that he is no longer a threat.  There are some who may still cling to the false hope he gave them, but we will retake the Mana Caves from them in time.  We owe you a great debt, and now that we have no more pressing concerns, we can aid Kruk Pride in their rebellion.  Good travels, @playername@.]], [[他...  他找到了一根魔棒？然后等到他掌控了我们氏族，才发现能量快用完了？我对此感到遗憾，但我不能原谅他。为了逃避自己陷入疯狂的责任，他准备牺牲这么多重要的白蹄族人和兽人……尽管如此，我请求你不要告诉别人他的想法。纳克托什是曾经将我们从埃亚尔深处的堕落魔法中拯救出来的英雄，他至少应该被铭记为一个悲剧性地屈服于那种影响的人。
 
-当然，选择权在你手中；重要是他的威胁解除了。虽然仍有人沉醉于他给予的虚假希望中，但我们马上就能夺回魔法洞穴了。我们都欠你很多。现在，我们紧迫的危机已经解除了，该是帮助克鲁克部落的时候了。祝你好运, @playername@。]], "_t")
+当然，选择权在你手中；重要的是他的威胁解除了。虽然仍有人沉醉于他给予的虚假希望中，但我们马上就能夺回魔法洞穴了。我们都欠你很多。现在，我们紧迫的危机已经解除了，该是帮助克鲁克部落的时候了。祝你好运, @playername@。]], "_t")
 t("To you too, Metash.", "也祝你好运，梅塔什。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/chats/phonograph.lua"
 
 t("[insert %s]", "[插入 %s]", "tformat")
-t("#LIGHT_GREEN#*This machine seems to have a slot for some kind of disks.*#WHITE#", "#LIGHT_GREEN#*这台机器上似乎有一个用于某种磁盘的插槽。*#WHITE#", "_t")
+t("#LIGHT_GREEN#*This machine seems to have a slot for some kind of disks.*#WHITE#", "#LIGHT_GREEN#*这台机器上似乎有一个用于某种唱片的插槽。*#WHITE#", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/chats/shertul-priest.lua"

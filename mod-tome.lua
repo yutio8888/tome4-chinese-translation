@@ -4796,7 +4796,7 @@ t("I highly recommend the mage aspect and the fire element. You're not going to 
 t("I live to serve-- though my use of the word 'live' is perhaps loose here.", "我毕生为你效劳——虽然“毕生”在这里对于我而言并不是那么准确。", "_t")
 t("Choose wisely. Powers beyond your comprehension will tolerate only so much interference in their carefully-laid natural order.", "明智地进行选择。那些超越你理解的力量，对它们精心安排的自然秩序所受的干涉，忍耐是有限的。", "_t")
 t("Back in my day, we didn't need to go changing our staves around willy-nilly. We picked an element and stuck with it, by the gods.", "在我那个年代，我们不会随便更换法杖。选定一种元素就用到底，诸神在上。", "_t")
-t("Certainly. You should be impressed, by the way, that I can do such a thing. Most lesser practitioners of my art would have difficulties with this. What shall I change?", "当然。顺带一提，我可以做的事情会让你印象深刻。大多数较弱者实践我的艺术时会感觉有困难。你想让我改变什么？", "_t")
+t("Certainly. You should be impressed, by the way, that I can do such a thing. Most lesser practitioners of my art would have difficulties with this. What shall I change?", "当然。顺带一提，我可以做的事情会让你印象深刻。大多数技艺不如我的同行都会觉得难以做到。你想让我改变什么？", "_t")
 t("Fine, as long as it leads to blasting something soon. What do you want me to change?", "很好，只要它能快速的引爆某物。你要我换成什么？", "_t")
 t("Choose different aspect", "选择其他领域", "_t")
 t("Never mind.", "算了。", "_t")
@@ -4828,7 +4828,7 @@ t("Wait! The war's over! It's been thousands of years, the Conclave doesn't exis
 t([[#LIGHT_GREEN#*They look at each other and scowl, drawing their weapons.  The one on the left growls:*#WHITE#
 LIES!  The Conclave could not have lost!  I don't know who you are, but we can't afford witnesses!
 ]], [[#LIGHT_GREEN#*他们怒目而视，举起武器。左边的一个大喊道：*#WHITE#
-一派胡言！孔克雷夫是不可能战败的！我不知道你到底是谁，但我们不能留活口！
+一派胡言！魔法议会是不可能战败的！我不知道你到底是谁，但我们不能留活口！
 ]], "_t")
 
 ------------------------------------------------
@@ -5339,7 +5339,7 @@ t("Nice doing business with you my friend. There you go!", "和你做生意真�
 t("Thanks.", "多谢。", "chat_last-hope-lost-merchant")
 t([[Ungrol told me this substance contains some exceedingly rare components.
 "More Toxin than Medicine" he said.  Allas, he had not the funds to buy it.  On the other hand, because of our special relationship, I'm willing to let you have it #{italic}#at cost#{normal}# -- only 1500 gold pieces!]], [[温格勒发现这种物质含有某些稀有成分，
-“与其说是药，不如说是毒。”他说，但他没钱买下来。 基于我们的良好关系，我很愿意卖给你，#{italic}#只需要#{normal}# -- 1500 金币!]], "_t")
+“与其说是药，不如说是毒。”他说，但他没钱买下来。 基于我们的良好关系，我很愿意按成本价卖给你——#{italic}#只要#{normal}# 1500 金币！]], "_t")
 t("Fairly pricey, but seems useful.  We have a deal!", "有点贵，不过应该能派上用场。我要了！", "_t")
 t("That price ... er stuff really stinks ...", "这价格……呃，真够臭的……", "_t")
 t("Here you are.  Just be sure not to get any on yourself!", "给你了。别洒在自己身上了", "_t")
@@ -8258,7 +8258,7 @@ t("horror", "恐魔", "entity type")
 t("eldritch", "骇异", "entity subtype")
 t("worm that walks", "蠕虫合体", "entity name")
 t([[A bulging rotten robe seems to tear at the seams, with masses of bloated worms spilling out all around the moving form.  Two arm-like appendages, each made up of overlapping mucous-drenched maggots, grasp tightly around the handles of bile-coated waraxes.
-Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], "一件鼓鼓囊囊的腐烂长袍，长袍的缝隙里不断蠕动着浮肿的蠕虫。它有着两只臂膀一样的附属物，每只手都由重叠的蠕虫组成，各握着一柄覆有胆汁的斧子。每一次挥舞都会向前溅出脓液，每一滴脓液在空中扭动翻滚，然后啪嗒一声落在地上。", "_t")
+Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], "一件鼓鼓囊囊的腐烂长袍，长袍的缝隙里不断蠕动着浮肿的蠕虫。它有着两只臂膀一样的附属物，每只都由沾满黏液的蛆重叠而成，各握着一柄覆有胆汁的斧子。每一次挥舞都会向前溅出脓液，每一滴脓液在空中扭动翻滚，然后啪嗒一声落在地上。", "_t")
 t("#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", "#LIGHT_RED#一团腐肉虫从%s的伤口孵化了出来。", "logSeen")
 t("bloated horror", "浮肿恐魔", "entity name")
 t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "一个臃肿的人形生物漂浮在这里。它的光头像个孩子，与身体相比大得不成比例，皮肤上布满痘坑，长着狰狞的红色脓疮。", "_t")
@@ -8302,7 +8302,7 @@ t("parasitic horror", "寄生恐魔", "entity name")
 t("You don't want to think about what sort of creature this lamprey-like horror was feeding on to grow so large.  Its skin pulsates and writhes, like things are moving underneath...", "你不想知道这个像七鳃鳗一样的恐魔是吃什么才能长这么大的。它的皮肤不停的扭动，就像有东西在下面移动一样...", "_t")
 t("%s's severed flesh starts crawling!", "%s被切割的血肉开始爬行！", "logSeen")
 t("mass of parasitic leeches", "大团寄生水蛭", "entity name")
-t("Dozens - hundreds maybe? - of blood-gorged worms, of varying shapes and sizes, making a writhing, ichor-soaked sea of tooth-lined maws and sickly green skin, ready to latch onto you and drink until they burst or your veins run dry.", "几十个，也许几百个？各种形状和大小的血腥蠕虫，由布满利齿的血盆大口和病态绿色皮肤组成的、翻腾的脓水海洋，随时准备缠住你并吸你的血，直到它们胀破或者你的静脉干涸。", "_t")
+t("Dozens - hundreds maybe? - of blood-gorged worms, of varying shapes and sizes, making a writhing, ichor-soaked sea of tooth-lined maws and sickly green skin, ready to latch onto you and drink until they burst or your veins run dry.", "几十个，也许几百个？各种形状和大小的、吸饱鲜血的蠕虫，由布满利齿的血盆大口和病态绿色皮肤组成的、翻腾的脓水海洋，随时准备缠住你并吸你的血，直到它们胀破或者你的静脉干涸。", "_t")
 t("Grgglck the Devouring Darkness", "格尔格勒克·黑暗吞噬者", "entity name")
 t([[A horror from the deepest pits of the earth. It looks like a huge pile of tentacles all trying to reach for you.
 You can discern a huge round mouth covered in razor-sharp teeth.]], "这是来自地底最深处的恐魔。看起来像是一团巨大触手，它在不断的向你靠近。你可以在它那血盆大口里看到剃刀般的牙齿。", "_t")
@@ -17920,7 +17920,7 @@ The Eldorals used to have a kingdom in the north of the continent, but most of i
 The Nargols once had many strong fortifications in the south of Maj'Eyal, but though they suffered less than the Eldoral in the Age of Pyre they still lost great numbers, and much of their centres of population dwindled. The rise of Last Hope has accelerated this process, as many communities are subsumed into the city's suburbs. Nargols are known as great jewellers, alchemists and rune-crafters, and possess some of the best tactical minds of all the races. Many generals and military advisers are employed from their kingdom.
 
 The most famous of all halflings is Queen Mirvenia, most famed for her saving of King Toknor in Last Hope from a siege of orcs. Mystery still surrounds how she managed to bypass the winter's icy floes with her army to reach the citadel in time to rescue Toknor. Some have hypothesised that she enlisted the aid of sorcerers, but none of her troops would talk about the journey afterwards. She wed King Toknor in the second year of the Age of Ascendancy, and gave birth to the first known mixed race child - Tolak the Fair.
-]], [[主要的半身人王国有2个，艾德瑞尔和纳格尔，虽然他们经常生活在一起。所有的半身人都只有4英尺高，并且以他们的大脚板和卷曲的头发而闻名。艾德瑞尔人有着卷发和蓝色的眼睛。纳格尔人则有着颜色较深的头发和皮肤以及褐色的眼睛，通常比艾德瑞尔人要稍矮一些。半身人以聪明机智而闻名，但在与其他种族打交道时也十分傲慢——他们并不否认，因为他们认为这份傲慢理所当然。
+]], [[主要的半身人王国有2个，艾德瑞尔和纳格尔，虽然他们经常生活在一起。所有的半身人都只有4英尺高，并且以他们的大脚板和卷曲的头发而闻名。艾德瑞尔人有着浅色的头发和蓝色的眼睛。纳格尔人则有着颜色较深的头发和皮肤以及褐色的眼睛，通常比艾德瑞尔人要稍矮一些。半身人以聪明机智而闻名，但在与其他种族打交道时也十分傲慢——他们并不否认，因为他们认为这份傲慢理所当然。
 
 半身人曾经是马基·埃亚尔最具威慑力的种族，他们控制了大部分的夏·图尔废墟并拥有广袤的土地。史书上记载，人类和半身人之间曾发生过许多次交锋，半身人通常是最后的赢家。但是烈火纪带给他们巨大的灾难，因为兽人们对半身人种族格外仇视，他们的许多族群都被杀光。这使得他们在现代更加依赖于和其他种族的交流，尤其是和人类。
 
@@ -20277,7 +20277,7 @@ t("You failed to defeat the acolytes in time - the woman got torn apart by the d
 section "mod-tome/data/quests/lichform.lua"
 
 t("From Death, Life", "起死回生", "_t")
-t("The affairs of this mortal world are trifling compared to your true goal: To conquer death.", "凡人世界的那些琐事对于你的终极目标：超越死亡来说是微不足道的。", "_t")
+t("The affairs of this mortal world are trifling compared to your true goal: To conquer death.", "凡人世界的那些琐事，与你的终极目标——超越死亡——相比，都是微不足道的。", "_t")
 t("Your studies have uncovered much surrounding this subject, but now you must prepare for your glorious rebirth.", "你关于这个主题的研究已经令你发现了很多东西，现在，你必须准备你辉煌的重生仪式。", "_t")
 t("You will need:", "你需要：", "_t")
 t("#LIGHT_GREEN#* You are experienced enough.#WHITE#", "#LIGHT_GREEN#* 你有足够的经验。#WHITE#", "_t")
@@ -23126,7 +23126,7 @@ t("Rogue's Brew", "盗贼佳酿", "talent name")
 t("%s is cured!", "%s 被治愈！", "logSeen")
 t("Prepare a potion that restores %d life, %d stamina, and cures %d negative physical effects. 20 turn cooldown.", "准备药剂，回复 %d 生命, %d 体力, 解除 %d 项物理负面状态。20 回合冷却。", "tformat")
 t([[Imbibe a potent mixture of energizing and restorative substances, restoring %d life, %d stamina and curing %d detrimental physical effects.  The restorative effects improve with your Cunning.
-	#YELLOW#Prepared with: %s#LAST#]], [[制造强效恢复药酒, 使用后回复 %d 生命, %d 体力并解除 %d 项物理负面效果。该效果受灵巧加成。
+	#YELLOW#Prepared with: %s#LAST#]], [[饮用强效恢复药酒，使用后回复 %d 生命、%d 体力并解除 %d 项物理负面效果。该效果受灵巧加成。
 	#YELLOW#已装填：%s#LAST#]], "tformat")
 t("Rogue's Brew Mastery", "佳酿强化", "talent name")
 t("Your Rogue's Brew fortifies you for 8 turns, preventing you from dying until you reach -%d life.", "你的盗贼佳酿会强化你 8 回合，使你在生命值降至 -%d 之前不会死亡。", "tformat")
@@ -38512,7 +38512,7 @@ section "mod-tome/data/zones/golem-graveyard/objects.lua"
 t("red", "红宝石", "entity subtype")
 t("Atamathon's Ruby Eye", "阿塔玛森的红宝石眼睛", "entity name")
 t([[One of the ruby eyes of the legendary giant golem Atamathon.
-It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed, it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], "那只传奇傀儡——阿塔玛森的一只眼睛。据说它是半身人在烈火纪为了对抗兽人所造的武器。虽然它被破坏了，但是它也成功的使对方的首领吞噬者加库尔走向死亡。", "_t")
+It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed, it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], "那只传奇傀儡——阿塔玛森的一只眼睛。据说它是半身人在烈火纪为了对抗兽人所造的武器。虽然它被破坏了，但是它也成功地使对方的首领吞噬者加库尔走向死亡。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/golem-graveyard/zone.lua"
@@ -39782,7 +39782,7 @@ t("A slithering noise accompanies the movement of this strange creature, whose s
 t("naga nereid", "娜迦海卫", "entity name")
 t("Green eyes stare out from behind strands of long, golden hair, which falls down in waves over smooth, pale skin. Your eyes are drawn to the bare flesh, but as they look further they see dark scales stretching out into a long serpent's tail. You look up as she moves, her hair parting to reveal a slim and beautiful face with high cheekbones and full lips. Yet for all the allure of this wondrous creature the terror of the serpentine tail sends shivers down your spine.", "绿色的眼睛后面是披落在白皙肩膀的金发。你的眼睛被裸露的肌肤所吸引，但是当你往下看时，你会发现黑色的长蛇尾巴。当她移动时你看向她的脸部，在金发之下是红润而美丽的脸庞，有着高颧骨和丰满的嘴唇。虽然从各方面看来，她都很完美，但是仍掩饰不住你眼皮底下的蛇尾巴带来的恐怖。", "_t")
 t("Lady Zoisla the Tidebringer", "潮汐使者佐西拉夫人", "entity name")
-t("Water circles slowly on the ground around this naga's tail, some droplets leaping up now and then as if they are impatient to do their mistress' bidding. Her dark tail is coiled tight, making her look short, but her calm and confident stare assure you that she will not be easily overcome. As the water begins to rise around her the air starts to shimmer, and you feel her dark eyes are penetrating into you deeper than is comfortable.", "水流缓慢的围绕着这位娜迦的尾巴旋转，有些水柱在不安的跳动，似乎它们迫不及待去执行主人的命令。她黑色的尾巴蜷缩起来，使她看起来较为矮小，但是她沉着而自信的眼神让你确信她不是轻易就能被击败的。当周围的水位开始上涨，空气开始闪烁微光，你感到她漆黑的目光洞穿了你，让你很不自在。", "_t")
+t("Water circles slowly on the ground around this naga's tail, some droplets leaping up now and then as if they are impatient to do their mistress' bidding. Her dark tail is coiled tight, making her look short, but her calm and confident stare assure you that she will not be easily overcome. As the water begins to rise around her the air starts to shimmer, and you feel her dark eyes are penetrating into you deeper than is comfortable.", "水流缓慢地围绕着这位娜迦的尾巴旋转，有些水珠不时跃起，似乎迫不及待要执行主人的命令。她黑色的尾巴蜷缩起来，使她看起来较为矮小，但是她沉着而自信的眼神让你确信她不是轻易就能被击败的。当周围的水位开始上涨，空气开始闪烁微光，你感到她漆黑的目光洞穿了你，让你很不自在。", "_t")
 t("and brought back to Vargh for experimentation", "并被带去瓦尔弗成为实验对象", "_t")
 
 ------------------------------------------------
