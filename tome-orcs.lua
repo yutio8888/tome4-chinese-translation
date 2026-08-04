@@ -3790,7 +3790,7 @@ section "tome-orcs/data/quests/ritch-hive.lua"
 t("A Ritch Party", "里奇派对", "_t")
 t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地清除太阳堡垒的威胁。", "_t")
 t("To do that we will prepare a special surprise to help our final attack.", "为此，我们必须为最终的突袭做好准备，给他们一个“惊喜”。", "_t")
-t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect a big pile of ritch eggs.  About 30 viable eggs should be sufficient.", "前去艾露安沙漠以北群山中的里奇巢穴，收集大量的里奇虫卵。至少要 30 个才够。", "_t")
+t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect a big pile of ritch eggs.  About 30 viable eggs should be sufficient.", "前去艾露安沙漠以北群山中的里奇巢穴，收集大量的里奇虫卵。大约 30 个可孵化的虫卵便已足够。", "_t")
 t("When you have enough, find a tunnel leading north and use the special sand shredder gloves tinker to open a path under the Gates of Morning.", "当你有了足够的里奇虫卵，找到一条向北的隧道，使用特殊的挖沙手套插件来挖出一条通向晨曦之门的道路。", "_t")
 t("Finally, place the eggs in a protected spot to hatch.  With luck, they will provide a distraction while you later assault the city.", "最后，将虫卵放在安全的地方让它们孵化。运气好的话，等你日后进攻城市时，它们能帮你分散敌人的注意力。", "_t")
 t("#LIGHT_GREEN#* You have collected enough eggs.#WHITE#", "#LIGHT_GREEN#* 你收集了足够多的虫卵#WHITE#", "_t")

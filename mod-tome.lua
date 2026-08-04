@@ -3129,7 +3129,7 @@ t("#LIGHT_BLUE# * +5 Strength, +2 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +
 t("#GOLD#Life per level:#LIGHT_BLUE# +6", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +6", "_t")
 t("Archer", "弓箭手", "birth descriptor name")
 t("Archers are dexterous ranged fighters, able to pin their foes to the ground and rain down a carpet of arrows on them.", "弓箭手是身手矫健的远程战士，能将他的敌人钉在原地再射出如雨般的箭矢消灭对手。", "_t")
-t("Skilled archers can fire special shots that pierce, cripple or pin their foes.", "高等级的弓箭手可以射出特殊的箭矢，可以射穿、致残或者将目标钉在原地。", "_t")
+t("Skilled archers can fire special shots that pierce, cripple or pin their foes.", "技艺娴熟的弓箭手可以射出特殊的箭矢，可以射穿、致残或者将目标钉在原地。", "_t")
 t("Archers can become good with either longbows or slings.", "弓箭手可以使用长弓和投石索。", "_t")
 t("Their most important stats are: Dexterity and Strength (when using bows) or Cunning (when using slings)", "他们最重要的属性是：敏捷和力量（装备弓时）或灵巧 (装备投石索)", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +5 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +2 力量，+5 敏捷，+0 体质", "_t")
@@ -6027,14 +6027,14 @@ t("[Fly the fortress -- #LIGHT_RED#FOR TESTING ONLY#LAST#]", "[飞起堡垒 -- #
 t("[Begin the Lichform ceremory]", "[开始巫妖形态仪式]", "_t")
 t("[Leave the orb alone]", "[离开水晶球]", "_t")
 t([[*#LIGHT_GREEN#The device seems to be made of pure crystal. It projects a very accurate map of the known world - including the forbidden continent of the south.
-There seems to be a hole about the size and form of your Rod of Recall.#WHITE#*]], [[*#LIGHT_GREEN#整个设施似乎完全是水晶制造，里面显现出已知世界的精确地图，包括南部的禁秘大陆。
+There seems to be a hole about the size and form of your Rod of Recall.#WHITE#*]], [[*#LIGHT_GREEN#这个装置似乎完全由水晶制成，里面显现出已知世界的精确地图，包括南部的禁秘大陆。
 上面有一个形状类似回归之杖的小孔。#WHITE#*]], "_t")
 t("[Insert the rod]", "[插入魔杖]", "_t")
 t([[*#LIGHT_GREEN#As you take the rod close to the orb it seems to vibrate and react.
 A shadow appears in a corner of the room! You retract the rod immediately but the shadow stays.
 It looks like the horrors you fought when coming inside, only less degenerated.
-The thing looks roughly humanoid, but it has no head and its limbs look like tentacles. It does not seem hostile.#WHITE#*]], [[*#LIGHT_GREEN#当你用魔杖接近水晶球时，你感觉到它发生了感应和共鸣。
-一个影子从房间的角落里出现了！你赶紧拿回了法杖，但是那个影子还在。
+The thing looks roughly humanoid, but it has no head and its limbs look like tentacles. It does not seem hostile.#WHITE#*]], [[*#LIGHT_GREEN#当你用回归之杖接近水晶球时，你感觉到它发生了感应和共鸣。
+一个影子从房间的角落里出现了！你赶紧拿回了回归之杖，但是那个影子还在。
 它看起来很像你进来时战斗过的恐魔，只是退化程度较轻。
 那个东西有着粗略的人形，但它没有脑袋，只有像触角一样的肢体。看上去似乎不像是敌人。#WHITE#*]], "_t")
 
@@ -6688,9 +6688,9 @@ It'll require a Resonating Diamond to get it properly prepared. Oh, and I want 1
 t("Where can I find all that?", "我上哪儿去找那些东西？", "_t")
 t("Try your purse for the 100 gold. As for an Athame and a Resonating Diamond, I assume the orcs have some if they're cooking up portals to use that Orb on. Try the Vor Armory. It so happens that I know a back way in. Never mind why.", "100 金币嘛……你摸摸自己的钱袋就有了。至于仪式匕首和共鸣钻石，既然那些兽人正准备配合多元水晶球开启传送门，我猜他们手上就有。去沃尔军械库找找吧。碰巧我知道一条后门，别问为什么。", "_t")
 t("Thank you.", "谢谢。", "_t")
-t("Of course there was no Resonating Diamond. What makes you think Briagh would let one loose for even a second?", "你当然找不到共鸣钻石，你想想布莱亚弗怎么会放松一秒钟警惕？", "_t")
+t("Of course there was no Resonating Diamond. What makes you think Briagh would let one loose for even a second?", "你当然找不到共鸣钻石，你想想布莱亚弗怎么可能让一颗钻石溜走？", "_t")
 t("Briagh?", "布莱亚弗？", "_t")
-t("Briagh the Great Sand Wyrm. Where do you think Resonating Diamonds come from? They're just regular diamonds until they get stuck between Briagh's scales for a few centuries and get infused with his life rhythms. He sleeps on a hoard of precious gems and metals, you see.", "布莱亚弗，那条巨型土龙，要不然你认为共鸣钻石是哪里来的？它本来只是那个栖息地里普通的宝石，经过几个世纪之后布莱亚弗将它的生命活力注入进了这些宝石。你看，它正是睡在一堆矿石和宝石上呢。", "_t")
+t("Briagh the Great Sand Wyrm. Where do you think Resonating Diamonds come from? They're just regular diamonds until they get stuck between Briagh's scales for a few centuries and get infused with his life rhythms. He sleeps on a hoard of precious gems and metals, you see.", "布莱亚弗，那条巨型土龙，要不然你认为共鸣钻石是哪里来的？它们原本只是普通的钻石，卡在布莱亚弗的鳞片间长达几个世纪，逐渐被灌注了生命活力。你看，它正是睡在一堆矿石和宝石上呢。", "_t")
 t("Where might I find Briagh's lair??", "布莱亚弗的老巢在什么地方？？", "_t")
 t("Well south of the Sunwall. I'll mark it for you on your map.", "在太阳堡垒的南面，我会在你的地图上给你做个记号。", "_t")
 t("I'll be back with a Resonating Diamond.", "我会带回共鸣钻石。", "_t")
@@ -9156,7 +9156,7 @@ t("Black blood for foul deeds. This dagger serves evil.", "为邪恶行径而流
 t("Trident of the Tides", "潮汐三叉戟", "entity name")
 t("ever-dripping trident", "不停滴水的三叉戟", "_t")
 t([[The power of the tides rush through this trident.
-Tridents require the exotic weapons mastery talent to use correctly.]], "这把三叉戟上流动着潮汐的力量。三叉戟需要异形武器掌握技能才能正确使用。", "_t")
+Tridents require the exotic weapons mastery talent to use correctly.]], "这把三叉戟上流动着潮汐的力量。\n三叉戟需要异形武器掌握技能才能正确使用。", "_t")
 t("Fiery Choker", "炽焰护符", "entity name")
 t("flame-wrought amulet", "火焰制造的护符", "_t")
 t("A choker made of pure flame, casting forever shifting patterns around the neck of its wearer. Its fire seems to not harm the wearer.", "一个由火焰形成的护符，在它的佩戴者身上不断地改变着形状。它的火焰似乎不会伤害到佩戴者。", "_t")
@@ -12386,7 +12386,7 @@ t("#STEEL_BLUE#You feel a swell of arcane energy.", "#STEEL_BLUE#你感受到一
 t("Hat of Arcane Understanding", "奥术理解之帽", "entity name")
 t("silver-runed hat", "银色符文帽子", "_t")
 t([[A traditional pointed wizard's hat, made of fine purple elven-silk and decorated with bright silver runes. You sense it has been passed from ancient times, and has been born on the heads of great mages.
-Touching the cloth you feel a sense of knowledge and power from bygone ages, yet it is partly sealed away, waiting for a trigger to release it.]], "一只传统巫师的尖帽子，由精美的紫色精灵丝绸制成，装饰着亮银色的符文。你感觉到它曾经被众多伟大的法师戴在头上。通过触摸你可以感受到远古的知识和能量，但仍有一部分被密封着，等待有缘人来释放它。", "_t")
+Touching the cloth you feel a sense of knowledge and power from bygone ages, yet it is partly sealed away, waiting for a trigger to release it.]], "一只传统巫师的尖帽子，由精美的紫色精灵丝绸制成，装饰着亮银色的符文。你感觉到它曾经被众多伟大的法师戴在头上。\n通过触摸你可以感受到远古的知识和能量，但仍有一部分被密封着，等待有缘人来释放它。", "_t")
 t("Only supremacy of the arcane can release its full power.", "只有奥术至尊才能完全发挥它的力量。", "_t")
 t("#STEEL_BLUE#The arcane energies surrounding you dissipate.", "#STEEL_BLUE#围绕着你的奥术能量消退了。", "logPlayer")
 t("Mirror Shards", "镜影碎片", "entity name")

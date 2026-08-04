@@ -938,8 +938,8 @@ t("#GOLD##{bold}#Screen Zoom#WHITE##{normal}#", "#GOLD##{bold}#屏幕缩放#WHIT
 t("Enter Zoom %", "输入缩放比例 %", "_t")
 t("From 50 to 400", "从 50 到 400", "_t")
 t([[Request this display refresh rate.
-Set it lower to reduce CPU load, higher to increase interface responsiveness.#WHITE#]], [[设置游戏的显示帧率(FPS)。
-降低刷新率可以减轻CPU占用，提高刷新率可以提升界面响应速度。#WHITE#]], "_t")
+Set it lower to reduce CPU load, higher to increase interface responsiveness.#WHITE#]], [[请求此显示刷新率。
+降低刷新率可以减轻 CPU 占用，提高刷新率可以提升界面响应速度。#WHITE#]], "_t")
 t("#GOLD##{bold}#Requested FPS#WHITE##{normal}#", "#GOLD##{bold}#FPS设定#WHITE##{normal}#", "_t")
 t("Enter density", "输入密度", "_t")
 t("From 5 to 60", "从 5 到 60", "_t")
