@@ -4700,7 +4700,7 @@ t([[You have lived through many battles, and your experience makes you a gritty 
 		#{italic}#Domination for all!#{normal}#]], [[你是一名坚毅的老兵，经历了大量战争仍然能够幸存，有着丰富的战斗经验。
 		链锯轮滑效果结束时的攻击伤害提高 %d%%。
 		利齿护盾让你超越生存下限，在 -%d 的生命下仍然生存。
-		惩戒有 %d%% 的概率触发：对象每具备一个效果，就降低惩戒 1 回合冷却时间。
+		惩戒有 %d%% 的几率：目标每具备一个效果，惩戒的冷却时间就减少 1 回合。
 		#{italic}#一切尽在掌控！！#{normal}#]], "tformat")
 
 ------------------------------------------------
