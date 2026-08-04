@@ -31546,7 +31546,7 @@ t([[Thaumaturgists have unlocked a deeper understanding of their spells, allowin
 		- 奇术之球: 召唤一个可以复制你释放的射线类法术的球
 		- 多重施法: 当你释放射线类法术的时候，有一定几率追加释放一个其他的元素法师法术。
 		- 能量滑流: 释放射线类法术的时候可以移动。
-		- 元素阵爆发: 发射强力的多元素射线，会造成各种元素的伤害，无法被元素抗性抵抗
+		- 元素阵爆发: 发射强力的多元素射线，可以施加所有元素异常状态，无法被元素抗性抵抗
 		#CRIMSON#只有在身穿长袍的时候，才可以使用宽度为3的射线以及奇术技能。任何更重的护甲都会阻碍你的施法。]], "tformat")
 -- untranslated text
 --[==[
@@ -36396,12 +36396,12 @@ t("-Out of Time", "-移出时间", "_t")
 t("shield", "护盾", "effect subtype")
 t("Time Shield", "时间盾", "_t")
 t("The target is surrounded by a time distortion, absorbing %d/%d damage and sending it forward in time. While active all newly applied status effects durations are reduced by %d%%.", "目标被一层扭曲时空的护盾所包围，吸收 %d/%d 伤害并将伤害向后推移。当激活时，所有新获得的状态持续时间都会减少 %d%%。", "tformat")
-t("The very fabric of time alters around #target#.", "#target#周围的时间网开始变化。", "_t")
+t("The very fabric of time alters around #target#.", "#target#周围的时间线开始变化。", "_t")
 t("+Time Shield", "+时间盾", "_t")
 t("The fabric of time around #target# stabilizes to normal.", "#target#周围的时间网恢复了稳定。", "_t")
 t("-Time Shield", "-时间盾", "_t")
 t("Temporal Restoration Field", "时间恢复场", "_t")
-t("The time distortion has created a restoration field, healing the target for %d each turn.", "时间的扭曲制造了一个能量场，每回合治疗目标 %d 点。", "tformat")
+t("The time distortion has created a restoration field, healing the target for %d each turn.", "时间的扭曲制造了一个时间恢复场，每回合治疗目标 %d 点。", "tformat")
 t("The powerful time-altering energies generate a restoration field on #target#.", "强大的时间能量在#target#周围产生能量场。", "_t")
 t("+Temporal Restoration Field", "+时间恢复场", "_t")
 t("The fabric of time around #target# returns to normal.", "#target#周围的时间线恢复正常。", "_t")

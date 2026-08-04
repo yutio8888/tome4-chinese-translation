@@ -7378,7 +7378,7 @@ But you have with you the power of technology! You have been given a #GOLD#Stral
 #{italic}#Simply walk into a wall with the shredder equipped and the sand will crumble before you!#{normal}#
 
 Beware to not draw too much attention to yourself, and do not forget to collect the eggs!]], [[你到达了一片由沙子形成的不断变化的通道构成的迷宫。
-但是这一次，你有了科技的力量！你得到了一套#GOLD#蓝锆石掘沙者#LAST#。使用它，你可以在沙子里挖出一条前所未有的通道。
+但是这一次，你有了科技的力量！你得到了一套#GOLD#蓝锆石掘沙者#LAST#。若没有现成的通道，就用它为自己挖出一条路来。
 #{italic}#只需要装备着掘沙者走向沙墙，这面沙墙就会在你面前坍塌！#{normal}#
 
 小心不要引起太多注意，也不要忘了收集里奇虫卵！]], "_t")
@@ -8224,7 +8224,7 @@ t("Race: Yeti", "种族：雪人", "_t")
 t("Race: Whitehooves", "种族：白蹄", "_t")
 t("Class tree: Undead drake", "职业技能树：死灵龙", "_t")
 t("Cosmetic: orcs", "外观选项：兽人", "_t")
-t("Build Option: Tinkers in Maj'Eyal Campaign", "游戏选项：马基埃亚尔战役允许工匠系职业", "_t")
+t("Build Option: Tinkers in Maj'Eyal Campaign", "游戏选项：马基·埃亚尔战役允许工匠系职业", "_t")
 t("Build Option: Mages in Orcs Campaign", "游戏选项：兽人战役允许法师系职业", "_t")
 t("Build Option: Rogues in Orcs Campaign", "游戏选项：兽人战役允许盗贼系职业", "_t")
 t("Build Option: All classes in Orcs Campaign", "游戏选项：兽人战役允许所有职业", "_t")
