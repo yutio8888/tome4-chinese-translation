@@ -13,6 +13,8 @@
 > 最佳校准轮实质缺陷一致率 83.33%、major-or-worse 91.67%，但 severity κ=0.5833，
 > 尚未达到 0.70 目标，因此正式 120 条两轮评价与 M5/M6 暂未启动。
 > 上位设计：[`translation-quality-system.md`](./translation-quality-system.md)。
+> 下一版 evaluator 落地方案：
+> [`translation-quality-evaluator-v2.md`](./translation-quality-evaluator-v2.md)。
 > 本阶段性质：建立可验证的数据契约和小规模校准基准，不建设生产级模糊匹配。
 
 ## 一、阶段目标
