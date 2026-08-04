@@ -3943,7 +3943,7 @@ t("I accept.", "我接受了。", "_t")
 t("I cannot aid you at this time.", "我现在没空帮你。", "_t")
 t("Excellent. Now then, I've three elixirs I'm working on. I'll burden you with only one at a time, since I've learned the hard way about the hazards of overloading an adventurer's brain. Here are your options: the elixir of the fox, which makes you as nimble and cunning as a fox; the elixir of avoidance, which sharpens your natural inclinations to get out of the way of incoming harm; or the elixir of precision, which grants intuitive understanding of an enemy's most sensitive spots. Which would you like to aid me with?", "好极了，那么，我有三瓶药剂要制造，不过每次我只给你一项任务，一次给你超负荷的任务对你可没有任何好处。你自己选一个吧：狡诈药剂，能让你像一只狐狸一般灵活；闪避药剂，能提高你躲避伤害的能力；精准药剂，能让你对敌人的弱点了如指掌。你选择哪一个？", "_t")
 t("The %s.", "%s。", "tformat")
-t("Here's a list of the ingredients I'm missing. Please attempt to not lose your life in their pursuit. I'll be most put out if I must wait another year. Oh, and I suppose I should tell you that I've already a handful of adventurers out scouring the unpleasant places of the world for these ingredients. Dally and one of them shall claim the prize while you're out.", "这里有一张配方，上面写着我目前缺少的材料。当心别丢了你的小命，要是我错过这次机会就得等明年了。哦，我记得好像提醒过你，已经有几个冒险者出发去帮我弄这些材料了，你要是再拖延，他们中的一个就会抢先领走奖励。", "_t")
+t("Here's a list of the ingredients I'm missing. Please attempt to not lose your life in their pursuit. I'll be most put out if I must wait another year. Oh, and I suppose I should tell you that I've already a handful of adventurers out scouring the unpleasant places of the world for these ingredients. Dally and one of them shall claim the prize while you're out.", "这里有一张配方，上面写着我目前缺少的材料。当心别丢了你的小命，要是我错过这次机会就得等明年了。我想我该告诉你，我已经让几个冒险者去收集这些材料了。你要是再拖延，他们中的一个就会抢先领走奖励。", "_t")
 t("I'll be off.", "我走了。", "_t")
 t("#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#", "#LIGHT_GREEN#*门锁住了，没人注意到你的敲门声。*#WHITE#", "_t")
 t("[Leave]", "[离开]", "_t")
@@ -15927,7 +15927,7 @@ As to how to actually destroy one? Well, tell you what. If you manage to defeat 
 
 死灵法师所谓的“艺术”中最恐怖、最令人作呕的东西之一就是骸骨巨人。出于不满足仅仅亵渎单个尸体中灵魂的失落感，一些野心勃勃的死灵法师开始尝试将数个骷髅糅合在一起，制造出了拥有数个普通人高度的毁灭者。
 
-将骸骨巨人与法师或炼金术士的傀儡一视同仁是大错特错的。尽管这些法师老头们偏执又古怪，但通常法师们制造傀儡的目的只是用来当苦力或自卫。而死灵法师创造骸骨巨人的唯一目就是制造死亡，对一只骸骨巨人能力的唯一限制竟然只是其创造者扭曲的想象力。你有没有与一向被视为力量象征的雪巨人战斗过？想象一下这只雪居人长着六只胳膊，指甲如刀剑般锋利，裸露出的肋骨被打磨的发亮，挨着就伤，磕着就亡。再想象一下无数的头颅悬挂在雪巨人每寸每寸的肢体上，它们都尖叫着怒吼着，因为你的每滴鲜血都令其饥渴无比。这些骸骨巨人如同梦魇一般挥舞着由脊柱组成的鞭状巨手伴随着主人四处横行！你若有幸见识了这扭曲的混合体，恐怕会巴不得回到岱卡拉，去欺负那些头脑简单、浑身覆霜的低等类人生物。
+将骸骨巨人与法师或炼金术士的傀儡一视同仁是大错特错的。尽管这些法师老头们偏执又古怪，但通常法师们制造傀儡的目的只是用来当苦力或自卫。而死灵法师创造骸骨巨人的唯一目就是制造死亡，对一只骸骨巨人能力的唯一限制竟然只是其创造者扭曲的想象力。你有没有与一向被视为力量象征的雪巨人战斗过？那就想象一下长着六只胳膊的骸骨巨人吧——指甲如刀剑般锋利，裸露的肋骨打磨得发亮，挨着就伤，磕着就亡；再想象无数头颅悬挂在这具骸骨巨人每一寸肢体上，它们都尖叫着怒吼着，因为你的每滴鲜血都令其饥渴无比。这些骸骨巨人如同梦魇一般挥舞着由脊柱组成的鞭状巨手伴随着主人四处横行！你若有幸见识了这扭曲的混合体，恐怕会巴不得回到岱卡拉，去欺负那些头脑简单、浑身覆霜的低等类人生物。
 
     * * *
 
@@ -16789,7 +16789,7 @@ By the time Drake left the Iron Council, the Dwarves had agreed to pay thirty ti
 
 但实际上，矮人们发现理想和现实有很大的差距。昏庸的老国王去世了，他们面对的是年轻有为的新国王——这位年轻人甚至要求矮人们提高20倍原来价钱来购买1单位南晶岛的蓝锆石。
 
-据说，矮人们都在嘲笑这不合实际的要求，当这一要求被提出时，笑声差点掀翻了整个大厅。除去南晶岛最近对半身人的军事行动，钢铁王座的矮人们认为要拿下这个岛屿的矿脉简直是小菜一碟。在德瑞克心里，他知道他们可以完成这华丽的逆转，当他把脖子上的小袋子带到议会时，这一切都将终结。
+据说，矮人们都在嘲笑这不合实际的要求，当这一要求被提出时，笑声差点掀翻了整个大厅。除去南晶岛最近对半身人的军事行动，钢铁王座的矮人们认为要拿下这个岛屿的矿脉简直是小菜一碟。在德瑞克心里，他知道矮人有能力靠武力夺下这座岛，当他把脖子上的小袋子带到议会时，这一切都将终结。
 
 德瑞克高举着这只龙皮口袋并打开了它，里面的物品掉落了一地：磨成粉并掺杂了杂质和其他金属的蓝锆石——这种蓝锆石无法使用且价值极低。议会的矮人们震惊于这种恐怖的浪费，某个矮人（如果传闻是真的）甚至晕了过去。德瑞克继续说，如果不满足他的要求，整个南晶岛蕴藏的蓝锆石矿都会变成这样。
 
@@ -16927,7 +16927,7 @@ I must live. For you, my love, I will live.]], [[哦，塞西尔，你是怎么�
 
 我必须坦白一件事，亲爱的。我为你的疾病所炼制的药水，那些延长你在我怀里时间的药水，它们并不是出自正常的炼金术。在绝望中，我只能转向黑暗炼金术来拯救你。尽管它们延长了一点你的呼吸时间，但却没有把你留给我。
 
-我是多么的想念你……每当夜晚病魔快要撕裂我时，我都能忍受过去，因为我始终坚信着，你一直在我身边。但是孤身一人的我并没有那么坚强，黑暗始终徘徊在我身边。我的困扰依旧。
+我是多么的想念你……每当夜晚病魔快要撕裂我时，要是你在我身边，我就能承受这一切。但是孤身一人的我并没有那么坚强，黑暗始终徘徊在我身边。我的困扰依旧。
 
 如果你看到我所做的事情，你肯定会不赞成。你会感到恶心！每当想到如果你看见现在的我时，我都充满了畏惧。但是请理解我，亲爱的，请原谅我。因为我必须活下去！虽然每个早晨我都更加虚弱，但是我的意志却更加坚定。并且这也不仅仅是为了我自己……
 
@@ -17803,9 +17803,9 @@ My days are numbered. Each night that passes saps strength from me. I must find 
 我的日子屈指可数。我的力量随着每个夜晚逐渐流逝。我必须找到将灵魂保存在肉体里的方法。我的伟大不容亵渎。]], "_t")
 t([[Death has met her match. My results are complete, and I am ready to step to the Beyond. I have my sword by my side, and its icy edge will freeze even the dark one in her tracks. My powers cannot be denied...
 
-Come, Death, try to lay your bony fingers on me! I will vanish before your very eyes and slice you apart! You and your agents are no threat to me. I am immortal!]], [[死神终于遇到了对手。我的实验已经完成，我已准备好超越生死。我将一把剑放在身边，其冰冷的边缘甚至能冻结黑暗的踪迹。我要让世人见证我的力量……
+Come, Death, try to lay your bony fingers on me! I will vanish before your very eyes and slice you apart! You and your agents are no threat to me. I am immortal!]], [[死神终于遇到了对手。我的实验已经完成，我已准备好超越生死。我将一把剑放在身边，其冰冷的边缘甚至能把黑暗者冻在原地。我要让世人见证我的力量……
 
-来吧，死神，将你瘦骨嶙峋的手指伸过来吧！我将在你眼前消失并将你撕裂！你和你的死亡将无法对我构成任何威胁。我永生不灭！]], "_t")
+来吧，死神，将你瘦骨嶙峋的手指伸过来吧！我将在你眼前消失并将你撕裂！你和你的爪牙将无法对我构成任何威胁。我永生不灭！]], "_t")
 t("valley of the moon", "月之山谷", "newLore category")
 t("Rassir's journal part 1", "拉希尔的旅行日记 第一部分", "_t")
 t([[I have come to see the moonstone again. My younger brother Limmir understands a little of my obsession with it, yet the others do not care. I have tried to explain how it is of importance to Aeryn, but she simply asked if she could make a sword from it. Bah! Such stupidity from that grunt fighter.
@@ -18106,7 +18106,7 @@ Gone is trust, wrath is red.#{normal}#
 欢唱鸟儿飞落之地
 皆为尘土，皆为虚无
 
-曾经炽热的玫瑰染红天空
+曾经炽热的复仇火焰染红天空
 曾经怒放的花儿跌落枝头
 曾经欢快的鸟儿泣血啼鸣
 今为尘土，今为虚无
@@ -18382,7 +18382,7 @@ PS: You might encounter a... benefactor of sorts in your travels. You'll know it
 欢迎来到零点圣域，特工。这里面装的时空坐标指向的东西，只有我们可以毫不客气地说，是有史以来可能存在的最好的烤雪人餐厅——我的小队会在那里等你。一会儿谢。
 [i]-加尔萨麦[/i]
 
-注：你可能会在旅途中遇到一些……某种意义上的恩人。当你看到它时，你就会明白的。如果你亲眼见证了这一切，你必须很遗憾地得知，你已经偏离了主时间线，向着E4-RL时间轴走向了一条注定灭亡的单程旅行，除非“他愿意”笨拙地把他的傀儡从死亡边缘拽回来，把你重新编织进时空的路线——而且他似乎一般只会青睐那些通过无可替代的力量或运气来避免自己被设计好的灭亡的人。如果你被它的方案所选择了，那么你可能会从E4-EXPADV时间轴子网络的时间坟场回来。 我们不知道它是什么 —— 到底是我们自己失控的创造物，是某个竞争对手的武器，或者远远超出我们自己的东西 —— 但是如果它有敌意，它已经赢了。到目前为止，它一直是……处在合作的状态。请注意不要提醒它我们是它的竞争对手。]], "_t")
+注：你可能会在旅途中遇到一些……某种意义上的恩人。当你看见它时就会认出它——它正笨拙地把它的傀儡从死亡边缘拽回来。如果你亲眼见证了这一切，你必须很遗憾地得知，你已经偏离了主时间线，向着E4-RL时间轴走向了一条注定灭亡的单程旅行，除非“他愿意”笨拙地把他的傀儡从死亡边缘拽回来，把你重新编织进时空的路线——而且他似乎一般只会青睐那些通过无可替代的力量或运气来避免自己被设计好的灭亡的人。如果你被它的方案所选择了，那么你可能会从E4-EXPADV时间轴子网络的时间坟场回来。 我们不知道它是什么 —— 到底是我们自己失控的创造物，是某个竞争对手的武器，或者远远超出我们自己的东西 —— 但是如果它有敌意，它已经赢了。到目前为止，它一直是……处在合作的状态。请注意不要提醒它我们是它的竞争对手。]], "_t")
 t("spydrë", "蜘蛛族", "newLore category")
 t("Mantra of a Shiiak", "希阿克真言", "_t")
 t([[Each morning I wake, happy I'm alive;
@@ -32380,8 +32380,7 @@ Now open the levelup screen and assign your points.
 * #GOLD#属性点数#WHITE#：允许你提升6个主要属性：力量、敏捷、魔法、意志、灵巧和体质。每等级你能获
 得3个点数。
 * #GOLD#职业技能点数#WHITE#：职业技能是你的职业的核心能力，每升一级获得1点，每5级额外获得1点。
-* #GOLD#通用技能点数#WHITE#：通用技能是非职业限定的一些角色提升技能，你每升一级获得1点，但每5级是没有
-额外点数的。
+* #GOLD#通用技能点数#WHITE#：通用技能是非职业限定的一些角色提升技能，在等级不是 5 的倍数时，你每升一级获得 1 点。
 * #GOLD#技能树解锁点#WHITE#：可以提高你对某一技能树内所有技能的掌握程度，或者也可以解锁一个新的技能树。
 
 每当你的经验值获得达到100%时你就升级了。你可以通过杀死和你等级差不多的怪物
@@ -36480,7 +36479,7 @@ t([[An aura of death surrounds you.
 #CRIMSON# 惩罚 ：#WHITE# 死亡恐惧： %+d%% 对亡灵的伤害抗性。
 #CRIMSON# 强度 1+：%s 死亡力量： %+d%% 对亡灵的伤害加成。
 #CRIMSON# 强度 2+：%s%+d 幸运 , %+d 力量 , %+d 魔法
-#CRIMSON# 强度 3+：%s 活死人之躯：腐秽呕吐能治疗你。当你的生命值降低到 %d%% 以下时，你会释放一次腐秽呕吐，冷却时间为 %d 回合，呕吐等级为 %d。
+#CRIMSON# 强度 3+：%s 活死人之躯：腐秽呕吐能治疗你。每 %d 回合一次，当你生命值降至 %d%% 以下时，释放一次等级 %d 的腐秽呕吐。
 #CRIMSON# 强度 4+：%s 死缓：你杀死的人形生物有 %d%% 几率变成食尸鬼并替你作战持续 6 回合。]], "tformat")
 t("walking corpse", "行尸", "_t")
 t("This corpse was recently alive but moves as though it is just learning to use its body.", "这具尸体刚刚被复活，它活动起来就像刚刚学会使用自己的身体一样。", "_t")
@@ -41229,7 +41228,7 @@ Donators will also gain access to the Exploration Mode featuring infinite lives.
 
 如果你喜欢这类游戏并且你觉得这款游戏很好，你可以考虑捐赠。这会帮助延长这款游戏的寿命。尽管这只是我自娱自乐所做的一款游戏，如果它还能帮助我分担一点养家糊口的压力的话，我就谢天谢地，不会再抱怨现实的诸多压力了。
 你需要一个已激活并保持连接的在线档案，贴图选择器才能启用。如果你现在选择捐赠，你需要重启游戏才能获得权限。
-捐赠者也可以在游戏选项中激活探索模式获得无限的生命数。]], "_t")
+捐赠者也可以激活探索模式，获得无限的生命数。]], "_t")
 t("Select a Tile", "选择贴图", "_t")
 t("Use default tile", "选择默认贴图", "_t")
 t("Use custom-made tile", "选择自制贴图", "_t")
