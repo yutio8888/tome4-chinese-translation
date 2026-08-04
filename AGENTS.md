@@ -8,10 +8,10 @@
 - 首次运行先执行 `tools/i18n doctor`，译文修改后执行 `tools/i18n lint`。
 - 工具会在启动 LuaJIT 子进程时自动设置本文件规定的 `LUA_PATH` 和 `LUA_CPATH`，不得要求用户手动导出。
 - `extract`、`lint`、`status`、`merge`、`workset`、`context`、`proposal`、`review` 和 `build` 的报告或候选文件只写入已忽略的 `.artifacts/i18n/`；没有显式安装命令时不得改写游戏源码仓库或发布模组仓库。
-- Pi 翻译入口为 `tools/pi-subagent --workset <workset.json>`。该进程必须保持无工具、无会话、无项目上下文，只能输出 proposal artifact；其结果必须通过 `proposal --strict`，不得直接写规范 Lua。
-- Pi 审核入口为 `tools/i18n review` 生成 bundle，再用 `tools/pi-review --bundle <bundle.json>` 执行。审核 bundle 可以覆盖全部规范翻译条目（按批次）和当前公开工作区代码 diff；Pi 必须保持无工具、无会话、无项目上下文，只能输出结构化 findings artifact，不得直接修改文件。
-- Pi 处理审核意见入口为 `tools/pi-remediate --bundle <bundle.json> --review <review.json>`。该进程只能输出绑定到 finding/item 的 remediation proposal；主代理必须独立校验并应用修订，再重新运行 `tools/pi-review`，不得让 Pi 直接写规范 Lua 或代码。
-- 当用户要求 Codex 调用 Pi 开展审核时，使用项目 Skill `$tome4-pi-review`。首次向外部 provider 发送 bundle 前，必须明确报告 provider、model、bundle 类型和条目数量并取得用户授权；不得用项目级全局网络放行绕过该授权。
+- Pi 翻译入口为 `tools/pi-subagent --workset <workset.json>`（需要实时观察时可用 `tools/pi-tmux translate --workset <workset.json>`，在 tmux 分屏中执行）。该进程必须保持无工具、无会话、无项目上下文，只能输出 proposal artifact；其结果必须通过 `proposal --strict`，不得直接写规范 Lua。
+- Pi 审核入口为 `tools/i18n review` 生成 bundle，再用 `tools/pi-tmux review --bundle <bundle.json>` 执行（默认在当前 tmux 会话分屏运行，便于观察审核过程；无 tmux 环境用 `--fallback foreground`，脚本场景可直接用 `tools/pi-review`）。审核 bundle 可以覆盖全部规范翻译条目（按批次）和当前公开工作区代码 diff；Pi 必须保持无工具、无会话、无项目上下文，只能输出结构化 findings artifact，不得直接修改文件。
+- Pi 处理审核意见入口为 `tools/pi-tmux remediate --bundle <bundle.json> --review <review.json>`（headless 可用 `tools/pi-remediate`）。该进程只能输出绑定到 finding/item 的 remediation proposal；主代理必须独立校验并应用修订，再重新运行审核，不得让 Pi 直接写规范 Lua 或代码。
+- 当用户要求开展 Pi 审核时（无论主代理是 Codex 还是 Pi），使用项目 Skill `$tome4-pi-review`；交互式审核默认在 tmux 分屏中运行，pane 保留至 `tmux kill-pane -t <pane>`。首次向外部 provider 发送 bundle 前，必须明确报告 provider、model、bundle 类型和条目数量并取得用户授权；不得用项目级全局网络放行绕过该授权。
 
 ## 闭源 DLC 输入边界
 
@@ -107,6 +107,31 @@ luarocks \
 ```
 
 安装系统软件或 LuaRocks 模块前，仍须遵循当前任务的权限和确认要求。
+
+## 门禁检查（每次译文批量修改后必跑）
+
+以下检查按顺序执行，任何一项失败都必须先修复再继续，不得用管道吞掉退出码：
+
+```bash
+# 1) 规范译文静态校验（必须检查退出码，勿用 `| tail` 吞掉）
+python3 -B tools/i18n lint --strict; echo "exit=$?"
+
+# 2) 单元测试
+python3 -m unittest -q tests/i18n/test_toolchain.py; echo "exit=$?"
+
+# 3) 跨组件同键多译扫描（应为 0 条；非零需先处理再继续）
+python3 -B tools/scan_runtime_collisions.py; echo "exit=$?"
+
+# 4) 重复运行键分类（全部应同 target；新增异 target 说明运行时覆盖风险）
+python3 -B tools/classify_runtime_keys.py; echo "exit=$?"
+
+# 5) 工作树整洁度
+git diff --check && echo DIFF_OK
+```
+
+- **术语表改动后**额外运行：`python3 -B tools/audit_static.py`（静态审计：错字/标点/同源冲突）、`python3 -B tools/audit_dynamic.py`（动态审计：术语 vs 译文使用率/多译）、`python3 -B tools/annotate_domains.py`（领域标注一致性）。报告写入 `.artifacts/i18n/terminology-audit/`。
+- **译文批量修改后**在提交前运行门禁 1–5；涉及 Pi 复审时按 `docs/runtime-key-collisions.md` 与 `docs/pi-review-worker-tuning.md` 的流程执行（并行批处理默认 `--workers 6`，8 起限速劣化）。
+- 审计与扫描脚本均在 `tools/` 下版本控制，输出只写入 `.artifacts/i18n/`（忽略目录），不直接改写规范 Lua。
 
 ## 校对判定依据
 

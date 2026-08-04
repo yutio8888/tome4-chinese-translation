@@ -81,6 +81,19 @@
 - 对同一英文词的多个中文译法建立多行记录，并在 `notes` 中注明语境；审校后只保留一个 `preferred` 译法或明确允许的别名。
 - 修改游戏翻译文件前，先更新术语库，再用提取器检查新增文本和占位符。
 
+## 维护门禁
+
+术语表改动后运行以下审计（脚本在 `tools/`，报告写入 `.artifacts/i18n/terminology-audit/`）：
+
+| 命令 | 检查项 | 预期 |
+| --- | --- | --- |
+| `python3 -B tools/audit_static.py` | 错别字、标点/格式、同源同类别多译、类别边界、字段完整性 | 错字/标点 0；同源冲突仅限 review 迁移记录 |
+| `python3 -B tools/audit_dynamic.py` | preferred 术语在译文中的使用率、多译、高频未录候选 | 术语与译文脱节数应持续下降 |
+| `python3 -B tools/annotate_domains.py` | 领域标注一致性 | 全部行映射到 11 领域 |
+| `python3 -B tools/classify_runtime_keys.py` | 重复运行键分类 | 全部同 target（跨文件合法重复） |
+
+另见 `AGENTS.md` 门禁检查段落与 `docs/runtime-key-collisions.md` 跨组件同键档案。
+
 ## 本轮提取范围
 
 本轮从仓库内 11 个 Lua 翻译文件按 `source_tag` 聚合候选词，优先纳入出现频次较高或对游戏结构有明确意义的职业、种族、技能树、属性、状态、伤害类型、实体类别和世界观地点。通用地形内部键（例如 `floor`、`wall`）及长句没有直接提升为术语；同一英文词在不同标签下仍分别记录。
