@@ -1368,7 +1368,7 @@ t("#ORCHID#Your %s CANNOT SHOOT (Resource: %s%s#LAST#).", "#ORCHID#你的%s无�
 t("#ORCHID#Target out of range.  Hold <ctrl> to force all weapons to fire at targets out of ranges (%d - %d).", "#ORCHID#目标超出范围。按住<ctrl>来强制所有武器射击超出范围(%d-%d)的目标。", "logPlayer")
 t("#ORCHID#Target out of range.  Hold <ctrl> to force your weapon to fire at targets beyond its range (%d).", "#ORCHID#目标超出范围。按住<ctrl>来强制射击超出范围(%d)的目标.", "logPlayer")
 t("#ORCHID#You COULD NOT SHOOT your %s (Resource: %s%s#LAST#).", "#ORCHID#无法使用%s射击(资源:%s%s#LAST#).", "logPlayer")
-t("%s(%d parried#LAST#)", "%s(%d 被格挡#LAST#)", "tformat")
+t("%s(%d parried#LAST#)", "%s(%d 点伤害被格挡#LAST#)", "tformat")
 t("#{bold}##Source# performs a ranged critical strike against #Target#!#{normal}#", "#{bold}##Source#对#Target#发起一次远程暴击!#{normal}#", "logCombat")
 t("#Source# misses #target#.", "#Source#没有命中#target#.", "logCombat")
 t("The siege arrow creates a shockwave!", "攻城矢引发了冲击波！", "logSeen")
@@ -1386,7 +1386,7 @@ t("#ORCHID#%s parries the attack with %s dual weapons!#LAST#", "#ORCHID#%s用%s�
 t("#ORCHID#%s instinctively hardens %s skin and ignores the attack!#LAST#", "#ORCHID#%s本能地硬化%s皮肤，无视了这次攻击！#LAST#", "logSeen")
 t("#Target# repels an attack from #Source#.", "#Target#击退了#Source#的进攻.", "logCombat")
 t("#Target# evades #Source#.", "#Target#躲闪了#Source#。", "logCombat")
-t("%s(%d parried#LAST#)", "%s(%d 被格挡#LAST#)", "tformat")
+t("%s(%d parried#LAST#)", "%s(%d 点伤害被格挡#LAST#)", "tformat")
 t("%s(%d gestured#LAST#)", "%s(%d 手势格挡#LAST#)", "tformat")
 t("#{bold}##Source# performs a melee critical strike against #Target#!#{normal}#", "#{bold}##Source#向#Target#发起一次近战暴击!#{normal}#", "logCombat")
 t("#Source# misses #Target#.", "#Source#未命中#Target#。", "logCombat")
@@ -2278,7 +2278,7 @@ t([[#GOLD#Shield Block Value#LAST#
 The base amount of damage a shield will block when actively used in defense.
 Mind damage cannot be blocked. Against other damage types you gain a 50%% bonus to the block value if the shield used grants resistance to that damage type.
 ]], [[#GOLD#盾牌格挡值#LAST#
-盾牌在激活时所能阻挡的伤害量。精神伤害无法被格挡。如果盾牌具有某种伤害抗性，那么你在使用该盾牌进行格挡时，对这种伤害可以额外吸收50%%伤害。]], "_t")
+盾牌在激活时所能阻挡的基础伤害量，以及来自格挡值加成。精神伤害无法被格挡。如果盾牌具有某种伤害抗性，那么你在使用该盾牌进行格挡时，对这种伤害可以额外吸收50%%伤害。]], "_t")
 
 section "mod-tome/class/interface/WorldAchievements.lua"
 
@@ -25355,7 +25355,7 @@ t([[Your skin drips with acid, damaging all that hit you for %0.1f disarming aci
 t("Slime Roots", "史莱姆根须", "talent name")
 t([[You extend slimy roots into the ground, follow them, and re-appear somewhere else in a range of %d with error margin of %d.
 		Doing so changes your internal structure slightly, taking %d random talent(s) off cooldown.]], [[你将史莱姆根须伸入地下，然后在 %d 码范围内的指定位置出现（%d 码误差）。
-		释放此技能会导致你的身体结构发生轻微的改变，使 %d 个技能冷却完毕。]], "tformat")
+		释放此技能会导致你的身体结构发生轻微的改变，使 %d 个随机技能冷却完毕。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/gifts/storm-drake.lua"
