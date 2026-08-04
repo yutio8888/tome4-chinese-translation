@@ -3239,7 +3239,7 @@ t("#GOLD##{bold}#Insane mode#WHITE##{normal}#", "#GOLD##{bold}#疯狂难度#WHIT
 t("Similar rules to Nightmare, but with more random bosses!", "和噩梦难度相似，但随机 Boss 出现更加频繁！", "_t")
 t("All zone levels increased by 50% + 1 by the time Player reaches level 10", "当玩家达到 10 级时，所有区域等级提高 50% + 1。", "_t")
 t("All creature talent levels increased by 70%", "所有生物技能等级增加 70%", "_t")
-t("Unique (fixed) bosses advance in bonus classes 70% faster", "独有（固定）Boss的职业技能等级上升速度增加 70%", "_t")
+t("Unique (fixed) bosses advance in bonus classes 70% faster", "独有（固定）Boss 的额外职业等级提升速度快 70%", "_t")
 t("Rare creatures are far more frequent and random bosses start to appear", "稀有怪出现频率大幅增加，同时出现随机 Boss", "_t")
 t("Stairs can not be used for 5 turns after a kill.", "你杀死生物 5 回合内不能使用楼梯。", "_t")
 t("Player can earn Insane version of achievements if also playing in Roguelike or Adventure permadeath mode.", "玩家如果选择永久死亡或冒险模式可以达成疯狂难度成就。", "_t")
@@ -3249,7 +3249,7 @@ t("#GOLD##{bold}#Madness mode#WHITE##{normal}#", "#GOLD##{bold}#绝望难度#WHI
 t("Absolutely unfair game setting. Prepare for the full wrath of DarkGod!", "绝对不公平的游戏设定。感受DarkGod的愤怒吧！", "_t")
 t("All zone levels increased by 150% + 2 by the time Player reaches level 10", "当玩家达到 10 级时，所有区域等级提高 150% + 2。", "_t")
 t("All creature talent levels increased by 170%", "所有生物技能等级增加 170%", "_t")
-t("Unique (fixed) bosses advance in bonus classes 170% faster", "独有（固定）Boss的职业技能等级上升速度增加 170%", "_t")
+t("Unique (fixed) bosses advance in bonus classes 170% faster", "独有（固定）Boss 的额外职业等级提升速度快 170%", "_t")
 t("All enemies have 200% more life", "所有敌人血量增加 200%", "_t")
 t("Stairs can not be used for 9 turns after a kill.", "你杀死生物 9 回合内不能使用楼梯。", "_t")
 t("Player starts with 100 more life and 500 gold, but trust us, you'll need it!", "玩家起始获得100额外生命值和500金钱，相信我，你会用到它们的！", "_t")
@@ -5223,7 +5223,7 @@ t([[Yes! Thanks to you this place is now free from the corruption. I will stay o
 Bring me a an amulet and two different gems and I will turn them into a powerful amulet, though the original properties of the amulet will be lost.
 I will not make you pay a fee for it since you helped me so much, but I am afraid the ritual requires a gold plating. This should be equal to about 1000 gold pieces.]], [[对！感谢你让这个地方从腐化中脱离了出来。我会留在这个岛上学习魔法光环，我会遵守我的诺言帮你制作一条强力的项链。
 给我带来一条项链还有两颗不同的宝石，我会利用它们制作一条强力的项链。
-你帮了我那么多，这次我不收任何费用。不过制作过程中需要镀金工艺，这大约得花费1000金币。]], "_t")
+你帮了我那么多，这次我不收任何费用。不过制作过程中需要镀金工艺，这大约得花费 1000 金币，而且项链原本的属性将不复存在。]], "_t")
 t([[#LIGHT_GREEN#*He quickly looks at the tome and looks amazed.*#WHITE# This is an amazing find! Truly amazing!
 With this knowledge I could create potent amulets. However, it requires a special place of power to craft such items.
 There are rumours about a site of power in the southern mountains. Old legends tell about a place where a part of the Wintertide Moon melted when it got too close to the Sun and fell from the sky.
@@ -5321,7 +5321,7 @@ t(" organizing my inventory, I came across some #YELLOW#Smelly Toxin#LAST# that 
 t("\
 You would not happen to be interested, by any chance?", "你应该会对它感兴趣吧？", "_t")
 t("\
-Oh my friend, good news! As I told you I can now request a truly #{italic}#unique#{normal}# object to be crafted just for you. For a truly unique price...", "\n噢我的好朋友，我告诉过你我可以为你打造一件真正的 #{italic}#史诗#{normal}# 物品，专门为你量身定做哦，而且价格也同样独一无二……", "_t")
+Oh my friend, good news! As I told you I can now request a truly #{italic}#unique#{normal}# object to be crafted just for you. For a truly unique price...", "\n噢我的好朋友，我告诉过你我可以为你打造一件真正#{italic}#独一无二#{normal}#的物品，专门为你量身定做哦，而且价格也同样独一无二……", "_t")
 t("\
 I eventually plan to arrange a truly unique service for the most discerning of customers. If you come back later when I'm fully set up I shall be able to order for you something quite marvellous. For a perfectly #{italic}#suitable#{normal}# price, of course.", "\
 我准备为最有眼光的那位顾客提供一件真正独特的服务。如果你过会儿回来，我将做好充分准备后给你一个大大的惊喜。而且价格绝对#{italic}#公道#{normal}#哦！当然！", "_t")
@@ -6682,9 +6682,9 @@ The Gates of the Morning has a slab of Marble that once could have served, but a
 It'll require a Resonating Diamond to get it properly prepared. Oh, and I want 100 gold.]], [[你认为我会让一个肮脏的 @playerdescriptor.race@ 带着多元水晶球进我家么？
 谢了，没有那东西在屋里，我已经够经常把自己炸得够呛了。
 况且，我没法帮助你，除非你搞到一把血符仪式匕首来开启这个传送门。
-呃……要想把它准备好，还需要一块共鸣钻石。
-晨曦之门原来有这么一块共鸣石头可以起作用，不过过去发生过一些……呃……事故，对它造成了损伤。
-另外还有一块共鸣钻石，哦，我还要收取100金币费用。]], "_t")
+呃……要想把它准备好，传送门必须刻在一块准备好的共鸣大理石上。
+晨曦之门原本有一块这样的共鸣大理石，不过过去发生过一些……呃……事故，对它造成了损伤。
+要想妥善处理它，还需要一块共鸣钻石，哦，我还要收取 100 金币费用。]], "_t")
 t("Where can I find all that?", "我上哪儿去找那些东西？", "_t")
 t("Try your purse for the 100 gold. As for an Athame and a Resonating Diamond, I assume the orcs have some if they're cooking up portals to use that Orb on. Try the Vor Armory. It so happens that I know a back way in. Never mind why.", "100 金币嘛……你摸摸自己的钱袋就有了。至于仪式匕首和共鸣钻石，既然那些兽人正准备配合多元水晶球开启传送门，我猜他们手上就有。去沃尔军械库找找吧。碰巧我知道一条后门，别问为什么。", "_t")
 t("Thank you.", "谢谢。", "_t")
@@ -8286,7 +8286,7 @@ t("umbral horror", "暗影恐魔", "entity name")
 t("A dark shifting shape stalks through the shadows, blending in seamlessly.", "一个暗色变换的身影在阴影中潜行，完美地融入其中。", "_t")
 t("dreaming horror", "梦境恐魔", "entity name")
 t([[A vaguely tentacled yet constantly changing form rests here apparently oblivious to your existence.
-With each slow breath it takes reality distorts around it.  Blue twirls into red, green twists into yellow, and the air sings softly before bursting into a myriad of pastel shapes and colors.]], [[这是一只混沌状的触手生物，它在这里惬意的休息并不断的变幻着颜色，显然无视了你的存在。
+With each slow breath it takes reality distorts around it.  Blue twirls into red, green twists into yellow, and the air sings softly before bursting into a myriad of pastel shapes and colors.]], [[这是一个隐约长着触手、形态不断变化的生物，它在这里惬意地休息，显然无视了你的存在。
 它每一次缓慢的呼吸都会让现实扭曲变形。蓝色旋成红色，绿色扭成黄色，空气轻声吟唱，随后绽开成无数柔和色彩的形状。]], "_t")
 t("It looks asleep and dreamy.", "它看上去沉浸在睡梦之中。", "_t")
 t("It looks awake, beware!", "它醒来了，小心！", "_t")
@@ -12324,7 +12324,7 @@ t("Fists of the Desert Scorpion", "沙蝎之拳", "entity name")
 t("viciously spiked gauntlets", "有着锋利尖刺的拳套", "_t")
 t([[These wickedly spiked gauntlets belonged to an orc captain in the Age of Pyre who conquered the western sands, using them as a base to lay raids on Elvala to the south.  Known as The Scorpion, he seemed unconquerable in battle, able to pull enemies towards him with vicious mental force and lay down lethal blows on them.  Often a flurry of these yellow and black gauntlets would be the last thing great Shaloren mages would see before having the life crushed from them.
 
-Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这只有着锋利尖刺的拳套属于一位烈火纪统治西部荒野的兽人领主，他依靠它们对埃尔瓦拉发动了数次袭击。他外号沙蝎，在战场上所向披靡，他能以凶狠的精神力量将敌人拉近，然后对其施以致命的打击。通常永恒精灵法师们在死前看到的最后物品，便是这只黄黑相间的拳套残影。最终沙蝎在决斗中，被炼金术师奈瑟莉亚击败。当这副拳套的主人将精灵拉向他，还没来得及将她撕成两半时，精灵掀开了她的长袍——下面捆着的是八十枚炼金炸弹。精灵指尖的火花，引发了数里外都能看到的大爆炸。直到今天，民间仍流传着奈瑟莉亚为保护她的子民而牺牲的诗歌。", "_t")
+Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这只有着锋利尖刺的拳套属于一位烈火纪统治西部荒野的兽人领主，他以这片被征服的荒野为基地，对埃尔瓦拉发动了数次袭击。他外号沙蝎，在战场上所向披靡，他能以凶狠的精神力量将敌人拉近，然后对其施以致命的打击。通常永恒精灵法师们在死前看到的最后物品，便是这只黄黑相间的拳套残影。最终沙蝎在决斗中，被炼金术师奈瑟莉亚击败。当这副拳套的主人将精灵拉向他，还没来得及将她撕成两半时，精灵掀开了她的长袍——下面捆着的是八十枚炼金炸弹。精灵指尖的火花，引发了数里外都能看到的大爆炸。直到今天，民间仍流传着奈瑟莉亚为保护她的子民而牺牲的诗歌。", "_t")
 t("Wind's Whisper", "风之密语", "entity name")
 t("flowing light cloak", "流彩斗篷", "_t")
 t("When the enchanter Razeen was cornered by Spellhunters near the Daikara mountain pass she wrapped her cloak about her and fled down a narrow ravine.  The hunters fired volley after volley of arrows at her, but by miracle or magic they all missed.  Razeen was able to escape and flee to the hidden city in the west.", "当魔法师瑞兹恩被猎魔人在岱卡拉的山隘逼入绝境时，她用斗篷包裹着自己逃下了峡谷。猎手们接连不断的把箭射向她，但由于奇迹或是魔法，他们全部射空了。瑞兹恩得以逃生并躲进了西部的隐秘之城。", "_t")
@@ -14840,7 +14840,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 我小心地关上卧房的房门，一股阴霾仍然在脑海之中萦绕。随着时间的推进，魔法大爆炸的庞大计划也一天天被提上日程，一股不详的预感涌上心头。命运总是那么残酷，与计划进行的有条不紊相伴的是兽人战线上的节节败退，只有少数几个种族能够防守他们的边境线，而兽人们的进攻却永不停歇，愈演愈烈。他们的数量似乎无穷无尽，永不枯竭。尽管他们的战术十分简单幼稚，对待无力自卫的平民他们却能屡战屡胜，并在人马疲倦之时偷袭守备不力的城市得手。一周前，刚刚有一个人类王国在他们频繁的攻击下不堪其扰，最终溃败。他们曾经高傲地拒绝有关魔法大爆炸的计划，现在却只能跑来祈求我们的保护。看起来，对于兽人的侵袭这一迫在眉睫的危险，魔法大爆炸可能会成为我们唯一的希望。
 
-我从卧房顺着宫殿向前，混乱的思绪在我的脑海中盘旋，伴随着我漫步过庭院走向大门。眼前红发少年轻盈的身影让我误以为莱娜尼尔已经跟着我一路走来，然而她金色的长袍和明亮的眼睛让我想起了，那是她的姐姐尼耶拉。
+我从卧房顺着宫殿向前，混乱的思绪在我的脑海中盘旋，伴随着我漫步过庭院走向大门。眼前红发女子轻盈的身影让我误以为莱娜尼尔已经跟着我一路走来，然而她金色的长袍和明亮的眼睛让我想起了，那是她的姐姐尼耶拉。
 
 “在想着什么人吗？”，她微笑地望着我，观察着刚刚表情细微的变化。
 
@@ -18693,7 +18693,7 @@ But what was left of our people in the east was a broken picture. Gone were the 
 
 We still have a secret presence in the west, in our rightful lands across which we have spilled rivers of our own blood. We are building up our military force at an accelerating rate, and when the time comes we shall sweep across Maj'Eyal with a vengeance that cannot be held back. The other races will suffer as they have made us suffer, and all that they have built will be brought to ruin.]], [[人类和半身人已经达成盟约，联合保卫他们的王国，很快精灵和矮人也加入了盟军，我们被击退了。我们的战术很快变为防守，因为他们很快就要攻入我们的领土。
 
-我们尽全力战斗，但是我们没想到他们会采取如此卑鄙的战争策略。他们放弃了我们的军事基地，改为攻击城市和乡镇，他们杀死了我们所有的平民。甚至连母亲手中刚出生的婴儿都被残忍杀害，他们没放过任何一个女人或孩子。这是彻头彻尾的种族灭绝。
+我们尽全力战斗，但是我们没想到他们会采取如此卑鄙的战争策略。他们不去攻打我们的军事基地，而是直接攻击我们的城镇和城市，杀死了我们所有的平民。甚至连母亲手中刚出生的婴儿都被残忍杀害，他们没放过任何一个女人或孩子。这是彻头彻尾的种族灭绝。
 
 我们集合残余族人，把他们送到远东，由敢死队掩护他们的撤退，误导他们相信种族屠杀已经完成了。
 
@@ -19541,7 +19541,7 @@ The best method, if time and situation allows, is to very slowly slice the caste
 
 冰冻是无效的，没有任何一个法师会被冻死。尽管你可能听说过被冻死的传闻，但也许那个是假装的。
 
-火刑在一些不发达的地区是最流行的，但要知道没有哪个巫师或法师会自愿被抓住，他们肯定想尽办法逃跑。只是简单的把柴火堆到一起就要消耗大量的时间，即使有准备好的柴火。通常处以火刑的都是一些魔法同情者，而非真正的魔法师。不过，客观的来说，虽然这不一定能烧死法师，但这可以给法师们一个警告，让他们远离此地。
+火刑在一些不发达的地区是最流行的，但要知道没有哪个巫师或法师会自愿被抓住，他们肯定想尽办法逃跑。只是简单的把柴火堆到一起就要消耗大量的时间，即使有准备好的柴火。通常处以火刑的都是一些魔法同情者，而非真正的魔法师。不过，客观地说，虽然严格来说这并不构成死罪，但足以警示他人，让法师们远离此地。
 
 最好的办法，如果时间和条件允许的话，是将施法者凌迟至死。法师必须被锁在密封的房间里，将他们的四肢紧紧绑住。每个人都应该从手指和脚趾处缓缓切割，再到四肢，最后到整个身体。不要切开头颅，防止其中的恶魔灵魂逃脱。头颅应与身体其余部分一起放入金属盒中焚毁 24 小时。这项工作需要极其锋利的工具；不必惊讶于刀具需要多次重新磨利，因为事先硬化自己的骨头正是术士的典型把戏。
 
@@ -25498,7 +25498,7 @@ t([[Destroys one of your summons, making it detonate in radius of %d.
 		-三头蛇：范围内所有友方单位获得 %d%% 闪电、酸液和自然伤害吸收，并获得每回合 %d 生命回复，持续 7 回合。
 		-雾凇：形成一个冰球，造成 %d 伤害，可能冰冻敌人。
 		-火龙：形成一片火焰，每回合造成 %d 伤害。
-		-战争猎犬：形成锋利的球，让周围的生物在 6 回合内受到 %0.1f 点流血伤害。
+		-战争猎犬：形成锋利的球，让周围的生物在 6 回合内每回合受到 %0.1f 点流血伤害。
 		-果冻怪：形成一片能减速的淤泥，造成 %d 自然伤害，并使敌人减速 %0.1f%% 。
 		-米诺陶斯：使敌人混乱 5 回合（强度 %d%%）。
 		-岩石傀儡：使周围的友方单位获得 %d 护甲值和 %d%% 护甲强度，持续 5 回合。
@@ -34922,7 +34922,7 @@ t("-Ethereal", "-虚幻形态", "_t")
 t("lightning", "闪电", "effect subtype")
 t("shield", "护盾", "effect subtype")
 t("Stormshield", "风暴之盾", "_t")
-t("The target is protected a raging storm deflecting up to %d instances of damage over %d.", "目标受到狂暴风暴的保护，在 %d 回合内可以偏转至多 %d 次伤害。", "tformat")
+t("The target is protected a raging storm deflecting up to %d instances of damage over %d.", "目标受到狂暴风暴的保护，可以偏转至多 %d 次伤害，持续 %d 回合。", "tformat")
 t("#Target# summons a storm to protect them!", "#Target#召唤风暴来保护自己!", "_t")
 t("+Stormshield", "+风暴之盾", "_t")
 t("#Target#'s storm dissipates.", "#Target#的风暴消失了。", "_t")
@@ -36480,7 +36480,7 @@ t([[An aura of death surrounds you.
 #CRIMSON# 惩罚 ：#WHITE# 死亡恐惧： %+d%% 对亡灵的伤害抗性。
 #CRIMSON# 强度 1+：%s 死亡力量： %+d%% 对亡灵的伤害加成。
 #CRIMSON# 强度 2+：%s%+d 幸运 , %+d 力量 , %+d 魔法
-#CRIMSON# 强度 3+：%s 活死人之躯：腐秽呕吐能治疗你。当你的生命值降低到 %d%% 以下时，你会释放一次 %d 等级的腐秽呕吐，冷却时间为 %d 回合。
+#CRIMSON# 强度 3+：%s 活死人之躯：腐秽呕吐能治疗你。当你的生命值降低到 %d%% 以下时，你会释放一次腐秽呕吐，冷却时间为 %d 回合，呕吐等级为 %d。
 #CRIMSON# 强度 4+：%s 死缓：你杀死的人形生物有 %d%% 几率变成食尸鬼并替你作战持续 6 回合。]], "tformat")
 t("walking corpse", "行尸", "_t")
 t("This corpse was recently alive but moves as though it is just learning to use its body.", "这具尸体刚刚被复活，它活动起来就像刚刚学会使用自己的身体一样。", "_t")

@@ -20,7 +20,7 @@ t("Let a parasitic horror take over your body and watch it grow in power.", "让
 t("Myths of an age past", "神代奥秘", "achievement name")
 t("Learned all there is to learn about the Gods and the Godslayers.", "了解目前关于神和噬神者的所有信息。", "_t")
 t("Dethroned", "废黜", "achievement name")
-t("Vanquished the Glass Golem without letting it use the glass throne to heal.", "在不使用玻璃王座治疗的情况下击败玻璃傀儡。", "_t")
+t("Vanquished the Glass Golem without letting it use the glass throne to heal.", "在不让玻璃傀儡借助玻璃王座治疗的情况下击败它。", "_t")
 t("A View From The Gallery", "画廊一瞥", "achievement name")
 t("Briefly lived as a lowly halfling during the time of the Sher'tuls.", "短暂地作为一名半身人活在夏·图尔的时代。", "_t")
 t("Entropy's End", "熵之终结", "achievement name")
@@ -2138,7 +2138,7 @@ Outside of the various movements of such distasteful groups, some of the shalore
 
 这时，我丈夫的脸上显露出了一种阴沉的表情，他的眼睛朝着我身体的方向望去。掀开被子，我很快就明白了为什么，因为我看到了自己的身体上刻着的黑色伤疤，这是我最近地战斗带来的结果。他谦恭地告诉我，虽然治疗师确信我会活着，但我身上的伤口会留下永远无法愈合的畸形疤痕。我静静地坐了一会儿，想着说什么。然后毫不犹豫地微笑着，我抬起头，扯下被子，站了起来。当我这样做的时候，痛苦涌上心头，但我还是这样赤身站在我丈夫面前。
 
-艾尔温的眼睛飞快地转来转去，嘴里结巴着，我看着他的眼睛，走过去与他相吻。我抬起头，平静地对他说：“只要你还爱我，我不在乎我的样子，这一点就足够了。”在这一刻，他的身体放松了下来，我慢慢蹲下身体，再次亲吻他，拥抱在他的怀里。我贴近他的身体，他平静地回答说：“是的，菲，我仍然爱你”，然后他又一次吻上了我的嘴唇了。那晚是我一生中最珍贵的时刻之一。尽管我经历了许多旅行和生活，但有些事情永远不会改变。
+艾尔温的眼睛飞快地转来转去，嘴里结巴着，我看着他的眼睛，走过去与他相吻。我抬起头，平静地对他说：“只要你还爱我，我不在乎我的样子，这一点就足够了。”在这一刻，他的身体放松了下来，我慢慢蹲下身体，再次亲吻他，拥抱在他的怀里。我贴近他的身体，他平静地回答说：“是的，菲，我仍然爱你”，然后他又一次吻上了我的嘴唇了。那晚是我一生中最珍贵的时刻之一。尽管我经历过许多旅行和生活，但那一夜我绝不会拿任何东西去交换。
 
 然而，尽管这件事让我濒临死亡，但我心里明白，我渴望再次离开埃尔瓦拉去冒险。有人可能会觉得很奇怪，但当我与艾伦尼恩一起离开前往帷幕外面的那一刻，我想起了最初带我去埃尔瓦拉的旅行。虽然我花了几十年的时间才恢复过来，但现在我准备再一次走出帷幕去探索这个世界。艾尔温不同意我离开的决定，但出于他对我的爱，他不会阻止我离开。我也知道，如果我真的发现自己处于危险之中，我可以使用仍然刻在我身上的返回符文来从危险中返回。
 
@@ -3028,7 +3028,7 @@ The power loss caused by this spell can stack, to a maximum of %d powers.
 t("Hideous Visions", "惊骇幻象", "talent name")
 t("hallucination", "幻象", "_t")
 t([[Each time an enemy takes damage from Dark Whispers, there is a %d%% chance for one of their visions to manifest in an adjacent tile for %d turns. This vision takes no actions but the victim will deal %d%% reduced damage to all other targets until the vision is slain.
-		A target cannot have more than one hallucination at a time.]], [[每次敌人受到黑暗低语的伤害时，有 %d%% 几率在相邻格子中产生持续 %d 回合的幻象。幻象不能行动，但被影响的敌人在幻象结束前造成的伤害降低 %d%% 。
+		A target cannot have more than one hallucination at a time.]], [[每次敌人受到黑暗低语的伤害时，有 %d%% 几率在相邻格子中产生持续 %d 回合的幻象。幻象不能行动，但被影响的敌人在幻象被击杀前造成的伤害降低 %d%% 。
 		同一敌人同时只能产生一个幻象。]], "tformat")
 t("Sanity Warp", "失智冲击", "talent name")
 t("When a hallucination from Hideous Visions is slain, it unleashes a psychic shriek dealing %0.2f darkness damage to enemies in radius %d.", "每当幻象被消灭时，它将释放心灵冲击，对 %d 格内的敌人造成 %0.2f 暗影伤害。", "tformat", {2,1})
@@ -3785,14 +3785,14 @@ t("#CRIMSON#(%d linked)#LAST#", "#CRIMSON#(%d 伤害链接)#LAST#", "tformat")
 t("Nihil", "空无", "_t")
 t([[The target is engulfed in entropy, reducing the duration of new beneficial effects and increasing the duration of new negative effects by %d%%.
 This effect will fade in 2 turns if the source is not in line of sight.]], [[目标被熵覆盖，缩短新有益状态并延长新负面状态 %d%% 持续时间。
-若目标脱离视野 2 回合，则该效果会消失。]], "tformat")
+若效果来源不在视野内，则该效果会在 2 回合后消失。]], "tformat")
 t("#Target# is wreathed in entropy.", "#Target#被熵覆盖。", "_t")
 t("#Target# is free of the entropy.", "#Target#脱离熵影响。", "_t")
 t("#LIGHT_RED#A void annihilator manifests from %s!", "#LIGHT_RED#一个虚空歼灭者从%s的身上出现了!", "logSeen")
 t("Atrophy", "衰亡", "_t")
 t([[The target's mind and body is wasting away, reducing all stats by %d.
 This effect will fade in 2 turns if the source is not in line of sight.]], [[目标的身体和精神迅速老化、凋零，所有属性降低 %d。
-若目标脱离视野 2 回合，则该效果会消失。]], "tformat")
+若效果来源不在视野内，则该效果会在 2 回合后消失。]], "tformat")
 t("#Target# is wasting away.", "#Target#开始凋零。", "_t")
 t("#Target# regains their strength.", "#Target#恢复了力量。", "_t")
 t("speed", "速度", "effect subtype")
@@ -3818,10 +3818,10 @@ t("The target is removed from the normal time stream, unable to act but unable t
 t("Jinxed", "不幸", "_t")
 t([[The target has %d reduced saves and defense, and %d%% reduced critical chance.
 This effect will fade in 2 turns if the source is not in line of sight.]], [[目标豁免和闪避降低 %d , 暴击率降低 %d%%。
-若目标脱离视野 2 回合，则该效果会消失。]], "_t")
+若效果来源不在视野内，则该效果会在 2 回合后消失。]], "_t")
 t([[The target has %d reduced saves and defense, %d%% reduced critical chance, and %d%% chance to fail talent use.
 This effect will fade in 2 turns if the source is not in line of sight.]], [[目标豁免和闪避降低 %d , 暴击率降低 %d%%，使用技能有 %d%% 几率失败。
-若目标脱离视野 2 回合，则该效果会消失。]], "_t")
+若效果来源不在视野内，则该效果会在 2 回合后消失。]], "_t")
 t("%d Jinx", "%d 不幸", "tformat")
 t("Fortune", "幸运", "_t")
 t("The target has %d increased saves and defense, and %d%% increased critical chance.", "目标豁免和闪避增加 %d , 暴击率增加 %d%%。", "_t")
@@ -4817,7 +4817,7 @@ Race features:#YELLOW#
 - A mastery of infusions like no others
 - A warborn race, able to dual wield any one handed weapons and survive situations that would kill most others
 #WHITE#
-]], [[食人魔在很久以前的厄流战争被恐怖的手段制造，作为人类的精英战士。他们从生下来身体就灌注着符文能量，没有这些奥术能量就无法生存。
+]], [[食人魔在很久以前的厄流战争中被以恐怖的手段制造出来，作为战争的精英战士。他们从生下来身体就灌注着符文能量，没有这些奥术能量就无法生存。
 
 然而，伊格兰斯同情他们被强迫而无法选择的命运。
 在经过无数痛苦但不可避免的实验后，伊格兰斯终于创造出食人魔的一个亚种。他们用龙血和自然之力替代了食人魔体内的符文和奥术力量。

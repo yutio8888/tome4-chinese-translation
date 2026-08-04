@@ -2182,7 +2182,7 @@ t([[#{italic}#(You hear loud, mechanical rumbling; in the distance, you hear sou
 
 "Mayday, mayday, we are bailing out!  Tantalos is gone, and we are NOT going back for him!  Scrap the tunnel to the Palace of Fumes, scrap the entire damn council, we're getting as far away from here as we can--"  Loud hissing.  "MOTHER OF--!"  Grunts, squishing, slashing.  "Flooring it all the way to the damn Sunwall, we're taking the first farportal off this continent whether those tinies like it or not!  Guess this technically counts as treason, mutiny, whatever, but if the Council's hearing this, BLOW IT OUT YOUR STEAM-HOLES, WE'D RATHER LIVE!  Altitude rising, surface approaching, this is H.C. Parmor signing off--"]], [[#{italic}#(你听到了巨大的，机械的轰鸣声。在远处，你听到挣扎和殴打的声音，听到利刃刺破血肉，蒸汽枪的枪声，以及巨人和恐魔发出的痛苦怒吼。帕默的声音听起来惊慌失措。)#{normal}#
 
-“求救，求救，我们完蛋了！坦塔洛斯完蛋了，我们绝对不会再回去救他的！去你妈的烟雾宫殿的隧道，去你妈的天杀的议会，我们必须赶紧跑，越远越好——”巨大的嘶嘶声。“狗娘——！”撞击声，挤压声，破碎声。“给我朝太阳堡垒前进，我们要使用这个大陆上的第一个远古传送门，不管你们这些家伙喜不喜欢！我可不管这是不是什么叛国、谋反，去他妈的，如果你们议会在听着的话，放你娘的蒸汽孔，老子只想活下去！海拔上升，准备接近地面，这里是 H.C. 帕默，播报完毕——”]], "_t")
+“求救，求救，我们在撤离！坦塔洛斯完蛋了，我们绝对不会再回去救他的！去你妈的烟雾宫殿的隧道，去你妈的天杀的议会，我们必须赶紧跑，越远越好——”巨大的嘶嘶声。“狗娘——！”撞击声，挤压声，破碎声。“给我朝太阳堡垒前进，我们要使用这个大陆上的第一个远古传送门，不管你们这些家伙喜不喜欢！我可不管这是不是什么叛国、谋反，去他妈的，如果你们议会在听着的话，放你娘的蒸汽孔，老子只想活下去！海拔上升，准备接近地面，这里是 H.C. 帕默，播报完毕——”]], "_t")
 t("erratic scribblings", "潦草的字迹", "_t")
 t("why is it down there why is it ANYWHERE", "它为什么会在下面？它为什么会出现在任何地方？", "_t")
 t("If anyone finds this, tell the Jarsovi brothers their father lov", "如果有人能找到这张纸，请告诉贾索维兄弟，他们的父亲爱…", "_t")
@@ -2475,7 +2475,7 @@ i'm sorry karbatha]], [[不，不不，不不不不，不不不不，不！
 
 我能感受到，它的力量正在流失……有一个声音在我的耳边低鸣，它说“警告，能量不足，剩余脉冲发射次数：十次以下”。曾经在这个神器周围流动的，如此美丽的能量，现在却变得暗淡冰冷。不管我多少次在湖中祈祷，恳求，独角兽都没有出现到我的身边，也没有告诉我，为什么我激怒了他们，为什么我失去了我的力量……难道，这份力量，本来就是我不应该拥有的…吗……？
 
-……好吧。也就是说，最多还能使用五到十次……我必须搞清楚，这东西到底是怎么工作的。既然走到了这一步，我已经没法回头了，难道我能停下来，假装什么也没有发生？——哈哈，怎么可能……我该怎么办，我该怎么办，我不能放弃远征的计划，我没法脱身了，我们赢不了蒸汽巨人的，我做不到，我做不到！
+……好吧。也就是说，最多还能使用五到十次……我必须搞清楚，这东西到底是怎么工作的。既然走到了这一步，我已经没法回头了，我既不能再拖延征服大业，也无法坦白，难道我能停下来，假装什么也没有发生？——哈哈，怎么可能……我该怎么办，我该怎么办，我不能放弃远征的计划，我没法脱身了，我们赢不了蒸汽巨人的，我做不到，我做不到！
 
 有人告诉我蒸汽巨人进攻了兽人…兽人，胜利了？
 
@@ -2550,7 +2550,7 @@ My point is, when you're writing those letters, write them like King Tolak's loo
 
 -Korbek
 
-PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't understand subtlety, so I can't assume you'd understand a subtly-written letter.  Yes, I'm aware there's a chance this letter could end up in enemy hands.  No, the irony of that situation would not be lost on me.  Yes, I will hurt whoever thinks they're clever by bringing up any of the preceding.]], [[我们知道：远古传送门邮递系统并不完美这件事当然是我们的过错。我们还在努力修复那个导致传送门不停传送所有不是活物的东西的问题——如果我们搞砸了的话，那么很快就会又有人被传送到墙里了。你能够这样穿过远古传送门，而不是裸体出现在另一边，包里的东西都完好无损，已经他妈的是一件奇迹了，好不好。
+PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't understand subtlety, so I can't assume you'd understand a subtly-written letter.  Yes, I'm aware there's a chance this letter could end up in enemy hands.  No, the irony of that situation would not be lost on me.  Yes, I will hurt whoever thinks they're clever by bringing up any of the preceding.]], [[我们知道：远古传送门邮递系统并不完美这件事当然是我们的过错。我们还在努力修复那个让传送门无法传送任何非活物的临时配置——如果我们搞砸了的话，那么很快就会又有人被传送到墙里了。你能够这样穿过远古传送门，而不是裸体出现在另一边，包里的东西都完好无损，已经他妈的是一件奇迹了，好不好。
 
 与此同时：我们的邮递系统仍然会丢失大量邮件，这些丢失的邮件可能会出现在任何地方。据我所知，可能会出现在传送门十英尺以内的地方，也有可能出现在某个联合王国好事者的手里，还有可能出现在乌鲁洛克的鼻子底下，都有可能。也就是说，你写的每一封信都有可能出现在你最不希望出现的地方，不管那是多么遥远的地方，明白吗。
 
@@ -4843,7 +4843,7 @@ section "tome-orcs/data/talents/steam/demolition.lua"
 t("Grenade Launcher", "榴弹发射器", "talent name")
 t([[You mount a grenade launcher on your steamgun that launches high explosive rounds. Each time you make a basic attack with your steamgun or a heavy weapon, you fire a grenade at the target that explodes for %d%% steamgun damage in radius %d.
 		This talent also reinforces the armor of you and your minions to give you immunity to your own grenades.
-		You can only fire a single grenade once every 9 turns.]], [[你在蒸汽枪上安装一个发射高爆弹的榴弹发射器。每当你用蒸汽枪进行普通攻击或使用重装武器攻击时，都会向目标发射一枚榴弹，在半径 %d 码内造成 %d%% 蒸汽枪伤害。
+		You can only fire a single grenade once every 9 turns.]], [[你在蒸汽枪上安装一个发射高爆弹的榴弹发射器。每当你用蒸汽枪进行普通攻击或使用重装武器攻击时，都会向目标发射一枚榴弹，造成 %d%% 蒸汽枪伤害，作用半径 %d 码。
 		此技能还会强化你和随从的护甲，使你与随从免疫你自己发射的榴弹。
 		每 9 回合只能发射一枚榴弹。]], "tformat", {2,1})
 t("Reactive Armor", "反应式装甲", "talent name")
