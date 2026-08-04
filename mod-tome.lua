@@ -9117,8 +9117,7 @@ t("weapon", "武器", "entity type")
 t("trident", "三叉戟", "entity subtype")
 t("trident", "三叉戟", "entity combat talented")
 t([[A two-handed massive trident.
-Tridents require the exotic weapons mastery talent to use correctly.]], "一个沉重的双手三叉戟。
-三叉戟需要异形武器掌握技能才能正确使用。", "_t")
+Tridents require the exotic weapons mastery talent to use correctly.]], "一个沉重的双手三叉戟。\n三叉戟需要异形武器掌握技能才能正确使用。", "_t")
 t("coral trident", "珊瑚三叉戟", "entity name")
 t("coral", "珊瑚", "entity short_name")
 t("blue-steel trident", "蓝钢三叉戟", "entity name")
