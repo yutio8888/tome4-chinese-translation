@@ -40,7 +40,7 @@ def _bump_init_version(init_text: str) -> tuple[str, str]:
     if not match:
         raise ValidationError("release init.lua has no addon_version = {maj,min,pat}")
     major, minor, patch = (int(g) for g in match.groups())
-    new_version = f"{{{major},{minor},{patch + 1}}}"
+    new_version = f"addon_version = {{{major},{minor},{patch + 1}}}"
     return _ADDON_VERSION_RE.sub(new_version, init_text, count=1), (
         f"{major}.{minor}.{patch + 1}"
     )
