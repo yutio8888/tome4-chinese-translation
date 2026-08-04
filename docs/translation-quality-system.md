@@ -1,7 +1,7 @@
 # ToME4 翻译质量评价与可复用译文库整体方案
 
 > 状态：设计草案 v0.1。第一阶段（质量清单与校准试点）的 M0–M3 已实现：
-> `i18n/quality/` 规则与 schema、`tools/i18nlib/quality.py`、`tools/i18n quality` 命令（inventory/sample/validate/report）及测试已落地；M4–M6（双重评价、裁决、报告与 Go/No-Go）待执行。
+> `i18n/quality/` 规则与 schema、`tools/i18nlib/quality.py`、`tools/i18n quality` 命令（inventory/sample/validate/report）及测试已落地；M4 的 12 条 dry-run 与双模型 AI evaluator 盲测已执行，但 severity 一致性尚未达标；正式 120 条双评、M5 裁决与 M6 Go/No-Go 待执行。
 > 适用范围：本仓库中的规范中文译文、术语库以及由它们生成的翻译记忆和联想索引。
 > 第一阶段实施方案见 [`translation-quality-phase-1.md`](./translation-quality-phase-1.md)。
 

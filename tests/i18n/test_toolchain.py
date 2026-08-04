@@ -46,7 +46,7 @@ from i18nlib.lint import (
 )
 from i18nlib.locale_model import LocaleLoader
 from i18nlib.merge import classify_merge
-from i18nlib.pi_agent import run_pi_translation
+from i18nlib.pi_agent import _copy_isolated_oauth_credential, run_pi_translation
 from i18nlib.pi_file_review import (
     _file_review_cache_key,
     _git_worktree_snapshot,
@@ -55,6 +55,12 @@ from i18nlib.pi_file_review import (
 )
 from i18nlib.pi_remediate import run_pi_remediation
 from i18nlib.pi_review import _review_cache_key, _validate_findings, run_pi_review
+from i18nlib.pi_quality import (
+    _decode_quality_model_output,
+    build_quality_evaluator_bundle,
+    build_quality_evaluator_command,
+    run_pi_quality_evaluator,
+)
 from i18nlib.pi_tmux import (
     run_tmux_file_review,
     run_tmux_remediation,
@@ -1029,6 +1035,31 @@ class PiAgentTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.manifest = load_manifest()
+
+    def test_isolated_oauth_copy_keeps_only_requested_provider(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-oauth-test-") as temporary:
+            directory = Path(temporary)
+            source = directory / "source-auth.json"
+            target = directory / "isolated" / "auth.json"
+            target.parent.mkdir()
+            source.write_text(
+                json.dumps(
+                    {
+                        "openai-codex": {
+                            "type": "oauth",
+                            "access": "fixture-access",
+                            "refresh": "fixture-refresh",
+                        },
+                        "unrelated": {"type": "api_key", "key": "do-not-copy"},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            _copy_isolated_oauth_credential(source, target, "openai-codex")
+            copied = json.loads(target.read_text(encoding="utf-8"))
+            mode = target.stat().st_mode & 0o777
+        self.assertEqual(set(copied), {"openai-codex"})
+        self.assertEqual(mode, 0o600)
 
     def test_pi_runner_has_no_tools_and_validates_output(self) -> None:
         with tempfile.TemporaryDirectory(prefix="tome4-pi-test-") as temporary:
@@ -2676,6 +2707,107 @@ class QualitySamplingTests(unittest.TestCase):
         self.assertEqual(first["official_sample_id"], official["sample_id"])
         revisions = [item["revision_id"] for item in first["items"]]
         self.assertEqual(len(revisions), len(set(revisions)))
+
+
+class PiQualityEvaluatorTests(unittest.TestCase):
+    """Blind model evaluator runner and host-owned assessment envelope."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        QualityValidationTests.setUpClass()
+        cls.manifest = QualityValidationTests.manifest
+        cls.taxonomy = QualityValidationTests.taxonomy
+        cls.qpolicy = QualityValidationTests.qpolicy
+        cls.sample = QualityValidationTests.sample
+        cls.sample_path = QualityValidationTests.sample_path
+
+    def test_quality_evaluator_repairs_only_missing_outer_brace(self) -> None:
+        output, normalization = _decode_quality_model_output(b'{"items": []')
+        self.assertEqual(output, {"items": []})
+        self.assertEqual(normalization, "added-missing-outer-brace")
+        with self.assertRaises(ValidationError):
+            _decode_quality_model_output(b'{"items": [}')
+
+    def test_quality_evaluator_command_is_isolated(self) -> None:
+        bundle = build_quality_evaluator_bundle(
+            self.sample,
+            self.taxonomy,
+            evaluator_id="reviewer-a",
+            method_version=self.qpolicy["pilot"]["method_version"],
+        )
+        command = build_quality_evaluator_command(
+            executable="pi",
+            provider="fixture",
+            model="fixture-model",
+            thinking="max",
+            system_prompt="fixture prompt",
+            bundle_path=Path("quality-bundle.json"),
+        )
+        self.assertEqual(bundle["evaluator_id"], "reviewer-a")
+        self.assertEqual(len(bundle["items"]), 120)
+        self.assertIn("--no-tools", command)
+        self.assertIn("--no-session", command)
+        self.assertIn("--no-context-files", command)
+        self.assertIn("--no-skills", command)
+        self.assertEqual(command[command.index("--thinking") + 1], "max")
+        attachment = next(value for value in command if value.startswith("@"))
+        self.assertFalse(Path(attachment[1:]).is_absolute())
+
+    def test_quality_evaluator_validates_complete_blind_assessment(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-pi-quality-test-") as temporary:
+            directory = Path(temporary)
+            fake_pi = directory / "fake-pi-quality"
+            arguments_path = directory / "arguments.json"
+            fake_pi.write_text(
+                """#!/usr/bin/env python3
+import json
+import os
+import sys
+from pathlib import Path
+
+Path(os.environ["FAKE_PI_ARGUMENTS"]).write_text(
+    json.dumps(sys.argv[1:]), encoding="utf-8"
+)
+bundle_path = next(Path(value[1:]) for value in sys.argv[1:] if value.startswith("@"))
+bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
+items = [{
+    "revision_id": item["revision_id"],
+    "context_sufficient": True,
+    "profile_confirmed": item["profile"],
+    "findings": [],
+    "reuse_recommendation": "same-tag",
+} for item in bundle["items"]]
+print(json.dumps({"items": items}, ensure_ascii=False))
+""",
+                encoding="utf-8",
+            )
+            fake_pi.chmod(0o700)
+            with patch.dict(os.environ, {"FAKE_PI_ARGUMENTS": str(arguments_path)}):
+                report = run_pi_quality_evaluator(
+                    sample_path=self.sample_path,
+                    evaluator_id="reviewer-a",
+                    provider="fixture",
+                    model="fixture-model",
+                    thinking="max",
+                    timeout=30,
+                    strict=True,
+                    use_cache=False,
+                    pi_executable=str(fake_pi),
+                )
+            assessment = json.loads(
+                Path(report["assessment"]).read_text(encoding="utf-8")
+            )
+            arguments = json.loads(arguments_path.read_text(encoding="utf-8"))
+        self.assertTrue(report["ok"])
+        self.assertEqual(report["items"], 120)
+        self.assertEqual(report["validated_results"], 1)
+        self.assertEqual(report["blind_inputs"]["other_assessments"], False)
+        self.assertEqual(assessment["evaluator"]["kind"], "model")
+        self.assertEqual(assessment["evaluator"]["id"], "reviewer-a")
+        self.assertEqual(assessment["evaluator"]["thinking"], "max")
+        self.assertEqual(len(assessment["items"]), 120)
+        self.assertNotIn("adjudication", assessment)
+        self.assertIn("--no-tools", arguments)
 
 
 class QualityValidationTests(unittest.TestCase):

@@ -8,7 +8,10 @@
 > M4 dry-run 已完成（2026-08-04）：12 条 dry-run 样本由 reviewer-a/reviewer-b 完成
 > 两份完整 assessment 并经裁决（strict validate 通过，κ=0.92），报告管线在 dry-run
 > 集上全链路验证；`quality validate` 新增 `--dry-run` 模式（adjudication 可选）。
-> 正式 120 条两轮独立评价与 M5/M6 尚未开始。
+> AI evaluator 隔离 runner 已完成首轮双模型盲测：`deepseek/deepseek-v4-flash` 与
+> `openai-codex/gpt-5.6-luna` 均以 max thinking 完整覆盖 12 条并通过 strict validation；
+> 最佳校准轮实质缺陷一致率 83.33%、major-or-worse 91.67%，但 severity κ=0.5833，
+> 尚未达到 0.70 目标，因此正式 120 条两轮评价与 M5/M6 暂未启动。
 > 上位设计：[`translation-quality-system.md`](./translation-quality-system.md)。
 > 本阶段性质：建立可验证的数据契约和小规模校准基准，不建设生产级模糊匹配。
 
@@ -544,9 +547,18 @@ runtime_collision=false
   通过，报告管线全链路验证）；rubric 观察 OBS-001–004 已记录（profile 分类：物品未识别名/
   天赋名应归 term-name、zones 长叙事应归 narrative、术语表缺组合实体词、contrast 身份记账）。
 - [x] `quality validate` 支持 `--dry-run`（dry-run contract 样本 + adjudication 可选）。
-- [ ] rubric 稳定后，两位**真正独立**的 evaluator 从头完成正式 120 条（dry-run 两份 assessment
-  由同一代理会话产生，仅用于 rubric 可用性检验，不计入正式一致性和缺陷率）；
-  每份 assessment 严格校验后冻结 content hash。
+- [x] 新增 `tools/pi-quality-evaluator` 与 `i18n/prompts/pi-quality-evaluator.md`：模型无工具、
+  无会话、无项目上下文，bundle 不含另一 assessment、裁决、历史 finding 或预期 grade；宿主固定
+  evaluator 身份并严格校验 100% revision 覆盖，精确缓存按 provider/model/thinking/prompt/bundle 隔离。
+- [x] 两个真正独立模型完成多轮 12 条盲测（DeepSeek V4 Flash 与 GPT-5.6 Luna，均 max）：首轮
+  4/14 findings、缺陷一致率 50%、κ=0.1875；统一逐项检查表后的最佳轮为 9/13 findings、缺陷一致率
+  83.33%、major-or-worse 91.67%、κ=0.5833。第三轮 severity 锚点复测因模型随机差异回落至
+  7/14 findings、缺陷一致率 58.33%、κ=0.34；另捕获并回归测试了一次“完整 items 数组仅缺最外层
+  右花括号”的模型输出，宿主只允许该唯一确定性 envelope 修复，其他畸形输出继续拒绝。
+- [ ] 当前 AI evaluator 对“是否有缺陷”已曾达到目标，但 severity 稳定性仍未达到 κ≥0.70；不得
+  为提高指标删除争议样本或挑选单次结果。需先冻结 AI rubric/prompt 版本，并在新的固定 overlap
+  子集复测或决定由人工承担 severity 裁决，之后两位 evaluator 才从头完成正式 120 条；每份
+  assessment 严格校验后冻结 content hash。
 
 **完成条件：** 两份 assessment 均覆盖正式 120 条、schema 有效、相互独立且绑定 sample ID；dry-run 不计入正式一致性和缺陷率。
 

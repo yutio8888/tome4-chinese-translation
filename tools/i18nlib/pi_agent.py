@@ -70,16 +70,53 @@ def _credential_from_keychain() -> str | None:
     return key or None
 
 
+def _copy_isolated_oauth_credential(
+    source_path: Path, target_path: Path, provider: str
+) -> None:
+    """Copy only one OAuth credential into the isolated Pi config directory."""
+    target: dict[str, object] = {}
+    if target_path.is_file():
+        try:
+            loaded = json.loads(target_path.read_bytes())
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+            loaded = None
+        if isinstance(loaded, dict):
+            target = loaded
+            if provider in target:
+                return
+    try:
+        source = json.loads(source_path.read_bytes())
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise AgentError(
+            f"no Pi OAuth credential is available for {provider}"
+        ) from error
+    credential = source.get(provider) if isinstance(source, dict) else None
+    if not isinstance(credential, dict) or credential.get("type") != "oauth":
+        raise AgentError(f"no Pi OAuth credential is available for {provider}")
+    target[provider] = credential
+    target_path.write_text(
+        json.dumps(target, ensure_ascii=False), encoding="utf-8"
+    )
+    target_path.chmod(0o600)
+
+
 def _pi_environment(root: Path, provider: str) -> dict[str, str]:
     environment = os.environ.copy()
+    source_auth_path = Path(
+        environment.get(
+            "PI_SUBAGENT_PI_AUTH_FILE",
+            str(Path.home() / ".pi" / "agent" / "auth.json"),
+        )
+    ).expanduser()
+    agent_directory = root / ".artifacts" / "i18n" / "pi-agent"
+    agent_directory.mkdir(parents=True, exist_ok=True, mode=0o700)
+    agent_directory.chmod(0o700)
+    if provider == "openai-codex":
+        _copy_isolated_oauth_credential(
+            source_auth_path, agent_directory / "auth.json", provider
+        )
     if provider == "opencode-go" and not environment.get("OPENCODE_API_KEY"):
-        auth_path = Path(
-            environment.get(
-                "PI_SUBAGENT_PI_AUTH_FILE",
-                str(Path.home() / ".pi" / "agent" / "auth.json"),
-            )
-        ).expanduser()
-        key = _credential_from_pi_auth(auth_path) or _credential_from_keychain()
+        key = _credential_from_pi_auth(source_auth_path) or _credential_from_keychain()
         if key is None:
             raise AgentError(
                 "no OpenCode Go credential is available; configure Pi, "
@@ -87,22 +124,13 @@ def _pi_environment(root: Path, provider: str) -> dict[str, str]:
             )
         environment["OPENCODE_API_KEY"] = key
     if provider == "deepseek" and not environment.get("DEEPSEEK_API_KEY"):
-        auth_path = Path(
-            environment.get(
-                "PI_SUBAGENT_PI_AUTH_FILE",
-                str(Path.home() / ".pi" / "agent" / "auth.json"),
-            )
-        ).expanduser()
-        key = _credential_from_pi_auth(auth_path, provider="deepseek")
+        key = _credential_from_pi_auth(source_auth_path, provider="deepseek")
         if key is None:
             raise AgentError(
                 "no DeepSeek credential is available; configure Pi "
                 "(login with provider deepseek) or set DEEPSEEK_API_KEY"
             )
         environment["DEEPSEEK_API_KEY"] = key
-    agent_directory = root / ".artifacts" / "i18n" / "pi-agent"
-    agent_directory.mkdir(parents=True, exist_ok=True, mode=0o700)
-    agent_directory.chmod(0o700)
     environment.update(
         {
             "PI_CODING_AGENT_DIR": str(agent_directory),
