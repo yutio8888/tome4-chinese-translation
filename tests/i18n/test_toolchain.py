@@ -48,6 +48,21 @@ from i18nlib.pi_remediate import run_pi_remediation
 from i18nlib.pi_review import _validate_findings, run_pi_review
 from i18nlib.pi_tmux import run_tmux_remediation, run_tmux_review, run_worker_job
 from i18nlib.proposal import validate_proposal
+from i18nlib.quality import (
+    ADJUDICATION_CONTRACT,
+    ASSESSMENT_CONTRACT,
+    SAMPLE_CONTRACT,
+    _match_findings,
+    _weighted_kappa,
+    build_inventory,
+    compute_revision_id,
+    compute_unit_id,
+    generate_sample,
+    load_quality_policy,
+    load_taxonomy,
+    structure_signature,
+    validate_quality_run,
+)
 from i18nlib.review import (
     REVIEW_CONTRACT,
     REVIEW_SCHEMA_VERSION,
@@ -1734,6 +1749,1118 @@ time.sleep(30)
         self.assertIn("streamed stdout", raw)
         self.assertIn("streamed stderr", stderr)
         self.assertTrue(status_written)
+
+
+class QualityIdentityTests(unittest.TestCase):
+    """Phase-1 doc section 10.1: identity and invalidation semantics."""
+
+    VERSION = "tome-1.7.6"
+
+    def test_unit_id_matches_stable_entry_id(self) -> None:
+        unit_id = compute_unit_id("tome", "data/talents/a.lua", "Rune of Reflection", None)
+        self.assertEqual(
+            unit_id,
+            stable_entry_id("tome", "data/talents/a.lua", "Rune of Reflection", None),
+        )
+
+    def test_target_change_changes_revision(self) -> None:
+        unit_id = compute_unit_id("tome", "s", "source", None)
+        first = compute_revision_id(self.VERSION, unit_id, "甲", None, None)
+        second = compute_revision_id(self.VERSION, unit_id, "乙", None, None)
+        self.assertNotEqual(first, second)
+
+    def test_args_order_special_version_change_revision(self) -> None:
+        unit_id = compute_unit_id("tome", "s", "%s has %d", "tformat")
+        base = compute_revision_id(self.VERSION, unit_id, "%d 属于 %s", [2, 1], None)
+        self.assertNotEqual(
+            base, compute_revision_id(self.VERSION, unit_id, "%d 属于 %s", None, None)
+        )
+        self.assertNotEqual(
+            base, compute_revision_id(self.VERSION, unit_id, "%d 属于 %s", [2, 1], {"x": 1})
+        )
+        self.assertNotEqual(
+            base, compute_revision_id("tome-1.8.0", unit_id, "%d 属于 %s", [2, 1], None)
+        )
+
+    def test_source_section_tag_change_unit_and_revision(self) -> None:
+        first = compute_unit_id("tome", "s", "source", None)
+        second = compute_unit_id("tome", "s2", "source", None)
+        self.assertNotEqual(first, second)
+        revision_first = compute_revision_id(self.VERSION, first, "target", None, None)
+        revision_second = compute_revision_id(self.VERSION, second, "target", None, None)
+        self.assertNotEqual(revision_first, revision_second)
+        tag_unit = compute_unit_id("tome", "s", "source", "say")
+        self.assertNotEqual(first, tag_unit)
+
+    def test_revision_identity_ignores_lines_and_ordinals(self) -> None:
+        unit_id = compute_unit_id("tome", "s", "source", None)
+        revision = compute_revision_id(self.VERSION, unit_id, "target", None, None)
+        self.assertEqual(
+            revision,
+            compute_revision_id(self.VERSION, unit_id, "target", None, None),
+        )
+        self.assertRegex(revision, r"^[0-9a-f]{64}$")
+
+
+class QualityStructureTests(unittest.TestCase):
+    """Phase-1 doc section 10.2: structure and classification semantics."""
+
+    def test_percent_percent_is_not_a_format_token(self) -> None:
+        structure = structure_signature("100%% chance", "100%% 几率", None)
+        self.assertEqual(structure["printf"]["source_raw"], [])
+        self.assertEqual(structure["printf"]["target_raw"], [])
+
+    def test_args_order_permutation_role_order(self) -> None:
+        structure = structure_signature("%s has %d", "%d 属于 %s", [2, 1])
+        self.assertEqual(structure["printf"]["source_conversions"], ["s", "d"])
+        self.assertEqual(structure["printf"]["role_order"], ["d", "s"])
+        self.assertEqual(structure["printf"]["target_conversions"], ["d", "s"])
+
+    def test_markup_and_token_multisets(self) -> None:
+        structure = structure_signature(
+            "#GREEN#hit #RED#x#LAST#", "#GREEN#命中 #RED#x#LAST#", None
+        )
+        self.assertEqual(
+            structure["markup"]["source"],
+            {"#GREEN#": 1, "#RED#": 1, "#LAST#": 1},
+        )
+        self.assertEqual(structure["markup"]["source"], structure["markup"]["target"])
+        self.assertEqual(structure["newlines"], {"source": 0, "target": 0})
+        self.assertFalse(structure["multiline"])
+
+    def test_invalid_args_order_yields_no_role_order(self) -> None:
+        structure = structure_signature("%s has %d", "%s has %d", [1])
+        self.assertIsNone(structure["printf"]["role_order"])
+
+    def test_longer_overlapping_term_is_not_shadowed(self) -> None:
+        from i18nlib.quality import _build_term_index, _relevant_terms_for
+
+        rows = [
+            {
+                "source": "fire",
+                "target": "火焰",
+                "category": "T.GAME.DAMAGE",
+                "domain": "combat",
+                "source_tag": "damage type",
+                "status": "preferred",
+                "scope": "core",
+                "notes": "",
+            },
+            {
+                "source": "fire damage",
+                "target": "火焰伤害",
+                "category": "T.GAME.MISC",
+                "domain": "combat",
+                "source_tag": "damage type",
+                "status": "existing",
+                "scope": "core",
+                "notes": "",
+            },
+        ]
+        records, matcher, by_plain, prefix_terms = _build_term_index(rows)
+        terms = _relevant_terms_for(
+            "fire damage on hit",
+            "damage type",
+            "tome",
+            records,
+            matcher,
+            by_plain,
+            prefix_terms,
+        )
+        matched = [term["source"] for term in terms]
+        self.assertIn("fire", matched)
+        self.assertIn("fire damage", matched)
+        # boundary must still prevent prefix matches inside words
+        self.assertEqual(
+            _relevant_terms_for(
+                "fireball", "damage type", "tome", records, matcher, by_plain
+            ),
+            [],
+        )
+
+    def test_relevant_terms_carry_domain(self) -> None:
+        from i18nlib.quality import _build_term_index, _relevant_terms_for
+
+        rows = [
+            {
+                "source": "physical",
+                "target": "物理",
+                "category": "T.GAME.DAMAGE",
+                "domain": "combat",
+                "source_tag": "damage type",
+                "status": "preferred",
+                "scope": "core",
+                "notes": "",
+            }
+        ]
+        records, matcher, by_plain, _ = _build_term_index(rows)
+        terms = _relevant_terms_for(
+            "physical damage", "damage type", "tome", records, matcher, by_plain
+        )
+        self.assertEqual(len(terms), 1)
+        self.assertEqual(terms[0]["domain"], "combat")
+        self.assertEqual(terms[0]["match"], "partial")
+
+    def test_section_patterns_are_segment_aware(self) -> None:
+        from i18nlib.quality import classify_profile
+
+        taxonomy = {
+            "source_tag_profiles": {},
+            "term_category_profiles": {},
+            "section_pattern_profiles": [
+                {"pattern": "ui", "profile": "ui", "confidence": "low"},
+                {"pattern": "data/talents", "profile": "mechanics", "confidence": "high"},
+            ],
+        }
+        # 'ui' must not match 'guilds' or 'quiz' as a bare substring;
+        # punctuation keeps the source out of the structure fallback
+        profile, _ = classify_profile(
+            "Guild master!", None, "data/guilds/foo.lua", [], taxonomy
+        )
+        self.assertNotEqual(profile, "ui")
+        profile, _ = classify_profile(
+            "Quiz time?", None, "data/quiz/foo.lua", [], taxonomy
+        )
+        self.assertNotEqual(profile, "ui")
+        # exact segment 'ui' still matches at any depth
+        profile, confidence = classify_profile(
+            "Quit", None, "data/dialogs/ui/foo.lua", [], taxonomy
+        )
+        self.assertEqual((profile, confidence), ("ui", "low"))
+        # multi-segment patterns must appear as a contiguous segment sequence
+        profile, confidence = classify_profile(
+            "Bolt", None, "data/talents/mage/foo.lua", [], taxonomy
+        )
+        self.assertEqual((profile, confidence), ("mechanics", "high"))
+        profile, _ = classify_profile(
+            "Bolt", None, "data/talents_mage/foo.lua", [], taxonomy
+        )
+        self.assertNotEqual(profile, "mechanics")
+
+
+class QualitySamplingTests(unittest.TestCase):
+    """Phase-1 doc section 10.3: deterministic stratified sampling."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.manifest = load_manifest()
+        cls.qpolicy = load_quality_policy(cls.manifest)
+        cls.taxonomy = load_taxonomy(cls.manifest)
+        cls.inventory = cls._make_fixture_inventory()
+
+    @classmethod
+    def _entry(
+        cls,
+        index: int,
+        *,
+        component: str,
+        section: str,
+        source: str,
+        target: str,
+        source_tag: str | None = None,
+        profile: str,
+        length_bin: str,
+        enriched: bool = False,
+        term_evidence: bool = False,
+        line: int = 1,
+    ) -> dict[str, object]:
+        unit_id = compute_unit_id(component, section, source, source_tag)
+        revision_id = compute_revision_id(
+            cls.manifest.version, unit_id, target, None, None
+        )
+        structure = structure_signature(source, target, None)
+        risk_flags = ["has-printf"] if enriched else []
+        terms = (
+            [
+                {
+                    "source": "fixture",
+                    "target": "固定",
+                    "category": "T.GAME.TALENT",
+                    "source_tag": "",
+                    "status": "preferred",
+                    "scope": "core",
+                    "notes": "fixture term",
+                    "match": "partial",
+                }
+            ]
+            if term_evidence
+            else []
+        )
+        return {
+            "unit_id": unit_id,
+            "revision_id": revision_id,
+            "version": cls.manifest.version,
+            "component": component,
+            "section": section,
+            "source": source,
+            "target": target,
+            "source_tag": source_tag,
+            "args_order": None,
+            "special": None,
+            "occurrences": [
+                {
+                    "logical_path": f"{component}.lua",
+                    "section": section,
+                    "line": line,
+                    "ordinal": index,
+                }
+            ],
+            "profile": profile,
+            "profile_confidence": "high",
+            "domain_hints": [],
+            "relevant_terms": terms,
+            "structure": structure,
+            "gate_signals": {
+                "lua_load_valid": True,
+                "empty_target": False,
+                "format_signature_match": None,
+                "markup_multiset_match": True,
+                "at_token_multiset_match": True,
+                "runtime_collision": False,
+                "needs_review": [],
+            },
+            "risk_flags": risk_flags,
+            "source_length_bin": length_bin,
+        }
+
+    @classmethod
+    def _make_fixture_inventory(cls) -> list[dict[str, object]]:
+        profiles = [
+            "mechanics", "term-name", "ui", "runtime-log",
+            "dialogue", "narrative", "unknown",
+        ]
+        bins = ["short", "medium", "long", "very-long"]
+        components = ["tome", "engine", "boot", "cults", "orcs", "example", "addon-dev"]
+        entries: list[dict[str, object]] = []
+        for index in range(320):
+            entries.append(
+                cls._entry(
+                    index,
+                    component=components[index % 7],
+                    section=f"data/zone-{index % 3}/file-{index % 11}.lua",
+                    source=f"fixture source {index}",
+                    target=f"固定译文 {index}",
+                    profile=profiles[index % 7],
+                    length_bin=bins[index % 4],
+                    enriched=index % 3 == 0,
+                    term_evidence=index % 4 == 0,
+                )
+            )
+        # contrast groups: one multi-target triplet and two pairs
+        contrast_sources = [
+            ("tome", "data/contrast/a.lua", "shared runtime key", "译法甲"),
+            ("tome", "data/contrast/a.lua", "shared runtime key", "译法乙"),
+            ("tome", "data/contrast/a.lua", "shared runtime key", "译法丙"),
+            ("cults", "data/contrast/b.lua", "near #GREEN#dup#LAST# key", "近重复一"),
+            ("cults", "data/contrast/b.lua", "near dup key", "近重复二"),
+            ("boot", "data/contrast/c.lua", "repeat key", "重复一"),
+            ("boot", "data/contrast/d.lua", "repeat key", "重复二"),
+        ]
+        for index, (component, section, source, target) in enumerate(
+            contrast_sources, start=1000
+        ):
+            entries.append(
+                cls._entry(
+                    index,
+                    component=component,
+                    section=section,
+                    source=source,
+                    target=target,
+                    profile="dialogue",
+                    length_bin="short",
+                )
+            )
+        return entries
+
+    def _write_inventory(self, entries: list[dict[str, object]]) -> Path:
+        directory = TEST_FIXTURE_ROOT / "quality-sampling"
+        directory.mkdir(parents=True, exist_ok=True)
+        path = directory / "inventory.jsonl"
+        path.write_text(
+            "\n".join(
+                json.dumps(entry, ensure_ascii=False, sort_keys=True) for entry in entries
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        return path
+
+    def test_sample_is_deterministic_and_satisfies_constraints(self) -> None:
+        path = self._write_inventory(self.inventory)
+        first = generate_sample(self.manifest, path)
+        second = generate_sample(self.manifest, path)
+        self.assertEqual(first["sample_id"], second["sample_id"])
+        self.assertEqual(first["items"], second["items"])
+        self.assertEqual(first["size"], 120)
+        self.assertEqual(first["unmet_constraints"], [])
+        revisions = [item["revision_id"] for item in first["items"]]
+        self.assertEqual(len(revisions), len(set(revisions)))
+        buckets = [item["bucket"] for item in first["items"]]
+        self.assertEqual(
+            sum(buckets.count(bucket) for bucket in ("representative", "risk-enriched", "contrast")),
+            120,
+        )
+        self.assertEqual(
+            len({(r, b) for r, b in zip(revisions, buckets)}), 120,
+        )
+
+    def test_contrast_pairs_are_never_split(self) -> None:
+        path = self._write_inventory(self.inventory)
+        sample = generate_sample(self.manifest, path)
+        groups: dict[str, list[str]] = {}
+        for item in sample["items"]:
+            if item["contrast_group"]:
+                groups.setdefault(item["contrast_group"], []).append(item["revision_id"])
+        self.assertGreaterEqual(len(groups), 2)
+        by_source: dict[str, list[str]] = {}
+        for item in self.inventory:
+            if item["section"].startswith("data/contrast"):
+                by_source.setdefault(item["source"], []).append(item["revision_id"])
+        sample_revisions = {item["revision_id"] for item in sample["items"]}
+        for members in by_source.values():
+            if members:
+                self.assertTrue(
+                    all(member in sample_revisions for member in members)
+                    or all(member not in sample_revisions for member in members),
+                    "contrast pair must be sampled as a whole",
+                )
+
+    def test_different_seed_changes_selection_but_keeps_constraints(self) -> None:
+        path = self._write_inventory(self.inventory)
+        first = generate_sample(self.manifest, path, seed="seed-a")
+        second = generate_sample(self.manifest, path, seed="seed-b")
+        self.assertNotEqual(first["sample_id"], second["sample_id"])
+        self.assertNotEqual(
+            [item["revision_id"] for item in first["items"]],
+            [item["revision_id"] for item in second["items"]],
+        )
+        self.assertEqual(second["unmet_constraints"], [])
+
+    def test_overlapping_contrast_groups_are_never_split(self) -> None:
+        # Group 1 (multi-target): A1/A2 share runtime key 'overlap key' with
+        # different targets. Group 2 (near-duplicate): A1 and B1 share the
+        # normalized source ('overlap key' vs 'overlap key.'). A1 is claimed by
+        # whichever group is selected first; the other group must be skipped
+        # whole instead of sampling its remaining member alone.
+        def entry(
+            index: int, source: str, target: str, section: str
+        ) -> dict[str, object]:
+            unit_id = compute_unit_id("tome", section, source, None)
+            revision_id = compute_revision_id(
+                self.manifest.version, unit_id, target, None, None
+            )
+            structure = structure_signature(source, target, None)
+            return {
+                "unit_id": unit_id,
+                "revision_id": revision_id,
+                "version": self.manifest.version,
+                "component": "tome",
+                "section": section,
+                "source": source,
+                "target": target,
+                "source_tag": None,
+                "args_order": None,
+                "special": None,
+                "occurrences": [
+                    {
+                        "logical_path": "tome.lua",
+                        "section": section,
+                        "line": index + 1,
+                        "ordinal": index,
+                    }
+                ],
+                "profile": "ui",
+                "profile_confidence": "high",
+                "domain_hints": [],
+                "relevant_terms": [],
+                "structure": structure,
+                "gate_signals": {
+                    "lua_load_valid": True,
+                    "empty_target": False,
+                    "format_signature_match": None,
+                    "markup_multiset_match": True,
+                    "at_token_multiset_match": True,
+                    "runtime_collision": False,
+                    "needs_review": [],
+                },
+                "risk_flags": [],
+                "source_length_bin": "short",
+            }
+
+        entries: list[dict[str, object]] = []
+        for index in range(130):
+            entries.append(
+                entry(index + 10, f"filler {index}", f"填充 {index}", "data/x.lua")
+            )
+        entries.append(entry(0, "overlap key", "译法甲", "data/contrast/a.lua"))
+        entries.append(entry(1, "overlap key", "译法乙", "data/contrast/a.lua"))
+        entries.append(entry(2, "overlap key ", "译法甲", "data/contrast/b.lua"))
+        path = self._write_inventory(entries)
+        sample = generate_sample(self.manifest, path, seed="overlap-fixture")
+        sampled = {item["revision_id"] for item in sample["items"]}
+        from i18nlib.quality import _contrast_groups
+
+        loaded_entries = [
+            json.loads(line)
+            for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        original_groups = _contrast_groups(loaded_entries, self.qpolicy)
+        for _, members in original_groups:
+            member_ids = {member["revision_id"] for member in members}
+            if any(member in sampled for member in member_ids):
+                self.assertTrue(
+                    all(member in sampled for member in member_ids),
+                    "a contrast group must never be split",
+                )
+        a1_rev = next(
+            e["revision_id"]
+            for e in entries
+            if e["source"] == "overlap key" and e["target"] == "译法甲"
+        )
+        # A1 belongs to both groups, so it is always sampled with one of them
+        self.assertIn(a1_rev, sampled)
+        self.assertEqual(sample["size"], 120)
+
+    def test_unmet_constraints_are_reported_not_silent(self) -> None:
+        entries = [
+            self._entry(
+                index,
+                component="tome",
+                section="data/x.lua",
+                source=f"only ui {index}",
+                target=f"只有界面 {index}",
+                profile="ui",
+                length_bin="short",
+            )
+            for index in range(140)
+        ]
+        path = self._write_inventory(entries)
+        sample = generate_sample(self.manifest, path)
+        self.assertEqual(sample["size"], 120)
+        self.assertGreaterEqual(len(sample["unmet_constraints"]), 4)
+        unmet_ids = {unmet["id"] for unmet in sample["unmet_constraints"]}
+        self.assertIn("profile-min", unmet_ids)
+        self.assertIn("length-bin-min", unmet_ids)
+
+    def test_wrong_sample_size_is_rejected(self) -> None:
+        path = self._write_inventory(self.inventory)
+        with self.assertRaises(ValidationError):
+            generate_sample(self.manifest, path, size=99)
+
+
+class QualityValidationTests(unittest.TestCase):
+    """Phase-1 doc section 10.4: assessment/adjudication safety checks."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.manifest = load_manifest()
+        cls.qpolicy = load_quality_policy(cls.manifest)
+        cls.taxonomy = load_taxonomy(cls.manifest)
+        cls.sample, cls.sample_path = cls._make_sample()
+
+    @classmethod
+    def _make_sample(cls) -> tuple[dict[str, object], Path]:
+        entries = [
+            cls._sample_entry(index)
+            for index in range(320)
+        ]
+        directory = TEST_FIXTURE_ROOT / "quality-validation"
+        directory.mkdir(parents=True, exist_ok=True)
+        path = directory / "inventory.jsonl"
+        path.write_text(
+            "\n".join(
+                json.dumps(entry, ensure_ascii=False, sort_keys=True) for entry in entries
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        sample = generate_sample(
+            cls.manifest, path, seed="quality-validation-fixture"
+        )
+        sample_path = directory / "sample.json"
+        sample_path.write_text(
+            json.dumps(sample, ensure_ascii=False), encoding="utf-8"
+        )
+        return sample, sample_path
+
+    @classmethod
+    def _sample_entry(cls, index: int) -> dict[str, object]:
+        unit_id = compute_unit_id("tome", "data/v.lua", f"source {index}", None)
+        revision_id = compute_revision_id(
+            cls.manifest.version, unit_id, f"target {index}", None, None
+        )
+        structure = structure_signature(f"source {index}", f"target {index}", None)
+        return {
+            "unit_id": unit_id,
+            "revision_id": revision_id,
+            "version": cls.manifest.version,
+            "component": "tome",
+            "section": "data/v.lua",
+            "source": f"source {index}",
+            "target": f"target {index}",
+            "source_tag": None,
+            "args_order": None,
+            "special": None,
+            "occurrences": [
+                {
+                    "logical_path": "tome.lua",
+                    "section": "data/v.lua",
+                    "line": index + 1,
+                    "ordinal": index,
+                }
+            ],
+            "profile": "mechanics",
+            "profile_confidence": "high",
+            "domain_hints": [],
+            "relevant_terms": [],
+            "structure": structure,
+            "gate_signals": {
+                "lua_load_valid": True,
+                "empty_target": False,
+                "format_signature_match": None,
+                "markup_multiset_match": True,
+                "at_token_multiset_match": True,
+                "runtime_collision": False,
+                "needs_review": [],
+            },
+            "risk_flags": [],
+            "source_length_bin": "short",
+        }
+
+    def _assessment(
+        self, evaluator_id: str, sample: dict[str, object]
+    ) -> dict[str, object]:
+        return {
+            "schema_version": 1,
+            "quality_contract": ASSESSMENT_CONTRACT,
+            "sample_id": sample["sample_id"],
+            "evaluator": {
+                "kind": "human",
+                "id": evaluator_id,
+                "method_version": self.qpolicy["pilot"]["method_version"],
+            },
+            "items": [
+                {
+                    "revision_id": item["revision_id"],
+                    "context_sufficient": True,
+                    "profile_confirmed": item["profile"],
+                    "findings": [],
+                    "reuse_recommendation": "same-tag",
+                }
+                for item in sample["items"]
+            ],
+        }
+
+    def _adjudication(
+        self, sample: dict[str, object], assessments: list[dict[str, object]]
+    ) -> dict[str, object]:
+        return {
+            "schema_version": 1,
+            "quality_contract": ADJUDICATION_CONTRACT,
+            "sample_id": sample["sample_id"],
+            "items": [
+                {
+                    "revision_id": item["revision_id"],
+                    "assessment_ids": [
+                        assessment["evaluator"]["id"] for assessment in assessments
+                    ],
+                    "context_sufficient": True,
+                    "resolved_findings": [],
+                    "quality_vector": {
+                        "accuracy": 4,
+                        "mechanics_context": 4,
+                        "terminology": 4,
+                        "fluency": 4,
+                        "style": None,
+                        "ui_render": None,
+                        "corpus_consistency": 4,
+                    },
+                    "confidence": "C3",
+                    "provisional_grade": "Gold",
+                    "reuse_scope": "same-tag",
+                    "rationale": "fixture adjudication",
+                }
+                for item in sample["items"]
+            ],
+        }
+
+    def _write(self, name: str, payload: dict[str, object]) -> Path:
+        path = TEST_FIXTURE_ROOT / "quality-validation" / name
+        path.write_text(
+            json.dumps(payload, ensure_ascii=False), encoding="utf-8"
+        )
+        return path
+
+    def _valid_run(
+        self,
+        assessment_a: dict[str, object] | None = None,
+        assessment_b: dict[str, object] | None = None,
+        adjudication: dict[str, object] | None = None,
+    ) -> tuple[dict[str, object], ...]:
+        a = assessment_a or self._assessment("reviewer-a", self.sample)
+        b = assessment_b or self._assessment("reviewer-b", self.sample)
+        adjudication = adjudication or self._adjudication(self.sample, [a, b])
+        a_path = self._write("assessment-a.json", a)
+        b_path = self._write("assessment-b.json", b)
+        adjudication_path = self._write("adjudication.json", adjudication)
+        return (
+            validate_quality_run(
+                self.manifest,
+                sample_path=self.sample_path,
+                assessment_paths=[a_path, b_path],
+                adjudication_path=adjudication_path,
+                strict=True,
+            ),
+            a,
+            b,
+            adjudication,
+        )
+
+    def test_clean_pilot_validates(self) -> None:
+        validation, _, _, _ = self._valid_run()
+        self.assertTrue(validation["ok"])
+        self.assertEqual(validation["errors"], [])
+
+    def test_policy_default_strict_rejects_unknown_fields(self) -> None:
+        # policy-v1 declares strict_unknown_fields=true; validate without an
+        # explicit --strict flag must still reject unknown fields.
+        a = self._assessment("reviewer-a", self.sample)
+        a["items"][0]["unexpected_field"] = "sneaky"
+        a_path = self._write("assessment-a-strict.json", a)
+        b = self._assessment("reviewer-b", self.sample)
+        b_path = self._write("assessment-b-strict.json", b)
+        adjudication = self._adjudication(self.sample, [a, b])
+        adjudication_path = self._write("adjudication-strict.json", adjudication)
+        validation = validate_quality_run(
+            self.manifest,
+            sample_path=self.sample_path,
+            assessment_paths=[a_path, b_path],
+            adjudication_path=adjudication_path,
+            strict=None,
+        )
+        self.assertFalse(validation["ok"])
+        self.assertTrue(any("unknown fields" in error for error in validation["errors"]))
+
+    def test_root_and_evaluator_unknown_fields_rejected(self) -> None:
+        a = self._assessment("reviewer-a", self.sample)
+        a["unexpected_root"] = "sneaky"
+        a_path = self._write("assessment-a-root.json", a)
+        b = self._assessment("reviewer-b", self.sample)
+        b["evaluator"]["unexpected_evaluator"] = "sneaky"
+        b_path = self._write("assessment-b-root.json", b)
+        adjudication = self._adjudication(self.sample, [a, b])
+        adjudication_path = self._write("adjudication-root.json", adjudication)
+        validation = validate_quality_run(
+            self.manifest,
+            sample_path=self.sample_path,
+            assessment_paths=[a_path, b_path],
+            adjudication_path=adjudication_path,
+            strict=True,
+        )
+        self.assertFalse(validation["ok"])
+        root_errors = [
+            error for error in validation["errors"] if "unexpected_root" in error
+        ]
+        evaluator_errors = [
+            error for error in validation["errors"]
+            if "unexpected_evaluator" in error
+        ]
+        self.assertTrue(root_errors)
+        self.assertTrue(evaluator_errors)
+
+    def test_unknown_error_code_rejected(self) -> None:
+        b = self._assessment("reviewer-b", self.sample)
+        b["items"][0]["findings"] = [
+            {
+                "finding_id": "B-001",
+                "error_code": "NOT_A_CODE",
+                "severity": "major",
+                "source_span": "",
+                "target_span": "",
+                "body": "fixture",
+                "evidence_refs": [],
+            }
+        ]
+        validation, _, _, _ = self._valid_run(assessment_b=b)
+        self.assertFalse(validation["ok"])
+        self.assertTrue(any("unknown error code" in error for error in validation["errors"]))
+
+    def test_absolute_path_rejected(self) -> None:
+        b = self._assessment("reviewer-b", self.sample)
+        b["items"][1]["findings"] = [
+            {
+                "finding_id": "B-002",
+                "error_code": "ACC_MISTRANSLATION",
+                "severity": "major",
+                "source_span": "",
+                "target_span": "",
+                "body": "see /Users/yun/private/file.lua for mechanics",
+                "evidence_refs": [],
+            }
+        ]
+        validation, _, _, _ = self._valid_run(assessment_b=b)
+        self.assertFalse(validation["ok"])
+        self.assertTrue(any("host absolute path" in error for error in validation["errors"]))
+
+    def test_duplicate_finding_id_rejected(self) -> None:
+        b = self._assessment("reviewer-b", self.sample)
+        b["items"][2]["findings"] = [
+            {
+                "finding_id": "DUP",
+                "error_code": "FLU_AWKWARD",
+                "severity": "minor",
+                "source_span": "",
+                "target_span": "",
+                "body": "one",
+                "evidence_refs": [],
+            },
+            {
+                "finding_id": "DUP",
+                "error_code": "FLU_AWKWARD",
+                "severity": "minor",
+                "source_span": "",
+                "target_span": "",
+                "body": "two",
+                "evidence_refs": [],
+            },
+        ]
+        validation, _, _, _ = self._valid_run(assessment_b=b)
+        self.assertFalse(validation["ok"])
+        self.assertTrue(any("duplicate finding_id" in error for error in validation["errors"]))
+
+    def test_incomplete_coverage_rejected(self) -> None:
+        b = self._assessment("reviewer-b", self.sample)
+        b["items"] = b["items"][:-1]
+        validation, _, _, _ = self._valid_run(assessment_b=b)
+        self.assertFalse(validation["ok"])
+        self.assertTrue(any("incomplete coverage" in error for error in validation["errors"]))
+
+    def test_sample_id_mismatch_rejected(self) -> None:
+        b = self._assessment("reviewer-b", self.sample)
+        b["sample_id"] = "0" * 64
+        validation, _, _, _ = self._valid_run(assessment_b=b)
+        self.assertFalse(validation["ok"])
+        self.assertTrue(any("sample_id does not match" in error for error in validation["errors"]))
+
+    def test_unknown_revision_rejected(self) -> None:
+        b = self._assessment("reviewer-b", self.sample)
+        b["items"][0]["revision_id"] = "1" * 64
+        validation, _, _, _ = self._valid_run(assessment_b=b)
+        self.assertFalse(validation["ok"])
+        self.assertTrue(any("unknown revision_id" in error for error in validation["errors"]))
+
+    def test_adjudication_missing_assessment_rejected(self) -> None:
+        adjudication = self._adjudication(self.sample, [])
+        adjudication["items"][0]["assessment_ids"] = ["ghost-evaluator"]
+        validation, _, _, _ = self._valid_run(adjudication=adjudication)
+        self.assertFalse(validation["ok"])
+        self.assertTrue(any("unknown assessments" in error for error in validation["errors"]))
+
+    def test_gold_with_confirmed_blocker_rejected(self) -> None:
+        a = self._assessment("reviewer-a", self.sample)
+        a["items"][3]["findings"] = [
+            {
+                "finding_id": "A-003",
+                "error_code": "TECH_FORMAT",
+                "severity": "blocker",
+                "source_span": "0:4",
+                "target_span": "0:4",
+                "body": "missing argument",
+                "evidence_refs": [],
+            }
+        ]
+        adjudication = self._adjudication(self.sample, [a])
+        for item in adjudication["items"]:
+            if item["revision_id"] == a["items"][3]["revision_id"]:
+                item["resolved_findings"] = [
+                    {
+                        "finding_id": "A-003",
+                        "evaluator_id": "reviewer-a",
+                        "error_code": "TECH_FORMAT",
+                        "severity": "blocker",
+                        "state": "confirmed",
+                        "body": "missing argument",
+                    }
+                ]
+        validation, _, _, _ = self._valid_run(
+            assessment_a=a, adjudication=adjudication
+        )
+        self.assertFalse(validation["ok"])
+        self.assertTrue(
+            any("confirmed blocker/major" in error for error in validation["errors"])
+        )
+
+    def test_rejected_finding_does_not_block_grade(self) -> None:
+        a = self._assessment("reviewer-a", self.sample)
+        a["items"][4]["findings"] = [
+            {
+                "finding_id": "A-004",
+                "error_code": "FLU_AWKWARD",
+                "severity": "minor",
+                "source_span": "",
+                "target_span": "",
+                "body": "subjective",
+                "evidence_refs": [],
+            }
+        ]
+        adjudication = self._adjudication(self.sample, [a])
+        for item in adjudication["items"]:
+            if item["revision_id"] == a["items"][4]["revision_id"]:
+                item["resolved_findings"] = [
+                    {
+                        "finding_id": "A-004",
+                        "evaluator_id": "reviewer-a",
+                        "error_code": "FLU_AWKWARD",
+                        "severity": "minor",
+                        "state": "rejected",
+                        "body": "subjective",
+                        "rationale": "not a defect",
+                    }
+                ]
+        validation, _, _, _ = self._valid_run(
+            assessment_a=a, adjudication=adjudication
+        )
+        self.assertTrue(validation["ok"])
+
+    def test_assessment_must_cover_all_sample_revisions(self) -> None:
+        b = self._assessment("reviewer-b", self.sample)
+        b["items"] = [
+            item for item in b["items"] if item["revision_id"] != b["items"][0]["revision_id"]
+        ]
+        validation, _, _, _ = self._valid_run(assessment_b=b)
+        self.assertFalse(validation["ok"])
+
+
+class QualityMetricsTests(unittest.TestCase):
+    """Phase-1 doc section 8: agreement and finding-matching metrics."""
+
+    def test_weighted_kappa_perfect_and_random(self) -> None:
+        self.assertEqual(_weighted_kappa([0, 1, 2], [0, 1, 2], 5), 1.0)
+        kappa = _weighted_kappa([0, 0, 1, 1], [1, 1, 0, 0], 3)
+        self.assertIsNotNone(kappa)
+        self.assertLess(kappa, 0)
+        self.assertIsNone(_weighted_kappa([], [], 5))
+
+    def test_finding_matching_requires_category_compatible_codes(self) -> None:
+        left = [
+            {
+                "finding_id": "A-1",
+                "error_code": "ACC_MISTRANSLATION",
+                "severity": "major",
+                "source_span": "0:5",
+                "target_span": "0:5",
+                "body": "",
+                "evidence_refs": [],
+            }
+        ]
+        right = [
+            {
+                "finding_id": "B-1",
+                "error_code": "ACC_CONDITION",
+                "severity": "major",
+                "source_span": "0:5",
+                "target_span": "0:5",
+                "body": "",
+                "evidence_refs": [],
+            }
+        ]
+        mergeable = {
+            ("ACC_CONDITION", "ACC_MISTRANSLATION"),
+        }
+        matches = _match_findings(left, right, mergeable)
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0][1]["finding_id"], "B-1")
+        non_mergeable = {("FLU_AWKWARD", "ACC_MISTRANSLATION")}
+        self.assertEqual(_match_findings(left, right, non_mergeable), [])
+
+    def test_finding_matching_respects_span_overlap(self) -> None:
+        left = [
+            {
+                "finding_id": "A-1",
+                "error_code": "ACC_CONDITION",
+                "severity": "major",
+                "source_span": "0:5",
+                "target_span": "0:5",
+                "body": "",
+                "evidence_refs": [],
+            }
+        ]
+        right = [
+            {
+                "finding_id": "B-1",
+                "error_code": "ACC_CONDITION",
+                "severity": "major",
+                "source_span": "10:20",
+                "target_span": "10:20",
+                "body": "",
+                "evidence_refs": [],
+            }
+        ]
+        self.assertEqual(
+            _match_findings(
+                left, right, {("ACC_CONDITION", "ACC_CONDITION")}
+            ),
+            [],
+        )
+
+
+class QualityInventoryIntegrationTests(unittest.TestCase):
+    """Phase-1 doc section 10.5: real-corpus inventory conservation."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.manifest = load_manifest()
+        cls.runtime = LuaRuntime(cls.manifest)
+        cls.runtime.doctor()
+        cls.loader = LocaleLoader(cls.runtime)
+
+    def test_inventory_conserves_loader_counts_and_is_deterministic(self) -> None:
+        first = build_inventory(self.manifest, self.loader)
+        loader_translations = 0
+        for component in self.manifest.components:
+            paths = [component.translation]
+            if component.copy_fragment:
+                paths.insert(0, component.copy_fragment)
+            for logical_path in paths:
+                document = self.loader.load_path(
+                    self.manifest.root / logical_path, logical_path=logical_path
+                )
+                loader_translations += len(document.translations)
+        self.assertEqual(first["summary"]["occurrences"], loader_translations)
+        self.assertEqual(first["summary"]["entries"], len(first["entries_list"]))
+        self.assertGreater(first["summary"]["entries"], 10000)
+        second = build_inventory(self.manifest, self.loader)
+        self.assertEqual(first["inventory_sha256"], second["inventory_sha256"])
+        self.assertEqual(first["entries_list"], second["entries_list"])
+
+
+class PiEventStreamTests(unittest.TestCase):
+    """pi --mode json event stream extraction (live pane visibility)."""
+
+    def test_extracts_final_assistant_text_from_event_stream(self) -> None:
+        from i18nlib.proposal import extract_event_stream_output
+
+        stream = (
+            b'{"type":"session","version":3,"id":"s1"}\n'
+            b'{"type":"agent_start"}\n'
+            b'{"type":"message_start","message":{"role":"user","content":[]}}\n'
+            b'{"type":"message_end","message":{"role":"user","content":[]}}\n'
+            b'{"type":"message_end","message":{"role":"assistant",'
+            b'"content":[{"type":"reasoning","text":"think think"},'
+            b'{"type":"text","text":"review payload"}]}}\n'
+            b'{"type":"agent_end"}\n'
+        )
+        self.assertEqual(
+            extract_event_stream_output(stream, "Pi review output"),
+            b"review payload",
+        )
+
+    def test_plain_output_passes_through_unchanged(self) -> None:
+        from i18nlib.proposal import extract_event_stream_output
+
+        plain = b'{"findings": []}'
+        self.assertEqual(
+            extract_event_stream_output(plain, "Pi review output"), plain
+        )
+
+    def test_event_stream_without_assistant_text_is_empty(self) -> None:
+        from i18nlib.proposal import extract_event_stream_output
+
+        stream = b'{"type":"session","version":3}\n{"type":"agent_end"}\n'
+        self.assertEqual(
+            extract_event_stream_output(stream, "Pi review output"), b""
+        )
+
+
+class PiPanePreviewTests(unittest.TestCase):
+    """Readable line-oriented pane preview for the pi --mode json stream."""
+
+    def _render(self, lines: list[bytes]) -> str:
+        import io
+
+        from i18nlib.pi_tmux import PaneStreamRenderer
+
+        mirror = io.BytesIO()
+        renderer = PaneStreamRenderer(mirror, use_color=False)
+        for line in lines:
+            renderer.feed_line(line)
+        renderer.flush()
+        return mirror.getvalue().decode("utf-8")
+
+    def test_plain_lines_pass_through_unchanged(self) -> None:
+        self.assertEqual(self._render([b"streamed stdout", b"streamed stderr"]),
+                         "streamed stdout\nstreamed stderr\n")
+
+    def test_status_events_become_readable_lines(self) -> None:
+        output = self._render(
+            [
+                b'{"type":"agent_start"}',
+                b'{"type":"message_end","message":{"role":"assistant","content":[]}}',
+            ]
+        )
+        self.assertIn("[pi] agent_start", output)
+        self.assertIn("[pi] message_end role=assistant", output)
+
+    def test_deltas_are_assembled_into_complete_lines(self) -> None:
+        output = self._render(
+            [
+                b'{"type":"message_update","assistantMessageEvent":'
+                b'{"type":"thinking_start","delta":""}}',
+                b'{"type":"message_update","assistantMessageEvent":'
+                b'{"type":"thinking_delta","delta":"first "}}',
+                b'{"type":"message_update","assistantMessageEvent":'
+                b'{"type":"thinking_delta","delta":"line\\nsec"}}',
+                b'{"type":"message_update","assistantMessageEvent":'
+                b'{"type":"thinking_delta","delta":"ond"}}',
+                b'{"type":"message_update","assistantMessageEvent":'
+                b'{"type":"thinking_end","delta":""}}',
+            ]
+        )
+        self.assertEqual(output, "first line\nsecond\n")
+
+    def test_thinking_deltas_are_dimmed_when_colored(self) -> None:
+        import io
+
+        from i18nlib.pi_tmux import PaneStreamRenderer
+
+        mirror = io.BytesIO()
+        renderer = PaneStreamRenderer(mirror, use_color=True)
+        renderer.feed_line(
+            b'{"type":"message_update","assistantMessageEvent":'
+            b'{"type":"thinking_start","delta":""}}'
+        )
+        renderer.feed_line(
+            b'{"type":"message_update","assistantMessageEvent":'
+            b'{"type":"thinking_delta","delta":"deep thoughts\\n"}}'
+        )
+        renderer.feed_line(
+            b'{"type":"message_update","assistantMessageEvent":'
+            b'{"type":"text_start","delta":""}}'
+        )
+        renderer.feed_line(
+            b'{"type":"message_update","assistantMessageEvent":'
+            b'{"type":"text_delta","delta":"plain answer\\n"}}'
+        )
+        renderer.flush()
+        output = mirror.getvalue().decode("utf-8")
+        self.assertIn("\x1b[2mdeep thoughts\x1b[0m", output)
+        self.assertNotIn("\x1b[2mplain answer\x1b[0m", output)
+
+    def test_message_update_lines_are_dropped_from_raw(self) -> None:
+        from i18nlib.pi_tmux import _is_message_update_line
+
+        self.assertTrue(
+            _is_message_update_line(
+                b'{"type":"message_update","assistantMessageEvent":{"delta":"x"}}'
+            )
+        )
+        self.assertFalse(
+            _is_message_update_line(
+                b'{"type":"message_end","message":{"role":"assistant"}}'
+            )
+        )
+        self.assertFalse(_is_message_update_line(b"plain line"))
 
 
 if __name__ == "__main__":
