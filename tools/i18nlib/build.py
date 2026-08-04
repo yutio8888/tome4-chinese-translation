@@ -436,6 +436,7 @@ def build_addon_locale(
         "inherited_entries": inherited_entries,
         "override_entries": override_entries,
         "new_entries": new_entries,
+        "delta_entries": delta_entries,
         "skipped": skipped,
         "verification": verification,
         "output": str(output_path),

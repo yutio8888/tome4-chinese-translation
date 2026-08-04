@@ -63,7 +63,13 @@ provider，首次调用前仍需明确确认 provider、model 和数据范围；
   提取快照哈希。该层仍为 `baseline-pending`，不能被核心构建隐式继承。
   **基线已验证（2026-08-04）**：`extract` 对三组件的快照 SHA-256 与条目数
   与 manifest `source_baseline` 完全一致（ashes 999 / cults 2444 / orcs 4493 tDef），
-  基线可复现；DLC 层的构建路径仍待 `merge` 快照产物接入后启用。
+  基线可复现。
+  **DLC 译文发布（2026-08-04）**：`publish` 将三个 DLC 的专有条目
+  （运行时 key 不在官方 tome/engine/boot locale 中）合并进发布仓库
+  `data/locales/zh_hans.lua` 的独立 section（ashes 743 / cults 1555 /
+  orcs 3126 条，跨组件重复 key 去重；官方已有的 key 留给核心层继承，
+  DLC 层不遮蔽主游戏文本）。游戏 locale 加载机制自动读取同一文件，无需
+  额外加载挂钩。
 - `items-vault` 和 `possessors` 暂时忽略：规范译文文件仍保留并参与 lint，
   但 manifest 不再声明其受保护来源映射，也不把它们列为 addon 候选或发布层组件。
   后续恢复时应同时还原受保护来源映射、addon eligibility 和发布层归属。

@@ -19,9 +19,10 @@ import subprocess
 from pathlib import Path
 from typing import Any
 
-from .build import build_addon_locale
+from .build import _render_addon_locale, build_addon_locale
 from .config import Manifest
 from .errors import ValidationError
+from .git_source import GitRepository
 from .locale_model import LocaleLoader, runtime_map
 from .report import write_json
 
@@ -44,6 +45,58 @@ def _bump_init_version(init_text: str) -> tuple[str, str]:
     return _ADDON_VERSION_RE.sub(new_version, init_text, count=1), (
         f"{major}.{minor}.{patch + 1}"
     )
+
+
+def _official_locale_keys(manifest: Manifest, loader: LocaleLoader) -> set[tuple[str, str | None]]:
+    """(source, source_tag) keys of the official zh_hans locales (tome/engine/boot)."""
+    repository = GitRepository(manifest.repository_path("engine"))
+    commit = manifest.repositories["engine"].commit
+    keys: set[tuple[str, str | None]] = set()
+    for component_id in ("tome", "engine", "boot"):
+        component = manifest.component(component_id)
+        if not component.official_locale:
+            continue
+        document = loader.load_bytes(
+            repository.read_blob(commit, component.official_locale),
+            logical_path=f"{commit}:{component.official_locale}",
+        )
+        keys.update(
+            (entry.get("source"), entry.get("source_tag"))
+            for entry in document.translations
+        )
+    return keys
+
+
+_DLC_COMPONENTS = ("ashes-urhrok", "cults", "orcs")
+
+
+def _dlc_overlay_entries(
+    manifest: Manifest,
+    loader: LocaleLoader,
+    official_keys: set[tuple[str, str | None]],
+) -> list[dict[str, Any]]:
+    """DLC entries whose runtime key is absent from the official locales.
+
+    These are DLC-specific texts; entries that already exist in the official
+    zh_hans locales are left to the core overlay/official inheritance so the
+    DLC layer never shadows main-game strings.
+    """
+    entries: list[dict[str, Any]] = []
+    seen: set[tuple[str, str | None]] = set()
+    for component_id in _DLC_COMPONENTS:
+        component = manifest.component(component_id)
+        document = loader.load_path(
+            manifest.root / component.translation, logical_path=component.translation
+        )
+        for entry in document.translations:
+            key = (entry.get("source"), entry.get("source_tag"))
+            if key in official_keys or key in seen:
+                continue
+            seen.add(key)
+            rendered = dict(entry)
+            rendered["section"] = component_id
+            entries.append(rendered)
+    return entries
 
 
 def publish_addon(
@@ -69,8 +122,13 @@ def publish_addon(
         components,
         include_external_requirements=False,
     )
-    artifact_bytes = Path(build_report["output"]).read_bytes()
-    artifact_sha256 = build_report["sha256"]
+    # Merge DLC-specific entries (runtime keys absent from official locales)
+    # into the same zh_hans.lua, in their own sections.
+    official_keys = _official_locale_keys(manifest, loader)
+    dlc_entries = _dlc_overlay_entries(manifest, loader, official_keys)
+    merged_entries = list(build_report["delta_entries"]) + dlc_entries
+    artifact_bytes = _render_addon_locale(manifest, merged_entries, skipped=[])
+    artifact_sha256 = hashlib.sha256(artifact_bytes).hexdigest()
 
     locale_path = addon_root / _LOCALE_RELATIVE
     init_path = addon_root / _INIT_RELATIVE
@@ -83,10 +141,11 @@ def publish_addon(
     current_bytes = locale_path.read_bytes()
     current_sha256 = hashlib.sha256(current_bytes).hexdigest()
     current_entries = _count_entries(loader, locale_path)
-    new_entries = _count_entries(
-        loader,
-        Path(build_report["output"]),
-    )
+    new_entries = len(merged_entries)
+    dlc_entries_by_component = {
+        component_id: sum(1 for e in dlc_entries if e.get("section") == component_id)
+        for component_id in _DLC_COMPONENTS
+    }
 
     old_version = None
     new_version = None
@@ -114,6 +173,8 @@ def publish_addon(
         "delta_runtime_keys": sum(
             c["delta_entries"] for c in build_report["components"]
         ),
+        "dlc_entries": len(dlc_entries),
+        "dlc_entries_by_component": dlc_entries_by_component,
         "override_entries": build_report["override_entries"],
         "new_entries_overlay": build_report["new_entries"],
         "verification": build_report["verification"],
