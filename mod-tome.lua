@@ -5710,7 +5710,7 @@ t([[I found it... the abomination Aeryn sent me to seek out. The breeding pits o
 This could be the final solution, the end to the war... forever. We must strike soon, before reinforcements...
 
 #LIGHT_GREEN#*She looks hard at you, exerting all her effort into a final pleading stare.*#WHITE#]], [[我找到了...艾琳让我去寻找的那个令人憎恶的东西。兽人育种棚...比你能想象的还要邪恶一万倍...他们把它隐藏在远离他们的营地的地方,远离他们所有人的视线。他们的母亲和孩子都在那里——全都毫无防备！
-#LIGHT_GREEN#*她掏出一张地图，努力地递到你手中。*#WHITE#
+#LIGHT_GREEN#*她掏出一张地图，递到你手中，目光紧盯着你。*#WHITE#
 
 这将是最后的解决方案，让战争终结...永远终结。我们必须马上行动，在援军到来之前...
 
@@ -5738,7 +5738,7 @@ t("What the...", "我X！", "_t")
 ------------------------------------------------
 section "mod-tome/data/chats/player-inscription.lua"
 
-t("Buy a new slot with one #{bold}#talent category point#{normal}#.", "使用#{bold}#技能树解锁点#{normal}#开启一个新的刻印位（最多5个）。", "_t")
+t("Buy a new slot with one #{bold}#talent category point#{normal}#.", "使用#{bold}#技能树解锁点#{normal}#开启一个新的刻印位。", "_t")
 t("Cancel", "取消", "_t")
 t("You have too many of this type of inscription. You can only override an existing one. The old inscription will be lost.", "你已经拥有很多此类刻印了，你只能选择覆盖掉现存的某一个。旧的刻印将消失。", "_t")
 t([[You have reached your maximum number of inscriptions (infusions/runes).
@@ -5922,7 +5922,7 @@ You shake your head as the vision dissipates, and your normal sight comes back s
 你看到众神都被击败、杀死，除了一个。
 随后你看到了黑暗；似乎那个阴影并不知道那些事件之后发生了什么。
 
-你摇了摇驱散了脑海中的影像，你的眼前慢慢恢复了现实的景象。
+你摇了摇头，驱散了脑海中的影像，眼前慢慢恢复了现实的景象。
 #WHITE#*
 ]], "_t")
 t("Those are Sher'Tuls? They fought the gods?!", "那是夏·图尔？他们和众神战斗？！", "_t")
@@ -8226,7 +8226,7 @@ t("A giant black-skinned humanoid covered in spikey scabrous deposits.  Its face
 t("drem master", "德瑞姆领主", "entity name")
 t("A disfigured humanoid with vaguely Dwarven features dressed in patched-together and rusted mail armor.  It seems to be in command of others, though its mouth is sewn shut.", "一个残缺畸形、带有部分矮人特征的人形怪物，穿着缝缝补补、锈迹斑斑的锁子甲。它似乎统领着其他生物，尽管它的嘴被缝上了。", "_t")
 t("brecklorn", "布瑞克隆", "entity name")
-t("A giant hairless bat with the face of a Dwarf twisted into a constant scream.  Pustulant sores cover its malformed body, and your heart weakens as it nears.", "一只巨大的无毛蝙蝠，它有着一张不停尖叫且扭曲的矮人脸。化脓的疮口覆盖着它畸形的身体，当它靠近时，你的心跳越来越弱。", "_t")
+t("A giant hairless bat with the face of a Dwarf twisted into a constant scream.  Pustulant sores cover its malformed body, and your heart weakens as it nears.", "一只巨大的无毛蝙蝠，它长着一张扭曲成永恒尖叫状的矮人脸。化脓的疮口覆盖着它畸形的身体，当它靠近时，你的心跳越来越弱。", "_t")
 t("grannor'vor", "格兰诺伏尔", "entity name")
 t("A large sluglike creature that moves slowly, leaving a trail of acid in its wake.  Its head has strangely humanoid features.", "一只长的类似蛞蝓的生物，当它缓慢经过时，会留下一滩酸性的踪迹。它的头部有着奇怪的人类特征。", "_t")
 t("grannor'vin", "格兰诺文", "entity name")
@@ -17907,7 +17907,7 @@ All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and 
 
 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以对魔法亲和著称，而这类人通常是猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在遥远后裔的身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
 
-高等人类基本身高在6英英尺左右，有着金色的头发、白皙的皮肤和蓝灰色的眼睛。大多数的学者是高等人类，贵族阶层中也不乏他们的身影。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期孔克雷夫法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与其他种族通婚会极大的降低这种血统的优越。
+高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝灰色的眼睛。大多数的学者是高等人类，贵族阶层中也不乏他们的身影。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期孔克雷夫法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与其他种族通婚会极大的降低这种血统的优越。
 
 在烈火纪，狮心王图库纳统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 2 - Halflings", "博学者格雷诺特关于人种的调查——第二章——半身人", "_t")
@@ -18058,11 +18058,11 @@ Nagas were once believed to be mere myth, but reliable reports and even the capt
 
 The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]], [[任何完整的著述都少不了至少简要提及那些肆虐于我们世界的野蛮种族。他们没有任何值得一提的文明社会，一般来说也不具备高等思维或文化，但是对于那些热衷于分析低等智慧生物的人而言，他们仍然值得研究。
 
-巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生存与东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度和更为发达的言语能力，并且以移动迅速和能够使用精工武器闻名，尽管他们没有那么发达的肌肉和强壮的身躯。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且巨魔们的广泛分布和令人惊讶的生育率使得他们至今仍活跃在马基·埃亚尔的舞台上。
+巨魔主要分为两大类——科兹拉克和马提普，或者说岩石和森林巨魔，因为这更加通俗地为人所知。岩石巨魔生活于东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着强壮的肌肉和厚厚的煤黑色或花岗岩状的外观。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比岩石巨魔同胞有着更为敏捷的速度和更为发达的言语能力，并且以移动迅速和能够使用精工武器闻名，尽管他们没有那么发达的肌肉和强壮的身躯。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪时，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且巨魔们的广泛分布和令人惊讶的生育率使得他们至今仍活跃在马基·埃亚尔的舞台上。
 
-巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英英尺高。他们看起来就像是具有浮肿面部特征和更长的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者攻击市民，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的优越文化和语言，但是却向我们揭示了有限智慧的运用和团结一致的精神。
+巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来就像是具有浮肿面部特征和更长的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者攻击市民，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的优越文化和语言，但是却向我们揭示了有限智慧的运用和团结一致的精神。
 
-娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这表明他们生活于波涛之下。近几百年才有关于他们的记载，而且只是近来人们才开始认为他们不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和腮，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。
+娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们大约身高6英尺，尽管他们的尾巴可能更长。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这表明他们生活于波涛之下。近几百年才有关于他们的记载，而且只是近来人们才开始认为他们不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和腮，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是截至目前为止我们发现与他们沟通几乎是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。
 
 恶魔的起源已经不为人所知，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常与恶魔巫师们为伍。最主要的理论，由永恒精灵魔导师们得出的，恶魔们似乎来自另一个世界，一个由纯净的奥术能量链接的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常流着泛蓝的血液，血肉与皮肤呈金属质感，往往会与我们的空气产生奇异反应——有些燃起火焰，有些释放出可怕的酸液或喷吐出黑暗之云。这一切看起来都是建立在精通魔法的某种基础上，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 11 - Dragons", "博学者格雷诺特关于人种的调查——第十一章——龙族", "_t")
@@ -18957,7 +18957,7 @@ Pumping nutrients directly into their stomach is proving a difficulty with the i
 
 虽然这些子宫以极快的速度运作，我们仍在抑制她们的重要器官，以延长她们的寿命。也许她们可以活上数百年，甚至数千年。
 
-随着实验体的腹部一天天增大，如何将高蛋白营养注入她们的胃部逐渐变的困难。我正在研究如何将营养散播到空气中，这样实验体直接靠呼吸就可以吸收。初步结果显示，这样会导致皮肤上出现黏液沉积，面有块状物聚积，不过没有任何副作用。]], "_t")
+随着实验体的腹部一天天增大，如何将高蛋白营养注入她们的胃部逐渐变的困难。我正在研究如何将营养散播到空气中，这样实验体直接靠呼吸就可以吸收。初步结果显示，这样会导致皮肤上出现黏液沉积，除此之外没有任何其他副作用。]], "_t")
 t("Clinician Korbek's experimental notes part four", "巫医库贝克的实验报告，第四部分", "_t")
 t([[#{bold}#Clinician Korbek's experimental notes part four#{normal}#
 
@@ -20085,7 +20085,7 @@ t("elixir of foundations", " 领悟药剂 ", "_t")
 section "mod-tome/data/quests/charred-scar.lua"
 
 t("The Doom of the World!", "世界末日！", "_t")
-t("You were sent to the Charred Scar at the heart of which lies a huge volcano. In the Age of Pyre it destroyed the old Sher'Tul ruins that stood there, absorbing much of their latent magic.", "你被送到了灼烧之痕，其中部是一个巨大的火山，在烈火纪元这里曾是夏·图尔遗址的所在，吸收了大量潜藏的魔法。", "_t")
+t("You were sent to the Charred Scar at the heart of which lies a huge volcano. In the Age of Pyre it destroyed the old Sher'Tul ruins that stood there, absorbing much of their latent magic.", "你被送到了灼烧之痕，其中心是一座巨大的火山——烈火纪元时，喷发的火山摧毁了当时矗立于此的古老夏·图尔遗址，并吸收了其中潜藏的大量魔法。", "_t")
 t("This place is still full of that power and the orcs intend to absorb this power using the Staff of Absorption!", " 这里仍然充满了那种能量，兽人打算用吸能法杖的力量来吸收这里的能量。", "_t")
 t("Whatever their plan may be, they must be stopped at all cost.", " 不管他们的目的是要干什么，必须不惜一切代价阻止他们。", "_t")
 t("The volcano is attacked by orcs. A few Sun Paladins made it there with you. They will hold the line at the cost of their lives to buy you some time.", " 火山受到了兽人的攻击，一些太阳骑士正顶在最前线用他们的生命来帮助你争取一些时间。", "_t")
@@ -43045,7 +43045,7 @@ t("Though magic is still shunned in Maj'Eyal, rumours abound of secret havens of
 t("The Rush talent lets you close in on an enemy quickly and daze them, disabling them whilst you hack down their friends.", "冲锋技能可以让你快速接近敌人并眩晕目标，你可以借此时机击倒它的同伴。", "init.lua load_tips")
 t("Stunning an opponent slows down their movement and reduces their damage output, giving you the opportunity to tactically reposition or finish them off at less risk.", "震慑可以减缓目标的移动速度，降低其伤害输出，这样可以为你制造机会解决它们，或者降低他们对你的威胁。", "init.lua load_tips")
 t("Movement is key on the battlefield. A stationary fighter will become a dead fighter. One must always seek the position of greatest tactical advantage and continue to re-evaluate throughout the battle.", "移动是战斗制胜的关键。一个固定不动的战士只会变成一个死的战士。战斗过程中你必须随时调整你的走位以保持你的优势。", "init.lua load_tips")
-t("In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.", "在烈火纪，兽人秘密学习了魔法，他们恐怖的魔法力量差一点毁灭了整个埃亚尔大陆。", "init.lua load_tips")
+t("In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.", "在烈火纪，兽人学到了魔法的奥秘，他们恐怖的魔法力量差一点毁灭了整个埃亚尔大陆。", "init.lua load_tips")
 t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们几乎已经灭绝，不过传言他们正准备秘密地卷土重来。", "init.lua load_tips")
 t("Intense willpower lets wyrmics take on the natural powers of dragons.", "高强度的意志使龙战士可以获得龙族的自然力量。", "init.lua load_tips")
 t("Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.", "炼金术士可以转化宝石制造强大的爆炸，同时他们还可以召唤傀儡来守护他们。", "init.lua load_tips")
@@ -43088,7 +43088,7 @@ t("It's said that some rare powers can save your soul from the edge of death.", 
 t("Rumours tell of a shadowy cult kidnapping women and performing strange rites. Their intentions are unknown, and they have so far evaded capture.", "传说有一个邪教组织，他们绑架妇女举行奇怪的仪式，没人知道他们真正的目的，至今他们还没有被抓捕。", "init.lua load_tips")
 t("Though slavery is illegal there is still a black market for it, and in some areas men are even used for blood sports.", "尽管贩奴被严令禁止但地下交易却仍然存在。有些地方奴隶甚至被作为一种血腥运动项目的道具。", "init.lua load_tips")
 t("Maj'Eyal is the biggest continent in the world of Eyal. Though records suggest other continents and islands may exist it has not been possible to cross the wide and stormy oceans since the Spellblaze and the Cataclysm.", "马基埃亚尔是埃亚尔世界中最大的一块大陆。虽然有记载世界上有可能还存在着其他大陆或者岛屿，但自从魔法大爆炸和大灾变发生之后，穿越浩瀚的风暴之海已经不大可能了。", "init.lua load_tips")
-t("The effects of the Spellblaze were not all instant, and many centuries later the Cataclysm tore the continent apart once more, devastating coastal areas the destroying all of the Naloren lands.", "魔法大爆炸造成的影响并非仅局限于那一瞬间，数个世纪之后，大灾变再次撕裂了大陆，摧毁了沿海地区，并灭绝了所有纳鲁精灵的领地。", "init.lua load_tips")
+t("The effects of the Spellblaze were not all instant, and many centuries later the Cataclysm tore the continent apart once more, devastating coastal areas the destroying all of the Naloren lands.", "魔法大爆炸造成的影响并非仅局限于那一瞬间，数个世纪之后，大灾变再次撕裂了大陆，摧毁了沿海地区，并摧毁了所有纳鲁人的土地。", "init.lua load_tips")
 t("Archers are fast and deadly, and with pinning shots can render their foes helpless as they swiftly dispatch them.", "弓箭手行动迅捷而致命，他们可以使用定身射击使敌人无力反抗，然后迅速解决他们。", "init.lua load_tips")
 t("Reavers are powerful fighters with corrupted blood, and the strength to wield a one-handed weapon in each arm.", "收割者是流着堕落之血的强大战士，他们双手各可以装备一件单手武器。", "init.lua load_tips")
 t("Corruptors feed off the essence of others, and can use their own corrupted blood to launch deadly magical attacks.", "腐化者可以吸取他人的精华，并使用他们的堕落力量发动致命的魔法攻击。", "init.lua load_tips")
