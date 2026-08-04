@@ -1096,9 +1096,9 @@ Thanks, and have fun!]], [[欢迎！
 ------------------------------------------------
 section "engine/engine/dialogs/microtxn/ShowPurchasable.lua"
 
-t("#{italic}##UMBER#Bonus vault slots from this order: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#这项购买提供的额外在线共享装备格数： #ROYAL_BLUE#%d#{normal}#", "_t")
+t("#{italic}##UMBER#Bonus vault slots from this order: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#这项购买提供的额外在线仓库空间： #ROYAL_BLUE#%d#{normal}#", "_t")
 t([[For every purchase of #{italic}##GREY#%s#LAST##{normal}# you gain a permanent additional vault slot.
-#GOLD##{italic}#Because why not!#{normal}#]], [[每次购买 #{italic}##GREY#%s#LAST##{normal}#，你都会获得额外一个在线共享装备格。
+#GOLD##{italic}#Because why not!#{normal}#]], [[每次购买 #{italic}##GREY#%s#LAST##{normal}#，你都会获得额外一个在线仓库格。
 #GOLD##{italic}#为什么不呢！#{normal}#]], "_t")
 t("#{italic}##UMBER#Voratun Coins available from your donations: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#可用沃瑞钽硬币数：#ROYAL_BLUE#%d#{normal}#", "_t")
 t([[For every donations you've ever made you have earned voratun coins. These can be spent purchasing expansions or options on the online store. This is the amount you have left, if your purchase total is below this number you'll instantly get your purchase validated, if not you'll need to donate some more first.

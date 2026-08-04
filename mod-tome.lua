@@ -13025,7 +13025,8 @@ t("The Untouchable", "不可触及", "entity name")
 t("tough leather coat", "硬皮甲", "_t")
 t([[This rugged jacket is the subject of many a rural legend.
 Some say it was fashioned by an adventurous mage turned rogue, in times before the Spellblaze, but was since lost.
-All manner of shady gamblers have since claimed to have worn it at one point or another. To fail, but live, is what it means to be untouchable, they said.]], "这件破旧的夹克是许多乡村传说的主角。有人说，在魔法大爆炸之前的年代，一位转行盗贼的冒险法师制作了它，但此后便遗失了。形形色色的神秘赌徒都声称自己曾穿过它。他们说，失败却活下来，这就是“不可触及”的含义。", "_t")
+All manner of shady gamblers have since claimed to have worn it at one point or another. To fail, but live, is what it means to be untouchable, they said.]], "这件破旧的夹克是许多乡村传说的主角。有人说，在魔法大爆炸之前的年代，一位转行盗贼的冒险法师制作了它，但此后便遗失了。
+形形色色的神秘赌徒都声称自己曾穿过它。他们说，失败却活下来，这就是“不可触及”的含义。", "_t")
 t("When you take a hit of more than 20% of your max life a shield is created equal to 130% the damage taken.", "当你受到一次攻击损失超过20%最大生命值时，你获得一个护盾，可吸收那个数值130%的伤害。", "_t")
 t("#LIGHT_BLUE#A barrier bursts from the leather jacket!", "#LIGHT_BLUE#这件皮夹克突然爆发出一股护盾能量！", "logPlayer")
 t("Honeywood Chalice", "蜂蜜木酒杯", "entity name")
@@ -30279,7 +30280,7 @@ section "mod-tome/data/talents/techniques/dualweapon.lua"
 
 t("Dual Weapon Training", "双持专精", "talent name")
 t("Increases the damage of your off-hand weapon to %d%%.", "副手武器伤害增加至 %d%%。", "tformat")
-t("Dual Weapon Defense", "抵挡训练", "talent name")
+t("Dual Weapon Defense", "招架训练", "talent name")
 t([[You have learned to block incoming blows with your offhand weapon.
 		When dual wielding, your defense is increased by %d.
 		Up to %0.1f times a turn, you have a %d%% chance to parry up to %d damage (based on your your offhand weapon damage) from a melee attack.
@@ -30350,7 +30351,7 @@ t("Terrain prevents #Source# from switching places with #Target#.", "地形阻�
 t([[Make a cunning feint that tricks your target into swapping places with you.  While moving, you take the opportunity to trip them, pinning and dazing them for 2 turns.
 		Switching places distracts your foes and allows you to improve your defenses:  For %d turns, Dual Weapon Mastery yields one extra parry each turn and you are %d%% less likely to miss your parry opportunities.
 		The chance to pin and to daze increases with your Accuracy]], [[假装攻击敌人，欺骗敌人和你换位。在移动时趁机削弱敌人，使其定身并眩晕 2 回合。
-		换位令你的敌人分心，使你的闪避得到强化： %d 回合内，双持掌握提供额外一次抵挡攻击机会，你错失抵挡机会的几率下降 %d%%。
+		换位令你的敌人分心，使你的闪避得到强化： %d 回合内，双持掌握提供额外一次招架机会，你错失招架机会的几率下降 %d%%。
 		定身与眩晕几率受命中加成。]], "tformat")
 t("Lunge", "刺击", "talent name")
 t("You require two weapons to use this talent.", "你只有在双持状态下才能使用这个技能。", "logPlayer")
@@ -37352,7 +37353,7 @@ t("#Target# is protected by a layer of thick leaves.", "#Target#被一层厚厚�
 t("+Leaves Cover", "+叶之守护", "_t")
 t("#Target# cover of leaves falls apart.", "#Target#的叶刃保护消失了。", "_t")
 t("-Leaves Cover", "-叶之守护", "_t")
-t("Parrying", "抵挡攻击", "_t")
+t("Parrying", "招架", "_t")
 t("Parrying melee attacks: Has a %d%% chance to deflect up to %d damage from the next %0.1f attack(s).", "格挡近战攻击：有 %d%% 几率偏转接下来攻击中至多 %d 点伤害（剩余 %0.1f 次）。", "tformat")
 t("Parrying melee%s attacks: Has a %d%% chance to deflect up to %d damage from the next %0.1f attack(s).  Parried attacks cannot crit.", "格挡近战%s攻击：有 %d%% 几率偏转接下来攻击中的至多 %d 点伤害（剩余 %0.1f 次）。被格挡的攻击不会暴击。", "tformat")
 t(" and ranged", "和远程", "_t")
@@ -37591,7 +37592,7 @@ t("Increases %sdefense by %d.", "增加 %s %d闪避。", "tformat")
 t("Ghoulish Leap", "食尸鬼跳跃", "_t")
 t("The target's global speed is increased by %d%%.", "目标的全局速度增加 %d%%。", "tformat")
 t("Feint", "佯攻", "_t")
-t("The target gains 1 extra parry opportunity each turn, and its chance to fail each parry is reduced by %d%%.", "目标每回合获得一次额外的用匕首抵挡攻击的机会  ，抵挡失败率下降 %d%%。", "tformat")
+t("The target gains 1 extra parry opportunity each turn, and its chance to fail each parry is reduced by %d%%.", "目标每回合获得一次额外的用匕首招架攻击的机会，招架失败率下降 %d%%。", "tformat")
 t("Mana Clash", "奥术对撞", "_t")
 t("All damage you do also trigget a manaburn for %d%% of the damage done.", "你造成的所有伤害会触发一次伤害值 %d%% 的法力燃烧。", "tformat")
 t("#Target# exudes antimagic forces.", "#Target#散发出反魔法的力量。", "_t")
