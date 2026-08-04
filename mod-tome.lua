@@ -3024,7 +3024,7 @@ t("#LIGHT_BLUE# * +5 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +5 魔法
 t("#GOLD#Life per level:#LIGHT_BLUE# -1", "#GOLD# 每等级生命加值： #LIGHT_BLUE# -1", "_t")
 t("Golem becomes a Drolem", "傀儡成为龙傀儡", "_t")
 t("Archmage", "元素法师", "birth descriptor name")
-t("Hated, harrowed, hunted, hidden... Our ways are forbidden, but our cause is just. In our veiled valley we find solace from the world's wrath, free to study our arts. Only through charity and friendship can you earn our trust.", "憎恨、折磨、追捕、隐藏……我们的道路被禁止，但是我们的事业是正义的。在我们隐藏的山谷里我们自由学习我们自己的魔法艺术，从这个世界的愤怒中寻求安慰。只有慈善和友谊才能赢得我们的信任。", "_t")
+t("Hated, harrowed, hunted, hidden... Our ways are forbidden, but our cause is just. In our veiled valley we find solace from the world's wrath, free to study our arts. Only through charity and friendship can you earn our trust.", "憎恨、折磨、追捕、隐藏……我们的道路被禁止，但是我们的事业是正义的。在我们隐藏的山谷里，我们自由地钻研自己的魔法技艺，远离这个世界的怒火，得以安心。只有慈善和友谊才能赢得我们的信任。", "_t")
 t("An Archmage devotes his whole life to the study of magic above anything else.", "对一个元素法师来说魔法超越一切，他们倾尽一生学习魔法。", "_t")
 t("Most Archmagi lack basic skills that others take for granted (like general fighting sense), but they make up for it by their raw magical power.", "元素法师缺乏最基本的物理格斗技能，他们用魔法取而代之。", "_t")
 t("Archmagi start with knowledge of many schools of magic. However, they usually refuse to have anything to do with Necromancy.", "元素法师学习各种学科的魔法知识。然而，他们通常拒绝任何死灵法术。", "_t")
@@ -3593,7 +3593,7 @@ t("Redhead 2", "红发2", "_t")
 t("Redhead 3", "红发3", "_t")
 t("Redhead 4", "红发4", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
-t("They possess the #GOLD#Luck of the Little Folk#WHITE# which allows them to increase their critical strike chance and saves for a few turns.", "他们天生掌握 #GOLD#小不点的幸运#WHITE# 技能可以使他们在几个回合内提高暴击几率和豁免。", "_t")
+t("They possess the #GOLD#Luck of the Little Folk#WHITE# which allows them to increase their critical strike chance and saves for a few turns.", "他们天生掌握 #GOLD#小不点的幸运#WHITE# 技能，可以使他们在几个回合内提高暴击几率和豁免。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -3 Strength, +3 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -3 力量，+3 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+3 灵巧", "_t")
@@ -3708,7 +3708,7 @@ t("- great poison resistance", "- 极高的毒素抗性", "_t")
 t("- bleeding immunity", "- 流血免疫", "_t")
 t("- stun resistance", "- 震慑抵抗", "_t")
 t("- fear immunity", "- 恐惧免疫", "_t")
-t("- special ghoul talents: ghoulish leap, gnaw and retch", "- 独有食尸鬼技能：定向跳跃、啃噬和腐秽呕吐", "_t")
+t("- special ghoul talents: ghoulish leap, gnaw and retch", "- 特殊食尸鬼技能：定向跳跃、啃噬和腐秽呕吐", "_t")
 t("The rotting bodies of ghouls also force them to act a bit more slowly than most creatures.", "食尸鬼腐烂的身体同时使它比别的生物行动要慢一些。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +5 Constitution", "#LIGHT_BLUE# * +3 力量，+1 敏捷，+5 体质", "_t")
@@ -6741,7 +6741,7 @@ You will be challenged against magical foes. Should you defeat them, we will tea
 我们可以训练你，不过你得保证你的纯粹，没有接触奥术力量，并且准备和魔法战斗到底。
 你会挑战几个魔法对手，要是你打败他们，我们就会将我们的技能教给你，今后你再也不能被魔法玷污，也不能再使用魔法。
 
-#LIGHT_RED#注：完成此任务会使该角色永久无法使用法术或由奥术之力驱动的物品。取而代之的，是你可以获得一支精神力量的通用技能树——反魔法，同时你可以开启由反魔法力量灌输而成物品的隐藏属性。]], "tformat")
+#LIGHT_RED#注：完成此任务会使该角色永久无法使用法术或由奥术之力驱动的物品。取而代之的，是你可以获得一支精神力量的通用技能树——反魔法，同时你可以开启许多反魔法物品的隐藏属性。]], "tformat")
 t("I will face your challenge!", "我接受挑战！", "_t")
 t("I'm not interested.", "我没什么兴趣。", "_t")
 t("Very well. I will say that this is disappointing, but it is your choice. Farewell.", "好吧，不得不说我有点失望，不过这是你自己的选择，再见。", "_t")
@@ -8778,7 +8778,7 @@ t("A towering creature, humanoid but huge. It wields a giant maul and does not l
 t("snow giant boulder thrower", "雪巨人投石者", "entity name")
 t("snow giant chieftain", "雪巨人酋长", "entity name")
 t("Burb the snow giant champion", "雪巨人勇士巴布", "entity name")
-t("A maddened, enraged snow giant that towers over his comrades. You've heard legends mentioning this particular monstrosity; they say that when he's not rampaging around frothing at the mouth, he sits, almost childlike, engraving stories and mysterious patterns on any flat stone surface he can find.", "一个疯狂而暴怒的雪巨人，远远高于他的同胞。你以前听说过关于这个雪巨人的故事：据说，平时他不像现在这样愤怒的口沫横飞时，他会坐下来，像个孩子一样，在他能找到的任何一块平整的石头表面雕刻故事和神秘的图案。", "_t")
+t("A maddened, enraged snow giant that towers over his comrades. You've heard legends mentioning this particular monstrosity; they say that when he's not rampaging around frothing at the mouth, he sits, almost childlike, engraving stories and mysterious patterns on any flat stone surface he can find.", "一个疯狂而暴怒的雪巨人，远远高于他的同胞。你以前听说过关于这个雪巨人的故事：据说，平时他不像现在这样愤怒得口沫横飞时，他会坐下来，像个孩子一样，在他能找到的任何一块平整的石头表面雕刻故事和神秘的图案。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/spider.lua"
@@ -9117,7 +9117,8 @@ t("weapon", "武器", "entity type")
 t("trident", "三叉戟", "entity subtype")
 t("trident", "三叉戟", "entity combat talented")
 t([[A two-handed massive trident.
-Tridents require the exotic weapons mastery talent to use correctly.]], "一个沉重的双手三叉戟。三叉戟需要异形武器掌握技能才能正确使用。", "_t")
+Tridents require the exotic weapons mastery talent to use correctly.]], "一个沉重的双手三叉戟。
+三叉戟需要异形武器掌握技能才能正确使用。", "_t")
 t("coral trident", "珊瑚三叉戟", "entity name")
 t("coral", "珊瑚", "entity short_name")
 t("blue-steel trident", "蓝钢三叉戟", "entity name")
@@ -12542,7 +12543,7 @@ t("Spider-Silk Robe of Spydrë", "斯派德的蛛丝礼服", "entity name")
 t("spider-silk robe", "蛛丝礼服", "_t")
 t("This set of robes is made wholly of spider silk. It looks outlandish and some sages think it came from another world, probably through a farportal.", "这套礼服完全用蛛丝制成。它看起来充满异国风情，一些智者推测它来自另一个世界，很可能穿越过时空之门。", "_t")
 t("Huh?", "唔？", "_t")
-t("As you wear the strange set of robes, you notice something folded into one of its pockets...", "当你穿上这套奇特的礼服，你注意到某个口袋里折叠着什么东西……", "_t")
+t("As you wear the strange set of robes, you notice something folded into one of its pockets...", "当你穿上这套奇特的长袍，你注意到某个口袋里折叠着什么东西……", "_t")
 t("Dragon-helm of Kroltar", "库洛塔的龙盔", "entity name")
 t("dragon-helm", "龙盔", "_t")
 t("A visored steel helm, embossed and embellished with gold, that bears as its crest the head of Kroltar, the greatest of the fire drakes.", "一顶带护面的钢盔，饰以黄金浮雕，盔顶徽饰正是最伟大的火焰巨龙——库洛塔的头颅。", "_t")
@@ -26504,7 +26505,7 @@ t([[You have learned how to be stealthy even when in plain sight of your foes.  
 		This resets the cooldown of your Stealth talent, and, if successful, all creatures currently following you will lose track of your position.
 		You estimate your current chance to hide as %0.1f%%.]], [[即使在你的敌人面前，你也学会了如何隐身。不管你与敌人有多近，你都可以尝试潜行，但敌人越少，距离越远成功率越高。
 		你的成功率取决于你潜行强度的%0.2f倍（当前值 %d ），以及所有视线能及你的敌人的侦测潜行能力（离你距离每有一格则下降10%%）。
-		如果没有敌人能看到你，你一定会潜行成功。
+		如果没有生物能看到你，你一定会潜行成功。
 		这一技能会重置潜行技能的冷却时间。如果使用成功的话，所有敌人都会失去对你位置的感知。
 		你估计你目前使用这一技能的成功率为%0.1f%%。]], "tformat")
 t("Unseen Actions", "行动如风", "talent name")
