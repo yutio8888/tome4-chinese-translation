@@ -13249,7 +13249,7 @@ Upon taking mind damage >10% of your max life, you reflexively trigger the jolt,
 This item can have up to 2 charges, with each charge having 4 turn cooldown.]], [[你的精神与电力连接。
 你对敌人造成的超过其最大生命值10%的闪电伤害时，会试图附加思维封锁效果。
 当你受到超过最大生命值10%的闪电伤害时，你的精神会发起反击，造成原伤害30%的精神伤害，并试图附加思维封锁效果。
-当你受到超过最大生命值10%的精神伤害时，你会反射性地触发项圈，朝目标射出一道致眩闪电（伤害基于精神强度）。
+当你受到超过最大生命值10%的精神伤害时，你会反射性地触发震击，朝目标射出一道致眩闪电（伤害基于精神强度）。
 这个物品可以存储两次充能，每次充能冷却时间4回合。]], "_t")
 t("Stormfront", "风暴前线", "entity name")
 t("damp steel battle axe", "潮湿的钢铁战斧", "_t")
@@ -31638,10 +31638,10 @@ t([[During your studies of celestial forces you came in contact with an entity f
         增益：
         - 你的力量如此强大，你可以#GOLD#同时装备双手武器和盾牌#LAST#
         - 50%% 伤害转化为 #GOLD#光系伤害#LAST#
-        - #GOLD#光辉引力#LAST#： 光明之刃变成半径2的球形伤害，且可以将5格范围内的敌人拉过来。
+        - #GOLD#光辉引力#LAST#： 光明之刃变成半径2的球形伤害，且可以将5格范围内的敌人拉过来（你可以开关此效果）。
 		- #GOLD#灼热之视#LAST# 的伤害和触发概率翻倍
         - #GOLD#阳光之怒#LAST# 触发时，裁决的剩余冷却时间减少6回合。
-        - #GOLD#无御之日#LAST# 将使光系和火焰伤害抗性降低为0%%
+        - 若你也习得 #GOLD#无御之日#LAST#，它将使受影响者的光系和火焰伤害抗性降低为 0%%
 
 		#{italic}##GOLD#你会同遥远的太阳联合吗？#{normal}#
 		]], "tformat")
@@ -34326,7 +34326,7 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
 特性：
 - #GOLD#可以同时装备双手武器和盾牌#LAST#
 - 50% 伤害转化为 #GOLD#光系伤害#LAST#
-- #GOLD#光辉引力#LAST#： 光明之刃变成半径2的球形伤害，且可以将5格范围内的敌人拉过来。
+- #GOLD#光辉引力#LAST#： 光明之刃变成半径2的球形伤害，且可以将5格范围内的敌人拉过来（你可以开关此效果）。
 - #GOLD#灼热之视#LAST# 的伤害和触发概率翻倍
 - #GOLD#阳光之怒#LAST# 触发时，裁决的剩余冷却时间减少6回合。
 - #GOLD#无御之日#LAST# 拥有额外效果。
