@@ -14,6 +14,7 @@ from typing import Any, Iterable
 from .config import Manifest
 from .errors import ConfigurationError
 from .locale_model import LocaleDocument
+from .semantics import runtime_semantic_signature
 
 
 FORMAT_CONVERSIONS = frozenset("cdeEfgGiouXxqs")
@@ -45,6 +46,14 @@ TERMINOLOGY_FIELDS = (
     "scope",
     "notes",
 )
+TERMINOLOGY_REQUIRED_FIELDS = (
+    "source",
+    "target",
+    "category",
+    "domain",
+    "status",
+    "scope",
+)
 
 TERMINOLOGY_DOMAINS = frozenset(
     {
@@ -61,6 +70,8 @@ TERMINOLOGY_DOMAINS = frozenset(
         "tech",
     }
 )
+TERMINOLOGY_STATUSES = frozenset({"existing", "preferred", "review"})
+TERMINOLOGY_SCOPES = frozenset({"addon", "core", "dlc", "global", "multi"})
 
 
 @dataclass(frozen=True)
@@ -148,7 +159,11 @@ def load_policy(manifest: Manifest) -> Policy:
         raise ConfigurationError(f"cannot read lint policy: {path}") from error
     except (UnicodeDecodeError, json.JSONDecodeError) as error:
         raise ConfigurationError(f"invalid lint policy JSON: {path}: {error}") from error
-    if not isinstance(data, dict) or data.get("schema_version") != 1:
+    if (
+        not isinstance(data, dict)
+        or type(data.get("schema_version")) is not int
+        or data.get("schema_version") != 1
+    ):
         raise ConfigurationError("unsupported lint policy schema")
     return Policy(
         allowed_empty_targets=_string_set(data, "allowed_empty_targets"),
@@ -259,7 +274,10 @@ def _format_shape_issue(
 
 
 def lint_documents(
-    documents: Iterable[tuple[str, LocaleDocument]], policy: Policy
+    documents: Iterable[tuple[str, LocaleDocument]],
+    policy: Policy,
+    *,
+    require_nonempty: bool = False,
 ) -> tuple[list[Issue], dict[str, Any]]:
     issues: list[Issue] = []
     component_counts: dict[str, int] = {}
@@ -267,8 +285,21 @@ def lint_documents(
     for component, document in documents:
         entries = list(document.translations)
         component_counts[component] = len(entries)
-        editorial: dict[tuple[str, str, str | None], list[dict[str, Any]]] = defaultdict(list)
-        runtime: dict[tuple[str, str | None], list[dict[str, Any]]] = defaultdict(list)
+        if require_nonempty and not entries:
+            issues.append(
+                Issue(
+                    "error",
+                    "empty-translation-file",
+                    "canonical translation file contains no t(...) records",
+                    document.logical_path,
+                )
+            )
+        editorial: dict[
+            tuple[str, str, str | None], list[tuple[dict[str, Any], str]]
+        ] = defaultdict(list)
+        runtime: dict[
+            tuple[str, str | None], list[tuple[dict[str, Any], str]]
+        ] = defaultdict(list)
         for entry in entries:
             source = entry.get("source")
             target = entry.get("target")
@@ -298,6 +329,13 @@ def lint_documents(
                     )
                 )
                 continue
+            semantic_signature = runtime_semantic_signature(
+                entry,
+                label=(
+                    f"translation {document.logical_path}:"
+                    f"{entry.get('line', '?')}"
+                ),
+            )
             entry_id = stable_entry_id(component, section, source, source_tag)
             if target == "" and entry_id not in policy.allowed_empty_targets:
                 issues.append(
@@ -353,21 +391,24 @@ def lint_documents(
                         entry_id,
                     )
                 )
-            editorial[(section, source, source_tag)].append(entry)
-            runtime[(source, source_tag)].append(entry)
+            occurrence = (entry, semantic_signature)
+            editorial[(section, source, source_tag)].append(occurrence)
+            runtime[(source, source_tag)].append(occurrence)
 
         for key, duplicates in editorial.items():
-            targets = {entry["target"] for entry in duplicates}
-            if len(duplicates) > 1 and len(targets) > 1:
+            semantic_values = {signature for _, signature in duplicates}
+            if len(duplicates) > 1 and len(semantic_values) > 1:
                 section, source, source_tag = key
                 entry_id = stable_entry_id(component, section, source, source_tag)
                 issues.append(
                     Issue(
                         "error",
                         "editorial-collision",
-                        f"same editorial key has different targets ({len(duplicates)} entries)",
+                        "same editorial key has different runtime values "
+                        "(target/args_order/special; "
+                        f"{len(duplicates)} entries)",
                         document.logical_path,
-                        duplicates[-1].get("line"),
+                        duplicates[-1][0].get("line"),
                         entry_id,
                     )
                 )
@@ -376,8 +417,8 @@ def lint_documents(
             if len(duplicates) < 2:
                 continue
             duplicate_runtime_keys += 1
-            targets = {entry["target"] for entry in duplicates}
-            if len(targets) < 2:
+            semantic_values = {signature for _, signature in duplicates}
+            if len(semantic_values) < 2:
                 continue
             collision_id = hashlib.sha256(
                 "\0".join(
@@ -393,15 +434,18 @@ def lint_documents(
                 continue
             locations = ", ".join(
                 f"{entry.get('section', '')}:{entry.get('line', '?')}"
-                for entry in duplicates[:5]
+                for entry, _ in duplicates[:5]
             )
             issues.append(
                 Issue(
                     "error",
                     "runtime-collision",
-                    f"runtime key resolves to {len(targets)} targets; locations: {locations}",
+                    "runtime key resolves to "
+                    f"{len(semantic_values)} semantic values "
+                    "(target/args_order/special); "
+                    f"locations: {locations}",
                     document.logical_path,
-                    duplicates[-1].get("line"),
+                    duplicates[-1][0].get("line"),
                     collision_id,
                 )
             )
@@ -418,10 +462,13 @@ def lint_documents(
 
 def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
     issues: list[Issue] = []
-    rows: list[dict[str, str]] = []
+    rows: list[tuple[dict[str, str], int]] = []
+    record_count = 0
+    read_error_line: int | None = None
     try:
         with path.open("r", encoding="utf-8", newline="") as handle:
-            reader = csv.DictReader(handle, delimiter="\t")
+            reader = csv.DictReader(handle, delimiter="\t", strict=True)
+            read_error_line = 1
             if tuple(reader.fieldnames or ()) != TERMINOLOGY_FIELDS:
                 issues.append(
                     Issue(
@@ -433,7 +480,61 @@ def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
                     )
                 )
                 return issues, {"rows": 0}
-            rows = list(reader)
+            while True:
+                read_error_line = reader.line_num + 1
+                try:
+                    row = next(reader)
+                except StopIteration:
+                    break
+                record_count += 1
+                line = reader.line_num
+                missing_fields = tuple(
+                    field
+                    for field in TERMINOLOGY_FIELDS
+                    if field not in row or row[field] is None
+                )
+                extra_values = [
+                    value
+                    for field, value in row.items()
+                    if field not in TERMINOLOGY_FIELDS
+                ]
+                if missing_fields == ("notes",) and not extra_values:
+                    # The canonical terminology has historically omitted the
+                    # final delimiter when an optional notes cell is empty.
+                    row["notes"] = ""
+                    missing_fields = ()
+                if missing_fields or extra_values:
+                    extra_count = sum(
+                        len(value) if isinstance(value, list) else 1
+                        for value in extra_values
+                    )
+                    actual_count = (
+                        len(TERMINOLOGY_FIELDS) - len(missing_fields) + extra_count
+                    )
+                    details = []
+                    if missing_fields:
+                        details.append(
+                            "missing " + ", ".join(repr(field) for field in missing_fields)
+                        )
+                    if extra_count:
+                        details.append(f"{extra_count} extra")
+                    issues.append(
+                        Issue(
+                            "error",
+                            "terminology-row-width",
+                            f"expected {len(TERMINOLOGY_FIELDS)} TSV fields, "
+                            f"got {actual_count} ({'; '.join(details)})",
+                            str(path),
+                            line,
+                        )
+                    )
+                    continue
+                rows.append(
+                    (
+                        {field: row[field] for field in TERMINOLOGY_FIELDS},
+                        line,
+                    )
+                )
     except (OSError, UnicodeDecodeError, csv.Error) as error:
         issues.append(
             Issue(
@@ -441,13 +542,14 @@ def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
                 "terminology-read",
                 f"cannot read terminology TSV: {error}",
                 str(path),
+                read_error_line,
             )
         )
-        return issues, {"rows": 0}
+        return issues, {"rows": record_count}
 
     contexts: dict[tuple[str, str, str], list[tuple[dict[str, str], int]]] = defaultdict(list)
-    for offset, row in enumerate(rows, start=2):
-        for field in TERMINOLOGY_FIELDS[:-1]:
+    for row, line in rows:
+        for field in TERMINOLOGY_REQUIRED_FIELDS:
             if not (row.get(field) or "").strip():
                 issues.append(
                     Issue(
@@ -455,7 +557,7 @@ def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
                         "terminology-empty-field",
                         f"terminology field {field!r} is empty",
                         str(path),
-                        offset,
+                        line,
                     )
                 )
         category = row.get("category") or ""
@@ -466,7 +568,7 @@ def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
                     "terminology-category",
                     f"terminology category must start with 'T.': {category!r}",
                     str(path),
-                    offset,
+                    line,
                 )
             )
         domain = row.get("domain") or ""
@@ -478,11 +580,35 @@ def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
                     f"terminology domain must be one of "
                     f"{sorted(TERMINOLOGY_DOMAINS)}: {domain!r}",
                     str(path),
-                    offset,
+                    line,
+                )
+            )
+        status = row.get("status") or ""
+        if status and status not in TERMINOLOGY_STATUSES:
+            issues.append(
+                Issue(
+                    "error",
+                    "terminology-status",
+                    f"terminology status must be one of "
+                    f"{sorted(TERMINOLOGY_STATUSES)}: {status!r}",
+                    str(path),
+                    line,
+                )
+            )
+        scope = row.get("scope") or ""
+        if scope and scope not in TERMINOLOGY_SCOPES:
+            issues.append(
+                Issue(
+                    "error",
+                    "terminology-scope",
+                    f"terminology scope must be one of "
+                    f"{sorted(TERMINOLOGY_SCOPES)}: {scope!r}",
+                    str(path),
+                    line,
                 )
             )
         key = (row.get("source") or "", row.get("source_tag") or "", row.get("scope") or "")
-        contexts[key].append((row, offset))
+        contexts[key].append((row, line))
 
     alternative_contexts = 0
     for declarations in contexts.values():
@@ -512,7 +638,7 @@ def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
                 )
             )
     return issues, {
-        "rows": len(rows),
+        "rows": record_count,
         "contexts": len(contexts),
         "alternative_contexts": alternative_contexts,
     }

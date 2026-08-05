@@ -205,22 +205,87 @@ def probe_protected_component(
 def _normalized_definitions(
     *,
     component: str,
-    records: Iterable[dict[str, Any]],
+    records: Iterable[Any],
     origin_kind: str,
 ) -> list[dict[str, Any]]:
+    if not isinstance(component, str) or not component:
+        raise ExtractionError(
+            "extraction field 'component' must be a non-empty string"
+        )
+    if (
+        not isinstance(origin_kind, str)
+        or origin_kind not in ("extracted", "manual")
+    ):
+        raise ExtractionError(
+            "extraction field 'origin_kind' must be 'extracted' or 'manual'"
+        )
+
     normalized: list[dict[str, Any]] = []
-    for record in records:
+    for position, record in enumerate(records, start=1):
+        if not isinstance(record, dict):
+            raise ExtractionError(
+                f"extraction record {position} must be an object"
+            )
         if record.get("kind") != "definition":
             continue
+
+        section = record.get("section")
+        if not isinstance(section, str) or not section:
+            raise ExtractionError(
+                f"extraction record {position} field 'section' must be a "
+                "non-empty string"
+            )
+        source = record.get("source")
+        if not isinstance(source, str) or not source:
+            raise ExtractionError(
+                f"extraction record {position} field 'source' must be a "
+                "non-empty string"
+            )
+        source_tag = record.get("source_tag")
+        if source_tag is not None and not isinstance(source_tag, str):
+            raise ExtractionError(
+                f"extraction record {position} field 'source_tag' must be a "
+                "string or null"
+            )
+        source_line = record.get("source_line")
+        if type(source_line) is not int:
+            raise ExtractionError(
+                f"extraction record {position} field 'source_line' must be an "
+                "exact integer"
+            )
+        if source_line < 1:
+            if origin_kind == "manual" and source_line == 0:
+                origin_line = None
+            else:
+                sentinel_note = (
+                    "manual definitions may use only 0 as the "
+                    "unknown-line sentinel"
+                    if origin_kind == "manual"
+                    else "only manual definitions may use 0 as the "
+                    "unknown-line sentinel"
+                )
+                raise ExtractionError(
+                    f"extraction record {position} field 'source_line' must be "
+                    f"greater than or equal to 1; {sentinel_note}"
+                )
+        else:
+            origin_line = source_line
+        logical_path = record.get("logical_path")
+        if logical_path is not None and not isinstance(logical_path, str):
+            raise ExtractionError(
+                f"extraction record {position} field 'logical_path' must be a "
+                "string or null"
+            )
+
         normalized.append(
             {
                 "component": component,
-                "section": record.get("section", ""),
-                "source": record.get("source"),
-                "source_tag": record.get("source_tag"),
-                "origin_line": record.get("source_line"),
+                "section": section,
+                "source": source,
+                "source_tag": source_tag,
+                "origin_line": origin_line,
                 "origin_kind": origin_kind,
-                "origin_document": record.get("logical_path"),
+                "origin_document": logical_path,
             }
         )
     return normalized
@@ -233,6 +298,9 @@ def extract_components(
     *,
     timeout: int,
 ) -> dict[str, Any]:
+    if type(timeout) is not int or timeout < 1:
+        raise ExtractionError("timeout must be a positive integer")
+
     selected: list[ComponentSpec] = []
     seen_ids: set[str] = set()
     for component in components:

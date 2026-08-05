@@ -11,7 +11,9 @@ allowed-tools: read bash
 始终未启用，会话、skills、上下文文件仍然禁用。Pi 内置 `bash` 不是 OS 沙箱，
 会继承 Pi 进程权限与 provider 凭据，因此该变体只能用于已授权、受监控的核验；
 需要强隔离时须使用只读挂载、网络/凭据隔离的容器或 VM。bundle 边界、item_id
-绑定、findings 契约、严格校验、缓存与报告格式与隔离审核完全一致。
+绑定、findings 契约、严格校验与报告字段与隔离审核兼容。file-reading 审核不会
+复用结果缓存，因为 `read/bash` 可观察 bundle 外的可变源码状态，现有缓存键无法
+可靠绑定这些输入。
 
 每个审核或修复调用默认最多 20 分钟（1200 秒），保持该 per-bundle 超时，
 除非用户明确要求其他时限。
@@ -45,7 +47,7 @@ tools/pi-tmux review-files --bundle <absolute-bundle-path>
 `review-files` 子命令与 `review` 相同的 pane 行为：默认保留 pane 供检查
 （结束提示 `tmux kill-pane -t %N`）、`--no-keep-pane` 关闭、`--layout`/
 `--percent`/`--session` 控制布局、`--fallback foreground` 无 tmux 时前台运行。
-精确缓存的命中会跳过 pane。
+file-reading 审核每次都会启动新的 pane（或按配置回退前台），不会命中旧结果。
 
 无 tmux / 脚本场景用 headless 入口：
 
@@ -53,9 +55,10 @@ tools/pi-tmux review-files --bundle <absolute-bundle-path>
 tools/pi-review-files --bundle <absolute-bundle-path>
 ```
 
-`--force` 只用于用户明确要求的新鲜观察，绝不用于绕过外部传输授权。大索引
-分批处理，报告进度，且只在已授权范围内继续。provider/model/thinking 默认
-沿用项目默认，除非用户要求覆盖。
+`--cache` 会被明确拒绝；`--force` 仅为既有调用兼容而保留，用它表达“必须新鲜”
+是安全的，但因每次 file-reading 审核本来都会新跑而无需特意添加。两者都绝不
+用于绕过外部传输授权。大索引分批处理，报告进度，且只在已授权范围内继续。
+provider/model/thinking 默认沿用项目默认，除非用户要求覆盖。
 
 ## 运行后检查
 

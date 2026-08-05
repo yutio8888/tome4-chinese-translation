@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""领域标注脚本：为术语表每行计算 domain（按 category 映射 + T.GAME.ENTITY 启发式细分）。
-只输出标注清单（JSON + 待确认项），不写回 TSV。"""
+"""领域标注脚本：按 category 与 ENTITY 启发式推导术语 domain。
+
+只输出标注报告，不写回 TSV。
+"""
+from __future__ import annotations
+
 import csv
 import json
 import signal
-from collections import defaultdict
+import sys
 from pathlib import Path
 
-signal.alarm(60)
+
 ROOT = Path(__file__).resolve().parents[1]
 TSV = ROOT / "terminology.tsv"
 OUT = ROOT / ".artifacts/i18n/terminology-audit"
-OUT.mkdir(parents=True, exist_ok=True)
 
 # ---------- 领域体系 ----------
 DOMAINS = {
@@ -54,7 +57,13 @@ CATEGORY_DOMAIN = {
 
 # ---------- ENTITY 细分 ----------
 SHOP_NAMES = {"Armoury", "Herbalist", "Library", "Runemaster", "Swordsmith", "Tanner", "Tailor"}
-PLACE_ENTITY = {"cave", "rockwall", "exit to the worldmap", "primal trunk", "cracks", "Spacetime Tear"}
+PLACE_ENTITY = {
+    "cave", "rockwall", "exit to the worldmap", "primal trunk", "cracks", "Spacetime Tear",
+    "next level",
+    "previous level",
+    "way to the next level",
+    "way to the previous level",
+}
 # 物品/材料/装备类 source（entity type / subtype / name）
 ITEM_SOURCES = {
     "armours", "mainhand", "offhand", "weapons", "armor", "ammo", "book", "charm",
@@ -68,6 +77,7 @@ ITEM_SOURCES = {
     "Gloryhammer", "Ablative Armour", "Payload", "psychoportation beacon",
     "Frost Salve", "Blood-Runed Athame", "Athame", "athame",
     "Brilliant Auto-loading Orc Expeller",
+    "voratun", "iron", "steel", "open door", "trap",
 }
 # 生物类 source
 CREATURE_SOURCES = {
@@ -79,55 +89,173 @@ CREATURE_SOURCES = {
     "hummerhorn", "luminous horror", "vampire lord", "carrion worm mass",
     "Lone Wolf", "shivgoroth", "The Withering Thing", "The Dreaming One",
     "bloated ooze", "DESTRUCTICUS",
+    "corrupted", "steamtech", "multi-hued",
 }
 
-rows = []
-with TSV.open("r", encoding="utf-8", newline="") as h:
-    rd = csv.DictReader(h, delimiter="\t")
-    for i, r in enumerate(rd, start=2):
-        r["_line"] = i
-        rows.append(r)
+_REQUIRED_FIELDS = ("source", "target", "category", "domain", "source_tag")
+_VALUE_REQUIRED_FIELDS = ("source", "target", "category", "domain")
 
-unmapped = []
-confirm = []
-counts = defaultdict(int)
-for r in rows:
-    cat = r["category"]
-    src = r["source"]
-    if cat == "T.GAME.ENTITY":
-        if src in SHOP_NAMES:
-            dom = "places"
-            confirm.append((r["_line"], src, r["target"], "places", "城镇商店 → places"))
-        elif src in PLACE_ENTITY:
-            dom = "places"
-        elif src in ITEM_SOURCES:
-            dom = "items"
-        elif src in CREATURE_SOURCES:
-            dom = "creatures"
-        else:
-            dom = None
-            unmapped.append((r["_line"], src, r["target"], r["source_tag"]))
-    else:
-        dom = CATEGORY_DOMAIN.get(cat)
-        if dom is None:
-            unmapped.append((r["_line"], src, r["target"], f"category={cat}"))
-    r["domain"] = dom
-    if dom:
-        counts[dom] += 1
 
-print("=== domain 统计（含 ENTITY 细分）===")
-for d in sorted(counts):
-    print(f"  {d:<12} {counts[d]}")
-print("\n=== 未映射（需人工）===")
-for line, src, tgt, why in unmapped:
-    print(f"  L{line} {src!r} → {tgt!r} ({why})")
-print("\n=== 商店确认 ===")
-for line, src, tgt, dom, why in confirm:
-    print(f"  L{line} {src!r} → {tgt!r} → {dom}（{why}）")
+def _read_rows(tsv_path: Path) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    with tsv_path.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle, delimiter="\t", strict=True)
+        fieldnames = reader.fieldnames or []
+        missing = [field for field in _REQUIRED_FIELDS if field not in fieldnames]
+        if missing:
+            raise ValueError(
+                "terminology TSV is missing required columns: "
+                + ", ".join(missing)
+            )
+        for line, row in enumerate(reader, start=2):
+            if None in row:
+                raise ValueError(
+                    f"terminology TSV line {line} has unexpected extra columns"
+                )
+            missing_values = [
+                field
+                for field in _VALUE_REQUIRED_FIELDS
+                if row.get(field) is None
+            ]
+            if missing_values:
+                raise ValueError(
+                    f"terminology TSV line {line} is missing values for: "
+                    + ", ".join(missing_values)
+                )
+            row["_line"] = line
+            rows.append(row)
+    return rows
 
-json.dump(
-    {"domains": DOMAINS, "rows": [
-        {"line": r["_line"], "source": r["source"], "target": r["target"],
-         "category": r["category"], "domain": r["domain"]} for r in rows]},
-    open(OUT / "domain_annotation.json", "w"), ensure_ascii=False, indent=1)
-print("\nannotation written:", OUT / "domain_annotation.json")
+
+def _infer_domain(row: dict[str, object]) -> str | None:
+    category = str(row["category"])
+    source = str(row["source"])
+    if category != "T.GAME.ENTITY":
+        return CATEGORY_DOMAIN.get(category)
+    if source in SHOP_NAMES or source in PLACE_ENTITY:
+        return "places"
+    if source in ITEM_SOURCES:
+        return "items"
+    if source in CREATURE_SOURCES:
+        return "creatures"
+    return None
+
+
+def _build_report(rows: list[dict[str, object]]) -> dict[str, object]:
+    counts = {domain: 0 for domain in DOMAINS}
+    annotations = []
+    unmapped = []
+    mismatches = []
+    shop_confirmations = []
+
+    for row in rows:
+        line = int(row["_line"])
+        source = str(row["source"])
+        target = str(row["target"])
+        category = str(row["category"])
+        source_tag = str(row["source_tag"])
+        declared_domain = str(row["domain"])
+        inferred_domain = _infer_domain(row)
+
+        annotation = {
+            "line": line,
+            "source": source,
+            "target": target,
+            "category": category,
+            "declared_domain": declared_domain,
+            "domain": inferred_domain,
+        }
+        annotations.append(annotation)
+
+        if inferred_domain is None:
+            reason = (
+                "unmapped T.GAME.ENTITY source"
+                if category == "T.GAME.ENTITY"
+                else f"unmapped category: {category}"
+            )
+            unmapped.append(
+                {
+                    **annotation,
+                    "source_tag": source_tag,
+                    "reason": reason,
+                }
+            )
+            continue
+
+        counts[inferred_domain] += 1
+        if declared_domain != inferred_domain:
+            mismatches.append(annotation)
+        if source in SHOP_NAMES:
+            shop_confirmations.append(annotation)
+
+    return {
+        "domains": DOMAINS,
+        "rows": annotations,
+        "counts": counts,
+        "unmapped_count": len(unmapped),
+        "unmapped": unmapped,
+        "declared_domain_mismatch_count": len(mismatches),
+        "declared_domain_mismatches": mismatches,
+        "advisory_count": len(mismatches),
+        "blocking_count": len(unmapped),
+        "shop_confirmations": shop_confirmations,
+        "ok": not unmapped,
+    }
+
+
+def run_domain_annotation(tsv_path, output_dir):
+    """Read one terminology TSV, write its annotation report, and return it."""
+    tsv_path = Path(tsv_path)
+    output_dir = Path(output_dir)
+    report = _build_report(_read_rows(tsv_path))
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / "domain_annotation.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8"
+    )
+    return report
+
+
+def _print_summary(report: dict[str, object], output_dir: Path) -> None:
+    counts = report["counts"]
+    assert isinstance(counts, dict)
+    print("=== domain 统计（含 ENTITY 细分）===")
+    for domain in sorted(counts):
+        print(f"  {domain:<12} {counts[domain]}")
+
+    print("\n=== 未映射（需人工）===")
+    unmapped = report["unmapped"]
+    assert isinstance(unmapped, list)
+    for item in unmapped:
+        print(
+            f"  L{item['line']} {item['source']!r} → {item['target']!r} "
+            f"({item['reason']})"
+        )
+
+    print("\n=== 声明 domain 与推导 domain 不同（advisory）===")
+    mismatches = report["declared_domain_mismatches"]
+    assert isinstance(mismatches, list)
+    for item in mismatches:
+        print(
+            f"  L{item['line']} {item['source']!r}: "
+            f"{item['declared_domain']} → {item['domain']}"
+        )
+
+    print("\nannotation written:", output_dir / "domain_annotation.json")
+
+
+def main(*, tsv_path=TSV, output_dir=OUT):
+    signal.alarm(60)
+    try:
+        output_dir = Path(output_dir)
+        report = run_domain_annotation(tsv_path, output_dir)
+        _print_summary(report, output_dir)
+        return 0 if report["ok"] else 1
+    except (OSError, UnicodeError, csv.Error, ValueError) as error:
+        print(f"domain annotation failed: {error}", file=sys.stderr)
+        return 2
+    finally:
+        signal.alarm(0)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

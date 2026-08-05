@@ -28,7 +28,7 @@ REVIEW_KINDS = frozenset({"translations", "code"})
 ABSOLUTE_PATH_RE = re.compile(
     r"(?<![A-Za-z0-9_/:])/(?![\\\[\](){}])(?:[^\s`\"']+)"
 )
-PUBLIC_REVIEW_ROOTS = ("i18n", "tools", "tests")
+PUBLIC_REVIEW_ROOTS = (".agents", ".codex", "docs", "i18n", "tools", "tests")
 PUBLIC_REVIEW_FILES = (
     ".gitignore",
     "AGENTS.md",
@@ -57,11 +57,42 @@ def _relative_path(value: str) -> str:
     return value.replace(os.sep, "/")
 
 
+def _public_review_files(manifest: Manifest | None = None) -> tuple[str, ...]:
+    files = list(PUBLIC_REVIEW_FILES)
+    if manifest is not None:
+        files.extend(
+            component.copy_fragment
+            for component in manifest.components
+            if component.copy_fragment
+        )
+        files.extend(manifest.manual_definitions)
+    normalized: list[str] = []
+    for value in files:
+        if not isinstance(value, str) or not value:
+            raise ValidationError(
+                f"review manifest contains an unsafe path: {value!r}"
+            )
+        path = _relative_path(value)
+        if path not in normalized:
+            normalized.append(path)
+    return tuple(normalized)
+
+
 def _redact_absolute_paths(value: str) -> tuple[str, int]:
     redactions = 0
 
     def replace(match: re.Match[str]) -> str:
         nonlocal redactions
+        if match.group(0) == "/dev/null":
+            line_start = value.rfind("\n", 0, match.start()) + 1
+            line_end = value.find("\n", match.end())
+            if line_end == -1:
+                line_end = len(value)
+            if value[line_start:line_end].rstrip("\r") in {
+                "--- /dev/null",
+                "+++ /dev/null",
+            }:
+                return match.group(0)
         redactions += 1
         return "<redacted-absolute-path>"
 
@@ -118,8 +149,10 @@ def _translation_items(
     return items
 
 
-def _git_status_paths(root: Path) -> list[tuple[str, str]]:
-    pathspecs = [*PUBLIC_REVIEW_FILES, *PUBLIC_REVIEW_ROOTS]
+def _git_status_paths(
+    root: Path, manifest: Manifest | None = None
+) -> list[tuple[str, str, str | None]]:
+    pathspecs = [*_public_review_files(manifest), *PUBLIC_REVIEW_ROOTS]
     try:
         result = subprocess.run(
             [
@@ -127,7 +160,8 @@ def _git_status_paths(root: Path) -> list[tuple[str, str]]:
                 "-C",
                 str(root),
                 "status",
-                "--porcelain",
+                "--porcelain=v1",
+                "-z",
                 "--untracked-files=all",
                 "--",
                 *pathspecs,
@@ -140,40 +174,71 @@ def _git_status_paths(root: Path) -> list[tuple[str, str]]:
             },
             capture_output=True,
             check=False,
-            text=True,
         )
     except OSError as error:
         raise ConfigurationError(f"cannot inspect public worktree changes: {error}") from error
     if result.returncode != 0:
         raise ConfigurationError(
             "cannot inspect public worktree changes: "
-            + (result.stderr.strip() or "git status failed")
+            + (os.fsdecode(result.stderr).strip() or "git status failed")
         )
-    paths: list[tuple[str, str]] = []
-    for line in result.stdout.splitlines():
-        if len(line) < 4:
+    paths: list[tuple[str, str, str | None]] = []
+    fields = result.stdout.split(b"\0")
+    index = 0
+    while index < len(fields):
+        record = fields[index]
+        index += 1
+        if not record:
             continue
-        status = line[:2]
-        path = line[3:]
-        if " -> " in path:
-            path = path.split(" -> ", 1)[1]
-        path = _relative_path(path)
-        if path == ".artifacts" or path.startswith(".artifacts/"):
+        if len(record) < 4 or record[2:3] != b" ":
             continue
-        paths.append((status, path))
+        status_bytes = record[:2]
+        path = _relative_path(os.fsdecode(record[3:]))
+        source_path = None
+        if b"R" in status_bytes or b"C" in status_bytes:
+            # With ``-z``, rename/copy records contain the destination/current
+            # path first and the source path in a second NUL-delimited field.
+            if index >= len(fields) or not fields[index]:
+                continue
+            source_path = _relative_path(os.fsdecode(fields[index]))
+            index += 1
+        paths.append((os.fsdecode(status_bytes), path, source_path))
     return paths
 
 
-def _is_public_review_path(path: str) -> bool:
-    return path in PUBLIC_REVIEW_FILES or any(
+def _is_public_review_path(
+    path: str, manifest: Manifest | None = None
+) -> bool:
+    return path in _public_review_files(manifest) or any(
         path == root or path.startswith(root + "/") for root in PUBLIC_REVIEW_ROOTS
     )
 
 
-def _git_diff(root: Path, path: str) -> str:
+def _git_diff(root: Path, path: str, *, untracked: bool = False) -> str:
+    if untracked:
+        file_path = root / path
+        try:
+            content = file_path.read_text(encoding="utf-8")
+        except OSError as error:
+            if error.errno == 2:
+                return ""
+            raise ConfigurationError(
+                f"cannot read public changed file {path}: {error}"
+            ) from error
+        return f"--- /dev/null\n+++ b/{path}\n@@ added file @@\n{content}"
     try:
         result = subprocess.run(
-            ["git", "-C", str(root), "diff", "--no-ext-diff", "--unified=80", "--", path],
+            [
+                "git",
+                "-C",
+                str(root),
+                "diff",
+                "--no-ext-diff",
+                "--unified=80",
+                "HEAD",
+                "--",
+                path,
+            ],
             cwd=root,
             env={
                 key: value
@@ -191,37 +256,35 @@ def _git_diff(root: Path, path: str) -> str:
             f"cannot read public code diff for {path}: "
             + (result.stderr.strip() or "git diff failed")
         )
-    if result.stdout:
-        return result.stdout
-    file_path = root / path
-    try:
-        content = file_path.read_text(encoding="utf-8")
-    except OSError as error:
-        if error.errno == 2:
-            return ""
-        raise ConfigurationError(f"cannot read public changed file {path}: {error}") from error
-    return f"--- /dev/null\n+++ b/{path}\n@@ added file @@\n{content}"
+    return result.stdout
 
 
-def _code_items(root: Path) -> tuple[list[dict[str, Any]], int]:
+def _code_items(
+    root: Path, manifest: Manifest | None = None
+) -> tuple[list[dict[str, Any]], int]:
     items: list[dict[str, Any]] = []
     redactions = 0
-    for status, path in _git_status_paths(root):
-        if not _is_public_review_path(path):
-            continue
-        diff = _git_diff(root, path)
-        if not diff:
-            continue
-        redacted, count = _redact_absolute_paths(diff)
-        redactions += count
-        items.append(
-            {
-                "item_id": "code-" + _canonical_sha256({"path": path, "status": status}),
-                "path": path,
-                "status": status,
-                "diff": redacted,
-            }
-        )
+    for status, path, source_path in _git_status_paths(root, manifest):
+        changed_paths = [path]
+        if source_path is not None and "R" in status:
+            changed_paths.append(source_path)
+        for changed_path in changed_paths:
+            if not _is_public_review_path(changed_path, manifest):
+                continue
+            diff = _git_diff(root, changed_path, untracked=status == "??")
+            if not diff:
+                continue
+            redacted, count = _redact_absolute_paths(diff)
+            redactions += count
+            items.append(
+                {
+                    "item_id": "code-"
+                    + _canonical_sha256({"path": changed_path, "status": status}),
+                    "path": changed_path,
+                    "status": status,
+                    "diff": redacted,
+                }
+            )
     return items, redactions
 
 
@@ -325,7 +388,7 @@ def _write_translation_bundles(
 def _write_code_bundles(
     run_directory: Path, manifest: Manifest, batch_size: int
 ) -> tuple[list[dict[str, Any]], int]:
-    code_items, redactions = _code_items(manifest.root)
+    code_items, redactions = _code_items(manifest.root, manifest)
     if not code_items:
         return [], redactions
     bundles: list[dict[str, Any]] = []
@@ -375,20 +438,26 @@ def create_review_index(
     include_translations: bool,
     include_code: bool,
 ) -> dict[str, Any]:
+    if type(batch_size) is not int:
+        raise ValidationError("review batch size must be an integer")
     if not 1 <= batch_size <= MAX_REVIEW_BATCH_SIZE:
         raise ValidationError(
             f"review batch size must be between 1 and {MAX_REVIEW_BATCH_SIZE}"
         )
+    if type(include_translations) is not bool:
+        raise ValidationError("review include_translations must be a boolean")
+    if type(include_code) is not bool:
+        raise ValidationError("review include_code must be a boolean")
     if not include_translations and not include_code:
         raise ValidationError("review must include translations or code")
     run_directory = create_run_directory(manifest.root, "review")
-    runtime = LuaRuntime(manifest)
-    loader = LocaleLoader(runtime)
-    translation_bundles = (
-        _write_translation_bundles(run_directory, manifest, loader, batch_size)
-        if include_translations
-        else []
-    )
+    translation_bundles: list[dict[str, Any]] = []
+    if include_translations:
+        runtime = LuaRuntime(manifest)
+        loader = LocaleLoader(runtime)
+        translation_bundles = _write_translation_bundles(
+            run_directory, manifest, loader, batch_size
+        )
     code_bundles, redactions = (
         _write_code_bundles(run_directory, manifest, batch_size)
         if include_code
@@ -431,7 +500,10 @@ def _read_bundle(path: Path) -> dict[str, Any]:
 
 def validate_review_bundle(manifest: Manifest, path: Path) -> dict[str, Any]:
     bundle = _read_bundle(path)
-    if bundle.get("schema_version") != REVIEW_SCHEMA_VERSION:
+    if (
+        type(bundle.get("schema_version")) is not int
+        or bundle.get("schema_version") != REVIEW_SCHEMA_VERSION
+    ):
         raise ValidationError("unsupported review bundle schema")
     if bundle.get("review_contract") != REVIEW_CONTRACT:
         raise ValidationError("unsupported review contract")
@@ -484,7 +556,9 @@ def validate_review_bundle(manifest: Manifest, path: Path) -> dict[str, Any]:
             if not isinstance(item, dict):
                 raise ValidationError("code review file item is invalid")
             path_value = item.get("path")
-            if not isinstance(path_value, str) or not _is_public_review_path(path_value):
+            if not isinstance(path_value, str) or not _is_public_review_path(
+                path_value, manifest
+            ):
                 raise ValidationError("code review contains a path outside the public review scope")
             if Path(path_value).is_absolute() or ".." in Path(path_value).parts:
                 raise ValidationError("code review contains an unsafe path")
@@ -496,7 +570,10 @@ def validate_review_bundle(manifest: Manifest, path: Path) -> dict[str, Any]:
 def _validate_findings_for_remediation(
     bundle: dict[str, Any], review: dict[str, Any]
 ) -> None:
-    if review.get("schema_version") != REVIEW_SCHEMA_VERSION:
+    if (
+        type(review.get("schema_version")) is not int
+        or review.get("schema_version") != REVIEW_SCHEMA_VERSION
+    ):
         raise ValidationError("validated review has an unsupported schema")
     if review.get("review_contract") != REVIEW_CONTRACT:
         raise ValidationError("validated review has an unsupported contract")

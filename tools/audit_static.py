@@ -10,12 +10,11 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-signal.alarm(120)
+from audit_static_rules import normalize_typo_pairs
 
 ROOT = Path(__file__).resolve().parents[1]
 TSV = ROOT / "terminology.tsv"
 OUT = ROOT / ".artifacts/i18n/terminology-audit"
-OUT.mkdir(parents=True, exist_ok=True)
 
 # ---------- 错别字表（保守：仅明确错字/非常用字） ----------
 TYPO_PAIRS = [
@@ -38,177 +37,362 @@ TYPO_PAIRS = [
     ("溶", "熔"), ("予", "预"), ("予", "豫"), ("渲", "宣"), ("布", "部"),
 ]
 
-# 保守过滤：只保留明确整词错字；单字替换类风险高，仅保留高频确定性组合
-TYPO_PAIRS = [p for p in TYPO_PAIRS if len(p[0]) >= 2]
+# 保守过滤：只保留明确整词错字；排除自映射并按完整规则稳定去重
+TYPO_PAIRS = normalize_typo_pairs(TYPO_PAIRS)
 
-# ---------- 读取 ----------
-rows = []
-with TSV.open("r", encoding="utf-8", newline="") as h:
-    rd = csv.DictReader(h, delimiter="\t")
-    for i, r in enumerate(rd, start=2):
-        r["_line"] = i
-        rows.append(r)
+_REQUIRED_FIELDS = (
+    "source",
+    "target",
+    "category",
+    "source_tag",
+    "status",
+    "scope",
+    "notes",
+)
+_VALUE_REQUIRED_FIELDS = ("source", "target", "category", "status", "scope")
 
-report = {"total_rows": len(rows), "sections": {}}
 
-# ---------- S1.1 同源多译 ----------
-by_source = defaultdict(list)
-for r in rows:
-    by_source[r["source"]].append(r)
-conflicts = []
-for src, rs in sorted(by_source.items()):
-    if len(rs) < 2:
-        continue
-    by_cat_target = {}
-    for r in rs:
-        key = (r["category"], r["target"])
-        by_cat_target.setdefault(key, []).append(r)
-    # 同类别内不同 target
-    same_cat_diff_target = []
-    by_cat = defaultdict(set)
-    for r in rs:
-        by_cat[r["category"]].add(r["target"])
-    for cat, targets in sorted(by_cat.items()):
-        if len(targets) > 1:
-            same_cat_diff_target.append((cat, sorted(targets)))
-    if same_cat_diff_target:
-        conflicts.append({
-            "source": src,
-            "detail": [
-                {"category": c, "targets": t,
-                 "rows": [{"line": r["_line"], "tag": r["source_tag"], "status": r["status"],
-                           "scope": r["scope"], "target": r["target"], "notes": r["notes"]}
-                          for r in rs if r["category"] == c]}
-                for c, t in same_cat_diff_target
-            ],
-        })
-report["sections"]["S1.1_same_source_multi_target"] = {
-    "count": len(conflicts), "items": conflicts}
+def _read_rows(tsv_path):
+    rows = []
+    with tsv_path.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle, delimiter="\t")
+        fieldnames = reader.fieldnames or []
+        missing = [field for field in _REQUIRED_FIELDS if field not in fieldnames]
+        if missing:
+            raise ValueError(
+                "terminology TSV is missing required columns: "
+                + ", ".join(missing)
+            )
+        for line, row in enumerate(reader, start=2):
+            if None in row:
+                raise ValueError(
+                    f"terminology TSV line {line} has unexpected extra columns"
+                )
+            missing_values = [
+                field
+                for field in _VALUE_REQUIRED_FIELDS
+                if row.get(field) is None
+            ]
+            if missing_values:
+                raise ValueError(
+                    f"terminology TSV line {line} is missing values for: "
+                    + ", ".join(missing_values)
+                )
+            row["_line"] = line
+            rows.append(row)
+    return rows
 
-# ---------- S1.2 错别字 ----------
-typo_hits = []
-for r in rows:
-    t = r["target"]
-    for bad, good in TYPO_PAIRS:
-        if bad in t:
-            typo_hits.append({"line": r["_line"], "source": r["source"], "target": t,
-                              "bad": bad, "good": good, "category": r["category"]})
-report["sections"]["S1.2_typos"] = {"count": len(typo_hits), "items": typo_hits}
 
-# ---------- S1.3 标点格式 ----------
-punct_hits = []
-for r in rows:
-    t = r["target"]
-    problems = []
-    # 半角逗号/句号/冒号/问号夹在中文间（排除 %s、数字、英文、控制标记）
-    stripped = re.sub(r"#[A-Za-z0-9_{}:+.\-]+#", "", t)
-    stripped = re.sub(r"%[-+ #0-9.]*[cdeEfgGiouXxqs]", "", stripped)
-    stripped = re.sub(r"@[A-Za-z0-9_:+.\-]+@", "", stripped)
-    if re.search(r"[\u4e00-\u9fff][,;!?][\u4e00-\u9fff]", stripped):
-        problems.append("中文字符间夹半角标点")
-    if re.search(r"[\u4e00-\u9fff],", stripped):
-        problems.append("中文后接半角逗号")
-    if re.search(r",[\u4e00-\u9fff]", stripped):
-        problems.append("半角逗号后接中文")
-    if re.search(r"[\u4e00-\u9fff]\.", stripped):
-        problems.append("中文后接半角句点")
-    if "  " in t:
-        problems.append("连续空格")
-    if t != t.strip() or re.search(r"\s+$", t):
-        problems.append("首尾空白")
-    # 控制标记配对
-    tags = re.findall(r"#[A-Za-z0-9_{}:+.\-]+#", t)
-    if tags:
-        opens = [x for x in tags if not x.startswith("#/")]
-        closes = [x for x in tags if x.startswith("#/")]
-        if opens and closes and len(opens) != len(closes):
-            problems.append(f"控制标记疑似不配对 ({len(opens)} open / {len(closes)} close)")
-    if problems:
-        punct_hits.append({"line": r["_line"], "source": r["source"], "target": t,
-                           "category": r["category"], "problems": problems})
-report["sections"]["S1.3_punctuation"] = {"count": len(punct_hits), "items": punct_hits}
+def _build_report(rows):
+    report = {"total_rows": len(rows), "sections": {}}
 
-# ---------- S1.4 类别边界 ----------
-boundary = []
-for r in rows:
-    cat = r["category"]
-    src = r["source"]
-    # 专名类别但 source 是小写普通词
-    if cat in ("T.PN.PERSON", "T.PN.PLACE", "T.PN.FACTION", "T.PN.RACE", "T.PN.WORLD"):
-        if src and src[0].islower():
-            boundary.append({"line": r["_line"], "source": src, "target": r["target"],
-                             "category": cat, "note": "专名类别但 source 以小写开头"})
-    # T.GAME.ENTITY 中 source 含大写专名特征（"The " 或全部大写单词）且 status=preferred
-    if cat == "T.GAME.ENTITY" and r["status"] == "preferred":
-        if re.search(r"\b(The|the)\s+[A-Z]", src) or re.search(r"\b[A-Z][a-z]+\s+[A-Z][a-z]+", src):
-            boundary.append({"line": r["_line"], "source": src, "target": r["target"],
-                             "category": cat, "note": "ENTITY 类别含专名特征，可能应为 T.PN.*"})
-report["sections"]["S1.4_category_boundary"] = {"count": len(boundary), "items": boundary}
+    # ---------- S1.1 同源多译 ----------
+    by_source = defaultdict(list)
+    for row in rows:
+        by_source[row["source"]].append(row)
+    conflicts = []
+    for source, source_rows in sorted(by_source.items()):
+        if len(source_rows) < 2:
+            continue
+        same_cat_diff_target = []
+        by_category = defaultdict(set)
+        for row in source_rows:
+            by_category[row["category"]].add(row["target"])
+        for category, targets in sorted(by_category.items()):
+            if len(targets) > 1:
+                same_cat_diff_target.append((category, sorted(targets)))
+        if same_cat_diff_target:
+            conflicts.append({
+                "source": source,
+                "detail": [
+                    {
+                        "category": category,
+                        "targets": targets,
+                        "rows": [
+                            {
+                                "line": row["_line"],
+                                "tag": row["source_tag"],
+                                "status": row["status"],
+                                "scope": row["scope"],
+                                "target": row["target"],
+                                "notes": row["notes"],
+                            }
+                            for row in source_rows
+                            if row["category"] == category
+                        ],
+                    }
+                    for category, targets in same_cat_diff_target
+                ],
+            })
+    report["sections"]["S1.1_same_source_multi_target"] = {
+        "count": len(conflicts),
+        "items": conflicts,
+    }
 
-# ---------- S1.5 字段完整性 ----------
-missing_notes = [{"line": r["_line"], "source": r["source"], "target": r["target"],
-                  "category": r["category"], "status": r["status"]}
-                 for r in rows if not (r.get("notes") or "").strip() and r["status"] == "preferred"]
-bad_scope = [{"line": r["_line"], "source": r["source"], "scope": r["scope"]}
-             for r in rows if r["scope"] not in ("core", "addon", "dlc", "global", "multi")]
-bad_status = [{"line": r["_line"], "source": r["source"], "status": r["status"]}
-              for r in rows if r["status"] not in ("existing", "preferred", "review")]
-report["sections"]["S1.5_fields"] = {
-    "missing_notes_preferred": missing_notes,
-    "bad_scope": bad_scope, "bad_status": bad_status,
-    "counts": {"missing_notes_preferred": len(missing_notes),
-               "bad_scope": len(bad_scope), "bad_status": len(bad_status)}}
+    # ---------- S1.2 错别字 ----------
+    typo_hits = []
+    for row in rows:
+        target = row["target"]
+        for bad, good in TYPO_PAIRS:
+            if bad in target:
+                typo_hits.append({
+                    "line": row["_line"],
+                    "source": row["source"],
+                    "target": target,
+                    "bad": bad,
+                    "good": good,
+                    "category": row["category"],
+                })
+    report["sections"]["S1.2_typos"] = {
+        "count": len(typo_hits),
+        "items": typo_hits,
+    }
 
-# ---------- 汇总统计 ----------
-cat_stat = Counter(r["category"] for r in rows)
-status_stat = Counter(r["status"] for r in rows)
-scope_stat = Counter(r["scope"] for r in rows)
-report["stats"] = {
-    "categories": dict(sorted(cat_stat.items(), key=lambda x: -x[1])),
-    "status": dict(status_stat), "scope": dict(scope_stat),
-}
+    # ---------- S1.3 标点格式 ----------
+    punctuation_hits = []
+    for row in rows:
+        target = row["target"]
+        problems = []
+        # 半角逗号/句号/冒号/问号夹在中文间（排除格式与控制标记）
+        stripped = re.sub(r"#[A-Za-z0-9_{}:+.\-]+#", "", target)
+        stripped = re.sub(
+            r"%[-+ #0-9.]*[cdeEfgGiouXxqs]", "", stripped
+        )
+        stripped = re.sub(r"@[A-Za-z0-9_:+.\-]+@", "", stripped)
+        if re.search(r"[\u4e00-\u9fff][,;!?][\u4e00-\u9fff]", stripped):
+            problems.append("中文字符间夹半角标点")
+        if re.search(r"[\u4e00-\u9fff],", stripped):
+            problems.append("中文后接半角逗号")
+        if re.search(r",[\u4e00-\u9fff]", stripped):
+            problems.append("半角逗号后接中文")
+        if re.search(r"[\u4e00-\u9fff]\.", stripped):
+            problems.append("中文后接半角句点")
+        if "  " in target:
+            problems.append("连续空格")
+        if target != target.strip() or re.search(r"\s+$", target):
+            problems.append("首尾空白")
+        tags = re.findall(r"#[A-Za-z0-9_{}:+.\-]+#", target)
+        if tags:
+            opens = [tag for tag in tags if not tag.startswith("#/")]
+            closes = [tag for tag in tags if tag.startswith("#/")]
+            if opens and closes and len(opens) != len(closes):
+                problems.append(
+                    "控制标记疑似不配对 "
+                    f"({len(opens)} open / {len(closes)} close)"
+                )
+        if problems:
+            punctuation_hits.append({
+                "line": row["_line"],
+                "source": row["source"],
+                "target": target,
+                "category": row["category"],
+                "problems": problems,
+            })
+    report["sections"]["S1.3_punctuation"] = {
+        "count": len(punctuation_hits),
+        "items": punctuation_hits,
+    }
 
-(OUT / "audit_static.json").write_text(
-    json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+    # ---------- S1.4 类别边界 ----------
+    boundary = []
+    proper_name_categories = (
+        "T.PN.PERSON",
+        "T.PN.PLACE",
+        "T.PN.FACTION",
+        "T.PN.RACE",
+        "T.PN.WORLD",
+    )
+    for row in rows:
+        category = row["category"]
+        source = row["source"]
+        if category in proper_name_categories:
+            if source and source[0].islower():
+                boundary.append({
+                    "line": row["_line"],
+                    "source": source,
+                    "target": row["target"],
+                    "category": category,
+                    "note": "专名类别但 source 以小写开头",
+                })
+        if category == "T.GAME.ENTITY" and row["status"] == "preferred":
+            if re.search(r"\b(The|the)\s+[A-Z]", source) or re.search(
+                r"\b[A-Z][a-z]+\s+[A-Z][a-z]+", source
+            ):
+                boundary.append({
+                    "line": row["_line"],
+                    "source": source,
+                    "target": row["target"],
+                    "category": category,
+                    "note": "ENTITY 类别含专名特征，可能应为 T.PN.*",
+                })
+    report["sections"]["S1.4_category_boundary"] = {
+        "count": len(boundary),
+        "items": boundary,
+    }
 
-# ---------- MD 报告 ----------
-md = ["# 术语表静态校对审计报告", "",
-      f"总行数：{report['total_rows']}（含表头 {report['total_rows']+1} 行）", ""]
-md += ["## 统计", ""]
-md.append("| category | 数量 |")
-md.append("|---|---|")
-for c, n in report["stats"]["categories"].items():
-    md.append(f"| {c} | {n} |")
-md.append("")
-md.append(f"- status：{report['stats']['status']}")
-md.append(f"- scope：{report['stats']['scope']}")
-for sec, title in [
-    ("S1.1_same_source_multi_target", "同源同类别多译冲突"),
-    ("S1.2_typos", "错别字"),
-    ("S1.3_punctuation", "标点/格式"),
-    ("S1.4_category_boundary", "类别边界疑点"),
-]:
-    data = report["sections"][sec]
-    md += ["", f"## {title}（{data['count']}）", ""]
-    for it in data["items"]:
-        if sec == "S1.1_same_source_multi_target":
-            lines = sorted({r["line"] for d in it["detail"] for r in d["rows"]})
-            md.append(f"- L{lines} `{it['source']}`")
-            for d in it["detail"]:
-                md.append(f"  - [{d['category']}] " + " / ".join(d["targets"]))
-        else:
-            md.append(f"- L{it['line']} `{it['source']}` → `{it['target']}`")
-            if sec == "S1.3_punctuation":
-                md[-1] += f"  ({'; '.join(it['problems'])})"
-sec = "S1.5_fields"
-md += ["", "## 字段完整性", ""]
-md.append(f"- preferred 无 notes：{report['sections'][sec]['counts']['missing_notes_preferred']} 条")
-md.append(f"- 非法 scope：{report['sections'][sec]['counts']['bad_scope']} 条")
-md.append(f"- 非法 status：{report['sections'][sec]['counts']['bad_status']} 条")
-for it in report["sections"][sec]["missing_notes_preferred"]:
-    md.append(f"  - L{it['line']} `{it['source']}` → `{it['target']}` [{it['category']}]")
-(OUT / "audit_static.md").write_text("\n".join(md) + "\n", encoding="utf-8")
-print("static audit done:", report["total_rows"], "rows")
-for sec in report["sections"]:
-    c = report["sections"][sec].get("count", report["sections"][sec].get("counts", {}))
-    print(f"  {sec}: {c}")
+    # ---------- S1.5 字段完整性 ----------
+    missing_notes = [
+        {
+            "line": row["_line"],
+            "source": row["source"],
+            "target": row["target"],
+            "category": row["category"],
+            "status": row["status"],
+        }
+        for row in rows
+        if not (row.get("notes") or "").strip()
+        and row["status"] == "preferred"
+    ]
+    bad_scope = [
+        {
+            "line": row["_line"],
+            "source": row["source"],
+            "scope": row["scope"],
+        }
+        for row in rows
+        if row["scope"] not in ("core", "addon", "dlc", "global", "multi")
+    ]
+    bad_status = [
+        {
+            "line": row["_line"],
+            "source": row["source"],
+            "status": row["status"],
+        }
+        for row in rows
+        if row["status"] not in ("existing", "preferred", "review")
+    ]
+    field_counts = {
+        "missing_notes_preferred": len(missing_notes),
+        "bad_scope": len(bad_scope),
+        "bad_status": len(bad_status),
+    }
+    report["sections"]["S1.5_fields"] = {
+        "missing_notes_preferred": missing_notes,
+        "bad_scope": bad_scope,
+        "bad_status": bad_status,
+        "counts": field_counts,
+    }
+
+    blocking_count = (
+        report["sections"]["S1.2_typos"]["count"]
+        + report["sections"]["S1.3_punctuation"]["count"]
+        + sum(field_counts.values())
+    )
+    advisory_count = (
+        report["sections"]["S1.1_same_source_multi_target"]["count"]
+        + report["sections"]["S1.4_category_boundary"]["count"]
+    )
+    report["ok"] = blocking_count == 0
+    report["blocking_count"] = blocking_count
+    report["advisory_count"] = advisory_count
+
+    cat_stat = Counter(row["category"] for row in rows)
+    status_stat = Counter(row["status"] for row in rows)
+    scope_stat = Counter(row["scope"] for row in rows)
+    report["stats"] = {
+        "categories": dict(sorted(cat_stat.items(), key=lambda item: -item[1])),
+        "status": dict(status_stat),
+        "scope": dict(scope_stat),
+    }
+    return report
+
+
+def _render_markdown(report):
+    md = [
+        "# 术语表静态校对审计报告",
+        "",
+        f"总行数：{report['total_rows']}（含表头 {report['total_rows'] + 1} 行）",
+        "",
+        "## 统计",
+        "",
+        "| category | 数量 |",
+        "|---|---|",
+    ]
+    for category, count in report["stats"]["categories"].items():
+        md.append(f"| {category} | {count} |")
+    md.append("")
+    md.append(f"- status：{report['stats']['status']}")
+    md.append(f"- scope：{report['stats']['scope']}")
+    for section, title in [
+        ("S1.1_same_source_multi_target", "同源同类别多译冲突"),
+        ("S1.2_typos", "错别字"),
+        ("S1.3_punctuation", "标点/格式"),
+        ("S1.4_category_boundary", "类别边界疑点"),
+    ]:
+        data = report["sections"][section]
+        md += ["", f"## {title}（{data['count']}）", ""]
+        for item in data["items"]:
+            if section == "S1.1_same_source_multi_target":
+                lines = sorted({
+                    row["line"]
+                    for detail in item["detail"]
+                    for row in detail["rows"]
+                })
+                md.append(f"- L{lines} `{item['source']}`")
+                for detail in item["detail"]:
+                    md.append(
+                        f"  - [{detail['category']}] "
+                        + " / ".join(detail["targets"])
+                    )
+            else:
+                md.append(
+                    f"- L{item['line']} `{item['source']}` → `{item['target']}`"
+                )
+                if section == "S1.3_punctuation":
+                    md[-1] += f"  ({'; '.join(item['problems'])})"
+    section = "S1.5_fields"
+    md += ["", "## 字段完整性", ""]
+    counts = report["sections"][section]["counts"]
+    md.append(
+        f"- preferred 无 notes：{counts['missing_notes_preferred']} 条"
+    )
+    md.append(f"- 非法 scope：{counts['bad_scope']} 条")
+    md.append(f"- 非法 status：{counts['bad_status']} 条")
+    for item in report["sections"][section]["missing_notes_preferred"]:
+        md.append(
+            f"  - L{item['line']} `{item['source']}` → `{item['target']}` "
+            f"[{item['category']}]"
+        )
+    return "\n".join(md) + "\n"
+
+
+def run_static_audit(tsv_path, output_dir):
+    """Read one terminology TSV, write both reports, and return the report."""
+    tsv_path = Path(tsv_path)
+    output_dir = Path(output_dir)
+    rows = _read_rows(tsv_path)
+    report = _build_report(rows)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / "audit_static.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8"
+    )
+    (output_dir / "audit_static.md").write_text(
+        _render_markdown(report), encoding="utf-8"
+    )
+    return report
+
+
+def _print_summary(report):
+    print("static audit done:", report["total_rows"], "rows")
+    for section in report["sections"]:
+        count = report["sections"][section].get(
+            "count", report["sections"][section].get("counts", {})
+        )
+        print(f"  {section}: {count}")
+
+
+def main(*, tsv_path=TSV, output_dir=OUT):
+    signal.alarm(120)
+    try:
+        report = run_static_audit(tsv_path, output_dir)
+        _print_summary(report)
+        return 0 if report["ok"] else 1
+    except (OSError, UnicodeError, csv.Error, ValueError) as error:
+        print(f"static audit failed: {error}", file=sys.stderr)
+        return 2
+    finally:
+        signal.alarm(0)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

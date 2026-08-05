@@ -7,10 +7,11 @@ from typing import Any, Iterable
 from .config import ComponentSpec, Manifest
 from .git_source import GitRepository
 from .locale_model import LocaleLoader, runtime_map
+from .semantics import runtime_semantic_signature
 
 
-def _semantic_value(entry: dict[str, Any]) -> tuple[Any, Any, Any]:
-    return (entry.get("target"), entry.get("args_order"), entry.get("special"))
+def _semantic_value(entry: dict[str, Any]) -> str:
+    return runtime_semantic_signature(entry)
 
 
 def component_status(

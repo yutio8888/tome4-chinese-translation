@@ -13,6 +13,7 @@ from .errors import ConfigurationError
 
 
 DEFAULT_VERSION = "tome-1.7.6"
+SUPPORTED_SCHEMA_VERSION = 1
 
 
 def repository_root() -> Path:
@@ -209,6 +210,29 @@ def _required_string(data: dict[str, Any], key: str, label: str) -> str:
     return value
 
 
+def _boolean(
+    data: dict[str, Any], key: str, label: str, *, default: bool = False
+) -> bool:
+    value = data.get(key, default)
+    if type(value) is not bool:
+        raise ConfigurationError(f"{label}.{key} must be a boolean")
+    return value
+
+
+def _integer(value: Any, label: str, *, minimum: int | None = None) -> int:
+    if minimum is None:
+        requirement = "an integer"
+    elif minimum == 1:
+        requirement = "a positive integer"
+    elif minimum == 0:
+        requirement = "a non-negative integer"
+    else:
+        requirement = f"an integer >= {minimum}"
+    if type(value) is not int or (minimum is not None and value < minimum):
+        raise ConfigurationError(f"{label} must be {requirement}")
+    return value
+
+
 def _full_oid(value: str, label: str) -> str:
     if len(value) not in (40, 64) or any(char not in "0123456789abcdef" for char in value):
         raise ConfigurationError(f"{label} must be a full lowercase Git object ID")
@@ -240,8 +264,12 @@ def load_manifest(
         raise ConfigurationError(f"invalid JSON version manifest: {path}: {error}") from error
     if not isinstance(data, dict):
         raise ConfigurationError("version manifest root must be an object")
-    if data.get("schema_version") != 1:
-        raise ConfigurationError("unsupported version manifest schema")
+    schema_version = _integer(data.get("schema_version"), "manifest.schema_version")
+    if schema_version != SUPPORTED_SCHEMA_VERSION:
+        raise ConfigurationError(
+            "manifest.schema_version is unsupported: "
+            f"expected {SUPPORTED_SCHEMA_VERSION}, found {schema_version}"
+        )
 
     repositories_data = _required_mapping(data, "repositories", "manifest")
     repositories: dict[str, RepositorySpec] = {}
@@ -256,7 +284,7 @@ def load_manifest(
                 _required_string(value, "commit", f"repositories.{name}"),
                 f"repositories.{name}.commit",
             ),
-            required=bool(value.get("required", False)),
+            required=_boolean(value, "required", f"repositories.{name}"),
         )
 
     runtime_data = _required_mapping(data, "runtime", "manifest")
@@ -284,9 +312,9 @@ def load_manifest(
     )
 
     extractor_data = _required_mapping(data, "extractor", "manifest")
-    max_stack = extractor_data.get("max_stack")
-    if not isinstance(max_stack, int) or max_stack < 1000:
-        raise ConfigurationError("extractor.max_stack must be an integer >= 1000")
+    max_stack = _integer(
+        extractor_data.get("max_stack"), "extractor.max_stack", minimum=1000
+    )
     extractor = ExtractorSpec(
         repository=_required_string(extractor_data, "repository", "extractor"),
         commit=_full_oid(
@@ -295,8 +323,8 @@ def load_manifest(
         ),
         git_path=_relative_path(extractor_data.get("git_path"), "extractor.git_path"),
         max_stack=max_stack,
-        preserve_duplicate_occurrences=bool(
-            extractor_data.get("preserve_duplicate_occurrences", False)
+        preserve_duplicate_occurrences=_boolean(
+            extractor_data, "preserve_duplicate_occurrences", "extractor"
         ),
     )
     if extractor.repository not in repositories:
@@ -429,11 +457,11 @@ def load_manifest(
                 raise ConfigurationError(
                     f"{label}.source_baseline requires a protected_source mapping"
                 )
-            tdef_count = source_baseline_data.get("tdef_count")
-            if not isinstance(tdef_count, int) or tdef_count <= 0:
-                raise ConfigurationError(
-                    f"{label}.source_baseline.tdef_count must be a positive integer"
-                )
+            tdef_count = _integer(
+                source_baseline_data.get("tdef_count"),
+                f"{label}.source_baseline.tdef_count",
+                minimum=1,
+            )
             source_baseline = SourceBaseline(
                 kind=_required_string(
                     source_baseline_data, "kind", f"{label}.source_baseline"
@@ -476,7 +504,7 @@ def load_manifest(
                 sources=tuple(sources),
                 protected_source=protected_source,
                 source_baseline=source_baseline,
-                extract_by_default=bool(value.get("extract_by_default", False)),
+                extract_by_default=_boolean(value, "extract_by_default", label),
                 official_locale=(
                     _relative_path(official_locale, f"{label}.official_locale")
                     if official_locale is not None
@@ -487,7 +515,7 @@ def load_manifest(
                     if full_output is not None
                     else None
                 ),
-                addon_eligible=bool(value.get("addon_eligible", False)),
+                addon_eligible=_boolean(value, "addon_eligible", label),
             )
         )
 
@@ -601,7 +629,7 @@ def load_manifest(
         path=path,
         raw_bytes=raw_bytes,
         root=root,
-        schema_version=1,
+        schema_version=schema_version,
         version=_required_string(data, "version", "manifest"),
         locale=_required_string(data, "locale", "manifest"),
         repositories=repositories,

@@ -114,7 +114,17 @@ class GitRepository:
             status = self._run(
                 ["status", "--porcelain", "--untracked-files=all"], text=True
             )
-            clean = status.returncode == 0 and not status.stdout.strip()
+            if status.returncode != 0:
+                detail = status.stderr.strip()
+                if not detail:
+                    detail = (
+                        f"git status exited with code {status.returncode} "
+                        "without an error message"
+                    )
+                raise ConfigurationError(
+                    f"cannot inspect Git worktree status in {self.path}: {detail}"
+                )
+            clean = not status.stdout.strip()
         return {
             "path": str(self.path),
             "commit": commit,

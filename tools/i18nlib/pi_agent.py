@@ -15,6 +15,7 @@ from typing import Any
 from . import TOOL_VERSION
 from .config import load_manifest
 from .errors import AgentError, I18nToolError, ValidationError
+from .pi_run_options import validate_pi_run_options
 from .proposal import decode_json_object, extract_event_stream_output, read_json_object, validate_proposal
 from .report import atomic_write_bytes, create_run_directory, write_json
 from .workset import proposal_template_for, validate_workset
@@ -198,6 +199,13 @@ def run_pi_translation(
     strict: bool,
     pi_executable: str | None = None,
 ) -> dict[str, Any]:
+    validate_pi_run_options(
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        timeout=timeout,
+        strict=strict,
+    )
     manifest = load_manifest()
     workset_resolved, workset, _ = read_json_object(workset_path, "workset")
     validate_workset(manifest, workset)
@@ -225,11 +233,6 @@ def run_pi_translation(
     executable = pi_executable or shutil.which("pi")
     if not executable:
         raise AgentError("pi is not available on PATH")
-    if timeout < 1:
-        raise ValidationError("--timeout must be a positive integer")
-    if not provider or not model or not thinking:
-        raise ValidationError("Pi provider, model, and thinking level must be non-empty")
-
     run_directory = create_run_directory(manifest.root, "pi-translate")
     run_directory.chmod(0o700)
     raw_output_path = run_directory / "raw-output.txt"

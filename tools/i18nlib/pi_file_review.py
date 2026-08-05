@@ -8,8 +8,11 @@ therefore verify evidence against public project, game and DLC sources;
 root so relative source paths resolve, and the run stays ephemeral
 (``--no-session --no-approve --no-context-files --no-skills``).
 
-The output contract, cache identity and report shape deliberately match the
-isolated pipeline so the same artifact consumers work unchanged.
+The output contract and report shape deliberately match the isolated pipeline
+so the same artifact consumers work unchanged.  Result caching is disabled:
+the read/bash tools can observe source state outside the bounded bundle, and
+there is no reliable, inexpensive way to bind every such input into a cache
+identity.
 """
 
 from __future__ import annotations
@@ -35,13 +38,8 @@ from .pi_agent import (
     DEFAULT_THINKING,
     _pi_environment,
 )
-from .pi_review import (
-    _canonical_sha256,
-    _cached_review_path,
-    _load_cached_review,
-    _validate_findings,
-    _write_cached_review,
-)
+from .pi_run_options import validate_pi_run_options
+from .pi_review import _validate_findings
 from .proposal import decode_json_object, extract_event_stream_output
 from .report import atomic_write_bytes, create_run_directory, write_json
 from .review import (
@@ -52,6 +50,22 @@ from .review import (
 )
 
 TOOLS_ALLOWLIST = "read,bash"
+FILE_REVIEW_CACHE_DISABLED_REASON = (
+    "file-reading review results are not cached because read/bash can observe "
+    "mutable project, game, and DLC source state outside the bounded bundle"
+)
+
+
+def _validate_file_review_cache_options(*, use_cache: bool, force: bool) -> None:
+    if use_cache:
+        qualification = " (including with --force)" if force else ""
+        raise ValidationError(
+            f"--cache is unavailable{qualification}: "
+            f"{FILE_REVIEW_CACHE_DISABLED_REASON}"
+        )
+    # ``--force`` used to bypass a cache lookup.  Keep accepting it so existing
+    # callers can continue to request a fresh observation; with caching disabled,
+    # every file-reading review already satisfies that requirement.
 
 
 def _run_git_snapshot_command(root: Path, arguments: list[str], label: str) -> bytes:
@@ -226,31 +240,6 @@ def _run_file_review_process(
     return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
 
 
-def _file_review_cache_key(
-    *,
-    bundle_id: str,
-    provider: str,
-    model: str,
-    thinking: str,
-    prompt_sha256: str,
-    strict: bool,
-) -> str:
-    return _canonical_sha256(
-        {
-            "cache_contract": "tome4-pi-file-review-cache-v1",
-            "tool_version": TOOL_VERSION,
-            "review_contract": REVIEW_CONTRACT,
-            "bundle_id": bundle_id,
-            "provider": provider,
-            "model": model,
-            "thinking": thinking,
-            "prompt_sha256": prompt_sha256,
-            "tools": TOOLS_ALLOWLIST,
-            "strict": strict,
-        }
-    )
-
-
 def build_file_review_command(
     *,
     executable: str,
@@ -307,18 +296,23 @@ def run_pi_file_review(
     timeout: int,
     strict: bool,
     pi_executable: str | None = None,
-    use_cache: bool = True,
+    use_cache: bool = False,
     force: bool = False,
 ) -> dict[str, Any]:
+    validate_pi_run_options(
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        timeout=timeout,
+        strict=strict,
+        use_cache=use_cache,
+        force=force,
+    )
     started = time.monotonic()
+    _validate_file_review_cache_options(use_cache=use_cache, force=force)
     manifest = load_manifest()
     bundle_resolved = bundle_path.expanduser().resolve()
     bundle = validate_review_bundle(manifest, bundle_resolved)
-    if timeout < 1:
-        raise ValidationError("--timeout must be a positive integer")
-    if not provider or not model or not thinking:
-        raise ValidationError("Pi provider, model, and thinking level must be non-empty")
-
     run_directory = create_run_directory(manifest.root, "pi-file-review")
     run_directory.chmod(0o700)
     raw_output_path = run_directory / "raw-output.txt"
@@ -332,16 +326,6 @@ def run_pi_file_review(
         raise AgentError(f"cannot read Pi file reviewer prompt: {prompt_path}") from error
 
     prompt_sha256 = hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()
-    cache_key = _file_review_cache_key(
-        bundle_id=bundle["bundle_id"],
-        provider=provider,
-        model=model,
-        thinking=thinking,
-        prompt_sha256=prompt_sha256,
-        strict=strict,
-    )
-    cache_path = _cached_review_path(manifest.root, cache_key)
-    cache_decision = "disabled" if not use_cache else ("bypass" if force else "miss")
     report: dict[str, Any] = {
         "schema_version": REVIEW_SCHEMA_VERSION,
         "review_contract": REVIEW_CONTRACT,
@@ -367,8 +351,9 @@ def run_pi_file_review(
         "bundle_id": bundle["bundle_id"],
         "kind": bundle["kind"],
         "prompt_sha256": prompt_sha256,
-        "result_cache_key": cache_key,
-        "cache_decision": cache_decision,
+        "result_cache_key": None,
+        "cache_decision": "disabled",
+        "cache_disabled_reason": FILE_REVIEW_CACHE_DISABLED_REASON,
         "timeout_seconds": timeout,
         "attempts": 0,
         "charged_or_possible_transfers": 0,
@@ -378,39 +363,6 @@ def run_pi_file_review(
         "raw_output": None,
         "report": str(report_path),
     }
-    if use_cache and not force:
-        try:
-            cached = _load_cached_review(
-                path=cache_path,
-                cache_key=cache_key,
-                bundle=bundle,
-                provider=provider,
-                model=model,
-                thinking=thinking,
-                prompt_sha256=prompt_sha256,
-                strict=strict,
-            )
-        except ValidationError as error:
-            report["error"] = f"Pi file review cache validation failed: {error}"
-            report["elapsed_seconds"] = round(time.monotonic() - started, 6)
-            write_json(report_path, report)
-            raise AgentError(f"{report['error']}; report: {report_path}") from error
-        if cached is not None:
-            summary, output = cached
-            write_json(review_path, output)
-            report.update(
-                {
-                    "ok": True,
-                    "cache_decision": "hit",
-                    "summary": summary,
-                    "review": str(review_path),
-                    "validated_results": 1,
-                    "elapsed_seconds": round(time.monotonic() - started, 6),
-                }
-            )
-            write_json(report_path, report)
-            return report
-
     executable = pi_executable or shutil.which("pi")
     if not executable:
         report["error"] = "pi is not available on PATH"
@@ -512,18 +464,6 @@ def run_pi_file_review(
         raise AgentError(f"Pi file review validation failed: {error}; report: {report_path}") from error
 
     write_json(review_path, output)
-    if use_cache and not force:
-        _write_cached_review(
-            path=cache_path,
-            cache_key=cache_key,
-            bundle=bundle,
-            provider=provider,
-            model=model,
-            thinking=thinking,
-            prompt_sha256=prompt_sha256,
-            strict=strict,
-            review=output,
-        )
     report.update(
         {
             "ok": True,
@@ -567,13 +507,16 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--cache",
         action=argparse.BooleanOptionalAction,
-        default=True,
-        help="reuse an exact validated result before starting Pi (default: true)",
+        default=False,
+        help="unavailable for file-reading reviews; --cache is rejected",
     )
     parser.add_argument(
         "--force",
         action="store_true",
-        help="bypass cache lookup and do not replace the cached observation",
+        help=(
+            "require a fresh result (always true for file-reading reviews; "
+            "retained for compatibility)"
+        ),
     )
     return parser
 

@@ -15,6 +15,27 @@ from .report import create_run_directory, write_json
 from .workset import _canonical_sha256, _relevant_terms, _terminology_rows
 
 
+def validate_context_options(
+    *,
+    section_prefix: object,
+    query: object,
+    limit: object,
+) -> None:
+    """Validate context selection options without performing any I/O."""
+    if type(limit) is not int:
+        raise ValidationError(
+            "context --limit must be an integer between 1 and 500"
+        )
+    if limit < 1 or limit > 500:
+        raise ValidationError("context --limit must be between 1 and 500")
+    if section_prefix is not None and not isinstance(section_prefix, str):
+        raise ValidationError("context --section must be a string or None")
+    if query is not None and not isinstance(query, str):
+        raise ValidationError("context --query must be a string or None")
+    if section_prefix is None and (query is None or not query.strip()):
+        raise ValidationError("context requires --section or --query")
+
+
 def resolve_context(
     manifest: Manifest,
     loader: LocaleLoader,
@@ -24,10 +45,11 @@ def resolve_context(
     query: str | None,
     limit: int,
 ) -> dict[str, Any]:
-    if limit < 1 or limit > 500:
-        raise ValidationError("context --limit must be between 1 and 500")
-    if section_prefix is None and (query is None or not query.strip()):
-        raise ValidationError("context requires --section or --query")
+    validate_context_options(
+        section_prefix=section_prefix,
+        query=query,
+        limit=limit,
+    )
     folded_query = query.casefold() if query else None
     document = loader.load_path(
         manifest.root / component.translation,

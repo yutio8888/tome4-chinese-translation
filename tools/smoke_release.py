@@ -14,15 +14,32 @@
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 import sys
 import tempfile
+from dataclasses import dataclass
 from pathlib import Path
+from typing import Any, Callable, Iterable, Mapping
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
-from i18nlib.config import load_manifest  # noqa: E402
+from i18nlib.config import Manifest, load_manifest  # noqa: E402
+from i18nlib.locale_model import (  # noqa: E402
+    LocaleDocument,
+    LocaleLoader,
+    runtime_map,
+)
+from i18nlib.publish import (  # noqa: E402
+    _dlc_overlay_entries,
+    _official_locale_keys,
+)
+from i18nlib.runtime import LuaRuntime  # noqa: E402
+
+_LUA_TIMEOUT_SECONDS = 300
+_DLC_COMPONENTS = ("ashes-urhrok", "cults", "orcs")
+_SEMANTIC_FIELDS = ("target", "args_order", "special")
 
 _LUA_PROBE = r"""
 -- probe: load a locale file under an I18N-like environment
@@ -46,17 +63,355 @@ if lc and lc ~= "zh_hans" then io.write("LOCALEMISMATCH:", lc, "\n"); os.exit(4)
 os.exit(0)
 """
 
+_LUA_SYNTAX_PROBE = r"""
+local file = arg[1]
+local chunk, err = loadfile(file)
+if not chunk then io.write("LOADFAIL:", err, "\n"); os.exit(2) end
+os.exit(0)
+"""
 
-def run_lua(script: str, *args: str) -> subprocess.CompletedProcess:
-    with tempfile.NamedTemporaryFile("w", suffix=".lua", delete=False) as fp:
+RuntimeKey = tuple[str, str | None]
+RuntimeEntryMap = dict[RuntimeKey, dict[str, Any]]
+
+
+@dataclass(frozen=True)
+class ReleaseLayout:
+    locale: Path
+    null_translation: Path
+    hooks: Path
+    init: Path
+
+    def required_files(self) -> tuple[tuple[str, Path], ...]:
+        return (
+            ("locale file exists", self.locale),
+            ("null_translation exists", self.null_translation),
+            ("hooks/load.lua exists", self.hooks),
+            ("init.lua exists", self.init),
+        )
+
+
+@dataclass(frozen=True)
+class DlcComparison:
+    expected: int
+    actual: int
+    missing: tuple[RuntimeKey, ...]
+    unexpected: tuple[RuntimeKey, ...]
+    mismatched: tuple[RuntimeKey, ...]
+
+    @property
+    def ok(self) -> bool:
+        return not (self.missing or self.unexpected or self.mismatched)
+
+    @property
+    def detail(self) -> str:
+        return (
+            f"expected={self.expected}, actual={self.actual}, "
+            f"missing={len(self.missing)}, "
+            f"unexpected={len(self.unexpected)}, "
+            f"mismatched={len(self.mismatched)}"
+        )
+
+
+class CheckReporter:
+    def __init__(self) -> None:
+        self.failures = 0
+
+    def check(self, label: str, ok: bool, detail: str = "") -> None:
+        status = "PASS" if ok else "FAIL"
+        print(f"[{status}] {label}" + (f" — {detail}" if detail else ""))
+        if not ok:
+            self.failures += 1
+
+    def finish(self) -> int:
+        print()
+        if self.failures:
+            print(f"SMOKE FAILED: {self.failures} check(s) failed")
+            return 1
+        print("SMOKE OK: release addon is loadable and consistent")
+        return 0
+
+
+def _release_layout(addon_root: Path) -> ReleaseLayout:
+    return ReleaseLayout(
+        locale=addon_root / "data" / "locales" / "zh_hans.lua",
+        null_translation=addon_root / "data" / "null_translation.lua",
+        hooks=addon_root / "hooks" / "load.lua",
+        init=addon_root / "init.lua",
+    )
+
+
+def _read_utf8(path: Path) -> str:
+    return path.read_text(encoding="utf-8", errors="replace")
+
+
+def _error_detail(error: BaseException) -> str:
+    return str(error).strip() or type(error).__name__
+
+
+def _process_detail(result: subprocess.CompletedProcess[str]) -> str:
+    return (result.stderr.strip() or result.stdout.strip() or "no diagnostic output")
+
+
+def run_lua(
+    runtime: LuaRuntime,
+    script: str,
+    *args: str,
+    timeout: int = _LUA_TIMEOUT_SECONDS,
+) -> subprocess.CompletedProcess[str]:
+    """Run a temporary Lua probe through the manifest-configured runtime."""
+    with tempfile.NamedTemporaryFile(
+        "w", encoding="utf-8", suffix=".lua", delete=False
+    ) as fp:
         fp.write(script)
-        tmp = fp.name
+        temporary_path = Path(fp.name)
     try:
-        return subprocess.run(
-            ["luajit", tmp, *args], capture_output=True, text=True, timeout=300
+        return runtime.run(
+            [temporary_path, *args],
+            cwd=runtime.manifest.root,
+            timeout=timeout,
         )
     finally:
-        Path(tmp).unlink(missing_ok=True)
+        temporary_path.unlink(missing_ok=True)
+
+
+def _translation_probe(
+    runtime: LuaRuntime, path: Path
+) -> tuple[bool, int, str]:
+    try:
+        result = run_lua(runtime, _LUA_PROBE, str(path))
+    except Exception as error:
+        return False, 0, _error_detail(error)
+    if result.returncode != 0:
+        return False, 0, _process_detail(result)
+    entry_lines = [
+        line for line in result.stdout.splitlines() if line.startswith("entries:")
+    ]
+    if len(entry_lines) != 1:
+        return False, 0, f"unexpected probe output: {result.stdout!r}"
+    try:
+        entries = int(entry_lines[0].split(":", 1)[1])
+    except ValueError:
+        return False, 0, f"invalid entry count: {entry_lines[0]!r}"
+    return True, entries, f"{entries} t() entries"
+
+
+def _syntax_probe(runtime: LuaRuntime, path: Path) -> tuple[bool, str]:
+    try:
+        result = run_lua(runtime, _LUA_SYNTAX_PROBE, str(path))
+    except Exception as error:
+        return False, _error_detail(error)
+    if result.returncode != 0:
+        return False, _process_detail(result)
+    return True, ""
+
+
+def _translation_signature(entry: Mapping[str, Any]) -> str:
+    """Return a deterministic, type-sensitive signature of runtime semantics."""
+    return json.dumps(
+        {field: entry.get(field) for field in _SEMANTIC_FIELDS},
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+        allow_nan=False,
+    )
+
+
+def _runtime_key_sort_key(key: RuntimeKey) -> str:
+    return json.dumps(key, ensure_ascii=False, separators=(",", ":"))
+
+
+def compare_dlc_runtime_maps(
+    expected: Mapping[RuntimeKey, Mapping[str, Any]],
+    actual: Mapping[RuntimeKey, Mapping[str, Any]],
+) -> DlcComparison:
+    """Compare exact runtime keys and t() semantics for one DLC section."""
+    expected_keys = set(expected)
+    actual_keys = set(actual)
+    missing = tuple(
+        sorted(expected_keys - actual_keys, key=_runtime_key_sort_key)
+    )
+    unexpected = tuple(
+        sorted(actual_keys - expected_keys, key=_runtime_key_sort_key)
+    )
+    mismatched = tuple(
+        sorted(
+            (
+                key
+                for key in expected_keys & actual_keys
+                if _translation_signature(expected[key])
+                != _translation_signature(actual[key])
+            ),
+            key=_runtime_key_sort_key,
+        )
+    )
+    return DlcComparison(
+        expected=len(expected_keys),
+        actual=len(actual_keys),
+        missing=missing,
+        unexpected=unexpected,
+        mismatched=mismatched,
+    )
+
+
+def _entries_runtime_map(
+    entries: Iterable[dict[str, Any]], *, logical_path: str
+) -> RuntimeEntryMap:
+    document = LocaleDocument(
+        logical_path=logical_path,
+        sha256="",
+        records=tuple(entries),
+    )
+    return runtime_map((document,))
+
+
+def expected_dlc_runtime_maps(
+    manifest: Manifest,
+    loader: LocaleLoader,
+    *,
+    official_keys_loader: Callable[
+        [Manifest, LocaleLoader], set[RuntimeKey]
+    ] = _official_locale_keys,
+    overlay_entries_loader: Callable[
+        [Manifest, LocaleLoader, set[RuntimeKey]], list[dict[str, Any]]
+    ] = _dlc_overlay_entries,
+) -> dict[str, RuntimeEntryMap]:
+    """Build the same canonical DLC overlay maps used by publish."""
+    official_keys = official_keys_loader(manifest, loader)
+    overlay_entries = overlay_entries_loader(manifest, loader, official_keys)
+    return {
+        component_id: _entries_runtime_map(
+            (
+                entry
+                for entry in overlay_entries
+                if entry.get("section") == component_id
+            ),
+            logical_path=f"expected:{component_id}",
+        )
+        for component_id in _DLC_COMPONENTS
+    }
+
+
+def release_dlc_runtime_maps(document: LocaleDocument) -> dict[str, RuntimeEntryMap]:
+    """Select the runtime map belonging to each DLC section in a release file."""
+    return {
+        component_id: _entries_runtime_map(
+            (
+                entry
+                for entry in document.translations
+                if entry.get("section") == component_id
+            ),
+            logical_path=f"release:{component_id}",
+        )
+        for component_id in _DLC_COMPONENTS
+    }
+
+
+def run_release_smoke(
+    manifest: Manifest,
+    addon_root: Path,
+    *,
+    runtime_factory: Callable[[Manifest], LuaRuntime] | None = None,
+    loader_factory: Callable[[LuaRuntime], LocaleLoader] | None = None,
+    official_keys_loader: Callable[
+        [Manifest, LocaleLoader], set[RuntimeKey]
+    ] | None = None,
+    overlay_entries_loader: Callable[
+        [Manifest, LocaleLoader, set[RuntimeKey]], list[dict[str, Any]]
+    ] | None = None,
+    text_reader: Callable[[Path], str] = _read_utf8,
+) -> int:
+    """Run smoke checks with injectable runtime, loader, and canonical sources."""
+    runtime_factory = runtime_factory or LuaRuntime
+    loader_factory = loader_factory or LocaleLoader
+    official_keys_loader = official_keys_loader or _official_locale_keys
+    overlay_entries_loader = overlay_entries_loader or _dlc_overlay_entries
+
+    reporter = CheckReporter()
+    layout = _release_layout(addon_root)
+    layout_valid = True
+    for label, path in layout.required_files():
+        exists = path.is_file()
+        reporter.check(label, exists, "" if exists else str(path))
+        layout_valid = layout_valid and exists
+    if not layout_valid:
+        return reporter.finish()
+
+    try:
+        runtime = runtime_factory(manifest)
+        runtime.doctor()
+    except Exception as error:
+        reporter.check("manifest Lua runtime doctor", False, _error_detail(error))
+        return reporter.finish()
+    reporter.check("manifest Lua runtime doctor", True)
+
+    locale_ok, entries, locale_detail = _translation_probe(runtime, layout.locale)
+    reporter.check(
+        "zh_hans.lua loads (locale/section/t env)", locale_ok, locale_detail
+    )
+    reporter.check("zh_hans.lua has >5000 entries", entries > 5000, str(entries))
+
+    null_ok, null_entries, null_detail = _translation_probe(
+        runtime, layout.null_translation
+    )
+    reporter.check("null_translation.lua loads", null_ok, null_detail)
+    reporter.check(
+        "null_translation entries > 400", null_entries > 400, str(null_entries)
+    )
+
+    try:
+        hooks_text = text_reader(layout.hooks)
+    except Exception as error:
+        reporter.check(
+            "hooks/load.lua loads standalone translations",
+            False,
+            _error_detail(error),
+        )
+    else:
+        reporter.check(
+            "hooks/load.lua loads standalone translations",
+            "null_translation.lua" in hooks_text,
+        )
+    hooks_syntax_ok, hooks_syntax_detail = _syntax_probe(runtime, layout.hooks)
+    reporter.check("hooks/load.lua syntax", hooks_syntax_ok, hooks_syntax_detail)
+
+    try:
+        init_text = text_reader(layout.init)
+    except Exception as error:
+        reporter.check("init.lua readable", False, _error_detail(error))
+    else:
+        reporter.check(
+            "init.lua has GPL v3 header",
+            "GNU General Public License" in init_text,
+        )
+        reporter.check(
+            "init.lua locale metadata",
+            'for_module = "tome"' in init_text and "addon_version" in init_text,
+        )
+
+    try:
+        loader = loader_factory(runtime)
+        release_document = loader.load_path(layout.locale, logical_path="release")
+        expected_maps = expected_dlc_runtime_maps(
+            manifest,
+            loader,
+            official_keys_loader=official_keys_loader,
+            overlay_entries_loader=overlay_entries_loader,
+        )
+        actual_maps = release_dlc_runtime_maps(release_document)
+    except Exception as error:
+        reporter.check("canonical DLC consistency", False, _error_detail(error))
+    else:
+        for component_id in _DLC_COMPONENTS:
+            comparison = compare_dlc_runtime_maps(
+                expected_maps[component_id], actual_maps[component_id]
+            )
+            reporter.check(
+                f"DLC {component_id} exact runtime overlay",
+                comparison.ok,
+                comparison.detail,
+            )
+
+    return reporter.finish()
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -64,103 +419,19 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--addon-root", default=None, help="release repository root")
     args = parser.parse_args(argv)
 
-    manifest = load_manifest()
-    addon_root = Path(args.addon_root) if args.addon_root else manifest.repository_path("addon")
-    locale_file = addon_root / "data" / "locales" / "zh_hans.lua"
-    null_file = addon_root / "data" / "null_translation.lua"
-    hooks_file = addon_root / "hooks" / "load.lua"
-    init_file = addon_root / "init.lua"
-
-    failures = 0
-
-    def check(label: str, ok: bool, detail: str = "") -> None:
-        nonlocal failures
-        status = "PASS" if ok else "FAIL"
-        print(f"[{status}] {label}" + (f" — {detail}" if detail else ""))
-        if not ok:
-            failures += 1
-
-    check("locale file exists", locale_file.is_file())
-    check("null_translation exists", null_file.is_file())
-    check("hooks/load.lua exists", hooks_file.is_file())
-    check("init.lua exists", init_file.is_file())
-
-    # 1) 主覆盖层加载
-    result = run_lua(_LUA_PROBE, str(locale_file))
-    ok = result.returncode == 0
-    entries = 0
-    if ok:
-        for line in result.stdout.splitlines():
-            if line.startswith("entries:"):
-                entries = int(line.split(":", 1)[1])
-    check("zh_hans.lua loads (locale/section/t env)", ok,
-          f"{entries} t() entries" if ok else result.stdout + result.stderr)
-    check("zh_hans.lua has >5000 entries", entries > 5000, f"{entries}")
-
-    # 2) null_translation 加载（hooks 显式加载的目标）
-    result = run_lua(_LUA_PROBE, str(null_file))
-    ok = result.returncode == 0
-    null_entries = 0
-    if ok:
-        for line in result.stdout.splitlines():
-            if line.startswith("entries:"):
-                null_entries = int(line.split(":", 1)[1])
-    check("null_translation.lua loads", ok,
-          f"{null_entries} t() entries" if ok else result.stdout + result.stderr)
-    check("null_translation entries > 400", null_entries > 400, f"{null_entries}")
-
-    # 3) hooks/load.lua 语法 + 显式加载语句
-    check(
-        "hooks/load.lua loads standalone translations",
-        "null_translation.lua" in hooks_file.read_text(encoding="utf-8"),
-    )
-    result = subprocess.run(
-        ["luajit", "-e", f"assert(loadfile({str(hooks_file)!r}))"],
-        capture_output=True, text=True,
-    )
-    check("hooks/load.lua syntax", result.returncode == 0, result.stderr.strip())
-
-    # 4) init.lua 元数据 + GPL v3 头部
-    init_text = init_file.read_text(encoding="utf-8", errors="replace")
-    check("init.lua has GPL v3 header", "GNU General Public License" in init_text)
-    check("init.lua locale metadata", 'for_module = "tome"' in init_text
-          and "addon_version" in init_text)
-
-    # 5) 与规范译文一致性抽查（DLC 专有条目在发布文件中）
     try:
-        from i18nlib.locale_model import LocaleLoader  # noqa: PLC0415
-        from i18nlib.runtime import LuaRuntime  # noqa: PLC0415
-
-        runtime = LuaRuntime(manifest)
-        runtime.doctor()
-        loader = LocaleLoader(runtime)
-        pub = loader.load_path(locale_file, logical_path="release")
-        pub_keys = {(r.get("source"), r.get("source_tag")) for r in pub.translations}
-        sampled = 0
-        for component_id in ("ashes-urhrok", "cults", "orcs"):
-            component = manifest.component(component_id)
-            doc = loader.load_path(manifest.root / component.translation, logical_path=component_id)
-            present = sum(
-                1
-                for r in doc.translations
-                if (r.get("source"), r.get("source_tag")) in pub_keys
-            )
-            sampled += present
-            check(
-                f"DLC {component_id} canonical entries in release file",
-                present > 0,
-                f"{present}/{len(doc.translations)}",
-            )
-        check("DLC entries sampled overall", sampled > 4000, f"{sampled}")
-    except Exception as error:  # pragma: no cover
-        check("canonical consistency probe", False, str(error))
-
-    print()
-    if failures:
-        print(f"SMOKE FAILED: {failures} check(s) failed")
+        manifest = load_manifest()
+        addon_root = (
+            Path(args.addon_root)
+            if args.addon_root
+            else manifest.repository_path("addon")
+        )
+        return run_release_smoke(manifest, addon_root)
+    except Exception as error:
+        print(f"[FAIL] smoke release setup — {_error_detail(error)}")
+        print()
+        print("SMOKE FAILED: 1 check(s) failed")
         return 1
-    print("SMOKE OK: release addon is loadable and consistent")
-    return 0
 
 
 if __name__ == "__main__":

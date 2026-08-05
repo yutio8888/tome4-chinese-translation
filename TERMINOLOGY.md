@@ -12,10 +12,22 @@
 | `target` | 当前采用的中文译名 |
 | `category` | 本术语库的规范类别，见下表 |
 | `domain` | 游戏领域（功能域），见“领域分类”一节 |
-| `source_tag` | 现有翻译系统 `t(...)` 的第三参数，保留原始上下文 |
+| `source_tag` | 现有翻译系统 `t(...)` 的第三参数，保留原始上下文；TSV 中字面量 `nil` 表示 Lua `nil`，空字段表示空字符串，两者不互配 |
 | `status` | `existing` 表示从当前翻译中整理，`review` 表示需要统一或复核，`preferred` 表示已确认的规范译法 |
-| `scope` | `core`、`addon`、`dlc` 或 `global` |
+| `scope` | 术语适用的组件范围：`core`、`addon`、`dlc`、`global` 或 `multi`，见下表 |
 | `notes` | 语境、别名、冲突或审校说明 |
+
+### `scope` 语义
+
+| 值 | 匹配组件 |
+| --- | --- |
+| `global` | 全部组件 |
+| `multi` | 全部组件；保留该值以表示跨组件语境 |
+| `dlc` | 工具链既有 DLC 分组：`ashes-urhrok`、`cults`、`items-vault`、`orcs`、`possessors` |
+| `core` | 除上述五个 `dlc` 组件以外的全部组件 |
+| `addon` | `addon-dev`、`items-vault`、`possessors` |
+
+`addon` 是独立的语义集，允许与 `dlc`/`core` 分组重叠：`items-vault` 和 `possessors` 同时属于 `addon` 与 `dlc`，`addon-dev` 同时属于 `addon` 与 `core`。未知 `scope` 是非法值，不匹配任何组件。
 
 ## 规范类别
 

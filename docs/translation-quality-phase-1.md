@@ -176,6 +176,7 @@ revision_id = SHA256(
   "tool_version": "...",
   "version": "tome-1.7.6",
   "manifest_sha256": "...",
+  "translation_inputs_sha256": "...",
   "terminology_sha256": "...",
   "inventory_sha256": "...",
   "entries": 0,
@@ -186,6 +187,9 @@ revision_id = SHA256(
 ```
 
 时间戳和本地输出路径不参与 `inventory_sha256`，保证相同输入产生相同内容身份。
+`translation_inputs_sha256` 按 manifest 顺序覆盖每个 component 的
+`copy_fragment`（若有）和 `translation`：摘要材料逐项记录 component、role、
+逻辑路径及原始字节 SHA-256，同一路径的多次消费不得去重。
 
 ### 4.3 inventory 条目
 
@@ -409,11 +413,15 @@ runtime_collision=false
 
 1. 先按稳定键排序；
 2. 使用固定 seed `tome4-quality-pilot-v1`；
-3. 将 taxonomy、policy、manifest、inventory SHA-256 和 seed 纳入 `sample_id`；
+3. 将 taxonomy、policy、manifest、规范 Lua 输入、术语表、inventory SHA-256、
+   inventory 生成工具版本和 seed 纳入 `sample_id`；
 4. 在相同输入上生成逐字节相同的 sample 内容；
 5. 排除时间戳和 artifact 路径对 `sample_id` 的影响。
 
 如规则变化，提升 sample contract 或 seed 名称，不覆盖历史样本身份。
+official 与 dry-run sample identity 均携带 `translation_inputs_sha256`、
+`terminology_sha256` 和 `inventory_tool_version`；验证和报告必须针对当前输入重新
+核验这些绑定，而不是重建 inventory 或重新加载 Lua。
 
 ## 七、评审与裁决协议
 

@@ -46,12 +46,14 @@ from .pi_remediate import (
     _validate_remediation,
     build_remediation_command,
 )
+from .pi_run_options import validate_pi_run_options
 from .pi_file_review import (
+    FILE_REVIEW_CACHE_DISABLED_REASON,
     TOOLS_ALLOWLIST,
-    _file_review_cache_key,
     _git_worktree_snapshot,
     _kill_process_group,
     _record_worktree_check,
+    _validate_file_review_cache_options,
     build_file_review_command,
 )
 from .pi_review import (
@@ -76,11 +78,38 @@ from .workset import proposal_template_for, validate_workset
 JOB_SCHEMA_VERSION = 1
 WORKER_STATUS_SCHEMA_VERSION = 1
 WORKER_GRACE_SECONDS = 120
+_UNSET = object()
 
 
 # ---------------------------------------------------------------------------
 # tmux helpers
 # ---------------------------------------------------------------------------
+
+
+def _validate_tmux_options(
+    *,
+    session: Any,
+    layout: Any,
+    percent: Any,
+    keep_pane: Any = _UNSET,
+    fallback: Any = _UNSET,
+) -> None:
+    """Reject malformed pane options without performing I/O."""
+    if layout not in ("vertical", "horizontal"):
+        raise ValidationError("--layout must be 'vertical' or 'horizontal'")
+    if type(percent) is not int or not 1 <= percent <= 99:
+        raise ValidationError(
+            "--percent must be an integer from 1 to 99 so both tmux panes retain "
+            "non-zero size"
+        )
+    if session is not None and (
+        not isinstance(session, str) or not session.strip()
+    ):
+        raise ValidationError("--session must be a non-empty string or None")
+    if keep_pane is not _UNSET and type(keep_pane) is not bool:
+        raise ValidationError("--keep-pane must be a boolean")
+    if fallback is not _UNSET and fallback not in ("error", "foreground"):
+        raise ValidationError("--fallback must be 'error' or 'foreground'")
 
 
 def _run_tmux(
@@ -137,6 +166,7 @@ def split_pane(
     command: str,
     title: str,
 ) -> str:
+    _validate_tmux_options(session=session, layout=layout, percent=percent)
     flag = "-h" if layout == "vertical" else "-v"
     result = _run_tmux(
         tmux,
@@ -201,7 +231,10 @@ def _read_status(run_directory: Path) -> dict[str, Any]:
         raise AgentError(f"invalid worker status: {path}") from error
     if not isinstance(status, dict):
         raise AgentError("worker status must be an object")
-    if status.get("schema_version") != WORKER_STATUS_SCHEMA_VERSION:
+    if (
+        type(status.get("schema_version")) is not int
+        or status.get("schema_version") != WORKER_STATUS_SCHEMA_VERSION
+    ):
         raise AgentError("worker status has an unsupported schema")
     return status
 
@@ -489,7 +522,11 @@ def worker_main(job_path: Path) -> int:
     except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
         print(f"ERROR: cannot read worker job {resolved}: {error}", file=sys.stderr)
         return 125
-    if not isinstance(job, dict) or job.get("job_schema_version") != JOB_SCHEMA_VERSION:
+    if (
+        not isinstance(job, dict)
+        or type(job.get("job_schema_version")) is not int
+        or job.get("job_schema_version") != JOB_SCHEMA_VERSION
+    ):
         print(f"ERROR: unsupported worker job: {resolved}", file=sys.stderr)
         return 125
     try:
@@ -540,6 +577,13 @@ def execute_in_pane(
     fallback: str,
 ) -> tuple[dict[str, Any], str | None]:
     """Run the job's Pi command in a tmux pane (or foreground) and wait."""
+    _validate_tmux_options(
+        session=session,
+        layout=layout,
+        percent=percent,
+        keep_pane=keep_pane,
+        fallback=fallback,
+    )
     job_path = run_directory / "job.json"
     write_json(job_path, job)
     tmux = tmux_executable or shutil.which("tmux")
@@ -618,15 +662,26 @@ def run_tmux_review(
     keep_pane: bool = True,
     fallback: str = "error",
 ) -> dict[str, Any]:
+    validate_pi_run_options(
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        timeout=timeout,
+        strict=strict,
+        use_cache=use_cache,
+        force=force,
+    )
+    _validate_tmux_options(
+        session=session,
+        layout=layout,
+        percent=percent,
+        keep_pane=keep_pane,
+        fallback=fallback,
+    )
     started = time.monotonic()
     manifest = load_manifest()
     bundle_resolved = bundle_path.expanduser().resolve()
     bundle = validate_review_bundle(manifest, bundle_resolved)
-    if timeout < 1:
-        raise ValidationError("--timeout must be a positive integer")
-    if not provider or not model or not thinking:
-        raise ValidationError("Pi provider, model, and thinking level must be non-empty")
-
     run_directory = create_run_directory(manifest.root, "pi-review-tmux")
     run_directory.chmod(0o700)
     review_path = run_directory / "review.json"
@@ -831,8 +886,8 @@ def run_tmux_file_review(
     thinking: str,
     timeout: int,
     strict: bool,
-    use_cache: bool,
-    force: bool,
+    use_cache: bool = False,
+    force: bool = False,
     pi_executable: str | None = None,
     tmux_executable: str | None = None,
     session: str | None = None,
@@ -848,15 +903,27 @@ def run_tmux_file_review(
     evidence; ``edit``/``write`` stay disabled and the worker runs with the
     manifest root as cwd so relative source paths resolve.
     """
+    validate_pi_run_options(
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        timeout=timeout,
+        strict=strict,
+        use_cache=use_cache,
+        force=force,
+    )
+    _validate_tmux_options(
+        session=session,
+        layout=layout,
+        percent=percent,
+        keep_pane=keep_pane,
+        fallback=fallback,
+    )
     started = time.monotonic()
+    _validate_file_review_cache_options(use_cache=use_cache, force=force)
     manifest = load_manifest()
     bundle_resolved = bundle_path.expanduser().resolve()
     bundle = validate_review_bundle(manifest, bundle_resolved)
-    if timeout < 1:
-        raise ValidationError("--timeout must be a positive integer")
-    if not provider or not model or not thinking:
-        raise ValidationError("Pi provider, model, and thinking level must be non-empty")
-
     run_directory = create_run_directory(manifest.root, "pi-file-review-tmux")
     run_directory.chmod(0o700)
     review_path = run_directory / "review.json"
@@ -867,16 +934,6 @@ def run_tmux_file_review(
     except (OSError, UnicodeDecodeError) as error:
         raise AgentError(f"cannot read Pi file reviewer prompt: {prompt_path}") from error
     prompt_sha256 = hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()
-    cache_key = _file_review_cache_key(
-        bundle_id=bundle["bundle_id"],
-        provider=provider,
-        model=model,
-        thinking=thinking,
-        prompt_sha256=prompt_sha256,
-        strict=strict,
-    )
-    cache_path = _cached_review_path(manifest.root, cache_key)
-    cache_decision = "disabled" if not use_cache else ("bypass" if force else "miss")
     report: dict[str, Any] = {
         "schema_version": REVIEW_SCHEMA_VERSION,
         "review_contract": REVIEW_CONTRACT,
@@ -902,14 +959,15 @@ def run_tmux_file_review(
         "bundle_id": bundle["bundle_id"],
         "kind": bundle["kind"],
         "prompt_sha256": prompt_sha256,
-        "result_cache_key": cache_key,
-        "cache_decision": cache_decision,
+        "result_cache_key": None,
+        "cache_decision": "disabled",
+        "cache_disabled_reason": FILE_REVIEW_CACHE_DISABLED_REASON,
         "timeout_seconds": timeout,
         "attempts": 0,
         "charged_or_possible_transfers": 0,
         "provider_confirmed_requests": None,
         "validated_results": 0,
-        "execution": "cache" if cache_decision == "hit" else "tmux",
+        "execution": "tmux",
         "session": session,
         "pane": None,
         "keep_pane": keep_pane,
@@ -918,40 +976,6 @@ def run_tmux_file_review(
         "report": str(report_path),
         "_started": started,
     }
-    if use_cache and not force:
-        try:
-            cached = _load_cached_review(
-                path=cache_path,
-                cache_key=cache_key,
-                bundle=bundle,
-                provider=provider,
-                model=model,
-                thinking=thinking,
-                prompt_sha256=prompt_sha256,
-                strict=strict,
-            )
-        except ValidationError as error:
-            report["error"] = f"Pi file review cache validation failed: {error}"
-            report["elapsed_seconds"] = round(time.monotonic() - started, 6)
-            write_json(report_path, report)
-            raise AgentError(f"{report['error']}; report: {report_path}") from error
-        if cached is not None:
-            summary, output = cached
-            write_json(review_path, output)
-            report.update(
-                {
-                    "ok": True,
-                    "cache_decision": "hit",
-                    "execution": "cache",
-                    "summary": summary,
-                    "review": str(review_path),
-                    "validated_results": 1,
-                    "elapsed_seconds": round(time.monotonic() - started, 6),
-                }
-            )
-            write_json(report_path, report)
-            return report
-
     executable = pi_executable or shutil.which("pi")
     if not executable:
         _fail(report, report_path, "pi is not available on PATH")
@@ -1041,18 +1065,6 @@ def run_tmux_file_review(
         _fail(report, report_path, str(error))
         raise AgentError(f"Pi file review validation failed: {error}; report: {report_path}") from error
     write_json(review_path, output)
-    if use_cache and not force:
-        _write_cached_review(
-            path=cache_path,
-            cache_key=cache_key,
-            bundle=bundle,
-            provider=provider,
-            model=model,
-            thinking=thinking,
-            prompt_sha256=prompt_sha256,
-            strict=strict,
-            review=output,
-        )
     report.update(
         {
             "ok": True,
@@ -1088,17 +1100,26 @@ def run_tmux_remediation(
     keep_pane: bool = True,
     fallback: str = "error",
 ) -> dict[str, Any]:
+    validate_pi_run_options(
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        timeout=timeout,
+        strict=strict,
+    )
+    _validate_tmux_options(
+        session=session,
+        layout=layout,
+        percent=percent,
+        keep_pane=keep_pane,
+        fallback=fallback,
+    )
     started = time.monotonic()
     manifest = load_manifest()
     bundle_resolved = bundle_path.expanduser().resolve()
     bundle = validate_review_bundle(manifest, bundle_resolved)
     review_resolved = review_path.expanduser().resolve()
     review = _read_review(review_resolved, bundle)
-    if timeout < 1:
-        raise ValidationError("--timeout must be a positive integer")
-    if not provider or not model or not thinking:
-        raise ValidationError("Pi provider, model, and thinking level must be non-empty")
-
     run_directory = create_run_directory(manifest.root, "pi-remediate-tmux")
     run_directory.chmod(0o700)
     remediation_path = run_directory / "remediation.json"
@@ -1198,7 +1219,9 @@ def run_tmux_remediation(
             extract_event_stream_output(raw, "Pi remediation output"),
             "Pi remediation output",
         )
-        summary = _validate_remediation(bundle, review, output)
+        summary = _validate_remediation(
+            bundle, review, output, manifest=manifest, strict=strict
+        )
     except ValidationError as error:
         _fail(report, report_path, str(error))
         raise AgentError(f"Pi remediation validation failed: {error}; report: {report_path}") from error
@@ -1239,6 +1262,20 @@ def run_tmux_translation(
     keep_pane: bool = True,
     fallback: str = "error",
 ) -> dict[str, Any]:
+    validate_pi_run_options(
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        timeout=timeout,
+        strict=strict,
+    )
+    _validate_tmux_options(
+        session=session,
+        layout=layout,
+        percent=percent,
+        keep_pane=keep_pane,
+        fallback=fallback,
+    )
     started = time.monotonic()
     manifest = load_manifest()
     workset_resolved, workset, _ = read_json_object(workset_path, "workset")
@@ -1248,11 +1285,6 @@ def run_tmux_translation(
         raise ValidationError(
             f"Pi worksets are limited to {MAX_WORKSET_ITEMS} items; split this workset"
         )
-    if timeout < 1:
-        raise ValidationError("--timeout must be a positive integer")
-    if not provider or not model or not thinking:
-        raise ValidationError("Pi provider, model, and thinking level must be non-empty")
-
     template_value = proposal_template_for(workset)
     template_raw_path = workset.get("proposal_template")
     if not isinstance(template_raw_path, str):
@@ -1504,13 +1536,16 @@ def _parser() -> argparse.ArgumentParser:
     review_files.add_argument(
         "--cache",
         action=argparse.BooleanOptionalAction,
-        default=True,
-        help="reuse an exact validated result before starting Pi (default: true)",
+        default=False,
+        help="unavailable for file-reading reviews; --cache is rejected",
     )
     review_files.add_argument(
         "--force",
         action="store_true",
-        help="bypass cache lookup and do not replace the cached observation",
+        help=(
+            "require a fresh result (always true for file-reading reviews; "
+            "retained for compatibility)"
+        ),
     )
     _add_pi_options(review_files)
     _add_tmux_options(review_files)

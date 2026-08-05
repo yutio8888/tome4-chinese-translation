@@ -42,6 +42,7 @@ WORKSET_CONSTRAINTS = (
 DLC_COMPONENTS = frozenset(
     {"ashes-urhrok", "cults", "items-vault", "orcs", "possessors"}
 )
+ADDON_COMPONENTS = frozenset({"addon-dev", "items-vault", "possessors"})
 PRINTF_RE = re.compile(r"%[-+ #0]*\d*(?:\.\d+)?[cdeEfgGiouXxqs%]")
 
 
@@ -262,19 +263,23 @@ def validate_workset(manifest: Manifest, workset: dict[str, Any]) -> None:
 
 
 def _scope_matches(scope: str, component: str) -> bool:
-    if scope == "global":
+    if scope in {"global", "multi"}:
         return True
     if scope == "dlc":
         return component in DLC_COMPONENTS
     if scope == "core":
         return component not in DLC_COMPONENTS
+    if scope == "addon":
+        return component in ADDON_COMPONENTS
     return False
 
 
 def _source_tag_matches(term_tag: str, item_tag: Any) -> bool:
-    normalized_term = term_tag or "nil"
-    normalized_item = "nil" if item_tag in (None, "") else item_tag
-    return normalized_term == normalized_item
+    if term_tag == "nil":
+        return item_tag is None
+    if term_tag == "":
+        return item_tag == ""
+    return item_tag == term_tag
 
 
 def _relevant_terms(
@@ -295,7 +300,7 @@ def _relevant_terms(
         term_source = row.get("source", "").strip()
         if not term_source:
             continue
-        term_tag = row.get("source_tag", "").strip()
+        term_tag = row.get("source_tag", "")
         if not _scope_matches(row.get("scope", ""), component):
             continue
         folded = _plain_source(term_source).casefold()

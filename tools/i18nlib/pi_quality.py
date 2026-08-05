@@ -19,6 +19,7 @@ from .errors import AgentError, I18nToolError, ValidationError
 from .pi_agent import DEFAULT_MODEL, DEFAULT_PROVIDER, DEFAULT_THINKING, _pi_environment
 from .pi_file_review import _run_file_review_process
 from .pi_review import _canonical_sha256
+from .pi_run_options import validate_pi_run_options
 from .proposal import decode_json_object, extract_event_stream_output
 from .quality import (
     ASSESSMENT_CONTRACT,
@@ -214,9 +215,12 @@ def _load_cached_assessment(
         "model": model,
         "thinking": thinking,
         "prompt_sha256": prompt_sha256,
-        "strict": strict,
     }
-    if any(cached.get(key) != value for key, value in expected.items()):
+    if (
+        type(cached.get("strict")) is not bool
+        or cached.get("strict") is not strict
+        or any(cached.get(key) != value for key, value in expected.items())
+    ):
         raise ValidationError("quality evaluator cache identity does not match")
     assessment = cached.get("assessment")
     if not isinstance(assessment, dict):
@@ -244,6 +248,16 @@ def run_pi_quality_evaluator(
     force: bool = False,
     pi_executable: str | None = None,
 ) -> dict[str, Any]:
+    validate_pi_run_options(
+        evaluator_id=evaluator_id,
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        timeout=timeout,
+        strict=strict,
+        use_cache=use_cache,
+        force=force,
+    )
     started = time.monotonic()
     manifest = load_manifest()
     sample_resolved = sample_path.expanduser().resolve()
@@ -251,17 +265,16 @@ def run_pi_quality_evaluator(
     sample_contract = raw_sample.get("quality_contract")
     if sample_contract not in (SAMPLE_CONTRACT, DRY_RUN_CONTRACT):
         raise ValidationError("unsupported quality sample contract")
-    sample = _load_sample_file(
-        sample_resolved, dry_run=sample_contract == DRY_RUN_CONTRACT
-    )
     qpolicy = load_quality_policy(manifest)
     taxonomy = load_taxonomy(manifest)
+    sample = _load_sample_file(
+        sample_resolved,
+        manifest=manifest,
+        taxonomy=taxonomy,
+        qpolicy=qpolicy,
+        dry_run=sample_contract == DRY_RUN_CONTRACT,
+    )
     method_version = qpolicy["pilot"]["method_version"]
-    if not evaluator_id or not provider or not model or not thinking:
-        raise ValidationError("evaluator, provider, model, and thinking must be non-empty")
-    if timeout < 1:
-        raise ValidationError("--timeout must be a positive integer")
-
     run_directory = create_run_directory(manifest.root, "pi-quality-evaluator")
     run_directory.chmod(0o700)
     bundle_path = run_directory / "quality-bundle.json"

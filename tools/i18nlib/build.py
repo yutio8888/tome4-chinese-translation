@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import hashlib
 from collections import defaultdict
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any, Iterable
 
 from .config import ComponentSpec, Manifest
@@ -12,6 +12,7 @@ from .errors import ValidationError
 from .git_source import GitRepository
 from .locale_model import LocaleDocument, LocaleLoader, runtime_map
 from .report import atomic_write_bytes, create_run_directory, write_json
+from .semantics import runtime_semantic_signature
 
 
 def _lua_string(value: str) -> str:
@@ -84,8 +85,8 @@ def _render_translation(entry: dict[str, Any]) -> str:
     return "t(" + ", ".join(_lua_value(value) for value in values) + ")"
 
 
-def _semantic_value(entry: dict[str, Any]) -> tuple[Any, Any, Any]:
-    return (entry.get("target"), entry.get("args_order"), entry.get("special"))
+def _semantic_value(entry: dict[str, Any]) -> str:
+    return runtime_semantic_signature(entry)
 
 
 def _translation_runtime_key(entry: dict[str, Any]) -> tuple[str, str | None]:
@@ -194,21 +195,65 @@ def _assert_same_semantics(
         raise ValidationError(f"{label} changed {len(mismatches)} translation values")
 
 
+def _unique_components(
+    components: Iterable[ComponentSpec],
+) -> list[ComponentSpec]:
+    selected: list[ComponentSpec] = []
+    seen: set[str] = set()
+    for component in components:
+        if component.id in seen:
+            continue
+        seen.add(component.id)
+        selected.append(component)
+    return selected
+
+
+def _validate_full_output_layout(components: Iterable[ComponentSpec]) -> None:
+    outputs = sorted(
+        (
+            (PurePosixPath(component.full_output), component)
+            for component in components
+            if component.full_output is not None
+        ),
+        key=lambda item: (item[0].parts, item[1].id),
+    )
+    for index, (first_path, first) in enumerate(outputs):
+        for second_path, second in outputs[index + 1 :]:
+            if first_path == second_path:
+                relationship = "exact duplicate output path"
+            elif first_path in second_path.parents or second_path in first_path.parents:
+                relationship = "ancestor/descendant output paths"
+            else:
+                continue
+            raise ValidationError(
+                f"full_output collision ({relationship}): "
+                f"component {first.id!r} maps to {first.full_output!r}; "
+                f"component {second.id!r} maps to {second.full_output!r}"
+            )
+
+
 def build_full_locales(
     manifest: Manifest,
     loader: LocaleLoader,
     components: Iterable[ComponentSpec],
 ) -> dict[str, Any]:
-    selected = list(components)
+    selected = _unique_components(components)
     if not selected:
         raise ValidationError("no full-locale components selected")
+    missing_outputs = [
+        component.id for component in selected if component.full_output is None
+    ]
+    if missing_outputs:
+        label = "component" if len(missing_outputs) == 1 else "components"
+        verb = "has" if len(missing_outputs) == 1 else "have"
+        raise ValidationError(
+            f"{label} {', '.join(repr(value) for value in missing_outputs)} "
+            f"{verb} no full_output mapping"
+        )
+    _validate_full_output_layout(selected)
     run_directory = create_run_directory(manifest.root, "build-full")
     reports: list[dict[str, Any]] = []
     for component in selected:
-        if component.full_output is None:
-            raise ValidationError(
-                f"component {component.id!r} has no full_output mapping"
-            )
         canonical = loader.load_path(
             manifest.root / component.translation,
             logical_path=component.translation,
@@ -301,23 +346,29 @@ def build_addon_locale(
     *,
     include_external_requirements: bool = True,
 ) -> dict[str, Any]:
-    selected = list(components)
+    selected = _unique_components(components)
     if not selected:
         raise ValidationError("no addon components selected")
+    non_eligible = [
+        component.id for component in selected if not component.addon_eligible
+    ]
+    if non_eligible:
+        raise ValidationError(
+            "addon build requires addon-eligible components; not eligible: "
+            + ", ".join(non_eligible)
+        )
 
     canonical_documents: list[LocaleDocument] = []
     official_documents: list[LocaleDocument] = []
     delta_entries: list[dict[str, Any]] = []
     skipped: list[dict[str, str]] = []
-    delta_keys_seen: dict[tuple[str, str | None], tuple[Any, Any, Any]] = {}
+    delta_keys_seen: dict[tuple[str, str | None], str] = {}
     component_reports: list[dict[str, Any]] = []
     inherited_entries = 0
     override_entries = 0
     new_entries = 0
 
     for component in selected:
-        if not component.addon_eligible:
-            continue
         if component.source_repository is None or component.official_locale is None:
             skipped.append(
                 {

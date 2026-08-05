@@ -12,7 +12,7 @@ from typing import Any, Iterable
 from . import TOOL_VERSION
 from .build import build_addon_locale, build_full_locales
 from .config import ComponentSpec, Manifest, load_manifest
-from .context import resolve_context
+from .context import resolve_context, validate_context_options
 from .errors import I18nToolError, ValidationError
 from .extract import extract_components, probe_protected_component
 from .git_source import GitRepository
@@ -313,7 +313,10 @@ def _select_components(
 ) -> list[ComponentSpec]:
     requested = list(identifiers)
     if requested:
-        return [manifest.component(identifier) for identifier in requested]
+        return [
+            manifest.component(identifier)
+            for identifier in dict.fromkeys(requested)
+        ]
     if default == "extract":
         return [component for component in manifest.components if component.extract_by_default]
     if default == "status":
@@ -331,6 +334,36 @@ def _print_json(value: Any) -> None:
 
 def _doctor(arguments: argparse.Namespace) -> int:
     manifest = _manifest(arguments)
+    required_files = [
+        manifest.root / manifest.terminology,
+        manifest.root / manifest.policy,
+        *(manifest.root / component.translation for component in manifest.components),
+        *(
+            manifest.root / component.copy_fragment
+            for component in manifest.components
+            if component.copy_fragment is not None
+        ),
+        *(manifest.root / path for path in manifest.manual_definitions),
+    ]
+    missing = []
+    not_regular = []
+    for path in required_files:
+        if path.is_file():
+            continue
+        if path.exists():
+            not_regular.append(str(path))
+        else:
+            missing.append(str(path))
+    if missing or not_regular:
+        problems = []
+        if missing:
+            problems.append("missing: " + ", ".join(missing))
+        if not_regular:
+            problems.append("not regular files: " + ", ".join(not_regular))
+        raise ValidationError(
+            "required localization files are invalid: " + "; ".join(problems)
+        )
+
     runtime = LuaRuntime(manifest)
     runtime_report = runtime.doctor()
     repositories: dict[str, Any] = {}
@@ -375,16 +408,6 @@ def _doctor(arguments: argparse.Namespace) -> int:
             warnings.append(
                 f"declared protected source is unavailable: {component.id}"
             )
-
-    required_files = [
-        manifest.root / manifest.terminology,
-        manifest.root / manifest.policy,
-        *(manifest.root / component.translation for component in manifest.components),
-        *(manifest.root / path for path in manifest.manual_definitions),
-    ]
-    missing = [str(path) for path in required_files if not path.is_file()]
-    if missing:
-        raise ValidationError("required localization files are missing: " + ", ".join(missing))
 
     report = {
         "ok": True,
@@ -469,15 +492,16 @@ def _issue_line(issue: Issue) -> str:
 
 def _lint(arguments: argparse.Namespace) -> int:
     manifest = _manifest(arguments)
+    components = _select_components(manifest, arguments.component, default="lint")
+    policy = load_policy(manifest)
     runtime = LuaRuntime(manifest)
     runtime.doctor()
     loader = LocaleLoader(runtime)
-    policy = load_policy(manifest)
-    components = _select_components(manifest, arguments.component, default="lint")
     documents = []
+    copy_fragment_documents = []
     for component in components:
         if component.copy_fragment:
-            documents.append(
+            copy_fragment_documents.append(
                 (
                     component.id,
                     loader.load_path(
@@ -495,7 +519,18 @@ def _lint(arguments: argparse.Namespace) -> int:
                 ),
             )
         )
-    issues, metrics = lint_documents(documents, policy)
+    issues, metrics = lint_documents(documents, policy, require_nonempty=True)
+    copy_fragment_issues, copy_fragment_metrics = lint_documents(
+        copy_fragment_documents,
+        policy,
+        require_nonempty=False,
+    )
+    issues.extend(copy_fragment_issues)
+    metrics["copy_fragment_translations"] = copy_fragment_metrics["translations"]
+    metrics["copy_fragment_components"] = copy_fragment_metrics["components"]
+    metrics["copy_fragment_duplicate_runtime_keys"] = copy_fragment_metrics[
+        "duplicate_runtime_keys"
+    ]
     terminology_issues, terminology_metrics = lint_terminology(
         manifest.root / manifest.terminology
     )
@@ -536,10 +571,10 @@ def _lint(arguments: argparse.Namespace) -> int:
 
 def _status(arguments: argparse.Namespace) -> int:
     manifest = _manifest(arguments)
+    components = _select_components(manifest, arguments.component, default="status")
     runtime = LuaRuntime(manifest)
     runtime.doctor()
     loader = LocaleLoader(runtime)
-    components = _select_components(manifest, arguments.component, default="status")
     report = status_report(manifest, loader, components)
     run_directory = create_run_directory(manifest.root, "status")
     report["run_directory"] = str(run_directory)
@@ -565,12 +600,24 @@ def _status(arguments: argparse.Namespace) -> int:
 
 def _build(arguments: argparse.Namespace) -> int:
     manifest = _manifest(arguments)
-    runtime = LuaRuntime(manifest)
-    runtime.doctor()
-    loader = LocaleLoader(runtime)
     if arguments.component:
-        components = [manifest.component(value) for value in arguments.component]
-        if arguments.profile == "addon":
+        components = _select_components(
+            manifest, arguments.component, default="build"
+        )
+        if arguments.profile == "full":
+            missing_outputs = [
+                component.id
+                for component in components
+                if component.full_output is None
+            ]
+            if missing_outputs:
+                label = "component" if len(missing_outputs) == 1 else "components"
+                verb = "has" if len(missing_outputs) == 1 else "have"
+                raise ValidationError(
+                    f"{label} {', '.join(repr(value) for value in missing_outputs)} "
+                    f"{verb} no full_output mapping"
+                )
+        else:
             non_eligible = [
                 component.id for component in components if not component.addon_eligible
             ]
@@ -589,6 +636,9 @@ def _build(arguments: argparse.Namespace) -> int:
         components = [
             component for component in manifest.components if component.addon_eligible
         ]
+    runtime = LuaRuntime(manifest)
+    runtime.doctor()
+    loader = LocaleLoader(runtime)
     if arguments.profile == "full":
         report = build_full_locales(manifest, loader, components)
     else:
@@ -637,10 +687,10 @@ def _build(arguments: argparse.Namespace) -> int:
 
 def _merge(arguments: argparse.Namespace) -> int:
     manifest = _manifest(arguments)
+    component = manifest.component(arguments.component)
     runtime = LuaRuntime(manifest)
     runtime.doctor()
     loader = LocaleLoader(runtime)
-    component = manifest.component(arguments.component)
     report = run_merge(
         manifest,
         loader,
@@ -691,11 +741,16 @@ def _workset(arguments: argparse.Namespace) -> int:
 
 
 def _context(arguments: argparse.Namespace) -> int:
+    validate_context_options(
+        section_prefix=arguments.section_prefix,
+        query=arguments.query,
+        limit=arguments.limit,
+    )
     manifest = _manifest(arguments)
+    component = manifest.component(arguments.component)
     runtime = LuaRuntime(manifest)
     runtime.doctor()
     loader = LocaleLoader(runtime)
-    component = manifest.component(arguments.component)
     result = resolve_context(
         manifest,
         loader,
@@ -776,6 +831,9 @@ def _proposal(arguments: argparse.Namespace) -> int:
 
 
 def _publish(arguments: argparse.Namespace) -> int:
+    if arguments.commit and not arguments.apply:
+        raise ValidationError("publish --commit requires --apply")
+
     manifest = _manifest(arguments)
     runtime = LuaRuntime(manifest)
     runtime.doctor()

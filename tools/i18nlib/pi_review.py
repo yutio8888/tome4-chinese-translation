@@ -20,6 +20,7 @@ from .pi_agent import (
     DEFAULT_THINKING,
     _pi_environment,
 )
+from .pi_run_options import validate_pi_run_options
 from .proposal import decode_json_object, extract_event_stream_output
 from .report import atomic_write_bytes, create_run_directory, write_json
 from .review import (
@@ -96,7 +97,10 @@ def _validate_findings(
             raise ValidationError(
                 f"Pi review contains unknown top-level fields: {sorted(unknown)!r}"
             )
-    if output.get("schema_version") != REVIEW_SCHEMA_VERSION:
+    if (
+        type(output.get("schema_version")) is not int
+        or output.get("schema_version") != REVIEW_SCHEMA_VERSION
+    ):
         raise ValidationError("Pi review has an unsupported schema")
     if output.get("review_contract") != REVIEW_CONTRACT:
         raise ValidationError("Pi review has an unsupported contract")
@@ -319,16 +323,20 @@ def _load_cached_review(
         raise ValidationError("Pi review cache entry is not a regular file")
     record = _read_json(path, "Pi review cache entry")
     expected = {
-        "cache_schema_version": REVIEW_CACHE_SCHEMA_VERSION,
         "cache_key": cache_key,
         "bundle_id": bundle["bundle_id"],
         "provider": provider,
         "model": model,
         "thinking": thinking,
         "prompt_sha256": prompt_sha256,
-        "strict": strict,
     }
-    if any(record.get(key) != value for key, value in expected.items()):
+    if (
+        type(record.get("cache_schema_version")) is not int
+        or record.get("cache_schema_version") != REVIEW_CACHE_SCHEMA_VERSION
+        or type(record.get("strict")) is not bool
+        or record.get("strict") is not strict
+        or any(record.get(key) != value for key, value in expected.items())
+    ):
         raise ValidationError("Pi review cache entry identity is invalid")
     review = record.get("review")
     if not isinstance(review, dict):
@@ -422,15 +430,19 @@ def run_pi_review(
     use_cache: bool = True,
     force: bool = False,
 ) -> dict[str, Any]:
+    validate_pi_run_options(
+        provider=provider,
+        model=model,
+        thinking=thinking,
+        timeout=timeout,
+        strict=strict,
+        use_cache=use_cache,
+        force=force,
+    )
     started = time.monotonic()
     manifest = load_manifest()
     bundle_resolved = bundle_path.expanduser().resolve()
     bundle = validate_review_bundle(manifest, bundle_resolved)
-    if timeout < 1:
-        raise ValidationError("--timeout must be a positive integer")
-    if not provider or not model or not thinking:
-        raise ValidationError("Pi provider, model, and thinking level must be non-empty")
-
     run_directory = create_run_directory(manifest.root, "pi-review")
     run_directory.chmod(0o700)
     raw_output_path = run_directory / "raw-output.txt"

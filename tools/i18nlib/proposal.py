@@ -14,6 +14,7 @@ from .errors import ValidationError
 from .lint import Issue, lint_documents, load_policy
 from .locale_model import LocaleDocument
 from .report import create_run_directory, write_json
+from .semantics import json_value_signature
 from .workset import validate_workset
 
 
@@ -110,7 +111,11 @@ def read_json_object(path: Path, label: str) -> tuple[Path, dict[str, Any], byte
         raise
     except OSError as error:
         raise ValidationError(f"cannot read {label}: {resolved}") from error
-    if not isinstance(value, dict) or value.get("schema_version") != 1:
+    if (
+        not isinstance(value, dict)
+        or type(value.get("schema_version")) is not int
+        or value.get("schema_version") != 1
+    ):
         raise ValidationError(f"unsupported {label} schema: {resolved}")
     return resolved, value, raw
 
@@ -274,7 +279,11 @@ def validate_proposal(
         args_order = item.get("args_order")
         special = item.get("special")
         expected_special = source_item.get("previous_special")
-        if special != expected_special:
+        if json_value_signature(
+            special, label="proposal special"
+        ) != json_value_signature(
+            expected_special, label="workset previous_special"
+        ):
             issues.append(
                 _proposal_issue(
                     "error",
