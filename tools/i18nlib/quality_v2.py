@@ -22,6 +22,9 @@ ANCHORS_FILE = "anchors-v1.json"
 ASSESSMENT_V2_CONTRACT = "tome4-quality-assessment-v2"
 METHOD_V2 = "mqm-pilot-v2"
 DERIVATION_STATES = {"derived", "needs-adjudication"}
+CALIBRATION_CONTRACT = "tome4-quality-calibration-v2"
+HOLDOUT_CONTRACT = "tome4-quality-holdout-v2"
+EVALUATOR_BUNDLE_V2_CONTRACT = "tome4-quality-evaluator-bundle-v2"
 
 
 def canonical_sha256(value: Any) -> str:
@@ -1000,3 +1003,606 @@ def adjudicate_v2(
     }
     validation["validation_id"] = canonical_sha256({key: value for key, value in validation.items() if key != "validation_id"})
     return validation
+
+
+def read_json_object(path: Path, label: str) -> dict[str, Any]:
+    try:
+        value = json.loads(path.read_bytes())
+    except OSError as error:
+        raise ValidationError(f"cannot read {label}: {path}") from error
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise ValidationError(f"invalid {label}: {path}: {error}") from error
+    if not isinstance(value, dict):
+        raise ValidationError(f"{label} root must be an object")
+    return value
+
+
+def _exploratory_ids_from_loaded_inventory(
+    manifest: Manifest,
+    *,
+    entries: list[dict[str, Any]],
+    inventory_info: dict[str, Any],
+    taxonomy: dict[str, Any],
+    qpolicy: dict[str, Any],
+    official: dict[str, Any],
+    features: dict[int, dict[str, Any]],
+) -> set[str]:
+    """Reproduce the v1 12-item dry-run selection without loading inventory again."""
+    from .quality import (
+        _constraint_counts,
+        _contrast_groups,
+        _select_bucket,
+    )
+
+    dry = qpolicy["dry_run"]
+    official_ids = {item["revision_id"] for item in official["items"]}
+    pool = [entry for entry in entries if entry["revision_id"] not in official_ids]
+    rng = random.Random(dry["seed"])
+    contrast: list[dict[str, Any]] = []
+    group_order = list(_contrast_groups(pool, qpolicy))
+    rng.shuffle(group_order)
+    for _, members in group_order:
+        if len(members) <= 4:
+            contrast.extend(members)
+            break
+    selected = list(contrast)
+    contrast_ids = {entry["revision_id"] for entry in contrast}
+    remaining = [entry for entry in pool if entry["revision_id"] not in contrast_ids]
+    selected.extend(
+        _select_bucket(
+            remaining,
+            int(dry["size"]) - len(selected),
+            selected,
+            dry.get("coverage_constraints", []),
+            rng,
+            features,
+        )
+    )
+    # Exercise the same constraint counter used by v1 so malformed policy cannot
+    # silently yield a differently interpreted exploratory exclusion.
+    _constraint_counts(selected, dry.get("coverage_constraints", []), features)
+    if len(selected) != int(dry["size"]):
+        raise ValidationError("cannot reproduce the exploratory quality sample")
+    return {entry["revision_id"] for entry in selected}
+
+
+def _atomic_sampling_units(
+    entries: list[dict[str, Any]], qpolicy: dict[str, Any]
+) -> list[list[dict[str, Any]]]:
+    """Return contrast-connected components plus singleton inventory entries."""
+    from .quality import _contrast_groups
+
+    by_id = {entry["revision_id"]: entry for entry in entries}
+    parent = {revision_id: revision_id for revision_id in by_id}
+
+    def find(value: str) -> str:
+        while parent[value] != value:
+            parent[value] = parent[parent[value]]
+            value = parent[value]
+        return value
+
+    def union(left: str, right: str) -> None:
+        left_root, right_root = find(left), find(right)
+        if left_root != right_root:
+            parent[max(left_root, right_root)] = min(left_root, right_root)
+
+    for _, members in _contrast_groups(entries, qpolicy):
+        first = members[0]["revision_id"]
+        for member in members[1:]:
+            union(first, member["revision_id"])
+    grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for revision_id, entry in by_id.items():
+        grouped[find(revision_id)].append(entry)
+    units = []
+    for members in grouped.values():
+        members.sort(key=lambda entry: (entry["unit_id"], entry["revision_id"]))
+        units.append(members)
+    units.sort(key=lambda members: (members[0]["unit_id"], members[0]["revision_id"]))
+    return units
+
+
+def _calibration_themes(entry: dict[str, Any]) -> set[str]:
+    flags = set(entry.get("risk_flags", []))
+    profile = entry.get("profile")
+    themes: set[str] = set()
+    if "source-has-number-or-unit" in flags:
+        themes.add("number-unit")
+    if "source-has-negation-or-condition" in flags:
+        themes.add("logic")
+    if entry.get("relevant_terms"):
+        themes.add("terminology")
+    if entry.get("context_neighbors") or entry.get("profile_confidence") != "high":
+        themes.add("recoverable-context")
+    if profile in {"narrative", "dialogue"}:
+        themes.add("narrative-flavor")
+    if profile in {"ui", "runtime-log", "term-name", "narrative", "dialogue"}:
+        themes.add("presentation-style")
+    if flags & {"has-printf", "has-args-order", "has-markup", "has-at-token", "multiline"}:
+        themes.add("technical-structure")
+    return themes
+
+
+def _holdout_features(entry: dict[str, Any], qpolicy: dict[str, Any]) -> dict[str, Any]:
+    from .quality import _entry_features
+
+    base = _entry_features(entry, qpolicy)
+    return {
+        "profile-diversity": base["profile"],
+        "component-diversity": base["component_group"],
+        "structural-risk": base["structural_risk"],
+        "term-evidence": base["term_evidence"],
+    }
+
+
+def _select_atomic_units(
+    units: list[list[dict[str, Any]]],
+    *,
+    size: int,
+    seed: str,
+    score_features: Any,
+    minimums: dict[str, int],
+) -> tuple[list[dict[str, Any]], dict[str, int]]:
+    rng = random.Random(seed)
+    ranked = [(rng.random(), unit) for unit in units]
+    selected: list[dict[str, Any]] = []
+    counts = Counter()
+    observed: dict[str, set[str]] = defaultdict(set)
+    remaining = list(ranked)
+    while len(selected) < size:
+        capacity = size - len(selected)
+        candidates = [(tie, unit) for tie, unit in remaining if len(unit) <= capacity]
+        if not candidates:
+            raise ValidationError(f"cannot fill a {size}-item atomic quality dataset")
+
+        def score(candidate: tuple[float, list[dict[str, Any]]]) -> tuple[int, int, float, str]:
+            tie, unit = candidate
+            gain = 0
+            coverage = Counter()
+            candidate_observed: dict[str, set[str]] = defaultdict(set)
+            for entry in unit:
+                values = score_features(entry)
+                if isinstance(values, set):
+                    coverage.update(values)
+                else:
+                    for feature, feature_value in values.items():
+                        if feature.endswith("-diversity") and isinstance(feature_value, str):
+                            candidate_observed[feature].add(feature_value)
+                        elif feature_value:
+                            coverage[feature] += 1
+            for feature, minimum in minimums.items():
+                current = len(observed[feature]) if feature.endswith("-diversity") else counts[feature]
+                addition = (
+                    len(candidate_observed[feature] - observed[feature])
+                    if feature.endswith("-diversity")
+                    else coverage[feature]
+                )
+                gain += min(max(0, minimum - current), addition)
+            # Prefer smaller units when gains tie so an exact final fill remains possible.
+            return (gain, -len(unit), -tie, unit[0]["revision_id"])
+
+        chosen = max(candidates, key=score)
+        remaining.remove(chosen)
+        unit = chosen[1]
+        selected.extend(unit)
+        for entry in unit:
+            values = score_features(entry)
+            if isinstance(values, set):
+                counts.update(values)
+            else:
+                for feature, feature_value in values.items():
+                    if feature.endswith("-diversity") and isinstance(feature_value, str):
+                        observed[feature].add(feature_value)
+                    elif feature_value:
+                        counts[feature] += 1
+    final_counts = {
+        feature: len(observed[feature]) if feature.endswith("-diversity") else counts[feature]
+        for feature in minimums
+    }
+    unmet = {feature: minimum - final_counts[feature] for feature, minimum in minimums.items() if final_counts[feature] < minimum}
+    if unmet:
+        detail = ", ".join(f"{feature}={minimums[feature] - deficit}/{minimums[feature]}" for feature, deficit in sorted(unmet.items()))
+        raise ValidationError(f"quality dataset constraints are not satisfiable: {detail}")
+    return selected, dict(sorted(final_counts.items()))
+
+
+def _dataset_sample(
+    *,
+    manifest: Manifest,
+    selected: list[dict[str, Any]],
+    all_entries: list[dict[str, Any]],
+    inventory_info: dict[str, Any],
+    taxonomy: dict[str, Any],
+    qpolicy: dict[str, Any],
+    v2policy: dict[str, Any],
+    kind: str,
+    coverage: dict[str, int],
+    excluded_ids_sha256: str,
+) -> dict[str, Any]:
+    from .quality import _build_sample_items
+
+    dataset = v2policy["datasets"][kind]
+    selected_ids = {entry["revision_id"] for entry in selected}
+    multi_units = [unit for unit in _atomic_sampling_units(selected, qpolicy) if len(unit) > 1]
+    contrast_group_of: dict[str, str] = {}
+    contrast: list[dict[str, Any]] = []
+    for unit in multi_units:
+        group_id = f"v2-contrast:{canonical_sha256([item['revision_id'] for item in unit])[:12]}"
+        for entry in unit:
+            contrast_group_of[entry["revision_id"]] = group_id
+            contrast.append(entry)
+    contrast_ids = set(contrast_group_of)
+    enriched = set(qpolicy["risk_enrichment_flags"])
+    risk_ids = {
+        entry["revision_id"]
+        for entry in selected
+        if entry["revision_id"] not in contrast_ids
+        and set(entry.get("risk_flags", [])) & enriched
+    }
+    # Keep every contrast-connected component contiguous while retaining a
+    # deterministic order by each component's first canonical unit identity.
+    ordered = [entry for unit in _atomic_sampling_units(selected, qpolicy) for entry in unit]
+    items = _build_sample_items(
+        entries=all_entries, ordered=ordered, contrast_ids=contrast_ids,
+        risk_selected_ids=risk_ids, contrast_group_of=contrast_group_of,
+        contrast=contrast, qpolicy=qpolicy,
+    )
+    identity = {
+        "schema_version": 2,
+        "quality_contract": dataset["contract"],
+        "dataset_kind": kind,
+        "seed": dataset["seed"],
+        "size": dataset["size"],
+        "taxonomy_sha256": canonical_sha256(taxonomy),
+        "policy_v1_sha256": canonical_sha256(qpolicy),
+        "policy_v2_sha256": canonical_sha256(v2policy),
+        "manifest_sha256": hashlib.sha256(manifest.raw_bytes).hexdigest(),
+        "inventory_sha256": inventory_info["inventory_sha256"],
+        "excluded_ids_sha256": excluded_ids_sha256,
+        "items_sha256": canonical_sha256(items),
+        "revisions": [item["revision_id"] for item in items],
+    }
+    return {
+        **identity,
+        "sample_id": canonical_sha256(identity),
+        "coverage": coverage,
+        "items": items,
+    }
+
+
+def generate_calibration_holdout_v2(
+    manifest: Manifest, inventory_path: Path
+) -> dict[str, Any]:
+    """Load inventory once and generate mutually-exclusive 32+32 v2 datasets."""
+    from .quality import (
+        _generate_sample_from_inventory,
+        _load_sampling_inputs,
+        _sampling_features,
+    )
+
+    entries, inventory_info, taxonomy, qpolicy = _load_sampling_inputs(manifest, inventory_path)
+    features = _sampling_features(entries, qpolicy)
+    official = _generate_sample_from_inventory(
+        manifest, entries=entries, inventory_info=inventory_info,
+        taxonomy=taxonomy, qpolicy=qpolicy, features=features,
+    )
+    exploratory_ids = _exploratory_ids_from_loaded_inventory(
+        manifest, entries=entries, inventory_info=inventory_info,
+        taxonomy=taxonomy, qpolicy=qpolicy, official=official, features=features,
+    )
+    official_ids = {item["revision_id"] for item in official["items"]}
+    excluded = official_ids | exploratory_ids
+    pool = [entry for entry in entries if entry["revision_id"] not in excluded]
+    units = _atomic_sampling_units(pool, qpolicy)
+    v2policy = load_policy_v2(manifest)
+    calibration_spec = v2policy["datasets"]["calibration"]
+    calibration_minimums = {
+        item["id"]: item["min"] for item in v2policy["calibration_constraints"]
+    }
+    calibration_selected, calibration_coverage = _select_atomic_units(
+        units, size=calibration_spec["size"], seed=calibration_spec["seed"],
+        score_features=_calibration_themes, minimums=calibration_minimums,
+    )
+    calibration_ids = {entry["revision_id"] for entry in calibration_selected}
+    holdout_pool = [entry for entry in pool if entry["revision_id"] not in calibration_ids]
+    holdout_units = _atomic_sampling_units(holdout_pool, qpolicy)
+    holdout_spec = v2policy["datasets"]["holdout"]
+    holdout_minimums = {
+        item["id"]: item["min"] for item in v2policy["holdout_constraints"]
+    }
+    holdout_selected, holdout_coverage = _select_atomic_units(
+        holdout_units, size=holdout_spec["size"], seed=holdout_spec["seed"],
+        score_features=lambda entry: _holdout_features(entry, qpolicy),
+        minimums=holdout_minimums,
+    )
+    excluded_hash = canonical_sha256(sorted(excluded))
+    calibration = _dataset_sample(
+        manifest=manifest, selected=calibration_selected, all_entries=entries,
+        inventory_info=inventory_info, taxonomy=taxonomy, qpolicy=qpolicy,
+        v2policy=v2policy, kind="calibration", coverage=calibration_coverage,
+        excluded_ids_sha256=excluded_hash,
+    )
+    holdout = _dataset_sample(
+        manifest=manifest, selected=holdout_selected, all_entries=entries,
+        inventory_info=inventory_info, taxonomy=taxonomy, qpolicy=qpolicy,
+        v2policy=v2policy, kind="holdout", coverage=holdout_coverage,
+        excluded_ids_sha256=canonical_sha256(sorted(excluded | calibration_ids)),
+    )
+    holdout_ids = set(holdout["revisions"])
+    if calibration_ids & holdout_ids or calibration_ids & excluded or holdout_ids & excluded:
+        raise ValidationError("quality v2 dataset isolation invariant failed")
+    return {
+        "calibration": calibration,
+        "holdout": holdout,
+        "official_sample_id": official["sample_id"],
+        "official_revision_ids": sorted(official_ids),
+        "exploratory_revision_ids": sorted(exploratory_ids),
+        "inventory_entries": len(entries),
+        "inventory_loads": 1,
+    }
+
+
+def run_calibration_v2(manifest: Manifest, inventory_path: Path) -> dict[str, Any]:
+    from .quality import create_quality_run_directory
+    from .report import write_json
+
+    generated = generate_calibration_holdout_v2(manifest, inventory_path)
+    run_directory = create_quality_run_directory(manifest.root, "calibration-v2")
+    calibration_path = run_directory / "calibration.json"
+    holdout_path = run_directory / "holdout.json"
+    manifest_path = run_directory / "dataset-manifest.json"
+    write_json(calibration_path, generated["calibration"])
+    write_json(holdout_path, generated["holdout"])
+    record = {
+        "schema_version": 2,
+        "quality_contract": "tome4-quality-dataset-manifest-v2",
+        "calibration_id": generated["calibration"]["sample_id"],
+        "holdout_id": generated["holdout"]["sample_id"],
+        "official_sample_id": generated["official_sample_id"],
+        "official_revision_ids": generated["official_revision_ids"],
+        "exploratory_revision_ids": generated["exploratory_revision_ids"],
+        "inventory_entries": generated["inventory_entries"],
+        "inventory_loads": generated["inventory_loads"],
+        "calibration": str(calibration_path),
+        "holdout": str(holdout_path),
+        "run_directory": str(run_directory),
+    }
+    write_json(manifest_path, record)
+    record["manifest"] = str(manifest_path)
+    return record
+
+
+def _sample_safety(value: Any, where: str = "sample") -> None:
+    from .quality import HOST_ABSOLUTE_PATH_RE, WINDOWS_PATH_RE, DOTDOT_PATH_RE
+
+    if isinstance(value, dict):
+        for key, item in value.items():
+            _sample_safety(item, f"{where}.{key}")
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            _sample_safety(item, f"{where}[{index}]")
+    elif isinstance(value, str) and (
+        HOST_ABSOLUTE_PATH_RE.search(value)
+        or WINDOWS_PATH_RE.search(value)
+        or DOTDOT_PATH_RE.search(value)
+    ):
+        raise ValidationError(f"{where} contains a forbidden host path")
+
+
+def validate_sample_v2(sample: dict[str, Any]) -> dict[str, Any]:
+    if sample.get("quality_contract") not in {CALIBRATION_CONTRACT, HOLDOUT_CONTRACT}:
+        raise ValidationError("unsupported quality v2 sample contract")
+    if sample.get("schema_version") != 2 or sample.get("dataset_kind") not in {"calibration", "holdout"}:
+        raise ValidationError("invalid quality v2 sample header")
+    items = sample.get("items")
+    if not isinstance(items, list) or not items or sample.get("size") != len(items):
+        raise ValidationError("quality v2 sample size/items mismatch")
+    revisions = [item.get("revision_id") for item in items if isinstance(item, dict)]
+    if len(revisions) != len(items) or len(revisions) != len(set(revisions)):
+        raise ValidationError("quality v2 sample revisions must be complete and unique")
+    if revisions != sample.get("revisions") or canonical_sha256(items) != sample.get("items_sha256"):
+        raise ValidationError("quality v2 sample item identity does not match")
+    identity_fields = {
+        key: sample[key]
+        for key in (
+            "schema_version", "quality_contract", "dataset_kind", "seed", "size",
+            "taxonomy_sha256", "policy_v1_sha256", "policy_v2_sha256",
+            "manifest_sha256", "inventory_sha256", "excluded_ids_sha256",
+            "items_sha256", "revisions",
+        )
+    }
+    if canonical_sha256(identity_fields) != sample.get("sample_id"):
+        raise ValidationError("quality v2 sample_id does not match")
+    _sample_safety(sample)
+    return sample
+
+
+def build_evaluator_bundles_v2(
+    *,
+    sample: dict[str, Any],
+    evaluator_id: str,
+    policy: dict[str, Any],
+    rules: dict[str, Any],
+    anchors: dict[str, Any],
+    taxonomy: dict[str, Any],
+    max_items: int = 20,
+) -> list[dict[str, Any]]:
+    validate_sample_v2(sample)
+    _enum(evaluator_id, policy["evaluator_ids"], "evaluator_id")
+    if type(max_items) is not int or not 1 <= max_items <= policy["max_shard_items"]:
+        raise ValidationError(f"max_items must be between 1 and {policy['max_shard_items']}")
+    items = sample["items"]
+    group_positions: dict[str, list[int]] = defaultdict(list)
+    for index, item in enumerate(items):
+        group = item.get("contrast_group")
+        if group is not None:
+            group_positions[group].append(index)
+    forbidden_cuts = {
+        cut
+        for positions in group_positions.values()
+        for cut in range(min(positions) + 1, max(positions) + 1)
+    }
+    ranges: list[tuple[int, int]] = []
+    start = 0
+    while start < len(items):
+        limit = min(len(items), start + max_items)
+        allowed = [cut for cut in range(start + 1, limit + 1) if cut not in forbidden_cuts]
+        if not allowed:
+            raise ValidationError("a contrast group cannot fit within the shard item limit")
+        end = max(allowed)
+        ranges.append((start, end))
+        start = end
+    prompt_fields = {
+        "method_version": METHOD_V2,
+        "allowed_profiles": [item["id"] for item in taxonomy["profiles"]],
+        "allowed_error_codes": [item["code"] for item in taxonomy["error_codes"]],
+        "defect_classes": policy["defect_classes"],
+        "phenomena": policy["phenomena"],
+        "meaning_change_types": policy["meaning_change_types"],
+        "impact_fact_fields": policy["impact_fact_fields"],
+        "tri_state_values": policy["tri_state_values"],
+        "amplification_scopes": policy["amplification_scopes"],
+        "anchor_relations": policy["anchor_relations"],
+        "reuse_recommendations": policy["reuse_recommendations"],
+        "impact_rules": rules,
+        "anchors": anchors,
+    }
+    bundles = []
+    for index, (first, end) in enumerate(ranges, start=1):
+        bundle = {
+            "schema_version": 2,
+            "quality_contract": EVALUATOR_BUNDLE_V2_CONTRACT,
+            "sample_contract": sample["quality_contract"],
+            "sample_id": sample["sample_id"],
+            "evaluator_id": evaluator_id,
+            "finding_id_prefix": "A" if evaluator_id == "reviewer-a" else "B",
+            "shard_index": index,
+            "shard_count": len(ranges),
+            "first_sample_index": first,
+            **prompt_fields,
+            "items": items[first:end],
+            "bundle_id": "",
+        }
+        bundle["bundle_id"] = canonical_sha256({key: value for key, value in bundle.items() if key != "bundle_id"})
+        bundles.append(bundle)
+    if [item["revision_id"] for bundle in bundles for item in bundle["items"]] != sample["revisions"]:
+        raise ValidationError("quality evaluator shards do not reconstruct sample order")
+    return bundles
+
+
+def run_evaluator_bundles_v2(
+    manifest: Manifest,
+    *,
+    sample_path: Path,
+    evaluator_id: str,
+    max_items: int = 20,
+) -> dict[str, Any]:
+    from .quality import create_quality_run_directory, load_taxonomy
+    from .report import write_json
+
+    sample = validate_sample_v2(read_json_object(sample_path, "quality v2 sample"))
+    policy = load_policy_v2(manifest)
+    rules = load_impact_rules(manifest, policy)
+    anchors = load_anchors(manifest)
+    taxonomy = load_taxonomy(manifest)
+    bundles = build_evaluator_bundles_v2(
+        sample=sample, evaluator_id=evaluator_id, policy=policy, rules=rules,
+        anchors=anchors, taxonomy=taxonomy, max_items=max_items,
+    )
+    run_directory = create_quality_run_directory(manifest.root, "evaluator-shards-v2")
+    paths = []
+    for bundle in bundles:
+        path = run_directory / f"shard-{bundle['shard_index']:03d}.json"
+        write_json(path, bundle)
+        paths.append(str(path))
+    index = {
+        "schema_version": 2,
+        "quality_contract": "tome4-quality-evaluator-shard-index-v2",
+        "sample_id": sample["sample_id"], "evaluator_id": evaluator_id,
+        "max_items": max_items, "shard_count": len(bundles),
+        "bundle_ids": [bundle["bundle_id"] for bundle in bundles],
+        "shards": paths, "run_directory": str(run_directory),
+    }
+    index["index_id"] = canonical_sha256(index)
+    index_path = run_directory / "shard-index.json"
+    write_json(index_path, index)
+    index["index"] = str(index_path)
+    return index
+
+
+def build_report_v2(
+    *, match: dict[str, Any], adjudication_validation: dict[str, Any] | None = None
+) -> dict[str, Any]:
+    issues = match["issues"]
+    revisions = {issue["revision_id"] for issue in issues}
+    cluster_counts = Counter(issue["cluster_type"] for issue in issues)
+    left_count = sum(
+        member["side"] == "left" for issue in issues for member in issue["members"]
+    )
+    right_count = sum(
+        member["side"] == "right" for issue in issues for member in issue["members"]
+    )
+    both = sum(
+        {member["side"] for member in issue["members"]} == {"left", "right"}
+        for issue in issues
+    )
+    union = len(issues)
+    fact_fields = set()
+    for issue in issues:
+        for member in issue["members"]:
+            fact_fields.update(member["normalized"]["impact_facts"])
+    fact_metrics = {}
+    for field in sorted(fact_fields):
+        compared = agreed = unknown = 0
+        for issue in issues:
+            left_values = [member["normalized"]["impact_facts"][field] for member in issue["members"] if member["side"] == "left"]
+            right_values = [member["normalized"]["impact_facts"][field] for member in issue["members"] if member["side"] == "right"]
+            if len(left_values) == len(right_values) == 1 and issue["cluster_type"] in {"full-match", "partial-match"}:
+                compared += 1
+                agreed += left_values[0] == right_values[0]
+                unknown += "unknown" in {left_values[0], right_values[0]}
+        fact_metrics[field] = {
+            "compared": compared, "agreed": agreed,
+            "agreement_rate": agreed / compared if compared else None,
+            "unknown_pairs": unknown,
+        }
+    derived_counts = Counter(issue["derivation"]["derived_severity"] for issue in issues)
+    adjudicated_counts = Counter()
+    adjudicated = 0
+    if adjudication_validation is not None:
+        if adjudication_validation.get("match_id") != match.get("match_id"):
+            raise ValidationError("report adjudication validation match_id differs")
+        adjudicated = len(adjudication_validation["items"])
+        adjudicated_counts.update(
+            item["derivation"]["derived_severity"]
+            for item in adjudication_validation["items"]
+        )
+    manual_revision_count = len(
+        {issue["revision_id"] for issue in issues if issue["issue_id"] in set(match["manual_queue"])}
+    )
+    report = {
+        "schema_version": 2, "quality_contract": "tome4-quality-report-v2",
+        "match_id": match["match_id"], "report_id": "",
+        "item_metrics": {
+            "items_with_findings": len(revisions),
+            "items_requiring_adjudication": manual_revision_count,
+        },
+        "issue_metrics": {
+            "left_findings": left_count, "right_findings": right_count,
+            "issue_union": union, "issue_intersection": both,
+            "jaccard": both / union if union else 1.0,
+            "cluster_counts": dict(sorted(cluster_counts.items())),
+        },
+        "fact_metrics": fact_metrics,
+        "severity_metrics": {
+            "pre_adjudication": dict(sorted(derived_counts.items())),
+            "adjudicated": dict(sorted(adjudicated_counts.items())),
+        },
+        "human_burden": {
+            "issues_requiring_adjudication": len(match["manual_queue"]),
+            "issues_adjudicated": adjudicated,
+            "issue_rate": len(match["manual_queue"]) / union if union else 0.0,
+            "items_requiring_adjudication": manual_revision_count,
+        },
+    }
+    report["report_id"] = canonical_sha256({key: value for key, value in report.items() if key != "report_id"})
+    return report

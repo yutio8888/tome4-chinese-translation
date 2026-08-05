@@ -28,6 +28,21 @@
   },
   "evaluator_ids": ["reviewer-a", "reviewer-b"],
   "max_shard_items": 20,
+  "calibration_constraints": [
+    {"id": "number-unit", "min": 4},
+    {"id": "logic", "min": 6},
+    {"id": "terminology", "min": 4},
+    {"id": "recoverable-context", "min": 4},
+    {"id": "narrative-flavor", "min": 4},
+    {"id": "presentation-style", "min": 6},
+    {"id": "technical-structure", "min": 4}
+  ],
+  "holdout_constraints": [
+    {"id": "profile-diversity", "min": 6},
+    {"id": "component-diversity", "min": 3},
+    {"id": "structural-risk", "min": 6},
+    {"id": "term-evidence", "min": 4}
+  ],
   "tri_state_values": ["yes", "no", "unknown"],
   "defect_classes": [
     "semantic", "terminology", "presentation", "style", "technical",

@@ -2,7 +2,11 @@ from __future__ import annotations
 
 import copy
 import json
+import subprocess
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
 from i18nlib.errors import ValidationError
 from i18nlib.config import load_manifest
@@ -11,6 +15,9 @@ from i18nlib.quality_v2 import (
     adjudicate_v2,
     build_assessment_v2,
     build_disputes_v2,
+    build_evaluator_bundles_v2,
+    build_report_v2,
+    canonical_sha256,
     derive_severity,
     load_anchors,
     load_impact_rules,
@@ -18,7 +25,9 @@ from i18nlib.quality_v2 import (
     match_assessments_v2,
     normalize_evidence,
     validate_assessment_v2,
+    validate_sample_v2,
 )
+from i18nlib.pi_quality import _cache_key_v2, run_pi_quality_evaluator
 
 
 POLICY = {
@@ -361,6 +370,149 @@ class QualityV2DisputeAndAdjudicationTests(unittest.TestCase):
         value["items"] = []
         with self.assertRaisesRegex(ValidationError, "manual queue"):
             adjudicate_v2(match=self.match, adjudication=value, policy=POLICY, rules=RULES, anchors={"anchors": []})
+
+
+def synthetic_v2_sample(items: list[dict], contract: str = "tome4-quality-calibration-v2") -> dict:
+    identity = {
+        "schema_version": 2, "quality_contract": contract,
+        "dataset_kind": "calibration" if "calibration" in contract else "holdout",
+        "seed": "seed", "size": len(items), "taxonomy_sha256": "1" * 64,
+        "policy_v1_sha256": "2" * 64, "policy_v2_sha256": "3" * 64,
+        "manifest_sha256": "4" * 64, "inventory_sha256": "5" * 64,
+        "excluded_ids_sha256": "6" * 64,
+        "items_sha256": canonical_sha256(items),
+        "revisions": [item["revision_id"] for item in items],
+    }
+    identity["sample_id"] = canonical_sha256(identity)
+    return {**identity, "coverage": {}, "items": items}
+
+
+class QualityV2ShardingTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.manifest = load_manifest()
+        cls.policy = load_policy_v2(cls.manifest)
+        cls.rules = load_impact_rules(cls.manifest, cls.policy)
+        cls.anchors = load_anchors(cls.manifest)
+        from i18nlib.quality import load_taxonomy
+        cls.taxonomy = load_taxonomy(cls.manifest)
+
+    def item(self, index: int, group: str | None = None) -> dict:
+        return {
+            "index": index, "revision_id": f"{index + 1:064x}",
+            "source": f"source {index}", "target": f"目标 {index}",
+            "contrast_group": group, "profile": "ui",
+        }
+
+    def test_shards_preserve_order_size_and_contrast_atomicity(self) -> None:
+        items = [self.item(index) for index in range(25)]
+        for index in (18, 19, 20):
+            items[index]["contrast_group"] = "g"
+        sample = synthetic_v2_sample(items)
+        bundles = build_evaluator_bundles_v2(
+            sample=sample, evaluator_id="reviewer-a", policy=self.policy,
+            rules=self.rules, anchors=self.anchors, taxonomy=self.taxonomy,
+            max_items=20,
+        )
+        self.assertEqual([len(bundle["items"]) for bundle in bundles], [18, 7])
+        self.assertEqual(
+            [item["revision_id"] for bundle in bundles for item in bundle["items"]],
+            sample["revisions"],
+        )
+        locations = {
+            item["contrast_group"]: bundle["shard_index"]
+            for bundle in bundles for item in bundle["items"]
+            if item.get("contrast_group")
+        }
+        self.assertEqual(locations, {"g": 2})
+
+    def test_sample_path_boundary_and_identity(self) -> None:
+        sample = synthetic_v2_sample([self.item(0)])
+        self.assertIs(validate_sample_v2(sample), sample)
+        unsafe = copy.deepcopy(sample)
+        unsafe["items"][0]["source"] = "/Users/example/secret"
+        unsafe["items_sha256"] = canonical_sha256(unsafe["items"])
+        identity = {
+            key: unsafe[key]
+            for key in (
+                "schema_version", "quality_contract", "dataset_kind", "seed", "size",
+                "taxonomy_sha256", "policy_v1_sha256", "policy_v2_sha256",
+                "manifest_sha256", "inventory_sha256", "excluded_ids_sha256",
+                "items_sha256", "revisions",
+            )
+        }
+        unsafe["sample_id"] = canonical_sha256(identity)
+        with self.assertRaisesRegex(ValidationError, "forbidden host path"):
+            validate_sample_v2(unsafe)
+
+    def test_cache_identity_binds_all_v2_inputs(self) -> None:
+        base = {
+            "sample_id": "s", "evaluator_id": "reviewer-a", "provider": "p",
+            "model": "m", "thinking": "t", "prompt_sha256": "1" * 64,
+            "rules_sha256": "2" * 64, "anchors_sha256": "3" * 64,
+            "bundle_ids": ["4" * 64, "5" * 64], "strict": True,
+        }
+        original = _cache_key_v2(**base)
+        for field, replacement in (
+            ("sample_id", "other"), ("evaluator_id", "reviewer-b"),
+            ("provider", "q"), ("model", "n"), ("thinking", "u"),
+            ("prompt_sha256", "6" * 64), ("rules_sha256", "7" * 64),
+            ("anchors_sha256", "8" * 64), ("bundle_ids", ["9" * 64]),
+            ("strict", False),
+        ):
+            changed = dict(base)
+            changed[field] = replacement
+            self.assertNotEqual(original, _cache_key_v2(**changed), field)
+
+    def test_fake_runner_merges_shards_into_one_assessment(self) -> None:
+        items = [self.item(index) for index in range(21)]
+        sample = synthetic_v2_sample(items)
+        with tempfile.TemporaryDirectory(prefix="quality-v2-runner-") as temporary:
+            sample_path = Path(temporary) / "sample.json"
+            sample_path.write_text(json.dumps(sample), encoding="utf-8")
+            outputs = []
+            for subset in (items[:20], items[20:]):
+                model_items = [
+                    {
+                        "revision_id": item["revision_id"],
+                        "context_sufficient": True, "profile_confirmed": "ui",
+                        "findings": [], "reuse_recommendation": None,
+                    }
+                    for item in subset
+                ]
+                outputs.append(
+                    subprocess.CompletedProcess(
+                        [], 0, json.dumps({"items": model_items}).encode(), b""
+                    )
+                )
+            with patch(
+                "i18nlib.pi_quality._run_file_review_process", side_effect=outputs
+            ):
+                report = run_pi_quality_evaluator(
+                    sample_path=sample_path, evaluator_id="reviewer-a",
+                    provider="fake", model="fake", thinking="none",
+                    use_cache=False, pi_executable="fake-pi",
+                )
+        self.assertTrue(report["ok"])
+        self.assertEqual(
+            (report["shards"], report["items"], report["findings"]), (2, 21, 0)
+        )
+
+
+class QualityV2ReportTests(unittest.TestCase):
+    def test_report_has_item_issue_fact_severity_and_burden_metrics(self) -> None:
+        sample, left, right = matching_inputs(
+            [normalized_finding("A-1")], [normalized_finding("B-1")]
+        )
+        match = match_assessments_v2(
+            sample=sample, left_assessment=left, right_assessment=right,
+            policy={**POLICY, "mergeable_phenomena": [["number", "number-range"]]},
+        )
+        report = build_report_v2(match=match)
+        self.assertEqual(report["issue_metrics"]["jaccard"], 1.0)
+        self.assertEqual(report["human_burden"]["issues_requiring_adjudication"], 0)
+        self.assertIn("is_defect", report["fact_metrics"])
+        self.assertIn("minor", report["severity_metrics"]["pre_adjudication"])
 
 
 if __name__ == "__main__":

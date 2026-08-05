@@ -30,10 +30,23 @@ from .quality import (
     load_taxonomy,
     validate_quality_run,
 )
+from .quality_v2 import (
+    CALIBRATION_CONTRACT,
+    HOLDOUT_CONTRACT,
+    build_assessment_v2,
+    build_evaluator_bundles_v2,
+    canonical_sha256 as canonical_sha256_v2,
+    load_anchors,
+    load_impact_rules,
+    load_policy_v2,
+    validate_assessment_v2,
+    validate_sample_v2,
+)
 from .report import atomic_write_bytes, create_run_directory, write_json
 
 QUALITY_EVALUATOR_BUNDLE_CONTRACT = "tome4-quality-evaluator-bundle-v1"
 QUALITY_EVALUATOR_CACHE_CONTRACT = "tome4-pi-quality-evaluator-cache-v1"
+QUALITY_EVALUATOR_CACHE_V2_CONTRACT = "tome4-pi-quality-evaluator-cache-v2"
 MAX_EVALUATOR_ITEMS = 120
 DEFAULT_TIMEOUT = 1200
 
@@ -145,6 +158,37 @@ def _cache_path(root: Path, key: str) -> Path:
     return root / ".artifacts" / "i18n" / "cache" / "pi-quality-evaluator" / f"{key}.json"
 
 
+def _cache_key_v2(
+    *,
+    sample_id: str,
+    evaluator_id: str,
+    provider: str,
+    model: str,
+    thinking: str,
+    prompt_sha256: str,
+    rules_sha256: str,
+    anchors_sha256: str,
+    bundle_ids: list[str],
+    strict: bool,
+) -> str:
+    return canonical_sha256_v2(
+        {
+            "cache_contract": QUALITY_EVALUATOR_CACHE_V2_CONTRACT,
+            "tool_version": TOOL_VERSION,
+            "sample_id": sample_id,
+            "evaluator_id": evaluator_id,
+            "provider": provider,
+            "model": model,
+            "thinking": thinking,
+            "prompt_sha256": prompt_sha256,
+            "rules_sha256": rules_sha256,
+            "anchors_sha256": anchors_sha256,
+            "bundle_ids": bundle_ids,
+            "strict": strict,
+        }
+    )
+
+
 def _decode_quality_model_output(raw: bytes) -> tuple[dict[str, Any], str]:
     extracted = extract_event_stream_output(raw, "Pi quality evaluator output")
     try:
@@ -235,6 +279,188 @@ def _load_cached_assessment(
     return assessment
 
 
+def _run_pi_quality_evaluator_v2(
+    manifest: Any,
+    *,
+    sample_path: Path,
+    sample: dict[str, Any],
+    evaluator_id: str,
+    provider: str,
+    model: str,
+    thinking: str,
+    timeout: int,
+    strict: bool,
+    use_cache: bool,
+    force: bool,
+    pi_executable: str | None,
+    started: float,
+) -> dict[str, Any]:
+    policy = load_policy_v2(manifest)
+    rules = load_impact_rules(manifest, policy)
+    anchors = load_anchors(manifest)
+    taxonomy = load_taxonomy(manifest)
+    bundles = build_evaluator_bundles_v2(
+        sample=sample, evaluator_id=evaluator_id, policy=policy, rules=rules,
+        anchors=anchors, taxonomy=taxonomy,
+        max_items=policy["max_shard_items"],
+    )
+    bundle_ids = [bundle["bundle_id"] for bundle in bundles]
+    prompt_path = manifest.root / "i18n" / "prompts" / "pi-quality-evaluator-v2.md"
+    rubric_path = manifest.root / "i18n" / "quality" / "rubric-v2.md"
+    try:
+        system_prompt = (
+            prompt_path.read_text(encoding="utf-8")
+            + "\n\n---\n\n"
+            + rubric_path.read_text(encoding="utf-8")
+        )
+    except (OSError, UnicodeDecodeError) as error:
+        raise AgentError("cannot read Pi quality evaluator v2 prompt or rubric") from error
+    prompt_sha256 = hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()
+    rules_sha256 = canonical_sha256_v2(rules)
+    anchors_sha256 = canonical_sha256_v2(anchors)
+    evaluator = {
+        "kind": "model", "id": evaluator_id, "method_version": "mqm-pilot-v2",
+        "provider": provider, "model": model, "thinking": thinking,
+        "prompt_sha256": prompt_sha256, "rules_sha256": rules_sha256,
+        "anchors_sha256": anchors_sha256, "bundle_ids": bundle_ids,
+    }
+    key = _cache_key_v2(
+        sample_id=sample["sample_id"], evaluator_id=evaluator_id,
+        provider=provider, model=model, thinking=thinking,
+        prompt_sha256=prompt_sha256, rules_sha256=rules_sha256,
+        anchors_sha256=anchors_sha256, bundle_ids=bundle_ids, strict=strict,
+    )
+    cache_path = _cache_path(manifest.root, key)
+    run_directory = create_run_directory(manifest.root, "pi-quality-evaluator-v2")
+    run_directory.chmod(0o700)
+    assessment_path = run_directory / "assessment.json"
+    report_path = run_directory / "pi-quality-evaluator.json"
+    report: dict[str, Any] = {
+        "schema_version": 2, "tool_version": TOOL_VERSION, "ok": False,
+        "mode": "blind-quality-assessment-v2", "version": manifest.version,
+        "sample_id": sample["sample_id"], "sample_contract": sample["quality_contract"],
+        "evaluator_id": evaluator_id, "provider": provider, "model": model,
+        "thinking": thinking, "strict": strict, "items": len(sample["items"]),
+        "shards": len(bundles), "bundle_ids": bundle_ids,
+        "pi_tools": False, "pi_session": False, "candidate_execution": False,
+        "blind_inputs": {
+            "other_assessments": False, "adjudication": False,
+            "historical_findings": False, "expected_grades": False,
+        },
+        "prompt_sha256": prompt_sha256, "rules_sha256": rules_sha256,
+        "anchors_sha256": anchors_sha256, "result_cache_key": key,
+        "cache_decision": "disabled" if not use_cache else "bypass" if force else "miss",
+        "attempts": 0, "charged_or_possible_transfers": 0,
+        "validated_results": 0, "run_directory": str(run_directory),
+        "report": str(report_path),
+    }
+    if use_cache and not force and cache_path.is_file():
+        cached = _read_json(cache_path, "quality evaluator v2 cache")
+        expected_cache = {
+            "cache_contract": QUALITY_EVALUATOR_CACHE_V2_CONTRACT,
+            "cache_key": key, "sample_id": sample["sample_id"],
+            "evaluator_id": evaluator_id, "provider": provider, "model": model,
+            "thinking": thinking, "prompt_sha256": prompt_sha256,
+            "rules_sha256": rules_sha256, "anchors_sha256": anchors_sha256,
+            "bundle_ids": bundle_ids, "strict": strict,
+        }
+        if any(cached.get(field) != value for field, value in expected_cache.items()):
+            raise AgentError("quality evaluator v2 cache identity does not match")
+        assessment = cached.get("assessment")
+        if not isinstance(assessment, dict):
+            raise AgentError("quality evaluator v2 cache has no assessment")
+        validate_assessment_v2(
+            assessment, sample=sample, policy=policy, rules=rules,
+            anchors=anchors, taxonomy=taxonomy, expected_evaluator=evaluator,
+        )
+        write_json(assessment_path, assessment)
+        report.update(
+            ok=True, cache_decision="hit", assessment=str(assessment_path),
+            validated_results=1, findings=sum(len(item["findings"]) for item in assessment["items"]),
+            elapsed_seconds=round(time.monotonic() - started, 6),
+        )
+        write_json(report_path, report)
+        return report
+
+    executable = pi_executable or shutil.which("pi")
+    if not executable:
+        raise AgentError("pi is not available on PATH")
+    merged_items: list[dict[str, Any]] = []
+    raw_outputs = []
+    normalizations = []
+    for bundle in bundles:
+        shard_index = bundle["shard_index"]
+        bundle_path = run_directory / f"quality-bundle-{shard_index:03d}.json"
+        raw_path = run_directory / f"raw-output-{shard_index:03d}.txt"
+        stderr_path = run_directory / f"pi-stderr-{shard_index:03d}.txt"
+        write_json(bundle_path, bundle)
+        command = build_quality_evaluator_command(
+            executable=executable, provider=provider, model=model, thinking=thinking,
+            system_prompt=system_prompt, bundle_path=Path(bundle_path.name),
+        )
+        report["attempts"] += 1
+        report["charged_or_possible_transfers"] += 1
+        try:
+            result = _run_file_review_process(
+                command, cwd=run_directory, env=_pi_environment(manifest.root, provider),
+                timeout=timeout, raw_output_path=raw_path, stderr_path=stderr_path,
+            )
+        except (subprocess.TimeoutExpired, OSError) as error:
+            report.update(error=str(error), elapsed_seconds=round(time.monotonic() - started, 6))
+            write_json(report_path, report)
+            raise AgentError(f"Pi quality evaluator v2 shard {shard_index} failed: {error}") from error
+        atomic_write_bytes(raw_path, result.stdout)
+        if result.stderr:
+            atomic_write_bytes(stderr_path, result.stderr)
+        raw_outputs.append(str(raw_path))
+        if result.returncode != 0 or not result.stdout.strip():
+            report.update(
+                error=f"Pi shard {shard_index} exited with status {result.returncode}",
+                raw_outputs=raw_outputs,
+                elapsed_seconds=round(time.monotonic() - started, 6),
+            )
+            write_json(report_path, report)
+            raise AgentError(f"{report['error']}; report: {report_path}")
+        output, normalization = _decode_quality_model_output(result.stdout)
+        if set(output) != {"items"} or not isinstance(output["items"], list):
+            raise AgentError(f"Pi quality evaluator v2 shard {shard_index} must return exactly items")
+        expected_revisions = [item["revision_id"] for item in bundle["items"]]
+        received_revisions = [item.get("revision_id") for item in output["items"] if isinstance(item, dict)]
+        if received_revisions != expected_revisions:
+            raise AgentError(f"Pi quality evaluator v2 shard {shard_index} coverage/order mismatch")
+        merged_items.extend(output["items"])
+        normalizations.append(normalization)
+    assessment = build_assessment_v2(
+        sample_id=sample["sample_id"], evaluator=evaluator, items=merged_items
+    )
+    normalized = validate_assessment_v2(
+        assessment, sample=sample, policy=policy, rules=rules,
+        anchors=anchors, taxonomy=taxonomy, expected_evaluator=evaluator,
+    )
+    write_json(assessment_path, assessment)
+    if use_cache and not force:
+        cache_path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+        write_json(
+            cache_path,
+            {
+                "cache_contract": QUALITY_EVALUATOR_CACHE_V2_CONTRACT,
+                "cache_key": key, "sample_id": sample["sample_id"],
+                "evaluator_id": evaluator_id, "provider": provider, "model": model,
+                "thinking": thinking, "prompt_sha256": prompt_sha256,
+                "rules_sha256": rules_sha256, "anchors_sha256": anchors_sha256,
+                "bundle_ids": bundle_ids, "strict": strict, "assessment": assessment,
+            },
+        )
+    report.update(
+        ok=True, assessment=str(assessment_path), raw_outputs=raw_outputs,
+        normalizations=normalizations,
+        findings=sum(len(item["findings"]) for item in normalized["items"]),
+        validated_results=1, elapsed_seconds=round(time.monotonic() - started, 6),
+    )
+    write_json(report_path, report)
+    return report
+
+
 def run_pi_quality_evaluator(
     *,
     sample_path: Path,
@@ -263,6 +489,23 @@ def run_pi_quality_evaluator(
     sample_resolved = sample_path.expanduser().resolve()
     raw_sample = _read_json(sample_resolved, "quality sample")
     sample_contract = raw_sample.get("quality_contract")
+    if sample_contract in (CALIBRATION_CONTRACT, HOLDOUT_CONTRACT):
+        sample_v2 = validate_sample_v2(raw_sample)
+        return _run_pi_quality_evaluator_v2(
+            manifest,
+            sample_path=sample_resolved,
+            sample=sample_v2,
+            evaluator_id=evaluator_id,
+            provider=provider,
+            model=model,
+            thinking=thinking,
+            timeout=timeout,
+            strict=strict,
+            use_cache=use_cache,
+            force=force,
+            pi_executable=pi_executable,
+            started=started,
+        )
     if sample_contract not in (SAMPLE_CONTRACT, DRY_RUN_CONTRACT):
         raise ValidationError("unsupported quality sample contract")
     qpolicy = load_quality_policy(manifest)

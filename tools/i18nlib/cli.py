@@ -22,11 +22,28 @@ from .merge import run_merge
 from .proposal import validate_proposal
 from .publish import publish_addon
 from .quality import (
+    create_quality_run_directory,
+    load_taxonomy,
     run_dry_run as quality_run_dry_run,
     run_inventory as quality_run_inventory,
     run_report as quality_run_report,
     run_sample as quality_run_sample,
     run_validation as quality_run_validation,
+)
+from .quality_v2 import (
+    adjudicate_v2,
+    build_disputes_v2,
+    build_report_v2,
+    canonical_sha256,
+    load_anchors,
+    load_impact_rules,
+    load_policy_v2,
+    match_assessments_v2,
+    read_json_object,
+    run_calibration_v2,
+    run_evaluator_bundles_v2,
+    validate_assessment_v2,
+    validate_sample_v2,
 )
 from .report import create_run_directory, write_json
 from .review import create_review_index, review_index_summary
@@ -295,6 +312,47 @@ def _parser() -> argparse.ArgumentParser:
     )
     _add_common_arguments(quality_report)
     quality_report.add_argument("--validation", required=True, type=Path)
+    quality_calibration = quality_subparsers.add_parser(
+        "calibration", help="generate mutually-exclusive evaluator-v2 calibration and holdout datasets",
+    )
+    _add_common_arguments(quality_calibration)
+    quality_calibration.add_argument("--inventory", required=True, type=Path)
+    quality_calibration.add_argument("--calibration-size", type=int, default=32)
+    quality_calibration.add_argument("--holdout-size", type=int, default=32)
+    quality_bundles = quality_subparsers.add_parser(
+        "evaluator-bundles", help="build offline evaluator-v2 shards without calling a provider",
+    )
+    _add_common_arguments(quality_bundles)
+    quality_bundles.add_argument("--sample", required=True, type=Path)
+    quality_bundles.add_argument("--evaluator", required=True)
+    quality_bundles.add_argument("--max-items", type=int, default=20)
+    quality_match = quality_subparsers.add_parser(
+        "match", help="normalize and match two complete evaluator-v2 assessments",
+    )
+    _add_common_arguments(quality_match)
+    quality_match.add_argument("--sample", required=True, type=Path)
+    quality_match.add_argument("--assessment", action="append", required=True, type=Path)
+    quality_disputes = quality_subparsers.add_parser(
+        "disputes", help="build an anonymous dispute bundle and separate identity mapping",
+    )
+    _add_common_arguments(quality_disputes)
+    quality_disputes.add_argument("--match", required=True, type=Path)
+    quality_disputes.add_argument("--sample", required=True, type=Path)
+    quality_disputes.add_argument("--assessment", action="append", required=True, type=Path)
+    quality_disputes.add_argument("--seed", default="tome4-quality-disputes-v2")
+    quality_adjudicate = quality_subparsers.add_parser(
+        "adjudicate-v2", help="validate human fact adjudication and recompute severity",
+    )
+    _add_common_arguments(quality_adjudicate)
+    quality_adjudicate.add_argument("--match", required=True, type=Path)
+    quality_adjudicate.add_argument("--adjudication", required=True, type=Path)
+    quality_adjudicate.add_argument("--strict", action="store_true")
+    quality_report_v2 = quality_subparsers.add_parser(
+        "report-v2", help="build evaluator-v2 item, issue, fact, severity and burden metrics",
+    )
+    _add_common_arguments(quality_report_v2)
+    quality_report_v2.add_argument("--match", required=True, type=Path)
+    quality_report_v2.add_argument("--adjudication-validation", type=Path)
     return parser
 
 
@@ -1033,6 +1091,178 @@ def _quality_report(arguments: argparse.Namespace) -> int:
     return 0
 
 
+def _quality_calibration_v2(arguments: argparse.Namespace) -> int:
+    if arguments.calibration_size != 32 or arguments.holdout_size != 32:
+        raise ValidationError("quality v2 calibration and holdout sizes are frozen at 32")
+    report = run_calibration_v2(_manifest(arguments), arguments.inventory)
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(
+            f"OK  quality v2 datasets calibration={report['calibration_id'][:16]} "
+            f"holdout={report['holdout_id'][:16]} inventory={report['inventory_entries']}"
+        )
+        print(f"Manifest: {report['manifest']}")
+    return 0
+
+
+def _quality_evaluator_bundles_v2(arguments: argparse.Namespace) -> int:
+    report = run_evaluator_bundles_v2(
+        _manifest(arguments), sample_path=arguments.sample,
+        evaluator_id=arguments.evaluator, max_items=arguments.max_items,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(
+            f"OK  quality v2 shards evaluator={report['evaluator_id']} "
+            f"shards={report['shard_count']} max-items={report['max_items']}"
+        )
+        print(f"Index: {report['index']}")
+    return 0
+
+
+def _quality_v2_inputs(arguments: argparse.Namespace) -> tuple[
+    Manifest, dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]
+]:
+    manifest = _manifest(arguments)
+    policy = load_policy_v2(manifest)
+    rules = load_impact_rules(manifest, policy)
+    anchors = load_anchors(manifest)
+    taxonomy = load_taxonomy(manifest)
+    return manifest, policy, rules, anchors, taxonomy
+
+
+def _validated_v2_assessments(
+    paths: list[Path], *, sample: dict[str, Any], policy: dict[str, Any],
+    rules: dict[str, Any], anchors: dict[str, Any], taxonomy: dict[str, Any],
+) -> list[dict[str, Any]]:
+    if len(paths) != 2:
+        raise ValidationError("quality v2 requires exactly two assessments")
+    normalized = []
+    expected_rules = canonical_sha256(rules)
+    expected_anchors = canonical_sha256(anchors)
+    for path in paths:
+        value = read_json_object(path, "quality v2 assessment")
+        if value.get("evaluator", {}).get("rules_sha256") != expected_rules:
+            raise ValidationError("quality v2 assessment rules hash does not match")
+        if value.get("evaluator", {}).get("anchors_sha256") != expected_anchors:
+            raise ValidationError("quality v2 assessment anchors hash does not match")
+        normalized.append(
+            validate_assessment_v2(
+                value, sample=sample, policy=policy, rules=rules,
+                anchors=anchors, taxonomy=taxonomy,
+            )
+        )
+    if [item["evaluator"]["id"] for item in normalized] != policy["evaluator_ids"]:
+        raise ValidationError("quality v2 assessments must be reviewer-a then reviewer-b")
+    return normalized
+
+
+def _quality_match_v2(arguments: argparse.Namespace) -> int:
+    manifest, policy, rules, anchors, taxonomy = _quality_v2_inputs(arguments)
+    sample = validate_sample_v2(read_json_object(arguments.sample, "quality v2 sample"))
+    assessments = _validated_v2_assessments(
+        arguments.assessment, sample=sample, policy=policy, rules=rules,
+        anchors=anchors, taxonomy=taxonomy,
+    )
+    match = match_assessments_v2(
+        sample=sample, left_assessment=assessments[0],
+        right_assessment=assessments[1], policy=policy,
+    )
+    run_directory = create_quality_run_directory(manifest.root, "issue-match-v2")
+    path = run_directory / "issue-match.json"
+    write_json(path, match)
+    report = {
+        "match_id": match["match_id"], "issues": len(match["issues"]),
+        "manual_queue": len(match["manual_queue"]), "match": str(path),
+        "run_directory": str(run_directory),
+    }
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  quality v2 match issues={report['issues']} manual={report['manual_queue']}")
+        print(f"Match: {path}")
+    return 0
+
+
+def _quality_disputes_v2(arguments: argparse.Namespace) -> int:
+    manifest, policy, rules, anchors, taxonomy = _quality_v2_inputs(arguments)
+    sample = validate_sample_v2(read_json_object(arguments.sample, "quality v2 sample"))
+    assessments = _validated_v2_assessments(
+        arguments.assessment, sample=sample, policy=policy, rules=rules,
+        anchors=anchors, taxonomy=taxonomy,
+    )
+    match = read_json_object(arguments.match, "quality v2 issue match")
+    dispute, identity = build_disputes_v2(
+        match=match, sample=sample, assessments=(assessments[0], assessments[1]),
+        seed=arguments.seed,
+    )
+    run_directory = create_quality_run_directory(manifest.root, "disputes-v2")
+    dispute_path = run_directory / "dispute.json"
+    identity_path = run_directory / "dispute-identity.json"
+    write_json(dispute_path, dispute)
+    write_json(identity_path, identity)
+    report = {
+        "dispute_id": dispute["dispute_id"], "items": len(dispute["items"]),
+        "dispute": str(dispute_path), "identity_mapping": str(identity_path),
+        "run_directory": str(run_directory),
+    }
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  quality v2 disputes items={report['items']}")
+        print(f"Dispute: {dispute_path}")
+        print(f"Identity: {identity_path}")
+    return 0
+
+
+def _quality_adjudicate_v2(arguments: argparse.Namespace) -> int:
+    manifest, policy, rules, anchors, _ = _quality_v2_inputs(arguments)
+    match = read_json_object(arguments.match, "quality v2 issue match")
+    adjudication = read_json_object(arguments.adjudication, "quality v2 adjudication")
+    validation = adjudicate_v2(
+        match=match, adjudication=adjudication, policy=policy, rules=rules,
+        anchors=anchors, strict=arguments.strict,
+    )
+    run_directory = create_quality_run_directory(manifest.root, "adjudication-v2")
+    path = run_directory / "adjudication-validation.json"
+    write_json(path, validation)
+    report = {
+        "validation_id": validation["validation_id"], "items": len(validation["items"]),
+        "validation": str(path), "run_directory": str(run_directory),
+    }
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  quality v2 adjudication items={report['items']}")
+        print(f"Validation: {path}")
+    return 0
+
+
+def _quality_report_v2(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    match = read_json_object(arguments.match, "quality v2 issue match")
+    validation = (
+        read_json_object(arguments.adjudication_validation, "quality v2 adjudication validation")
+        if arguments.adjudication_validation else None
+    )
+    report = build_report_v2(match=match, adjudication_validation=validation)
+    run_directory = create_quality_run_directory(manifest.root, "report-v2")
+    path = run_directory / "report.json"
+    write_json(path, report)
+    summary = {**report, "report": str(path), "run_directory": str(run_directory)}
+    if arguments.json:
+        _print_json(summary)
+    else:
+        print(
+            f"OK  quality v2 report issues={report['issue_metrics']['issue_union']} "
+            f"manual={report['human_burden']['issues_requiring_adjudication']}"
+        )
+        print(f"Report: {path}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     _inject_public_dlc_env()
     arguments = _parser().parse_args(argv)
@@ -1068,6 +1298,18 @@ def main(argv: list[str] | None = None) -> int:
                 return _quality_validate(arguments)
             if arguments.quality_command == "report":
                 return _quality_report(arguments)
+            if arguments.quality_command == "calibration":
+                return _quality_calibration_v2(arguments)
+            if arguments.quality_command == "evaluator-bundles":
+                return _quality_evaluator_bundles_v2(arguments)
+            if arguments.quality_command == "match":
+                return _quality_match_v2(arguments)
+            if arguments.quality_command == "disputes":
+                return _quality_disputes_v2(arguments)
+            if arguments.quality_command == "adjudicate-v2":
+                return _quality_adjudicate_v2(arguments)
+            if arguments.quality_command == "report-v2":
+                return _quality_report_v2(arguments)
             raise AssertionError(
                 f"unhandled quality command: {arguments.quality_command}"
             )
