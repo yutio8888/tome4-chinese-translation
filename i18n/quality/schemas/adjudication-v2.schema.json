@@ -5,9 +5,10 @@
   "properties": {
     "schema_version": {"const": 2}, "quality_contract": {"const": "tome4-quality-adjudication-v2"},
     "match_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "adjudicator_id": {"type": "string", "minLength": 1},
-    "items": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["issue_id", "same_issue", "exists", "confirmed_facts", "derived_severity", "rule_id", "anchor_id", "rationale"], "properties": {
+    "items": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["issue_id", "same_issue", "exists", "confirmed_facts", "phenomenon", "defect_class", "derived_severity", "rule_id", "anchor_id", "rationale"], "properties": {
       "issue_id": {"type": "string", "pattern": "^QI-[0-9]{4}$"}, "same_issue": {"type": "boolean"}, "exists": {"type": "boolean"},
-      "confirmed_facts": {"type": "object"}, "derived_severity": {"enum": ["blocker", "major", "minor", "note", "needs-adjudication"]},
+      "confirmed_facts": {"type": "object"}, "phenomenon": {"type": "string"}, "defect_class": {"type": "string"},
+      "derived_severity": {"enum": ["blocker", "major", "minor", "note", "needs-adjudication"]},
       "rule_id": {"type": ["string", "null"]}, "anchor_id": {"type": ["string", "null"]}, "rationale": {"type": "string", "minLength": 1}
     }}}
   }

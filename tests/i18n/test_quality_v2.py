@@ -1,17 +1,21 @@
 from __future__ import annotations
 
 import copy
+import json
 import unittest
 
 from i18nlib.errors import ValidationError
 from i18nlib.config import load_manifest
 from i18nlib.quality_v2 import (
     assessment_identity,
+    adjudicate_v2,
     build_assessment_v2,
+    build_disputes_v2,
     derive_severity,
     load_anchors,
     load_impact_rules,
     load_policy_v2,
+    match_assessments_v2,
     normalize_evidence,
     validate_assessment_v2,
 )
@@ -228,6 +232,135 @@ class QualityV2AssessmentTests(unittest.TestCase):
         value["assessment_id"] = assessment_identity(value)
         result = self.validate(value)
         self.assertEqual(result["items"][0]["findings"][0]["normalized_target_evidence"]["state"], "missing")
+
+
+def normalized_finding(
+    finding_id: str,
+    *,
+    source_quote: str = "abc",
+    source_start: int = 0,
+    target_quote: str = "甲乙丙",
+    target_start: int = 0,
+    phenomenon: str = "number",
+    meaning_type: str = "strengthened",
+    impact: dict[str, str] | None = None,
+) -> dict:
+    impact = impact or facts(is_defect="yes", is_substantive="yes")
+    finding = {
+        "finding_id": finding_id, "error_code": "ACC_NUMBER_UNIT",
+        "defect_class": "semantic", "phenomenon": phenomenon,
+        "defect_summary": "summary", "meaning_change": {"type": meaning_type, "summary": "change"},
+        "impact_facts": impact, "amplification_scope": "local",
+        "closest_anchor_id": None, "anchor_relation": "unknown", "body": "body",
+        "normalized_source_evidence": {"quote": source_quote, "occurrence": 1, "state": "exact", "start": source_start, "end": source_start + len(source_quote)},
+        "normalized_target_evidence": {"quote": target_quote, "occurrence": 1, "state": "exact", "start": target_start, "end": target_start + len(target_quote)},
+    }
+    finding["derivation"] = derive_severity(
+        impact, phenomenon=phenomenon, defect_class="semantic", rules=RULES, policy=POLICY
+    )
+    return finding
+
+
+def matching_inputs(left_findings: list[dict], right_findings: list[dict]) -> tuple[dict, dict, dict]:
+    revision = "a" * 64
+    sample = {"sample_id": "sample", "items": [{"revision_id": revision, "source": "abcdefghi", "target": "甲乙丙丁戊己庚辛壬", "context_neighbors": []}]}
+    base_evaluator = {"id": "reviewer-a"}
+    left = {"sample_id": "sample", "assessment_id": "1" * 64, "evaluator": base_evaluator, "items": [{"revision_id": revision, "findings": left_findings}]}
+    right = {"sample_id": "sample", "assessment_id": "2" * 64, "evaluator": {"id": "reviewer-b"}, "items": [{"revision_id": revision, "findings": right_findings}]}
+    return sample, left, right
+
+
+class QualityV2MatchingTests(unittest.TestCase):
+    def match(self, left: list[dict], right: list[dict]) -> dict:
+        sample, left_assessment, right_assessment = matching_inputs(left, right)
+        return match_assessments_v2(sample=sample, left_assessment=left_assessment, right_assessment=right_assessment, policy={**POLICY, "mergeable_phenomena": [["number", "number-range"]]})
+
+    def test_full_and_partial_matches(self) -> None:
+        full = self.match([normalized_finding("A-1")], [normalized_finding("B-1")])
+        self.assertEqual(full["issues"][0]["cluster_type"], "full-match")
+        partial = self.match([normalized_finding("A-1", phenomenon="number")], [normalized_finding("B-1", phenomenon="number-range")])
+        self.assertEqual(partial["issues"][0]["cluster_type"], "partial-match")
+
+    def test_split_merge_and_ambiguous(self) -> None:
+        broad = normalized_finding("A-1", source_quote="abcdef", target_quote="甲乙丙丁戊己")
+        split = self.match(
+            [broad],
+            [
+                normalized_finding("B-1", source_quote="abc", target_quote="甲乙丙"),
+                normalized_finding("B-2", source_quote="def", source_start=3, target_quote="丁戊己", target_start=3),
+            ],
+        )
+        self.assertEqual(split["issues"][0]["cluster_type"], "split-merge")
+        ambiguous = self.match(
+            [normalized_finding("A-1"), normalized_finding("A-2")],
+            [normalized_finding("B-1"), normalized_finding("B-2")],
+        )
+        self.assertEqual(ambiguous["issues"][0]["cluster_type"], "ambiguous")
+
+    def test_single_sided_and_different_spans_do_not_match(self) -> None:
+        result = self.match(
+            [normalized_finding("A-1", source_start=0, target_start=0)],
+            [normalized_finding("B-1", source_quote="ghi", source_start=6, target_quote="庚辛壬", target_start=6)],
+        )
+        self.assertEqual([item["cluster_type"] for item in result["issues"]], ["left-only", "right-only"])
+
+    def test_many_revisions_are_not_globally_compared_and_ids_are_stable(self) -> None:
+        first = self.match([normalized_finding("A-1")], [normalized_finding("B-1")])
+        second = self.match([copy.deepcopy(normalized_finding("A-1"))], [copy.deepcopy(normalized_finding("B-1"))])
+        self.assertEqual(first, second)
+        self.assertEqual(first["issues"][0]["issue_id"], "QI-0001")
+
+    def test_ambiguous_evidence_enters_manual_queue(self) -> None:
+        finding = normalized_finding("A-1")
+        finding["normalized_source_evidence"].update(state="ambiguous", start=None, end=None)
+        result = self.match([finding], [])
+        self.assertEqual(result["manual_queue"], ["QI-0001"])
+
+
+class QualityV2DisputeAndAdjudicationTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.sample, self.left, self.right = matching_inputs([normalized_finding("A-1")], [])
+        self.match = match_assessments_v2(
+            sample=self.sample, left_assessment=self.left, right_assessment=self.right,
+            policy={**POLICY, "mergeable_phenomena": [["number", "number-range"]]},
+        )
+
+    def test_dispute_is_anonymous_deterministic_and_identity_is_separate(self) -> None:
+        first = build_disputes_v2(match=self.match, sample=self.sample, assessments=(self.left, self.right))
+        second = build_disputes_v2(match=self.match, sample=self.sample, assessments=(self.left, self.right))
+        self.assertEqual(first, second)
+        dispute, identity = first
+        public = json.dumps(dispute, sort_keys=True)
+        self.assertNotIn("reviewer-a", public)
+        self.assertNotIn("assessment_id", public)
+        self.assertEqual(identity["mappings"][0]["evaluator_id"], "reviewer-a")
+
+    def adjudication(self) -> dict:
+        values = facts(is_defect="no")
+        return {
+            "schema_version": 2, "quality_contract": "tome4-quality-adjudication-v2",
+            "match_id": self.match["match_id"], "adjudicator_id": "human-1",
+            "items": [{
+                "issue_id": "QI-0001", "same_issue": True, "exists": False,
+                "confirmed_facts": values, "phenomenon": "number", "defect_class": "semantic",
+                "derived_severity": "note", "rule_id": "note", "anchor_id": None,
+                "rationale": "The candidate is not a defect.",
+            }],
+        }
+
+    def test_adjudication_recomputes_severity(self) -> None:
+        result = adjudicate_v2(match=self.match, adjudication=self.adjudication(), policy=POLICY, rules=RULES, anchors={"anchors": []})
+        self.assertEqual(result["items"][0]["derivation"]["rule_id"], "note")
+        tampered = self.adjudication()
+        tampered["items"][0].update(derived_severity="major", rule_id="major")
+        with self.assertRaisesRegex(ValidationError, "cannot be reproduced"):
+            adjudicate_v2(match=self.match, adjudication=tampered, policy=POLICY, rules=RULES, anchors={"anchors": []})
+
+    def test_strict_adjudication_requires_complete_ordered_manual_queue(self) -> None:
+        value = self.adjudication()
+        value["items"] = []
+        with self.assertRaisesRegex(ValidationError, "manual queue"):
+            adjudicate_v2(match=self.match, adjudication=value, policy=POLICY, rules=RULES, anchors={"anchors": []})
 
 
 if __name__ == "__main__":

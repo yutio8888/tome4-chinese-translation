@@ -8,6 +8,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import random
+from collections import Counter, defaultdict, deque
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -538,3 +540,463 @@ def build_assessment_v2(
     }
     assessment["assessment_id"] = assessment_identity(assessment)
     return assessment
+
+
+def _span_related(left: dict[str, Any], right: dict[str, Any]) -> bool:
+    if left["state"] == "whole-item" or right["state"] == "whole-item":
+        return left["state"] == right["state"]
+    if left["state"] != "exact" or right["state"] != "exact":
+        return False
+    return left["start"] <= right["end"] and right["start"] <= left["end"]
+
+
+def _span_identical(left: dict[str, Any], right: dict[str, Any]) -> bool:
+    return (
+        left["state"] == right["state"]
+        and left.get("start") == right.get("start")
+        and left.get("end") == right.get("end")
+    )
+
+
+def _meaning_compatible(left: str, right: str) -> bool:
+    if left == right or "unknown" in {left, right}:
+        return True
+    contradictions = {
+        frozenset(("omitted", "added")),
+        frozenset(("weakened", "strengthened")),
+        frozenset(("none", "reversed")),
+        frozenset(("none", "omitted")),
+        frozenset(("none", "added")),
+        frozenset(("presentation-only", "reversed")),
+        frozenset(("presentation-only", "omitted")),
+        frozenset(("presentation-only", "added")),
+    }
+    return frozenset((left, right)) not in contradictions
+
+
+def _phenomenon_compatible(
+    left: dict[str, Any], right: dict[str, Any], policy: dict[str, Any]
+) -> bool:
+    left_value = left["phenomenon"]
+    right_value = right["phenomenon"]
+    if left_value == right_value:
+        return True
+    pair = tuple(sorted((left_value, right_value)))
+    declared = {tuple(sorted(item)) for item in policy["mergeable_phenomena"]}
+    if pair not in declared:
+        return False
+    if pair == ("ambiguity", "fluency"):
+        return _span_identical(
+            left["normalized_source_evidence"],
+            right["normalized_source_evidence"],
+        ) and _span_identical(
+            left["normalized_target_evidence"],
+            right["normalized_target_evidence"],
+        )
+    return True
+
+
+def findings_match(
+    left: dict[str, Any], right: dict[str, Any], policy: dict[str, Any]
+) -> bool:
+    if not _span_related(
+        left["normalized_source_evidence"], right["normalized_source_evidence"]
+    ):
+        return False
+    left_target = left["normalized_target_evidence"]
+    right_target = right["normalized_target_evidence"]
+    if left_target["state"] == "missing" and right_target["state"] == "missing":
+        target_related = not left_target.get("quote") and not right_target.get("quote")
+    else:
+        target_related = _span_related(left_target, right_target)
+    if not target_related:
+        return False
+    if not _phenomenon_compatible(left, right, policy):
+        return False
+    return _meaning_compatible(
+        left["meaning_change"]["type"], right["meaning_change"]["type"]
+    )
+
+
+def _full_match(left: dict[str, Any], right: dict[str, Any]) -> bool:
+    return (
+        left["phenomenon"] == right["phenomenon"]
+        and left["meaning_change"]["type"] == right["meaning_change"]["type"]
+        and _span_identical(
+            left["normalized_source_evidence"], right["normalized_source_evidence"]
+        )
+        and _span_identical(
+            left["normalized_target_evidence"], right["normalized_target_evidence"]
+        )
+    )
+
+
+def _member(side: str, finding: dict[str, Any]) -> dict[str, Any]:
+    normalized = {
+        "error_code": finding["error_code"],
+        "defect_class": finding["defect_class"],
+        "phenomenon": finding["phenomenon"],
+        "source_evidence": finding["normalized_source_evidence"],
+        "target_evidence": finding["normalized_target_evidence"],
+        "meaning_change": finding["meaning_change"],
+        "impact_facts": finding["impact_facts"],
+        "amplification_scope": finding["amplification_scope"],
+        "closest_anchor_id": finding["closest_anchor_id"],
+        "anchor_relation": finding["anchor_relation"],
+        "defect_summary": finding["defect_summary"],
+        "body": finding["body"],
+        "derivation": finding["derivation"],
+    }
+    normalized["issue_key"] = canonical_sha256(
+        {
+            "phenomenon": normalized["phenomenon"],
+            "source": normalized["source_evidence"],
+            "target": normalized["target_evidence"],
+            "meaning_change": normalized["meaning_change"]["type"],
+        }
+    )
+    return {"side": side, "finding_id": finding["finding_id"], "normalized": normalized}
+
+
+def _cluster_fact_state(
+    cluster_type: str,
+    left: list[dict[str, Any]],
+    right: list[dict[str, Any]],
+) -> tuple[str, dict[str, Any]]:
+    if not left or not right:
+        finding = (left or right)[0]
+        return "single-sided", {
+            "derived_severity": "needs-adjudication",
+            "derivation_state": "needs-adjudication",
+            "rule_id": None,
+            "supporting_facts": [],
+            "possible_rule_ids": [finding["derivation"].get("rule_id")]
+            if finding["derivation"].get("rule_id") else [],
+        }
+    if cluster_type in {"split-merge", "ambiguous"}:
+        return "needs-adjudication", {
+            "derived_severity": "needs-adjudication",
+            "derivation_state": "needs-adjudication",
+            "rule_id": None,
+            "supporting_facts": [],
+            "possible_rule_ids": [],
+        }
+    left_finding, right_finding = left[0], right[0]
+    if (
+        left_finding["impact_facts"] == right_finding["impact_facts"]
+        and left_finding["derivation"] == right_finding["derivation"]
+    ):
+        state = (
+            "needs-adjudication"
+            if left_finding["derivation"]["derivation_state"] == "needs-adjudication"
+            else "agreed"
+        )
+        return state, left_finding["derivation"]
+    return "conflict", {
+        "derived_severity": "needs-adjudication",
+        "derivation_state": "needs-adjudication",
+        "rule_id": None,
+        "supporting_facts": [],
+        "possible_rule_ids": sorted(
+            {
+                rule_id
+                for finding in (left_finding, right_finding)
+                for rule_id in [finding["derivation"].get("rule_id")]
+                if rule_id
+            }
+        ),
+    }
+
+
+def match_assessments_v2(
+    *,
+    sample: dict[str, Any],
+    left_assessment: dict[str, Any],
+    right_assessment: dict[str, Any],
+    policy: dict[str, Any],
+) -> dict[str, Any]:
+    if left_assessment["sample_id"] != sample.get("sample_id") or right_assessment["sample_id"] != sample.get("sample_id"):
+        raise ValidationError("quality v2 matching requires one sample identity")
+    if left_assessment["assessment_id"] == right_assessment["assessment_id"]:
+        raise ValidationError("quality v2 matching requires two distinct assessments")
+    if len(left_assessment["items"]) != len(sample["items"]) or len(right_assessment["items"]) != len(sample["items"]):
+        raise ValidationError("quality v2 matching requires complete assessments")
+
+    pending: list[dict[str, Any]] = []
+    manual_evidence: set[tuple[str, str, str]] = set()
+    for sample_index, (sample_item, left_item, right_item) in enumerate(
+        zip(sample["items"], left_assessment["items"], right_assessment["items"])
+    ):
+        revision_id = sample_item["revision_id"]
+        if left_item["revision_id"] != revision_id or right_item["revision_id"] != revision_id:
+            raise ValidationError("quality v2 matching found stale or out-of-order revision")
+        left_findings = left_item["findings"]
+        right_findings = right_item["findings"]
+        eligible_left = []
+        eligible_right = []
+        for side, findings, eligible in (
+            ("left", left_findings, eligible_left),
+            ("right", right_findings, eligible_right),
+        ):
+            for finding in findings:
+                states = {
+                    finding["normalized_source_evidence"]["state"],
+                    finding["normalized_target_evidence"]["state"],
+                }
+                legal_omission = (
+                    finding["meaning_change"]["type"] == "omitted"
+                    and finding["normalized_target_evidence"]["state"] == "missing"
+                    and not finding["normalized_target_evidence"].get("quote")
+                    and finding["normalized_source_evidence"]["state"] == "exact"
+                )
+                if states.issubset({"exact", "whole-item"}) or legal_omission:
+                    eligible.append(finding)
+                else:
+                    manual_evidence.add((revision_id, side, finding["finding_id"]))
+
+        adjacency: dict[tuple[str, int], set[tuple[str, int]]] = defaultdict(set)
+        for left_index, left in enumerate(eligible_left):
+            for right_index, right in enumerate(eligible_right):
+                if findings_match(left, right, policy):
+                    left_node = ("left", left_index)
+                    right_node = ("right", right_index)
+                    adjacency[left_node].add(right_node)
+                    adjacency[right_node].add(left_node)
+        nodes = [*(('left', index) for index in range(len(eligible_left))), *(('right', index) for index in range(len(eligible_right)))]
+        seen: set[tuple[str, int]] = set()
+        for node in nodes:
+            if node in seen:
+                continue
+            queue = deque([node])
+            seen.add(node)
+            component: list[tuple[str, int]] = []
+            while queue:
+                current = queue.popleft()
+                component.append(current)
+                for neighbor in sorted(adjacency[current]):
+                    if neighbor not in seen:
+                        seen.add(neighbor)
+                        queue.append(neighbor)
+            left = [eligible_left[index] for side, index in component if side == "left"]
+            right = [eligible_right[index] for side, index in component if side == "right"]
+            if len(left) == 1 and len(right) == 1:
+                cluster_type = "full-match" if _full_match(left[0], right[0]) else "partial-match"
+            elif left and right and (len(left) == 1 or len(right) == 1):
+                cluster_type = "split-merge"
+            elif left and right:
+                cluster_type = "ambiguous"
+            elif left:
+                cluster_type = "left-only"
+            else:
+                cluster_type = "right-only"
+            fact_state, derivation = _cluster_fact_state(cluster_type, left, right)
+            members = [*(_member("left", item) for item in left), *(_member("right", item) for item in right)]
+            span_starts = [
+                member["normalized"]["source_evidence"].get("start")
+                for member in members
+                if member["normalized"]["source_evidence"].get("start") is not None
+            ]
+            pending.append(
+                {
+                    "sample_index": sample_index,
+                    "revision_id": revision_id,
+                    "cluster_type": cluster_type,
+                    "members": members,
+                    "fact_state": fact_state,
+                    "derivation": derivation,
+                    "sort_start": min(span_starts) if span_starts else -1,
+                }
+            )
+        for revision, side, finding_id in sorted(manual_evidence):
+            if revision != revision_id:
+                continue
+            findings = left_findings if side == "left" else right_findings
+            finding = next(item for item in findings if item["finding_id"] == finding_id)
+            pending.append(
+                {
+                    "sample_index": sample_index,
+                    "revision_id": revision_id,
+                    "cluster_type": f"{side}-only",
+                    "members": [_member(side, finding)],
+                    "fact_state": "needs-adjudication",
+                    "derivation": {
+                        "derived_severity": "needs-adjudication", "derivation_state": "needs-adjudication",
+                        "rule_id": None, "supporting_facts": [], "possible_rule_ids": [],
+                    },
+                    "sort_start": -1,
+                }
+            )
+
+    pending.sort(
+        key=lambda issue: (
+            issue["sample_index"], issue["sort_start"], issue["cluster_type"],
+            [(member["side"], member["finding_id"]) for member in issue["members"]],
+        )
+    )
+    issues = []
+    manual_queue = []
+    for index, issue in enumerate(pending, start=1):
+        normalized = {
+            "issue_id": f"QI-{index:04d}",
+            "revision_id": issue["revision_id"],
+            "cluster_type": issue["cluster_type"],
+            "members": issue["members"],
+            "fact_state": issue["fact_state"],
+            "derivation": issue["derivation"],
+        }
+        issues.append(normalized)
+        if issue["fact_state"] != "agreed":
+            manual_queue.append(normalized["issue_id"])
+    artifact = {
+        "schema_version": 1,
+        "quality_contract": "tome4-quality-issue-cluster-v1",
+        "sample_id": sample["sample_id"],
+        "assessment_ids": [left_assessment["assessment_id"], right_assessment["assessment_id"]],
+        "match_id": "",
+        "issues": issues,
+        "manual_queue": manual_queue,
+    }
+    artifact["match_id"] = canonical_sha256({key: value for key, value in artifact.items() if key != "match_id"})
+    return artifact
+
+
+def build_disputes_v2(
+    *,
+    match: dict[str, Any],
+    sample: dict[str, Any],
+    assessments: tuple[dict[str, Any], dict[str, Any]],
+    seed: str = "tome4-quality-disputes-v2",
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    if match["sample_id"] != sample.get("sample_id"):
+        raise ValidationError("dispute match and sample identities differ")
+    by_revision = {item["revision_id"]: item for item in sample["items"]}
+    assessment_by_side = {"left": assessments[0], "right": assessments[1]}
+    public_items: list[dict[str, Any]] = []
+    mappings: list[dict[str, Any]] = []
+    manual = set(match["manual_queue"])
+    for issue in match["issues"]:
+        if issue["issue_id"] not in manual:
+            continue
+        candidates = []
+        grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+        for member in issue["members"]:
+            grouped[member["side"]].append(member)
+        sides = sorted(grouped)
+        random.Random(f"{seed}:{issue['issue_id']}").shuffle(sides)
+        for position, side in enumerate(sides):
+            label = "X" if position == 0 else "Y"
+            candidates.append(
+                {
+                    "label": label,
+                    "findings": [member["normalized"] for member in grouped[side]],
+                }
+            )
+            assessment = assessment_by_side[side]
+            mappings.append(
+                {
+                    "issue_id": issue["issue_id"], "label": label,
+                    "assessment_id": assessment["assessment_id"],
+                    "evaluator_id": assessment["evaluator"]["id"],
+                    "finding_ids": [member["finding_id"] for member in grouped[side]],
+                }
+            )
+        sample_item = by_revision[issue["revision_id"]]
+        public_items.append(
+            {
+                "issue_id": issue["issue_id"], "revision_id": issue["revision_id"],
+                "source": sample_item["source"], "target": sample_item["target"],
+                "context_neighbors": sample_item.get("context_neighbors", []),
+                "cluster_type": issue["cluster_type"], "candidates": candidates,
+            }
+        )
+    dispute = {
+        "schema_version": 1, "quality_contract": "tome4-quality-dispute-v1",
+        "match_id": match["match_id"], "dispute_id": "", "seed": seed,
+        "items": public_items,
+    }
+    dispute["dispute_id"] = canonical_sha256({key: value for key, value in dispute.items() if key != "dispute_id"})
+    identity = {
+        "schema_version": 1, "quality_contract": "tome4-quality-dispute-identity-v1",
+        "dispute_id": dispute["dispute_id"], "mapping_id": "", "mappings": mappings,
+    }
+    identity["mapping_id"] = canonical_sha256({key: value for key, value in identity.items() if key != "mapping_id"})
+    return dispute, identity
+
+
+def adjudicate_v2(
+    *,
+    match: dict[str, Any],
+    adjudication: dict[str, Any],
+    policy: dict[str, Any],
+    rules: dict[str, Any],
+    anchors: dict[str, Any],
+    strict: bool = True,
+) -> dict[str, Any]:
+    if not isinstance(adjudication, dict):
+        raise ValidationError("quality v2 adjudication must be an object")
+    _exact_fields(
+        adjudication,
+        ("schema_version", "quality_contract", "match_id", "adjudicator_id", "items"),
+        "quality v2 adjudication",
+    )
+    if adjudication["schema_version"] != 2 or adjudication["quality_contract"] != "tome4-quality-adjudication-v2":
+        raise ValidationError("unsupported quality v2 adjudication contract")
+    if adjudication["match_id"] != match.get("match_id"):
+        raise ValidationError("quality v2 adjudication match_id does not match")
+    _string(adjudication["adjudicator_id"], "quality v2 adjudication.adjudicator_id")
+    items = adjudication["items"]
+    if not isinstance(items, list):
+        raise ValidationError("quality v2 adjudication.items must be an array")
+    expected = list(match["manual_queue"])
+    received = [item.get("issue_id") for item in items if isinstance(item, dict)]
+    if strict and received != expected:
+        raise ValidationError("strict quality v2 adjudication must cover the manual queue in order")
+    issue_by_id = {issue["issue_id"]: issue for issue in match["issues"]}
+    anchor_ids = {item["anchor_id"] for item in anchors["anchors"]}
+    normalized = []
+    seen: set[str] = set()
+    for index, item in enumerate(items):
+        where = f"quality v2 adjudication.items[{index}]"
+        if not isinstance(item, dict):
+            raise ValidationError(f"{where} must be an object")
+        _exact_fields(
+            item,
+            ("issue_id", "same_issue", "exists", "confirmed_facts", "phenomenon", "defect_class", "derived_severity", "rule_id", "anchor_id", "rationale"),
+            where,
+        )
+        issue_id = item["issue_id"]
+        if issue_id not in issue_by_id or issue_id in seen:
+            raise ValidationError(f"{where}.issue_id is unknown or duplicated")
+        seen.add(issue_id)
+        if type(item["same_issue"]) is not bool or type(item["exists"]) is not bool:
+            raise ValidationError(f"{where} same_issue/exists must be booleans")
+        _string(item["rationale"], f"{where}.rationale")
+        facts = item["confirmed_facts"]
+        phenomenon = _enum(item["phenomenon"], policy["phenomena"], f"{where}.phenomenon")
+        defect_class = _enum(item["defect_class"], policy["defect_classes"], f"{where}.defect_class")
+        if not item["same_issue"] and len(issue_by_id[issue_id]["members"]) > 1:
+            derived = {
+                "derived_severity": "needs-adjudication", "derivation_state": "needs-adjudication",
+                "rule_id": None, "supporting_facts": [], "possible_rule_ids": [],
+            }
+        else:
+            derived = derive_severity(facts, phenomenon=phenomenon, defect_class=defect_class, rules=rules, policy=policy)
+        if not item["exists"] and facts.get("is_defect") != "no":
+            raise ValidationError(f"{where} exists=false requires is_defect=no")
+        if item["derived_severity"] != derived["derived_severity"] or item["rule_id"] != derived["rule_id"]:
+            raise ValidationError(f"{where} severity/rule cannot be reproduced from confirmed facts")
+        anchor_id = item["anchor_id"]
+        if anchor_id is not None and anchor_id not in anchor_ids:
+            raise ValidationError(f"{where}.anchor_id is not declared")
+        normalized.append({**item, "derivation": derived})
+    validation = {
+        "schema_version": 2,
+        "quality_contract": "tome4-quality-adjudication-validation-v2",
+        "match_id": match["match_id"],
+        "adjudicator_id": adjudication["adjudicator_id"],
+        "strict": strict,
+        "items": normalized,
+        "validation_id": "",
+    }
+    validation["validation_id"] = canonical_sha256({key: value for key, value in validation.items() if key != "validation_id"})
+    return validation
