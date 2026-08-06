@@ -1,6 +1,6 @@
 # ToME4 汉化项目交接清单
 
-更新时间：2026-08-06（质量 Evaluator v2 重校准离线配置已冻结；等待新 lineage 外部运行授权）
+更新时间：2026-08-06（质量 Evaluator v2 重校准已执行；两模型稳定性均未通过，M4d No-Go）
 
 本文记录当前翻译工具、术语库和发布流程的状态，供后续继续开发、审校或发布使用。
 
@@ -63,6 +63,7 @@
 - 2026-08-04 AI quality evaluator 盲测：新增 `tools/pi-quality-evaluator`、`tools/i18nlib/pi_quality.py` 与隔离 prompt，模型保持无工具/无会话/无项目上下文，宿主固定 evaluator 元数据并严格校验完整覆盖；DeepSeek V4 Flash 与 GPT-5.6 Luna 均用 max thinking 完成 12 条多轮独立盲评。首轮缺陷一致率 50%、κ=0.1875；统一逐项检查表后的最佳轮达到缺陷一致率 83.33%、major-or-worse 91.67%、κ=0.5833；severity 锚点复测受随机差异影响回落至 58.33%/0.34，说明当前 pair 的 severity 稳定性未达到 κ≥0.70，正式 120 条暂缓。一次 DeepSeek 输出完整 items 但遗漏最外层 `}`，runner 仅允许该唯一确定性 envelope 修复并有回归测试，其他畸形输出仍拒绝。
 - AI evaluator v2 落地方案已写入 `docs/translation-quality-evaluator-v2.md`：模型改为输出问题证据与三态影响事实，宿主规范化/匹配问题并按版本化规则派生 severity，分歧走匿名事实裁决；现有 12 条降为探索回归集，后续使用与正式 120 条互斥的 32 条校准集和 32 条封存验证集，避免在固定小样本上调参过拟合。
 - 2026-08-06 Evaluator v2 离线里程碑已完成（`dfbe516`、`ca887d4`、`7b3ac2b`、`cbd83ad`，最终复审修订见后续提交）：新增严格 v2 policy/rubric/schema、版本化 impact rules 与空 anchors；独立 `quality_v2` 实现 Unicode span、assessment 身份、规则定级、同 revision 二部图匹配、匿名 dispute/身份映射、事实裁决重算、数据集/分片/报告；`tools/pi-quality-evaluator` 已兼容 v2 shard，并仅用 fake runner 验证。真实 30,177 条 inventory 一次加载生成校准 `28c1a2e4…` / 封存 `4931d451…` 各 32 条，与探索 12 和正式 120 两两互斥；重复生成字节一致（9.81s/9.88s），正式 sample ID/内容保持不变；封存 profile 按正式分布精确缩放为 8/6/5/4/3/3/3，组件组为 19/9/4，四个长度桶均有覆盖；两套数据各生成 2 个不超过 20 条且不拆 contrast group 的 shard。最终 artifact 为 `.artifacts/i18n/quality/runs/20260806T000836.350031Z-calibration-v2/`，未调用外部 provider、未修改规范译文。v1 `quality.py` 在 `d92ffc8` 与当前内容 blob 相同，三次正式 sample 基准中位 3.596s，因此本批不存在 v1 核心采样回退。
+- 2026-08-06 经逐项授权执行新 lineage 校准 `e29bf49…`：DeepSeek V4 Flash 主跑/强制复跑分别产生 2/10 个 finding，稳定性 Jaccard `0.200`；GPT-5.6 Luna 主跑/强制复跑分别产生 3/5 个 finding，稳定性 Jaccard `0.600`。两者 schema coverage、结构失败、关键事实一致率和派生 severity 一致率均通过，但均未达到预注册 finding Jaccard `>=0.70`，因此 M4d 为 **No-Go**，不得冻结该 evaluator 配置或进入封存验证。两模型主跑交叉匹配为 3 个 issue（1 full、1 partial、1 Luna-only），Jaccard `0.667`；其中 1 条“英文感叹号未保留”进入匿名人工队列。稳定性、匹配、争议与报告分别保存在 `.artifacts/i18n/quality/runs/20260806T050532.754110Z-stability-v2/`、`20260806T054146.351003Z-stability-v2/`、`20260806T054200.719628Z-issue-match-v2/`、`20260806T054210.581923Z-disputes-v2/` 和 `20260806T054210.584959Z-report-v2/`；封存集和正式 120 条均未发送或查看 evaluator 结果。
 - 2026-08-04 最终工作区代码 diff 有界 Pi 复审（provider deepseek / model deepseek-v4-flash，bundle `0bb8d57f…`）：5 条 finding 已独立核验。R-002（runner 未自动核验 worktree）与 R-003（code bundle/tmux 测试缺口）确认并修复：headless/tmux 初步增加前后 `git status --porcelain` 快照，新增 code bundle 与 tmux 回归测试；R-005（术语净增基线表述）确认并改为明确的 510 条早期基线；R-004（测试数应为 94）不采纳，实际 HEAD 为 92、复审时工作区为 97，模型把更早的 89 条叙述误当直接基线，首次修订后实测为 99。R-001（`bash` 无 OS 沙箱且继承凭据）部分确认：Pi 官方文档明确内置工具不是沙箱，已在 AGENTS/Skill/handoff/系统提示中纠正“硬性只读”表述、记录强隔离要求；provider 通信凭据无法在同一 Pi 进程内彻底与内置 bash 隔离，当前只允许经逐次授权、受监控运行，强安全场景必须使用只读挂载及网络/凭据隔离的容器或 VM。
 - 2026-08-04 修订后二轮 Pi 复审（同 provider/model，bundle `0ea1ff0c…`）：3 条 finding 全部确认并修复。R-002 指出脏工作树下 porcelain 状态不随已修改/未跟踪文件内容变化，现改为哈希 HEAD、受管 binary diff、非忽略未跟踪文件内容与 Git exclude 的版本控制范围内容级快照，并新增脏 tracked/untracked 文件回归测试；R-001 指出 headless 篡改路径在落盘 raw output 前失败，现调整为先保存 stdout/stderr 与哈希再检查快照；R-003 指出系统提示中的禁止范围只是受监控契约，现明确其非 OS 技术边界及强隔离要求。测试总数升至 100。
 - 2026-08-04 三轮修订复审（同 provider/model，bundle `bb20a5ff…`）：3 条 finding 已独立核验。R-001 部分确认：忽略路径与绝大多数 `.git` 元数据不属于版本控制工作树且 `.artifacts` 会被宿主正常写入，无法纳入同一无噪音快照；已把报告字段与 AGENTS/Skill/handoff 表述收窄为 `versioned_worktree_*` 和“受管 + 非忽略未跟踪 + info/exclude”的最佳努力范围，强隔离要求不变。R-002 确认并新增 fake Pi 实际篡改 tracked 文件的集成测试，断言运行失败、`versioned_worktree_unchanged=false` 且 raw output/report 已落盘。R-003 不采纳：`cli.py` 明确将 `run_validation` 导入别名为 `quality_run_validation`，`dry_run` 已在该函数签名中接收并透传；为消除回归疑虑仍新增 runner 级 dry-run 测试。测试总数升至 102。
@@ -76,7 +77,7 @@
 以下结果是当前工作区最近一次验证的基线：
 
 - `doctor`：清单、Lua 5.1 / LuaJIT 2.1、LPeg 0.10.2 和受保护输入代理均正常。
-- 单元测试：433 项通过（`test_toolchain.py` + `test_quality_v2.py`）；v2 新增 32 项，覆盖契约/身份/path、span、每条 severity 规则的 yes/no/unknown、确定性技术门禁、匹配图、匿名裁决、分片完整性、全缓存身份、fake runner 成功/失败 artifact 和报告。
+- 单元测试：440 项通过（`test_toolchain.py` + `test_quality_v2.py`）；覆盖契约/身份/path、span、每条 severity 规则的 yes/no/unknown、确定性技术门禁、匹配图、匿名裁决、分片完整性、全缓存身份、fake runner 成功/失败 artifact、报告和稳定性预注册校验。
 - 严格 lint：30,177 条翻译、693 条术语，0 个错误、0 个警告；`lint --strict` 已可作为当前门槛。
 - lint 仍统计到 1,717 个重复运行键；这不是当前构建失败项，但仍需分类审校。
 - 核心最小 addon：严格构建成功，19,023 个预期运行键全部验证通过。
@@ -129,7 +130,7 @@
 - [x] 审定 `Constrict`→缠绕、`eldritch`→骇异、`Atmos Tribe`→气之部族（2026-08 裁决，先改 TSV 再同步 Lua）。
 - [x] 检查 1,717 个重复运行键（2026-08-03 `930b9c2` 分类完成：全部为跨文件合法重复，0 个同文件冗余；分类结果见 `tools/classify_runtime_keys.py` 报告）。
 - [x] 对每个 remediation 批次运行严格 lint 和定向测试、更新台账；全部完成后对最终 diff 做有界 Pi 复审，并为接受、修订或撤销的 finding 留下闭环证据（2026-08-04，`0bb8d57f…` 至 `cad8ed9c…` 五轮收敛复审，处置记录见本节）。
-- [ ] 翻译质量系统 M4d–M6：首轮 32 条校准双评、匿名裁决与公开源码核验已完成并保留为历史；确认 `omission`/`unit` 同证据重复匹配缺口后，已在 `ecc79c8`–`cd87c36` 增加受限合并规则、6 个仅来自人工裁决校准案例的严格 provenance anchors、稳定性预注册/CLI、配置单次加载和陈旧 sample/policy 拒绝。新校准 ID 为 `e29bf49…`、封存 ID 为 `08e7df73…`，与旧版条目集合相同但 policy/sample identity 已更新，旧 assessment 不得复用。下一步外部传输前必须重新报告并取得两模型各 2 次运行、每次 2 个 shard/32 条的明确授权；M4d 稳定性与新双评裁决通过前不得查看封存结果，M4e 允许且用户另行批准前不得运行正式 120 条。
+- [ ] 翻译质量系统 M4d–M6：首轮 32 条校准双评、匿名裁决与公开源码核验已完成并保留为历史；确认 `omission`/`unit` 同证据重复匹配缺口后，已在 `ecc79c8`–`cd87c36` 增加受限合并规则、6 个仅来自人工裁决校准案例的严格 provenance anchors、稳定性预注册/CLI、配置单次加载和陈旧 sample/policy 拒绝。新校准 ID 为 `e29bf49…`、封存 ID 为 `08e7df73…`，与旧版条目集合相同但 policy/sample identity 已更新，旧 assessment 不得复用。已获授权的两模型各两次新校准运行均完成，但 DeepSeek/Luna finding Jaccard 分别仅为 `0.200`/`0.600`，低于预注册 `0.70`，M4d 已按失败语义停止；下一步应先修订 evaluator 方法并建立新的冻结 lineage，再重新预注册和另行申请外部授权，不得补跑当前 lineage、查看封存结果或运行正式 120 条。
 
 ### P2：流程与工程化
 
@@ -174,10 +175,10 @@ python3 -B tools/i18n quality evaluator-bundles --sample <calibration.json> --ev
 - 当前分支：`codex/review-findings-20260802`。
 - 本次最终交接提交完成后，分支相对 `origin/master` 领先 157 个提交：在既有工具链/术语/审核闭环基础上，新增 Evaluator v2 设计提交 `c73c4c6`、四个分阶段离线实现提交 `dfbe516`、`ca887d4`、`7b3ac2b`、`cbd83ad`，以及最终有界复审修订/交接提交。
 - 本轮 finding 处置涉及文件：`engine.lua`、`mod-tome.lua`、`tome-ashes-urhrok.lua`、`tome-cults.lua`、`tome-orcs.lua`、`tome-addon-dev.lua`、`tome-possessors.lua`、`tome-items-vault.lua`、`mod-boot.lua`、`mod-example.lua`、`mod-example_realtime.lua`。
-- 当前工作区在本段更新提交后应保持干净；v1 evaluator 批次为 `af88a5b`，v2 离线核心截至 `cbd83ad`。v2 外部校准尚未授权，分支未配置 upstream，推送和发布均尚未执行。
+- 当前工作区在本段更新提交后应保持干净；v1 evaluator 批次为 `af88a5b`，v2 重校准实现与冻结提交为 `ecc79c8`–`cdaa2dc`。v2 外部校准已按明确边界执行并因稳定性失败停止；封存集、正式 120 条、推送和发布均尚未执行。
 - 工作树状态快照：`remediation-queue.json` 的 `pending` 为 0（全部处置），`applied_pending_commit` 2,945、`already_resolved` 135；`remediation-ledger.json` 已关联 2,795 条处置记录。
 - 已处置但未改动规范文件的条目（有意保留）共 168 条：`already_resolved` 135（已含修复/与源码一致/术语裁决/代码基线已修复）+ `false_positive` 33（不采纳，原因均记录在台账 `verification_note`）。
 - 术语表系统工程（2026-08）：新增 `domain` 列（11 领域 + lint 白名单）、静态/动态审计、补录基础术语（资源/面板属性/免疫/高频词）、3 条 review 术语裁决、33+26 条同键多译统一、light 共享键裁决、重复运行键分类（1,717 全部跨文件合法重复）、`tools/scan_runtime_collisions.py` / `classify_runtime_keys.py` / `review_diff.py` / `pi-review-batch.py`。
 - 三轮 Pi 复审闭环（2026-08-03/04）：diff bundle 复审 3 轮，major 66→54→21→0，全部处置（含裁决保留）；处置记录在 `.artifacts/i18n/terminology-audit/findings_review{1,2,3}*.json`；worker 调优测试见 `docs/pi-review-worker-tuning.md`（最优 6 workers，4.2× 加速）。
 
-上述状态说明核心插件已通过本地发布门槛，首轮全量 finding 队列已清零，术语与重复运行键分类均已完成。质量 v2 离线核心和互斥 32+32 数据准备已完成，但尚未调用外部 evaluator；下一动作是另行申请校准授权，不是直接运行封存集或正式 120 条。DLC 与外部层仍不属于已完成发布范围。
+上述状态说明核心插件已通过本地发布门槛，首轮全量 finding 队列已清零，术语与重复运行键分类均已完成。质量 v2 离线核心和互斥 32+32 数据准备已完成；新校准外部运行已结束，但两个 evaluator 均未通过预注册稳定性门槛。下一动作是分析并修订 evaluator 方法、建立新的冻结 lineage 和预注册，而不是补跑当前校准、进入封存集或正式 120 条。DLC 与外部层仍不属于已完成发布范围。
