@@ -8,7 +8,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from i18nlib.errors import ValidationError
+from i18nlib.errors import AgentError, ValidationError
 from i18nlib.config import load_manifest
 from i18nlib.quality_v2 import (
     assessment_identity,
@@ -241,6 +241,32 @@ class QualityV2AssessmentTests(unittest.TestCase):
         value["assessment_id"] = assessment_identity(value)
         result = self.validate(value)
         self.assertEqual(result["items"][0]["findings"][0]["normalized_target_evidence"]["state"], "missing")
+
+    def test_model_cannot_self_confirm_a_technical_gate(self) -> None:
+        value = copy.deepcopy(self.assessment)
+        value["items"][0]["findings"][0]["impact_facts"].update(
+            technical_gate_confirmed="yes", runtime_broken="yes"
+        )
+        value["assessment_id"] = assessment_identity(value)
+        with self.assertRaisesRegex(ValidationError, "without host gate signals"):
+            self.validate(value)
+
+    def test_deterministic_gate_has_priority_over_model_facts(self) -> None:
+        sample = copy.deepcopy(self.sample)
+        sample["items"][0]["gate_signals"] = {
+            "lua_load_valid": False, "format_signature_match": True,
+            "markup_multiset_match": True, "at_token_multiset_match": True,
+            "runtime_collision": False, "empty_target": False,
+            "format_shape_match": True,
+        }
+        result = validate_assessment_v2(
+            self.assessment, sample=sample, policy=POLICY, rules=RULES,
+            anchors=self.anchors, taxonomy=self.taxonomy,
+            expected_evaluator=self.evaluator,
+        )
+        finding = result["items"][0]["findings"][0]
+        self.assertEqual(finding["host_gate_facts"]["runtime_broken"], "yes")
+        self.assertEqual(finding["derivation"]["derived_severity"], "blocker")
 
 
 def normalized_finding(
@@ -497,6 +523,31 @@ class QualityV2ShardingTests(unittest.TestCase):
         self.assertEqual(
             (report["shards"], report["items"], report["findings"]), (2, 21, 0)
         )
+        self.assertEqual(len(report["shard_artifacts"]), 2)
+        self.assertTrue(all(item["parsed_output"] for item in report["shard_artifacts"]))
+
+    def test_fake_runner_format_failure_preserves_raw_and_report(self) -> None:
+        sample = synthetic_v2_sample([self.item(0)])
+        with tempfile.TemporaryDirectory(prefix="quality-v2-failure-") as temporary:
+            root = Path(temporary)
+            sample_path = root / "sample.json"
+            sample_path.write_text(json.dumps(sample), encoding="utf-8")
+            run_directory = root / "run"
+            run_directory.mkdir()
+            malformed = subprocess.CompletedProcess([], 0, b"not-json", b"")
+            with (
+                patch("i18nlib.pi_quality.create_run_directory", return_value=run_directory),
+                patch("i18nlib.pi_quality._run_file_review_process", return_value=malformed),
+            ):
+                with self.assertRaises(AgentError):
+                    run_pi_quality_evaluator(
+                        sample_path=sample_path, evaluator_id="reviewer-a",
+                        provider="fake", model="fake", thinking="none",
+                        use_cache=False, pi_executable="fake-pi",
+                    )
+            report = json.loads((run_directory / "pi-quality-evaluator.json").read_text())
+            self.assertEqual(report["failed_shard"], 1)
+            self.assertTrue(Path(report["raw_outputs"][0]).is_file())
 
 
 class QualityV2ReportTests(unittest.TestCase):
@@ -511,6 +562,7 @@ class QualityV2ReportTests(unittest.TestCase):
         report = build_report_v2(match=match)
         self.assertEqual(report["issue_metrics"]["jaccard"], 1.0)
         self.assertEqual(report["human_burden"]["issues_requiring_adjudication"], 0)
+        self.assertEqual(report["item_metrics"]["items_total"], 1)
         self.assertIn("is_defect", report["fact_metrics"])
         self.assertIn("minor", report["severity_metrics"]["pre_adjudication"])
 

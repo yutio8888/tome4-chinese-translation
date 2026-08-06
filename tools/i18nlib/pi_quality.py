@@ -376,6 +376,7 @@ def _run_pi_quality_evaluator_v2(
         write_json(assessment_path, assessment)
         report.update(
             ok=True, cache_decision="hit", assessment=str(assessment_path),
+            assessment_sha256=hashlib.sha256(assessment_path.read_bytes()).hexdigest(),
             validated_results=1, findings=sum(len(item["findings"]) for item in assessment["items"]),
             elapsed_seconds=round(time.monotonic() - started, 6),
         )
@@ -388,6 +389,7 @@ def _run_pi_quality_evaluator_v2(
     merged_items: list[dict[str, Any]] = []
     raw_outputs = []
     normalizations = []
+    shard_artifacts = []
     for bundle in bundles:
         shard_index = bundle["shard_index"]
         bundle_path = run_directory / f"quality-bundle-{shard_index:03d}.json"
@@ -421,22 +423,65 @@ def _run_pi_quality_evaluator_v2(
             )
             write_json(report_path, report)
             raise AgentError(f"{report['error']}; report: {report_path}")
-        output, normalization = _decode_quality_model_output(result.stdout)
-        if set(output) != {"items"} or not isinstance(output["items"], list):
-            raise AgentError(f"Pi quality evaluator v2 shard {shard_index} must return exactly items")
-        expected_revisions = [item["revision_id"] for item in bundle["items"]]
-        received_revisions = [item.get("revision_id") for item in output["items"] if isinstance(item, dict)]
-        if received_revisions != expected_revisions:
-            raise AgentError(f"Pi quality evaluator v2 shard {shard_index} coverage/order mismatch")
+        try:
+            output, normalization = _decode_quality_model_output(result.stdout)
+            if set(output) != {"items"} or not isinstance(output["items"], list):
+                raise ValidationError("must return exactly an items array")
+            expected_revisions = [item["revision_id"] for item in bundle["items"]]
+            received_revisions = [
+                item.get("revision_id")
+                for item in output["items"]
+                if isinstance(item, dict)
+            ]
+            if received_revisions != expected_revisions:
+                raise ValidationError("coverage/order mismatch")
+        except ValidationError as error:
+            report.update(
+                error=f"Pi quality evaluator v2 shard {shard_index}: {error}",
+                failed_shard=shard_index, raw_outputs=raw_outputs,
+                shard_artifacts=shard_artifacts,
+                elapsed_seconds=round(time.monotonic() - started, 6),
+            )
+            write_json(report_path, report)
+            raise AgentError(f"{report['error']}; report: {report_path}") from error
+        parsed_path = run_directory / f"parsed-output-{shard_index:03d}.json"
+        write_json(parsed_path, output)
+        artifact = {
+            "shard_index": shard_index,
+            "raw_output": str(raw_path),
+            "raw_output_sha256": hashlib.sha256(result.stdout).hexdigest(),
+            "parsed_output": str(parsed_path),
+            "parsed_output_sha256": hashlib.sha256(parsed_path.read_bytes()).hexdigest(),
+            "normalization": normalization,
+            "repaired_output": None,
+            "repaired_output_sha256": None,
+        }
+        if normalization != "none":
+            repaired_path = run_directory / f"repaired-output-{shard_index:03d}.json"
+            write_json(repaired_path, output)
+            artifact["repaired_output"] = str(repaired_path)
+            artifact["repaired_output_sha256"] = hashlib.sha256(
+                repaired_path.read_bytes()
+            ).hexdigest()
+        shard_artifacts.append(artifact)
         merged_items.extend(output["items"])
         normalizations.append(normalization)
-    assessment = build_assessment_v2(
-        sample_id=sample["sample_id"], evaluator=evaluator, items=merged_items
-    )
-    normalized = validate_assessment_v2(
-        assessment, sample=sample, policy=policy, rules=rules,
-        anchors=anchors, taxonomy=taxonomy, expected_evaluator=evaluator,
-    )
+    try:
+        assessment = build_assessment_v2(
+            sample_id=sample["sample_id"], evaluator=evaluator, items=merged_items
+        )
+        normalized = validate_assessment_v2(
+            assessment, sample=sample, policy=policy, rules=rules,
+            anchors=anchors, taxonomy=taxonomy, expected_evaluator=evaluator,
+        )
+    except ValidationError as error:
+        report.update(
+            error=f"Pi quality evaluator v2 assessment validation failed: {error}",
+            raw_outputs=raw_outputs, shard_artifacts=shard_artifacts,
+            elapsed_seconds=round(time.monotonic() - started, 6),
+        )
+        write_json(report_path, report)
+        raise AgentError(f"{report['error']}; report: {report_path}") from error
     write_json(assessment_path, assessment)
     if use_cache and not force:
         cache_path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -453,7 +498,8 @@ def _run_pi_quality_evaluator_v2(
         )
     report.update(
         ok=True, assessment=str(assessment_path), raw_outputs=raw_outputs,
-        normalizations=normalizations,
+        assessment_sha256=hashlib.sha256(assessment_path.read_bytes()).hexdigest(),
+        normalizations=normalizations, shard_artifacts=shard_artifacts,
         findings=sum(len(item["findings"]) for item in normalized["items"]),
         validated_results=1, elapsed_seconds=round(time.monotonic() - started, 6),
     )

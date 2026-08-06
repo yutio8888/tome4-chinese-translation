@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#", "$id": "tome4-quality-issue-cluster-v1",
   "type": "object", "additionalProperties": false,
-  "required": ["schema_version", "quality_contract", "sample_id", "assessment_ids", "match_id", "issues", "manual_queue"],
+  "required": ["schema_version", "quality_contract", "sample_id", "sample_size", "assessment_ids", "match_id", "issues", "manual_queue"],
   "properties": {
     "schema_version": {"const": 1}, "quality_contract": {"const": "tome4-quality-issue-cluster-v1"},
-    "sample_id": {"type": "string"}, "assessment_ids": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+    "sample_id": {"type": "string"}, "sample_size": {"type": "integer", "minimum": 1}, "assessment_ids": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
     "match_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "issues": {"type": "array", "items": {"$ref": "#/definitions/issue"}},
     "manual_queue": {"type": "array", "items": {"type": "string"}}

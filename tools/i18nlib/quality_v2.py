@@ -99,6 +99,8 @@ def load_policy_v2(manifest: Manifest) -> dict[str, Any]:
         "meaning_change_types", "impact_fact_fields", "critical_impact_facts",
         "amplification_scopes", "anchor_relations", "reuse_recommendations",
         "span_states", "cluster_types", "mergeable_phenomena",
+        "calibration_constraints", "holdout_constraints",
+        "holdout_distribution_dimensions",
     )
     for field in required_arrays:
         if not isinstance(policy.get(field), list) or not policy[field]:
@@ -110,10 +112,44 @@ def load_policy_v2(manifest: Manifest) -> dict[str, Any]:
         raise ConfigurationError(f"quality v2 method_version must be {METHOD_V2}")
     if type(policy.get("max_shard_items")) is not int or not 1 <= policy["max_shard_items"] <= 20:
         raise ConfigurationError("quality v2 max_shard_items must be an integer from 1 to 20")
+    for kind, expected_contract, expected_seed in (
+        ("calibration", CALIBRATION_CONTRACT, "tome4-quality-calibration-v2"),
+        ("holdout", HOLDOUT_CONTRACT, "tome4-quality-holdout-v2"),
+    ):
+        dataset = policy["datasets"].get(kind)
+        if (
+            not isinstance(dataset, dict)
+            or dataset.get("contract") != expected_contract
+            or dataset.get("seed") != expected_seed
+            or type(dataset.get("size")) is not int
+            or dataset["size"] != 32
+            or type(dataset.get("boundary_enriched")) is not bool
+        ):
+            raise ConfigurationError(f"quality v2 policy.datasets.{kind} is invalid")
     if set(policy["tri_state_values"]) != {"yes", "no", "unknown"}:
         raise ConfigurationError("quality v2 tri_state_values must be yes/no/unknown")
     if not set(policy["critical_impact_facts"]).issubset(policy["impact_fact_fields"]):
         raise ConfigurationError("critical impact facts must be declared impact facts")
+    if policy["holdout_distribution_dimensions"] != [
+        "profile", "component-group", "length"
+    ]:
+        raise ConfigurationError("quality v2 holdout distribution dimensions are frozen")
+    for group in ("calibration_constraints", "holdout_constraints"):
+        seen_constraints: set[str] = set()
+        for index, constraint in enumerate(policy[group]):
+            if (
+                not isinstance(constraint, dict)
+                or set(constraint) != {"id", "min"}
+                or not isinstance(constraint["id"], str)
+                or not constraint["id"]
+                or type(constraint["min"]) is not int
+                or constraint["min"] < 1
+                or constraint["id"] in seen_constraints
+            ):
+                raise ConfigurationError(
+                    f"quality v2 policy.{group}[{index}] is invalid"
+                )
+            seen_constraints.add(constraint["id"])
     merge_pairs: set[tuple[str, str]] = set()
     for index, pair in enumerate(policy["mergeable_phenomena"]):
         if not isinstance(pair, list) or len(pair) != 2:
@@ -416,19 +452,58 @@ def _validate_finding(
     if target_evidence["quote"] == "" and target_evidence["state"] == "missing":
         if meaning_type != "omitted" or not source_evidence["quote"]:
             raise ValidationError(f"{where} has an invalid omission evidence contract")
-    facts = finding["impact_facts"]
-    if not isinstance(facts, dict):
+    model_facts = finding["impact_facts"]
+    if not isinstance(model_facts, dict):
         raise ValidationError(f"{where}.impact_facts must be an object")
+    facts = dict(model_facts)
+    gate_signals = sample_item.get("gate_signals")
+    host_gate_facts: dict[str, str] | None = None
+    if isinstance(gate_signals, dict):
+        runtime_broken = any(
+            (
+                gate_signals.get("lua_load_valid") is False,
+                gate_signals.get("format_signature_match") is False,
+                gate_signals.get("markup_multiset_match") is False,
+                gate_signals.get("at_token_multiset_match") is False,
+                gate_signals.get("runtime_collision") is True,
+                gate_signals.get("empty_target") is True,
+            )
+        )
+        display_broken = (
+            not runtime_broken
+            and gate_signals.get("format_shape_match") is False
+        )
+        host_gate_facts = {
+            "technical_gate_confirmed": "yes" if runtime_broken or display_broken else "no",
+            "runtime_broken": "yes" if runtime_broken else "no",
+            "single_item_display_broken": "yes" if display_broken else "no",
+        }
+        for field, host_value in host_gate_facts.items():
+            if model_facts.get(field) == "yes" and host_value != "yes":
+                raise ValidationError(
+                    f"{where}.impact_facts.{field}=yes is not confirmed by deterministic gates"
+                )
+            facts[field] = host_value
+    elif any(
+        model_facts.get(field) == "yes"
+        for field in (
+            "technical_gate_confirmed", "runtime_broken",
+            "single_item_display_broken",
+        )
+    ):
+        raise ValidationError(
+            f"{where} cannot claim a technical gate without host gate signals"
+        )
     derivation = derive_severity(
         facts, phenomenon=phenomenon, defect_class=defect_class,
         rules=rules, policy=policy,
     )
-    if facts["is_defect"] == "no" and facts["is_substantive"] == "yes":
+    if model_facts["is_defect"] == "no" and model_facts["is_substantive"] == "yes":
         raise ValidationError(f"{where} cannot be non-defect and substantive")
     if (
         defect_class == "presentation"
         and meaning_type == "presentation-only"
-        and facts["opposite_or_different_rule"] == "yes"
+        and model_facts["opposite_or_different_rule"] == "yes"
     ):
         raise ValidationError(f"{where} has contradictory presentation and rule facts")
     _enum(finding["amplification_scope"], policy["amplification_scopes"], f"{where}.amplification_scope")
@@ -445,6 +520,7 @@ def _validate_finding(
         **finding,
         "normalized_source_evidence": source_evidence,
         "normalized_target_evidence": target_evidence,
+        "host_gate_facts": host_gate_facts,
         "derivation": derivation,
     }
 
@@ -643,6 +719,7 @@ def _member(side: str, finding: dict[str, Any]) -> dict[str, Any]:
         "target_evidence": finding["normalized_target_evidence"],
         "meaning_change": finding["meaning_change"],
         "impact_facts": finding["impact_facts"],
+        "host_gate_facts": finding.get("host_gate_facts"),
         "amplification_scope": finding["amplification_scope"],
         "closest_anchor_id": finding["closest_anchor_id"],
         "anchor_relation": finding["anchor_relation"],
@@ -726,7 +803,6 @@ def match_assessments_v2(
         raise ValidationError("quality v2 matching requires complete assessments")
 
     pending: list[dict[str, Any]] = []
-    manual_evidence: set[tuple[str, str, str]] = set()
     for sample_index, (sample_item, left_item, right_item) in enumerate(
         zip(sample["items"], left_assessment["items"], right_assessment["items"])
     ):
@@ -735,6 +811,7 @@ def match_assessments_v2(
             raise ValidationError("quality v2 matching found stale or out-of-order revision")
         left_findings = left_item["findings"]
         right_findings = right_item["findings"]
+        manual_evidence: set[tuple[str, str, str]] = set()
         eligible_left = []
         eligible_right = []
         for side, findings, eligible in (
@@ -854,6 +931,7 @@ def match_assessments_v2(
         "schema_version": 1,
         "quality_contract": "tome4-quality-issue-cluster-v1",
         "sample_id": sample["sample_id"],
+        "sample_size": len(sample["items"]),
         "assessment_ids": [left_assessment["assessment_id"], right_assessment["assessment_id"]],
         "match_id": "",
         "issues": issues,
@@ -977,6 +1055,21 @@ def adjudicate_v2(
         facts = item["confirmed_facts"]
         phenomenon = _enum(item["phenomenon"], policy["phenomena"], f"{where}.phenomenon")
         defect_class = _enum(item["defect_class"], policy["defect_classes"], f"{where}.defect_class")
+        host_gate_candidates = [
+            member["normalized"].get("host_gate_facts")
+            for member in issue_by_id[issue_id]["members"]
+            if member["normalized"].get("host_gate_facts") is not None
+        ]
+        for field in (
+            "technical_gate_confirmed", "runtime_broken",
+            "single_item_display_broken",
+        ):
+            if facts.get(field) == "yes" and not any(
+                candidate.get(field) == "yes" for candidate in host_gate_candidates
+            ):
+                raise ValidationError(
+                    f"{where}.confirmed_facts.{field}=yes is not backed by a deterministic gate"
+                )
         if not item["same_issue"] and len(issue_by_id[issue_id]["members"]) > 1:
             derived = {
                 "derived_severity": "needs-adjudication", "derivation_state": "needs-adjudication",
@@ -1122,16 +1215,33 @@ def _calibration_themes(entry: dict[str, Any]) -> set[str]:
     return themes
 
 
-def _holdout_features(entry: dict[str, Any], qpolicy: dict[str, Any]) -> dict[str, Any]:
+def _holdout_features(entry: dict[str, Any], qpolicy: dict[str, Any]) -> set[str]:
     from .quality import _entry_features
 
     base = _entry_features(entry, qpolicy)
-    return {
-        "profile-diversity": base["profile"],
-        "component-diversity": base["component_group"],
-        "structural-risk": base["structural_risk"],
-        "term-evidence": base["term_evidence"],
+    values = {
+        f"profile:{base['profile']}",
+        f"component-group:{base['component_group']}",
+        f"length:{base['length_bin']}",
     }
+    if base["structural_risk"]:
+        values.add("structural-risk")
+    if base["term_evidence"]:
+        values.add("term-evidence")
+    return values
+
+
+def _scaled_targets(counts: Counter[str], size: int) -> dict[str, int]:
+    total = sum(counts.values())
+    if total <= 0:
+        raise ValidationError("cannot scale an empty quality distribution")
+    exact = {key: value * size / total for key, value in counts.items()}
+    targets = {key: int(value) for key, value in exact.items()}
+    remainder = size - sum(targets.values())
+    order = sorted(counts, key=lambda key: (-(exact[key] - targets[key]), key))
+    for key in order[:remainder]:
+        targets[key] += 1
+    return targets
 
 
 def _select_atomic_units(
@@ -1141,34 +1251,54 @@ def _select_atomic_units(
     seed: str,
     score_features: Any,
     minimums: dict[str, int],
+    preferred_targets: dict[str, int] | None = None,
+    maximums: dict[str, int] | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, int]]:
     rng = random.Random(seed)
     ranked = [(rng.random(), unit) for unit in units]
     selected: list[dict[str, Any]] = []
+    selected_units: list[list[dict[str, Any]]] = []
     counts = Counter()
     observed: dict[str, set[str]] = defaultdict(set)
     remaining = list(ranked)
+    feature_availability: Counter[str] = Counter()
+    def _unit_feature_counts(unit: list[dict[str, Any]]) -> Counter[str]:
+        coverage: Counter[str] = Counter()
+        for entry in unit:
+            values = score_features(entry)
+            if isinstance(values, set):
+                coverage.update(values)
+            else:
+                for feature, feature_value in values.items():
+                    if feature_value:
+                        coverage[feature] += 1
+        return coverage
+
+    for _, unit in ranked:
+        feature_availability.update(_unit_feature_counts(unit))
     while len(selected) < size:
         capacity = size - len(selected)
-        candidates = [(tie, unit) for tie, unit in remaining if len(unit) <= capacity]
+        candidates = [
+            (tie, unit)
+            for tie, unit in remaining
+            if len(unit) <= capacity
+            and (
+                not maximums
+                or all(
+                    counts[feature] + _unit_feature_counts(unit)[feature] <= maximum
+                    for feature, maximum in maximums.items()
+                )
+            )
+        ]
         if not candidates:
             raise ValidationError(f"cannot fill a {size}-item atomic quality dataset")
 
-        def score(candidate: tuple[float, list[dict[str, Any]]]) -> tuple[int, int, float, str]:
+        def score(candidate: tuple[float, list[dict[str, Any]]]) -> tuple[float, int, float, int, float, str]:
             tie, unit = candidate
             gain = 0
-            coverage = Counter()
+            weighted_gain = 0.0
+            coverage = _unit_feature_counts(unit)
             candidate_observed: dict[str, set[str]] = defaultdict(set)
-            for entry in unit:
-                values = score_features(entry)
-                if isinstance(values, set):
-                    coverage.update(values)
-                else:
-                    for feature, feature_value in values.items():
-                        if feature.endswith("-diversity") and isinstance(feature_value, str):
-                            candidate_observed[feature].add(feature_value)
-                        elif feature_value:
-                            coverage[feature] += 1
             for feature, minimum in minimums.items():
                 current = len(observed[feature]) if feature.endswith("-diversity") else counts[feature]
                 addition = (
@@ -1176,13 +1306,29 @@ def _select_atomic_units(
                     if feature.endswith("-diversity")
                     else coverage[feature]
                 )
-                gain += min(max(0, minimum - current), addition)
+                deficit = max(0, minimum - current)
+                useful = min(deficit, addition)
+                gain += useful
+                if useful:
+                    weighted_gain += useful * (
+                        1 / deficit + 100 / max(1, feature_availability[feature])
+                    )
+            distance_gain = 0.0
+            if preferred_targets:
+                for feature, target in preferred_targets.items():
+                    current = counts[feature]
+                    addition = coverage[feature]
+                    distance_gain += abs(target - current) - abs(target - current - addition)
             # Prefer smaller units when gains tie so an exact final fill remains possible.
-            return (gain, -len(unit), -tie, unit[0]["revision_id"])
+            return (
+                weighted_gain, gain, distance_gain, -len(unit), -tie,
+                unit[0]["revision_id"],
+            )
 
         chosen = max(candidates, key=score)
         remaining.remove(chosen)
         unit = chosen[1]
+        selected_units.append(unit)
         selected.extend(unit)
         for entry in unit:
             values = score_features(entry)
@@ -1198,6 +1344,89 @@ def _select_atomic_units(
         feature: len(observed[feature]) if feature.endswith("-diversity") else counts[feature]
         for feature in minimums
     }
+    # Greedy multi-dimensional stratification can paint itself into a corner.
+    # Deterministically repair with equal-sized unit swaps that strictly reduce
+    # total constraint shortfall, preserving sample size and contrast atomicity.
+    def unit_coverage(unit: list[dict[str, Any]]) -> Counter[str]:
+        return _unit_feature_counts(unit)
+
+    def shortfall(values: dict[str, int]) -> int:
+        return sum(max(0, minimum - values.get(feature, 0)) for feature, minimum in minimums.items())
+
+    current_shortfall = shortfall(final_counts)
+    seen_selections = {
+        tuple(sorted(entry["revision_id"] for unit in selected_units for entry in unit))
+    }
+    for _ in range(256):
+        if current_shortfall == 0:
+            break
+        best: tuple[int, int, str, int, int, Counter[str], list[dict[str, Any]]] | None = None
+        for candidate_index, (_, candidate) in enumerate(remaining):
+            candidate_coverage = unit_coverage(candidate)
+            if not any(
+                final_counts.get(feature, 0) < minimum and candidate_coverage[feature]
+                for feature, minimum in minimums.items()
+            ):
+                continue
+            for victim_index, victim in enumerate(selected_units):
+                if len(victim) != len(candidate):
+                    continue
+                victim_coverage = unit_coverage(victim)
+                proposed = {
+                    feature: final_counts.get(feature, 0)
+                    - victim_coverage[feature]
+                    + candidate_coverage[feature]
+                    for feature in minimums
+                }
+                if maximums and any(
+                    proposed.get(feature, final_counts.get(feature, 0)) > maximum
+                    for feature, maximum in maximums.items()
+                ):
+                    continue
+                improvement = current_shortfall - shortfall(proposed)
+                direct_gain = sum(
+                    min(
+                        max(0, minimum - final_counts.get(feature, 0)),
+                        candidate_coverage[feature],
+                    )
+                    for feature, minimum in minimums.items()
+                )
+                if improvement < 0 or direct_gain <= 0:
+                    continue
+                proposed_ids = tuple(
+                    sorted(
+                        entry["revision_id"]
+                        for selected_index, selected_unit in enumerate(selected_units)
+                        for entry in (candidate if selected_index == victim_index else selected_unit)
+                    )
+                )
+                if proposed_ids in seen_selections:
+                    continue
+                key = (
+                    improvement, direct_gain, candidate[0]["revision_id"],
+                    -candidate_index, -victim_index, candidate_coverage, candidate,
+                )
+                if best is None or key[:5] > best[:5]:
+                    best = key
+        if best is None:
+            break
+        _, _, _, neg_candidate_index, neg_victim_index, candidate_coverage, candidate = best
+        candidate_index, victim_index = -neg_candidate_index, -neg_victim_index
+        victim = selected_units[victim_index]
+        victim_coverage = unit_coverage(victim)
+        selected_units[victim_index] = candidate
+        remaining[candidate_index] = (remaining[candidate_index][0], victim)
+        for feature in minimums:
+            final_counts[feature] = (
+                final_counts.get(feature, 0)
+                - victim_coverage[feature]
+                + candidate_coverage[feature]
+            )
+        current_shortfall = shortfall(final_counts)
+        seen_selections.add(
+            tuple(sorted(entry["revision_id"] for unit in selected_units for entry in unit))
+        )
+    selected = [entry for unit in selected_units for entry in unit]
     unmet = {feature: minimum - final_counts[feature] for feature, minimum in minimums.items() if final_counts[feature] < minimum}
     if unmet:
         detail = ", ".join(f"{feature}={minimums[feature] - deficit}/{minimums[feature]}" for feature, deficit in sorted(unmet.items()))
@@ -1306,13 +1535,43 @@ def generate_calibration_holdout_v2(
     holdout_pool = [entry for entry in pool if entry["revision_id"] not in calibration_ids]
     holdout_units = _atomic_sampling_units(holdout_pool, qpolicy)
     holdout_spec = v2policy["datasets"]["holdout"]
+    from .quality import _component_group
+
     holdout_minimums = {
-        item["id"]: item["min"] for item in v2policy["holdout_constraints"]
+        item["id"]: item["min"]
+        for item in v2policy["holdout_constraints"]
+        if item["id"] in {"structural-risk", "term-evidence"}
+    }
+    distribution_dimensions = {
+        "profile": Counter(item["profile"] for item in official["items"]),
+        "component-group": Counter(
+            _component_group(item["component"], qpolicy) for item in official["items"]
+        ),
+        "length": Counter(item["source_length_bin"] for item in official["items"]),
+    }
+    holdout_targets: dict[str, int] = {}
+    for dimension, counts in distribution_dimensions.items():
+        for value, target in _scaled_targets(counts, holdout_spec["size"]).items():
+            holdout_targets[f"{dimension}:{value}"] = target
+            # Preserve the formal distribution within two items per stratum.
+            # Exact simultaneous marginals across three dimensions can be
+            # impossible for an atomic 32-item subset.
+            if dimension == "profile":
+                holdout_minimums[f"{dimension}:{value}"] = target
+            elif dimension == "component-group":
+                holdout_minimums[f"{dimension}:{value}"] = max(1, target - 2)
+            elif dimension == "length":
+                holdout_minimums[f"{dimension}:{value}"] = max(1, target - 3)
+    holdout_maximums = {
+        feature: target
+        for feature, target in holdout_targets.items()
+        if feature.startswith("profile:")
     }
     holdout_selected, holdout_coverage = _select_atomic_units(
         holdout_units, size=holdout_spec["size"], seed=holdout_spec["seed"],
         score_features=lambda entry: _holdout_features(entry, qpolicy),
-        minimums=holdout_minimums,
+        minimums=holdout_minimums, preferred_targets=holdout_targets,
+        maximums=holdout_maximums,
     )
     excluded_hash = canonical_sha256(sorted(excluded))
     calibration = _dataset_sample(
@@ -1583,6 +1842,7 @@ def build_report_v2(
         "schema_version": 2, "quality_contract": "tome4-quality-report-v2",
         "match_id": match["match_id"], "report_id": "",
         "item_metrics": {
+            "items_total": match.get("sample_size"),
             "items_with_findings": len(revisions),
             "items_requiring_adjudication": manual_revision_count,
         },
