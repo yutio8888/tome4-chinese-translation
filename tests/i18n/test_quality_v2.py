@@ -220,6 +220,18 @@ class QualityV2RealRuleTests(unittest.TestCase):
                     load_evaluator_prompt_v2(self.manifest).encode("utf-8")
                 ).hexdigest(),
             )
+        stale_sample = dict(sample, policy_v2_sha256="0" * 64)
+        with self.assertRaisesRegex(ValidationError, "policy_v2_sha256 is stale"):
+            validate_stability_preregistration_v2(
+                preregistration,
+                sample=stale_sample,
+                policy=self.policy,
+                rules=self.rules,
+                anchors=anchors,
+                prompt_sha256=hashlib.sha256(
+                    load_evaluator_prompt_v2(self.manifest).encode("utf-8")
+                ).hexdigest(),
+            )
 
     def test_every_rule_has_yes_no_unknown_coverage(self) -> None:
         cases = {

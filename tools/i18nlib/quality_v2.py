@@ -2049,8 +2049,11 @@ def validate_stability_preregistration_v2(
         ("policy_v2_sha256", "prompt_sha256", "rules_sha256", "anchors_sha256"),
         "quality stability preregistration.frozen_inputs",
     )
+    current_policy_sha256 = canonical_sha256(policy)
+    if sample.get("policy_v2_sha256") != current_policy_sha256:
+        raise ValidationError("stability sample policy_v2_sha256 is stale")
     expected_frozen = {
-        "policy_v2_sha256": sample.get("policy_v2_sha256"),
+        "policy_v2_sha256": current_policy_sha256,
         "prompt_sha256": prompt_sha256,
         "rules_sha256": canonical_sha256(rules),
         "anchors_sha256": canonical_sha256(anchors),
