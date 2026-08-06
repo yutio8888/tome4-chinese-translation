@@ -1,6 +1,6 @@
 # 翻译质量 AI Evaluator v2：事实判定、规则定级与匿名裁决
 
-> 状态：v2 离线核心与 32+32 数据准备已于 2026-08-06 实现；首轮外部稳定性校准因 presentation-only 检出漂移未通过。模型 finding scope 已收窄为宿主强制的实质缺陷，新 lineage 已冻结并等待另行授权复测；封存验证尚未启动。
+> 状态：v2 离线核心与 32+32 数据准备已于 2026-08-06 实现；首轮外部稳定性校准因 presentation-only 检出漂移未通过。模型 finding scope 收窄后，Luna 两次复测与两模型有效主跑均只发现相同 2 条实质问题，Jaccard 1.000；DeepSeek 强制复跑仅产生 reasoning、没有 final answer，按预注册禁止替换，因此 M4d 仍未通过，封存验证尚未启动。
 >
 > 适用阶段：翻译质量系统第一阶段 M4–M6。
 >
