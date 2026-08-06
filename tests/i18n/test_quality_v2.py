@@ -57,6 +57,12 @@ POLICY = {
         "required_operation_info_missing", "opposite_or_different_rule",
         "technical_gate_confirmed", "runtime_broken", "single_item_display_broken",
     ],
+    "model_finding_scope": {
+        "required_impact_facts": {"is_defect": "yes", "is_substantive": "yes"},
+        "excluded_defect_classes": ["presentation", "style"],
+        "excluded_meaning_change_types": ["presentation-only", "none"],
+        "technical_requires_host_gate": True,
+    },
     "amplification_scopes": ["local", "systemic", "unknown"],
     "anchor_relations": ["meets", "unknown"],
     "reuse_recommendations": ["same-tag", "no-reuse"],
@@ -315,6 +321,54 @@ class QualityV2AssessmentTests(unittest.TestCase):
         value["assessment_id"] = assessment_identity(value)
         with self.assertRaisesRegex(ValidationError, "non-defect"):
             self.validate(value)
+
+    def test_model_scope_rejects_presentation_and_optional_findings(self) -> None:
+        cases = (
+            {
+                "defect_class": "presentation",
+                "phenomenon": "punctuation",
+                "meaning_change": {"type": "presentation-only", "summary": "仅标点不同"},
+                "impact_facts": facts(is_defect="yes", is_substantive="no"),
+            },
+            {
+                "defect_class": "style",
+                "phenomenon": "punctuation",
+                "meaning_change": {"type": "none", "summary": "只是可选润色"},
+                "impact_facts": facts(is_defect="no", is_substantive="no"),
+            },
+        )
+        for updates in cases:
+            with self.subTest(updates=updates):
+                value = copy.deepcopy(self.assessment)
+                value["items"][0]["findings"][0].update(updates)
+                value["assessment_id"] = assessment_identity(value)
+                with self.assertRaisesRegex(ValidationError, "outside model finding scope"):
+                    self.validate(value)
+
+    def test_model_scope_requires_host_gate_for_technical_finding(self) -> None:
+        value = copy.deepcopy(self.assessment)
+        finding = value["items"][0]["findings"][0]
+        finding.update(defect_class="technical", phenomenon="format")
+        value["assessment_id"] = assessment_identity(value)
+        with self.assertRaisesRegex(ValidationError, "not confirmed by a host gate"):
+            self.validate(value)
+
+        sample = copy.deepcopy(self.sample)
+        sample["items"][0]["gate_signals"] = {
+            "lua_load_valid": False, "format_signature_match": True,
+            "markup_multiset_match": True, "at_token_multiset_match": True,
+            "runtime_collision": False, "empty_target": False,
+            "format_shape_match": True,
+        }
+        result = validate_assessment_v2(
+            value, sample=sample, policy=POLICY, rules=RULES,
+            anchors=self.anchors, taxonomy=self.taxonomy,
+            expected_evaluator=self.evaluator,
+        )
+        self.assertEqual(
+            result["items"][0]["findings"][0]["derivation"]["derived_severity"],
+            "blocker",
+        )
 
     def test_legal_omission(self) -> None:
         value = copy.deepcopy(self.assessment)
@@ -658,6 +712,20 @@ class QualityV2ShardingTests(unittest.TestCase):
             if item.get("contrast_group")
         }
         self.assertEqual(locations, {"g": 2})
+        self.assertEqual(
+            bundles[0]["model_finding_scope"], self.policy["model_finding_scope"]
+        )
+        self.assertFalse(
+            {"presentation-minor", "note"}
+            & {rule["category"] for rule in bundles[0]["impact_rules"]["rules"]}
+        )
+        self.assertFalse(
+            {"presentation", "style"} & set(bundles[0]["defect_classes"])
+        )
+        self.assertFalse(
+            {"presentation-only", "none"}
+            & set(bundles[0]["meaning_change_types"])
+        )
 
     def test_sample_path_boundary_and_identity(self) -> None:
         sample = synthetic_v2_sample([self.item(0)])

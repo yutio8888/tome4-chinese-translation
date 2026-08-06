@@ -36,6 +36,10 @@
   Pi 模型盲评；宿主固定 evaluator 元数据并用本目录规则严格验证完整覆盖。
   evaluator 不接收另一评审者结果、裁决、历史 finding 或预期 grade；外部传输
   必须先按 `AGENTS.md` 获得授权。
+- 盲评模型 finding 只接受 `is_defect=yes` 且 `is_substantive=yes` 的实质缺陷。
+  纯 presentation/style、可选润色和 `presentation-only` 不属于模型 finding；
+  确定性排版/结构问题由宿主 gate 负责，presentation minor/note 规则只供宿主
+  或人工裁决使用。模型 technical finding 还必须有 bundle 内 gate 确认。
 - `quality stability-v2` 只接受同一 evaluator 的两份完整 assessment 和两份
   独立非缓存 runner report；逐字节相同的 assessment 合法，但复用同一报告或
   cache hit 不得冒充第二次稳定性运行。

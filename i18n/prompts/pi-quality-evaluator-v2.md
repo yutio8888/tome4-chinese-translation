@@ -22,6 +22,19 @@ Every returned item must contain exactly these five fields:
 }
 ```
 
+The model finding scope is deliberately narrower than the complete host rubric. A model
+finding must be an observable, substantive defect: set both `is_defect` and
+`is_substantive` to `yes`. Do not report presentation-only or style-only observations,
+optional improvements, or alternative phrasings. In particular, do not create findings
+only for terminal punctuation, spaces around markup or CJK text, paired-punctuation style,
+or a merely less-natural synonym when the meaning remains intact. Return an empty
+`findings` array for those cases. The host owns deterministic typography and structure
+checks; the presentation-minor and note severity rules remain available to host/human
+adjudication but are outside blind model assessment.
+
+Technical findings are allowed only when a bundled deterministic gate signal confirms the
+failure. Do not infer a technical failure from visual preference alone.
+
 Do not omit the four non-`findings` fields when an item is clean. For each defect, append a
 finding containing exactly the fields below. Copy no placeholder text; choose declared enum
 values and supply the actual evidence and analysis.

@@ -123,6 +123,31 @@ def load_policy_v2(manifest: Manifest) -> dict[str, Any]:
     for field in ("contracts", "datasets"):
         if not isinstance(policy.get(field), dict) or not policy[field]:
             raise ConfigurationError(f"quality v2 policy.{field} must be an object")
+    finding_scope = policy.get("model_finding_scope")
+    if not isinstance(finding_scope, dict) or set(finding_scope) != {
+        "required_impact_facts", "excluded_defect_classes",
+        "excluded_meaning_change_types", "technical_requires_host_gate",
+    }:
+        raise ConfigurationError("quality v2 policy.model_finding_scope is invalid")
+    required_facts = finding_scope["required_impact_facts"]
+    if required_facts != {"is_defect": "yes", "is_substantive": "yes"}:
+        raise ConfigurationError(
+            "quality v2 model findings must be substantive defects"
+        )
+    if finding_scope["excluded_defect_classes"] != ["presentation", "style"]:
+        raise ConfigurationError(
+            "quality v2 model finding excluded defect classes are frozen"
+        )
+    if finding_scope["excluded_meaning_change_types"] != [
+        "presentation-only", "none"
+    ]:
+        raise ConfigurationError(
+            "quality v2 model finding excluded meaning changes are frozen"
+        )
+    if finding_scope["technical_requires_host_gate"] is not True:
+        raise ConfigurationError(
+            "quality v2 technical findings must require a host gate"
+        )
     if policy.get("method_version") != METHOD_V2:
         raise ConfigurationError(f"quality v2 method_version must be {METHOD_V2}")
     if type(policy.get("max_shard_items")) is not int or not 1 <= policy["max_shard_items"] <= 20:
@@ -598,6 +623,32 @@ def _validate_finding(
     )
     if model_facts["is_defect"] == "no" and model_facts["is_substantive"] == "yes":
         raise ValidationError(f"{where} cannot be non-defect and substantive")
+    finding_scope = policy["model_finding_scope"]
+    for field, expected in finding_scope["required_impact_facts"].items():
+        if model_facts[field] != expected:
+            raise ValidationError(
+                f"{where} is outside model finding scope: "
+                f"impact_facts.{field} must be {expected}"
+            )
+    if defect_class in finding_scope["excluded_defect_classes"]:
+        raise ValidationError(
+            f"{where} is outside model finding scope: "
+            f"defect_class={defect_class} is host-owned"
+        )
+    if meaning_type in finding_scope["excluded_meaning_change_types"]:
+        raise ValidationError(
+            f"{where} is outside model finding scope: "
+            f"meaning_change.type={meaning_type} is not substantive"
+        )
+    if (
+        defect_class == "technical"
+        and finding_scope["technical_requires_host_gate"]
+        and facts["technical_gate_confirmed"] != "yes"
+    ):
+        raise ValidationError(
+            f"{where} is outside model finding scope: "
+            "technical defect is not confirmed by a host gate"
+        )
     if (
         defect_class == "presentation"
         and meaning_type == "presentation-only"
@@ -1825,19 +1876,34 @@ def build_evaluator_bundles_v2(
         end = max(allowed)
         ranges.append((start, end))
         start = end
+    model_visible_rules = {
+        **rules,
+        "rules": [
+            rule for rule in rules["rules"]
+            if rule["category"] not in {"presentation-minor", "note"}
+        ],
+    }
+    finding_scope = policy["model_finding_scope"]
     prompt_fields = {
         "method_version": METHOD_V2,
         "allowed_profiles": [item["id"] for item in taxonomy["profiles"]],
         "allowed_error_codes": [item["code"] for item in taxonomy["error_codes"]],
-        "defect_classes": policy["defect_classes"],
+        "defect_classes": [
+            value for value in policy["defect_classes"]
+            if value not in finding_scope["excluded_defect_classes"]
+        ],
         "phenomena": policy["phenomena"],
-        "meaning_change_types": policy["meaning_change_types"],
+        "meaning_change_types": [
+            value for value in policy["meaning_change_types"]
+            if value not in finding_scope["excluded_meaning_change_types"]
+        ],
         "impact_fact_fields": policy["impact_fact_fields"],
+        "model_finding_scope": finding_scope,
         "tri_state_values": policy["tri_state_values"],
         "amplification_scopes": policy["amplification_scopes"],
         "anchor_relations": policy["anchor_relations"],
         "reuse_recommendations": policy["reuse_recommendations"],
-        "impact_rules": rules,
+        "impact_rules": model_visible_rules,
         "anchors": anchors,
     }
     bundles = []

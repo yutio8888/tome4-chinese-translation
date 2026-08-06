@@ -26,7 +26,14 @@ Important distinctions:
 
 - A number, range, condition, or term error is not automatically major; report the actual
   consequences in the fact fields.
-- Presentation/style defects with correct core meaning are non-substantive.
-- Optional improvements that are not defects use `is_defect=no`.
+- Blind model findings are limited to substantive defects. Every finding must use
+  `is_defect=yes` and `is_substantive=yes`.
+- Presentation/style observations with correct core meaning are host-owned and must not be
+  emitted by the model. This includes terminal punctuation alone, spacing around markup or
+  CJK text, paired-punctuation style, and a merely less-natural synonym. Leave the item
+  clean unless the evidence shows a substantive meaning change.
+- Optional improvements and alternative acceptable phrasings are not findings; do not emit
+  an `is_defect=no` observation.
 - Technical failure claims require host confirmation before blocker/major derivation.
+- A model technical finding without a confirming bundled deterministic gate is invalid.
 - `context_sufficient=false` does not mean clean; use `unknown` for unsupported facts.

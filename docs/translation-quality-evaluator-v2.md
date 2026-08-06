@@ -1,6 +1,6 @@
 # 翻译质量 AI Evaluator v2：事实判定、规则定级与匿名裁决
 
-> 状态：v2 离线核心与 32+32 数据准备已于 2026-08-06 实现；外部校准、人工裁决、锚点冻结和封存验证尚未授权执行。
+> 状态：v2 离线核心与 32+32 数据准备已于 2026-08-06 实现；首轮外部稳定性校准因 presentation-only 检出漂移未通过。模型 finding scope 已收窄为宿主强制的实质缺陷，新 lineage 已冻结并等待另行授权复测；封存验证尚未启动。
 >
 > 适用阶段：翻译质量系统第一阶段 M4–M6。
 >
@@ -240,6 +240,10 @@ other
 
 `other` 必须带解释，并进入 taxonomy gap 统计。
 
+上述是宿主与人工裁决使用的完整白名单。盲评模型 assessment 使用更窄的确定性
+子集：不得输出 `presentation` 或 `style` finding；这些类别只允许由宿主确定性
+检查或人工裁决产生。
+
 #### `meaning_change.type`
 
 ```text
@@ -282,6 +286,9 @@ unknown
 宿主至少拒绝以下组合：
 
 - `is_defect=no` 但 `is_substantive=yes`；
+- 盲评模型 finding 的 `is_defect` 或 `is_substantive` 不是 `yes`；
+- 盲评模型输出 `presentation` / `style`、`presentation-only` / `none`，或在没有
+  bundle 确定性 gate 的情况下输出 `technical` finding；
 - `defect_class=presentation`、`meaning_change=presentation-only`，却声称
   `opposite_or_different_rule=yes` 且没有解释；
 - `context_sufficient=false`，所有关键影响事实却均为确定的 `yes/no` 且无证据；
@@ -523,6 +530,11 @@ AND defect_class ∈ {presentation, style}
 
 报告必须将“实质 minor”和“表达 minor”分开统计。
 
+该规则由宿主确定性检查或人工裁决使用，不向盲评模型开放。盲评模型不得把句末
+标点、CJK/markup 周围空格、成对标点风格或仅“不够自然”的同义表达报告为
+finding；如果核心含义没有变化，该 item 的模型 `findings` 必须为空。这样避免把
+自由裁量的润色阈值混入 evaluator 稳定性。
+
 ### 8.5 Note
 
 满足：
@@ -532,6 +544,7 @@ is_defect=no
 ```
 
 表示可选优化或同样正确的表达偏好。note 不计入缺陷率。
+盲评模型不得输出 note；可选建议只能在后续人工流程记录。
 
 ### 8.6 派生输出
 
