@@ -490,6 +490,20 @@ class QualityV2ShardingTests(unittest.TestCase):
             changed[field] = replacement
             self.assertNotEqual(original, _cache_key_v2(**changed), field)
 
+    def test_v2_prompt_declares_complete_model_owned_item_contract(self) -> None:
+        prompt = (
+            Path(__file__).resolve().parents[2]
+            / "i18n" / "prompts" / "pi-quality-evaluator-v2.md"
+        ).read_text(encoding="utf-8")
+        for field in (
+            '"revision_id"', '"context_sufficient"', '"profile_confirmed"',
+            '"findings"', '"reuse_recommendation"', '"finding_id"',
+            '"impact_facts"', '"evidence_refs"',
+        ):
+            self.assertIn(field, prompt)
+        self.assertIn("All eleven `impact_facts` fields are required", prompt)
+        self.assertIn("Finding IDs must be unique across shards", prompt)
+
     def test_fake_runner_merges_shards_into_one_assessment(self) -> None:
         items = [self.item(index) for index in range(21)]
         sample = synthetic_v2_sample(items)
