@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -34,9 +35,11 @@ from .quality_v2 import (
     adjudicate_v2,
     build_disputes_v2,
     build_report_v2,
+    build_stability_report_v2,
     canonical_sha256,
     load_anchors,
     load_impact_rules,
+    load_evaluator_prompt_v2,
     load_policy_v2,
     match_assessments_v2,
     read_json_object,
@@ -44,6 +47,8 @@ from .quality_v2 import (
     run_evaluator_bundles_v2,
     validate_assessment_v2,
     validate_sample_v2,
+    validate_stability_preregistration_v2,
+    bytes_sha256,
 )
 from .report import create_run_directory, write_json
 from .review import create_review_index, review_index_summary
@@ -353,6 +358,19 @@ def _parser() -> argparse.ArgumentParser:
     _add_common_arguments(quality_report_v2)
     quality_report_v2.add_argument("--match", required=True, type=Path)
     quality_report_v2.add_argument("--adjudication-validation", type=Path)
+    quality_stability = quality_subparsers.add_parser(
+        "stability-v2",
+        help="compare two real frozen evaluator runs against preregistered stability thresholds",
+    )
+    _add_common_arguments(quality_stability)
+    quality_stability.add_argument("--sample", required=True, type=Path)
+    quality_stability.add_argument(
+        "--assessment", action="append", required=True, type=Path
+    )
+    quality_stability.add_argument(
+        "--run-report", action="append", required=True, type=Path
+    )
+    quality_stability.add_argument("--preregistration", required=True, type=Path)
     return parser
 
 
@@ -1263,6 +1281,85 @@ def _quality_report_v2(arguments: argparse.Namespace) -> int:
     return 0
 
 
+def _quality_stability_v2(arguments: argparse.Namespace) -> int:
+    manifest, policy, rules, anchors, taxonomy = _quality_v2_inputs(arguments)
+    if len(arguments.assessment) != 2 or len(arguments.run_report) != 2:
+        raise ValidationError(
+            "quality stability-v2 requires exactly two assessments and two run reports"
+        )
+    sample = validate_sample_v2(
+        read_json_object(arguments.sample, "quality v2 stability sample")
+    )
+    preregistration = validate_stability_preregistration_v2(
+        read_json_object(
+            arguments.preregistration, "quality v2 stability preregistration"
+        ),
+        sample=sample,
+        policy=policy,
+        rules=rules,
+        anchors=anchors,
+        prompt_sha256=hashlib.sha256(
+            load_evaluator_prompt_v2(manifest).encode("utf-8")
+        ).hexdigest(),
+    )
+    assessments = []
+    expected_rules = canonical_sha256(rules)
+    expected_anchors = canonical_sha256(anchors)
+    expected_prompt = preregistration["frozen_inputs"]["prompt_sha256"]
+    for path in arguments.assessment:
+        value = read_json_object(path, "quality v2 stability assessment")
+        evaluator = value.get("evaluator", {})
+        if (
+            evaluator.get("rules_sha256") != expected_rules
+            or evaluator.get("anchors_sha256") != expected_anchors
+            or evaluator.get("prompt_sha256") != expected_prompt
+        ):
+            raise ValidationError("quality stability assessment frozen hashes differ")
+        assessments.append(
+            validate_assessment_v2(
+                value,
+                sample=sample,
+                policy=policy,
+                rules=rules,
+                anchors=anchors,
+                taxonomy=taxonomy,
+            )
+        )
+    run_reports = tuple(
+        read_json_object(path, "quality v2 runner report")
+        for path in arguments.run_report
+    )
+    report = build_stability_report_v2(
+        sample=sample,
+        assessments=(assessments[0], assessments[1]),
+        run_reports=(run_reports[0], run_reports[1]),
+        assessment_sha256s=(
+            bytes_sha256(arguments.assessment[0]),
+            bytes_sha256(arguments.assessment[1]),
+        ),
+        run_report_sha256s=(
+            bytes_sha256(arguments.run_report[0]),
+            bytes_sha256(arguments.run_report[1]),
+        ),
+        preregistration=preregistration,
+        policy=policy,
+    )
+    run_directory = create_quality_run_directory(manifest.root, "stability-v2")
+    path = run_directory / "stability-report.json"
+    write_json(path, report)
+    summary = {**report, "report": str(path), "run_directory": str(run_directory)}
+    if arguments.json:
+        _print_json(summary)
+    else:
+        print(
+            f"{'OK' if report['passed'] else 'FAIL'} quality v2 stability "
+            f"evaluator={report['evaluator']['id']} "
+            f"jaccard={report['metrics']['finding_jaccard']:.3f}"
+        )
+        print(f"Report: {path}")
+    return 0 if report["passed"] else 1
+
+
 def main(argv: list[str] | None = None) -> int:
     _inject_public_dlc_env()
     arguments = _parser().parse_args(argv)
@@ -1310,6 +1407,8 @@ def main(argv: list[str] | None = None) -> int:
                 return _quality_adjudicate_v2(arguments)
             if arguments.quality_command == "report-v2":
                 return _quality_report_v2(arguments)
+            if arguments.quality_command == "stability-v2":
+                return _quality_stability_v2(arguments)
             raise AssertionError(
                 f"unhandled quality command: {arguments.quality_command}"
             )

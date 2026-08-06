@@ -19,8 +19,9 @@
 | `schemas/benchmark-v1.schema.json` | `tome4-quality-benchmark-v1` | 验收后不可变试点基准契约 |
 | `policy-v2.json` / `rubric-v2.md` | `tome4-quality-policy-v2` / `mqm-pilot-v2` | v2 事实判定、数据隔离、span、匹配与裁决协议；不重解释 v1 |
 | `impact-rules-v1.json` | `tome4-quality-impact-rules-v1` | 宿主确定性 severity 规则和固定优先级 |
-| `anchors-v1.json` | `tome4-quality-anchors-v1` | 仅允许人工确认校准案例写入的版本化锚点；初始为空 |
-| `schemas/*-v2.schema.json` / `schemas/issue-cluster-v1.schema.json` / `schemas/dispute*-v1.schema.json` | 对应 `$id` | v2 assessment、问题簇、匿名争议、身份映射、事实裁决和报告契约 |
+| `anchors-v1.json` | `tome4-quality-anchors-v1` | 仅允许人工确认校准案例写入的版本化锚点；绑定 sample/revision/裁决并重算 severity |
+| `stability-preregistration-v1.json` | `tome4-quality-stability-preregistration-v1` | 校准稳定性运行次数、模型、冻结 hash、失败语义和通过门槛 |
+| `schemas/*-v2.schema.json` / `schemas/issue-cluster-v1.schema.json` / `schemas/dispute*-v1.schema.json` | 对应 `$id` | v2 assessment、问题簇、匿名争议、身份映射、事实裁决、稳定性和报告契约 |
 
 ## 边界
 
@@ -35,6 +36,9 @@
   Pi 模型盲评；宿主固定 evaluator 元数据并用本目录规则严格验证完整覆盖。
   evaluator 不接收另一评审者结果、裁决、历史 finding 或预期 grade；外部传输
   必须先按 `AGENTS.md` 获得授权。
+- `quality stability-v2` 只接受同一 evaluator 的两份完整 assessment 和两份
+  独立非缓存 runner report；逐字节相同的 assessment 合法，但复用同一报告或
+  cache hit 不得冒充第二次稳定性运行。
 
 ## 身份约定
 
