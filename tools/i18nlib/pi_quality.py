@@ -298,8 +298,10 @@ def _run_pi_quality_evaluator_v2(
 ) -> dict[str, Any]:
     policy = load_policy_v2(manifest)
     rules = load_impact_rules(manifest, policy)
-    anchors = load_anchors(manifest)
     taxonomy = load_taxonomy(manifest)
+    anchors = load_anchors(
+        manifest, policy=policy, rules=rules, taxonomy=taxonomy
+    )
     bundles = build_evaluator_bundles_v2(
         sample=sample, evaluator_id=evaluator_id, policy=policy, rules=rules,
         anchors=anchors, taxonomy=taxonomy,

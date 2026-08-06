@@ -228,7 +228,13 @@ def load_impact_rules(manifest: Manifest, policy: dict[str, Any] | None = None) 
     return rules
 
 
-def load_anchors(manifest: Manifest) -> dict[str, Any]:
+def load_anchors(
+    manifest: Manifest,
+    *,
+    policy: dict[str, Any] | None = None,
+    rules: dict[str, Any] | None = None,
+    taxonomy: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     path = manifest.root / "i18n" / "quality" / ANCHORS_FILE
     anchors = _read_object(path, "quality anchors")
     _exact_fields(anchors, ("contract", "schema_version", "description", "anchors"), "quality anchors")
@@ -236,11 +242,10 @@ def load_anchors(manifest: Manifest) -> dict[str, Any]:
         raise ConfigurationError("unsupported quality anchors contract")
     if not isinstance(anchors["anchors"], list):
         raise ConfigurationError("quality anchors.anchors must be an array")
-    policy = load_policy_v2(manifest)
-    rules = load_impact_rules(manifest, policy)
-    taxonomy = _read_object(
-        manifest.root / "i18n" / "quality" / "taxonomy-v1.json",
-        "quality taxonomy",
+    policy = policy or load_policy_v2(manifest)
+    rules = rules or load_impact_rules(manifest, policy)
+    taxonomy = taxonomy or _read_object(
+        manifest.root / "i18n" / "quality" / "taxonomy-v1.json", "quality taxonomy"
     )
     profiles = {
         item.get("id")
@@ -1871,8 +1876,10 @@ def run_evaluator_bundles_v2(
     sample = validate_sample_v2(read_json_object(sample_path, "quality v2 sample"))
     policy = load_policy_v2(manifest)
     rules = load_impact_rules(manifest, policy)
-    anchors = load_anchors(manifest)
     taxonomy = load_taxonomy(manifest)
+    anchors = load_anchors(
+        manifest, policy=policy, rules=rules, taxonomy=taxonomy
+    )
     bundles = build_evaluator_bundles_v2(
         sample=sample, evaluator_id=evaluator_id, policy=policy, rules=rules,
         anchors=anchors, taxonomy=taxonomy, max_items=max_items,

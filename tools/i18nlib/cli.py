@@ -1146,8 +1146,10 @@ def _quality_v2_inputs(arguments: argparse.Namespace) -> tuple[
     manifest = _manifest(arguments)
     policy = load_policy_v2(manifest)
     rules = load_impact_rules(manifest, policy)
-    anchors = load_anchors(manifest)
     taxonomy = load_taxonomy(manifest)
+    anchors = load_anchors(
+        manifest, policy=policy, rules=rules, taxonomy=taxonomy
+    )
     return manifest, policy, rules, anchors, taxonomy
 
 
