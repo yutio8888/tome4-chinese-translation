@@ -27,6 +27,21 @@ HOLDOUT_CONTRACT = "tome4-quality-holdout-v2"
 EVALUATOR_BUNDLE_V2_CONTRACT = "tome4-quality-evaluator-bundle-v2"
 
 
+def load_evaluator_prompt_v2(manifest: Manifest) -> str:
+    prompt_path = manifest.root / "i18n" / "prompts" / "pi-quality-evaluator-v2.md"
+    rubric_path = manifest.root / "i18n" / "quality" / "rubric-v2.md"
+    try:
+        return (
+            prompt_path.read_text(encoding="utf-8")
+            + "\n\n---\n\n"
+            + rubric_path.read_text(encoding="utf-8")
+        )
+    except (OSError, UnicodeDecodeError) as error:
+        raise ConfigurationError(
+            "cannot read Pi quality evaluator v2 prompt or rubric"
+        ) from error
+
+
 def canonical_sha256(value: Any) -> str:
     return hashlib.sha256(
         json.dumps(
@@ -221,14 +236,92 @@ def load_anchors(manifest: Manifest) -> dict[str, Any]:
         raise ConfigurationError("unsupported quality anchors contract")
     if not isinstance(anchors["anchors"], list):
         raise ConfigurationError("quality anchors.anchors must be an array")
+    policy = load_policy_v2(manifest)
+    rules = load_impact_rules(manifest, policy)
+    taxonomy = _read_object(
+        manifest.root / "i18n" / "quality" / "taxonomy-v1.json",
+        "quality taxonomy",
+    )
+    profiles = {
+        item.get("id")
+        for item in taxonomy.get("profiles", [])
+        if isinstance(item, dict) and isinstance(item.get("id"), str)
+    }
     seen: set[str] = set()
     for index, anchor in enumerate(anchors["anchors"]):
         if not isinstance(anchor, dict):
             raise ConfigurationError(f"quality anchors[{index}] must be an object")
+        where = f"quality anchors[{index}]"
+        try:
+            _exact_fields(
+                anchor,
+                (
+                    "anchor_id", "source_contract", "sample_id", "revision_id",
+                    "adjudication_validation_id", "issue_ids", "profile",
+                    "phenomenon", "defect_class", "facts", "derived_severity",
+                    "rule_id", "rationale",
+                ),
+                where,
+            )
+        except ValidationError as error:
+            raise ConfigurationError(str(error)) from error
         anchor_id = anchor.get("anchor_id")
         if not isinstance(anchor_id, str) or not anchor_id or anchor_id in seen:
             raise ConfigurationError("quality anchor ids must be unique non-empty strings")
         seen.add(anchor_id)
+        try:
+            if anchor["source_contract"] != CALIBRATION_CONTRACT:
+                raise ValidationError(
+                    f"{where}.source_contract must be {CALIBRATION_CONTRACT}"
+                )
+            for field in ("sample_id", "revision_id", "adjudication_validation_id"):
+                _sha(anchor[field], f"{where}.{field}")
+            issue_ids = anchor["issue_ids"]
+            if (
+                not isinstance(issue_ids, list)
+                or not issue_ids
+                or len(set(issue_ids)) != len(issue_ids)
+                or any(
+                    not isinstance(issue_id, str)
+                    or len(issue_id) != 7
+                    or not issue_id.startswith("QI-")
+                    or not issue_id[3:].isdigit()
+                    for issue_id in issue_ids
+                )
+            ):
+                raise ValidationError(f"{where}.issue_ids must be unique QI-NNNN ids")
+            _enum(anchor["profile"], profiles, f"{where}.profile")
+            phenomenon = _enum(
+                anchor["phenomenon"], policy["phenomena"], f"{where}.phenomenon"
+            )
+            defect_class = _enum(
+                anchor["defect_class"],
+                policy["defect_classes"],
+                f"{where}.defect_class",
+            )
+            facts = anchor["facts"]
+            if not isinstance(facts, dict):
+                raise ValidationError(f"{where}.facts must be an object")
+            _exact_fields(facts, policy["impact_fact_fields"], f"{where}.facts")
+            for field, value in facts.items():
+                _enum(value, policy["tri_state_values"], f"{where}.facts.{field}")
+            _string(anchor["rationale"], f"{where}.rationale")
+            derived = derive_severity(
+                facts,
+                phenomenon=phenomenon,
+                defect_class=defect_class,
+                rules=rules,
+                policy=policy,
+            )
+            if (
+                anchor["derived_severity"] != derived["derived_severity"]
+                or anchor["rule_id"] != derived["rule_id"]
+            ):
+                raise ValidationError(
+                    f"{where} severity/rule cannot be reproduced from facts"
+                )
+        except ValidationError as error:
+            raise ConfigurationError(str(error)) from error
     return anchors
 
 
@@ -672,6 +765,19 @@ def _phenomenon_compatible(
             left["normalized_target_evidence"],
             right["normalized_target_evidence"],
         )
+    if pair == ("omission", "unit"):
+        return (
+            left["meaning_change"]["type"] == "omitted"
+            and right["meaning_change"]["type"] == "omitted"
+            and _span_identical(
+                left["normalized_source_evidence"],
+                right["normalized_source_evidence"],
+            )
+            and _span_identical(
+                left["normalized_target_evidence"],
+                right["normalized_target_evidence"],
+            )
+        )
     return True
 
 
@@ -794,10 +900,14 @@ def match_assessments_v2(
     left_assessment: dict[str, Any],
     right_assessment: dict[str, Any],
     policy: dict[str, Any],
+    allow_identical_assessment: bool = False,
 ) -> dict[str, Any]:
     if left_assessment["sample_id"] != sample.get("sample_id") or right_assessment["sample_id"] != sample.get("sample_id"):
         raise ValidationError("quality v2 matching requires one sample identity")
-    if left_assessment["assessment_id"] == right_assessment["assessment_id"]:
+    if (
+        left_assessment["assessment_id"] == right_assessment["assessment_id"]
+        and not allow_identical_assessment
+    ):
         raise ValidationError("quality v2 matching requires two distinct assessments")
     if len(left_assessment["items"]) != len(sample["items"]) or len(right_assessment["items"]) != len(sample["items"]):
         raise ValidationError("quality v2 matching requires complete assessments")
@@ -1865,4 +1975,240 @@ def build_report_v2(
         },
     }
     report["report_id"] = canonical_sha256({key: value for key, value in report.items() if key != "report_id"})
+    return report
+
+
+def validate_stability_preregistration_v2(
+    preregistration: dict[str, Any],
+    *,
+    sample: dict[str, Any],
+    policy: dict[str, Any],
+    rules: dict[str, Any],
+    anchors: dict[str, Any],
+    prompt_sha256: str,
+) -> dict[str, Any]:
+    _exact_fields(
+        preregistration,
+        (
+            "contract", "schema_version", "sample_contract", "sample_id",
+            "evaluators", "thresholds", "frozen_inputs",
+            "connection_failure_retry_limit", "replace_content_failures",
+            "preregistration_id",
+        ),
+        "quality stability preregistration",
+    )
+    if (
+        preregistration["contract"]
+        != "tome4-quality-stability-preregistration-v1"
+        or preregistration["schema_version"] != 1
+    ):
+        raise ValidationError("unsupported quality stability preregistration")
+    if (
+        preregistration["sample_contract"] != CALIBRATION_CONTRACT
+        or preregistration["sample_id"] != sample.get("sample_id")
+    ):
+        raise ValidationError("stability preregistration sample identity differs")
+    evaluators = preregistration["evaluators"]
+    if not isinstance(evaluators, list) or len(evaluators) != 2:
+        raise ValidationError("stability preregistration requires two evaluators")
+    received_ids = []
+    for index, evaluator in enumerate(evaluators):
+        where = f"quality stability preregistration.evaluators[{index}]"
+        if not isinstance(evaluator, dict):
+            raise ValidationError(f"{where} must be an object")
+        _exact_fields(
+            evaluator, ("id", "provider", "model", "thinking", "runs"), where
+        )
+        received_ids.append(_string(evaluator["id"], f"{where}.id"))
+        for field in ("provider", "model", "thinking"):
+            _string(evaluator[field], f"{where}.{field}")
+        if evaluator["runs"] != 2:
+            raise ValidationError(f"{where}.runs must be exact integer 2")
+    if received_ids != policy["evaluator_ids"]:
+        raise ValidationError("stability preregistration evaluator order differs")
+    thresholds = preregistration["thresholds"]
+    expected_thresholds = {
+        "schema_coverage": 1.0,
+        "structure_failures_max": 0,
+        "finding_jaccard_min": 0.70,
+        "critical_fact_agreement_min": 0.80,
+        "derived_severity_agreement_min": 0.90,
+    }
+    if thresholds != expected_thresholds:
+        raise ValidationError("stability preregistration thresholds are not frozen values")
+    frozen = preregistration["frozen_inputs"]
+    _exact_fields(
+        frozen,
+        ("policy_v2_sha256", "prompt_sha256", "rules_sha256", "anchors_sha256"),
+        "quality stability preregistration.frozen_inputs",
+    )
+    expected_frozen = {
+        "policy_v2_sha256": sample.get("policy_v2_sha256"),
+        "prompt_sha256": prompt_sha256,
+        "rules_sha256": canonical_sha256(rules),
+        "anchors_sha256": canonical_sha256(anchors),
+    }
+    for field, expected in expected_frozen.items():
+        _sha(frozen[field], f"quality stability preregistration.frozen_inputs.{field}")
+        if frozen[field] != expected:
+            raise ValidationError(f"stability preregistration {field} differs")
+    if preregistration["connection_failure_retry_limit"] != 1:
+        raise ValidationError("stability connection retry limit must be 1")
+    if preregistration["replace_content_failures"] is not False:
+        raise ValidationError("stability content failures cannot be replaced")
+    expected_id = canonical_sha256(
+        {key: value for key, value in preregistration.items() if key != "preregistration_id"}
+    )
+    if preregistration["preregistration_id"] != expected_id:
+        raise ValidationError("stability preregistration_id does not match")
+    return preregistration
+
+
+def build_stability_report_v2(
+    *,
+    sample: dict[str, Any],
+    assessments: tuple[dict[str, Any], dict[str, Any]],
+    run_reports: tuple[dict[str, Any], dict[str, Any]],
+    assessment_sha256s: tuple[str, str],
+    run_report_sha256s: tuple[str, str],
+    preregistration: dict[str, Any],
+    policy: dict[str, Any],
+) -> dict[str, Any]:
+    left, right = assessments
+    if left["evaluator"] != right["evaluator"]:
+        raise ValidationError("stability assessments must use one frozen evaluator identity")
+    evaluator = left["evaluator"]
+    registered = next(
+        (item for item in preregistration["evaluators"] if item["id"] == evaluator["id"]),
+        None,
+    )
+    if registered is None or any(
+        registered[field] != evaluator[field]
+        for field in ("id", "provider", "model", "thinking")
+    ):
+        raise ValidationError("stability evaluator differs from preregistration")
+    if run_report_sha256s[0] == run_report_sha256s[1]:
+        raise ValidationError("stability requires two distinct runner reports")
+    for index, (run_report, assessment_sha256) in enumerate(
+        zip(run_reports, assessment_sha256s)
+    ):
+        where = f"quality stability run_reports[{index}]"
+        expected = {
+            "ok": True,
+            "mode": "blind-quality-assessment-v2",
+            "sample_id": sample["sample_id"],
+            "evaluator_id": evaluator["id"],
+            "provider": evaluator["provider"],
+            "model": evaluator["model"],
+            "thinking": evaluator["thinking"],
+            "prompt_sha256": evaluator["prompt_sha256"],
+            "rules_sha256": evaluator["rules_sha256"],
+            "anchors_sha256": evaluator["anchors_sha256"],
+            "bundle_ids": evaluator["bundle_ids"],
+            "assessment_sha256": assessment_sha256,
+            "validated_results": 1,
+        }
+        if any(run_report.get(field) != value for field, value in expected.items()):
+            raise ValidationError(f"{where} identity or success state differs")
+        if run_report.get("cache_decision") not in {"miss", "bypass"}:
+            raise ValidationError(f"{where} must represent a real non-cache execution")
+        shards = run_report.get("shards")
+        if (
+            type(shards) is not int
+            or shards < 1
+            or run_report.get("attempts") != shards
+            or run_report.get("charged_or_possible_transfers") != shards
+        ):
+            raise ValidationError(f"{where} shard transfer accounting differs")
+    match = match_assessments_v2(
+        sample=sample,
+        left_assessment=left,
+        right_assessment=right,
+        policy=policy,
+        allow_identical_assessment=True,
+    )
+    issues = match["issues"]
+    matched = [
+        issue
+        for issue in issues
+        if issue["cluster_type"] in {"full-match", "partial-match"}
+        and len(issue["members"]) == 2
+    ]
+    union = len(issues)
+    finding_jaccard = len(matched) / union if union else 1.0
+    critical_compared = critical_agreed = 0
+    severity_compared = severity_agreed = 0
+    for issue in matched:
+        members = sorted(issue["members"], key=lambda item: item["side"])
+        left_finding, right_finding = [item["normalized"] for item in members]
+        for field in policy["critical_impact_facts"]:
+            critical_compared += 1
+            critical_agreed += (
+                left_finding["impact_facts"][field]
+                == right_finding["impact_facts"][field]
+            )
+        severity_compared += 1
+        severity_agreed += (
+            left_finding["derivation"]["derived_severity"]
+            == right_finding["derivation"]["derived_severity"]
+        )
+    substantive_presence = []
+    for assessment in assessments:
+        substantive_presence.append(
+            [
+                any(
+                    finding["impact_facts"]["is_defect"] == "yes"
+                    and finding["impact_facts"]["is_substantive"] == "yes"
+                    for finding in item["findings"]
+                )
+                for item in assessment["items"]
+            ]
+        )
+    item_agreed = sum(
+        left_value == right_value
+        for left_value, right_value in zip(*substantive_presence)
+    )
+    thresholds = preregistration["thresholds"]
+    metrics = {
+        "schema_coverage": 1.0,
+        "structure_failures": 0,
+        "finding_jaccard": finding_jaccard,
+        "critical_fact_agreement": (
+            critical_agreed / critical_compared if critical_compared else 1.0
+        ),
+        "derived_severity_agreement": (
+            severity_agreed / severity_compared if severity_compared else 1.0
+        ),
+        "substantive_item_agreement": item_agreed / len(sample["items"]),
+        "finding_union": union,
+        "finding_intersection": len(matched),
+        "critical_facts_compared": critical_compared,
+        "severities_compared": severity_compared,
+    }
+    checks = {
+        "schema_coverage": metrics["schema_coverage"] >= thresholds["schema_coverage"],
+        "structure_failures": metrics["structure_failures"] <= thresholds["structure_failures_max"],
+        "finding_jaccard": metrics["finding_jaccard"] >= thresholds["finding_jaccard_min"],
+        "critical_fact_agreement": metrics["critical_fact_agreement"] >= thresholds["critical_fact_agreement_min"],
+        "derived_severity_agreement": metrics["derived_severity_agreement"] >= thresholds["derived_severity_agreement_min"],
+    }
+    report = {
+        "schema_version": 2,
+        "quality_contract": "tome4-quality-stability-report-v2",
+        "sample_id": sample["sample_id"],
+        "preregistration_id": preregistration["preregistration_id"],
+        "evaluator": {
+            key: evaluator[key] for key in ("id", "provider", "model", "thinking")
+        },
+        "assessment_ids": [left["assessment_id"], right["assessment_id"]],
+        "assessment_sha256s": list(assessment_sha256s),
+        "run_report_sha256s": list(run_report_sha256s),
+        "metrics": metrics,
+        "checks": checks,
+        "passed": all(checks.values()),
+        "report_id": "",
+    }
+    report["report_id"] = canonical_sha256(
+        {key: value for key, value in report.items() if key != "report_id"}
+    )
     return report

@@ -1,6 +1,133 @@
 {
   "contract": "tome4-quality-anchors-v1",
   "schema_version": 1,
-  "description": "Human-confirmed calibration anchors only. Initially empty; holdout and official samples must never be used to populate this file.",
-  "anchors": []
+  "description": "Human-confirmed calibration anchors only. Holdout and official samples must never be used to populate this file.",
+  "anchors": [
+    {
+      "anchor_id": "A-SEMANTIC-NOTE-MOLTEN-01",
+      "source_contract": "tome4-quality-calibration-v2",
+      "sample_id": "28c1a2e40108dee45253324a3561b715efeda897dac7fd70d9c430069c20b295",
+      "revision_id": "91cfc54f83a3c2d7a181021eef9408bd1d34282538ea830a7d946d92a938e3db",
+      "adjudication_validation_id": "821fed7e9bc03e26fc132c4e7b006be7922d52f00e36befe7aee112b4f5e31c5",
+      "issue_ids": ["QI-0001"],
+      "profile": "ui",
+      "phenomenon": "entity-role",
+      "defect_class": "semantic",
+      "facts": {
+        "is_defect": "no", "is_substantive": "no", "mechanics_context": "yes",
+        "changes_rule_understanding": "no", "can_change_player_action": "no",
+        "required_operation_info_missing": "no", "opposite_or_different_rule": "no",
+        "recoverable_from_immediate_context": "unknown", "technical_gate_confirmed": "no",
+        "runtime_broken": "no", "single_item_display_broken": "no"
+      },
+      "derived_severity": "note",
+      "rule_id": "S-NOTE-01",
+      "rationale": "A normal Chinese rendering of molten rock is not a semantic reassignment when the bounded context establishes no contrasting material or mechanic."
+    },
+    {
+      "anchor_id": "A-UNIT-MINOR-TURN-01",
+      "source_contract": "tome4-quality-calibration-v2",
+      "sample_id": "28c1a2e40108dee45253324a3561b715efeda897dac7fd70d9c430069c20b295",
+      "revision_id": "7d003e413ca06d1ce5e9b537f626322f74735be7380667cfeeb22b763fc7d252",
+      "adjudication_validation_id": "821fed7e9bc03e26fc132c4e7b006be7922d52f00e36befe7aee112b4f5e31c5",
+      "issue_ids": ["QI-0003", "QI-0004"],
+      "profile": "unknown",
+      "phenomenon": "unit",
+      "defect_class": "semantic",
+      "facts": {
+        "is_defect": "yes", "is_substantive": "yes", "mechanics_context": "yes",
+        "changes_rule_understanding": "yes", "can_change_player_action": "no",
+        "required_operation_info_missing": "yes", "opposite_or_different_rule": "no",
+        "recoverable_from_immediate_context": "no", "technical_gate_confirmed": "no",
+        "runtime_broken": "no", "single_item_display_broken": "no"
+      },
+      "derived_severity": "minor",
+      "rule_id": "S-SUBSTANTIVE-MINOR-01",
+      "rationale": "Omitting an explicit turn unit from a numeric self-loading interval changes rule understanding but does not reverse interval ordering or establish a different player action."
+    },
+    {
+      "anchor_id": "A-TERM-MINOR-RECOVERABLE-01",
+      "source_contract": "tome4-quality-calibration-v2",
+      "sample_id": "28c1a2e40108dee45253324a3561b715efeda897dac7fd70d9c430069c20b295",
+      "revision_id": "dae8bc1e86aa35044ed54406b0ef3971463df6e0f9d07222d555bdfad238b79e",
+      "adjudication_validation_id": "821fed7e9bc03e26fc132c4e7b006be7922d52f00e36befe7aee112b4f5e31c5",
+      "issue_ids": ["QI-0005"],
+      "profile": "runtime-log",
+      "phenomenon": "terminology",
+      "defect_class": "terminology",
+      "facts": {
+        "is_defect": "yes", "is_substantive": "yes", "mechanics_context": "yes",
+        "changes_rule_understanding": "yes", "can_change_player_action": "unknown",
+        "required_operation_info_missing": "no", "opposite_or_different_rule": "no",
+        "recoverable_from_immediate_context": "yes", "technical_gate_confirmed": "no",
+        "runtime_broken": "no", "single_item_display_broken": "no"
+      },
+      "derived_severity": "minor",
+      "rule_id": "S-SUBSTANTIVE-MINOR-01",
+      "rationale": "A mechanics term is mislabeled, but the intended effect is recoverable from adjacent context and no action-changing consequence is established."
+    },
+    {
+      "anchor_id": "A-TERM-NOTE-CONTEXT-01",
+      "source_contract": "tome4-quality-calibration-v2",
+      "sample_id": "28c1a2e40108dee45253324a3561b715efeda897dac7fd70d9c430069c20b295",
+      "revision_id": "edbbad4eaf9859f9ce1ddca9fd6d2cdb11d059e0eaf39c5833b620d7dde00a50",
+      "adjudication_validation_id": "821fed7e9bc03e26fc132c4e7b006be7922d52f00e36befe7aee112b4f5e31c5",
+      "issue_ids": ["QI-0006"],
+      "profile": "mechanics",
+      "phenomenon": "terminology",
+      "defect_class": "terminology",
+      "facts": {
+        "is_defect": "no", "is_substantive": "no", "mechanics_context": "unknown",
+        "changes_rule_understanding": "no", "can_change_player_action": "no",
+        "required_operation_info_missing": "no", "opposite_or_different_rule": "no",
+        "recoverable_from_immediate_context": "unknown", "technical_gate_confirmed": "no",
+        "runtime_broken": "no", "single_item_display_broken": "no"
+      },
+      "derived_severity": "note",
+      "rule_id": "S-NOTE-01",
+      "rationale": "A plausible contextual name rendering is not a terminology defect when the bounded evidence supplies no preferred term or disambiguating theme."
+    },
+    {
+      "anchor_id": "A-ENTITY-NOTE-CONTROL-01",
+      "source_contract": "tome4-quality-calibration-v2",
+      "sample_id": "28c1a2e40108dee45253324a3561b715efeda897dac7fd70d9c430069c20b295",
+      "revision_id": "6402faa879a782f3f5dcb906f1149dc597535e51c1117cef753e378b04a88301",
+      "adjudication_validation_id": "821fed7e9bc03e26fc132c4e7b006be7922d52f00e36befe7aee112b4f5e31c5",
+      "issue_ids": ["QI-0007"],
+      "profile": "runtime-log",
+      "phenomenon": "entity-role",
+      "defect_class": "semantic",
+      "facts": {
+        "is_defect": "no", "is_substantive": "no", "mechanics_context": "unknown",
+        "changes_rule_understanding": "no", "can_change_player_action": "no",
+        "required_operation_info_missing": "no", "opposite_or_different_rule": "no",
+        "recoverable_from_immediate_context": "yes", "technical_gate_confirmed": "no",
+        "runtime_broken": "no", "single_item_display_broken": "no"
+      },
+      "derived_severity": "note",
+      "rule_id": "S-NOTE-01",
+      "rationale": "An entity becoming uncontrolled is not an entity-role reversal when the following fall and disappearance confirm that reading."
+    },
+    {
+      "anchor_id": "A-POLARITY-NOTE-CONTROL-01",
+      "source_contract": "tome4-quality-calibration-v2",
+      "sample_id": "28c1a2e40108dee45253324a3561b715efeda897dac7fd70d9c430069c20b295",
+      "revision_id": "6402faa879a782f3f5dcb906f1149dc597535e51c1117cef753e378b04a88301",
+      "adjudication_validation_id": "821fed7e9bc03e26fc132c4e7b006be7922d52f00e36befe7aee112b4f5e31c5",
+      "issue_ids": ["QI-0008"],
+      "profile": "runtime-log",
+      "phenomenon": "polarity",
+      "defect_class": "semantic",
+      "facts": {
+        "is_defect": "no", "is_substantive": "no", "mechanics_context": "unknown",
+        "changes_rule_understanding": "no", "can_change_player_action": "no",
+        "required_operation_info_missing": "no", "opposite_or_different_rule": "no",
+        "recoverable_from_immediate_context": "yes", "technical_gate_confirmed": "no",
+        "runtime_broken": "no", "single_item_display_broken": "no"
+      },
+      "derived_severity": "note",
+      "rule_id": "S-NOTE-01",
+      "rationale": "A sentence expressing loss of control is not a polarity reversal when its immediate continuation confirms the uncontrolled state."
+    }
+  ]
 }

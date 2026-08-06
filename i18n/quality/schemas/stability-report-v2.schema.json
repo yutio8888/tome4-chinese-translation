@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "tome4-quality-stability-report-v2",
+  "type": "object", "additionalProperties": false,
+  "required": [
+    "schema_version", "quality_contract", "sample_id", "preregistration_id",
+    "evaluator", "assessment_ids", "assessment_sha256s", "run_report_sha256s",
+    "metrics", "checks", "passed", "report_id"
+  ],
+  "properties": {
+    "schema_version": {"const": 2},
+    "quality_contract": {"const": "tome4-quality-stability-report-v2"},
+    "sample_id": {"$ref": "#/definitions/sha"},
+    "preregistration_id": {"$ref": "#/definitions/sha"},
+    "evaluator": {"type": "object"},
+    "assessment_ids": {"type": "array", "minItems": 2, "maxItems": 2},
+    "assessment_sha256s": {"type": "array", "minItems": 2, "maxItems": 2},
+    "run_report_sha256s": {"type": "array", "minItems": 2, "maxItems": 2},
+    "metrics": {"type": "object"}, "checks": {"type": "object"},
+    "passed": {"type": "boolean"}, "report_id": {"$ref": "#/definitions/sha"}
+  },
+  "definitions": {"sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

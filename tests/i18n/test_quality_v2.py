@@ -1,14 +1,16 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import subprocess
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
-from i18nlib.errors import AgentError, ValidationError
+from i18nlib.errors import AgentError, ConfigurationError, ValidationError
 from i18nlib.config import load_manifest
 from i18nlib.quality_v2 import (
     assessment_identity,
@@ -17,15 +19,18 @@ from i18nlib.quality_v2 import (
     build_disputes_v2,
     build_evaluator_bundles_v2,
     build_report_v2,
+    build_stability_report_v2,
     canonical_sha256,
     derive_severity,
     load_anchors,
     load_impact_rules,
+    load_evaluator_prompt_v2,
     load_policy_v2,
     match_assessments_v2,
     normalize_evidence,
     validate_assessment_v2,
     validate_sample_v2,
+    validate_stability_preregistration_v2,
 )
 from i18nlib.pi_quality import _cache_key_v2, run_pi_quality_evaluator
 
@@ -34,7 +39,10 @@ POLICY = {
     "evaluator_ids": ["reviewer-a", "reviewer-b"],
     "tri_state_values": ["yes", "no", "unknown"],
     "defect_classes": ["semantic", "presentation", "style", "technical"],
-    "phenomena": ["number", "number-range", "punctuation", "format", "other"],
+    "phenomena": [
+        "number", "number-range", "unit", "omission", "punctuation",
+        "format", "other",
+    ],
     "meaning_change_types": ["omitted", "strengthened", "presentation-only", "none", "unknown"],
     "impact_fact_fields": [
         "is_defect", "is_substantive", "mechanics_context",
@@ -146,9 +154,72 @@ class QualityV2RealRuleTests(unittest.TestCase):
         result.update(updates)
         return result
 
-    def test_versioned_configuration_loads_and_anchors_start_empty(self) -> None:
+    def test_versioned_configuration_loads_strict_human_anchors(self) -> None:
         self.assertEqual(self.policy["method_version"], "mqm-pilot-v2")
-        self.assertEqual(load_anchors(self.manifest)["anchors"], [])
+        anchors = load_anchors(self.manifest)["anchors"]
+        self.assertEqual(len(anchors), 6)
+        self.assertTrue(
+            all(anchor["source_contract"] == "tome4-quality-calibration-v2" for anchor in anchors)
+        )
+        self.assertTrue(all(anchor["adjudication_validation_id"] for anchor in anchors))
+
+    def test_anchor_unknown_fields_and_unreproducible_severity_are_rejected(self) -> None:
+        source = self.manifest.root / "i18n" / "quality"
+        for mutation, message in (
+            (lambda data: data["anchors"][0].update(extra=True), "unknown fields"),
+            (lambda data: data["anchors"][0].update(derived_severity="major"), "cannot be reproduced"),
+            (lambda data: data["anchors"][0].update(source_contract="tome4-quality-holdout-v2"), "source_contract"),
+        ):
+            with self.subTest(message=message), tempfile.TemporaryDirectory(prefix="anchors-v1-") as temporary:
+                root = Path(temporary)
+                target = root / "i18n" / "quality"
+                target.mkdir(parents=True)
+                for name in ("policy-v2.json", "impact-rules-v1.json", "taxonomy-v1.json"):
+                    (target / name).write_bytes((source / name).read_bytes())
+                data = json.loads((source / "anchors-v1.json").read_text())
+                mutation(data)
+                (target / "anchors-v1.json").write_text(json.dumps(data), encoding="utf-8")
+                with self.assertRaisesRegex(ConfigurationError, message):
+                    load_anchors(SimpleNamespace(root=root))
+
+    def test_versioned_stability_preregistration_binds_frozen_inputs(self) -> None:
+        preregistration = json.loads(
+            (
+                self.manifest.root
+                / "i18n" / "quality" / "stability-preregistration-v1.json"
+            ).read_text()
+        )
+        sample = {
+            "sample_id": preregistration["sample_id"],
+            "policy_v2_sha256": canonical_sha256(self.policy),
+        }
+        anchors = load_anchors(self.manifest)
+        self.assertIs(
+            validate_stability_preregistration_v2(
+                preregistration,
+                sample=sample,
+                policy=self.policy,
+                rules=self.rules,
+                anchors=anchors,
+                prompt_sha256=hashlib.sha256(
+                    load_evaluator_prompt_v2(self.manifest).encode("utf-8")
+                ).hexdigest(),
+            ),
+            preregistration,
+        )
+        stale = copy.deepcopy(preregistration)
+        stale["frozen_inputs"]["anchors_sha256"] = "0" * 64
+        with self.assertRaisesRegex(ValidationError, "anchors_sha256 differs"):
+            validate_stability_preregistration_v2(
+                stale,
+                sample=sample,
+                policy=self.policy,
+                rules=self.rules,
+                anchors=anchors,
+                prompt_sha256=hashlib.sha256(
+                    load_evaluator_prompt_v2(self.manifest).encode("utf-8")
+                ).hexdigest(),
+            )
 
     def test_every_rule_has_yes_no_unknown_coverage(self) -> None:
         cases = {
@@ -308,13 +379,56 @@ def matching_inputs(left_findings: list[dict], right_findings: list[dict]) -> tu
 class QualityV2MatchingTests(unittest.TestCase):
     def match(self, left: list[dict], right: list[dict]) -> dict:
         sample, left_assessment, right_assessment = matching_inputs(left, right)
-        return match_assessments_v2(sample=sample, left_assessment=left_assessment, right_assessment=right_assessment, policy={**POLICY, "mergeable_phenomena": [["number", "number-range"]]})
+        return match_assessments_v2(
+            sample=sample,
+            left_assessment=left_assessment,
+            right_assessment=right_assessment,
+            policy={
+                **POLICY,
+                "mergeable_phenomena": [
+                    ["number", "number-range"], ["omission", "unit"],
+                ],
+            },
+        )
 
     def test_full_and_partial_matches(self) -> None:
         full = self.match([normalized_finding("A-1")], [normalized_finding("B-1")])
         self.assertEqual(full["issues"][0]["cluster_type"], "full-match")
         partial = self.match([normalized_finding("A-1", phenomenon="number")], [normalized_finding("B-1", phenomenon="number-range")])
         self.assertEqual(partial["issues"][0]["cluster_type"], "partial-match")
+
+    def test_omission_and_unit_match_only_for_identical_omitted_evidence(self) -> None:
+        matched = self.match(
+            [normalized_finding("A-1", phenomenon="omission", meaning_type="omitted")],
+            [normalized_finding("B-1", phenomenon="unit", meaning_type="omitted")],
+        )
+        self.assertEqual(
+            [item["cluster_type"] for item in matched["issues"]], ["partial-match"]
+        )
+
+        different_span = self.match(
+            [normalized_finding("A-1", phenomenon="omission", meaning_type="omitted")],
+            [
+                normalized_finding(
+                    "B-1", phenomenon="unit", meaning_type="omitted",
+                    source_quote="bc", source_start=1,
+                    target_quote="乙丙", target_start=1,
+                )
+            ],
+        )
+        self.assertEqual(
+            [item["cluster_type"] for item in different_span["issues"]],
+            ["left-only", "right-only"],
+        )
+
+        different_meaning = self.match(
+            [normalized_finding("A-1", phenomenon="omission", meaning_type="omitted")],
+            [normalized_finding("B-1", phenomenon="unit", meaning_type="unknown")],
+        )
+        self.assertEqual(
+            [item["cluster_type"] for item in different_meaning["issues"]],
+            ["left-only", "right-only"],
+        )
 
     def test_split_merge_and_ambiguous(self) -> None:
         broad = normalized_finding("A-1", source_quote="abcdef", target_quote="甲乙丙丁戊己")
@@ -350,6 +464,87 @@ class QualityV2MatchingTests(unittest.TestCase):
         finding["normalized_source_evidence"].update(state="ambiguous", start=None, end=None)
         result = self.match([finding], [])
         self.assertEqual(result["manual_queue"], ["QI-0001"])
+
+
+class QualityV2StabilityTests(unittest.TestCase):
+    def setUp(self) -> None:
+        finding = normalized_finding("A-1")
+        self.sample, left, _ = matching_inputs([finding], [copy.deepcopy(finding)])
+        self.evaluator = {
+            "kind": "model", "id": "reviewer-a", "method_version": "mqm-pilot-v2",
+            "provider": "provider", "model": "model", "thinking": "max",
+            "prompt_sha256": "1" * 64, "rules_sha256": "2" * 64,
+            "anchors_sha256": "3" * 64, "bundle_ids": ["4" * 64, "5" * 64],
+        }
+        left["evaluator"] = self.evaluator
+        self.assessment = left
+        self.preregistration = {
+            "preregistration_id": "6" * 64,
+            "evaluators": [
+                {"id": "reviewer-a", "provider": "provider", "model": "model", "thinking": "max", "runs": 2},
+                {"id": "reviewer-b", "provider": "other", "model": "other", "thinking": "max", "runs": 2},
+            ],
+            "thresholds": {
+                "schema_coverage": 1.0, "structure_failures_max": 0,
+                "finding_jaccard_min": 0.70,
+                "critical_fact_agreement_min": 0.80,
+                "derived_severity_agreement_min": 0.90,
+            },
+        }
+
+    def run_report(self, *, cache_decision: str) -> dict:
+        return {
+            "ok": True, "mode": "blind-quality-assessment-v2",
+            "sample_id": self.sample["sample_id"], "evaluator_id": "reviewer-a",
+            "provider": "provider", "model": "model", "thinking": "max",
+            "prompt_sha256": "1" * 64, "rules_sha256": "2" * 64,
+            "anchors_sha256": "3" * 64, "bundle_ids": ["4" * 64, "5" * 64],
+            "assessment_sha256": "7" * 64, "validated_results": 1,
+            "cache_decision": cache_decision, "shards": 2, "attempts": 2,
+            "charged_or_possible_transfers": 2,
+        }
+
+    def build(self, right: dict | None = None, *, cache_decision: str = "bypass") -> dict:
+        return build_stability_report_v2(
+            sample=self.sample,
+            assessments=(self.assessment, right or copy.deepcopy(self.assessment)),
+            run_reports=(self.run_report(cache_decision="miss"), self.run_report(cache_decision=cache_decision)),
+            assessment_sha256s=("7" * 64, "7" * 64),
+            run_report_sha256s=("8" * 64, "9" * 64),
+            preregistration=self.preregistration,
+            policy={
+                **POLICY,
+                "mergeable_phenomena": [["number", "number-range"]],
+            },
+        )
+
+    def test_identical_assessments_from_distinct_real_runs_are_valid(self) -> None:
+        report = self.build()
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["metrics"]["finding_jaccard"], 1.0)
+        self.assertEqual(report["assessment_ids"][0], report["assessment_ids"][1])
+
+    def test_cache_hits_and_reused_runner_reports_are_rejected(self) -> None:
+        with self.assertRaisesRegex(ValidationError, "non-cache"):
+            self.build(cache_decision="hit")
+        with self.assertRaisesRegex(ValidationError, "distinct runner reports"):
+            build_stability_report_v2(
+                sample=self.sample,
+                assessments=(self.assessment, copy.deepcopy(self.assessment)),
+                run_reports=(self.run_report(cache_decision="miss"), self.run_report(cache_decision="bypass")),
+                assessment_sha256s=("7" * 64, "7" * 64),
+                run_report_sha256s=("8" * 64, "8" * 64),
+                preregistration=self.preregistration,
+                policy={**POLICY, "mergeable_phenomena": [["number", "number-range"]]},
+            )
+
+    def test_unstable_finding_set_fails_preregistered_threshold(self) -> None:
+        right = copy.deepcopy(self.assessment)
+        right["assessment_id"] = "a" * 64
+        right["items"][0]["findings"] = []
+        report = self.build(right)
+        self.assertFalse(report["passed"])
+        self.assertEqual(report["metrics"]["finding_jaccard"], 0.0)
 
 
 class QualityV2DisputeAndAdjudicationTests(unittest.TestCase):

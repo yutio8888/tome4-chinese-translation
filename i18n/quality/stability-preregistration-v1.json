@@ -1,0 +1,38 @@
+{
+  "contract": "tome4-quality-stability-preregistration-v1",
+  "schema_version": 1,
+  "sample_contract": "tome4-quality-calibration-v2",
+  "sample_id": "e29bf49b0271b601680c306218b098506aaae372bbec5d7dbf7841ae6a2ae8d2",
+  "evaluators": [
+    {
+      "id": "reviewer-a",
+      "provider": "opencode-go",
+      "model": "deepseek-v4-flash",
+      "thinking": "max",
+      "runs": 2
+    },
+    {
+      "id": "reviewer-b",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-luna",
+      "thinking": "max",
+      "runs": 2
+    }
+  ],
+  "thresholds": {
+    "schema_coverage": 1.0,
+    "structure_failures_max": 0,
+    "finding_jaccard_min": 0.7,
+    "critical_fact_agreement_min": 0.8,
+    "derived_severity_agreement_min": 0.9
+  },
+  "frozen_inputs": {
+    "policy_v2_sha256": "901778760af99a809bbbb5c85b7281726e1704bbf08fb2e2d2e0d9c11b4593ab",
+    "prompt_sha256": "5e5355a06874874c3b875351013b3cd020914b249b6148dbcd480c3305ce961e",
+    "rules_sha256": "c188424b9bd3422bf84b3e1e4991dc124a294fe439755aedbb56a47463c9c020",
+    "anchors_sha256": "80bb94caa0aafc4528761ca5ec8810f67be47de6abc8de4aed43eeaf9b32e0f9"
+  },
+  "connection_failure_retry_limit": 1,
+  "replace_content_failures": false,
+  "preregistration_id": "9987216343093b5c76094286966b87181df20353e3900fbdde62f0c1571d31dc"
+}

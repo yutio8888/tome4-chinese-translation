@@ -15,7 +15,7 @@ from typing import Any
 
 from . import TOOL_VERSION
 from .config import load_manifest
-from .errors import AgentError, I18nToolError, ValidationError
+from .errors import AgentError, ConfigurationError, I18nToolError, ValidationError
 from .pi_agent import DEFAULT_MODEL, DEFAULT_PROVIDER, DEFAULT_THINKING, _pi_environment
 from .pi_file_review import _run_file_review_process
 from .pi_review import _canonical_sha256
@@ -37,6 +37,7 @@ from .quality_v2 import (
     build_evaluator_bundles_v2,
     canonical_sha256 as canonical_sha256_v2,
     load_anchors,
+    load_evaluator_prompt_v2,
     load_impact_rules,
     load_policy_v2,
     validate_assessment_v2,
@@ -305,15 +306,9 @@ def _run_pi_quality_evaluator_v2(
         max_items=policy["max_shard_items"],
     )
     bundle_ids = [bundle["bundle_id"] for bundle in bundles]
-    prompt_path = manifest.root / "i18n" / "prompts" / "pi-quality-evaluator-v2.md"
-    rubric_path = manifest.root / "i18n" / "quality" / "rubric-v2.md"
     try:
-        system_prompt = (
-            prompt_path.read_text(encoding="utf-8")
-            + "\n\n---\n\n"
-            + rubric_path.read_text(encoding="utf-8")
-        )
-    except (OSError, UnicodeDecodeError) as error:
+        system_prompt = load_evaluator_prompt_v2(manifest)
+    except ConfigurationError as error:
         raise AgentError("cannot read Pi quality evaluator v2 prompt or rubric") from error
     prompt_sha256 = hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()
     rules_sha256 = canonical_sha256_v2(rules)
