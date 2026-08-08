@@ -17800,16 +17800,25 @@ exit 0
             "03-toolchain-unit-tests.log": (
                 "-m unittest -q tests/i18n/test_toolchain.py\n"
             ),
-            "04-runtime-collision-scan.log": (
+            "04-quality-facts-unit-tests.log": (
+                "-m unittest -q tests/i18n/test_quality_contracts.py "
+                "tests/i18n/test_quality_claims.py "
+                "tests/i18n/test_dataset_registry.py "
+                "tests/i18n/test_quality_v2.py "
+                "tests/i18n/test_quality_v3.py "
+                "tests/i18n/test_facts_study.py "
+                "tests/i18n/test_facts_curation.py\n"
+            ),
+            "05-runtime-collision-scan.log": (
                 "-B tools/scan_runtime_collisions.py\n"
             ),
-            "05-runtime-key-classification.log": (
+            "06-runtime-key-classification.log": (
                 "-B tools/classify_runtime_keys.py\n"
             ),
-            "06-terminology-static-audit.log": "-B tools/audit_static.py\n",
-            "07-terminology-dynamic-audit.log": "-B tools/audit_dynamic.py\n",
-            "08-domain-annotation.log": "-B tools/annotate_domains.py\n",
-            "09-worktree-whitespace.log": "diff --check\n",
+            "07-terminology-static-audit.log": "-B tools/audit_static.py\n",
+            "08-terminology-dynamic-audit.log": "-B tools/audit_dynamic.py\n",
+            "09-domain-annotation.log": "-B tools/annotate_domains.py\n",
+            "10-worktree-whitespace.log": "diff --check\n",
         }
         actual_logs = {
             path.name: path.read_text(encoding="utf-8")
@@ -17819,7 +17828,7 @@ exit 0
         failure_paths = [
             skip_log_dir / log_name
             for log_name in expected_logs
-            if log_name != "09-worktree-whitespace.log"
+            if log_name != "10-worktree-whitespace.log"
         ]
         self.assertEqual(len(failure_paths), len(set(failure_paths)))
         for failure_path in failure_paths:
@@ -17827,7 +17836,7 @@ exit 0
                 f"(log: {failure_path})", skip_build.stdout
             )
 
-        build_log = build_log_dir / "10-core-addon-build.log"
+        build_log = build_log_dir / "11-core-addon-build.log"
         self.assertEqual(
             build_log.read_text(encoding="utf-8"),
             "-B tools/i18n build --profile addon --component tome "

@@ -40,8 +40,8 @@ cp -R ~/projects/tome-chn-mod <游戏目录>/game/addons/chn-mod
 
 ## 三、发布前校验清单（已全部完成）
 
-- [x] `tools/ci-gates.sh` 全绿（doctor、strict lint、401 项 toolchain 测试、运行键扫描、术语审计、构建）
-- [x] quality/Facts 子系统 201 项测试通过（纳入统一门禁为下一整合批次）
+- [x] `tools/ci-gates.sh` 全绿（doctor、strict lint、401 项 toolchain 测试、201 项 quality/Facts 测试、运行键扫描、术语审计、构建）
+- [x] quality/Facts 子系统 201 项测试通过并纳入统一门禁
 - [x] `tools/smoke_release.py` 16 项全 PASS（加载链 + 一致性）
 - [x] 确定性构建（SHA-256 可复现 `1d2d7428…`）
 - [x] 许可证（GPL v3 依据 + init.lua 声明 + 上游版权）

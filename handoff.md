@@ -4,9 +4,11 @@
 
 ## 1. 当前整合基线
 
-- 当前维护分支：`develop`。
-- 整合起点：`0f9c513`；Facts Study 工程、外部 campaign 与正式报告收口于
+- 当前维护分支：`develop`；P0 已提交基线为
+  `4d8a8ca`（`docs: prepare develop integration baseline`）。
+- P0 整合起点：`0f9c513`；Facts Study 工程、外部 campaign 与正式报告收口于
   `e3dde65`。
+- `origin/master` 是 `develop` 的祖先；`develop` 尚未配置 upstream，也尚未推送。
 - 原实验工作区已经归档并由当前分支接续，不再作为活动工作区。
 - Evaluator v3、Facts Study、schema、prompt、测试和文档均已进入版本控制；
   规范 Lua、术语内容与正式 120 条样本没有因 Facts Study 被修改。
@@ -473,3 +475,56 @@ trap 定义（契约语义是 clean 诱饵）。关键 artifact 均在
 - 结论与决策以报告 §8 为准：**do-not-promote-facts-channel**，
   holdout_clearance=false；DeepSeek 正向信号与 F 臂（facts-as-verifier）
   作为后续研究候选，需另行设计、另行授权。
+
+## 18. `develop` P0 交付与 P1 接续（2026-08-08）
+
+### 18.1 已提交交付
+
+P0 已以单一提交 `4d8a8ca` 落地：
+
+- 新增根目录 `README.md`、项目授权说明 `LICENSE`，以及与固定引擎
+  `COPYING` 逐字节一致的 GPL v3 正文；
+- 同步 release plan、质量系统状态、Facts 正式报告、离线闭环文档和质量 README；
+- 记录项目外 A-core 归档的 archive ID、索引 SHA-256 和 manifest SHA-256，未记录
+  本机绝对路径，也未把归档本体或派生 artifact 加入 Git；
+- 未修改规范 Lua、`terminology.tsv`、质量协议/schema、发布 addon 或外部归档；
+- 未调用外部 provider，也未推送远端。
+
+提交前完整门禁目录：`.artifacts/i18n/ci-gates/run.P4FSwD/`。结果：
+
+- strict lint：30,177 条，0 error，0 warning；
+- `tests/i18n/test_toolchain.py`：401 项通过；
+- 跨组件碰撞、重复运行键分类、三项术语审计和 `git diff --check` 全部通过；
+- 核心 addon 严格构建完成：3,354 runtime keys；
+- 新增 Markdown 相对链接无断链，根目录三个新文件无尾随空白且均有末尾换行。
+
+A-core 归档另经只读核验：9 项 manifest integrity checks、10 项 campaign 输入、
+33 份 assessment 与 33 份 runner report 均无缺失或哈希不符，Git bundle 验证通过。
+
+`4d8a8ca` 提交后工作树曾为干净状态；本节是按用户要求在提交后撰写的交接更新，
+因此预期当前仅 `handoff.md` 有未提交修改。不得为追求整洁而丢弃本节。
+
+### 18.2 P1 统一质量门禁完成
+
+P1 以 `4d8a8ca` 为基线完成，范围保持在统一门禁、对应回归测试和门禁说明：
+
+- `test_facts_curation.py` 的 3 处裸 `open(...)` 调用已改为有界上下文管理；其中
+  registry fragment 循环实际打开两个文件，共消除 4 个 `ResourceWarning`，fixture
+  与断言语义不变。
+- `tools/ci-gates.sh` 新增独立 quality/Facts 测试步骤，覆盖
+  `test_quality_contracts.py`、`test_quality_claims.py`、`test_dataset_registry.py`、
+  `test_quality_v2.py`、`test_quality_v3.py`、`test_facts_study.py` 和
+  `test_facts_curation.py`；原 toolchain 测试和失败汇总语义保留，后续日志编号顺延。
+- `test_toolchain.py` 的门禁日志契约同步更新；`docs/release-plan.md` 已记录
+  quality/Facts 套件进入统一门禁。
+
+定向验证：`bash -n tools/ci-gates.sh` 通过；`test_facts_curation.py` 在
+`-W error::ResourceWarning` 下 42/42 通过；门禁脚本 3/3 项回归通过。完整门禁只运行
+一次，日志目录为 `.artifacts/i18n/ci-gates/run.MywnmD/`：11 个步骤全部通过，
+其中 strict lint 为 30,177 条、toolchain 401/401、quality/Facts 201/201、运行键扫描
+和三项术语审计通过、核心 addon 严格构建为 3,354 keys、`git diff --check` 通过。
+
+P1 未修改质量协议/schema、规范 Lua、术语、发布 addon 或研究归档，也未调用
+Pi/provider。用户随后已明确选择：提交并推送 `develop`、创建面向 `master` 的草稿
+PR；不制作 teaa、不启动新 Facts/F 臂研究、不公开 A-core 归档。PR 身份将在创建后
+回填到本交接和 release plan。

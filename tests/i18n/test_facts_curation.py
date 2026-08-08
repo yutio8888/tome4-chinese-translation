@@ -1102,7 +1102,8 @@ class IntegrationTests(CurationFixtureTests):
                     self.manifest, pool_path=pool_path, facts_path=facts_path,
                     inventory_path=self.inventory_path,
                 )
-                curator_bundle = json.load(open(prepared["curator_bundle"]))
+                with open(prepared["curator_bundle"], encoding="utf-8") as handle:
+                    curator_bundle = json.load(handle)
                 curator = _curator_assessment(self.pool)
                 curator["lineage"] = {
                     "facts_packet_sha256": canonical_sha256(self.facts),
@@ -1121,7 +1122,8 @@ class IntegrationTests(CurationFixtureTests):
                 )
                 self.assertEqual(0, selected["status_code"])
                 for path in selected["registry_fragments"]:
-                    validate_registry_fragment(json.load(open(path)))
+                    with open(path, encoding="utf-8") as handle:
+                        validate_registry_fragment(json.load(handle))
                 # shortfall path returns exit code 2 with a variant request
                 short_curator = _curator_assessment(self.pool, fact_dependent_count=4)
                 short_curator["lineage"] = {
@@ -1141,7 +1143,10 @@ class IntegrationTests(CurationFixtureTests):
                         protocol_version="v3",
                     )
                 self.assertEqual(2, short["status_code"])
-                request = json.load(open(short["controlled_variant_request"]))
+                with open(
+                    short["controlled_variant_request"], encoding="utf-8"
+                ) as handle:
+                    request = json.load(handle)
                 self.assertEqual(4, len(request["items"]))
 
     def test_execution_manifest_binds_frozen_prereg(self):

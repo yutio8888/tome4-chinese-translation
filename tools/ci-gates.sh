@@ -68,34 +68,47 @@ check "02-strict-lint" "lint --strict" python3 -B tools/i18n lint --strict
 step 3 "toolchain unit tests"
 check "03-toolchain-unit-tests" "unittest" python3 -m unittest -q tests/i18n/test_toolchain.py
 
-step 4 "cross-component same-tag collision scan"
+step 4 "quality and Facts unit tests"
 check \
-    "04-runtime-collision-scan" \
+    "04-quality-facts-unit-tests" \
+    "quality/Facts unittest" \
+    python3 -m unittest -q \
+    tests/i18n/test_quality_contracts.py \
+    tests/i18n/test_quality_claims.py \
+    tests/i18n/test_dataset_registry.py \
+    tests/i18n/test_quality_v2.py \
+    tests/i18n/test_quality_v3.py \
+    tests/i18n/test_facts_study.py \
+    tests/i18n/test_facts_curation.py
+
+step 5 "cross-component same-tag collision scan"
+check \
+    "05-runtime-collision-scan" \
     "scan_runtime_collisions" \
     python3 -B tools/scan_runtime_collisions.py
 
-step 5 "runtime key classification"
+step 6 "runtime key classification"
 check \
-    "05-runtime-key-classification" \
+    "06-runtime-key-classification" \
     "classify_runtime_keys" \
     python3 -B tools/classify_runtime_keys.py
 
-step 6 "terminology static audit"
-check "06-terminology-static-audit" "audit_static" python3 -B tools/audit_static.py
+step 7 "terminology static audit"
+check "07-terminology-static-audit" "audit_static" python3 -B tools/audit_static.py
 
-step 7 "terminology dynamic audit"
-check "07-terminology-dynamic-audit" "audit_dynamic" python3 -B tools/audit_dynamic.py
+step 8 "terminology dynamic audit"
+check "08-terminology-dynamic-audit" "audit_dynamic" python3 -B tools/audit_dynamic.py
 
-step 8 "domain annotation"
-check "08-domain-annotation" "annotate_domains" python3 -B tools/annotate_domains.py
+step 9 "domain annotation"
+check "09-domain-annotation" "annotate_domains" python3 -B tools/annotate_domains.py
 
-step 9 "worktree whitespace"
-check "09-worktree-whitespace" "git diff --check" git diff --check
+step 10 "worktree whitespace"
+check "10-worktree-whitespace" "git diff --check" git diff --check
 
 if [[ $SKIP_BUILD -eq 0 ]]; then
-    step 10 "core addon strict build"
+    step 11 "core addon strict build"
     check \
-        "10-core-addon-build" \
+        "11-core-addon-build" \
         "core addon build" \
         python3 -B tools/i18n build --profile addon --component tome --require-complete
 fi
