@@ -528,3 +528,18 @@ P1 未修改质量协议/schema、规范 Lua、术语、发布 addon 或研究�
 Pi/provider。用户随后已明确选择：提交并推送 `develop`、创建面向 `master` 的草稿
 PR；不制作 teaa、不启动新 Facts/F 臂研究、不公开 A-core 归档。PR 身份将在创建后
 回填到本交接和 release plan。
+
+### 18.3 `develop` 草稿 PR
+
+P1 以提交 `6a7a767`（`ci: add quality tests to unified gates`）收口。`develop` 已建立
+`origin/develop` 跟踪并推送；`origin/master` 在推送前仍为 `7757410`，是
+`develop` 的祖先，没有发生 rebase、强制推送或历史改写。
+
+草稿 PR：[`#1 Integrate ToME4 translation toolchain and quality system`](https://github.com/yutio8888/tome4-chinese-translation/pull/1)。
+创建时状态为 open/draft，base=`master`、head=`develop`。PR 正文记录 P0/P1 范围、
+401+201 项测试、30,177 条 strict lint、3,354 keys 构建结果，以及
+`do-not-promote-facts-channel`、`holdout_clearance=false` 和 A-core 不入库边界。
+
+当前决策：PR 保持 draft，不转为 ready、不合并；addon 0.2.4 保持现状，不生成或上传
+teaa；Facts 研究冻结，不启动新 F 臂/holdout/provider 调用，不制作脱敏复现包；现有
+A-core 归档继续只读私有保存，不复制或上传到本仓库。
