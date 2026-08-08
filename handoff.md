@@ -1,15 +1,18 @@
 # ToME4 翻译质量 Evaluator 交接说明
 
-更新时间：2026-08-07
+更新时间：2026-08-08
 
-## 1. 当前工作区
+## 1. 当前整合基线
 
-- 工作区：`/Users/yun/projects/tome4-chinese-translation-review-fixes`
-- 分支：`codex/review-findings-20260802`
-- HEAD：`34ac1c473d4e830325dd2b04a968439c9d0ca97c`
-- 主工作区 `/Users/yun/projects/tome4-chinese-translation` 位于 `tools-i18n` 分支，不是本轮工作区。
-- 当前工作树包含大量尚未提交的 Evaluator v3、Facts Study、schema、prompt、测试和文档改动。它们均属于当前工作，不能清理、reset、checkout 或用旧文件覆盖。
-- 本轮没有提交、推送、发布或修改规范 Lua、术语内容与正式 120 条样本。
+- 当前维护分支：`develop`。
+- 整合起点：`0f9c513`；Facts Study 工程、外部 campaign 与正式报告收口于
+  `e3dde65`。
+- 原实验工作区已经归档并由当前分支接续，不再作为活动工作区。
+- Evaluator v3、Facts Study、schema、prompt、测试和文档均已进入版本控制；
+  规范 Lua、术语内容与正式 120 条样本没有因 Facts Study 被修改。
+- 不可重建的研究证据保存在项目外 A-core 归档
+  `tome4-chinese-translation-archive-20260808`，身份与校验信息见 §17；派生 artifact
+  仍不得提交到本仓库。
 
 仓库级运行、安全、DLC 源码和审核规则以根目录 `AGENTS.md` 为准。首次使用工具仍先运行：
 
@@ -31,11 +34,15 @@ python3 -B tools/i18n doctor
 
 当前决定：
 
-- 不运行 v4 holdout 或正式 120 条。
-- 不降低稳定性门槛，不追加调用刷出一次通过。
-- 不修改或重新解释 v1–v3 历史 artifact。
-- 先完成隔离的 `facts-study-v1/v2` 因果研究，再决定是否把 Facts 通道纳入 v4 draft.3。
-- 当前没有可执行的外部 Facts Study preregistration；下一次外部传输必须重新冻结输入并取得新的明确授权，不能沿用此前 calibration 授权。
+- Facts 因果研究与 33-slot campaign 已完成；正式决策为
+  **`do-not-promote-facts-channel`**，`holdout_clearance=false`。
+- 不运行 v4 holdout 或正式 120 条，不把 Facts 通道纳入 v4 draft.3。
+- 不降低稳定性门槛，不追加调用刷出一次通过，也不修改或重新解释 v1–v3
+  历史 artifact。
+- 当前优先工作是 `develop` 的文档、许可、门禁和发布治理；DeepSeek 的正向信号与
+  F 臂只作为未来研究候选。
+- 任何新外部研究都必须重新冻结协议和输入并取得新的明确授权，不能沿用此前
+  calibration 或 Facts Study 授权。
 
 ## 3. Evaluator v3 已实现内容
 
@@ -452,10 +459,17 @@ trap 定义（契约语义是 clean 诱饵）。关键 artifact 均在
 - **正式报告**：`docs/translation-quality-facts-study-report-v1.md`
   （问题→方法→10 轮执行历程→33 槽结果→判据→解读→限制→可复现性，
   含全部身份哈希与重建命令）。
-- **campaign 归档**：`.artifacts/i18n/quality/facts-study-campaign-archive.json`
-  （archive_id `ee8973e1…`；33 slot 清单与逐项哈希、normalization 总量：
-  7 槽传输重试、2 处 id 修复、12 条 finding 丢弃、33 处标点规范化、
-  1218 findings；campaign 1–10 失败/成功历史）。
+- **campaign 归档**：工作期索引逻辑路径为
+  `.artifacts/i18n/quality/facts-study-campaign-archive.json`；长期证据保存在项目外
+  A-core 归档 `tome4-chinese-translation-archive-20260808`。归档索引
+  `archive_id=ee8973e1743c15b44af0f8893fe5d47a89806c8a085caa1c2fb629ef805855fa`，
+  文件 SHA-256 为
+  `07a82cb3359ea2e7b9aabb1ec52829e8aa3a53a5a361b149bc9426b08558c851`；顶层
+  `MANIFEST.json` SHA-256 为
+  `cda00693799563205d6a0edf1241309553d6ae058c301323e003b0c51f28adaa`。
+  A-core 含 10 项冻结输入、33 份 assessment、33 份 runner report、角色审计记录、
+  campaign ledger 与 Git bundle；索引和逐槽哈希已全部核验。它不包含体积巨大的
+  provider 原始事件流，不应提交到本源码仓库。
 - 结论与决策以报告 §8 为准：**do-not-promote-facts-channel**，
   holdout_clearance=false；DeepSeek 正向信号与 F 臂（facts-as-verifier）
   作为后续研究候选，需另行设计、另行授权。

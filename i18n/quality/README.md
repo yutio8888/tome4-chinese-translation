@@ -32,12 +32,13 @@
 | `dataset-registry-v1.json` / `schemas/dataset-registry-v1.schema.json` | `tome4-quality-dataset-registry-v1` | 版本化数据集登记（正式 120、32+32、探索集、失败 pilot、候选集）；工具只读，冻结只生成 registry fragment 由主代理合入 |
 | `schemas/quality-common-v1.schema.json` | `tome4-quality-common-v1` | 公共 claim/evidence/provenance/fact/subject/uncertainty $defs，供 curation 与 v2 契约引用 |
 | `language-channel-v1.json` | `tome4-quality-language-channel-v1` | 只冻结独立语言质量通道的输入、taxonomy 与 lineage 边界；本轮不授权或执行外部校准 |
-| 正式报告 `docs/translation-quality-facts-study-report-v1.md` | — | 33-slot 外部因果研究最终报告（do-not-promote-facts-channel），归档索引 `.artifacts/i18n/quality/facts-study-campaign-archive.json` |
+| 正式报告 `docs/translation-quality-facts-study-report-v1.md` | — | 33-slot 外部因果研究最终报告（do-not-promote-facts-channel）；长期 A-core 归档身份为 `ee8973e1…`，不进入源码仓库 |
 
 ## 边界
 
 - 全量 inventory、抽样中间文件、评审原始输出和报告都是**派生 artifact**，
-  只写入 `.artifacts/i18n/quality/runs/`，不进入版本控制。
+  工作期只写入 `.artifacts/i18n/quality/runs/`，不进入版本控制。不可重建证据可在
+  项目外建立只读归档并记录 manifest/hash，但归档本体不得提交到源码仓库。
 - 未经裁决的模型输出不得进入本目录。
 - 试点裁决通过验收并获得明确批准后，才把
   `benchmarks/pilot-v1.jsonl` 加入版本控制。
@@ -70,23 +71,22 @@
   不会向 clean item 注入 finding。封存集和正式集不应用精确 anchor。
 - `report-v3` 绑定 adjudication validation ID（无裁决为 null），读取时按 match 与裁决
   重新派生全部指标；JSON Schema 无法表达的跨 artifact 关系由宿主重验。
-- Facts 研究最新数据契约为 `facts-study-v2`：Fact packet 只允许真正新增的 supplemental
-  信息，每项可为 0–4 条，公共 source/context 重述被禁止；v1 失败 pilot 保留并自动进入
-  历史排除集。命令使用 `facts-study-build`、`facts-study-bundles`、`facts-study-validate`、
-  `facts-study-report` 和独立 runner `tools/pi-quality-facts-study`。draft gold、缺少双人
-  review/adjudication lineage 或不满足 8+8 claim、5 clean、3 fact-trap 配额时，宿主
-  拒绝生成外部可执行 preregistration。缓存关闭，失败 slot 不补跑、不替换。
-- `facts-study-curation-*` 是 curation v1 数据流：`facts-study-curation-build` 生成
-  80 条 source-side 候选池（选择只读 source/source tag/section/profile/公开上下文/术语
-  特征，任意替换 target 不改变选择）；`facts-study-curation-prepare` 在 Facts 冻结后
-  生成 target-visible curator bundle；`facts-study-curation-select` 按 curator
-  assessment 选择最终 20 条（8 fact-dependent、6 surface、6 clean/acceptable，其中
-  ≥5 clean、≥3 fact traps），natural 优先，不足时退出码 2 并产出受控变体 request，
-  受控仅补 fact-dependent 缺口且不授予 clearance。`facts-study-bundles/validate/report`
-  按 sample/prereg contract 自动分派 v1/v2；v2 preregistration 固定
-  `status=offline-frozen`，外部 runner 与外部 assessment 一律拒绝，fake replay 的
-  report 固定为 `non-evidentiary-offline-replay` 且 natural/controlled 指标分离。
-  Facts statement 统一使用英文元语言。
+- Facts packet 的 supplemental-only 语义基线来自 `facts-study-v2`：每项只允许 0–4 条
+  真正新增的信息，禁止复述公共 source/context；v1 失败 pilot 保留并自动进入历史
+  排除集。最终外部研究使用 curation 协议 `facts-study-v5`、sample/preregistration v2
+  和 Fact packet v3，不得把这些版本原地折叠为同一 contract。
+- `facts-study-curation-*` 数据流由 `facts-study-curation-build` 生成 80 条 target-blind
+  候选池，`facts-study-curation-prepare` 冻结 Facts 后生成 target-visible curator
+  bundle，`facts-study-curation-select` 再选择最终 20 条。v3 初始配额为 8
+  fact-dependent / 6 surface / 6 clean/acceptable；最终 v5 配额经版本化修订为
+  12 / 2 / 6，claim 级门槛仍为 ≥8 addressed、≥8 unaddressed、≥5 clean、≥3 traps。
+  natural 优先；controlled 只允许补 fact-dependent 缺口且永不授予 clearance。
+- v2 preregistration 默认固定为 `status=offline-frozen`，只有另建并严格绑定用户授权的
+  execution manifest 后才允许外部执行。已完成的 33-slot campaign 不产生任何后续
+  授权：正式决策为 `do-not-promote-facts-channel`，`holdout_clearance=false`。
+  `facts-study-bundles/validate/report` 继续按 artifact contract 自动分派；fake replay
+  固定标记为 `non-evidentiary-offline-replay`，natural/controlled 指标分离。Facts
+  statement 统一使用英文元语言。
 - 共享 claim/contract 核心位于 `tools/i18nlib/quality_contracts.py` 与
   `tools/i18nlib/quality_claims.py`；v2/v3/Facts 旧模块保留原导出名，通过 re-export
   调用公共实现，历史 contract/artifact 不变。

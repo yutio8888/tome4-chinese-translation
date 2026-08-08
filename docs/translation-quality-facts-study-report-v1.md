@@ -178,7 +178,7 @@ DeepSeek 上方向正确（recall +0.167、2 个稳定隐藏错误被 Facts 发�
 | fact-packets.frozen-v3.json (80) | `09b737e07b601b8faf9cb7d0…` |
 | neutral-packets.json | `d412cf733b2b6036e219a499…` |
 
-关键 artifact 目录（均在 `.artifacts/i18n/quality/runs/` 下）：
+关键 artifact 原始逻辑目录（均位于工作期 `.artifacts/i18n/quality/runs/`）：
 
 - 输入与选择：`20260807T111704.162347Z-facts-study-curation-build`、
   `20260807T124345.706087Z-facts-study-curation-select`
@@ -186,6 +186,16 @@ DeepSeek 上方向正确（recall +0.167、2 个稳定隐藏错误被 Facts 发�
 - 33 槽执行：`20260808T1249…`–`20260808T17…` 各 `pi-facts-study-<slot>/`
 - 外部验证：`20260808T175411.301395Z-facts-study-curation-external`
 - 官方报告：`20260808T175419.274533Z-facts-study-curation-report`
+
+不可重建证据另存于项目外 A-core 归档
+`tome4-chinese-translation-archive-20260808`。归档索引身份为
+`ee8973e1743c15b44af0f8893fe5d47a89806c8a085caa1c2fb629ef805855fa`，索引文件
+SHA-256 为 `07a82cb3359ea2e7b9aabb1ec52829e8aa3a53a5a361b149bc9426b08558c851`，
+顶层 manifest SHA-256 为
+`cda00693799563205d6a0edf1241309553d6ae058c301323e003b0c51f28adaa`。A-core
+保留 10 项冻结输入、33 份 assessment、33 份 runner report、campaign ledger、角色
+审计记录和 Git bundle；逐项哈希均已核验。它不包含 provider 原始事件流，不进入本
+源码仓库。
 
 重建命令（全部确定性）：
 

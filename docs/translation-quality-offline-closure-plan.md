@@ -3,8 +3,9 @@
 > 状态：全部完成（2026-08-08）。工程（2.1–2.4、2.6）、五角色执行
 > （§14–15 两轮，v5 契约修订后 Gold 冻结）、以及经多轮授权契约修订后的
 > **外部 33-slot campaign 全部 33/33 槽通过**，官方因果报告生成
-> （`translation-quality-facts-study-report-v1.md`，归档
-> `.artifacts/i18n/quality/facts-study-campaign-archive.json`）：
+> （`translation-quality-facts-study-report-v1.md`；工作期归档索引逻辑路径为
+> `.artifacts/i18n/quality/facts-study-campaign-archive.json`，长期 A-core 归档身份为
+> `ee8973e1…`，本体不进入源码仓库）：
 > **do-not-promote-facts-channel**（Luna 判据 3/7 失败；DeepSeek 方向正面
 > 但不足以推广；holdout_clearance=false）。详见 `../handoff.md` §14–§16。
 >

@@ -89,8 +89,9 @@ provider，首次调用前仍需明确确认 provider、model 和数据范围；
 受保护组件的 baseline 只记录提取器 commit、规范化快照 SHA-256 和条目数量，不
 保存 DLC 源码路径、源码片段或原始解析日志。
 
-许可证说明（2026-08-04）：ToME4 与三个官方 DLC 均以 **GPL v3（or later）**
-发布（依据：`t-engine4/COPYING` 全文、各 DLC `init.lua` 头部声明）。GPL v3 §2
+许可证说明（2026-08-08）：ToME4 与三个官方 DLC 均以 **GPL v3（or later）**
+发布（依据：`t-engine4/COPYING` 全文、各 DLC `init.lua` 头部声明）。本规范/工具链
+仓库的授权说明与 GPL v3 全文分别位于根目录 `LICENSE`、`COPYING`。GPL v3 §2
 允许不分发的任何使用，包括 AI 读取、分析与提取；仅分发衍生作品（含译文）时
 须遵守 §5（保留版权声明、GPL v3 兼容许可、提供对应源码；发布仓库 tome-chn-mod 按
 ToME4 addon 惯例在 `init.lua` 头部声明 GPL v3 并注明上游版权与衍生作品

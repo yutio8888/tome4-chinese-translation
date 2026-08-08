@@ -1,31 +1,30 @@
 # 对外公布方案（release plan）
 
-> 状态：选项 A 已执行（2026-08-04）。发布仓库已推送至
+> 状态：addon 发布已完成（2026-08-04），规范/工具链仓库正在 `develop`
+> 分支完成公开整合准备（2026-08-08）。发布仓库已推送至
 > **https://github.com/yutio8888/tome4-chn-mod**（public，master @ `947e624`，
-> 含 README）。
+> addon 0.2.4，含 README）。
 
 ## 一、发布内容
 
 | 仓库 | 内容 | 当前 HEAD |
 |---|---|---|
-| `tome-chn-mod`（汉化插件） | 核心 tome 译文 3,354 + DLC 译文 5,426 + nullpack 464（独立文件）+ hooks/superload/overload + GPL v3 声明 | `9273c35`（addon_version 0.2.4） |
-| `tome4-chinese-translation-review-fixes`（规范/工具链） | 规范译文 30,177 条 + 工具链 + 门禁 | 分支 `codex/review-findings-20260802`，领先 origin/master 80+ 提交 |
+| `tome-chn-mod`（汉化插件） | 核心 tome 译文 3,354 + DLC 译文 5,426 + nullpack 464（独立文件）+ hooks/superload/overload + GPL v3 声明 | `947e624`（addon_version 0.2.4） |
+| `tome4-chinese-translation`（规范/工具链） | 规范译文 30,177 条 + 工具链 + 门禁 | `develop`，整合起点 `0f9c513`；`origin/master` 为其祖先 |
 
 ## 二、公布选项
 
-### 选项 A：Git 仓库推送（推荐）
-```bash
-# 发布仓库
-cd ~/projects/tome-chn-mod
-git remote add origin <你的仓库地址>
-git push -u origin master
+### 选项 A：Git 仓库推送
 
-# 规范仓库（可选，公开工具链与规范译文）
-cd ~/projects/tome4-chinese-translation-review-fixes
-git remote add origin <你的仓库地址>
-git push -u origin codex/review-findings-20260802
+addon 仓库已经发布；规范/工具链仓库在完成 `develop` 整合门禁后再建立远端跟踪：
+
+```bash
+cd ~/projects/tome4-chinese-translation
+git push -u origin develop
 ```
-需要：用户提供仓库地址；确认 GPL v3 兼容（两个仓库均需 LICENSE/声明——发布仓库已含 init.lua 声明；规范仓库尚无，发布前应补）。
+
+不得强制推送或改写现有分支历史。根目录 `LICENSE`/`COPYING` 与 README 已纳入
+整合批次；研究原始 artifact 和项目外 A-core 归档不提交到源码仓库。
 
 ### 选项 B：teaa 打包发布（te4.org / 创意工坊）
 ToME addon 的标准分发格式为 teaa（zip 容器 + 固定结构）。流程：
@@ -41,7 +40,8 @@ cp -R ~/projects/tome-chn-mod <游戏目录>/game/addons/chn-mod
 
 ## 三、发布前校验清单（已全部完成）
 
-- [x] `tools/ci-gates.sh` 全绿（doctor/lint 0/0/46 测试/collisions 0/keys/审计/diff-check）
+- [x] `tools/ci-gates.sh` 全绿（doctor、strict lint、401 项 toolchain 测试、运行键扫描、术语审计、构建）
+- [x] quality/Facts 子系统 201 项测试通过（纳入统一门禁为下一整合批次）
 - [x] `tools/smoke_release.py` 16 项全 PASS（加载链 + 一致性）
 - [x] 确定性构建（SHA-256 可复现 `1d2d7428…`）
 - [x] 许可证（GPL v3 依据 + init.lua 声明 + 上游版权）
@@ -63,6 +63,6 @@ cp -R ~/projects/tome-chn-mod <游戏目录>/game/addons/chn-mod
 
 ## 五、决策点（待用户确认）
 
-1. 推送目标仓库地址（选项 A）？
+1. P0/P1 整合门禁通过后，是否推送 `develop` 并创建合入 `master` 的 PR？
 2. 是否需要 teaa 打包（选项 B）？
-3. 规范仓库是否一并公开？
+3. 是否另行制作脱敏研究复现包；A-core 原始归档默认只做私有异地备份？
