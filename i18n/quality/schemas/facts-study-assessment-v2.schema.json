@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-facts-study-assessment-v2",
+  "title": "Facts-study assessment v2 (curation)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract": {"const": "tome4-quality-facts-study-assessment-v2"},
+    "schema_version": {"const": 1},
+    "study_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "slot_id": {"type": "string", "minLength": 1},
+    "evaluator": {"$ref": "#/$defs/evaluatorIdentity"},
+    "bundle_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "bundle_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "prompt_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "assessment_state": {"const": "complete"},
+    "items": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {"$ref": "#/$defs/assessmentItem"}
+    }
+  },
+  "required": [
+    "contract", "schema_version", "study_id", "slot_id", "evaluator",
+    "bundle_id", "bundle_sha256", "prompt_sha256", "assessment_state", "items"
+  ],
+  "$defs": {
+    "evaluatorIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "evaluator_id": {"type": "string", "enum": ["luna", "deepseek"]},
+        "provider": {"type": "string", "minLength": 1},
+        "model": {"type": "string", "minLength": 1},
+        "thinking": {"type": "string", "minLength": 1}
+      },
+      "required": ["evaluator_id", "provider", "model", "thinking"]
+    },
+    "evidence": {"$ref": "quality-common-v1.schema.json#/$defs/evidence"},
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "error_family": {"type": "string", "enum": ["semantic", "terminology", "ui"]},
+        "phenomenon": {
+          "type": "string",
+          "enum": [
+            "number", "number-range", "unit", "condition", "polarity",
+            "entity-role", "scope", "trigger-timing", "omission", "addition",
+            "terminology", "proper-name", "ambiguity", "other"
+          ]
+        },
+        "meaning_change": {
+          "type": "string",
+          "enum": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"]
+        },
+        "source_evidence": {"$ref": "#/$defs/evidence"},
+        "target_evidence": {"$ref": "#/$defs/evidence"},
+        "explanation": {"type": "string", "minLength": 1},
+        "supported_fact_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^fact-[0-9a-f]{16}$"}
+        },
+        "requires_manual": {"type": "boolean"}
+      },
+      "required": [
+        "error_family", "phenomenon", "meaning_change", "source_evidence",
+        "target_evidence", "explanation", "supported_fact_ids", "requires_manual"
+      ]
+    },
+    "assessmentItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "revision_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}}
+      },
+      "required": ["revision_id", "findings"]
+    }
+  }
+}

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import fcntl
 import hashlib
 import json
 import os
@@ -43,13 +44,125 @@ from .quality_v2 import (
     validate_assessment_v2,
     validate_sample_v2,
 )
+from .quality_v3 import (
+    CALIBRATION_V3_CONTRACT,
+    HOLDOUT_V3_CONTRACT,
+    build_assessment_v3,
+    build_evaluator_bundles_v3,
+    canonical_sha256,
+    load_anchors_v2,
+    load_evaluator_prompt_v3,
+    load_policy_v3,
+    load_severity_matrix,
+    validate_assessment_v3,
+    validate_campaign_ledger_v3,
+    validate_holdout_clearance_v3,
+    validate_sample_v3,
+    validate_stability_preregistration_v3,
+    validate_stability_report_v3,
+    runner_report_semantic_identity_v3,
+)
 from .report import atomic_write_bytes, create_run_directory, write_json
 
 QUALITY_EVALUATOR_BUNDLE_CONTRACT = "tome4-quality-evaluator-bundle-v1"
 QUALITY_EVALUATOR_CACHE_CONTRACT = "tome4-pi-quality-evaluator-cache-v1"
 QUALITY_EVALUATOR_CACHE_V2_CONTRACT = "tome4-pi-quality-evaluator-cache-v2"
+QUALITY_EVALUATOR_CACHE_V3_CONTRACT = "tome4-pi-quality-evaluator-cache-v3"
 MAX_EVALUATOR_ITEMS = 120
 DEFAULT_TIMEOUT = 1200
+
+
+def _campaign_ledger_path(root: Path, preregistration_id: str) -> Path:
+    return root / ".artifacts" / "i18n" / "quality" / "calibration-campaigns" / f"{preregistration_id}.json"
+
+
+def _load_campaign_ledger(root: Path, preregistration_id: str) -> dict[str, Any]:
+    return _read_json(
+        _campaign_ledger_path(root, preregistration_id),
+        "quality v3 calibration campaign ledger",
+    )
+
+
+def _register_campaign_stability_report(
+    *, root: Path, preregistration: dict[str, Any], report: dict[str, Any],
+) -> dict[str, Any]:
+    preregistration_id = preregistration["preregistration_id"]
+    path = _campaign_ledger_path(root, preregistration_id)
+    lock_path = path.with_suffix(".lock")
+    with lock_path.open("a+b") as lock:
+        fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+        ledger = _load_campaign_ledger(root, preregistration_id)
+        validate_campaign_ledger_v3(ledger, preregistration=preregistration)
+        validate_stability_report_v3(report, preregistration=preregistration)
+        if report["passed"] is not True:
+            raise ValidationError(
+                "quality v3 campaign registration requires passed=true"
+            )
+        evaluator_id = report["evaluator"]["id"]
+        existing = ledger["stability_reports"].get(evaluator_id)
+        if existing is not None and existing != report["report_id"]:
+            raise ValidationError("quality v3 campaign stability report cannot be replaced")
+        ledger["stability_reports"][evaluator_id] = report["report_id"]
+        write_json(path, ledger)
+        fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
+    return ledger
+
+
+def _update_campaign_transfer(
+    *, root: Path, preregistration_id: str, evaluator_id: str, round_number: int,
+    execution_id: str, shard_index: int, bundle_id: str, new_state: str | None = None,
+) -> dict[str, Any]:
+    if evaluator_id not in {"reviewer-a", "reviewer-b"} or round_number not in {1, 2} or shard_index not in {1, 2}:
+        raise ValidationError("quality v3 calibration transfer slot is outside the frozen campaign")
+    path = _campaign_ledger_path(root, preregistration_id)
+    path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+    lock_path = path.with_suffix(".lock")
+    with lock_path.open("a+b") as lock:
+        fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+        ledger = _read_json(path, "quality v3 calibration campaign ledger") if path.is_file() else {
+            "contract": "tome4-quality-calibration-campaign-ledger-v3",
+            "schema_version": 3,
+            "preregistration_id": preregistration_id,
+            "external_transfer_limit": 8,
+            "transfers": [],
+            "stability_reports": {},
+        }
+        if (
+            ledger.get("contract") != "tome4-quality-calibration-campaign-ledger-v3"
+            or ledger.get("preregistration_id") != preregistration_id
+            or ledger.get("external_transfer_limit") != 8
+            or not isinstance(ledger.get("transfers"), list)
+            or not isinstance(ledger.get("stability_reports"), dict)
+        ):
+            raise ValidationError("quality v3 calibration campaign ledger is invalid")
+        key = (evaluator_id, round_number, shard_index)
+        matches = [
+            entry for entry in ledger["transfers"]
+            if (entry.get("evaluator_id"), entry.get("round"), entry.get("shard_index")) == key
+        ]
+        if new_state is None:
+            if matches:
+                raise ValidationError("quality v3 calibration transfer slot is already consumed")
+            if len(ledger["transfers"]) >= ledger["external_transfer_limit"]:
+                raise ValidationError("quality v3 calibration external transfer limit is exhausted")
+            entry = {
+                "evaluator_id": evaluator_id, "round": round_number,
+                "execution_id": execution_id, "shard_index": shard_index,
+                "bundle_id": bundle_id, "state": "claimed",
+            }
+            ledger["transfers"].append(entry)
+        else:
+            if len(matches) != 1:
+                raise ValidationError("quality v3 calibration transfer slot is missing or duplicated")
+            entry = matches[0]
+            if entry.get("execution_id") != execution_id or entry.get("bundle_id") != bundle_id or entry.get("state") != "claimed":
+                raise ValidationError("quality v3 calibration transfer slot identity differs")
+            if new_state not in {"succeeded", "failed"}:
+                raise ValidationError("quality v3 calibration transfer terminal state is invalid")
+            entry["state"] = new_state
+        write_json(path, ledger)
+        fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
+    return ledger
 
 
 def _read_json(path: Path, label: str) -> dict[str, Any]:
@@ -190,11 +303,69 @@ def _cache_key_v2(
     )
 
 
+def _cache_key_v3(
+    *,
+    sample_id: str,
+    evaluator_id: str,
+    provider: str,
+    model: str,
+    thinking: str,
+    prompt_sha256: str,
+    policy_sha256: str,
+    severity_matrix_sha256: str,
+    anchors_sha256: str,
+    bundle_ids: list[str],
+    bundle_sha256s: list[str],
+    strict: bool,
+    clearance_id: str | None = None,
+) -> str:
+    return canonical_sha256(
+        {
+            "cache_contract": QUALITY_EVALUATOR_CACHE_V3_CONTRACT,
+            "tool_version": TOOL_VERSION,
+            "sample_id": sample_id,
+            "evaluator_id": evaluator_id,
+            "provider": provider,
+            "model": model,
+            "thinking": thinking,
+            "prompt_sha256": prompt_sha256,
+            "policy_sha256": policy_sha256,
+            "severity_matrix_sha256": severity_matrix_sha256,
+            "anchors_sha256": anchors_sha256,
+            "bundle_ids": bundle_ids,
+            "bundle_sha256s": bundle_sha256s,
+            "strict": strict,
+            "clearance_id": clearance_id,
+        }
+    )
+
+
+def _strip_markdown_fence(text: str) -> str:
+    """Strip one markdown code fence around a JSON object (mechanical wrapper)."""
+    stripped = text.strip()
+    lines = stripped.splitlines()
+    if lines and lines[0].startswith("```"):
+        lines = lines[1:]
+        if lines and lines[-1].strip() == "```":
+            lines = lines[:-1]
+        stripped = "\n".join(lines).strip()
+    return stripped
+
+
 def _decode_quality_model_output(raw: bytes) -> tuple[dict[str, Any], str]:
     extracted = extract_event_stream_output(raw, "Pi quality evaluator output")
     try:
         return decode_json_object(extracted, "Pi quality evaluator output"), "none"
     except ValidationError as original:
+        # Some models wrap the object in a markdown code fence; strip exactly
+        # one fence before the deterministic missing-brace repair.
+        try:
+            fenced_text = _strip_markdown_fence(extracted.decode("utf-8"))
+            fenced = fenced_text.encode("utf-8")
+            if fenced != extracted:
+                return decode_json_object(fenced, "Pi quality evaluator output"), "stripped-markdown-fence"
+        except (UnicodeDecodeError, ValidationError):
+            pass
         # Some models occasionally emit the complete items array but omit only
         # the final outer-object brace. Repair exactly that deterministic case;
         # all semantic content still goes through strict assessment validation.
@@ -504,6 +675,324 @@ def _run_pi_quality_evaluator_v2(
     return report
 
 
+def _run_pi_quality_evaluator_v3(
+    manifest: Any,
+    *,
+    sample: dict[str, Any],
+    evaluator_id: str,
+    provider: str,
+    model: str,
+    thinking: str,
+    timeout: int,
+    strict: bool,
+    use_cache: bool,
+    force: bool,
+    pi_executable: str | None,
+    started: float,
+    preregistration: dict[str, Any],
+    run_number: int | None,
+    stability_reports: tuple[dict[str, Any], dict[str, Any]] | None,
+) -> dict[str, Any]:
+    policy = load_policy_v3(manifest)
+    matrix = load_severity_matrix(manifest, policy)
+    anchors = load_anchors_v2(manifest, policy=policy, matrix=matrix)
+    bundles = build_evaluator_bundles_v3(
+        sample=sample,
+        evaluator_id=evaluator_id,
+        policy=policy,
+        matrix=matrix,
+        max_items=policy["max_shard_items"],
+    )
+    bundle_ids = [bundle["bundle_id"] for bundle in bundles]
+    bundle_sha256s = [canonical_sha256(bundle) for bundle in bundles]
+    try:
+        system_prompt = load_evaluator_prompt_v3(manifest)
+    except ConfigurationError as error:
+        raise AgentError("cannot read Pi quality evaluator v3 prompt or rubric") from error
+    prompt_sha256 = hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()
+    policy_sha256 = canonical_sha256(policy)
+    matrix_sha256 = canonical_sha256(matrix)
+    anchors_sha256 = canonical_sha256(anchors)
+    bundles_by_evaluator = {
+        identity: build_evaluator_bundles_v3(
+            sample=sample, evaluator_id=identity, policy=policy, matrix=matrix
+        )
+        for identity in policy["evaluator_ids"]
+    }
+    bundle_ids_by_evaluator = {
+        identity: [bundle["bundle_id"] for bundle in values]
+        for identity, values in bundles_by_evaluator.items()
+    }
+    bundle_hashes_by_evaluator = {
+        identity: [canonical_sha256(bundle) for bundle in values]
+        for identity, values in bundles_by_evaluator.items()
+    }
+    clearance_id = None
+    registered_evaluator = next(
+        (
+            item for item in preregistration.get("evaluators", [])
+            if isinstance(item, dict) and item.get("id") == evaluator_id
+        ),
+        None,
+    )
+    if registered_evaluator is None or any(
+        registered_evaluator.get(field) != value
+        for field, value in (("provider", provider), ("model", model), ("thinking", thinking))
+    ):
+        raise ValidationError("quality v3 runner evaluator configuration differs from preregistration")
+    if sample["dataset_kind"] == "calibration":
+        if run_number not in (1, 2):
+            raise ValidationError("quality v3 calibration requires --run-number 1 or 2")
+        if use_cache:
+            raise ValidationError("quality v3 calibration forbids result cache")
+        validate_stability_preregistration_v3(
+            preregistration, sample=sample, policy=policy, matrix=matrix, anchors=anchors,
+            prompt_sha256=prompt_sha256,
+            bundle_ids_by_evaluator=bundle_ids_by_evaluator,
+            bundle_sha256s_by_evaluator=bundle_hashes_by_evaluator,
+        )
+    else:
+        if run_number is not None:
+            raise ValidationError("quality v3 holdout does not accept --run-number")
+        if stability_reports is None:
+            raise ValidationError("quality v3 holdout requires two stability reports")
+        campaign_ledger = _load_campaign_ledger(
+            manifest.root, preregistration["preregistration_id"]
+        )
+        clearance_id = validate_holdout_clearance_v3(
+            sample=sample, preregistration=preregistration,
+            stability_reports=stability_reports, policy=policy, matrix=matrix,
+            anchors=anchors, prompt_sha256=prompt_sha256,
+            campaign_ledger=campaign_ledger,
+        )
+    evaluator = {
+        "kind": "model", "id": evaluator_id, "method_version": "mqm-pilot-v3",
+        "provider": provider, "model": model, "thinking": thinking,
+        "prompt_sha256": prompt_sha256, "policy_sha256": policy_sha256,
+        "severity_matrix_sha256": matrix_sha256, "anchors_sha256": anchors_sha256,
+        "bundle_ids": bundle_ids, "bundle_sha256s": bundle_sha256s,
+    }
+    key = _cache_key_v3(
+        sample_id=sample["sample_id"], evaluator_id=evaluator_id,
+        provider=provider, model=model, thinking=thinking,
+        prompt_sha256=prompt_sha256, policy_sha256=policy_sha256,
+        severity_matrix_sha256=matrix_sha256, anchors_sha256=anchors_sha256,
+        bundle_ids=bundle_ids, bundle_sha256s=bundle_sha256s, strict=strict,
+        clearance_id=clearance_id,
+    )
+    cache_path = _cache_path(manifest.root, key)
+    run_directory = create_run_directory(manifest.root, "pi-quality-evaluator-v3")
+    run_directory.chmod(0o700)
+    assessment_path = run_directory / "assessment.json"
+    report_path = run_directory / "pi-quality-evaluator.json"
+    report: dict[str, Any] = {
+        "schema_version": 3, "tool_version": TOOL_VERSION, "ok": False,
+        "mode": "blind-quality-assessment-v3", "version": manifest.version,
+        "sample_id": sample["sample_id"], "sample_contract": sample["quality_contract"],
+        "evaluator_id": evaluator_id, "provider": provider, "model": model,
+        "thinking": thinking, "strict": strict, "items": len(sample["items"]),
+        "shards": len(bundles), "bundle_ids": bundle_ids,
+        "bundle_sha256s": bundle_sha256s,
+        "pi_tools": False, "pi_session": False, "candidate_execution": False,
+        "blind_inputs": {
+            "other_assessments": False, "adjudication": False,
+            "historical_findings": False, "expected_grades": False,
+            "anchors": False,
+        },
+        "prompt_sha256": prompt_sha256, "policy_sha256": policy_sha256,
+        "severity_matrix_sha256": matrix_sha256, "anchors_sha256": anchors_sha256,
+        "result_cache_key": key,
+        "cache_decision": "disabled" if not use_cache else "bypass" if force else "miss",
+        "attempts": 0, "charged_or_possible_transfers": 0,
+        "validated_results": 0, "run_directory": str(run_directory),
+        "report": str(report_path),
+        "preregistration_id": preregistration["preregistration_id"],
+        "clearance_id": clearance_id,
+    }
+    execution_id = hashlib.sha256(os.urandom(32)).hexdigest()
+    if sample["dataset_kind"] == "calibration":
+        report.update(round=run_number, execution_id=execution_id, shard_transfers=[])
+    if use_cache and not force and cache_path.is_file():
+        cached = _read_json(cache_path, "quality evaluator v3 cache")
+        expected_cache = {
+            "cache_contract": QUALITY_EVALUATOR_CACHE_V3_CONTRACT,
+            "cache_key": key, "sample_id": sample["sample_id"],
+            "evaluator_id": evaluator_id, "provider": provider, "model": model,
+            "thinking": thinking, "prompt_sha256": prompt_sha256,
+            "policy_sha256": policy_sha256, "severity_matrix_sha256": matrix_sha256,
+            "anchors_sha256": anchors_sha256, "bundle_ids": bundle_ids,
+            "bundle_sha256s": bundle_sha256s, "strict": strict,
+            "clearance_id": clearance_id,
+        }
+        if any(cached.get(field) != value for field, value in expected_cache.items()):
+            raise AgentError("quality evaluator v3 cache identity does not match")
+        assessment = cached.get("assessment")
+        if not isinstance(assessment, dict):
+            raise AgentError("quality evaluator v3 cache has no assessment")
+        normalized = validate_assessment_v3(
+            assessment, sample=sample, policy=policy, matrix=matrix,
+            anchors=anchors, expected_evaluator=evaluator,
+        )
+        write_json(assessment_path, assessment)
+        report.update(
+            ok=True, cache_decision="hit", assessment=str(assessment_path),
+            assessment_sha256=hashlib.sha256(assessment_path.read_bytes()).hexdigest(),
+            validated_results=1,
+            findings=sum(len(item["findings"]) for item in normalized["items"]),
+            raw_findings=sum(len(item["raw_findings"]) for item in normalized["items"]),
+            elapsed_seconds=round(time.monotonic() - started, 6),
+        )
+        write_json(report_path, report)
+        return report
+
+    executable = pi_executable or shutil.which("pi")
+    if not executable:
+        raise AgentError("pi is not available on PATH")
+    merged_items: list[dict[str, Any]] = []
+    raw_outputs: list[str] = []
+    normalizations: list[str] = []
+    shard_artifacts: list[dict[str, Any]] = []
+    claimed_transfers: list[tuple[int, str]] = []
+
+    def finalize_calibration_transfers(state: str) -> None:
+        if sample["dataset_kind"] != "calibration":
+            return
+        for claimed_shard, claimed_bundle in claimed_transfers:
+            _update_campaign_transfer(
+                root=manifest.root,
+                preregistration_id=preregistration["preregistration_id"],
+                evaluator_id=evaluator_id, round_number=run_number,
+                execution_id=execution_id, shard_index=claimed_shard,
+                bundle_id=claimed_bundle, new_state=state,
+            )
+    for bundle in bundles:
+        shard_index = bundle["shard_index"]
+        bundle_path = run_directory / f"quality-bundle-{shard_index:03d}.json"
+        raw_path = run_directory / f"raw-output-{shard_index:03d}.txt"
+        stderr_path = run_directory / f"pi-stderr-{shard_index:03d}.txt"
+        write_json(bundle_path, bundle)
+        command = build_quality_evaluator_command(
+            executable=executable, provider=provider, model=model, thinking=thinking,
+            system_prompt=system_prompt, bundle_path=Path(bundle_path.name),
+        )
+        report["attempts"] += 1
+        report["charged_or_possible_transfers"] += 1
+        if sample["dataset_kind"] == "calibration":
+            _update_campaign_transfer(
+                root=manifest.root, preregistration_id=preregistration["preregistration_id"],
+                evaluator_id=evaluator_id, round_number=run_number,
+                execution_id=execution_id, shard_index=shard_index,
+                bundle_id=bundle["bundle_id"],
+            )
+            claimed_transfers.append((shard_index, bundle["bundle_id"]))
+        try:
+            result = _run_file_review_process(
+                command, cwd=run_directory, env=_pi_environment(manifest.root, provider),
+                timeout=timeout, raw_output_path=raw_path, stderr_path=stderr_path,
+            )
+        except (subprocess.TimeoutExpired, OSError) as error:
+            finalize_calibration_transfers("failed")
+            report.update(error=str(error), elapsed_seconds=round(time.monotonic() - started, 6))
+            write_json(report_path, report)
+            raise AgentError(f"Pi quality evaluator v3 shard {shard_index} failed: {error}") from error
+        atomic_write_bytes(raw_path, result.stdout)
+        if result.stderr:
+            atomic_write_bytes(stderr_path, result.stderr)
+        raw_outputs.append(str(raw_path))
+        if result.returncode != 0 or not result.stdout.strip():
+            finalize_calibration_transfers("failed")
+            report.update(
+                error=f"Pi shard {shard_index} exited with status {result.returncode}",
+                raw_outputs=raw_outputs, elapsed_seconds=round(time.monotonic() - started, 6),
+            )
+            write_json(report_path, report)
+            raise AgentError(f"{report['error']}; report: {report_path}")
+        try:
+            output, normalization = _decode_quality_model_output(result.stdout)
+            if set(output) != {"items"} or not isinstance(output["items"], list):
+                raise ValidationError("must return exactly an items array")
+            expected_revisions = [item["revision_id"] for item in bundle["items"]]
+            received_revisions = [item.get("revision_id") for item in output["items"] if isinstance(item, dict)]
+            if received_revisions != expected_revisions:
+                raise ValidationError("coverage/order mismatch")
+        except ValidationError as error:
+            finalize_calibration_transfers("failed")
+            report.update(
+                error=f"Pi quality evaluator v3 shard {shard_index}: {error}",
+                failed_shard=shard_index, raw_outputs=raw_outputs,
+                shard_artifacts=shard_artifacts,
+                elapsed_seconds=round(time.monotonic() - started, 6),
+            )
+            write_json(report_path, report)
+            raise AgentError(f"{report['error']}; report: {report_path}") from error
+        parsed_path = run_directory / f"parsed-output-{shard_index:03d}.json"
+        write_json(parsed_path, output)
+        shard_artifacts.append(
+            {
+                "shard_index": shard_index, "raw_output": str(raw_path),
+                "raw_output_sha256": hashlib.sha256(result.stdout).hexdigest(),
+                "parsed_output": str(parsed_path),
+                "parsed_output_sha256": hashlib.sha256(parsed_path.read_bytes()).hexdigest(),
+                "normalization": normalization,
+            }
+        )
+        merged_items.extend(output["items"])
+        normalizations.append(normalization)
+    try:
+        assessment = build_assessment_v3(
+            sample_id=sample["sample_id"], evaluator=evaluator, items=merged_items
+        )
+        normalized = validate_assessment_v3(
+            assessment, sample=sample, policy=policy, matrix=matrix,
+            anchors=anchors, expected_evaluator=evaluator,
+        )
+    except ValidationError as error:
+        finalize_calibration_transfers("failed")
+        report.update(
+            error=f"Pi quality evaluator v3 assessment validation failed: {error}",
+            raw_outputs=raw_outputs, shard_artifacts=shard_artifacts,
+            elapsed_seconds=round(time.monotonic() - started, 6),
+        )
+        write_json(report_path, report)
+        raise AgentError(f"{report['error']}; report: {report_path}") from error
+    if sample["dataset_kind"] == "calibration":
+        finalize_calibration_transfers("succeeded")
+        report["shard_transfers"] = [
+            {"shard_index": shard_index, "bundle_id": bundle_id, "state": "succeeded"}
+            for shard_index, bundle_id in claimed_transfers
+        ]
+    write_json(assessment_path, assessment)
+    if use_cache and not force:
+        cache_path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+        write_json(
+            cache_path,
+            {
+                "cache_contract": QUALITY_EVALUATOR_CACHE_V3_CONTRACT,
+                "cache_key": key, "sample_id": sample["sample_id"],
+                "evaluator_id": evaluator_id, "provider": provider, "model": model,
+                "thinking": thinking, "prompt_sha256": prompt_sha256,
+                "policy_sha256": policy_sha256, "severity_matrix_sha256": matrix_sha256,
+                "anchors_sha256": anchors_sha256, "bundle_ids": bundle_ids,
+                "bundle_sha256s": bundle_sha256s, "strict": strict,
+                "clearance_id": clearance_id,
+                "assessment": assessment,
+            },
+        )
+    report.update(
+        ok=True, assessment=str(assessment_path), raw_outputs=raw_outputs,
+        assessment_sha256=hashlib.sha256(assessment_path.read_bytes()).hexdigest(),
+        normalizations=normalizations, shard_artifacts=shard_artifacts,
+        findings=sum(len(item["findings"]) for item in normalized["items"]),
+        raw_findings=sum(len(item["raw_findings"]) for item in normalized["items"]),
+        anchor_rejections=sum(len(item["anchor_rejections"]) for item in normalized["items"]),
+        validated_results=1, elapsed_seconds=round(time.monotonic() - started, 6),
+    )
+    if sample["dataset_kind"] == "calibration":
+        report["runner_report_id"] = runner_report_semantic_identity_v3(report)
+    write_json(report_path, report)
+    return report
+
+
 def run_pi_quality_evaluator(
     *,
     sample_path: Path,
@@ -516,6 +1005,9 @@ def run_pi_quality_evaluator(
     use_cache: bool = True,
     force: bool = False,
     pi_executable: str | None = None,
+    preregistration_path: Path | None = None,
+    run_number: int | None = None,
+    stability_report_paths: tuple[Path, Path] | None = None,
 ) -> dict[str, Any]:
     validate_pi_run_options(
         evaluator_id=evaluator_id,
@@ -532,6 +1024,37 @@ def run_pi_quality_evaluator(
     sample_resolved = sample_path.expanduser().resolve()
     raw_sample = _read_json(sample_resolved, "quality sample")
     sample_contract = raw_sample.get("quality_contract")
+    if sample_contract in (CALIBRATION_V3_CONTRACT, HOLDOUT_V3_CONTRACT):
+        if preregistration_path is None:
+            raise ValidationError("quality v3 requires --preregistration")
+        preregistration = _read_json(
+            preregistration_path.expanduser().resolve(), "quality v3 preregistration"
+        )
+        stability_reports = None
+        if stability_report_paths is not None:
+            stability_reports = tuple(
+                _read_json(path.expanduser().resolve(), "quality v3 stability report")
+                for path in stability_report_paths
+            )
+        policy_v3 = load_policy_v3(manifest)
+        sample_v3 = validate_sample_v3(raw_sample, policy_v3)
+        return _run_pi_quality_evaluator_v3(
+            manifest,
+            sample=sample_v3,
+            evaluator_id=evaluator_id,
+            provider=provider,
+            model=model,
+            thinking=thinking,
+            timeout=timeout,
+            strict=strict,
+            use_cache=use_cache,
+            force=force,
+            pi_executable=pi_executable,
+            started=started,
+            preregistration=preregistration,
+            run_number=run_number,
+            stability_reports=stability_reports,
+        )
     if sample_contract in (CALIBRATION_CONTRACT, HOLDOUT_CONTRACT):
         sample_v2 = validate_sample_v2(raw_sample)
         return _run_pi_quality_evaluator_v2(
@@ -808,6 +1331,9 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--strict", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--cache", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--force", action="store_true")
+    parser.add_argument("--preregistration", type=Path)
+    parser.add_argument("--run-number", type=int, choices=(1, 2))
+    parser.add_argument("--stability-report", action="append", type=Path)
     return parser
 
 
@@ -815,6 +1341,11 @@ def main(argv: list[str] | None = None) -> int:
     os.umask(0o077)
     arguments = _parser().parse_args(argv)
     try:
+        stability_paths = None
+        if arguments.stability_report is not None:
+            if len(arguments.stability_report) != 2:
+                raise ValidationError("quality v3 holdout requires exactly two --stability-report values")
+            stability_paths = tuple(arguments.stability_report)
         report = run_pi_quality_evaluator(
             sample_path=arguments.sample,
             evaluator_id=arguments.evaluator,
@@ -825,6 +1356,9 @@ def main(argv: list[str] | None = None) -> int:
             strict=arguments.strict,
             use_cache=arguments.cache,
             force=arguments.force,
+            preregistration_path=arguments.preregistration,
+            run_number=arguments.run_number,
+            stability_report_paths=stability_paths,
         )
     except I18nToolError as error:
         print(f"ERROR: {error}", file=sys.stderr)

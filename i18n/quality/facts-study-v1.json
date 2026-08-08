@@ -1,0 +1,40 @@
+{
+  "arms": ["A", "B", "C", "D", "N", "L", "F"],
+  "cache_policy": "disabled",
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": "tome4-facts-study-v1-paired-item-bootstrap",
+  "contract": "tome4-quality-facts-study-protocol-v1",
+  "contrasts": ["B-A", "C-A", "D-B", "(D-C)-(B-A)", "N-B", "L-D", "T-B"],
+  "decision_rule": {
+    "deepseek_fact_addressed_stable_added_claims_min": 1,
+    "deepseek_same_direction": true,
+    "fact_trap_false_findings_increase_per_run_max": 1,
+    "fact_unaddressed_recall_drop_max": 0.0,
+    "luna_added_true_claims_min": 2,
+    "luna_added_true_claims_required_runs": 2,
+    "precision_drop_max": 0.03,
+    "schema_and_evidence_validity_min": 1.0,
+    "single_pass_equivalence_margin": 0.01
+  },
+  "evaluators": {
+    "deepseek": {
+      "model": "deepseek-v4-flash",
+      "provider": "opencode-go",
+      "thinking": "max"
+    },
+    "luna": {
+      "model": "gpt-5.6-luna",
+      "provider": "openai-codex",
+      "thinking": "max"
+    }
+  },
+  "execution_order_seed": "tome4-facts-study-v1-execution-order",
+  "item_count": 20,
+  "max_external_slots": 33,
+  "replacement_policy": "forbidden",
+  "replicates_per_arm": 3,
+  "schedule_seed": "tome4-facts-study-v1-slots",
+  "seed_application": "preregistered-request-nonce-provider-sampler-seed-unavailable",
+  "schema_version": 1,
+  "shard_count": 1
+}

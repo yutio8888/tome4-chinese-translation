@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-fact-packet-v2",
+  "additionalProperties": false,
+  "properties": {
+    "authoring_lineage": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_id": {"minLength": 1, "type": "string"},
+        "common_input_restatements_excluded": {"const": true},
+        "gold_seen": {"const": false},
+        "role": {"enum": ["facts-author", "host-neutral-generator"]},
+        "source_inputs_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+        "target_defects_seen": {"const": false}
+      },
+      "required": ["role", "actor_id", "target_defects_seen", "gold_seen", "common_input_restatements_excluded", "source_inputs_sha256"],
+      "type": "object"
+    },
+    "contract": {"const": "tome4-quality-fact-packet-v2"},
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "facts": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "fact_id": {"pattern": "^fact-[0-9a-f]{16}$", "type": "string"},
+                "fact_type": {"type": "string"},
+                "provenance": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "kind": {"type": "string"},
+                    "reference": {"minLength": 1, "type": "string"},
+                    "sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+                  },
+                  "required": ["kind", "reference", "sha256"],
+                  "type": "object"
+                },
+                "statement": {"minLength": 1, "type": "string"}
+              },
+              "required": ["fact_id", "fact_type", "statement", "provenance"],
+              "type": "object"
+            },
+            "maxItems": 4,
+            "minItems": 0,
+            "type": "array"
+          },
+          "revision_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+        },
+        "required": ["revision_id", "facts"],
+        "type": "object"
+      },
+      "maxItems": 20,
+      "minItems": 20,
+      "type": "array"
+    },
+    "non_exhaustive": {"const": true},
+    "packet_kind": {"enum": ["facts", "neutral"]},
+    "schema_version": {"const": 1},
+    "status": {"enum": ["draft", "frozen"]},
+    "study_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "supplemental_only": {"const": true}
+  },
+  "required": ["contract", "schema_version", "study_id", "packet_kind", "status", "non_exhaustive", "supplemental_only", "authoring_lineage", "items"],
+  "title": "Supplemental-only Fact or byte-matched neutral packet v2",
+  "type": "object"
+}

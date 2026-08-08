@@ -1,7 +1,7 @@
 # ToME4 翻译质量评价与可复用译文库整体方案
 
 > 状态：设计草案 v0.1。第一阶段（质量清单与校准试点）的 M0–M3 已实现：
-> v1 inventory/sample/validate/report 与 12 条探索盲测已落地；Evaluator v2 离线契约、规则引擎、问题匹配、匿名裁决、32+32 数据准备、分片、fake runner 和报告已于 2026-08-06 完成。presentation-only 漂移已改为宿主确定性 scope；新 lineage 复测中 Luna 两次 finding Jaccard 与两模型有效主跑交叉 Jaccard 均为 1.000，但 DeepSeek 强制复跑未产生 final answer，按预注册不可替换，M4d 仍为 No-Go。封存验证、正式 120 条、M5 裁决与 M6 Go/No-Go 均未启动。
+> v1 inventory/sample/validate/report 与 12 条探索盲测已落地；Evaluator v2 离线契约、规则引擎、问题匹配、匿名裁决、32+32 数据准备、分片、fake runner 和报告已于 2026-08-06 完成。presentation-only 漂移已改为宿主确定性 scope；新 lineage 复测中 Luna 两次 finding Jaccard 与两模型有效主跑交叉 Jaccard 均为 1.000，但 DeepSeek 强制复跑未产生 final answer，按预注册不可替换，M4d 仍为 No-Go。封存验证、正式 120 条、M5 裁决与 M6 Go/No-Go 均未启动。2026-08-07 离线闭环：共享 claim/contract 核心（quality_contracts/quality_claims，legacy v2/v3/Facts 与 canonical-v1 四 profile）、版本化 dataset-registry-v1（8 登记项/276 revision）、curation v1 数据流（80 条 source-side 候选池已真实构建，五 stratum 达标并显式报告 ui 长度 relaxation）与 15 个完整嵌套 schema 已落地；五个隔离角色（Facts/curator/Gold A/B/adjudicator）执行停在外部授权边界之前，33-slot fake replay 与 report v2 已通过 fixture 集成验证。
 > 适用范围：本仓库中的规范中文译文、术语库以及由它们生成的翻译记忆和联想索引。
 > 第一阶段实施方案见 [`translation-quality-phase-1.md`](./translation-quality-phase-1.md)；
 > AI evaluator 的事实判定、问题匹配、规则定级和匿名裁决 v2 方案见
@@ -544,6 +544,8 @@ i18n/quality/
 - 不构建面向用户的模糊匹配，不给全语料自动贴 Gold。
 
 详见 [`translation-quality-phase-1.md`](./translation-quality-phase-1.md)。
+当前 Evaluator v3/Facts curation 的离线收口实施细节见
+[`translation-quality-offline-closure-plan.md`](./translation-quality-offline-closure-plan.md)。
 
 ### 阶段 2：精确高质量译文库
 

@@ -15,6 +15,21 @@ from .build import build_addon_locale, build_full_locales
 from .config import ComponentSpec, Manifest, load_manifest
 from .context import resolve_context, validate_context_options
 from .errors import I18nToolError, ValidationError
+from .facts_study import (
+    run_build as run_facts_study_build,
+    run_bundles as run_facts_study_bundles,
+    run_report as run_facts_study_report,
+    run_validate as run_facts_study_validate,
+)
+from .facts_curation import (
+    run_curation_build,
+    run_execution_manifest,
+    run_curation_bundles,
+    run_curation_prepare,
+    run_curation_report,
+    run_curation_select,
+    run_curation_validate,
+)
 from .extract import extract_components, probe_protected_component
 from .git_source import GitRepository
 from .lint import Issue, lint_documents, lint_terminology, load_policy
@@ -22,6 +37,7 @@ from .locale_model import LocaleLoader
 from .merge import run_merge
 from .proposal import validate_proposal
 from .publish import publish_addon
+from .pi_quality import _register_campaign_stability_report
 from .quality import (
     create_quality_run_directory,
     load_taxonomy,
@@ -49,6 +65,27 @@ from .quality_v2 import (
     validate_sample_v2,
     validate_stability_preregistration_v2,
     bytes_sha256,
+)
+from .quality_v3 import (
+    adjudicate_v3,
+    build_disputes_v3,
+    build_evaluator_bundles_v3,
+    build_report_v3,
+    build_stability_report_v3,
+    load_anchors_v2,
+    load_evaluator_prompt_v3,
+    load_policy_v3,
+    load_severity_matrix,
+    match_assessments_v3,
+    run_calibration_v3,
+    run_evaluator_bundles_v3,
+    validate_assessment_v3,
+    validate_adjudication_validation_v3,
+    validate_match_v3,
+    validate_report_v3,
+    validate_sample_v3,
+    validate_stability_report_v3,
+    validate_stability_preregistration_v3,
 )
 from .report import create_run_directory, write_json
 from .review import create_review_index, review_index_summary
@@ -371,6 +408,158 @@ def _parser() -> argparse.ArgumentParser:
         "--run-report", action="append", required=True, type=Path
     )
     quality_stability.add_argument("--preregistration", required=True, type=Path)
+
+    quality_calibration_v3 = quality_subparsers.add_parser(
+        "calibration-v3", help="project the frozen evaluator-v2 32+32 selection into v3 contracts",
+    )
+    _add_common_arguments(quality_calibration_v3)
+    quality_calibration_v3.add_argument("--inventory", required=True, type=Path)
+    quality_bundles_v3 = quality_subparsers.add_parser(
+        "evaluator-bundles-v3", help="build offline evaluator-v3 shards without calling a provider",
+    )
+    _add_common_arguments(quality_bundles_v3)
+    quality_bundles_v3.add_argument("--sample", required=True, type=Path)
+    quality_bundles_v3.add_argument("--evaluator", required=True)
+    quality_match_v3 = quality_subparsers.add_parser(
+        "match-v3", help="normalize anchors and match two complete evaluator-v3 assessments",
+    )
+    _add_common_arguments(quality_match_v3)
+    quality_match_v3.add_argument("--sample", required=True, type=Path)
+    quality_match_v3.add_argument("--assessment", action="append", required=True, type=Path)
+    quality_disputes_v3 = quality_subparsers.add_parser(
+        "disputes-v3", help="build an anonymous v3 dispute bundle and identity mapping",
+    )
+    _add_common_arguments(quality_disputes_v3)
+    quality_disputes_v3.add_argument("--match", required=True, type=Path)
+    quality_disputes_v3.add_argument("--sample", required=True, type=Path)
+    quality_disputes_v3.add_argument("--seed", default="tome4-quality-disputes-v3")
+    quality_adjudicate_v3 = quality_subparsers.add_parser(
+        "adjudicate-v3", help="validate v3 finding rejection or provisional severity adjudication",
+    )
+    _add_common_arguments(quality_adjudicate_v3)
+    quality_adjudicate_v3.add_argument("--match", required=True, type=Path)
+    quality_adjudicate_v3.add_argument("--adjudication", required=True, type=Path)
+    quality_adjudicate_v3.add_argument("--strict", action="store_true")
+    quality_report_v3 = quality_subparsers.add_parser(
+        "report-v3", help="build raw-model, anchor-normalized, severity and burden metrics",
+    )
+    _add_common_arguments(quality_report_v3)
+    quality_report_v3.add_argument("--match", required=True, type=Path)
+    quality_report_v3.add_argument("--adjudication-validation", type=Path)
+    quality_stability_v3 = quality_subparsers.add_parser(
+        "stability-v3", help="compare two real frozen evaluator-v3 runs against preregistration",
+    )
+    _add_common_arguments(quality_stability_v3)
+    quality_stability_v3.add_argument("--sample", required=True, type=Path)
+    quality_stability_v3.add_argument("--assessment", action="append", required=True, type=Path)
+    quality_stability_v3.add_argument("--run-report", action="append", required=True, type=Path)
+    quality_stability_v3.add_argument("--preregistration", required=True, type=Path)
+    facts_build = quality_subparsers.add_parser(
+        "facts-study-build",
+        help="build a new isolated 20-item supplemental-only Facts study set",
+    )
+    _add_common_arguments(facts_build)
+    facts_build.add_argument("--inventory", required=True, type=Path)
+    facts_build.add_argument(
+        "--exclude-sample", action="append", default=[], required=True, type=Path,
+        help="sample/dataset whose revision IDs must be excluded; repeat for every frozen lineage",
+    )
+    facts_build.add_argument("--seed", default="tome4-facts-study-v2-candidate")
+    facts_bundles = quality_subparsers.add_parser(
+        "facts-study-bundles",
+        help="freeze seven blinded arm bundles and the exact 33-slot preregistration",
+    )
+    _add_common_arguments(facts_bundles)
+    facts_bundles.add_argument("--sample", required=True, type=Path)
+    facts_bundles.add_argument("--facts", required=True, type=Path)
+    facts_bundles.add_argument("--gold", required=True, type=Path)
+    facts_bundles.add_argument("--gold-review", action="append", required=True, type=Path)
+    facts_bundles.add_argument("--gold-adjudication", required=True, type=Path)
+    facts_validate = quality_subparsers.add_parser(
+        "facts-study-validate",
+        help="strictly validate all 33 assessments or run the offline fake replay",
+    )
+    _add_common_arguments(facts_validate)
+    for flag in ("sample", "facts", "neutral", "gold", "preregistration"):
+        facts_validate.add_argument(f"--{flag}", required=True, type=Path)
+    facts_validate.add_argument("--bundle", action="append", required=True, type=Path)
+    facts_validate.add_argument("--assessment", action="append", default=[], type=Path)
+    facts_validate.add_argument("--run-report", action="append", default=[], type=Path)
+    facts_validate.add_argument("--fake-runner", action="store_true")
+    facts_report = quality_subparsers.add_parser(
+        "facts-study-report",
+        help="build causal metrics and the preregistered Facts-channel decision",
+    )
+    _add_common_arguments(facts_report)
+    facts_report.add_argument("--validation", required=True, type=Path)
+    facts_bundles.add_argument(
+        "--pool", type=Path, help="curation pool.json (required for sample v2)"
+    )
+    facts_bundles.add_argument(
+        "--facts-pool", type=Path,
+        help="80-item pool facts packet (required for sample v2)",
+    )
+    facts_validate.add_argument(
+        "--pool", type=Path, help="curation pool.json (required for sample v2)"
+    )
+    facts_validate.add_argument(
+        "--facts-pool", type=Path,
+        help="80-item pool facts packet (required for sample v2)",
+    )
+    facts_validate.add_argument(
+        "--execution-manifest", type=Path,
+        help="user-authorized execution manifest (required for external v2 assessments)",
+    )
+    curation_build = quality_subparsers.add_parser(
+        "facts-study-curation-build",
+        help="build the deterministic 80-item source-side curation pool",
+    )
+    _add_common_arguments(curation_build)
+    curation_build.add_argument("--inventory", required=True, type=Path)
+    curation_build.add_argument(
+        "--exclude-sample", action="append", default=[], type=Path,
+        help="artifact whose revision IDs must be excluded; repeat as needed",
+    )
+    curation_build.add_argument("--seed", default="tome4-facts-study-curation-v1")
+    curation_build.add_argument(
+        "--protocol", choices=("v3", "v4"), default="v3",
+        help="pool construction protocol: v3 baseline band or v4 long-source enriched band",
+    )
+    curation_prepare = quality_subparsers.add_parser(
+        "facts-study-curation-prepare",
+        help="build the target-visible curator bundle from the frozen Facts packet",
+    )
+    _add_common_arguments(curation_prepare)
+    curation_prepare.add_argument("--pool", required=True, type=Path)
+    curation_prepare.add_argument("--facts", required=True, type=Path)
+    curation_prepare.add_argument("--inventory", required=True, type=Path)
+    curation_select = quality_subparsers.add_parser(
+        "facts-study-curation-select",
+        help="select the final 20 items from the curator assessment (natural first)",
+    )
+    _add_common_arguments(curation_select)
+    curation_select.add_argument("--pool", required=True, type=Path)
+    curation_select.add_argument("--facts", required=True, type=Path)
+    curation_select.add_argument("--curator", required=True, type=Path)
+    curation_select.add_argument("--inventory", required=True, type=Path)
+    curation_select.add_argument("--controlled-variants", type=Path)
+    curation_select.add_argument("--seed", default="tome4-facts-study-curation-select-v1")
+    curation_select.add_argument(
+        "--protocol", choices=("v3", "v4", "v5"), default="v5",
+        help="selection quota protocol (v5 = corpus-aligned quotas)",
+    )
+    manifest = quality_subparsers.add_parser(
+        "facts-study-execution-manifest",
+        help="bind a user authorization to an offline-frozen preregistration for external execution",
+    )
+    _add_common_arguments(manifest)
+    manifest.add_argument("--preregistration", required=True, type=Path)
+    manifest.add_argument("--authorization-id", required=True)
+    manifest.add_argument("--granted-at", required=True)
+    manifest.add_argument("--output", required=True, type=Path)
+    manifest.add_argument("--mode", choices=("sequential", "parallel"), default="sequential")
+    manifest.add_argument("--concurrency", type=int, default=1)
+    manifest.add_argument("--retry-transmission", type=int, default=0, choices=(0, 1, 2, 3))
     return parser
 
 
@@ -1362,6 +1551,433 @@ def _quality_stability_v2(arguments: argparse.Namespace) -> int:
     return 0 if report["passed"] else 1
 
 
+def _quality_v3_inputs(arguments: argparse.Namespace) -> tuple[
+    Manifest, dict[str, Any], dict[str, Any], dict[str, Any]
+]:
+    manifest = _manifest(arguments)
+    policy = load_policy_v3(manifest)
+    matrix = load_severity_matrix(manifest, policy)
+    anchors = load_anchors_v2(manifest, policy=policy, matrix=matrix)
+    return manifest, policy, matrix, anchors
+
+
+def _validated_v3_assessments(
+    paths: list[Path], *, sample: dict[str, Any], policy: dict[str, Any],
+    matrix: dict[str, Any], anchors: dict[str, Any], prompt_sha256: str,
+) -> list[dict[str, Any]]:
+    if len(paths) != 2:
+        raise ValidationError("quality v3 requires exactly two assessments")
+    expected = {
+        "prompt_sha256": prompt_sha256,
+        "policy_sha256": canonical_sha256(policy),
+        "severity_matrix_sha256": canonical_sha256(matrix),
+        "anchors_sha256": canonical_sha256(anchors),
+    }
+    normalized = []
+    for path in paths:
+        value = read_json_object(path, "quality v3 assessment")
+        evaluator = value.get("evaluator", {})
+        if any(evaluator.get(field) != digest for field, digest in expected.items()):
+            raise ValidationError("quality v3 assessment frozen hashes do not match")
+        bundles = build_evaluator_bundles_v3(
+            sample=sample, evaluator_id=evaluator.get("id"), policy=policy,
+            matrix=matrix, max_items=policy["max_shard_items"],
+        )
+        if (
+            evaluator.get("bundle_ids") != [bundle["bundle_id"] for bundle in bundles]
+            or evaluator.get("bundle_sha256s") != [canonical_sha256(bundle) for bundle in bundles]
+        ):
+            raise ValidationError("quality v3 assessment shard identities do not match")
+        normalized.append(
+            validate_assessment_v3(
+                value, sample=sample, policy=policy, matrix=matrix, anchors=anchors
+            )
+        )
+    if [item["evaluator"]["id"] for item in normalized] != policy["evaluator_ids"]:
+        raise ValidationError("quality v3 assessments must be reviewer-a then reviewer-b")
+    return normalized
+
+
+def _quality_calibration_v3(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    report = run_calibration_v3(manifest, arguments.inventory)
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(
+            f"OK  quality v3 calibration={report['calibration_id']} "
+            f"holdout={report['holdout_id']} revisions-unchanged={report['revisions_unchanged']}"
+        )
+        print(f"Index: {report['index']}")
+    return 0
+
+
+def _quality_evaluator_bundles_v3(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    report = run_evaluator_bundles_v3(
+        manifest, sample_path=arguments.sample, evaluator_id=arguments.evaluator,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(
+            f"OK  quality v3 shards evaluator={report['evaluator_id']} "
+            f"shards={report['shard_count']} max-items={report['max_items']}"
+        )
+        print(f"Index: {report['index']}")
+    return 0
+
+
+def _quality_match_v3(arguments: argparse.Namespace) -> int:
+    manifest, policy, matrix, anchors = _quality_v3_inputs(arguments)
+    sample = validate_sample_v3(read_json_object(arguments.sample, "quality v3 sample"), policy)
+    assessments = _validated_v3_assessments(
+        arguments.assessment, sample=sample, policy=policy, matrix=matrix, anchors=anchors,
+        prompt_sha256=hashlib.sha256(load_evaluator_prompt_v3(manifest).encode("utf-8")).hexdigest(),
+    )
+    match = match_assessments_v3(
+        sample=sample, left_assessment=assessments[0], right_assessment=assessments[1]
+    )
+    run_directory = create_quality_run_directory(manifest.root, "issue-match-v3")
+    path = run_directory / "issue-match.json"
+    write_json(path, match)
+    report = {
+        "match_id": match["match_id"], "issues": len(match["issues"]),
+        "manual_queue": len(match["manual_queue"]), "match": str(path),
+        "run_directory": str(run_directory),
+    }
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  quality v3 match issues={report['issues']} manual={report['manual_queue']}")
+        print(f"Match: {path}")
+    return 0
+
+
+def _quality_disputes_v3(arguments: argparse.Namespace) -> int:
+    manifest, policy, _, _ = _quality_v3_inputs(arguments)
+    sample = validate_sample_v3(read_json_object(arguments.sample, "quality v3 sample"), policy)
+    match = validate_match_v3(read_json_object(arguments.match, "quality v3 issue match"))
+    dispute, identity = build_disputes_v3(match=match, sample=sample, seed=arguments.seed)
+    run_directory = create_quality_run_directory(manifest.root, "disputes-v3")
+    dispute_path = run_directory / "dispute.json"
+    identity_path = run_directory / "dispute-identity.json"
+    write_json(dispute_path, dispute)
+    write_json(identity_path, identity)
+    report = {
+        "dispute_id": dispute["dispute_id"], "items": len(dispute["items"]),
+        "dispute": str(dispute_path), "identity_mapping": str(identity_path),
+        "run_directory": str(run_directory),
+    }
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  quality v3 disputes items={report['items']}")
+        print(f"Dispute: {dispute_path}")
+        print(f"Identity: {identity_path}")
+    return 0
+
+
+def _quality_adjudicate_v3(arguments: argparse.Namespace) -> int:
+    manifest, policy, _, _ = _quality_v3_inputs(arguments)
+    match = validate_match_v3(read_json_object(arguments.match, "quality v3 issue match"))
+    adjudication = read_json_object(arguments.adjudication, "quality v3 adjudication")
+    validation = adjudicate_v3(
+        match=match, adjudication=adjudication, policy=policy, strict=arguments.strict
+    )
+    run_directory = create_quality_run_directory(manifest.root, "adjudication-v3")
+    path = run_directory / "adjudication-validation.json"
+    write_json(path, validation)
+    report = {
+        "validation_id": validation["validation_id"], "items": len(validation["items"]),
+        "validation": str(path), "run_directory": str(run_directory),
+    }
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  quality v3 adjudication items={report['items']}")
+        print(f"Validation: {path}")
+    return 0
+
+
+def _quality_report_v3(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    match = validate_match_v3(read_json_object(arguments.match, "quality v3 issue match"))
+    validation = (
+        validate_adjudication_validation_v3(
+            read_json_object(arguments.adjudication_validation, "quality v3 adjudication validation"),
+            match=match,
+        )
+        if arguments.adjudication_validation else None
+    )
+    report = build_report_v3(match=match, adjudication_validation=validation)
+    run_directory = create_quality_run_directory(manifest.root, "report-v3")
+    path = run_directory / "report.json"
+    write_json(path, report)
+    summary = {**report, "report": str(path), "run_directory": str(run_directory)}
+    if arguments.json:
+        _print_json(summary)
+    else:
+        print(
+            f"OK  quality v3 report raw={report['raw_model_metrics']['left_findings']}/"
+            f"{report['raw_model_metrics']['right_findings']} "
+            f"manual={report['human_burden']['issues_requiring_adjudication']}"
+        )
+        print(f"Report: {path}")
+    return 0
+
+
+def _quality_stability_v3(arguments: argparse.Namespace) -> int:
+    manifest, policy, matrix, anchors = _quality_v3_inputs(arguments)
+    if len(arguments.assessment) != 2 or len(arguments.run_report) != 2:
+        raise ValidationError("quality stability-v3 requires exactly two assessments and two run reports")
+    sample = validate_sample_v3(read_json_object(arguments.sample, "quality v3 stability sample"), policy)
+    raw_assessments = [read_json_object(path, "quality v3 stability assessment") for path in arguments.assessment]
+    evaluator_ids = {value.get("evaluator", {}).get("id") for value in raw_assessments}
+    if len(evaluator_ids) != 1:
+        raise ValidationError("quality stability-v3 requires one evaluator identity")
+    assessments = [
+        validate_assessment_v3(
+            value, sample=sample, policy=policy, matrix=matrix, anchors=anchors
+        )
+        for value in raw_assessments
+    ]
+    bundles_by_evaluator = {
+        evaluator_id: build_evaluator_bundles_v3(
+            sample=sample, evaluator_id=evaluator_id, policy=policy,
+            matrix=matrix, max_items=policy["max_shard_items"],
+        )
+        for evaluator_id in policy["evaluator_ids"]
+    }
+    bundle_hashes = {
+        evaluator_id: [canonical_sha256(bundle) for bundle in bundles]
+        for evaluator_id, bundles in bundles_by_evaluator.items()
+    }
+    expected_prompt = hashlib.sha256(load_evaluator_prompt_v3(manifest).encode("utf-8")).hexdigest()
+    expected_static = {
+        "prompt_sha256": expected_prompt,
+        "policy_sha256": canonical_sha256(policy),
+        "severity_matrix_sha256": canonical_sha256(matrix),
+        "anchors_sha256": canonical_sha256(anchors),
+    }
+    for assessment in assessments:
+        identity = assessment["evaluator"]
+        if any(identity.get(field) != digest for field, digest in expected_static.items()):
+            raise ValidationError("quality v3 stability assessment frozen hashes differ")
+        evaluator_id = identity["id"]
+        if (
+            identity["bundle_ids"] != [bundle["bundle_id"] for bundle in bundles_by_evaluator[evaluator_id]]
+            or identity["bundle_sha256s"] != bundle_hashes[evaluator_id]
+        ):
+            raise ValidationError("quality v3 stability assessment shard identities differ")
+    preregistration = validate_stability_preregistration_v3(
+        read_json_object(arguments.preregistration, "quality v3 stability preregistration"),
+        sample=sample, policy=policy, matrix=matrix, anchors=anchors,
+        prompt_sha256=expected_prompt,
+        bundle_ids_by_evaluator={
+            evaluator_id: [bundle["bundle_id"] for bundle in bundles]
+            for evaluator_id, bundles in bundles_by_evaluator.items()
+        },
+        bundle_sha256s_by_evaluator=bundle_hashes,
+    )
+    run_reports = tuple(
+        read_json_object(path, "quality v3 runner report") for path in arguments.run_report
+    )
+    ledger_path = (
+        manifest.root / ".artifacts" / "i18n" / "quality" / "calibration-campaigns"
+        / f"{preregistration['preregistration_id']}.json"
+    )
+    campaign_ledger = read_json_object(ledger_path, "quality v3 calibration campaign ledger")
+    report = build_stability_report_v3(
+        sample=sample, assessments=(assessments[0], assessments[1]),
+        run_reports=(run_reports[0], run_reports[1]),
+        assessment_sha256s=(bytes_sha256(arguments.assessment[0]), bytes_sha256(arguments.assessment[1])),
+        run_report_sha256s=(bytes_sha256(arguments.run_report[0]), bytes_sha256(arguments.run_report[1])),
+        preregistration=preregistration,
+        campaign_ledger=campaign_ledger,
+    )
+    run_directory = create_quality_run_directory(manifest.root, "stability-v3")
+    path = run_directory / "stability-report.json"
+    write_json(path, report)
+    if report["passed"]:
+        _register_campaign_stability_report(
+            root=manifest.root, preregistration=preregistration, report=report,
+        )
+    summary = {**report, "report": str(path), "run_directory": str(run_directory)}
+    if arguments.json:
+        _print_json(summary)
+    else:
+        print(
+            f"{'OK' if report['passed'] else 'FAIL'} quality v3 stability "
+            f"evaluator={report['evaluator']['id']} "
+            f"raw-jaccard={report['metrics']['raw_model']['finding_jaccard']:.3f}"
+        )
+        print(f"Report: {path}")
+    return 0 if report["passed"] else 1
+
+
+def _quality_facts_study_build(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    report = run_facts_study_build(
+        manifest, inventory=arguments.inventory,
+        exclusions=arguments.exclude_sample, seed=arguments.seed,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  Facts study candidate items={report['items']} status={report['status']}")
+        print(f"Sample: {report['sample']}")
+        print("External preregistration remains blocked until two reviews and adjudication are frozen.")
+    return 0
+
+
+def _quality_facts_study_bundles(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    sample_value = read_json_object(arguments.sample, "facts study sample")
+    if sample_value.get("contract") == "tome4-quality-facts-study-sample-v2":
+        if arguments.pool is None or arguments.facts_pool is None:
+            raise ValidationError(
+                "sample v2 requires --pool and --facts-pool for the curation chain"
+            )
+        report = run_curation_bundles(
+            manifest, pool_path=arguments.pool, sample_path=arguments.sample,
+            facts_pool_path=arguments.facts_pool, facts_path=arguments.facts,
+            gold_path=arguments.gold, gold_review_paths=arguments.gold_review,
+            gold_adjudication_path=arguments.gold_adjudication,
+        )
+    else:
+        report = run_facts_study_bundles(
+            manifest, sample_path=arguments.sample, facts_path=arguments.facts,
+            gold_path=arguments.gold, gold_review_paths=arguments.gold_review,
+            gold_adjudication_path=arguments.gold_adjudication,
+        )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  Facts study preregistered slots={report['slots']} shards={report['shards']}")
+        print(f"Preregistration: {report['preregistration']}")
+    return 0
+
+
+def _quality_facts_study_validate(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    prereg_value = read_json_object(arguments.preregistration, "facts study preregistration")
+    if prereg_value.get("contract") == "tome4-quality-facts-study-preregistration-v2":
+        if arguments.pool is None or arguments.facts_pool is None:
+            raise ValidationError(
+                "sample v2 requires --pool and --facts-pool for the curation chain"
+            )
+        report = run_curation_validate(
+            manifest, pool_path=arguments.pool, sample_path=arguments.sample,
+            facts_pool_path=arguments.facts_pool, facts_path=arguments.facts,
+            neutral_path=arguments.neutral, gold_path=arguments.gold,
+            prereg_path=arguments.preregistration, bundle_paths=arguments.bundle,
+            fake_runner=arguments.fake_runner,
+            assessment_paths=arguments.assessment,
+            runner_report_paths=arguments.run_report,
+            execution_manifest_path=arguments.execution_manifest,
+        )
+    else:
+        report = run_facts_study_validate(
+            manifest, sample_path=arguments.sample, facts_path=arguments.facts,
+            neutral_path=arguments.neutral, gold_path=arguments.gold,
+            prereg_path=arguments.preregistration, bundle_paths=arguments.bundle,
+            assessment_paths=arguments.assessment,
+            runner_report_paths=arguments.run_report, fake_runner=arguments.fake_runner,
+        )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  Facts study validation mode={report['mode']} slots=33/33")
+        print(f"Validation: {report['validation']}")
+    return 0
+
+
+def _quality_facts_study_report(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    validation_value = read_json_object(arguments.validation, "facts study validation index")
+    if validation_value.get("contract") == "tome4-quality-facts-study-validation-index-v2":
+        report = run_curation_report(manifest, validation_path=arguments.validation)
+    else:
+        report = run_facts_study_report(manifest, validation_path=arguments.validation)
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  Facts study decision={report['decision']['result']} holdout-clearance=false")
+        print(f"Report: {report['report']}")
+    return 0
+
+
+def _quality_facts_study_execution_manifest(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    report = run_execution_manifest(
+        manifest, preregistration_path=arguments.preregistration,
+        authorization_id=arguments.authorization_id, granted_at=arguments.granted_at,
+        output_path=arguments.output,
+        execution_mode=arguments.mode, concurrency=arguments.concurrency,
+        transmission_failure_max_retries=arguments.retry_transmission,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  Execution manifest bound to preregistration={report['preregistration_id'][:16]}")
+        print(f"Manifest: {report['manifest']}")
+    return 0
+
+
+def _quality_facts_study_curation_build(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    report = run_curation_build(
+        manifest, inventory=arguments.inventory,
+        exclusions=arguments.exclude_sample, seed=arguments.seed,
+        protocol_version=arguments.protocol,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  Curation pool items={report['items']} protocol={report['protocol_version']} status={report['status']}")
+        print(f"Pool: {report['pool']}")
+        print("Facts authoring is target-blind; no target-visible role may start before it is frozen.")
+    return 0
+
+
+def _quality_facts_study_curation_prepare(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    report = run_curation_prepare(
+        manifest, pool_path=arguments.pool, facts_path=arguments.facts,
+        inventory_path=arguments.inventory,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK  Curator bundle items={report['items']} status={report['status']}")
+        print(f"Curator bundle: {report['curator_bundle']}")
+    return 0
+
+
+def _quality_facts_study_curation_select(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    report = run_curation_select(
+        manifest, pool_path=arguments.pool, facts_path=arguments.facts,
+        curator_path=arguments.curator, inventory_path=arguments.inventory,
+        controlled_variants_path=arguments.controlled_variants,
+        seed=arguments.seed, protocol_version=arguments.protocol,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        if report["status"] == "shortfall":
+            print(
+                f"SHORTFALL  fact-dependent needed={report['shortfall']['fact_dependent_needed']} "
+                f"status_code=2"
+            )
+            print(f"Controlled variant request: {report['controlled_variant_request']}")
+        else:
+            print(f"OK  Curation sample study={report['study_id'][:16]} traps={report['fact_traps']}")
+            print(f"Sample: {report['sample']}")
+    return int(report.get("status_code", 0))
+
+
 def main(argv: list[str] | None = None) -> int:
     _inject_public_dlc_env()
     arguments = _parser().parse_args(argv)
@@ -1411,6 +2027,36 @@ def main(argv: list[str] | None = None) -> int:
                 return _quality_report_v2(arguments)
             if arguments.quality_command == "stability-v2":
                 return _quality_stability_v2(arguments)
+            if arguments.quality_command == "calibration-v3":
+                return _quality_calibration_v3(arguments)
+            if arguments.quality_command == "evaluator-bundles-v3":
+                return _quality_evaluator_bundles_v3(arguments)
+            if arguments.quality_command == "match-v3":
+                return _quality_match_v3(arguments)
+            if arguments.quality_command == "disputes-v3":
+                return _quality_disputes_v3(arguments)
+            if arguments.quality_command == "adjudicate-v3":
+                return _quality_adjudicate_v3(arguments)
+            if arguments.quality_command == "report-v3":
+                return _quality_report_v3(arguments)
+            if arguments.quality_command == "stability-v3":
+                return _quality_stability_v3(arguments)
+            if arguments.quality_command == "facts-study-build":
+                return _quality_facts_study_build(arguments)
+            if arguments.quality_command == "facts-study-curation-build":
+                return _quality_facts_study_curation_build(arguments)
+            if arguments.quality_command == "facts-study-curation-prepare":
+                return _quality_facts_study_curation_prepare(arguments)
+            if arguments.quality_command == "facts-study-curation-select":
+                return _quality_facts_study_curation_select(arguments)
+            if arguments.quality_command == "facts-study-execution-manifest":
+                return _quality_facts_study_execution_manifest(arguments)
+            if arguments.quality_command == "facts-study-bundles":
+                return _quality_facts_study_bundles(arguments)
+            if arguments.quality_command == "facts-study-validate":
+                return _quality_facts_study_validate(arguments)
+            if arguments.quality_command == "facts-study-report":
+                return _quality_facts_study_report(arguments)
             raise AssertionError(
                 f"unhandled quality command: {arguments.quality_command}"
             )

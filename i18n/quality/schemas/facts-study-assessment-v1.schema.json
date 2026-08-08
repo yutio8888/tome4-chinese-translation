@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-facts-study-assessment-v1",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_state": {"const": "complete"},
+    "bundle_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "bundle_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "contract": {"const": "tome4-quality-facts-study-assessment-v1"},
+    "evaluator": {"type": "object"},
+    "items": {"maxItems": 20, "minItems": 20, "type": "array"},
+    "prompt_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "schema_version": {"const": 1},
+    "slot_id": {"minLength": 1, "type": "string"},
+    "study_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+  },
+  "required": ["contract", "schema_version", "study_id", "slot_id", "evaluator", "bundle_id", "bundle_sha256", "prompt_sha256", "assessment_state", "items"],
+  "title": "Facts study assessment v1",
+  "type": "object"
+}

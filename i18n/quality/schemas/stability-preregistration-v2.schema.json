@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-stability-preregistration-v2",
+  "description": "Strict v3 preregistration structure. The host recomputes sample, prompt, policy, matrix, anchors, bundle identities/hashes and preregistration_id; JSON Schema cannot establish those content-addressed relations.",
+  "type": "object", "additionalProperties": false,
+  "required": ["contract", "schema_version", "sample_contract", "sample_id", "evaluators", "thresholds", "frozen_inputs", "external_transfer_limit", "connection_failure_retry_limit", "replace_content_failures", "preregistration_id"],
+  "properties": {
+    "contract": {"const": "tome4-quality-stability-preregistration-v2"}, "schema_version": {"const": 2},
+    "sample_contract": {"const": "tome4-quality-calibration-v3"}, "sample_id": {"$ref": "#/$defs/sha"},
+    "evaluators": {
+      "type": "array", "minItems": 2, "maxItems": 2,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "provider", "model", "thinking", "runs"],
+        "properties": {
+          "id": {"enum": ["reviewer-a", "reviewer-b"]},
+          "provider": {"type": "string", "minLength": 1}, "model": {"type": "string", "minLength": 1},
+          "thinking": {"type": "string", "minLength": 1}, "runs": {"const": 2}
+        }
+      }
+    },
+    "thresholds": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_coverage", "structure_failures_max", "raw_finding_jaccard_min", "phenomenon_meaning_agreement_min", "normalized_provisional_severity_agreement_min", "manual_queue_membership_agreement_min", "host_technical_derivation_agreement"],
+      "properties": {
+        "schema_coverage": {"const": 1.0}, "structure_failures_max": {"const": 0},
+        "raw_finding_jaccard_min": {"const": 0.7}, "phenomenon_meaning_agreement_min": {"const": 0.9},
+        "normalized_provisional_severity_agreement_min": {"const": 0.9},
+        "manual_queue_membership_agreement_min": {"const": 0.9},
+        "host_technical_derivation_agreement": {"const": 1.0}
+      }
+    },
+    "frozen_inputs": {
+      "type": "object", "additionalProperties": false,
+      "required": ["calibration_sample_id", "calibration_sample_sha256", "holdout_sample_id", "holdout_sample_sha256", "policy_v3_sha256", "prompt_sha256", "severity_matrix_sha256", "anchors_sha256", "bundle_ids_by_evaluator", "bundle_sha256s_by_evaluator"],
+      "properties": {
+        "calibration_sample_id": {"$ref": "#/$defs/sha"}, "calibration_sample_sha256": {"$ref": "#/$defs/sha"},
+        "holdout_sample_id": {"$ref": "#/$defs/sha"}, "holdout_sample_sha256": {"$ref": "#/$defs/sha"},
+        "policy_v3_sha256": {"$ref": "#/$defs/sha"}, "prompt_sha256": {"$ref": "#/$defs/sha"},
+        "severity_matrix_sha256": {"$ref": "#/$defs/sha"}, "anchors_sha256": {"$ref": "#/$defs/sha"},
+        "bundle_ids_by_evaluator": {"$ref": "#/$defs/bundleMap"},
+        "bundle_sha256s_by_evaluator": {"$ref": "#/$defs/bundleMap"}
+      }
+    },
+    "external_transfer_limit": {"const": 8}, "connection_failure_retry_limit": {"const": 0},
+    "replace_content_failures": {"const": false}, "preregistration_id": {"$ref": "#/$defs/sha"}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "bundleMap": {
+      "type": "object", "additionalProperties": false, "required": ["reviewer-a", "reviewer-b"],
+      "properties": {
+        "reviewer-a": {"$ref": "#/$defs/twoUniqueSha"}, "reviewer-b": {"$ref": "#/$defs/twoUniqueSha"}
+      }
+    },
+    "twoUniqueSha": {"type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/sha"}}
+  }
+}

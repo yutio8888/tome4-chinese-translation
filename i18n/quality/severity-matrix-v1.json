@@ -1,0 +1,60 @@
+{
+  "contract": "tome4-quality-severity-matrix-v1",
+  "schema_version": 1,
+  "description": "Deterministic mqm-pilot-v3 error compatibility and severity precedence.",
+  "error_code_phenomena": {
+    "ACC_MISTRANSLATION": ["condition", "polarity", "entity-role", "scope", "trigger-timing", "ambiguity", "other"],
+    "ACC_OMISSION": ["omission"],
+    "ACC_ADDITION": ["addition"],
+    "ACC_UNTRANSLATED": ["omission", "other"],
+    "ACC_POLARITY": ["polarity"],
+    "ACC_CONDITION": ["condition", "scope", "trigger-timing"],
+    "ACC_NUMBER_UNIT": ["number", "number-range", "unit"],
+    "ACC_ENTITY_ROLE": ["entity-role"],
+    "TERM_PREFERRED": ["terminology"],
+    "TERM_PROPER_NAME": ["proper-name"],
+    "TERM_INCONSISTENT": ["terminology", "proper-name"],
+    "FLU_AMBIGUITY": ["ambiguity"],
+    "UI_CLARITY": ["ambiguity", "other"]
+  },
+  "phenomenon_meaning_changes": {
+    "number": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "number-range": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "unit": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "condition": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "polarity": ["weakened", "strengthened", "reversed", "made-ambiguous", "unknown"],
+    "entity-role": ["omitted", "added", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "scope": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "trigger-timing": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "omission": ["omitted", "unknown"],
+    "addition": ["added", "unknown"],
+    "terminology": ["reassigned", "made-ambiguous", "unknown"],
+    "proper-name": ["reassigned", "made-ambiguous", "unknown"],
+    "ambiguity": ["made-ambiguous", "unknown"],
+    "other": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"]
+  },
+  "error_code_classes": {
+    "ACC_MISTRANSLATION": "semantic", "ACC_OMISSION": "semantic",
+    "ACC_ADDITION": "semantic", "ACC_UNTRANSLATED": "semantic",
+    "ACC_POLARITY": "semantic", "ACC_CONDITION": "semantic",
+    "ACC_NUMBER_UNIT": "semantic", "ACC_ENTITY_ROLE": "semantic",
+    "TERM_PREFERRED": "terminology", "TERM_PROPER_NAME": "terminology",
+    "TERM_INCONSISTENT": "terminology", "FLU_AMBIGUITY": "semantic",
+    "UI_CLARITY": "ui"
+  },
+  "automatic_major_phenomena": [
+    "number", "number-range", "condition", "polarity", "entity-role", "scope", "trigger-timing"
+  ],
+  "automatic_major_meaning_changes": [
+    "omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous"
+  ],
+  "unit_major_meaning_changes": [
+    "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous"
+  ],
+  "provisional_reason_codes": [
+    "V3_MEANING_UNKNOWN", "V3_PHENOMENON_OTHER", "V3_SOURCE_EVIDENCE_AMBIGUOUS",
+    "V3_SOURCE_EVIDENCE_MISSING", "V3_TARGET_EVIDENCE_AMBIGUOUS",
+    "V3_TARGET_EVIDENCE_MISSING", "V3_CONTEXT_INSUFFICIENT",
+    "V3_SEVERITY_BOUNDARY_DISAGREEMENT", "V3_HOST_DERIVATION_MISMATCH"
+  ]
+}

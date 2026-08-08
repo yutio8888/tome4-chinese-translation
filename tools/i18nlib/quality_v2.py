@@ -43,18 +43,15 @@ def load_evaluator_prompt_v2(manifest: Manifest) -> str:
 
 
 def canonical_sha256(value: Any) -> str:
-    return hashlib.sha256(
-        json.dumps(
-            value, ensure_ascii=False, sort_keys=True, separators=(",", ":")
-        ).encode("utf-8")
-    ).hexdigest()
+    """Shared canonical JSON SHA-256 (see quality_contracts)."""
+    from .quality_contracts import canonical_sha256 as _canonical_sha256
+    return _canonical_sha256(value)
 
 
 def bytes_sha256(path: Path) -> str:
-    try:
-        return hashlib.sha256(path.read_bytes()).hexdigest()
-    except OSError as error:
-        raise ValidationError(f"cannot read quality v2 input: {path}") from error
+    """Shared artifact byte SHA-256 (see quality_contracts)."""
+    from .quality_contracts import bytes_sha256 as _bytes_sha256
+    return _bytes_sha256(path)
 
 
 def _read_object(path: Path, label: str) -> dict[str, Any]:
@@ -381,43 +378,11 @@ def normalize_evidence(
     where: str,
     allow_empty_omission: bool = False,
 ) -> dict[str, Any]:
-    if not isinstance(evidence, dict):
-        raise ValidationError(f"{where} must be an object")
-    allowed = {"quote", "occurrence", "whole_item"}
-    unknown = sorted(set(evidence) - allowed)
-    if unknown:
-        raise ValidationError(f"{where} has host-owned or unknown fields: {', '.join(unknown)}")
-    if "quote" not in evidence or "occurrence" not in evidence:
-        raise ValidationError(f"{where} requires quote and occurrence")
-    quote = _string(evidence["quote"], f"{where}.quote", allow_empty=True)
-    occurrence = evidence["occurrence"]
-    if type(occurrence) is not int or occurrence < 0:
-        raise ValidationError(f"{where}.occurrence must be an exact non-negative integer")
-    whole_item = evidence.get("whole_item", False)
-    if whole_item is not False and whole_item is not True:
-        raise ValidationError(f"{where}.whole_item must be true when present")
-    if whole_item:
-        if quote or occurrence != 0:
-            raise ValidationError(f"{where} whole-item evidence requires empty quote and occurrence 0")
-        return {"quote": "", "occurrence": 0, "whole_item": True, "state": "whole-item", "start": 0, "end": len(text)}
-    if not quote:
-        if allow_empty_omission and occurrence == 0:
-            return {"quote": "", "occurrence": 0, "state": "missing", "start": None, "end": None}
-        raise ValidationError(f"{where} empty quote requires whole_item or a legal omission")
-    starts: list[int] = []
-    position = 0
-    while True:
-        position = text.find(quote, position)
-        if position < 0:
-            break
-        starts.append(position)
-        position += max(1, len(quote))
-    if occurrence == 0:
-        return {"quote": quote, "occurrence": 0, "state": "ambiguous" if len(starts) > 1 else "missing", "start": None, "end": None}
-    if occurrence > len(starts):
-        return {"quote": quote, "occurrence": occurrence, "state": "missing", "start": None, "end": None}
-    start = starts[occurrence - 1]
-    return {"quote": quote, "occurrence": occurrence, "state": "exact", "start": start, "end": start + len(quote)}
+    """Shared evidence span normalization (see quality_claims)."""
+    from .quality_claims import normalize_evidence as _normalize_evidence
+    return _normalize_evidence(
+        evidence, text, where=where, allow_empty_omission=allow_empty_omission
+    )
 
 
 def derive_severity(
@@ -771,92 +736,37 @@ def build_assessment_v2(
 
 
 def _span_related(left: dict[str, Any], right: dict[str, Any]) -> bool:
-    if left["state"] == "whole-item" or right["state"] == "whole-item":
-        return left["state"] == right["state"]
-    if left["state"] != "exact" or right["state"] != "exact":
-        return False
-    return left["start"] <= right["end"] and right["start"] <= left["end"]
+    """Shared legacy-v2 span relatedness (see quality_claims)."""
+    from .quality_claims import spans_related
+    return spans_related(left, right)
 
 
 def _span_identical(left: dict[str, Any], right: dict[str, Any]) -> bool:
-    return (
-        left["state"] == right["state"]
-        and left.get("start") == right.get("start")
-        and left.get("end") == right.get("end")
-    )
+    """Shared legacy-v2 span identity (see quality_claims)."""
+    from .quality_claims import spans_identical
+    return spans_identical(left, right)
 
 
 def _meaning_compatible(left: str, right: str) -> bool:
-    if left == right or "unknown" in {left, right}:
-        return True
-    contradictions = {
-        frozenset(("omitted", "added")),
-        frozenset(("weakened", "strengthened")),
-        frozenset(("none", "reversed")),
-        frozenset(("none", "omitted")),
-        frozenset(("none", "added")),
-        frozenset(("presentation-only", "reversed")),
-        frozenset(("presentation-only", "omitted")),
-        frozenset(("presentation-only", "added")),
-    }
-    return frozenset((left, right)) not in contradictions
+    """Shared legacy-v2 meaning compatibility (see quality_claims)."""
+    from .quality_claims import meaning_changes_compatible
+    return meaning_changes_compatible(left, right, legacy=True)
 
 
 def _phenomenon_compatible(
     left: dict[str, Any], right: dict[str, Any], policy: dict[str, Any]
 ) -> bool:
-    left_value = left["phenomenon"]
-    right_value = right["phenomenon"]
-    if left_value == right_value:
-        return True
-    pair = tuple(sorted((left_value, right_value)))
-    declared = {tuple(sorted(item)) for item in policy["mergeable_phenomena"]}
-    if pair not in declared:
-        return False
-    if pair == ("ambiguity", "fluency"):
-        return _span_identical(
-            left["normalized_source_evidence"],
-            right["normalized_source_evidence"],
-        ) and _span_identical(
-            left["normalized_target_evidence"],
-            right["normalized_target_evidence"],
-        )
-    if pair == ("omission", "unit"):
-        return (
-            left["meaning_change"]["type"] == "omitted"
-            and right["meaning_change"]["type"] == "omitted"
-            and _span_identical(
-                left["normalized_source_evidence"],
-                right["normalized_source_evidence"],
-            )
-            and _span_identical(
-                left["normalized_target_evidence"],
-                right["normalized_target_evidence"],
-            )
-        )
-    return True
+    """Shared legacy-v2 phenomenon compatibility (see quality_claims)."""
+    from .quality_claims import legacy_v2_phenomenon_compatible
+    return legacy_v2_phenomenon_compatible(left, right, policy)
 
 
 def findings_match(
     left: dict[str, Any], right: dict[str, Any], policy: dict[str, Any]
 ) -> bool:
-    if not _span_related(
-        left["normalized_source_evidence"], right["normalized_source_evidence"]
-    ):
-        return False
-    left_target = left["normalized_target_evidence"]
-    right_target = right["normalized_target_evidence"]
-    if left_target["state"] == "missing" and right_target["state"] == "missing":
-        target_related = not left_target.get("quote") and not right_target.get("quote")
-    else:
-        target_related = _span_related(left_target, right_target)
-    if not target_related:
-        return False
-    if not _phenomenon_compatible(left, right, policy):
-        return False
-    return _meaning_compatible(
-        left["meaning_change"]["type"], right["meaning_change"]["type"]
-    )
+    """Shared legacy-v2 finding compatibility (see quality_claims)."""
+    from .quality_claims import legacy_v2_findings_match
+    return legacy_v2_findings_match(left, right, policy)
 
 
 def _full_match(left: dict[str, Any], right: dict[str, Any]) -> bool:
@@ -1265,15 +1175,9 @@ def adjudicate_v2(
 
 
 def read_json_object(path: Path, label: str) -> dict[str, Any]:
-    try:
-        value = json.loads(path.read_bytes())
-    except OSError as error:
-        raise ValidationError(f"cannot read {label}: {path}") from error
-    except (UnicodeDecodeError, json.JSONDecodeError) as error:
-        raise ValidationError(f"invalid {label}: {path}: {error}") from error
-    if not isinstance(value, dict):
-        raise ValidationError(f"{label} root must be an object")
-    return value
+    """Shared JSON object reader (see quality_contracts)."""
+    from .quality_contracts import read_json_object as _read_json_object
+    return _read_json_object(path, label)
 
 
 def _exploratory_ids_from_loaded_inventory(

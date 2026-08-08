@@ -112,26 +112,50 @@ def _pi_environment(root: Path, provider: str) -> dict[str, str]:
     agent_directory = root / ".artifacts" / "i18n" / "pi-agent"
     agent_directory.mkdir(parents=True, exist_ok=True, mode=0o700)
     agent_directory.chmod(0o700)
-    if provider == "openai-codex":
-        _copy_isolated_oauth_credential(
-            source_auth_path, agent_directory / "auth.json", provider
-        )
-    if provider == "opencode-go" and not environment.get("OPENCODE_API_KEY"):
-        key = _credential_from_pi_auth(source_auth_path) or _credential_from_keychain()
-        if key is None:
-            raise AgentError(
-                "no OpenCode Go credential is available; configure Pi, "
-                "OPENCODE_API_KEY, or the codex-pi-opencode-go Keychain item"
+    # Parallel runners share the isolated agent directory; serialize the
+    # credential bootstrap with an advisory file lock.
+    lock_path = agent_directory / ".credential-bootstrap.lock"
+    try:
+        lock_handle = open(lock_path, "w")
+    except OSError:
+        lock_handle = None
+    if lock_handle is not None:
+        try:
+            import fcntl
+
+            fcntl.flock(lock_handle.fileno(), fcntl.LOCK_EX)
+        except (ImportError, OSError):
+            lock_handle = None
+    try:
+        if provider == "openai-codex":
+            _copy_isolated_oauth_credential(
+                source_auth_path, agent_directory / "auth.json", provider
             )
-        environment["OPENCODE_API_KEY"] = key
-    if provider == "deepseek" and not environment.get("DEEPSEEK_API_KEY"):
-        key = _credential_from_pi_auth(source_auth_path, provider="deepseek")
-        if key is None:
-            raise AgentError(
-                "no DeepSeek credential is available; configure Pi "
-                "(login with provider deepseek) or set DEEPSEEK_API_KEY"
-            )
-        environment["DEEPSEEK_API_KEY"] = key
+        if provider == "opencode-go" and not environment.get("OPENCODE_API_KEY"):
+            key = _credential_from_pi_auth(source_auth_path) or _credential_from_keychain()
+            if key is None:
+                raise AgentError(
+                    "no OpenCode Go credential is available; configure Pi, "
+                    "OPENCODE_API_KEY, or the codex-pi-opencode-go Keychain item"
+                )
+            environment["OPENCODE_API_KEY"] = key
+        if provider == "deepseek" and not environment.get("DEEPSEEK_API_KEY"):
+            key = _credential_from_pi_auth(source_auth_path, provider="deepseek")
+            if key is None:
+                raise AgentError(
+                    "no DeepSeek credential is available; configure Pi "
+                    "(login with provider deepseek) or set DEEPSEEK_API_KEY"
+                )
+            environment["DEEPSEEK_API_KEY"] = key
+    finally:
+        if lock_handle is not None:
+            try:
+                import fcntl
+
+                fcntl.flock(lock_handle.fileno(), fcntl.LOCK_UN)
+            except (ImportError, OSError):
+                pass
+            lock_handle.close()
     environment.update(
         {
             "PI_CODING_AGENT_DIR": str(agent_directory),

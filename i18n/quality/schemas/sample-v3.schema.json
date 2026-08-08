@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "tome4-quality-sample-v3",
+  "description": "Strict structural contract. The host additionally verifies dataset kind/contract/seed coupling, item positions and revision order/uniqueness, item and sample content hashes, policy identity and protected-source safety.",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "quality_contract", "dataset_kind", "seed", "size", "taxonomy_sha256", "policy_v1_sha256", "policy_v2_sha256", "policy_v3_sha256", "manifest_sha256", "inventory_sha256", "excluded_ids_sha256", "source_sample_v2_id", "items_sha256", "revisions", "sample_id", "coverage", "items"],
+  "properties": {
+    "schema_version": {"const": 3},
+    "quality_contract": {"enum": ["tome4-quality-calibration-v3", "tome4-quality-holdout-v3"]},
+    "dataset_kind": {"enum": ["calibration", "holdout"]}, "seed": {"enum": ["tome4-quality-calibration-v2", "tome4-quality-holdout-v2"]},
+    "size": {"const": 32}, "taxonomy_sha256": {"$ref": "#/$defs/sha"},
+    "policy_v1_sha256": {"$ref": "#/$defs/sha"}, "policy_v2_sha256": {"$ref": "#/$defs/sha"},
+    "policy_v3_sha256": {"$ref": "#/$defs/sha"}, "manifest_sha256": {"$ref": "#/$defs/sha"},
+    "inventory_sha256": {"$ref": "#/$defs/sha"}, "excluded_ids_sha256": {"$ref": "#/$defs/sha"},
+    "source_sample_v2_id": {"$ref": "#/$defs/sha"}, "items_sha256": {"$ref": "#/$defs/sha"},
+    "revisions": {"type": "array", "minItems": 32, "maxItems": 32, "items": {"$ref": "#/$defs/sha"}},
+    "sample_id": {"$ref": "#/$defs/sha"},
+    "coverage": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "items": {"type": "array", "minItems": 32, "maxItems": 32, "items": {"$ref": "#/$defs/item"}}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "item": {
+      "type": "object", "additionalProperties": false,
+      "required": ["args_order", "bucket", "component", "context_neighbors", "contrast_group", "contrast_siblings", "domain_hints", "gate_signals", "index", "profile", "profile_confidence", "relevant_terms", "revision_id", "risk_flags", "section", "source", "source_length_bin", "source_tag", "special", "structure", "target", "unit_id"],
+      "properties": {
+        "args_order": {"type": ["array", "null"]}, "bucket": {"type": "string"},
+        "component": {"type": "string"}, "context_neighbors": {"type": "array"},
+        "contrast_group": {"type": ["string", "null"]}, "contrast_siblings": {"type": "array"},
+        "domain_hints": {"type": "array"}, "index": {"type": "integer", "minimum": 0},
+        "profile": {"type": "string"}, "profile_confidence": {"type": "string"},
+        "relevant_terms": {"type": "array"}, "revision_id": {"$ref": "#/$defs/sha"},
+        "risk_flags": {"type": "array"}, "section": {"type": "string"},
+        "source": {"type": "string"}, "source_length_bin": {"type": "string"},
+        "source_tag": {"type": "string"}, "special": {"type": ["string", "object", "array", "null"]}, "structure": {"type": "object"},
+        "target": {"type": "string"}, "unit_id": {"$ref": "#/$defs/sha"},
+        "gate_signals": {
+          "type": "object", "additionalProperties": false,
+          "required": ["at_token_multiset_match", "cross_component_variant", "empty_target", "format_shape_match", "format_signature_match", "lua_load_valid", "markup_multiset_match", "needs_review", "runtime_collision"],
+          "properties": {
+            "at_token_multiset_match": {"type": ["boolean", "null"]}, "cross_component_variant": {"type": ["boolean", "null"]},
+            "empty_target": {"type": ["boolean", "null"]}, "format_shape_match": {"type": ["boolean", "null"]},
+            "format_signature_match": {"type": ["boolean", "null"]}, "lua_load_valid": {"type": ["boolean", "null"]},
+            "markup_multiset_match": {"type": ["boolean", "null"]}, "runtime_collision": {"type": ["boolean", "null"]},
+            "needs_review": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      }
+    }
+  }
+}

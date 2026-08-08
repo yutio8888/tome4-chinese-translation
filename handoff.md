@@ -1,186 +1,461 @@
-# ToME4 汉化项目交接清单
+# ToME4 翻译质量 Evaluator 交接说明
 
-更新时间：2026-08-06（质量 Evaluator v2 新 scope 复测完成；Luna 稳定性通过，DeepSeek 结构失败使 M4d 仍为 No-Go）
+更新时间：2026-08-07
 
-本文记录当前翻译工具、术语库和发布流程的状态，供后续继续开发、审校或发布使用。
+## 1. 当前工作区
 
-## 一、当前目标
+- 工作区：`/Users/yun/projects/tome4-chinese-translation-review-fixes`
+- 分支：`codex/review-findings-20260802`
+- HEAD：`34ac1c473d4e830325dd2b04a968439c9d0ca97c`
+- 主工作区 `/Users/yun/projects/tome4-chinese-translation` 位于 `tools-i18n` 分支，不是本轮工作区。
+- 当前工作树包含大量尚未提交的 Evaluator v3、Facts Study、schema、prompt、测试和文档改动。它们均属于当前工作，不能清理、reset、checkout 或用旧文件覆盖。
+- 本轮没有提交、推送、发布或修改规范 Lua、术语内容与正式 120 条样本。
 
-- 以本仓库为唯一规范译文源。
-- 建立可复现的术语库和翻译工具链。
-- 发布插件只包含相对源码/官方 locale 的必要覆盖译文；源码已有且未改变的译文不重复打包。
-- 对公开源码和闭源 DLC 使用不同的输入边界，避免工具绕过受保护提取流程。
-
-## 二、已完成事项
-
-### 翻译与术语
-
-- 已建立 `terminology.tsv` 和 `TERMINOLOGY.md` 的术语库工作流。
-- 当前术语表共 693 条：`existing` 439 条、`preferred` 254 条、`review` 0 条（相比交接基线 653 条净增 40 条，含 16 条高频术语与 light 共享键裁决后的补录）。
-- 相比更早的 510 条术语基线净增 183 条，并修订 7 条既有术语；新增内容主要覆盖核心技能、实体、状态、专名和 DLC 术语。
-- DLC 首轮候选已通过受审计提取器处理 `ashes-urhrok`、`cults`、`orcs`，未直接读取受保护源码。
-- 3 条待审校术语已全部裁决（2026-08）：`Constrict`→缠绕、`eldritch`→骇异、`Atmos Tribe`→气之部族，均升为 `preferred` 并按术语库流程先改 TSV 再同步规范 Lua。
-- 已保留翻译条目的 `source_tag`，并为术语补充 `T.*` 分类及语境说明。
-- 核心与 DLC 规范 Lua 已完成一轮大批量术语统一和译文校正，并已连同回归测试提交冻结（commit `89744ab`），后续 finding 修订在冻结基线上分批提交，不能视为已发布版本。
-
-### 工具链
-
-- `doctor`、`extract`、`lint`、`status`、`merge`、`workset`、`context`、`proposal`、`review`、`build` 已统一到 `python3 -B tools/i18n` 入口。
-- 审核流程：`tools/i18n review --scope code|translations` 显式生成只读 Pi 审核 bundle，`tools/pi-review --bundle` 严格校验 findings、分配宿主 `R-NNN` 并优先复用精确缓存，`tools/pi-remediate --bundle --review` 产生修订建议；修订需由主代理校验后应用，MVP 不自动执行模型建议。
-- 源码核验变体（Skill `$tome4-pi-file-review`，2026-08-04 新增）：`tools/pi-review-files --bundle`（headless）与 `tools/pi-tmux review-files --bundle`（tmux 分屏可见）与隔离审核共用 bundle、findings 契约、严格校验、报告格式与授权门槛，但 Pi 以 `--tools read,bash` 白名单启动，可按提示契约只读核验仓库、公开游戏源码（`/Users/yun/projects/t-engine4`）与公开 DLC 源码（`/Users/yun/projects/tome4-dlcs/`）来验证证据；`edit`/`write` 永不启用、cwd=仓库根、缓存命名空间与隔离审核分离；系统提示为 `i18n/prompts/pi-reviewer-files.md`，可读范围与禁止范围（`.artifacts/`、凭据、网络、一切写入）写死在提示中。Pi 内置 `bash` 不是 OS 沙箱，会继承 Pi 进程权限与 provider 凭据；工具现自动比较运行前后的版本控制范围的内容级 worktree 快照（受管 diff、非忽略未跟踪文件内容与 Git exclude；不覆盖其他忽略路径或其余 `.git` 元数据），主代理仍须独立确认工作树未被改动。需要强隔离时必须在只读挂载、网络/凭据隔离的容器或 VM 中运行。
-- 构建工具现在支持最小 addon 覆盖层：官方已有且语义未改变的译文只计入继承统计，不写入插件。
-- 显式指定组件时，例如：
-
-  ```bash
-  python3 -B tools/i18n build --profile addon --component tome --require-complete
-  ```
-
-  只检查所选组件，不会把未选择的 DLC、旧 lore 或 Nullpack 层算作不完整。
-- addon 构建报告现在包含 `inherited_entries`、`override_entries`、`new_entries`，并对重复运行键进行去重。
-- 所有工具报告和候选文件仍只写入被忽略的 `.artifacts/i18n/`。
-
-### 本次发布边界决策
-
-- 核心发布层固定为 `tome`，状态为 `releaseable`，继续使用 `build --profile addon --component tome --require-complete`；DLC 和外部覆盖层不再作为核心构建的隐式依赖。
-- `ashes-urhrok`、`cults`、`orcs` 已登记受保护提取快照的哈希基线；`items-vault`、`possessors` 暂时忽略，保留规范译文但不再探测来源，也不计入 addon 候选或 DLC 发布层完整性。
-- DLC addon 层当前仍为 `baseline-pending`：已有受保护快照哈希不能替代发布所需的可验证官方/源码基线。
-- `legacy-lore-overlay` 与 `nullpackreloaded` 各自拆为独立可选外部层。当前不把 addon 仓库提交当作它们的官方源码基线，也不把它们计入核心发布完整性。
-- 以上边界已写入 `i18n/versions/tome-1.7.6.json` 的 `release_layers`；后续严格构建需要按层选择并验证，不应通过忽略缺失来源来伪造全量通过。
-
-### 翻译质量系统（第一阶段 M0–M3 + M4 dry-run，2026-08-04）
-
-- 设计文档：`docs/translation-quality-system.md`（整体方案）与 `docs/translation-quality-phase-1.md`（阶段计划）。
-- 权威规则已版本化：`i18n/quality/taxonomy-v1.json`（37 个 MQM 风格错误码、8 类 profile、severity、门禁、risk flag、profile 分类规则）、`i18n/quality/policy-v1.json`（身份契约、120 条试点参数与 6 项覆盖约束）、四份 JSON schema。
-- `tools/i18n quality {inventory,sample,validate,report}` 已接入统一入口；实现位于 `tools/i18nlib/quality.py`。
-- 全量 current revision inventory：**30,177 个 revision**（与 LocaleLoader 条目数守恒），含结构签名、profile、相关术语、确定性 gate signal 与 risk flag；相同输入重复运行 SHA-256 一致（`048359c2…`）。
-- 120 条试点样本（代表性 60 / 风险富集 40 / 对照 20±1）满足全部覆盖约束，固定 seed `tome4-quality-pilot-v1` 可逐字节复现；对照桶覆盖近重复原文、尾空格多译、跨语境同源等真实争议案例。
-- strict validate 已能拒绝：未知错误码/等级、绝对路径、重复 finding ID、不完整覆盖、sample 不匹配、悬空裁决、confirmed blocker/major 晋级 Gold 等；report 输出一致率、加权 κ、错误分布与校准目标对照。
-- 当前 evaluator 开发批次门禁全过：lint --strict 0/0、433 项单元测试、运行时键扫描 0 冲突、1,717 条重复键均为合法跨文件重复、`git diff --check` 通过。
-- 2026-08-04 首轮 Pi 代码审核（provider opencode-go / model deepseek-v4-flash，bundle `3a6898f1…`）：8 条 finding 全部独立核验属实并已修复——术语匹配最长优先+前缀归并（R-001）、可合并错误码对称匹配（R-002）、profile 分歧改从 assessment 推导（R-003）、新增 format_shape_match 信号（R-004）、新增 cross_component_variant 事实（R-005）、对照桶组原子性（R-006）、relevant_terms 携带 domain（R-007）、handoff 测试数对齐（R-008）。修复后全量 inventory 重建：domain_hints 3,120 条、跨组件变体 0、格式形状差异 0；120 条样本可逐字节复现。
-- 2026-08-04 第二轮 Pi 代码审核（provider deepseek / model deepseek-v4-flash，bundle `3176637b…`，tmux pane 实时流式 293s）：3 条 finding 全部核验属实并已处置——对照组兜底超员有界并补注释说明（R-001）、handoff 内部数字矛盾已对齐（R-002，测试数 87、minor/note 完成态、pending=0）、quality validate 默认执行 policy 的 strict_unknown_fields（R-003）。
-- 2026-08-04 第三轮 Pi 代码审核（provider deepseek / model deepseek-v4-flash，bundle `2e1d3535…`，pane 渲染升级后 302s）：5 条 finding 全部核验属实并已处置——section 模式改段感知匹配（R-001，`ui` 不再误伤 `data/guilds`）、category 指标双侧计入合并匹配（R-002）、inventory 空 target 回读放行（R-003）、strict 未知字段覆盖根级/evaluator（R-004）、handoff 测试数统一为 89（R-005）。
-- 2026-08-04 质量 M4 dry-run 里程碑：12 条 dry-run 样本完成 reviewer-a/reviewer-b 两份完整 assessment 与裁决（`quality validate --dry-run --strict` 通过，severity 加权 κ=0.92、实质缺陷一致率 91.7%、风险标志覆盖率 1.0），`quality report` 管线在 dry-run 集全链路验证；冻结清单 `.artifacts/i18n/quality/runs/*-dry-run/dry-run-frozen-manifest.json`（含 4 条 rubric 观察：物品未识别名/天赋名 profile 应归 term-name、zones 长叙事应归 narrative、术语表缺组合实体词、contrast finding 身份记账）；`quality validate` 新增 `--dry-run` 模式（adjudication 可选）。dry-run 两份评估由同一代理会话产生，按 M4 约定不计入正式一致性与缺陷率，正式 120 条需两位真正独立的 evaluator。
-- 2026-08-04 AI quality evaluator 盲测：新增 `tools/pi-quality-evaluator`、`tools/i18nlib/pi_quality.py` 与隔离 prompt，模型保持无工具/无会话/无项目上下文，宿主固定 evaluator 元数据并严格校验完整覆盖；DeepSeek V4 Flash 与 GPT-5.6 Luna 均用 max thinking 完成 12 条多轮独立盲评。首轮缺陷一致率 50%、κ=0.1875；统一逐项检查表后的最佳轮达到缺陷一致率 83.33%、major-or-worse 91.67%、κ=0.5833；severity 锚点复测受随机差异影响回落至 58.33%/0.34，说明当前 pair 的 severity 稳定性未达到 κ≥0.70，正式 120 条暂缓。一次 DeepSeek 输出完整 items 但遗漏最外层 `}`，runner 仅允许该唯一确定性 envelope 修复并有回归测试，其他畸形输出仍拒绝。
-- AI evaluator v2 落地方案已写入 `docs/translation-quality-evaluator-v2.md`：模型改为输出问题证据与三态影响事实，宿主规范化/匹配问题并按版本化规则派生 severity，分歧走匿名事实裁决；现有 12 条降为探索回归集，后续使用与正式 120 条互斥的 32 条校准集和 32 条封存验证集，避免在固定小样本上调参过拟合。
-- 2026-08-06 Evaluator v2 离线里程碑已完成（`dfbe516`、`ca887d4`、`7b3ac2b`、`cbd83ad`，最终复审修订见后续提交）：新增严格 v2 policy/rubric/schema、版本化 impact rules 与空 anchors；独立 `quality_v2` 实现 Unicode span、assessment 身份、规则定级、同 revision 二部图匹配、匿名 dispute/身份映射、事实裁决重算、数据集/分片/报告；`tools/pi-quality-evaluator` 已兼容 v2 shard，并仅用 fake runner 验证。真实 30,177 条 inventory 一次加载生成校准 `28c1a2e4…` / 封存 `4931d451…` 各 32 条，与探索 12 和正式 120 两两互斥；重复生成字节一致（9.81s/9.88s），正式 sample ID/内容保持不变；封存 profile 按正式分布精确缩放为 8/6/5/4/3/3/3，组件组为 19/9/4，四个长度桶均有覆盖；两套数据各生成 2 个不超过 20 条且不拆 contrast group 的 shard。最终 artifact 为 `.artifacts/i18n/quality/runs/20260806T000836.350031Z-calibration-v2/`，未调用外部 provider、未修改规范译文。v1 `quality.py` 在 `d92ffc8` 与当前内容 blob 相同，三次正式 sample 基准中位 3.596s，因此本批不存在 v1 核心采样回退。
-- 2026-08-06 经逐项授权执行新 lineage 校准 `e29bf49…`：DeepSeek V4 Flash 主跑/强制复跑分别产生 2/10 个 finding，稳定性 Jaccard `0.200`；GPT-5.6 Luna 主跑/强制复跑分别产生 3/5 个 finding，稳定性 Jaccard `0.600`。两者 schema coverage、结构失败、关键事实一致率和派生 severity 一致率均通过，但均未达到预注册 finding Jaccard `>=0.70`，因此 M4d 为 **No-Go**，不得冻结该 evaluator 配置或进入封存验证。两模型主跑交叉匹配为 3 个 issue（1 full、1 partial、1 Luna-only），Jaccard `0.667`；其中 1 条“英文感叹号未保留”进入匿名人工队列。稳定性、匹配、争议与报告分别保存在 `.artifacts/i18n/quality/runs/20260806T050532.754110Z-stability-v2/`、`20260806T054146.351003Z-stability-v2/`、`20260806T054200.719628Z-issue-match-v2/`、`20260806T054210.581923Z-disputes-v2/` 和 `20260806T054210.584959Z-report-v2/`；封存集和正式 120 条均未发送或查看 evaluator 结果。
-- 针对该 No-Go 的有界分析确认：四次运行都稳定发现“Turns 单位漏译”和 temporal shear 术语错指；全部漂移来自句末标点、CJK/markup 空格、成对标点和 `none`→“没有”的可选润色。现已把 blind model finding scope 冻结为 `is_defect=yes` 且 `is_substantive=yes`，拒绝 presentation/style、`presentation-only`/`none`，technical finding 还必须由 bundle 内确定性 gate 确认；模型可见 impact rules 同步移除 presentation-minor/note，但完整 severity 规则仍供宿主/人工裁决使用。新校准 ID `6d2b3f24…`、封存 ID `e8091099…`、预注册 ID `0f2a09c5…`；两次离线生成逐字节一致，真实 bundle 均为 20+12 两个 shard。旧失败结果不覆盖、不重解释，下一次外部复测仍须单独授权。
-- 2026-08-06 新 scope 外部复测按授权执行：DeepSeek 主跑完整通过并产生 2 个 finding；强制复跑在第 1 shard 只返回 reasoning channel 中的未完成 JSON、没有 final text，严格解析失败。该失败属于内容结构失败，预注册 `replace_content_failures=false`，因此未重试且不能用第三次运行替代。Luna 主跑/强制复跑均完整通过、各产生相同 2 个 finding，稳定性报告 finding Jaccard、关键事实一致率、派生 severity 一致率和 schema coverage 均为 `1.000`，结构失败 0。两模型有效主跑交叉匹配也只有相同 2 个实质 minor（Turns 单位漏译、temporal shear 术语错指），问题 Jaccard `1.000`、人工争议 0。Luna 稳定性、主跑匹配和报告位于 `.artifacts/i18n/quality/runs/20260806T095656.803426Z-stability-v2/`、`20260806T095724.727472Z-issue-match-v2/` 和 `20260806T095737.983059Z-report-v2/`；DeepSeek 失败报告位于 `.artifacts/i18n/runs/20260806T092059.148816Z-46390-pi-quality-evaluator-v2/`。本轮实际发生 7 次 shard 传输；封存集与正式 120 条仍未发送或评估。
-- 2026-08-04 最终工作区代码 diff 有界 Pi 复审（provider deepseek / model deepseek-v4-flash，bundle `0bb8d57f…`）：5 条 finding 已独立核验。R-002（runner 未自动核验 worktree）与 R-003（code bundle/tmux 测试缺口）确认并修复：headless/tmux 初步增加前后 `git status --porcelain` 快照，新增 code bundle 与 tmux 回归测试；R-005（术语净增基线表述）确认并改为明确的 510 条早期基线；R-004（测试数应为 94）不采纳，实际 HEAD 为 92、复审时工作区为 97，模型把更早的 89 条叙述误当直接基线，首次修订后实测为 99。R-001（`bash` 无 OS 沙箱且继承凭据）部分确认：Pi 官方文档明确内置工具不是沙箱，已在 AGENTS/Skill/handoff/系统提示中纠正“硬性只读”表述、记录强隔离要求；provider 通信凭据无法在同一 Pi 进程内彻底与内置 bash 隔离，当前只允许经逐次授权、受监控运行，强安全场景必须使用只读挂载及网络/凭据隔离的容器或 VM。
-- 2026-08-04 修订后二轮 Pi 复审（同 provider/model，bundle `0ea1ff0c…`）：3 条 finding 全部确认并修复。R-002 指出脏工作树下 porcelain 状态不随已修改/未跟踪文件内容变化，现改为哈希 HEAD、受管 binary diff、非忽略未跟踪文件内容与 Git exclude 的版本控制范围内容级快照，并新增脏 tracked/untracked 文件回归测试；R-001 指出 headless 篡改路径在落盘 raw output 前失败，现调整为先保存 stdout/stderr 与哈希再检查快照；R-003 指出系统提示中的禁止范围只是受监控契约，现明确其非 OS 技术边界及强隔离要求。测试总数升至 100。
-- 2026-08-04 三轮修订复审（同 provider/model，bundle `bb20a5ff…`）：3 条 finding 已独立核验。R-001 部分确认：忽略路径与绝大多数 `.git` 元数据不属于版本控制工作树且 `.artifacts` 会被宿主正常写入，无法纳入同一无噪音快照；已把报告字段与 AGENTS/Skill/handoff 表述收窄为 `versioned_worktree_*` 和“受管 + 非忽略未跟踪 + info/exclude”的最佳努力范围，强隔离要求不变。R-002 确认并新增 fake Pi 实际篡改 tracked 文件的集成测试，断言运行失败、`versioned_worktree_unchanged=false` 且 raw output/report 已落盘。R-003 不采纳：`cli.py` 明确将 `run_validation` 导入别名为 `quality_run_validation`，`dry_run` 已在该函数签名中接收并透传；为消除回归疑虑仍新增 runner 级 dry-run 测试。测试总数升至 102。
-- 2026-08-04 收敛复审（同 provider/model，bundle `2f14a759…`）：2 条 finding 均已处置。R-001 确认：headless 与 tmux worker 现均以独立进程组启动 Pi，并在成功、失败或超时时清理整个进程组后再取 worktree 快照；报告显式记录 `process_group_cleanup=true` 与无法覆盖自行脱离进程组的 `detached_descendants_checked=false`，强隔离场景仍按容器/VM 要求执行。R-002 作为防误用建议采纳：dry-run 使用官方 `SAMPLE_CONTRACT` 时继续允许管线试跑，但 validation/report 现产生明确的 non-official 警告，不能作为已裁决正式 pilot 门禁证据；既有测试增加警告断言。
-- 2026-08-04 最终收敛复审（同 provider/model，bundle `cad8ed9c…`）：3 条 finding 已核验。R-001 与 R-002 确认：headless 不再用 `communicate()` 全量缓冲事件流，改为 daemon pump 流式落盘并过滤累积 `message_update`；headless/tmux 的 stream reader 均使用有界 join，无法在进程组清理后收敛时报告失败而非无限挂起。R-003（正常退出后清理同组残留存在极低概率 PGID 复用）不采纳：正常退出后杀同组残留是防止后台写绕过快照的必要步骤，调用紧随已记录 PID 的退出且复用窗口可忽略；自行 `setsid` 的后代仍按已记录残余边界处理。
-- pane 可见性改造：pi 审核/修订/翻译命令从 `--mode text`（完全缓冲）切换为 `--mode json`（实时事件流），新增事件流提取（`extract_event_stream_output`）与 pane 增量预览（`_preview_event_line`），reasoning/文本增量实时可见；deepseek provider 凭据经 `_pi_environment` 注入 `DEEPSEEK_API_KEY`（此前因 `PI_CODING_AGENT_DIR` 重定向找不到 auth.json）。
-- pane 渲染二次升级（`PaneStreamRenderer`）：增量按换行组装成完整行、推理暗色/状态行青色，与常规终端一致；`message_update` 行不再写入 raw 文件（每行携带累积 partial，曾致单次运行 5.9GB，现 ~756KB）。
-
-## 三、最近验证结果
-
-以下结果是当前工作区最近一次验证的基线：
-
-- `doctor`：清单、Lua 5.1 / LuaJIT 2.1、LPeg 0.10.2 和受保护输入代理均正常。
-- 单元测试：442 项通过（`test_toolchain.py` + `test_quality_v2.py`）；覆盖契约/身份/path、span、每条 severity 规则的 yes/no/unknown、确定性技术门禁、模型 finding scope、匹配图、匿名裁决、分片完整性、全缓存身份、fake runner 成功/失败 artifact、报告和稳定性预注册校验。
-- 严格 lint：30,177 条翻译、693 条术语，0 个错误、0 个警告；`lint --strict` 已可作为当前门槛。
-- lint 仍统计到 1,717 个重复运行键；这不是当前构建失败项，但仍需分类审校。
-- 核心最小 addon：严格构建成功，19,023 个预期运行键全部验证通过。
-- 核心补丁包含 1,391 个运行键：17,632 个官方已有译文继承不打包，1,382 个覆盖译文，9 个新增译文。
-- 构建验证结果为 `missing=0`、`mismatched=0`、`unexpected=0`、`redundant=0`。
-- 默认全量 addon 仍不能作为完整发布层；DLC 基线及可选外部层必须分别解决，不能借核心构建的成功宣称全量完成。
-
-环境检查另有两个非阻断提示：公开引擎仓库因包含受保护输入而跳过通用 worktree 扫描；外部发布仓库 `tome-chn-mod` 当前存在工作区改动，正式安装或发布前必须先确认其归属。
-
-### 审核闭环状态
-
-- 主仓库已完成首轮全量 Pi 翻译审核：覆盖 609 个原始 translation bundle、30,170 条规范译文；累计报告记录 3,223 条 finding observation。
-- 以稳定 `review_id` 去重并对缓存重放采用较晚裁决后，权威库存为 614 个 validated review observation、3,218 条 finding：2,816 条确认、146 条部分确认、247 条不采纳、9 条待语境裁决。
-- review 工作树原队列中有 1,365 条与该权威库存精确关联；另有历史/代码审核观察，使原台账已处置总数为 1,425 条。
-- 本次从尚未关联的 1,853 条中排除主仓库已裁决不采纳的 165 条，新增 1,688 条 `pending`：2 blocker、565 major、1,053 minor、68 note；其中 1,609 条确认、79 条部分确认。
-- 同步清单为 `.artifacts/i18n/imports/pi-first-round-20260803/manifest.json`，完整差集为同目录的 `first-round-remaining-findings.json`；同时复制了 362 份 validated `review.json` 与 362 份绑定的有界 translation bundle，未复制 `raw-output.txt` 或含绝对源路径的 Pi 运行元数据。
-- `remediation-queue.json` 现有 3,113 条：1,425 条为冻结前已处置、1,688 条为本次新增 pending；`remediation-ledger.json` 保留既有逐条处置记录并关联本次 import。首轮“发现”阶段已经完成，修订阶段正在推进（见下）。
-
-### 审核闭环处置进度（2026-08-03 晚）
-
-- 冻结批次：已处置的 1,425 条对应工作树改动已复跑严格 lint（0/0）、39 项测试和 `git diff --check` 后提交为 `89744ab`（8 个文件，+2,945/−2,673），与新增队列隔离。
-- blocker：2 条全部处置（`303f788`）：R-002 删除 ShowPurchasable 中文末尾残留英文句并恢复“包括你自己”；R-007 补全 world-artifacts 的【待翻译】句并本地化 Veluca 为“维卢卡”。
-- major：565 条全部处置（`d8d25db` 至 `c1c2771` 共 15 个批次，每批 40 条独立提交），覆盖 engine/boot/addon-dev/ashes-urhrok/cults/orcs/possessors/items-vault/tome 各组件；其中约 10 条经核验在冻结提交中已修复，按 `already_resolved` 记账，未重复改动。
-- minor：803 条全部处置完毕（`020741b` 至 `9844f5a` 共 18 个批次：batch 6–21 每批 50 条 + batch 22 收尾 3 条），全部集中在 tome 组件；每批独立提交，个别条目经核验在先前批次已修复，按 `already_resolved` 记账，未重复改动。跨条目术语（如 Pyre Wars＝烈火战争、Wayist＝维网信徒、Infinite Dungeon＝无尽地下城、Pride＝部落）先更新 `terminology.tsv` 再统一同步。
-- note：68 条全部处置完毕（`efebeaf` 50 条跨 6 组件 + `8494b5c` 18 条 tome），队列 `pending` 已清零。
-- 队列终态：`remediation-queue.json` `pending=0`，`applied_pending_commit=2945`，`already_resolved=135`；`remediation-ledger.json` 已关联 2,795 条 finding 处置记录。
-- 处置原则：每条 finding 以有界 bundle 的 source/target 为准独立核验（涉及公开机制时另核验固定源码），不直接照抄 Pi 建议；每批修改后运行 `lint --strict`（0 错误 0 警告）与 `git diff --check`，并在 `remediation-queue.json`/`remediation-ledger.json` 中逐条记账（`verification`、`verification_note`、`changes`）。
-- 批次切分注意：生成批次时须从**当前 pending 列表**固定取 `[0:40]`/`[0:50]`，不得使用随列表缩短而漂移的 `[40n:40n+40]` 索引；此前曾因此系统性跳过条目，已通过剩余 pending 复核修正。
-- 当前 pending 余量曾为 871 条（minor 803 + note 68）；后续批次全部处置完毕后 `pending` 已清零（见队列终态）。
-
-## 四、待办事项
-
-### P0：发布基线
-
-- [x] 将核心 `tome`、DLC 和外部覆盖层拆为独立发布边界，并让核心层通过严格构建。
-- [x] 整理并提交当前术语、译文和回归测试批次；最终 diff 已完成有界独立复审，源码核验变体与 M4 dry-run 收敛批次提交为 `aa382da`。
-- [x] 为当前 DLC 发布层中的 `ashes-urhrok`、`cults`、`orcs` 建立可验证的官方/源码基线（2026-08-04 extract 验证：快照 SHA-256 与 tDef 数与 manifest 一致）；`items-vault`、`possessors` 仅在重新纳入发布范围时恢复来源映射并补建基线。
-- [x] 为 `legacy-lore-overlay` 固定来源、版本和归属组件（2026-08-04 调查：tome-chn-mod 与引擎公开源码均无独立 legacy-lore 实体，结论记录于 manifest external_requirements 与 i18n/README）。
-- [x] 为 `nullpackreloaded` 固定源码来源和版本，或拆成独立可选插件（译文快照固定于 tome-chn-mod `8dd657d`：null_translation.lua 464 条目 + hooks/load.lua；上游 addon 版本未固定，保持 optional 层）。
-- [x] 在发布仓库工作区干净且归属明确后，生成并独立验证核心发布 artifact（核心 addon 确定性重建 SHA-256 一致 `aa712264…`；产物经 LuaJIT 加载验证 4,158 条目；`tools/ci-gates.sh` 一键门禁 10 步全过）。
-
-### P1：翻译质量
-
-- [x] 清理控制标记、`@token` 大小写/缺失和格式差异等 lint 问题；当前严格 lint 为 0/0。
-- [x] 同步首轮全面审核余量，建立 1,688 条待处理 finding 的本地快照、队列和台账关联。
-- [x] 冻结已处置的 1,425 条工作树并形成可审核提交（`89744ab`），与新增队列隔离。
-- [x] 处理 2 条 blocker（`303f788`）；每项均以有界 bundle、术语库及必要的固定公开源码独立核验，不能直接套用 Pi 建议。
-- [x] 处理 565 条 major（`d8d25db`–`c1c2771` 共 15 批，每批 40 条独立提交并逐条记账）。
-- [ ] 分组件处理 1,053 条 minor 和 68 条 note；高复用术语先更新 `terminology.tsv`，再同步规范 Lua。（已完成：minor 1,053/1,053、note 68/68，见推荐工作顺序 §4）
-- [x] 审定 `Constrict`→缠绕、`eldritch`→骇异、`Atmos Tribe`→气之部族（2026-08 裁决，先改 TSV 再同步 Lua）。
-- [x] 检查 1,717 个重复运行键（2026-08-03 `930b9c2` 分类完成：全部为跨文件合法重复，0 个同文件冗余；分类结果见 `tools/classify_runtime_keys.py` 报告）。
-- [x] 对每个 remediation 批次运行严格 lint 和定向测试、更新台账；全部完成后对最终 diff 做有界 Pi 复审，并为接受、修订或撤销的 finding 留下闭环证据（2026-08-04，`0bb8d57f…` 至 `cad8ed9c…` 五轮收敛复审，处置记录见本节）。
-- [ ] 翻译质量系统 M4d–M6：首轮 32 条校准双评、匿名裁决与公开源码核验已完成并保留为历史；确认 `omission`/`unit` 同证据重复匹配缺口后，已在 `ecc79c8`–`cd87c36` 增加受限合并规则、6 个仅来自人工裁决校准案例的严格 provenance anchors、稳定性预注册/CLI、配置单次加载和陈旧 sample/policy 拒绝。校准 `e29bf49…` 的两模型稳定性复测因 presentation-only 阈值漂移失败；宿主强制 substantive-only scope 的新校准 `6d2b3f24…` 已完成授权复测，Luna 与两模型有效主跑均达到 Jaccard `1.000`，但 DeepSeek 复跑无 final answer，触发不可替换的内容结构失败。M4d 因此仍为 No-Go；下一步须先决定更换 reviewer-a、调整 provider/model 输出协议或建立其他新预注册方案，任何新外部运行仍需另行授权，不得补跑当前 lineage、查看封存结果或运行正式 120 条。
-
-### P2：流程与工程化
-
-- [ ] 为默认构建、核心最小构建和基线缺失场景补充 CLI 集成测试。
-- [ ] 建立持续集成检查：LuaJIT 加载、普通 lint、单元测试、核心 build，以及禁止受保护目录越界读取。
-- [ ] 评估是否需要安全的人工审核后 apply 流程；当前 `merge`/`proposal` 只生成候选和校验结果，不会原地修改规范 Lua。
-- [x] 新增的 `i18n/`、`tools/`、`tests/` 文件已纳入本次工具链提交；发布仍需单独执行。
-- [x] 为受保护提取器陈旧输出、空编辑键、越界 merge report 与 AI evaluator v1/v2 隔离/严格输出补充回归测试；当前测试总数为 440。
-
-## 五、推荐工作顺序
-
-1. ✅ 已冻结已处置 1,425 条 finding 的工作树：复跑严格 lint、39 项测试和 `git diff --check` 后形成提交 `89744ab`，避免与新增队列混写。
-2. ✅ 已处理 2 条 blocker（`303f788`），完成事实核验、译文修订、关联台账和定向验证。
-3. ✅ 已将 565 条 major 按 `component + section + ordinal` 切成有界批次（15 批，每批 40 条）全部处理完毕，优先覆盖机制反转、参数/占位符、伤害类型、触发条件和长篇错配；每批独立提交并逐条记账。
-4. ✅ 已处理 1,053 条 minor 与 68 条 note（1,053/1,053、68/68），队列 `pending` 清零；跨条目术语先走术语库流程，重复运行键在同批同步，但不得无证据全局替换。
-4b. ✅ 与基线（相邻仓库 HEAD `84e5573`，即本分支基线）逐条对比后，发现早期批次约 14 条标记 `applied` 但条目未落盘的遗漏，已全部补修（`5d26960`，tome 8 / ashes 3 / cults 2 / engine 1 及标点统一 1 处），并全量复检确认除有意保留项外无遗漏。
-5. 每批结束后更新 `remediation-queue.json`、`remediation-ledger.json` 和人类可读台账，运行严格 lint 与相关定向测试；涉及公开机制时记录固定 commit，涉及 DLC 时只使用已复制的有界规范 bundle。
-6. 队列清零后运行完整 doctor、lint、当前全套测试（433 项）和核心严格 build，再对最终 diff 生成有界 Pi 复审（需要对照源码核验证据时可用 `$tome4-pi-file-review` 变体）；只有复审无未处置 finding，才更新为审核闭环完成。
-7. 随后分类 1,717 个重复运行键（已判定全部为跨文件合法重复）并继续 DLC、legacy lore、Nullpack、CI 与发布基线工作；3 条 `review` 术语已裁决（见 P1）。
-
-## 六、常用命令
+仓库级运行、安全、DLC 源码和审核规则以根目录 `AGENTS.md` 为准。首次使用工具仍先运行：
 
 ```bash
 python3 -B tools/i18n doctor
-python3 -m unittest -q tests/i18n/test_toolchain.py tests/i18n/test_quality_v2.py
-python3 -B tools/i18n lint --json
-python3 -B tools/i18n lint --strict
-python3 -B tools/i18n status --json
-python3 -B tools/i18n build --profile addon --component tome --require-complete --json
-python3 -B tools/i18n build --profile addon --require-complete --json
-python3 -B tools/pi-review-files --bundle <bundle.json>
-python3 -B tools/pi-tmux review-files --bundle <bundle.json>
-python3 -B tools/i18n quality validate --dry-run --sample <dry-run.json> --assessment <reviewer-a.json> --assessment <reviewer-b.json> --strict
-python3 -B tools/i18n quality calibration --inventory <inventory.jsonl> --calibration-size 32 --holdout-size 32
-python3 -B tools/i18n quality evaluator-bundles --sample <calibration.json> --evaluator reviewer-a --max-items 20
 ```
 
-执行 Lua 相关检查时必须遵守 `AGENTS.md` 中的 LuaJIT 5.1 和模块路径要求。任何 DLC 提取、快照或上下文操作都必须通过仓库内受审计的工具完成；不得使用通用文件搜索、脚本 API 或 Git 命令直接读取受保护 DLC 输入。
+当前离线闭环的决策完整实施方案见
+[`docs/translation-quality-offline-closure-plan.md`](docs/translation-quality-offline-closure-plan.md)。
+本文只维护状态、实验结论和继续工作的安全边界，不重复实施细节。
 
-## 七、当前分支与工作区范围
+## 2. 当前目标与决策
 
-- 当前分支：`codex/review-findings-20260802`。
-- 本次最终交接提交完成后，分支相对 `origin/master` 领先 157 个提交：在既有工具链/术语/审核闭环基础上，新增 Evaluator v2 设计提交 `c73c4c6`、四个分阶段离线实现提交 `dfbe516`、`ca887d4`、`7b3ac2b`、`cbd83ad`，以及最终有界复审修订/交接提交。
-- 本轮 finding 处置涉及文件：`engine.lua`、`mod-tome.lua`、`tome-ashes-urhrok.lua`、`tome-cults.lua`、`tome-orcs.lua`、`tome-addon-dev.lua`、`tome-possessors.lua`、`tome-items-vault.lua`、`mod-boot.lua`、`mod-example.lua`、`mod-example_realtime.lua`。
-- 当前工作区在本段更新提交后应保持干净；v1 evaluator 批次为 `af88a5b`，v2 重校准实现与首次冻结提交为 `ecc79c8`–`cdaa2dc`，substantive-only scope 修订为 `4675d5f`。新 lineage 外部复测已结束：Luna 稳定性通过，DeepSeek 内容结构失败使 M4d 保持 No-Go。封存集、正式 120 条、推送和发布均尚未执行。
-- 工作树状态快照：`remediation-queue.json` 的 `pending` 为 0（全部处置），`applied_pending_commit` 2,945、`already_resolved` 135；`remediation-ledger.json` 已关联 2,795 条处置记录。
-- 已处置但未改动规范文件的条目（有意保留）共 168 条：`already_resolved` 135（已含修复/与源码一致/术语裁决/代码基线已修复）+ `false_positive` 33（不采纳，原因均记录在台账 `verification_note`）。
-- 术语表系统工程（2026-08）：新增 `domain` 列（11 领域 + lint 白名单）、静态/动态审计、补录基础术语（资源/面板属性/免疫/高频词）、3 条 review 术语裁决、33+26 条同键多译统一、light 共享键裁决、重复运行键分类（1,717 全部跨文件合法重复）、`tools/scan_runtime_collisions.py` / `classify_runtime_keys.py` / `review_diff.py` / `pi-review-batch.py`。
-- 三轮 Pi 复审闭环（2026-08-03/04）：diff bundle 复审 3 轮，major 66→54→21→0，全部处置（含裁决保留）；处置记录在 `.artifacts/i18n/terminology-audit/findings_review{1,2,3}*.json`；worker 调优测试见 `docs/pi-review-worker-tuning.md`（最优 6 workers，4.2× 加速）。
+原目标是降低 AI 翻译质量 evaluator 的主观性。Evaluator v3 已把 severity、技术门禁和 anchor 归一化移到宿主，但外部校准分析进一步确认：当前瓶颈已经从 JSON/schema 合法性转为以下三件事是否具有统一语义：
 
-上述状态说明核心插件已通过本地发布门槛，首轮全量 finding 队列已清零，术语与重复运行键分类均已完成。质量 v2 的 presentation-only 稳定性问题已由 substantive-only scope 消除，Luna 与有效主跑证据均达到完全一致；当前唯一校准阻碍是 DeepSeek 无 final answer 的内容结构失败。下一动作是另行设计并预注册 reviewer-a/provider 输出方案，而不是补跑当前 lineage、进入封存集或正式 120 条。DLC 与外部层仍不属于已完成发布范围。
+1. 模型是否报告同一个问题；
+2. 模型、anchor、matcher 和 stability 是否把它识别为同一个 claim；
+3. Facts 是否帮助模型发现真实问题，还是改变注意力并诱发过度解释。
+
+当前决定：
+
+- 不运行 v4 holdout 或正式 120 条。
+- 不降低稳定性门槛，不追加调用刷出一次通过。
+- 不修改或重新解释 v1–v3 历史 artifact。
+- 先完成隔离的 `facts-study-v1/v2` 因果研究，再决定是否把 Facts 通道纳入 v4 draft.3。
+- 当前没有可执行的外部 Facts Study preregistration；下一次外部传输必须重新冻结输入并取得新的明确授权，不能沿用此前 calibration 授权。
+
+## 3. Evaluator v3 已实现内容
+
+主要实现与契约：
+
+- 独立模块：`tools/i18nlib/quality_v3.py`
+- 设计文档：`docs/translation-quality-evaluator-v3.md`
+- policy/rubric/prompt：
+  - `i18n/quality/policy-v3.json`
+  - `i18n/quality/rubric-v3.md`
+  - `i18n/prompts/pi-quality-evaluator-v3.md`
+- severity matrix 与 anchors v2：
+  - `i18n/quality/severity-matrix-v1.json`
+  - `i18n/quality/anchors-v2.json`
+- v3 assessment、adjudication、match、report、stability 等 schema 已隔离新增。
+- CLI 已增加 v3 版本化入口；`tools/pi-quality-evaluator` 可按 sample contract 区分旧契约与 v3。
+- v2 文件和历史读取语义保持兼容，缓存身份不应跨 v2/v3 命中。
+
+v3 的核心方向是：模型只报告可观察的实质语义差异；宿主根据 error-code/phenomenon 矩阵、技术 gate、anchor 和确定性规则派生分类、severity 与人工路由。
+
+此前校准分析发现：DeepSeek 两轮 findings 发生明显整体翻转，Luna 更稳定但存在稳定伪阳性。更严重的是历史实现曾同时存在 exact-span anchor、负 anchor 标签绕过、多个 matcher 和稀疏人工队列指标等不一致。相关诊断已经沉淀到文档和当前 v3/Facts Study 设计中；封存集仍保持冻结。
+
+## 4. Facts Study 当前实现
+
+主要文件：
+
+- 实现：`tools/i18nlib/facts_study.py`
+- 外部 runner：`tools/i18nlib/pi_facts_study.py`、`tools/pi-quality-facts-study`
+- 协议：
+  - `i18n/quality/facts-study-v1.json`
+  - `i18n/quality/facts-study-v2.json`
+  - `i18n/quality/facts-study-exclusions-v1.json`
+- 文档：
+  - `docs/translation-quality-facts-study-v1.md`
+  - `docs/translation-quality-facts-study-v2.md`
+- 七个 arm prompt：`i18n/prompts/pi-quality-facts-study-{a,b,c,d,n,l,f}.md`
+- 独立语言通道边界：`i18n/quality/language-channel-v1.json`
+- 测试：`tests/i18n/test_facts_study.py`
+
+研究架构：
+
+- A：最小 baseline
+- B：开放式实质语义 checklist
+- C：裸 Facts
+- D：checklist + Facts-first
+- N：与 Facts 等形状、等 canonical JSON 字节长度的 neutral padding
+- L：Facts-late 位置诊断
+- F：独立、全新会话的 Facts-only verifier
+- T：宿主对 B 与 F 做 union/dedupe，不额外调用模型
+
+预注册设计上限为 33 次一-shard 传输：Luna 七个 arm 各三轮，共 21 次；DeepSeek 对 B/D/L/F 各三轮，共 12 次。缓存关闭，失败消耗 slot，不允许替换。
+
+Facts v2 已改为 supplemental-only：
+
+- Facts 作者不得看到 target 或 gold。
+- 每项允许 0–4 条事实；没有真正补充信息时必须为零。
+- 禁止复述 source、item kind、source tag 或 bounded context。
+- provenance 只允许 `terminology`、`public-source`、`versioned-context`。
+- v1 packet/schema 仍保留历史语义。
+
+## 5. 三轮人工数据实验
+
+### 5.1 失败 pilot：Facts v1
+
+目录：
+
+`.artifacts/i18n/quality/runs/20260806T171711.716744Z-facts-study-build/`
+
+结论：Facts 作者生成的 49 条事实中有大量公共输入复述，表面满足的 addressed 数没有有效因果意义。该轮已经登记为 failed pilot；其 20 个 revision 被 `facts-study-exclusions-v1.json` 排除。不要将该轮恢复为可用研究集。
+
+### 5.2 supplemental-only v2 随机候选轮
+
+目录：
+
+`.artifacts/i18n/quality/runs/20260806T230158.697398Z-facts-study-build/`
+
+身份：
+
+- study ID：`ff5931a835e6efa884b3dfeeda385bce260046a2c8940482008951d6cc0dab47`
+- Facts：20 条，1 个零事实项
+- 独立 Gold A/B：各 8 claims
+- 最终裁决：8 claims，1 fact-addressed、7 fact-unaddressed、15 clean、8 fact traps、3 acceptable localization
+
+宿主 lineage、evidence 和 provenance 校验通过，但 frozen gold 正确拒绝：未达到至少 8 addressed + 8 unaddressed。没有进入 33-slot fake/external replay。
+
+关键 artifact：
+
+- `fact-packets.agent-facts-v2.json`
+- `gold-review-a.agent-v2.json`
+- `gold-review-b.agent-v2.json`
+- `gold-adjudication.agent-v2.json`
+
+### 5.3 长文本优先轮
+
+最终有效目录：
+
+`.artifacts/i18n/quality/runs/20260806T235802.809162Z-facts-study-build/`
+
+不要使用此前生成后舍弃的重复候选目录：
+
+`.artifacts/i18n/quality/runs/20260806T235703.429602Z-facts-study-build/`
+
+有效轮身份与数据：
+
+- study ID：`69f99f7e021bfbd5d74dcd7104bf340200969828f4541e952387da3167cb15d4`
+- 20 个唯一 source/target 对
+- 与失败 pilot、v2 随机候选和舍弃候选均零 revision 重叠
+- source 长度：中位数 199、平均 653.5、范围 25–1514；上一轮中位数 33、平均约 141
+- Facts：23 条，4 个零事实项；10 条 terminology、13 条 public-source
+- Gold A：28 claims，3 addressed、25 unaddressed
+- Gold B：19 claims，1 addressed、18 unaddressed
+- 最终裁决：29 claims，3 addressed、26 unaddressed、8 clean、7 traps、5 acceptable localization
+- adjudication SHA-256：`f830d1104f319c89be546f0983366854984b83fcb872358aab83d9b943ecc54d`
+
+关键 artifact：
+
+- `sample.json`
+- `fact-packets.agent-facts-long-v2.json`
+- `gold-review-a.agent-long-v2.json`
+- `gold-review-b.agent-long-v2.json`
+- `gold-adjudication.agent-long-v2.json`
+
+宿主验证结果：authoring lineage 完整，draft gold 合法；将其切换为 frozen 时 validator 因 addressed=3<8 正确拒绝。没有运行 33-slot fake replay，更没有外部 provider 调用。
+
+实验结论：长文本把最终普通语义 claims 从 8 增加到 29，但 fact-addressed 只从 1 增加到 3。文本长度提高的是一般错误密度，不是 Facts 因果信息密度。
+
+## 6. 本轮候选生成器改动
+
+`tools/i18nlib/facts_study.py` 当前还包含以下未提交修订：
+
+1. `_revision_ids_from_artifact()` 会继承输入 sample 的 `excluded_revision_ids`，避免只排除该 sample 的 20 个可见 items 而丢失上游 lineage。
+2. seed 以 `tome4-facts-study-v2-long-source-v1` 开头时，启用可重算的长文本优先选择；profile 内长度得分在约 1500 字符达到峰值，避免单条万字文本吞噬一 shard。
+3. 候选选择禁止同一个 `(source, target)` 对重复进入 20 条样本。
+4. `tests/i18n/test_facts_study.py` 增加长文本选择、传递排除和唯一文本对回归测试。
+
+不要删除这些修订；后续如果引入新的 curation contract，应决定保留为通用候选约束还是迁移到专用 curator。
+
+## 7. 已确认的契约缺口
+
+下一轮数据构建前必须处理：
+
+1. `facts-study-gold-review-v1.schema.json` 和 gold schema 只严格约束顶层，没有正式定义 item/claim/evidence 对象；当前字段和枚举主要存在于 Python validator。上一轮不得不向无上下文审校者额外提供实现级字段定义。
+2. public-source provenance 的 `reference` 有时写成 `path:line`，而 SHA-256 实际绑定整个文件；应把文件身份与 locator 拆成独立字段，不能依赖调用方剥离行号。
+3. Facts statement 使用语言尚未冻结；不同轮次分别出现英文和中文事实，可能成为未控制的实验变量。
+4. 版本化历史 exclusion registry 当前只正式登记 failed pilot。后续轮次依靠传入前一 sample 的传递排除实现零重叠；新 curation lineage 应显式冻结全部排除来源。
+5. `other`、`unknown`、上下文不足、证据无效仍需保持不同的 uncertainty/routing 生命周期，不能重新折叠成 provisional minor。
+6. 受控样本若加入，必须拥有独立 mutation lineage，并从 evaluator bundle 中完全隐藏。
+
+## 8. 下一步推荐方案
+
+不要进行第四轮随机或单纯长文本抽样。新增隔离的 `facts-study-curation-v1`，目标是构建“Facts 依赖性富集”而非“文本长度富集”的开发集。
+
+推荐顺序：
+
+1. **冻结 curation 契约**
+   - 完整定义 Gold claim/evidence schema。
+   - 为 sample 增加 `origin: natural|controlled`、selection stratum 和隐藏 mutation lineage。
+   - 结构化 provenance 文件身份/locator/hash。
+   - 冻结 Facts statement 语言。
+
+2. **构建约 80 条 source-side 候选池**
+   - 术语/专名约 20；机制/条件/数值约 20；实体关系约 15；UI role 约 15；clean fact-trap 候选约 10。
+   - 长度约 80–1500，不再把长度本身当成功指标。
+   - 排除正式 120、32+32、所有历史 Facts revision 和重复文本对。
+
+3. **Facts 作者先 target-blind 标注并冻结**
+   - 对整个候选池生成 supplemental-only Facts。
+   - 此时任何 target-visible 角色尚未开始工作。
+
+4. **独立 target-visible curator 分层**
+   - `fact-dependent-defect`
+   - `surface-defect`
+   - `clean-fact-trap`
+   - `acceptable-localization`
+   - `unsuitable/uncertain`
+
+5. **构建最终 20 条**
+   - 8 个 fact-dependent defect items，目标至少 8 addressed claims。
+   - 6 个 surface-defect items，目标至少 8 unaddressed claims。
+   - 6 个 clean/acceptable items，其中至少 5 clean、3 fact traps。
+   - 优先自然错误；不足部分可在隔离研究 artifact 中创建最小受控 target 变体，但 natural/controlled 指标必须分开，且不得修改规范译文。
+
+6. **重新执行四角色 Gold 流程**
+   - target-blind Facts 作者；Gold A；Gold B；独立 adjudicator。
+   - 宿主只做 schema、hash、evidence、lineage 和 coverage 验证，不补造 claims。
+
+7. **离线验收**
+   - 8 addressed + 8 unaddressed + 5 clean + 3 traps。
+   - 完整 33-slot fake replay。
+   - natural/controlled 指标分离。
+   - 一轮全新、只读、无上下文复审。
+
+8. **外部执行门槛**
+   - 重新冻结 prompt、sample、Facts、gold、arm schedule、seed 和全部 hash。
+   - 再次报告 Luna/DeepSeek provider、model、thinking、20 条、一 shard、21+12 次上限。
+   - 取得新的明确外部传输授权后才能执行。
+   - controlled subset 只能证明 Facts 的机制增益，不能单独授予 v4 holdout clearance。
+
+## 9. 最近验证基线
+
+当前相关验证：
+
+- `python3 -B tools/i18n doctor`：通过；公开引擎仓库的 protected-source scan warning 为既有提示。
+- `tests/i18n/test_facts_study.py`：22/22 通过。
+- `tests/i18n/test_toolchain.py`：401/401 通过。
+- strict lint：30,177 translations，0 errors，0 warnings。
+- runtime collisions：0。
+- duplicate runtime keys：1,717，桶 B=0、桶 C=0，均为合法跨 section 重复。
+- `py_compile`：通过。
+- `git diff --check`：通过。
+
+早先在 v2 contract 修订完成后，quality-v3 + facts-study 组合测试和 v2 legacy 回归也已通过；后续改动仅涉及候选选择与对应 Facts Study 测试。
+
+## 10. 常用命令
+
+```bash
+python3 -B tools/i18n doctor
+python3 -m unittest -q tests/i18n/test_facts_study.py
+python3 -m unittest -q tests/i18n/test_quality_v3.py tests/i18n/test_facts_study.py
+python3 -m unittest -q tests/i18n/test_quality_v2.py
+python3 -m unittest -q tests/i18n/test_toolchain.py
+python3 -B tools/i18n lint --strict
+python3 -B tools/scan_runtime_collisions.py
+python3 -B tools/classify_runtime_keys.py
+git diff --check
+```
+
+当前 Facts candidate build 入口：
+
+```bash
+python3 -B tools/i18n quality facts-study-build \
+  --inventory <inventory.jsonl> \
+  --exclude-sample <prior-sample.json> \
+  --seed <frozen-seed>
+```
+
+不要直接运行 `tools/pi-quality-facts-study`。真实 provider 调用必须在完整 preregistration、冻结输入、独立复审和新的用户授权之后进行。
+
+## 11. 交接停止点
+
+当前工作停在“长文本人工裁决完成但 Facts coverage 不足”的诊断终点。正确的继续动作是先实现并审核 `facts-study-curation-v1` 数据契约和富集流程，而不是继续随机抽样、运行 holdout、发送正式 120 条或启动外部 33-slot campaign。
+
+## 12. 离线闭环实施状态（2026-08-07 更新）
+
+`docs/translation-quality-offline-closure-plan.md` 的工程部分已完成并全部通过
+门禁；五个隔离角色（Facts author、curator、Gold A/B、adjudicator）执行在外部
+授权边界之前停止（见 §13）。
+
+已落地：
+
+- **共享核心**：`tools/i18nlib/quality_contracts.py`（canonical JSON/SHA-256、
+  严格字段/枚举/SHA/相对路径校验、结构化 provenance
+  kind/resource/locator、subject identity、ArtifactRef）与
+  `tools/i18nlib/quality_claims.py`（evidence span 规范化、exact
+  claim_signature、legacy-v2/v3/facts 与 canonical-v1 四个兼容 profile、
+  对称最大权匹配、稳定聚类、独立不确定性路由：unknown/other/
+  taxonomy-unknown/context-insufficient → manual，evidence-invalid → rejected，
+  均不自动派生 minor）。`quality_v2.py`、`facts_study.py` 通过 re-export 调用
+  公共实现，重构前后同一 fixture 的兼容基线逐字节一致（探针
+  `.artifacts/i18n/quality/offline-closure/probe_compat.py`）。
+- **数据集登记**：`i18n/quality/dataset-registry-v1.json`（8 个登记项、276 个
+  revision：正式 120、32+32、探索集、失败 pilot、随机/长文本/舍弃候选）；
+  工具只读 registry 并生成 `registry-fragment`，主代理显式合入。
+- **Curation 契约**：`facts-study-v3.json`（protocol v3，含 quota、length
+  policy、controlled policy）与 15 个新 schema（quality-common-v1 公共
+  claim/evidence/provenance $defs；pool/curator bundle/curator
+  assessment/fact-packet-v3/facts-author-bundle-v3/sample-v2/gold-v2/
+  gold-review-v2/gold-adjudication-v2/bundle-v2/assessment-v2/
+  preregistration-v2/report-v2/validation-index-v2，全部带完整嵌套 $defs）。
+- **Curation 命令**：`facts-study-curation-build/prepare/select` 三个新命令；
+  `facts-study-bundles/validate/report` 按 sample/prereg/validation contract
+  自动分派 v1/v2。`facts-study-curation-build` 已用最新 inventory
+  （`20260807T061056.017006Z-inventory`，sha256 d8188a38…）真实运行，产出
+  80 条 source-side 候选池（`20260807T061101.335922Z-facts-study-curation-build`，
+  pool_id `58ade3e4…`），五个 stratum 均达配额；ui-role 因 80–1500 字符带内
+  仅 2 条，按 policy 显式报告 relaxation（15 条全部为 relaxed short）；
+  与 registry 276 个排除 revision 零重叠。
+- **离线链条**：`facts-study-curation-validate --fake-runner` 只接受
+  offline-frozen preregistration（外部 assessment/runner report 一律拒绝）；
+  新 prereg 状态固定 `offline-frozen`，`tools/pi-quality-facts-study` 显式拒绝
+  执行；33-slot fake replay 与 report v2（natural/controlled 指标分离、
+  `non-evidentiary-offline-replay`）已通过 fixture 集成测试。
+- **测试**：新增 `test_quality_contracts.py`（14）、`test_quality_claims.py`
+  （36）、`test_dataset_registry.py`（17）、`test_facts_curation.py`（26），
+  共 93 个新测试；`test_quality_v2.py`/`test_quality_v3.py` 补 tools 路径
+  bootstrap，干净 shell 可直接运行。全部门禁通过：
+  doctor 0、lint 30177 条 0 error 0 warning、quality 套件 185、toolchain
+  401、collisions 0、classify 桶 B/C=0、`git diff --check` OK。
+
+## 13. 停止点：五个隔离角色与 Gold 冻结
+
+按方案与 `AGENTS.md` 授权门槛，以下步骤必须取得新的明确外部授权后才能执行
+（provider=opencode-go，model=deepseek-v4-flash，bundle 类型：80 条
+target-blind Facts author bundle、80 条 target-visible curator bundle、20 条
+Gold review A/B、匿名 adjudication）：
+
+1. Facts author（target-blind，禁读 target/gold/curator）→ 冻结 80 条 packet；
+2. `facts-study-curation-prepare` → curator bundle + assessment 模板；
+3. curator（target-visible，禁读 gold）→ 冻结 assessment；不足 8 条
+   fact-dependent 时首次 select 返回退出码 2 与受控变体 request；
+4. Gold A/B（只看最终 sample + Facts）与独立 adjudicator；
+5. `facts-study-curation-select`（必要时带 `--controlled-variants`）→ 20 条
+   sample v2 + Gold 模板 + registry fragment；
+6. `facts-study-bundles --pool --facts-pool …` → offline-frozen prereg；
+7. `facts-study-validate --fake-runner` + `facts-study-report` → 33-slot
+   非证据性 fake replay 与 natural/controlled 分离报告。
+
+受控变体仅补 fact-dependent 缺口（最多 8 条、每 base 一条、结构必须逐字节
+保持），不授予任何后续 clearance。外部 33-slot campaign 还需要另建绑定用户
+授权的 execution manifest。
+
+## 14. curation-v1 真实角色执行结果（2026-08-07，已授权外部传输）
+
+授权：provider=opencode-go、model=deepseek-v4-flash、thinking=max；bundle 类型
+与条目数按 §13 报告并经用户明确授权。执行方式：`tools/pi-quality-role`
+（新增，无会话/无技能/无项目上下文；facts-author 用 `--tools read,bash` 且
+cwd 隔离到仅含 terminology.tsv 与固定公开源的工作目录，其余角色 `--no-tools`；
+`isolation_mode=auditable-soft`）。
+
+已完成的角色与产物：
+
+1. **Facts author**（target-blind，80 条，177 条事实，0 条 source 重述）：
+   `fact-packets.frozen-v3.json`（sha256 bde6bc62…）。provenance 全部通过宿主
+   核验：100 个 engine 文件哈希、15 个 DLC 文件哈希全部匹配实际文件，62 个
+   terminology 行号全部有效（1–693）。工具审计：141 次工具调用全部落在允许
+   的公开源（t-engine4/tome4-dlcs）或工作目录内，无规范译文/凭据读取；1 次
+   /tmp 草稿读取（自身 scratch，已记录）。author workdir 经 symlink 提供
+   engine + 三个 DLC。
+2. **curator**（target-visible，80 条）：两轮独立运行（v1.0 与校准 v1.1
+   prompt）分布一致：68 clean、4 fact-dependent、3–5 acceptable/surface、
+   **0 fact trap**。宿主抽查 14 条 clean 判定与 curator 一致；curator 判定
+   随文本长度区分（17 条长文本 4 条缺陷 vs 63 条短文本 3 条），与历史长文本
+   结论一致。冻结 assessment：
+   `curator-assessment.frozen-v1.json`（sha256 2437485a…）。
+3. **select**（真实数据）：按设计返回退出码 2 +
+   `controlled-variants.request.json`（fact_dependent_needed=4）。
+
+**本轮结论：配额失败，按方案不放宽门槛。** surface-defect 3/6 与 fact trap
+0/3 无自然候选可补且按设计无受控补足机制（受控只能补 fact-dependent 缺口，
+最多 8 条）；补足 fact-dependent 缺口（4→8）无法改变 outcome，故不执行
+受控填充。sample v2、Gold、preregistration、33-slot fake replay 与 registry
+fragment 均未冻结。完整证据见
+`.artifacts/i18n/quality/curation-v1-round-report.json`。这与历史 v2 随机候选
+轮（gold 配额拒绝）和长文本轮（addressed<8 拒绝）同类的设计内失败路径。
+
+后续选项（需新的明确授权/契约修订）：A) 构建 trap/surface 富集的新 pool 并
+重跑角色链；B) 修订冻结配额契约（破坏性变更，提升 contract 版本）后重选。
+
+## 15. curation-v1 富集轮（v5 契约修订）完成（2026-08-07）
+
+用户批准契约修订（方案 §14 选项 A）：`facts-study-v5` 协议把 select 阶段
+surface 条目配额 6→2、fact-dependent 配额 8→12，**保留全部 claim 级冻结门槛**
+（8 addressed + 8 unaddressed + 5 clean + 3 traps）。池复用 v4 长文本富集池
+（`20260807T111704.162347Z-facts-study-curation-build`，pool_id 6556faac…，
+80 条、70/80 ≥300 字符、排除 registry 276 + 旧池 80）。选择逻辑改为
+trap-优先 clean + extra 优先未覆盖 stratum 的 acceptable（保证五 stratum 覆盖）。
+
+执行（opencode-go / deepseek-v4-flash，沿用已授权范围）：
+
+1. **Facts author**（v4 池，target-blind）：208 条事实，147 个 public-source
+   文件哈希全部核验通过，61 条 terminology 行号有效；
+   `fact-packets.frozen-v3.json` sha256 09b737e0…。
+2. **curator**：两轮（v1.1 分布 13 fd/0 surface/0 traps；v1.2 修正 trap
+   定义为"干净诱饵"后 13 fd/2 surface/5 traps）。冻结：
+   `curator-assessment.frozen-v1.json` sha256 c90a1fd5…。
+3. **select（v5 配额）**：20 条全 natural（12 fd + 2 surface + 5 clean trap
+   + 1 acceptable ui），5 traps，五 stratum 全覆盖；
+   study_id `fbc99a59f920e061…`。
+4. **Gold A/B + adjudicator**：A 以两个 10 条分片运行（完整 20 条对模型过长，
+   两次尝试均不完整；分片后有效）；B 的重复 claim id 由宿主确定性重编号
+   （b-001…，内容不变，见 `normalization.record.json`）；adjudicator 合并出
+   22 claims。冻结 gold（14 addressed + 8 unaddressed + 7 clean + 7 traps）
+   通过 v5 配额与完整 lineage 校验；gold sha256 1b90741c…。
+5. **bundles/validate/report**：`facts-study-bundles`（sample v2 分派）→
+   offline-frozen preregistration（33 slots，prereg 25312c5b…）；
+   `facts-study-validate --fake-runner` 33/33 通过；`facts-study-report` →
+   report v2（non-evidentiary-offline-replay，natural 七 arm 指标分离，
+   controlled 为空 = 全 natural 样本）。
+
+修复的真实缺陷：neutral locator 等长填充（`_neutral_locator` 原实现用固定
+{1,1} 导致真实行号下字节不匹配）；v1.1/v1.2 curator 与 gold-review prompt 的
+trap 定义（契约语义是 clean 诱饵）。关键 artifact 均在
+`.artifacts/i18n/quality/runs/20260807T124345.706087Z-facts-study-curation-select/`
+与 `20260807T150743.324578Z-facts-study-curation-bundles/`。
+
+## 16. 外部 33-slot campaign 完成（2026-08-08，用户授权）
+
+经用户授权（B+B2、精确修订、传输层重试契约），campaign 10 完成 **33/33 槽全部通过**
+并生成官方因果报告：
+
+- **prereg**：`20260808T124932.424887Z-facts-study-curation-bundles`（prereg
+  `a256…` 后重建为 `20260808T124932…`），execution manifest：parallel×4 +
+  transmission retry×3 + timeout 5400。
+- **执行**：Luna（openai-codex/gpt-5.6-luna）21 槽 + DeepSeek（opencode-go/
+  deepseek-v4-flash）12 槽；26 槽 1 次尝试、7 槽经传输层重试成功（含 1 槽 4 次尝试）。
+- **宿主规范化统计**：id 转录修复 2 处、finding 级丢弃 12 条（0.99% of 1218）、
+  标点/空白规范化 33 处；全部记录于 runner report 的 normalization 字段。
+- **验证**：`facts-study-validate`（external-assessments）33/33 通过，lineage/
+  ledger/authorization 全绑定。
+- **官方决策**：**`do-not-promote-facts-channel`**（report
+  `20260808T175419.274533Z-facts-study-curation-report`，report_id
+  871d8a5d…）。判据：Luna 3/7 失败（无稳定新增 true claims、T-B precision
+  -3.2pp、trap FP 超限）；DeepSeek 判据全过（T-B recall +0.167、2 个稳定
+  fact-addressed claims）但不足以单独推广。holdout_clearance=false。
+- 关键指标（pooled×3）：Luna B P=0.097/R=0.197、D P=0.096/R=0.258（Facts
+  无 recall 增益且 precision 恶化）；DeepSeek B P=0.344/R=0.167、T P=0.272/
+  R=0.333。
+- **结论**：Facts 通道在当前提示/样本下不能进入 v4 draft.3；DeepSeek 的
+  方向性证据保留为后续研究输入。controlled subset 为空（全 natural 样本），
+  natural/controlled 指标按契约分离报告。
+
+## 17. 归档与正式报告（2026-08-08）
+
+- **正式报告**：`docs/translation-quality-facts-study-report-v1.md`
+  （问题→方法→10 轮执行历程→33 槽结果→判据→解读→限制→可复现性，
+  含全部身份哈希与重建命令）。
+- **campaign 归档**：`.artifacts/i18n/quality/facts-study-campaign-archive.json`
+  （archive_id `ee8973e1…`；33 slot 清单与逐项哈希、normalization 总量：
+  7 槽传输重试、2 处 id 修复、12 条 finding 丢弃、33 处标点规范化、
+  1218 findings；campaign 1–10 失败/成功历史）。
+- 结论与决策以报告 §8 为准：**do-not-promote-facts-channel**，
+  holdout_clearance=false；DeepSeek 正向信号与 F 臂（facts-as-verifier）
+  作为后续研究候选，需另行设计、另行授权。

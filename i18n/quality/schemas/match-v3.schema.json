@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "tome4-quality-issue-cluster-v3",
+  "description": "Strict structural contract. The host additionally verifies issue numbering/order, member uniqueness, manual_queue derivation and canonical match_id; those cross-field relations remain host checks.",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "quality_contract", "sample_id", "sample_size", "assessment_ids", "match_id", "issues", "manual_queue", "raw_model_counts", "normalized_model_counts", "raw_model_metrics", "anchor_counts"],
+  "properties": {
+    "schema_version": {"const": 3}, "quality_contract": {"const": "tome4-quality-issue-cluster-v3"},
+    "sample_id": {"$ref": "#/$defs/sha"}, "sample_size": {"const": 32},
+    "assessment_ids": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/sha"}},
+    "match_id": {"$ref": "#/$defs/sha"}, "issues": {"type": "array", "items": {"$ref": "#/$defs/issue"}},
+    "manual_queue": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^Q3-[0-9]{4}$"}},
+    "raw_model_counts": {"$ref": "#/$defs/counts"}, "normalized_model_counts": {"$ref": "#/$defs/counts"},
+    "raw_model_metrics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["finding_union", "finding_intersection", "finding_jaccard", "phenomenon_meaning_agreement"],
+      "properties": {"finding_union": {"$ref": "#/$defs/count"}, "finding_intersection": {"$ref": "#/$defs/count"}, "finding_jaccard": {"$ref": "#/$defs/ratio"}, "phenomenon_meaning_agreement": {"$ref": "#/$defs/ratio"}}
+    },
+    "anchor_counts": {"type": "object", "additionalProperties": false, "required": ["normalizations", "rejections"], "properties": {"normalizations": {"$ref": "#/$defs/count"}, "rejections": {"$ref": "#/$defs/count"}}}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "count": {"type": "integer", "minimum": 0}, "ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "counts": {"type": "object", "additionalProperties": false, "required": ["left", "right"], "properties": {"left": {"$ref": "#/$defs/count"}, "right": {"$ref": "#/$defs/count"}}},
+    "evidence": {"type": "object", "additionalProperties": false, "required": ["quote", "occurrence", "state", "start", "end"], "properties": {"quote": {"type": "string"}, "occurrence": {"type": "integer", "minimum": 0}, "whole_item": {"const": true}, "state": {"enum": ["exact", "ambiguous", "missing", "whole-item"]}, "start": {"type": ["integer", "null"]}, "end": {"type": ["integer", "null"]}}},
+    "derivation": {"type": "object", "additionalProperties": false, "required": ["defect_class", "derived_severity", "derivation_state", "requires_adjudication", "reason_codes", "anchor_id", "anchor_conflict"], "properties": {"defect_class": {"enum": ["semantic", "terminology", "ui", "technical"]}, "derived_severity": {"enum": ["blocker", "major", "minor"]}, "derivation_state": {"enum": ["derived", "provisional", "anchor-normalized", "gate-derived"]}, "requires_adjudication": {"type": "boolean"}, "reason_codes": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "anchor_id": {"type": ["string", "null"]}, "anchor_conflict": {"type": "boolean"}, "host_gate": {"type": "object"}}},
+    "member": {"type": "object", "additionalProperties": false, "required": ["side", "finding_id", "error_code", "phenomenon", "meaning_change", "source_evidence", "target_evidence", "derivation", "anchor_decision", "anchor_id"], "properties": {"side": {"enum": ["left", "right"]}, "finding_id": {"type": "string", "minLength": 1}, "error_code": {"enum": ["ACC_MISTRANSLATION", "ACC_OMISSION", "ACC_ADDITION", "ACC_UNTRANSLATED", "ACC_POLARITY", "ACC_CONDITION", "ACC_NUMBER_UNIT", "ACC_ENTITY_ROLE", "TERM_PREFERRED", "TERM_PROPER_NAME", "TERM_INCONSISTENT", "FLU_AMBIGUITY", "UI_CLARITY"]}, "phenomenon": {"enum": ["number", "number-range", "unit", "condition", "polarity", "entity-role", "scope", "trigger-timing", "omission", "addition", "terminology", "proper-name", "ambiguity", "other"]}, "meaning_change": {"enum": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"]}, "source_evidence": {"$ref": "#/$defs/evidence"}, "target_evidence": {"$ref": "#/$defs/evidence"}, "derivation": {"$ref": "#/$defs/derivation"}, "anchor_decision": {"enum": ["none", "normalized"]}, "anchor_id": {"type": ["string", "null"]}}},
+    "issue": {"type": "object", "additionalProperties": false, "required": ["issue_id", "revision_id", "cluster_type", "members", "derivation", "requires_adjudication"], "properties": {"issue_id": {"type": "string", "pattern": "^Q3-[0-9]{4}$"}, "revision_id": {"$ref": "#/$defs/sha"}, "cluster_type": {"enum": ["full-match", "partial-match", "split-merge", "left-only", "right-only", "ambiguous"]}, "members": {"type": "array", "items": {"$ref": "#/$defs/member"}}, "derivation": {"$ref": "#/$defs/derivation"}, "requires_adjudication": {"type": "boolean"}}}
+  }
+}

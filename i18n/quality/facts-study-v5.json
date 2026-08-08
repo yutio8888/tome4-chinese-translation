@@ -1,0 +1,113 @@
+{
+  "arms": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "N",
+    "L",
+    "F"
+  ],
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": "tome4-facts-study-curation-v5-paired-item-bootstrap",
+  "cache_policy": "disabled",
+  "contract": "tome4-quality-facts-study-protocol-v5",
+  "contrasts": [
+    "B-A",
+    "C-A",
+    "D-B",
+    "(D-C)-(B-A)",
+    "N-B",
+    "L-D",
+    "T-B"
+  ],
+  "controlled_policy": {
+    "grant_clearance": false,
+    "max_fact_dependent_fill": 8,
+    "max_variants_per_base": 1,
+    "natural_metrics_separable": true,
+    "structure_preservation": true
+  },
+  "dataset_registry": "dataset-registry-v1.json",
+  "decision_rule": {
+    "deepseek_fact_addressed_stable_added_claims_min": 1,
+    "deepseek_same_direction": true,
+    "fact_trap_false_findings_increase_per_run_max": 1,
+    "fact_unaddressed_recall_drop_max": 0.0,
+    "luna_added_true_claims_min": 2,
+    "luna_added_true_claims_required_runs": 2,
+    "precision_drop_max": 0.03,
+    "schema_and_evidence_validity_min": 1.0,
+    "single_pass_equivalence_margin": 0.01
+  },
+  "evaluators": {
+    "deepseek": {
+      "model": "deepseek-v4-flash",
+      "provider": "opencode-go",
+      "thinking": "max"
+    },
+    "luna": {
+      "model": "gpt-5.6-luna",
+      "provider": "openai-codex",
+      "thinking": "max"
+    }
+  },
+  "execution_order_seed": "tome4-facts-study-curation-v5-execution-order",
+  "fact_policy": {
+    "addressed_definition": "claim-cites-directly-supporting-supplemental-fact",
+    "allowed_provenance_kinds": [
+      "public-source",
+      "terminology",
+      "versioned-context"
+    ],
+    "common_input_restatements": "forbidden",
+    "facts_author_bundle_contract": "tome4-quality-facts-author-bundle-v3",
+    "language": "english-metalanguage",
+    "max_facts_per_item": 4,
+    "min_facts_per_item": 0,
+    "packet_contract": "tome4-quality-fact-packet-v3",
+    "supplemental_only": true
+  },
+  "historical_exclusions": "facts-study-exclusions-v1.json",
+  "item_count": 20,
+  "length_policy": {
+    "exempt_strata": [
+      "term-proper-name",
+      "ui-role"
+    ],
+    "long_source_peak_chars": 1500,
+    "max_chars": 1500,
+    "min_chars": 300,
+    "prefer_long_source": true
+  },
+  "max_external_slots": 33,
+  "pool_contract": "tome4-quality-facts-study-curation-pool-v1",
+  "pool_targets": {
+    "entity-relation": 25,
+    "general-semantic-clean-control": 15,
+    "mechanism-condition-number": 30,
+    "term-proper-name": 6,
+    "ui-role": 4
+  },
+  "quota": {
+    "addressed_claims_min": 8,
+    "clean_acceptable": 6,
+    "clean_min": 5,
+    "fact_dependent_defects": 12,
+    "fact_traps_min": 3,
+    "surface_defects": 2,
+    "unaddressed_claims_min": 8
+  },
+  "replacement_policy": "forbidden",
+  "replicates_per_arm": 3,
+  "risk_bonus": {
+    "source-has-negation-or-condition": 300,
+    "source-has-number-or-unit": 300
+  },
+  "sample_contract": "tome4-quality-facts-study-sample-v2",
+  "schedule_seed": "tome4-facts-study-curation-v5-slots",
+  "schema_version": 1,
+  "seed_application": "preregistered-request-nonce-provider-sampler-seed-unavailable",
+  "selection_seed": "tome4-facts-study-curation-v5-select-v1",
+  "shard_count": 1
+}
