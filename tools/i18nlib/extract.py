@@ -236,11 +236,18 @@ def _normalized_definitions(
                 "non-empty string"
             )
         source = record.get("source")
-        if not isinstance(source, str) or not source:
+        if not isinstance(source, str):
             raise ExtractionError(
                 f"extraction record {position} field 'source' must be a "
-                "non-empty string"
+                "string"
             )
+        if not source and origin_kind == "manual":
+            raise ExtractionError(
+                f"extraction record {position} field 'source' must be a "
+                "non-empty string for manual definitions"
+            )
+        # The historical extractor emits real records for _t"" and similar
+        # placeholders. Keep them in raw snapshots so frozen hashes remain stable.
         source_tag = record.get("source_tag")
         if source_tag is not None and not isinstance(source_tag, str):
             raise ExtractionError(

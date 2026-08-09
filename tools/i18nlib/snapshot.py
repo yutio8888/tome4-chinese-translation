@@ -141,14 +141,13 @@ def read_snapshot(path: Path, *, expected_component: str | None = None) -> Snaps
             raise ValidationError(
                 f"snapshot mixes components at {resolved}:{line_number}"
             )
-        if (
-            not isinstance(section, str)
-            or not section
-            or not isinstance(source, str)
-            or not source
-        ):
+        if not isinstance(section, str) or not section:
             raise ValidationError(
-                f"snapshot section/source is invalid at {resolved}:{line_number}"
+                f"snapshot section is invalid at {resolved}:{line_number}"
+            )
+        if not isinstance(source, str):
+            raise ValidationError(
+                f"snapshot source is invalid at {resolved}:{line_number}"
             )
         origin_line = record.get("origin_line")
         if origin_line is not None and (
@@ -164,21 +163,31 @@ def read_snapshot(path: Path, *, expected_component: str | None = None) -> Snaps
             raise ValidationError(
                 f"snapshot origin_kind is invalid at {resolved}:{line_number}"
             )
+        source_tag = _nullable_string(
+            record.get("source_tag"),
+            f"snapshot source_tag at {resolved}:{line_number}",
+        )
+        origin_document = _nullable_string(
+            record.get("origin_document"),
+            f"snapshot origin_document at {resolved}:{line_number}",
+        )
+        if not source:
+            if origin_kind == "extracted":
+                # Empty extracted records belong to the byte-level baseline,
+                # but are not translatable definitions for semantic consumers.
+                continue
+            raise ValidationError(
+                f"snapshot source is invalid at {resolved}:{line_number}"
+            )
         definitions.append(
             Definition(
                 component=component,
                 section=section,
                 source=source,
-                source_tag=_nullable_string(
-                    record.get("source_tag"),
-                    f"snapshot source_tag at {resolved}:{line_number}",
-                ),
+                source_tag=source_tag,
                 origin_line=origin_line,
                 origin_kind=origin_kind,
-                origin_document=_nullable_string(
-                    record.get("origin_document"),
-                    f"snapshot origin_document at {resolved}:{line_number}",
-                ),
+                origin_document=origin_document,
                 ordinal=len(definitions),
             )
         )

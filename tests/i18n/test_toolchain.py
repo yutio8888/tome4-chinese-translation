@@ -8728,7 +8728,7 @@ class ExtractionNormalizationTests(unittest.TestCase):
     def test_definition_text_fields_reject_invalid_values(self) -> None:
         invalid_values = {
             "section": (None, "", False, 1, [], {}),
-            "source": (None, "", False, 1, [], {}),
+            "source": (None, False, 1, [], {}),
             "source_tag": (False, 1, 1.0, [], {}),
             "logical_path": (False, 1, 1.0, [], {}),
         }
@@ -8745,6 +8745,73 @@ class ExtractionNormalizationTests(unittest.TestCase):
                     message = str(raised.exception)
                     self.assertIn("record 2", message)
                     self.assertIn(f"'{field}'", message)
+
+    def test_extracted_empty_source_preserves_raw_baseline_record(self) -> None:
+        normalized = _normalized_definitions(
+            component="fixture",
+            records=[self._definition(source="")],
+            origin_kind="extracted",
+        )
+
+        self.assertEqual(normalized[0]["source"], "")
+
+        with tempfile.TemporaryDirectory(
+            prefix="tome4-empty-extracted-snapshot-test-"
+        ) as temporary:
+            path = Path(temporary) / "snapshot.jsonl"
+            records = [
+                normalized[0],
+                {
+                    **normalized[0],
+                    "source": "Translatable source",
+                    "origin_line": 8,
+                },
+            ]
+            raw = "".join(
+                json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n"
+                for record in records
+            )
+            path.write_text(raw, encoding="utf-8")
+            snapshot = read_snapshot(path, expected_component="fixture")
+
+        self.assertEqual(len(snapshot.definitions), 1)
+        self.assertEqual(snapshot.definitions[0].source, "Translatable source")
+        self.assertEqual(
+            snapshot.sha256,
+            hashlib.sha256(raw.encode("utf-8")).hexdigest(),
+        )
+
+    def test_manual_empty_source_is_rejected(self) -> None:
+        with self.assertRaises(ExtractionError) as raised:
+            _normalized_definitions(
+                component="engine",
+                records=[self._definition(source="")],
+                origin_kind="manual",
+            )
+
+        self.assertIn("manual definitions", str(raised.exception))
+
+        with tempfile.TemporaryDirectory(
+            prefix="tome4-empty-manual-snapshot-test-"
+        ) as temporary:
+            path = Path(temporary) / "snapshot.jsonl"
+            record = {
+                "component": "engine",
+                "section": ".always_merge",
+                "source": "",
+                "source_tag": None,
+                "origin_line": None,
+                "origin_kind": "manual",
+                "origin_document": "_tdef_append.lua",
+            }
+            path.write_text(
+                json.dumps(record, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+            with self.assertRaises(ValidationError) as snapshot_raised:
+                read_snapshot(path, expected_component="engine")
+
+        self.assertIn("snapshot source is invalid", str(snapshot_raised.exception))
 
     def test_extracted_source_line_requires_exact_positive_integer(self) -> None:
         for value in (None, True, False, 1.0, "1", 0, -1):
