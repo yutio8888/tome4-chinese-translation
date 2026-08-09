@@ -4,12 +4,12 @@
 
 ## 1. 当前整合基线
 
-- 当前维护分支：`develop`；P0 已提交基线为
-  `4d8a8ca`（`docs: prepare develop integration baseline`）。
+- 当前维护分支：`develop`；PR #1 已以 merge commit `232960a` 合入 `master`，
+  `develop` 在后续维护轮次开始与结束时仅以 fast-forward 对齐 `master`。
 - P0 整合起点：`0f9c513`；Facts Study 工程、外部 campaign 与正式报告收口于
   `e3dde65`。
-- `origin/master` 是 `develop` 的祖先；`develop` 已配置 `origin/develop` upstream
-  并推送，通过 PR #1 面向 `master` 整合。
+- addon 0.2.5 已从当前规范确定性生成；最终发布提交为 `439d134`，规范版本清单
+  固定该提交。
 - 原实验工作区已经归档并由当前分支接续，不再作为活动工作区。
 - Evaluator v3、Facts Study、schema、prompt、测试和文档均已进入版本控制；
   规范 Lua、术语内容与正式 120 条样本没有因 Facts Study 被修改。
@@ -42,8 +42,8 @@ python3 -B tools/i18n doctor
 - 不运行 v4 holdout 或正式 120 条，不把 Facts 通道纳入 v4 draft.3。
 - 不降低稳定性门槛，不追加调用刷出一次通过，也不修改或重新解释 v1–v3
   历史 artifact。
-- 当前优先工作是完成 PR #1 的本地审核、门禁留证与 merge commit 整合；DeepSeek
-  的正向信号与 F 臂只作为未来研究候选。
+- 当前优先工作是完成 addon 0.2.5 与合并后发布身份的收口；新的翻译覆盖批次须
+  另行冻结范围，DeepSeek 的正向信号与 F 臂只作为未来研究候选。
 - 任何新外部研究都必须重新冻结协议和输入并取得新的明确授权，不能沿用此前
   calibration 或 Facts Study 授权。
 
@@ -546,3 +546,27 @@ head 与已审核提交一致后转为 ready，并以 merge commit 合入 `maste
 `develop` 分支保留。addon 0.2.4 保持现状，不生成或上传 teaa；Facts 研究冻结，
 不启动新 F 臂/holdout/provider 调用，不制作脱敏复现包；现有 A-core 归档继续只读
 私有保存，不复制或上传到本仓库。PR 页面是最终合并状态的权威记录。
+
+## 19. PR #1 合并与 addon 0.2.5（2026-08-08）
+
+PR #1 在 reviewed head `4bfaa85` 通过 11/11 完整门禁与 16/16 release smoke 后，
+以 merge commit `232960a` 合入 `master`。合并提交的第二父提交与 reviewed head
+一致，合并树内容相同；远端 `develop` 保留。
+
+PR #1 修复的 Tome 1.7.6 运行键已通过 `tools/i18n publish` 同步到发布 addon：
+
+- 自动发布提交 `7be4f63` 更新 `data/locales/zh_hans.lua`，并将 `addon_version`
+  从 0.2.4 提升到 0.2.5；README 状态提交后最终 release HEAD 为 `439d134`。
+- locale 从 8,780 条收敛为 8,774 条：核心覆盖 3,348、DLC 覆盖 5,426；相对
+  0.2.4 新增 23 个正确运行键、移除 29 个失效旧键、修正 1 个目标值。
+- 最终 locale SHA-256 为
+  `f9e04517b827934bb52b9be2ea1ef12bd66d3891d82e86127c533a7f6971f692`；
+  no-op publish dry-run 的旧/新摘要与条目数完全一致。
+- release smoke 16/16 通过：locale 8,774、nullpack 464，DLC overlay 分别为
+  ashes 743、cults 1,555、orcs 3,128，均无 missing、unexpected 或 mismatched。
+
+规范版本清单只更新 addon 固定提交。质量采样的正式/探索 items、`items_sha256`
+和 revision 顺序保持不变；仅由 manifest 身份派生的 sample ID 与序列化 digest
+更新。质量 schema、算法、历史 artifact、Facts 正式结论和
+`holdout_clearance=false` 均未改变。本轮不制作 teaa、不创建 GitHub Release，
+也不启动新翻译覆盖或外部 provider 工作。
