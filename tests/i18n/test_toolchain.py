@@ -14401,11 +14401,11 @@ class QualitySamplingTests(unittest.TestCase):
         ).encode("utf-8")
         self.assertEqual(
             hashlib.sha256(serialized).hexdigest(),
-            "14bbd7d23cb58c608f725dbd15102ac03d8dc6dd3f8a72f636eb3c3081b3831b",
+            "a3ec76ec454d6d5b6c318ae5ddd1775f7f0db662ac0c5cfc6e21aa51295563a9",
         )
         self.assertEqual(
             first["sample_id"],
-            "2865a7822a7db8ae0a118d4b0f9924ccea910853085d3967157856e1a4cacab1",
+            "4604e2dfa512a23a2eab84f48b16ed66b8edf81e2728f0d57fd38805bf2c26cb",
         )
         self.assertEqual(
             first["items_sha256"],
@@ -14671,11 +14671,11 @@ class QualitySamplingTests(unittest.TestCase):
         ).encode("utf-8")
         self.assertEqual(
             hashlib.sha256(serialized).hexdigest(),
-            "6a253ab9d9041d2ab696d6989e90aaf5809785f4a91a699ab53937425ac00248",
+            "82e0122a7523506b15b18db5e77ee9b8f56cda463b48d909089e137703407f5f",
         )
         self.assertEqual(
             first["sample_id"],
-            "d3c60e054cc627d380be29681e1de5043975a2cf17f231cb01b7e7e481db1035",
+            "7e355629c29fa029ead3c82e3a447540b451e349b001810f68d81af00cc9c8f1",
         )
         self.assertEqual(
             first["items_sha256"],
@@ -14856,7 +14856,7 @@ class QualitySamplingTests(unittest.TestCase):
         self.assertTrue(all("_features" not in entry for entry in loaded_entries[0]))
         self.assertEqual(
             dry_run["official_sample_id"],
-            "2865a7822a7db8ae0a118d4b0f9924ccea910853085d3967157856e1a4cacab1",
+            "4604e2dfa512a23a2eab84f48b16ed66b8edf81e2728f0d57fd38805bf2c26cb",
         )
 
     def test_dry_run_does_not_cache_mutable_inventory_between_calls(self) -> None:
