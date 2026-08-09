@@ -122,6 +122,8 @@ t("worried loremaster", "担忧的贤者", "nil")
 ------------------------------------------------
 section "tome-orcs/data/general/events/celestial-well.lua"
 
+t("sunwell", "太阳井", "entity name")
+t("moonwell", "月亮井", "entity name")
 
 -- untranslated text
 --[==[

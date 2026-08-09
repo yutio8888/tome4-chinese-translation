@@ -431,6 +431,7 @@ You #{italic}#dare#{normal}# carry her ring around like a trophy! I can feel it 
 t("Oh you liked that paladin lady? I loved killing her!", "你喜欢那个女圣骑士？我爱死杀她的感觉了", "_t")
 t("She left me no choice; I had to protect #{bold}#my#{normal}# people.", "她令我别无选择; 我必须保护 #{bold}#我的#{normal}# 族民。", "_t")
 t("Whatever.", "还行吧。", "_t")
+t("Whatever.", "还行吧。", "chat_john-worldmap")
 t("What?", "什么?", "_t")
 
 ------------------------------------------------
@@ -458,7 +459,7 @@ t("Die giant scum! For Kruk! For Garkul! For the Pride!", "死吧，巨人渣渣
 t("No need for shopping now.", "现在不需要购物。", "_t")
 t([[#LIGHT_GREEN#*A well-dressed giant stands in front of you, covered in expensive jewelry; judging from the poorly-fastened clasp on his necklace, you can assume he acquired it all fairly recently.  He grins as he leans down over the counter to get a good view of you.*#WHITE#
 Ah, welcome, @playername@! #LIGHT_GREEN#*he yells in a voice loud enough to catch the attention of all in the shop, as he lifts his head to look around.*#WHITE# Yes, you heard me right, @playername@! The very same one who's been running rampant through the Vaporous Emporium is coming to ME for armaments! I don't think I could've asked for a stronger endorsement! #LIGHT_GREEN#*He looks back down to you, leaning over the counter to point out a glass display case loaded with exotic weaponry and armor.*#WHITE#
-Well, I'm not one to turn down anyone with gold, and seeing as you've already made me rich, I'll even give you a discount, down to my pre-attack prices. #LIGHT_GREEN#*He leans in uncomfortably close, staring you in the eyes.*#WHITE#Or, if you came to do here what you did in the Emporium... #LIGHT_GREEN#*He directs his glare toward the multiple well-armed guards staring at you and standing still on the sides of the room.*#WHITE# I'm sure my #{italic}#emergency safety measures#{normal}# would just #{italic}#love#{normal}# an opportunity to try out their shiny new toys.]], [[#LIGHT_GREEN#*一名衣着讲究的巨人站在你面前，戴满昂贵的珠宝；从他松垮的项链扣上看，你猜测他是最近才拿到的。他微笑着从柜台往下看，注视着你。*#WHITE#
+Well, I'm not one to turn down anyone with gold, and seeing as you've already made me rich, I'll even give you a discount, down to my pre-attack prices. #LIGHT_GREEN#*He leans in uncomfortably close, staring you in the eyes.* #WHITE#Or, if you came to do here what you did in the Emporium... #LIGHT_GREEN#*He directs his glare toward the multiple well-armed guards staring at you and standing still on the sides of the room.*#WHITE# I'm sure my #{italic}#emergency safety measures#{normal}# would just #{italic}#love#{normal}# an opportunity to try out their shiny new toys.]], [[#LIGHT_GREEN#*一名衣着讲究的巨人站在你面前，戴满昂贵的珠宝；从他松垮的项链扣上看，你猜测他是最近才拿到的。他微笑着从柜台往下看，注视着你。*#WHITE#
 哦，欢迎，@playername@! #LIGHT_GREEN#*他的声音大的让店里所有人都听见，同时他抬起头张望四周。*#WHITE# 是的，听见了么， @playername@！就是那个在蒸汽商场猖獗无比的家伙，他到我这来买装备了!我认为不会有比这更好的宣传了! #LIGHT_GREEN#*他转过头看你，指出一个玻璃展台，那上面装满异种武器和护甲。*#WHITE#
 好吧，我不会拒绝任何带着钱过来的人，同时你也已经让我富裕不少了。我甚至还能给你打个折，降到进攻前的价格。 #LIGHT_GREEN#*他靠得过近，让你感觉不太舒服。他直视着你的眼睛。*#WHITE#或者，你也可以试试你在蒸汽商店里干的事情...
 #LIGHT_GREEN#*他指向周围和房间里那些装备良好的警卫。*#WHITE# 
@@ -485,6 +486,7 @@ t("Welcome @playername@ to my shop.", "@playername@，欢迎来到我的商店�
 t("Let me see your wares.", "让我看看你的商品吧。", "_t")
 t("I am looking for special training.", "我是来寻求特殊训练的。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "_t")
+t("Sorry, I have to go!", "抱歉，我要走了！", "chat_kruk-tinker-shop")
 t("I can indeed offer some training (talent category Steamtech/Physics and Steamtech/Chemistry) for a fee of 100 gold pieces each.", "我能教你物理学或者化学知识，学费100金一次。", "_t")
 t("Please train me in physics.", "教我物理学知识吧。", "_t")
 t("The tinker spends some time with you, teaching you the basics of smithing.", "工匠花费时间传授你铁匠的基础知识。", "logPlayer")
@@ -507,6 +509,7 @@ t("The rest of us have fled, hiding in caverns across the peninsula...  I cannot
 t("I will check it out", "我要去看看", "_t")
 t("We of the Krimbul Clan have faced our near-certain deaths all too many times, even after our hearts stopped beating; this is the first time we have been shown the kindness of utter salvation by an outsider.  Those who were not enthralled by Nektosh and are not delusionally faithful to his \"cause\" will reclaim the Mana Caves in time; until then, we will join your Pride in your revolution.  You have liberated us, and we will not rest until you are freed of your oppressors as well.", "我们氏族曾无数次直面灭族危机，哪怕是在我们的心脏停止跳动之后；然而，这是第一次，我们被外人的友善所拯救。那些未被纳克托什蛊惑、也未执迷于他的“事业”的人，终将收复魔法洞穴。在此之前，我们将加入你的部落，参与你的革命。你解放了我们，在你们脱离压迫者之前，我们都不会停下脚步。", "_t")
 t("Thanks.", "多谢。", "_t")
+t("Thanks.", "多谢。", "chat_metash")
 t("Hail, @playername@!", "嘿, @playername@!", "_t")
 t("Our is free Metash, the tyrant is no more.", "我们自由了梅塔什，暴君被打败了！", "_t")
 t([[I came here to warn the Kruk Pride of the threat Nektosh poses and ask for their help, but they have some more immediate threats to deal with...  We should help them repel these Steam Giants.  They are the only people who have ever treated us with respect and dignity; if they are crushed by the Atmos Tribe or the Allied Kingdoms, we will surely be next.  Their success is our survival.
@@ -516,6 +519,7 @@ Unfortunately, they cannot afford to spare the warriors to retake the Mana Caves
 不幸的是，他们现在没有空闲的战士来帮我们从暴君手中夺回魔法洞穴。我需要留在这保护他们。解放我们氏族的任务就交给你了，做好准备去吧。]], "_t")
 t("Nektosh claims he is the invincible, omnipotent descendant of a unicorn, but I don't believe that bull for a second.  While the great magical power that suddenly awakened within him is as fearsome as it is insanity-inducing,  he has yet to use it to make a shield or teleport himself, and even with his all-powerful beam, his aim isn't always perfect...  I think he has a weakness he's trying to hide.  Fight with courage, fellow Whitehoof, and the Krimbul Clan may be free once more!", "独角者纳克托什声称他是无可战胜无所不能的独角兽后裔。但他说的每一句话我都不信。尽管他体内突然觉醒的魔法力量既强大得可怕又令人疯狂，但他还从未用它制造过护盾或传送自己；即便使用他那全能的射线，他的准头也不总是完美……我想他有个想要隐藏的弱点。勇敢战斗吧，我的白蹄伙伴，克林布尔氏族也许就能重获自由！", "_t")
 t("I will!", "我会的！", "_t")
+t("I will!", "我会的！", "chat_metash")
 t([[He...  he found a wand?  And he realized it was running dry, but only after taking over the tribe?  I pity him, but I cannot forgive him for being willing to sacrifice so many Whitehooves and Orcs to escape the consequences of his brief lapse into madness...  still, as a personal request I ask that you not tell others of his last thoughts.  The Nektosh we once knew saved our tribe from the corrupted magic deep under Eyal; he deserves to, at worst, be remembered as one who tragically succumbed to its influence.
 
 Ultimately, though, the choice is yours; it is more important that he is no longer a threat.  There are some who may still cling to the false hope he gave them, but we will retake the Mana Caves from them in time.  We owe you a great debt, and now that we have no more pressing concerns, we can aid Kruk Pride in their rebellion.  Good travels, @playername@.]], [[他...  他找到了一根魔棒？然后等到他掌控了我们氏族，才发现能量快用完了？我对此感到遗憾，但我不能原谅他。为了逃避自己陷入疯狂的责任，他准备牺牲这么多重要的白蹄族人和兽人……尽管如此，我请求你不要告诉别人他的想法。纳克托什是曾经将我们从埃亚尔深处的堕落魔法中拯救出来的英雄，他至少应该被铭记为一个悲剧性地屈服于那种影响的人。
@@ -1821,6 +1825,22 @@ t("%s resists!", "%s抵抗了效果！", "logSeen")
 ------------------------------------------------
 section "tome-orcs/data/ingredients.lua"
 
+t("metal", "金属", "ingredient type")
+t("lump of iron", "铁块", "ingredient name")
+t("lump of steel", "钢块", "ingredient name")
+t("lump of dwarven steel", "矮人钢块", "ingredient name")
+t("lump of stralite", "蓝锆石块", "ingredient name")
+t("lump of voratun", "沃瑞钽块", "ingredient name")
+t("herbs", "草药", "ingredient type")
+t("stack of herbs (viperweed)", "一束植物 (蛇草)", "ingredient name")
+t("stack of herbs (sessali)", "一束植物 (延龄草)", "ingredient name")
+t("stack of herbs (bilberry)", "一束植物 (越桔)", "ingredient name")
+t("stack of herbs (burdock)", "一束植物 (牛蒡)", "ingredient name")
+t("stack of herbs (goldleaf)", "一束植物 (金叶)", "ingredient name")
+t("misc", "杂项", "ingredient type")
+t("brain in a jar", "瓶中脑", "ingredient name")
+t("mechanical core", "机械核", "ingredient name")
+t("primal core", "原始之核", "ingredient name")
 t("metal", "金属", "entity type")
 t("lump of iron", "铁块", "entity name")
 t("A lump of iron.", "一块铁。", "_t")
@@ -7758,6 +7778,9 @@ t("Yetis Cave", "雪人洞穴", "_t")
 section "tome-orcs/init.lua"
 
 t("Embers of Rage", "余烬怒火", "init.lua long_name")
+t([[Play as an orc of the Kruk Pride, located on an island near Var'Eyal.
+Learn to master steam technology, battle the terrible Atmos Tribe and ensure dominion of Var'Eyal for your race.]], [[扮演来自克鲁克部落的兽人，该部落位于瓦·埃亚尔附近的一座岛屿上。
+学习掌握蒸汽科技，对抗可怕的气之部族，并确保你的种族统治瓦·埃亚尔。]], "init.lua description")
 -- untranslated text
 --[==[
 t([[Play as an orc of the Kruk Pride, located on an island near Var'Eyal.
@@ -8037,7 +8060,7 @@ Class features:#YELLOW#
 - Unleash the power of your heavy weapons
 - Construct automated turrets for war or even medical purposes
 - Build an mecharachnid bot to help you in combat that can act independently or be directly piloted
-- Make your foes suffer in many new ways: fire rockets and grenades at them, equip an exoskeleton, ...#WHITE#
+- Make your foes suffer in many new ways: fire rockets and grenades at them, equip an exoskeleton, ... #WHITE#
 
 All Tinker classes use Steam for their powers.
 ]], [[研究过众多敌人的残骸后，你找到了把真正的“战斗之火”带给敌人的新方法！
@@ -8091,10 +8114,10 @@ You have encountered one such and vanquished it.
 You can now master Undead Drake magic and create new Wyrmic characters that can learn the #LIGHT_GREEN#Undead Drake talents#WHITE#.
 
 Talents:
-- #YELLOW#Raze:#WHITE#Augment your melee strikes with deadly energies, absorbing the souls of your foes
-- #YELLOW#Infectious Miasma:#WHITE#Release a deadly cloud of diseases and blight
-- #YELLOW#Vampiric Surge:#WHITE#Revel in the pain of others to heal yourself
-- #YELLOW#Necrotic Breath:#WHITE#Breath pure darkness
+- #YELLOW#Raze: #WHITE#Augment your melee strikes with deadly energies, absorbing the souls of your foes
+- #YELLOW#Infectious Miasma: #WHITE#Release a deadly cloud of diseases and blight
+- #YELLOW#Vampiric Surge: #WHITE#Revel in the pain of others to heal yourself
+- #YELLOW#Necrotic Breath: #WHITE#Breath pure darkness
 ]], [[龙是自然的伟力，是位于食物链顶端的捕食者。然而随着年岁增长，一些龙会产生智慧，其中又有一些希望让生命延续到死亡之后。
 你曾遇到并击败这样一头龙。
 

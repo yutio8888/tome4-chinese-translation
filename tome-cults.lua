@@ -889,13 +889,7 @@ section "tome-cults/data/lore/dremwarves.lua"
 
 t("Forbidden Cults", "禁忌邪教", "newLore category")
 t("our origins (1)", "我们的起源 (1)", "_t")
-t([[I do not remember anything from before. My earliest memories are of these ruins. My people are known as the Drem to the surface dwellers of this world. We are seen as monsters, and perhaps that is not an unfair presumption. We were once mindless creatures roaming the underground, capable only of violence and acting on instinct.
-
-It is only after these ruins were found that thought finally manifested in our bodies. I am fortunate in that the ruins have gifted me with sublime intelligence. For some, it did not help at all. For others, it barely raised them above mindlessness. Whatever grants us intelligence in these ruins seems to work on a case-by-case basis. Since our self awareness is only a recent thing, we have much we need to learn about the world around us and about ourselves as well.
-
-There is one question which keeps coming back to me. Why do we exist? Where did we come from? There are many strange things which dwell below the surface, but we are somehow different. The dwarven race bears similarities to us, but they possess a face where we do not. Are we cast from the same mold, but the process went awry somehow?
-
-I strongly believe that Drem and Dwarf do share a common origin. But, what is that origin? Could this simply have been the result of our different environments over the years? I could speculate all day about this, but that would not produce any concrete evidence. I intend to explore these caverns until I can find some clue or fragment of knowledge which will point me in the right direction. I need to know the truth.]], [[我不记得以前的事了。我最早的记忆都和这些废墟有关。我的同伴被地上的居民称为德瑞姆。我们被视为怪物，也许这并非是一个不公的评价。我们曾经是在地下游荡的无意识的生物，依靠暴力和本能行动。
+t("I do not remember anything from before. My earliest memories are of these ruins. My people are known as the Drem to the surface dwellers of this world. We are seen as monsters, and perhaps that is not an unfair presumption. We were once mindless creatures roaming the underground, capable only of violence and acting on instinct. \n\nIt is only after these ruins were found that thought finally manifested in our bodies. I am fortunate in that the ruins have gifted me with sublime intelligence. For some, it did not help at all. For others, it barely raised them above mindlessness. Whatever grants us intelligence in these ruins seems to work on a case-by-case basis. Since our self awareness is only a recent thing, we have much we need to learn about the world around us and about ourselves as well.\n\nThere is one question which keeps coming back to me. Why do we exist? Where did we come from? There are many strange things which dwell below the surface, but we are somehow different. The dwarven race bears similarities to us, but they possess a face where we do not. Are we cast from the same mold, but the process went awry somehow?\n\nI strongly believe that Drem and Dwarf do share a common origin. But, what is that origin? Could this simply have been the result of our different environments over the years? I could speculate all day about this, but that would not produce any concrete evidence. I intend to explore these caverns until I can find some clue or fragment of knowledge which will point me in the right direction. I need to know the truth.", [[我不记得以前的事了。我最早的记忆都和这些废墟有关。我的同伴被地上的居民称为德瑞姆。我们被视为怪物，也许这并非是一个不公的评价。我们曾经是在地下游荡的无意识的生物，依靠暴力和本能行动。
 
 直到我们发现这些废墟之后，我们的身体中才浮现了智慧与思想。我很幸运，废墟赋予我崇高的智慧，而有一些人就没有那么幸运了，他们没有任何变化。对另一些人来说，它只是让他们的智力提升到比无意识稍微好一点。到底是怎样的东西赋予我们了智慧，似乎并没有什么规律可循。因为我们是刚刚才获得自我意识的，我们有很多需要去了解的东西。我们需要了解我们周围的世界，以及了解我们自己。
 
@@ -921,29 +915,7 @@ It is a vague hope, but I hope in my heart of hearts that this place will finall
 
 尽管这只是一个模糊的愿望，但我内心深处希望，这个地方会给我最终的答案，有关我一直在寻找的，矮人和德瑞姆的起源的答案。]], "_t")
 t("our origins (3)", "我们的起源 (3)", "_t")
-t([[The exploration of the cavity has been interesting, to say the least. At its very centre, we discovered a strange, egg-shaped structure. It's made out of some sort of metal which I have not seen before. Despite being covered in layers of ancient dust, the metal was untarnished and showed no noticeable signs of decay. It was highly resistant to damage, as our attempts to cut through it were met with failure, even when we employed magical means. There was a notable dent in its side, something which could have only been caused by a tremendous amount of force.
-
-There was a passage way leading into the egg, which I volunteered to step through first. The inside of the egg was stranger still. There were dozens of metal tubes which covered the ceiling. Even as I stood there, I could hear the sound of some liquid pouring through them. The walls were covered in blinking lights and yet more metallic objects which I could not make sense of. It is obvious that the egg was some sort of massive machine. I cannot understand how it works or how it was made, though. There is no magic that I can sense, so this machine must rely entirely on mechanical means to function. No race that I know of has the knowledge to build such a thing. I could only imagine what sort of genius could design such a thing, let alone build it.
-
-Most interesting of all is that the egg has a thin layer of void energy over its entire surface. Us Drem are familiar with such energies, as we have dedicated much of our study to the otherworldly. The even spread of these energies suggests that this egg was completely bathed in them at some point. I do not know what circumstances could have lead to this, for such a concentration of these energies simply couldn't exist on Eyal. Not without causing a violent explosion, at least. We have done such experiments before.
-
-Going deeper inside it, I began to notice that there were a number of glass pipes, wide enough for one of our party to fit in with room to spare. The metallic tubes above me fed into these pipes and pumped some sort of greenish liquid. I had planned to take a closer look, but it was then that we were set upon.
-
-A number of things came crawling out from the dark. Us Drem are rather accustomed to sudden violence, so we tore into them before we could get a clear view of them. We sustained a few minor injuries, but the real shock came after we got a closer look at our attackers. They appeared to be some strange cross between dwarf, drem and something else, yet possessing a strangely child-like body. I imagine the jagged, razor sharp teeth aren't entirely natural either. We were not to be deterred, however. Surface folk may be shocked by such a creature, but we have seen far more sinister things down here.
-
-We had to cut through dozens of them, maybe hundreds of them, in our journey through the egg. There was obviously a source of these things, and their vague resemblance to us spurned me to keep fighting. We eventually came to a chamber which I guessed was the centre of the egg. We found the source of our tormentors. Some great machine, which connected with dozens of glass tubes, appeared to have a malignant growth attached to it. The creatures were being spat out of broken tubes, rapidly growing to their full size and rushing toward us. Each creature varied from looking like a half formed dwarf, drem or some sort of bizarre, tentacled horror.
-
-In the end, we eventually broke the pipes leading into the glass tubes and the creatures stopped coming out. That liquid must have been some sort of substance to nourish those creatures. Without that liquid, only feeble and half formed fetuses crawled out.
-
-But that was only one machine that was making them. We ended up sealing off the chamber as best as we could, but we can hear more of them coming. One of the creatures latched onto my arm during the fight as well. It has infected me with some virulent disease, making my flesh wither away and turned into dried leather.
-
-There is no misunderstanding our fate. We lost many Drem in the fight, and I am not the only one who has been infected with this disease. We are going to die in this room. But, I am content with this fate. I have worked out the truth of our origins.
-
-We wandered into the back of the room where there were yet more tubes. To my surprise, these tubes contained fully formed bodies. A dwarf, complete with a long beard, floated inside the tube. He seemed to twitch like he was in the middle of a dream. As we went further and further down, we found yet more dwarves sleeping inside tubes. But, what we noticed was how with each dwarf, they continued to become more and more malformed. Eventually, we reached the final tube and we found a faceless dwarf inside. In other words, a Drem.
-
-This egg has to be where we came from. This machine was built to create dwarves. I do not understand the process, but I have seen the outcome for myself. It is us Drem that are the anomaly, the dysfunctional byproduct of this machine's disrepair. Feral Drem must have emerged from this egg and ventured into the underground, where they then multiplied independently of the egg. These mutant fetuses must be the result of further disrepair and corruption, judging by the black growth which engulfs the machine in this room.
-
-So, I know now. Even if this discovery never leaves this room, I can die content. Even if I am the product of a broken piece of machinery, I am happy that I had a chance to witness this moment. If you find these notes, please bring them back to my fellow Drem. I am sure they would be happy to know the truth too.]], [[可以说，对洞窟的探索很有意思。在它的中心，我们发现了一个奇怪的蛋形结构。它是由某种我以前没有见过的金属制成的。尽管蛋上覆盖着一层尘土，显示它的历史十分古老，金属却未被破坏，也没有明显的腐蚀迹象。它对各种伤害有很高的抵抗力，即使我们使用魔法手段也没法刺穿它。它的侧面有明显的凹痕，考虑到它卓越的防御力，这个凹痕只有可能是由巨大的力量造成的。
+t("The exploration of the cavity has been interesting, to say the least. At its very centre, we discovered a strange, egg-shaped structure. It's made out of some sort of metal which I have not seen before. Despite being covered in layers of ancient dust, the metal was untarnished and showed no noticeable signs of decay. It was highly resistant to damage, as our attempts to cut through it were met with failure, even when we employed magical means. There was a notable dent in its side, something which could have only been caused by a tremendous amount of force.\n\nThere was a passage way leading into the egg, which I volunteered to step through first. The inside of the egg was stranger still. There were dozens of metal tubes which covered the ceiling. Even as I stood there, I could hear the sound of some liquid pouring through them. The walls were covered in blinking lights and yet more metallic objects which I could not make sense of. It is obvious that the egg was some sort of massive machine. I cannot understand how it works or how it was made, though. There is no magic that I can sense, so this machine must rely entirely on mechanical means to function. No race that I know of has the knowledge to build such a thing. I could only imagine what sort of genius could design such a thing, let alone build it. \n\nMost interesting of all is that the egg has a thin layer of void energy over its entire surface. Us Drem are familiar with such energies, as we have dedicated much of our study to the otherworldly. The even spread of these energies suggests that this egg was completely bathed in them at some point. I do not know what circumstances could have lead to this, for such a concentration of these energies simply couldn't exist on Eyal. Not without causing a violent explosion, at least. We have done such experiments before.\n\nGoing deeper inside it, I began to notice that there were a number of glass pipes, wide enough for one of our party to fit in with room to spare. The metallic tubes above me fed into these pipes and pumped some sort of greenish liquid. I had planned to take a closer look, but it was then that we were set upon.\n\nA number of things came crawling out from the dark. Us Drem are rather accustomed to sudden violence, so we tore into them before we could get a clear view of them. We sustained a few minor injuries, but the real shock came after we got a closer look at our attackers. They appeared to be some strange cross between dwarf, drem and something else, yet possessing a strangely child-like body. I imagine the jagged, razor sharp teeth aren't entirely natural either. We were not to be deterred, however. Surface folk may be shocked by such a creature, but we have seen far more sinister things down here.\n\nWe had to cut through dozens of them, maybe hundreds of them, in our journey through the egg. There was obviously a source of these things, and their vague resemblance to us spurned me to keep fighting. We eventually came to a chamber which I guessed was the centre of the egg. We found the source of our tormentors. Some great machine, which connected with dozens of glass tubes, appeared to have a malignant growth attached to it. The creatures were being spat out of broken tubes, rapidly growing to their full size and rushing toward us. Each creature varied from looking like a half formed dwarf, drem or some sort of bizarre, tentacled horror.\n\nIn the end, we eventually broke the pipes leading into the glass tubes and the creatures stopped coming out. That liquid must have been some sort of substance to nourish those creatures. Without that liquid, only feeble and half formed fetuses crawled out.\n\nBut that was only one machine that was making them. We ended up sealing off the chamber as best as we could, but we can hear more of them coming. One of the creatures latched onto my arm during the fight as well. It has infected me with some virulent disease, making my flesh wither away and turned into dried leather.\n\nThere is no misunderstanding our fate. We lost many Drem in the fight, and I am not the only one who has been infected with this disease. We are going to die in this room. But, I am content with this fate. I have worked out the truth of our origins.\n\nWe wandered into the back of the room where there were yet more tubes. To my surprise, these tubes contained fully formed bodies. A dwarf, complete with a long beard, floated inside the tube. He seemed to twitch like he was in the middle of a dream. As we went further and further down, we found yet more dwarves sleeping inside tubes. But, what we noticed was how with each dwarf, they continued to become more and more malformed. Eventually, we reached the final tube and we found a faceless dwarf inside. In other words, a Drem.\n\nThis egg has to be where we came from. This machine was built to create dwarves. I do not understand the process, but I have seen the outcome for myself. It is us Drem that are the anomaly, the dysfunctional byproduct of this machine's disrepair. Feral Drem must have emerged from this egg and ventured into the underground, where they then multiplied independently of the egg. These mutant fetuses must be the result of further disrepair and corruption, judging by the black growth which engulfs the machine in this room.\n\nSo, I know now. Even if this discovery never leaves this room, I can die content. Even if I am the product of a broken piece of machinery, I am happy that I had a chance to witness this moment. If you find these notes, please bring them back to my fellow Drem. I am sure they would be happy to know the truth too.", [[可以说，对洞窟的探索很有意思。在它的中心，我们发现了一个奇怪的蛋形结构。它是由某种我以前没有见过的金属制成的。尽管蛋上覆盖着一层尘土，显示它的历史十分古老，金属却未被破坏，也没有明显的腐蚀迹象。它对各种伤害有很高的抵抗力，即使我们使用魔法手段也没法刺穿它。它的侧面有明显的凹痕，考虑到它卓越的防御力，这个凹痕只有可能是由巨大的力量造成的。
 
 在蛋的外部，有一条通往蛋形结构的通道，我自愿第一个踏入那里。蛋形结构的内部更加陌生。天花板上覆盖着几十根的金属管道，站在管道下，我能听到液体从管道中流过的声音。墙上覆盖着闪烁的灯光，还有更多我无法理解的金属物体。很明显，这个巨蛋是一种巨大的机器。不过，我既不知道它是如何工作的，也不知道它是怎么被制造出来的。我没有感觉到任何魔法的气息，所以这台机器一定是完全依靠机械手段来运作的。我所知道的任何种族都没有建立这样的东西的知识。我不知道到底是什么样的天才可以设计出这样的东西，更不知道谁有能力建造这样的庞然大物。
 
@@ -2181,15 +2153,7 @@ It is this dream which keeps Kroshkkur alive. Even as our bodies continue to war
 
 这就是让克诺什库尔保持生机的梦想。就算我们的身体将继续变异、衰败，我们也依然希望着能够找到方法来让我们的姿态变得更优秀。到了那时，我们的存在将不需要任何人的许可。]], "_t")
 t("Researcher Dremnot's Demystification of the Gods: Prelude", "研究员德瑞姆诺特的揭露诸神：前言", "_t")
-t([[Gods are beings which have been frequently mentioned throughout Eyal's history. They are a foreign concept to most readers, since most Eyalites of the current age have not encountered them. The word god gives you the impression of some almighty and obscenely powerful being, which these beings most certainly are. But, there has been little scholarly work dedicated to defining what exactly a god is. Multiple cultures across Eyal's history all have varying descriptions of the gods, despite the same names frequently appearing among them.
-
-As a scholar of Kroshkkur, I spent much time wandering the surface of Eyal and learning from the surface races regarding the gods, including many famous places of learning such as Anglowen. It was a hard sell, but I even managed to [i]convince[/i] an imp to retrieve certain documentation on Urk'Rok as well. This series of documents has been written to catalogue information regarding the gods and to develop as accurate a picture of them as myth and history will allow and this preface is to give a general impression of what exactly a god is supposed to be.
-
-There have been many powerful beings who have walked across the surface of Eyal. Being a god isn't simply a question of power, however, despite the enormous strength of these beings. What separates gods from other beings is their ability to reverse entropy. For future reference, we shall refer to this power as antropy. This power also allows them to reshape reality to their own whims and desires. Some gods made their own races, others merely altered beings living on Eyal, playing with their evolution and changing them in unfathomable ways. While some might attribute this behaviour to some greater purpose, there is more than enough evidence to suggest that the gods are fallible and motivated by things just as petty as we mere mortals. In my scholarly opinion, we were simply created for their amusement.
-
-While this might drive some to despair and make them believe that mortal will is pointless, it is noted in ancient myth that the gods were slaughtered by the Sher'tul and driven away from our world. Whether or not their absence can be considered a good thing, it cannot be said. There are some surviving stories of the gods' blatant cruelty and complete disregard for the races they made as they squabbled among each other, wracking great scars across the surface of this world. It is also noteworthy that the gods, despite their impressive power, were not always intelligent beings. Some were believed to be barely sapient, or even sentient. One theory about this is that the gods were primitive beings living on Eyal's surface and just so happened to be infused with antropic energies, artificially elevating them above other primitive lifeforms.
-
-With these things established, we will discuss the gods of Eyal and what influence their actions had, and continue to have, on our world. While I discovered many gods in my studies, it is entirely possible that Eyal had even more gods than what are documented in my findings, but their existence cannot be substantiated by existing scholarly texts.]], [[神是埃亚尔历史上经常被提及的存在。它们对大部分读者来说是个陌生的概念，因为当代的大部分埃亚尔人都从未遇见过它们。“神”这个字给人的印象是至高全能的存在，这点它们也名副其实。但是学术上几乎没有对神的具体定义。埃亚尔历史上的诸多文化虽然都提到了许多相同的名讳，但对诸神的描述则各不相同。
+t("Gods are beings which have been frequently mentioned throughout Eyal's history. They are a foreign concept to most readers, since most Eyalites of the current age have not encountered them. The word god gives you the impression of some almighty and obscenely powerful being, which these beings most certainly are. But, there has been little scholarly work dedicated to defining what exactly a god is. Multiple cultures across Eyal's history all have varying descriptions of the gods, despite the same names frequently appearing among them. \n\nAs a scholar of Kroshkkur, I spent much time wandering the surface of Eyal and learning from the surface races regarding the gods, including many famous places of learning such as Anglowen. It was a hard sell, but I even managed to [i]convince[/i] an imp to retrieve certain documentation on Urk'Rok as well. This series of documents has been written to catalogue information regarding the gods and to develop as accurate a picture of them as myth and history will allow and this preface is to give a general impression of what exactly a god is supposed to be.\n\nThere have been many powerful beings who have walked across the surface of Eyal. Being a god isn't simply a question of power, however, despite the enormous strength of these beings. What separates gods from other beings is their ability to reverse entropy. For future reference, we shall refer to this power as antropy. This power also allows them to reshape reality to their own whims and desires. Some gods made their own races, others merely altered beings living on Eyal, playing with their evolution and changing them in unfathomable ways. While some might attribute this behaviour to some greater purpose, there is more than enough evidence to suggest that the gods are fallible and motivated by things just as petty as we mere mortals. In my scholarly opinion, we were simply created for their amusement.\n\nWhile this might drive some to despair and make them believe that mortal will is pointless, it is noted in ancient myth that the gods were slaughtered by the Sher'tul and driven away from our world. Whether or not their absence can be considered a good thing, it cannot be said. There are some surviving stories of the gods' blatant cruelty and complete disregard for the races they made as they squabbled among each other, wracking great scars across the surface of this world. It is also noteworthy that the gods, despite their impressive power, were not always intelligent beings. Some were believed to be barely sapient, or even sentient. One theory about this is that the gods were primitive beings living on Eyal's surface and just so happened to be infused with antropic energies, artificially elevating them above other primitive lifeforms.\n\nWith these things established, we will discuss the gods of Eyal and what influence their actions had, and continue to have, on our world. While I discovered many gods in my studies, it is entirely possible that Eyal had even more gods than what are documented in my findings, but their existence cannot be substantiated by existing scholarly texts.", [[神是埃亚尔历史上经常被提及的存在。它们对大部分读者来说是个陌生的概念，因为当代的大部分埃亚尔人都从未遇见过它们。“神”这个字给人的印象是至高全能的存在，这点它们也名副其实。但是学术上几乎没有对神的具体定义。埃亚尔历史上的诸多文化虽然都提到了许多相同的名讳，但对诸神的描述则各不相同。
 
 作为一名克诺什库尔的学者，我在埃亚尔地表游历了许多时间，在包括安格列文在内的诸多知识圣地学习了地表种族对神的认识。我甚至[i]说服[/i]了一个小恶魔去取来有关乌鲁洛克的一些文件，尽管过程并不轻松。我博览传说与历史，写下这一系列的文件来尽可能准确地记载诸神的信息，而这章前言则是让读者大致了解神究竟是何物。
 
@@ -2315,11 +2279,7 @@ His fate after the Godhunt is unknown. Some sources speculate that he still rema
 
 他在弑神之战之后的命运无从知晓。有些人猜测他至今仍然待在自己的藏书馆里，等待着一个相配的学生来继承他的学识。]], "_t")
 t("Mightier than Gods: Azorol", "比诸神更加强大：阿茨萝尔", "_t")
-t([[Azorol was the great marksman. She was an instructor in the use of weapons and seemed to favour an antiquated approach to their use. Many Sher'tul believed her to be foolish, for they could not see why she would use primitive projectile weapons when far more devastating weaponry had already been developed. She did not give up her ways, however harsh her critics were, for she believed there was value in preserving the old ways of war. Many tales tell of her unerring accuracy. No matter how small the target and how far the distance, her mighty spear throws would always land.
-
-For her, the spear Thoral was made, a throwing weapon of unparalleled might. She seemed to care little for the reasons behind the Godhunt, for the spear alone was a great enough prize for her. With this new weapon, there were tales of Azorol striking targets in the darkness beyond our world while standing on the flat plains of Eyal. She proved to be one of the mightiest of the Godslayers, for there was nowhere on Eyal which was safe from Thoral and its user.
-
-Judging by surviving records, she was one of the Godslayers who was killed during the climax of the Godhunt. The fate of the spear Thoral is unknown.]], [[阿茨萝尔是一位神射手。她指导如何使用兵器，并且看起来十分青睐使用古老的武器。许多夏·图尔人认为她这样是愚蠢的，因为他们无法理解她为何在一个有着更具毁灭性的杀器的时代，还要使用这些原始的投射武器。但不管受到如何恶劣的批评，她都从不放弃自己的道路，因为她相信保留着战争的古老方式是有其价值的。许多故事诉说着她万无一失的精准，不管目标多么渺小，又不管距离多么遥远，她掷出的重矛从不失手。
+t("Azorol was the great marksman. She was an instructor in the use of weapons and seemed to favour an antiquated approach to their use. Many Sher'tul believed her to be foolish, for they could not see why she would use primitive projectile weapons when far more devastating weaponry had already been developed. She did not give up her ways, however harsh her critics were, for she believed there was value in preserving the old ways of war. Many tales tell of her unerring accuracy. No matter how small the target and how far the distance, her mighty spear throws would always land. \n\nFor her, the spear Thoral was made, a throwing weapon of unparalleled might. She seemed to care little for the reasons behind the Godhunt, for the spear alone was a great enough prize for her. With this new weapon, there were tales of Azorol striking targets in the darkness beyond our world while standing on the flat plains of Eyal. She proved to be one of the mightiest of the Godslayers, for there was nowhere on Eyal which was safe from Thoral and its user.\n\nJudging by surviving records, she was one of the Godslayers who was killed during the climax of the Godhunt. The fate of the spear Thoral is unknown.", [[阿茨萝尔是一位神射手。她指导如何使用兵器，并且看起来十分青睐使用古老的武器。许多夏·图尔人认为她这样是愚蠢的，因为他们无法理解她为何在一个有着更具毁灭性的杀器的时代，还要使用这些原始的投射武器。但不管受到如何恶劣的批评，她都从不放弃自己的道路，因为她相信保留着战争的古老方式是有其价值的。许多故事诉说着她万无一失的精准，不管目标多么渺小，又不管距离多么遥远，她掷出的重矛从不失手。
 
 长矛索拉尔为她而铸造，这是一把有着无上力量的投掷武器。她看起来丝毫不关心弑神之战背后的原因，因为这柄长矛对她而言已经是足够的奖赏了。传说中阿茨萝尔就是用这柄长矛，站在埃亚尔的旷野之上就能命中我们世界之外黑暗深空中的敌人。她被证明是弑神者中的最强者之一，因为只要她手中握着索拉尔，整个埃亚尔就没有任何藏身之处。
 
@@ -2470,13 +2430,7 @@ My first instinct was to lead a charge into the crag and cleanse this terrible p
 
 强烈的本能，让我想要直接冲进岩壁，净化这个可怕的地方。但我知道，这样做是毫无意义的。我不能忍受对这样可怕的东西无动于衷，但盲目送命也是毫无意义的。现在，我们必须建立营地，观察这种可怕的威胁。]], "_t")
 t("page from a logbook (2)", "日志上的一页 (2)", "_t")
-t([[In my dreams, I saw the inside of the pits. How the hatchlings devoured each other in a cannibalistic frenzy, how the weak and frail ones were dragged underneath the surface of that mass of tentacles... All I could do is gape in horror. But there was one fiendish shape which towered above them all, a nightmarish fusion between dragon and tentacle... I could not bear to look at it, yet I could not look away. It whispered to me, speaking words that a mortal's tongue could never hope to mimic.
-
-I am not the only one who has been dreaming about the pits. One of my men was hysterical today, whispering about the black gulfs of space and how it has chosen its vessel to conquer this world. He had to be forcefully sedated.
-
-Whatever is here is touching our minds. Any fool could guess that. I woke up to find that I had been writing notes in my sleep. I do not wish to guess what unspeakable blasphemies these symbols represent. It wants me to keep writing. It wants me to do its bidding. I can feel its whispers gnawing at the back of my head. We must act while we can still think for ourselves. I dread what will become of us if we succumb to the whispers... The whispers. They won't stop.
-
-[i](He appears to have attached those notes he mentioned to this letter. What you see is a series of incomprehensible scribbles and symbols which don't resemble any language you have seen before. Such an bizarre script could have only been produced by a madman or something that thinks in ways completely alien to your own.)[/i] ]], [[在我的梦中，我看到了坑的内部。那些幼龙在同类相食的狂热中互相吞噬，脆弱的个体被拖入到触手群体的表面之下……我的内心中只剩下深切的恐惧而已。一种魔鬼般的形体，如同高塔一般，高耸在那些扭曲的存在之上，这是龙与触手之间的一种噩梦般的融合……强烈的恶心让我不忍注视这种邪恶的存在，却又无法移开视线。它朝我发出不可名状的低语，那是凡人永远无法模仿的语言。
+t("In my dreams, I saw the inside of the pits. How the hatchlings devoured each other in a cannibalistic frenzy, how the weak and frail ones were dragged underneath the surface of that mass of tentacles... All I could do is gape in horror. But there was one fiendish shape which towered above them all, a nightmarish fusion between dragon and tentacle... I could not bear to look at it, yet I could not look away. It whispered to me, speaking words that a mortal's tongue could never hope to mimic.\n\nI am not the only one who has been dreaming about the pits. One of my men was hysterical today, whispering about the black gulfs of space and how it has chosen its vessel to conquer this world. He had to be forcefully sedated. \n\nWhatever is here is touching our minds. Any fool could guess that. I woke up to find that I had been writing notes in my sleep. I do not wish to guess what unspeakable blasphemies these symbols represent. It wants me to keep writing. It wants me to do its bidding. I can feel its whispers gnawing at the back of my head. We must act while we can still think for ourselves. I dread what will become of us if we succumb to the whispers... The whispers. They won't stop.\n\n[i](He appears to have attached those notes he mentioned to this letter. What you see is a series of incomprehensible scribbles and symbols which don't resemble any language you have seen before. Such an bizarre script could have only been produced by a madman or something that thinks in ways completely alien to your own.)[/i] ", [[在我的梦中，我看到了坑的内部。那些幼龙在同类相食的狂热中互相吞噬，脆弱的个体被拖入到触手群体的表面之下……我的内心中只剩下深切的恐惧而已。一种魔鬼般的形体，如同高塔一般，高耸在那些扭曲的存在之上，这是龙与触手之间的一种噩梦般的融合……强烈的恶心让我不忍注视这种邪恶的存在，却又无法移开视线。它朝我发出不可名状的低语，那是凡人永远无法模仿的语言。
 
 我不是唯一一个做噩梦的人。我们曾经的一位战友，今天突然变得歇斯底里。他的口中发出胡言乱语，低语着太空中黑暗的深渊。黑暗的存在选择了承载自己的容器，准备征服这个世界。我们用强制措施让他冷静了下来。
 
@@ -2566,13 +2520,7 @@ Thoughts are treasure. Treasure thoughts. Thoughtlessness is useless. Thoughtles
 
 思想是一种财富。珍惜思想的财富。毫无思想的人毫无意义。毫无思想的人一文不值。毫无思想的人永远无法穿透纱幕，见到世界的真相。]], "_t")
 t("an escape from reality (1)", "逃避现实 (1)", "_t")
-t([[So, what does an adventurer do when they get bored with it all? For me, I wanted to find a nice castle somewhere out in the countryside and spend the rest of my days in idle contentment. The issue there is that I made a lot of enemies who would have loved for me to settle down in one spot, so I needed to think of a solution.
-
-That's when I found this place. Everyone else avoided it because people never left once they went inside it. Being used to the adventuring life, I saw such a thing as a challenge. Turns out that this cursed castle, as people referred to it, constantly changes its inside layout. No one really knows how or why it does it, but I'm not really one to question such things. If I could just work out the logic behind how it shifted itself, I could have an unassailable fortress.
-
-However, I also found that this still didn't deter people from coming to kill me. They all swarmed in and although a lot of them got lost in the hallways, a few actually managed to reach me. I had grown rather attached to the place at this point, but neither could I stay there. My solution came with a bizarre tome I had found in my adventures. When I opened the cover and pointed it in the right direction, it could suck things into its very pages.
-
-So, being the savvy adventurer I am, I opened the tome and sucked the entire castle inside of it. It seems like the tome could only suck so much inside its covers, so it could no longer hold anything else in it. Although I had to sacrifice a great treasure, I now had a sanctuary away from the real world which I could escape to whenever I needed shelter.]], [[那么，当一个冒险者厌倦了有关冒险的一切时，他们会做什么呢？对我而言，我想在乡村的某个地方找一座漂亮的城堡，并在休闲和娱乐中度过愉快的晚年。问题在于，我有不少仇人，他们可是很乐意见到我呆在一个地方束手就擒，因此我得想出一个解决方案。
+t("So, what does an adventurer do when they get bored with it all? For me, I wanted to find a nice castle somewhere out in the countryside and spend the rest of my days in idle contentment. The issue there is that I made a lot of enemies who would have loved for me to settle down in one spot, so I needed to think of a solution.\n\nThat's when I found this place. Everyone else avoided it because people never left once they went inside it. Being used to the adventuring life, I saw such a thing as a challenge. Turns out that this cursed castle, as people referred to it, constantly changes its inside layout. No one really knows how or why it does it, but I'm not really one to question such things. If I could just work out the logic behind how it shifted itself, I could have an unassailable fortress. \n\nHowever, I also found that this still didn't deter people from coming to kill me. They all swarmed in and although a lot of them got lost in the hallways, a few actually managed to reach me. I had grown rather attached to the place at this point, but neither could I stay there. My solution came with a bizarre tome I had found in my adventures. When I opened the cover and pointed it in the right direction, it could suck things into its very pages.\n\nSo, being the savvy adventurer I am, I opened the tome and sucked the entire castle inside of it. It seems like the tome could only suck so much inside its covers, so it could no longer hold anything else in it. Although I had to sacrifice a great treasure, I now had a sanctuary away from the real world which I could escape to whenever I needed shelter.", [[那么，当一个冒险者厌倦了有关冒险的一切时，他们会做什么呢？对我而言，我想在乡村的某个地方找一座漂亮的城堡，并在休闲和娱乐中度过愉快的晚年。问题在于，我有不少仇人，他们可是很乐意见到我呆在一个地方束手就擒，因此我得想出一个解决方案。
 
 所以，我找到了这个地方。其他人都对它避之不及，因为据说进入这里的人从来没有回来过。不过习惯了冒险生活的我看来，这样的事情无疑是一种挑战。事实证明，这个被诅咒的城堡，正如人们所说的那样，正在不断地改变着它的内部布局。没有人真正知道，它是如何做到这一切，以及为什么要这样做的，但我也不是一个非得刨根问底的人。只要我能弄清楚，尽管它的结构不断的改变，这种改变的内部仍然蕴含了某种逻辑，我就拥有了一个无懈可击的堡垒。
 
@@ -2811,12 +2759,7 @@ t("Talents of the various entities of the world.", "世界上各种怪物的能�
 section "tome-cults/data/talents/demented/disfigured-face.lua"
 
 t("Diseased Tongue", "疫病之舌", "talent name")
-t([[Your tongue turns into a diseased tentacle that you use to #{italic}#lick#{normal}# enemies in a cone.
-		Licked creatures take %d%% tentacle damage that ignores armor and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.
-
-		If at least one enemy is hit you gain %d insanity.
-
-		Disease damage will increase with your Spellpower.]], [[ 你的舌头化作疫病触手，让你能 #{italic}#舔舐#{normal}# 锥形范围内的敌人。
+t("Your tongue turns into a diseased tentacle that you use to #{italic}#lick#{normal}# enemies in a cone.\n\t\tLicked creatures take %d%% tentacle damage that ignores armor and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.\n\t\t\n\t\tIf at least one enemy is hit you gain %d insanity.\n\t\t\n\t\tDisease damage will increase with your Spellpower.", [[ 你的舌头化作疫病触手，让你能 #{italic}#舔舐#{normal}# 锥形范围内的敌人。
 		被舔舐的敌人受到无视护甲的 %d%% 触手伤害并获得一种持续 %d 回合的随机疾病，每回合造成 %0.2f 枯萎伤害并减少力量、敏捷或体质 %d 点。
 		如果你至少命中了一名敌人，你获得 %d 疯狂值。
 		疾病伤害受法术强度加成。]], "tformat")
@@ -2875,28 +2818,16 @@ t([[Utter a prophecy of the impending treachery of your target. For the next 6 t
 		一个目标只能同时被一个预言影响。]], "tformat")
 t("Grand Oration", "隆重演说", "talent name")
 t("None", "无", "_t")
-t([[You speak a chosen prophecy to the masses. When applying this prophecy, it will spread to all targets in radius %d.
-		A prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.
-
-		Current prophecy: %s]], [[你隆重地宣读某种预言，令其在周围 %d 格内传播。
+t("You speak a chosen prophecy to the masses. When applying this prophecy, it will spread to all targets in radius %d.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\t\n\t\tCurrent prophecy: %s", [[你隆重地宣读某种预言，令其在周围 %d 格内传播。
 		同一种预言只能以一种方式进行强化，隆重演说，双重诅咒或者天启。
 
 		当前预言 : %s]], "tformat")
 t("Twofold Curse", "双重诅咒", "talent name")
-t([[Weave your chosen prophecy into your speech, dooming your foe twice over. The chosen prophecy will apply instantly to your primary target whenever you cast any other prophecy at talent level %d.
-		A prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.
-
-		Current prophecy: %s]], [[对你的听众施加双重诅咒。每当你施加其他预言时，你选择的预言将同时施加给主要目标 (技能等级 %d )。
+t("Weave your chosen prophecy into your speech, dooming your foe twice over. The chosen prophecy will apply instantly to your primary target whenever you cast any other prophecy at talent level %d.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\t\n\t\tCurrent prophecy: %s", [[对你的听众施加双重诅咒。每当你施加其他预言时，你选择的预言将同时施加给主要目标 (技能等级 %d )。
 		同一种预言只能以一种方式进行强化，隆重演说，双重诅咒或者天启。
 		当前预言 : %s]], "tformat")
 t("Revelation", "天启", "talent name")
-t([[As you speak the chosen prophecy whispers from the void guide you in how to bring about the downfall of your foe. The chosen prophecy will grant one of the following effects.
-		Prophecy of Madness. Each time the target uses a talent one of your talents on cooldown has its cooldown reduced by %d turns.
-		Prophecy of Ruin. Each time the target takes damage you are healed for %d%% of the damage dealt.
-		Prophecy of Treason: %d%% of all damage you take is redirected to a random target affected by Prophecy of Treason.
-		A prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.
-
-		Current prophecy: %s]], [[当你宣读预言时，来自虚空的回响将指引你带来敌人的末日。你选择的预言将提供以下三种加成之一。
+t("As you speak the chosen prophecy whispers from the void guide you in how to bring about the downfall of your foe. The chosen prophecy will grant one of the following effects.\n\t\tProphecy of Madness. Each time the target uses a talent one of your talents on cooldown has its cooldown reduced by %d turns.\n\t\tProphecy of Ruin. Each time the target takes damage you are healed for %d%% of the damage dealt.\n\t\tProphecy of Treason: %d%% of all damage you take is redirected to a random target affected by Prophecy of Treason.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\n\t\tCurrent prophecy: %s", [[当你宣读预言时，来自虚空的回响将指引你带来敌人的末日。你选择的预言将提供以下三种加成之一。
 		疯狂预言：每次目标使用技能时，你的一个技能的冷却时间将减少 %d 。
 		毁灭预言：每次目标受到伤害时，你回复 %d%% 伤害值。
 		背叛预言：你受到的 %d%% 伤害将转移至周围随机受背叛预言影响的目标。
@@ -3033,9 +2964,7 @@ t([[Each time an enemy takes damage from Dark Whispers, there is a %d%% chance f
 t("Sanity Warp", "失智冲击", "talent name")
 t("When a hallucination from Hideous Visions is slain, it unleashes a psychic shriek dealing %0.2f darkness damage to enemies in radius %d.", "每当幻象被消灭时，它将释放心灵冲击，对 %d 格内的敌人造成 %0.2f 暗影伤害。", "tformat", {2,1})
 t("Cacophony", "心灵尖啸", "talent name")
-t([[Raise your Dark Whispers in radius %d to a deafening crescendo for %d turns, applying another stack and drowning out all thought.
-			Targets afflicted by Dark Whispers will have 20%% higher chance to spawn hallucinations, and each time they take damage from your Dark Whispers or Sanity Warp they will take an additional %d%% damage as temporal damage.
-		The damage will improve with your Spellpower.]], [[ 使 %d 格内的黑暗低语音量提升 %d 回合，达到震耳欲聋的地步，额外施加一层低语效果，同时干扰一切思考能力。
+t("Raise your Dark Whispers in radius %d to a deafening crescendo for %d turns, applying another stack and drowning out all thought. \n\t\t\tTargets afflicted by Dark Whispers will have 20%% higher chance to spawn hallucinations, and each time they take damage from your Dark Whispers or Sanity Warp they will take an additional %d%% damage as temporal damage.\n\t\tThe damage will improve with your Spellpower.", [[ 使 %d 格内的黑暗低语音量提升 %d 回合，达到震耳欲聋的地步，额外施加一层低语效果，同时干扰一切思考能力。
 		被黑暗低语影响的目标产生幻象的几率增加 20%%，每次受到黑暗低语或失智冲击的伤害时，会受到额外 %d%% 时空伤害。
 		伤害受法术强度加成。]], "tformat")
 
@@ -3286,12 +3215,7 @@ t(", #CRIMSON# but is currently disabled due to non-empty offhand#WHITE#", "，#
 t("Lash Out", "旋风鞭挞", "talent name")
 t("You require an empty offhand to use your tentacle hand.", "你需要副手空手才能使用触手。", "logPlayer")
 t("You require a weapon and an empty offhand!", "你必须有一把武器和一只空手！", "logPlayer")
-t([[Spin around, extending your weapon and damaging all targets around you for %d%% weapon damage while your tentacle hand extends and hits all targets in radius 3 for %d%% tentacle damage.
-
-				If the mainhand attack hits at least one enemy you gain %d insanity.
-				If the tentacle attack hits at least one enemy you gain %d insanity.
-
-		#YELLOW_GREEN#When constricting:#WHITE# Your tentacle attack is centered around your constricted target (but not your weapon attack) and only in radius 1 but it also dazes anything hit for 5 turns.]], [[飞速旋转，伸展武器对周围单位造成 %d%% 武器伤害，并且伸展触手对 3 码内单位造成 %d%% 触手伤害。
+t("Spin around, extending your weapon and damaging all targets around you for %d%% weapon damage while your tentacle hand extends and hits all targets in radius 3 for %d%% tentacle damage.\n\t\t\t\t\n\t\t\t\tIf the mainhand attack hits at least one enemy you gain %d insanity.\n\t\t\t\tIf the tentacle attack hits at least one enemy you gain %d insanity.\n\t\t\n\t\t#YELLOW_GREEN#When constricting:#WHITE# Your tentacle attack is centered around your constricted target (but not your weapon attack) and only in radius 1 but it also dazes anything hit for 5 turns.", [[飞速旋转，伸展武器对周围单位造成 %d%% 武器伤害，并且伸展触手对 3 码内单位造成 %d%% 触手伤害。
 		如果武器击中敌人，你获得 %d 疯狂值。
 		如果触手击中敌人，你获得 %d 疯狂值。
 		#YELLOW_GREEN# 当触手处于缠绕状态 :#WHITE# 你的触手攻击以被缠绕目标为中心展开，攻击范围只有 1 码（武器攻击除外），但是会使被击中单位眩晕 5 回合。]], "tformat")
@@ -3401,6 +3325,23 @@ t([[Infects the target with a very contagious disease, doing %0.2f damage per tu
 		感染该疾病的生物还会受到治疗效果降低（%d%%）和疾病免疫降低（%d%%）的影响。
 		传染病威力极强，会完全无视目标的疾病免疫。
 		伤害随法术强度提高，传播几率随造成的枯萎伤害量提高。]], "tformat")
+t("Mutated Hereragegand", "异变之手", "talent name")
+t([[		Also increases Physical Power by %d, and increases weapon damage by %d%% for your tentacles attacks.
+
+		Your tentacle hand currently has those stats%s:
+		%s]], [[		同时增加 %d 点物理强度，并使触手攻击的武器伤害提高 %d%%。
+
+		你的触手之手当前具有以下属性%s：
+		%s]], "tformat")
+t("Lash Outrthrthrth", "旋风鞭挞", "talent name")
+t([[Spin around, extending your weapon and damaging all targets around you for %d%% weapon damage while your tentacle hand extends and hits all targets in radius 3 for %d%% tentacle damage.
+		]], [[飞速旋转，伸展武器对周围单位造成 %d%% 武器伤害，并且伸展触手对 3 码内单位造成 %d%% 触手伤害。
+		]], "tformat")
+t("Piercing Tentacle", "穿刺触手", "talent name")
+t([[You quickly extend your tentacle hand up to range %d, impaling all creatures in the way.
+		Impaled creatures take %d%% tentacle damage and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.]], [[你迅速伸长触手，最远达到 %d 码，刺穿沿途所有生物。
+		被刺穿的生物受到 %d%% 触手伤害，并感染一种随机疾病，持续 %d 回合；该疾病每回合造成 %0.2f 枯萎伤害，并使力量、敏捷或体质降低 %d 点。]], "tformat")
+t("Tentaclesrsthrhrhrh Ground", "地下触手", "talent name")
 -- untranslated text
 --[==[
 t("Mutated Hereragegand", "Mutated Hereragegand", "talent name")
@@ -4199,23 +4140,7 @@ section "tome-cults/data/zones/ft-horrors/objects.lua"
 t("A page of the tome.", "书页", "_t")
 t("Forbidden Tome: \"Home, Horrific Home\"", "禁忌之书：《家，可怕的家》", "entity name")
 t("A tome of lost knowledge. Touching it you feel both sick and yet strangely at peace.", "一本有关逝去的古老知识的书。触摸它让你同时感到不适和不知名的安心感。", "_t")
-t([[Clarity found in safety.
-Clarity found in comfort.
-Thoughts and idle dreams drifting through space.
-No one to harm.
-No one to distract.
-Just thoughts.
-Work to great works.
-Meditate.
-Pain is a lens.
-Focus through it.
-Let flesh be your canvas.
-Let flesh fuel dreams.
-Thoughts are treasures.
-Treasure thoughts.
-Thoughts treasured when they are alone.
-
-#RED#Reading this tome will slowly pull you in over 5 turns.]], [[在安全中发现清晰。
+t("Clarity found in safety.\nClarity found in comfort.\nThoughts and idle dreams drifting through space.\nNo one to harm.\nNo one to distract.\nJust thoughts.\nWork to great works.\nMeditate.\nPain is a lens.\nFocus through it.\nLet flesh be your canvas.\nLet flesh fuel dreams.\nThoughts are treasures.\nTreasure thoughts.\nThoughts treasured when they are alone. \n\n#RED#Reading this tome will slowly pull you in over 5 turns.", [[在安全中发现清晰。
 在舒适中找到清晰。
 让思绪和空想在虚空中飘荡。
 没有人会伤害你。
@@ -4707,14 +4632,7 @@ As with all things here, nothing restrains you in what path you #{bold}#ultimate
 section "tome-cults/overload/data/texts/intro-krog.lua"
 
 t("Welcome to Tales of Maj'Eyal - #CRIMSON#Forbidden Cults", "欢迎来到马基·埃亚尔的传说 - #CRIMSON#禁忌邪教", "_t")
-t([[Welcome #LIGHT_GREEN#@name@#WHITE#.
-
-You are a Krog, a former ogre stripped of its runes by the Ziguranth. Ogres cannot live without runes, yet you a Krog have been kept alive by the powers of nature coursing through your body.
-
-All Krogs are infused with anti-magic forces as a result of the changes made to their bodies by the Ziguranth. While much of Maj'Eyal shuns the arcane, there is still those who practice it, and you would like nothing more then to eradicate them from the world.
-
-You have come to an old ruin named Kor'Pul on a mission to eliminate the foulest of arcane creations: undeads.
-]], [[欢迎 #LIGHT_GREEN#@name@#WHITE#.
+t("Welcome #LIGHT_GREEN#@name@#WHITE#.\n\nYou are a Krog, a former ogre stripped of its runes by the Ziguranth. Ogres cannot live without runes, yet you a Krog have been kept alive by the powers of nature coursing through your body. \n\nAll Krogs are infused with anti-magic forces as a result of the changes made to their bodies by the Ziguranth. While much of Maj'Eyal shuns the arcane, there is still those who practice it, and you would like nothing more then to eradicate them from the world.\n\nYou have come to an old ruin named Kor'Pul on a mission to eliminate the foulest of arcane creations: undeads.\n", [[欢迎 #LIGHT_GREEN#@name@#WHITE#.
 
 你是一个克罗格。你曾经是一个食人魔，然而你的符文被伊格兰斯取下了。食人魔失去了符文会无法存活，而你这样克罗格却可以通过你身体内的自然力量存活。
 作为上面条件的附加作用，克罗格的身体被伊格兰斯的反魔法力量所灌注。虽然大部分马基埃亚尔人都远离奥术魔法，但仍然有一些人在实践奥术魔法，而你的目标就是从世界上消灭他们。
@@ -4837,17 +4755,7 @@ Race features:#YELLOW#
 section "tome-cults/overload/data/texts/unlock-wyrmic_scourge.lua"
 
 t("New Talent Category: #LIGHT_GREEN#Scourge Drake", "新技能树： #LIGHT_GREEN#天谴之龙", "_t")
-t([[Drakes are forces of Nature, the ultimate apex predators. But even they can be corrupted beyond hope.
-You have encountered the horror that came out of Kroltar, the mightiest wyrm, and vanquished it.
-
-You can now master Scourge Drake magic and create new Wyrmic characters that can learn the #LIGHT_GREEN#Scourge Drake talents#WHITE#.
-
-Talents:
-- #YELLOW#Tentacled Wings:#WHITE#Project slimy tentacles to pull your foes to you
-- #YELLOW#Decaying Grounds:#WHITE#Cover the ground in blighted energies, increasing cooldowns
-- #YELLOW#Augment Despair:#WHITE#Hit where it hurts, doing more damage based on detrimental effects
-- #YELLOW#Maggot Breath:#WHITE#Breath maggots to slow down your foes
-]], [[龙是自然力量的化身，是究极的捕食者。然而，就连他们也能够被绝望所腐化。
+t("Drakes are forces of Nature, the ultimate apex predators. But even they can be corrupted beyond hope.\nYou have encountered the horror that came out of Kroltar, the mightiest wyrm, and vanquished it.\n\nYou can now master Scourge Drake magic and create new Wyrmic characters that can learn the #LIGHT_GREEN#Scourge Drake talents#WHITE#.\n\nTalents:\n- #YELLOW#Tentacled Wings: #WHITE#Project slimy tentacles to pull your foes to you\n- #YELLOW#Decaying Grounds: #WHITE#Cover the ground in blighted energies, increasing cooldowns\n- #YELLOW#Augment Despair: #WHITE#Hit where it hurts, doing more damage based on detrimental effects\n- #YELLOW#Maggot Breath: #WHITE#Breath maggots to slow down your foes\n", [[龙是自然力量的化身，是究极的捕食者。然而，就连他们也能够被绝望所腐化。
 你遇到了从最恐怖的巨龙库洛塔身上产生的恐魔，并击败了它。
 你现在可以掌握天谴龙的魔法，你创建的新龙战士角色可以使用新的#LIGHT_GREEN#天谴之龙#WHITE#系技能
 
@@ -4901,6 +4809,19 @@ t("#AQUAMARINE#%s", "#AQUAMARINE#%s", "log")
 section "tome-cults/overload/mod/dialogs/EntropicWormhole.lua"
 
 t("Status", "状态", "_t")
+t("Entropic Wormhole", "熵虫洞", "_t")
+t("Handicap: ", "难度系数：", "_t")
+t("Player", "玩家", "_t")
+t("Character", "角色", "_t")
+t("Entropic Wormhole failure", "熵虫洞连接失败", "_t")
+t([[The wormwhole failed to latch on a timeline, you should retry an other one.
+
+#{italic}##GREY#The character you tried to download either contained errors, was somehow corrupt or failed to load. Possible reasons are numerous and could be related to addons. Please simply try an other one.#{normal}#]], [[虫洞未能锁定一条时间线，请尝试连接另一条。
+
+#{italic}##GREY#你尝试下载的角色可能包含错误、已经损坏或加载失败。原因很多，也可能与插件有关。请直接尝试其他角色。#{normal}#]], "_t")
+t([[As your foe crumbles Yiilkgur's safety protocols activate and pull you out of the arena.
+You have defeated #CRIMSON#%s#LAST#, congratulations!]], [[随着敌人倒下，伊克格的安全协议启动，将你拉出竞技场。
+你击败了#CRIMSON#%s#LAST#，恭喜！]], "_t")
 -- untranslated text
 --[==[
 t("Entropic Wormhole", "Entropic Wormhole", "_t")
