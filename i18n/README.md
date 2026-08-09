@@ -1,8 +1,9 @@
 # ToME4 汉化工具
 
 当前工具以 `tome4-chinese-translation` 为唯一译文源。公开源码和官方 locale
-从固定 Git 对象读取；闭源 DLC 只能由受审计的 Lua 代理提取文本。默认命令不会
-提取 DLC，所有报告写入 `.artifacts/i18n/`。
+从固定 Git 对象读取；三个 GPL v3 官方 DLC 虽可公开读取，提取流程仍统一通过
+受审计的 Lua 代理和固定快照基线。默认命令不会提取 DLC，所有报告写入
+`.artifacts/i18n/`。
 
 ## 常用命令
 
@@ -188,12 +189,16 @@ Pi 默认从现有环境、用户 Pi auth 或 macOS Keychain 的
 2. 输出存在且至少包含一个 `tDef`；
 3. 日志不包含 `In file `、`too many pending calls/choices` 或已知的 LPeg 空循环错误。
 
+源码中的空 `_t`、界面占位符或 `game.log("")` 也可能被历史提取器记录为空
+`tDef`。原始 `snapshot.jsonl` 保留这些记录，以维持已冻结 DLC 基线的哈希与数量；
+`merge` 等语义消费者会忽略它们。手工定义中的空 source 仍然属于错误。
+
 公开组件会生成原始 `i18n_list.lua`、规范化 `snapshot.jsonl`、完整日志和元数据。
-闭源 DLC 只保留已提取文本：Lua 代理会把绝对源路径替换为逻辑 mount，Python
+以受保护映射处理的 DLC 只保留已提取文本：Lua 代理会把绝对源路径替换为逻辑 mount，Python
 调度层丢弃代理的 stdout/stderr，不保存源码或解析日志。任何解析失败、空结果或
 路径残留都会令提取失败。
 
-闭源 DLC 的 `i18n_list.lua`、`snapshot.jsonl`、merge、workset 和 proposal 虽然不含
-源码，仍可能包含保密游戏文本。它们位于已忽略的 `.artifacts/i18n/`，不得提交或
-公开；翻译 Pi 只能接收人工选定的 workset，审核 Pi 只能接收 `review` 生成的有界
-翻译 bundle 或去敏后的公开代码 diff。
+DLC 的 `i18n_list.lua`、`snapshot.jsonl`、merge、workset 和 proposal 虽然不含源码，
+仍是派生工作 artifact。它们位于已忽略的 `.artifacts/i18n/`，默认不得提交；翻译
+Pi 只能接收人工选定的 workset，审核 Pi 只能接收 `review` 生成的有界翻译 bundle
+或去敏后的公开代码 diff。

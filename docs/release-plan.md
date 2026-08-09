@@ -1,9 +1,10 @@
 # 对外公布方案（release plan）
 
 > 状态：addon 发布已完成（2026-08-04）；规范/工具链仓库的 `develop`
-> 分支已推送，并创建面向 `master` 的
-> [草稿 PR #1](https://github.com/yutio8888/tome4-chinese-translation/pull/1)
->（2026-08-08）。发布仓库已推送至
+> 分支已推送，并通过面向 `master` 的
+> [PR #1](https://github.com/yutio8888/tome4-chinese-translation/pull/1)
+> 完成公开整合。本轮已授权在本地审核、完整门禁与 release smoke 全部通过后，
+> 以 merge commit 合并；PR 页面是最终合并状态的权威记录。发布仓库已推送至
 > **https://github.com/yutio8888/tome4-chn-mod**（public，master @ `947e624`，
 > addon 0.2.4，含 README）。
 
@@ -12,7 +13,7 @@
 | 仓库 | 内容 | 当前 HEAD |
 |---|---|---|
 | `tome-chn-mod`（汉化插件） | 核心 tome 译文 3,354 + DLC 译文 5,426 + nullpack 464（独立文件）+ hooks/superload/overload + GPL v3 声明 | `947e624`（addon_version 0.2.4） |
-| `tome4-chinese-translation`（规范/工具链） | 规范译文 30,177 条 + 工具链 + 门禁 | 远端 `develop`，草稿 PR #1；整合起点 `0f9c513` |
+| `tome4-chinese-translation`（规范/工具链） | 规范译文 30,177 条 + 工具链 + 门禁 | 远端 `develop`，PR #1；整合起点 `0f9c513` |
 
 ## 二、公布选项
 
@@ -25,9 +26,11 @@ cd ~/projects/tome4-chinese-translation
 git push -u origin develop
 ```
 
-草稿 PR #1 以 `master` 为 base、`develop` 为 head；在完成审阅前不得转为 ready
-或合并。不得强制推送或改写现有分支历史。根目录 `LICENSE`/`COPYING` 与 README
-已纳入整合批次；研究原始 artifact 和项目外 A-core 归档不提交到源码仓库。
+PR #1 以 `master` 为 base、`develop` 为 head；只有本地审核、完整门禁和 release
+smoke 全部通过，且远端 head 与已审核提交一致时，才转为 ready 并以 merge commit
+合并。不得强制推送、rebase、squash 或改写现有分支历史。根目录
+`LICENSE`/`COPYING` 与 README 已纳入整合批次；研究原始 artifact 和项目外 A-core
+归档不提交到源码仓库。
 
 ### 选项 B：teaa 打包发布（te4.org / 创意工坊）
 ToME addon 的标准分发格式为 teaa（zip 容器 + 固定结构）。流程：
@@ -66,7 +69,8 @@ cp -R ~/projects/tome-chn-mod <游戏目录>/game/addons/chn-mod
 
 ## 五、已确认决策（2026-08-08）
 
-1. `develop` 已推送并创建合入 `master` 的草稿 PR #1；当前不转为 ready、不合并。
+1. `develop` 已推送并创建合入 `master` 的 PR #1；本轮授权在审核和全部门禁通过后
+   转为 ready，并使用 merge commit 合并，保留远端 `develop` 分支。
 2. 本轮不制作或上传 teaa，addon 0.2.4 保持现状。
 3. Facts 研究冻结，不启动新 F 臂/holdout/provider 调用，不制作脱敏复现包；A-core
    原始归档继续只读私有保存，不上传源码仓库。

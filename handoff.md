@@ -8,7 +8,8 @@
   `4d8a8ca`（`docs: prepare develop integration baseline`）。
 - P0 整合起点：`0f9c513`；Facts Study 工程、外部 campaign 与正式报告收口于
   `e3dde65`。
-- `origin/master` 是 `develop` 的祖先；`develop` 尚未配置 upstream，也尚未推送。
+- `origin/master` 是 `develop` 的祖先；`develop` 已配置 `origin/develop` upstream
+  并推送，通过 PR #1 面向 `master` 整合。
 - 原实验工作区已经归档并由当前分支接续，不再作为活动工作区。
 - Evaluator v3、Facts Study、schema、prompt、测试和文档均已进入版本控制；
   规范 Lua、术语内容与正式 120 条样本没有因 Facts Study 被修改。
@@ -41,8 +42,8 @@ python3 -B tools/i18n doctor
 - 不运行 v4 holdout 或正式 120 条，不把 Facts 通道纳入 v4 draft.3。
 - 不降低稳定性门槛，不追加调用刷出一次通过，也不修改或重新解释 v1–v3
   历史 artifact。
-- 当前优先工作是 `develop` 的文档、许可、门禁和发布治理；DeepSeek 的正向信号与
-  F 臂只作为未来研究候选。
+- 当前优先工作是完成 PR #1 的本地审核、门禁留证与 merge commit 整合；DeepSeek
+  的正向信号与 F 臂只作为未来研究候选。
 - 任何新外部研究都必须重新冻结协议和输入并取得新的明确授权，不能沿用此前
   calibration 或 Facts Study 授权。
 
@@ -540,6 +541,8 @@ P1 以提交 `6a7a767`（`ci: add quality tests to unified gates`）收口。`de
 401+201 项测试、30,177 条 strict lint、3,354 keys 构建结果，以及
 `do-not-promote-facts-channel`、`holdout_clearance=false` 和 A-core 不入库边界。
 
-当前决策：PR 保持 draft，不转为 ready、不合并；addon 0.2.4 保持现状，不生成或上传
-teaa；Facts 研究冻结，不启动新 F 臂/holdout/provider 调用，不制作脱敏复现包；现有
-A-core 归档继续只读私有保存，不复制或上传到本仓库。
+后续决策：PR #1 已获授权在本地审核、完整门禁和 release smoke 全部通过，且远端
+head 与已审核提交一致后转为 ready，并以 merge commit 合入 `master`；远端
+`develop` 分支保留。addon 0.2.4 保持现状，不生成或上传 teaa；Facts 研究冻结，
+不启动新 F 臂/holdout/provider 调用，不制作脱敏复现包；现有 A-core 归档继续只读
+私有保存，不复制或上传到本仓库。PR 页面是最终合并状态的权威记录。

@@ -116,4 +116,4 @@
 
 首轮 DLC 候选通过按组件分别执行 `tools/i18n extract --component ashes-urhrok`、`tools/i18n extract --component cults`、`tools/i18n extract --component orcs` 生成，再与对应的规范译文按 `source_tag` 对齐。`terminology.tsv` 中新增的 `scope=dlc` 条目优先覆盖以下高复用类别：阵营与地点、战役手札、资源与界面属性、DLC 技能树、伤害/效果类型以及实体类型。当前译文被保留为 `existing`；存在跨文本译名差异的 `Atmos Tribe` 标为 `review`，待后续统一“部族/部落”语境。
 
-长对话、一次性物品名和普通叙述句暂不提升为术语。后续扩展 DLC 术语时，仍应先通过受审计提取器更新候选，再按组件和上下文补录，不能直接读取闭源 DLC 源码。
+长对话、一次性物品名和普通叙述句暂不提升为术语。后续扩展 DLC 术语时，仍应先通过受审计提取器更新候选，再按组件和上下文补录；机制核验可以只读使用三个 GPL v3 官方 DLC 的固定公开源码。
