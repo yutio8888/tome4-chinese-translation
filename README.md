@@ -11,7 +11,8 @@
 - 目标游戏版本：ToME4 1.7.6。
 - 官方 DLC 源码基线：Ashes of Urh'Rok、Cults of Entropy、Embers of Rage 1.7.4。
 - 规范译文：30,177 条，严格 lint、运行键扫描和核心 addon 构建均通过。
-- 发布 addon：`tome-chn-mod` 0.2.4，固定提交 `947e624`。
+- 发布 addon：`tome-chn-mod` 0.2.5，固定提交 `439d134`；共 8,774 条，
+  其中核心覆盖 3,348 条、DLC 覆盖 5,426 条。
 - Facts 因果研究：正式结论为 `do-not-promote-facts-channel`，不授予 holdout
   准入；详见 [`docs/translation-quality-facts-study-report-v1.md`](docs/translation-quality-facts-study-report-v1.md)。
 
