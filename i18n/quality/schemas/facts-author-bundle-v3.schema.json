@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-facts-author-bundle-v3",
+  "title": "Target-blind Facts author bundle v3 (curation)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract": {"const": "tome4-quality-facts-author-bundle-v3"},
+    "schema_version": {"const": 1},
+    "pool_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "bundle_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "fact_policy": {"$ref": "#/$defs/factPolicy"},
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/authorItem"}
+    }
+  },
+  "required": ["contract", "schema_version", "pool_id", "bundle_id", "fact_policy", "items"],
+  "$defs": {
+    "factPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min_facts_per_item": {"const": 0},
+        "max_facts_per_item": {"const": 4},
+        "supplemental_only": {"const": true},
+        "language": {"const": "english-metalanguage"},
+        "common_input_restatements": {"const": "forbidden"},
+        "allowed_provenance_kinds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "enum": ["terminology", "public-source", "versioned-context"]}
+        }
+      },
+      "required": [
+        "min_facts_per_item", "max_facts_per_item", "supplemental_only",
+        "language", "common_input_restatements", "allowed_provenance_kinds"
+      ]
+    },
+    "boundedContextEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "relative_index": {"type": "integer"},
+        "source": {"type": "string"}
+      },
+      "required": ["relative_index", "source"]
+    },
+    "terminologyFeature": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "category": {"type": "string", "minLength": 1},
+        "domain": {"type": "string", "minLength": 1},
+        "term_source": {"type": "string", "minLength": 1},
+        "status": {"type": "string", "minLength": 1},
+        "match": {"type": "string", "minLength": 1}
+      },
+      "required": ["category", "domain", "term_source", "status", "match"]
+    },
+    "authorItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "revision_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "source": {"type": "string", "minLength": 1},
+        "source_tag": {"type": "string"},
+        "section": {"type": "string"},
+        "item_kind": {"type": "string", "enum": ["semantic", "term", "mechanics", "ui", "localization"]},
+        "stratum": {
+          "type": "string",
+          "enum": ["term-proper-name", "mechanism-condition-number", "entity-relation", "ui-role", "general-semantic-clean-control"]
+        },
+        "bounded_context": {"type": "array", "items": {"$ref": "#/$defs/boundedContextEntry"}},
+        "terminology_features": {"type": "array", "items": {"$ref": "#/$defs/terminologyFeature"}}
+      },
+      "required": [
+        "revision_id", "source", "source_tag", "section", "item_kind",
+        "stratum", "bounded_context", "terminology_features"
+      ]
+    }
+  }
+}

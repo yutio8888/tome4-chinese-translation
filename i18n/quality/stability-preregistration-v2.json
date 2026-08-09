@@ -1,0 +1,53 @@
+{
+  "contract": "tome4-quality-stability-preregistration-v2",
+  "schema_version": 2,
+  "sample_contract": "tome4-quality-calibration-v3",
+  "sample_id": "e2d9f34dfeebf73a1ea8b9cf5f7681f6dd7b50d9009b6b8669927aff051a8d52",
+  "evaluators": [
+    {"id": "reviewer-a", "provider": "opencode-go", "model": "deepseek-v4-flash", "thinking": "max", "runs": 2},
+    {"id": "reviewer-b", "provider": "openai-codex", "model": "gpt-5.6-luna", "thinking": "max", "runs": 2}
+  ],
+  "thresholds": {
+    "schema_coverage": 1.0,
+    "structure_failures_max": 0,
+    "raw_finding_jaccard_min": 0.7,
+    "phenomenon_meaning_agreement_min": 0.9,
+    "normalized_provisional_severity_agreement_min": 0.9,
+    "manual_queue_membership_agreement_min": 0.9,
+    "host_technical_derivation_agreement": 1.0
+  },
+  "frozen_inputs": {
+    "calibration_sample_id": "e2d9f34dfeebf73a1ea8b9cf5f7681f6dd7b50d9009b6b8669927aff051a8d52",
+    "calibration_sample_sha256": "7fe0cec5816f7141b416510b94790c70c3f1efc8e9251904e554b31ddac0922b",
+    "holdout_sample_id": "17e41d63ac68fc73f211988de86d576eef7e598031d45cc9bb8224abb7016727",
+    "holdout_sample_sha256": "0d53d951d892db707ef58a232a8380d65a55ebd9136a419a8ad9fb4d8aa710ca",
+    "policy_v3_sha256": "0ad2665ca4012512f744b359a27c013e29851fe8e7fbdf5258677fa00523a5ca",
+    "prompt_sha256": "91fa9c1a55c5a4a28acac89d003cb0efea474e99f0f88520b17e914a40d9ceae",
+    "severity_matrix_sha256": "b805042bf58e7386e356b181bad7ef36cb6bd09eb8792db9666cf7109ae7d8f7",
+    "anchors_sha256": "d2bfa6029244c2cc4cf4a2c961867dc6bcf77bdb7500d55fa5a93df15595d85f",
+    "bundle_ids_by_evaluator": {
+      "reviewer-a": [
+        "cbd1f7d4936f6e037f208e1508a17c4706474e1bd5715a6f54281c6d6767144c",
+        "f5512feca8ecd1f83cc0633d9ed3222d1aa31b758ea62c3c449632bf079db9f1"
+      ],
+      "reviewer-b": [
+        "98b6a9bf41d52b29e15af672288620fd2c66080c1a3f45b9bec01a9a5589ed8c",
+        "a7c254cf6c9b82daa2c9405fb769470f8e05be8fc1a5b5c823dcef13832f5e0b"
+      ]
+    },
+    "bundle_sha256s_by_evaluator": {
+      "reviewer-a": [
+        "b940002b8d2e2eb72cc22b03f507b8a2bdf5d1ef98bc980d4329a91a4d5c779e",
+        "9a84c8d8171c357baa9ff735618a25e0d8fc86ee9200b1996bc004a8e47f5d96"
+      ],
+      "reviewer-b": [
+        "cdcc2713125072b4dcce328c8d84726df5c077aed673c03a2499544a211ef7d3",
+        "03a19cadf790ad0c080b828da6b05a16cd3a43eeec37e7b3ed7a616da79ec8b6"
+      ]
+    }
+  },
+  "external_transfer_limit": 8,
+  "connection_failure_retry_limit": 0,
+  "replace_content_failures": false,
+  "preregistration_id": "082f7c8734460856b80fb114f423e71a6efc39e1ccfed7ff581b3ddba20725af"
+}

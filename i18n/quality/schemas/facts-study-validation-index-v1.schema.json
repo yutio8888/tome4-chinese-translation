@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-facts-study-validation-index-v1",
+  "additionalProperties": false,
+  "properties": {
+    "assessments": {"type": "object"},
+    "contract": {"const": "tome4-quality-facts-study-validation-index-v1"},
+    "evidence_validity": {"type": "object"},
+    "inputs": {"type": "object"},
+    "mode": {"enum": ["offline-fake-replay", "external-assessments"]},
+    "preregistration_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "run_directory": {"type": "string"},
+    "runner_reports": {"type": "object"},
+    "schema_version": {"const": 1},
+    "structure_validity": {"type": "object"},
+    "study_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "validation_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+  },
+  "required": ["contract", "schema_version", "study_id", "preregistration_id", "mode", "structure_validity", "evidence_validity", "inputs", "assessments", "runner_reports", "run_directory", "validation_id"],
+  "type": "object"
+}

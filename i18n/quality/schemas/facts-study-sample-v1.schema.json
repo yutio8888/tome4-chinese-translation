@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-facts-study-sample-v1",
+  "additionalProperties": false,
+  "properties": {
+    "contract": {"const": "tome4-quality-facts-study-sample-v1"},
+    "excluded_revision_ids": {"type": "array", "uniqueItems": true},
+    "exclusion_revision_ids_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "inventory_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "items": {"maxItems": 20, "minItems": 20, "type": "array"},
+    "schema_version": {"const": 1},
+    "seed": {"minLength": 1, "type": "string"},
+    "study_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+  },
+  "required": ["contract", "schema_version", "study_id", "seed", "inventory_sha256", "excluded_revision_ids", "exclusion_revision_ids_sha256", "items"],
+  "title": "Facts study sample v1",
+  "type": "object"
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#", "$id": "tome4-quality-dispute-v1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "quality_contract", "match_id", "dispute_id", "seed", "items"],
+  "properties": {
+    "schema_version": {"const": 1}, "quality_contract": {"const": "tome4-quality-dispute-v1"},
+    "match_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "dispute_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "seed": {"type": "string"}, "items": {"type": "array", "items": {"type": "object"}}
+  }
+}

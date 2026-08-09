@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "tome4-quality-assessment-v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "quality_contract", "sample_id", "assessment_id", "evaluator", "items"],
+  "properties": {
+    "schema_version": {"const": 2},
+    "quality_contract": {"const": "tome4-quality-assessment-v2"},
+    "sample_id": {"type": "string", "minLength": 1},
+    "assessment_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "evaluator": {"$ref": "#/definitions/evaluator"},
+    "items": {"type": "array", "minItems": 1, "items": {"$ref": "#/definitions/item"}}
+  },
+  "definitions": {
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "tri": {"enum": ["yes", "no", "unknown"]},
+    "evaluator": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "id", "method_version", "provider", "model", "thinking", "prompt_sha256", "rules_sha256", "anchors_sha256", "bundle_ids"],
+      "properties": {
+        "kind": {"const": "model"}, "id": {"type": "string", "minLength": 1},
+        "method_version": {"const": "mqm-pilot-v2"}, "provider": {"type": "string", "minLength": 1},
+        "model": {"type": "string", "minLength": 1}, "thinking": {"type": "string", "minLength": 1},
+        "prompt_sha256": {"$ref": "#/definitions/sha"}, "rules_sha256": {"$ref": "#/definitions/sha"},
+        "anchors_sha256": {"$ref": "#/definitions/sha"},
+        "bundle_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/definitions/sha"}}
+      }
+    },
+    "evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["quote", "occurrence"],
+      "properties": {"quote": {"type": "string"}, "occurrence": {"type": "integer", "minimum": 0}, "whole_item": {"const": true}}
+    },
+    "meaning": {
+      "type": "object", "additionalProperties": false, "required": ["type", "summary"],
+      "properties": {
+        "type": {"enum": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "presentation-only", "none", "unknown"]},
+        "summary": {"type": "string", "minLength": 1}
+      }
+    },
+    "facts": {
+      "type": "object", "additionalProperties": false,
+      "required": ["is_defect", "is_substantive", "mechanics_context", "changes_rule_understanding", "can_change_player_action", "required_operation_info_missing", "opposite_or_different_rule", "recoverable_from_immediate_context", "technical_gate_confirmed", "runtime_broken", "single_item_display_broken"],
+      "properties": {
+        "is_defect": {"$ref": "#/definitions/tri"}, "is_substantive": {"$ref": "#/definitions/tri"},
+        "mechanics_context": {"$ref": "#/definitions/tri"}, "changes_rule_understanding": {"$ref": "#/definitions/tri"},
+        "can_change_player_action": {"$ref": "#/definitions/tri"}, "required_operation_info_missing": {"$ref": "#/definitions/tri"},
+        "opposite_or_different_rule": {"$ref": "#/definitions/tri"}, "recoverable_from_immediate_context": {"$ref": "#/definitions/tri"},
+        "technical_gate_confirmed": {"$ref": "#/definitions/tri"}, "runtime_broken": {"$ref": "#/definitions/tri"},
+        "single_item_display_broken": {"$ref": "#/definitions/tri"}
+      }
+    },
+    "finding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["finding_id", "error_code", "defect_class", "phenomenon", "source_evidence", "target_evidence", "defect_summary", "meaning_change", "impact_facts", "amplification_scope", "closest_anchor_id", "anchor_relation", "body", "evidence_refs"],
+      "properties": {
+        "finding_id": {"type": "string", "minLength": 1}, "error_code": {"type": "string", "minLength": 1},
+        "defect_class": {"enum": ["semantic", "terminology", "presentation", "style", "technical", "context", "source"]},
+        "phenomenon": {"enum": ["number", "number-range", "unit", "condition", "polarity", "entity-role", "scope", "trigger-timing", "omission", "addition", "terminology", "proper-name", "ambiguity", "fluency", "punctuation", "register", "voice", "markup", "format", "runtime-key", "alignment", "source-problem", "other"]},
+        "source_evidence": {"$ref": "#/definitions/evidence"}, "target_evidence": {"$ref": "#/definitions/evidence"},
+        "defect_summary": {"type": "string", "minLength": 1}, "meaning_change": {"$ref": "#/definitions/meaning"},
+        "impact_facts": {"$ref": "#/definitions/facts"},
+        "amplification_scope": {"enum": ["local", "repeated-context", "cross-component", "systemic", "unknown"]},
+        "closest_anchor_id": {"type": ["string", "null"]},
+        "anchor_relation": {"enum": ["below", "comparable", "meets", "exceeds", "unknown"]},
+        "body": {"type": "string", "minLength": 1}, "evidence_refs": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "item": {
+      "type": "object", "additionalProperties": false,
+      "required": ["revision_id", "context_sufficient", "profile_confirmed", "findings", "reuse_recommendation"],
+      "properties": {
+        "revision_id": {"$ref": "#/definitions/sha"}, "context_sufficient": {"type": "boolean"},
+        "profile_confirmed": {"type": ["string", "null"]},
+        "findings": {"type": "array", "items": {"$ref": "#/definitions/finding"}},
+        "reuse_recommendation": {"enum": ["general", "same-domain", "same-tag", "exact-context", "no-reuse", null]}
+      }
+    }
+  }
+}

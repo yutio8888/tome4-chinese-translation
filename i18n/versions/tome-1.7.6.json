@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "version": "tome-1.7.6",
+  "locale": "zh_hans",
+  "repositories": {
+    "engine": {
+      "env": "TOME_ENGINE_ROOT",
+      "default": "../t-engine4",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "required": true
+    },
+    "addon": {
+      "env": "TOME_ADDON_ROOT",
+      "default": "../tome-chn-mod",
+      "commit": "947e6244a07fdfaee733abb81d8e950efb49a0e7",
+      "required": false
+    }
+  },
+  "protected_source_roots": {
+    "dlc": {
+      "env": "TOME_DLC_ROOT",
+      "repository": "engine",
+      "relative_path": "game/dlcs",
+      "access": "lua-extractor-only"
+    }
+  },
+  "runtime": {
+    "luajit_env": "TOME_LUAJIT",
+    "luarocks_root_env": "TOME_LUAROCKS_ROOT",
+    "luarocks_root_default": "~/.local/share/tome4-luarocks",
+    "lua_version": "Lua 5.1",
+    "lpeg_runtime_version": "0.10",
+    "lpeg_rock_version": "0.10.2-1",
+    "required_modules": [
+      "lfs",
+      "lpeg",
+      "rex_pcre"
+    ]
+  },
+  "extractor": {
+    "repository": "engine",
+    "commit": "bdc19d22862f7a6cfbe71d7136145720ecea7bf7",
+    "git_path": "i18n_tools",
+    "max_stack": 100000,
+    "preserve_duplicate_occurrences": true
+  },
+  "manual_definitions": [
+    "_tdef_append.lua"
+  ],
+  "addon_external_requirements": [
+    {
+      "id": "legacy-lore-overlay",
+      "reason": "optional external layer; no standalone legacy-lore entity found in tome-chn-mod or engine public sources as of 2026-08-04 (investigated: addon repo history, engine game tree); source and canonical component remain unpinned"
+    },
+    {
+      "id": "nullpackreloaded",
+      "reason": "optional external layer; translation snapshot pinned at tome-chn-mod 8dd657d (data/null_translation.lua: 464 t() entries, section nullpackreloaded; runtime hooks in hooks/load.lua for /data-nullpackreloaded artifacts); upstream addon source/version unpinned"
+    }
+  ],
+  "release_layers": [
+    {
+      "id": "core-addon",
+      "artifact_profile": "addon",
+      "components": [
+        "tome"
+      ],
+      "external_requirements": [],
+      "status": "releaseable",
+      "notes": "Core release layer. It is built only against the pinned official tome locale and excludes DLC and external overlays."
+    },
+    {
+      "id": "dlc-addon",
+      "artifact_profile": "addon",
+      "components": [
+        "ashes-urhrok",
+        "cults",
+        "orcs"
+      ],
+      "external_requirements": [],
+      "status": "baseline-pending",
+      "notes": "Optional DLC layer for Ashes of Urh'Rok, Cults of Entropy, and Embers of Rage. Items Vault and Possessors are temporarily ignored: their canonical translations remain in the repository, but they have no active source mapping or addon eligibility."
+    },
+    {
+      "id": "legacy-lore-addon",
+      "artifact_profile": "addon",
+      "components": [],
+      "external_requirements": [
+        "legacy-lore-overlay"
+      ],
+      "status": "optional",
+      "notes": "Optional external overlay kept separate from the core addon until its source and component ownership are pinned."
+    },
+    {
+      "id": "nullpack-addon",
+      "artifact_profile": "addon",
+      "components": [],
+      "external_requirements": [
+        "nullpackreloaded"
+      ],
+      "status": "optional",
+      "notes": "Optional Nullpackreloaded overlay kept separate from the core addon until its source and version are pinned."
+    }
+  ],
+  "terminology": "terminology.tsv",
+  "policy": "i18n/policy.json",
+  "components": [
+    {
+      "id": "engine",
+      "translation": "engine.lua",
+      "copy_fragment": "engine.copy.lua",
+      "source_repository": "engine",
+      "extract_by_default": true,
+      "sources": [
+        {
+          "git_path": "game/engines/default/engine",
+          "mount": "engine"
+        },
+        {
+          "git_path": "game/engines/default/data",
+          "mount": "engine/data"
+        }
+      ],
+      "official_locale": "game/engines/default/data/locales/engine/zh_hans.lua",
+      "full_output": "game/engines/default/data/locales/engine/zh_hans.lua",
+      "addon_eligible": false
+    },
+    {
+      "id": "boot",
+      "translation": "mod-boot.lua",
+      "source_repository": "engine",
+      "extract_by_default": true,
+      "sources": [
+        {
+          "git_path": "game/engines/default/modules/boot",
+          "mount": "mod-boot"
+        }
+      ],
+      "official_locale": "game/engines/default/modules/boot/data/locales/zh_hans.lua",
+      "full_output": "game/engines/default/modules/boot/data/locales/zh_hans.lua",
+      "addon_eligible": false
+    },
+    {
+      "id": "tome",
+      "translation": "mod-tome.lua",
+      "copy_fragment": "mod-tome.copy.lua",
+      "source_repository": "engine",
+      "extract_by_default": true,
+      "sources": [
+        {
+          "git_path": "game/modules/tome",
+          "mount": "mod-tome"
+        }
+      ],
+      "official_locale": "game/modules/tome/data/locales/zh_hans.lua",
+      "full_output": "game/modules/tome/data/locales/zh_hans.lua",
+      "addon_eligible": true
+    },
+    {
+      "id": "example",
+      "translation": "mod-example.lua",
+      "source_repository": "engine",
+      "extract_by_default": false,
+      "sources": [
+        {
+          "git_path": "game/modules/example",
+          "mount": "mod-example"
+        }
+      ],
+      "official_locale": "game/modules/example/data/locales/zh_hans.lua",
+      "full_output": "game/modules/example/data/locales/zh_hans.lua",
+      "addon_eligible": false
+    },
+    {
+      "id": "example-realtime",
+      "translation": "mod-example_realtime.lua",
+      "source_repository": "engine",
+      "extract_by_default": false,
+      "sources": [
+        {
+          "git_path": "game/modules/example_realtime",
+          "mount": "mod-example_realtime"
+        }
+      ],
+      "official_locale": "game/modules/example_realtime/data/locales/zh_hans.lua",
+      "full_output": "game/modules/example_realtime/data/locales/zh_hans.lua",
+      "addon_eligible": false
+    },
+    {
+      "id": "addon-dev",
+      "translation": "tome-addon-dev.lua",
+      "source_repository": null,
+      "extract_by_default": false,
+      "sources": [],
+      "official_locale": null,
+      "full_output": null,
+      "addon_eligible": false
+    },
+    {
+      "id": "ashes-urhrok",
+      "translation": "tome-ashes-urhrok.lua",
+      "source_repository": null,
+      "extract_by_default": false,
+      "sources": [],
+      "protected_source": {
+        "root": "dlc",
+        "path_env": "TOME_DLC_ASHES_ROOT",
+        "directory_candidates": [
+          "ashes-urhrok",
+          "tome-ashes-urhrok",
+          "ashes"
+        ],
+        "mount": "tome-ashes-urhrok"
+      },
+      "source_baseline": {
+        "kind": "protected-extraction-snapshot",
+        "extractor_commit": "bdc19d22862f7a6cfbe71d7136145720ecea7bf7",
+        "snapshot_sha256": "104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+        "tdef_count": 999
+      },
+      "official_locale": null,
+      "full_output": null,
+      "addon_eligible": true
+    },
+    {
+      "id": "cults",
+      "translation": "tome-cults.lua",
+      "source_repository": null,
+      "extract_by_default": false,
+      "sources": [],
+      "protected_source": {
+        "root": "dlc",
+        "path_env": "TOME_DLC_CULTS_ROOT",
+        "directory_candidates": [
+          "cults",
+          "tome-cults",
+          "cults-of-entropy",
+          "tome-cults-of-entropy"
+        ],
+        "mount": "tome-cults"
+      },
+      "source_baseline": {
+        "kind": "protected-extraction-snapshot",
+        "extractor_commit": "bdc19d22862f7a6cfbe71d7136145720ecea7bf7",
+        "snapshot_sha256": "ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+        "tdef_count": 2444
+      },
+      "official_locale": null,
+      "full_output": null,
+      "addon_eligible": true
+    },
+    {
+      "id": "items-vault",
+      "translation": "tome-items-vault.lua",
+      "source_repository": null,
+      "extract_by_default": false,
+      "sources": [],
+      "official_locale": null,
+      "full_output": null,
+      "addon_eligible": false
+    },
+    {
+      "id": "orcs",
+      "translation": "tome-orcs.lua",
+      "source_repository": null,
+      "extract_by_default": false,
+      "sources": [],
+      "protected_source": {
+        "root": "dlc",
+        "path_env": "TOME_DLC_ORCS_ROOT",
+        "directory_candidates": [
+          "orcs",
+          "tome-orcs",
+          "embers-of-rage",
+          "tome-embers-of-rage"
+        ],
+        "mount": "tome-orcs"
+      },
+      "source_baseline": {
+        "kind": "protected-extraction-snapshot",
+        "extractor_commit": "bdc19d22862f7a6cfbe71d7136145720ecea7bf7",
+        "snapshot_sha256": "c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+        "tdef_count": 4493
+      },
+      "official_locale": null,
+      "full_output": null,
+      "addon_eligible": true
+    },
+    {
+      "id": "possessors",
+      "translation": "tome-possessors.lua",
+      "source_repository": null,
+      "extract_by_default": false,
+      "sources": [],
+      "official_locale": null,
+      "full_output": null,
+      "addon_eligible": false
+    }
+  ]
+}

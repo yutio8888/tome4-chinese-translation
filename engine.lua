@@ -6,13 +6,13 @@ t("3-headed hydra", "三头蛇", "nil")
 t("Agrimley the hermit", "隐居者亚格雷姆利", "nil")
 t("Allied Kingdoms", "联合王国", "nil")
 t("Angolwen", "安格利文", "nil")
-t("Assassin lair", "盗贼巢穴", "nil")
+t("Assassin lair", "刺客巢穴", "nil")
 t("Control Room", "控制室", "nil")
 t("Cosmic Fauna", "太空生物", "nil")
 t("Dreadfell", "恐惧王座", "nil")
 t("Enemies", "敌人", "nil")
 t("Experimentation Room", "实验室", "nil")
-t("Exploratory Farportal", "异度传送门", "nil")
+t("Exploratory Farportal", "探索用远古传送门", "nil")
 t("FINGER", "戒指", "nil")
 t("Fearscape", "恶魔空间", "nil")
 t("Hall of Reflection", "反射之间", "nil")
@@ -38,13 +38,13 @@ t("Temple of Creation", "造物者神庙", "nil")
 t("Thalore", "自然精灵", "nil")
 t("The Way", "维网", "nil")
 t([[Today is the %s %s of the %s year of the Age of Ascendancy of Maj'Eyal.
-The time is %02d:%02d.]], [[今天是马基·埃亚尔卓越纪%s年，%s %s 。
+The time is %02d:%02d.]], [[今天是马基·埃亚尔卓越纪%s年，%s%s。
 当前时间 %02d:%02d。]], "nil", {3,2,1,4,5})
 t("Undead", "不死族", "nil")
-t("Ungrol of Last Hope", "最后的希望的温格洛", "nil")
+t("Ungrol of Last Hope", "最后的希望城的温格洛", "nil")
 t("Vargh Republic", "瓦尔弗娜迦共和国", "nil")
 t("Victim", "受害者", "nil")
-t("Water lair", "水下墓穴", "nil")
+t("Water lair", "水下巢穴", "nil")
 t("Zigur", "伊格", "nil")
 t("absolute", "绝对", "nil")
 t("armours", "护甲", "nil")
@@ -95,7 +95,7 @@ t("southeast", "东南面", "nil")
 t("southwest", "西南面", "nil")
 t("spell", "法术", "nil")
 t("standard", "标准", "nil")
-t("standby", "乖乖站好", "nil")
+t("standby", "待命", "nil")
 t("starstaff", "群星法杖", "nil")
 t("steambot", "蒸汽机器人", "nil")
 t("stone golem", "岩石傀儡", "nil")
@@ -111,7 +111,7 @@ t("unarmed", "徒手", "nil")
 t("undead", "亡灵", "nil")
 t("unliving", "非活物", "nil")
 t("unnatural", "非自然生物", "nil")
-t("unseen", "没有看见", "nil")
+t("unseen", "未被看见", "nil")
 t("vilestaff", "邪恶法杖", "nil")
 t("volcanic mountains", "火山山脉", "nil")
 t("war hound", "战争猎犬", "nil")
@@ -161,7 +161,7 @@ t("Show game calendar", "显示游戏内日期", "_t")
 t("Show character sheet", "显示角色面板", "_t")
 t("Switch graphical modes", "切换图形模式", "_t")
 t("Accept action", "确认操作", "_t")
-t("Exit menu", "退出目录", "_t")
+t("Exit menu", "退出菜单", "_t")
 
 ------------------------------------------------
 section "engine/data/keybinds/chat.lua"
@@ -333,7 +333,7 @@ section "engine/engine/Birther.lua"
 
 t("Enter your character's name", "输入角色名称", "_t")
 t("Name", "名称", "_t")
-t("Character Creation: %s", "创建角色%s", "tformat")
+t("Character Creation: %s", "创建角色：%s", "tformat")
 t([[Keyboard: #00FF00#up key/down key#FFFFFF# to select an option; #00FF00#Enter#FFFFFF# to accept; #00FF00#Backspace#FFFFFF# to go back.
 Mouse: #00FF00#Left click#FFFFFF# to accept; #00FF00#right click#FFFFFF# to go back.
 ]], [[键盘：#00FF00#上/下键#FFFFFF#选择选项，#00FF00#回车#FFFFFF#键确定;#00FF00#退格#FFFFFF#键返回。
@@ -416,7 +416,7 @@ t("Test", "测试", "_t")
 ------------------------------------------------
 section "engine/engine/Module.lua"
 
-t("Beta Addons Disabled", "Beta版禁用插件", "_t")
+t("Beta Addons Disabled", "Beta版插件已禁用", "_t")
 t([[This beta version is meant to be tested without addons, as such the following ones are currently disabled:
 #GREY#]], [[本Beta版本设计上用于纯原版测试环境，因此，以下插件被自动禁用:
 #GREY#]], "_t")
@@ -424,14 +424,14 @@ t("#{italic}##PINK#Addons developers can still test their addons by enabling dev
 t([[Total playtime of all registered players:%s
 ]], [[注册玩家总游玩时间:%s
 ]], "tformat")
-t("#LIGHT_BLUE#%s#WHITE# is one of the top five played races", "#LIGHT_BLUE#%s#WHITE#是玩的最多的五大种族之一", "tformat")
-t("#LIGHT_BLUE#%s#WHITE# is one of the top five played classes", "#LIGHT_BLUE#%s#WHITE#是玩的最多的五大职业之一", "tformat")
+t("#LIGHT_BLUE#%s#WHITE# is one of the top five played races", "#LIGHT_BLUE#%s#WHITE#是玩得最多的五大种族之一", "tformat")
+t("#LIGHT_BLUE#%s#WHITE# is one of the top five played classes", "#LIGHT_BLUE#%s#WHITE#是玩得最多的五大职业之一", "tformat")
 t("#CRIMSON#%s#WHITE# is one of the top ten killers", "#CRIMSON#%s#WHITE#是十大杀手之一", "tformat")
 t("#LIGHT_BLUE#%s#WHITE# is one of the top ten race/class combo", "#LIGHT_BLUE#%s#WHITE#是十大种族/职业组合之一", "tformat")
 t("There are currently %d people playing online", "现在有%d人正在在线游玩", "tformat")
 t("The character's vault has registered a total of #RED#%d#WHITE# character's deaths", "官网角色库中记录了#RED#%d#WHITE#个角色的死亡", "tformat")
 t("The character's vault has registered a total of #LIGHT_BLUE#%d#WHITE# winners for the current version", "官网角色库中共有#LIGHT_BLUE#%d#WHITE#个赢得当前版本的游戏的角色", "tformat")
-t("The latest donator is #LIGHT_GREEN#%s#WHITE#. Many thanks to all donators, you are keeping this game alive!", "最近的捐赠者是#LIGHT_GREEN#%s#WHITE#。感谢所有捐赠者，是你们让这个游戏保持继续！", "tformat")
+t("The latest donator is #LIGHT_GREEN#%s#WHITE#. Many thanks to all donators, you are keeping this game alive!", "最近的捐赠者是#LIGHT_GREEN#%s#WHITE#。感谢所有捐赠者，是你们延续了这个游戏的生命！", "tformat")
 t("#LIGHT_RED#Online profile disabled(switching to offline profile) due to %s.", "#LIGHT_RED#由于 %s ，在线存档无法运行（切换至离线存档）", "log")
 
 ------------------------------------------------
@@ -451,7 +451,7 @@ t("Talent %s", "技能 %s", "tformat")
 ------------------------------------------------
 section "engine/engine/PlayerProfile.lua"
 
-t("#YELLOW#Connection to online server established.", "#YELLOW#连接至在线服务器。", "log")
+t("#YELLOW#Connection to online server established.", "#YELLOW#已连接至在线服务器。", "log")
 t("#YELLOW#Connection to online server lost, trying to reconnect.", "#YELLOW#与在线服务器的连接丢失，尝试重新连接。", "log")
 t("no online profile active", "未开启在线存档", "_t")
 t("cheat mode active", "已开启作弊模式", "_t")
@@ -589,7 +589,7 @@ section "engine/engine/dialogs/ChatChannels.lua"
 
 t("Chat channels", "聊天频道", "_t")
 t("Global", "全局", "_t")
-t(" [spoilers]", " [详情]", "_t")
+t(" [spoilers]", " [剧透]", "_t")
 t("Select which channels to listen to. You can join new channels by typing '/join <channelname>' in the talkbox and leave channels by typing '/part <channelname>'", "选择你参与的聊天频道。你可以在聊天框输入指令 '/join <频道名>' 来加入频道，并通过输入指令 '/part <频道名>' 来离开频道。", "_t")
 
 ------------------------------------------------
@@ -638,8 +638,8 @@ t("Cancel", "取消", "_t")
 ------------------------------------------------
 section "engine/engine/dialogs/GameMenu.lua"
 
-t("Game Menu", "游戏目录", "_t")
-t("Resume", "暂停游戏", "_t")
+t("Game Menu", "游戏菜单", "_t")
+t("Resume", "继续游戏", "_t")
 t("Language", "语言", "_t")
 t("Key Bindings", "按键绑定", "_t")
 t("Video Options", "图像设置", "_t")
@@ -705,7 +705,7 @@ t("", "", "_t")
 section "engine/engine/dialogs/KeyBinder.lua"
 
 t("Key bindings", "键位绑定", "_t")
-t("      Press a key (escape to cancel, backspace to remove) for: %s", "      请按钮 (ESC键取消，退格键删除) 以绑定 %s 的键位", "tformat")
+t("      Press a key (escape to cancel, backspace to remove) for: %s", "      请按键（ESC键取消，退格键删除） 以绑定 %s 的键位", "tformat")
 t("Bind key", "绑定键位", "_t")
 t("Bind alternate key", "绑定替代键位", "_t")
 t("Make gesture (using right mouse button) or type it (or escape) for: %s", "请输入鼠标手势 (使用鼠标右键) 或者按键 (或按ESC取消) 以绑定 %s 的键位", "tformat")
@@ -868,8 +868,7 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 t([[Purge all Steam Cloud saves.
 This will remove all saves from the cloud cloud (but not your local copy). Only use if you somehow encounter storage problems on it (which should not happen, the game automatically manages it for you).#WHITE#]], [[删除所有Steam云存档。
-这会在Steam云中删除所有的云存档，但不会删除你的本地存档。只有在你遇到存储问题的时候才使用这一功能。(一般情况下这不会发生，游戏会自动管理云存档)
-#WHITE#]], "_t")
+这会在Steam云中删除所有的云存档，但不会删除你的本地存档。只有在你遇到存储问题的时候才使用这一功能。(一般情况下这不会发生，游戏会自动管理云存档)#WHITE#]], "_t")
 t("#GOLD##{bold}#Purge Cloud Saves#WHITE##{normal}#", "#GOLD##{bold}#清除云存档#WHITE##{normal}#", "_t")
 t("Steam Cloud Purge", "清除Steam云存档", "_t")
 t("Confirm purge?", "确认删除？", "_t")
@@ -939,16 +938,16 @@ t("#GOLD##{bold}#Screen Zoom#WHITE##{normal}#", "#GOLD##{bold}#屏幕缩放#WHIT
 t("Enter Zoom %", "输入缩放比例 %", "_t")
 t("From 50 to 400", "从 50 到 400", "_t")
 t([[Request this display refresh rate.
-Set it lower to reduce CPU load, higher to increase interface responsiveness.#WHITE#]], [[设置游戏的显示帧率(FPS)。
-降低帧率可以减轻CPU占用，提高帧率可以提升显示效果。#WHITE#]], "_t")
+Set it lower to reduce CPU load, higher to increase interface responsiveness.#WHITE#]], [[请求此显示刷新率。
+降低刷新率可以减轻 CPU 占用，提高刷新率可以提升界面响应速度。#WHITE#]], "_t")
 t("#GOLD##{bold}#Requested FPS#WHITE##{normal}#", "#GOLD##{bold}#FPS设定#WHITE##{normal}#", "_t")
 t("Enter density", "输入密度", "_t")
 t("From 5 to 60", "从 5 到 60", "_t")
 t([[Controls the particle effects density.
 This option allows to change the density of the many particle effects in the game.
 If the game is slow when displaying spell effects try to lower this setting.#WHITE#]], [[设定粒子效果的密度。
-这一选项会可以改变游戏内的粒子效果密度。
-如果你在施法时发现游戏速度进行较慢，请尝试降低这个设置。#WHITE#]], "_t")
+这一选项可以改变游戏内的粒子效果密度。
+如果你在施法时发现游戏运行变慢，请尝试降低这个设置。#WHITE#]], "_t")
 t("#GOLD##{bold}#Particle effects density#WHITE##{normal}#", "#GOLD##{bold}#粒子效果密度#WHITE##{normal}#", "_t")
 t("From 0 to 100", "从 0 到 100", "_t")
 t([[Activates antialiased texts.
@@ -1022,7 +1021,7 @@ t("#GOLD##{bold}#Gamma correction#WHITE##{normal}#", "#GOLD##{bold}#亮度矫正
 t("Gamma correction", "亮度矫正", "_t")
 t([[Enable/disable usage of tilesets.
 In some rare cases on very slow machines with bad GPUs/drivers it can be detrimental.]], [[开启/关闭图块使用。
-在某些显卡/显卡驱动的很差且很慢的机器上，开启这个选项偶尔可能带来负面效果。]], "_t")
+在某些显卡或显卡驱动很差的极慢机器上，开启这个选项偶尔反而有害。]], "_t")
 t("#GOLD##{bold}#Use tilesets#WHITE##{normal}#", "#GOLD##{bold}#图块使用#WHITE##{normal}#", "_t")
 t([[Request a specific origin point for the game window.
 This point corresponds to where the upper left corner of the window will be located.
@@ -1031,12 +1030,12 @@ Useful when dealing with multiple monitors and borderless windows.
 The default origin is (0,0).
 
 Note: This value will automatically revert after ten seconds if not confirmed by the user.#WHITE#]], [[设置游戏窗口的原点。
-这个点表示窗口中画面的左上角。
+这个点表示窗口左上角所在的位置。
 这一选项用于在使用无边框窗口或者多显示器的场合。
 
 默认原点： (0,0).
 
-注意：如果用户在十秒后不进行确认，这一数值将会自动重置#WHITE#]], "_t")
+注意：如果用户在十秒后不进行确认，这一数值将会自动恢复原值#WHITE#]], "_t")
 t("#GOLD##{bold}#Requested Window Position#WHITE##{normal}#", "#GOLD##{bold}#设置窗口位置#WHITE##{normal}#", "_t")
 t("Window Origin: X-Coordinate", "窗口原点：X坐标", "_t")
 t("Enter the x-coordinate", "输入X坐标", "_t")
@@ -1077,18 +1076,18 @@ As for what kind of purchases are/will be available:
 - #GOLD#Community events#LAST#: A few online events are automatically and randomly triggered by the server. With those options you can force one of them to trigger; bonus point they trigger for the whole server so everybody online benefits from them each time!
 
 I hope I've convinced you of my non-evil intentions (ironic for a DarkGod I know ;)). I must say feel dirty doing microtransactions even as benign as those but I want to find all the ways I can to ensure the game's future.
-Thanks, and have fun!]], [[欢迎!
+Thanks, and have fun!]], [[欢迎！
 
 我是游戏的制造者 #{italic}##ANTIQUE_WHITE#DarkGod#LAST##{normal}#。在愉快的探险开始之前，我希望占用短暂的时间向你解释游戏内购的存在意义。
 
 请不要听到“内购”就惊慌逃跑，听完我的解释再做选择： 我本人 #{bold}# 坚决 #CRIMSON#反对#LAST# 氪金胜利 #{normal}# ，因此我保证绝不会做这种事情。
 
-那么，为什么要加入内购呢？ 马基艾亚尔的传说是一款便宜/免费的游戏，也不需要会员订阅。它就像我的孩子一样；我非常爱它，并计划为之长久工作（从2009年开始我就一直这么干了！）。 但是，为了生存，我仍然需要在现实世界中取得必要的收入。
+那么，为什么要加入内购呢？ 马基·埃亚尔的传说是一款便宜/免费的游戏，也不需要会员订阅。它就像我的孩子一样；我非常爱它，并计划为之长久工作（从2009年开始我就一直这么干了！）。 但是，为了生存，我仍然需要在现实世界中取得必要的收入。
 
 目前，我提供了以下几种内购项:
 - #GOLD#时装#LAST#：在目前游戏内已有的种族、物品时装外，你可以获得更多时装效果，让你看起来更靓！
 - #GOLD#氪金速死#LAST#：已经不想玩这个角色了吗？用这个选项来迎接一个帅气的终结吧！
-- #GOLD#额外共享装备格#LAST#：至少，捐赠者可以将所有无用的捐赠化为“有用”的额外在线共享装备格。
+- #GOLD#额外共享装备格#LAST#：对于捐赠者而言，可以把那些“无用”的捐赠换成更多在线共享装备格。
 - #GOLD#社区事件#LAST#：服务器会自动触发部分在线事件，而你可以强制让服务器触发特定事件。当然，当前在线的所有玩家都会收到该事件！
 
 我希望这些能说服你，我并没有什么邪恶的想法（虽然我名为DarkGod）。 我不得不说，内购这种事情让我感觉很龌龊，即使上面这些选项都不影响游戏内容，但为了游戏的未来，我必须想尽办法。
@@ -1097,13 +1096,13 @@ Thanks, and have fun!]], [[欢迎!
 ------------------------------------------------
 section "engine/engine/dialogs/microtxn/ShowPurchasable.lua"
 
-t("#{italic}##UMBER#Bonus vault slots from this order: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#这项购买提供的额外在线共享装备格数： #ROYAL_BLUE#%d#{normal}#", "_t")
+t("#{italic}##UMBER#Bonus vault slots from this order: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#这项购买提供的额外在线仓库空间： #ROYAL_BLUE#%d#{normal}#", "_t")
 t([[For every purchase of #{italic}##GREY#%s#LAST##{normal}# you gain a permanent additional vault slot.
-#GOLD##{italic}#Because why not!#{normal}#]], [[每次购买 #{italic}##GREY#%s#LAST##{normal}#，你都会获得额外一个在线共享装备格。
+#GOLD##{italic}#Because why not!#{normal}#]], [[每次购买 #{italic}##GREY#%s#LAST##{normal}#，你都会获得额外一个在线仓库格。
 #GOLD##{italic}#为什么不呢！#{normal}#]], "_t")
 t("#{italic}##UMBER#Voratun Coins available from your donations: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#可用沃瑞钽硬币数：#ROYAL_BLUE#%d#{normal}#", "_t")
 t([[For every donations you've ever made you have earned voratun coins. These can be spent purchasing expansions or options on the online store. This is the amount you have left, if your purchase total is below this number you'll instantly get your purchase validated, if not you'll need to donate some more first.
-#GOLD##{italic}#Thanks for your support, every little bit helps the game survive for years on!#{normal}#]], [[每次捐赠，你都会获得一定数额的沃瑞钽硬币，可以用于购买扩展Dlc或者在线商店的商品。这是你当前可用的硬币，如果购买价格在这以下，你可以立刻获得商品，否则你需要进行更多的捐赠。
+#GOLD##{italic}#Thanks for your support, every little bit helps the game survive for years on!#{normal}#]], [[你历次所做的每一笔捐赠，都为你赚取了沃瑞钽硬币，可以用于购买扩展DLC或者在线商店的商品。这是你当前可用的硬币，如果购买价格在这以下，你可以立刻获得商品，否则你需要进行更多的捐赠。
 #GOLD##{italic}#感谢你的支持，每一分钱都让这游戏更加持久!#{normal}#]], "_t")
 t("%s #GOLD#Online Store#LAST#", "%s #GOLD#在线商店#LAST#", "tformat")
 t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器... --", "_t")
@@ -1116,7 +1115,7 @@ t("You need to be logged in before using the store. Please go back to the main m
 t("Steam users need to link their profiles to their steam account. This is very easy in just a few clicks. Once this is done, simply restart the game.", "Steam用户需要将游戏账号和Steam账号绑定。这非常简单，只需要数次点击，完成后重启游戏即可。", "_t")
 t("Let's do it! (Opens in your browser)", "开始吧! (在浏览器中打开)", "_t")
 t("Not now", "还是不了", "_t")
-t("The Online Store (and expansions) are only purchasable by players that bought the game. Plaese go have a look at the donation page for more explanations.", "在线商店(和扩展Dlc)只对购买过游戏本体的玩家开放。详情请查看捐赠页面。", "_t")
+t("The Online Store (and expansions) are only purchasable by players that bought the game. Plaese go have a look at the donation page for more explanations.", "在线商店（和扩展包）只对购买过游戏本体的玩家开放。详情请查看捐赠页面。", "_t")
 t("Let's go! (Opens in your browser)", "去吧！（在浏览器中打开）", "_t")
 t("%0.2f %s", "%0.2f%s", "tformat")
 t("%d coins", "%d币", "tformat")
@@ -1132,7 +1131,7 @@ t([[Could not dynamically link addon to current character, maybe the installatio
 You can fix that by manually downloading the addon from https://te4.org/ and placing it in game/addons/ folder.]], [[无法自动将插件链接至当前角色，可能安装失败了。
 你可以在 https://te4.org/ 手动下载时装插件并放置于 game/addons/ 目录下来解决这个问题。]], "_t")
 t("Downloading cosmetic pack: #LIGHT_GREEN#%s", "时装包下载中： #LIGHT_GREEN#%s", "tformat")
-t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: The pack should be downloading or even finished by now.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}# ：时装包安装剩余时间：", "tformat")
+t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: The pack should be downloading or even finished by now.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#：这个扩展包现在应该正在下载，甚至已经下载完成了。", "tformat")
 t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: You can now trigger it whenever you are ready.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#： 准备好的时候就可以触发它。", "tformat")
 t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: Your available vault space has increased.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#： 你可用的在线共享装备空间增加了。", "tformat")
 t("Payment", "付款", "_t")
@@ -1140,9 +1139,9 @@ t([[Payment accepted.
 %s]], [[支付已确认。
 %s]], "tformat")
 t("Connecting to Steam", "正在连接到Steam", "_t")
-t("Steam Overlay should appear, if it does not please make sure it you have not disabled it.", "Steam 层应该出现了，如果没有出现的话，请确认一下你是否关闭了该功能。", "_t")
-t("Finalizing transaction with Steam servers...", "正在结束和Stean服务器的交易……", "_t")
-t("Payment refused, you have not been billed.", "付款被拒绝，你未能成功付款。", "_t")
+t("Steam Overlay should appear, if it does not please make sure it you have not disabled it.", "Steam 覆盖层应该出现，如果没有出现，请确认你并没有禁用该功能。", "_t")
+t("Finalizing transaction with Steam servers...", "正在完成与 Steam 服务器的交易……", "_t")
+t("Payment refused, you have not been billed.", "付款被拒绝，你未被扣款。", "_t")
 t("Connecting to server", "正在连接到服务器", "_t")
 t("Please wait...", "请等待…", "_t")
 t("You have enough coins to instantly purchase those options. Confirm?", "你拥有足够的硬币来完成购买。确定购买吗？", "_t")
@@ -1151,11 +1150,10 @@ t("You need %s more coins to purchase those options. Do you want to go to the do
 t([[#{bold}##GOLD#Community Online Event#WHITE##{normal}#: Once you have purchased a community event you will be able to trigger it at any later date, on whichever character you choose.
 Community events once triggered will activate for #{bold}#every player currently logged on#{normal}# including yourself. Every player receiving it will know you sent it and thus that you are to thank for it.
 To activate it you will need to have your online events option set to "all" (which is the default value).]], [[#{bold}##GOLD#社区在线事件#WHITE##{normal}#：成功购买一次社区事件后，你可以在任何时间、任何角色上触发。
-社区事件对 #{bold}#当前所有在线角色#{normal}# 生效，所有收到这次事件的玩家将知晓你的名字，并因此而感激你。
-你需要将在线事件选项设置为“全部”才能激活这个效果，注意，默认值即为“全部”。
-To activate it you will need to have your online events option set to "all" (which is the default value).]], "_t")
+社区事件一旦激活，将对 #{bold}#当前所有在线玩家（包括你自己）#{normal}# 生效，所有收到这次事件的玩家将知晓你的名字，并因此而感激你。
+你需要将在线事件选项设置为“全部”才能激活这个效果，注意，默认值即为“全部”。]], "_t")
 t([[#{bold}##GOLD#Event#WHITE##{normal}#: Once you have purchased an event you will be able to trigger it at any later date, on whichever character you choose.
-To activate it you will need to have your online events option set to "all" (which is the default value).]], [[#{bold}##GOLD#Event#WHITE##{normal}#：成功购买一次事件后，你可以在任何时间、任何角色上触发。
+To activate it you will need to have your online events option set to "all" (which is the default value).]], [[#{bold}##GOLD#事件#WHITE##{normal}#：成功购买一次事件后，你可以在任何时间、任何角色上触发。
 你需要将在线事件选项设置为“全部”才能激活这个效果，注意，默认值即为“全部”。]], "_t")
 t("#{bold}##GOLD#Non Immediate#WHITE##{normal}#: This events adds new content that you have to find by exploration. If you die before finding it, there can be no refunds.", "#{bold}##GOLD#非即时#WHITE##{normal}#：该事件为你后续游戏进程增加了部分内容。即使你在接触到新增内容前就死去也无法退款。", "_t")
 t("#{bold}##GOLD#Once per Character#WHITE##{normal}#: This event can only be received #{bold}#once per character#{normal}#. Usualy because it adds a new zone or effect to the game that would not make sense to duplicate.", "#{bold}##GOLD#每角色限一次#WHITE##{normal}#：这个事件 #{bold}#每名角色只能接收一次#{normal}#. 通常是因为它添加了新地城或者其他游戏内不能重复添加的效果。", "_t")
@@ -1163,7 +1161,7 @@ t([[#{bold}##GOLD#Shimmer Pack#WHITE##{normal}#: Once purchased the game will au
 #LIGHT_GREEN#Bonus perk:#LAST# purchasing any shimmer pack will also give your characters a portable Mirror of Reflection to be able to change your appearance anywhere, anytime!]], [[#{bold}##GOLD#时装包#WHITE##{normal}#：购买后游戏会自动安装时装包，同时为当前角色自动开启。仍然需要使用反射之镜来切换。
 #LIGHT_GREEN#额外特效:#LAST# 购买任何时装包后，你的角色自动获得便携式反射之镜，可以随时随地切换时装!]], "_t")
 t("#{bold}##GOLD#UI Pack#WHITE##{normal}#: Once purchased the game will automatically install the UI pack to your game.", "#{bold}##GOLD#UI 组合包#WHITE##{normal}#： 购买后游戏会自动安装UI组合包。", "_t")
-t("#{bold}##GOLD#Vault Space#WHITE##{normal}#: Once purchased your vault space is permanently increased.", "#{bold}##GOLD#Vault Space#WHITE##{normal}#：购买后，你的共享仓库大小会永久增加。", "_t")
+t("#{bold}##GOLD#Vault Space#WHITE##{normal}#: Once purchased your vault space is permanently increased.", "#{bold}##GOLD#仓库空间#WHITE##{normal}#：购买后，你的共享仓库大小会永久增加。", "_t")
 
 ------------------------------------------------
 section "engine/engine/dialogs/microtxn/UsePurchased.lua"
@@ -1199,16 +1197,16 @@ t("%s has no room for: %s.", "%s没有空间放置：%s。", "logSeen")
 t("There is nothing to pick up here.", "没什么可以拾取的东西。", "logSeen")
 t("There is nothing to drop.", "没东西可以丢弃。", "logSeen")
 t("%s drops on the floor: %s.", "%s把%s丢在了地上。", "logSeen")
-t("wrong equipment slot", "无法在该在该装备栏装备", "_t")
+t("wrong equipment slot", "无法在该装备栏装备", "_t")
 t("not enough stat", "属性值不足", "_t")
 t("missing %s (level %s )", "缺少%s(等级%s )", "tformat")
 t("missing %s", "缺少%s", "tformat")
 t("not enough levels", "等级不足", "_t")
-t("missing dependency", "未满足装备条件", "_t")
+t("missing dependency", "未满足前置条件", "_t")
 t("cannot use currently due to an other worn object", "由于目前穿戴的其他装备，无法装备此物品", "_t")
 t("%s is not wearable.", "%s无法装备。", "logSeen")
 t("%s can not wear %s.", "%s不能装备%s。", "logSeen")
-t("%s can not wear (%s): %s (%s).", "%s无法%s装备：%s（%s）", "logSeen")
+t("%s can not wear (%s): %s (%s).", "%s无法装备（%s）：%s（%s）", "logSeen")
 t("%s wears: %s.", "%s 装备了： %s", "logSeen")
 t("%s wears (offslot): %s.", "%s副手装备了： %s", "logSeen")
 t("%s wears (replacing %s): %s.", "%s装备（替换%s）了： %s", "logSeen")
@@ -1236,7 +1234,7 @@ t("activates", "启用了", "_t")
 t("%s uses %s.", "%s使用了%s。", "logSeen")
 t("not enough stat: %s", "属性点不足: %s", "tformat")
 t("not enough levels", "等级不足", "_t")
-t("missing dependency", "未满足装备条件", "_t")
+t("missing dependency", "未满足前置条件", "_t")
 t("is not %s", "不是%s", "tformat")
 t("unknown talent type", "未知的技能类型", "_t")
 t("not enough talents of this type known", "技能树中已学习技能不足", "_t")
@@ -1266,10 +1264,10 @@ t("Tactical display enabled. Press shift+'t' to disable.", "战术视图启用�
 ------------------------------------------------
 section "engine/engine/interface/ObjectActivable.lua"
 
-t("It can be used to %s, with %d charges out of %d.", "可以用于 %s ，消耗 %d 充能，总计 %d。", "tformat")
-t("It can be used to %s, costing %d power out of %d/%d.", "可以用于 %s, 消耗 %d 充能，总计 %d/%d 。", "tformat")
+t("It can be used to %s, with %d charges out of %d.", "可以用于 %s，剩余 %d 次充能，共 %d 次。", "tformat")
+t("It can be used to %s, costing %d power out of %d/%d.", "可以用于 %s，消耗 %d 能量，共 %d/%d。", "tformat")
 t("It can be used to activate talent: %s (level %d).", "可以用于激活技能： %s (等级 %d)。", "tformat")
-t("It can be used to activate talent: %s (level %d), costing %d power out of %d/%d.", "可以用于激活技能： %s (等级 %d)，消耗 %d 充能，总计 %d/%d 。", "tformat")
+t("It can be used to activate talent: %s (level %d), costing %d power out of %d/%d.", "可以用于激活技能：%s（等级 %d），消耗 %d 能量，共 %d/%d。", "tformat")
 t("%s is still recharging.", "%s 还在充能。", "logPlayer")
 t("%s can not be used anymore.", "%s 无法再继续使用了。", "logPlayer")
 
@@ -1286,7 +1284,7 @@ section "engine/engine/interface/PlayerHotkeys.lua"
 t("Hotkey not defined", "按键未定义", "_t")
 t("You may define a hotkey by pressing 'm' and following the instructions there.", "你可以按m键打开按键绑定窗口，遵循上面的指示绑定按键。", "_t")
 t("Item not found", "找不到物品", "_t")
-t("You do not have any %s .", "你的物品栏里里没有%s。", "tformat")
+t("You do not have any %s .", "你的物品栏里没有%s。", "tformat")
 
 ------------------------------------------------
 section "engine/engine/interface/PlayerMouse.lua"
@@ -1355,7 +1353,7 @@ If you do not wish to see gestures anymore, you can hide them in the UI section 
 ]], [[你开始试着绘制鼠标手势了！
 鼠标手势可以让你用鼠标动作来完成释放技能或是键盘操作。
 你只需要#{bold}#右击并拖动#{normal}#就可以绘制鼠标手势。
-默认情况下，鼠标手势没有绑定到任何操作。如果你需要使用鼠标手势，你可以在浏览“按键绑定”并添加，它可以为你的冒险旅程提供帮助。
+默认情况下，鼠标手势没有绑定到任何操作。如果你需要使用鼠标手势，你可以在“按键绑定”中添加一些鼠标手势，它可以为你的冒险旅程提供帮助。
 
 手势动作以颜色编码，以让你更好地显示你目前做出的动作：
 #15ed2f##{italic}#绿色#{normal}##LAST#: 向上拖动
@@ -1404,7 +1402,7 @@ t("a ", "一个", "_t")
 t("she", "她", "_t")
 t("it", "它", "_t")
 t("he", "他", "_t")
-t("her", "她的", "_t")
+t("her", "她", "_t")
 t("its", "它的", "_t")
 t("his", "他的", "_t")
 t("him", "他", "_t")
@@ -1422,7 +1420,7 @@ When inside a module remember you can press Escape to bring up a menu to change 
 
 Remember that in most roguelikes death is usually permanent so be careful!
 
-Now go and have some fun!]], [[#GOLD#马·基埃亚尔的传说#WHITE# 是主游戏，你也可以在 https://te4.org/ 下载到更多游戏插件和游戏模组。
+Now go and have some fun!]], [[#GOLD#马基·埃亚尔的传说#WHITE# 是主游戏，你也可以在 https://te4.org/ 下载到更多游戏插件和游戏模组。
 
 在游戏模组内，你可以按ESC键打开菜单，改变按键绑定，游戏分辨率和其他和模组有关的设置。
 
@@ -1472,7 +1470,7 @@ Check out the following folder on your computer:
 ]], "_t")
 t("Updating addon: #LIGHT_GREEN#%s", "正在更新插件: #LIGHT_GREEN#%s", "tformat")
 t("Quit", "退出", "_t")
-t("Really exit T-Engine/ToME?", "真的要退出 T-Engine/马基·埃亚尔的传说", "_t")
+t("Really exit T-Engine/ToME?", "真的要退出 T-Engine/马基·埃亚尔的传说吗？", "_t")
 t("Continue", "继续", "_t")
 t([[Welcome to #LIGHT_GREEN#Tales of Maj'Eyal#LAST#!
 
@@ -1498,23 +1496,23 @@ This is all optional, you are not forced to use this feature at all, but the dev
 * 记录你的击杀数量，死亡次数，以及最喜欢的职业…
 * 统计你的游戏数据，来记录你的游戏风格
 * 在游戏里直接安装官方扩展包和第三方插件，免去手动安装的麻烦
-* 如果你购买了游戏或是在 https:/te4.org/ 上进行了捐助，你可以获得获得你的购买者/赞助者独享权益
+* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/赞助者独享权益
 * 帮助游戏开发者调整游戏平衡，让这个游戏变得更好。
 
-你也会在获得一个 #LIGHT_BLUE#https:/te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
-这一切都是可选的，你可以自愿使用或者关闭这些功能。开发者会根据你的用户反馈来协助调整游戏平衡。]], "_t")
+你也会获得一个 #LIGHT_BLUE#https://te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
+这一切都是可选的，你可以自愿使用或者关闭这些功能。如果你愿意开启它们，开发者会感谢你的，因为这会让平衡调整变得更简单。]], "_t")
 t("Logging in...", "登录中…", "_t")
 t("Please wait...", "请等待…", "_t")
 t("Profile logged in!", "账户登录成功！", "_t")
 t("Your online profile is now active. Have fun!", "你的在线账户已可用。玩得开心！", "_t")
-t("Login failed!", "登陆失败！", "_t")
+t("Login failed!", "登录失败！", "_t")
 t("Check your login and password or try again in in a few moments.", "请确认你的用户名和密码，或在几分钟后再试。", "_t")
 t("Registering...", "正在注册", "_t")
-t("Registering on https://te4.org/, please wait...", "正在在 https://te4.org/ 上注册，请稍候…", "_t")
-t("Logged in!", "登陆成功！", "_t")
+t("Registering on https://te4.org/, please wait...", "正在 https://te4.org/ 上注册，请稍候…", "_t")
+t("Logged in!", "登录成功！", "_t")
 t("Profile created!", "账户创建成功！", "_t")
 t("Profile creation failed!", "账户创建失败！", "_t")
-t("Creation failed: %s (you may also register on https://te4.org/)", "创建失败: %s (你也可以在 https://te4.org/ 网站上注册）", "tformat")
+t("Creation failed: %s (you may also register on https://te4.org/)", "创建失败: %s（你也可以在 https://te4.org/ 网站上注册）", "tformat")
 t("Try again in in a few moments, or try online at https://te4.org/", "请过几分钟后再试，或在 https://te4.org/ 网站上注册", "_t")
 
 ------------------------------------------------
@@ -1581,7 +1579,7 @@ t("canine", "犬类", "entity subtype")
 t("wolf", "狼", "entity name")
 t("Lean, mean, and shaggy, it stares at you with hungry eyes.", "一头瘦弱的、狡猾的皮毛蓬松的饿狼，它正用贪婪的眼神看着你。", "_t")
 t("white wolf", "白狼", "entity name")
-t("A large and muscled wolf from the northern wastes. Its breath is cold and icy and its fur coated in frost.", "一头来自北部荒野的狼，它膘肥身健，体型匀称。它的呼吸冰冷而急促且全身都凝结着冰霜。", "_t")
+t("A large and muscled wolf from the northern wastes. Its breath is cold and icy and its fur coated in frost.", "一头来自北部荒野的狼，体型庞大、肌肉结实。它的呼吸冰冷刺骨，皮毛上结满了冰霜。", "_t")
 t("warg", "座狼", "entity name")
 t("It is a large wolf with eyes full of cunning.", "这是一只狡猾且体型巨大的狼。", "_t")
 t("fox", "狐狸", "entity name")
@@ -1595,7 +1593,7 @@ t("skeleton", "骷髅", "entity subtype")
 t("degenerated skeleton warrior", "腐化骷髅战士", "entity name")
 t("skeleton warrior", "骷髅战士", "entity name")
 t("skeleton mage", "骷髅法师", "entity name")
-t("armoured skeleton warrior", "武装骷髅战士", "entity name")
+t("armoured skeleton warrior", "装甲骷髅战士", "entity name")
 
 ------------------------------------------------
 section "engine/modules/boot/data/general/npcs/troll.lua"
@@ -1607,7 +1605,7 @@ t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-c
 t("stone troll", "岩石巨魔", "entity name")
 t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现他的腰带是用矮人头骨制成。", "_t")
 t("cave troll", "洞穴巨魔", "entity name")
-t("This huge troll wields a massive spear and has a disturbingly intelligent look in its piggy eyes.", "这只巨魔手握一根笨重的长矛，同时在它那贪婪的眼睛里，你看出了一丝令人不安的信息。", "_t")
+t("This huge troll wields a massive spear and has a disturbingly intelligent look in its piggy eyes.", "这只巨魔手握一根笨重的长矛，它那双小猪般的眼睛里透露出一种令人不安的聪明神情。", "_t")
 t("mountain troll", "山岭巨魔", "entity name")
 t("A large and athletic troll with an extremely tough and warty hide.", "一只高大且强壮的巨魔，身披一张丑陋但异常坚硬的兽皮。", "_t")
 t("mountain troll thunderer", "闪电山岭巨魔", "entity name")
@@ -1646,14 +1644,14 @@ section "engine/modules/boot/dialogs/Addons.lua"
 t("Configure Addons", "设置插件", "_t")
 t("You can get new addons at #LIGHT_BLUE##{underline}#Te4.org Addons#{normal}#", "在以下位置可以获得新的插件： #LIGHT_BLUE##{underline}#Te4.org 插件页面#{normal}#", "_t")
 t(" and #LIGHT_BLUE##{underline}#Te4.org DLCs#{normal}#", " 和 #LIGHT_BLUE##{underline}#Te4.org DLC页面#{normal}#", "_t")
-t("You can get new addons on #LIGHT_BLUE##{underline}#Steam Workshop#{normal}#", "在以下位置可以获得新的插件： #LIGHT_BLUE##{underline}#Steam 创意工坊#{normal}# ", "_t")
+t("You can get new addons on #LIGHT_BLUE##{underline}#Steam Workshop#{normal}#", "在以下位置可以获得新的插件：#LIGHT_BLUE##{underline}#Steam 创意工坊#{normal}#", "_t")
 t(", #LIGHT_BLUE##{underline}#Te4.org Addons#{normal}#", ", #LIGHT_BLUE##{underline}#Te4.org 插件页面#{normal}#", "_t")
 t("Show incompatible", "显示不兼容版本", "_t")
 t("Auto-update on start", "启动时自动更新", "_t")
 t("Game Module", "游戏模组", "_t")
 t("Version", "版本", "_t")
 t("Addon", "插件", "_t")
-t("Active", "启动", "_t")
+t("Active", "激活", "_t")
 t("#GREY#Developer tool", "#GREY#开发者工具", "_t")
 t("#LIGHT_RED#Donator Status: Disabled", "#LIGHT_RED#捐赠者状态：禁用", "_t")
 t("#LIGHT_GREEN#Manual: Active", "#LIGHT_GREEN#手动：启动", "_t")
@@ -1712,17 +1710,12 @@ If you disable this option you can always re-activate it in the Online category 
 - 用户信息：不能登录或者注册。
 - 角色备份：不能在te4.org上保存你的角色信息(用来给其他人分享你的炫酷角色)。
 - 物品仓库：不能访问你的在线物品仓库(包括存入和取回)。
-- 游戏内聊天：聊天要联网, 谢谢。
-- 氪金福利：联网才能获取你的氪金状态。
-- 扩展包&DLC：和氪金状态一样, 无法获取DLC的购买状态。
-- 便捷的插件安装：无法在游戏内看见插件列表, 但是你还可以手动安装插件。
-- 插件版本更新：无法更新插件的版本。
-- Steam：无法使用Steam相关的任何功能。
-- Discord：无法同步到Discord的实时状态。
-- 游戏内新闻：主菜单将不再显示新闻。
-注意这个设置只影响游戏本身。如果你使用游戏启动器，它的唯一目的就是确保游戏是最新的，因此它仍然会连接网络。
-如果你不想这样，直接运行游戏即可。启动器只是用来更新游戏的。
-
+- 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
+- 购买者/捐助者福利：基础游戏免费，公平发放捐助者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
+- 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。
+- 插件版本检查：插件将不再检查新版本。
+- Discord：如果你是 Discord 用户，此设置也会禁用 Rich Presence 集成。
+- 游戏内新闻：主菜单将不再显示游戏更新信息。
 
 #{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已, 推荐你不要打开它, 这会让你失去很多好用的功能和一些游戏体验。#{normal}#
 关闭后，可以通过游戏设置菜单的在线选项卡打开。]], "_t")
@@ -1793,7 +1786,7 @@ t([[#{bold}##GOLD#Ashes of Urh'Rok - Expansion#LAST##{normal}#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#新职业：#WHITE# 毁灭使者。 他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。
-#LIGHT_UMBER#新职业：#WHITE# 恶魔使者。 这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量的魔法，可以在倒下的敌人的身上终止恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！
+#LIGHT_UMBER#新职业：#WHITE# 恶魔使者。 这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！
 #LIGHT_UMBER#新种族：#WHITE# 魔化精灵。 那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。
 #LIGHT_UMBER#更多新神器、新手札、新地图、新事件……#WHITE# 体验恶魔的欢愉吧！
 
@@ -1812,14 +1805,14 @@ t([[#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#
 #LIGHT_UMBER#A ton#WHITE# of artifacts, lore, zones, events... 
 
 ]], [[#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#
-#{italic}##ANTIQUE_WHITE#自从被兽人成为“西方灾星”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远古传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
+#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方灾星”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远古传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#全新战役：#WHITE# 这场战役在主游戏战役以后，决定兽人部落的最终命运。探索全新的远东大陆吧！
 #LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，念力射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！
 #LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些奇特的“盟友”，团结起来，将兽人一族从“西方灾星”带来的灾难中拯救出来。
-#LIGHT_UMBER#插件系统：#WHITE# 合成强大的插件，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的插件。
-#LIGHT_UMBER#药剂系统：#WHITE# 在插件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代就有的纹身和符文系统。
+#LIGHT_UMBER#嵌件系统：#WHITE# 合成强大的嵌件，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的嵌件。
+#LIGHT_UMBER#药剂系统：#WHITE# 在嵌件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。
 #LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！
 
 ]], "_t")
@@ -1840,10 +1833,10 @@ t([[#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#
 #{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，进入了疯狂之中，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
-#LIGHT_UMBER#新职业：#WHITE# 苦痛者。 它们被赋予了腐化的力量，最终将自己的身体转化成了恐魔。它们可以召唤恐魔在战斗中协助自己，撕裂你的皮肤，融化你的脸庞，作为攻击敌人的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
+#LIGHT_UMBER#新职业：#WHITE# 扭动者。 屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
 #LIGHT_UMBER#新职业：#WHITE# 熵教徒。 这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
-#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。 他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全孵化成为没有意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
-#LIGHT_UMBER#新种族：#WHITE# 克罗格。 他们是被本来应当杀死他们的那群人转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
+#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。 他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
+#LIGHT_UMBER#新种族：#WHITE# 克罗格。 他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
 #LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路(不要问我你是怎么*进来*的)，探索神秘的出口，以及更多奇异的，充满触手的地图！
 #LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢灼眼恐魔吗？你一定会喜欢上灼热恐魔的！还有虚空蠕虫，还有熵之碎片，还有其他更多怪物！
 #LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个悠闲的寄生兽吧！
@@ -1910,7 +1903,7 @@ t("Password: ", "密码：", "_t")
 t("Login", "登录", "_t")
 t("Cancel", "取消", "_t")
 t("Password again: ", "重复密码：", "_t")
-t("Email: ", "邮箱", "_t")
+t("Email: ", "邮箱：", "_t")
 t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)", "_t")
 t("You at least 16 years old, or have parental authorization to play the game.", "游玩此游戏时你已年满16岁，或已得到了家长的许可。", "_t")
 t("Create", "创建", "_t")
@@ -1937,7 +1930,7 @@ Luckily this is very easy to do: you only require a profile name and optionally 
 幸运的是，这非常容易：你只需要提供你的Steam用户名，也可以提供你的邮箱。（我们基本上不会给你发送邮件，每年最多发送一两份）
 ]], "_t")
 t("Username: ", "用户名：", "_t")
-t("Email: ", "邮箱", "_t")
+t("Email: ", "邮箱：", "_t")
 t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)", "_t")
 t("You at least 16 years old, or have parental authorization to play the game.", "游玩此游戏时你已年满16岁，或已得到了家长的许可。", "_t")
 t("Register", "注册", "_t")
@@ -1950,7 +1943,7 @@ t("Your email does not look right.", "你的邮件地址有问题。", "_t")
 t("Age Check", "年龄确认", "_t")
 t("You need to be 16 years old or more or to have parental authorization to play this game.", "你需要年满16岁以上，或者得到了家长的许可，才可以游玩本游戏。", "_t")
 t("Registering...", "正在注册", "_t")
-t("Registering on https://te4.org/, please wait...", "正在在 https://te4.org/ 上注册，请稍候…", "_t")
+t("Registering on https://te4.org/, please wait...", "正在 https://te4.org/ 上注册，请稍候…", "_t")
 t("Steam client not found.", "找不到Steam客户端", "_t")
 t("Error", "错误", "_t")
 t("Username or Email already taken, please select an other one.", "用户名或邮件地址已被使用，请选择其他用户名或邮件地址", "_t")
@@ -1960,7 +1953,7 @@ section "engine/modules/boot/dialogs/UpdateAll.lua"
 
 t("Update all game modules", "更新所有游戏模组", "_t")
 t([[All those components will be updated:
-]], [[所有需要更新的模组: 
+]], [[需要更新的组件：
 ]], "_t")
 t("Component", "组件", "_t")
 t("Version", "版本", "_t")
@@ -1985,12 +1978,12 @@ t("Version", "版本", "_t")
 t("World", "世界", "_t")
 t([[#{bold}##GOLD#%s#GREEN# High Scores#WHITE##{normal}#
 
-]], [[#{bold}##GOLD#%s#GREEN# 高分榜 #WHITE##{normal}#
+]], [[#{bold}##GOLD#%s#GREEN# 高分榜#WHITE##{normal}#
 
 ]], "tformat")
 t([[#{bold}##GOLD#%s(%s)#GREEN# High Scores#WHITE##{normal}#
 
-]], [[#{bold}##GOLD#%s(%s)#GREEN# 高分榜 #WHITE##{normal}#
+]], [[#{bold}##GOLD#%s(%s)#GREEN# 高分榜#WHITE##{normal}#
 
 ]], "tformat")
 
@@ -2011,4 +2004,3 @@ t("Dexterity", "敏捷", "stat name")
 t("dex", "敏捷", "stat short_name")
 t("Constitution", "体质", "stat name")
 t("con", "体质", "stat short_name")
-

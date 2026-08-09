@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-facts-study-gold-v1",
+  "additionalProperties": false,
+  "properties": {
+    "contract": {"const": "tome4-quality-facts-study-gold-v1"},
+    "items": {"maxItems": 20, "minItems": 20, "type": "array"},
+    "review_lineage": {"type": "object"},
+    "schema_version": {"const": 1},
+    "status": {"enum": ["draft", "frozen"]},
+    "study_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+  },
+  "required": ["contract", "schema_version", "study_id", "status", "review_lineage", "items"],
+  "title": "Exhaustive adjudicated Facts study gold v1",
+  "type": "object"
+}

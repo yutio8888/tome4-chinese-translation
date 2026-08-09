@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-facts-study-curation-pool-v1",
+  "title": "Facts-study curation source-side candidate pool v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract": {"const": "tome4-quality-facts-study-curation-pool-v1"},
+    "schema_version": {"const": 1},
+    "pool_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "seed": {"type": "string", "minLength": 1},
+    "inventory_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "excluded_revision_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+    "exclusion_revision_ids_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "stratum_targets": {"$ref": "#/$defs/stratumCounts"},
+    "stratum_counts": {"$ref": "#/$defs/stratumCounts"},
+    "length_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min_chars": {"type": "integer", "minimum": 0},
+        "max_chars": {"type": "integer", "minimum": 1},
+        "term_entries_exempt": {"const": true}
+      },
+      "required": ["min_chars", "max_chars", "term_entries_exempt"]
+    },
+    "selection_inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_side_only": {"const": true},
+        "target_blind": {"const": true},
+        "dedupe_key": {"type": "string", "const": "model-visible-public-input"}
+      },
+      "required": ["source_side_only", "target_blind", "dedupe_key"]
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/poolItem"}
+    }
+  },
+  "required": [
+    "contract", "schema_version", "pool_id", "seed", "inventory_sha256",
+    "excluded_revision_ids", "exclusion_revision_ids_sha256",
+    "stratum_targets", "stratum_counts", "length_policy",
+    "selection_inputs", "items"
+  ],
+  "$defs": {
+    "stratumCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "term-proper-name": {"type": "integer", "minimum": 0},
+        "mechanism-condition-number": {"type": "integer", "minimum": 0},
+        "entity-relation": {"type": "integer", "minimum": 0},
+        "ui-role": {"type": "integer", "minimum": 0},
+        "general-semantic-clean-control": {"type": "integer", "minimum": 0}
+      },
+      "required": [
+        "term-proper-name", "mechanism-condition-number", "entity-relation",
+        "ui-role", "general-semantic-clean-control"
+      ]
+    },
+    "boundedContextEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "relative_index": {"type": "integer"},
+        "source": {"type": "string"}
+      },
+      "required": ["relative_index", "source"]
+    },
+    "terminologyFeature": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "category": {"type": "string", "minLength": 1},
+        "domain": {"type": "string", "minLength": 1},
+        "term_source": {"type": "string", "minLength": 1},
+        "status": {"type": "string", "minLength": 1},
+        "match": {"type": "string", "minLength": 1}
+      },
+      "required": ["category", "domain", "term_source", "status", "match"]
+    },
+    "poolItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pool_index": {"type": "integer", "minimum": 0},
+        "revision_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "source": {"type": "string", "minLength": 1},
+        "source_tag": {"type": "string"},
+        "section": {"type": "string"},
+        "profile": {"type": "string", "minLength": 1},
+        "item_kind": {"type": "string", "enum": ["semantic", "term", "mechanics", "ui", "localization"]},
+        "stratum": {
+          "type": "string",
+          "enum": ["term-proper-name", "mechanism-condition-number", "entity-relation", "ui-role", "general-semantic-clean-control"]
+        },
+        "bounded_context": {"type": "array", "items": {"$ref": "#/$defs/boundedContextEntry"}},
+        "terminology_features": {"type": "array", "items": {"$ref": "#/$defs/terminologyFeature"}},
+        "source_length": {"type": "integer", "minimum": 0},
+        "public_input_identity": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "origin": {"const": "natural"}
+      },
+      "required": [
+        "pool_index", "revision_id", "source", "source_tag", "section", "profile",
+        "item_kind", "stratum", "bounded_context", "terminology_features",
+        "source_length", "public_input_identity", "origin"
+      ]
+    }
+  }
+}

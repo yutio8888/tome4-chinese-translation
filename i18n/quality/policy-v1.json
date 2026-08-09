@@ -1,0 +1,79 @@
+{
+  "contract": "tome4-quality-policy-v1",
+  "schema_version": 1,
+  "description": "Quality system contracts, identity rules, pilot configuration and coverage constraints. Rule file for the quality system (see docs/translation-quality-system.md).",
+  "identity_contract": "tome4-translation-revision-v1",
+  "inventory_contract": "tome4-quality-inventory-v1",
+  "sample_contract": "tome4-quality-sample-v1",
+  "assessment_contract": "tome4-quality-assessment-v1",
+  "adjudication_contract": "tome4-quality-adjudication-v1",
+  "validation_contract": "tome4-quality-validation-v1",
+  "report_contract": "tome4-quality-report-v1",
+  "benchmark_contract": "tome4-quality-benchmark-v1",
+  "strict_unknown_fields": true,
+  "revision_identity_fields": [
+    "identity_contract", "version", "unit_id", "target", "args_order", "special"
+  ],
+  "pilot": {
+    "seed": "tome4-quality-pilot-v1",
+    "size": 120,
+    "buckets": {
+      "representative": 60,
+      "risk-enriched": 40,
+      "contrast": 20
+    },
+    "evaluator_ids": ["reviewer-a", "reviewer-b"],
+    "method_version": "mqm-pilot-v1"
+  },
+  "dry_run": {
+    "seed": "tome4-quality-dry-run-v1",
+    "size": 12,
+    "contract": "tome4-quality-dry-run-v1",
+    "description": "Rubric try-out items that never enter the official 120-item pilot sample",
+    "coverage_constraints": [
+      {"id": "dry-profile-diversity", "mode": "each", "feature": "profile", "min": 1,
+       "values": ["mechanics", "term-name", "ui", "runtime-log", "dialogue", "narrative", "unknown"],
+       "description": "dry-run 覆盖尽量多的 profile"},
+      {"id": "dry-structural-risk", "mode": "any", "feature": "structural_risk", "min": 3,
+       "values": [true],
+       "description": "至少 3 条含 printf/markup/token/多行结构风险"},
+      {"id": "dry-term-evidence", "mode": "any", "feature": "term_evidence", "min": 2,
+       "values": [true],
+       "description": "至少 2 条含术语证据"}
+    ]
+  },
+  "coverage_constraints": [
+    {"id": "profile-min", "mode": "each", "feature": "profile", "min": 8,
+     "values": ["mechanics", "term-name", "ui", "runtime-log", "dialogue", "narrative"],
+     "description": "mechanics/term-name/ui/runtime-log/dialogue/narrative 各不少于 8 条"},
+    {"id": "boundary-profiles-min", "mode": "any", "feature": "profile", "min": 8,
+     "values": ["technical-internal", "unknown"],
+     "description": "technical-internal 和 unknown 合计不少于 8 条"},
+    {"id": "component-group-min", "mode": "each", "feature": "component_group", "min": 20,
+     "values": ["core", "dlc", "auxiliary"],
+     "description": "core、DLC、辅助 addon/示例三个组件组各不少于 20 条"},
+    {"id": "length-bin-min", "mode": "each", "feature": "length_bin", "min": 15,
+     "values": ["short", "medium", "long", "very-long"],
+     "description": "四个 source 长度桶各不少于 15 条"},
+    {"id": "structural-risk-min", "mode": "any", "feature": "structural_risk", "min": 30,
+     "values": [true],
+     "description": "至少 30 条具有 printf/markup/token/多行中的一种结构风险"},
+    {"id": "term-evidence-min", "mode": "any", "feature": "term_evidence", "min": 20,
+     "values": [true],
+     "description": "至少 20 条包含 preferred 或 review/variant 术语证据"}
+  ],
+  "risk_enrichment_flags": [
+    "has-printf", "has-args-order", "has-markup", "has-at-token", "multiline",
+    "short-ambiguous-source", "long-source", "profile-uncertain",
+    "term-variant-or-review", "source-has-number-or-unit",
+    "source-has-negation-or-condition", "source-target-length-outlier",
+    "possible-untranslated-residue"
+  ],
+  "component_groups": {
+    "core": ["engine", "boot", "tome"],
+    "dlc": ["ashes-urhrok", "cults", "orcs", "items-vault", "possessors"],
+    "auxiliary": ["example", "example-realtime", "addon-dev"]
+  },
+  "context_neighbor_limit": 2,
+  "contrast_group_max_size": 6
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-facts-study-gold-adjudication-v1",
+  "additionalProperties": false,
+  "properties": {
+    "adjudicator_id": {"minLength": 1, "type": "string"},
+    "contract": {"const": "tome4-quality-facts-study-gold-adjudication-v1"},
+    "items": {"maxItems": 20, "minItems": 20, "type": "array"},
+    "review_artifact_sha256s": {"maxItems": 2, "minItems": 2, "type": "array"},
+    "schema_version": {"const": 1},
+    "status": {"const": "frozen"},
+    "study_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+  },
+  "required": ["contract", "schema_version", "study_id", "status", "adjudicator_id", "review_artifact_sha256s", "items"],
+  "type": "object"
+}

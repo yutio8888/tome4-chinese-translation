@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "tome4-quality-stability-report-v3",
+  "description": "Strict structural contract. The host binds both assessment bytes and runner reports to two distinct registered executions, verifies campaign-ledger slots, recomputes checks from frozen thresholds and recomputes report_id.",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "quality_contract", "sample_id", "preregistration_id", "evaluator", "assessment_ids", "assessment_sha256s", "run_report_sha256s", "runner_report_ids", "execution_ids", "metrics", "checks", "passed", "report_id"],
+  "properties": {
+    "schema_version": {"const": 3}, "quality_contract": {"const": "tome4-quality-stability-report-v3"},
+    "sample_id": {"$ref": "#/$defs/sha"}, "preregistration_id": {"$ref": "#/$defs/sha"},
+    "evaluator": {
+      "type": "object", "additionalProperties": false, "required": ["id", "provider", "model", "thinking"],
+      "properties": {"id": {"enum": ["reviewer-a", "reviewer-b"]}, "provider": {"$ref": "#/$defs/text"}, "model": {"$ref": "#/$defs/text"}, "thinking": {"$ref": "#/$defs/text"}}
+    },
+    "assessment_ids": {"$ref": "#/$defs/twoSha"}, "assessment_sha256s": {"$ref": "#/$defs/twoSha"},
+    "run_report_sha256s": {"$ref": "#/$defs/twoSha"}, "runner_report_ids": {"$ref": "#/$defs/twoUniqueSha"},
+    "execution_ids": {"$ref": "#/$defs/twoUniqueSha"},
+    "metrics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_coverage", "structure_failures", "raw_model", "anchor_normalized", "host_technical_derivation_agreement"],
+      "properties": {
+        "schema_coverage": {"$ref": "#/$defs/ratio"}, "structure_failures": {"$ref": "#/$defs/count"},
+        "raw_model": {"type": "object", "additionalProperties": false, "required": ["finding_jaccard", "finding_union", "finding_intersection", "phenomenon_meaning_agreement"], "properties": {"finding_jaccard": {"$ref": "#/$defs/ratio"}, "finding_union": {"$ref": "#/$defs/count"}, "finding_intersection": {"$ref": "#/$defs/count"}, "phenomenon_meaning_agreement": {"$ref": "#/$defs/ratio"}}},
+        "anchor_normalized": {"type": "object", "additionalProperties": false, "required": ["finding_jaccard", "finding_union", "finding_intersection", "provisional_severity_agreement", "manual_queue_membership_agreement"], "properties": {"finding_jaccard": {"$ref": "#/$defs/ratio"}, "finding_union": {"$ref": "#/$defs/count"}, "finding_intersection": {"$ref": "#/$defs/count"}, "provisional_severity_agreement": {"$ref": "#/$defs/ratio"}, "manual_queue_membership_agreement": {"$ref": "#/$defs/ratio"}}},
+        "host_technical_derivation_agreement": {"$ref": "#/$defs/ratio"}
+      }
+    },
+    "checks": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_coverage", "structure_failures", "raw_finding_jaccard", "phenomenon_meaning_agreement", "normalized_provisional_severity_agreement", "manual_queue_membership_agreement", "host_technical_derivation_agreement"],
+      "properties": {"schema_coverage": {"type": "boolean"}, "structure_failures": {"type": "boolean"}, "raw_finding_jaccard": {"type": "boolean"}, "phenomenon_meaning_agreement": {"type": "boolean"}, "normalized_provisional_severity_agreement": {"type": "boolean"}, "manual_queue_membership_agreement": {"type": "boolean"}, "host_technical_derivation_agreement": {"type": "boolean"}}
+    },
+    "passed": {"type": "boolean"}, "report_id": {"$ref": "#/$defs/sha"}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "text": {"type": "string", "minLength": 1},
+    "count": {"type": "integer", "minimum": 0}, "ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "twoSha": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/sha"}},
+    "twoUniqueSha": {"type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/sha"}}
+  }
+}

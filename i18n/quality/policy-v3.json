@@ -1,0 +1,50 @@
+{
+  "contract": "tome4-quality-policy-v3",
+  "schema_version": 3,
+  "method_version": "mqm-pilot-v3",
+  "evaluator_ids": ["reviewer-a", "reviewer-b"],
+  "assessment_states": ["assessed", "context-insufficient"],
+  "derivation_states": ["derived", "provisional", "anchor-normalized", "gate-derived"],
+  "severities": ["blocker", "major", "minor"],
+  "allowed_error_codes": [
+    "ACC_MISTRANSLATION", "ACC_OMISSION", "ACC_ADDITION", "ACC_UNTRANSLATED",
+    "ACC_POLARITY", "ACC_CONDITION", "ACC_NUMBER_UNIT", "ACC_ENTITY_ROLE",
+    "TERM_PREFERRED", "TERM_PROPER_NAME", "TERM_INCONSISTENT",
+    "FLU_AMBIGUITY", "UI_CLARITY"
+  ],
+  "phenomena": [
+    "number", "number-range", "unit", "condition", "polarity", "entity-role",
+    "scope", "trigger-timing", "omission", "addition", "terminology",
+    "proper-name", "ambiguity", "other"
+  ],
+  "meaning_change_types": [
+    "omitted", "added", "weakened", "strengthened", "reversed", "reassigned",
+    "made-ambiguous", "unknown"
+  ],
+  "span_states": ["exact", "ambiguous", "missing", "whole-item"],
+  "cluster_types": [
+    "full-match", "partial-match", "split-merge", "left-only", "right-only", "ambiguous"
+  ],
+  "max_shard_items": 20,
+  "datasets": {
+    "calibration": {
+      "contract": "tome4-quality-calibration-v3",
+      "seed": "tome4-quality-calibration-v2",
+      "size": 32
+    },
+    "holdout": {
+      "contract": "tome4-quality-holdout-v3",
+      "seed": "tome4-quality-holdout-v2",
+      "size": 32
+    }
+  },
+  "stability_thresholds": {
+    "schema_coverage": 1.0,
+    "structure_failures_max": 0,
+    "raw_finding_jaccard_min": 0.70,
+    "phenomenon_meaning_agreement_min": 0.90,
+    "normalized_provisional_severity_agreement_min": 0.90,
+    "manual_queue_membership_agreement_min": 0.90,
+    "host_technical_derivation_agreement": 1.0
+  }
+}

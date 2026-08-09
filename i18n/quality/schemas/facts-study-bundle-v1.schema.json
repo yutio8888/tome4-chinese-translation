@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-facts-study-bundle-v1",
+  "additionalProperties": false,
+  "properties": {
+    "arm": {"enum": ["A", "B", "C", "D", "N", "L", "F"]},
+    "bundle_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "contract": {"const": "tome4-quality-facts-study-bundle-v1"},
+    "items": {"maxItems": 20, "minItems": 20, "type": "array"},
+    "prompt_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "schema_version": {"const": 1},
+    "study_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+  },
+  "required": ["contract", "schema_version", "study_id", "arm", "prompt_sha256", "items", "bundle_id"],
+  "title": "Blinded Facts study arm bundle v1",
+  "type": "object"
+}

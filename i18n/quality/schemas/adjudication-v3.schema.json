@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-adjudication-v3",
+  "description": "Strict structural contract. The host additionally requires unique queued issue_ids, queue order in strict mode, forbids severity downgrades and verifies match lineage.",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "quality_contract", "match_id", "adjudicator_id", "items"],
+  "properties": {
+    "schema_version": {"const": 3}, "quality_contract": {"const": "tome4-quality-adjudication-v3"},
+    "match_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "adjudicator_id": {"type": "string", "minLength": 1},
+    "items": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["issue_id", "decision", "severity", "rationale"],
+      "properties": {
+        "issue_id": {"type": "string", "pattern": "^Q3-[0-9]{4}$"},
+        "decision": {"enum": ["reject", "confirm"]},
+        "severity": {"type": ["string", "null"], "enum": ["minor", "major", "blocker", null]},
+        "rationale": {"type": "string", "minLength": 1}
+      },
+      "allOf": [
+        {"if": {"properties": {"decision": {"const": "reject"}}}, "then": {"properties": {"severity": {"const": null}}}},
+        {"if": {"properties": {"decision": {"const": "confirm"}}}, "then": {"properties": {"severity": {"enum": ["minor", "major", "blocker"]}}}}
+      ]
+    }}
+  }
+}

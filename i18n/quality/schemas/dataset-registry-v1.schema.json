@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-dataset-registry-v1",
+  "title": "Versioned quality dataset registry v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract": {"const": "tome4-quality-dataset-registry-v1"},
+    "schema_version": {"const": 1},
+    "registry_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/registryEntry"}
+    }
+  },
+  "required": ["contract", "schema_version", "registry_id", "entries"],
+  "$defs": {
+    "registryEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dataset_id": {"type": "string", "minLength": 1},
+        "purpose": {
+          "type": "string",
+          "enum": [
+            "official-120-pilot-sample",
+            "calibration-set",
+            "holdout-set",
+            "exploratory-set",
+            "facts-study-candidate-set",
+            "facts-study-failed-pilot",
+            "facts-study-final-sample",
+            "curation-pool",
+            "other"
+          ]
+        },
+        "status": {"type": "string", "enum": ["frozen", "deprecated"]},
+        "sample_contract": {"type": "string", "minLength": 1},
+        "sample_id": {
+          "type": ["string", "null"],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "sample_sha256": {
+          "type": ["string", "null"],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "sample_reference": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "logical_path": {"type": "string", "minLength": 1},
+            "file_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          },
+          "required": ["logical_path", "file_sha256"]
+        },
+        "revision_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        },
+        "revision_ids_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "excluded_from_calibration": {"type": "boolean"},
+        "excluded_from_holdout": {"type": "boolean"},
+        "excluded_from_facts_curation": {"type": "boolean"},
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "natural": {"type": "integer", "minimum": 0},
+            "controlled": {"type": "integer", "minimum": 0}
+          },
+          "required": ["natural", "controlled"]
+        },
+        "disposition": {"type": "string", "minLength": 1}
+      },
+      "required": [
+        "dataset_id", "purpose", "status", "sample_contract",
+        "sample_id", "sample_sha256", "sample_reference",
+        "revision_ids", "revision_ids_sha256",
+        "excluded_from_calibration", "excluded_from_holdout",
+        "excluded_from_facts_curation", "scope", "disposition"
+      ]
+    }
+  }
+}

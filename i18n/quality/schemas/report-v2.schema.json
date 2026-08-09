@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#", "$id": "tome4-quality-report-v2",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "quality_contract", "match_id", "report_id", "item_metrics", "issue_metrics", "fact_metrics", "severity_metrics", "human_burden"],
+  "properties": {
+    "schema_version": {"const": 2}, "quality_contract": {"const": "tome4-quality-report-v2"},
+    "match_id": {"type": "string"}, "report_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "item_metrics": {"type": "object"}, "issue_metrics": {"type": "object"}, "fact_metrics": {"type": "object"},
+    "severity_metrics": {"type": "object"}, "human_burden": {"type": "object"}
+  }
+}

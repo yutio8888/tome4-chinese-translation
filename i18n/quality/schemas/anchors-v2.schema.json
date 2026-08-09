@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "tome4-quality-anchors-v2",
+  "description": "Strict structural contract. The host additionally verifies unique anchor ids, exact anchors-v1 lineage, evidence occurrence/signatures, compatibility-matrix membership and the frozen positive/negative distribution.",
+  "type": "object", "additionalProperties": false,
+  "required": ["contract", "schema_version", "description", "anchors"],
+  "properties": {
+    "contract": {"const": "tome4-quality-anchors-v2"}, "schema_version": {"const": 2},
+    "description": {"type": "string", "minLength": 1},
+    "anchors": {"type": "array", "minItems": 6, "maxItems": 6, "uniqueItems": true, "items": {"$ref": "#/$defs/anchor"}}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "evidence": {
+      "type": "object", "additionalProperties": false, "required": ["quote", "occurrence"],
+      "properties": {"quote": {"type": "string", "minLength": 1}, "occurrence": {"type": "integer", "minimum": 1}}
+    },
+    "anchor": {
+      "type": "object", "additionalProperties": false,
+      "required": ["anchor_id", "classification", "source_contract", "source_sample_id", "revision_id", "adjudication_validation_id", "issue_ids", "profile", "error_code", "phenomenon", "meaning_change", "defect_class", "severity", "source_evidence", "target_evidence", "evidence_signature", "rationale"],
+      "properties": {
+        "anchor_id": {"type": "string", "minLength": 1}, "classification": {"enum": ["positive", "negative"]},
+        "source_contract": {"const": "tome4-quality-calibration-v2"}, "source_sample_id": {"$ref": "#/$defs/sha"},
+        "revision_id": {"$ref": "#/$defs/sha"}, "adjudication_validation_id": {"$ref": "#/$defs/sha"},
+        "issue_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^QI-[0-9]{4}$"}},
+        "profile": {"type": "string", "minLength": 1},
+        "error_code": {"enum": ["ACC_MISTRANSLATION", "ACC_OMISSION", "ACC_ADDITION", "ACC_UNTRANSLATED", "ACC_POLARITY", "ACC_CONDITION", "ACC_NUMBER_UNIT", "ACC_ENTITY_ROLE", "TERM_PREFERRED", "TERM_PROPER_NAME", "TERM_INCONSISTENT", "FLU_AMBIGUITY", "UI_CLARITY"]},
+        "phenomenon": {"enum": ["number", "number-range", "unit", "condition", "polarity", "entity-role", "scope", "trigger-timing", "omission", "addition", "terminology", "proper-name", "ambiguity", "other"]},
+        "meaning_change": {"enum": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"]},
+        "defect_class": {"enum": ["semantic", "terminology", "ui"]},
+        "severity": {"type": ["string", "null"], "enum": ["minor", "major", "blocker", null]},
+        "source_evidence": {"$ref": "#/$defs/evidence"}, "target_evidence": {"$ref": "#/$defs/evidence"},
+        "evidence_signature": {"$ref": "#/$defs/sha"}, "rationale": {"type": "string", "minLength": 1}
+      },
+      "allOf": [
+        {"if": {"properties": {"classification": {"const": "negative"}}}, "then": {"properties": {"severity": {"const": null}}}},
+        {"if": {"properties": {"classification": {"const": "positive"}}}, "then": {"properties": {"severity": {"enum": ["minor", "major", "blocker"]}}}}
+      ]
+    }
+  }
+}

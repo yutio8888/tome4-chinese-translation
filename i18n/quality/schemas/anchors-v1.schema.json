@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "tome4-quality-anchors-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "schema_version", "description", "anchors"],
+  "properties": {
+    "contract": {"const": "tome4-quality-anchors-v1"},
+    "schema_version": {"const": 1},
+    "description": {"type": "string", "minLength": 1},
+    "anchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "anchor_id", "source_contract", "sample_id", "revision_id",
+          "adjudication_validation_id", "issue_ids", "profile", "phenomenon",
+          "defect_class", "facts", "derived_severity", "rule_id", "rationale"
+        ],
+        "properties": {
+          "anchor_id": {"type": "string", "minLength": 1},
+          "source_contract": {"const": "tome4-quality-calibration-v2"},
+          "sample_id": {"$ref": "#/definitions/sha"},
+          "revision_id": {"$ref": "#/definitions/sha"},
+          "adjudication_validation_id": {"$ref": "#/definitions/sha"},
+          "issue_ids": {
+            "type": "array", "minItems": 1, "uniqueItems": true,
+            "items": {"type": "string", "pattern": "^QI-[0-9]{4}$"}
+          },
+          "profile": {"type": "string", "minLength": 1},
+          "phenomenon": {"type": "string", "minLength": 1},
+          "defect_class": {"type": "string", "minLength": 1},
+          "facts": {"type": "object"},
+          "derived_severity": {"enum": ["blocker", "major", "minor", "note", "needs-adjudication"]},
+          "rule_id": {"type": ["string", "null"]},
+          "rationale": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  },
+  "definitions": {
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

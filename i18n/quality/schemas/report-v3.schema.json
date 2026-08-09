@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-report-v3",
+  "description": "Strict structural contract. The host revalidates the referenced match and optional adjudication validation, then reconstructs every metric and canonical report_id; those cross-artifact relations are not expressible in JSON Schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "quality_contract", "match_id", "adjudication_validation_id", "report_id", "raw_model_metrics", "anchor_normalized_metrics", "severity_metrics", "human_burden"],
+  "properties": {
+    "schema_version": {"const": 3},
+    "quality_contract": {"const": "tome4-quality-report-v3"},
+    "match_id": {"$ref": "#/$defs/sha"},
+    "adjudication_validation_id": {"anyOf": [{"$ref": "#/$defs/sha"}, {"type": "null"}]},
+    "report_id": {"$ref": "#/$defs/sha"},
+    "raw_model_metrics": {"$ref": "#/$defs/rawMetrics"},
+    "anchor_normalized_metrics": {"$ref": "#/$defs/normalizedMetrics"},
+    "severity_metrics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["pre_adjudication_counts", "final_counts", "pre_adjudication_provisional", "remaining_provisional"],
+      "properties": {
+        "pre_adjudication_counts": {"$ref": "#/$defs/severityCounts"},
+        "final_counts": {"$ref": "#/$defs/severityCounts"},
+        "pre_adjudication_provisional": {"$ref": "#/$defs/count"},
+        "remaining_provisional": {"$ref": "#/$defs/count"}
+      }
+    },
+    "human_burden": {
+      "type": "object", "additionalProperties": false,
+      "required": ["issues_requiring_adjudication", "items_requiring_adjudication", "issues_adjudicated", "findings_rejected"],
+      "properties": {
+        "issues_requiring_adjudication": {"$ref": "#/$defs/count"},
+        "items_requiring_adjudication": {"$ref": "#/$defs/count"},
+        "issues_adjudicated": {"$ref": "#/$defs/count"},
+        "findings_rejected": {"$ref": "#/$defs/count"}
+      }
+    }
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "count": {"type": "integer", "minimum": 0},
+    "ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "severityCounts": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "blocker": {"$ref": "#/$defs/count"},
+        "major": {"$ref": "#/$defs/count"},
+        "minor": {"$ref": "#/$defs/count"}
+      }
+    },
+    "rawMetrics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["left_findings", "right_findings", "finding_union", "finding_intersection", "finding_jaccard", "phenomenon_meaning_agreement"],
+      "properties": {
+        "left_findings": {"$ref": "#/$defs/count"}, "right_findings": {"$ref": "#/$defs/count"},
+        "finding_union": {"$ref": "#/$defs/count"}, "finding_intersection": {"$ref": "#/$defs/count"},
+        "finding_jaccard": {"$ref": "#/$defs/ratio"}, "phenomenon_meaning_agreement": {"$ref": "#/$defs/ratio"}
+      }
+    },
+    "normalizedMetrics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["left_findings", "right_findings", "issue_union", "matched_issues", "negative_anchor_rejections", "positive_anchor_normalizations", "anchor_conflicts"],
+      "properties": {
+        "left_findings": {"$ref": "#/$defs/count"}, "right_findings": {"$ref": "#/$defs/count"},
+        "issue_union": {"$ref": "#/$defs/count"}, "matched_issues": {"$ref": "#/$defs/count"},
+        "negative_anchor_rejections": {"$ref": "#/$defs/count"},
+        "positive_anchor_normalizations": {"$ref": "#/$defs/count"},
+        "anchor_conflicts": {"$ref": "#/$defs/count"}
+      }
+    }
+  }
+}

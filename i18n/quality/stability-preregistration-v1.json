@@ -1,0 +1,38 @@
+{
+  "contract": "tome4-quality-stability-preregistration-v1",
+  "schema_version": 1,
+  "sample_contract": "tome4-quality-calibration-v2",
+  "sample_id": "6d2b3f2454c5ab0424a597414f2021514e0064d8a35fd8f36cb4d6451fa5ec95",
+  "evaluators": [
+    {
+      "id": "reviewer-a",
+      "provider": "opencode-go",
+      "model": "deepseek-v4-flash",
+      "thinking": "max",
+      "runs": 2
+    },
+    {
+      "id": "reviewer-b",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-luna",
+      "thinking": "max",
+      "runs": 2
+    }
+  ],
+  "thresholds": {
+    "schema_coverage": 1.0,
+    "structure_failures_max": 0,
+    "finding_jaccard_min": 0.7,
+    "critical_fact_agreement_min": 0.8,
+    "derived_severity_agreement_min": 0.9
+  },
+  "frozen_inputs": {
+    "policy_v2_sha256": "3f868cb337bcc869e901cd33fd0a568b29d18d25008faa7d52b6b4bdaf8af139",
+    "prompt_sha256": "6a135bfbb7a86461060162c114aa9310a63918453fe9f2c600b48f1f936b4928",
+    "rules_sha256": "c188424b9bd3422bf84b3e1e4991dc124a294fe439755aedbb56a47463c9c020",
+    "anchors_sha256": "80bb94caa0aafc4528761ca5ec8810f67be47de6abc8de4aed43eeaf9b32e0f9"
+  },
+  "connection_failure_retry_limit": 1,
+  "replace_content_failures": false,
+  "preregistration_id": "0f2a09c5ce5053fa2516434dbc25d1a880625ff0f2508066df8b16fab40b9bb5"
+}

@@ -1,0 +1,102 @@
+{
+  "contract": "tome4-quality-policy-v2",
+  "schema_version": 2,
+  "description": "Offline evaluator-v2 contracts, dataset isolation, evidence, matching and adjudication policy.",
+  "method_version": "mqm-pilot-v2",
+  "contracts": {
+    "assessment": "tome4-quality-assessment-v2",
+    "issue_cluster": "tome4-quality-issue-cluster-v1",
+    "dispute": "tome4-quality-dispute-v1",
+    "dispute_identity": "tome4-quality-dispute-identity-v1",
+    "adjudication": "tome4-quality-adjudication-v2",
+    "report": "tome4-quality-report-v2",
+    "evaluator_bundle": "tome4-quality-evaluator-bundle-v2"
+  },
+  "datasets": {
+    "calibration": {
+      "contract": "tome4-quality-calibration-v2",
+      "seed": "tome4-quality-calibration-v2",
+      "size": 32,
+      "boundary_enriched": true
+    },
+    "holdout": {
+      "contract": "tome4-quality-holdout-v2",
+      "seed": "tome4-quality-holdout-v2",
+      "size": 32,
+      "boundary_enriched": false
+    }
+  },
+  "evaluator_ids": ["reviewer-a", "reviewer-b"],
+  "max_shard_items": 20,
+  "calibration_constraints": [
+    {"id": "number-unit", "min": 4},
+    {"id": "logic", "min": 6},
+    {"id": "terminology", "min": 4},
+    {"id": "recoverable-context", "min": 4},
+    {"id": "narrative-flavor", "min": 4},
+    {"id": "presentation-style", "min": 6},
+    {"id": "technical-structure", "min": 4}
+  ],
+  "holdout_constraints": [
+    {"id": "structural-risk", "min": 6},
+    {"id": "term-evidence", "min": 4}
+  ],
+  "holdout_distribution_dimensions": ["profile", "component-group", "length"],
+  "tri_state_values": ["yes", "no", "unknown"],
+  "defect_classes": [
+    "semantic", "terminology", "presentation", "style", "technical",
+    "context", "source"
+  ],
+  "phenomena": [
+    "number", "number-range", "unit", "condition", "polarity",
+    "entity-role", "scope", "trigger-timing", "omission", "addition",
+    "terminology", "proper-name", "ambiguity", "fluency", "punctuation",
+    "register", "voice", "markup", "format", "runtime-key", "alignment",
+    "source-problem", "other"
+  ],
+  "meaning_change_types": [
+    "omitted", "added", "weakened", "strengthened", "reversed",
+    "reassigned", "made-ambiguous", "presentation-only", "none", "unknown"
+  ],
+  "impact_fact_fields": [
+    "is_defect", "is_substantive", "mechanics_context",
+    "changes_rule_understanding", "can_change_player_action",
+    "required_operation_info_missing", "opposite_or_different_rule",
+    "recoverable_from_immediate_context", "technical_gate_confirmed",
+    "runtime_broken", "single_item_display_broken"
+  ],
+  "critical_impact_facts": [
+    "is_defect", "is_substantive", "mechanics_context",
+    "changes_rule_understanding", "can_change_player_action",
+    "required_operation_info_missing", "opposite_or_different_rule",
+    "technical_gate_confirmed", "runtime_broken", "single_item_display_broken"
+  ],
+  "model_finding_scope": {
+    "required_impact_facts": {
+      "is_defect": "yes",
+      "is_substantive": "yes"
+    },
+    "excluded_defect_classes": ["presentation", "style"],
+    "excluded_meaning_change_types": ["presentation-only", "none"],
+    "technical_requires_host_gate": true
+  },
+  "amplification_scopes": [
+    "local", "repeated-context", "cross-component", "systemic", "unknown"
+  ],
+  "anchor_relations": ["below", "comparable", "meets", "exceeds", "unknown"],
+  "reuse_recommendations": [
+    "general", "same-domain", "same-tag", "exact-context", "no-reuse"
+  ],
+  "span_states": ["exact", "ambiguous", "missing", "whole-item"],
+  "cluster_types": [
+    "full-match", "partial-match", "split-merge", "left-only",
+    "right-only", "ambiguous"
+  ],
+  "mergeable_phenomena": [
+    ["number", "number-range"],
+    ["omission", "condition"],
+    ["omission", "unit"],
+    ["terminology", "proper-name"],
+    ["fluency", "ambiguity"]
+  ]
+}

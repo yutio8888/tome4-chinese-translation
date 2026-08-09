@@ -103,13 +103,13 @@ t("Addon #LIGHT_GREEN#%s#LAST# uploaded, players may now play with it!", "插件
 t("Addon #LIGHT_RED#%s#LAST# not upload: %s", "插件#LIGHT_RED#%s#LAST#未能上传: %s", "tformat")
 t("Connecting to server", "正在连接到服务器", "_t")
 t("Steam Workshop: %s", "Steam创意工坊: %s", "tformat")
-t("Update error: %s", "上传错误: %s", "tformat")
+t("Update error: %s", "更新错误: %s", "tformat")
 t("unknown", "未知", "_t")
 t("Uploading addon to Steam Workshop", "正在将插件上传到Steam创意工坊", "_t")
 t("There was an error uploading the addon.", "上传插件时发生错误", "_t")
 t([[Addon succesfully uploaded to the Workshop.
 You need to accept Steam Workshop Agreement in your Steam Client before the addon is visible to the community.]], [[插件已经上传到Steam创意工坊。
-你可能需要在你的Steam客户端中接受Steam创意工坊许可协议，才能让其他用户看到你的插件。]], "_t")
+你需要先在Steam客户端中接受Steam创意工坊许可协议，才能让其他用户看到你的插件。]], "_t")
 t("Go to Workshop", "去创意工坊", "_t")
 t("Later", "以后再说", "_t")
 t("Addon succesfully uploaded to the Workshop.", "插件已经上传到Steam创意工坊。", "_t")
@@ -133,7 +133,7 @@ t([[Addons on Steam Workshop need a "preview" image for the listing.
 The game has generated a default one, however it is best if you make a custom one and place it in the folder #LIGHT_GREEN#%s#LAST# named #LIGHT_BLUE#%s#LAST# (512x512 is a good size for it)
 You can still upload now and place it later.]], [[Steam创意工坊上的插件需要一张预览图。
 游戏已经创建了一张默认的预览图，不过你最好自己制作一个，然后放置在文件夹#LIGHT_GREEN#%s#LAST#内，文件名为#LIGHT_BLUE#%s#LAST#（512x512是一个合适的图片大小）
-You can still upload now and place it later.]], "_t")
+你也可以现在先上传，之后再放置预览图。]], "_t")
 t("Upload now", "现在上传", "_t")
 t("Wait", "等待", "_t")
 t("Generate Addon's MD5", "生成插件MD5", "_t")

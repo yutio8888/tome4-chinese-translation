@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "tome4-quality-stability-preregistration-v1",
+  "type": "object", "additionalProperties": false,
+  "required": [
+    "contract", "schema_version", "sample_contract", "sample_id",
+    "evaluators", "thresholds", "frozen_inputs",
+    "connection_failure_retry_limit", "replace_content_failures",
+    "preregistration_id"
+  ],
+  "properties": {
+    "contract": {"const": "tome4-quality-stability-preregistration-v1"},
+    "schema_version": {"const": 1},
+    "sample_contract": {"const": "tome4-quality-calibration-v2"},
+    "sample_id": {"$ref": "#/definitions/sha"},
+    "evaluators": {"type": "array", "minItems": 2, "maxItems": 2},
+    "thresholds": {"type": "object"},
+    "frozen_inputs": {"type": "object"},
+    "connection_failure_retry_limit": {"const": 1},
+    "replace_content_failures": {"const": false},
+    "preregistration_id": {"$ref": "#/definitions/sha"}
+  },
+  "definitions": {"sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

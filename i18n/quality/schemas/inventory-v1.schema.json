@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "tome4-quality-inventory-v1",
+  "title": "ToME4 quality inventory entry (inventory.jsonl line)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "unit_id", "revision_id", "version", "component", "section", "source",
+    "target", "source_tag", "args_order", "special", "occurrences",
+    "profile", "profile_confidence", "domain_hints", "relevant_terms",
+    "structure", "gate_signals", "risk_flags", "source_length_bin"
+  ],
+  "properties": {
+    "unit_id": {"$ref": "#/definitions/sha256"},
+    "revision_id": {"$ref": "#/definitions/sha256"},
+    "version": {"type": "string"},
+    "component": {"type": "string"},
+    "section": {"type": "string"},
+    "source": {"type": "string"},
+    "target": {"type": "string"},
+    "source_tag": {"type": ["string", "null"]},
+    "args_order": {"type": ["array", "null"], "items": {"type": "integer"}},
+    "special": {},
+    "occurrences": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/definitions/occurrence"}
+    },
+    "profile": {"type": "string"},
+    "profile_confidence": {"enum": ["high", "medium", "low"]},
+    "domain_hints": {"type": "array", "items": {"type": "string"}},
+    "relevant_terms": {"type": "array", "items": {"$ref": "#/definitions/term"}},
+    "structure": {"$ref": "#/definitions/structure"},
+    "gate_signals": {"$ref": "#/definitions/gate_signals"},
+    "risk_flags": {"type": "array", "items": {"type": "string"}},
+    "source_length_bin": {"type": "string"}
+  },
+  "definitions": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "occurrence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["logical_path", "section", "line", "ordinal"],
+      "properties": {
+        "logical_path": {"type": "string"},
+        "section": {"type": "string"},
+        "line": {"type": ["integer", "null"]},
+        "ordinal": {"type": "integer"}
+      }
+    },
+    "term": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "target", "category", "source_tag", "status", "scope"],
+      "properties": {
+        "source": {"type": "string"},
+        "target": {"type": "string"},
+        "category": {"type": "string"},
+        "domain": {"type": "string"},
+        "source_tag": {"type": "string"},
+        "status": {"type": "string"},
+        "scope": {"type": "string"},
+        "notes": {"type": "string"},
+        "match": {"enum": ["full", "partial"]}
+      }
+    },
+    "structure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["printf", "markup", "at_tokens", "newlines", "multiline"],
+      "properties": {
+        "printf": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["source_raw", "source_conversions", "target_raw", "target_conversions", "args_order", "role_order"],
+          "properties": {
+            "source_raw": {"type": "array", "items": {"type": "string"}},
+            "source_conversions": {"type": "array", "items": {"type": "string"}},
+            "target_raw": {"type": "array", "items": {"type": "string"}},
+            "target_conversions": {"type": "array", "items": {"type": "string"}},
+            "args_order": {"type": ["array", "null"], "items": {"type": "integer"}},
+            "role_order": {"type": ["array", "null"], "items": {"type": "string"}}
+          }
+        },
+        "markup": {"$ref": "#/definitions/multiset_pair"},
+        "at_tokens": {"$ref": "#/definitions/multiset_pair"},
+        "newlines": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["source", "target"],
+          "properties": {
+            "source": {"type": "integer"},
+            "target": {"type": "integer"}
+          }
+        },
+        "multiline": {"type": "boolean"}
+      }
+    },
+    "multiset_pair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "target"],
+      "properties": {
+        "source": {"type": "object"},
+        "target": {"type": "object"}
+      }
+    },
+    "gate_signals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lua_load_valid", "empty_target", "format_signature_match",
+        "format_shape_match", "markup_multiset_match",
+        "at_token_multiset_match", "runtime_collision",
+        "cross_component_variant", "needs_review"
+      ],
+      "properties": {
+        "lua_load_valid": {"type": "boolean"},
+        "empty_target": {"type": "boolean"},
+        "format_signature_match": {"type": ["boolean", "null"]},
+        "format_shape_match": {"type": ["boolean", "null"]},
+        "markup_multiset_match": {"type": "boolean"},
+        "at_token_multiset_match": {"type": "boolean"},
+        "runtime_collision": {"type": "boolean"},
+        "cross_component_variant": {"type": "boolean"},
+        "needs_review": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

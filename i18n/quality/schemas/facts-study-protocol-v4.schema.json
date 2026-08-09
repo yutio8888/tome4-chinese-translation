@@ -1,0 +1,351 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-facts-study-protocol-v4",
+  "title": "Facts-study curation protocol v4 (enriched pool)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "tome4-quality-facts-study-protocol-v4"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "arms": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "string",
+        "enum": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "N",
+          "L",
+          "F"
+        ]
+      }
+    },
+    "item_count": {
+      "const": 20
+    },
+    "max_external_slots": {
+      "const": 33
+    },
+    "shard_count": {
+      "const": 1
+    },
+    "replicates_per_arm": {
+      "const": 3
+    },
+    "schedule_seed": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_order_seed": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bootstrap_seed": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bootstrap_replicates": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "seed_application": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cache_policy": {
+      "const": "disabled"
+    },
+    "replacement_policy": {
+      "const": "forbidden"
+    },
+    "sample_contract": {
+      "const": "tome4-quality-facts-study-sample-v2"
+    },
+    "pool_contract": {
+      "const": "tome4-quality-facts-study-curation-pool-v1"
+    },
+    "dataset_registry": {
+      "const": "dataset-registry-v1.json"
+    },
+    "selection_seed": {
+      "type": "string",
+      "minLength": 1
+    },
+    "historical_exclusions": {
+      "const": "facts-study-exclusions-v1.json"
+    },
+    "contrasts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "fact_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "packet_contract": {
+          "const": "tome4-quality-fact-packet-v3"
+        },
+        "facts_author_bundle_contract": {
+          "const": "tome4-quality-facts-author-bundle-v3"
+        },
+        "min_facts_per_item": {
+          "const": 0
+        },
+        "max_facts_per_item": {
+          "const": 4
+        },
+        "supplemental_only": {
+          "const": true
+        },
+        "language": {
+          "const": "english-metalanguage"
+        },
+        "common_input_restatements": {
+          "const": "forbidden"
+        },
+        "allowed_provenance_kinds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "terminology",
+              "public-source",
+              "versioned-context"
+            ]
+          }
+        },
+        "addressed_definition": {
+          "const": "claim-cites-directly-supporting-supplemental-fact"
+        }
+      },
+      "required": [
+        "packet_contract",
+        "facts_author_bundle_contract",
+        "min_facts_per_item",
+        "max_facts_per_item",
+        "supplemental_only",
+        "language",
+        "common_input_restatements",
+        "allowed_provenance_kinds",
+        "addressed_definition"
+      ]
+    },
+    "quota": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fact_dependent_defects": {
+          "const": 8
+        },
+        "surface_defects": {
+          "const": 6
+        },
+        "clean_acceptable": {
+          "const": 6
+        },
+        "clean_min": {
+          "const": 5
+        },
+        "fact_traps_min": {
+          "const": 3
+        },
+        "addressed_claims_min": {
+          "const": 8
+        },
+        "unaddressed_claims_min": {
+          "const": 8
+        }
+      },
+      "required": [
+        "fact_dependent_defects",
+        "surface_defects",
+        "clean_acceptable",
+        "clean_min",
+        "fact_traps_min",
+        "addressed_claims_min",
+        "unaddressed_claims_min"
+      ]
+    },
+    "pool_targets": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "term-proper-name": {
+          "const": 6
+        },
+        "mechanism-condition-number": {
+          "const": 30
+        },
+        "entity-relation": {
+          "const": 25
+        },
+        "ui-role": {
+          "const": 4
+        },
+        "general-semantic-clean-control": {
+          "const": 15
+        }
+      },
+      "required": [
+        "term-proper-name",
+        "mechanism-condition-number",
+        "entity-relation",
+        "ui-role",
+        "general-semantic-clean-control"
+      ]
+    },
+    "length_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min_chars": {
+          "const": 300
+        },
+        "max_chars": {
+          "const": 1500
+        },
+        "exempt_strata": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "term-proper-name",
+              "ui-role"
+            ]
+          }
+        },
+        "prefer_long_source": {
+          "const": true
+        },
+        "long_source_peak_chars": {
+          "const": 1500
+        }
+      },
+      "required": [
+        "min_chars",
+        "max_chars",
+        "exempt_strata",
+        "prefer_long_source",
+        "long_source_peak_chars"
+      ]
+    },
+    "controlled_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_fact_dependent_fill": {
+          "const": 8
+        },
+        "max_variants_per_base": {
+          "const": 1
+        },
+        "structure_preservation": {
+          "const": true
+        },
+        "grant_clearance": {
+          "const": false
+        },
+        "natural_metrics_separable": {
+          "const": true
+        }
+      },
+      "required": [
+        "max_fact_dependent_fill",
+        "max_variants_per_base",
+        "structure_preservation",
+        "grant_clearance",
+        "natural_metrics_separable"
+      ]
+    },
+    "evaluators": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "provider": {
+            "type": "string",
+            "minLength": 1
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1
+          },
+          "thinking": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "provider",
+          "model",
+          "thinking"
+        ]
+      }
+    },
+    "decision_rule": {
+      "type": "object"
+    },
+    "risk_bonus": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source-has-number-or-unit": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "source-has-negation-or-condition": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    }
+  },
+  "required": [
+    "contract",
+    "schema_version",
+    "arms",
+    "item_count",
+    "max_external_slots",
+    "shard_count",
+    "replicates_per_arm",
+    "schedule_seed",
+    "execution_order_seed",
+    "bootstrap_seed",
+    "bootstrap_replicates",
+    "seed_application",
+    "cache_policy",
+    "replacement_policy",
+    "sample_contract",
+    "pool_contract",
+    "dataset_registry",
+    "selection_seed",
+    "historical_exclusions",
+    "contrasts",
+    "fact_policy",
+    "quota",
+    "pool_targets",
+    "length_policy",
+    "risk_bonus",
+    "controlled_policy",
+    "evaluators",
+    "decision_rule"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "assessment_contract": "tome4-quality-language-assessment-v1",
+  "bundle_contract": "tome4-quality-language-bundle-v1",
+  "contract": "tome4-quality-language-channel-v1",
+  "external_calibration_authorized": false,
+  "finding_taxonomy": [
+    "unnatural-collocation",
+    "register-mismatch",
+    "readability",
+    "target-language-grammar",
+    "target-language-ambiguity"
+  ],
+  "forbidden_inputs": [
+    "facts",
+    "mechanism",
+    "risk_flags",
+    "gate_signals",
+    "semantic_assessment",
+    "fact_verification_assessment",
+    "anchors",
+    "severity"
+  ],
+  "host_rules": {
+    "merge_with_semantic_severity": false,
+    "missing_channel_is_complete": false,
+    "requires_independent_gold": true,
+    "requires_separate_external_authorization": true,
+    "requires_separate_preregistration": true,
+    "requires_separate_stability_gate": true
+  },
+  "schema_version": 1,
+  "status": "contract-frozen-no-external-runs",
+  "visible_inputs": [
+    "source",
+    "target",
+    "item_kind",
+    "source_tag",
+    "bounded_context"
+  ]
+}

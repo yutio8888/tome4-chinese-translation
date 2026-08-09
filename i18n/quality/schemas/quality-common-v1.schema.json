@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-common-v1",
+  "title": "Shared quality claim/evidence/provenance definitions v1",
+  "description": "Common $defs referenced by curation and v2/v3 quality contracts. Cross-artifact hash, lineage and quota checks remain host-side Python validation.",
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "quote": {"type": "string"},
+        "occurrence": {"type": "integer", "minimum": 0},
+        "whole_item": {"type": "boolean"}
+      },
+      "required": ["quote", "occurrence"]
+    },
+    "evidenceSpan": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "state": {"type": "string", "enum": ["exact", "whole-item", "missing", "ambiguous"]},
+        "start": {"type": ["integer", "null"], "minimum": 0},
+        "end": {"type": ["integer", "null"], "minimum": 0},
+        "quote": {"type": "string"},
+        "occurrence": {"type": "integer", "minimum": 0},
+        "whole_item": {"type": "boolean"}
+      },
+      "required": ["state", "start", "end", "quote", "occurrence"]
+    },
+    "locator": {
+      "type": "object",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "type": {"const": "line-range"},
+            "start_line": {"type": "integer", "minimum": 1},
+            "end_line": {"type": "integer", "minimum": 1}
+          },
+          "required": ["type", "start_line", "end_line"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "type": {"const": "term-row"},
+            "row": {"type": "integer", "minimum": 1}
+          },
+          "required": ["type", "row"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "type": {"const": "context-key"},
+            "key": {"type": "string"},
+            "value": {"type": "string"}
+          },
+          "required": ["type", "key", "value"]
+        }
+      ]
+    },
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "repository": {"type": "string", "minLength": 1},
+        "revision": {"type": "string", "minLength": 1},
+        "logical_path": {"type": "string", "minLength": 1, "pattern": "^(?!.*:).*$"},
+        "file_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      },
+      "required": ["repository", "revision", "logical_path", "file_sha256"]
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["terminology", "public-source", "versioned-context"]
+        },
+        "resource": {"$ref": "#/$defs/resource"},
+        "locator": {"$ref": "#/$defs/locator"}
+      },
+      "required": ["kind", "resource", "locator"]
+    },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fact_id": {"type": "string", "pattern": "^fact-[0-9a-f]{16}$"},
+        "fact_type": {
+          "type": "string",
+          "enum": ["term-authority", "mechanism", "condition", "entity-relation", "ui-role"]
+        },
+        "statement": {"type": "string", "minLength": 1},
+        "provenance": {"$ref": "#/$defs/provenance"}
+      },
+      "required": ["fact_id", "fact_type", "statement", "provenance"]
+    },
+    "subject": {
+      "type": "object",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {"const": "canonical-revision"},
+            "revision_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          },
+          "required": ["kind", "revision_id"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {"const": "controlled-mutation"},
+            "revision_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "variant_target": {"type": "string"},
+            "mutation_kind": {"type": "string", "minLength": 1},
+            "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          },
+          "required": ["kind", "revision_id", "variant_target", "mutation_kind", "digest"]
+        }
+      ]
+    },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": ["none", "unknown", "other", "taxonomy-unknown", "context-insufficient", "evidence-invalid"]
+        },
+        "routing": {"type": "string", "enum": ["normal", "manual", "rejected"]},
+        "requires_manual": {"type": "boolean"},
+        "auto_minor": {"const": false},
+        "reason": {"type": "string", "minLength": 1}
+      },
+      "required": ["state", "routing", "requires_manual", "auto_minor", "reason"]
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {"type": "string", "minLength": 1},
+        "error_family": {"type": "string", "enum": ["semantic", "terminology", "ui"]},
+        "phenomenon": {
+          "type": "string",
+          "enum": [
+            "number", "number-range", "unit", "condition", "polarity",
+            "entity-role", "scope", "trigger-timing", "omission", "addition",
+            "terminology", "proper-name", "ambiguity", "other"
+          ]
+        },
+        "meaning_change": {
+          "type": "string",
+          "enum": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"]
+        },
+        "source_evidence": {"$ref": "#/$defs/evidence"},
+        "target_evidence": {"$ref": "#/$defs/evidence"},
+        "fact_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^fact-[0-9a-f]{16}$"}
+        },
+        "requires_manual": {"type": "boolean"},
+        "uncertainty": {"$ref": "#/$defs/uncertainty"}
+      },
+      "required": [
+        "claim_id", "error_family", "phenomenon", "meaning_change",
+        "source_evidence", "target_evidence", "fact_ids", "requires_manual"
+      ]
+    }
+  }
+}

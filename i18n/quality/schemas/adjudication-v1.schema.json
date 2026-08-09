@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "tome4-quality-adjudication-v1",
+  "title": "ToME4 quality adjudication (one adjudicator, one sample)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "quality_contract", "sample_id", "items"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "quality_contract": {"const": "tome4-quality-adjudication-v1"},
+    "sample_id": {"type": "string"},
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/definitions/item"}
+    }
+  },
+  "definitions": {
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "revision_id", "assessment_ids", "context_sufficient",
+        "resolved_findings", "quality_vector", "confidence",
+        "provisional_grade", "reuse_scope", "rationale"
+      ],
+      "properties": {
+        "revision_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "assessment_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"}
+        },
+        "context_sufficient": {"type": "boolean"},
+        "resolved_findings": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/resolved_finding"}
+        },
+        "quality_vector": {"$ref": "#/definitions/quality_vector"},
+        "confidence": {"type": "string"},
+        "provisional_grade": {"type": "string"},
+        "reuse_scope": {"type": "string"},
+        "rationale": {"type": "string"}
+      }
+    },
+    "resolved_finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finding_id", "evaluator_id", "error_code", "severity", "state", "body"
+      ],
+      "properties": {
+        "finding_id": {"type": "string"},
+        "evaluator_id": {"type": "string"},
+        "error_code": {"type": "string"},
+        "severity": {"type": "string"},
+        "state": {"enum": ["confirmed", "partially_confirmed", "rejected", "resolved"]},
+        "body": {"type": "string"},
+        "rationale": {"type": "string"}
+      }
+    },
+    "quality_vector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "accuracy", "mechanics_context", "terminology", "fluency",
+        "style", "ui_render", "corpus_consistency"
+      ],
+      "properties": {
+        "accuracy": {"type": ["integer", "null"], "minimum": 0, "maximum": 4},
+        "mechanics_context": {"type": ["integer", "null"], "minimum": 0, "maximum": 4},
+        "terminology": {"type": ["integer", "null"], "minimum": 0, "maximum": 4},
+        "fluency": {"type": ["integer", "null"], "minimum": 0, "maximum": 4},
+        "style": {"type": ["integer", "null"], "minimum": 0, "maximum": 4},
+        "ui_render": {"type": ["integer", "null"], "minimum": 0, "maximum": 4},
+        "corpus_consistency": {"type": ["integer", "null"], "minimum": 0, "maximum": 4}
+      }
+    }
+  }
+}

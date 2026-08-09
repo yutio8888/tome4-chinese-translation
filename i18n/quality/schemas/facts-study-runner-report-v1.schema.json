@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-facts-study-runner-report-v1",
+  "additionalProperties": false,
+  "properties": {
+    "arm": {"enum": ["A", "B", "C", "D", "N", "L", "F"]},
+    "assessment": {"type": "string"},
+    "assessment_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "attempts": {"const": 1},
+    "blind_inputs": {"type": "object"},
+    "cache_decision": {"const": "disabled"},
+    "charged_or_possible_transfers": {"const": 1},
+    "contract": {"const": "tome4-quality-facts-study-runner-report-v1"},
+    "elapsed_seconds": {"minimum": 0, "type": "number"},
+    "execution_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "findings": {"minimum": 0, "type": "integer"},
+    "harness_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "model": {"minLength": 1, "type": "string"},
+    "normalization": {"type": "string"},
+    "ok": {"const": true},
+    "ordinal": {"maximum": 33, "minimum": 1, "type": "integer"},
+    "pi_executable": {
+      "additionalProperties": false,
+      "properties": {
+        "node_path": {"minLength": 1, "type": "string"},
+        "node_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+        "node_tree": {"type": "object"},
+        "package_tree": {"type": "object"},
+        "path": {"minLength": 1, "type": "string"},
+        "sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+      },
+      "required": ["path", "sha256", "package_tree", "node_path", "node_sha256", "node_tree"],
+      "type": "object"
+    },
+    "preregistration_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "provider": {"minLength": 1, "type": "string"},
+    "raw_output_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "replacement_policy": {"const": "forbidden"},
+    "report": {"type": "string"},
+    "run_directory": {"type": "string"},
+    "runner_report_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "seed": {"minLength": 1, "type": "string"},
+    "shards": {"const": 1},
+    "slot_id": {"minLength": 1, "type": "string"},
+    "study_id": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "thinking": {"minLength": 1, "type": "string"}
+  },
+  "required": ["contract", "ok", "study_id", "preregistration_id", "slot_id", "ordinal", "arm", "seed", "execution_id", "provider", "model", "thinking", "harness_sha256", "pi_executable", "cache_decision", "replacement_policy", "attempts", "charged_or_possible_transfers", "shards", "blind_inputs", "report", "run_directory", "runner_report_id", "assessment", "normalization", "assessment_sha256", "raw_output_sha256", "findings", "elapsed_seconds"],
+  "type": "object"
+}

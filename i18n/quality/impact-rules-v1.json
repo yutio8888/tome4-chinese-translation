@@ -1,0 +1,77 @@
+{
+  "contract": "tome4-quality-impact-rules-v1",
+  "schema_version": 1,
+  "description": "Ordered deterministic severity rules. First matching rule wins; unknown facts needed by a possible rule require adjudication.",
+  "severity_order": ["blocker", "major", "minor", "note"],
+  "rules": [
+    {
+      "id": "S-FORMAT-BLOCKER-01",
+      "severity": "blocker",
+      "category": "technical-gate",
+      "all": {"technical_gate_confirmed": "yes", "runtime_broken": "yes"}
+    },
+    {
+      "id": "S-FORMAT-MAJOR-01",
+      "severity": "major",
+      "category": "technical-gate",
+      "all": {"technical_gate_confirmed": "yes", "single_item_display_broken": "yes"}
+    },
+    {
+      "id": "S-RULE-01",
+      "severity": "major",
+      "category": "substantive",
+      "all": {
+        "is_defect": "yes",
+        "is_substantive": "yes",
+        "mechanics_context": "yes",
+        "changes_rule_understanding": "yes",
+        "can_change_player_action": "yes"
+      },
+      "phenomenon_in": [
+        "number", "number-range", "unit", "condition", "polarity",
+        "entity-role", "scope", "trigger-timing"
+      ]
+    },
+    {
+      "id": "S-OPER-01",
+      "severity": "major",
+      "category": "substantive",
+      "all": {
+        "is_defect": "yes",
+        "is_substantive": "yes",
+        "required_operation_info_missing": "yes",
+        "can_change_player_action": "yes"
+      }
+    },
+    {
+      "id": "S-REVERSE-01",
+      "severity": "major",
+      "category": "substantive",
+      "all": {
+        "is_defect": "yes",
+        "is_substantive": "yes",
+        "opposite_or_different_rule": "yes",
+        "changes_rule_understanding": "yes"
+      }
+    },
+    {
+      "id": "S-SUBSTANTIVE-MINOR-01",
+      "severity": "minor",
+      "category": "substantive-minor",
+      "all": {"is_defect": "yes", "is_substantive": "yes"}
+    },
+    {
+      "id": "S-PRESENTATION-MINOR-01",
+      "severity": "minor",
+      "category": "presentation-minor",
+      "all": {"is_defect": "yes", "is_substantive": "no"},
+      "defect_class_in": ["presentation", "style"]
+    },
+    {
+      "id": "S-NOTE-01",
+      "severity": "note",
+      "category": "note",
+      "all": {"is_defect": "no"}
+    }
+  ]
+}

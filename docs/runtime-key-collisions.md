@@ -1,0 +1,72 @@
+# ToME4 运行时键（同 TAG 多译）冲突档案
+
+> 本档案记录**所有**同 `(source, source_tag)` 多译检测问题。ToME4 当前翻译机制下，同键多译会导致译文覆盖，因此必须逐条追踪处置状态，不能仅依赖临时报告。
+>
+> 维护命令：`python3 -B tools/scan_runtime_collisions.py`（输出 JSON/MD 到 `.artifacts/i18n/`）；本档案按扫描结果人工维护。
+
+## 一、运行时机制背景
+
+- ToME4 翻译运行时键 = `(component, source, source_tag)`；游戏引擎加载多个 locale 文件时，**同键多条目由后加载者覆盖先加载者**。
+- 同一组件内同键不同 target：`tools/i18n lint` 已作为 `runtime-collision`（error 级）检测，`policy.allowed_runtime_collisions` 可豁免。
+- **跨组件**同键不同 target：lint 不检测（逐文件独立判定），但引擎加载时同样发生覆盖——本档案针对此缺口。
+- 同键多条目但 target 相同（重复声明）：仅计数（`duplicate_runtime_keys`），无覆盖风险。
+
+## 二、检测语义
+
+扫描 `manifest.components` 全部译文，聚合键 `(source, source_tag)`：
+
+- 键在 **≥2 个组件**中出现，且
+- target 集合 **> 1**
+
+即判定为跨组件运行时覆盖风险项。
+
+## 三、当前问题清单（0 条，扫描于 2026-08-03 light 裁决后）
+
+当前无跨组件同键多译。
+
+## 四、已修复记录
+
+### 4.0 light 共享键裁决（2026-08-03）
+
+`light`（entity subtype）在 tome 组件内同键双译（crystal.lua「光」/ light-armors.lua「轻甲」）触发 `runtime-collision` error；经源码统计裁决：
+
+- **用法分布**：护甲材质 `type="armor", subtype="light"` 45 处（出生装备/NPC 装备/商店/`light-armors.lua` 6 件）；光元素生物 `type="elemental", subtype="light"` 1 处（crystal.lua wisp）；光球召唤物 `type="orb", subtype="light"` 1 处（world-artifacts.lua Lightbringer）。
+- **机制**：引擎 `Object.lua:1216`、`Actor.lua:2037`、`Inventory.lua:289` 等均以 `_t(subtype, "entity subtype")` 显示，**不带 type 参数**，同一运行时键同时服务全部 type。
+- **裁决**：统一为「轻甲」（45:2 多数 + 物品分类 UI 高频；wisp 提示显示「元素 / 轻甲」为已知局限，已记入术语表 notes）。术语表删除「光」行，轻甲行升 preferred。
+
+### 4.1 2026-08-03 修复批次（`<待填 commit>`）
+
+将档案初版 26 条减至 1 条：
+
+- **3.1 格式变体 10 条**：属性行 `+0 Strength` 系列半角逗号/空格（cults 1、orcs 4）、高分榜 tformat 尾空格（boot 2，统一为 `#GREEN# 高分榜#WHITE#` 形态）、Steam Workshop 冒号+尾空格（boot 1）、`[Allow training of talent category]`（orcs 统一为「允许训练技能树 %s（熟练度 %0.2f）」）、`#LIGHT_RED##Target# is out of sight`（orcs「将中断」→「中断了」）。
+- **3.2 长文本 12 条**：狼描述（boot→engine/tome 版）、巨魔描述（boot→engine/tome 版）、板甲美女（orcs→tome 版）、无面人形（cults→tome 版）、巨大胸腔（cults→tome 版）、半智慧树（orcs→tome 版）、Epidemic 技能（cults→tome 版）、Grab a target（ashes→tome 版）、weapon Accuracy（orcs→tome 版）、混乱日志（tome→orcs 版，更通顺）、Welcome 在线功能长文（engine→boot 完整版）、网络禁用说明（engine→boot 完整版）。
+- **3.2 错字**：Embers of Rage 扩展介绍（engine「兽人成为」→「兽人被称为」）。
+- **3.3 待迁移**：`High Sun Paladin Aeryn` 迁移完成（possessors 1 处 + orcs entity name 1 处 + orcs 成就文本 1 处 →「高阶太阳骑士艾琳」，与 tome 一致）。
+
+### 4.2 早期批次
+
+| 批次 commit | 内容 |
+|---|---|
+| `df62a15`（2026-08-03） | 33 条同组件同 tag 多译统一：ladder 台阶/梯子(40 处)、Stat modifiers 空格(6)、属性行半角/空格(4)、Blond Beard 空格(6)、her 她/她的、Active 启动/激活、exit to the worldmap 出口、raging volcano 喷发中的火山、snowy tree 积雪的树、错译修正（She looks tired/时空虫洞/太阳之墙）等 |
+| `e1c4528`（2026-08-03） | steamtech 领域修正；Air 资源补录 |
+| 历次批次（b7–b22、note1–2、补修 `5d26960`） | farportal 空格、#GOLD#Stat modifiers 无空格形式、致盲！全角、吸血鬼领主、骇异 subtype 等 |
+
+## 六、重复运行键分类（2026-08-03，阶段 1 产出）
+
+工具：`python3 -B tools/classify_runtime_keys.py`（报告在 `.artifacts/i18n/runtime-key-classification/`）。
+
+- **规模**：1,717 个重复键，**全部同 target**（无运行时覆盖差异）；`duplicate_runtime_keys` 仅计数，无风险。
+- **结论**：1,717 个全部为**跨文件合法重复**（桶 A）；**0 个同文件内冗余**（桶 C 为空）。
+  - 各数据文件（`data/general/npcs`、`grids`、`birth/classes`、`zones` 等）按 ToME 惯例独立声明 `t()`，同键同译是源码结构，保留。
+  - 构建产物按 runtime key 合并（build 验证 expected_runtime_keys 19,023 vs 译文 30,170），译文中的重复声明**不影响产物**；清理无收益且有风险（破坏与源文件对应性），故全部保留。
+- **tag 分布**：`_t` 698 / `entity name` 353 / `entity subtype` 114 / `entity keyword` 103 / `entity type` 71 / `logPlayer` 69 / `effect subtype` 68 / `tformat` 66 / `logSeen` 50 …
+- **目录模式**：`data/general` 1,664 / `data/zones` 756 / `data/talents` 433 / `data/birth` 426 / `data/timed_effects` 296 / `data/chats` 145…
+- **术语表交叉验证**：重复键中 294/1,717 的 source 已入术语表；未覆盖者主要是地形内部键（wall/floor/grass/door，按 TERMINOLOGY.md 原设计不提升）。
+- **补录**（随本阶段）：`way to the next/previous level`（出口提示 12 处）、`%s resists the stun!`（震慑抵抗日志 11 处）。
+
+## 七、维护规则
+
+1. 每次译文批量修改后运行 `python3 -B tools/scan_runtime_collisions.py`，将新增/消失项同步到本档案。
+2. 新发现的同键多译先补入本档案（状态=待统一/待裁决），再按批次修复；修复 commit 后更新状态并记录 commit 号。
+3. 有意保留项必须注明理由（语境区分须有术语表多行记录；历史迁移须有目标批次）。
+4. 本档案与 `terminology.tsv` 的 `status=review` 条目、lint 的 `runtime-collision`/`editorial-collision` 形成三层防线：组件内 error（lint）、跨组件档案（本文件）、术语表裁决（TSV）。

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-quality-language-channel-v1",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_contract": {"const": "tome4-quality-language-assessment-v1"},
+    "bundle_contract": {"const": "tome4-quality-language-bundle-v1"},
+    "contract": {"const": "tome4-quality-language-channel-v1"},
+    "external_calibration_authorized": {"const": false},
+    "finding_taxonomy": {"minItems": 1, "type": "array", "uniqueItems": true},
+    "forbidden_inputs": {"minItems": 1, "type": "array", "uniqueItems": true},
+    "host_rules": {"type": "object"},
+    "schema_version": {"const": 1},
+    "status": {"const": "contract-frozen-no-external-runs"},
+    "visible_inputs": {"minItems": 1, "type": "array", "uniqueItems": true}
+  },
+  "required": ["contract", "schema_version", "status", "bundle_contract", "assessment_contract", "visible_inputs", "forbidden_inputs", "finding_taxonomy", "host_rules", "external_calibration_authorized"],
+  "title": "Independent language-quality channel contract v1",
+  "type": "object"
+}
