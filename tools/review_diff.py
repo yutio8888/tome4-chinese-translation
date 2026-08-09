@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 """有界 diff 复审 bundle 生成：仅包含 origin/master..HEAD（或指定基线）改动的译文条目。
 
-复用 tools/i18nlib/review.py 的 bundle schema（kind=translations、item_id、
-terminology context、constraints），输出到 .artifacts/i18n/review-diff-*/。
+复用 tools/i18nlib/review.py 的 translation semantic v2 bundle schema，输出到
+.artifacts/i18n/review-diff-*/。盲发现 bundle 不注入术语或 Facts。
 
 用法：
-  python3 -B tools/review_diff.py [--baseline origin/master] [--batch-size 50]
+  python3 -B tools/review_diff.py [--baseline origin/master] [--batch-size 10]
 """
 from __future__ import annotations
 
@@ -31,17 +31,32 @@ from i18nlib.errors import I18nToolError  # noqa: E402
 from i18nlib.locale_model import LocaleLoader  # noqa: E402
 from i18nlib.review import (  # noqa: E402
     DEFAULT_REVIEW_BATCH_SIZE,
-    MAX_REVIEW_BATCH_SIZE,
-    REVIEW_CONTRACT,
-    REVIEW_SCHEMA_VERSION,
+    REVIEW_INDEX_CONTRACT,
+    REVIEW_INDEX_SCHEMA_VERSION,
     TOOL_VERSION,
     _bundle_id,
-    _entry_id,
-    _relevant_terms,
     _review_index_id,
-    _terminology_rows,
+    _translation_bundle_payload,
 )
 from i18nlib.runtime import LuaRuntime  # noqa: E402
+from i18nlib.report import json_bytes  # noqa: E402
+from i18nlib.translation_review import (  # noqa: E402
+    DEFAULT_TRANSLATION_CHARACTER_BUDGET,
+    MAX_TRANSLATION_CHARACTER_BUDGET,
+    MAX_TRANSLATION_REVIEW_BATCH_SIZE,
+    TRANSLATION_REVIEW_BUNDLE_CONTRACT,
+    TRANSLATION_REVIEW_CHANNEL,
+    TRANSLATION_REVIEW_SCHEMA_VERSION,
+    build_translation_item,
+    deduplicate_translation_revisions,
+    load_translation_review_policy,
+    partition_translation_items,
+    translation_provider_message,
+    translation_selection_sha256,
+    write_translation_inventory,
+)
+
+MAX_REVIEW_BATCH_SIZE = MAX_TRANSLATION_REVIEW_BATCH_SIZE
 
 
 class ReviewDiffError(RuntimeError):
@@ -60,6 +75,21 @@ def _review_batch_size(value: str) -> int:
             f"review batch size must be between 1 and {MAX_REVIEW_BATCH_SIZE}"
         )
     return batch_size
+
+
+def _review_character_budget(value: str) -> int:
+    try:
+        character_budget = int(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError(
+            f"invalid review character budget: {value!r}"
+        ) from error
+    if not 1 <= character_budget <= MAX_TRANSLATION_CHARACTER_BUDGET:
+        raise argparse.ArgumentTypeError(
+            "review character budget must be between 1 and "
+            f"{MAX_TRANSLATION_CHARACTER_BUDGET}"
+        )
+    return character_budget
 
 
 def _run_git(root: Path, arguments: Sequence[str], *, operation: str) -> bytes:
@@ -201,6 +231,8 @@ def _changed_translation_items(
     component: str,
     current_entries: Sequence[dict[str, Any]],
     baseline_entries: Sequence[dict[str, Any]] | None,
+    *,
+    version: str = DEFAULT_VERSION,
 ) -> list[dict[str, Any]]:
     baseline_revisions = Counter(
         (
@@ -227,27 +259,18 @@ def _changed_translation_items(
             baseline_revisions[revision] -= 1
             continue
         items.append(
-            {
-                "item_id": _entry_id(component, ordinal, entry),
-                "component": component,
-                "ordinal": ordinal,
-                "section": entry.get("section"),
-                "source": entry.get("source"),
-                "target": entry.get("target"),
-                "source_tag": entry.get("source_tag"),
-                "args_order": entry.get("args_order"),
-                "special": entry.get("special"),
-                "line": entry.get("line"),
-            }
+            build_translation_item(
+                version=version,
+                component=component,
+                ordinal=ordinal,
+                entry=entry,
+            )
         )
-    return items
+    return deduplicate_translation_revisions(items)
 
 
 def _write_json(path: Path, payload: dict[str, Any]) -> None:
-    path.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=1),
-        encoding="utf-8",
-    )
+    path.write_bytes(json_bytes(payload))
 
 
 def _publish_artifacts(
@@ -296,6 +319,7 @@ def _generate_review(
     *,
     baseline: str,
     batch_size: int,
+    character_budget: int,
     run_dir: Path,
 ) -> tuple[int, int, str]:
     """Load and validate every input, then publish the completed review run."""
@@ -305,9 +329,7 @@ def _generate_review(
 
     runtime = LuaRuntime(manifest=manifest)
     loader = LocaleLoader(runtime)
-    terminology_rows, terminology_sha256 = _terminology_rows(
-        manifest.root / manifest.terminology
-    )
+    _policy, policy_sha256 = load_translation_review_policy(manifest.root)
     manifest_sha256 = __import__("hashlib").sha256(manifest.raw_bytes).hexdigest()
 
     bundle_artifacts: list[tuple[Path, dict[str, Any]]] = []
@@ -315,7 +337,13 @@ def _generate_review(
     changed_total = 0
     for component, rel, path in translations:
         base = _read_baseline_blob(ROOT, baseline_tree, rel)
-        doc_now = loader.load_path(path, logical_path=rel)
+        try:
+            current_bytes = path.read_bytes()
+        except OSError as error:
+            raise ReviewDiffError(
+                f"cannot read current translation path {rel!r}: {error}"
+            ) from error
+        doc_now = loader.load_bytes(current_bytes, logical_path=rel)
         doc_base = (
             None if base is None else loader.load_bytes(base, logical_path=rel)
         )
@@ -323,38 +351,54 @@ def _generate_review(
             component,
             doc_now.translations,
             None if doc_base is None else doc_base.translations,
+            version=manifest.version,
         )
         if not items:
             continue
         changed_total += len(items)
-        for offset in range(0, len(items), batch_size):
-            batch = items[offset : offset + batch_size]
-            payload = {
-                "schema_version": REVIEW_SCHEMA_VERSION,
-                "review_contract": REVIEW_CONTRACT,
-                "tool_version": TOOL_VERSION,
-                "version": manifest.version,
-                "manifest_sha256": manifest_sha256,
-                "kind": "translations",
-                "component": component,
-                "selection": {
-                    "offset": offset,
-                    "count": len(batch),
-                    "total": len(items),
-                },
-                "items": batch,
-                "terminology_sha256": terminology_sha256,
-                "terminology": _relevant_terms(
-                    terminology_rows, batch, component
-                ),
-                "constraints": [
-                    "Review only the supplied canonical translation entries.",
-                    "Preserve source, source_tag, printf arguments, and control markers in any suggested fix.",
-                    "Return findings only; do not rewrite files or invent missing game context.",
-                ],
-            }
+        selection_sha256 = translation_selection_sha256(items)
+        translation_sha256 = __import__("hashlib").sha256(current_bytes).hexdigest()
+        canonical_items = [
+            build_translation_item(
+                version=manifest.version,
+                component=component,
+                ordinal=ordinal,
+                entry=entry,
+            )
+            for ordinal, entry in enumerate(doc_now.translations)
+        ]
+        inventory_sha256, inventory_membership = write_translation_inventory(
+            root=manifest.root,
+            tool_version=TOOL_VERSION,
+            version=manifest.version,
+            component=component,
+            translation_sha256=translation_sha256,
+            items=canonical_items,
+        )
+        for offset, batch, character_count, oversized in partition_translation_items(
+            items, max_items=batch_size, character_budget=character_budget
+        ):
+            payload = _translation_bundle_payload(
+                tool_version=TOOL_VERSION,
+                version=manifest.version,
+                manifest_sha256=manifest_sha256,
+                component=component,
+                translation_sha256=translation_sha256,
+                offset=offset,
+                total=len(items),
+                batch=batch,
+                character_count=character_count,
+                character_budget=character_budget,
+                oversized_single_item=oversized,
+                policy_sha256=policy_sha256,
+                inventory_sha256=inventory_sha256,
+                selection_sha256=selection_sha256,
+                membership=[inventory_membership[item["ordinal"]] for item in batch],
+            )
             bundle_id = _bundle_id(payload)
             payload["bundle_id"] = bundle_id
+            artifact_bytes = len(json_bytes(payload))
+            payload_bytes = len(translation_provider_message(payload))
             relative_path = (
                 Path("translations") / component / f"{bundle_id}.json"
             )
@@ -362,24 +406,38 @@ def _generate_review(
             bundles.append(
                 {
                     "bundle_id": bundle_id,
+                    "schema_version": TRANSLATION_REVIEW_SCHEMA_VERSION,
+                    "review_contract": TRANSLATION_REVIEW_BUNDLE_CONTRACT,
+                    "channel": TRANSLATION_REVIEW_CHANNEL,
                     "kind": "translations",
                     "component": component,
                     "offset": offset,
                     "count": len(batch),
                     "total": len(items),
+                    "selection_sha256": selection_sha256,
+                    "item_character_count": character_count,
+                    "item_character_budget": character_budget,
+                    "artifact_bytes": artifact_bytes,
+                    "payload_bytes": payload_bytes,
+                    "oversized_single_item": oversized,
                     "path": str(run_dir / relative_path),
                 }
             )
 
     index_payload = {
-        "schema_version": REVIEW_SCHEMA_VERSION,
-        "review_contract": REVIEW_CONTRACT,
+        "schema_version": REVIEW_INDEX_SCHEMA_VERSION,
+        "review_contract": REVIEW_INDEX_CONTRACT,
         "tool_version": TOOL_VERSION,
         "version": manifest.version,
         "manifest_sha256": manifest_sha256,
-        "scope": {"translations": True, "code": False},
+        "scope": {
+            "translations": True,
+            "code": False,
+            "protected_sources": False,
+        },
         "redacted_absolute_path_count": 0,
         "baseline": baseline,
+        "baseline_tree": baseline_tree,
         "bundles": bundles,
     }
     review_id = _review_index_id(index_payload)
@@ -399,6 +457,15 @@ def _run(argv: Sequence[str] | None = None) -> int:
         default=DEFAULT_REVIEW_BATCH_SIZE,
     )
     parser.add_argument(
+        "--character-budget",
+        type=_review_character_budget,
+        default=DEFAULT_TRANSLATION_CHARACTER_BUDGET,
+        help=(
+            "maximum summed canonical JSON characters for translation items "
+            "per bundle (default: 24000); the index also records actual payload bytes"
+        ),
+    )
+    parser.add_argument(
         "--out-dir",
         default=None,
         help="explicit new output directory (must not already exist)",
@@ -414,6 +481,7 @@ def _run(argv: Sequence[str] | None = None) -> int:
         changed_total, bundle_count, review_id = _generate_review(
             baseline=args.baseline,
             batch_size=args.batch_size,
+            character_budget=args.character_budget,
             run_dir=run_dir,
         )
     except (I18nToolError, ReviewDiffError, OSError) as error:

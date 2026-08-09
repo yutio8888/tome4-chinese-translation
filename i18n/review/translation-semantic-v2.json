@@ -1,0 +1,34 @@
+{
+  "contract": "tome4-translation-review-policy-v2",
+  "schema_version": 2,
+  "channel": "semantic-observation",
+  "method_version": "blind-semantic-delta-v2",
+  "assessment_states": ["assessed", "context-insufficient"],
+  "phenomena": [
+    "number", "number-range", "unit", "condition", "polarity",
+    "entity-role", "scope", "trigger-timing", "omission", "addition",
+    "ambiguity", "other"
+  ],
+  "meaning_change_types": [
+    "omitted", "added", "weakened", "strengthened", "reversed",
+    "reassigned", "made-ambiguous", "unknown"
+  ],
+  "phenomenon_meaning_changes": {
+    "number": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "number-range": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "unit": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "condition": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "polarity": ["weakened", "strengthened", "reversed", "made-ambiguous", "unknown"],
+    "entity-role": ["omitted", "added", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "scope": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "trigger-timing": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"],
+    "omission": ["omitted", "unknown"],
+    "addition": ["added", "unknown"],
+    "ambiguity": ["made-ambiguous", "unknown"],
+    "other": ["omitted", "added", "weakened", "strengthened", "reversed", "reassigned", "made-ambiguous", "unknown"]
+  },
+  "default_character_budget": 24000,
+  "max_character_budget": 100000,
+  "max_items_per_bundle": 10,
+  "max_findings_per_item": 20
+}

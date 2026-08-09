@@ -31,9 +31,10 @@ tools/pi-remediate --bundle <review-bundle.json> --review <review.json>
 ```
 
 在 Codex 中可直接要求使用 `$tome4-pi-review`。该项目 Skill 会生成有界 bundle、
-逐批调用 `tools/pi-review` 并汇总已验证 findings。由于 bundle 会发送给外部 Pi
-provider，首次调用前仍需明确确认 provider、model 和数据范围；项目没有开启全局
-网络权限。
+逐批调用 `tools/pi-review`；translation v2 汇总的是结构校验后的 pending
+observations/coverage，code v1 才汇总 legacy findings。由于 bundle 会发送给外部 Pi
+provider，首次调用前仍需明确确认 provider、model、条目数、item 字符预算和实际
+`payload_bytes`；项目没有开启全局网络权限。
 
 - `doctor` 检查 LuaJIT 5.1、项目 LuaRocks 树、LPeg 0.10.2、固定 Git commit
   和所有规范译文文件。对于 DLC 它只让 Lua 代理探测清单中预声明的组件，
@@ -112,16 +113,55 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   `source_tag`、Lua 值、printf 参数及首选术语。成功后只生成内容寻址的
   `*.validated.json`；`--allow-partial` 允许分批返回，`--strict` 会阻断警告。
 - `review` 生成只读 Pi 审核 bundle；必须用 `--scope code` 或
-  `--scope translations` 显式选择范围，重复参数才会同时选择两者。bundle 只写入
-  `.artifacts/i18n/`，会去除绝对路径，不包含受保护 DLC 源码或受保护源码路径。
-- `tools/pi-review --bundle` 使用独立的 reviewer prompt，在无工具、无会话、无项目
-  上下文的 Pi 进程中运行，只生成结构化 findings artifact；宿主会分配稳定的
-  `R-NNN` 引用，并在启动 Pi 前复用 provider/model/prompt/bundle 完全一致且已严格
-  校验的缓存结果。`--force` 可做一次不改写缓存的 fresh run，`--no-cache` 可完全禁用
-  缓存。该入口不会修改 Lua、Python 或其他工作区文件，也不会执行模型建议。
-- `tools/pi-remediate --bundle --review` 把已校验的 findings 和原 bundle 交给独立的
-  remediation prompt，只生成按 `finding_id`/`item_id` 绑定的修订建议。主代理必须
-  复核、应用并重新审核；Pi 没有文件写入权限。
+  `--scope translations` 显式选择范围，重复参数才会同时选择两者。翻译使用独立的
+  `tome4-translation-review-bundle-v2`：以条目硬上限 10 和 24000 个 item canonical
+  JSON 字符双重分包，携带稳定 `unit_id`/`revision_id`，但不注入 terminology 或
+  Facts。index 分别记录 `item_character_count`、`item_character_budget`、宿主
+  `artifact_bytes` 与实际外发 `payload_bytes`；provider payload 只投影稳定
+  `revision_id`、source 和 target，不包含 canonical membership 等宿主 lineage。
+  生成器每个组件只运行一次 Lua，并把 canonical inventory 写成
+  内容寻址缓存，runner 只重算字节摘要和成员切片，不为每个 shard 重建 inventory。
+  每个分区另用 `selection_sha256` 绑定完整、有序、去重后的 revision/ordinal 序列；
+  batch 在外发前聚合所有 shard，拒绝缺口、重复、逆序或混合 selection，并把每次
+  child 执行绑定到 index 中的预期 `bundle_id`。
+  完全相同的重复 canonical occurrence 共享同一 `revision_id`，审核选择会保留首个
+  occurrence 并按 revision 去重；这类语义相同的重复项不会要求模型重复回执。
+  代码 diff 继续使用明确的 legacy `tome4-review-v1`。混合 index 会逐 bundle 记录
+  实际 contract/channel；所有产物只写入 `.artifacts/i18n/`。
+- `tools/pi-review --bundle` 在无工具、无会话、无项目上下文的 Pi 进程中运行。
+  runner 会先验证调用方给出的完整 bundle，把内存对象原子写成权限收紧的
+  `validated-bundle.json`，再从该对象生成最小、无首尾空白的
+  `provider-message.json`。translation v2 不使用 Pi 的 `@file` 展开，而把这组精确
+  JSON 字节经 stdin 发送，从而不引入 staging 绝对路径或 XML wrapper；同时显式传入
+  空的 `--append-system-prompt`，关闭 project/global `APPEND_SYSTEM.md` 自动发现，工作目录
+  固定为 `/private/tmp`。headless 直接发送内存副本，tmux worker 则先重读并核对 SHA-256/字节数，
+  再从内存并发写入 stdin。报告、evaluator 和缓存同时绑定实际 user message、Pi 追加
+  cwd 后的 system prompt、runner contract、policy 与 normalizer，避免验证后路径替换或
+  run-local 路径改变请求身份。
+  translation v2 必须逐 item 回执，只报告可观察的语义差异、精确 source/target
+  evidence 和 `assessment_state`；模型不得填写 severity、确认状态或修订建议。宿主
+  校验证据 span、生成稳定 `R-NNN` 和 assessment identity，并把所有 observation
+  置为 `pending` 交主代理独立裁决。空 findings 只表示本次有界语义通道未观察到
+  问题，不表示整体译文 clean；纯语言质量必须走独立语言通道。代码 v1 仍生成旧式
+  severity-bearing findings。
+- 审核缓存按实际 bundle/result contract、policy、实际 system/user message、runner、
+  normalizer、provider/model/thinking
+  隔离；v1 缓存不会被解释成 v2。`--force` 可做一次不改写缓存的 fresh run，
+  `--no-cache` 可完全禁用缓存。
+- `.artifacts/i18n/cache/review-inventory/` 是当前宿主 producer 生成的可信派生缓存，
+  自哈希、header 和 slice proof 能阻断缺失、陈旧与随机损坏，但不是抵御同一工作区内
+  协调伪造 bundle+cache 的密码学证明。来自外部或不可信工作区的 bundle 不应直接执行，
+  应在当前 checkout 用 `tools/i18n review` / `tools/review_diff.py` 重新生成。
+- `tools/pi-remediate --bundle --review` 的项目流程只允许主代理已经确认并定级的
+  legacy finding；legacy v1 schema 本身没有可机器验证的 adjudication 字段，因此这
+  是调用前的主代理流程门槛，不是 runner 能从 v1 JSON 独立证明的事实。translation v2
+  assessment 是候选观察，不得直接进入 remediation；当前 runner 会显式拒绝，主代理
+  应先核验证据并人工应用有界修订。结构校验成功不等于事实确认。
+- `tools/pi-review-files` / `tools/pi-tmux review-files` 当前只接受 code v1 或明确的
+  历史 translation v1 bundle；新的 translation semantic discovery 不接受 v1 降级。
+  translation v2 的源码核验必须绑定既有 observation，仅返回
+  `supported/refuted/insufficient`，不得开放式新增 finding；在该 claim-bound runner
+  实现前，工具会失败关闭，主代理直接按固定源码版本核验。
 - `tools/pi-subagent` 把不超过 50 条的已校验 workset 和 proposal 模板注入一个
   无工具、无会话、无项目上下文的 Pi 翻译进程。Pi 的原始输出先保存在 artifact，
   再自动通过 `proposal --strict`；它没有读取仓库、运行 shell 或修改 Lua 的能力。

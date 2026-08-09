@@ -42,6 +42,7 @@ from .pi_agent import (
 )
 from .pi_remediate import (
     REMEDIATION_CONTRACT,
+    REMEDIATION_SCHEMA_VERSION,
     _read_review,
     _validate_remediation,
     build_remediation_command,
@@ -57,9 +58,15 @@ from .pi_file_review import (
     build_file_review_command,
 )
 from .pi_review import (
+    TRANSLATION_REVIEW_PROVIDER_CWD,
     _cached_review_path,
     _load_cached_review,
     _review_cache_key,
+    _review_contract_settings,
+    _is_translation_v2,
+    _provider_visible_system_prompt,
+    _stage_provider_message,
+    _stage_validated_json,
     _validate_findings,
     _write_cached_review,
     build_review_command,
@@ -73,6 +80,12 @@ from .review import (
     validate_review_bundle,
 )
 from .workset import proposal_template_for, validate_workset
+from .translation_review import (
+    TRANSLATION_REVIEW_NORMALIZER_CONTRACT,
+    TRANSLATION_REVIEW_RUNNER_CONTRACT,
+    make_evaluator_identity,
+    translation_provider_message,
+)
 
 
 JOB_SCHEMA_VERSION = 1
@@ -412,6 +425,16 @@ def _pump_with_preview(stream: Any, path: Path, mirror: Any) -> None:
         stream.close()
 
 
+def _pump_stdin(stream: Any, payload: bytes) -> None:
+    try:
+        stream.write(payload)
+        stream.flush()
+    except BrokenPipeError:
+        pass
+    finally:
+        stream.close()
+
+
 def run_worker_job(job: dict[str, Any], job_path: Path) -> dict[str, Any]:
     """Execute the job's Pi command, mirroring output to the pane/caller."""
     run_directory = job_path.parent
@@ -436,11 +459,37 @@ def run_worker_job(job: dict[str, Any], job_path: Path) -> dict[str, Any]:
         flush=True,
     )
     environment = _pi_environment(root, provider)
+    stdin_payload: bytes | None = None
+    stdin_path_value = job.get("stdin_path")
+    if stdin_path_value is not None:
+        if not isinstance(stdin_path_value, str) or not stdin_path_value:
+            raise AgentError("worker job has an invalid stdin_path")
+        stdin_path = Path(stdin_path_value).expanduser().resolve()
+        try:
+            stdin_path.relative_to(run_directory.resolve())
+        except ValueError as error:
+            raise AgentError("worker job stdin_path is outside its run directory") from error
+        if stdin_path.is_symlink() or not stdin_path.is_file():
+            raise AgentError("worker job stdin_path is not a regular file")
+        try:
+            stdin_payload = stdin_path.read_bytes()
+        except OSError as error:
+            raise AgentError(f"cannot read worker stdin payload: {error}") from error
+        expected_sha256 = job.get("stdin_sha256")
+        expected_bytes = job.get("stdin_bytes")
+        if (
+            not isinstance(expected_sha256, str)
+            or hashlib.sha256(stdin_payload).hexdigest() != expected_sha256
+            or type(expected_bytes) is not int
+            or len(stdin_payload) != expected_bytes
+        ):
+            raise AgentError("worker stdin payload identity does not match its job")
     try:
         process = subprocess.Popen(
             argv,
             cwd=Path(job.get("cwd", run_directory)).expanduser().resolve(),
             env=environment,
+            stdin=subprocess.PIPE if stdin_payload is not None else None,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             start_new_session=True,
@@ -470,6 +519,15 @@ def run_worker_job(job: dict[str, Any], job_path: Path) -> dict[str, Any]:
     )
     stdout_thread.start()
     stderr_thread.start()
+    stdin_thread = None
+    if stdin_payload is not None:
+        assert process.stdin is not None
+        stdin_thread = threading.Thread(
+            target=_pump_stdin,
+            args=(process.stdin, stdin_payload),
+            daemon=True,
+        )
+        stdin_thread.start()
     timed_out = False
     try:
         process.wait(timeout=timeout)
@@ -480,6 +538,8 @@ def run_worker_job(job: dict[str, Any], job_path: Path) -> dict[str, Any]:
         process.wait()
     stdout_thread.join(timeout=5)
     stderr_thread.join(timeout=5)
+    if stdin_thread is not None:
+        stdin_thread.join(timeout=5)
     assert process.stdout is not None and process.stderr is not None
     if stdout_thread.is_alive() or stderr_thread.is_alive():
         process.stdout.close()
@@ -488,7 +548,11 @@ def run_worker_job(job: dict[str, Any], job_path: Path) -> dict[str, Any]:
         stderr_thread.join(timeout=1)
     process.stdout.close()
     process.stderr.close()
-    streams_terminated = not stdout_thread.is_alive() and not stderr_thread.is_alive()
+    streams_terminated = (
+        not stdout_thread.is_alive()
+        and not stderr_thread.is_alive()
+        and (stdin_thread is None or not stdin_thread.is_alive())
+    )
     raw_sha = None
     if raw_output_path.exists():
         raw_sha = hashlib.sha256(raw_output_path.read_bytes()).hexdigest()
@@ -502,7 +566,7 @@ def run_worker_job(job: dict[str, Any], job_path: Path) -> dict[str, Any]:
             f"Pi timed out after {timeout} seconds"
             if timed_out
             else None if streams_terminated
-            else "Pi stream readers did not terminate after process-group cleanup"
+            else "Pi stream workers did not terminate after process-group cleanup"
         ),
         "elapsed_seconds": round(time.monotonic() - started, 6),
         "raw_output_sha256": raw_sha,
@@ -682,16 +746,57 @@ def run_tmux_review(
     manifest = load_manifest()
     bundle_resolved = bundle_path.expanduser().resolve()
     bundle = validate_review_bundle(manifest, bundle_resolved)
+    translation_v2 = _is_translation_v2(bundle)
+    (
+        result_schema_version,
+        result_contract,
+        report_mode,
+        prompt_path,
+        policy,
+        policy_sha256,
+    ) = _review_contract_settings(manifest.root, bundle)
     run_directory = create_run_directory(manifest.root, "pi-review-tmux")
     run_directory.chmod(0o700)
+    validated_bundle_path, bundle_artifact_sha256, bundle_artifact_bytes = _stage_validated_json(
+        run_directory, "validated-bundle.json", bundle
+    )
+    if translation_v2:
+        provider_message = translation_provider_message(bundle)
+        provider_payload_path, payload_sha256, payload_bytes = _stage_provider_message(
+            run_directory, "provider-message.json", provider_message
+        )
+    else:
+        provider_message = None
+        provider_payload_path, payload_sha256, payload_bytes = _stage_validated_json(
+            run_directory, "provider-payload.json", bundle
+        )
     review_path = run_directory / "review.json"
     report_path = run_directory / "pi-review.json"
-    prompt_path = manifest.root / "i18n" / "prompts" / "pi-reviewer.md"
     try:
         system_prompt = prompt_path.read_text(encoding="utf-8")
     except (OSError, UnicodeDecodeError) as error:
         raise AgentError(f"cannot read Pi reviewer prompt: {prompt_path}") from error
-    prompt_sha256 = hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()
+    prompt_source_sha256 = hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()
+    provider_cwd = TRANSLATION_REVIEW_PROVIDER_CWD if translation_v2 else run_directory
+    prompt_sha256 = hashlib.sha256(
+        (
+            _provider_visible_system_prompt(system_prompt, provider_cwd)
+            if translation_v2
+            else system_prompt
+        ).encode("utf-8")
+    ).hexdigest()
+    evaluator = (
+        make_evaluator_identity(
+            provider=provider,
+            model=model,
+            thinking=thinking,
+            prompt_sha256=prompt_sha256,
+            policy_sha256=policy_sha256,
+            bundle=bundle,
+        )
+        if translation_v2 and policy_sha256 is not None
+        else None
+    )
     cache_key = _review_cache_key(
         bundle_id=bundle["bundle_id"],
         provider=provider,
@@ -699,12 +804,21 @@ def run_tmux_review(
         thinking=thinking,
         prompt_sha256=prompt_sha256,
         strict=strict,
+        review_contract=result_contract,
+        policy_sha256=policy_sha256,
+        normalizer_contract=(
+            TRANSLATION_REVIEW_NORMALIZER_CONTRACT if translation_v2 else None
+        ),
+        payload_sha256=payload_sha256 if translation_v2 else None,
+        runner_contract=(
+            TRANSLATION_REVIEW_RUNNER_CONTRACT if translation_v2 else None
+        ),
     )
     cache_path = _cached_review_path(manifest.root, cache_key)
     cache_decision = "disabled" if not use_cache else ("bypass" if force else "miss")
     report: dict[str, Any] = {
-        "schema_version": REVIEW_SCHEMA_VERSION,
-        "review_contract": REVIEW_CONTRACT,
+        "schema_version": result_schema_version,
+        "review_contract": result_contract,
         "tool_version": TOOL_VERSION,
         "ok": False,
         "version": manifest.version,
@@ -712,16 +826,27 @@ def run_tmux_review(
         "model": model,
         "thinking": thinking,
         "strict": strict,
-        "mode": "findings-only-v1",
+        "mode": report_mode,
         "pi_tools": False,
         "pi_session": False,
         "candidate_execution": False,
         "concurrency": 1,
         "run_id": run_directory.name,
         "bundle": str(bundle_resolved),
+        "validated_bundle": str(validated_bundle_path),
+        "bundle_artifact_sha256": bundle_artifact_sha256,
+        "bundle_artifact_bytes": bundle_artifact_bytes,
+        "provider_payload": str(provider_payload_path),
+        "payload_sha256": payload_sha256,
+        "payload_bytes": payload_bytes,
+        "provider_cwd": str(provider_cwd),
         "bundle_id": bundle["bundle_id"],
         "kind": bundle["kind"],
+        "prompt_source_sha256": prompt_source_sha256,
         "prompt_sha256": prompt_sha256,
+        "runner_contract": (
+            TRANSLATION_REVIEW_RUNNER_CONTRACT if translation_v2 else None
+        ),
         "result_cache_key": cache_key,
         "cache_decision": cache_decision,
         "timeout_seconds": timeout,
@@ -749,6 +874,19 @@ def run_tmux_review(
                 thinking=thinking,
                 prompt_sha256=prompt_sha256,
                 strict=strict,
+                review_contract=result_contract,
+                policy=policy,
+                policy_sha256=policy_sha256,
+                evaluator=evaluator,
+                normalizer_contract=(
+                    TRANSLATION_REVIEW_NORMALIZER_CONTRACT
+                    if translation_v2
+                    else None
+                ),
+                payload_sha256=payload_sha256 if translation_v2 else None,
+                runner_contract=(
+                    TRANSLATION_REVIEW_RUNNER_CONTRACT if translation_v2 else None
+                ),
             )
         except ValidationError as error:
             report["error"] = f"Pi review cache validation failed: {error}"
@@ -784,7 +922,7 @@ def run_tmux_review(
         thinking=thinking,
         system_prompt=system_prompt,
         bundle=bundle,
-        bundle_resolved=bundle_resolved,
+        bundle_resolved=provider_payload_path,
     )
     job = {
         "job_schema_version": JOB_SCHEMA_VERSION,
@@ -792,10 +930,14 @@ def run_tmux_review(
         "kind": "review",
         "root": str(manifest.root),
         "provider": provider,
-        "cwd": str(run_directory),
+        "cwd": str(provider_cwd),
         "argv": command,
         "timeout_seconds": timeout,
     }
+    if translation_v2:
+        job["stdin_path"] = str(provider_payload_path)
+        job["stdin_sha256"] = payload_sha256
+        job["stdin_bytes"] = payload_bytes
     report.update(
         {
             "attempts": 1,
@@ -843,7 +985,14 @@ def run_tmux_review(
             extract_event_stream_output(raw, "Pi review output"),
             "Pi review output",
         )
-        summary, output = _validate_findings(bundle, model_output, strict=strict)
+        summary, output = _validate_findings(
+            bundle,
+            model_output,
+            strict=strict,
+            policy=policy,
+            policy_sha256=policy_sha256,
+            evaluator=evaluator,
+        )
     except ValidationError as error:
         _fail(report, report_path, str(error))
         raise AgentError(f"Pi review validation failed: {error}; report: {report_path}") from error
@@ -859,6 +1008,15 @@ def run_tmux_review(
             prompt_sha256=prompt_sha256,
             strict=strict,
             review=output,
+            review_contract=result_contract,
+            policy_sha256=policy_sha256,
+            normalizer_contract=(
+                TRANSLATION_REVIEW_NORMALIZER_CONTRACT if translation_v2 else None
+            ),
+            payload_sha256=payload_sha256 if translation_v2 else None,
+            runner_contract=(
+                TRANSLATION_REVIEW_RUNNER_CONTRACT if translation_v2 else None
+            ),
         )
     report.update(
         {
@@ -923,9 +1081,19 @@ def run_tmux_file_review(
     _validate_file_review_cache_options(use_cache=use_cache, force=force)
     manifest = load_manifest()
     bundle_resolved = bundle_path.expanduser().resolve()
-    bundle = validate_review_bundle(manifest, bundle_resolved)
+    bundle = validate_review_bundle(
+        manifest, bundle_resolved, allow_legacy_translations=True
+    )
+    if _is_translation_v2(bundle):
+        raise ValidationError(
+            "translation review v2 bundles cannot use legacy file review; "
+            "source verification requires a claim-bound contract over existing observation ids"
+        )
     run_directory = create_run_directory(manifest.root, "pi-file-review-tmux")
     run_directory.chmod(0o700)
+    validated_bundle_path, payload_sha256, payload_bytes = _stage_validated_json(
+        run_directory, "validated-bundle.json", bundle
+    )
     review_path = run_directory / "review.json"
     report_path = run_directory / "pi-review.json"
     prompt_path = manifest.root / "i18n" / "prompts" / "pi-reviewer-files.md"
@@ -956,6 +1124,9 @@ def run_tmux_file_review(
         "concurrency": 1,
         "run_id": run_directory.name,
         "bundle": str(bundle_resolved),
+        "validated_bundle": str(validated_bundle_path),
+        "payload_sha256": payload_sha256,
+        "payload_bytes": payload_bytes,
         "bundle_id": bundle["bundle_id"],
         "kind": bundle["kind"],
         "prompt_sha256": prompt_sha256,
@@ -988,7 +1159,7 @@ def run_tmux_file_review(
         thinking=thinking,
         system_prompt=system_prompt,
         bundle=bundle,
-        bundle_resolved=bundle_resolved,
+        bundle_resolved=validated_bundle_path,
     )
     job = {
         "job_schema_version": JOB_SCHEMA_VERSION,
@@ -1117,11 +1288,19 @@ def run_tmux_remediation(
     started = time.monotonic()
     manifest = load_manifest()
     bundle_resolved = bundle_path.expanduser().resolve()
-    bundle = validate_review_bundle(manifest, bundle_resolved)
+    bundle = validate_review_bundle(
+        manifest, bundle_resolved, allow_legacy_translations=True
+    )
     review_resolved = review_path.expanduser().resolve()
     review = _read_review(review_resolved, bundle)
     run_directory = create_run_directory(manifest.root, "pi-remediate-tmux")
     run_directory.chmod(0o700)
+    validated_bundle_path, bundle_payload_sha256, bundle_payload_bytes = (
+        _stage_validated_json(run_directory, "validated-bundle.json", bundle)
+    )
+    validated_review_path, review_payload_sha256, review_payload_bytes = (
+        _stage_validated_json(run_directory, "validated-review.json", review)
+    )
     remediation_path = run_directory / "remediation.json"
     report_path = run_directory / "pi-remediation.json"
     prompt_path = manifest.root / "i18n" / "prompts" / "pi-remediator.md"
@@ -1130,7 +1309,7 @@ def run_tmux_remediation(
     except (OSError, UnicodeDecodeError) as error:
         raise AgentError(f"cannot read Pi remediator prompt: {prompt_path}") from error
     report: dict[str, Any] = {
-        "schema_version": REVIEW_SCHEMA_VERSION,
+        "schema_version": REMEDIATION_SCHEMA_VERSION,
         "remediation_contract": REMEDIATION_CONTRACT,
         "tool_version": TOOL_VERSION,
         "ok": False,
@@ -1140,8 +1319,14 @@ def run_tmux_remediation(
         "thinking": thinking,
         "strict": strict,
         "bundle": str(bundle_resolved),
+        "validated_bundle": str(validated_bundle_path),
+        "bundle_payload_sha256": bundle_payload_sha256,
+        "bundle_payload_bytes": bundle_payload_bytes,
         "bundle_id": bundle["bundle_id"],
         "review": str(review_resolved),
+        "validated_review": str(validated_review_path),
+        "review_payload_sha256": review_payload_sha256,
+        "review_payload_bytes": review_payload_bytes,
         "review_id": review["review_id"],
         "kind": bundle["kind"],
         "prompt_sha256": hashlib.sha256(system_prompt.encode("utf-8")).hexdigest(),
@@ -1167,8 +1352,8 @@ def run_tmux_remediation(
         thinking=thinking,
         system_prompt=system_prompt,
         bundle=bundle,
-        bundle_resolved=bundle_resolved,
-        review_resolved=review_resolved,
+        bundle_resolved=validated_bundle_path,
+        review_resolved=validated_review_path,
         review_id=review["review_id"],
     )
     job = {

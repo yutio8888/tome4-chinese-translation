@@ -9,11 +9,11 @@
 - 工具会在启动 LuaJIT 子进程时自动设置本文件规定的 `LUA_PATH` 和 `LUA_CPATH`，不得要求用户手动导出。
 - `extract`、`lint`、`status`、`merge`、`workset`、`context`、`proposal`、`review` 和 `build` 的报告或候选文件只写入已忽略的 `.artifacts/i18n/`；没有显式安装命令时不得改写游戏源码仓库或发布模组仓库。
 - Pi 翻译入口为 `tools/pi-subagent --workset <workset.json>`（需要实时观察时可用 `tools/pi-tmux translate --workset <workset.json>`，在 tmux 分屏中执行）。该进程必须保持无工具、无会话、无项目上下文，只能输出 proposal artifact；其结果必须通过 `proposal --strict`，不得直接写规范 Lua。
-- Pi 审核入口为 `tools/i18n review` 生成 bundle，再用 `tools/pi-tmux review --bundle <bundle.json>` 执行（默认在当前 tmux 会话分屏运行，便于观察审核过程；无 tmux 环境用 `--fallback foreground`，脚本场景可直接用 `tools/pi-review`）。审核 bundle 可以覆盖全部规范翻译条目（按批次）和当前公开工作区代码 diff；Pi 必须保持无工具、无会话、无项目上下文，只能输出结构化 findings artifact，不得直接修改文件。
-- 源码核验变体入口（Skill `$tome4-pi-file-review`）为 `tools/pi-tmux review-files --bundle <bundle.json>`（headless 用 `tools/pi-review-files`）。bundle 与 findings 契约同隔离审核，但 Pi 以 `--tools read,bash` 白名单启动，可按提示契约只读核验仓库、公开游戏与 DLC 源码；`edit`/`write` 永不启用。Pi 的内置 `bash` 不提供 OS 沙箱，仍继承 Pi 进程权限与 provider 凭据；工具会自动比较运行前后的版本控制范围的内容级 worktree 快照（受管 diff、非忽略未跟踪文件内容与 Git exclude；不覆盖其他忽略路径或其余 `.git` 元数据），runner 会清理 Pi 进程组后再比较快照，但无法覆盖自行脱离进程组的后代；主代理运行后还必须独立确认工作树未被改动。该变体仍受同一授权门槛约束，只能用于已授权、受监控的源码核验；需要强隔离时必须在只读挂载、网络/凭据隔离的容器或 VM 中运行。
+- Pi 审核入口为 `tools/i18n review` 生成 bundle，再用 `tools/pi-tmux review --bundle <bundle.json>` 执行（默认在当前 tmux 会话分屏运行，便于观察审核过程；无 tmux 环境用 `--fallback foreground`，脚本场景可直接用 `tools/pi-review`）。翻译使用独立的 semantic observation v2：blind provider payload 不注入 terminology/Facts 或 canonical membership 等宿主 lineage，只包含最小 revision/source/target 输入；按 10 条硬上限与 item canonical JSON 字符预算双重分包，`selection_sha256` 绑定跨 shard 的完整有序 revision 集，index 分别记录宿主 `artifact_bytes` 与实际外发 `payload_bytes`。v2 的精确 JSON user message 必须经 stdin 发送，不得用会注入绝对路径 wrapper 的 `@file`；必须用显式空 `--append-system-prompt` 关闭 project/global `APPEND_SYSTEM.md` 自动发现，Pi cwd 固定为 `/private/tmp`，实际 user/system prompt、runner、policy 与 normalizer 都必须进入 evaluator/cache identity。模型逐 item 返回 `assessment_state`、可观察语义差异和精确 source/target evidence，不得填写 severity、确认状态或 suggested fix；宿主只做结构、span、identity 与 pending 路由，主代理独立裁决。代码 diff 保留 legacy v1 finding 契约。Pi 始终无工具、无会话、无项目上下文，不得直接修改文件。
+- 源码核验变体（Skill `$tome4-pi-file-review`）的现有 `tools/pi-tmux review-files --bundle <bundle.json>`（headless 用 `tools/pi-review-files`）只接受 code/legacy v1。translation v2 的源码核验必须绑定既有 observation identity，只能返回 `supported/refuted/insufficient` 并禁止新增 finding；在该 claim-bound runner 实现前，现有工具必须失败关闭，由主代理按固定源码版本直接核验。legacy file reviewer 以 `--tools read,bash` 白名单启动，所读源码片段和路径可能进入 provider 请求；首次授权必须同时披露可读公开根与这一外发边界。`edit`/`write` 永不启用，但 Pi 的内置 `bash` 不提供 OS 沙箱，仍继承 Pi 进程权限与 provider 凭据；工具会自动比较运行前后的版本控制范围内容级快照，主代理运行后仍须独立确认工作树未被改动。需要强隔离时必须使用只读挂载、网络/凭据隔离的容器或 VM。
 - Pi 完整质量评价入口为 `tools/pi-quality-evaluator --sample <sample.json> --evaluator <reviewer-id>`。该进程保持无工具、无会话、无项目上下文，只接收有界 quality sample，宿主补齐并严格校验 assessment 身份；不得向任一 evaluator 展示另一份 assessment、裁决、历史 finding 或预期等级。模型评价仍受首次外部传输授权门槛约束，不能替代后续人工裁决。
-- Pi 处理审核意见入口为 `tools/pi-tmux remediate --bundle <bundle.json> --review <review.json>`（headless 可用 `tools/pi-remediate`）。该进程只能输出绑定到 finding/item 的 remediation proposal；主代理必须独立校验并应用修订，再重新运行审核，不得让 Pi 直接写规范 Lua 或代码。
-- 当用户要求开展 Pi 审核时（无论主代理是 Codex 还是 Pi），使用项目 Skill `$tome4-pi-review`；交互式审核默认在 tmux 分屏中运行，pane 保留至 `tmux kill-pane -t <pane>`。首次向外部 provider 发送 bundle 前，必须明确报告 provider、model、bundle 类型和条目数量并取得用户授权；不得用项目级全局网络放行绕过该授权。
+- Pi 处理审核意见入口为 `tools/pi-tmux remediate --bundle <bundle.json> --review <review.json>`（headless 可用 `tools/pi-remediate`）。只有主代理已独立确认并定级的 finding 才可进入 remediation；translation v2 pending observation 不得直接进入，当前 runner 会显式拒绝。该进程只能输出绑定到 finding/item 的 remediation proposal；主代理必须独立校验并应用修订，再重新运行审核，不得让 Pi 直接写规范 Lua 或代码。
+- 当用户要求开展 Pi 审核时（无论主代理是 Codex 还是 Pi），使用项目 Skill `$tome4-pi-review`；交互式审核默认在 tmux 分屏中运行，pane 保留至 `tmux kill-pane -t <pane>`。首次向外部 provider 发送 bundle 前，必须明确报告 provider、model、bundle 类型、条目数量、字符预算与实际 payload 大小并取得用户授权；不得用项目级全局网络放行绕过该授权。
 
 ## DLC 源码输入（GPL v3 公开）
 
@@ -139,7 +139,7 @@ luarocks \
   - **配置/prompt/文档**：权威 schema/实现 → 生产者与消费者 → 字段和版本 → 示例命令 → 失败语义 → 文档陈述是否与实际行为一致；
   - **构建/发布**：规范输入 → 生成内容 → 完整性标记 → 原子写入/回滚 → Git 状态 → 加载链与 smoke。
 - finding 必须有源码/上下文证据、可触发的错误行为、最小复现或明确调用链；单纯缺少测试、个人译法偏好、理论上的残留目录、风格问题或无法证明会被下游当作成功结果消费的部分产物，不得作为已确认 finding。
-- finding 统一标记为“已确认”“待确认”或“advisory”。只有已确认 finding 才进入自动修复队列；待确认项必须写明缺失证据，不得猜测升级。
+- finding 由宿主/主代理统一标记为“已确认”“待确认”或“advisory”，不能接受模型自报状态。只有已确认 finding 才由主代理定级并进入自动修复队列；待确认项必须写明缺失证据，不得猜测升级。
 - 对内容寻址 artifact，必须一次性核对完整 lineage：审核者可见的完整 payload、所有会改变其语义的规范输入、规则/manifest、生成器版本和父 artifact 身份都应被绑定；消费者优先重算廉价字节摘要，不得为了新鲜度校验重建大型 inventory 或重复运行 Lua loader。
 - 机制和语义结论遵循后文“校对判定依据”；性能结论必须基于调用次数、复杂度、数据规模或实际计时，不得仅凭代码观感报告性能 finding。
 
@@ -191,7 +191,7 @@ git diff --check && echo DIFF_OK
 ```
 
 - **术语表改动后**额外运行：`python3 -B tools/audit_static.py`（静态审计：错字/标点/同源冲突）、`python3 -B tools/audit_dynamic.py`（动态审计：术语 vs 译文使用率/多译）、`python3 -B tools/annotate_domains.py`（领域标注一致性）。报告写入 `.artifacts/i18n/terminology-audit/`。
-- **译文批量修改后**在提交前运行门禁 1–5；涉及 Pi 复审时按 `docs/runtime-key-collisions.md` 与 `docs/pi-review-worker-tuning.md` 的流程执行（并行批处理默认 `--workers 6`，8 起限速劣化）。
+- **译文批量修改后**在提交前运行门禁 1–5；涉及 Pi 复审时按 `docs/runtime-key-collisions.md` 与 `docs/pi-review-worker-tuning.md` 的流程执行。`--workers 6`、8 起限速劣化仅是旧 v1 的历史数据，不能外推到 translation v2；v2 尚未重新校准，并发默认值与显式选择以当前 CLI 为准。
 - 修改外部仓库或已有版本控制文件（尤其 CRLF 行尾、JSON、Lua 字面量）前，先阅读 `docs/lessons-learned.md` 的常见陷阱；改完用 `git diff --stat` 确认无行尾/缩进噪音。
 - 审计与扫描脚本均在 `tools/` 下版本控制，输出只写入 `.artifacts/i18n/`（忽略目录），不直接改写规范 Lua。
 
@@ -204,6 +204,7 @@ git diff --check && echo DIFF_OK
 ## 术语库工作流
 
 - 开始翻译或审校前，先阅读 `TERMINOLOGY.md` 和 `terminology.tsv`。
+- 主代理阅读术语库不等于把术语或 Facts 注入 blind semantic discovery；术语/专名疑点只能在 observation 产生后按 claim 核验与裁决。
 - 新增或修改高复用术语时，先更新 `terminology.tsv`，再修改对应的 Lua 翻译文件。
 - 保留现有 `t(...)` 第三个参数作为 `source_tag`，并为术语填写 `T.*` `category`；不能只按英文原文做全局替换。
 - 同一个英文词在不同 section 或 `source_tag` 下可以有不同译法，必须在 `notes` 中说明语境。

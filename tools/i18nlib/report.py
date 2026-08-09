@@ -32,8 +32,11 @@ def atomic_write_bytes(path: Path, data: bytes) -> None:
             temporary.unlink()
 
 
-def write_json(path: Path, value: Any) -> None:
-    data = (
+def json_bytes(value: Any) -> bytes:
+    return (
         json.dumps(value, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
     ).encode("utf-8")
-    atomic_write_bytes(path, data)
+
+
+def write_json(path: Path, value: Any) -> None:
+    atomic_write_bytes(path, json_bytes(value))

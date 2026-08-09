@@ -30,6 +30,18 @@ from .review import (
     validate_review_bundle,
 )
 from .config import load_manifest
+from .translation_review import (
+    TRANSLATION_REVIEW_ASSESSMENT_CONTRACT,
+    TRANSLATION_REVIEW_BUNDLE_CONTRACT,
+    TRANSLATION_REVIEW_NORMALIZER_CONTRACT,
+    TRANSLATION_REVIEW_RUNNER_CONTRACT,
+    TRANSLATION_REVIEW_SCHEMA_VERSION,
+    load_translation_review_policy,
+    make_evaluator_identity,
+    revalidate_translation_assessment,
+    translation_provider_message,
+    validate_translation_model_output,
+)
 
 
 SEVERITIES = frozenset({"blocker", "major", "minor", "note"})
@@ -51,7 +63,69 @@ MODEL_FINDING_FIELDS = frozenset(
         "path",
     }
 )
-REVIEW_CACHE_SCHEMA_VERSION = 1
+REVIEW_CACHE_SCHEMA_VERSION = 2
+REVIEW_CACHE_CONTRACT = "tome4-pi-review-cache-v2"
+TRANSLATION_REVIEW_PROVIDER_CWD = Path("/private/tmp")
+PI_CWD_PROMPT_PREFIX = "\nCurrent working directory: "
+
+
+def _stage_validated_json(
+    run_directory: Path, name: str, value: dict[str, Any]
+) -> tuple[Path, str, int]:
+    """Freeze the exact validated payload bytes passed to an external process."""
+    path = run_directory / name
+    write_json(path, value)
+    path.chmod(0o600)
+    payload = path.read_bytes()
+    return path, hashlib.sha256(payload).hexdigest(), len(payload)
+
+
+def _stage_provider_message(
+    run_directory: Path, name: str, payload: bytes
+) -> tuple[Path, str, int]:
+    """Freeze the exact non-whitespace-trimmed bytes supplied to Pi stdin."""
+    if not payload or payload != payload.strip():
+        raise ValidationError("Pi provider message must be non-empty without edge whitespace")
+    path = run_directory / name
+    atomic_write_bytes(path, payload)
+    path.chmod(0o600)
+    return path, hashlib.sha256(payload).hexdigest(), len(payload)
+
+
+def _provider_visible_system_prompt(system_prompt: str, cwd: Path) -> str:
+    """Mirror Pi's custom-system-prompt cwd suffix for request identity binding."""
+    return system_prompt + PI_CWD_PROMPT_PREFIX + cwd.as_posix()
+
+
+def _is_translation_v2(bundle: dict[str, Any]) -> bool:
+    return (
+        bundle.get("kind") == "translations"
+        and bundle.get("schema_version") == TRANSLATION_REVIEW_SCHEMA_VERSION
+        and bundle.get("review_contract") == TRANSLATION_REVIEW_BUNDLE_CONTRACT
+    )
+
+
+def _review_contract_settings(
+    root: Path, bundle: dict[str, Any]
+) -> tuple[int, str, str, Path, dict[str, Any] | None, str | None]:
+    if _is_translation_v2(bundle):
+        policy, policy_sha256 = load_translation_review_policy(root)
+        return (
+            TRANSLATION_REVIEW_SCHEMA_VERSION,
+            TRANSLATION_REVIEW_ASSESSMENT_CONTRACT,
+            "translation-semantic-observations-v2",
+            root / "i18n" / "prompts" / "pi-translation-reviewer-v2.md",
+            policy,
+            policy_sha256,
+        )
+    return (
+        REVIEW_SCHEMA_VERSION,
+        REVIEW_CONTRACT,
+        "findings-only-v1",
+        root / "i18n" / "prompts" / "pi-reviewer.md",
+        None,
+        None,
+    )
 
 
 def _canonical_sha256(value: Any) -> str:
@@ -88,7 +162,7 @@ def _review_summary(findings: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-def _validate_findings(
+def _validate_legacy_findings(
     bundle: dict[str, Any], output: dict[str, Any], *, strict: bool
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     if strict:
@@ -243,6 +317,36 @@ def _validate_findings(
     return _review_summary(normalized_findings), normalized_output
 
 
+def _validate_findings(
+    bundle: dict[str, Any],
+    output: dict[str, Any],
+    *,
+    strict: bool,
+    policy: dict[str, Any] | None = None,
+    policy_sha256: str | None = None,
+    evaluator: dict[str, Any] | None = None,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Dispatch the model response by the validated bundle contract.
+
+    ``strict`` remains part of the legacy v1 API.  Translation v2 is always
+    exact-field strict because silently dropping host-owned fields would
+    violate the observation contract.
+    """
+    if _is_translation_v2(bundle):
+        if policy is None or policy_sha256 is None or evaluator is None:
+            raise ValidationError(
+                "translation review v2 validation requires host policy and evaluator identity"
+            )
+        return validate_translation_model_output(
+            bundle=bundle,
+            output=output,
+            policy=policy,
+            policy_sha256=policy_sha256,
+            evaluator=evaluator,
+        )
+    return _validate_legacy_findings(bundle, output, strict=strict)
+
+
 def _review_cache_key(
     *,
     bundle_id: str,
@@ -251,17 +355,26 @@ def _review_cache_key(
     thinking: str,
     prompt_sha256: str,
     strict: bool,
+    review_contract: str = REVIEW_CONTRACT,
+    policy_sha256: str | None = None,
+    normalizer_contract: str | None = None,
+    payload_sha256: str | None = None,
+    runner_contract: str | None = None,
 ) -> str:
     return _canonical_sha256(
         {
-            "cache_contract": "tome4-pi-review-cache-v1",
+            "cache_contract": REVIEW_CACHE_CONTRACT,
             "tool_version": TOOL_VERSION,
-            "review_contract": REVIEW_CONTRACT,
+            "review_contract": review_contract,
             "bundle_id": bundle_id,
             "provider": provider,
             "model": model,
             "thinking": thinking,
             "prompt_sha256": prompt_sha256,
+            "policy_sha256": policy_sha256,
+            "normalizer_contract": normalizer_contract,
+            "payload_sha256": payload_sha256,
+            "runner_contract": runner_contract,
             "strict": strict,
         }
     )
@@ -272,8 +385,26 @@ def _cached_review_path(root: Path, cache_key: str) -> Path:
 
 
 def _revalidate_normalized_review(
-    bundle: dict[str, Any], review: dict[str, Any], *, strict: bool
+    bundle: dict[str, Any],
+    review: dict[str, Any],
+    *,
+    strict: bool,
+    policy: dict[str, Any] | None = None,
+    policy_sha256: str | None = None,
+    evaluator: dict[str, Any] | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
+    if _is_translation_v2(bundle):
+        if policy is None or policy_sha256 is None or evaluator is None:
+            raise ValidationError(
+                "cached translation review requires host policy and evaluator identity"
+            )
+        return revalidate_translation_assessment(
+            bundle=bundle,
+            assessment=review,
+            policy=policy,
+            policy_sha256=policy_sha256,
+            evaluator=evaluator,
+        )
     findings = review.get("findings")
     if not isinstance(findings, list):
         raise ValidationError("cached Pi review findings are invalid")
@@ -316,6 +447,13 @@ def _load_cached_review(
     thinking: str,
     prompt_sha256: str,
     strict: bool,
+    review_contract: str = REVIEW_CONTRACT,
+    policy: dict[str, Any] | None = None,
+    policy_sha256: str | None = None,
+    evaluator: dict[str, Any] | None = None,
+    normalizer_contract: str | None = None,
+    payload_sha256: str | None = None,
+    runner_contract: str | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]] | None:
     if not path.exists():
         return None
@@ -329,10 +467,16 @@ def _load_cached_review(
         "model": model,
         "thinking": thinking,
         "prompt_sha256": prompt_sha256,
+        "review_contract": review_contract,
+        "policy_sha256": policy_sha256,
+        "normalizer_contract": normalizer_contract,
+        "payload_sha256": payload_sha256,
+        "runner_contract": runner_contract,
     }
     if (
         type(record.get("cache_schema_version")) is not int
         or record.get("cache_schema_version") != REVIEW_CACHE_SCHEMA_VERSION
+        or record.get("cache_contract") != REVIEW_CACHE_CONTRACT
         or type(record.get("strict")) is not bool
         or record.get("strict") is not strict
         or any(record.get(key) != value for key, value in expected.items())
@@ -342,7 +486,12 @@ def _load_cached_review(
     if not isinstance(review, dict):
         raise ValidationError("Pi review cache entry has no review")
     summary, normalized = _revalidate_normalized_review(
-        bundle, review, strict=strict
+        bundle,
+        review,
+        strict=strict,
+        policy=policy,
+        policy_sha256=policy_sha256,
+        evaluator=evaluator,
     )
     return summary, normalized
 
@@ -358,17 +507,28 @@ def _write_cached_review(
     prompt_sha256: str,
     strict: bool,
     review: dict[str, Any],
+    review_contract: str = REVIEW_CONTRACT,
+    policy_sha256: str | None = None,
+    normalizer_contract: str | None = None,
+    payload_sha256: str | None = None,
+    runner_contract: str | None = None,
 ) -> None:
     write_json(
         path,
         {
             "cache_schema_version": REVIEW_CACHE_SCHEMA_VERSION,
+            "cache_contract": REVIEW_CACHE_CONTRACT,
             "cache_key": cache_key,
             "bundle_id": bundle["bundle_id"],
             "provider": provider,
             "model": model,
             "thinking": thinking,
             "prompt_sha256": prompt_sha256,
+            "review_contract": review_contract,
+            "policy_sha256": policy_sha256,
+            "normalizer_contract": normalizer_contract,
+            "payload_sha256": payload_sha256,
+            "runner_contract": runner_contract,
             "strict": strict,
             "review": review,
         },
@@ -385,12 +545,27 @@ def build_review_command(
     bundle: dict[str, Any],
     bundle_resolved: Path,
 ) -> list[str]:
+    translation_v2 = _is_translation_v2(bundle)
     inventory = (
-        [item.get("item_id") for item in bundle.get("items", [])]
+        [
+            item.get("revision_id") if translation_v2 else item.get("item_id")
+            for item in bundle.get("items", [])
+        ]
         if bundle.get("kind") == "translations"
         else [item.get("item_id") for item in bundle.get("files", [])]
     )
-    return [
+    instruction = (
+        "Review every item in order and return exactly one JSON object containing only "
+        "the items array. The exact revision_id inventory is "
+        f"{json.dumps(inventory, ensure_ascii=False)}; copy every revision_id verbatim "
+        "and in this order."
+        if translation_v2
+        else
+        "Review only this bundle and return the required JSON object. Do not omit the envelope. "
+        "The exact allowed item_id inventory for this bundle is "
+        f"{json.dumps(inventory, ensure_ascii=False)}; copy item_id values verbatim, never use paths."
+    )
+    command = [
         executable,
         "--provider",
         provider,
@@ -411,11 +586,15 @@ def build_review_command(
         "--system-prompt",
         system_prompt,
         "--print",
-        f"@{bundle_resolved}",
-        "Review only this bundle and return the required JSON object. Do not omit the envelope. "
-        "The exact allowed item_id inventory for this bundle is "
-        f"{json.dumps(inventory, ensure_ascii=False)}; copy item_id values verbatim, never use paths.",
     ]
+    if translation_v2:
+        # Pi reads the exact bounded JSON message from stdin.  Passing @file would
+        # add an absolute-path XML wrapper that is neither blind nor cache-stable.
+        # An explicit empty append source also suppresses Pi's automatic discovery
+        # of project/global APPEND_SYSTEM.md files, keeping the provider-visible
+        # system prompt equal to the source prompt plus Pi's fixed cwd suffix.
+        return [*command, "--append-system-prompt", ""]
+    return [*command, f"@{bundle_resolved}", instruction]
 
 
 def run_pi_review(
@@ -429,6 +608,7 @@ def run_pi_review(
     pi_executable: str | None = None,
     use_cache: bool = True,
     force: bool = False,
+    expected_bundle_id: str | None = None,
 ) -> dict[str, Any]:
     validate_pi_run_options(
         provider=provider,
@@ -440,22 +620,71 @@ def run_pi_review(
         force=force,
     )
     started = time.monotonic()
+    if expected_bundle_id is not None and (
+        not isinstance(expected_bundle_id, str)
+        or len(expected_bundle_id) != 64
+        or any(character not in "0123456789abcdef" for character in expected_bundle_id)
+    ):
+        raise ValidationError("expected review bundle id must be a SHA-256 digest")
     manifest = load_manifest()
     bundle_resolved = bundle_path.expanduser().resolve()
     bundle = validate_review_bundle(manifest, bundle_resolved)
+    if expected_bundle_id is not None and bundle["bundle_id"] != expected_bundle_id:
+        raise ValidationError("review bundle does not match its expected index identity")
+    translation_v2 = _is_translation_v2(bundle)
+    (
+        result_schema_version,
+        result_contract,
+        report_mode,
+        prompt_path,
+        policy,
+        policy_sha256,
+    ) = _review_contract_settings(manifest.root, bundle)
     run_directory = create_run_directory(manifest.root, "pi-review")
     run_directory.chmod(0o700)
+    validated_bundle_path, bundle_artifact_sha256, bundle_artifact_bytes = _stage_validated_json(
+        run_directory, "validated-bundle.json", bundle
+    )
+    if translation_v2:
+        provider_message = translation_provider_message(bundle)
+        provider_payload_path, payload_sha256, payload_bytes = _stage_provider_message(
+            run_directory, "provider-message.json", provider_message
+        )
+    else:
+        provider_message = None
+        provider_payload_path, payload_sha256, payload_bytes = _stage_validated_json(
+            run_directory, "provider-payload.json", bundle
+        )
     raw_output_path = run_directory / "raw-output.txt"
     stderr_path = run_directory / "pi-stderr.txt"
     review_path = run_directory / "review.json"
     report_path = run_directory / "pi-review.json"
-    prompt_path = manifest.root / "i18n" / "prompts" / "pi-reviewer.md"
     try:
         system_prompt = prompt_path.read_text(encoding="utf-8")
     except (OSError, UnicodeDecodeError) as error:
         raise AgentError(f"cannot read Pi reviewer prompt: {prompt_path}") from error
 
-    prompt_sha256 = hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()
+    prompt_source_sha256 = hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()
+    provider_cwd = TRANSLATION_REVIEW_PROVIDER_CWD if translation_v2 else run_directory
+    prompt_sha256 = hashlib.sha256(
+        (
+            _provider_visible_system_prompt(system_prompt, provider_cwd)
+            if translation_v2
+            else system_prompt
+        ).encode("utf-8")
+    ).hexdigest()
+    evaluator = (
+        make_evaluator_identity(
+            provider=provider,
+            model=model,
+            thinking=thinking,
+            prompt_sha256=prompt_sha256,
+            policy_sha256=policy_sha256,
+            bundle=bundle,
+        )
+        if translation_v2 and policy_sha256 is not None
+        else None
+    )
     cache_key = _review_cache_key(
         bundle_id=bundle["bundle_id"],
         provider=provider,
@@ -463,12 +692,21 @@ def run_pi_review(
         thinking=thinking,
         prompt_sha256=prompt_sha256,
         strict=strict,
+        review_contract=result_contract,
+        policy_sha256=policy_sha256,
+        normalizer_contract=(
+            TRANSLATION_REVIEW_NORMALIZER_CONTRACT if translation_v2 else None
+        ),
+        payload_sha256=payload_sha256 if translation_v2 else None,
+        runner_contract=(
+            TRANSLATION_REVIEW_RUNNER_CONTRACT if translation_v2 else None
+        ),
     )
     cache_path = _cached_review_path(manifest.root, cache_key)
     cache_decision = "disabled" if not use_cache else ("bypass" if force else "miss")
     report: dict[str, Any] = {
-        "schema_version": REVIEW_SCHEMA_VERSION,
-        "review_contract": REVIEW_CONTRACT,
+        "schema_version": result_schema_version,
+        "review_contract": result_contract,
         "tool_version": TOOL_VERSION,
         "ok": False,
         "version": manifest.version,
@@ -476,16 +714,27 @@ def run_pi_review(
         "model": model,
         "thinking": thinking,
         "strict": strict,
-        "mode": "findings-only-v1",
+        "mode": report_mode,
         "pi_tools": False,
         "pi_session": False,
         "candidate_execution": False,
         "concurrency": 1,
         "run_id": run_directory.name,
         "bundle": str(bundle_resolved),
+        "validated_bundle": str(validated_bundle_path),
+        "bundle_artifact_sha256": bundle_artifact_sha256,
+        "bundle_artifact_bytes": bundle_artifact_bytes,
+        "provider_payload": str(provider_payload_path),
+        "payload_sha256": payload_sha256,
+        "payload_bytes": payload_bytes,
+        "provider_cwd": str(provider_cwd),
         "bundle_id": bundle["bundle_id"],
         "kind": bundle["kind"],
+        "prompt_source_sha256": prompt_source_sha256,
         "prompt_sha256": prompt_sha256,
+        "runner_contract": (
+            TRANSLATION_REVIEW_RUNNER_CONTRACT if translation_v2 else None
+        ),
         "result_cache_key": cache_key,
         "cache_decision": cache_decision,
         "timeout_seconds": timeout,
@@ -508,6 +757,19 @@ def run_pi_review(
                 thinking=thinking,
                 prompt_sha256=prompt_sha256,
                 strict=strict,
+                review_contract=result_contract,
+                policy=policy,
+                policy_sha256=policy_sha256,
+                evaluator=evaluator,
+                normalizer_contract=(
+                    TRANSLATION_REVIEW_NORMALIZER_CONTRACT
+                    if translation_v2
+                    else None
+                ),
+                payload_sha256=payload_sha256 if translation_v2 else None,
+                runner_contract=(
+                    TRANSLATION_REVIEW_RUNNER_CONTRACT if translation_v2 else None
+                ),
             )
         except ValidationError as error:
             report["error"] = f"Pi review cache validation failed: {error}"
@@ -543,7 +805,7 @@ def run_pi_review(
         thinking=thinking,
         system_prompt=system_prompt,
         bundle=bundle,
-        bundle_resolved=bundle_resolved,
+        bundle_resolved=provider_payload_path,
     )
     report.update(
         {
@@ -555,8 +817,9 @@ def run_pi_review(
     try:
         result = subprocess.run(
             command,
-            cwd=run_directory,
+            cwd=provider_cwd,
             env=_pi_environment(manifest.root, provider),
+            input=provider_message,
             capture_output=True,
             check=False,
             timeout=timeout,
@@ -600,7 +863,14 @@ def run_pi_review(
             ),
             "Pi review output",
         )
-        summary, output = _validate_findings(bundle, model_output, strict=strict)
+        summary, output = _validate_findings(
+            bundle,
+            model_output,
+            strict=strict,
+            policy=policy,
+            policy_sha256=policy_sha256,
+            evaluator=evaluator,
+        )
     except ValidationError as error:
         report["error"] = str(error)
         report["elapsed_seconds"] = round(time.monotonic() - started, 6)
@@ -619,6 +889,15 @@ def run_pi_review(
             prompt_sha256=prompt_sha256,
             strict=strict,
             review=output,
+            review_contract=result_contract,
+            policy_sha256=policy_sha256,
+            normalizer_contract=(
+                TRANSLATION_REVIEW_NORMALIZER_CONTRACT if translation_v2 else None
+            ),
+            payload_sha256=payload_sha256 if translation_v2 else None,
+            runner_contract=(
+                TRANSLATION_REVIEW_RUNNER_CONTRACT if translation_v2 else None
+            ),
         )
     report.update(
         {
@@ -639,6 +918,10 @@ def _parser() -> argparse.ArgumentParser:
         description="Run a no-tools Pi reviewer against a bounded review bundle",
     )
     parser.add_argument("--bundle", required=True, type=Path)
+    parser.add_argument(
+        "--expected-bundle-id",
+        help="require the validated bundle to match this review-index identity",
+    )
     parser.add_argument("--provider", default=os.environ.get("TOME_PI_PROVIDER", DEFAULT_PROVIDER))
     parser.add_argument("--model", default=os.environ.get("TOME_PI_MODEL", DEFAULT_MODEL))
     parser.add_argument("--thinking", default=os.environ.get("TOME_PI_THINKING", DEFAULT_THINKING))
@@ -681,6 +964,7 @@ def main(argv: list[str] | None = None) -> int:
             strict=arguments.strict,
             use_cache=arguments.cache,
             force=arguments.force,
+            expected_bundle_id=arguments.expected_bundle_id,
         )
     except I18nToolError as error:
         print(f"ERROR: {error}", file=os.sys.stderr)

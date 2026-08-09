@@ -1,17 +1,19 @@
 ---
 name: tome4-pi-file-review
-description: Run bounded, read-only Pi audits where the reviewer may read project, game and DLC source files to verify evidence (read/bash tools only, no write tools, no session, no skills). Use for source-verification review passes over translation bundles or public code changes when findings should be checked against actual sources; do not use for isolated bundle reviews (use $tome4-pi-review), translation generation, or any task needing write access.
+description: Run bounded, read-only Pi audits for code or legacy v1 bundles where the reviewer may read project, game and DLC source files (read/bash tools only, no write tools, no session, no skills). Translation semantic v2 observations are not accepted until a claim-bound verifier exists. Do not use for isolated bundle reviews, translation generation, or any task needing write access.
 allowed-tools: read bash
 ---
 
 # ToME4 Pi file-reading review
 
-与 `$tome4-pi-review` 同源的审核变体，唯一区别：Pi 子进程带 `--tools read,bash`
+这是 code/legacy v1 的源码感知审核变体：Pi 子进程带 `--tools read,bash`
 白名单启动，按提示契约只读核验项目、公开游戏与 DLC 源码来验证证据；`edit`/`write`
 始终未启用，会话、skills、上下文文件仍然禁用。Pi 内置 `bash` 不是 OS 沙箱，
 会继承 Pi 进程权限与 provider 凭据，因此该变体只能用于已授权、受监控的核验；
-需要强隔离时须使用只读挂载、网络/凭据隔离的容器或 VM。bundle 边界、item_id
-绑定、findings 契约、严格校验与报告字段与隔离审核兼容。file-reading 审核不会
+需要强隔离时须使用只读挂载、网络/凭据隔离的容器或 VM。现有入口只接受 code/
+legacy v1 bundle；translation semantic v2 必须使用绑定既有 observation identity、
+只返回 `supported/refuted/insufficient` 且禁止新增 finding 的独立核验契约。在该
+runner 实现前，工具会失败关闭，主代理按固定版本源码直接核验。file-reading 审核不会
 复用结果缓存，因为 `read/bash` 可观察 bundle 外的可变源码状态，现有缓存键无法
 可靠绑定这些输入。
 
@@ -20,20 +22,19 @@ allowed-tools: read bash
 
 ## 准备审核
 
-1. 先阅读当前 `AGENTS.md`；翻译审核还需先读 `TERMINOLOGY.md` 和
-   `terminology.tsv`。
+1. 先阅读当前 `AGENTS.md`。不要把 translation v2 bundle 交给本 legacy 入口；
+   主代理阅读 `TERMINOLOGY.md` / `terminology.tsv` 也不构成向 blind discovery 注入。
 2. 用最小范围生成 bundle：
-   - 翻译：`python3 -B tools/i18n review --scope translations`
    - 公开变更：`python3 -B tools/i18n review --scope code`
-   - 两者：`python3 -B tools/i18n review --scope translations --scope code`
-3. 阅读生成的 `review-index.json`（只读索引，不读受保护路径），报告 bundle
-   数量与范围后再调用 Pi。
+3. 阅读生成的 `review-index.json`，确认目标 descriptor 是 code/legacy v1；报告
+   bundle 数量、payload 大小与范围后再调用 Pi。
 
 ## 授权外部审核
 
 Pi 会把每个有界 bundle 发送给配置的外部 provider。首次真实调用前，必须明确
-说明 provider、model、bundle 类型、条目数量，以及 bundle 内容会离开本地
-沙箱并取得用户明确授权。不得启用项目级网络放行或绕过审批；被拒绝就停止，
+说明 provider、model、bundle 类型、条目数量、允许读取的公开根，以及 bundle、
+工具读取的源码路径/片段都可能进入 provider 请求，并取得用户明确授权。不得启用
+项目级网络放行或绕过审批；被拒绝就停止，
 不得间接调用 Pi 或经其他通道复制数据。
 
 ## 运行（tmux 分屏可见）
@@ -68,8 +69,8 @@ provider/model/thinking 默认沿用项目默认，除非用户要求覆盖。
    脱离进程组的后代。主代理仍须再次运行 `git status --porcelain`，确认结果与运行前一致（工作树原本可为非空），
    并确保 `git diff --check` 通过。`--tools read,bash` 只限制工具种类，不是
    文件系统、网络或凭据沙箱。
-2. 只读已校验的 `review.json` / `pi-review.json` artifact（与 headless 管线
-   形状一致）。按 severity 汇总 findings，保留 `bundle_id` 与 `item_id`，
+2. 只读已校验的 legacy `review.json` / `pi-review.json` artifact。按 severity
+   汇总代码/legacy findings，保留 `bundle_id` 与 `item_id`，
    区分 Pi 的声称与独立核实的事实。
 3. 不得自动应用建议或修改规范 Lua/代码；修订走 `tools/pi-tmux remediate`
    或人工审校流程。

@@ -14,14 +14,41 @@ from . import TOOL_VERSION
 from .config import Manifest
 from .errors import ConfigurationError, ValidationError
 from .locale_model import LocaleLoader
-from .report import create_run_directory, write_json
+from .quality_contracts import exact_fields
+from .report import create_run_directory, json_bytes, write_json
 from .runtime import LuaRuntime
-from .workset import _relevant_terms, _terminology_rows
+from .translation_review import (
+    DEFAULT_TRANSLATION_CHARACTER_BUDGET,
+    MAX_TRANSLATION_CHARACTER_BUDGET,
+    MAX_TRANSLATION_REVIEW_BATCH_SIZE,
+    TRANSLATION_REVIEW_BUNDLE_CONTRACT,
+    TRANSLATION_REVIEW_CHANNEL,
+    TRANSLATION_REVIEW_INVENTORY_CONTRACT,
+    TRANSLATION_REVIEW_METHOD,
+    TRANSLATION_REVIEW_PARTITION_CONTRACT,
+    TRANSLATION_REVIEW_POLICY_CONTRACT,
+    TRANSLATION_REVIEW_SCHEMA_VERSION,
+    build_translation_item,
+    deduplicate_translation_revisions,
+    load_translation_review_policy,
+    partition_translation_items,
+    translation_item_character_count,
+    translation_provider_message,
+    translation_selection_sha256,
+    validate_translation_item,
+    validate_translation_inventory_membership,
+    write_translation_inventory,
+)
 
 
-REVIEW_SCHEMA_VERSION = 1
-REVIEW_CONTRACT = "tome4-review-v1"
-DEFAULT_REVIEW_BATCH_SIZE = 50
+LEGACY_REVIEW_SCHEMA_VERSION = 1
+LEGACY_REVIEW_CONTRACT = "tome4-review-v1"
+# Compatibility aliases for code review and explicitly legacy artifacts.
+REVIEW_SCHEMA_VERSION = LEGACY_REVIEW_SCHEMA_VERSION
+REVIEW_CONTRACT = LEGACY_REVIEW_CONTRACT
+REVIEW_INDEX_SCHEMA_VERSION = 2
+REVIEW_INDEX_CONTRACT = "tome4-review-index-v2"
+DEFAULT_REVIEW_BATCH_SIZE = 10
 MAX_REVIEW_BATCH_SIZE = 100
 DEFAULT_REVIEW_TIMEOUT = 1200
 REVIEW_KINDS = frozenset({"translations", "code"})
@@ -36,6 +63,11 @@ PUBLIC_REVIEW_FILES = (
     "pi-agent-analysis.md",
     "TERMINOLOGY.md",
     "terminology.tsv",
+)
+TRANSLATION_REVIEW_CONSTRAINTS = (
+    "Observe only substantive source-to-target semantic differences in the supplied items.",
+    "Do not use terminology, game mechanics, outside facts, severity, disposition, or suggested fixes.",
+    "Pure fluency, style, punctuation, markup, placeholders, and runtime structure are outside this channel.",
 )
 
 
@@ -115,38 +147,23 @@ def _entry_id(
     return "translation-" + _canonical_sha256(identity)
 
 
-def _translation_items(
-    manifest: Manifest, loader: LocaleLoader, component: str
+def _translation_items_from_bytes(
+    manifest: Manifest,
+    loader: LocaleLoader,
+    component: str,
+    data: bytes,
 ) -> list[dict[str, Any]]:
     spec = manifest.component(component)
-    document = loader.load_path(
-        manifest.root / spec.translation,
-        logical_path=spec.translation,
-    )
-    items: list[dict[str, Any]] = []
-    for ordinal, entry in enumerate(document.translations):
-        source = entry.get("source")
-        target = entry.get("target")
-        section = entry.get("section")
-        source_tag = entry.get("source_tag")
-        if not all(isinstance(value, str) for value in (source, target, section)):
-            raise ValidationError(
-                f"invalid canonical translation entry in component {component}"
-            )
-        item = {
-            "item_id": _entry_id(component, ordinal, entry),
-            "component": component,
-            "ordinal": ordinal,
-            "section": section,
-            "source": source,
-            "target": target,
-            "source_tag": source_tag,
-            "args_order": entry.get("args_order"),
-            "special": entry.get("special"),
-            "line": entry.get("line"),
-        }
-        items.append(item)
-    return items
+    document = loader.load_bytes(data, logical_path=spec.translation)
+    return [
+        build_translation_item(
+            version=manifest.version,
+            component=component,
+            ordinal=ordinal,
+            entry=entry,
+        )
+        for ordinal, entry in enumerate(document.translations)
+    ]
 
 
 def _git_status_paths(
@@ -292,26 +309,44 @@ def _bundle_id(payload: dict[str, Any]) -> str:
     return _canonical_sha256(payload)
 
 
+def review_descriptor_sort_key(item: dict[str, Any]) -> tuple[str, str, int, str]:
+    return (
+        str(item.get("kind", "")),
+        str(item.get("component", "")),
+        int(item.get("offset", 0)),
+        str(item.get("bundle_id", "")),
+    )
+
+
 def _review_index_id(payload: dict[str, Any]) -> str:
     """Hash semantic review selection without run-local artifact paths."""
     bundles = payload.get("bundles", [])
     identity_bundles = [
         {
             key: item[key]
-            for key in ("bundle_id", "kind", "component", "offset", "count", "total")
+            for key in (
+                "bundle_id",
+                "schema_version",
+                "review_contract",
+                "channel",
+                "kind",
+                "component",
+                "offset",
+                "count",
+                "total",
+                "selection_sha256",
+                "item_character_count",
+                "item_character_budget",
+                "artifact_bytes",
+                "payload_bytes",
+                "oversized_single_item",
+            )
             if key in item
         }
         for item in bundles
         if isinstance(item, dict)
     ]
-    identity_bundles.sort(
-        key=lambda item: (
-            str(item.get("kind", "")),
-            str(item.get("component", "")),
-            int(item.get("offset", 0)),
-            str(item.get("bundle_id", "")),
-        )
-    )
+    identity_bundles.sort(key=review_descriptor_sort_key)
     return _canonical_sha256(
         {
             "schema_version": payload.get("schema_version"),
@@ -323,6 +358,8 @@ def _review_index_id(payload: dict[str, Any]) -> str:
             "redacted_absolute_path_count": payload.get(
                 "redacted_absolute_path_count"
             ),
+            "baseline": payload.get("baseline"),
+            "baseline_tree": payload.get("baseline_tree"),
             "bundles": identity_bundles,
         }
     )
@@ -333,56 +370,131 @@ def _write_translation_bundles(
     manifest: Manifest,
     loader: LocaleLoader,
     batch_size: int,
+    character_budget: int,
 ) -> list[dict[str, Any]]:
     bundles: list[dict[str, Any]] = []
     manifest_sha256 = hashlib.sha256(manifest.raw_bytes).hexdigest()
-    terminology_rows, terminology_sha256 = _terminology_rows(
-        manifest.root / manifest.terminology
-    )
+    _policy, policy_sha256 = load_translation_review_policy(manifest.root)
     components = [component.id for component in manifest.components]
     for component in components:
-        items = _translation_items(manifest, loader, component)
+        translation_path = manifest.root / manifest.component(component).translation
+        try:
+            translation_bytes = translation_path.read_bytes()
+        except OSError as error:
+            raise ConfigurationError(
+                f"cannot read canonical translation file: {translation_path}"
+            ) from error
+        translation_sha256 = hashlib.sha256(translation_bytes).hexdigest()
+        canonical_items = _translation_items_from_bytes(
+            manifest, loader, component, translation_bytes
+        )
+        items = deduplicate_translation_revisions(canonical_items)
         total = len(items)
-        for offset in range(0, total, batch_size):
-            batch = items[offset : offset + batch_size]
-            payload = {
-                "schema_version": REVIEW_SCHEMA_VERSION,
-                "review_contract": REVIEW_CONTRACT,
-                "tool_version": TOOL_VERSION,
-                "version": manifest.version,
-                "manifest_sha256": manifest_sha256,
-                "kind": "translations",
-                "component": component,
-                "selection": {
-                    "offset": offset,
-                    "count": len(batch),
-                    "total": total,
-                },
-                "items": batch,
-                "terminology_sha256": terminology_sha256,
-                "terminology": _relevant_terms(terminology_rows, batch, component),
-                "constraints": [
-                    "Review only the supplied canonical translation entries.",
-                    "Preserve source, source_tag, printf arguments, and control markers in any suggested fix.",
-                    "Return findings only; do not rewrite files or invent missing game context.",
-                ],
-            }
+        selection_sha256 = translation_selection_sha256(items)
+        inventory_sha256, inventory_membership = write_translation_inventory(
+            root=manifest.root,
+            tool_version=TOOL_VERSION,
+            version=manifest.version,
+            component=component,
+            translation_sha256=translation_sha256,
+            items=canonical_items,
+        )
+        for offset, batch, character_count, oversized in partition_translation_items(
+            items, max_items=batch_size, character_budget=character_budget
+        ):
+            payload = _translation_bundle_payload(
+                tool_version=TOOL_VERSION,
+                version=manifest.version,
+                manifest_sha256=manifest_sha256,
+                component=component,
+                translation_sha256=translation_sha256,
+                offset=offset,
+                total=total,
+                batch=batch,
+                character_count=character_count,
+                character_budget=character_budget,
+                oversized_single_item=oversized,
+                policy_sha256=policy_sha256,
+                inventory_sha256=inventory_sha256,
+                selection_sha256=selection_sha256,
+                membership=[inventory_membership[item["ordinal"]] for item in batch],
+            )
             bundle_id = _bundle_id(payload)
             payload["bundle_id"] = bundle_id
             output = run_directory / "translations" / component / f"{bundle_id}.json"
             write_json(output, payload)
+            artifact_bytes = output.stat().st_size
+            payload_bytes = len(translation_provider_message(payload))
             bundles.append(
                 {
                     "bundle_id": bundle_id,
+                    "schema_version": TRANSLATION_REVIEW_SCHEMA_VERSION,
+                    "review_contract": TRANSLATION_REVIEW_BUNDLE_CONTRACT,
+                    "channel": TRANSLATION_REVIEW_CHANNEL,
                     "kind": "translations",
                     "component": component,
                     "offset": offset,
                     "count": len(batch),
                     "total": total,
+                    "selection_sha256": selection_sha256,
+                    "item_character_count": character_count,
+                    "item_character_budget": character_budget,
+                    "artifact_bytes": artifact_bytes,
+                    "payload_bytes": payload_bytes,
+                    "oversized_single_item": oversized,
                     "path": str(output),
                 }
             )
     return bundles
+
+
+def _translation_bundle_payload(
+    *,
+    tool_version: str,
+    version: str,
+    manifest_sha256: str,
+    component: str,
+    translation_sha256: str,
+    offset: int,
+    total: int,
+    batch: list[dict[str, Any]],
+    character_count: int,
+    character_budget: int,
+    oversized_single_item: bool,
+    policy_sha256: str,
+    inventory_sha256: str,
+    selection_sha256: str,
+    membership: list[dict[str, Any]],
+) -> dict[str, Any]:
+    return {
+        "schema_version": TRANSLATION_REVIEW_SCHEMA_VERSION,
+        "review_contract": TRANSLATION_REVIEW_BUNDLE_CONTRACT,
+        "tool_version": tool_version,
+        "version": version,
+        "manifest_sha256": manifest_sha256,
+        "kind": "translations",
+        "channel": TRANSLATION_REVIEW_CHANNEL,
+        "method_version": TRANSLATION_REVIEW_METHOD,
+        "policy_contract": TRANSLATION_REVIEW_POLICY_CONTRACT,
+        "policy_sha256": policy_sha256,
+        "partition_contract": TRANSLATION_REVIEW_PARTITION_CONTRACT,
+        "inventory_contract": TRANSLATION_REVIEW_INVENTORY_CONTRACT,
+        "inventory_sha256": inventory_sha256,
+        "selection_sha256": selection_sha256,
+        "component": component,
+        "translation_sha256": translation_sha256,
+        "selection": {
+            "offset": offset,
+            "count": len(batch),
+            "total": total,
+            "item_character_count": character_count,
+            "item_character_budget": character_budget,
+            "oversized_single_item": oversized_single_item,
+        },
+        "items": batch,
+        "canonical_membership": membership,
+        "constraints": list(TRANSLATION_REVIEW_CONSTRAINTS),
+    }
 
 
 def _write_code_bundles(
@@ -418,13 +530,19 @@ def _write_code_bundles(
         payload["bundle_id"] = bundle_id
         output = run_directory / "code" / f"{bundle_id}.json"
         write_json(output, payload)
+        artifact_bytes = output.stat().st_size
         bundles.append(
             {
                 "bundle_id": bundle_id,
+                "schema_version": LEGACY_REVIEW_SCHEMA_VERSION,
+                "review_contract": LEGACY_REVIEW_CONTRACT,
+                "channel": "code-findings",
                 "kind": "code",
                 "offset": offset,
                 "count": len(batch),
                 "total": len(code_items),
+                "artifact_bytes": artifact_bytes,
+                "payload_bytes": artifact_bytes,
                 "path": str(output),
             }
         )
@@ -435,6 +553,7 @@ def create_review_index(
     manifest: Manifest,
     *,
     batch_size: int = DEFAULT_REVIEW_BATCH_SIZE,
+    character_budget: int = DEFAULT_TRANSLATION_CHARACTER_BUDGET,
     include_translations: bool,
     include_code: bool,
 ) -> dict[str, Any]:
@@ -444,19 +563,29 @@ def create_review_index(
         raise ValidationError(
             f"review batch size must be between 1 and {MAX_REVIEW_BATCH_SIZE}"
         )
+    if type(character_budget) is not int or not 1 <= character_budget <= MAX_TRANSLATION_CHARACTER_BUDGET:
+        raise ValidationError(
+            "review character budget must be between 1 and "
+            f"{MAX_TRANSLATION_CHARACTER_BUDGET}"
+        )
     if type(include_translations) is not bool:
         raise ValidationError("review include_translations must be a boolean")
     if type(include_code) is not bool:
         raise ValidationError("review include_code must be a boolean")
     if not include_translations and not include_code:
         raise ValidationError("review must include translations or code")
+    if include_translations and batch_size > MAX_TRANSLATION_REVIEW_BATCH_SIZE:
+        raise ValidationError(
+            "translation review batch size must be between 1 and "
+            f"{MAX_TRANSLATION_REVIEW_BATCH_SIZE}"
+        )
     run_directory = create_run_directory(manifest.root, "review")
     translation_bundles: list[dict[str, Any]] = []
     if include_translations:
         runtime = LuaRuntime(manifest)
         loader = LocaleLoader(runtime)
         translation_bundles = _write_translation_bundles(
-            run_directory, manifest, loader, batch_size
+            run_directory, manifest, loader, batch_size, character_budget
         )
     code_bundles, redactions = (
         _write_code_bundles(run_directory, manifest, batch_size)
@@ -465,8 +594,8 @@ def create_review_index(
     )
     bundles = translation_bundles + code_bundles
     index_payload = {
-        "schema_version": REVIEW_SCHEMA_VERSION,
-        "review_contract": REVIEW_CONTRACT,
+        "schema_version": REVIEW_INDEX_SCHEMA_VERSION,
+        "review_contract": REVIEW_INDEX_CONTRACT,
         "tool_version": TOOL_VERSION,
         "version": manifest.version,
         "manifest_sha256": hashlib.sha256(manifest.raw_bytes).hexdigest(),
@@ -498,15 +627,15 @@ def _read_bundle(path: Path) -> dict[str, Any]:
     return value
 
 
-def validate_review_bundle(manifest: Manifest, path: Path) -> dict[str, Any]:
+def validate_review_bundle(
+    manifest: Manifest,
+    path: Path,
+    *,
+    allow_legacy_translations: bool = False,
+) -> dict[str, Any]:
     bundle = _read_bundle(path)
-    if (
-        type(bundle.get("schema_version")) is not int
-        or bundle.get("schema_version") != REVIEW_SCHEMA_VERSION
-    ):
+    if type(bundle.get("schema_version")) is not int:
         raise ValidationError("unsupported review bundle schema")
-    if bundle.get("review_contract") != REVIEW_CONTRACT:
-        raise ValidationError("unsupported review contract")
     if bundle.get("tool_version") != TOOL_VERSION:
         raise ValidationError("review bundle was generated by a different tool version")
     if bundle.get("version") != manifest.version:
@@ -520,6 +649,21 @@ def validate_review_bundle(manifest: Manifest, path: Path) -> dict[str, Any]:
     if bundle.get("bundle_id") != _bundle_id({key: value for key, value in bundle.items() if key != "bundle_id"}):
         raise ValidationError("review bundle id is invalid")
     if kind == "translations":
+        if (
+            bundle.get("schema_version") == TRANSLATION_REVIEW_SCHEMA_VERSION
+            and bundle.get("review_contract") == TRANSLATION_REVIEW_BUNDLE_CONTRACT
+        ):
+            return _validate_translation_v2_bundle(manifest, bundle)
+        if not allow_legacy_translations:
+            raise ValidationError(
+                "legacy translation review bundles are historical artifacts and cannot "
+                "be used for semantic discovery; rebuild a translation v2 bundle"
+            )
+        if (
+            bundle.get("schema_version") != LEGACY_REVIEW_SCHEMA_VERSION
+            or bundle.get("review_contract") != LEGACY_REVIEW_CONTRACT
+        ):
+            raise ValidationError("unsupported translation review contract")
         component = bundle.get("component")
         if not isinstance(component, str):
             raise ValidationError("translation review bundle has no component")
@@ -549,6 +693,11 @@ def validate_review_bundle(manifest: Manifest, path: Path) -> dict[str, Any]:
                 ):
                     raise ValidationError("translation review terminology row is invalid")
     else:
+        if (
+            bundle.get("schema_version") != LEGACY_REVIEW_SCHEMA_VERSION
+            or bundle.get("review_contract") != LEGACY_REVIEW_CONTRACT
+        ):
+            raise ValidationError("unsupported code review contract")
         files = bundle.get("files")
         if not isinstance(files, list) or not files:
             raise ValidationError("code review bundle files are invalid")
@@ -567,9 +716,172 @@ def validate_review_bundle(manifest: Manifest, path: Path) -> dict[str, Any]:
     return bundle
 
 
+def _validate_translation_v2_bundle(
+    manifest: Manifest, bundle: dict[str, Any]
+) -> dict[str, Any]:
+    exact_fields(
+        bundle,
+        (
+            "schema_version",
+            "review_contract",
+            "tool_version",
+            "version",
+            "manifest_sha256",
+            "kind",
+            "channel",
+            "method_version",
+            "policy_contract",
+            "policy_sha256",
+            "partition_contract",
+            "inventory_contract",
+            "inventory_sha256",
+            "selection_sha256",
+            "component",
+            "translation_sha256",
+            "selection",
+            "items",
+            "canonical_membership",
+            "constraints",
+            "bundle_id",
+        ),
+        "translation review bundle v2",
+    )
+    if (
+        bundle["channel"] != TRANSLATION_REVIEW_CHANNEL
+        or bundle["method_version"] != TRANSLATION_REVIEW_METHOD
+        or bundle["policy_contract"] != TRANSLATION_REVIEW_POLICY_CONTRACT
+        or bundle["partition_contract"] != TRANSLATION_REVIEW_PARTITION_CONTRACT
+        or bundle["inventory_contract"] != TRANSLATION_REVIEW_INVENTORY_CONTRACT
+    ):
+        raise ValidationError("translation review bundle v2 identity is invalid")
+    if (
+        not isinstance(bundle["selection_sha256"], str)
+        or not re.fullmatch(r"[0-9a-f]{64}", bundle["selection_sha256"])
+    ):
+        raise ValidationError("translation review selection digest is invalid")
+    _policy, expected_policy = load_translation_review_policy(manifest.root)
+    if bundle["policy_sha256"] != expected_policy:
+        raise ValidationError("translation review bundle policy digest is stale or invalid")
+    component = bundle["component"]
+    if not isinstance(component, str):
+        raise ValidationError("translation review bundle has no component")
+    spec = manifest.component(component)
+    try:
+        translation_digest = hashlib.sha256(
+            (manifest.root / spec.translation).read_bytes()
+        ).hexdigest()
+    except OSError as error:
+        raise ValidationError("cannot hash translation review canonical input") from error
+    if bundle["translation_sha256"] != translation_digest:
+        raise ValidationError("translation review canonical input is stale or invalid")
+    selection = bundle["selection"]
+    if not isinstance(selection, dict):
+        raise ValidationError("translation review selection is invalid")
+    exact_fields(
+        selection,
+        (
+            "offset",
+            "count",
+            "total",
+            "item_character_count",
+            "item_character_budget",
+            "oversized_single_item",
+        ),
+        "translation review selection",
+    )
+    for field in (
+        "offset",
+        "count",
+        "total",
+        "item_character_count",
+        "item_character_budget",
+    ):
+        if type(selection[field]) is not int:
+            raise ValidationError(f"translation review selection.{field} must be an integer")
+    if (
+        selection["offset"] < 0
+        or selection["count"] < 1
+        or selection["total"] < selection["count"]
+        or selection["offset"] + selection["count"] > selection["total"]
+        or selection["item_character_count"] < 1
+        or not 1
+        <= selection["item_character_budget"]
+        <= MAX_TRANSLATION_CHARACTER_BUDGET
+        or type(selection["oversized_single_item"]) is not bool
+    ):
+        raise ValidationError("translation review selection values are invalid")
+    items = bundle["items"]
+    if not isinstance(items, list) or len(items) != selection["count"]:
+        raise ValidationError("translation review bundle items do not match selection")
+    if len(items) > MAX_TRANSLATION_REVIEW_BATCH_SIZE:
+        raise ValidationError("translation review bundle exceeds its item-count limit")
+    seen_revisions: set[str] = set()
+    seen_ordinals: set[int] = set()
+    for index, item in enumerate(items):
+        validate_translation_item(
+            item,
+            version=manifest.version,
+            component=component,
+            where=f"translation review bundle items[{index}]",
+        )
+        if item["revision_id"] in seen_revisions:
+            raise ValidationError("translation review bundle repeats a revision_id")
+        seen_revisions.add(item["revision_id"])
+        ordinal = item["ordinal"]
+        if ordinal in seen_ordinals:
+            raise ValidationError("translation review bundle repeats a canonical ordinal")
+        seen_ordinals.add(ordinal)
+    if (
+        selection["offset"] == 0
+        and selection["count"] == selection["total"]
+        and translation_selection_sha256(items) != bundle["selection_sha256"]
+    ):
+        raise ValidationError("translation review complete selection digest is invalid")
+    canonical_total = validate_translation_inventory_membership(
+        root=manifest.root,
+        tool_version=bundle["tool_version"],
+        version=manifest.version,
+        component=component,
+        translation_sha256=translation_digest,
+        inventory_sha256=bundle["inventory_sha256"],
+        membership=bundle["canonical_membership"],
+        items=items,
+    )
+    if selection["total"] > canonical_total:
+        raise ValidationError(
+            "translation review selection total exceeds the canonical inventory"
+        )
+    character_count = sum(translation_item_character_count(item) for item in items)
+    if character_count != selection["item_character_count"]:
+        raise ValidationError("translation review selection character count is invalid")
+    oversized = (
+        len(items) == 1
+        and character_count > selection["item_character_budget"]
+    )
+    if oversized != selection["oversized_single_item"]:
+        raise ValidationError("translation review oversized-item marker is invalid")
+    if (
+        len(items) > 1
+        and character_count > selection["item_character_budget"]
+    ):
+        raise ValidationError("translation review bundle exceeds its character budget")
+    if bundle["constraints"] != list(TRANSLATION_REVIEW_CONSTRAINTS):
+        raise ValidationError("translation review constraints are invalid")
+    return bundle
+
+
 def _validate_findings_for_remediation(
     bundle: dict[str, Any], review: dict[str, Any]
 ) -> None:
+    if (
+        bundle.get("kind") == "translations"
+        and bundle.get("schema_version") == TRANSLATION_REVIEW_SCHEMA_VERSION
+        and bundle.get("review_contract") == TRANSLATION_REVIEW_BUNDLE_CONTRACT
+    ) or review.get("review_contract") == "tome4-translation-review-assessment-v2":
+        raise ValidationError(
+            "translation review v2 observations require independent host adjudication "
+            "and cannot be remediated directly"
+        )
     if (
         type(review.get("schema_version")) is not int
         or review.get("schema_version") != REVIEW_SCHEMA_VERSION
