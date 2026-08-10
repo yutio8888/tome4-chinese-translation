@@ -6,10 +6,10 @@ allowed-tools: read bash
 
 # ToME4 Pi file-reading review
 
-这是 code/legacy v1 的源码感知审核变体：Pi 子进程带 `--tools read,bash`
+这是 code/legacy v1 的源码感知审核变体：审核子进程（源码感知变体）带 `--tools read,bash`
 白名单启动，按提示契约只读核验项目、公开游戏与 DLC 源码来验证证据；`edit`/`write`
-始终未启用，会话、skills、上下文文件仍然禁用。Pi 内置 `bash` 不是 OS 沙箱，
-会继承 Pi 进程权限与 provider 凭据，因此该变体只能用于已授权、受监控的核验；
+始终未启用，会话、skills、上下文文件仍然禁用。审核子进程的内置 `bash` 不是 OS 沙箱，
+会继承宿主进程权限与 provider 凭据，因此该变体只能用于已授权、受监控的核验；
 需要强隔离时须使用只读挂载、网络/凭据隔离的容器或 VM。现有入口只接受 code/
 legacy v1 bundle；translation semantic v2 必须使用绑定既有 observation identity、
 只返回 `supported/refuted/insufficient` 且禁止新增 finding 的独立核验契约。在该

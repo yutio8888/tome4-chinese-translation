@@ -2,25 +2,34 @@
 
 本文件适用于整个仓库。
 
+## 角色定义
+
+本文件区分三类执行角色，全文按此区分表述：
+
+- **主代理**（pi coding agent / Codex / 人工）：有工具、有会话、有项目上下文，是唯一写入者；负责应用修订、独立裁决与定级、运行门禁。受「项目通用审核与修复工作流」与「门禁检查」约束。
+- **审核子进程**（`tools/pi-subagent`、`tools/pi-review`、`tools/pi-remediate`、`tools/pi-quality-evaluator`、`tools/pi-review-files` 等工具启动的隔离进程）：默认无工具（源码感知变体以 `--tools read,bash` 白名单启动）、无会话、无项目上下文，只输出 proposal/findings/assessment artifact；任何输出不得直接写入规范 Lua 或代码。
+- **项目 subagent**（scout、plan-reviewer，经 `subagent` 工具调度）：以 read/grep/find/ls/bash 白名单启动、无会话、无项目上下文、只读；输出压缩上下文或结构化 findings 供主代理参考，不得直接写文件。
+
 ## 汉化工具入口
 
 - 当前版本的自动化入口统一为 `python3 -B tools/i18n <command>`；`tools/i18n` 可执行位可用时也可直接调用。
 - 首次运行先执行 `tools/i18n doctor`，译文修改后执行 `tools/i18n lint`。
 - 工具会在启动 LuaJIT 子进程时自动设置本文件规定的 `LUA_PATH` 和 `LUA_CPATH`，不得要求用户手动导出。
 - `extract`、`lint`、`status`、`merge`、`workset`、`context`、`proposal`、`review` 和 `build` 的报告或候选文件只写入已忽略的 `.artifacts/i18n/`；没有显式安装命令时不得改写游戏源码仓库或发布模组仓库。
-- Pi 翻译入口为 `tools/pi-subagent --workset <workset.json>`（需要实时观察时可用 `tools/pi-tmux translate --workset <workset.json>`，在 tmux 分屏中执行）。该进程必须保持无工具、无会话、无项目上下文，只能输出 proposal artifact；其结果必须通过 `proposal --strict`，不得直接写规范 Lua。
-- Pi 审核入口为 `tools/i18n review` 生成 bundle，再用 `tools/pi-tmux review --bundle <bundle.json>` 执行（默认在当前 tmux 会话分屏运行，便于观察审核过程；无 tmux 环境用 `--fallback foreground`，脚本场景可直接用 `tools/pi-review`）。翻译使用独立的 semantic observation v2：blind provider payload 不注入 terminology/Facts 或 canonical membership 等宿主 lineage，只包含最小 revision/source/target 输入；按 10 条硬上限与 item canonical JSON 字符预算双重分包，`selection_sha256` 绑定跨 shard 的完整有序 revision 集，index 分别记录宿主 `artifact_bytes` 与实际外发 `payload_bytes`。v2 的精确 JSON user message 必须经 stdin 发送，不得用会注入绝对路径 wrapper 的 `@file`；必须用显式空 `--append-system-prompt` 关闭 project/global `APPEND_SYSTEM.md` 自动发现，Pi cwd 固定为 `/private/tmp`，实际 user/system prompt、runner、policy 与 normalizer 都必须进入 evaluator/cache identity。模型逐 item 返回 `assessment_state`、可观察语义差异和精确 source/target evidence，不得填写 severity、确认状态或 suggested fix；宿主只做结构、span、identity 与 pending 路由，主代理独立裁决。代码 diff 保留 legacy v1 finding 契约。Pi 始终无工具、无会话、无项目上下文，不得直接修改文件。
-- 源码核验变体（Skill `$tome4-pi-file-review`）的现有 `tools/pi-tmux review-files --bundle <bundle.json>`（headless 用 `tools/pi-review-files`）只接受 code/legacy v1。translation v2 的源码核验必须绑定既有 observation identity，只能返回 `supported/refuted/insufficient` 并禁止新增 finding；在该 claim-bound runner 实现前，现有工具必须失败关闭，由主代理按固定源码版本直接核验。legacy file reviewer 以 `--tools read,bash` 白名单启动，所读源码片段和路径可能进入 provider 请求；首次授权必须同时披露可读公开根与这一外发边界。`edit`/`write` 永不启用，但 Pi 的内置 `bash` 不提供 OS 沙箱，仍继承 Pi 进程权限与 provider 凭据；工具会自动比较运行前后的版本控制范围内容级快照，主代理运行后仍须独立确认工作树未被改动。需要强隔离时必须使用只读挂载、网络/凭据隔离的容器或 VM。
-- Pi 完整质量评价入口为 `tools/pi-quality-evaluator --sample <sample.json> --evaluator <reviewer-id>`。该进程保持无工具、无会话、无项目上下文，只接收有界 quality sample，宿主补齐并严格校验 assessment 身份；不得向任一 evaluator 展示另一份 assessment、裁决、历史 finding 或预期等级。模型评价仍受首次外部传输授权门槛约束，不能替代后续人工裁决。
-- Pi 处理审核意见入口为 `tools/pi-tmux remediate --bundle <bundle.json> --review <review.json>`（headless 可用 `tools/pi-remediate`）。只有主代理已独立确认并定级的 finding 才可进入 remediation；translation v2 pending observation 不得直接进入，当前 runner 会显式拒绝。该进程只能输出绑定到 finding/item 的 remediation proposal；主代理必须独立校验并应用修订，再重新运行审核，不得让 Pi 直接写规范 Lua 或代码。
-- 当用户要求开展 Pi 审核时（无论主代理是 Codex 还是 Pi），使用项目 Skill `$tome4-pi-review`；交互式审核默认在 tmux 分屏中运行，pane 保留至 `tmux kill-pane -t <pane>`。首次向外部 provider 发送 bundle 前，必须明确报告 provider、model、bundle 类型、条目数量、字符预算与实际 payload 大小并取得用户授权；不得用项目级全局网络放行绕过该授权。
+- 翻译入口为 `tools/pi-subagent --workset <workset.json>`（需要实时观察时可用 `tools/pi-tmux translate --workset <workset.json>`，在 tmux 分屏中执行）。该审核子进程必须保持无工具、无会话、无项目上下文，只能输出 proposal artifact；其结果必须通过 `proposal --strict`，由主代理独立校验后应用，审核子进程不得直接写规范 Lua。
+- 审核入口为 `tools/i18n review` 生成 bundle，再用 `tools/pi-tmux review --bundle <bundle.json>` 执行（默认在当前 tmux 会话分屏运行，便于观察审核过程；无 tmux 环境用 `--fallback foreground`，脚本场景可直接用 `tools/pi-review`）。翻译使用独立的 semantic observation v2（技术契约见 `docs/pi-review-v2-contract.md`）：blind provider payload 不注入 terminology/Facts 或 canonical membership 等宿主 lineage，只包含最小 revision/source/target 输入；模型逐 item 返回 `assessment_state`、可观察语义差异和精确 source/target evidence，不得填写 severity、确认状态或 suggested fix；宿主只做结构、span、identity 与 pending 路由，主代理独立裁决。代码 diff 保留 legacy v1 finding 契约。审核子进程默认无工具、无会话、无项目上下文，不得直接修改文件。
+- 源码核验变体（Skill `$tome4-pi-file-review`）的现有 `tools/pi-tmux review-files --bundle <bundle.json>`（headless 用 `tools/pi-review-files`）只接受 code/legacy v1。translation v2 的源码核验必须绑定既有 observation identity，只能返回 `supported/refuted/insufficient` 并禁止新增 finding；在该 claim-bound runner 实现前，现有工具必须失败关闭，由主代理按固定源码版本直接核验。该审核子进程（源码感知变体）以 `--tools read,bash` 白名单启动，所读源码片段和路径可能进入 provider 请求；首次授权必须同时披露可读公开根与这一外发边界。`edit`/`write` 永不启用，但审核子进程的内置 `bash` 不提供 OS 沙箱，仍继承宿主进程权限与 provider 凭据；工具会自动比较运行前后的版本控制范围内容级快照，主代理运行后仍须独立确认工作树未被改动。需要强隔离时必须使用只读挂载、网络/凭据隔离的容器或 VM。
+- 完整质量评价入口为 `tools/pi-quality-evaluator --sample <sample.json> --evaluator <reviewer-id>`。该审核子进程保持无工具、无会话、无项目上下文，只接收有界 quality sample，宿主补齐并严格校验 assessment 身份；不得向任一 evaluator 展示另一份 assessment、裁决、历史 finding 或预期等级。模型评价仍受首次外部传输授权门槛约束，不能替代后续主代理/用户裁决。
+- 处理审核意见入口为 `tools/pi-tmux remediate --bundle <bundle.json> --review <review.json>`（headless 可用 `tools/pi-remediate`）。只有主代理已独立确认并定级的 finding 才可进入 remediation；translation v2 pending observation 不得直接进入，当前 runner 会显式拒绝。该审核子进程只能输出绑定到 finding/item 的 remediation proposal；主代理必须独立校验并应用修订，再重新运行审核；审核子进程不得直接写规范 Lua 或代码，主代理应用后必须重新运行审核与门禁以闭环。
+- 当用户要求开展审核时（无论主代理是 pi coding agent 还是 Codex），使用项目 Skill `$tome4-pi-review`；交互式审核默认在 tmux 分屏中运行，pane 保留至 `tmux kill-pane -t <pane>`。首次向外部 provider 发送任何内容（bundle、任务、计划）前，必须明确报告 provider、model、内容类型、条目/字数与实际 payload 大小并取得用户授权；不得用项目级全局网络放行绕过该授权。
+- 源码侦察与计划审查由项目 subagent（Skill `$tome4-pi-subagent`）承担：`subagent({agent: "scout", task})` 只读阅读 t-engine4、DLC 与 addon 发布仓库源码并返回压缩上下文；`subagent({agent: "plan-reviewer", task})` 对修复/翻译/工具链计划做只读独立审查并返回结构化 findings。两者均以 `read,grep,find,ls,bash` 白名单启动，`edit`/`write` 永不启用，无会话、无项目上下文、无 skills；结果只作参考，由主代理独立裁决并应用，不得直接写规范 Lua 或代码。
 
 ## DLC 源码输入（GPL v3 公开）
 
 - ToME4 及三个官方 DLC（Ashes of Urh'Rok、Cults of Entropy、Embers of Rage）以 **GPL v3（or later）** 发布，源码可自由读取、分析、提取。许可证依据：`t-engine4/COPYING`（GPL v3 全文）、各 DLC `init.lua` 头部声明；公开正式版位于 `/Users/yun/projects/tome4-dlcs/`（ashes/cults/orcs，version 1.7.4）。
 - GPL v3 §2：不分发的使用（读取/分析/提取/翻译）无条件允许；禁止条款不适用于本场景。但**分发**基于 DLC 的衍生作品（含译文）时须遵守 §5：保留版权声明、以 GPL v3 兼容许可发布、提供对应源码。本项目译文与发布 addon 应随附 GPL v3 声明。
 - 不再禁止直接读取 DLC 源码；可复现基线仍建议使用受审计提取脚本（extract 生成规范化快照 + SHA-256 基线，doctor/extract 自动校验）。提取来源已切换至公开正式版 `/Users/yun/projects/tome4-dlcs/`（2026-08-04 验证：两处副本 t() 的 src 序列完全一致，ashes 完全一致；cults 37 个 / orcs 2 个非 t() 内容差异不影响提取）。快照基线含 origin 元数据（section/origin_line），来源切换后若 extract 报基线 mismatch，属预期，重建基线即可（tdef_count 不应变化）。
-- Pi 翻译、Pi 审核、其他 subagent 以及人工审校的输入边界不变：翻译审校只能接收规范翻译条目的有界 bundle；代码审校只能接收去除绝对路径后的公开代码 diff。任何审核结果都只能写入 `.artifacts/i18n/`，不得自动应用到规范 Lua 或代码。
+- 输入边界按角色区分：翻译审校只能接收规范翻译条目的有界 bundle（blind v2）；代码审校只能接收去除绝对路径后的公开代码 diff（legacy v1）；源码侦察与计划审查（scout/plan-reviewer）接收任务/计划文本，并可读公开根（t-engine4、tome4-dlcs、addon 发布仓库），所读源码片段与路径可能进入 provider 请求，授权时须披露。审核子进程与 subagent 的任何输出（proposal/findings/context）只写入 `.artifacts/i18n/` 或会话日志；主代理负责独立校验并应用到规范 Lua 或代码，应用后必须重新运行审核与门禁以闭环。
 
 ## Lua 运行环境
 
@@ -112,14 +121,14 @@ luarocks \
 
 ## 项目通用审核与修复工作流
 
-本节是整个项目所有审核任务的共同底座，适用于译文、术语、代码/脚本、测试、配置、prompt、文档、artifact 契约以及构建发布流程。后文的 Pi 输入边界、源码判定依据、术语工作流和门禁检查仍是对应任务的附加硬约束；通用流程不得绕过它们。
+本节是整个项目所有审核任务的共同底座，适用于译文、术语、代码/脚本、测试、配置、prompt、文档、artifact 契约以及构建发布流程。后文的审核子进程/subagent 输入边界、源码判定依据、术语工作流和门禁检查仍是对应任务的附加硬约束；通用流程不得绕过它们。
 
 审核开始时必须先明确并记录：
 
 - 模式：仅审核，或审核并修复；
 - 范围：组件、文件、diff、artifact 或具体调用链；
 - 维度：翻译质量、术语一致性、功能正确性、性能、构建发布等；
-- 外部边界：是否允许 Pi/provider、公开源码核验或外部仓库读取；
+- 外部边界：是否允许审核子进程/subagent/provider、公开源码核验或外部仓库读取；
 - 完成标准：交付 findings，或修复后收敛到一轮干净复审。
 
 审核维度以用户明确范围为准，不得擅自扩展成安全对抗、全仓风格重构或无关质量工程；但会直接造成错误结果、数据丢失、状态破坏或明显性能退化的问题仍属于功能 finding。
@@ -146,7 +155,8 @@ luarocks \
 ### 3. 有界修复和子代理使用
 
 - 仅在用户授权修复时，才对已确认 findings 按依赖关系排序修改。即使用户要求逐项交付，也应先完成当前审核面的 finding 清单，再逐项修改，避免同一术语、机制或 artifact 契约被拆成多轮互相失效的补丁。
-- 每个修复任务必须写明：唯一 finding、允许修改的文件、禁止扩展项、最小回归测试和完成条件。无上下文子代理必须在完成这些条件后立即回报，不得继续扩展搜索或重构相邻代码。
+- 每个修复任务必须写明：唯一 finding、允许修改的文件、禁止扩展项、最小回归测试和完成条件。无上下文修复子代理必须在完成这些条件后立即回报，不得继续扩展搜索或重构相邻代码。
+- 子代理分两类：「无上下文修复子代理」执行有界修复并立即回报；「源码感知 subagent」（scout/plan-reviewer）允许按任务范围搜索与阅读公开源码，但只读、无写工具，结果由主代理独立裁决，不得自动应用。
 - 子代理的测试结果不能替代主代理的独立复核；但主代理和子代理不应在每个小修复后都重复完整门禁。出现长时间无可见进展、反复扩大测试或偏离 finding 时，主代理应先要求状态并及时收束或中断。
 - 未获用户授权时不得为了提速擅自并行代理；获准并行时，仅并行互不写同一文件的只读审核或独立修复。
 

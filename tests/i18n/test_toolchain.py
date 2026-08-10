@@ -21,6 +21,8 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import Mock, call, patch
 
+import yaml
+
 
 ROOT = Path(__file__).resolve().parents[2]
 TOOLS = ROOT / "tools"
@@ -19203,6 +19205,77 @@ exit 0
                     self.assertIn(expected_error, completed.stderr)
                     self.assertIn("Usage:", completed.stderr)
                     self.assertFalse(sentinel.exists())
+
+
+class ProjectSubagentDefinitionTests(unittest.TestCase):
+    """Validate project subagent definitions and the AGENTS.md role split."""
+
+    AGENTS_DIR = ROOT / ".pi" / "agents"
+    EXTENSION_DIR = ROOT / ".pi" / "extensions" / "subagent"
+    SKILL_DIR = ROOT / ".agents" / "skills" / "tome4-pi-subagent"
+    CONTRACT_DOC = ROOT / "docs" / "pi-review-v2-contract.md"
+
+    def _frontmatter(self, path: Path) -> dict:
+        text = path.read_text(encoding="utf-8")
+        if not text.startswith("---\n"):
+            self.fail(f"{path.relative_to(ROOT)} is missing YAML frontmatter")
+        end = text.index("\n---", 4)
+        return yaml.safe_load(text[4:end])
+
+    def test_agents_exist_with_required_frontmatter(self) -> None:
+        expected = {"scout", "plan-reviewer"}
+        found = {path.stem for path in self.AGENTS_DIR.glob("*.md")}
+        self.assertEqual(found, expected)
+        for path in sorted(self.AGENTS_DIR.glob("*.md")):
+            with self.subTest(agent=path.stem):
+                meta = self._frontmatter(path)
+                self.assertIsInstance(meta.get("name"), str)
+                self.assertIsInstance(meta.get("description"), str)
+                tools = meta.get("tools")
+                self.assertIsInstance(tools, str)
+                allowed = {tool.strip() for tool in tools.split(",")}
+                self.assertLessEqual(
+                    allowed, {"read", "grep", "find", "ls", "bash"}
+                )
+                self.assertEqual(meta.get("systemPromptMode"), "replace")
+                self.assertFalse(meta.get("inheritProjectContext"))
+                self.assertFalse(meta.get("inheritSkills"))
+
+    def test_extension_files_exist(self) -> None:
+        for name in ("agents.ts", "index.ts", "live-output.mjs"):
+            self.assertTrue((self.EXTENSION_DIR / name).is_file(), name)
+        index = (self.EXTENSION_DIR / "index.ts").read_text(encoding="utf-8")
+        self.assertIn("--no-approve", index)
+        self.assertIn("--no-context-files", index)
+        self.assertIn("--no-skills", index)
+        self.assertNotIn("--approve", index.replace("--no-approve", ""))
+
+    def test_skill_and_contract_doc_exist(self) -> None:
+        self.assertTrue((self.SKILL_DIR / "SKILL.md").is_file())
+        skill = (self.SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("scout", skill)
+        self.assertIn("plan-reviewer", skill)
+        self.assertTrue(self.CONTRACT_DOC.is_file())
+        contract = self.CONTRACT_DOC.read_text(encoding="utf-8")
+        self.assertIn("selection_sha256", contract)
+        self.assertIn("/private/tmp", contract)
+
+    def test_agents_md_role_split_removes_global_pi_restrictions(self) -> None:
+        text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        self.assertIn("## 角色定义", text)
+        self.assertIn("**主代理**", text)
+        self.assertIn("**审核子进程**", text)
+        self.assertIn("**项目 subagent**", text)
+        self.assertNotIn("Pi 始终无工具", text)
+        self.assertNotIn("不得让 Pi 直接写规范 Lua", text)
+        self.assertNotIn("Pi 翻译、Pi 审核、其他 subagent", text)
+        self.assertIn("docs/pi-review-v2-contract.md", text)
+        self.assertIn("$tome4-pi-subagent", text)
+
+    def test_pi_agent_analysis_has_role_update_note(self) -> None:
+        text = (ROOT / "pi-agent-analysis.md").read_text(encoding="utf-8")
+        self.assertIn("2026-08-08 更新", text)
+        self.assertIn("仅指审核子进程", text)
 
 
 if __name__ == "__main__":
