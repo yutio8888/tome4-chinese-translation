@@ -110,10 +110,10 @@
 
 本轮从仓库内 11 个 Lua 翻译文件按 `source_tag` 聚合候选词，优先纳入出现频次较高或对游戏结构有明确意义的职业、种族、技能树、属性、状态、伤害类型、实体类别和世界观地点。通用地形内部键（例如 `floor`、`wall`）及长句没有直接提升为术语；同一英文词在不同标签下仍分别记录。
 
-出现多个译法的条目保留为 `review`，例如 `Constrict` 和 `eldritch`，待审校决定规范译名后再提升为 `preferred`。
+出现多个译法的条目保留为 `review`，例如 `Constrict` 和 `eldritch`，待审校决定规范译名后再提升为 `preferred`（第二轮术语审核已把二者及 `Atmos Tribe` 定为 `preferred` 并在 `notes` 中注明统一语境；当前 `review=0`，术语状态以 `terminology.tsv` 与 `tools/audit_dynamic.py` 输出为准）。
 
 ## DLC 首轮种子范围
 
-首轮 DLC 候选通过按组件分别执行 `tools/i18n extract --component ashes-urhrok`、`tools/i18n extract --component cults`、`tools/i18n extract --component orcs` 生成，再与对应的规范译文按 `source_tag` 对齐。`terminology.tsv` 中新增的 `scope=dlc` 条目优先覆盖以下高复用类别：阵营与地点、战役手札、资源与界面属性、DLC 技能树、伤害/效果类型以及实体类型。当前译文被保留为 `existing`；存在跨文本译名差异的 `Atmos Tribe` 标为 `review`，待后续统一“部族/部落”语境。
+首轮 DLC 候选通过按组件分别执行 `tools/i18n extract --component ashes-urhrok`、`tools/i18n extract --component cults`、`tools/i18n extract --component orcs` 生成，再与对应的规范译文按 `source_tag` 对齐。`terminology.tsv` 中新增的 `scope=dlc` 条目优先覆盖以下高复用类别：阵营与地点、战役手札、资源与界面属性、DLC 技能树、伤害/效果类型以及实体类型。当前译文被保留为 `existing`；存在跨文本译名差异的 `Atmos Tribe` 标为 `review`，待后续统一“部族/部落”语境（第二轮术语审核已统一为“气之部族”并提升为 `preferred`）。
 
 长对话、一次性物品名和普通叙述句暂不提升为术语。后续扩展 DLC 术语时，仍应先通过受审计提取器更新候选，再按组件和上下文补录；机制核验可以只读使用三个 GPL v3 官方 DLC 的固定公开源码。

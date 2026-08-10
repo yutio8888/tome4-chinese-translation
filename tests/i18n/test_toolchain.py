@@ -1845,6 +1845,8 @@ class DynamicAuditTests(unittest.TestCase):
                 patch.object(
                     audit_dynamic, "_source_tag_matches", wraps=source_tag_impl
                 ) as source_tag_matches,
+                # r2 inventory 有自己的调用序列与独立测试，不影响 S2.1 语义断言
+                patch.object(audit_dynamic, "run_terminology_inventory") as inventory,
                 contextlib.redirect_stdout(io.StringIO()),
             ):
                 report = audit_dynamic.run_dynamic_audit(
