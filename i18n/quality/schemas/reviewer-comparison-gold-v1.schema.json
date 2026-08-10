@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-reviewer-comparison-gold-v1",
+  "type": "object",
+  "required": ["contract", "schema_version", "candidate_pool_id", "human_confirmed", "fallback_stage", "items"],
+  "properties": {
+    "contract": {"const": "tome4-reviewer-comparison-gold-v1"},
+    "schema_version": {"const": 1},
+    "candidate_pool_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "human_confirmed": {"const": true},
+    "fallback_stage": {
+      "enum": [
+        "none", "expand-current-components", "relax-component-quotas",
+        "unexposed-historical-revisions", "relax-gold-strata",
+        "controlled-semantic-variants", "stop-insufficient-evidence"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "minItems": 64,
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "required": ["revision_id", "split", "gold_state", "severity", "controlled", "findings"],
+        "properties": {
+          "revision_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "split": {"enum": ["calibration", "holdout"]},
+          "gold_state": {"enum": ["assessed", "context-insufficient"]},
+          "severity": {"enum": ["major", "minor", "clean", "context-insufficient"]},
+          "controlled": {"type": "boolean"},
+          "findings": {"type": "array"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

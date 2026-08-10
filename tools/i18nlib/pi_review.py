@@ -872,6 +872,7 @@ def run_pi_review(
             evaluator=evaluator,
         )
     except ValidationError as error:
+        report["failure_kind"] = "content-structure"
         report["error"] = str(error)
         report["elapsed_seconds"] = round(time.monotonic() - started, 6)
         write_json(report_path, report)

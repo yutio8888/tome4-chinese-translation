@@ -1,0 +1,69 @@
+{
+  "contract": "tome4-reviewer-comparison-policy-v2",
+  "schema_version": 2,
+  "seed": "tome4-reviewer-comparison-v1",
+  "models": [
+    {
+      "alias": "reviewer-a",
+      "provider": "opencode-go",
+      "model": "deepseek-v4-flash",
+      "thinking": "max"
+    },
+    {
+      "alias": "reviewer-b",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "thinking": "medium"
+    }
+  ],
+  "splits": {
+    "calibration": {"size": 32, "runs": 2},
+    "holdout": {"size": 32, "runs": 1}
+  },
+  "preferred_components": ["tome", "ashes-urhrok", "cults", "orcs"],
+  "fallback_components": ["engine", "boot"],
+  "candidate_pool_size": 256,
+  "component_max_fraction": 0.5,
+  "minimum_components_per_split": 3,
+  "target_gold_counts": {
+    "major": 12,
+    "minor": 4,
+    "clean": 14,
+    "context-insufficient": 2
+  },
+  "minimum_gold_counts": {
+    "major": 8,
+    "substantive_total": 12,
+    "clean": 12,
+    "context_insufficient": 1,
+    "accepted_difference": 2,
+    "no_substantive_difference": 12
+  },
+  "controlled_max_fraction": 0.25,
+  "max_items_per_bundle": 2,
+  "character_budget": 16000,
+  "connection_failure_retry_limit": 1,
+  "replace_content_failures": false,
+  "eligibility": {
+    "schema_coverage": 1.0,
+    "structure_failures_max": 0,
+    "semantic_claim_jaccard_min": 0.7,
+    "item_flag_agreement_min": 0.9,
+    "context_state_accuracy_min": 0.75,
+    "no_difference_false_positive_rate_max": 0.2
+  },
+  "winner": {
+    "additional_major_min": 2,
+    "additional_no_difference_false_positives_max": 1,
+    "additional_substantive_min": 2,
+    "precision_drop_percentage_points_max": 5.0
+  },
+  "fallback_order": [
+    "expand-current-components",
+    "relax-component-quotas",
+    "unexposed-historical-revisions",
+    "relax-gold-strata",
+    "controlled-semantic-variants",
+    "stop-insufficient-evidence"
+  ]
+}

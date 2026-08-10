@@ -8928,6 +8928,51 @@ class TranslationReviewV2Tests(unittest.TestCase):
                 evaluator=evaluator,
             )
 
+    def test_complete_unique_model_inventory_is_normalized_to_bundle_order(self) -> None:
+        second = next(
+            item
+            for item in self.canonical_items
+            if item["ordinal"] > self.item["ordinal"]
+        )
+        bundle = self._bundle([self.item, second])
+        output = {
+            "items": [
+                {
+                    "revision_id": item["revision_id"],
+                    "assessment_state": "assessed",
+                    "findings": [],
+                }
+                for item in (second, self.item)
+            ]
+        }
+        summary, assessment = validate_translation_model_output(
+            bundle=bundle,
+            output=output,
+            policy=self.policy,
+            policy_sha256=self.policy_sha256,
+            evaluator=self._evaluator(bundle),
+        )
+        self.assertEqual(1, summary["item_order_normalizations"])
+        self.assertEqual(
+            [self.item["revision_id"], second["revision_id"]],
+            [item["revision_id"] for item in assessment["items"]],
+        )
+
+    def test_one_near_revision_id_copy_error_is_repaired_positionally(self) -> None:
+        bundle = self._bundle()
+        output = self._output()
+        expected = output["items"][0]["revision_id"]
+        output["items"][0]["revision_id"] = expected[:10] + expected[12:]
+        summary, assessment = validate_translation_model_output(
+            bundle=bundle,
+            output=output,
+            policy=self.policy,
+            policy_sha256=self.policy_sha256,
+            evaluator=self._evaluator(bundle),
+        )
+        self.assertEqual(summary["revision_id_repairs"], 1)
+        self.assertEqual(assessment["items"][0]["revision_id"], expected)
+
     def test_model_cannot_supply_host_owned_classification(self) -> None:
         bundle = self._bundle()
         evaluator = self._evaluator(bundle)
@@ -8939,6 +8984,17 @@ class TranslationReviewV2Tests(unittest.TestCase):
                 policy=self.policy,
                 policy_sha256=self.policy_sha256,
                 evaluator=evaluator,
+            )
+
+    def test_model_finding_count_is_bounded_before_claim_normalization(self) -> None:
+        bundle = self._bundle()
+        with self.assertRaisesRegex(ValidationError, "per-item maximum"):
+            validate_translation_model_output(
+                bundle=bundle,
+                output=self._output(findings=[self._finding() for _ in range(9)]),
+                policy=self.policy,
+                policy_sha256=self.policy_sha256,
+                evaluator=self._evaluator(bundle),
             )
 
     def test_exact_evidence_becomes_pending_host_queue(self) -> None:
@@ -8982,7 +9038,7 @@ class TranslationReviewV2Tests(unittest.TestCase):
         self.assertEqual(first_finding["finding_key"], second_finding["finding_key"])
         self.assertNotEqual(first["assessment_id"], second["assessment_id"])
 
-    def test_evidence_must_resolve_exactly_and_omission_may_use_missing_target(self) -> None:
+    def test_evidence_must_resolve_and_addition_omission_are_symmetric(self) -> None:
         bundle = self._bundle()
         evaluator = self._evaluator(bundle)
         missing = self._finding(
@@ -9012,6 +9068,65 @@ class TranslationReviewV2Tests(unittest.TestCase):
             assessment["items"][0]["findings"][0]["normalized_target_evidence"]["state"],
             "missing",
         )
+        addition = self._finding(
+            phenomenon="addition",
+            meaning_change="added",
+            source_evidence={"quote": "", "occurrence": 0},
+        )
+        _, assessment = validate_translation_model_output(
+            bundle=bundle,
+            output=self._output(findings=[addition]),
+            policy=self.policy,
+            policy_sha256=self.policy_sha256,
+            evaluator=evaluator,
+        )
+        self.assertEqual(
+            assessment["items"][0]["findings"][0]["normalized_source_evidence"]["state"],
+            "missing",
+        )
+
+    def test_evidence_may_omit_only_display_markup(self) -> None:
+        bundle = json.loads(json.dumps(self._bundle()))
+        bundle["items"][0]["target"] = (
+            "被太阳堡垒和#{italic}#西方灾星#{normal}#所摧毁"
+        )
+        bundle["bundle_id"] = _bundle_id(
+            {key: value for key, value in bundle.items() if key != "bundle_id"}
+        )
+        finding = self._finding(
+            target_evidence={
+                "quote": "被太阳堡垒和西方灾星所摧毁",
+                "occurrence": 1,
+            }
+        )
+        summary, assessment = validate_translation_model_output(
+            bundle=bundle,
+            output=self._output(findings=[finding]),
+            policy=self.policy,
+            policy_sha256=self.policy_sha256,
+            evaluator=self._evaluator(bundle),
+        )
+        normalized = assessment["items"][0]["findings"][0][
+            "normalized_target_evidence"
+        ]
+        self.assertEqual(summary["markup_evidence_normalizations"], 1)
+        self.assertEqual(normalized["normalization"], "markup-only")
+        self.assertEqual(
+            normalized["quote"],
+            "被太阳堡垒和#{italic}#西方灾星#{normal}#所摧毁",
+        )
+
+        paraphrase = self._finding(
+            target_evidence={"quote": "被太阳堡垒和西方天灾摧毁", "occurrence": 1}
+        )
+        with self.assertRaisesRegex(ValidationError, "does not resolve"):
+            validate_translation_model_output(
+                bundle=bundle,
+                output=self._output(findings=[paraphrase]),
+                policy=self.policy,
+                policy_sha256=self.policy_sha256,
+                evaluator=self._evaluator(bundle),
+            )
 
     def test_incompatible_taxonomy_and_duplicate_claims_are_rejected(self) -> None:
         bundle = self._bundle()

@@ -31,6 +31,7 @@
 | `facts-study-v5.json` / `schemas/facts-study-protocol-v5.schema.json` | `tome4-quality-facts-study-protocol-v5` | 语料对齐配额（fd 12 / surface 2，claim 级冻结门槛 8+8+5+3 不变）；select 选择 trap-优先 + 覆盖缺失 stratum |
 | `dataset-registry-v1.json` / `schemas/dataset-registry-v1.schema.json` | `tome4-quality-dataset-registry-v1` | 版本化数据集登记（正式 120、32+32、探索集、失败 pilot、候选集）；工具只读，冻结只生成 registry fragment 由主代理合入 |
 | `schemas/quality-common-v1.schema.json` | `tome4-quality-common-v1` | 公共 claim/evidence/provenance/fact/subject/uncertainty $defs，供 curation 与 v2 契约引用 |
+| `reviewer-comparison-v1.json`、`reviewer-comparison-v2.json` / `schemas/reviewer-comparison-*.schema.json` | `tome4-reviewer-comparison-*` | 生产 translation semantic v2 审核模型的 32+32 盲测；v2 分离语义差异与人工可接受性、声明 Gold 穷尽性并使用语义 claim 稳定性 |
 | `language-channel-v1.json` | `tome4-quality-language-channel-v1` | 只冻结独立语言质量通道的输入、taxonomy 与 lineage 边界；本轮不授权或执行外部校准 |
 | 正式报告 `docs/translation-quality-facts-study-report-v1.md` | — | 33-slot 外部因果研究最终报告（do-not-promote-facts-channel）；长期 A-core 归档身份为 `ee8973e1…`，不进入源码仓库 |
 
@@ -90,6 +91,68 @@
 - 共享 claim/contract 核心位于 `tools/i18nlib/quality_contracts.py` 与
   `tools/i18nlib/quality_claims.py`；v2/v3/Facts 旧模块保留原导出名，通过 re-export
   调用公共实现，历史 contract/artifact 不变。
+
+## 生产 v2 审核模型对比
+
+`reviewer-comparison-v2.json` 固定 DeepSeek v4 Flash `max` 与 GPT-5.6-sol
+`medium` 的 32+32 盲测。v1 首轮校准因模型结构失败、claim 不稳定以及 Gold
+把“人工可接受”误作“无可观察语义差异”而被拒绝；v2 是破坏性契约升级，旧
+freeze 不得续跑或按新指标重解释。该流程只生成和校验本地 artifact，不会自动
+调用 provider：
+
+```bash
+python3 -B tools/i18n quality reviewer-compare-prepare --inventory <inventory.jsonl>
+python3 -B tools/i18n quality reviewer-compare-freeze --pool <candidate-pool.json> --gold <human-gold.json>
+python3 -B tools/i18n quality reviewer-compare-validate --preregistration <preregistration.json> --result-index <result-index.json>
+python3 -B tools/i18n quality reviewer-compare-report --validation <validation.json>
+```
+
+- `prepare` 排除 dataset registry 的所有历史 revision，优先从 `tome` 与三个官方
+  DLC 生成 256 条人工筛选候选。若风险排序池缺少人工已确认所需的自然
+  `context-insufficient` 类型，可用重复的 `--include-revision <sha256>` 显式补充当前
+  inventory 中尚未注册的自然 revision；补充列表进入 candidate-pool 内容身份，缺失、
+  重复、非法或已注册 revision 均失败关闭，不能以此注入受控改写。
+- `freeze` 只接受明确 `human_confirmed=true` 的 32+32 Gold。每项分别记录
+  `semantic_state`、人工 severity/可接受性和 `findings_exhaustive`：
+  `no-substantive-difference` 才可进入误报分母；`substantive-difference + clean`
+  表示差异存在但人工可接受（包括经源码确认合理的机制适配）。是否需要源码核验来
+  判断“可接受”不等于 bounded 文本 `context-insufficient`；后者只用于缺失指代、附着、
+  省略或刻意歧义导致无法判断文本命题的情况。非穷尽 Gold 上额外观察只进入待裁决计数，不自动算
+  false positive。每条必检 claim 还须列出人工认可的 `accepted_classifications`。
+  `adjudication_rationale` 记录为何属于真实等价、可接受差异或不可接受差异；存在
+  多种合法 taxonomy 表达时，finding 的 `classification_rationale` 记录等价理由。
+  这些宿主裁决字段不进入 blind provider payload。
+  freeze 同时检查最低 major/substantive/clean、至少 12 条真正无实质差异、至少 2 条
+  “有差异但可接受”的 clean、至少一条 context-insufficient、组件多样性和
+  `fallback_stage`，并生成与生产 translation semantic v2 完全相同的 bundle。
+  报告会以 `precision_complete=false` 标记仍有未裁决额外 finding 的 run；这种 run
+  不得通过次级 precision/recall 判胜规则。
+- 冻结后的 slot 包含显式 `--no-cache`、模型、thinking、bundle identity 和
+  1200 秒超时命令；只允许纯传输失败重试一次。真实执行前仍必须按
+  `AGENTS.md` 报告准确 payload 并单独取得用户外发授权。
+- 受控语义扰动不是 canonical revision，不得混入生产 v2 bundle。
+  `controlled-semantic-variants` 回退只能进入单独的辅助实验，不足以产生生产模型切换结论；
+  本流程会对尝试将其混入生产 bundle 的输入失败关闭。
+- v2 校准 bundle 最多 2 条且总字符预算 16,000。DeepSeek `max` 在一次三条、约
+  24,000 item 字符的 bundle 中再次遗漏完整条目，因此后续冻结进一步缩小边界；生产
+  translation v2 的 10 条硬上限不
+  因此自动改变。模型返回完整、唯一且恰好相同的 revision 集但仅顺序错误时，
+  normalizer v4 按 bundle 确定性复序并在 summary 计数；缺失、重复或未知 revision
+  继续失败关闭。
+- result index 的每个 slot 显式标记 `pending`、`success` 或
+  `content-structure-failure`。内容/结构失败必须绑定失败 runner report 与原始输出摘要，
+  assessment 必须为空，且 runner report 的 `failure_kind` 必须为
+  `content-structure`；成功和失败报告都必须由宿主重算 prompt、policy、normalizer、
+  runner 与精确 stdin payload 共同绑定的 cache identity。宿主不会修写非法模型组合，
+  也不会用另一请求替换该 slot。
+- 校准阶段允许 holdout slot 保持 `pending`。验证器以成功 slot 数计算 schema coverage，
+  并按 reviewer 统计 structure failures；两轮稳定性同时报告精确 finding-key Jaccard
+  和基于同 revision、重叠 evidence 的 `semantic_claim_jaccard`，准入使用后者及
+  finding/no-finding 的 `item_flag_agreement`，不再使用几乎恒为 `assessed` 的 state
+  agreement。只有两位 reviewer 同时满足结构、语义稳定性、context state 和真正
+  no-difference false-positive 门槛，才产生 `calibration_clearance=cleared`。否则
+  clearance 为 `denied`，任何已填入的 holdout 结果或 `holdout_cleared=true` 都会失败
+  关闭。holdout 指标只在该 clearance 后计算。
 
 ## 身份约定
 

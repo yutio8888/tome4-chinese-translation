@@ -93,6 +93,12 @@ from .review import (
     create_review_index,
     review_index_summary,
 )
+from .reviewer_compare import (
+    run_freeze as run_reviewer_comparison_freeze,
+    run_prepare as run_reviewer_comparison_prepare,
+    run_report as run_reviewer_comparison_report,
+    run_validate as run_reviewer_comparison_validate,
+)
 from .runtime import LuaRuntime
 from .status import status_report
 from .translation_review import DEFAULT_TRANSLATION_CHARACTER_BUDGET
@@ -474,6 +480,38 @@ def _parser() -> argparse.ArgumentParser:
     quality_stability_v3.add_argument("--assessment", action="append", required=True, type=Path)
     quality_stability_v3.add_argument("--run-report", action="append", required=True, type=Path)
     quality_stability_v3.add_argument("--preregistration", required=True, type=Path)
+    reviewer_compare_prepare = quality_subparsers.add_parser(
+        "reviewer-compare-prepare",
+        help="build a fresh risk-enriched candidate pool and human Gold template",
+    )
+    _add_common_arguments(reviewer_compare_prepare)
+    reviewer_compare_prepare.add_argument("--inventory", required=True, type=Path)
+    reviewer_compare_prepare.add_argument(
+        "--include-revision",
+        action="append",
+        default=[],
+        help="explicitly include one eligible natural revision in the content-bound pool",
+    )
+    reviewer_compare_freeze = quality_subparsers.add_parser(
+        "reviewer-compare-freeze",
+        help="validate human-confirmed Gold and freeze production-v2 bundles and slots",
+    )
+    _add_common_arguments(reviewer_compare_freeze)
+    reviewer_compare_freeze.add_argument("--pool", required=True, type=Path)
+    reviewer_compare_freeze.add_argument("--gold", required=True, type=Path)
+    reviewer_compare_validate = quality_subparsers.add_parser(
+        "reviewer-compare-validate",
+        help="strictly validate every no-cache production-v2 comparison result",
+    )
+    _add_common_arguments(reviewer_compare_validate)
+    reviewer_compare_validate.add_argument("--preregistration", required=True, type=Path)
+    reviewer_compare_validate.add_argument("--result-index", required=True, type=Path)
+    reviewer_compare_report = quality_subparsers.add_parser(
+        "reviewer-compare-report",
+        help="score validated observations against frozen human Gold",
+    )
+    _add_common_arguments(reviewer_compare_report)
+    reviewer_compare_report.add_argument("--validation", required=True, type=Path)
     facts_build = quality_subparsers.add_parser(
         "facts-study-build",
         help="build a new isolated 20-item supplemental-only Facts study set",
@@ -1852,6 +1890,79 @@ def _quality_facts_study_build(arguments: argparse.Namespace) -> int:
     return 0
 
 
+def _quality_reviewer_compare_prepare(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    report = run_reviewer_comparison_prepare(
+        manifest,
+        inventory_path=arguments.inventory,
+        manual_include_revision_ids=tuple(arguments.include_revision),
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        state = "READY" if report["ready_for_gold_curation"] else "FALLBACK"
+        print(
+            f"{state} reviewer comparison candidates={report['candidate_count']} "
+            f"excluded={report['excluded_revision_count']}"
+        )
+        if report["fallback_required"]:
+            print(f"Fallback: {report['fallback_required']}")
+        print(f"Pool: {report['candidate_pool']}")
+        print(f"Gold template: {report['gold_template']}")
+    return 0
+
+
+def _quality_reviewer_compare_freeze(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    runtime = LuaRuntime(manifest)
+    runtime.doctor()
+    report = run_reviewer_comparison_freeze(
+        manifest,
+        LocaleLoader(runtime),
+        pool_path=arguments.pool,
+        gold_path=arguments.gold,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(
+            f"OK reviewer comparison {report['preregistration_id'][:16]} "
+            f"bundles={report['bundles']} slots={report['planned_content_slots']} "
+            f"max-transfers={report['maximum_external_transfers']}"
+        )
+        print(f"Preregistration: {report['preregistration']}")
+        print(f"Result template: {report['result_index_template']}")
+    return 0
+
+
+def _quality_reviewer_compare_validate(arguments: argparse.Namespace) -> int:
+    report = run_reviewer_comparison_validate(
+        _manifest(arguments),
+        preregistration_path=arguments.preregistration,
+        result_index_path=arguments.result_index,
+    )
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(
+            f"OK reviewer comparison validation {report['validation_id'][:16]} "
+            f"slots={report['slots']}"
+        )
+        print(f"Validation: {report['validation']}")
+    return 0
+
+
+def _quality_reviewer_compare_report(arguments: argparse.Namespace) -> int:
+    report = run_reviewer_comparison_report(validation_path=arguments.validation)
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"OK reviewer comparison report {report['report_id'][:16]}")
+        print(f"Decision: {report['decision']}")
+        print(f"Report: {report['report']}")
+    return 0
+
+
 def _quality_facts_study_bundles(arguments: argparse.Namespace) -> int:
     manifest = _manifest(arguments)
     sample_value = read_json_object(arguments.sample, "facts study sample")
@@ -2062,6 +2173,14 @@ def main(argv: list[str] | None = None) -> int:
                 return _quality_report_v3(arguments)
             if arguments.quality_command == "stability-v3":
                 return _quality_stability_v3(arguments)
+            if arguments.quality_command == "reviewer-compare-prepare":
+                return _quality_reviewer_compare_prepare(arguments)
+            if arguments.quality_command == "reviewer-compare-freeze":
+                return _quality_reviewer_compare_freeze(arguments)
+            if arguments.quality_command == "reviewer-compare-validate":
+                return _quality_reviewer_compare_validate(arguments)
+            if arguments.quality_command == "reviewer-compare-report":
+                return _quality_reviewer_compare_report(arguments)
             if arguments.quality_command == "facts-study-build":
                 return _quality_facts_study_build(arguments)
             if arguments.quality_command == "facts-study-curation-build":

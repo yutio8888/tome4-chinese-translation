@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-reviewer-comparison-result-index-v2",
+  "type": "object",
+  "required": [
+    "contract", "schema_version", "preregistration_id", "authorization_id",
+    "authorized_at", "calibration_frozen_at", "holdout_cleared",
+    "holdout_cleared_at", "results"
+  ],
+  "properties": {
+    "contract": {"const": "tome4-reviewer-comparison-result-index-v2"},
+    "schema_version": {"const": 2},
+    "preregistration_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "authorization_id": {"type": "string", "minLength": 1},
+    "authorized_at": {"type": "string", "minLength": 1},
+    "calibration_frozen_at": {"type": "string", "minLength": 1},
+    "holdout_cleared": {"type": "boolean"},
+    "holdout_cleared_at": {"type": ["string", "null"]},
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slot_id", "status", "assessment", "run_report"],
+        "properties": {
+          "slot_id": {"type": "string", "pattern": "^slot-[0-9]{3,}$"},
+          "status": {"enum": ["pending", "success", "content-structure-failure"]},
+          "assessment": {"type": ["string", "null"]},
+          "run_report": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {"if": {"properties": {"status": {"const": "pending"}}}, "then": {"properties": {"assessment": {"const": null}, "run_report": {"const": null}}}},
+          {"if": {"properties": {"status": {"const": "success"}}}, "then": {"properties": {"assessment": {"type": "string", "minLength": 1}, "run_report": {"type": "string", "minLength": 1}}}},
+          {"if": {"properties": {"status": {"const": "content-structure-failure"}}}, "then": {"properties": {"assessment": {"const": null}, "run_report": {"type": "string", "minLength": 1}}}}
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

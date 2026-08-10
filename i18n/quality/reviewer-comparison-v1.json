@@ -1,0 +1,65 @@
+{
+  "contract": "tome4-reviewer-comparison-policy-v1",
+  "schema_version": 1,
+  "seed": "tome4-reviewer-comparison-v1",
+  "models": [
+    {
+      "alias": "reviewer-a",
+      "provider": "opencode-go",
+      "model": "deepseek-v4-flash",
+      "thinking": "max"
+    },
+    {
+      "alias": "reviewer-b",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "thinking": "medium"
+    }
+  ],
+  "splits": {
+    "calibration": {"size": 32, "runs": 2},
+    "holdout": {"size": 32, "runs": 1}
+  },
+  "preferred_components": ["tome", "ashes-urhrok", "cults", "orcs"],
+  "fallback_components": ["engine", "boot"],
+  "candidate_pool_size": 256,
+  "component_max_fraction": 0.5,
+  "minimum_components_per_split": 3,
+  "target_gold_counts": {
+    "major": 12,
+    "minor": 4,
+    "clean": 12,
+    "context-insufficient": 4
+  },
+  "minimum_gold_counts": {
+    "major": 8,
+    "substantive_total": 12,
+    "clean": 12
+  },
+  "controlled_max_fraction": 0.25,
+  "max_items_per_bundle": 5,
+  "character_budget": 24000,
+  "connection_failure_retry_limit": 1,
+  "replace_content_failures": false,
+  "eligibility": {
+    "schema_coverage": 1.0,
+    "structure_failures_max": 0,
+    "claim_jaccard_min": 0.7,
+    "item_state_agreement_min": 0.9,
+    "clean_false_positive_rate_max": 0.2
+  },
+  "winner": {
+    "additional_major_min": 2,
+    "additional_clean_false_positives_max": 1,
+    "additional_substantive_min": 2,
+    "precision_drop_percentage_points_max": 5.0
+  },
+  "fallback_order": [
+    "expand-current-components",
+    "relax-component-quotas",
+    "unexposed-historical-revisions",
+    "relax-gold-strata",
+    "controlled-semantic-variants",
+    "stop-insufficient-evidence"
+  ]
+}

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -26,7 +27,7 @@ TRANSLATION_REVIEW_BUNDLE_CONTRACT = "tome4-translation-review-bundle-v2"
 TRANSLATION_REVIEW_POLICY_CONTRACT = "tome4-translation-review-policy-v2"
 TRANSLATION_REVIEW_ASSESSMENT_CONTRACT = "tome4-translation-review-assessment-v2"
 TRANSLATION_REVIEW_INPUT_CONTRACT = "tome4-translation-review-input-v2"
-TRANSLATION_REVIEW_NORMALIZER_CONTRACT = "tome4-translation-review-normalizer-v2"
+TRANSLATION_REVIEW_NORMALIZER_CONTRACT = "tome4-translation-review-normalizer-v4"
 TRANSLATION_REVIEW_RUNNER_CONTRACT = "tome4-translation-review-pi-stdio-v2"
 TRANSLATION_REVIEW_CHANNEL = "semantic-observation"
 TRANSLATION_REVIEW_METHOD = "blind-semantic-delta-v2"
@@ -37,6 +38,9 @@ TRANSLATION_REVIEW_POLICY_PATH = Path("i18n/review/translation-semantic-v2.json"
 DEFAULT_TRANSLATION_CHARACTER_BUDGET = 24000
 MAX_TRANSLATION_CHARACTER_BUDGET = 100000
 MAX_TRANSLATION_REVIEW_BATCH_SIZE = 10
+
+_MODEL_REVISION_ID_REPAIR_DISTANCE = 2
+_MODEL_MARKUP = re.compile(r"#(?:[A-Z][A-Z0-9_]*|\{[a-z][a-z0-9_-]*\})#")
 
 TRANSLATION_ITEM_FIELDS = (
     "item_id",
@@ -595,6 +599,111 @@ def validate_evaluator_identity(value: Any, *, where: str) -> dict[str, Any]:
     return value
 
 
+def _bounded_edit_distance(left: str, right: str, limit: int) -> int:
+    """Return a Levenshtein distance, stopping once it cannot be within limit."""
+    if abs(len(left) - len(right)) > limit:
+        return limit + 1
+    previous = list(range(len(right) + 1))
+    for left_index, left_character in enumerate(left, 1):
+        current = [left_index]
+        for right_index, right_character in enumerate(right, 1):
+            current.append(
+                min(
+                    current[-1] + 1,
+                    previous[right_index] + 1,
+                    previous[right_index - 1]
+                    + (left_character != right_character),
+                )
+            )
+        if min(current) > limit:
+            return limit + 1
+        previous = current
+    return previous[-1]
+
+
+def _repairable_model_revision_id(
+    observed: Any, expected: str, known_revision_ids: set[str]
+) -> bool:
+    """Allow one unambiguous copy typo in an otherwise position-bound inventory.
+
+    Exact, complete inventories are normalized to canonical order before this path.
+    This repair remains limited to a near-copy of the position-bound expected opaque
+    SHA-256 value and cannot synthesize or recover a missing inventory item.
+    """
+    return (
+        isinstance(observed, str)
+        and observed not in known_revision_ids
+        and 62 <= len(observed) <= 66
+        and all(character in "0123456789abcdef" for character in observed)
+        and _bounded_edit_distance(
+            observed, expected, _MODEL_REVISION_ID_REPAIR_DISTANCE
+        )
+        <= _MODEL_REVISION_ID_REPAIR_DISTANCE
+    )
+
+
+def _markup_projection(text: str) -> tuple[str, list[int]]:
+    """Remove only ToME display markup while retaining original character offsets."""
+    visible: list[str] = []
+    original_indices: list[int] = []
+    index = 0
+    while index < len(text):
+        match = _MODEL_MARKUP.match(text, index)
+        if match is not None:
+            index = match.end()
+            continue
+        visible.append(text[index])
+        original_indices.append(index)
+        index += 1
+    return "".join(visible), original_indices
+
+
+def _normalize_markup_only_evidence(
+    evidence: Any, text: str, *, where: str
+) -> dict[str, Any] | None:
+    """Resolve a quote that differs from the canonical text only by display markup.
+
+    This deliberately does not fold punctuation, whitespace, particles, word order,
+    or paraphrases.  The projected quote must resolve to the requested unique
+    occurrence, which is then mapped back to one byte-exact canonical span.
+    """
+    if not isinstance(evidence, dict):
+        return None
+    quote = evidence.get("quote")
+    occurrence = evidence.get("occurrence")
+    if not isinstance(quote, str) or not quote or type(occurrence) is not int or occurrence < 1:
+        return None
+    projected_quote, _quote_indices = _markup_projection(quote)
+    projected_text, original_indices = _markup_projection(text)
+    if not projected_quote or (projected_quote == quote and projected_text == text):
+        return None
+    starts: list[int] = []
+    position = 0
+    while True:
+        position = projected_text.find(projected_quote, position)
+        if position < 0:
+            break
+        starts.append(position)
+        position += max(1, len(projected_quote))
+    if occurrence > len(starts):
+        return None
+    projected_start = starts[occurrence - 1]
+    projected_end = projected_start + len(projected_quote)
+    start = original_indices[projected_start]
+    end = original_indices[projected_end - 1] + 1
+    exact_quote = text[start:end]
+    exact_occurrence = text[:start].count(exact_quote) + 1
+    normalized = normalize_evidence(
+        {"quote": exact_quote, "occurrence": exact_occurrence},
+        text,
+        where=where,
+    )
+    if normalized["state"] != "exact" or normalized["start"] != start:
+        return None
+    normalized["normalization"] = "markup-only"
+    return normalized
+
+
 def _strict_evidence(
     evidence: Any,
     text: str,
@@ -605,17 +714,29 @@ def _strict_evidence(
     if not isinstance(evidence, dict):
         raise ValidationError(f"{where} must be an object")
     exact_fields(evidence, ("quote", "occurrence"), where)
-    normalized = normalize_evidence(
-        evidence, text, where=where, allow_empty_omission=allow_missing
-    )
+    original_error: ValidationError | None = None
+    try:
+        normalized = normalize_evidence(
+            evidence, text, where=where, allow_empty_omission=allow_missing
+        )
+    except ValidationError as error:
+        original_error = error
+        normalized = {"state": "invalid"}
     allowed_states = {"exact"}
     if allow_missing:
         allowed_states.add("missing")
     if normalized["state"] not in allowed_states:
-        raise ValidationError(
-            f"{where} does not resolve to one exact span; provide a literal quote and "
-            "one-based occurrence"
+        markup_normalized = _normalize_markup_only_evidence(
+            evidence, text, where=where
         )
+        if markup_normalized is None:
+            if original_error is not None:
+                raise original_error
+            raise ValidationError(
+                f"{where} does not resolve to one exact span; provide a literal quote and "
+                "one-based occurrence"
+            )
+        normalized = markup_normalized
     if normalized["state"] == "exact":
         start = normalized["start"]
         end = normalized["end"]
@@ -672,9 +793,32 @@ def validate_translation_model_output(
     if evaluator["bundle_sha256"] != canonical_sha256(bundle):
         raise ValidationError("translation review evaluator bundle digest does not match")
 
+    item_order_normalizations = 0
+    expected_revision_ids = [
+        item.get("revision_id") if isinstance(item, dict) else None
+        for item in bundle_items
+    ]
+    observed_revision_ids = [
+        item.get("revision_id") if isinstance(item, dict) else None
+        for item in model_items
+    ]
+    if observed_revision_ids != expected_revision_ids and (
+        all(isinstance(value, str) for value in observed_revision_ids)
+        and len(set(observed_revision_ids)) == len(observed_revision_ids)
+        and set(observed_revision_ids) == set(expected_revision_ids)
+    ):
+        by_revision = {item["revision_id"]: item for item in model_items}
+        model_items = [by_revision[revision_id] for revision_id in expected_revision_ids]
+        item_order_normalizations = 1
+
     normalized_items: list[dict[str, Any]] = []
     finding_keys: set[str] = set()
     total_findings = 0
+    revision_id_repairs = 0
+    markup_evidence_normalizations = 0
+    known_revision_ids = {
+        item["revision_id"] for item in bundle_items if isinstance(item, dict)
+    }
     for item_index, (model_item, bundle_item) in enumerate(
         zip(model_items, bundle_items)
     ):
@@ -683,9 +827,19 @@ def validate_translation_model_output(
             raise ValidationError(f"{where} must be an object")
         exact_fields(model_item, MODEL_ITEM_FIELDS, where)
         if model_item["revision_id"] != bundle_item.get("revision_id"):
-            raise ValidationError(
-                f"{where}.revision_id is missing, duplicate, unknown, or out of order"
-            )
+            if (
+                revision_id_repairs == 0
+                and _repairable_model_revision_id(
+                    model_item["revision_id"],
+                    bundle_item["revision_id"],
+                    known_revision_ids,
+                )
+            ):
+                revision_id_repairs += 1
+            else:
+                raise ValidationError(
+                    f"{where}.revision_id is missing, duplicate, unknown, or out of order"
+                )
         assessment_state = enum(
             model_item["assessment_state"],
             policy["assessment_states"],
@@ -721,7 +875,7 @@ def validate_translation_model_output(
                 finding["source_evidence"],
                 bundle_item["source"],
                 where=f"{finding_where}.source_evidence",
-                allow_missing=False,
+                allow_missing=meaning_change == "added",
             )
             target = _strict_evidence(
                 finding["target_evidence"],
@@ -729,10 +883,17 @@ def validate_translation_model_output(
                 where=f"{finding_where}.target_evidence",
                 allow_missing=meaning_change == "omitted",
             )
+            if source["state"] == "missing" and meaning_change != "added":
+                raise ValidationError(
+                    f"{finding_where}.source_evidence may be missing only for an addition"
+                )
             if target["state"] == "missing" and meaning_change != "omitted":
                 raise ValidationError(
                     f"{finding_where}.target_evidence may be missing only for an omission"
                 )
+            markup_evidence_normalizations += (
+                source.get("normalization") == "markup-only"
+            ) + (target.get("normalization") == "markup-only")
             subject = {
                 "kind": "canonical-revision",
                 "revision_id": bundle_item["revision_id"],
@@ -839,6 +1000,9 @@ def validate_translation_model_output(
             for item in normalized_items
         ),
         "manual_queue": len(manual_queue),
+        "item_order_normalizations": item_order_normalizations,
+        "revision_id_repairs": revision_id_repairs,
+        "markup_evidence_normalizations": markup_evidence_normalizations,
         "semantic_channel_complete": True,
         "overall_translation_clean": False,
     }

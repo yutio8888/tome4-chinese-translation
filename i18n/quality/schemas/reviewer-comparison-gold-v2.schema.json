@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tome4-reviewer-comparison-gold-v2",
+  "$defs": {
+    "classification": {
+      "type": "object",
+      "required": ["phenomenon", "meaning_change"],
+      "properties": {
+        "phenomenon": {
+          "enum": [
+            "number", "number-range", "unit", "condition", "polarity",
+            "entity-role", "scope", "trigger-timing", "omission", "addition",
+            "ambiguity", "other"
+          ]
+        },
+        "meaning_change": {
+          "enum": [
+            "omitted", "added", "weakened", "strengthened", "reversed",
+            "reassigned", "made-ambiguous", "unknown"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["quote", "occurrence"],
+          "properties": {
+            "quote": {"const": ""},
+            "occurrence": {"const": 0}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["quote", "occurrence"],
+          "properties": {
+            "quote": {"type": "string", "minLength": 1},
+            "occurrence": {"type": "integer", "minimum": 1}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "finding": {
+      "type": "object",
+      "required": [
+        "phenomenon", "meaning_change", "accepted_classifications",
+        "classification_rationale", "source_evidence", "target_evidence"
+      ],
+      "properties": {
+        "phenomenon": {
+          "enum": [
+            "number", "number-range", "unit", "condition", "polarity",
+            "entity-role", "scope", "trigger-timing", "omission", "addition",
+            "ambiguity", "other"
+          ]
+        },
+        "meaning_change": {
+          "enum": [
+            "omitted", "added", "weakened", "strengthened", "reversed",
+            "reassigned", "made-ambiguous", "unknown"
+          ]
+        },
+        "accepted_classifications": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/classification"}
+        },
+        "classification_rationale": {"type": "string", "minLength": 1, "maxLength": 12000},
+        "source_evidence": {"$ref": "#/$defs/evidence"},
+        "target_evidence": {"$ref": "#/$defs/evidence"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "required": [
+    "contract", "schema_version", "candidate_pool_id", "human_confirmed",
+    "fallback_stage", "items"
+  ],
+  "properties": {
+    "contract": {"const": "tome4-reviewer-comparison-gold-v2"},
+    "schema_version": {"const": 2},
+    "candidate_pool_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "gold_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "human_confirmed": {"const": true},
+    "fallback_stage": {
+      "enum": [
+        "none", "expand-current-components", "relax-component-quotas",
+        "unexposed-historical-revisions", "relax-gold-strata",
+        "controlled-semantic-variants", "stop-insufficient-evidence"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "minItems": 64,
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "required": [
+          "revision_id", "split", "gold_state", "semantic_state", "severity",
+          "findings_exhaustive", "adjudication_rationale", "controlled", "findings"
+        ],
+        "properties": {
+          "revision_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "split": {"enum": ["calibration", "holdout"]},
+          "gold_state": {"enum": ["assessed", "context-insufficient"]},
+          "semantic_state": {
+            "enum": [
+              "no-substantive-difference", "substantive-difference",
+              "context-insufficient"
+            ]
+          },
+          "severity": {"enum": ["major", "minor", "clean", "context-insufficient"]},
+          "findings_exhaustive": {"type": "boolean"},
+          "adjudication_rationale": {"type": "string", "minLength": 1, "maxLength": 12000},
+          "controlled": {"type": "boolean"},
+          "findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}}
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {"properties": {"semantic_state": {"const": "no-substantive-difference"}}},
+            "then": {
+              "properties": {
+                "gold_state": {"const": "assessed"},
+                "severity": {"const": "clean"},
+                "findings_exhaustive": {"const": true},
+                "findings": {"maxItems": 0}
+              }
+            }
+          },
+          {
+            "if": {"properties": {"semantic_state": {"const": "substantive-difference"}}},
+            "then": {
+              "properties": {
+                "gold_state": {"const": "assessed"},
+                "severity": {"enum": ["major", "minor", "clean"]},
+                "findings": {"minItems": 1}
+              }
+            }
+          },
+          {
+            "if": {"properties": {"semantic_state": {"const": "context-insufficient"}}},
+            "then": {
+              "properties": {
+                "gold_state": {"const": "context-insufficient"},
+                "severity": {"const": "context-insufficient"},
+                "findings_exhaustive": {"const": false},
+                "findings": {"maxItems": 0}
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}
