@@ -2,7 +2,7 @@
 
 更新时间：2026-08-11
 
-状态：**P0 已退出；P1 已收束（前置核验 + 329 条裁决 + 5 个 advisory 修复 + 全新只读复审均完成，无已确认 finding）**
+状态：**P0/P1/P2 已收束（P2：851 撤销 + 5 advisory + 1 已确认 finding 已修复并复审通过）**
 
 本文件是当前第二轮术语审核工作线的正式交接入口。接手者应先阅读本文件、根目录 `AGENTS.md`、`docs/terminology-review-round-2.md`，再按本文“下一步”继续。所有尚未明确确认的 observation 不得直接进入 remediation。
 
@@ -13,7 +13,7 @@
 - 工作分支：`audit/terminology-review-round-2`
 - 基础：`develop` / `a781a35`
 - 工作目标：审核现有汉化的术语**完整性、合理性、一致性**，并在独立裁决后分批修复。
-- 当前停止点：P0 已正式退出；P1 全流程收束——前置核验（6 条 context-insufficient + L428/L538 scope 修正）、329 条 observation 分组裁决（322 撤销 + 7 advisory）、5 个 advisory 组合已获用户授权修复并跑完门禁，修复后全新只读复审无新增已确认 finding。下一步为 P2 批次。
+- 当前停止点：P0/P1/P2 全部收束。P2 workset（1,871 候选/1,746 需人工/101 行）重建，blind discovery（196 bundles/1,903 items/857 observation）与分组源码裁决完成（851 撤销/5 advisory/1 已确认），Foul Convergence→污秽夹击 已修复并通过门禁与全新只读复审（1 observation 撤销，无新增确认 finding）。下一步为 P3 批次。
 - P0 已修改 `terminology.tsv` 与规范 Lua，完整修订与验证结果见 5.5–5.7；后续不得重新打开已退出的 P0，除非出现新的源码证据或回归。
 - P1 当前仅完成审核第一阶段，没有修改 TSV 或规范 Lua；pending observation 不得进入 remediation。
 - 不得创建 commit 或 checkpoint，除非用户明确授权。
@@ -278,7 +278,16 @@ finding，不能进入 remediation，也不能把 329 当作错误数。
    （Possessor 撤销）、Manifold context-insufficient（主代理补上下文后确认）。
    **无新增已确认 finding，P1 退出条件满足**。记录：`decisions/P1-advisory-review.md`。
 
-**P1 正式收束**，下一步进入 P2 批次（按 `docs/terminology-review-round-2.md`）。
+**P1 正式收束**。P2 进度：workset 冻结（`P2-talents-v1.json`，SHA `f066d648…`）；
+blind discovery 完成（196 bundles/1,903 items，外发留痕见 `decisions/P2-adjudication.md`，
+SHA `241e65aa…`）；分组源码裁决完成（851 撤销/5 advisory/1 已确认：Foul
+Convergence→阴险同谋，建议“污秽夹击”），记录：`decisions/P2-adjudication.md` +
+`P2-adjudication.json`。修复（2026-08-11，用户授权）：`Foul Convergence→污秽夹击`
+（tome-cults.lua + TSV 新增行），门禁 1–5 与术语审计全部通过（TSV 行数 705→706、
+QualitySampling 黄金值同步更新），workset 重建（SHA `4b254b67…`）；全新只读复审
+（1 bundle/1 item，`P2-fix-review/`）：1 observation 撤销（源码机制“both teleport
+and make a melee attack”=夹击，官方同译）。**P2 收束，无新增已确认 finding**，
+记录：`decisions/P2-fix-review.md`。下一步：P3 批次（entity name/subtype 等）。
 
 ### 7.4 后续批次
 

@@ -2900,7 +2900,7 @@ t([[You invoke a long standing pact with a fellow horror, a Worm that Walks, to 
 		等级 5 ：戒指 /戒指/ 饰品
 
 		试图改变其装备时，先将装备交给它，再切换控制。]], "tformat")
-t("Foul Convergence", "阴险同谋", "talent name")
+t("Foul Convergence", "污秽夹击", "talent name")
 t("Your friendly horror is dead.", "你的恐魔伙伴死了。", "logPlayer")
 t("%s's teleport fizzles!", "%s的传送失败了！", "logSeen")
 t([[You and your Worm that Walks both teleport to an enemy in range %d and make a melee attack for %d%% damage.
