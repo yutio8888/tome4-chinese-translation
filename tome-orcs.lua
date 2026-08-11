@@ -600,7 +600,7 @@ t("Very well. We can increase one of your core stats by 4, which one?", "很好�
 ------------------------------------------------
 section "tome-orcs/data/damage_types.lua"
 
-t("pulse detonator", "震荡榴弹", "damage type")
+t("pulse detonator", "脉冲爆弹", "damage type")
 t("%s is knocked back!", "%s 被击退。", "logSeen")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t("darkness pull", "黑暗抓取", "damage type")
@@ -630,7 +630,7 @@ t("phosphorous", "磷火", "damage type")
 t("fire wall", "火墙", "damage type")
 t("volatile fuel", "易燃燃料", "damage type")
 t("chemical", "化学", "damage type")
-t("debilitating acid", "腐蚀酸液", "damage type")
+t("debilitating acid", "虚弱酸液", "damage type")
 t("caustic steam", "腐蚀蒸汽", "damage type")
 t("galvanic", "放电", "damage type")
 t("occult", "玄机", "damage type")
@@ -6307,7 +6307,7 @@ t("Vulnerable to more cross tier effects.", "会受到更多跨层效果影响�
 ------------------------------------------------
 section "tome-orcs/data/timed_effects/physical.lua"
 
-t("technique", "格斗", "effect subtype")
+t("technique", "技巧", "effect subtype")
 t("Strafing", "扫射中", "_t")
 t("The target is moving while shooting, and will reload %sammo when finished strafing.", "目标在移动中射击，效果结束后恢复 %s 弹药。", "tformat")
 t("%s reloads.", "%s 装载弹药。", "logSeen")
@@ -6423,7 +6423,7 @@ t("#Target# internal structure metallises.", "#Target# 内在结构金属化。"
 t("+Subcutaneous Metallisation", "+金属内皮", "_t")
 t("#Target# internal structure returns to normal.", "#Target# 内在结构恢复正常。", "_t")
 t("-Subcutaneous Metallisation", "-金属内皮", "_t")
-t("power", "能量", "effect subtype")
+t("power", "强度", "effect subtype")
 t("Pain Enhancement System", "痛苦强化系统", "_t")
 t("All stats increased by %d.", "全属性增加%d。", "tformat")
 t("#Target# revels in the pain.", "#Target# 在苦痛中狂欢。", "_t")

@@ -31,7 +31,7 @@ voidburn	虚空灼烧	T.GAME.DAMAGE	combat	damage type	existing	dlc	Cults of Ent
 slowing void	减速之虚	T.GAME.DAMAGE	combat	damage type	existing	dlc	Cults of Entropy DLC 伤害类型
 draining void	汲取之虚	T.GAME.DAMAGE	combat	damage type	existing	dlc	Cults of Entropy DLC 伤害类型
 obliterating void	湮灭之虚	T.GAME.DAMAGE	combat	damage type	existing	dlc	Cults of Entropy DLC 伤害类型
-aging temporal	衰老	T.GAME.DAMAGE	combat	damage type	existing	dlc	Cults of Entropy DLC 伤害类型
+aging temporal	时空衰老	T.GAME.DAMAGE	combat	damage type	existing	dlc	Cults of Entropy DLC 伤害类型：temporal 伤害并随机致盲/定身/混乱；P0 审核确认（原“衰老”漏 temporal 维度）
 caustic steam	腐蚀蒸汽	T.GAME.DAMAGE	combat	damage type	existing	dlc	Embers of Rage DLC 伤害类型
 galvanic	放电	T.GAME.DAMAGE	combat	damage type	existing	dlc	Embers of Rage DLC 伤害类型
 terrene	寒岩	T.GAME.DAMAGE	combat	damage type	existing	dlc	Embers of Rage 的土与寒冷复合伤害类型；与“科技法术：寒岩”及技能描述统一，不按普通形容词直译
@@ -83,7 +83,7 @@ Constricted	缠绕	T.GAME.EFFECT	combat	_t	preferred	core	状态名及其战斗�
 dirge	挽歌	T.GAME.EFFECT	combat	effect subtype	preferred	core	稳定版 1.7.6 的魔法持续效果名称
 insanity	疯狂	T.GAME.EFFECT	combat	effect subtype	existing	dlc	Cults of Entropy DLC 机制效果类型
 entropy	熵	T.GAME.EFFECT	combat	effect subtype	existing	dlc	Cults of Entropy DLC 机制效果类型
-horror	恐魔	T.GAME.EFFECT	combat	effect subtype	existing	dlc	Cults of Entropy DLC 机制效果类型
+horror	恐怖	T.GAME.EFFECT	combat	effect subtype	existing	dlc	Cults 恐怖/恐惧系效果类别（Putrescent Pustule、Horrific Display 等）；entity type 语境的“恐魔”保留；P0 审核确认
 demonic	恶魔	T.GAME.EFFECT	combat	effect subtype	existing	dlc	Ashes of Urh'Rok DLC 机制效果类型
 ritual	仪式	T.GAME.EFFECT	combat	effect subtype	existing	dlc	Ashes of Urh'Rok DLC 机制效果类型
 seismic	地震	T.GAME.EFFECT	combat	effect subtype	existing	dlc	Ashes of Urh'Rok DLC 机制效果类型
@@ -692,3 +692,18 @@ Name	名称	T.UI.LABEL	ui	_t	preferred	global	界面标签（17 处）
 unknown	未知	T.UI.LABEL	ui	_t	preferred	global	未知条目/名称占位（15 处）
 reload rate	每次装填弹药数	T.TECH.FORMAT	tech	tformat	preferred	core	弓与投石索机制属性；实际增加每次自动装填的弹药数量，并非缩短装填耗时
 Donator	捐赠者	T.GAME.MISC	tech	_t	preferred	core	聊天徽章与成就名称统一为“捐赠者”；不写作“捐助者”
+
+debilitating acid	虚弱酸液	T.GAME.DAMAGE	combat	damage type	preferred	dlc	Orcs 伤害类型：酸液伤害并延长负面效果；debilitating 译为“虚弱”；P0 审核确认（原“腐蚀酸液”改修饰语语义）
+draining physical	生命汲取	T.GAME.DAMAGE	combat	damage type	preferred	core	从目标汲取生命造成物理伤害并治疗施法者；不写作“物理吸收”；P0 审核确认
+item antimagic scouring	物品反魔清除	T.GAME.DAMAGE	combat	damage type	preferred	core	降低攻强类物品伤害类型（Reduces all offensive powers by 20%）；scouring 为清除而非灼烧；P0 审核确认
+pulse detonator	脉冲爆弹	T.GAME.DAMAGE	combat	damage type	preferred	dlc	Orcs 伤害类型；与技能 Pulse Detonator 译名一致，区别于 shock grenade 震荡榴弹；P0 审核确认
+power	强度	T.GAME.EFFECT	combat	effect subtype	preferred	global	效果类别：physical power/spellpower 等强度增益，不是能量；entity keyword 语境仍译“能量”；P0 审核确认
+superiority	优势	T.GAME.EFFECT	combat	effect subtype	preferred	core	superiority 系效果类别（Juggernaut 等）；talent type 语境保持“战术优化”；P0 审核确认
+technique	技巧	T.GAME.EFFECT	combat	effect subtype	preferred	dlc	Orcs 效果类别，近战与射击效果（STRAFING 等）共用；talent category 语境仍译“格斗”；P0 审核确认
+
+power	能量	T.GAME.ENTITY	items	entity keyword	preferred	core	物品词缀语境（of power 能量之）；与 effect subtype 的“强度”区分；P0 审核确认
+power	能量	T.GAME.ENTITY	items	entity subtype	preferred	dlc	orcs 实体子类型语境；与 effect subtype 的“强度”区分；P0 审核确认
+superiority	战术优化	T.GAME.TALENT_CATEGORY	talents	talent type	preferred	core	superiority 技能树分类译名；与 effect subtype 的“优势”区分；P0 审核确认
+
+dimensional anchor	时空锚	T.GAME.DAMAGE	combat	damage type	preferred	core	反传送锚定伤害类型；与技能名/锚定消息'时空锚'统一（P0 复审子代理 #20，用户确认）
+flat	固定伤害减免	T.GAME.EFFECT	combat	effect subtype	preferred	global	flat damage reduction 机制；与正文'固定伤害减免'一致（P0 复审子代理 #83，用户确认）

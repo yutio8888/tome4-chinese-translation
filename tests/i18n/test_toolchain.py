@@ -1220,8 +1220,8 @@ class DomainAnnotationTests(unittest.TestCase):
         )
         report = json.loads(report_path.read_text(encoding="utf-8"))
         self.assertEqual(len(report["domains"]), 11)
-        self.assertEqual(len(report["rows"]), 693)
-        self.assertEqual(sum(report["counts"].values()), 693)
+        self.assertEqual(len(report["rows"]), 705)
+        self.assertEqual(sum(report["counts"].values()), 705)
         self.assertEqual(report["unmapped_count"], 0)
         self.assertEqual(report["declared_domain_mismatch_count"], 6)
         self.assertIs(report["ok"], True)
@@ -15634,11 +15634,11 @@ class QualitySamplingTests(unittest.TestCase):
         ).encode("utf-8")
         self.assertEqual(
             hashlib.sha256(serialized).hexdigest(),
-            "e59acd02b8839df1de3a22334554c8e999ddd0450717b956f34e6b4d25754c3e",
+            "9cdc953e1b072f88e371c170ea4bfce25f2c7a0d2566fab1d2cbcd42f5f1e553",
         )
         self.assertEqual(
             first["sample_id"],
-            "e8a266f70202a388b0c7c01686044bcc51e1f7908c05ce21d95e227c5a3259a6",
+            "5c8aad305eff7746e651ec638ce4097bea2b54784ba82f4cc4b2865274d5a076",
         )
         self.assertEqual(
             first["items_sha256"],
@@ -15904,11 +15904,11 @@ class QualitySamplingTests(unittest.TestCase):
         ).encode("utf-8")
         self.assertEqual(
             hashlib.sha256(serialized).hexdigest(),
-            "8b14cc8bf55dd774dc5e20d4efdefd9973c2e38b2e77829bad0370fc5ac8c39a",
+            "2c96ec82d452cdf5d4b6f9473f1ad6aab1a3e4d63b47326b8226e5b741dfed4a",
         )
         self.assertEqual(
             first["sample_id"],
-            "04ee1c061b8bbd81ed85bcd90a3317a5339af82d6faeaa40cb4a69c456e57313",
+            "295f57e16044d095faadc6ff3fb73507e6b2fb359443cccd2513ebcb45b5f9ca",
         )
         self.assertEqual(
             first["items_sha256"],
@@ -16089,7 +16089,7 @@ class QualitySamplingTests(unittest.TestCase):
         self.assertTrue(all("_features" not in entry for entry in loaded_entries[0]))
         self.assertEqual(
             dry_run["official_sample_id"],
-            "e8a266f70202a388b0c7c01686044bcc51e1f7908c05ce21d95e227c5a3259a6",
+            "5c8aad305eff7746e651ec638ce4097bea2b54784ba82f4cc4b2865274d5a076",
         )
 
     def test_dry_run_does_not_cache_mutable_inventory_between_calls(self) -> None:
@@ -19223,7 +19223,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         return yaml.safe_load(text[4:end])
 
     def test_agents_exist_with_required_frontmatter(self) -> None:
-        expected = {"scout", "plan-reviewer"}
+        expected = {"scout", "plan-reviewer", "translation-reviewer"}
         found = {path.stem for path in self.AGENTS_DIR.glob("*.md")}
         self.assertEqual(found, expected)
         for path in sorted(self.AGENTS_DIR.glob("*.md")):
