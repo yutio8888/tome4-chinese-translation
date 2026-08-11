@@ -235,7 +235,7 @@ B 类规模约 5,500–6,000 个，必须**程序化分流 + 抽样复核**才�
 
 - 可委派只读子代理（遵循 AGENTS.md 有界任务约束）：候选生成复核、源码证据收集（定义位置、出现位置列表）、投影候选整理、排除规则抽样初筛；
 - 不委派：`preferred`/`review`/`excluded` 定级、译文修订、最终裁决记录——只在主代理；
-- Pi 本轮不引入：术语裁决不进 blind discovery；若后续引入，只能遵循项目 translation semantic v2 的 blind observation 流程；术语表不能注入 discovery payload，模型 observation 不能直接成为裁决或改写规范 Lua。每次外发前另行取得授权。
+- Pi 本轮不引入：术语裁决不进 blind discovery；若后续引入，只能遵循项目 translation semantic v2 的 blind observation 流程；术语表不能注入 discovery payload，模型 observation 不能直接成为裁决或改写规范 Lua。翻译 v2 bundle 外发已获项目级授权（见 AGENTS.md），其余外发仍须另行取得授权。
 
 ## 8. 验证与退出标准
 

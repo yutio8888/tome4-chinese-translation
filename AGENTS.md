@@ -21,7 +21,7 @@
 - 源码核验变体（Skill `$tome4-pi-file-review`）的现有 `tools/pi-tmux review-files --bundle <bundle.json>`（headless 用 `tools/pi-review-files`）只接受 code/legacy v1。translation v2 的源码核验必须绑定既有 observation identity，只能返回 `supported/refuted/insufficient` 并禁止新增 finding；在该 claim-bound runner 实现前，现有工具必须失败关闭，由主代理按固定源码版本直接核验。该审核子进程（源码感知变体）以 `--tools read,bash` 白名单启动，所读源码片段和路径可能进入 provider 请求；首次授权必须同时披露可读公开根与这一外发边界。`edit`/`write` 永不启用，但审核子进程的内置 `bash` 不提供 OS 沙箱，仍继承宿主进程权限与 provider 凭据；工具会自动比较运行前后的版本控制范围内容级快照，主代理运行后仍须独立确认工作树未被改动。需要强隔离时必须使用只读挂载、网络/凭据隔离的容器或 VM。
 - 完整质量评价入口为 `tools/pi-quality-evaluator --sample <sample.json> --evaluator <reviewer-id>`。该审核子进程保持无工具、无会话、无项目上下文，只接收有界 quality sample，宿主补齐并严格校验 assessment 身份；不得向任一 evaluator 展示另一份 assessment、裁决、历史 finding 或预期等级。模型评价仍受首次外部传输授权门槛约束，不能替代后续主代理/用户裁决。
 - 处理审核意见入口为 `tools/pi-tmux remediate --bundle <bundle.json> --review <review.json>`（headless 可用 `tools/pi-remediate`）。只有主代理已独立确认并定级的 finding 才可进入 remediation；translation v2 pending observation 不得直接进入，当前 runner 会显式拒绝。该审核子进程只能输出绑定到 finding/item 的 remediation proposal；主代理必须独立校验并应用修订，再重新运行审核；审核子进程不得直接写规范 Lua 或代码，主代理应用后必须重新运行审核与门禁以闭环。
-- 当用户要求开展审核时（无论主代理是 pi coding agent 还是 Codex），使用项目 Skill `$tome4-pi-review`；交互式审核默认在 tmux 分屏中运行，pane 保留至 `tmux kill-pane -t <pane>`。首次向外部 provider 发送任何内容（bundle、任务、计划）前，必须明确报告 provider、model、内容类型、条目/字数与实际 payload 大小并取得用户授权；不得用项目级全局网络放行绕过该授权。
+- 当用户要求开展审核时（无论主代理是 pi coding agent 还是 Codex），使用项目 Skill `$tome4-pi-review`；交互式审核默认在 tmux 分屏中运行，pane 保留至 `tmux kill-pane -t <pane>`。翻译 v2 bundle 的外发已获项目级授权（用户 2026-08-10 指示移除逐次授权申请），不再逐次取得授权；主代理仍须按 Skill 报告 provider、model、条目数/字数与实际 payload 供留痕。首次向外部 provider 发送翻译 bundle 以外的任何内容（任务、计划、代码/其他 bundle）前，必须明确报告 provider、model、内容类型、条目/字数与实际 payload 大小并取得用户授权；不得用项目级全局网络放行绕过该授权。
 - 源码侦察与计划审查由项目 subagent（Skill `$tome4-pi-subagent`）承担：`subagent({agent: "scout", task})` 只读阅读 t-engine4、DLC 与 addon 发布仓库源码并返回压缩上下文；`subagent({agent: "plan-reviewer", task})` 对修复/翻译/工具链计划做只读独立审查并返回结构化 findings。两者均以 `read,grep,find,ls,bash` 白名单启动，`edit`/`write` 永不启用，无会话、无项目上下文、无 skills；结果只作参考，由主代理独立裁决并应用，不得直接写规范 Lua 或代码。
 
 ## DLC 源码输入（GPL v3 公开）
@@ -166,7 +166,7 @@ luarocks \
 
 1. **单 finding**：译文/术语核对对应源码与上下文并运行最小 lint；代码运行最接近的测试类/表驱动回归和相关模块 `py_compile`；配置/文档核对实际消费者或 schema；所有改动检查受影响文件的 `git diff --check`。
 2. **子系统批次**：按任务运行组件级 lint、术语审计、相关 `-k`/测试类或一条真实但无外部副作用的命令路径；性能修复应增加调用次数或不触发昂贵路径的断言。
-3. **最终集成**：运行本任务适用的完整门禁、构建和 smoke，只在本批修复收束后统一执行。高风险共享基础设施改动可提前追加一次完整测试，但不要机械重复；任何外部 provider 调用仍须单独授权。
+3. **最终集成**：运行本任务适用的完整门禁、构建和 smoke，只在本批修复收束后统一执行。高风险共享基础设施改动可提前追加一次完整测试，但不要机械重复；任何外部 provider 调用仍须单独授权（翻译 v2 bundle 外发除外，已获项目级授权，见上文审核 Skill 条目）。
 
 - 测试 fixture 应优先使用表驱动和共享 helper，避免为每个类型变体复制整段大型样本。
 - 不要把包含数万行条目的 `--json` 结果直接输出到终端；优先使用普通摘要、将完整 JSON 留在 `.artifacts/i18n/`，或只读取需要核对的字段。

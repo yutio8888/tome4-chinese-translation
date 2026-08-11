@@ -34,10 +34,13 @@ limit; do not silently shorten it for a large bundle.
 
 ## Authorize external review
 
-Pi sends each bounded bundle to the configured external provider. Before the first real
-invocation, state the provider, model, bundle kind/contract, item count, item character count,
-actual payload bytes (or code diff payload size), and that the bundle contents will leave the local sandbox. Obtain
-explicit user authorization for that data transfer.
+Pi sends each bounded bundle to the configured external provider. Translation v2 bundles are
+covered by the project-level transfer authorization in `AGENTS.md` and do not require
+per-invocation approval; before the first real invocation the main agent still reports the
+provider, model, bundle kind/contract, item count, item character count and actual payload
+bytes for the record. For any non-translation-v2 outbound content (tasks, plans, code or
+other bundles), state the same details and obtain explicit user authorization before the
+first real invocation.
 
 Do not enable project-wide network access or bypass approvals. If an escalation is denied,
 stop; do not invoke Pi indirectly or copy the data through another channel.
