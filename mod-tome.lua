@@ -8789,7 +8789,7 @@ t("A maddened, enraged snow giant that towers over his comrades. You've heard le
 ------------------------------------------------
 section "mod-tome/data/general/npcs/spider.lua"
 
-t("spiderkin", "蜘蛛亚种", "entity type")
+t("spiderkin", "蜘蛛族", "entity type")
 t("spider", "蜘蛛", "entity subtype")
 t("Arachnophobia...", "我有蜘蛛恐惧症……", "_t")
 t("giant spider", "巨型蜘蛛", "entity name")
@@ -21896,7 +21896,7 @@ t("Fate Weaving", "命运编织", "talent type")
 t("Weave the threads of fate.", "编织你的命运", "_t")
 t("Spacetime Weaving", "时空编织", "talent type")
 t("Weave the threads of spacetime.", "编织时空线", "_t")
-t("Manifold", "多态", "talent type")
+t("Manifold", "多样", "talent type")
 t("Passive effects that Weapon Folding can trigger.", "武器折叠触发的被动效果。", "_t")
 t("Other", "其他", "talent type")
 t("Miscellaneous Chronomancy effects.", "杂项时空效果。", "_t")
@@ -40876,7 +40876,7 @@ t("Forum troll", "论坛巨魔", "entity name")
 t("Pushy elf", "爱出风头的精灵", "entity name")
 t("Blustering elf", "虚张声势的精灵", "entity name")
 t("Breezy elf", "活泼的精灵", "entity name")
-t("spiderkin", "蜘蛛亚种", "entity type")
+t("spiderkin", "蜘蛛族", "entity type")
 t("spider", "蜘蛛", "entity subtype")
 t("Arachnophobia...", "我有蜘蛛恐惧症……", "_t")
 t("giant spider", "巨型蜘蛛", "entity name")
@@ -40961,7 +40961,7 @@ t("crack in spacetime", "时空裂隙", "entity name")
 ------------------------------------------------
 section "mod-tome/data/zones/unhallowed-morass/npcs.lua"
 
-t("spiderkin", "蜘蛛亚种", "entity type")
+t("spiderkin", "蜘蛛族", "entity type")
 t("spider", "蜘蛛", "entity subtype")
 t("Arachnophobia...", "我有蜘蛛恐惧症……", "_t")
 t("weaver hatchling", "编织者幼体", "entity name")

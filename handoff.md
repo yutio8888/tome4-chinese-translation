@@ -2,7 +2,7 @@
 
 更新时间：2026-08-11
 
-状态：**P0 已退出；P1 blind semantic discovery 已完成并冻结，下一步主代理独立源码核验与裁决**
+状态：**P0 已退出；P1 已收束（前置核验 + 329 条裁决 + 5 个 advisory 修复 + 全新只读复审均完成，无已确认 finding）**
 
 本文件是当前第二轮术语审核工作线的正式交接入口。接手者应先阅读本文件、根目录 `AGENTS.md`、`docs/terminology-review-round-2.md`，再按本文“下一步”继续。所有尚未明确确认的 observation 不得直接进入 remediation。
 
@@ -13,7 +13,7 @@
 - 工作分支：`audit/terminology-review-round-2`
 - 基础：`develop` / `a781a35`
 - 工作目标：审核现有汉化的术语**完整性、合理性、一致性**，并在独立裁决后分批修复。
-- 当前停止点：P0 已正式退出；P1 workset、blind translation v2 review 与全量 observation freeze 已完成，329 条 observation 和 6 条 context-insufficient 均等待主代理独立核验，尚无 P1 已确认 finding。
+- 当前停止点：P0 已正式退出；P1 全流程收束——前置核验（6 条 context-insufficient + L428/L538 scope 修正）、329 条 observation 分组裁决（322 撤销 + 7 advisory）、5 个 advisory 组合已获用户授权修复并跑完门禁，修复后全新只读复审无新增已确认 finding。下一步为 P2 批次。
 - P0 已修改 `terminology.tsv` 与规范 Lua，完整修订与验证结果见 5.5–5.7；后续不得重新打开已退出的 P0，除非出现新的源码证据或回归。
 - P1 当前仅完成审核第一阶段，没有修改 TSV 或规范 Lua；pending observation 不得进入 remediation。
 - 不得创建 commit 或 checkpoint，除非用户明确授权。
@@ -195,14 +195,14 @@ P1 semantic discovery 仅写入被忽略的 `.artifacts/`，没有修改 `termin
 
 ## 7. 接手后的下一步
 
-### 7.1 P1 基线已冻结（2026-08-11）
+### 7.1 P1 基线已冻结（2026-08-11，TSV scope 修正后重建）
 
 本地生成器已从当前规范输入写出：
 
 `.artifacts/i18n/terminology-review-r2/worksets/P1-role-structure-v1.json`
 
-- artifact SHA-256：`af499642a297e3fc9dbeef9ec15d5185217b5cee25c267d7f59b2d693ad7ae55`
-- 候选单元 1,066：已登记 237、缺失 829、自动排除 240、需人工 589；
+- artifact SHA-256（2026-08-11 重建）：`6321e1074dbaea0c75bfd82b25e8c4b83be39fa5ecf1053909925403a25b10ec`（旧 `af499642…` 已失效）
+- 候选单元 1,066：已登记 239（+2）、缺失 827（−2）、自动排除 240、需人工 587（−2）；
 - 人工候选分布：talent type 275、talent category 9、birth descriptor 38、faction 10、
   entity type 64、entity keyword 193；
 - 现有术语行复核 204；provisional `entity keyword` 总体 434；
@@ -216,8 +216,8 @@ P1 semantic discovery 仅写入被忽略的 `.artifacts/`，没有修改 `termin
 
 选择把 589 个未登记人工候选、204 条现有术语行的活动匹配和 20 条自动排除抽样映射到
 规范译文 revision；按 revision 去重后覆盖 9 个组件、1,425 items、147 bundles。两个现有
-TSV 行无活动匹配，未进入 bundle：L428 `ammo / entity type / dlc`、L538
-`Orc / birth descriptor name / core`，须由主代理单独核验 stale/scope/tag。
+TSV 行当时无活动匹配、未进入 bundle（2026-08-11 已核验并修正 scope：L428→core、
+L538→dlc，见 7.3 第 1 步）。
 
 外发留痕（项目级 translation v2 授权）：
 
@@ -247,14 +247,38 @@ finding，不能进入 remediation，也不能把 329 当作错误数。
 
 ### 7.3 下一步：P1 独立裁决与修复闭环
 
-1. 先核验 6 条 context-insufficient 和 L428/L538 两条无活动 TSV 行；
-2. 再按 `faction → birth descriptor → talent category → talent type → entity type → entity keyword`
-   分组，绑定 observation identity，使用固定版本公开源码独立确认/部分确认/撤销；
-3. 先冻结完整 P1 findings 清单，不边发现边修改；只有已确认 finding 才由主代理定级；
-4. 用户授权修复后，先更新 `terminology.tsv`，再更新规范 Lua，运行单批验证、术语审计和
-   完整门禁；
-5. 修复收束后重新生成绑定新 revision 的 blind bundle，做一轮全新只读复审；无新增确认
-   finding 才能退出 P1。
+1. ✅ **前置核验已完成（2026-08-11）**：6 条 context-insufficient（Anorithil/cun/shalore/
+   thalore/yeek/drolem）经固定版本源码核验全部确认（support），与官方 zh_hans 逐字
+   一致且游戏内显示机制均已验证；L428/L538 均属 scope 标注错误（target 与条目有效），
+   已获用户授权修正 TSV scope（`ammo→core`、`Orc→dlc`），workset 重建
+   （SHA `6321e107…`）、QualitySampling 黄金值随 TSV 输入同步更新。记录：
+   `decisions/P1-context-insufficient-and-stale-rows.md`；门禁 1–5 全部通过
+   （lint 0 错、单测 439、collision 0、桶 A 1711、diff --check OK）。
+2. ✅ **P1 分组源码裁决已完成（2026-08-11）**：329 条 observation 按
+   faction name → birth descriptor → talent category → talent type → entity type →
+   entity keyword 分组，绑定固定版本源码逐条核验。239 个唯一组合：216 官方一致
+   （core+3 DLC 官方 zh_hans 合并表）、15 偏离官方、8 官方无条目（possessors 未 pin
+   源码，按规范译文语境评估）。**裁决：322 条撤销、7 条 advisory（5 组合：
+   spiderkin/Manifold/doom/deep horror/Possessor），0 已确认 finding**。关键源码证据：
+   earthen vines（"Control the stone itself…"）、mechstar（mindstar+steamtech）、
+   paradox 资源条（紊乱值）、spell/infusion（官方"纹身"混淆两类）等。记录：
+   `decisions/P1-adjudication.md`（含逐条映射 `P1-adjudication.json`）。
+3. ✅ findings 清单已冻结：无已确认 finding，不进入 remediation；advisory 仅记录。
+4. ✅ **advisory 修复已完成（2026-08-11，用户授权）**：5 个组合全部修复——
+   spiderkin→蜘蛛族（mod-tome.lua×3）、Manifold→多样（mod-tome.lua+TSV L310）、
+   doom→末日（tome-cults.lua+TSV L213，对齐官方）、deep horror→深邃恐惧
+   （tome-possessors.lua）、Possessor→占据者（tome-possessors.lua+TSV L405）。
+   门禁 1–5 全部通过（lint 0 错、单测 439 全绿、collision 0、桶 A 1711、diff --check
+   OK）；术语审计三件套通过；QualitySampling 黄金值随 TSV/Lua 输入同步更新（已验证
+   归因）；workset 重建（SHA `65b4050b…`）。
+5. ✅ **修复后全新只读复审已完成（2026-08-11）**：生成绑定新 revision 的 blind bundle
+   （3 bundles/7 items，`.artifacts/i18n/runs/P1-advisory-review/`），provider
+   `opencode-go`/`deepseek-v4-flash`/high，2 次首次输出不合规后重试共 5 次
+   charged transfers。结果：tome 0 observation、cults 1（doom 撤销）、possessors 1
+   （Possessor 撤销）、Manifold context-insufficient（主代理补上下文后确认）。
+   **无新增已确认 finding，P1 退出条件满足**。记录：`decisions/P1-advisory-review.md`。
+
+**P1 正式收束**，下一步进入 P2 批次（按 `docs/terminology-review-round-2.md`）。
 
 ### 7.4 后续批次
 
