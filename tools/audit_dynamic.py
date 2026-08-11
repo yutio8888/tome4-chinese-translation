@@ -759,6 +759,7 @@ def run_terminology_inventory(
             "name": "tools/audit_dynamic.py:run_terminology_inventory",
             "tool_version": TOOL_VERSION,
             "schema_version": INVENTORY_SCHEMA_VERSION,
+            "source_sha256": _sha256(Path(__file__)),
         },
         "inputs": inputs,
         "summary": summary,
@@ -818,7 +819,72 @@ def run_terminology_inventory(
         ],
     }
 
+    def _canonical_sha256(value: object) -> str:
+        return hashlib.sha256(
+            json.dumps(
+                value,
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            ).encode("utf-8")
+        ).hexdigest()
+
+    p1_units = [unit for unit in candidates if unit["batch"] == "P1"]
+    p1_manual = [
+        unit
+        for unit in p1_units
+        if not unit["registered"] and not unit["auto_excluded"]
+    ]
+    p1_excluded = [unit for unit in p1_units if unit["auto_excluded"]]
+    sample_size = min(len(p1_excluded), max(20, (len(p1_excluded) + 19) // 20))
+    p1_exclusion_sample = sorted(
+        p1_excluded,
+        key=lambda unit: hashlib.sha256(
+            json.dumps(
+                [unit["component"], unit["source"], unit["source_tag"]],
+                ensure_ascii=False,
+                separators=(",", ":"),
+            ).encode("utf-8")
+        ).hexdigest(),
+    )[:sample_size]
+    p1_rows = [row for row in rows if _row_batch(str(row["source_tag"])) == "P1"]
+    p1_workset = {
+        "schema_version": 1,
+        "contract": "tome4-terminology-review-workset-v1",
+        "batch": "P1",
+        "title": "角色结构",
+        "inputs": {
+            "version": manifest.version,
+            "baseline_sha256": _canonical_sha256(baseline),
+            "inventory_sha256": _canonical_sha256(inventory),
+            "exclusions_sha256": _canonical_sha256(exclusions),
+            "terminology_sha256": inputs["terminology"]["sha256"],
+            "component_sha256": inventory["inputs"]["component_sha256"],
+        },
+        "summary": {
+            **by_batch["P1"],
+            "terminology_rows": len(p1_rows),
+            "provisional_units": sum(
+                1 for unit in p1_units if unit["class_provisional"]
+            ),
+            "exclusion_sample_size": sample_size,
+        },
+        "manual_candidates": p1_manual,
+        "terminology_rows": p1_rows,
+        "provisional_candidates": [
+            unit for unit in p1_units if unit["class_provisional"]
+        ],
+        "auto_exclusion_sample": p1_exclusion_sample,
+        "sampling": {
+            "population": len(p1_excluded),
+            "minimum": "max(5%, 20)",
+            "method": "ascending sha256(component, source, source_tag)",
+        },
+    }
+
     output_dir.mkdir(parents=True, exist_ok=True)
+    workset_dir = output_dir / "worksets"
+    workset_dir.mkdir(parents=True, exist_ok=True)
     for name, payload in (
         ("baseline.json", baseline),
         ("candidate-inventory.json", inventory),
@@ -828,6 +894,9 @@ def run_terminology_inventory(
         (output_dir / name).write_text(
             json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8"
         )
+    (workset_dir / "P1-role-structure-v1.json").write_text(
+        json.dumps(p1_workset, ensure_ascii=False, indent=1), encoding="utf-8"
+    )
     print(
         f"terminology inventory done: {len(candidates)} candidates "
         f"(A={by_class['A']['units']}, B={by_class['B']['units']}, "

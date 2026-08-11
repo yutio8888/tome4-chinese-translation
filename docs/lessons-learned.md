@@ -99,3 +99,25 @@ tests/i18n/test_toolchain.py`），**全绿后再提交**；失败则修复后�
 跨组件同键多译扫描（`scan_runtime_collisions.py`）首次纳入门禁即捕获
 6 条漂移（三轮 Pi 复审修改造成的组件间不一致）。结论：**每次译文批量
 修改后必须跑完整门禁**（`tools/ci-gates.sh`），不要只在最后跑。
+
+## 9. 匿名 provider cwd 不能假定 `/private/tmp` 存在（2026-08-11）
+
+**场景**：translation review v2 为避免向 provider 暴露项目路径，将 Pi cwd 固定为
+`/private/tmp`。该目录在 macOS 存在，但 Linux 宿主通常只有 `/tmp`，导致 runner 在
+发起请求前即以 `FileNotFoundError` 失败，三条 toolchain 测试阻断。
+
+**正确做法**：匿名系统临时根按固定顺序选择：存在 `/private/tmp` 时使用它，否则使用
+`/tmp`；把实际选择写入报告，并连同 system prompt 进入 evaluator/cache identity。
+不得回落到仓库目录、用户目录或由项目路径派生的临时目录。测试必须按实际选择断言，
+不能硬编码单一操作系统路径。
+
+## 10. Node runtime identity 不能只识别 Homebrew receipt（2026-08-11）
+
+**场景**：Facts-study preregistration 通过向上查找 `INSTALL_RECEIPT.json` 冻结 Node
+运行时树。Homebrew Node 提供该文件，Debian/Ubuntu 的 `/usr/bin/node` 不提供，导致
+所有构建 preregistration 的离线测试在 Linux 上失败。
+
+**正确做法**：优先保留 Homebrew package-tree identity；缺少 receipt 的 Linux 宿主用
+`ldd` 解析 Node 的精确动态库闭包，对 Node 可执行文件和每个解析出的绝对库文件逐个
+流式计算摘要。不得遍历整个 `/usr/bin` 或 `/usr`，也不得只记录版本字符串；无法解析
+闭包或出现 `not found` 时继续失败关闭。

@@ -317,7 +317,7 @@ class InventoryArtifactTests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.base_manifest = load_manifest()
 
-    def test_end_to_end_writes_four_artifacts(self) -> None:
+    def test_end_to_end_writes_inventory_and_p1_workset_artifacts(self) -> None:
         with tempfile.TemporaryDirectory(prefix="tome4-inventory-") as temporary:
             root = Path(temporary)
             translation = root / "fixture.lua"
@@ -365,6 +365,7 @@ class InventoryArtifactTests(unittest.TestCase):
                 "candidate-inventory.json",
                 "coverage.json",
                 "exclusions.json",
+                "worksets/P1-role-structure-v1.json",
             ):
                 self.assertTrue((out / name).is_file(), name)
             inventory = json.loads((out / "candidate-inventory.json").read_text())
@@ -385,6 +386,10 @@ class InventoryArtifactTests(unittest.TestCase):
                 inventory["inputs"]["component_sha256"]["fixture"],
                 hashlib.sha256(translation.read_bytes()).hexdigest(),
             )
+            self.assertEqual(
+                baseline["generator"]["source_sha256"],
+                hashlib.sha256(Path(audit_dynamic.__file__).read_bytes()).hexdigest(),
+            )
             self.assertEqual(baseline["summary"]["tsv_rows_review"]["total"], 1)
             self.assertEqual(baseline["summary"]["entries"], 3)
             coverage = json.loads((out / "coverage.json").read_text())
@@ -394,6 +399,75 @@ class InventoryArtifactTests(unittest.TestCase):
             self.assertEqual(coverage["by_source_tag"]["damage type"]["missing"], 0)
             exclusions = json.loads((out / "exclusions.json").read_text())
             self.assertEqual(exclusions["count"], 0)
+            p1 = json.loads(
+                (out / "worksets/P1-role-structure-v1.json").read_text()
+            )
+            self.assertEqual(p1["contract"], "tome4-terminology-review-workset-v1")
+            self.assertEqual(p1["batch"], "P1")
+            self.assertEqual(p1["summary"]["units"], 0)
+            self.assertEqual(p1["sampling"]["population"], 0)
+
+    def test_p1_workset_freezes_manual_rows_provisional_and_exclusion_sample(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-p1-workset-") as temporary:
+            root = Path(temporary)
+            translation = root / "fixture.lua"
+            translation.write_text("-- fixture\n", encoding="utf-8")
+            terminology = root / "terminology.tsv"
+            terminology.write_text(
+                "\t".join(audit_dynamic.TERMINOLOGY_FIELDS)
+                + "\nTechnique\t格斗\tT.GAME.TALENT_CATEGORY\ttalents\ttalent type\tpreferred\tcore\tnote\n",
+                encoding="utf-8",
+            )
+            manifest = replace(
+                self.base_manifest,
+                root=root,
+                components=(
+                    replace(
+                        self.base_manifest.components[0],
+                        id="fixture",
+                        translation="fixture.lua",
+                    ),
+                ),
+                terminology="terminology.tsv",
+            )
+            docs = {
+                "fixture": _doc(
+                    _tr("Technique", "格斗", "talent type"),
+                    _tr("solitary", "孤立", "entity keyword"),
+                    _tr("reused", "复用", "entity keyword"),
+                    _tr("reused", "复用", "entity keyword"),
+                )
+            }
+            rows = audit_dynamic.load_terminology_rows(terminology)
+            out = root / ".artifacts/i18n/terminology-review-r2"
+            audit_dynamic.run_terminology_inventory(
+                manifest=manifest, docs=docs, rows=rows, output_dir=out
+            )
+            p1 = json.loads(
+                (out / "worksets/P1-role-structure-v1.json").read_text()
+            )
+            self.assertEqual(
+                p1["summary"],
+                {
+                    "units": 3,
+                    "registered": 1,
+                    "missing": 2,
+                    "auto_excluded": 1,
+                    "manual_remaining": 1,
+                    "coverage": 0.3333,
+                    "terminology_rows": 1,
+                    "provisional_units": 2,
+                    "exclusion_sample_size": 1,
+                },
+            )
+            self.assertEqual(
+                [item["source"] for item in p1["manual_candidates"]], ["reused"]
+            )
+            self.assertEqual(
+                [item["source"] for item in p1["auto_exclusion_sample"]],
+                ["solitary"],
+            )
+            self.assertEqual(p1["terminology_rows"][0]["source"], "Technique")
 
 
 class ProjectionTests(unittest.TestCase):

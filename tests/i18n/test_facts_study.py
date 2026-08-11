@@ -18,7 +18,7 @@ if str(TOOLS) not in sys.path:
 from i18nlib.config import load_manifest
 from i18nlib.errors import ValidationError
 from i18nlib.facts_study import (
-    _tree_identity,
+    _runtime_file_set_identity, _tree_identity,
     ARMS, ASSESSMENT_CONTRACT, PACKET_CONTRACT, SAMPLE_CONTRACT, align_claims,
     build_bundle, build_candidate_sample, build_facts_author_bundle, build_fake_assessments, build_neutral_packets,
     build_preregistration, build_report, build_schedule, canonical_sha256,
@@ -312,6 +312,23 @@ class FactsStudyTests(unittest.TestCase):
             first = _tree_identity(root)
             dependency.write_text("second", encoding="utf-8")
             second = _tree_identity(root)
+            self.assertNotEqual(first["sha256"], second["sha256"])
+
+    def test_runtime_file_set_identity_binds_each_explicit_dependency(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            executable = root / "node"
+            dependency = root / "libnode.so"
+            executable.write_text("launcher", encoding="utf-8")
+            dependency.write_text("first", encoding="utf-8")
+            first = _runtime_file_set_identity(
+                (executable, dependency), "fixture-runtime"
+            )
+            dependency.write_text("second", encoding="utf-8")
+            second = _runtime_file_set_identity(
+                (executable, dependency), "fixture-runtime"
+            )
+            self.assertEqual(first["file_count"], 2)
             self.assertNotEqual(first["sha256"], second["sha256"])
 
     def test_campaign_rejects_a_different_authorization_before_claiming_slot(self):

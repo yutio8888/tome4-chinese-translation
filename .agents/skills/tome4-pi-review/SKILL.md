@@ -28,7 +28,8 @@ limit; do not silently shorten it for a large bundle.
    channel, item count, `item_character_budget`, `item_character_count`, actual
    host `artifact_bytes`, actual outbound `payload_bytes`, and oversized-item marker before
    invoking Pi. Translation v2 sends only the minimal revision/source/target provider projection;
-   its exact compact JSON is sent over stdin from fixed cwd `/private/tmp`, never through Pi
+   its exact compact JSON is sent over stdin from an anonymous system temp cwd (`/private/tmp`
+   when available, otherwise `/tmp`), never through Pi
    `@file` expansion, and an explicit empty `--append-system-prompt` disables project/global
    `APPEND_SYSTEM.md` discovery. Mixed indexes legitimately contain translation v2 and code v1.
 

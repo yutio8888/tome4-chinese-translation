@@ -24,7 +24,9 @@ observation v2 子进程。代码审校保留 legacy v1 finding 契约（见 `to
 - v2 的精确 JSON user message 必须经 stdin 发送，不得使用会注入绝对路径 wrapper 的
   `@file` 展开。
 - 必须用显式空 `--append-system-prompt` 关闭 project/global `APPEND_SYSTEM.md` 自动发现。
-- Pi cwd 固定为 `/private/tmp`。
+- Pi cwd 使用不含项目路径的系统临时根：优先 `/private/tmp`，不存在时回落到 `/tmp`。
+  实际选择的 cwd 必须写入报告，并通过 system prompt 摘要进入 evaluator/cache identity；
+  不得回落到仓库目录或用户目录。
 - 实际 user/system prompt、runner、policy 与 normalizer 都必须进入 evaluator/cache identity。
 
 ## 模型返回契约

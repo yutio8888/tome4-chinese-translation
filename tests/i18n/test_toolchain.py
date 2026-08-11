@@ -83,7 +83,12 @@ from i18nlib.pi_file_review import (
     run_pi_file_review,
 )
 from i18nlib.pi_remediate import _validate_remediation, run_pi_remediation
-from i18nlib.pi_review import _review_cache_key, _validate_findings, run_pi_review
+from i18nlib.pi_review import (
+    TRANSLATION_REVIEW_PROVIDER_CWD,
+    _review_cache_key,
+    _validate_findings,
+    run_pi_review,
+)
 from i18nlib.pi_quality import (
     QUALITY_EVALUATOR_CACHE_CONTRACT,
     _decode_quality_model_output,
@@ -9208,8 +9213,9 @@ print(json.dumps({"items": [{"revision_id": item["revision_id"], "assessment_sta
             translation_provider_payload(bundle),
         )
         self.assertEqual(sent_path.read_bytes(), translation_provider_message(bundle))
-        self.assertEqual(provider_cwd, "/private/tmp")
-        self.assertEqual(report["provider_cwd"], "/private/tmp")
+        expected_provider_cwd = str(TRANSLATION_REVIEW_PROVIDER_CWD)
+        self.assertEqual(provider_cwd, expected_provider_cwd)
+        self.assertEqual(report["provider_cwd"], expected_provider_cwd)
         self.assertEqual(
             json.loads(
                 Path(report["validated_bundle"]).read_text(encoding="utf-8")
@@ -9237,9 +9243,11 @@ print(json.dumps({"items": [{"revision_id": item["revision_id"], "assessment_sta
         self.assertEqual(
             report["prompt_sha256"],
             hashlib.sha256(
-                (source_prompt + "\nCurrent working directory: /private/tmp").encode(
-                    "utf-8"
-                )
+                (
+                    source_prompt
+                    + "\nCurrent working directory: "
+                    + str(TRANSLATION_REVIEW_PROVIDER_CWD)
+                ).encode("utf-8")
             ).hexdigest(),
         )
 
@@ -9318,8 +9326,9 @@ print(json.dumps({"items": [{"revision_id": item["revision_id"], "assessment_sta
             arguments[arguments.index("--append-system-prompt") + 1], ""
         )
         self.assertFalse(any(value.startswith("@") for value in arguments))
-        self.assertEqual(provider_cwd, "/private/tmp")
-        self.assertEqual(job["cwd"], "/private/tmp")
+        expected_provider_cwd = str(TRANSLATION_REVIEW_PROVIDER_CWD)
+        self.assertEqual(provider_cwd, expected_provider_cwd)
+        self.assertEqual(job["cwd"], expected_provider_cwd)
         self.assertEqual(job["stdin_path"], report["provider_payload"])
         self.assertEqual(job["stdin_sha256"], report["payload_sha256"])
         self.assertEqual(job["stdin_bytes"], report["payload_bytes"])
@@ -19223,7 +19232,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         return yaml.safe_load(text[4:end])
 
     def test_agents_exist_with_required_frontmatter(self) -> None:
-        expected = {"scout", "plan-reviewer", "translation-reviewer"}
+        expected = {"scout", "plan-reviewer"}
         found = {path.stem for path in self.AGENTS_DIR.glob("*.md")}
         self.assertEqual(found, expected)
         for path in sorted(self.AGENTS_DIR.glob("*.md")):
@@ -19259,6 +19268,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         contract = self.CONTRACT_DOC.read_text(encoding="utf-8")
         self.assertIn("selection_sha256", contract)
         self.assertIn("/private/tmp", contract)
+        self.assertIn("/tmp", contract)
 
     def test_agents_md_role_split_removes_global_pi_restrictions(self) -> None:
         text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")

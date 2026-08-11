@@ -16,6 +16,7 @@ import random
 import re
 import shutil
 import stat
+import subprocess
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any, Iterable
@@ -125,6 +126,67 @@ def _nearest_marker_root(path: Path, marker: str) -> Path:
     raise ConfigurationError(f"cannot locate {marker} for runtime executable: {path}")
 
 
+def _runtime_file_set_identity(paths: Iterable[Path], label: str) -> dict[str, Any]:
+    """Hash an explicit runtime file closure without traversing unrelated OS trees."""
+    files = sorted({path.resolve() for path in paths}, key=str)
+    if not files:
+        raise ConfigurationError(f"runtime file set is empty: {label}")
+    digest = hashlib.sha256()
+    byte_count = 0
+    for path in files:
+        if not path.is_file():
+            raise ConfigurationError(f"runtime dependency is not a regular file: {path}")
+        content_digest = hashlib.sha256()
+        size = 0
+        with path.open("rb") as handle:
+            while chunk := handle.read(1024 * 1024):
+                content_digest.update(chunk)
+                size += len(chunk)
+        mode = stat.S_IMODE(path.stat().st_mode)
+        digest.update(str(path).encode("utf-8") + b"\0")
+        digest.update(str(mode).encode() + b"\0")
+        digest.update(str(size).encode() + b"\0")
+        digest.update(content_digest.digest())
+        byte_count += size
+    return {
+        "root": label,
+        "sha256": digest.hexdigest(),
+        "file_count": len(files),
+        "byte_count": byte_count,
+    }
+
+
+def _node_runtime_identity(node_path: Path) -> dict[str, Any]:
+    """Bind Homebrew's package tree or Linux's exact dynamic-library closure."""
+    try:
+        return _tree_identity(_nearest_marker_root(node_path, "INSTALL_RECEIPT.json"))
+    except ConfigurationError:
+        ldd = shutil.which("ldd")
+        if not ldd:
+            raise ConfigurationError(
+                f"cannot identify transitive Node runtime for executable: {node_path}"
+            )
+        result = subprocess.run(
+            [ldd, str(node_path)], capture_output=True, text=True, check=False
+        )
+        if result.returncode != 0 or "not found" in result.stdout:
+            raise ConfigurationError(
+                f"cannot resolve transitive Node runtime for executable: {node_path}"
+            )
+        dependencies = {node_path}
+        for raw_line in result.stdout.splitlines():
+            line = raw_line.strip()
+            if "=>" in line:
+                candidate = line.split("=>", 1)[1].strip().split(" ", 1)[0]
+            else:
+                candidate = line.split(" ", 1)[0]
+            if candidate.startswith("/"):
+                dependencies.add(Path(candidate))
+        return _runtime_file_set_identity(
+            dependencies, f"ldd-runtime:{node_path}"
+        )
+
+
 def pi_executable_identity(executable: str | None = None) -> dict[str, Any]:
     candidate = executable or shutil.which("pi")
     if not candidate:
@@ -137,14 +199,13 @@ def pi_executable_identity(executable: str | None = None) -> dict[str, Any]:
     if not node_candidate:
         raise ConfigurationError("node is required to freeze the Pi runtime identity")
     node_path = Path(node_candidate).resolve()
-    node_root = _nearest_marker_root(node_path, "INSTALL_RECEIPT.json")
     return {
         "path": str(path),
         "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         "package_tree": _tree_identity(package_root),
         "node_path": str(node_path),
         "node_sha256": hashlib.sha256(node_path.read_bytes()).hexdigest(),
-        "node_tree": _tree_identity(node_root),
+        "node_tree": _node_runtime_identity(node_path),
     }
 
 

@@ -65,7 +65,10 @@ MODEL_FINDING_FIELDS = frozenset(
 )
 REVIEW_CACHE_SCHEMA_VERSION = 2
 REVIEW_CACHE_CONTRACT = "tome4-pi-review-cache-v2"
-TRANSLATION_REVIEW_PROVIDER_CWD = Path("/private/tmp")
+TRANSLATION_REVIEW_PROVIDER_CWD = next(
+    (path for path in (Path("/private/tmp"), Path("/tmp")) if path.is_dir()),
+    Path("/tmp"),
+)
 PI_CWD_PROMPT_PREFIX = "\nCurrent working directory: "
 
 

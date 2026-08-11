@@ -1,8 +1,8 @@
 # 第二轮术语审核正式交接文档
 
-更新时间：2026-08-10
+更新时间：2026-08-11
 
-状态：**P0 已退出（修复+门禁+全新只读复审完成，无新确认 finding）；下一步 P1**
+状态：**P0 已退出；P1 blind semantic discovery 已完成并冻结，下一步主代理独立源码核验与裁决**
 
 本文件是当前第二轮术语审核工作线的正式交接入口。接手者应先阅读本文件、根目录 `AGENTS.md`、`docs/terminology-review-round-2.md`，再按本文“下一步”继续。所有尚未明确确认的 observation 不得直接进入 remediation。
 
@@ -13,8 +13,9 @@
 - 工作分支：`audit/terminology-review-round-2`
 - 基础：`develop` / `a781a35`
 - 工作目标：审核现有汉化的术语**完整性、合理性、一致性**，并在独立裁决后分批修复。
-- 当前停止点：P0 清单已完成一轮源码核验和独立裁决；**没有修改 TSV、规范 Lua 或译文**。
-- 后续修复需要主代理按 finding 建立有界任务，并在用户授权后执行；不得因本文件已有确认结论而自动修改。
+- 当前停止点：P0 已正式退出；P1 workset、blind translation v2 review 与全量 observation freeze 已完成，329 条 observation 和 6 条 context-insufficient 均等待主代理独立核验，尚无 P1 已确认 finding。
+- P0 已修改 `terminology.tsv` 与规范 Lua，完整修订与验证结果见 5.5–5.7；后续不得重新打开已退出的 P0，除非出现新的源码证据或回归。
+- P1 当前仅完成审核第一阶段，没有修改 TSV 或规范 Lua；pending observation 不得进入 remediation。
 - 不得创建 commit 或 checkpoint，除非用户明确授权。
 
 历史工作线 Evaluator/Facts Study/addon 0.2.5 已收口，不属于本轮交接范围；其结论见历史文档，不应重新打开。
@@ -50,27 +51,23 @@ B 类描述性字符串、单次出现的内部键和长文本投影候选不能
 1. `docs/terminology-review-round-2.md`
    - 定义 A/B/C 分类、P0–P4 批次、证据 rubric、投影精度策略、分工边界和退出标准。
 2. `tools/audit_dynamic.py`
-   - 已加入 r2 inventory：`build_candidate_units`、`annotate_units`、`_coverage_totals`、`run_terminology_inventory`、`run_projection`。
-3. 已生成并保留在忽略目录 `.artifacts/i18n/terminology-review-r2/` 的报告：
+   - 已加入 r2 inventory：`build_candidate_units`、`annotate_units`、`_coverage_totals`、`run_terminology_inventory`、`run_projection`；
+   - 已生成内容寻址的 `P1-role-structure-v1.json`，绑定生成器源码、TSV、组件、baseline、inventory 与 exclusions 摘要，并固定自动排除抽样。
+3. 已生成以下忽略目录报告；`.artifacts/` 不受版本控制，换机或重新克隆后须由当前规范输入重建，不能假定历史文件仍存在：
    - `baseline.json`
    - `candidate-inventory.json`
    - `coverage.json`
    - `exclusions.json`
    - `projection-candidates.json` / `projection-candidates.md`
-4. 已提取源码注册表：
+4. 历史 P0 环境曾提取源码注册表：
    - `source-registries/damage-effect-registry.json`
-5. 已生成 P0 blind translation semantic v2 审核 bundle，并完成审核：
+5. 历史 P0 环境已生成 blind translation semantic v2 审核 bundle，并完成审核：
    - 47 bundles
    - 455 items
    - 108 items 产生 observation
    - 114 findings
    - 0 bundle 失败
-6. 测试和静态检查此前已通过：
-   - `tests/i18n/test_toolchain.py`
-   - `tests/i18n/test_terminology_inventory.py`
-   - `git diff --check`
-
-本次仅更新交接文档；翻译批次门禁（`lint --strict`、运行键扫描等）应在后续实际修复收束后统一运行，不因本次文档变更重复执行全量门禁。
+6. 当前宿主已修复 translation v2 匿名 cwd 与 Facts-study Node identity 的 Linux/macOS Homebrew 兼容路径，并移除不符合 claim-bound 契约的实验 `translation-reviewer`。最终完整门禁（含 quality/Facts、术语审计和 core addon strict build）全部通过，记录：`.artifacts/i18n/ci-gates/run.HhGfyo`。
 
 ---
 
@@ -160,13 +157,13 @@ P0 预审核使用项目已授权的 translation v2 blind bundle：
   A 类排除理由（内部描述名，仅修译文）。
 - power/superiority 同源多译以多行 TSV 记录语境，dynamic audit multi 回落 28。
 - 验证：lint --strict 0 错误、审计三件套通过、466 项单测通过、`git diff --check` 通过。
-- 待办：P0 批次收束后的完整门禁（运行键扫描/重复键分类）+ 重新生成 bundle 做一轮
-  全新只读复审。
+- 完整门禁与全新只读复审随后已在 5.7 完成，不再列为待办。
 
 ## 5.6 子代理复审与用户裁决（2026-08-10）
 
-- 新增 subagent `translation-reviewer`（`.pi/agents/translation-reviewer.md`，
-  deepseek/deepseek-v4-flash，只读逐条源码核验审阅，输出 verdict findings）。
+- P0 曾临时使用源码感知 `translation-reviewer` 做逐条核验；该实验 agent 不属于
+  `AGENTS.md` 正式声明的 scout/plan-reviewer 项目 subagent，也不满足 translation v2
+  claim-bound verifier 契约，定义现已移除，后续批次不得继续调用。
 - 对 partial 17 + 撤销 81 = 98 条复审：94 support、4 new_evidence、0 overturn。
   81 条撤销中 79 条与官方 zh_hans 逐字一致；#114 veil 语境声明与源码吻合。
   记录：`decisions/P0-re-review-subagent.md`。
@@ -182,74 +179,88 @@ P0 预审核使用项目已授权的 translation v2 blind bundle：
   重审通过）；455 条目 110 findings（修复前 114）。
 - 修复条目残留 8 条 observation 全部裁决撤销（机制/约定支持，组A/组C 判例）；
   记录：`decisions/P0-exit-review.md`。**P0 退出，无新确认 finding。**
-- 下一步：P1 角色结构（talent category/type 591 需人工 + entity keyword 434 provisional
-  归属核验 + 现有行 202）。
+- 下一步：P1 角色结构；当前规范输入重新冻结后的实际分母见 7.1。
 
 ## 6. 当前版本控制状态
 
-交接时工作树已有以下未提交改动；这些改动不得被清理、重置或顺手格式化：
+本次进度提交包含：review v2 匿名 cwd 跨宿主修复、Facts-study Node runtime identity
+兼容、P1 workset 生成与测试、实验 `translation-reviewer` 移除、契约/经验文档及本交接更新。
+P1 semantic discovery 仅写入被忽略的 `.artifacts/`，没有修改 `terminology.tsv` 或规范 Lua。
 
-```text
- M .agents/skills/tome4-pi-review/SKILL.md
- M AGENTS.md
- M docs/terminology-review-round-2.md
- M handoff.md
-```
-
-本次交接新增/更新的完整裁决文档位于被忽略的 `.artifacts/` 下，不会出现在 `git status`：
-
-```text
-.artifacts/i18n/terminology-review-r2/decisions/P0-observation-adjudication.md
-```
-
-没有修改规范翻译 Lua、`terminology.tsv`、游戏源码或发布 addon。
+完整裁决和审核结果不会随 Git 分支迁移；若当前宿主缺少对应文件，应从固定版本和当前
+规范输入重建，不得伪造或沿用失去 lineage 的旧 artifact。接手时仍须重新记录
+`git status --short`、`git diff --name-only` 与 `git diff --stat`，区分本提交后的新改动。
 
 ---
 
 ## 7. 接手后的下一步
 
-### 7.1 用户/主代理先确认
+### 7.1 P1 基线已冻结（2026-08-11）
 
-1. 确认是否接受 16 条已确认 observation 作为 P0 修复范围。
-2. 对 17 条 partial 项决定：保留现译、另立 advisory，或纳入人工术语裁决。
-3. 确认是否把内部描述名（如 `% chance of gloom effects`）仅作为 B 类排除项，还是另行修订其玩家可见文本。
+本地生成器已从当前规范输入写出：
 
-### 7.2 授权修复后
+`.artifacts/i18n/terminology-review-r2/worksets/P1-role-structure-v1.json`
 
-按根问题而非按单条 observation 批量处理：
+- artifact SHA-256：`af499642a297e3fc9dbeef9ec15d5185217b5cee25c267d7f59b2d693ad7ae55`
+- 候选单元 1,066：已登记 237、缺失 829、自动排除 240、需人工 589；
+- 人工候选分布：talent type 275、talent category 9、birth descriptor 38、faction 10、
+  entity type 64、entity keyword 193；
+- 现有术语行复核 204；provisional `entity keyword` 总体 434；
+- 自动排除总体 240，按 `sha256(component, source, source_tag)` 固定抽样 20 条；
+- workset 绑定 baseline、inventory、exclusions、TSV 与全部组件 SHA-256。
 
-1. 先更新 `terminology.tsv`（如需新增/修改高复用术语）。
-2. 再修改对应规范 Lua，保留正确的 `source_tag` 和 `T.*` category。
-3. 每批只处理已确认 finding，禁止扩展到 partial 或无关风格重构。
-4. 运行单批最小核验：LuaJIT 加载、对应 lint、`git diff --check`。
-5. P0 批次收束后运行完整门禁：
+该步骤只冻结工作集和证据需求，没有修改 TSV 或规范 Lua。规则或规范输入变化后必须
+重建 artifact 并更新摘要，旧 SHA 不得继续使用。
 
-```bash
-python3 -B tools/i18n lint --strict
-python3 -m unittest -q tests/i18n/test_toolchain.py
-python3 -B tools/scan_runtime_collisions.py
-python3 -B tools/classify_runtime_keys.py
+### 7.2 P1 blind semantic discovery 已完成（2026-08-11）
 
-git diff --check
-```
+选择把 589 个未登记人工候选、204 条现有术语行的活动匹配和 20 条自动排除抽样映射到
+规范译文 revision；按 revision 去重后覆盖 9 个组件、1,425 items、147 bundles。两个现有
+TSV 行无活动匹配，未进入 bundle：L428 `ammo / entity type / dlc`、L538
+`Orc / birth descriptor name / core`，须由主代理单独核验 stale/scope/tag。
 
-6. 若改动术语表，额外运行：
+外发留痕（项目级 translation v2 授权）：
 
-```bash
-python3 -B tools/audit_static.py
-python3 -B tools/audit_dynamic.py
-python3 -B tools/annotate_domains.py
-```
+- provider/model/thinking：`opencode-go` / `deepseek-v4-flash` / `high`；
+- contract/channel：`tome4-translation-review-bundle-v2` / `semantic-observation`；
+- review ID：`4f11ef0ef9bf388fb822fdcc9fb1efbe1c152ef34c1e6c533e106728a9cdc2f3`；
+- 初始选择：147 bundles、1,425 items、165,549 item 字符、1,280,539 artifact bytes、
+  257,750 provider payload bytes、0 oversized；
+- 实际执行：147 bundles 全部成功；2 次首次输出结构不合规后重试，因此共 149 次
+  charged-or-possible transfers、261,278 charged-or-possible payload bytes；
+- reviewer payload 仅含 `revision_id/source/target`，没有 terminology、Facts、历史 finding、
+  workset lineage、源码路径或工具上下文。
 
-7. P0 修复完成后重新生成 bundle，进行一轮全新的只读复审；只有没有新的已确认 finding 才能退出 P0。
+冻结结果：
 
-### 7.3 P0 之后
+- `.artifacts/i18n/terminology-review-r2/p1-review/observations.json`
+- SHA-256：`dce24259756f84cfb42d731e48fa7495ea4ec623544b9dfeb242233d613a0ac6`
+- assessed 1,419、context-insufficient 6、pending observations 329、manual queue 334；
+- 329 条 observation 涉及 320 个 revision、239 个唯一 `(source,target,source_tag)` 组；
+- observation tag 分布：birth descriptor 27、talent type 128、talent category 23、
+  faction 5、entity type 48、entity keyword 98；
+- context-insufficient：`Anorithil→星月术士`、`cun→灵巧`、`shalore→永恒精灵`、
+  `thalore→自然精灵`、`yeek→夺心魔`、`drolem→龙傀儡`。
 
-- 依次处理 P1–P4；每批先冻结 observation，再集中修复。
-- 对 projection 候选进行误报抽样和规则收紧；当前试点误报约 45%，目标阈值为 60%。
-- 复核 B 类自动排除样本（至少 5% 或每批至少 20 条）。
-- 继续处理 entity keyword 的源码归属（434 个 provisional 单元）。
-- 最终运行完整门禁、构建 smoke 和一轮独立只读复审。
+所有 observation 的 disposition 仍为 pending、severity 为 null；当前没有 P1 已确认
+finding，不能进入 remediation，也不能把 329 当作错误数。
+
+### 7.3 下一步：P1 独立裁决与修复闭环
+
+1. 先核验 6 条 context-insufficient 和 L428/L538 两条无活动 TSV 行；
+2. 再按 `faction → birth descriptor → talent category → talent type → entity type → entity keyword`
+   分组，绑定 observation identity，使用固定版本公开源码独立确认/部分确认/撤销；
+3. 先冻结完整 P1 findings 清单，不边发现边修改；只有已确认 finding 才由主代理定级；
+4. 用户授权修复后，先更新 `terminology.tsv`，再更新规范 Lua，运行单批验证、术语审计和
+   完整门禁；
+5. 修复收束后重新生成绑定新 revision 的 blind bundle，做一轮全新只读复审；无新增确认
+   finding 才能退出 P1。
+
+### 7.4 后续批次
+
+- 依次处理 P2–P4；每批先冻结 observation，再集中修复。
+- 对 projection 候选持续统计误报并收紧规则；复核 B 类自动排除样本。
+- 全部批次结束后运行完整门禁、构建 smoke 和一轮独立只读复审。
 
 ---
 
