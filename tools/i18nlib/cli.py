@@ -148,6 +148,32 @@ def _parser() -> argparse.ArgumentParser:
         default=900,
         help="per-component extractor timeout in seconds (default: 900)",
     )
+    extract.add_argument(
+        "--enrich",
+        action="store_true",
+        help=(
+            "produce the enrichment sidecar from the same AST traversal and "
+            "build the TU identity index (contract §4.3)"
+        ),
+    )
+
+    identity = subparsers.add_parser(
+        "identity",
+        help="TU/entity identity queries and audit (contract §4, §11)",
+    )
+    identity_subparsers = identity.add_subparsers(
+        dest="identity_command", required=True
+    )
+    identity_show = identity_subparsers.add_parser(
+        "show", help="show one TU's anchor/slot/revision/binding"
+    )
+    _add_common_arguments(identity_show)
+    identity_show.add_argument("tu_uid", metavar="TU_UID")
+    identity_audit = identity_subparsers.add_parser(
+        "audit",
+        help="UNKNOWN rate, conflicts and the rename queue between two runs",
+    )
+    _add_common_arguments(identity_audit)
 
     lint = subparsers.add_parser("lint", help="validate canonical translations")
     _add_common_arguments(lint)
@@ -156,6 +182,65 @@ def _parser() -> argparse.ArgumentParser:
     )
     lint.add_argument(
         "--strict", action="store_true", help="treat warnings as blocking failures"
+    )
+    lint.add_argument(
+        "--baseline",
+        metavar="COMMIT",
+        help="compare against the frozen baseline for this translation commit",
+    )
+    lint.add_argument(
+        "--incremental",
+        metavar="BASE..HEAD",
+        help="incremental invalidation over a commit range (contract §8)",
+    )
+    lint.add_argument(
+        "--domain",
+        choices=("source", "translation", "rule"),
+        default="source",
+        help="incremental domain (default: source)",
+    )
+    lint.add_argument(
+        "--self-check",
+        action="store_true",
+        help="run the whole-set canonical self-check (exit 2 on mismatch)",
+    )
+    lint.add_argument(
+        "--ci",
+        action="store_true",
+        help="CI mode: new ERROR findings fail with exit code 1",
+    )
+    lint.add_argument(
+        "--legacy-report",
+        action="store_true",
+        help="expand the folded legacy technical-debt report",
+    )
+
+    baseline = subparsers.add_parser(
+        "baseline",
+        help="frozen baseline snapshots and reports (contract §7)",
+    )
+    baseline_subparsers = baseline.add_subparsers(
+        dest="baseline_command", required=True
+    )
+    baseline_freeze = baseline_subparsers.add_parser(
+        "freeze", help="freeze the current findings as the baseline for a commit"
+    )
+    _add_common_arguments(baseline_freeze)
+    baseline_freeze.add_argument(
+        "--commit",
+        required=True,
+        metavar="COMMIT",
+        help="translation repository commit this baseline belongs to",
+    )
+    baseline_report = baseline_subparsers.add_parser(
+        "report", help="new / legacy / resolved statistics"
+    )
+    _add_common_arguments(baseline_report)
+    baseline_report.add_argument(
+        "--commit",
+        required=True,
+        metavar="COMMIT",
+        help="translation repository commit to compare against",
     )
 
     status = subparsers.add_parser(
@@ -231,6 +316,16 @@ def _parser() -> argparse.ArgumentParser:
         "--base-snapshot",
         type=Path,
         help="previous accepted snapshot; omit for bootstrap coverage mode",
+    )
+    merge.add_argument(
+        "--base-tu-index",
+        type=Path,
+        help="optional base tu_index.jsonl for L1-L5 identity matching",
+    )
+    merge.add_argument(
+        "--new-tu-index",
+        type=Path,
+        help="optional new tu_index.jsonl for L1-L5 identity matching",
     )
 
     workset = subparsers.add_parser(
@@ -762,6 +857,7 @@ def _extract(arguments: argparse.Namespace) -> int:
         runtime,
         components,
         timeout=arguments.timeout,
+        enrich=arguments.enrich,
     )
     if arguments.json:
         _print_json(report)
@@ -783,6 +879,8 @@ def _issue_line(issue: Issue) -> str:
 
 
 def _lint(arguments: argparse.Namespace) -> int:
+    if arguments.baseline or arguments.incremental:
+        return _lint_identity_mode(arguments)
     manifest = _manifest(arguments)
     components = _select_components(manifest, arguments.component, default="lint")
     policy = load_policy(manifest)
@@ -857,6 +955,785 @@ def _lint(arguments: argparse.Namespace) -> int:
     if not report["ok"]:
         raise ValidationError(
             f"lint failed with {metrics['errors']} errors and {metrics['warnings']} warnings"
+        )
+    return 0
+
+
+def _current_indexes_for(manifest: Manifest) -> dict[str, Any]:
+    from .identity import read_index_files
+
+    current_root = manifest.root / ".artifacts" / "i18n" / "identity" / "current"
+    indexes: dict[str, Any] = {}
+    if current_root.is_dir():
+        for sibling in sorted(current_root.iterdir()):
+            if not sibling.is_dir():
+                continue
+            entities_path = sibling / "entities.jsonl"
+            tu_index_path = sibling / "tu_index.jsonl"
+            if not entities_path.is_file() or not tu_index_path.is_file():
+                continue
+            indexes[sibling.name] = read_index_files(
+                component=sibling.name,
+                entities_path=entities_path,
+                tu_index_path=tu_index_path,
+            )
+    return indexes
+
+
+def _records_by_component(
+    records: Iterable[Any], components: Iterable[ComponentSpec]
+) -> dict[str, list[Any]]:
+    """Assign FindingRecords to components via their Issue logical_path."""
+    by_path: dict[str, str] = {}
+    for component in components:
+        by_path[component.translation] = component.id
+        if component.copy_fragment:
+            by_path[component.copy_fragment] = component.id
+    grouped: dict[str, list[Any]] = {}
+    for record in records:
+        owner = by_path.get(record.issue.logical_path)
+        if owner is None:
+            continue
+        grouped.setdefault(owner, []).append(record)
+    return grouped
+
+
+def _identity_show(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    tu_uid = arguments.tu_uid
+    indexes = _current_indexes_for(manifest)
+    match = None
+    owner = None
+    for component, index in indexes.items():
+        tu = index.tus.get(tu_uid)
+        if tu is not None:
+            match = tu
+            owner = component
+            break
+    if match is None:
+        raise ValidationError(
+            f"TU {tu_uid} not found in the current identity indexes; "
+            "run extract --enrich first"
+        )
+    entity = None
+    if match.entity_uid is not None:
+        entity = indexes[owner].entities.get(match.entity_uid)
+    report = {
+        "tu": match.to_dict(),
+        "entity": entity.to_dict() if entity is not None else None,
+        "component": owner,
+    }
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(f"TU      {match.tu_uid}")
+        print(f"binding {match.identity_binding}  component={match.component}")
+        print(
+            f"entity  {match.entity_uid or '-'}  kind={match.kind}  "
+            f"anchor={match.anchor_key or '-'}"
+        )
+        print(f"slot    {match.semantic_slot}  discriminator={match.discriminator}")
+        print(f"sections {', '.join(match.sections[:5])}")
+        for revision in match.revisions:
+            print(
+                f"rev     {revision.revision_uid[:16]}  "
+                f"source={revision.source!r}"
+            )
+    return 0
+
+
+def _identity_audit(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    runtime = LuaRuntime(manifest)
+    runtime.doctor()
+    components = _select_components(manifest, [], default="extract")
+    from .identity import diff_indexes
+    from .pipeline import extract_enriched
+
+    previous = _current_indexes_for(manifest)
+    current, extract_report = extract_enriched(manifest, runtime, components)
+    events: list[dict[str, Any]] = []
+    for component in components:
+        if component.id not in current:
+            continue
+        new_index = current[component.id]
+        old_index = previous.get(component.id)
+        if old_index is not None:
+            events.extend(
+                event.to_dict()
+                for event in diff_indexes(base=old_index, new=new_index)
+            )
+        else:
+            for uid, entity in new_index.entities.items():
+                events.append(
+                    {
+                        "kind": "created",
+                        "component": component.id,
+                        "entity_kind": entity.kind,
+                        "section": (
+                            sorted(entity.sections)[0] if entity.sections else None
+                        ),
+                        "old_anchor_key": None,
+                        "new_anchor_key": entity.anchor_key,
+                        "old_entity_uid": None,
+                        "new_entity_uid": uid,
+                        "similarity": None,
+                    }
+                )
+    summary: dict[str, int] = {}
+    for event in events:
+        kind = event.get("kind")
+        summary[kind] = summary.get(kind, 0) + 1
+    rename_queue = [
+        event
+        for event in events
+        if event.get("kind") in ("rename_candidate", "ambiguous", "hint")
+    ]
+    report = {
+        "ok": True,
+        "events": events,
+        "rename_queue": rename_queue,
+        "summary": summary,
+        "components": {
+            component.id: current[component.id].stats
+            for component in components
+            if component.id in current
+        },
+        "extract_run_directory": extract_report.get("run_directory"),
+    }
+    run_directory = create_run_directory(manifest.root, "identity-audit")
+    write_json(run_directory / "audit.json", report)
+    report["run_directory"] = str(run_directory)
+    if arguments.json:
+        _print_json(report)
+    else:
+        for component in components:
+            if component.id not in current:
+                continue
+            stats = current[component.id].stats
+            print(
+                f"OK  {component.id:<16} tus={stats['tus']} "
+                f"strong={stats['strong_tus']} "
+                f"unknown_fallback={stats['unknown_fallback_occurrences']} "
+                f"conflicts={stats['conflicts']}"
+            )
+        print(
+            f"Events: unchanged={summary.get('unchanged', 0)} "
+            f"created={summary.get('created', 0)} "
+            f"deleted={summary.get('deleted', 0)} "
+            f"rename_candidate={summary.get('rename_candidate', 0)} "
+            f"ambiguous={summary.get('ambiguous', 0)} "
+            f"hint={summary.get('hint', 0)}"
+        )
+        if rename_queue:
+            print(f"Rename queue: {len(rename_queue)} entries (see audit.json)")
+        print(f"Report: {run_directory / 'audit.json'}")
+    return 0
+
+
+def _baseline_freeze(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    runtime = LuaRuntime(manifest)
+    runtime.doctor()
+    loader = LocaleLoader(runtime)
+    components = _select_components(manifest, [], default="lint")
+    from .baseline import write_baseline
+    from .pipeline import run_enriched_lint
+
+    pipeline = run_enriched_lint(manifest, runtime, loader, components)
+    extractable_ids = set(pipeline["indexes"])
+    records_by_component = _records_by_component(pipeline["records"], components)
+
+    frozen: list[dict[str, Any]] = []
+    skipped: list[dict[str, Any]] = []
+    for component in components:
+        if component.id not in extractable_ids:
+            skipped.append(
+                {
+                    "component": component.id,
+                    "reason": "no reproducible source extraction",
+                    "findings": len(records_by_component.get(component.id, [])),
+                }
+            )
+            continue
+        records = records_by_component.get(component.id, [])
+        snapshot_sha = next(
+            (
+                item["snapshot_sha256"]
+                for item in pipeline["extract"].get("components", [])
+                if item["component"] == component.id
+            ),
+            "",
+        )
+        engine_commit = (
+            manifest.repositories[component.source_repository].commit
+            if component.source_repository
+            else ""
+        )
+        baseline = write_baseline(
+            manifest_root=manifest.root,
+            component=component.id,
+            translation_commit=arguments.commit,
+            source_snapshot_sha256=snapshot_sha,
+            engine_commit=engine_commit,
+            extractor_commit=manifest.extractor.commit,
+            rules_registry_sha256=pipeline["registries"]["rules_registry_sha256"],
+            slot_registry_sha256=pipeline["registries"]["slot_registry_sha256"],
+            records=records,
+        )
+        frozen.append(
+            {
+                "component": component.id,
+                "entries": len(baseline.entries),
+                "baseline": str(baseline.path),
+                "sha256": baseline.sha256,
+            }
+        )
+    report = {
+        "ok": True,
+        "translation_commit": arguments.commit,
+        "components": frozen,
+        "skipped": skipped,
+        "metrics": pipeline["metrics"],
+        "binding": pipeline["binding"],
+    }
+    if arguments.json:
+        _print_json(report)
+    else:
+        for item in frozen:
+            print(f"OK  {item['component']:<16} baseline={item['entries']} findings")
+        for item in skipped:
+            print(
+                f"SKIP {item['component']:<16} {item['reason']} "
+                f"({item['findings']} findings unbaselined)"
+            )
+        print(f"Baselines frozen for translation commit {arguments.commit}")
+    return 0
+
+
+def _baseline_report(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    runtime = LuaRuntime(manifest)
+    runtime.doctor()
+    loader = LocaleLoader(runtime)
+    components = _select_components(manifest, [], default="lint")
+    from .baseline import ci_gate, compute_baseline_state, read_baseline
+    from .pipeline import run_enriched_lint, validate_baselines
+
+    pipeline = run_enriched_lint(manifest, runtime, loader, components)
+    records_by_component = _records_by_component(pipeline["records"], components)
+
+    baselines: dict[str, Any] = {}
+    for component in components:
+        try:
+            baselines[component.id] = read_baseline(
+                manifest.root,
+                component=component.id,
+                translation_commit=arguments.commit,
+            )
+        except ValidationError:
+            continue
+    validate_baselines(
+        manifest,
+        baselines=baselines,
+        extract_report=pipeline["extract"],
+        registries=pipeline["registries"],
+    )
+    states: dict[str, dict[str, Any]] = {}
+    total_gate: dict[str, int] = {
+        "new_errors": 0,
+        "new_warnings": 0,
+        "legacy_errors": 0,
+        "legacy_warnings": 0,
+        "resolved": 0,
+    }
+    for component_id, baseline in baselines.items():
+        state = compute_baseline_state(
+            baseline, records_by_component.get(component_id, [])
+        )
+        passed, gate = ci_gate(state)
+        for key in total_gate:
+            total_gate[key] += gate[key]
+        states[component_id] = {
+            "passed": passed,
+            "gate": gate,
+            "new": [record.to_dict() for record in state.new],
+            "legacy": [record.to_dict() for record in state.legacy],
+            "resolved": [entry.to_dict() for entry in state.resolved],
+            "legacy_on_touched_tu": list(state.legacy_on_touched_tu),
+        }
+    report = {
+        "ok": all(state["passed"] for state in states.values()),
+        "translation_commit": arguments.commit,
+        "components": states,
+        "totals": total_gate,
+    }
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(
+            f"baseline report vs {arguments.commit}: "
+            f"new_errors={total_gate['new_errors']} "
+            f"new_warnings={total_gate['new_warnings']} "
+            f"legacy_errors={total_gate['legacy_errors']} "
+            f"legacy_warnings={total_gate['legacy_warnings']} "
+            f"resolved={total_gate['resolved']}"
+        )
+        for component_id, state in states.items():
+            for record in state["new"][:20]:
+                print(
+                    f"NEW  {component_id:<16} {record['code']:24} "
+                    f"{record['message'][:100]}"
+                )
+    if not report["ok"]:
+        raise ValidationError(
+            f"baseline gate failed: {total_gate['new_errors']} new errors"
+        )
+    return 0
+
+
+def _lint_identity_mode(arguments: argparse.Namespace) -> int:
+    manifest = _manifest(arguments)
+    runtime = LuaRuntime(manifest)
+    runtime.doctor()
+    loader = LocaleLoader(runtime)
+    if arguments.baseline:
+        components = _select_components(manifest, arguments.component, default="lint")
+        from .baseline import ci_gate, compute_baseline_state, read_baseline
+        from .pipeline import run_enriched_lint, validate_baselines
+
+        pipeline = run_enriched_lint(manifest, runtime, loader, components)
+        records_by_component = _records_by_component(
+            pipeline["records"], components
+        )
+        baselines: dict[str, Any] = {}
+        for component in components:
+            try:
+                baselines[component.id] = read_baseline(
+                    manifest.root,
+                    component=component.id,
+                    translation_commit=arguments.baseline,
+                )
+            except ValidationError:
+                continue
+        if not baselines:
+            raise ValidationError(
+                f"no frozen baselines found for commit {arguments.baseline}"
+            )
+        validate_baselines(
+            manifest,
+            baselines=baselines,
+            extract_report=pipeline["extract"],
+            registries=pipeline["registries"],
+        )
+        new_errors = 0
+        report_states: dict[str, dict[str, Any]] = {}
+        for component_id, baseline in baselines.items():
+            records = records_by_component.get(component_id, [])
+            state = compute_baseline_state(baseline, records)
+            passed, gate = ci_gate(state)
+            new_errors += gate["new_errors"]
+            report_states[component_id] = {
+                "passed": passed,
+                "gate": gate,
+                "new": [record.to_dict() for record in state.new],
+                "legacy": [record.to_dict() for record in state.legacy],
+                "resolved": [entry.to_dict() for entry in state.resolved],
+            }
+        report = {
+            "ok": new_errors == 0,
+            "mode": "baseline",
+            "translation_commit": arguments.baseline,
+            "components": report_states,
+        }
+        run_directory = create_run_directory(manifest.root, "lint-baseline")
+        write_json(run_directory / "lint.json", report)
+        report["run_directory"] = str(run_directory)
+        if arguments.json:
+            _print_json(report)
+        else:
+            print(
+                f"baseline {arguments.baseline}: new errors={new_errors} "
+                f"({'OK' if new_errors == 0 else 'FAIL'})"
+            )
+            for component_id, state in report_states.items():
+                gate = state["gate"]
+                print(
+                    f"  {component_id:<16} new_err={gate['new_errors']} "
+                    f"new_warn={gate['new_warnings']} "
+                    f"legacy_err={gate['legacy_errors']} "
+                    f"legacy_warn={gate['legacy_warnings']} "
+                    f"resolved={gate['resolved']}"
+                )
+                if arguments.legacy_report:
+                    for record in state["legacy"][:50]:
+                        print(
+                            f"    LEGACY {record['code']:24} "
+                            f"{record['message'][:80]}"
+                        )
+        if arguments.ci and new_errors > 0:
+            from .errors import I18nToolError
+
+            raise I18nToolError(
+                f"baseline CI gate failed: {new_errors} new errors"
+            )
+        return 0
+
+    # --incremental
+    base, head = arguments.incremental.split("..", 1)
+    if not base or not head:
+        raise ValidationError("--incremental expects BASE..HEAD")
+    if arguments.domain == "source":
+        from .git_source import GitRepository
+        from .incremental import incremental_source_flow
+
+        repository_name = manifest.repositories["engine"].name
+        engine_repository = GitRepository(manifest.repository_path(repository_name))
+        base = engine_repository.resolve_commit(base)
+        head = engine_repository.resolve_commit(head)
+        components = _select_components(manifest, arguments.component, default="lint")
+        artifact_directory = (
+            create_run_directory(manifest.root, "lint-incremental")
+            if arguments.self_check
+            else None
+        )
+        result = incremental_source_flow(
+            manifest=manifest,
+            runtime=runtime,
+            loader=loader,
+            components=components,
+            engine_repository=engine_repository,
+            base_commit=base,
+            head_commit=head,
+            self_check=arguments.self_check,
+            artifact_directory=artifact_directory,
+        )
+        report = dict(result)
+        report["ok"] = True
+        if arguments.self_check and result["self_check"] is not None:
+            report["ok"] = result["self_check"]["passed"]
+        if arguments.json:
+            _print_json(report)
+        else:
+            findings = result["findings"]
+            print(
+                f"incremental {arguments.incremental} domain=source: "
+                f"affected_tus={result['affected_tus']} "
+                f"previous={findings['previous']} kept={findings['kept']} "
+                f"recomputed={findings['recomputed']} "
+                f"incremental={findings['incremental']}"
+            )
+            if result.get("widened_components"):
+                print(f"widened: {sorted(result['widened_components'])}")
+            if result.get("self_check") is not None:
+                check = result["self_check"]
+                print(
+                    f"self-check: {'PASS' if check['passed'] else 'MISMATCH'} "
+                    f"(full={check['full_findings']})"
+                )
+        if arguments.self_check and report["ok"] is False:
+            from .errors import IncrementalCheckError
+
+            raise IncrementalCheckError(
+                "incremental self-check failed: canonical forms differ"
+            )
+        if arguments.ci:
+            from .errors import I18nToolError
+            from .fingerprint import FindingRecord
+
+            new_error_fingerprints = {
+                record["fingerprint"]
+                for record in result["records"]
+                if record["severity"] == "error"
+                and record["rule_id"] in ("format-mismatch", "empty-target",
+                                          "runtime-collision", "duplicate-talent-id",
+                                          "duplicate-effect-id")
+            }
+            if new_error_fingerprints:
+                raise I18nToolError(
+                    "incremental CI gate failed: "
+                    f"{len(new_error_fingerprints)} new ERROR findings"
+                )
+        return 0
+    if arguments.domain == "rule":
+        return _lint_incremental_rule(arguments, manifest, runtime, loader)
+    if arguments.domain == "translation":
+        return _lint_incremental_translation(arguments, manifest, runtime, loader)
+    raise AssertionError(f"unhandled domain: {arguments.domain}")
+
+
+def _lint_incremental_rule(
+    arguments: argparse.Namespace,
+    manifest: Manifest,
+    runtime: LuaRuntime,
+    loader: LocaleLoader,
+) -> int:
+    import json as _json
+
+    from .git_source import GitRepository
+    from .pipeline import run_enriched_lint
+
+    repository = GitRepository(manifest.root)
+    base, head = arguments.incremental.split("..", 1)
+    base = repository.resolve_commit(base)
+    head = repository.resolve_commit(head)
+    changed = repository.changed_paths(base, head)
+    registry_changed = "i18n/quality/rules-registry-v1.json" in changed
+    policy_changed = "i18n/policy.json" in changed
+    affected_rules: set[str] = set()
+    if registry_changed:
+        try:
+            base_bytes = repository.read_blob(
+                base, "i18n/quality/rules-registry-v1.json"
+            )
+            base_entries = {
+                entry.get("rule_id")
+                for entry in _json.loads(base_bytes.decode("utf-8")).get("rules", [])
+                if isinstance(entry, dict)
+            }
+        except Exception:
+            base_entries = set()
+        try:
+            head_entries = {
+                entry.get("rule_id")
+                for entry in _json.loads(
+                    (
+                        manifest.root / "i18n/quality/rules-registry-v1.json"
+                    ).read_text()
+                ).get("rules", [])
+                if isinstance(entry, dict)
+            }
+        except Exception:
+            head_entries = set()
+        affected_rules |= base_entries ^ head_entries
+    if policy_changed:
+        affected_rules |= {
+            "format-mismatch",
+            "format-shape-difference",
+            "empty-target",
+            "runtime-collision",
+        }
+    if not affected_rules:
+        report = {
+            "domain": "rule",
+            "base": base,
+            "head": head,
+            "registry_changed": registry_changed,
+            "policy_changed": policy_changed,
+            "affected_rules": [],
+            "findings": 0,
+            "ok": True,
+        }
+        if arguments.json:
+            _print_json(report)
+        else:
+            print(f"rule domain: no rule change in {base}..{head}")
+        return 0
+    components = _select_components(manifest, arguments.component, default="lint")
+    pipeline = run_enriched_lint(manifest, runtime, loader, components)
+    records = [
+        record for record in pipeline["records"] if record.rule_id in affected_rules
+    ]
+    report = {
+        "domain": "rule",
+        "base": base,
+        "head": head,
+        "registry_changed": registry_changed,
+        "policy_changed": policy_changed,
+        "affected_rules": sorted(affected_rules),
+        "findings": len(records),
+        "ok": True,
+        "records": [record.to_dict() for record in records],
+    }
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(
+            f"rule domain: affected rules={sorted(affected_rules)} "
+            f"findings={len(records)}"
+        )
+    return 0
+
+
+def _lint_incremental_translation(
+    arguments: argparse.Namespace,
+    manifest: Manifest,
+    runtime: LuaRuntime,
+    loader: LocaleLoader,
+) -> int:
+    from .fingerprint import RuleRegistry
+    from .findings import FindingContext, build_finding_records
+    from .git_source import GitRepository
+    from .identity import RULES_REGISTRY_RELATIVE_PATH
+    from .lint import stable_entry_id
+    from .pipeline import extract_enriched, lint_documents_specs
+
+    repository = GitRepository(manifest.root)
+    base, head = arguments.incremental.split("..", 1)
+    base = repository.resolve_commit(base)
+    head = repository.resolve_commit(head)
+    changed = repository.changed_paths(base, head)
+    components = _select_components(manifest, arguments.component, default="lint")
+    affected_components = [
+        component
+        for component in components
+        if component.translation in changed or component.copy_fragment in changed
+    ]
+    if not affected_components:
+        report = {
+            "domain": "translation",
+            "base": base,
+            "head": head,
+            "affected_components": [],
+            "affected_tus": 0,
+            "ok": True,
+        }
+        if arguments.json:
+            _print_json(report)
+        else:
+            print("translation domain: no translation files changed in the range")
+        return 0
+    indexes, _ = extract_enriched(manifest, runtime, components)
+    registry = RuleRegistry.load(manifest.root / RULES_REGISTRY_RELATIVE_PATH)
+
+    def semantic(entry: dict[str, Any]) -> str:
+        import json as _json
+
+        return _json.dumps(
+            [entry.get("target"), entry.get("args_order"), entry.get("special")],
+            ensure_ascii=False,
+            sort_keys=True,
+        )
+
+    affected_tus: set[str] = set()
+    specs_base: list[tuple[str, Any, bool]] = []
+    specs_head: list[tuple[str, Any, bool]] = []
+    for component in components:
+        head_doc = loader.load_path(
+            manifest.root / component.translation,
+            logical_path=component.translation,
+        )
+        specs_head.append((component.id, head_doc, False))
+        if component.copy_fragment:
+            head_copy = loader.load_path(
+                manifest.root / component.copy_fragment,
+                logical_path=component.copy_fragment,
+            )
+            specs_head.append((component.id, head_copy, True))
+        base_bytes = None
+        try:
+            base_bytes = repository.read_blob(base, component.translation)
+        except Exception:
+            base_bytes = None
+        if base_bytes is None:
+            continue
+        base_doc = loader.load_bytes(
+            base_bytes, logical_path=f"{base}:{component.translation}"
+        )
+        specs_base.append((component.id, base_doc, False))
+        if component in affected_components:
+            head_by_editorial = {
+                (
+                    entry.get("section"),
+                    entry.get("source"),
+                    entry.get("source_tag"),
+                ): entry
+                for entry in head_doc.translations
+            }
+            for entry in base_doc.translations:
+                head_entry = head_by_editorial.get(
+                    (
+                        entry.get("section"),
+                        entry.get("source"),
+                        entry.get("source_tag"),
+                    )
+                )
+                if head_entry is None or semantic(entry) != semantic(head_entry):
+                    editorial_id = stable_entry_id(
+                        component.id,
+                        entry.get("section") or "",
+                        entry.get("source") or "",
+                        entry.get("source_tag"),
+                    )
+                    index = indexes.get(component.id)
+                    candidates = (
+                        index.editorial_to_tu.get(editorial_id, ())
+                        if index is not None
+                        else ()
+                    )
+                    affected_tus.update(candidates)
+    issues_head, contexts_head, _ = lint_documents_specs(manifest, specs_head)
+    issues_base, contexts_base, _ = lint_documents_specs(manifest, specs_base)
+    conflicts: list[Any] = []
+    for index in indexes.values():
+        conflicts.extend(index.conflicts)
+
+    def records_for(issues: Any, contexts: Any) -> list[Any]:
+        bound = {
+            name: FindingContext(
+                component=context.component,
+                entries=context.entries,
+                index=indexes.get(context.component),
+            )
+            for name, context in contexts.items()
+        }
+        records, _ = build_finding_records(
+            registry=registry, issues=issues, contexts=bound, conflicts=conflicts
+        )
+        return records
+
+    head_records = records_for(issues_head, contexts_head)
+    base_records = records_for(issues_base, contexts_base)
+    recomputed = tuple(
+        record for record in head_records if record.tu_uid in affected_tus
+    )
+    kept = tuple(
+        record for record in base_records if record.tu_uid not in affected_tus
+    )
+    incremental_records = tuple(
+        sorted([*kept, *recomputed], key=lambda record: record.fingerprint)
+    )
+    report: dict[str, Any] = {
+        "domain": "translation",
+        "base": base,
+        "head": head,
+        "affected_components": [component.id for component in affected_components],
+        "affected_tus": len(affected_tus),
+        "findings": {
+            "previous": len(base_records),
+            "kept": len(kept),
+            "recomputed": len(recomputed),
+            "incremental": len(incremental_records),
+        },
+        "ok": True,
+    }
+    if arguments.self_check:
+        from .invalidation import self_check as canonical_self_check
+
+        passed = canonical_self_check(
+            incremental=incremental_records, full=head_records
+        )
+        report["self_check"] = {
+            "passed": passed,
+            "full_findings": len(head_records),
+        }
+        report["ok"] = passed
+    if arguments.json:
+        _print_json(report)
+    else:
+        findings = report["findings"]
+        print(
+            f"incremental translation {base}..{head}: "
+            f"affected_tus={len(affected_tus)} "
+            f"previous={findings['previous']} kept={findings['kept']} "
+            f"recomputed={findings['recomputed']} "
+            f"incremental={findings['incremental']}"
+        )
+    if arguments.self_check and not report["ok"]:
+        from .errors import IncrementalCheckError
+
+        raise IncrementalCheckError(
+            "incremental self-check failed: canonical forms differ"
         )
     return 0
 
@@ -983,12 +1860,38 @@ def _merge(arguments: argparse.Namespace) -> int:
     runtime = LuaRuntime(manifest)
     runtime.doctor()
     loader = LocaleLoader(runtime)
+    base_index = None
+    new_index = None
+    if arguments.base_tu_index or arguments.new_tu_index:
+        if not (arguments.base_tu_index and arguments.new_tu_index):
+            raise ValidationError(
+                "identity matching requires both --base-tu-index and "
+                "--new-tu-index"
+            )
+        from .identity import read_index_files
+
+        entities_base = arguments.base_tu_index.parent / "entities.jsonl"
+        entities_new = arguments.new_tu_index.parent / "entities.jsonl"
+        base_index = read_index_files(
+            component=component.id,
+            entities_path=entities_base,
+            tu_index_path=arguments.base_tu_index,
+        )
+        new_index = read_index_files(
+            component=component.id,
+            entities_path=entities_new,
+            tu_index_path=arguments.new_tu_index,
+        )
+    merge_kwargs: dict[str, Any] = {}
+    if base_index is not None and new_index is not None:
+        merge_kwargs = {"base_index": base_index, "new_index": new_index}
     report = run_merge(
         manifest,
         loader,
         component,
         new_snapshot_path=arguments.snapshot,
         base_snapshot_path=arguments.base_snapshot,
+        **merge_kwargs,
     )
     if arguments.json:
         _print_json(report)
@@ -2016,6 +2919,22 @@ def main(argv: list[str] | None = None) -> int:
             return _extract(arguments)
         if arguments.command == "lint":
             return _lint(arguments)
+        if arguments.command == "baseline":
+            if arguments.baseline_command == "freeze":
+                return _baseline_freeze(arguments)
+            if arguments.baseline_command == "report":
+                return _baseline_report(arguments)
+            raise AssertionError(
+                f"unhandled baseline command: {arguments.baseline_command}"
+            )
+        if arguments.command == "identity":
+            if arguments.identity_command == "show":
+                return _identity_show(arguments)
+            if arguments.identity_command == "audit":
+                return _identity_audit(arguments)
+            raise AssertionError(
+                f"unhandled identity command: {arguments.identity_command}"
+            )
         if arguments.command == "status":
             return _status(arguments)
         if arguments.command == "build":

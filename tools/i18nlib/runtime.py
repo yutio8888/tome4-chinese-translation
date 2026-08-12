@@ -87,13 +87,17 @@ class LuaRuntime:
         cwd: Path,
         lua_paths: Iterable[Path] = (),
         timeout: int | None = None,
+        extra_env: dict[str, str] | None = None,
     ) -> subprocess.CompletedProcess[str]:
         command = [str(self.luajit), *(str(argument) for argument in arguments)]
+        env = self.environment(lua_paths, cwd=cwd)
+        if extra_env:
+            env.update(extra_env)
         try:
             return subprocess.run(
                 command,
                 cwd=cwd,
-                env=self.environment(lua_paths, cwd=cwd),
+                env=env,
                 text=True,
                 encoding="utf-8",
                 errors="replace",
@@ -118,14 +122,18 @@ class LuaRuntime:
         cwd: Path,
         lua_paths: Iterable[Path] = (),
         timeout: int | None = None,
+        extra_env: dict[str, str] | None = None,
     ) -> subprocess.CompletedProcess[None]:
         """Run an audited Lua broker without exposing either output stream."""
         command = [str(self.luajit), *(str(argument) for argument in arguments)]
+        env = self.environment(lua_paths, cwd=cwd)
+        if extra_env:
+            env.update(extra_env)
         try:
             return subprocess.run(
                 command,
                 cwd=cwd,
-                env=self.environment(lua_paths, cwd=cwd),
+                env=env,
                 stdin=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.DEVNULL,

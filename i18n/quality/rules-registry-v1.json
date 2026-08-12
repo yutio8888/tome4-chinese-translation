@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "comment": "Pilot A rule registry (contract/0.1-rc3 §9). Unregistered rule_id must never produce a fingerprint Finding (fail closed); trust_class != A is disabled in Phase 0/1.",
+  "rules": [
+    {
+      "rule_id": "format-mismatch",
+      "schema_version": 1,
+      "severity": "error",
+      "trust_class": "A",
+      "subject_kind": "translation_unit",
+      "evidence_key_spec": "conversion-pair",
+      "pilot": "A",
+      "source": "existing lint code (lint.py:225)"
+    },
+    {
+      "rule_id": "format-shape-difference",
+      "schema_version": 1,
+      "severity": "error",
+      "trust_class": "A",
+      "subject_kind": "translation_unit",
+      "evidence_key_spec": "formatter-tag",
+      "pilot": "A",
+      "source": "existing lint code (lint.py:268)"
+    },
+    {
+      "rule_id": "empty-target",
+      "schema_version": 1,
+      "severity": "error",
+      "trust_class": "A",
+      "subject_kind": "translation_unit",
+      "evidence_key_spec": "constant",
+      "pilot": "A",
+      "source": "existing lint code (lint.py:344)"
+    },
+    {
+      "rule_id": "runtime-collision",
+      "schema_version": 1,
+      "severity": "error",
+      "trust_class": "A",
+      "subject_kind": "translation_unit",
+      "evidence_key_spec": "runtime-key",
+      "pilot": "A",
+      "source": "existing lint code (lint.py:442)"
+    },
+    {
+      "rule_id": "duplicate-talent-id",
+      "schema_version": 1,
+      "severity": "error",
+      "trust_class": "A",
+      "subject_kind": "entity",
+      "evidence_key_spec": "anchor-key",
+      "pilot": "A",
+      "source": "new precheck (ActorTalents.lua:92 load-time assert)"
+    },
+    {
+      "rule_id": "duplicate-effect-id",
+      "schema_version": 1,
+      "severity": "error",
+      "trust_class": "A",
+      "subject_kind": "entity",
+      "evidence_key_spec": "anchor-key",
+      "pilot": "A",
+      "source": "new precheck (ActorTemporaryEffects.lua:59 load-time assert)"
+    }
+  ]
+}

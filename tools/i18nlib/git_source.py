@@ -133,6 +133,36 @@ class GitRepository:
             "worktree_checked": check_worktree,
         }
 
+    def resolve_commit(self, expression: str) -> str:
+        """Resolve a rev expression (e.g. HEAD, sha~1) to a full commit OID."""
+        result = self._run(
+            ["rev-parse", "--verify", f"{expression}^{{commit}}"], text=True
+        )
+        if result.returncode != 0 or not result.stdout.strip():
+            detail = result.stderr.strip()
+            raise ConfigurationError(
+                f"cannot resolve commit {expression!r} in {self.path}"
+                + (f": {detail}" if detail else "")
+            )
+        return result.stdout.strip()
+
+    def changed_paths(self, base: str, head: str) -> list[str]:
+        """Changed file paths between two commits (incremental invalidation I2)."""
+        result = self._run(
+            ["diff", "--name-only", "-z", base, head], text=True
+        )
+        if result.returncode != 0:
+            detail = result.stderr.strip()
+            raise ExtractionError(
+                f"cannot diff {base}..{head} in {self.path}"
+                + (f": {detail}" if detail else "")
+            )
+        return [
+            name
+            for name in result.stdout.split("\0")
+            if name
+        ]
+
     def read_blob(self, commit: str, git_path: str) -> bytes:
         normalized = _normalized_git_path(git_path)
         tree = self._run(["ls-tree", "-z", commit, "--", normalized])

@@ -122,7 +122,9 @@ def _source_change_suggestions(
     new_snapshot: Snapshot,
     current_runtime: dict[tuple[str, str | None], dict[str, Any]],
     threshold: float = 0.68,
-) -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]]]:
+    base_index: Any | None = None,
+    new_index: Any | None = None,
+) -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]], dict[str, Any]]:
     deleted_groups = [
         group
         for group in base_snapshot.groups
@@ -133,10 +135,103 @@ def _source_change_suggestions(
     for group in deleted_groups:
         buckets[(group.definition.section, group.definition.source_tag)].append(group)
 
+    # Contract §5: L1-L5 identity matching, layered on the legacy heuristic.
+    # Field compatibility: classification "source-changed" and automatic False
+    # are preserved; identity matches add match_level / tu_uid / event.
+    identity_matches: dict[str, Any] = {}
+    identity_events: list[dict[str, Any]] = []
+    if base_index is not None and new_index is not None:
+        from .identity import match_migrations
+
+        matches, events = match_migrations(
+            base_index=base_index,
+            new_index=new_index,
+            untranslated_groups=untranslated_groups,
+            base_snapshot=base_snapshot,
+            threshold=threshold,
+        )
+        identity_matches = {match.group.entry_id: match for match in matches}
+        identity_events = [event.to_dict() for event in events]
+
     suggestions: list[dict[str, Any]] = []
     by_new_entry_id: dict[str, dict[str, Any]] = {}
     for group in untranslated_groups:
         if group.runtime_key in base_snapshot.runtime_keys:
+            continue
+        identity_match = identity_matches.get(group.entry_id)
+        if identity_match is not None and identity_match.level in ("L1", "L2", "L4"):
+            previous_definition = identity_match.previous_definition
+            if identity_match.level == "L4":
+                # Hint only: never carries curated data (contract §5).
+                suggestions.append(
+                    {
+                        "entry_id": group.entry_id,
+                        "component": group.definition.component,
+                        "section": group.definition.section,
+                        "source": group.definition.source,
+                        "source_tag": group.definition.source_tag,
+                        "origins": [
+                            occurrence.origin_dict()
+                            for occurrence in group.occurrences
+                        ],
+                        "previous_source": previous_definition.source
+                        if previous_definition is not None
+                        else None,
+                        "similarity": (
+                            round(identity_match.similarity, 6)
+                            if identity_match.similarity is not None
+                            else None
+                        ),
+                        "match_level": "L4",
+                        "classification": "source-changed",
+                        "automatic": False,
+                        "hint_only": True,
+                    }
+                )
+                continue
+            previous = previous_definition
+            previous_translation = (
+                current_runtime.get(previous.runtime_key)
+                if previous is not None
+                else None
+            )
+            if previous is None:
+                continue
+            if previous_translation is None:
+                # L1 identity match without a current translation: nothing to
+                # carry; record the direct binding for the report only.
+                continue
+            suggestion = {
+                "entry_id": group.entry_id,
+                "component": group.definition.component,
+                "section": group.definition.section,
+                "source": group.definition.source,
+                "source_tag": group.definition.source_tag,
+                "origins": [
+                    occurrence.origin_dict() for occurrence in group.occurrences
+                ],
+                "previous_source": previous.source,
+                "previous_source_tag": previous.source_tag,
+                "previous_target": previous_translation.get("target"),
+                "previous_args_order": previous_translation.get("args_order"),
+                "previous_special": previous_translation.get("special"),
+                "similarity": (
+                    round(identity_match.similarity, 6)
+                    if identity_match.similarity is not None
+                    else 1.0
+                ),
+                "match_level": identity_match.level,
+                "tu_uid": identity_match.tu_uid,
+                "event": (
+                    identity_match.event.to_dict()
+                    if identity_match.event is not None
+                    else None
+                ),
+                "classification": "source-changed",
+                "automatic": False,
+            }
+            suggestions.append(suggestion)
+            by_new_entry_id[group.entry_id] = suggestion
             continue
         candidates = buckets.get(
             (group.definition.section, group.definition.source_tag), []
@@ -176,7 +271,13 @@ def _source_change_suggestions(
         }
         suggestions.append(suggestion)
         by_new_entry_id[group.entry_id] = suggestion
-    return suggestions, by_new_entry_id
+    return suggestions, by_new_entry_id, {
+        "identity_matches": {
+            entry_id: match.to_dict()
+            for entry_id, match in sorted(identity_matches.items())
+        },
+        "identity_events": identity_events,
+    }
 
 
 def classify_merge(
@@ -185,6 +286,8 @@ def classify_merge(
     current: LocaleDocument,
     base_snapshot: Snapshot,
     new_snapshot: Snapshot,
+    base_index: Any | None = None,
+    new_index: Any | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     if base_snapshot.component != component or new_snapshot.component != component:
         raise ValidationError("merge snapshots do not match the selected component")
@@ -209,11 +312,13 @@ def classify_merge(
             continue
         untranslated_groups.append(group)
 
-    suggestions, suggestion_index = _source_change_suggestions(
+    suggestions, suggestion_index, identity_report = _source_change_suggestions(
         untranslated_groups=untranslated_groups,
         base_snapshot=base_snapshot,
         new_snapshot=new_snapshot,
         current_runtime=current_runtime,
+        base_index=base_index,
+        new_index=new_index,
     )
     untranslated: list[dict[str, Any]] = []
     for group in untranslated_groups:
@@ -283,6 +388,8 @@ def classify_merge(
         "source_changed_suggestions": suggestions,
         "obsolete": obsolete,
     }
+    if base_index is not None or new_index is not None:
+        report["identity"] = identity_report
     return candidate_entries, report
 
 
@@ -293,6 +400,8 @@ def run_merge(
     *,
     new_snapshot_path: Path,
     base_snapshot_path: Path | None,
+    base_index: Any | None = None,
+    new_index: Any | None = None,
 ) -> dict[str, Any]:
     new_snapshot = read_snapshot(
         new_snapshot_path, expected_component=component.id
@@ -321,6 +430,8 @@ def run_merge(
         current=current,
         base_snapshot=base_snapshot,
         new_snapshot=new_snapshot,
+        base_index=base_index,
+        new_index=new_index,
     )
     candidate_bytes = _render_candidate(
         component.id, new_snapshot.sha256, candidate_entries

@@ -23,5 +23,17 @@ class ValidationError(I18nToolError):
     exit_code = 5
 
 
+class IncrementalCheckError(I18nToolError):
+    """Incremental self-check mismatch (contract §11 exit code 2)."""
+
+    exit_code = 2
+
+
+class ContractError(I18nToolError):
+    """Contract violation or missing registry (contract §11 exit code 3)."""
+
+    exit_code = 3
+
+
 class AgentError(I18nToolError):
     exit_code = 6
