@@ -18,7 +18,7 @@ limit; do not silently shorten it for a large bundle.
 ## Prepare the review
 
 1. Read the active `AGENTS.md`. For translation review, the main agent also reads
-   `TERMINOLOGY.md` and `terminology.tsv`, but the blind semantic v2 bundle must not receive
+   `TERMINOLOGY.md` and `terminology/`, but the blind semantic v2 bundle must not receive
    terminology rows or Facts; those are available only for later claim adjudication.
 2. Select the smallest requested scope:
    - Translations: `python3 -B tools/i18n review --scope translations`

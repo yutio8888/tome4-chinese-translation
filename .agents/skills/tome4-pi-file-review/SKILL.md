@@ -23,7 +23,7 @@ runner 实现前，工具会失败关闭，主代理按固定版本源码直接�
 ## 准备审核
 
 1. 先阅读当前 `AGENTS.md`。不要把 translation v2 bundle 交给本 legacy 入口；
-   主代理阅读 `TERMINOLOGY.md` / `terminology.tsv` 也不构成向 blind discovery 注入。
+   主代理阅读 `TERMINOLOGY.md` / `terminology/` 也不构成向 blind discovery 注入。
 2. 用最小范围生成 bundle：
    - 公开变更：`python3 -B tools/i18n review --scope code`
 3. 阅读生成的 `review-index.json`，确认目标 descriptor 是 code/legacy v1；报告
@@ -80,7 +80,7 @@ provider/model/thinking 默认沿用项目默认，除非用户要求覆盖。
 系统提示（`i18n/prompts/pi-reviewer-files.md`）规定：
 
 - 可读：仓库根（规范译文 `tome-*.lua`、`i18n/`、`tools/`、`tests/`、`docs/`、
-  `TERMINOLOGY.md`、`terminology.tsv`）、`/Users/yun/projects/t-engine4`
+  `TERMINOLOGY.md`、`terminology/`）、`/Users/yun/projects/t-engine4`
   （GPL v3）、`/Users/yun/projects/tome4-dlcs/`（ashes-urhrok、cults、orcs，
   GPL v3）。
 - 禁止：`.artifacts/`（其他审核/缓存/工作清单）、bundle 文件本身（已内联）、

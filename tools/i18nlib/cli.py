@@ -632,7 +632,14 @@ def _doctor(arguments: argparse.Namespace) -> int:
     ]
     missing = []
     not_regular = []
-    for path in required_files:
+    terminology_path = manifest.root / manifest.terminology
+    terminology_ok = terminology_path.is_dir() or terminology_path.is_file()
+    if not terminology_ok:
+        if terminology_path.exists():
+            not_regular.append(str(terminology_path))
+        else:
+            missing.append(str(terminology_path))
+    for path in required_files[1:]:
         if path.is_file():
             continue
         if path.exists():

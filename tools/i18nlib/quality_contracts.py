@@ -173,9 +173,14 @@ def validate_provenance(value: Any, where: str) -> dict[str, Any]:
     resource = validate_resource(value["resource"], f"{where}.resource")
     locator = validate_locator(value["locator"], f"{where}.locator")
     if kind == "terminology":
-        if resource["repository"] != "terminology" or resource["logical_path"] != "terminology.tsv":
+        if resource["repository"] != "terminology" or resource["logical_path"] not in (
+            "terminology.tsv",
+            "terminology",
+            "terminology/",
+        ):
             raise ValidationError(
-                f"{where} terminology provenance must point at terminology.tsv"
+                f"{where} terminology provenance must point at terminology.tsv "
+                "or the terminology/ store"
             )
         if locator["type"] not in ("term-row", "context-key"):
             raise ValidationError(

@@ -262,7 +262,7 @@ git diff --check
 - 本轮停止点为 33-slot fake replay 和干净只读复审通过；
 - 不调用 Pi/provider，不申请或沿用任何外部授权；
 - 不运行 v4、holdout 或正式 120 条；
-- 不修改规范 Lua、`terminology.tsv`、发布仓库或历史 artifact；
+- 不修改规范 Lua、`terminology/`、发布仓库或历史 artifact；
 - Facts 使用英文元语言；
 - controlled 仅在自然 fact-dependent 配额不足时启用，且不能授予后续 clearance；
 - 子代理采用可审计软隔离，报告中明确其证据等级；

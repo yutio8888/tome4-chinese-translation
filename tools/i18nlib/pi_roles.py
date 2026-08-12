@@ -107,10 +107,12 @@ def prepare_author_workdir(manifest: Any, run: Path, study_id: str) -> Path:
     workdir = run / "author-workdir"
     workdir.mkdir(mode=0o700)
     (workdir / "sources").mkdir(mode=0o700)
-    terminology = manifest.root / "terminology.tsv"
-    if not terminology.is_file():
-        raise ValidationError(f"cannot locate terminology.tsv: {terminology}")
-    shutil.copy2(terminology, workdir / "terminology.tsv")
+    terminology = manifest.root / "terminology"
+    if not terminology.is_dir():
+        raise ValidationError(f"cannot locate terminology store: {terminology}")
+    (workdir / "terminology").mkdir(mode=0o700)
+    for store_file in sorted(terminology.glob("*.tsv")):
+        shutil.copy2(store_file, workdir / "terminology" / store_file.name)
     engine_default = manifest.root.parent / "t-engine4"
     engine_root = Path(
         os.environ.get("TOME_ENGINE_ROOT", str(engine_default))
@@ -127,7 +129,7 @@ def prepare_author_workdir(manifest: Any, run: Path, study_id: str) -> Path:
     readme_lines = [
         f"# Facts-author isolated inputs (study {study_id})",
         "",
-        "Allowed inputs: this directory only. terminology.tsv and the public",
+        "Allowed inputs: this directory only. terminology/ and the public",
         "source trees under sources/ (engine + three official DLCs, GPL v3).",
         "Canonical translations, targets, gold and other artifacts are forbidden.",
         "",
@@ -136,7 +138,7 @@ def prepare_author_workdir(manifest: Any, run: Path, study_id: str) -> Path:
         "- dlc-ashes-urhrok: repository=tome4-dlc-ashes-urhrok revision=1.7.4",
         "- dlc-cults: repository=tome4-dlc-cults revision=1.7.4",
         "- dlc-orcs: repository=tome4-dlc-orcs revision=1.7.4",
-        "- terminology: repository=terminology revision=HEAD logical_path=terminology.tsv",
+        "- terminology: repository=terminology revision=HEAD logical_path=terminology/",
         "",
         "public-source provenance file_sha256 is the SHA-256 of the file bytes",
         "read from sources/; terminology provenance rows are 1-based TSV rows.",

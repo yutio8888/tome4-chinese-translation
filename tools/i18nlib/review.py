@@ -63,6 +63,7 @@ PUBLIC_REVIEW_FILES = (
     "pi-agent-analysis.md",
     "TERMINOLOGY.md",
     "terminology.tsv",
+    "terminology",
 )
 TRANSLATION_REVIEW_CONSTRAINTS = (
     "Observe only substantive source-to-target semantic differences in the supplied items.",

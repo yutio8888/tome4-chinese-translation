@@ -10,7 +10,7 @@ observation v2 子进程。代码审校保留 legacy v1 finding 契约（见 `to
 
 - blind provider payload 不注入 terminology/Facts、canonical membership 或任何宿主 lineage，
   只包含最小 revision/source/target 输入。
-- 主代理阅读 `TERMINOLOGY.md` / `terminology.tsv` 不构成向 blind discovery 注入；
+- 主代理阅读 `TERMINOLOGY.md` / `terminology/` 不构成向 blind discovery 注入；
   术语/专名疑点只能在 observation 产生后按 claim 核验与裁决。
 
 ## 分包与身份绑定

@@ -69,4 +69,4 @@
 1. 每次译文批量修改后运行 `python3 -B tools/scan_runtime_collisions.py`，将新增/消失项同步到本档案。
 2. 新发现的同键多译先补入本档案（状态=待统一/待裁决），再按批次修复；修复 commit 后更新状态并记录 commit 号。
 3. 有意保留项必须注明理由（语境区分须有术语表多行记录；历史迁移须有目标批次）。
-4. 本档案与 `terminology.tsv` 的 `status=review` 条目、lint 的 `runtime-collision`/`editorial-collision` 形成三层防线：组件内 error（lint）、跨组件档案（本文件）、术语表裁决（TSV）。
+4. 本档案与 `terminology/` 的 `status=review` 条目、lint 的 `runtime-collision`/`editorial-collision` 形成三层防线：组件内 error（lint）、跨组件档案（本文件）、术语表裁决（TSV）。

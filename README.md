@@ -21,7 +21,7 @@
 | 路径 | 内容 |
 |---|---|
 | `*.lua` | 各组件的规范中文译文 |
-| `terminology.tsv` / `TERMINOLOGY.md` | 版本化术语库及维护规则 |
+| `terminology/` / `TERMINOLOGY.md` | 版本化术语库及维护规则 |
 | `i18n/versions/` | 固定游戏、源码和发布仓库身份 |
 | `i18n/quality/` | 翻译质量规则、schema 和版本化协议 |
 | `tools/i18nlib/` | 提取、校验、构建、审核与质量工具实现 |

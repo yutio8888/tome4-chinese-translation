@@ -461,91 +461,96 @@ def lint_documents(
 
 
 def lint_terminology(path: Path) -> tuple[list[Issue], dict[str, Any]]:
+    from .terminology import terminology_files
+
     issues: list[Issue] = []
     rows: list[tuple[dict[str, str], int]] = []
     record_count = 0
-    read_error_line: int | None = None
-    try:
-        with path.open("r", encoding="utf-8", newline="") as handle:
-            reader = csv.DictReader(handle, delimiter="\t", strict=True)
-            read_error_line = 1
-            if tuple(reader.fieldnames or ()) != TERMINOLOGY_FIELDS:
-                issues.append(
-                    Issue(
-                        "error",
-                        "terminology-header",
-                        f"expected TSV fields {TERMINOLOGY_FIELDS!r}, got {reader.fieldnames!r}",
-                        str(path),
-                        1,
-                    )
-                )
-                return issues, {"rows": 0}
-            while True:
-                read_error_line = reader.line_num + 1
-                try:
-                    row = next(reader)
-                except StopIteration:
-                    break
-                record_count += 1
-                line = reader.line_num
-                missing_fields = tuple(
-                    field
-                    for field in TERMINOLOGY_FIELDS
-                    if field not in row or row[field] is None
-                )
-                extra_values = [
-                    value
-                    for field, value in row.items()
-                    if field not in TERMINOLOGY_FIELDS
-                ]
-                if missing_fields == ("notes",) and not extra_values:
-                    # The canonical terminology has historically omitted the
-                    # final delimiter when an optional notes cell is empty.
-                    row["notes"] = ""
-                    missing_fields = ()
-                if missing_fields or extra_values:
-                    extra_count = sum(
-                        len(value) if isinstance(value, list) else 1
-                        for value in extra_values
-                    )
-                    actual_count = (
-                        len(TERMINOLOGY_FIELDS) - len(missing_fields) + extra_count
-                    )
-                    details = []
-                    if missing_fields:
-                        details.append(
-                            "missing " + ", ".join(repr(field) for field in missing_fields)
-                        )
-                    if extra_count:
-                        details.append(f"{extra_count} extra")
+    base_line = 0
+    for store_path in terminology_files(path):
+        read_error_line: int | None = None
+        try:
+            with store_path.open("r", encoding="utf-8", newline="") as handle:
+                reader = csv.DictReader(handle, delimiter="\t", strict=True)
+                read_error_line = 1
+                if tuple(reader.fieldnames or ()) != TERMINOLOGY_FIELDS:
                     issues.append(
                         Issue(
                             "error",
-                            "terminology-row-width",
-                            f"expected {len(TERMINOLOGY_FIELDS)} TSV fields, "
-                            f"got {actual_count} ({'; '.join(details)})",
-                            str(path),
-                            line,
+                            "terminology-header",
+                            f"expected TSV fields {TERMINOLOGY_FIELDS!r}, got {reader.fieldnames!r}",
+                            str(store_path),
+                            1,
                         )
                     )
                     continue
-                rows.append(
-                    (
-                        {field: row[field] for field in TERMINOLOGY_FIELDS},
-                        line,
+                while True:
+                    read_error_line = reader.line_num + 1
+                    try:
+                        row = next(reader)
+                    except StopIteration:
+                        break
+                    record_count += 1
+                    line = base_line + reader.line_num
+                    missing_fields = tuple(
+                        field
+                        for field in TERMINOLOGY_FIELDS
+                        if field not in row or row[field] is None
                     )
+                    extra_values = [
+                        value
+                        for field, value in row.items()
+                        if field not in TERMINOLOGY_FIELDS
+                    ]
+                    if missing_fields == ("notes",) and not extra_values:
+                        # The canonical terminology has historically omitted the
+                        # final delimiter when an optional notes cell is empty.
+                        row["notes"] = ""
+                        missing_fields = ()
+                    if missing_fields or extra_values:
+                        extra_count = sum(
+                            len(value) if isinstance(value, list) else 1
+                            for value in extra_values
+                        )
+                        actual_count = (
+                            len(TERMINOLOGY_FIELDS) - len(missing_fields) + extra_count
+                        )
+                        details = []
+                        if missing_fields:
+                            details.append(
+                                "missing " + ", ".join(repr(field) for field in missing_fields)
+                            )
+                        if extra_count:
+                            details.append(f"{extra_count} extra")
+                        issues.append(
+                            Issue(
+                                "error",
+                                "terminology-row-width",
+                                f"expected {len(TERMINOLOGY_FIELDS)} TSV fields, "
+                                f"got {actual_count} ({'; '.join(details)})",
+                                str(store_path),
+                                line,
+                            )
+                        )
+                        continue
+                    rows.append(
+                        (
+                            {field: row[field] for field in TERMINOLOGY_FIELDS},
+                            line,
+                        )
+                    )
+                base_line += reader.line_num
+        except (OSError, UnicodeDecodeError, csv.Error) as error:
+            issues.append(
+                Issue(
+                    "error",
+                    "terminology-read",
+                    f"cannot read terminology TSV: {error}",
+                    str(store_path),
+                    read_error_line,
                 )
-    except (OSError, UnicodeDecodeError, csv.Error) as error:
-        issues.append(
-            Issue(
-                "error",
-                "terminology-read",
-                f"cannot read terminology TSV: {error}",
-                str(path),
-                read_error_line,
             )
-        )
-        return issues, {"rows": record_count}
+            continue
 
     contexts: dict[tuple[str, str, str], list[tuple[dict[str, str], int]]] = defaultdict(list)
     for row, line in rows:

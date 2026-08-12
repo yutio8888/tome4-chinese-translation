@@ -4,7 +4,7 @@ You are the Facts author for an isolated causal study of supplemental
 translation facts. You are TARGET-BLIND: the bundle contains English game
 sources only, never their Chinese translations. You must not read or infer
 any translation target, and you must not read any file outside the provided
-working directory (terminology.tsv and the public sources under sources/ are
+working directory (terminology/ and the public sources under sources/ are
 the only allowed inputs).
 
 ## Task
@@ -61,16 +61,16 @@ Locator alternatives:
 
 - `{"type": "line-range", "start_line": N, "end_line": M}` — for public-source
   evidence (line range in the source file; verify by reading the file).
-- `{"type": "term-row", "row": N}` — for terminology.tsv evidence (1-based row
-  in the TSV; verify by reading terminology.tsv).
+- `{"type": "term-row", "row": N}` — for terminology/ evidence (1-based row
+  in the TSV; verify by reading terminology/).
 - `{"type": "context-key", "key": "...", "value": "..."}` — for
   versioned-context evidence not present in the bundle context.
 
 Provenance rules:
 
 - `terminology`: resource.repository = "terminology", revision = "HEAD",
-  logical_path = "terminology.tsv"; the fact must come from an actual
-  terminology.tsv row.
+  logical_path = "terminology/"; the fact must come from an actual
+  terminology/ row.
 - `public-source`: resource must match README.txt pinned repositories and
   revisions; compute file_sha256 from the bytes of the file you read under
   sources/; use a real verified line range.

@@ -41,7 +41,7 @@
 - 不把历史 finding 数量直接换算成当前译文分数；
 - 不实现 embedding、向量数据库、模糊搜索 UI 或自动联想；
 - 不从整句自动抽取可复用短语；
-- 不自动写入或重排规范 Lua、`terminology.tsv` 或发布 addon；
+- 不自动写入或重排规范 Lua、`terminology/` 或发布 addon；
 - 不在 quality 命令中自动调用外部 provider；
 - 不在试点完成前确定统一加权总分和 Gold 的大规模晋级阈值。
 
@@ -305,7 +305,7 @@ revision_id = SHA256(
 
 - 选定 manifest；
 - manifest 声明的规范翻译 Lua；
-- `terminology.tsv`；
+- `terminology/`；
 - `i18n/policy.json`；
 - 质量 taxonomy/policy；
 - 本地确定性扫描结果应由当前运行重新计算，不依赖“最新目录”猜测。

@@ -785,17 +785,17 @@ def load_quality_policy(manifest: Manifest) -> dict[str, Any]:
     return data
 
 
+def terminology_store_sha256(path: Path) -> str:
+    """Content digest for the terminology store (file or domain directory)."""
+    from .terminology import terminology_store_sha256 as _impl
+
+    return _impl(path)
+
+
 def _load_terminology(path: Path) -> tuple[list[dict[str, str]], str]:
-    try:
-        raw = path.read_bytes()
-        text = raw.decode("utf-8")
-        reader = csv.DictReader(text.splitlines(), delimiter="\t")
-        rows = list(reader)
-    except (OSError, UnicodeDecodeError, csv.Error) as error:
-        raise ValidationError(f"cannot load terminology for quality: {path}: {error}") from error
-    if tuple(reader.fieldnames or ()) != _TERMINOLOGY_FIELDS:
-        raise ValidationError(f"terminology header is invalid for quality: {path}")
-    return rows, hashlib.sha256(raw).hexdigest()
+    from .terminology import load_terminology_rows, terminology_store_sha256
+
+    return load_terminology_rows(path), terminology_store_sha256(path)
 
 
 def create_quality_run_directory(root: Path, kind: str) -> Path:
@@ -1758,9 +1758,7 @@ def _read_inventory_manifest_preflight(
 
     terminology_path = manifest.root / manifest.terminology
     try:
-        terminology_sha256 = hashlib.sha256(
-            terminology_path.read_bytes()
-        ).hexdigest()
+        terminology_sha256 = terminology_store_sha256(terminology_path)
     except OSError as error:
         _inventory_manifest_error(
             "terminology_sha256",
@@ -3285,16 +3283,16 @@ def _validate_sample_identity(
         )
     terminology_path = manifest.root / manifest.terminology
     try:
-        terminology_raw = terminology_path.read_bytes()
+        from .terminology import terminology_store_sha256
+
+        current_digests["terminology_sha256"] = terminology_store_sha256(
+            terminology_path
+        )
     except OSError as error:
         errors.append(
             f"{label}: sample terminology_sha256 cannot be checked against "
             f"{terminology_path}: {error}"
         )
-    else:
-        current_digests["terminology_sha256"] = hashlib.sha256(
-            terminology_raw
-        ).hexdigest()
     for field, expected in current_digests.items():
         value = sample.get(field)
         if not isinstance(value, str) or SHA256_RE.fullmatch(value) is None:

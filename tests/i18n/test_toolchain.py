@@ -1457,7 +1457,8 @@ class DynamicAuditTests(unittest.TestCase):
                     for source, source_tag, target in records
                 ),
             )
-            terminology = root / "terminology.tsv"
+            terminology = root / "terminology" / "fixture.tsv"
+            terminology.parent.mkdir(parents=True, exist_ok=True)
             terminology.write_text(
                 "source\ttarget\tcategory\tdomain\tsource_tag\tstatus\tscope\tnotes\n"
                 + "".join(
@@ -1662,7 +1663,8 @@ class DynamicAuditTests(unittest.TestCase):
                 self._document("alpha.lua", "Arcane", "奥术"),
                 self._document("beta.lua", "Other", "其他"),
             )
-            terminology = root / "terminology.tsv"
+            terminology = root / "terminology" / "fixture.tsv"
+            terminology.parent.mkdir(parents=True, exist_ok=True)
             terminology.write_text(
                 "source\ttarget\tcategory\tdomain\tsource_tag\tstatus\tscope\tnotes\n"
                 "Arcane\t奥术\tT.GAME.DAMAGE\tcombat\tnil\tpreferred\tglobal\tfixture\n",
@@ -1720,7 +1722,8 @@ class DynamicAuditTests(unittest.TestCase):
                 self._document("items-vault.lua", "Vault term", "宝库术语"),
                 self._document("possessors.lua", "Possessor term", "附身术语"),
             )
-            terminology = root / "terminology.tsv"
+            terminology = root / "terminology" / "fixture.tsv"
+            terminology.parent.mkdir(parents=True, exist_ok=True)
             terminology.write_text(
                 "source\ttarget\tcategory\tdomain\tsource_tag\tstatus\tscope\tnotes\n"
                 "Vault term\t宝库术语\tT.GAME.ENTITY\titems\tnil\tpreferred\tdlc\tfixture\n"
@@ -1766,7 +1769,8 @@ class DynamicAuditTests(unittest.TestCase):
                     },
                 ),
             )
-            terminology = root / "terminology.tsv"
+            terminology = root / "terminology" / "fixture.tsv"
+            terminology.parent.mkdir(parents=True, exist_ok=True)
             terminology.write_text(
                 "source\ttarget\tcategory\tdomain\tsource_tag\tstatus\tscope\tnotes\n"
                 "Needs nil\tnil target\tT.TECH.INTERNAL\ttech\tnil\tpreferred\tglobal\tfixture\n"
@@ -1832,7 +1836,8 @@ class DynamicAuditTests(unittest.TestCase):
                     ),
                 ),
             )
-            terminology = root / "terminology.tsv"
+            terminology = root / "terminology" / "fixture.tsv"
+            terminology.parent.mkdir(parents=True, exist_ok=True)
             terminology.write_text(
                 "source\ttarget\tcategory\tdomain\tsource_tag\tstatus\tscope\tnotes\n"
                 "Missing first\t未使用甲\tT.FIXTURE\tfixture\tnil\tpreferred\tglobal\tfixture\n"
@@ -1925,7 +1930,8 @@ class DynamicAuditTests(unittest.TestCase):
                 sha256="0" * 64,
                 records=records,
             )
-            terminology = root / "terminology.tsv"
+            terminology = root / "terminology" / "fixture.tsv"
+            terminology.parent.mkdir(parents=True, exist_ok=True)
             terminology.write_text(
                 "source\ttarget\tcategory\tdomain\tsource_tag\tstatus\tscope\tnotes\n",
                 encoding="utf-8",
@@ -8128,7 +8134,7 @@ class TerminologyTests(unittest.TestCase):
             writer.writerows(rows)
 
     def test_current_terminology_structure_is_valid(self) -> None:
-        issues, metrics = lint_terminology(ROOT / "terminology.tsv")
+        issues, metrics = lint_terminology(ROOT / "terminology")
         self.assertGreater(metrics["rows"], 0)
         self.assertFalse([issue for issue in issues if issue.severity == "error"])
 
@@ -15167,11 +15173,11 @@ class QualitySamplingTests(unittest.TestCase):
                             self.manifest
                         )
                     ),
-                    "terminology_sha256": hashlib.sha256(
-                        (
+                    "terminology_sha256": (
+                        quality_module.terminology_store_sha256(
                             self.manifest.root / self.manifest.terminology
-                        ).read_bytes()
-                    ).hexdigest(),
+                        )
+                    ),
                     "taxonomy_sha256": quality_module._canonical_sha256(
                         self.taxonomy
                     ),
@@ -15643,11 +15649,11 @@ class QualitySamplingTests(unittest.TestCase):
         ).encode("utf-8")
         self.assertEqual(
             hashlib.sha256(serialized).hexdigest(),
-            "a2935d8e3c56b034e205b7d038295614e6e613f355f57b14c873113af92a0d70",
+            "c8235a4a203fd791d9de5ce23aca7b93ff9b68a5ff6156b4443f7416859b8682",
         )
         self.assertEqual(
             first["sample_id"],
-            "47d93d34b171f33bbf43ecaa56a3b0030e10333c1e4ac92638b988647a3cca12",
+            "efdf5904387d8a7b6d6e65f0ae3df94153577e60f734825fbf498ff442f10c5f",
         )
         self.assertEqual(
             first["items_sha256"],
@@ -15913,11 +15919,11 @@ class QualitySamplingTests(unittest.TestCase):
         ).encode("utf-8")
         self.assertEqual(
             hashlib.sha256(serialized).hexdigest(),
-            "110e5d0e4250c4f25956e8963a3d131f05fa6d6171a19f9421e4f6ac2f7b697d",
+            "0688862ab05e0153104cc11c2f1bc12943c3bbe49f381ca23d29eda4651d39a4",
         )
         self.assertEqual(
             first["sample_id"],
-            "f81365b2847085dc97fca5fb7dbf330942b6f20660e977a6921120250466422c",
+            "899b820ff7ef883c24f89893cdac60a22b611a4c7882c84fd8782222c02cedd7",
         )
         self.assertEqual(
             first["items_sha256"],
@@ -16098,7 +16104,7 @@ class QualitySamplingTests(unittest.TestCase):
         self.assertTrue(all("_features" not in entry for entry in loaded_entries[0]))
         self.assertEqual(
             dry_run["official_sample_id"],
-            "47d93d34b171f33bbf43ecaa56a3b0030e10333c1e4ac92638b988647a3cca12",
+            "efdf5904387d8a7b6d6e65f0ae3df94153577e60f734825fbf498ff442f10c5f",
         )
 
     def test_dry_run_does_not_cache_mutable_inventory_between_calls(self) -> None:
@@ -16572,11 +16578,11 @@ class QualityValidationTests(unittest.TestCase):
                             cls.manifest
                         )
                     ),
-                    "terminology_sha256": hashlib.sha256(
-                        (
+                    "terminology_sha256": (
+                        quality_module.terminology_store_sha256(
                             cls.manifest.root / cls.manifest.terminology
-                        ).read_bytes()
-                    ).hexdigest(),
+                        )
+                    ),
                     "taxonomy_sha256": quality_module._canonical_sha256(
                         cls.taxonomy
                     ),
@@ -16719,7 +16725,8 @@ class QualityValidationTests(unittest.TestCase):
     ) -> tuple[Manifest, dict[str, object], Path]:
         translation_path = root / "canonical.lua"
         copy_fragment_path = root / "copy-fragment.lua"
-        terminology_path = root / "terminology.tsv"
+        terminology_path = root / "terminology" / "fixture.tsv"
+        terminology_path.parent.mkdir(parents=True, exist_ok=True)
         translation_path.write_bytes(b"-- canonical translation fixture\n")
         copy_fragment_path.write_bytes(b"-- copy fragment fixture\n")
         terminology_path.write_bytes(b"fixture terminology bytes\n")
@@ -16732,7 +16739,7 @@ class QualityValidationTests(unittest.TestCase):
             self.manifest,
             root=root,
             components=(component,),
-            terminology="terminology.tsv",
+            terminology="terminology/",
         )
         sample = copy.deepcopy(self.sample)
         sample["translation_inputs_sha256"] = (
@@ -16871,7 +16878,7 @@ class QualityValidationTests(unittest.TestCase):
             ),
             (
                 "terminology",
-                "terminology.tsv",
+                "terminology/fixture.tsv",
                 "sample terminology_sha256 is stale or invalid",
             ),
         )

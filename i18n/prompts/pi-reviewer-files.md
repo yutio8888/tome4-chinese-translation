@@ -19,7 +19,7 @@
 
 - 当前仓库根目录（以仓库根为基准的相对路径）：规范译文 `tome-*.lua`、
   `engine.lua`、`mod-*.lua`、`i18n/`、`tools/`、`tests/`、`docs/`、
-  `TERMINOLOGY.md`、`terminology.tsv`、`AGENTS.md`。
+  `TERMINOLOGY.md`、`terminology/`、`AGENTS.md`。
 - 公开游戏源码 `/Users/yun/projects/t-engine4`（GPL v3，只读）。
 - 公开 DLC 源码 `/Users/yun/projects/tome4-dlcs/`（ashes-urhrok、cults、orcs，
   GPL v3，只读）。
@@ -51,7 +51,7 @@
 ## 审核要求
 
 - 翻译条目：检查 source/target 的语义完整性、printf 参数、控制标记、source_tag
-  语境和明显的空译文或英文残留。可用工具核验 `TERMINOLOGY.md`/`terminology.tsv`
+  语境和明显的空译文或英文残留。可用工具核验 `TERMINOLOGY.md`/`terminology/`
   的术语一致性、规范译文文件中的相邻条目语境，以及公开源码中对应文本的机制
   （记录组件、公开源码相对路径与关键调用，不要贴大段源码）。
 - 代码 diff：可以读取仓库中对应文件核实上下文（diff 之外的行、相关调用方、

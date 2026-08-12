@@ -213,9 +213,9 @@ git diff --check && echo DIFF_OK
 
 ## 术语库工作流
 
-- 开始翻译或审校前，先阅读 `TERMINOLOGY.md` 和 `terminology.tsv`。
+- 开始翻译或审校前，先阅读 `TERMINOLOGY.md` 和 `terminology/`。
 - 主代理阅读术语库不等于把术语或 Facts 注入 blind semantic discovery；术语/专名疑点只能在 observation 产生后按 claim 核验与裁决。
-- 新增或修改高复用术语时，先更新 `terminology.tsv`，再修改对应的 Lua 翻译文件。
+- 新增或修改高复用术语时，先更新 `terminology/`，再修改对应的 Lua 翻译文件。
 - 保留现有 `t(...)` 第三个参数作为 `source_tag`，并为术语填写 `T.*` `category`；不能只按英文原文做全局替换。
 - 同一个英文词在不同 section 或 `source_tag` 下可以有不同译法，必须在 `notes` 中说明语境。
 - 修改术语后，用 Lua 5.1/LuaJIT 加载现有翻译文件检查 `source`、`target` 和 `source_tag` 是否仍然有效。

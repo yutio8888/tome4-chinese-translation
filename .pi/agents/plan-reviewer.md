@@ -25,7 +25,7 @@ JSON 输出到标准输出，不写入任何文件。
 
 - 当前仓库根目录（以仓库根为基准的相对路径）：规范译文 `tome-*.lua`、
   `engine.lua`、`mod-*.lua`、`i18n/`、`tools/`、`tests/`、`docs/`、
-  `TERMINOLOGY.md`、`terminology.tsv`、`AGENTS.md`。
+  `TERMINOLOGY.md`、`terminology/`、`AGENTS.md`。
 - 公开游戏源码 `/Users/yun/projects/t-engine4`（GPL v3，只读）。
 - 公开 DLC 源码 `/Users/yun/projects/tome4-dlcs/`（ashes-urhrok、cults、orcs，
   GPL v3，只读）。

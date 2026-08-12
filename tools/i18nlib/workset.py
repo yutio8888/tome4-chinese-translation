@@ -91,27 +91,9 @@ def _resolve_manifest_path(manifest: Manifest, path: Path, label: str) -> Path:
 
 
 def _terminology_rows(path: Path) -> tuple[list[dict[str, str]], str]:
-    try:
-        raw = path.read_bytes()
-        text = raw.decode("utf-8")
-        reader = csv.DictReader(text.splitlines(), delimiter="\t")
-        rows = list(reader)
-    except (OSError, UnicodeDecodeError, csv.Error) as error:
-        raise ValidationError(f"cannot load terminology for workset: {path}: {error}") from error
-    required = ("source", "target", "category", "source_tag", "status", "scope", "notes")
-    if reader.fieldnames is None or any(
-        field not in reader.fieldnames for field in required
-    ):
-        raise ValidationError(f"terminology header is invalid: {path}")
-    for row_number, row in enumerate(rows, start=2):
-        if any(
-            row.get(field) is not None and not isinstance(row.get(field), str)
-            for field in required
-        ):
-            raise ValidationError(
-                f"terminology row {row_number} is malformed: {path}"
-            )
-    return rows, hashlib.sha256(raw).hexdigest()
+    from .terminology import load_terminology_rows, terminology_store_sha256
+
+    return load_terminology_rows(path), terminology_store_sha256(path)
 
 
 def _canonical_sha256(value: Any) -> str:

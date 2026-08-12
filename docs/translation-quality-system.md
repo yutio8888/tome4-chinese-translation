@@ -19,7 +19,7 @@
 
 - 规范 Lua 译文及基于 LuaJIT 的语义加载器；
 - `lint --strict` 对空译文、printf 参数、控制标记和组件内运行时键冲突的检查；
-- `terminology.tsv` 的 `existing / review / preferred` 术语状态和上下文信息；
+- `terminology/` 的 `existing / review / preferred` 术语状态和上下文信息；
 - 跨组件运行时键扫描、重复键分类和构建验证；
 - 内容寻址的 review bundle、结构化 finding、remediation proposal 与人工裁决记录；
 - 固定游戏版本、源码 commit 和提取快照的 manifest。
@@ -81,7 +81,7 @@ Lua、格式参数、控制标记、运行时冲突和未解决严重错误属�
 ### 2.6 规范数据与派生数据分离
 
 - 规范 Lua 仍是整句译文的唯一内容源；
-- `terminology.tsv` 仍是术语裁决的唯一内容源；
+- `terminology/` 仍是术语裁决的唯一内容源；
 - 版本控制中只保存质量规则、严格校验过的人工裁决和基准集；
 - 全量清单、评分报告、候选库和检索索引均为可重建 artifact；
 - 模型原始输出和未裁决候选不得直接进入权威质量数据。
@@ -332,7 +332,7 @@ review_priority = defect_likelihood × impact × player_exposure × reuse_amplif
 | 数据 | 权威来源 |
 |---|---|
 | 整句译文 | 规范 Lua |
-| 术语 | `terminology.tsv` |
+| 术语 | `terminology/` |
 | 游戏版本和源码基线 | `i18n/versions/*.json` |
 | 技术门禁规则 | `i18n/policy.json` 及质量 policy |
 | 人工质量裁决 | 严格校验后的 quality assessment/benchmark 数据 |
@@ -518,7 +518,7 @@ i18n/quality/
 | 现有能力 | 在质量系统中的角色 | 不能单独证明的内容 |
 |---|---|---|
 | `lint --strict` | `QG_LOAD/QG_FORMAT/QG_MARKUP` 等确定性门禁 | 语义准确性和中文自然度 |
-| `terminology.tsv` | 术语依赖、适用范围和 preferred 证据 | 整句质量 |
+| `terminology/` | 术语依赖、适用范围和 preferred 证据 | 整句质量 |
 | runtime collision 工具 | `QG_RUNTIME` 和一致性风险 | 某个统一 target 是否语义最佳 |
 | review/findings | 结构化问题 observation | 未报告条目一定无问题 |
 | remediation ledger | finding 的处置与证据 | 修订后的新 revision 已完成全量复审 |

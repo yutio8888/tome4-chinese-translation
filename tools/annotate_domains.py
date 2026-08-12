@@ -14,7 +14,12 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-TSV = ROOT / "terminology.tsv"
+
+import sys
+sys.path.insert(0, str(ROOT / "tools"))
+from i18nlib.errors import I18nToolError  # noqa: E402
+from i18nlib.terminology import load_terminology_rows  # noqa: E402
+TSV = ROOT / "terminology"
 OUT = ROOT / ".artifacts/i18n/terminology-audit"
 
 # ---------- 领域体系 ----------
@@ -98,34 +103,8 @@ _VALUE_REQUIRED_FIELDS = ("source", "target", "category", "domain")
 
 
 def _read_rows(tsv_path: Path) -> list[dict[str, object]]:
-    rows: list[dict[str, object]] = []
-    with tsv_path.open("r", encoding="utf-8", newline="") as handle:
-        reader = csv.DictReader(handle, delimiter="\t", strict=True)
-        fieldnames = reader.fieldnames or []
-        missing = [field for field in _REQUIRED_FIELDS if field not in fieldnames]
-        if missing:
-            raise ValueError(
-                "terminology TSV is missing required columns: "
-                + ", ".join(missing)
-            )
-        for line, row in enumerate(reader, start=2):
-            if None in row:
-                raise ValueError(
-                    f"terminology TSV line {line} has unexpected extra columns"
-                )
-            missing_values = [
-                field
-                for field in _VALUE_REQUIRED_FIELDS
-                if row.get(field) is None
-            ]
-            if missing_values:
-                raise ValueError(
-                    f"terminology TSV line {line} is missing values for: "
-                    + ", ".join(missing_values)
-                )
-            row["_line"] = line
-            rows.append(row)
-    return rows
+    """Read terminology rows via the shared store loader (file or directory)."""
+    return load_terminology_rows(tsv_path)
 
 
 def _infer_domain(row: dict[str, object]) -> str | None:
@@ -252,6 +231,9 @@ def main(*, tsv_path=TSV, output_dir=OUT):
         _print_summary(report, output_dir)
         return 0 if report["ok"] else 1
     except (OSError, UnicodeError, csv.Error, ValueError) as error:
+        print(f"domain annotation failed: {error}", file=sys.stderr)
+        return 2
+    except I18nToolError as error:
         print(f"domain annotation failed: {error}", file=sys.stderr)
         return 2
     finally:

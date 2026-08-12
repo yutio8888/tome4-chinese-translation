@@ -22,6 +22,7 @@ from typing import Callable
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from i18nlib import TOOL_VERSION  # noqa: E402
+from i18nlib import terminology as terminology_store  # noqa: E402
 from i18nlib.config import DEFAULT_VERSION, Manifest, load_manifest  # noqa: E402
 from i18nlib.errors import I18nToolError, ValidationError  # noqa: E402
 from i18nlib.lint import (  # noqa: E402
@@ -403,51 +404,12 @@ def load_translation_documents(
 
 
 def load_terminology_rows(path: Path) -> list[dict[str, object]]:
-    """Read and structurally validate terminology without changing it."""
-    rows: list[dict[str, object]] = []
-    reader: csv.DictReader[str] | None = None
-    try:
-        with path.open("r", encoding="utf-8", newline="") as handle:
-            reader = csv.DictReader(handle, delimiter="\t", strict=True)
-            fieldnames = tuple(reader.fieldnames or ())
-            if fieldnames != TERMINOLOGY_FIELDS:
-                raise ValidationError(
-                    f"invalid terminology TSV: {path}: line 1: "
-                    f"expected fields {TERMINOLOGY_FIELDS!r}, got {fieldnames!r}"
-                )
-            for row in reader:
-                line = max(reader.line_num, 2)
-                missing = [
-                    field
-                    for field in TERMINOLOGY_REQUIRED_FIELDS
-                    if field not in row or row[field] is None
-                ]
-                if missing:
-                    raise ValidationError(
-                        f"invalid terminology TSV: {path}: line {line}: "
-                        f"missing required fields: {', '.join(missing)}"
-                    )
-                empty = [
-                    field
-                    for field in TERMINOLOGY_REQUIRED_FIELDS
-                    if not row[field].strip()
-                ]
-                if empty:
-                    raise ValidationError(
-                        f"invalid terminology TSV: {path}: line {line}: "
-                        f"empty required fields: {', '.join(empty)}"
-                    )
-                validated_row: dict[str, object] = dict(row)
-                validated_row["_line"] = line
-                rows.append(validated_row)
-    except ValidationError:
-        raise
-    except (OSError, UnicodeDecodeError, csv.Error) as error:
-        line = max(reader.line_num if reader is not None else 1, 1)
-        raise ValidationError(
-            f"invalid terminology TSV: {path}: line {line}: {error}"
-        ) from error
-    return rows
+    """Read and structurally validate terminology without changing it.
+
+    Delegates to the shared terminology store loader, which accepts either a
+    single TSV file or the domain directory (``terminology/``).
+    """
+    return terminology_store.load_terminology_rows(path)
 
 
 def _tag_repr(tag: object) -> str:
@@ -729,7 +691,7 @@ def run_terminology_inventory(
         "extractor_commit": manifest.extractor.commit,
         "terminology": {
             "path": str(tsv_path),
-            "sha256": _sha256(tsv_path),
+            "sha256": terminology_store.terminology_store_sha256(tsv_path),
             "rows": len(rows),
         },
         "components": components_snapshot,
