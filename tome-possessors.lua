@@ -13,7 +13,7 @@ section "tome-possessors/data/birth/psionic.lua"
 
 t("Possessor", "占据者", "birth descriptor name")
 t("#CRIMSON#BEWARE: This class is very #{italic}#strange#{normal}# and may be confusing to play for beginners.#LAST#", "#CRIMSON#注意: 该职业机制相当 #{italic}#奇怪#{normal}# ，可能不适合新手使用。#LAST#", "_t")
-t("Possessors are a rare breed of psionics. Some call them body snatchers. Some call them nightmarish.", "支配者是一类极其稀有的灵能力者。有些人称其为身体掠夺者，有些人视其为噩梦。", "_t")
+t("Possessors are a rare breed of psionics. Some call them body snatchers. Some call them nightmarish.", "占据者是一类极其稀有的灵能力者。有些人称其为身体掠夺者，有些人视其为噩梦。", "_t")
 t("They are adept at stealing their foes corpses for their own use. Discarding their own bodies for a while to use other's.", "他们擅长偷取敌人死亡后的身体，能暂时抛弃自己的躯体，使用其他身体。", "_t")
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
@@ -143,7 +143,7 @@ t([[Your psionic powers have no limits. You are now able to assault a target and
 ------------------------------------------------
 section "tome-possessors/data/talents/psionic/possession.lua"
 
-t("Possession Talent %d", "支配技能%d", "tformat")
+t("Possession Talent %d", "附身技能%d", "tformat")
 t("You must assume a form to use that form's talents.", "你必须占据一个身体才能使用这个身体的技能。", "logPlayer")
 t([[When you assume a form, this talent will be replaced with one of the body's talents.
 			The only use for this talent is to pre-organize your hotkeys bar.]], [[附身时，该技能会被替换成身体的其中一个技能。
@@ -179,13 +179,13 @@ t([[You call upon one of your reserve bodies, assuming its form.
 		附身时你现有的装备被#{italic}#合并#{normal}#到你身上，你无法更换装备。
 		拥有的身体 :
 		%s]], "tformat")
-t("Possess", "支配", "talent name")
+t("Possess", "附身", "talent name")
 t("You do not have enough room in your bodies storage.", "你的身体存储空间不够。", "logPlayer")
 t("This creature is immune to possession.", "这个生物免疫附身。", "logPlayer")
 t("You may not possess a creature which you summoned.", "你不能附身你自己召唤的生物。", "logPlayer")
 t("You may not possess a creature which has an expiration time or a master.", "你不能附身有时间限制或者主人的生物。", "logPlayer")
 t("You may not possess a creature of this rank (%s%s#LAST#).", "你不能附身这个阶级的生物(%s%s#LAST#).", "logPlayer")
-t("Possess", "支配", "_t")
+t("Possess", "附身", "_t")
 t("Permanently learn to possess creatures of type #LIGHT_BLUE#%s#LAST# (you may only do that a few times, based on talent level) ?", "确认要永久性地学习占据#LIGHT_BLUE#%s#LAST#身体的能力吗（你只能学习有限次，基于技能等级）？", "tformat")
 t("No", "否", "_t")
 t("Yes", "是", "_t")
@@ -214,7 +214,7 @@ t([[You cast a psionic web at a target that lasts for %d turns. Each turn it dea
 		等级 7 时最多可偷取 %s%s#LAST#.
 
 		你可能只会偷走以下类型的生物的尸体 : #LIGHT_BLUE#%s#LAST#
-		当你尝试拥有不同类型的生物时，你可以永久学习此类型，你还可以执行 %d 次。]], "tformat")
+		当你尝试附身不同类型的生物时，你可以永久学习此类型，你还可以执行 %d 次。]], "tformat")
 t("Self Persistence", "自我坚持", "talent name")
 t("When you assume the form of an other body you can still keep %d%% of the values (defences, crits, powers, save, ...) of your own body.", "当你附身时，你还可以保留自己身体的属性 %d%% 。 (闪避, 暴击, 强度, 豁免, ……)", "tformat")
 t("Improved Form", "身体改进", "talent name")
@@ -281,8 +281,8 @@ t([[You point your ghastly finger at a foe affected by Ghastly Wail and send a p
 section "tome-possessors/data/talents/psionic/psionic.lua"
 
 t("psionic", "灵能", "talent category")
-t("possession", "支配", "talent type")
-t("Learn to possess the bodies of your foes!", "学会支配敌人的身体！", "_t")
+t("possession", "附身", "talent type")
+t("Learn to possess the bodies of your foes!", "学会附身敌人的身体！", "_t")
 t("body snatcher", "躯体夺取", "talent type")
 t("Manipulate your dead foes bodies for power and success!", "操纵敌人的尸体，获取力量与胜利！", "_t")
 t("psionic menace", "灵能威吓", "talent type")
@@ -365,7 +365,7 @@ t([[As long as you have at least a stack of Sadist you can mentally lash out at 
 section "tome-possessors/data/timed_effects.lua"
 
 t("psionic", "灵能", "effect subtype")
-t("possession", "支配", "effect subtype")
+t("possession", "附身", "effect subtype")
 t("Ominous Form", "不祥躯体", "_t")
 t("You stole your current form and share damage and healing with it.", "你偷取了当前躯体，并和它共享伤害与治疗。", "_t")
 t("Assume Form", "附身", "_t")
@@ -380,15 +380,15 @@ t("The flames surrounding Shasshhiy'Kaish slowly die as she falls to her knees. 
 t("High Sun Paladin Aeryn", "高阶太阳骑士艾琳", "_t")
 t("Aeryn's bewildered and terrified cries grow quiet, but...  your ears don't ring or hurt as screams of horror and rage surround you, louder than should be deafening.  When they shift to accusations, an unfamiliar guilt dominates your thoughts; you are forced to abandon your body before it can compel you to punish yourself.", "艾琳困惑而惊恐的哭声渐渐平静下来，但是……当恐惧和愤怒的尖叫声围绕着你，比震耳欲聋还要响亮的时候，你的耳朵不会响也不会痛。当他们转向指责时，一种陌生的罪恶感支配着你的思想；在它迫使你惩罚自己之前，你被迫放弃你的身体。", "_t")
 t("stun", "震慑", "effect subtype")
-t("Possession Aftershock", "支配余震", "_t")
-t("The target is reeling from the aftershock of a destroyed possessed body, reducing damage by 60%%, reducing movement speed by 50%%.", "目标正承受支配身体被摧毁的余震，伤害减少 60%%, 移动速度减少 50%%。", "tformat")
+t("Possession Aftershock", "附身余震", "_t")
+t("The target is reeling from the aftershock of a destroyed possessed body, reducing damage by 60%%, reducing movement speed by 50%%.", "目标正承受附身躯体被摧毁后的余震，伤害减少 60%%, 移动速度减少 50%%。", "tformat")
 t("#Target# is stunned!", "#Target#被震慑！", "_t")
 t("+Stunned", "+震慑", "_t")
 t("#Target# is not stunned anymore.", "#Target#不再被震慑。", "_t")
 t("-Stunned", "-震慑", "_t")
-t("possess", "支配", "effect subtype")
+t("possess", "附身", "effect subtype")
 t("mind", "精神", "effect subtype")
-t("Possess", "支配", "_t")
+t("Possess", "附身", "_t")
 t("The victim is snared in a psionic web that is destroying its mind and preparing its body for possession.  It takes %0.2f Mind damage per turn.", "目标被困在灵能网中，其心智正被摧毁，身体正为附身做准备。每回合受到 %0.2f 精神伤害。", "tformat")
 t("#Target#'s mind is convulsing.", "#Target#的精神在抽搐。", "_t")
 t("#Target#'s mind is not convulsing anymore.", "#Target#的精神不再抽搐。", "_t")
@@ -441,8 +441,8 @@ t("%s can not use %s because of Tortured Mind!", "由于精神拷打，%s无法�
 ------------------------------------------------
 section "tome-possessors/init.lua"
 
-t("Possessor Bonus Class", "支配者职业包", "init.lua long_name")
-t("Possessor class.", "支配者职业。", "init.lua description")
+t("Possessor Bonus Class", "占据者职业包", "init.lua long_name")
+t("Possessor class.", "占据者职业。", "init.lua description")
 
 ------------------------------------------------
 section "tome-possessors/overload/mod/dialogs/AssumeForm.lua"
@@ -498,4 +498,3 @@ t("Assume Form: Select Talents (max talent level %0.1f)", "附身: 选择技能 
 t("Possess Body", "附身", "_t")
 t("Cancel", "取消", "_t")
 t("#SLATE##{italic}#Your level of #LIGHT_BLUE#Full Control talent#LAST# is not high enough to use all the talents of this body. Select which to keep, your choice will be permanent for this body and its clones.", "#SLATE##{italic}#你的 #LIGHT_BLUE#完全控制#LAST# 技能 等级 不足，无法使用该身体的所有技能，选择需要保留的技能。 你的选择对该身体及其克隆永久生效。", "_t")
-
