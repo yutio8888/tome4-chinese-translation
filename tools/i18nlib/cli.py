@@ -88,9 +88,14 @@ from .quality_v3 import (
     validate_stability_preregistration_v3,
 )
 from .report import create_run_directory, write_json
-from .review import create_review_index, review_index_summary
+from .review import (
+    DEFAULT_REVIEW_BATCH_SIZE,
+    create_review_index,
+    review_index_summary,
+)
 from .runtime import LuaRuntime
 from .status import status_report
+from .translation_review import DEFAULT_TRANSLATION_CHARACTER_BUDGET
 from .workset import create_workset
 
 
@@ -258,7 +263,22 @@ def _parser() -> argparse.ArgumentParser:
         "review", help="create bounded Pi review bundles for an explicit scope"
     )
     _add_common_arguments(review)
-    review.add_argument("--batch-size", type=int, default=50)
+    review.add_argument(
+        "--batch-size", type=int, default=DEFAULT_REVIEW_BATCH_SIZE,
+        help=(
+            "hard maximum items per bundle (default: 10; translation v2 maximum: "
+            "10; code v1 maximum: 100)"
+        ),
+    )
+    review.add_argument(
+        "--character-budget",
+        type=int,
+        default=DEFAULT_TRANSLATION_CHARACTER_BUDGET,
+        help=(
+            "maximum summed canonical JSON characters for translation items per "
+            "bundle (default: 24000); the index also records actual payload bytes"
+        ),
+    )
     review.add_argument(
         "--scope",
         action="append",
@@ -1043,6 +1063,7 @@ def _review(arguments: argparse.Namespace) -> int:
     index = create_review_index(
         manifest,
         batch_size=arguments.batch_size,
+        character_budget=arguments.character_budget,
         include_translations="translations" in scopes,
         include_code="code" in scopes,
     )

@@ -1,7 +1,9 @@
 """Run a file-reading Pi reviewer against a bounded review bundle.
 
-Same bounded bundle scope, findings contract and strict validation as
-``tools/pi-review``, but the Pi subprocess is started with an explicit
+This legacy file-reading path accepts code/v1 bundles. Translation semantic
+v2 observations require a separate claim-bound verification contract and are
+rejected here so a source-aware model cannot silently expand discovery scope.
+The Pi subprocess is started with an explicit
 ``--tools read,bash`` allowlist instead of ``--no-tools``.  The model may
 therefore verify evidence against public project, game and DLC sources;
 ``edit``/``write`` are never enabled, the working directory is the manifest
@@ -39,7 +41,7 @@ from .pi_agent import (
     _pi_environment,
 )
 from .pi_run_options import validate_pi_run_options
-from .pi_review import _validate_findings
+from .pi_review import _is_translation_v2, _stage_validated_json, _validate_findings
 from .proposal import decode_json_object, extract_event_stream_output
 from .report import atomic_write_bytes, create_run_directory, write_json
 from .review import (
@@ -312,9 +314,19 @@ def run_pi_file_review(
     _validate_file_review_cache_options(use_cache=use_cache, force=force)
     manifest = load_manifest()
     bundle_resolved = bundle_path.expanduser().resolve()
-    bundle = validate_review_bundle(manifest, bundle_resolved)
+    bundle = validate_review_bundle(
+        manifest, bundle_resolved, allow_legacy_translations=True
+    )
+    if _is_translation_v2(bundle):
+        raise ValidationError(
+            "translation review v2 bundles cannot use legacy file review; "
+            "source verification requires a claim-bound contract over existing observation ids"
+        )
     run_directory = create_run_directory(manifest.root, "pi-file-review")
     run_directory.chmod(0o700)
+    validated_bundle_path, payload_sha256, payload_bytes = _stage_validated_json(
+        run_directory, "validated-bundle.json", bundle
+    )
     raw_output_path = run_directory / "raw-output.txt"
     stderr_path = run_directory / "pi-stderr.txt"
     review_path = run_directory / "review.json"
@@ -348,6 +360,9 @@ def run_pi_file_review(
         "concurrency": 1,
         "run_id": run_directory.name,
         "bundle": str(bundle_resolved),
+        "validated_bundle": str(validated_bundle_path),
+        "payload_sha256": payload_sha256,
+        "payload_bytes": payload_bytes,
         "bundle_id": bundle["bundle_id"],
         "kind": bundle["kind"],
         "prompt_sha256": prompt_sha256,
@@ -376,7 +391,7 @@ def run_pi_file_review(
         thinking=thinking,
         system_prompt=system_prompt,
         bundle=bundle,
-        bundle_resolved=bundle_resolved,
+        bundle_resolved=validated_bundle_path,
     )
     report.update(
         {

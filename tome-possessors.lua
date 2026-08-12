@@ -11,7 +11,7 @@ t("Kill High Paladin Aeryn with the body of Sun Paladin John.", "使用太阳骑
 ------------------------------------------------
 section "tome-possessors/data/birth/psionic.lua"
 
-t("Possessor", "支配者", "birth descriptor name")
+t("Possessor", "占据者", "birth descriptor name")
 t("#CRIMSON#BEWARE: This class is very #{italic}#strange#{normal}# and may be confusing to play for beginners.#LAST#", "#CRIMSON#注意: 该职业机制相当 #{italic}#奇怪#{normal}# ，可能不适合新手使用。#LAST#", "_t")
 t("Possessors are a rare breed of psionics. Some call them body snatchers. Some call them nightmarish.", "支配者是一类极其稀有的灵能力者。有些人称其为身体掠夺者，有些人视其为噩梦。", "_t")
 t("They are adept at stealing their foes corpses for their own use. Discarding their own bodies for a while to use other's.", "他们擅长偷取敌人死亡后的身体，能暂时抛弃自己的躯体，使用其他身体。", "_t")
@@ -291,7 +291,7 @@ t("psychic blows", "灵能打击", "talent type")
 t("Wield a two handed weapon to channel your psionics into your foes' faces!", "用灵能操控双手武器攻击对手！", "_t")
 t("battle psionics", "灵能战斗", "talent type")
 t("Dual wield a one handed weapon and a mindstar to assail your enemies's minds and bodies!", "使用单手武器和灵晶攻击敌人的身体和精神！", "_t")
-t("deep horror", "无尽恐惧", "talent type")
+t("deep horror", "深邃恐惧", "talent type")
 t("Through your psionic powers you become a nightmare for your foes.", "通过灵能量，你成为了敌人的梦魇！", "_t")
 t("ravenous mind", "极度饥渴", "talent type")
 t("Your mind hungers for pain and suffering! Feed it!", "你的精神渴望痛苦！满足它吧！", "_t")

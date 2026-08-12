@@ -19,13 +19,11 @@ from .lint import Policy, lint_documents, load_policy
 from .locale_model import LocaleDocument
 from .pi_agent import DEFAULT_MODEL, DEFAULT_PROVIDER, DEFAULT_THINKING, _pi_environment
 from .pi_run_options import validate_pi_run_options as _validate_run_options
+from .pi_review import _stage_validated_json
 from .proposal import decode_json_object, extract_event_stream_output
 from .report import atomic_write_bytes, create_run_directory, write_json
 from .review import (
     DEFAULT_REVIEW_TIMEOUT,
-    REVIEW_CONTRACT,
-    REVIEW_SCHEMA_VERSION,
-    _read_bundle,
     _validate_findings_for_remediation,
     validate_review_bundle,
 )
@@ -33,6 +31,7 @@ from .semantics import json_value_signature
 
 
 REMEDIATION_CONTRACT = "tome4-review-remediation-v1"
+REMEDIATION_SCHEMA_VERSION = 1
 REMEDIATION_ACTIONS = frozenset(
     {"replace-translation", "patch-code", "no-change"}
 )
@@ -85,13 +84,6 @@ def _read_review(path: Path, bundle: dict[str, Any]) -> dict[str, Any]:
         raise ValidationError(f"invalid validated review: {path}") from error
     if not isinstance(value, dict):
         raise ValidationError("validated review must be an object")
-    if (
-        type(value.get("schema_version")) is not int
-        or value["schema_version"] != REVIEW_SCHEMA_VERSION
-    ):
-        raise ValidationError("validated review has an unsupported schema")
-    if value.get("review_contract") != REVIEW_CONTRACT:
-        raise ValidationError("validated review has an unsupported contract")
     if value.get("bundle_id") != bundle.get("bundle_id"):
         raise ValidationError("validated review bundle_id does not match")
     _validate_findings_for_remediation(bundle, value)
@@ -120,7 +112,7 @@ def _validate_remediation(
             )
     if (
         type(output.get("schema_version")) is not int
-        or output["schema_version"] != REVIEW_SCHEMA_VERSION
+        or output["schema_version"] != REMEDIATION_SCHEMA_VERSION
     ):
         raise ValidationError("Pi remediation has an unsupported schema")
     if output.get("remediation_contract") != REMEDIATION_CONTRACT:
@@ -396,7 +388,9 @@ def run_pi_remediation(
     )
     manifest = load_manifest()
     bundle_resolved = bundle_path.expanduser().resolve()
-    bundle = validate_review_bundle(manifest, bundle_resolved)
+    bundle = validate_review_bundle(
+        manifest, bundle_resolved, allow_legacy_translations=True
+    )
     review_resolved = review_path.expanduser().resolve()
     review = _read_review(review_resolved, bundle)
     policy = load_policy(manifest)
@@ -410,12 +404,18 @@ def run_pi_remediation(
         raise AgentError(f"cannot read Pi remediator prompt: {prompt_path}") from error
     run_directory = create_run_directory(manifest.root, "pi-remediate")
     run_directory.chmod(0o700)
+    validated_bundle_path, bundle_payload_sha256, bundle_payload_bytes = (
+        _stage_validated_json(run_directory, "validated-bundle.json", bundle)
+    )
+    validated_review_path, review_payload_sha256, review_payload_bytes = (
+        _stage_validated_json(run_directory, "validated-review.json", review)
+    )
     raw_output_path = run_directory / "raw-output.txt"
     stderr_path = run_directory / "pi-stderr.txt"
     remediation_path = run_directory / "remediation.json"
     report_path = run_directory / "pi-remediation.json"
     report: dict[str, Any] = {
-        "schema_version": REVIEW_SCHEMA_VERSION,
+        "schema_version": REMEDIATION_SCHEMA_VERSION,
         "remediation_contract": REMEDIATION_CONTRACT,
         "tool_version": TOOL_VERSION,
         "ok": False,
@@ -425,8 +425,14 @@ def run_pi_remediation(
         "thinking": thinking,
         "strict": strict,
         "bundle": str(bundle_resolved),
+        "validated_bundle": str(validated_bundle_path),
+        "bundle_payload_sha256": bundle_payload_sha256,
+        "bundle_payload_bytes": bundle_payload_bytes,
         "bundle_id": bundle["bundle_id"],
         "review": str(review_resolved),
+        "validated_review": str(validated_review_path),
+        "review_payload_sha256": review_payload_sha256,
+        "review_payload_bytes": review_payload_bytes,
         "review_id": review["review_id"],
         "kind": bundle["kind"],
         "prompt_sha256": hashlib.sha256(system_prompt.encode("utf-8")).hexdigest(),
@@ -441,8 +447,8 @@ def run_pi_remediation(
         thinking=thinking,
         system_prompt=system_prompt,
         bundle=bundle,
-        bundle_resolved=bundle_resolved,
-        review_resolved=review_resolved,
+        bundle_resolved=validated_bundle_path,
+        review_resolved=validated_review_path,
         review_id=review["review_id"],
     )
     try:

@@ -1,6 +1,7 @@
 # Pi 审核与修复效率优化方案（目标架构与 MVP 实施基线）
 
 - 状态：目标架构冻结；首版按只读、单进程、固定 bundle 的 MVP 边界开始实施
+- 2026-08-08 更新：主代理已全面转向 pi coding agent。本文中“Pi 始终无工具、无会话、无项目上下文”类表述仅指审核子进程与项目 subagent，不再指主代理；角色定义与输入边界以 `AGENTS.md` 为准（scout/plan-reviewer 源码感知 subagent 已引入，见 `AGENTS.md` 与 `.agents/skills/tome4-pi-subagent/`）。
 - 日期：2026-08-01
 - 审阅依据：`review.md` 第六稿；前序 Codex 内置审阅；此前“高效性与闭环性”独立审阅；第九、十轮
   独立无上下文审阅
