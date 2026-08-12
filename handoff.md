@@ -2,7 +2,7 @@
 
 更新时间：2026-08-11
 
-状态：**P0/P1/P2 已收束（P2：851 撤销 + 5 advisory + 1 已确认 finding 已修复并复审通过）**
+状态：**P0/P1/P2/P3 已收束（P3：745 撤销 + 33 确认，无已确认 finding）**
 
 本文件是当前第二轮术语审核工作线的正式交接入口。接手者应先阅读本文件、根目录 `AGENTS.md`、`docs/terminology-review-round-2.md`，再按本文“下一步”继续。所有尚未明确确认的 observation 不得直接进入 remediation。
 
@@ -13,7 +13,7 @@
 - 工作分支：`audit/terminology-review-round-2`
 - 基础：`develop` / `a781a35`
 - 工作目标：审核现有汉化的术语**完整性、合理性、一致性**，并在独立裁决后分批修复。
-- 当前停止点：P0/P1/P2 全部收束。P2 workset（1,871 候选/1,746 需人工/101 行）重建，blind discovery（196 bundles/1,903 items/857 observation）与分组源码裁决完成（851 撤销/5 advisory/1 已确认），Foul Convergence→污秽夹击 已修复并通过门禁与全新只读复审（1 observation 撤销，无新增确认 finding）。下一步为 P3 批次。
+- 当前停止点：P0/P1/P2/P3 全部收束。P3 workset（3,526 候选/1,526 需人工/94 抽样/96 行）冻结，blind discovery（296 bundles/2,828 items/778 observation）与分组源码裁决完成：745 撤销 + 33 确认（CI 补上下文），**无已确认 finding**。下一步为 P4 批次（newLore/achievement/UI/runtime log）。
 - P0 已修改 `terminology.tsv` 与规范 Lua，完整修订与验证结果见 5.5–5.7；后续不得重新打开已退出的 P0，除非出现新的源码证据或回归。
 - P1 当前仅完成审核第一阶段，没有修改 TSV 或规范 Lua；pending observation 不得进入 remediation。
 - 不得创建 commit 或 checkpoint，除非用户明确授权。
@@ -287,7 +287,13 @@ Convergence→阴险同谋，建议“污秽夹击”），记录：`decisions/P
 QualitySampling 黄金值同步更新），workset 重建（SHA `4b254b67…`）；全新只读复审
 （1 bundle/1 item，`P2-fix-review/`）：1 observation 撤销（源码机制“both teleport
 and make a melee attack”=夹击，官方同译）。**P2 收束，无新增已确认 finding**，
-记录：`decisions/P2-fix-review.md`。下一步：P3 批次（entity name/subtype 等）。
+记录：`decisions/P2-fix-review.md`。P3 进度（2026-08-12）：workset 冻结
+（`P3-entities-v1.json`，SHA `e254a498…`）；blind discovery（296 bundles/2,828
+items，外发留痕见 `decisions/P3-adjudication.md`，observations SHA `b12f06c7…`）；
+分组源码裁决：745 撤销 + 33 确认（CI 补上下文，含 `long→很长的` 主代理直接核验），
+**0 已确认 finding**（32 偏离中本仓库优占多数：d.steel/宝石标准译名/vial 系列等）。
+记录：`decisions/P3-adjudication.md` + `P3-adjudication.json`。下一步：P4 批次
+（newLore 35 + achievement 199 + 运行时/格式标签 142 + chat_*/dialog 等）。
 
 ### 7.4 后续批次
 
