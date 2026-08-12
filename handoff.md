@@ -2,7 +2,7 @@
 
 更新时间：2026-08-11
 
-状态：**P0/P1/P2/P3 已收束（P3：745 撤销 + 33 确认，无已确认 finding）**
+状态：**P0–P4 全部批次已收束（P4：198 撤销 + 3 确认 + 1 advisory，无已确认 finding；全批次仅 P0 12 根问题与 P2 Foul Convergence 为已确认 finding 且均已修复）**
 
 本文件是当前第二轮术语审核工作线的正式交接入口。接手者应先阅读本文件、根目录 `AGENTS.md`、`docs/terminology-review-round-2.md`，再按本文“下一步”继续。所有尚未明确确认的 observation 不得直接进入 remediation。
 
@@ -13,7 +13,7 @@
 - 工作分支：`audit/terminology-review-round-2`
 - 基础：`develop` / `a781a35`
 - 工作目标：审核现有汉化的术语**完整性、合理性、一致性**，并在独立裁决后分批修复。
-- 当前停止点：P0/P1/P2/P3 全部收束。P3 workset（3,526 候选/1,526 需人工/94 抽样/96 行）冻结，blind discovery（296 bundles/2,828 items/778 observation）与分组源码裁决完成：745 撤销 + 33 确认（CI 补上下文），**无已确认 finding**。下一步为 P4 批次（newLore/achievement/UI/runtime log）。
+- 当前停止点：P0–P4 全部收束。P4 workset（521 候选/291 需人工/20 抽样/189 行）冻结，blind discovery（66 bundles/618 items/202 observation）与分组源码裁决完成：198 撤销 + 3 确认 + 1 advisory（Dreadfell），**无已确认 finding**。全批次裁决完成，下一步：完整门禁 + 构建 smoke + 一轮独立只读复审（handoff 7.4）。
 - P0 已修改 `terminology.tsv` 与规范 Lua，完整修订与验证结果见 5.5–5.7；后续不得重新打开已退出的 P0，除非出现新的源码证据或回归。
 - P1 当前仅完成审核第一阶段，没有修改 TSV 或规范 Lua；pending observation 不得进入 remediation。
 - 不得创建 commit 或 checkpoint，除非用户明确授权。
@@ -292,8 +292,12 @@ and make a melee attack”=夹击，官方同译）。**P2 收束，无新增已
 items，外发留痕见 `decisions/P3-adjudication.md`，observations SHA `b12f06c7…`）；
 分组源码裁决：745 撤销 + 33 确认（CI 补上下文，含 `long→很长的` 主代理直接核验），
 **0 已确认 finding**（32 偏离中本仓库优占多数：d.steel/宝石标准译名/vial 系列等）。
-记录：`decisions/P3-adjudication.md` + `P3-adjudication.json`。下一步：P4 批次
-（newLore 35 + achievement 199 + 运行时/格式标签 142 + chat_*/dialog 等）。
+记录：`decisions/P3-adjudication.md` + `P3-adjudication.json`。P4 进度（2026-08-12）：workset 冻结
+（`P4-narrative-v1.json`，SHA `fbf555aa…`）；blind discovery（66 bundles/618 items，
+observations SHA `01eec7f7…`）；分组源码裁决：198 撤销 + 3 确认（Infinite x40/50、
+?...secar 加密 lore）+ 1 advisory（Dreadfell），**0 已确认 finding**。记录：
+`decisions/P4-adjudication.md` + `P4-adjudication.json`。**P0–P4 全部批次裁决完成**。
+下一步：完整门禁 + 构建 smoke + 一轮独立只读复审。
 
 ### 7.4 后续批次
 
