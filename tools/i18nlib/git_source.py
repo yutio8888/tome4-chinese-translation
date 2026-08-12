@@ -9,7 +9,7 @@ import subprocess
 import tarfile
 from pathlib import Path, PurePosixPath
 
-from .errors import ConfigurationError, ExtractionError
+from .errors import ConfigurationError, ContractError, ExtractionError
 
 
 UNSAFE_GIT_ENV = frozenset(
@@ -134,13 +134,17 @@ class GitRepository:
         }
 
     def resolve_commit(self, expression: str) -> str:
-        """Resolve a rev expression (e.g. HEAD, sha~1) to a full commit OID."""
+        """Resolve a rev expression (e.g. HEAD, sha~1) to a full commit OID.
+
+        Only used by the incremental invalidation commands; an unresolvable
+        pin is a contract-internal failure (contract §11 exit code 3).
+        """
         result = self._run(
             ["rev-parse", "--verify", f"{expression}^{{commit}}"], text=True
         )
         if result.returncode != 0 or not result.stdout.strip():
             detail = result.stderr.strip()
-            raise ConfigurationError(
+            raise ContractError(
                 f"cannot resolve commit {expression!r} in {self.path}"
                 + (f": {detail}" if detail else "")
             )

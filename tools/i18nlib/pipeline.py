@@ -80,12 +80,37 @@ def extract_enriched(
     return indexes, report
 
 
+def load_translation_documents(
+    manifest: Manifest,
+    loader: LocaleLoader,
+    components: Iterable[ComponentSpec],
+) -> list[tuple[str, Any, bool]]:
+    """Load (component_id, LocaleDocument, is_copy_fragment) specs."""
+    specs: list[tuple[str, Any, bool]] = []
+    for component in components:
+        document = loader.load_path(
+            manifest.root / component.translation,
+            logical_path=component.translation,
+        )
+        specs.append((component.id, document, False))
+        if component.copy_fragment:
+            copy_document = loader.load_path(
+                manifest.root / component.copy_fragment,
+                logical_path=component.copy_fragment,
+            )
+            specs.append((component.id, copy_document, True))
+    return specs
+
+
 def lint_documents_specs(
     manifest: Manifest,
     documents_specs: Iterable[tuple[str, Any, bool]],
+    *,
+    policy: Any | None = None,
 ) -> tuple[list[Issue], dict[str, FindingContext], dict[str, Any]]:
     """Lint (component_id, LocaleDocument, is_copy_fragment) specs."""
-    policy = load_policy(manifest)
+    if policy is None:
+        policy = load_policy(manifest)
     documents: list[tuple[str, Any]] = []
     contexts: dict[str, FindingContext] = {}
     for component_id, document, is_copy_fragment in documents_specs:
@@ -107,19 +132,7 @@ def lint_translation_documents(
     loader: LocaleLoader,
     components: Iterable[ComponentSpec],
 ) -> tuple[list[Issue], dict[str, FindingContext], dict[str, Any]]:
-    specs: list[tuple[str, Any, bool]] = []
-    for component in components:
-        document = loader.load_path(
-            manifest.root / component.translation,
-            logical_path=component.translation,
-        )
-        specs.append((component.id, document, False))
-        if component.copy_fragment:
-            copy_document = loader.load_path(
-                manifest.root / component.copy_fragment,
-                logical_path=component.copy_fragment,
-            )
-            specs.append((component.id, copy_document, True))
+    specs = load_translation_documents(manifest, loader, components)
     return lint_documents_specs(manifest, specs)
 
 

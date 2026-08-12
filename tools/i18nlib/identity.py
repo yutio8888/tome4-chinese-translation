@@ -531,7 +531,13 @@ def build_component_index(
         editorial_id = stable_entry_id(
             component, definition.section, definition.source, definition.source_tag
         )
-        if anchor is not None and anchor.strong:
+        if (
+            anchor is not None
+            and anchor.strong
+            and not semantic_slot.startswith("UNKNOWN:")
+        ):
+            # §4.6: UNKNOWN slots never participate in strong binding; a
+            # strong anchor without a registered slot is not a stable identity.
             uid = entity_uid(component, record.entity_kind, anchor.anchor_key)
             tu = tu_uid_strong(uid, semantic_slot, "default")
             occurrences.append(

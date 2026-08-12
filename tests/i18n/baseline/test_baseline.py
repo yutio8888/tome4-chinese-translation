@@ -141,3 +141,52 @@ class BaselineLifecycleTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class FrozenMetaFormatTests(unittest.TestCase):
+    """§7.1: the frozen meta.json carries exactly the contract fields."""
+
+    def test_meta_has_exact_contract_keys(self) -> None:
+        import tempfile
+
+        with tempfile.TemporaryDirectory(prefix="tome4-i18n-meta-") as temporary:
+            root = Path(temporary)
+            write_baseline(
+                manifest_root=root,
+                component="tome",
+                translation_commit="c1",
+                source_snapshot_sha256="snap-1",
+                engine_commit="e" * 40,
+                extractor_commit="x" * 40,
+                rules_registry_sha256="r" * 64,
+                slot_registry_sha256="s" * 64,
+                records=[],
+            )
+            import json
+
+            meta = json.loads(
+                (root / "i18n" / "baselines" / "tome-c1.meta.json").read_text()
+            )
+            self.assertEqual(
+                set(meta),
+                {
+                    "schema_version",
+                    "component",
+                    "translation_commit",
+                    "source_snapshot_sha256",
+                    "engine_commit",
+                    "extractor_commit",
+                    "rules_registry_sha256",
+                    "slot_registry_sha256",
+                },
+            )
+            baseline = read_baseline(
+                root, component="tome", translation_commit="c1"
+            )
+            self.assertEqual(len(baseline.sha256), 64)
+            self.assertEqual(
+                baseline.sha256,
+                __import__("hashlib").sha256(
+                    (root / "i18n" / "baselines" / "tome-c1.jsonl").read_bytes()
+                ).hexdigest(),
+            )

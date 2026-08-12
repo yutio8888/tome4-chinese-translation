@@ -41,14 +41,11 @@ class Baseline:
     translation_commit: str
     meta: dict[str, Any]
     entries: dict[str, BaselineEntry]
+    sha256: str
 
     @property
     def fingerprints(self) -> frozenset[str]:
         return frozenset(self.entries)
-
-    @property
-    def sha256(self) -> str:
-        return self.meta.get("baseline_sha256", "")
 
 
 def baseline_directory(manifest_root: Path) -> Path:
@@ -102,6 +99,8 @@ def write_baseline(
         ).encode("utf-8")
         for entry in entries
     )
+    # §7.1 frozen meta format: no additional keys (the jsonl digest is
+    # recomputed on read, never stored in the frozen meta).
     meta = {
         "schema_version": 1,
         "component": component,
@@ -111,7 +110,6 @@ def write_baseline(
         "extractor_commit": extractor_commit,
         "rules_registry_sha256": rules_registry_sha256,
         "slot_registry_sha256": slot_registry_sha256,
-        "baseline_sha256": hashlib.sha256(jsonl_bytes).hexdigest(),
     }
     atomic_write_bytes(jsonl_path, jsonl_bytes)
     write_json(meta_path, meta)
@@ -137,7 +135,8 @@ def read_baseline(
     if not isinstance(meta_raw, dict):
         raise ValidationError(f"baseline meta is not an object: {meta_path}")
     try:
-        entries_text = jsonl_path.read_bytes().decode("utf-8")
+        jsonl_bytes = jsonl_path.read_bytes()
+        entries_text = jsonl_bytes.decode("utf-8")
     except OSError as error:
         raise ValidationError(f"cannot read baseline snapshot: {jsonl_path}") from error
     except UnicodeDecodeError as error:
@@ -182,6 +181,7 @@ def read_baseline(
         translation_commit=translation_commit,
         meta=meta_raw,
         entries=entries,
+        sha256=hashlib.sha256(jsonl_bytes).hexdigest(),
     )
 
 

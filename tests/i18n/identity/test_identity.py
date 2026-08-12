@@ -364,3 +364,85 @@ class CoalescingTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class UnknownSlotBindingTests(unittest.TestCase):
+    """§4.6: an unregistered ast_path resolves to UNKNOWN and must never
+    participate in strong binding, even with a strong anchor."""
+
+    def test_unknown_slot_falls_back_to_editorial(self) -> None:
+        import json
+
+        from i18nlib.identity import (
+            SLOT_REGISTRY_RELATIVE_PATH,
+            SlotRegistry,
+            build_component_index,
+            parse_enrichment_records,
+            tu_uid_fallback,
+        )
+        from i18nlib.lint import stable_entry_id
+        from i18nlib.snapshot import read_snapshot
+
+        root, temporary = make_tree()
+        try:
+            registry = SlotRegistry.load(
+                Path(__file__).resolve().parents[3] / SLOT_REGISTRY_RELATIVE_PATH
+            )
+            snapshot_path = root / "snapshot.jsonl"
+            snapshot_path.write_bytes(
+                json.dumps(
+                    {
+                        "component": "test-component",
+                        "section": "mod-test/data/talents.lua",
+                        "source": "Flame",
+                        "source_tag": "talent name",
+                        "origin_line": 2,
+                        "origin_kind": "extracted",
+                        "origin_document": None,
+                    },
+                    sort_keys=True,
+                ).encode("utf-8")
+                + b"\n"
+            )
+            snapshot = read_snapshot(
+                snapshot_path, expected_component="test-component"
+            )
+            # Strong anchor material (talent hint) but an ast_path that is
+            # not registered in the slot registry.
+            record = {
+                "schema_version": 1,
+                "section": "mod-test/data/talents.lua",
+                "line": 2,
+                "source": "Flame",
+                "source_tag": "talent name",
+                "entity_kind": "talent",
+                "anchor_hint": {
+                    "name": "Flame",
+                    "short_name": "FLAME",
+                    "type": ["spell/fire", 1],
+                    "def_line": 1,
+                },
+                "ast_path": "newTalent.not_registered",
+                "extraction_confidence": "deterministic",
+            }
+            index = build_component_index(
+                component="test-component",
+                snapshot=snapshot,
+                enrichment_records=parse_enrichment_records(
+                    [record], source_label="test"
+                ),
+                slot_registry=registry,
+            )
+            self.assertEqual(index.stats["strong_tus"], 0)
+            self.assertEqual(len(index.tus), 1)
+            tu = next(iter(index.tus.values()))
+            self.assertEqual(tu.identity_binding, "fallback-editorial")
+            self.assertTrue(tu.semantic_slot.startswith("UNKNOWN:"))
+            self.assertIsNone(tu.entity_uid)
+            editorial = stable_entry_id(
+                "test-component", "mod-test/data/talents.lua", "Flame", "talent name"
+            )
+            self.assertEqual(tu.tu_uid, tu_uid_fallback(editorial))
+            self.assertEqual(index.stats["entities"], 0)
+        finally:
+            temporary.cleanup()

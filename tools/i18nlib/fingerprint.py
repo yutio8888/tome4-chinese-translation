@@ -42,64 +42,58 @@ class RuleRegistry:
     rules: dict[str, RuleEntry]
 
     @classmethod
-    def load(cls, path: Path) -> "RuleRegistry":
-        try:
-            data = json.loads(path.read_bytes())
-        except OSError as error:
-            raise ContractError(f"cannot read rule registry: {path}") from error
-        except (UnicodeDecodeError, json.JSONDecodeError) as error:
-            raise ContractError(
-                f"invalid rule registry JSON: {path}: {error}"
-            ) from error
+    def from_dict(
+        cls, data: dict[str, Any], *, path: Path | None = None, label: str = "rule registry"
+    ) -> "RuleRegistry":
         if not isinstance(data, dict):
-            raise ConfigurationError("rule registry root must be an object")
+            raise ConfigurationError(f"{label} root must be an object")
         if type(data.get("schema_version")) is not int or data["schema_version"] != 1:
-            raise ConfigurationError("unsupported rule registry schema")
+            raise ConfigurationError(f"{label}: unsupported schema")
         rules_data = data.get("rules")
         if not isinstance(rules_data, list) or not rules_data:
-            raise ConfigurationError("rule registry 'rules' must be a non-empty array")
+            raise ConfigurationError(f"{label}: 'rules' must be a non-empty array")
         allowed_specs = frozenset(
             {"conversion-pair", "formatter-tag", "constant", "anchor-key", "runtime-key", "policy-ref"}
         )
         rules: dict[str, RuleEntry] = {}
         for index, entry in enumerate(rules_data):
-            label = f"rules-registry rules[{index}]"
+            entry_label = f"{label} rules[{index}]"
             if not isinstance(entry, dict):
-                raise ConfigurationError(f"{label} must be an object")
+                raise ConfigurationError(f"{entry_label} must be an object")
             rule_id = entry.get("rule_id")
             if not isinstance(rule_id, str) or not rule_id:
-                raise ConfigurationError(f"{label}.rule_id must be a non-empty string")
+                raise ConfigurationError(f"{entry_label}.rule_id must be a non-empty string")
             schema_version = entry.get("schema_version")
             if type(schema_version) is not int or schema_version < 1:
-                raise ConfigurationError(f"{label}.schema_version must be a positive integer")
+                raise ConfigurationError(f"{entry_label}.schema_version must be a positive integer")
             severity = entry.get("severity")
             if severity not in ("error", "warning", "context"):
-                raise ConfigurationError(f"{label}.severity is invalid")
+                raise ConfigurationError(f"{entry_label}.severity is invalid")
             trust_class = entry.get("trust_class")
             if trust_class not in ("A", "B", "C", "D"):
-                raise ConfigurationError(f"{label}.trust_class is invalid")
+                raise ConfigurationError(f"{entry_label}.trust_class is invalid")
             subject_kind = entry.get("subject_kind")
             if subject_kind not in ("translation_unit", "entity"):
-                raise ConfigurationError(f"{label}.subject_kind is invalid")
+                raise ConfigurationError(f"{entry_label}.subject_kind is invalid")
             evidence_key_spec = entry.get("evidence_key_spec")
             if evidence_key_spec not in allowed_specs:
                 raise ConfigurationError(
-                    f"{label}.evidence_key_spec is not registered: "
+                    f"{entry_label}.evidence_key_spec is not registered: "
                     f"{evidence_key_spec!r}"
                 )
             pilot = entry.get("pilot")
             if not isinstance(pilot, str) or not pilot:
-                raise ConfigurationError(f"{label}.pilot must be a non-empty string")
+                raise ConfigurationError(f"{entry_label}.pilot must be a non-empty string")
             if trust_class != "A":
                 # Phase 0/1 enables only deterministic class-A rules.
                 raise ConfigurationError(
-                    f"{label}: trust_class != 'A' rules are disabled in Phase 0/1"
+                    f"{entry_label}: trust_class != 'A' rules are disabled in Phase 0/1"
                 )
             if rule_id in rules:
                 raise ConfigurationError(f"duplicate rule_id: {rule_id}")
             source = entry.get("source")
             if source is not None and not isinstance(source, str):
-                raise ConfigurationError(f"{label}.source must be a string or null")
+                raise ConfigurationError(f"{entry_label}.source must be a string or null")
             rules[rule_id] = RuleEntry(
                 rule_id=rule_id,
                 schema_version=schema_version,
@@ -110,7 +104,19 @@ class RuleRegistry:
                 pilot=pilot,
                 source=source,
             )
-        return cls(path=path, rules=rules)
+        return cls(path=path or Path(label), rules=rules)
+
+    @classmethod
+    def load(cls, path: Path) -> "RuleRegistry":
+        try:
+            data = json.loads(path.read_bytes())
+        except OSError as error:
+            raise ContractError(f"cannot read rule registry: {path}") from error
+        except (UnicodeDecodeError, json.JSONDecodeError) as error:
+            raise ContractError(
+                f"invalid rule registry JSON: {path}: {error}"
+            ) from error
+        return cls.from_dict(data, path=path, label=str(path))
 
     def require(self, rule_id: str) -> RuleEntry:
         try:

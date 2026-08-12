@@ -151,6 +151,21 @@ def _string_set(data: dict[str, Any], key: str) -> frozenset[str]:
     return frozenset(value)
 
 
+def parse_policy(data: dict[str, Any], label: str) -> Policy:
+    if not isinstance(data, dict):
+        raise ConfigurationError(f"{label} must be an object")
+    if (
+        type(data.get("schema_version")) is not int
+        or data.get("schema_version") != 1
+    ):
+        raise ConfigurationError(f"{label}: unsupported lint policy schema")
+    return Policy(
+        allowed_empty_targets=_string_set(data, "allowed_empty_targets"),
+        allowed_format_mismatches=_string_set(data, "allowed_format_mismatches"),
+        allowed_runtime_collisions=_string_set(data, "allowed_runtime_collisions"),
+    )
+
+
 def load_policy(manifest: Manifest) -> Policy:
     path = manifest.root / manifest.policy
     try:
@@ -159,17 +174,7 @@ def load_policy(manifest: Manifest) -> Policy:
         raise ConfigurationError(f"cannot read lint policy: {path}") from error
     except (UnicodeDecodeError, json.JSONDecodeError) as error:
         raise ConfigurationError(f"invalid lint policy JSON: {path}: {error}") from error
-    if (
-        not isinstance(data, dict)
-        or type(data.get("schema_version")) is not int
-        or data.get("schema_version") != 1
-    ):
-        raise ConfigurationError("unsupported lint policy schema")
-    return Policy(
-        allowed_empty_targets=_string_set(data, "allowed_empty_targets"),
-        allowed_format_mismatches=_string_set(data, "allowed_format_mismatches"),
-        allowed_runtime_collisions=_string_set(data, "allowed_runtime_collisions"),
-    )
+    return parse_policy(data, label=str(path))
 
 
 def _format_issue(

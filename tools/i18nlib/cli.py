@@ -1439,20 +1439,19 @@ def _lint_identity_mode(arguments: argparse.Namespace) -> int:
             )
         if arguments.ci:
             from .errors import I18nToolError
-            from .fingerprint import FindingRecord
 
-            new_error_fingerprints = {
-                record["fingerprint"]
+            # §7.4/§11: any new ERROR finding fails the CI gate. The gate is
+            # severity-driven only; no rule whitelist (a whitelist would
+            # silently drop future error rules).
+            new_error_count = sum(
+                1
                 for record in result["records"]
-                if record["severity"] == "error"
-                and record["rule_id"] in ("format-mismatch", "empty-target",
-                                          "runtime-collision", "duplicate-talent-id",
-                                          "duplicate-effect-id")
-            }
-            if new_error_fingerprints:
+                if record.get("severity") == "error"
+            )
+            if new_error_count:
                 raise I18nToolError(
                     "incremental CI gate failed: "
-                    f"{len(new_error_fingerprints)} new ERROR findings"
+                    f"{new_error_count} new ERROR findings"
                 )
         return 0
     if arguments.domain == "rule":
@@ -1470,25 +1469,37 @@ def _lint_incremental_rule(
 ) -> int:
     import json as _json
 
+    from .fingerprint import RuleRegistry
+    from .findings import FindingContext, build_finding_records
     from .git_source import GitRepository
-    from .pipeline import run_enriched_lint
+    from .identity import RULES_REGISTRY_RELATIVE_PATH
+    from .lint import parse_policy
+    from .pipeline import (
+        extract_enriched,
+        lint_documents_specs,
+        load_translation_documents,
+    )
 
     repository = GitRepository(manifest.root)
     base, head = arguments.incremental.split("..", 1)
     base = repository.resolve_commit(base)
     head = repository.resolve_commit(head)
     changed = repository.changed_paths(base, head)
-    registry_changed = "i18n/quality/rules-registry-v1.json" in changed
-    policy_changed = "i18n/policy.json" in changed
+    registry_path = "i18n/quality/rules-registry-v1.json"
+    policy_path = "i18n/policy.json"
+    registry_changed = registry_path in changed
+    policy_changed = policy_path in changed
     affected_rules: set[str] = set()
+    base_registry_data: dict[str, Any] | None = None
+    base_policy_data: dict[str, Any] | None = None
     if registry_changed:
         try:
-            base_bytes = repository.read_blob(
-                base, "i18n/quality/rules-registry-v1.json"
+            base_registry_data = _json.loads(
+                repository.read_blob(base, registry_path).decode("utf-8")
             )
             base_entries = {
                 entry.get("rule_id")
-                for entry in _json.loads(base_bytes.decode("utf-8")).get("rules", [])
+                for entry in base_registry_data.get("rules", [])
                 if isinstance(entry, dict)
             }
         except Exception:
@@ -1497,9 +1508,7 @@ def _lint_incremental_rule(
             head_entries = {
                 entry.get("rule_id")
                 for entry in _json.loads(
-                    (
-                        manifest.root / "i18n/quality/rules-registry-v1.json"
-                    ).read_text()
+                    (manifest.root / registry_path).read_text()
                 ).get("rules", [])
                 if isinstance(entry, dict)
             }
@@ -1507,6 +1516,12 @@ def _lint_incremental_rule(
             head_entries = set()
         affected_rules |= base_entries ^ head_entries
     if policy_changed:
+        try:
+            base_policy_data = _json.loads(
+                repository.read_blob(base, policy_path).decode("utf-8")
+            )
+        except Exception:
+            base_policy_data = None
         affected_rules |= {
             "format-mismatch",
             "format-shape-difference",
@@ -1514,6 +1529,8 @@ def _lint_incremental_rule(
             "runtime-collision",
         }
     if not affected_rules:
+        # No rule/policy change: F_new == F_previous, so both flags hold
+        # trivially; they are reported explicitly, never silently dropped.
         report = {
             "domain": "rule",
             "base": base,
@@ -1524,16 +1541,77 @@ def _lint_incremental_rule(
             "findings": 0,
             "ok": True,
         }
+        if arguments.self_check:
+            report["self_check"] = {"passed": True, "full_findings": 0}
+        if arguments.ci:
+            report["ci"] = {"new_errors": 0}
         if arguments.json:
             _print_json(report)
         else:
             print(f"rule domain: no rule change in {base}..{head}")
         return 0
     components = _select_components(manifest, arguments.component, default="lint")
-    pipeline = run_enriched_lint(manifest, runtime, loader, components)
-    records = [
-        record for record in pipeline["records"] if record.rule_id in affected_rules
-    ]
+    indexes, _ = extract_enriched(manifest, runtime, components)
+    specs = load_translation_documents(manifest, loader, components)
+
+    head_registry = RuleRegistry.load(manifest.root / RULES_REGISTRY_RELATIVE_PATH)
+    base_registry = (
+        RuleRegistry.from_dict(
+            base_registry_data, label=f"rule registry@{base}"
+        )
+        if base_registry_data is not None
+        else head_registry
+    )
+    base_policy = (
+        parse_policy(base_policy_data, label=f"lint policy@{base}")
+        if base_policy_data is not None
+        else None
+    )
+
+    def records_for(issues: Any, contexts: Any, registry: Any) -> list[Any]:
+        bound = {
+            name: FindingContext(
+                component=context.component,
+                entries=context.entries,
+                index=indexes.get(context.component),
+            )
+            for name, context in contexts.items()
+        }
+        conflicts: list[Any] = []
+        for index in indexes.values():
+            conflicts.extend(index.conflicts)
+        records, _ = build_finding_records(
+            registry=registry, issues=issues, contexts=bound, conflicts=conflicts
+        )
+        return records
+
+    issues_head, contexts_head, _ = lint_documents_specs(manifest, specs)
+    issues_base, contexts_base, _ = lint_documents_specs(
+        manifest, specs, policy=base_policy
+    )
+    head_records = records_for(issues_head, contexts_head, head_registry)
+    base_records = records_for(issues_base, contexts_base, base_registry)
+    # F_new = (F_previous - findings(affected)) + recompute(affected)
+    f_new = tuple(
+        sorted(
+            [
+                *[record for record in base_records if record.rule_id not in affected_rules],
+                *[record for record in head_records if record.rule_id in affected_rules],
+            ],
+            key=lambda record: record.fingerprint,
+        )
+    )
+    new_error_count = sum(
+        1
+        for record in f_new
+        if record.issue.severity == "error"
+        and record.fingerprint
+        not in {
+            base_record.fingerprint
+            for base_record in base_records
+            if base_record.issue.severity == "error"
+        }
+    )
     report = {
         "domain": "rule",
         "base": base,
@@ -1541,16 +1619,49 @@ def _lint_incremental_rule(
         "registry_changed": registry_changed,
         "policy_changed": policy_changed,
         "affected_rules": sorted(affected_rules),
-        "findings": len(records),
+        "findings": {
+            "previous": len(base_records),
+            "incremental": len(f_new),
+        },
         "ok": True,
-        "records": [record.to_dict() for record in records],
     }
+    if arguments.self_check:
+        from .invalidation import self_check as canonical_self_check
+
+        passed = canonical_self_check(incremental=f_new, full=head_records)
+        report["self_check"] = {
+            "passed": passed,
+            "full_findings": len(head_records),
+        }
+        report["ok"] = report["ok"] and passed
+    if arguments.ci:
+        report["ci"] = {"new_errors": new_error_count}
+        report["ok"] = report["ok"] and new_error_count == 0
     if arguments.json:
         _print_json(report)
     else:
         print(
             f"rule domain: affected rules={sorted(affected_rules)} "
-            f"findings={len(records)}"
+            f"previous={len(base_records)} incremental={len(f_new)}"
+        )
+        if report.get("self_check") is not None:
+            print(
+                f"self-check: "
+                f"{'PASS' if report['self_check']['passed'] else 'MISMATCH'}"
+            )
+        if report.get("ci") is not None:
+            print(f"ci: new_errors={report['ci']['new_errors']}")
+    if arguments.self_check and report["self_check"]["passed"] is False:
+        from .errors import IncrementalCheckError
+
+        raise IncrementalCheckError(
+            "incremental self-check failed: canonical forms differ"
+        )
+    if arguments.ci and new_error_count > 0:
+        from .errors import I18nToolError
+
+        raise I18nToolError(
+            f"incremental CI gate failed: {new_error_count} new ERROR findings"
         )
     return 0
 
@@ -1580,6 +1691,8 @@ def _lint_incremental_translation(
         if component.translation in changed or component.copy_fragment in changed
     ]
     if not affected_components:
+        # No translation changed: F_new == F_previous, both flags hold
+        # trivially; they are reported explicitly, never silently dropped.
         report = {
             "domain": "translation",
             "base": base,
@@ -1588,6 +1701,10 @@ def _lint_incremental_translation(
             "affected_tus": 0,
             "ok": True,
         }
+        if arguments.self_check:
+            report["self_check"] = {"passed": True, "full_findings": 0}
+        if arguments.ci:
+            report["ci"] = {"new_errors": 0}
         if arguments.json:
             _print_json(report)
         else:
@@ -1707,6 +1824,22 @@ def _lint_incremental_translation(
         },
         "ok": True,
     }
+    if arguments.ci:
+        from .errors import I18nToolError
+
+        previous_error_fingerprints = {
+            record.fingerprint
+            for record in base_records
+            if record.issue.severity == "error"
+        }
+        new_errors = sum(
+            1
+            for record in incremental_records
+            if record.issue.severity == "error"
+            and record.fingerprint not in previous_error_fingerprints
+        )
+        report["ci"] = {"new_errors": new_errors}
+        report["ok"] = report["ok"] and new_errors == 0
     if arguments.self_check:
         from .invalidation import self_check as canonical_self_check
 
@@ -1717,7 +1850,7 @@ def _lint_incremental_translation(
             "passed": passed,
             "full_findings": len(head_records),
         }
-        report["ok"] = passed
+        report["ok"] = report["ok"] and passed
     if arguments.json:
         _print_json(report)
     else:
@@ -1729,11 +1862,18 @@ def _lint_incremental_translation(
             f"recomputed={findings['recomputed']} "
             f"incremental={findings['incremental']}"
         )
-    if arguments.self_check and not report["ok"]:
+        if report.get("ci") is not None:
+            print(f"ci: new_errors={report['ci']['new_errors']}")
+    if arguments.self_check and report["self_check"]["passed"] is False:
         from .errors import IncrementalCheckError
 
         raise IncrementalCheckError(
             "incremental self-check failed: canonical forms differ"
+        )
+    if arguments.ci and report["ci"]["new_errors"] > 0:
+        raise I18nToolError(
+            "incremental CI gate failed: "
+            f"{report['ci']['new_errors']} new ERROR findings"
         )
     return 0
 
