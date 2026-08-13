@@ -31,6 +31,9 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 7. EXECUTOR／REVIEWER 必须由 Paseo 托管的 ORCHESTRATOR 直接通过 `paseo run` 创建并继承
    `PASEO_AGENT_ID`；不得用 provider 原生 `spawn_agent` 代替。创建后必须用 `paseo inspect`
    确认 `ParentAgentId` 等于 ORCHESTRATOR agent ID，否则停止该 agent 并按基础设施错误处理。
+8. EXECUTOR 使用 DeepSeek V4 Flash 时必须显式传入 `--thinking max`，并在 STATE 记录
+   `thinking: "max"`。创建或恢复后必须确认 `Thinking` 为 `max`；不支持或设置失败时
+   不得静默降级到 `high`／默认值，应停止并按基础设施错误处理。
 
 ### 工作流与记录
 
@@ -50,7 +53,7 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 
 REVIEWER 使用 `--mode auto-review --new-workspace local` 和主代理提供的有界 diff／上下文，不使用 main workspace。Codex `auto-review` 实际为 `workspace-write`，这里依靠独立 workspace 和只读 briefing 隔离；审核结束后归档 agent/workspace 即可。大型输入按组件拆成新的 task ID，不设固定字节或文件数配额。
 
-EXECUTOR 与 REVIEWER 均不继承当前会话，briefing 必须包含范围、验收标准和必要上下文。provider/model 在任务开始时用 `paseo provider ls` 与 `paseo provider models <provider>` 确认，记录实际选择即可。
+EXECUTOR 与 REVIEWER 均不继承当前会话，briefing 必须包含范围、验收标准和必要上下文。provider/model 在任务开始时用 `paseo provider ls` 与 `paseo provider models --thinking <provider>` 确认，记录实际选择；DeepSeek V4 Flash 的 EXECUTOR thinking 固定为 `max`。
 
 ### 外发边界
 

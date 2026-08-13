@@ -25,6 +25,7 @@
 6. Paseo 激活期间角色路由独占，不并行使用旧项目 Skill 或其独立 agent。
 7. EXECUTOR／REVIEWER 必须是当前 ORCHESTRATOR 的 Paseo-managed child，并出现在其
    Subagents track；provider 原生 subagent 不得代替这两个角色。
+8. DeepSeek V4 Flash EXECUTOR 固定使用 `max` thinking，不接受 provider 默认值或静默降级。
 
 ### 明确删除的复杂度
 
@@ -170,7 +171,7 @@ SPEC 必须写明：任务模式、范围、允许修改文件、禁止扩展项
   "workspace_id": "...",
   "orchestrator_agent_id": "...",
   "baseline": {"patch": null, "copies_dir": null},
-  "executor": {"provider": "pi", "model": "...", "agent_id": null},
+  "executor": {"provider": "pi", "model": "deepseek/deepseek-v4-flash", "thinking": "max", "agent_id": null},
   "reviewer": {"provider": "codex", "model": "...", "agent_id": null},
   "open_accepted_findings": [],
   "deferred_findings": [],
@@ -200,6 +201,8 @@ ADJUDICATE。只校验以下不变量：
 9. provider、model、`orchestrator_agent_id` 和已创建 agent 的 ID 非空。
 10. 每个已创建 EXECUTOR／REVIEWER 的 `paseo.parent-agent-id` 必须等于
     `orchestrator_agent_id`；不匹配的 agent 不属于本任务角色。
+11. EXECUTOR 的 model ID 以 `deepseek-v4-flash` 结尾时，STATE 的 `thinking` 和
+    `paseo inspect --json` 返回的 `Thinking` 都必须为 `max`。
 
 不要求 history、artifact ref、文件 hash 或原子目录同步。普通“写临时文件后 replace”足以
 避免 STATE 半写入。
@@ -224,14 +227,14 @@ test -n "${PASEO_AGENT_ID:-}"
 paseo --version
 paseo status --json
 paseo provider ls --json
-paseo provider models --json <provider>
+paseo provider models --thinking --json <provider>
 paseo workspace ls --json
 ```
 
 EXECUTOR 的初始 prompt 是 positional 参数；后续消息可以使用文件：
 
 ```text
-paseo run --background --provider <provider> --model <model>
+paseo run --background --provider pi --model deepseek/deepseek-v4-flash --thinking max
   --workspace <workspace-id> --label task_id=<task-id> --label role=executor
   --json <rendered-prompt>
 
@@ -247,9 +250,11 @@ paseo inspect --json <agent-id>
 手写保留的 parent label。
 
 每次 `paseo run` 返回精确 agent ID 后，必须立即 inspect 并确认 ParentAgentId 等于 STATE
-中的 `orchestrator_agent_id`。不匹配时停止该 agent、记录基础设施错误，不进入下一状态。
-REVIEWER 即使使用独立 local workspace，也必须保留这一 parent lineage；因此它在 UI 中仍
-属于当前 ORCHESTRATOR 的 Paseo Subagents track，并使用 Paseo agent 的归档操作。
+中的 `orchestrator_agent_id`。DeepSeek V4 Flash EXECUTOR 还必须确认 `Thinking` 为 `max`；
+缺少 `max`、实际值较低或设置失败都按基础设施错误处理，不得静默降级。不匹配时停止该
+agent，不进入下一状态。REVIEWER 即使使用独立 local workspace，也必须保留 parent lineage；
+因此它在 UI 中仍属于当前 ORCHESTRATOR 的 Paseo Subagents track，并使用 Paseo agent 的
+归档操作。
 
 代码 REVIEWER 使用独立 local workspace。Codex `auto-review` 在 Paseo 0.3.1 中实际是
 `workspace-write`，因此不能把 main workspace 交给它：
@@ -287,6 +292,10 @@ paseo inspect --json <agent-id>
 - 唯一匹配且身份正确：继续使用。
 - 无匹配：允许重新创建一次。
 - 多个匹配或身份不清：进入 WAIT_USER。
+
+恢复到唯一匹配的 DeepSeek V4 Flash EXECUTOR 时还要检查 `Thinking`。若不是 `max`，必须先
+运行 `paseo agent update <agent-id> --thinking max` 并重新 inspect；更新或复验失败时记录
+基础设施错误，不发送新的任务消息。
 
 这是唯一需要专门处理的非幂等窗口；不为它引入 WAL。个人项目默认只有一个编排进程，
 不支持多个终端同时启动同一 workspace 的 EXECUTOR。
@@ -388,7 +397,8 @@ REVIEWER 发送与 code/legacy v1 审核相关的代码、文档和必要上下�
 1. initial、re、final 与 validation 失败路径，cycle 上限和两种 mode 的 DONE 守卫；
 2. 混合任务逐 contract 的 pending/completed 恢复，以及 WAIT_USER 的 resume_state；
 3. 连续两个 task ID 与 legacy flat 记录并存时互不覆盖；
-4. EXECUTOR 唯一性和未知 `paseo run` 的 0/1/多匹配恢复；
+4. EXECUTOR 唯一性、DeepSeek V4 Flash 的 `max` thinking 校验和未知 `paseo run` 的
+   0/1/多匹配恢复；
 5. REVIEWER 使用独立 local workspace，且只接收当前 code contract 的任务自身 diff；
 6. 允许修改既有脏文件时能从起始 patch／副本区分并保全用户原有改动；
 7. 一次 implement dry run、一次 review-only dry run和一次最终独立复审。
@@ -402,4 +412,4 @@ REVIEWER 发送与 code/legacy v1 审核相关的代码、文档和必要上下�
 
 | 版本 | 状态 | 内容 |
 | --- | --- | --- |
-| `2.0-draft` | 设计草案 | 面向个人项目的轻量流程；取消重型基础设施，补齐状态闭环、混合审核身份、脏文件基线、角色独占路由和 Paseo-managed parent lineage。 |
+| `2.0-draft` | 设计草案 | 面向个人项目的轻量流程；取消重型基础设施，补齐状态闭环、混合审核身份、脏文件基线、角色独占路由、Paseo-managed parent lineage 和 DeepSeek V4 Flash `max` thinking。 |

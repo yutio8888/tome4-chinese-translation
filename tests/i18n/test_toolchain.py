@@ -19329,6 +19329,23 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertIn("orchestrator_agent_id", contract)
         self.assertIn("paseo.parent-agent-id", contract)
 
+    def test_paseo_deepseek_executor_requires_max_thinking(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        for text in (agents, orchestrator, contract):
+            self.assertIn("--thinking max", text)
+            self.assertIn("Thinking", text)
+            self.assertIn("不得静默降级", text)
+        for text in (orchestrator, contract):
+            self.assertIn('"thinking": "max"', text)
+            self.assertIn("paseo agent update <agent-id> --thinking max", text)
+
     def test_agents_md_role_split_removes_global_pi_restrictions(self) -> None:
         text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
         self.assertIn("## 角色与协作", text)

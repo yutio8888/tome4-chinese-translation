@@ -27,7 +27,9 @@ ORCHESTRATOR 负责定义范围、委托实现、独立验证、裁决 finding �
    SPEC，并把这些 tracked 文件的 diff 保存为当前 task 的 `BASELINE.patch`；既有 untracked
    文件复制到当前 task 的 `baseline/`。
 3. 明确模式、允许修改文件、禁止扩展项和可验证验收标准。
-4. 用 `paseo provider ls` 与 `paseo provider models <provider>` 确认实际 provider/model。
+4. 用 `paseo provider ls` 与 `paseo provider models --thinking <provider>` 确认实际
+   provider/model/thinking。DeepSeek V4 Flash 必须包含 `max`；若不可用则停止，不得静默降级
+   到 `high` 或默认值。
 5. 确认当前进程存在非空 `PASEO_AGENT_ID`。它是本任务的 ORCHESTRATOR agent ID；若缺失，
    不得创建 EXECUTOR／REVIEWER，应报告当前主代理不是 Paseo 托管 parent。
 6. 在当前 task 目录写 `SPEC.md`、简短的 `PLAN.md` 和最小 `STATE.json`：
@@ -47,7 +49,7 @@ ORCHESTRATOR 负责定义范围、委托实现、独立验证、裁决 finding �
   "workspace_id": "...",
   "orchestrator_agent_id": "...",
   "baseline": {"patch": null, "copies_dir": null},
-  "executor": {"provider": "pi", "model": "...", "agent_id": null},
+  "executor": {"provider": "pi", "model": "deepseek/deepseek-v4-flash", "thinking": "max", "agent_id": null},
   "reviewer": {"provider": "codex", "model": "...", "agent_id": null},
   "open_accepted_findings": [],
   "deferred_findings": [],
@@ -71,15 +73,15 @@ STATE 在阶段变化、每个 review contract 完成、agent ID 变化或出现
 命令。使用完整 task/role label 创建 agent，例如：
 
 ```text
-paseo run --background --provider <provider> --model <model>
+paseo run --background --provider pi --model deepseek/deepseek-v4-flash --thinking max
   --workspace <workspace-id> --label task_id=<task-id> --label role=executor
   --json <rendered-prompt>
 ```
 
-取得精确 agent ID 后立即运行 `paseo inspect --json <agent-id>`，确认其
-`paseo.parent-agent-id`／`ParentAgentId` 等于 STATE 的 `orchestrator_agent_id`。不匹配时
-立即停止该 agent，记录基础设施错误且不得把它作为 EXECUTOR／REVIEWER 继续使用。该检查
-同样适用于使用独立 local workspace 的 REVIEWER。
+取得精确 agent ID 后立即运行 `paseo inspect --json <agent-id>`。所有 child 的
+`paseo.parent-agent-id`／`ParentAgentId` 必须等于 STATE 的 `orchestrator_agent_id`；DeepSeek
+V4 Flash EXECUTOR 的 `Thinking` 还必须等于 `max`。任一项不匹配时立即停止该 agent，记录
+基础设施错误且不得继续使用。parent 检查同样适用于使用独立 local workspace 的 REVIEWER。
 
 同一 workspace 只运行一个 EXECUTOR。完成后由 ORCHESTRATOR 检查实际 diff、越权文件和
 相关测试；若任务修改了既有脏文件，用保存的起始 patch／副本生成 baseline→current 的
@@ -127,6 +129,10 @@ finding 作为审核交付保留。`implement` 还要求无 open accepted findin
 
 普通查询或传输错误可以重试一次。若 `paseo run` 返回结果不明确，先用 task/role label
 查询并 inspect 已有 agent；无法唯一确认时询问用户，不要再创建第二个写入 agent。
+
+恢复已有 DeepSeek V4 Flash EXECUTOR 时，发送下一条任务前先检查 `Thinking`。若不是
+`max`，运行 `paseo agent update <agent-id> --thinking max` 并重新 inspect；更新或复验失败
+时停止并记录基础设施错误，不得带着较低 thinking 继续。
 
 Paseo 不可用且用户未强制要求时，可以退出编排并由主代理继续；若用户明确要求 Paseo，
 则报告阻塞。回退时先在 STATE 记录原因并停止仍在运行的 Paseo agent，之后才可恢复非
