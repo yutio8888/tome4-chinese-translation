@@ -87,13 +87,25 @@
   （其 editorial ID 仍保留在 editorial_to_tu 映射，指向新 strong TU）。
 - identity.sqlite 为 current-state cache（§10.1），删除重建即得新状态，无需数据迁移。
 
-## 6. 回滚边界
+## 6. 回滚边界（三档）
 
-- 仅删除本轮 16 个新基线文件（`rm i18n/baselines/*-cd42f9aedd365b398e69b472326d953055f7f9fe.{jsonl,meta.json}`）
-  即可回到冻结前状态；旧 29da216 文件未动。
-- 代码回滚：撤销实现提交 `cd42f9a…`（registry 行 + extract.py 三分支替换 + G10/矩阵测试
-  + 契约文档修订）；registry sha 回到 `219e7fdf…` 后旧基线即重新有效。
-- 实现提交与基线重冻的依赖：基线绑定受审实现（两阶段提交），重冻不可先于实现提交。
+回滚涉及两个版本化提交：**实现提交 `cd42f9aedd365b398e69b472326d953055f7f9fe`**（registry 行 +
+extract.py 三分支替换 + G10/矩阵测试 + 契约 0.1 状态，含 infra-contract-001 基础设施）与
+**交付提交 `dc74ee2ce5e86c736a84b669c92894c0296ee153`**（迁移记录 + 契约文档 §12/§13/§15
+修订 + 16 个新基线文件）。
+
+1. **完整版本化回滚（逆序）**：
+   - `git revert dc74ee2` —— 撤销迁移记录、契约文档 §12/§13/§15 修订与 16 个新基线文件；
+   - `git revert cd42f9a` —— 撤销实现（registry 行、extract.py 三分支、G10/矩阵测试、
+     契约 0.1 状态）；registry sha 回到 `219e7fdf…` 后旧基线 `*-29da216*` 重新有效。
+2. **仅基线数据层回滚**：删除 16 个新基线文件
+   （`rm i18n/baselines/*-cd42f9aedd365b398e69b472326d953055f7f9fe.{jsonl,meta.json}`）即可
+   回到冻结前状态，旧 29da216 文件未动；注意此操作**不撤销**迁移记录、契约文档修订与
+   实现（新基线删除后，`baseline report`/CI 将按旧 29da216 基线判定，直至重新 freeze）。
+3. **依赖**：实现提交与基线重冻为两阶段提交——基线绑定受审实现，重冻不可先于实现提交
+   （freeze 的 translation_commit 必须是已存在的实现提交）。
+
+迁移记录（含本文件）属于交付提交内容，随档 1 逆序回滚一并撤销；档 2 不回滚文档/代码。
 
 ## 7. PR 待办
 
