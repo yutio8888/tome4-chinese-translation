@@ -21,7 +21,7 @@
 2. 主代理定义范围、独立验证并裁决 finding。
 3. EXECUTOR 和 REVIEWER 统一使用 ORCHESTRATOR 当前 workspace；REVIEWER 保持只读，
    翻译 semantic v2 继续走现有 blind runner。
-4. 自动修复最多两轮，仍不能收敛时交给用户决定。
+4. 自动修复最多五轮，仍不能收敛时交给用户决定。
 5. 任务开始前记录工作树，结束前运行适用门禁。
 6. Paseo 激活期间角色路由独占，不并行使用旧项目 Skill 或其独立 agent。
 7. EXECUTOR／REVIEWER 必须是当前 ORCHESTRATOR 的 Paseo-managed child，并出现在其
@@ -76,7 +76,7 @@ contract 结果。ORCHESTRATOR 仍可直接调用 blind translation runner、门
 任务模式只有两种：
 
 - `review_only`：只形成并裁决 findings，不自动修复。
-- `implement`：实现、验证、独立复审，必要时最多修复两轮。
+- `implement`：实现、验证、独立复审，必要时最多修复五轮。
 
 审核类型可以有一个或两个：
 
@@ -126,7 +126,7 @@ contract 结果。ORCHESTRATOR 仍可直接调用 blind translation runner、门
 | 任意非终态 | 需要用户决定 | `WAIT_USER` |
 | 任意非终态 | 用户取消或无法继续 | `STOP` |
 
-`cycle` 在每轮 FIX 开始时增加，最大值为 2。门禁失败与 reviewer finding 共用这两轮，
+`cycle` 在每轮 FIX 开始时增加，最大值为 5。门禁失败与 reviewer finding 共用这五轮，
 避免形成两个独立循环。FINAL_REVIEW finding 和 FINAL_VALIDATE 失败也受相同轮次限制。
 进入 WAIT_USER 时，STATE 的 `wait` 保存简短 `reason` 和 `resume_state`；用户决定后恢复到
 该状态并清空 wait，不需要通用 decision schema。
@@ -168,7 +168,7 @@ SPEC 必须写明：任务模式、范围、允许修改文件、禁止扩展项
   "pending_review_contracts": [],
   "completed_review_contracts": [],
   "cycle": 0,
-  "max_cycles": 2,
+  "max_cycles": 5,
   "workspace_id": "...",
   "orchestrator_agent_id": "...",
   "baseline": {"patch": null, "copies_dir": null},

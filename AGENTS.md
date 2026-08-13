@@ -25,7 +25,7 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 1. 同一 workspace 同时只能有一个任务内容写入者；EXECUTOR 运行时，ORCHESTRATOR 仍可更新当前 task 的编排记录和验证产物。
 2. EXECUTOR 只改任务允许的文件，不 commit、不 stage；REVIEWER 与其使用同一 workspace，但不得修改任何文件。
 3. ORCHESTRATOR 独立核验测试和 finding，只把已接受的 finding 交给 EXECUTOR 修复。
-4. 自动修复最多两轮；仍有重要问题或需要产品判断时询问用户。
+4. 自动修复最多五轮；仍有重要问题或需要产品判断时询问用户。
 5. Paseo 激活期间所有 agent 委托只使用 EXECUTOR／REVIEWER，不再调度旧 Skill 的 reviewer、scout 或 plan-reviewer。
 6. 翻译 semantic observation v2 由 ORCHESTRATOR 直接运行现有 blind runner；Paseo REVIEWER 只审查代码、工具、文档和 legacy v1。混合任务可以共用任务记录，但两类审核必须分别运行。
 7. EXECUTOR／REVIEWER 必须由 Paseo 托管的 ORCHESTRATOR 直接通过 `paseo run` 创建并继承
@@ -37,7 +37,7 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 
 ### 工作流与记录
 
-实现任务采用：`PLAN → IMPLEMENT → VALIDATE → REVIEW → ADJUDICATE →（FIX → VALIDATE → RE_REVIEW，最多两轮）→ FINAL_REVIEW → ADJUDICATE → FINAL_VALIDATE → DONE`。修复后的验证通过进入 RE_REVIEW；验证或复审发现问题时，有剩余轮次则进入 FIX，否则进入 WAIT_USER。仅审核任务采用：`PLAN → REVIEW → ADJUDICATE → DONE`。需要用户决定时记为 `WAIT_USER`；取消或无法继续时记为 `STOP`。
+实现任务采用：`PLAN → IMPLEMENT → VALIDATE → REVIEW → ADJUDICATE →（FIX → VALIDATE → RE_REVIEW，最多五轮）→ FINAL_REVIEW → ADJUDICATE → FINAL_VALIDATE → DONE`。修复后的验证通过进入 RE_REVIEW；验证或复审发现问题时，有剩余轮次则进入 FIX，否则进入 WAIT_USER。仅审核任务采用：`PLAN → REVIEW → ADJUDICATE → DONE`。需要用户决定时记为 `WAIT_USER`；取消或无法继续时记为 `STOP`。
 
 启用 Paseo 时只需维护以下已忽略文件：
 

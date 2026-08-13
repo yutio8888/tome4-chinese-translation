@@ -45,7 +45,7 @@ ORCHESTRATOR 负责定义范围、委托实现、独立验证、裁决 finding �
   "pending_review_contracts": [],
   "completed_review_contracts": [],
   "cycle": 0,
-  "max_cycles": 2,
+  "max_cycles": 5,
   "workspace_id": "...",
   "orchestrator_agent_id": "...",
   "baseline": {"patch": null, "copies_dir": null},
@@ -115,7 +115,7 @@ EXECUTOR 的 `Thinking` 还必须等于 `max`。任一项不匹配时立即停�
 ## 修复与完成
 
 每轮把全部 accepted findings 按依赖顺序交给 EXECUTOR，修复后重新验证和复审。自动
-修复最多两轮；相同问题持续存在时可以换新 EXECUTOR，也可以直接询问用户，不强制重建
+修复最多五轮；相同问题持续存在时可以换新 EXECUTOR，也可以直接询问用户，不强制重建
 session。
 
 验证或复审发现问题时，有剩余 cycle 就进入 FIX，否则进入 WAIT_USER；修复后的验证通过
