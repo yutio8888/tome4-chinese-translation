@@ -420,6 +420,416 @@ class TalentInfoSlotTests(unittest.TestCase):
             temporary.cleanup()
 
 
+class EffectDescSlotTests(unittest.TestCase):
+    """Coverage matrix for the effect.desc slot (infra-contract-003):
+    strong-deterministic (_t literal, table.merge limited support) /
+    captured-nondeterministic-fallback (dynamic factory) /
+    not-captured (plain string), plus the p2 field boundary negatives
+    (display_desc/long_desc/local desc literals/floorEffect) and the
+    p1 one-to-many shared-desc TU case (GREATER_INVISIBILITY/INVISIBILITY).
+    All three states run the real patched extractor."""
+
+    def _sidecar(self, root: Path) -> list[dict]:
+        return [
+            json.loads(line)
+            for line in (root / "i18n_enrichment.jsonl")
+            .read_text(encoding="utf-8")
+            .splitlines()
+            if line
+        ]
+
+    def _effects_tree(self, effects: str) -> dict[str, str]:
+        return {
+            "mod-test/data/talents.lua": (
+                "newTalent{\n"
+                '\tname = "Flame",\n'
+                '\ttype = {"spell/fire", 1},\n'
+                "}\n"
+            ),
+            "mod-test/data/effects.lua": effects,
+            "mod-test/data/entities.lua": "",
+            "mod-test/data/misc.lua": "",
+        }
+
+    def test_matrix_strong_deterministic_t_literal(self) -> None:
+        """desc = _t"..." is captured once as a strong effect.desc."""
+        root, temporary = make_tree(
+            self._effects_tree(
+                "newEffect{\n"
+                '\tname = "BURNING",\n'
+                '\tdesc = _t"Burning",\n'
+                '\ttype = "physical",\n'
+                "}\n"
+            )
+        )
+        try:
+            index = build_fixture_index(root)
+            records = self._sidecar(root)
+            matches = [
+                record
+                for record in records
+                if record.get("source") == "Burning"
+            ]
+            # Exactly one record for the occurrence (p1: no dual capture).
+            self.assertEqual(len(matches), 1)
+            record = matches[0]
+            self.assertEqual(record["ast_path"], "newEffect.desc")
+            self.assertEqual(record["entity_kind"], "effect")
+            # The _t occurrence keeps its original locales tag.
+            self.assertEqual(record["source_tag"], "_t")
+            self.assertEqual(
+                record["extraction_confidence"], "deterministic"
+            )
+            self.assertEqual(record["anchor_hint"]["name"], "BURNING")
+            desc_tu = next(
+                tu
+                for tu in index.tus.values()
+                if tu.semantic_slot == "effect.desc"
+                and tu.anchor_key == "EFF_BURNING"
+            )
+            self.assertEqual(desc_tu.identity_binding, "strong")
+            self.assertEqual(
+                desc_tu.tu_uid,
+                tu_uid_strong(
+                    entity_uid("test-component", "effect", "EFF_BURNING"),
+                    "effect.desc",
+                    "default",
+                ),
+            )
+            # The locales write keeps the legacy tag: the tDef entry is
+            # unchanged (snapshot byte-stability).
+            definition = next(
+                definition
+                for definition in read_snapshot(
+                    root / "snapshot.jsonl",
+                    expected_component="test-component",
+                ).definitions
+                if definition.source == "Burning"
+            )
+            self.assertEqual(definition.source_tag, "_t")
+        finally:
+            temporary.cleanup()
+
+    def test_matrix_strong_table_merge_limited_support(self) -> None:
+        """newEffect(table.merge(table.clone(def), {name, desc})) is captured
+        from the merge override table (limited support, Rime Wraith form)."""
+        root, temporary = make_tree(
+            self._effects_tree(
+                "local rime_wraith_def = {}\n"
+                "newEffect(table.merge(table.clone(rime_wraith_def), {\n"
+                '\tname = "RIME_WRAITH",\n'
+                '\tdesc = _t"Rime Wraith",\n'
+                "}))\n"
+            )
+        )
+        try:
+            index = build_fixture_index(root)
+            records = self._sidecar(root)
+            matches = [
+                record
+                for record in records
+                if record.get("source") == "Rime Wraith"
+            ]
+            self.assertEqual(len(matches), 1)
+            self.assertEqual(matches[0]["ast_path"], "newEffect.desc")
+            self.assertEqual(matches[0]["entity_kind"], "effect")
+            self.assertEqual(
+                matches[0]["anchor_hint"]["name"], "RIME_WRAITH"
+            )
+            desc_tu = next(
+                tu
+                for tu in index.tus.values()
+                if tu.semantic_slot == "effect.desc"
+            )
+            self.assertEqual(desc_tu.identity_binding, "strong")
+            self.assertEqual(desc_tu.anchor_key, "EFF_RIME_WRAITH")
+        finally:
+            temporary.cleanup()
+
+    def test_matrix_dynamic_factory_fallback(self) -> None:
+        """Runtime-computed desc (e.desc = ("..."):tformat(name); newEffect(e))
+        keeps the template as a free tformat fallback capture (Energy
+        Alteration form): not reclassified, no effect.desc record."""
+        root, temporary = make_tree(
+            self._effects_tree(
+                "local base = {}\n"
+                "for _, dt in ipairs{1, 2} do\n"
+                "\tlocal e = table.clone(base)\n"
+                '\te.name = "ENERGY_ALTERATION_"..dt\n'
+                '\te.desc = ("Energy Alteration (%s)"):tformat(dt)\n'
+                "\tnewEffect(e)\n"
+                "end\n"
+            )
+        )
+        try:
+            index = build_fixture_index(root)
+            records = self._sidecar(root)
+            matches = [
+                record
+                for record in records
+                if record.get("source") == "Energy Alteration (%s)"
+            ]
+            # One free fallback record; no strong effect.desc reclassification.
+            self.assertEqual(len(matches), 1)
+            self.assertEqual(matches[0]["ast_path"], "tformat")
+            self.assertEqual(matches[0]["entity_kind"], "free")
+            self.assertNotIn(
+                "newEffect.desc",
+                {record.get("ast_path") for record in records},
+            )
+        finally:
+            temporary.cleanup()
+
+    def test_matrix_not_captured_plain_string(self) -> None:
+        """desc = "plain string" produces no record and no effect.desc TU
+        (example/example_realtime ACIDBURN form; byte-stability)."""
+        root, temporary = make_tree(
+            self._effects_tree(
+                "newEffect{\n"
+                '\tname = "ACIDBURN",\n'
+                '\tdesc = "Burning from acid",\n'
+                '\ttype = "physical",\n'
+                "}\n"
+            )
+        )
+        try:
+            index = build_fixture_index(root)
+            self.assertNotIn(
+                "Burning from acid",
+                {record.get("source") for record in self._sidecar(root)},
+            )
+            self.assertNotIn(
+                "Burning from acid",
+                {
+                    tu.revisions[-1].source
+                    for tu in index.tus.values()
+                    if tu.revisions
+                },
+            )
+            self.assertNotIn(
+                "effect.desc",
+                {tu.semantic_slot for tu in index.tus.values()},
+            )
+        finally:
+            temporary.cleanup()
+
+    def test_field_boundary_display_long_local_desc(self) -> None:
+        """p2: only the top-level Field key strictly == desc is registered;
+        display_desc / long_desc / local desc literals stay free _t."""
+        root, temporary = make_tree(
+            self._effects_tree(
+                "newEffect{\n"
+                '\tname = "STONED",\n'
+                '\tdesc = _t"Stoned",\n'
+                '\tdisplay_desc = _t"Display Stoned",\n'
+                "\tlong_desc = function(self, eff)\n"
+                '\t\tlocal desc = _t"Local desc literal"\n'
+                '\t\treturn ("The target is stoned for %d turns."):tformat(eff.power)\n'
+                "\tend,\n"
+                "}\n"
+            )
+        )
+        try:
+            index = build_fixture_index(root)
+            records = self._sidecar(root)
+            desc_matches = [
+                record
+                for record in records
+                if record.get("ast_path") == "newEffect.desc"
+            ]
+            self.assertEqual(
+                [(record["source"], record["source_tag"]) for record in desc_matches],
+                [("Stoned", "_t")],
+            )
+            # display_desc literal: free _t, not reclassified.
+            display = [
+                record
+                for record in records
+                if record.get("source") == "Display Stoned"
+            ]
+            self.assertEqual(len(display), 1)
+            self.assertEqual(display[0]["ast_path"], "_t")
+            self.assertEqual(display[0]["entity_kind"], "free")
+            # long_desc body: local desc literal stays free _t.
+            local_desc = [
+                record
+                for record in records
+                if record.get("source") == "Local desc literal"
+            ]
+            self.assertEqual(len(local_desc), 1)
+            self.assertEqual(local_desc[0]["ast_path"], "_t")
+            # long_desc tformat template stays free tformat.
+            long_tpl = [
+                record
+                for record in records
+                if record.get("source") == "The target is stoned for %d turns."
+            ]
+            self.assertEqual(len(long_tpl), 1)
+            self.assertEqual(long_tpl[0]["ast_path"], "tformat")
+        finally:
+            temporary.cleanup()
+
+    def test_field_boundary_floor_effect(self) -> None:
+        """p2: floorEffect.desc is a different entity; plain-string desc is
+        captured as floorEffect.desc free (never newEffect.desc), and an
+        orcs-style _t literal floor desc stays a free _t capture."""
+        root, temporary = make_tree(
+            self._effects_tree(
+                "floorEffect{\n"
+                '\tdesc = "Icy Floor",\n'
+                "}\n"
+                "floorEffect{\n"
+                '\tdesc = _t"Warm",\n'
+                "}\n"
+            )
+        )
+        try:
+            index = build_fixture_index(root)
+            records = self._sidecar(root)
+            self.assertNotIn(
+                "newEffect.desc",
+                {record.get("ast_path") for record in records},
+            )
+            icy = [
+                record
+                for record in records
+                if record.get("source") == "Icy Floor"
+            ]
+            self.assertEqual(len(icy), 1)
+            self.assertEqual(icy[0]["ast_path"], "floorEffect.desc")
+            self.assertEqual(icy[0]["entity_kind"], "free")
+            warm = [
+                record
+                for record in records
+                if record.get("source") == "Warm"
+            ]
+            self.assertEqual(len(warm), 1)
+            self.assertEqual(warm[0]["ast_path"], "_t")
+            self.assertEqual(warm[0]["entity_kind"], "free")
+        finally:
+            temporary.cleanup()
+
+    def test_shared_desc_one_to_many_tus(self) -> None:
+        """p1: GREATER_INVISIBILITY/INVISIBILITY share the same desc literal
+        'Invisibility'; each occurrence has exactly one sidecar record and
+        maps to its own strong TU (editorial ID -> two TU UIDs)."""
+        effects = (
+            "newEffect{\n"
+            '\tname = "GREATER_INVISIBILITY",\n'
+            '\tdesc = _t"Invisibility",\n'
+            "}\n"
+            "newEffect{\n"
+            '\tname = "INVISIBILITY",\n'
+            '\tdesc = _t"Invisibility",\n'
+            "}\n"
+        )
+        root, temporary = make_tree(self._effects_tree(effects))
+        try:
+            index = build_fixture_index(root)
+            records = self._sidecar(root)
+            matches = [
+                record
+                for record in records
+                if record.get("source") == "Invisibility"
+            ]
+            # Two occurrences -> two records, one per occurrence.
+            self.assertEqual(len(matches), 2)
+            self.assertEqual(
+                {record["ast_path"] for record in matches},
+                {"newEffect.desc"},
+            )
+            self.assertEqual(
+                {record["anchor_hint"]["name"] for record in matches},
+                {"GREATER_INVISIBILITY", "INVISIBILITY"},
+            )
+            desc_tus = [
+                tu
+                for tu in index.tus.values()
+                if tu.semantic_slot == "effect.desc"
+            ]
+            self.assertEqual(len(desc_tus), 2)
+            self.assertEqual(
+                {tu.anchor_key for tu in desc_tus},
+                {"EFF_GREATER_INVISIBILITY", "EFF_INVISIBILITY"},
+            )
+            for tu in desc_tus:
+                self.assertEqual(tu.identity_binding, "strong")
+            # One editorial ID maps to both strong TUs (one-to-many).
+            shared_editorial = next(
+                editorial_id
+                for editorial_id, tu_uids_value in index.editorial_to_tu.items()
+                if len(tu_uids_value) == 2
+            )
+            self.assertEqual(
+                set(index.editorial_to_tu[shared_editorial]),
+                {tu.tu_uid for tu in desc_tus},
+            )
+            # Same source text -> same source_sha256; Revision UIDs differ
+            # because they are bound to their TU UID (§4.5 rev formula).
+            self.assertEqual(
+                desc_tus[0].revisions[-1].source_sha256_value,
+                desc_tus[1].revisions[-1].source_sha256_value,
+            )
+            self.assertNotEqual(
+                desc_tus[0].revisions[-1].revision_uid,
+                desc_tus[1].revisions[-1].revision_uid,
+            )
+        finally:
+            temporary.cleanup()
+
+    def test_effect_desc_revision_changes_tu_stays(self) -> None:
+        """G10 analog for effect.desc: a desc source text change keeps the
+        strong TU UID and changes the Revision UID."""
+        effects = (
+            "newEffect{\n"
+            '\tname = "BURNING",\n'
+            '\tdesc = _t"Burning",\n'
+            '\ttype = "physical",\n'
+            "}\n"
+        )
+        root, temporary = make_tree(self._effects_tree(effects))
+        try:
+            index = build_fixture_index(root)
+            desc_tu = next(
+                tu
+                for tu in index.tus.values()
+                if tu.semantic_slot == "effect.desc"
+            )
+            self.assertEqual(desc_tu.identity_binding, "strong")
+            self.assertEqual(desc_tu.revisions[-1].source, "Burning")
+            old_revision = desc_tu.revisions[-1]
+            write_fixture_tree(
+                root,
+                self._effects_tree(
+                    "newEffect{\n"
+                    '\tname = "BURNING",\n'
+                    '\tdesc = _t"Burning fiercely",\n'
+                    '\ttype = "physical",\n'
+                    "}\n"
+                ),
+            )
+            new_index = build_fixture_index(root)
+            new_desc_tu = next(
+                tu
+                for tu in new_index.tus.values()
+                if tu.semantic_slot == "effect.desc"
+            )
+            self.assertEqual(desc_tu.tu_uid, new_desc_tu.tu_uid)
+            self.assertNotEqual(
+                old_revision.revision_uid,
+                new_desc_tu.revisions[-1].revision_uid,
+            )
+            self.assertEqual(
+                new_desc_tu.revisions[-1].source, "Burning fiercely"
+            )
+            # Strong slot: no fallback TU shadows the same occurrence.
+            self.assertNotIn(
+                desc_tu.tu_uid, tu_uids(index, binding="fallback-editorial")
+            )
+        finally:
+            temporary.cleanup()
+
+
 
 class FileMoveTests(unittest.TestCase):
     """G12: a source file move changes the section; the L1 identity absorbs it."""
