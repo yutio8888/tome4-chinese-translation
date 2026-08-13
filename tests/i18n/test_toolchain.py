@@ -19290,10 +19290,9 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
 
     def test_agents_md_role_split_removes_global_pi_restrictions(self) -> None:
         text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
-        self.assertIn("## 角色定义", text)
+        self.assertIn("## 角色与协作", text)
         self.assertIn("**主代理**", text)
-        self.assertIn("**审核子进程**", text)
-        self.assertIn("**项目 subagent**", text)
+        self.assertIn("**审核子进程／项目 subagent**", text)
         self.assertNotIn("Pi 始终无工具", text)
         self.assertNotIn("不得让 Pi 直接写规范 Lua", text)
         self.assertNotIn("Pi 翻译、Pi 审核、其他 subagent", text)

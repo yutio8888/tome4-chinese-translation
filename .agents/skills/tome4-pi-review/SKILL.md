@@ -1,96 +1,57 @@
 ---
 name: tome4-pi-review
-description: Run bounded, read-only Pi semantic discovery for ToME4 canonical translations, or legacy finding review for public repository code changes, visibly in a tmux pane. Do not use this Skill to send terminology, prior audit findings, Facts, or source trees into translation semantic discovery; do not use it for translation generation.
+description: 为 ToME4 规范译文或公开代码变更生成有界 bundle，并通过无工具 Pi reviewer 运行 translation v2 或 code/legacy v1 复审。用于译文审校、代码审核和独立复审；不用于翻译生成、源码感知核验，或向 translation v2 注入术语、Facts、既有 findings。
 ---
 
 # ToME4 Pi review
 
-Use the repository's contract-dispatched review pipeline. Translation semantic discovery is
-v2; public code review remains legacy v1. Keep Pi isolated from tools, sessions, repository
-context, and source trees. Interactive runs execute the Pi CLI in a
-tmux split pane so the operator can watch the audit live; the wrapper applies the same
-strict validation, caching and report writing as the headless tools.
+通过仓库 runner 构造、发送并校验审核 bundle。外发范围、provider/model 记录和主代理
+裁决规则直接遵循 `AGENTS.md`，不要在本 Skill 中另建授权流程。
 
-Each Pi review or remediation invocation receives a maximum of 20 minutes (1200 seconds)
-by default. Keep this per-bundle timeout unless the user explicitly requests a different
-limit; do not silently shorten it for a large bundle.
+## 生成 bundle
 
-## Prepare the review
+选择满足任务的最小 scope：
 
-1. Read the active `AGENTS.md`. For translation review, the main agent also reads
-   `TERMINOLOGY.md` and `terminology/`, but the blind semantic v2 bundle must not receive
-   terminology rows or Facts; those are available only for later claim adjudication.
-2. Select the smallest requested scope:
-   - Translations: `python3 -B tools/i18n review --scope translations`
-   - Public changes: `python3 -B tools/i18n review --scope code`
-   - Both: `python3 -B tools/i18n review --scope translations --scope code`
-3. Read the generated `review-index.json`, not source paths. Report each bundle's contract,
-   channel, item count, `item_character_budget`, `item_character_count`, actual
-   host `artifact_bytes`, actual outbound `payload_bytes`, and oversized-item marker before
-   invoking Pi. Translation v2 sends only the minimal revision/source/target provider projection;
-   its exact compact JSON is sent over stdin from an anonymous system temp cwd (`/private/tmp`
-   when available, otherwise `/tmp`), never through Pi
-   `@file` expansion, and an explicit empty `--append-system-prompt` disables project/global
-   `APPEND_SYSTEM.md` discovery. Mixed indexes legitimately contain translation v2 and code v1.
+```bash
+python3 -B tools/i18n review --scope translations
+python3 -B tools/i18n review --scope code
+python3 -B tools/i18n review --scope translations --scope code
+```
 
-## Authorize external review
+- translation 使用 blind semantic v2，只发送稳定的 revision/source/target provider
+  projection；不得加入术语库、Facts、源码、历史 finding 或裁决。
+- code 使用 legacy v1，仅包含公开变更。
+- 读取生成的 `review-index.json`，按 descriptor 逐个选择 bundle，并确认 contract、
+  channel、条目数和任务 scope 一致。
 
-Pi sends each bounded bundle to the configured external provider. Translation v2 bundles are
-covered by the project-level transfer authorization in `AGENTS.md` and do not require
-per-invocation approval; before the first real invocation the main agent still reports the
-provider, model, bundle kind/contract, item count, item character count and actual payload
-bytes for the record. For any non-translation-v2 outbound content (tasks, plans, code or
-other bundles), state the same details and obtain explicit user authorization before the
-first real invocation.
+## 运行审核
 
-Do not enable project-wide network access or bypass approvals. If an escalation is denied,
-stop; do not invoke Pi indirectly or copy the data through another channel.
-
-## Run Pi in a tmux pane
-
-Invoke one validated bundle at a time (the tool defaults to the current tmux session):
+在 tmux 中运行一个已校验 bundle：
 
 ```bash
 tools/pi-tmux review --bundle <absolute-bundle-path>
 ```
 
-The tool splits the current tmux session into a new pane, runs the isolated Pi CLI there
-with output streamed live, waits for completion, and validates the result exactly like
-`tools/pi-review`. A cache hit (exact validated result) skips the pane entirely.
+- 无 tmux 时按场景添加 `--fallback foreground`，或在脚本中直接用
+  `tools/pi-review --bundle <absolute-bundle-path>`。
+- 默认使用严格校验和精确缓存；只有明确需要新观察时才使用 `--force`。
+- pane 默认保留，检查完成后按工具输出的 `tmux kill-pane` 命令关闭。
+- 大索引按 bundle 顺序处理，不扩大原审核范围。
 
-Pane lifecycle and options:
+## 解释结果
 
-- The pane stays open after the audit (default `--keep-pane`) so the operator can inspect
-  it; the final summary prints `Pane: %N — close with: tmux kill-pane -t %N`.
-- `--no-keep-pane` closes the pane when the worker exits.
-- `--layout vertical|horizontal`, `--percent <n>`, and `--session <name>` control the split.
-- Outside tmux, `--fallback foreground` runs headless (still streams output to the caller);
-  without it the tool fails closed.
-- Provider/model/thinking defaults are used unless the user requests overrides. For a large
-  index, process a bounded batch, report progress, and continue only within the authorized
-  scope. Use `--force` only for an explicitly requested fresh observation and never to
-  bypass external-transfer authorization.
+只读取 runner 生成的已校验 `review.json` / `pi-review.json`：
 
-Remediation uses the same 20-minute per-bundle limit and pane behavior, but only for findings
-that the main agent has independently confirmed and classified. Translation v2 assessments
-contain pending observations and are intentionally rejected by the legacy remediation runner:
+- translation v2 observation 保持 pending，保留 identity 与 evidence，由主代理核验和
+  定级；空 observation 不能代表语言质量已全面通过。
+- code v1 finding 可按 severity 汇总，但仍须由主代理独立确认。
+- 不自动应用模型建议，不直接修改规范 Lua 或代码。
+
+只有已确认的 legacy finding 可以进入 remediation：
 
 ```bash
 tools/pi-tmux remediate --bundle <absolute-bundle-path> --review <validated-review.json>
 ```
 
-Translation worksets can also run visibly: `tools/pi-tmux translate --workset <workset.json>`.
-
-## Report findings
-
-Read only validated `review.json` and `pi-review.json` artifacts. For translation v2, report
-item coverage, `context-insufficient`, observation count and manual-queue count; preserve
-`bundle_id`, `revision_id`, evidence spans and `finding_id`. Every model observation remains
-pending until the main agent verifies it; do not summarize it by severity. An empty semantic
-assessment is not an overall clean result because the language-quality channel is separate.
-For code v1 only, summarize the legacy findings by severity. Do not automatically apply
-suggestions or modify canonical Lua/code.
-
-Never give isolated Pi source paths, raw extraction logs, arbitrary workspace files,
-credentials, or tools. Translation bundles may include canonical DLC translation entries;
-that does not authorize source-tree access.
+translation v2 结果不兼容该 remediation runner；按 `AGENTS.md` 的 claim 核验与人工
+裁决流程处理。
