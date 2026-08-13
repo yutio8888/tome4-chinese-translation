@@ -777,6 +777,47 @@ class EffectDescSlotTests(unittest.TestCase):
         finally:
             temporary.cleanup()
 
+    def _assert_desc_occurrence_single_strong(
+        self, index, root: Path, source: str, expected_tu_uid: str
+    ) -> None:
+        """Per-occurrence assertion (EFD-REV-001): the desc literal source
+        yields exactly one sidecar record (ast_path newEffect.desc) and its
+        editorial id binds only to the expected strong TU, with no
+        fallback-binding TU carrying the same occurrence."""
+        records = self._sidecar(root)
+        matches = [
+            record
+            for record in records
+            if record.get("source") == source
+        ]
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0]["ast_path"], "newEffect.desc")
+        definition = next(
+            definition
+            for definition in read_snapshot(
+                root / "snapshot.jsonl",
+                expected_component="test-component",
+            ).definitions
+            if definition.source == source
+        )
+        editorial_id = stable_entry_id(
+            "test-component",
+            definition.section,
+            definition.source,
+            definition.source_tag,
+        )
+        self.assertEqual(
+            index.editorial_to_tu[editorial_id],
+            (expected_tu_uid,),
+        )
+        shadowing = [
+            tu
+            for tu in index.tus.values()
+            if tu.identity_binding == "fallback-editorial"
+            and editorial_id in tu.editorial_ids
+        ]
+        self.assertEqual(shadowing, [])
+
     def test_effect_desc_revision_changes_tu_stays(self) -> None:
         """G10 analog for effect.desc: a desc source text change keeps the
         strong TU UID and changes the Revision UID."""
@@ -798,6 +839,9 @@ class EffectDescSlotTests(unittest.TestCase):
             self.assertEqual(desc_tu.identity_binding, "strong")
             self.assertEqual(desc_tu.revisions[-1].source, "Burning")
             old_revision = desc_tu.revisions[-1]
+            self._assert_desc_occurrence_single_strong(
+                index, root, "Burning", desc_tu.tu_uid
+            )
             write_fixture_tree(
                 root,
                 self._effects_tree(
@@ -822,9 +866,10 @@ class EffectDescSlotTests(unittest.TestCase):
             self.assertEqual(
                 new_desc_tu.revisions[-1].source, "Burning fiercely"
             )
-            # Strong slot: no fallback TU shadows the same occurrence.
-            self.assertNotIn(
-                desc_tu.tu_uid, tu_uids(index, binding="fallback-editorial")
+            # Per-occurrence: the changed source is still bound to exactly
+            # one strong TU with no fallback shadow (EFD-REV-001).
+            self._assert_desc_occurrence_single_strong(
+                new_index, root, "Burning fiercely", new_desc_tu.tu_uid
             )
         finally:
             temporary.cleanup()
