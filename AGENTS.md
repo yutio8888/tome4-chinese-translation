@@ -2,73 +2,66 @@
 
 本文件适用于整个仓库。
 
-## 角色定义
+## 角色与协作
 
-本文件区分五类执行角色，全文按此区分表述：
+- **主代理**负责范围、裁决、验证和最终交付，通常也是仓库写入者。
+- **审核子进程／项目 subagent**只返回 proposal、context 或 findings；其结果由主代理核验后再应用。
+- **Paseo 编排**启用时，主代理任 ORCHESTRATOR；EXECUTOR 是任务内容文件的唯一写入 agent，REVIEWER 只做独立复审。
 
-- **主代理**（pi coding agent / Codex / 人工）：有工具、有会话、有项目上下文，是唯一写入者；负责应用修订、独立裁决与定级、运行门禁。受「项目通用审核与修复工作流」与「门禁检查」约束。「多代理编排协议」激活时转任 ORCHESTRATOR，不直接实现，写入由 EXECUTOR 代行。
-- **审核子进程**（`tools/pi-subagent`、`tools/pi-review`、`tools/pi-remediate`、`tools/pi-quality-evaluator`、`tools/pi-review-files` 等工具启动的隔离进程）：默认无工具（源码感知变体以 `--tools read,bash` 白名单启动）、无会话、无项目上下文，只输出 proposal/findings/assessment artifact；任何输出不得直接写入规范 Lua 或代码。
-- **项目 subagent**（scout、plan-reviewer，经 `subagent` 工具调度）：以 read/grep/find/ls/bash 白名单启动、无会话、无项目上下文、只读；输出压缩上下文或结构化 findings 供主代理参考，不得直接写文件。
-- **EXECUTOR**（「多代理编排协议」下的写入子 agent，pi / DeepSeek V4 Flash）：无会话、无项目上下文，只接收 ORCHESTRATOR 注入的 briefing；协议激活时唯一可修改 workspace 的实现者。禁止写入 `.ai/task/`、`.ai/reviews/` 与 `AGENTS.md`。
-- **REVIEWER**（「多代理编排协议」下的只读子 agent，codex / gpt-5.6-sol）：无会话、无项目上下文，只接收 ORCHESTRATOR 注入的 briefing；严格只读，只输出结构化 findings，不得直接写入任何仓库文件（含 JSON 落盘）。
+无论采用哪种协作方式，模型输出都不是最终事实：机制以固定版本源码为准，修改以后文门禁和验收标准为准。
 
-## 多代理编排协议（Paseo 三角色 · 大型任务）
+## Paseo 轻量编排（大型任务）
 
-本节定义跨 provider 的多代理编排协议（Paseo CLI v0.3.1，已核验 2026-08-12：`paseo provider ls` / `paseo provider models <p>` / `paseo run` / `paseo send` / `paseo inspect`、`paseo ls` / `paseo logs` / `paseo stop`、`archive`、`delete` / `paseo permit`）。**只适用于大型任务**（需多步实现加独立复审的实现/工具链/文档任务）；小型任务仍由主代理按既有流程直接执行。Paseo MCP 工具不可用时协议不激活，回退既有流程。角色行为细节见 `.ai/roles/`（orchestrator / executor / reviewer 三份 briefing，不自动加载，由 ORCHESTRATOR 注入 task briefing）。
+Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型修改由主代理直接完成。用户明确要求 Paseo 时必须使用；否则 CLI 不可用时可以回退主代理执行并说明。角色 prompt 见 `.ai/roles/`，轻量设计说明见 `docs/paseo-orchestration-v2-contract.md`。
 
-### 角色与写权限
+### 最小规则
 
-| 角色 | 载体 | 职责 | 写权限 |
-| --- | --- | --- | --- |
-| ORCHESTRATOR | 主代理（pi / DeepSeek V4 Pro） | 计划、委托、裁决、验证、运行门禁 | 仅 `.ai/task/`、`.ai/reviews/` 内文档/artifact 与验证工具产生的已忽略产物（`.artifacts/`、缓存等）；不得修改版本控制内的实现/规范文件 |
-| EXECUTOR | Paseo 子 agent（pi / DeepSeek V4 Flash） | 唯一实现者：修改代码、译文、测试 | 任务范围内的 workspace 文件；禁止 `.ai/task/`、`.ai/reviews/`、`AGENTS.md` |
-| REVIEWER | Paseo 子 agent（codex / gpt-5.6-sol） | 只读独立复审，输出结构化 findings | 无（含 JSON 落盘，一律由 ORCHESTRATOR 代写） |
+1. 同一 workspace 同时只能有一个任务内容写入者；EXECUTOR 运行时，ORCHESTRATOR 仍可更新当前 task 的编排记录和验证产物。
+2. EXECUTOR 只改任务允许的文件，不 commit、不 stage；REVIEWER 不修改主 workspace。
+3. ORCHESTRATOR 独立核验测试和 finding，只把已接受的 finding 交给 EXECUTOR 修复。
+4. 自动修复最多两轮；仍有重要问题或需要产品判断时询问用户。
+5. 翻译 semantic observation v2 继续走现有 blind runner；Paseo REVIEWER 只审查代码、工具、文档和 legacy v1。混合任务可以共用任务记录，但两类审核必须分别运行。
 
-共享不变量：
+### 工作流与记录
 
-- provider/model 在任务开始时经 `paseo provider ls` / `paseo provider models <provider>` 运行时解析并写入 STATE.json，不得硬编码 model ID；解析失败时报告用户后停止。已核验：pi provider 有 deepseek-v4-flash / deepseek-v4-pro；codex provider 有 gpt-5.6-sol 等；codex agent **默认 auto-review 模式**（provider 级只读沙箱）；pi provider 无模式（EXECUTOR 写入边界靠 briefing + workspace 纪律）。pi agent 当前不注入 MCP（McpServers: false），orchestrator 经 CLI 驱动；子 agent 默认继承父 workspace，隔离用 `--new-workspace local|worktree`。
-- EXECUTOR 与 REVIEWER 无会话、无项目上下文，只接收 ORCHESTRATOR 注入的 briefing；共享同一 workspace 文件，但不继承 conversation context。
-- REVIEWER 不得直接命令 EXECUTOR；EXECUTOR 只接受 ORCHESTRATOR 的指令。所有 finding 须经 ORCHESTRATOR 独立裁决（ACCEPT / REJECT / DEFER_TO_USER）后才能进入修复；被拒 finding 必须附理由并进入已裁决清单，防止重复上报；accepted findings 在复审中必须逐条重验是否已修复。DEFER_TO_USER 进入 WAIT_USER：停下报告用户，待用户裁决后恢复。
-- 同一 workspace 禁止并发运行多个写入 agent，同一时刻最多一个 EXECUTOR。
-- 自动 fix 循环上限 **2 轮**；之后 PASS → DONE；残留 blocker/high → STOP + USER；残留 medium/low 仅在已 REJECT（附理由）或获用户豁免时作为 known issues 交付，否则 STOP + USER。
-- REVIEWER 的只读优先由 provider 沙箱强制（如可用），其次才是 prompt 约束；每次 REVIEW 前后 ORCHESTRATOR 对照工作树快照确认无改动。
+实现任务采用：`PLAN → IMPLEMENT → VALIDATE → REVIEW → ADJUDICATE →（FIX → VALIDATE → RE_REVIEW，最多两轮）→ FINAL_REVIEW → ADJUDICATE → FINAL_VALIDATE → DONE`。修复后的验证通过进入 RE_REVIEW；验证或复审发现问题时，有剩余轮次则进入 FIX，否则进入 WAIT_USER。仅审核任务采用：`PLAN → REVIEW → ADJUDICATE → DONE`。需要用户决定时记为 `WAIT_USER`；取消或无法继续时记为 `STOP`。
 
-### 状态机与任务 artifact
+启用 Paseo 时只需维护以下已忽略文件：
 
-状态机：PLAN →（仅审核模式直接 REVIEW）；审核并修复模式 PLAN → IMPLEMENT → IMPLEMENTATION_VALIDATE → REVIEW → ADJUDICATE →（FIX → TEST → RE_REVIEW → ADJUDICATE，≤2 轮）→ FINAL_REVIEW（无上下文干净复审）→ FINAL_VALIDATE → DONE。DEFER_TO_USER → WAIT_USER；门禁/验证失败 → 回 FIX 或 STOP + USER；FINAL_VALIDATE 全部 AC 通过才进入 DONE；WAIT_USER / STOP 不得自动转移到 DONE。
+- `.ai/task/<task_id>/SPEC.md`：范围、允许修改文件、验收标准；
+- `.ai/task/<task_id>/PLAN.md`：大型任务的简短步骤，可在事实变化时直接更新；
+- `.ai/task/<task_id>/BASELINE.patch`／`baseline/`：仅在任务需要修改既有脏文件时保存其起始 patch 或副本；
+- `.ai/task/<task_id>/STATE.json`：当前状态、轮次、审核阶段与 contract 进度、agent ID、provider/model、WAIT_USER 恢复点和 review 记录引用；
+- `.ai/reviews/<task_id>/review-NN.json`：任务身份、审核阶段、review contract、结构化 finding 与主代理裁决。
 
-- 事实固化到 workspace：`.ai/task/SPEC.md`（任务范围、可测试验收标准 AC-1..n、允许修改文件清单、禁止扩展项）、`.ai/task/PLAN.md`（步骤与依赖）、`.ai/task/STATE.json`（状态机唯一事实源）、`.ai/reviews/review-NN.json`（review 与裁决记录）。Schema 见 `.ai/roles/orchestrator.md`。
-- 状态机纪律：每次行动前先读 STATE.json 校验前置状态，行动后写回（`step` 单调递增、`last_action`、`last_error`、`retry_count`、时间戳）；状态与预期不符时停下报告用户，不得自行猜测下一步。`paseo run` / `paseo send` / `paseo inspect` 等基础设施失败重试 ≤3 次后 STOP + USER。任何 agent 创建与 briefing 发送前完成外发检查点（记录 provider、model、内容类型、量级与实际 payload；超出常设通道先取得用户授权）。
-- EXECUTOR 与 REVIEWER 不得写入 `.ai/task/` 与 `.ai/reviews/`；两目录的运行期文件不入库（见 `.gitignore`）。
-- PLAN 修订路径：EXECUTOR 实现中发现的事实或 REVIEWER 指出计划本身错误时，由 ORCHESTRATOR 修订 PLAN.md（`plan_rev` 递增 + delta 记录），将 delta 告知 EXECUTOR 并重新走 REVIEW。
-- 同一 finding 用签名 `(file, location, problem 摘要)` 判定；签名在下一轮仍存在 → 终止并归档旧 EXECUTOR，新建 fresh EXECUTOR（附 SPEC + PLAN + findings + 当前仓库状态），不得继续复用已形成错误 mental model 的执行者。
+每个新任务使用独立 task ID；旧的 flat `.ai/task/STATE.json`／`.ai/reviews/review-NN.json` 保持原样。STATE 在阶段转换后更新即可，不要求逐动作审计链、内容 hash、WAL 或不可变 artifact。进入 WAIT_USER 时记录原因和 `resume_state`。基础设施错误可重试一次；若 `paseo run` 是否成功不明确，先按 task/role label 查询现有 agent，不能唯一确认时再询问用户，不得盲目创建第二个写入 agent。
 
-### 与既有流程的关系
+任务前脏文件默认不交给 EXECUTOR；确需修改时，SPEC 必须逐文件允许，并先保存可恢复的起始 patch 或副本。每轮验证用该基线生成任务自身的 baseline→current diff，确认用户原有内容未被意外覆盖，并把该 diff 交给相应 reviewer。`review_only` 的 DONE 只要求全部审核已完成、findings 已裁决且无 deferred；`implement` 的 DONE 还要求没有未解决 accepted finding，并通过最终验收。
 
-- 翻译 v2 语义发现层（`tools/pi-review` 审核子进程）与源码侦察/计划审查（scout、plan-reviewer）保持现状：它们是发现与侦察层，无写权限；翻译语义发现**只走既有 v2 runner**（blind 有界 bundle 由宿主构造），Paseo REVIEWER 不承接 v2 发现，只处理代码/legacy v1（去除绝对路径后的公开 diff）。编排协议激活时，写入职责由 EXECUTOR 代行，主代理保留校验、裁决与门禁职责。
-- EXECUTOR 的写入同样受「门禁检查」「术语库工作流」「校对判定依据」约束；关键测试与门禁由 ORCHESTRATOR 在 IMPLEMENTATION_VALIDATE / FINAL_VALIDATE 独立重跑，不采信执行者自报结果。门禁 1–5 按顺序执行、任一失败先修复再继续；代码状态（内容 hash）未变化时复用已记录的门禁结果，不重复长门禁。
-- 外发授权：两条常设通道——(a) 向 Codex（gpt-5.6-sol）外发代码与译文（含审核所必需的 SPEC/PLAN/diff 上下文）；(b) EXECUTOR（pi / DeepSeek V4 Flash）接收任务 briefing 与读取 workspace 内容——均已获项目级授权（用户 2026-08-12），不再逐次申请、无需二次授权；每次发送前仍须记录 provider、model、内容类型、量级与实际 payload 供留痕。超出上述通道的任何外部传输（其他 provider、其他内容类型）仍须先取得用户授权。
+REVIEWER 使用 `--mode auto-review --new-workspace local` 和主代理提供的有界 diff／上下文，不使用 main workspace。Codex `auto-review` 实际为 `workspace-write`，这里依靠独立 workspace 和只读 briefing 隔离；审核结束后归档 agent/workspace 即可。大型输入按组件拆成新的 task ID，不设固定字节或文件数配额。
+
+EXECUTOR 与 REVIEWER 均不继承当前会话，briefing 必须包含范围、验收标准和必要上下文。provider/model 在任务开始时用 `paseo provider ls` 与 `paseo provider models <provider>` 确认，记录实际选择即可。
+
+### 外发边界
+
+以下项目级通道无需逐次确认：通过现有 blind runner 发送 translation v2 bundle；向 Codex REVIEWER 发送与 code/legacy v1 审核相关的代码、文档和必要上下文；向 pi EXECUTOR 发送任务 briefing 并允许其读取当前 workspace。任务记录只需注明 provider、model 和内容范围，不要求保存完整 payload manifest。使用其他 provider 或发送范围外内容前仍须取得用户授权。
 
 ## 汉化工具入口
 
-- 当前版本的自动化入口统一为 `python3 -B tools/i18n <command>`；`tools/i18n` 可执行位可用时也可直接调用。
-- 首次运行先执行 `tools/i18n doctor`，译文修改后执行 `tools/i18n lint`。
-- 工具会在启动 LuaJIT 子进程时自动设置本文件规定的 `LUA_PATH` 和 `LUA_CPATH`，不得要求用户手动导出。
-- `extract`、`lint`、`status`、`merge`、`workset`、`context`、`proposal`、`review` 和 `build` 的报告或候选文件只写入已忽略的 `.artifacts/i18n/`；没有显式安装命令时不得改写游戏源码仓库或发布模组仓库。
-- 翻译入口为 `tools/pi-subagent --workset <workset.json>`（需要实时观察时可用 `tools/pi-tmux translate --workset <workset.json>`，在 tmux 分屏中执行）。该审核子进程必须保持无工具、无会话、无项目上下文，只能输出 proposal artifact；其结果必须通过 `proposal --strict`，由主代理独立校验后应用，审核子进程不得直接写规范 Lua。
-- 审核入口为 `tools/i18n review` 生成 bundle，再用 `tools/pi-tmux review --bundle <bundle.json>` 执行（默认在当前 tmux 会话分屏运行，便于观察审核过程；无 tmux 环境用 `--fallback foreground`，脚本场景可直接用 `tools/pi-review`）。翻译使用独立的 semantic observation v2（技术契约见 `docs/pi-review-v2-contract.md`）：blind provider payload 不注入 terminology/Facts 或 canonical membership 等宿主 lineage，只包含最小 revision/source/target 输入；模型逐 item 返回 `assessment_state`、可观察语义差异和精确 source/target evidence，不得填写 severity、确认状态或 suggested fix；宿主只做结构、span、identity 与 pending 路由，主代理独立裁决。代码 diff 保留 legacy v1 finding 契约。审核子进程默认无工具、无会话、无项目上下文，不得直接修改文件。
-- 源码核验变体（Skill `$tome4-pi-file-review`）的现有 `tools/pi-tmux review-files --bundle <bundle.json>`（headless 用 `tools/pi-review-files`）只接受 code/legacy v1。translation v2 的源码核验必须绑定既有 observation identity，只能返回 `supported/refuted/insufficient` 并禁止新增 finding；在该 claim-bound runner 实现前，现有工具必须失败关闭，由主代理按固定源码版本直接核验。该审核子进程（源码感知变体）以 `--tools read,bash` 白名单启动，所读源码片段和路径可能进入 provider 请求；首次授权必须同时披露可读公开根与这一外发边界。`edit`/`write` 永不启用，但审核子进程的内置 `bash` 不提供 OS 沙箱，仍继承宿主进程权限与 provider 凭据；工具会自动比较运行前后的版本控制范围内容级快照，主代理运行后仍须独立确认工作树未被改动。需要强隔离时必须使用只读挂载、网络/凭据隔离的容器或 VM。
-- 完整质量评价入口为 `tools/pi-quality-evaluator --sample <sample.json> --evaluator <reviewer-id>`。该审核子进程保持无工具、无会话、无项目上下文，只接收有界 quality sample，宿主补齐并严格校验 assessment 身份；不得向任一 evaluator 展示另一份 assessment、裁决、历史 finding 或预期等级。模型评价仍受首次外部传输授权门槛约束，不能替代后续主代理/用户裁决。
-- 处理审核意见入口为 `tools/pi-tmux remediate --bundle <bundle.json> --review <review.json>`（headless 可用 `tools/pi-remediate`）。只有主代理已独立确认并定级的 finding 才可进入 remediation；translation v2 pending observation 不得直接进入，当前 runner 会显式拒绝。该审核子进程只能输出绑定到 finding/item 的 remediation proposal；主代理必须独立校验并应用修订，再重新运行审核；审核子进程不得直接写规范 Lua 或代码，主代理应用后必须重新运行审核与门禁以闭环。
-- 当用户要求开展审核时（无论主代理是 pi coding agent 还是 Codex），使用项目 Skill `$tome4-pi-review`；交互式审核默认在 tmux 分屏中运行，pane 保留至 `tmux kill-pane -t <pane>`。翻译 v2 bundle 的外发已获项目级授权（用户 2026-08-10 指示移除逐次授权申请），不再逐次取得授权；主代理仍须按 Skill 报告 provider、model、条目数/字数与实际 payload 供留痕。首次向外部 provider 发送翻译 bundle 以外的任何内容（任务、计划、代码/其他 bundle）前，必须明确报告 provider、model、内容类型、条目/字数与实际 payload 大小并取得用户授权（代码/译文向 Codex 与 EXECUTOR briefing 两条常设通道已获项目级授权，见「多代理编排协议」节，无需二次授权）；不得用项目级全局网络放行绕过该授权。
-- 源码侦察与计划审查由项目 subagent（Skill `$tome4-pi-subagent`）承担：`subagent({agent: "scout", task})` 只读阅读 t-engine4、DLC 与 addon 发布仓库源码并返回压缩上下文；`subagent({agent: "plan-reviewer", task})` 对修复/翻译/工具链计划做只读独立审查并返回结构化 findings。两者均以 `read,grep,find,ls,bash` 白名单启动，`edit`/`write` 永不启用，无会话、无项目上下文、无 skills；结果只作参考，由主代理独立裁决并应用，不得直接写规范 Lua 或代码。
+- 自动化统一使用 `python3 -B tools/i18n <command>`；首次运行先执行 `doctor`，译文修改后执行 `lint`。工具自动配置 LuaJIT 模块路径。
+- 报告和候选文件写入已忽略的 `.artifacts/i18n/`；除显式安装／发布命令外，不改写游戏源码或发布仓库。
+- 翻译使用 `tools/pi-subagent --workset <workset.json>`（可见运行用 `tools/pi-tmux translate`）。子进程只输出 proposal，主代理通过 `proposal --strict` 校验后应用。
+- 翻译审核先用 `tools/i18n review` 生成 bundle，再运行 `tools/pi-tmux review --bundle <bundle.json>`（headless 用 `tools/pi-review`）。semantic observation v2 的 blind 输入、输出和宿主裁决遵循 `docs/pi-review-v2-contract.md`；不得注入 terminology、Facts 或历史 finding。
+- `$tome4-pi-file-review`／`tools/pi-review-files` 只处理 code/legacy v1。translation v2 在 claim-bound runner 实现前由主代理按固定源码版本核验。源码感知进程只有 `read,bash` 工具；其结果仍由主代理确认。
+- 质量抽样使用 `tools/pi-quality-evaluator`；已确认 finding 的修复建议使用 `tools/pi-remediate`。两者只产出 assessment/proposal，不直接改规范 Lua 或代码。
+- 用户要求审核时使用 `$tome4-pi-review`；源码侦察或计划审查使用 `$tome4-pi-subagent` 的 scout／plan-reviewer。subagent 输出仅供主代理参考。
+- 外发按上文「外发边界」执行；常设通道只需报告 provider、model 和大致内容范围。
 
 ## DLC 源码输入（GPL v3 公开）
 
-- ToME4 及三个官方 DLC（Ashes of Urh'Rok、Cults of Entropy、Embers of Rage）以 **GPL v3（or later）** 发布，源码可自由读取、分析、提取。许可证依据：`t-engine4/COPYING`（GPL v3 全文）、各 DLC `init.lua` 头部声明；公开正式版位于 `/Users/yun/projects/tome4-dlcs/`（ashes/cults/orcs，version 1.7.4）。
-- GPL v3 §2：不分发的使用（读取/分析/提取/翻译）无条件允许；禁止条款不适用于本场景。但**分发**基于 DLC 的衍生作品（含译文）时须遵守 §5：保留版权声明、以 GPL v3 兼容许可发布、提供对应源码。本项目译文与发布 addon 应随附 GPL v3 声明。
-- 不再禁止直接读取 DLC 源码；可复现基线仍建议使用受审计提取脚本（extract 生成规范化快照 + SHA-256 基线，doctor/extract 自动校验）。提取来源已切换至公开正式版 `/Users/yun/projects/tome4-dlcs/`（2026-08-04 验证：两处副本 t() 的 src 序列完全一致，ashes 完全一致；cults 37 个 / orcs 2 个非 t() 内容差异不影响提取）。快照基线含 origin 元数据（section/origin_line），来源切换后若 extract 报基线 mismatch，属预期，重建基线即可（tdef_count 不应变化）。
-- 输入边界按角色区分：翻译审校只能接收规范翻译条目的有界 bundle（blind v2）；代码审校只能接收去除绝对路径后的公开代码 diff（legacy v1）；源码侦察与计划审查（scout/plan-reviewer）接收任务/计划文本，并可读公开根（t-engine4、tome4-dlcs、addon 发布仓库），所读源码片段与路径可能进入 provider 请求，授权时须披露。审核子进程与 subagent 的任何输出（proposal/findings/context）只写入 `.artifacts/i18n/` 或会话日志；主代理负责独立校验并应用到规范 Lua 或代码，应用后必须重新运行审核与门禁以闭环。
+- ToME4 与三个官方 DLC 为 GPL v3（or later）公开源码，可以直接读取、分析和提取。正式版位于 `/Users/yun/projects/tome4-dlcs/`（ashes/cults/orcs，1.7.4）；版本依据以 manifest 固定值为准。
+- 分发译文／addon 时保留版权声明、使用 GPL v3 兼容许可并提供对应源码。
+- 翻译审核只发送规范条目的 blind v2 bundle；代码审核发送去除本机绝对路径的公开 diff。scout／plan-reviewer 可以读取上述公开源码，输出由主代理核验后应用。
 
 ## Lua 运行环境
 
@@ -160,63 +153,36 @@ luarocks \
 
 ## 项目通用审核与修复工作流
 
-本节是整个项目所有审核任务的共同底座，适用于译文、术语、代码/脚本、测试、配置、prompt、文档、artifact 契约以及构建发布流程。后文的审核子进程/subagent 输入边界、源码判定依据、术语工作流和门禁检查仍是对应任务的附加硬约束；通用流程不得绕过它们。
+审核开始时明确模式（仅审核／审核并修复）、范围、关注维度和完成标准。先记录
+`git status --short` 与实际 changed/untracked 文件；保留任务前改动，首次运行工具先执行
+`python3 -B tools/i18n doctor`。
 
-审核开始时必须先明确并记录：
+### 审核
 
-- 模式：仅审核，或审核并修复；
-- 范围：组件、文件、diff、artifact 或具体调用链；
-- 维度：翻译质量、术语一致性、功能正确性、性能、构建发布等；
-- 外部边界：是否允许审核子进程/subagent/provider、公开源码核验或外部仓库读取；
-- 完成标准：交付 findings，或修复后收敛到一轮干净复审。
+- 先完成一轮只读检查再集中裁决；仅审核任务不得自行进入修复。
+- 译文检查源码机制、语境、术语、占位符／markup、运行键和中文表达；代码／工具检查输入、
+  失败语义、下游消费者和实际复杂度；文档／配置核对真实实现与命令。
+- finding 必须有源码或上下文证据，并说明可触发行为或调用链。纯风格偏好、理论风险和
+  无证据的性能猜测不算确认问题。
+- 主代理把 finding 标为 confirmed、pending 或 advisory，并独立定级；只有 confirmed
+  finding 自动进入修复。模型自报等级不作为事实。
 
-审核维度以用户明确范围为准，不得擅自扩展成安全对抗、全仓风格重构或无关质量工程；但会直接造成错误结果、数据丢失、状态破坏或明显性能退化的问题仍属于功能 finding。
+### 修复
 
-### 1. 先固定基线和审核范围
+- 只有用户要求修复时才修改；先冻结当前 finding 清单，再按依赖顺序处理 accepted 项。
+- 给无上下文修复 agent 的指令应包含 finding、允许文件、最小测试和完成条件；subagent
+  输出与自报测试结果都由主代理复核。
+- 不为相邻风格、无关重构或额外质量工程扩大范围。
 
-- 开始前先记录 `git status --short`、`git diff --name-only` 和 `git diff --stat`，区分任务开始前已有改动、本轮改动和未跟踪文件；脏工作树不得被清理、重置或顺手格式化。
-- 用户未明确授权时不得用 commit 作为 checkpoint；需要记录审核状态时，在对话或已忽略的 `.artifacts/i18n/` 中维护简短清单即可。
-- 首次运行工具先执行 `python3 -B tools/i18n doctor`。先确认实际 changed/new 文件和任务指定输入，再决定需要阅读、核验和测试的子系统，不得把全仓无差别搜索当作默认起点。
+### 验证与停止
 
-### 2. 只读审核完成后再开始修复
+1. 每个修复运行最接近的 lint／测试并检查 `git diff --check`。
+2. 一批修复完成后运行组件级检查。
+3. 收束后统一运行适用的完整门禁、构建和 smoke；工作树未变化时不重复长门禁。
 
-- 第一阶段保持只读，先收齐并冻结一轮 findings；不要采用“发现一个、立刻修改、再从头审核”的无界循环。仅审核任务在 findings 冻结并完成证据核对后即可交付，不得自行进入修复。
-- 按审核对象选择检查矩阵：
-  - **译文/术语**：固定版本源码与实际机制 → section/source_tag/context → 术语与领域 → 占位符/markup/特殊参数 → 运行键覆盖 → 中文准确性与流畅度；
-  - **代码/脚本/artifact**：上游输入与版本 → 身份/新鲜度摘要 → 缓存键 → 内存语义 → 写入/提交事务 → 失败与退出码 → 下游消费者 → 热路径复杂度；
-  - **配置/prompt/文档**：权威 schema/实现 → 生产者与消费者 → 字段和版本 → 示例命令 → 失败语义 → 文档陈述是否与实际行为一致；
-  - **构建/发布**：规范输入 → 生成内容 → 完整性标记 → 原子写入/回滚 → Git 状态 → 加载链与 smoke。
-- finding 必须有源码/上下文证据、可触发的错误行为、最小复现或明确调用链；单纯缺少测试、个人译法偏好、理论上的残留目录、风格问题或无法证明会被下游当作成功结果消费的部分产物，不得作为已确认 finding。
-- finding 由宿主/主代理统一标记为“已确认”“待确认”或“advisory”，不能接受模型自报状态。只有已确认 finding 才由主代理定级并进入自动修复队列；待确认项必须写明缺失证据，不得猜测升级。
-- 对内容寻址 artifact，必须一次性核对完整 lineage：审核者可见的完整 payload、所有会改变其语义的规范输入、规则/manifest、生成器版本和父 artifact 身份都应被绑定；消费者优先重算廉价字节摘要，不得为了新鲜度校验重建大型 inventory 或重复运行 Lua loader。
-- 机制和语义结论遵循后文“校对判定依据”；性能结论必须基于调用次数、复杂度、数据规模或实际计时，不得仅凭代码观感报告性能 finding。
-
-### 3. 有界修复和子代理使用
-
-- 仅在用户授权修复时，才对已确认 findings 按依赖关系排序修改。即使用户要求逐项交付，也应先完成当前审核面的 finding 清单，再逐项修改，避免同一术语、机制或 artifact 契约被拆成多轮互相失效的补丁。
-- 每个修复任务必须写明：唯一 finding、允许修改的文件、禁止扩展项、最小回归测试和完成条件。无上下文修复子代理必须在完成这些条件后立即回报，不得继续扩展搜索或重构相邻代码。
-- 子代理分两类：「无上下文修复子代理」执行有界修复并立即回报；「源码感知 subagent」（scout/plan-reviewer）允许按任务范围搜索与阅读公开源码，但只读、无写工具，结果由主代理独立裁决，不得自动应用。
-- 子代理的测试结果不能替代主代理的独立复核；但主代理和子代理不应在每个小修复后都重复完整门禁。出现长时间无可见进展、反复扩大测试或偏离 finding 时，主代理应先要求状态并及时收束或中断。
-- 未获用户授权时不得为了提速擅自并行代理；获准并行时，仅并行互不写同一文件的只读审核或独立修复。
-
-### 4. 分层验证，避免重复全量运行
-
-按以下层级验证所有审核修订：
-
-1. **单 finding**：译文/术语核对对应源码与上下文并运行最小 lint；代码运行最接近的测试类/表驱动回归和相关模块 `py_compile`；配置/文档核对实际消费者或 schema；所有改动检查受影响文件的 `git diff --check`。
-2. **子系统批次**：按任务运行组件级 lint、术语审计、相关 `-k`/测试类或一条真实但无外部副作用的命令路径；性能修复应增加调用次数或不触发昂贵路径的断言。
-3. **最终集成**：运行本任务适用的完整门禁、构建和 smoke，只在本批修复收束后统一执行。高风险共享基础设施改动可提前追加一次完整测试，但不要机械重复；任何外部 provider 调用仍须单独授权（翻译 v2 bundle 外发除外，已获项目级授权，见上文审核 Skill 条目）。
-
-- 测试 fixture 应优先使用表驱动和共享 helper，避免为每个类型变体复制整段大型样本。
-- 不要把包含数万行条目的 `--json` 结果直接输出到终端；优先使用普通摘要、将完整 JSON 留在 `.artifacts/i18n/`，或只读取需要核对的字段。
-- 每次完整门禁只记录一次结果、耗时和对应代码状态；代码未变化时不得仅为“更放心”重复相同长门禁。
-
-### 5. 明确停止条件
-
-- **仅审核任务**：审核范围已完整覆盖，findings 已冻结并完成证据分级，即可交付；不要求擅自修复或无限追加复审。
-- **审核并修复任务**：所有授权范围内的已确认 findings 已修复并通过定向验证；完整门禁、适用构建和 smoke 通过；再进行 **一轮** 全新、只读、无上下文复审，且没有新的已确认 finding。
-
-对应模式满足上述条件即视为审核收束。若最终复审发现新问题，修复后再做一轮干净复审；若只剩待确认或 advisory，应明确记录并停止，不得以追求绝对零风险为由无限增加审核轮次。用户明确要求“直到没有问题”时，也以最后一轮独立复审无新确认 finding 作为可验证的完成标准。
+仅审核任务在 findings 核验完成后交付。审核并修复任务在 accepted findings 全部解决、
+门禁通过，并完成一轮新的独立复审后交付；只剩 pending/advisory 时说明并停止，不追求
+无界的“零风险”。外发遵循上文集中边界。
 
 ## 门禁检查（每次译文批量修改后必跑）
 
@@ -248,7 +214,7 @@ git diff --check && echo DIFF_OK
 
 - 当翻译、术语、审核意见或英文表面含义对游戏机制的描述存在分歧时，以当前版本清单固定的游戏源代码实际行为为最终判定依据；现有译文、术语库和模型 finding 都不能覆盖源码事实。
 - 核验机制时应记录对应组件、公开源码路径、固定 commit 和关键调用或数据定义，并据此确认、部分确认、撤销或修订审核结论；当前工作树与固定 commit 不一致时，默认以版本清单固定的 commit 为准，除非用户明确指定其他目标版本。
-- 公开游戏与三个官方 DLC 源码可以在只读范围内直接核验。若未来引入未公开组件，其机制核验只能使用受审计 Lua 提取器生成的去敏快照或有界证据，不得为确认机制而直接读取、枚举或搜索未授权目录；证据不足时应将结论标为待确认，不得猜测。
+- 公开游戏与三个官方 DLC 源码可以直接核验；未公开组件只使用用户授权的证据。证据不足时标为待确认。
 
 ## 术语库工作流
 
