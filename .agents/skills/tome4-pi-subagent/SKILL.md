@@ -1,9 +1,12 @@
 ---
 name: tome4-pi-subagent
-description: 调用项目只读 subagent：scout 侦察 t-engine4、DLC 或 addon 源码，plan-reviewer 独立审查修复、翻译、工具链或发布计划。用于需要压缩源码上下文或计划复审的场景；不用于翻译生成、文件修改或 blind translation v2 discovery。
+description: 仅在 Paseo 未激活时调用项目只读 subagent：scout 侦察 t-engine4、DLC 或 addon 源码，plan-reviewer 独立审查修复、翻译、工具链或发布计划。用于非 Paseo 的源码侦察或计划复审；Paseo 激活后不得使用，改由 ORCHESTRATOR／REVIEWER 承担对应职责。
 ---
 
 # ToME4 项目 subagent
+
+仅在 Paseo 未激活时执行本 Skill。如果任务已有 Paseo task ID 或已明确采用 Paseo，停止本
+Skill；不要调度 scout／plan-reviewer，也不要把它们的输出计入 Paseo review contract。
 
 项目 agent 定义位于 `.pi/agents/`，通过 `.pi/extensions/subagent/` 调度。通用只读
 边界、外发记录和结果裁决遵循 `AGENTS.md`；具体可读范围与输出 schema 以对应 agent
@@ -29,5 +32,5 @@ subagent({ agent: "plan-reviewer", task: "..." })
 - 只接受对应 agent 定义声明的 JSON 结构；格式错误时不要猜测补全。
 - 路径、行号、机制断言和 findings 由主代理独立核验后再采信。
 - subagent 输出只作上下文或审阅意见，不自动写入规范 Lua、代码或计划。
-- translation v2 的 blind semantic discovery 始终使用 `$tome4-pi-review`，不得通过
-  scout 或 plan-reviewer 注入术语、Facts、历史 finding 或源码上下文。
+- 非 Paseo translation v2 的 blind semantic discovery 使用 `$tome4-pi-review`，不得
+  通过 scout 或 plan-reviewer 注入术语、Facts、历史 finding 或源码上下文。

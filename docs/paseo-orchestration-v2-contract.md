@@ -22,6 +22,9 @@
 3. REVIEWER 不使用 main workspace；翻译 semantic v2 继续走现有 blind runner。
 4. 自动修复最多两轮，仍不能收敛时交给用户决定。
 5. 任务开始前记录工作树，结束前运行适用门禁。
+6. Paseo 激活期间角色路由独占，不并行使用旧项目 Skill 或其独立 agent。
+7. EXECUTOR／REVIEWER 必须是当前 ORCHESTRATOR 的 Paseo-managed child，并出现在其
+   Subagents track；provider 原生 subagent 不得代替这两个角色。
 
 ### 明确删除的复杂度
 
@@ -58,6 +61,12 @@ v2 不要求：
 EXECUTOR 和 REVIEWER 都不继承主会话。briefing 必须包含任务范围、验收标准和完成当前角色
 所需的上下文，避免依赖隐含信息。
 
+Paseo 在任务明确采用本流程并建立 task ID 时激活，到 `DONE`／`STOP` 或明确记录回退时
+结束。激活期间不得使用 `$tome4-pi-review`、`$tome4-pi-file-review`、
+`$tome4-pi-subagent`，也不得把这些 Skill 产生的 reviewer/subagent 输出当作 Paseo
+contract 结果。ORCHESTRATOR 仍可直接调用 blind translation runner、门禁和普通检查；
+这些是角色执行的工具，不是另一套 agent 路由。
+
 ---
 
 ## 三、模式与审核路由
@@ -70,7 +79,8 @@ EXECUTOR 和 REVIEWER 都不继承主会话。briefing 必须包含任务范围�
 审核类型可以有一个或两个：
 
 - `code_legacy_v1`：Paseo Codex REVIEWER 接收代码／工具／文档 diff。
-- `translation_v2`：现有 `tools/i18n review` 与 blind v2 runner 生成 observation。
+- `translation_v2`：ORCHESTRATOR 直接运行现有 `tools/i18n review` 与 blind v2 runner
+  生成 observation，不启用 `$tome4-pi-review`。
 
 混合任务可以共用 task ID、SPEC 和 STATE，但必须分别运行两种审核，不能把术语、Facts 或
 历史 finding 注入 blind translation v2 输入。
@@ -158,6 +168,7 @@ SPEC 必须写明：任务模式、范围、允许修改文件、禁止扩展项
   "cycle": 0,
   "max_cycles": 2,
   "workspace_id": "...",
+  "orchestrator_agent_id": "...",
   "baseline": {"patch": null, "copies_dir": null},
   "executor": {"provider": "pi", "model": "...", "agent_id": null},
   "reviewer": {"provider": "codex", "model": "...", "agent_id": null},
@@ -186,7 +197,9 @@ ADJUDICATE。只校验以下不变量：
 7. `review_records` 是当前 phase 的 contract→相对路径映射；其键必须等于 completed，目标
    必须是当前 task 的 review 记录，且记录内 task ID 一致。
 8. WAIT_USER 时 `wait` 必须包含 `reason` 和 `resume_state`；其他状态下 `wait` 为 null。
-9. provider、model 和已创建 agent 的 ID 非空。
+9. provider、model、`orchestrator_agent_id` 和已创建 agent 的 ID 非空。
+10. 每个已创建 EXECUTOR／REVIEWER 的 `paseo.parent-agent-id` 必须等于
+    `orchestrator_agent_id`；不匹配的 agent 不属于本任务角色。
 
 不要求 history、artifact ref、文件 hash 或原子目录同步。普通“写临时文件后 replace”足以
 避免 STATE 半写入。
@@ -204,9 +217,10 @@ file/location、problem、evidence、impact、建议修复和主代理裁决。`
 
 ## 六、Paseo 0.3.1 调用
 
-开始任务时确认版本和可用模型：
+开始任务时确认当前主代理是 Paseo 托管的 ORCHESTRATOR，再确认版本和可用模型：
 
 ```text
+test -n "${PASEO_AGENT_ID:-}"
 paseo --version
 paseo status --json
 paseo provider ls --json
@@ -225,6 +239,17 @@ paseo send --no-wait --prompt-file <prompt-file> --json <agent-id>
 paseo wait --timeout <seconds> --json <agent-id>
 paseo inspect --json <agent-id>
 ```
+
+`paseo run` 必须由该 ORCHESTRATOR 进程直接执行并保留 `PASEO_AGENT_ID`。CLI 会把它作为
+`callerAgentId` 发送给 daemon，daemon 再为 child 写入
+`paseo.parent-agent-id=<orchestrator-agent-id>`；`task_id` 和 `role` label 本身不能建立
+父子关系。不得用 provider 原生 `spawn_agent` 创建 EXECUTOR／REVIEWER，也不得在正常路径
+手写保留的 parent label。
+
+每次 `paseo run` 返回精确 agent ID 后，必须立即 inspect 并确认 ParentAgentId 等于 STATE
+中的 `orchestrator_agent_id`。不匹配时停止该 agent、记录基础设施错误，不进入下一状态。
+REVIEWER 即使使用独立 local workspace，也必须保留这一 parent lineage；因此它在 UI 中仍
+属于当前 ORCHESTRATOR 的 Paseo Subagents track，并使用 Paseo agent 的归档操作。
 
 代码 REVIEWER 使用独立 local workspace。Codex `auto-review` 在 Paseo 0.3.1 中实际是
 `workspace-write`，因此不能把 main workspace 交给它：
@@ -267,7 +292,8 @@ paseo inspect --json <agent-id>
 不支持多个终端同时启动同一 workspace 的 EXECUTOR。
 
 Paseo 不可用且用户没有强制要求使用时，主代理可以直接接管；已有 agent 应先停止。用户
-明确要求 Paseo 时则报告阻塞，不悄悄更换执行方式。
+明确要求 Paseo 时则报告阻塞，不悄悄更换执行方式。回退必须先在 STATE 记录原因并结束
+Paseo 激活状态；之后才可使用非 Paseo 工作流或旧项目 Skill。
 
 ---
 
@@ -289,6 +315,9 @@ task ID，不在同一 review contract 内维护分片状态；不计算固定 5
 
 REVIEWER 只返回有证据的可行动 finding。模型 severity 和 verdict 是建议；主代理必须
 查看实际文件或调用链后决定 `accepted`、`rejected` 或 `deferred`。
+
+旧项目 Skill 的 code review、file-reading review、scout 或 plan-reviewer 输出只能用于
+Paseo 激活前的工作；激活后不得执行，也不能据此把任何 pending contract 标为 completed。
 
 translation v2 的 bundle、身份校验和 observation 契约继续以
 `docs/pi-review-v2-contract.md` 及现有工具为准，本文不重复定义。
@@ -373,4 +402,4 @@ REVIEWER 发送与 code/legacy v1 审核相关的代码、文档和必要上下�
 
 | 版本 | 状态 | 内容 |
 | --- | --- | --- |
-| `2.0-draft` | 设计草案 | 面向个人项目的轻量流程；取消重型基础设施，并补齐状态闭环、混合审核身份和脏文件基线。 |
+| `2.0-draft` | 设计草案 | 面向个人项目的轻量流程；取消重型基础设施，补齐状态闭环、混合审核身份、脏文件基线、角色独占路由和 Paseo-managed parent lineage。 |

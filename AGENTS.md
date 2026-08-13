@@ -10,6 +10,12 @@
 
 无论采用哪种协作方式，模型输出都不是最终事实：机制以固定版本源码为准，修改以后文门禁和验收标准为准。
 
+Paseo 从任务明确采用该编排并建立 task ID 时视为激活，直到任务进入 `DONE`／`STOP`，
+或 ORCHESTRATOR 明确记录回退。激活期间不得使用 `$tome4-pi-review`、
+`$tome4-pi-file-review` 或 `$tome4-pi-subagent`；委托、实现和独立复审只通过 Paseo 的
+ORCHESTRATOR／EXECUTOR／REVIEWER 角色完成。现有 blind translation runner、门禁和普通
+检查仍可由 ORCHESTRATOR 作为工具直接调用，不视为启用旧 Skill。
+
 ## Paseo 轻量编排（大型任务）
 
 Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型修改由主代理直接完成。用户明确要求 Paseo 时必须使用；否则 CLI 不可用时可以回退主代理执行并说明。角色 prompt 见 `.ai/roles/`，轻量设计说明见 `docs/paseo-orchestration-v2-contract.md`。
@@ -20,7 +26,11 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 2. EXECUTOR 只改任务允许的文件，不 commit、不 stage；REVIEWER 不修改主 workspace。
 3. ORCHESTRATOR 独立核验测试和 finding，只把已接受的 finding 交给 EXECUTOR 修复。
 4. 自动修复最多两轮；仍有重要问题或需要产品判断时询问用户。
-5. 翻译 semantic observation v2 继续走现有 blind runner；Paseo REVIEWER 只审查代码、工具、文档和 legacy v1。混合任务可以共用任务记录，但两类审核必须分别运行。
+5. Paseo 激活期间所有 agent 委托只使用 EXECUTOR／REVIEWER，不再调度旧 Skill 的 reviewer、scout 或 plan-reviewer。
+6. 翻译 semantic observation v2 由 ORCHESTRATOR 直接运行现有 blind runner；Paseo REVIEWER 只审查代码、工具、文档和 legacy v1。混合任务可以共用任务记录，但两类审核必须分别运行。
+7. EXECUTOR／REVIEWER 必须由 Paseo 托管的 ORCHESTRATOR 直接通过 `paseo run` 创建并继承
+   `PASEO_AGENT_ID`；不得用 provider 原生 `spawn_agent` 代替。创建后必须用 `paseo inspect`
+   确认 `ParentAgentId` 等于 ORCHESTRATOR agent ID，否则停止该 agent 并按基础设施错误处理。
 
 ### 工作流与记录
 
@@ -31,7 +41,7 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 - `.ai/task/<task_id>/SPEC.md`：范围、允许修改文件、验收标准；
 - `.ai/task/<task_id>/PLAN.md`：大型任务的简短步骤，可在事实变化时直接更新；
 - `.ai/task/<task_id>/BASELINE.patch`／`baseline/`：仅在任务需要修改既有脏文件时保存其起始 patch 或副本；
-- `.ai/task/<task_id>/STATE.json`：当前状态、轮次、审核阶段与 contract 进度、agent ID、provider/model、WAIT_USER 恢复点和 review 记录引用；
+- `.ai/task/<task_id>/STATE.json`：当前状态、轮次、审核阶段与 contract 进度、ORCHESTRATOR／子 agent ID、provider/model、WAIT_USER 恢复点和 review 记录引用；
 - `.ai/reviews/<task_id>/review-NN.json`：任务身份、审核阶段、review contract、结构化 finding 与主代理裁决。
 
 每个新任务使用独立 task ID；旧的 flat `.ai/task/STATE.json`／`.ai/reviews/review-NN.json` 保持原样。STATE 在阶段转换后更新即可，不要求逐动作审计链、内容 hash、WAL 或不可变 artifact。进入 WAIT_USER 时记录原因和 `resume_state`。基础设施错误可重试一次；若 `paseo run` 是否成功不明确，先按 task/role label 查询现有 agent，不能唯一确认时再询问用户，不得盲目创建第二个写入 agent。
@@ -54,7 +64,7 @@ EXECUTOR 与 REVIEWER 均不继承当前会话，briefing 必须包含范围、�
 - 翻译审核先用 `tools/i18n review` 生成 bundle，再运行 `tools/pi-tmux review --bundle <bundle.json>`（headless 用 `tools/pi-review`）。semantic observation v2 的 blind 输入、输出和宿主裁决遵循 `docs/pi-review-v2-contract.md`；不得注入 terminology、Facts 或历史 finding。
 - `$tome4-pi-file-review`／`tools/pi-review-files` 只处理 code/legacy v1。translation v2 在 claim-bound runner 实现前由主代理按固定源码版本核验。源码感知进程只有 `read,bash` 工具；其结果仍由主代理确认。
 - 质量抽样使用 `tools/pi-quality-evaluator`；已确认 finding 的修复建议使用 `tools/pi-remediate`。两者只产出 assessment/proposal，不直接改规范 Lua 或代码。
-- 用户要求审核时使用 `$tome4-pi-review`；源码侦察或计划审查使用 `$tome4-pi-subagent` 的 scout／plan-reviewer。subagent 输出仅供主代理参考。
+- Paseo 未激活时，用户要求审核使用 `$tome4-pi-review`；源码侦察或计划审查使用 `$tome4-pi-subagent` 的 scout／plan-reviewer。Paseo 激活后不使用这三个项目 Skill，由 ORCHESTRATOR 按角色 briefing 直接路由任务和工具。
 - 外发按上文「外发边界」执行；常设通道只需报告 provider、model 和大致内容范围。
 
 ## DLC 源码输入（GPL v3 公开）

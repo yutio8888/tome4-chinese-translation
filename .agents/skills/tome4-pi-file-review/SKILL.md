@@ -1,9 +1,12 @@
 ---
 name: tome4-pi-file-review
-description: 使用带 read/bash 白名单的 Pi reviewer，对 ToME4 code/legacy v1 bundle 做源码感知核验。用于需要读取项目、游戏或 DLC 公开源码来验证代码 finding 的场景；不用于 translation v2、隔离 bundle 审核、翻译生成或任何写入任务。
+description: 仅在 Paseo 未激活时，使用带 read/bash 白名单的 Pi reviewer 对 ToME4 code/legacy v1 bundle 做源码感知核验。用于非 Paseo 任务中读取项目、游戏或 DLC 公开源码验证代码 finding；Paseo 激活后不得使用，源码核验由 ORCHESTRATOR 完成。
 ---
 
 # ToME4 Pi file-reading review
+
+仅在 Paseo 未激活时执行本 Skill。如果任务已有 Paseo task ID 或已明确采用 Paseo，停止本
+Skill；不要把 file-reading review 当作 Paseo REVIEWER、REVIEW 或 FINAL_REVIEW。
 
 使用源码感知 runner 核验 code/legacy v1 finding。该 runner 允许 `read,bash`，但没有
 OS 级沙箱；可读范围、外发记录和授权直接遵循 `AGENTS.md` 及

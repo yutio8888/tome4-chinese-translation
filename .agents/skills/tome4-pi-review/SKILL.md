@@ -1,9 +1,13 @@
 ---
 name: tome4-pi-review
-description: 为 ToME4 规范译文或公开代码变更生成有界 bundle，并通过无工具 Pi reviewer 运行 translation v2 或 code/legacy v1 复审。用于译文审校、代码审核和独立复审；不用于翻译生成、源码感知核验，或向 translation v2 注入术语、Facts、既有 findings。
+description: 仅在 Paseo 未激活时，为 ToME4 规范译文或公开代码变更生成有界 bundle，并通过无工具 Pi reviewer 运行 translation v2 或 code/legacy v1 复审。用于非 Paseo 的译文审校、代码审核和独立复审；Paseo 激活后不得使用，改由 ORCHESTRATOR 按 Paseo role 路由。
 ---
 
 # ToME4 Pi review
+
+仅在 Paseo 未激活时执行本 Skill。如果任务已有 Paseo task ID 或已明确采用 Paseo，停止本
+Skill，改读 `AGENTS.md` 与 `.ai/roles/orchestrator.md`；不要运行下列 code/translation
+review 命令作为并行审核。
 
 通过仓库 runner 构造、发送并校验审核 bundle。外发范围、provider/model 记录和主代理
 裁决规则直接遵循 `AGENTS.md`，不要在本 Skill 中另建授权流程。

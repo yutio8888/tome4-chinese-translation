@@ -19239,6 +19239,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
 
     AGENTS_DIR = ROOT / ".pi" / "agents"
     EXTENSION_DIR = ROOT / ".pi" / "extensions" / "subagent"
+    SKILLS_DIR = ROOT / ".agents" / "skills"
     SKILL_DIR = ROOT / ".agents" / "skills" / "tome4-pi-subagent"
     CONTRACT_DOC = ROOT / "docs" / "pi-review-v2-contract.md"
 
@@ -19287,6 +19288,46 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertIn("selection_sha256", contract)
         self.assertIn("/private/tmp", contract)
         self.assertIn("/tmp", contract)
+
+    def test_paseo_activation_excludes_project_skills(self) -> None:
+        skill_names = (
+            "tome4-pi-review",
+            "tome4-pi-file-review",
+            "tome4-pi-subagent",
+        )
+        for name in skill_names:
+            with self.subTest(skill=name):
+                path = self.SKILLS_DIR / name / "SKILL.md"
+                meta = self._frontmatter(path)
+                self.assertIn("Paseo 未激活", meta["description"])
+                self.assertIn("Paseo 激活后不得使用", meta["description"])
+
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("激活期间不得使用", agents)
+        self.assertIn("角色独占路由", orchestrator)
+        for name in skill_names:
+            self.assertIn(f"${name}", agents)
+            self.assertIn(f"${name}", orchestrator)
+
+    def test_paseo_roles_require_parent_lineage(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        for text in (agents, orchestrator, contract):
+            self.assertIn("PASEO_AGENT_ID", text)
+            self.assertIn("spawn_agent", text)
+            self.assertIn("ParentAgentId", text)
+        self.assertIn("orchestrator_agent_id", orchestrator)
+        self.assertIn("orchestrator_agent_id", contract)
+        self.assertIn("paseo.parent-agent-id", contract)
 
     def test_agents_md_role_split_removes_global_pi_restrictions(self) -> None:
         text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
