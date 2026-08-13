@@ -169,6 +169,21 @@ Python 归一化后追加：
   - effect → `DUPLICATE_EFFECT_ID`（ERROR，对应 `ActorTemporaryEffects.lua:59` 加载期 assert）；
   - 其他 strong anchor → 按该 kind 的运行时唯一性证据分别定义，无证据则 `identity_conflict`（CONTEXT）；
   - **weak anchor** 重复 → `identity_conflict`（CONTEXT），**不产生 ERROR**；
+- **BC2 加载语义（infra-contract-004 澄清）**：BC2 预检面向**实际被游戏加载**的定义。提取器会捕获
+  未被任何 `load()` 入口加载的遗留文件（如被注释掉的 `--load(...)`、无加载引用的孤立文件），这些定义
+  在运行时不会与其它定义冲突（`ActorTalents.lua:92` 的 assert 只对实际加载的定义生效）。因此
+  duplicate-talent-id / duplicate-effect-id 的 **ERROR 产出**必须经过
+  `i18n/quality/unloaded-sources-v1.json`（schema 1）豁免：site 全部落在豁免 section → 不产 ERROR，
+  并在 binding/report 元数据列出 suppressed conflict；部分豁免 → 按剩余（已加载）site 判定，≥2 才产
+  ERROR。**R6/FR3**：部分豁免后幸存 ERROR 的参与者只纳入出现在已加载 site section 的 TU（
+  `tu.sections ∩ 剩余 site sections ≠ ∅`），unloaded-only TU（如豁免文件的 info slot）不得进入
+  participants/subject/fingerprint；且参与者必须 `tu.kind == conflict.kind`、
+  `identity_binding == "strong"`（同 anchor 文本的另一 kind 或 fallback TU 不得污染
+  subject/fingerprint）；无参与者才回退 fallback。
+  名单缺失/损坏 → fail-closed（ValidationError）。**raw identity conflict 永不删除**：
+  identity.json / identity audit 始终保留全部 conflict（含被豁免的 ERROR 记录），豁免只作用于 Finding
+  层。豁免名单为人工核实的加载入口证据，Python 层禁止做第二套 Lua 解析（§4.3 来源条款）；新增冲突的
+  核实流程见 §15 迁移记录。
 - **BC3** 提取器已知 tag 词汇表（"talent name"/"tformat"/"entity name"/…）为**证据**，不作为 slot 规范来源（slot 规范见 §4.6）。
 
 ### §4.5 哈希规范（冻结条款）
@@ -478,6 +493,67 @@ fingerprint）；UTF-8、`\n` 行尾、无尾随空行。
 git 调用路径；
 **自检失败** → exit 2，差异文件写入 `.artifacts/i18n/`，CI 必失败。
 
+**§8.4 消费链澄清（infra-contract-004）**：
+
+- **affected 集 = base 受影响 ∪ head 受影响**：新实体 / 新 UID / 部分改名在 base 无对应 TU，必须从
+  head 侧（staged 部分索引或 full-head 索引的受影响 section）收集，否则其 finding 会从 `F_new` 静默消失。
+- **recompute/kept 是 issue 级而非纯 TU 级**：base 与 head 共用同一份 lint Issues；rename / new-UID /
+  删除会使 Issue 的绑定 TU 变化（base TU → head TU 或 fallback TU）。记录必须在其 Issue 绑定到任一侧的
+  affected TU 时重算，否则旧绑定会永远留在 kept，自检发散。
+- **删除文件**：head 已删除的 blob 跳过 staging 并在结果 `deleted_files` 报告；仅删除导致空 stage 时不
+  得因缺 `i18n_list.lua` 崩溃（使用空 head 索引）；被删 section 的 base TU 由 base 侧收集，recompute 后
+  finding 自然消失，符合 `F_new` 公式。
+- **冲突输入与 full head 等价（D4）**：单独提取受影响文件无法发现「新/修改文件与未改文件形成的
+  duplicate anchor」。source 增量的 conflict 输入必须等价于 full head——对受影响 component 使用
+  full-head identity index（`--self-check` 时直接复用其 full 提取，并同时作为绑定索引；**未开
+  `--self-check` 时该 full index 同样用于绑定/重算（V8）**，否则 partial 绑定会漏掉未改文件提供的
+  semantic-slot TUs，participants/fingerprint 与 full head 不一致），保证 incremental == full 字节一致。
+  不得在 Python 层解析 Lua。
+- **source `--ci` 语义（H3/FR2）**：只有 recomputed 中 severity=error 且 fingerprint 不在 base error
+  fingerprints 的记录视为 new（fail）；base 已存在的 legacy ERROR 仅作技术债报告（不 fail）。
+  `incremental_source_flow` 直接报告 `ci.new_errors` / `ci.legacy_errors` 及 new fingerprints，CLI
+  不从最终全量 records 误计；`--ci` 且 new_errors>0 时 JSON/text `ok` 在任何 render 前置 False（与
+  gate 一致），无 `--ci` 保持 V7（计数不置 ok）。
+- **translation 域（H4/D5）**：主 translation 与 copy fragment 是**独立的逻辑文档**，各自分别加载
+  base/head（head-only 文件 = base 缺失 → 该逻辑文档全部 head entries 受影响）；base records 必须代表
+  真实 base（含 copy fragment finding），否则 kept 集错误。新增 / 删除 / 语义变化（target/args_order/
+  special）双向收集进 affected；每个 changed editorial 映射 index candidates，无映射时必须加入
+  `tu_uid_fallback(editorial_id)`（与 `build_finding_records::_bind` 一致），否则 head-only finding 会漏掉。
+  **R2**：recomputed/kept 是 participant-aware——runtime-collision 的 subject 是 collision-id fallback，
+  真实 editorial TUs 在 participants，subject 或任一 participant 属于 affected 即重算/移出 kept；同一
+  collision（family key = (rule_id, issue.entry_id)，collision_id 由 component/source/source_tag 固定）
+  在 base/head 两侧关联，任一侧 direct touched 则两侧都重算/移出（A+B → A+B+C 不得新旧并存）。
+  **R5/R8**：同一 (section,source,source_tag) 可重复出现，affected 判定用每个 key 的 occurrence
+  multiset（(semantic payload, line) 对，base/head 不同即 affected），不得用 dict 折叠最后一条；
+  occurrence 证据（conversion-pair / formatter-tag）必须按 Issue 的 logical_path+line 精确绑定到该
+  occurrence（唯一匹配；0 或 >1 ambiguous → fail-closed 不计入 evidence）。**FR1**：entity conflict
+  的 identity context 不依赖 translation 文档是否存在——`records_for` 为每个 indexed component 确保
+  component-key identity-only FindingContext（已有 main context 保留 entries），base 无主文档/head 新增
+  时两侧均强绑定 participants。
+- **rule 域（H4/D3）**：affected rule 由**完整签名** `(rule_id, schema_version, severity,
+  evidence_key_spec)` 的 base/head 差异驱动（同 rule_id 的 schema/severity/evidence bump 会改变指纹，
+  必须重算）；registry/policy 读取与解析 fail-closed（缺失/损坏不得静默回退）。`i18n/policy.json` 三个
+  allowlist 只被 `format-mismatch` / `format-shape-difference` / `empty-target` /
+  `runtime-collision` 四条规则消费（D3 已核 `lint.py` 消费关系），policy 变化只重算这四条。
+  **R3**：Rule Registry 的 severity 对 enriched finding 权威（§9）——`build_finding_records` 以
+  registry severity 重建记录的 Issue，message/path/line/entry_id 不变；`Issue` 类、`to_dict` 与默认
+  lint 输出零改动（format-shape-difference 在 enriched 路径按 registry 为 error，§9.2 契约表）。
+  **R4**：`i18n/quality/unloaded-sources-v1.json` 是 rule 域依赖——变化影响 duplicate-talent-id /
+  duplicate-effect-id；base/head 各从对应 commit blob 严格加载（missing/corrupt fail-closed），base
+  records 用 base 注册表、head records 用 head 注册表，no-change early return 纳入该依赖。
+- **baseline entity ownership（V1）**：duplicate entity finding 的 `Issue.logical_path` 是 source
+  section，不是译文路径；baseline freeze/report/`lint --baseline` 的组件归属必须同时使用译文路径映射与
+  **TU 身份证据**（subject/participants 所在 component index），不得字符串匹配 section。
+- **Git head blob 语义（V4）**：translation 与 rule 域从 resolve 后的 base/head commit blobs 读取
+  文档/registry/policy，不依赖 worktree（未提交内容不得冒充 head）；`GitRepository.read_blob_optional`
+  是唯一「可选读」通道——只有确实不存在的 blob 返回 None，git 失败/ambiguous/非 regular/cat-file 失败
+  与 Lua loader 错误一律 fail-closed 抛错。
+- **rename 双路径（R1）**：`GitRepository.changed_paths()` 使用
+  `git diff --no-renames --name-only -z`，检测到的 rename 同时返回 preimage 与 postimage 路径，旧
+  section 的 base TU 进入 affected（否则 rename 后旧 finding 残留增量集）。
+- **identity.json schema（V5）**：`ComponentIndex.to_dict()` 携带 `schema_version: 1`，
+  `read_index_files` 的 conflicts 恢复严格要求 1（缺失/非 1 fail-closed）；旧 artifact 重新 extract。
+
 ---
 
 ## 九、规则注册契约（Rule Registry）
@@ -641,6 +717,7 @@ ast_path→semantic_slot **数据行增补**属注册表数据变更（§4.6）�
 
 | 版本 | 内容 |
 |---|---|
+| `0.1`（infra-contract-004 修订） | **消费链缺口修复**（外部评审 4 High + 复审 V1–V10 + 初审 review R1–R7 + 复审 cycle 3 R2/R8/R9 + closure cycle 4 FR1–FR3，见 `docs/localization-infra-contract-v0.1-migration-004.md`）：H1 duplicate-id 规则进 Baseline/CI——`read_index_files` 新增 `conflicts_path`（严格从 identity.json 恢复 IdentityConflict，缺失/损坏/schema/字段/组件不匹配 ValidationError fail-closed；`ComponentIndex.to_dict()` 携带 `schema_version: 1` 并严格要求；None → 空 conflicts 兼容 merge）；pipeline/`_store_enrichment_artifacts`（current-index 扫描 fail-closed：任一 index artifact 存在即要求三件套齐全、ValidationError 冒泡）/`_current_indexes_for` 均传 identity.json；新增 `i18n/quality/unloaded-sources-v1.json`（schema 1，两条 SPEC 所列 section+evidence），仅在 duplicate-talent-id/duplicate-effect-id ERROR 产出时按 section 豁免（全豁免不产 ERROR 并列出 suppressed conflict——含实际命中 section 的 registry evidence；部分豁免按剩余 site ≥2 才产 ERROR；名单缺失/损坏 fail-closed），raw conflict 保留可见、弱锚 CONTEXT 不变；H2 source 增量 affected = base∪head（新 TU/新 UID 不漏）、删除 blob 跳过 staging 并在 `deleted_files` 报告（仅确实不存在的 blob 视为删除，`GitRepository.read_blob_optional` 为唯一可选读通道）、空 stage 不崩溃、recompute/kept 升级为 issue 级（rename/new-UID 自检一致）；D4 source 增量 conflict 输入与 full head 等价（受影响 component 用 full-head identity index，`--self-check` 时复用并作绑定索引），不启用 self-check 也检出跨文件 duplicate-anchor，且受影响 component 的 full-head index 同时用于 head 绑定/重算（V8，participants/fingerprint 与 full-head 组装完全一致）；identity.json conflicts 按封闭模型逐字段校验（V9）；`_current_indexes_for` 与 extract 共用 fail-closed 扫描（V10）；H3 source `--ci` 只把 recomputed error 且 fingerprint ∉ base error fingerprints 视为 new（legacy ERROR 仅报告不 fail），flow 直接报告 new/legacy 计数与 new fingerprints；H4 translation 主文件/copy fragment 独立逻辑文档从 base/head commit blobs 分别加载（不依赖 worktree）、双向比较新增/删除/语义变化、无 index 映射用 `tu_uid_fallback(editorial_id)`；baseline 组件归属含 TU 身份证据（entity finding 的 section logical_path 不丢失）；rule 域按完整签名比较，registry/policy 从 base/head blobs 构造并 fail-closed，policy 三个 allowlist 仅影响 format-mismatch/format-shape-difference/empty-target/runtime-collision 四规则，registry severity 对 enriched finding 权威（R3）、unloaded-sources 注册表为 rule 域依赖（R4）；rename 用 `--no-renames` 双路径（R1）、translation recompute participant-aware 且 editorial 比较用 multiset（R2/R5）、partial exemption 参与者限已加载 site（R6）、identity-only artifact fail-closed（R7）、runtime-collision family 跨侧关联与 occurrence 证据精确绑定（cycle 3 R2/R8）、空 exemption registry 合法（R9）；entity conflict identity context 不依赖文档存在（FR1）、source JSON ok 与 CI gate 一致（FR2）、duplicate participants 限同 kind strong（FR3）；ci 计数始终报告、仅 `--ci` 纳入 gate（V7）。冻结公式（§4.5/§6.1/§7.1）与既有 baseline 字节零改动；新增测试 `tests/i18n/identity/test_conflicts.py`、`tests/i18n/incremental/test_domains.py` 及 test_incremental.py 的 H2/D4/H3 生产链测试（含 V1–V7 回归）；真实数据：396 conflict 恢复、T_IRON_WILL/T_TWILIT_ECHOES 均豁免不产 ERROR（raw 仍可见）、8 组件 baseline 无影响。**PR 待办**：本修订未推送/合并，PR 由用户另行指示。 |
 | `0.1`（评审 advisory 归档） | 外部复审非阻塞意见归档，防静默漂移：**A2（遗留）**——增量命令的 `resolve_commit` 对不可解析 pin 抛 `ContractError`（exit 3），而 legacy `validate()` 仍抛 `ConfigurationError`（exit 2，零破坏保留，未统一）；**A3**——§8 约束 I1 契约要求「解析失败 → 该 section 全部 TU 受影响」（section 级），实现为 **component 级加宽**（incremental.py 解析失败时全组件受影响，保守过度近似、安全但粗于契约文字）。两者均为已知 advisory，留待下次修订行确认或修正。 |
 | `0.1`（infra-contract-003 修订） | **effect.desc 槽位实现**（契约 §4.6 示例槽位 `newEffect.desc`，机制同 talent.info 原位重分类）：官方提取器 newEffect 分支对**顶层 desc 字段**字面量（直接 `_t"…"`、function 单 Return 的 tformat/`_t`、`table.merge(…,{name,desc})` 受限支持——仅 merge 末参为 Table 且 name/desc 静态）注册 AST 节点，通用 `_t`/`tformat` 分支改发 `ast_path="newEffect.desc"` 记录（确定性锚 `EFF_`+name:upper()）；locales 写入与 source_tag 逐字节不变，tDef 数/source_snapshot_sha256/i18n_list.lua 字节不变，sidecar 总记录数逐组件与变更前一致，每 occurrence 恰一条记录、无同 editorial ID strong+fallback 双映射；字段边界：仅构造器（或 merge 覆写表）**顶层** Field 键严格 `== "desc"`，`display_desc`/`long_desc`/局部 desc 字面量/floorEffect.desc 保持 free。真实数据 **805 个 strong-deterministic**（tome 588/boot 2/ashes 38/cults 69/orcs 108），5 个动态工厂/变量表 captured-nondeterministic-fallback、2 个 example 纯字符串 not-captured、floorEffect 边界 15；共享 desc 一对多 TU 21 组（含 GREATER_INVISIBILITY/INVISIBILITY 同 `Invisibility`）；覆盖矩阵与回滚边界见 `docs/localization-infra-contract-v0.1-migration-effect-desc.md`；slot-registry 23→24 项 → slot_registry_sha256 变更（`8602a990…` → `75c59d774d23402f6b910c0e4e843329cea513ef1008f02e3721326acbde6645`）→ 按规则 3 完成 **baseline 重冻**（8 组件 × 2 文件，commit `1cff3d6f3b3a061624e5f74bd80c4d7e8186fd25`，旧 `*-cd42f9a*`/`*-29da216*` 基线文件字节不变、全部 0 条 finding；`baseline report` ok=True、components=8）。测试：`EffectDescSlotTests` 8 项（强绑定 revision 语义、三态覆盖矩阵、字段边界负向 display/long/local desc 与 floorEffect、table.merge 受限、一对多 shared desc）。**PR 待办**：本修订未推送/合并，PR 由用户另行指示，PR 合并后 `contract/0.1` 正式生效。 |
 | `0.1` | **Pilot A 正式验收**：G1–G12 + G4b 共 13 行全部 PASS（gates-report 落 `.artifacts/i18n/contract-pilot-a/`）。§13 测试位置列修正为实际文件:方法（原引用的 test_coverage/test_rename/test_revision/test_rebuild/test_move/test_b1.py 不存在，实际落点见第十三节）。测试强化：G4/G4b 断言 merge 输出的 **L2 迁移建议**（match_level L2、携带旧译文、automatic=False）；G8 改为**生产 `incremental_source_flow` 端到端**（合成 git 仓库 base→head 修改 T_FLAME 数值，真实 diff/受影响集/staged 部分提取/recompute/self-check，仅 stub 全量提取步骤，增量==全量字节级）；G10 已以 talent.info 强绑定落实（契约示例槽位 `newTalent.info` 实现：官方提取器 newTalent 分支对 info 字段单字面量模板做**原位重分类**——`_t`/`tformat` 通用捕获的同一 occurrence 改发 `ast_path="newTalent.info"` 记录，locales 写入与 source_tag 逐字节不变，tDef 数/source_snapshot_sha256/i18n_list.lua 字节不变，无同 editorial ID strong+fallback 双映射；真实数据 **1836 个 strong-deterministic**（tome 1373/ashes 88/cults 109/orcs 266），5 个 captured-nondeterministic-fallback、15 个 not-captured、14 个动态调用，覆盖矩阵与回滚边界见 `docs/localization-infra-contract-v0.1-migration-g10.md`）；slot-registry 22→23 项 → slot_registry_sha256 变更 → 按规则 3 完成 **baseline 重冻**（8 组件 × 2 文件，commit `cd42f9aedd365b398e69b472326d953055f7f9fe`，旧 `*-29da216*` 基线文件字节不变、全部 0 条 finding）；G12 补 Entity UID 与相关指纹稳定性断言 + §8.3 parity 覆盖 boot。实现修复（均经裁决 ACCEPT）：`match_migrations` L2 映射（rename_events_by_new）、L2 `previous_definition` 解析（merge 输出 L2 suggestion 携带旧译文）、L2 空 match 回退 L5（旧实体缺槽/歧义时不 emit 空 L2，落回 L5/legacy 路径，source-changed suggestion 不静默丢失，回归测试 test_rename_unmatched_slot_falls_back_to_legacy_suggestion）与 rename 反向唯一性校验（多旧实体→同一新实体不 emit L2、落 L5/legacy，不携带任意旧译文，回归测试 test_rename_two_old_entities_to_one_new_never_l2）；cli.py DLC 根可移植（TOME_PUBLIC_DLC_ROOT → ~/projects/tome4-dlcs → 原回退）。契约套件接入 `tools/ci-gates.sh`（显式测试文件列表）。**PR 待办**：本版本全部修订未推送/合并，PR 由用户另行指示，PR 合并后 `contract/0.1` 正式生效。 |

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "component": "tome",
+      "section": "mod-tome/data/talents/psionic/mental-discipline.lua",
+      "evidence": "game/modules/tome/data/talents/psionic/psionic.lua:174 --load(\"/data/talents/psionic/mental-discipline.lua\") is commented out; focus.lua (loaded at psionic.lua:184) carries the colliding T_IRON_WILL definition"
+    },
+    {
+      "component": "orcs",
+      "section": "tome-orcs/data/talents/celestial/crepescula.lua",
+      "evidence": "tome-orcs/data/talents/celestial/celestial-empyreal.lua load chain (sol/cosmic/energies/reflection/void) never loads crepescula.lua; no load() reference to crepescula anywhere in the orcs source tree"
+    }
+  ]
+}

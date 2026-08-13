@@ -602,6 +602,42 @@ def _load_slot_registry(manifest: Manifest) -> SlotRegistry:
     return SlotRegistry.load(manifest.root / SLOT_REGISTRY_RELATIVE_PATH)
 
 
+def _read_current_indexes(current_root: Path) -> list[ComponentIndex]:
+    """Read every component index under the current identity directory.
+
+    Directories without any index artifact (non-component dirs) are
+    skipped; once either entities or tu index exists the whole trio
+    (entities + tu_index + identity.json conflicts) is required and any
+    missing/corrupt member fails closed (ValidationError propagates).
+    """
+    indexes: list[ComponentIndex] = []
+    for sibling in sorted(current_root.iterdir()):
+        if not sibling.is_dir():
+            continue
+        entities_path = sibling / "entities.jsonl"
+        tu_index_path = sibling / "tu_index.jsonl"
+        identity_path = sibling / "identity.json"
+        if (
+            not entities_path.is_file()
+            and not tu_index_path.is_file()
+            and not identity_path.is_file()
+        ):
+            # Non-component directory: no index artifact at all.
+            continue
+        # Any artifact present (including identity.json alone) makes the
+        # trio mandatory; read_index_files raises ValidationError on the
+        # missing members (fail closed, R7).
+        indexes.append(
+            read_index_files(
+                component=sibling.name,
+                entities_path=entities_path,
+                tu_index_path=tu_index_path,
+                conflicts_path=identity_path,
+            )
+        )
+    return indexes
+
+
 def _store_enrichment_artifacts(
     *,
     manifest: Manifest,
@@ -658,20 +694,7 @@ def _store_enrichment_artifacts(
 
     from .storage import rebuild_identity_database
 
-    indexes: list[ComponentIndex] = []
-    for sibling in sorted(current.parent.iterdir()):
-        if not sibling.is_dir():
-            continue
-        try:
-            indexes.append(
-                read_index_files(
-                    component=sibling.name,
-                    entities_path=sibling / "entities.jsonl",
-                    tu_index_path=sibling / "tu_index.jsonl",
-                )
-            )
-        except (OSError, ValidationError):
-            continue
+    indexes = _read_current_indexes(current.parent)
     from .baseline import baseline_directory, read_baseline
 
     baselines: list[Any] = []

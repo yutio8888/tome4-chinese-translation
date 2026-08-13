@@ -212,5 +212,155 @@ newTalent{
         self.assertEqual(first[0].fingerprint, second[0].fingerprint)
 
 
+    def test_registry_severity_is_authoritative_for_records(self) -> None:
+        """R3: the Rule Registry severity wins for FindingRecords while the
+        default lint Issue keeps its own severity (message/path/line/entry_id
+        unchanged). format-shape-difference is a lint warning but a registry
+        error in Pilot A (§9.2)."""
+        rule = self.registry.rules["format-shape-difference"]
+        self.assertEqual(rule.severity, "error")
+        editorial = stable_entry_id(
+            "test-component",
+            "mod-test/data/misc.lua",
+            "You hit %s for %d damage.",
+            "logPlayer",
+        )
+        entry = {
+            "section": "mod-test/data/misc.lua",
+            "source": "You hit %s for %d damage.",
+            "source_tag": "logPlayer",
+            "target": "你命中 %2s 造成 %d 伤害",
+            "logical_path": "mod-test.lua",
+            "line": 3,
+        }
+        lint_issue = Issue(
+            "warning", "format-shape-difference", "shape differs",
+            "mod-test.lua", 3, editorial,
+        )
+        records, _ = build_finding_records(
+            registry=self.registry,
+            issues=[lint_issue],
+            contexts={"test-component": self._context([entry])},
+            conflicts=(),
+        )
+        self.assertEqual(len(records), 1)
+        # The record carries the registry severity; the input lint Issue is
+        # untouched (default lint output stays byte-stable).
+        self.assertEqual(records[0].issue.severity, "error")
+        self.assertEqual(lint_issue.severity, "warning")
+        self.assertEqual(records[0].issue.message, "shape differs")
+        self.assertEqual(records[0].issue.logical_path, "mod-test.lua")
+        self.assertEqual(records[0].issue.line, 3)
+        self.assertEqual(records[0].issue.entry_id, editorial)
+
+    def test_r8_evidence_binds_to_the_exact_occurrence(self) -> None:
+        """R8 (cycle 3): duplicated editorial ids share entry_lookup; the
+        evidence must come from the occurrence the Issue actually points at
+        (logical_path + line), never from the first entry in the list.
+        Swapping the insertion order and changing the defective line must
+        not change the defective conversion evidence/fingerprint."""
+        source = "Deals %d fire damage."
+        editorial = stable_entry_id(
+            "test-component", "mod-test/data/talents.lua", source, "tformat"
+        )
+        valid = {
+            "section": "mod-test/data/talents.lua",
+            "source": source,
+            "source_tag": "tformat",
+            "target": "造成%d伤害",
+            "logical_path": "mod-test.lua",
+            "line": 3,
+        }
+        defective = {
+            "section": "mod-test/data/talents.lua",
+            "source": source,
+            "source_tag": "tformat",
+            "target": "无占位",
+            "logical_path": "mod-test.lua",
+            "line": 7,
+        }
+
+        def assemble(entries, defective_line):
+            issue = Issue(
+                "error",
+                "format-mismatch",
+                "format arguments differ",
+                "mod-test.lua",
+                defective_line,
+                editorial,
+            )
+            records, _ = build_finding_records(
+                registry=self.registry,
+                issues=[issue],
+                contexts={"test-component": self._context(entries)},
+                conflicts=(),
+            )
+            return records
+
+        first = assemble([valid, defective], 7)
+        second = assemble([defective, valid], 7)
+        self.assertEqual(len(first), 1)
+        self.assertEqual(len(second), 1)
+        # Evidence is the defective conversion pair regardless of list order.
+        self.assertEqual(first[0].evidence_key, "conv:d|")
+        self.assertEqual(second[0].evidence_key, "conv:d|")
+        self.assertEqual(first[0].fingerprint, second[0].fingerprint)
+        # The line only identifies the occurrence; shifting the defective
+        # occurrence's line keeps the evidence/fingerprint stable.
+        defective_shifted = dict(defective, line=11)
+        shifted = assemble([valid, defective_shifted], 11)
+        self.assertEqual(shifted[0].evidence_key, "conv:d|")
+        self.assertEqual(shifted[0].fingerprint, first[0].fingerprint)
+        # An issue pointing at the valid occurrence binds the valid evidence.
+        valid_records = assemble([valid, defective], 3)
+        self.assertEqual(valid_records[0].evidence_key, "conv:d|d")
+        self.assertNotEqual(valid_records[0].fingerprint, first[0].fingerprint)
+        # Ambiguous location (no entry at that line) fails closed: no
+        # fabricated evidence, no record.
+        ambiguous, report = build_finding_records(
+            registry=self.registry,
+            issues=[
+                Issue(
+                    "error",
+                    "format-mismatch",
+                    "format arguments differ",
+                    "mod-test.lua",
+                    99,
+                    editorial,
+                )
+            ],
+            contexts={"test-component": self._context([valid, defective])},
+            conflicts=(),
+        )
+        self.assertEqual(ambiguous, [])
+        self.assertEqual(report["unregistered_issues"].get("format-mismatch"), 1)
+
+    def test_duplicate_conflict_record_severity_from_registry(self) -> None:
+        """R3: the conflict-generated duplicate Issue also uses the registry
+        severity (not a hardcoded error)."""
+        from i18nlib.identity import IdentityConflict
+
+        conflict = IdentityConflict(
+            code="duplicate-talent-id",
+            severity="error",
+            component="test-component",
+            kind="talent",
+            anchor_key="T_FLAME",
+            sites=(
+                ("mod-test/data/talents.lua", 1),
+                ("mod-test/data/talents.lua", 5),
+            ),
+        )
+        records, _ = build_finding_records(
+            registry=self.registry,
+            issues=[],
+            contexts={"test-component": self._context([])},
+            conflicts=[conflict],
+        )
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0].issue.severity, "error")
+        self.assertEqual(records[0].rule_id, "duplicate-talent-id")
+
+
 if __name__ == "__main__":
     unittest.main()

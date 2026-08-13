@@ -20,7 +20,9 @@ from .findings import FindingContext, build_finding_records
 from .identity import (
     RULES_REGISTRY_RELATIVE_PATH,
     SLOT_REGISTRY_RELATIVE_PATH,
+    UNLOADED_SOURCES_RELATIVE_PATH,
     ComponentIndex,
+    UnloadedSources,
     read_index_files,
 )
 from .lint import Issue, lint_documents, load_policy
@@ -76,6 +78,7 @@ def extract_enriched(
             component=component.id,
             entities_path=entities_path,
             tu_index_path=tu_index_path,
+            conflicts_path=current_root / component.id / "identity.json",
         )
     return indexes, report
 
@@ -159,11 +162,18 @@ def run_enriched_lint(
             index=indexes.get(context.component),
         )
     registry = RuleRegistry.load(manifest.root / RULES_REGISTRY_RELATIVE_PATH)
+    unloaded_sources = UnloadedSources.load(
+        manifest.root / UNLOADED_SOURCES_RELATIVE_PATH
+    )
     conflicts: list[Any] = []
     for index in indexes.values():
         conflicts.extend(index.conflicts)
     records, binding_report = build_finding_records(
-        registry=registry, issues=issues, contexts=contexts, conflicts=conflicts
+        registry=registry,
+        issues=issues,
+        contexts=contexts,
+        conflicts=conflicts,
+        unloaded_sources=unloaded_sources,
     )
     from .storage import store_findings
 

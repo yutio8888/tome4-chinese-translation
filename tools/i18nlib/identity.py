@@ -22,6 +22,7 @@ from .snapshot import Definition, Snapshot
 
 SLOT_REGISTRY_RELATIVE_PATH = "i18n/quality/slot-registry-v1.json"
 RULES_REGISTRY_RELATIVE_PATH = "i18n/quality/rules-registry-v1.json"
+UNLOADED_SOURCES_RELATIVE_PATH = "i18n/quality/unloaded-sources-v1.json"
 
 # --------------------------------------------------------------------------
 # Frozen hash formulas (§4.5)
@@ -427,6 +428,7 @@ class ComponentIndex:
 
     def to_dict(self) -> dict[str, Any]:
         return {
+            "schema_version": 1,
             "component": self.component,
             "source_snapshot_sha256": self.source_snapshot_sha256,
             "entities": [
@@ -750,8 +752,135 @@ def write_index_files(directory: Path, index: ComponentIndex) -> tuple[Path, Pat
     return entities_path, tu_index_path
 
 
+def _read_conflicts(path: Path, component: str) -> tuple[IdentityConflict, ...]:
+    """Restore IdentityConflict records from a dumped identity.json (H1).
+
+    Fail closed: a missing, corrupt, schema-mismatched or component-
+    mismatched file raises ValidationError instead of silently yielding no
+    conflicts (which would make the duplicate-id precheck disappear from
+    baseline/incremental/report consumers).
+    """
+    try:
+        text = path.read_bytes().decode("utf-8")
+    except OSError as error:
+        raise ValidationError(f"cannot read identity conflicts file: {path}") from error
+    except UnicodeDecodeError as error:
+        raise ValidationError(f"identity conflicts file is not UTF-8: {path}") from error
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError as error:
+        raise ValidationError(
+            f"invalid identity conflicts JSON at {path}: {error}"
+        ) from error
+    if not isinstance(data, dict):
+        raise ValidationError(f"identity conflicts root must be an object: {path}")
+    if type(data.get("schema_version")) is not int or data["schema_version"] != 1:
+        raise ValidationError(
+            f"identity conflicts file has an unsupported schema_version: {path}"
+        )
+    if data.get("component") != component:
+        raise ValidationError(
+            f"identity conflicts component mismatch: expected {component!r}, "
+            f"got {data.get('component')!r} in {path}"
+        )
+    raw_conflicts = data.get("conflicts")
+    if not isinstance(raw_conflicts, list):
+        raise ValidationError(
+            f"identity conflicts 'conflicts' must be an array: {path}"
+        )
+    conflicts: list[IdentityConflict] = []
+    _duplicate_kinds = {
+        "duplicate-talent-id": "talent",
+        "duplicate-effect-id": "effect",
+    }
+    for index, record in enumerate(raw_conflicts):
+        label = f"identity conflict {index} ({path})"
+        if not isinstance(record, dict):
+            raise ValidationError(f"{label} must be an object")
+        code = record.get("code")
+        severity = record.get("severity")
+        record_component = record.get("component")
+        kind = record.get("kind")
+        anchor_key = record.get("anchor_key")
+        if not isinstance(code, str) or not code:
+            raise ValidationError(f"{label}.code must be a non-empty string")
+        # Closed model matching the producer (build_component_index): only
+        # the three BC2 codes exist; code/severity/kind combinations are
+        # bound, so a typo or an impossible pairing can never be silently
+        # ignored by the finding layer.
+        expected_kind = _duplicate_kinds.get(code)
+        if code == "identity_conflict":
+            if severity != "context":
+                raise ValidationError(
+                    f"{label}: identity_conflict must have severity 'context'"
+                )
+        elif expected_kind is None:
+            raise ValidationError(
+                f"{label}.code is not a known BC2 conflict code: {code!r}"
+            )
+        else:
+            if severity != "error":
+                raise ValidationError(
+                    f"{label}: {code} must have severity 'error'"
+                )
+            if kind != expected_kind:
+                raise ValidationError(
+                    f"{label}: {code} requires kind {expected_kind!r}, "
+                    f"got {kind!r}"
+                )
+        if record_component != component:
+            raise ValidationError(
+                f"{label}.component mismatch: expected {component!r}, "
+                f"got {record_component!r}"
+            )
+        if not isinstance(kind, str) or not kind:
+            raise ValidationError(f"{label}.kind must be a non-empty string")
+        if not isinstance(anchor_key, str) or not anchor_key:
+            raise ValidationError(f"{label}.anchor_key must be a non-empty string")
+        raw_sites = record.get("sites")
+        if not isinstance(raw_sites, list):
+            raise ValidationError(f"{label}.sites must be an array")
+        sites: list[tuple[str, int]] = []
+        for site_index, site in enumerate(raw_sites):
+            site_label = f"{label}.sites[{site_index}]"
+            if (
+                not isinstance(site, list)
+                or len(site) != 2
+                or not isinstance(site[0], str)
+                or not site[0]
+                or type(site[1]) is not int
+                or site[1] < 1
+            ):
+                raise ValidationError(
+                    f"{site_label} must be a [section, line] pair "
+                    "with a non-empty section and a positive line"
+                )
+            sites.append((site[0], site[1]))
+        if len(sites) < 2:
+            raise ValidationError(
+                f"{label} needs at least two definition sites, got {len(sites)}"
+            )
+        if len(set(sites)) != len(sites):
+            raise ValidationError(f"{label}.sites contains duplicate sites")
+        conflicts.append(
+            IdentityConflict(
+                code=code,
+                severity=severity,
+                component=component,
+                kind=kind,
+                anchor_key=anchor_key,
+                sites=tuple(sorted(sites)),
+            )
+        )
+    return tuple(conflicts)
+
+
 def read_index_files(
-    *, component: str, entities_path: Path, tu_index_path: Path
+    *,
+    component: str,
+    entities_path: Path,
+    tu_index_path: Path,
+    conflicts_path: Path | None = None,
 ) -> ComponentIndex:
     entities: dict[str, Entity] = {}
     try:
@@ -837,6 +966,8 @@ def read_index_files(
             editorial_groups[editorial_id].add(tu.tu_uid)
 
     conflicts: tuple[IdentityConflict, ...] = ()
+    if conflicts_path is not None:
+        conflicts = _read_conflicts(conflicts_path, component)
     return ComponentIndex(
         component=component,
         source_snapshot_sha256="",
@@ -857,9 +988,102 @@ def read_index_files(
                 1 for tu in tus.values() if tu.identity_binding == "fallback-editorial"
             ),
             "unknown_fallback_occurrences": 0,
-            "conflicts": 0,
+            "conflicts": len(conflicts),
         },
     )
+
+
+# --------------------------------------------------------------------------
+# Unloaded-sources registry (§4.4 BC2 load semantics, H1)
+#
+# A section listed here is extracted by the official extractor but never
+# loaded by the game's load() entry points, so a strong anchor defined only
+# there cannot collide at runtime. The registry is a manually verified
+# exemption list (no second Lua parse; see contract §15 / migration-004).
+
+
+@dataclass(frozen=True)
+class UnloadedSourceEntry:
+    component: str
+    section: str
+    evidence: str
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "component": self.component,
+            "section": self.section,
+            "evidence": self.evidence,
+        }
+
+
+@dataclass(frozen=True)
+class UnloadedSources:
+    path: Path
+    entries: tuple[UnloadedSourceEntry, ...]
+
+    def sections_for(self, component: str) -> frozenset[str]:
+        return frozenset(
+            entry.section for entry in self.entries if entry.component == component
+        )
+
+    @classmethod
+    def from_dict(
+        cls,
+        data: dict[str, Any],
+        *,
+        path: Path | None = None,
+        label: str = "unloaded-sources registry",
+    ) -> "UnloadedSources":
+        if not isinstance(data, dict):
+            raise ValidationError(f"{label} root must be an object")
+        if type(data.get("schema_version")) is not int or data["schema_version"] != 1:
+            raise ValidationError(f"{label}: unsupported schema")
+        raw_entries = data.get("entries")
+        if not isinstance(raw_entries, list):
+            raise ValidationError(f"{label} 'entries' must be an array")
+        # R9 (cycle 3): an empty array is a legal "no exemptions right now"
+        # state; only a missing/non-array key, a bad schema or a malformed
+        # entry stays fail-closed.
+        entries: list[UnloadedSourceEntry] = []
+        seen: set[tuple[str, str]] = set()
+        for index, entry in enumerate(raw_entries):
+            entry_label = f"{label} entries[{index}]"
+            if not isinstance(entry, dict):
+                raise ValidationError(f"{entry_label} must be an object")
+            component = entry.get("component")
+            section = entry.get("section")
+            evidence = entry.get("evidence")
+            if not isinstance(component, str) or not component:
+                raise ValidationError(f"{entry_label}.component must be a non-empty string")
+            if not isinstance(section, str) or not section:
+                raise ValidationError(f"{entry_label}.section must be a non-empty string")
+            if not isinstance(evidence, str) or not evidence:
+                raise ValidationError(f"{entry_label}.evidence must be a non-empty string")
+            if (component, section) in seen:
+                raise ValidationError(
+                    f"{entry_label}: duplicate (component, section) pair"
+                )
+            seen.add((component, section))
+            entries.append(
+                UnloadedSourceEntry(
+                    component=component, section=section, evidence=evidence
+                )
+            )
+        return cls(path=path or Path(label), entries=tuple(entries))
+
+    @classmethod
+    def load(cls, path: Path) -> "UnloadedSources":
+        try:
+            data = json.loads(path.read_bytes())
+        except OSError as error:
+            raise ValidationError(
+                f"cannot read unloaded-sources registry: {path}"
+            ) from error
+        except (UnicodeDecodeError, json.JSONDecodeError) as error:
+            raise ValidationError(
+                f"invalid unloaded-sources registry JSON: {path}: {error}"
+            ) from error
+        return cls.from_dict(data, path=path, label=str(path))
 
 
 # --------------------------------------------------------------------------

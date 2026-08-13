@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 import sys
+from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -960,38 +961,59 @@ def _lint(arguments: argparse.Namespace) -> int:
 
 
 def _current_indexes_for(manifest: Manifest) -> dict[str, Any]:
-    from .identity import read_index_files
+    """Current identity indexes keyed by component.
+
+    Shares the fail-closed scan with the extract path (V3/V10): a partial
+    trio (entities/tu/identity) or a corrupt identity.json raises
+    ValidationError instead of being silently skipped, so identity
+    show/audit cannot read a half-written component index.
+    """
+    from .extract import _read_current_indexes
 
     current_root = manifest.root / ".artifacts" / "i18n" / "identity" / "current"
-    indexes: dict[str, Any] = {}
-    if current_root.is_dir():
-        for sibling in sorted(current_root.iterdir()):
-            if not sibling.is_dir():
-                continue
-            entities_path = sibling / "entities.jsonl"
-            tu_index_path = sibling / "tu_index.jsonl"
-            if not entities_path.is_file() or not tu_index_path.is_file():
-                continue
-            indexes[sibling.name] = read_index_files(
-                component=sibling.name,
-                entities_path=entities_path,
-                tu_index_path=tu_index_path,
-            )
-    return indexes
+    if not current_root.is_dir():
+        return {}
+    return {
+        index.component: index for index in _read_current_indexes(current_root)
+    }
 
 
 def _records_by_component(
-    records: Iterable[Any], components: Iterable[ComponentSpec]
+    records: Iterable[Any],
+    components: Iterable[ComponentSpec],
+    *,
+    indexes: dict[str, Any] | None = None,
 ) -> dict[str, list[Any]]:
-    """Assign FindingRecords to components via their Issue logical_path."""
+    """Assign FindingRecords to components.
+
+    Translation-path mapping is the primary owner signal, but entity-level
+    findings (duplicate-talent-id / duplicate-effect-id) carry a source
+    section as their Issue.logical_path, so they never match a translation
+    file path. They are attributed through the identity evidence instead:
+    the component index whose TUs contain the record's subject/participants
+    (never string-matching the section text).
+    """
     by_path: dict[str, str] = {}
     for component in components:
         by_path[component.translation] = component.id
         if component.copy_fragment:
             by_path[component.copy_fragment] = component.id
+    indexes = indexes or {}
+
+    def via_tu(record: Any) -> str | None:
+        for component_id, index in indexes.items():
+            if record.tu_uid in index.tus:
+                return component_id
+        for component_id, index in indexes.items():
+            if any(participant in index.tus for participant in record.participants):
+                return component_id
+        return None
+
     grouped: dict[str, list[Any]] = {}
     for record in records:
         owner = by_path.get(record.issue.logical_path)
+        if owner is None:
+            owner = via_tu(record)
         if owner is None:
             continue
         grouped.setdefault(owner, []).append(record)
@@ -1142,7 +1164,9 @@ def _baseline_freeze(arguments: argparse.Namespace) -> int:
 
     pipeline = run_enriched_lint(manifest, runtime, loader, components)
     extractable_ids = set(pipeline["indexes"])
-    records_by_component = _records_by_component(pipeline["records"], components)
+    records_by_component = _records_by_component(
+        pipeline["records"], components, indexes=pipeline["indexes"]
+    )
 
     frozen: list[dict[str, Any]] = []
     skipped: list[dict[str, Any]] = []
@@ -1221,7 +1245,9 @@ def _baseline_report(arguments: argparse.Namespace) -> int:
     from .pipeline import run_enriched_lint, validate_baselines
 
     pipeline = run_enriched_lint(manifest, runtime, loader, components)
-    records_by_component = _records_by_component(pipeline["records"], components)
+    records_by_component = _records_by_component(
+        pipeline["records"], components, indexes=pipeline["indexes"]
+    )
 
     baselines: dict[str, Any] = {}
     for component in components:
@@ -1267,6 +1293,7 @@ def _baseline_report(arguments: argparse.Namespace) -> int:
         "translation_commit": arguments.commit,
         "components": states,
         "totals": total_gate,
+        "binding": pipeline["binding"],
     }
     if arguments.json:
         _print_json(report)
@@ -1304,7 +1331,7 @@ def _lint_identity_mode(arguments: argparse.Namespace) -> int:
 
         pipeline = run_enriched_lint(manifest, runtime, loader, components)
         records_by_component = _records_by_component(
-            pipeline["records"], components
+            pipeline["records"], components, indexes=pipeline["indexes"]
         )
         baselines: dict[str, Any] = {}
         for component in components:
@@ -1345,6 +1372,7 @@ def _lint_identity_mode(arguments: argparse.Namespace) -> int:
             "mode": "baseline",
             "translation_commit": arguments.baseline,
             "components": report_states,
+            "binding": pipeline["binding"],
         }
         run_directory = create_run_directory(manifest.root, "lint-baseline")
         write_json(run_directory / "lint.json", report)
@@ -1410,8 +1438,26 @@ def _lint_identity_mode(arguments: argparse.Namespace) -> int:
         )
         report = dict(result)
         report["ok"] = True
-        if arguments.self_check and result["self_check"] is not None:
+        # Keep the self-check verdict separate from the aggregated ok: the
+        # exception dispatch must follow the actual gate that failed, not the
+        # render-only aggregate (FR2 regression fix: --self-check --ci with a
+        # passed self-check and new ERRORs must raise I18nToolError/exit 1,
+        # not IncrementalCheckError/exit 2; a failed self-check keeps exit 2
+        # priority). The aggregated ok still expresses ANY enabled gate
+        # failure for the JSON/text render.
+        self_check_failed = False
+        if arguments.self_check and result.get("self_check") is not None:
+            self_check_failed = not result["self_check"]["passed"]
             report["ok"] = result["self_check"]["passed"]
+        # FR2: the JSON/text ok must agree with the CI gate. The flow already
+        # reports new_errors; when --ci is passed a non-zero count flips ok
+        # to False BEFORE any render (the raise below keeps the established
+        # exit code and fingerprint message). Without --ci the counts never
+        # influence ok (V7).
+        ci = result.get("ci") or {}
+        new_error_count = ci.get("new_errors", 0)
+        if arguments.ci and new_error_count > 0:
+            report["ok"] = False
         if arguments.json:
             _print_json(report)
         else:
@@ -1423,15 +1469,22 @@ def _lint_identity_mode(arguments: argparse.Namespace) -> int:
                 f"recomputed={findings['recomputed']} "
                 f"incremental={findings['incremental']}"
             )
+            if result.get("deleted_files"):
+                print(f"deleted_files: {len(result['deleted_files'])}")
             if result.get("widened_components"):
                 print(f"widened: {sorted(result['widened_components'])}")
+            ci = result.get("ci") or {}
+            print(
+                f"ci: new_errors={ci.get('new_errors', 0)} "
+                f"legacy_errors={ci.get('legacy_errors', 0)}"
+            )
             if result.get("self_check") is not None:
                 check = result["self_check"]
                 print(
                     f"self-check: {'PASS' if check['passed'] else 'MISMATCH'} "
                     f"(full={check['full_findings']})"
                 )
-        if arguments.self_check and report["ok"] is False:
+        if arguments.self_check and self_check_failed:
             from .errors import IncrementalCheckError
 
             raise IncrementalCheckError(
@@ -1440,18 +1493,21 @@ def _lint_identity_mode(arguments: argparse.Namespace) -> int:
         if arguments.ci:
             from .errors import I18nToolError
 
-            # §7.4/§11: any new ERROR finding fails the CI gate. The gate is
-            # severity-driven only; no rule whitelist (a whitelist would
-            # silently drop future error rules).
-            new_error_count = sum(
-                1
-                for record in result["records"]
-                if record.get("severity") == "error"
-            )
+            # §7.4/§11: only NEW ERROR findings (recomputed errors whose
+            # fingerprint is absent from the base error fingerprints) fail
+            # the gate; legacy ERROR stays technical debt (H3). The flow
+            # reports new_errors directly so the CLI never miscounts from
+            # the final full records set.
+            first_fingerprint = (ci.get("new_error_fingerprints") or [""])[0]
             if new_error_count:
+                detail = (
+                    f" (first fingerprint: {first_fingerprint})"
+                    if first_fingerprint
+                    else ""
+                )
                 raise I18nToolError(
                     "incremental CI gate failed: "
-                    f"{new_error_count} new ERROR findings"
+                    f"{new_error_count} new ERROR findings{detail}"
                 )
         return 0
     if arguments.domain == "rule":
@@ -1461,24 +1517,83 @@ def _lint_identity_mode(arguments: argparse.Namespace) -> int:
     raise AssertionError(f"unhandled domain: {arguments.domain}")
 
 
+def _changed_editorial_keys(
+    base_entries: Iterable[dict[str, Any]],
+    head_entries: Iterable[dict[str, Any]],
+    semantic: Any,
+) -> set[tuple[str, str, str | None]]:
+    """H4/D5/R5/R8: bidirectional added / deleted / semantically-changed keys.
+
+    Each (section, source, source_tag) key carries a multiset of occurrence
+    identities - (semantic payload, line) - because the same key can
+    legitimately repeat; a key is affected when its base and head multisets
+    differ. A dict that keeps only the last occurrence would fold a
+    duplicated defective occurrence into invisibility (R5); the occurrence
+    line is part of the identity so a pure reorder of duplicated occurrences
+    still recomputes the record against the head document (R8: the kept
+    base record would otherwise carry stale issue metadata and diverge from
+    the full-head canonical form).
+    """
+    base_by_key: dict[
+        tuple[str, str, str | None], Counter[tuple[Any, Any]]
+    ] = defaultdict(Counter)
+    head_by_key: dict[
+        tuple[str, str, str | None], Counter[tuple[Any, Any]]
+    ] = defaultdict(Counter)
+    for entry in base_entries:
+        base_by_key[
+            (entry.get("section"), entry.get("source"), entry.get("source_tag"))
+        ][(semantic(entry), entry.get("line"))] += 1
+    for entry in head_entries:
+        head_by_key[
+            (entry.get("section"), entry.get("source"), entry.get("source_tag"))
+        ][(semantic(entry), entry.get("line"))] += 1
+    return {
+        key
+        for key in set(base_by_key) | set(head_by_key)
+        if base_by_key.get(key, Counter()) != head_by_key.get(key, Counter())
+    }
+
+
+def _rule_signature(rule: Any) -> tuple[Any, ...]:
+    """H4: the full semantic signature of a rule entry.
+
+    schema_version / severity / evidence_key_spec changes alter the frozen
+    fingerprint (§6.1), so they must drive recomputation even when the
+    rule_id set is unchanged."""
+    return (
+        rule.rule_id,
+        rule.schema_version,
+        rule.severity,
+        rule.evidence_key_spec,
+    )
+
+
+def affected_rule_ids(
+    base_registry: Any, head_registry: Any
+) -> frozenset[str]:
+    """Rule IDs whose semantic signature differs between two registries."""
+    base_signatures = {_rule_signature(rule) for rule in base_registry.rules.values()}
+    head_signatures = {_rule_signature(rule) for rule in head_registry.rules.values()}
+    return frozenset(signature[0] for signature in base_signatures ^ head_signatures)
+
+
 def _lint_incremental_rule(
     arguments: argparse.Namespace,
     manifest: Manifest,
     runtime: LuaRuntime,
     loader: LocaleLoader,
 ) -> int:
-    import json as _json
-
+    from .errors import ContractError
     from .fingerprint import RuleRegistry
     from .findings import FindingContext, build_finding_records
     from .git_source import GitRepository
-    from .identity import RULES_REGISTRY_RELATIVE_PATH
-    from .lint import parse_policy
-    from .pipeline import (
-        extract_enriched,
-        lint_documents_specs,
-        load_translation_documents,
+    from .identity import (
+        RULES_REGISTRY_RELATIVE_PATH,
+        UnloadedSources,
     )
+    from .lint import parse_policy
+    from .pipeline import extract_enriched, lint_documents_specs
 
     repository = GitRepository(manifest.root)
     base, head = arguments.incremental.split("..", 1)
@@ -1487,64 +1602,94 @@ def _lint_incremental_rule(
     changed = repository.changed_paths(base, head)
     registry_path = "i18n/quality/rules-registry-v1.json"
     policy_path = "i18n/policy.json"
+    unloaded_path = "i18n/quality/unloaded-sources-v1.json"
     registry_changed = registry_path in changed
     policy_changed = policy_path in changed
-    affected_rules: set[str] = set()
-    base_registry_data: dict[str, Any] | None = None
-    base_policy_data: dict[str, Any] | None = None
+    unloaded_changed = unloaded_path in changed
+
+    # H4/V4: the head registry/policy come from the resolved head commit
+    # blob (required, fail-closed) - uncommitted worktree content can never
+    # masquerade as head. The base side comes from the base blob when the
+    # file changed in the range, otherwise it equals head. Every read is
+    # strict: corrupt/missing JSON aborts instead of silently falling back.
+    head_registry_data = _read_commit_json(
+        repository, head, registry_path, "rule registry"
+    )
+    head_registry = RuleRegistry.from_dict(
+        head_registry_data, label=f"rule registry@{head[:12]}"
+    )
     if registry_changed:
-        try:
-            base_registry_data = _json.loads(
-                repository.read_blob(base, registry_path).decode("utf-8")
-            )
-            base_entries = {
-                entry.get("rule_id")
-                for entry in base_registry_data.get("rules", [])
-                if isinstance(entry, dict)
-            }
-        except Exception:
-            base_entries = set()
-        try:
-            head_entries = {
-                entry.get("rule_id")
-                for entry in _json.loads(
-                    (manifest.root / registry_path).read_text()
-                ).get("rules", [])
-                if isinstance(entry, dict)
-            }
-        except Exception:
-            head_entries = set()
-        affected_rules |= base_entries ^ head_entries
+        base_registry = RuleRegistry.from_dict(
+            _read_commit_json(repository, base, registry_path, "rule registry"),
+            label=f"rule registry@{base[:12]}",
+        )
+    else:
+        base_registry = head_registry
+
+    affected_rules: set[str] = set()
+    if registry_changed:
+        affected_rules |= set(
+            affected_rule_ids(base_registry, head_registry)
+        )
+    head_policy_data = _read_commit_json(
+        repository, head, policy_path, "lint policy"
+    )
+    head_policy = parse_policy(head_policy_data, label=f"lint policy@{head[:12]}")
     if policy_changed:
-        try:
-            base_policy_data = _json.loads(
-                repository.read_blob(base, policy_path).decode("utf-8")
-            )
-        except Exception:
-            base_policy_data = None
+        base_policy = parse_policy(
+            _read_commit_json(repository, base, policy_path, "lint policy"),
+            label=f"lint policy@{base[:12]}",
+        )
+        # D3: the three policy allowlists are consumed only by these four
+        # rules (lint.py _format_issue/_format_shape_issue/empty-target/
+        # runtime-collision), so a policy change recomputes exactly them.
         affected_rules |= {
             "format-mismatch",
             "format-shape-difference",
             "empty-target",
             "runtime-collision",
         }
+    else:
+        base_policy = head_policy
+    # R4: the unloaded-sources registry is a rule-domain dependency: an
+    # exemption change toggles duplicate-talent-id / duplicate-effect-id
+    # ERROR findings. Loaded strictly from base/head blobs (fail-closed);
+    # the head side is always required, so a corrupt/missing active registry
+    # aborts even when nothing else changed.
+    head_unloaded = UnloadedSources.from_dict(
+        _read_commit_json(
+            repository, head, unloaded_path, "unloaded-sources registry"
+        ),
+        label=f"unloaded-sources registry@{head[:12]}",
+    )
+    if unloaded_changed:
+        base_unloaded = UnloadedSources.from_dict(
+            _read_commit_json(
+                repository, base, unloaded_path, "unloaded-sources registry"
+            ),
+            label=f"unloaded-sources registry@{base[:12]}",
+        )
+        affected_rules |= {"duplicate-talent-id", "duplicate-effect-id"}
+    else:
+        base_unloaded = head_unloaded
     if not affected_rules:
-        # No rule/policy change: F_new == F_previous, so both flags hold
-        # trivially; they are reported explicitly, never silently dropped.
+        # No rule/policy semantic change: F_new == F_previous, so both flags
+        # hold trivially; they are reported explicitly, never silently
+        # dropped. The active registry was validated above (fail-closed).
         report = {
             "domain": "rule",
             "base": base,
             "head": head,
             "registry_changed": registry_changed,
             "policy_changed": policy_changed,
+            "unloaded_changed": unloaded_changed,
             "affected_rules": [],
             "findings": 0,
             "ok": True,
         }
         if arguments.self_check:
             report["self_check"] = {"passed": True, "full_findings": 0}
-        if arguments.ci:
-            report["ci"] = {"new_errors": 0}
+        report["ci"] = {"new_errors": 0, "legacy_errors": 0}
         if arguments.json:
             _print_json(report)
         else:
@@ -1552,23 +1697,13 @@ def _lint_incremental_rule(
         return 0
     components = _select_components(manifest, arguments.component, default="lint")
     indexes, _ = extract_enriched(manifest, runtime, components)
-    specs = load_translation_documents(manifest, loader, components)
+    # V4: translation documents come from the resolved head commit blobs
+    # (never the worktree).
+    specs, _ = _document_specs_at_commit(repository, loader, components, head)
 
-    head_registry = RuleRegistry.load(manifest.root / RULES_REGISTRY_RELATIVE_PATH)
-    base_registry = (
-        RuleRegistry.from_dict(
-            base_registry_data, label=f"rule registry@{base}"
-        )
-        if base_registry_data is not None
-        else head_registry
-    )
-    base_policy = (
-        parse_policy(base_policy_data, label=f"lint policy@{base}")
-        if base_policy_data is not None
-        else None
-    )
-
-    def records_for(issues: Any, contexts: Any, registry: Any) -> list[Any]:
+    def records_for(
+        issues: Any, contexts: Any, registry: Any, unloaded: Any
+    ) -> list[Any]:
         bound = {
             name: FindingContext(
                 component=context.component,
@@ -1581,16 +1716,28 @@ def _lint_incremental_rule(
         for index in indexes.values():
             conflicts.extend(index.conflicts)
         records, _ = build_finding_records(
-            registry=registry, issues=issues, contexts=bound, conflicts=conflicts
+            registry=registry,
+            issues=issues,
+            contexts=bound,
+            conflicts=conflicts,
+            unloaded_sources=unloaded,
         )
         return records
 
-    issues_head, contexts_head, _ = lint_documents_specs(manifest, specs)
+    issues_head, contexts_head, _ = lint_documents_specs(
+        manifest, specs, policy=head_policy
+    )
     issues_base, contexts_base, _ = lint_documents_specs(
         manifest, specs, policy=base_policy
     )
-    head_records = records_for(issues_head, contexts_head, head_registry)
-    base_records = records_for(issues_base, contexts_base, base_registry)
+    # R4: base records use the base unloaded registry, head records the head
+    # one (an exemption change alters which duplicate ERRORs are emitted).
+    head_records = records_for(
+        issues_head, contexts_head, head_registry, head_unloaded
+    )
+    base_records = records_for(
+        issues_base, contexts_base, base_registry, base_unloaded
+    )
     # F_new = (F_previous - findings(affected)) + recompute(affected)
     f_new = tuple(
         sorted(
@@ -1601,16 +1748,22 @@ def _lint_incremental_rule(
             key=lambda record: record.fingerprint,
         )
     )
+    base_error_fingerprints = frozenset(
+        record.fingerprint
+        for record in base_records
+        if record.issue.severity == "error"
+    )
     new_error_count = sum(
         1
         for record in f_new
         if record.issue.severity == "error"
-        and record.fingerprint
-        not in {
-            base_record.fingerprint
-            for base_record in base_records
-            if base_record.issue.severity == "error"
-        }
+        and record.fingerprint not in base_error_fingerprints
+    )
+    legacy_error_count = sum(
+        1
+        for record in f_new
+        if record.issue.severity == "error"
+        and record.fingerprint in base_error_fingerprints
     )
     report = {
         "domain": "rule",
@@ -1618,11 +1771,13 @@ def _lint_incremental_rule(
         "head": head,
         "registry_changed": registry_changed,
         "policy_changed": policy_changed,
+        "unloaded_changed": unloaded_changed,
         "affected_rules": sorted(affected_rules),
         "findings": {
             "previous": len(base_records),
             "incremental": len(f_new),
         },
+        "records": [record.to_dict() for record in f_new],
         "ok": True,
     }
     if arguments.self_check:
@@ -1634,8 +1789,12 @@ def _lint_incremental_rule(
             "full_findings": len(head_records),
         }
         report["ok"] = report["ok"] and passed
+    # V6/V7: counts are always reported; only --ci turns them into a gate.
+    report["ci"] = {
+        "new_errors": new_error_count,
+        "legacy_errors": legacy_error_count,
+    }
     if arguments.ci:
-        report["ci"] = {"new_errors": new_error_count}
         report["ok"] = report["ok"] and new_error_count == 0
     if arguments.json:
         _print_json(report)
@@ -1666,17 +1825,127 @@ def _lint_incremental_rule(
     return 0
 
 
+def _load_document_at(
+    repository: GitRepository,
+    loader: LocaleLoader,
+    commit: str,
+    logical_path: str,
+) -> Any | None:
+    """Load a logical translation document at ``commit``; None only when the
+    file is genuinely absent there. Git failures and Lua loader errors
+    propagate (fail closed): a corrupt document is never treated as missing
+    and an absent one is never mistaken for a broken repository."""
+    blob = repository.read_blob_optional(commit, logical_path)
+    if blob is None:
+        return None
+    return loader.load_bytes(blob, logical_path=logical_path)
+
+
+def _document_specs_at_commit(
+    repository: GitRepository,
+    loader: LocaleLoader,
+    components: Iterable[ComponentSpec],
+    commit: str,
+) -> tuple[list[tuple[str, Any, bool]], dict[tuple[str, str], Any | None]]:
+    """Load main + copy documents of every component at ``commit``.
+
+    Returns (specs, docs_by_file) where docs_by_file maps (component_id,
+    logical_path) to the document or None when the file is absent at that
+    commit. The logical path stays identical across commits so identical
+    entries produce identical Issue logical_paths (self-check parity).
+    """
+    specs: list[tuple[str, Any, bool]] = []
+    docs: dict[tuple[str, str], Any | None] = {}
+    for component in components:
+        main = _load_document_at(repository, loader, commit, component.translation)
+        docs[(component.id, component.translation)] = main
+        if main is not None:
+            specs.append((component.id, main, False))
+        if component.copy_fragment:
+            copy = _load_document_at(
+                repository, loader, commit, component.copy_fragment
+            )
+            docs[(component.id, component.copy_fragment)] = copy
+            if copy is not None:
+                specs.append((component.id, copy, True))
+    return specs, docs
+
+
+def _read_commit_json(
+    repository: GitRepository,
+    commit: str,
+    relative: str,
+    label: str,
+) -> dict[str, Any]:
+    """Read and parse a required JSON artifact at ``commit`` (fail closed)."""
+    from .errors import ContractError
+
+    blob = repository.read_blob_optional(commit, relative)
+    if blob is None:
+        raise ContractError(f"{label} is missing at {commit[:12]}")
+    try:
+        data = json.loads(blob.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise ContractError(
+            f"{label}@{commit[:12]} is not valid JSON: {error}"
+        ) from error
+    if not isinstance(data, dict):
+        raise ContractError(f"{label}@{commit[:12]} must be an object")
+    return data
+
+
+def _bind_identity_contexts(
+    contexts: dict[str, Any], indexes: dict[str, Any]
+) -> dict[str, Any]:
+    """FR1: ensure a component-key identity context exists for every indexed
+    component.
+
+    Entity-conflict participants are resolved through ``contexts.get(component)``
+    in build_finding_records; when a translation document is absent at a
+    commit (head-only main/copy), that context would be missing and the
+    conflict would fall back to a synthetic participant TU - producing a
+    different fingerprint than the side where the document exists. The
+    identity binding therefore never depends on document presence: an
+    existing main context keeps its entries and gets the index bound, a
+    missing one becomes an identity-only context (empty entries, index
+    bound). Translation-entry lookups are unaffected (empty entries add no
+    groups; _bind still walks every context including the copy fragment).
+    """
+    from .findings import FindingContext
+
+    bound = dict(contexts)
+    for component_id, index in indexes.items():
+        existing = bound.get(component_id)
+        if existing is not None:
+            bound[component_id] = FindingContext(
+                component=component_id,
+                entries=existing.entries,
+                index=index,
+            )
+        else:
+            bound[component_id] = FindingContext(
+                component=component_id, entries=(), index=index
+            )
+    return bound
+
+
 def _lint_incremental_translation(
     arguments: argparse.Namespace,
     manifest: Manifest,
     runtime: LuaRuntime,
     loader: LocaleLoader,
 ) -> int:
+    from .errors import I18nToolError
     from .fingerprint import RuleRegistry
     from .findings import FindingContext, build_finding_records
     from .git_source import GitRepository
-    from .identity import RULES_REGISTRY_RELATIVE_PATH
-    from .lint import stable_entry_id
+    from .identity import (
+        RULES_REGISTRY_RELATIVE_PATH,
+        UNLOADED_SOURCES_RELATIVE_PATH,
+        UnloadedSources,
+        tu_uid_fallback,
+    )
+    from .lint import parse_policy, stable_entry_id
     from .pipeline import extract_enriched, lint_documents_specs
 
     repository = GitRepository(manifest.root)
@@ -1688,7 +1957,11 @@ def _lint_incremental_translation(
     affected_components = [
         component
         for component in components
-        if component.translation in changed or component.copy_fragment in changed
+        if component.translation in changed
+        or (
+            component.copy_fragment is not None
+            and component.copy_fragment in changed
+        )
     ]
     if not affected_components:
         # No translation changed: F_new == F_previous, both flags hold
@@ -1703,15 +1976,30 @@ def _lint_incremental_translation(
         }
         if arguments.self_check:
             report["self_check"] = {"passed": True, "full_findings": 0}
-        if arguments.ci:
-            report["ci"] = {"new_errors": 0}
+        report["ci"] = {"new_errors": 0, "legacy_errors": 0}
         if arguments.json:
             _print_json(report)
         else:
             print("translation domain: no translation files changed in the range")
         return 0
     indexes, _ = extract_enriched(manifest, runtime, components)
-    registry = RuleRegistry.load(manifest.root / RULES_REGISTRY_RELATIVE_PATH)
+    # H4/V4: the rules registry, unloaded-sources registry and lint policy
+    # all come from the resolved head commit blobs (never the worktree), so
+    # uncommitted content cannot masquerade as head. Reads are fail-closed.
+    head_registry = RuleRegistry.from_dict(
+        _read_commit_json(repository, head, RULES_REGISTRY_RELATIVE_PATH, "rule registry"),
+        label=f"rule registry@{head[:12]}",
+    )
+    unloaded_sources = UnloadedSources.from_dict(
+        _read_commit_json(
+            repository, head, UNLOADED_SOURCES_RELATIVE_PATH, "unloaded-sources registry"
+        ),
+        label=f"unloaded-sources registry@{head[:12]}",
+    )
+    head_policy = parse_policy(
+        _read_commit_json(repository, head, manifest.policy, "lint policy"),
+        label=f"lint policy@{head[:12]}",
+    )
 
     def semantic(entry: dict[str, Any]) -> str:
         import json as _json
@@ -1722,65 +2010,88 @@ def _lint_incremental_translation(
             sort_keys=True,
         )
 
-    affected_tus: set[str] = set()
-    specs_base: list[tuple[str, Any, bool]] = []
-    specs_head: list[tuple[str, Any, bool]] = []
+    # H4/D5/V4: the main translation and the copy fragment are independent
+    # logical documents; each is loaded from the resolved base and head
+    # commit blobs (never the worktree) so base records represent the true
+    # base (including copy-fragment findings) and added / deleted /
+    # semantically-changed entries are collected bidirectionally. A
+    # genuinely absent file on either side compares as the empty side;
+    # loader errors fail closed.
+    specs_head, head_docs = _document_specs_at_commit(
+        repository, loader, components, head
+    )
+    specs_base, base_docs = _document_specs_at_commit(
+        repository, loader, components, base
+    )
+    logical_files: list[tuple[str, str, bool]] = []
     for component in components:
-        head_doc = loader.load_path(
-            manifest.root / component.translation,
-            logical_path=component.translation,
-        )
-        specs_head.append((component.id, head_doc, False))
+        logical_files.append((component.id, component.translation, False))
         if component.copy_fragment:
-            head_copy = loader.load_path(
-                manifest.root / component.copy_fragment,
-                logical_path=component.copy_fragment,
-            )
-            specs_head.append((component.id, head_copy, True))
-        base_bytes = None
-        try:
-            base_bytes = repository.read_blob(base, component.translation)
-        except Exception:
-            base_bytes = None
-        if base_bytes is None:
-            continue
-        base_doc = loader.load_bytes(
-            base_bytes, logical_path=f"{base}:{component.translation}"
+            logical_files.append((component.id, component.copy_fragment, True))
+
+    affected_tus: set[str] = set()
+
+    def add_editorial(
+        component_id: str, section: str, source: str, source_tag: str | None
+    ) -> None:
+        editorial_id = stable_entry_id(component_id, section, source, source_tag)
+        component_index = indexes.get(component_id)
+        candidates = (
+            component_index.editorial_to_tu.get(editorial_id, ())
+            if component_index is not None
+            else ()
         )
-        specs_base.append((component.id, base_doc, False))
-        if component in affected_components:
-            head_by_editorial = {
+        if candidates:
+            affected_tus.update(candidates)
+        else:
+            # No index mapping: use the frozen fallback TU, exactly like
+            # build_finding_records::_bind (D5).
+            affected_tus.add(tu_uid_fallback(editorial_id))
+
+    def collect_changes(
+        component_id: str, base_doc: Any | None, head_doc: Any | None
+    ) -> None:
+        base_entries = (
+            list(base_doc.translations) if base_doc is not None else []
+        )
+        head_entries = (
+            list(head_doc.translations) if head_doc is not None else []
+        )
+        if not base_entries and not head_entries:
+            return
+        if base_doc is None or head_doc is None:
+            # Head-only or base-only logical file: every entry that exists
+            # on either side changed (added or deleted).
+            changed_keys = {
                 (
                     entry.get("section"),
                     entry.get("source"),
                     entry.get("source_tag"),
-                ): entry
-                for entry in head_doc.translations
-            }
-            for entry in base_doc.translations:
-                head_entry = head_by_editorial.get(
-                    (
-                        entry.get("section"),
-                        entry.get("source"),
-                        entry.get("source_tag"),
-                    )
                 )
-                if head_entry is None or semantic(entry) != semantic(head_entry):
-                    editorial_id = stable_entry_id(
-                        component.id,
-                        entry.get("section") or "",
-                        entry.get("source") or "",
-                        entry.get("source_tag"),
-                    )
-                    index = indexes.get(component.id)
-                    candidates = (
-                        index.editorial_to_tu.get(editorial_id, ())
-                        if index is not None
-                        else ()
-                    )
-                    affected_tus.update(candidates)
-    issues_head, contexts_head, _ = lint_documents_specs(manifest, specs_head)
-    issues_base, contexts_base, _ = lint_documents_specs(manifest, specs_base)
+                for entry in [*base_entries, *head_entries]
+            }
+        else:
+            changed_keys = _changed_editorial_keys(
+                base_entries, head_entries, semantic
+            )
+        for section, source, source_tag in changed_keys:
+            add_editorial(
+                component_id, section or "", source or "", source_tag
+            )
+
+    for component_id, path, _is_copy in logical_files:
+        collect_changes(
+            component_id,
+            base_docs.get((component_id, path)),
+            head_docs.get((component_id, path)),
+        )
+
+    issues_head, contexts_head, _ = lint_documents_specs(
+        manifest, specs_head, policy=head_policy
+    )
+    issues_base, contexts_base, _ = lint_documents_specs(
+        manifest, specs_base, policy=head_policy
+    )
     conflicts: list[Any] = []
     for index in indexes.values():
         conflicts.extend(index.conflicts)
@@ -1794,19 +2105,58 @@ def _lint_incremental_translation(
             )
             for name, context in contexts.items()
         }
+        # FR1: the identity binding must not depend on whether the component
+        # document exists at this commit.
+        bound = _bind_identity_contexts(bound, indexes)
         records, _ = build_finding_records(
-            registry=registry, issues=issues, contexts=bound, conflicts=conflicts
+            registry=head_registry,
+            issues=issues,
+            contexts=bound,
+            conflicts=conflicts,
+            unloaded_sources=unloaded_sources,
         )
         return records
 
     head_records = records_for(issues_head, contexts_head)
     base_records = records_for(issues_base, contexts_base)
-    recomputed = tuple(
-        record for record in head_records if record.tu_uid in affected_tus
+
+    # R2 (cycle 3): recompute/kept are participant-aware, and runtime
+    # collision records are correlated across the base/head sides through a
+    # stable family key. The subject of a runtime-collision record is the
+    # collision-id fallback TU while the actual editorial TUs live in
+    # participants; a touched participant forces recompute on the head side
+    # and out of kept on the base side. Because the collision_id (issue
+    # entry_id) is a hash of component/source/source_tag, both sides of the
+    # same collision share one family key: when ANY member of the family is
+    # directly touched (e.g. base A+B already collides and head adds C, with
+    # only C affected), the base member must leave kept and the head member
+    # must be recomputed - otherwise the stale A+B record would linger next
+    # to the correct A+B+C record.
+    def _touched(record: Any) -> bool:
+        return record.tu_uid in affected_tus or any(
+            participant in affected_tus for participant in record.participants
+        )
+
+    def _family_key(record: Any) -> tuple[Any, ...] | None:
+        if record.rule_id == "runtime-collision" and record.issue.entry_id is not None:
+            return ("runtime-collision", record.issue.entry_id)
+        return None
+
+    touched_families = frozenset(
+        key
+        for record in [*base_records, *head_records]
+        for key in [(_family_key(record) if _touched(record) else None)]
+        if key is not None
     )
-    kept = tuple(
-        record for record in base_records if record.tu_uid not in affected_tus
-    )
+
+    def _record_affected(record: Any) -> bool:
+        if _touched(record):
+            return True
+        key = _family_key(record)
+        return key is not None and key in touched_families
+
+    recomputed = tuple(record for record in head_records if _record_affected(record))
+    kept = tuple(record for record in base_records if not _record_affected(record))
     incremental_records = tuple(
         sorted([*kept, *recomputed], key=lambda record: record.fingerprint)
     )
@@ -1816,30 +2166,16 @@ def _lint_incremental_translation(
         "head": head,
         "affected_components": [component.id for component in affected_components],
         "affected_tus": len(affected_tus),
+        "affected_tu_uids": sorted(affected_tus),
         "findings": {
             "previous": len(base_records),
             "kept": len(kept),
             "recomputed": len(recomputed),
             "incremental": len(incremental_records),
         },
+        "records": [record.to_dict() for record in incremental_records],
         "ok": True,
     }
-    if arguments.ci:
-        from .errors import I18nToolError
-
-        previous_error_fingerprints = {
-            record.fingerprint
-            for record in base_records
-            if record.issue.severity == "error"
-        }
-        new_errors = sum(
-            1
-            for record in incremental_records
-            if record.issue.severity == "error"
-            and record.fingerprint not in previous_error_fingerprints
-        )
-        report["ci"] = {"new_errors": new_errors}
-        report["ok"] = report["ok"] and new_errors == 0
     if arguments.self_check:
         from .invalidation import self_check as canonical_self_check
 
@@ -1851,6 +2187,30 @@ def _lint_incremental_translation(
             "full_findings": len(head_records),
         }
         report["ok"] = report["ok"] and passed
+    # H4/D5: report new/legacy error counts regardless of --ci; the gate only
+    # fails when --ci is passed (legacy ERROR stays technical debt).
+    previous_error_fingerprints = {
+        record.fingerprint
+        for record in base_records
+        if record.issue.severity == "error"
+    }
+    new_errors = sum(
+        1
+        for record in incremental_records
+        if record.issue.severity == "error"
+        and record.fingerprint not in previous_error_fingerprints
+    )
+    legacy_errors = sum(
+        1
+        for record in incremental_records
+        if record.issue.severity == "error"
+        and record.fingerprint in previous_error_fingerprints
+    )
+    report["ci"] = {"new_errors": new_errors, "legacy_errors": legacy_errors}
+    if arguments.ci:
+        # The CI gate is opt-in: counts are always reported, but new_errors
+        # only influences ok/exit when --ci is passed (legacy CLI semantics).
+        report["ok"] = report["ok"] and new_errors == 0
     if arguments.json:
         _print_json(report)
     else:

@@ -151,9 +151,15 @@ class GitRepository:
         return result.stdout.strip()
 
     def changed_paths(self, base: str, head: str) -> list[str]:
-        """Changed file paths between two commits (incremental invalidation I2)."""
+        """Changed file paths between two commits (incremental invalidation I2).
+
+        ``--no-renames`` returns the preimage AND postimage paths of a
+        detected rename, so a renamed source file keeps its old section in
+        the affected set (R1); the base-side TUs of the old path must be
+        recomputed or their findings would linger in the incremental set.
+        """
         result = self._run(
-            ["diff", "--name-only", "-z", base, head], text=True
+            ["diff", "--no-renames", "--name-only", "-z", base, head], text=True
         )
         if result.returncode != 0:
             detail = result.stderr.strip()
@@ -167,7 +173,15 @@ class GitRepository:
             if name
         ]
 
-    def read_blob(self, commit: str, git_path: str) -> bytes:
+    def read_blob_optional(self, commit: str, git_path: str) -> bytes | None:
+        """Read a blob at ``commit``; a genuinely absent path yields None.
+
+        Only the "no tree record matches the path" case maps to None. Git
+        command failures, ambiguous records, non-blob / non-regular-file
+        records and cat-file failures keep raising ExtractionError so
+        callers never mistake a broken repository for a deleted file or a
+        missing document (fail closed).
+        """
         normalized = _normalized_git_path(git_path)
         tree = self._run(["ls-tree", "-z", commit, "--", normalized])
         if tree.returncode != 0:
@@ -176,9 +190,11 @@ class GitRepository:
                 or f"git ls-tree failed for {normalized}"
             )
         records = [record for record in tree.stdout.split(b"\0") if record]
+        if not records:
+            return None
         if len(records) != 1:
             raise ExtractionError(
-                f"Git blob is missing or ambiguous: {commit}:{normalized}"
+                f"Git blob is ambiguous: {commit}:{normalized}"
             )
         try:
             header, listed = records[0].split(b"\t", 1)
@@ -201,6 +217,15 @@ class GitRepository:
                 or f"cannot read Git blob {object_id}"
             )
         return blob.stdout
+
+    def read_blob(self, commit: str, git_path: str) -> bytes:
+        blob = self.read_blob_optional(commit, git_path)
+        if blob is None:
+            normalized = _normalized_git_path(git_path)
+            raise ExtractionError(
+                f"Git blob is missing or ambiguous: {commit}:{normalized}"
+            )
+        return blob
 
     def lua_files(self, commit: str, git_path: str) -> list[tuple[str, bytes]]:
         normalized = _normalized_git_path(git_path).rstrip("/")

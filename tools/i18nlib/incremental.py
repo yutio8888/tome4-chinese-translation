@@ -46,9 +46,17 @@ def _stage_affected_files(
     component: ComponentSpec,
     affected_source_paths: Iterable[str],
     stage: Path,
-) -> int:
+) -> tuple[int, list[str]]:
+    """Stage affected files at ``commit``; returns (staged_count, deleted_paths).
+
+    Files that no longer exist at ``commit`` (deleted in base..head) are
+    skipped and reported instead of crashing on the missing blob (H2). A
+    stage that ends up empty (only deletions) is a legitimate "nothing to
+    recompute at head" state, not an error.
+    """
     mounts = {source.git_path: source.mount for source in component.sources}
     count = 0
+    deleted: list[str] = []
     for path in affected_source_paths:
         normalized = PurePosixPath(path).as_posix()
         matched = False
@@ -57,8 +65,17 @@ def _stage_affected_files(
             if normalized.startswith(prefix):
                 relative = normalized[len(prefix):]
                 target = stage.joinpath(mount, *PurePosixPath(relative).parts)
+                blob = repository.read_blob_optional(commit, normalized)
+                if blob is None:
+                    # Genuinely absent at head: the file was deleted in the
+                    # range. Other failures (git rc, ambiguous, non-regular,
+                    # cat-file) propagate as ExtractionError - only a missing
+                    # blob counts as a deletion (fail closed).
+                    deleted.append(normalized)
+                    matched = True
+                    break
                 target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_bytes(repository.read_blob(commit, normalized))
+                target.write_bytes(blob)
                 count += 1
                 matched = True
                 break
@@ -66,7 +83,24 @@ def _stage_affected_files(
             raise ExtractionError(
                 f"affected path does not belong to {component.id}: {normalized}"
             )
-    return count
+    return count, deleted
+
+
+def _empty_index(component_id: str) -> Any:
+    """A head index with no definitions (deleted-only stage / empty diff)."""
+    from .identity import ComponentIndex
+
+    return ComponentIndex(
+        component=component_id,
+        source_snapshot_sha256="",
+        entities={},
+        tus={},
+        editorial_to_tu={},
+        conflicts=(),
+        stats={"definitions": 0, "occurrences_bound": 0, "entities": 0,
+               "tus": 0, "strong_tus": 0, "fallback_tus": 0,
+               "unknown_fallback_occurrences": 0, "conflicts": 0},
+    )
 
 
 def _run_staged_extractor(
@@ -162,19 +196,7 @@ def _build_partial_index(
     snapshot_path.write_bytes(snapshot_data)
     if not definitions:
         # Affected files with no captured entries: nothing to recompute.
-        from .identity import ComponentIndex
-
-        return ComponentIndex(
-            component=component.id,
-            source_snapshot_sha256="",
-            entities={},
-            tus={},
-            editorial_to_tu={},
-            conflicts=(),
-            stats={"definitions": 0, "occurrences_bound": 0, "entities": 0,
-                   "tus": 0, "strong_tus": 0, "fallback_tus": 0,
-                   "unknown_fallback_occurrences": 0, "conflicts": 0},
-        )
+        return _empty_index(component.id)
     snapshot = read_snapshot(snapshot_path, expected_component=component.id)
     sidecar = [
         json.loads(line)
@@ -243,15 +265,28 @@ def incremental_source_flow(
 
     from .findings import FindingContext, build_finding_records
     from .fingerprint import RuleRegistry
-    from .identity import RULES_REGISTRY_RELATIVE_PATH
+    from .identity import (
+        RULES_REGISTRY_RELATIVE_PATH,
+        UNLOADED_SOURCES_RELATIVE_PATH,
+        UnloadedSources,
+    )
     from .pipeline import extract_enriched, lint_translation_documents
 
     registry = RuleRegistry.load(manifest.root / RULES_REGISTRY_RELATIVE_PATH)
+    unloaded_sources = UnloadedSources.load(
+        manifest.root / UNLOADED_SOURCES_RELATIVE_PATH
+    )
     issues, contexts, metrics = lint_translation_documents(
         manifest, loader, component_list
     )
 
-    def records_for_indexes(indexes: dict[str, Any]) -> list[FindingRecord]:
+    def records_for_indexes(
+        indexes: dict[str, Any], *, conflicts_indexes: dict[str, Any] | None = None
+    ) -> tuple[list[FindingRecord], dict[str, Any]]:
+        """Bind issues against ``indexes`` but take conflicts from
+        ``conflicts_indexes`` (default: the same indexes). The conflict input
+        must be equivalent to the full head (§8.4 / D4); the partial staged
+        index cannot see duplicates across unchanged files."""
         bound_contexts = {
             name: FindingContext(
                 component=context.component,
@@ -261,15 +296,16 @@ def incremental_source_flow(
             for name, context in contexts.items()
         }
         conflicts: list[Any] = []
-        for index in indexes.values():
+        source = conflicts_indexes if conflicts_indexes is not None else indexes
+        for index in source.values():
             conflicts.extend(index.conflicts)
-        records, _ = build_finding_records(
+        return build_finding_records(
             registry=registry,
             issues=issues,
             contexts=bound_contexts,
             conflicts=conflicts,
+            unloaded_sources=unloaded_sources,
         )
-        return records
 
     # F_previous: full extraction at base.
     base_indexes, _ = extract_enriched(
@@ -283,9 +319,9 @@ def incremental_source_flow(
             if component.source_repository
         },
     )
-    base_records = records_for_indexes(base_indexes)
+    base_records, base_binding = records_for_indexes(base_indexes)
 
-    # Affected TU set from the base indexes.
+    # Affected TU set from the base indexes (includes TUs of deleted sections).
     affected_tus: set[str] = set()
     for component in component_list:
         sections = affected_by_component[component.id]
@@ -297,6 +333,8 @@ def incremental_source_flow(
     # Partial recompute at head (I1 widens on parse failure).
     head_partial: dict[str, Any] = {}
     widened: dict[str, str] = {}
+    deleted_files: list[str] = []
+    staged_components: set[str] = set()
     with tempfile.TemporaryDirectory(prefix="tome4-i18n-incremental-") as temporary:
         temporary_root = Path(temporary)
         for component in component_list:
@@ -315,9 +353,14 @@ def incremental_source_flow(
                 continue
             stage = temporary_root / f"component-{component.id}"
             stage.mkdir(parents=True)
-            _stage_affected_files(
+            staged_count, deleted = _stage_affected_files(
                 engine_repository, head_commit, component, source_paths, stage
             )
+            deleted_files.extend(deleted)
+            if staged_count == 0:
+                # Only deletions: nothing exists at head to re-extract.
+                head_partial[component.id] = _empty_index(component.id)
+                continue
             try:
                 _run_staged_extractor(
                     manifest=manifest,
@@ -333,26 +376,33 @@ def incremental_source_flow(
                     component=component,
                     stage=stage,
                 )
+                staged_components.add(component.id)
             except ExtractionError as error:
                 # I1: unparseable diff -> the whole component is affected.
                 widened[component.id] = str(error)
                 head_partial[component.id] = None
 
+    # H2: head-side affected TUs (new entities / new UIDs / same-file
+    # renames) collected from the staged partial index.
+    for component in component_list:
+        index = head_partial.get(component.id)
+        if index is not None and component.id in staged_components:
+            affected_tus.update(index.tus)
+
     full_head_indexes: dict[str, Any] = {}
     for component in component_list:
         if head_partial.get(component.id) is None:
             # Widened component: full head extraction replaces the partial.
-            widened_override = {
-                component.source_repository: head_commit
-                for component in component_list
-                if component.source_repository
-            }
             full_head_indexes, _ = extract_enriched(
                 manifest,
                 runtime,
                 component_list,
                 timeout=timeout,
-                commit_overrides=widened_override,
+                commit_overrides={
+                    component.source_repository: head_commit
+                    for component in component_list
+                    if component.source_repository
+                },
             )
             break
     for component in component_list:
@@ -361,37 +411,15 @@ def incremental_source_flow(
             for tu in head_partial[component.id].tus.values():
                 affected_tus.add(tu.tu_uid)
 
-    head_records = records_for_indexes(head_partial)
-    recomputed = tuple(
-        record for record in head_records if record.tu_uid in affected_tus
-    )
-    kept = tuple(
-        record for record in base_records if record.tu_uid not in affected_tus
-    )
-    incremental_records = tuple(
-        sorted([*kept, *recomputed], key=lambda record: record.fingerprint)
-    )
-
-    result: dict[str, Any] = {
-        "domain": "source",
-        "base_commit": base_commit,
-        "head_commit": head_commit,
-        "changed_paths": len(changed),
-        "affected_sections": {
-            component.id: sorted(affected_by_component[component.id])
-            for component in component_list
-        },
-        "affected_tus": len(affected_tus),
-        "widened_components": widened,
-        "findings": {
-            "previous": len(base_records),
-            "kept": len(kept),
-            "recomputed": len(recomputed),
-            "incremental": len(incremental_records),
-        },
-        "self_check": None,
-        "records": [record.to_dict() for record in incremental_records],
-    }
+    # D4: conflict input equivalent to the full head. The partial staged
+    # extraction cannot see a duplicate anchor formed between a changed file
+    # and an unchanged file; only the full head identity index carries the
+    # complete definition-site evidence. With self-check enabled the
+    # self-check full extraction is reused (and also becomes the binding
+    # index so incremental == full byte-wise); without self-check each
+    # affected component is fully extracted at head and that full index is
+    # used for binding/recompute as well (V8) - the partial index would
+    # produce participants/fingerprints that differ from the full head.
     if self_check:
         if not full_head_indexes:
             full_head_indexes, _ = extract_enriched(
@@ -405,7 +433,159 @@ def incremental_source_flow(
                     if component.source_repository
                 },
             )
-        full_records = records_for_indexes(full_head_indexes)
+        conflict_indexes = full_head_indexes
+        # Bind and recompute against the full head so participants and
+        # conflicts are consistent (cross-file duplicates included).
+        head_indexes = full_head_indexes
+        for component in component_list:
+            sections = affected_by_component[component.id]
+            index = full_head_indexes[component.id]
+            affected_tus.update(
+                tu.tu_uid
+                for tu in index.tus.values()
+                if set(tu.sections) & sections
+            )
+    else:
+        conflict_indexes: dict[str, Any] = {}
+        affected_components = [
+            component
+            for component in component_list
+            if affected_by_component[component.id]
+        ]
+        for component in affected_components:
+            if component.id in full_head_indexes:
+                conflict_indexes[component.id] = full_head_indexes[component.id]
+        missing = [
+            component
+            for component in affected_components
+            if component.id not in conflict_indexes
+        ]
+        if missing:
+            extracted, _ = extract_enriched(
+                manifest,
+                runtime,
+                missing,
+                timeout=timeout,
+                commit_overrides={
+                    component.source_repository: head_commit
+                    for component in missing
+                    if component.source_repository
+                },
+            )
+            conflict_indexes.update(extracted)
+        for component in component_list:
+            conflict_indexes.setdefault(
+                component.id, base_indexes[component.id]
+            )
+        # V8: affected components bind and recompute against their full head
+        # index (participants include the unchanged file's TUs); unaffected
+        # components reuse the base index (head == base there).
+        head_indexes = conflict_indexes
+        for component in affected_components:
+            sections = affected_by_component[component.id]
+            index = conflict_indexes[component.id]
+            affected_tus.update(
+                tu.tu_uid
+                for tu in index.tus.values()
+                if set(tu.sections) & sections
+            )
+
+    head_records, head_binding = records_for_indexes(
+        head_indexes, conflicts_indexes=conflict_indexes
+    )
+    # H2/V8: recompute/kept are record-identity level, not merely TU-level.
+    # The base and head record sets share the same lint Issues; a rename /
+    # new-UID / deleted source changes where an Issue binds (base TU -> head
+    # TU or fallback), so a record must be recomputed when its Issue was
+    # attached to an affected TU on either side. Conflict-driven records
+    # (duplicate-id) carry a regenerated Issue per binding, so they are
+    # matched through their stable evidence key instead; a record whose
+    # participants contain an affected TU is touched on both sides.
+    def _record_touched(record: FindingRecord) -> bool:
+        return record.tu_uid in affected_tus or any(
+            participant in affected_tus for participant in record.participants
+        )
+
+    affected_issues = frozenset(
+        record.issue.entry_id
+        for record in [*base_records, *head_records]
+        if record.issue.entry_id is not None and _record_touched(record)
+    )
+    affected_evidence = frozenset(
+        record.evidence_key
+        for record in [*base_records, *head_records]
+        if _record_touched(record)
+    )
+
+    def _record_affected(record: FindingRecord) -> bool:
+        return (
+            _record_touched(record)
+            or record.issue.entry_id in affected_issues
+            or record.evidence_key in affected_evidence
+        )
+
+    recomputed = tuple(record for record in head_records if _record_affected(record))
+    kept = tuple(record for record in base_records if not _record_affected(record))
+    incremental_records = tuple(
+        sorted([*kept, *recomputed], key=lambda record: record.fingerprint)
+    )
+
+    # H3: CI new-error semantics. Only recomputed errors whose fingerprint is
+    # not in the base error fingerprints are NEW; legacy errors stay
+    # technical debt and never fail the gate.
+    base_error_fingerprints = frozenset(
+        record.fingerprint
+        for record in base_records
+        if record.issue.severity == "error"
+    )
+    new_errors = tuple(
+        record
+        for record in recomputed
+        if record.issue.severity == "error"
+        and record.fingerprint not in base_error_fingerprints
+    )
+    legacy_errors = tuple(
+        record
+        for record in incremental_records
+        if record.issue.severity == "error"
+        and record.fingerprint in base_error_fingerprints
+    )
+
+    result: dict[str, Any] = {
+        "domain": "source",
+        "base_commit": base_commit,
+        "head_commit": head_commit,
+        "changed_paths": len(changed),
+        "deleted_files": sorted(deleted_files),
+        "affected_sections": {
+            component.id: sorted(affected_by_component[component.id])
+            for component in component_list
+        },
+        "affected_tus": len(affected_tus),
+        "widened_components": widened,
+        "findings": {
+            "previous": len(base_records),
+            "kept": len(kept),
+            "recomputed": len(recomputed),
+            "incremental": len(incremental_records),
+        },
+        "ci": {
+            "new_errors": len(new_errors),
+            "legacy_errors": len(legacy_errors),
+            "new_error_fingerprints": [
+                record.fingerprint for record in new_errors
+            ],
+        },
+        "binding": {
+            "suppressed_conflicts": head_binding.get(
+                "suppressed_conflicts", []
+            ),
+        },
+        "self_check": None,
+        "records": [record.to_dict() for record in incremental_records],
+    }
+    if self_check:
+        full_records, _ = records_for_indexes(full_head_indexes)
         from .invalidation import self_check as canonical_self_check
 
         passed = canonical_self_check(
