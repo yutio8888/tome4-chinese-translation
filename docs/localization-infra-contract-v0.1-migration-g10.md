@@ -46,13 +46,37 @@
 | strong-deterministic | `return ([[…]]):tformat()` | 108 | 同上 |
 | strong-deterministic | `return _t"…"`（含 Paren 包裹） | 18 | 同上 |
 | strong-deterministic | `info = _t"…"`（直接字段） | 8 | 同上 |
-| **strong 合计** | | **1836**（tome 1373 / ashes 88 / cults 109 / orcs 266） | 实际产出 1832 条记录（tome 1369 含 1 条重复 info 字段死模板，同实体同槽 coalesce 为同一 TU） |
+| **strong 合计** | | **1836**（tome 1373 / ashes 88 / cults 109 / orcs 266） | AST 候选数；实际记录与 coalesce 后 TU 数见下「三口径度量」 |
 | captured-nondeterministic-fallback | `local base = _t[[…]]` / 运行时拼接或条件返回（字面量已被通用分支捕获） | 5（tome：chant/dirge/hymn Acolyte、Beyond the Flesh、Clarity） | 不重分类，保持 free fallback |
 | not-captured | `info = "…"` 纯字符串 / `return ""` 等无字面量形态 | 15（tome 11 纯字符串 + 4 无字面量；orcs 2） | 不捕获（新增会破坏快照/严格 join） |
 | 动态调用 | `newTalent(t)` 变量表 | 14（tome 7 / orcs 7） | 无 AST info 可捕获 |
 
 排除规则：info 函数体（不含嵌套闭包）内 Return 节点总数 ≠ 1 → 不注册（tome 5 例真实
 条件返回；仅含嵌套闭包 Return 的 3 例正确纳入 strong）。
+
+### 三口径度量（实跑数字，2026-08-13）
+
+| 组件 | 口径 1：AST 候选 occurrence | 口径 2：实际 sidecar 记录 | 口径 3：coalesced strong TU |
+| --- | --- | --- | --- |
+| tome | 1373 | 1369 | 1367 |
+| ashes-urhrok | 88 | 88 | 88 |
+| cults | 109 | 109 | 109 |
+| orcs | 266 | 266 | 265 |
+| **合计** | **1836** | **1832** | **1829** |
+
+- **口径 1（AST 调查 occurrence 总数，strong-deterministic 候选）**：按形态匹配计数
+  （last-direct-return 规则，未做多 return 排除），tome 1373 = tformat 1366 + `_t` 7。
+- **口径 2（实际 enrichment sidecar 记录数，逐 occurrence 一条）**：tome 1369 =
+  候选 1373 − 5（多 return 结构排除）+ 1（重复 info 字段死模板：feedback.lua
+  Amplification 同一 talent 表两个 info 字段，候选调查按 talent 合并计 1 而提取器按字段
+  注册 2 条）；ashes/cults/orcs 与候选一致。
+- **口径 3（TU 索引层 coalesce 去重后的 strong TU 数）**：tome 1369 → 1367，orcs
+  266 → 265，共 3 个 coalesce 事件（同实体 UID + 同槽 talent.info → 同 TU UID）：
+  - tome `T_AMPLIFICATION`（feedback.lua 重复 info 字段死模板，2 记录 → 1 TU、2 revisions）；
+  - tome `T_IRON_WILL`（psionic/focus.lua 与 mental-discipline.lua 两个同名 talent 定义，
+    2 记录 → 1 TU、2 revisions）；
+  - orcs `T_TWILIT_ECHOES`（celestial/crepescula.lua 与 celestial/void.lua 两个同名
+    talent 定义，2 条同文本记录 → 1 TU、revision 去重为 1）。
 
 ## 5. 受影响 TU 重建策略
 
