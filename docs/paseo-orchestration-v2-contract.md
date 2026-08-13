@@ -19,7 +19,8 @@
 
 1. 同一 workspace 同时只有一个任务内容写入 agent；ORCHESTRATOR 可写编排记录和验证产物。
 2. 主代理定义范围、独立验证并裁决 finding。
-3. REVIEWER 不使用 main workspace；翻译 semantic v2 继续走现有 blind runner。
+3. EXECUTOR 和 REVIEWER 统一使用 ORCHESTRATOR 当前 workspace；REVIEWER 保持只读，
+   翻译 semantic v2 继续走现有 blind runner。
 4. 自动修复最多两轮，仍不能收敛时交给用户决定。
 5. 任务开始前记录工作树，结束前运行适用门禁。
 6. Paseo 激活期间角色路由独占，不并行使用旧项目 Skill 或其独立 agent。
@@ -57,7 +58,7 @@ v2 不要求：
 | --- | --- | --- |
 | ORCHESTRATOR | 范围、委托、验证、裁决、用户沟通 | `.ai/task/`、`.ai/reviews/` 和验证产物；不改任务内容文件 |
 | EXECUTOR | 实现 SPEC 中的修改并运行 focused tests | 允许文件；不得 commit、stage 或修改编排记录 |
-| REVIEWER | 独立审查代码、工具、测试和文档 | 不写 main workspace；只返回 findings |
+| REVIEWER | 在当前 workspace 独立审查代码、工具、测试和文档 | 只读；只返回 findings |
 
 EXECUTOR 和 REVIEWER 都不继承主会话。briefing 必须包含任务范围、验收标准和完成当前角色
 所需的上下文，避免依赖隐含信息。
@@ -251,17 +252,18 @@ paseo inspect --json <agent-id>
 
 每次 `paseo run` 返回精确 agent ID 后，必须立即 inspect 并确认 ParentAgentId 等于 STATE
 中的 `orchestrator_agent_id`。DeepSeek V4 Flash EXECUTOR 还必须确认 `Thinking` 为 `max`；
-缺少 `max`、实际值较低或设置失败都按基础设施错误处理，不得静默降级。不匹配时停止该
-agent，不进入下一状态。REVIEWER 即使使用独立 local workspace，也必须保留 parent lineage；
-因此它在 UI 中仍属于当前 ORCHESTRATOR 的 Paseo Subagents track，并使用 Paseo agent 的
-归档操作。
+缺少 `max`、实际值较低或设置失败都按基础设施错误处理，不得静默降级。每个 child 的
+workspace 也必须等于 STATE 的 `workspace_id`。任一检查不匹配时停止该 agent，不进入
+下一状态。EXECUTOR／REVIEWER 均在 UI 中属于当前 workspace 下 ORCHESTRATOR 的
+Paseo Subagents track，并使用 Paseo agent 的归档操作。
 
-代码 REVIEWER 使用独立 local workspace。Codex `auto-review` 在 Paseo 0.3.1 中实际是
-`workspace-write`，因此不能把 main workspace 交给它：
+代码 REVIEWER 与 ORCHESTRATOR／EXECUTOR 使用同一 workspace。Codex `auto-review` 在
+Paseo 0.3.1 中实际是 `workspace-write`，因此必须用只读 briefing 禁止任何写入，
+并由 ORCHESTRATOR 在运行前后核对工作树：
 
 ```text
 paseo run --provider <provider> --model <model> --mode auto-review
-  --new-workspace local --cwd <review-directory>
+  --workspace <workspace-id>
   --label task_id=<task-id> --label role=reviewer
   --label review_kind=<initial|re|final> --json <rendered-prompt>
 ```
@@ -271,11 +273,11 @@ paseo run --provider <provider> --model <model> --mode auto-review
 ```text
 paseo stop --json <agent-id>
 paseo archive --json <agent-id>
-paseo workspace archive --json <workspace-id>
 ```
 
-idle agent 不必先 stop。归档或清理失败记录为 warning，不阻止已经通过内容验收的任务进入
-DONE；仍在运行且可能写 main workspace 的 EXECUTOR 除外。
+idle agent 不必先 stop。归档 agent 失败记录为 warning，不阻止已经通过内容验收的
+任务进入 DONE；仍在运行且可能写 workspace 的 EXECUTOR 除外。子 agent 完成后
+不得归档当前 workspace，因为它同时承载 ORCHESTRATOR 和其他子 agent。
 
 ---
 
@@ -399,7 +401,8 @@ REVIEWER 发送与 code/legacy v1 审核相关的代码、文档和必要上下�
 3. 连续两个 task ID 与 legacy flat 记录并存时互不覆盖；
 4. EXECUTOR 唯一性、DeepSeek V4 Flash 的 `max` thinking 校验和未知 `paseo run` 的
    0/1/多匹配恢复；
-5. REVIEWER 使用独立 local workspace，且只接收当前 code contract 的任务自身 diff；
+5. REVIEWER 使用当前 workspace，保持 Paseo parent lineage，只审查当前 code contract
+   的任务自身 diff，且运行前后工作树无 REVIEWER 造成的改动；
 6. 允许修改既有脏文件时能从起始 patch／副本区分并保全用户原有改动；
 7. 一次 implement dry run、一次 review-only dry run和一次最终独立复审。
 

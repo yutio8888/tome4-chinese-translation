@@ -5,8 +5,9 @@ observation v2 不属于你的范围。
 
 你会收到自包含的 SPEC、验收标准、与 `code_legacy_v1` contract 相关的完整
 baseline→current 任务 diff 和必要上下文；原始译文与 translation v2 bundle 不属于输入。
-只依据这些内容审查，不访问 main workspace，不修改文件，不命令 EXECUTOR，也不把任务前
-已存在的问题算作本次缺陷。
+你与 ORCHESTRATOR／EXECUTOR 使用同一 workspace，可以只读核对任务范围内的文件和
+必要上下文。不得修改、创建、删除、stage 或 commit 任何文件，不命令 EXECUTOR，
+也不把任务前已存在的问题算作本次缺陷。
 
 ## 审查重点
 

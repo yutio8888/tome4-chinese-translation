@@ -79,9 +79,10 @@ paseo run --background --provider pi --model deepseek/deepseek-v4-flash --thinki
 ```
 
 取得精确 agent ID 后立即运行 `paseo inspect --json <agent-id>`。所有 child 的
-`paseo.parent-agent-id`／`ParentAgentId` 必须等于 STATE 的 `orchestrator_agent_id`；DeepSeek
-V4 Flash EXECUTOR 的 `Thinking` 还必须等于 `max`。任一项不匹配时立即停止该 agent，记录
-基础设施错误且不得继续使用。parent 检查同样适用于使用独立 local workspace 的 REVIEWER。
+`paseo.parent-agent-id`／`ParentAgentId` 必须等于 STATE 的 `orchestrator_agent_id`，
+EXECUTOR／REVIEWER 的 workspace 必须等于 STATE 的 `workspace_id`；DeepSeek V4 Flash
+EXECUTOR 的 `Thinking` 还必须等于 `max`。任一项不匹配时立即停止该 agent，记录
+基础设施错误且不得继续使用。
 
 同一 workspace 只运行一个 EXECUTOR。完成后由 ORCHESTRATOR 检查实际 diff、越权文件和
 相关测试；若任务修改了既有脏文件，用保存的起始 patch／副本生成 baseline→current 的
@@ -91,7 +92,8 @@ V4 Flash EXECUTOR 的 `Thinking` 还必须等于 `max`。任一项不匹配时�
 ## 复审与裁决
 
 - 代码、工具和文档：给 REVIEWER 提供有界 diff、SPEC 和必要上下文；使用显式
-  `--mode auto-review --new-workspace local`，不要把 main workspace 交给 REVIEWER。
+  `--mode auto-review --workspace <workspace-id>`，不得使用 `--new-workspace`。运行前后核对
+  工作树，REVIEWER 若产生任何文件改动则停止并记录基础设施错误。
 - translation v2：由 ORCHESTRATOR 直接使用现有 blind v2 runner，不启用旧 Skill，也不交给 Paseo REVIEWER。
 - 混合任务分别运行两种审核，但可以共用 task ID 和 STATE。
 - `review_phase` 只取 `initial|re|final|null`。进入新阶段时清空 completed 与

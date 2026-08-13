@@ -23,7 +23,7 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 ### 最小规则
 
 1. 同一 workspace 同时只能有一个任务内容写入者；EXECUTOR 运行时，ORCHESTRATOR 仍可更新当前 task 的编排记录和验证产物。
-2. EXECUTOR 只改任务允许的文件，不 commit、不 stage；REVIEWER 不修改主 workspace。
+2. EXECUTOR 只改任务允许的文件，不 commit、不 stage；REVIEWER 与其使用同一 workspace，但不得修改任何文件。
 3. ORCHESTRATOR 独立核验测试和 finding，只把已接受的 finding 交给 EXECUTOR 修复。
 4. 自动修复最多两轮；仍有重要问题或需要产品判断时询问用户。
 5. Paseo 激活期间所有 agent 委托只使用 EXECUTOR／REVIEWER，不再调度旧 Skill 的 reviewer、scout 或 plan-reviewer。
@@ -51,7 +51,12 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 
 任务前脏文件默认不交给 EXECUTOR；确需修改时，SPEC 必须逐文件允许，并先保存可恢复的起始 patch 或副本。每轮验证用该基线生成任务自身的 baseline→current diff，确认用户原有内容未被意外覆盖，并把该 diff 交给相应 reviewer。`review_only` 的 DONE 只要求全部审核已完成、findings 已裁决且无 deferred；`implement` 的 DONE 还要求没有未解决 accepted finding，并通过最终验收。
 
-REVIEWER 使用 `--mode auto-review --new-workspace local` 和主代理提供的有界 diff／上下文，不使用 main workspace。Codex `auto-review` 实际为 `workspace-write`，这里依靠独立 workspace 和只读 briefing 隔离；审核结束后归档 agent/workspace 即可。大型输入按组件拆成新的 task ID，不设固定字节或文件数配额。
+REVIEWER 使用 `--mode auto-review --workspace <workspace-id>` 加入 ORCHESTRATOR 当前
+workspace，并接收主代理提供的有界 diff／上下文。Codex `auto-review` 实际为
+`workspace-write`，因此只读边界由 role briefing 约束，ORCHESTRATOR 必须在 REVIEWER
+运行前后核对工作树；若 REVIEWER 造成任何改动，按基础设施错误处理。审核结束后
+只归档 agent，不得归档正在使用的当前 workspace。大型输入按组件拆成新的 task ID，
+不设固定字节或文件数配额。
 
 EXECUTOR 与 REVIEWER 均不继承当前会话，briefing 必须包含范围、验收标准和必要上下文。provider/model 在任务开始时用 `paseo provider ls` 与 `paseo provider models --thinking <provider>` 确认，记录实际选择；DeepSeek V4 Flash 的 EXECUTOR thinking 固定为 `max`。
 
