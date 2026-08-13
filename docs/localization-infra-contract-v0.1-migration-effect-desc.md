@@ -16,6 +16,9 @@
   {name, desc}))` 的**受限支持**（仅当 merge 实参末位为 Table 且 name/desc 均为静态
   字面量时按构造器同等处理）。通用 `_t`/`tformat` 分支对已注册 AST 节点改发
   `ast_path="newEffect.desc"` 记录（entity_kind="effect"，anchor 取自 name 字段，
+  **假设声明（外部复审指出）**：当前 merge 覆写表无静态 desc/subtype 字面量，故
+  实测 sidecar 记录零增删；若未来数据在 merge 覆写表新增 desc 字面量，enrich 模式
+  snapshot 内容会相应变化（不影响默认路径与严格 join），届时需复核本假设。
   确定性锚 `EFF_`+name:upper()），locales 写入与 source_tag（"_t"/"tformat"）逐字节
   不变。替换仍「每处恰好一次」fail-closed。
 - **字段边界（p2）**：仅 newEffect 构造器（或 merge 覆写表）**顶层** Field 键严格
