@@ -10,7 +10,7 @@
 
 | 仓库 | 内容 | 当前 HEAD |
 |---|---|---|
-| `tome-chn-mod`（汉化插件） | 核心 tome 译文 3,348 + DLC 译文 5,426 + nullpack 464（独立文件）+ hooks/superload/overload + GPL v3 声明 | `439d134`（addon_version 0.2.5） |
+| `tome-chn-mod`（汉化插件） | 核心 tome 译文 3,449 + DLC 译文 5,461 + nullpack 464（独立文件）+ hooks/superload/overload + GPL v3 声明 | `eb6f142`（addon_version 0.2.6） |
 | `tome4-chinese-translation`（规范/工具链） | 规范译文 30,177 条 + 工具链 + 门禁 | PR #1 merge `232960a`；后续维护从该 merge commit 续接 |
 
 ## 二、公布选项
@@ -24,9 +24,10 @@ cd ~/projects/tome4-chinese-translation
 git push -u origin develop
 ```
 
-PR #1 已以 `master` 为 base、`develop` 为 head 合并。后续维护轮次继续先把
-`develop` fast-forward 到最新 `master`，再通过新 PR 以 merge commit 合并；不得
-强制推送、rebase、squash 或改写现有分支历史。根目录
+PR #1 已以 `master` 为 base、`develop` 为 head 合并；PR #2 已以 merge commit
+`f6b23ed` 完成第二轮整合。后续维护轮次继续先把 `develop` fast-forward 到最新
+`master`，再通过新 PR 以 merge commit 合并；不得强制推送、rebase、squash 或
+改写现有分支历史。根目录
 `LICENSE`/`COPYING` 与 README 已纳入整合批次；研究原始 artifact 和项目外 A-core
 归档不提交到源码仓库。
 

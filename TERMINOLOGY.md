@@ -62,16 +62,16 @@
 
 | 领域 | 说明 | 主要类别 | 条目数 |
 | --- | --- | --- | --- |
-| `combat` | 战斗机制：伤害类型、状态效果、战斗属性 | `T.GAME.DAMAGE`、`T.GAME.EFFECT`、`T.GAME.STAT` | 133 |
-| `talents` | 技能与技能树 | `T.GAME.TALENT`、`T.GAME.TALENT_CATEGORY` | 213 |
+| `combat` | 战斗机制：伤害类型、状态效果、战斗属性 | `T.GAME.DAMAGE`、`T.GAME.EFFECT`、`T.GAME.STAT` | 161 |
+| `talents` | 技能与技能树 | `T.GAME.TALENT`、`T.GAME.TALENT_CATEGORY` | 214 |
 | `classes` | 职业与成长 | `T.GAME.CLASS` | 45 |
 | `resources` | 角色资源 | `T.GAME.RESOURCE` | 12 |
-| `items` | 装备、物品与材料 | `T.GAME.ENTITY`（物品/材料子集） | 50 |
-| `creatures` | 生物与种族 | `T.GAME.ENTITY`（生物子集）、`T.PN.RACE` | 69 |
-| `places` | 地点、地形与世界 | `T.PN.PLACE`、`T.PN.WORLD`、`T.GAME.ENTITY`（地形/场所子集） | 42 |
+| `items` | 装备、物品与材料 | `T.GAME.ENTITY`（物品/材料子集） | 57 |
+| `creatures` | 生物与种族 | `T.GAME.ENTITY`（生物子集）、`T.PN.RACE` | 72 |
+| `places` | 地点、地形与世界 | `T.PN.PLACE`、`T.PN.WORLD`、`T.GAME.ENTITY`（地形/场所子集） | 46 |
 | `society` | 势力、组织与人物 | `T.PN.PERSON`、`T.PN.FACTION` | 33 |
 | `narrative` | 叙事、传说与成就 | `T.NARRATIVE.LORE`、`T.NARRATIVE.ACHIEVEMENT` | 52 |
-| `ui` | 界面与交互 | `T.UI.LABEL` | 7 |
+| `ui` | 界面与交互 | `T.UI.LABEL` | 12 |
 | `tech` | 技术格式与内部字符串 | `T.TECH.FORMAT`、`T.GAME.MISC` | 2 |
 
 术语表按 `domain → category → 原行序` 排序；新增条目时请先确认领域归属，再选择类别。
