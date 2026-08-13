@@ -2215,19 +2215,40 @@ _PUBLIC_DLC_PATHS = {
 }
 
 
+def _public_dlc_root() -> Path:
+    """Resolve the public DLC root portably (contract AC-9).
+
+    Priority: TOME_PUBLIC_DLC_ROOT env override (if a directory), then
+    ~/projects/tome4-dlcs (POSIX home), then the legacy macOS default
+    /Users/yun/projects/tome4-dlcs. The last candidate is also the final
+    fallback, so behavior on the original machine is unchanged.
+    """
+    configured = os.environ.get("TOME_PUBLIC_DLC_ROOT")
+    candidates = []
+    if configured:
+        candidates.append(Path(configured).expanduser())
+    candidates.append(Path.home() / "projects" / "tome4-dlcs")
+    candidates.append(_PUBLIC_DLC_ROOT)
+    for candidate in candidates:
+        if candidate.is_dir():
+            return candidate
+    return candidates[-1]
+
+
 def _inject_public_dlc_env() -> None:
     """Point DLC extraction at the public GPL v3 release when the env is unset.
 
     The official DLC sources are GPL v3 public (see AGENTS.md). The public
-    release under _PUBLIC_DLC_ROOT is the canonical extraction input; the
+    release under _public_dlc_root() is the canonical extraction input; the
     legacy TOME_DLC_*_ROOT values (if set by the user) still take precedence.
     """
-    if not _PUBLIC_DLC_ROOT.is_dir():
+    public_dlc_root = _public_dlc_root()
+    if not public_dlc_root.is_dir():
         return
     for env_name, relative in _PUBLIC_DLC_PATHS.items():
         if env_name in os.environ:
             continue
-        candidate = _PUBLIC_DLC_ROOT / relative
+        candidate = public_dlc_root / relative
         if candidate.is_dir():
             os.environ[env_name] = str(candidate)
 

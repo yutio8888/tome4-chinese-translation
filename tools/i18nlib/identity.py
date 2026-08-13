@@ -1115,6 +1115,39 @@ class MigrationMatch:
         }
 
 
+def _resolve_previous_definition(
+    base_index: ComponentIndex,
+    base_snapshot: Snapshot,
+    old_entity_uid: str,
+    semantic_slot: str,
+    discriminator: str,
+) -> Definition | None:
+    """Resolve the unique old definition for an L2 rename match.
+
+    The old entity (event.old_entity_uid) is matched in the base index by the
+    new TU's semantic slot; the single base TU's editorial ids are then
+    resolved against the base snapshot. Ambiguity or absence yields None so
+    the caller keeps the L5 fallback semantics.
+    """
+    candidates = [
+        tu
+        for tu in base_index.tus.values()
+        if tu.entity_uid == old_entity_uid
+        and tu.semantic_slot == semantic_slot
+        and tu.discriminator == discriminator
+    ]
+    if len(candidates) != 1:
+        return None
+    editorial_ids = set(candidates[0].editorial_ids)
+    by_key: dict[tuple[str, str, str | None], Definition] = {}
+    for definition in base_snapshot.definitions:
+        if definition.entry_id in editorial_ids:
+            by_key.setdefault(definition.editorial_key, definition)
+    if len(by_key) != 1:
+        return None
+    return next(iter(by_key.values()))
+
+
 def match_migrations(
     *,
     base_index: ComponentIndex | None,
@@ -1143,7 +1176,15 @@ def match_migrations(
         return matches, events
 
     events = diff_indexes(base=base_index, new=new_index, threshold=threshold)
-    rename_events = {event.old_entity_uid: event for event in events if event.kind in ("rename_candidate", "ambiguous")}
+    # L2 matches the *new* TU (which carries the new Entity UID). Rename
+    # events are indexed by their new entity UID; several old entities can
+    # each uniquely match the same new entity (multi-to-one), which is
+    # ambiguous for L2 and must never resolve to an arbitrary event
+    # (finding FR-001): only a single rename_candidate per new UID qualifies.
+    rename_events_by_new: dict[str, list[IdentityEvent]] = defaultdict(list)
+    for event in events:
+        if event.kind == "rename_candidate" and event.new_entity_uid is not None:
+            rename_events_by_new[event.new_entity_uid].append(event)
     base_tus = base_index.tus
     base_by_key = {d.editorial_key: d for d in base_snapshot.definitions}
 
@@ -1167,19 +1208,32 @@ def match_migrations(
                 )
                 continue
             # L2: anchor changed with structural evidence (rename event).
-            event = rename_events.get(tu.entity_uid)
-            if event is not None and event.kind == "rename_candidate":
-                matches.append(
-                    MigrationMatch(
-                        level="L2",
-                        group=group,
-                        tu_uid=tu.tu_uid,
-                        event=event,
-                        previous_definition=None,
-                        similarity=event.similarity,
-                    )
+            rename_candidates = rename_events_by_new.get(tu.entity_uid, ())
+            if len(rename_candidates) == 1:
+                event = rename_candidates[0]
+                previous_definition = _resolve_previous_definition(
+                    base_index,
+                    base_snapshot,
+                    event.old_entity_uid,
+                    tu.semantic_slot,
+                    tu.discriminator,
                 )
-                continue
+                if previous_definition is not None:
+                    matches.append(
+                        MigrationMatch(
+                            level="L2",
+                            group=group,
+                            tu_uid=tu.tu_uid,
+                            event=event,
+                            previous_definition=previous_definition,
+                            similarity=event.similarity,
+                        )
+                    )
+                    continue
+            # No unique resolvable previous definition (old entity lacks the
+            # slot / ambiguity / several old entities map to this new entity):
+            # fall through to L5 so the legacy heuristic can still surface a
+            # source-changed suggestion for this group.
             matches.append(
                 MigrationMatch(
                     level="L5",

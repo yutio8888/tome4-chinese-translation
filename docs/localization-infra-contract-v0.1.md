@@ -1,8 +1,11 @@
 # 本地化基础设施实施契约
 
-> 状态：`contract/0.1-rc3`——已达到 Pilot A 开工条件；Identity / Fingerprint /
-> Baseline 三份 schema 的字节级公式自本版本起冻结，G1–G12 全部验收通过后正式
-> 标记 `contract/0.1`。修订历史见文末第十五节。
+> 状态：`contract/0.1`——Pilot A 验收完成（G1–G12 + G4b 共 13 行全部 PASS，报告落
+> `.artifacts/i18n/contract-pilot-a/gates-report.md`）；Identity / Fingerprint /
+> Baseline 三份 schema 的字节级公式自 rc3 起冻结。**PR 待办**：本版本的修订（§13
+> 测试位置列映射修正、G4/G8/G10/G12 测试强化、L2 修复、cli.py DLC 根可移植、契约
+> 套件接入 ci-gates.sh）尚未推送/合并，PR 由用户另行指示；PR 合并后本版本正式生效。
+> 修订历史见文末第十五节。
 > 适用范围：本仓库（`tome4-chinese-translation`）工具链的增量扩展。本契约不替代
 > 任何现有文档；与既有行为冲突时按第十二节「接口稳定性承诺」处理。
 
@@ -10,7 +13,7 @@
 
 ## 一、契约元信息
 
-- **契约版本**：`contract/0.1-rc3`
+- **契约版本**：`contract/0.1`（Pilot A 验收通过；PR 待办，合并后正式生效，见状态行）
 - **冻结范围**：Entity UID / TU UID / Revision UID 公式、Finding Fingerprint 公式、
   Baseline 文件格式（第十四节冻结条款）
 - **阶段范围**：Phase 0（Identity + Fingerprint + Baseline）、Phase 1（Invalidation +
@@ -588,21 +591,21 @@ Exit codes：`0` 通过；`1` 存在 new ERROR（--ci 模式）；`2` 增量自�
 
 ## 十三、Pilot A 验收 Gate 与测试映射
 
-| # | Gate | 判定方法 | 测试位置 |
+| # | Gate | 判定方法 | 测试位置（实际文件:方法） |
 |---|---|---|---|
-| G1 | 既有全量回归（doctor/extract/lint/build/publish）字节不变 | 新旧两版本输出 diff 为空 | `tests/i18n/`（现有套件） |
-| G2 | spell/fire 范围候选 100% 进入 TU 索引 | extract --enrich 后索引覆盖 snapshot 全部定义 | `tests/i18n/identity/test_coverage.py` |
-| G3 | benign refactor（空行/注释/移文件/字段重排）下 TU UID 100% 稳定 | 合成 mini-tome fixture 七变换 | `tests/i18n/identity/test_stability.py` |
-| G4 | 英文改名触发 rename_candidate | `"Burning Shock" → "Burning Stun"`（ratio 0.7200，同 section 同 slot）→ rename_candidate + automatic=False | `tests/i18n/identity/test_rename.py` |
-| G4b | 改名+去空格（anchor 推导亦变） | `"Flame Bolt" → "Flamebolt"`（ratio 0.8421）→ 同上 | 同上 |
-| G5 | 指纹六变换 100% 稳定 | §6.1 行为承诺逐条断言 | `tests/i18n/fingerprint/` |
-| G6 | 注入占位符缺陷检出率 100%、A 类 ERROR 误报 0 | fixture 缺陷集 | `tests/i18n/qa/` |
-| G7 | Baseline 区分 legacy/new 100% | 注入→检出 new→修复→resolved | `tests/i18n/baseline/` |
-| G8 | 增量 == 全量（canonical 字节级，整体比较） | 修改 T_FLAME 数值后自检 | `tests/i18n/incremental/` |
-| G9 | identity.sqlite 重建 canonical dump 一致 | 删库重建两次 SHA 相同 | `tests/i18n/identity/test_rebuild.py` |
-| G10 | **仅改 source 文本（info）** → TU UID 不变、Revision UID 变 | `"Deals fire damage." → "Deals increased fire damage."`（strong binding） | `tests/i18n/identity/test_revision.py` |
-| G11 | 无意义译文措辞修改 → 指纹不变、保持 legacy | `"造成大量伤害" → "造成巨量伤害"`（未补 %d） | `tests/i18n/baseline/test_b1.py` |
-| G12 | 源文件移动 → section 变、Entity/TU/相关指纹不变（L1 吸收） | 移动 fixture + §8.3 round-trip parity | `tests/i18n/identity/test_move.py` |
+| G1 | 既有全量回归（doctor/extract/lint/build/publish）字节不变 | 新旧两版本输出 diff 为空（跨版本字节对比，见 Pilot A gates-report） | `tests/i18n/test_toolchain.py` + quality/Facts 套件（ci-gates.sh 步骤 3–4） |
+| G2 | spell/fire 范围候选 100% 进入 TU 索引 | extract --enrich 后索引覆盖 snapshot 全部定义 | `tests/i18n/identity/test_stability.py::CoverageTests::test_g2_index_covers_snapshot` |
+| G3 | benign refactor（空行/注释/移文件/字段重排）下 TU UID 100% 稳定 | 合成 mini-tome fixture 七变换 | `tests/i18n/identity/test_stability.py::StabilityTests::test_g3_benign_transforms` |
+| G4 | 英文改名触发 rename_candidate | `"Burning Shock" → "Burning Stun"`（ratio 0.7200，同 section 同 slot）→ rename_candidate + automatic=False | `tests/i18n/identity/test_identity.py::RenameEventTests`（test_g4_rename_candidate + test_g4_rename_merge_suggestion_is_not_automatic） |
+| G4b | 改名+去空格（anchor 推导亦变） | `"Flame Bolt" → "Flamebolt"`（ratio 0.8421）→ 同上 | `tests/i18n/identity/test_identity.py::RenameEventTests`（test_g4b_rename_with_despace + test_g4b_rename_merge_suggestion_is_not_automatic） |
+| G5 | 指纹六变换 100% 稳定 | §6.1 行为承诺逐条断言 | `tests/i18n/fingerprint/test_fingerprint.py` + `tests/i18n/fingerprint/test_findings.py` |
+| G6 | 注入占位符缺陷检出率 100%、A 类 ERROR 误报 0 | fixture 缺陷集 | `tests/i18n/qa/test_injected_defects.py` |
+| G7 | Baseline 区分 legacy/new 100% | 注入→检出 new→修复→resolved | `tests/i18n/baseline/test_baseline.py::BaselineLifecycleTests::test_g7_new_legacy_resolved` |
+| G8 | 增量 == 全量（canonical 字节级，整体比较） | 修改 T_FLAME 数值后自检 | `tests/i18n/incremental/test_incremental.py`（test_g8_canonical_self_check + IncrementalSourceFlowTests::test_g8_incremental_source_flow_end_to_end） |
+| G9 | identity.sqlite 重建 canonical dump 一致 | 删库重建两次 SHA 相同 | `tests/i18n/identity/test_stability.py::RebuildTests::test_g9_rebuild_determinism` |
+| G10 | **仅改 source 文本（info）** → TU UID 不变、Revision UID 变 | `"Deals fire damage." → "Deals increased fire damage."`（strong binding；Pilot A 实际载体 = strong entity.name，偏差见第十五节 0.1 行） | `tests/i18n/identity/test_identity.py::RevisionSemanticsTests::test_g10_revision_changes_tu_stays` |
+| G11 | 无意义译文措辞修改 → 指纹不变、保持 legacy | `"造成大量伤害" → "造成巨量伤害"`（未补 %d） | `tests/i18n/baseline/test_baseline.py::BaselineLifecycleTests::test_g11_b1_same_evidence_stays_legacy` |
+| G12 | 源文件移动 → section 变、Entity/TU/相关指纹不变（L1 吸收） | 移动 fixture + §8.3 round-trip parity（tome/engine/boot 三 mount） | `tests/i18n/identity/test_identity.py::FileMoveTests::test_g12_move_section_only` + `tests/i18n/incremental/test_incremental.py::SectionMappingTests::test_round_trip_parity` |
 
 **Gate 语义**：任一 Gate 失败 → 不进入 Phase 2，不合并相关 PR。G1 是前置闸
 （先行执行）。G10 优先级高于 G3（source 文本变化是身份层最危险的变换）。
@@ -631,6 +634,7 @@ Exit codes：`0` 通过；`1` 存在 new ERROR（--ci 模式）；`2` 增量自�
 
 | 版本 | 内容 |
 |---|---|
+| `0.1` | **Pilot A 正式验收**：G1–G12 + G4b 共 13 行全部 PASS（gates-report 落 `.artifacts/i18n/contract-pilot-a/`）。§13 测试位置列修正为实际文件:方法（原引用的 test_coverage/test_rename/test_revision/test_rebuild/test_move/test_b1.py 不存在，实际落点见第十三节）。测试强化：G4/G4b 断言 merge 输出的 **L2 迁移建议**（match_level L2、携带旧译文、automatic=False）；G8 改为**生产 `incremental_source_flow` 端到端**（合成 git 仓库 base→head 修改 T_FLAME 数值，真实 diff/受影响集/staged 部分提取/recompute/self-check，仅 stub 全量提取步骤，增量==全量字节级）；G10 以 strong entity.name 载体执行（契约示例槽位 `newTalent.info` 未实现——补齐会改变 slot_registry_sha256 → 使已冻结 `i18n/baselines/*-29da216*.meta.json` 失效 → 按规则 3 需迁移方案，**该后续修订待用户授权后另行启动**）；G12 补 Entity UID 与相关指纹稳定性断言 + §8.3 parity 覆盖 boot。实现修复（均经裁决 ACCEPT）：`match_migrations` L2 映射（rename_events_by_new）、L2 `previous_definition` 解析（merge 输出 L2 suggestion 携带旧译文）、L2 空 match 回退 L5（旧实体缺槽/歧义时不 emit 空 L2，落回 L5/legacy 路径，source-changed suggestion 不静默丢失，回归测试 test_rename_unmatched_slot_falls_back_to_legacy_suggestion）与 rename 反向唯一性校验（多旧实体→同一新实体不 emit L2、落 L5/legacy，不携带任意旧译文，回归测试 test_rename_two_old_entities_to_one_new_never_l2）；cli.py DLC 根可移植（TOME_PUBLIC_DLC_ROOT → ~/projects/tome4-dlcs → 原回退）。契约套件接入 `tools/ci-gates.sh`（显式测试文件列表）。**PR 待办**：本版本全部修订未推送/合并，PR 由用户另行指示，PR 合并后 `contract/0.1` 正式生效。 |
 | `0.1` 初稿 | 六层架构 → 既有工具链差距分析；身份/指纹/基线/失效四模块设计 |
 | `0.1-rc2` | 修正身份公式矛盾：discriminator 禁止 source hash、Revision 绑定 TU、Slot Registry、fallback 无跨 source 承诺、rename_candidate、删 M1、`source_git_path_to_section()`、三分域、FindingRecord、baseline 冻结快照；DUPLICATE 分 kind（talent/effect 均有加载期 assert） |
 | `0.1-rc3` | 实现唯一性收口：双 scheme TU UID（`tu/strong` / `tu/fallback-editorial`）、`rule_schema_version` 进指纹、Enrichment 走官方 luafish 同次遍历 sidecar、G4/G10 fixture 修正、迁移层级五级化（L1 吸收文件移动）、baseline 环境元数据；parity round-trip、`extraction_confidence` 与 `identity_binding` 分名、`explicit_refs` 延后 |
