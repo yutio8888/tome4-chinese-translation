@@ -6,14 +6,14 @@
 
 - **主代理**负责范围、裁决、验证和最终交付，通常也是仓库写入者。
 - **审核子进程／项目 subagent**只返回 proposal、context 或 findings；其结果由主代理核验后再应用。
-- **Paseo 编排**启用时，主代理任 ORCHESTRATOR；EXECUTOR 是任务内容文件的唯一写入 agent，REVIEWER 只做独立复审。
+- **Paseo 编排**启用时，主代理任 ORCHESTRATOR；EXECUTOR 是任务内容文件的唯一写入 agent，REVIEWER 做常规独立复审，SENIOR_REVIEWER 做超过两轮后的范围校准和高影响流程交叉复审。
 
 无论采用哪种协作方式，模型输出都不是最终事实：机制以固定版本源码为准，修改以后文门禁和验收标准为准。
 
 Paseo 从任务明确采用该编排并建立 task ID 时视为激活，直到任务进入 `DONE`／`STOP`，
 或 ORCHESTRATOR 明确记录回退。激活期间不得使用 `$tome4-pi-review`、
 `$tome4-pi-file-review` 或 `$tome4-pi-subagent`；委托、实现和独立复审只通过 Paseo 的
-ORCHESTRATOR／EXECUTOR／REVIEWER 角色完成。现有 blind translation runner、门禁和普通
+ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER 角色完成。现有 blind translation runner、门禁和普通
 检查仍可由 ORCHESTRATOR 作为工具直接调用，不视为启用旧 Skill。
 
 ## Paseo 轻量编排（大型任务）
@@ -23,21 +23,28 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 ### 最小规则
 
 1. 同一 workspace 同时只能有一个任务内容写入者；EXECUTOR 运行时，ORCHESTRATOR 仍可更新当前 task 的编排记录和验证产物。
-2. EXECUTOR 只改任务允许的文件，不 commit、不 stage；REVIEWER 与其使用同一 workspace，但不得修改任何文件。
-3. ORCHESTRATOR 独立核验测试和 finding，只把已接受的 finding 交给 EXECUTOR 修复。
-4. 自动修复最多五轮；仍有重要问题或需要产品判断时询问用户。
-5. Paseo 激活期间所有 agent 委托只使用 EXECUTOR／REVIEWER，不再调度旧 Skill 的 reviewer、scout 或 plan-reviewer。
-6. 翻译 semantic observation v2 由 ORCHESTRATOR 直接运行现有 blind runner；Paseo REVIEWER 只审查代码、工具、文档和 legacy v1。混合任务可以共用任务记录，但两类审核必须分别运行。
-7. EXECUTOR／REVIEWER 必须由 Paseo 托管的 ORCHESTRATOR 直接通过 `paseo run` 创建并继承
+2. EXECUTOR 只改任务允许的文件，不 commit、不 stage；REVIEWER 和 SENIOR_REVIEWER 与其使用同一 workspace，但不得修改任何文件。
+3. ORCHESTRATOR 独立核验测试和 finding，只把已接受的 finding 交给 EXECUTOR 修复；两类 reviewer 的 severity、verdict 和范围建议都不自动生效。
+4. 自动修复最多五轮。第二轮后若普通 review finding 仍要求进入下一轮 FIX，必须先由 SENIOR_REVIEWER 审查这些意见是否偏离设计意图或功能边界、过度放大边缘情形或安全限制、对个人项目过重；每个后续轮次都重新校准当轮意见。
+5. Paseo 激活期间所有 agent 委托只使用 EXECUTOR／REVIEWER／SENIOR_REVIEWER，不再调度旧 Skill 的 reviewer、scout 或 plan-reviewer。
+6. 翻译 semantic observation v2 由 ORCHESTRATOR 直接运行现有 blind runner；Paseo REVIEWER／SENIOR_REVIEWER 只审查代码、工具、文档和 legacy v1。`change_class` 为 `translation_workflow` 或 `infrastructure` 时，普通与高级 reviewer 必须从同一 SPEC／diff 独立交叉审核，在两份输出都返回前不得互看结论。该规则审查的是翻译流程／基础设施变更，不取代译文的 blind translation v2 语义审核。
+7. EXECUTOR／REVIEWER／SENIOR_REVIEWER 必须由 Paseo 托管的 ORCHESTRATOR 直接通过 `paseo run` 创建并继承
    `PASEO_AGENT_ID`；不得用 provider 原生 `spawn_agent` 代替。创建后必须用 `paseo inspect`
    确认 `ParentAgentId` 等于 ORCHESTRATOR agent ID，否则停止该 agent 并按基础设施错误处理。
 8. EXECUTOR 使用 DeepSeek V4 Flash 时必须显式传入 `--thinking max`，并在 STATE 记录
    `thinking: "max"`。创建或恢复后必须确认 `Thinking` 为 `max`；不支持或设置失败时
    不得静默降级到 `high`／默认值，应停止并按基础设施错误处理。
+9. SENIOR_REVIEWER 首选 Claude Code 的 Opus 模型（Paseo provider `claude`、
+   `--mode plan --thinking max`）；当前已核验的 Opus ID 为 `claude-opus-5`。任务开始时
+   从 `paseo provider models --thinking --json claude` 解析当前可选 Opus ID。只在
+   Claude provider／Opus 明确不可用或主 agent 在产生有效输出前返回明确的模型
+   不可用错误时，才回退到 Codex `gpt-5.6-sol`（`--mode auto-review --thinking xhigh`）。
+   暂时 transport 错误不算模型不可用；`selected` 与 `fallback_reason` 必须写入 STATE。
+   一旦当前 task 选中 fallback，后续 SENIOR_REVIEWER 调用保持该路由，不在任务中途来回切换。
 
 ### 工作流与记录
 
-实现任务采用：`PLAN → IMPLEMENT → VALIDATE → REVIEW → ADJUDICATE →（FIX → VALIDATE → RE_REVIEW，最多五轮）→ FINAL_REVIEW → ADJUDICATE → FINAL_VALIDATE → DONE`。修复后的验证通过进入 RE_REVIEW；验证或复审发现问题时，有剩余轮次则进入 FIX，否则进入 WAIT_USER。仅审核任务采用：`PLAN → REVIEW → ADJUDICATE → DONE`。需要用户决定时记为 `WAIT_USER`；取消或无法继续时记为 `STOP`。
+实现任务采用：`PLAN → IMPLEMENT → VALIDATE → REVIEW → ADJUDICATE →（FIX → VALIDATE → RE_REVIEW，最多五轮）→ FINAL_REVIEW → ADJUDICATE → FINAL_VALIDATE → DONE`。修复后的验证通过进入 RE_REVIEW；验证或复审发现问题时，有剩余轮次则进入 FIX，否则进入 WAIT_USER。当 `cycle >= 2` 且是 review finding 触发下一轮 FIX 时，在 FIX 前插入 `SENIOR_REVIEW → ADJUDICATE`；客观验证失败不因此延迟。仅审核任务采用：`PLAN → REVIEW → ADJUDICATE → DONE`。需要用户决定时记为 `WAIT_USER`；取消或无法继续时记为 `STOP`。
 
 启用 Paseo 时只需维护以下已忽略文件：
 
@@ -45,24 +52,26 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 - `.ai/task/<task_id>/PLAN.md`：大型任务的简短步骤，可在事实变化时直接更新；
 - `.ai/task/<task_id>/BASELINE.patch`／`baseline/`：仅在任务需要修改既有脏文件时保存其起始 patch 或副本；
 - `.ai/task/<task_id>/STATE.json`：当前状态、轮次、审核阶段与 contract 进度、ORCHESTRATOR／子 agent ID、provider/model、WAIT_USER 恢复点和 review 记录引用；
-- `.ai/reviews/<task_id>/review-NN.json`：任务身份、审核阶段、review contract、结构化 finding 与主代理裁决。
+- `.ai/reviews/<task_id>/review-NN.json`：任务身份、审核阶段、review contract、reviewer role／purpose、结构化 finding 与主代理裁决。
 
 每个新任务使用独立 task ID；旧的 flat `.ai/task/STATE.json`／`.ai/reviews/review-NN.json` 保持原样。STATE 在阶段转换后更新即可，不要求逐动作审计链、内容 hash、WAL 或不可变 artifact。进入 WAIT_USER 时记录原因和 `resume_state`。基础设施错误可重试一次；若 `paseo run` 是否成功不明确，先按 task/role label 查询现有 agent，不能唯一确认时再询问用户，不得盲目创建第二个写入 agent。
 
 任务前脏文件默认不交给 EXECUTOR；确需修改时，SPEC 必须逐文件允许，并先保存可恢复的起始 patch 或副本。每轮验证用该基线生成任务自身的 baseline→current diff，确认用户原有内容未被意外覆盖，并把该 diff 交给相应 reviewer。`review_only` 的 DONE 只要求全部审核已完成、findings 已裁决且无 deferred；`implement` 的 DONE 还要求没有未解决 accepted finding，并通过最终验收。
 
-REVIEWER 使用 `--mode auto-review --workspace <workspace-id>` 加入 ORCHESTRATOR 当前
-workspace，并接收主代理提供的有界 diff／上下文。Codex `auto-review` 实际为
-`workspace-write`，因此只读边界由 role briefing 约束，ORCHESTRATOR 必须在 REVIEWER
-运行前后核对工作树；若 REVIEWER 造成任何改动，按基础设施错误处理。审核结束后
+REVIEWER 使用 Codex `--mode auto-review --workspace <workspace-id>`。SENIOR_REVIEWER 的
+首选 Claude agent 使用 `--mode plan --workspace <workspace-id>`，回退 Codex agent 使用
+`--mode auto-review --workspace <workspace-id>`。两类角色都只接收有界 diff／上下文。Claude
+`plan` 是只读模式；Codex `auto-review` 实际为 `workspace-write`，因此回退路径还要依靠
+role briefing 约束。ORCHESTRATOR 必须在每个 reviewer 运行前后核对工作树；若 reviewer
+造成任何改动，按基础设施错误处理。审核结束后
 只归档 agent，不得归档正在使用的当前 workspace。大型输入按组件拆成新的 task ID，
 不设固定字节或文件数配额。
 
-EXECUTOR 与 REVIEWER 均不继承当前会话，briefing 必须包含范围、验收标准和必要上下文。provider/model 在任务开始时用 `paseo provider ls` 与 `paseo provider models --thinking <provider>` 确认，记录实际选择；DeepSeek V4 Flash 的 EXECUTOR thinking 固定为 `max`。
+EXECUTOR、REVIEWER 与 SENIOR_REVIEWER 均不继承当前会话，briefing 必须包含范围、验收标准和必要上下文。provider/model 在任务开始时用 `paseo provider ls` 与 `paseo provider models --thinking <provider>` 确认，记录实际选择；DeepSeek V4 Flash 的 EXECUTOR thinking 固定为 `max`。SENIOR_REVIEWER 每次使用独立的 fresh agent；“高级”指其审查职责与裁量视角，不授予它覆盖 ORCHESTRATOR 裁决的权力。
 
 ### 外发边界
 
-以下项目级通道无需逐次确认：通过现有 blind runner 发送 translation v2 bundle；向 Codex REVIEWER 发送与 code/legacy v1 审核相关的代码、文档和必要上下文；向 pi EXECUTOR 发送任务 briefing 并允许其读取当前 workspace。任务记录只需注明 provider、model 和内容范围，不要求保存完整 payload manifest。使用其他 provider 或发送范围外内容前仍须取得用户授权。
+以下项目级通道无需逐次确认：通过现有 blind runner 发送 translation v2 bundle；向 Codex REVIEWER、Claude Code Opus SENIOR_REVIEWER 或其 Codex `gpt-5.6-sol` 回退发送与 code/legacy v1 审核相关的代码、文档、必要上下文和已产生的普通 review findings；向 pi EXECUTOR 发送任务 briefing 并允许其读取当前 workspace。用户本次指定已授权前述 Claude Opus 通道及 Codex 回退。任务记录只需注明 provider、model 和内容范围，不要求保存完整 payload manifest。使用其他 provider 或发送范围外内容前仍须取得用户授权。
 
 ## 汉化工具入口
 

@@ -19346,6 +19346,37 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
             self.assertIn('"thinking": "max"', text)
             self.assertIn("paseo agent update <agent-id> --thinking max", text)
 
+    def test_paseo_senior_reviewer_triggers_are_documented(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        senior = (ROOT / ".ai" / "roles" / "senior-reviewer.md").read_text(
+            encoding="utf-8"
+        )
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        for text in (agents, orchestrator, senior, contract):
+            self.assertIn("SENIOR_REVIEWER", text)
+        for text in (orchestrator, senior, contract):
+            self.assertIn("scope_audit", text)
+            self.assertIn("cross_review", text)
+        for text in (agents, orchestrator, contract):
+            self.assertIn("cycle >= 2", text)
+            self.assertIn("translation_workflow", text)
+            self.assertIn("infrastructure", text)
+            self.assertIn("claude-opus-5", text)
+            self.assertIn("gpt-5.6-sol", text)
+            self.assertIn("fallback_reason", text)
+        self.assertIn("role=senior-reviewer", contract)
+        self.assertIn("--provider claude", contract)
+        self.assertIn("--mode plan --thinking max", contract)
+        self.assertIn("--provider codex --model gpt-5.6-sol", contract)
+        self.assertIn("--mode auto-review --thinking xhigh", contract)
+        self.assertIn("不得修改、创建、删除", senior)
+
     def test_agents_md_role_split_removes_global_pi_restrictions(self) -> None:
         text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
         self.assertIn("## 角色与协作", text)

@@ -13,7 +13,8 @@ ORCHESTRATOR 负责定义范围、委托实现、独立验证、裁决 finding �
 从任务建立 Paseo task ID 到 `DONE`／`STOP` 或明确回退期间，不使用
 `$tome4-pi-review`、`$tome4-pi-file-review`、`$tome4-pi-subagent`，也不调度它们的
 独立 reviewer、scout 或 plan-reviewer。计划和源码核验由 ORCHESTRATOR 完成，任务内容
-写入只交给 EXECUTOR，代码／工具／文档独立复审只交给 REVIEWER。
+写入只交给 EXECUTOR，代码／工具／文档复审只交给 REVIEWER 和
+SENIOR_REVIEWER。
 
 现有 translation v2 blind runner、门禁和普通检查仍是 ORCHESTRATOR 可直接调用的工具；
 直接运行这些工具不等于启用旧 Skill。旧 Skill 产生的 review 结果不得用来完成 Paseo 的
@@ -26,12 +27,16 @@ ORCHESTRATOR 负责定义范围、委托实现、独立验证、裁决 finding �
 2. 记录 `git status --short`，任务前脏文件默认不交给 EXECUTOR。确需修改时，逐文件写入
    SPEC，并把这些 tracked 文件的 diff 保存为当前 task 的 `BASELINE.patch`；既有 untracked
    文件复制到当前 task 的 `baseline/`。
-3. 明确模式、允许修改文件、禁止扩展项和可验证验收标准。
+3. 明确模式、允许修改文件、禁止扩展项和可验证验收标准；将任务分类为
+   `standard`、`translation_workflow` 或 `infrastructure`，后两类自初审起必须交叉复审。
 4. 用 `paseo provider ls` 与 `paseo provider models --thinking <provider>` 确认实际
    provider/model/thinking。DeepSeek V4 Flash 必须包含 `max`；若不可用则停止，不得静默降级
-   到 `high` 或默认值。
+   到 `high` 或默认值。SENIOR_REVIEWER 先检查 provider `claude` 并从其当前可选
+   model 中解析 Opus（当前 ID `claude-opus-5`）；只在明确不可用时选择
+   Codex `gpt-5.6-sol` 回退。
 5. 确认当前进程存在非空 `PASEO_AGENT_ID`。它是本任务的 ORCHESTRATOR agent ID；若缺失，
-   不得创建 EXECUTOR／REVIEWER，应报告当前主代理不是 Paseo 托管 parent。
+   不得创建 EXECUTOR／REVIEWER／SENIOR_REVIEWER，应报告当前主代理不是
+   Paseo 托管 parent。
 6. 在当前 task 目录写 `SPEC.md`、简短的 `PLAN.md` 和最小 `STATE.json`：
 
 ```json
@@ -39,6 +44,7 @@ ORCHESTRATOR 负责定义范围、委托实现、独立验证、裁决 finding �
   "schema_version": 2,
   "task_id": "...",
   "mode": "implement",
+  "change_class": "standard",
   "review_contracts": ["code_legacy_v1"],
   "state": "PLAN",
   "review_phase": null,
@@ -51,9 +57,17 @@ ORCHESTRATOR 负责定义范围、委托实现、独立验证、裁决 finding �
   "baseline": {"patch": null, "copies_dir": null},
   "executor": {"provider": "pi", "model": "deepseek/deepseek-v4-flash", "thinking": "max", "agent_id": null},
   "reviewer": {"provider": "codex", "model": "...", "agent_id": null},
+  "senior_reviewer": {
+    "primary": {"provider": "claude", "model_family": "opus", "resolved_model": "claude-opus-5", "mode": "plan", "thinking": "max"},
+    "fallback": {"provider": "codex", "model": "gpt-5.6-sol", "mode": "auto-review", "thinking": "xhigh"},
+    "selected": "primary",
+    "fallback_reason": null,
+    "agent_id": null
+  },
   "open_accepted_findings": [],
   "deferred_findings": [],
   "review_records": {},
+  "senior_review_records": [],
   "wait": null,
   "last_error": null,
   "updated_at": "..."
@@ -63,9 +77,11 @@ ORCHESTRATOR 负责定义范围、委托实现、独立验证、裁决 finding �
 STATE 在阶段变化、每个 review contract 完成、agent ID 变化或出现错误时更新即可；
 `orchestrator_agent_id` 在任务内不得改变。不维护逐动作 history、hash 链或不可变 artifact。
 
-所有 EXECUTOR／REVIEWER 都必须从当前 ORCHESTRATOR 进程直接调用 `paseo run` 创建，使 CLI
+所有 EXECUTOR／REVIEWER／SENIOR_REVIEWER 都必须从当前 ORCHESTRATOR 进程直接调用
+`paseo run` 创建，使 CLI
 继承 `PASEO_AGENT_ID` 并由 daemon 建立父子 lineage。不得使用 provider 原生
-`spawn_agent` 创建这两个角色，也不得在正常创建路径中手写 `paseo.parent-agent-id`。
+`spawn_agent` 创建这三个角色，也不得在正常创建路径中手写
+`paseo.parent-agent-id`。
 
 ## 实现与验证
 
@@ -80,9 +96,15 @@ paseo run --background --provider pi --model deepseek/deepseek-v4-flash --thinki
 
 取得精确 agent ID 后立即运行 `paseo inspect --json <agent-id>`。所有 child 的
 `paseo.parent-agent-id`／`ParentAgentId` 必须等于 STATE 的 `orchestrator_agent_id`，
-EXECUTOR／REVIEWER 的 workspace 必须等于 STATE 的 `workspace_id`；DeepSeek V4 Flash
+EXECUTOR／REVIEWER／SENIOR_REVIEWER 的 workspace 必须等于 STATE 的
+`workspace_id`；DeepSeek V4 Flash
 EXECUTOR 的 `Thinking` 还必须等于 `max`。任一项不匹配时立即停止该 agent，记录
 基础设施错误且不得继续使用。
+
+SENIOR_REVIEWER 还必须按 STATE 的 `selected` 校验 Provider、Model、Mode 和
+Thinking：首选必须是 `claude` / 已解析 Opus / `plan` / `max`，回退必须是
+`codex` / `gpt-5.6-sol` / `auto-review` / `xhigh`。任一实际值不匹配时停止该 agent，
+不得把其输出记为高级复审。
 
 同一 workspace 只运行一个 EXECUTOR。完成后由 ORCHESTRATOR 检查实际 diff、越权文件和
 相关测试；若任务修改了既有脏文件，用保存的起始 patch／副本生成 baseline→current 的
@@ -94,12 +116,26 @@ EXECUTOR 的 `Thinking` 还必须等于 `max`。任一项不匹配时立即停�
 - 代码、工具和文档：给 REVIEWER 提供有界 diff、SPEC 和必要上下文；使用显式
   `--mode auto-review --workspace <workspace-id>`，不得使用 `--new-workspace`。运行前后核对
   工作树，REVIEWER 若产生任何文件改动则停止并记录基础设施错误。
-- translation v2：由 ORCHESTRATOR 直接使用现有 blind v2 runner，不启用旧 Skill，也不交给 Paseo REVIEWER。
+- `change_class` 为 `translation_workflow` 或 `infrastructure`：在 initial、re 和
+  final 的每个 code review phase 再创建 fresh SENIOR_REVIEWER，使用
+  `purpose=cross_review`。REVIEWER 和 SENIOR_REVIEWER 接收同一 SPEC／diff，两者
+  返回前不得向任一方提供另一方的 findings。
+- 普通 finding 在 `cycle >= 2` 时仍要求进入 FIX：先创建 fresh
+  SENIOR_REVIEWER，使用 `purpose=scope_audit`，给它 SPEC、设计／AC、当前 diff、
+  测试结果和当轮普通 findings。该校准必须绑定当轮 review 记录和 finding
+  ID，且每个后续 FIX 轮次都重新执行。由客观验证失败直接触发的 FIX 不需要
+  scope audit。
+- SENIOR_REVIEWER 首选创建命令使用 `--provider claude`、
+  `--model <resolved-opus-id> --mode plan --thinking max`。仅在后文“模型回退”条件成立时，
+  重新创建完整审核为
+  `--provider codex --model gpt-5.6-sol --mode auto-review --thinking xhigh`。
+- translation v2：由 ORCHESTRATOR 直接使用现有 blind v2 runner，不启用旧 Skill，也不交给 Paseo REVIEWER 或 SENIOR_REVIEWER。
 - 混合任务分别运行两种审核，但可以共用 task ID 和 STATE。
 - `review_phase` 只取 `initial|re|final|null`。进入新阶段时清空 completed 与
   `review_records`；initial／final 的 pending 初始化为全部 contract，re 只列受本轮修复
   影响的 contract。每完成一类审核就从 pending 移入 completed，pending 为空后才进入
-  ADJUDICATE。
+  ADJUDICATE。需要 cross review 时，普通和高级两份输出都返回后 contract
+  才算 completed。
 
 逐条核验 REVIEWER finding：
 
@@ -107,8 +143,15 @@ EXECUTOR 的 `Thinking` 还必须等于 `max`。任一项不匹配时立即停�
 - `rejected`：证据不足、已存在或只是无规则依据的偏好，记录一句理由；
 - `deferred`：需要用户决定，进入 `WAIT_USER`。
 
+SENIOR_REVIEWER 的 `keep|narrow|downgrade|reject|defer_to_user` 同样只是建议。
+ORCHESTRATOR 必须把它与 SPEC、AC、实际调用链和测试对照后，对原 finding
+重新作出 `accepted|rejected|deferred`。已有明确可触发错误、数据丢失或状态破坏的
+finding 不得仅因为个人项目而驳回；只有缺乏证据、超出设计边界或复杂度明显
+不成比例的要求才应被收窄、降级或驳回。
+
 复审记录写入当前 task 的 review 目录，必须标明 `task_id`、`review_contract`、
-`review_phase` 与 `cycle`；当前 contract 到相对路径的映射写入 `review_records`。REVIEWER
+`review_phase`、`cycle`、`reviewer_role` 与 `purpose`；普通 contract 到相对路径的映射
+写入 `review_records`，高级复审路径追加到 `senior_review_records`。REVIEWER
 接收当前 contract 相关的 baseline→current 任务 diff。只保存 finding、证据、裁决和结果，
 不要求复制完整 prompt 或构造 lineage manifest。
 
@@ -118,7 +161,9 @@ EXECUTOR 的 `Thinking` 还必须等于 `max`。任一项不匹配时立即停�
 修复最多五轮；相同问题持续存在时可以换新 EXECUTOR，也可以直接询问用户，不强制重建
 session。
 
-验证或复审发现问题时，有剩余 cycle 就进入 FIX，否则进入 WAIT_USER；修复后的验证通过
+验证或复审发现问题时，有剩余 cycle 就进入 FIX，否则进入 WAIT_USER。但当
+`cycle >= 2` 且是普通 review finding 触发 FIX 时，必须先完成当轮
+`scope_audit` 并重新裁决；未绑定当轮 findings 的旧校准不得复用。修复后的验证通过
 进入 RE_REVIEW。FINAL_REVIEW 的输出也先进入 ADJUDICATE，干净后才进入 FINAL_VALIDATE。
 
 `review_only` 在全部 contract 完成、findings 已裁决且无 deferred 后进入 DONE，accepted
@@ -128,6 +173,29 @@ finding 作为审核交付保留。`implement` 还要求无 open accepted findin
 进入 WAIT_USER 时，`wait` 至少保存 `reason` 和被阻塞的 `resume_state`；恢复后清空 wait。
 
 ## 失败恢复
+
+恢复在本角色加入前创建的活动 STATE 时，下一次状态转移前必须补齐
+`change_class`、`senior_reviewer` 和 `senior_review_records`。不得默认为 `standard`；
+应根据 SPEC 和实际改动分类。若任务已在 `cycle >= 2` 且有待修复的普通
+findings，恢复后先进入 `SENIOR_REVIEW`，不得直接继续 FIX。已完成的历史任务
+不迁移。
+
+### SENIOR_REVIEWER 模型回退
+
+创建每个 SENIOR_REVIEWER 前都先按任务开始时的 provider/model 发现结果选路：
+
+- provider `claude` 为 available/enabled 且存在可选 Opus：选 primary；
+- provider 不可用，没有可选 Opus，或 Claude agent 在产生任何有效 review 输出前
+  以明确的 model unavailable、auth/entitlement 拒绝或 quota unavailable 终止：归档失败
+  primary，写入 `selected: "fallback"` 和简短 `fallback_reason`，再用 Codex 从头运行
+  同一份 briefing；
+- Paseo transport、daemon 或 inspect 的短暂错误只按基础设施规则重试一次，不能
+  伪装成模型不可用而回退；
+- primary 已产生部分 review 时不混用两个 provider 的输出。若之后发生明确的模型
+  不可用，废弃该未完成输出并用 fallback 重跑整个 review；
+- fallback 也不可用时进入 `WAIT_USER`，不得选第三个模型。
+- `selected` 是 task 级路由。一旦改为 `fallback`，后续高级复审继续使用 Codex，
+  不在任务中途自动切回 Opus。
 
 普通查询或传输错误可以重试一次。若 `paseo run` 返回结果不明确，先用 task/role label
 查询并 inspect 已有 agent；无法唯一确认时询问用户，不要再创建第二个写入 agent。

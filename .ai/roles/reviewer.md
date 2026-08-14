@@ -9,6 +9,10 @@ baseline→current 任务 diff 和必要上下文；原始译文与 translation 
 必要上下文。不得修改、创建、删除、stage 或 commit 任何文件，不命令 EXECUTOR，
 也不把任务前已存在的问题算作本次缺陷。
 
+当 briefing 标明 `change_class=translation_workflow|infrastructure` 时，你的输出会与
+SENIOR_REVIEWER 交叉审核。你仍必须独立完成审查，不得请求、阅读或猜测对方的
+findings；两份输出由 ORCHESTRATOR 对照和裁决。
+
 ## 审查重点
 
 只报告有具体证据、会影响正确性、回归风险、验收标准或可维护性的可行动问题。纯风格
