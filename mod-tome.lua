@@ -22479,19 +22479,19 @@ t([[When you hit with Weapon Folding you have a %d%% chance of dealing an additi
 t("Fold Warp", "扭曲折叠", "talent name")
 t([[When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f physical and %0.2f temporal (warp) damage to enemies in a radius of %d.
 		Each target hit may be stunned, blinded, pinned, or confused for %d turns.
-		This effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Gravity and Fold Fate by one turn.]], [[当你用武器折叠命中时，有 %d%% 几率在半径 %d 内造成额外 %0.2f 物理和 %0.2f 时空伤害。
+		This effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Gravity and Fold Fate by one turn.]], [[当你用武器折叠命中时，有 %d%% 几率在半径 %d 内对敌人造成额外 %0.2f 物理和 %0.2f 时空（扭曲）伤害。
 		受影响的生物可能被震慑、致盲、定身或混乱 %d 回合。
 		这个效果有冷却时间。当处于冷却状态被触发时，会减少重力折叠和命运折叠 1 回合冷却时间。]], "tformat", {1,4,2,3,5})
 t("Fold Gravity", "重力折叠", "talent name")
 t([[When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f physical (gravity) damage to enemies in a radius of %d.
 		Affected targets may also be slowed, decreasing their global speed speed by %d%% for %d turns
-		This effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Fate and Fold Warp by one turn.]], [[当你用武器折叠命中时，有 %d%% 几率在半径 %d 内造成额外 %0.2f 物理( 重力) 伤害。
-		受影响的生物可能被减速 %d%%，持续 %d 回合。
+		This effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Fate and Fold Warp by one turn.]], [[当你用武器折叠命中时，有 %d%% 几率在半径 %d 内对敌人造成额外 %0.2f 物理( 重力) 伤害。
+		受影响的生物还可能被减速，使其全局速度降低 %d%%，持续 %d 回合。
 		这个效果有冷却时间。当处于冷却状态被触发时，会减少扭曲折叠和命运折叠 1 回合冷却时间。]], "tformat", {1,3,2,4,5})
 t("Weapon Folding", "武器折叠", "talent name")
 t([[Folds a single dimension of your weapons (or ammo) upon itself, adding %0.2f temporal damage to your strikes.
 		Additionally you have a %d%% chance to gain 10%% of a turn when your weapons hit.
-		The damage will scale with your Spellpower.]], [[将时空折叠在武器/弹药上，造成额外 %0.2f 时空伤害。
+		The damage will scale with your Spellpower.]], [[将武器（或弹药）的一个维度向自身折叠，使你的攻击额外造成 %0.2f 时空伤害。
 		同时武器命中时你有 %d%% 几率获得 10%% 回合的时间。
 		伤害受法术强度加成。]], "tformat")
 t("Invigorate", "鼓舞", "talent name")
@@ -22505,13 +22505,13 @@ t([[You now have a %d%% chance to Fold Fate, Gravity, or Warp into your Weapon F
 		Fold Warp: Deals %0.2f physical and %0.2f temporal damage to enemies in a radius of %d.  Affected targets may be stunned, blinded, confused, or pinned for %d turns.
 		Fold Gravity: Deals %0.2f physical damage to enemies in a radius of %d.  Affected targets will be slowed (%d%%) for %d turns.
 		
-		Each Fold has an eight turn cooldown.  If an effect would be triggered while on cooldown it will reduce the cooldown of the other two Folds by one turn.]], [[你现在有 %d%% 几率将命运、重力或扭曲之力折叠进你的武器。
-		命运：半径 %d 内造成 %0.2f 时空伤害，并降低 %d%% 物理和时空抗性，持续 %d 回合。
-		扭曲：半径 %d 内造成 %0.2f 物理 %0.2f 时空伤害，并可能震慑、致盲、混乱或者定身 %d 回合。
-		重力：半径 %d 内造成 %0.2f 物理伤害，并减速（ %d%% ） %d 回合。
+		Each Fold has an eight turn cooldown.  If an effect would be triggered while on cooldown it will reduce the cooldown of the other two Folds by one turn.]], [[你现在有 %d%% 几率将命运、重力或扭曲之力折叠进武器折叠伤害中。
+		命运：对半径 %d 内的敌人造成 %0.2f 时空伤害，并可能降低 %d%% 物理和时空抗性，持续 %d 回合。
+		扭曲：对半径 %d 内的敌人造成 %0.2f 物理 %0.2f 时空伤害，并可能震慑、致盲、混乱或者定身 %d 回合。
+		重力：对半径 %d 内的敌人造成 %0.2f 物理伤害，并减速（ %d%% ） %d 回合。
 		每项效果有 8 回合冷却时间。
 		当处于冷却中的效果被触发时，将减少另外两个效果的冷却 1 回合。]], "tformat", {1,3,2,4,5,8,6,7,9,11,10,12,13})
-t("Breach", "破灭", "talent name")
+t("Breach", "破防", "talent name")
 t("You require a weapon to use this talent.", "你需要武器来施展这个技能。", "logPlayer")
 t([[Attack the target with either your ranged or melee weapons for %d%% damage.
 		If the attack hits you'll breach the target's immunities, reducing armor hardiness, stun, pin, blindness, and confusion immunity by 50%% for %d turns.
@@ -28324,7 +28324,7 @@ t("#0080FF#The furious lightning storm around %s calms down and disappears.", "#
 t([[Conjures a furious, raging lightning storm with a radius of 6 that follows you as long as this spell is active.
 		Each turn, a random lightning bolt will hit up to %d of your foes for 1.00 to %0.2f damage (%0.2f average) in a radius of 1.
 		The damage will increase with your Spellpower.]], [[当此技能激活时，在 6 码半径范围内召唤一阵强烈的闪电风暴跟随你。
-		每回合闪电风暴会随机伤害 %d 个敌方单位，对 1 码半径范围造成 1.00 ～ %0.2f 伤害（平均 %0.2f ）。
+		每回合闪电风暴会随机伤害最多 %d 个敌方单位，对 1 码半径范围造成 1.00 ～ %0.2f 伤害（平均 %0.2f ）。
 		伤害受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -28340,13 +28340,13 @@ t([[Each time you or your undead minions deal damage to a creature you apply Sou
 		%s- elite boss: at most every %d turns#WHITE#
 
 		Also increases your maximum souls capacity by %d .
-		]], [[每当你或你的不死随从对敌人造成伤害，将会对其附加灵魂吸取效果。
-		如果敌人在灵魂吸取状态下死去，你将会偷取它的灵魂。
-		强大的敌人和Boss的灵魂力量如此强大，你可以每隔几个回合从它们的身上偷取一个灵魂：
-		%s- 稀有：每 %d 回合偷取一个灵魂
-		%s- 史诗：每 %d 回合偷取一个灵魂
-		%s- Boss：每 %d 回合偷取一个灵魂
-		%s- 精英Boss：每 %d 回合偷取一个灵魂#WHITE#
+		]], [[每当你或你的不死随从对生物造成伤害，将会对其附加灵魂吸取效果。
+		如果生物在灵魂吸取状态下死去，你将会偷取它的灵魂。
+		强大的生物和 Boss 的灵魂力量如此强大，你可以每隔几个回合从它们的身上偷取一个灵魂：
+		%s- 稀有：最多每 %d 回合偷取一个灵魂
+		%s- 史诗：最多每 %d 回合偷取一个灵魂
+		%s- Boss：最多每 %d 回合偷取一个灵魂
+		%s- 精英Boss：最多每 %d 回合偷取一个灵魂#WHITE#
 		
 		此外，增加你的最大灵魂储量 %d。
 		]], "tformat")
@@ -35568,10 +35568,10 @@ t("#Target# is anchored.", "#Target#被时空锚锁定。", "_t")
 t("+Anchor", "+时空锚", "_t")
 t("#Target# is no longer anchored.", "#Target#不再被时空锚锁定。", "_t")
 t("-Anchor", "-时空锚", "_t")
-t("Breach", "破灭", "_t")
+t("Breach", "破防", "_t")
 t("The target's defenses have been breached, reducing armor hardiness, stun, pin, blindness, and confusion immunity by 50%%.", "目标的防御被削弱了，减少 50%% 护甲强度，震慑、定身、致盲、混乱免疫。", "tformat")
-t("+Breach", "+破灭", "_t")
-t("-Breach", "-破灭", "_t")
+t("+Breach", "+破防", "_t")
+t("-Breach", "-破防", "_t")
 t("Braided", "生命线编织", "_t")
 t("The target is taking %d%% of all damage dealt to other braided targets.", "目标会承受其他被编织目标所受全部伤害的 %d%%。", "tformat")
 t("#Target#'s lifeline has been braided.", "#Target#的生命线被编织了。", "_t")

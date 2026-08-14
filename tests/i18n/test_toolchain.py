@@ -1225,8 +1225,8 @@ class DomainAnnotationTests(unittest.TestCase):
         )
         report = json.loads(report_path.read_text(encoding="utf-8"))
         self.assertEqual(len(report["domains"]), 11)
-        self.assertEqual(len(report["rows"]), 706)
-        self.assertEqual(sum(report["counts"].values()), 706)
+        self.assertEqual(len(report["rows"]), 708)
+        self.assertEqual(sum(report["counts"].values()), 708)
         self.assertEqual(report["unmapped_count"], 0)
         self.assertEqual(report["declared_domain_mismatch_count"], 6)
         self.assertIs(report["ok"], True)
@@ -15649,11 +15649,11 @@ class QualitySamplingTests(unittest.TestCase):
         ).encode("utf-8")
         self.assertEqual(
             hashlib.sha256(serialized).hexdigest(),
-            "c8235a4a203fd791d9de5ce23aca7b93ff9b68a5ff6156b4443f7416859b8682",
+            "5d14bf33018a2694ca1a54d45f9b304197e79a970ca11c4b5463e6506899e9e2",
         )
         self.assertEqual(
             first["sample_id"],
-            "efdf5904387d8a7b6d6e65f0ae3df94153577e60f734825fbf498ff442f10c5f",
+            "3f2182324c521216dffeea1eabecc5344f32eaa3bceff337d070bdea06dd6f3f",
         )
         self.assertEqual(
             first["items_sha256"],
@@ -15919,11 +15919,11 @@ class QualitySamplingTests(unittest.TestCase):
         ).encode("utf-8")
         self.assertEqual(
             hashlib.sha256(serialized).hexdigest(),
-            "0688862ab05e0153104cc11c2f1bc12943c3bbe49f381ca23d29eda4651d39a4",
+            "0fdb29fc7d6e6bc9907689cf592a2204dc6a2f02bc37a331c38424cb9124b2e3",
         )
         self.assertEqual(
             first["sample_id"],
-            "899b820ff7ef883c24f89893cdac60a22b611a4c7882c84fd8782222c02cedd7",
+            "efd04503b35b5c3f8b3a4dcdacea934b9f3204fb44d8d82acbbda436402f2cfa",
         )
         self.assertEqual(
             first["items_sha256"],
@@ -16104,7 +16104,7 @@ class QualitySamplingTests(unittest.TestCase):
         self.assertTrue(all("_features" not in entry for entry in loaded_entries[0]))
         self.assertEqual(
             dry_run["official_sample_id"],
-            "efdf5904387d8a7b6d6e65f0ae3df94153577e60f734825fbf498ff442f10c5f",
+            "3f2182324c521216dffeea1eabecc5344f32eaa3bceff337d070bdea06dd6f3f",
         )
 
     def test_dry_run_does_not_cache_mutable_inventory_between_calls(self) -> None:
