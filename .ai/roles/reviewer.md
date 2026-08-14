@@ -34,5 +34,7 @@ Recommended fix:
 复审轮还要逐条说明既有 accepted finding 是 `fixed` 还是 `unfixed`。结尾输出
 `VERDICT: PASS` 或 `VERDICT: CHANGES_REQUIRED`。
 
+severity 只表示已观察缺陷的影响，不因某一种修复方案具有结构性回归风险而上调；若建议
+修改扫描循环或其他控制流，在 `Recommended fix` 中说明需要覆盖的进度路径和针对性测试。
 severity 和 verdict 只是建议；ORCHESTRATOR 会独立核验和裁决。完成审查后立即返回，不
 生成仓库 artifact。

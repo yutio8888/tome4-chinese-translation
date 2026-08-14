@@ -27,7 +27,7 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 3. ORCHESTRATOR 独立核验测试和 finding，只把已接受的 finding 交给 EXECUTOR 修复；两类 reviewer 的 severity、verdict 和范围建议都不自动生效。
 4. 自动修复最多五轮。第二轮后若普通 review finding 仍要求进入下一轮 FIX，必须先由 SENIOR_REVIEWER 审查这些意见是否偏离设计意图或功能边界、过度放大边缘情形或安全限制、对个人项目过重；每个后续轮次都重新校准当轮意见。
 5. Paseo 激活期间所有 agent 委托只使用 EXECUTOR／REVIEWER／SENIOR_REVIEWER，不再调度旧 Skill 的 reviewer、scout 或 plan-reviewer。
-6. 翻译 semantic observation v2 由 ORCHESTRATOR 直接运行现有 blind runner；Paseo REVIEWER／SENIOR_REVIEWER 只审查代码、工具、文档和 legacy v1。`change_class` 为 `translation_workflow` 或 `infrastructure` 时，普通与高级 reviewer 必须从同一 SPEC／diff 独立交叉审核，在两份输出都返回前不得互看结论。该规则审查的是翻译流程／基础设施变更，不取代译文的 blind translation v2 语义审核。
+6. 翻译 semantic observation v2 由 ORCHESTRATOR 直接运行现有 blind runner；Paseo REVIEWER／SENIOR_REVIEWER 只审查代码、工具、文档和 legacy v1。`change_class` 为 `translation_workflow` 或 `infrastructure` 时，普通与高级 reviewer 必须从同一 SPEC／diff 独立交叉审核，在两份输出都返回前不得互看结论。两类 reviewer 的核心 briefing 在首次派发前冻结；若一方在另一方返回后重试，只能附加基础设施重试原因，不得按已知 finding 改写范围、候选或验收标准，否则两份输出都作废重跑。该规则审查的是翻译流程／基础设施变更，不取代译文的 blind translation v2 语义审核。
 7. EXECUTOR／REVIEWER／SENIOR_REVIEWER 必须由 Paseo 托管的 ORCHESTRATOR 直接通过 `paseo run` 创建并继承
    `PASEO_AGENT_ID`；不得用 provider 原生 `spawn_agent` 代替。创建后必须用 `paseo inspect`
    确认 `ParentAgentId` 等于 ORCHESTRATOR agent ID，否则停止该 agent 并按基础设施错误处理。
@@ -41,6 +41,8 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
    不可用错误时，才回退到 Codex `gpt-5.6-sol`（`--mode auto-review --thinking xhigh`）。
    暂时 transport 错误不算模型不可用；`selected` 与 `fallback_reason` 必须写入 STATE。
    一旦当前 task 选中 fallback，后续 SENIOR_REVIEWER 调用保持该路由，不在任务中途来回切换。
+10. 每个 code review phase 冻结 `SPEC.md` 和一份独立路径的有界任务自身 diff；必要的 SPEC 修改一律视为新候选，验证结果写入 task 验证产物或 review 记录。diff 生成配方和候选路径集也在首次派发前冻结：路径集只包含 SPEC 允许且相对任务基线实际变更／新建的任务内容，排除范围外既有脏文件和 ignored 编排／验证产物；`LC_ALL=C`、仓库相对路径按字节序排序，tracked 部分的端点固定为任务起始基线内容→当前工作树内容：起始 clean 的路径以 HEAD 为基线，SPEC 允许的既有脏路径用保存的 `BASELINE.patch`／副本重建基线，不能使用裸 index→worktree diff；只对冻结路径集使用 Git diff 的 `--binary --no-ext-diff --no-renames --unified=3` 选项。任务新建的 untracked 文件用 `git ls-files --others --exclude-standard` 在同一 SPEC 范围内枚举，再按同一顺序以 `/dev/null`→仓库相对路径的 no-index diff 追加且不得为此 stage；同一 phase 的所有检查点复用相同配方；每次派发、返回和完成前先按冻结的 SPEC 范围、任务基线、`--exclude-standard` 过滤与排序规则重新枚举当前实际变更／新建路径集，并与冻结路径集逐字节比较，路径集或配方改变即产生新候选；只有路径集相同才重新生成 diff。`candidate_ref` 是 `SPEC.md`、NUL 分隔符和该 diff 精确字节的 SHA-256（无生产 diff 时 diff 取空字节）。ORCHESTRATOR 在每个 reviewer 派发前和输出返回后都从当前任务内容重新生成 diff 并计算引用；review 记录中的派发引用与完成前的当前引用必须全部一致，才能合并输出或完成 contract。该引用不进入 STATE，也不扩展为全工作树 hash、manifest 或 hash 链。
+11. 只有实际 diff 重构了可能阻塞测试进程的扫描／解析循环时，才在更广测试前要求一条进度不变量说明和一个短超时、有限输入的微型探针；是否适用由 ORCHESTRATOR 按实际 diff 决定，不能只依赖实现前 briefing。验证出现挂起、持续增大的输出／RSS 或 OOM 时，先终止并确认子进程退出，不得原样无界重跑；只做一次有界假设探针，必要时再做一次有界任务基线对照，确认候选缺陷则进入 FIX，仍无法归因则进入 WAIT_USER。内存上限、RSS／退出信号和内核日志只作可得时的辅助证据，不建设常驻监控或进程监督器。
 
 ### 工作流与记录
 
@@ -51,10 +53,11 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 - `.ai/task/<task_id>/SPEC.md`：范围、允许修改文件、验收标准；
 - `.ai/task/<task_id>/PLAN.md`：大型任务的简短步骤，可在事实变化时直接更新；
 - `.ai/task/<task_id>/BASELINE.patch`／`baseline/`：仅在任务需要修改既有脏文件时保存其起始 patch 或副本；
+- `.ai/task/<task_id>/CODE_DIFF-<phase>-<cycle>-<attempt>.patch`：仅在 code review phase 保存当次有界任务自身 diff，不覆盖旧候选；
 - `.ai/task/<task_id>/STATE.json`：当前状态、轮次、审核阶段与 contract 进度、ORCHESTRATOR／子 agent ID、provider/model、WAIT_USER 恢复点和 review 记录引用；
-- `.ai/reviews/<task_id>/review-NN.json`：任务身份、审核阶段、review contract、reviewer role／purpose、结构化 finding 与主代理裁决。
+- `.ai/reviews/<task_id>/review-NN.json`：任务身份、审核阶段、review contract、reviewer role／purpose、`candidate_ref`、结构化 finding 与主代理裁决。
 
-每个新任务使用独立 task ID；旧的 flat `.ai/task/STATE.json`／`.ai/reviews/review-NN.json` 保持原样。STATE 在阶段转换后更新即可，不要求逐动作审计链、内容 hash、WAL 或不可变 artifact。进入 WAIT_USER 时记录原因和 `resume_state`。基础设施错误可重试一次；若 `paseo run` 是否成功不明确，先按 task/role label 查询现有 agent，不能唯一确认时再询问用户，不得盲目创建第二个写入 agent。
+每个新任务使用独立 task ID；旧的 flat `.ai/task/STATE.json`／`.ai/reviews/review-NN.json` 保持原样。STATE 在阶段转换后更新即可；除上述每轮 code review 的最小 `candidate_ref` 外，不要求逐动作审计链、全工作树内容 hash、WAL 或不可变 artifact。进入 WAIT_USER 时记录原因和 `resume_state`。基础设施错误可重试一次；若 `paseo run` 是否成功不明确，先按 task/role label 查询现有 agent，不能唯一确认时再询问用户，不得盲目创建第二个写入 agent。
 
 任务前脏文件默认不交给 EXECUTOR；确需修改时，SPEC 必须逐文件允许，并先保存可恢复的起始 patch 或副本。每轮验证用该基线生成任务自身的 baseline→current diff，确认用户原有内容未被意外覆盖，并把该 diff 交给相应 reviewer。`review_only` 的 DONE 只要求全部审核已完成、findings 已裁决且无 deferred；`implement` 的 DONE 还要求没有未解决 accepted finding，并通过最终验收。
 

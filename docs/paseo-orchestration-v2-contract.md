@@ -2,7 +2,7 @@
 
 > 状态：设计草案，待实际任务验证。
 >
-> 契约版本：`paseo-orchestration/2.0-draft`。
+> 契约版本：`paseo-orchestration/2.1-draft`。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文不单独授权外部传输，也不表示新的控制器
 > 或 STATE 校验器已经实现。
@@ -35,6 +35,11 @@
 10. SENIOR_REVIEWER 首选 Claude Code Opus（provider `claude`、mode `plan`、thinking
     `max`）；只在明确不可用时回退到 Codex `gpt-5.6-sol`（mode `auto-review`、
     thinking `xhigh`），并记录实际路由。
+11. 每个 code review phase 冻结 SPEC、SPEC 范围内的任务变更路径集、可复现的 diff 生成
+    配方和一份包含任务新建 untracked 文件的有界任务自身 diff，用最小 `candidate_ref` 绑定
+    实际审核候选；普通／高级 reviewer 派发、返回与 contract 完成时的引用必须一致。
+12. 只有实际 diff 重构了可能阻塞测试进程的扫描／解析循环时，才增加短超时微型探针；
+    挂起／OOM 后禁止无界重跑，无法经一次有界诊断归因时交给用户，不扩展通用防御平台。
 
 ### 明确删除的复杂度
 
@@ -43,10 +48,12 @@ v2 不要求：
 - 专用 `tools/paseo-orchestrate` 控制器；
 - workspace 级文件锁或多控制器并发保证；
 - operation WAL、逐动作 revision 和完整 transition history；
-- immutable artifact、父子 hash 链或 outbound payload manifest；
+- 除每轮 code review 的最小 `candidate_ref` 外的通用文件 hash、immutable artifact store、
+  父子 hash 链或 outbound payload manifest；
 - REVIEWER 输入的固定字节数／文件数上限；
 - staged、symlink、TOCTOU 和特殊文件的独立 schema；
 - 权限轮询、故障注入矩阵或每一步清理失败状态；
+- 常驻 RSS 监控、进程监督器、强制内存沙箱、内核日志门禁或通用循环静态分析器；
 - 为实现编排工具另行申请 bootstrap 授权。
 
 这些能力只有在实际遇到重复故障时再增加，不作为首版前置条件。
@@ -113,11 +120,14 @@ reviewer 从同一输入独立交叉审核。这不把译文本身交给 Paseo r
 | --- | --- | --- |
 | `PLAN` | 审核开始 | `REVIEW` |
 | `REVIEW` | 全部 contract 输出返回，且需要的 cross review 已完成 | `ADJUDICATE` |
+| `REVIEW` | 候选在 contract 完成前改变 | 丢弃旧输出、重新冻结候选并留在 `REVIEW`；范围需确认则 `WAIT_USER`（`resume_state: REVIEW`） |
 | `ADJUDICATE` | findings 已裁决且无 deferred | `DONE` |
 | 任意非终态 | 需要用户决定 | `WAIT_USER` |
 | 任意非终态 | 用户取消或无法继续 | `STOP` |
 
-`review_only` 的 DONE 表示 findings 已冻结，不表示没有 finding。
+`review_only` 的 DONE 表示 findings 已冻结，不表示没有 finding。候选改变后不进入只属于
+implement 模式的 VALIDATE／RE_REVIEW；它在 REVIEW 内重启 fresh reviewer，或先经
+WAIT_USER 确认范围再恢复 REVIEW。
 
 ### 实现任务
 
@@ -130,6 +140,7 @@ reviewer 从同一输入独立交叉审核。这不把译文本身交给 Paseo r
 | `VALIDATE` | 验证失败且仍有剩余轮次 | `FIX` |
 | `VALIDATE` | 验证失败且轮次耗尽 | `WAIT_USER` |
 | `REVIEW` / `RE_REVIEW` / `FINAL_REVIEW` | 全部 contract 输出返回，且需要的 cross review 已完成 | `ADJUDICATE` |
+| `REVIEW` / `RE_REVIEW` / `FINAL_REVIEW` | 候选在冻结后、contract 完成前改变 | 丢弃旧输出并回到 `VALIDATE`；范围需确认则 `WAIT_USER`（`resume_state: VALIDATE`，保留 `review_phase`） |
 | `ADJUDICATE` | 存在 deferred finding | `WAIT_USER` |
 | `ADJUDICATE` | 有 accepted 普通 finding、`cycle >= 2`，且尚无绑定当轮意见的 scope audit | `SENIOR_REVIEW` |
 | `SENIOR_REVIEW` | `scope_audit` 返回 | `ADJUDICATE` |
@@ -144,13 +155,21 @@ reviewer 从同一输入独立交叉审核。这不把译文本身交给 Paseo r
 | 任意非终态 | 需要用户决定 | `WAIT_USER` |
 | 任意非终态 | 用户取消或无法继续 | `STOP` |
 
+候选改变而暂时返回 VALIDATE 时不清空当前 `review_phase`；验证通过后重入该 phase 对应的
+REVIEW、RE_REVIEW 或 FINAL_REVIEW，而不是按“初次实现／FIX 后”重新选择审核阶段。
+
 `cycle` 在每轮 FIX 开始时增加，最大值为 5。门禁失败与 reviewer finding 共用这五轮，
 避免形成两个独立循环。当 `cycle >= 2` 时，客观验证失败仍可直接触发 FIX；
 只有普通 review finding 触发的后续 FIX 必须先走 `SENIOR_REVIEW`。同一份旧
 scope audit 不得用于新一轮 findings。FINAL_REVIEW finding 和 FINAL_VALIDATE 失败也受相同
 轮次限制。
-进入 WAIT_USER 时，STATE 的 `wait` 保存简短 `reason` 和 `resume_state`；用户决定后恢复到
-该状态并清空 wait，不需要通用 decision schema。
+进入 WAIT_USER 时，STATE 的 `wait` 保存简短 `reason` 和 `resume_state`；它表示决定后的
+恢复目标，不保证等于进入等待前的状态。用户决定后恢复到该状态并清空 wait，不需要通用
+decision schema。候选变化按上表分别恢复到 REVIEW 或 VALIDATE；验证中的挂起／OOM 先在当前验证状态
+（`VALIDATE` 或 `FINAL_VALIDATE`）内完成一次有界诊断，不因观测现象本身增加 cycle；
+确认有范围内候选修复并进入 FIX 时才增加
+cycle，仍无法归因则进入 WAIT_USER，`resume_state` 保留被打断的当前验证状态
+（`VALIDATE` 或 `FINAL_VALIDATE`）。
 
 ---
 
@@ -164,6 +183,7 @@ scope audit 不得用于新一轮 findings。FINAL_REVIEW finding 和 FINAL_VALI
 .ai/task/<task_id>/PLAN.md
 .ai/task/<task_id>/BASELINE.patch             # 仅在修改既有 tracked 脏文件时
 .ai/task/<task_id>/baseline/                  # 仅在修改既有 untracked 文件时
+.ai/task/<task_id>/CODE_DIFF-<phase>-<cycle>-<attempt>.patch # 仅 code review phase；不覆盖旧候选
 .ai/task/<task_id>/STATE.json
 .ai/reviews/<task_id>/review-NN.json
 ```
@@ -226,7 +246,8 @@ ADJUDICATE。只校验以下不变量：
 3. 同时最多存在一个活动 EXECUTOR。
 4. pending 与 completed 不重复，且都属于 `review_contracts`。对后两种
    `change_class`，`code_legacy_v1` 只有在当前 phase/cycle 的普通 review 和
-   `cross_review` 都存在时才能进入 completed。
+   `cross_review` 都存在、两份记录的 `candidate_ref` 与完成前从当前任务内容重算的引用
+   全部相同时才能进入 completed。
 5. `review_only` 进入 DONE 前全部 contract 已完成、findings 已裁决且无 deferred；accepted
    finding 保留在 review 记录中，不放入 `open_accepted_findings`。
 6. `implement` 进入 DONE 前还必须无 open accepted finding，并通过最终验收。
@@ -247,8 +268,9 @@ ADJUDICATE。只校验以下不变量：
     fallback 必须为 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh` 且
     `fallback_reason` 非空。
 
-不要求 history、artifact ref、文件 hash 或原子目录同步。普通“写临时文件后 replace”足以
-避免 STATE 半写入。
+除每轮 code review 的最小 `candidate_ref` 外，不要求 history、全工作树／逐文件 hash、
+immutable artifact、manifest 或原子目录同步。普通“写临时文件后 replace”足以避免 STATE
+半写入。
 
 ### Review 记录
 
@@ -258,7 +280,8 @@ contract 的完成状态。`review-NN` 在 task 内取下一个序号，不覆�
 到相对路径的映射写入 STATE 的 `review_records`。每个 finding 保存 ID、severity 建议、
 file/location、problem、evidence、impact、建议修复和主代理裁决。`rejected` 写一句理由；
 `deferred` 说明需要用户决定的事项。复审时逐条标记 accepted finding 为 `fixed` 或
-`unfixed`。
+`unfixed`。每份 code review 记录还保存该 reviewer 派发时的 `candidate_ref`；它不进入
+STATE，也不要求保存完整 prompt。
 
 普通 REVIEWER 的 `purpose` 为 `normal_review`。SENIOR_REVIEWER 的
 `cross_review` 记录与同 phase/cycle 的普通记录并列；`scope_audit` 记录另外保存
@@ -339,6 +362,10 @@ SENIOR_REVIEWER 每次都是 fresh agent。`cross_review` 不带普通 review �
 `scope_audit` 则必须带当轮普通 review 记录和 finding ID。“高级”是角色职责，
 不意味着它可以跳过 ORCHESTRATOR 裁决或获得写权限。
 
+需要交叉审核时，两类 reviewer 的核心 briefing 在首次派发前冻结。若一方在另一方已返回后
+因基础设施错误重试，只能复用原 briefing 并附加重试／只读原因，不得根据已知 finding
+调整候选、范围、AC 或审查标准；若发生实质调整，已有配对全部作废，双方都用新候选重跑。
+
 完成后按精确 ID 归档即可：
 
 ```text
@@ -399,12 +426,43 @@ Paseo 激活状态；之后才可使用非 Paseo 工作流或旧项目 Skill。
 
 ## 八、Review 输入与输出
 
+每个 code review phase 在首次派发前冻结 `SPEC.md`、diff 生成配方和候选路径集，并在 task
+目录生成不覆盖旧候选的 `CODE_DIFF-<phase>-<cycle>-<attempt>.patch`。验证结果写入 task 验证
+产物或 review 记录；必要的 SPEC／配方／路径集修改一律产生新候选。路径集只包含 SPEC
+允许且相对任务基线实际变更／新建的任务内容，排除范围外既有脏文件和 ignored 编排／验证
+产物。配方固定为 `LC_ALL=C`、仓库相对路径按字节序排序；tracked 部分的端点固定为任务
+起始基线内容→当前工作树内容，起始 clean 的路径以 HEAD 为基线，SPEC 允许的既有脏路径
+用保存的 `BASELINE.patch`／副本重建基线，不能使用裸 index→worktree diff；只对冻结路径集
+使用 Git diff 的 `--binary --no-ext-diff --no-renames --unified=3` 选项。任务新建的 untracked
+文件用 `git ls-files --others --exclude-standard` 在同一 SPEC 范围内枚举，再按
+同一顺序以 `/dev/null`→仓库相对路径的 no-index diff 追加且不得为此 stage。文本文件纳入
+patch 内容，二进制继续由主代理直接验证。同一 phase 的所有检查点必须复用相同配方；每次
+派发、返回和完成前先按冻结的 SPEC 范围、任务基线、`--exclude-standard` 过滤与排序规则
+重新枚举当前实际变更／新建路径集，并与冻结路径集逐字节比较。路径集或配方变化即产生新
+候选；只有路径集相同才重新生成 diff。`candidate_ref` 使用：
+
+```text
+SHA256(SPEC.md bytes + NUL + exact bounded task-own diff bytes)
+```
+
+plan-only review 也使用同一公式，diff 取空字节。每个 reviewer 派发前和输出返回后，
+ORCHESTRATOR 都从当前任务内容重新生成当前 diff 并重算引用，而不是只对已保存的旧 patch
+求 hash。每份 review 记录保存其派发引用；需要 cross review 时，所有派发／返回引用与完成
+contract 前的当前引用必须相同，否则不得合并输出。该引用不进入 STATE，也不扩展为 manifest、
+全工作树 hash 或不可变 artifact store。
+
 普通代码 REVIEWER 接收：
 
 - SPEC、相关 PLAN 和验收标准；
 - 相对仓库路径表示的、与 `code_legacy_v1` contract 相关的完整 baseline→current 任务 diff；
 - 任务前已有改动的排除说明；
 - re-review 时 accepted findings 的重验清单。
+
+候选冻结后到 contract 完成前引用改变时，reviewer 写入按基础设施错误处理，用户改动先
+保留。范围需确认时，implement 以 `resume_state: VALIDATE` 进入 WAIT_USER 并保留被中断的
+`review_phase`，`review_only` 以 `resume_state: REVIEW` 进入 WAIT_USER。确认接受后，
+implement 丢弃旧输出并在 VALIDATE 通过后重入对应的 REVIEW／RE_REVIEW／FINAL_REVIEW；
+`review_only` 在 REVIEW 内丢弃旧输出、重新冻结候选并创建 fresh reviewer。
 
 SENIOR_REVIEWER 的输入按 purpose 区分：
 
@@ -453,6 +511,15 @@ translation v2 的 bundle、身份校验和 observation 契约继续以
   任务自身 diff；确认用户原有内容未被意外覆盖。相应 reviewer 也接收这份任务自身 diff，
   而不是混合了旧改动的 HEAD→current diff。
 - 运行最接近改动的 focused tests 和静态检查。
+- 以实际 diff 判断是否重构了可能阻塞测试进程的扫描／解析循环；若是，即使 briefing 未
+  预判，也先取得一条进度不变量说明并运行短超时、有限输入的简单子进程探针，再运行更广
+  的进程内测试。ORCHESTRATOR 可直接运行一次性探针；需要新增持久测试或修复时进入 FIX。
+- 验证挂起、输出／RSS 持续增长或 OOM 时，先终止并确认子进程退出，不得无界重跑。只运行
+  一次有界假设探针；仅在仍无法区分且可低成本重建时再做一次有界任务基线对照。确认候选
+  缺陷则进入 FIX；基线复现按 AC 记 known issue 或 WAIT_USER；仍无法归因则进入
+  WAIT_USER，`resume_state` 保留被打断的当前验证状态（`VALIDATE` 或
+  `FINAL_VALIDATE`）。内存上限、RSS、退出信号和 OOM 日志为 best-effort，不要求常驻
+  监控、进程监督器或内核日志权限。
 - 涉译文时遵循 `AGENTS.md` 的门禁顺序；术语改动追加规定审计。
 
 ### 完成前
@@ -510,16 +577,22 @@ v2 格式；旧
 4. EXECUTOR 唯一性、DeepSeek V4 Flash 的 `max` thinking 校验和未知 `paseo run` 的
    0/1/多匹配恢复；
 5. 两类 reviewer 使用当前 workspace，保持 Paseo parent lineage，只审查当前
-   code contract 的任务自身 diff，且运行前后工作树无 reviewer 造成的改动；
+   code contract 的任务自身 diff（包括 SPEC 范围内、`--exclude-standard` 可见的任务新建
+   untracked 文件），且运行前后工作树无 reviewer 造成的改动；SPEC、候选路径集与固定端点／
+   选项／稳定路径序的 diff 配方在 phase 内冻结，每次派发／返回和 contract 完成前先重枚举
+   当前合格路径集并与冻结集相等，再重算 `candidate_ref`，且所有引用一致；
 6. `cycle=2` 后普通 finding 不能直接触发第三轮 FIX，必须有绑定当轮记录和
    finding ID 的 `scope_audit`；新一轮 finding 不能复用旧校准；
 7. `translation_workflow|infrastructure` 的 initial、re、final 每一阶段都有独立
-   `normal_review` 和 `cross_review`，且任一方在返回前不可见另一方输出；
+   `normal_review` 和 `cross_review`，且任一方在返回前不可见另一方输出；单方重试复用
+   冻结 briefing，只附加基础设施原因，实质改变 briefing 时双方输出都作废；
 8. SENIOR_REVIEWER 首选路由能解析 Claude Opus 并校验 `plan`/`max`；只在明确
    不可用条件下回退到 Codex `gpt-5.6-sol` `auto-review`/`xhigh`，记录 reason，
    不混合两个 provider 的部分输出；
 9. 允许修改既有脏文件时能从起始 patch／副本区分并保全用户原有改动；
-10. 一次 implement dry run、一次 review-only dry run和一次最终独立复审。
+10. 一次 implement dry run、一次 review-only dry run和一次最终独立复审；
+11. 一次实际 diff 才暴露的扫描循环重构能在更广测试前触发短超时探针；挂起／OOM 后不
+    无界重跑，确认候选问题进入 FIX，仍无法归因进入 WAIT_USER，且不引入通用监控平台。
 
 `AGENTS.md` 中的轻量 Paseo 流程可以直接使用；本文仍保持设计草案，直到至少一次真实
 大型任务验证完成。专用 Controller、复杂 schema 或审计基础设施不再是激活条件。
@@ -531,3 +604,4 @@ v2 格式；旧
 | 版本 | 状态 | 内容 |
 | --- | --- | --- |
 | `2.0-draft` | 设计草案 | 面向个人项目的轻量流程；取消重型基础设施，补齐状态闭环、混合审核身份、脏文件基线、角色独占路由、Paseo-managed parent lineage、DeepSeek V4 Flash `max` thinking，以及 SENIOR_REVIEWER 的后续轮次范围校准、高影响流程交叉复审和 Claude Opus → Codex `gpt-5.6-sol` 回退路由。 |
+| `2.1-draft` | 设计草案 | 增加每轮 code review 的最小 `candidate_ref`、冻结 SPEC／候选路径集／固定端点的可复现 diff 配方、每个检查点重枚举路径集、SPEC 范围内非忽略 untracked 文件覆盖、候选改变的双 mode 恢复目标与原 review phase 恢复、冻结 briefing 的交叉审核重试规则，以及仅针对实际扫描／解析循环重构的有界终止探针和挂起诊断；保留当前验证恢复点，并明确不建设常驻监控、进程监督或通用防御平台。 |

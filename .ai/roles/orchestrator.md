@@ -111,7 +111,42 @@ Thinking：首选必须是 `claude` / 已解析 Opus / `plan` / `max`，回退�
 任务自身 diff，确认用户原有内容未被意外覆盖。涉译文时按 `AGENTS.md` 运行规定门禁，
 不以 EXECUTOR 自报结果代替验证。
 
+是否需要终止性探针以实际 diff 为准：若实现重构了可能阻塞测试进程的扫描／解析循环，
+即使 briefing 未预判，也要先取得一条进度不变量说明，并用短超时、有限输入的简单子进程
+探针覆盖受影响分支，再运行更广的进程内测试。ORCHESTRATOR 可以直接运行一次性探针；
+若需要新增持久测试或修复实现，则按现有状态机进入 FIX 交给 EXECUTOR，不为此增加静态
+分析器或新状态。
+
+验证出现挂起、持续增长的输出／RSS 或 OOM 时，先终止并确认启动的子进程已退出，原命令
+不得无界重跑。把 `liveness/resource` 作为观测现象，把原因记为候选、任务基线、环境／
+工具或未确定；这些只需写入验证记录或 `last_error`，不扩展 STATE schema。运行一次短超时
+或有限输入的假设探针，只有仍无法区分且任务基线可低成本重建时，才追加一次同样有界的
+基线对照。确认候选缺陷后进入 FIX；基线也复现时按 AC 决定 known issue 或 WAIT_USER；
+仍无法归因时进入 WAIT_USER，`resume_state` 保留被打断的当前验证状态（`VALIDATE` 或
+`FINAL_VALIDATE`）。内存上限、RSS、退出信号和 OOM 日志只在方便取得时采集，不建设
+常驻监控或进程监督器。
+
 ## 复审与裁决
+
+每个 code review phase 在首次派发前冻结 `SPEC.md`、diff 生成配方、候选路径集和一份不
+覆盖旧候选的有界任务自身 diff；验证结果写入 task 验证产物或 review 记录，必要的
+SPEC／配方／路径集修改视为新候选。路径集只包含 SPEC 允许且相对任务基线实际变更／新建
+的任务内容，排除范围外既有脏文件和 ignored 编排／验证产物。生成配方固定为：
+`LC_ALL=C`，仓库相对路径按字节序排序；tracked 部分的端点固定为任务起始基线内容→当前
+工作树内容，起始 clean 的路径以 HEAD 为基线，SPEC 允许的既有脏路径用保存的
+`BASELINE.patch`／副本重建基线，不能使用裸 index→worktree diff；只对冻结路径集使用
+Git diff 的 `--binary --no-ext-diff --no-renames --unified=3` 选项。任务新建的 untracked
+文件用 `git ls-files --others --exclude-standard` 在同一 SPEC 范围内枚举，再按同一顺序以
+`/dev/null`→仓库相对路径的 no-index diff 追加。文本文件纳入内容，二进制按现有规则由
+主代理直接验证，不得通过 stage 改变 index。同一 phase 的所有检查点复用该配方；每次
+派发、返回和完成前先按冻结的 SPEC 范围、任务基线、`--exclude-standard` 过滤与排序规则
+重新枚举当前实际变更／新建路径集，并与冻结路径集逐字节比较。路径集或配方任一变化即
+重建候选；只有路径集相同才重新生成 diff。`candidate_ref` 定义为
+`SHA256(SPEC.md bytes + NUL + bounded diff bytes)`；没有生产 diff 的 plan-only review 使用
+同一公式并令 diff 为空字节。每个 reviewer 派发前和输出返回后都从当前任务内容重新生成
+当前 diff 并计算引用，记录该 reviewer 实际派发的引用。普通／高级记录中的引用与完成
+contract 前的当前引用必须全部一致；该最小引用只写 review 记录，不进入 STATE，也不构造
+manifest、全工作树 hash 或 hash 链。
 
 - 代码、工具和文档：给 REVIEWER 提供有界 diff、SPEC 和必要上下文；使用显式
   `--mode auto-review --workspace <workspace-id>`，不得使用 `--new-workspace`。运行前后核对
@@ -119,7 +154,9 @@ Thinking：首选必须是 `claude` / 已解析 Opus / `plan` / `max`，回退�
 - `change_class` 为 `translation_workflow` 或 `infrastructure`：在 initial、re 和
   final 的每个 code review phase 再创建 fresh SENIOR_REVIEWER，使用
   `purpose=cross_review`。REVIEWER 和 SENIOR_REVIEWER 接收同一 SPEC／diff，两者
-  返回前不得向任一方提供另一方的 findings。
+  返回前不得向任一方提供另一方的 findings。两份核心 briefing 在首次派发前冻结；一方
+  在另一方返回后因基础设施错误重试时，只能复用原 briefing 并附加重试／只读原因。若
+  候选、范围、AC 或审查标准发生实质变化，现有配对全部作废，双方都用新候选重跑。
 - 普通 finding 在 `cycle >= 2` 时仍要求进入 FIX：先创建 fresh
   SENIOR_REVIEWER，使用 `purpose=scope_audit`，给它 SPEC、设计／AC、当前 diff、
   测试结果和当轮普通 findings。该校准必须绑定当轮 review 记录和 finding
@@ -137,6 +174,13 @@ Thinking：首选必须是 `claude` / 已解析 Opus / `plan` / `max`，回退�
   ADJUDICATE。需要 cross review 时，普通和高级两份输出都返回后 contract
   才算 completed。
 
+候选冻结后到 contract 完成前若当前 `candidate_ref` 改变，不得合并旧输出：reviewer 造成的
+内容写入按基础设施错误处理；用户改动先保留。范围需确认时，implement 任务以
+`resume_state: VALIDATE` 进入 WAIT_USER 并保留被中断的 `review_phase`，`review_only` 以
+`resume_state: REVIEW` 进入 WAIT_USER。确认接受后，implement 丢弃旧输出并在 VALIDATE
+通过后重入对应的 REVIEW／RE_REVIEW／FINAL_REVIEW；`review_only` 在 REVIEW 内丢弃旧
+输出、重新冻结候选并创建 fresh reviewer。
+
 逐条核验 REVIEWER finding：
 
 - `accepted`：证据成立且属于任务范围，交给 EXECUTOR 修复；
@@ -152,8 +196,9 @@ finding 不得仅因为个人项目而驳回；只有缺乏证据、超出设计
 复审记录写入当前 task 的 review 目录，必须标明 `task_id`、`review_contract`、
 `review_phase`、`cycle`、`reviewer_role` 与 `purpose`；普通 contract 到相对路径的映射
 写入 `review_records`，高级复审路径追加到 `senior_review_records`。REVIEWER
-接收当前 contract 相关的 baseline→current 任务 diff。只保存 finding、证据、裁决和结果，
-不要求复制完整 prompt 或构造 lineage manifest。
+接收当前 contract 相关的 baseline→current 任务 diff。每份 code review 记录还保存该
+reviewer 派发时的 `candidate_ref`；需要交叉审核时，两份记录与完成前当前引用必须相同。
+只保存 finding、证据、裁决和结果，不要求复制完整 prompt 或构造 lineage manifest。
 
 ## 修复与完成
 
