@@ -18,7 +18,7 @@ ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER 角色完成。现有 blind
 
 ## Paseo 轻量编排（大型任务）
 
-Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型修改由主代理直接完成。用户明确要求 Paseo 时必须使用；否则 CLI 不可用时可以回退主代理执行并说明。角色 prompt 见 `.ai/roles/`，轻量设计说明见 `docs/paseo-orchestration-v2-contract.md`。
+当前已核验的 Paseo 0.4.0（CLI 或等价注入的 agent-scoped Paseo MCP 操作）用于需要多步实现和独立复审的大型任务；小型修改由主代理直接完成。任务级 `orchestration_transport` 在 STATE 中只允许 `cli|mcp`，两种传输必须保持相同的 lineage、workspace、provider/model/mode/thinking、歧义恢复和 reviewer 只读语义。用户明确要求 Paseo 时必须使用；否则 Paseo 不可用时可以回退主代理执行并说明。角色 prompt 见 `.ai/roles/`，轻量设计说明见 `docs/paseo-orchestration-v2-contract.md`。
 
 ### 最小规则
 
@@ -28,15 +28,31 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 4. 自动修复最多五轮。第二轮后若普通 review finding 仍要求进入下一轮 FIX，必须先由 SENIOR_REVIEWER 审查这些意见是否偏离设计意图或功能边界、过度放大边缘情形或安全限制、对个人项目过重；每个后续轮次都重新校准当轮意见。
 5. Paseo 激活期间所有 agent 委托只使用 EXECUTOR／REVIEWER／SENIOR_REVIEWER，不再调度旧 Skill 的 reviewer、scout 或 plan-reviewer。
 6. 翻译 semantic observation v2 由 ORCHESTRATOR 直接运行现有 blind runner；Paseo REVIEWER／SENIOR_REVIEWER 只审查代码、工具、文档和 legacy v1。`change_class` 为 `translation_workflow` 或 `infrastructure` 时，普通与高级 reviewer 必须从同一 SPEC／diff 独立交叉审核，在两份输出都返回前不得互看结论。两类 reviewer 的核心 briefing 在首次派发前冻结；若一方在另一方返回后重试，只能附加基础设施重试原因，不得按已知 finding 改写范围、候选或验收标准，否则两份输出都作废重跑。该规则审查的是翻译流程／基础设施变更，不取代译文的 blind translation v2 语义审核。
-7. EXECUTOR／REVIEWER／SENIOR_REVIEWER 必须由 Paseo 托管的 ORCHESTRATOR 直接通过 `paseo run` 创建并继承
-   `PASEO_AGENT_ID`；不得用 provider 原生 `spawn_agent` 代替。创建后必须用 `paseo inspect`
-   确认 `ParentAgentId` 等于 ORCHESTRATOR agent ID，否则停止该 agent 并按基础设施错误处理。
+7. EXECUTOR／REVIEWER／SENIOR_REVIEWER 必须由 Paseo 托管的 ORCHESTRATOR 直接创建并继承
+   `PASEO_AGENT_ID`：CLI 用 `paseo run`，MCP 用 agent-scoped 的 `create_agent`，两者都必须携带
+   与任务完全一致的 workspace、task/role label、provider/model/mode/thinking；不得用 provider
+   原生 `spawn_agent` 代替。创建或恢复后必须核验 daemon 报告的实际父级 lineage、workspace、
+   provider、model、mode、thinking（CLI 用 `paseo inspect`，MCP 用 `get_agent_status`；MCP 的
+   lineage 可能以归一化 `ParentAgentId` 或保留 label `paseo.parent-agent-id` 暴露），确认
+   `ParentAgentId` 等于 ORCHESTRATOR agent ID，否则停止该 agent 并按基础设施错误处理；
+   MCP 状态面无法暴露可验证父级 lineage 时，该 child 不满足审核契约，停止并进入 `WAIT_USER`。
 8. EXECUTOR 固定使用 Pi provider 的 `opencode-go/deepseek-v4-flash`，并必须显式传入
-   `--thinking max`，在 STATE 记录 `thinking: "max"`。创建或恢复后必须确认实际 Model
-   为 `opencode-go/deepseek-v4-flash` 且 `Thinking` 为 `max`；不支持或设置失败时
+   `--thinking max`（MCP 路由在 `create_agent` 的 `settings.thinkingOptionId`／
+   `update_agent` 的 `settings.thinkingOptionId` 中显式指定 `thinkingOptionId: "max"`），
+   在 STATE 记录 `thinking: "max"`。创建或恢复后必须确认实际 Provider 为 `pi`、Model 为
+   `opencode-go/deepseek-v4-flash` 且 `Thinking` 为 `max`；不支持或设置失败时
    不得静默降级到 `high`／默认值，应停止并按基础设施错误处理。
+   当前已核验的 Pi provider 没有可选 mode（`paseo provider models --thinking pi` 的 model
+   条目不返回 modes）；EXECUTOR 创建时 CLI 必须省略 `--mode`、MCP 必须省略 `settings.modeId`，
+   该显式缺失就是等价期望状态。创建或恢复后还必须确认 daemon
+   报告的 Mode 为 null／缺失；Pi 意外返回非 null mode 时停止该 agent 并按基础设施
+   错误处理。
+   普通 REVIEWER 固定使用 Codex provider 的 `gpt-5.6-sol`（`--mode auto-review
+   --thinking xhigh`），创建或恢复后必须确认实际 Provider/Model/Mode/Thinking 为
+   `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`；任一不匹配时停止该 agent 并按基础设施
+   错误处理。
 9. SENIOR_REVIEWER 首选 Claude Code 的 Opus 模型（Paseo provider `claude`、
-   `--mode plan --thinking max`）；当前已核验的 Opus ID 为 `claude-opus-5`。任务开始时
+   `--mode plan --thinking high`）；当前已核验的 Opus ID 为 `claude-opus-5`。任务开始时
    从 `paseo provider models --thinking --json claude` 解析当前可选 Opus ID。只在
    Claude provider／Opus 明确不可用或主 agent 在产生有效输出前返回明确的模型
    不可用错误时，才回退到 Codex `gpt-5.6-sol`（`--mode auto-review --thinking xhigh`）。
@@ -55,14 +71,23 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 - `.ai/task/<task_id>/PLAN.md`：大型任务的简短步骤，可在事实变化时直接更新；
 - `.ai/task/<task_id>/BASELINE.patch`／`baseline/`：仅在任务需要修改既有脏文件时保存其起始 patch 或副本；
 - `.ai/task/<task_id>/CODE_DIFF-<phase>-<cycle>-<attempt>.patch`：仅在 code review phase 保存当次有界任务自身 diff，不覆盖旧候选；
-- `.ai/task/<task_id>/STATE.json`：当前状态、轮次、审核阶段与 contract 进度、ORCHESTRATOR／子 agent ID、provider/model、WAIT_USER 恢复点和 review 记录引用；
+- `.ai/task/<task_id>/STATE.json`：当前状态、轮次、审核阶段与 contract 进度、`orchestration_transport`（任务级路由，只允许 `cli|mcp`）、ORCHESTRATOR／子 agent ID、provider/model、WAIT_USER 恢复点和 review 记录引用；
 - `.ai/reviews/<task_id>/review-NN.json`：任务身份、审核阶段、review contract、reviewer role／purpose、`candidate_ref`、结构化 finding 与主代理裁决。
 
-每个新任务使用独立 task ID；旧的 flat `.ai/task/STATE.json`／`.ai/reviews/review-NN.json` 保持原样。STATE 在阶段转换后更新即可；除上述每轮 code review 的最小 `candidate_ref` 外，不要求逐动作审计链、全工作树内容 hash、WAL 或不可变 artifact。进入 WAIT_USER 时记录原因和 `resume_state`。基础设施错误可重试一次；若 `paseo run` 是否成功不明确，先按 task/role label 查询现有 agent，不能唯一确认时再询问用户，不得盲目创建第二个写入 agent。
+每个新任务使用独立 task ID；旧的 flat `.ai/task/STATE.json`／`.ai/reviews/review-NN.json` 保持原样。STATE 在阶段转换后更新即可；除上述每轮 code review 的最小 `candidate_ref` 外，不要求逐动作审计链、全工作树内容 hash、WAL 或不可变 artifact。进入 WAIT_USER 时记录原因和 `resume_state`。基础设施错误可重试一次；若 `paseo run`／MCP `create_agent` 是否成功不明确，先按 task/role
+label 查询现有 agent：CLI 用 `paseo ls --label`（服务端 label 过滤）；MCP 用 `list_agents`
+限定任务 workspace／cwd（`includeArchived=false`、`sinceHours` 覆盖任务开始时刻），在宿主侧
+按 `labels.task_id`／`labels.role` 精确过滤；`list_agents` 结果按 `limit` 截断，截断或
+不完整的列表不得当作零匹配。精确过滤后：无匹配允许重试一次，唯一匹配且身份正确则复用，
+多个匹配或歧义匹配进入 `WAIT_USER`；不能唯一确认时不得盲目创建第二个写入 agent。
+恢复唯一匹配的普通 REVIEWER 时，发送下一条任务前必须确认实际
+Provider/Model/Mode/Thinking 为 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`，
+任一不匹配时停止该 agent 并按基础设施错误处理。
 
 任务前脏文件默认不交给 EXECUTOR；确需修改时，SPEC 必须逐文件允许，并先保存可恢复的起始 patch 或副本。每轮验证用该基线生成任务自身的 baseline→current diff，确认用户原有内容未被意外覆盖，并把该 diff 交给相应 reviewer。`review_only` 的 DONE 只要求全部审核已完成、findings 已裁决且无 deferred；`implement` 的 DONE 还要求没有未解决 accepted finding，并通过最终验收。
 
-REVIEWER 使用 Codex `--mode auto-review --workspace <workspace-id>`。SENIOR_REVIEWER 的
+REVIEWER 固定使用 Codex `gpt-5.6-sol`（`--mode auto-review --thinking xhigh
+--workspace <workspace-id>`）。SENIOR_REVIEWER 的
 首选 Claude agent 使用 `--mode plan --workspace <workspace-id>`，回退 Codex agent 使用
 `--mode auto-review --workspace <workspace-id>`。两类角色都只接收有界 diff／上下文。Claude
 `plan` 是只读模式；Codex `auto-review` 实际为 `workspace-write`，因此回退路径还要依靠

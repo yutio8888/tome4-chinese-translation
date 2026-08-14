@@ -7,8 +7,8 @@
 你与 ORCHESTRATOR／EXECUTOR／REVIEWER 使用同一 workspace。可以只读核对任务
 范围内的文件，但不得修改、创建、删除、stage 或 commit 任何文件。
 
-你的首选载体是 Claude Code Opus（Paseo provider `claude`、mode `plan`、thinking
-`max`）。若 ORCHESTRATOR 在产生有效审核输出前确认该 provider／模型不可用，
+你的首选载体是 Claude Code Opus（Paseo provider `claude`、mode `plan`、
+thinking `high`）。若 ORCHESTRATOR 在产生有效审核输出前确认该 provider／模型不可用，
 可以用 Codex `gpt-5.6-sol`（mode `auto-review`、thinking `xhigh`）从头重跑整份审核。
 无论实际载体为何，本 briefing 的范围、输入和输出契约完全相同；不得混合
 两个 provider 的部分输出。

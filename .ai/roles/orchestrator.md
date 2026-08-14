@@ -32,13 +32,16 @@ SENIOR_REVIEWER。
 4. 用 `paseo provider ls` 与 `paseo provider models --thinking <provider>` 确认实际
    provider/model/thinking。EXECUTOR 固定选择 Pi model `opencode-go/deepseek-v4-flash`，
    该 model 必须包含 `max`；若不可用则停止，不得静默降级
-   到 `high` 或默认值。SENIOR_REVIEWER 先检查 provider `claude` 并从其当前可选
+   到 `high` 或默认值。Pi 没有可选 mode，EXECUTOR 创建时不传 mode。SENIOR_REVIEWER 先检查 provider `claude` 并从其当前可选
    model 中解析 Opus（当前 ID `claude-opus-5`）；只在明确不可用时选择
    Codex `gpt-5.6-sol` 回退。
 5. 确认当前进程存在非空 `PASEO_AGENT_ID`。它是本任务的 ORCHESTRATOR agent ID；若缺失，
    不得创建 EXECUTOR／REVIEWER／SENIOR_REVIEWER，应报告当前主代理不是
    Paseo 托管 parent。
-6. 在当前 task 目录写 `SPEC.md`、简短的 `PLAN.md` 和最小 `STATE.json`：
+6. 在当前 task 目录写 `SPEC.md`、简短的 `PLAN.md` 和最小 `STATE.json`。任务开始时选定
+   `orchestration_transport`（只允许 `cli|mcp`，任务级路由，任务内不切换）并写入 STATE；
+   CLI 与 MCP 必须保持相同的 lineage、workspace、provider/model/mode/thinking、label 恢复、
+   reviewer 只读与候选一致性语义：
 
 ```json
 {
@@ -55,11 +58,12 @@ SENIOR_REVIEWER。
   "max_cycles": 5,
   "workspace_id": "...",
   "orchestrator_agent_id": "...",
+  "orchestration_transport": "cli",
   "baseline": {"patch": null, "copies_dir": null},
-  "executor": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", "thinking": "max", "agent_id": null},
-  "reviewer": {"provider": "codex", "model": "...", "agent_id": null},
+  "executor": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", "mode": null, "thinking": "max", "agent_id": null},
+  "reviewer": {"provider": "codex", "model": "gpt-5.6-sol", "mode": "auto-review", "thinking": "xhigh", "agent_id": null},
   "senior_reviewer": {
-    "primary": {"provider": "claude", "model_family": "opus", "resolved_model": "claude-opus-5", "mode": "plan", "thinking": "max"},
+    "primary": {"provider": "claude", "model_family": "opus", "resolved_model": "claude-opus-5", "mode": "plan", "thinking": "high"},
     "fallback": {"provider": "codex", "model": "gpt-5.6-sol", "mode": "auto-review", "thinking": "xhigh"},
     "selected": "primary",
     "fallback_reason": null,
@@ -78,9 +82,11 @@ SENIOR_REVIEWER。
 STATE 在阶段变化、每个 review contract 完成、agent ID 变化或出现错误时更新即可；
 `orchestrator_agent_id` 在任务内不得改变。不维护逐动作 history、hash 链或不可变 artifact。
 
-所有 EXECUTOR／REVIEWER／SENIOR_REVIEWER 都必须从当前 ORCHESTRATOR 进程直接调用
-`paseo run` 创建，使 CLI
-继承 `PASEO_AGENT_ID` 并由 daemon 建立父子 lineage。不得使用 provider 原生
+所有 EXECUTOR／REVIEWER／SENIOR_REVIEWER 都必须由当前 ORCHESTRATOR 进程直接创建：
+CLI 调用 `paseo run`，MCP 调用 agent-scoped 的 `create_agent`（字段与 CLI 参数逐项对应：
+`workspaceId`、`labels`（task_id/role）、`provider` 为 provider/model 对、
+`settings.modeId`／`settings.thinkingOptionId`；字段明细见契约文档示例），使 daemon 以
+ORCHESTRATOR 为 parent 建立父子 lineage。不得使用 provider 原生
 `spawn_agent` 创建这三个角色，也不得在正常创建路径中手写
 `paseo.parent-agent-id`。
 
@@ -95,17 +101,26 @@ paseo run --background --provider pi --model opencode-go/deepseek-v4-flash --thi
   --json <rendered-prompt>
 ```
 
-取得精确 agent ID 后立即运行 `paseo inspect --json <agent-id>`。所有 child 的
-`paseo.parent-agent-id`／`ParentAgentId` 必须等于 STATE 的 `orchestrator_agent_id`，
+取得精确 agent ID 后立即核验 daemon 报告的实际状态（CLI 用 `paseo inspect --json <agent-id>`，
+MCP 用 `get_agent_status`）。所有 child 的父级 lineage（`paseo.parent-agent-id`／归一化
+`ParentAgentId`，MCP 下两者都可能出现）必须等于 STATE 的 `orchestrator_agent_id`，
 EXECUTOR／REVIEWER／SENIOR_REVIEWER 的 workspace 必须等于 STATE 的
-`workspace_id`；EXECUTOR 的 Model 必须等于 `opencode-go/deepseek-v4-flash`，
-`Thinking` 还必须等于 `max`。任一项不匹配时立即停止该 agent，记录
-基础设施错误且不得继续使用。
+`workspace_id`；EXECUTOR 的 Provider 必须为 `pi`、Model 必须等于 `opencode-go/deepseek-v4-flash`，
+`Thinking` 还必须等于 `max`。当前已核验的 Pi provider 没有可选 mode；EXECUTOR
+创建时 CLI 必须省略 `--mode`、MCP 必须省略 `settings.modeId`，核验时 Mode
+（`currentModeId`／`runtimeInfo.modeId`）必须为 null／缺失，Pi 意外返回非 null mode
+时按基础设施错误处理。任一项不匹配时立即停止该 agent，记录
+基础设施错误且不得继续使用。MCP 状态面无法暴露可验证的父级 lineage 时，该 child
+不能承担审核契约：停止该 agent，任务进入 `WAIT_USER` 或 `STOP`。
 
 SENIOR_REVIEWER 还必须按 STATE 的 `selected` 校验 Provider、Model、Mode 和
-Thinking：首选必须是 `claude` / 已解析 Opus / `plan` / `max`，回退必须是
+Thinking：首选必须是 `claude` / 已解析 Opus / `plan` / `high`，回退必须是
 `codex` / `gpt-5.6-sol` / `auto-review` / `xhigh`。任一实际值不匹配时停止该 agent，
 不得把其输出记为高级复审。
+
+普通 REVIEWER 也必须按 STATE 校验 Provider/Model/Mode/Thinking：必须是
+`codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`。任一实际值不匹配时停止该 agent，
+不得把其输出记为普通复审。
 
 同一 workspace 只运行一个 EXECUTOR。完成后由 ORCHESTRATOR 检查实际 diff、越权文件和
 相关测试；若任务修改了既有脏文件，用保存的起始 patch／副本生成 baseline→current 的
@@ -150,7 +165,8 @@ contract 前的当前引用必须全部一致；该最小引用只写 review 记
 manifest、全工作树 hash 或 hash 链。
 
 - 代码、工具和文档：给 REVIEWER 提供有界 diff、SPEC 和必要上下文；使用显式
-  `--mode auto-review --workspace <workspace-id>`，不得使用 `--new-workspace`。运行前后核对
+  `--provider codex --model gpt-5.6-sol --mode auto-review --thinking xhigh
+  --workspace <workspace-id>`，不得使用 `--new-workspace`。运行前后核对
   工作树，REVIEWER 若产生任何文件改动则停止并记录基础设施错误。
 - `change_class` 为 `translation_workflow` 或 `infrastructure`：在 initial、re 和
   final 的每个 code review phase 再创建 fresh SENIOR_REVIEWER，使用
@@ -164,7 +180,7 @@ manifest、全工作树 hash 或 hash 链。
   ID，且每个后续 FIX 轮次都重新执行。由客观验证失败直接触发的 FIX 不需要
   scope audit。
 - SENIOR_REVIEWER 首选创建命令使用 `--provider claude`、
-  `--model <resolved-opus-id> --mode plan --thinking max`。仅在后文“模型回退”条件成立时，
+  `--model <resolved-opus-id> --mode plan --thinking high`。仅在后文“模型回退”条件成立时，
   重新创建完整审核为
   `--provider codex --model gpt-5.6-sol --mode auto-review --thinking xhigh`。
 - translation v2：由 ORCHESTRATOR 直接使用现有 blind v2 runner，不启用旧 Skill，也不交给 Paseo REVIEWER 或 SENIOR_REVIEWER。
@@ -243,13 +259,23 @@ findings，恢复后先进入 `SENIOR_REVIEW`，不得直接继续 FIX。已完�
 - `selected` 是 task 级路由。一旦改为 `fallback`，后续高级复审继续使用 Codex，
   不在任务中途自动切回 Opus。
 
-普通查询或传输错误可以重试一次。若 `paseo run` 返回结果不明确，先用 task/role label
-查询并 inspect 已有 agent；无法唯一确认时询问用户，不要再创建第二个写入 agent。
+普通查询或传输错误可以重试一次。若 `paseo run`／MCP `create_agent` 返回结果不明确，先用
+task/role label 查询并核验已有 agent：CLI 用 `paseo ls --label`（服务端 label 过滤）；MCP 用
+`list_agents` 限定任务 workspace／cwd（`includeArchived=false`、`sinceHours` 覆盖任务开始时刻），
+在宿主侧按 `labels.task_id`／`labels.role` 精确过滤；`list_agents` 结果按 `limit` 截断，
+截断或不完整的列表不得当作零匹配。精确过滤后：无匹配允许重试一次，唯一匹配且身份正确则
+复用，多个匹配或歧义匹配进入 `WAIT_USER`；无法唯一确认时询问用户，不要再创建第二个写入 agent。
 
-恢复已有 EXECUTOR 时，发送下一条任务前先检查 Model 和 `Thinking`。Model 不是
-`opencode-go/deepseek-v4-flash` 时停止并记录基础设施错误；若 `Thinking` 不是 `max`，运行
-`paseo agent update <agent-id> --thinking max` 并重新 inspect。更新或复验失败时停止，
+恢复已有 EXECUTOR 时，发送下一条任务前先检查 Provider、Model 和 `Thinking`。Provider 不是 `pi` 或
+Model 不是 `opencode-go/deepseek-v4-flash` 时停止并记录基础设施错误；若 `Thinking` 不是 `max`，运行
+`paseo agent update <agent-id> --thinking max`（MCP 用 `update_agent`）并重新核验
+（CLI `paseo inspect`，MCP `get_agent_status`）。恢复时同时确认 Mode 为 null／缺失
+（Pi 无可选 mode）；出现非 null mode 时停止并记录基础设施错误。更新或复验失败时停止，
 不得使用其他 model 或带着较低 thinking 继续。
+
+恢复唯一匹配的普通 REVIEWER 时，发送下一条任务前检查 Provider/Model/Mode/Thinking：
+必须是 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`；任一不匹配时
+停止并记录基础设施错误，不发送新的任务消息。
 
 Paseo 不可用且用户未强制要求时，可以退出编排并由主代理继续；若用户明确要求 Paseo，
 则报告阻塞。回退时先在 STATE 记录原因并停止仍在运行的 Paseo agent，之后才可恢复非

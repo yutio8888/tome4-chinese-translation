@@ -19329,6 +19329,212 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertIn("orchestrator_agent_id", contract)
         self.assertIn("paseo.parent-agent-id", contract)
 
+    def test_paseo_transport_record_and_mcp_route_are_documented(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        # 三份规范文档都必须给出任务级传输记录与 CLI/MCP 等价路由。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("orchestration_transport", text)
+            self.assertIn("cli|mcp", text)
+            self.assertIn("create_agent", text)
+        # STATE 示例必须记录传输值，且只允许 cli|mcp。
+        self.assertIn('"orchestration_transport": "cli"', orchestrator)
+        self.assertIn('"orchestration_transport": "cli"', contract)
+        # 显式 CLI→MCP 映射必须列出可调用操作名。
+        for operation in (
+            "list_providers",
+            "list_models",
+            "inspect_provider",
+            "create_workspace",
+            "list_workspaces",
+            "get_agent_status",
+            "list_agents",
+            "get_agent_activity",
+            "send_agent_prompt",
+            "update_agent",
+            "cancel_agent",
+            "archive_agent",
+        ):
+            self.assertIn(operation, contract)
+        # 当前已核验运行时说明为 0.4.0，不再声称 0.3.1。
+        self.assertIn("0.4.0", agents)
+        self.assertIn("0.4.0", contract)
+        self.assertNotIn("0.3.1", agents)
+        self.assertNotIn("0.3.1", contract)
+
+    def test_paseo_mcp_creation_is_agent_scoped_with_lineage_guard(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        # 三份文档都必须保留 provider 原生 spawn_agent 禁令、父级 lineage 核验，
+        # 并把 MCP 创建绑定到 ORCHESTRATOR agent-scoped 的 create_agent。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("spawn_agent", text)
+            self.assertIn("ParentAgentId", text)
+            self.assertIn("原生", text)
+            self.assertIn("create_agent", text)
+            self.assertIn("get_agent_status", text)
+            # lineage 可能以归一化 ParentAgentId 或保留 label paseo.parent-agent-id 暴露。
+            self.assertIn("归一化", text)
+            self.assertIn("paseo.parent-agent-id", text)
+            # 无歧义的 agent-scoped 创建短语。
+            self.assertIn("agent-scoped 的 `create_agent`", text)
+        # 直接由 ORCHESTRATOR 创建／调用的明确短语。
+        self.assertIn("ORCHESTRATOR 直接创建", agents)
+        self.assertIn("ORCHESTRATOR 进程直接创建", orchestrator)
+        self.assertIn("由该 ORCHESTRATOR 直接调用", contract)
+        # 契约必须明确禁止 top-level placement。
+        self.assertIn("不得使用 top-level placement", contract)
+        self.assertIn("top-level placement", contract)
+        # MCP 状态面无法暴露可验证父级 lineage 时必须停止或进入 WAIT_USER：
+        # 在精确标记所在的上下文内断言，而不是全文任意位置。
+        for text in (agents, orchestrator, contract):
+            marker = "无法暴露可验证"
+            self.assertIn(marker, text)
+            tail = text[text.index(marker) : text.index(marker) + 200]
+            self.assertIn("WAIT_USER", tail)
+
+    def test_paseo_mcp_unknown_create_uses_host_side_label_recovery(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        # list_agents 没有 label 参数：限定 workspace/cwd 后由宿主侧按
+        # labels.task_id/labels.role 精确过滤；CLI 服务端 label 过滤保持不变。
+        for text in (contract, orchestrator, agents):
+            self.assertIn("list_agents", text)
+            self.assertIn("宿主侧", text)
+            self.assertIn("labels.task_id", text)
+            self.assertIn("labels.role", text)
+            self.assertIn("includeArchived=false", text)
+            self.assertIn("服务端", text)
+        self.assertIn(
+            "`cwd`、`includeArchived`、`limit`、`sinceHours`、`statuses`", contract
+        )
+        # 截断或不完整的列表不得当作零匹配；无法确认完整时进入 WAIT_USER。
+        for text in (contract, orchestrator, agents):
+            self.assertIn("截断", text)
+        # 精确过滤后：零匹配重试一次、唯一匹配复用、多个或歧义进入 WAIT_USER。
+        for text in (contract, orchestrator, agents):
+            self.assertIn("唯一匹配", text)
+            self.assertIn("重试一次", text)
+            self.assertIn("无匹配", text)
+            self.assertIn("多个匹配", text)
+            self.assertIn("WAIT_USER", text)
+
+    def test_paseo_mcp_create_agent_uses_real_payload_fields(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        # create_agent 的真实字段：provider 为 provider/model 对、workspaceId、
+        # labels、settings.modeId/settings.thinkingOptionId。
+        for text in (contract, orchestrator):
+            self.assertIn("settings.modeId", text)
+            self.assertIn("settings.thinkingOptionId", text)
+            self.assertIn("workspaceId", text)
+            self.assertIn("labels", text)
+        self.assertIn("provider/model 对", contract)
+        self.assertIn("settings.model", contract)
+        # update_agent 使用 settings.model/settings.modeId/settings.thinkingOptionId。
+        self.assertIn(
+            "`settings.model`／`settings.modeId`／`settings.thinkingOptionId`", contract
+        )
+        # EXECUTOR 的 MCP 载荷保持 thinkingOptionId: "max"；首选 Opus 示例为 high。
+        self.assertIn('thinkingOptionId: "max"', agents)
+        self.assertIn('settings.thinkingOptionId: "max"', contract)
+        self.assertIn('"thinkingOptionId": "high"', contract)
+        # 紧凑示例必须给出 agent-scoped 的精确字段组合。
+        self.assertIn('"modeId": "plan"', contract)
+        self.assertIn('"provider": "claude/<resolved-opus-id>"', contract)
+        self.assertIn(
+            '"labels": {"task_id": "<task-id>", "role": "senior-reviewer"}',
+            contract,
+        )
+        self.assertIn("initialPrompt", contract)
+
+    def test_paseo_pre_22_active_tasks_gain_transport_on_next_transition(self) -> None:
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+        # 2.2 之前的活动任务：下次状态转移时按实际创建／控制通道推断传输并写入 STATE；
+        # 无法确定时进入 WAIT_USER，不得默认取值；已完成的历史任务不改写。
+        self.assertIn("下次状态转移时补齐 `orchestration_transport`", contract)
+        self.assertIn("推断为", contract)
+        self.assertIn("不得默认取值", contract)
+        self.assertIn("已完成的历史任务不改写其记录", contract)
+        self.assertIn("WAIT_USER", contract)
+
+    def test_paseo_pre22_migration_backfills_tuples_and_reinspects(self) -> None:
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        # 1) 迁移补齐 2.2 固定元组字段：executor.mode=null、REVIEWER 元组、
+        #    Opus primary plan/high。
+        self.assertIn("`executor.mode` 规范为 null", contract)
+        self.assertIn(
+            "普通 REVIEWER 规范为 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`",
+            contract,
+        )
+        self.assertIn("primary 规范为 `claude`/已解析 Opus/`plan`/`high`", contract)
+        # 2) 保留已选 fallback 与 fallback_reason，不切换路由。
+        self.assertIn("保留 `selected` 与 `fallback_reason`", contract)
+        self.assertIn("不切换路由", contract)
+        # 3) 选择性重新核验：只对运行中／有待验收输出／准备复用的 child。
+        self.assertIn("只对正在", contract)
+        self.assertIn("待验收输出", contract)
+        self.assertIn("准备复用的 child", contract)
+        # 4) 不匹配处理：停止、丢弃未验收输出、下次创建符合元组的新 agent、
+        #    EXECUTOR 走既有基础设施错误语义。
+        self.assertIn("停止不匹配的 child", contract)
+        self.assertIn(
+            "丢弃 REVIEWER／SENIOR_REVIEWER 未完成或未验收的不匹配输出", contract
+        )
+        self.assertIn("创建符合 2.2 元组的新 agent", contract)
+        self.assertIn("不得静默继续", contract)
+        # 5) 不重写已完成历史。
+        self.assertIn(
+            "不重写已完成任务、已完成的历史 review 记录／阶段或已验收的完成输出",
+            contract,
+        )
+
+    def test_paseo_mcp_transport_keeps_review_guards(self) -> None:
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+        # mcp 路由必须保留 reviewer 只读检测、冻结 briefing、candidate-ref 检查点、
+        # 交叉审核独立、EXECUTOR 唯一性与模型回退规则。
+        self.assertIn("`mcp` 路由保留全部既有审核约束", contract)
+        for marker in (
+            "candidate_ref",
+            "cross_review",
+            "scope_audit",
+            "fallback_reason",
+            "claude-opus-5",
+            "gpt-5.6-sol",
+        ):
+            self.assertIn(marker, contract)
+
     def test_paseo_deepseek_executor_requires_max_thinking(self) -> None:
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
         orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
@@ -19342,9 +19548,161 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
             self.assertIn("--thinking max", text)
             self.assertIn("Thinking", text)
             self.assertIn("不得静默降级", text)
+        # EXECUTOR 的 STATE 记录与创建命令保持 max，精确到具体行；
+        # Pi 无可选 mode，STATE 记录 mode 为 null。
+        executor_state = (
+            '"executor": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", '
+            '"mode": null, "thinking": "max"'
+        )
+        executor_run = (
+            "paseo run --background --provider pi --model "
+            "opencode-go/deepseek-v4-flash --thinking max"
+        )
         for text in (orchestrator, contract):
-            self.assertIn('"thinking": "max"', text)
+            self.assertIn(executor_state, text)
+            self.assertIn(executor_run, text)
             self.assertIn("paseo agent update <agent-id> --thinking max", text)
+
+    def test_paseo_opus_primary_thinking_is_high_not_max(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        senior = (ROOT / ".ai" / "roles" / "senior-reviewer.md").read_text(
+            encoding="utf-8"
+        )
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        # 首选 Claude Opus 路由统一为 plan/high。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("--mode plan --thinking high", text)
+        self.assertIn("thinking `high`", senior)
+        primary_state = (
+            '"primary": {"provider": "claude", "model_family": "opus", '
+            '"resolved_model": "claude-opus-5", "mode": "plan", "thinking": "high"'
+        )
+        for text in (orchestrator, contract):
+            self.assertIn(primary_state, text)
+            # 首选 STATE 块不得仍是 max。
+            self.assertNotIn(
+                '"resolved_model": "claude-opus-5", "mode": "plan", "thinking": "max"',
+                text,
+            )
+        # 不变量与验收：primary 校验 plan/high。
+        self.assertIn("`claude`/已解析 Opus/`plan`/`high`", contract)
+        self.assertIn("校验 `plan`/`high`", contract)
+        # 没有任何规范指令仍要求 Opus --mode plan --thinking max。
+        for text in (agents, orchestrator, contract):
+            self.assertNotIn("--mode plan --thinking max", text)
+        # 区分三个 thinking 等级：EXECUTOR max、Opus high、fallback xhigh。
+        self.assertIn("--mode auto-review --thinking xhigh", contract)
+        self.assertIn('"thinking": "xhigh"', orchestrator)
+        self.assertIn('"thinking": "xhigh"', contract)
+        self.assertIn('thinking: "max"', agents)
+
+    def test_paseo_pi_executor_mode_is_null_and_omitted(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        # 1) STATE 示例记录 EXECUTOR 完整元组且 mode 为 null。
+        executor_state = (
+            '"executor": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", '
+            '"mode": null, "thinking": "max"'
+        )
+        self.assertIn(executor_state, orchestrator)
+        self.assertIn(executor_state, contract)
+        # 2) 当前已核验 Pi 无可选 mode：CLI 省略 --mode、MCP 省略 settings.modeId
+        #    是显式语义，三份规范文档都必须声明。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("没有可选 mode", text)
+            self.assertIn("省略 `--mode`", text)
+            self.assertIn("省略 `settings.modeId`", text)
+        # EXECUTOR 创建命令本身不得携带 --mode。
+        executor_run = (
+            "paseo run --background --provider pi --model "
+            "opencode-go/deepseek-v4-flash --thinking max"
+        )
+        self.assertIn(executor_run, orchestrator)
+        self.assertIn(executor_run, contract)
+        # 3) 创建或恢复后核验 daemon 报告的 Mode 为 null／缺失；
+        #    Pi 意外返回非 null mode 时停止。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("null／缺失", text)
+            self.assertIn("非 null mode", text)
+        self.assertIn("`currentModeId`", orchestrator)
+        self.assertIn("`currentModeId`", contract)
+        # 4) STATE 不变量覆盖 mode null。
+        self.assertIn("STATE 的 `mode` 为 null", contract)
+
+    def test_paseo_executor_provider_pi_is_verified(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        # 1) STATE 不变量要求 STATE provider=pi 且实际 Provider=pi。
+        self.assertIn("STATE provider 与实际 Provider 都必须为 `pi`", contract)
+        # 2) 创建后核验包含 Provider=pi（三份规范文档）。
+        self.assertIn("实际 Provider 为 `pi`", agents)
+        self.assertIn("Provider 必须为 `pi`", orchestrator)
+        self.assertIn("Provider 为 `pi`", contract)
+        # 3) 恢复核验包含 Provider=pi。
+        self.assertIn("Provider 不是 `pi`", orchestrator)
+        self.assertIn("Provider 不是 `pi`", contract)
+        # 4) 既有精确元组（provider/model/mode/thinking）不受影响。
+        executor_state = (
+            '"executor": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", '
+            '"mode": null, "thinking": "max"'
+        )
+        self.assertIn(executor_state, orchestrator)
+        self.assertIn(executor_state, contract)
+
+    def test_paseo_normal_reviewer_tuple_is_locked(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        # 1) STATE 示例记录普通 REVIEWER 的完整元组。
+        reviewer_state = (
+            '"reviewer": {"provider": "codex", "model": "gpt-5.6-sol", '
+            '"mode": "auto-review", "thinking": "xhigh"'
+        )
+        self.assertIn(reviewer_state, orchestrator)
+        self.assertIn(reviewer_state, contract)
+        # 2) 创建命令显式传完整元组（CLI 与 MCP 载荷）。
+        self.assertIn(
+            "paseo run --provider codex --model gpt-5.6-sol "
+            "--mode auto-review --thinking xhigh",
+            contract,
+        )
+        self.assertIn('provider: "codex/gpt-5.6-sol"', contract)
+        self.assertIn('settings.modeId: "auto-review"', contract)
+        self.assertIn('settings.thinkingOptionId: "xhigh"', contract)
+        # 3) 创建后核验完整元组（三份规范文档）。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("普通 REVIEWER", text)
+            self.assertIn("Provider/Model/Mode/Thinking", text)
+            self.assertIn("`codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`", text)
+        # 4) 恢复后核验完整元组。
+        self.assertIn("恢复唯一匹配的普通 REVIEWER 时", agents)
+        self.assertIn("恢复唯一匹配的普通 REVIEWER 时", orchestrator)
+        self.assertIn("恢复到唯一匹配的普通 REVIEWER 时", contract)
+        # 5) STATE 不变量覆盖普通 REVIEWER 元组。
+        self.assertIn("普通 REVIEWER 的 STATE model 与实际", contract)
 
     def test_paseo_senior_reviewer_triggers_are_documented(self) -> None:
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
@@ -19372,7 +19730,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
             self.assertIn("fallback_reason", text)
         self.assertIn("role=senior-reviewer", contract)
         self.assertIn("--provider claude", contract)
-        self.assertIn("--mode plan --thinking max", contract)
+        self.assertIn("--mode plan --thinking high", contract)
         self.assertIn("--provider codex --model gpt-5.6-sol", contract)
         self.assertIn("--mode auto-review --thinking xhigh", contract)
         self.assertIn("不得修改、创建、删除", senior)
