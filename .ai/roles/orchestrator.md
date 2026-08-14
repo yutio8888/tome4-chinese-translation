@@ -30,7 +30,8 @@ SENIOR_REVIEWER。
 3. 明确模式、允许修改文件、禁止扩展项和可验证验收标准；将任务分类为
    `standard`、`translation_workflow` 或 `infrastructure`，后两类自初审起必须交叉复审。
 4. 用 `paseo provider ls` 与 `paseo provider models --thinking <provider>` 确认实际
-   provider/model/thinking。DeepSeek V4 Flash 必须包含 `max`；若不可用则停止，不得静默降级
+   provider/model/thinking。EXECUTOR 固定选择 Pi model `opencode-go/deepseek-v4-flash`，
+   该 model 必须包含 `max`；若不可用则停止，不得静默降级
    到 `high` 或默认值。SENIOR_REVIEWER 先检查 provider `claude` 并从其当前可选
    model 中解析 Opus（当前 ID `claude-opus-5`）；只在明确不可用时选择
    Codex `gpt-5.6-sol` 回退。
@@ -55,7 +56,7 @@ SENIOR_REVIEWER。
   "workspace_id": "...",
   "orchestrator_agent_id": "...",
   "baseline": {"patch": null, "copies_dir": null},
-  "executor": {"provider": "pi", "model": "deepseek/deepseek-v4-flash", "thinking": "max", "agent_id": null},
+  "executor": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", "thinking": "max", "agent_id": null},
   "reviewer": {"provider": "codex", "model": "...", "agent_id": null},
   "senior_reviewer": {
     "primary": {"provider": "claude", "model_family": "opus", "resolved_model": "claude-opus-5", "mode": "plan", "thinking": "max"},
@@ -89,7 +90,7 @@ STATE 在阶段变化、每个 review contract 完成、agent ID 变化或出现
 命令。使用完整 task/role label 创建 agent，例如：
 
 ```text
-paseo run --background --provider pi --model deepseek/deepseek-v4-flash --thinking max
+paseo run --background --provider pi --model opencode-go/deepseek-v4-flash --thinking max
   --workspace <workspace-id> --label task_id=<task-id> --label role=executor
   --json <rendered-prompt>
 ```
@@ -97,8 +98,8 @@ paseo run --background --provider pi --model deepseek/deepseek-v4-flash --thinki
 取得精确 agent ID 后立即运行 `paseo inspect --json <agent-id>`。所有 child 的
 `paseo.parent-agent-id`／`ParentAgentId` 必须等于 STATE 的 `orchestrator_agent_id`，
 EXECUTOR／REVIEWER／SENIOR_REVIEWER 的 workspace 必须等于 STATE 的
-`workspace_id`；DeepSeek V4 Flash
-EXECUTOR 的 `Thinking` 还必须等于 `max`。任一项不匹配时立即停止该 agent，记录
+`workspace_id`；EXECUTOR 的 Model 必须等于 `opencode-go/deepseek-v4-flash`，
+`Thinking` 还必须等于 `max`。任一项不匹配时立即停止该 agent，记录
 基础设施错误且不得继续使用。
 
 SENIOR_REVIEWER 还必须按 STATE 的 `selected` 校验 Provider、Model、Mode 和
@@ -245,9 +246,10 @@ findings，恢复后先进入 `SENIOR_REVIEW`，不得直接继续 FIX。已完�
 普通查询或传输错误可以重试一次。若 `paseo run` 返回结果不明确，先用 task/role label
 查询并 inspect 已有 agent；无法唯一确认时询问用户，不要再创建第二个写入 agent。
 
-恢复已有 DeepSeek V4 Flash EXECUTOR 时，发送下一条任务前先检查 `Thinking`。若不是
-`max`，运行 `paseo agent update <agent-id> --thinking max` 并重新 inspect；更新或复验失败
-时停止并记录基础设施错误，不得带着较低 thinking 继续。
+恢复已有 EXECUTOR 时，发送下一条任务前先检查 Model 和 `Thinking`。Model 不是
+`opencode-go/deepseek-v4-flash` 时停止并记录基础设施错误；若 `Thinking` 不是 `max`，运行
+`paseo agent update <agent-id> --thinking max` 并重新 inspect。更新或复验失败时停止，
+不得使用其他 model 或带着较低 thinking 继续。
 
 Paseo 不可用且用户未强制要求时，可以退出编排并由主代理继续；若用户明确要求 Paseo，
 则报告阻塞。回退时先在 STATE 记录原因并停止仍在运行的 Paseo agent，之后才可恢复非

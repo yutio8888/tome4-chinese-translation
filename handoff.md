@@ -90,7 +90,7 @@
 ## 六、关键协议/工作流要点（供后续会话）
 
 - **多代理编排协议**：大型任务用 Paseo 三角色（ORCHESTRATOR=本会话主代理、
-  EXECUTOR=`paseo run --provider pi/deepseek/deepseek-v4-flash`、
+  EXECUTOR=`paseo run --provider pi --model opencode-go/deepseek-v4-flash --thinking max`、
   REVIEWER=`paseo run --provider codex/gpt-5.6-sol` auto-review 只读）。
   - 状态机事实源：`.ai/task/STATE.json`（用 `python3 -B tools/ai_state_check.py .ai/task/STATE.json` 校验转移合法性）。
   - **commit 是 ORCHESTRATOR 宿主检查点**（EXECUTOR 不 commit/stage）；大型任务用「两阶段提交」（实现提交 → 基线重冻 → 交付提交），复审收敛后 commit、避免先 commit 再改。

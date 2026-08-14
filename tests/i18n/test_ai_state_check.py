@@ -31,7 +31,7 @@ VALID = {
     "plan_rev": 0,
     "executor": {
         "provider": "pi",
-        "model_id": "deepseek/deepseek-v4-flash",
+        "model_id": "opencode-go/deepseek-v4-flash",
         "agent_id": None,
     },
     "reviewer": {

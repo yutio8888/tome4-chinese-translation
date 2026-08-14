@@ -31,8 +31,9 @@ Paseo CLI v0.3.1 用于需要多步实现和独立复审的大型任务；小型
 7. EXECUTOR／REVIEWER／SENIOR_REVIEWER 必须由 Paseo 托管的 ORCHESTRATOR 直接通过 `paseo run` 创建并继承
    `PASEO_AGENT_ID`；不得用 provider 原生 `spawn_agent` 代替。创建后必须用 `paseo inspect`
    确认 `ParentAgentId` 等于 ORCHESTRATOR agent ID，否则停止该 agent 并按基础设施错误处理。
-8. EXECUTOR 使用 DeepSeek V4 Flash 时必须显式传入 `--thinking max`，并在 STATE 记录
-   `thinking: "max"`。创建或恢复后必须确认 `Thinking` 为 `max`；不支持或设置失败时
+8. EXECUTOR 固定使用 Pi provider 的 `opencode-go/deepseek-v4-flash`，并必须显式传入
+   `--thinking max`，在 STATE 记录 `thinking: "max"`。创建或恢复后必须确认实际 Model
+   为 `opencode-go/deepseek-v4-flash` 且 `Thinking` 为 `max`；不支持或设置失败时
    不得静默降级到 `high`／默认值，应停止并按基础设施错误处理。
 9. SENIOR_REVIEWER 首选 Claude Code 的 Opus 模型（Paseo provider `claude`、
    `--mode plan --thinking max`）；当前已核验的 Opus ID 为 `claude-opus-5`。任务开始时
@@ -70,7 +71,7 @@ role briefing 约束。ORCHESTRATOR 必须在每个 reviewer 运行前后核对�
 只归档 agent，不得归档正在使用的当前 workspace。大型输入按组件拆成新的 task ID，
 不设固定字节或文件数配额。
 
-EXECUTOR、REVIEWER 与 SENIOR_REVIEWER 均不继承当前会话，briefing 必须包含范围、验收标准和必要上下文。provider/model 在任务开始时用 `paseo provider ls` 与 `paseo provider models --thinking <provider>` 确认，记录实际选择；DeepSeek V4 Flash 的 EXECUTOR thinking 固定为 `max`。SENIOR_REVIEWER 每次使用独立的 fresh agent；“高级”指其审查职责与裁量视角，不授予它覆盖 ORCHESTRATOR 裁决的权力。
+EXECUTOR、REVIEWER 与 SENIOR_REVIEWER 均不继承当前会话，briefing 必须包含范围、验收标准和必要上下文。provider/model 在任务开始时用 `paseo provider ls` 与 `paseo provider models --thinking <provider>` 确认，记录实际选择；EXECUTOR 的 `opencode-go/deepseek-v4-flash` thinking 固定为 `max`。SENIOR_REVIEWER 每次使用独立的 fresh agent；“高级”指其审查职责与裁量视角，不授予它覆盖 ORCHESTRATOR 裁决的权力。
 
 ### 外发边界
 

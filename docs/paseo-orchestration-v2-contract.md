@@ -29,7 +29,8 @@
 7. EXECUTOR／REVIEWER／SENIOR_REVIEWER 必须是当前 ORCHESTRATOR 的
    Paseo-managed child，并出现在其 Subagents track；provider 原生 subagent 不得代替
    这三个角色。
-8. DeepSeek V4 Flash EXECUTOR 固定使用 `max` thinking，不接受 provider 默认值或静默降级。
+8. EXECUTOR 固定使用 Pi model `opencode-go/deepseek-v4-flash` 和 `max` thinking，
+   不接受其他 DeepSeek V4 Flash 路由、provider 默认值或静默降级。
 9. 修改翻译流程或项目基础设施时，REVIEWER 和 SENIOR_REVIEWER 必须独立
    交叉审核每个 code review phase，再由 ORCHESTRATOR 对照裁决。
 10. SENIOR_REVIEWER 首选 Claude Code Opus（provider `claude`、mode `plan`、thinking
@@ -214,7 +215,7 @@ SPEC 必须写明：任务模式、范围、允许修改文件、禁止扩展项
   "workspace_id": "...",
   "orchestrator_agent_id": "...",
   "baseline": {"patch": null, "copies_dir": null},
-  "executor": {"provider": "pi", "model": "deepseek/deepseek-v4-flash", "thinking": "max", "agent_id": null},
+  "executor": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", "thinking": "max", "agent_id": null},
   "reviewer": {"provider": "codex", "model": "...", "agent_id": null},
   "senior_reviewer": {
     "primary": {"provider": "claude", "model_family": "opus", "resolved_model": "claude-opus-5", "mode": "plan", "thinking": "max"},
@@ -261,8 +262,8 @@ ADJUDICATE。只校验以下不变量：
 11. 每个已创建 EXECUTOR／REVIEWER／SENIOR_REVIEWER 的
     `paseo.parent-agent-id` 必须等于
     `orchestrator_agent_id`；不匹配的 agent 不属于本任务角色。
-12. EXECUTOR 的 model ID 以 `deepseek-v4-flash` 结尾时，STATE 的 `thinking` 和
-    `paseo inspect --json` 返回的 `Thinking` 都必须为 `max`。
+12. EXECUTOR 的 STATE model 与 `paseo inspect --json` 返回的 Model 都必须为
+    `opencode-go/deepseek-v4-flash`，STATE 的 `thinking` 和实际 `Thinking` 都必须为 `max`。
 13. SENIOR_REVIEWER 的 `selected` 只允许 `primary|fallback`。primary 的实际
     Provider/Model/Mode/Thinking 必须为 `claude`/已解析 Opus/`plan`/`max`；
     fallback 必须为 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh` 且
@@ -306,7 +307,7 @@ paseo workspace ls --json
 EXECUTOR 的初始 prompt 是 positional 参数；后续消息可以使用文件：
 
 ```text
-paseo run --background --provider pi --model deepseek/deepseek-v4-flash --thinking max
+paseo run --background --provider pi --model opencode-go/deepseek-v4-flash --thinking max
   --workspace <workspace-id> --label task_id=<task-id> --label role=executor
   --json <rendered-prompt>
 
@@ -323,7 +324,8 @@ SENIOR_REVIEWER，也不得在正常路径
 手写保留的 parent label。
 
 每次 `paseo run` 返回精确 agent ID 后，必须立即 inspect 并确认 ParentAgentId 等于 STATE
-中的 `orchestrator_agent_id`。DeepSeek V4 Flash EXECUTOR 还必须确认 `Thinking` 为 `max`；
+中的 `orchestrator_agent_id`。EXECUTOR 还必须确认 Model 为
+`opencode-go/deepseek-v4-flash` 且 `Thinking` 为 `max`；
 缺少 `max`、实际值较低或设置失败都按基础设施错误处理，不得静默降级。每个 child 的
 workspace 也必须等于 STATE 的 `workspace_id`。任一检查不匹配时停止该 agent，不进入
 下一状态。EXECUTOR／REVIEWER／SENIOR_REVIEWER 均在 UI 中属于当前 workspace 下
@@ -393,7 +395,8 @@ paseo inspect --json <agent-id>
 - 无匹配：允许重新创建一次。
 - 多个匹配或身份不清：进入 WAIT_USER。
 
-恢复到唯一匹配的 DeepSeek V4 Flash EXECUTOR 时还要检查 `Thinking`。若不是 `max`，必须先
+恢复到唯一匹配的 EXECUTOR 时还要检查 Model 和 `Thinking`。Model 不是
+`opencode-go/deepseek-v4-flash` 时必须停止；若 `Thinking` 不是 `max`，必须先
 运行 `paseo agent update <agent-id> --thinking max` 并重新 inspect；更新或复验失败时记录
 基础设施错误，不发送新的任务消息。
 
