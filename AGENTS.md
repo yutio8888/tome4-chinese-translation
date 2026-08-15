@@ -11,10 +11,11 @@
 无论采用哪种协作方式，模型输出都不是最终事实：机制以固定版本源码为准，修改以后文门禁和验收标准为准。
 
 Paseo 从任务明确采用该编排并建立 task ID 时视为激活，直到任务进入 `DONE`／`STOP`，
-或 ORCHESTRATOR 明确记录回退。激活期间不得使用 `$tome4-pi-review`、
-`$tome4-pi-file-review` 或 `$tome4-pi-subagent`；委托、实现和独立复审只通过 Paseo 的
-ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER 角色完成。现有 blind translation runner、门禁和普通
-检查仍可由 ORCHESTRATOR 作为工具直接调用，不视为启用旧 Skill。
+或 ORCHESTRATOR 明确记录回退。旧项目 Skill（`$tome4-pi-review`、
+`$tome4-pi-file-review`、`$tome4-pi-subagent`）已归档（见 `archive/`），不再参与任何审核
+路由；委托、实现和独立复审只通过 Paseo 的
+ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER 角色完成。门禁和普通
+检查仍可由 ORCHESTRATOR 作为工具直接调用，不视为启用已归档 Skill。
 
 ## Paseo 轻量编排（大型任务）
 
@@ -26,10 +27,8 @@ ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER 角色完成。现有 blind
 2. EXECUTOR 只改任务允许的文件，不 commit、不 stage；REVIEWER 和 SENIOR_REVIEWER 与其使用同一 workspace，但不得修改任何文件。
 3. ORCHESTRATOR 独立核验测试和 finding，只把已接受的 finding 交给 EXECUTOR 修复；两类 reviewer 的 severity、verdict 和范围建议都不自动生效。
 4. 自动修复最多五轮。第二轮后若普通 review finding 仍要求进入下一轮 FIX，必须先由 SENIOR_REVIEWER 审查这些意见是否偏离设计意图或功能边界、过度放大边缘情形或安全限制、对个人项目过重；每个后续轮次都重新校准当轮意见。
-5. Paseo 激活期间所有 agent 委托只使用 EXECUTOR／REVIEWER／SENIOR_REVIEWER，不再调度旧 Skill 的 reviewer、scout 或 plan-reviewer。
-6. 翻译 semantic observation v2 由 ORCHESTRATOR 直接运行现有 blind runner；Paseo REVIEWER／SENIOR_REVIEWER 只审查代码、工具、文档和 legacy v1。REVIEWER 还可按 `purpose=translation_contextual_v1` 承担补充的非盲译文语境审核（契约见 `docs/paseo-translation-context-review-v1-contract.md`）：有界、只读、独立记录与指标，绝不完成、替换或计入 blind `translation_v2`；两个 contract
-同时选中时各自 pending 到自己的有效记录，任一输出不得改写另一 contract 的冻结输入；
-SENIOR_REVIEWER 不承担该 purpose。语境候选冻结后先计算
+5. 所有 agent 委托只使用 EXECUTOR／REVIEWER／SENIOR_REVIEWER；旧的 reviewer、scout、plan-reviewer 子进程路由已归档（见 `archive/`），不再调度。
+6. 译文审核由 Paseo REVIEWER 按 `purpose=translation_contextual_v1` 承担（契约见 `docs/paseo-translation-context-review-v1-contract.md`）：有界、只读、独立记录与指标；Paseo REVIEWER／SENIOR_REVIEWER 还审查代码、工具、文档和 legacy v1，SENIOR_REVIEWER 不承担译文审核 purpose。语境候选冻结后先计算
 `candidate_identity`（规范 payload 不含身份本身，见独立契约第四节），把外层
 envelope（identity＋未改动 payload object，`payload.rendered_briefing` 不含身份）
 以紧凑 JSON 字节冻结到任务作用域 workspace 相对输入文件（`input_path`），
@@ -40,7 +39,7 @@ envelope、revision、source/target、术语、上下文或源码片段，也不
 每次派发、重跑与无效输出重试都创建 fresh 语境 REVIEWER 并分配唯一
 `dispatch_id`，恢复只允许复用同一候选且同一 `dispatch_id`（同一歧义 create 尝试）
 的 agent，不得用 `send_agent_prompt` 复用旧语境 REVIEWER。
-`change_class` 为 `translation_workflow` 或 `infrastructure` 时，普通与高级 reviewer 必须从同一 SPEC／diff 独立交叉审核，在两份输出都返回前不得互看结论。两类 reviewer 的核心 briefing 在首次派发前冻结；若一方在另一方返回后重试，只能附加基础设施重试原因，不得按已知 finding 改写范围、候选或验收标准，否则两份输出都作废重跑。该规则审查的是翻译流程／基础设施变更，不取代译文的 blind translation v2 语义审核。
+`change_class` 为 `translation_workflow` 或 `infrastructure` 时，普通与高级 reviewer 必须从同一 SPEC／diff 独立交叉审核，在两份输出都返回前不得互看结论。两类 reviewer 的核心 briefing 在首次派发前冻结；若一方在另一方返回后重试，只能附加基础设施重试原因，不得按已知 finding 改写范围、候选或验收标准，否则两份输出都作废重跑。该规则审查的是翻译流程／基础设施变更，不取代译文的 `translation_contextual_v1` 语义审核。
 7. EXECUTOR／REVIEWER／SENIOR_REVIEWER 必须由 Paseo 托管的 ORCHESTRATOR 直接创建并继承
    `PASEO_AGENT_ID`：CLI 用 `paseo run`，MCP 用 agent-scoped 的 `create_agent`，两者都必须携带
    与任务完全一致的 workspace、task/role label、provider/model/mode/thinking；不得用 provider
@@ -141,29 +140,28 @@ EXECUTOR、REVIEWER 与 SENIOR_REVIEWER 均不继承当前会话，briefing 必�
 
 ### 外发边界
 
-以下项目级通道无需逐次确认：通过现有 blind runner 发送 translation v2 bundle；向 Codex REVIEWER、Claude Code Opus SENIOR_REVIEWER 或其 Codex `gpt-5.6-sol` 回退发送与 code/legacy v1 审核相关的代码、文档、必要上下文和已产生的普通 review findings；向 pi EXECUTOR 发送任务 briefing 并允许其读取当前 workspace；向 Pi REVIEWER 的
+以下项目级通道无需逐次确认：向 Codex REVIEWER、Claude Code Opus SENIOR_REVIEWER 或其 Codex `gpt-5.6-sol` 回退发送与 code/legacy v1 审核相关的代码、文档、必要上下文和已产生的普通 review findings；向 pi EXECUTOR 发送任务 briefing 并允许其读取当前 workspace；向 Pi REVIEWER 的
 `translation_contextual_v1` purpose 发送有界译文语境 bundle（有序 revision、译文快照、
 固定源码 commit 证据、术语子集与精确 context digest，经任务作用域冻结输入文件
 交付，短 prompt 只携带任务／输入／输出三行（唯一动态值路径与身份）），并允许其读取当前 workspace 内
-任务范围内的有界上下文；该 bundle 不得包含先前 finding、裁决、建议修复或 blind v2
-observation；读取边界以独立契约第五节为准。用户本次指定已授权前述 Claude Opus 通道、Codex 回退及 Pi 语境审核通道。任务记录只需注明 provider、model 和内容范围，不要求保存完整 payload manifest。使用其他 provider 或发送范围外内容前仍须取得用户授权。
+任务范围内的有界上下文；该 bundle 不得包含先前 finding、裁决或建议修复；读取边界以独立契约第五节为准。用户本次指定已授权前述 Claude Opus 通道、Codex 回退及 Pi 语境审核通道。任务记录只需注明 provider、model 和内容范围，不要求保存完整 payload manifest。使用其他 provider 或发送范围外内容前仍须取得用户授权。
 
 ## 汉化工具入口
 
 - 自动化统一使用 `python3 -B tools/i18n <command>`；首次运行先执行 `doctor`，译文修改后执行 `lint`。工具自动配置 LuaJIT 模块路径。
 - 报告和候选文件写入已忽略的 `.artifacts/i18n/`；除显式安装／发布命令外，不改写游戏源码或发布仓库。
 - 翻译使用 `tools/pi-subagent --workset <workset.json>`（可见运行用 `tools/pi-tmux translate`）。子进程只输出 proposal，主代理通过 `proposal --strict` 校验后应用。
-- 翻译审核先用 `tools/i18n review` 生成 bundle，再运行 `tools/pi-tmux review --bundle <bundle.json>`（headless 用 `tools/pi-review`）。semantic observation v2 的 blind 输入、输出和宿主裁决遵循 `docs/pi-review-v2-contract.md`；不得注入 terminology、Facts 或历史 finding。
-- `$tome4-pi-file-review`／`tools/pi-review-files` 只处理 code/legacy v1。translation v2 在 claim-bound runner 实现前由主代理按固定源码版本核验。源码感知进程只有 `read,bash` 工具；其结果仍由主代理确认。
+- 译文审核由 Paseo REVIEWER 的 `translation_contextual_v1` 承担（契约见 `docs/paseo-translation-context-review-v1-contract.md`）。
+- code/legacy v1 审核由 Paseo Codex REVIEWER 承担；译文审核的机制核验由主代理按固定源码版本核验。
 - 质量抽样使用 `tools/pi-quality-evaluator`；已确认 finding 的修复建议使用 `tools/pi-remediate`。两者只产出 assessment/proposal，不直接改规范 Lua 或代码。
-- Paseo 未激活时，用户要求审核使用 `$tome4-pi-review`；源码侦察或计划审查使用 `$tome4-pi-subagent` 的 scout／plan-reviewer。Paseo 激活后不使用这三个项目 Skill，由 ORCHESTRATOR 按角色 briefing 直接路由任务和工具。
+- 审核、源码侦察与计划审查统一走 Paseo 角色路由（REVIEWER／SENIOR_REVIEWER／EXECUTOR）；旧项目 Skill 已归档（见 `archive/`），不再作为回退路径。
 - 外发按上文「外发边界」执行；常设通道只需报告 provider、model 和大致内容范围。
 
 ## DLC 源码输入（GPL v3 公开）
 
 - ToME4 与三个官方 DLC 为 GPL v3（or later）公开源码，可以直接读取、分析和提取。正式版位于 `/Users/yun/projects/tome4-dlcs/`（ashes/cults/orcs，1.7.4）；版本依据以 manifest 固定值为准。
 - 分发译文／addon 时保留版权声明、使用 GPL v3 兼容许可并提供对应源码。
-- 翻译审核只发送规范条目的 blind v2 bundle；代码审核发送去除本机绝对路径的公开 diff。scout／plan-reviewer 可以读取上述公开源码，输出由主代理核验后应用。
+- 译文审核发送有界译文语境 bundle（`translation_contextual_v1`）；代码审核发送去除本机绝对路径的公开 diff。Paseo 的 REVIEWER／EXECUTOR 及主代理可以读取上述公开源码，输出由主代理核验后应用。
 
 ## Lua 运行环境
 
@@ -308,7 +306,7 @@ git diff --check && echo DIFF_OK
 ```
 
 - **术语表改动后**额外运行：`python3 -B tools/audit_static.py`（静态审计：错字/标点/同源冲突）、`python3 -B tools/audit_dynamic.py`（动态审计：术语 vs 译文使用率/多译）、`python3 -B tools/annotate_domains.py`（领域标注一致性）。报告写入 `.artifacts/i18n/terminology-audit/`。
-- **译文批量修改后**在提交前运行门禁 1–5；涉及 Pi 复审时按 `docs/runtime-key-collisions.md` 与 `docs/pi-review-worker-tuning.md` 的流程执行。`--workers 6`、8 起限速劣化仅是旧 v1 的历史数据，不能外推到 translation v2；v2 尚未重新校准，并发默认值与显式选择以当前 CLI 为准。
+- **译文批量修改后**在提交前运行门禁 1–5；涉及译文审核时按 `docs/runtime-key-collisions.md` 的流程执行。`--workers 6`、8 起限速劣化仅是已归档 v1 的历史数据，不适用于 Paseo 译文审核通道。
 - 修改外部仓库或已有版本控制文件（尤其 CRLF 行尾、JSON、Lua 字面量）前，先阅读 `docs/lessons-learned.md` 的常见陷阱；改完用 `git diff --stat` 确认无行尾/缩进噪音。
 - 审计与扫描脚本均在 `tools/` 下版本控制，输出只写入 `.artifacts/i18n/`（忽略目录），不直接改写规范 Lua。
 
@@ -321,7 +319,7 @@ git diff --check && echo DIFF_OK
 ## 术语库工作流
 
 - 开始翻译或审校前，先阅读 `TERMINOLOGY.md` 和 `terminology/`。
-- 主代理阅读术语库不等于把术语或 Facts 注入 blind semantic discovery；术语/专名疑点只能在 observation 产生后按 claim 核验与裁决。
+- 术语/专名疑点只能在审核 observation 产生后按 claim 核验与裁决；不得用术语库覆盖源码事实。
 - 新增或修改高复用术语时，先更新 `terminology/`，再修改对应的 Lua 翻译文件。
 - 保留现有 `t(...)` 第三个参数作为 `source_tag`，并为术语填写 `T.*` `category`；不能只按英文原文做全局替换。
 - 同一个英文词在不同 section 或 `source_tag` 下可以有不同译法，必须在 `notes` 中说明语境。

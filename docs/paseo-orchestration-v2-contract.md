@@ -2,7 +2,7 @@
 
 > 状态：设计草案，待实际任务验证。
 >
-> 契约版本：`paseo-orchestration/2.5-draft`。
+> 契约版本：`paseo-orchestration/2.6-draft`。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文不单独授权外部传输，也不表示新的控制器
 > 或 STATE 校验器已经实现。
@@ -20,8 +20,7 @@
 1. 同一 workspace 同时只有一个任务内容写入 agent；ORCHESTRATOR 可写编排记录和验证产物。
 2. 主代理定义范围、独立验证并裁决 finding。
 3. EXECUTOR、REVIEWER 和 SENIOR_REVIEWER 统一使用 ORCHESTRATOR 当前
-   workspace；两类 reviewer 保持只读，
-   翻译 semantic v2 继续走现有 blind runner。
+   workspace；两类 reviewer 保持只读。
 4. 自动修复最多五轮；第二轮后的普通 review finding 必须先经
    SENIOR_REVIEWER 按个人项目尺度校准，才能触发后续 FIX。
 5. 任务开始前记录工作树，结束前运行适用门禁。
@@ -66,7 +65,7 @@ v2 不要求：
 ### 非目标
 
 - 不让模型自动裁决 finding 或替代主代理验收。
-- 不让 Paseo REVIEWER 或 SENIOR_REVIEWER 承担 translation semantic observation v2。
+- 不让 Paseo SENIOR_REVIEWER 承担译文审核（`translation_contextual_v1`）。
 - 不自动 commit、stage、reset、删除用户改动或重启 Paseo daemon。
 - 不迁移或重解释已有 flat `.ai/task/`、`.ai/reviews/` 记录；新任务写入自己的子目录。
 
@@ -85,10 +84,11 @@ EXECUTOR、REVIEWER 和 SENIOR_REVIEWER 都不继承主会话。briefing 必须�
 范围、验收标准和完成当前角色所需的上下文，避免依赖隐含信息。
 
 Paseo 在任务明确采用本流程并建立 task ID 时激活，到 `DONE`／`STOP` 或明确记录回退时
-结束。激活期间不得使用 `$tome4-pi-review`、`$tome4-pi-file-review`、
-`$tome4-pi-subagent`，也不得把这些 Skill 产生的 reviewer/subagent 输出当作 Paseo
-contract 结果。ORCHESTRATOR 仍可直接调用 blind translation runner、门禁和普通检查；
-这些是角色执行的工具，不是另一套 agent 路由。
+结束。旧项目 Skill（`$tome4-pi-review`、`$tome4-pi-file-review`、
+`$tome4-pi-subagent`）已归档（见 `archive/`），不再参与审核路由，也不得把这些已归档
+Skill 产生的 reviewer/subagent 输出当作 Paseo
+contract 结果。ORCHESTRATOR 仍可直接调用门禁和普通检查；这些是角色执行的工具，
+不是另一套 agent 路由。
 
 ---
 
@@ -102,28 +102,21 @@ contract 结果。ORCHESTRATOR 仍可直接调用 blind translation runner、门
 审核类型可以有一个或多个：
 
 - `code_legacy_v1`：Paseo Codex REVIEWER 接收代码／工具／文档 diff。
-- `translation_v2`：ORCHESTRATOR 直接运行现有 `tools/i18n review` 与 blind v2 runner
-  生成 observation，不启用 `$tome4-pi-review`。
-- `translation_contextual_v1`：补充的非盲译文语境审核，由现有 REVIEWER 角色以
+- `translation_contextual_v1`：译文审核，由现有 REVIEWER 角色以
   `purpose=translation_contextual_v1` 载体执行（Pi `opencode-go/deepseek-v4-flash`、省略
-  mode、thinking `max`）；独立记录与指标，绝不完成、替换或计入 blind `translation_v2`；
-  与 `translation_v2` 同时选中时各自 pending 到自己的有效记录完成，任一输出不得改写
-  另一 contract 的冻结输入。
+  mode、thinking `max`）；独立记录与指标。
 
 SPEC 还必须声明 `change_class: standard|translation_workflow|infrastructure`。
 `translation_workflow` 指提取、合并、lint、review、build、发布、质量评价等翻译流程
 或其契约的改动；`infrastructure` 指会改变共享 artifact、身份／指纹、缓存／增量、
 CI／门禁、编排或发布链路的改动。后两类的 `code_legacy_v1` 必须由普通和高级
 reviewer 从同一输入独立交叉审核。该 code-only 交叉审核不把译文本身交给 Paseo
-reviewer；`translation_v2` 语义仍只走 blind bundle。`translation_contextual_v1` 是
-已选任务中的补充例外：由现有 REVIEWER 角色按独立契约外发有界译文语境 bundle，
-独立记录，绝不完成、替换或计入 blind `translation_v2`；双向隔离不变（blind v2
-输入仍不含术语、Facts 或 contextual 上下文，contextual 输入不含 blind v2
-observation）。
+reviewer；译文语义审核走 `translation_contextual_v1`：由现有 REVIEWER 角色按独立
+契约外发有界译文语境 bundle（有序 revision、译文快照、固定源码 commit 证据、术语
+子集、邻近译文与精确 context digest），独立记录。
 
 混合任务可以共用 task ID、SPEC 和 STATE，但必须分别运行各类审核，不能把术语、Facts 或
-历史 finding 注入 blind translation v2 输入，也不能把 blind v2 observation 注入
-contextual 输入；任一 contract 的输出都不得改写另一 contract 的冻结输入。
+历史 finding 注入译文审核输入；任一 contract 的输出都不得改写另一 contract 的冻结输入。
 
 ---
 
@@ -220,7 +213,7 @@ SPEC 必须写明：任务模式、范围、允许修改文件、禁止扩展项
   "task_id": "example-001",
   "mode": "implement",
   "change_class": "translation_workflow",
-  "review_contracts": ["code_legacy_v1", "translation_v2", "translation_contextual_v1"],
+  "review_contracts": ["code_legacy_v1", "translation_contextual_v1"],
   "state": "PLAN",
   "review_phase": null,
   "pending_review_contracts": [],
@@ -672,11 +665,11 @@ SENIOR_REVIEWER 的输入按 purpose 区分：
 - `scope_audit`：上述任务边界和 diff，加上当轮测试结果、普通 review 记录和
   待校准 finding ID。
 
-原始译文 diff 不发送给 code-only REVIEWER 或 SENIOR_REVIEWER；译文只通过
-translation v2 blind bundle 外发。但翻译流程工具、契约、测试和文档的 diff 属于
-`translation_workflow` code review，必须交叉审核。例外：`translation_contextual_v1`
+原始译文 diff 不发送给 code-only REVIEWER 或 SENIOR_REVIEWER；译文通过
+`translation_contextual_v1` 外发。但翻译流程工具、契约、测试和文档的 diff 属于
+`translation_workflow` code review，必须交叉审核。`translation_contextual_v1`
 按独立契约外发有界译文语境 bundle（有序 revision、译文快照、固定源码 commit 证据、
-术语子集、邻近译文与精确 context digest），与 blind v2 分离并独立记录；bundle 以
+术语子集、邻近译文与精确 context digest），独立记录；bundle 以
 冻结输入文件（派发 envelope）交付，不经 `initialPrompt` 内联。
 
 输入应足够小，使 REVIEWER 能完整阅读。超出模型上下文或人工可读范围时按组件拆成新的
@@ -690,13 +683,11 @@ REVIEWER 只返回有证据的可行动 finding。SENIOR_REVIEWER 在 `cross_rev
 assessment 和 verdict 都是建议；主代理必须
 查看实际文件或调用链后决定 `accepted`、`rejected` 或 `deferred`。
 
-旧项目 Skill 的 code review、file-reading review、scout 或 plan-reviewer 输出只能用于
-Paseo 激活前的工作；激活后不得执行，也不能据此把任何 pending contract 标为 completed。
+已归档旧项目 Skill 的 code review、file-reading review、scout 或 plan-reviewer 输出
+不得用于任何 Paseo 任务，也不能据此把任何 pending contract 标为 completed。
 
-translation v2 的 bundle、身份校验和 observation 契约继续以
-`docs/pi-review-v2-contract.md` 及现有工具为准，本文不重复定义。
 `translation_contextual_v1` 的输入、候选身份、结果校验、只读与失败语义见
-`docs/paseo-translation-context-review-v1-contract.md`；两者身份不互用。
+`docs/paseo-translation-context-review-v1-contract.md`。
 
 ---
 
@@ -743,7 +734,7 @@ translation v2 的 bundle、身份校验和 observation 契约继续以
 
 ## 十、外发与兼容
 
-常设授权沿用 `AGENTS.md`：通过现有 blind runner 发送 translation v2 bundle；向 Codex
+常设授权沿用 `AGENTS.md`：向 Codex
 REVIEWER、Claude Code Opus SENIOR_REVIEWER 或其 Codex `gpt-5.6-sol` 回退发送与
 code/legacy v1 审核相关的代码、文档、必要上下文和 scope audit 所需的当轮
 普通 findings；向 pi EXECUTOR 发送
@@ -751,7 +742,7 @@ code/legacy v1 审核相关的代码、文档、必要上下文和 scope audit �
 purpose 发送有界译文语境 bundle 并允许其只读读取任务范围内的有界上下文（bundle
 经任务作用域冻结输入文件交付；短 prompt 为任务／输入／输出三行，唯一动态值是
 候选身份与输入路径，不内联候选数据），该 bundle
-不含先前 finding、裁决、建议修复或 blind v2 observation；模型可见读取边界（仅限
+不含先前 finding、裁决或建议修复；模型可见读取边界（仅限
 `input_path` 文件及其所引译文/公开源码、独立契约第六节）以独立契约第五节为准。每次任务记录 provider、model 和大致内容范围
 即可，不保存完整 payload 或字节计量。
 
@@ -799,8 +790,8 @@ v2 格式；旧
 本文本身的交付标准：
 
 - Paseo 示例命令与本机 v0.4.0 `--help` 一致；
-- 与 `AGENTS.md` 的角色、translation v2 路由和门禁顺序一致；
-- `translation_contextual_v1` 作为 REVIEWER 的补充 purpose 载体：Pi 元组（provider `pi`、
+- 与 `AGENTS.md` 的角色、译文审核路由和门禁顺序一致；
+- `translation_contextual_v1` 作为 REVIEWER 的译文审核 purpose 载体：Pi 元组（provider `pi`、
   model `opencode-go/deepseek-v4-flash`、mode null、thinking `max`）、条件 STATE 记录
   `contextual_reviewer`（provider/model/mode/thinking/purpose/candidate_identity/dispatch_id/
   input_path/agent_id，仅当 `review_contracts`
@@ -810,8 +801,8 @@ v2 格式；旧
   `dispatch_id`）、短派发 prompt（任务／输入／输出三行，唯一动态值 `<candidate_identity>` 与 `<input_path>`，
   JSON-only 输出规则模型可见，不内联候选数据）、冻结输入文件承载派发 envelope 并由
   fresh 语境 REVIEWER 只读读取、创建／恢复核验与恢复过滤（歧义恢复只允许同一
-  `dispatch_id`）、候选身份独立于 blind bundle identity 与 code-diff candidate 配方、结果 fail-closed 校验、
-  只读工作树守卫、记录与指标与 blind v2 分离且不互改冻结输入；
+  `dispatch_id`）、候选身份独立于 code-diff candidate 配方、结果 fail-closed 校验、
+  只读工作树守卫、独立记录与指标；
 - 相对链接存在，Markdown 与 `git diff --check` 通过；
 - 任务级 `orchestration_transport` 只允许 `cli|mcp` 并写入 STATE，CLI 与 MCP 保持等价
   语义；MCP 映射使用可调用操作名（`list_providers`、`list_models`、`inspect_provider`、
@@ -867,6 +858,7 @@ v2 格式；旧
 
 | 版本 | 状态 | 内容 |
 | --- | --- | --- |
+| `2.6-draft` | 设计草案 | 译文审核收敛为单一 Paseo 通道：`translation_v2`（pi CLI blind runner）退役并归档到 `archive/docs/pi-review-v2-contract.md`，`translation_contextual_v1` 升格为译文审核唯一路由（Pi `opencode-go/deepseek-v4-flash`/省略 mode/`max`，不再作为「补充」）；旧项目 Skill（`$tome4-pi-review`、`$tome4-pi-file-review`、`$tome4-pi-subagent`）及其 scout／plan-reviewer subagent 路由、批量审核脚本与 v1 文件审核入口一并归档到 `archive/`；STATE `review_contracts` 与审核类型表删除 `translation_v2`；盲评质量管线（`tools/pi-quality-evaluator`、Facts study）不迁移。 |
 | `2.5-draft` | 设计草案 | 语境审核短派发 prompt 收敛为任务／输入／输出三行（`任务：`／`输入：`／`输出：`，未实例化规范模板 ≤800 UTF-8 字节，唯一动态值 `<candidate_identity>` 与 `<input_path>`）：任务行聚焦逐 revision 语境审核（输入文件术语／上下文与所引固定源码证据，只报有证据的实质错误，无问题填 OK），输入行声明磁盘冻结文件为唯一候选载体、会话级全程只读禁写、读取限定为 `input_path` 文件及该文件所引译文/公开源码，另加独立契约第六节，输出行要求第六节单一紧凑 JSON、冻结顺序全量覆盖、身份回显与首尾字节、无其他文字/围栏；模板不再指示阅读 `.ai/roles/reviewer.md`，详细 schema、恢复、身份、只读守卫与 fresh-session 规则继续只存于磁盘规范；2.4 行为与历史记录不改写。 |
 | `2.4-draft` | 设计草案 | 语境审核派发改为「冻结磁盘输入＋短 prompt」：`create_agent.initialPrompt`／CLI positional prompt 只携带含 purpose、候选身份、workspace 相对冻结输入路径与 JSON-only 输出边界的短派发 prompt（唯一动态值 `<candidate_identity>` 与 `<input_path>`，不内联 envelope、revision、source/target、术语、上下文或源码片段）；紧凑派发 envelope（identity＋未改动 payload object，`payload.rendered_briefing` 不含身份）以精确字节冻结到任务作用域 `input_path = .ai/task/<task_id>/CONTEXTUAL-ENVELOPE-<dispatch_id>.json`，由 fresh 语境 REVIEWER 用只读 workspace 工具读取；每次派发、重跑与无效输出重试都创建 fresh agent 并分配唯一任务作用域 `dispatch_id`（label 与文件名），不得用 `send_agent_prompt` 复用旧语境 REVIEWER；歧义 create 恢复只允许复用同一 `dispatch_id` 的同一创建尝试，新重试用新 `dispatch_id`；冻结输入文件纳入只读守卫（修改、替换、删除、符号链接替换或身份不匹配使输出无效）；STATE 条件字段 `contextual_reviewer` 增补 `dispatch_id` 与 `input_path`，语境 review 记录增补同名字段与精确 agent ID，已完成历史记录不改写、活动任务下次派发时采用。 |
 | `2.3-draft` | 设计草案 | 增加补充的非盲译文语境审核 contract `translation_contextual_v1`：仍由现有 REVIEWER 角色按 purpose 承载（`code_legacy_v1` 保持 Codex `gpt-5.6-sol`/`auto-review`/`xhigh`，`translation_contextual_v1` 为 Pi `opencode-go/deepseek-v4-flash`/省略 mode/`max`）；agent-scoped MCP `create_agent` 载荷（省略 `settings.modeId`、`settings.thinkingOptionId: "max"`、labels 含 `purpose=translation_contextual_v1`）与 CLI 等价命令；创建／恢复后核验 Pi 元组（含 Mode null／缺失），不匹配即停止，不得静默降级或回退到 Codex；恢复查询按 `labels.purpose` 区分同任务的两个 REVIEWER 载体；条件 STATE 字段

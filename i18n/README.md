@@ -30,10 +30,11 @@ tools/pi-review --bundle <review-bundle.json>
 tools/pi-remediate --bundle <review-bundle.json> --review <review.json>
 ```
 
-在 Codex 中可直接要求使用 `$tome4-pi-review`。该项目 Skill 会生成有界 bundle、
-逐批调用 `tools/pi-review`；translation v2 汇总的是结构校验后的 pending
-observations/coverage，code v1 才汇总 legacy findings。由于 bundle 会发送给外部 Pi
-provider，首次调用前仍需明确确认 provider、model、条目数、item 字符预算和实际
+旧项目 Skill `$tome4-pi-review` 已归档（见 `archive/`），不再作为审核入口；译文审核
+统一走 Paseo REVIEWER 的 `translation_contextual_v1` 路由（见
+`docs/paseo-translation-context-review-v1-contract.md`），代码审核走 Paseo Codex
+REVIEWER。译文语境 bundle 会发送给外部 Pi provider，首次调用前仍需明确确认
+provider、model、条目数、item 字符预算和实际
 `payload_bytes`；项目没有开启全局网络权限。
 
 - `doctor` 检查 LuaJIT 5.1、项目 LuaRocks 树、LPeg 0.10.2、固定 Git commit
@@ -157,11 +158,10 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   是调用前的主代理流程门槛，不是 runner 能从 v1 JSON 独立证明的事实。translation v2
   assessment 是候选观察，不得直接进入 remediation；当前 runner 会显式拒绝，主代理
   应先核验证据并人工应用有界修订。结构校验成功不等于事实确认。
-- `tools/pi-review-files` / `tools/pi-tmux review-files` 当前只接受 code v1 或明确的
-  历史 translation v1 bundle；新的 translation semantic discovery 不接受 v1 降级。
-  translation v2 的源码核验必须绑定既有 observation，仅返回
-  `supported/refuted/insufficient`，不得开放式新增 finding；在该 claim-bound runner
-  实现前，工具会失败关闭，主代理直接按固定源码版本核验。
+- 旧的 code/legacy v1 文件审核入口 `tools/pi-review-files` 已归档（见 `archive/`）；
+  code 审核统一由 Paseo Codex REVIEWER 承担。translation v2 的源码核验必须绑定既有
+  observation，仅返回 `supported/refuted/insufficient`，不得开放式新增 finding；在该
+  claim-bound runner 实现前，主代理直接按固定源码版本核验。
 - `tools/pi-subagent` 把不超过 50 条的已校验 workset 和 proposal 模板注入一个
   无工具、无会话、无项目上下文的 Pi 翻译进程。Pi 的原始输出先保存在 artifact，
   再自动通过 `proposal --strict`；它没有读取仓库、运行 shell 或修改 Lua 的能力。

@@ -11995,784 +11995,6 @@ print(json.dumps({
         self.assertTrue(Path(report["remediation"]).is_file())
 
 
-class PiReviewBatchTests(unittest.TestCase):
-    @staticmethod
-    def _load_batch_module():
-        script = TOOLS / "pi-review-batch.py"
-        spec = importlib.util.spec_from_file_location(
-            "pi_review_batch_test", script
-        )
-        assert spec is not None
-        assert spec.loader is not None
-        module = importlib.util.module_from_spec(spec)
-        with patch("signal.alarm") as import_alarm:
-            spec.loader.exec_module(module)
-        return module, import_alarm.call_args_list
-
-    def setUp(self) -> None:
-        self.batch, import_alarm_calls = self._load_batch_module()
-        self.assertEqual(import_alarm_calls, [])
-
-    @staticmethod
-    def _write_index(
-        directory: Path, bundles: list[dict[str, str]]
-    ) -> Path:
-        index_path = directory / "index.json"
-        index_path.write_text(
-            json.dumps({"bundles": bundles}),
-            encoding="utf-8",
-        )
-        return index_path
-
-    def _prepare_summary_root(self, directory: Path) -> Path:
-        summary_directory = directory / ".artifacts" / "i18n"
-        summary_directory.mkdir(parents=True)
-        self.batch.ROOT = directory
-        return summary_directory / "pi-batch-summary.json"
-
-    @staticmethod
-    def _v2_index_core(*, translations: bool, code: bool) -> dict[str, object]:
-        return {
-            "schema_version": REVIEW_INDEX_SCHEMA_VERSION,
-            "review_contract": REVIEW_INDEX_CONTRACT,
-            "tool_version": TOOL_VERSION,
-            "version": "fixture-version",
-            "manifest_sha256": "c" * 64,
-            "scope": {
-                "translations": translations,
-                "code": code,
-                "protected_sources": False,
-            },
-            "redacted_absolute_path_count": 0,
-        }
-
-    def test_v2_index_validates_descriptor_contract_and_channel(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="pi-review-batch-index-v2-") as temporary:
-            directory = Path(temporary)
-            bundle_path = directory / "bundle.json"
-            selected_items = [
-                {
-                    "revision_id": "a" * 64,
-                    "ordinal": 0,
-                    "source": "source",
-                    "target": "译文",
-                }
-            ]
-            selection_sha256 = translation_selection_sha256(selected_items)
-            bundle = {
-                "bundle_id": "b" * 64,
-                "schema_version": TRANSLATION_REVIEW_SCHEMA_VERSION,
-                "review_contract": TRANSLATION_REVIEW_BUNDLE_CONTRACT,
-                "tool_version": TOOL_VERSION,
-                "version": "fixture-version",
-                "manifest_sha256": "c" * 64,
-                "kind": "translations",
-                "channel": TRANSLATION_REVIEW_CHANNEL,
-                "component": "boot",
-                "selection_sha256": selection_sha256,
-                "selection": {
-                    "offset": 0,
-                    "count": 1,
-                    "total": 1,
-                    "item_character_count": 10,
-                    "item_character_budget": 24000,
-                    "oversized_single_item": False,
-                },
-                "items": selected_items,
-                "constraints": [],
-            }
-            bundle_path.write_text(json.dumps(bundle), encoding="utf-8")
-            descriptor = {
-                "bundle_id": bundle["bundle_id"],
-                "schema_version": bundle["schema_version"],
-                "review_contract": bundle["review_contract"],
-                "kind": bundle["kind"],
-                "channel": bundle["channel"],
-                "component": bundle["component"],
-                "selection_sha256": selection_sha256,
-                **bundle["selection"],
-                "artifact_bytes": bundle_path.stat().st_size,
-                "payload_bytes": len(translation_provider_message(bundle)),
-                "path": str(bundle_path),
-            }
-            index_path = directory / "index.json"
-            index = {
-                **self._v2_index_core(translations=True, code=False),
-                "bundles": [descriptor],
-            }
-            index["review_id"] = _review_index_id(index)
-            index_path.write_text(json.dumps(index), encoding="utf-8")
-            loaded = self.batch.load_index(index_path)
-            self.assertEqual(loaded["bundles"], [descriptor])
-            descriptor["channel"] = "code-findings"
-            index["review_id"] = _review_index_id(index)
-            index_path.write_text(json.dumps(index), encoding="utf-8")
-            with self.assertRaisesRegex(ValueError, "contract/channel"):
-                self.batch.load_index(index_path)
-
-    def test_v2_index_requires_and_recomputes_review_id(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="pi-review-batch-id-v2-") as temporary:
-            directory = Path(temporary)
-            index_path = directory / "index.json"
-            base = {
-                **self._v2_index_core(translations=True, code=False),
-                "bundles": [],
-            }
-            index_path.write_text(json.dumps(base), encoding="utf-8")
-            with self.assertRaisesRegex(ValueError, "valid review_id"):
-                self.batch.load_index(index_path)
-            base["review_id"] = "0" * 64
-            index_path.write_text(json.dumps(base), encoding="utf-8")
-            with self.assertRaisesRegex(ValueError, "identity is stale"):
-                self.batch.load_index(index_path)
-
-    def test_v2_index_rejects_invalid_offset_before_identity_hash(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="pi-review-batch-offset-v2-") as temporary:
-            directory = Path(temporary)
-            descriptor = {
-                "bundle_id": "b" * 64,
-                "schema_version": TRANSLATION_REVIEW_SCHEMA_VERSION,
-                "review_contract": TRANSLATION_REVIEW_BUNDLE_CONTRACT,
-                "channel": TRANSLATION_REVIEW_CHANNEL,
-                "kind": "translations",
-                "component": "boot",
-                "offset": [],
-                "count": 1,
-                "total": 1,
-                "item_character_count": 1,
-                "item_character_budget": 24000,
-                "artifact_bytes": 1,
-                "payload_bytes": 1,
-                "oversized_single_item": False,
-                "selection_sha256": "d" * 64,
-                "path": str(directory / "unused.json"),
-            }
-            index_path = directory / "index.json"
-            index_path.write_text(
-                json.dumps(
-                    {
-                        **self._v2_index_core(translations=True, code=False),
-                        "review_id": "0" * 64,
-                        "bundles": [descriptor],
-                    }
-                ),
-                encoding="utf-8",
-            )
-            with self.assertRaisesRegex(ValueError, "invalid selection counts"):
-                self.batch.load_index(index_path)
-
-    def test_v2_index_rejects_partition_gap(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="pi-review-batch-gap-v2-") as temporary:
-            directory = Path(temporary)
-            descriptors = []
-            for index, offset in enumerate((0, 2)):
-                bundle = {
-                    "bundle_id": f"{index + 1:064x}",
-                    "schema_version": REVIEW_SCHEMA_VERSION,
-                    "review_contract": REVIEW_CONTRACT,
-                    "tool_version": TOOL_VERSION,
-                    "version": "fixture-version",
-                    "manifest_sha256": "c" * 64,
-                    "kind": "code",
-                    "selection": {"offset": offset, "count": 1, "total": 3},
-                    "files": [],
-                }
-                path = directory / f"bundle-{index}.json"
-                path.write_text(json.dumps(bundle), encoding="utf-8")
-                artifact_bytes = path.stat().st_size
-                descriptors.append(
-                    {
-                        "bundle_id": bundle["bundle_id"],
-                        "schema_version": REVIEW_SCHEMA_VERSION,
-                        "review_contract": REVIEW_CONTRACT,
-                        "channel": "code-findings",
-                        "kind": "code",
-                        "offset": offset,
-                        "count": 1,
-                        "total": 3,
-                        "artifact_bytes": artifact_bytes,
-                        "payload_bytes": len(
-                            (
-                                json.dumps(
-                                    bundle,
-                                    ensure_ascii=False,
-                                    sort_keys=True,
-                                    indent=2,
-                                )
-                                + "\n"
-                            ).encode("utf-8")
-                        ),
-                        "path": str(path),
-                    }
-                )
-            index = {
-                **self._v2_index_core(translations=False, code=True),
-                "bundles": descriptors,
-            }
-            index["review_id"] = _review_index_id(index)
-            index_path = directory / "index.json"
-            index_path.write_text(json.dumps(index), encoding="utf-8")
-            with self.assertRaisesRegex(ValueError, "gap, overlap, or total mismatch"):
-                self.batch.load_index(index_path)
-
-    def test_v2_index_rejects_cross_shard_duplicate_revision(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="pi-review-batch-duplicate-v2-") as temporary:
-            directory = Path(temporary)
-            duplicated = {
-                "revision_id": "a" * 64,
-                "ordinal": 0,
-                "source": "source",
-                "target": "译文",
-            }
-            selection_sha256 = translation_selection_sha256(
-                [duplicated, {**duplicated, "ordinal": 1}]
-            )
-            descriptors: list[dict[str, object]] = []
-            for offset in (0, 1):
-                bundle = {
-                    "bundle_id": f"{offset + 1:064x}",
-                    "schema_version": TRANSLATION_REVIEW_SCHEMA_VERSION,
-                    "review_contract": TRANSLATION_REVIEW_BUNDLE_CONTRACT,
-                    "tool_version": TOOL_VERSION,
-                    "version": "fixture-version",
-                    "manifest_sha256": "c" * 64,
-                    "kind": "translations",
-                    "channel": TRANSLATION_REVIEW_CHANNEL,
-                    "component": "boot",
-                    "selection_sha256": selection_sha256,
-                    "selection": {
-                        "offset": offset,
-                        "count": 1,
-                        "total": 2,
-                        "item_character_count": 10,
-                        "item_character_budget": 24000,
-                        "oversized_single_item": False,
-                    },
-                    "items": [duplicated],
-                    "constraints": [],
-                }
-                path = directory / f"bundle-{offset}.json"
-                path.write_text(json.dumps(bundle), encoding="utf-8")
-                descriptors.append(
-                    {
-                        "bundle_id": bundle["bundle_id"],
-                        "schema_version": bundle["schema_version"],
-                        "review_contract": bundle["review_contract"],
-                        "channel": bundle["channel"],
-                        "kind": bundle["kind"],
-                        "component": bundle["component"],
-                        "selection_sha256": selection_sha256,
-                        **bundle["selection"],
-                        "artifact_bytes": path.stat().st_size,
-                        "payload_bytes": len(translation_provider_message(bundle)),
-                        "path": str(path),
-                    }
-                )
-            index = {
-                **self._v2_index_core(translations=True, code=False),
-                "bundles": descriptors,
-            }
-            index["review_id"] = _review_index_id(index)
-            index_path = directory / "index.json"
-            index_path.write_text(json.dumps(index), encoding="utf-8")
-            with self.assertRaisesRegex(ValueError, "repeats or reorders"):
-                self.batch.load_index(index_path)
-
-    def test_v2_index_rejects_child_provenance_mismatch(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="pi-review-batch-provenance-v2-") as temporary:
-            directory = Path(temporary)
-            bundle = {
-                "bundle_id": "1" * 64,
-                "schema_version": REVIEW_SCHEMA_VERSION,
-                "review_contract": REVIEW_CONTRACT,
-                "tool_version": TOOL_VERSION,
-                "version": "child-version",
-                "manifest_sha256": "c" * 64,
-                "kind": "code",
-                "selection": {"offset": 0, "count": 1, "total": 1},
-                "files": [],
-            }
-            path = directory / "bundle.json"
-            path.write_text(json.dumps(bundle), encoding="utf-8")
-            descriptor = {
-                "bundle_id": bundle["bundle_id"],
-                "schema_version": bundle["schema_version"],
-                "review_contract": bundle["review_contract"],
-                "channel": "code-findings",
-                "kind": "code",
-                "offset": 0,
-                "count": 1,
-                "total": 1,
-                "artifact_bytes": path.stat().st_size,
-                "payload_bytes": len(json_bytes(bundle)),
-                "path": str(path),
-            }
-            index = {
-                **self._v2_index_core(translations=False, code=True),
-                "bundles": [descriptor],
-            }
-            index["review_id"] = _review_index_id(index)
-            index_path = directory / "index.json"
-            index_path.write_text(json.dumps(index), encoding="utf-8")
-            with self.assertRaisesRegex(ValueError, "provenance"):
-                self.batch.load_index(index_path)
-
-    def test_v2_limit_uses_review_id_canonical_bundle_order(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="pi-review-batch-order-v2-") as temporary:
-            directory = Path(temporary)
-            self._prepare_summary_root(directory)
-            first = {
-                "bundle_id": "a" * 64,
-                "kind": "translations",
-                "component": "boot",
-                "offset": 0,
-                "path": "first.json",
-            }
-            second = {
-                "bundle_id": "b" * 64,
-                "kind": "translations",
-                "component": "boot",
-                "offset": 1,
-                "path": "second.json",
-            }
-            selected: list[str] = []
-
-            def fake_run_one(bundle_id, bundle_path, retries, progress, force=False):
-                selected.append(bundle_path)
-                progress.tick(True)
-                return bundle_id, True
-
-            arguments = argparse.Namespace(
-                index=directory / "index.json",
-                workers=1,
-                limit=1,
-                skip=0,
-                retries=0,
-                force=False,
-            )
-            with (
-                patch.object(
-                    self.batch,
-                    "load_index",
-                    return_value={
-                        "review_contract": REVIEW_INDEX_CONTRACT,
-                        "bundles": [second, first],
-                    },
-                ),
-                patch.object(self.batch, "run_one", side_effect=fake_run_one),
-                contextlib.redirect_stdout(io.StringIO()),
-            ):
-                exit_code = self.batch.run_batch(arguments)
-        self.assertEqual(exit_code, 0)
-        self.assertEqual(selected, ["first.json"])
-
-    def test_malformed_legacy_index_is_a_controlled_cli_error(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="pi-review-batch-legacy-invalid-") as temporary:
-            index_path = Path(temporary) / "index.json"
-            index_path.write_text(json.dumps({"bundles": ["bad"]}), encoding="utf-8")
-            stderr = io.StringIO()
-            with patch.object(self.batch.signal, "alarm"), contextlib.redirect_stderr(stderr):
-                exit_code = self.batch.main(["--index", str(index_path)])
-        self.assertEqual(exit_code, 2)
-        self.assertIn("must be an object", stderr.getvalue())
-        self.assertNotIn("Traceback", stderr.getvalue())
-
-    def test_stale_review_does_not_skip_runner_and_uses_index_ids(self) -> None:
-        with tempfile.TemporaryDirectory(
-            prefix="pi-review-batch-test-"
-        ) as temporary:
-            directory = Path(temporary)
-            summary_path = self._prepare_summary_root(directory)
-            first_path = directory / "first" / "shared-name.json"
-            second_path = directory / "second" / "shared-name.json"
-            index_path = self._write_index(
-                directory,
-                [
-                    {"bundle_id": "index-id-ok", "path": str(first_path)},
-                    {
-                        "bundle_id": "index-id-failed",
-                        "path": str(second_path),
-                    },
-                ],
-            )
-            stale_path = (
-                directory / "runs" / "stale-pi-review" / "review.json"
-            )
-            stale_path.parent.mkdir(parents=True)
-            stale_path.write_text(
-                json.dumps({"bundle_id": "index-id-ok"}),
-                encoding="utf-8",
-            )
-            # A legacy implementation consults this glob and skips the call.
-            self.batch.RUNS_GLOB = str(
-                directory / "runs" / "*pi-review" / "review.json"
-            )
-
-            def fake_run(command, **_):
-                returncode = 0 if command[2] == str(first_path) else 1
-                return subprocess.CompletedProcess(
-                    command,
-                    returncode,
-                    stdout=(
-                        "review: fixture-review.json\n"
-                        if returncode == 0
-                        else ""
-                    ),
-                    stderr="ordinary failure",
-                )
-
-            with (
-                patch.object(
-                    self.batch.subprocess, "run", side_effect=fake_run
-                ) as runner,
-                patch.object(self.batch.signal, "alarm") as alarm,
-                contextlib.redirect_stdout(io.StringIO()),
-            ):
-                exit_code = self.batch.main(
-                    [
-                        "--index",
-                        str(index_path),
-                        "--workers",
-                        "1",
-                        "--retries",
-                        "0",
-                    ]
-                )
-
-            self.assertEqual(exit_code, 1)
-            self.assertEqual(runner.call_count, 2)
-            self.assertEqual(alarm.call_args_list, [call(14400), call(0)])
-            summary = json.loads(summary_path.read_text(encoding="utf-8"))
-            self.assertEqual(summary["total"], 2)
-            self.assertEqual(summary["ok"], 1)
-            self.assertEqual(summary["failed"], ["index-id-failed"])
-
-    def test_force_is_forwarded_to_each_runner_call(self) -> None:
-        with tempfile.TemporaryDirectory(
-            prefix="pi-review-batch-force-"
-        ) as temporary:
-            directory = Path(temporary)
-            self._prepare_summary_root(directory)
-            bundle_path = directory / "filename-is-not-id.json"
-            index_path = self._write_index(
-                directory,
-                [
-                    {
-                        "bundle_id": "authoritative-index-id",
-                        "path": str(bundle_path),
-                    }
-                ],
-            )
-            completed = subprocess.CompletedProcess(
-                [], 0, stdout="review: fixture-review.json\n", stderr=""
-            )
-            with (
-                patch.object(
-                    self.batch.subprocess, "run", return_value=completed
-                ) as runner,
-                patch.object(self.batch.signal, "alarm"),
-                contextlib.redirect_stdout(io.StringIO()),
-            ):
-                exit_code = self.batch.main(
-                    [
-                        "--index",
-                        str(index_path),
-                        "--workers",
-                        "1",
-                        "--retries",
-                        "0",
-                        "--force",
-                    ]
-                )
-
-            self.assertEqual(exit_code, 0)
-            runner.assert_called_once_with(
-                [
-                    str(self.batch.PI_REVIEW),
-                    "--bundle",
-                    str(bundle_path),
-                    "--expected-bundle-id",
-                    "authoritative-index-id",
-                    "--force",
-                ],
-                capture_output=True,
-                text=True,
-                timeout=1250,
-            )
-
-    def test_empty_stdout_retries_once_then_nonempty_succeeds(self) -> None:
-        cases = (
-            ("empty", "", ""),
-            ("whitespace", " \t\n", ""),
-            ("stderr", "", "fixture stderr"),
-        )
-        for label, first_stdout, first_stderr in cases:
-            with self.subTest(label=label):
-                progress = self.batch.Progress(1)
-                empty = subprocess.CompletedProcess(
-                    [],
-                    0,
-                    stdout=first_stdout,
-                    stderr=first_stderr,
-                )
-                success = subprocess.CompletedProcess(
-                    [],
-                    0,
-                    stdout="opaque success response\n",
-                    stderr="",
-                )
-                output = io.StringIO()
-                with (
-                    patch.object(
-                        self.batch.subprocess,
-                        "run",
-                        side_effect=[empty, success],
-                    ) as runner,
-                    patch.object(self.batch.time, "sleep") as sleep,
-                    contextlib.redirect_stdout(output),
-                ):
-                    bundle_id, ok = self.batch.run_one(
-                        "index-bundle-id",
-                        "/tmp/bundle.json",
-                        1,
-                        progress,
-                    )
-                progress.pump()
-
-                self.assertEqual((bundle_id, ok), ("index-bundle-id", True))
-                self.assertEqual(runner.call_count, 2)
-                sleep.assert_called_once_with(10)
-                self.assertEqual(
-                    (progress.done, progress.ok, progress.failed),
-                    (1, 1, 0),
-                )
-                diagnostic = output.getvalue()
-                self.assertIn("empty response", diagnostic)
-                if first_stderr:
-                    self.assertIn(first_stderr, diagnostic)
-
-    def test_empty_stdout_exhaustion_ticks_failure_once(self) -> None:
-        cases = (
-            ("empty", "", ""),
-            ("whitespace", " \t\n", ""),
-            ("stderr", "", "fixture stderr"),
-        )
-        for label, response_stdout, response_stderr in cases:
-            with self.subTest(label=label):
-                progress = self.batch.Progress(1)
-                empty = subprocess.CompletedProcess(
-                    [],
-                    0,
-                    stdout=response_stdout,
-                    stderr=response_stderr,
-                )
-                output = io.StringIO()
-                with (
-                    patch.object(
-                        self.batch.subprocess,
-                        "run",
-                        side_effect=[empty, empty, empty],
-                    ) as runner,
-                    patch.object(self.batch.time, "sleep") as sleep,
-                    contextlib.redirect_stdout(output),
-                ):
-                    bundle_id, ok = self.batch.run_one(
-                        "index-bundle-id",
-                        "/tmp/bundle.json",
-                        2,
-                        progress,
-                    )
-                progress.pump()
-
-                self.assertEqual((bundle_id, ok), ("index-bundle-id", False))
-                self.assertEqual(runner.call_count, 3)
-                self.assertEqual(sleep.call_args_list, [call(10), call(20)])
-                self.assertEqual(
-                    (progress.done, progress.ok, progress.failed),
-                    (1, 0, 1),
-                )
-                diagnostic = output.getvalue()
-                self.assertIn("empty response", diagnostic)
-                if response_stderr:
-                    self.assertIn(response_stderr, diagnostic)
-
-    def test_empty_stdout_with_zero_retries_fails_batch_without_sleep(
-        self,
-    ) -> None:
-        with tempfile.TemporaryDirectory(
-            prefix="pi-review-batch-empty-"
-        ) as temporary:
-            directory = Path(temporary)
-            summary_path = self._prepare_summary_root(directory)
-            bundle_path = directory / "bundle.json"
-            index_path = self._write_index(
-                directory,
-                [
-                    {
-                        "bundle_id": "empty-response-id",
-                        "path": str(bundle_path),
-                    }
-                ],
-            )
-            empty = subprocess.CompletedProcess(
-                [],
-                0,
-                stdout="",
-                stderr="fixture stderr",
-            )
-            output = io.StringIO()
-            with (
-                patch.object(
-                    self.batch.subprocess, "run", return_value=empty
-                ) as runner,
-                patch.object(self.batch.time, "sleep") as sleep,
-                patch.object(self.batch.signal, "alarm") as alarm,
-                contextlib.redirect_stdout(output),
-            ):
-                exit_code = self.batch.main(
-                    [
-                        "--index",
-                        str(index_path),
-                        "--workers",
-                        "1",
-                        "--retries",
-                        "0",
-                    ]
-                )
-
-            self.assertEqual(exit_code, 1)
-            runner.assert_called_once_with(
-                [
-                    str(self.batch.PI_REVIEW),
-                    "--bundle",
-                    str(bundle_path),
-                    "--expected-bundle-id",
-                    "empty-response-id",
-                ],
-                capture_output=True,
-                text=True,
-                timeout=1250,
-            )
-            sleep.assert_not_called()
-            self.assertEqual(alarm.call_args_list, [call(14400), call(0)])
-            diagnostic = output.getvalue()
-            self.assertIn("empty response", diagnostic)
-            self.assertIn("fixture stderr", diagnostic)
-            self.assertIn("[1/1] ok=0 fail=1", diagnostic)
-            summary = json.loads(summary_path.read_text(encoding="utf-8"))
-            self.assertEqual(
-                summary,
-                {
-                    "index": str(index_path),
-                    "total": 1,
-                    "ok": 0,
-                    "failed": ["empty-response-id"],
-                    "contracts": {"legacy-unspecified": 1},
-                },
-            )
-
-    def test_numeric_argument_boundaries_and_limit_zero(self) -> None:
-        with tempfile.TemporaryDirectory(
-            prefix="pi-review-batch-args-"
-        ) as temporary:
-            directory = Path(temporary)
-            index_path = self._write_index(
-                directory,
-                [
-                    {
-                        "bundle_id": "not-selected",
-                        "path": str(directory / "bundle.json"),
-                    }
-                ],
-            )
-            with (
-                patch.object(self.batch.subprocess, "run") as runner,
-                patch.object(self.batch.signal, "alarm") as alarm,
-                contextlib.redirect_stdout(io.StringIO()),
-            ):
-                exit_code = self.batch.main(
-                    [
-                        "--index",
-                        str(index_path),
-                        "--workers",
-                        "1",
-                        "--retries",
-                        "0",
-                        "--skip",
-                        "0",
-                        "--limit",
-                        "0",
-                    ]
-                )
-            self.assertEqual(exit_code, 0)
-            runner.assert_not_called()
-            self.assertEqual(alarm.call_args_list, [call(14400), call(0)])
-
-            for option, value in (
-                ("--workers", "0"),
-                ("--retries", "-1"),
-                ("--skip", "-1"),
-                ("--limit", "-1"),
-            ):
-                with self.subTest(option=option):
-                    with (
-                        patch.object(self.batch.signal, "alarm") as alarm,
-                        contextlib.redirect_stderr(io.StringIO()),
-                    ):
-                        with self.assertRaises(SystemExit) as caught:
-                            self.batch.main(
-                                ["--index", str(index_path), option, value]
-                            )
-                    self.assertEqual(caught.exception.code, 2)
-                    self.assertEqual(
-                        alarm.call_args_list,
-                        [call(14400), call(0)],
-                    )
-
-    def test_no_sleep_after_final_failure_or_timeout(self) -> None:
-        failures = (
-            subprocess.CompletedProcess(
-                [],
-                1,
-                stdout="",
-                stderr="ordinary nonzero exit",
-            ),
-            subprocess.CompletedProcess(
-                [],
-                1,
-                stdout="",
-                stderr="validation failed: fixture",
-            ),
-            subprocess.TimeoutExpired("fixture", 1250),
-        )
-        for failure in failures:
-            with self.subTest(failure=type(failure).__name__):
-                progress = self.batch.Progress(1)
-                with (
-                    patch.object(
-                        self.batch.subprocess,
-                        "run",
-                        side_effect=[failure, failure],
-                    ) as runner,
-                    patch.object(self.batch.time, "sleep") as sleep,
-                    contextlib.redirect_stdout(io.StringIO()),
-                ):
-                    bundle_id, ok = self.batch.run_one(
-                        "index-bundle-id",
-                        "/tmp/not-the-index-id.json",
-                        1,
-                        progress,
-                    )
-                progress.pump()
-
-                self.assertEqual(bundle_id, "index-bundle-id")
-                self.assertFalse(ok)
-                self.assertEqual(runner.call_count, 2)
-                sleep.assert_called_once_with(10)
-                self.assertEqual(progress.done, 1)
-                self.assertEqual(progress.failed, 1)
-
-
 FAKE_TMUX_SCRIPT = """#!/usr/bin/env python3
 import json
 import os
@@ -19363,11 +18585,11 @@ exit 0
 class ProjectSubagentDefinitionTests(unittest.TestCase):
     """Validate project subagent definitions and the AGENTS.md role split."""
 
-    AGENTS_DIR = ROOT / ".pi" / "agents"
-    EXTENSION_DIR = ROOT / ".pi" / "extensions" / "subagent"
-    SKILLS_DIR = ROOT / ".agents" / "skills"
-    SKILL_DIR = ROOT / ".agents" / "skills" / "tome4-pi-subagent"
-    CONTRACT_DOC = ROOT / "docs" / "pi-review-v2-contract.md"
+    ARCHIVE_AGENTS_DIR = ROOT / "archive" / ".pi" / "agents"
+    ARCHIVE_EXTENSION_DIR = ROOT / "archive" / ".pi" / "extensions" / "subagent"
+    ARCHIVE_SKILLS_DIR = ROOT / "archive" / ".agents" / "skills"
+    ARCHIVE_SKILL_DIR = ROOT / "archive" / ".agents" / "skills" / "tome4-pi-subagent"
+    CONTRACT_DOC = ROOT / "archive" / "docs" / "pi-review-v2-contract.md"
 
     def _frontmatter(self, path: Path) -> dict:
         text = path.read_text(encoding="utf-8")
@@ -19376,11 +18598,11 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         end = text.index("\n---", 4)
         return yaml.safe_load(text[4:end])
 
-    def test_agents_exist_with_required_frontmatter(self) -> None:
+    def test_archived_agents_exist_with_required_frontmatter(self) -> None:
         expected = {"scout", "plan-reviewer"}
-        found = {path.stem for path in self.AGENTS_DIR.glob("*.md")}
+        found = {path.stem for path in self.ARCHIVE_AGENTS_DIR.glob("*.md")}
         self.assertEqual(found, expected)
-        for path in sorted(self.AGENTS_DIR.glob("*.md")):
+        for path in sorted(self.ARCHIVE_AGENTS_DIR.glob("*.md")):
             with self.subTest(agent=path.stem):
                 meta = self._frontmatter(path)
                 self.assertIsInstance(meta.get("name"), str)
@@ -19395,18 +18617,20 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
                 self.assertFalse(meta.get("inheritProjectContext"))
                 self.assertFalse(meta.get("inheritSkills"))
 
-    def test_extension_files_exist(self) -> None:
+    def test_archived_extension_files_exist(self) -> None:
         for name in ("agents.ts", "index.ts", "live-output.mjs"):
-            self.assertTrue((self.EXTENSION_DIR / name).is_file(), name)
-        index = (self.EXTENSION_DIR / "index.ts").read_text(encoding="utf-8")
+            self.assertTrue((self.ARCHIVE_EXTENSION_DIR / name).is_file(), name)
+        index = (self.ARCHIVE_EXTENSION_DIR / "index.ts").read_text(
+            encoding="utf-8"
+        )
         self.assertIn("--no-approve", index)
         self.assertIn("--no-context-files", index)
         self.assertIn("--no-skills", index)
         self.assertNotIn("--approve", index.replace("--no-approve", ""))
 
-    def test_skill_and_contract_doc_exist(self) -> None:
-        self.assertTrue((self.SKILL_DIR / "SKILL.md").is_file())
-        skill = (self.SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
+    def test_archived_skill_and_contract_doc_exist(self) -> None:
+        self.assertTrue((self.ARCHIVE_SKILL_DIR / "SKILL.md").is_file())
+        skill = (self.ARCHIVE_SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("scout", skill)
         self.assertIn("plan-reviewer", skill)
         self.assertTrue(self.CONTRACT_DOC.is_file())
@@ -19415,7 +18639,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertIn("/private/tmp", contract)
         self.assertIn("/tmp", contract)
 
-    def test_paseo_activation_excludes_project_skills(self) -> None:
+    def test_project_skills_are_archived(self) -> None:
         skill_names = (
             "tome4-pi-review",
             "tome4-pi-file-review",
@@ -19423,7 +18647,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         )
         for name in skill_names:
             with self.subTest(skill=name):
-                path = self.SKILLS_DIR / name / "SKILL.md"
+                path = self.ARCHIVE_SKILLS_DIR / name / "SKILL.md"
                 meta = self._frontmatter(path)
                 self.assertIn("Paseo 未激活", meta["description"])
                 self.assertIn("Paseo 激活后不得使用", meta["description"])
@@ -19432,7 +18656,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
             encoding="utf-8"
         )
-        self.assertIn("激活期间不得使用", agents)
+        self.assertIn("已归档", agents)
         self.assertIn("角色独占路由", orchestrator)
         for name in skill_names:
             self.assertIn(f"${name}", agents)
@@ -19869,7 +19093,6 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertNotIn("Pi 始终无工具", text)
         self.assertNotIn("不得让 Pi 直接写规范 Lua", text)
         self.assertNotIn("Pi 翻译、Pi 审核、其他 subagent", text)
-        self.assertIn("docs/pi-review-v2-contract.md", text)
         self.assertIn("$tome4-pi-subagent", text)
 
     def test_pi_agent_analysis_has_role_update_note(self) -> None:
@@ -19879,10 +19102,9 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
 
 
 class PaseoTranslationContextReviewTests(unittest.TestCase):
-    """Validate the supplemental non-blind translation_contextual_v1 REVIEWER route."""
+    """Validate the translation_contextual_v1 REVIEWER route."""
 
     CONTEXTUAL_DOC = ROOT / "docs" / "paseo-translation-context-review-v1-contract.md"
-    BLIND_DOC = ROOT / "docs" / "pi-review-v2-contract.md"
 
     def _normative_texts(self):
         return {
@@ -19897,21 +19119,19 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
                 ROOT / "docs" / "paseo-orchestration-v2-contract.md"
             ).read_text(encoding="utf-8"),
             "contextual": self.CONTEXTUAL_DOC.read_text(encoding="utf-8"),
-            "blind": self.BLIND_DOC.read_text(encoding="utf-8"),
         }
 
-    def test_contextual_contract_is_supplemental_and_separate(self) -> None:
+    def test_contextual_contract_is_the_translation_review_route(self) -> None:
         texts = self._normative_texts()
         # 契约名出现在全部规范文档与独立契约文件中。
         for name in ("agents", "orchestrator", "reviewer", "contract", "contextual"):
             self.assertIn("translation_contextual_v1", texts[name], name)
-        # 补充而非替代：绝不完成、替换或计入 blind translation_v2。
-        for name in ("agents", "reviewer", "contract", "contextual"):
-            self.assertIn("绝不完成、替换或计入", texts[name], name)
-            self.assertIn("translation_v2", texts[name], name)
-        # blind v2 契约文件不得被本路由改写或引用。
-        self.assertNotIn("translation_contextual_v1", texts["blind"])
-        self.assertNotIn("contextual", texts["blind"])
+        # translation_contextual_v1 是译文审核唯一路由；旧 translation_v2 blind runner 已退役。
+        for name in ("agents", "contract", "contextual"):
+            self.assertIn("译文审核", texts[name], name)
+        self.assertIn("唯一路由", texts["contextual"])
+        self.assertIn("已退役", texts["contextual"])
+        self.assertIn("archive/docs/pi-review-v2-contract.md", texts["contextual"])
 
     def test_contextual_reviewer_pi_tuple_and_mcp_payload(self) -> None:
         texts = self._normative_texts()
@@ -19992,9 +19212,8 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
         self.assertIn('"payload"', contextual)
         self.assertIn("原样不变", contextual)
         self.assertIn("echo", contextual)
-        # 不复用 blind bundle identity 或 code-diff 候选配方。
+        # 不复用 code-diff 候选配方。
         self.assertIn("不得复用", contextual)
-        self.assertIn("selection_sha256", contextual)
         self.assertIn("candidate_ref", contextual)
 
     def test_contextual_briefing_may_name_key_but_not_embed_value(self) -> None:
@@ -20590,11 +19809,9 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
         # 绝对陈述收窄为 code-only 交叉审核。
         self.assertIn("code-only 交叉审核", contract)
         self.assertIn("不把译文本身交给", contract)
-        self.assertIn("仍只走 blind bundle", contract)
-        # contextual 是已选任务中的补充例外；双向隔离与指标分离保留。
-        self.assertIn("补充例外", contract)
-        self.assertIn("双向隔离不变", contract)
-        self.assertIn("绝不完成、替换或计入", contract)
+        # 译文语义审核走 translation_contextual_v1。
+        self.assertIn("译文语义审核走 `translation_contextual_v1`", contract)
+        self.assertIn("独立记录", contract)
 
     def test_contextual_head_oid_guard(self) -> None:
         texts = self._normative_texts()
@@ -20615,8 +19832,8 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
 
     def test_contextual_briefing_exclusions_and_outbound_boundary(self) -> None:
         texts = self._normative_texts()
-        # briefing 排除先前 finding、裁决、建议修复与 blind v2 observation。
-        for marker in ("先前 finding", "裁决决定", "建议修复", "blind v2 observation"):
+        # briefing 排除先前 finding、裁决与建议修复。
+        for marker in ("先前 finding", "裁决决定", "建议修复"):
             self.assertIn(marker, texts["contextual"])
         # AGENTS.md 外发边界增补 Pi 语境审核通道（有界内容 + 只读 workspace）。
         self.assertIn("有界译文语境 bundle", texts["agents"])
@@ -20628,13 +19845,10 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
 
     def test_contextual_separation_and_records(self) -> None:
         texts = self._normative_texts()
-        # 记录与指标与 blind v2 分离；各自 pending 到自己的有效记录。
+        # 记录与指标独立保存；任一 contract 的输出不得改写另一 contract 的冻结输入。
         self.assertIn("独立记录与指标", texts["contract"])
-        self.assertIn("各自 pending 到自己的有效记录", texts["contract"])
-        self.assertIn("各自 pending 到自己的有效记录完整", texts["contextual"])
         self.assertIn("candidate_identity", texts["contract"])
-        # 任一 contract 的输出不得改写另一 contract 的冻结输入。
-        for name in ("agents", "contract", "contextual"):
+        for name in ("contract", "contextual"):
             self.assertIn("不得改写另一 contract 的冻结输入", texts[name], name)
 
     def test_contextual_state_record_is_conditional(self) -> None:

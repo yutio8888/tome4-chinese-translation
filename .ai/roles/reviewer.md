@@ -16,13 +16,13 @@ briefing 必须明确标注 `review_contract` 与 `labels.purpose` 两个字段�
 `purpose` 当作 review contract 本身。
 
 无论哪种审核契约，你都是只读的：不得修改、创建、删除、stage 或 commit 任何文件，
-不命令 EXECUTOR，也不把任务前已存在的问题算作本次缺陷。translation semantic
-observation v2 的 blind 审核不属于你的范围。
+不命令 EXECUTOR，也不把任务前已存在的问题算作本次缺陷。旧 blind translation v2
+审核已退役（见 `archive/`），不属于你的范围。
 
 ## review_contract=code_legacy_v1（代码复审；labels.purpose=normal_review）
 
 你会收到自包含的 SPEC、验收标准、与 `code_legacy_v1` contract 相关的完整
-baseline→current 任务 diff 和必要上下文；原始译文与 translation v2 bundle 不属于输入。
+baseline→current 任务 diff 和必要上下文；原始译文与译文语境 bundle 不属于输入。
 你与 ORCHESTRATOR／EXECUTOR 使用同一 workspace，可以只读核对任务范围内的文件和
 必要上下文。
 
@@ -66,11 +66,9 @@ source/target、source tags／runtime keys、术语子集、邻近译文和固�
 `input_path` 文件、该文件明确引用的译文／公开源码路径，以及
 `docs/paseo-translation-context-review-v1-contract.md` 第六节（严格结果 schema）；
 不得阅读整份本文件或整份独立契约，不得浏览本任务其他 `.ai/task` 文件或任何
-`.ai/reviews` 记录。该审核契约是非盲补充审核，绝不完成、替换或计入
-blind `translation_v2` 的指标，你的输出也不得改写 blind v2 的冻结输入。
+`.ai/reviews` 记录。该审核契约是译文审核的唯一路由，独立记录与指标。
 
-输入中不得注入先前 finding、裁决决定、建议修复或 blind v2 observation；你不得
-请求或猜测这些内容。
+输入中不得注入先前 finding、裁决决定或建议修复；你不得请求或猜测这些内容。
 
 ### 输出契约
 

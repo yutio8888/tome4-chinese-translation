@@ -11,20 +11,17 @@
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)；编排细节见
 > [`paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md)。
-> 本文定义补充的非盲译文语境审核 contract `translation_contextual_v1` 的输入、
-> 候选身份、结果 schema、校验、分离、恢复与只读失败语义。
+> 本文定义译文审核 contract `translation_contextual_v1` 的输入、候选身份、结果
+> schema、校验、分离、恢复与只读失败语义。
 
 ## 一、定位与边界
 
-`translation_contextual_v1` 是 `translation_v2` 的**补充**非盲审核路由，不是替代品：
+`translation_contextual_v1` 是译文审核的唯一路由（旧 `translation_v2` blind runner
+已退役，见 `archive/docs/pi-review-v2-contract.md`）：
 
 - 它由现有 Paseo REVIEWER 角色以 `purpose=translation_contextual_v1` 载体执行，不引入
   第四个 Paseo 角色；
-- 它**绝不完成、替换或计入** blind `translation_v2` 的指标；`translation_v2` 仍是
-  语义 observation 进入质量指标的唯一契约，其 bundle、runner、身份与 observation
-  契约（`docs/pi-review-v2-contract.md`）不因本契约改变；
-- 两个 contract 同时选中时，各自 pending 到自己的有效记录完整为止；任一 contract 的
-  输出都不得改写另一 contract 的冻结输入；
+- 它独立记录与指标，是语义 observation 进入质量指标的唯一契约；
 - 本契约是 ORCHESTRATOR 与语境 REVIEWER 之间的技术契约，不授权模型自动裁决：
   severity、确认状态与修复建议一律由 ORCHESTRATOR 独立作出。
 
@@ -289,8 +286,7 @@ STATE `contextual_reviewer.candidate_identity`、语境 review 记录的 `candid
 ORCHESTRATOR 从 payload 重算 identity，重算值、envelope 值与返回值三者不一致即
 输出作废。
 
-该身份**不得复用** blind bundle／cache identity（`selection_sha256` 等），也**不得复用**
-code-diff 候选配方（`candidate_ref` 公式）。`candidate_identity` 写入语境 review 记录，
+该身份**不得复用** code-diff 候选配方（`candidate_ref` 公式）。`candidate_identity` 写入语境 review 记录，
 派发前与返回后都必须从冻结的候选字节重算并保持一致；不一致时输出作废。
 
 ### 短派发 prompt（规范模板）
@@ -322,12 +318,11 @@ CLI 的 positional prompt 与 MCP `create_agent.initialPrompt` 是这份短 prom
 
 - 精确 source/target 对；
 - source tags／runtime keys；
-- 术语子集（非盲路由允许携带，blind v2 仍然禁止注入）；
+- 术语子集；
 - 邻近译文（同文件／同 section 相邻条目）；
 - 固定版本公共源码证据片段（manifest 固定 commit 内的公开源码）。
 
-**禁止注入**：先前 finding、裁决决定、建议修复、blind v2 observation 及任何宿主
-lineage。
+**禁止注入**：先前 finding、裁决决定、建议修复及任何宿主 lineage。
 
 读取边界：语境 REVIEWER 只读取短 prompt 指定的精确 `input_path` 文件、
 该文件明确引用的译文／公开源码路径，以及本契约第六节（严格结果 schema）；
@@ -418,11 +413,8 @@ pending；ORCHESTRATOR 按基础设施／契约失败处理并重新派发，不
 
 ## 八、分离与指标
 
-- 语境记录与指标独立于 blind v2 单独保存，绝不并入 `translation_v2` 的统计；
-- 两个 contract 同时选中时，各自 pending 到自己的有效记录完整；任一输出都不得
-  改写另一 contract 的冻结输入；
-- blind v2 输入保持最小注入（不含术语、Facts、contextual 上下文），contextual
-  输入不含 blind v2 observation；双向隔离。
+- 语境记录与指标独立保存，任一 contract 的输出都不得改写另一 contract 的冻结输入；
+- 译文语境输入携带术语子集与固定源码证据；先前 finding、裁决与建议修复不得注入。
 
 ## 九、外发
 

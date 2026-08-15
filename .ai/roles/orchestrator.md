@@ -10,14 +10,14 @@ ORCHESTRATOR 负责定义范围、委托实现、独立验证、裁决 finding �
 
 ## 角色独占路由
 
-从任务建立 Paseo task ID 到 `DONE`／`STOP` 或明确回退期间，不使用
-`$tome4-pi-review`、`$tome4-pi-file-review`、`$tome4-pi-subagent`，也不调度它们的
-独立 reviewer、scout 或 plan-reviewer。计划和源码核验由 ORCHESTRATOR 完成，任务内容
-写入只交给 EXECUTOR，代码／工具／文档复审只交给 REVIEWER 和
+从任务建立 Paseo task ID 到 `DONE`／`STOP` 或明确回退期间，不使用已归档的旧项目
+Skill（`$tome4-pi-review`、`$tome4-pi-file-review`、`$tome4-pi-subagent`，见 `archive/`），
+也不调度它们的独立 reviewer、scout 或 plan-reviewer。计划和源码核验由 ORCHESTRATOR
+完成，任务内容写入只交给 EXECUTOR，代码／工具／文档复审只交给 REVIEWER 和
 SENIOR_REVIEWER。
 
-现有 translation v2 blind runner、门禁和普通检查仍是 ORCHESTRATOR 可直接调用的工具；
-直接运行这些工具不等于启用旧 Skill。旧 Skill 产生的 review 结果不得用来完成 Paseo 的
+门禁和普通检查仍是 ORCHESTRATOR 可直接调用的工具；直接运行这些工具不等于启用
+已归档 Skill。已归档 Skill 产生的 review 结果不得用来完成 Paseo 的
 `code_legacy_v1`、`REVIEW` 或 `FINAL_REVIEW`。
 
 ## 开始任务
@@ -202,8 +202,7 @@ manifest、全工作树 hash 或 hash 链。
   `--model <resolved-opus-id> --mode plan --thinking high`。仅在后文“模型回退”条件成立时，
   重新创建完整审核为
   `--provider codex --model gpt-5.6-sol --mode auto-review --thinking xhigh`。
-- translation v2：由 ORCHESTRATOR 直接使用现有 blind v2 runner，不启用旧 Skill，也不交给 Paseo REVIEWER 或 SENIOR_REVIEWER。
-- translation_contextual_v1：补充的非盲译文语境审核，仍由 REVIEWER 角色承担。
+- translation_contextual_v1：译文审核，由 REVIEWER 角色承担。
   ORCHESTRATOR 用 agent-scoped MCP `create_agent` 直接创建（`provider: "pi/opencode-go/deepseek-v4-flash"`、
   `settings.thinkingOptionId: "max"`、省略 `settings.modeId`、labels 含 `task_id`／`role=reviewer`／
   `purpose=translation_contextual_v1`／`candidate_identity=<sha256>`／`dispatch_id=<dispatch-id>`，冻结后设置），
@@ -224,7 +223,6 @@ manifest、全工作树 hash 或 hash 链。
   完成，通用 ignored 暂存空间不穷尽监控；
   输入、候选身份、结果校验与
   只读失败语义遵循 `docs/paseo-translation-context-review-v1-contract.md`；
-  记录与指标和 blind v2 分离，任一 contract 的输出不得改写另一 contract 的冻结输入；
   创建／恢复后把精确 agent ID、`dispatch_id`、`input_path` 与 `candidate_identity`
   写入 STATE 的 `contextual_reviewer.agent_id`／`contextual_reviewer.dispatch_id`／
   `contextual_reviewer.input_path`／`contextual_reviewer.candidate_identity`。
@@ -341,4 +339,4 @@ Provider/Model/Mode/Thinking：`code_legacy_v1`（`normal_review`）必须是
 
 Paseo 不可用且用户未强制要求时，可以退出编排并由主代理继续；若用户明确要求 Paseo，
 则报告阻塞。回退时先在 STATE 记录原因并停止仍在运行的 Paseo agent，之后才可恢复非
-Paseo 工作流或旧 Skill。外发遵循 `AGENTS.md` 的集中授权边界。
+Paseo 工作流或已归档 Skill。外发遵循 `AGENTS.md` 的集中授权边界。
