@@ -19752,5 +19752,574 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertIn("仅指审核子进程", text)
 
 
+class PaseoTranslationContextReviewTests(unittest.TestCase):
+    """Validate the supplemental non-blind translation_contextual_v1 REVIEWER route."""
+
+    CONTEXTUAL_DOC = ROOT / "docs" / "paseo-translation-context-review-v1-contract.md"
+    BLIND_DOC = ROOT / "docs" / "pi-review-v2-contract.md"
+
+    def _normative_texts(self):
+        return {
+            "agents": (ROOT / "AGENTS.md").read_text(encoding="utf-8"),
+            "orchestrator": (
+                ROOT / ".ai" / "roles" / "orchestrator.md"
+            ).read_text(encoding="utf-8"),
+            "reviewer": (ROOT / ".ai" / "roles" / "reviewer.md").read_text(
+                encoding="utf-8"
+            ),
+            "contract": (
+                ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+            ).read_text(encoding="utf-8"),
+            "contextual": self.CONTEXTUAL_DOC.read_text(encoding="utf-8"),
+            "blind": self.BLIND_DOC.read_text(encoding="utf-8"),
+        }
+
+    def test_contextual_contract_is_supplemental_and_separate(self) -> None:
+        texts = self._normative_texts()
+        # 契约名出现在全部规范文档与独立契约文件中。
+        for name in ("agents", "orchestrator", "reviewer", "contract", "contextual"):
+            self.assertIn("translation_contextual_v1", texts[name], name)
+        # 补充而非替代：绝不完成、替换或计入 blind translation_v2。
+        for name in ("agents", "reviewer", "contract", "contextual"):
+            self.assertIn("绝不完成、替换或计入", texts[name], name)
+            self.assertIn("translation_v2", texts[name], name)
+        # blind v2 契约文件不得被本路由改写或引用。
+        self.assertNotIn("translation_contextual_v1", texts["blind"])
+        self.assertNotIn("contextual", texts["blind"])
+
+    def test_contextual_reviewer_pi_tuple_and_mcp_payload(self) -> None:
+        texts = self._normative_texts()
+        # Pi 运行时元组：pi / opencode-go/deepseek-v4-flash / mode null / thinking max。
+        for name in ("agents", "orchestrator", "contract", "contextual"):
+            self.assertIn("opencode-go/deepseek-v4-flash", texts[name], name)
+            self.assertIn("`pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`", texts[name], name)
+        self.assertIn("pi / opencode-go/deepseek-v4-flash / mode null / thinking max", texts["contextual"])
+        # agent-scoped MCP 载荷：provider 对、thinkingOptionId max、省略 modeId、purpose label。
+        self.assertIn('"provider": "pi/opencode-go/deepseek-v4-flash"', texts["contextual"])
+        self.assertIn('"thinkingOptionId": "max"', texts["contextual"])
+        self.assertIn('"purpose": "translation_contextual_v1"', texts["contextual"])
+        self.assertIn("`settings.modeId` 必须省略", texts["contextual"])
+        self.assertIn('"provider": "pi/opencode-go/deepseek-v4-flash"', texts["contract"])
+        self.assertIn("省略 `settings.modeId`（Pi 无可选 mode）", texts["contract"])
+        self.assertIn("settings.thinkingOptionId: \"max\"", texts["agents"])
+        # Codex code REVIEWER 元组与 purpose 路由保持不变。
+        self.assertIn("code_legacy_v1", texts["reviewer"])
+        self.assertIn("codex", texts["contract"])
+        self.assertIn("gpt-5.6-sol", texts["contract"])
+
+    def test_contextual_creation_verification_and_no_fallback(self) -> None:
+        texts = self._normative_texts()
+        # 创建／恢复后核验 parent lineage、workspace、Provider/Model/Mode/Thinking。
+        for name in ("agents", "orchestrator", "contract", "contextual"):
+            self.assertIn("ParentAgentId", texts[name], name)
+            self.assertIn("paseo.parent-agent-id", texts[name], name)
+            self.assertIn("null／缺失", texts[name], name)
+        self.assertIn("currentModeId", texts["contextual"])
+        self.assertIn("runtimeInfo.modeId", texts["contextual"])
+        # 不静默降级、不回退 Codex。
+        for name in ("agents", "orchestrator", "contract", "contextual"):
+            self.assertIn("不得静默降级", texts[name], name)
+            self.assertIn("回退到 Codex", texts[name], name)
+        # 恢复按 labels.purpose 区分同任务的两个 REVIEWER 载体，0/1/多匹配规则不变。
+        self.assertIn("labels.purpose", texts["contextual"])
+        self.assertIn("labels.purpose", texts["contract"])
+        self.assertIn("唯一匹配", texts["contextual"])
+        self.assertIn("WAIT_USER", texts["contextual"])
+        # 过滤先于基数判定：目标 purpose 过滤；code 载体 normal_review；pre-2.3 兼容。
+        for name in ("agents", "orchestrator", "contract"):
+            self.assertIn("过滤先于基数判定", texts[name], name)
+            self.assertIn("目标 `labels.purpose`", texts[name], name)
+            self.assertIn("purpose=normal_review", texts[name], name)
+            self.assertIn("pre-2.3", texts[name], name)
+        for name in ("agents", "orchestrator", "contract"):
+            self.assertIn("缺省 purpose", texts[name], name)
+            self.assertIn("Codex 元组", texts[name], name)
+
+    def test_contextual_candidate_identity_is_distinct(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        self.assertIn("candidate_identity", contextual)
+        # 规范 payload 是 JSON object：八个逻辑组件，确定性序列化，不含身份本身。
+        self.assertIn("canonical contextual payload bytes", contextual)
+        for component in (
+            "ordered_revision_keys",
+            "translation_snapshot",
+            "fixed_source_commit",
+            "terminology_snapshot",
+            "bounded_context",
+            "rendered_briefing",
+            "runtime_tuple",
+        ):
+            self.assertIn(component, contextual)
+        self.assertIn("确定性序列化", contextual)
+        self.assertIn("不得新增 `candidate_identity` 字段", contextual)
+        self.assertIn("不得嵌入已计算的 64 位十六进制 identity 值", contextual)
+        self.assertNotIn("任何位置都不得出现 `candidate_identity`", contextual)
+        self.assertIn("自我哈希", contextual)
+        # 规范 JSON：UTF-8、递归排序键、数组冻结顺序、紧凑分隔符、ensure_ascii=false。
+        self.assertIn("UTF-8 JSON 序列化", contextual)
+        self.assertIn("递归按字节序排序", contextual)
+        self.assertIn("无多余空白", contextual)
+        self.assertIn("ensure_ascii=false", contextual)
+        self.assertIn("非 string", contextual)
+        # 外层 envelope：identity 附加在 payload 之外，payload object 原样不变；返回回显。
+        self.assertIn("envelope", contextual)
+        self.assertIn('"payload"', contextual)
+        self.assertIn("原样不变", contextual)
+        self.assertIn("echo", contextual)
+        # 不复用 blind bundle identity 或 code-diff 候选配方。
+        self.assertIn("不得复用", contextual)
+        self.assertIn("selection_sha256", contextual)
+        self.assertIn("candidate_ref", contextual)
+
+    def test_contextual_briefing_may_name_key_but_not_embed_value(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        # 文档区分：字段名可提及，identity 值不得嵌入。
+        self.assertIn("可以提及结果字段名 `candidate_identity`", contextual)
+        self.assertIn("不得嵌入", contextual)
+        self.assertIn("64 位十六进制", contextual)
+        self.assertNotIn("任何位置都不得出现 `candidate_identity`", contextual)
+        # 行为检查：briefing 提及 key 并含完整结果 schema，计算后的 identity 值不在其中。
+        payload = self._minimal_contextual_payload()
+        briefing = (
+            '结果对象键结构：{"contract": "translation_contextual_v1", '
+            '"candidate_identity": "<sha256>", '
+            '"revisions": [{"revision_key": "...", "observation": "OK", '
+            '"evidence": {"source": "...", "target": "..."}}]}'
+        )
+        payload["rendered_briefing"] = briefing
+        identity = hashlib.sha256(self._canonical_bytes(payload)).hexdigest()
+        self.assertIn("candidate_identity", briefing)  # 字段名允许
+        self.assertNotIn(identity, briefing)  # 计算后的 64 位十六进制值不在 briefing 中
+
+    def test_contextual_identity_control_plane_copies_exempt(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        # 控制面副本明确允许且必需：agent labels、STATE、review 记录。
+        self.assertIn("agent labels 的 `candidate_identity=<sha256>`", contextual)
+        self.assertIn("STATE `contextual_reviewer.candidate_identity`", contextual)
+        self.assertIn("语境 review 记录的 `candidate_identity`", contextual)
+        self.assertIn("不是被哈希的 payload 组件", contextual)
+        # 值仍被排除在被哈希的 payload 与 rendered_briefing 之外。
+        self.assertIn("不得进入被哈希的八个键 payload", contextual)
+        self.assertIn("`payload.rendered_briefing`", contextual)
+        # 旧的“值只出现在 envelope 与结果中”未限定措辞已移除。
+        self.assertNotIn("的**值**只出现在 envelope 与结果中", contextual)
+
+    def test_contextual_read_only_guard_ignored_paths(self) -> None:
+        texts = self._normative_texts()
+        contextual = texts["contextual"]
+        # 决策关键 ignored 路径纳入有界快照：路径精确，不排除整目录。
+        self.assertIn("路径精确", contextual)
+        self.assertIn("决策关键", contextual)
+        self.assertIn("排除整个 `.ai`／`.artifacts` 目录", contextual)
+        self.assertIn("allowlist", contextual)
+        # 比较在 ORCHESTRATOR 后处理写入之前；reviewer 写入使输出无效。
+        self.assertIn("后处理写入之前", contextual)
+        self.assertIn("观察到 reviewer 的任何写入都使输出无效", contextual)
+        # 通用 ignored 暂存空间不穷尽监控；不建通用监控。
+        self.assertIn("不进行穷尽监控", contextual)
+        self.assertIn("不建立通用文件系统监控", contextual)
+        self.assertIn("全仓或全 ignored 树哈希", contextual)
+        for name in ("orchestrator", "contract"):
+            self.assertIn("路径精确", texts[name], name)
+            self.assertIn("后处理写入前", texts[name], name)
+
+    def test_contextual_lineage_unavailable_requires_wait_user(self) -> None:
+        texts = self._normative_texts()
+        # lineage 不可暴露：停止 child 并进入 WAIT_USER；STOP 不作为直接替代。
+        for name in ("orchestrator", "contract", "contextual"):
+            self.assertIn("不作为该条件的直接替代", texts[name], name)
+            self.assertIn("WAIT_USER", texts[name], name)
+        self.assertNotIn("`WAIT_USER` 或 `STOP`", texts["orchestrator"])
+        self.assertNotIn("`WAIT_USER`／`STOP`", texts["contextual"])
+        self.assertNotIn("`WAIT_USER`／`STOP`", texts["contract"])
+
+    def test_contextual_cli_positional_prompt_mapping(self) -> None:
+        texts = self._normative_texts()
+        contextual = texts["contextual"]
+        contract = texts["contract"]
+        # paseo run 的 positional prompt 即派发 envelope 的精确 JSON 文本。
+        self.assertIn("positional prompt", contextual)
+        self.assertIn("positional prompt", contract)
+        self.assertIn("`paseo run ... <prompt>`", contextual)
+        self.assertIn("`paseo run ... <prompt>`", contract)
+        # --json 只控制 CLI 输出格式，不携带 initialPrompt。
+        self.assertIn("`--json` 只控制 CLI 输出格式", contextual)
+        self.assertIn("`--json` 只控制 CLI 输出格式", contract)
+        self.assertIn("不携带", contextual)
+        self.assertIn("不携带", contract)
+        # MCP create_agent.initialPrompt 映射 CLI positional prompt。
+        self.assertIn("`create_agent.initialPrompt` 映射一致", contextual)
+        self.assertIn("`initialPrompt` 映射 CLI 的 positional prompt", contract)
+        # 语境 CLI 等价命令本身必须携带序列化派发 envelope 作为 positional prompt；
+        # 命令不得以 candidate_identity label 收尾（--json 为布尔输出格式标志）。
+        command_tail = (
+            "--label candidate_identity=<sha256> --json "
+            "'<派发 envelope 的精确 UTF-8 JSON 文本>'"
+        )
+        self.assertIn(command_tail, contextual)
+        self.assertIn(command_tail, contract)
+        self.assertNotIn("--label candidate_identity=<sha256>`", contextual)
+        self.assertNotIn("--label candidate_identity=<sha256>`", contract)
+
+    def test_contextual_invariant_and_tuple_verification_purpose_scoped(self) -> None:
+        contract = self._normative_texts()["contract"]
+        # 不变量 15 与 Codex 创建后核验只适用于 review_contract=code_legacy_v1。
+        self.assertIn(
+            "`review_contract=code_legacy_v1`（labels `purpose=normal_review`）的普通",
+            contract,
+        )
+        self.assertIn("该 Codex 谓词不适用于", contract)
+        self.assertIn("该 Codex 谓词只适用于 code 载体", contract)
+        # 语境 Pi 元组只按不变量 16 校验，不被 Codex 谓词拒绝。
+        self.assertIn("不变量 16", contract)
+        self.assertIn("不被此谓词拒绝", contract)
+
+    def test_contextual_recovery_older_candidate_excluded(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        # 旧候选被精确 candidate_identity 过滤排除，不算匹配。
+        self.assertIn("旧候选", contextual)
+        self.assertIn("被该精确过滤排除", contextual)
+        self.assertIn("不算作候选匹配", contextual)
+        # 零当前候选匹配只允许一次既有重试。
+        self.assertIn("无匹配允许重试一次", contextual)
+        # WAIT_USER 保留给截断/不完整列表、缺省 purpose 歧义、多匹配等。
+        for marker in ("多个当前候选匹配", "缺省 purpose 歧义", "不完整的列表"):
+            self.assertIn(marker, contextual)
+        # 矛盾的“候选不匹配”后过滤分支（作为 WAIT_USER 触发）已移除。
+        self.assertNotIn("候选不匹配进入 `WAIT_USER`", contextual)
+
+    def test_contextual_reviewer_role_briefing_contract_purpose_split(self) -> None:
+        reviewer = self._normative_texts()["reviewer"]
+        # 代码路由：review_contract=code_legacy_v1；控制面 purpose 与记录 purpose=normal_review。
+        self.assertIn("review_contract", reviewer)
+        self.assertIn("`code_legacy_v1`", reviewer)
+        self.assertIn("`normal_review`", reviewer)
+        self.assertIn("labels.purpose", reviewer)
+        # 语境路由：review_contract=translation_contextual_v1；purpose 相同。
+        self.assertIn("`translation_contextual_v1`", reviewer)
+        # 明确分离 review contract 与控制面 purpose label／记录 purpose。
+        self.assertIn("区分开", reviewer)
+        self.assertIn("review 记录 purpose", reviewer)
+        # normal_review 载体进入 code_legacy_v1 分支。
+        self.assertIn(
+            "`normal_review` label 创建的 agent 永远走 `code_legacy_v1` 分支", reviewer
+        )
+        # purpose=code_legacy_v1 必须缺席（purpose 不是 review contract）。
+        self.assertNotIn("purpose=code_legacy_v1", reviewer)
+        self.assertNotIn("## purpose=code_legacy_v1", reviewer)
+
+    def test_contextual_result_validation_fail_closed(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        self.assertIn("fail closed", contextual)
+        for marker in ("缺失", "重复", "乱序", "错候选", "畸形"):
+            self.assertIn(marker, contextual)
+        self.assertIn("每个 revision 恰好覆盖一次", contextual)
+        # severity、确认与修复留给 ORCHESTRATOR。
+        self.assertIn("severity、确认状态或 suggested fix", contextual)
+        self.assertIn("ORCHESTRATOR 独立裁决", contextual)
+        self.assertIn("不得部分接受", contextual)
+        # 严格 schema：键/类型/格式/逐字节相等/additionalProperties=false/OK 表示。
+        self.assertIn("additionalProperties=false", contextual)
+        self.assertIn("^[0-9a-f]{64}$", contextual)
+        self.assertIn("逐字节相等", contextual)
+        self.assertIn("非空 string", contextual)
+        self.assertIn('"OK"', contextual)
+        # 结果键结构与派发 envelope 不同，只回显派发身份。
+        self.assertIn("与派发", contextual)
+        self.assertIn("回显", contextual)
+
+    def test_contextual_read_only_guard(self) -> None:
+        texts = self._normative_texts()
+        # 冻结有界候选 + 运行前后工作树核对（编排层）+ 写入即无效。
+        for name in ("orchestrator", "contract"):
+            self.assertIn("核对工作树", texts[name], name)
+        contextual = texts["contextual"]
+        self.assertIn("冻结", contextual)
+        self.assertIn("任何写入", contextual)
+        self.assertIn("都使输出无效", contextual)
+        self.assertIn("基础设施错误", contextual)
+        # 有界快照：任务前既有脏/untracked + 候选路径；内容与 index-diff 摘要。
+        self.assertIn("任务前既有脏", contextual)
+        self.assertIn("untracked", contextual)
+        self.assertIn("index-diff", contextual)
+        self.assertIn("新增状态路径", contextual)
+        self.assertIn("全量哈希", contextual)
+        self.assertIn("逐路径比较", contextual)
+        for name in ("orchestrator", "contract"):
+            self.assertIn("index-diff", texts[name], name)
+
+    def test_contextual_recovery_candidate_binding(self) -> None:
+        texts = self._normative_texts()
+        # 恢复候选绑定：labels.candidate_identity 过滤；只复用同一候选；fresh agent。
+        for name in ("agents", "orchestrator", "contract", "contextual"):
+            self.assertIn("candidate_identity", texts[name], name)
+        self.assertIn("labels.candidate_identity", texts["contextual"])
+        self.assertIn("labels.candidate_identity", texts["contract"])
+        self.assertIn("labels.candidate_identity", texts["agents"])
+        self.assertIn("fresh", texts["contextual"])
+        self.assertIn("同一候选", texts["agents"])
+        self.assertIn("同一候选", texts["contract"])
+        self.assertIn("旧候选", texts["contextual"])
+        for name in ("agents", "orchestrator", "contract"):
+            self.assertIn("不得改作他用", texts[name], name)
+        # STATE 与 agent 双记录：agent_id + candidate_identity 同步。
+        for name in ("contextual", "contract", "orchestrator"):
+            self.assertIn("contextual_reviewer.agent_id", texts[name], name)
+            self.assertIn("contextual_reviewer.candidate_identity", texts[name], name)
+
+    def test_contextual_dispatch_envelope_mapping(self) -> None:
+        texts = self._normative_texts()
+        contextual = texts["contextual"]
+        contract = texts["contract"]
+        # initialPrompt 是派发 envelope 的精确 UTF-8 JSON 文本，不是 inner rendered_briefing。
+        self.assertIn("派发 envelope 的精确 UTF-8 JSON 文本", contextual)
+        self.assertIn("派发 envelope 的精确 UTF-8 JSON 文本", contract)
+        self.assertNotIn('"initialPrompt": "<rendered-briefing>"', contextual)
+        self.assertNotIn('"initialPrompt": "<rendered-briefing>"', contract)
+        self.assertIn("不是 inner rendered_briefing", contextual)
+        # payload.rendered_briefing 保持不含身份。
+        self.assertIn("rendered_briefing", contextual)
+        self.assertIn("不含身份的 `payload.rendered_briefing`", contextual)
+        # envelope 序列化可执行：复用规范 JSON 的紧凑规则。
+        self.assertIn("紧凑 JSON 规则", contextual)
+        self.assertIn("ensure_ascii=false", contextual)
+
+    def test_contextual_recovery_stop_on_mismatch(self) -> None:
+        texts = self._normative_texts()
+        contextual = texts["contextual"]
+        # 语境 REVIEWER 恢复 STOP-on-mismatch：任何不匹配（含 Thinking != max）都停止。
+        for name in ("agents", "orchestrator", "contract", "contextual"):
+            self.assertIn("STOP-on-mismatch", texts[name], name)
+        self.assertIn("`Thinking` 不是 `max`", contextual)
+        # 语境恢复禁止 update_agent 改回复用；允许改回的措辞全部移除。
+        self.assertIn("不使用 `update_agent` 改回该语境会话", contextual)
+        self.assertNotIn("先 `update_agent` 设回", contextual)
+        for name in ("agents", "orchestrator", "contract"):
+            self.assertNotIn("先运行 `update_agent` 设回", texts[name])
+        # EXECUTOR 的 update_agent 恢复行为保留（编排层）。
+        self.assertIn("update_agent", texts["orchestrator"])
+        self.assertIn("update_agent", texts["contract"])
+        # normal_review 保留 Codex 元组（purpose 矩阵）。
+        self.assertIn("purpose 矩阵", texts["agents"])
+        self.assertIn("`codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`", texts["agents"])
+
+    def _minimal_contextual_payload(self) -> dict:
+        """The deterministic minimal valid payload from the standalone contract vector."""
+        return {
+            "contract": "translation_contextual_v1",
+            "ordered_revision_keys": ["r1"],
+            "translation_snapshot": [
+                {"revision_key": "r1", "source": "Hello world", "target": "你好，世界"}
+            ],
+            "fixed_source_commit": "61bb370c33e46c4df4b2bbfd56113a0de1822300",
+            "terminology_snapshot": "术语：zone=区域",
+            "bounded_context": [
+                {"revision_key": "r1", "context": "tag=talents/foo; nearby: A, B"}
+            ],
+            "rendered_briefing": "有界语境审核 briefing：revision r1",
+            "runtime_tuple": "pi/opencode-go/deepseek-v4-flash/null/max",
+        }
+
+    def _canonical_bytes(self, obj: object) -> bytes:
+        return json.dumps(
+            obj, sort_keys=True, separators=(",", ":"), ensure_ascii=False
+        ).encode("utf-8")
+
+    def test_contextual_canonical_vector_executable(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        # 按文档 recipe 构造最小向量：八个组件、数组/object、1:1 revision、非 ASCII。
+        payload = self._minimal_contextual_payload()
+        canonical = self._canonical_bytes(payload)
+        expected = (
+            '{"bounded_context":[{"context":"tag=talents/foo; nearby: A, B",'
+            '"revision_key":"r1"}],"contract":"translation_contextual_v1",'
+            '"fixed_source_commit":"61bb370c33e46c4df4b2bbfd56113a0de1822300",'
+            '"ordered_revision_keys":["r1"],'
+            '"rendered_briefing":"有界语境审核 briefing：revision r1",'
+            '"runtime_tuple":"pi/opencode-go/deepseek-v4-flash/null/max",'
+            '"terminology_snapshot":"术语：zone=区域",'
+            '"translation_snapshot":[{"revision_key":"r1","source":"Hello world",'
+            '"target":"你好，世界"}]}'
+        ).encode("utf-8")
+        self.assertEqual(canonical, expected)
+        digest = hashlib.sha256(canonical).hexdigest()
+        self.assertEqual(
+            digest, "ae6923cf13f7662ee609155c690da1abaa3117a8b0ce07ce079ada3284f9378b"
+        )
+        # 文档向量与测试向量一致：文档含同一紧凑文本与同一摘要。
+        self.assertIn(expected.decode("utf-8"), contextual)
+        self.assertIn(digest, contextual)
+        # 向量属性：八个组件、数组/object、非 ASCII、1:1 revision。
+        self.assertEqual(len(payload), 8)
+        self.assertIsInstance(payload["ordered_revision_keys"], list)
+        self.assertIsInstance(payload["translation_snapshot"], list)
+        self.assertTrue(any(ord(ch) > 127 for ch in payload["terminology_snapshot"]))
+        self.assertEqual(
+            len(payload["ordered_revision_keys"]), len(payload["translation_snapshot"])
+        )
+        self.assertEqual(
+            len(payload["ordered_revision_keys"]), len(payload["bounded_context"])
+        )
+
+    def test_contextual_payload_semantic_values_enforced(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        # 语义值约束：哈希前与接受结果前都执行。
+        self.assertIn("`contract` 必须精确等于", contextual)
+        self.assertIn("`runtime_tuple` 必须精确等于", contextual)
+        self.assertIn("`fixed_source_commit` 必须非空且精确等于", contextual)
+        self.assertIn("manifest 固定", contextual)
+        self.assertIn("精确等于实际冻结候选的有序 revision ID 列表", contextual)
+        self.assertIn("哈希自洽不足", contextual)
+        self.assertIn("哈希／派发之前执行", contextual)
+        self.assertIn("接受返回结果前", contextual)
+        self.assertIn("重新执行", contextual)
+
+    def test_contextual_payload_rejects_wrong_semantics(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        # 文档规定错误语义值在冻结时拒绝。
+        for marker in (
+            "错误 contract",
+            "错误 runtime tuple",
+            "错误 manifest commit",
+            "错误 revision 选择／顺序／source/target",
+            "空 `revision_key`／`source`／`target`",
+            "候选冻结时被拒绝",
+        ):
+            self.assertIn(marker, contextual)
+        # 有效向量自身满足强制语义值（可执行正面检查）。
+        payload = self._minimal_contextual_payload()
+        self.assertEqual(payload["contract"], "translation_contextual_v1")
+        self.assertEqual(
+            payload["runtime_tuple"], "pi/opencode-go/deepseek-v4-flash/null/max"
+        )
+        self.assertTrue(payload["fixed_source_commit"])
+        for key in payload["ordered_revision_keys"]:
+            self.assertTrue(key)
+        for entry in payload["translation_snapshot"]:
+            self.assertTrue(entry["revision_key"] and entry["source"] and entry["target"])
+        # 语义值改变会产生不同哈希：哈希自洽不足以保证候选正确。
+        base = self._canonical_bytes(payload)
+        self.assertNotEqual(
+            self._canonical_bytes(dict(payload, contract="translation_contextual_v1-wrong")),
+            base,
+        )
+        self.assertNotEqual(
+            self._canonical_bytes(dict(payload, runtime_tuple="pi/opencode-go/deepseek-v4-flash/high")),
+            base,
+        )
+        self.assertNotEqual(
+            self._canonical_bytes(
+                dict(payload, fixed_source_commit="0" * 40)
+            ),
+            base,
+        )
+        self.assertNotEqual(
+            self._canonical_bytes(dict(payload, ordered_revision_keys=["r2"])),
+            base,
+        )
+        wrong_target = dict(payload)
+        wrong_target["translation_snapshot"] = [
+            {"revision_key": "r1", "source": "Hello world", "target": "你好世界"}
+        ]
+        self.assertNotEqual(self._canonical_bytes(wrong_target), base)
+        self.assertNotEqual(
+            self._canonical_bytes(dict(payload, ordered_revision_keys=[""])),
+            base,
+        )
+
+    def test_contextual_payload_schema_rejects_non_string(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        # 精确形状：只允许声明的根 object、string array、精确键 object array。
+        self.assertIn("恰好包含八个声明的键", contextual)
+        self.assertIn("每个标量叶子必须是 string", contextual)
+        for marker in (
+            "null、boolean、numeric",
+            "额外键",
+            "缺失键",
+            "容器形状",
+            "重复、乱序、错位",
+        ):
+            self.assertIn(marker, contextual)
+        # 旧的“所有值非 string 即拒绝”矛盾措辞已移除。
+        self.assertNotIn("所有值必须是 string／string array／object array", contextual)
+
+    def test_contextual_classification_scoped_and_explicit(self) -> None:
+        contract = self._normative_texts()["contract"]
+        # 绝对陈述收窄为 code-only 交叉审核。
+        self.assertIn("code-only 交叉审核", contract)
+        self.assertIn("不把译文本身交给", contract)
+        self.assertIn("仍只走 blind bundle", contract)
+        # contextual 是已选任务中的补充例外；双向隔离与指标分离保留。
+        self.assertIn("补充例外", contract)
+        self.assertIn("双向隔离不变", contract)
+        self.assertIn("绝不完成、替换或计入", contract)
+
+    def test_contextual_head_oid_guard(self) -> None:
+        texts = self._normative_texts()
+        # 三份文档都要求派发前记录 HEAD OID 并返回后精确比较。
+        for name in ("orchestrator", "contract", "contextual"):
+            self.assertIn("HEAD OID", texts[name], name)
+        self.assertIn("git rev-parse HEAD", texts["contextual"])
+        self.assertIn("精确相等", texts["contextual"])
+        self.assertIn("随后工作树干净", texts["contextual"])
+        self.assertIn("单个 OID", texts["contextual"])
+        self.assertIn("单个 OID", texts["contract"])
+        # HEAD 变化即使工作树干净也使输出无效（基础设施错误）。
+        self.assertIn("使输出无效", texts["contextual"])
+        self.assertIn("基础设施错误", texts["contextual"])
+        # 保持不做全仓哈希的边界。
+        self.assertIn("不对整个干净仓库做全量哈希", texts["contextual"])
+        self.assertIn("不对整个干净仓库做全量哈希", texts["contract"])
+
+    def test_contextual_briefing_exclusions_and_outbound_boundary(self) -> None:
+        texts = self._normative_texts()
+        # briefing 排除先前 finding、裁决、建议修复与 blind v2 observation。
+        for marker in ("先前 finding", "裁决决定", "建议修复", "blind v2 observation"):
+            self.assertIn(marker, texts["contextual"])
+        # AGENTS.md 外发边界增补 Pi 语境审核通道（有界内容 + 只读 workspace）。
+        self.assertIn("有界译文语境 bundle", texts["agents"])
+        self.assertIn("固定源码 commit 证据", texts["agents"])
+        self.assertIn("术语子集", texts["agents"])
+        self.assertIn("不得包含先前 finding", texts["agents"])
+        # 编排契约同步声明该常设通道。
+        self.assertIn("Pi REVIEWER 的 `translation_contextual_v1`", texts["contract"])
+
+    def test_contextual_separation_and_records(self) -> None:
+        texts = self._normative_texts()
+        # 记录与指标与 blind v2 分离；各自 pending 到自己的有效记录。
+        self.assertIn("独立记录与指标", texts["contract"])
+        self.assertIn("各自 pending 到自己的有效记录", texts["contract"])
+        self.assertIn("各自 pending 到自己的有效记录完整", texts["contextual"])
+        self.assertIn("candidate_identity", texts["contract"])
+        # 任一 contract 的输出不得改写另一 contract 的冻结输入。
+        for name in ("agents", "contract", "contextual"):
+            self.assertIn("不得改写另一 contract 的冻结输入", texts[name], name)
+
+    def test_contextual_state_record_is_conditional(self) -> None:
+        texts = self._normative_texts()
+        # STATE 示例：contextual_reviewer 条件字段记录 Pi 载体完整元组（含候选绑定）。
+        contextual_state = (
+            '"contextual_reviewer": {"provider": "pi", '
+            '"model": "opencode-go/deepseek-v4-flash", "mode": null, '
+            '"thinking": "max", "purpose": "translation_contextual_v1", '
+            '"candidate_identity": null, "agent_id": null'
+        )
+        for name in ("orchestrator", "contract"):
+            self.assertIn(contextual_state, texts[name], name)
+            self.assertIn("contextual_reviewer", texts[name], name)
+        # 条件要求：仅当 review_contracts 含该 contract 时必需；未选择无迁移。
+        self.assertIn("`review_contracts` 含 `translation_contextual_v1` 时", texts["contract"])
+        self.assertIn("不需要该字段", texts["contract"])
+        self.assertIn("无迁移", texts["contract"])
+        # 派发后候选绑定必须非空且等于冻结值。
+        self.assertIn("派发后 `candidate_identity` 必须非空且等于冻结值", texts["contract"])
+        # 不再声称不新增 STATE 字段。
+        self.assertNotIn("不新增 STATE 字段", texts["orchestrator"])
+        # 独立契约同样记录 STATE 载体与 agent_id 同步。
+        self.assertIn("contextual_reviewer", texts["contextual"])
+        self.assertIn("agent_id", texts["contextual"])
+        self.assertIn("agent ID 与 `candidate_identity` 写入 STATE", texts["contextual"])
+
+
 if __name__ == "__main__":
     unittest.main()

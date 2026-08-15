@@ -1,121 +1,155 @@
-# Handoff — 本地化基础设施契约（contract/0.1）工作交接
+# Handoff — Paseo 语境翻译复审通道完成与质量审计恢复点
 
-> 交接时间：2026-08-13
-> 交接范围：`tome4-chinese-translation` 仓库的本地化基础设施契约推进、强身份槽位
-> 迁移、以及最新外部评审暴露的消费链缺口。
-> 状态：`develop` @ `82a1985`（已推送 origin/develop），工作树干净。
+> 交接时间：2026-08-15
+> 仓库：`tome4-chinese-translation`
+> 当前分支：`develop`
+> 当前 HEAD：`61bb370c33e46c4df4b2bbfd56113a0de1822300`
+> 当前 `origin/develop`：`2c3d83c657def449343c71ff2ba31cdf0f9812da`（本地领先 6，落后 0）
 
----
+## 一、当前恢复点
 
-## 一、当前状态速览
+- Paseo 实现任务 `translation-context-review-mcp-001` 已进入 `DONE`，没有未解决或 deferred
+  finding；当前没有运行中的 EXECUTOR／REVIEWER／SENIOR_REVIEWER。
+- 最终任务候选：
+  `92d54977e0ff6db6e97fcd4e6af8b747f12d23a11a1d909935e80fb9fcb15788`。
+- 实现尚未 stage、commit 或 push；当前 task-content 工作树为：
+  - `M AGENTS.md`
+  - `M .ai/roles/orchestrator.md`
+  - `M .ai/roles/reviewer.md`
+  - `M docs/paseo-orchestration-v2-contract.md`
+  - `M tests/i18n/test_toolchain.py`
+  - `?? docs/paseo-translation-context-review-v1-contract.md`
+  - `M handoff.md`（本文件，本次按用户要求重写）
+- `.ai/task/translation-context-review-mcp-001/` 与对应 `.ai/reviews/` 为已忽略的编排记录，
+  已完整保留候选 diff、candidate ref、审查和范围裁决，不进入提交。
+- 除非用户明确要求，不 push；提交时不要混入其他任务或 ignored 编排产物。
 
-- **HEAD**：`82a1985 docs(i18n): record external-review advisories and PR-pending scope`
-- **远端**：`origin/develop` == `82a1985`；`origin/master` == `f6b23ed`（未合并、未开 PR）
-- **发布仓库** `/home/yun/projects/tome-chn-mod`：本地 `eb6f142`（addon 0.2.6），**未推送**
-- **工作树**：干净（所有成果已提交并推送）
+## 二、本轮已完成：translation_contextual_v1
 
-### 本轮已完成并推送的提交链（`91cb462..82a1985`）
+本轮新增了 Paseo 托管的、非盲且有上下文的补充翻译复审通道
+`translation_contextual_v1`。它与既有 blind `translation_v2` 双向隔离：不会完成、替换或计入
+blind v2 contract，也不会把 blind observation、历史 finding、裁决或修复建议注入语境复审。
 
-| 提交 | 内容 |
-|---|---|
-| `cd42f9a` | contract 0.1 Pilot A 验收 + talent.info 槽位 + L2 rename 修复 + ci-gates 接线 + cli.py 可移植 |
-| `dc74ee2` / `a2f5b2b` / `19b8790` | talent.info 基线重冻 + 迁移记录 + 度量/回滚文档修正 |
-| `1cff3d6` / `c192bb2` / `d72f1c8` | effect.desc 槽位 + 基线重冻 + 迁移记录 + per-occurrence 测试强化 |
-| `9fbd9cd` | TERMINOLOGY.md 计数刷新 + release-plan.md 状态 |
-| `82a1985` | 外部评审 advisory 归档（A2/A3 + PR 待办范围 + table.merge 假设声明） |
+### 1. REVIEWER 路由
 
----
+同一个 REVIEWER 角色按审核契约和控制面 purpose 选路：
 
-## 二、已达成（身份底座）
+| review contract | `labels.purpose` / 记录 purpose | 载体 |
+|---|---|---|
+| `code_legacy_v1` | `normal_review` | Codex `gpt-5.6-sol` / `auto-review` / `xhigh` |
+| `translation_contextual_v1` | `translation_contextual_v1` | Pi `opencode-go/deepseek-v4-flash` / mode null / `max` |
 
-- **契约 §4.6 四个强身份槽位全部落地**：`talent.name`、`talent.info`、`effect.desc`、`entity.name`。
-- **冻结公式**（§4.5 身份哈希 / §6.1 指纹 / §7.1 baseline 格式）零改动，字节级稳定。
-- **原位重分类机制**：`talent.info` / `effect.desc` 通过 Lua 补丁「每处恰好一次」重分类，
-  locales 写入与 source_tag 逐字节不变，tDef 数 / source_snapshot_sha256 / i18n_list.lua
-  字节不变，无 strong+fallback 双映射。
-- **覆盖矩阵实证**：talent.info 1836 strong；effect.desc 805 strong + 21 组共享 desc 一对多 TU。
-- **门禁**：781 工具链/契约测试全绿、ci-gates 12/12、严格 lint、扫描、审计、addon 完整构建全过。
-- **基线重冻**：3 代（29da216 / cd42f9a / 1cff3d6）各 8 组件 × 2 文件，均 0 finding，迁移记录
-  完整（registry sha 对照、覆盖矩阵、三档回滚、PR 待办）。
+- code-only Codex 元组谓词只适用于 `normal_review`，不会误杀合法的语境 Pi REVIEWER；
+- contextual 路由不静默降级、不回退 Codex；创建或恢复后核验完整
+  Provider/Model/Mode/Thinking；不匹配即停止并按基础设施错误处理；
+- agent 必须由 ORCHESTRATOR 通过 agent-scoped Paseo MCP `create_agent` 直接创建，继承同一
+  workspace 和父级 lineage；MCP 无法提供可验证 lineage 时停止 child 并进入 `WAIT_USER`。
 
----
+### 2. 候选身份与派发
 
-## 三、最新外部评审结论（**关键，交接重点**）
+- `candidate_identity` 是八键 canonical JSON payload 精确 UTF-8 字节的 SHA-256；键递归按字节序
+  排序，数组保留冻结顺序，紧凑分隔符，`ensure_ascii=false`；
+- payload 不包含计算后的 identity 值；外层 envelope 携带
+  `{candidate_identity, payload}`，其精确 JSON 文本映射到 MCP `initialPrompt`，CLI 等价为
+  `paseo run` 的 positional prompt；`--json` 仅控制 CLI 输出格式；
+- 规范向量摘要保持：
+  `ae6923cf13f7662ee609155c690da1abaa3117a8b0ce07ce079ada3284f9378b`；
+- 哈希前及接受结果前都校验固定 contract、Pi runtime tuple、manifest 固定源码 commit、冻结
+  revision 顺序以及 source/target；空 key/source/target 或语义不匹配均失败关闭；
+- agent label、条件 STATE 字段和 review 记录中的 identity 是允许且必需的控制面副本，不参与
+  payload 身份计算。
 
-上一轮外部只读评审（本地主代理 + 生产运行证据）判定：**「身份底座成功，端到端质量门
-尚未成功」**。G1–G12 的 Gate 测试证明了公式稳定性和 happy path，但未覆盖真实变更类型
-下的消费链。**不建议据此进入 Phase 2 或合并相关 PR**（这正是契约 §15 规则 6 预警的
-「Phase 2 前吸收 Pilot A 实测教训」场景）。
+### 3. 恢复、结果和只读边界
 
-经本会话独立逐条核验，4 个 High 属实、1 个 Medium 重分类：
+- 正常 contextual 派发使用 fresh agent；创建结果不明时按 workspace、task、role、purpose、
+  精确 `candidate_identity` 过滤后再做 0/1/多基数判定；
+- 旧候选 agent 在 identity 过滤阶段排除，不算当前候选匹配；过滤后零匹配只允许现有的一次
+  bounded retry；列表截断／不完整、缺省 purpose 歧义、多个当前候选或无法证明唯一性时进入
+  `WAIT_USER`；
+- 结果 envelope、revision 和 evidence 对象均为 closed schema；revision 集合与顺序必须精确，
+  evidence source/target 与冻结值逐字节相等；任何缺失、额外字段、重复、乱序、错候选或畸形
+  输出均失败关闭，不部分接受；
+- REVIEWER 只读。派发前后比较 HEAD OID、候选路径、任务前脏／未跟踪路径以及路径精确的
+  decision-critical ignored 文件；ORCHESTRATOR 合法写入只使用有限的路径精确 allowlist。
+  不建设通用文件系统监控，也不对整个仓库或 ignored tree 做全量哈希。
 
-| # | 级别 | 问题 | 证据（file:line） | 核验 |
-|---|---|---|---|---|
-| 1 | High | duplicate-id 规则未进 Baseline/CI：`read_index_files` 硬编码 `conflicts=()`，提取期算出的实体冲突（T_IRON_WILL / T_TWILIT_ECHOES，见 `.artifacts/i18n/identity/current/*/identity.json`）不进入 finding 管线 → 8 基线空、report 报 0 ERROR。且冲突来自未加载遗留文件，直接恢复传递会误报 | `tools/i18nlib/identity.py:839`、`pipeline.py:149` | ✅ 属实 |
-| 2 | High | source 增量漏新 TU：affected_tus 仅从 base 索引收集，recomputed 只保留旧 UID → 新增实体/新 UID/部分改名静默漏报；删除文件在 try 之外读 head 已删 blob；G8 只测 UID 不变的数值修改 | `tools/i18nlib/incremental.py:288,318,364`、`tests/i18n/incremental/test_incremental.py:305` | ✅ 属实 |
-| 3 | High | source `--ci` 把全量 ERROR 当 new ERROR（未与 base fingerprints 求差），有合法 legacy 债务时误失败 | `tools/i18nlib/cli.py:1440` | ✅ 属实 |
-| 4 | High | translation 域漏 head-only 新条目、不读 base copy fragment；rule 域只比较 rule_id 集合，同 rule 的 schema_version/severity/evidence 变化被判「无规则变化」 | `tools/i18nlib/cli.py:1495,1725` | ✅ 属实 |
-| 5 | ~~Medium~~ | L1 不携带旧译文（previous_definition=None → merge 丢弃） | `identity.py:1197`、`merge.py:192` | ⚠️ **重分类**：契约 §5 明写 L1「不产 migration candidate」，实现与契约一致；属设计级观察，非实现缺陷 |
+### 4. 条件 STATE 记录
 
----
+任务选择 `translation_contextual_v1` 时，STATE 需要独立的 `contextual_reviewer`：
 
-## 四、建议的下一步（infra-contract-004，待用户授权）
+```json
+{
+  "provider": "pi",
+  "model": "opencode-go/deepseek-v4-flash",
+  "mode": null,
+  "thinking": "max",
+  "purpose": "translation_contextual_v1",
+  "candidate_identity": null,
+  "agent_id": null
+}
+```
 
-修复 4 个 High + 补测试 + 重新做消费链验收。范围建议：
+未选择该 contract 的任务不添加字段，也不迁移；既有 `reviewer` 块仍是 code
+`normal_review` 的 Codex 载体。
 
-1. **duplicate-id 透传**：`read_index_files` 真实透传 conflicts 进 finding 管线；先摸清
-   T_IRON_WILL / T_TWILIT_ECHOES 的真实加载语义，处理「未加载遗留文件」误报边界
-   （不能简单恢复传递）。
-2. **source 增量**：补 add/delete/rename/new-UID 处理 + 删除文件的异常保护；
-   补 G8 之外的真实变更类型测试。
-3. **source `--ci`**：改为与 base fingerprints 求差，legacy ERROR 只作技术债报告。
-4. **translation/rule 域**：补 head-only 新条目、base copy fragment、rule
-   schema/severity/evidence 语义变化检测。
-5. **补测试**：add/delete/rename/new-UID、head-only translation、copy fragment、
-   rule schema bump、真实 duplicate-id reachability（含误报率）。
-6. **重新验收**：更新 gates-report 与契约状态，明确「身份底座已验收、消费链修复后
-   再验收」。
+## 三、验证与审核结果
 
----
+- `PaseoTranslationContextReviewTests` + `ProjectSubagentDefinitionTests` + STATE tests：80 tests OK；
+- `tests/i18n/test_toolchain.py`：480 tests OK；
+- `tools/ci-gates.sh --skip-build`：全部门禁通过；
+- `git diff --check`：通过；无 staged 文件；
+- 第 9 轮 normal / senior re-review：双 PASS；
+- 第 9 轮 normal / senior FINAL_REVIEW：双 PASS，无 actionable finding；
+- final diff SHA-256：
+  `2c2ad9552e1a0f283b253e7db26bb97573dc3085b6288b216e5a6e0bf444fb6d`；
+- final candidate ref：
+  `92d54977e0ff6db6e97fcd4e6af8b747f12d23a11a1d909935e80fb9fcb15788`。
 
-## 五、未决的用户决策
+Claude Opus 首选路由本任务因 provider 明确返回未登录错误而在有效输出前失败；任务按契约锁定
+Codex `gpt-5.6-sol` / `auto-review` / `xhigh` fallback。该情况已记录，不是候选缺陷。
 
-1. **addon 0.2.6 发布**：暂缓（用户明确）。发布仓库 `eb6f142` 停在本地。
-2. **master PR 合并**：暂缓（0.1 正式生效需 PR 合并，与发布一起做）。
-3. **infra-contract-004（消费链修复）**：**待用户授权**（本 handoff 交接时尚未启动）。
-4. **effect.desc 之后是否继续其他槽位**：已无契约示例槽位缺口（四槽位齐）。
+## 四、仍在等待决定：quality-audit-002
 
----
+`.ai/task/quality-audit-002/STATE.json` 仍为 `WAIT_USER`，恢复点是 `REVIEW`。已冻结：
 
-## 六、关键协议/工作流要点（供后续会话）
+- component：`tome`；
+- offsets：`13661`、`12591`；
+- 每组 10 条，共 20 个互不重叠 revision；
+- 固定引擎源码 commit：`624a67329fe2ad440c5b344785a9c73fcf22ae63`；
+- translation SHA：
+  `7b6e39e0de6895fda30503a0fb095b50685dfeaa9d222bbf849c4119ba2ba05f`；
+- selection SHA：
+  `51ea7148283a5d4b8329bf199d99434799d48357eb137d8cfa0746b9c30c22a6`。
 
-- **多代理编排协议**：大型任务用 Paseo 三角色（ORCHESTRATOR=本会话主代理、
-  EXECUTOR=`paseo run --provider pi --model opencode-go/deepseek-v4-flash --thinking max`、
-  REVIEWER=`paseo run --provider codex/gpt-5.6-sol` auto-review 只读）。
-  - 状态机事实源：`.ai/task/STATE.json`（用 `python3 -B tools/ai_state_check.py .ai/task/STATE.json` 校验转移合法性）。
-  - **commit 是 ORCHESTRATOR 宿主检查点**（EXECUTOR 不 commit/stage）；大型任务用「两阶段提交」（实现提交 → 基线重冻 → 交付提交），复审收敛后 commit、避免先 commit 再改。
-  - 外发检查点：plan-reviewer / EXECUTOR / REVIEWER briefing 发送前记录 provider/model/内容类型/量级。
-- **门禁**：`python3 -B tools/i18n doctor` → `lint --strict` → `unittest discover -s tests/i18n -q` → `scan_runtime_collisions` → `classify_runtime_keys` → 术语审计（audit_static/dynamic/annotate_domains）→ `git diff --check`；完整集成用 `tools/ci-gates.sh`。
-- **基线重冻**：`python3 -B tools/i18n baseline freeze --commit <实现SHA>`（需导出 `TOME_DLC_*_ROOT=/home/yun/projects/tome4-dlcs/...`）；旧代文件「冻结后不修改」，迁移记录标注 superseded。
-- **测试口径陷阱**：`unittest` 传裸包路径（如 `tests/i18n/fingerprint`）会加载 0 个测试或 import 报错；必须用 `tests.i18n.<pkg>.<module>` 模块路径或 `discover -s`。
-- **A2/A3 advisory**（已归档入契约 §15）：A2=legacy validate pin 失败 exit 2；A3=§8 I1 实现为 component 级加宽（契约要求 section 级）。
+此前三次旧 `$tome4-pi-review` 尝试均已作废：Paseo 已激活时不应使用旧 Skill，且前两次还受
+Codex sandbox 网络限制影响，没有有效结果。不要复用这些输出。
 
----
+新实现的 `translation_contextual_v1` 是补充通道，不能替代 `quality-audit-002` 已冻结的 blind
+`translation_v2` contract。因此继续前需要用户明确选择：
 
-## 七、运行期 artifact 状态
+1. 允许 ORCHESTRATOR 直接运行现有 blind translation-v2 runner（不是旧 Skill），恢复
+   `quality-audit-002`；或
+2. 暂停 blind audit，另建独立任务，用 `translation_contextual_v1` 对明确选择的 revisions 做
+   有上下文补充复审；结果独立记录，不计入 quality-audit-002 的 blind 指标。
 
-- `.ai/task/STATE.json`：当前为 `infra-contract-003`，终态 `DONE`（step=15）。
-- `.ai/reviews/`：infra-contract-001/002/003 各轮 review JSON 均已落盘（R1/R2/R3/FR/final）。
-- `.ai/task/SPEC.md` / `PLAN.md`：当前为 infra-contract-003 内容（plan_rev 1）。
-- EXECUTOR/REVIEWER agent 已 `paseo archive`。
-- 门禁日志与验收报告：`.artifacts/i18n/{contract-pilot-a,contract-pilot-a-g10,contract-pilot-a-effect-desc}/`（忽略目录）。
+## 五、推荐下一步
 
----
+1. 先由用户决定是否提交当前 7 个工作树路径；若提交，建议单独提交本次 Paseo contextual
+   review contract，不混入 ignored task/review 记录，也不 push；
+2. 再对 `quality-audit-002` 的两条恢复路线作出明确选择；
+3. 若恢复 blind route，先重新核验冻结 selection 与当前 translation/manifest SHA 未漂移，再从
+   STATE 的 `REVIEW` 恢复；
+4. 若选择 contextual route，新建独立 task ID，冻结 candidate identity 和条件
+   `contextual_reviewer` STATE，不改写 `quality-audit-002` 的历史记录。
 
-## 八、启动 infra-contract-004 时需先读
+## 六、持续约束
 
-1. `docs/localization-infra-contract-v0.1.md`（契约全文，尤其 §4.3/§5/§7/§8/§13/§15）。
-2. 本 handoff 第三节的 4 个 High 证据链。
-3. `.artifacts/i18n/identity/current/*/identity.json`（duplicate-id 冲突原始证据）。
-4. `tools/i18nlib/{identity,incremental,merge,pipeline}.py` + `tools/i18nlib/cli.py` 的
-   增量/CI 分支。
+- Paseo 激活期间不使用 `$tome4-pi-review`、`$tome4-pi-file-review` 或
+  `$tome4-pi-subagent`；委托与复审只走 Paseo 角色；
+- blind `translation_v2` 仍不得注入术语、Facts、源码或历史 finding；语境复审也不得看到
+  blind observation；
+- Facts 通道仍为 `do-not-promote-facts-channel`；
+- 机制事实以 manifest 固定源码为准；译文、术语和模型 finding 不能覆盖源码行为；
+- 自动化统一使用 `python3 -B tools/i18n <command>`；Lua 只用项目 LuaJIT / Lua 5.1 环境；
+- 译文或术语修改后按 `AGENTS.md` 运行对应完整门禁；
+- 未经用户明确要求不 push。
