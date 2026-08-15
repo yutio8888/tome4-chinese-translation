@@ -183,7 +183,7 @@ profile 可以由 `source_tag`、section 和术语 category 推断，但必须�
 - 简洁、可复核的理由；
 - 适用术语行、固定源码 commit、运行时截图或其他证据引用；
 - `proposed / confirmed / partially_confirmed / rejected / resolved` 状态；
-- 绑定的 `revision_id`。
+- 绑定的 `revision_id`（Pilot A 桥接公式：tu_uid + revision_uid + target）。
 
 不得通过复制完整受限上下文来证明一个局部错误。公开机制核验按项目现有规则记录组件、相对路径、固定 commit 和关键行为。
 
@@ -279,14 +279,23 @@ review_priority = defect_likelihood × impact × player_exposure × reuse_amplif
 
 ## 六、身份、版本和证据绑定
 
-### 6.1 两层身份
+### 6.1 三层身份：Pilot A 桥接 + 译文修订
 
-沿用现有 `stable_entry_id` 的思路，区分：
+质量条目的身份轴迁移到 Pilot A（infra-contract-007），区分：
 
-- `unit_id`：标识 editorial unit，至少由 version 范围外的 component、section、source、`source_tag` 构成；
-- `revision_id`：标识具体译文 revision，由 schema、游戏版本、`unit_id`、target、`args_order`、`special` 计算规范 JSON SHA-256。
+- `tu_uid`：Pilot A 单位身份。优先从 identity index 的 editorial→TU 映射解析
+  （strong TU 对文件移动和 source-tag 拼写变化稳定）；无映射时回退到
+  `tu/fallback-editorial` scheme。一对多 editorial 按 TU 拆分为多条。
+- `revision_uid`：Pilot A 源文修订，`SHA256("rev\0" + tu_uid + "\0" +
+  source_sha256)`；source 变化时必变。
+- `revision_id`：具体译文修订，由 schema、游戏版本、`tu_uid`、`revision_uid`、
+  target、`args_order`、`special` 计算规范 JSON SHA-256；target 或
+  `args_order`/`special` 变化时必变。
 
-行号和 ordinal 只作为位置元数据，不应成为长期 revision 身份，以免单纯重排使全部认证失效。若同一 editorial key 存在多个合法 occurrence，应保存 occurrence 列表，不用不稳定行号制造伪身份。
+`unit_id`（editorial `stable_entry_id`）保留为证据字段。行号和 ordinal 只作为
+位置元数据，不应成为长期 revision 身份，以免单纯重排使全部认证失效。若同一
+editorial key 存在多个合法 occurrence，应在所属 TU 条目内保存 occurrence 列表，
+不用不稳定行号制造伪身份。
 
 建议规范身份示意：
 
@@ -294,7 +303,8 @@ review_priority = defect_likelihood × impact × player_exposure × reuse_amplif
 {
   "identity_contract": "tome4-translation-revision-v1",
   "version": "tome-1.7.6",
-  "unit_id": "...",
+  "tu_uid": "...",
+  "revision_uid": "...",
   "target": "...",
   "args_order": null,
   "special": null
@@ -443,7 +453,7 @@ i18n/quality/
 
 建议按以下优先级返回：
 
-1. 同 `unit_id` 的当前 Gold revision；
+1. 同 `tu_uid` + `revision_uid` 的当前 Gold revision（Pilot A 桥接身份）；
 2. 相同运行键、component 和版本的 Gold revision；
 3. 相同原始 source、`source_tag`、profile/domain 和结构签名；
 4. 相同 source 但存在多个语境译法时，返回带条件的 variants，不选全局默认；

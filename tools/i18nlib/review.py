@@ -29,6 +29,7 @@ from .translation_review import (
     TRANSLATION_REVIEW_POLICY_CONTRACT,
     TRANSLATION_REVIEW_SCHEMA_VERSION,
     build_translation_item,
+    build_translation_items,
     deduplicate_translation_revisions,
     load_translation_review_policy,
     partition_translation_items,
@@ -148,6 +149,25 @@ def _entry_id(
     return "translation-" + _canonical_sha256(identity)
 
 
+def _load_editorial_to_tu_for(manifest: Manifest) -> dict[tuple[str, str], tuple[str, ...]]:
+    """Load the current Pilot A identity indexes into an editorial->TU map.
+
+    Mirrors `quality._load_editorial_to_tu` (same fail-closed current-index
+    scan); components without an index directory are simply unmapped and
+    fall back to the fallback-editorial TU scheme.
+    """
+    from .quality import _load_editorial_to_tu
+
+    return _load_editorial_to_tu(manifest)
+
+
+def _identity_indexes_sha256_for(manifest: Manifest) -> str:
+    """Deterministic digest of the current identity indexes (see quality)."""
+    from .quality import _identity_indexes_sha256
+
+    return _identity_indexes_sha256(manifest)
+
+
 def _translation_items_from_bytes(
     manifest: Manifest,
     loader: LocaleLoader,
@@ -156,15 +176,23 @@ def _translation_items_from_bytes(
 ) -> list[dict[str, Any]]:
     spec = manifest.component(component)
     document = loader.load_bytes(data, logical_path=spec.translation)
-    return [
-        build_translation_item(
-            version=manifest.version,
-            component=component,
-            ordinal=ordinal,
-            entry=entry,
+    editorial_to_tu = _load_editorial_to_tu_for(manifest)
+    flattened: list[dict[str, Any]] = []
+    for ordinal, entry in enumerate(document.translations):
+        flattened.extend(
+            build_translation_items(
+                version=manifest.version,
+                component=component,
+                ordinal=ordinal,
+                entry=entry,
+                editorial_to_tu=editorial_to_tu,
+            )
         )
-        for ordinal, entry in enumerate(document.translations)
-    ]
+    # One-to-many editorials split into several items; keep the canonical
+    # inventory ordinal space contiguous after flattening.
+    for new_ordinal, item in enumerate(flattened):
+        item["ordinal"] = new_ordinal
+    return flattened
 
 
 def _git_status_paths(
@@ -376,6 +404,7 @@ def _write_translation_bundles(
     bundles: list[dict[str, Any]] = []
     manifest_sha256 = hashlib.sha256(manifest.raw_bytes).hexdigest()
     _policy, policy_sha256 = load_translation_review_policy(manifest.root)
+    identity_indexes_sha256 = _identity_indexes_sha256_for(manifest)
     components = [component.id for component in manifest.components]
     for component in components:
         translation_path = manifest.root / manifest.component(component).translation
@@ -407,6 +436,7 @@ def _write_translation_bundles(
                 tool_version=TOOL_VERSION,
                 version=manifest.version,
                 manifest_sha256=manifest_sha256,
+                identity_indexes_sha256=identity_indexes_sha256,
                 component=component,
                 translation_sha256=translation_sha256,
                 offset=offset,
@@ -454,6 +484,7 @@ def _translation_bundle_payload(
     tool_version: str,
     version: str,
     manifest_sha256: str,
+    identity_indexes_sha256: str,
     component: str,
     translation_sha256: str,
     offset: int,
@@ -473,6 +504,7 @@ def _translation_bundle_payload(
         "tool_version": tool_version,
         "version": version,
         "manifest_sha256": manifest_sha256,
+        "identity_indexes_sha256": identity_indexes_sha256,
         "kind": "translations",
         "channel": TRANSLATION_REVIEW_CHANNEL,
         "method_version": TRANSLATION_REVIEW_METHOD,
@@ -728,6 +760,7 @@ def _validate_translation_v2_bundle(
             "tool_version",
             "version",
             "manifest_sha256",
+            "identity_indexes_sha256",
             "kind",
             "channel",
             "method_version",
@@ -760,6 +793,18 @@ def _validate_translation_v2_bundle(
         or not re.fullmatch(r"[0-9a-f]{64}", bundle["selection_sha256"])
     ):
         raise ValidationError("translation review selection digest is invalid")
+    identity_digest = bundle.get("identity_indexes_sha256")
+    if (
+        not isinstance(identity_digest, str)
+        or not re.fullmatch(r"[0-9a-f]{64}", identity_digest)
+    ):
+        raise ValidationError(
+            "translation review bundle identity indexes digest is invalid"
+        )
+    if identity_digest != _identity_indexes_sha256_for(manifest):
+        raise ValidationError(
+            "translation review bundle identity indexes digest is stale or invalid"
+        )
     _policy, expected_policy = load_translation_review_policy(manifest.root)
     if bundle["policy_sha256"] != expected_policy:
         raise ValidationError("translation review bundle policy digest is stale or invalid")
@@ -818,6 +863,7 @@ def _validate_translation_v2_bundle(
         raise ValidationError("translation review bundle exceeds its item-count limit")
     seen_revisions: set[str] = set()
     seen_ordinals: set[int] = set()
+    editorial_to_tu = _load_editorial_to_tu_for(manifest)
     for index, item in enumerate(items):
         validate_translation_item(
             item,
@@ -832,6 +878,24 @@ def _validate_translation_v2_bundle(
         if ordinal in seen_ordinals:
             raise ValidationError("translation review bundle repeats a canonical ordinal")
         seen_ordinals.add(ordinal)
+        # Pilot A binding (infra-contract-007 review F6): the item TU must
+        # belong to the current editorial->TU mapping, otherwise a bundle
+        # built against a stale identity index stays valid while the index
+        # gained TUs (silently dropping one-to-many items).
+        from .quality import editorial_tu_uids
+
+        expected_tu_uids = editorial_tu_uids(
+            component,
+            item["section"],
+            item["source"],
+            item["source_tag"],
+            editorial_to_tu=editorial_to_tu,
+        )
+        if item["tu_uid"] not in expected_tu_uids:
+            raise ValidationError(
+                f"translation review bundle items[{index}].tu_uid does not "
+                "belong to its editorial TU set"
+            )
     if (
         selection["offset"] == 0
         and selection["count"] == selection["total"]

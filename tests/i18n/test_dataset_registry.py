@@ -145,14 +145,14 @@ class RegistryLoadTests(unittest.TestCase):
         self.assertIn("facts-long-source-candidates-v2", ids)
         self.assertIn("facts-long-source-discarded-v1", ids)
         total = sum(len(entry["revision_ids"]) for entry in registry["entries"])
-        self.assertEqual(total, 276)
+        self.assertEqual(total, 275)
 
     def test_exclusion_union(self):
         registry = load_registry(SimpleNamespace(root=ROOT))
         excluded = excluded_revision_ids(registry, scopes=("facts-curation",))
-        self.assertEqual(len(excluded), 276)
+        self.assertEqual(len(excluded), 275)
         calibration_only = excluded_revision_ids(registry, scopes=("calibration",))
-        self.assertEqual(len(calibration_only), 276)
+        self.assertEqual(len(calibration_only), 275)
 
     def test_historical_exclusion_subset(self):
         registry = load_registry(SimpleNamespace(root=ROOT))

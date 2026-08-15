@@ -120,6 +120,8 @@ def sample_item(index: int, **updates: object) -> dict:
         "section": "test.lua", "source_length_bin": "short", "source_tag": "_t",
         "special": None, "structure": {},
         "unit_id": hashlib.sha256(f"unit-{index}".encode()).hexdigest(),
+        "tu_uid": hashlib.sha256(f"tu-{index}".encode()).hexdigest(),
+        "revision_uid": hashlib.sha256(f"revision-uid-{index}".encode()).hexdigest(),
         "revision_id": hashlib.sha256(f"revision-{index}".encode()).hexdigest(),
         "source": f"source {index}",
         "target": f"target {index}",
@@ -374,7 +376,7 @@ class QualityV3Tests(unittest.TestCase):
     def test_positive_negative_anchor_and_no_injection(self) -> None:
         unit_item = sample_item(
             0,
-            revision_id="7d003e413ca06d1ce5e9b537f626322f74735be7380667cfeeb22b763fc7d252",
+            revision_id="707b03b9a627a707cbbd8684b14f6b0a25ad09b733c952dfb9791ac481494821",
             source="Turns elapse between self-loadings: ", target="自动填弹间隔：",
         )
         sample = synthetic_sample(self.policy, first=unit_item)
@@ -404,7 +406,7 @@ class QualityV3Tests(unittest.TestCase):
 
         negative_item = sample_item(
             0,
-            revision_id="91cfc54f83a3c2d7a181021eef9408bd1d34282538ea830a7d946d92a938e3db",
+            revision_id="22459090528963ac39578e508f9a0a169629550ed1345fb79f3a2907d2cc876c",
             source="molten rock", target="熔岩",
         )
         negative_sample = synthetic_sample(self.policy, first=negative_item)
@@ -1077,7 +1079,7 @@ class QualityV3Tests(unittest.TestCase):
     def test_stability_keeps_raw_and_anchor_normalized_metrics_separate(self) -> None:
         anchored = sample_item(
             0,
-            revision_id="91cfc54f83a3c2d7a181021eef9408bd1d34282538ea830a7d946d92a938e3db",
+            revision_id="22459090528963ac39578e508f9a0a169629550ed1345fb79f3a2907d2cc876c",
             source="molten rock", target="熔岩",
         )
         sample = synthetic_sample(self.policy, first=anchored)

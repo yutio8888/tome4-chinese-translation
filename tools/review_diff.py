@@ -29,6 +29,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from i18nlib.config import DEFAULT_VERSION, Manifest, load_manifest  # noqa: E402
 from i18nlib.errors import I18nToolError  # noqa: E402
 from i18nlib.locale_model import LocaleLoader  # noqa: E402
+from i18nlib.quality import _identity_indexes_sha256, _load_editorial_to_tu  # noqa: E402
 from i18nlib.review import (  # noqa: E402
     DEFAULT_REVIEW_BATCH_SIZE,
     REVIEW_INDEX_CONTRACT,
@@ -48,6 +49,7 @@ from i18nlib.translation_review import (  # noqa: E402
     TRANSLATION_REVIEW_CHANNEL,
     TRANSLATION_REVIEW_SCHEMA_VERSION,
     build_translation_item,
+    build_translation_items,
     deduplicate_translation_revisions,
     load_translation_review_policy,
     partition_translation_items,
@@ -233,6 +235,7 @@ def _changed_translation_items(
     baseline_entries: Sequence[dict[str, Any]] | None,
     *,
     version: str = DEFAULT_VERSION,
+    editorial_to_tu: dict[tuple[str, str], tuple[str, ...]] | None = None,
 ) -> list[dict[str, Any]]:
     baseline_revisions = Counter(
         (
@@ -258,14 +261,18 @@ def _changed_translation_items(
         if baseline_revisions[revision] > 0:
             baseline_revisions[revision] -= 1
             continue
-        items.append(
-            build_translation_item(
+        items.extend(
+            build_translation_items(
                 version=version,
                 component=component,
                 ordinal=ordinal,
                 entry=entry,
+                editorial_to_tu=editorial_to_tu,
             )
         )
+    # Changed items keep their original document ordinals so callers can
+    # align them with the canonical inventory; one-to-many splits of the
+    # same occurrence share that ordinal.
     return deduplicate_translation_revisions(items)
 
 
@@ -335,6 +342,7 @@ def _generate_review(
     bundle_artifacts: list[tuple[Path, dict[str, Any]]] = []
     bundles: list[dict[str, Any]] = []
     changed_total = 0
+    identity_indexes_sha256 = _identity_indexes_sha256(manifest)
     for component, rel, path in translations:
         base = _read_baseline_blob(ROOT, baseline_tree, rel)
         try:
@@ -352,21 +360,52 @@ def _generate_review(
             doc_now.translations,
             None if doc_base is None else doc_base.translations,
             version=manifest.version,
+            editorial_to_tu=_load_editorial_to_tu(manifest),
         )
         if not items:
             continue
         changed_total += len(items)
-        selection_sha256 = translation_selection_sha256(items)
         translation_sha256 = __import__("hashlib").sha256(current_bytes).hexdigest()
-        canonical_items = [
-            build_translation_item(
+        editorial_to_tu = _load_editorial_to_tu(manifest)
+        canonical_items: list[dict[str, Any]] = []
+        canonical_ordinal_by_key: dict[tuple[int, str, str], int] = {}
+        for ordinal, entry in enumerate(doc_now.translations):
+            for item in build_translation_items(
                 version=manifest.version,
                 component=component,
                 ordinal=ordinal,
                 entry=entry,
+                editorial_to_tu=editorial_to_tu,
+            ):
+                # Keep the document ordinal on the item so membership can be
+                # resolved against the split canonical space afterwards.
+                item["_doc_ordinal"] = ordinal
+                canonical_items.append(item)
+        for new_ordinal, item in enumerate(canonical_items):
+            item["ordinal"] = new_ordinal
+            canonical_ordinal_by_key[
+                (item["_doc_ordinal"], item["tu_uid"], item["revision_id"])
+            ] = new_ordinal
+            item.pop("_doc_ordinal", None)
+        # Remap changed-item ordinals into the split canonical space so
+        # membership lookups stay aligned after one-to-many splits.  The key
+        # is (document ordinal, tu_uid, revision_id): the same revision can
+        # legitimately appear at several canonical occurrences (a TU covering
+        # multiple editorials), so a single-value revision map would fold
+        # them (infra-contract-007 review F8/F11).
+        for item in items:
+            key = (
+                item.get("ordinal", 0),
+                item["tu_uid"],
+                item["revision_id"],
             )
-            for ordinal, entry in enumerate(doc_now.translations)
-        ]
+            if key not in canonical_ordinal_by_key:
+                raise ReviewDiffError(
+                    f"cannot align changed translation item to canonical "
+                    f"inventory: {component} ordinal {key[0]}"
+                )
+            item["ordinal"] = canonical_ordinal_by_key[key]
+        selection_sha256 = translation_selection_sha256(items)
         inventory_sha256, inventory_membership = write_translation_inventory(
             root=manifest.root,
             tool_version=TOOL_VERSION,
@@ -382,6 +421,7 @@ def _generate_review(
                 tool_version=TOOL_VERSION,
                 version=manifest.version,
                 manifest_sha256=manifest_sha256,
+                identity_indexes_sha256=identity_indexes_sha256,
                 component=component,
                 translation_sha256=translation_sha256,
                 offset=offset,

@@ -122,7 +122,10 @@ from i18nlib.quality import (
     build_report,
     build_inventory,
     compute_revision_id,
+    compute_revision_uid,
+    compute_tu_uid,
     compute_unit_id,
+    tu_uid_fallback,
     generate_dry_run,
     generate_sample,
     load_quality_policy,
@@ -4255,6 +4258,27 @@ class ReviewDiffTests(unittest.TestCase):
         items = review_diff._changed_translation_items("fixture", current, baseline)
 
         self.assertEqual([item["ordinal"] for item in items], [1])
+
+    def test_one_to_many_editorial_splits_changed_items(self) -> None:
+        # A one-to-many editorial (one locale key backing several strong TUs)
+        # must yield one changed item per TU, each keeping the document
+        # ordinal, instead of a single fallback/subject item (review F8).
+        editorial_to_tu = {
+            ("fixture", compute_unit_id("fixture", "fixture.lua", "duplicate", None)): (
+                "a" * 64,
+                "b" * 64,
+            )
+        }
+        current = [self._translation("duplicate", "译文")]
+        items = review_diff._changed_translation_items(
+            "fixture",
+            current,
+            None,
+            editorial_to_tu=editorial_to_tu,
+        )
+        self.assertEqual(len(items), 2)
+        self.assertEqual({item["tu_uid"] for item in items}, {"a" * 64, "b" * 64})
+        self.assertTrue(all(item["ordinal"] == 0 for item in items))
 
     def test_duplicate_semantic_change_consumes_only_one_matching_baseline(self) -> None:
         baseline = [
@@ -8718,6 +8742,9 @@ class TranslationReviewV2Tests(unittest.TestCase):
             tool_version=TOOL_VERSION,
             version=self.manifest.version,
             manifest_sha256=hashlib.sha256(self.manifest.raw_bytes).hexdigest(),
+            identity_indexes_sha256=quality_module._identity_indexes_sha256(
+                self.manifest
+            ),
             component=self.component.id,
             translation_sha256=hashlib.sha256(
                 (self.manifest.root / self.component.translation).read_bytes()
@@ -14365,43 +14392,84 @@ class QualityIdentityTests(unittest.TestCase):
             stable_entry_id("tome", "data/talents/a.lua", "Rune of Reflection", None),
         )
 
+    def _revision(
+        self,
+        source: str,
+        target: str,
+        *,
+        section: str = "s",
+        source_tag: str | None = None,
+        args_order: object = None,
+        special: object = None,
+        version: str = VERSION,
+    ) -> str:
+        unit_id = compute_unit_id("tome", section, source, source_tag)
+        tu_uid = compute_tu_uid("tome", section, source, source_tag)
+        revision_uid_value = compute_revision_uid(tu_uid, source)
+        return compute_revision_id(
+            version,
+            unit_id,
+            target,
+            args_order,
+            special,
+            tu_uid=tu_uid,
+            revision_uid_value=revision_uid_value,
+            source=source,
+        )
+
     def test_target_change_changes_revision(self) -> None:
-        unit_id = compute_unit_id("tome", "s", "source", None)
-        first = compute_revision_id(self.VERSION, unit_id, "甲", None, None)
-        second = compute_revision_id(self.VERSION, unit_id, "乙", None, None)
-        self.assertNotEqual(first, second)
+        self.assertNotEqual(
+            self._revision("source", "甲"),
+            self._revision("source", "乙"),
+        )
 
     def test_args_order_special_version_change_revision(self) -> None:
-        unit_id = compute_unit_id("tome", "s", "%s has %d", "tformat")
-        base = compute_revision_id(self.VERSION, unit_id, "%d 属于 %s", [2, 1], None)
+        base = self._revision("%s has %d", "%d 属于 %s", args_order=[2, 1])
         self.assertNotEqual(
-            base, compute_revision_id(self.VERSION, unit_id, "%d 属于 %s", None, None)
+            base, self._revision("%s has %d", "%d 属于 %s")
         )
         self.assertNotEqual(
-            base, compute_revision_id(self.VERSION, unit_id, "%d 属于 %s", [2, 1], {"x": 1})
+            base, self._revision("%s has %d", "%d 属于 %s", args_order=[2, 1], special={"x": 1})
         )
         self.assertNotEqual(
-            base, compute_revision_id("tome-1.8.0", unit_id, "%d 属于 %s", [2, 1], None)
+            base, self._revision("%s has %d", "%d 属于 %s", args_order=[2, 1], version="tome-1.8.0")
         )
 
     def test_source_section_tag_change_unit_and_revision(self) -> None:
-        first = compute_unit_id("tome", "s", "source", None)
-        second = compute_unit_id("tome", "s2", "source", None)
-        self.assertNotEqual(first, second)
-        revision_first = compute_revision_id(self.VERSION, first, "target", None, None)
-        revision_second = compute_revision_id(self.VERSION, second, "target", None, None)
-        self.assertNotEqual(revision_first, revision_second)
-        tag_unit = compute_unit_id("tome", "s", "source", "say")
-        self.assertNotEqual(first, tag_unit)
+        self.assertNotEqual(
+            self._revision("source", "target"),
+            self._revision("source", "target", section="s2"),
+        )
+        self.assertNotEqual(
+            self._revision("source", "target"),
+            self._revision("source", "target", source_tag="say"),
+        )
+        self.assertNotEqual(
+            self._revision("source", "target"),
+            self._revision("source2", "target"),
+        )
+
+    def test_source_change_changes_revision_via_revision_uid(self) -> None:
+        # Pilot A bridge: source change alters the source revision uid and
+        # therefore the quality revision even when the TU stays the same.
+        self.assertNotEqual(
+            self._revision("source", "target"),
+            self._revision("source2", "target"),
+        )
 
     def test_revision_identity_ignores_lines_and_ordinals(self) -> None:
-        unit_id = compute_unit_id("tome", "s", "source", None)
-        revision = compute_revision_id(self.VERSION, unit_id, "target", None, None)
-        self.assertEqual(
-            revision,
-            compute_revision_id(self.VERSION, unit_id, "target", None, None),
-        )
+        revision = self._revision("source", "target")
+        self.assertEqual(revision, self._revision("source", "target"))
         self.assertRegex(revision, r"^[0-9a-f]{64}$")
+
+    def test_editorial_fallback_tu_is_deterministic(self) -> None:
+        # Unmapped editorials fall back to the domain-separated
+        # tu/fallback-editorial scheme, matching findings._bind.
+        unit_id = compute_unit_id("tome", "s", "source", None)
+        tu_uid = compute_tu_uid("tome", "s", "source", None)
+        self.assertEqual(tu_uid, tu_uid_fallback(unit_id))
+        self.assertNotEqual(tu_uid, unit_id)
+        self.assertRegex(tu_uid, r"^[0-9a-f]{64}$")
 
 
 class QualityStructureTests(unittest.TestCase):
@@ -15041,8 +15109,17 @@ class QualitySamplingTests(unittest.TestCase):
         line: int = 1,
     ) -> dict[str, object]:
         unit_id = compute_unit_id(component, section, source, source_tag)
+        tu_uid = compute_tu_uid(component, section, source, source_tag)
+        revision_uid_value = compute_revision_uid(tu_uid, source)
         revision_id = compute_revision_id(
-            cls.manifest.version, unit_id, target, None, None
+            cls.manifest.version,
+            unit_id,
+            target,
+            None,
+            None,
+            tu_uid=tu_uid,
+            revision_uid_value=revision_uid_value,
+            source=source,
         )
         structure = structure_signature(source, target, None)
         risk_flags = ["has-printf"] if enriched else []
@@ -15064,6 +15141,8 @@ class QualitySamplingTests(unittest.TestCase):
         )
         return {
             "unit_id": unit_id,
+            "tu_uid": tu_uid,
+            "revision_uid": revision_uid_value,
             "revision_id": revision_id,
             "version": cls.manifest.version,
             "component": component,
@@ -15174,6 +15253,9 @@ class QualitySamplingTests(unittest.TestCase):
                             self.manifest
                         )
                     ),
+                    "identity_indexes_sha256": (
+                        quality_module._identity_indexes_sha256(self.manifest)
+                    ),
                     "terminology_sha256": (
                         quality_module.terminology_store_sha256(
                             self.manifest.root / self.manifest.terminology
@@ -15261,6 +15343,22 @@ class QualitySamplingTests(unittest.TestCase):
                 "translation_inputs_sha256",
                 None,
                 "translation_inputs_sha256",
+                False,
+            ),
+            (
+                "missing identity indexes digest",
+                "delete",
+                "identity_indexes_sha256",
+                None,
+                "identity_indexes_sha256",
+                False,
+            ),
+            (
+                "stale identity indexes",
+                "set",
+                "identity_indexes_sha256",
+                "0" * 64,
+                "identity_indexes_sha256",
                 False,
             ),
             (
@@ -15650,11 +15748,11 @@ class QualitySamplingTests(unittest.TestCase):
         ).encode("utf-8")
         self.assertEqual(
             hashlib.sha256(serialized).hexdigest(),
-            "5d14bf33018a2694ca1a54d45f9b304197e79a970ca11c4b5463e6506899e9e2",
+            "b54dee36577951ed4af011320ac6d167c32851b92fb9891593554fadb1f4235e",
         )
         self.assertEqual(
             first["sample_id"],
-            "3f2182324c521216dffeea1eabecc5344f32eaa3bceff337d070bdea06dd6f3f",
+            "4f2d22a9f1c6fab7391432d4ed9b6b1d2625b549798683aee672e487c44e222c",
         )
         self.assertEqual(
             first["items_sha256"],
@@ -15808,12 +15906,23 @@ class QualitySamplingTests(unittest.TestCase):
             index: int, source: str, target: str, section: str
         ) -> dict[str, object]:
             unit_id = compute_unit_id("tome", section, source, None)
+            tu_uid = compute_tu_uid("tome", section, source, None)
+            revision_uid_value = compute_revision_uid(tu_uid, source)
             revision_id = compute_revision_id(
-                self.manifest.version, unit_id, target, None, None
+                self.manifest.version,
+                unit_id,
+                target,
+                None,
+                None,
+                tu_uid=tu_uid,
+                revision_uid_value=revision_uid_value,
+                source=source,
             )
             structure = structure_signature(source, target, None)
             return {
                 "unit_id": unit_id,
+                "tu_uid": tu_uid,
+                "revision_uid": revision_uid_value,
                 "revision_id": revision_id,
                 "version": self.manifest.version,
                 "component": "tome",
@@ -15920,11 +16029,11 @@ class QualitySamplingTests(unittest.TestCase):
         ).encode("utf-8")
         self.assertEqual(
             hashlib.sha256(serialized).hexdigest(),
-            "0fdb29fc7d6e6bc9907689cf592a2204dc6a2f02bc37a331c38424cb9124b2e3",
+            "c1c49ce7a3c0ff7f9537249ebda52579317fd04b8f1588816df64254abf6f353",
         )
         self.assertEqual(
             first["sample_id"],
-            "efd04503b35b5c3f8b3a4dcdacea934b9f3204fb44d8d82acbbda436402f2cfa",
+            "23d6741f0fc952860ec4f3bdbdcecb24e6307b9ffc33dd26c2b11b1899741e15",
         )
         self.assertEqual(
             first["items_sha256"],
@@ -16105,7 +16214,7 @@ class QualitySamplingTests(unittest.TestCase):
         self.assertTrue(all("_features" not in entry for entry in loaded_entries[0]))
         self.assertEqual(
             dry_run["official_sample_id"],
-            "3f2182324c521216dffeea1eabecc5344f32eaa3bceff337d070bdea06dd6f3f",
+            "4f2d22a9f1c6fab7391432d4ed9b6b1d2625b549798683aee672e487c44e222c",
         )
 
     def test_dry_run_does_not_cache_mutable_inventory_between_calls(self) -> None:
@@ -16579,6 +16688,9 @@ class QualityValidationTests(unittest.TestCase):
                             cls.manifest
                         )
                     ),
+                    "identity_indexes_sha256": (
+                        quality_module._identity_indexes_sha256(cls.manifest)
+                    ),
                     "terminology_sha256": (
                         quality_module.terminology_store_sha256(
                             cls.manifest.root / cls.manifest.terminology
@@ -16616,12 +16728,23 @@ class QualityValidationTests(unittest.TestCase):
     @classmethod
     def _sample_entry(cls, index: int) -> dict[str, object]:
         unit_id = compute_unit_id("tome", "data/v.lua", f"source {index}", None)
+        tu_uid = compute_tu_uid("tome", "data/v.lua", f"source {index}", None)
+        revision_uid_value = compute_revision_uid(tu_uid, f"source {index}")
         revision_id = compute_revision_id(
-            cls.manifest.version, unit_id, f"target {index}", None, None
+            cls.manifest.version,
+            unit_id,
+            f"target {index}",
+            None,
+            None,
+            tu_uid=tu_uid,
+            revision_uid_value=revision_uid_value,
+            source=f"source {index}",
         )
         structure = structure_signature(f"source {index}", f"target {index}", None)
         return {
             "unit_id": unit_id,
+            "tu_uid": tu_uid,
+            "revision_uid": revision_uid_value,
             "revision_id": revision_id,
             "version": cls.manifest.version,
             "component": "tome",

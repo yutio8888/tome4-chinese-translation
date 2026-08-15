@@ -819,8 +819,9 @@ def validate_sample_v3(sample: dict[str, Any], policy: dict[str, Any] | None = N
     item_fields = {
         "args_order", "bucket", "component", "context_neighbors", "contrast_group",
         "contrast_siblings", "domain_hints", "gate_signals", "index", "profile",
-        "profile_confidence", "relevant_terms", "revision_id", "risk_flags", "section",
-        "source", "source_length_bin", "source_tag", "special", "structure", "target", "unit_id",
+        "profile_confidence", "relevant_terms", "revision_id", "revision_uid",
+        "risk_flags", "section", "source", "source_length_bin", "source_tag",
+        "special", "structure", "target", "tu_uid", "unit_id",
     }
     gate_fields = {
         "at_token_multiset_match", "cross_component_variant", "empty_target",
@@ -832,7 +833,7 @@ def validate_sample_v3(sample: dict[str, Any], policy: dict[str, Any] | None = N
         if not isinstance(item, dict):
             raise ValidationError(f"{where} must be an object")
         _exact_fields(item, item_fields, where)
-        for field in ("revision_id", "unit_id"):
+        for field in ("revision_id", "revision_uid", "tu_uid", "unit_id"):
             _sha(item[field], f"{where}.{field}")
         for field in ("bucket", "component", "profile", "profile_confidence", "section", "source", "source_length_bin", "source_tag", "target"):
             _string(item[field], f"{where}.{field}", allow_empty=field in {"source_tag", "target"})

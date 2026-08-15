@@ -21,7 +21,7 @@
     "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "item": {
       "type": "object", "additionalProperties": false,
-      "required": ["args_order", "bucket", "component", "context_neighbors", "contrast_group", "contrast_siblings", "domain_hints", "gate_signals", "index", "profile", "profile_confidence", "relevant_terms", "revision_id", "risk_flags", "section", "source", "source_length_bin", "source_tag", "special", "structure", "target", "unit_id"],
+      "required": ["args_order", "bucket", "component", "context_neighbors", "contrast_group", "contrast_siblings", "domain_hints", "gate_signals", "index", "profile", "profile_confidence", "relevant_terms", "revision_id", "revision_uid", "risk_flags", "section", "source", "source_length_bin", "source_tag", "special", "structure", "target", "tu_uid", "unit_id"],
       "properties": {
         "args_order": {"type": ["array", "null"]}, "bucket": {"type": "string"},
         "component": {"type": "string"}, "context_neighbors": {"type": "array"},
@@ -29,10 +29,12 @@
         "domain_hints": {"type": "array"}, "index": {"type": "integer", "minimum": 0},
         "profile": {"type": "string"}, "profile_confidence": {"type": "string"},
         "relevant_terms": {"type": "array"}, "revision_id": {"$ref": "#/$defs/sha"},
+        "revision_uid": {"$ref": "#/$defs/sha"},
         "risk_flags": {"type": "array"}, "section": {"type": "string"},
         "source": {"type": "string"}, "source_length_bin": {"type": "string"},
         "source_tag": {"type": "string"}, "special": {"type": ["string", "object", "array", "null"]}, "structure": {"type": "object"},
-        "target": {"type": "string"}, "unit_id": {"$ref": "#/$defs/sha"},
+        "target": {"type": "string"}, "tu_uid": {"$ref": "#/$defs/sha"},
+        "unit_id": {"$ref": "#/$defs/sha"},
         "gate_signals": {
           "type": "object", "additionalProperties": false,
           "required": ["at_token_multiset_match", "cross_component_variant", "empty_target", "format_shape_match", "format_signature_match", "lua_load_valid", "markup_multiset_match", "needs_review", "runtime_collision"],

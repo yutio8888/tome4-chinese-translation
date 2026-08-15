@@ -5,7 +5,7 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "unit_id", "revision_id", "version", "component", "section", "source",
+    "unit_id", "revision_id", "tu_uid", "revision_uid", "version", "component", "section", "source",
     "target", "source_tag", "args_order", "special", "occurrences",
     "profile", "profile_confidence", "domain_hints", "relevant_terms",
     "structure", "gate_signals", "risk_flags", "source_length_bin"
@@ -13,6 +13,8 @@
   "properties": {
     "unit_id": {"$ref": "#/definitions/sha256"},
     "revision_id": {"$ref": "#/definitions/sha256"},
+    "tu_uid": {"$ref": "#/definitions/sha256"},
+    "revision_uid": {"$ref": "#/definitions/sha256"},
     "version": {"type": "string"},
     "component": {"type": "string"},
     "section": {"type": "string"},

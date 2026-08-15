@@ -93,8 +93,18 @@
 
 ## 身份约定
 
+质量条目的身份轴为 Pilot A `tu_uid`/`revision_uid`（跨文件移动/source-tag 拼写
+变化稳定），并保留 editorial `unit_id` 作为证据字段：
+
 - `unit_id`：复用 `stable_entry_id`（component/section/source/source_tag 的
-  SHA-256 editorial key）。
-- `revision_id`：对 `{identity_contract, version, unit_id, target,
-  args_order, special}` 的规范 JSON（UTF-8、键排序、无多余空白）取 SHA-256；
-  行号和 ordinal 不参与身份。
+  SHA-256 editorial key），仅作 editorial 证据，不参与修订身份。
+- `tu_uid`：Pilot A 单位身份。优先从 identity index（
+  `.artifacts/i18n/identity/current/<component>/`）的 editorial→TU 映射解析；
+  一对多 editorial 按 TU 拆分（每 TU 一条目）；无映射时回退到
+  `tu/fallback-editorial` scheme（与 `build_finding_records::_bind` 一致）。
+- `revision_uid`：Pilot A 源文修订，`sha256("rev\0" + tu_uid + "\0" + source_sha256)`。
+- `revision_id`：对 `{identity_contract, version, tu_uid, revision_uid,
+  target, args_order, special}` 的规范 JSON（UTF-8、键排序、无多余空白）取
+  SHA-256；行号和 ordinal 不参与身份。source 或 target/`args_order`/`special`/
+  版本变化时 `revision_id` 必变；文件移动或 source-tag 拼写变化（strong TU
+  稳定）时 `revision_id` 不变。

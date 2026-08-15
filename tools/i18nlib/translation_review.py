@@ -4,11 +4,18 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from pathlib import Path
 from typing import Any, Iterable
 
 from .errors import ConfigurationError, ValidationError
-from .quality import compute_revision_id, compute_unit_id
+from .quality import (
+    compute_revision_id,
+    compute_revision_uid,
+    compute_tu_uid,
+    compute_unit_id,
+    editorial_tu_uids,
+)
 from .quality_claims import claim_signature, normalize_evidence
 from .quality_contracts import (
     canonical_sha256,
@@ -41,6 +48,8 @@ MAX_TRANSLATION_REVIEW_BATCH_SIZE = 10
 TRANSLATION_ITEM_FIELDS = (
     "item_id",
     "unit_id",
+    "tu_uid",
+    "revision_uid",
     "revision_id",
     "component",
     "ordinal",
@@ -349,9 +358,18 @@ def load_translation_review_policy(root: Path) -> tuple[dict[str, Any], str]:
     return policy, digest
 
 
-def build_translation_item(
-    *, version: str, component: str, ordinal: int, entry: dict[str, Any]
-) -> dict[str, Any]:
+def build_translation_items(
+    *, version: str, component: str, ordinal: int, entry: dict[str, Any],
+    editorial_to_tu: dict[tuple[str, str], tuple[str, ...]] | None = None,
+) -> list[dict[str, Any]]:
+    """Build one translation-review item per Pilot A TU for this occurrence.
+
+    A one-to-many editorial (one locale key backing several structurally
+    distinct strong TUs, contract §4.7) yields one item per TU so every
+    quality revision can receive translation-v2 observations, matching the
+    quality inventory split (infra-contract-007).  Callers renumber ordinals
+    contiguously after flattening.
+    """
     source = entry.get("source")
     target = entry.get("target")
     section = entry.get("section")
@@ -361,23 +379,48 @@ def build_translation_item(
     if source_tag is not None and not isinstance(source_tag, str):
         raise ValidationError(f"invalid source_tag in component {component}")
     unit_id = compute_unit_id(component, section, source, source_tag)
-    revision_id = compute_revision_id(
-        version, unit_id, target, entry.get("args_order"), entry.get("special")
+    tu_uids = editorial_tu_uids(
+        component, section, source, source_tag, editorial_to_tu=editorial_to_tu
     )
-    return {
-        "item_id": "translation-" + revision_id,
-        "unit_id": unit_id,
-        "revision_id": revision_id,
-        "component": component,
-        "ordinal": ordinal,
-        "section": section,
-        "source": source,
-        "target": target,
-        "source_tag": source_tag,
-        "args_order": entry.get("args_order"),
-        "special": entry.get("special"),
-        "line": entry.get("line"),
-    }
+    items = []
+    for tu_uid in tu_uids:
+        revision_uid_value = compute_revision_uid(tu_uid, source)
+        revision_id = compute_revision_id(
+            version, unit_id, target, entry.get("args_order"), entry.get("special"),
+            tu_uid=tu_uid, revision_uid_value=revision_uid_value, source=source,
+        )
+        items.append({
+            "item_id": "translation-" + revision_id,
+            "unit_id": unit_id,
+            "tu_uid": tu_uid,
+            "revision_uid": revision_uid_value,
+            "revision_id": revision_id,
+            "component": component,
+            "ordinal": ordinal,
+            "section": section,
+            "source": source,
+            "target": target,
+            "source_tag": source_tag,
+            "args_order": entry.get("args_order"),
+            "special": entry.get("special"),
+            "line": entry.get("line"),
+        })
+    return items
+
+
+def build_translation_item(
+    *, version: str, component: str, ordinal: int, entry: dict[str, Any],
+    editorial_to_tu: dict[tuple[str, str], tuple[str, ...]] | None = None,
+) -> dict[str, Any]:
+    """Backward-compatible single-item builder (first TU of the editorial).
+
+    New callers should use :func:`build_translation_items`; this helper is
+    kept for callers that only need the subject TU item.
+    """
+    return build_translation_items(
+        version=version, component=component, ordinal=ordinal, entry=entry,
+        editorial_to_tu=editorial_to_tu,
+    )[0]
 
 
 def translation_provider_item(item: dict[str, Any]) -> dict[str, Any]:
@@ -435,6 +478,10 @@ def validate_translation_item(
     exact_fields(item, TRANSLATION_ITEM_FIELDS, where)
     if item["component"] != component:
         raise ValidationError(f"{where}.component does not match its bundle")
+    for field in ("unit_id", "revision_id", "tu_uid", "revision_uid"):
+        value = item[field]
+        if not isinstance(value, str) or not re.fullmatch(r"[0-9a-f]{64}", value):
+            raise ValidationError(f"{where}.{field} must be a SHA-256 digest")
     ordinal = integer(item["ordinal"], f"{where}.ordinal")
     if ordinal < 0:
         raise ValidationError(f"{where}.ordinal must be non-negative")
@@ -449,15 +496,23 @@ def validate_translation_item(
     expected_unit = compute_unit_id(
         component, item["section"], item["source"], item["source_tag"]
     )
+    expected_revision_uid = compute_revision_uid(item["tu_uid"], item["source"])
     expected_revision = compute_revision_id(
         version,
         expected_unit,
         item["target"],
         item["args_order"],
         item["special"],
+        tu_uid=item["tu_uid"],
+        revision_uid_value=item["revision_uid"],
+        source=item["source"],
     )
     if item["unit_id"] != expected_unit:
         raise ValidationError(f"{where}.unit_id does not match canonical identity")
+    if item["revision_uid"] != expected_revision_uid:
+        raise ValidationError(
+            f"{where}.revision_uid does not match canonical source revision"
+        )
     if item["revision_id"] != expected_revision:
         raise ValidationError(f"{where}.revision_id does not match canonical revision")
     if item["item_id"] != "translation-" + expected_revision:

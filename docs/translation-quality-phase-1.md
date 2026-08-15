@@ -136,33 +136,39 @@ python3 -B tools/i18n quality report \
 
 ## 四、数据契约
 
-### 4.1 `unit_id` 和 `revision_id`
+### 4.1 身份轴：Pilot A `tu_uid`/`revision_uid` 桥接 + 译文修订
 
-第一版应复用 `tools/i18nlib/lint.py` 中 `stable_entry_id` 的 editorial key 语义：
+质量条目的单位身份使用 Pilot A TU 身份（infra-contract-007 迁移）：
 
 ```text
-unit_id = SHA256(component, section, source, source_tag)
+tu_uid = identity index editorial→TU 解析（无映射回退 tu/fallback-editorial）
+revision_uid = SHA256("rev\0" + tu_uid + "\0" + source_sha256)
 ```
 
-在此基础上新增：
+在此基础上新增译文修订：
 
 ```text
 revision_id = SHA256(
   identity_contract,
   game_version,
-  unit_id,
+  tu_uid,
+  revision_uid,
   target,
   args_order,
   special
 )
 ```
 
+`unit_id`（editorial `stable_entry_id`）保留为证据字段，不再参与修订身份。
 具体实现使用 UTF-8、键排序、无多余空白的规范 JSON。必须满足：
 
-- target、`args_order`、`special` 或游戏版本变化时，`revision_id` 必变；
+- source 或 target、`args_order`、`special`、游戏版本变化时，`revision_id` 必变；
 - 仅行号、ordinal 或文件重排变化时，`revision_id` 不变；
-- source、section、component、`source_tag` 变化时，`unit_id` 和 `revision_id` 均变；
-- 相同 editorial key 的合法重复 occurrence 共享 unit/revision，但单独记录 occurrence；
+- 文件移动（section 变）或 source-tag 拼写变化而 strong TU 稳定时，
+  `tu_uid`/`revision_uid`/`revision_id` 均不变（谱系存活）；
+- 一对多 editorial（同一 editorial key 对应多个 strong TU）按 TU 拆分为多条，
+  每条携带自己的 `tu_uid`/`revision_uid`/`revision_id`；
+- 相同 editorial key 的合法重复 occurrence 在所属 TU 条目内单独记录 occurrence；
 - 不允许用 target 归一化结果计算身份。
 
 ### 4.2 inventory envelope
@@ -197,7 +203,8 @@ revision_id = SHA256(
 
 | 字段 | 要求 |
 |---|---|
-| `unit_id` / `revision_id` | 64 位小写 SHA-256 |
+| `unit_id` / `revision_id` | 64 位小写 SHA-256；`revision_id` 用 Pilot A 桥接公式 |
+| `tu_uid` / `revision_uid` | 64 位小写 SHA-256（Pilot A 单位身份 / 源文修订） |
 | `version` / `component` | 与 manifest 一致 |
 | `section` / `source` / `target` | 原始规范字符串，不做身份归一化 |
 | `source_tag` | 字符串或 `null` |
@@ -596,8 +603,10 @@ official 与 dry-run sample identity 均携带 `translation_inputs_sha256`、
 
 - target 改一字，revision ID 改变；
 - `args_order`、`special`、version 改变，revision ID 改变；
+- source 变化（revision_uid 变）或 source-tag 拼写变化导致 editorial 改映射时，revision ID 改变；
 - 只改 line/ordinal，revision ID 不变；
-- source/section/tag 改变，unit 和 revision 均改变；
+- 文件移动（section 变）或 source-tag 拼写变化而 strong TU 稳定时，`tu_uid`/
+  `revision_uid`/`revision_id` 均不变（谱系存活）；
 - 旧 assessment 不能绑定新 revision。
 
 ### 10.2 结构和分类测试

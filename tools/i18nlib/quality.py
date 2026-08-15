@@ -21,6 +21,7 @@ from typing import Any, Iterable
 from . import TOOL_VERSION
 from .config import Manifest
 from .errors import ConfigurationError, ValidationError
+from .identity import revision_uid, source_sha256, tu_uid_fallback
 from .lint import (
     AT_TOKEN_RE,
     FORMAT_TAGS,
@@ -45,6 +46,8 @@ DRY_RUN_CONTRACT = "tome4-quality-dry-run-v1"
 REPORT_CONTRACT = "tome4-quality-report-v1"
 IDENTITY_CONTRACT = "tome4-translation-revision-v1"
 DEFAULT_SAMPLE_SEED = "tome4-quality-pilot-v1"
+
+_IDENTITY_CURRENT_ROOT = ".artifacts/i18n/identity/current"
 
 _PROFILE_CONFIDENCE_ORDER = ("low", "medium", "high")
 _PILOT_BUCKETS = ("representative", "risk-enriched", "contrast")
@@ -823,10 +826,100 @@ def _write_jsonl(path: Path, records: Iterable[dict[str, Any]]) -> None:
 # ---------------------------------------------------------------------------
 
 
+def _load_editorial_to_tu(manifest: Manifest) -> dict[tuple[str, str], tuple[str, ...]]:
+    """Load the current Pilot A identity indexes into an editorial->TU map.
+
+    Reads `.artifacts/i18n/identity/current/<component>/` for every component
+    that has a complete index trio (entities.jsonl + tu_index.jsonl +
+    identity.json) and fails closed on a partial/corrupt trio (same scan
+    semantics as the extract path).  Components without an index directory
+    simply have no mapping (editorials fall back to the fallback-editorial
+    TU scheme).
+    """
+    from .extract import _read_current_indexes
+
+    current_root = manifest.root / _IDENTITY_CURRENT_ROOT
+    if not current_root.is_dir():
+        return {}
+    mapping: dict[tuple[str, str], tuple[str, ...]] = {}
+    for index in _read_current_indexes(current_root):
+        for editorial_id, tu_uids in index.editorial_to_tu.items():
+            mapping[(index.component, editorial_id)] = tuple(sorted(tu_uids))
+    return mapping
+
+
+def _identity_indexes_sha256(manifest: Manifest) -> str:
+    """Deterministic digest of the current Pilot A identity indexes.
+
+    Binds the editorial->TU mapping used to build an inventory/sample into
+    the artifact identity so a stale or extended index cannot silently keep
+    old artifacts current (infra-contract-007 review F6).  Components without
+    an index directory contribute nothing; the empty state has a stable
+    digest too.
+    """
+    editorial_to_tu = _load_editorial_to_tu(manifest)
+    return _canonical_sha256(
+        {
+            "{}\0{}".format(component, editorial_id): tu_uids
+            for (component, editorial_id), tu_uids in sorted(
+                editorial_to_tu.items()
+            )
+        }
+    )
+
+
 def compute_unit_id(
     component: str, section: str, source: str, source_tag: str | None
 ) -> str:
+    """Editorial identity (evidence only, Pilot A §4.5 Editorial ID).
+
+    Kept as the editorial evidence field on inventory entries.  The quality
+    identity axis is Pilot A `tu_uid`/`revision_uid` (infra-contract-007);
+    `unit_id` no longer participates in revision identity.
+    """
     return stable_entry_id(component, section, source, source_tag)
+
+
+def compute_tu_uid(
+    component: str, section: str, source: str, source_tag: str | None,
+    *, editorial_to_tu: dict[tuple[str, str], tuple[str, ...]] | None = None,
+) -> str:
+    """Pilot A TU identity for one editorial occurrence.
+
+    Resolves the editorial id through the identity index mapping; when the
+    editorial is unmapped (or no index is available) it falls back to the
+    domain-separated `tu/fallback-editorial` scheme, matching
+    `build_finding_records::_bind` (findings.py).  One-to-many editorials are
+    split per TU by the caller using :func:`editorial_tu_uids`.
+    """
+    uids = editorial_tu_uids(
+        component, section, source, source_tag,
+        editorial_to_tu=editorial_to_tu,
+    )
+    return uids[0]
+
+
+def editorial_tu_uids(
+    component: str, section: str, source: str, source_tag: str | None,
+    *, editorial_to_tu: dict[tuple[str, str], tuple[str, ...]] | None = None,
+) -> tuple[str, ...]:
+    """Full TU UID set for one editorial occurrence (sorted, Pilot A).
+
+    One editorial can legitimately back several structurally distinct strong
+    TUs (contract §4.7); quality entries are then split one entry per TU.
+    Unmapped editorials fall back to the single `tu/fallback-editorial` UID.
+    """
+    editorial_id = stable_entry_id(component, section, source, source_tag)
+    if editorial_to_tu is not None:
+        found = editorial_to_tu.get((component, editorial_id))
+        if found:
+            return tuple(sorted(found))
+    return (tu_uid_fallback(editorial_id),)
+
+
+def compute_revision_uid(tu_uid: str, source: str) -> str:
+    """Pilot A source Revision UID (identity.py `revision_uid`)."""
+    return revision_uid(tu_uid, source_sha256(source))
 
 
 def compute_revision_id(
@@ -835,11 +928,40 @@ def compute_revision_id(
     target: str,
     args_order: Any,
     special: Any,
+    *,
+    tu_uid: str | None = None,
+    revision_uid_value: str | None = None,
+    source: str | None = None,
 ) -> str:
+    """Quality revision identity (infra-contract-007, Pilot A bridge).
+
+    The revision binds the Pilot A unit and source revision plus the exact
+    translation payload: source change -> revision_uid changes -> revision
+    changes; target/args_order/special/version change -> revision changes;
+    file moves and source-tag spelling changes that keep the same strong TU
+    leave both tu_uid and revision_uid (and therefore this revision) stable.
+
+    ``unit_id`` is the editorial id, kept for backward compatibility with
+    callers that only carry the editorial id.  Pilot A fields are
+    authoritative when provided: ``tu_uid`` defaults to the fallback TU of
+    the editorial id, and ``revision_uid_value`` defaults to the Pilot A
+    source revision of ``tu_uid`` against ``source`` when a source is
+    available.  When neither Pilot A revision uid nor source is available
+    (legacy callers) the revision uid degrades to a stable zero-source
+    revision so the editorial-only call path remains deterministic.
+    """
+    resolved_tu_uid = tu_uid if tu_uid is not None else tu_uid_fallback(unit_id)
+    if revision_uid_value is not None:
+        resolved_revision_uid = revision_uid_value
+    elif source is not None:
+        resolved_revision_uid = revision_uid(resolved_tu_uid, source_sha256(source))
+    else:
+        resolved_revision_uid = revision_uid(resolved_tu_uid, source_sha256(""))
     payload = {
         "identity_contract": IDENTITY_CONTRACT,
         "version": version,
-        "unit_id": unit_id,
+        "tu_uid": resolved_tu_uid,
+        "revision_uid": resolved_revision_uid,
         "target": target,
         "args_order": args_order,
         "special": special,
@@ -1346,43 +1468,59 @@ def build_inventory(
                 semantic_signature
             )
 
-    revisions: dict[tuple[str, str], dict[str, Any]] = {}
+    editorial_to_tu = _load_editorial_to_tu(manifest)
+
+    revisions: dict[tuple[str, str, str], dict[str, Any]] = {}
     for entry in raw_entries:
         unit_id = compute_unit_id(
             entry["component"], entry["section"], entry["source"], entry["source_tag"]
         )
-        revision_id = compute_revision_id(
-            manifest.version,
-            unit_id,
-            entry["target"],
-            entry["args_order"],
-            entry["special"],
+        tu_uids = editorial_tu_uids(
+            entry["component"],
+            entry["section"],
+            entry["source"],
+            entry["source_tag"],
+            editorial_to_tu=editorial_to_tu,
         )
-        key = (entry["component"], revision_id)
-        revision = revisions.get(key)
-        if revision is None:
-            revision = {
-                "unit_id": unit_id,
-                "revision_id": revision_id,
-                "version": manifest.version,
-                "component": entry["component"],
-                "section": entry["section"],
-                "source": entry["source"],
-                "target": entry["target"],
-                "source_tag": entry["source_tag"],
-                "args_order": entry["args_order"],
-                "special": entry["special"],
-                "occurrences": [],
-            }
-            revisions[key] = revision
-        revision["occurrences"].append(
-            {
-                "logical_path": entry["logical_path"],
-                "section": entry["section"],
-                "line": entry["line"],
-                "ordinal": entry["ordinal"],
-            }
-        )
+        for tu_uid in tu_uids:
+            revision_uid_value = compute_revision_uid(tu_uid, entry["source"])
+            revision_id = compute_revision_id(
+                manifest.version,
+                unit_id,
+                entry["target"],
+                entry["args_order"],
+                entry["special"],
+                tu_uid=tu_uid,
+                revision_uid_value=revision_uid_value,
+                source=entry["source"],
+            )
+            key = (entry["component"], tu_uid, revision_id)
+            revision = revisions.get(key)
+            if revision is None:
+                revision = {
+                    "unit_id": unit_id,
+                    "tu_uid": tu_uid,
+                    "revision_uid": revision_uid_value,
+                    "revision_id": revision_id,
+                    "version": manifest.version,
+                    "component": entry["component"],
+                    "section": entry["section"],
+                    "source": entry["source"],
+                    "target": entry["target"],
+                    "source_tag": entry["source_tag"],
+                    "args_order": entry["args_order"],
+                    "special": entry["special"],
+                    "occurrences": [],
+                }
+                revisions[key] = revision
+            revision["occurrences"].append(
+                {
+                    "logical_path": entry["logical_path"],
+                    "section": entry["section"],
+                    "line": entry["line"],
+                    "ordinal": entry["ordinal"],
+                }
+            )
 
     cross_component_variants: dict[tuple[str, str | None], bool] = {}
     for (source, source_tag), by_component in global_semantic_values.items():
@@ -1394,7 +1532,7 @@ def build_inventory(
         )
 
     entries: list[dict[str, Any]] = []
-    for (component, revision_id), revision in sorted(revisions.items()):
+    for (component, _tu_uid, revision_id), revision in sorted(revisions.items()):
         source = revision["source"]
         target = revision["target"]
         source_tag = revision["source_tag"]
@@ -1460,11 +1598,19 @@ def build_inventory(
     profiles: Counter[str] = Counter()
     length_bins: Counter[str] = Counter()
     risk_flags: Counter[str] = Counter()
+    # Occurrence conservation (infra-contract-007 review F3): a one-to-many
+    # editorial is split into one entry per TU and every TU entry carries the
+    # same occurrence evidence, so summing per-entry occurrence lists would
+    # double count corpus occurrences.  Count each raw occurrence exactly once
+    # per component (same value as the top-level summary.occurrences).
+    occurrence_counts: dict[str, int] = Counter()
+    for entry in raw_entries:
+        occurrence_counts[entry["component"]] += 1
     for entry in entries:
         component = entry["component"]
         bucket = components.setdefault(component, {"entries": 0, "occurrences": 0})
         bucket["entries"] += 1
-        bucket["occurrences"] += len(entry["occurrences"])
+        bucket["occurrences"] = occurrence_counts[component]
         profiles[entry["profile"]] += 1
         length_bins[entry["source_length_bin"]] += 1
         for flag in entry["risk_flags"]:
@@ -1486,6 +1632,7 @@ def build_inventory(
         "version": manifest.version,
         "manifest_sha256": hashlib.sha256(manifest.raw_bytes).hexdigest(),
         "translation_inputs_sha256": _canonical_sha256(translation_inputs),
+        "identity_indexes_sha256": _identity_indexes_sha256(manifest),
         "terminology_sha256": terminology_sha256,
         "taxonomy_sha256": _canonical_sha256(taxonomy),
         "policy_sha256": _canonical_sha256(qpolicy),
@@ -1531,7 +1678,7 @@ def _validate_inventory_record(entry: dict[str, Any], index: int) -> None:
     if entry.get("quality_contract") not in (None, INVENTORY_CONTRACT):
         raise ValidationError(f"{label}.quality_contract has an unknown contract")
 
-    for field in ("unit_id", "revision_id"):
+    for field in ("unit_id", "revision_id", "tu_uid", "revision_uid"):
         value = required(field)
         if not isinstance(value, str) or SHA256_RE.fullmatch(value) is None:
             raise ValidationError(
@@ -1710,6 +1857,7 @@ def _read_inventory_manifest_preflight(
     digest_fields = (
         "manifest_sha256",
         "translation_inputs_sha256",
+        "identity_indexes_sha256",
         "terminology_sha256",
         "taxonomy_sha256",
         "policy_sha256",
@@ -1736,6 +1884,7 @@ def _read_inventory_manifest_preflight(
     expected_values = {
         "version": manifest.version,
         "manifest_sha256": hashlib.sha256(manifest.raw_bytes).hexdigest(),
+        "identity_indexes_sha256": _identity_indexes_sha256(manifest),
         "taxonomy_sha256": _canonical_sha256(taxonomy),
         "policy_sha256": _canonical_sha256(qpolicy),
         "profile_classifier_version": taxonomy["profile_classifier_version"],
@@ -1816,6 +1965,7 @@ def _validate_inventory_semantics(
     profile_ids = {profile["id"] for profile in taxonomy["profiles"]}
     declared_risk_flags = set(taxonomy["risk_flags"])
     length_bin_ids = {bin_spec["id"] for bin_spec in taxonomy["length_bins"]}
+    editorial_to_tu = _load_editorial_to_tu(manifest)
 
     for index, entry in enumerate(entries):
         label = f"quality inventory record {index}"
@@ -1836,7 +1986,15 @@ def _validate_inventory_semantics(
         )
         if entry["unit_id"] != expected_unit_id:
             raise ValidationError(
-                f"{label}.unit_id does not match its identity fields"
+                f"{label}.unit_id does not match its editorial identity fields"
+            )
+
+        expected_revision_uid = compute_revision_uid(
+            entry["tu_uid"], entry["source"]
+        )
+        if entry["revision_uid"] != expected_revision_uid:
+            raise ValidationError(
+                f"{label}.revision_uid does not match its Pilot A source revision"
             )
 
         expected_revision_id = compute_revision_id(
@@ -1845,10 +2003,30 @@ def _validate_inventory_semantics(
             entry["target"],
             entry["args_order"],
             entry["special"],
+            tu_uid=entry["tu_uid"],
+            revision_uid_value=entry["revision_uid"],
+            source=entry["source"],
         )
         if entry["revision_id"] != expected_revision_id:
             raise ValidationError(
-                f"{label}.revision_id does not match its revision fields"
+                f"{label}.revision_id does not match its Pilot A revision identity"
+            )
+
+        # Pilot A binding: the recorded TU must actually be one of the TUs
+        # backing this editorial in the current identity index (or the
+        # domain-separated fallback when the editorial is unmapped).  This
+        # rejects stale or forged TU ids even when the translation files
+        # themselves did not change (infra-contract-007 review F2).
+        expected_tu_uids = editorial_tu_uids(
+            entry["component"],
+            entry["section"],
+            entry["source"],
+            entry["source_tag"],
+            editorial_to_tu=editorial_to_tu,
+        )
+        if entry["tu_uid"] not in expected_tu_uids:
+            raise ValidationError(
+                f"{label}.tu_uid does not belong to its editorial TU set"
             )
 
         if entry["profile"] not in profile_ids:
@@ -2419,6 +2597,8 @@ def _build_sample_items(
                 ],
                 "revision_id": revision_id,
                 "unit_id": entry["unit_id"],
+                "tu_uid": entry["tu_uid"],
+                "revision_uid": entry["revision_uid"],
                 "component": entry["component"],
                 "section": entry["section"],
                 "source": entry["source"],
@@ -3254,6 +3434,7 @@ def _validate_sample_identity(
     errors: list[str] = []
     contract = sample.get("quality_contract")
     identity = _sample_identity(sample)
+    editorial_to_tu = _load_editorial_to_tu(manifest)
     for field in _SAMPLE_IDENTITY_FIELDS[contract]:
         if field not in sample:
             errors.append(f"{label}: sample identity is missing {field}")
@@ -3330,6 +3511,8 @@ def _validate_sample_identity(
             identity_fields = (
                 "unit_id",
                 "revision_id",
+                "tu_uid",
+                "revision_uid",
                 "component",
                 "section",
                 "source",
@@ -3349,6 +3532,8 @@ def _validate_sample_identity(
 
             unit_id = item.get("unit_id")
             revision_id = item.get("revision_id")
+            tu_uid = item.get("tu_uid")
+            revision_uid_value = item.get("revision_uid")
             bucket = item.get("bucket")
             if not isinstance(unit_id, str) or SHA256_RE.fullmatch(unit_id) is None:
                 errors.append(
@@ -3358,6 +3543,19 @@ def _validate_sample_identity(
             if not isinstance(revision_id, str) or SHA256_RE.fullmatch(revision_id) is None:
                 errors.append(
                     f"{label}: sample item {index} revision_id is not a SHA-256 digest"
+                )
+                item_identities_valid = False
+            if not isinstance(tu_uid, str) or SHA256_RE.fullmatch(tu_uid) is None:
+                errors.append(
+                    f"{label}: sample item {index} tu_uid is not a SHA-256 digest"
+                )
+                item_identities_valid = False
+            if (
+                not isinstance(revision_uid_value, str)
+                or SHA256_RE.fullmatch(revision_uid_value) is None
+            ):
+                errors.append(
+                    f"{label}: sample item {index} revision_uid is not a SHA-256 digest"
                 )
                 item_identities_valid = False
             if not isinstance(bucket, str) or not bucket:
@@ -3402,7 +3600,11 @@ def _validate_sample_identity(
 
             target = item.get("target")
             args_order = item.get("args_order")
-            revision_materials_valid = expected_unit_id is not None
+            revision_materials_valid = (
+                expected_unit_id is not None
+                and isinstance(tu_uid, str)
+                and SHA256_RE.fullmatch(tu_uid) is not None
+            )
             if not isinstance(target, str):
                 errors.append(f"{label}: sample item {index} target is invalid")
                 revision_materials_valid = False
@@ -3420,17 +3622,40 @@ def _validate_sample_identity(
             if "target" not in item or "args_order" not in item or "special" not in item:
                 revision_materials_valid = False
             if revision_materials_valid:
+                expected_revision_uid = compute_revision_uid(tu_uid, source)
+                if revision_uid_value != expected_revision_uid:
+                    errors.append(
+                        f"{label}: sample item {index} revision_uid does not match "
+                        "its Pilot A source revision"
+                    )
+                    item_identities_valid = False
+                expected_tu_uids = editorial_tu_uids(
+                    component,
+                    section,
+                    source,
+                    source_tag,
+                    editorial_to_tu=editorial_to_tu,
+                )
+                if tu_uid not in expected_tu_uids:
+                    errors.append(
+                        f"{label}: sample item {index} tu_uid does not belong "
+                        "to its editorial TU set"
+                    )
+                    item_identities_valid = False
                 expected_revision_id = compute_revision_id(
                     manifest.version,
                     expected_unit_id,
                     target,
                     args_order,
                     item.get("special"),
+                    tu_uid=tu_uid,
+                    revision_uid_value=revision_uid_value,
+                    source=source,
                 )
                 if revision_id != expected_revision_id:
                     errors.append(
                         f"{label}: sample item {index} revision_id does not match "
-                        "its revision identity"
+                        "its Pilot A revision identity"
                     )
                     item_identities_valid = False
             derived_revisions.append(
