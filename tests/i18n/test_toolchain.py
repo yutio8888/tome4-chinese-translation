@@ -20123,19 +20123,54 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
         )
         self.assertIsNotNone(match, "normative short-prompt template missing")
         prompt = match.group(1)
-        self.assertIn("translation_contextual_v1", prompt)
-        self.assertIn("<candidate_identity>", prompt)
-        self.assertIn("<input_path>", prompt)
-        # JSON-only 输出规则在模型可见文本：紧凑 object、首尾字节、无 prose/围栏。
-        self.assertIn("紧凑 JSON object", prompt)
-        self.assertIn("第一个字节是 {", prompt)
-        self.assertIn("最后一个字节是 }", prompt)
-        self.assertIn("无 prose", prompt)
-        self.assertIn("无 Markdown", prompt)
-        self.assertIn("无代码围栏", prompt)
-        # 结果按独立契约第六节 schema 并回显精确候选身份。
-        self.assertIn("第六节严格结果 schema", prompt)
-        self.assertIn("回显精确候选身份 <candidate_identity>", prompt)
+        # 恰好三行，标签固定为 任务：／输入：／输出： 且顺序不变。
+        lines = prompt.splitlines()
+        self.assertEqual(len(lines), 3, prompt)
+        self.assertTrue(lines[0].startswith("任务："), lines[0])
+        self.assertTrue(lines[1].startswith("输入："), lines[1])
+        self.assertTrue(lines[2].startswith("输出："), lines[2])
+        # 契约字节上限针对未实例化规范模板（占位符未替换）：≤800 UTF-8 字节。
+        unresolved = prompt.encode("utf-8")
+        self.assertLessEqual(len(unresolved), 800, prompt)
+        # 唯一占位符序列：候选身份两次（声明与回显）、输入路径一次。
+        self.assertEqual(
+            re.findall(r"<[^>]+>", prompt),
+            ["<candidate_identity>", "<input_path>", "<candidate_identity>"],
+        )
+        # 任务行聚焦译文语境审核：全部冻结 revision、输入文件术语/上下文与所引
+        # 固定源码、只报有证据的实质错误、无问题填 OK。
+        task = lines[0]
+        self.assertIn("审核全部冻结 revision", task)
+        self.assertIn("输入文件术语、上下文", task)
+        self.assertIn("所引固定源码", task)
+        self.assertIn("只报有证据", task)
+        self.assertIn("语义、机制、术语或关系错误", task)
+        self.assertIn("无问题填 OK", task)
+        # 输入行：磁盘冻结文件是唯一候选载体；会话级全程只读、禁止写入任何文件；
+        # 契约读取精确限定第六节，不要求阅读整份 .ai/roles/reviewer.md。
+        input_line = lines[1]
+        self.assertIn("candidate_identity=<candidate_identity>", input_line)
+        self.assertIn("<input_path>", input_line)
+        self.assertIn("唯一候选载体", input_line)
+        self.assertIn("全程只读", input_line)
+        self.assertIn("禁止写入任何文件", input_line)
+        self.assertIn(
+            "docs/paseo-translation-context-review-v1-contract.md 第六节", input_line
+        )
+        # “所引译文/公开源码”修饰 input_path 文件（该文件），不修饰契约第六节。
+        self.assertIn("该文件及其所引译文/公开源码", input_line)
+        self.assertNotIn("第六节及其所引", input_line)
+        self.assertNotIn(".ai/roles/reviewer.md", input_line)
+        # 输出行：第六节单一紧凑 JSON、冻结顺序全量覆盖、身份回显、首尾字节、
+        # 无其他文字/围栏。
+        output_line = lines[2]
+        self.assertIn("第六节", output_line)
+        self.assertIn("单一紧凑 JSON", output_line)
+        self.assertIn("冻结顺序全量覆盖", output_line)
+        self.assertIn("回显 <candidate_identity>", output_line)
+        self.assertIn("首字节{", output_line)
+        self.assertIn("末字节}", output_line)
+        self.assertIn("无其他文字、Markdown/围栏", output_line)
         # 不内联候选数据：envelope、revision、source/target、术语、上下文、源码。
         for marker in (
             "payload",
@@ -20151,11 +20186,32 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
             "target",
         ):
             self.assertNotIn(marker, prompt)
-        # 唯一占位符序列：候选身份两次（声明与回显）、输入路径一次。
-        self.assertEqual(
-            re.findall(r"<[^>]+>", prompt),
-            ["<candidate_identity>", "<input_path>", "<candidate_identity>"],
+        # 旧路由重文本标记已拒绝：整份 reviewer.md 阅读指示、workspace 只读声明、
+        # purpose 描述、双文档路由与文件系统写入禁令措辞都不在模型可见模板中。
+        for marker in (
+            "本 workspace 只读",
+            "先用只读工具",
+            "的语境审核 briefing",
+            "purpose=",
+            "上述两份规范文档",
+            "不得修改、创建、删除",
+            ".ai/roles/reviewer.md",
+        ):
+            self.assertNotIn(marker, prompt)
+        # 显式有界实例化示例：64 位十六进制候选身份 + 32 字符合法 dispatch_id
+        # 的任务路径。这只是有界示例，不是全局 input_path 上限。
+        identity = "a" * 64
+        input_path = (
+            ".ai/task/context-review-prompt-focus-001/CONTEXTUAL-ENVELOPE-"
+            + "a" * 32
+            + ".json"
         )
+        instantiated = (
+            prompt.replace("<candidate_identity>", identity)
+            .replace("<input_path>", input_path)
+            .encode("utf-8")
+        )
+        self.assertLessEqual(len(instantiated), 800)
 
     def test_contextual_disk_envelope_identity_binding(self) -> None:
         contextual = self._normative_texts()["contextual"]
@@ -20661,22 +20717,52 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
             re.S,
         )
         prompt = match.group(1)
-        self.assertIn("只读取 input_path 文件、上述两份规范文档", prompt)
-        self.assertIn("input 文件明确引用的译文／公开源码路径", prompt)
-        self.assertIn("不得读取本任务其他 .ai/task 文件", prompt)
-        self.assertIn("任何 .ai/reviews 记录", prompt)
+        input_line = prompt.splitlines()[1]
+        # 磁盘冻结文件是唯一候选载体；会话级只读禁令覆盖整个 workspace；
+        # 读取边界路径精确：input_path 文件及其所引译文/公开源码、契约第六节，
+        # 不读其他 .ai/task/.ai/reviews。
+        self.assertIn("唯一候选载体", input_line)
+        self.assertIn("全程只读", input_line)
+        self.assertIn("禁止写入任何文件", input_line)
+        self.assertIn(
+            "docs/paseo-translation-context-review-v1-contract.md 第六节", input_line
+        )
+        # “所引译文/公开源码”修饰 input_path 文件（该文件），不修饰契约第六节。
+        self.assertIn("该文件及其所引译文/公开源码", input_line)
+        self.assertNotIn("第六节及其所引", input_line)
+        self.assertIn("不读其他 .ai/task/.ai/reviews", input_line)
+        # 模板不要求阅读整份混合用途 .ai/roles/reviewer.md。
+        self.assertNotIn(".ai/roles/reviewer.md", prompt)
         for marker in ("payload", "revisions", "evidence", "source", "target"):
             self.assertNotIn(marker, prompt)
         # 独立契约输入章节声明读取边界。
         section5 = contextual[contextual.index("## 五、输入（有界 briefing）") :]
         self.assertIn("读取边界：", section5)
         self.assertIn("不得浏览本任务其他", section5)
-        self.assertIn("`.ai/task` 文件或任何 `.ai/reviews` 记录", section5)
-        # REVIEWER 角色简报同样声明读取边界。
+        self.assertIn("`.ai/task` 文件或", section5)
+        self.assertIn("任何 `.ai/reviews` 记录", section5)
+        # §五 只授权 input_path 文件、该文件所引译文/公开源码路径与契约第六节；
+        # 不再授权整份 reviewer.md 或整份契约文档。
+        self.assertIn("明确引用的译文／公开源码路径", section5)
+        self.assertIn("第六节（严格结果 schema）", section5)
+        self.assertIn("不得阅读整份", section5)
+        self.assertNotIn("两份规范文档", section5)
+        # REVIEWER 角色简报同样声明读取边界，且与独立契约 §五 一致。
         reviewer = texts["reviewer"]
         self.assertIn("读取边界：", reviewer)
         self.assertIn("不得浏览本任务其他 `.ai/task` 文件", reviewer)
         self.assertIn("`.ai/reviews` 记录", reviewer)
+        self.assertIn(
+            "`docs/paseo-translation-context-review-v1-contract.md` 第六节", reviewer
+        )
+        self.assertIn("不得阅读整份本文件", reviewer)
+        self.assertNotIn("两份规范文档", reviewer)
+        # 编排契约 §十 外发摘要与三行 prompt／§五 边界对齐。
+        outbound = texts["contract"]
+        outbound = outbound[outbound.index("## 十、外发与兼容") :]
+        self.assertIn("任务／输入／输出三行", outbound)
+        self.assertIn("独立契约第五节", outbound)
+        self.assertNotIn("短 prompt 只携带路径与身份", outbound)
 
     def test_contextual_dispatch_id_token_format(self) -> None:
         contextual = self._normative_texts()["contextual"]

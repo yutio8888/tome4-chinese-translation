@@ -2,7 +2,7 @@
 
 > 状态：设计草案，待实际任务验证。
 >
-> 契约版本：`paseo-orchestration/2.4-draft`。
+> 契约版本：`paseo-orchestration/2.5-draft`。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文不单独授权外部传输，也不表示新的控制器
 > 或 STATE 校验器已经实现。
@@ -429,8 +429,9 @@ Provider/Model/Mode/Thinking 为 `pi`/`opencode-go/deepseek-v4-flash`/null 或�
 prompt 或 envelope。派发 envelope 以紧凑 JSON 字节（identity＋未改动 payload object，
 `payload.rendered_briefing` 不含身份）写入任务作用域 workspace 相对输入文件
 `input_path`（每个 create attempt 一个文件，文件名含 `dispatch_id`），由 fresh 语境
-REVIEWER 用只读 workspace 工具读取；短 prompt 只含 purpose、`candidate_identity`、
-`input_path` 与 JSON-only 输出边界，不内联任何候选数据（序列化规则见独立契约第四节）。
+REVIEWER 用只读 workspace 工具读取；短 prompt 只含任务／输入／输出三行（唯一动态值 `candidate_identity` 与
+`input_path`，未实例化规范模板 ≤800 UTF-8 字节），不内联任何候选数据，也不指示阅读
+`.ai/roles/reviewer.md`（序列化规则见独立契约第四节）。
 创建或恢复后把精确 agent ID、`dispatch_id`、`input_path` 与 `candidate_identity`
 写入 STATE 的 `contextual_reviewer.agent_id`／`contextual_reviewer.dispatch_id`／
 `contextual_reviewer.input_path`／`contextual_reviewer.candidate_identity`。每次派发、
@@ -748,8 +749,10 @@ code/legacy v1 审核相关的代码、文档、必要上下文和 scope audit �
 普通 findings；向 pi EXECUTOR 发送
 任务 briefing 并允许其读取 workspace；向 Pi REVIEWER 的 `translation_contextual_v1`
 purpose 发送有界译文语境 bundle 并允许其只读读取任务范围内的有界上下文（bundle
-经任务作用域冻结输入文件交付，短 prompt 只携带路径与身份），该 bundle
-不含先前 finding、裁决、建议修复或 blind v2 observation；读取边界以独立契约第五节为准。每次任务记录 provider、model 和大致内容范围
+经任务作用域冻结输入文件交付；短 prompt 为任务／输入／输出三行，唯一动态值是
+候选身份与输入路径，不内联候选数据），该 bundle
+不含先前 finding、裁决、建议修复或 blind v2 observation；模型可见读取边界（仅限
+`input_path` 文件及其所引译文/公开源码、独立契约第六节）以独立契约第五节为准。每次任务记录 provider、model 和大致内容范围
 即可，不保存完整 payload 或字节计量。
 
 其他 provider 或范围外内容仍须用户授权。外部源码读取仍受对应 Skill 和项目公开源码
@@ -804,7 +807,7 @@ v2 格式；旧
   含该 contract 时存在，未选择无迁移）、agent-scoped MCP
   创建载荷（`provider: "pi/opencode-go/deepseek-v4-flash"`、省略 `settings.modeId`、
   `settings.thinkingOptionId: "max"`、labels 含 `purpose`、`candidate_identity` 与
-  `dispatch_id`）、短派发 prompt（唯一动态值 `<candidate_identity>` 与 `<input_path>`，
+  `dispatch_id`）、短派发 prompt（任务／输入／输出三行，唯一动态值 `<candidate_identity>` 与 `<input_path>`，
   JSON-only 输出规则模型可见，不内联候选数据）、冻结输入文件承载派发 envelope 并由
   fresh 语境 REVIEWER 只读读取、创建／恢复核验与恢复过滤（歧义恢复只允许同一
   `dispatch_id`）、候选身份独立于 blind bundle identity 与 code-diff candidate 配方、结果 fail-closed 校验、
@@ -864,6 +867,7 @@ v2 格式；旧
 
 | 版本 | 状态 | 内容 |
 | --- | --- | --- |
+| `2.5-draft` | 设计草案 | 语境审核短派发 prompt 收敛为任务／输入／输出三行（`任务：`／`输入：`／`输出：`，未实例化规范模板 ≤800 UTF-8 字节，唯一动态值 `<candidate_identity>` 与 `<input_path>`）：任务行聚焦逐 revision 语境审核（输入文件术语／上下文与所引固定源码证据，只报有证据的实质错误，无问题填 OK），输入行声明磁盘冻结文件为唯一候选载体、会话级全程只读禁写、读取限定为 `input_path` 文件及该文件所引译文/公开源码，另加独立契约第六节，输出行要求第六节单一紧凑 JSON、冻结顺序全量覆盖、身份回显与首尾字节、无其他文字/围栏；模板不再指示阅读 `.ai/roles/reviewer.md`，详细 schema、恢复、身份、只读守卫与 fresh-session 规则继续只存于磁盘规范；2.4 行为与历史记录不改写。 |
 | `2.4-draft` | 设计草案 | 语境审核派发改为「冻结磁盘输入＋短 prompt」：`create_agent.initialPrompt`／CLI positional prompt 只携带含 purpose、候选身份、workspace 相对冻结输入路径与 JSON-only 输出边界的短派发 prompt（唯一动态值 `<candidate_identity>` 与 `<input_path>`，不内联 envelope、revision、source/target、术语、上下文或源码片段）；紧凑派发 envelope（identity＋未改动 payload object，`payload.rendered_briefing` 不含身份）以精确字节冻结到任务作用域 `input_path = .ai/task/<task_id>/CONTEXTUAL-ENVELOPE-<dispatch_id>.json`，由 fresh 语境 REVIEWER 用只读 workspace 工具读取；每次派发、重跑与无效输出重试都创建 fresh agent 并分配唯一任务作用域 `dispatch_id`（label 与文件名），不得用 `send_agent_prompt` 复用旧语境 REVIEWER；歧义 create 恢复只允许复用同一 `dispatch_id` 的同一创建尝试，新重试用新 `dispatch_id`；冻结输入文件纳入只读守卫（修改、替换、删除、符号链接替换或身份不匹配使输出无效）；STATE 条件字段 `contextual_reviewer` 增补 `dispatch_id` 与 `input_path`，语境 review 记录增补同名字段与精确 agent ID，已完成历史记录不改写、活动任务下次派发时采用。 |
 | `2.3-draft` | 设计草案 | 增加补充的非盲译文语境审核 contract `translation_contextual_v1`：仍由现有 REVIEWER 角色按 purpose 承载（`code_legacy_v1` 保持 Codex `gpt-5.6-sol`/`auto-review`/`xhigh`，`translation_contextual_v1` 为 Pi `opencode-go/deepseek-v4-flash`/省略 mode/`max`）；agent-scoped MCP `create_agent` 载荷（省略 `settings.modeId`、`settings.thinkingOptionId: "max"`、labels 含 `purpose=translation_contextual_v1`）与 CLI 等价命令；创建／恢复后核验 Pi 元组（含 Mode null／缺失），不匹配即停止，不得静默降级或回退到 Codex；恢复查询按 `labels.purpose` 区分同任务的两个 REVIEWER 载体；条件 STATE 字段
 `contextual_reviewer`（仅当 `review_contracts` 含该 contract 时记录

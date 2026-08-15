@@ -207,8 +207,9 @@ manifest、全工作树 hash 或 hash 链。
   ORCHESTRATOR 用 agent-scoped MCP `create_agent` 直接创建（`provider: "pi/opencode-go/deepseek-v4-flash"`、
   `settings.thinkingOptionId: "max"`、省略 `settings.modeId`、labels 含 `task_id`／`role=reviewer`／
   `purpose=translation_contextual_v1`／`candidate_identity=<sha256>`／`dispatch_id=<dispatch-id>`，冻结后设置），
-  `initialPrompt` 只携带短派发 prompt（purpose、候选身份、workspace 相对冻结输入
-  路径与 JSON-only 输出边界，不内联 envelope 或候选数据；CLI 等价为 `paseo run` 的
+  `initialPrompt` 只携带任务／输入／输出三行的短派发 prompt（唯一动态值是候选身份
+  与 workspace 相对冻结输入路径，不内联 envelope 或候选数据，也不指示阅读
+  `.ai/roles/reviewer.md`；CLI 等价为 `paseo run` 的
   positional prompt，`--json` 只控制输出格式，见独立契约第四节），紧凑派发
   envelope（identity＋未改动 payload object，`payload.rendered_briefing` 不含身份）
   以精确字节冻结到任务作用域 workspace 相对输入文件 `input_path`，由 fresh 语境

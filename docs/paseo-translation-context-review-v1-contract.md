@@ -2,7 +2,12 @@
 
 > 状态：规范。
 >
-> 契约版本：`translation-contextual/1.1`。
+> 契约版本：`translation-contextual/1.2`。
+>
+> 1.2：规范短派发 prompt 收敛为任务／输入／输出三行（未实例化规范模板 ≤800
+> UTF-8 字节，唯一动态值
+> `<candidate_identity>` 与 `<input_path>`），不再指示阅读 `.ai/roles/reviewer.md`；
+> schema、恢复、身份、只读守卫与 fresh-session 规则不变，仍由本文磁盘规范承载。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)；编排细节见
 > [`paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md)。
@@ -290,25 +295,23 @@ code-diff 候选配方（`candidate_ref` 公式）。`candidate_identity` 写入
 
 ### 短派发 prompt（规范模板）
 
-`initialPrompt`（CLI positional prompt）只含下列短模板，唯一动态值是
-`<candidate_identity>` 与 `<input_path>`：
+`initialPrompt`（CLI positional prompt）只含下列三行任务／输入／输出短模板
+（字节上限针对未实例化模板：≤800 UTF-8 字节），唯一动态值是 `<candidate_identity>`
+与 `<input_path>`；模板不指示阅读 `.ai/roles/reviewer.md`，详细 schema、恢复、身份、
+只读守卫与失败规则只在本磁盘规范中：
 
 ```text
-你是 Paseo translation_contextual_v1 语境 REVIEWER（purpose=translation_contextual_v1），
-本 workspace 只读。候选身份：<candidate_identity>。冻结派发 envelope：workspace
-相对路径 <input_path> 的常规 JSON 文件（任务作用域、只读、不可改动）。先用只读工具
-读取该文件，再按 .ai/roles/reviewer.md 的语境审核 briefing 与
-docs/paseo-translation-context-review-v1-contract.md 第六节严格结果 schema 审核。
-只读取 input_path 文件、上述两份规范文档与 input 文件明确引用的译文／公开源码路径；
-不得读取本任务其他 .ai/task 文件或任何 .ai/reviews 记录。
-你不得修改、创建、删除、stage 或 commit 任何文件，不得改写任何冻结输入。
-整个响应必须是一个紧凑 JSON object：第一个字节是 {，最后一个字节是 }，无 prose、
-无 Markdown、无代码围栏；结果回显精确候选身份 <candidate_identity>。
+任务：审核全部冻结 revision；据输入文件术语、上下文和所引固定源码，只报有证据的实质语义、机制、术语或关系错误，无问题填 OK。
+输入：candidate_identity=<candidate_identity>；<input_path> 是唯一候选载体。全程只读，禁止写入任何文件；只读该文件及其所引译文/公开源码、docs/paseo-translation-context-review-v1-contract.md 第六节，不读其他 .ai/task/.ai/reviews。
+输出：仅回第六节单一紧凑 JSON；冻结顺序全量覆盖并回显 <candidate_identity>；首字节{、末字节}，无其他文字、Markdown/围栏。
 ```
 
 模板不内联派发 envelope、有序 revision 列表、source/target、术语、有界上下文、
 源码片段或其他候选数据；`rendered_briefing` 保持不含身份的磁盘驻留组件，不作为 `initialPrompt`，
 候选数据从不复制进短 prompt。JSON-only 输出规则位于模型可见文本。
+字节上限只约束未实例化模板；实例化后的实际长度随 `<candidate_identity>`（64 位
+十六进制）与 `<input_path>`（含任务 ID 与 `dispatch_id`）而定，本契约不设全局
+实例化上限。
 CLI 的 positional prompt 与 MCP `create_agent.initialPrompt` 是这份短 prompt 的
 精确同一文本；`--json` 只控制 CLI 输出格式，不携带 prompt 或 envelope。
 
@@ -326,9 +329,9 @@ CLI 的 positional prompt 与 MCP `create_agent.initialPrompt` 是这份短 prom
 **禁止注入**：先前 finding、裁决决定、建议修复、blind v2 observation 及任何宿主
 lineage。
 
-读取边界：语境 REVIEWER 只读取短 prompt 指定的精确 `input_path` 文件、本仓库
-`.ai/roles/reviewer.md` 与 `docs/paseo-translation-context-review-v1-contract.md`
-两份规范文档，以及 input 文件明确引用的译文／公开源码路径；不得浏览本任务其他
+读取边界：语境 REVIEWER 只读取短 prompt 指定的精确 `input_path` 文件、
+该文件明确引用的译文／公开源码路径，以及本契约第六节（严格结果 schema）；
+不得阅读整份 `.ai/roles/reviewer.md` 或整份本契约文档；不得浏览本任务其他
 `.ai/task` 文件或任何 `.ai/reviews` 记录。
 
 ## 六、结果 schema 与校验（fail closed）

@@ -33,9 +33,11 @@ SENIOR_REVIEWER 不承担该 purpose。语境候选冻结后先计算
 `candidate_identity`（规范 payload 不含身份本身，见独立契约第四节），把外层
 envelope（identity＋未改动 payload object，`payload.rendered_briefing` 不含身份）
 以紧凑 JSON 字节冻结到任务作用域 workspace 相对输入文件（`input_path`），
-`initialPrompt` 只携带含 purpose、`candidate_identity`、`input_path` 与 JSON-only
-输出边界的短派发 prompt，不内联 envelope、revision、source/target、术语、上下文
-或源码片段；每次派发、重跑与无效输出重试都创建 fresh 语境 REVIEWER 并分配唯一
+`initialPrompt` 只携带任务／输入／输出三行的短派发 prompt（唯一动态值
+`candidate_identity` 与 `input_path`，未实例化规范模板 ≤800 UTF-8 字节，不内联
+envelope、revision、source/target、术语、上下文或源码片段，也不指示阅读
+`.ai/roles/reviewer.md`）；
+每次派发、重跑与无效输出重试都创建 fresh 语境 REVIEWER 并分配唯一
 `dispatch_id`，恢复只允许复用同一候选且同一 `dispatch_id`（同一歧义 create 尝试）
 的 agent，不得用 `send_agent_prompt` 复用旧语境 REVIEWER。
 `change_class` 为 `translation_workflow` 或 `infrastructure` 时，普通与高级 reviewer 必须从同一 SPEC／diff 独立交叉审核，在两份输出都返回前不得互看结论。两类 reviewer 的核心 briefing 在首次派发前冻结；若一方在另一方返回后重试，只能附加基础设施重试原因，不得按已知 finding 改写范围、候选或验收标准，否则两份输出都作废重跑。该规则审查的是翻译流程／基础设施变更，不取代译文的 blind translation v2 语义审核。
@@ -142,7 +144,7 @@ EXECUTOR、REVIEWER 与 SENIOR_REVIEWER 均不继承当前会话，briefing 必�
 以下项目级通道无需逐次确认：通过现有 blind runner 发送 translation v2 bundle；向 Codex REVIEWER、Claude Code Opus SENIOR_REVIEWER 或其 Codex `gpt-5.6-sol` 回退发送与 code/legacy v1 审核相关的代码、文档、必要上下文和已产生的普通 review findings；向 pi EXECUTOR 发送任务 briefing 并允许其读取当前 workspace；向 Pi REVIEWER 的
 `translation_contextual_v1` purpose 发送有界译文语境 bundle（有序 revision、译文快照、
 固定源码 commit 证据、术语子集与精确 context digest，经任务作用域冻结输入文件
-交付，短 prompt 只携带路径与身份），并允许其读取当前 workspace 内
+交付，短 prompt 只携带任务／输入／输出三行（唯一动态值路径与身份）），并允许其读取当前 workspace 内
 任务范围内的有界上下文；该 bundle 不得包含先前 finding、裁决、建议修复或 blind v2
 observation；读取边界以独立契约第五节为准。用户本次指定已授权前述 Claude Opus 通道、Codex 回退及 Pi 语境审核通道。任务记录只需注明 provider、model 和内容范围，不要求保存完整 payload manifest。使用其他 provider 或发送范围外内容前仍须取得用户授权。
 
