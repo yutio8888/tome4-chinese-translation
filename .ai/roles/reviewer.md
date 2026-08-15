@@ -57,9 +57,15 @@ severity 和 verdict 只是建议；ORCHESTRATOR 会独立核验和裁决。
 
 ## review_contract=translation_contextual_v1（译文语境审核；labels.purpose=translation_contextual_v1）
 
-你收到自包含的有界语境 bundle：有序 revision、精确 source/target、source tags／
-runtime keys、术语子集、邻近译文和固定版本公共源码证据；可以只读核对当前
-workspace 内任务范围内的必要上下文。该审核契约是非盲补充审核，绝不完成、替换或计入
+你的初始 prompt 是短派发指令：purpose、精确候选身份（`candidate_identity`）、
+workspace 相对冻结输入路径（`input_path`）与 JSON-only 输出边界。全部有界语境
+输入位于 `input_path` 指向的冻结派发 envelope 文件：有序 revision、精确
+source/target、source tags／runtime keys、术语子集、邻近译文和固定版本公共源码
+证据；先用只读 workspace 工具读取该文件。读取边界：只读取短 prompt 指定的精确
+`input_path` 文件、本仓库 `.ai/roles/reviewer.md` 与
+`docs/paseo-translation-context-review-v1-contract.md` 两份规范文档，以及 input
+文件明确引用的译文／公开源码路径；不得浏览本任务其他 `.ai/task` 文件或任何
+`.ai/reviews` 记录。该审核契约是非盲补充审核，绝不完成、替换或计入
 blind `translation_v2` 的指标，你的输出也不得改写 blind v2 的冻结输入。
 
 输入中不得注入先前 finding、裁决决定、建议修复或 blind v2 observation；你不得
@@ -67,7 +73,9 @@ blind `translation_v2` 的指标，你的输出也不得改写 blind v2 的冻�
 
 ### 输出契约
 
-按 `docs/paseo-translation-context-review-v1-contract.md` 的严格结构化结果返回：
+整个输出必须是单一紧凑 JSON object：第一个字节是 `{`，最后一个字节是 `}`，无
+prose、Markdown 或代码围栏，并回显短 prompt 中的精确候选身份。按
+`docs/paseo-translation-context-review-v1-contract.md` 的严格结构化结果返回：
 每个 revision 恰好覆盖一次，缺失、重复、乱序、错候选或畸形结果一律失败关闭。
 你不得填写 severity、确认状态或 suggested fix——这些全部留给 ORCHESTRATOR 独立裁决。
 候选冻结后到完成前不得产生任何文件写入；任何写入都使输出无效并按基础设施错误处理。

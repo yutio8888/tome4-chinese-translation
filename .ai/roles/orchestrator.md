@@ -65,7 +65,7 @@ SENIOR_REVIEWER。
   "baseline": {"patch": null, "copies_dir": null},
   "executor": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", "mode": null, "thinking": "max", "agent_id": null},
   "reviewer": {"provider": "codex", "model": "gpt-5.6-sol", "mode": "auto-review", "thinking": "xhigh", "agent_id": null},
-  "contextual_reviewer": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", "mode": null, "thinking": "max", "purpose": "translation_contextual_v1", "candidate_identity": null, "agent_id": null},
+  "contextual_reviewer": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", "mode": null, "thinking": "max", "purpose": "translation_contextual_v1", "candidate_identity": null, "dispatch_id": null, "input_path": null, "agent_id": null},
   "senior_reviewer": {
     "primary": {"provider": "claude", "model_family": "opus", "resolved_model": "claude-opus-5", "mode": "plan", "thinking": "high"},
     "fallback": {"provider": "codex", "model": "gpt-5.6-sol", "mode": "auto-review", "thinking": "xhigh"},
@@ -87,8 +87,10 @@ STATE 示例中的 `reviewer` 块是 `code_legacy_v1` 的 Codex 载体；
 `translation_contextual_v1` 在 `review_contracts` 含该 contract 时由条件字段
 `contextual_reviewer` 记录（provider `pi`、model `opencode-go/deepseek-v4-flash`、
 mode null、thinking `max`、purpose `translation_contextual_v1`、candidate_identity、
-agent_id），创建／恢复后按本文与 `docs/paseo-translation-context-review-v1-contract.md`
-核验并同步 agent_id 与 candidate_identity；未选择该 contract 的任务不需要该字段，无迁移。
+dispatch_id、input_path、agent_id），创建／恢复后按本文与
+`docs/paseo-translation-context-review-v1-contract.md`
+核验并同步 agent_id、dispatch_id、input_path 与 candidate_identity；未选择该 contract
+的任务不需要该字段，无迁移。
 
 STATE 在阶段变化、每个 review contract 完成、agent ID 变化或出现错误时更新即可；
 `orchestrator_agent_id` 在任务内不得改变。不维护逐动作 history、hash 链或不可变 artifact。
@@ -204,11 +206,15 @@ manifest、全工作树 hash 或 hash 链。
 - translation_contextual_v1：补充的非盲译文语境审核，仍由 REVIEWER 角色承担。
   ORCHESTRATOR 用 agent-scoped MCP `create_agent` 直接创建（`provider: "pi/opencode-go/deepseek-v4-flash"`、
   `settings.thinkingOptionId: "max"`、省略 `settings.modeId`、labels 含 `task_id`／`role=reviewer`／
-  `purpose=translation_contextual_v1`／`candidate_identity=<sha256>`，冻结后设置），
-  `initialPrompt` 是派发 envelope 的精确 UTF-8 JSON 文本（identity＋未改动 payload
-  object，`payload.rendered_briefing` 不含身份；CLI 等价为 `paseo run` 的 positional
-  prompt，`--json` 只控制输出格式，见独立契约第四节），
-  常规计划派发总是创建 fresh 语境 REVIEWER。冻结有界语境候选，派发前对任务前既有
+  `purpose=translation_contextual_v1`／`candidate_identity=<sha256>`／`dispatch_id=<dispatch-id>`，冻结后设置），
+  `initialPrompt` 只携带短派发 prompt（purpose、候选身份、workspace 相对冻结输入
+  路径与 JSON-only 输出边界，不内联 envelope 或候选数据；CLI 等价为 `paseo run` 的
+  positional prompt，`--json` 只控制输出格式，见独立契约第四节），紧凑派发
+  envelope（identity＋未改动 payload object，`payload.rendered_briefing` 不含身份）
+  以精确字节冻结到任务作用域 workspace 相对输入文件 `input_path`，由 fresh 语境
+  REVIEWER 用只读 workspace 工具读取；每次派发、重跑与无效输出重试都创建 fresh
+  语境 REVIEWER 并分配唯一 `dispatch_id`，歧义恢复只允许复用同一 `dispatch_id` 的
+  同一创建尝试，不得用 `send_agent_prompt` 复用旧语境 REVIEWER。冻结有界语境候选，派发前对任务前既有
   脏／untracked 路径与候选路径做精确内容＋index-diff 快照，返回后逐路径比较（任何
   内容变化或新增状态路径即使分类仍为 M 也使输出无效）；派发前记录仓库 HEAD OID，
   返回后精确比较，HEAD 变化（即使随后工作树干净）也使输出无效（只比较单个 OID）；
@@ -218,8 +224,12 @@ manifest、全工作树 hash 或 hash 链。
   输入、候选身份、结果校验与
   只读失败语义遵循 `docs/paseo-translation-context-review-v1-contract.md`；
   记录与指标和 blind v2 分离，任一 contract 的输出不得改写另一 contract 的冻结输入；
-  创建／恢复后把精确 agent ID 与 `candidate_identity` 写入 STATE 的
-  `contextual_reviewer.agent_id`／`contextual_reviewer.candidate_identity`。
+  创建／恢复后把精确 agent ID、`dispatch_id`、`input_path` 与 `candidate_identity`
+  写入 STATE 的 `contextual_reviewer.agent_id`／`contextual_reviewer.dispatch_id`／
+  `contextual_reviewer.input_path`／`contextual_reviewer.candidate_identity`。
+  接受结果前核验返回来源的精确 agent ID 等于 STATE 当前 `contextual_reviewer.agent_id`、
+  `dispatch_id` 等于当前派发；发起新派发（新 `dispatch_id`）或无效输出重跑前先停止
+  旧语境 REVIEWER，其后迟到输出一律作废。
 - 混合任务分别运行各类审核，但可以共用 task ID 和 STATE。
 - `review_phase` 只取 `initial|re|final|null`。进入新阶段时清空 completed 与
   `review_records`；initial／final 的 pending 初始化为全部 contract，re 只列受本轮修复
@@ -247,7 +257,9 @@ finding 不得仅因为个人项目而驳回；只有缺乏证据、超出设计
 不成比例的要求才应被收窄、降级或驳回。
 
 复审记录写入当前 task 的 review 目录，必须标明 `task_id`、`review_contract`、
-`review_phase`、`cycle`、`reviewer_role` 与 `purpose`；普通 contract 到相对路径的映射
+`review_phase`、`cycle`、`reviewer_role` 与 `purpose`；语境 review 记录还必须记录
+`candidate_identity`、`dispatch_id`、`input_path`、`agent_id` 四个精确字段，
+`dispatch_id` 不进入模型结果 schema。普通 contract 到相对路径的映射
 写入 `review_records`，高级复审路径追加到 `senior_review_records`。REVIEWER
 接收当前 contract 相关的 baseline→current 任务 diff。每份 code review 记录还保存该
 reviewer 派发时的 `candidate_ref`；需要交叉审核时，两份记录与完成前当前引用必须相同。
@@ -299,14 +311,17 @@ findings，恢复后先进入 `SENIOR_REVIEW`，不得直接继续 FIX。已完�
 task/role label 查询并核验已有 agent：CLI 用 `paseo ls --label`（服务端 label 过滤）；MCP 用
 `list_agents` 限定任务 workspace／cwd（`includeArchived=false`、`sinceHours` 覆盖任务开始时刻），
 在宿主侧先按 `labels.task_id`／`labels.role` 精确过滤，再按目标 `labels.purpose`（code
-`normal_review`、语境 `translation_contextual_v1`）过滤，**过滤先于基数判定**；语境载体另按
-`labels.candidate_identity` 绑定候选；`list_agents` 结果按 `limit` 截断，
+`normal_review`、语境 `translation_contextual_v1`）过滤，**过滤先于基数判定**；语境载体再按
+`labels.candidate_identity` 与 `labels.dispatch_id` 精确过滤——0/1/many 基数判定前必须完成
+task_id／role／purpose／candidate_identity／dispatch_id 全部精确过滤；`list_agents` 结果按 `limit` 截断，
 截断或不完整的列表不得当作零匹配。过滤后：无匹配允许重试一次，唯一匹配且身份正确则
 复用，多个匹配或歧义匹配进入 `WAIT_USER`；无法唯一确认时询问用户，不要再创建第二个写入 agent。
 pre-2.3 活动任务未选择 `translation_contextual_v1` 时，缺省 purpose 候选可在 Codex 元组核验
 通过后视为 `normal_review`；已选择语境 contract 时缺省 purpose 视为歧义进入 `WAIT_USER`。
-语境 REVIEWER 恢复只允许复用 `candidate_identity` 精确相同的 agent，旧 phase／旧候选的
-agent 不得改作他用。
+语境 REVIEWER 恢复只允许复用同一候选（`candidate_identity` 精确相同）且同一
+`dispatch_id`（同一歧义 create 尝试）的 agent，旧 phase／旧候选／旧 dispatch 的
+agent 不得改作他用；每次派发、重跑与无效输出重试都创建 fresh 语境 REVIEWER 并分配
+新 `dispatch_id`，不得用 `send_agent_prompt` 复用旧语境 REVIEWER。
 
 恢复已有 EXECUTOR 时，发送下一条任务前先检查 Provider、Model 和 `Thinking`。Provider 不是 `pi` 或
 Model 不是 `opencode-go/deepseek-v4-flash` 时停止并记录基础设施错误；若 `Thinking` 不是 `max`，运行

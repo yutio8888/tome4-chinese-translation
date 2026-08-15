@@ -2,7 +2,7 @@
 
 > 状态：规范。
 >
-> 契约版本：`translation-contextual/1.0`。
+> 契约版本：`translation-contextual/1.1`。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)；编排细节见
 > [`paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md)。
@@ -37,26 +37,30 @@ pi / opencode-go/deepseek-v4-flash / mode null / thinking max
 创建必须由 ORCHESTRATOR 直接调用 agent-scoped MCP `create_agent`（CLI 等价：
 `paseo run --provider pi --model opencode-go/deepseek-v4-flash --thinking max
 --workspace <workspace-id> --label task_id=<task-id> --label role=reviewer
---label purpose=translation_contextual_v1 --label candidate_identity=<sha256> --json '<派发 envelope 的精确 UTF-8 JSON 文本>'`），
+--label purpose=translation_contextual_v1 --label candidate_identity=<sha256>
+--label dispatch_id=<dispatch-id> --json '<短派发 prompt 的精确文本（见第四节）>'`），
 不得使用 provider 原生 `spawn_agent`，也不得手写 parent label。创建前必须先冻结
-候选并计算 `candidate_identity`（见第四节）；常规计划派发总是创建 fresh 语境
-REVIEWER，不挪用其他候选的 agent。`create_agent.initialPrompt` 是派发 envelope 的
-精确 UTF-8 JSON 文本（见第四节），不是 inner rendered_briefing 本身。CLI 等价中，
-`paseo run` 的 positional prompt（`paseo run ... <prompt>`）就是派发 envelope 的精确
-UTF-8 JSON 文本，与 MCP `create_agent.initialPrompt` 映射一致；`--json` 只控制 CLI 输出格式，不携带
-prompt。MCP 载荷：
+候选、计算 `candidate_identity`、为本次 create attempt 生成唯一任务作用域
+`dispatch_id`，并把紧凑派发 envelope 的 UTF-8 字节写入任务作用域 workspace 相对
+输入文件 `input_path`（见第四节）；常规计划派发总是创建 fresh 语境 REVIEWER，
+不挪用其他候选或旧 dispatch 的 agent。`create_agent.initialPrompt` 只携带第四节
+短派发 prompt（唯一动态值是候选身份与输入路径），不是派发 envelope，
+也不是 inner rendered_briefing 本身。CLI 等价中，`paseo run` 的 positional prompt
+（`paseo run ... <prompt>`）与 MCP `create_agent.initialPrompt` 是同一份短 prompt
+的精确同一文本；`--json` 只控制 CLI 输出格式，不携带 prompt 或 envelope。MCP 载荷：
 
 ```json
 {
   "workspaceId": "<workspace-id>",
   "title": "reviewer-contextual <task-id>",
   "provider": "pi/opencode-go/deepseek-v4-flash",
-  "initialPrompt": "<派发 envelope 的精确 UTF-8 JSON 文本（见第四节）>",
+  "initialPrompt": "<第四节短派发 prompt 的精确文本>",
   "labels": {
     "task_id": "<task-id>",
     "role": "reviewer",
     "purpose": "translation_contextual_v1",
-    "candidate_identity": "<sha256>"
+    "candidate_identity": "<sha256>",
+    "dispatch_id": "<dispatch-id>"
   },
   "settings": {"thinkingOptionId": "max"}
 }
@@ -65,6 +69,29 @@ prompt。MCP 载荷：
 `settings.modeId` 必须省略（Pi 无可选 mode）。不得静默降级 thinking，也不得在
 Pi 元组不可用时回退到 Codex：`code_legacy_v1` 的 Codex 路由保持不变，语境审核
 失败关闭。
+
+每次派发、重跑与无效输出重试都创建 fresh agent 与独立 provider session，不通过
+`send_agent_prompt` 复用旧语境 REVIEWER；每个 create attempt 拥有独立 `dispatch_id`
+与独立 `input_path` 文件。
+
+### dispatch_id 规范
+
+`dispatch_id` 是任务作用域内每次 create attempt 的唯一短 token，同时用于 agent
+label 与冻结输入文件名，必须既是 label 安全值也是文件名安全值。格式精确固定为：
+
+```text
+^[0-9a-z][0-9a-z-]{0,31}$
+```
+
+即：首字符必须是 ASCII 数字或小写字母（`[0-9a-z]`），后续字符只允许 ASCII 数字、
+小写字母或连字符 `-`，总长 1–32。以下值一律拒绝：含 `/` 或 `\` 斜杠、含 `.` 的
+任何点段（`.`、`..`、`.hidden`、`a.b` 等）、含空白（空格、制表、换行）、含任何
+非 ASCII 字符（中文、全角符号、emoji 等）的值，以及超长（>32）或首字符不在
+`[0-9a-z]` 的值。ORCHESTRATOR 必须在构造 `input_path` 与 labels 之前校验
+`dispatch_id`；不合法即视为候选冻结失败，不得创建 agent、不得写入输入文件。
+构造 `input_path` 后，若该精确路径已存在任何既有条目（文件、目录或符号链接），
+则候选冻结失败：不得覆盖或写入该路径，不得创建 agent，必须换一个新的合法
+`dispatch_id` 再尝试。
 
 ## 三、创建／恢复后核验
 
@@ -79,11 +106,16 @@ Pi 元组不可用时回退到 Codex：`code_legacy_v1` 的 Codex 路由保持�
 4. Thinking 必须为 `max`；
 5. Mode（`currentModeId`／`runtimeInfo.modeId`）必须为 null／缺失；Pi 意外返回
    非 null mode 时停止并按基础设施错误处理。
-6. ORCHESTRATOR 把精确 agent ID 与 `candidate_identity` 写入 STATE 的条件字段
+6. ORCHESTRATOR 把精确 agent ID、当前 `dispatch_id`、`input_path` 与 `candidate_identity`
+   写入 STATE 的条件字段
    `contextual_reviewer`（provider `pi`、model `opencode-go/deepseek-v4-flash`、mode null、
-   thinking `max`、purpose `translation_contextual_v1`、candidate_identity、agent_id）；
+   thinking `max`、purpose `translation_contextual_v1`、candidate_identity、dispatch_id、
+   input_path、agent_id）；
    该字段仅在 `review_contracts` 含 `translation_contextual_v1` 时存在，`reviewer` 块仍为
    `code_legacy_v1` 的 Codex 载体，未选择该 contract 的任务无迁移。
+   已完成的历史语境 review 记录不改写；活动任务在下次语境派发时采用新字段。
+7. 语境 review 记录必须记录 `candidate_identity`、`dispatch_id`、`input_path`、`agent_id`
+   四个精确字段；`dispatch_id` 是宿主侧记录字段，不进入模型结果 schema（见第六节）。
 
 任一不匹配时停止该 agent，不得使用其输出，不发送新的任务消息。上下文审核只在元组
 完全匹配时有效；没有“部分接受”或降级使用。
@@ -92,10 +124,13 @@ Pi 元组不可用时回退到 Codex：`code_legacy_v1` 的 Codex 路由保持�
 
 创建结果不明确时，用 `list_agents` 限定任务 workspace／cwd（`includeArchived=false`、
 `sinceHours` 覆盖任务开始时刻），在宿主侧先按 `labels.task_id`、`labels.role=reviewer`
-过滤，再按目标 `labels.purpose=translation_contextual_v1` 与
-`labels.candidate_identity` 精确过滤（**过滤先于基数判定**）。旧候选（
-`candidate_identity` 与当前冻结值不同）的 agent 被该精确过滤排除，不算作候选匹配，
-因此过滤后不存在“候选不匹配”分支；当前候选零匹配时只允许一次既有重试。
+过滤，再按目标 `labels.purpose=translation_contextual_v1`、`labels.candidate_identity`
+与 `labels.dispatch_id` 精确过滤（**过滤先于基数判定**）。恢复只允许复用
+同一 `dispatch_id` 的同一 create attempt（歧义 create 的精确恢复）；旧候选（
+`candidate_identity` 与当前冻结值不同）与旧 dispatch（`dispatch_id` 不同）的 agent
+被该精确过滤排除，不算作候选匹配，因此过滤后不存在“候选不匹配”分支；当前
+dispatch 零匹配时只允许一次既有重试（新 create attempt 使用新 `dispatch_id` 与
+fresh agent）。
 `list_agents` 结果按 `limit` 截断，截断或不完整的列表不得当作零匹配。过滤后：
 无匹配允许重试一次；唯一匹配且元组核验通过则复用；多个当前候选匹配、截断／
 不完整的列表、缺省 purpose 歧义，或其他无法确立唯一性的状态，进入 `WAIT_USER`。
@@ -104,8 +139,9 @@ Pi 元组不可用时回退到 Codex：`code_legacy_v1` 的 Codex 路由保持�
 按上一节完整核验，并采用 STOP-on-mismatch：任何 Provider/Model/Mode/Thinking 不匹配
 （包括 `Thinking` 不是 `max`、Mode 非 null）都停止该 agent 并按基础设施错误处理，
 不使用 `update_agent` 改回该语境会话，不发送下一条任务。恢复复用的 agent 后，
-把其 agent ID 与 `candidate_identity` 同步到 STATE 的
-`contextual_reviewer.agent_id`／`contextual_reviewer.candidate_identity`。
+把其 agent ID、`dispatch_id`、`input_path` 与 `candidate_identity` 同步到 STATE 的
+`contextual_reviewer.agent_id`／`contextual_reviewer.dispatch_id`／
+`contextual_reviewer.input_path`／`contextual_reviewer.candidate_identity`。
 
 ## 四、候选身份（candidate identity）
 
@@ -216,9 +252,9 @@ ae6923cf13f7662ee609155c690da1abaa3117a8b0ce07ce079ada3284f9378b
 测试与未来辅助脚本必须按同一 recipe 重新构造并得到相同字节与摘要；任何差异说明
 recipe 或向量文本漂移。
 
-### 派发 envelope
+### 派发 envelope 与冻结输入文件
 
-ORCHESTRATOR 先计算 `candidate_identity`，再派发外层 envelope（payload object
+ORCHESTRATOR 先计算 `candidate_identity`，再构造外层 envelope（payload object
 原样不变）：
 
 ```json
@@ -229,13 +265,20 @@ ORCHESTRATOR 先计算 `candidate_identity`，再派发外层 envelope（payload
 ```
 
 派发 envelope 使用与规范 payload 相同的紧凑 JSON 规则序列化（object key 递归按字节序
-排序；分隔符精确为 `,`／`:`，无多余空白、无换行；`ensure_ascii=false`）；该 JSON 文本
-就是 `create_agent.initialPrompt` 的字符串值。envelope 含 `candidate_identity` 与未改动的
-payload object（含已渲染且不含身份的 `payload.rendered_briefing`）。
+排序；分隔符精确为 `,`／`:`，无多余空白、无换行；`ensure_ascii=false`）。该 JSON 文本
+的 UTF-8 字节写入任务作用域的冻结输入文件——workspace 相对路径
+`input_path = .ai/task/<task_id>/CONTEXTUAL-ENVELOPE-<dispatch_id>.json`，
+每个 create attempt 一个文件，路径精确且必须是常规 JSON 文件。envelope 含
+`candidate_identity` 与未改动的 payload object（含已渲染且不含身份的 `payload.rendered_briefing`）。
+该文件是候选输入的唯一载体：派发前写入并冻结，
+由 fresh 语境 REVIEWER 用只读 workspace 工具读取；`initialPrompt` 不再内联
+envelope 或任何候选数据。ORCHESTRATOR 在创建前、返回后与接受结果前都从 payload
+重算 identity，并核对输入文件字节未变；任何修改、替换、删除、符号链接替换或
+身份不匹配都使输出无效。
 
 `candidate_identity` 的**值**不得进入被哈希的八个键 payload 或
 `payload.rendered_briefing`（字段名允许出现在 `rendered_briefing` 中）；它由外层
-派发 envelope 携带给模型。控制面元数据副本明确允许且必需：agent labels 的 `candidate_identity=<sha256>`、
+派发 envelope（冻结输入文件）与短派发 prompt 携带给模型。控制面元数据副本明确允许且必需：agent labels 的 `candidate_identity=<sha256>`、
 STATE `contextual_reviewer.candidate_identity`、语境 review 记录的 `candidate_identity`——这些副本不是被哈希的 payload 组件，不参与
 身份计算。返回结果的 `candidate_identity` 必须等于（echo）envelope 派发值。校验时
 ORCHESTRATOR 从 payload 重算 identity，重算值、envelope 值与返回值三者不一致即
@@ -245,9 +288,34 @@ ORCHESTRATOR 从 payload 重算 identity，重算值、envelope 值与返回值�
 code-diff 候选配方（`candidate_ref` 公式）。`candidate_identity` 写入语境 review 记录，
 派发前与返回后都必须从冻结的候选字节重算并保持一致；不一致时输出作废。
 
+### 短派发 prompt（规范模板）
+
+`initialPrompt`（CLI positional prompt）只含下列短模板，唯一动态值是
+`<candidate_identity>` 与 `<input_path>`：
+
+```text
+你是 Paseo translation_contextual_v1 语境 REVIEWER（purpose=translation_contextual_v1），
+本 workspace 只读。候选身份：<candidate_identity>。冻结派发 envelope：workspace
+相对路径 <input_path> 的常规 JSON 文件（任务作用域、只读、不可改动）。先用只读工具
+读取该文件，再按 .ai/roles/reviewer.md 的语境审核 briefing 与
+docs/paseo-translation-context-review-v1-contract.md 第六节严格结果 schema 审核。
+只读取 input_path 文件、上述两份规范文档与 input 文件明确引用的译文／公开源码路径；
+不得读取本任务其他 .ai/task 文件或任何 .ai/reviews 记录。
+你不得修改、创建、删除、stage 或 commit 任何文件，不得改写任何冻结输入。
+整个响应必须是一个紧凑 JSON object：第一个字节是 {，最后一个字节是 }，无 prose、
+无 Markdown、无代码围栏；结果回显精确候选身份 <candidate_identity>。
+```
+
+模板不内联派发 envelope、有序 revision 列表、source/target、术语、有界上下文、
+源码片段或其他候选数据；`rendered_briefing` 保持不含身份的磁盘驻留组件，不作为 `initialPrompt`，
+候选数据从不复制进短 prompt。JSON-only 输出规则位于模型可见文本。
+CLI 的 positional prompt 与 MCP `create_agent.initialPrompt` 是这份短 prompt 的
+精确同一文本；`--json` 只控制 CLI 输出格式，不携带 prompt 或 envelope。
+
 ## 五、输入（有界 briefing）
 
-语境 briefing 只包含任务范围内的有界上下文：
+语境 briefing 只包含任务范围内的有界上下文，经冻结输入文件（派发 envelope）交付，
+不复制进 `initialPrompt`：
 
 - 精确 source/target 对；
 - source tags／runtime keys；
@@ -256,11 +324,18 @@ code-diff 候选配方（`candidate_ref` 公式）。`candidate_identity` 写入
 - 固定版本公共源码证据片段（manifest 固定 commit 内的公开源码）。
 
 **禁止注入**：先前 finding、裁决决定、建议修复、blind v2 observation 及任何宿主
-lineage。语境 REVIEWER 可以在当前 workspace 内只读核对任务范围内的必要上下文。
+lineage。
+
+读取边界：语境 REVIEWER 只读取短 prompt 指定的精确 `input_path` 文件、本仓库
+`.ai/roles/reviewer.md` 与 `docs/paseo-translation-context-review-v1-contract.md`
+两份规范文档，以及 input 文件明确引用的译文／公开源码路径；不得浏览本任务其他
+`.ai/task` 文件或任何 `.ai/reviews` 记录。
 
 ## 六、结果 schema 与校验（fail closed）
 
-结果 object／envelope（键结构为 `contract`／`candidate_identity`／`revisions`，与派发
+输出必须是单一紧凑 JSON object：第一个字节为 `{`，最后一个字节为 `}`，无 prose、
+Markdown 或代码围栏；解析失败即失败关闭。结果 object／envelope（键结构为
+`contract`／`candidate_identity`／`revisions`，与派发
 envelope 的 `candidate_identity`／`payload` 结构不同；结果只回显派发身份）：
 
 ```json
@@ -295,6 +370,13 @@ envelope 的 `candidate_identity`／`payload` 结构不同；结果只回显派�
    `evidence.source`／`evidence.target` 与冻结的 source/target 逐字节相等。
 8. 接受结果前重新执行第四节「约束（语义值）」的全部相等性检查，与 identity echo、
    evidence 逐字节绑定一起作为接受条件；任何不匹配都失败关闭。
+9. 结果必须来自 STATE 当前 `contextual_reviewer.agent_id` 的 agent，且该 agent 的
+   派发 `dispatch_id` 等于当前派发值；`dispatch_id` 是宿主侧接受条件，不进入模型
+   结果 schema（结果 object 只允许 `contract`／`candidate_identity`／`revisions`
+   三键，`additionalProperties=false` 使任何额外键失败关闭）。
+10. 发起新 dispatch（新 `dispatch_id`）或无效输出重跑前，先停止旧语境 REVIEWER
+    （CLI `paseo stop`，MCP `cancel_agent`）；停止后旧 agent 的迟到输出一律作废，
+    不得合并或计入记录，contract 保持 pending 直到当前派发返回有效结果。
 
 任何违反（缺失、重复、乱序、错候选、畸形）都使该次审核记录无效，contract 保持
 pending；ORCHESTRATOR 按基础设施／契约失败处理并重新派发，不得把部分输出合并为
@@ -302,7 +384,11 @@ pending；ORCHESTRATOR 按基础设施／契约失败处理并重新派发，不
 
 ## 七、只读与失败语义
 
-- 派发前冻结有界候选（bundle、渲染 briefing 与 `candidate_identity` 字节）；
+- 派发前冻结有界候选（bundle、渲染 briefing、`candidate_identity` 字节与冻结
+  输入文件字节）；
+- 冻结输入文件（`input_path`）属于只读守卫：任何修改、替换、删除、符号链接替换
+  或 payload 身份不匹配都使输出无效；ORCHESTRATOR 在创建前、返回后与接受结果前
+  重算 identity 并核对文件字节，派发后到 contract 完成前不得重写该文件；
 - 派发前对**有界快照路径集**做精确快照：任务前既有脏／untracked 路径 + 任务候选
   路径；每个路径记录内容摘要（文本按 UTF-8 字节、二进制按原始字节）与 index-diff
   摘要；不对整个干净仓库做全量哈希；
@@ -312,7 +398,8 @@ pending；ORCHESTRATOR 按基础设施／契约失败处理并重新派发，不
   HEAD 变化（即使随后工作树干净）都使输出无效并按基础设施错误处理；这只是单个 OID
   比较，保持不做全仓哈希的边界；
 - 有界快照路径集**路径精确**地覆盖持有冻结语境输入或决策关键任务控制状态的
-  ignored 文件（例如本任务冻结候选、`STATE.json`、本任务 review 记录）；不得通过
+  ignored 文件（例如本任务冻结候选与 `CONTEXTUAL-ENVELOPE-<dispatch_id>.json`
+  输入文件、`STATE.json`、本任务 review 记录）；不得通过
   排除整个 `.ai`／`.artifacts` 目录代替路径精确列举；
 - ORCHESTRATOR 自有的任务／review 记录允许在审核区间合法变化的有限路径精确
   allowlist（例如本任务 `STATE.json` 与 review-NN 记录在后处理写入时）；

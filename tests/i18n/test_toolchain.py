@@ -12,6 +12,7 @@ import io
 import sys
 import json
 import os
+import re
 import shlex
 import stat
 import subprocess
@@ -19937,29 +19938,41 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
         texts = self._normative_texts()
         contextual = texts["contextual"]
         contract = texts["contract"]
-        # paseo run 的 positional prompt 即派发 envelope 的精确 JSON 文本。
+        # paseo run 的 positional prompt 即短派发 prompt 的精确文本。
         self.assertIn("positional prompt", contextual)
         self.assertIn("positional prompt", contract)
         self.assertIn("`paseo run ... <prompt>`", contextual)
         self.assertIn("`paseo run ... <prompt>`", contract)
-        # --json 只控制 CLI 输出格式，不携带 initialPrompt。
+        # --json 只控制 CLI 输出格式，不携带 prompt 或 envelope。
         self.assertIn("`--json` 只控制 CLI 输出格式", contextual)
         self.assertIn("`--json` 只控制 CLI 输出格式", contract)
         self.assertIn("不携带", contextual)
         self.assertIn("不携带", contract)
-        # MCP create_agent.initialPrompt 映射 CLI positional prompt。
-        self.assertIn("`create_agent.initialPrompt` 映射一致", contextual)
-        self.assertIn("`initialPrompt` 映射 CLI 的 positional prompt", contract)
-        # 语境 CLI 等价命令本身必须携带序列化派发 envelope 作为 positional prompt；
+        # MCP create_agent.initialPrompt 与 CLI positional prompt 是同一份短 prompt。
+        self.assertIn("与 MCP `create_agent.initialPrompt` 是同一份短 prompt", contextual)
+        self.assertIn("同一份短派发 prompt 的精确同一文本", contract)
+        # 语境 CLI 等价命令携带 dispatch_id label 与短 prompt 作为 positional prompt；
         # 命令不得以 candidate_identity label 收尾（--json 为布尔输出格式标志）。
-        command_tail = (
-            "--label candidate_identity=<sha256> --json "
-            "'<派发 envelope 的精确 UTF-8 JSON 文本>'"
+        self.assertIn(
+            "--label candidate_identity=<sha256>\n--label dispatch_id=<dispatch-id> "
+            "--json '<短派发 prompt 的精确文本（见第四节）>'",
+            contextual,
         )
-        self.assertIn(command_tail, contextual)
-        self.assertIn(command_tail, contract)
-        self.assertNotIn("--label candidate_identity=<sha256>`", contextual)
-        self.assertNotIn("--label candidate_identity=<sha256>`", contract)
+        self.assertIn(
+            "--label candidate_identity=<sha256> --label dispatch_id=<dispatch-id>\n"
+            "--json '<短派发 prompt 的精确文本（见独立契约第四节）>'",
+            contract,
+        )
+        self.assertNotIn(
+            "--label candidate_identity=<sha256> --json "
+            "'<派发 envelope 的精确 UTF-8 JSON 文本>'",
+            contextual,
+        )
+        self.assertNotIn(
+            "--label candidate_identity=<sha256> --json "
+            "'<派发 envelope 的精确 UTF-8 JSON 文本>'",
+            contract,
+        )
 
     def test_contextual_invariant_and_tuple_verification_purpose_scoped(self) -> None:
         contract = self._normative_texts()["contract"]
@@ -20062,27 +20075,175 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
         self.assertIn("旧候选", texts["contextual"])
         for name in ("agents", "orchestrator", "contract"):
             self.assertIn("不得改作他用", texts[name], name)
-        # STATE 与 agent 双记录：agent_id + candidate_identity 同步。
+        # STATE 与 agent 双记录：agent_id + candidate_identity + dispatch_id + input_path 同步。
         for name in ("contextual", "contract", "orchestrator"):
             self.assertIn("contextual_reviewer.agent_id", texts[name], name)
             self.assertIn("contextual_reviewer.candidate_identity", texts[name], name)
+            self.assertIn("contextual_reviewer.dispatch_id", texts[name], name)
+            self.assertIn("contextual_reviewer.input_path", texts[name], name)
 
-    def test_contextual_dispatch_envelope_mapping(self) -> None:
+    def test_contextual_dispatch_short_prompt_and_disk_envelope(self) -> None:
         texts = self._normative_texts()
         contextual = texts["contextual"]
         contract = texts["contract"]
-        # initialPrompt 是派发 envelope 的精确 UTF-8 JSON 文本，不是 inner rendered_briefing。
-        self.assertIn("派发 envelope 的精确 UTF-8 JSON 文本", contextual)
-        self.assertIn("派发 envelope 的精确 UTF-8 JSON 文本", contract)
+        reviewer = texts["reviewer"]
+        # initialPrompt 只携带短派发 prompt，不是派发 envelope，也不是 inner
+        # rendered_briefing 本身。
+        self.assertIn("短派发 prompt", contextual)
+        self.assertIn("短派发 prompt", contract)
+        self.assertIn("不是派发 envelope", contextual)
+        self.assertIn("不是 inner rendered_briefing", contextual)
+        self.assertIn("不是 inner rendered_briefing", contract)
         self.assertNotIn('"initialPrompt": "<rendered-briefing>"', contextual)
         self.assertNotIn('"initialPrompt": "<rendered-briefing>"', contract)
-        self.assertIn("不是 inner rendered_briefing", contextual)
-        # payload.rendered_briefing 保持不含身份。
+        # 派发 envelope 以精确紧凑 JSON 字节冻结到任务作用域 workspace 相对输入文件。
+        self.assertIn("input_path", contextual)
+        self.assertIn("冻结输入文件", contextual)
+        self.assertIn("CONTEXTUAL-ENVELOPE-<dispatch_id>.json", contextual)
+        self.assertIn(".ai/task/<task_id>/", contextual)
+        self.assertIn("常规 JSON 文件", contextual)
+        # payload.rendered_briefing 保持不含身份、磁盘驻留，不作为 initialPrompt。
         self.assertIn("rendered_briefing", contextual)
         self.assertIn("不含身份的 `payload.rendered_briefing`", contextual)
+        self.assertIn("不作为 `initialPrompt`", contextual)
         # envelope 序列化可执行：复用规范 JSON 的紧凑规则。
         self.assertIn("紧凑 JSON 规则", contextual)
         self.assertIn("ensure_ascii=false", contextual)
+        # REVIEWER 角色 briefing 指示读取冻结输入文件。
+        self.assertIn("冻结派发 envelope 文件", reviewer)
+        self.assertIn("只读 workspace 工具读取该文件", reviewer)
+
+    def test_contextual_normative_short_prompt_template(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        # 规范短 prompt 模板位于独立契约，唯一动态值是候选身份与输入路径。
+        match = re.search(
+            r"### 短派发 prompt（规范模板）.*?```text\n(.*?)\n```",
+            contextual,
+            re.S,
+        )
+        self.assertIsNotNone(match, "normative short-prompt template missing")
+        prompt = match.group(1)
+        self.assertIn("translation_contextual_v1", prompt)
+        self.assertIn("<candidate_identity>", prompt)
+        self.assertIn("<input_path>", prompt)
+        # JSON-only 输出规则在模型可见文本：紧凑 object、首尾字节、无 prose/围栏。
+        self.assertIn("紧凑 JSON object", prompt)
+        self.assertIn("第一个字节是 {", prompt)
+        self.assertIn("最后一个字节是 }", prompt)
+        self.assertIn("无 prose", prompt)
+        self.assertIn("无 Markdown", prompt)
+        self.assertIn("无代码围栏", prompt)
+        # 结果按独立契约第六节 schema 并回显精确候选身份。
+        self.assertIn("第六节严格结果 schema", prompt)
+        self.assertIn("回显精确候选身份 <candidate_identity>", prompt)
+        # 不内联候选数据：envelope、revision、source/target、术语、上下文、源码。
+        for marker in (
+            "payload",
+            "ordered_revision_keys",
+            "translation_snapshot",
+            "terminology_snapshot",
+            "bounded_context",
+            "runtime_tuple",
+            "fixed_source_commit",
+            "revisions",
+            "evidence",
+            "source",
+            "target",
+        ):
+            self.assertNotIn(marker, prompt)
+        # 唯一占位符序列：候选身份两次（声明与回显）、输入路径一次。
+        self.assertEqual(
+            re.findall(r"<[^>]+>", prompt),
+            ["<candidate_identity>", "<input_path>", "<candidate_identity>"],
+        )
+
+    def test_contextual_disk_envelope_identity_binding(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        # 冻结输入文件字节 = 紧凑派发 envelope（identity + 未改动 payload）。
+        payload = self._minimal_contextual_payload()
+        identity = hashlib.sha256(self._canonical_bytes(payload)).hexdigest()
+        envelope = {"candidate_identity": identity, "payload": payload}
+        envelope_text = self._canonical_bytes(envelope).decode("utf-8")
+        self.assertIn('"candidate_identity"', envelope_text)
+        self.assertIn('"payload"', envelope_text)
+        # 从冻结输入文件重算 identity：payload 字节 → 等于 envelope 携带值。
+        self.assertEqual(
+            hashlib.sha256(self._canonical_bytes(envelope["payload"])).hexdigest(),
+            envelope["candidate_identity"],
+        )
+        # 文档把 envelope 字节与输入文件绑定：路径公式、派发前冻结、唯一载体。
+        self.assertIn("CONTEXTUAL-ENVELOPE-<dispatch_id>.json", contextual)
+        self.assertIn("派发前写入并冻结", contextual)
+        self.assertIn("候选输入的唯一载体", contextual)
+        # 非内联边界：短 prompt 含身份与路径，但不含任何候选文本或 envelope 字节。
+        match = re.search(
+            r"### 短派发 prompt（规范模板）.*?```text\n(.*?)\n```",
+            contextual,
+            re.S,
+        )
+        prompt = (
+            match.group(1)
+            .replace("<candidate_identity>", identity)
+            .replace(
+                "<input_path>",
+                ".ai/task/context-review-disk-prompt-001/"
+                "CONTEXTUAL-ENVELOPE-d1.json",
+            )
+        )
+        self.assertIn(identity, prompt)
+        self.assertIn(".ai/task/context-review-disk-prompt-001/", prompt)
+        self.assertNotIn(envelope_text, prompt)
+        self.assertNotIn(payload["terminology_snapshot"], prompt)
+        self.assertNotIn(payload["translation_snapshot"][0]["target"], prompt)
+        self.assertNotIn("Hello world", prompt)
+
+    def test_contextual_fresh_session_retry_invariant(self) -> None:
+        texts = self._normative_texts()
+        # 每次派发、重跑与无效输出重试都创建 fresh agent 并分配新 dispatch_id。
+        self.assertIn("每次派发、重跑与无效输出重试", texts["contextual"])
+        self.assertIn("每次派发、重跑与无效输出重试", texts["contract"])
+        self.assertIn("每次派发、重跑与无效输出重试", texts["orchestrator"])
+        self.assertIn("分配新 `dispatch_id`", texts["contract"])
+        # 不得用 send_agent_prompt 复用旧语境 REVIEWER。
+        for name in ("agents", "orchestrator", "contract", "contextual"):
+            self.assertIn("`send_agent_prompt`", texts[name], name)
+            self.assertIn("复用旧语境 REVIEWER", texts[name], name)
+
+    def test_contextual_exact_dispatch_recovery(self) -> None:
+        texts = self._normative_texts()
+        # 歧义 create 恢复只允许复用同一 dispatch_id 的同一创建尝试。
+        for name in ("agents", "orchestrator", "contract", "contextual"):
+            self.assertIn("dispatch_id", texts[name], name)
+            self.assertIn("同一 `dispatch_id`", texts[name], name)
+        self.assertIn("labels.dispatch_id", texts["contextual"])
+        self.assertIn("labels.dispatch_id", texts["contract"])
+        self.assertIn("labels.dispatch_id", texts["agents"])
+        # 旧候选与旧 dispatch 被精确过滤排除，不算匹配。
+        self.assertIn("旧 dispatch", texts["contextual"])
+        self.assertIn("旧 dispatch", texts["agents"])
+        # 恢复语义：同一歧义 create 尝试可复用；新重试使用新 dispatch_id 与 fresh agent。
+        self.assertIn("同一 create attempt", texts["contextual"])
+        self.assertIn("歧义 create 的精确恢复", texts["contract"])
+
+    def test_contextual_input_file_read_only_guard(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        # 冻结输入文件属于只读守卫：修改、替换、删除、符号链接替换或身份不匹配。
+        for marker in ("修改", "替换", "删除", "符号链接替换", "身份不匹配"):
+            self.assertIn(marker, contextual)
+        self.assertIn("都使输出无效", contextual)
+        # ORCHESTRATOR 在创建前、返回后与接受结果前重算 identity 并核对文件字节。
+        self.assertIn("创建前", contextual)
+        self.assertIn("返回后", contextual)
+        self.assertIn("接受结果前", contextual)
+        self.assertIn("重算 identity", contextual)
+        # 派发后到 contract 完成前不得重写冻结输入文件。
+        self.assertIn("不得重写该文件", contextual)
+
+    def test_contextual_state_record_fields_compatibility(self) -> None:
+        contract = self._normative_texts()["contract"]
+        # 已完成的历史语境 review 记录不改写；活动任务在下次语境派发时采用新字段。
+        self.assertIn("已完成的历史语境 review 记录不改写", contract)
+        self.assertIn("活动任务在下次语境派发时采用新字段", contract)
 
     def test_contextual_recovery_stop_on_mismatch(self) -> None:
         texts = self._normative_texts()
@@ -20297,28 +20458,252 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
 
     def test_contextual_state_record_is_conditional(self) -> None:
         texts = self._normative_texts()
-        # STATE 示例：contextual_reviewer 条件字段记录 Pi 载体完整元组（含候选绑定）。
+        # STATE 示例：contextual_reviewer 条件字段记录 Pi 载体完整元组（含候选与派发绑定）。
         contextual_state = (
             '"contextual_reviewer": {"provider": "pi", '
             '"model": "opencode-go/deepseek-v4-flash", "mode": null, '
             '"thinking": "max", "purpose": "translation_contextual_v1", '
-            '"candidate_identity": null, "agent_id": null'
+            '"candidate_identity": null, "dispatch_id": null, '
+            '"input_path": null, "agent_id": null'
         )
         for name in ("orchestrator", "contract"):
             self.assertIn(contextual_state, texts[name], name)
             self.assertIn("contextual_reviewer", texts[name], name)
+            self.assertIn("dispatch_id", texts[name], name)
+            self.assertIn("input_path", texts[name], name)
         # 条件要求：仅当 review_contracts 含该 contract 时必需；未选择无迁移。
         self.assertIn("`review_contracts` 含 `translation_contextual_v1` 时", texts["contract"])
         self.assertIn("不需要该字段", texts["contract"])
         self.assertIn("无迁移", texts["contract"])
-        # 派发后候选绑定必须非空且等于冻结值。
+        # 派发后候选绑定必须非空且等于冻结值；dispatch/input 为该次 create attempt 的唯一标识。
         self.assertIn("派发后 `candidate_identity` 必须非空且等于冻结值", texts["contract"])
+        self.assertIn("`dispatch_id` 必须非空且为该次 create attempt 的唯一标识", texts["contract"])
+        self.assertIn("`input_path` 必须非空", texts["contract"])
         # 不再声称不新增 STATE 字段。
         self.assertNotIn("不新增 STATE 字段", texts["orchestrator"])
         # 独立契约同样记录 STATE 载体与 agent_id 同步。
         self.assertIn("contextual_reviewer", texts["contextual"])
         self.assertIn("agent_id", texts["contextual"])
-        self.assertIn("agent ID 与 `candidate_identity` 写入 STATE", texts["contextual"])
+        self.assertIn("agent ID、当前 `dispatch_id`、`input_path` 与 `candidate_identity`", texts["contextual"])
+        self.assertIn("写入 STATE", texts["contextual"])
+        self.assertIn("dispatch_id", texts["contextual"])
+        self.assertIn("input_path", texts["contextual"])
+
+    def test_contextual_create_labels_always_include_dispatch_id(self) -> None:
+        texts = self._normative_texts()
+        # 角色简报的 create label 枚举显式包含 dispatch_id。
+        self.assertIn(
+            "`candidate_identity=<sha256>`／`dispatch_id=<dispatch-id>`",
+            texts["orchestrator"],
+        )
+        # 编排契约与独立契约的 CLI 等价命令都携带 dispatch label。
+        for name in ("contract", "contextual"):
+            self.assertIn("--label candidate_identity=<sha256>", texts[name], name)
+            self.assertIn("--label dispatch_id=<dispatch-id>", texts[name], name)
+        # 编排契约与独立契约的 MCP 载荷 labels 都包含 dispatch_id 键。
+        self.assertIn('"dispatch_id": "<dispatch-id>"', texts["contract"])
+        self.assertIn('"dispatch_id": "<dispatch-id>"', texts["contextual"])
+        self.assertIn(
+            '"candidate_identity": "<sha256>", "dispatch_id": "<dispatch-id>"',
+            texts["contract"],
+        )
+        # AGENTS.md 规则 8 的语境创建标签枚举同样显式携带 dispatch_id。
+        agents = texts["agents"]
+        rule8 = agents[agents.index("创建时 labels 必须携带目标 purpose") :]
+        self.assertIn(
+            "`purpose=translation_contextual_v1` 并另带 `candidate_identity=<sha256>`／\n"
+            "   `dispatch_id=<dispatch-id>`（格式见独立契约第二节）",
+            rule8,
+        )
+
+    def test_contextual_recovery_filter_dispatch_before_cardinality(self) -> None:
+        texts = self._normative_texts()
+        # 角色简报失败恢复章节：0/1/many 基数判定前必须完成 task_id/role/purpose/
+        # candidate_identity/dispatch_id 全部精确过滤（先过滤后基数）。
+        recovery = texts["orchestrator"]
+        recovery = recovery[recovery.index("## 失败恢复") :]
+        self.assertIn("过滤先于基数判定", recovery)
+        for marker in (
+            "`labels.task_id`",
+            "`labels.role`",
+            "`labels.purpose`",
+            "`labels.candidate_identity`",
+            "`labels.dispatch_id`",
+        ):
+            self.assertIn(marker, recovery)
+        # dispatch 过滤必须出现在基数判定（无匹配/唯一匹配/多个匹配）之前。
+        self.assertLess(recovery.index("labels.dispatch_id"), recovery.index("无匹配"))
+        self.assertLess(
+            recovery.index("labels.candidate_identity"), recovery.index("无匹配")
+        )
+        # 独立契约的恢复章节同样把 dispatch 过滤放在基数判定之前。
+        recovery_c = texts["contextual"]
+        recovery_c = recovery_c[recovery_c.index("### 恢复") :]
+        self.assertLess(
+            recovery_c.index("labels.dispatch_id"),
+            recovery_c.index("无匹配允许重试一次"),
+        )
+
+    def test_contextual_review_record_four_fields(self) -> None:
+        texts = self._normative_texts()
+        # 角色简报的复审记录条款逐字写出四个精确字段键（含 agent_id）。
+        records = texts["orchestrator"]
+        records = records[records.index("复审记录写入") :]
+        for marker in (
+            "`candidate_identity`",
+            "`dispatch_id`",
+            "`input_path`",
+            "`agent_id`",
+        ):
+            self.assertIn(marker, records)
+        self.assertIn(
+            "`candidate_identity`、`dispatch_id`、`input_path`、`agent_id` 四个精确字段",
+            records,
+        )
+        self.assertIn("`dispatch_id` 不进入模型结果 schema", records)
+        # 独立契约的创建／恢复后核验章节同样逐字写出四个精确字段键。
+        verification = texts["contextual"]
+        verification = verification[verification.index("## 三、创建／恢复后核验") :]
+        self.assertIn(
+            "`candidate_identity`、`dispatch_id`、`input_path`、`agent_id`", verification
+        )
+        self.assertIn("四个精确字段", verification)
+        self.assertIn("不进入模型结果 schema", verification)
+        # 编排契约的记录条款同样逐字写出 agent_id 键。
+        contract = texts["contract"]
+        self.assertIn(
+            "其记录额外保存 `candidate_identity`、\n"
+            "`dispatch_id`、`input_path`、`agent_id` 四个精确字段",
+            contract,
+        )
+        self.assertIn("`dispatch_id` 不进入模型", contract)
+
+    def test_contextual_pre24_state_compatibility_exemption(self) -> None:
+        # 主编排契约不变量 17 的兼容豁免：新任务立即适用；pre-2.4 活动任务在下次
+        # contextual dispatch 前允许旧 conditional shape；派发开始时补齐；历史不改写。
+        contract = self._normative_texts()["contract"]
+        invariant = contract[contract.index("17. `review_contracts` 含") :]
+        for marker in (
+            "兼容豁免",
+            "新任务立即适用",
+            "pre-2.4 活动任务在下一次 contextual dispatch 开始前允许旧",
+            "conditional shape（可缺 `dispatch_id`／`input_path`）",
+            "不强制补齐",
+            "该次派发开始时",
+            "补齐两字段并同步 STATE",
+            "已完成的历史记录与历史 STATE 不改写",
+        ):
+            self.assertIn(marker, invariant)
+
+    def test_contextual_envelope_artifact_inventory(self) -> None:
+        texts = self._normative_texts()
+        # AGENTS.md 已忽略产物清单登记冻结输入文件。
+        inventory = texts["agents"]
+        inventory = inventory[inventory.index("启用 Paseo 时只需维护以下已忽略文件") :]
+        self.assertIn("CONTEXTUAL-ENVELOPE-<dispatch_id>.json", inventory)
+        self.assertIn("`review_contracts` 含 `translation_contextual_v1` 时存在", inventory)
+        self.assertIn("ORCHESTRATOR 所有", inventory)
+        self.assertIn("每个 create attempt 独立文件", inventory)
+        self.assertIn("不覆盖旧 dispatch", inventory)
+        # 编排契约 §五 目录树同样登记。
+        tree = texts["contract"]
+        tree = tree[tree.index("## 五、任务记录") :]
+        self.assertIn("CONTEXTUAL-ENVELOPE-<dispatch_id>.json", tree)
+        self.assertIn("仅选择 translation_contextual_v1 时存在", tree)
+        self.assertIn("ORCHESTRATOR 所有", tree)
+        self.assertIn("每次 create attempt 独立", tree)
+        self.assertIn("不覆盖旧 dispatch", tree)
+
+    def test_contextual_result_bound_to_current_agent_and_dispatch(self) -> None:
+        texts = self._normative_texts()
+        # 独立契约接受条件：结果绑定 STATE 当前 agent_id 与当前 dispatch_id。
+        section6 = texts["contextual"]
+        section6 = section6[section6.index("## 六、结果 schema 与校验") :]
+        self.assertIn("STATE 当前 `contextual_reviewer.agent_id` 的 agent", section6)
+        self.assertIn("派发 `dispatch_id` 等于当前派发值", section6)
+        self.assertIn("`dispatch_id` 是宿主侧接受条件", section6)
+        self.assertIn("不进入模型", section6)
+        self.assertIn("结果 schema（结果 object 只允许", section6)
+        # dispatch_id 不进入模型结果 schema：结果 JSON 块内无该键。
+        schema_block = section6[
+            section6.index('"revisions": [') : section6.index("严格 schema")
+        ]
+        self.assertNotIn("dispatch_id", schema_block)
+        # 编排层操作条款同样绑定当前 agent/dispatch。
+        for name in ("orchestrator", "contract"):
+            text = texts[name]
+            self.assertIn("等于 STATE 当前 `contextual_reviewer.agent_id`", text, name)
+            self.assertIn("`dispatch_id` 等于当前派发", text, name)
+
+    def test_contextual_late_output_rejected_after_stop(self) -> None:
+        texts = self._normative_texts()
+        # 独立契约：新派发或重跑前先停止旧语境 REVIEWER，迟到输出一律作废。
+        section6 = texts["contextual"]
+        section6 = section6[section6.index("## 六、结果 schema 与校验") :]
+        self.assertIn("先停止旧语境 REVIEWER", section6)
+        self.assertIn("`paseo stop`，MCP `cancel_agent`", section6)
+        self.assertIn("迟到输出一律作废", section6)
+        self.assertIn("不得合并或计入记录", section6)
+        self.assertIn("contract 保持 pending", section6)
+        # 编排层操作条款同样要求停止旧 reviewer 并作废迟到输出。
+        for name in ("orchestrator", "contract"):
+            text = texts[name]
+            self.assertIn("旧语境 REVIEWER", text, name)
+            self.assertIn("迟到输出一律作废", text, name)
+
+    def test_contextual_read_scope_boundaries(self) -> None:
+        texts = self._normative_texts()
+        # 短 prompt 模板内包含读取边界，且仍不内联候选数据。
+        contextual = texts["contextual"]
+        match = re.search(
+            r"### 短派发 prompt（规范模板）.*?```text\n(.*?)\n```",
+            contextual,
+            re.S,
+        )
+        prompt = match.group(1)
+        self.assertIn("只读取 input_path 文件、上述两份规范文档", prompt)
+        self.assertIn("input 文件明确引用的译文／公开源码路径", prompt)
+        self.assertIn("不得读取本任务其他 .ai/task 文件", prompt)
+        self.assertIn("任何 .ai/reviews 记录", prompt)
+        for marker in ("payload", "revisions", "evidence", "source", "target"):
+            self.assertNotIn(marker, prompt)
+        # 独立契约输入章节声明读取边界。
+        section5 = contextual[contextual.index("## 五、输入（有界 briefing）") :]
+        self.assertIn("读取边界：", section5)
+        self.assertIn("不得浏览本任务其他", section5)
+        self.assertIn("`.ai/task` 文件或任何 `.ai/reviews` 记录", section5)
+        # REVIEWER 角色简报同样声明读取边界。
+        reviewer = texts["reviewer"]
+        self.assertIn("读取边界：", reviewer)
+        self.assertIn("不得浏览本任务其他 `.ai/task` 文件", reviewer)
+        self.assertIn("`.ai/reviews` 记录", reviewer)
+
+    def test_contextual_dispatch_id_token_format(self) -> None:
+        contextual = self._normative_texts()["contextual"]
+        # 独立契约定义 dispatch_id 的精确格式、拒绝集与校验时机。
+        spec = contextual[contextual.index("### dispatch_id 规范") :]
+        self.assertIn("^[0-9a-z][0-9a-z-]{0,31}$", spec)
+        self.assertIn("任务作用域", spec)
+        self.assertIn("label 安全", spec)
+        self.assertIn("文件名", spec)
+        for marker in ("斜杠", "点段", "空白", "非 ASCII", "超长"):
+            self.assertIn(marker, spec)
+        self.assertIn("构造 `input_path` 与 labels 之前", spec)
+        self.assertIn("候选冻结失败", spec)
+        # S-03：input_path 已存在任何既有条目时冻结失败，不得覆盖，换新 dispatch_id 重试。
+        self.assertIn(
+            "若该精确路径已存在任何既有条目（文件、目录或符号链接），\n"
+            "则候选冻结失败：不得覆盖或写入该路径，不得创建 agent，必须换一个新的合法\n"
+            "`dispatch_id` 再尝试。",
+            spec,
+        )
+        # 行为检查：合法值匹配格式；非法值（大写、斜杠、点段、前导连字符、
+        # 空白、非 ASCII、超长）被拒绝。
+        pattern = re.compile(r"^[0-9a-z][0-9a-z-]{0,31}$")
+        for ok in ("d1", "ctx-2026-01", "a", "0"):
+            self.assertIsNotNone(pattern.fullmatch(ok), ok)
+        for bad in ("D1", "d/1", "d.1", "..", "-d1", "d 1", "中", "d" * 33):
+            self.assertIsNone(pattern.fullmatch(bad), bad)
 
 
 if __name__ == "__main__":

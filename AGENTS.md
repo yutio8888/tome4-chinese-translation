@@ -30,10 +30,14 @@ ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER 角色完成。现有 blind
 6. 翻译 semantic observation v2 由 ORCHESTRATOR 直接运行现有 blind runner；Paseo REVIEWER／SENIOR_REVIEWER 只审查代码、工具、文档和 legacy v1。REVIEWER 还可按 `purpose=translation_contextual_v1` 承担补充的非盲译文语境审核（契约见 `docs/paseo-translation-context-review-v1-contract.md`）：有界、只读、独立记录与指标，绝不完成、替换或计入 blind `translation_v2`；两个 contract
 同时选中时各自 pending 到自己的有效记录，任一输出不得改写另一 contract 的冻结输入；
 SENIOR_REVIEWER 不承担该 purpose。语境候选冻结后先计算
-`candidate_identity`（规范 payload 不含身份本身，见独立契约第四节），再派发外层
-envelope（`create_agent.initialPrompt` 是派发 envelope 的精确 UTF-8 JSON 文本，
-identity＋未改动 payload object，`payload.rendered_briefing` 不含身份）；恢复只允许
-复用同一候选的 agent，常规计划派发使用 fresh 语境 REVIEWER。
+`candidate_identity`（规范 payload 不含身份本身，见独立契约第四节），把外层
+envelope（identity＋未改动 payload object，`payload.rendered_briefing` 不含身份）
+以紧凑 JSON 字节冻结到任务作用域 workspace 相对输入文件（`input_path`），
+`initialPrompt` 只携带含 purpose、`candidate_identity`、`input_path` 与 JSON-only
+输出边界的短派发 prompt，不内联 envelope、revision、source/target、术语、上下文
+或源码片段；每次派发、重跑与无效输出重试都创建 fresh 语境 REVIEWER 并分配唯一
+`dispatch_id`，恢复只允许复用同一候选且同一 `dispatch_id`（同一歧义 create 尝试）
+的 agent，不得用 `send_agent_prompt` 复用旧语境 REVIEWER。
 `change_class` 为 `translation_workflow` 或 `infrastructure` 时，普通与高级 reviewer 必须从同一 SPEC／diff 独立交叉审核，在两份输出都返回前不得互看结论。两类 reviewer 的核心 briefing 在首次派发前冻结；若一方在另一方返回后重试，只能附加基础设施重试原因，不得按已知 finding 改写范围、候选或验收标准，否则两份输出都作废重跑。该规则审查的是翻译流程／基础设施变更，不取代译文的 blind translation v2 语义审核。
 7. EXECUTOR／REVIEWER／SENIOR_REVIEWER 必须由 Paseo 托管的 ORCHESTRATOR 直接创建并继承
    `PASEO_AGENT_ID`：CLI 用 `paseo run`，MCP 用 agent-scoped 的 `create_agent`，两者都必须携带
@@ -65,7 +69,8 @@ identity＋未改动 payload object，`payload.rendered_briefing` 不含身份�
    不匹配（含意外非 null mode）时停止该 agent 并按基础设施错误处理，不得静默降级，
    语境审核不得回退到 Codex。创建时 labels 必须携带目标 purpose：`code_legacy_v1`
    用 `purpose=normal_review`，`translation_contextual_v1` 用
-   `purpose=translation_contextual_v1` 并另带 `candidate_identity=<sha256>`。pre-2.3
+   `purpose=translation_contextual_v1` 并另带 `candidate_identity=<sha256>`／
+   `dispatch_id=<dispatch-id>`（格式见独立契约第二节）。pre-2.3
    活动任务未选择 `translation_contextual_v1` 时，缺省 purpose 的 REVIEWER 候选可在
    Codex 元组核验通过后视为 `normal_review`；已选择语境 contract 时缺省 purpose 视为
    歧义，进入 `WAIT_USER`。
@@ -89,6 +94,7 @@ identity＋未改动 payload object，`payload.rendered_briefing` 不含身份�
 - `.ai/task/<task_id>/PLAN.md`：大型任务的简短步骤，可在事实变化时直接更新；
 - `.ai/task/<task_id>/BASELINE.patch`／`baseline/`：仅在任务需要修改既有脏文件时保存其起始 patch 或副本；
 - `.ai/task/<task_id>/CODE_DIFF-<phase>-<cycle>-<attempt>.patch`：仅在 code review phase 保存当次有界任务自身 diff，不覆盖旧候选；
+- `.ai/task/<task_id>/CONTEXTUAL-ENVELOPE-<dispatch_id>.json`：仅在 `review_contracts` 含 `translation_contextual_v1` 时存在；ORCHESTRATOR 所有，承载冻结派发 envelope（见独立契约第四节），每个 create attempt 独立文件，不覆盖旧 dispatch；
 - `.ai/task/<task_id>/STATE.json`：当前状态、轮次、审核阶段与 contract 进度、`orchestration_transport`（任务级路由，只允许 `cli|mcp`）、ORCHESTRATOR／子 agent ID、provider/model、WAIT_USER 恢复点和 review 记录引用；
 - `.ai/reviews/<task_id>/review-NN.json`：任务身份、审核阶段、review contract、reviewer role／purpose、`candidate_ref`、结构化 finding 与主代理裁决。
 
@@ -96,13 +102,16 @@ identity＋未改动 payload object，`payload.rendered_briefing` 不含身份�
 label 查询现有 agent：CLI 用 `paseo ls --label`（服务端 label 过滤）；MCP 用 `list_agents`
 限定任务 workspace／cwd（`includeArchived=false`、`sinceHours` 覆盖任务开始时刻），在宿主侧
 先按 `labels.task_id`／`labels.role`、再按目标 `labels.purpose` 精确过滤（**过滤先于基数判定**；
-语境载体另按 `labels.candidate_identity` 绑定候选）；`list_agents` 结果按 `limit`
+语境载体另按 `labels.candidate_identity` 绑定候选、按 `labels.dispatch_id` 绑定同一次
+创建尝试）；`list_agents` 结果按 `limit`
 截断，截断或不完整的列表不得当作零匹配。过滤后：无匹配允许重试一次，唯一匹配且身份
 正确则复用，多个匹配或歧义匹配进入 `WAIT_USER`；不能唯一确认时不得盲目创建第二个写入
 agent。pre-2.3 活动任务未选择 `translation_contextual_v1` 时，缺省 purpose 的候选可在
 Codex 元组核验通过后视为 `normal_review`；已选择语境 contract 时缺省 purpose 视为歧义，
-进入 `WAIT_USER`。语境 REVIEWER 恢复只允许复用 `candidate_identity` 精确相同的 agent，
-旧 phase／旧候选的 agent 不得改作他用。
+进入 `WAIT_USER`。语境 REVIEWER 恢复只允许复用同一候选（`candidate_identity` 精确相同）且同一
+`dispatch_id`（同一歧义 create 尝试）的 agent，旧 phase／旧候选／旧 dispatch 的
+agent 不得改作他用；每次派发、重跑与无效输出重试都创建 fresh agent 并分配新
+`dispatch_id`，不得用 `send_agent_prompt` 复用旧语境 REVIEWER。
 恢复唯一匹配的普通 REVIEWER 时，发送下一条任务前按 purpose 矩阵检查：
 `normal_review`（Codex 载体）必须确认实际 Provider/Model/Mode/Thinking 为
 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`；`translation_contextual_v1`（Pi 载体）
@@ -132,9 +141,10 @@ EXECUTOR、REVIEWER 与 SENIOR_REVIEWER 均不继承当前会话，briefing 必�
 
 以下项目级通道无需逐次确认：通过现有 blind runner 发送 translation v2 bundle；向 Codex REVIEWER、Claude Code Opus SENIOR_REVIEWER 或其 Codex `gpt-5.6-sol` 回退发送与 code/legacy v1 审核相关的代码、文档、必要上下文和已产生的普通 review findings；向 pi EXECUTOR 发送任务 briefing 并允许其读取当前 workspace；向 Pi REVIEWER 的
 `translation_contextual_v1` purpose 发送有界译文语境 bundle（有序 revision、译文快照、
-固定源码 commit 证据、术语子集与精确 context digest），并允许其读取当前 workspace 内
+固定源码 commit 证据、术语子集与精确 context digest，经任务作用域冻结输入文件
+交付，短 prompt 只携带路径与身份），并允许其读取当前 workspace 内
 任务范围内的有界上下文；该 bundle 不得包含先前 finding、裁决、建议修复或 blind v2
-observation。用户本次指定已授权前述 Claude Opus 通道、Codex 回退及 Pi 语境审核通道。任务记录只需注明 provider、model 和内容范围，不要求保存完整 payload manifest。使用其他 provider 或发送范围外内容前仍须取得用户授权。
+observation；读取边界以独立契约第五节为准。用户本次指定已授权前述 Claude Opus 通道、Codex 回退及 Pi 语境审核通道。任务记录只需注明 provider、model 和内容范围，不要求保存完整 payload manifest。使用其他 provider 或发送范围外内容前仍须取得用户授权。
 
 ## 汉化工具入口
 
