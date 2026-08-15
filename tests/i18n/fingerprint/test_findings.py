@@ -17,7 +17,7 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from i18nlib.findings import FindingContext, build_finding_records  # noqa: E402
-from i18nlib.fingerprint import RuleRegistry  # noqa: E402
+from i18nlib.fingerprint import RuleRegistry, finding_fingerprint  # noqa: E402
 from i18nlib.identity import (  # noqa: E402
     RULES_REGISTRY_RELATIVE_PATH,
     tu_uid_fallback,
@@ -377,7 +377,7 @@ def _shared_name_entities(count: int) -> str:
     # ``name`` source string "ant" but live on separate anchor anchors, so
     # §4.7 keeps them as distinct strong TUs that share one editorial id.
     lines = []
-    for tag in ("BASE_NPC_ANT", "BASE_NPC_BUG", "BASE_NPC_ELEM")[:count]:
+    for tag in ("BASE_NPC_ANT", "BASE_NPC_BUG", "BASE_NPC_OMEGA")[:count]:
         lines.append(
             "newEntity{\n\t"
             f"define_as = \"{tag}\",\n\t"
@@ -478,25 +478,36 @@ class OneToManyParticipantBindingTests(unittest.TestCase):
         self.assertEqual(second[0].fingerprint, records[0].fingerprint)
 
     def test_participant_change_emits_new_fingerprint(self) -> None:
-        """§6.1: participant-set change -> new fingerprint. Adding a third
-        strong TU that shares the editorial id must shift the fingerprint,
-        not silently reuse the sorted()-first subject."""
-        index_two = self._index_with(_shared_name_entities(2))
-        eids = {
-            eid
-            for eid, tus in index_two.editorial_to_tu.items()
-            if len(set(tus)) == 2
-        }
-        self.assertTrue(eids, "two-anchor fixture must share an editorial id")
-        eid = stable_entry_id(
+        """SS6.1: binding the full sharing TU set is what makes a
+        participant-set change visible.
+
+        Adding a third distinct strong TU (BASE_NPC_OMEGA) that shares the
+        editorial id sorts AFTER the two-entity subject, so the sorted-first
+        subject stays byte-identical across 2 -> 3 while the participant set
+        grows. Under the pre-006 binding (participants = (subject,)) the
+        singleton fingerprints on both sides are IDENTICAL (subject +
+        evidence unchanged) so the change is invisible -- exactly the bug the
+        fix removes. Under infra-contract-006 the full-participant
+        fingerprints DIFFER, surfacing the change as new/stale.
+        """
+        editorial = stable_entry_id(
             "test-component", "mod-test/data/entities.lua", "ant", "entity name"
         )
-        self.assertIn(eid, eids)
+        index_two = self._index_with(_shared_name_entities(2))
+        sharing_two = tuple(sorted(set(index_two.editorial_to_tu[editorial])))
+        self.assertEqual(len(sharing_two), 2)
+        index_three = self._index_with(_shared_name_entities(3))
+        sharing_three = tuple(sorted(set(index_three.editorial_to_tu[editorial])))
+        self.assertEqual(len(sharing_three), 3)
+        # The added OMEGA TU sorts AFTER the two-entity subject, so the
+        # sorted-first subject is byte-identical across 2 -> 3.
+        self.assertEqual(sharing_two[0], sharing_three[0])
+
         entry = {
             "section": next(
                 tu.sections[0]
-                for tu in index_two.tus.values()
-                if eid in tu.editorial_ids
+                for tu in index_three.tus.values()
+                if editorial in tu.editorial_ids
             ),
             "source": "ant",
             "source_tag": "entity name",
@@ -504,11 +515,7 @@ class OneToManyParticipantBindingTests(unittest.TestCase):
             "logical_path": "mod-test.lua",
             "line": 2,
         }
-        eid_entry = stable_entry_id(
-            "test-component", entry["section"], "ant", "entity name"
-        )
-        self.assertEqual(index_two.editorial_to_tu.get(eid_entry) and len(set(index_two.editorial_to_tu[eid_entry])), 2)
-        issue = Issue("error", "empty-target", "empty", "mod-test.lua", 2, eid_entry)
+        issue = Issue("error", "empty-target", "empty", "mod-test.lua", 2, editorial)
 
         def build(index):
             records, _ = build_finding_records(
@@ -517,13 +524,34 @@ class OneToManyParticipantBindingTests(unittest.TestCase):
                 contexts={"test-component": self._context([entry], index=index)},
                 conflicts=(),
             )
-            assert len(records) == 1
+            self.assertEqual(len(records), 1)
             return records[0]
+
         rec_two = build(index_two)
-        self.assertEqual(len(rec_two.participants), 2)
-        index_three = self._index_with(_shared_name_entities(3))
+        self.assertEqual(rec_two.participants, sharing_two)
         rec_three = build(index_three)
-        self.assertEqual(len(rec_three.participants), 3)
+        self.assertEqual(rec_three.participants, sharing_three)
+        # Subject stays stable (the SS6.1 case the fix exists for).
+        self.assertEqual(rec_two.tu_uid, rec_three.tu_uid)
+        # Pre-006 (participants = (subject,)) would NOT surface this change:
+        # the singleton fingerprints are identical, so the ONLY reason the
+        # fingerprint changes here is the full-participant binding.
+        singleton_two = finding_fingerprint(
+            rule_id=rec_two.rule_id,
+            rule_schema_version=rec_two.rule_schema_version,
+            subject_tu_uid=rec_two.tu_uid,
+            participants=(rec_two.tu_uid,),
+            evidence_key=rec_two.evidence_key,
+        )
+        singleton_three = finding_fingerprint(
+            rule_id=rec_three.rule_id,
+            rule_schema_version=rec_three.rule_schema_version,
+            subject_tu_uid=rec_three.tu_uid,
+            participants=(rec_three.tu_uid,),
+            evidence_key=rec_three.evidence_key,
+        )
+        self.assertEqual(singleton_two, singleton_three)
+        # infra-contract-006: the real (full-participant) fingerprints differ.
         self.assertNotEqual(rec_two.fingerprint, rec_three.fingerprint)
 
     def test_runtime_key_subject_is_collision_fallback(self) -> None:

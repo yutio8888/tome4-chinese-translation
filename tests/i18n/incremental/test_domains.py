@@ -163,7 +163,7 @@ def _shared_ant_entities(count: int) -> str:
     coalesced). An empty translation target on this shared source yields a
     one-to-many empty-target finding (subject = byte-sorted first TU,
     participants = the full sharing set)."""
-    tags = ("BASE_NPC_ANT", "BASE_NPC_BUG", "BASE_NPC_ELEM")
+    tags = ("BASE_NPC_ANT", "BASE_NPC_BUG", "BASE_NPC_OMEGA")
     lines = []
     for anchor in tags[:count]:
         lines.append(
