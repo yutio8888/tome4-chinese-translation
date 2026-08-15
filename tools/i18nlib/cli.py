@@ -1153,6 +1153,38 @@ def _identity_audit(arguments: argparse.Namespace) -> int:
     return 0
 
 
+def _verify_freeze_provenance(manifest: Manifest, requested_commit: str) -> str:
+    """Bind a `baseline freeze --commit` label to the translation repo HEAD.
+
+    Contract §7.1: the commit in the baseline filename is the translation
+    repository commit this baseline was generated from, and a baseline whose
+    generation environment cannot be rebuilt is invalid for CI. To keep that
+    honest for a personal project, the caller-supplied commit must resolve to
+    exactly the current HEAD and the tracked/index worktree must be clean, so a
+    dirty worktree can never masquerade as a frozen commit.
+    """
+    from .errors import ContractError
+
+    repository = GitRepository(manifest.root)
+    resolved = repository.resolve_commit(requested_commit)
+    head = repository.resolve_commit("HEAD")
+    if resolved != head:
+        raise ContractError(
+            f"baseline freeze --commit {requested_commit!r} resolves to "
+            f"{resolved[:12]} but the translation repository HEAD is "
+            f"{head[:12]}; a frozen baseline must be generated from the "
+            "current HEAD (commit your changes first)"
+        )
+    status = repository.worktree_porcelain()
+    if status.strip():
+        raise ContractError(
+            "translation repository worktree is not clean; a baseline must be "
+            "frozen from a committed tree (stash or commit your changes first):\n"
+            + status.rstrip()
+        )
+    return resolved
+
+
 def _baseline_freeze(arguments: argparse.Namespace) -> int:
     manifest = _manifest(arguments)
     runtime = LuaRuntime(manifest)
@@ -1162,6 +1194,7 @@ def _baseline_freeze(arguments: argparse.Namespace) -> int:
     from .baseline import write_baseline
     from .pipeline import run_enriched_lint
 
+    frozen_commit = _verify_freeze_provenance(manifest, arguments.commit)
     pipeline = run_enriched_lint(manifest, runtime, loader, components)
     extractable_ids = set(pipeline["indexes"])
     records_by_component = _records_by_component(
@@ -1197,7 +1230,7 @@ def _baseline_freeze(arguments: argparse.Namespace) -> int:
         baseline = write_baseline(
             manifest_root=manifest.root,
             component=component.id,
-            translation_commit=arguments.commit,
+            translation_commit=frozen_commit,
             source_snapshot_sha256=snapshot_sha,
             engine_commit=engine_commit,
             extractor_commit=manifest.extractor.commit,
@@ -1215,7 +1248,7 @@ def _baseline_freeze(arguments: argparse.Namespace) -> int:
         )
     report = {
         "ok": True,
-        "translation_commit": arguments.commit,
+        "translation_commit": frozen_commit,
         "components": frozen,
         "skipped": skipped,
         "metrics": pipeline["metrics"],
@@ -1231,8 +1264,73 @@ def _baseline_freeze(arguments: argparse.Namespace) -> int:
                 f"SKIP {item['component']:<16} {item['reason']} "
                 f"({item['findings']} findings unbaselined)"
             )
-        print(f"Baselines frozen for translation commit {arguments.commit}")
+        print(f"Baselines frozen for translation commit {frozen_commit}")
     return 0
+
+
+def _resolve_translation_commit(manifest: Manifest, requested: str) -> str:
+    """Resolve a `--commit` label to a full translation-repository commit OID.
+
+    Baselines are keyed and named by the full OID (§7.1); a short sha or rev
+    expression from the operator is canonicalized here so freeze/report/lint
+    all address the same on-disk artifact. An unresolvable label is a
+    contract-level failure.
+    """
+    repository = GitRepository(manifest.root)
+    return repository.resolve_commit(requested)
+
+
+def _load_required_baselines(
+    manifest: Manifest,
+    *,
+    components: list[ComponentSpec],
+    indexes: dict[str, Any],
+    commit: str,
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Load baselines for the components that have reproducible extraction.
+
+    Fail-closed (§7.1): every component present in ``indexes`` (i.e. with a
+    reproducible source extraction this run) MUST have a loadable, intact
+    baseline; a missing or corrupt one is a ValidationError, never a silent
+    skip. Components without reproducible extraction are the only legitimate
+    absence and are returned explicitly as ``skipped``. An empty required
+    set (no component demands a baseline) is also a failure: a CI gate over
+    no valid baseline cannot return success.
+    """
+    from .baseline import read_baseline
+
+    required = [component for component in components if component.id in indexes]
+    skipped = [
+        {
+            "component": component.id,
+            "reason": "no reproducible source extraction",
+        }
+        for component in components
+        if component.id not in indexes
+    ]
+    if not required:
+        raise ValidationError(
+            f"no reproducible-extraction component demands a baseline for "
+            f"commit {commit}; a CI gate over an empty valid set cannot pass"
+        )
+    baselines: dict[str, Any] = {}
+    load_errors: list[tuple[str, str]] = []
+    for component in required:
+        try:
+            baselines[component.id] = read_baseline(
+                manifest.root,
+                component=component.id,
+                translation_commit=commit,
+            )
+        except ValidationError as error:
+            load_errors.append((component.id, str(error)))
+    if load_errors:
+        details = "; ".join(f"{cid}: {msg}" for cid, msg in load_errors)
+        raise ValidationError(
+            f"missing or corrupt baselines for commit {commit}; refusing CI "
+            f"judgement (fail-closed): {details}"
+        )
+    return baselines, skipped
 
 
 def _baseline_report(arguments: argparse.Namespace) -> int:
@@ -1241,7 +1339,7 @@ def _baseline_report(arguments: argparse.Namespace) -> int:
     runtime.doctor()
     loader = LocaleLoader(runtime)
     components = _select_components(manifest, [], default="lint")
-    from .baseline import ci_gate, compute_baseline_state, read_baseline
+    from .baseline import ci_gate, compute_baseline_state
     from .pipeline import run_enriched_lint, validate_baselines
 
     pipeline = run_enriched_lint(manifest, runtime, loader, components)
@@ -1249,16 +1347,13 @@ def _baseline_report(arguments: argparse.Namespace) -> int:
         pipeline["records"], components, indexes=pipeline["indexes"]
     )
 
-    baselines: dict[str, Any] = {}
-    for component in components:
-        try:
-            baselines[component.id] = read_baseline(
-                manifest.root,
-                component=component.id,
-                translation_commit=arguments.commit,
-            )
-        except ValidationError:
-            continue
+    resolved_commit = _resolve_translation_commit(manifest, arguments.commit)
+    baselines, skipped = _load_required_baselines(
+        manifest,
+        components=components,
+        indexes=pipeline["indexes"],
+        commit=resolved_commit,
+    )
     validate_baselines(
         manifest,
         baselines=baselines,
@@ -1289,9 +1384,10 @@ def _baseline_report(arguments: argparse.Namespace) -> int:
             "legacy_on_touched_tu": list(state.legacy_on_touched_tu),
         }
     report = {
-        "ok": all(state["passed"] for state in states.values()),
-        "translation_commit": arguments.commit,
+        "ok": bool(baselines) and all(state["passed"] for state in states.values()),
+        "translation_commit": resolved_commit,
         "components": states,
+        "skipped": skipped,
         "totals": total_gate,
         "binding": pipeline["binding"],
     }
@@ -1299,7 +1395,7 @@ def _baseline_report(arguments: argparse.Namespace) -> int:
         _print_json(report)
     else:
         print(
-            f"baseline report vs {arguments.commit}: "
+            f"baseline report vs {resolved_commit}: "
             f"new_errors={total_gate['new_errors']} "
             f"new_warnings={total_gate['new_warnings']} "
             f"legacy_errors={total_gate['legacy_errors']} "
@@ -1326,27 +1422,22 @@ def _lint_identity_mode(arguments: argparse.Namespace) -> int:
     loader = LocaleLoader(runtime)
     if arguments.baseline:
         components = _select_components(manifest, arguments.component, default="lint")
-        from .baseline import ci_gate, compute_baseline_state, read_baseline
+        from .baseline import ci_gate, compute_baseline_state
         from .pipeline import run_enriched_lint, validate_baselines
 
         pipeline = run_enriched_lint(manifest, runtime, loader, components)
         records_by_component = _records_by_component(
             pipeline["records"], components, indexes=pipeline["indexes"]
         )
-        baselines: dict[str, Any] = {}
-        for component in components:
-            try:
-                baselines[component.id] = read_baseline(
-                    manifest.root,
-                    component=component.id,
-                    translation_commit=arguments.baseline,
-                )
-            except ValidationError:
-                continue
-        if not baselines:
-            raise ValidationError(
-                f"no frozen baselines found for commit {arguments.baseline}"
-            )
+        resolved_commit = _resolve_translation_commit(
+            manifest, arguments.baseline
+        )
+        baselines, skipped = _load_required_baselines(
+            manifest,
+            components=components,
+            indexes=pipeline["indexes"],
+            commit=resolved_commit,
+        )
         validate_baselines(
             manifest,
             baselines=baselines,
@@ -1368,10 +1459,11 @@ def _lint_identity_mode(arguments: argparse.Namespace) -> int:
                 "resolved": [entry.to_dict() for entry in state.resolved],
             }
         report = {
-            "ok": new_errors == 0,
+            "ok": bool(baselines) and new_errors == 0,
             "mode": "baseline",
-            "translation_commit": arguments.baseline,
+            "translation_commit": resolved_commit,
             "components": report_states,
+            "skipped": skipped,
             "binding": pipeline["binding"],
         }
         run_directory = create_run_directory(manifest.root, "lint-baseline")
@@ -1381,7 +1473,7 @@ def _lint_identity_mode(arguments: argparse.Namespace) -> int:
             _print_json(report)
         else:
             print(
-                f"baseline {arguments.baseline}: new errors={new_errors} "
+                f"baseline {resolved_commit}: new errors={new_errors} "
                 f"({'OK' if new_errors == 0 else 'FAIL'})"
             )
             for component_id, state in report_states.items():

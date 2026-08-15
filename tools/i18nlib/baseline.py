@@ -10,7 +10,7 @@ from typing import Any, Iterable
 
 from .errors import ValidationError
 from .fingerprint import FindingRecord
-from .report import atomic_write_bytes, write_json
+from .report import atomic_write_bytes, json_bytes, write_json
 
 
 BASELINE_DIRECTORY_NAME = "baselines"
@@ -111,11 +111,82 @@ def write_baseline(
         "rules_registry_sha256": rules_registry_sha256,
         "slot_registry_sha256": slot_registry_sha256,
     }
+    # §7.1 no-clobber: a frozen baseline is never overwritten. An existing
+    # identical pair is idempotent (re-freeze of the same byte content); a
+    # differing pair is rejected so the on-disk provenance label cannot be
+    # silently re-bound. A lone meta or jsonl (half-set) is always corrupt.
+    new_meta_bytes = json_bytes(meta)
+    if jsonl_path.exists() or meta_path.exists():
+        if not (jsonl_path.exists() and meta_path.exists()):
+            missing = "meta" if not meta_path.exists() else "jsonl"
+            raise ValidationError(
+                f"existing baseline for {component}@{translation_commit} is a "
+                f"half-set ({missing} missing): {jsonl_path}"
+            )
+        existing_jsonl = jsonl_path.read_bytes()
+        existing_meta = meta_path.read_bytes()
+        if existing_jsonl == jsonl_bytes and existing_meta == new_meta_bytes:
+            return read_baseline(
+                manifest_root,
+                component=component,
+                translation_commit=translation_commit,
+            )
+        raise ValidationError(
+            f"refusing to overwrite existing baseline for "
+            f"{component}@{translation_commit}: {jsonl_path} "
+            "(re-freeze with identical content is idempotent; differing "
+            "content must not silently re-bind the frozen provenance label)"
+        )
     atomic_write_bytes(jsonl_path, jsonl_bytes)
-    write_json(meta_path, meta)
+    atomic_write_bytes(meta_path, new_meta_bytes)
     return read_baseline(
         manifest_root, component=component, translation_commit=translation_commit
     )
+
+
+def _validate_baseline_meta(
+    meta: dict[str, Any],
+    path: Path,
+    *,
+    component: str,
+    translation_commit: str,
+) -> None:
+    """Strict §7.1 meta identity check (fail-closed).
+
+    A baseline whose meta does not carry exactly the contract key set, or whose
+    component/translation_commit do not match the requested label, is corrupt or
+    misfiled and must never reach a CI judgement. Raises ValidationError so a
+    renamed or half-written baseline cannot masquerade as the requested one.
+    """
+    required_keys = {
+        "schema_version",
+        "component",
+        "translation_commit",
+        "source_snapshot_sha256",
+        "engine_commit",
+        "extractor_commit",
+        "rules_registry_sha256",
+        "slot_registry_sha256",
+    }
+    if set(meta) != required_keys:
+        raise ValidationError(
+            f"baseline meta key set is not the contract set: {path} "
+            f"(got {sorted(meta)!r})"
+        )
+    if type(meta["schema_version"]) is not int or meta["schema_version"] != 1:
+        raise ValidationError(
+            f"baseline meta has an unsupported schema_version: {path}"
+        )
+    if meta["component"] != component:
+        raise ValidationError(
+            f"baseline meta component mismatch: expected {component!r}, "
+            f"got {meta['component']!r} ({path})"
+        )
+    if meta["translation_commit"] != translation_commit:
+        raise ValidationError(
+            f"baseline meta translation_commit mismatch: expected "
+            f"{translation_commit!r}, got {meta['translation_commit']!r} ({path})"
+        )
 
 
 def read_baseline(
@@ -134,6 +205,12 @@ def read_baseline(
         raise ValidationError(f"invalid baseline meta JSON: {meta_path}") from error
     if not isinstance(meta_raw, dict):
         raise ValidationError(f"baseline meta is not an object: {meta_path}")
+    _validate_baseline_meta(
+        meta_raw,
+        meta_path,
+        component=component,
+        translation_commit=translation_commit,
+    )
     try:
         jsonl_bytes = jsonl_path.read_bytes()
         entries_text = jsonl_bytes.decode("utf-8")

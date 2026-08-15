@@ -150,6 +150,24 @@ class GitRepository:
             )
         return result.stdout.strip()
 
+    def worktree_porcelain(self) -> str:
+        """Return `git status --porcelain` output (ignored files excluded).
+
+        Used by provenance checks that require a clean tracked/index tree
+        (e.g. ``baseline freeze``); a non-empty string means the worktree is
+        not clean. Git execution failures raise so callers never mistake a
+        broken repository for a clean tree.
+        """
+        status = self._run(
+            ["status", "--porcelain", "--untracked-files=all"], text=True
+        )
+        if status.returncode != 0:
+            detail = status.stderr.strip() or f"exit {status.returncode}"
+            raise ConfigurationError(
+                f"cannot inspect Git worktree status in {self.path}: {detail}"
+            )
+        return status.stdout
+
     def changed_paths(self, base: str, head: str) -> list[str]:
         """Changed file paths between two commits (incremental invalidation I2).
 

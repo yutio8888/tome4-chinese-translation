@@ -19129,10 +19129,12 @@ exit 0
             "05-contract-suite-unit-tests.log": (
                 "-m unittest -q tests/i18n/identity/test_identity.py "
                 "tests/i18n/identity/test_stability.py "
+                "tests/i18n/identity/test_conflicts.py "
                 "tests/i18n/fingerprint/test_fingerprint.py "
                 "tests/i18n/fingerprint/test_findings.py "
                 "tests/i18n/baseline/test_baseline.py "
                 "tests/i18n/incremental/test_incremental.py "
+                "tests/i18n/incremental/test_domains.py "
                 "tests/i18n/qa/test_injected_defects.py "
                 "tests/i18n/test_terminology_inventory.py "
                 "tests/i18n/test_ai_state_check.py\n"
