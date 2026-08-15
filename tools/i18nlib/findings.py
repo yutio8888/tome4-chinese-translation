@@ -192,10 +192,14 @@ def build_finding_records(
             if issue.entry_id is None:
                 skipped[issue.code] += 1
                 continue
-            subject = _bind(issue.entry_id, contexts)[0]
-            participants = (subject,)
             evidence: str
             if rule.evidence_key_spec == "runtime-key":
+                # runtime-collision keeps a stable collision-fallback as the
+                # subject (the contract fingerprint input) and aggregates the
+                # full TU set as participants; the subject must NOT become
+                # sorted(participants)[0] or existing runtime-collision
+                # fingerprints would shift (infra-contract-006 audit fix).
+                subject = _bind(issue.entry_id, contexts)[0]
                 entries = runtime_lookup.get(issue.entry_id, [])
                 participants = tuple(
                     sorted(
@@ -220,34 +224,47 @@ def build_finding_records(
                     entry={"source": source, "source_tag": source_tag},
                     component=component_name,
                 )
-            elif rule.evidence_key_spec == "constant":
-                evidence = build_evidence_key("constant")
             else:
-                entries = entry_lookup.get(issue.entry_id, [])
-                if not entries:
-                    # Unbindable issue without entry material: fail closed
-                    # instead of fabricating an evidence key.
-                    skipped[issue.code] += 1
-                    continue
-                # R8 (cycle 3): the issue belongs to one specific occurrence;
-                # several entries can share the editorial id (duplicated
-                # occurrences), so the evidence must come from the entry whose
-                # location matches the Issue exactly (logical_path + line). A
-                # missing or ambiguous match fails closed instead of silently
-                # binding evidence to an unrelated occurrence (which would
-                # fabricate false new/resolved fingerprints).
-                matching = [
-                    entry
-                    for entry in entries
-                    if entry.get("logical_path") == issue.logical_path
-                    and entry.get("line") == issue.line
-                ]
-                if len(matching) != 1:
-                    skipped[issue.code] += 1
-                    continue
-                evidence = build_evidence_key(
-                    rule.evidence_key_spec, entry=matching[0]
-                )
+                # All other translation_unit rules: participants is the full
+                # TU set sharing this editorial id (one locale key can back
+                # multiple distinct strong TUs, e.g. several newEntity share
+                # the same (component,section,source,source_tag) but distinct
+                # anchors -- §4.7 keeps them distinct, never coalesced).
+                # §6.1 behavior promise "participant entities change -> new
+                # fingerprint" then holds: adding/removing a sharing TU emits
+                # a new fingerprint instead of silently reusing sorted()[0].
+                # The Issue still points at one occurrence, so R8 location-aware
+                # evidence (logical_path+line exact match) is unaffected.
+                participants = _bind(issue.entry_id, contexts)
+                subject = participants[0]
+                if rule.evidence_key_spec == "constant":
+                    evidence = build_evidence_key("constant")
+                else:
+                    entries = entry_lookup.get(issue.entry_id, [])
+                    if not entries:
+                        # Unbindable issue without entry material: fail closed
+                        # instead of fabricating an evidence key.
+                        skipped[issue.code] += 1
+                        continue
+                    # R8 (cycle 3): the issue belongs to one specific occurrence;
+                    # several entries can share the editorial id (duplicated
+                    # occurrences), so the evidence must come from the entry whose
+                    # location matches the Issue exactly (logical_path + line). A
+                    # missing or ambiguous match fails closed instead of silently
+                    # binding evidence to an unrelated occurrence (which would
+                    # fabricate false new/resolved fingerprints).
+                    matching = [
+                        entry
+                        for entry in entries
+                        if entry.get("logical_path") == issue.logical_path
+                        and entry.get("line") == issue.line
+                    ]
+                    if len(matching) != 1:
+                        skipped[issue.code] += 1
+                        continue
+                    evidence = build_evidence_key(
+                        rule.evidence_key_spec, entry=matching[0]
+                    )
             # R3: the Rule Registry severity is authoritative for enriched
             # findings (§9); the input lint Issue keeps its own severity in
             # the default lint path, only the record's issue is re-typed.

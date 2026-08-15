@@ -7,6 +7,7 @@ including the duplicate-id prechecks from IdentityConflict.
 
 from __future__ import annotations
 
+import hashlib
 import sys
 import unittest
 from pathlib import Path
@@ -17,10 +18,19 @@ if str(TOOLS) not in sys.path:
 
 from i18nlib.findings import FindingContext, build_finding_records  # noqa: E402
 from i18nlib.fingerprint import RuleRegistry  # noqa: E402
-from i18nlib.identity import RULES_REGISTRY_RELATIVE_PATH  # noqa: E402
+from i18nlib.identity import (  # noqa: E402
+    RULES_REGISTRY_RELATIVE_PATH,
+    tu_uid_fallback,
+)
 from i18nlib.lint import Issue, stable_entry_id  # noqa: E402
 
-from tests.i18n.identity.fixture import build_fixture_index, make_tree  # noqa: E402
+from tests.i18n.identity.fixture import (  # noqa: E402
+    FIXTURE_EFFECTS,
+    FIXTURE_MISC,
+    FIXTURE_TALENTS,
+    build_fixture_index,
+    make_tree,
+)
 
 _ROOT = Path(__file__).resolve().parents[3]
 
@@ -360,6 +370,207 @@ newTalent{
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0].issue.severity, "error")
         self.assertEqual(records[0].rule_id, "duplicate-talent-id")
+
+
+def _shared_name_entities(count: int) -> str:
+    # Each entity has a distinct define_as strong anchor; they share the
+    # ``name`` source string "ant" but live on separate anchor anchors, so
+    # §4.7 keeps them as distinct strong TUs that share one editorial id.
+    lines = []
+    for tag in ("BASE_NPC_ANT", "BASE_NPC_BUG", "BASE_NPC_ELEM")[:count]:
+        lines.append(
+            "newEntity{\n\t"
+            f"define_as = \"{tag}\",\n\t"
+            "name = \"ant\",\n\t"
+            "type = \"insect\", subtype = \"ant\",\n}\n"
+        )
+    return "".join(lines)
+
+
+class OneToManyParticipantBindingTests(unittest.TestCase):
+    """infra-contract-006: one editorial id can back several distinct
+    strong TUs (e.g. two newEntity share one (component,section,source,
+    source_tag) but distinct define_as anchors -- §4.7 keeps them distinct).
+    Every non runtime-key translation_unit rule must bind the *full* TU set
+    as participants so §6.1 'participant entities change -> new fingerprint'
+    holds. The runtime-key subject stays the collision fallback."""
+
+    def setUp(self) -> None:
+        self.root, self.temporary = make_tree()
+        self.index = build_fixture_index(self.root)
+        self.registry = RuleRegistry.load(_ROOT / RULES_REGISTRY_RELATIVE_PATH)
+
+    def tearDown(self) -> None:
+        self.temporary.cleanup()
+
+    def _context(self, entries, index=None) -> FindingContext:
+        return FindingContext(
+            component="test-component",
+            entries=tuple(entries),
+            index=index if index is not None else self.index,
+        )
+
+    def _index_with(self, entities_lua: str, root=None):
+        from tests.i18n.identity.fixture import write_fixture_tree
+        target = root if root is not None else self.root
+        write_fixture_tree(
+            target,
+            {
+                "mod-test/data/entities.lua": entities_lua,
+                "mod-test/data/talents.lua": FIXTURE_TALENTS,
+                "mod-test/data/effects.lua": FIXTURE_EFFECTS,
+                "mod-test/data/misc.lua": FIXTURE_MISC,
+            },
+        )
+        return build_fixture_index(target)
+
+    def test_shared_editorial_id_binds_all_participants(self) -> None:
+        index = self._index_with(_shared_name_entities(2))
+        multi = {
+            eid: tuple(sorted(set(tus)))
+            for eid, tus in index.editorial_to_tu.items()
+            if len(set(tus)) > 1
+        }
+        self.assertTrue(multi, "fixture must yield a shared editorial id")
+        editorial = stable_entry_id(
+            "test-component", "mod-test/data/entities.lua", "ant", "entity name"
+        )
+        self.assertIn(editorial, multi, "ant-name editorial must be a shared one")
+        expected = multi[editorial]
+        # The two-strong-anchor "ant" name lives at entities.lua line 2,6,10
+        # for the two-entity fixture (tab-indented); the "name = \"ant\""
+        # occurrences sit at lines 2 and 6.
+        entry = {
+            "section": next(
+                tu.sections[0]
+                for tu in index.tus.values()
+                if editorial in tu.editorial_ids
+            ),
+            "source": "ant",
+            "source_tag": "entity name",
+            "target": "",
+            "logical_path": "mod-test.lua",
+            "line": 2,
+        }
+        eid_entry = stable_entry_id(
+            "test-component", entry["section"], "ant", "entity name"
+        )
+        self.assertEqual(set(index.editorial_to_tu.get(eid_entry, ())), set(expected))
+        issue = Issue(
+            "error", "empty-target", "empty", "mod-test.lua", 2, eid_entry
+        )
+        records, _ = build_finding_records(
+            registry=self.registry,
+            issues=[issue],
+            contexts={"test-component": self._context([entry], index=index)},
+            conflicts=(),
+        )
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0].participants, expected)
+        self.assertEqual(records[0].tu_uid, expected[0])
+        # Fingerprint is reproducible on a second identical build.
+        second, _ = build_finding_records(
+            registry=self.registry,
+            issues=[issue],
+            contexts={"test-component": self._context([entry], index=index)},
+            conflicts=(),
+        )
+        self.assertEqual(second[0].fingerprint, records[0].fingerprint)
+
+    def test_participant_change_emits_new_fingerprint(self) -> None:
+        """§6.1: participant-set change -> new fingerprint. Adding a third
+        strong TU that shares the editorial id must shift the fingerprint,
+        not silently reuse the sorted()-first subject."""
+        index_two = self._index_with(_shared_name_entities(2))
+        eids = {
+            eid
+            for eid, tus in index_two.editorial_to_tu.items()
+            if len(set(tus)) == 2
+        }
+        self.assertTrue(eids, "two-anchor fixture must share an editorial id")
+        eid = stable_entry_id(
+            "test-component", "mod-test/data/entities.lua", "ant", "entity name"
+        )
+        self.assertIn(eid, eids)
+        entry = {
+            "section": next(
+                tu.sections[0]
+                for tu in index_two.tus.values()
+                if eid in tu.editorial_ids
+            ),
+            "source": "ant",
+            "source_tag": "entity name",
+            "target": "",
+            "logical_path": "mod-test.lua",
+            "line": 2,
+        }
+        eid_entry = stable_entry_id(
+            "test-component", entry["section"], "ant", "entity name"
+        )
+        self.assertEqual(index_two.editorial_to_tu.get(eid_entry) and len(set(index_two.editorial_to_tu[eid_entry])), 2)
+        issue = Issue("error", "empty-target", "empty", "mod-test.lua", 2, eid_entry)
+
+        def build(index):
+            records, _ = build_finding_records(
+                registry=self.registry,
+                issues=[issue],
+                contexts={"test-component": self._context([entry], index=index)},
+                conflicts=(),
+            )
+            assert len(records) == 1
+            return records[0]
+        rec_two = build(index_two)
+        self.assertEqual(len(rec_two.participants), 2)
+        index_three = self._index_with(_shared_name_entities(3))
+        rec_three = build(index_three)
+        self.assertEqual(len(rec_three.participants), 3)
+        self.assertNotEqual(rec_two.fingerprint, rec_three.fingerprint)
+
+    def test_runtime_key_subject_is_collision_fallback(self) -> None:
+        """infra-contract-006: runtime-collision keeps the collision-fallback
+        as the subject even when the aggregated participants resolve to real
+        sharing TUs. The subject must NOT become sorted(participants)[0]; the
+        fallback fingerprint input stays stable."""
+        index = self._index_with(_shared_name_entities(2))
+        eids = {
+            eid for eid, tus in index.editorial_to_tu.items() if len(set(tus)) == 2
+        }
+        editorial = stable_entry_id(
+            "test-component", "mod-test/data/entities.lua", "ant", "entity name"
+        )
+        self.assertIn(editorial, eids)
+        tu = next(t for t in index.tus.values() if editorial in t.editorial_ids)
+        source = "ant"
+        tag = "entity name"
+        collision_id = hashlib.sha256(
+            "\0".join(
+                ("test-component", source, f"<string>{tag}")
+            ).encode("utf-8")
+        ).hexdigest()
+        entry = {
+            "section": tu.sections[0],
+            "source": source,
+            "source_tag": tag,
+            "target": "x",
+            "logical_path": "mod-test.lua",
+            "line": 2,
+        }
+        issue = Issue(
+            "error", "runtime-collision", "collide", "mod-test.lua", 2, collision_id
+        )
+        records, _ = build_finding_records(
+            registry=self.registry,
+            issues=[issue],
+            contexts={"test-component": self._context([entry], index=index)},
+            conflicts=(),
+        )
+        self.assertEqual(len(records), 1)
+        fallback = tu_uid_fallback(collision_id)
+        self.assertEqual(records[0].tu_uid, fallback)
+        # The subject is the fallback collision id, not a member of the real
+        # participant TU set (participants are real sharing-TU uids resolved
+        # from the entering entries; the subject deliberately diverges).
+        self.assertNotEqual(records[0].tu_uid, records[0].participants[0])
 
 
 if __name__ == "__main__":

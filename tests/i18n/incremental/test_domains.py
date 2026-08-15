@@ -31,6 +31,7 @@ from tests.i18n.identity.fixture import (  # noqa: E402
     make_tree,
     manifest,
     runtime,
+    write_fixture_tree,
 )
 from tests.i18n.incremental.test_incremental import _component  # noqa: E402
 
@@ -153,6 +154,51 @@ def _build_fixture_index_once() -> object:
         finally:
             temporary.cleanup()
     return _FIXTURE_INDEX_CACHE["index"]
+
+
+def _shared_ant_entities(count: int) -> str:
+    """Two/three newEntity with distinct ``define_as`` strong anchors that
+    share the ``name = "ant"`` source: one locale occurrence backs several
+    distinct strong name-slot TUs (§4.7 keeps them distinct, never
+    coalesced). An empty translation target on this shared source yields a
+    one-to-many empty-target finding (subject = byte-sorted first TU,
+    participants = the full sharing set)."""
+    tags = ("BASE_NPC_ANT", "BASE_NPC_BUG", "BASE_NPC_ELEM")
+    lines = []
+    for anchor in tags[:count]:
+        lines.append(
+            "newEntity{\n\t"
+            f"define_as = \"{anchor}\",\n\t"
+            "name = \"ant\",\n\t"
+            "type = \"insect\", subtype = \"ant\",\n}\n"
+        )
+    return "".join(lines)
+
+
+_SHARED_ANT_INDEX_CACHE: dict[int, object] = {}
+
+
+def _build_shared_ant_index(count: int) -> object:
+    """A clean fixture index (no duplicate-id ERRORs) whose ant-name
+    editorial backs ``count`` distinct strong TUs. Built from a minimal
+    tree (shared-ant entities + a single talent) so the index carries only
+    the one-to-many empty-target finding plus a weak identity_conflict
+    context (which yields no FindingRecord)."""
+    if count not in _SHARED_ANT_INDEX_CACHE:
+        temporary = tempfile.TemporaryDirectory(prefix="tome4-i18n-shared-ant-")
+        root = Path(temporary.name)
+        try:
+            write_fixture_tree(
+                root,
+                {
+                    "mod-test/data/entities.lua": _shared_ant_entities(count),
+                    **_MINIMAL_TREE,
+                },
+            )
+            _SHARED_ANT_INDEX_CACHE[count] = build_fixture_index(root)
+        finally:
+            temporary.cleanup()
+    return _SHARED_ANT_INDEX_CACHE[count]
 
 
 class _DomainTestCase(unittest.TestCase):
@@ -314,6 +360,7 @@ class TranslationDomainTests(_DomainTestCase):
         *,
         tag: str = "talent name",
         index: str = "minimal",
+        index_obj: object = None,
     ):
         """Assemble the full-head records exactly like the translation domain
         does (head doc linted with head policy + head registry, bound to the
@@ -348,11 +395,14 @@ class TranslationDomainTests(_DomainTestCase):
         issues, contexts, _ = lint_documents_specs(
             self._manifest(component), [(component.id, head_doc, False)], policy=policy
         )
-        fixture_index = {
-            "minimal": self._fixture_index,
-            "full": _build_full_fixture_index_once,
-            "dup": _build_dup_index_once,
-        }[index]()
+        if index_obj is not None:
+            fixture_index = index_obj
+        else:
+            fixture_index = {
+                "minimal": self._fixture_index,
+                "full": _build_full_fixture_index_once,
+                "dup": _build_dup_index_once,
+            }[index]()
         # FR1: mirror the domain's identity-only context binding.
         bound = _bind_identity_contexts_for_test(
             contexts, {"test-component": fixture_index}
@@ -889,6 +939,114 @@ class TranslationDomainTests(_DomainTestCase):
         report = self._run(base_commit, head_commit)
         self.assertGreater(report["affected_tus"], 0)
         self.assertEqual(report["findings"]["recomputed"], 0)
+
+    def _run_with_index(self, base: str, head: str, index_obj) -> dict:
+        from i18nlib.cli import _lint_incremental_translation
+
+        component = _component(
+            id="test-component",
+            translation="mod-test.lua",
+            copy_fragment="mod-test-copy.lua",
+            sources=(SourceMount(git_path="game/modules/tome", mount="mod-test"),),
+            addon_eligible=False,
+        )
+        copy_path = self.root / "mod-test-copy.lua"
+        if not copy_path.is_file():
+            copy_path.write_text("", encoding="utf-8")
+        with self._patch_extract(index_obj):
+            return self._capture_report(
+                _lint_incremental_translation,
+                self._arguments(base, head, "translation", ci=False),
+                self._manifest(component),
+                runtime(),
+                loader(),
+            )
+
+    def test_006_shared_editorial_empty_target_consumption_chain(self) -> None:
+        """infra-contract-006 end-to-end: a non-runtime-key empty-target
+        finding whose editorial backs two distinct strong name-slot TUs
+        (subject + non-subject; §4.7 keeps them distinct) must bind
+        participants to the FULL sharing set. When the shared occurrence
+        changes valid -> empty the record enters recompute, both the subject
+        and the non-subject participant land in the affected set, and the
+        incremental canonical equals the full-head assembly with a single
+        fresh fingerprint. Under the pre-006 binding (participants =
+        (subject,)) the participants assertion fails.
+
+        ("subject untouched, non-subject affected" is not isolable for a
+        shared editorial: affecting the editorial marks every sharing TU,
+        so the subject is always co-affected. The participant-set ->
+        fingerprint invariant -- the fix's distinct observable consequence
+        -- is covered by test_findings::test_participant_change_emits_new_fingerprint.)"""
+        from i18nlib.lint import stable_entry_id
+
+        section = "mod-test/data/entities.lua"
+        source = "ant"
+        tag = "entity name"
+        editorial = stable_entry_id("test-component", section, source, tag)
+        index = _build_shared_ant_index(2)
+        sharing = tuple(sorted(set(index.editorial_to_tu[editorial])))
+        self.assertEqual(len(sharing), 2)
+        subject, non_subject = sharing
+
+        self._write_doc("mod-test.lua", [(section, source, "蚂蚁")], tag=tag)
+        base_commit = _commit_all(self.root, "base valid ant")
+        self._write_doc("mod-test.lua", [(section, source, "")], tag=tag)
+        head_commit = _commit_all(self.root, "head empty ant")
+
+        report = self._run_with_index(base_commit, head_commit, index)
+        self.assertEqual(report["findings"]["previous"], 0)
+        self.assertEqual(report["findings"]["kept"], 0)
+        self.assertEqual(report["findings"]["recomputed"], 1)
+        self.assertEqual(report["findings"]["incremental"], 1)
+        # The shared editorial maps to the whole sharing TU set, so both the
+        # subject and the non-subject participant are affected.
+        self.assertIn(subject, report["affected_tu_uids"])
+        self.assertIn(non_subject, report["affected_tu_uids"])
+        records = report["records"]
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["code"], "empty-target")
+        self.assertEqual(records[0]["participants"], list(sharing))
+        self.assertEqual(records[0]["tu_uid"], subject)
+        expected = self._full_head_records(
+            [(section, source, "")], tag=tag, index_obj=index
+        )
+        self.assertEqual(len(expected), 1)
+        self.assertEqual(records[0]["fingerprint"], expected[0].fingerprint)
+        self.assertEqual(
+            self._canonical(report["records"]),
+            self._canonical([record.to_dict() for record in expected]),
+        )
+
+    def test_006_shared_editorial_empty_target_resolve_no_stale(self) -> None:
+        """infra-contract-006 consumption chain: base has an empty-target
+        finding on the shared editorial; head fixes it (empty -> valid).
+        The finding must leave the incremental set (kept=0, recomputed=0,
+        incremental=0) so no stale base fingerprint lingers; the incremental
+        canonical equals the (empty) full-head assembly."""
+        section = "mod-test/data/entities.lua"
+        source = "ant"
+        tag = "entity name"
+        index = _build_shared_ant_index(2)
+        self._write_doc("mod-test.lua", [(section, source, "")], tag=tag)
+        base_commit = _commit_all(self.root, "base empty ant")
+        self._write_doc("mod-test.lua", [(section, source, "蚂蚁")], tag=tag)
+        head_commit = _commit_all(self.root, "head valid ant")
+
+        report = self._run_with_index(base_commit, head_commit, index)
+        self.assertEqual(report["findings"]["previous"], 1)
+        self.assertEqual(report["findings"]["kept"], 0)
+        self.assertEqual(report["findings"]["recomputed"], 0)
+        self.assertEqual(report["findings"]["incremental"], 0)
+        self.assertEqual(report["records"], [])
+        expected = self._full_head_records(
+            [(section, source, "蚂蚁")], tag=tag, index_obj=index
+        )
+        self.assertEqual(expected, [])
+        self.assertEqual(
+            self._canonical(report["records"]),
+            self._canonical([record.to_dict() for record in expected]),
+        )
 
 
 class RuleDomainTests(_DomainTestCase):
