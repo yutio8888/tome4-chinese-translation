@@ -5,7 +5,7 @@
 
 | review_contract | labels.purpose（控制面） | review 记录 purpose | 载体 |
 | --- | --- | --- | --- |
-| `code_legacy_v1` | `normal_review` | `normal_review` | Codex `gpt-5.6-sol`（`auto-review`/`xhigh`） |
+| `code_legacy_v1` | `normal_review` | `normal_review` | Pi `command-code-goat/meta/muse-spark-1.2-contributor`（省略 mode 与 thinking）primary；backup Codex `gpt-5.6-sol`（`auto-review`/`xhigh`） |
 | `translation_contextual_v1` | `translation_contextual_v1` | `translation_contextual_v1` | Pi `opencode-go/deepseek-v4-flash`（省略 mode、thinking `max`） |
 
 briefing 必须明确标注 `review_contract` 与 `labels.purpose` 两个字段：收到

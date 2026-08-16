@@ -19099,33 +19099,78 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
             ROOT / "docs" / "paseo-orchestration-v2-contract.md"
         ).read_text(encoding="utf-8")
 
-        # 1) STATE 示例记录普通 REVIEWER 的完整元组。
+        # 1) STATE 示例记录普通 REVIEWER 的嵌套 selected/primary/backup 结构。
         reviewer_state = (
-            '"reviewer": {"provider": "codex", "model": "gpt-5.6-sol", '
-            '"mode": "auto-review", "thinking": "xhigh"'
+            '"reviewer": {\n'
+            '    "selected": "primary",\n'
+            '    "primary": {"provider": "pi", "model": '
+            '"command-code-goat/meta/muse-spark-1.2-contributor", '
+            '"mode": null, "thinking": null},\n'
+            '    "backup": {"provider": "codex", "model": "gpt-5.6-sol", '
+            '"mode": "auto-review", "thinking": "xhigh"},\n'
+            '    "fallback_reason": null,\n'
+            '    "agent_id": null\n'
+            "  },"
         )
         self.assertIn(reviewer_state, orchestrator)
         self.assertIn(reviewer_state, contract)
-        # 2) 创建命令显式传完整元组（CLI 与 MCP 载荷）。
+        # 2) primary 固定 Muse Pi 精确模型。
+        muse_model = "command-code-goat/meta/muse-spark-1.2-contributor"
+        for text in (agents, orchestrator, contract):
+            self.assertIn(muse_model, text)
+            self.assertIn("普通 REVIEWER", text)
+            self.assertIn("Provider/Model/Mode/Thinking", text)
+        # 3) primary 创建省略 mode 与 thinking（CLI 与 MCP 载荷）。
+        self.assertIn("省略 `--mode` 与 `--thinking`", agents)
+        self.assertIn("省略 `--mode` 与 `--thinking`", orchestrator)
+        self.assertIn("省略 `settings.modeId` 与", agents)
+        self.assertIn("`settings.modeId` 与 `settings.thinkingOptionId`", contract)
         self.assertIn(
-            "paseo run --provider codex --model gpt-5.6-sol "
-            "--mode auto-review --thinking xhigh",
+            "paseo run --provider pi --model "
+            "command-code-goat/meta/muse-spark-1.2-contributor",
             contract,
         )
+        self.assertIn(
+            'provider: "pi/command-code-goat/meta/muse-spark-1.2-contributor"',
+            contract,
+        )
+        # 4) 模型发现：thinking 选项为空、default 为 null。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("thinkingOptionIds=[]", text)
+            self.assertIn("defaultThinkingOptionId=null", text)
+        # 5) 运行时 thinking sentinel 归一化。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("null/缺失/`off`/`default`", text)
+            self.assertIn("归一化 `unselected`", text)
+        # 6) Codex backup 条件性且 task 固定；回退只有两条路径。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("`codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`", text)
+        # A) 任务开始发现不可用：记录发现证据，设置 selected=fallback 并创建 backup，无 primary 可归档。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("回退只有两条路径", text)
+            self.assertIn("记录该发现证据", text)
+            self.assertIn("selected=fallback", text)
+        # B) 已创建 primary 在任何有效输出前明确失败：先停止并确认归档；归档未确认则恢复且不创建 backup。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("在产生任何有效输出前", text)
+            self.assertIn("先停止并确认归档", text)
+            self.assertIn("归档未确认", text)
+            self.assertIn("不得创建 backup", text)
+        for text in (agents, orchestrator):
+            self.assertIn("task 一旦选中 backup", text)
+            self.assertIn("保持该路由", text)
         self.assertIn('provider: "codex/gpt-5.6-sol"', contract)
         self.assertIn('settings.modeId: "auto-review"', contract)
         self.assertIn('settings.thinkingOptionId: "xhigh"', contract)
-        # 3) 创建后核验完整元组（三份规范文档）。
-        for text in (agents, orchestrator, contract):
-            self.assertIn("普通 REVIEWER", text)
-            self.assertIn("Provider/Model/Mode/Thinking", text)
-            self.assertIn("`codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`", text)
-        # 4) 恢复后核验完整元组。
+        # 7) 恢复与不变量覆盖。
         self.assertIn("恢复唯一匹配的普通 REVIEWER 时", agents)
         self.assertIn("恢复唯一匹配的普通 REVIEWER 时", orchestrator)
         self.assertIn("恢复到唯一匹配的普通 REVIEWER 时", contract)
-        # 5) STATE 不变量覆盖普通 REVIEWER 元组。
-        self.assertIn("普通 REVIEWER 的 STATE model 与实际", contract)
+        self.assertIn("按 STATE `selected` 校验", orchestrator)
+        self.assertIn("`selected` 只允许 `primary|fallback`", orchestrator)
+        self.assertIn("`selected` 只允许 `primary|fallback`", contract)
+        self.assertIn("STATE model 与实际 Provider/Model/Mode/Thinking", contract)
+        self.assertIn("fallback_reason", agents)
 
     def test_paseo_senior_reviewer_triggers_are_documented(self) -> None:
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
@@ -19393,14 +19438,14 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
 
     def test_contextual_invariant_and_tuple_verification_purpose_scoped(self) -> None:
         contract = self._normative_texts()["contract"]
-        # 不变量 15 与 Codex 创建后核验只适用于 review_contract=code_legacy_v1。
+        # 不变量 15 与普通 code 路由谓词只适用于 review_contract=code_legacy_v1。
         self.assertIn(
             "`review_contract=code_legacy_v1`（labels `purpose=normal_review`）的普通",
             contract,
         )
-        self.assertIn("该 Codex 谓词不适用于", contract)
-        self.assertIn("该 Codex 谓词只适用于 code 载体", contract)
-        # 语境 Pi 元组只按不变量 16 校验，不被 Codex 谓词拒绝。
+        self.assertIn("该谓词不适用于", contract)
+        self.assertIn("该谓词只适用于 code 载体", contract)
+        # 语境 Pi 元组只按不变量 16 校验，不被 code 路由谓词拒绝。
         self.assertIn("不变量 16", contract)
         self.assertIn("不被此谓词拒绝", contract)
 
@@ -20205,7 +20250,7 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
 
 
 class PaseoPiModeContractTests(unittest.TestCase):
-    """Validate the transport-independent Pi unselected-mode predicate (2.7-draft / 1.3)."""
+    """Validate the transport-independent Pi unselected-mode predicate (2.8-draft / 1.3)."""
 
     CONTEXTUAL_DOC = ROOT / "docs" / "paseo-translation-context-review-v1-contract.md"
 
@@ -20223,13 +20268,21 @@ class PaseoPiModeContractTests(unittest.TestCase):
 
     def test_contract_versions_are_bumped(self) -> None:
         texts = self._normative_texts()
-        # 契约版本升至 2.7-draft 与 1.3，旧头行不再出现。
-        self.assertIn("`paseo-orchestration/2.7-draft`", texts["contract"])
-        self.assertNotIn("> 契约版本：`paseo-orchestration/2.6-draft`。", texts["contract"])
+        # 契约版本升至 2.8-draft 与 1.3，旧头行（2.7/2.6/1.2）不再出现。
+        self.assertIn("> 契约版本：`paseo-orchestration/2.8-draft`。", texts["contract"])
+        self.assertNotIn(
+            "> 契约版本：`paseo-orchestration/2.7-draft`。", texts["contract"]
+        )
+        self.assertNotIn(
+            "> 契约版本：`paseo-orchestration/2.6-draft`。", texts["contract"]
+        )
         self.assertIn("`translation-contextual/1.3`", texts["contextual"])
-        self.assertNotIn("> 契约版本：`translation-contextual/1.2`。", texts["contextual"])
-        # 修订记录登记 2.7-draft 行。
+        self.assertNotIn(
+            "> 契约版本：`translation-contextual/1.2`。", texts["contextual"]
+        )
+        # 修订记录登记 2.8-draft 行；历史 2.7-draft 行保留。
         history = texts["contract"][texts["contract"].index("## 十二、修订记录") :]
+        self.assertIn("| `2.8-draft` |", history)
         self.assertIn("| `2.7-draft` |", history)
 
     def _predicate_windows(self) -> dict:

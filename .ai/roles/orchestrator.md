@@ -36,9 +36,11 @@ SENIOR_REVIEWER。
    仅表示请求侧未选择；核验后记录实际观测值、字段来源与归一化结论）。SENIOR_REVIEWER 先检查 provider `claude` 并从其当前可选
    model 中解析 Opus（当前 ID `claude-opus-5`）；只在明确不可用时选择
    Codex `gpt-5.6-sol` 回退。REVIEWER 按 purpose 选择载体并确认对应模型可用：
-   `code_legacy_v1` 用 Codex `gpt-5.6-sol`（`auto-review`/`xhigh`）；
+   `code_legacy_v1` 的 primary 用 Pi `command-code-goat/meta/muse-spark-1.2-contributor`
+   （模型发现 `thinkingOptionIds=[]`、`defaultThinkingOptionId=null`，创建省略 mode
+   与 thinking），backup 用 Codex `gpt-5.6-sol`（`auto-review`/`xhigh`）；
    `translation_contextual_v1` 用 Pi `opencode-go/deepseek-v4-flash`（省略 mode、
-   thinking `max`）；Pi 元组不可用或没有 `max` 时停止，不得静默降级或回退到 Codex。
+   thinking `max`）；语境 Pi 元组不可用或没有 `max` 时停止，不得静默降级或回退到 Codex。
 5. 确认当前进程存在非空 `PASEO_AGENT_ID`。它是本任务的 ORCHESTRATOR agent ID；若缺失，
    不得创建 EXECUTOR／REVIEWER／SENIOR_REVIEWER，应报告当前主代理不是
    Paseo 托管 parent。
@@ -65,7 +67,13 @@ SENIOR_REVIEWER。
   "orchestration_transport": "cli",
   "baseline": {"patch": null, "copies_dir": null},
   "executor": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", "mode": null, "thinking": "max", "agent_id": null},
-  "reviewer": {"provider": "codex", "model": "gpt-5.6-sol", "mode": "auto-review", "thinking": "xhigh", "agent_id": null},
+  "reviewer": {
+    "selected": "primary",
+    "primary": {"provider": "pi", "model": "command-code-goat/meta/muse-spark-1.2-contributor", "mode": null, "thinking": null},
+    "backup": {"provider": "codex", "model": "gpt-5.6-sol", "mode": "auto-review", "thinking": "xhigh"},
+    "fallback_reason": null,
+    "agent_id": null
+  },
   "contextual_reviewer": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", "mode": null, "thinking": "max", "purpose": "translation_contextual_v1", "candidate_identity": null, "dispatch_id": null, "input_path": null, "agent_id": null},
   "senior_reviewer": {
     "primary": {"provider": "claude", "model_family": "opus", "resolved_model": "claude-opus-5", "mode": "plan", "thinking": "high"},
@@ -84,7 +92,9 @@ SENIOR_REVIEWER。
 }
 ```
 
-STATE 示例中的 `reviewer` 块是 `code_legacy_v1` 的 Codex 载体；
+STATE 示例中的 `reviewer` 块是 `code_legacy_v1` 的普通 REVIEWER 载体（primary Pi
+`command-code-goat/meta/muse-spark-1.2-contributor`、backup Codex `gpt-5.6-sol`；
+`selected` 只允许 `primary|fallback`，`fallback_reason` 在选中 backup 时非空）；
 `translation_contextual_v1` 在 `review_contracts` 含该 contract 时由条件字段
 `contextual_reviewer` 记录（provider `pi`、model `opencode-go/deepseek-v4-flash`、
 mode null、thinking `max`、purpose `translation_contextual_v1`、candidate_identity、
@@ -141,8 +151,11 @@ Thinking：首选必须是 `claude` / 已解析 Opus / `plan` / `high`，回退�
 不得把其输出记为高级复审。
 
 普通 REVIEWER 也必须按 purpose 与 STATE 校验 Provider/Model/Mode/Thinking：
-`code_legacy_v1` 必须是 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`（创建 labels 含
-`purpose=normal_review`）；
+`code_legacy_v1` 按 STATE `selected` 校验：primary 必须是
+`pi`/`command-code-goat/meta/muse-spark-1.2-contributor`/null 或缺失/未选择
+（Mode 按 unselected-mode 谓词归一化；thinking 请求侧未选择，运行时 sentinel 只接受
+null/缺失/`off`/`default` 并记录原始值、字段来源与归一化 `unselected`），backup 必须是
+`codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`（创建 labels 含 `purpose=normal_review`）；
 `translation_contextual_v1`（补充的非盲译文语境审核）必须是
 `pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`（Mode 按 unselected-mode 谓词
 归一化），且该 agent 的 `purpose` label
@@ -191,11 +204,23 @@ Git diff 的 `--binary --no-ext-diff --no-renames --unified=3` 选项。任务�
 contract 前的当前引用必须全部一致；该最小引用只写 review 记录，不进入 STATE，也不构造
 manifest、全工作树 hash 或 hash 链。
 
-- 代码、工具和文档：给 REVIEWER 提供有界 diff、SPEC 和必要上下文；使用显式
+- 代码、工具和文档：给 REVIEWER 提供有界 diff、SPEC 和必要上下文；primary 使用
+  `--provider pi --model command-code-goat/meta/muse-spark-1.2-contributor
+  --workspace <workspace-id>`（省略 `--mode` 与 `--thinking`；模型发现无 thinking
+  选项），创建时携带 `--label purpose=normal_review`（MCP labels 等价），不得使用
+  `--new-workspace`。普通 REVIEWER 回退只有两条路径：A) 任务开始时的模型发现
+  证明 Pi provider／精确 Muse 模型不可用时，记录该发现证据，随后设置
+  selected=fallback 与 fallback_reason 并创建 Codex backup（此时不存在已创建的
+  primary agent，无需归档）；B) 已创建的 Muse primary 在产生任何有效输出前以明确
+  模型不可用、auth/entitlement 拒绝或 provider/model quota/session-limit 错误失败
+  时，先停止并确认归档该 primary，再设置 selected=fallback 或创建 backup；
+  归档未确认时按既有基础设施恢复处理（label 0/1/多匹配与
+  WAIT_USER），不得创建 backup。backup 使用
   `--provider codex --model gpt-5.6-sol --mode auto-review --thinking xhigh
-  --workspace <workspace-id>`，创建时携带 `--label purpose=normal_review`（MCP labels
-  等价），不得使用 `--new-workspace`。运行前后核对工作树，REVIEWER 若产生任何文件改动则
-  停止并记录基础设施错误。
+  --workspace <workspace-id>` 重跑同一份 briefing，STATE 记录 `selected` 与
+  `fallback_reason`，task 一旦选中 backup 保持该路由；暂时 transport 或模糊 create
+  状态不算模型不可用，先按 label 恢复。运行前后核对工作树，REVIEWER
+  若产生任何文件改动则停止并记录基础设施错误。
 - `change_class` 为 `translation_workflow` 或 `infrastructure`：在 initial、re 和
   final 的每个 code review phase 再创建 fresh SENIOR_REVIEWER，使用
   `purpose=cross_review`。REVIEWER 和 SENIOR_REVIEWER 接收同一 SPEC／diff，两者
@@ -304,7 +329,7 @@ findings，恢复后先进入 `SENIOR_REVIEW`，不得直接继续 FIX。已完�
 
 - provider `claude` 为 available/enabled 且存在可选 Opus：选 primary；
 - provider 不可用，没有可选 Opus，或 Claude agent 在产生任何有效 review 输出前
-  以明确的 model unavailable、auth/entitlement 拒绝或 quota unavailable 终止：归档失败
+  以明确的 model unavailable、auth/entitlement 拒绝或 quota unavailable／session-limit 错误终止：归档失败
   primary，写入 `selected: "fallback"` 和简短 `fallback_reason`，再用 Codex 从头运行
   同一份 briefing；
 - Paseo transport、daemon 或 inspect 的短暂错误只按基础设施规则重试一次，不能
@@ -324,8 +349,12 @@ task/role label 查询并核验已有 agent：CLI 用 `paseo ls --label`（服�
 task_id／role／purpose／candidate_identity／dispatch_id 全部精确过滤；`list_agents` 结果按 `limit` 截断，
 截断或不完整的列表不得当作零匹配。过滤后：无匹配允许重试一次，唯一匹配且身份正确则
 复用，多个匹配或歧义匹配进入 `WAIT_USER`；无法唯一确认时询问用户，不要再创建第二个写入 agent。
-pre-2.3 活动任务未选择 `translation_contextual_v1` 时，缺省 purpose 候选可在 Codex 元组核验
-通过后视为 `normal_review`；已选择语境 contract 时缺省 purpose 视为歧义进入 `WAIT_USER`。
+pre-2.3 活动任务未选择 `translation_contextual_v1` 时，缺省 purpose 的扁平 Codex 会话仅在
+Codex 元组核验通过后视为 `normal_review`，且只允许完成其当前 phase；已完成记录不改写，
+该遗留会话不视为 task 已选中 fallback；下次 fresh 派发前把 reviewer STATE 规范化为嵌套
+2.8 形状（selected=primary、Muse primary、Codex backup、fallback_reason=null、
+agent_id=null）。已选择语境 contract 时缺省 purpose 视为歧义进入 `WAIT_USER`。
+任何 fresh `normal_review` 派发均使用 task 已选中的当前 2.8 primary／backup 路由。
 语境 REVIEWER 恢复只允许复用同一候选（`candidate_identity` 精确相同）且同一
 `dispatch_id`（同一歧义 create 尝试）的 agent，旧 phase／旧候选／旧 dispatch 的
 agent 不得改作他用；每次派发、重跑与无效输出重试都创建 fresh 语境 REVIEWER 并分配
@@ -340,8 +369,11 @@ Model 不是 `opencode-go/deepseek-v4-flash` 时停止并记录基础设施错�
 不得使用其他 model 或带着较低 thinking 继续。
 
 恢复唯一匹配的普通 REVIEWER 时，发送下一条任务前先按 `labels.purpose` 区分载体并检查
-Provider/Model/Mode/Thinking：`code_legacy_v1`（`normal_review`）必须是
-`codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`；`translation_contextual_v1` 必须是
+Provider/Model/Mode/Thinking：`code_legacy_v1`（`normal_review`）按 STATE `selected`
+校验：primary 必须是 `pi`/`command-code-goat/meta/muse-spark-1.2-contributor`/
+null 或缺失/未选择（Mode 按 unselected-mode 谓词归一化；thinking 请求侧未选择，
+运行时 sentinel 只接受 null/缺失/`off`/`default` 并记录原始值、字段来源与归一化 `unselected`），backup
+必须是 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`；`translation_contextual_v1` 必须是
 `pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`（Mode 按 unselected-mode 谓词
 归一化），并采用 STOP-on-mismatch——
 任何不匹配（包括 `Thinking` 不是 `max`、Mode 归一化后非 unselected）都停止该 agent 并按基础设施

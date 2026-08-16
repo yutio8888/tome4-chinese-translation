@@ -78,7 +78,8 @@ STOP／基础设施错误，不得猜测。核验后记录实际观测值、字�
 ```
 
 `settings.modeId` 必须省略（Pi 无可选 mode）。不得静默降级 thinking，也不得在
-Pi 元组不可用时回退到 Codex：`code_legacy_v1` 的 Codex 路由保持不变，语境审核
+Pi 元组不可用时回退到 Codex：`code_legacy_v1` 普通 REVIEWER 的 primary/backup 路由
+见主编排契约（`paseo-orchestration-v2-contract.md`），语境审核
 失败关闭。
 
 每次派发、重跑与无效输出重试都创建 fresh agent 与独立 provider session，不通过
@@ -128,8 +129,9 @@ label 与冻结输入文件名，必须既是 label 安全值也是文件名安�
    `contextual_reviewer`（provider `pi`、model `opencode-go/deepseek-v4-flash`、mode null、
    thinking `max`、purpose `translation_contextual_v1`、candidate_identity、dispatch_id、
    input_path、agent_id）；
-   该字段仅在 `review_contracts` 含 `translation_contextual_v1` 时存在，`reviewer` 块仍为
-   `code_legacy_v1` 的 Codex 载体，未选择该 contract 的任务无迁移。
+   该字段仅在 `review_contracts` 含 `translation_contextual_v1` 时存在，`reviewer` 块为
+   `code_legacy_v1` 的普通 REVIEWER 载体（primary/backup 路由见主编排契约），未选择该
+   contract 的任务无迁移。
    已完成的历史语境 review 记录不改写；活动任务在下次语境派发时采用新字段。
 7. 语境 review 记录必须记录 `candidate_identity`、`dispatch_id`、`input_path`、`agent_id`
    四个精确字段；`dispatch_id` 是宿主侧记录字段，不进入模型结果 schema（见第六节）。

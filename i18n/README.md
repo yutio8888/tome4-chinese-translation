@@ -31,8 +31,9 @@ tools/i18n review --scope code --scope translations
 `tools/i18n review` 与 `tools/review_diff.py` 只生成离线 bundle／index／diff
 artifact，不调用 provider、不构成审核结论；译文审核由 Paseo REVIEWER 的
 `translation_contextual_v1` 路由承担（见
-`docs/paseo-translation-context-review-v1-contract.md`），代码审核由 Paseo Codex
-REVIEWER 承担（外发内容与授权边界见 `AGENTS.md`「外发边界」）。旧项目 Skill
+`docs/paseo-translation-context-review-v1-contract.md`），代码审核由 Paseo 常规
+REVIEWER 承担（primary Pi `command-code-goat/meta/muse-spark-1.2-contributor`、
+backup Codex `gpt-5.6-sol`；外发内容与授权边界见 `AGENTS.md`「外发边界」）。旧项目 Skill
 `$tome4-pi-review` 已归档（见 `archive/`），不再作为审核入口；`tools/pi-review`
 是当前仓库 tombstone，任何调用都非零退出并输出退役指引，不读取 bundle、不启动
 provider。
@@ -122,7 +123,8 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   `artifact_bytes` 与实际 `payload_bytes`。完全相同的重复 canonical occurrence
   共享同一 `revision_id`，选择保留首个 occurrence 并按 revision 去重。代码 diff
   使用 legacy `tome4-review-v1`；混合 index 逐 bundle 记录实际 contract/channel。
-  实际审核由 Paseo REVIEWER（`translation_contextual_v1`／Codex）在独立契约下
+  实际审核由 Paseo REVIEWER（`translation_contextual_v1`／`code_legacy_v1` 常规
+  REVIEWER：primary Pi Muse Contributor、backup Codex）在独立契约下
   承担，见 `docs/paseo-translation-context-review-v1-contract.md`。
 - `tools/pi-review` 已退役，是当前仓库 tombstone：任何调用都在产生任何副作用之前
   非零退出并输出退役指引，不读取 bundle、不启动 provider。入口退役后保留的
@@ -143,7 +145,8 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   调用前的主代理流程门槛，不是工具能从 v1 JSON 独立证明的事实。translation v2
   assessment 是候选观察，不得直接进入 remediation。结构校验成功不等于事实确认。
 - 旧的 code/legacy v1 文件审核入口 `tools/pi-review-files` 已归档到
-  `archive/tools/`；code 审核统一由 Paseo Codex REVIEWER 承担。translation v2
+  `archive/tools/`；code 审核统一由 Paseo 常规 REVIEWER 承担（primary Pi
+  `command-code-goat/meta/muse-spark-1.2-contributor`、backup Codex `gpt-5.6-sol`）。translation v2
   的源码核验必须绑定既有
   observation，仅返回 `supported/refuted/insufficient`，不得开放式新增 finding；在该
   claim-bound runner 实现前，主代理直接按固定源码版本核验。
@@ -226,5 +229,6 @@ Pi 默认从现有环境、用户 Pi auth 或 macOS Keychain 的
 DLC 的 `i18n_list.lua`、`snapshot.jsonl`、merge、workset 和 proposal 虽然不含源码，
 仍是派生工作 artifact。它们位于已忽略的 `.artifacts/i18n/`，默认不得提交；翻译
 Pi 只能接收人工选定的 workset；审核流程只经 Paseo REVIEWER
-（`translation_contextual_v1`／Codex）接收有界翻译 bundle 或去敏后的公开代码
+（`translation_contextual_v1`／`code_legacy_v1` 常规 REVIEWER：primary Pi Muse
+Contributor、backup Codex）接收有界翻译 bundle 或去敏后的公开代码
 diff。
