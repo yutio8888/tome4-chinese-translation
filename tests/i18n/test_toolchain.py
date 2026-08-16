@@ -19172,6 +19172,47 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertIn("STATE model 与实际 Provider/Model/Mode/Thinking", contract)
         self.assertIn("fallback_reason", agents)
 
+    def test_paseo_scout_role_is_documented(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(
+            encoding="utf-8"
+        )
+        scout = (ROOT / ".ai" / "roles" / "scout.md").read_text(encoding="utf-8")
+        contract = (
+            ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+        ).read_text(encoding="utf-8")
+
+        muse_model = "command-code-goat/meta/muse-spark-1.2-contributor"
+        # 三份规范文档都固定 SCOUT 的 Pi Muse primary 元组与
+        # Pi opencode-go/deepseek-v4-flash backup 元组。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("SCOUT", text)
+            self.assertIn(muse_model, text)
+            self.assertIn("source_scout", text)
+            self.assertIn("省略 `--mode` 与 `--thinking`", text)
+            self.assertIn("thinkingOptionIds=[]", text)
+            self.assertIn("defaultThinkingOptionId=null", text)
+            self.assertIn("null/缺失/`off`/`default`", text)
+            self.assertIn("归一化 `unselected`", text)
+            self.assertIn("`pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`", text)
+            self.assertIn("回退只有两条路径", text)
+            self.assertIn("selected=fallback", text)
+        # SCOUT 不是审核契约：只读源码侦察、输出只作上下文、不产生 finding。
+        for text in (agents, orchestrator, contract):
+            self.assertIn("只读源码侦察", text)
+            self.assertIn("不产生 finding", text)
+        self.assertIn("purpose=source_scout", orchestrator)
+        self.assertIn("purpose=source_scout", contract)
+        self.assertIn("role=scout", contract)
+        # 角色 briefing：只读、JSON 输出契约、公开源码侦察。
+        self.assertIn("只读", scout)
+        self.assertIn("opencode-go/deepseek-v4-flash", scout)
+        self.assertIn("files_retrieved", scout)
+        self.assertIn("open_questions", scout)
+        self.assertNotIn("candidate_ref", scout)
+        # 归档的旧 scout 定义仍保留原样（归档内容由既有 archive 测试另行 pin）。
+        self.assertTrue((ROOT / "archive" / ".pi" / "agents" / "scout.md").is_file())
+
     def test_paseo_senior_reviewer_triggers_are_documented(self) -> None:
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
         orchestrator = (ROOT / ".ai" / "roles" / "orchestrator.md").read_text(

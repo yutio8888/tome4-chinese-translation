@@ -25,10 +25,10 @@
    SENIOR_REVIEWER 按个人项目尺度校准，才能触发后续 FIX。
 5. 任务开始前记录工作树，结束前运行适用门禁。
 6. Paseo 激活期间角色路由独占，不并行使用旧项目 Skill 或其独立 agent。
-7. EXECUTOR／REVIEWER／SENIOR_REVIEWER 必须是当前 ORCHESTRATOR 的
+7. EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 必须是当前 ORCHESTRATOR 的
    Paseo-managed child，并出现在其 Subagents track；创建只能走 CLI `paseo run` 或
    agent-scoped MCP `create_agent`，provider 原生 subagent／`spawn_agent` 不得代替
-   这三个角色。
+   这四个角色。
 8. EXECUTOR 固定使用 Pi model `opencode-go/deepseek-v4-flash` 和 `max` thinking，
    不接受其他 DeepSeek V4 Flash 路由、provider 默认值或静默降级。
 9. 修改翻译流程或项目基础设施时，REVIEWER 和 SENIOR_REVIEWER 必须独立
@@ -79,6 +79,7 @@ v2 不要求：
 | EXECUTOR | 实现 SPEC 中的修改并运行 focused tests | 允许文件；不得 commit、stage 或修改编排记录 |
 | REVIEWER | 在当前 workspace 独立审查代码、工具、测试和文档 | 只读；只返回 findings |
 | SENIOR_REVIEWER | Claude Code Opus 首选、Codex `gpt-5.6-sol` 回退；第二轮后校准 finding 范围；对翻译流程／基础设施独立交叉复审 | 只读；只返回 assessment/findings |
+| SCOUT | 只读源码侦察（t-engine4／DLC／addon 发布仓库），返回压缩代码上下文供 ORCHESTRATOR 制定计划或核验机制；不承担审核 contract | 只读；只返回上下文，不产生 finding |
 
 EXECUTOR、REVIEWER 和 SENIOR_REVIEWER 都不继承主会话。briefing 必须包含任务
 范围、验收标准和完成当前角色所需的上下文，避免依赖隐含信息。
@@ -117,6 +118,9 @@ reviewer；译文语义审核走 `translation_contextual_v1`：由现有 REVIEWE
 
 混合任务可以共用 task ID、SPEC 和 STATE，但必须分别运行各类审核，不能把术语、Facts 或
 历史 finding 注入译文审核输入；任一 contract 的输出都不得改写另一 contract 的冻结输入。
+
+源码侦察不是审核类型：SCOUT 输出只作上下文，不进入 `review_contracts`、不计入
+pending/completed、不产生 finding，也不参与 candidate_ref 冻结。
 
 ---
 
@@ -233,6 +237,13 @@ SPEC 必须写明：任务模式、范围、允许修改文件、禁止扩展项
     "agent_id": null
   },
   "contextual_reviewer": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", "mode": null, "thinking": "max", "purpose": "translation_contextual_v1", "candidate_identity": null, "dispatch_id": null, "input_path": null, "agent_id": null},
+  "scout": {
+    "selected": "primary",
+    "primary": {"provider": "pi", "model": "command-code-goat/meta/muse-spark-1.2-contributor", "mode": null, "thinking": null},
+    "backup": {"provider": "pi", "model": "opencode-go/deepseek-v4-flash", "mode": null, "thinking": "max"},
+    "fallback_reason": null,
+    "agent_id": null
+  },
   "senior_reviewer": {
     "primary": {"provider": "claude", "model_family": "opus", "resolved_model": "claude-opus-5", "mode": "plan", "thinking": "high"},
     "fallback": {"provider": "codex", "model": "gpt-5.6-sol", "mode": "auto-review", "thinking": "xhigh"},
@@ -275,7 +286,7 @@ ADJUDICATE。只校验以下不变量：
    `scope_audit` 还必须绑定当轮普通 review 路径与 finding ID 集。
 9. WAIT_USER 时 `wait` 必须包含 `reason` 和 `resume_state`；其他状态下 `wait` 为 null。
 10. provider、model、`orchestrator_agent_id` 和已创建 agent 的 ID 非空。
-11. 每个已创建 EXECUTOR／REVIEWER／SENIOR_REVIEWER 的
+11. 每个已创建 EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 的
     `paseo.parent-agent-id` 必须等于
     `orchestrator_agent_id`；不匹配的 agent 不属于本任务角色。
 12. EXECUTOR 的 STATE provider 与实际 Provider 都必须为 `pi`，STATE model 与
@@ -319,6 +330,16 @@ ADJUDICATE。只校验以下不变量：
     新任务立即适用；pre-2.4 活动任务在下一次 contextual dispatch 开始前允许旧
     conditional shape（可缺 `dispatch_id`／`input_path`），不强制补齐；该次派发开始时
     补齐两字段并同步 STATE，此后按本不变量执行；已完成的历史记录与历史 STATE 不改写。
+18. 使用 SCOUT 时，STATE 必须含条件字段 `scout`（嵌套 selected/primary/backup：
+    primary `pi`/`command-code-goat/meta/muse-spark-1.2-contributor`/null/null，backup
+    `pi`/`opencode-go/deepseek-v4-flash`/null/`max`，`selected` 只允许 `primary|fallback`，
+    `fallback_reason` 在选中 backup 时非空，agent_id），其值与实际创建／恢复核验一致；
+    primary 的实际 Provider/Model/Mode/Thinking 必须为
+    `pi`/`command-code-goat/meta/muse-spark-1.2-contributor`/null 或缺失/未选择（Mode 按
+    不变量 12 的 unselected-mode 谓词归一化；thinking 请求侧未选择，运行时 sentinel
+    只接受 null/缺失/`off`/`default` 并记录原始值、字段来源与归一化 `unselected`），
+    backup 必须为 `pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`；backup 也
+    不可用时由 ORCHESTRATOR 直接完成源码侦察；未使用 scout 的任务不需要该字段，无迁移。
 
 除每轮 code review 的最小 `candidate_ref` 外，不要求 history、全工作树／逐文件 hash、
 immutable artifact、manifest 或原子目录同步。普通“写临时文件后 replace”足以避免 STATE
@@ -462,6 +483,42 @@ HEAD 变化（即使随后工作树干净）都使输出无效并按基础设施
 `.ai`／`.artifacts` 目录；ORCHESTRATOR 自有记录走有限路径精确 allowlist），通用
 ignored 暂存空间不穷尽监控。
 
+SCOUT 的 MCP 创建同样由 ORCHESTRATOR 直接调用 agent-scoped `create_agent`（与 CLI
+`paseo run --provider pi --model command-code-goat/meta/muse-spark-1.2-contributor
+--workspace <workspace-id> --label task_id=<task-id> --label role=scout
+--label purpose=source_scout --json '<rendered-prompt>'` 等价）：
+
+```json
+{
+  "workspaceId": "<workspace-id>",
+  "title": "scout <task-id>",
+  "provider": "pi/command-code-goat/meta/muse-spark-1.2-contributor",
+  "initialPrompt": "<rendered-prompt>",
+  "labels": {"task_id": "<task-id>", "role": "scout", "purpose": "source_scout"}
+}
+```
+
+省略 `settings.modeId` 与 `settings.thinkingOptionId`（模型发现
+`thinkingOptionIds=[]`、`defaultThinkingOptionId=null`）。创建或恢复后按 STATE `selected`
+核验：primary 的 Provider/Model/Mode/Thinking 为
+`pi`/`command-code-goat/meta/muse-spark-1.2-contributor`/null 或缺失/未选择（Mode 按
+不变量 12 的 unselected-mode 谓词归一化；thinking 请求侧未选择，运行时 sentinel 只接受
+null/缺失/`off`/`default`），backup 为 `pi`/`opencode-go/deepseek-v4-flash`/null 或
+缺失/`max`（创建使用 `--provider pi --model opencode-go/deepseek-v4-flash
+--thinking max --workspace <workspace-id>`，省略 `--mode`；MCP 载荷
+`provider: "pi/opencode-go/deepseek-v4-flash"`、`settings.thinkingOptionId: "max"`、
+省略 `settings.modeId`），任一不匹配停止该 agent。回退只有两条路径：A) 任务开始时
+模型发现证明 Pi provider／精确 Muse 模型不可用，记录该发现证据，设置
+selected=fallback 与 fallback_reason 并创建 backup（无 primary 可归档）；B) 已创建的
+Muse primary 在产生任何有效输出前以明确模型不可用、auth/entitlement 拒绝或
+provider/model quota/session-limit 错误失败，先停止并确认归档该 primary，再设置
+selected=fallback 或创建 backup；归档未确认时按既有基础设施恢复处理（含
+WAIT_USER），不得创建 backup；暂时 transport 或模糊 create 状态不算模型不可用，
+先按 label 恢复；task 一旦选中 backup，后续 SCOUT 保持该路由，不在任务中途来回
+切换；backup 也不可用时由 ORCHESTRATOR 直接完成源码侦察，不引入第三个模型。
+SCOUT 输出只作
+上下文，不是审核 contract 结果；同一任务同时最多一个活动 SCOUT；完成后 stop/archive。
+
 MCP 创建示例（agent-scoped，由 ORCHESTRATOR 的 agent 会话直接调用；与 CLI
 `paseo run --provider claude --model <resolved-opus-id> --mode plan --thinking high
 --workspace <workspace-id> --label task_id=<task-id> --label role=senior-reviewer` 等价）：
@@ -510,7 +567,7 @@ null/缺失/`off`/`default` 并记录原始值、字段来源与归一化 `unsel
 lineage 时，该 child 不能承担审核契约：停止该 agent，任务进入 `WAIT_USER`，
 `STOP` 不作为该条件的直接替代（只用于用户明确取消或单独确立的终态条件），不得
 继续派发。任一检查不匹配时停止该 agent，不进入
-下一状态。EXECUTOR／REVIEWER／SENIOR_REVIEWER 均在 UI 中属于当前 workspace 下
+下一状态。EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 均在 UI 中属于当前 workspace 下
 ORCHESTRATOR 的
 Paseo Subagents track，并使用 Paseo agent 的归档操作（CLI `paseo archive`，MCP
 `archive_agent`）。
@@ -598,7 +655,7 @@ CLI 的 `paseo ls --label` 在服务端按 label 过滤，语义不变。MCP `li
   任务开始时刻；
 - 对返回的 compact 元数据在宿主侧先按 `labels.task_id` 与 `labels.role` 精确过滤，
   再按目标 `labels.purpose`（code 载体 `normal_review`、语境载体
-  `translation_contextual_v1`）精确过滤，**过滤先于基数判定**；语境载体另按
+  `translation_contextual_v1`、scout 载体 `source_scout`）精确过滤，**过滤先于基数判定**；语境载体另按
   `labels.candidate_identity` 绑定候选、按 `labels.dispatch_id` 绑定同一次
   create attempt（同一任务可能同时存在 code 与语境两个
   REVIEWER，且语境 REVIEWER 可能跨 phase 存在多个候选／多个 dispatch）；
@@ -640,6 +697,11 @@ REVIEWER。恢复复用的语境
 agent 后，把其 agent ID、`dispatch_id`、`input_path` 与 `candidate_identity` 同步到
 STATE 的 `contextual_reviewer.agent_id`／`contextual_reviewer.dispatch_id`／
 `contextual_reviewer.input_path`／`contextual_reviewer.candidate_identity`。
+恢复到唯一匹配的 SCOUT 时按 STATE `selected` 检查 Provider/Model/Mode/Thinking：
+primary 必须为 `pi`/`command-code-goat/meta/muse-spark-1.2-contributor`/null 或缺失/
+未选择（Mode 按 unselected-mode 谓词归一化；thinking 请求侧未选择，运行时 sentinel
+只接受 null/缺失/`off`/`default`），backup 必须为 `pi`/`opencode-go/deepseek-v4-flash`/
+null 或缺失/`max`；任一不匹配停止该 agent 并按基础设施错误处理，不发送侦察任务。
 
 ### SENIOR_REVIEWER 选路与回退
 
@@ -788,7 +850,10 @@ assessment 和 verdict 都是建议；主代理必须
 常规 REVIEWER、其 Codex `gpt-5.6-sol` backup、Claude Code Opus SENIOR_REVIEWER 或其
 Codex `gpt-5.6-sol` 回退发送与
 code/legacy v1 审核相关的代码、文档、必要上下文和 scope audit 所需的当轮
-普通 findings；向 pi EXECUTOR 发送
+普通 findings；向 Pi
+`command-code-goat/meta/muse-spark-1.2-contributor` SCOUT 或其 Pi
+`opencode-go/deepseek-v4-flash` backup 发送源码侦察任务（组件范围、公开源码根与
+机制问题）并允许其只读读取当前仓库任务范围与 briefing 指定的公开 GPL 源码；向 pi EXECUTOR 发送
 任务 briefing 并允许其读取 workspace；向 Pi REVIEWER 的 `translation_contextual_v1`
 purpose 发送有界译文语境 bundle 并允许其只读读取任务范围内的有界上下文（bundle
 经任务作用域冻结输入文件交付；短 prompt 为任务／输入／输出三行，唯一动态值是
@@ -879,6 +944,11 @@ v2 格式；旧
   元组、Opus primary plan/high，保留已选 fallback 与 fallback_reason），迁移后只对
   运行中／有待验收输出／准备复用的 child 选择性核验并丢弃不匹配的未验收输出，
   不重写已完成历史。
+- SCOUT 固定 primary Pi Muse 元组（provider `pi`、model `command-code-goat/meta/muse-spark-1.2-contributor`、
+  mode null、thinking 未选择）与 backup Pi `opencode-go/deepseek-v4-flash`（mode null、
+  thinking `max`）：创建省略 mode、labels 含 `role=scout`／`purpose=source_scout`、
+  创建／恢复核验与 unselected-mode 谓词一致、回退只有两条路径且 task-sticky；
+  scout 输出不进入 `review_contracts`、不计入 pending/completed、不产生 finding、不参与 candidate_ref；
 
 若未来实现辅助脚本，最小验收只需覆盖：
 
@@ -916,6 +986,7 @@ v2 格式；旧
 
 | 版本 | 状态 | 内容 |
 | --- | --- | --- |
+| `2.9-draft` | 设计草案 | 新增 Paseo SCOUT 角色（只读源码侦察）：primary 固定 Pi `command-code-goat/meta/muse-spark-1.2-contributor`（`thinkingOptionIds=[]`、`defaultThinkingOptionId=null`，创建省略 `--mode`/`--thinking` 与 `settings.modeId`/`settings.thinkingOptionId`），backup 为 Pi `opencode-go/deepseek-v4-flash`（省略 mode、thinking `max`）；创建／恢复核验 Provider/Model 精确匹配、Mode 沿用 unselected-mode 谓词、thinking 请求侧未选择（运行时 sentinel 只接受 null/缺失/`off`/`default`）；回退只有两条路径（A/B 同普通 REVIEWER）且 task-sticky，`selected`/`fallback_reason` 写入 STATE，backup 也不可用时由 ORCHESTRATOR 直接侦察、不引入第三个模型；输出只作上下文，不进入 `review_contracts`、不计入 pending/completed、不产生 finding、不参与 candidate_ref；条件 STATE 字段 `scout` 为嵌套 selected/primary/backup（仅实际派发时存在，未使用无迁移）；labels 含 `task_id`/`role=scout`/`purpose=source_scout`，同一任务同时最多一个活动 SCOUT；CLI/MCP 创建示例、恢复过滤与元组校验、外发边界与验收同步更新。 |
 | `2.8-draft` | 设计草案 | `code_legacy_v1`／`purpose=normal_review` 常规 REVIEWER 的 primary 从 Codex 改为 Pi `command-code-goat/meta/muse-spark-1.2-contributor`：模型发现 `thinkingOptionIds=[]`、`defaultThinkingOptionId=null`，CLI 创建省略 `--mode` 与 `--thinking`、MCP 省略 `settings.modeId` 与 `settings.thinkingOptionId`；创建／恢复核验 Provider/Model 精确匹配，Mode 沿用 unselected-mode 谓词，thinking 请求侧未选择且模型发现无 thinking 选项，运行时若暴露 thinking sentinel 只接受 null/缺失/`off`/`default` 并记录原始值、字段来源与归一化 `unselected`，其他值 STOP；Codex `gpt-5.6-sol`/`auto-review`/`xhigh` 只作明确模型不可用前提下的 task 固定 backup（回退只有两条路径：A) 任务开始时模型发现证明 Pi provider／精确 Muse 模型不可用，记录该发现证据，设置 selected=fallback 并创建 Codex backup，无 primary 可归档；B) 已创建的 Muse primary 在产生任何有效输出前以明确模型不可用、auth/entitlement 拒绝或 provider/model quota/session-limit 错误失败，先停止并确认归档该 primary，归档未确认则按既有基础设施恢复处理、不得创建 backup；暂时 transport 或模糊 create 状态不算模型不可用，先按 label 恢复），`selected` 与 `fallback_reason` 写入 STATE，一旦选中 backup 不在任务中途来回切换；该明确不可用定义同样适用于 SENIOR_REVIEWER 的 Claude Opus 回退（元组与 task-sticky 路由不变）；STATE `reviewer` 块改为 primary/backup/`selected` 结构，同步 CLI/MCP 示例、恢复矩阵与外发边界；语境契约只更新 code route 交叉引用，`translation_contextual_v1` 自身版本与语义、SENIOR_REVIEWER 路由不变，完成历史记录不重写。 |
 | `2.7-draft` | 设计草案 | Pi mode 校验改为传输无关的 unselected-mode 谓词：CLI `Mode`／`AvailableModes` 映射 MCP `currentModeId`（或 `runtimeInfo.modeId`）／`availableModes`，只有 mode 为 null、缺失或 `"default"` 且 available modes 可观测为空才归一化为 unselected，其他非空 mode、非空 available modes 或所需字段不可观测一律 STOP／基础设施错误、不得猜测；创建仍省略 mode，STATE `mode: null` 仅表示请求侧未选择，核验后记录实际观测值、字段来源与归一化结论，CLI/MCP 归一化语义一致；删除回退到已归档 Skill 的表述（回退后仍不恢复旧 Skill 路由）；`tools/pi-remediate` 明确为 dormant 兼容入口（只消费既有 artifact，不参与活跃审核 dispatch）；独立契约升至 `translation-contextual/1.3`。 |
 | `2.6-draft` | 设计草案 | 译文审核收敛为单一 Paseo 通道：`translation_v2`（pi CLI blind runner）退役并归档到 `archive/docs/pi-review-v2-contract.md`，`translation_contextual_v1` 升格为译文审核唯一路由（Pi `opencode-go/deepseek-v4-flash`/省略 mode/`max`，不再作为「补充」）；旧项目 Skill（`$tome4-pi-review`、`$tome4-pi-file-review`、`$tome4-pi-subagent`）及其 scout／plan-reviewer subagent 路由、批量审核脚本与 v1 文件审核入口一并归档到 `archive/`；STATE `review_contracts` 与审核类型表删除 `translation_v2`；盲评质量管线（`tools/pi-quality-evaluator`、Facts study）不迁移。 |

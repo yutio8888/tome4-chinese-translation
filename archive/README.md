@@ -17,6 +17,8 @@
 - `.agents/skills/tome4-pi-file-review/` —— 旧 code/legacy v1 源码感知文件审核 Skill。
 - `.agents/skills/tome4-pi-subagent/` —— 旧 scout／plan-reviewer subagent 调度 Skill。
 - `.pi/agents/scout.md`、`.pi/agents/plan-reviewer.md` —— 旧只读 subagent 定义。
+  注意：新 Paseo SCOUT 角色（`.ai/roles/scout.md`，Pi Muse primary／Pi
+  `opencode-go/deepseek-v4-flash` backup）是不同角色，不在此归档范围。
 - `.pi/extensions/subagent/` —— 旧 subagent 调度扩展（agents.ts／index.ts／live-output.mjs）。
 - `tools/pi-review-batch.py`、`tools/_p2_run_review.py`、`tools/_p3_run_review.py`、
   `tools/_p4_run_review.py` —— 旧 v1 批量审核编排脚本。
