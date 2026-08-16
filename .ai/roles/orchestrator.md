@@ -32,7 +32,8 @@ SENIOR_REVIEWER。
 4. 用 `paseo provider ls` 与 `paseo provider models --thinking <provider>` 确认实际
    provider/model/thinking。EXECUTOR 固定选择 Pi model `opencode-go/deepseek-v4-flash`，
    该 model 必须包含 `max`；若不可用则停止，不得静默降级
-   到 `high` 或默认值。Pi 没有可选 mode，EXECUTOR 创建时不传 mode。SENIOR_REVIEWER 先检查 provider `claude` 并从其当前可选
+   到 `high` 或默认值。Pi 没有可选 mode，EXECUTOR 创建时不传 mode（STATE `mode: null`
+   仅表示请求侧未选择；核验后记录实际观测值、字段来源与归一化结论）。SENIOR_REVIEWER 先检查 provider `claude` 并从其当前可选
    model 中解析 Opus（当前 ID `claude-opus-5`）；只在明确不可用时选择
    Codex `gpt-5.6-sol` 回退。REVIEWER 按 purpose 选择载体并确认对应模型可用：
    `code_legacy_v1` 用 Codex `gpt-5.6-sol`（`auto-review`/`xhigh`）；
@@ -120,9 +121,16 @@ MCP 用 `get_agent_status`）。所有 child 的父级 lineage（`paseo.parent-a
 EXECUTOR／REVIEWER／SENIOR_REVIEWER 的 workspace 必须等于 STATE 的
 `workspace_id`；EXECUTOR 的 Provider 必须为 `pi`、Model 必须等于 `opencode-go/deepseek-v4-flash`，
 `Thinking` 还必须等于 `max`。当前已核验的 Pi provider 没有可选 mode；EXECUTOR
-创建时 CLI 必须省略 `--mode`、MCP 必须省略 `settings.modeId`，核验时 Mode
-（`currentModeId`／`runtimeInfo.modeId`）必须为 null／缺失，Pi 意外返回非 null mode
-时按基础设施错误处理。任一项不匹配时立即停止该 agent，记录
+创建时 CLI 必须省略 `--mode`、MCP 必须省略 `settings.modeId`。核验时按传输无关的
+unselected-mode 谓词归一化：CLI `Mode`／`AvailableModes` 映射 MCP
+`currentModeId`（或 `runtimeInfo.modeId`）／`availableModes`；只有 mode 为 null、
+缺失或 `"default"`，且 available modes 可观测为空，才归一化为 unselected（等价
+null／缺失）；其他非空 mode、非空 available modes 或所需字段不可观测，都必须
+STOP／按基础设施错误处理，不得猜测。Pi 返回归一化后仍非 unselected 的非 null
+mode 时按基础设施错误处理。核验后记录实际观测值、字段来源与归一化结论。
+CLI 观测口一律用 `paseo inspect --json`：`Mode` 与 `AvailableModes` 只从 JSON 读取；
+表格输出会省略空的 `AvailableModes`，缺行不得猜成空；MCP 映射不变。
+任一项不匹配时立即停止该 agent，记录
 基础设施错误且不得继续使用。MCP 状态面无法暴露可验证的父级 lineage 时，该 child
 不能承担审核契约：停止该 agent，任务进入 `WAIT_USER`；`STOP` 不作为该条件的直接替代
 （只用于用户明确取消或单独确立的终态条件）。
@@ -136,7 +144,8 @@ Thinking：首选必须是 `claude` / 已解析 Opus / `plan` / `high`，回退�
 `code_legacy_v1` 必须是 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`（创建 labels 含
 `purpose=normal_review`）；
 `translation_contextual_v1`（补充的非盲译文语境审核）必须是
-`pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`，且该 agent 的 `purpose` label
+`pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`（Mode 按 unselected-mode 谓词
+归一化），且该 agent 的 `purpose` label
 必须等于 `translation_contextual_v1`。任一实际值不匹配时停止该 agent，
 不得把其输出记为普通复审或语境复审。
 
@@ -325,18 +334,20 @@ agent 不得改作他用；每次派发、重跑与无效输出重试都创建 f
 恢复已有 EXECUTOR 时，发送下一条任务前先检查 Provider、Model 和 `Thinking`。Provider 不是 `pi` 或
 Model 不是 `opencode-go/deepseek-v4-flash` 时停止并记录基础设施错误；若 `Thinking` 不是 `max`，运行
 `paseo agent update <agent-id> --thinking max`（MCP 用 `update_agent`）并重新核验
-（CLI `paseo inspect`，MCP `get_agent_status`）。恢复时同时确认 Mode 为 null／缺失
-（Pi 无可选 mode）；出现非 null mode 时停止并记录基础设施错误。更新或复验失败时停止，
+（CLI `paseo inspect --json`，MCP `get_agent_status`）。恢复时同时按 unselected-mode 谓词
+确认 Mode 归一化为 null／缺失语义（Pi 无可选 mode：null／缺失／`"default"` 且
+`availableModes` 可观测为空）；出现归一化后非 unselected 的非 null mode 时停止并记录基础设施错误。更新或复验失败时停止，
 不得使用其他 model 或带着较低 thinking 继续。
 
 恢复唯一匹配的普通 REVIEWER 时，发送下一条任务前先按 `labels.purpose` 区分载体并检查
 Provider/Model/Mode/Thinking：`code_legacy_v1`（`normal_review`）必须是
 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`；`translation_contextual_v1` 必须是
-`pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`，并采用 STOP-on-mismatch——
-任何不匹配（包括 `Thinking` 不是 `max`、Mode 非 null）都停止该 agent 并按基础设施
+`pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`（Mode 按 unselected-mode 谓词
+归一化），并采用 STOP-on-mismatch——
+任何不匹配（包括 `Thinking` 不是 `max`、Mode 归一化后非 unselected）都停止该 agent 并按基础设施
 错误处理，不使用 `update_agent` 改回该语境会话，不发送新的任务消息。EXECUTOR
 恢复的 `update_agent` 行为不变。
 
 Paseo 不可用且用户未强制要求时，可以退出编排并由主代理继续；若用户明确要求 Paseo，
-则报告阻塞。回退时先在 STATE 记录原因并停止仍在运行的 Paseo agent，之后才可恢复非
-Paseo 工作流或已归档 Skill。外发遵循 `AGENTS.md` 的集中授权边界。
+则报告阻塞。回退时先在 STATE 记录原因并停止仍在运行的 Paseo agent；已归档 Skill
+仍不参与审核路由，回退后的继续执行由主代理直接完成，不恢复旧 Skill 路由。外发遵循 `AGENTS.md` 的集中授权边界。

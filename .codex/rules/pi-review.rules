@@ -1,9 +1,12 @@
-# Pi review sends a validated, bounded bundle to an external model provider.
-# Always surface an approval instead of granting repository-wide network access.
+# tools/pi-review is retired (tombstone): it exits non-zero without reading
+# bundles or starting any provider. This rule only matches the retired command
+# to surface the tombstone/migration hint; it does not itself send any bundle
+# to an external provider. Review dispatch now runs through Paseo REVIEWER
+# (translation_contextual_v1 for translations, Codex for code/legacy v1).
 prefix_rule(
     pattern = ["tools/pi-review"],
     decision = "prompt",
-    justification = "Pi review sends a bounded review bundle to the configured external provider; confirm the provider and data scope before continuing.",
+    justification = "tools/pi-review is retired (tombstone): it exits non-zero without launching a provider. This rule only surfaces the retirement/migration hint and never sends any bundle to an external provider; use Paseo REVIEWER (translation_contextual_v1 / Codex) for review dispatch.",
     match = [
         "tools/pi-review --bundle /tmp/review-bundle.json",
         "tools/pi-review --bundle /tmp/review-bundle.json --timeout 900",

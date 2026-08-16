@@ -452,9 +452,15 @@ official 与 dry-run sample identity 均携带 `translation_inputs_sha256`、
 
 - 两位 evaluator 都必须具备理解 source 和判断中文 target 的能力，其中至少一位熟悉对应游戏文本类型；
 - mechanics 争议需要由主代理或人工在固定版本源码行为上核验；
-- 第一轮试点默认以人工结构化 assessment 为准；现有 Pi finding-only 审核可作为辅助问题发现信号，但因不逐条声明 clean 结论，默认不替代其中一次完整 assessment；
-- 如以后让 Pi 承担完整 evaluator，必须先在现有 `tools/i18n review` / `tools/pi-tmux review` 入口内设计并测试有界质量模式，并履行 provider、model、bundle 类型和条目数量授权；不得另建绕过现有协议的直连入口；
-- 未经授权时，质量命令最多生成本地 bundle/template，不启动 provider；
+- 第一轮试点默认以人工结构化 assessment 为准；历史 Pi finding-only 审核产物仅作既有
+  辅助证据，退役的 blind runner 不得重新派发，新增审核一律走 Paseo
+  `translation_contextual_v1`（见 `docs/paseo-translation-context-review-v1-contract.md`）；
+  因其不逐条声明 clean 结论，默认不替代其中一次完整 assessment，两次完整 assessment
+  仍须相互独立；
+- 如以后让 Pi 承担完整语义 evaluator，必须使用 Paseo `translation_contextual_v1` 的
+  fresh、有界、只读语境审核契约（见 `docs/paseo-translation-context-review-v1-contract.md`），
+  并履行 provider、model、bundle 类型和条目数量授权；不得另建绕过 Paseo 路由的直连入口；
+- 未经授权时，质量命令最多生成本地 bundle/template artifact，不启动 provider；
 - 同一模型、提示和缓存结果不算两次独立评价。
 
 ### 7.3 裁决顺序

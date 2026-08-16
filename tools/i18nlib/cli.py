@@ -356,7 +356,11 @@ def _parser() -> argparse.ArgumentParser:
     context.add_argument("--limit", type=int, default=50)
 
     review = subparsers.add_parser(
-        "review", help="create bounded Pi review bundles for an explicit scope"
+        "review",
+        help=(
+            "offline export of bounded review artifacts (candidate bundles and index) "
+            "for an explicit scope; no provider dispatch, does not review"
+        ),
     )
     _add_common_arguments(review)
     review.add_argument(
@@ -380,7 +384,7 @@ def _parser() -> argparse.ArgumentParser:
         action="append",
         choices=("translations", "code"),
         required=True,
-        help="review scope; repeat to include both translations and code",
+        help="export scope; repeat to include both translations and code",
     )
 
     proposal = subparsers.add_parser(

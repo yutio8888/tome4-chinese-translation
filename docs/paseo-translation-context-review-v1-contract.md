@@ -2,12 +2,15 @@
 
 > 状态：规范。
 >
-> 契约版本：`translation-contextual/1.2`。
+> 契约版本：`translation-contextual/1.3`。
 >
-> 1.2：规范短派发 prompt 收敛为任务／输入／输出三行（未实例化规范模板 ≤800
-> UTF-8 字节，唯一动态值
-> `<candidate_identity>` 与 `<input_path>`），不再指示阅读 `.ai/roles/reviewer.md`；
-> schema、恢复、身份、只读守卫与 fresh-session 规则不变，仍由本文磁盘规范承载。
+> 1.3：Mode 校验改为传输无关的 unselected-mode 谓词（CLI `Mode`／`AvailableModes`
+> 映射 MCP `currentModeId`（或 `runtimeInfo.modeId`）／`availableModes`）：只有 mode 为
+> null、缺失或 `"default"` 且 available modes 可观测为空才归一化为 unselected，其他
+> 非空 mode、非空 available modes 或所需字段不可观测一律 STOP／基础设施错误、不得
+> 猜测；创建仍省略 mode，STATE `mode: null` 仅表示请求侧未选择，核验记录实际观测
+> 值、字段来源与归一化结论；其余 schema、恢复、身份、只读守卫与 fresh-session
+> 规则不变，仍由本文磁盘规范承载。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)；编排细节见
 > [`paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md)。
@@ -35,6 +38,12 @@ pi / opencode-go/deepseek-v4-flash / mode null / thinking max
 ```
 
 规范形式与其他规范文档一致：`pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`。
+元组中的 mode null 是请求侧表示（创建时省略 mode，CLI 省略 `--mode`、MCP 省略
+`settings.modeId`）。实际核验使用传输无关的 unselected-mode 谓词：CLI `Mode`／
+`AvailableModes` 映射 MCP `currentModeId`（或 `runtimeInfo.modeId`）／`availableModes`，
+只有 mode 为 null、缺失或 `"default"` 且 available modes 可观测为空才归一化为
+unselected；其他非空 mode、非空 available modes 或所需字段不可观测一律
+STOP／基础设施错误，不得猜测。核验后记录实际观测值、字段来源与归一化结论。
 
 创建必须由 ORCHESTRATOR 直接调用 agent-scoped MCP `create_agent`（CLI 等价：
 `paseo run --provider pi --model opencode-go/deepseek-v4-flash --thinking max
@@ -97,7 +106,7 @@ label 与冻结输入文件名，必须既是 label 安全值也是文件名安�
 
 ## 三、创建／恢复后核验
 
-取得精确 agent ID 后立即用 `get_agent_status`（CLI `paseo inspect`）核验：
+取得精确 agent ID 后立即用 `get_agent_status`（CLI `paseo inspect --json`）核验：
 
 1. 父级 lineage：归一化 `ParentAgentId` 或保留 label `paseo.parent-agent-id` 必须
    精确等于 `orchestrator_agent_id`；MCP 状态面无法暴露可验证 lineage 时停止该
@@ -106,8 +115,14 @@ label 与冻结输入文件名，必须既是 label 安全值也是文件名安�
 2. workspace 必须等于任务 `workspace_id`；
 3. Provider 必须为 `pi`、Model 必须为 `opencode-go/deepseek-v4-flash`；
 4. Thinking 必须为 `max`；
-5. Mode（`currentModeId`／`runtimeInfo.modeId`）必须为 null／缺失；Pi 意外返回
-   非 null mode 时停止并按基础设施错误处理。
+5. Mode 按传输无关的 unselected-mode 谓词归一化为 unselected：CLI `Mode`／
+   `AvailableModes` 映射 MCP `currentModeId`（或 `runtimeInfo.modeId`）／
+   `availableModes`，只有 mode 为 null、缺失或 `"default"` 且 available modes 可观测
+   为空才归一化为 null／缺失语义；其他非空 mode、非空 available modes 或所需字段
+   不可观测，以及 Pi 返回归一化后仍非 unselected 的非 null mode，都停止该 agent
+   并按基础设施错误处理，不得猜测。CLI 观测口一律用 `paseo inspect --json`：`Mode`
+   与 `AvailableModes` 只从 JSON 读取；表格输出会省略空的 `AvailableModes`，缺行
+   不得猜成空；MCP 映射不变。
 6. ORCHESTRATOR 把精确 agent ID、当前 `dispatch_id`、`input_path` 与 `candidate_identity`
    写入 STATE 的条件字段
    `contextual_reviewer`（provider `pi`、model `opencode-go/deepseek-v4-flash`、mode null、
@@ -139,7 +154,7 @@ fresh agent）。
 已选语境 contract 的任务中，缺省 purpose
 的候选视为歧义，进入 `WAIT_USER`，不得按 `normal_review` 复用为语境载体。复用前
 按上一节完整核验，并采用 STOP-on-mismatch：任何 Provider/Model/Mode/Thinking 不匹配
-（包括 `Thinking` 不是 `max`、Mode 非 null）都停止该 agent 并按基础设施错误处理，
+（包括 `Thinking` 不是 `max`、Mode 归一化后非 unselected）都停止该 agent 并按基础设施错误处理，
 不使用 `update_agent` 改回该语境会话，不发送下一条任务。恢复复用的 agent 后，
 把其 agent ID、`dispatch_id`、`input_path` 与 `candidate_identity` 同步到 STATE 的
 `contextual_reviewer.agent_id`／`contextual_reviewer.dispatch_id`／

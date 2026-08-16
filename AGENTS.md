@@ -44,7 +44,7 @@ envelope、revision、source/target、术语、上下文或源码片段，也不
    `PASEO_AGENT_ID`：CLI 用 `paseo run`，MCP 用 agent-scoped 的 `create_agent`，两者都必须携带
    与任务完全一致的 workspace、task/role label、provider/model/mode/thinking；不得用 provider
    原生 `spawn_agent` 代替。创建或恢复后必须核验 daemon 报告的实际父级 lineage、workspace、
-   provider、model、mode、thinking（CLI 用 `paseo inspect`，MCP 用 `get_agent_status`；MCP 的
+   provider、model、mode、thinking（CLI 用 `paseo inspect --json`，MCP 用 `get_agent_status`；MCP 的
    lineage 可能以归一化 `ParentAgentId` 或保留 label `paseo.parent-agent-id` 暴露），确认
    `ParentAgentId` 等于 ORCHESTRATOR agent ID，否则停止该 agent 并按基础设施错误处理；
    MCP 状态面无法暴露可验证父级 lineage 时，该 child 不满足审核契约，停止并进入 `WAIT_USER`。
@@ -56,9 +56,16 @@ envelope、revision、source/target、术语、上下文或源码片段，也不
    不得静默降级到 `high`／默认值，应停止并按基础设施错误处理。
    当前已核验的 Pi provider 没有可选 mode（`paseo provider models --thinking pi` 的 model
    条目不返回 modes）；EXECUTOR 创建时 CLI 必须省略 `--mode`、MCP 必须省略 `settings.modeId`，
-   该显式缺失就是等价期望状态。创建或恢复后还必须确认 daemon
-   报告的 Mode 为 null／缺失；Pi 意外返回非 null mode 时停止该 agent 并按基础设施
-   错误处理。
+   该显式缺失就是等价期望状态。创建或恢复后按传输无关的 unselected-mode 谓词归一化：
+   CLI `Mode`／`AvailableModes` 映射 MCP `currentModeId`（或 `runtimeInfo.modeId`）／
+   `availableModes`；只有 mode 为 null、缺失或 `"default"`，且 available modes 可观测
+   为空，才归一化为 unselected；其他非空 mode、非空 available modes 或所需字段
+   不可观测，都必须 STOP／按基础设施错误处理，不得猜测。daemon 报告的 Mode 归一化
+   后必须等价 null／缺失（unselected）；Pi 返回归一化后仍非 unselected 的非 null
+   mode 时停止该 agent 并按基础设施错误处理。STATE `mode: null` 仅表示请求侧未选择；
+   核验后记录实际观测值、字段来源与归一化结论。CLI 观测口一律用
+   `paseo inspect --json`：`Mode` 与 `AvailableModes` 只从 JSON 读取；表格输出会省略
+   空的 `AvailableModes`，缺行不得猜成空；MCP 映射不变。
    普通 REVIEWER 按 purpose 选择载体：`code_legacy_v1` 固定使用 Codex provider 的
    `gpt-5.6-sol`（`--mode auto-review --thinking xhigh`），创建或恢复后必须确认实际
    Provider/Model/Mode/Thinking 为 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`；
@@ -66,8 +73,10 @@ envelope、revision、source/target、术语、上下文或源码片段，也不
    `opencode-go/deepseek-v4-flash`，显式 `--thinking max`（MCP 显式
    `settings.thinkingOptionId: "max"`）、省略 mode（MCP 省略 `settings.modeId`），
    创建或恢复后必须确认实际 Provider/Model/Mode/Thinking 为
-   `pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`；任一 purpose 的任一
-   不匹配（含意外非 null mode）时停止该 agent 并按基础设施错误处理，不得静默降级，
+   `pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`（Mode 按前段
+   unselected-mode 谓词归一化：`"default"` 且 available modes 可观测为空视为
+   null 或缺失语义）；任一 purpose 的任一不匹配（含归一化后非 unselected 的
+   非 null mode）时停止该 agent 并按基础设施错误处理，不得静默降级，
    语境审核不得回退到 Codex。创建时 labels 必须携带目标 purpose：`code_legacy_v1`
    用 `purpose=normal_review`，`translation_contextual_v1` 用
    `purpose=translation_contextual_v1` 并另带 `candidate_identity=<sha256>`／
@@ -116,8 +125,10 @@ agent 不得改作他用；每次派发、重跑与无效输出重试都创建 f
 恢复唯一匹配的普通 REVIEWER 时，发送下一条任务前按 purpose 矩阵检查：
 `normal_review`（Codex 载体）必须确认实际 Provider/Model/Mode/Thinking 为
 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`；`translation_contextual_v1`（Pi 载体）
-必须为 `pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`，并采用
-STOP-on-mismatch——任何不匹配（包括 `Thinking` 不是 `max`、Mode 非 null）都停止
+必须为 `pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`（Mode 按规则 8 的
+unselected-mode 谓词归一化），并采用
+STOP-on-mismatch——任何不匹配（包括 `Thinking` 不是 `max`、Mode 归一化后非
+unselected）都停止
 该 agent 并按基础设施错误处理，不使用 `update_agent` 改回该语境会话（仅语境
 REVIEWER；EXECUTOR 恢复的 `update_agent` 行为不变）。
 
@@ -153,7 +164,7 @@ EXECUTOR、REVIEWER 与 SENIOR_REVIEWER 均不继承当前会话，briefing 必�
 - 翻译使用 `tools/pi-subagent --workset <workset.json>`（可见运行用 `tools/pi-tmux translate`）。子进程只输出 proposal，主代理通过 `proposal --strict` 校验后应用。
 - 译文审核由 Paseo REVIEWER 的 `translation_contextual_v1` 承担（契约见 `docs/paseo-translation-context-review-v1-contract.md`）。
 - code/legacy v1 审核由 Paseo Codex REVIEWER 承担；译文审核的机制核验由主代理按固定源码版本核验。
-- 质量抽样使用 `tools/pi-quality-evaluator`；已确认 finding 的修复建议使用 `tools/pi-remediate`。两者只产出 assessment/proposal，不直接改规范 Lua 或代码。
+- 质量抽样使用 `tools/pi-quality-evaluator`；`tools/pi-remediate` 是 dormant 兼容入口：只消费既有 assessment/finding artifact 生成修复 proposal，不参与任何活跃审核 dispatch，也不替代 Paseo REVIEWER 路由。两者只产出 assessment/proposal，不直接改规范 Lua 或代码。
 - 审核、源码侦察与计划审查统一走 Paseo 角色路由（REVIEWER／SENIOR_REVIEWER／EXECUTOR）；旧项目 Skill 已归档（见 `archive/`），不再作为回退路径。
 - 外发按上文「外发边界」执行；常设通道只需报告 provider、model 和大致内容范围。
 

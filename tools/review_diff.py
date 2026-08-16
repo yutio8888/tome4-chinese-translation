@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""有界 diff 复审 bundle 生成：仅包含 origin/master..HEAD（或指定基线）改动的译文条目。
+"""有界 diff 候选导出：仅包含 origin/master..HEAD（或指定基线）改动的译文条目。
 
-复用 tools/i18nlib/review.py 的 translation semantic v2 bundle schema，输出到
-.artifacts/i18n/review-diff-*/。盲发现 bundle 不注入术语或 Facts。
+离线 artifact 导出器：复用 tools/i18nlib/review.py 的 translation semantic v2
+bundle schema，输出到 .artifacts/i18n/review-diff-*/，供 Paseo
+`translation_contextual_v1` 审核选材（候选由 ORCHESTRATOR 冻结后经该路由派发）。
+本工具不执行审核、不调用任何 provider；导出内容不得直接被认定为 Paseo review
+结果。候选 bundle 不注入术语或 Facts。
 
 用法：
   python3 -B tools/review_diff.py [--baseline origin/master] [--batch-size 10]

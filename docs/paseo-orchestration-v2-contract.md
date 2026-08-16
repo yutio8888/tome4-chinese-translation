@@ -2,7 +2,7 @@
 
 > 状态：设计草案，待实际任务验证。
 >
-> 契约版本：`paseo-orchestration/2.6-draft`。
+> 契约版本：`paseo-orchestration/2.7-draft`。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文不单独授权外部传输，也不表示新的控制器
 > 或 STATE 校验器已经实现。
@@ -275,9 +275,13 @@ ADJUDICATE。只校验以下不变量：
 12. EXECUTOR 的 STATE provider 与实际 Provider 都必须为 `pi`，STATE model 与
     `paseo inspect --json` 返回的 Model 都必须为
     `opencode-go/deepseek-v4-flash`，STATE 的 `thinking` 和实际 `Thinking` 都必须为 `max`。
-    当前已核验的 Pi provider 无可选 mode：STATE 的 `mode` 为 null，实际 Mode
-    （`currentModeId`／`runtimeInfo.modeId`）必须为 null／缺失，创建时省略
-    `--mode`／`settings.modeId`。
+    当前已核验的 Pi provider 无可选 mode：STATE 的 `mode` 为 null（仅表示请求侧未选择），
+    创建时省略 `--mode`／`settings.modeId`。实际 Mode 按传输无关的 unselected-mode
+    谓词归一化：CLI `Mode`／`AvailableModes` 映射 MCP `currentModeId`（或
+    `runtimeInfo.modeId`）／`availableModes`；只有 mode 为 null、缺失或 `"default"`
+    且 available modes 可观测为空，才归一化为 unselected（等价 null／缺失）；
+    其他非空 mode、非空 available modes 或所需字段不可观测，都必须 STOP／按基础
+    设施错误处理，不得猜测。核验后记录实际观测值、字段来源与归一化结论。
 13. SENIOR_REVIEWER 的 `selected` 只允许 `primary|fallback`。primary 的实际
     Provider/Model/Mode/Thinking 必须为 `claude`/已解析 Opus/`plan`/`high`；
     fallback 必须为 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh` 且
@@ -289,7 +293,9 @@ ADJUDICATE。只校验以下不变量：
     不被此谓词拒绝）。
 16. `translation_contextual_v1` REVIEWER 载体（labels `purpose=translation_contextual_v1`）的
     实际 Provider/Model/Mode/Thinking 必须为
-    `pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`；任一不匹配或意外非 null mode
+    `pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`（Mode 按不变量 12 的
+    unselected-mode 谓词归一化：null／缺失／`"default"` 且 available modes 可观测为空）；
+    任一不匹配（含归一化后非 unselected 的非 null mode）
     时停止并按基础设施错误处理，不回退到 Codex。
 17. `review_contracts` 含 `translation_contextual_v1` 时，STATE 必须含条件字段
     `contextual_reviewer`（provider `pi`、model `opencode-go/deepseek-v4-flash`、mode null、
@@ -345,7 +351,7 @@ review 使用同一 `review-NN.json` 序列，只按 task 内次序取下一个�
 | 创建 workspace | `paseo workspace create` | `create_workspace` |
 | 列出 workspace | `paseo workspace ls` | `list_workspaces` |
 | 创建 child agent | `paseo run` | `create_agent` |
-| agent 状态／lineage 核验 | `paseo inspect` | `get_agent_status` |
+| agent 状态／lineage 核验 | `paseo inspect --json` | `get_agent_status` |
 | 按 label 列出 agent | `paseo ls --label task_id=… --label role=…`（服务端过滤） | `list_agents`（`cwd`/`includeArchived`/`limit`/`sinceHours`/`statuses`；无 label 参数，宿主侧精确过滤） |
 | 活动／等待 idle | `paseo logs`、`paseo wait` | `get_agent_activity`（或轮询 `get_agent_status`） |
 | 发送 prompt | `paseo send` | `send_agent_prompt` |
@@ -413,8 +419,9 @@ agent-scoped `create_agent`（与 CLI `paseo run --provider pi
 ```
 
 省略 `settings.modeId`（Pi 无可选 mode）。创建或恢复后核验
-Provider/Model/Mode/Thinking 为 `pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`，
-任一不匹配（含意外非 null mode）时停止该 agent，不得静默降级或回退到 Codex；
+Provider/Model/Mode/Thinking 为 `pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`
+（Mode 按不变量 12 的 unselected-mode 谓词归一化），
+任一不匹配（含归一化后非 unselected 的非 null mode）时停止该 agent，不得静默降级或回退到 Codex；
 具体输入、候选身份、结果校验与失败语义见 `docs/paseo-translation-context-review-v1-contract.md`。
 `initialPrompt` 映射 CLI 的 positional prompt（`paseo run ... <prompt>`）：两者是
 同一份短派发 prompt 的精确同一文本，不是派发 envelope，
@@ -463,7 +470,7 @@ MCP 创建示例（agent-scoped，由 ORCHESTRATOR 的 agent 会话直接调用�
 `settings.modeId`（Pi 无可选 mode），Codex 回退路由
 保持 `xhigh`；本次调整只改变首选 Claude Opus 路由的 thinking（`max` → `high`）。
 
-每次创建返回精确 agent ID 后，必须立即核验 daemon 报告的实际状态（CLI `paseo inspect`，
+每次创建返回精确 agent ID 后，必须立即核验 daemon 报告的实际状态（CLI `paseo inspect --json`，
 MCP `get_agent_status`）并确认父级 lineage 精确等于 STATE
 中的 `orchestrator_agent_id`：CLI 以 `ParentAgentId` 暴露，MCP 可能以归一化的
 `ParentAgentId` 或保留 label `paseo.parent-agent-id`（`snapshot.labels` 中）暴露，
@@ -471,8 +478,14 @@ MCP `get_agent_status`）并确认父级 lineage 精确等于 STATE
 `opencode-go/deepseek-v4-flash` 且 `Thinking` 为 `max`；
 缺少 `max`、实际值较低或设置失败都按基础设施错误处理，不得静默降级。当前已核验的 Pi
 provider 没有可选 mode；EXECUTOR 创建时 CLI 必须省略 `--mode`、MCP 必须省略 `settings.modeId`，
-核验时 Mode（`currentModeId`／`runtimeInfo.modeId`）必须为
-null／缺失，Pi 意外返回非 null mode 时按基础设施错误处理。每个 child 的
+核验时 Mode 按传输无关的 unselected-mode 谓词归一化：CLI `Mode`／`AvailableModes` 映射
+MCP `currentModeId`（或 `runtimeInfo.modeId`）／`availableModes`；只有 mode 为 null、
+缺失或 `"default"`，且 available modes 可观测为空，才归一化为
+null／缺失语义（unselected）；其他非空 mode、非空 available modes 或所需字段
+不可观测，都必须按基础设施错误处理，不得猜测。Pi 返回归一化后仍非 unselected 的非 null
+mode 时按基础设施错误处理。CLI 观测口一律用 `paseo inspect --json`：`Mode` 与
+`AvailableModes` 只从 JSON 读取；表格输出会省略空的 `AvailableModes`，缺行不得
+猜成空；MCP 映射不变。每个 child 的
 workspace 也必须等于 STATE 的 `workspace_id`。`review_contract=code_legacy_v1`（labels `purpose=normal_review`）的普通 REVIEWER 还必须确认
 Provider/Model/Mode/Thinking 为 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`；
 该 Codex 谓词只适用于 code 载体，`translation_contextual_v1` 的 Pi 元组只按不变量
@@ -572,15 +585,17 @@ CLI 的 `paseo ls --label` 在服务端按 label 过滤，语义不变。MCP `li
 恢复到唯一匹配的 EXECUTOR 时还要检查 Provider、Model 和 `Thinking`。Provider 不是 `pi` 或
 Model 不是 `opencode-go/deepseek-v4-flash` 时必须停止；若 `Thinking` 不是 `max`，必须先
 运行 `paseo agent update <agent-id> --thinking max`（MCP 用 `update_agent`）并重新
-核验（CLI `paseo inspect`，MCP `get_agent_status`）。恢复时同时确认 Mode 为
-null／缺失（Pi 无可选 mode）；出现非 null mode 时停止并记录基础设施错误。更新或复验失败时记录
+核验（CLI `paseo inspect --json`，MCP `get_agent_status`）。恢复时同时按 unselected-mode 谓词
+确认 Mode 归一化为 null／缺失语义（Pi 无可选 mode；null／缺失／`"default"` 且
+`availableModes` 可观测为空）；出现归一化后非 unselected 的非 null mode 时停止并记录基础设施错误。更新或复验失败时记录
 基础设施错误，不发送新的任务消息。
 
 恢复到唯一匹配的普通 REVIEWER 时同样检查 Provider、Model、Mode 和 `Thinking`：
 `code_legacy_v1` 必须为 `codex`/`gpt-5.6-sol`/`auto-review`/`xhigh`；
 `translation_contextual_v1`（按 `labels.purpose` 区分）必须为
-`pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`，并采用 STOP-on-mismatch——
-任何不匹配（包括 `Thinking` 不是 `max`、Mode 非 null）都停止该 agent 并按基础设施
+`pi`/`opencode-go/deepseek-v4-flash`/null 或缺失/`max`（Mode 按 unselected-mode 谓词
+归一化），并采用 STOP-on-mismatch——
+任何不匹配（包括 `Thinking` 不是 `max`、Mode 归一化后非 unselected）都停止该 agent 并按基础设施
 错误处理，不使用 `update_agent` 改回该语境会话，不发送新的任务消息。语境 REVIEWER
 恢复只允许复用同一候选（`candidate_identity` 与当前冻结值精确相同）且同一
 `dispatch_id`（同一歧义 create attempt）的 agent；不同候选／不同
@@ -614,7 +629,7 @@ Opus 不可用：
 
 Paseo 不可用且用户没有强制要求使用时，主代理可以直接接管；已有 agent 应先停止。用户
 明确要求 Paseo 时则报告阻塞，不悄悄更换执行方式。回退必须先在 STATE 记录原因并结束
-Paseo 激活状态；之后才可使用非 Paseo 工作流或旧项目 Skill。
+Paseo 激活状态；之后才可使用非 Paseo 工作流，已归档 Skill 仍不参与审核路由。
 
 ---
 
@@ -768,7 +783,7 @@ primary 规范为 `claude`/已解析 Opus/`plan`/`high`，若任务已选中 fal
 contract 的任务不添加该字段，无迁移。
 
 迁移完成后、接受未验收输出或向 child 发送下一条 prompt／复用 child 之前，只对正在
-运行、有待验收输出或准备复用的 child 重新核验（CLI `paseo inspect`，MCP
+运行、有待验收输出或准备复用的 child 重新核验（CLI `paseo inspect --json`，MCP
 `get_agent_status`）。实际运行时元组与迁移后的期望值不一致时：停止不匹配的 child；
 丢弃 REVIEWER／SENIOR_REVIEWER 未完成或未验收的不匹配输出；工作流下次需要该角色时
 创建符合 2.2 元组的新 agent；EXECUTOR 不匹配按既有基础设施错误／停止语义处理，
@@ -804,6 +819,12 @@ v2 格式；旧
   `dispatch_id`）、候选身份独立于 code-diff candidate 配方、结果 fail-closed 校验、
   只读工作树守卫、独立记录与指标；
 - 相对链接存在，Markdown 与 `git diff --check` 通过；
+- Pi unselected-mode 谓词传输无关：CLI `Mode`／`AvailableModes` 与 MCP
+  `currentModeId`（或 `runtimeInfo.modeId`）／`availableModes` 一一映射；只有 mode 为
+  null／缺失／`"default"` 且 available modes 可观测为空才归一化为 unselected，其他
+  非空 mode、非空 available modes 或字段不可观测一律 STOP／基础设施错误、不得猜测；
+  创建仍省略 mode，STATE `mode: null` 仅表示请求侧未选择，核验记录实际观测值、
+  字段来源与归一化结论，CLI／MCP 语义一致；
 - 任务级 `orchestration_transport` 只允许 `cli|mcp` 并写入 STATE，CLI 与 MCP 保持等价
   语义；MCP 映射使用可调用操作名（`list_providers`、`list_models`、`inspect_provider`、
   `create_workspace`、`list_workspaces`、`create_agent`、`get_agent_status`、`list_agents`、
@@ -858,6 +879,7 @@ v2 格式；旧
 
 | 版本 | 状态 | 内容 |
 | --- | --- | --- |
+| `2.7-draft` | 设计草案 | Pi mode 校验改为传输无关的 unselected-mode 谓词：CLI `Mode`／`AvailableModes` 映射 MCP `currentModeId`（或 `runtimeInfo.modeId`）／`availableModes`，只有 mode 为 null、缺失或 `"default"` 且 available modes 可观测为空才归一化为 unselected，其他非空 mode、非空 available modes 或所需字段不可观测一律 STOP／基础设施错误、不得猜测；创建仍省略 mode，STATE `mode: null` 仅表示请求侧未选择，核验后记录实际观测值、字段来源与归一化结论，CLI/MCP 归一化语义一致；删除回退到已归档 Skill 的表述（回退后仍不恢复旧 Skill 路由）；`tools/pi-remediate` 明确为 dormant 兼容入口（只消费既有 artifact，不参与活跃审核 dispatch）；独立契约升至 `translation-contextual/1.3`。 |
 | `2.6-draft` | 设计草案 | 译文审核收敛为单一 Paseo 通道：`translation_v2`（pi CLI blind runner）退役并归档到 `archive/docs/pi-review-v2-contract.md`，`translation_contextual_v1` 升格为译文审核唯一路由（Pi `opencode-go/deepseek-v4-flash`/省略 mode/`max`，不再作为「补充」）；旧项目 Skill（`$tome4-pi-review`、`$tome4-pi-file-review`、`$tome4-pi-subagent`）及其 scout／plan-reviewer subagent 路由、批量审核脚本与 v1 文件审核入口一并归档到 `archive/`；STATE `review_contracts` 与审核类型表删除 `translation_v2`；盲评质量管线（`tools/pi-quality-evaluator`、Facts study）不迁移。 |
 | `2.5-draft` | 设计草案 | 语境审核短派发 prompt 收敛为任务／输入／输出三行（`任务：`／`输入：`／`输出：`，未实例化规范模板 ≤800 UTF-8 字节，唯一动态值 `<candidate_identity>` 与 `<input_path>`）：任务行聚焦逐 revision 语境审核（输入文件术语／上下文与所引固定源码证据，只报有证据的实质错误，无问题填 OK），输入行声明磁盘冻结文件为唯一候选载体、会话级全程只读禁写、读取限定为 `input_path` 文件及该文件所引译文/公开源码，另加独立契约第六节，输出行要求第六节单一紧凑 JSON、冻结顺序全量覆盖、身份回显与首尾字节、无其他文字/围栏；模板不再指示阅读 `.ai/roles/reviewer.md`，详细 schema、恢复、身份、只读守卫与 fresh-session 规则继续只存于磁盘规范；2.4 行为与历史记录不改写。 |
 | `2.4-draft` | 设计草案 | 语境审核派发改为「冻结磁盘输入＋短 prompt」：`create_agent.initialPrompt`／CLI positional prompt 只携带含 purpose、候选身份、workspace 相对冻结输入路径与 JSON-only 输出边界的短派发 prompt（唯一动态值 `<candidate_identity>` 与 `<input_path>`，不内联 envelope、revision、source/target、术语、上下文或源码片段）；紧凑派发 envelope（identity＋未改动 payload object，`payload.rendered_briefing` 不含身份）以精确字节冻结到任务作用域 `input_path = .ai/task/<task_id>/CONTEXTUAL-ENVELOPE-<dispatch_id>.json`，由 fresh 语境 REVIEWER 用只读 workspace 工具读取；每次派发、重跑与无效输出重试都创建 fresh agent 并分配唯一任务作用域 `dispatch_id`（label 与文件名），不得用 `send_agent_prompt` 复用旧语境 REVIEWER；歧义 create 恢复只允许复用同一 `dispatch_id` 的同一创建尝试，新重试用新 `dispatch_id`；冻结输入文件纳入只读守卫（修改、替换、删除、符号链接替换或身份不匹配使输出无效）；STATE 条件字段 `contextual_reviewer` 增补 `dispatch_id` 与 `input_path`，语境 review 记录增补同名字段与精确 agent ID，已完成历史记录不改写、活动任务下次派发时采用。 |

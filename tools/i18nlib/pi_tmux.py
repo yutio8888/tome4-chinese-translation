@@ -1,9 +1,8 @@
 """Run bounded Pi audits inside a tmux pane so the operator can watch live.
 
-The wrapper builds the exact same isolated Pi command as ``tools/pi-review``,
-``tools/pi-remediate`` and ``tools/pi-subagent`` (plus the file-reading
-``review-files`` variant of ``tools/pi-review-files``), but executes it inside
-a tmux split pane.  A small ``worker`` subprocess runs inside the pane, tees
+The wrapper builds the exact same isolated Pi command as the headless
+``tools/pi-subagent`` (``translate``) and ``tools/pi-remediate``
+(``remediate``) tools, but executes it inside a tmux split pane.  A small ``worker`` subprocess runs inside the pane, tees
 Pi's stdout/stderr into the run directory (``raw-output.txt`` /
 ``pi-stderr.txt``) while mirroring both streams to the pane, and finally
 writes ``worker-status.json``.  The wrapper waits for that status file and
@@ -12,6 +11,11 @@ headless tools, so the two entry points stay interchangeable.
 
 When tmux is unavailable the tool can fall back to a foreground run
 (``--fallback foreground``) that still streams Pi's output to the caller.
+
+``review`` 与 ``review-files`` 子命令已退役（retired）：它们不再读取 bundle、
+启动 tmux/provider 或调用审核 runner，任何调用都在副作用之前非零拒绝并指引
+Paseo 的 ``translation_contextual_v1``（译文）／Codex REVIEWER（代码）路由。
+``translate``、``remediate`` 与内部 ``worker`` 行为保持不变。
 """
 
 from __future__ import annotations
@@ -92,6 +96,13 @@ JOB_SCHEMA_VERSION = 1
 WORKER_STATUS_SCHEMA_VERSION = 1
 WORKER_GRACE_SECONDS = 120
 _UNSET = object()
+
+REVIEW_SUBCOMMANDS_RETIRED = (
+    "tools/pi-tmux review / review-files 已退役（retired）：译文审核请使用 Paseo "
+    "REVIEWER 的 translation_contextual_v1 路由（"
+    "docs/paseo-translation-context-review-v1-contract.md），代码审核请使用 Paseo "
+    "Codex REVIEWER；本入口不再读取 bundle 或启动 tmux/provider。"
+)
 
 
 # ---------------------------------------------------------------------------
@@ -1695,8 +1706,11 @@ def _parser() -> argparse.ArgumentParser:
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    review = subparsers.add_parser("review", help="review a bundle in a tmux pane")
-    review.add_argument("--bundle", required=True, type=Path)
+    review = subparsers.add_parser(
+        "review",
+        help="retired: review a bundle in a tmux pane (use Paseo translation_contextual_v1)",
+    )
+    review.add_argument("--bundle", type=Path)
     review.add_argument("--timeout", type=int, default=DEFAULT_REVIEW_TIMEOUT)
     review.add_argument(
         "--cache",
@@ -1714,9 +1728,12 @@ def _parser() -> argparse.ArgumentParser:
 
     review_files = subparsers.add_parser(
         "review-files",
-        help="review a bundle in a tmux pane with read/bash tools (no write tools)",
+        help=(
+            "retired: file-reading review in a tmux pane "
+            "(use Paseo translation_contextual_v1)"
+        ),
     )
-    review_files.add_argument("--bundle", required=True, type=Path)
+    review_files.add_argument("--bundle", type=Path)
     review_files.add_argument("--timeout", type=int, default=DEFAULT_REVIEW_TIMEOUT)
     review_files.add_argument(
         "--cache",
@@ -1769,46 +1786,13 @@ def _pane_hint(report: dict[str, Any]) -> str | None:
 def main(argv: list[str] | None = None) -> int:
     os.umask(0o077)
     arguments = _parser().parse_args(argv)
+    if arguments.command in ("review", "review-files"):
+        print(REVIEW_SUBCOMMANDS_RETIRED, file=sys.stderr)
+        return 2
     if arguments.command == "worker":
         return worker_main(arguments.job)
     try:
-        if arguments.command == "review":
-            report = run_tmux_review(
-                bundle_path=arguments.bundle,
-                provider=arguments.provider,
-                model=arguments.model,
-                thinking=arguments.thinking,
-                timeout=arguments.timeout,
-                strict=arguments.strict,
-                use_cache=arguments.cache,
-                force=arguments.force,
-                pi_executable=arguments.pi_executable,
-                tmux_executable=arguments.tmux_executable,
-                session=arguments.session,
-                layout=arguments.layout,
-                percent=arguments.percent,
-                keep_pane=arguments.keep_pane,
-                fallback=arguments.fallback,
-            )
-        elif arguments.command == "review-files":
-            report = run_tmux_file_review(
-                bundle_path=arguments.bundle,
-                provider=arguments.provider,
-                model=arguments.model,
-                thinking=arguments.thinking,
-                timeout=arguments.timeout,
-                strict=arguments.strict,
-                use_cache=arguments.cache,
-                force=arguments.force,
-                pi_executable=arguments.pi_executable,
-                tmux_executable=arguments.tmux_executable,
-                session=arguments.session,
-                layout=arguments.layout,
-                percent=arguments.percent,
-                keep_pane=arguments.keep_pane,
-                fallback=arguments.fallback,
-            )
-        elif arguments.command == "remediate":
+        if arguments.command == "remediate":
             report = run_tmux_remediation(
                 bundle_path=arguments.bundle,
                 review_path=arguments.review,
@@ -1844,16 +1828,7 @@ def main(argv: list[str] | None = None) -> int:
     except I18nToolError as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return error.exit_code
-    if arguments.command in ("review", "review-files"):
-        summary = report["summary"]
-        label = "Pi review" if arguments.command == "review" else "Pi file review"
-        print(
-            f"OK  {label} {report['bundle_id'][:16]}  "
-            f"kind={report['kind']} findings={summary['findings']} "
-            f"cache={report['cache_decision']} attempts={report['attempts']}"
-        )
-        print(f"Review: {report['review']}")
-    elif arguments.command == "remediate":
+    if arguments.command == "remediate":
         print(
             f"OK  Pi remediation {report['bundle_id'][:16]}  "
             f"proposals={report['summary']['proposals']}"

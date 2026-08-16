@@ -1,17 +1,29 @@
 #!/usr/bin/env python3
-"""Run the isolated Pi reviewer against a review bundle."""
+"""Retired Pi reviewer dispatch surface.
+
+``tools/pi-review`` 已退役（retired）。译文审核由 Paseo REVIEWER 的
+``translation_contextual_v1`` 路由承担（见
+``docs/paseo-translation-context-review-v1-contract.md``），代码审核由 Paseo
+Codex REVIEWER 承担。本入口不再读取 bundle／manifest，不启动 provider；任何
+调用都在产生任何副作用之前非零退出，只输出退役指引。
+"""
 
 from __future__ import annotations
 
 import sys
-from pathlib import Path
 
 
-TOOLS_DIR = Path(__file__).resolve().parent
-if str(TOOLS_DIR) not in sys.path:
-    sys.path.insert(0, str(TOOLS_DIR))
+RETIRED_MESSAGE = (
+    "tools/pi-review 已退役（retired）：译文审核请使用 Paseo REVIEWER 的 "
+    "translation_contextual_v1 路由（docs/paseo-translation-context-review-v1-contract.md），"
+    "代码审核请使用 Paseo Codex REVIEWER；本入口不再读取 bundle 或启动 provider。"
+)
 
-from i18nlib.pi_review import main  # noqa: E402
+
+def main(argv: list[str] | None = None) -> int:
+    del argv
+    print(RETIRED_MESSAGE, file=sys.stderr)
+    return 2
 
 
 if __name__ == "__main__":

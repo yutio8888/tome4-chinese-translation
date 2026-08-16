@@ -79,6 +79,7 @@ from i18nlib.pi_agent import _copy_isolated_oauth_credential, run_pi_translation
 from i18nlib.pi_file_review import (
     _git_worktree_snapshot,
     _parser as pi_file_review_parser,
+    _validate_file_review_cache_options,
     build_file_review_command,
     main as pi_file_review_main,
     run_pi_file_review,
@@ -11816,57 +11817,27 @@ print(json.dumps({
                 json.dumps(bundle, ensure_ascii=False), encoding="utf-8"
             )
             headless_parser = pi_file_review_parser()
-            tmux_parser = pi_tmux_parser()
             headless_default = headless_parser.parse_args(["--bundle", str(bundle_path)])
-            tmux_default = tmux_parser.parse_args(
-                ["review-files", "--bundle", str(bundle_path)]
-            )
             headless_explicit = headless_parser.parse_args(
                 ["--bundle", str(bundle_path), "--cache"]
-            )
-            tmux_explicit = tmux_parser.parse_args(
-                ["review-files", "--bundle", str(bundle_path), "--cache"]
             )
             headless_force = headless_parser.parse_args(
                 ["--bundle", str(bundle_path), "--force"]
             )
-            tmux_force = tmux_parser.parse_args(
-                ["review-files", "--bundle", str(bundle_path), "--force"]
-            )
-            tmux_review_files_parser = next(
-                action.choices["review-files"]
-                for action in tmux_parser._actions
-                if "review-files" in (getattr(action, "choices", None) or {})
-            )
             headless_help = " ".join(headless_parser.format_help().split())
-            tmux_help = " ".join(tmux_review_files_parser.format_help().split())
             self.assertFalse(headless_default.cache)
-            self.assertFalse(tmux_default.cache)
             self.assertTrue(headless_explicit.cache)
-            self.assertTrue(tmux_explicit.cache)
             self.assertTrue(headless_force.force)
-            self.assertTrue(tmux_force.force)
             self.assertIn("--cache is rejected", headless_help)
             self.assertIn("always true for file-reading reviews", headless_help)
-            self.assertIn("--cache is rejected", tmux_help)
-            self.assertIn("always true for file-reading reviews", tmux_help)
 
-            for entry_point, arguments in (
-                (
-                    pi_file_review_main,
-                    ["--bundle", str(bundle_path), "--cache"],
-                ),
-                (
-                    pi_tmux_main,
-                    ["review-files", "--bundle", str(bundle_path), "--cache"],
-                ),
-            ):
-                with self.subTest(entry_point=entry_point.__module__):
-                    stderr = io.StringIO()
-                    with contextlib.redirect_stderr(stderr):
-                        exit_code = entry_point(arguments)
-                    self.assertEqual(exit_code, ValidationError.exit_code)
-                    self.assertIn("--cache is unavailable", stderr.getvalue())
+            stderr = io.StringIO()
+            with contextlib.redirect_stderr(stderr):
+                exit_code = pi_file_review_main(
+                    ["--bundle", str(bundle_path), "--cache"]
+                )
+            self.assertEqual(exit_code, ValidationError.exit_code)
+            self.assertIn("--cache is unavailable", stderr.getvalue())
 
             with self.assertRaisesRegex(
                 ValidationError, r"--cache is unavailable: .*outside the bounded bundle"
@@ -11891,11 +11862,26 @@ print(json.dumps({
                     thinking="high",
                     timeout=30,
                     strict=True,
-                    use_cache=tmux_explicit.cache,
+                    use_cache=True,
                     force=False,
                     pi_executable=str(directory / "does-not-exist"),
                     tmux_executable=str(directory / "does-not-exist"),
                 )
+
+        for use_cache, force, message in (
+            (True, False, r"--cache is unavailable: .*outside the bounded bundle"),
+            (
+                True,
+                True,
+                r"--cache is unavailable \(including with --force\): .*outside the bounded bundle",
+            ),
+        ):
+            with self.subTest(use_cache=use_cache, force=force):
+                with self.assertRaisesRegex(ValidationError, message):
+                    _validate_file_review_cache_options(
+                        use_cache=use_cache, force=force
+                    )
+        _validate_file_review_cache_options(use_cache=False, force=True)
 
     def test_pi_remediator_binds_proposals_to_findings(self) -> None:
         with tempfile.TemporaryDirectory(prefix="tome4-pi-remediate-test-") as temporary:
@@ -12229,6 +12215,93 @@ class PiTmuxTests(unittest.TestCase):
                 split_arguments[split_arguments.index("-p") + 1], str(percent)
             )
 
+    def test_pi_review_script_rejects_before_any_artifact_side_effect(self) -> None:
+        runs_base = ROOT / ".artifacts" / "i18n" / "runs"
+        cache_base = ROOT / ".artifacts" / "i18n" / "cache" / "pi-review"
+
+        def observed() -> tuple[set[str], set[str]]:
+            runs = (
+                {
+                    path.name
+                    for path in runs_base.iterdir()
+                    if path.name.endswith("-pi-review")
+                }
+                if runs_base.is_dir()
+                else set()
+            )
+            cache = (
+                {path.name for path in cache_base.iterdir()}
+                if cache_base.is_dir()
+                else set()
+            )
+            return runs, cache
+
+        before_runs, before_cache = observed()
+        completed = subprocess.run(
+            [sys.executable, str(TOOLS / "pi-review")],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        after_runs, after_cache = observed()
+        self.assertNotEqual(completed.returncode, 0)
+        self.assertIn("retired", completed.stderr)
+        self.assertIn("translation_contextual_v1", completed.stderr)
+        self.assertEqual(after_runs, before_runs)
+        self.assertEqual(after_cache, before_cache)
+
+    def test_pi_tmux_review_entry_rejects_before_side_effects(self) -> None:
+        stderr = io.StringIO()
+        with (
+            patch("i18nlib.pi_tmux.run_tmux_review") as runner,
+            patch("i18nlib.pi_tmux.load_manifest") as load,
+            patch("i18nlib.pi_tmux.validate_review_bundle") as validate_bundle,
+            patch("i18nlib.pi_tmux.create_run_directory") as create_run,
+            patch("i18nlib.pi_tmux.write_json") as write,
+            patch("i18nlib.pi_tmux._pi_environment") as pi_environment,
+            patch("i18nlib.pi_tmux._run_tmux") as run_tmux,
+            patch("i18nlib.pi_tmux.execute_in_pane") as execute,
+            contextlib.redirect_stderr(stderr),
+        ):
+            exit_code = pi_tmux_main(["review"])
+        self.assertNotEqual(exit_code, 0)
+        self.assertIn("retired", stderr.getvalue())
+        self.assertIn("translation_contextual_v1", stderr.getvalue())
+        runner.assert_not_called()
+        load.assert_not_called()
+        validate_bundle.assert_not_called()
+        create_run.assert_not_called()
+        write.assert_not_called()
+        pi_environment.assert_not_called()
+        run_tmux.assert_not_called()
+        execute.assert_not_called()
+
+    def test_pi_tmux_file_review_entry_rejects_before_side_effects(self) -> None:
+        stderr = io.StringIO()
+        with (
+            patch("i18nlib.pi_tmux.run_tmux_file_review") as runner,
+            patch("i18nlib.pi_tmux.load_manifest") as load,
+            patch("i18nlib.pi_tmux.validate_review_bundle") as validate_bundle,
+            patch("i18nlib.pi_tmux.create_run_directory") as create_run,
+            patch("i18nlib.pi_tmux.write_json") as write,
+            patch("i18nlib.pi_tmux._pi_environment") as pi_environment,
+            patch("i18nlib.pi_tmux._run_tmux") as run_tmux,
+            patch("i18nlib.pi_tmux.execute_in_pane") as execute,
+            contextlib.redirect_stderr(stderr),
+        ):
+            exit_code = pi_tmux_main(["review-files"])
+        self.assertNotEqual(exit_code, 0)
+        self.assertIn("retired", stderr.getvalue())
+        self.assertIn("translation_contextual_v1", stderr.getvalue())
+        runner.assert_not_called()
+        load.assert_not_called()
+        validate_bundle.assert_not_called()
+        create_run.assert_not_called()
+        write.assert_not_called()
+        pi_environment.assert_not_called()
+        run_tmux.assert_not_called()
+        execute.assert_not_called()
+
     def test_cli_invalid_percent_uses_validation_error_without_artifacts(self) -> None:
         for percent in ("0", "-1", "100"):
             stderr = io.StringIO()
@@ -12243,9 +12316,9 @@ class PiTmuxTests(unittest.TestCase):
                 ):
                     exit_code = pi_tmux_main(
                         [
-                            "review",
-                            "--bundle",
-                            "unused-bundle.json",
+                            "translate",
+                            "--workset",
+                            "unused-workset.json",
                             "--percent",
                             percent,
                         ]
@@ -20129,6 +20202,130 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
             self.assertIsNotNone(pattern.fullmatch(ok), ok)
         for bad in ("D1", "d/1", "d.1", "..", "-d1", "d 1", "中", "d" * 33):
             self.assertIsNone(pattern.fullmatch(bad), bad)
+
+
+class PaseoPiModeContractTests(unittest.TestCase):
+    """Validate the transport-independent Pi unselected-mode predicate (2.7-draft / 1.3)."""
+
+    CONTEXTUAL_DOC = ROOT / "docs" / "paseo-translation-context-review-v1-contract.md"
+
+    def _normative_texts(self) -> dict:
+        return {
+            "agents": (ROOT / "AGENTS.md").read_text(encoding="utf-8"),
+            "orchestrator": (
+                ROOT / ".ai" / "roles" / "orchestrator.md"
+            ).read_text(encoding="utf-8"),
+            "contract": (
+                ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+            ).read_text(encoding="utf-8"),
+            "contextual": self.CONTEXTUAL_DOC.read_text(encoding="utf-8"),
+        }
+
+    def test_contract_versions_are_bumped(self) -> None:
+        texts = self._normative_texts()
+        # 契约版本升至 2.7-draft 与 1.3，旧头行不再出现。
+        self.assertIn("`paseo-orchestration/2.7-draft`", texts["contract"])
+        self.assertNotIn("> 契约版本：`paseo-orchestration/2.6-draft`。", texts["contract"])
+        self.assertIn("`translation-contextual/1.3`", texts["contextual"])
+        self.assertNotIn("> 契约版本：`translation-contextual/1.2`。", texts["contextual"])
+        # 修订记录登记 2.7-draft 行。
+        history = texts["contract"][texts["contract"].index("## 十二、修订记录") :]
+        self.assertIn("| `2.7-draft` |", history)
+
+    def _predicate_windows(self) -> dict:
+        """Bounded paragraph windows around each spec's unselected-mode predicate."""
+        windows = {}
+        for name, text in self._normative_texts().items():
+            match = re.search(r"可观测\s*为空", text)
+            self.assertIsNotNone(match, name)
+            idx = match.start()
+            windows[name] = text[max(0, idx - 300) : idx + 400]
+        return windows
+
+    @staticmethod
+    def _compact(text: str) -> str:
+        # 去空白/反引号/blockquote 标记并小写，使跨行句子可作同一段落断言。
+        return re.sub(r"\s+", "", text).replace("`", "").replace(">", "").lower()
+
+    def test_unselected_predicate_binds_sentinel_connective_and_observability(self) -> None:
+        # 同一有界段落必须同时包含：null/缺失 sentinel、"default" sentinel、
+        # 逻辑连接词“且”与 available modes 可观测为空；把“且”改为“或”时本断言失败。
+        for name, window in self._predicate_windows().items():
+            compact = self._compact(window)
+            self.assertIn("null、缺失", compact, name)
+            self.assertIn('"default"', compact, name)
+            self.assertIn("且availablemodes可观测为空", compact, name)
+            self.assertIn("才归一化为unselected", compact, name)
+
+    def test_unselected_mapping_and_normalization_in_bounded_paragraph(self) -> None:
+        # CLI↔MCP 字段映射与归一化结论出现在同一有界段落：CLI Mode/AvailableModes
+        # 映射 MCP currentModeId（或 runtimeInfo.modeId）/availableModes。
+        for name, window in self._predicate_windows().items():
+            compact = self._compact(window)
+            self.assertIn("climode／availablemodes映射mcpcurrentmodeid", compact, name)
+            self.assertIn("runtimeinfo.modeid", compact, name)
+            self.assertIn("不可观测", compact, name)
+            self.assertIn("stop", compact, name)
+            self.assertIn("基础设施错误", compact, name)
+            self.assertIn("不得猜测", compact, name)
+
+    def test_unobservable_fields_bound_to_stop_in_same_paragraph(self) -> None:
+        # 字段不可观测与 STOP/基础设施错误绑定在同一有界段落，不得猜测。
+        for name, text in self._normative_texts().items():
+            idx = text.index("不可观测")
+            window = text[max(0, idx - 150) : idx + 150]
+            compact = self._compact(window)
+            self.assertIn("非空availablemodes", compact, name)
+            self.assertIn("不可观测", compact, name)
+            self.assertIn("stop", compact, name)
+            self.assertIn("基础设施错误", compact, name)
+            self.assertIn("不得猜测", compact, name)
+
+    def test_cli_observation_uses_inspect_json(self) -> None:
+        # 所有 CLI 观测口明确使用 paseo inspect --json，不存在裸 paseo inspect；
+        # 表格输出省略空 AvailableModes 的告诫与 JSON 证据要求在同一有界语句。
+        texts = self._normative_texts()
+        for name, text in texts.items():
+            self.assertIn("`paseo inspect --json`", text, name)
+            bare = [m.group(0) for m in re.finditer(r"paseo inspect(?! --json\b)", text)]
+            self.assertEqual(bare, [], name)
+            idx = text.index("缺行")
+            window = text[max(0, idx - 160) : idx + 60]
+            compact = self._compact(window)
+            self.assertIn("表格输出会省略空的availablemodes，缺行不得猜成空", compact, name)
+            self.assertIn("mcp映射不变", compact, name)
+
+    def test_state_mode_null_means_request_side_unselected(self) -> None:
+        texts = self._normative_texts()
+        # STATE mode:null 只表示请求侧未选择，不代表实际观测。
+        for name in ("agents", "orchestrator", "contract"):
+            self.assertIn("请求侧未选择", texts[name], name)
+        # 核验后记录实际观测值、字段来源与归一化结论。
+        for name in ("agents", "orchestrator", "contract", "contextual"):
+            self.assertIn("实际观测值", texts[name], name)
+            self.assertIn("字段来源", texts[name], name)
+            self.assertIn("归一化结论", texts[name], name)
+        # CLI/MCP 归一化语义一致。
+        self.assertIn("CLI/MCP 归一化语义一致", texts["contract"])
+        self.assertIn("CLI／MCP 语义一致", texts["contract"])
+
+    def test_no_archived_skill_fallback_statements(self) -> None:
+        texts = self._normative_texts()
+        # 已归档 Skill 不是回退路径；回退后也不恢复旧 Skill 路由。
+        self.assertIn("不再作为回退路径", texts["agents"])
+        self.assertIn("不恢复旧 Skill 路由", texts["orchestrator"])
+        self.assertIn("已归档 Skill 仍不参与审核路由", texts["contract"])
+        self.assertNotIn("或已归档 Skill", texts["orchestrator"])
+        self.assertNotIn("或旧项目 Skill", texts["contract"])
+
+    def test_pi_remediate_is_dormant_compat_entry(self) -> None:
+        agents = self._normative_texts()["agents"]
+        # pi-remediate 是 dormant 兼容入口：只消费既有 artifact，不参与活跃审核 dispatch。
+        self.assertIn("dormant", agents)
+        self.assertIn("兼容入口", agents)
+        self.assertIn("只消费既有", agents)
+        self.assertIn("不参与任何活跃审核 dispatch", agents)
+        self.assertNotIn("已确认 finding 的修复建议使用 `tools/pi-remediate`", agents)
 
 
 if __name__ == "__main__":

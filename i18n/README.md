@@ -26,16 +26,16 @@ tools/i18n proposal --workset <workset.json> --proposal <proposal.json> --strict
 tools/i18n review --scope code
 tools/i18n review --scope translations
 tools/i18n review --scope code --scope translations
-tools/pi-review --bundle <review-bundle.json>
-tools/pi-remediate --bundle <review-bundle.json> --review <review.json>
 ```
 
-旧项目 Skill `$tome4-pi-review` 已归档（见 `archive/`），不再作为审核入口；译文审核
-统一走 Paseo REVIEWER 的 `translation_contextual_v1` 路由（见
-`docs/paseo-translation-context-review-v1-contract.md`），代码审核走 Paseo Codex
-REVIEWER。译文语境 bundle 会发送给外部 Pi provider，首次调用前仍需明确确认
-provider、model、条目数、item 字符预算和实际
-`payload_bytes`；项目没有开启全局网络权限。
+`tools/i18n review` 与 `tools/review_diff.py` 只生成离线 bundle／index／diff
+artifact，不调用 provider、不构成审核结论；译文审核由 Paseo REVIEWER 的
+`translation_contextual_v1` 路由承担（见
+`docs/paseo-translation-context-review-v1-contract.md`），代码审核由 Paseo Codex
+REVIEWER 承担（外发内容与授权边界见 `AGENTS.md`「外发边界」）。旧项目 Skill
+`$tome4-pi-review` 已归档（见 `archive/`），不再作为审核入口；`tools/pi-review`
+是当前仓库 tombstone，任何调用都非零退出并输出退役指引，不读取 bundle、不启动
+provider。
 
 - `doctor` 检查 LuaJIT 5.1、项目 LuaRocks 树、LPeg 0.10.2、固定 Git commit
   和所有规范译文文件。对于 DLC 它只让 Lua 代理探测清单中预声明的组件，
@@ -113,53 +113,38 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
 - `proposal` 校验 Pi 或人工返回的结构化译文：workset 内容身份、条目覆盖率、原文、
   `source_tag`、Lua 值、printf 参数及首选术语。成功后只生成内容寻址的
   `*.validated.json`；`--allow-partial` 允许分批返回，`--strict` 会阻断警告。
-- `review` 生成只读 Pi 审核 bundle；必须用 `--scope code` 或
-  `--scope translations` 显式选择范围，重复参数才会同时选择两者。翻译使用独立的
+- `review` 只生成离线审核 bundle／index／diff artifact（全部写入
+  `.artifacts/i18n/`），不调用 provider、不构成审核结论。必须用 `--scope code`
+  或 `--scope translations` 显式选择范围，重复参数才会同时选择两者。翻译使用
   `tome4-translation-review-bundle-v2`：以条目硬上限 10 和 24000 个 item canonical
   JSON 字符双重分包，携带稳定 `unit_id`/`revision_id`，但不注入 terminology 或
-  Facts。index 分别记录 `item_character_count`、`item_character_budget`、宿主
-  `artifact_bytes` 与实际外发 `payload_bytes`；provider payload 只投影稳定
-  `revision_id`、source 和 target，不包含 canonical membership 等宿主 lineage。
-  生成器每个组件只运行一次 Lua，并把 canonical inventory 写成
-  内容寻址缓存，runner 只重算字节摘要和成员切片，不为每个 shard 重建 inventory。
-  每个分区另用 `selection_sha256` 绑定完整、有序、去重后的 revision/ordinal 序列；
-  batch 在外发前聚合所有 shard，拒绝缺口、重复、逆序或混合 selection，并把每次
-  child 执行绑定到 index 中的预期 `bundle_id`。
-  完全相同的重复 canonical occurrence 共享同一 `revision_id`，审核选择会保留首个
-  occurrence 并按 revision 去重；这类语义相同的重复项不会要求模型重复回执。
-  代码 diff 继续使用明确的 legacy `tome4-review-v1`。混合 index 会逐 bundle 记录
-  实际 contract/channel；所有产物只写入 `.artifacts/i18n/`。
-- `tools/pi-review --bundle` 在无工具、无会话、无项目上下文的 Pi 进程中运行。
-  runner 会先验证调用方给出的完整 bundle，把内存对象原子写成权限收紧的
-  `validated-bundle.json`，再从该对象生成最小、无首尾空白的
-  `provider-message.json`。translation v2 不使用 Pi 的 `@file` 展开，而把这组精确
-  JSON 字节经 stdin 发送，从而不引入 staging 绝对路径或 XML wrapper；同时显式传入
-  空的 `--append-system-prompt`，关闭 project/global `APPEND_SYSTEM.md` 自动发现，工作目录
-  固定为 `/private/tmp`。headless 直接发送内存副本，tmux worker 则先重读并核对 SHA-256/字节数，
-  再从内存并发写入 stdin。报告、evaluator 和缓存同时绑定实际 user message、Pi 追加
-  cwd 后的 system prompt、runner contract、policy 与 normalizer，避免验证后路径替换或
-  run-local 路径改变请求身份。
-  translation v2 必须逐 item 回执，只报告可观察的语义差异、精确 source/target
-  evidence 和 `assessment_state`；模型不得填写 severity、确认状态或修订建议。宿主
-  校验证据 span、生成稳定 `R-NNN` 和 assessment identity，并把所有 observation
-  置为 `pending` 交主代理独立裁决。空 findings 只表示本次有界语义通道未观察到
-  问题，不表示整体译文 clean；纯语言质量必须走独立语言通道。代码 v1 仍生成旧式
-  severity-bearing findings。
-- 审核缓存按实际 bundle/result contract、policy、实际 system/user message、runner、
-  normalizer、provider/model/thinking
-  隔离；v1 缓存不会被解释成 v2。`--force` 可做一次不改写缓存的 fresh run，
-  `--no-cache` 可完全禁用缓存。
+  Facts；index 分别记录 `item_character_count`、`item_character_budget`、宿主
+  `artifact_bytes` 与实际 `payload_bytes`。完全相同的重复 canonical occurrence
+  共享同一 `revision_id`，选择保留首个 occurrence 并按 revision 去重。代码 diff
+  使用 legacy `tome4-review-v1`；混合 index 逐 bundle 记录实际 contract/channel。
+  实际审核由 Paseo REVIEWER（`translation_contextual_v1`／Codex）在独立契约下
+  承担，见 `docs/paseo-translation-context-review-v1-contract.md`。
+- `tools/pi-review` 已退役，是当前仓库 tombstone：任何调用都在产生任何副作用之前
+  非零退出并输出退役指引，不读取 bundle、不启动 provider。入口退役后保留的
+  `run_pi_review`／`run_tmux_review`／`run_tmux_file_review` 是残留 driver，已无
+  活跃调用者，不构成审核入口；真正被质量评估器、Facts study 与兼容消费者复用的是
+  低层原语（如 `pi_file_review._run_file_review_process`、
+  `pi_review._canonical_sha256`、`pi_review._stage_validated_json`），详见
+  `archive/README.md`。
 - `.artifacts/i18n/cache/review-inventory/` 是当前宿主 producer 生成的可信派生缓存，
   自哈希、header 和 slice proof 能阻断缺失、陈旧与随机损坏，但不是抵御同一工作区内
-  协调伪造 bundle+cache 的密码学证明。来自外部或不可信工作区的 bundle 不应直接执行，
+  协调伪造 bundle+cache 的密码学证明。来自外部或不可信工作区的 bundle 不应直接使用，
   应在当前 checkout 用 `tools/i18n review` / `tools/review_diff.py` 重新生成。
-- `tools/pi-remediate --bundle --review` 的项目流程只允许主代理已经确认并定级的
-  legacy finding；legacy v1 schema 本身没有可机器验证的 adjudication 字段，因此这
-  是调用前的主代理流程门槛，不是 runner 能从 v1 JSON 独立证明的事实。translation v2
-  assessment 是候选观察，不得直接进入 remediation；当前 runner 会显式拒绝，主代理
-  应先核验证据并人工应用有界修订。结构校验成功不等于事实确认。
-- 旧的 code/legacy v1 文件审核入口 `tools/pi-review-files` 已归档（见 `archive/`）；
-  code 审核统一由 Paseo Codex REVIEWER 承担。translation v2 的源码核验必须绑定既有
+- `tools/pi-remediate` 是 dormant 兼容消费者，不是活跃 dispatch。dormant 仅指不参与
+  活跃审核 dispatch：实际调用它仍会启动外部 Pi provider 子进程，外发必须按
+  `AGENTS.md`「外发边界」取得授权，它不像 tombstone 那样不启动 provider。它只消费
+  主代理已经确认并定级的既有 legacy assessment/finding artifact，生成修复 proposal；
+  legacy v1 schema 本身没有可机器验证的 adjudication 字段，因此确认与定级是
+  调用前的主代理流程门槛，不是工具能从 v1 JSON 独立证明的事实。translation v2
+  assessment 是候选观察，不得直接进入 remediation。结构校验成功不等于事实确认。
+- 旧的 code/legacy v1 文件审核入口 `tools/pi-review-files` 已归档到
+  `archive/tools/`；code 审核统一由 Paseo Codex REVIEWER 承担。translation v2
+  的源码核验必须绑定既有
   observation，仅返回 `supported/refuted/insufficient`，不得开放式新增 finding；在该
   claim-bound runner 实现前，主代理直接按固定源码版本核验。
 - `tools/pi-subagent` 把不超过 50 条的已校验 workset 和 proposal 模板注入一个
@@ -240,5 +225,6 @@ Pi 默认从现有环境、用户 Pi auth 或 macOS Keychain 的
 
 DLC 的 `i18n_list.lua`、`snapshot.jsonl`、merge、workset 和 proposal 虽然不含源码，
 仍是派生工作 artifact。它们位于已忽略的 `.artifacts/i18n/`，默认不得提交；翻译
-Pi 只能接收人工选定的 workset，审核 Pi 只能接收 `review` 生成的有界翻译 bundle
-或去敏后的公开代码 diff。
+Pi 只能接收人工选定的 workset；审核流程只经 Paseo REVIEWER
+（`translation_contextual_v1`／Codex）接收有界翻译 bundle 或去敏后的公开代码
+diff。
