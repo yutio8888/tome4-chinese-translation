@@ -455,8 +455,11 @@ official 与 dry-run sample identity 均携带 `translation_inputs_sha256`、
 - 第一轮试点默认以人工结构化 assessment 为准；历史 Pi finding-only 审核产物仅作既有
   辅助证据，退役的 blind runner 不得重新派发，新增审核一律走 Paseo
   `translation_contextual_v1`（见 `docs/paseo-translation-context-review-v1-contract.md`）；
-  因其不逐条声明 clean 结论，默认不替代其中一次完整 assessment，两次完整 assessment
-  仍须相互独立；
+  该契约要求按冻结顺序全量覆盖、无问题逐条返回固定值 `"OK"`，因此它**确实**逐条声明
+  clean，但其输出 schema 只有 `revision_key`／`observation`／`evidence` 三键且
+  `additionalProperties=false`，无法承载 §4.4 要求的 `context_sufficient`、错误代码、
+  span、profile 等完整 assessment 字段；在建立显式映射契约之前，它默认不替代其中一次
+  完整 assessment，两次完整 assessment 仍须相互独立；
 - 如以后让 Pi 承担完整语义 evaluator，必须使用 Paseo `translation_contextual_v1` 的
   fresh、有界、只读语境审核契约（见 `docs/paseo-translation-context-review-v1-contract.md`），
   并履行 provider、model、bundle 类型和条目数量授权；不得另建绕过 Paseo 路由的直连入口；

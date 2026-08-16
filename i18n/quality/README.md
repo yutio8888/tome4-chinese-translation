@@ -91,6 +91,47 @@
   `tools/i18nlib/quality_claims.py`；v2/v3/Facts 旧模块保留原导出名，通过 re-export
   调用公共实现，历史 contract/artifact 不变。
 
+## v3 校准 campaign 状态（2026-08-16）
+
+`stability-preregistration-v2.json` 及其冻结输入为
+**`inactive / deferred due to route incompatibility`**。文件字节不改动，
+contract 身份、`preregistration_id` 和全部冻结 hash 原样保留，不退役、
+不重解释。
+
+延期范围：v3 calibration 的 8 个传输槽、holdout clearance、正式 120 条、
+M5 人工裁决、M6 报告、Gold/Silver TM 投产。
+
+理由（按依赖顺序）：
+
+1. **路由不兼容**：prereg v2 冻结的 `prompt_sha256` 与四个 `bundle_sha256`
+   由已退役的 blind runner 生成；现行 Paseo `translation_contextual_v1`
+   使用完全不同的 envelope、短 prompt 与 `candidate_identity` 结构，
+   无法满足这些冻结输入。若启动，必须新建 preregistration 版本。
+2. **无映射契约**：语境结果（三键、`additionalProperties=false`）到 v3
+   assessment/finding/match/stability 尚无 fail-closed 映射，
+   `context_sufficient` 等字段无来源（见 `docs/translation-quality-phase-1.md`
+   §4.4 与 §7.2）。
+3. **第二 evaluator 未定**：语境契约的运行元组固定为
+   `pi/opencode-go/deepseek-v4-flash`，不允许回退 Codex；prereg v2 的
+   `reviewer-b`（`gpt-5.6-luna`）在现行路由下无法成立，且未取得译文 bundle
+   外发授权。
+4. **价值派生于未启动的下游**：8 槽测的是各 evaluator 的重复稳定性，其决策
+   意义在于该 evaluator 能否充当正式 120 条中的一份完整 assessment。该链条
+   每一环均处于 defer，校准结果当前无可兑现的下游。
+5. **无标注对照**：`quality-audit-003` 的 20 条全 `OK` 为单模型、无已知
+   正负标签的实战 smoke，不能作为召回、稳定性或一致性证据。
+
+解除条件：明确准备启动正式评价链时，须同时完成 —— 新 preregistration
+版本、语境结果到 v3 artifact 的 fail-closed 映射契约、第二独立 evaluator 的
+provider/model 选定与外发授权、人工先标注的分层对照集。四项缺一不启动。
+
+口径备注：`host_technical_derivation_agreement` 由宿主用同一函数从同一
+sample 的 `gate_signals` 重新派生（`tools/i18nlib/quality_v3.py`
+`_host_gate_derivation`），与模型输出无关，同版本代码下结构上恒为 `1.0`。
+它是实现回归断言，不是需要实验估计的模型指标；新建 preregistration 时应
+重新分类为“provider 调用前的宿主不变量”。此重分类**不减少** 8 槽预算 ——
+8 槽来自“两 evaluator × 两轮 × 两 shard”，与该指标无关。
+
 ## 身份约定
 
 质量条目的身份轴为 Pilot A `tu_uid`/`revision_uid`（跨文件移动/source-tag 拼写
