@@ -11,7 +11,9 @@
 无论采用哪种协作方式，模型输出都不是最终事实：机制以固定版本源码为准，修改以后文门禁和验收标准为准。
 
 Paseo 从任务明确采用该编排并建立 task ID 时视为激活，直到任务进入 `DONE`／`STOP`，
-或 ORCHESTRATOR 明确记录回退。旧项目 Skill（`$tome4-pi-review`、
+或 ORCHESTRATOR 明确回退并记录原因。回退只允许在尚未创建任何 child，或 `child_dispatches` 全部
+`archive_confirmed=true` 时发生；否则必须先 reconciliation，无法确认则进入 WAIT_USER，
+不得切回主代理继续任务。旧项目 Skill（`$tome4-pi-review`、
 `$tome4-pi-file-review`、`$tome4-pi-subagent`）已归档（见 `archive/`），不再参与任何审核
 路由；委托、实现、源码侦察和独立复审只通过 Paseo 的
 ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 角色完成。门禁和普通
@@ -19,7 +21,7 @@ ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 角色完成。门�
 
 ## Paseo 轻量编排（大型任务）
 
-当前已核验的 Paseo 0.4.0（CLI 或等价注入的 agent-scoped Paseo MCP 操作）用于需要多步实现和独立复审的大型任务；小型修改由主代理直接完成。任务级 orchestration_transport 在 STATE 中只允许 cli|mcp，两种传输必须保持相同的 role、purpose、workspace、lineage、歧义恢复和 reviewer 只读语义。用户明确要求 Paseo 时必须使用；否则 Paseo 不可用时可以回退主代理执行并说明。角色 prompt 见 .ai/roles/，轻量设计说明见 docs/paseo-orchestration-v2-contract.md。活跃角色或契约修改后运行 `python3 -B tools/paseo_contract_check.py`，只检查角色/purpose 约束和固定运行时身份回流。
+当前已核验的 Paseo 0.4.0（CLI 或等价注入的 agent-scoped Paseo MCP 操作）用于需要多步实现和独立复审的大型任务；小型修改由主代理直接完成。任务级 orchestration_transport 在 STATE 中只允许 cli|mcp，两种传输必须保持相同的 role、purpose、workspace、lineage、歧义恢复和 reviewer 只读语义。用户明确要求 Paseo 时必须使用；否则 Paseo 不可用时，只有尚未创建 child 或全部 child 已确认归档才可回退主代理执行并说明，仍有未确认归档 child 则进入 WAIT_USER。角色 prompt 见 .ai/roles/，轻量设计说明见 docs/paseo-orchestration-v2-contract.md。活跃角色或契约修改后运行 `python3 -B tools/paseo_contract_check.py`，只检查角色/purpose 约束和固定运行时身份回流。
 
 ### 最小规则
 
@@ -35,10 +37,11 @@ ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 角色完成。门�
 10. 每个 code review phase 冻结 SPEC 和一份独立路径的有界任务自身 diff，保持候选一致性。必要的 SPEC 修改一律视为新候选；candidate_ref 是 SPEC 与该 diff 的精确字节摘要。每次派发、返回和完成前都要重枚举当前实际变更路径集，路径集或配方改变即产生新候选。
 11. 只有实际 diff 重构了可能阻塞测试进程的扫描或解析循环，才在更广测试前要求进度不变量说明和短超时、有限输入的微型探针。挂起、持续增大输出或 OOM 时先终止并确认子进程退出，不得无界重跑。
 12. 任务前脏文件默认不交给 EXECUTOR；确需修改时，SPEC 必须逐文件允许，并先保存可恢复的起始 patch 或副本。review_only 的 DONE 只要求全部审核完成、findings 已裁决且无 deferred；implement 的 DONE 还要求无未解决 accepted finding 并通过最终验收。
+13. 每次 child dispatch 都是单次运行：到达终态后，ORCHESTRATOR 先收获并验证或判废输出，再立即通过当前 transport 归档；归档确认属于 dispatch 完成条件，确认前不得推进阶段、创建 successor 或恢复该 child。无效输出也先归档再 fresh retry；归档首次尝试和一次自动重试都要在调用前持久化递增 `archive_attempts_started`（最大 2），预算耗尽仍无法确认则记录 `archive_pending`／`last_error` 并进入 WAIT_USER。STATE 以 `child_dispatches` 保留不可变 role／purpose／agent_id 和可更新的生命周期／`archive_confirmed`／尝试计数；语境重试保留 candidate_identity 与冻结 input_path，但使用新的 dispatch_id／agent_id。DONE／STOP 前核对所有 child 均已归档。
 
 ### 工作流与记录
 
-实现任务采用：PLAN → IMPLEMENT → VALIDATE → REVIEW → ADJUDICATE →（FIX → VALIDATE → RE_REVIEW，最多五轮）→ FINAL_REVIEW → ADJUDICATE → FINAL_VALIDATE → DONE。仅审核任务采用：PLAN → REVIEW → ADJUDICATE → DONE。需要用户决定时记为 WAIT_USER；取消或无法继续时记为 STOP。
+实现任务采用：PLAN → IMPLEMENT → VALIDATE → REVIEW → ADJUDICATE →（FIX → VALIDATE → RE_REVIEW，最多五轮）→ FINAL_REVIEW → ADJUDICATE → FINAL_VALIDATE → DONE。仅审核任务采用：PLAN → REVIEW → ADJUDICATE → DONE。需要用户决定时记为 WAIT_USER；取消或无法继续时只有在全部 child 已确认归档后才记为 STOP，否则进入 WAIT_USER。
 
 启用 Paseo 时只需维护以下已忽略文件：
 
@@ -50,7 +53,7 @@ ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 角色完成。门�
 - .ai/task/<task_id>/STATE.json：当前状态、轮次、审核阶段、角色 ID、transport 和恢复点；
 - .ai/reviews/<task_id>/review-NN.json：任务身份、审核阶段、review contract、reviewer role、purpose、candidate_ref、finding 与裁决。
 
-每个新任务使用独立 task ID；旧的 flat STATE 和 review 记录保持原样。STATE 在阶段转换、contract 完成、agent ID 变化或出现错误时更新即可。不要求逐动作审计链、全工作树 hash 或 immutable artifact。基础设施错误可重试一次；若创建是否成功不明确，先按 `labels.task_id`、`labels.role` 和需要的 `labels.purpose` 查询，过滤先于基数判定：无匹配可重试一次，唯一匹配且身份正确才可复用，多个匹配或无法确认时进入 WAIT_USER。
+每个新任务使用独立 task ID；旧的 flat STATE 和 review 记录保持原样。STATE 在阶段转换、contract 完成、agent ID 变化、出现错误或 child 生命周期字段变化时更新；每次 `archive_attempts_started` 递增必须在外部归档调用前立即持久化。除此之外不要求逐动作审计链、全工作树 hash 或 immutable artifact。基础设施错误可重试一次；若创建是否成功不明确，先按 `labels.task_id`、`labels.role` 和需要的 `labels.purpose` 查询；过滤先于基数判定：先排除已记入 `child_dispatches` 的历史 ID，不得按远端状态排除未知结果。无匹配可重试一次；唯一匹配且身份正确时先将其完整身份和观测状态记入 `child_dispatches`，仅 active 可复用，archived 核验并记录归档确认且不得重试创建，其他状态按已记录 agent_id 进入 reconciliation；多个匹配或无法确认时进入 WAIT_USER。
 
 语境 REVIEWER 恢复只允许复用同一候选、同一 dispatch_id、同一 role/purpose 和同一创建尝试的唯一 agent。每次新的派发、重跑或无效输出重试都创建 fresh agent；不得用旧会话部分输出拼接新结果。其他角色需要更换 child 时，也必须保持同 role、同 purpose、同 workspace 和同 lineage，旧未验收输出作废。
 

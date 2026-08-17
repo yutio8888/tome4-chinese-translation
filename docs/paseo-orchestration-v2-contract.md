@@ -2,7 +2,7 @@
 
 > 状态：设计草案，运行时解耦版。
 >
-> 契约版本：`paseo-orchestration/2.11-draft`。
+> 契约版本：`paseo-orchestration/2.12-draft`。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文约束角色行为、任务边界和候选一致性，
 > 不固定具体运行时载体；创建参数按当前 Paseo 接口和本地可用配置提供。
@@ -75,7 +75,9 @@
 不能只凭标题或会话文本推断。
 
 Paseo 在任务明确采用本流程并建立 task ID 时激活，到 `DONE`／`STOP` 或明确记录回退
-时结束。已归档 Skill 产生的输出不得当作 Paseo contract 结果。
+时结束。明确回退只允许在尚未创建 child，或所有 `child_dispatches` 都已
+`archive_confirmed=true` 时发生；否则先 reconciliation，无法确认则进入 `WAIT_USER`，
+不得退出 Paseo 后由主代理继续。已归档 Skill 产生的输出不得当作 Paseo contract 结果。
 
 ---
 
@@ -122,7 +124,7 @@ pending/completed、不产生 finding，也不参与 `candidate_ref` 冻结。
 | `REVIEW` | 候选在 contract 完成前改变 | 丢弃旧输出、重新冻结候选并留在 `REVIEW`；范围需确认则 `WAIT_USER` |
 | `ADJUDICATE` | findings 已裁决且无 deferred | `DONE` |
 | 任意非终态 | 需要用户决定 | `WAIT_USER` |
-| 任意非终态 | 用户取消或无法继续 | `STOP` |
+| 任意非终态 | 用户取消或无法继续，且全部 child 已确认归档 | `STOP`；否则 `WAIT_USER` |
 
 `review_only` 的 DONE 表示 findings 已冻结，不表示没有 finding。
 
@@ -146,7 +148,7 @@ pending/completed、不产生 finding，也不参与 `candidate_ref` 冻结。
 | `FINAL_VALIDATE` | 所有 AC 与适用门禁通过 | `DONE` |
 | `FINAL_VALIDATE` | 失败且仍有剩余轮次 | `FIX` |
 | 任意非终态 | 需要用户决定 | `WAIT_USER` |
-| 任意非终态 | 用户取消或无法继续 | `STOP` |
+| 任意非终态 | 用户取消或无法继续，且全部 child 已确认归档 | `STOP`；否则 `WAIT_USER` |
 
 `cycle` 在每轮 FIX 开始时增加，最大值为 5。门禁失败与 reviewer finding 共用这五轮。
 当 `cycle >= 2` 时，客观验证失败可直接触发 FIX；普通 review finding 触发的后续 FIX
@@ -215,6 +217,7 @@ SPEC 必须写明任务模式、范围、允许修改文件、禁止扩展项和
     "purpose": null,
     "agent_id": null
   },
+  "child_dispatches": [],
   "open_accepted_findings": [],
   "deferred_findings": [],
   "review_records": {},
@@ -229,9 +232,22 @@ SPEC 必须写明任务模式、范围、允许修改文件、禁止扩展项和
 才写入。语境派发后，`candidate_identity`、`dispatch_id`、`input_path` 和
 `agent_id` 必须非空并与当前冻结候选一致；SCOUT 不产生审核记录。
 
-STATE 在阶段变化、contract 完成、agent ID 变化或出现错误时更新即可。
+STATE 在阶段变化、contract 完成、agent ID 变化、出现错误或 child 生命周期字段变化时
+更新；每次 `archive_attempts_started` 递增必须在外部归档调用前立即持久化。
 `orchestrator_agent_id` 在任务内不得改变。角色字段是当前契约身份；历史运行时元数据
 不参与新任务的有效性判断。
+
+`child_dispatches` 是紧凑的 dispatch 历史；每次创建 child 追加一条记录，记录保留至任务
+结束且不得删除。每条记录保存 `role`、`purpose`、`agent_id`、`status`、
+`archive_confirmed` 和 `archive_attempts_started`；语境 REVIEWER 的记录还必须保存不可变的
+`candidate_identity`、`dispatch_id` 和 `input_path`。child 创建成功后 `agent_id` 必须
+非空，且这些身份字段创建后不可修改。`status`、`archive_confirmed`、
+`archive_attempts_started`、`last_error` 和 `archived_at` 是生命周期字段，按传输结果在
+保留的原记录上更新。`archive_attempts_started` 初始为 0，最大为 2（首次尝试加一次自动
+重试）。`status` 至少区分 `active`、`stopping`、`terminal`、
+`archive_pending` 和 `archived`，而 `archive_confirmed` 只有在传输返回可核验的归档状态
+后才可为 true。当前 active dispatch 是角色当前字段所指向的、且状态为 `active` 的唯一
+记录；只有它可以在恢复时复用。
 
 当前 ORCHESTRATOR 进程必须有非空 `PASEO_AGENT_ID`。每个子 agent 都必须由当前 ORCHESTRATOR 进程直接创建，使用 agent-scoped 的 Paseo 创建
 接口或其 CLI 等价操作。创建载荷至少包含 workspace、task／role label 和初始 briefing。
@@ -242,8 +258,8 @@ Paseo daemon 必须以 `PASEO_AGENT_ID` 对应的 ORCHESTRATOR 建立 parent lin
 ### Review 记录
 
 每份 review 记录必须保存 `task_id`、`review_contract`、`review_phase`、`cycle`、
-`reviewer_role`、`purpose` 和完成状态。语境 review 还必须保存
-`candidate_identity`、`dispatch_id`、`input_path`、`agent_id`。每份 code review
+`reviewer_role`、`purpose`、`agent_id` 和完成状态。语境 review 还必须保存
+`candidate_identity`、`dispatch_id` 和 `input_path`。每份 code review
 记录还保存派发时的 `candidate_ref`；派发、返回和 contract 完成前的引用必须一致。
 
 记录只保存 finding、证据、裁决和结果，不要求复制完整 prompt、运行时选择或构造 lineage
@@ -268,14 +284,33 @@ CLI 和 MCP 是等价传输，不改变角色、purpose、workspace、lineage、
 | 发送 briefing | `paseo send` | `send_agent_prompt` |
 | 取消／归档 | `paseo stop`、`paseo archive` | `cancel_agent`、`archive_agent` |
 
-任务开始时记录实际使用的 `orchestration_transport`。恢复查询限定任务 workspace／cwd，
-按 `labels.task_id`、`labels.role` 和需要的 `labels.purpose` 精确过滤；语境载体还要
-按 `candidate_identity` 与 `dispatch_id` 过滤。过滤先于基数判定，必须先于 0／1／多匹配判定，
-截断或不完整的列表不得当作零匹配。
+任务开始时记录实际使用的 `orchestration_transport`。恢复分为三个有序路径，不得用同一
+过滤配方混合处理：
 
-创建结果不明确时，先按 task／role label 查询一次：无匹配可重试一次，唯一匹配且
-workspace、role、purpose、lineage 和候选身份正确则复用，多个匹配或无法确认时进入
-`WAIT_USER`，不得盲目创建第二个写入 agent。
+1. **创建结果不明确**：此时本地可能还没有 `agent_id` 或 active 历史。直接从传输状态面
+   按 workspace／cwd、`labels.task_id`、`labels.role`、需要的 `labels.purpose`、parent
+   lineage，以及语境的 `candidate_identity`／`dispatch_id` 过滤；过滤先于基数判定：
+   先排除已经存在于 `child_dispatches` 的历史 ID，但不得按远端 lifecycle status 排除尚未
+   记录的结果。无匹配可重试创建一次；唯一匹配且身份全部正确时，无论其状态如何，先把
+   完整不可变身份、观测到的 status 和初始生命周期字段追加到 `child_dispatches`。status 为
+   active 才更新当前 role 字段并复用；archived 必须先核验归档状态，再记为
+   `archive_confirmed=true`，且不得重试创建；terminal／stopping／archive_pending 记录则按
+   已保存的 `agent_id` 进入生命周期 reconciliation，不得复用。多个匹配、列表截断或
+   身份无法确认时进入 `WAIT_USER`。不得
+   因为本地尚无 active 记录就把远端唯一候选
+   当作零匹配，也不得盲目创建第二个写入 agent。
+2. **重启后的生命周期 reconciliation**：先按 `child_dispatches` 中的已知 `agent_id`
+   逐条核对所有 `archive_confirmed=false` 的记录。已到终态者先收获／判废输出，再按
+   `archive_attempts_started` 的剩余预算归档；`stopping` 者先确认终态再归档；
+   `archive_pending` 者按第七节只读核验。完成这些处理前
+   不进入 active 会话恢复，也不创建 successor。
+3. **当前 active dispatch 恢复**：生命周期 reconciliation 完成后，只按当前 role 字段
+   指向的唯一 `active` 记录及其 `agent_id` 恢复，并重新核验 role、purpose、workspace、
+   lineage 和候选绑定。`stopping`、`terminal`、`archive_pending`、已确认 `archived` 的
+   历史以及其他旧 dispatch 全部排除；即使 Paseo 列表仍显示它们，也不得制造多个匹配或
+   被恢复。
+
+所有需要基数判断的查询都遵守过滤先于基数判定；截断或不完整列表不得当作零匹配。
 
 创建或恢复后必须核验：
 
@@ -290,7 +325,51 @@ Paseo 状态面无法暴露可验证 parent lineage 时，停止该 child 并进
 
 ---
 
-## 七、角色执行与恢复
+## 七、托管 child 生命周期与即时归档
+
+每次 Paseo-managed child dispatch 都是生命周期意义上的单次运行。该规则适用于
+`EXECUTOR`、`REVIEWER`、`SENIOR_REVIEWER` 和 `SCOUT`；一个已完成的 child 不得被当作
+可继续交互的长期会话。
+
+child 的运行到达终态后，ORCHESTRATOR 必须先收获其输出并将结果验证为有效或无效，随后
+通过当前选定的传输立即归档该 child：CLI 使用 `paseo archive`，MCP 使用
+`archive_agent`。归档确认属于 dispatch 完成的一部分；在确认前，不得进行 phase
+transition，也不得为该任务创建 successor child。无效输出同样必须先归档，再创建 fresh
+retry child。普通 child 保持相同 role、purpose、workspace、parent lineage 和候选绑定；
+语境 REVIEWER 保持同一 `candidate_identity` 与冻结 `input_path` 字节，但必须分配新的
+`dispatch_id` 和 `agent_id`。
+
+归档保留 task／review 记录中的历史 `agent_id`。已归档 child 不得恢复，也不得发送
+follow-up prompt；后续 FIX 或 re-review dispatch 必须创建 fresh child，并重新核验所需的
+role、purpose、workspace、lineage 和 candidate binding。
+
+归档失败最多重试一次；首次尝试和一次自动重试合计最多两次。每次调用归档操作前，必须
+先持久化递增 `archive_attempts_started`，再调用 CLI／MCP；进程在递增后崩溃或调用结果
+不明确时，该次预算保守地视为已消耗，恢复时先只读查询实际归档状态。若未归档且计数为 1，
+才允许最后一次自动重试；计数达到 2 后仍无法确认归档状态，必须把记录标为
+`archive_pending`、保持 `archive_confirmed=false`，记录 `last_error`，保存
+`wait.reason=archive_pending` 与 `resume_state`，并进入 `WAIT_USER`，不得创建 replacement
+或推进 phase。恢复 `archive_pending` 时只读核验传输状态：若已归档则补写确认并继续；若
+仍未确认，不得再次归档、恢复该 child 或创建 successor。恢复不会重置或增加预算；状态
+仍不可确认时继续停留 `WAIT_USER`，直到用户解决外部归档状态并确认归档；在此前不得进入
+`STOP`。
+
+用户取消或需要停止仍在运行的 child 时，必须先执行 CLI 的 `paseo stop` 或 MCP 的
+`cancel_agent`，然后重新 inspect 并确认其状态已经是终态（包括明确的 cancelled／stopped
+终态）；未确认终态不得 harvest、archive、phase transition 或创建 replacement。stop／cancel
+请求或终态确认最多各做一次有界重试；重试后仍在运行、状态不可见或状态矛盾时，必须记录
+`last_error`，保持 `status=stopping`，进入 `WAIT_USER`，不把它当作已取消。若传输支持
+`force-archive`，也只有该操作自身返回可核验终态时才可使用，不能绕过终态确认。
+
+进入 `DONE` 或 `STOP` 前，ORCHESTRATOR 必须 reconciliation 所有仍被管理的 child，并
+归档其中任何尚未归档的 child；只有所有 child 都已得到可核验的归档确认后，才能进入
+`DONE` 或 `STOP`。进入 `WAIT_USER` 不得仅因等待用户而取消仍在运行的 child；但已经
+到达终态的 child 仍必须归档。CLI 与 MCP 保持完全等价的生命周期语义，
+本规则不绑定任何 runtime provider 或 model identity。
+
+---
+
+## 八、角色执行与恢复
 
 EXECUTOR 只修改 SPEC 允许的文件，不 commit、不 stage、不删除或弱化失败测试。完成后
 ORCHESTRATOR 检查实际 diff、越权文件和 focused tests。
@@ -306,11 +385,11 @@ finding 仍要求修复时，它只校准当轮意见，不扩展审核范围。
 SCOUT 只返回压缩源码上下文，不进入 review contract、不产生 finding；同一任务同时最多
 一个活动 SCOUT。
 
-运行时失败时，按基础设施重试规则处理；如需更换 child，必须创建同 role、同 purpose、同 workspace、同 lineage 和同候选绑定的新会话。旧未验收输出作废，不得与新输出混合。无需判断失败属于哪一种运行时或为其填写固定回退元组。
+运行时失败时，按基础设施重试规则处理；如需更换普通 child，必须创建同 role、同 purpose、同 workspace、同 lineage 和同候选绑定的新会话。语境 REVIEWER 更换时保留同一 `candidate_identity` 与冻结 `input_path` 字节，但使用新的 `dispatch_id` 和 `agent_id`。旧未验收输出作废，不得与新输出混合。无需判断失败属于哪一种运行时或为其填写固定回退元组。
 
 ---
 
-## 八、Review 输入与输出
+## 九、Review 输入与输出
 
 普通 code review 只接收有界 baseline→current 任务 diff、SPEC、验收标准和必要上下文。
 reviewer 只返回 findings；SENIOR_REVIEWER 只返回 assessment/findings；SCOUT 只返回
@@ -322,7 +401,7 @@ finding、裁决或建议修复。
 
 ---
 
-## 九、验证与完成
+## 十、验证与完成
 
 实现前记录：
 
@@ -342,7 +421,8 @@ finding、裁决或建议修复。
 - 所有 contract 已完成且 findings 已裁决；
 - implement 模式无 open accepted finding；
 - 最终 AC 与适用门禁通过；
-- 旧用户改动、历史 task 和 archive 未被改写。
+- 旧用户改动、历史 task 和 archive 未被改写；
+- DONE、STOP 或明确回退前，未创建任何 child，或全部 `child_dispatches` 已确认归档。
 
 仅改变运行时选择而未改变 role 行为、输入边界或输出 schema 时，不需要重新解释候选
 身份，也不要求为运行时选择变更启动行为复审；修改本契约的角色、权限、候选绑定或
@@ -350,7 +430,7 @@ finding、裁决或建议修复。
 
 ---
 
-## 十、外发与兼容
+## 十一、外发与兼容
 
 外发边界按角色和 purpose 授权：
 
@@ -369,7 +449,7 @@ finding、裁决或建议修复。
 
 ---
 
-## 十一、验收
+## 十二、验收
 
 本文交付至少满足：
 
@@ -385,8 +465,8 @@ finding、裁决或建议修复。
 
 ---
 
-## 十二、修订记录
+## 十三、修订记录
 
 | 版本 | 状态 | 内容 |
 | --- | --- | --- |
-| `2.11-draft` | 设计草案 | 移除活跃编排契约对具体运行时、mode、thinking、primary／backup／fallback 的绑定；保留 role、purpose、workspace、parent lineage、只读守卫、候选一致性、状态机和结果 schema。历史记录不重写。 |
+| `2.12-draft` | 设计草案 | 增加完成即归档、保留 dispatch 记录、不可变身份字段、持久化 `archive_attempts_started` 预算与原地更新生命周期字段；明确 `archive_pending` 在外部归档状态解决并确认前必须停留 `WAIT_USER`，拆分创建歧义发现、已知终态 reconciliation 与 active 恢复，明确语境重试保留候选／输入但更换 dispatch／agent，并要求 `DONE`／`STOP` 前完成全部归档。 |

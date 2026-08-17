@@ -18830,6 +18830,193 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertIn("不得与新输出混合", contract)
         self.assertIn("候选一致性", texts["agents"])
 
+    @staticmethod
+    def _normalized_markdown(text: str) -> str:
+        return " ".join(text.split())
+
+    def test_completed_children_are_archived_across_active_consumers(self) -> None:
+        texts = self._normative_texts()
+        for name in ("agents", "orchestrator", "contract"):
+            text = self._normalized_markdown(texts[name])
+            with self.subTest(document=name):
+                self.assertIn("child_dispatches", text)
+                self.assertIn("archive", text)
+                self.assertIn("archive_confirmed", text)
+                self.assertIn("archive_attempts_started", text)
+                self.assertIn("WAIT_USER", text)
+                self.assertIn("DONE", text)
+                self.assertIn("STOP", text)
+
+        orchestrator = self._normalized_markdown(texts["orchestrator"])
+        for marker in (
+            "先收获输出并验证为有效或判为无效",
+            "再立即使用当前 transport",
+            "只有 archive_confirmed=true 才算 dispatch 完成",
+            "或创建 successor",
+            "已归档 child 不得 resume 或 send follow-up",
+            "无效输出同样先归档",
+        ):
+            self.assertIn(marker, orchestrator)
+
+        ordered = {
+            "agents": (
+                "先收获并验证或判废输出",
+                "再立即通过当前 transport 归档",
+                "归档确认属于 dispatch 完成条件",
+                "确认前不得推进阶段",
+            ),
+            "orchestrator": (
+                "先收获输出并验证为有效或判为无效",
+                "再立即使用当前 transport",
+                "只有 archive_confirmed=true 才算 dispatch 完成",
+                "才可推进阶段",
+            ),
+            "contract": (
+                "先收获其输出并将结果验证为有效或无效",
+                "随后 通过当前选定的传输立即归档",
+                "归档确认属于 dispatch 完成的一部分",
+                "在确认前，不得进行 phase transition",
+            ),
+        }
+        for name, markers in ordered.items():
+            text = self._normalized_markdown(texts[name])
+            positions = [text.index(marker) for marker in markers]
+            with self.subTest(ordering=name):
+                self.assertEqual(positions, sorted(positions))
+
+    def test_child_lifecycle_ordering_and_archive_pending_recovery(self) -> None:
+        contract = self._normalized_markdown(self._normative_texts()["contract"])
+        harvest = contract.index("收获其输出并将结果验证为有效或无效")
+        archive = contract.index("paseo archive", harvest)
+        transition = contract.index("phase transition", archive)
+        successor = contract.index("successor child", transition)
+        self.assertLess(harvest, archive)
+        self.assertLess(archive, transition)
+        self.assertLess(transition, successor)
+
+        pending = contract.index("archive_pending", contract.index("归档失败最多重试一次"))
+        no_automatic_retry = contract.index("不得再次归档", pending)
+        no_replacement = contract.index("不得创建 replacement", pending)
+        self.assertLess(pending, no_automatic_retry)
+        self.assertLess(pending, no_replacement)
+        self.assertIn("继续停留 `WAIT_USER`", contract[pending:])
+        self.assertIn("不得进入 `STOP`", contract[pending:])
+
+    def test_recovery_separates_ambiguous_create_reconciliation_and_active_resume(self) -> None:
+        texts = self._normative_texts()
+        for name in ("orchestrator", "contract"):
+            text = self._normalized_markdown(texts[name])
+            ambiguous = text.index("创建结果不明确")
+            reconciliation = text.index("reconciliation", ambiguous)
+            active = text.index("active dispatch", reconciliation)
+            with self.subTest(document=name):
+                self.assertLess(ambiguous, reconciliation)
+                self.assertLess(reconciliation, active)
+                self.assertIn("过滤先于基数判定", text[ambiguous:reconciliation])
+                self.assertIn("按远端", text[ambiguous:reconciliation])
+                self.assertIn("尚未", text[ambiguous:reconciliation])
+                self.assertIn("记录的结果", text[ambiguous:reconciliation])
+                recorded = text.index("child_dispatches", ambiguous)
+                archived = text.index("archived", recorded)
+                terminal = text.index("terminal", recorded)
+                self.assertLess(recorded, archived)
+                self.assertLess(recorded, terminal)
+                self.assertLess(terminal, reconciliation)
+                self.assertIn("active", text[recorded:reconciliation])
+                self.assertIn("archive_confirmed=true", text[recorded:reconciliation])
+                self.assertIn("archive_pending", text[reconciliation:active])
+                self.assertIn("排除", text[active:])
+
+    def test_archive_retry_budget_is_durable_and_contextual_retry_is_fresh(self) -> None:
+        texts = self._normative_texts()
+        for name in ("agents", "orchestrator", "contract"):
+            text = self._normalized_markdown(texts[name])
+            with self.subTest(document=name):
+                self.assertIn("archive_attempts_started", text)
+                self.assertIn("最大", text)
+
+        contract = self._normalized_markdown(texts["contract"])
+        self.assertIn("每次调用归档操作前，必须 先持久化递增", contract)
+        self.assertIn("计数为 1， 才允许最后一次自动重试", contract)
+        self.assertIn("计数达到 2 后仍无法确认", contract)
+        self.assertIn("同一 `candidate_identity` 与冻结 `input_path` 字节", contract)
+        self.assertIn("新的 `dispatch_id` 和 `agent_id`", contract)
+
+        orchestrator = self._normalized_markdown(texts["orchestrator"])
+        self.assertIn("每次调用前持久化递增 archive_attempts_started", orchestrator)
+        self.assertIn("计数达到 2 后仍无法确认", orchestrator)
+        self.assertIn("保持同一 candidate_identity 与冻结 input_path 字节", orchestrator)
+        self.assertIn("新的 dispatch_id 和 agent_id", orchestrator)
+
+        agents = self._normalized_markdown(texts["agents"])
+        self.assertIn("每次 `archive_attempts_started` 递增必须在外部归档调用前立即持久化", agents)
+        self.assertIn("每次 `archive_attempts_started` 递增必须在外部归档调用前立即持久化", contract)
+
+    def test_fallback_requires_no_children_or_confirmed_archives(self) -> None:
+        texts = self._normative_texts()
+        for name in ("agents", "orchestrator", "contract"):
+            text = self._normalized_markdown(texts[name])
+            with self.subTest(document=name):
+                self.assertIn("明确回退", text)
+                self.assertIn("child_dispatches", text)
+                self.assertIn("archive_confirmed=true", text)
+                self.assertIn("WAIT_USER", text)
+                self.assertIn("不得", text)
+
+    def test_stop_transitions_require_archive_confirmation(self) -> None:
+        texts = self._normative_texts()
+        contract = self._normalized_markdown(texts["contract"])
+        self.assertGreaterEqual(contract.count("全部 child 已确认归档"), 2)
+        self.assertGreaterEqual(contract.count("否则 `WAIT_USER`"), 2)
+        agents = self._normalized_markdown(texts["agents"])
+        self.assertIn("全部 child 已确认归档后才记为 STOP", agents)
+        self.assertIn("否则进入 WAIT_USER", agents)
+        self.assertIn("全部 child 已确认归档才可回退主代理", agents)
+        orchestrator = self._normalized_markdown(texts["orchestrator"])
+        self.assertIn("全部 child 已确认归档才进入 STOP", orchestrator)
+        self.assertIn("否则进入 WAIT_USER", orchestrator)
+
+    def test_child_lifecycle_has_equivalent_cli_and_mcp_paths(self) -> None:
+        contract = self._normalized_markdown(self._normative_texts()["contract"])
+        for marker in (
+            "CLI 使用 `paseo archive`",
+            "MCP 使用 `archive_agent`",
+            "CLI 的 `paseo stop`",
+            "MCP 的 `cancel_agent`",
+            "force-archive",
+            "CLI 与 MCP 保持完全等价的生命周期语义",
+        ):
+            with self.subTest(marker=marker):
+                self.assertIn(marker, contract)
+
+    def test_dispatch_history_and_review_records_retain_agent_identity(self) -> None:
+        texts = self._normative_texts()
+        contract = self._normalized_markdown(texts["contract"])
+        orchestrator = self._normalized_markdown(texts["orchestrator"])
+        self.assertIn('"child_dispatches": []', contract)
+        self.assertIn('"child_dispatches": []', orchestrator)
+        for marker in (
+            "每次创建 child 追加一条记录",
+            "child 创建成功后 `agent_id` 必须 非空",
+            "这些身份字段创建后不可修改",
+            "生命周期字段，按传输结果在 保留的原记录上更新",
+            "archive_attempts_started",
+            "语境 REVIEWER 的记录还必须保存不可变的 `candidate_identity`、`dispatch_id` 和 `input_path`",
+            "每份 review 记录必须保存",
+            "`purpose`、`agent_id` 和完成状态",
+        ):
+            with self.subTest(marker=marker):
+                self.assertIn(marker, contract)
+
+    def test_plan_state_starts_with_empty_dispatch_history(self) -> None:
+        contract = self._normative_texts()["contract"]
+        state_section = contract[contract.index("### 最小 STATE") :]
+        json_start = state_section.index("```json") + len("```json\n")
+        json_end = state_section.index("\n```", json_start)
+        state = json.loads(state_section[json_start:json_end])
+        self.assertEqual(state["state"], "PLAN")
+        self.assertEqual(state["child_dispatches"], [])
+
 
 class PaseoTranslationContextReviewTests(unittest.TestCase):
     """Validate the role-only translation_contextual_v1 contract."""
@@ -18997,9 +19184,10 @@ class PaseoRuntimeNeutralContractTests(unittest.TestCase):
         contextual = (
             ROOT / "docs" / "paseo-translation-context-review-v1-contract.md"
         ).read_text(encoding="utf-8")
-        self.assertIn("paseo-orchestration/2.11-draft", orchestration)
+        self.assertIn("paseo-orchestration/2.12-draft", orchestration)
         self.assertIn("translation-contextual/1.5", contextual)
-        self.assertNotIn("paseo-orchestration/2.10-draft", orchestration)
+        self.assertNotIn("paseo-orchestration/2.11-draft", orchestration)
+        self.assertIn("| `2.12-draft` |", orchestration)
         self.assertNotIn("translation-contextual/1.4", contextual)
 
     def test_quality_and_archive_surfaces_are_not_moved(self) -> None:
