@@ -31,7 +31,7 @@ VALID = {
     "plan_rev": 0,
     "executor": {
         "provider": "pi",
-        "model_id": "opencode-go/deepseek-v4-flash",
+        "model_id": "command-code-goat/meta/muse-spark-1.2-contributor",
         "agent_id": None,
     },
     "reviewer": {

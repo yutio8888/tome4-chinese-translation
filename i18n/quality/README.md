@@ -111,10 +111,10 @@ M5 人工裁决、M6 报告、Gold/Silver TM 投产。
    assessment/finding/match/stability 尚无 fail-closed 映射，
    `context_sufficient` 等字段无来源（见 `docs/translation-quality-phase-1.md`
    §4.4 与 §7.2）。
-3. **第二 evaluator 未定**：语境契约的运行元组固定为
-   `pi/opencode-go/deepseek-v4-flash`，不允许回退 Codex；prereg v2 的
-   `reviewer-b`（`gpt-5.6-luna`）在现行路由下无法成立，且未取得译文 bundle
-   外发授权。
+3. **第二 evaluator 未定**：现行 Paseo `translation_contextual_v1` 只绑定
+   `role=reviewer`、`purpose=translation_contextual_v1` 与行为边界，不固定 DeepSeek
+   或其他 provider/model。prereg v2 历史冻结的 `reviewer-b`（`gpt-5.6-luna`）身份
+   本身不能为现行语境审核选择或授权第二 evaluator，且仍未取得译文 bundle 外发授权。
 4. **价值派生于未启动的下游**：8 槽测的是各 evaluator 的重复稳定性，其决策
    意义在于该 evaluator 能否充当正式 120 条中的一份完整 assessment。该链条
    每一环均处于 defer，校准结果当前无可兑现的下游。
