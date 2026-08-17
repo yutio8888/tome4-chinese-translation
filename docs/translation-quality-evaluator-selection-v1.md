@@ -15,7 +15,9 @@
 >
 > 协议版本：`evaluator-selection/1.0-draft`。正文中的维度、统计、生命周期与机器工件
 > 设计继续作为完整协议设计参考。任务开始前工作树中的 pre-Lite full implementation
-> artifacts 不因本状态而被采纳或激活，其去留等待单独裁决；本文件不调用 provider／候选
+> artifacts 不因本状态而被采纳或激活；其去留已单独裁定为丢弃，身份记录见
+> [`evaluator-selection-full-impl-discard-manifest.md`](./evaluator-selection-full-impl-discard-manifest.md)。
+> 本文件不调用 provider／候选
 > evaluator，不抽样真实 revision，不激活 `evaluator_selection_v1`，也不授予发布或外部传输授权。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)；编排契约：

@@ -563,6 +563,11 @@ code point 规则。验证必须 exact-field、拒绝未知字段并 fail closed
 其去留等待单独的 hash-preserving archive／cleanup 任务。未来实现必须先按独立决策归档原件，
 再创建 fresh Lite assets；不得通过修改或重命名旧文件把它们变成 Lite authority。
 
+> 后续裁定（2026-08-17）：该独立任务已执行，结论为**全部丢弃**，精确身份（路径／行数／
+> SHA-256）记录于
+> [`evaluator-selection-full-impl-discard-manifest.md`](evaluator-selection-full-impl-discard-manifest.md)。
+> 因此工作树中已不存在可复用的 pre-Lite 文件，本节的"不得原样复用"约束继续对任何未来重建生效。
+
 ## 七、Paseo 边界
 
 ### 7.1 唯一未来执行路径
