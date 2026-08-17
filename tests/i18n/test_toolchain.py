@@ -14380,12 +14380,87 @@ class QualitySampleOptionPreflightTests(unittest.TestCase):
 class QualitySamplingTests(unittest.TestCase):
     """Phase-1 doc section 10.3: deterministic stratified sampling."""
 
+    # Fields the sampling algorithm derives from the fixture inventory alone.
+    # Pinning a hash over these keeps the determinism guarantee without binding
+    # the test to the canonical translations.
+    ALGORITHM_FIELDS = (
+        "bucket_counts",
+        "bucket_targets",
+        "coverage",
+        "items",
+        "quality_contract",
+        "revisions",
+        "schema_version",
+        "seed",
+        "size",
+        "unmet_constraints",
+    )
+    # Provenance digests bind a sample to the corpus and inputs it was drawn
+    # from, so they move whenever those move.  They are checked by shape and,
+    # for sample_id, by derivation; see _assert_provenance_is_derived.
+    PROVENANCE_DIGEST_FIELDS = (
+        "inventory_sha256",
+        "items_sha256",
+        "manifest_sha256",
+        "policy_sha256",
+        "taxonomy_sha256",
+        "terminology_sha256",
+        "translation_inputs_sha256",
+    )
+
     @classmethod
     def setUpClass(cls) -> None:
         cls.manifest = load_manifest()
         cls.qpolicy = load_quality_policy(cls.manifest)
         cls.taxonomy = load_taxonomy(cls.manifest)
         cls.inventory = cls._make_fixture_inventory()
+
+    # Full key sets per contract.  The pinned projection above only covers the
+    # fields it enumerates, so without this a field added to the sample schema
+    # would be silently left unchecked.  Asserting the whole key set makes any
+    # schema change fail loudly and forces a decision about where it belongs.
+    EXPECTED_SAMPLE_KEYS = frozenset(
+        ALGORITHM_FIELDS + PROVENANCE_DIGEST_FIELDS + ("inventory_tool_version", "sample_id")
+    )
+    EXPECTED_DRY_RUN_KEYS = frozenset(
+        EXPECTED_SAMPLE_KEYS - {"bucket_counts", "bucket_targets"}
+    ) | {"official_sample_id"}
+
+    def _assert_known_schema(self, sample: dict[str, object]) -> None:
+        expected = (
+            self.EXPECTED_DRY_RUN_KEYS
+            if sample["quality_contract"] == quality_module.DRY_RUN_CONTRACT
+            else self.EXPECTED_SAMPLE_KEYS
+        )
+        self.assertEqual(set(sample), set(expected))
+
+    @classmethod
+    def _algorithm_digest(cls, sample: dict[str, object]) -> str:
+        projection = {
+            field: sample[field] for field in cls.ALGORITHM_FIELDS if field in sample
+        }
+        serialized = (
+            json.dumps(projection, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
+        ).encode("utf-8")
+        return hashlib.sha256(serialized).hexdigest()
+
+    def _assert_provenance_is_derived(self, sample: dict[str, object]) -> None:
+        """Assert provenance by derivation rather than by pinned value.
+
+        `translation_inputs_sha256` is part of the sample identity
+        (`quality.py::_SAMPLE_IDENTITY_FIELDS`), so `sample_id` is *designed* to
+        change whenever the canonical translations change.  Pinning a literal
+        here would make every translation batch fail this test and train
+        maintainers to update the constant reflexively, which is exactly how a
+        real sampling regression would slip through.
+        """
+        self.assertEqual(
+            sample["sample_id"],
+            quality_module._canonical_sha256(quality_module._sample_identity(sample)),
+        )
+        for field in self.PROVENANCE_DIGEST_FIELDS:
+            if field in sample:
+                self.assertRegex(str(sample[field]), r"^[0-9a-f]{64}$")
 
     @classmethod
     def _entry(
@@ -15038,17 +15113,12 @@ class QualitySamplingTests(unittest.TestCase):
         path = self._write_inventory(self.inventory)
         first = generate_sample(self.manifest, path)
         second = generate_sample(self.manifest, path)
-        serialized = (
-            json.dumps(first, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
-        ).encode("utf-8")
+        self._assert_known_schema(first)
         self.assertEqual(
-            hashlib.sha256(serialized).hexdigest(),
-            "39b5690e2402af2ca83d358a430f96dfc3dcf5d6f39767866daa639713771a7e",
+            self._algorithm_digest(first),
+            "ff8fa6e7c7963fdb15ca6b46626f09f4ce95c3dd3ca7d29802e4388c701c5479",
         )
-        self.assertEqual(
-            first["sample_id"],
-            "3b48cdabd748fa3560f16260c8f79ae1216cbe4bb8198e5c4df7eafb2957c8a4",
-        )
+        self._assert_provenance_is_derived(first)
         self.assertEqual(
             first["items_sha256"],
             quality_module._canonical_sha256(first["items"]),
@@ -15319,17 +15389,12 @@ class QualitySamplingTests(unittest.TestCase):
         first = generate_dry_run(self.manifest, path)
         second = generate_dry_run(self.manifest, path)
         self.assertIs(type(first), dict)
-        serialized = (
-            json.dumps(first, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
-        ).encode("utf-8")
+        self._assert_known_schema(first)
         self.assertEqual(
-            hashlib.sha256(serialized).hexdigest(),
-            "e703760dba4878083a197a085f8d8a9ba71dff614efea50c013b8c34fb7a71ea",
+            self._algorithm_digest(first),
+            "99b781a60d35d0a8107d54072f7642e324871e041494720455783bcfbf01fda1",
         )
-        self.assertEqual(
-            first["sample_id"],
-            "51c1b1ad0fcb43eabcce1f614ae61d6d6f02178caaa9e97663bce8aefe0826dd",
-        )
+        self._assert_provenance_is_derived(first)
         self.assertEqual(
             first["items_sha256"],
             quality_module._canonical_sha256(first["items"]),
@@ -15507,10 +15572,9 @@ class QualitySamplingTests(unittest.TestCase):
             original_entry_payloads,
         )
         self.assertTrue(all("_features" not in entry for entry in loaded_entries[0]))
-        self.assertEqual(
-            dry_run["official_sample_id"],
-            "3b48cdabd748fa3560f16260c8f79ae1216cbe4bb8198e5c4df7eafb2957c8a4",
-        )
+        official = generate_sample(self.manifest, path)
+        self.assertEqual(dry_run["official_sample_id"], official["sample_id"])
+        self._assert_provenance_is_derived(official)
 
     def test_dry_run_does_not_cache_mutable_inventory_between_calls(self) -> None:
         path = self._write_inventory(self.inventory)
