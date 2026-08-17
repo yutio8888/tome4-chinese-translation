@@ -15,6 +15,8 @@
   其中核心覆盖 3,348 条、DLC 覆盖 5,426 条。
 - Facts 因果研究：正式结论为 `do-not-promote-facts-channel`，不授予 holdout
   准入；详见 [`docs/translation-quality-facts-study-report-v1.md`](docs/translation-quality-facts-study-report-v1.md)。
+- 当前执行路线：基础设施阶段已经收束，近期主线为小批量、源码核验的译文质量优化；
+  阶段依赖、完成门槛和 deferred 边界见 [`docs/project-roadmap.md`](docs/project-roadmap.md)。
 
 ## 仓库结构
 
