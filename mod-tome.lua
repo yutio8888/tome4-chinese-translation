@@ -21476,7 +21476,7 @@ t("Glyph of Paralysis", "麻痹圣印", "talent name")
 t("glyph of paralysis", "麻痹圣印", "_t")
 t("Dazes for %d turns.", "眩晕 %d 回合。", "tformat")
 t([[You bind light in a glyph on the floor. All enemies walking over the glyph will be dazed for %d turns.
-		The glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.]], [[你用光能在地上刻画圣印。所有经过的目标会被眩晕 %d 回合。
+		The glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.]], [[你用光能在地上刻画圣印。所有经过的敌人会被眩晕 %d 回合。
 		圣印视为隐藏陷阱（%d 侦查强度，%d 点解除强度，基于魔法）持续 %d 回合。]], "tformat")
 t("Glyph of Repulsion", "冲击圣印", "talent name")
 t("glyph of repulsion", "冲击圣印", "_t")
@@ -21663,7 +21663,7 @@ section "mod-tome/data/talents/chronomancy/anomalies.lua"
 
 t("Anomaly Rearrange", "异常：重排", "talent name")
 t("@Source@ causes a spacetime hiccup.", "@Source@引起了时空轻微重排。", "_t")
-t("Teleports up to five targets in a radius of %d up to ten tiles away.", "将半径 %d 范围内最多五个单位传送到十格外。", "tformat")
+t("Teleports up to five targets in a radius of %d up to ten tiles away.", "将半径 %d 范围内最多五个单位传送到十格以内。", "tformat")
 t("Anomaly Teleport", "异常：传送", "talent name")
 t("@Source@ shifts reality.", "@Source@改变了现实。", "_t")
 t("Teleports up to five targets in a radius of %d up to %d tiles away.", "将半径 %d 范围内最多五个单位传送到 %d 格外。", "tformat")
@@ -23269,7 +23269,7 @@ t([[Toss out a grappling hook to a target within range %d.  If this strikes eith
 #YELLOW#已装填：%s#LAST#]], "tformat")
 t("Grappling Hook Mastery", "钩爪强化", "talent name")
 t("Your grappling hook deals %d%% unarmed damage when it hits, plus a further %0.2f physical and %0.2f nature damage over 4 turns.", "被钩爪击中的生物受到 %d%% 徒手伤害 ,在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。", "tformat")
-t("Your grappling hook is tipped with vicious, venomous barbs. Creatures struck by it will be hit for %d%% unarmed damage, bleed for %0.2f physical damage and be poisoned for %0.2f nature damage over 4 turns.", "你的钩爪上涂有毒素且装有尖刺，被击中的生物受到 %d%% 徒手伤害 ,在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。", "tformat")
+t("Your grappling hook is tipped with vicious, venomous barbs. Creatures struck by it will be hit for %d%% unarmed damage, bleed for %0.2f physical damage and be poisoned for %0.2f nature damage over 4 turns.", "你的钩爪上涂有毒素且装有尖刺，被击中的生物受到 %d%% 徒手伤害，在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。", "tformat")
 -- untranslated text
 --[==[
 t([[#YELLOW#%s (%s)#LAST#
@@ -28169,7 +28169,7 @@ t([[Insert a pair of gems into your golem, providing it with the gem bonuses and
 		Gem level usable: %d
 		Gem changing is done in the golem's inventory.]], [[在傀儡身上镶嵌 2 颗宝石，它可以得到宝石加成并改变近战攻击类型。你可以移除并镶嵌不同种类的宝石，移除行为不会破坏宝石。
 		可用宝石等级： %d
-		宝石会在傀儡的物品栏中改变成功。]], "tformat")
+		宝石的更换在傀儡的物品栏中进行。]], "tformat")
 t("Supercharge Golem", "超载傀儡", "talent name")
 t("Not enough space to supercharge!", "没有足够的空间来超载傀儡！", "logPlayer")
 t([[You activate a special mode of your golem, boosting its regeneration rate by %0.2f life per turn for %d turns.
@@ -31260,7 +31260,7 @@ t([[When a single blow deals more than 15%% of your total life, a torrent of blo
 		伤害受体质值加成。]], "tformat")
 t("Eternal Guard", "永恒格挡", "talent name")
 t("Know the Block talent", "掌握格挡技能", "_t")
-t("Your Block talent now lasts for 2 game turns and you can apply Counterstrike to any number of enemies.", "你的格挡技能持续时间 2 回合，并且你可以反击任意数量的敌人。", "tformat")
+t("Your Block talent now lasts for 2 game turns and you can apply Counterstrike to any number of enemies.", "你的格挡技能持续时间 2 游戏回合，并且你可以使任意数量的敌人进入可以反击的状态。", "tformat")
 t("Never Stop Running", "永不止步", "talent name")
 t("Know at least 20 levels of stamina-using talents", "掌握至少20级使用体力的技能", "_t")
 t("While this talent is active, you dig deep into your stamina reserves, allowing you to move without taking a turn. However, this costs 12 stamina for each tile that you cross.", "当技能激活时，你可以发掘出体能的极限，移动不会耗费回合，但是每移动一码需消耗 12 点体力。", "tformat")
@@ -31332,12 +31332,12 @@ t([[Surround yourself with a malevolent aura that stores damage you deal.
 		%s]], [[你被灾厄光环笼罩，存储你造成的伤害。
 		当你积累的某类伤害达到 %d 时，你会向一个随机的敌人发射一次强力的爆炸，造成 %d 的该类型伤害，爆炸半径 %d 码，并对其中的敌人附加以下的附加效果：
 		物理：降低 20%% 攻击、施法和精神速度
-		#GREEN#酸性 :#LAST#  每回合受到 %d 酸性伤害，持续 5 回合(总计 %d)。
-		#DARK_GREEN#枯萎 :#LAST#  每回合受到 %d 枯萎伤害，力量、体质和敏捷减少 %d ，持续 5 回合
-		#GREY#黑暗 :#LAST#  造成的所有伤害减少 %d%%，持续 5 回合。
-		#LIGHT_STEEL_BLUE#时空 :#LAST#  全局速度降低 %d%%，持续 5 回合。
-		#ORANGE#精神 :#LAST#  混乱 (强度 %d%% ) ，持续 5 回合。
-		同种效果最多每 10 回合触发一次。这不是普通的技能冷却。
+		#GREEN#酸性：#LAST#  每回合受到 %d 酸性伤害，持续 5 回合（总计 %d）。
+		#DARK_GREEN#枯萎：#LAST#  每回合受到 %d 枯萎伤害，力量、体质和敏捷减少 %d，持续 5 回合
+		#GREY#黑暗：#LAST#  造成的所有伤害减少 %d%%，持续 5 回合。
+		#LIGHT_STEEL_BLUE#时空：#LAST#  全局速度降低 %d%%，持续 5 回合。
+		#ORANGE#精神：#LAST#  混乱（强度 %d%%），持续 5 回合。
+		同种效果最多每 10 玩家回合触发一次。这不是普通的技能冷却。
 		伤害和效果强度受灵巧值加成，伤害阈值受等级加成，施加附加效果的强度由你的精神强度和法术强度的最高值决定。
 		%s]], "tformat")
 t("Secrets of Telos", "泰勒斯之秘", "talent name")
@@ -35123,7 +35123,7 @@ t("+Curse", "+诅咒", "_t")
 t("#Target# is no longer cursed.", "#Target#不再被诅咒", "_t")
 t("-Curse", "-诅咒", "_t")
 t("Curse of Impotence", "虚弱诅咒", "_t")
-t("The target is cursed, reducing all damage done by %d%%.", "目标被诅咒，所有伤害降低 %d%%。", "tformat")
+t("The target is cursed, reducing all damage done by %d%%.", "目标被诅咒，造成的所有伤害降低 %d%%。", "tformat")
 t("Curse of Defenselessness", "无防备诅咒", "_t")
 t("The target is cursed, reducing defence and all saves by %d.", "目标被诅咒，降低闪避和所有豁免 %d。", "tformat")
 t("darkness", "暗影", "effect subtype")
