@@ -12732,7 +12732,7 @@ t("Dagger of the Past", "往昔之匕", "entity name")
 t("rusted blade", "锈蚀的匕首", "_t")
 t("Legend has it this blade is one of a pair: twin blades forged in the earliest of days of the Wardens. To an untrained wielder it is less than perfect; to a Warden, it represents the opportunity to learn from the mistakes of the past.", "传说这把匕首是一对兵器中的一个；这对兵器打造于时空守卫最初的年代。对于未经训练的持有者来说它还不是那么完善；对于时空守卫来说，它表示着从以前的失误中吸取教训的机会。", "_t")
 t("Potentially it would go with a sword in the future.", "未来可能有把剑和它成套", "_t")
-t("10% chance to return the target to a much younger state", "10% 将目标退回到婴儿状态。", "_t")
+t("10% chance to return the target to a much younger state", "有 10% 几率使目标回到更年轻的状态。", "_t")
 t("Stone Gauntlets of Harkor'Zun", "哈克祖的岩石臂铠", "entity name")
 t("dark stone gauntlets", "黑曜石臂铠", "_t")
 t("Fashioned in ancient times by cultists of Harkor'Zun, these heavy granite gauntlets were designed to protect the wearer from the wrath of their dark master.", "古时候由哈克祖的狂热崇拜者制作，这副花岗岩臂铠被设计为可以保护穿戴者免于遭受黑暗之主的暴怒。", "_t")
@@ -21651,8 +21651,8 @@ t("Temporal Fugue Old", "时空神游（旧）", "talent name")
 t("Reverts the minds of all creatures in a radius %d cone to an infantile state, in effect confusing them (%d%% to act randomly) for %d turns.", "将半径 %d 格的锥形范围内所有生物的心智退回至婴儿状态，使其混乱（有 %d%% 的几率随机行动），持续 %d 回合。", "tformat")
 t("Ashes to Ashes", "尘归尘", "talent name")
 t([[You surround yourself with a radius %d distortion of time, which deals %0.2f stacking temporal damage over 3 turns to all other creatures.  The effect lasts %d turns.
-		The damage dealt will scale with your Spellpower.]], [[时空扭曲光环围绕着你（ %d 码半径范围），在 3 回合内对范围所有目标造成 %0.2f 累积时空伤害。效果持续 %d 回合。
-		受法术强度影响，伤害按比例加成。]], "tformat")
+		The damage dealt will scale with your Spellpower.]], [[以自身为中心产生半径 %d 格的时空扭曲，在 3 回合内对范围内所有其他生物造成 %0.2f 累积时空伤害。效果持续 %d 回合。
+		伤害受法术强度加成。]], "tformat")
 t("Body Reversion", "返老还童", "talent name")
 t([[You revert your body to a previous state, healing yourself for %0.2f life and removing %d physical status effects (both good and bad).
 		The amount of life healed will scale with your Spellpower.]], [[你的身体回复至先前状态，治疗自己 %0.2f 生命值并移除 %d 个物理状态（增益状态或负面状态）。
@@ -23671,14 +23671,14 @@ t([[This talent allows you to prepare up to %d different trap(s) of tier %d or l
 		Traps prepared this way are difficult to detect (%d detection 'power') and disarm (%d disarm 'power') based on your Cunning.  They gain %+d%% effectiveness, and can be deployed without breaking stealth %d%% of the time.
 		You are immune to the damage and negative effects of your traps, and traps may critically strike based on your physical crit chance.
 		Most traps last %d turns if not triggered, and refund 80%% of their stamina cost on expiration.
-		More designs may be discovered via disarming or learned from special instructors in the world.]], [[该技能允许你准备 %d 个不同的陷阱，最高材质等级为 %d。（使用该技能选择需要准备的陷阱。）
+		More designs may be discovered via disarming or learned from special instructors in the world.]], [[该技能允许你最多准备 %d 个不同的陷阱，最高等级为 %d。（使用该技能选择需要准备的陷阱。）
 		已知陷阱：
 %s
 
-		准备好的陷阱更难被发现、被解除（ %d 点侦测强度， %d 点解除强度，基于灵巧）。效果被强化 %+d%%，并有 %d%% 的几率使用不会打破潜行。
-		你免疫自己的陷阱，陷阱可以暴击（使用物理暴击率）。
-		大部分陷阱如果没有触发则会持续 %d 回合。当陷阱消失时，如果效果未触发，回复 80%% 体力消耗。
-		更多陷阱设计可通过解除陷阱发现，或向世界各地的特殊导师学习。]], "tformat")
+		准备好的陷阱更难被发现和解除（侦测强度 %d，解除强度 %d，基于灵巧）。它们的效果提高 %+d%%，且有 %d%% 几率在布设时不打破潜行。
+		你免疫自己陷阱的伤害和负面效果；陷阱可按你的物理暴击率造成暴击。
+		大多数陷阱未触发时持续 %d 回合；到期时返还 80%% 的体力消耗。
+		解除陷阱或向世界各地的特殊导师学习，可以发现更多设计。]], "tformat")
 t("Lure", "诱饵", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
 t("lure", "诱饵", "_t")
@@ -24335,8 +24335,8 @@ t([[Your awareness extends to your shadows.
 		你能清晰的感知到阴影的位置，同时还能感知到阴影视野 %d 码范围内的敌人。]], "tformat")
 t("Shadows Empathy", "阴影链接", "talent name")
 t([[You empathy with your shadows causes the line between you and your shadows to blur.
-		You lose %d%% light resistance, but gain %d%% darkness resistance and affinity. You also gain %0.2f%% all resistance for each shadow in your party.]], [[你与你的阴影链接，你和你的阴影之间的界限渐渐模糊。
-		你失去 %d%% 光系伤害抗性，获得 %d%% 暗影伤害抗性和伤害吸收。你的队伍里每有一个阴影，就获得 %0.2f%% 所有伤害抗性。]], "tformat")
+		You lose %d%% light resistance, but gain %d%% darkness resistance and affinity. You also gain %0.2f%% all resistance for each shadow in your party.]], [[你与阴影之间的共鸣，使彼此的界限逐渐模糊。
+		你的光系伤害抗性变化 %d%%，并获得 %d%% 暗影伤害抗性和伤害吸收。你的队伍里每有一个阴影，就获得 %0.2f%% 所有伤害抗性。]], "tformat")
 t("Shadow Transposition", "阴影换位", "talent name")
 t([[Observers find it difficult to tell you and your shadows apart.
 		You can target a shadow in radius %d and instantly trade places with it.
@@ -30749,9 +30749,8 @@ t("Spinning Backhand", "旋风打击", "talent name")
 t("@Source@ lashes out with a spinning backhand.", "@Source@冲出去打出旋风打击。", "_t")
 t([[Attack your foes in a frontal arc with a spinning backhand, doing %d%% damage. If you're not adjacent to the target, you'll step forward as you spin, gaining up to %d%% bonus damage, which increases the farther you move.
 		This attack will remove any grapples you're maintaining, and earn one combo point (or one combo point per attack that connects, if the talent level is 4 or greater).]], [[对你面前的敌人使用一次旋风打击，造成 %d%% 伤害。
-		如果你离目标较远，旋转时你会自动前行，根据移动距离增加至多 %d%% 伤害。
-		此次攻击会移除任何你正在维持的抓取效果并增加 1 点连击点。
-		在等级 4 或更高时，你每次连击均会获得 1 点连击点。]], "tformat")
+		如果你没有紧邻目标，旋转时会向前迈步；移动越远，伤害加成越高，最多增加 %d%%。
+		此次攻击会解除你正在维持的所有抓取，并获得 1 点连击点（技能等级达到 4 级后，每次命中的攻击各获得 1 点连击点）。]], "tformat")
 t("Axe Kick", "斧踢", "talent name")
 t("@Source@ raises their leg and snaps it downward in a devastating axe kick.", "@Source@抬起腿，迅速踢出毁灭性的斧踢。", "_t")
 t([[Deliver a devastating axe kick dealing %d%% damage. If the blow connects your target is brain damaged, causing all talents to fail for %d turns and earning 2 combo points.
@@ -35822,7 +35821,7 @@ t("Reduces all damage by %d.", "降低所有伤害 %d。", "tformat")
 t("Black Ice", "寒霜黑冰", "_t")
 t("Damage from necrotic minions increased by %d%%.", "来自死灵随从的伤害增加 %d%%。", "tformat")
 t("Corpselight", "阴燃鬼火", "_t")
-t("Sustains a corpselight of radius %d that deals %0.2f cold damage per turn.", "维持一个半径 %d 码的鬼火，每回合造成 %0.2f 寒冷伤害。", "tformat")
+t("Sustains a corpselight of radius %d that deals %0.2f cold damage per turn.", "维持一个半径 %d 格的鬼火，每回合造成 %0.2f 寒冷伤害。", "tformat")
 t("#Target# summons a corpselight!", "#Target#召唤阴燃鬼火!", "_t")
 t("Crepuscule", "黄昏降临", "_t")
 t("Bring the night!", "黑夜降临了！", "_t")
@@ -36380,7 +36379,7 @@ t("Thought Sense", "思维感知", "_t")
 t("Detect nearby thoughts, revealing creature locations in a radius of %d and boosting defense by %d.", "探测周围的思维，揭示半径 %d 以内的怪物位置，并增加你的闪避 %d 点。", "tformat")
 t("lightning", "闪电", "effect subtype")
 t("Static Charge", "静电充能", "_t")
-t("You have accumulated an electric charge. Your next melee hit does %d extra lightning damage.", "你使用了静电充能，下一次近战攻击将造成额外 %d 点闪电伤害。", "tformat")
+t("You have accumulated an electric charge. Your next melee hit does %d extra lightning damage.", "你积累了静电荷；下一次近战命中将额外造成 %d 点闪电伤害。", "tformat")
 t("Heart Started", "强心电击", "_t")
 t("A psionic charge is keeping your heart pumping, allowing you to survive to %+d health.", "一股灵能正维持你的心脏跳动，令你能在 %+d 生命下存活。", "tformat")
 t("physical", "物理", "effect subtype")
