@@ -20991,7 +20991,7 @@ t("The songs the Fallen sing.", "堕落者咏唱之歌", "_t")
 t("Darkside", "背光面", "talent type")
 t("Signature magics of the Fallen.  The sun shines for the guilty and the innocent alike.", "堕落者的特有魔法。 无论罪恶与否，阳光依然闪耀。", "_t")
 t("Dark Sun", "无光之阳", "talent type")
-t("Celestial combat techniques inspired by the dark places that are not empty.", "并非虚无的黑暗，亦能激发太阳般的作战技巧。", "_t")
+t("Celestial combat techniques inspired by the dark places that are not empty.", "并非虚无的黑暗，亦能激发天空系的作战技巧。", "_t")
 t("Sing of death and damnation.", "死亡和毁灭之歌", "_t")
 
 ------------------------------------------------
@@ -21996,8 +21996,8 @@ t("Induce Anomaly", "引导异常", "talent name")
 t([[Create an anomaly, reducing your Paradox by %d.  This spell will never produce a major anomaly.
 		Induced Anomalies may not be held by Twist Fate, nor do they cause held anomalies to trigger.  However upon learning Twist Fate you may target Induced Anomalies.
 		The Paradox reduction will increase with your Spellpower.]], [[引发一次异常，减少你的紊乱值 %d。这个技能不会引发重大异常。
-		引导异常不会被扭曲命运延后，也不会触发被延后的异变。
-		然而，当学会扭曲命运后，你可以选中引导异变作为目标。
+		引导异常不会被扭曲命运延后，也不会触发被延后的异常。
+		然而，当学会扭曲命运后，你可以选中引导异常作为目标。
 		紊乱值减少效果受法术强度加成。]], "tformat")
 t("Reality Smearing", "弥散现实", "talent name")
 t("#LIGHT_BLUE##Source# converts damage to paradox!", "#LIGHT_BLUE##Source#将伤害转化为紊乱值!", "delayedLogMessage")
@@ -23703,13 +23703,13 @@ t([[You prepare an additional trap (up to tier %d) with a special primed trigger
 %s
 
 A trap with a primed trigger gains %+d%% effectiveness (replacing the normal bonus from Trap Mastery) and won't break stealth %d%% of the time.
-#YELLOW#Current primed trap: %s#LAST#]], [[你额外准备一个陷阱（最高材质等级 %d ），带有特殊的控制机关，能在设置后立刻生效。 (使用该技能来选择需要准备的陷阱。)
+#YELLOW#Current primed trap: %s#LAST#]], [[你额外准备一个陷阱（最高材质等级 %d），带有特殊的控制机关，能在设置后立刻生效。（使用该技能来选择需要准备的陷阱。）
 		并非所有陷阱都能这样准备，每种陷阱只有一种改进方式。
-		已学会的引爆方式 :
-%s 
+		已学会的引爆方式：
+%s
 
-带有特殊启动机关的陷阱强度增加 %+d%% (取代陷阱专精的加成 ) ，有 %d%% 几率不破坏潜行。
-#YELLOW#当前选择的陷阱 ：%s#LAST#]], "tformat")
+带有特殊启动机关的陷阱强度增加 %+d%%（取代陷阱专精的加成），有 %d%% 几率不破坏潜行。
+#YELLOW#当前选择的陷阱：%s#LAST#]], "tformat")
 t("Springrazor Trap", "刀锋陷阱", "talent name")
 t("springrazor trap", "刀锋陷阱", "_t")
 t("Shrapnel (radius 2) deals %0.2f physical damage, reduces accuracy, armour, and defence by %d.", "刀片（范围2） %0.2f 物理伤害, 减少命中、护甲和闪避 %d。", "tformat")
@@ -25961,7 +25961,7 @@ t("Open a hole in space, summoning an animated blade for 15 turns.", "在空间�
 
 section "mod-tome/data/talents/misc/inscriptions.lua"
 
-t("- will only auto use when no saturation effect exists", "- 只会在没有纹身/符文饱和效果的时候使用。", "_t")
+t("- will only auto use when no saturation effect exists", "- 只会在没有饱和效果时自动使用。", "_t")
 t("\
 Its effects scale with your %s stat.", "\
 效果随你的%s属性提升。", "tformat")
@@ -26175,7 +26175,7 @@ t("inscriptions", "刻印", "talent category")
 t("infusions", "纹身", "talent type")
 t("Infusions are not class abilities, you must find them or learn them from other people.", "纹身不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
 t("runes", "符文", "talent type")
-t("Runes are not class abilities, you must find them or learn them from other people.", " 符文不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
+t("Runes are not class abilities, you must find them or learn them from other people.", "符文不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
 t("taints", "污印", "talent type")
 t("Taints are not class abilities, you must find them or learn them from other people.", " 污印不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
 t("Attack", "攻击", "talent name")
@@ -29180,7 +29180,7 @@ t([[Tighten the ethereal leash to some of your minions currently within your aur
 		Up to %d minions are affected.
 		When recalling a minion the spell tries to prioritize a spot where there is already a foe, to push it away.]], [[拉紧你与不死光环内的死灵随从的虚幻连接，将它们拉到你的身边，并与路径上的敌人换位。
 		最多召回 %d 个随从。
-		当你召回随从的时候，会优先选择周围有敌人的格子，将敌人推开。]], "tformat")
+		当你召回随从的时候，会优先选择已有敌人占据的格子，将其推开。]], "tformat")
 t("Suffer For Me", "替死鬼", "talent name")
 t("#GREY#(%d to minion: %s)#LAST#", "#GREY#(%d 到不死随从: %s)#LAST#", "tformat")
 t([[By creating an arcane link with your minion army you are able to redirect parts of any damage affecting you to them.
@@ -36618,7 +36618,7 @@ t([[A shroud of darkness seems to fall across your path.
 t("Shroud of Weakness", "虚弱屏障", "_t")
 t("The target is enveloped in a shroud that seems to hang upon it like a heavy burden. (Reduces damage dealt by %d%%).", "目标笼罩在一个虚弱屏障内。 ( 减少造成伤害 %d%%)。", "tformat")
 t("Shroud of Passing", "消逝之纱", "_t")
-t("The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all).", "笼罩在一个屏障内使目标身形逐渐消失 (+%d%% 全体抗性 )。", "tformat")
+t("The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all).", "笼罩在一个屏障内使目标身形逐渐消失（+%d%% 全体抗性）。", "tformat")
 t("Shroud of Death", "死亡屏障", "_t")
 t("Curse of Nightmares", "噩梦诅咒", "_t")
 t("Nightmares", "噩梦", "_t")
