@@ -3444,8 +3444,8 @@ t([[Your skin grows small spikes coated in dark blight.
 		When you are hit in melee the attacker starts bleeding black blood for 5 turns that deals %0.2f darkness damage each turn. This effect may only happen once per turn.
 		You are empowered by the sight of the black blood, for each bleeding creature in radius 2 you gain 5%% all resistances, limited to %d creatures.
 		The damage will scale with your Magic stat.]], [[ 你的皮肤生长出被黑暗和枯萎力量覆盖的尖刺。
-		每回合你第一次被近战攻击命中时，尖刺对攻击者造成伤害，对方将在 5 回合内每回合受到 %0.2f 黑暗流血伤害。
-		同时，你将被敌人的鲜血鼓舞， 2 格范围内每个流血生物（上限 %d ）为你提供 5%% 全体伤害抗性。
+		当你被近战攻击命中时，攻击者开始流出黑血，持续 5 回合，每回合造成 %0.2f 暗影伤害。该效果每回合只能触发一次。
+		同时，目睹黑血会使你受到强化：2 格范围内每个可见的流着黑血的生物，都使你获得 5%% 全部抗性，最多计 %d 个生物。
 		伤害随魔法属性提升。]], "tformat")
 t("Faceless", "无面", "talent name")
 t([[Your faceless visage is puzzling and emotionless, allowing you to more easily resist mind tricks.
