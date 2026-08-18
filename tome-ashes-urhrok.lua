@@ -830,7 +830,7 @@ t([[Each time you walk or move you gain a blight charge. You can store up to %d 
 		- deal %0.2f blight damage per charge to a target in range %d.
 		- create a shield absorbing %d per chage damage and refelcting half of it back to attackers.
 		The damage scales with your Spellpower.]], [[每次你行走、移动时，你获得一次枯萎充能。你最多能积累 %d 次充能。
-		当你取消该技能时，你会消耗这一充能，选择造成以下效果之一
+		当你取消该技能时，你会消耗这些充能，选择造成以下效果之一
 		- 每层充能恢复 %0.2f 活力值
 		- 对 %d 码内的一个目标，每层充能造成 %0.2f 枯萎伤害。
 		- 制造护盾，每层充能吸收 %d 伤害，并将一半的伤害返还给攻击者。
@@ -1604,7 +1604,7 @@ t("cut", "流血", "effect subtype")
 t("bleed", "流血", "effect subtype")
 t("darkness", "暗影", "effect subtype")
 t("Demonic Cut", "恶魔伤口", "_t")
-t("Huge demonic that bleeds, doing %0.2f darkness damage per turn. Anytime you hit it you get healed for %d.", "巨大的恶魔伤口每回合造成 %0.2f 暗影伤害。当伤害来源击中目标时将会恢复 %d 生命。", "tformat")
+t("Huge demonic that bleeds, doing %0.2f darkness damage per turn. Anytime you hit it you get healed for %d.", "巨大的恶魔伤口每回合造成 %0.2f 暗影伤害。当造成该伤口的来源以近战攻击命中目标时，将会恢复 %d 生命。", "tformat")
 t("#Target# starts to bleed darkness.", "#Target#流出黑暗的血液。", "_t")
 t("+Demonic Cut", "+恶魔伤口", "_t")
 t("#Target# stops bleeding darkness.", "#Target#的黑暗伤口愈合了。", "_t")
