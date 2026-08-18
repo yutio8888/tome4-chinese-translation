@@ -13489,7 +13489,7 @@ t("nature", "自然", "entity subtype")
 t("anti-magic trap", "反魔陷阱", "entity name")
 t("@Target@ is blasted with anti-magic forces!", "@Target@遭到反魔能量轰击！", "_t")
 t("dull area", "沉默区域", "_t")
-t("Deals up to %d manaburn damage, draining mana, vim, and positive and negative energies within radius %d.", "在%d码范围内造成%d法力燃烧伤害，吸取法力值，活力值和正负能量。", "tformat", {2,1})
+t("Deals up to %d manaburn damage, draining mana, vim, and positive and negative energies within radius %d.", "在%d码范围内最多造成%d点法力燃烧伤害，并吸取法力值、活力值以及正负能量。", "tformat", {2,1})
 t("dragon fire trap", "龙火陷阱", "entity name")
 t("A powerful blast of fire impacts @target@!", "一团大火球炸向@target@!", "_t")
 t("burned area", "被烧灼的地点", "_t")
@@ -21100,7 +21100,7 @@ t("#CRIMSON#%sstrikes twice with Wave of Power!#NORMAL#", "#CRIMSON#%s使用光�
 t([[In a pure display of power, you project a ranged melee attack, doing %d%% weapon damage.
 		If the target is outside of melee range, you have a chance to project a second attack against it for %d%% weapon damage.
 		The second strike chance (which increases with distance) is %0.1f%% at range 2 and %0.1f%% at the maximum range of %d.
-		The range will increase with your Strength.]], [[你用光明力量释放一次近程打击，造成 %d%% 武器伤害。
+		The range will increase with your Strength.]], [[你展现纯粹的力量，发动一次远程近战攻击，造成 %d%% 武器伤害。
 		如果目标在近战范围以外，有一定几率进行二次打击，造成 %d%% 武器伤害。
 		二次打击几率随距离增加，距离 2 时为 %0.1f%%，距离最大（ %d ）时几率为 %0.1f%%。
 		攻击距离受力量值加成。]], "tformat", {1,2,3,5,4})
@@ -21271,7 +21271,7 @@ t("Corona", "日冕", "talent name")
 t([[Each time one of your spells criticals, you project a bolt of light or shadow at up to %d targets within radius %d, doing %0.2f light damage or %0.2f darkness damage per bolt.
 		This effect costs 2 positive or 2 negative energy each time it's triggered, and will not activate if either your positive or negative energy is below 2.
 		The damage scales with your Spellpower.
-		This spell cannot crit.]], [[每当你的法术打出暴击时，你会对最多 %d 个目标发射一颗光球或暗影球，作用半径 %d，造成 %0.2f 光系或 %0.2f 暗影伤害。
+		This spell cannot crit.]], [[每当你的法术打出暴击时，你会向射程 %d 内最多 %d 个目标发射光明或暗影箭矢，每支造成 %0.2f 点光系伤害或 %0.2f 点暗影伤害。
 		每次触发该效果时消耗 2 点正能量或 2 点负能量；当你的正能量或负能量低于 2 时不会触发。
 		受法术强度影响，伤害按比例加成。
 		该法术造成的伤害不能暴击。]], "tformat", {2,1,3,4})
@@ -21537,7 +21537,7 @@ t([[Invokes a blast of shadows that deals %0.2f darkness damage, and leaves a ra
 		伤害受法术强度加成。]], "tformat")
 t("Twilight Surge", "光暗狂潮", "talent name")
 t([[A surge of twilight pulses from you, doing %0.2f light and %0.2f darkness damage to all others within radius %d.
-		The damage dealt will increase with your Spellpower.]], [[一股汹涌的光暗狂潮围绕着你，在你周围 %d 码半径内造成 %0.2f 光系和 %0.2f 暗影范围伤害。
+		The damage dealt will increase with your Spellpower.]], [[一股汹涌的光暗狂潮从你身上迸发，对半径 %d 码内除你之外的所有生物造成 %0.2f 点光系和 %0.2f 点暗影伤害。
 		伤害受法术强度加成。]], "tformat", {3,1,2})
 t("Starfall", "星沉地动", "talent name")
 t([[A star falls on a radius %d area, doing %0.2f darkness damage on impact and stunning all within the area for 4 turns.
@@ -22475,7 +22475,7 @@ t("Fold Fate", "命运折叠", "talent name")
 t([[When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f temporal damage to enemies in a radius of %d.
 		Affected targets may also have their physical and temporal resistance reduced by %d%% for %d turns.
 		This effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Gravity and Fold Warp by one turn.]], [[当你用武器折叠命中时，有 %d%% 几率在半径 %d 内造成额外 %0.2f 时空伤害。
-		受影响的生物可能减少 %d%% 物理和时空抗性 %d 回合。
+		受影响的生物的物理和时空抗性可能降低 %d%%，持续 %d 回合。
 		这个效果有冷却时间。当处于冷却状态被触发时，会减少重力折叠和扭曲折叠 1 回合冷却时间。]], "tformat", {1,3,2,4,5})
 t("Fold Warp", "扭曲折叠", "talent name")
 t([[When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f physical and %0.2f temporal (warp) damage to enemies in a radius of %d.
@@ -22507,9 +22507,9 @@ t([[You now have a %d%% chance to Fold Fate, Gravity, or Warp into your Weapon F
 		Fold Gravity: Deals %0.2f physical damage to enemies in a radius of %d.  Affected targets will be slowed (%d%%) for %d turns.
 		
 		Each Fold has an eight turn cooldown.  If an effect would be triggered while on cooldown it will reduce the cooldown of the other two Folds by one turn.]], [[你现在有 %d%% 几率将命运、重力或扭曲之力折叠进武器折叠伤害中。
-		命运：对半径 %d 内的敌人造成 %0.2f 时空伤害，并可能降低 %d%% 物理和时空抗性，持续 %d 回合。
-		扭曲：对半径 %d 内的敌人造成 %0.2f 物理 %0.2f 时空伤害，并可能震慑、致盲、混乱或者定身 %d 回合。
-		重力：对半径 %d 内的敌人造成 %0.2f 物理伤害，并减速（ %d%% ） %d 回合。
+		命运：对半径 %d 内的敌人造成 %0.2f 点时空伤害，并可能使其物理和时空抗性降低 %d%%，持续 %d 回合。
+		扭曲：对半径 %d 内的敌人造成 %0.2f 点物理伤害和 %0.2f 点时空伤害，并可能使其震慑、致盲、混乱或定身 %d 回合。
+		重力：对半径 %d 内的敌人造成 %0.2f 点物理伤害，并使其减速 %d%%，持续 %d 回合。
 		每项效果有 8 回合冷却时间。
 		当处于冷却中的效果被触发时，将减少另外两个效果的冷却 1 回合。]], "tformat", {1,3,2,4,5,8,6,7,9,11,10,12,13})
 t("Breach", "破防", "talent name")
@@ -22557,7 +22557,7 @@ t("Command Hounds: Breathe", "吐息命令", "talent name")
 t("You must have temporal hounds to use this talent.", "你必须拥有时空猎犬来使用该技能", "logPlayer")
 t([[Command your Temporal Hounds to breathe time, dealing %0.2f temporal damage and reducing the three highest stats of all targets in a radius %d cone.
 		Affected targets will have their stats reduced by %d for %d turns.  You are immune to the breath of your own hounds and your hounds are immune to stat damage from other hounds.
-		When you learn this talent, your hounds gain %d%% temporal damage affinity.]], [[命令猎犬们使用时光吐息，锥形范围半径 %d 范围内造成 %0.2f 时空伤害并减少目标三项最高属性值 %d 点 %d 回合。
+		When you learn this talent, your hounds gain %d%% temporal damage affinity.]], [[命令猎犬们使用时光吐息，对半径 %d 的锥形范围内所有目标造成 %0.2f 点时空伤害，并使其三项最高属性降低 %d 点，持续 %d 回合。
 		你免疫自己猎犬的吐息。自己的猎犬免疫其他猎犬的属性降低效果。
 		当你学会该技能后，猎犬们获得 %d%% 时空伤害吸收。]], "tformat", {2,1,3,4,5})
 
@@ -24722,7 +24722,7 @@ t([[You call upon the mighty claw of a cold drake and rake a wave of freezing co
 		Every level in Ice Claw additionally raises your Physical Save by 2.
 		Each point in cold drake talents also increases your cold resistance by 1%%.
 
-		This talent will also attack with your shield, if you have one equipped.]], [[你召唤强大的冰龙之爪，在半径 %d 范围内造成 %d%% 寒冰武器伤害，有一定几率冻结目标。
+		This talent will also attack with your shield, if you have one equipped.]], [[你召唤强大的冰龙之爪，在前方半径 %d 的锥形范围内造成 %d%% 寒冰武器伤害，并有一定几率冻结目标。
 		同时，该技能每等级增加物理豁免 2 点。
 		每一点冰龙系技能同时也能增加你的寒冷抗性 1%%。
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat", {2,1})
@@ -26079,7 +26079,7 @@ t([[Activate the rune to instantly dissipate the energy of your ailments, cleans
 		You use the dissipated energy to create a shield lasting %d turns and blocking %d damage per debuff cleansed (not counting cross-tier ones).
 		If there were only cross-tier effects to cleanse, no shield is created and the rune goes on a 75%% reduced cooldown.]], [[激活符文，立刻清除你身上的负面效果。
 		清除所有越层效果（失去平衡、法术冲击和思维封锁），以及物理、精神和魔法负面效果各 1 个。
-		每清除一个负面效果，你都会获得一个抵挡 %d 伤害的护盾，持续 %d 回合。
+		你会获得一个护盾，每清除一个非越层负面效果可抵挡 %d 点伤害，护盾持续 %d 回合。
 		如果只清除了越层效果，不会产生护盾且冷却时间减少75%%。]], "tformat", {2,1})
 t("absorb %d; cd %d", "吸收 %d; 冷却 %d", "tformat")
 t("Rune: Dissipation", "符文：消散", "talent name")
@@ -29532,7 +29532,7 @@ In addition, at all times you gain the ability to sense undead within %d tiles, 
 t("Intangibility", "无形无体", "talent name")
 t("While in your spectral form from Ghost Walk and for %d turns afterwards, damage and detrimental effects have a %d%% chance to harmlessly pass through you.", "当你使用游魂行走而进入游魂形态，以及之后的 %d 回合内，你有 %d%% 几率免疫对你造成的伤害和负面效果。", "tformat")
 t("Path to Beyond", "彼岸通道", "talent name")
-t("On using Ghost Walk - Return, you create a portal that summons %d spirits around you for %d turns. The spirits do very little damage, but taunt all enemies in radius 3 into attacking them.", "当你使用游魂行走-返回之后，你将会在身边产生一个传送门，在 %d 回合内召唤 %d 个鬼魂。鬼魂造成的伤害很低，但是它们会嘲讽半径 3 码内的敌人攻击它们。", "tformat", {2,1})
+t("On using Ghost Walk - Return, you create a portal that summons %d spirits around you for %d turns. The spirits do very little damage, but taunt all enemies in radius 3 into attacking them.", "使用游魂行走——返回时，你会创建一个传送门，并在身边召唤鬼魂；鬼魂会存在 %d 回合，共 %d 个。鬼魂造成的伤害很低，但会嘲讽半径 3 码内的所有敌人，迫使它们攻击鬼魂。", "tformat", {2,1})
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/spells.lua"
