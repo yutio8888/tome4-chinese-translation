@@ -23716,7 +23716,7 @@ t("springrazor trap", "刀锋陷阱", "_t")
 t("Shrapnel (radius 2) deals %0.2f physical damage, reduces accuracy, armour, and defence by %d.", "刀片（范围2） %0.2f 物理伤害, 减少命中、护甲和闪避 %d。", "tformat")
 t("\
 #YELLOW#Triggers immediately when placed.#LAST#", "\
-#YELLOW#放置后立刻引爆。#LAST#", "_t")
+#YELLOW#放置后立即触发。#LAST#", "_t")
 t([[Lay a pressure triggered trap that explodes into a radius 2 wave of razor sharp wire, doing %0.2f physical damage. Those struck by the wire may be shredded, reducing accuracy, armor and defence by %d.
 		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置压力感应陷阱，触发后爆炸形成半径 2 格的刀片风暴 ,造成 %0.2f 物理伤害。被击中的目标的命中、护甲和闪避下降 %d。
 		该陷阱可以被设置为直接激活，也可以被诱饵激活。 %s]], "tformat")
@@ -26302,7 +26302,7 @@ t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
 t("#Source# summons #Target#!", "#Source#召唤了#Target#!", "logCombat")
 t("Summon allies.", "召唤盟友。", "tformat")
 t("Rotting Disease", "腐烂疫病", "talent name")
-t("@Source@ performs a diseased attack against @target@.", "@Source@向@target@传播疾病。", "_t")
+t("@Source@ performs a diseased attack against @target@.", "@Source@向@target@发动了一次疫病攻击。", "_t")
 t("%s resists the disease!", "%s抵抗了疫病！", "logSeen")
 t("Hits the target doing %d%% damage. If the attack hits, the target is afflicted with a disease, inflicting %0.2f blight damage per turn for %d turns and reducing constitution by 10%% + 4.  The disease damage increases with your Strength, and the chance to apply it increases with your Physical Power.", "打击目标造成 %d%% 伤害，如果攻击命中可使目标感染疾病，造成每回合 %0.2f 枯萎伤害持续 %d 回合并降低其体质 10%%+4 。疾病伤害受力量加成，附加几率受物理强度加成。", "tformat")
 t("Decrepitude Disease", "衰老疫病", "talent name")
@@ -31601,13 +31601,13 @@ t("#GREY#As you turn into a powerful undead you feel your body violently rejecti
 t("Lichform", "巫妖转生", "_t")
 t([[#GREY#You feel your life slip away, only to be replaced by pure arcane forces! Your flesh starts to rot on your bones, and your eyes fall apart as you are reborn into a Lich!
 
-#{italic}#You may now choose to customize the appearance of your Lich, this can not be changed afterwards.]], [[#GREY#你觉得你的生命在不断流失，取而代之的是纯粹的奥术力量！肉体腐烂的只剩骨头，眼睛也崩落不见，你终于转生成了巫妖！
+#{italic}#You may now choose to customize the appearance of your Lich, this can not be changed afterwards.]], [[#GREY#你感到生命逐渐流逝，取而代之的是纯粹的奥术力量！你的血肉开始腐烂，骨骼逐渐裸露，双眼也随之崩解；你重生为一名巫妖！
 
-#{italic}#你可以现在选择自定义你巫妖的外形，这一外形之后无法改变。]], "_t")
+#{italic}#你现在可以自定义巫妖的外观，之后将无法更改。]], "_t")
 t("Lich Cosmetic Options", "巫妖外观选项", "_t")
 t("Customize Appearance", "自定义外形", "_t")
 t("Use Default", "使用默认", "_t")
-t("#GREY#You feel your life slip away, only to be replaced by pure arcane forces! Your flesh starts to rot on your bones, and your eyes fall apart as you are reborn into a Lich!", "#GREY#你觉得你的生命在不断流失，取而代之的是纯粹的奥术力量！肉体腐烂的只剩骨头，眼睛也崩落不见，你终于转生成了巫妖！", "_t")
+t("#GREY#You feel your life slip away, only to be replaced by pure arcane forces! Your flesh starts to rot on your bones, and your eyes fall apart as you are reborn into a Lich!", "#GREY#你感到生命逐渐流逝，取而代之的是纯粹的奥术力量！你的血肉开始腐烂，骨骼逐渐裸露，双眼也随之崩解；你重生为一名巫妖！", "_t")
 t("#DARK_ORCHID#You are on your way to Lichdom. #{bold}#Your next death will finish the ritual.#{normal}#", "#DARK_ORCHID#你的巫妖转生之路已经到了最后的阶段。 #{bold}#你下一次死亡的时候将会完成转化仪式。#{normal}#", "say")
 t([[This is your true goal and the purpose of all necromancy - to become a powerful and everliving Lich!
 		Once learnt, the next time you are killed, the arcane forces you unleash will be able to rebuild your body into the desired Lichform.
@@ -38532,7 +38532,7 @@ t("Farportal: Charred Scar", "远距传送门：灼烧之痕", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to the west, to Charred Scar. A fiery volcano that can only spell death...]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
 这道门似乎通向西方，通向灼烧之痕——一个能带来死亡的活火山…… ]], "_t")
-t("#VIOLET#You enter the swirling portal while it fades away and in the blink of an eye you set foot on hellish land, the heart of a volcano...", "#VIOLET#你进入了快要消逝的传送漩涡，一眨眼的功夫你便到了危险之地——一座火山的腹地……", "_t")
+t("#VIOLET#You enter the swirling portal while it fades away and in the blink of an eye you set foot on hellish land, the heart of a volcano...", "#VIOLET#你进入了正在消逝的传送漩涡，转瞬间便踏上了地狱般的土地——一座火山的腹地……", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/eruan/npcs.lua"
@@ -38775,7 +38775,7 @@ t("Farportal: Iron Throne", "远古传送门：钢铁王座", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to the Iron Throne in the West.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
  这道门似乎通向西方的钢铁王座。]], "_t")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the slopes of the Iron Throne, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经到了钢铁王座附近，此间毫无传送门的痕迹……", "_t")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the slopes of the Iron Throne, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，转瞬间便踏上钢铁王座的山坡，此间已不见传送门的踪迹……", "_t")
 t("Farportal: the Void", "远古传送门：虚空", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to an unknown place, seemingly out of this world. You dare not use it.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
@@ -38823,9 +38823,10 @@ t("ominous, dark runed staff", "不祥的，黑暗符文的法杖", "_t")
 t([[Carved with runes of power, this staff seems to have been made long ago, yet it bears no signs of tarnish.
 Light around it seems to dim and you can feel its tremendous power simply by touching it.
 The Sorcerers seem to have awakened its power.
-#{italic}#"And lo they came to Amakthel himself, and thousands were killed in the assault on his throne, and three of the Godslayers were broken beneath his feet. But Falion with his dying breath pierced the great god on his knee with the icy sword Arkil, and seeing his opportunity Caldizar, leader of the Godslayers, advanced with the Staff of Absorption and struck a terrifying blow against Amakthel. So fell the greatest of the gods by the hands of his own children, and his face was forced into the dust."#{normal}#]], [[杖身铭刻着符文，这根法杖似乎是很久以前制造的，虽然它毫无侵蚀的痕迹。它周围的光线会变的暗淡，当你触摸它时可以感受到惊人的魔力。
-巫师们似乎唤醒了它的力量。
-#{italic}#“终于他们直面了阿马克泰尔，并且上千人牺牲在了他的王座前，其中有三名弑神者倒在了他的脚下。但是法利恩用他死前最后的力量将冰刃阿奇尔插入了真神的膝盖，看到这一机会，凯尔帝勒，弑神者的首领，立刻上前并用吸能法杖对阿马克泰尔造成了致命的一击。这样真神最终倒在了他自己的儿女手中，他的脸被压入了尘土之中。”#{normal}#]], "_t")
+#{italic}#"And lo they came to Amakthel himself, and thousands were killed in the assault on his throne, and three of the Godslayers were broken beneath his feet. But Falion with his dying breath pierced the great god on his knee with the icy sword Arkil, and seeing his opportunity Caldizar, leader of the Godslayers, advanced with the Staff of Absorption and struck a terrifying blow against Amakthel. So fell the greatest of the gods by the hands of his own children, and his face was forced into the dust."#{normal}#]], [[杖身铭刻着强大的符文。这根法杖似乎铸造于久远年代，却毫无锈蚀的痕迹。
+它周围的光线仿佛也随之暗淡；仅仅触摸它，你就能感受到其中蕴藏的惊人力量。
+巫师们似乎已经唤醒了它的力量。
+#{italic}#“于是，他们来到阿马克泰尔本人面前。数千人在进攻他的王座时丧生，三名弑神者被碾碎在他脚下。然而，法利恩在临终之际用冰剑阿奇尔刺中了伟大神祇的膝盖。弑神者首领凯尔帝勒抓住机会，手持吸能法杖上前，对阿马克泰尔发动了骇人的一击。众神中最强大的存在就这样倒在自己的儿女手中，脸也被压进尘土。”#{normal}#]], "_t")
 t("absorb the essence (ignoring resistance and bypassing most defenses) of a target in range %d, draining 30%% of its life and increasing your own damage by 30%% for %d turns", "吸收%d码范围内某个目标生物的精华（无视抗性和大部分防御技能），直接吸收30%%生命值，并增加自身伤害加成30%%，持续%d回合", "tformat")
 t("was absorbed by the %s held by %s", "被%s（由%s持有）吸能致死", "tformat")
 t("#Source# brandishes %s %s, absorbing the essence of #target#!", "#Source#挥舞着%s%s, 吸收了#target#的精华!", "logCombat")
@@ -39407,7 +39408,7 @@ t("Farportal: the Far East", "远古传送门：至远东大陆", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to the Far East, a continent of which only rumours are known...]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
 这道门似乎通向远东大陆，一块传说中的大陆……]], "_t")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on an unfamiliar cave, with no trace of the portal...", "#VIOLET#你进入了传送门，一眨眼功夫你发现你到达了一个陌生的洞穴，此间毫无传送门的痕迹……", "_t")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on an unfamiliar cave, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫便来到一个陌生的洞穴，此间已不见传送门的踪迹……", "_t")
 t("Iron Throne Edict", "钢铁王座布告", "entity name")
 t("\"AN EDICT TO ALL CITIZENS OF THE IRON THRONE. LONG MAY OUR EMPIRE ENDURE\"", "“致钢铁王座全体市民的布告。愿帝国长存。”", "_t")
 
