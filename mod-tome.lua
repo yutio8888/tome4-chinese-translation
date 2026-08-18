@@ -9368,7 +9368,7 @@ t([[Detects traps.
 Removes (25%% chance) up to three stuns, pins, or dazes each turn%s]], [[侦查陷阱。
 25%%几率解除至多3个震慑、定身或眩晕效果。%s]], "tformat")
 t(" (cooling down: %d turns)", " (冷却时间：%d 回合)", "tformat")
-t("#CRIMSON#%s twitches, alerting %s that a hidden trap is nearby.", "#CRIMSON#%s扭动着，警告%s旁边有隐藏的陷阱", "logSeen")
+t("#CRIMSON#%s twitches, alerting %s that a hidden trap is nearby.", "#CRIMSON#%s扭动着，警告%s旁边有隐藏的陷阱。", "logSeen")
 t("%s shrugs off some effects!", "%s摆脱了某些负面效果！", "logSeen")
 t("#LIGHT_RED#You feel uneasy carrying %s.", "#LIGHT_RED#你感到携带%s令你不快。", "logPlayer")
 t("Psionic Fury", "灵能之怒", "entity name")
@@ -41244,7 +41244,7 @@ t("Eyal", "埃亚尔", "_t")
 ------------------------------------------------
 section "mod-tome/dialogs/ArenaFinish.lua"
 
-t("#LIGHT_GREEN#No high scores. This should not happen.", "#LIGHT_GREEN#没有最高分。这不应该发生", "_t")
+t("#LIGHT_GREEN#No high scores. This should not happen.", "#LIGHT_GREEN#没有最高分。这不应该发生。", "_t")
 t([[%s (%s %s %s)
  Score %d[%s]) - Wave: %d]], [[%s (%s %s %s)
  分数 %d[%s]) - 波次：%d]], "tformat")
@@ -43181,7 +43181,7 @@ t("History says little of the ancient race of yeeks that lived in halfling terri
 t("Dwarves are naturally a inquisitive people, but do not enjoy such inquisition turned on them. Most live secretive lives in their closed-off city, the Iron Throne.", "矮人们好管闲事，但他们自己却不喜欢别人来打搅，他们大多数居住在秘密的地下城市——钢铁王座之中。", "init.lua load_tips")
 t("Alchemists can bind gems to armour to grant them magical effects, to protect the wearer or improve their powers. Some commercial alchemists can imbue gems into jewellery.", "炼金术士可以把宝石中的魔法效果附到盔甲上，保护他们或者提高他们的能力。一些高级炼金师还能把宝石制成首饰。", "init.lua load_tips")
 t("The Spellblaze was followed by the Age of Dusk, when disease was rife and civilisation collapsed. Necromancers and fell sorcerers took advantage of the chaos to spread their vile deeds.", "魔法大爆炸之后到来的是黄昏纪，那是一个疫病肆虐文明溃败的时代。死灵法师和一些堕落法师利用当时的混乱来散播他们的恶行。", "init.lua load_tips")
-t("After the Spellblaze came the Spellhunt, when the normal people rose against the arrogance of the mages and hunted them down like wolves. Some survived and went into hiding, but many innocents were killed.", "在魔法大爆炸之后便是猎魔行动，人们对造成这场灾难的法师们赶尽杀绝就像猎杀牲口一样。一些幸存的法师得以躲藏起来，但更多无辜的人被杀害。", "init.lua load_tips")
+t("After the Spellblaze came the Spellhunt, when the normal people rose against the arrogance of the mages and hunted them down like wolves. Some survived and went into hiding, but many innocents were killed.", "魔法大爆炸之后，猎魔行动随之而来。普通民众奋起反抗法师的傲慢，像猎狼一样追杀他们。一些法师幸存下来并躲藏起来，但也有许多无辜者遇害。", "init.lua load_tips")
 t("Demons are thought to come from another world, brought to Eyal by magical forces. Some are highly intelligent and follow their own ambitions. To what end, none know.", "人们认为恶魔是被魔法力量从其他世界带到埃亚尔大陆的。有些恶魔具有高度的智慧并有他们自己的野心，没人知道他们的真正目的。", "init.lua load_tips")
 t("The art of potion making fell into decline after the Spellhunt, and only a rare few now master the gift.", "猎魔行动之后炼金技术严重衰退，现在只有极少数人掌握这种技能了。", "init.lua load_tips")
 t("It's said that some rare powers can save your soul from the edge of death.", "传说有些罕见的力量可以在死亡边缘拯救你的灵魂。", "init.lua load_tips")
