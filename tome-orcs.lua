@@ -5107,7 +5107,7 @@ t([[You deliberately fire a missing shot at a target, startling it for 3 turns.
 		If the target fails a mental save it instinctively recoils two steps back.
 		The next shot that hits the startled creature will deal %d%% more damage.]], [[你故意朝目标射出偏离的子弹，令其惊讶 3 回合。
 		若目标未通过精神豁免检定，将后退 2 步。
-		惊讶状态下的目标在下一次攻击中将受到额外 %d%% 伤害。]], "tformat")
+		下一发命中惊讶状态目标的射击将造成额外 %d%% 伤害。]], "tformat")
 t("#Source# fires a retaliatory shot at #Target#!", "#Source#朝#Target#发射反击射击！", "logCombat")
 t("Evasive Shots", "闪避射击", "talent name")
 t([[Using small engines to augment your reflexes you are able to automatically fire retaliatory shots at your foes doing %d%% weapon damage.
@@ -5176,7 +5176,7 @@ t([[Sweep your shockstaff, striking all enemies in a frontal arc for %d%% weapon
 		If you have a shield, you will also strike them.
 		While active this replaces your normal melee attack.]], [[挥舞电击棒，攻击正面所有敌人，造成 %d%% 闪电武器伤害，降低他们所造成的伤害 %d%%，持续 3 回合。
 		如果你装备了盾牌，你还会附加一次盾击。
-		这一技能可以取代你的普通攻击]], "tformat")
+		该效果持续期间会取代你的普通近战攻击。]], "tformat")
 t("Boltgun", "爆矢枪", "talent name")
 t("You require heavy ammunition to fire your boltgun.", "你需要重装武器弹药才能使用爆矢枪。", "logPlayer")
 t([[You replace your steamgun and attack with a multi-barreled bolt launcher, firing deadly chemical-infused flechettes.
@@ -5198,7 +5198,7 @@ t([[Your advanced training unlocks specialised techniques, triggering an effect 
 The damage dealt by the fire wall and the chance to apply effects will increase with your Steampower.]], [[你通过特殊训练解锁了新的重装武器战技。你现在可以消耗 1 重装武器弹药，根据你现在装备的重装武器类型，触发以下的效果。
 #AQUAMARINE#喷火器#LAST#: 用喷火器扫射地面，造成 %d%% 火焰蒸汽枪伤害，并产生一道长度为 7 的火墙，持续 5 回合。在火墙内的敌人会受到 %0.2f 的火焰伤害，且它们的火焰伤害抗性会降低 %d%%，持续 2 回合。
 #AQUAMARINE#电击棒#LAST#: 用电棒猛击目标，在 3 码范围内产生冲击波，造成 %d%% 闪电电击棒伤害，并震慑敌人 %d 回合。
-#AQUAMARINE#爆矢枪#LAST#: 发射 %d 枚爆炸弹药，造成 %d%% 酸性武器伤害，并缴械敌人 5 回合。
+#AQUAMARINE#爆矢枪#LAST#: 发射 %d 枚爆矢枪子弹，造成 %d%% 酸性蒸汽枪伤害，并缴械目标 5 回合。
 火墙造成的伤害，以及造成异常状态的几率，受蒸汽强度加成。]], "tformat")
 t("Automated Defenses", "自动防御系统", "talent name")
 t([[You augment your shield with your heavy weapon technology, causing an effect when you Block with a heavy weapon equipped.
@@ -5585,21 +5585,21 @@ t("%s is knocked back!", "%s 被击退。", "logSeen")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t([[You fire a special solid shot with your steamgun(s) at a target for %d%% physical weapon damage.
 		The weight of the shot will knock the target back %d tiles.
-		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪发射特殊固体打击目标造成 %d%% 武器伤害。
-　　击退目标 %d 码。
-   这个技能不使用弹药 ]], "tformat")
+		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪发射特殊实心弹，造成 %d%% 物理武器伤害。
+		弹头的重量会将目标击退 %d 格。
+		这个技能本身就是弹药，因此不消耗弹药。]], "tformat")
 t("Impaler Shell", "穿刺弹", "talent name")
 t([[You fire a special stake shot with your steamgun(s) at a target for %d%% physical weapon damage.
 		The weight of the shot will knock the target back 2 tiles and they will be pinned for %d turns.
-		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪发射特殊弹药打击目标造成 %d%% 武器伤害。
-击退目标 2 码并定身 %d 回合。
-   这个技能不使用弹药 ]], "tformat")
+		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪发射特殊尖桩弹，造成 %d%% 物理武器伤害。
+		弹头的重量会将目标击退 2 格，并使其定身 %d 回合。
+		这个技能本身就是弹药，因此不消耗弹药。]], "tformat")
 t("Saw Shell", "链锯弹", "talent name")
 t([[You fire a special steamsaw shot with your steamgun(s) at a target for %d%% physical weapon damage.
 		The steamsaw will cut into the target, doing %d%% physical weapon damage over 5 turns.
-		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪发射特殊弹药打击目标造成 %d%% 武器伤害。
-链锯会切割目标，在 5 回合内造成 %d%% 武器伤害 
-这个技能不使用弹药 ]], "tformat")
+		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪发射特殊蒸汽链锯弹，造成 %d%% 物理武器伤害。
+		蒸汽链锯会切入目标，在 5 回合内造成 %d%% 物理武器伤害。
+		这个技能本身就是弹药，因此不消耗弹药。]], "tformat")
 t("Hook Shell", "钩链弹", "talent name")
 t("%s resists the pull!", "%s抵抗了拖动!", "logSeen")
 t([[You fire a special hook shot with your steamgun(s) at a target creature or location.
@@ -5934,7 +5934,7 @@ t([[Upgrade the target turret, granting it %d%% increased maximum life and enhan
 		Steamgun: Gains a second steamgun dealing %d%% damage, and every 3 turns will fire a rocket dealing %d%% steamgun damage as fire in radius 2.
 		Flame: Increases damage by %d%%, range by %d, and every 3 turns will project a vortex of superheated air that drags targets within range %d towards the turret as well as dealing normal flamethrower damage.
 		Medic: Increases healing on affected targets by %d%%, and has a %d%% chance to cleanse a negative effect each turn.]], [[升级目标炮台，使其获得 %d%% 最大生命值，并根据其类型，获得以下的特殊能力：
-		蒸汽枪炮台: 获得第二把造成 %d%% 伤害的蒸汽枪，每 3 回合会发射一枚火箭，在 2 码半径内造成 %d%% 蒸汽枪伤害。
+		蒸汽枪炮台: 获得第二把造成 %d%% 伤害的蒸汽枪，每 3 回合会发射一枚火箭，在 2 码半径内造成 %d%% 火焰蒸汽枪伤害。
 		火焰炮台: 增加 %d%% 伤害和 %d 射程，每过 3 回合，会在 %d 码范围内喷出灼热蒸汽的漩涡，将所有敌人拉向炮台，并造成标准喷火伤害。
 		医疗炮台: 增加对目标的治疗量 %d%%，且每回合有 %d%% 几率清除目标身上一个负面效果。]], "tformat")
 t("Hunker Down", "炮台守卫", "talent name")
