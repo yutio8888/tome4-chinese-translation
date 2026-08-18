@@ -21078,7 +21078,7 @@ t([[Conjure a surge of celestial power through your circles. Any foe standing wi
 		Residual power from the surge will emanate from your circles for %d turns; each circle you stand in will increase your celestial resources.
 		Shifting Shadows: +1 negative.
 		Sanctity: +1 postive.
-		Warding: +0.5 postive and negative.]], [[从你的法阵中召唤天体能量的潮涌。任何站在你的法阵中的敌人将会受到 %d%% 的减速效果，持续 %d 回合，并受到 %d 光系和 %d 暗影伤害。
+		Warding: +0.5 postive and negative.]], [[从你的法阵中召唤天体能量的潮涌。任何站在你的法阵中的敌人将在 %d 回合内受到 %d%% 的减速效果，并受到 %d 光系和 %d 暗影伤害。
 		能量潮涌的残余力量将会从你的法阵中发出。在 %d 回合内，你每站在一个法阵中，都会获得额外的天体能量恢复。
 		暗影之阵：获得 +1 负能量。
 		圣洁之阵：获得 +1 正能量。
@@ -24401,7 +24401,7 @@ section "mod-tome/data/talents/cursed/punishments.lua"
 t("Reproach", "意念惩罚", "talent name")
 t([[Utter a terrible curse against any who dare approach you, inflicting %d mind damage to targets in radius %d. Each affected target (ordered at random) takes %d%% less damage than the last, and has a 25%% chance of suffering Brainlock.
 
-The damage increases with your Mindpower.]], [[你对任何敢于靠近的敌人释放可怕的诅咒，对 %d 码半径内的目标造成 %d 精神伤害。攻击可能会指向多个目标，但是每个目标会减少 %d%% 伤害，攻击 25%% 概率附加思维封锁效果。
+The damage increases with your Mindpower.]], [[你对任何敢于靠近的敌人释放可怕的诅咒，对 %d 码半径内的目标造成 %d 精神伤害。受影响目标的结算顺序随机；从第二个目标起，每个目标受到的伤害都比前一个减少 %d%%，且每个目标都有 25%% 几率遭受思维封锁。
 
 伤害受精神强度加成。]], "tformat", {2,1,3})
 t("Hateful Whisper", "憎恨私语", "talent name")
@@ -25103,7 +25103,7 @@ t([[Unleash raw, chaotic elemental damage upon your enemy.
 		Levels in Prismatic Slash increase your Physical and Mental attack speeds by %d%%.
 
 		This talent will also attack with your shield, if you have one equipped.]], [[向你的敌人释放原始的混乱元素攻击。
-		你有几率使用致盲之沙、缴械酸雾、冻结之息、眩晕闪电或震慑之焰攻击敌人，造成 %d%% 点对应伤害类型的武器伤害。
+		你会等概率地从致盲之沙、缴械酸雾、可冻结并减速的寒冰、眩晕闪电或震慑之焰中选择一种攻击敌人，造成 %d%% 对应伤害类型的武器伤害。
 		此外，无论你的元素攻击是否命中敌人你都会对 %d 码半径范围内的生物造成 %0.2f 伤害。
 		五灵挥击还会使你的物理和精神攻击速度提升 %d%%。
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat", {1,3,2,4})
@@ -25323,7 +25323,7 @@ t("Reabsorb", "强化吸收", "talent name")
 t([[You randomly merge with an adjacent bloated ooze, granting you 40%% all damage resistance for %d turns.
 		This process releases a burst of antimagic, dealing %0.1f Manaburn damage in radius %d.
 		This talent allows you to restore %0.1f Equilibrium per turn while Mitosis is active.
-		The damage, duration and Equilibrium restoration increase with your Mindpower.]], [[ 你随机吸收一个紧靠你的浮肿软泥怪，获得 40%% 对全部伤害的抗性，持续 %d 个回合。
+		The damage, duration and Equilibrium restoration increase with your Mindpower.]], [[你随机吸收一个紧靠你的浮肿软泥怪，获得 40%% 对全部伤害的抗性，持续 %d 个回合。
 		同时你会释放一股反魔能量，在 %d 半径内造成 %0.1f 点法力燃烧伤害。
 		如果有丝分裂技能开启，每回合你将回复 %0.1f 点失衡值。
 		伤害、持续时间和失衡值回复受精神强度加成。]], "tformat", {1,3,2,4})
@@ -27450,7 +27450,7 @@ t([[Mentally focus electricity into a ball of plasma and hurl it at the target.
 		The plasma will explode on impact, dealing %0.1f Lightning damage within radius %d.
 		This talent will apply cross tier Brainlock.
 		The damage will increase with your Mindpower.]], [[念力电离空气，将等离子体球掷向敌人。
-		等离子球会因碰撞而爆炸，造成半径为 %d 的 %0.1f 闪电伤害。
+		等离子球命中后爆炸，对半径 %d 内的敌人造成 %0.1f 点闪电伤害。
 		此技能将施加越层效果“思维封锁”。
 		伤害受精神强度加成。]], "tformat", {2,1})
 t("Iron Will", "钢铁意志", "talent name")
@@ -30171,8 +30171,8 @@ section "mod-tome/data/talents/techniques/battle-tactics.lua"
 t("Greater Weapon Focus", "专注打击", "talent name")
 t([[Concentrate on your blows; for %d turns, each strike you land on your target in melee range has a %d%% chance to trigger another, similar strike.
 		This works for all blows, even those from other talents and from shield bashes, but you can gain no more than one extra blow with each weapon during a turn.
-		The chance increases with your Dexterity.]], [[专注于你的攻击，每次攻击有 %d%% 概率对目标造成一次类似的附加伤害，持续 %d 回合。
-		此效果对所有攻击，甚至是技能攻击或盾击都有效果，但每回合每把武器最多获得一次额外攻击。
+		The chance increases with your Dexterity.]], [[专注于你的攻击；每次近战命中目标都有 %d%% 几率触发一次类似的额外攻击，持续 %d 回合。
+		此效果适用于所有近战攻击，包括其他技能和盾击，但每回合每把武器最多触发一次额外攻击。
 		概率受敏捷值加成。]], "tformat", {2,1})
 t("Step Up", "步步为营", "talent name")
 t([[After killing a foe, you have a %d%% chance to gain a 1000%% movement speed bonus for 1 game turn.
