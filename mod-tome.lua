@@ -22406,9 +22406,10 @@ t("Extension", "法术延展", "talent name")
 t([[Extends the duration of the selected chronomancy spell by %d%%.
 		Each spell can only be spellbound in one way at a time.
 		
-		Current Extended Spell: %s]], [[强化指定的时空系法术，延展指定法术的持续时间 %d%%。
-		每个技能只能附加一种时空增效系效果。				
-		当前强化法术： %s ]], "tformat")
+		Current Extended Spell: %s]], [[将选定时空法术的持续时间延长 %d%%。
+		每个法术同时只能通过一种方式获得时空增效。
+
+		当前延展法术：%s]], "tformat")
 t("Matrix", "矩阵加速", "talent name")
 t([[Reduces the cooldown of the selected chronomancy spell by %d%%.
 		Each spell can only be spellbound in one way at a time.
@@ -23472,7 +23473,7 @@ t([[Enhance your Deadly Poison with a stoning agent.  Whenever you apply Deadly 
 section "mod-tome/data/talents/cunning/scoundrel.lua"
 
 t("Lacerating Strikes", "撕裂挥击", "talent name")
-t("Your melee and ranged attacks have a %d%% chance to shred enemies inflicting an additional 100%% of the damage dealt as a bleed over 4 turns.", "你的近战和远程攻击有 %d%% 的几率撕裂敌人，使其在 4 回合内受到 100%% 的额外流血伤害。", "tformat")
+t("Your melee and ranged attacks have a %d%% chance to shred enemies inflicting an additional 100%% of the damage dealt as a bleed over 4 turns.", "你的近战和远程攻击有 %d%% 的几率撕裂敌人，使其在 4 回合内受到相当于本次伤害 100%% 的额外流血伤害。", "tformat")
 t("Scoundrel's Strategies", "街霸战术", "talent name")
 t("#CRIMSON#%s's %s is disrupted by %s wounds!#LAST#", "#CRIMSON#%s 的 %s 被 %s 的伤口干扰了！#LAST#", "logSeen")
 t([[Your melee and ranged attacks inflict distracting wounds that reduce the target’s critical strike multiplier by %d%% for 5 turns. 
@@ -25268,8 +25269,8 @@ t([[For %d turns, you lay down mucus where you walk or stand.
 t("Acid Splash", "酸液飞溅", "talent name")
 t([[Calling upon nature, you cause the ground to erupt in an radius %d acidic explosion, dealing %0.1f acid damage to all creatures and creating mucus in the area.
 		Any Mucus Oozes you have active will, if in line of sight, instantly spit slime (at reduced power) at one of the targets hit by the splash.
-		The damage increases with your Mindpower.]], [[你召唤大自然的力量，将 %d 码半径范围内的地面转化为酸性淤泥区，对所有目标造成 %0.1f 酸性伤害并在区域内制造粘液。
-		同时如果你有任何粘液软泥怪存在，则会向视线内的某个被淤泥击中的随机目标释放史莱姆喷吐（较低强度）。
+		The damage increases with your Mindpower.]], [[你召唤大自然的力量，引发半径 %d 格的酸液爆炸，对所有目标造成 %0.1f 酸性伤害，并在区域内制造粘液。
+		你现有的粘液软泥怪若在视线内，会立即以较低威力向一个被酸液飞溅命中的目标喷吐粘液。
 		伤害受精神强度加成。]], "tformat")
 t("Slime Spit", "史莱姆喷吐", "talent name")
 t([[Spits a beam of slime doing %0.2f slime damage.
@@ -35047,7 +35048,7 @@ t("corruption", "堕落", "effect subtype")
 t("Sensing (Vim)", "感知（活力）", "_t")
 t("Improves senses, allowing the detection of unseen things.", "强化感知，可以看到看不到的东西", "_t")
 t("Sense Hidden", "感知隐藏生物", "_t")
-t("Improves/gives the ability to see invisible and stealthed creatures (power %d).", "提升/获得侦测隐形或者潜行生物（ %d 侦测等级）", "tformat")
+t("Improves/gives the ability to see invisible and stealthed creatures (power %d).", "提升或获得侦测隐形和潜行生物的能力（侦测强度 %d）。", "tformat")
 t("#Target#'s eyes tingle.", "#Target#的眼睛感到刺痛。", "_t")
 t("#Target#'s eyes tingle no more.", "#Target#的眼睛不再刺痛。", "_t")
 t("bane", "灾祸", "effect subtype")
@@ -35180,7 +35181,7 @@ t("+Corrosive Worm", "+腐蚀蠕虫", "_t")
 t("#Target# is free from the corrosive worm.", "#Target#摆脱了腐蚀蠕虫。", "_t")
 t("-Corrosive Worm", "-腐蚀蠕虫", "_t")
 t("Wraithform", "鬼魂形态", "_t")
-t("Turn into a wraith, passing through walls (but not natural obstacles), granting %d defense and %d armour.", "进入鬼魂形态，可以穿墙（但不能穿过其他障碍物），获得 %d 闪避和 %d 护甲值。", "tformat")
+t("Turn into a wraith, passing through walls (but not natural obstacles), granting %d defense and %d armour.", "进入鬼魂形态，可以穿墙（但不能穿过天然障碍），并获得 %d 闪避和 %d 护甲值。", "tformat")
 t("#Target# turns into a wraith.", "#Target#变成了幽灵。", "_t")
 t("+Wraithform", "+鬼魂形态", "_t")
 t("#Target# returns to normal.", "#Target#恢复了正常。", "_t")
@@ -35529,7 +35530,7 @@ t("The creature is blighted by light reducing saves by %d, critical power by %d%
 t("+Lightblight", "+光之枯萎", "_t")
 t("-Lightblight", "-光之枯萎", "_t")
 t("Illumination ", "照明", "_t")
-t("The target glows in the light, reducing its stealth and invisibility power by %d, defense by %d and looses all evasion bonus from being unseen.", " 目标在光明中显形，减少 %d 潜行与隐身强度，减少 %d 闪避，同时失去不可见带来的闪避加成。", "tformat")
+t("The target glows in the light, reducing its stealth and invisibility power by %d, defense by %d and looses all evasion bonus from being unseen.", "目标在光明中显形，潜行与隐形强度降低 %d，闪避值降低 %d，并失去因不可见而获得的躲闪优势。", "tformat")
 t("+Illumination", "+照明", "_t")
 t("-Illumination", "-照明", "_t")
 t("Light Burst ", "光芒爆发", "_t")
@@ -40753,7 +40754,7 @@ t("and clobbered into soup", "并被煮成汤", "_t")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Aluin the Fallen", "堕落骑士阿鲁因", "entity name")
-t("His once-shining armour now dull and bloodstained, this Sun Paladin has given in to despair.", "他曾经闪亮的盔甲如今又锈又钝且满是鲜血，这名太阳骑士已经陷入了深深的绝望。", "_t")
+t("His once-shining armour now dull and bloodstained, this Sun Paladin has given in to despair.", "他曾经光亮的盔甲如今已黯淡无光、沾满血迹；这名太阳骑士已经陷入绝望。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/trollmire/objects.lua"
