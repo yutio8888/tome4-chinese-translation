@@ -97,7 +97,7 @@ payload 是一个 JSON object，包含恰好七个逻辑组件：
     {"revision_key": "<key-1>", "source": "<冻结 source-1>", "target": "<冻结 target-1>"},
     {"revision_key": "<key-2>", "source": "<冻结 source-2>", "target": "<冻结 target-2>"}
   ],
-  "fixed_source_commit": "<manifest 固定的公共源码 commit id>",
+  "fixed_source_identity": "<manifest 固定的来源身份>",
   "terminology_snapshot": "<渲染进 briefing 的精确术语子集字符串>",
   "bounded_context": [
     {"revision_key": "<key-1>", "context": "<source tags／runtime keys、邻近译文、公共源码证据片段>"},
@@ -121,7 +121,13 @@ payload 是一个 JSON object，包含恰好七个逻辑组件：
 约束（语义值）：
 
 - contract 必须精确等于 translation_contextual_v1；
-- fixed_source_commit 必须非空且精确等于候选适用的 manifest 固定公共源码 commit；
+- fixed_source_identity 必须精确等于候选适用的 manifest 固定来源身份，且按该来源机制
+  仅可取以下两种 typed form：manifest 固定的公共 Git 源码为
+  `commit:<40-lowercase-hex>`；受保护 DLC extraction snapshot 为
+  `snapshot:<64-lowercase-hex>`；
+- 必须由候选适用的 manifest 来源机制选择对应 form：公共 Git 源码不得使用 `snapshot:`，
+  受保护 DLC extraction snapshot 不得使用 `commit:`；非空任意字符串、裸 hash、未知
+  identity type、大小写不符或长度不符一律拒绝；
 - revision key、source、target 和 context 必须与冻结候选的字节精确相等；
 - 哈希自洽不足以证明候选正确；语义相等性在哈希前和接受返回结果前都必须执行。
 
@@ -141,7 +147,7 @@ candidate_identity = SHA-256(canonical contextual payload bytes)
 规范最小向量：
 
 ~~~text
-{"bounded_context":[{"context":"tag=talents/foo; nearby: A, B","revision_key":"r1"}],"contract":"translation_contextual_v1","fixed_source_commit":"61bb370c33e46c4df4b2bbfd56113a0de1822300","ordered_revision_keys":["r1"],"rendered_briefing":"有界语境审核 briefing：revision r1","terminology_snapshot":"术语：zone=区域","translation_snapshot":[{"revision_key":"r1","source":"Hello world","target":"你好，世界"}]}
+{"bounded_context":[{"context":"tag=talents/foo; nearby: A, B","revision_key":"r1"}],"contract":"translation_contextual_v1","fixed_source_identity":"commit:61bb370c33e46c4df4b2bbfd56113a0de1822300","ordered_revision_keys":["r1"],"rendered_briefing":"有界语境审核 briefing：revision r1","terminology_snapshot":"术语：zone=区域","translation_snapshot":[{"revision_key":"r1","source":"Hello world","target":"你好，世界"}]}
 ~~~
 
 该单行文本的 UTF-8 字节 SHA-256 必须由测试按同一 recipe 重算；它不含运行时选择。

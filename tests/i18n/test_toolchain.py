@@ -19116,7 +19116,7 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
             "translation_snapshot": [
                 {"revision_key": "r1", "source": "Hello world", "target": "你好，世界"}
             ],
-            "fixed_source_commit": "61bb370c33e46c4df4b2bbfd56113a0de1822300",
+            "fixed_source_identity": "commit:61bb370c33e46c4df4b2bbfd56113a0de1822300",
             "terminology_snapshot": "术语：zone=区域",
             "bounded_context": [
                 {"revision_key": "r1", "context": "tag=talents/foo; nearby: A, B"}
@@ -19160,7 +19160,7 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
         for component in (
             "ordered_revision_keys",
             "translation_snapshot",
-            "fixed_source_commit",
+            "fixed_source_identity",
             "terminology_snapshot",
             "bounded_context",
             "rendered_briefing",
@@ -19171,18 +19171,52 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
         encoded = self._canonical_bytes(payload)
         self.assertEqual(
             hashlib.sha256(encoded).hexdigest(),
-            "8bea5b44a1f58f57c0e5ec1d1a8da9be73c75d99d18399386da03cded74ceb75",
+            "65f5ea8778a47fa96537d72de55f28b899e7f6ad1df9d2ac3c71772d4d71b8d9",
         )
 
     def test_contextual_payload_identity_changes_with_content(self) -> None:
         payload = self._minimal_payload()
         base = self._canonical_bytes(payload)
-        changed = dict(payload, fixed_source_commit="0" * 40)
+        changed = dict(payload, fixed_source_identity="commit:" + "0" * 40)
         self.assertNotEqual(self._canonical_bytes(changed), base)
         changed = dict(payload, ordered_revision_keys=["r2"])
         self.assertNotEqual(self._canonical_bytes(changed), base)
         changed = dict(payload, rendered_briefing="changed")
         self.assertNotEqual(self._canonical_bytes(changed), base)
+
+    def test_contextual_fixed_source_identity_is_typed_and_mechanism_bound(self) -> None:
+        def accepts(source_mechanism: str, identity: str) -> bool:
+            expected = {
+                "public-git": r"commit:[0-9a-f]{40}",
+                "protected-extraction-snapshot": r"snapshot:[0-9a-f]{64}",
+            }.get(source_mechanism)
+            return expected is not None and re.fullmatch(expected, identity) is not None
+
+        self.assertTrue(
+            accepts(
+                "public-git", "commit:61bb370c33e46c4df4b2bbfd56113a0de1822300"
+            )
+        )
+        self.assertTrue(
+            accepts("protected-extraction-snapshot", "snapshot:" + "a" * 64)
+        )
+        for identity in (
+            "61bb370c33e46c4df4b2bbfd56113a0de1822300",
+            "manifest-fixed-source",
+            "tree:" + "a" * 64,
+            "commit:" + "a" * 39,
+            "snapshot:" + "a" * 63,
+        ):
+            with self.subTest(identity=identity):
+                self.assertFalse(accepts("public-git", identity))
+                self.assertFalse(accepts("protected-extraction-snapshot", identity))
+        self.assertFalse(accepts("public-git", "snapshot:" + "a" * 64))
+        self.assertFalse(
+            accepts(
+                "protected-extraction-snapshot",
+                "commit:61bb370c33e46c4df4b2bbfd56113a0de1822300",
+            )
+        )
 
     def test_contextual_short_prompt_is_three_lines_and_bounded(self) -> None:
         contextual = self._texts()["contextual"]
