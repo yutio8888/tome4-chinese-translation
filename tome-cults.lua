@@ -2954,7 +2954,7 @@ section "tome-cults/data/talents/demented/madness.lua"
 t("Dark Whispers", "黑暗低语", "talent name")
 t([[Terrible visions and maddening voices fill the minds of enemies within a radius %d area, inflicting %0.2f darkness damage each turn for 5 turns. In addition, this distraction will reduce physical, spell and mindpower of those affected by %d.
 The power loss caused by this spell can stack, to a maximum of %d powers.
-		The effect will increase with your Spellpower.]], [[令半径 %d 格内的敌人的心灵里充满可怕的幻觉和疯狂的低语， 5 回合内每回合受到 %0.2f 暗影伤害。同时，该效果将降低其物理、法术和精神强度 %d 点，该效果可叠加至最多 %d 点。
+		The effect will increase with your Spellpower.]], [[令半径 %d 格内的敌人的心灵里充满可怕的幻觉和疯狂的低语， 5 回合内每回合受到 %0.2f 暗影伤害。同时，该效果将使其物理强度、法术强度和精神强度各降低 %d 点，该效果可叠加至最多 %d 点。
 		技能效果受法术强度加成。]], "tformat")
 t("Hideous Visions", "惊骇幻象", "talent name")
 t("hallucination", "幻象", "_t")
@@ -3242,9 +3242,9 @@ t([[You extend your tentacle to grab a distant target, pulling it to you.
 		While constricting you cannot use your tentacle to enhance your normal attacks but you deal %d%% tentacle damage each turn to your target.
 		Enemies can resist the attempt to pull them but Constrict will always work for purposes of modifying your talents.
 		Your other tentacle talents may act differently when used while constricting (check their descriptions).]], [[伸展触手缠绕一个远处的目标，并向你拖拽。
-		目标被触手缠绕后，可以尝试向远处移动，但是每回合会被拖回一码。
+		只要缠绕技能保持激活，目标就会被触手束缚；它可以尝试向远处移动，但每回合都会被你拉回一码。
 		当缠绕了敌人，普通攻击不会额外附加触手攻击，但每回合对缠绕敌人造成 %d%% 触手伤害。
-		敌人可以抵抗触手拖拽，但是缠绕状态会持续生效。
+		敌人可以抵抗触手拖拽，但即使抵抗成功，只要缠绕技能仍处于激活状态，它仍会对你的技能产生修改效果。
 		其他触手技能在缠绕状态下会发生变化，具体请查看相应技能描述。]], "tformat")
 
 ------------------------------------------------
@@ -3768,7 +3768,7 @@ t("Fortune", "幸运", "_t")
 t("The target has %d increased saves and defense, and %d%% increased critical chance.", "目标豁免和闪避增加 %d , 暴击率增加 %d%%。", "_t")
 t("The target has %d increased saves and defense, %d%% increased critical chance, and %d%% chance to avoid all damage.", "目标豁免和闪避增加 %d ，暴击率增加 %d%%，有 %d%% 几率闪避所有伤害。", "_t")
 t("Unravelling", "解构", "_t")
-t("The target is being erased from reality. Each time a magical effect is applied, they will take %0.2f darkness damage and %0.2f temporal damage. If 5 effects are applied, a powerful void horror will appear.", "目标正被从现实中抹去。每次受到魔法效果时，它承受 %0.2f 暗影 %0.2f 时空伤害。当承受 5 次效果后，强大的虚空恐魔将出现。", "tformat")
+t("The target is being erased from reality. Each time a magical effect is applied, they will take %0.2f darkness damage and %0.2f temporal damage. If 5 effects are applied, a powerful void horror will appear.", "目标正被从现实中抹去。每当一个负面魔法效果施加到目标身上，它就会受到 %0.2f 暗影和 %0.2f 时空伤害。当施加了 5 个负面魔法效果后，强大的虚空恐魔将出现。", "tformat")
 t("#Target# is being erased from reality!", "#Target#被从现实中移除！", "_t")
 t("#Target# has survived the unraveling.", "#Target#从解构效果中存活。", "_t")
 t("Fatebreaker", "打破宿命", "_t")
