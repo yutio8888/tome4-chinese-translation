@@ -71,6 +71,8 @@ def matches(entry: dict, args: argparse.Namespace) -> bool:
     flags = set(entry.get("risk_flags") or ())
     if not flags & set(args.risk_flag):
         return False
+    if flags & set(args.exclude_risk_flag or ()):
+        return False
     if len(entry.get("source") or "") < args.min_source_len:
         return False
     return True
@@ -92,6 +94,14 @@ def main() -> int:
         default=None,
         help="risk flag to require; repeatable, matched as OR "
         "(default: source-has-number-or-unit)",
+    )
+    parser.add_argument(
+        "--exclude-risk-flag",
+        action="append",
+        default=None,
+        help="risk flag that disqualifies an entry; repeatable. Use this to isolate a "
+        "dimension from one it co-occurs with, so a batch tests that dimension rather "
+        "than the overlap.",
     )
     parser.add_argument("--min-source-len", type=int, default=40)
     parser.add_argument("--size", type=int, default=24)
@@ -156,6 +166,7 @@ def main() -> int:
             "component": args.component,
             "profile": args.profile,
             "risk_flags_any": sorted(args.risk_flag),
+            "risk_flags_excluded": sorted(args.exclude_risk_flag or ()),
             "min_source_len": args.min_source_len,
         },
         "pool_size": len(pool),
