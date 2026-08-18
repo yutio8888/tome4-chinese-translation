@@ -1474,7 +1474,7 @@ t("#Target#'s weapon looks less threatening.", "#Target#的危险度看起来降
 t("-Demon Blade", "-恶魔之刃", "_t")
 t("curse", "诅咒", "effect subtype")
 t("Fiery Torment", "灼魂之罚", "_t")
-t("The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment", "目标的火焰抗性下降 %d%%，并会被恶魔空间的火焰灼伤。效果结束时将受到 %d 火焰伤害，并追加效果期间受到的总伤害的 %d%%。", "tformat")
+t("The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment", "目标的火焰抗性下降 %d%%，并且极易受到恐惧空间火焰的伤害。效果结束时将受到 %d 火焰伤害，并追加效果期间受到的总伤害的 %d%%。", "tformat")
 t("#Target# is surrounded by a vile flame!", "#Target#被邪恶的火焰包围", "_t")
 t("+Fiery Torment", "+灼魂之罚", "_t")
 t("The black flame around #Target# dies down", "#Target#周围的邪恶火焰熄灭了", "_t")
