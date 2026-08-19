@@ -14,9 +14,10 @@ DLC 的 **mechanics、timed-effect 状态、UI／运行日志** 均已收束（�
 ## 1. 仓库快照
 
 - 分支：`develop`
-- HEAD：`f8f049a fix: restore Ashes Mal'Rok onyx birth-rate`
+- 最新译文提交：`f8f049a fix: restore Ashes Mal'Rok onyx birth-rate`
+- 本交接文档提交：见该文件入树后的 `docs: add current P2 handoff` 提交。
 - 工作树：干净。
-- 相对 `origin/develop`（`346e022`）超前 95 个提交；其中约 70 个是 P2 译文 `fix:`。
+- 相对 `origin/develop`（`346e022`）超前约 96 个提交；其中约 70 个是 P2 译文 `fix:`。
 - 固定游戏版本：ToME4 1.7.6；DLC 公开源码基线 1.7.4。
 - 公开 DLC 根：`/home/yun/projects/tome4-dlcs/{ashes-urhrok,cults,orcs}`。
 - 核心源码：`/home/yun/projects/t-engine4`（核验共享键时需要）。
