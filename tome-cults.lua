@@ -3725,7 +3725,7 @@ t("#ORANGE#The wounds of #Source# appear on #target#!#LAST#", "#ORANGE##Source#�
 t("#CRIMSON#(%d linked)#LAST#", "#CRIMSON#(%d 伤害链接)#LAST#", "tformat")
 t("Nihil", "空无", "_t")
 t([[The target is engulfed in entropy, reducing the duration of new beneficial effects and increasing the duration of new negative effects by %d%%.
-This effect will fade in 2 turns if the source is not in line of sight.]], [[目标被熵覆盖，缩短新有益状态并延长新负面状态 %d%% 持续时间。
+This effect will fade in 2 turns if the source is not in line of sight.]], [[目标被熵覆盖，仅缩短新施加的非“其他”类有益状态并延长新施加的非“其他”类负面状态 %d%% 持续时间（不影响“其他”类效果）。
 若效果来源不在视野内，则该效果会在 2 回合后消失。]], "tformat")
 t("#Target# is wreathed in entropy.", "#Target#被熵覆盖。", "_t")
 t("#Target# is free of the entropy.", "#Target#脱离熵影响。", "_t")
