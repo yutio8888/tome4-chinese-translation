@@ -1329,7 +1329,7 @@ t([[Bringing about the darkest days of the Spellblaze you hasten the death of yo
 		When you deal damage to a creature in radius %d or less around you and it dips below 33%% life you automatically unleash the fury of the Spellblaze.
 		Affected foes will start taking %0.2f darkness damage each turn until it dies as long as it remains in radius %d of you.
 		The damage increases with spellpower.]], [[通过引发魔法大爆炸最黑暗的时候的场景，你加速了敌人的死亡。
-		每次你对半径 %d 内的生物造成伤害后，如果它生命值低于 33%%，将会承受魔法大爆炸的力量。
+		每次你对半径 %d 内的生物造成伤害后（实际触发范围固定为 4 格，不随该数值变化），如果它生命值低于 33%%，将会承受魔法大爆炸的力量。
 		受影响的敌人每回合将受到 %0.2f 暗影伤害，直到死亡或者离开你范围 %d 码范围。
 		伤害受法术强度加成。]], "tformat")
 t("Shattered Mind", "精神破碎", "talent name")
