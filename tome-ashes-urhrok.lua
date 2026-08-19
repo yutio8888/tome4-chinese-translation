@@ -1573,7 +1573,7 @@ t("Gain %d%% resistance and %d%% affinity to acid.", "获得%d%% 酸性抗性与
 t("+Acidic Bath", "+酸浴", "_t")
 t("-Acidic Bath", "-酸浴", "_t")
 t("Plaguefire", "瘟疫之焰", "_t")
-t("The target is on fire, taking %0.2f fire damage per turn. On death, the flame will explode.", "目标着火，每回合受到 %0.2f 火焰伤害。死亡时火焰将爆炸。", "tformat")
+t("The target is on fire, taking %0.2f fire damage per turn. On death, the flame will explode.", "目标着火，每回合受到 %0.2f 火焰伤害。死亡时火焰会以更弱的强度传播到附近目标身上。", "tformat")
 t("#Target# is on fire!", "#Target#着火了！", "_t")
 t("+Burn", "+燃烧", "_t")
 t("#Target# stops burning.", "#Target#身上的火熄灭了。", "_t")
