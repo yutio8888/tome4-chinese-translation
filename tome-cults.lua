@@ -3647,7 +3647,7 @@ t("Empowered by the fear of its foes, darkness and blight damage penetration inc
 t("#Target# is empowered by the fear of #hisher# foes.", "#Target#被#hisher#敌人的恐惧强化。", "_t")
 t("stone", "石", "effect subtype")
 t("Writhing Hairs", "蜿蜒之发", "_t")
-t("Half turned to stone, reducing movement speed by %d%% and 35%% chances to shatter on damage, increasing damge taken by %d%%.", "半石化中，移动速度降低 %d%%，受到伤害时有 35%% 几率碎裂，使受到的伤害提高 %d%%。", "tformat")
+t("Half turned to stone, reducing movement speed by %d%% and 35%% chances to shatter on damage, increasing damge taken by %d%%.", "半石化中，移动速度降低 %d%%，受到伤害时有 35%% 几率碎裂，使该次伤害降低至原伤害的 %d%%。", "tformat")
 t("#Target# is half-turned to stone.", "#Target#被半石化。", "_t")
 t("#Target# looks less like a statue.", "#Target#不再被石化。", "_t")
 t("temporal", "时空", "effect subtype")
