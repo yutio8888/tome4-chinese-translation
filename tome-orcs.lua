@@ -4247,14 +4247,14 @@ t([[When you use a steamtech talent while Gestalt is active you drain some resid
 		这个护盾持续 3 回合，并能吸收 %d 伤害。
 		效果受精神强度加成。]], "tformat")
 t("Instant Channeling", "瞬间引导", "talent name")
-t("You must have either a psionic damage shield active or Improved Gestalt available to use this talent.", "你必须在格式塔在激活状态且有一个精神护盾或者强化格式塔不在冷却中的情况下使用这一技能。", "logPlayer")
+t("You must have either a psionic damage shield active or Improved Gestalt available to use this talent.", "你必须在格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中时，才能使用这一技能。", "logPlayer")
 t([[Instantly channel all of your remaining steam to replenish your psi energies and either enhance your active psionic damage shield or trigger a new one.
 		The (new or existing) shield duration is increased by 3 turns and its power is boosted by %d%% of the steam used.
 		You restore psi equal to %d%% of the steam used.
 		This talent requires Gestalt to be active and either an active psionic damage shield or Improved Gestalt off cooldown.]], [[瞬间引导你剩余的所有蒸汽来补充你的灵能并充能或制造一个新的精神护盾。
 		护盾的持续时间会增加 3 回合，并能多吸收 %d%% 消耗的蒸汽数额的伤害。
 		你回复等同于 %d%% 所消耗的蒸汽数额的灵能。
-		此技能需要格式塔在激活状态且有一个精神护盾或者强化格式塔不在冷却中。]], "tformat")
+		此技能需要格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中。]], "tformat")
 t("Forced Gestalt", "强制格式塔", "talent name")
 t([[Temporarily expand your mind to force your Gestalt upon your foes in a radius of 5. Up to %d foe(s) will be affected.
 		The Gestalt will drain each affected foe's powers (physical power, mind power, spell power and steam power) by %d for 5 turns.
