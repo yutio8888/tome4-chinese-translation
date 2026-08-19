@@ -3822,7 +3822,7 @@ Each turn a radius 2 explosion will occur in a random space dealing %0.2f darkne
 每回合，一个半径 2 码的爆炸会在一个随机空间爆发，造成 %0.2f 暗影和时空伤害，并摧毁所有可挖掘的墙。]], "tformat")
 t("entropy", "熵", "effect subtype")
 t("Total Collapse", "完全崩溃", "_t")
-t("Your body can not function properly here, it is slowly wasting away. Each turn you take %0.2f void damage and any new debuff on you lasts %d%% longer. Each turn those penalties increase until the effect is removed.", "你的身体无法正常运转，被逐渐损耗。每回合你受到 %0.2f 虚空伤害，任何新的负面效果持续时间延长 %d%%。每回合这些惩罚都会增长，直到效果结束。", "tformat")
+t("Your body can not function properly here, it is slowly wasting away. Each turn you take %0.2f void damage and any new debuff on you lasts %d%% longer. Each turn those penalties increase until the effect is removed.", "你的身体无法正常运转，被逐渐损耗。每回合你受到 %0.2f 虚空伤害，任何新施加的负面效果（“其他”类效果除外）持续时间延长 %d%%。每回合这些惩罚都会增长，直到效果结束。", "tformat")
 t("threat", "威胁", "effect subtype")
 t("Save Kroshkkur", "拯救克诺什库尔", "_t")
 t("Kroshkkur is still under threat from %s.", "克诺什库尔仍处于 %s 威胁中。", "tformat")
