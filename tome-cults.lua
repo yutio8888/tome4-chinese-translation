@@ -3817,7 +3817,7 @@ All debuffs removed and all talent cooldowns reset on application.
 
 Each turn a radius 2 explosion will occur in a random space dealing %0.2f darkness and temporal damage and destroying any diggable walls.]], [[真正的力量正被揭示！
 
-移除所有负面效果，所有技能冷却时间被重置。
+施加该效果时，移除所有负面效果（“其他”类效果除外）并重置所有技能冷却时间。
 
 每回合，一个半径 2 码的爆炸会在一个随机空间爆发，造成 %0.2f 暗影和时空伤害，并摧毁所有可挖掘的墙。]], "tformat")
 t("entropy", "熵", "effect subtype")
