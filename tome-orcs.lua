@@ -5102,7 +5102,7 @@ t([[You have learned to fire while moving.
 		扫射结束后，你立刻获得 %d 到 %d 弹药（取决于扫射期间你消耗的弹药与你的弹药容量）。]], "tformat")
 t("Startling Shot", "惊艳射击", "talent name")
 t("Something", "某物", "_t")
-t("%s misses %s shot.", "%s躲开了%s攻击", "logSeen")
+t("%s misses %s shot.", "%s的%s射击打偏了", "logSeen")
 t([[You deliberately fire a missing shot at a target, startling it for 3 turns.
 		If the target fails a mental save it instinctively recoils two steps back.
 		The next shot that hits the startled creature will deal %d%% more damage.]], [[你故意朝目标射出偏离的子弹，令其惊讶 3 回合。
