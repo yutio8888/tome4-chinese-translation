@@ -6581,7 +6581,7 @@ t("The target is surrounded by a toxic cloud or radius %d. Enemies within will s
 t("Smogscreen", "蔽目毒云", "_t")
 t("%d%% chance to fully absorb any damaging actions.", "%d%% 几率完全吸收任何伤害。", "tformat")
 t("Miasma", "瘴气", "_t")
-t("Affected by toxic chemicals. Has %d%% talent failure, %d%% reduced healing, and takes %0.2f additional acid damage from melee and ranged attacks.", "被有毒化学物质影响。 %d%% 技能失败率，降低 %d%% 治疗效果，受到近战或远程攻击的时候受到额外 %0.2f 酸性伤害。", "tformat")
+t("Affected by toxic chemicals. Has %d%% talent failure, %d%% reduced healing, and takes %0.2f additional acid damage from melee and ranged attacks.", "被有毒化学物质影响。 %d%% 技能失败率，降低 %d%% 治疗效果，每回合第一次被带有武器类型的近战或远程攻击命中时，受到额外 %0.2f 酸性伤害。", "tformat")
 t("Death From Above", "死亡天降", "_t")
 t("Hovering in place, gaining %d%% evasion, %d%% movement speed and launching a powerful rocket barrage each turn.", "目标悬浮在空中，获得 %d%% 躲闪概率， %d%% 移动速度，每回合可以发射强力的火箭弹幕。", "tformat")
 t("#Target# takes flight!", "#Target#起飞！", "_t")
