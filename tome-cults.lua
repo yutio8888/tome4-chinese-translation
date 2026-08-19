@@ -4125,7 +4125,7 @@ t("next chapter", "下一章", "entity name")
 t("book", "书", "entity type")
 t("book of binding", "绑定之书", "entity name")
 t("#YELLOW#You hear a terrible shriek!", "#YELLOW#你听到了可怕的尖叫！", "say")
-t("#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and papers.  You feel the guardian of this place grow in power.", "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。你感受到了这个地方的守护者的力量。", "say")
+t("#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and papers.  You feel the guardian of this place grow in power.", "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。你感受到这个地方的守护者的移动速度增加了。", "say")
 
 ------------------------------------------------
 section "tome-cults/data/zones/ft-horrors/npcs.lua"
