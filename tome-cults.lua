@@ -3765,7 +3765,7 @@ This effect will fade in 2 turns if the source is not in line of sight.]], [[目
 若效果来源不在视野内，则该效果会在 2 回合后消失。]], "_t")
 t("%d Jinx", "%d 不幸", "tformat")
 t("Fortune", "幸运", "_t")
-t("The target has %d increased saves and defense, and %d%% increased critical chance.", "目标豁免和闪避增加 %d , 暴击率增加 %d%%。", "_t")
+t("The target has %d increased saves and defense, and %d%% increased critical chance.", "目标豁免和闪避增加 %d（仅 1 层时实际降低，2 层起才如数增加），暴击率增加 %d%%（始终增加）。", "_t")
 t("The target has %d increased saves and defense, %d%% increased critical chance, and %d%% chance to avoid all damage.", "目标豁免和闪避增加 %d ，暴击率增加 %d%%，有 %d%% 几率闪避所有伤害。", "_t")
 t("Unravelling", "解构", "_t")
 t("The target is being erased from reality. Each time a magical effect is applied, they will take %0.2f darkness damage and %0.2f temporal damage. If 5 effects are applied, a powerful void horror will appear.", "目标正被从现实中抹去。每当一个负面魔法效果施加到目标身上，它就会受到 %0.2f 暗影和 %0.2f 时空伤害。当施加了 5 个负面魔法效果后，强大的虚空恐魔将出现。", "tformat")
