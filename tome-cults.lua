@@ -3786,7 +3786,7 @@ t("The target is infected by a disease, reducing its speed by %d%% and doing %0.
 t("#Target# is afflicted by a crippling disease!", "#Target#被残废恶疾感染！", "_t")
 t("#Target# is free from the crippling disease.", "#Target#脱离残废恶疾影响。", "_t")
 t("Defiled Blood", "污血", "_t")
-t("Covered in defiled blood, healing the source for %d%% of all damage done.", "目标被污血覆盖，造成的伤害的 %d%% 将治疗效果来源。", "tformat")
+t("Covered in defiled blood, healing the source for %d%% of all damage done.", "被污血覆盖的目标对效果来源造成伤害时，效果来源恢复该伤害的 %d%%。", "tformat")
 t("#Target# is covered in black blood!", "#Target#被黑血覆盖！", "_t")
 t("#Target# is clear from the black blood.", "#Target#脱离黑血影响。", "_t")
 t("teleport", "传送", "effect subtype")
