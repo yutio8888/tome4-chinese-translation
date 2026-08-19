@@ -1187,7 +1187,7 @@ t([[Open a gateway to the Fearscape, stepping through it to a nearby location. A
 		The damage will scale with your Spellpower and the range will increase with the talent level.]], [[开启通往恶魔空间的炼狱之门，踏入并传送到附近位置。 
 	当你踏出炼狱之门时，炼狱之火随之喷发，造成 %0.2f 恶魔之火伤害，伤害 %d 码内所有生物。地上的余烬会造成持续 4 回合的额外 %0.2f 恶魔之火伤害。
 
-	穿越空间增强了你的直觉，让你能够在 3 回合内觉察到 %d 码内的所有敌对生物。 
+	穿越空间增强了你的直觉，让你能够在 4 回合内觉察到 %d 码内的所有敌对生物。
  
 	伤害受法术强度加成，范围随技能等级增大。]], "tformat")
 t("Cauterize Spirit", "灵魂焚净", "talent name")
