@@ -3609,7 +3609,7 @@ t("%d stacks, +%d%% to all damage dealt.", "%d 层, +%d%% 所有造成的伤害�
 t("horror", "恐怖", "effect subtype")
 t("blight", "枯萎", "effect subtype")
 t("Putrescent Pustule", "腐败脓包", "_t")
-t("%d pustules increasing resistance by %d%%.", "%d 脓包，增加 %d%% 抗性。", "tformat")
+t("%d pustules increasing resistance by %d%%.", "%d 脓包，增加 %d%% 全部抗性。", "tformat")
 t("eat", "吞食", "effect subtype")
 t("digest", "消化", "effect subtype")
 t("Digesting", "消化中", "_t")
