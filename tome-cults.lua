@@ -3755,7 +3755,7 @@ t("#Target# is removed from time!", "#Target#被从时间中移除！", "_t")
 t("+Suspend", "+暂停", "_t")
 t("#Target# is returned to normal time.", "#Target#返回了正常时间。", "_t")
 t("-Suspend", "-暂停", "_t")
-t("The target is removed from the normal time stream, unable to act but unable to take any damage. Each turn, negative effects and cooldowns will decrease in duration.", "目标从常规时间流中移除，无法行动，免疫伤害。每回合负面效果和技能冷却正常衰减。", "_t")
+t("The target is removed from the normal time stream, unable to act but unable to take any damage. Each turn, negative effects and cooldowns will decrease in duration.", "目标从常规时间流中移除，无法行动，免疫伤害。暂停结束时，非“其他”类且不会在无时间状态下自行衰减的负面效果，以及技能冷却时间会缩短。", "_t")
 t("Jinxed", "不幸", "_t")
 t([[The target has %d reduced saves and defense, and %d%% reduced critical chance.
 This effect will fade in 2 turns if the source is not in line of sight.]], [[目标豁免和闪避降低 %d，暴击率降低 %d%%。
