@@ -3716,7 +3716,7 @@ t("#F53CBE#%s struggles to resist the prophecy.", "#F53CBE#%s试图抵抗预言�
 t("#F53CBE#%s succumbs to the prophecy, attacking %s!", "#F53CBE#%s屈服于预言，攻击了%s！", "logSeen")
 t("#F53CBE#%s succumbs to the prophecy, striking themself!", "#F53CBE#%s屈服于预言，攻击了自己！", "logSeen")
 t("Mark of Treason", "背叛印记", "_t")
-t("When this target is damaged %d%% of the damage will also be done to the source of this effect.", "当目标受伤时，效果来源将受到 %d%% 伤害。", "tformat")
+t("When this target is damaged %d%% of the damage will also be done to the source of this effect.", "当目标受到伤害时，效果来源也受到目标所受伤害的 %d%%。", "tformat")
 t("#Target# is linked through the prophecy.", "#Target#被预言联结。", "_t")
 t("+Mark of Treason", "+背叛印记", "_t")
 t("#Target# prophetic link disappears.", "#Target#的预言联结消失了。", "_t")
