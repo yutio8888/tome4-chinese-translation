@@ -6529,7 +6529,7 @@ t("#LIGHT_BLUE#(%d lightning web)#LAST#", "#LIGHT_BLUE#(%d闪电之网)#LAST#", 
 t("Incendiary Grenade", "燃烧榴弹", "_t")
 t("The target is burning for %d fire damage each turn and taking %d%% increased damage from all sources.", "目标被点燃，每回合受到 %d 火焰伤害，所受到的所有伤害增加 %d%%。", "tformat")
 t("Healing Mist", "治愈之雾", "_t")
-t("Newly applied status effects durations are reduced by %d%%.", "新施加的状态效果持续时间减少 %d%%。", "tformat")
+t("Newly applied status effects durations are reduced by %d%%.", "新施加的负面效果持续时间缩短 %d%%。", "tformat")
 t("#ORCHID#%s has recovered!#LAST#", "#ORCHID#%s恢复了!#LAST#", "logSeen")
 t("shield", "护盾", "effect subtype")
 t("Overclock", "炮台超载", "_t")
