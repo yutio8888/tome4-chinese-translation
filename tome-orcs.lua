@@ -5308,7 +5308,7 @@ t("#LIGHT_RED#You must not be in combat to change the chassis.", "#LIGHT_RED#你
 t("#LIGHT_RED#Your mecharachnid must not be in combat to change its chassis.", "#LIGHT_RED#你的机械蜘蛛必须在战斗外才能切换底盘。", "logPlayer")
 t("#LIGHT_RED#Your mecharachnid is already in chassis %s.", "#LIGHT_RED#你的机械蜘蛛已经处于%s底盘。", "logPlayer")
 t("Mecharachnid chassis changed to: #GOLD#%s", "机械蜘蛛底盘切换为: #GOLD#%s", "logPlayer")
-t("You require your mecharachnid to be adjacent, and must be out of combat.", "你需要你的机械蜘蛛在你身边，并且在战斗外。", "logPlayer")
+t("You require your mecharachnid to be adjacent, and must be out of combat.", "你需要你的机械蜘蛛与你相邻，并且你和机械蜘蛛都必须处于非战斗状态。", "logPlayer")
 t([[You craft a new chassis for your mecharachnid, allowing you to tailor it to different situations. Each chassis grants the mecharachnid a new talent category, the ability to attach a weapon to their tail, as well as granting them %d class talent points to spend in a new category based off their chassis.
 
 		You can choose from the 2 chassis below by activating this talent outside of combat (default chassis: Assault)
