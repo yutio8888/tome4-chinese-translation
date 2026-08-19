@@ -3301,7 +3301,7 @@ t([[Consuming a void star, you use it to summon a void monolith at the targeted 
 			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合对 %d 码范围内敌人施加眩晕2回合 ( 基于本体法术强度 ).
 			基于你的魔法属性，巨石获得 %d 生命成长和 %d%% 全体抗性。]], "tformat")
 t("Essence Reave", "精华收割", "talent name")
-t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空碎片!", "logSeen")
+t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空之星!", "logSeen")
 t([[You rend the very essence of the target, drawing on their life and converting it to void stars. The target takes %0.2f darkness and %0.2f temporal damage, and you gain %d void star(s).
 		The damage will increase with your Spellpower.]], [[撕开目标的核心部位，汲取生命转化为虚空之星。目标受到 %0.2f 黑暗和 %0.2f 时空伤害，你获得 %d 虚空之星。
 		伤害随法术强度升高。]], "tformat")
