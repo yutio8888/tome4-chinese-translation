@@ -3233,7 +3233,7 @@ t([[You plant your tentacle hand in the ground where it splits up and extends to
 		如果有敌人被触手击中，你获得 %d 疯狂值。
 		#YELLOW_GREEN# 当触手处于缠绕状态 :#WHITE# 触手对缠绕对象连续突击，造成 %d%% 触手伤害。如果你与被缠绕对象相邻，则进行一次额外的主手打击。技能冷却时间缩短为 10 回合。]], "tformat")
 t("Constrict", "缠绕", "talent name")
-t("You require a mutated hand!", "你需要开启异变之手！", "logPlayer")
+t("You require a mutated hand!", "你需要异变之手！", "logPlayer")
 t("%s's tentacle fails to move %s!", "%s的触手无法移动%s!", "tformat")
 t("Your constrict target has disappeared!", "你缠绕的目标消失了！", "logPlayer")
 t("This target can not be moved!", "无法移动目标！", "logPlayer")
