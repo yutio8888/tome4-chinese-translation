@@ -6568,7 +6568,7 @@ t("#Target# is free from %s's pincers.", "#Target#脱离%s的钢爪。", "tforma
 t("-Pincer Strike", "-钢爪钳制", "_t")
 t("#Source# #LIGHT_RED#strikes down at#LAST# #Target#!", "#Source# #LIGHT_RED#打击#LAST# #Target#!", "logCombat")
 t("Reactive Armor", "反应式装甲", "_t")
-t("Next melee or ranged attack that deals more than 8%% of maximum life is reduced by %d%% and triggers a radius %d conal explosion dealing %d%% steamgun damage. %d stacks remaining.", "下一次受到的近战或远程伤害若大于最大生命值的 8%%，则会降低 %d%% 伤害，并触发一次半径为 %d 的扇形爆炸，造成 %d%% 蒸汽枪伤害。 剩余 %d 层叠加。", "tformat")
+t("Next melee or ranged attack that deals more than 8%% of maximum life is reduced by %d%% and triggers a radius %d conal explosion dealing %d%% steamgun damage. %d stacks remaining.", "下一次受到的近战或远程攻击若造成至少相当于最大生命值 8%% 的伤害，则会降低 %d%% 伤害，并触发一次半径为 %d 的扇形爆炸，造成 %d%% 蒸汽枪伤害。每回合最多触发一次。剩余 %d 层叠加。", "tformat")
 t("#LIGHT_BLUE#(%d reactive armor)#LAST#", "#LIGHT_BLUE#(%d 反应式装甲)#LAST#", "tformat")
 t("Grenade Barrage", "榴弹轰炸", "_t")
 t("Attack speed increased by %d%%. Next %d shot(s) trigger a grenade.", "攻击速度增加 %d%%。下 %d 次射击会触发榴弹射击。", "tformat")
