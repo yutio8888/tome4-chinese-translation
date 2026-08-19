@@ -3772,7 +3772,7 @@ t("The target is being erased from reality. Each time a magical effect is applie
 t("#Target# is being erased from reality!", "#Target#被从现实中移除！", "_t")
 t("#Target# has survived the unraveling.", "#Target#从解构效果中存活。", "_t")
 t("Fatebreaker", "打破宿命", "_t")
-t("The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.", "目标将自身的命运和另一个人相连，当它死亡时，选择的目标将代替它死亡。 此时，它和目标身上每一层幸运和不幸将转化为 %d 点治疗。", "tformat")
+t("The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.", "目标将自身的命运和另一个人相连，当它死亡时，选择的目标将代替它死亡。 此时，自身的幸运层数和所选目标身上的不幸层数会被消耗；若所选目标有不幸，则按其层数治疗，否则按自身的幸运层数治疗，每层恢复 %d 点生命。", "tformat")
 t("#Target# intertwines it's fate!", "#Target#的命运被联结！", "_t")
 t("#Target#'s fate is no longer linked to another.", "#Target#的命运不再被联结。", "_t")
 t("Redirecting all damage as temporal and darkness to %s.", "所有伤害转为时空和暗影类型，转移至 %s。", "tformat")
