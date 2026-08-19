@@ -6425,7 +6425,7 @@ t("#Target# internal structure returns to normal.", "#Target# 内在结构恢复
 t("-Subcutaneous Metallisation", "-金属内皮", "_t")
 t("power", "强度", "effect subtype")
 t("Pain Enhancement System", "痛苦强化系统", "_t")
-t("All stats increased by %d.", "全属性增加%d。", "tformat")
+t("All stats increased by %d.", "除力量外的所有属性增加 %d。", "tformat")
 t("#Target# revels in the pain.", "#Target# 在苦痛中狂欢。", "_t")
 t("+Pain Enhancement System", "+痛苦强化系统", "_t")
 t("#Target# no longer feels strong.", "#Target# 不再强壮。", "_t")
