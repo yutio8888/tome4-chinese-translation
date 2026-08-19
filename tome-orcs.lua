@@ -6242,7 +6242,7 @@ t("#PURPLE#NEKTOSH AIMS A POWERFUL BEAM! #{bold}#MOVE!!#{normal}#", "#PURPLE#纳
 t("%s blinks away and summons some help!", "%s传送离开，召唤帮助！", "logSeen")
 t("lightning", "闪电", "effect subtype")
 t("Capacitor Discharge", "电力放出", "_t")
-t("Storing damage to unleash as a powerful lightning bolt (%d/%d).", "存储伤害，准备放出强力电击 （ %d/%d ）。", "tformat")
+t("Storing damage to unleash as a powerful lightning bolt (%d/%d).", "已格挡伤害可累积至上限，准备放出强力闪电（%d/%d）。", "tformat")
 t("tactical", "战术", "effect subtype")
 t("Upgrade", "炮台升级", "_t")
 t("This turret has been greatly enhanced.", "这个炮台被大幅强化了。", "tformat")
