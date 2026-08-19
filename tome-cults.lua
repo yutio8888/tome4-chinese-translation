@@ -3696,7 +3696,7 @@ t("#Target# has survived the entropic gift.", "#Target#从熵能中存活。", "
 t("-Entropic Gift", "-熵之礼物", "_t")
 t("prophecy", "预言", "effect subtype")
 t("Prophecy of Madness", "疯狂预言", "_t")
-t("The target is doomed to madness. All talent cooldowns are increased by %d%%.", "目标被诅咒进入疯狂状态。技能冷却时间增加 %d%%。", "tformat")
+t("The target is doomed to madness. All talent cooldowns are increased by %d%%.", "目标注定陷入疯狂。所有技能冷却时间增加 %d%%。", "tformat")
 t("#Target# is doomed to madness!", "#Target#被预言逼疯！", "_t")
 t("+Prophecy of Madness", "+疯狂预言", "_t")
 t("#Target# is free from the prophecy.", "#Target#脱离预言的影响。", "_t")
