@@ -6261,7 +6261,7 @@ t("#Target# is no longer being marked by a rocket pod.", "#Target#不再被火�
 t("-Locked On", "-目标锁定", "_t")
 t("miscellaneous", "杂项", "effect subtype")
 t("Mecharachnid out of sight", "视野外的机械蜘蛛", "_t")
-t("The Mecharachnid is out of sight of the annihilator; direct control will be lost!", "机械蜘蛛处于歼灭者的视野外，无法进行控制！", "_t")
+t("The Mecharachnid is out of sight of the annihilator; direct control will be lost!", "机械蜘蛛已脱离歼灭者视野；若未能在四回合内恢复视线，将失去直接控制！", "_t")
 t("#LIGHT_RED##Target# is out of sight of its master; direct control will break!", "#LIGHT_RED##Target#在主人视野外；直接控制中断了！", "_t")
 t("+Out of sight", "+视野外", "_t")
 t("#LIGHT_RED#You lost sight of your mecharachnid for too long; direct control is broken!", "#LIGHT_RED#你失去机械蜘蛛视野太久，直接控制被中断了！", "logPlayer")
