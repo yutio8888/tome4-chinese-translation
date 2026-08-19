@@ -6533,7 +6533,7 @@ t("Newly applied status effects durations are reduced by %d%%.", "新施加的�
 t("#ORCHID#%s has recovered!#LAST#", "#ORCHID#%s恢复了!#LAST#", "logSeen")
 t("shield", "护盾", "effect subtype")
 t("Overclock", "炮台超载", "_t")
-t("The target is surrounded by a charged shield, absorbing %d/%d damage before it crumbles. While this holds, they will project a bolt of lightning against a random enemy within range 7 each turn for %0.2f lightning damage.", "目标被充能护盾覆盖，在破碎前可以吸收 %d/%d 伤害。当护盾存在时，他们每回合会朝 7 码范围内的随机敌人发射闪电弹，造成 %0.2f 闪电伤害。", "tformat")
+t("The target is surrounded by a charged shield, absorbing %d/%d damage before it crumbles. While this holds, they will project a bolt of lightning against a random enemy within range 7 each turn for %0.2f lightning damage.", "目标被充能护盾覆盖，在破碎前可以吸收 %d/%d 伤害。当护盾存在时，他们每回合会朝 6 码范围内的随机敌人发射闪电弹，造成 %0.2f 闪电伤害。", "tformat")
 t("#target# surges with power!", "#target#力量强化!", "_t")
 t("+Overclock", "+炮台超载", "_t")
 t("#target# looks less powerful.", "#target#力量消退了。", "_t")
