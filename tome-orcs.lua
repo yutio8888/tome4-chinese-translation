@@ -6589,7 +6589,7 @@ t("+Death From Above", "+死亡天降", "_t")
 t("#Target# lands.", "#Target# 落地。", "_t")
 t("-Death From Above", "-死亡天降", "_t")
 t("Corrosive Flechette", "腐蚀性毒镖", "_t")
-t("%d corrosive flechettes are embedded in the target. Each melee and ranged attack against them will cause a flechette to burst for %0.2f acid damage", "目标体内嵌有 %d 枚腐蚀性毒镖。每次受到近战或远程攻击时，其中一枚毒镖都会爆裂，造成 %0.2f 点酸性伤害。", "tformat")
+t("%d corrosive flechettes are embedded in the target. Each melee and ranged attack against them will cause a flechette to burst for %0.2f acid damage", "目标体内嵌有 %d 枚腐蚀性毒镖。敌方单位的近战或远程攻击命中目标时，其中一枚毒镖会爆裂，造成 %0.2f 点酸性伤害。", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/tinkers/chemistry.lua"
