@@ -1250,7 +1250,7 @@ t([[Imbue your weapon with fire for 5 turns. During this time all your melee hit
 		这个效果每回合只能触发一次。
 		伤害受法术强度加成。]], "tformat")
 t("Link of Pain", "苦痛链接", "talent name")
-t("Select the source:", "选择目标:", "logPlayer")
+t("Select the source:", "选择源生物:", "logPlayer")
 t("Select the victim:", "选择受害者:", "logPlayer")
 t([[Using demonic forces you create a link of pain from a source creature to a victim for %d turns.
 		Each time the source creature takes damage the victim takes %d%% of the damage.
