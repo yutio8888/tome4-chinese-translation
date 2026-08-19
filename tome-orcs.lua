@@ -6390,7 +6390,7 @@ t("#Target#'s saw motors are back to normal.", "#Target#的链锯引擎恢复常
 t("-Overcharge Saws", "-链锯过载", "_t")
 t("ice", "寒冰", "effect subtype")
 t("Algid Rage", "寒冰之怒", "_t")
-t("You have %d%% chances to encase your foes in iceblocks.", "你有 %d%% 几率将敌人冻结在冰块中。", "tformat")
+t("You have %d%% chances to encase your foes in iceblocks.", "你造成伤害时有 %d%% 几率将敌人封入冰块 3 回合；效果持续期间，冰块吸收的伤害降低 50%。", "tformat")
 t("disease", "疾病", "effect subtype")
 t("Larvae Infestation", "里奇幼虫寄生", "_t")
 t("The target has been impregnated with %d developing ritch larvae which are feeding on it%s.  After a %d turn gestation period, each will burst out violently, dealing %0.2f physical and %0.2f fire damage to its host.", "目标被 %d 个里奇幼虫寄生%s。在%d回合的发育期结束后，每个幼虫都会从寄主体内猛烈破体而出，对宿主造成 %0.2f 物理和 %0.2f 火焰伤害；即使效果提前解除，幼虫仍可能以较低强度破体而出并生成幼虫。", "tformat")
