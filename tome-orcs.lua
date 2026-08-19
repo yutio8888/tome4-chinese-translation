@@ -6189,7 +6189,7 @@ t("Can not discern foes from friends.", "不能区分敌人和盟友。", "tform
 t("#Target# wakes up from the nightmare very confused!", "#Target#从噩梦中醒来，非常混乱!", "_t")
 t("#Target# is less afraid.", "#Target#不再那么恐惧了。", "_t")
 t("Psy Worm", "灵能蠕虫", "_t")
-t("Infected by a psionic worm, doing %0.2f mind damage per turn. Damage doubled on stunned or feared foes, can spread to nearby creatures.", "目标被灵能蠕虫感染，每回合受到 %0.2f 点精神伤害。对震慑或恐惧的敌人伤害加倍，并可传播到附近生物。", "tformat")
+t("Infected by a psionic worm, doing %0.2f mind damage per turn. Damage doubled on stunned or feared foes, can spread to nearby creatures.", "目标被灵能蠕虫感染，每回合受到 %0.2f 点精神伤害。对震慑或恐惧的敌人伤害加倍，可传播给半径 3 内尚未感染且与宿主同阵营的单位；宿主死亡时必然传播，否则每回合有 25% 几率传播。", "tformat")
 t("#Target# is infected by a psy worm!", "#Target#被灵能蠕虫感染！", "_t")
 t("#Target# is free from the psy worm.", "#Target#脱离灵能蠕虫影响。", "_t")
 t("fear", "恐惧", "effect subtype")
