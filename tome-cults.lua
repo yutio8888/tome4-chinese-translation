@@ -3875,7 +3875,7 @@ t("#Target# is enveloped with entropic forces!", "#Target#被熵能覆盖!", "_t
 t("#Target# is no longer enveloped by entropic forces.", "#Target#不再被熵能覆盖。", "_t")
 t("armor", "护甲", "effect subtype")
 t("Horrific Fortress", "恐怖堡垒", "_t")
-t("All damages except physical reduced by %d as long as %s is alive.", "只要%s还存活着，所有除物理外的伤害将会降低%d", "tformat", {2,1})
+t("All damages except physical reduced by %d as long as %s is alive.", "只要%s还存活，受到的所有非物理伤害降低 %d 点。", "tformat", {2,1})
 t("#Target# is bolstered at the sight of the horror!", "#Target#在恐魔的视线中被强化了!", "_t")
 t("#Target# is less armoured.", "#Target#的护甲降低了。", "_t")
 -- untranslated text
