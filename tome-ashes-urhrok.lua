@@ -366,11 +366,11 @@ Once this continent arrives, we shall take revenge on Eyal. Not just for our own
 
 幸运的是，这场天灾地变惊醒了我们的父亲。我们为我们背叛的行为深深忏悔，然而我们不是为了乞求原谅，因为我们所做的一切永远没法被原谅。他并不同意，使用了他全部的力量将我们破碎的星球重新维持在了一起。我们对这样不公命运感到十分痛心，我们的父亲因为我们的错误而不得不受尽磨难，却仍然决意为我们付出。我们向他祈求，希望他向我们下达命令。我们愿意做任何我们能做的来帮助他，至少能够让他感到喜悦。
 
-他的命令是：终结夏·图尔人。终结他们的造物。让埃亚尔的住民再也无法危害人间。
+他的命令是：终结夏·图尔人。终结他们的造物。让埃亚尔再也无法伤害任何事物。
 
-我们将他的话铭记在心。我们的法师从过去被我们废弃的法术中获取灵感，创造了新的法术，让我们再一次变得好战和残忍——然而，我们的意志早已变得更加坚定，我们的身体早已锻炼得更加强韧，我们将会成为毁灭一切的力量——比那些过去的尘土风暴更加可怕。我们绿翡翠色的同胞让他们的皮肤上滴落酸液，缟玛瑙之子成长得更快、更强，生育率高到足以压倒埃亚尔上的夏·图尔人和他们创造的一切怪物。红宝石之子更是声称他们唯一存在的意义就是为了毁灭一切，他们将我们星球上永久灼烧的土壤与双手熔接在一起，毕生的精力都将用于以他们的烈火将埃亚尔的一切燃烧殆尽。最终，这些变化了自身的同胞在我们星球飘离在外的最大碎片上定居，而那块碎片正不断漂近埃亚尔。
+我们将他的话铭记在心。我们的法师从过去被我们废弃的法术中获取灵感，创造了新的法术，让我们再一次变得好战和残忍——然而，我们的意志早已变得更加坚定，我们的身体早已锻炼得更加强韧，我们将会成为毁灭一切的力量——比那些过去的尘土风暴更加可怕。我们绿翡翠色的同胞让他们的皮肤上滴落酸液，缟玛瑙之子成长得更快、更强，生育率高到足以压倒埃亚尔上的夏·图尔人和他们创造的一切怪物。红宝石之子更是声称他们唯一存在的意义就是为了毁灭一切，他们将我们星球上永久灼烧的土壤与双手熔接在一起，除却用埃亚尔自身的烈火灼烧埃亚尔之外再也做不了任何事。最终，这些变化了自身的同胞在我们星球飘离在外的最大碎片上定居，而那块碎片正不断漂近埃亚尔。
 
-当这块大陆的碎片降临埃亚尔，我们将开始我们真正的复仇。那不仅仅是为了我们自己的原因：我们的星球被他们的背信弃义所蹂躏，只有将它们的自己完好无损的星球作为战利品才能补偿我们的损失。那不仅仅是为了我们父亲的原因：因为太过信任自己的孩子，他遭受了这样永恒的磨难和苦痛。那是为了世界上的所有人：那些在无数星球上受苦受难的亿万生灵，他们没有像我们那样的幸运，在灾难中瞬间被烈火吞噬。夏·图尔人再也不能这样为害人间，我们将用枯萎之火净化整个埃亚尔。任何残存的生还者将会被带到我们的星球，绑在无尽灼烧的土地上经受永恒的折磨，让他们体会自己所造下的罪孽和折磨降临到自己身上的感觉。即使这样也不足以弥补它们所做的恶行，他们所将经历的只是他们所造成的邪恶的一小部分……但是这将是一个开始。
+当这块大陆的碎片降临埃亚尔，我们将开始我们真正的复仇。那不仅仅是为了我们自己的原因：我们的星球被他们的背信弃义所蹂躏，它们的一颗完好无损的星球正作为战利品等待着我们。那不仅仅是为了我们父亲的原因：因为太过信任自己的孩子，他遭受了这样永恒的磨难和苦痛。那是为了世界上的所有人：那些在无数星球上受苦受难的亿万生灵，他们没有像我们那样的幸运，在灾难中瞬间被烈火吞噬。夏·图尔人再也不能伤害任何人，我们将用枯萎之火净化整个埃亚尔。任何残存的生还者将会被带到我们的星球，绑在无尽灼烧的土地上，让他们活着，永远感受自己创造的烈火吞噬自身血肉。即使这样永恒的折磨仍算不上正义，因为他们所承受的只是他们施加的苦痛中极微小的一部分……但这将是一个开始。
 ]], "_t")
 t("Lost Memories (1)", "遗失的记忆（1）", "_t")
 t([[#{italic}#You clutch your head.  Entering this next floor, memories of your imprisonment flood back to you...#{normal}#
@@ -702,7 +702,7 @@ You are being taken by your handler to the torture-pits to help them figure out 
 As you recover, and your platform of searing earth splits from the main continent, your old memories flood your mind and you come to your senses - the demons are out to destroy your home!  You must escape... but not without destroying the crystal they've used to keep track of you.
 ]], [[你已经不太记得来到这片漂浮在虚空中的燃烧大陆之前的记忆了。你曾经帮助过恶魔，欢欣着参与他们的实验，以打破某种阻止恶魔降临大举复仇入侵埃亚尔的无形屏障。
 
-你被你的'主人'带到这里以帮助研究如何对埃亚尔大陆  造成更严重的伤害，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术将其粉碎，但没有成功！它落在你身边，砸死了你的 '主人' ，同时你也被砸晕在地。
+你被你的 ' 主人 ' 带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的 ' 主人 ' ，同时你也被冲击波击飞。
 
 当你醒来后，你发现你身处一个和主大陆分离的平台，而你旧时的记忆渐渐涌来。你立刻惊醒——恶魔们要毁灭你的故乡！你必须逃离……同时别忘了摧毁他们用以追踪你的水晶体。
 ]], "_t")
@@ -1807,11 +1807,11 @@ t([[As the %s falls dead, bubbles start forming beneath you, then frothing as th
 #AQUAMARINE#"Thank you...  interloper..."#WHITE# a low voice rumbles.
 #AQUAMARINE#"Two obstacles to my rule of the sea...  too cowardly to fight themselves for me to finish off the victor..."#WHITE#
 A few meters away, you see the bubbles combining and congregating around a transparent form, invisible before and now visible only by the water boiling around it.
-#AQUAMARINE#"How convenient...  so much Sher'Tul magic for my taking...  magic to turn against its creators...  but now... one new obstacle...  one last great warrior under the waves..."#WHITE#]], [[当那只%s高大的身躯颓然倒下，无数气泡在你的身边浮现，身边的水域扭曲着沸腾，蒸汽笼罩着你的视野。
-#AQUAMARINE#"干的不错嘛…愚蠢的闯入者…"#WHITE# 一个低沉的声音响起。
-#AQUAMARINE#"挡在我成为海洋霸主的路上的两个障碍已经除去…现在，我只要亲手干掉唯一的获胜者就行了…"#WHITE#
-在不远数尺处，你看到无数沸腾的气泡在一个透明的身形旁聚集，在清澈的水中勾勒出那庞大怪物的模糊轮廓。
-#AQUAMARINE#"真方便…夏·图尔的魔法现在为我所用…用来击败他们曾经的造物…但是现在…只剩下一个阻碍我的人…波涛之下只剩下一个伟大的战士挡在我的面前…"#WHITE#]], "tformat")
+#AQUAMARINE#"How convenient...  so much Sher'Tul magic for my taking...  magic to turn against its creators...  but now... one new obstacle...  one last great warrior under the waves..."#WHITE#]], [[当那只%s倒下死去，气泡开始在你身下生成，随着水温变得令人不适地温热而翻滚沸腾。
+#AQUAMARINE#"多谢了……闯入者……"#WHITE# 一个低沉的声音轰鸣道。
+#AQUAMARINE#"阻碍我统治海洋的两个障碍……却懦弱得不敢相互厮杀好让我收拾胜者……"#WHITE#
+几米开外，你看见气泡聚集融合在一个透明的身形周围，此前隐形的身形如今只能借由周围沸腾的水流辨认。
+#AQUAMARINE#"真是方便……如此多的夏·图尔魔法任我取用……反过来对付其创造者的魔法……但是现在……出现了一个新的障碍……波涛之下最后一位伟大的战士……"#WHITE#]], "tformat")
 t("The oceans are yours.  The people of Eyal gave up sea travel ages ago!", "海洋是你的了！埃亚尔人早就放弃海洋了！", "_t")
 t("You're the new Lord of the Seas?  What would you have me do?", "你就是海洋新的霸主？你想要我干什么？", "_t")
 t("The seas of Eyal shall know no lord, foul demon!  The chaos and death ends now!", "污秽的恶魔，埃亚尔的海洋绝不臣服于你！让我终结这邪恶与混沌！", "_t")
