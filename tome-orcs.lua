@@ -364,7 +364,7 @@ A nagging thought in the back of your head insists that you now know how the Sun
 弹头的次级装药引爆，燃烧的残骸坠入大海，这场持续的烟火盛宴成为大陆上所有兽人，甚至所有能看到这一盛景的生物的信号：
 这就是所有试图消灭兽人的种族的命运。千年的压制、欺凌和屠杀被终结了：你的人民再也不会沦落如斯。
 
-无法摆脱的念头自你脑后升腾，你现在明白了太阳骑士的感受，明白了图库纳国王的感受，明白了半身人的感受，明白了所有对曾兽人施以暴行的人的感受。
+无法摆脱的念头自你脑后升腾，你现在明白了太阳骑士的感受，明白了图库纳国王的感受，明白了半身人的感受，明白了所有曾对兽人施以暴行的人的感受。
 随它哀诉去吧————但你的人民终于安全了。*#WHITE#]], "_t")
 t("[leave]", "[离开]", "_t")
 t([[#LIGHT_GREEN#*No...  you will not sink to the depths that King Toknor did, that the Sun Paladins did, that so many others have sunk to.  These refugees are not a threat, and could not possibly become one for quite some time...  but it might be for the best that they're made fully aware of what you're capable of, the fate you could've given them through so little effort, and given a display that'll make sure they remember that they owe their lives to your mercy.
@@ -379,7 +379,7 @@ As the secondary charges go off, the ongoing pyrotechnic display acts as a celeb
 
 这些难民不再是威胁，很长时间内都不可能成为威胁……但最好能让他们充分意识到你的力量，你本能轻易带来的毁灭命运，向他们展示这一切，让他们永远铭记：他们的生死取决于你的仁慈。
 
-你瞄准了火焰小鬼，令武器开火。巨大的轰鸣声和火光闪过，#{bold}#裂天者 毁灭号#{normal}#朝那只越来越惊慌的小鬼冲过去。它惊恐无比，试图躲避，而#{bold}#裂天者 毁灭号#{normal}#相对修正了行进路线，直到它彻底放弃，沮丧地耸了耸肩。在导弹的轰鸣声中，你不能听见飞船里的声音，不过你能肯定那只小鬼的嘴型在说'这真滑稽'。
+你瞄准了火焰小鬼，令武器开火。巨大的轰鸣声和火光闪过，#{bold}#裂天者 毁灭号#{normal}#朝那只越来越惊慌的小鬼冲过去。它惊恐无比，试图躲避，而#{bold}#裂天者 毁灭号#{normal}#相对修正了行进路线，直到它彻底放弃，沮丧地耸了耸肩。在导弹的轰鸣声中，你听不见侦测面板的声音，不过你能肯定那只小鬼的嘴型在说“这简直荒谬透顶”。
 
 导弹到达了目的地，巨大的爆炸堵塞了你透过窗户的视线。碎片无害地坠落在山顶，整个大陆都听见了巨大的爆鸣声。
 
@@ -387,7 +387,7 @@ As the secondary charges go off, the ongoing pyrotechnic display acts as a celeb
 
 当次级装药引爆时，这场持续的烟火盛宴成为大陆上所有蒸汽巨人，所有兽人，甚至所有能看到这一盛景的生物的庆典：
 战争结束了。
-千年以来，埃亚尔大陆，以及拥有它的兽人们，第一次明白了和平的意义。*#WHITE#]], "_t")
+千年以来，瓦·埃亚尔，以及拥有它的兽人们，第一次明白了和平的意义。*#WHITE#]], "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/chats/john-surrender.lua"
@@ -540,10 +540,10 @@ t([[#LIGHT_GREEN#*Before you stands a tentaculous horror which you recognize for
 Who are you, young creature, to stand up to a High Priest of Amakthel? Do you not know that you are before a servant of the Almighty Creator, the Sunfather, the God of Gods, Lord of all Eyal? In the millenia I have lived I have killed whole races like yourself. I have even wrenched the spirits of immortal gods from this world. So who are you, little one, who dare defy me?]], [[#LIGHT_GREEN#*站在你面前的是一个触手般的恐魔，然后你认出了他，
 一个活着的 #{bold}#夏·图尔人#{normal}#!.*#WHITE#
 站在阿马克泰尔的大祭司面前的年轻生物啊，你是谁呢？你难道不清楚，站在你面前的，是伟大的创造者、太阳之父、神上之神、埃亚尔的主人的仆从？千年以来，我曾终结过许多像你这样的种族，我甚至曾将不朽神明的灵魂从这世界扯出。小家伙，你认为自己是谁，竟敢违抗我？]], "_t")
-t("I... am %s, of the seed of Garkul the Devourer. Garkul taught us to fight legends, and to flinch not from even the most desperate deed. Here and now I face you without fear or hesitation, for the spirit of Garkul burns within me. And in his name I will #{bold}#break#{normal}# you!", "我... 名为%s, 是吞噬者加库尔的后裔。 加库尔教导我们挑战传奇，即使面前是绝望和死亡也绝不退缩。现在，我站在这里面对着你，毫无恐惧，毫不犹豫，因为加库尔之意志在我体内燃烧。以他之名，我一定会#{bold}#打败#{normal}# 你!", "tformat")
-t("I... am %s, though I lack my original body my mind is bound to Garkul the Devourer. Garkul taught us to fight legends, and to flinch not from even the most desperate deed. Here and now I face you without fear or hesitation, for the spirit of Garkul burns within me. And in his name I will #{bold}#break#{normal}# you!", "我... 名为%s, 尽管我失去了原本的身体，我的精神仍属于吞噬者加库尔。加库尔教导我们挑战传奇，即使面前是绝望和死亡也绝不退缩。现在，我站在这里面对着你，毫无恐惧，毫不犹豫，因为加库尔之意志在我体内燃烧。以他之名，我一定会#{bold}#打败#{normal}# 你!", "tformat")
-t("I... am %s and I am not mortal! Garkul taught the orcs to fight legends, and to flinch not from even the most desperate deed. We learned that from them! Here and now I face you without fear or hesitation, for cold touch of undeath is within me. And I will #{bold}#break#{normal}# you!", "我... 名为%s，我超越死亡！加库尔教导兽人挑战传奇，即使面前是绝望和死亡也绝不退缩。我们从他们身上学会了这些！现在，我站在这里面对着你，毫无恐惧，毫不犹豫，因为亡灵冰冷的力量在我体内流淌。我一定会#{bold}#打败#{normal}# 你!", "tformat")
-t("I... am %s. Here and now I face you without fear or hesitation, for the utter determination burns within me. And I will #{bold}#break#{normal}# you!", "我...名为%s。现在，我站在这里面对着你，毫无恐惧，毫不犹豫，因为坚定的意志在我体内燃烧。我一定会#{bold}#打败#{normal}# 你!", "tformat")
+t("I... am %s, of the seed of Garkul the Devourer. Garkul taught us to fight legends, and to flinch not from even the most desperate deed. Here and now I face you without fear or hesitation, for the spirit of Garkul burns within me. And in his name I will #{bold}#break#{normal}# you!", "我……名为%s，是吞噬者加库尔的后裔。加库尔教导我们挑战传奇，面对绝境也绝不退缩。此时此刻，我毫无畏惧与迟疑地面对你，因加库尔之意志在我体内燃烧。以他之名，我必将#{bold}#击垮#{normal}#你！", "tformat")
+t("I... am %s, though I lack my original body my mind is bound to Garkul the Devourer. Garkul taught us to fight legends, and to flinch not from even the most desperate deed. Here and now I face you without fear or hesitation, for the spirit of Garkul burns within me. And in his name I will #{bold}#break#{normal}# you!", "我……名为%s，尽管失去了原本的躯体，我的精神仍与吞噬者加库尔紧密相连。加库尔教导我们挑战传奇，面对绝境也绝不退缩。此时此刻，我毫无畏惧与迟疑地面对你，因加库尔之意志在我体内燃烧。以他之名，我必将#{bold}#击垮#{normal}#你！", "tformat")
+t("I... am %s and I am not mortal! Garkul taught the orcs to fight legends, and to flinch not from even the most desperate deed. We learned that from them! Here and now I face you without fear or hesitation, for cold touch of undeath is within me. And I will #{bold}#break#{normal}# you!", "我……名为%s，且我并非凡胎！加库尔教导兽人挑战传奇，面对绝境也绝不退缩。我们从他们身上学到了这些！此时此刻，我毫无畏惧与迟疑地面对你，因亡灵的冰冷触感在我体内流淌。我必将#{bold}#击垮#{normal}#你！", "tformat")
+t("I... am %s. Here and now I face you without fear or hesitation, for the utter determination burns within me. And I will #{bold}#break#{normal}# you!", "我……名为%s。此时此刻，我毫无畏惧与迟疑地面对你，因决绝的意志在我体内燃烧。我必将#{bold}#击垮#{normal}#你！", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/chats/weissi-machine.lua"
@@ -1890,25 +1890,25 @@ A MANDATORY addition to your home or airship!
 
 For pricing, please discuss the matter with Kaltor, and then forget about it entirely.  If price is a factor for you, you almost certainly cannot afford DESTRUCTICUS.
 
-#{italic}#(Disclaimer: We are not responsible for any injuries, deaths, or loss of property resulting from improper transport of DESTRUCTICUS.  We are not responsible for determining the proper method of transporting DESTRUCTICUS.  Additional missiles for DESTRUCTICUS are not available.  Accuracy at ranges greater than DESTRUCTICUS' blast radius is not guaranteed.  We are not responsible for any injuries, deaths, or loss of property resulting from DESTRUCTICUS changing direction in mid-flight.)#{normal}#]], [[让我们来介绍！
+#{italic}#(Disclaimer: We are not responsible for any injuries, deaths, or loss of property resulting from improper transport of DESTRUCTICUS.  We are not responsible for determining the proper method of transporting DESTRUCTICUS.  Additional missiles for DESTRUCTICUS are not available.  Accuracy at ranges greater than DESTRUCTICUS' blast radius is not guaranteed.  We are not responsible for any injuries, deaths, or loss of property resulting from DESTRUCTICUS changing direction in mid-flight.)#{normal}#]], [[隆重推出！
 
-巨人，人类，自然界和在我们之前的一切生物所能设想的，最具威力，最令人恐惧，最强大的武器：
+巨人、人类、大自然以及我们之前的一切存在所能构想出的最具威力、最令人胆寒、最震撼的终极武器：
 
-#{bold}#毁天灭地，无礼的天空穿透者！#{normal}#
+#{bold}#毁灭号——狂妄的天空穿透者#{normal}#
 
-包含一个满载爆炸性符文，炼金材料，卑鄙的诅咒，钢化幼龙的鳞片，里奇毒液，以及写着最难听的辱骂你目标老娘的一些小纸条这些东西的弹头。
+弹头满载爆炸符文、炼金试剂、恶毒诅咒、钢龙鳞片、里奇毒液，以及写着对目标母亲最不客气问候的小纸条。
 
-运行速度大方地来说是荒谬，保守地说也是大得惊人
+其飞行速度，客气地说叫荒诞不经，不客气地说简直骇人听闻。
 
-发射时它的力量如此巨大，操作员必须穿上防火服来防止在后坐爆炸中牺牲（产品不包括防火服）
+发射威力极其惊人，操作员需自备防火服以防仅凭尾焰就被当场火化（防火服需自理）。
 
-绝对保证能摧毁它接触的一切自主个体！兽人！龙！比一个中等村落小的傀儡！
+绝对保证摧毁其引爆所波及的任何自主实体！兽人！巨龙！体积小于中型村庄的傀儡！
 
-一个你的家园或飞艇必须添置的东西！
+您的住宅或飞艇之绝对必备良品！
 
-关于售价，请向卡托尔咨询，然后完全忘记。如果价格对你来说是一个考虑因素，你几乎完全负担不起毁天灭地。
+关于定价，请与卡托尔面议，然后彻底忘掉这件事。如果价格对您是个需要考虑的因素，您几乎注定买不起毁灭号。
 
-#{italic}#（声明：我们不对任何对毁天灭地的不当运输产生的伤亡和财产损失负责。我们不负责决定毁天灭地的恰当运输方式。不供应毁天灭地的附加炮弹。不保证在毁天灭地爆炸射程以外的准确性。我们不对任何在中途改变毁天灭地轨迹而产生的伤亡和财产损失负责。）#{normal}#
+#{italic}#（免责声明：我们不对因毁灭号运输不当导致的任何伤亡或财产损失负责。我们不负责指定毁灭号的正确运输方式。毁灭号不提供备用导弹。不保证在毁灭号爆炸半径以外的精准度。我们不对毁灭号在飞行中自行改变方向所导致的任何伤亡或财产损失负责。）#{normal}#
 ]], "_t")
 
 ------------------------------------------------
@@ -2345,24 +2345,24 @@ I've said it before, and I'm saying it for the last time: #{bold}#WE NEED MORE C
 
 -Galsamae
 
-PS: If any mention of this is made to your superiors, I'll make sure they also know about the Atmos absinthe you had smuggled in here last week.]], [[#{italic}#致：居高临下的小傻逼
+PS: If any mention of this is made to your superiors, I'll make sure they also know about the Atmos absinthe you had smuggled in here last week.]], [[#{italic}#致：居高临下的小蠢货
 来自：卫队队长加尔萨迈#{normal}#
 
-给我听着，你这个小傻逼。
+给我听着，你这个小蠢货。
 
-当初我们同意来的时候说好的，是要60套合适大小的，具有精神牢笼能力的头盔，再加上60套锁甲，最少30张床，最多每天换班工作8小时。现在我们拿到的只有35套头盔，所以我们只能把25个卫兵送回家，否则他们就会和那些兽人一样陷入精神之墙制造的幻象之中——另外，我们所拿到的头盔都是强行改到我们的头大小的，比正常的头盔要重两倍以上。我们拿到的都是板甲，而不是锁甲，这进一步增加了我们每个人需要承受的疲劳负担。因为人手不足，我们每天至少要工作12小时以上。在这样的安排下，我们显然是绝对没有时间拖地的。除了以上的这些因素之外，我们连每个人的一张床都没有——在每个时刻，都有至少5到10个人没有可以睡觉的地方。
+当初我们同意来的时候说好的，是要60套合适大小的、具有精神牢笼能力的头盔，再加上60套锁甲，最少30张床，最多每天换班工作8小时。现在我们拿到的只有35套头盔，所以我们只能把25个卫兵送回家，否则他们就会和那些兽人一样陷入意志之墙制造的幻象之中——另外，我们所拿到的头盔都是粗糙改装过的，比原本应有的重量重了两倍以上。我们拿到的是板甲而不是锁甲，进一步增加了我们每个人需要承受的负担。因为人手缩减，我们每天必须轮值12小时。（在这样的安排下，显然绝无时间拖地。）再加上这一切，我们连每人一张床都没有——根据不同日期，我们总有5到10人轮不到地方睡觉。
 
-对于其他任何人来说，一个人的劳力，很快就会在这样恶劣的环境下消耗殆尽。都是因为我们身上的符文，我们才可以支撑这么长的时间，但我们的疲劳还是会一点点随着时间累积，我们需要休息。我们是不能直接睡在地上的，我们的身体太大，如果睡在硬的地面上，庞大的体重会给我们带来创痛。所以每次换班的时候，我们都有些人因为没能睡着而休息不足。你在西北角看到的那个人，他因为长久没有睡眠而耗尽了所有的精力。他的巡逻路线是最长的，而且（因为我的疏忽，我很抱歉）不幸成为了因为没有床而在前一天晚上无法入睡的人之一。
+换作任何其他人，这种排班早就让人彻底累垮了。全靠我们身上的符文，我们才能撑这么久，但符文饱和度日积月累，我们终究需要休息。我们不能直接睡在地板上，我们体型庞大，体重压在硬地上会压出褥疮。所以每次换班，我们总有几人无法入睡或休息。你在西北角看到的那个人，是因力竭而倒下的；他的巡逻路线最长，而且（因为我的疏忽，我很抱歉）正好是前一晚没床可睡的几人之一。
 
-我们知道，具有精神牢笼能力的头盔大概会很贵，床也是这样，所以这就是我们能想到的最简单的解决方案：增加几把椅子。只要放上我们努力用多余的谷物袋做成的枕头，我们就可以和在床上一样在椅子上入睡。如果我们还拿不到椅子的话，我估计，不出三个月，就会有另一个守卫因为过分疲劳而倒在主要巡逻路线上，而不是像上次那样倒在偏僻路线上。如果他们在离监狱太近的地方倒下，近到那些囚犯甚至有可能伸手够到头盔，把它摘下，拿到自己的手中。一旦兽人们戴上了那个头盔，所有人就全完了。
+我们知道，增订精神牢笼头盔很贵，添床也很贵，所以我们想出了最便宜的解决方案：多要几把椅子。只要垫上我们用多余谷物袋做成的几个枕头，我们在椅子上也能睡得跟床上差不多舒服。但如果我们得不到这些，我估计不出三个月，就会有另一名守卫在主要巡逻路线上力竭倒下，而不是像上次那样倒在偏僻角落。也就是说，距离囚犯近到他的头盔可能会直接滚落进兽人手中。一旦有兽人戴上那顶头盔，一切就全完了。
 
-我们很能忍受各种悲惨的境遇。毕竟，一旦我们离开埃尔瓦拉，比起在其他人那里遭到的对待，这样的境遇对我们来说已经算是不错的待遇了。即使我们中间有人因为过度劳累而殉职，如果这就是这种糟糕的工作的唯一后果，我们也能接受——但是，这会导致囚犯越狱。并且我们绝不会为又一场并非由我们过错造成的灾难背锅。
+我们受得了这种恶劣条件。总的来说，比起在埃尔瓦拉之外遭遇的对待，这依然算得上不错的待遇。如果这种糟糕排班的唯一后果只是累死我们几个人，我们甚至也能接受——但这会导致越狱。而我们绝不会为又一场并非由我们造成的灾难背黑锅！
 
-我已经说过很多遍了，现在，我只想说最后一遍：#{bold}#我们需要在休息室里增加一些椅子。#{normal}#如果你还认为这太贵了的话，那么我只能#{italic}#亲自#{normal}#拜访一下你的处所，让我的人把你漂亮的小床、小桌子、小梳妆台变回原材料，用来给我们制造几把新椅子。我远比你更加讨厌不服命令的行为，但这是一件关系着生死存亡的问题，并且这关系着的可不只是我的人的性命。
+我已经说过很多遍了，现在是最后一次警告：#{bold}#我们需要在休息室里增加椅子。#{normal}#如果你嫌太贵，我会#{italic}#亲自#{normal}#下到你的住处按住你，让我的人没收你那精致的小床、书桌和梳妆台，把它们拆成木料和软垫给我们自己做新椅子。我和你一样不喜欢抗命行为，但这确实是性命攸关的大事，而且关乎的绝不仅仅是我的人。
 
 ——加尔萨迈
 
-另：如果你敢搬出上司来压我的话，我马上就让你的上司知道，你上个礼拜在这里走私了多少瓶蒸汽苦艾酒]], "_t")
+另：如果你向上级提起此事的哪怕一个字，我就确保他们也知道你上周走私到这里的阿特莫斯苦艾酒。]], "_t")
 t("internment camp correspondence (4)", "拘留营信件 (4)", "_t")
 t([[#{italic}#To: Guard Captain Galsamae
 From: Administrator Quellop#{normal}#
@@ -3469,19 +3469,19 @@ Now I see where kindness and mercy get me.]], [[我曾为你挺身而出。我�
 t("hope", "希望", "_t")
 t([[You took everything from me.  You took the dawn of a beautiful future, you took the fires of hope and happiness, you took the kind, guiding light of my love Aeryn and put out the glow of the life we deserved to have together.  The light is gone...  but you have given me darkness in return.  And you're about to know that darkness very, very well.  Embracing it fully rather than shutting it out...  It's so easy to use these powers now.  I've felt them before, but I had no hate to use as their inspiration, no true misery to pour into the minds deserving, no empty void inside me to drain your hopes and confidence into.  You've fixed that for me.
 
-My heart still beats, but you have taken my life nonetheless.  You'll understand shortly.]], [[你夺走了我的一切。你夺走了美好未来的曙光，你夺走了希望和幸福的火花，你夺走了我爱人艾琳身上善良的指引之光，熄灭了这份我们应得的美好的生命之光。光芒熄灭了……而你还给我们的，则是无尽的黑暗。现在，该由你来亲身体会一下这份黑暗了。请你好好享受一下，我们所经历的一切吧……我过去曾经感受到过这种力量，但我没有这样彻骨的仇恨来作为它的燃料，没有切身的痛苦亲自注入灵魂之中，没有那份我胸中无限的虚空，足以熄灭一切希望和渴求。现在，我可以轻松地使用这种力量了。是你亲自纠正了我。
+My heart still beats, but you have taken my life nonetheless.  You'll understand shortly.]], [[你夺走了我的一切。你夺走了美好未来的曙光，你夺走了希望与幸福的火种，你夺走了我挚爱艾琳身上那善良的指引之光，熄灭了我们本该共同拥有的生命光辉。光芒已逝……但你回报给我的是黑暗。而你马上就会对这黑暗了如指掌。全盘接纳它而非拒之门外……现在运用这些力量是如此轻而易举。我以前就感受过它们，但我当时没有仇恨作为灵感，没有真正的痛苦倾注进那些应得之人的心灵，胸中也没有空洞来吸干你们的希望与信心。是你帮我补全了这一切。
 
-我的心脏还在跳动，但你已经夺走了我生命的一切。你很快就会尝到这一切的感受的。]], "_t")
+我的心脏仍在跳动，但你依然夺走了我的生命。你很快就会明白的。]], "_t")
 t("suffering", "痛苦", "_t")
 t([[Fall.  Suffer.  Lose the hope that drives you, or whatever brutish instinct suffices for it in your abominable mind.  Feel the pain you caused me, and know that it will never, ever stop...  you can feel it eroding your will to keep going, can't you?
 
 When your shattered mind succumbs to the pain you gave me, I will take it for my own.  I'll give you back just a little of the hope and love I took, so when you're a mere passenger in your own body, I can watch that light grow dark, as you watch your own body finding everyone you love and killing them slowly and painfully.  Their last words will be cursing your name, and you will be both powerless to stop it, and all too aware that it's your own fault for not preventing it sooner.
 
-Then, and only then, will you fully understand what you did to me.]], [[沉沦吧。痛苦吧。失去一切驱使你的希望，包括你可憎心灵的一切野蛮的本能吧。请好好感受一下你给我带来的痛苦，直到这一切的痛苦都永远，永远不会停止……你能感受到，这正在一点点侵蚀着你继续前进的意志，对吧？
+Then, and only then, will you fully understand what you did to me.]], [[沉沦吧。受苦吧。失去驱使你的希望，或者在你可憎的心智中充当希望的野蛮本能吧。感受你施加给我的痛苦，并明白这痛苦永无止境……你能感觉到它正在侵蚀你继续前行的意志，对吧？
 
-我会看着你的心灵一点点被你所给予我的痛苦摧垮，然后将其掌握在我的手中。我会稍微返还给你一点点我所夺走的希望与爱，让你成为困在你躯壳中的无力的囚徒。这样，我就可以亲自看着你的心灵的光芒一点点熄灭，你残留的躯壳，将会亲眼看着你所珍惜的人，被我缓慢而痛苦地亲手杀死。他们最后的遗言，将会是绝望诅咒你的名字，而你只能无能为力地看着这一切发生，无法阻止，知道这都是因为你的过错，因为你没能早点阻止这一切的发生。
+当你破碎的心智屈服于你给我的痛苦时，我将把它据为己有。我会把你被我夺走的希望与爱稍微奉还一点，好让你沦为自己躯体中的看客时，我能看着那光芒逐渐黯淡，而你只能眼睁睁看着自己的身躯找到你所爱的每一个人，缓慢而痛苦地将他们残杀。他们的遗言将是对你名字的诅咒，而你既无力阻止，又无比清楚这一切都是你没能早点阻止的罪过。
 
-这样，只有经过这样，你才会真正明白，你对我所做的一切对我意味着什么。]], "_t")
+那时，也唯有那时，你才会真正明白你究竟对我做了什么。]], "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/lore/weissi.lua"
