@@ -2254,7 +2254,7 @@ Administrator Quellop]], [[#{italic}#致：卫队队长加尔萨迈
 
 很高兴看到你和你的随从已经安全抵达！感谢你的光临，也感谢埃尔瓦拉的外交官能在这么短的时间内联系到你过来，希望你能在这里安顿下来。我希望这将会成为你们一族——当然，不仅是你们食人魔，也包括派遣你们过来的永恒精灵——与联合王国的合作部队的良好的第一步。
 
-在远东这里没有伊格兰斯。得益于意志之墙精巧的幻象技术，关押在这里的兽人都十分顺从。到目前为止，这是我们找到的和他们打交道的最人道的方法——我们希望，随着时间流逝，他的能力最终可以对这些兽人起到永久的镇定效果。不过，在那之前，他们都会这样傻乎乎地，温顺而快乐生活在梦中的小小世界里。你所需要的就是守住这里的围墙，不能让外部的游荡的兽人进来救走他们的同族。同时，还要巡逻这里的大厅，确保那些成功脱离幻象的兽人被我们迅速逮捕和解决。这应该会是一件非常容易的工作——但是，如果你需要任何特别帮助或补给的话，请立刻告诉我，我将尽我所能帮助你！
+在远东这里没有伊格兰斯。得益于意念之墙精巧的幻象技术，关押在这里的兽人都十分顺从。到目前为止，这是我们找到的和他们打交道的最人道的方法——我们希望，随着时间流逝，他的能力最终可以对这些兽人起到永久的镇定效果。不过，在那之前，他们都会这样傻乎乎地，温顺而快乐生活在梦中的小小世界里。你所需要的就是守住这里的围墙，不能让外部的游荡的兽人进来救走他们的同族。同时，还要巡逻这里的大厅，确保那些成功脱离幻象的兽人被我们迅速逮捕和解决。这应该会是一件非常容易的工作——但是，如果你需要任何特别帮助或补给的话，请立刻告诉我，我将尽我所能帮助你！
 
 此致,
 管理员夸洛普
@@ -2350,7 +2350,7 @@ PS: If any mention of this is made to your superiors, I'll make sure they also k
 
 给我听着，你这个小蠢货。
 
-当初我们同意来的时候说好的，是要60套合适大小的、具有精神牢笼能力的头盔，再加上60套锁甲，最少30张床，最多每天换班工作8小时。现在我们拿到的只有35套头盔，所以我们只能把25个卫兵送回家，否则他们就会和那些兽人一样陷入意志之墙制造的幻象之中——另外，我们所拿到的头盔都是粗糙改装过的，比原本应有的重量重了两倍以上。我们拿到的是板甲而不是锁甲，进一步增加了我们每个人需要承受的负担。因为人手缩减，我们每天必须轮值12小时。（在这样的安排下，显然绝无时间拖地。）再加上这一切，我们连每人一张床都没有——根据不同日期，我们总有5到10人轮不到地方睡觉。
+当初我们同意来的时候说好的，是要60套合适大小的、具有精神牢笼能力的头盔，再加上60套锁甲，最少30张床，最多每天换班工作8小时。现在我们拿到的只有35套头盔，所以我们只能把25个卫兵送回家，否则他们就会和那些兽人一样陷入意念之墙制造的幻象之中——另外，我们所拿到的头盔都是粗糙改装过的，比原本应有的重量重了两倍以上。我们拿到的是板甲而不是锁甲，进一步增加了我们每个人需要承受的负担。因为人手缩减，我们每天必须轮值12小时。（在这样的安排下，显然绝无时间拖地。）再加上这一切，我们连每人一张床都没有——根据不同日期，我们总有5到10人轮不到地方睡觉。
 
 换作任何其他人，这种排班早就让人彻底累垮了。全靠我们身上的符文，我们才能撑这么久，但符文饱和度日积月累，我们终究需要休息。我们不能直接睡在地板上，我们体型庞大，体重压在硬地上会压出褥疮。所以每次换班，我们总有几人无法入睡或休息。你在西北角看到的那个人，是因力竭而倒下的；他的巡逻路线最长，而且（因为我的疏忽，我很抱歉）正好是前一晚没床可睡的几人之一。
 
@@ -3675,10 +3675,10 @@ section "tome-orcs/data/quests/free-prides.lua"
 t("Children of Garkul, Unite!", "加库尔的子民们，联合起来！", "_t")
 t("All the few remaining orcs of the mainland have been captured by Sunwall and their western allies.", "大陆上仅存的少数兽人都被太阳堡垒及其西方盟友抓了起来。", "_t")
 t("To ensure a future, any future, for our race they must be freed.", "为了我们种族的未来，他们必须被解放。", "_t")
-t("The internment camp is located somewhere to the north. The orcs are subdued into obedience by a powerful #{halfling}# psionic, Mindwall, and guarded by elite Sunwall troops.", "拘留营位于北方某处。兽人受到一名强大的 #{halfling}#半身人灵能者“意志之墙”的精神压制，被迫服从，并由太阳堡垒的精锐部队看守。", "_t")
-t("Mindwall must be taken care of and the prides set free.", "必须干掉意志之墙，我们的部落才能迎来自由", "_t")
-t("But #{bold}#BEFORE#{normal}# that you should go and destroy the Sunwall Observatory to the east, as our spies have found a way to resist Mindwall's psionic powers which requries #{italic}#ingredients#{normal}# from there.", "但在那#{bold}#之前#{normal}#，你应该前往东边摧毁太阳堡垒观星台。我们的间谍已经找到了抵抗意志之墙灵能力量的方法，但需要从那里取得#{italic}#材料#{normal}#。", "_t")
-t("#LIGHT_GREEN#* You have destroyed Mindwall body but he managed to split his mind into many pieces and taken direct control of the subdued orcs. Destroy the pillars in each level four other levels.#WHITE#", "#LIGHT_GREEN#* 你摧毁了意志之墙的身躯，但他找到了一种办法把自己的灵魂分成许多块，分别控制那些被关押的兽人。摧毁其他四个关卡的水晶柱。#WHITE#", "_t")
+t("The internment camp is located somewhere to the north. The orcs are subdued into obedience by a powerful #{halfling}# psionic, Mindwall, and guarded by elite Sunwall troops.", "拘留营位于北方某处。兽人受到一名强大的 #{halfling}#半身人灵能者“意念之墙”的精神压制，被迫服从，并由太阳堡垒的精锐部队看守。", "_t")
+t("Mindwall must be taken care of and the prides set free.", "必须除掉意念之墙，让被囚禁的各部落重获自由。", "_t")
+t("But #{bold}#BEFORE#{normal}# that you should go and destroy the Sunwall Observatory to the east, as our spies have found a way to resist Mindwall's psionic powers which requries #{italic}#ingredients#{normal}# from there.", "但在那#{bold}#之前#{normal}#，你应该前往东边摧毁太阳堡垒观星台。我们的间谍已经找到了抵抗意念之墙灵能力量的方法，但需要从那里取得#{italic}#材料#{normal}#。", "_t")
+t("#LIGHT_GREEN#* You have destroyed Mindwall body but he managed to split his mind into many pieces and taken direct control of the subdued orcs. Destroy the pillars in each level four other levels.#WHITE#", "#LIGHT_GREEN#* 你摧毁了意念之墙的身躯，但他找到了一种办法把自己的灵魂分成许多块，分别控制那些被关押的兽人。摧毁其他四个关卡的水晶柱。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have freed all the Vor Pride orcs.#WHITE#", "#LIGHT_GREEN#* 你解放了沃尔部落的兽人。#WHITE#", "_t")
 t("#GREY#* You need to have free the Vor Pride orcs.#WHITE#", "#GREY#* 你必须解放沃尔部落的兽人。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have freed all the Rak'Shor Pride orcs.#WHITE#", "#LIGHT_GREEN#* 你解放了拉克·肖部落的兽人。#WHITE#", "_t")
@@ -3713,7 +3713,7 @@ section "tome-orcs/data/quests/kaltor-shop.lua"
 t("The Grumpy Shopowner", "脾气暴躁的店主", "_t")
 t("Kaltor's shop seems to be nearby in the mountain. Maybe it could be interesting to pay him a visit?", "卡托尔的店铺似乎就在附近的山中。或许你有兴趣到此一游？", "_t")
 t("He does sound well armed, though, so be prepared as it is likely very dangerous.", "不过，听说他全副武装，所以请做好准备。", "_t")
-t("So maybe take some time to plan the raid.", "如果你想要干掉他，请择时计划一下。", "_t")
+t("So maybe take some time to plan the raid.", "所以也许你该花点时间计划一下这次袭击。", "_t")
 t("#LIGHT_GREEN#* You have disposed of Kaltor, the loot is yours!#WHITE#", "#LIGHT_GREEN#* 你做掉了卡托尔，他的宝藏归你了！#WHITE#", "_t")
 t("#PURPLE#You heard a loud noise!", "#PURPLE#你听到了巨大的噪音！", "saySimple")
 
@@ -3828,7 +3828,7 @@ t("", "", "_t")
 ------------------------------------------------
 section "tome-orcs/data/quests/start-orc.lua"
 
-t("Of Steamwork and Pain", "苦痛和蒸汽", "_t")
+t("Of Steamwork and Pain", "蒸汽机械与痛苦", "_t")
 t([[To win the war you must help the Pride by striking a blow to the giant's morale and supply lines.
 ]], [[为了让部落赢得和蒸汽巨人的战争，你必须打击敌人的士气和补给线。
 ]], "_t")
