@@ -105,7 +105,7 @@ t("Tatoos", "纹身", "birth facial category")
 t("Special", "特殊", "birth facial category")
 t("Krog", "克罗格", "birth descriptor name")
 t("Once an abomination, now a weapon.", "曾为憎恶，现为兵器。", "_t")
-t("Krogs were formerly Ogres, that have been radically changed. Stripped of the runes from their bodies, the Ziguranth have managed to prevent the Krog from dying by injecting them with a concoction of natural infusions and drake blood. The Krog are entirely devoted to the anti-magic cause and seemingly know of nothing else in their lives.", "克罗格由食人魔彻底转变而来。伊格兰斯去除他们身上的符文，并为他们注射自然刻印与龙血的混合物以防止他们死亡。克罗格完全献身于反魔事业，生活中似乎对其他事物一无所知。", "_t")
+t("Krogs were formerly Ogres, that have been radically changed. Stripped of the runes from their bodies, the Ziguranth have managed to prevent the Krog from dying by injecting them with a concoction of natural infusions and drake blood. The Krog are entirely devoted to the anti-magic cause and seemingly know of nothing else in their lives.", "克罗格由食人魔彻底转变而来。伊格兰斯去除他们身上的符文，并为他们注射纹身与龙血的混合物以防止他们死亡。克罗格完全献身于反魔事业，生活中似乎对其他事物一无所知。", "_t")
 t("They possess the #GOLD#Wrath of the Wilds#WHITE# talent which allows them to stun/daze their foes.", "他们拥有 #GOLD#自然之怒#WHITE# 技能，让他们能震慑/眩晕敌人。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量, -1 敏捷, +2 体质", "_t")
@@ -995,7 +995,7 @@ A bit perplexed by this I sat there looking confused. For a moment we stared at 
 其他的狼注意到两只狼逃跑了，很快也夹着尾巴逃跑了。我坐下来，检查我受的伤势。尽管伤口看起来十分严重，但我记得那时的我几乎感觉不到疼痛。我很快拿出随身携带的纹身，开始治疗这只狼的尖牙留下的伤口。做这件事的时候，我听到身后传来一个声音，我意识到那个永恒精灵还在这里。当他走近我，朝我的脸望去时，我转过身来盯着他，永恒精灵立刻停了下来，露出茫然的表情。
 
 与他的困惑相同，我同样用困惑的表情看着他。我们沉默地盯着对方看了一会儿，终于，那个永恒精灵喊了一声：“你是自然精灵。”我眨了几下眼睛，回答说，我是的。他似乎十分震惊，停顿了片刻，然后终于恢复了他的表情，询问我来这里做什么。听到这个问题，我不知道该怎么回答。然后，我意识到，我已经不再知道我为什么要来这里，因为曾经驱使我来这里的愤怒已经慢慢消散了。过了一会儿，我终于回答了：“我是来寻找这一切的原因的。”]], "_t")
-t("Escapades of Fay Willows [Book 1, Chapter 2] - Infusion Avoidance", "菲·维莉欧斯的冒险 [第1卷, 第2章] - 对纹身的避免", "_t")
+t("Escapades of Fay Willows [Book 1, Chapter 2] - Infusion Avoidance", "菲·维莉欧斯的冒险 [第1卷, 第2章] - 对纹身的排斥", "_t")
 t([[[i]I've never really understood why people so readily gave their names. Among the thaloren I scarcely knew the names of anyone, save for that of family or those considered as such. I remember a dwarf merchant that once visited my homeplace. He seemed to think that whatever title he held meant something. Really names mean nothing, and I could deal with a human or halfling merchant the same as that dwarf. I don't need to know your name to deal with you.[/i]
 
 For another brief moment there was silence. In his mind he seemed to mull over the meaning of what he said, but seemingly understood what I was after. As he took a moment to think as I glanced him over. Both the shalore's face and clothing was quite rugged and I noticed a quiver along with a dagger at his side. I would have figured him for a hunter but the way he spoke seemed too disciplined for it. He probably was of a military background, most likely a scout for the shaloren military. I also noticed the blood streaming down his arm from an untreated wound.
@@ -1028,15 +1028,15 @@ Reaching into my pack to pull out some more infusions to finish my job I heard t
 
 领袖转身走开了。侦察兵再次示意我跟着他，我们朝着一团熊熊燃烧的火堆走去。一帮衣衫褴褛的永恒精灵围坐在火堆旁，一个和其他人一样披着厚斗篷的永恒精灵手持长弓在旁守卫。在附近，又有几个永恒精灵躺在看起来是匆忙搭建的简陋棚屋下。他们身上布满了红色污渍的绷带。领袖走到附近的一个箱子旁，掏出一个弓和一些新绷带递给侦察兵。我脸上很快又出现了困惑的表情，那位领袖似乎注意到了这一点。
 
-领袖问：“自然精灵，你有什么问题吗？”最终，我决定得到有关于他们为什么不使用纹身的答案，很快我就回答说：“为什么使用绷带，你们没有纹身吗？”领袖似乎对此很感兴趣，反驳道：“应该用纹身吗？”他笑了起来，好像我讲了什么笑话似的。我能听到一些穿着斗篷的人在背后咯咯笑。领袖接着说：“虽然我知道，你们可能会用纹身，但我们的天性想要超越这种东西。”
+领袖问：“自然精灵，你有什么问题吗？”最终，我决定弄清楚他们为什么不用纹身，很快我就回答说：“怎么还在用绷带，你们没有纹身吗？”领袖似乎对此颇感好笑，反驳道：“永恒精灵用纹身？”他笑了起来，好像我讲了什么笑话似的。我能听到一些穿着斗篷的人在背后咯咯笑。领袖接着说：“虽说我理解你们可能会用纹身，但我们的本性追求超越此类造物。”
 
-我对这个反应感到困惑。听到附近受伤的永恒精灵发出的咳嗽，我克制住自己，礼貌地说：“即使你马上就要死了，你也决定不用它吗？”听到这句话，领袖的脸上展露出凝重的神情，低头看了看那个永恒精灵。回过头来，领队平静地回答说：“当然不会。”我看向那位永恒精灵，用坚定的语调继续说：“那么，为什么要放着那些受伤的永恒精灵不管？”听到这句话，他平静地给出了回应，“因为永恒精灵不会把纹身带在身边。”
+我对这个反应感到困惑。听到附近受伤的永恒精灵发出的咳嗽，我克制住自己，礼貌地说：“即使可能会因不用而死，你们也坚持不用吗？”听到这句话，领袖的脸上展露出凝重的神情，低头看了看棚屋下的永恒精灵。回过头来，领队平静地回答说：“当然不会。”我看向那位永恒精灵，用坚定的语调继续说：“那么，为什么那些受伤的永恒精灵还躺在那里？”听到这句话，他平静地给出了回应：“因为永恒精灵不会随身携带纹身。”
 
-真是一群愚蠢的家伙。我知道半身人是一群骄傲著称的家伙，但是即使是他们也不会这样鲁莽。我把手伸进背包里，拿出了几件纹身，交到了他们的手中。那些永恒精灵看向我手中纹身的表情似乎包含了某种奇怪的鄙夷，但他们一句话也没说。最后，我身后的那位侦查兵发话了：“已经死了够多人了，如果他们的伤口还不得到治疗，那两个人也没法活过今天。”我看到领袖脸上立刻浮现出不适的表情，但他闭上了眼睛，说道：“自然精灵，如果你希望治疗他们的话，请便吧。”
+真是一群愚蠢的家伙。我知道半身人以骄傲著称，但即使是他们也不会这样鲁莽。我把手伸进背包里，拿出了几支纹身，展现在手中。那些永恒精灵看着我手中的纹身，眼神中带着某种奇怪的鄙夷，但他们一句话也没说。最后，我身后的那位侦察兵发话了：“已经死了够多人了，就凭他们的伤势，那两个人恐怕撑不过今晚。”我看到领袖脸上立刻浮现出不适的表情，但他闭上了眼睛，说道：“自然精灵，如果你希望治疗他们，就随你便吧。”
 
-我被这样冷漠的语气吓了一跳，但听着那位受伤的永恒精灵的咳嗽声，最终紧闭了嘴唇。我知道，现在最应该做的就是治疗那个受伤的永恒精灵，于是我径直走向前去。我迅速拆掉了绷带，使用纹身治疗他们的伤口，他们皮肤上的伤痕很快就愈合了。当我的纹身用完之后，尽管他们还没有被完全治愈，但是他们的状况比起以前已经好了很多。
+我被这样冷漠的语气惊到了，但听着那位受伤的永恒精灵的咳嗽声，我没有多说什么。我知道，现在最应该做的就是治疗受伤的永恒精灵，于是我径直走向简陋棚屋。我迅速拆掉了绷带，使用纹身治疗他们的伤口，他们皮肤上的创口很快就闭合了。当我的纹身用完之后，尽管他们还没有完全痊愈，但是比起先前已经好了很多。
 
-我把手伸进包里，想要拿出更多的纹身来完成我的工作，但领袖的声音传来，“够了。”我惊讶地把头向后转去，控制不住说道：“难道，你不希望我治疗他们吗？”我收到了圆滑的答复：“他们看起来已经脱离生命危险了，不是吗？你的纹身是有限的，也许你应该把它们留给那些更加生命垂危的人。”我冷静下来，想要知道那些永恒精灵到底在干什么。所以，我径直问道：“这是什么意思，你们要把这些纹身留给谁？”]], "_t")
+我把手伸进包里，想要拿出更多的纹身来完成治疗，但领袖的声音传来：“够了。”我惊讶地猛然回头，再也按捺不住说道：“难道你不想让我治好他们吗？”我收到了圆滑的答复：“他们看起来已经没有生命危险了，不是吗？你的纹身是有限的资源，也许你应该把它们留给那些更濒临死亡的人。”我冷静下来，想弄清永恒精灵的意图，于是问道：“你这是什么意思，要把它们留给谁？”]], "_t")
 t("Escapades of Fay Willows [Book 1, Chapter 3] - Shaloren Suffering", "菲·维莉欧斯的冒险 [第1卷, 第3章] - 痛苦中的永恒精灵", "_t")
 t([[[i]While the shaloren are no longer as lost as they seemingly were when I first entered Elvala, I can still see the searching expressions on their faces even now as I write this. It is as if they feel a similar loss to whatever it is they are connected to in the same way the thalore feel the devastation of nature. I do not know what connection the arcane and nature have, but I know it is shared relationship, and strain on one will result in strain on the other. [/i]
 
@@ -1056,25 +1056,25 @@ As the healer began to walk away I looked to the leader of the rangers one more 
 
 We soon headed over a muddy field, dodging the tents of refugees that had been raised everywhere. Eventually we came to a tall building, inside of which many shaloren lay wounded on beds, and some too on the floor. Making our way to the back of the building, we entered what I assumed to be the healer's office. "You wouldn't happen to know the basics of mixing infusions would you?" I was soon asked. "I know how to mix basic numbing and regenerative infusions.” I replied. Nodding to this, the healer pulled out a paper and began to write down on it.
 
-As the healer finished writing he handed the paper to me "The shalore and thalore are near identical in biology when it comes to infusions, so anything that you could use on yourself will work on a shalore. Here is a list of the infusion ingredients we have available. I'll lead you to our workshop where you can get to work making some." The healer rose to get up, grabbing a key from a shelf. Moving towards the door I was led down to the basement where the infusion workshop was. Unlocking the door, the healer handed me the key, and led me inside.]], [[[i]虽然那些永恒精灵不再像我刚进入埃尔瓦拉的时候那样迷惑了，但在我写下这些的时候，我仍然能够看到他们脸上困惑的表情。似乎，和我们自然精灵在大自然遭受浩劫时感受到的痛苦一样，他们也感受到着同样的痛苦。我并不知道奥术力量和自然之间有什么关系，但是我知道，他们之间有着一种共通的关系，在其中一样上的压力也会导致另一者的压力。[/i]
+As the healer finished writing he handed the paper to me "The shalore and thalore are near identical in biology when it comes to infusions, so anything that you could use on yourself will work on a shalore. Here is a list of the infusion ingredients we have available. I'll lead you to our workshop where you can get to work making some." The healer rose to get up, grabbing a key from a shelf. Moving towards the door I was led down to the basement where the infusion workshop was. Unlocking the door, the healer handed me the key, and led me inside.]], [[[i]虽然那些永恒精灵不再像我刚进入埃尔瓦拉的时候那样迷茫了，但在我写下这些的时候，我仍然能够看到他们脸上若有所失的表情。似乎，和我们自然精灵在自然遭受浩劫时感受到的痛苦一样，他们也感受到了同样的失落。我并不确知奥术力量与自然之间有何联系，但我知道两者休戚与共，一方承受重压必将累及另一方。[/i]
 
-意识到另一位永恒精灵的痛苦，他们很快就向我解释说，还有其他一些游侠正在将难民从其他定居点转移到首都。我不能说我对帮助其他永恒精灵有任何兴趣，我个人觉得我只是被劝阻不要再使用我的纹身，就在我刚刚治疗了一个伤者之后。然而，那位侦察兵意识到了我的意图，也许有助于促成一笔交易——如果我帮助游侠尽可能多地营救永恒精灵，他们也许会帮助我得到我想要的答案。
+意识到其他永恒精灵的苦难，他们很快向我解释说，还有其他几支游侠小队正在将难民从定居点转移到首都。我谈不上对帮助其他永恒精灵有多大兴趣，私心觉得他们只是在劝阻我不要把纹身过度浪费在刚刚治疗的伤患身上。然而，侦察兵察觉到了我的意图并协助促成了一笔交易——若我协助游侠履行职责，尽量多营救永恒精灵，他们就会帮我获得我追寻的答案。
 
-我同意了这些条件，在接下来的几天里，我和游侠们一起四处寻找他们能找到的人。第三天，我们开始穿过茂密的森林向南旅行。当我们穿过森林边界时，一股不自然的雾状浓烟在远处盘旋。有人告诉我，在浓雾的另一边就是埃尔瓦拉，我后来才知道这是他们首都的名字。旅行了几分钟，我们来到一个小湖附近的地方。突然，一条隧道打开了，似乎在邀请我们进去。
+我同意了这些条件，在接下来的几天里，我和游侠们一起四处搜寻幸存者。第三天，我们开始穿过茂密的森林向南行进。当我们穿出森林边界时，一股不自然的雾状浓烟在远处盘旋。有人告诉我，浓雾的另一侧就是埃尔瓦拉，我后来才知道这是他们首都的名字。行进数分钟后，我们来到一片小湖边。突然间，一条通道显现出来，仿佛在邀请我们进去。
 
-在隧道里，我完全迷失了方向。沙尘和风的声音似乎在我们的周围发出不协调的尖啸。我也看到了，在烟雾中静静躺着一些人类尸体，恐怕是被人杀死的。当这座城市映入眼帘时，我很快就看到了一片荒凉的景色。当我和游侠走在街上时，我只看到其他永恒精灵的脸上一片空白。似乎他们都在四处游荡，仿佛置身于某种阴霾之中。在我见到的每一位永恒精灵的脸上，都有一种奇怪的恐慌感，我能看出，他们失去了一些对他们来说很珍贵的东西。
+在通道里，我完全迷失了方向。沙尘与狂风的声音仿佛撕扯出可怕的不协之音。穿行前往另一端时，我似乎还在烟雾深处看到了一些人类的尸体。当城市映入眼帘时，扑面而来的是一片凄凉景象。我和游侠走在街上，其他永恒精灵的脸上尽是一片木然。他们仿佛在某种恍惚中四处游荡。从我身旁经过的每个永恒精灵身上，似乎都流淌着一种怪异的恐慌感，仿佛他们失去了某种珍贵之物。
 
-尽管我来这里是为了向他们寻求复仇，但看到这里的民众，我不知道我是否还会这样做。永恒精灵成为了一个破碎的民族，尽管他们的罪魁祸首对埃亚尔犯下了卑劣的暴行，但我在这里见到的那些人只受到了严厉的惩罚。直到当时，我仍然能够感受到深深的愤怒，但他们现在的生活似乎已是一种恰如其分的惩罚，我对他们的任何敌对情绪几乎都平息了。他们似乎已经为自己的罪行付出了全部的代价。
+虽然我最初来此是为了向他们寻求复仇，但看到这里的民众这副模样，我不知是否还要这么做。永恒精灵已沦为一个破碎的民族；尽管罪魁祸首对埃亚尔犯下了卑劣的暴行，但我在这里见到的民众似乎已承受了严厉的惩罚。当时我仍能感受到深切的愤怒，但看到他们当下的生活，似乎已是恰如其分的惩罚，我对他们的一切敌意几乎都消解了。他们仿佛已全额偿还了自己的罪孽。
 
-我们带来的难民很快就被护送到市中心的一块空地上，那里匆忙搭建了帐篷。一些难民似乎在哀悼，而另一些似乎试图保持他们的理智。当最后一批难民离开我们时，一个身穿白色长袍的永恒精灵走近我们。我从他的长袍里看到了一些纹身。终于，我想，看来有常识的永恒精灵也是会使用纹身的。很快有人问我们是否有人受伤，游侠队长摇了摇头。
+我们护送的难民很快被安置到市中心的一处空地上，那里匆忙搭建了帐篷。一些难民在哀恸，另一些则在竭力保持理智。当最后一批难民离开我们时，一名身穿白袍的永恒精灵迎面走来。我从他的长袍间瞥见了几支纹身。终于，我想，总算有个有常识携带纹身的永恒精灵了。他询问我们之中是否有伤员，游侠队长摇了摇头。
 
-那位治疗师有些不相信这一点，继续追问答案。游侠队长一只手朝我的方向挥了挥，治疗师迅速朝我瞥了一眼，眨了眨眼，表情和侦察兵以前给我的一模一样。“是的，我是一个自然精灵，”我严肃地说“哦，啊，是的。”治疗师结结巴巴地说。侦察兵走到治疗师的身边，耳语了几句，治疗师的眼睛似乎抬起了一会儿，然后轻轻说了一句“是”。接着，他向我说道：“是的，自然精灵，请跟我来。”
+那位治疗师有些怀疑，继续追问。游侠队长向我指了指，治疗师迅速朝我瞥了一眼，眨了眨眼，露出和先前侦察兵如出一辙的目瞪口呆神情。“是的，我是自然精灵，”我严肃地说。“哦，啊，是的，”治疗师结结巴巴地答道。当治疗师回过神来，游侠队长凑到他耳边低语了几句。治疗师挑了挑眉，随即吐出一句干脆的“好”。“啊，自然精灵，那就请随我来吧。”
 
-当治疗师准备走开时，我又看了一眼游侠队长。他回头对我说：“治疗师会带你去主要的疗伤场所。别担心，我没有忘记我们和你的交易。我会试着让你认识一个能帮助你寻求答案的人。”我感觉到他正在尽他所能地让我帮他们干活，于是冷冷地回答道：“你最好不要考验我太久的耐心。”他微笑着没有回答，朝着等待治疗的人点了点头，然后慢慢地转过头去。
+当治疗师动身带路时，我又看了一眼游侠队长。他回头对我说：“医者会带你去主救治所。别担心，我没忘记我们的约定。我会设法让你觐见能给你答案的人。”我感觉到他只想榨干我的劳力，于是冷冷地答道：“你最好别考验我的耐心太久。”他微微一笑，向等候的治疗师点了点头，便转身离去了。
 
-我们很快就穿过一片泥泞的田野，躲过了到处都是难民的帐篷。最后，我们来到了一座高楼，里面有许多永恒精灵伤者躺在床上，有些也躺在地板上。我们走到建筑物后面，走进了我以为是治疗室的地方。“你不会还知道混合纹身的基本原理吧？”他们很快就这样问我。“我知道如何混合基本的麻木纹身和再生纹身。”治疗师点点头，拿出一张纸，开始写下来。
+我们很快穿过泥泞的平地，绕开四处搭建的难民帐篷。最终我们来到一座高大建筑前，里面有许多负伤的永恒精灵躺在床上，甚至躺在地上。走到建筑后方，我们进入了我推测是医官诊室的地方。“你碰巧懂得调配纹身的基本原理吗？”他很快询问道。“我懂得调配基础的麻木纹身和再生纹身，”我答道。治疗师点头会意，抽出一张纸开始书写。
 
-当治疗师写完后，他把那张纸交给我，“当涉及到纹身时，永恒精灵和自然精灵的身体结构几乎是一样的，所以，任何你可以用在自己身上的东西，都可以用在永恒精灵身上。这是我们提供的纹身材料清单。“我带你去我们的工作间，在那里你可以制作一些纹身。”治疗师站起身来，从架子上拿了一把钥匙。我向门口走去，被带到纹身工作间所在的地下室。治疗师打开门，把钥匙递给我，带我进去。]], "_t")
+写完后，他把纸递给我：“在纹身方面，永恒精灵和自然精灵的生理机制几乎完全一致，因此任何能用在你身上的纹身，对永恒精灵同样有效。这是我们现有的纹身材料清单。我带你去工坊，你可以在那里开工制作。”治疗师站起身，从架子上取下一把钥匙。我跟着他走向门口，被带到位于地下的纹身工坊。治疗师打开门，把钥匙递给我，引我走了进去。]], "_t")
 t("Escapades of Fay Willows [Book 1, Chapter 4] - Medical Treatment", "菲·维莉欧斯的冒险 [第1卷, 第4章] - 医疗", "_t")
 t([[[i]It still strikes me how adverse the shaloren are to infusions. Seemingly they would rather tempt fate and avoid using them. One of the purposes of infusions is to restore one to good health after suffering an injury, but for a shalore it was more a means of last resort to avoid dying. What's more, they seem to fail to understand that holding off on infusion use simply results in them using infusions more in the long run, as beyond just mending their flesh they will have to stave off infection from their open wounds as well.[/i]
 
