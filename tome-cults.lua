@@ -4623,7 +4623,7 @@ As with all things here, nothing restrains you in what path you #{bold}#ultimate
 
 在这里，没有任何规则限制任何人，不管你研究的主题和方法是什么。这导致了对许多地表人视为疯狂且被禁止之事的实验，而你们的研究内容也被普通人的社会所禁止。如果克诺什库尔被发现，它一定会被摧毁。因此，在避难所的唯一规则就是必须对在里面学到的知识进行严格的保密和保护。
 
-然而今天，避难所却面临着一条直接冲向克诺什库尔的巨型蠕虫的威胁。如果再不迅速做出决断，它将会直接撞向并摧毁古代堡垒的残骸。有一个击败蠕虫的办法，那就是将某一个人传送到蠕虫的大脑里，然后摧毁它。或者，你也可以考虑在蠕虫到来之前离开，在外面的世界找到你自己的目的。
+然而今天，避难所却面临着一条直接冲向克诺什库尔的巨型蠕虫的威胁。如果再不迅速做出决断，它将会直接撞向并摧毁古代堡垒的残骸。有一个击败蠕虫的办法，那就是将某一个人传送到蠕虫体内，让他前往蠕虫的脑簇所在之处，将其摧毁。或者，你也可以考虑在蠕虫到来之前离开，在外面的世界找到你自己的目的。
 
 就像这里的一切一样，没有人会干涉#{bold}#你自己的选择#{normal}#. 你可以现在#{bold}#踏入通向巨型蠕虫体内的传送门#{normal}#或者就这样离开#{bold}#任由克诺什库尔被巨型蠕虫摧毁#{normal}#。
 ]], "_t")
@@ -4672,11 +4672,11 @@ Class features:#YELLOW#
 
 Cultist of Entropy use "insanity" to power their special abilities.
 Insanity is a measure of their own dementia and makes them more and more chaotic.
-]], [[熵是混乱的能量，它们总是在宇宙间不断制造更多的混乱。
+]], [[熵是混乱的能量，它总是在宇宙间不断制造更多的混乱。
 大部分人认为掌握和使用这种能量是不可能的，但他们错了
 在很久以前，一个神秘的生物来到了埃亚尔，它帮助了一群难民，教会了他们掌握熵的能量的方法。
 
-你阅读了一本描述了熵魔法的来源的古书，现在你可以创造职业是#LIGHT_GREEN#熵教徒#WHITE#的新角色。
+你阅读了一本描述了熵魔法最初教诲的古书，现在你可以创造职业是#LIGHT_GREEN#熵教徒#WHITE#的新角色。
 
 熵教徒是法术职业，使用远程法术攻击
 职业特色：#YELLOW#
@@ -4686,7 +4686,7 @@ Insanity is a measure of their own dementia and makes them more and more chaotic
 - 操纵预言的线索。#WHITE#
 
 熵教徒使用疯狂值来释放他们的特殊能力。
-疯狂值表现了角色心理上的变动，让角色的行为更加混沌。
+疯狂值衡量着他们自身的痴狂程度，并使他们变得越来越混沌。
 ]], "_t")
 
 ------------------------------------------------
@@ -4705,7 +4705,7 @@ Race features:#YELLOW#
 - Learn to summon a horror!
 #WHITE#
 ]], [[德瑞姆是矮人的变异亚种。
-在很久以前，一台似乎是矮人源头的机器失灵了，开始创造出各种怪物，包括德瑞姆。
+在很久以前，那些似乎是矮人源头的神秘机器失灵了，开始创造出各种怪物，包括德瑞姆。
 克诺什库尔中的某种东西似乎想要#{italic}#修正#{normal}#他们，给予了他们智慧。
 
 你已经了解了德瑞姆的起源，你现在可以创造新的#LIGHT_GREEN#德瑞姆#WHITE#角色！
@@ -4744,7 +4744,7 @@ Race features:#YELLOW#
 你从不死生物的魔爪中救下了一群克罗格，你现在可以创造新的#LIGHT_GREEN#克罗格#WHITE# 角色!
 
 种族特点: #YELLOW#
-- 他们的愤怒如此恐怖，任何伤害都能够震慑对手。
+- 他们的愤怒如此恐怖，任何攻击都能够震慑对手。
 - 他们龙血灌注的身体可以抵抗元素魔法伤害。
 - 他们是自然纹身的大师。
 - 他们是战斗种族，可以双持任何单手武器，在足以杀死大多数其他生物的处境中依旧保持坚韧。
@@ -4756,11 +4756,11 @@ section "tome-cults/overload/data/texts/unlock-wyrmic_scourge.lua"
 
 t("New Talent Category: #LIGHT_GREEN#Scourge Drake", "新技能树： #LIGHT_GREEN#天谴之龙", "_t")
 t("Drakes are forces of Nature, the ultimate apex predators. But even they can be corrupted beyond hope.\nYou have encountered the horror that came out of Kroltar, the mightiest wyrm, and vanquished it.\n\nYou can now master Scourge Drake magic and create new Wyrmic characters that can learn the #LIGHT_GREEN#Scourge Drake talents#WHITE#.\n\nTalents:\n- #YELLOW#Tentacled Wings: #WHITE#Project slimy tentacles to pull your foes to you\n- #YELLOW#Decaying Grounds: #WHITE#Cover the ground in blighted energies, increasing cooldowns\n- #YELLOW#Augment Despair: #WHITE#Hit where it hurts, doing more damage based on detrimental effects\n- #YELLOW#Maggot Breath: #WHITE#Breath maggots to slow down your foes\n", [[龙是自然力量的化身，是究极的捕食者。然而，就连他们也能够被绝望所腐化。
-你遇到了从最恐怖的巨龙库洛塔身上产生的恐魔，并击败了它。
+你遇到了从最强大的巨龙库洛塔身上产生的恐魔，并击败了它。
 你现在可以掌握天谴龙的魔法，你创建的新龙战士角色可以使用新的#LIGHT_GREEN#天谴之龙#WHITE#系技能
 
 技能列表:
-- #YELLOW#触手之翼:#WHITE# 射出触手抓取前方的敌人
+- #YELLOW#触手之翼:#WHITE# 伸出黏滑的触手，将敌人拉向你
 - #YELLOW#腐朽之地:#WHITE# 在地面中灌注枯萎能量，增加技能冷却时间
 - #YELLOW#扩大绝望:#WHITE# 击打对手受伤的地方，对方负面效果越多伤害越高。
 - #YELLOW#蛆虫吐息:#WHITE# 喷吐蛆虫，让你的敌人减速
@@ -4892,7 +4892,7 @@ section "tome-cults/overload/mod/dialogs/ForbiddenTome.lua"
 
 t("\
 #CRIMSON#Will crumble to dust when read!", "\
-#CRIMSON#这本书会在阅读后化为碎片！", "_t")
+#CRIMSON#这本书会在阅读后化为尘土！", "_t")
 t("\
 #YELLOW#Can only be read %d times.", "\
 #YELLOW#只能阅读%d次。", "tformat")
@@ -4979,7 +4979,7 @@ section "tome-cults/superload/mod/dialogs/ProphecyGrandOration.lua"
 
 t("Grand Oration", "隆重演说", "_t")
 t([[You may empower the chosen prophecy with Grand Oration, causing it to spread to nearby enemies.
-]], [[你可以使用隆重演说强化选中的预言，令其在周围传播。
+]], [[你可以使用隆重演说强化选中的预言，令其传播至附近的敌人。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("#{bold}#Choose a talent#{normal}#", "#{bold}#选择一个技能#{normal}#", "_t")
@@ -5011,7 +5011,7 @@ section "tome-cults/superload/mod/dialogs/ProphecyTwofoldCurse.lua"
 
 t("Twofold Curse", "双重诅咒", "_t")
 t([[You may empower the chosen prophecy with Twofold Curse, causing it to apply instantly when you cast another prophecy.
-]], [[你可以使用双重诅咒强化选中的预言，每当你施加其他预言时，你选择的预言将同时施加给主要目标。
+]], [[你可以使用双重诅咒强化选中的预言，令选中的预言在你施放另一个预言时立即生效。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("#{bold}#Choose a talent#{normal}#", "#{bold}#选择一个技能#{normal}#", "_t")
