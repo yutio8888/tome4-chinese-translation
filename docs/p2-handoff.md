@@ -6,13 +6,20 @@
 
 ## 0. 一句话状态
 
-P1 已完成。P2 正在按用户指定的 **Ashes → Orcs → Cults** 顺序做分层小批次。三个官方
-DLC 的 **mechanics、timed-effect 状态、UI／运行日志、对话／长叙事** 四层现在**全部完成**：
-每个 DLC 的 `tome-*.lua` 中所有 lore／chats／quests／intro／unlock／dialogs section 都已
-逐条读完并核验。对话层全部批次均使用 Paseo EXECUTOR 提案 → 主代理独立核对源码 → Paseo
-REVIEWER `translation_contextual_v1` → 主代理裁决 → 门禁 → 提交的流程完成，工作树干净。
-第 4 层（辅助 addon／example）和 P3（累计门禁、构建、push／发布）尚未开始。当前裁决仍是
-**不 push、不修改发布仓库、不构建或发布 addon**。
+P1 已完成。P2 第 1–3 层（mechanics、timed-effect 状态、UI／运行日志、对话／长叙事）对
+Ashes／Orcs／Cults 三个官方 DLC 全部完成：每个 DLC 的 `tome-*.lua` 中所有
+lore／chats／quests／intro／unlock／dialogs section 都已逐条读完并核验。P3（累计全量门禁、
+addon 构建、smoke、push、发布仓库同步）已在用户授权后执行：`tools/ci-gates.sh` 全部
+12 项门禁通过，`develop` 已 push 到 `origin`（`42aae69`），发布仓库 `tome4-chn-mod` 已用
+`tools/i18n publish --apply --bump --commit` 同步并 push（`addon_version 0.2.7`，
+`9cdbd30`），`tools/smoke_release.py` 16 项全 PASS。
+
+`develop → master` 的 PR 未能创建（`gh pr create` 因 fine-grained PAT 缺少
+`pull_request:write` 权限失败，`GraphQL: Resource not accessible by personal access
+token`），用户选择暂时跳过，需要用户手动在
+https://github.com/yutio8888/tome4-chinese-translation/compare/master...develop 创建，
+或更新 token 权限后重试。第 4 层（辅助 addon／example）和正式 GitHub Release 仍未开始，
+都需要用户另行明确授权。
 
 ## 1. 仓库快照
 
@@ -172,7 +179,11 @@ git diff --check && echo DIFF_OK
 
 ## 9. 不要做的事
 
-- 不要 push；不要改 `tome4-chn-mod` 或构建／发布 addon。
+- 2026-08-20 用户已明确批准 P3 并执行：`develop` push、`tome4-chn-mod` 同步与 push
+  均已完成（见 §0）。除非用户再次明确指示，接任者仍然 **不要**：
+  - 创建正式 GitHub Release、上传 teaa 或发布到 te4.org／创意工坊；
+  - 再次 push（尤其是强制推送、rebase、squash 或改写已推送的历史）；
+  - 未经用户重新确认就再次修改并 push `tome4-chn-mod`。
 - 不要为「零风险」去全量扫描 lore。
 - 不要把英文说明或审核偏好盖过固定源码。
 - 不要在未确认全部 child 归档时创建下一个写入 agent。
