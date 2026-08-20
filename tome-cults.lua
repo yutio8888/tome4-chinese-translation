@@ -169,12 +169,12 @@ t("Golem becomes a Glass Golem", "傀儡变成玻璃傀儡", "_t")
 ------------------------------------------------
 section "tome-cults/data/chats/fanged-collar.lua"
 
-t("#{italic}##GREY#You feel the creeping blackness of oblivion overtaking you. Somehow, the darkness does not completely enclose around you. Something else is here with you. You feel as though it wishes to help you. Wordlessly, it reassures you that everything will be fine and that it can help you escape your fate. You only have to say yes.#{normal}#", "#{italic}##GREY#你感受到湮灭的黑暗淹没了你。不知为何，黑暗并没有完全包围你。有什么东西似乎正在陪伴着你，你觉得它似乎想要帮助你。它无言地的向你承诺，一切都会好起来的，他可以帮你脱离死亡的命运。你只要说“是”就行了。#{normal}#", "_t")
+t("#{italic}##GREY#You feel the creeping blackness of oblivion overtaking you. Somehow, the darkness does not completely enclose around you. Something else is here with you. You feel as though it wishes to help you. Wordlessly, it reassures you that everything will be fine and that it can help you escape your fate. You only have to say yes.#{normal}#", "#{italic}##GREY#你感受到湮灭的黑暗淹没了你。不知为何，黑暗并没有完全包围你。有什么东西似乎正在陪伴着你，你觉得它似乎想要帮助你。它无言地的向你承诺，一切都会好起来的，它可以帮你脱离死亡的命运。你只要说“是”就行了。#{normal}#", "_t")
 t("Silently you agree. You want to live!", "你默默的同意了，你想活下去！", "_t")
 t("Silently you refuse, the presence creeps you out too much.", "你默默地拒绝了，这个存在太可怕了。", "_t")
 t("#{italic}##GREY#The presence shirks back sadly, but you feel like it has respected your decision. It allows you to find the peace that only death can give.#{normal}#", "#{italic}##GREY#那个存在伤心地离开了，但是你觉得它尊重了你的选择。它让你寻找到了只有死亡才能给你的平和安宁。#{normal}#", "_t")
 t("[die]", "[你死了]", "_t")
-t("#{italic}##GREY#You do not want to die. Without a second thought, you accept its offer. Happily, the presence begins to do... something. You start to wake up and you feel life returning to your limbs. However, you have a splitting headache and your neck won't stop hurting. Just what did the presence do to bring you back from the brink?#{normal}#", "#{italic}##GREY#你可不想死。不需要多少思考，你同意了这个请求。那个东西高兴地开始做了…某件事。你醒了过来，感受到生命重新充满了你的四肢。然而，你仍然感觉头痛欲裂，你的脖子也很痛。到底是什么把你从死亡的边缘带了回来？#{normal}#", "_t")
+t("#{italic}##GREY#You do not want to die. Without a second thought, you accept its offer. Happily, the presence begins to do... something. You start to wake up and you feel life returning to your limbs. However, you have a splitting headache and your neck won't stop hurting. Just what did the presence do to bring you back from the brink?#{normal}#", "#{italic}##GREY#你可不想死。不需要多少思考，你接受了它的提议。那个东西高兴地开始做了…某件事。你醒了过来，感受到生命重新充满了你的四肢。然而，你仍然感觉头痛欲裂，你的脖子也很痛。到底是什么把你从死亡的边缘带了回来？#{normal}#", "_t")
 t("...", "……", "_t")
 t("#CRIMSON#Strange... You're pretty sure you died, but you're still here. It does feel like something important is missing, however. Your neck also feels incredibly sore and you have a splitting headache. Somehow, you get the subtle impression that you shouldn't look in a mirror anytime soon.", "#CRIMSON#好奇怪…你很确定你已经死了，但你还活着。然而，你还是觉得你少了什么重要的东西。你的脖子很痛，你还是觉得很头疼。不知为何，你隐约感觉你不应该照镜子。", "log")
 
@@ -229,7 +229,7 @@ User added to database. I am now your personal assistant and will help you survi
 用户的生理学特征符合预期物种，但在数据库中没有记录。正在发送信息以供进一步分析。
 
 用户已添加到数据库。我现在是你的私人助理，直到进一步的救援前来之前，我会持续照料你。已启动保护性电磁屏障和实时健康监测程序。]], "_t")
-t("Expected species?", "目标物种？", "_t")
+t("Expected species?", "预期物种？", "_t")
 t([[#YELLOW_GREEN##{bold}#The device beeps again and speaks.#{normal}##LAST#
 User's biological signature indicates dangerous degeneration of genome due to unknown factors. Sending information for further analysis.]], [[#YELLOW_GREEN##{bold}#这个机器哔哔了几下，又说了起来。#{normal}##LAST#
 由于不明原因，用户的生理特征表现出危险的基因劣化。正在发送信息以供进一步分析。]], "_t")
@@ -237,7 +237,7 @@ t("Genome?", "基因组？", "_t")
 t([[#YELLOW_GREEN##{bold}#The device beeps again and speaks.#{normal}##LAST#
 No signs of life detected. User appears to be still moving despite absence of living tissue. Sending information for further analysis.]], [[#YELLOW_GREEN##{bold}#这个机器哔哔了几下，又说了起来。#{normal}##LAST#
 没有检测到生命信号。目标看上去在活动，但没有活着的生物组织。正在发送信息以供进一步分析。]], "_t")
-t("Never seen an undead have you?", "看什么看，没见过不死生物啊？", "_t")
+t("Never seen an undead have you?", "你没见过不死生物吗？", "_t")
 t([[#YELLOW_GREEN##{bold}#The device beeps again and speaks.#{normal}##LAST#
 User's biological signature does not match any currently known species in database. Sending information for further analysis.]], [[#YELLOW_GREEN##{bold}#这个机器哔哔了几下，又说了起来。#{normal}##LAST#
 用户的生理学特征不符合数据库中的任何已知物种。正在发送信息以供进一步分析。]], "_t")
@@ -889,11 +889,11 @@ section "tome-cults/data/lore/dremwarves.lua"
 
 t("Forbidden Cults", "禁忌邪教", "newLore category")
 t("our origins (1)", "我们的起源 (1)", "_t")
-t("I do not remember anything from before. My earliest memories are of these ruins. My people are known as the Drem to the surface dwellers of this world. We are seen as monsters, and perhaps that is not an unfair presumption. We were once mindless creatures roaming the underground, capable only of violence and acting on instinct. \n\nIt is only after these ruins were found that thought finally manifested in our bodies. I am fortunate in that the ruins have gifted me with sublime intelligence. For some, it did not help at all. For others, it barely raised them above mindlessness. Whatever grants us intelligence in these ruins seems to work on a case-by-case basis. Since our self awareness is only a recent thing, we have much we need to learn about the world around us and about ourselves as well.\n\nThere is one question which keeps coming back to me. Why do we exist? Where did we come from? There are many strange things which dwell below the surface, but we are somehow different. The dwarven race bears similarities to us, but they possess a face where we do not. Are we cast from the same mold, but the process went awry somehow?\n\nI strongly believe that Drem and Dwarf do share a common origin. But, what is that origin? Could this simply have been the result of our different environments over the years? I could speculate all day about this, but that would not produce any concrete evidence. I intend to explore these caverns until I can find some clue or fragment of knowledge which will point me in the right direction. I need to know the truth.", [[我不记得以前的事了。我最早的记忆都和这些废墟有关。我的同伴被地上的居民称为德瑞姆。我们被视为怪物，也许这并非是一个不公的评价。我们曾经是在地下游荡的无意识的生物，依靠暴力和本能行动。
+t("I do not remember anything from before. My earliest memories are of these ruins. My people are known as the Drem to the surface dwellers of this world. We are seen as monsters, and perhaps that is not an unfair presumption. We were once mindless creatures roaming the underground, capable only of violence and acting on instinct. \n\nIt is only after these ruins were found that thought finally manifested in our bodies. I am fortunate in that the ruins have gifted me with sublime intelligence. For some, it did not help at all. For others, it barely raised them above mindlessness. Whatever grants us intelligence in these ruins seems to work on a case-by-case basis. Since our self awareness is only a recent thing, we have much we need to learn about the world around us and about ourselves as well.\n\nThere is one question which keeps coming back to me. Why do we exist? Where did we come from? There are many strange things which dwell below the surface, but we are somehow different. The dwarven race bears similarities to us, but they possess a face where we do not. Are we cast from the same mold, but the process went awry somehow?\n\nI strongly believe that Drem and Dwarf do share a common origin. But, what is that origin? Could this simply have been the result of our different environments over the years? I could speculate all day about this, but that would not produce any concrete evidence. I intend to explore these caverns until I can find some clue or fragment of knowledge which will point me in the right direction. I need to know the truth.", [[我不记得以前的事了。我最早的记忆都和这些废墟有关。我的族人被地上的居民称为德瑞姆。我们被视为怪物，也许这并非是一个不公的评价。我们曾经是在地下游荡的无意识生物，只会施暴并凭本能行动。
 
 直到我们发现这些废墟之后，我们的身体中才浮现了智慧与思想。我很幸运，废墟赋予我崇高的智慧，而有一些人就没有那么幸运了，他们没有任何变化。对另一些人来说，它只是让他们的智力提升到比无意识稍微好一点。到底是怎样的东西赋予我们了智慧，似乎并没有什么规律可循。因为我们是刚刚才获得自我意识的，我们有很多需要去了解的东西。我们需要了解我们周围的世界，以及了解我们自己。
 
-有一个问题不断浮现在我的脑海中。我们是从哪里来的？我们为什么存在？在地表之下有许多奇怪的生物，但我们却和它们有所不同。矮人种族与我们有相似之处，但他们有清晰的五官，而我们没有。也许我们是从同一个模子中铸造出来的，但是这个过程不知何故出错了？
+有一个问题不断浮现在我的脑海中。我们是从哪里来的？我们为什么存在？在地表之下有许多奇怪的生物，但我们却和它们有所不同。矮人种族与我们有相似之处，但他们有一张脸，而我们没有。也许我们是从同一个模子中铸造出来的，但是这个过程不知何故出错了？
 
 我坚信，德瑞姆和矮人确实有共同的起源。但是，那是什么起源呢？这难道仅仅是因为多年来我们生活在不同环境所造成的变化吗？我整日思考这个问题，但是如果没有证据，我就没法证实我的猜想。我打算探索这些洞穴，直到找到一些线索和知识的碎片，引导我走向正确的研究方向。我需要知道真相。]], "_t")
 t("our origins (2)", "我们的起源 (2)", "_t")
