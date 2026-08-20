@@ -8,14 +8,17 @@
 
 P1 已完成。P2 正在按用户指定的 **Ashes → Orcs → Cults** 顺序做分层小批次。三个官方
 DLC 的 **mechanics、timed-effect 状态、UI／运行日志** 均已收束（各层最后一轮侦察为明确
-无候选）。**对话／长叙事** 刚开始：Ashes 已提交一条缟玛瑙生育率修订后，用户要求暂停。
-当前裁决仍是 **不 push、不修改发布仓库、不构建或发布 addon**。
+无候选）。**对话／长叙事** 已各自提交一轮：Ashes 完成缟玛瑙生育率、起始任务流星、Walrog
+弹出对话、玛·洛克历史（3）剩余段落；Cults 完成 Fay Willows 纹身书信一轮准确度修订；Orcs
+修正 Var'Eyal／Mindwall 误用并改进多段对话准确度。三层批次均已核验、过门禁并提交，工作树
+干净，等待用户决定下一批范围。当前裁决仍是 **不 push、不修改发布仓库、不构建或发布 addon**。
 
 ## 1. 仓库快照
 
 - 分支：`develop`
-- 最新译文提交：`f8f049a fix: restore Ashes Mal'Rok onyx birth-rate`
-- 本交接文档提交：见该文件入树后的 `docs: add current P2 handoff` 提交。
+- 最新译文提交：`4d928ad fix: correct Orcs Var'Eyal and Mindwall references, dialogue accuracy`
+  （其前为 `9888a6f` Cults 纹身书信修订、`50d368a` Ashes 对话层剩余候选）。
+- 本交接文档提交：见该文件入树后的 `docs: add current P2 handoff` 提交及后续更新。
 - 工作树：干净。
 - 相对 `origin/develop`（`346e022`）超前约 96 个提交；其中约 70 个是 P2 译文 `fix:`。
 - 固定游戏版本：ToME4 1.7.6；DLC 公开源码基线 1.7.4。
@@ -51,36 +54,21 @@ P4–P6（v3 campaign、正式 120 条、Gold／Silver TM）仍为 deferred。
 | Mechanics | 完成 `a6e1d9d` | 完成 `fd708f7` | 完成 `78fbb16` |
 | 状态／timed-effect | 完成（Fiery Torment／Aegis、Plaguefire、Only Ashes Left；后续无候选） | 完成（Pain Suppressor、PES 至 Moss Tread `038108b`；B33 无候选） | 完成（Overgrowth 至 Fatebreaker `6480555`；后续 status／UI 侦察无候选） |
 | UI／运行日志 | 完成：炼狱之门感知 4 回合 `c133d72`；苦痛链接「选择源生物:」`0207be6`；B3 无候选 | 完成：瞬间引导 `dba9ef7`；惊艳射击 `bfe613a`；机械蜘蛛底盘 `a03e849`；B4 无候选 | 完成：精华收割→虚空之星 `3910cca`；禁忌之书移动速度 `4ae382d`；异变之手去掉「开启」`2c23383`；B4 无候选 |
-| 对话／长叙事 | **进行中，已暂停**：缟玛瑙生育率 `f8f049a` | 未开始 | 未开始 |
+| 对话／长叙事 | 完成一轮：缟玛瑙生育率 `f8f049a`；起始任务流星、Walrog 弹出对话、玛·洛克历史（3）其余段落 `50d368a`；后续 lore／quests／chats 待侦察 | 完成一轮：Var'Eyal／Mindwall 误用、DESTRUCTICUS 广告与多段对话准确度 `4d928ad`；后续 lore／quests／chats 待侦察 | 完成一轮：Fay Willows 纹身书信准确度与术语一致性 `9888a6f`；后续 lore／quests／chats 待侦察 |
 
 绑定术语：`resists.all` = **全部抗性**（Direct Control、Pain Suppressor 等已按此执行）。
 
 ## 4. 暂停点与接任后第一步
 
-用户原话：改完当前问题后提交并暂停。因此接任者 **不要自动继续**，等用户明确恢复。
+三层（Ashes／Orcs／Cults）对话层各完成一轮，均已核验源码、过门禁并提交
+（`50d368a`／`9888a6f`／`4d928ad`）。此前记录的 Ashes 三项候选（起始任务流星、Walrog
+弹出对话、玛·洛克历史（3）其余段落）已随 `50d368a` 一并核验实现，不再是待办。
 
-恢复后的下一候选（均已对照固定源码核验、键唯一，尚未实现）：
+接任者 **不要自动开下一批**，等用户明确指示范围。三个 DLC 的对话／长叙事层都还有大量
+未侦察的 lore／quests／chats，下一步需要先做一轮侦察（哪个 DLC、哪些文件）才能定出新的
+候选清单；本文件当前不预先列出具体候选。
 
-1. **起始任务流星**（优先、范围小）
-   - 文件：`tome-ashes-urhrok.lua` 任务 `Ashes in the Wind`（约 `:705`）
-   - 源码：`data/quests/start-ashes.lua:25` 为「demons' spells failing to **divert its course**」
-   - 现译：「恶魔试图用法术将其**粉碎**」
-   - 现场：`data/zones/searing-halls/grids.lua` 为陨石坑／被流星砸死的恶魔
-   - 注意：开场 `overload/data/texts/intro-ashes-urhrok.lua` 已是「改变其轨迹」，那是**另一条**完整 `_t` 键，不要当成同键合并
-
-2. **Walrog 弹出对话**（同一 `tformat` 长串，保留 `%s` 与颜色标记）
-   - 文件：`tome-ashes-urhrok.lua` 约 `:1806-1814`
-   - 源码：`overload/data/chats/ashes-urhrok-walrog-pop.lua:25-29`
-   - 生成时机：`superload/mod/class/Actor.lua:34-50` 在 Slasul **与** Ukllmswwik 都死后实例化
-   - 现译把「两个障碍怯于互斗、好让 Walrog 收拾胜者」写成「两个障碍已经除去」；把「把夏·图尔魔法转而对付**其创造者**」写成「击败他们**曾经的造物**」
-
-3. **玛·洛克历史（3）其余段落**（与 `f8f049a` 同一 `_t`，审核指出、本批按 SPEC 未改）
-   - 命令句：原文 Never let anything be hurt **by Eyal**；现译「埃亚尔的住民再也无法危害人间」（方向反了）
-   - 红宝石：焦土熔到手上、只能用**埃亚尔自身的火焰**灼烧埃亚尔；现译成「以他们的烈火」
-   - 战利品：完好的 **Eyal** 作为奖品；现译「它们的自己完好无损的星球」
-   - 俘虏：kept alive，forever feel the flames **they created**；现译成笼统的罪孽／折磨
-
-Ashes 对话层之后才是 Orcs、Cults 对话／lore／chats／quests，然后才是辅助 addon。
+Ashes／Orcs／Cults 对话层之后才是第 4 层——辅助 addon／example 中确认玩家可见的内容。
 
 ## 5. 同键搁置（翻译无法单独特化）
 
@@ -126,7 +114,11 @@ Ashes 对话层之后才是 Orcs、Cults 对话／lore／chats／quests，然后
 - 旧项目 Skill 已归档，不参与路由。
 
 编排产物在 gitignored 的 `.ai/task/<task_id>/` 与 `.ai/reviews/<task_id>/`。最近完成任务：
-`p2-ashes-dialogue-b1-001`（DONE，`commit=f8f049a`）。
+`p2-ashes-dialogue-b1-001`（DONE，`commit=f8f049a`）。该任务的 SPEC 只授权单条缟玛瑙生育率
+修订；`50d368a`／`9888a6f`／`4d928ad` 是该任务暂停期间在工作树中出现、经主代理直接核验源码
+与术语后提交的后续工作，未走 Paseo child dispatch、无对应 STATE.json／review 记录——接任者
+若要继续对话层，应开新任务并从侦察阶段开始，不要假设这三次提交延续了 `p2-ashes-dialogue-b1-001`
+的编排状态。
 
 ## 8. 门禁（译文批次提交前）
 
@@ -141,8 +133,8 @@ python3 -B tools/classify_runtime_keys.py; echo "exit=$?"
 git diff --check && echo DIFF_OK
 ```
 
-当前基线（`f8f049a` 提交前独立重跑）：lint 30,308／0／0；454 tests OK；运行键冲突 0；
-分类 1,711 桶 A／0 桶 B／0 桶 C。
+当前基线（`4d928ad` 提交前独立重跑）：lint 30,308／0／0；454 tests OK（117.035s）；运行键
+冲突 0；分类 1,711 桶 A／0 桶 B／0 桶 C。
 
 术语表改动后另跑 `audit_static.py`、`audit_dynamic.py`、`annotate_domains.py`。
 
