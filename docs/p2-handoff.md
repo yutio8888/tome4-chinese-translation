@@ -8,16 +8,18 @@
 
 P1 已完成。P2 正在按用户指定的 **Ashes → Orcs → Cults** 顺序做分层小批次。三个官方
 DLC 的 **mechanics、timed-effect 状态、UI／运行日志** 均已收束（各层最后一轮侦察为明确
-无候选）。**对话／长叙事** 已各自提交一轮：Ashes 完成缟玛瑙生育率、起始任务流星、Walrog
-弹出对话、玛·洛克历史（3）剩余段落；Cults 完成 Fay Willows 纹身书信一轮准确度修订；Orcs
-修正 Var'Eyal／Mindwall 误用并改进多段对话准确度。三层批次均已核验、过门禁并提交，工作树
-干净，等待用户决定下一批范围。当前裁决仍是 **不 push、不修改发布仓库、不构建或发布 addon**。
+无候选）。**对话／长叙事**：Ashes、Orcs 已经把各自 `tome-*.lua` 中所有 lore／chats／quests／
+intro／unlock 等 section **全部逐条读完并核验**，未发现进一步高置信度问题；Cults 仅完成
+Fay Willows 纹身书信一轮，其余约 28 个 section 尚未侦察。全部批次均使用 Paseo
+EXECUTOR/REVIEWER 子代理配合主代理独立核验、过门禁并提交，工作树干净。当前裁决仍是
+**不 push、不修改发布仓库、不构建或发布 addon**。
 
 ## 1. 仓库快照
 
 - 分支：`develop`
-- 最新译文提交：`4d928ad fix: correct Orcs Var'Eyal and Mindwall references, dialogue accuracy`
-  （其前为 `9888a6f` Cults 纹身书信修订、`50d368a` Ashes 对话层剩余候选）。
+- 最新译文提交：`6d8d89a fix: correct Orcs intro/unlock text errors, including a meaning reversal`
+  （其前为 `c6e4ecb`／`c6c4dbe`／`4d928ad` Orcs 对话层 B1–B3、`38ec652` Ashes 对话层收尾、
+  `9888a6f` Cults 纹身书信修订、`50d368a` Ashes 对话层剩余候选）。
 - 本交接文档提交：见该文件入树后的 `docs: add current P2 handoff` 提交及后续更新。
 - 工作树：干净。
 - 相对 `origin/develop`（`346e022`）超前约 96 个提交；其中约 70 个是 P2 译文 `fix:`。
@@ -54,19 +56,23 @@ P4–P6（v3 campaign、正式 120 条、Gold／Silver TM）仍为 deferred。
 | Mechanics | 完成 `a6e1d9d` | 完成 `fd708f7` | 完成 `78fbb16` |
 | 状态／timed-effect | 完成（Fiery Torment／Aegis、Plaguefire、Only Ashes Left；后续无候选） | 完成（Pain Suppressor、PES 至 Moss Tread `038108b`；B33 无候选） | 完成（Overgrowth 至 Fatebreaker `6480555`；后续 status／UI 侦察无候选） |
 | UI／运行日志 | 完成：炼狱之门感知 4 回合 `c133d72`；苦痛链接「选择源生物:」`0207be6`；B3 无候选 | 完成：瞬间引导 `dba9ef7`；惊艳射击 `bfe613a`；机械蜘蛛底盘 `a03e849`；B4 无候选 | 完成：精华收割→虚空之星 `3910cca`；禁忌之书移动速度 `4ae382d`；异变之手去掉「开启」`2c23383`；B4 无候选 |
-| 对话／长叙事 | 完成一轮：缟玛瑙生育率 `f8f049a`；起始任务流星、Walrog 弹出对话、玛·洛克历史（3）其余段落 `50d368a`；后续 lore／quests／chats 待侦察 | 完成一轮：Var'Eyal／Mindwall 误用、DESTRUCTICUS 广告与多段对话准确度 `4d928ad`；后续 lore／quests／chats 待侦察 | 完成一轮：Fay Willows 纹身书信准确度与术语一致性 `9888a6f`；后续 lore／quests／chats 待侦察 |
+| 对话／长叙事 | **全部 dialogue／lore section 已读完并核验**：`f8f049a`、`50d368a`、`38ec652`（demon.lua 全部雕像／记忆条目、re-abducted／start-ashes quests、Walrog chat、intro／unlock texts、Birther.lua） | **全部 dialogue／lore section 已读完并核验**：`4d928ad`、`c6c4dbe`、`c6e4ecb`、`6d8d89a`（B1–B4：dominion-port 起全部 lore、全部 18 个 quest section、全部 intro／unlock／debug texts；含 Mindwall 译名统一、一处逻辑反转修正） | 完成一轮：Fay Willows 纹身书信准确度与术语一致性 `9888a6f`；后续 lore／quests／chats 待侦察 |
 
 绑定术语：`resists.all` = **全部抗性**（Direct Control、Pain Suppressor 等已按此执行）。
 
 ## 4. 暂停点与接任后第一步
 
-三层（Ashes／Orcs／Cults）对话层各完成一轮，均已核验源码、过门禁并提交
-（`50d368a`／`9888a6f`／`4d928ad`）。此前记录的 Ashes 三项候选（起始任务流星、Walrog
-弹出对话、玛·洛克历史（3）其余段落）已随 `50d368a` 一并核验实现，不再是待办。
+Ashes 和 Orcs 的对话／长叙事层已经**全部** section 逐条读完、核验并提交（Ashes：
+`f8f049a`／`50d368a`／`38ec652`；Orcs：`4d928ad`／`c6c4dbe`／`c6e4ecb`／`6d8d89a`）。这两个
+DLC 的 `tome-*.lua` 中不再有已知未侦察的 lore／chats／quests／texts section。
 
-接任者 **不要自动开下一批**，等用户明确指示范围。三个 DLC 的对话／长叙事层都还有大量
-未侦察的 lore／quests／chats，下一步需要先做一轮侦察（哪个 DLC、哪些文件）才能定出新的
-候选清单；本文件当前不预先列出具体候选。
+Cults 只完成了 Fay Willows 纹身书信一轮（`9888a6f`），`tome-cults.lua` 还有约 28 个
+lore／chats／quests section 未侦察（用 `grep -n '^section "' tome-cults.lua | grep -iE
+'lore|chat|quest|text|intro|dialog'` 可列出）。接任者应按同一批次流程（Paseo EXECUTOR
+提案 → 主代理独立核对源码 → Paseo REVIEWER `translation_contextual_v1` → 主代理裁决 →
+门禁 → 提交）继续处理 Cults，每批覆盖若干 section，不要求一次读完全部。
+
+接任者 **不要自动开下一批**，等用户明确指示范围。
 
 Ashes／Orcs／Cults 对话层之后才是第 4 层——辅助 addon／example 中确认玩家可见的内容。
 
@@ -106,19 +112,25 @@ Ashes／Orcs／Cults 对话层之后才是第 4 层——辅助 addon／example 
   创建，带 `labels.task_id`／`role`／需要时的 `purpose` 与 `dispatch_id`。
 - 派发前 `paseo__list_profiles`：EXECUTOR 用 Utility — Luna（`codex/gpt-5.6-luna`，
   `auto-review`，thinking medium）；SCOUT／REVIEWER 用 Lead — Terra
-  （`codex/gpt-5.6-terra`，`auto-review`，thinking **high**）。
+  （`codex/gpt-5.6-terra`，`auto-review`，thinking **medium**——2026-08-20 核对 live
+  `list_profiles` 输出为 medium，不是本文件曾记录的 high；以 live 数据为准）。
 - 译文审核：`role=REVIEWER`，`purpose=translation_contextual_v1`；短 prompt 三行；
   envelope 为紧凑 JSON；`candidate_identity = SHA-256(canonical payload)`。
 - 收获后先把 `archive_attempts_started` 持久化再 `archive_agent`；确认归档后才进入下一阶段。
 - EXECUTOR 不 stage、不 commit。门禁由 ORCHESTRATOR 独立重跑后再提交。
 - 旧项目 Skill 已归档，不参与路由。
 
-编排产物在 gitignored 的 `.ai/task/<task_id>/` 与 `.ai/reviews/<task_id>/`。最近完成任务：
-`p2-ashes-dialogue-b1-001`（DONE，`commit=f8f049a`）。该任务的 SPEC 只授权单条缟玛瑙生育率
-修订；`50d368a`／`9888a6f`／`4d928ad` 是该任务暂停期间在工作树中出现、经主代理直接核验源码
-与术语后提交的后续工作，未走 Paseo child dispatch、无对应 STATE.json／review 记录——接任者
-若要继续对话层，应开新任务并从侦察阶段开始，不要假设这三次提交延续了 `p2-ashes-dialogue-b1-001`
-的编排状态。
+编排产物在 gitignored 的 `.ai/task/<task_id>/` 与 `.ai/reviews/<task_id>/`。
+
+`p2-ashes-dialogue-b1-001`（DONE，`commit=f8f049a`）之后，`50d368a`／`38ec652`（Ashes）与
+`9888a6f`（Cults）是经主代理直接核验源码与术语、未走 Paseo child dispatch 提交的工作，无对
+应 STATE.json／review 记录。此后恢复了标准 Paseo 编排：Orcs 对话层 B1–B4
+（`p2-orcs-dialogue-b1-001` 至 `b4-001`，均 DONE，commit 依次为 `4d928ad`／`c6c4dbe`／
+`c6e4ecb`／`6d8d89a`）每批都走 EXECUTOR 提案 → 主代理独立核对源码 → REVIEWER
+`translation_contextual_v1` → 主代理裁决（含拒绝 REVIEWER 或 EXECUTOR 的个别 finding，均
+附源码或游戏机制证据）→ 门禁 → 提交，STATE.json 完整记录 child_dispatches 与归档确认。
+最近完成任务：`p2-orcs-dialogue-b4-001`（DONE，`commit=6d8d89a`）。接任者继续 Cults 时应沿用
+这套 B1–B4 的编排模式，从新任务的侦察阶段开始。
 
 ## 8. 门禁（译文批次提交前）
 
@@ -133,7 +145,7 @@ python3 -B tools/classify_runtime_keys.py; echo "exit=$?"
 git diff --check && echo DIFF_OK
 ```
 
-当前基线（`4d928ad` 提交前独立重跑）：lint 30,308／0／0；454 tests OK（117.035s）；运行键
+当前基线（`6d8d89a` 提交后独立重跑）：lint 30,308／0／0；454 tests OK（119.882s）；运行键
 冲突 0；分类 1,711 桶 A／0 桶 B／0 桶 C。
 
 术语表改动后另跑 `audit_static.py`、`audit_dynamic.py`、`annotate_domains.py`。
