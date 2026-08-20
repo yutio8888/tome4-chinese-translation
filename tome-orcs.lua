@@ -7848,7 +7848,7 @@ For the Pride, for Garkul's legacy !
 大陆上的四大部落无一幸存；它们全部覆灭，只有极少数成员成功逃脱。
 
 驻守克拉克半岛的克鲁克部落是唯一仍然屹立的部落，但还能坚持多久？
-太阳堡垒的前哨站封锁了通往大陆的道路；半岛本身则居住着一个掌握先进蒸汽科技、充满侵略性的巨人种族。
+太阳堡垒的前哨站封锁了通往大陆的道路；半岛本身则居住着一个先进而好斗的巨人种族，掌握着蒸汽科技。
 
 占据这具身体之前，你是一名强大的灵能者，曾参与一项计划，旨在让克鲁克在对抗那些肌肉如山的巨人时占据战斗优势。
 你借助灵能科技#{bold}#侵入#{normal}#了一个心智简单的雪人，占据其身体，任由自己的肉身枯萎死亡。你因此失去了大部分经验和力量，却获得了一具强壮的躯体，可以为部落效力。
@@ -7878,15 +7878,15 @@ For the orcs, for Garkul's legacy !
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#。
 你是骄傲但逐渐凋零的兽人一族的成员。
 
-在历史的长河中，你的种族被人所憎恨、捕杀并残忍地杀害。你的种族也曾复仇，造成无数的破坏与暴行。
-但是现在，兽人已经到了灭绝的边缘。你们在瓦·埃亚尔所有的据点几乎都被太阳堡垒和#{italic}#西方灾星#{normal}#所摧毁。
+在历史的长河中，你的种族被人所憎恨、捕杀并残忍地杀害。你的种族也曾犯下许多暴行，造成无数破坏。
+但是现在，兽人已经到了灭绝的边缘。你们在瓦·埃亚尔所有的据点不是被太阳堡垒摧毁，就是被你们称作#{italic}#西方灾星#{normal}#的那个人摧毁。
 大陆上的四个部落不复存在。他们已经全部被击败，很少有成员有机会能够逃离。
 
 只有克拉克半岛的克鲁克部族依然挺立，但是他们还能坚持多久？
-太阳堡垒的前哨站堵住了通往大陆的入口，而半岛本身则被一群具有领先的蒸汽科技、侵略成性的巨人智慧种族所占据。
+太阳堡垒的前哨站堵住了通往大陆的道路，而半岛本身则居住着一个先进而好斗的巨人种族，掌握着蒸汽科技。
 
-现在，巨人从山脉中挖出了一条通向克鲁克的隧道，他们气势汹汹的军队试图一劳永逸终结部落的命运，而克鲁克部族的大部分军队却不在城内。
-必须不惜一切代价终结他们。克鲁克如果沦陷，兽人种族将会灭亡。
+现在，巨人从山脉中挖出了一条直通克鲁克的隧道，正从中涌出，要在克鲁克的大部分军队离开时一劳永逸地终结这个部落。
+必须不惜一切代价阻止他们；如果克鲁克沦陷，兽人种族也将随之灭亡。
 
 你从仓库中拿出一个炸弹，现在你必须进入隧道并在弱点引爆它使隧道崩溃。
 为了部落，为了加库尔的遗产！
@@ -8036,15 +8036,15 @@ Race features:#YELLOW#
 - Algid Rage, call upon the harsh climate of their birthplace to freeze their foes
 - Mindwave, the controlling orc retains a small part of his psionic powers, giving them a powerful mind-tool
 - Strong body#WHITE#
-]], [[雪人是克拉克半岛寒冷山脉中的原始物种，尽管他们是双足行走、高度进化的动物，他们仍然缺乏真正的智力。
+]], [[雪人是克拉克半岛寒冷山脉中的原始物种，尽管他们是双足行走、高度进化的动物，他们仍然缺乏真正的意识。
 他们极其强壮的身躯覆盖白色毛皮，但是他们的心灵十分脆弱。
-克鲁克部落的灵能机器找到了一种方法侵入雪人的身体，将他们自己的灵魂传输过去来强化部落的战斗力。
+克鲁克部落的灵能科技找到了一种方法侵入雪人的身体，将他们自己的意识转移进去来强化部落的战斗力。
 
 你已经帮忙抓住了足够多的雪人，你现在可以创造新的种族：#LIGHT_GREEN#雪人#WHITE#。
 
 种族特色：#YELLOW#
 - 寒冰之怒，使用它们故乡恶劣的气候来冻结他们的敌人。
-- 脑波冲击，控制的兽人仍然保留着它们的一小部分灵能，让他们有着强大的心灵能量。
+- 脑波冲击，控制雪人的兽人仍然保留着一小部分灵能，让他们拥有强大的心灵武器。
 - 强大的身躯#WHITE#
 ]], "_t")
 
@@ -8091,7 +8091,7 @@ Class features:#YELLOW#
 - Enter a psionic gestalt with your steam generators, boosting them#WHITE#
 
 All Tinker classes use Steam for their powers.
-]], [[你找到了一台由灵能和科技驱动的古老机器。由机械引发的灵能不再是不可能的想象。
+]], [[你找到了一些由先进灵能与科技驱动的极其古老的机器。没有生命心智的灵能从未被认为可能存在。
 现在你可以在创建人物时选择新的职业： #LIGHT_GREEN#灵能射手#WHITE#。
 
 灵能射手是融合灵能与蒸汽科技、形成致命组合的工匠职业，一手持蒸汽枪一手持灵晶。
@@ -8099,7 +8099,7 @@ All Tinker classes use Steam for their powers.
 - 将灵晶的攻击投射到你发射的子弹中。
 - 激发敌人的恐惧，让敌人在你的枪法前无处遁形。
 - 操纵你的受害者身边的空气。
-- 使用你的蒸汽引擎创造灵能格式塔，强化他们。#WHITE#
+- 与你的蒸汽发生器进入灵能格式塔，从而强化它们。#WHITE#
 
 所有工匠系职业使用蒸汽作为能量。
 ]], "_t")
@@ -8345,7 +8345,7 @@ Fortunately, there is an alternative available!  With the proper respect, care, 
 Thus, we're putting our efforts into two areas.  The first is advocacy of Natural alternatives to magic, talking to spellcasters to determine what they use magic for and figuring out ways to use Nature's abilities to do the same task just as well (if not more so).  We've continued the Ziguranth efforts to make all-natural replacements for Ogric runes (we predict that life expectancy is now only reduced by 40% with our newest mixtures), developed fertilizing recipes that outperform arcane methods of producing food, created wells near desert settlements otherwise dependent on water magic, and developed so many other techniques and applications that make magic just as obsolete as it is hazardous.  The second is minimizing the harm done by the arcane, by educating spellcasters on the safe, responsible, and Nature-conscious use of magic.  Not every spellcaster is evil, and in fact, some may enrich the lives of those around them!  Runic magic is at least somewhat self-limiting, and we are working with the Living Fossils guild in hopes of developing a new type of magic, one inherently linked to and limited by Nature.  Their stone-wardens have maintained perfect harmony with Nature despite constant use of the arcane; if this is truly the way forward, then we shall welcome it with open arms.
 ]], [[我们必须承认，现在世道变了。在不到一年的时间里，在东方重新发现的那些盟友的影响之下，联合王国已经开始从不情愿地容忍魔法，迅速转变为公开接受魔法的使用。此外，如果那些报导确认属实的话，尽管在那里的人们长期使用魔法长达几千年，瓦·埃亚尔的生态系统仍然健康而完整。因此，我们绝不能对新知识一无所知，我们的观点和方法必须随着时代而改变。
 
-在这种情况下，某种意义上，我们必须抛弃过去那种，认为鲁莽的使用魔法是对……世间一切的最大威胁的观点了。黄昏纪里死灵魔法的猖獗使用，对埃亚尔所造成的影响至今还没有恢复，更不用说魔法大爆炸的影响了。消除所有魔法的使用，看起来是避免这种状况重演的唯一方法……但是，从太阳骑士和星月术士的情况来看，少量使用奥术魔法，本身并不会对世界带来任何腐蚀和有害的影响。与我们长期以来的信念相反，他们成功地，安全而负责任地控制了魔法的使用。我们不会盲目到否认这是一个令人难以置信的保证。同时，魔法仍然可能造成极其可怕的后果。可以说，太阳骑士和星月术士，远远没有堕落到黄昏纪法师那样邪恶，也并不像那些引发魔法大爆炸的法师一样，鲁莽到可悲。但是这并不能证明，他们的魔法不会被滥用。
+说到这里，鲁莽地使用魔法是对……世间一切的可怕威胁，这一点本应不言自明。黄昏纪里死灵魔法的猖獗使用，对埃亚尔所造成的影响至今还没有恢复，更不用说魔法大爆炸的影响了。消除所有魔法的使用，看起来是避免这种状况重演的唯一方法……但是，从太阳骑士和星月术士的情况来看，少量使用奥术魔法，本身并不会对世界带来任何腐蚀和有害的影响。与我们长期以来的信念相反，他们成功地，安全而负责任地控制了魔法的使用。我们不会盲目到否认这是一个令人难以置信的保证。同时，魔法仍然可能造成极其可怕的后果。可以说，太阳骑士和星月术士，远远没有堕落到黄昏纪法师那样邪恶，也并不像那些引发魔法大爆炸的法师一样，鲁莽到可悲。但是这并不能证明，他们的魔法不会被滥用。
 
 幸运的是，我们还有另一种选择！只要给予大自然足够的尊重，关心和专注，人们就可以获得和普遍应用的魔法匹敌，乃至更强的力量。在民用领域，召唤萤火虫可以替代魔法灯笼，治疗药剂可以替代治疗魔法，而加速谷物成熟的技术做出来的菜肴，可比法师制作的魔法食品对身体健康多了。在军用领域，很少有人能够抵挡自然强大的力量。那些埃亚尔忠实的学徒，可以比法师的火球速度更快地召唤忠诚的兽群，用巨龙的力量粉碎各种类型的魔法剑，或是用一股腐蚀性的粘液，瞬间融解死灵法师的军团。另外，如果那些学徒还了解那些伊格兰斯曾经使用过的力量的话……我们不能容忍他们为了保卫自然做出的一系列举措，但他们的技术在面对敌对法师的时候，总是能够脱颖而出。有关这些自然能力，最重要的一点是，它们是会进行自我约束的！他们绝对不会像奥术魔法一样，引发一场失控的连锁反应，在妄自尊大的狂妄中给埃亚尔大部分的地方带来毁灭。这颗星球自愿给予了我们力量，当我们开始滥用它们的时候，它就会有意识的从我们的身边拿走。即使是最强大的野性系能力者，也不会像死灵法师一样，把他们的力量滥用到如此反常的程度。
 
