@@ -972,7 +972,7 @@ Giving notice to the two wolves fleeing, the other wolves soon turned tail as we
 
 A bit perplexed by this I sat there looking confused. For a moment we stared at each other in silence before the shalore finally exclaimed "You're a thalore." I blinked a couple of times at this before I replied yes. Seemingly in shock for a brief moment before finally coming to his senses, I was soon asked what I was doing here. Upon hearing that question, I wondered what I should answer. I then realized I no longer knew the answer to why I had come here, as the anger that had driven me to come had mostly dissipated. After a while I finally gave an answer. "I've come to find out why." ]], [[[i]我还记得我第一次前往埃尔瓦拉旅行时所见证的灾难。没有一个灵魂能逃过魔法大爆炸的侵袭，也没有人能比自然精灵更能感受到这片土地的痛苦和悲伤。我知道那些留在家里的人仍然怒火中烧，即使是现在，我仍然有时能感受到我那一刻的情绪。这是一个可怕的日子，我希望我能忘记这一天，但我永远做不到。[/i]
 
-如果我描述我在出生地长大的岁月，可以很简单总结为“无聊、平淡、重复”。我生长一片现在已经不再存在的森林里，从倒栽树和枯树上采集木材，同时种植和培育新树来生长。我收集的木材储存在我家后面的一个大仓库里，用来给其他住在附近的技术娴熟的自然精灵，制作用来销往国外的木棍或弓箭。我们出口的收入，被用来购买我们在森林或附近人类或半身人的土地上找不到的东西。
+如果我描述我在出生地长大的岁月，可以很简单总结为“无聊、平淡、重复”。我生长在一片现在已经不再存在的森林里，从倒下的树木和枯树上采集木材，同时种植和培育新树来生长。我收集的木材储存在我家后面的一个大仓库里，用来给其他住在附近的技术娴熟的自然精灵，制作用来销往国外的木棍或弓箭。我们出口的收入，被用来购买我们在森林或附近人类或半身人的土地上找不到的东西。
 
 有一天，当天空变成深紫色的时候，一切都变了。在我的头顶上，我所照料的所有树木开始发出刺耳的颜色。在我脚下，大地的根基在动摇，撕开我脚下的地面，将树木连根拔起。最糟糕的是我周围呼啸的空气，那是一股蔓延的黑风，在疾病的浪潮中席卷树木，使大地扭曲，让万物腐烂。仅仅是出于幸运，我在灾难中侥幸幸免于难，我不完全确定我是怎么做到的，但我身边的许多自然精灵同胞没能挺过去。
 
@@ -1110,9 +1110,9 @@ The soldier led me to the center of the city where a grand building lay. After m
 
 我转过身去看那个士兵也在干什么，注意到他穿的黑色盔甲上有一道巨大的伤口。有一瞬间，我有些手足无措，因为我的手都拿着符文，无法抓起任何纹身，但后来，我注意到一件奇怪的东西。令人惊讶的是，平板上的徽章似乎在闪烁和移动，然后与士兵的手融合。一种淡蓝色的光芒从士兵的眼睛中闪过，一股奇怪的能量似乎在他的身体里流动。接下来发生的事情真的让我措手不及，士兵开始喃喃自语，他深深的伤口开始自行愈合。
 
-我对于士兵身上发生的一切完全不知所措，他在我面前自愈了。随着时间的流逝，淡蓝色的光芒从他的眼睛中消失，双眼恢复了正常的颜色，他的伤口不仅愈合了，而且完全没有受伤的迹象。这是我第一次看到使用符文和治疗法术。我以前听说过法术的使用，但在那时，我甚至从来没有听说过符文的，甚至不知道符文的存在。我很快就知道，我得到的平板被称为法力风暴符文，它们可以恢复一个人体内的法力值。
+我对于士兵身上发生的一切完全不知所措，他在我面前自愈了。随着时间的流逝，淡蓝色的光芒从他的眼睛中消失，双眼恢复了正常的颜色，他的伤口不仅愈合了，而且完全没有受伤的迹象。这是我第一次看到使用符文和治疗法术。我以前听说过法术的使用，但在那时，我甚至从来没有听说过符文的，甚至不知道符文的存在。我很快就知道，我得到的平板被称为法力涌动符文，它们可以恢复人体内的法力通路。
 
-直到现在，我对奥术魔法都不太了解，也不知道它是如何工作的，但是很明显，从魔法大爆炸那时起，某些东西已经永久地改变了魔法的工作方式，虽然通过训练仍然可以召唤魔法的力量，但这比以前困难得多。其他受伤的士兵在以同样的方式来进行治疗，他们手拿着法力风暴符文，在他们的手上，胳膊上，腿上，或者任何他们想要的身体部位上嵌入发光的印记，然后开始施法，迅速治愈他们自己，或者治愈其他士兵。
+直到现在，我对奥术魔法都不太了解，也不知道它是如何工作的，但是很明显，从魔法大爆炸那时起，某些东西已经永久地改变了魔法的工作方式，虽然通过训练仍然可以召唤魔法的力量，但这比以前困难得多。其他受伤的士兵也以同样的方式接受治疗，他们拿起法力涌动符文，让发光的印记嵌入手、胳膊、腿，或者任何他们想要的身体部位，然后开始施法，迅速治愈自己，或者治愈其他士兵。
 
 过了一段时间，受伤的士兵开始减少，因为他们中的大多数人在痊愈后不需要休息。当痊愈士兵的数量开始达到一定程度时，主治医师代表永恒精灵来感谢我的努力。我突然想起我来这里的全部原因，意识到我已经完成了我的交易。当一名士兵走近时，主治医师向我点头，看着我，回答说：“中尉会护送你去见将军。”我对此感到有些吃惊，但我认为这位将军对所发生的事件有了答案。
 
@@ -1318,7 +1318,7 @@ The horribleness of the act truly sickened me to my very being, but I was perhap
 
 A group of the Nargol Guards would eventual appear and they began to gather themselves to disperse the crowd and restore order. The crowd offered little resistance to the encroaching force of guards that rushed forward, and many fled into the dark alleys of buildings or through the tents of the refugees. As the guards took control of the area, their attention turned towards the simmering fire and the charred corpses. Cries of anguish came from individuals who I assumed to be loved ones and friends of those killed. At this point I could take no more of the events that were unfolding in front of me, and I turned to leave the area and the fiery carnage that had taken place. However as I passed by a tent a hand reached out of its opening, throwing me inside.]], [[[i]是对魔法的愤怒，驱使人们在魔法大爆炸后对法师施暴，还是其他原因？虽然我不能说我是人类、半身人或矮人的专家，但我在通往纳格尔王国的街道上看到的暴行所展现出的堕落，超出了我对任何智慧生物的预期。[/i]
 
-当我凝视时，声音又响起了。“你的怒火漫无目的地指向那些不应该被谴责的人，大家，请把你们的怒火指向造成所有悲剧的万恶之源”我开始在人群中挤过去，想知道谁在说话，他们在说什么。声音继续说：“无论在哪里发现魔法，它最终都会失败并带来灾难。今早发生的火灾就是一个例子，一群难民闯进仓库，试图取回他们被没收的魔法物品。因为他们的狂妄，他们烧毁了这座建筑。在残余的物品中发现了奥术力量。”
+当我凝视时，声音又响起了。“你的怒火漫无目的地指向那些不应该被谴责的人，大家，请把你们的怒火指向造成所有悲剧的万恶之源”我开始在人群中挤过去，想知道谁在说话，他们在说什么。声音继续说：“无论在哪里发现魔法，它最终都会失败并带来灾难。今早发生的火灾就是一个例子，一群难民闯进仓库，试图取回他们被没收的魔法物品。因为他们的狂妄，他们借助其中物品蕴含的奥术力量烧毁了这座建筑。”
 
 我朝中间走去，抬头看见一个半身人和一个人正对着人群。他们戴了两个面具，隐藏了他们的身份，但我认出了人类穿的深色斗篷。从人类举起手臂的事实来看，我认为应该是他在说话，但我不能肯定，因为他们戴的面具遮住了他们的面部表情。声音又开始了：“这场大火在睡梦中杀死了许多住在附近房子里的居民，更多的人被魔法杀死。对于这起不幸的灾难，唯一可以说是好事的事情是，他们试图拿走的许多同样的魔法物品在随后的大火中也被焚毁，这些邪恶的物品再也不会玷污这个世界。”
 
@@ -1390,7 +1390,7 @@ The halfling dropped to a less hostile stance and replied, "If you are referring
 
 I don't know what made me more angry at that point, the seemingly callous nature of the halfling or the suggestion to simply go back home. What I did know was that I was livid. Seemingly the halfling noticed this and tried to reorient its posture. Attempting to redirect my anger, the halfling quickly opined, "Of course, you seem like you are made of sterner composition than most. Head to the south shoreline, then turn east. You'll find a path leading towards our base." Registering the words I took a moment to analyze them in my head, before asking, "And why should I do that?" Without missing a beat the halfling quickly replied back, "You wish to know why, do you not? Go talk to our instructors if you truly wish to know who we are."
 
-With this the halfling turned to leave the tent. The anger within me had not subsided much, but I made no further attempt to confront the halfling. Battered and bruised I sank down to the ground and rested a moment. Pulling one of the infusions I had recently purchased from the market, I began to treat my wounds. When I felt I was in better shape I got up again and left the tent. Looking up I noticed the evening sky, and decided that I would be staying one more night in the Nargol Kingdom. I made my way back to the inn where I slept in a bed until the next day. When I left I headed straight to the gates of the city to make my way out. There I pondered where my next destination would be, before finally heading south.]], [[[i]过了一段时间，纳格尔王国似乎抓住了我所目睹的那些扭曲事件的幕后黑手，而在我离开后，更多的事情接踵而至。他们公开处决了那些他们认为是罪魁祸首的人，并把头埋在城墙内的木桩上。尽管如此，市民开始自发发动火刑事件和其他各种堕落行为。信使的同伙们可能已经被杀了，但他们传播的信息仍然存在。[/i]
+With this the halfling turned to leave the tent. The anger within me had not subsided much, but I made no further attempt to confront the halfling. Battered and bruised I sank down to the ground and rested a moment. Pulling one of the infusions I had recently purchased from the market, I began to treat my wounds. When I felt I was in better shape I got up again and left the tent. Looking up I noticed the evening sky, and decided that I would be staying one more night in the Nargol Kingdom. I made my way back to the inn where I slept in a bed until the next day. When I left I headed straight to the gates of the city to make my way out. There I pondered where my next destination would be, before finally heading south.]], [[[i]过了一段时间，纳格尔王国似乎抓住了我所目睹的那些扭曲事件的幕后黑手，而在我离开后，更多的事情接踵而至。他们公开处决了那些他们认为是罪魁祸首的人，并把他们的头插在城墙内的木桩上。尽管如此，市民开始自发发动火刑事件和其他各种堕落行为。信使的同伙们可能已经被杀了，但他们传播的信息仍然存在。[/i]
 
 在半身人还没有来得及回应之前，人类开始对半身人大吼道：“你不是真的想饶了她吗？她是和永恒精灵一伙的，是和魔法一伙的！”，人类的语气变得越来越情绪化，“你是否忘记了我们的使命，忘记了我们要做的事情。这个自然精灵已经背叛了大自然！她必须被…”人类突然停止了说话，只见半身人举起一只手示意停下，用比我对这么小个儿的人所期望的更深沉的语调，平静地回答说：“够了。”人类一下子退缩了，虽然他戴着面具，但我能感觉到他身体语言的不信任和沮丧。
 
