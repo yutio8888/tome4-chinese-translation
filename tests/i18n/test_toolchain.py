@@ -45,6 +45,7 @@ import i18nlib.quality as quality_module
 import review_diff
 import scan_runtime_collisions
 import smoke_release
+import paseo_contract_check
 from audit_static_rules import normalize_typo_pairs
 from i18nlib import TOOL_VERSION
 from i18nlib.config import Manifest, load_manifest
@@ -18619,7 +18620,8 @@ exit 0
                 "tests/i18n/incremental/test_domains.py "
                 "tests/i18n/qa/test_injected_defects.py "
                 "tests/i18n/test_terminology_inventory.py "
-                "tests/i18n/test_ai_state_check.py\n"
+                "tests/i18n/test_ai_state_check.py "
+                "tests/i18n/test_contextual_anchor_preflight.py\n"
             ),
             "06-runtime-collision-scan.log": (
                 "-B tools/scan_runtime_collisions.py\n"
@@ -18830,6 +18832,31 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertIn("purpose=normal_review", texts["contract"])
         self.assertIn("purpose=translation_contextual_v1", texts["contract"])
 
+    def test_contract_guard_covers_canonical_persisted_role_markers(self) -> None:
+        marker = "EXECUTOR`、`REVIEWER`、`SCOUT`、`senior-reviewer"
+        required_documents = (
+            "AGENTS.md",
+            ".ai/roles/orchestrator.md",
+            "docs/paseo-orchestration-v2-contract.md",
+        )
+        for relative in required_documents:
+            path = ROOT / relative
+            with self.subTest(path=path):
+                self.assertEqual(
+                    paseo_contract_check.REQUIRED_MARKERS[relative].count(marker),
+                    1,
+                )
+                self.assertIn(marker, path.read_text(encoding="utf-8"))
+        completed = subprocess.run(
+            [sys.executable, "-B", str(ROOT / "tools" / "paseo_contract_check.py")],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        self.assertIn("PASS:", completed.stdout)
+
     def test_active_route_docs_do_not_pin_runtime_identity(self) -> None:
         texts = self._normative_texts()
         forbidden = (
@@ -18861,7 +18888,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
                 )
                 self.assertIn("reviewer 尽量避开候选作者的 provider", text)
                 self.assertIn(
-                    "候选作者属于主要订阅 provider 时，预算例外允许同 provider 审核",
+                    "候选作者属于主要订阅 provider 且 `author_provider_resolution=verified` 时，预算例外才允许同 provider 审核",
                     text,
                 )
                 if name in ("agents", "orchestrator"):
@@ -18876,13 +18903,193 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
             with self.subTest(document=name):
                 self.assertIn("reviewer 尽量避开候选作者的 provider", text)
                 self.assertIn(
-                    "候选作者属于主要订阅 provider 时，预算例外允许同 provider 审核",
+                    "候选作者属于主要订阅 provider 且 `author_provider_resolution=verified` 时，预算例外才允许同 provider 审核",
                     text,
                 )
                 self.assertIn("不同的精确 model identity", text)
                 self.assertIn("不同 provider 优先", text)
                 self.assertIn("无法组成不同 model 时", text)
                 self.assertIn("WAIT_USER", text)
+
+    def test_reviewer_routing_provenance_is_recoverable_and_fail_closed(self) -> None:
+        texts = self._normative_texts()
+        required = (
+            "candidate_author_agent_id",
+            ".ai/task/<task_id>/STATE.json",
+            "author_provider_resolution=verified|unavailable|not_applicable",
+            "model_diversity_verified=true",
+            "not_applicable",
+            "archived agent",
+            "unavailable",
+            "derived operational provenance",
+            "明确删除的复杂度",
+        )
+        for name in ("agents", "orchestrator", "contract"):
+            text = self._normalized_markdown(texts[name])
+            with self.subTest(document=name):
+                for marker in required:
+                    self.assertIn(marker, text)
+
+        contract = self._normalized_markdown(texts["contract"])
+        for marker in (
+            "只有对应 reviewer 条目",
+            "review JSON 不记录该枚举",
+            "指针是 immutable candidate field",
+            "可更新的 operational fields",
+            "一次基础设施重试后仍缺 provider",
+            "它是软偏好不可执行的诚实标记",
+            "恢复时只有完整且成对的 literal true 才是 proof",
+            "proof 缺失或部分存在",
+            "按第 18 条的 recovery clause 一次",
+        ):
+            self.assertIn(marker, contract)
+
+    def test_provenance_guard_markers_are_limited_to_normative_targets(self) -> None:
+        marker_set = (
+            "candidate_author_agent_id",
+            "author_provider_resolution",
+            "model_diversity_verified=true",
+            "not_applicable",
+            "archived agent",
+            "unavailable",
+            "明确删除的复杂度",
+        )
+        targets = {
+            "AGENTS.md": ROOT / "AGENTS.md",
+            ".ai/roles/orchestrator.md": ROOT / ".ai" / "roles" / "orchestrator.md",
+            "docs/paseo-orchestration-v2-contract.md": (
+                ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+            ),
+        }
+        for relative, path in targets.items():
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(document=relative):
+                for marker in marker_set:
+                    self.assertEqual(
+                        paseo_contract_check.REQUIRED_MARKERS[relative].count(marker),
+                        1,
+                    )
+                    self.assertIn(marker, text)
+
+    def test_provenance_complete_clauses_make_guard_fail_closed(self) -> None:
+        targets = {
+            "AGENTS.md": ROOT / "AGENTS.md",
+            ".ai/roles/orchestrator.md": ROOT / ".ai" / "roles" / "orchestrator.md",
+            "docs/paseo-orchestration-v2-contract.md": (
+                ROOT / "docs" / "paseo-orchestration-v2-contract.md"
+            ),
+        }
+        for relative, path in targets.items():
+            for clause in paseo_contract_check.ROUTING_PROVENANCE_MARKERS:
+                with self.subTest(document=relative, clause=clause):
+                    self.assertEqual(
+                        paseo_contract_check.REQUIRED_MARKERS[relative].count(clause),
+                        1,
+                    )
+                    source_text = path.read_text(encoding="utf-8")
+                    self.assertEqual(source_text.count(clause), 1)
+                    self.assertGreaterEqual(len(clause.split()), 10)
+                    self.assertTrue(clause.endswith("."))
+
+                    with tempfile.TemporaryDirectory(
+                        prefix="paseo-contract-marker-"
+                    ) as temporary:
+                        temporary_root = Path(temporary)
+                        for active in paseo_contract_check.ACTIVE_FILES:
+                            destination = temporary_root / active
+                            destination.parent.mkdir(parents=True, exist_ok=True)
+                            destination.write_text(
+                                (ROOT / active).read_text(encoding="utf-8"),
+                                encoding="utf-8",
+                            )
+                        mutated = temporary_root / relative
+                        mutated.write_text(
+                            source_text.replace(clause, "", 1),
+                            encoding="utf-8",
+                        )
+                        with (
+                            patch.object(paseo_contract_check, "ROOT", temporary_root),
+                            contextlib.redirect_stderr(io.StringIO()),
+                        ):
+                            self.assertEqual(paseo_contract_check.main(), 1)
+
+    def test_provenance_markers_are_self_contained(self) -> None:
+        markers = paseo_contract_check.ROUTING_PROVENANCE_MARKERS
+        expected_fragments = (
+            (
+                "Before selecting any reviewer profile",
+                "freeze the implementation candidate",
+                "re-enumerate the task's allowed changed paths",
+                "freeze/path-re-enumeration event",
+            ),
+            (
+                "latest accepted output",
+                "current task's lineage-verified EXECUTOR",
+                "another task's STATE",
+            ),
+            (
+                "candidate changes",
+                "recompute candidate_author_agent_id",
+                "immutable within a freeze",
+                "another task's STATE",
+            ),
+            (
+                "candidate_author_agent_id is null",
+                "review-only work",
+                "predates any managed EXECUTOR",
+            ),
+            (
+                "including archived agents",
+                "author agent id",
+                "workspace",
+                "task/role labels",
+                "parent lineage",
+                "EXECUTOR role",
+            ),
+            (
+                "author record is missing",
+                "retry the lookup once",
+                "explicit provider is missing or differently represented",
+                "without inferring a provider",
+            ),
+            (
+                "corresponding reviewer entry in STATE child_dispatches",
+                "review JSON excludes this enum",
+            ),
+            (
+                "ambiguous-create reconciliation or recovery",
+                "re-resolve author_provider_resolution",
+                "missing enum alone must not force WAIT_USER",
+            ),
+            (
+                "not_applicable is used",
+                "scope_audit",
+                "no frozen code candidate",
+            ),
+            (
+                "copied to every candidate-bound reviewer dispatch",
+                "excluded from candidate_ref",
+                "candidate_identity",
+                "review JSON",
+                "review-contract identity",
+            ),
+            (
+                "Operational author_provider_resolution and model_diversity_verified fields",
+                "runtime tuples",
+                "offline STATE-checker closure predicates",
+            ),
+            (
+                "At creation of the second reviewer",
+                "live exact model identities",
+                "exact inequality",
+                "persist literal `true`",
+            ),
+        )
+        for fragments in expected_fragments:
+            self.assertEqual(
+                sum(all(fragment in marker for fragment in fragments) for marker in markers),
+                1,
+            )
 
     def test_fallback_is_fresh_and_preserves_bindings(self) -> None:
         texts = self._normative_texts()
@@ -19123,6 +19330,18 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         orchestrator = self._normalized_markdown(texts["orchestrator"])
         self.assertIn('"child_dispatches": []', contract)
         self.assertIn('"child_dispatches": []', orchestrator)
+        self.assertIn('"review_records": []', contract)
+        self.assertIn('"review_records": []', orchestrator)
+        for marker in ('"role": "EXECUTOR"', '"role": "REVIEWER"',
+                       '"role": "SCOUT"', '"role": "senior-reviewer"',
+                       '"lifecycle":"archived"'):
+            with self.subTest(marker=marker):
+                self.assertIn(marker, contract)
+                self.assertIn(marker, orchestrator)
+        self.assertIn('labels.role', contract)
+        self.assertIn('labels.role', orchestrator)
+        self.assertIn('小写', contract)
+        self.assertIn('小写', orchestrator)
         for marker in (
             "每次创建 child 追加一条记录",
             "child 创建成功后 `agent_id` 必须 非空",
@@ -19131,7 +19350,10 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
             "archive_attempts_started",
             "语境 REVIEWER 的记录还必须保存不可变的 `candidate_identity`、`dispatch_id` 和 `input_path`",
             "每份 review 记录必须保存",
-            "`purpose`、`agent_id` 和完成状态",
+            "`reviewer_role`、`purpose`、`dispatch_id`、`agent_id` 和完成状态",
+            "`lifecycle`",
+            "`attempt`",
+            "`candidate_locator`",
         ):
             with self.subTest(marker=marker):
                 self.assertIn(marker, contract)
@@ -19306,7 +19528,7 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
         texts = self._texts()
         state = (
             '"contextual_reviewer": {\n'
-            '    "role": "reviewer",\n'
+            '    "role": "REVIEWER",\n'
             '    "purpose": "translation_contextual_v1",'
         )
         self.assertIn(state, texts["contract"])
@@ -19346,10 +19568,11 @@ class PaseoRuntimeNeutralContractTests(unittest.TestCase):
         contextual = (
             ROOT / "docs" / "paseo-translation-context-review-v1-contract.md"
         ).read_text(encoding="utf-8")
-        self.assertIn("paseo-orchestration/2.12-draft", orchestration)
+        self.assertIn("paseo-orchestration/2.15-draft", orchestration)
         self.assertIn("translation-contextual/1.5", contextual)
         self.assertNotIn("paseo-orchestration/2.11-draft", orchestration)
-        self.assertIn("| `2.12-draft` |", orchestration)
+        self.assertIn("| `2.15-draft` |", orchestration)
+        self.assertIn("| `2.14-draft` | 上一版草案", orchestration)
         self.assertNotIn("translation-contextual/1.4", contextual)
 
     def test_quality_and_archive_surfaces_are_not_moved(self) -> None:

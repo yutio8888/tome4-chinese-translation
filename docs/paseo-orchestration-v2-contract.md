@@ -2,7 +2,7 @@
 
 > 状态：设计草案，运行时解耦版。
 >
-> 契约版本：`paseo-orchestration/2.12-draft`。
+> 契约版本：`paseo-orchestration/2.15-draft`。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文约束角色行为、任务边界和候选一致性，
 > 不固定具体运行时载体；创建参数按当前 Paseo 接口和本地可用配置提供。
@@ -42,19 +42,54 @@
     只属于运行时选择，禁止进入 STATE schema、candidate identity 或 review contract identity。
     provider、model、mode、thinking 和 fallback tuple 不写入 STATE、candidate identity 或
     review contract identity。
-14. 可用性按 provider 处理：同一 provider 的另一个 profile 只能是复杂度升级，不能在该 provider 已不可用时充当 availability fallback。reviewer 尽量避开候选作者的 provider；候选作者属于主要订阅 provider 时，预算例外允许同 provider 审核，但必须仍满足角色、
+14. 可用性按 provider 处理：同一 provider 的另一个 profile 只能是复杂度升级，不能在该 provider 已不可用时充当 availability fallback。reviewer 尽量避开候选作者的 provider；候选作者属于主要订阅 provider 且 `author_provider_resolution=verified` 时，预算例外才允许同 provider 审核，但必须仍满足角色、
     purpose 与候选边界。
-15. 同一交叉审核阶段的两名 reviewer 必须使用不同的精确 model identity；不同 provider
-    优先。强制交叉审核无法组成不同 model 时进入 `WAIT_USER`。fallback 必须创建 fresh child，
-    保持 role、purpose、workspace、parent lineage 与 candidate binding 不变，且
-    不得 resume 已完成或已归档 child。
+Before selecting any reviewer profile, ORCHESTRATOR must freeze the implementation candidate, re-enumerate the task's allowed changed paths, and persist candidate_author_agent_id in the task-scoped `.ai/task/<task_id>/STATE.json` at that freeze/path-re-enumeration event.
+The persisted candidate_author_agent_id must point to the latest accepted output that was produced or materially changed by the current task's lineage-verified EXECUTOR, not to an author inferred from another task's STATE.
+When the candidate changes, ORCHESTRATOR must recompute candidate_author_agent_id before the new review dispatch; it is immutable within a freeze, and ORCHESTRATOR must not traverse another task's STATE to invent it.
+candidate_author_agent_id is null for review-only work and for an implement candidate that predates any managed EXECUTOR.
+15. 实现候选在冻结及路径重枚举时、选择任何 reviewer profile 前，把当前任务作用域
+    `.ai/task/<task_id>/STATE.json` 的 `candidate_author_agent_id` 写成当前任务中、经
+    lineage 核验的 EXECUTOR 的稳定直接 `agent_id` 指针；它指向最近一次由该 EXECUTOR
+    产出或实质改变冻结候选的已接受输出。候选改变时必须在新的冻结事件重新计算；冻结期间该
+    指针不可改写。review-only、或早于任何受管 EXECUTOR 的实现候选，其指针为 `null`。
+    ORCHESTRATOR 不得遍历其他任务的 STATE 臆造作者。
+16. 每个候选绑定的 REVIEWER 或 SENIOR_REVIEWER dispatch 都复制同一
+    `candidate_author_agent_id`；该副本在 dispatch 内不可改写，且不得进入 `candidate_ref`、
+    `candidate_identity`、review JSON 或 review-contract identity。只有对应 reviewer 条目
+    的 `child_dispatches` 记录 `author_provider_resolution=verified|unavailable|not_applicable`；
+    review JSON 不记录该枚举。The immutable per-dispatch author pointer is copied to every candidate-bound reviewer dispatch and cannot be rewritten within that dispatch; it is excluded from candidate_ref, candidate_identity, review JSON, and review-contract identity. `not_applicable` 统一表示 review-only、早于受管 EXECUTOR 的
+    实现候选，或没有冻结代码候选的 `scope_audit`。
+17. 每次 reviewer dispatch（含恢复）前，先按 `candidate_author_agent_id` 查询 Paseo
+    实时元数据，包含已归档 agent；在读取 transport 的显式 provider 前，必须核验 agent id、
+    workspace、task／role label、parent lineage 和 EXECUTOR role。基础设施查询只重试一次；
+    缺失或表示不同的 provider 字段即为 `unavailable`，不得用 memory、profile 名称、title
+    或 provider heuristic 推断。作者记录缺失，或 agent id、workspace、task／role label、
+    parent lineage、EXECUTOR role 任一身份核验失败，均在一次重试后将
+    `author_provider_resolution` 记为 `unavailable`；显式 provider 缺失或表示不同也同样记为
+    `unavailable`。Only the corresponding reviewer entry in STATE child_dispatches records author_provider_resolution=verified|unavailable|not_applicable; review JSON excludes this enum, which is recorded only after unambiguous child creation or adoption and re-resolved before using a recovered reviewer dispatch. Before consuming the transport's explicit provider, ORCHESTRATOR must query live Paseo metadata including archived agents and verify the author agent id, workspace, task/role labels, parent lineage, and EXECUTOR role. If the author record is missing, any of the author agent id, workspace, task/role labels, parent lineage, or EXECUTOR role checks fails, or the explicit provider is missing or differently represented, retry the lookup once, then record author_provider_resolution=unavailable without inferring a provider. `verified` 只表示 lookup 与身份核验成功，不表示选到了不同
+    provider。已验证时优先避开作者 provider；主要订阅 provider 的同 provider 预算例外只能
+    建立在 verified 上。The same-provider budget exception is allowed only when the author-provider resolution is verified; unavailable resolution remains a soft preference failure. `unavailable` 是诚实的软失败：不得宣称例外成立，可以继续选择合格
+    dispatch，但作者 provider 避让此时不可执行。
+After ambiguous-create reconciliation or recovery, ORCHESTRATOR must re-resolve author_provider_resolution before using the dispatch, and a temporarily missing enum alone must not force WAIT_USER.
+not_applicable is used for review-only work, implement candidates predating any managed EXECUTOR, and scope_audit with no frozen code candidate.
+18. 配对 code review 的第二个 reviewer 创建时，取得两名 reviewer 的实时精确 model identity
+    （第一名即使已归档也要查询），核验不相等后才在两条 reviewer `child_dispatches` 记录上
+    写入 `model_diversity_verified=true`。该布尔值与上述枚举都是可更新的 operational field，
+    不是 candidate 或 review identity；有效的 true proof 只适用于完整且成对的记录。
+At creation of the second reviewer, ORCHESTRATOR must obtain both live exact model identities, verify exact inequality, and only then persist literal `true` for model_diversity_verified on both reviewer dispatch entries.
+    When paired reviewer exact model identities collide, archive the second child before creating a fresh retry child, preserving the role, purpose, workspace, lineage, and candidate binding. If either exact model identity remains unavailable after one retry, enter `WAIT_USER` and do not infer identity from provider, profile, title, memory, or enum. If a second reviewer exists or was unambiguously adopted but either `model_diversity_verified` proof is missing or partial, re-resolve both exact model identities once; persist literal `true` on both entries when they differ, archive the second child and fresh-retry on collision, and enter `WAIT_USER` if either identity remains unavailable. fallback 必须创建 fresh child，保持 role、purpose、workspace、
+    parent lineage 与 candidate binding 不变，且不得 resume 已完成或已归档 child。
+Operational author_provider_resolution and model_diversity_verified fields are excluded from runtime tuples, candidate identity, review-contract identity, review JSON, and offline STATE-checker closure predicates.
 
 ### 明确删除的复杂度
 
 本版本不要求：
 
 - 为角色指定固定运行时载体、版本、mode 或 thinking 档位；
-- 任务开始前的运行时发现、精确元组核验和固定 primary／backup 路由；
+- 任务开始前的运行时发现、精确元组预注册／持久化和固定 primary／backup 路由；但允许在
+  reviewer 创建或恢复时对保留的实时元数据做一次有界核验、比较精确 model identity，并
+  从比较结果持久化上述 operational enum／boolean；这些衍生字段不等于运行时元组；
 - `selected`、回退原因与具体运行时选择绑定；
 - 因运行时切换而修改 STATE、升级契约版本或重跑行为审核；
 - 专用控制器、workspace 锁、operation WAL、通用文件 hash、immutable artifact store、
@@ -180,12 +215,13 @@ pending/completed、不产生 finding，也不参与 `candidate_ref` 冻结。
 .ai/task/<task_id>/BASELINE.patch
 .ai/task/<task_id>/baseline/
 .ai/task/<task_id>/CODE_DIFF-<phase>-<cycle>-<attempt>.patch
+.ai/task/<task_id>/SCOPE.json
 .ai/task/<task_id>/CONTEXTUAL-ENVELOPE-<dispatch_id>.json
 .ai/task/<task_id>/STATE.json
 .ai/reviews/<task_id>/review-NN.json
 ```
 
-仅在任务需要时创建 BASELINE、baseline 和 contextual envelope。已有 legacy flat 文件保持
+仅在任务需要时创建 BASELINE、baseline、SCOPE 和 contextual envelope。已有 legacy flat 文件保持
 原路径和内容；新任务不得复用已有 task ID，也不得覆盖其他任务记录。
 
 ### SPEC 与 PLAN
@@ -212,17 +248,18 @@ SPEC 必须写明任务模式、范围、允许修改文件、禁止扩展项和
   "orchestrator_agent_id": "...",
   "orchestration_transport": "cli",
   "baseline": {"patch": null, "copies_dir": null},
-  "executor": {"role": "executor", "agent_id": null},
-  "reviewer": {"role": "reviewer", "purpose": "normal_review", "agent_id": null},
+  "candidate_author_agent_id": null,
+  "executor": {"role": "EXECUTOR", "agent_id": null},
+  "reviewer": {"role": "REVIEWER", "purpose": "normal_review", "agent_id": null},
   "contextual_reviewer": {
-    "role": "reviewer",
+    "role": "REVIEWER",
     "purpose": "translation_contextual_v1",
     "candidate_identity": null,
     "dispatch_id": null,
     "input_path": null,
     "agent_id": null
   },
-  "scout": {"role": "scout", "purpose": "source_scout", "agent_id": null},
+  "scout": {"role": "SCOUT", "purpose": "source_scout", "agent_id": null},
   "senior_reviewer": {
     "role": "senior-reviewer",
     "purpose": null,
@@ -231,13 +268,17 @@ SPEC 必须写明任务模式、范围、允许修改文件、禁止扩展项和
   "child_dispatches": [],
   "open_accepted_findings": [],
   "deferred_findings": [],
-  "review_records": {},
+  "review_records": [],
   "senior_review_records": [],
   "wait": null,
   "last_error": null,
   "updated_at": "..."
 }
 ```
+
+已创建 child 的持久化条目使用 canonical role literal，例如
+`{"role":"REVIEWER","lifecycle":"archived","archive_confirmed":true}`；运行时
+`labels.role` 仍使用小写 `reviewer`。
 
 `contextual_reviewer` 和 `scout` 是条件字段：只有任务实际选择相应角色／purpose 时
 才写入。语境派发后，`candidate_identity`、`dispatch_id`、`input_path` 和
@@ -249,13 +290,15 @@ STATE 在阶段变化、contract 完成、agent ID 变化、出现错误或 chil
 不参与新任务的有效性判断。
 
 `child_dispatches` 是紧凑的 dispatch 历史；每次创建 child 追加一条记录，记录保留至任务
-结束且不得删除。每条记录保存 `role`、`purpose`、`agent_id`、`status`、
+结束且不得删除。每条记录保存 `role`、`purpose`、`agent_id`、`lifecycle`、
 `archive_confirmed` 和 `archive_attempts_started`；语境 REVIEWER 的记录还必须保存不可变的
 `candidate_identity`、`dispatch_id` 和 `input_path`。child 创建成功后 `agent_id` 必须
-非空，且这些身份字段创建后不可修改。`status`、`archive_confirmed`、
+非空，且这些身份字段创建后不可修改。新持久化 role 只写 `EXECUTOR`、`REVIEWER`、`SCOUT`、
+`senior-reviewer`；`labels.role` 仍使用小写运行时值。`lifecycle`、`archive_confirmed`、
 `archive_attempts_started`、`last_error` 和 `archived_at` 是生命周期字段，按传输结果在
-保留的原记录上更新。`archive_attempts_started` 初始为 0，最大为 2（首次尝试加一次自动
-重试）。`status` 至少区分 `active`、`stopping`、`terminal`、
+保留的原记录上更新。持久化 canonical role 集合为 `EXECUTOR`、`REVIEWER`、`SCOUT`、`senior-reviewer`。
+`archive_attempts_started` 初始为 0，最大为 2（首次尝试加一次自动
+重试）。`lifecycle` 至少区分 `active`、`stopping`、`terminal`、
 `archive_pending` 和 `archived`，而 `archive_confirmed` 只有在传输返回可核验的归档状态
 后才可为 true。当前 active dispatch 是角色当前字段所指向的、且状态为 `active` 的唯一
 记录；只有它可以在恢复时复用。
@@ -268,21 +311,67 @@ Paseo daemon 必须以 `PASEO_AGENT_ID` 对应的 ORCHESTRATOR 建立 parent lin
 
 ### Review 记录
 
-每份 review 记录必须保存 `task_id`、`review_contract`、`review_phase`、`cycle`、
-`reviewer_role`、`purpose`、`agent_id` 和完成状态。语境 review 还必须保存
+每份 review 记录必须保存 `task_id`、`review_contract`、`review_phase`、`cycle`、`attempt`、
+`reviewer_role`、`purpose`、`dispatch_id`、`agent_id` 和完成状态。新写入的
+`review_records`、`senior_review_records` 是 workspace-relative review 文件路径的数组；
+reader 兼容旧 mapping。语境 review 还必须保存
 `candidate_identity`、`dispatch_id` 和 `input_path`。每份 code review
-记录还保存派发时的 `candidate_ref`；派发、返回和 contract 完成前的引用必须一致。
+记录还保存派发时的 `candidate_ref` 和恰含 `spec_path`／`diff_path` 的
+`candidate_locator`；candidate_ref 精确为 `SHA256(SPEC 原始字节 + 一个 NUL 字节 +
+diff 原始字节)`。派发、返回和 contract 完成前的引用必须一致。
 
 记录只保存 finding、证据、裁决和结果，不要求复制完整 prompt、运行时选择或构造 lineage
 manifest。已完成的历史记录不重写。
+
+`candidate_author_agent_id` 是冻结时写入任务作用域 `.ai/task/<task_id>/STATE.json` 的
+候选作者指针；它与 `child_dispatches` 中的每次 reviewer 副本属于候选绑定元数据，不是
+provider、model、mode、thinking 或 fallback tuple。指针在同一冻结候选内不可变，候选改变时
+由 ORCHESTRATOR 在下一次冻结事件更新。指针是 immutable candidate field；
+`author_provider_resolution` 与 `model_diversity_verified` 只可出现在适用 reviewer 的
+`child_dispatches` 条目中，属于可更新的 operational fields，不能写入 review record。
+`author_provider_resolution` 只在 child 创建／adoption 已无歧义后记录；ambiguous-create
+reconciliation 与 recovery 都要在使用前重新解析，暂时缺 enum 本身不触发 `WAIT_USER`。
+`not_applicable` 是统一枚举值，适用于 review-only、早于受管 EXECUTOR 的实现候选，或无冻结
+代码候选的 `scope_audit`。
+
+### 离线终态检查与采用边界
+
+`python3 -B tools/ai_state_check.py STATE.json [--target DONE|STOP]` 离线检查持久化
+closure：非终态 preflight 必须传 `--target`，终态可由 STATE 自动选择。`DONE` 组合检查
+schema、已关闭 review contract、review-record 到 dispatch 的绑定、冻结候选、绑定 dispatch 的
+lineage、implement 的最终验证、finding 清空及所有 child 已归档；`STOP` 只要求无 child 或
+每个 child 的规范化 lifecycle 为 `archived` 且 `archive_confirmed` 为 literal `true`。
+A child counts as archived only when its normalized lifecycle is `archived` and `archive_confirmed` is literal `true`.
+
+`.ai/legacy-cohort-manifest.json` 是 B-prime 采用时的 task-id 边界，不是历史审计或快照清单。
+它的唯一 schema 是 `{"schema_version": 1, "unsupported_tasks": ["..."]}`，数组按字典序且
+无重复。列入的 task 仅返回 `UNSUPPORTED_LEGACY`（信息性 exit 3）；所有未列入 task 必须走完整
+新契约，绝不因缺少新字段而转用历史语义。
 
 ### 运行时 profile 路由
 
 `list_profiles` 是每次 child 调度前的实时发现入口；profile notes 和当前能力共同决定
 选择，文档不预注册具体 provider/model 组合。provider 可用性不能由同 provider 的升级
 profile 伪造；fallback 只能是保持全部编排身份与候选绑定的 fresh child。候选作者与
-reviewer 的 provider 避让及主要订阅 provider 的预算例外不改变只读、purpose 或候选边界。
-交叉审核必须使用不同精确 model identity，不满足时 fail closed 到 `WAIT_USER`。
+reviewer 的 provider 避让及仅在 `author_provider_resolution=verified` 时可用的主要订阅 provider 预算例外不改变只读、purpose 或候选边界。
+交叉审核必须使用不同的精确 model identity；不同 provider 优先；强制交叉审核无法组成不同
+model 时进入 `WAIT_USER`。
+
+作者 provider 的恢复必须查询包含 archived agent 的实时 Paseo metadata，并在消费显式
+provider 前核验 `candidate_author_agent_id`、workspace、task／role label、parent lineage
+和 EXECUTOR role；一次基础设施重试后仍缺 provider 或身份表示不一致即记录
+`author_provider_resolution=unavailable`。它是软偏好不可执行的诚实标记，不能据此使用主要
+订阅 provider 例外；若核验成功才记录 `verified` 并优先避让。review-only、早于受管
+EXECUTOR 的实现候选以及无冻结代码候选的 `scope_audit` 均记录
+`author_provider_resolution=not_applicable`。恢复时重新解析并更新该枚举；暂时缺失枚举不单独
+触发 `WAIT_USER`。
+
+第二个配对 reviewer 创建时必须实时取得两名 reviewer 的精确 model identity（第一名可已
+archived），核验不相等后在两条 reviewer `child_dispatches` 记录持久化
+`model_diversity_verified=true`。恢复时只有完整且成对的 literal true 才是 proof；若第二个
+reviewer 已创建或被无歧义采用而 proof 缺失或部分存在，必须按第 18 条的 recovery clause 一次
+重新解析两者。上述 live 比较和 derived operational provenance 不改变离线 STATE checker 的
+closure predicates。
 
 ---
 
@@ -309,9 +398,9 @@ CLI 和 MCP 是等价传输，不改变角色、purpose、workspace、lineage、
 1. **创建结果不明确**：此时本地可能还没有 `agent_id` 或 active 历史。直接从传输状态面
    按 workspace／cwd、`labels.task_id`、`labels.role`、需要的 `labels.purpose`、parent
    lineage，以及语境的 `candidate_identity`／`dispatch_id` 过滤；过滤先于基数判定：
-   先排除已经存在于 `child_dispatches` 的历史 ID，但不得按远端 lifecycle status 排除尚未
+   先排除已经存在于 `child_dispatches` 的历史 ID，但不得按远端 lifecycle 排除尚未
    记录的结果。无匹配可重试创建一次；唯一匹配且身份全部正确时，无论其状态如何，先把
-   完整不可变身份、观测到的 status 和初始生命周期字段追加到 `child_dispatches`。status 为
+   完整不可变身份、观测到的 lifecycle 和初始生命周期字段追加到 `child_dispatches`。lifecycle 为
    active 才更新当前 role 字段并复用；archived 必须先核验归档状态，再记为
    `archive_confirmed=true`，且不得重试创建；terminal／stopping／archive_pending 记录则按
    已保存的 `agent_id` 进入生命周期 reconciliation，不得复用。多个匹配、列表截断或
@@ -377,7 +466,7 @@ role、purpose、workspace、lineage 和 candidate binding。
 `cancel_agent`，然后重新 inspect 并确认其状态已经是终态（包括明确的 cancelled／stopped
 终态）；未确认终态不得 harvest、archive、phase transition 或创建 replacement。stop／cancel
 请求或终态确认最多各做一次有界重试；重试后仍在运行、状态不可见或状态矛盾时，必须记录
-`last_error`，保持 `status=stopping`，进入 `WAIT_USER`，不把它当作已取消。若传输支持
+`last_error`，保持 `lifecycle=stopping`，进入 `WAIT_USER`，不把它当作已取消。若传输支持
 `force-archive`，也只有该操作自身返回可核验终态时才可使用，不能绕过终态确认。
 
 进入 `DONE` 或 `STOP` 前，ORCHESTRATOR 必须 reconciliation 所有仍被管理的 child，并
@@ -417,6 +506,11 @@ reviewer 只返回 findings；SENIOR_REVIEWER 只返回 assessment/findings；SC
 译文语境审核使用独立的 `translation_contextual_v1` 契约：冻结有序 revision、译文
 快照、术语子集、邻近译文、source tags／runtime keys 和固定源码证据；输入不包含先前
 finding、裁决或建议修复。
+
+Before freezing or hashing a translation_contextual_v1 payload, ORCHESTRATOR must run the deterministic offline contextual-anchor preflight with the task-scoped `.ai/task/<task_id>/SCOPE.json` and the exact seven-key draft payload.
+The task-scoped SCOPE.json must declare only workspace-relative ordinary allowed files plus file, section_path, and ordered actual chapter-title anchors; unsafe, duplicate, missing, or ambiguous declarations fail closed.
+Each declared anchor window begins at its actual chapter-title t(...) call and ends at the earliest later actual chapter title, later section marker, or EOF, so undeclared titles still bound the window.
+ORCHESTRATOR may freeze the payload only after every translation_snapshot source is proven to be the decoded first argument of a real t(...) call inside a declared anchor window; the preflight adds nothing to the payload, candidate_identity, review JSON, or STATE closure identity.
 
 ---
 
@@ -481,6 +575,9 @@ finding、裁决或建议修复。
 4. CLI／MCP 只作为等价传输，运行时选择不写入 STATE 规范；
 5. 历史 task、review artifact、archive 和质量 evaluator 预注册不被重写；
 6. 文档之间的 role／purpose／lineage 语义一致，Markdown 和 `git diff --check` 通过。
+7. 禁止 runtime tuple 的预注册／持久化，但允许 reviewer 创建／恢复时的有界 live comparison
+   以及仅由其产生的 `author_provider_resolution`／`model_diversity_verified` operational
+   provenance；该 provenance 不进入 candidate 或 review identity。
 
 ---
 
@@ -489,3 +586,6 @@ finding、裁决或建议修复。
 | 版本 | 状态 | 内容 |
 | --- | --- | --- |
 | `2.12-draft` | 设计草案 | 增加完成即归档、保留 dispatch 记录、不可变身份字段、持久化 `archive_attempts_started` 预算与原地更新生命周期字段；明确 `archive_pending` 在外部归档状态解决并确认前必须停留 `WAIT_USER`，拆分创建歧义发现、已知终态 reconciliation 与 active 恢复，明确语境重试保留候选／输入但更换 dispatch／agent，并要求 `DONE`／`STOP` 前完成全部归档。 |
+| `2.13-draft` | 上一版草案 | 固定 `lifecycle` 与 canonical persisted role literals，保留 reader alias；记录路径数组、dispatch-to-review 绑定、NUL 分隔的候选身份和离线 `DONE`／`STOP` closure checker 及 B-prime adoption boundary。 |
+| `2.14-draft` | 上一版草案 | 增加可恢复的 `candidate_author_agent_id`、归档 metadata 核验和 `author_provider_resolution` 三值枚举；明确 unavailable 的软偏好语义、reviewer child 的 operational field 分类，以及第二 reviewer 创建时的 `model_diversity_verified` 证明、碰撞 fresh retry 和 exact-identity 不可用时的 `WAIT_USER`。 |
+| `2.15-draft` | 当前草案 | 增加冻结／哈希前的离线 contextual-anchor preflight：任务作用域 SCOPE、实际 chapter-title 边界和 source-within-window 证明；它不改变 reviewer 可见的七键 payload 或任何 identity。 |
