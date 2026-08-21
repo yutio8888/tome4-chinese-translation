@@ -1,0 +1,56 @@
+# 代理操作与门禁手册
+
+本文件只承载操作步骤和命令。仓库授权、不变量、外发边界、失败关闭顺序和门禁触发条件以上位文档 [`AGENTS.md`](../AGENTS.md) 为准；本文件不得放宽这些规则。工具与 Lua 的详细说明见 [`i18n/README.md`](../i18n/README.md)。
+
+## 开始前
+
+明确任务是仅审核还是审核并修复，冻结范围、关注维度和完成标准，然后记录：
+
+```bash
+git status --short
+git diff --name-status
+python3 -B tools/i18n doctor
+```
+
+保留任务前改动；需要修改既有脏文件时，先按任务 SPEC 保存可恢复的 baseline。翻译、术语或工具行为变更的外发与审核路由仍须按 [`AGENTS.md`](../AGENTS.md) 执行。
+
+修改外部仓库或已有版本控制文件前，先阅读 [`docs/lessons-learned.md`](lessons-learned.md)；编辑后运行 `git diff --stat`，检查行尾或缩进噪音。不得因相邻样式、无关重构或额外质量工程扩大范围。
+
+## 审核、修复与停止
+
+先完成一轮只读检查再集中裁决；仅审核任务不得自行进入修复。译文检查源码机制、语境、术语、占位符／markup、运行键和中文表达；代码／工具检查输入、失败语义、下游消费者和实际复杂度；文档／配置核对真实实现与命令。finding 必须有源码或上下文证据并说明可触发行为或调用链；纯风格偏好、理论风险和无证据的性能猜测不算确认问题。
+
+主代理独立把 finding 标为 `confirmed`、`pending` 或 `advisory` 并定级；只有 `confirmed` 自动进入修复。只有用户要求修复时才修改：先冻结 finding 清单，按依赖顺序处理 accepted 项，给修复 agent 明确 finding、允许文件、最小测试和完成条件，并复核其输出与测试结果。
+
+每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
+
+## 批次门禁
+
+译文每批按以下顺序运行，任何失败都必须先修复，不得用管道吞掉退出码：
+
+```bash
+# 1) 规范译文静态校验
+python3 -B tools/i18n lint --strict
+
+# 2) 单元测试
+python3 -m unittest -q tests/i18n/test_toolchain.py
+
+# 3) 跨组件同键多译扫描
+python3 -B tools/scan_runtime_collisions.py
+
+# 4) 重复运行键分类
+python3 -B tools/classify_runtime_keys.py
+
+# 5) 工作树整洁度
+git diff --check
+```
+
+术语批次在上述五步之后额外运行 `python3 -B tools/audit_static.py`、`python3 -B tools/audit_dynamic.py` 和 `python3 -B tools/annotate_domains.py`；报告写入 `.artifacts/i18n/terminology-audit/`。涉及译文审核时遵循 [`docs/runtime-key-collisions.md`](runtime-key-collisions.md)。审计与扫描只写入 `.artifacts/i18n/`，不直接改写规范 Lua。
+
+翻译、术语或工具行为变更收束时运行 `tools/ci-gates.sh`。只有任务 SPEC 证明不影响 addon 输出或构建时才可使用 `tools/ci-gates.sh --skip-build`；工作树未变化时不重复运行长门禁；纯文档任务只运行相关文档／契约检查和 `git diff --check`。
+
+## 术语与源码判定
+
+开始翻译或审校前阅读 [`TERMINOLOGY.md`](../TERMINOLOGY.md) 和 [`terminology/`](../terminology/)。术语或专名疑点只能在审核 observation 产生后按 claim 核验；不得用术语库覆盖源码事实。新增或修改高复用术语时，先更新术语库，再修改 Lua；保留 `t(...)` 第三个参数的 `source_tag`，填写 `T.*` category，并在不同语境下于 `notes` 说明。修改术语后用 LuaJIT 加载翻译文件检查 `source`、`target` 和 `source_tag`。
+
+翻译、术语或英文表面含义与机制冲突时，对 manifest 固定源版本或 commit 的组件，以该固定源码实际行为为准，并记录组件、公开源码路径、固定 commit 和关键调用或数据定义；对源码仓库、commit 或版本未固定的 DLC，不得声称存在固定源码或 commit，应记录实际获授权的公开源码证据并明确标注来源未固定；证据不足时，将来源或机制结论标为待确认。

@@ -9,6 +9,7 @@
 - **Paseo 编排**启用时，主代理任 ORCHESTRATOR；EXECUTOR 是任务内容文件的唯一写入 agent，REVIEWER 做常规独立复审，SENIOR_REVIEWER 做超过两轮后的范围校准和高影响流程交叉复审，SCOUT 做只读源码侦察（返回压缩代码上下文，不产生审核 contract 结果）。
 
 无论采用哪种协作方式，模型输出都不是最终事实：机制以固定版本源码为准，修改以后文门禁和验收标准为准。
+所有 finding 必须有源码或语境证据；主代理独立标为 `confirmed`、`pending` 或 `advisory`，只有 `confirmed` 可自动进入修复，模型报告的 severity 不是真实事实。
 
 Paseo 从任务明确采用该编排并建立 task ID 时视为激活，直到任务进入 `DONE`／`STOP`，
 或 ORCHESTRATOR 明确回退并记录原因。回退只允许在尚未创建任何 child，或 `child_dispatches` 全部
@@ -71,172 +72,33 @@ bundle 不得包含先前 finding、裁决或建议修复。改变外发内容�
 
 ## 汉化工具入口
 
-- 自动化统一使用 `python3 -B tools/i18n <command>`；首次运行先执行 `doctor`，译文修改后执行 `lint`。工具自动配置 LuaJIT 模块路径。
-- 报告和候选文件写入已忽略的 `.artifacts/i18n/`；除显式安装／发布命令外，不改写游戏源码或发布仓库。
-- 翻译使用 `tools/pi-subagent --workset <workset.json>`（可见运行用 `tools/pi-tmux translate`）。子进程只输出 proposal，主代理通过 `proposal --strict` 校验后应用。
-- 译文审核由 Paseo REVIEWER 的 `translation_contextual_v1` 承担（契约见 `docs/paseo-translation-context-review-v1-contract.md`）。
-- code/legacy v1 审核由 Paseo 常规 REVIEWER 承担；译文审核的机制核验由主代理按固定源码版本核验。
-- 质量抽样使用 `tools/pi-quality-evaluator`；`tools/pi-remediate` 是 dormant 兼容入口：只消费既有 assessment/finding artifact 生成修复 proposal，不参与任何活跃审核 dispatch，也不替代 Paseo REVIEWER 路由。两者只产出 assessment/proposal，不直接改规范 Lua 或代码。
-- 审核、源码侦察与计划审查统一走 Paseo 角色路由（REVIEWER／SENIOR_REVIEWER／EXECUTOR／SCOUT）；旧项目 Skill 已归档（见 `archive/`），不再作为回退路径。
-- 外发按上文「外发边界」执行；常设通道只需报告 role、purpose 和大致内容范围。
+- 自动化统一使用 `python3 -B tools/i18n <command>`；首次运行执行 `doctor`，译文修改后执行 `lint`。工具与报告只在任务允许的边界内工作，派生文件写入已忽略的 `.artifacts/i18n/`。
+- 翻译 proposal 必须经 `tools/i18n proposal --strict` 校验；审核、源码侦察和计划审查只走 Paseo 角色路由，具体权限与外发边界见上文。
+- Lua 仅按 Lua 5.1／LuaJIT 运行；使用 manifest、`TOME_LUAJIT` 和 `TOME_LUAROCKS_ROOT`，直接 Lua 调用也必须在同一次调用中配置搜索路径。LPeg 固定为已验证的 0.10.2；不得退回新版 Lua。
+- 审核、修复和门禁操作步骤见 [`docs/agent-workflow.md`](docs/agent-workflow.md)；Lua、提取器兼容设置、依赖命令与工具／manifest 说明见 [`i18n/README.md`](i18n/README.md)。
 
 ## DLC 源码输入（GPL v3 公开）
 
-- ToME4 与三个官方 DLC 为 GPL v3（or later）公开源码，可以直接读取、分析和提取。正式版位于 `/Users/yun/projects/tome4-dlcs/`（ashes/cults/orcs，1.7.4）；版本依据以 manifest 固定值为准。
-- 分发译文／addon 时保留版权声明、使用 GPL v3 兼容许可并提供对应源码。
-- 译文审核发送有界译文语境 bundle（`translation_contextual_v1`）；代码审核发送去除本机绝对路径的公开 diff。Paseo 的 REVIEWER／EXECUTOR／SCOUT 及主代理可以读取上述公开源码，输出由主代理核验后应用。
+- ToME4 与三个官方 DLC 为 GPL v3（or later）公开源码，可以直接读取、分析和提取；manifest 固定 engine／extractor 的 commit、组件映射及 DLC 提取基线的快照哈希／条目数，但不固定 DLC 源码仓库、源码 commit 或 1.7.4 源码版本；不在文档中固定本机路径。
+- 分发译文／addon 时保留版权声明、使用 GPL v3 兼容许可并提供对应源码。公开源码可由 Paseo 的 REVIEWER／EXECUTOR／SCOUT 及主代理按外发边界只读核验。
 
-## Lua 运行环境
+## 文档权威顺序
 
-- Tome4 及本仓库的旧汉化工具按 Lua 5.1 语义运行。
-- 一律使用 `luajit`，不要使用 Homebrew 安装的 `lua`、`lua5.4` 或 `lua5.5`。
-- LuaRocks 模块安装在 `/Users/yun/.local/share/tome4-luarocks`，其中应包含 `lfs`、`lpeg` 和 `rex_pcre`。
-- 旧版 `luafish` 只能使用已验证的 LPeg 0.10.2；LPeg 0.12.2 和 1.1 会令所有文件出现 `empty loop in rule 'functioncall'`。
-- 不要要求用户在每次执行脚本前手动 `export` 环境变量。
+仓库级授权与不变量以本文件为准；激活时的 Paseo 契约、适用的
+[`docs/agent-workflow.md`](docs/agent-workflow.md) 和 [`i18n/README.md`](i18n/README.md)
+依次承载下层约束与操作细节，均不得放宽上层规则。任何下层文档与本文件冲突时，
+以上位规则为准。
 
-## 执行 Lua 脚本
+## 门禁触发
 
-代理每次执行 Lua 脚本、单行 Lua 命令或依赖检查时，都必须在同一条命令中自动设置模块搜索路径：
-
-```bash
-env \
-  LUA_PATH='/Users/yun/.local/share/tome4-luarocks/share/lua/5.1/?.lua;/Users/yun/.local/share/tome4-luarocks/share/lua/5.1/?/init.lua;;' \
-  LUA_CPATH='/Users/yun/.local/share/tome4-luarocks/lib/lua/5.1/?.so;;' \
-  luajit <脚本及参数>
-```
-
-例如：
-
-```bash
-env \
-  LUA_PATH='/Users/yun/.local/share/tome4-luarocks/share/lua/5.1/?.lua;/Users/yun/.local/share/tome4-luarocks/share/lua/5.1/?/init.lua;;' \
-  LUA_CPATH='/Users/yun/.local/share/tome4-luarocks/lib/lua/5.1/?.so;;' \
-  luajit i18n_tools/extract.lua /Users/yun/projects/t-engine4
-```
-
-不能把环境设置和 `luajit` 拆成不同的终端调用，因为代理的每次终端调用都可能是新的 shell。
-
-## 执行前检查
-
-首次使用或运行失败时，先用以下方式检查运行时和模块；检查命令也必须使用上述项目环境：
-
-```bash
-command -v luajit
-
-env \
-  LUA_PATH='/Users/yun/.local/share/tome4-luarocks/share/lua/5.1/?.lua;/Users/yun/.local/share/tome4-luarocks/share/lua/5.1/?/init.lua;;' \
-  LUA_CPATH='/Users/yun/.local/share/tome4-luarocks/lib/lua/5.1/?.so;;' \
-  luajit -e 'require("lfs"); require("lpeg"); require("rex_pcre"); print(_VERSION, jit.version)'
-```
-
-预期版本语义为 `Lua 5.1`。如果 `luajit` 或依赖不存在，应明确报告缺失项或执行已获授权的安装步骤；不得退回使用新版 `lua`。
-
-## 文本提取器兼容设置
-
-运行历史版本的 `i18n_tools/i18n_extractor.lua` 时，应在提取器的临时副本中，于 `luafish/parser.lua` 的 `local lpeg = require 'lpeg'` 后加入：
-
-```lua
-lpeg.setmaxstack(100000)
-```
-
-不要为此修改游戏源码工作区。未提高栈上限时，大型 Lua 文件会出现 `too many pending calls/choices`，而提取器仍可能以退出码 0 结束并写出不完整结果。
-
-一次提取只有同时满足以下条件才算成功：
-
-- `i18n_extractor.lua` 退出码为 0。
-- `i18n_list.lua` 存在且包含非零数量的 `tDef(...)`。
-- 提取日志中没有以 `In file ` 开头的解析失败记录。
-
-## 安装 LuaRocks 依赖
-
-需要安装或重装依赖时，必须明确指定 Lua 5.1、LuaJIT 目录和项目专用模块目录：
-
-```bash
-luarocks \
-  --lua-version=5.1 \
-  --lua-dir="$(brew --prefix luajit)" \
-  --tree="/Users/yun/.local/share/tome4-luarocks" \
-  install luafilesystem
-
-luarocks \
-  --lua-version=5.1 \
-  --lua-dir="$(brew --prefix luajit)" \
-  --tree="/Users/yun/.local/share/tome4-luarocks" \
-  install --force lpeg 0.10.2-1
-
-luarocks \
-  --lua-version=5.1 \
-  --lua-dir="$(brew --prefix luajit)" \
-  --tree="/Users/yun/.local/share/tome4-luarocks" \
-  install lrexlib-pcre \
-  PCRE_DIR="$(brew --prefix pcre)"
-```
-
-安装系统软件或 LuaRocks 模块前，仍须遵循当前任务的权限和确认要求。
-
-## 项目通用审核与修复工作流
-
-审核开始时明确模式（仅审核／审核并修复）、范围、关注维度和完成标准。先记录
-`git status --short` 与实际 changed/untracked 文件；保留任务前改动，首次运行工具先执行
-`python3 -B tools/i18n doctor`。
-
-### 审核
-
-- 先完成一轮只读检查再集中裁决；仅审核任务不得自行进入修复。
-- 译文检查源码机制、语境、术语、占位符／markup、运行键和中文表达；代码／工具检查输入、
-  失败语义、下游消费者和实际复杂度；文档／配置核对真实实现与命令。
-- finding 必须有源码或上下文证据，并说明可触发行为或调用链。纯风格偏好、理论风险和
-  无证据的性能猜测不算确认问题。
-- 主代理把 finding 标为 confirmed、pending 或 advisory，并独立定级；只有 confirmed
-  finding 自动进入修复。模型自报等级不作为事实。
-
-### 修复
-
-- 只有用户要求修复时才修改；先冻结当前 finding 清单，再按依赖顺序处理 accepted 项。
-- 给无上下文修复 agent 的指令应包含 finding、允许文件、最小测试和完成条件；subagent
-  输出与自报测试结果都由主代理复核。
-- 不为相邻风格、无关重构或额外质量工程扩大范围。
-
-### 验证与停止
-
-1. 每个修复运行最接近的 lint／测试并检查 `git diff --check`。
-2. 一批修复完成后运行组件级检查。
-3. 收束后统一运行适用的完整门禁、构建和 smoke；工作树未变化时不重复长门禁。
-
-仅审核任务在 findings 核验完成后交付。审核并修复任务在 accepted findings 全部解决、
-门禁通过，并完成一轮新的独立复审后交付；只剩 pending/advisory 时说明并停止，不追求
-无界的“零风险”。外发遵循上文集中边界。
-
-## 门禁检查（每次译文批量修改后必跑）
-
-以下检查按顺序执行，任何一项失败都必须先修复再继续，不得用管道吞掉退出码：
-
-```bash
-# 1) 规范译文静态校验（必须检查退出码，勿用 `| tail` 吞掉）
-python3 -B tools/i18n lint --strict; echo "exit=$?"
-
-# 2) 单元测试
-python3 -m unittest -q tests/i18n/test_toolchain.py; echo "exit=$?"
-
-# 3) 跨组件同键多译扫描（应为 0 条；非零需先处理再继续）
-python3 -B tools/scan_runtime_collisions.py; echo "exit=$?"
-
-# 4) 重复运行键分类（全部应同 target；新增异 target 说明运行时覆盖风险）
-python3 -B tools/classify_runtime_keys.py; echo "exit=$?"
-
-# 5) 工作树整洁度
-git diff --check && echo DIFF_OK
-```
-
-- **术语表改动后**额外运行：`python3 -B tools/audit_static.py`（静态审计：错字/标点/同源冲突）、`python3 -B tools/audit_dynamic.py`（动态审计：术语 vs 译文使用率/多译）、`python3 -B tools/annotate_domains.py`（领域标注一致性）。报告写入 `.artifacts/i18n/terminology-audit/`。
-- **译文批量修改后**在提交前运行门禁 1–5；涉及译文审核时按 `docs/runtime-key-collisions.md` 的流程执行。`--workers 6`、8 起限速劣化仅是已归档 v1 的历史数据，不适用于 Paseo 译文审核通道。
-- 修改外部仓库或已有版本控制文件（尤其 CRLF 行尾、JSON、Lua 字面量）前，先阅读 `docs/lessons-learned.md` 的常见陷阱；改完用 `git diff --stat` 确认无行尾/缩进噪音。
-- 审计与扫描脚本均在 `tools/` 下版本控制，输出只写入 `.artifacts/i18n/`（忽略目录），不直接改写规范 Lua。
+- 译文每批执行 `docs/agent-workflow.md` 的五步门禁；术语批次在五步后追加三项术语审计。
+- 翻译、术语或工具行为变更收束时运行 `tools/ci-gates.sh`；只有 SPEC 证明不影响 addon 输出或构建时才可 `--skip-build`。
+- 纯文档任务只运行相关文档／契约检查和 `git diff --check`。完整操作、源码优先判定和术语维护步骤见 [`docs/agent-workflow.md`](docs/agent-workflow.md)。
 
 ## 校对判定依据
 
-- 当翻译、术语、审核意见或英文表面含义对游戏机制的描述存在分歧时，以当前版本清单固定的游戏源代码实际行为为最终判定依据；现有译文、术语库和模型 finding 都不能覆盖源码事实。
-- 核验机制时应记录对应组件、公开源码路径、固定 commit 和关键调用或数据定义，并据此确认、部分确认、撤销或修订审核结论；当前工作树与固定 commit 不一致时，默认以版本清单固定的 commit 为准，除非用户明确指定其他目标版本。
+- 当翻译、术语、审核意见或英文表面含义对游戏机制的描述存在分歧时，对 manifest 已固定 commit 的源码以其实际行为为最终判定依据；对来源未固定的 DLC，必须以实际可核验的公开源码证据为准并标明来源未固定。现有译文、术语库和模型 finding 都不能覆盖源码事实。
+- 核验机制时应记录对应组件、公开源码路径、适用的固定 commit（若有）和关键调用或数据定义；若来源或 commit 未固定，必须明确记录并标为待确认，据此确认、部分确认、撤销或修订审核结论。当前工作树与固定 commit 不一致时，默认以版本清单固定的 commit 为准，除非用户明确指定其他目标版本。
 - 公开游戏与三个官方 DLC 源码可以直接核验；未公开组件只使用用户授权的证据。证据不足时标为待确认。
 
 ## 术语库工作流

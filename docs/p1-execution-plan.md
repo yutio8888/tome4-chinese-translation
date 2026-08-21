@@ -151,7 +151,7 @@ S7  修复与复审      →  S8  门禁          →  S9  提交
 
 **S7 修复与复审。** 修复 confirmed finding，对**新 revision** 重新审核。
 
-**S8 门禁**（按 `AGENTS.md` 顺序，不吞退出码）：
+**S8 门禁**（按 [`docs/agent-workflow.md`](agent-workflow.md) 顺序，不吞退出码；根级触发条件以 `AGENTS.md` 为准）：
 
 ```bash
 python3 -B tools/i18n lint --strict; echo "exit=$?"
@@ -171,7 +171,7 @@ git diff --check && echo DIFF_OK
 职责），S4 可委派 EXECUTOR，S5 走 translation_contextual_v1 REVIEWER。task ID：
 `p1-b1-mechanics-numeric-001`。
 
-§4.3 的选择脚本属工具变更，按 `AGENTS.md` 第 9 条需 REVIEWER 与 SENIOR_REVIEWER 从同一
+§4.3 的选择脚本属工具变更，按 `AGENTS.md` 的基础设施交叉审核规则需 REVIEWER 与 SENIOR_REVIEWER 从同一
 SPEC／diff 交叉审核。**该 code 审核与译文批次分开提交**。
 
 ### 6.2 随机批次 artifact 的处置
@@ -285,7 +285,7 @@ B1 的 S4 只改了 12 行译文，就先后撞出 3 个失败，修完又冒出
 
 ### 9.6 执行约束
 
-属基础设施变更，按 `AGENTS.md` 第 9 条需 REVIEWER 与 SENIOR_REVIEWER 从同一 SPEC 与
+属基础设施变更，按 `AGENTS.md` 的基础设施交叉审核规则需 REVIEWER 与 SENIOR_REVIEWER 从同一 SPEC 与
 同一任务自身 diff 独立交叉审核，并**单独提交**，不并入任何译文批次。
 
 ## 十、执行结果与收束

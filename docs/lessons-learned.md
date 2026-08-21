@@ -98,7 +98,7 @@ tests/i18n/test_toolchain.py`），**全绿后再提交**；失败则修复后�
 
 跨组件同键多译扫描（`scan_runtime_collisions.py`）首次纳入门禁即捕获
 6 条漂移（三轮 Pi 复审修改造成的组件间不一致）。结论：**每次译文批量
-修改后必须跑完整门禁**（`tools/ci-gates.sh`），不要只在最后跑。
+修改后每批必须先按 `docs/agent-workflow.md` 跑五步快速门禁；翻译、术语或工具行为变更收束时再跑完整门禁（`tools/ci-gates.sh`）**。
 
 ## 9. 匿名 provider cwd 不能假定 `/private/tmp` 存在（2026-08-11）
 

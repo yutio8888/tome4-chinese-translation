@@ -1,8 +1,9 @@
 # ToME4 汉化工具
 
-当前工具以 `tome4-chinese-translation` 为唯一译文源。公开源码和官方 locale
-从固定 Git 对象读取；三个 GPL v3 官方 DLC 虽可公开读取，提取流程仍统一通过
-受审计的 Lua 代理和固定快照基线。默认命令不会提取 DLC，所有报告写入
+当前工具以 `tome4-chinese-translation` 为唯一译文源。manifest 固定的 engine、addon
+和 extractor Git 对象用于公开源码与官方 locale；三个 GPL v3 官方 DLC 虽可公开读取，
+manifest 只固定其提取器 commit 和快照基线，不固定 DLC 源码仓库、源码 commit 或源码版本。
+提取流程仍统一通过受审计的 Lua 代理和固定快照基线。默认命令不会提取 DLC，所有报告写入
 `.artifacts/i18n/`。
 
 ## 常用命令
@@ -28,17 +29,53 @@ tools/i18n review --scope translations
 tools/i18n review --scope code --scope translations
 ```
 
+## 运行时配置
+
+`i18n/versions/tome-1.7.6.json` 是版本、组件映射、engine／addon／extractor commit、LuaJIT 语义和基线的权威 manifest；其中 DLC 基线仅记录提取快照哈希与条目数，不固定 DLC 源码仓库、源码 commit 或 1.7.4 源码版本。运行时由 `TOME_LUAJIT` 指向 manifest 兼容的 LuaJIT 可执行文件，项目 LuaRocks 树由 `TOME_LUAROCKS_ROOT` 指定；不要把本机绝对路径写入命令、报告或文档。
+
+Tome4 与旧版汉化工具按 Lua 5.1 语义运行，一律使用 manifest 指定的 LuaJIT；不要退回系统 `lua`、`lua5.4` 或 `lua5.5`。工具会在同一次 LuaJIT 子进程调用中配置 `LUA_PATH` 和 `LUA_CPATH`。直接运行 Lua 脚本、单行命令或依赖检查时也必须在同一条命令中配置，不要拆开环境设置与 LuaJIT 调用：
+
+```bash
+: "${TOME_LUAJIT:?set TOME_LUAJIT to the manifest-compatible LuaJIT}"
+: "${TOME_LUAROCKS_ROOT:?set TOME_LUAROCKS_ROOT to the project LuaRocks tree}"
+env \
+  LUA_PATH="$TOME_LUAROCKS_ROOT/share/lua/5.1/?.lua;$TOME_LUAROCKS_ROOT/share/lua/5.1/?/init.lua;;" \
+  LUA_CPATH="$TOME_LUAROCKS_ROOT/lib/lua/5.1/?.so;;" \
+  "$TOME_LUAJIT" <script-and-arguments>
+```
+
+首次使用或运行失败时，检查可执行文件和模块。项目依赖包括 `lfs`、`lpeg` 和 `rex_pcre`；历史 `luafish` 只使用已验证的 LPeg 0.10.2：
+
+```bash
+command -v "$TOME_LUAJIT"
+env \
+  LUA_PATH="$TOME_LUAROCKS_ROOT/share/lua/5.1/?.lua;$TOME_LUAROCKS_ROOT/share/lua/5.1/?/init.lua;;" \
+  LUA_CPATH="$TOME_LUAROCKS_ROOT/lib/lua/5.1/?.so;;" \
+  "$TOME_LUAJIT" -e 'require("lfs"); require("lpeg"); require("rex_pcre"); print(_VERSION, jit.version)'
+```
+
+需要安装或重装依赖时，沿用 manifest 的 LuaJIT 版本与项目树，并遵循当前任务的权限确认要求：
+
+```bash
+luarocks --lua-version=5.1 --lua-dir="$(cd "$(dirname "$TOME_LUAJIT")/.." && pwd)" \
+  --tree="$TOME_LUAROCKS_ROOT" install luafilesystem
+luarocks --lua-version=5.1 --lua-dir="$(cd "$(dirname "$TOME_LUAJIT")/.." && pwd)" \
+  --tree="$TOME_LUAROCKS_ROOT" install --force lpeg 0.10.2-1
+luarocks --lua-version=5.1 --lua-dir="$(cd "$(dirname "$TOME_LUAJIT")/.." && pwd)" \
+  --tree="$TOME_LUAROCKS_ROOT" install lrexlib-pcre
+```
+
 `tools/i18n review` 与 `tools/review_diff.py` 只生成离线 bundle／index／diff
 artifact，不调用 provider、不构成审核结论；译文审核由 Paseo REVIEWER 的
 `translation_contextual_v1` 路由承担（见
 `docs/paseo-translation-context-review-v1-contract.md`），代码审核由 Paseo 常规
-REVIEWER 承担（primary Pi `command-code-goat/meta/muse-spark-1.2-contributor`、
-backup Codex `gpt-5.6-sol`；外发内容与授权边界见 `AGENTS.md`「外发边界」）。旧项目 Skill
+REVIEWER 承担；实际 role、purpose 和运行时 profile 由当前 Paseo 编排决定，外发内容与授权边界见
+`AGENTS.md`「外发边界」。旧项目 Skill
 `$tome4-pi-review` 已归档（见 `archive/`），不再作为审核入口；`tools/pi-review`
 是当前仓库 tombstone，任何调用都非零退出并输出退役指引，不读取 bundle、不启动
 provider。
 
-- `doctor` 检查 LuaJIT 5.1、项目 LuaRocks 树、LPeg 0.10.2、固定 Git commit
+- `doctor` 检查 LuaJIT 5.1、项目 LuaRocks 树、LPeg 0.10.2、manifest 固定的 engine／addon／extractor commit
   和所有规范译文文件。对于 DLC 它只让 Lua 代理探测清单中预声明的组件，
   不遍历或列出 DLC 目录；包含 DLC 的 engine 工作树也不执行 Git 状态扫描。
 - `extract` 默认提取 engine、boot 和 tome。可用 `--component boot` 缩小范围，
@@ -99,9 +136,10 @@ provider。
 允许不分发的任何使用，包括 AI 读取、分析与提取；仅分发衍生作品（含译文）时
 须遵守 §5（保留版权声明、GPL v3 兼容许可、提供对应源码；发布仓库 tome-chn-mod 按
 ToME4 addon 惯例在 `init.lua` 头部声明 GPL v3 并注明上游版权与衍生作品
-性质，提交 `d61c186`）。提取来源已切换至
-公开正式版 `/Users/yun/projects/tome4-dlcs/`（version 1.7.4；两处副本 t() src
-序列验证一致，cults/orcs 仅非 t() 内容差异）。受保护提取机制保留为可复现基线
+性质，提交 `d61c186`）。历史核验记录（非 manifest 权威，2026-08-08）：记录中的
+三份受保护 baseline 仅与公开的 1.7.4 源码核验；两处公开源序列验证一致，cults/orcs
+仅非 t() 内容差异。该记录不表示 manifest 固定了 DLC 源码仓库、源码 commit 或
+1.7.4 源码版本。受保护提取机制保留为可复现基线
 工具，不再视为闭源限制；快照含 origin 元数据，来源切换后 extract 若报基线
 mismatch 属预期，重建基线即可（tdef_count 不变）。
 - `merge` 将新快照、可选的旧快照和当前规范译文三方分类，只在 artifact 中生成
@@ -123,9 +161,8 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   `artifact_bytes` 与实际 `payload_bytes`。完全相同的重复 canonical occurrence
   共享同一 `revision_id`，选择保留首个 occurrence 并按 revision 去重。代码 diff
   使用 legacy `tome4-review-v1`；混合 index 逐 bundle 记录实际 contract/channel。
-  实际审核由 Paseo REVIEWER（`translation_contextual_v1`／`code_legacy_v1` 常规
-  REVIEWER：primary Pi Muse Contributor、backup Codex）在独立契约下
-  承担，见 `docs/paseo-translation-context-review-v1-contract.md`。
+  实际审核由当前 Paseo 编排中的对应 REVIEWER 在独立契约下承担，见
+  `docs/paseo-translation-context-review-v1-contract.md`。
 - `tools/pi-review` 已退役，是当前仓库 tombstone：任何调用都在产生任何副作用之前
   非零退出并输出退役指引，不读取 bundle、不启动 provider。入口退役后保留的
   `run_pi_review`／`run_tmux_review`／`run_tmux_file_review` 是残留 driver，已无
@@ -145,14 +182,13 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   调用前的主代理流程门槛，不是工具能从 v1 JSON 独立证明的事实。translation v2
   assessment 是候选观察，不得直接进入 remediation。结构校验成功不等于事实确认。
 - 旧的 code/legacy v1 文件审核入口 `tools/pi-review-files` 已归档到
-  `archive/tools/`；code 审核统一由 Paseo 常规 REVIEWER 承担（primary Pi
-  `command-code-goat/meta/muse-spark-1.2-contributor`、backup Codex `gpt-5.6-sol`）。translation v2
+  `archive/tools/`；code 审核统一由 Paseo 常规 REVIEWER 承担。translation v2
   的源码核验必须绑定既有
   observation，仅返回 `supported/refuted/insufficient`，不得开放式新增 finding；在该
   claim-bound runner 实现前，主代理直接按固定源码版本核验。
 - `tools/pi-subagent` 把不超过 50 条的已校验 workset 和 proposal 模板注入一个
-  无工具、无会话、无项目上下文的 Pi 翻译进程。Pi 的原始输出先保存在 artifact，
-  再自动通过 `proposal --strict`；它没有读取仓库、运行 shell 或修改 Lua 的能力。
+  无工具、无会话、无项目上下文的翻译进程。原始输出先保存在 artifact，再自动通过
+  `proposal --strict`；它没有读取仓库、运行 shell 或修改 Lua 的能力。
   若模型只返回 `proposals` 数组，工具只会补入已冻结的 `schema_version` 和
   `workset_id` 外壳，不会修补或猜测任何译文内容。
   provider、model 和 thinking 可分别用 `TOME_PI_PROVIDER`、`TOME_PI_MODEL`、
@@ -201,8 +237,8 @@ TOME_LUAROCKS_ROOT
 枚举该目录。若实际组件目录名不在版本清单的候选值中，可用对应的组件环境变量
 提供绝对路径。环境变量只作为参数交给 Lua 代理，不能用于普通文件工具。
 
-不需要也不应手动设置 `LUA_PATH` 或 `LUA_CPATH`；工具会在同一次 LuaJIT 子进程
-调用中设置它们。
+使用 `tools/i18n` 命令时不需要也不应手动设置 `LUA_PATH` 或 `LUA_CPATH`；工具会在
+同一次 LuaJIT 子进程调用中设置它们。
 
 Pi 默认从现有环境、用户 Pi auth 或 macOS Keychain 的
 `codex-pi-opencode-go` 项解析凭据。凭据只进入 Pi 子进程环境，不写入命令行、报告
@@ -210,11 +246,20 @@ Pi 默认从现有环境、用户 Pi auth 或 macOS Keychain 的
 
 ## 提取成功条件
 
-提取器来自版本清单固定的历史 Git commit，在临时副本中设置 LPeg 最大栈，并保留
-同一源码文件中的重复出现位置。一次提取必须同时满足：
+提取器来自版本清单固定的历史 Git commit，在临时副本中于 `luafish/parser.lua` 的
+`local lpeg = require 'lpeg'` 后加入以下兼容设置，并保留同一源码文件中的重复出现
+位置：
+
+```lua
+lpeg.setmaxstack(100000)
+```
+
+不要修改游戏源码工作区。未提高栈上限时，大型 Lua 文件会出现
+`too many pending calls/choices`，而提取器仍可能以退出码 0 结束并写出不完整结果。
+一次提取必须同时满足：
 
 1. LuaJIT 进程退出码为零；
-2. 输出存在且至少包含一个 `tDef`；
+2. 输出 `i18n_list.lua` 存在且至少包含一个 `tDef(...)`；
 3. 日志不包含 `In file `、`too many pending calls/choices` 或已知的 LPeg 空循环错误。
 
 源码中的空 `_t`、界面占位符或 `game.log("")` 也可能被历史提取器记录为空
@@ -224,11 +269,9 @@ Pi 默认从现有环境、用户 Pi auth 或 macOS Keychain 的
 公开组件会生成原始 `i18n_list.lua`、规范化 `snapshot.jsonl`、完整日志和元数据。
 以受保护映射处理的 DLC 只保留已提取文本：Lua 代理会把绝对源路径替换为逻辑 mount，Python
 调度层丢弃代理的 stdout/stderr，不保存源码或解析日志。任何解析失败、空结果或
-路径残留都会令提取失败。
+路径残留都会令提取失败；不能只以退出码 0 判定成功。
 
 DLC 的 `i18n_list.lua`、`snapshot.jsonl`、merge、workset 和 proposal 虽然不含源码，
 仍是派生工作 artifact。它们位于已忽略的 `.artifacts/i18n/`，默认不得提交；翻译
-Pi 只能接收人工选定的 workset；审核流程只经 Paseo REVIEWER
-（`translation_contextual_v1`／`code_legacy_v1` 常规 REVIEWER：primary Pi Muse
-Contributor、backup Codex）接收有界翻译 bundle 或去敏后的公开代码
-diff。
+进程只能接收人工选定的 workset；审核流程只经 Paseo 对应 REVIEWER 接收有界翻译
+bundle 或去敏后的公开代码 diff。

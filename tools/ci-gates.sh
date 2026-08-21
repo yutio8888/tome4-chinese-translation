@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# 本地 CI 门禁：与 AGENTS.md「门禁检查」段落一致，任一失败即退出非零。
+# 本地 CI 门禁：步骤见 docs/agent-workflow.md，触发条件见 AGENTS.md；任一失败即退出非零。
 # 用法：tools/ci-gates.sh [--skip-build]
+# 仅当任务 SPEC 证明不影响 addon 输出或构建时，才允许使用 --skip-build。
 set -u
 
 usage() {

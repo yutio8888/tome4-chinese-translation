@@ -104,7 +104,7 @@
 | `python3 -B tools/annotate_domains.py` | 领域标注一致性 | 全部行映射到 11 领域 |
 | `python3 -B tools/classify_runtime_keys.py` | 重复运行键分类 | 全部同 target（跨文件合法重复） |
 
-另见 `AGENTS.md` 门禁检查段落与 `docs/runtime-key-collisions.md` 跨组件同键档案。
+另见 [`docs/agent-workflow.md`](docs/agent-workflow.md) 的批次门禁与 `docs/runtime-key-collisions.md` 跨组件同键档案；根级触发条件以 [`AGENTS.md`](AGENTS.md) 为准。
 
 ## 本轮提取范围
 
