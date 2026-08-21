@@ -18847,6 +18847,70 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
                 with self.subTest(document=name, marker=marker):
                     self.assertNotIn(marker, text)
 
+    def test_runtime_profiles_are_discovered_and_provider_neutral(self) -> None:
+        texts = self._normative_texts()
+        for name in ("agents", "orchestrator", "contract"):
+            text = self._normalized_markdown(texts[name])
+            with self.subTest(document=name):
+                self.assertIn("每次 child 调度前，ORCHESTRATOR 必须读取实时 `list_profiles`", text)
+                self.assertIn("profile notes", text)
+                self.assertIn("provider/model 能力", text)
+                self.assertIn(
+                    "同一 provider 的另一个 profile 只能是复杂度升级，不能在该 provider 已不可用时充当 availability fallback",
+                    text,
+                )
+                self.assertIn("reviewer 尽量避开候选作者的 provider", text)
+                self.assertIn(
+                    "候选作者属于主要订阅 provider 时，预算例外允许同 provider 审核",
+                    text,
+                )
+                if name in ("agents", "orchestrator"):
+                    self.assertIn("不把运行时组合写入 STATE", text)
+                else:
+                    self.assertIn("禁止进入 STATE schema", text)
+
+    def test_author_provider_avoidance_and_cross_review_model_deduplication(self) -> None:
+        texts = self._normative_texts()
+        for name in ("agents", "orchestrator", "contract"):
+            text = self._normalized_markdown(texts[name])
+            with self.subTest(document=name):
+                self.assertIn("reviewer 尽量避开候选作者的 provider", text)
+                self.assertIn(
+                    "候选作者属于主要订阅 provider 时，预算例外允许同 provider 审核",
+                    text,
+                )
+                self.assertIn("不同的精确 model identity", text)
+                self.assertIn("不同 provider 优先", text)
+                self.assertIn("无法组成不同 model 时", text)
+                self.assertIn("WAIT_USER", text)
+
+    def test_fallback_is_fresh_and_preserves_bindings(self) -> None:
+        texts = self._normative_texts()
+        for name in ("agents", "orchestrator", "contract"):
+            text = self._normalized_markdown(texts[name])
+            with self.subTest(document=name):
+                self.assertIn("fresh child", text)
+                self.assertIn("role、purpose、workspace", text)
+                self.assertIn("parent lineage", text)
+                self.assertIn("candidate binding", text)
+                self.assertIn("不得 resume 已完成或已归档 child", text)
+
+    def test_runtime_route_identity_is_excluded_from_state_and_review_identity(self) -> None:
+        texts = self._normative_texts()
+        for name in ("agents", "orchestrator", "contract"):
+            text = self._normalized_markdown(texts[name])
+            with self.subTest(document=name):
+                self.assertIn(
+                    "provider、model、mode、thinking 和 fallback tuple 不写入 STATE、candidate identity 或 review contract identity",
+                    text,
+                )
+                if name == "contract":
+                    self.assertIn("STATE schema", text)
+                else:
+                    self.assertIn("写入 STATE", text)
+                self.assertIn("candidate identity", text)
+                self.assertIn("review contract identity", text)
+
     def test_paseo_roles_require_parent_lineage(self) -> None:
         texts = self._normative_texts()
         for name in ("agents", "orchestrator", "contract"):

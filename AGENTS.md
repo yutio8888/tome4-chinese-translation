@@ -40,6 +40,16 @@ ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 角色完成。门�
 12. 任务前脏文件默认不交给 EXECUTOR；确需修改时，SPEC 必须逐文件允许，并先保存可恢复的起始 patch 或副本。review_only 的 DONE 只要求全部审核完成、findings 已裁决且无 deferred；implement 的 DONE 还要求无未解决 accepted finding 并通过最终验收。
 13. 每次 child dispatch 都是单次运行：到达终态后，ORCHESTRATOR 先收获并验证或判废输出，再立即通过当前 transport 归档；归档确认属于 dispatch 完成条件，确认前不得推进阶段、创建 successor 或恢复该 child。无效输出也先归档再 fresh retry；归档首次尝试和一次自动重试都要在调用前持久化递增 `archive_attempts_started`（最大 2），预算耗尽仍无法确认则记录 `archive_pending`／`last_error` 并进入 WAIT_USER。STATE 以 `child_dispatches` 保留不可变 role／purpose／agent_id 和可更新的生命周期／`archive_confirmed`／尝试计数；语境重试保留 candidate_identity 与冻结 input_path，但使用新的 dispatch_id／agent_id。DONE／STOP 前核对所有 child 均已归档。
 
+每次 child 调度前，ORCHESTRATOR 必须读取实时 `list_profiles`，并按 profile notes 与当前
+provider/model 能力选择；只记录 role、purpose、workspace、parent lineage 和 candidate
+binding，不把运行时组合写入 STATE、candidate identity 或 review contract identity。可用性
+按 provider 处理：同一 provider 的另一个 profile 只能是复杂度升级，不能在该 provider 已不可用时充当 availability fallback。reviewer 尽量避开候选作者的 provider；候选作者属于主要订阅 provider 时，预算例外允许同 provider 审核，但仍须满足 role、purpose 与候选边界。
+同一交叉审核阶段的两名 reviewer 必须使用不同的精确 model identity；不同 provider 优先。
+无法组成不同 model 时进入 `WAIT_USER`。任何 fallback 都必须创建 fresh child，并保持
+role、purpose、workspace、parent lineage 与 candidate binding 不变；不得 resume 已完成或已归档 child。
+provider、model、mode、thinking 和 fallback tuple 不写入 STATE、candidate identity 或
+review contract identity。
+
 ### 工作流与记录
 
 实现任务采用：PLAN → IMPLEMENT → VALIDATE → REVIEW → ADJUDICATE →（FIX → VALIDATE → RE_REVIEW，最多五轮）→ FINAL_REVIEW → ADJUDICATE → FINAL_VALIDATE → DONE。仅审核任务采用：PLAN → REVIEW → ADJUDICATE → DONE。需要用户决定时记为 WAIT_USER；取消或无法继续时只有在全部 child 已确认归档后才记为 STOP，否则进入 WAIT_USER。

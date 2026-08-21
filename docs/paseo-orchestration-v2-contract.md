@@ -37,6 +37,17 @@
     挂起／OOM 后禁止无界重跑，无法经一次有界诊断归因时交给用户。
 12. 每个任务在 STATE 记录任务级 `orchestration_transport`，只允许 `cli|mcp`；
     两种传输必须保持相同的 role、purpose、workspace、lineage、恢复和只读语义。
+13. 每次 child 调度前，ORCHESTRATOR 必须读取实时 `list_profiles`，根据 profile notes
+    与当前 provider/model 能力选择；provider、model、mode、thinking 和 fallback tuple
+    只属于运行时选择，禁止进入 STATE schema、candidate identity 或 review contract identity。
+    provider、model、mode、thinking 和 fallback tuple 不写入 STATE、candidate identity 或
+    review contract identity。
+14. 可用性按 provider 处理：同一 provider 的另一个 profile 只能是复杂度升级，不能在该 provider 已不可用时充当 availability fallback。reviewer 尽量避开候选作者的 provider；候选作者属于主要订阅 provider 时，预算例外允许同 provider 审核，但必须仍满足角色、
+    purpose 与候选边界。
+15. 同一交叉审核阶段的两名 reviewer 必须使用不同的精确 model identity；不同 provider
+    优先。强制交叉审核无法组成不同 model 时进入 `WAIT_USER`。fallback 必须创建 fresh child，
+    保持 role、purpose、workspace、parent lineage 与 candidate binding 不变，且
+    不得 resume 已完成或已归档 child。
 
 ### 明确删除的复杂度
 
@@ -264,6 +275,14 @@ Paseo daemon 必须以 `PASEO_AGENT_ID` 对应的 ORCHESTRATOR 建立 parent lin
 
 记录只保存 finding、证据、裁决和结果，不要求复制完整 prompt、运行时选择或构造 lineage
 manifest。已完成的历史记录不重写。
+
+### 运行时 profile 路由
+
+`list_profiles` 是每次 child 调度前的实时发现入口；profile notes 和当前能力共同决定
+选择，文档不预注册具体 provider/model 组合。provider 可用性不能由同 provider 的升级
+profile 伪造；fallback 只能是保持全部编排身份与候选绑定的 fresh child。候选作者与
+reviewer 的 provider 避让及主要订阅 provider 的预算例外不改变只读、purpose 或候选边界。
+交叉审核必须使用不同精确 model identity，不满足时 fail closed 到 `WAIT_USER`。
 
 ---
 

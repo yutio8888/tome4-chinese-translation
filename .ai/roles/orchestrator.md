@@ -29,7 +29,12 @@ Skill。已归档 Skill 产生的 review 结果不得用来完成 Paseo 的 code
    SPEC，并保存 tracked 文件的 BASELINE.patch 或既有 untracked 文件的 baseline/副本。
 3. 明确模式、允许修改文件、禁止扩展项和可验证验收标准；将任务分类为 standard、
    translation_workflow 或 infrastructure。后两类自初审起必须交叉复审。
-4. 角色按下表创建，不固定执行载体：
+4. 每次 child 调度前，ORCHESTRATOR 必须读取实时 `list_profiles`，结合 profile notes 与当前
+   provider/model 能力选择适用 profile；这里只记录 role、purpose、workspace、lineage
+   和候选绑定，不把运行时组合写入 STATE、candidate identity 或 review contract identity。
+   同一 provider 的另一个 profile 只能是复杂度升级，不能在该 provider 已不可用时充当 availability fallback。
+
+5. 角色按下表创建，不固定执行载体：
 
    | role | purpose | 责任 |
    | --- | --- | --- |
@@ -39,9 +44,9 @@ Skill。已归档 Skill 产生的 review 结果不得用来完成 Paseo 的 code
    | senior-reviewer | cross_review / scope_audit | 交叉复审或范围校准 |
    | scout | source_scout | 只读源码侦察 |
 
-5. 确认当前进程存在非空 PASEO_AGENT_ID。若缺失，不得创建子 agent，应报告当前主代理
+6. 确认当前进程存在非空 PASEO_AGENT_ID。若缺失，不得创建子 agent，应报告当前主代理
    不是 Paseo 托管 parent。
-6. 在当前 task 目录写 SPEC.md、简短 PLAN.md 和最小 STATE.json。任务开始时选定
+7. 在当前 task 目录写 SPEC.md、简短 PLAN.md 和最小 STATE.json。任务开始时选定
    orchestration_transport（只允许 cli|mcp），任务内不切换；CLI 与 MCP 必须保持相同
    role、purpose、workspace、lineage、label 恢复、reviewer 只读与候选一致性语义：
 
@@ -92,7 +97,14 @@ agent_id；语境 REVIEWER 的记录还保存 candidate_identity、dispatch_id �
 这些身份字段都不可改写，只在原记录更新 status、archive_confirmed、
 archive_attempts_started、last_error 和 archived_at。archive_attempts_started 初始为 0、
 最大为 2；每次递增都在外部调用前立即持久化。STATE 不记录执行载体、版本、档位或回退
-元组。
+元组。provider、model、mode、thinking 和 fallback tuple 不写入 STATE、candidate identity
+或 review contract identity。
+
+审核路由还必须满足以下运行时无关规则：reviewer 尽量避开候选作者的 provider；候选作者属于主要订阅 provider 时，预算例外允许同 provider 审核，但仍须满足 role、purpose 和
+候选边界。同一交叉审核阶段的两名 reviewer 必须使用不同的精确 model identity，且不同
+provider 优先；无法组成不同 model 时不得猜测，进入 `WAIT_USER`。任何 fallback 都必须
+创建 fresh child，并保持 role、purpose、workspace、parent lineage 与 candidate binding
+不变；不得 resume 已完成或已归档 child。
 
 所有 EXECUTOR、REVIEWER、SENIOR_REVIEWER 和 SCOUT 都必须由当前 ORCHESTRATOR 进程
 直接创建：CLI 使用 Paseo run，MCP 使用 agent-scoped 的 create_agent。创建载荷至少
