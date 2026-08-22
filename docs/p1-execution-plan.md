@@ -4,7 +4,7 @@
 > 上位文档：[`project-roadmap.md`](project-roadmap.md) §3。本文只把 roadmap §3.1–§3.3 的
 > 原则落成可执行的批次定义、选择规则、命令序列和验收条件，不修改 roadmap 的阶段划分、
 > 不新增契约、不授权 push 或发布。
-> 本文不授权任何 provider 调用；每个批次的外发仍按 `AGENTS.md`「外发边界」逐次执行。
+> 本文不授权任何 provider 调用；每个批次的外发仍按 `docs/paseo-orchestration-v2-contract.md`「外发与兼容」（§十一）逐次执行。
 
 ## 一、前提与已核实事实
 

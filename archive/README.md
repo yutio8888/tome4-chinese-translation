@@ -58,5 +58,5 @@
 - `tools/pi-remediate`（含 `tools/pi-tmux remediate`）是 dormant 兼容消费者，不是活跃
   审核 dispatch：只消费既有、已确认的 legacy assessment/finding artifact 生成修复
   proposal，不再列入「仍活跃审核」。dormant 仅指不参与活跃审核 dispatch；实际调用它
-  仍会启动外部 Pi provider 子进程，外发必须按 `AGENTS.md`「外发边界」取得授权，它
+  仍会启动外部 Pi provider 子进程，外发必须按 `docs/paseo-orchestration-v2-contract.md`「外发与兼容」（§十一）取得授权，它
   不像 tombstone 那样不启动 provider。

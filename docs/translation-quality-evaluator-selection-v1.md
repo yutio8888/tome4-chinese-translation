@@ -147,7 +147,7 @@ fresh-session 语义。
 
 ### 4.4 授权
 
-本协议不构成任何外部传输授权。每次外部传输仍须按 `AGENTS.md` 外发边界，以
+本协议不构成任何外部传输授权。每次外部传输仍须按 `docs/paseo-orchestration-v2-contract.md` 外发与兼容（§十一），以
 role、purpose 与内容范围为边界单独取得用户授权。
 
 ## 五、协议固定尺寸（DD3）

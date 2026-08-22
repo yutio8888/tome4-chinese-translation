@@ -74,7 +74,7 @@ artifact，不调用 provider、不构成审核结论；译文审核由 Paseo RE
 `translation_contextual_v1` 路由承担（见
 `docs/paseo-translation-context-review-v1-contract.md`），代码审核由 Paseo 常规
 REVIEWER 承担；实际 role、purpose 和运行时 profile 由当前 Paseo 编排决定，外发内容与授权边界见
-`AGENTS.md`「外发边界」。旧项目 Skill
+`docs/paseo-orchestration-v2-contract.md`「外发与兼容」（§十一）。旧项目 Skill
 `$tome4-pi-review` 已归档（见 `archive/`），不再作为审核入口；`tools/pi-review`
 是当前仓库 tombstone，任何调用都非零退出并输出退役指引，不读取 bundle、不启动
 provider。
@@ -180,7 +180,7 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   应在当前 checkout 用 `tools/i18n review` / `tools/review_diff.py` 重新生成。
 - `tools/pi-remediate` 是 dormant 兼容消费者，不是活跃 dispatch。dormant 仅指不参与
   活跃审核 dispatch：实际调用它仍会启动外部 Pi provider 子进程，外发必须按
-  `AGENTS.md`「外发边界」取得授权，它不像 tombstone 那样不启动 provider。它只消费
+  `docs/paseo-orchestration-v2-contract.md`「外发与兼容」（§十一）取得授权，它不像 tombstone 那样不启动 provider。它只消费
   主代理已经确认并定级的既有 legacy assessment/finding artifact，生成修复 proposal；
   legacy v1 schema 本身没有可机器验证的 adjudication 字段，因此确认与定级是
   调用前的主代理流程门槛，不是工具能从 v1 JSON 独立证明的事实。translation v2
