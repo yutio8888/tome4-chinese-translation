@@ -234,9 +234,13 @@ findings。译文语义审核由 role=reviewer、purpose=translation_contextual_
 接收冻结 envelope；不得把历史 finding 注入其中。
 
 Before freezing or hashing a translation_contextual_v1 payload, ORCHESTRATOR must run the deterministic offline contextual-anchor preflight with the task-scoped `.ai/task/<task_id>/SCOPE.json` and the exact seven-key draft payload.
+The preflight also accepts the whole-section form for sections without actual chapter-title t(...) calls.
 The task-scoped SCOPE.json must declare only workspace-relative ordinary allowed files plus file, section_path, and ordered actual chapter-title anchors; unsafe, duplicate, missing, or ambiguous declarations fail closed.
+An anchor scope may instead declare ordered_titles: [] only when its section contains no actual chapter-title t(...) calls; a titled section with [] fails closed and must declare explicit anchors.
 Each declared anchor window begins at its actual chapter-title t(...) call and ends at the earliest later actual chapter title, later section marker, or EOF, so undeclared titles still bound the window.
+For ordered_titles: [], the window is the whole section from its section marker to the earliest later section marker or EOF.
 ORCHESTRATOR may freeze the payload only after every translation_snapshot source is proven to be the decoded first argument of a real t(...) call inside a declared anchor window; the preflight adds nothing to the payload, candidate_identity, review JSON, or STATE closure identity.
+The same source proof applies to a whole-section window, and the preflight adds no payload or identity fields.
 
 review 记录必须标明 task_id、review_contract、review_phase、cycle、attempt、reviewer_role、
 purpose、dispatch_id、agent_id 和结果。STATE 的 review_records 与 senior_review_records 新写入为

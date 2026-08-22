@@ -18773,6 +18773,10 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         (".ai/roles/orchestrator.md", 46),
         (".ai/roles/orchestrator.md", 47),
         (".ai/roles/orchestrator.md", 48),
+        (".ai/roles/orchestrator.md", 49),
+        (".ai/roles/orchestrator.md", 50),
+        (".ai/roles/orchestrator.md", 51),
+        (".ai/roles/orchestrator.md", 52),
     )
 
     def _frontmatter(self, path: Path) -> dict:

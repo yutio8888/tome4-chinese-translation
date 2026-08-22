@@ -123,6 +123,24 @@ class ContextualAnchorPreflightTests(unittest.TestCase):
         payload = root / "PAYLOAD.json"
         return temporary, root, scope, payload
 
+    def _untitled_workspace(self) -> tuple[tempfile.TemporaryDirectory[str], Path, Path, Path]:
+        temporary = tempfile.TemporaryDirectory(prefix="contextual-anchor-")
+        root = Path(temporary.name)
+        story = root / "story.lua"
+        story.write_text(
+            'section "before"\n'
+            't("preceding source", "", "_t")\n'
+            'section "intro"\n'
+            't("intro first", "", "_t")\n'
+            't("intro second", "", "_t")\n'
+            'section "other"\n'
+            't("neighbour source", "", "_t")\n',
+            encoding="utf-8",
+        )
+        scope = root / "SCOPE.json"
+        payload = root / "PAYLOAD.json"
+        return temporary, root, scope, payload
+
     @staticmethod
     def _scope(*, file: str = "story.lua", section: str = "story", titles: list[str] | None = None) -> dict[str, object]:
         return {
@@ -150,6 +168,76 @@ class ContextualAnchorPreflightTests(unittest.TestCase):
         self._write(payload, self._payload("envelope_good.json") | {
             "translation_snapshot": [{"revision_key": "r1", "source": "inside", "target": "译文"}]
         })
+
+    def test_empty_ordered_titles_verifies_whole_untitled_section(self) -> None:
+        temporary, root, scope, payload = self._untitled_workspace()
+        with temporary:
+            self._write(scope, self._scope(section="intro", titles=[]))
+            payload_value = self._payload("envelope_good.json")
+            payload_value["ordered_revision_keys"] = ["r1", "r2"]
+            payload_value["translation_snapshot"] = [
+                {"revision_key": "r1", "source": "intro first", "target": "首段"},
+                {"revision_key": "r2", "source": "intro second", "target": "次段"},
+            ]
+            payload_value["bounded_context"] = [
+                {"revision_key": "r1", "context": ""},
+                {"revision_key": "r2", "context": ""},
+            ]
+            self._write(payload, payload_value)
+            result = preflight.run_preflight(scope, payload, workspace_root=root)
+            self.assertEqual(result.status, "PREFLIGHT_VERIFIED")
+            self.assertEqual(result.exit_code, 0)
+
+    def test_empty_ordered_titles_fails_closed_for_titled_section(self) -> None:
+        temporary, root, scope, payload = self._workspace()
+        with temporary:
+            self._write_valid_pair(scope, payload, self._scope(titles=[]))
+            result = preflight.run_preflight(scope, payload, workspace_root=root)
+            self.assertEqual(result.status, "PREFLIGHT_FAILED")
+            self.assertEqual(result.exit_code, 1)
+            self.assertIn("actual chapter-title", result.errors[0])
+            self.assertIn(
+                "ordered_titles=[] is only valid for untitled sections; titled sections must keep declaring explicit anchors",
+                result.errors[0],
+            )
+            self.assertNotIn(
+                "ordered_titles=[] is only valid for untitled sections, which must keep explicit anchors",
+                result.errors[0],
+            )
+
+    def test_empty_ordered_titles_rejects_source_from_neighbouring_section(self) -> None:
+        temporary, root, scope, payload = self._untitled_workspace()
+        with temporary:
+            self._write(scope, self._scope(section="intro", titles=[]))
+            payload_value = self._payload("envelope_good.json")
+            payload_value["translation_snapshot"] = [
+                {"revision_key": "r1", "source": "neighbour source", "target": "邻段"}
+            ]
+            self._write(payload, payload_value)
+            result = preflight.run_preflight(scope, payload, workspace_root=root)
+            self.assertEqual(result.status, "PREFLIGHT_FAILED")
+            self.assertEqual(result.exit_code, 1)
+
+    def test_empty_ordered_titles_rejects_source_from_preceding_section(self) -> None:
+        temporary, root, scope, payload = self._untitled_workspace()
+        with temporary:
+            self._write(scope, self._scope(section="intro", titles=[]))
+            payload_value = self._payload("envelope_good.json")
+            payload_value["translation_snapshot"] = [
+                {"revision_key": "r1", "source": "preceding source", "target": "前段"}
+            ]
+            self._write(payload, payload_value)
+            result = preflight.run_preflight(scope, payload, workspace_root=root)
+            self.assertEqual(result.status, "PREFLIGHT_FAILED")
+            self.assertEqual(result.exit_code, 1)
+
+    def test_nonempty_ordered_titles_explicit_anchor_regression_remains_verified(self) -> None:
+        temporary, root, scope, payload = self._workspace()
+        with temporary:
+            self._write_valid_pair(scope, payload)
+            result = preflight.run_preflight(scope, payload, workspace_root=root)
+            self.assertEqual(result.status, "PREFLIGHT_VERIFIED")
+            self.assertEqual(result.exit_code, 0)
 
     def test_scope_schema_rejects_duplicates_and_missing_anchor(self) -> None:
         temporary, root, scope, payload = self._workspace()
@@ -186,11 +274,16 @@ class ContextualAnchorPreflightTests(unittest.TestCase):
                     self.assertEqual(result.status, "INPUT_ERROR")
                     self.assertEqual(result.exit_code, 2)
 
-            value = self._scope(titles=[])
+    def test_non_array_ordered_titles_has_exact_input_error_message(self) -> None:
+        temporary, root, scope, payload = self._workspace()
+        with temporary:
+            value = self._scope()
+            value["anchor_scopes"][0]["ordered_titles"] = {}
             self._write_valid_pair(scope, payload, value)
             result = preflight.run_preflight(scope, payload, workspace_root=root)
             self.assertEqual(result.status, "INPUT_ERROR")
             self.assertEqual(result.exit_code, 2)
+            self.assertEqual(result.errors, ("anchor scope ordered_titles must be an array",))
 
     def test_anchor_scope_file_omitted_from_allowed_files_is_exact_input_error(self) -> None:
         temporary, root, scope, payload = self._workspace()

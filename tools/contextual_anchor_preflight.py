@@ -441,8 +441,8 @@ def _validate_scope(scope: dict[str, Any], root: Path) -> tuple[list[dict[str, A
             raise InputError("scope.anchor_scopes contains a duplicate scope")
         scope_keys.add(scope_key)
         titles = entry["ordered_titles"]
-        if not isinstance(titles, list) or not titles:
-            raise InputError("anchor scope ordered_titles must be a non-empty array")
+        if not isinstance(titles, list):
+            raise InputError("anchor scope ordered_titles must be an array")
         checked_titles = [_require_string(title, "anchor title") for title in titles]
         if len(set(checked_titles)) != len(checked_titles):
             raise InputError("anchor scope contains a duplicate title")
@@ -462,6 +462,13 @@ def _allowed_call_starts(text: str, section_path: str, titles: list[str]) -> set
     next_section = min((item.start for item in sections if item.start > section.start), default=len(text))
     section_calls = [call for call in calls if section.start < call.start < next_section]
     title_calls = [call for call in section_calls if _is_chapter_title(call.source)]
+    if not titles:
+        if title_calls:
+            raise PreflightFailure(
+                f"section_path {section_path!r} contains actual chapter-title t(...) calls; "
+                "ordered_titles=[] is only valid for untitled sections; titled sections must keep declaring explicit anchors"
+            )
+        return {call.start for call in section_calls}
     anchors: list[Call] = []
     for title in titles:
         matches = [call for call in title_calls if call.source == title]
@@ -484,7 +491,7 @@ def _allowed_call_starts(text: str, section_path: str, titles: list[str]) -> set
 def run_preflight(
     scope_path: Path | str, payload_path: Path | str, *, workspace_root: Path | str | None = None
 ) -> PreflightResult:
-    """Validate a contextual payload against task-declared chapter anchor windows."""
+    """Validate a contextual payload against task-declared chapter or whole-section windows."""
     try:
         root = Path.cwd() if workspace_root is None else Path(workspace_root)
         root = root.resolve(strict=True)
