@@ -66,7 +66,9 @@ review contract identity。
 `candidate_author_agent_id`：它是当前 lineage 已核验 EXECUTOR 的稳定直接 `agent_id` 指针，
 指向最近一次产出或实质改变该候选的已接受输出；候选改变时重新计算，同一冻结候选内不可改写，
 不得遍历其他任务 STATE。review-only 或早于任何受管 EXECUTOR 的实现候选为 `null`。每个
-候选绑定的 REVIEWER／SENIOR_REVIEWER child dispatch 复制该指针，但不把它写入 candidate_ref、
+候选绑定的 REVIEWER／SENIOR_REVIEWER child dispatch 复制该指针；该副本在对应 dispatch 内
+同样不可改写（与源字段"同一冻结候选内不可改写"是两层不同范围的不可变性：源字段覆盖整个冻结
+候选，副本只覆盖它所在的单次 dispatch），且不把它写入 candidate_ref、
 candidate_identity、review JSON 或 review contract identity。
 The immutable per-dispatch author pointer is copied to every candidate-bound reviewer dispatch and cannot be rewritten within that dispatch; it is excluded from candidate_ref, candidate_identity, review JSON, and review-contract identity.
 
