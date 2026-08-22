@@ -101,5 +101,88 @@
       "changed": true
     }
   ],
-  "recorded_at": "2026-08-22T16:15:16Z"
+  "recorded_at": "2026-08-22T16:15:16Z",
+  "adjudicated_findings": [
+    {
+      "round": "ctx-01",
+      "section": "mod-tome/data/texts/intro-arena.lua",
+      "observation": "“He smirks”表示带有得意、轻蔑或讥讽意味地笑；译为“假惺惺的微笑”改成了虚伪作态，人物神态含义错误。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'He smirks' = smug/contemptuous smile, not hypocrisy; 假惺惺 misstates the Master's demeanour (pre-existing line, in scope)."
+    },
+    {
+      "round": "ctx-01",
+      "section": "mod-tome/data/texts/intro-chronomancer.lua",
+      "observation": "术语表规定 Maj'Eyal=“马基埃亚尔”，译文作“马基·埃亚尔”，与冻结术语不一致。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "Maj'Eyal: terminology table 马基埃亚尔; this batch's ogre passage already uses 马基埃亚尔 — unify within batch. ORCHESTRATOR adds: 'Keeper(s) of Reality' rendered 时空(的)守护者 in lines 1-2 but 现实至高守护者 for 'Grand Keeper of Reality' in the last line; in-file precedent 现实守护者 ×2 — unify to 现实守护者."
+    },
+    {
+      "round": "ctx-01",
+      "section": "mod-tome/data/texts/intro-dwarf.lua",
+      "observation": "“Reknor ... has been overrun by orcs”表示堡垒已被兽人攻占，译为“受到了兽人的侵扰”仅表示遭侵扰，改变了堡垒当前状态。",
+      "verdict": "confirmed",
+      "severity": "medium",
+      "host_basis": "'overrun by orcs' = taken over; 受到侵扰 understates the fortress state. ORCHESTRATOR adds: 'Away from all those orcs....' continues the adventure-life sentence; 你最好离那些兽人们远点 turns it into advice."
+    },
+    {
+      "round": "ctx-01",
+      "section": "mod-tome/data/texts/intro-halfling.lua",
+      "observation": "“venture into the old and wild places of the world”译为“进入那些古迹”，把世界各处古老荒野缩窄为古迹，遗漏“wild places”的目标范围。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'old and wild places of the world' narrowed to 古迹; other sections in this batch already render it 古老而荒野的地方 — unify."
+    },
+    {
+      "round": "ctx-01",
+      "section": "mod-tome/data/texts/intro-infinite-dungeon.lua",
+      "observation": "在“one way trip”和“before the end”的语境中，“go in a blaze of glory”指以壮烈方式迎来结局；译文“轰轰烈烈地闯进去”误成进入地下城，“在终点前”也把“the end”误成地理终点，改变了直至死亡的关系。",
+      "verdict": "confirmed",
+      "severity": "medium",
+      "host_basis": "'go in a blaze of glory' = meet a glorious end; 闯进去 reads 'go in' as entering. 'before the end' = before death/the end of the run, not a geographic endpoint."
+    },
+    {
+      "round": "ctx-01",
+      "section": "mod-tome/data/texts/intro-sunwall.lua",
+      "observation": "“at such a pivotal time for your people”这一关键时势限定在译文中完全遗漏，丢失了两面夹击之所以格外致命的背景关系。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'at such a pivotal time for your people' omitted; restores why a two-front assault is devastating."
+    },
+    {
+      "round": "ctx-01",
+      "section": "mod-tome/data/texts/intro-thalore.lua",
+      "observation": "“lately you have grown restless”表示最近开始躁动不安；译文“但最后你还是变得有些不安分”改成最终发生，时间关系错误。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'lately you have grown restless' = recently; 最后 misstates the timing."
+    },
+    {
+      "round": "ctx-01",
+      "section": "mod-tome/data/texts/intro-tutorial.lua",
+      "observation": "专名“Tales of Maj'Eyal”被替换为“ToME 4”，既未保留原游戏名，也未采用术语表规定的 Maj'Eyal=“马基埃亚尔”。",
+      "verdict": "advisory",
+      "severity": null,
+      "host_basis": "'Tales of Maj'Eyal' rendered as 'ToME 4': the same game's official short name; the sibling intro-tutorial-combat-stats source itself says 'Welcome to ToME 4', and there is no in-file precedent for 马基埃亚尔传说. Not a semantic error; left unchanged."
+    },
+    {
+      "round": "ctx-02",
+      "section": "mod-tome/data/texts/intro-halfling.lua",
+      "observation": "source 中“to be found in ancient ruins”只修饰 treasures；target 的“古老废墟中有关……的传说”把地点挂到“传说”上，并将龙、黄金也纳入该地点，关系错置。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'the treasures to be found in ancient ruins' — ruins modify treasures only; pre-existing line, in scope."
+    },
+    {
+      "round": "ctx-02",
+      "section": "mod-tome/data/texts/intro-sunwall.lua",
+      "observation": "第二段将回指 Orc Prides 的 Prides 译成“兽人”，与冻结术语 Orc Pride=兽人部落及同文前句“兽人部落”冲突，丢失了部落组织指称。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'the front line against the Prides' — Prides = Orc Prides = 兽人部落 (terminology, and the same passage's first paragraph)."
+    }
+  ],
+  "executor_cycle0_summary": "25 lines across 14 sections, all host-verified against 624a673 before contextual review (see HOST-VERIFICATION note in task record); key items: Point Zero 'permitted chronomancy to exist', Ogre 'fix them yourself'/'never wronged', Yeek Way link+way of life, sunwall 'defend the outpost', Spellhunt/High Sun Paladin/Wayist/vermin term alignment."
 }

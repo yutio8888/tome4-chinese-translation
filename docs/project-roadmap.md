@@ -1,6 +1,6 @@
 # ToME4 汉化项目 Roadmap
 
-> 状态：当前执行路线图，更新日期 2026-08-21。
+> 状态：当前执行路线图，更新日期 2026-08-22。
 > 本文规定近期工作的优先级和阶段依赖，不替代质量 contract、审核契约、门禁或发布流程。
 > 事实或用户裁决变化时更新本文；不因长期阶段存在而默认启动 provider、Paseo task、push 或发布。
 
@@ -30,6 +30,13 @@
 - P1 已于 2026-08-18 完成；B8 译文提交为 `c278cf2`。
 - P2 第 1–3 层已完成：Ashes、Orcs、Cults 的 mechanics、状态、UI／运行日志、
   对话／长叙事均已按小批次闭环；最近的译文提交为 `c9f0d6b`。
+- 2026-08-22 起新增核心模块叙事复核轨道 `p2-tome-texts-b<N>`（P1 仅抽样 mechanics
+  profile，核心 data/texts 从未复核）：批次 1 为 18 个 `intro-*.lua` 开场文本，提交
+  `5efe265`（14/18 区块修订，9 个 confirmed 语境 finding）。下一候选为 `unlock-*.lua`，
+  不自动启动。
+- 该批次首次消费 2.16 的 contextual-anchor preflight 并暴露契约缺陷（仅接受 Fay Willows 式
+  章节标题锚点）；经用户裁决以独立基础设施任务扩展为 whole-section window
+  （`ordered_titles: []`），契约升至 2.17-draft，提交 `7085a98`。
 - P3 已在用户授权后执行：`tools/ci-gates.sh` 12 项门禁通过，`develop` 已在
   `42aae69` push 到 `origin`，发布仓库已同步为 addon 0.2.7（`9cdbd30`），
   `tools/smoke_release.py` 16 项通过。
