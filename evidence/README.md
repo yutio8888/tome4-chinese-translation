@@ -47,7 +47,8 @@
 其中 `p1/batch1-visibility-triage.json` 是 100 条 `untranslated-existing` 的可见性三方核验记录，
 `categories` 含 6 个键：其中 5 个是带 `count` 与 `rationale` 的类目对象，显式计数依次为
 0／46／31／4／9，合计 90；第 6 个键 `A_candidates_demoted` 是长度为 4 的列表，不含
-`count` 或 `rationale`。其余 10 条仅在 `conclusion` 散文中论及，不构成 `categories` 条目。
+`count` 或 `rationale`。余下 10 条的合计数仅在 `conclusion` 中明示；`A_candidates_demoted` 另含 4 组候选明细
+（含 `verdict` 与 `evidence`），但无 per-item count，无法仅凭结构建立逐条对应关系。
 多项 `rationale`／evidence 带源码定位，但并非全部。文件没有顶层 `notes` 键，而
 `A_translatable_player_visible.rationale` 中却写「见 notes」，这是原始证据内部的悬空引用，
 只如实记录，不修改该 JSON。它是
