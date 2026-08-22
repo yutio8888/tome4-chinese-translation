@@ -32,8 +32,9 @@
   对话／长叙事均已按小批次闭环；最近的译文提交为 `c9f0d6b`。
 - 2026-08-22 起新增核心模块叙事复核轨道 `p2-tome-texts-b<N>`（P1 仅抽样 mechanics
   profile，核心 data/texts 从未复核）：批次 1 为 18 个 `intro-*.lua` 开场文本，提交
-  `5efe265`（14/18 区块修订，9 个 confirmed 语境 finding）。下一候选为 `unlock-*.lua`，
-  不自动启动。
+  `5efe265`（14/18 区块修订，9 个 confirmed 语境 finding）；批次 2 为前 22 个 `unlock-*.lua`
+  解锁文本（`ff25042`，20/22 区块修订，9 个 confirmed）。下一候选为其余 21 个
+  `unlock-*.lua`（`unlock-mage_necromancer` 起），不自动启动。
 - 该批次首次消费 2.16 的 contextual-anchor preflight 并暴露契约缺陷（仅接受 Fay Willows 式
   章节标题锚点）；经用户裁决以独立基础设施任务扩展为 whole-section window
   （`ordered_titles: []`），契约升至 2.17-draft，提交 `7085a98`。
