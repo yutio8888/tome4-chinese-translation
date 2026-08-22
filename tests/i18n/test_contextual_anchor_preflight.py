@@ -410,7 +410,6 @@ class ContextualAnchorPreflightTests(unittest.TestCase):
 
 class ContextualAnchorContractGuardTests(unittest.TestCase):
     targets = (
-        "AGENTS.md",
         ".ai/roles/orchestrator.md",
         "docs/paseo-orchestration-v2-contract.md",
     )
