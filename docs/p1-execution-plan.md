@@ -76,8 +76,8 @@ len(source) >= 40
 | 5 术语与变体 | `preferred-term-present`／`term-variant-or-review` | 3229 | 531 | 439 |
 | 6 长文本与英文残留 | `long-source`／`possible-untranslated-residue` | 1759 | 993 | 993 |
 
-首批候选池 = 1992 条，其中 `data/talents` 占 1515 条，711 条同时带 `source-has-negation-
-or-condition`。
+首批候选池 = 1992 条，其中 `data/talents` 占 1515 条，711 条同时带
+`source-has-negation-or-condition`。
 
 `len(source) >= 40` 的作用是排除纯数值片段和短标签，使每条都具备可核验的语义结构；它是
 **池子定义的一部分**，不是事后筛选。
@@ -292,8 +292,8 @@ B1 的 S4 只改了 12 行译文，就先后撞出 3 个失败，修完又冒出
 
 本规划最终执行为 B1–B8 八个独立译文批次。共核验 190 条互不重叠 revision，解决 64 个
 confirmed finding；B3 的 25 条随机对照用于校准风险切片，B8 穷尽了 B7 所定义的 47 条
-`args_order` mechanics 池的剩余 21 条。各批结果、提交和结论边界见
-[`p1-handoff-2026-08-18.md`](p1-handoff-2026-08-18.md)。
+`args_order` mechanics 池的剩余 21 条。各批次的范围、提交与结论边界以本文件前述冻结
+规则和仓库提交历史为准。
 
 §7.1 的完成条件均已满足：全部条目有裁决，accepted finding 清零，修订完成独立语境审核，
 五项门禁通过，并形成八个独立译文提交。§9 记录的测试耦合也已在 `0ffe057` 单独修复并交叉审核。

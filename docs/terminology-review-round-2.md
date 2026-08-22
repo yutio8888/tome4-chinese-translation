@@ -274,6 +274,6 @@ B 类规模约 5,500–6,000 个，必须**程序化分流 + 抽样复核**才�
 1. 以本框架（含 2.2 规模、3.A 运行时标签归属、4.1 证据 rubric、5.3 投影精度策略、7.1 口径、7.2 分工）为契约；
 2. **已完成**：只读生成器已在 `tools/audit_dynamic.py`（r2 inventory）落地并挂入 `audit_dynamic` 门禁，输出 `baseline + candidate-inventory + coverage + exclusions` 到 `.artifacts/i18n/terminology-review-r2/`；作用域口径写入 `tests/i18n/test_terminology_inventory.py`（15 项表驱动测试，2026-08-10 通过）；UNCLASSIFIED=0、覆盖率表与 2.1 完全一致、A 类缺失 1,001；
 3. **已完成**：P0/core 试点已完成裁决、修复、完整门禁与干净复审并正式退出；
-4. **已完成**：P1 当前分母已冻结到 `worksets/P1-role-structure-v1.json`（1,066 单元、589 需人工、204 现有行、434 provisional、自动排除抽样 20）；详细 lineage 与 artifact SHA 见 `handoff.md`；
+4. **已完成**：P1 当前分母已冻结到 `worksets/P1-role-structure-v1.json`（1,066 单元、589 需人工、204 现有行、434 provisional、自动排除抽样 20）；lineage 与 artifact SHA 由冻结 workset 及对应生成 artifact 自身携带；
 5. 从 P1 开始按批次裁决（每批先冻结 findings 再统一修复），每批跑单批验证；
 6. 全部批次收束后运行完整门禁与一轮全新只读复审。

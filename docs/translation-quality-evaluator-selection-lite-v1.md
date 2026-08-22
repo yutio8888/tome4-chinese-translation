@@ -9,7 +9,7 @@
 >
 > 完整协议仅为
 > [`design-reference / full protocol deferred`](./translation-quality-evaluator-selection-v1.md)，
-> 不是 Lite 的实现基线或待办。Selection-Lite 有意把渐进证据挂接到当前 P1 译文循环，
+> 不是 Lite 的实现基线或待办。Selection-Lite 有意把渐进证据挂接到日常小批次译文循环，
 > 这一点不同于延期的完整协议。
 
 本文面向单维护者个人项目的一次可逆生产 evaluator 选择。它只冻结未来决策所需的最小
@@ -29,17 +29,17 @@ Selection-Lite v1（下称 Lite）只回答：在 **3–4 个预登记候选运�
 - 不授予任何译文 Gold／Silver／TM、复用、正式 120 条或生产映射权限。
 
 Lite 的首要目标是让选择成本服从译文主线，而不是为了选择本身建设研究设施。其主要证据
-来自当前 P1 循环的副产品：
+来自日常小批次译文循环的副产品：
 
 ```text
-真实 P1 revision
+真实小批次 revision
   → Paseo REVIEWER（purpose=translation_contextual_v1）
   → 维护者按固定源码核验并裁决
   → append-only evidence pool
   → 未来另行授权的 Selection-Lite 冻结样本
 ```
 
-因此 Lite 明确与[当前 P1 路线图](./project-roadmap.md)耦合；延期完整协议仍只作为升级时的
+因此 Lite 明确与[当前项目路线图](./project-roadmap.md)耦合；延期完整协议仍只作为升级时的
 设计参考。
 
 ### 1.2 append-only evidence pool
@@ -54,7 +54,7 @@ Lite 的首要目标是让选择成本服从译文主线，而不是为了选择
 - source-verification reference，足以定位实际机制或明确“不适用”的核验记录。
 
 池按 `revision_id` 去重：同一 `revision_id` 只保留一个池条目；source、target 或修订身份变化
-产生新的 `revision_id`，新 revision 只追加，不覆盖、改写或“更新”旧历史。池记录的 P1
+产生新的 `revision_id`，新 revision 只追加，不覆盖、改写或“更新”旧历史。池记录的译文批次
 裁决是候选证据来源，但 Dev／隐藏集仍按本文件规定完成与候选输出隔离的选择裁决。
 
 模型输出永远不能提供、补写或修正 reference label。选择标签只能来自维护者语义裁决和必要
@@ -349,7 +349,7 @@ Dev-32 的互斥 primary composition 必须精确为：
 
 每条恰好属于一个主层；secondary tags 可以重叠，但不能改变 11+9+6+6 的主计数。Dev 身份、
 顺序、精确 source／target/context bytes 和 reference labels 在首个候选输出前冻结。每条 label
-必须先由维护者独立完成语义裁决和必要源码核验；候选模型、P1 reviewer 输出或其他模型输出
+必须先由维护者独立完成语义裁决和必要源码核验；候选模型、日常 reviewer 输出或其他模型输出
 都不能充当 reference label。
 
 ### 4.2 首次执行、Top-2 与重复
@@ -409,7 +409,7 @@ dispatch builder 可以读取；授权执行只把当前阶段允许的有界投
 ### 5.2 延迟裁决与 reveal
 
 Primary 可在 Top-2 已知后、但必须在 Primary evaluator execution **之前**完成维护者语义裁决
-和源码核验。这里是对 selection reference 的独立确认；池中的 P1 裁决只提供候选证据。
+和源码核验。这里是对 selection reference 的独立确认；池中的日常译文裁决只提供候选证据。
 裁决者不得查看这批条目的任何候选输出。最终裁决若使预期 strata 与 frame 初筛不同，只如实
 报告 realized strata；不得重抽、替换或跨层补齐。
 
@@ -633,7 +633,7 @@ REVIEWER 与 SENIOR_REVIEWER 从同一 SPEC／diff 交叉复审。完成本文�
 
 每个 evidence pool／sample 条目必须恰好标记一个 evidence class：
 
-- **`real-adjudicated`**：真实 P1 自然 revision，已由维护者裁决并有适用的源码核验引用；
+- **`real-adjudicated`**：真实小批次自然 revision，已由维护者裁决并有适用的源码核验引用；
 - **`controlled-artificial`**：为已知现象人工构造或控制变化的案例；
 - **`fake-replay`**：用于离线重放的伪输出／伪输入。
 
@@ -648,7 +648,7 @@ REVIEWER 与 SENIOR_REVIEWER 从同一 SPEC／diff 交叉复审。完成本文�
 ## 九、成本闸门
 
 Lite 的主成本不是四类 contract 或本地校验代码，而是 **Dev-32 的独立维护者语义裁决与必要
-源码核验**。即使证据池来自 P1 已裁决副产品，选择 reference label 的隔离确认仍需真实人工
+源码核验**。即使证据池来自日常译文批次的已裁决副产品，选择 reference label 的隔离确认仍需真实人工
 时间。
 
 因此，未来可以实现四类 contract 和 Paseo purpose 后继续停在 campaign 之前；实现完成不
@@ -659,7 +659,7 @@ Lite 的主成本不是四类 contract 或本地校验代码，而是 **Dev-32 �
 3. 候选 bundle 的外部传输已按 role、purpose 和内容范围明确授权；
 4. 冻结的 protocol／sample 已完成独立复审。
 
-若 evaluator 选择的边际价值低于直接修复 P1 译文，应回到 P1 译文改进，而不是为了沉没成本
+若 evaluator 选择的边际价值低于直接修复译文，应回到译文改进，而不是为了沉没成本
 继续选型。Primary／Extension 的后续人工投入同样受这一原则约束，但不能在看到结果后改写
 已冻结的样本或规则。
 
@@ -682,11 +682,11 @@ artifact。
 本规范的边界与以下当前文档一致：
 
 - [`AGENTS.md`](../AGENTS.md)：Paseo、外发和基础设施审核总规则；
-- [`evaluator-selection-lite-handoff.md`](./evaluator-selection-lite-handoff.md)：本次收缩和
-  局部回收的讨论记录（非规范）；
+- [`evaluator-selection-full-impl-discard-manifest.md`](./evaluator-selection-full-impl-discard-manifest.md)：
+  pre-Lite 全量实现资产的最终处置记录；
 - [`translation-quality-evaluator-selection-v1.md`](./translation-quality-evaluator-selection-v1.md)：
   `design-reference / full protocol deferred`；
-- [`project-roadmap.md`](./project-roadmap.md)：Lite 渐进证据所挂接的 P1 主线；
+- [`project-roadmap.md`](./project-roadmap.md)：Lite 渐进证据所挂接的日常译文主线；
 - [`paseo-orchestration-v2-contract.md`](./paseo-orchestration-v2-contract.md) 与
   [`paseo-translation-context-review-v1-contract.md`](./paseo-translation-context-review-v1-contract.md)：
   当前 Paseo／语境审核边界；

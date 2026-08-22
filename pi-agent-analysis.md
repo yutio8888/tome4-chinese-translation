@@ -1,7 +1,12 @@
-# Pi 审核与修复效率优化方案（目标架构与 MVP 实施基线）
+# Pi 审核与修复效率优化方案（历史目标架构）
 
-- 状态：目标架构冻结；首版按只读、单进程、固定 bundle 的 MVP 边界开始实施
-- 2026-08-08 更新：主代理已全面转向 pi coding agent。本文中“Pi 始终无工具、无会话、无项目上下文”类表述仅指审核子进程与项目 subagent，不再指主代理；角色定义与输入边界以 `AGENTS.md` 为准（scout/plan-reviewer 源码感知 subagent 已引入，见 `AGENTS.md` 与 `.agents/skills/tome4-pi-subagent/`）。
+> 状态：历史设计参考，已被 Paseo 轻量编排取代；不是当前实施基线、运行手册或 backlog。
+> 当前角色、路由、外发边界和完成条件以 `AGENTS.md`、`.ai/roles/` 与
+> `docs/paseo-orchestration-v2-contract.md` 为准。本文的 `tools/i18n audit` CLI、campaign
+> 状态机和缓存／修复编排均未作为当前入口实现，不得按下文命令执行。
+
+- 2026-08-08 的 pi coding agent／旧项目 subagent 路由已经归档；历史表述仅用于理解当时
+  的设计动机，不代表当前可用能力。
 - 日期：2026-08-01
 - 审阅依据：`review.md` 第六稿；前序 Codex 内置审阅；此前“高效性与闭环性”独立审阅；第九、十轮
   独立无上下文审阅
@@ -2620,7 +2625,8 @@ redacted span、能在未脱敏 base revision 上原样严格应用的
 
 ## 17. CLI 草案
 
-保留现有单 bundle runner 作为低层兼容入口，在统一入口增加 campaign 子命令：
+以下是未实现的历史 CLI 草案，不是命令参考。当前 `tools/i18n --help` 不提供 `audit`
+子命令，审核与实现均按 Paseo 角色路由执行：
 
 ```bash
 python3 -B tools/i18n audit drive --scope code --purpose initial-change-review
@@ -2669,10 +2675,9 @@ authorization proposal 并暂停，遇到 candidate 应用或 terminal dispositi
 低层命令保留用于测试、诊断和精确控制，但默认用户不需要手工串联 `plan → cache-check → respond →
 plan-round → verify`。
 
-`audit run` 只有在即将外发时才要求当前 external-transfer authorization 且未超预算；本地 cache check/
-attach 不属于 `run` 的 provider 路径。低层 `tools/pi-review` 和
-`tools/pi-remediate` 仍保持无工具、无会话和单 bundle 校验能力；后者只有经第 13.3 节 campaign
-request/authorization/attempt/composite result 路径产生的输出才能进入 canonical candidate chain。
+草案中的 `audit run` 原计划只在即将外发时要求 external-transfer authorization；该路径从未
+成为当前入口。`tools/pi-review` 现为无副作用 tombstone，`tools/pi-remediate` 仅是 dormant
+兼容消费者，两者都不能被本文草案提升为活跃审核或 canonical candidate 路径。
 `audit recover` 只重放并验证 event chain、取得更大的 writer fencing token、重建 SQLite 投影，不调用
 provider，也不猜测修补损坏的最终 event。它可以按第 8.1、8.2 节唯一 reducer 追加：pending event 的
 no-replace 安装/隔离结论、过期 writer/attempt lease terminal、pre-transfer attempt+round cancel、

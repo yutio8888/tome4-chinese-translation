@@ -7,12 +7,14 @@
 > `.artifacts/i18n/quality/facts-study-campaign-archive.json`，长期 A-core 归档身份为
 > `ee8973e1…`，本体不进入源码仓库）：
 > **do-not-promote-facts-channel**（Luna 判据 3/7 失败；DeepSeek 方向正面
-> 但不足以推广；holdout_clearance=false）。详见 `../handoff.md` §14–§16。
+> 但不足以推广；holdout_clearance=false）。最终结果、归档身份与重建命令见
+> [`translation-quality-facts-study-report-v1.md`](./translation-quality-facts-study-report-v1.md)。
 >
 > 更新时间：2026-08-08。
 >
 > 上位设计：[`translation-quality-system.md`](./translation-quality-system.md)；
-> 当前状态与实验交接：[`../handoff.md`](../handoff.md)。
+> 当前状态与实验结论：
+> [`translation-quality-facts-study-report-v1.md`](./translation-quality-facts-study-report-v1.md)。
 
 ## 一、目标与停止点
 

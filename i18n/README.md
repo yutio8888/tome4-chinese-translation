@@ -6,6 +6,10 @@ manifest 只固定其提取器 commit 和快照基线，不固定 DLC 源码仓�
 提取流程仍统一通过受审计的 Lua 代理和固定快照基线。默认命令不会提取 DLC，所有报告写入
 `.artifacts/i18n/`。
 
+最新已推送 addon 版本、条目数和待发布事项见
+[`docs/release-plan.md`](../docs/release-plan.md)。manifest 中的 `repositories.addon.commit`
+是工具链可复现输入 pin，不等同于发布仓库的最新 HEAD；不能只因发布版本前进就改写该 pin。
+
 ## 常用命令
 
 ```bash

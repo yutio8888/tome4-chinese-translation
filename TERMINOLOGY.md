@@ -48,6 +48,7 @@
 | `T.GAME.ENTITY` | 生物、物品、地形的实体字段 | `entity name`、`entity type`、`entity subtype`、`entity keyword` |
 | `T.GAME.RESOURCE` | 角色资源及其消耗/回复 | `_t`、`stat name`、`stat short_name` |
 | `T.GAME.STAT` | 命中、闪避、护甲、强度等战斗属性 | `_t`、`stat name`、`stat short_name` |
+| `T.GAME.MISC` | 未归入专门类别的游戏杂项名词 | `_t` |
 | `T.UI.LABEL` | 菜单、按钮、界面标签 | `_t`、`save name` |
 | `T.NARRATIVE.LORE` | 世界观、传说、日历文本 | `newLore category`、`calendar *`、`init.lua load_tips` |
 | `T.NARRATIVE.ACHIEVEMENT` | 成就名称 | `achievement name` |
@@ -63,7 +64,7 @@
 | 领域 | 说明 | 主要类别 | 条目数 |
 | --- | --- | --- | --- |
 | `combat` | 战斗机制：伤害类型、状态效果、战斗属性 | `T.GAME.DAMAGE`、`T.GAME.EFFECT`、`T.GAME.STAT` | 161 |
-| `talents` | 技能与技能树 | `T.GAME.TALENT`、`T.GAME.TALENT_CATEGORY` | 214 |
+| `talents` | 技能与技能树 | `T.GAME.TALENT`、`T.GAME.TALENT_CATEGORY` | 216 |
 | `classes` | 职业与成长 | `T.GAME.CLASS` | 45 |
 | `resources` | 角色资源 | `T.GAME.RESOURCE` | 12 |
 | `items` | 装备、物品与材料 | `T.GAME.ENTITY`（物品/材料子集） | 57 |

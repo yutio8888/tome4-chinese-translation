@@ -86,7 +86,7 @@
 |---|---|---|---|
 | **评估器模型选择**（本协议） | 候选评估器路由 | selection result / selection assessment | 只用于"哪条路由进入生产评估器配置决策"，见 §14 隔离墙 |
 | **译者模型选择 Translator Model Selection** | 独立范围外实验（译者侧模型对比） | 实验报告（不在本协议内） | 不参与日常译文修订，不参与评估器选择，不授予生产资格 |
-| **日常译文与语境审核（daily translation workflow）** | 日常译文修订与语境审核 | `translation_contextual_v1` 语境审核结果 | 译文修订闭环（P1 工作流），不参与模型选择 |
+| **日常译文与语境审核（daily translation workflow）** | 日常译文修订与语境审核 | `translation_contextual_v1` 语境审核结果 | 小批次译文修订闭环，不参与模型选择 |
 | **生产认证（production certification）** | 正式质量分级与复用库 | Gold/Silver/TM 资格、正式 120 条、M5/M6 报告 | 精确 TM／发布准入；selection 产物绝不授予这些资格 |
 
 规则：
@@ -678,9 +678,9 @@ python3 -B tools/i18n quality selection-*   # 仅设计占位；未实现，不�
 2. **第二评估器未定的真实原因**：缺少 (a) selection identity（候选路由身份与选择
    样本身份）、(b) 授权（选择执行与外部传输授权）、(c) 生产映射（选择结果如何映射到
    生产评估器配置）；**不是因为活跃契约固定了 DeepSeek**。
-3. 历史表述（如 `handoff.md` 中"新通道目前只固定 DeepSeek 一个译文 reviewer"）是
+3. 早期运行记录中“新通道目前只固定 DeepSeek 一个译文 reviewer”一类表述只是
    对当时运行配置的观察，不构成契约绑定；本协议按 §1–§4 与本节语义取代该语境下的
-   推断，不重写任何既有文档。
+   推断。
 4. 本协议不把任何模型身份写入契约：候选路由身份全部是预注册值（§17）。
 
 ## 十七、协议固定值 vs 预注册固定值
@@ -742,22 +742,24 @@ SPEC 未完全指定处，本协议作如下显式填充（reviewer 可据此核
 
 ## 十九、验收与符合性
 
-本文件满足：
+本文件作为延期设计参考满足：
 
 - 自包含、规范性，足以供独立 REVIEWER／SENIOR_REVIEWER 交叉复审；
 - 明确区分协议固定值与预注册固定值（§17）；
 - 全部计数自洽（§5 一致性核对）且 Primary/Extension reveal 语义无歧义（§10.6）；
 - 不声称选择数据是 Gold、流行率证据、生产准入或已实现功能（§7.1、§8.4、§14、§15）；
 - 不引入直接 provider 或已退役 runner 执行路径（§4.2）；
-- contract foundation 机器协议与 8 份严格 schema 已落地（见 §15.1），身份按排除自身
-  ID 字段后的 canonical SHA-256 计算，校验为 exact-field 且 fail-closed；
-- 基线外仅新增本文档的措辞澄清与上述离线契约资产，未改设计语义、尺寸或隔离墙。
+- 不声称 contract foundation、schema、validator 或测试已经落地。pre-Lite 全量实现资产已按
+  [`evaluator-selection-full-impl-discard-manifest.md`](evaluator-selection-full-impl-discard-manifest.md)
+  全部丢弃；未来若满足升级条件，必须从新的独立任务重新实现和审核。
 
-门禁：
+本文档修改时的门禁：
 
-- `git diff --check -- docs/translation-quality-evaluator-selection-v1.md` 通过；
-- `python3 -B tools/paseo_contract_check.py` 通过；
-- `python3 -m unittest -q tests/i18n/test_quality_selection.py` 通过。
+- `git diff --check -- docs/translation-quality-evaluator-selection-v1.md`；
+- `python3 -B tools/paseo_contract_check.py`。
+
+仓库中不存在 `tests/i18n/test_quality_selection.py` 或对应全量实现测试；不得把历史 pre-Lite
+测试结果当作当前门禁。
 
 ## 二十、参考文档
 

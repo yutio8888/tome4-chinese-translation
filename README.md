@@ -10,13 +10,15 @@
 
 - 目标游戏版本：ToME4 1.7.6。
 - 官方 DLC 源码基线：Ashes of Urh'Rok、Cults of Entropy、Embers of Rage 1.7.4。
-- 规范译文：30,177 条，严格 lint、运行键扫描和核心 addon 构建均通过。
-- 发布 addon：`tome-chn-mod` 0.2.5，固定提交 `439d134`；共 8,774 条，
-  其中核心覆盖 3,348 条、DLC 覆盖 5,426 条。
+- 规范译文：30,308 条；最近一次累计严格 lint、运行键扫描和核心 addon 构建均通过。
+- 发布 addon：`tome-chn-mod` 0.2.7，发布提交 `9cdbd30`；主 locale 共 8,949 条，
+  其中核心覆盖 3,488 条、DLC 覆盖 5,461 条（Nullpack 464 条由独立文件加载）。
 - Facts 因果研究：正式结论为 `do-not-promote-facts-channel`，不授予 holdout
   准入；详见 [`docs/translation-quality-facts-study-report-v1.md`](docs/translation-quality-facts-study-report-v1.md)。
-- 当前执行路线：基础设施阶段已经收束，近期主线为小批量、源码核验的译文质量优化；
-  阶段依赖、完成门槛和 deferred 边界见 [`docs/project-roadmap.md`](docs/project-roadmap.md)。
+- 当前执行路线：P1 与三个官方 DLC 的 P2 第 1–3 层已完成，P3 累计门禁、构建和
+  发布仓库同步也已执行；下一步由维护者决定是否启动辅助 addon／example 范围、创建
+  `develop → master` PR 或正式 release。阶段边界见
+  [`docs/project-roadmap.md`](docs/project-roadmap.md)。
 
 ## 仓库结构
 

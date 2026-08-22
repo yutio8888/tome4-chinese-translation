@@ -4,8 +4,9 @@
 >
 > 研究设计：[`translation-quality-facts-study-v1.md`](./translation-quality-facts-study-v1.md)
 > 与 [`translation-quality-facts-study-v2.md`](./translation-quality-facts-study-v2.md)；
-> 数据构建与执行过程：[`../handoff.md`](../handoff.md) §12–§16；
-> 离线闭环方案：[`translation-quality-offline-closure-plan.md`](./translation-quality-offline-closure-plan.md)。
+> 数据构建与执行过程：
+> [`translation-quality-offline-closure-plan.md`](./translation-quality-offline-closure-plan.md)；
+> 版本化机器契约：[`../i18n/quality/facts-study-v2.json`](../i18n/quality/facts-study-v2.json)。
 >
 > 本报告基于**真实外部评估**（33 槽全部完成），结论按预注册判据给出，
 > 不经由任何内部校准或事后选择。
@@ -212,4 +213,4 @@ python3 -B tools/i18n quality facts-study-report --validation <validation-index.
 
 - `translation-quality-facts-study-v1.md` / `v2.md`：数据契约与修订
 - `translation-quality-offline-closure-plan.md`：离线闭环与执行方案
-- `handoff.md` §12–§16：完整执行历程（10 轮 campaign 与契约修订记录）
+- `i18n/quality/facts-study-v2.json` 与本报告 §9：冻结协议、长期归档身份和重建入口
