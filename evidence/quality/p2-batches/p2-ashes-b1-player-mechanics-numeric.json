@@ -1,0 +1,471 @@
+{
+  "batch_id": "p2-ashes-b1-player-mechanics-numeric",
+  "purpose": "bounded quality check over already-translated Ashes player mechanics",
+  "note": "Risk flags select candidates for host review only; no item is asserted defective.",
+  "version": "tome-1.7.6",
+  "source_baseline": {
+    "kind": "protected-extraction-snapshot",
+    "snapshot_sha256": "104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+    "tdef_count": 999,
+    "public_dlc_baseline": "1.7.4"
+  },
+  "inventory_run": ".artifacts/i18n/quality/runs/20260818T151651.495445Z-inventory",
+  "inventory_sha256": "5165b5bf82f283d5e7601836d56c00fc87797ae1c118d053f26691e3073da501",
+  "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+  "risk_rule_version": "risk-v1",
+  "profile_classifier_version": "profile-v1",
+  "filter": {
+    "component": "ashes-urhrok",
+    "profile": "mechanics",
+    "risk_flags_any": [
+      "source-has-number-or-unit"
+    ],
+    "min_source_len": 40,
+    "section_prefixes_any": [
+      "tome-ashes-urhrok/data/talents/",
+      "tome-ashes-urhrok/data/timed_effects.lua"
+    ],
+    "sections_excluded": [
+      "tome-ashes-urhrok/data/talents/corruptions/npcs.lua"
+    ]
+  },
+  "pool_size": 120,
+  "size": 24,
+  "sort_key": "revision_id",
+  "selection": "sha256(seed_str|revision_id) ascending",
+  "seed_str": "tome4-p2-ashes-b1|5165b5bf82f283d5e7601836d56c00fc87797ae1c118d053f26691e3073da501|104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+  "items": [
+    {
+      "revision_id": "3de811d386872a7b0c064aa59984d4808890574b5d6bc84a15e7435c6e302210",
+      "revision_uid": "18946da958700d35f8f77515842f8579418619313c9e7b4087e08d8ab2ff872c",
+      "tu_uid": "92979f13932bbffa12407ee8e33c2f17bbddca9340967f774970913279c2577f",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/brutality.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Hits the target doing %d%% weapon damage. This attack cannot miss, and ignores all armor and resistances on the target. However, you take damage equal to %d%% of the damage dealt, or 30%% of your current HP, whichever is lower.",
+      "target": "攻击目标，造成 %d%% 武器伤害。本次攻击必中，且无视目标护甲和抗性。\n\t但是，你自己会受到输出伤害的 %d%% 或者当前生命值 30%% 的伤害，取数值较低者。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "7d89b51d96396b3af0d0475e7c243f9df8ae557f6bd2f904b2eeb3bacc32e19a",
+      "revision_uid": "ff129583fcca05cd290b8472c485bfdb67801fd3368c065453698e95b222fb47",
+      "tu_uid": "4ba75039df29982a3b5eff1c10d5585754e55dab36d44941fa362e10d42b4f78",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/brutality.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "You revel in the heat of battle. Whenever an enemy damages you within melee range, you have a %d%% chance to counter with an attack for %d%% weapon damage.\n\t\tYou get once chance to deal this damage to a particular target each turn.",
+      "target": "你沉迷于战争的狂热。当一个近身的敌对生物伤害你时，有 %d%% 几率自动反击，造成 %d%% 武器伤害。\n\t此效果每回合对同一目标触发一次。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "453cb256422e7a1b2a839862792cd51d30227ec526163c0f3e2ffe04dca1dafd",
+      "revision_uid": "16377590f2eb9530e5bb7effc06775b96e928b91ab12e3d7eb6bccfaacb3f9fd",
+      "tu_uid": "ff6ba5bce8d43fd8b45f0849f7bbf6ca8db9a269f36aa1944e8cf235a7ade56e",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/corruptions.lua",
+      "line": null,
+      "source_tag": "_t",
+      "source": "Devastating two-handed physical attacks fueled by demonic power.",
+      "target": "用恶魔之力驱使双手武器，施展毁灭性的打击。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "9399844ab9b1b226946d6e76163f8dcfab3f048f44a07e016813d7656c7e2d30",
+      "revision_uid": "2753b4d64727ff0751f24e41786c66d4ff380a128091f78a5919fb45b4aa9c2d",
+      "tu_uid": "0cb06a5a4d11a88e2cf8e06448f691ef8819828afdafb205022167b2e66e0176",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/corruptions.lua",
+      "line": null,
+      "source_tag": "_t",
+      "source": "Infuse your body with the power of Demons.",
+      "target": "使用恶魔之力强化自身。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "119219357234cbdb7806c67a4b235f4a143132bf3b5003b1e5b4193b17ff16c1",
+      "revision_uid": "83d58eda2b37cbfdd744076c6deb624e8e7e50e25adf5a485ae19650e082edc4",
+      "tu_uid": "f0cfd1b0efe3588b3a4e753a8e6e8324d57a5f0b2ce67f064a215718e600ca68",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Whenever make a melee attack, you have a %d%% chance to randomly curse the target with one of the curses: Defenselessness, Impotence, Death or Vulnerability as if cast at talent level %d.\n\t\tThis may only happen once per turn.",
+      "target": "每当你进行一次近战攻击，你有 %d%% 几率随机对目标释放一次诅咒：衰竭诅咒、虚弱诅咒、死亡诅咒或弱点诅咒，技能等级为 %d 。\n\t\t这一效果最多每回合触发一次。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "2617ba533e6b6d14e79d7096ca1b7f073b3e81c79f8c72088f3de1dfb2095281",
+      "revision_uid": "30abb50b3caa021fbac4c0e0f8340256fed0228748c09ab43d4f7c33bbdca461",
+      "tu_uid": "73108ac33b246acae6fe6c7ea066c877e3c225549aca86fad2f721aabd5b03a7",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Weave darkness in a radius of %d. All unlit grids contribute to your power by increasing all your damage done for %d turns.\n\t\tDamage increase depends on the number of grids extinguished.",
+      "target": "在半径 %d 范围内扩散黑暗。每一块黑暗的地形，都在接下来的 %d 回合里增加你的伤害。\n\t\t伤害增加效果受熄灭的地格数量加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "32d3baf3281c3cc9bd0f7c7e8f3d84d053deddb14d8ad1cc5a1df965bc8a7b02",
+      "revision_uid": "9335efda8be55d5c974a99cc1778c0eecd80152501cf650c6a8eee4ad114232a",
+      "tu_uid": "7bf3f004a9753cf827c9c8b228c42bca0b6d3a0e08c6472817f2902722182995",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "A furious fire storm rages around the caster, doing %0.2f fire damage in a radius of 3 each turn for %d turns.\n\t\tYou closely control the firestorm, preventing it from harming your party members.\n\t\tThe damage and duration will increase with your Spellpower.",
+      "target": "制造一片激烈的火焰风暴，每回合对施法者周围 3 码范围内的目标造成 %0.2f 火焰伤害，持续 %d 回合。\n\t\t你精确的操控火焰风暴，阻止它伤害你的队友。\n\t\t伤害和持续时间受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "7c9a489534f50bf6330439f879228f0f2dd40c7c44d37b109dbbd857008ab2f5",
+      "revision_uid": "b583fe783c6370437e1aa96eb4db45050ca63e3686f497781b4b356c19454ba9",
+      "tu_uid": "ca3d58704d4f7ce720888942009e4ba85e03b325c5b520864f83bd656e37b0a5",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Deals 20%% of your total life to cleanse your afflictions, removing up to %d physical, mental or magical detrimental effects.",
+      "target": "消耗 20%% 最大生命值来净化自己，移除最多 %d 个物理，精神或魔法负面效果。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "81c8017a130d598f16e1c9de108a064066ebc0b09856f3b6e1c03d448ee5c419",
+      "revision_uid": "868307470d6a7b571e3374c25d0892e57dbf346e2a38ee913ec69345848bbb77",
+      "tu_uid": "2f6bd1839dce6c85b7ec91b86caa020ef17a0d7cf3b6a96f5a30b1a172662601",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Whenever you are on an unlit grid you can meld with the shadows, gaining %d stealth power.\n\t\tWhile stealthed you wrap shadows around you in a defensive cloak, giving you a %d%% chance to ignore physical or magical detrimental effects.\n\t\tYour equiped lite does not count and will be turned off when activating.\n\t\tMoving will cancel the effect.\n\t\tStealth power depends on Spellpower.",
+      "target": "每当你站在黑暗地形时，你能与黑暗融合，获得 %d 潜行强度。\n\t\t当你潜行时，你周围的黑暗在你的身边形成了一道防御型的屏障，你有 %d%% 几率摆脱物理或魔法负面效果。\n\t\t你的灯具不会计算在内，同时效果激活时灯具将自动关闭。\n\t\t移动会取消该效果。\n\t\t潜行强度受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "86542c6640fe0c52365b3e8e8240d6cf87c30608cdce1cf4b7b52f96ff2e730e",
+      "revision_uid": "cf12e040a4e0b37fe74fca442e927dca1a0acd3cf05d21668d1a4eaae938cbc5",
+      "tu_uid": "b848363e1e9fc22fe14f8f4ab20f000c6e2a1522031553b6b387aee181440cab",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Grab a target and pull it next to you, covering it with frost while reducing its movement speed by 50%% for %d turns.\n\t\tThe ice will also deal %0.2f cold damage.\n\t\tThe damage and chance to slow will increase with your Spellpower.",
+      "target": "抓住一个目标并将其拉到你身边，以寒霜覆盖它，使其移动速度降低 50%%，持续 %d 回合。\n\t\t寒冰还会造成 %0.2f 点寒冷伤害。\n\t\t伤害和减速几率受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "91e80e8a40874e7285f81bb7e8fa28cf27595dcefadb0271d51cc1d3154eee51",
+      "revision_uid": "61e384b674195965a6dce57224142687a50c061492eba22e149e12477e385e8f",
+      "tu_uid": "1e2c764dfc690edf96d6fe70cb5671d8dd970100ce75a448e3acaea3218fbe77",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Randomly (%d%% chance) hurls up to %d flame bolts dealing %0.2f fire damage to foes in sight when you hit in melee.\n\t\tThe damage will increase with your Spellpower.",
+      "target": "当你近战攻击命中时，有 %d%% 几率释放至多 %d 个火球，造成 %0.2f 点火焰伤害。\n\t\t伤害受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "f51cd0e350472e301b00ba0498d3deb05c2dcbd345febbfb2492ea9966d8e009",
+      "revision_uid": "dc78e1204cde96462272aff7a5c804ea8252317f8f7d2142cbf6b82de50c4a78",
+      "tu_uid": "c96c9fe425a7c3a8135edc1ac7196ce6c6e82dde16e53ead49bd0043b4c15710",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Each time you walk or move you gain a blight charge. You can store up to %d charges.\n\t\tWhen you de-activate the talent you can use the charges to either:\n\t\t- restore %0.2f vim per charge\n\t\t- deal %0.2f blight damage per charge to a target in range %d.\n\t\t- create a shield absorbing %d per chage damage and refelcting half of it back to attackers.\n\t\tThe damage scales with your Spellpower.",
+      "target": "每次你行走、移动时，你获得一次枯萎充能。你最多能积累 %d 次充能。\n\t\t当你取消该技能时，你会消耗这一充能，选择造成以下效果之一\n\t\t- 每层充能恢复 %0.2f 活力值\n\t\t- 对 %d 码内的一个目标，每层充能造成 %0.2f 枯萎伤害。\n\t\t- 制造护盾，每层充能吸收 %d 伤害，并将一半的伤害返还给攻击者。\n\t\t伤害受法术强度加成。",
+      "args_order": [
+        1,
+        2,
+        4,
+        3,
+        5
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "333d2fc6939f476fee76d59094eecd7dcc7101a712dd5c50732a99b7edf788a6",
+      "revision_uid": "0dfe6d430a20157c5d65489f38a9e69cda225732a4aa62f04a292662431baa57",
+      "tu_uid": "1b00a7c702bbaf4d210cc6ad6b8a7b53359c741a3f3b1bbebfbfc0f844648ce2",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/doom-shield.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "You spin around madly with your shield, bashing all those around you for %d%% shield damage as darkness, confusing your foes for %d turns.\n\t\tAt level 4 you also automatically block at the end.",
+      "target": "你疯狂旋转你的盾牌，攻击周围生物，造成 %d%% 暗影盾牌伤害并使其混乱 %d 回合。\n\t\t技能等级 4 时，你自动进入格挡状态。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "cdd4b35ba0aa2436abfd8fd47a42c0aec5f142b82b51156d343f10ac2c52dfa8",
+      "revision_uid": "8dd20564598520b0eb7ba34bc2b29841acd19955ac3525b2d49b1ffc1b56588a",
+      "tu_uid": "d7ca6b3df660df56460889afa8bdc48acf72500caae6728b993f3221bb8a1891",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/fearfire.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Exhale a wave of dark fire with radius %d, lasting 4 turns. Any non-demon caught in the area will take %0.2f fire damage, and flames will be left dealing a further %0.2f each turn. Demons will be healed for the same amount.\n\t\tThe damage will increase with your Strength Stat, but critically hit as a spell.",
+      "target": "在 %d 码的锥形范围内，喷出持续 4 回合的暗黑火焰。\n\t范围内所有的非恶魔生物受到 %0.2f 火焰伤害，同时火焰会造成每回合 %0.2f 的灼烧伤害。\n\t恶魔受到等量的治疗。\n \n\t伤害受力量加成，该技能使用魔法暴击率。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "487f591cd91796d25c9125c7bdae00a6f0e0e7a468cc376a05e825c1518fb4f4",
+      "revision_uid": "b23a8657de9af5a10dce24ea2ddc9ff06ae1e998b4b4412c0b0efb057517a9fc",
+      "tu_uid": "8c76fb2576981261c387fa14e7fcb2d7627539dee3e26e0ae9d2904c62ef7c7a",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Your connection to fire nourishes you. Whenever you strike an enemy in melee, you inflict a burning curse upon them. As long as they continue to burn, you gain %0.2f health and %0.2f vim per turn.\n\t\tEach turn they remain within 10 spaces of you, all enemies with cursed flames will spread it to other burning enemies in radius 1, causing you to heal for the same amount for each enemy, as well as dealing %d fire damage on spreading.",
+      "target": "恶魔之炎抚育你成长。每次你近战攻击命中时，你对目标施加诅咒，只要其处于燃烧状态，你每回合获得 %0.2f 生命与 %0.2f 活力。 \n\t同时，在你周围 10 码范围内，所有被诅咒火焰燃烧的敌方生物会将诅咒传播至半径 1 内的燃烧生物上，并造成 %d 火焰伤害同时给予你等量治疗。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "ac3f9cfaafe5515ddd6dfdd18c6eabbd848701c6ec7b19d061361c1e67ac3ca5",
+      "revision_uid": "97599f896581b37ce547d94191f386bd5850360e3c1722c4d5f69b6714da4476",
+      "tu_uid": "c11fd4af19daeb3327138a13cc4537bf0777764627483c79655ab797e6132ee4",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Whenever you kill a burning enemy, you will instantly deal a melee attack against a random adjacant enemy at %d%% power. \n\t\tAdditionally, Incinerating Blows will always trigger on this attack (or your next attack), dealing %d%% of its normal damage to all enemies hit and stunning, ignoring the cooldown.\n\t\tThis can only trigger once every 5 turns.",
+      "target": "每次你击杀一个燃烧的敌对生物时，会立刻对一个随机相邻敌对生物进行一次攻击，造成 %d%% 武器伤害。\n\t另外，焚尽强击必定被此效果触发（或者下一次攻击），对所有击中的敌对生物造成 %d%% 正常伤害并使其眩晕，无视冷却时间。\n\t此效果每 5 回合才能触发一次。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "359404d27ef6c7a80c582466e56e2a70672dc09e6bb0055ce120235fb4fca331",
+      "revision_uid": "6510b1fe9bb825b859a027b87668c07abb202238c34509e4b96ded875bde4099",
+      "tu_uid": "9f527ea08a911dc196326c6e06fa31ad00b9a329bc0fb69a4599488a8855a484",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Demon horns temporarily grow on your shield as you bash a foe with it for %d%% damage.\n\t\tIf the attack hits the creature is impaled by the horns, causing it to bleed black blood for 50%% of the damage done as darkness over 5 turns.\n\t\tAny time you damage this foe in melee while it bleeds you get healed for %d (this can only happen once per turn).\n\t\tThe healing power increases with your spellpower.",
+      "target": "你的盾牌上长出临时的恶魔之角。\n\t\t你盾击敌人造成 %d%% 伤害。\n\t\t如果攻击命中，目标将被恶魔角刺穿，流血 5 回合，合计受到额外 50%% 黑暗伤害。\n\t\t每次你攻击被恶魔角刺穿的目标时，你回复 %d 生命 (每回合至多 1 次 )。\n\t\t治疗效果受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "4665fe62a084d4e1fb120e828061c0a57a4a7aa72f888f24dd5de757f940f636",
+      "revision_uid": "825bf9337307ba174a7f6d7d426fefb462e3f39c18052c4326320ee162f4c591",
+      "tu_uid": "faeba19ae6391b6560aaa6cd761ea49a1d7af3f204dee3eff60f1ac8b8bdda41",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/torture.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "The power of the Fearscape infuses your weapon: Your melee attacks will deal %0.2f fire damage, spread over 3 turns.\n\t\tAdditionally, every time you attack, there is a %d%% chance of releasing a burst of powerful fire that will deal %0.2f fire damage to all enemies in radius %d over %d turns.\n\t\tIf this talent is not on cooldown, the burst of fire will instead be radius %d, and stun all targets in addition to burning them.\n\t\tFor the purposes of applying the stun, you have %d bonus spellpower.\n\t\tThe damage will increase with your Spellpower.",
+      "target": "恶魔空间的力量注入你的武器：你的近战攻击在 3 回合内造成 %0.2f 点火焰伤害。\n\t另外，每次攻击时有 %d%% 几率造成 %0.2f 火焰燃烧伤害， %d 码内的所有敌人都会受到此伤害，燃烧持续 %d 回合。\n\t若该技能冷却完毕，则火焰爆发将聚集在 %d 码范围内，并产生火焰震慑效果。\n\t进行震慑判定时，额外增加 %d 点法术强度。\n\t伤害受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "ad18bee9faccbefc1a52b4bac237dd933148b9829c35fd2a0b13ae70437678f5",
+      "revision_uid": "e0d5611b2ae4127ffe561ce0680711573aeec4a3f3bf4ef068109373fda5f6c6",
+      "tu_uid": "99b8187668d3ce8b1431e2f3ed2fb488bb4da59007cfef92b235ac43c3617902",
+      "section": "tome-ashes-urhrok/data/talents/misc/races.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "You launch a mental assault on the target.\n\t\tThe assult increases the cooldown of any already cooling down talents by %d, the duration of any magical, physical or mental detrimental effects by %d (max 4x duration) and decreases the duration of any magical, physical or mental beneficial effects by %d.",
+      "target": "你对目标的精神进行冲击。\n\t\t他所有正在冷却中的技能冷却时间延长 %d 回合，所有负面魔法、物理、精神效果延长 %d 回合（最多延长至原持续时间的 4 倍），所有正面魔法、物理、精神效果缩短 %d 回合。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "d0b78fc508ca6b7fbe4d7a3884ce941b05836adcf918dfaad062c0b0302a6daf",
+      "revision_uid": "4a344b6d72465d9351da926066e43bdb7ad070810e506a6fcccb149a4ca4d13b",
+      "tu_uid": "bb5a5b604ca06e99b6fbddfb88ddc9ecfdc62aae6aed7f2ecd5f07ed79cb8a03",
+      "section": "tome-ashes-urhrok/data/talents/misc/races.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Hasten yourself out of phase, teleporting you to a specific location up to %d spaces away.\n\t\tYou can activate this talent up to twice within the same turn, but the second activation will not be instant.\n\t\tAfterwards you stay out of phase for 5 turns. In this state your defense is increased by %d and all your resistances by %d%%.\n\t\tThe bonus will increase with your Willpower.",
+      "target": "加速自身，以至于脱离空间，传送半径 %d 。\n\t\t你在同一回合内至多连用两次该技能，且第二次使用会消耗时间。\n\t\t之后，你停留在相位外 5 回合，闪避增加 %d , 全体抗性增加 %d%%。\n\t\t效果受意志加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "56cd07a3f21c9ee61a1738d14780921f26c6ee95b1fe101ce89cff44fa8facd3",
+      "revision_uid": "7267b15b1cb3cfbd4bad4b6c5f8210800858e001c86d5fdb7acb1b1a790ce470",
+      "tu_uid": "f351d5be1f7275fedc24c1ee2637275cefc5d186d61f0d93bb9315edd25c042b",
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Next melee attack will always trigger incinerating blows, and the damage from incinerating blows will be multiplied by %d%%",
+      "target": "接下来一次近战攻击必定触发焚尽强击，且焚尽强击伤害按 %d%% 乘算",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "692d54acf5baacbba30b853579aae7c45962e467b16e4ccaab1edc55af938efd",
+      "revision_uid": "f025a0bac7da3318bbba447e43bfb962a9a6998845073badc360cee2c8181c56",
+      "tu_uid": "f1c6a669c3f5e4bb9110a4a7760bb538bde4d04265dba6fd405174e9e9c8c26c",
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "Huge demonic that bleeds, doing %0.2f darkness damage per turn. Anytime you hit it you get healed for %d.",
+      "target": "巨大的恶魔伤口每回合造成 %0.2f 暗影伤害。当伤害来源击中目标时将会恢复 %d 生命。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "71acde9d9c7bc402699045756c10c79caa081d78cefff2b2dfe16ad26096ca3e",
+      "revision_uid": "3e344b14c07ac497eb95448a9cc59c62595ae2a923ee82caad68c76bc27b2640",
+      "tu_uid": "76679bd22202b592ea3380012ad18ac13d564549338c973f64d1a44951879930",
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "This unit has %d%% resistance penetration.",
+      "target": "目标获得 %d%% 全体抗性穿透。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "726ca491004707c40d1f953d163c795e269ebbc8fef613996e9954ab5e746df0",
+      "revision_uid": "0099dea597c1ceac93ee503ba0a19afa84545c57ded629891ed88a09ec7c083f",
+      "tu_uid": "4628472c4e167ce4d9965d9f4bf94d0f180c6df1b7149c9fe6b691f17c7c4a41",
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "line": null,
+      "source_tag": "tformat",
+      "source": "The target is losing faith that it can defeat you, reducing its damage by %d%% and slowing it by %d%%",
+      "target": "目标对打败你失去信心，伤害减少 %d%%，速度减慢 %d%%",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    }
+  ]
+}

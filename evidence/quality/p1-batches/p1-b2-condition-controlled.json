@@ -1,0 +1,410 @@
+{
+  "batch_id": "p1-b2-condition-controlled",
+  "plan": "docs/p1-execution-plan.md",
+  "purpose": "bounded quality check over already-translated revisions",
+  "note": "Risk flags only order candidates for review. No entry in this batch is asserted to be defective; host source verification decides.",
+  "version": "tome-1.7.6",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "inventory_run": ".artifacts/i18n/quality/runs/20260817T231629.073791Z-inventory",
+  "inventory_sha256": "048dba6ff6862f7abdf9024999c53c9f2cc50765ada3796eeb087b6e799c59aa",
+  "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+  "risk_rule_version": "risk-v1",
+  "profile_classifier_version": "profile-v1",
+  "filter": {
+    "component": "tome",
+    "profile": "mechanics",
+    "risk_flags_any": [
+      "source-has-negation-or-condition"
+    ],
+    "risk_flags_excluded": [
+      "profile-uncertain",
+      "source-has-number-or-unit"
+    ],
+    "min_source_len": 40
+  },
+  "pool_size": 40,
+  "size": 24,
+  "sort_key": "revision_id",
+  "selection": "sha256(seed_str|revision_id) ascending",
+  "seed_str": "tome4-p1-b2|048dba6ff6862f7abdf9024999c53c9f2cc50765ada3796eeb087b6e799c59aa|624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "items": [
+    {
+      "revision_id": "b6bf0155b9596524a44b88022793e77ee950ab3aa9bb447d2acf737cd9a6e166",
+      "revision_uid": "184f291566beba713ce973de85d2453c9a741bf9005924952b0cba37f592be08",
+      "tu_uid": "6168afd9ca3faf43980ed367a976a941dfe82e2e29ff5ae4ab1335188b7c0f12",
+      "section": "mod-tome/class/Game.lua",
+      "source_tag": "tformat",
+      "source": "The game could not generate level %s of %s after %s attempts. What do you want to do?",
+      "target": "在经过 %s 次尝试后，游戏未能成功生成 %s 地图的第 %s 层。你想要做什么？",
+      "args_order": [
+        3,
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "4639ffd0f03d28f578e8f1678a00811e3eda7989aad41c507546060cb5dccc70",
+      "revision_uid": "e7c5b14af5d49e308cc75bf7b50a9c71872a0ef6f18d6249b556b1d1bd720a18",
+      "tu_uid": "2b7d08d8eb803052e2e3adef06495f13a92e0f731f7ee15c7c89c5edebb89b17",
+      "section": "mod-tome/data/quests/brotherhood-of-alchemists.lua",
+      "source_tag": "tformat",
+      "source": "#RED#%s has completed an %s without your aid.#WHITE#",
+      "target": "#RED#%s已经制造了%s，并没有获得你的帮助。#WHITE#",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "198dac5c12780c1e1bb73283cc40f772211384157101717c25d9dca95099ff85",
+      "revision_uid": "ff0e32885cdfc256089c2f10fde441610686ed7b4f7e1942ba35a32c1627a111",
+      "tu_uid": "b3e160a4624764e5de430d94a6c78c897c6793c71fbd271103bc77571077baf9",
+      "section": "mod-tome/data/talents/celestial/celestial.lua",
+      "source_tag": "_t",
+      "source": "The moment of the Eclipse is the moment of Truth, when Sun and Moon are in tandem and the energies of the world hang in the balance. Intense focus allows the greatest Anorithils to harness these energies to unleash devastating forces...",
+      "target": "日蚀之时便是真理显现之时；当太阳与月亮并行，世界的能量悬于平衡。唯有最强大的星月术士，才能以高度专注驾驭这些能量，释放毁灭性的力量……",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "long-source",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "5e51e8d2d2caafb621e8f6e3bc22e5e334a0d7d1aa34f29cfedd7da7090c9f67",
+      "revision_uid": "2d60c8e8bd7ec9b2a15e99fd4a85043db84e86ec3d23f2cd58b87524a90f0bc3",
+      "tu_uid": "c4e5376c374fe823bc565a5eae55aaa382445114aa38fa4995bb60c4ae94313f",
+      "section": "mod-tome/data/talents/celestial/celestial.lua",
+      "source_tag": "_t",
+      "source": "Celestial combat techniques inspired by the dark places that are not empty.",
+      "target": "并非虚无的黑暗，亦能激发太阳般的作战技巧。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "1bf3c8fa81fc9b84f385771a1a3ea0f249cd5d6831b14d4294ece1066c1e23c5",
+      "revision_uid": "48d0ba84e65a1b1d476c52be41312f68326443f8933c9a71328bbc7574f6befd",
+      "tu_uid": "1fe80190ecbb110be6536c92f35388b9c2d876ad617e69b92cc8bc6bcbd97cef",
+      "section": "mod-tome/data/talents/chronomancy/flux.lua",
+      "source_tag": "tformat",
+      "source": "Create an anomaly, reducing your Paradox by %d.  This spell will never produce a major anomaly.\n\t\tInduced Anomalies may not be held by Twist Fate, nor do they cause held anomalies to trigger.  However upon learning Twist Fate you may target Induced Anomalies.\n\t\tThe Paradox reduction will increase with your Spellpower.",
+      "target": "引发一次异常，减少你的紊乱值 %d。这个技能不会引发重大异常。\n\t\t引导异常不会被扭曲命运延后，也不会触发被延后的异变。\n\t\t然而，当学会扭曲命运后，你可以选中引导异变作为目标。\n\t\t紊乱值减少效果受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "dea78dd8f835acf2d3700637f3ccba42eb83c7bec3ba1ac75a1c337c5c3c2240",
+      "revision_uid": "dc64a31a09c2797173cd735f3db0a95f66e9a3bd00c9e46fbf4f4fd489c43d35",
+      "tu_uid": "c7cc13f018e5840ad6444118d91a6c406aeaf570b5603220929b8807869c2600",
+      "section": "mod-tome/data/talents/chronomancy/temporal-hounds.lua",
+      "source_tag": "tformat",
+      "source": "Command your Temporal Hounds to teleport to the targeted location.  If you target an enemy your hounds will set that enemy as their target.\n\t\tWhen you learn this talent, your hounds gain %d defense and %d%% resist all after any teleport.\n\t\tAt talent level five, if you're not at your maximum number of hounds when you cast this spell a new one will be summoned.\n\t\tThe teleportation bonuses scale with your Spellpower.",
+      "target": "命令你的时空猎犬传送至指定位置。\n\t\t如果你指定敌人为目标，猎犬们将视其为目标攻击。\n\t\t当你学会该技能后，你的猎犬在传送后获得 %d 闪避和 %d%% 全体抗性。\n\t\t技能等级 5 时，若猎犬数小于最大召唤数目，使用该技能时将召唤一条新猎犬。\n\t\t传送加成受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "1374091e76889688fad6c753d0eafb07662c27395ec7c45dd3d582bd631462ea",
+      "revision_uid": "b921bafa2d17a2db49ca1f244304170a00ad11cd6222640b5a81332749f7cca5",
+      "tu_uid": "84a53b2f67b1bd38f3243c7e978665703430755aa2dedf7bff8010ec41e39221",
+      "section": "mod-tome/data/talents/chronomancy/timetravel.lua",
+      "source_tag": "_t",
+      "source": "Some rookie paradox mage is about to find out that the standard-issue Temporal Reprieve takes you to a random safe-zone, not a fixed one, and left the contents of their pack strewn about the place. Nearly all of it is equipment that your transmutation chest won't process and is unusable by anything with less than twelve limbs, so you kick most of it into the void, but a crumpled note catches your eye...",
+      "target": "有些新手时空法师还不知道，通常的时空避难所把你带到的是一个随机的安全的地方，而不是一个固定的地方，结果他们就把自己背包里的东西散落在了这里。你发现这些装备都是些十二只脚的人才能用到的东西，并且你的转化之盒也处理不了，就一脚把它们踢进了虚空之中，然而，一张残破的笔记吸引了你的注意力…",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "long-source",
+        "term-variant-or-review",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "73f6308d1c3e093573c7306e10faf4814cf6d0008aecce57f083591debb45f09",
+      "revision_uid": "a4cf8042e6268ea63653c8da2e6b7c6494cdb6fdf1c7c89891ea51b5e9027135",
+      "tu_uid": "0ab3079b977280125d99b209cabe9d2a92305a5eea82bcc875ed179e115bbbba",
+      "section": "mod-tome/data/talents/cunning/traps.lua",
+      "source_tag": "tformat",
+      "source": "You prepare an additional trap (up to tier %d) with a special primed trigger that causes it to activate immediately when deployed. (Use this ability to select the trap.)\n\t\tNot all traps can be prepared this way and each trap can have only one type of preparation.\n\t\tKnown primable designs:\n%s\n\nA trap with a primed trigger gains %+d%% effectiveness (replacing the normal bonus from Trap Mastery) and won't break stealth %d%% of the time.\n#YELLOW#Current primed trap: %s#LAST#",
+      "target": "你额外准备一个陷阱（最高材质等级 %d ），带有特殊的控制机关，能在设置后立刻生效。 (使用该技能来选择需要准备的陷阱。)\n\t\t并非所有陷阱都能这样准备，每种陷阱只有一种改进方式。\n\t\t已学会的引爆方式 :\n%s \n\n带有特殊启动机关的陷阱强度增加 %+d%% (取代陷阱专精的加成 ) ，有 %d%% 几率不破坏潜行。\n#YELLOW#当前选择的陷阱 ：%s#LAST#",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "8d4c92a17787a04182fd597508ca5cad500c7c750af5272cc411501b5a9c1ab5",
+      "revision_uid": "cd639f93918912ef4d4406c50ac3f34f7de8cd88759bd3db5b5bccaf0aa25528",
+      "tu_uid": "55f35e5d1657ee8e28e3eedecb9877b78d7e3ecb18b208baa09d051879a3c280",
+      "section": "mod-tome/data/talents/cursed/cursed.lua",
+      "source_tag": "_t",
+      "source": "Hate-powered abilities that don't belong anywhere else.",
+      "target": "不适于其他地方的仇恨之力。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-negation-or-condition",
+        "source-target-length-outlier"
+      ]
+    },
+    {
+      "revision_id": "846776161af08268301899f5ccd5f7970a7cb8d31cd897e6693b617b60ca14b8",
+      "revision_uid": "027df736b982d2efb74fc3cf1594a5251826a6891f79112b5c54df2f1c4822df",
+      "tu_uid": "464a989612c153048a3db4f66691956f8d6a080efe792ee92ea1e6b3f41ae17d",
+      "section": "mod-tome/data/talents/cursed/dark-figure.lua",
+      "source_tag": "tformat",
+      "source": "You hide your terrible nature behind a pitiful figure. Those that see you from a distance of %d will ignore you. If you attack or use a talent they will see you for what you are and pity will be deactivated.",
+      "target": "你收起可怕的本质伪装成可怜虫。那些在 %d 码外看到你的敌人将忽略你。\n\t\t当你攻击或使用技能时，它们会看穿你的本质，怜悯技能将失效。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "5c1dcd70ed993afbcf9c3cdb29c3525b2b72187fe4e2efcf66057362fb0d4828",
+      "revision_uid": "e35807157ef67a7d9443e4cfa0bee54980f9e2f5d25e958141eaedc434136a7d",
+      "tu_uid": "51a1a0724227812d57b620f7f51ebcc72b274c083f4fb86426214006592e560b",
+      "section": "mod-tome/data/talents/gifts/call.lua",
+      "source_tag": "tformat",
+      "source": "Touch a target (or yourself) to infuse it with Nature, healing it for %d (this heal does not work on undead).\n\t\tThe amount healed will increase with your Mindpower.",
+      "target": "对你自己或某个目标注入大自然的能量，治疗 %d 点生命值（对不死族无效）。\n\t\t治疗量受精神强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "preferred-term-present",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "e3711cb7d824c44c34733ada5863c5f17313d49ba94673d57f054d7c2fa5aca1",
+      "revision_uid": "570c691ec2b99a4ed4c55a88a181638d6147c5c81574b40b569ec1bf052cd1ed",
+      "tu_uid": "4a48aec5e472185756ee0a495cf8d82a02502b24e1ba6d943dea345140e803c8",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "source_tag": "_t",
+      "source": "- will only auto use when no saturation effect exists",
+      "target": "- 只会在没有纹身/符文饱和效果的时候使用。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "0de4699ce4d09bcfd646e80f1395ba83bcf0897e728049009f892f229c4d1fae",
+      "revision_uid": "8b49016ca81d760dd6a068902ce0dddce72da67b8645a2578c252aca0fbd72f5",
+      "tu_uid": "ceeb61c7f298dd0994fd59e51cb359226bfd910c9f856033dc70c18b8a0e3303",
+      "section": "mod-tome/data/talents/misc/misc.lua",
+      "source_tag": "_t",
+      "source": "Allows a mage to teleport to the secret town of Angolwen.\n\tYou have studied the magic arts there and have been granted a special portal spell to teleport there.\n\tNobody must learn about this spell and so it should never be used while seen by any creatures.\n\tThe spell will take time to activate. You must be out of sight of any creature when you cast it and when the teleportation takes effect.",
+      "target": "允许你传送至秘密的小镇：安格利文。\n\t你曾在那里研习魔法，并获授一道特殊的传送门法术，可传送回去。\n\t不能让任何人知道此法术，因此绝不能在任何生物能看见你的情况下使用。\n\t法术需要一段时间才能生效。施法时以及传送生效时，你都必须处于任何生物的视线之外。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "multiline",
+        "long-source",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "464bce5fa3e16fa9150b153f8ca57b2ce56ff969ae1a663b1c86b7fb837c3635",
+      "revision_uid": "87ea838d0607ca50030f842ab2c8890ee8a661e45e15ed4b3b764349662e93b0",
+      "tu_uid": "cce8239d8aae0bbcb1523abf890223ee484cac82dd0e08603e0cfd2d5ea7be41",
+      "section": "mod-tome/data/talents/misc/misc.lua",
+      "source_tag": "_t",
+      "source": "Runes are not class abilities, you must find them or learn them from other people.",
+      "target": " 符文不是职业技能，你必须找到它们或从其他人那获得它们。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "526a798edea41c997824e7b2ee7434be0968c1ffeaf4fd0c083385addbffc297",
+      "revision_uid": "e0c302cffdd2092c74120b3760d704489f86e960122fac1abd175286a96a2aab",
+      "tu_uid": "994a11dabf9bc34db99f2d2703d467b77cf902ebfc8b4f7c8bda23d39335b4ca",
+      "section": "mod-tome/data/talents/misc/misc.lua",
+      "source_tag": "_t",
+      "source": "Infusions are not class abilities, you must find them or learn them from other people.",
+      "target": "纹身不是职业技能，你必须找到它们或从其他人那获得它们。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "5670434565b0595ad444203240a4042a197a73eb94060bd6ac238dab55708520",
+      "revision_uid": "bd3f89775e68b28dd1e8bdbe2ed6d76f28556dc7d1fe8bd9b9448c2f1e28a74f",
+      "tu_uid": "fd083686902282ba782412d2f7266ab152cf04bf929a773b09322a6e1a3ea971",
+      "section": "mod-tome/data/talents/psionic/psi-fighting.lua",
+      "source_tag": "tformat",
+      "source": "While active, you give your flesh and blood body a boost in the form of precisely applied mental forces. Increases Strength and Dexterity by %d%% of your Willpower and Cunning, respectively.\n\t\tStrength increased by %d\n\t\tDexterity increased by %d",
+      "target": "当开启时，你为了你的血肉之躯精准地灌布精神之力。分别增加意志和灵巧的 %d%% 至力量和敏捷。\n\t\t力量增加 %d 点\n\t\t敏捷增加 %d 点",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "2d75ad7789d669094df2a2413aa02d71584104d2ccced78c65d9bf8797a9a593",
+      "revision_uid": "85bd4484d25a0253713690b07c3b5f547b3c98be29a37204a1d2537dee010b8f",
+      "tu_uid": "48f0e97d14e599aacc19ab9c57cddbca8ef1704afe50c6a1d7f0a3e94814ef88",
+      "section": "mod-tome/data/talents/psionic/trance.lua",
+      "source_tag": "tformat",
+      "source": "When you wield or wear an item infused by psionic, nature, or arcane-disrupting forces you improve all values under its 'when wielded/worn' field %d%%.\n\t\tNote this doesn't change the item itself, but rather the effects it has on your person (the item description will not reflect the improved values).",
+      "target": "当你穿戴由灵能、自然或反魔力量灌注的装备时，你增加 %d%% \"当使用或装备时:\"的增益属性。\n\t\t注意此技能不会改变装备属性，它的效果只作用于你自身。（此技能的增益也不会在装备描述上反映出来）。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "590fa33e0206af97da2a5627108655ce980dbd13b2bd79be07d3e2ea108179b5",
+      "revision_uid": "ff455e5d64ba72525344ca32edee3cd1916a5fae093edec65d9b88a0eab9a562",
+      "tu_uid": "555458d991d34bd8313e57be8d30e5d04fc28dc4c94a001f92da150f402e7e02",
+      "section": "mod-tome/data/talents/spells/master-necromancer.lua",
+      "source_tag": "tformat",
+      "source": "Tighten the ethereal leash to some of your minions currently within your aura of undeath, pulling them to you and swapping place with any eventual foes in the way.\n\t\tUp to %d minions are affected.\n\t\tWhen recalling a minion the spell tries to prioritize a spot where there is already a foe, to push it away.",
+      "target": "拉紧你与不死光环内的死灵随从的虚幻连接，将它们拉到你的身边，并与路径上的敌人换位。\n\t\t最多召回 %d 个随从。\n\t\t当你召回随从的时候，会优先选择周围有敌人的格子，将敌人推开。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "0561d574535f701252e61edae30acca6ff713d03526de78b3e6890214c954ec7",
+      "revision_uid": "14bd6786ad4118fbd5cdb45e65869473cc1b9ecfa820d58462a2d6b16b025a1a",
+      "tu_uid": "9e8c98c233de51da99da233470df669bca20a0a855acc772d5fb9bce583602a7",
+      "section": "mod-tome/data/talents/techniques/techniques.lua",
+      "source_tag": "_t",
+      "source": "Your will carries you through the most difficult struggles, allowing you to fight on when others would have collapsed from exhaustion.",
+      "target": "你的意志支撑你熬过最艰难的苦战，让你在别人早已因精疲力竭而倒下时仍能继续战斗。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "4dd4e184f9e396fe97b817a6e0c9d0c48212940cc78fe1529e2e65261f3a6be0",
+      "revision_uid": "608b09461bd68a332bc9df3edf43d3ce7c8d5d213b8ab1e88b3e2992b7573fee",
+      "tu_uid": "12a5efd20aae0c6e9e93c4421e023fa2307a1aaa196701d52903d72a196e6bc8",
+      "section": "mod-tome/data/talents/uber/mag.lua",
+      "source_tag": "tformat",
+      "source": "Rewrite the recent past to go back to when you cast Revisionist History.",
+      "target": "改写历史，返回到修正历史施法点。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-negation-or-condition",
+        "source-target-length-outlier"
+      ]
+    },
+    {
+      "revision_id": "cf871182cc5a186fcd7e436c805687e3b25897d5bceefa2ebbfdadced9c27467",
+      "revision_uid": "ba6fa793caf6de71cd8d0d30e252f9cea3681a741fa612ea8e518f6437bfbc9e",
+      "tu_uid": "8cb6618fff19c0e80068404cab928acd3ebd010c8f063ebfd29d2907a9dca716",
+      "section": "mod-tome/data/timed_effects/other.lua",
+      "source_tag": "tformat",
+      "source": "The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all).",
+      "target": "笼罩在一个屏障内使目标身形逐渐消失 (+%d%% 全体抗性 )。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "50d76dff17c6a282550badf512a881edd0b3b9bdc9ec24a4063ea0d5dd69098d",
+      "revision_uid": "408a4dadc605b34e49f391adf5159cd5f4afeb0868b87dc05b371f5ee663127b",
+      "tu_uid": "7f9f0c33397d528bafe71138af032129ed11eeab98fb2a630c40a49772dd06ae",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source_tag": "tformat",
+      "source": "The target is able to make actions and attacks while remaining stealthed.",
+      "target": "目标能在保持潜行的同时行动和攻击。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-negation-or-condition",
+        "source-target-length-outlier"
+      ]
+    },
+    {
+      "revision_id": "9099cb944632ab264413bf5a7a12e0b07dae5926a08ced60b98782a68325fd1e",
+      "revision_uid": "f9052cd4db24192fd278a37d7aa36f789c0101aa3629a40c6bb8fcd474317e0f",
+      "tu_uid": "529e8e6ff380b0652b846b7c2754507bbe8a0b8c48e4a55aa41f34962132f484",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source_tag": "tformat",
+      "source": "The target can't think straight, causing their actions to fail.",
+      "target": "目标不能正常思考，使用技能会失败。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "b006a99d226fc63d00daf5ba11ea0f4b9085fe1191a24fc98bc40f6fe623ab41",
+      "revision_uid": "50eaf3a80f31ecb1f86f6de79f905e85f7bedfd629ce1ce29ee55fa8a3323b9c",
+      "tu_uid": "ce2bf6f0cd7ac7182ff81f0ba9045c820ea92c1c9e17bd43ed063386ac4b5e64",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source_tag": "tformat",
+      "source": "Dragon blood runs through your veins. You can breathe fire (or have it improved if you already could).",
+      "target": "你流淌着龙的血液。你可以喷吐火焰（如果你原本就会喷火，则吐息会得到强化）。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-negation-or-condition"
+      ]
+    }
+  ]
+}

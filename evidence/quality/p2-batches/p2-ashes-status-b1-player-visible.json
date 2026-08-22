@@ -1,0 +1,1441 @@
+{
+  "batch_id": "p2-ashes-status-b1-player-visible",
+  "purpose": "P2 Ashes player-visible timed-effect/status review",
+  "note": "Deterministic status slice; excludes every (section, source, source_tag) selected by Ashes mechanics B1.",
+  "version": "tome-1.7.6",
+  "component": "ashes-urhrok",
+  "source_baseline": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+  "inventory_run": ".artifacts/i18n/quality/runs/20260818T220910.022966Z-inventory",
+  "inventory_sha256": "fdde01b245bf7fc14ca4dad39e8064442d57451a4372658741aac81090296e9a",
+  "filter": {
+    "section": "tome-ashes-urhrok/data/timed_effects.lua",
+    "source_tags": [
+      "_t",
+      "tformat"
+    ],
+    "min_source_length": 70,
+    "risk_flags_any": [
+      "source-has-number-or-unit",
+      "source-has-negation-or-condition"
+    ],
+    "exclude_workset": "p2-ashes-b1-player-mechanics-numeric by section/source/source_tag"
+  },
+  "pool_size": 17,
+  "size": 17,
+  "sort_key": "sha256(seed_str|revision_id)",
+  "seed_str": "tome4-p2-ashes-status-b1|fdde01b245bf7fc14ca4dad39e8064442d57451a4372658741aac81090296e9a|104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+  "items": [
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1653,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 731,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "1dd5b0ca463f8d11359a1f63909422c6d3da006fd1256f4531e0e6ba177ca8f3",
+      "revision_uid": "a11baefb85c59149e493141e92d4a5674c85d630783ab965ff74eadda4a80e89",
+      "risk_flags": [
+        "has-printf",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "Victim is tormented with impending death.  When it dies, it will restore to the source (%s) up to %d times the normal amount of Vim.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "s",
+            "d"
+          ],
+          "source_conversions": [
+            "s",
+            "d"
+          ],
+          "source_raw": [
+            "%s",
+            "%d"
+          ],
+          "target_conversions": [
+            "s",
+            "d"
+          ],
+          "target_raw": [
+            "%s",
+            "%d"
+          ]
+        }
+      },
+      "target": "受害者因即将到来的死亡而备受折磨。当其死亡时，将为来源（%s）恢复至多 %d 倍于正常数值的活力值。",
+      "tu_uid": "2d7c1f5bb0d59642b8c158fc80d67a33ffbb0afce15b11dd760856339304087d",
+      "unit_id": "4b9c50dc751551c673bfccc74064ff55c7dd2d91b2e9226dca73ba0482e665fd",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1470,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 550,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "280e11cc931d684a62959fc605102e782e766746fad517bce5d743d8268a8e4a",
+      "revision_uid": "98560e3fe9cf8a9c0949e6a5d1579f2d6864b9521e6fd558e53d9b279bf8010b",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "Each melee hit generates a radius 1 ball of fire dealing %0.2f damage.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f"
+          ],
+          "source_conversions": [
+            "f"
+          ],
+          "source_raw": [
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "f"
+          ],
+          "target_raw": [
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "近战攻击将附加半径 1 的火球，伤害 %0.2f。",
+      "tu_uid": "29d5f67a08a2b584f70408a40ead3e02667a046a83e9a17bb30cc6d657312b7a",
+      "unit_id": "b4908924100d0fe0c84d039a2dbf5bdef141d09335b75a42c29d071f78e31379",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1533,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 613,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "81ea1eaba9c04aac7f30820df2dbcf6595466ca876672ae8ad4b45607b0070a6",
+      "revision_uid": "b7139167f7a8b52859827a20505aff91fd55be74ffc10713a9641dedbe31085d",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "The target is pinned and on fire, taking %0.2f fire damage per turn. They are also silenced.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f"
+          ],
+          "source_conversions": [
+            "f"
+          ],
+          "source_raw": [
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "f"
+          ],
+          "target_raw": [
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "目标被定身并着火，每回合受到 %0.2f 点火焰伤害，并被沉默。",
+      "tu_uid": "4402e3194476f12656d4c14248209d74dcf54ce35e474db3cb3c7567cd844918",
+      "unit_id": "69240a6a110bab2f0fad781ae883f53fcdb5d86f34f40066ed5ac151d01b75e4",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1576,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 656,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "87d52146fa9db743f5c2277e5d341f0e53d504ae4dec7eb12864d7b6d8741ed7",
+      "revision_uid": "047ebb73341ce66b50340764d29fd27e5a992d9c30db82c3dcdbbd37450d0117",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "The target is on fire, taking %0.2f fire damage per turn. On death, the flame will explode.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f"
+          ],
+          "source_conversions": [
+            "f"
+          ],
+          "source_raw": [
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "f"
+          ],
+          "target_raw": [
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "目标着火，每回合受到 %0.2f 火焰伤害。死亡时火焰将爆炸。",
+      "tu_uid": "255e3a90e4c2645cc471b7c049224ed246586cd77fac506423f515c0595c7b2c",
+      "unit_id": "1be5950c39a14f29bbd41e973fdcff1f6619a31d2f91eab8903a9e6719f6651c",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1583,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 663,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "4f97f44cd04e766d5e451c92dcaad7331d23be48adc0bbd63a472f5de774d733",
+      "revision_uid": "2c6f45d1b733d49cb9e01960402ee50ba8d2ee6716a7650d42a7ccc6f2b48386",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "The target is overflowing with power, increasing all damage done by %d%%.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "目标能量溢出，增加 %d%% 全体伤害。",
+      "tu_uid": "c6f6121471e069b4a48954d7ad7d930fc1ccf3f4185631f4f6b5f8de3d02b177",
+      "unit_id": "64557a05fb80f0fcc93b1f06645030acde451dac7488dacf12dde8b0bb6e4057",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1560,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 640,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "08eee8738602f8d86af34ade0b704d40ecf616b76313bb753aa67d50d7f0fd9b",
+      "revision_uid": "af7ae1b5215f332a28023dc6d12c70d8725fd67c18e2a3550d255ef75467a58b",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "Infected by a demon seed. When it dies the caster has a %d%% chance to get back the matured seed.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "目标被恶魔之种感染，死亡时施法者有 %d%% 几率获得成熟的种子",
+      "tu_uid": "b24affabec18f7867f87593fd93680ba9cdf3d10804e942917d4d12c59570f21",
+      "unit_id": "42ee50ec2e322e2d22239a7c4af50b748b99c96fe271deda108b394911f4ea0f",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1503,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 583,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "bd9a48df32772f7474a9cc042f38f77ed99c0a67631109f53d0b798ed60e3825",
+      "revision_uid": "895cfcc91815ed5c7cbe4c40fc11a7ebc1a83852bee3902f05c068ea6ba3c19c",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "This character's flames are feeding the source, healing them for %d per turn and giving them %d vim.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "该生物身上的火焰正向来源生物提供能量，每回合给予其 %d 生命与 %d 活力。",
+      "tu_uid": "e59055bdf9d38fefb17e1dcee7c8416b2c35e7b41211afe818ee7aabe30a4271",
+      "unit_id": "ca09c84cdd0fab45c925d1b55116a327a594938c394d63d6efcb60ebcabb2ca2",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1477,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 557,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "be731c0630370a79044a753b0589ccc9fafbc5bd2245b2a24830dd055ddaf8c3",
+      "revision_uid": "6289e7fc60bca20e540ebd54535d6e6cd221a518f6b987f9167d855cb4feb506",
+      "risk_flags": [
+        "has-printf",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "目标的火焰抗性下降 %d%%，并会被恶魔空间的火焰灼伤。效果结束时将受到 %d 火焰伤害，并追加效果期间受到的总伤害的 %d%%。",
+      "tu_uid": "2279bf6b72ffc298c3501675ea9b277cb5eb32ad1c747d5e35c73faa4a961d47",
+      "unit_id": "ff08e7661e7936d7f6e03df353f5cb1fb621f161310d6d49fe8824792a876e5a",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1522,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 602,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "e6448fed9cf501648d719e7a8097d13bf082826d86e3633a60f316add075d9a4",
+      "revision_uid": "7e702e409898242aa5472627178a3ad3caee01f5968b2357bce191b6afe82236",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "The target is purified by fire, losing %0.2f%% of their max health per turn.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f"
+          ],
+          "source_conversions": [
+            "f"
+          ],
+          "source_raw": [
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "f"
+          ],
+          "target_raw": [
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "目标被火焰净化，每回合损失 %0.2f%% 最大生命值的生命。",
+      "tu_uid": "c5fb1118ac76548b1eee76e513be5505f75a69b6147385291e57cc4803f7d239",
+      "unit_id": "819ab17252a54ee60f2049a6bd5a74dedd4ef0e9779572392be8443f098c5bda",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1614,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 694,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "0d7a42bfb2e283141533a23a2443602ba35fce9743a92263af7080f633183e4e",
+      "revision_uid": "438ae88e875d9c92a88dbe81023c39f00acb188e73552bcaa56b4ea1c79ecce9",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "When this target is damaged %d%% of the damage will also be done to an other victim.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "当目标受伤害时，牺牲生物也会承受 %d%% 的伤害。",
+      "tu_uid": "3349d12fd096ed21b7a3e1320b3f4255717bc4ebb074bb3685be2a8981760567",
+      "unit_id": "c0f43824988a37c42d2a115402544f12a7872f774fb1aef44d3d91f58d2e8097",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1542,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 622,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "60df47e53bd199493ba9d0be1029bf7378732b47a4a9c53af2105e295c138075",
+      "revision_uid": "4445e5d933752722be75fc512ec1c445087d9c3a09a25a462ba61f8ba2684af0",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾破碎时造成 %d 伤害（半径 %d）。",
+      "tu_uid": "2db17a854e52ad0d3c8e6a55e20136131c4b568b805636057d47a5e198e1e8d1",
+      "unit_id": "0569222a3e30d6d75d2401723b618a49762253ae451b342129bcbcfafc740cd0",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1622,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 702,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "04c3e6345962bd4705d67f18d5c6b57f322f230a033a41099bd4de437be16258",
+      "revision_uid": "7ab545a565ae51853d0421557e76846e209a45b3cfb56c94a80aa2a3a84aadc5",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "The target burns with darkness, taking %0.2f damage each turn until it dies or runs away.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f"
+          ],
+          "source_conversions": [
+            "f"
+          ],
+          "source_raw": [
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "f"
+          ],
+          "target_raw": [
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "目标被黑暗灼烧，每回合受到 %0.2f 伤害直到死亡或离开。",
+      "tu_uid": "2d46859b0c5827b09545bf87cfb0ebe4daef96aa522145e0844e5c3bf4905a2c",
+      "unit_id": "fb9a301c274d98763f8657582ddb20ed709f8c965497f92d98b55aebf76d75f8",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1667,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 745,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "b6da2079c1d1e199c53b0567a22c659632ab1f32a8d01c76c7e4a03569b2a93f",
+      "revision_uid": "ce65c9bb374c8724c9d4376cf01e3fcd49e4a36b85f5b3e36391e8053b7d6a8c",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "Improves/gives invisibility (power %d), converts all damage to darkness and uses your highest damage penetration and increase for darkness.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "强化或获得隐形（强度 %d）；所有伤害转化为暗影伤害，暗影伤害使用你最高的伤害加成和抗性穿透。",
+      "tu_uid": "a44bbdd093e1fea5924c96404580eb697eab48d226731e38078dfafeee7c58ae",
+      "unit_id": "726e674b1c5b5234823a1b044fc486114778122da40e1fd7a973bc672016ae12",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": null,
+        "format_signature_match": null,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1650,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 728,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "unknown",
+      "profile_confidence": "low",
+      "relevant_terms": [],
+      "revision_id": "d2668e18ec913ef09242b1a92f330e3b8e354697c7561c36fb7624fc029b62c8",
+      "revision_uid": "8b24c03b922321087e8e105c3ff58dc97b0cb2e93714a66e2e3322dcfffee0e0",
+      "risk_flags": [
+        "has-printf",
+        "profile-uncertain",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "The target is surrounded by a fire haven, granting 40% fire damage affinity but -15% to blight resistance.",
+      "source_length_bin": "long",
+      "source_tag": "_t",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f"
+          ],
+          "source_conversions": [
+            "f"
+          ],
+          "source_raw": [
+            "% f"
+          ],
+          "target_conversions": [],
+          "target_raw": []
+        }
+      },
+      "target": "目标被火焰庇护围绕，获得 40% 火焰伤害吸收，但减少 15% 枯萎抗性。",
+      "tu_uid": "3dd361c1eda6601b911484d592e3cbf614a8df5bfcbc6cb32c118e434ad89a59",
+      "unit_id": "5521ee49d3a9d4da858ffeda143c0b84f89d3212b090d4bbce4a2ae94e927081",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1597,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 677,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "81d19c9c1b77a34b51a502b68bf9417775f17622dfd930b1c352ba8a5264c080",
+      "revision_uid": "10fc467f5f77336d231f6af3865e371bbdf7b07fe276ac7a7733d4abeec7a68d",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "The target is affected by blight, all natural and psionic talent it tries to use has %d%% chance to fail and instead explode into %0.2f fire damage in radius 1.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "f"
+          ],
+          "source_conversions": [
+            "d",
+            "f"
+          ],
+          "source_raw": [
+            "%d",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "d",
+            "f"
+          ],
+          "target_raw": [
+            "%d",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "目标被枯萎力量感染，使用自然或灵能技能时有 %d%% 几率失败并释放半径 1 的火球，伤害 %0.2f。",
+      "tu_uid": "8c9bd9df0e99b9c26db8b64e30b4906ac9d5e82348347acc8ea0aba2b5ec1737",
+      "unit_id": "92400df0f62c05b3ff3bd71bd4ee2f53805fa537e92d7484b628ead7cbf39236",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1491,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 571,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "804a0fcfb6d4726e31afd03b8b7cfa91d43ccaf13ef13f8f8514c3dd9a7fa19c",
+      "revision_uid": "2a2eaf67e2ced43efc4f1623ac3fb5ba8893b1007310b733184081733a86494b",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "Next %d melee attacks are certain to critically strike, and this unit has %d%% more critical power.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "接下来的 %d 次近战攻击必定暴击。效果期间增加 %d%% 暴击系数。",
+      "tu_uid": "ca179e1ef4b31b00141475fe01410301423a30e2fbb4cdcc5f0c20f47b857b23",
+      "unit_id": "6fd26c383bc4033d992ac011134d367319bb48a3f79a641b05c366280d62f6a0",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 1529,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "ordinal": 609,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "b22992a3255537e03b8fce5f5eb96e4229faad0b0b53d1cec7e6fec7c1085982",
+      "revision_uid": "c96c05bb08f5e56a0d4c34b22c5e48646161f64f3326dceb9be44b986045f6b7",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "The target is burning, taking %d damage per turn, split among it and burning foes in radius %d.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "目标正在燃烧，每回合损失 %d 生命值，和半径 %d 内的正在燃烧的敌人分摊。",
+      "tu_uid": "55913fd3e818e5945d57b5487d63834a94d440d02fd4b4068a23dd57c05c59f0",
+      "unit_id": "0f7469d782338cfa52c5cff8fbb503b8df052d80edb85c467d75f9230c293c6d",
+      "version": "tome-1.7.6"
+    }
+  ]
+}

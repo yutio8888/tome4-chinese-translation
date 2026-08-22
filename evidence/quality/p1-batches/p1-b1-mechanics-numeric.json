@@ -1,0 +1,424 @@
+{
+  "batch_id": "p1-b1-mechanics-numeric",
+  "plan": "docs/p1-execution-plan.md",
+  "purpose": "bounded quality check over already-translated revisions",
+  "note": "Risk flags only order candidates for review. No entry in this batch is asserted to be defective; host source verification decides.",
+  "version": "tome-1.7.6",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "inventory_run": ".artifacts/i18n/quality/runs/20260817T130842.064026Z-inventory",
+  "inventory_sha256": "5ed11d8f62db1d470e29e5516d0cf963d88c088137b9a9f1ffcdbca433be6502",
+  "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+  "risk_rule_version": "risk-v1",
+  "profile_classifier_version": "profile-v1",
+  "filter": {
+    "component": "tome",
+    "profile": "mechanics",
+    "risk_flags_any": [
+      "source-has-number-or-unit"
+    ],
+    "min_source_len": 40
+  },
+  "pool_size": 1992,
+  "size": 24,
+  "sort_key": "revision_id",
+  "selection": "sha256(seed_str|revision_id) ascending",
+  "seed_str": "tome4-p1-b1|5ed11d8f62db1d470e29e5516d0cf963d88c088137b9a9f1ffcdbca433be6502|624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "items": [
+    {
+      "revision_id": "3dfdafb49d3f2f3a639f483f01ca903da52d4cea8421aeb4971ba9100f77a2c9",
+      "revision_uid": "6e4494931a8e0a261d5e55df1eef539443f548b856e20f77c4131cc4f4d85617",
+      "tu_uid": "839da343e4850cb23bdf4b59277edde65ec337bce5a60db0fcc304d5a0c84a2f",
+      "section": "mod-tome/data/general/objects/world-artifacts-far-east.lua",
+      "source_tag": "_t",
+      "source": "15% chance to animate a bleeding foe's blood",
+      "target": "15%几率活化流血敌人的血液",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "profile-uncertain",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "0c154ab66317d27a686e453cf753f627d5c279f74a9dc3fce104d50ac09106f7",
+      "revision_uid": "6860e9c957711e8a2091f1b806b96776c106b5c5af09f8f24f0bf4917a12f457",
+      "tu_uid": "18cc62549204895a5460c3073c6c2512b914e5110c2b56a625cac36d3e190dbd",
+      "section": "mod-tome/data/general/objects/world-artifacts.lua",
+      "source_tag": "_t",
+      "source": "Try to fry your enemies brain (25% chance to brainlock)",
+      "target": "试图封锁敌人的大脑（25%几率思维封锁）",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "profile-uncertain",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "cda612cbbc3eee19ade0e9adf3eeef914ed0445b62799c653e686038b17129c1",
+      "revision_uid": "3091f542a2dde334e87fe4b4597e2cd29e21a0084c51e1fac3e2856bc9bec98e",
+      "tu_uid": "ea0d160a91d6f2f18a52243f9974c8f5232e0ac6c1983c78b40a52a935119cf4",
+      "section": "mod-tome/data/talents/celestial/other.lua",
+      "source_tag": "tformat",
+      "source": "You bind light in a glyph on the floor. All enemies walking over the glyph will be dazed for %d turns.\n\t\tThe glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.",
+      "target": "你用光能在地上刻画圣印。所有经过的目标会被眩晕 %d 回合。\n\t\t圣印视为隐藏陷阱（%d 侦查强度，%d 点解除强度，基于魔法）持续 %d 回合。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "ba5a07c13c10e1f250eaf2a14499d416e5e389167945e6c669608ac10d2f1273",
+      "revision_uid": "1032ad8eed69a69ebddabaa35b7cbf21747df369072a5468df3290e0d0b04044",
+      "tu_uid": "83120ad3f34f82ec1f73a161dc2f3116bf75948eee1e4c934037d408db259267",
+      "section": "mod-tome/data/talents/chronomancy/anomalies.lua",
+      "source_tag": "tformat",
+      "source": "Teleports up to five targets in a radius of %d up to ten tiles away.",
+      "target": "将半径 %d 范围内最多五个单位传送到十格外。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "24c205476682ecff5fe73600e331bef5c748ec06b1ef24e402483f0d6c549ab5",
+      "revision_uid": "67ca0e210db60ee86d9d1eb357ca8c402e217476ed6c05ed68e618da05fc9880",
+      "tu_uid": "2e2438bae0bdc4744bdbcb6d9b5123ee9dd63a0fb5dcc041795fd8ab704e5fc3",
+      "section": "mod-tome/data/talents/chronomancy/energy.lua",
+      "source_tag": "tformat",
+      "source": "Each turn, for the next %d turns, one of the target's sustained talents will be deactivated.",
+      "target": "接下来 %d 回合中，每回合解除目标的随机一个持续性技能。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "2b61c85676ddf5f503377b04158ebd4669fa9f0e5f312ab7dadcf78187f38bad",
+      "revision_uid": "75ba267892a344681360f0979c192197b2fa8c361d9b73bcd822f75c71351059",
+      "tu_uid": "3e21c439d6e6b993d1bf749720947ec950f9b9b00a17095e361a71ff714b8a1c",
+      "section": "mod-tome/data/talents/chronomancy/guardian.lua",
+      "source_tag": "tformat",
+      "source": "Improves your capacity to see invisible foes by +%d and to see through stealth by +%d.  Additionally you have a %d%% chance to recover from a single negative status effect each turn.\n\t\tSense abilities will scale with your Magic stat.",
+      "target": "增强你的隐形侦测能力 +%d 以及潜行侦测能力 +%d。  此外，每回合你有 %d%% 的几率从一个负面状态中回复。\n\t\t受魔法属性影响，侦测能力按比例增加。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "48c305a091fad338da30cfa7ca29c0e69e7134ca04d435c849671da8d8d010e0",
+      "revision_uid": "34692f630bad7d4e727e20c6425317bf5a9b30e4bdc2bc4a1838b67069c83cab",
+      "tu_uid": "f74c1cfddd0e3a0f278961245f012773ac1ea3a60a399afd8a24703635434643",
+      "section": "mod-tome/data/talents/chronomancy/induced-phenomena.lua",
+      "source_tag": "tformat",
+      "source": "Reverses the polarity of your Cosmic Cycle.  If it's currently contracting, it will begin to expand, firing a homing missile at each target within the radius that deals %0.2f temporal damage.\n\t\tIf it's currently expanding, it will begin to contract, braiding the lifelines of all targets within the radius for %d turns.  Braided targets take %d%% of all damage dealt to other braided targets.\n\t\tThe damage will scale with your Spellpower.",
+      "target": "逆转你宇宙圈的极性。如果它正在收缩，它将开始膨胀，向半径范围内的每个目标发射一枚瞄准的飞弹，造成 %0.2f 时空伤害。\n\t\t如果它目前正在扩张，它将开始收缩，将半径范围内所有目标的生命线编织 %d 回合。被编织目标承受对其他编织目标造成的所有伤害的 %d%%。\n\t\t伤害受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "4c18e3a69ca8d16282a7d9ae939b1139e422f620f301e34baa7b3934169e63f7",
+      "revision_uid": "8fa041602b85c9de8cc9eb14dec57f28c7aa2e793ec8b05f7325fd277544df8e",
+      "tu_uid": "e529f2ff33579f777daf0ebad47ead45f70b0b36df2d35fa67eb1c583bd8570b",
+      "section": "mod-tome/data/talents/cunning/artifice.lua",
+      "source_tag": "tformat",
+      "source": "Your grappling hook is tipped with vicious, venomous barbs. Creatures struck by it will be hit for %d%% unarmed damage, bleed for %0.2f physical damage and be poisoned for %0.2f nature damage over 4 turns.",
+      "target": "你的钩爪上涂有毒素且装有尖刺，被击中的生物受到 %d%% 徒手伤害 ,在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "a0a130299c20640c23278b7ed289ac28d2d7c73b04b4d79ae1ea626db5da826f",
+      "revision_uid": "fe4e7a951026d0ef00b06dcbd60ad591fa3f1441c84c262338675c7265a33ca1",
+      "tu_uid": "d67a7a0fe156ad57e8d162112bc2f45eaa04e91603069ea699ffca4732660a0e",
+      "section": "mod-tome/data/talents/cursed/gloom.lua",
+      "source_tag": "tformat",
+      "source": "A terrible gloom surrounds you, affecting all those who approach to within radius 3. At the end of each game turn, those caught in your gloom must save against your Mindpower, or have a %d%% chance to suffer from slowness (30%%), stun or confusion (30%%) for %d turns.\n\t\tThe chance increases with your mind speed.\n\t\tThis ability is innate, and carries no cost to activate or deactivate.\n\t\tEach point in Gloom talents increases your Mindpower (current total: %d).",
+      "target": "可怕的黑暗光环笼罩着你，影响进入半径 3 格内的所有生物。每个游戏回合结束时，光环内的生物必须以精神豁免对抗你的精神强度；若豁免失败，则有 %d%% 几率陷入减速（30%%）、震慑或混乱（30%%）状态，持续 %d 回合。\n\t\t几率随你的精神速度提高。\n\t\t这是与生俱来的能力，启用或停用均不消耗资源。\n\t\t黑暗光环系技能每投入 1 点，都会提高你的精神强度（当前总计：%d）。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "c0cbfcc17c66a03f422d86c6b3aa1faf004d640b3d912d51ab8f59d0765e982b",
+      "revision_uid": "f8c39a1e0e43f25779dc1615f74a0567ae72e5ab288bf63bff7493e69568cc21",
+      "tu_uid": "0a93616a38318656a6ba5d1b0fdbaa932f6cd1b7e39ec2ec382177cbc82e606a",
+      "section": "mod-tome/data/talents/gifts/call.lua",
+      "source_tag": "tformat",
+      "source": "Meditate on your link with Nature.\n\t\tWhile meditating, your equilibrium decreases by %0.2f per turn, your Mental Save is increased by %d, and your healing factor increases by %d%%.\n\t\tYour deep meditation does not let you deal damage correctly, reducing the damage you and your summons deal by 50%%.\n\t\tAlso, any time you are resting (even with Meditation not sustained) you enter a simple meditative state that decreases your equilibrium by %0.2f per turn.\n\t\tThe activated effects increase with your Mindpower.",
+      "target": "你进入冥想，与大自然进行沟通。\n\t\t冥想时，你的失衡值每回合降低 %0.2f，精神豁免提高 %d，治疗系数提高 %d%%。\n\t\t深度冥想使你无法正常造成伤害，你和召唤物造成的伤害减少 50%%。\n\t\t另外，你在休息时（即使未维持冥想）会自动进入浅度冥想状态，使失衡值每回合降低 %0.2f。\n\t\t激活时效果受精神强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "b032150f4bbf3cbce12e4cfd579feb9284995ede9e13ca88a27896e3550df10f",
+      "revision_uid": "f29520d43994ea9657bd15793c59ab220b59aa695decabe91a8e3ed45de5f127",
+      "tu_uid": "38f1d77e9bdab7daf0235043bf072173732544b3ae6108151325f833f7796c52",
+      "section": "mod-tome/data/talents/gifts/summon-distance.lua",
+      "source_tag": "tformat",
+      "source": "Spit lightning on your foe, doing %d to %d damage.\n\t\tThe damage will increase with your Willpower.",
+      "target": "向单体敌人喷吐闪电造成 %d 到 %d 伤害。\n\t\t伤害受意志加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "1668a1dcefd12f0fa3b575297eb1a44f572474ad875446e843acf7fbba566d23",
+      "revision_uid": "e3fbd4c0ea47659c284db290aea145e0053c604af71b76436c01c1453bc68a60",
+      "tu_uid": "4ce9aeb37bf2997fc6583efff8028db6f210fd60dfe33109df4f2a573ed69f01",
+      "section": "mod-tome/data/talents/misc/npcs.lua",
+      "source_tag": "tformat",
+      "source": "Releases stinging spores at the target, blinding it for %d turns.",
+      "target": "向目标喷射孢子，使目标致盲 %d 回合。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "87813ba8a716a13a103c989418daba5243c3eafd2dfa5f1e65698a375cd07a43",
+      "revision_uid": "46e9ed37d1dd43dc3b4992e317fafaae17b5cb8fe29e299cf963bbd423b709ea",
+      "tu_uid": "72c674946f99ed3cd46db58b9f54c7ba8f6a93ee45399b6378545fa681520f60",
+      "section": "mod-tome/data/talents/misc/npcs.lua",
+      "source_tag": "tformat",
+      "source": "Use your telekinetic power to enhance your strength, allowing you to pick up an adjacent enemy and hurl it anywhere within radius %d.\n\t\tUpon landing, your target takes %0.1f Physical damage and is stunned for 4 turns.  All other creatures within radius 2 of the landing point take %0.1f Physical damage and are knocked away from you.\n\t\tThis talent ignores %d%% of the knockback resistance of the thrown target, which takes half damage if it resists being thrown.\n\t\tThe damage improves with your Mindpower and the range increases with both Mindpower and Strength.",
+      "target": "运用念动力强化你的力量，抓起一名相邻敌人，将其投掷到半径 %d 内的任意位置。\n\t\t落地时，目标受到 %0.1f 点物理伤害并被震慑 4 回合。落点半径 2 格内的其他生物受到 %0.1f 点物理伤害，并被击退至远离你的方向。\n\t\t该技能忽略被投掷目标 %d%% 的击退抵抗；如果目标抵抗了投掷，则只受到一半伤害。\n\t\t伤害受精神强度加成，投掷范围受精神强度和力量加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "6e5e3ffb5d1919e71f29edc427d680eecfcfa2a7ddb11c3487de79cfab9e4588",
+      "revision_uid": "47f3bff098722536f95f592ddb75f707d1dd9034f175b804c92d87abccae3a85",
+      "tu_uid": "55988e160fa6884287ca2be88e90bd6209278ddb63b6d1b66f7d544e9259f941",
+      "section": "mod-tome/data/talents/spells/advanced-golemancy.lua",
+      "source_tag": "tformat",
+      "source": "Insert a pair of gems into your golem, providing it with the gem bonuses and changing its melee attack damage type. You may remove the gems and insert different ones; this does not destroy the gems you remove.\n\t\tGem level usable: %d\n\t\tGem changing is done in the golem's inventory.",
+      "target": "在傀儡身上镶嵌 2 颗宝石，它可以得到宝石加成并改变近战攻击类型。你可以移除并镶嵌不同种类的宝石，移除行为不会破坏宝石。\n\t\t可用宝石等级： %d\n\t\t宝石会在傀儡的物品栏中改变成功。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "f9ca87b9fbe85aea94eb276a46a3b92e10bbbd7ddf38cd7d6a1d73c960207285",
+      "revision_uid": "f8ad195fad1e4d6b69773c930ac0587ac2cb939750ae4befa4e2984a04cc4e93",
+      "tu_uid": "8c0e8a49c0fc73194e82e71ab1cbbd0fb2cb998bd267151dc6a04c4b05c7c236",
+      "section": "mod-tome/data/talents/spells/divination.lua",
+      "source_tag": "tformat",
+      "source": "Echoes of the future flash before your eyes, allowing you to sense some incoming attacks.\n\t\tIf the attack is not physical, you will erect a temporary shield that reduces all damage of this type by %d%% for 5 turns.\n\t\tThis effect can only happen once every 5 turns, and happens before damage is taken.\n\t\tThe bonus will increase with your Spellpower.",
+      "target": "你的眼前会闪烁未来的景象，让你能够预知对你的攻击。\n\t\t如果攻击造成的不是物理伤害，你会创造一道临时护盾，使此类伤害降低 %d%%，持续 5 回合。\n\t\t此效果每隔 5 回合只能触发一次，且在承受伤害前被激活。\n\t\t效果受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "185090f6c8f56c55fe4fe850bd0ec0fe2facc682b6d6b6c7131526acf71f73aa",
+      "revision_uid": "a572ae41344143b4e6f762e305964b8a59c196b4032a68f6d584be5f7fb90b87",
+      "tu_uid": "943bdc858546e5050ef7880f2e6c708035e723497532a38f0cc00f6f314ea488",
+      "section": "mod-tome/data/talents/techniques/thuggery.lua",
+      "source_tag": "tformat",
+      "source": "You know how to hit the right places, gaining +%d%% critical damage modifier and %d armour penetration.",
+      "target": "你知道如何击中目标弱点，使你获得 +%d%% 暴击伤害加成和 %d 护甲穿透。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "c5452c2e7d5d33b5175294601f35d6496f6c56212dcfffbde48d0d91aad32374",
+      "revision_uid": "b3ff6bd7c0854895eb62947b66dbdd5f7955ab6fa51db944013ad428c6a860ee",
+      "tu_uid": "96b3b337f468f618849346ccb169322ef4be764549d8bb950eddcec6c5a60129",
+      "section": "mod-tome/data/talents/uber/const.lua",
+      "source_tag": "tformat",
+      "source": "Your Block talent now lasts for 2 game turns and you can apply Counterstrike to any number of enemies.",
+      "target": "你的格挡技能持续时间 2 回合，并且你可以反击任意数量的敌人。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "2be9d6fe4d3da1d9c4beab3a883c019acd31952e40d9b5b61eb59f783b6b59cf",
+      "revision_uid": "e1c79a399276a64573183cb06e163104ee3e5902aaa2e6494276765d056cd2c7",
+      "tu_uid": "895bf2ce8056e0b1c44bf968831368f48d4f90afe4cd3f6eb3e71fb56fceb903",
+      "section": "mod-tome/data/talents/uber/cun.lua",
+      "source_tag": "tformat",
+      "source": "Surround yourself with a malevolent aura that stores damage you deal.\n\t\tWhenever you have stored %d damage of one type you unleash a powerful blast at a random enemy dealing %d damage of that type in radius %d and applying one of the following effects:\n\n\t\tPhysical:\t\tSlows combat, mind, and spell speed by 20%%.\n\t\t#GREEN#Acid:#LAST#  Deals %d acid damage each turn for 5 turns (%d total).\n\t\t#DARK_GREEN#Blight:#LAST#  Deals %d blight damage each turn for 5 turns and reduces strength, constitution, and dexterity by %d.\n\t\t#GREY#Darkness:#LAST#  Reduces damage dealt by %d%% for 5 turns.\n\t\t#LIGHT_STEEL_BLUE#Temporal:#LAST#  Slows global action speed by %d%% for 5 turns.\n\t\t#ORANGE#Mind:#LAST#  Confuses (power %d%%) for 5 turns.\n\n\t\tEach effect can only happen once per 10 player turns.  This does not count as a typical cooldown.\n\t\tThe damage and effect power increase with your Cunning, the threshold with your level, and the apply power is the highest of your mind or spell power.\n\t\t%s",
+      "target": "你被灾厄光环笼罩，存储你造成的伤害。\n\t\t当你积累的某类伤害达到 %d 时，你会向一个随机的敌人发射一次强力的爆炸，造成 %d 的该类型伤害，爆炸半径 %d 码，并对其中的敌人附加以下的附加效果：\n\t\t物理：降低 20%% 攻击、施法和精神速度\n\t\t#GREEN#酸性 :#LAST#  每回合受到 %d 酸性伤害，持续 5 回合(总计 %d)。\n\t\t#DARK_GREEN#枯萎 :#LAST#  每回合受到 %d 枯萎伤害，力量、体质和敏捷减少 %d ，持续 5 回合\n\t\t#GREY#黑暗 :#LAST#  造成的所有伤害减少 %d%%，持续 5 回合。\n\t\t#LIGHT_STEEL_BLUE#时空 :#LAST#  全局速度降低 %d%%，持续 5 回合。\n\t\t#ORANGE#精神 :#LAST#  混乱 (强度 %d%% ) ，持续 5 回合。\n\t\t同种效果最多每 10 回合触发一次。这不是普通的技能冷却。\n\t\t伤害和效果强度受灵巧值加成，伤害阈值受等级加成，施加附加效果的强度由你的精神强度和法术强度的最高值决定。\n\t\t%s",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "1e8538510e8e37fb379dc644635f5967b063286d7237852dcca5651707a0c160",
+      "revision_uid": "ea87612e8cef8eeb4b0a9b8a924141ff464fda2a8928d3fac532ae07538e764f",
+      "tu_uid": "8d53d369872f50887cb037e7819381416cc37b40cffcf74e736dc9bdfb0c2ae0",
+      "section": "mod-tome/data/timed_effects/magical.lua",
+      "source_tag": "tformat",
+      "source": "The target is infected with a corrosive worm, reducing blight and acid resistance by %d%%. When the effect ends, the worm will explode, dealing %d acid damage in a 4 radius ball. This damage will increase by %d%% of all damage taken while under torment",
+      "target": "目标被腐蚀蠕虫感染，减少 %d%% 酸性和枯萎抗性，效果结束后，蠕虫团将爆炸，在半径 4 范围内造成 %d 酸性伤害。在该效果下受到伤害的 %d%% 将被加成至爆炸伤害中。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "be032814a89313f94eefeb6aa88ec802288680b04ed2a8a492848b6cb91a2e3e",
+      "revision_uid": "cfc00d9b2895f27a9c2fd2ae23f6fb370a7f507d17a23b83a767fa7398152ad8",
+      "tu_uid": "5ce17086c7be2ad5164482db3a8ed158234617f7bfde1e6cd2c20693ea20e21e",
+      "section": "mod-tome/data/timed_effects/magical.lua",
+      "source_tag": "tformat",
+      "source": "Improves/gives invisibility (power %d), and increases damage dealt to blind or dazzled creatures by %d%%.",
+      "target": "提升或获得隐形（强度 %d），对致盲或炫目目标造成的伤害提高 %d%%。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "ceb0722657f7c7ee28143cc3189a881639de6a44bbbe4c1c836d9a2331f9093b",
+      "revision_uid": "f463b644f610b43a9106acb290c0e51a9e6ec3b8171fbc2599dc433660149ab9",
+      "tu_uid": "461041f92b629efe1af15d50372384ca86f8216975438ed6639cd00032699251",
+      "section": "mod-tome/data/timed_effects/magical.lua",
+      "source_tag": "tformat",
+      "source": "The target is cursed, reducing all damage done by %d%%.",
+      "target": "目标被诅咒，所有伤害降低 %d%%。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "ba6df390d47b401f2e1d98f5cc1b990c662cd459af0c21e998ac3572d8465f2d",
+      "revision_uid": "a62a6d13df9275a83dbd367e3c8ed28e73a3cbc2b4a552d942d8df7e722b77ec",
+      "tu_uid": "5debdbd0877873c056dd543f6ea7bc44dd82f61074fffc4c56d89f759999c0b2",
+      "section": "mod-tome/data/timed_effects/other.lua",
+      "source_tag": "tformat",
+      "source": "Increases physical power, physical save, spellpower, spell save, mindpower, and mental save by %d.",
+      "target": "提高你 %d 点物理强度、物理豁免、法术强度、法术豁免、精神强度和精神豁免。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "preferred-term-present",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "620d2641d21902088d05649535c38a88ea9aab5639efd6198e4b9af110f4f7e7",
+      "revision_uid": "628a3a6e469479726a27548dfad33100d3b1ec792fc99201e6214a2f938e8410",
+      "tu_uid": "260730e2b4792bddb761002892fbb5b66c658252497a0822c0f624c3040288d3",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source_tag": "tformat",
+      "source": "The target's skin reacts to damage, granting %d armour.",
+      "target": "目标皮肤抵抗伤害，提升 %d 护甲值。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "b3f95ff505f0ee8a897044d143575186670ddc4719769559469813dfac2a2ea5",
+      "revision_uid": "f7b7dd166c6e239630e29eb8788f821878cef8fb87f08da9f2ecf9b69591562a",
+      "tu_uid": "dbebfab76316bcb37c0b65ef1620b46d5337339c3ce73f6e8b082075a0376f39",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source_tag": "tformat",
+      "source": "Parrying melee attacks: Has a %d%% chance to deflect up to %d damage from the next %0.1f attack(s).",
+      "target": "格挡近战攻击：有 %d%% 几率偏转接下来攻击中至多 %d 点伤害（剩余 %0.1f 次）。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    }
+  ]
+}

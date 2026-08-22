@@ -1,0 +1,574 @@
+{
+  "batch_id": "p1-b7-args-order",
+  "plan": "docs/p1-execution-plan.md",
+  "purpose": "bounded quality check over already-translated revisions",
+  "note": "Risk flags only order candidates for review. No entry in this batch is asserted to be defective; host source verification decides.",
+  "version": "tome-1.7.6",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "inventory_run": ".artifacts/i18n/quality/runs/20260818T112339.111182Z-inventory",
+  "inventory_sha256": "41877ad9f79c59058abbf1109beb054b4e8ad54ffa5edd6f02dd9181c55228f1",
+  "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+  "risk_rule_version": "risk-v1",
+  "profile_classifier_version": "profile-v1",
+  "filter": {
+    "component": "tome",
+    "profile": "mechanics",
+    "risk_flags_any": [
+      "has-args-order"
+    ],
+    "risk_flags_excluded": [],
+    "min_source_len": 40
+  },
+  "pool_size": 47,
+  "size": 24,
+  "sort_key": "revision_id",
+  "selection": "sha256(seed_str|revision_id) ascending",
+  "seed_str": "tome4-p1-b7|41877ad9f79c59058abbf1109beb054b4e8ad54ffa5edd6f02dd9181c55228f1|624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "items": [
+    {
+      "revision_id": "c13206e1600fc7777fcec48dd77048c6dce102eeb32c03444475611de2db6c42",
+      "revision_uid": "5b6d7ff18e8bfc48a1ddf009a34a3054a7684425eeab0e25925c89d9e02dfee7",
+      "tu_uid": "43fcd91b87fa216cf1c00feffb3c71b0e173f7fe3b75c6fb6a1a4ef5d67a8ee3",
+      "section": "mod-tome/data/general/objects/world-artifacts-far-east.lua",
+      "source_tag": "tformat",
+      "source": "invoke dawn, inflicting %0.2f light damage in radius %d (based on Magic) and lighting the area within radius %d",
+      "target": "激发黎明的光芒，在半径%d内造成%0.2f光系伤害（基于魔法），并照明%d码。",
+      "args_order": [
+        2,
+        1,
+        3
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "2fb2f6bd97db72980c910f5d7c676624b19d1919962dc59ebbf289a0fe5ab104",
+      "revision_uid": "4dd7ad6d1abacb9276790bdc35ca78a6bb64c32422215222a0ee7d1ddcb46616",
+      "tu_uid": "4e5fd9891900dfbddf9db42980da51f1d2e51336d244a85d4a379b7c2f34f287",
+      "section": "mod-tome/data/general/objects/world-artifacts.lua",
+      "source_tag": "tformat",
+      "source": "attempt to inflict %0.2f temporal damage (based on Spellpower and Paradox, if any) on foes in a radius %d ball out to range %d (chance depends on rank, summons are always affected), removing any that survive from time for up to %d turn(s)",
+      "target": "尝试对半径 %d 内的所有目标造成 %0.2f 时空伤害（射程 %d，基于法术强度和紊乱，若有的话；成功率取决于等级，召唤物必定受影响），存活者将被移出时间线最多 %d 回合。",
+      "args_order": [
+        2,
+        1,
+        3,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "5a12b22274a16e07fe9610542ccce4db693094788983cd971b0ec933b5fceca2",
+      "revision_uid": "685948f37277207197dd55406e51d1505238c239ff5fc9bfb4f5f2fcc656f5cb",
+      "tu_uid": "f77097ac383084b0640c175f4e554f7491515b375c8ea30077f90aeb4cf4f39a",
+      "section": "mod-tome/data/talents/celestial/chants.lua",
+      "source_tag": "tformat",
+      "source": "Your passion for singing the praises of the Sun reaches its zenith.\n\t\tYour Chanting now increases your light and fire damage by %d%% and, up to %d times per turn when you are hit by a weapon attack, you will gain %0.1f Positive Energy.\n\t\tThese values scale with your Spellpower.",
+      "target": "咏唱赞歌歌颂太阳的热情达到了顶峰。\n\t\t你的赞歌现在让你的火焰与光系伤害增加 %d%%。当你被武器攻击击中的时候，你恢复 %0.1f 点正能量，这一效果最多每回合触发 %d 次。\n\t\t效果受法术强度加成。",
+      "args_order": [
+        1,
+        3,
+        2
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "4a6af5f88ca18aafc5b5bf91621ac53ee053694319d05e7d70297cf6be69d6b8",
+      "revision_uid": "eec23cbc7b691dac6ce748cd4aacc1fce44d2dc3b0a2df8437141171342558f4",
+      "tu_uid": "673ee02e5415b226cc0b5286b37ece4b48774586de762db4ff2ae0de65ce0ebc",
+      "section": "mod-tome/data/talents/celestial/circles.lua",
+      "source_tag": "tformat",
+      "source": "Conjure a surge of celestial power through your circles. Any foe standing within one of your circles will be slowed by %d%% for %d turns and take %d light and %d darkness damage.\n\t\tResidual power from the surge will emanate from your circles for %d turns; each circle you stand in will increase your celestial resources.\n\t\tShifting Shadows: +1 negative.\n\t\tSanctity: +1 postive.\n\t\tWarding: +0.5 postive and negative.",
+      "target": "从你的法阵中召唤天体能量的潮涌。任何站在你的法阵中的敌人将会受到 %d%% 的减速效果，持续 %d 回合，并受到 %d 光系和 %d 暗影伤害。\n\t\t能量潮涌的残余力量将会从你的法阵中发出。在 %d 回合内，你每站在一个法阵中，都会获得额外的天体能量恢复。\n\t\t暗影之阵：获得 +1 负能量。\n\t\t圣洁之阵：获得 +1 正能量。\n\t\t守护之阵：获得 +0.5 正能量和负能量。",
+      "args_order": [
+        2,
+        1,
+        3,
+        4,
+        5
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "9754d8f40538505b00e7bf285a4fdd9426903007d12ffc2e36f7a162417af7a8",
+      "revision_uid": "c351696898995fd4f476aaf3f964e0d64d9971d57dfd2212282059b31684f59f",
+      "tu_uid": "7c9f740081fff9cd7f26cf87940faa3b31e4b9bf58f7a04f72daeb537173f205",
+      "section": "mod-tome/data/talents/chronomancy/energy.lua",
+      "source_tag": "tformat",
+      "source": "The next talent you cast with a cooldown of %d or less will not go on cooldown.\n\t\tOnce a talent is effected by this spell or %d turns pass the effect is lost.",
+      "target": "在接下来的 %d 回合内，你施放的下一个冷却时间不超过 %d 回合的技能不会进入冷却。\n\t\t一旦有技能受到此效果影响，或持续时间结束，该效果便会消失。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "b362d2fcd77e16d2e8169844e56f27a8a91419184b2b7ce93954e177b6b73fac",
+      "revision_uid": "696b0b4489f268519ceabb2cefc034c4920c327bf53598460a3abc757ba858b6",
+      "tu_uid": "9d79dea815685c60d1693b2a166622ba1010c510460d96b779707e76e4e72d22",
+      "section": "mod-tome/data/talents/chronomancy/temporal-combat.lua",
+      "source_tag": "tformat",
+      "source": "When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f physical (gravity) damage to enemies in a radius of %d.\n\t\tAffected targets may also be slowed, decreasing their global speed speed by %d%% for %d turns\n\t\tThis effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Fate and Fold Warp by one turn.",
+      "target": "当你用武器折叠命中时，有 %d%% 几率在半径 %d 内对敌人造成额外 %0.2f 物理( 重力) 伤害。\n\t\t受影响的生物还可能被减速，使其全局速度降低 %d%%，持续 %d 回合。\n\t\t这个效果有冷却时间。当处于冷却状态被触发时，会减少扭曲折叠和命运折叠 1 回合冷却时间。",
+      "args_order": [
+        1,
+        3,
+        2,
+        4,
+        5
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "32c46a2286893f5686f0ae71843659c3ea05fc7946334c2b214846c9969fbe99",
+      "revision_uid": "de3b0091a41c1d2af73c9703f253cb28e79851fa2d58a56b36f56d43e70b46db",
+      "tu_uid": "b9ef45c79d739bde534cecd35ef32effcb29e0a7fb38154f78880693ff019683",
+      "section": "mod-tome/data/talents/cunning/traps.lua",
+      "source_tag": "tformat",
+      "source": "Target knocked back up to %d grids%s and dazed.",
+      "target": "目标被击退到%s最多 %d 格，并眩晕。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order"
+      ]
+    },
+    {
+      "revision_id": "0e9abbbfe5a19f46705d5f5c461b64320885ab424e8af08725c1bee851907460",
+      "revision_uid": "19c58b48d2ebfa06a254357d99fecf594f57d1ff0fec620b0136b04133eb196c",
+      "tu_uid": "3143a16a177daad3f1e77680acbef57f9d391c94291427063d7a056c3c8c9642",
+      "section": "mod-tome/data/talents/cursed/punishments.lua",
+      "source_tag": "tformat",
+      "source": "Utter a terrible curse against any who dare approach you, inflicting %d mind damage to targets in radius %d. Each affected target (ordered at random) takes %d%% less damage than the last, and has a 25%% chance of suffering Brainlock.\n\nThe damage increases with your Mindpower.",
+      "target": "你对任何敢于靠近的敌人释放可怕的诅咒，对 %d 码半径内的目标造成 %d 精神伤害。攻击可能会指向多个目标，但是每个目标会减少 %d%% 伤害，攻击 25%% 概率附加思维封锁效果。\n\n伤害受精神强度加成。",
+      "args_order": [
+        2,
+        1,
+        3
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "f05b671cb7e1d6867ac36b8df609baf87b574d5c0759a1763e46dd640c9b4f75",
+      "revision_uid": "ea587fa9e7a5430d5a8c1c8df102108c7e49de02286c794ae79bf328ebac2f38",
+      "tu_uid": "6936d56f7ef13d69723745a46699dee218ac119273d0d0c5d3e834753dca85a6",
+      "section": "mod-tome/data/talents/gifts/cold-drake.lua",
+      "source_tag": "tformat",
+      "source": "Summons an icy wall of %d length for %d turns. Ice walls are transparent, but block projectiles and enemies.\n\t\tIce walls also emit freezing cold, dealing %0.2f damage for each ice wall within radius %d of an enemy, and with each wall giving a 25%% chance to freeze an enemy. This cold cannot hurt the talent user or their allies.\n\t\tEach point in cold drake talents also increases your cold resistance by 1%%.",
+      "target": "召唤一面长度为 %d、持续 %d 回合的冰墙。冰墙透明，但能阻挡抛射物和敌人。\n\t\t冰墙还会散发刺骨寒气，每格冰墙都会对半径 %d 内的敌人造成 %0.2f 点寒冷伤害，并各有 25%% 几率将其冻结。寒气不会伤害技能使用者或其盟友。\n\t\t冰龙系技能每投入一点，还会使你的寒冷抗性提高 1%%。",
+      "args_order": [
+        1,
+        2,
+        4,
+        3
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "c9354016f3bd79bc13b8663b9c2c65ed4c890824bcfd442819964386ce342182",
+      "revision_uid": "0683019e9f7107c310c7c2f1d236e3a84bfa0842812533ca007820119dd7cda9",
+      "tu_uid": "0bf56d07da2a7b1891e1cc7450dc5e32100a325a081660dc7ee8d4d48d099883",
+      "section": "mod-tome/data/talents/gifts/higher-draconic.lua",
+      "source_tag": "tformat",
+      "source": "Unleash raw, chaotic elemental damage upon your enemy.\n\t\tYou strike your enemy for %d%% weapon damage in one of blinding sand, disarming acid, freezing and slowing ice, dazing lightning or stunning flames, with equal odds.\n\t\tAdditionally, you will cause a burst that deals %0.2f of that damage to creatures in radius %d, regardless of if you hit with the blow.\n\t\tLevels in Prismatic Slash increase your Physical and Mental attack speeds by %d%%.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+      "target": "向你的敌人释放原始的混乱元素攻击。\n\t\t你有几率使用致盲之沙、缴械酸雾、冻结之息、眩晕闪电或震慑之焰攻击敌人，造成 %d%% 点对应伤害类型的武器伤害。\n\t\t此外，无论你的元素攻击是否命中敌人你都会对 %d 码半径范围内的生物造成 %0.2f 伤害。\n\t\t五灵挥击还会使你的物理和精神攻击速度提升 %d%%。\n\t\t如果你装备了盾牌，这一技能也会用你的盾牌攻击。",
+      "args_order": [
+        1,
+        3,
+        2,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "668ed05733aa6a55d8a7a2c0da4471c6428c186cc29c18f62c55ca4dbd8e646e",
+      "revision_uid": "b30a22a203ba9b02133cec686443a0d810fb50c62823ca6957ae32e7f05e59a9",
+      "tu_uid": "7682acb725ee0ad2dd425c6fb7c9a75f2786953301914dcc53d6690a9aab4189",
+      "section": "mod-tome/data/talents/gifts/ooze.lua",
+      "source_tag": "tformat",
+      "source": "You randomly merge with an adjacent bloated ooze, granting you 40%% all damage resistance for %d turns.\n\t\tThis process releases a burst of antimagic, dealing %0.1f Manaburn damage in radius %d.\n\t\tThis talent allows you to restore %0.1f Equilibrium per turn while Mitosis is active.\n\t\tThe damage, duration and Equilibrium restoration increase with your Mindpower.",
+      "target": " 你随机吸收一个紧靠你的浮肿软泥怪，获得 40%% 对全部伤害的抗性，持续 %d 个回合。\n\t\t同时你会释放一股反魔能量，在 %d 半径内造成 %0.1f 点法力燃烧伤害。\n\t\t如果有丝分裂技能开启，每回合你将回复 %0.1f 点失衡值。\n\t\t伤害、持续时间和失衡值回复受精神强度加成。",
+      "args_order": [
+        1,
+        3,
+        2,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "99d240ff521351466cac61646f8ceff1019c7926939c26a51f80052229b6ef51",
+      "revision_uid": "8575647ea1abb6f19d12a174eb5c2a07cc7bb196d7a0c74e722f489083d5b495",
+      "tu_uid": "0388064ad8a37f8cc6439f85055b2c0fa9538b405e15b6fa5989d17db0fd5466",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "source_tag": "tformat",
+      "source": "Activate the rune to get a vision of the area surrounding you (%d radius) and to allow you to see invisible and stealthed creatures (power %d) for %d turns.\n\t\tYour mind will become more receptive for %d turns, allowing you to sense any %s around.",
+      "target": "激活这个符文可以使你查看周围环境（ %d 有效范围），使你能看到隐身和潜行生物（ %d 强度），持续 %d 回合。\n\t\t你的精神更加敏锐，能感知到周围的 %s ，持续 %d 回合。",
+      "args_order": [
+        1,
+        2,
+        3,
+        5,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "8f00dbfb14cfd9e0b97212d40a047b0eff2c7d1b33b679379ab2b094c9b36f98",
+      "revision_uid": "074776271a8b68174b4f7677ef73eed32e12dfbce6323989bb5a8356ab4e922e",
+      "tu_uid": "535fe79a2034173943ab72f2f0f8264647d22bc982a0eba1b685a76870b4e8f2",
+      "section": "mod-tome/data/talents/misc/races.lua",
+      "source_tag": "tformat",
+      "source": "Halfling's incredible luck always kicks in at just the right moment to save their skin.\n\t\tWhenever you take %d%% or more of your life from a single attack, you gain %d%% Evasion and %d additional defense for the next %d turns. The defense increases based on your luck and other defensive stats.",
+      "target": "半身人强大的人品在关键时刻总能保他们一命。\n\t\t每当你受到超过 %d%% 生命值的单次伤害时，你在接下来的 %d 回合内获得 %d%% 躲闪概率和 %d 点闪避值（基于幸运和其他闪避相关数值）。",
+      "args_order": [
+        1,
+        4,
+        2,
+        3
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "3770baeaf33779789df0e8d78d7313d4be8b57eca3592fc11f5ce18101a9ed80",
+      "revision_uid": "643ebacf6a8f114f1525ae8157b5854dd271d2cb2a51344b29dd4958d2240319",
+      "tu_uid": "8832b1d5a247b006de8bd57c2781a29edbf69d2705b9b2e6b93025c2fa1a011c",
+      "section": "mod-tome/data/talents/psionic/focus.lua",
+      "source_tag": "tformat",
+      "source": "Mentally focus electricity into a ball of plasma and hurl it at the target.\n\t\tThe plasma will explode on impact, dealing %0.1f Lightning damage within radius %d.\n\t\tThis talent will apply cross tier Brainlock.\n\t\tThe damage will increase with your Mindpower.",
+      "target": "念力电离空气，将等离子体球掷向敌人。\n\t\t等离子球会因碰撞而爆炸，造成半径为 %d 的 %0.1f 闪电伤害。\n\t\t此技能将施加越层效果“思维封锁”。\n\t\t伤害受精神强度加成。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "9c33961add4f019c1d845bbbf73af0073c03b3ddf4152b184e43885a9f499436",
+      "revision_uid": "96c6f26d61bf2b28d9973d36f81a81126e31d6203390dd969bb1c8ff7e435a05",
+      "tu_uid": "2dcf15516ea0744781d803da9d702d9910e607f5246c0a2e07aac3f2a7c8f17a",
+      "section": "mod-tome/data/talents/psionic/voracity.lua",
+      "source_tag": "tformat",
+      "source": "You draw electical potential energy from your surroundings to replenish your Psi.\n\t\tThis deals %0.1f (max %0.1f) Lightning damage to all targets around you within radius %d, and has a %d%% (max %d%%) chance to daze them for 3 turns.\n\t\tYou replenish %d (max %d) Psi from the first target, with each additional target restoring 20%% less than the one before it.\n\t\tThe strength of these effects increases as your Psi depletes and with your Mindpower.",
+      "target": "你从周围吸取电能，以补充自己的灵能值。\n\t\t对半径 %d 格内的所有目标造成 %0.1f（最多 %0.1f）点闪电伤害，并有 %d%%（最多 %d%%）几率使其眩晕 3 回合。\n\t\t从第一个目标处恢复 %d（最多 %d）点灵能值，此后每多一个目标，恢复量比前一个减少 20%%。\n\t\t灵能值越低、精神强度越高，这些效果就越强。",
+      "args_order": [
+        3,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "fb89c051332625fb662fba5af1cbde7470445d723fc35902bb235a979698a75a",
+      "revision_uid": "2dddbe13e8d4625e4d8ae21d702fd7029df7b9b98674d0ce0da73d5a09fc2eb5",
+      "tu_uid": "f6fc5898050242ecdd9f3faf392874d39893ad35cdbb4258ecd11e3786f0b3c6",
+      "section": "mod-tome/data/talents/spells/eldritch-shield.lua",
+      "source_tag": "tformat",
+      "source": "Slam your shield on the ground creating a shockwave.\n\t\tYou perform a melee attack for %d%% arcane damage against everyone within radius %d.\n\t\tAny creature hit by the attack will be submitted to a Counterstrike effect for 3 turns, as if you had blocked against them.\n\t\tAt level 5 your Block cooldown is reset.",
+      "target": "用盾牌猛击地面，制造冲击波。\n\t\t对半径 %d 内的生物造成 %d%% 奥术武器伤害。\n\t\t所有被击中的目标将会进入可以反击的状态 3 回合，就像你格挡了它们的攻击那样。\n\t\t在等级 5 时，你的格挡技能冷却也会被重置。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "8618efd7627691da576af49fa48f8384657724ff5e929c422315a41c714e2bf8",
+      "revision_uid": "2789ac13b39680813c56a11d8c9764551a8001552352f263be02990ea3694dda",
+      "tu_uid": "f0c94409b0375d01eb80c4f8dcf48ac41d64998ba79d6a0695d37f2ae11e5ea9",
+      "section": "mod-tome/data/talents/spells/glacial-waste.lua",
+      "source_tag": "tformat",
+      "source": "Every time your shield loses %d%% of its original value a circle of desolate waste will spawn under you, lasting 6 turns, and dealing %0.2f cold damage per turn to foes within radius %d.\n\t\tIf a creature is hit by your hiemal shield's retribution bolt while on the waste, the shield feeds of the wasteland to regenerate %0.1f%% of its original value.\n\t\tNo more than %d desolate wastes can trigger per shield activation.\n\t\tThe damage will increase with your Spellpower.",
+      "target": "每当护盾损失相当于原始护盾值 %d%% 的能量时，你脚下会生成一片荒芜之地，持续 6 回合；它每回合对半径 %d 格内的敌人造成 %0.2f 点寒冷伤害。\n\t\t若生物站在荒芜之地上被寒冬护盾的反击冰弹命中，护盾会汲取荒地的能量，恢复原始护盾值的 %0.1f%%。\n\t\t每次启用护盾最多触发 %d 片荒芜之地。\n\t\t伤害随你的法术强度提高。",
+      "args_order": [
+        1,
+        3,
+        2,
+        4,
+        5
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "7b59869c4ff64ba517ef3393cea333697f764a1120aad73f81ff43def58aa582",
+      "revision_uid": "868b9e023e85dcfe183c30a0975b60458aecc3d8122ec0a6ca5e1a6c249b9a1f",
+      "tu_uid": "630b87f98da96af2e67de08fae26245d53d347e13aa0bdf05719fe369b187010",
+      "section": "mod-tome/data/talents/spells/grave.lua",
+      "source_tag": "tformat",
+      "source": "Conjures up a bolt of cold that moves toward the target and explodes into a chilly circle of death, doing %0.2f cold damage in a radius of %d.\n\t\tNecrotic minions caught in the blast do not take damage but are instead coated with a thin layer of ice, reducing all damage they take by %d for 4 turns.\n\t\tThe damage will increase with your Spellpower.",
+      "target": "召唤一道寒冰箭射向目标，并爆裂成冰冷的死亡之环，对半径 %d 内的生物造成 %0.2f 点寒冷伤害。\n\t\t被爆炸波及的死灵随从不会受到伤害，而会覆盖一层薄冰，使其在 4 回合内受到的所有伤害降低 %d 点。\n\t\t伤害受法术强度加成。",
+      "args_order": [
+        2,
+        1,
+        3
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "0117dc2fe5de0301dc91305c15fd752a09a4650dcb165ccdb9baa4400bf8e854",
+      "revision_uid": "197ebcce8e16e776e21e094740748128938a8718aa7051a970d6c137f370ad43",
+      "tu_uid": "f5e26714d990d717e63f7cb42b24ccca48b05b9d06ae14acbe2b09e99fafb625",
+      "section": "mod-tome/data/talents/techniques/battle-tactics.lua",
+      "source_tag": "tformat",
+      "source": "Concentrate on your blows; for %d turns, each strike you land on your target in melee range has a %d%% chance to trigger another, similar strike.\n\t\tThis works for all blows, even those from other talents and from shield bashes, but you can gain no more than one extra blow with each weapon during a turn.\n\t\tThe chance increases with your Dexterity.",
+      "target": "专注于你的攻击，每次攻击有 %d%% 概率对目标造成一次类似的附加伤害，持续 %d 回合。\n\t\t此效果对所有攻击，甚至是技能攻击或盾击都有效果，但每回合每把武器最多获得一次额外攻击。\n\t\t概率受敏捷值加成。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "f29c5c9ed295a344f4370f2332a23ee0d4bdf37611c5bf6d2234cd562c7e4364",
+      "revision_uid": "cd17b05c88fd5e16e0b5bb5f2c69b2c18d41ac651e09faf86e10c31e437949eb",
+      "tu_uid": "06128ca80e0a6009337de4117aaa49838aa74301098389415cca3afebb3e672e",
+      "section": "mod-tome/data/timed_effects/magical.lua",
+      "source_tag": "tformat",
+      "source": "The target is surrounded by a stone shield absorbing %d/%d damage.  When the shield is removed, it will explode for up to %d (currently %d) Arcane damage in a radius %d.",
+      "target": "目标被一层岩石护盾围绕，吸收 %d/%d 点伤害。护盾消失时会爆炸，对半径 %d 内的目标造成至多 %d（当前 %d）点奥术伤害。",
+      "args_order": [
+        1,
+        2,
+        5,
+        3,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "122d658ee7464e0457f0a239514fa31fcb40cc2e59a7e988977c89e29ca1c735",
+      "revision_uid": "412ed137c2249f44c0f0c253a4dff9533a2c5e487efdcac2fb44cb209d90bf43",
+      "tu_uid": "27a69075a93e1d1a4c9a35d2e7c6655d50409fdf59550fc56bab9334c9d68c10",
+      "section": "mod-tome/data/timed_effects/mental.lua",
+      "source_tag": "tformat",
+      "source": "The target is in a state of growing fear. If they spend %d more turns within range %d and in sight of the source of this fear (%s), they will take %d mind and darkness damage and be subjected to a new fear.",
+      "target": "目标处于恐惧加深的状态中。如果继续在恐惧源头 (%s) 的 %d 范围内（以及其视野内）停留 %d 回合，将会受到%d精神和暗影伤害，并被灌输新的恐惧。",
+      "args_order": [
+        3,
+        2,
+        1,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "36ed00c6a37e94df55fc623df53d3f4d10a2db5f72d31700ff92527d4fbe5c9e",
+      "revision_uid": "a61deafa5c6f66107faf291d03ae89cecccdab6082e4aa0143f167fed8356039",
+      "tu_uid": "3061f26465473c506a8513e7aa82178f9c7b8e2690d11f928852f69cbe92db8e",
+      "section": "mod-tome/data/timed_effects/mental.lua",
+      "source_tag": "tformat",
+      "source": "The target's subconscious has focused, increasing Mind resistance penetration by +%d%% and turning its attention on %s.",
+      "target": "目标的潜意识集中在 %s ，增加%d%%精神抗性穿透。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit",
+        "source-target-length-outlier"
+      ]
+    },
+    {
+      "revision_id": "c82d7fe6258b9c7981f2b29374d1e7d84f028f54963703a18f96d843485069de",
+      "revision_uid": "110bb6c569dc2f89402f1627ac003ea29f1f013d947e458239d8876c4cdfadca",
+      "tu_uid": "681ceb28acaa0ad24f64c7bb6761b4f071380d26d0fa90157c8dde1b4a019742",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source_tag": "tformat",
+      "source": "Target is currently moving with %d%% additional speed in a single direction (%s). Stopping or changing directions will remove this effect.",
+      "target": "目标单方向（%s）移动时获得 %d%% 额外速度。停止或者改变方向将取消此效果。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "f53835f9612a964f59e05930d8cc176370a5dc1bf0bf40463e84ef4107f1d966",
+      "revision_uid": "5cf1e0a674a10c4e363a76cd48ff7d0b6d5acf8e92691c38b865d3353b860c75",
+      "tu_uid": "8c38a150017bc0168078b5359a6f1941fcb17462a3df643ee14a62ea1a28f340",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source_tag": "tformat",
+      "source": "The target is being ravaged by distortion, taking %0.2f physical damage %s",
+      "target": "目标被疯狂扭曲，%s受到 %0.2f 物理伤害",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit"
+      ]
+    }
+  ]
+}

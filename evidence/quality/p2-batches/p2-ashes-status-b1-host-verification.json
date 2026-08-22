@@ -1,0 +1,25 @@
+{
+  "batch_id": "p2-ashes-status-b1-player-visible",
+  "workset_sha256": "a5a56b5711d99b89408c720ab9daf077e4896c8a334bf4332267881cad3eb3e5",
+  "fixed_source_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+  "summary": {"reviewed": 17, "confirmed": 1, "no_issue": 16, "insufficient_evidence": 0},
+  "revisions": [
+    {"revision_id":"1dd5b0ca463f8d11359a1f63909422c6d3da006fd1256f4531e0e6ba177ca8f3","status":"no_issue","evidence":"BLEAK_OUTCOME callbackOnDeath restores source vim using its effect stacks."},
+    {"revision_id":"280e11cc931d684a62959fc605102e782e766746fad517bce5d743d8268a8e4a","status":"no_issue","evidence":"DEMON_BLADE callbackOnMeleeAttack projects a radius-one fire ball on each qualifying hit."},
+    {"revision_id":"81ea1eaba9c04aac7f30820df2dbcf6595466ca876672ae8ad4b45607b0070a6","status":"no_issue","evidence":"FIERY_GRASP applies movement prevention, fire damage, and its optional silence."},
+    {"revision_id":"87d52146fa9db743f5c2277e5d341f0e53d504ae4dec7eb12864d7b6d8741ed7","status":"no_issue","evidence":"BURNING_PLAGUE deals periodic fire damage and its death callback spreads/explodes the flame."},
+    {"revision_id":"4f97f44cd04e766d5e451c92dcaad7331d23be48adc0bbd63a472f5de774d733","status":"no_issue","evidence":"DEMON_SEED_CORRUPT_LIGHT activates inc_damage.all by the displayed percentage."},
+    {"revision_id":"08eee8738602f8d86af34ade0b704d40ecf616b76313bb753aa67d50d7f0fd9b","status":"no_issue","evidence":"DEMON_SEED stores the displayed maturation-recovery chance and handles it on death."},
+    {"revision_id":"bd9a48df32772f7474a9cc042f38f77ed99c0a67631109f53d0b798ed60e3825","status":"no_issue","evidence":"CURSED_FLAMES timeout heals its source and grants vim while fire effects remain."},
+    {"revision_id":"be731c0630370a79044a753b0589ccc9fafbc5bd2245b2a24830dd055ddaf8c3","status":"confirmed","evidence":"FIERY_TORMENT activates fire resistance reduction and fiery_torment vulnerability; its long description explicitly says the target is highly vulnerable to Fearscape flames.","required_correction":"Translate the heightened Fearscape-flame vulnerability, not merely ordinary burning, and use the established name 恐惧空间."},
+    {"revision_id":"e6448fed9cf501648d719e7a8097d13bf082826d86e3633a60f316add075d9a4","status":"no_issue","evidence":"PURIFIED_BY_FIRE removes the displayed percentage of maximum life each turn."},
+    {"revision_id":"0d7a42bfb2e283141533a23a2443602ba35fce9743a92263af7080f633183e4e","status":"no_issue","evidence":"LINK_OF_PAIN callbackOnHit transfers the displayed percentage to eff.victim."},
+    {"revision_id":"60df47e53bd199493ba9d0be1029bf7378732b47a4a9c53af2105e295c138075","status":"no_issue","evidence":"FIRE_SHIELD tracks absorption then damages its displayed radius when it collapses."},
+    {"revision_id":"04c3e6345962bd4705d67f18d5c6b57f322f230a033a41099bd4de437be16258","status":"no_issue","evidence":"ONLY_ASHES_LEFT ends on death or when the source is absent or beyond max distance."},
+    {"revision_id":"b6da2079c1d1e199c53b0567a22c659632ab1f32a8d01c76c7e4a03569b2a93f","status":"no_issue","evidence":"OMINOUS_SHADOW converts all damage and uses auto-highest darkness increase and penetration."},
+    {"revision_id":"d2668e18ec913ef09242b1a92f330e3b8e354697c7561c36fb7624fc029b62c8","status":"no_issue","evidence":"FIRE_HAVEN grants 40 fire affinity and -15 blight resistance."},
+    {"revision_id":"81d19c9c1b77a34b51a502b68bf9417775f17622dfd930b1c352ba8a5264c080","status":"no_issue","evidence":"DEMON_SEED_DOOMED_NATURE adds failure chances for natural and mind talents and projects radius-one fire on failure."},
+    {"revision_id":"804a0fcfb6d4726e31afd03b8b7cfa91d43ccaf13ef13f8f8514c3dd9a7fa19c","status":"no_issue","evidence":"VORACIOUS_BLADE grants critical certainty for the remaining melee-hit count and adds critical power."},
+    {"revision_id":"b22992a3255537e03b8fce5f5eb96e4229faad0b0b53d1cec7e6fec7c1085982","status":"no_issue","evidence":"REBIRTH_BY_FIRE directly splits its periodic life loss among itself and burning foes in the displayed radius."}
+  ]
+}

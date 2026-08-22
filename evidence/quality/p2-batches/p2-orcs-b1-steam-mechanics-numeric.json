@@ -1,0 +1,2261 @@
+{
+  "batch_id": "p2-orcs-b1-steam-mechanics-numeric",
+  "purpose": "bounded quality check over already-translated Orcs steam player mechanics",
+  "note": "Risk flags select candidates for host review only; no item is asserted defective.",
+  "version": "tome-1.7.6",
+  "source_baseline": {
+    "kind": "protected-extraction-snapshot",
+    "snapshot_sha256": "c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+    "tdef_count": 4493,
+    "public_dlc_baseline": "1.7.4"
+  },
+  "inventory_run": ".artifacts/i18n/quality/runs/20260818T161025.306703Z-inventory",
+  "inventory_sha256": "ff75830d8648c55e58ec8f837aa8722c215abfccbd93f81693961138f7ba65ce",
+  "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+  "risk_rule_version": "risk-v1",
+  "profile_classifier_version": "profile-v1",
+  "filter": {
+    "component": "orcs",
+    "profile": "mechanics",
+    "risk_flags_any": [
+      "source-has-number-or-unit",
+      "source-has-negation-or-condition"
+    ],
+    "min_source_len": 80,
+    "section_prefixes_any": [
+      "tome-orcs/data/talents/steam/"
+    ]
+  },
+  "pool_size": 172,
+  "size": 24,
+  "sort_key": "revision_id",
+  "selection": "sha256(seed_str|revision_id) ascending",
+  "seed_str": "tome4-p2-orcs-b1|ff75830d8648c55e58ec8f837aa8722c215abfccbd93f81693961138f7ba65ce|c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+  "items": [
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 4606,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 1936,
+          "section": "tome-orcs/data/talents/steam/automation.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "175951fda3f21bca46fca01e9ee6146bf5f32d9032292e6dbdaab80ed0717b41",
+      "revision_uid": "4bd2954f41878c42183837a7015b70c221e1cec8c04badc569ca76f1d97a769f",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/automation.lua",
+      "source": "Sends a lightly electrified net of radius 2 toward a target, all creatures caught inside will be pinned in place for 5 turns.\n\t\tWhile the electricity is not enough to do damage it does shock their body, reducing all resistances by %d%%.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 1,
+          "target": 1
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "向目标发射一张半径 2 格的轻微带电网，范围内的所有生物会被定身 5 回合。\n\t\t电流虽不足以造成伤害，却会电击它们的身体，使所有抗性降低 %d%%。",
+      "tu_uid": "7e9b16e4045f087e53cd60f67e93329502fa94b0f75dbeaf5fc7354fd39cad43",
+      "unit_id": "65d4e6c87276c45a621ba6a9b7aaceeb85764e31b19a614a540b704d8e24c584",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5502,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2279,
+          "section": "tome-orcs/data/talents/steam/other.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "bfef07276e1337bfdf9e47a9d3c8e5a32859ad8b47131449a82243b6cfcf3203",
+      "revision_uid": "4ea28bfaa9bb372a558f4e6505a8d3076a842354f51a285a8c0956c91b2e7c2b",
+      "risk_flags": [
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "source": "Shatters the mind of your victim, giving you full control over its actions for 6 turns.\n\t\tWhen the effect ends, you pull out your mind and the victim's body collapses, dead.\n\t\tThis effect does not work on rares, bosses, or undead.\n\t\t.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [],
+          "source_conversions": [],
+          "source_raw": [],
+          "target_conversions": [],
+          "target_raw": []
+        }
+      },
+      "target": "粉碎你的受害者的内心 ,给你完全控制其行为 6 回合。\n　　当效果结束时 ,你抽出了自己的思维，受害者的身体会崩溃 , 死亡。\n　　稀有怪、boss 、亡灵不受控制。\n\t\t",
+      "tu_uid": "82e9daf68737f04572d6722b27391dd9d56681a60e1febfb69d8263d3f34e873",
+      "unit_id": "d89b855373db1ea9952e48239d16741e1df4533275170b3d941d2a2c49a01e72",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 4681,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 1964,
+          "section": "tome-orcs/data/talents/steam/battle-machinery.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "237178776b68382cb3367444c75bf75b379568dbd77019361326d235d6a75f69",
+      "revision_uid": "983ea7ce9c33a1da557abf951ab661a13f4f6e6baeeb9f8a7d1737224d3c7ee8",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/talents/steam/battle-machinery.lua",
+      "source": "On its last pulse, your Tremor Engine shakes violently, raising a volcano for %d turns.\n\t\tEach turn, the volcano will send out fiery boulders that deal %0.2f fire and %0.2f physical damage.\n\t\tDamage scales with your Steampower.\n\t\t#{italic}#All the fury of fire at your disposal!#{normal}#",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {
+            "#{italic}#": 1,
+            "#{normal}#": 1
+          },
+          "target": {
+            "#{italic}#": 1,
+            "#{normal}#": 1
+          }
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "f",
+            "f"
+          ],
+          "source_conversions": [
+            "d",
+            "f",
+            "f"
+          ],
+          "source_raw": [
+            "%d",
+            "%0.2f",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "d",
+            "f",
+            "f"
+          ],
+          "target_raw": [
+            "%d",
+            "%0.2f",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "巨震引擎的最后一次爆发输出撕裂地面，引出岩浆，形成一座火山，持续 %d 回合。\n\t\t每回合，火山会喷出熔岩球，造成 %0.2f 火焰伤害 %0.2f 物理伤害。\n\t\t伤害受蒸汽强度加成。\n\t\t#{italic}#品尝火焰之怒吧！#{normal}#",
+      "tu_uid": "d653b8fe5f1b808368708529bd560c13d70153c26c67564b66a68639ad71ee9f",
+      "unit_id": "0f0d5ba225170375a72d55a5060e1b1a892f5e0ad42375fef8466eefbffa0a14",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5586,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2310,
+          "section": "tome-orcs/data/talents/steam/other.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "022c6fd88fdc241cd8bc31725cd230b7118314581bea9f84df7d9235d9de94fc",
+      "revision_uid": "2d1963c0e793cce21fb440e662525627ff253e6138612983a63b7007979dc422",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "source": "You fire a special solid shot with your steamgun(s) at a target for %d%% physical weapon damage.\n\t\tThe weight of the shot will knock the target back %d tiles.\n\t\tThis talent does not use ammo as it is the ammo.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 2,
+          "target": 2
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "你使用蒸汽枪发射特殊固体打击目标造成 %d%% 武器伤害。\n　　击退目标 %d 码。\n   这个技能不使用弹药 ",
+      "tu_uid": "62a252a0d013a054f8e68772b0cb81b6c80d4c6fce560325f7e33896dceee9d7",
+      "unit_id": "2fb5bbfa44aa1953550385562dab3275a4c5f263cffae86cacb39a911f4e2c9a",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 4795,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 1998,
+          "section": "tome-orcs/data/talents/steam/butchery.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "17aff34a46ce66bfe966fd202c25c5e0c68f44216d29a351ae0d00d9d6d7af2e",
+      "revision_uid": "b31583271a10287b79c8b549fc27bb3fa7382755bbb6c94141576dfd4540cd9f",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/talents/steam/butchery.lua",
+      "source": "Continuously swing your steamsaws around you, dealing %d%% weapon damage to adjacent foes each time you attack.\n\t\tYour chaotic motions make it difficult for anything to hit you, granting %d%% chance to completely negate all damage.\n\t\tDamage avoidance chance increases with Steampower.\n\t\t#{italic}#Make the metal talk!#{normal}#",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {
+            "#{italic}#": 1,
+            "#{normal}#": 1
+          },
+          "target": {
+            "#{italic}#": 1,
+            "#{normal}#": 1
+          }
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "持续挥舞你的链锯，每次你攻击时对周围敌人造成 %d%% 武器伤害。\n\t\t你狂乱的动作使你很难被命中， %d%% 几率无视伤害。\n\t\t伤害无效概率随蒸汽强度提高。\n\t\t#{italic}#感受金属之怒吧！！#{normal}#",
+      "tu_uid": "ddcd433b7a1227739a0477b3e3b34ebe8813c1e17cbefdbf2bda742427c3c918",
+      "unit_id": "a6b893a1b48a83d39e2eab8542f58f181dcbad8eb2ed393545a495b60aa66f1c",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 4811,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2002,
+          "section": "tome-orcs/data/talents/steam/chemical-warfare.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "5239de3746101930c6050dfdb6c6964a12e50603144a7e71abc1a16be36aa216",
+      "revision_uid": "2fca1db8d9b2e94a752ead11e3132814c95fb280037efa6ccf88a6b905596c98",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/chemical-warfare.lua",
+      "source": "You repurpose your steam engine to emit a cloud of toxic, corrosive chemicals around you.\n\t\tEach time you use a non-instant steamtech talent, you create a radius 3 cloud of miasma for 5 turns. All enemies within the miasma have %d%% reduced healing and %d%% chance to fail talent usage.\n\t\tEach time miasma is reapplied the failure chance increases, up to %d%% after 5 reapplications.\n\t\tThe first time each turn a target affected by miasma is hit by a melee or ranged attack the miasma seeps into their wounds, dealing an additional %0.2f acid damage.\n\t\tMiasma duration does not increase on re-apply.\n\t\tWhen a creature survives the miasma it becomes immune to it for 9 turns.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 5,
+          "target": 5
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d",
+            "f"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d",
+            "f"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d",
+            "f"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "你使用你的蒸汽机，在你的周围产生一股有毒且有腐蚀性的化学物质形成的云雾。\n\t\t每当你使用一个非瞬发的蒸汽科技技能的时候，你会在周围产生半径为 3 码的瘴气，持续 5 回合。所有被包裹入瘴气的敌人治疗效果减少 %d%%，且会有 %d%% 的几率使用技能失败。\n\t\t瘴气效果叠加的时候，这一技能使用失败的几率也会上升，最多叠加五次，达到 %d%%。\n\t\t当被瘴气影响的目标每回合第一次被近战或远程攻击击中的时候，瘴气会渗入他们的伤口，造成 %0.2f 额外的酸性伤害。\n\t\t瘴气效果叠加的时候，持续时间不会叠加。\n\t\t当一个生物在瘴气效果中存活下来后，它会免疫瘴气效果 9 回合。",
+      "tu_uid": "8b09cd9e2279fc4ea0966dbd94afff43eaf2c7e731723459674f8654fec3b046",
+      "unit_id": "b03524f9d7bd75bd19aef626ec5d7abc27c22a8f37ae4a684781643fc38cd1f1",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 4984,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2062,
+          "section": "tome-orcs/data/talents/steam/furnace.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "85589e79e600c60634b3105f27c11410894d23c38af5c64db72f323c223743f3",
+      "revision_uid": "64795a14de804973ae802420c4d90ac046fd9667adc868bdf1bec7e220690dd5",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/furnace.lua",
+      "source": "You add a portable furnace to your steam generators.\n\t\tWhile it is active your fire and physical damage increases by %d%% and your fire and physical resistance penetration by %d%%.\n\t\t#{italic}#Burninate all with awesome Steam power!#{normal}#\n\t\t",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {
+            "#{italic}#": 1,
+            "#{normal}#": 1
+          },
+          "target": {
+            "#{italic}#": 1,
+            "#{normal}#": 1
+          }
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "你往蒸汽制造机中安装一个便携式熔炉。\n\t\t熔炉激活时，你的物理和火焰伤害增加 %d%%，物理和火焰抗性穿透增加 %d%%。\n\t\t#{italic}#用蒸汽烧尽一切！#{normal}#\n\t\t",
+      "tu_uid": "d9e58f18632783d0f3d0b339886d8be259d437c8358b64f1ae3b5f97caf908d9",
+      "unit_id": "dfd58503bc24c4b917f92d90ee1ea27c27c3f7c8d4586d3036ca5513f0a753a1",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": null,
+        "format_signature_match": null,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5797,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2376,
+          "section": "tome-orcs/data/talents/steam/steam.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "58c5d7b67e9f4b4dcdb78fb252f876db38f7a5ab900763f5169b0bee081665c4",
+      "revision_uid": "cadb85fdf89b29affd373ddd359a58237194d97e994b7843301ef7cb7128b48a",
+      "risk_flags": [
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/steam.lua",
+      "source": "You don't just know how tinkering works, you know all the interesting details too!",
+      "source_length_bin": "long",
+      "source_tag": "_t",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [],
+          "source_conversions": [],
+          "source_raw": [],
+          "target_conversions": [],
+          "target_raw": []
+        }
+      },
+      "target": "你不仅懂得蒸汽工艺的运作原理，还掌握了其中所有有趣的细节！",
+      "tu_uid": "b495c4b6ae014d13e18bec834afbf7d6f09960e00957db273a01187a6154b903",
+      "unit_id": "341e4b0346b3b4ba1f1637247088a5fb8aad6cf067b990a9b5a963740afd687a",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5598,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2314,
+          "section": "tome-orcs/data/talents/steam/other.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "5f883c1b536bc482782c12f921fc3edf041286c4162d13c2831ab48c2ee0dc57",
+      "revision_uid": "742a247fb036b0a9c8049830454451f7d128352ced1b908ecbeccb10092a593b",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "source": "You fire a special steamsaw shot with your steamgun(s) at a target for %d%% physical weapon damage.\n\t\tThe steamsaw will cut into the target, doing %d%% physical weapon damage over 5 turns.\n\t\tThis talent does not use ammo as it is the ammo.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 2,
+          "target": 2
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "你使用蒸汽枪发射特殊弹药打击目标造成 %d%% 武器伤害。\n链锯会切割目标，在 5 回合内造成 %d%% 武器伤害 \n这个技能不使用弹药 ",
+      "tu_uid": "f88a184054080ba90640cf7eac22c2077ac9fc039376b39249d07f202cc0b027",
+      "unit_id": "9b2ef20d83812bdf48d43f93c78e970dcf3226daac4fdf5924c9fad66b4cb0ff",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5004,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2066,
+          "section": "tome-orcs/data/talents/steam/furnace.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "6f67e46123583cb422503657e8ebd722aab2202400229cc5027020bbd8f16c26",
+      "revision_uid": "5d09ff177e289268cefa56c23f01889893df4ca3dac799f422c71e2ceeb0c7e6",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/talents/steam/furnace.lua",
+      "source": "Open the vents on your furnace, creating a conic blast dealing up to %0.2f fire damage at 10 molten points (currently %0.2f).\n\t\tAll molten points are consumed.\n\t\tThe damage will increase with your Steampower.\n\t\t#{italic}#By fire be purged!#{normal}#\n\t\t",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {
+            "#{italic}#": 1,
+            "#{normal}#": 1
+          },
+          "target": {
+            "#{italic}#": 1,
+            "#{normal}#": 1
+          }
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 4,
+          "target": 4
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f",
+            "f"
+          ],
+          "source_conversions": [
+            "f",
+            "f"
+          ],
+          "source_raw": [
+            "%0.2f",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "f",
+            "f"
+          ],
+          "target_raw": [
+            "%0.2f",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "打开熔炉通风孔，制造锥形爆风；拥有 10 点融化点数时最多造成 %0.2f 火焰伤害（当前 %0.2f 点）。\n\t\t消耗所有融化点数。\n\t\t伤害随蒸汽强度提高。\n\t\t#{italic}#让火焰净化一切！#{normal}#\n\t\t",
+      "tu_uid": "637a1075905961b59131be2076c2f0a0927e2befb144a379f3f05d8490102341",
+      "unit_id": "8ed041c44561614283df397aa0fea467146d6a1e08a11bfa897646548fe3201d",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5377,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2219,
+          "section": "tome-orcs/data/talents/steam/mechstar.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "9962ac882aa0428279097cb107e2e405c4194976414351e1fe101b94d685fe06",
+      "revision_uid": "7b2ee78a6460fead1d2bbec2dbf685ab204b5a7c5dc32165aa72d9895133985c",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/talents/steam/mechstar.lua",
+      "source": "Quickly aggregate particles of metal around your mindstar and focus psionic energies into it.\n\t\tThe metal explodes like shrapnel, knocking back (%d away) and dazing (%d duration) all foes in radius %d.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 1,
+          "target": 1
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "迅速将金属粒子聚集到灵晶周围，并把灵能集中其中。\n\t\t金属如弹片般爆裂，将所有敌人击退 %d 格、眩晕 %d 回合，作用半径为 %d 格。",
+      "tu_uid": "c9b041ef10410051405c53b964d5093e28115d88dba0c3c2d504510b5262778f",
+      "unit_id": "c8d9228afdb740111ab6ccabff201ab0fcb8bfdc5e2caea1a7b631673ae01a62",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [
+        "talents"
+      ],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5933,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2469,
+          "section": "tome-orcs/data/talents/steam/turrets.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [
+        {
+          "category": "T.GAME.TALENT",
+          "domain": "talents",
+          "match": "partial",
+          "notes": "重装武器说明中的同名武器引用；与 talent name 保持一致",
+          "scope": "dlc",
+          "source": "Flamethrower",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "火焰喷射器"
+        }
+      ],
+      "revision_id": "bc380ec2d83d2aa33e9b0dd102dace120485fba25d88ece25b6452063a92fffe",
+      "revision_uid": "13a8d4ffac1f2c53755091abf6a64a0e4d8ef508c015c08fa5fbdac4738d6226",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/talents/steam/turrets.lua",
+      "source": "Upgrade the target turret, granting it %d%% increased maximum life and enhanced abilities based on type:\n\t\tSteamgun: Gains a second steamgun dealing %d%% damage, and every 3 turns will fire a rocket dealing %d%% steamgun damage as fire in radius 2.\n\t\tFlame: Increases damage by %d%%, range by %d, and every 3 turns will project a vortex of superheated air that drags targets within range %d towards the turret as well as dealing normal flamethrower damage.\n\t\tMedic: Increases healing on affected targets by %d%%, and has a %d%% chance to cleanse a negative effect each turn.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "升级目标炮台，使其获得 %d%% 最大生命值，并根据其类型，获得以下的特殊能力：\n\t\t蒸汽枪炮台: 获得第二把造成 %d%% 伤害的蒸汽枪，每 3 回合会发射一枚火箭，在 2 码半径内造成 %d%% 蒸汽枪伤害。\n\t\t火焰炮台: 增加 %d%% 伤害和 %d 射程，每过 3 回合，会在 %d 码范围内喷出灼热蒸汽的漩涡，将所有敌人拉向炮台，并造成标准喷火伤害。\n\t\t医疗炮台: 增加对目标的治疗量 %d%%，且每回合有 %d%% 几率清除目标身上一个负面效果。",
+      "tu_uid": "4ed8047104a5cfe0424182704195c9aea1ba20a96906c4e52f5eb942f138345d",
+      "unit_id": "a772ff18e0eb4f9880b0d39da4d3d4e888887cfb56e5fc2caeb84220a80ad688",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [
+        "talents"
+      ],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5204,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2128,
+          "section": "tome-orcs/data/talents/steam/heavy-weapons.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [
+        {
+          "category": "T.GAME.TALENT",
+          "domain": "talents",
+          "match": "partial",
+          "notes": "重装武器说明中的同名武器引用；与 talent name 保持一致",
+          "scope": "dlc",
+          "source": "Flamethrower",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "火焰喷射器"
+        }
+      ],
+      "revision_id": "2f1b83d4d77ce2550511affc1c56788be7372913e21903583d9a6d0e8fd37410",
+      "revision_uid": "7b6e36051f15adf380026711cb976998f7c40da1d076dd137327c032af8e3af6",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "source": "You augment your shield with your heavy weapon technology, causing an effect when you Block with a heavy weapon equipped.\n#AQUAMARINE#Flamethrower#LAST#: Vent choking, burning smoke in an area of the same radius as your flamethrower. Enemies caught within take %d%% shield damage as fire and are silenced for %d turns.\n#AQUAMARINE#Shockstaff#LAST#: Sheathe your shield in lightning and attack all enemies in radius 3, dealing %d%% shield damage as lightning and gaining a barrier absorbing an amount of damage equal to 100%% of the highest damage dealt for 6 turns.\n#AQUAMARINE#Boltgun#LAST#: Fire a blast of flechettes from your shield at all enemies in radius 7, dealing %d%% shield damage as acid. %d flechettes remain embedded in each target for 6 turns, and when struck by a melee or ranged attack a flechette will detonate and cause acid damage equal to 50%% of the shield damage dealt.\nThese attacks will not trigger Counterstrike.\nThe chance to silence will increase with your Steampower.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {
+            "#AQUAMARINE#": 3,
+            "#LAST#": 3
+          },
+          "target": {
+            "#AQUAMARINE#": 3,
+            "#LAST#": 3
+          }
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 5,
+          "target": 5
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "你使用重装武器技术强化你的盾牌，在你装备重装武器的时候进行格挡，会触发以下的特殊效果。\n#AQUAMARINE#喷火器#LAST#: 在火焰喷射器攻击半径范围内，释放出燃烧的呛人浓烟。被击中的敌人会受到 %d%% 火焰盾牌伤害，并被沉默 %d 回合。\n#AQUAMARINE#电击棒#LAST#: 将盾牌注入闪电，攻击半径 3 码范围内的所有敌人，造成 %d%% 闪电盾牌伤害，并获得相当于最高伤害值 100%% 的伤害吸收护盾，持续 6 回合。\n#AQUAMARINE#爆矢枪#LAST#: 从盾牌中发射出一团镖弹，攻击 7 码半径范围内的所有敌人，造成 %d%% 酸性盾牌伤害。目标身上会插满 %d 枚毒镖，持续 6 回合。被插毒镖的敌人受到近战或远程攻击的时候，毒镖会爆炸，造成相当于盾牌造成的伤害 50%% 的酸性伤害。\n这些攻击不会触发反击效果。\n沉默几率受蒸汽强度加成。",
+      "tu_uid": "cd25af4aaa035a67eadff3bacc600077dd291dde9fe3d93272ac097d29d2ef80",
+      "unit_id": "7d5ae8172216cc46740ad1bdef6512dc2d015a4afdf844b67d4254ffb0c4dc2a",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 4933,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2044,
+          "section": "tome-orcs/data/talents/steam/elusiveness.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "a9eac415366c0e2c62185cb8e8910e32afa6db44cf2cd564de692da263b961ca",
+      "revision_uid": "3540525e3794eebe13539be8e85f470085ac75fed2b5b2377977d3d230a3e138",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/talents/steam/elusiveness.lua",
+      "source": "Using small steam motors to enhance your movements, you are able to slip past up to %d foes in a line.\n\t\tAfter passing the targets, you will quickly run %d tiles away.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 1,
+          "target": 1
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "用小型喷射引擎强化你的机动性，可以穿过直线上连续的 %d 个敌人。\n\t穿越后，会急速前进 %d 码。",
+      "tu_uid": "50b09229dfc839fc4763735a763926ba32bb752e02eb7dcfe133670393105210",
+      "unit_id": "825cdf57a1d6160839211b0fe70189b077d9f54e66d9974c02d177645f24c2e6",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5592,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2312,
+          "section": "tome-orcs/data/talents/steam/other.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "1e35a557e078d3d71763acbfe9b37518ce1f30a0bfb8b3c3dea91e042097f2ab",
+      "revision_uid": "e6efae4f454200c84c0284539f59b3ac713a4b6f9e8af4e754826cadba88eaf9",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "source": "You fire a special stake shot with your steamgun(s) at a target for %d%% physical weapon damage.\n\t\tThe weight of the shot will knock the target back 2 tiles and they will be pinned for %d turns.\n\t\tThis talent does not use ammo as it is the ammo.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 2,
+          "target": 2
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "你使用蒸汽枪发射特殊弹药打击目标造成 %d%% 武器伤害。\n击退目标 2 码并定身 %d 回合。\n   这个技能不使用弹药 ",
+      "tu_uid": "d632886d91059f2c6616c29e7851a93be7e6c177a3b8bc1f19645d6731606bd1",
+      "unit_id": "4ca170d79ea6cd22fbc6e5efb3c1162fed90ad6557b44df1fce1473ed4d040a5",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5073,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2083,
+          "section": "tome-orcs/data/talents/steam/gunner-training.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "b1a7f75877e3751c61c8a2833e7a94d914da738f192ab72304f71edd94ec8e1b",
+      "revision_uid": "64cf41dad21178515fa0fcf584f4f49bb53c8a271b9bf62b7188b43db4160899",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-target-length-outlier"
+      ],
+      "section": "tome-orcs/data/talents/steam/gunner-training.lua",
+      "source": "In an overpowering display of marksmanship, you fire your steamgun(s) twice in rapid succession.\nEach shot (targeted separately) deals %d%% damage and stuns its target for %d turns.\n\t\tThe stun chance increases with your Steampower.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 2,
+          "target": 1
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "你快速地射击两次，每次射击造成 %d%% 伤害，并震慑目标 %d 回合。\n\t\t震慑成功率受蒸汽强度加成。",
+      "tu_uid": "21cf958805bc2d10f8513faf6238cb7b83f3aedb60d954bc2022b8153c37aeab",
+      "unit_id": "3796e08bedbcc642e0a85a2f42f129f6ff4d4388f44344401e849697581e7256",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5510,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2281,
+          "section": "tome-orcs/data/talents/steam/other.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "c0c9d4c86dfd035bb335780a3384810d631413c5f1a2f8c1b461a3285b4aee0f",
+      "revision_uid": "3b56c14f00bc3a95890d442fa5ece93adae620c6b4004503ce13f9801eb1ab1e",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "source": "Touch a creature to release a nasty electrical charge into them, doing %0.2f lightning damage.\n\t\tIf this tinker is above tier 1, the electricity can arc to another target up to 2 tiles away.\n\t\tThe number of enemies hit is at most the tinker tier.\n\t\tThe damage increases with your Steampower.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f"
+          ],
+          "source_conversions": [
+            "f"
+          ],
+          "source_raw": [
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "f"
+          ],
+          "target_raw": [
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "触碰一个生物，将猛烈的电流注入其体内，造成 %0.2f 点闪电伤害。\n如果这件蒸汽工具高于 1 级，电流可以跳向最远 2 格内的另一个目标。\n命中的敌人数量最多等于蒸汽工具的等级。\n伤害随蒸汽强度提高。",
+      "tu_uid": "981ccc565cdfaca9246b630f79b795521165024b33fe9012cd2f3dc4092f97da",
+      "unit_id": "4f592893e6bf317a58476be901804f1fc95e8f474a3b0265af047784b1bde363",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 4596,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 1933,
+          "section": "tome-orcs/data/talents/steam/automation.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "db2fcb2b79f7b976844ba3f9c16c638367dba1571275bad174f6b55942ce8c5c",
+      "revision_uid": "df70d6cd0fea474e31cb351d2828f7ad64961af70d2458370f7120f7430f5701",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/automation.lua",
+      "source": "You send a small steam-powered flying grapple to a target. The drone is homing so if the target moves it will follow.\n\t\tWhen it reaches its target it deploys grapples in all directions around it in radius 4.\n\t\tThe grapples latch onto any foes and pull them toward the target. If they are stopped by a creature (or the target) both them and the creature take %0.2f physical damage.\n\t\t",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 4
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f"
+          ],
+          "source_conversions": [
+            "f"
+          ],
+          "source_raw": [
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "f"
+          ],
+          "target_raw": [
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "向目标发射一枚自动制导的蒸汽动力无人机。\n\t\t命中目标后，无人机向 4 码内的所有方向发射金属飞爪。\n\t\t飞爪会抓住范围内任何敌人，并将它们向目标拉扯。\n\t\t如果拉扯过程中被其他生物阻挡，两者均受到 %0.2f 物理伤害。\n\t\t",
+      "tu_uid": "e5a413d841af723aa2f2f17c5cdded3f4c021ce5f2ed7f8c0dadbacb3b83129a",
+      "unit_id": "6d27c7332cf2fd014eeb21cb88ee2066191453b41b5a3d34837632508421fd29",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [
+        "talents"
+      ],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5194,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2126,
+          "section": "tome-orcs/data/talents/steam/heavy-weapons.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [
+        {
+          "category": "T.GAME.TALENT",
+          "domain": "talents",
+          "match": "partial",
+          "notes": "重装武器说明中的同名武器引用；与 talent name 保持一致",
+          "scope": "dlc",
+          "source": "Flamethrower",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "火焰喷射器"
+        }
+      ],
+      "revision_id": "65ec262c9a807a7227b680bd18ec796b6abe4c44518dfce12f0f3699a8cdf71a",
+      "revision_uid": "60c59dfaeefbbbeb0f74e03647b596f5d045b30d495bc42ab80fd346b6e217dc",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "source": "Your advanced training unlocks specialised techniques, triggering an effect based on your current heavy weapon at the cost of 1 heavy weapon ammunition.\n#AQUAMARINE#Flamethrower#LAST#: Sweep your flamethrower across the ground, dealing %d%% steamgun damage as fire and raising a length 7 wall of fire for 5 turns. Those inside the wall take %0.2f fire damage and have their fire resistance reduced by %d%% for 2 turns.\n#AQUAMARINE#Shockstaff#LAST#: Slam your staff into the target, creating a radius 3 shockwave that deals %d%% shockstaff damage as lightning and stuns those within for %d turns.\n#AQUAMARINE#Boltgun#LAST#: Fire %d boltgun shots dealing %d%% steamgun damage as acid and disarming the target for 5 turns.\nThe damage dealt by the fire wall and the chance to apply effects will increase with your Steampower.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {
+            "#AQUAMARINE#": 3,
+            "#LAST#": 3
+          },
+          "target": {
+            "#AQUAMARINE#": 3,
+            "#LAST#": 3
+          }
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 4,
+          "target": 4
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "f",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "f",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%0.2f",
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "f",
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%0.2f",
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "你通过特殊训练解锁了新的重装武器战技。你现在可以消耗 1 重装武器弹药，根据你现在装备的重装武器类型，触发以下的效果。\n#AQUAMARINE#喷火器#LAST#: 用喷火器扫射地面，造成 %d%% 火焰蒸汽枪伤害，并产生一道长度为 7 的火墙，持续 5 回合。在火墙内的敌人会受到 %0.2f 的火焰伤害，且它们的火焰伤害抗性会降低 %d%%，持续 2 回合。\n#AQUAMARINE#电击棒#LAST#: 用电棒猛击目标，在 3 码范围内产生冲击波，造成 %d%% 闪电电击棒伤害，并震慑敌人 %d 回合。\n#AQUAMARINE#爆矢枪#LAST#: 发射 %d 枚爆炸弹药，造成 %d%% 酸性武器伤害，并缴械敌人 5 回合。\n火墙造成的伤害，以及造成异常状态的几率，受蒸汽强度加成。",
+      "tu_uid": "2b13934e39e31c67e9287c560eb0c3a444cdde38efb3189ce86a761df39e72c0",
+      "unit_id": "89c10f5e3b6c7096029e3cee35ad5fd905f18bc0ff3006a039bbbdf02214ebf4",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5408,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2233,
+          "section": "tome-orcs/data/talents/steam/other.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "4c6cd1bcd6ee75f610d6b7c85d12636c2807b3270ba58005e41f63b939004a94",
+      "revision_uid": "4001e235e2b23c313a7dc48b2edce1ee0fb430d0f80f2cf3cc31d4f6c62fb64f",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "source": "The life support suit allows using therapeutics with %d%% efficiency and cooldown mod of %d%%.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "生命支持服能以 %d%% 的效率使用药物，冷却时间修正为 %d%%。",
+      "tu_uid": "6588d960ad2d0975d61a68731c87f6ce06533c7fe5c62631ec2148c81ec8ddef",
+      "unit_id": "2fbeefe1dec04848430ec00cb44f827c27bdac51830c5bd60a43a0745da940cb",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5175,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2115,
+          "section": "tome-orcs/data/talents/steam/heavy-weapons.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "62e9a65c0895e8b61a04d40fe3bc005569c50128a6da78b8bc34b89444c20fea",
+      "revision_uid": "a0890108815fcc3d9e63bf7338e27036c6e785a4f8826b740af1597ab5af6a29",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "source": "Sweep your shockstaff, striking all enemies in a frontal arc for %d%% weapon damage as lightning and reducing their damage dealt by %d%% for 3 turns.\n\t\tIf you have a shield, you will also strike them.\n\t\tWhile active this replaces your normal melee attack.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 2,
+          "target": 2
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "挥舞电击棒，攻击正面所有敌人，造成 %d%% 闪电武器伤害，降低他们所造成的伤害 %d%%，持续 3 回合。\n\t\t如果你装备了盾牌，你还会附加一次盾击。\n\t\t这一技能可以取代你的普通攻击",
+      "tu_uid": "5cf2d2bd1fccf8871f5df759794a7c2bf61c4b642364b08bf83dc1c7a87f0695",
+      "unit_id": "5b94de7fc5c291d09a4b9a697d07cb0b5c289e8ea89578f154685ca9c1e18ec1",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5082,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2087,
+          "section": "tome-orcs/data/talents/steam/gunner-training.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "4c61f52cb409cd497ed4cdda66153f15c7c73708890cec9c0dc6224eeda4f92c",
+      "revision_uid": "4302ee703e768485650dcaf344d7b1ae30378e497d190552cb3b45eede9c0b71",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/gunner-training.lua",
+      "source": "You fire a special, electrically charged shot with your steamgun(s) at a spot within range.\n\t\tWhen each shot reaches its target, it bursts into electrified shrapnel within radius %d, which shocks each target hit and deals %d%% weapon damage as lightning.\n\t\tShocked targets lose up to %d non-magical effects (for the first shot that hits).\n\t\tThis talent does not use ammo.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "你用蒸汽枪向射程内的一处位置发射特殊的带电射击。\n\t\t每发子弹抵达目标位置时，都会爆裂成电化弹片，波及半径 %d 格，电击命中的每个目标，并造成 %d%% 武器伤害的闪电伤害。\n\t\t被电击的目标失去至多 %d 个非魔法效果（仅第一发命中时生效）。\n\t\t本技能不消耗弹药。",
+      "tu_uid": "d14fa744757de47a7f06f396c3250c763d079d84cfc5add9fa173063423d4c14",
+      "unit_id": "28a2881325ed25a7d7836df1b6e1ea9db4afac7e9f74956b57e16893be4d2afd",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5106,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2095,
+          "section": "tome-orcs/data/talents/steam/gunslinging.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "f88827952dadb06411022018d98df1bc2f54b5f230a7f1b6a62115984890c05b",
+      "revision_uid": "8628ab2bb9eb2a209691ece83c741aaa921ff1f7d7df4821f9be5b5a3fa35eed",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/talents/steam/gunslinging.lua",
+      "source": "You deliberately fire a missing shot at a target, startling it for 3 turns.\n\t\tIf the target fails a mental save it instinctively recoils two steps back.\n\t\tThe next shot that hits the startled creature will deal %d%% more damage.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 2,
+          "target": 2
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "你故意朝目标射出偏离的子弹，令其惊讶 3 回合。\n\t\t若目标未通过精神豁免检定，将后退 2 步。\n\t\t惊讶状态下的目标在下一次攻击中将受到额外 %d%% 伤害。",
+      "tu_uid": "9d1286a909bb92d7c9a2a06585c46fd966b73a9e65ee470e3a4367f4c8de79d4",
+      "unit_id": "f839d818332f2d250800f50131948fc1e83785703727a309371d827a3ed792c0",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 5405,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2230,
+          "section": "tome-orcs/data/talents/steam/other.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "1c027236263783db6c14b1b33625bb71e8656953d5f4ff029a7fee12d5889d1b",
+      "revision_uid": "d61c894af939b6b23ee9b669dcfae9ebd2628f410090b80113d24c2aed8a26c7",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "source": "The medical urgency vest allows using therapeutics with %d%% efficiency and cooldown mod of %d%%.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "医疗急救背心能以 %d%% 的效率使用药物，冷却时间修正为 %d%%。",
+      "tu_uid": "039efe5c2f4a23593c957dacf075715f206e02f585f48bb47c8c7985a35b9b04",
+      "unit_id": "83c5cc08e9b8249263b46e394b4ef89bad5bb1d6fa9f35a4304ddeab00d6b2a7",
+      "version": "tome-1.7.6"
+    }
+  ]
+}

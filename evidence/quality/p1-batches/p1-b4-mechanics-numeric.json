@@ -1,0 +1,433 @@
+{
+  "batch_id": "p1-b4-mechanics-numeric-002",
+  "plan": "docs/p1-execution-plan.md",
+  "purpose": "bounded quality check over already-translated revisions",
+  "note": "Risk flags only order candidates for review. No entry in this batch is asserted to be defective; host source verification decides.",
+  "version": "tome-1.7.6",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "inventory_run": ".artifacts/i18n/quality/runs/20260818T061647.072763Z-inventory",
+  "inventory_sha256": "f8796fa50c2006d25c21d6e8d894102b682780d70f2389144050cf674a28bdd8",
+  "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+  "risk_rule_version": "risk-v1",
+  "profile_classifier_version": "profile-v1",
+  "filter": {
+    "component": "tome",
+    "profile": "mechanics",
+    "risk_flags_any": [
+      "source-has-number-or-unit"
+    ],
+    "risk_flags_excluded": [],
+    "min_source_len": 40
+  },
+  "pool_size": 1992,
+  "size": 24,
+  "sort_key": "revision_id",
+  "selection": "sha256(seed_str|revision_id) ascending",
+  "seed_str": "tome4-p1-b4|f8796fa50c2006d25c21d6e8d894102b682780d70f2389144050cf674a28bdd8|624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "items": [
+    {
+      "revision_id": "bbe6a6d1496e967559d5d19258c5963ccc7f9337d92af6801560820335ce3ac2",
+      "revision_uid": "8125213aa992a6346bcb7afc8d7d9beeb75ca439db2c26ec1677668571d1edbd",
+      "tu_uid": "e7a2743138fb03b33e320b483f2d35c803bc69b0b41a318f11bb05d6542fbc0b",
+      "section": "mod-tome/data/general/objects/egos/mindstars.lua",
+      "source_tag": "tformat",
+      "source": "inflict %0.2f mind damage (range 10), gaining psi and hate equal to 10%%%% of the damage done",
+      "target": "造成%0.2f精神伤害（距离10），获得相当于造成伤害10%%%%的灵能值和仇恨值",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "6a52673dfad9af782ada1d01ee831f23676794f08a97f1ef7d999688cf07846c",
+      "revision_uid": "dcfbdf4a95c2f8a8d5b9adfb3edb2ffb96675d69f0f072a9e5725a0774a86154",
+      "tu_uid": "5cbb1f69cfb2fb676ec66eda819f3bccdc5319db23b46aff389401910df6aba2",
+      "section": "mod-tome/data/general/objects/world-artifacts.lua",
+      "source_tag": "tformat",
+      "source": "release a will o' the wisp that will explode against your foes for %d cold damage (based on your Magic)",
+      "target": "放出鬼火，可以对你的敌人自爆，造成%d寒冷伤害（基于魔法）",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "9efb27ea36219825be5bb9e38fbb552786d6cdacf8c37fca2923d869a065ffb4",
+      "revision_uid": "102b84a19d9fb874687d8d45359759c0de1aa20511bb545b122065ae28b3ac1f",
+      "tu_uid": "d42211fb4bb280b3a80b9d6f152942f2e51a73aabf50120c7e9ff7cbe0ee44ba",
+      "section": "mod-tome/data/talents/chronomancy/other.lua",
+      "source_tag": "tformat",
+      "source": "Attempts to pull the target apart at a molecular level, inflicting %0.2f temporal damage and %0.2f physical damage.  If the target ends up with low enough life (<20%%), it might be instantly killed.\n\t\tQuantum Spike deals 50%% additional damage to targets affected by temporal destabilization and/or continuum destabilization.\n\t\tThe damage will scale with your Spellpower.",
+      "target": "试图将目标分离为分子状态，造成 %0.2f 时空伤害和 %0.2f 物理伤害 , 技能结束后若目标生命值不足 20%% 则可能会被立刻杀死。\n\t\t量子钉刺对受时空紊乱和/或连续紊乱的目标会多造成 50%%的伤害。\n\t\t伤害受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+      "revision_uid": "5faffb18e127b9185f909dd21d0a4ac863e59541395d2d376d1e8f37479efb27",
+      "tu_uid": "e9c7f53e3edd84cce9eb82d7126565d4c3a40d042dfc0d822db81cd730225c67",
+      "section": "mod-tome/data/talents/chronomancy/spellbinding.lua",
+      "source_tag": "tformat",
+      "source": "Extends the duration of the selected chronomancy spell by %d%%.\n\t\tEach spell can only be spellbound in one way at a time.\n\t\t\n\t\tCurrent Extended Spell: %s",
+      "target": "强化指定的时空系法术，延展指定法术的持续时间 %d%%。\n\t\t每个技能只能附加一种时空增效系效果。\t\t\t\t\n\t\t当前强化法术： %s ",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+      "revision_uid": "fe9118df9bece21dfc727281c2b7de8988847fc3849e676856de36c281aa2b41",
+      "tu_uid": "aa59c0e74920c95dc637cc729b4a7467d25efb31328a3dfdcbfb279bf4c66764",
+      "section": "mod-tome/data/talents/cunning/scoundrel.lua",
+      "source_tag": "tformat",
+      "source": "Your melee and ranged attacks have a %d%% chance to shred enemies inflicting an additional 100%% of the damage dealt as a bleed over 4 turns.",
+      "target": "你的近战和远程攻击有 %d%% 的几率撕裂敌人，使其在 4 回合内受到 100%% 的额外流血伤害。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+      "revision_uid": "ba652d0e72347a683887bf38cafd70e4da9ea812592e58cf92bc48cae9b8741f",
+      "tu_uid": "71fc4927253aef9c1ed7aea71930b4f977f19fb887ca10466d90b39aa592a149",
+      "section": "mod-tome/data/talents/cunning/survival.lua",
+      "source_tag": "tformat",
+      "source": "Your cunning manipulations allow you to use charms (wands, totems and torques) more efficiently, reducing their cooldowns and the power cost of all usable items by %d%%.\n\t\tIn addition your knowledge of devices allows you to disarm known traps (%d disarm 'power', improves with Cunning).",
+      "target": "你精于操控装置，能更有效地使用护符（魔杖、图腾和项圈），使所有可用物品的冷却时间和能量消耗降低 %d%%。\n\t\t此外，你对装置的了解使你能够解除已发现的陷阱（解除强度 %d，随灵巧提高）。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017",
+      "revision_uid": "a9401dbb793b5b7acd0bc0462ce7395ad64f016db751d3f4e0afe5ef4da97cf6",
+      "tu_uid": "a2d00f13750205a6bcd0d8e6e8e53ea01320397da577c0697ab8e1d0fca3dc1c",
+      "section": "mod-tome/data/talents/cunning/traps.lua",
+      "source_tag": "tformat",
+      "source": "Explodes (radius 2) for %0.2f fire damage over 3 turns.",
+      "target": "爆炸(范围 2) ：3回合内 %0.2f 火焰伤害。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "6f2623b7cf2eda3d4914dc9c377f08f047b7a3fc7026b3f9fb38254cd5517159",
+      "revision_uid": "f4f7c393ced861ae20ec93d327f07dbf478ac3bbae8ef0b80b9a52cb11ca2677",
+      "tu_uid": "2b5a7fea1a0dc5157f00d94e4f20ac54266bea5081644bea182118b6f0eedd04",
+      "section": "mod-tome/data/talents/cunning/traps.lua",
+      "source_tag": "tformat",
+      "source": "Lay a magical trap that summons a trio of shadowy rogues to attack the target.\nThe rogues receive your damage bonuses and are permanently stealthed.\nThey disappear after %d turns or when their work is done.",
+      "target": "放置一个魔法陷阱，召唤三名阴影盗贼攻击目标。\n这些盗贼继承你的伤害加成，并永久处于潜行状态。\n它们会在 %d 回合后，或完成任务时消失。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "c46aedd1fa773ba4738ae1e99615704dc12064692d4d5db5fd2380be264f6408",
+      "revision_uid": "b2280f6c6be4aae92da6384b50cd35b5ecd97f999941b15d7c00ecca3c7a57ea",
+      "tu_uid": "f3e6d5f6eeb382ff16b6457cdda274abd69d65e3e150a0441778685f7edc473f",
+      "section": "mod-tome/data/talents/cursed/force-of-will.lua",
+      "source_tag": "tformat",
+      "source": "You rage coalesces at a single point, and then explodes outward, blasting enemies within a radius of %d in all directions. The blast causes %d damage and %d knockback at the center, that decreases with distance. Anyone caught in the explosion will also be dazed for 3 turns.\n\t\tIn addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)\n\t\tDamage increases with your Mindpower.",
+      "target": "你的愤怒汇聚于一点，随后向外爆发，轰击半径 %d 格内四面八方的敌人。爆炸中心造成 %d 点伤害并击退 %d 格，伤害和击退距离随离爆心的距离增加而降低。爆炸范围内的所有生物还会被眩晕 3 回合。\n\t\t此外，通过此技能引导力量的能力会使你的所有暴击伤害提高 %d%%（当前：%d%%）。\n\t\t伤害随你的精神强度提高。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+      "revision_uid": "f75ef9195bab9dbc88c68bad3599618368383deef3f173ab8201f1d4b6319819",
+      "tu_uid": "fbbe0383343dad914d4de20855461bcaa94b2139e13d06702e75e45cf0aee3dc",
+      "section": "mod-tome/data/talents/gifts/mucus.lua",
+      "source_tag": "tformat",
+      "source": "Calling upon nature, you cause the ground to erupt in an radius %d acidic explosion, dealing %0.1f acid damage to all creatures and creating mucus in the area.\n\t\tAny Mucus Oozes you have active will, if in line of sight, instantly spit slime (at reduced power) at one of the targets hit by the splash.\n\t\tThe damage increases with your Mindpower.",
+      "target": "你召唤大自然的力量，将 %d 码半径范围内的地面转化为酸性淤泥区，对所有目标造成 %0.1f 酸性伤害并在区域内制造粘液。\n\t\t同时如果你有任何粘液软泥怪存在，则会向视线内的某个被淤泥击中的随机目标释放史莱姆喷吐（较低强度）。\n\t\t伤害受精神强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+      "revision_uid": "4e7913b71cdf91c67a1e18e0266db7ac9ab5047a131730abaaf7dcb7d3853ae8",
+      "tu_uid": "38ecaba15876b1bbc25c0b85e6012714264ca128f478f9f9077af7c821c359df",
+      "section": "mod-tome/data/talents/misc/horrors.lua",
+      "source_tag": "tformat",
+      "source": "Pull all foes toward you in radius 5 while dealing %d physical damage.\nThe damage will increase with your mindpower.",
+      "target": "将 5 码范围内的目标拉向你并造成 %d 物理伤害。\n\t\t伤害受精神强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b",
+      "revision_uid": "c9cddbcc9d6cfa66181837f2965ed5cfcbf6b9510692fa206ccce26dacb0b04a",
+      "tu_uid": "968906e86895757c0e9e4e3cf002b38a45a0d534fd3730a82375b8d1729efbdd",
+      "section": "mod-tome/data/talents/misc/races.lua",
+      "source_tag": "tformat",
+      "source": "Halflings have always been a very organised and methodical race; the more foes they face, the more organised they are.\n\t\tIf two or more foes are in sight your Physical Power, Physical Save, Spellpower, Spell Save, Mental Save, and Mindpower are increased by %0.1f per foe (up to 5 foes).",
+      "target": "半身人曾是一个有组织纪律的种族，敌人越多他们越团结。\n\t\t如果有 2 个或多个敌人在你的视野里，每个敌人都会使你的所有强度和豁免提高 %0.1f 。（最多 5 个敌人）",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "ba45293063c0e7e0e91ab6c236c4968ab6cc12049b709074cbc08b1a6f3e0b10",
+      "revision_uid": "b103decea8a773f5a91e7b1e7cd71482bff86287ff0ef53acc6c354311a63849",
+      "tu_uid": "582fc0cdd97fb7499c6e9b6c95a96e1076be6ddfbc65ec19a7d7a660aea7901e",
+      "section": "mod-tome/data/talents/psionic/thought-forms.lua",
+      "source_tag": "tformat",
+      "source": "Forge a warrior wielding a battle-axe from your thoughts.  The warrior learns Weapon Mastery, Combat Accuracy, Berserker, Death Dance, and Rush as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.\n\t\tActivating this talent will put all other thought-forms on cooldown.\n\t\tThe stat bonuses will improve with your Mindpower.",
+      "target": "你从脑海里召唤出一位手持战斧的精神体狂战士。当精神体狂战士到达对应等级时可习得武器掌握、强化命中、嗜血、死亡之舞和冲锋，并且可增加 %d 点力量、 %d 点敏捷和 %d 体质。\n\t\t激活此技能会使其他思维形态技能进入冷却。\n\t\t属性增益受精神强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "cce8b1eea8f36519d4f8101be6fac546d1d7cda39df96bc92273619461d0cb01",
+      "revision_uid": "1591568d7675a0b970d96591879f879d35ccb087fe357295dcb5c1e3d7801da0",
+      "tu_uid": "ee609ac0473a2ca51e5c4ece066273777fcd18bb6e12d6946caa72359ffe5a34",
+      "section": "mod-tome/data/talents/spells/air.lua",
+      "source_tag": "tformat",
+      "source": "A gentle wind circles around the caster, increasing carrying capacity by %d, defense against projectiles by %d, pin immunity by %d%% and stun immunity by %d%%.\n\t\tAt level 4 it also makes you levitate slightly above the ground, allowing you to ignore some traps.\n\t\tAt level 5 it also grants %d%% movement speed and removes %d fatigue.",
+      "target": "一股温柔的风围绕着施法者，增加 %d 点负重能力，增加 %d 点对抛射物的闪避，获得 %d%% 定身免疫和 %d%% 震慑免疫。\n\t\t在等级 4 时，它会使你轻微的漂浮在空中，可忽略部分陷阱。\n\t\t在等级 5 时，同时还会提升你 %d%% 的移动速度并且移除 %d 点疲劳。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244",
+      "revision_uid": "4023d0f24e6c8d37f1a5bd7370387df004a074649b00d6081849fa9d510482b5",
+      "tu_uid": "aee286ddb9f41573390eaa7deea2139537fe9f6f0820c994f2b091d57a4dd3bb",
+      "section": "mod-tome/data/talents/spells/animus.lua",
+      "source_tag": "tformat",
+      "source": "Consume a soul whole to rebuild your body, healing you for %d and generating %d mana.\n\t\tIf used below 1 life the surge increases your spellpower by %d for 10 turns.\n\t\tThe heal and mana increases with your Spellpower.",
+      "target": "消耗一个灵魂，用来修复你的身体，恢复 %d 生命值，获得 %d 法力值。\n\t\t如果你当前生命值在 1 以下，这股力量还将会提升你的法术强度 %d ，持续 10 回合。\n\t\t治疗量和法力值受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2",
+      "revision_uid": "b2161701af62d41473ad7cdcdffa5cef8cdb9dab169e6e121efd92f791982237",
+      "tu_uid": "7ae6a94f7f162723be2fde4cab3f92db9befa467276f1e2e657a8434f4fcc653",
+      "section": "mod-tome/data/talents/spells/fire.lua",
+      "source_tag": "tformat",
+      "source": "Raging flames burn foes and allies alike, doing %0.2f fire damage in a radius of %d each turn for %d turns.\n\t\tThe damage will increase with your Spellpower.",
+      "target": "向地上释放一片火焰，每回合可对敌我双方造成 %0.2f 火焰伤害，半径 %d 码，持续 %d 回合。\n\t\t受法术强度影响，伤害有额外加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88",
+      "revision_uid": "83aa012535c8c8582f9a23162ef534ccd9915f40d8b96e0626438cca507636c8",
+      "tu_uid": "02f776842722d593463d87807d56022b235e834ced1fb54a4e0c58be6dcbd6d0",
+      "section": "mod-tome/data/talents/spells/rime-wraith.lua",
+      "source_tag": "tformat",
+      "source": "Hoarfrost now has additional effects:\n\t\t- if friendly: magical and physical saves increased by %d, at level 5 healing factor is also increased by 15%%.\n\t\t- if hostile: magical and physical saves reduced by %d, at level 5 all talents cool down 15%% slower.\n\t\t",
+      "target": "寒霜覆盖效果获得以下额外效果：\n\t\t- 友方目标: 提升 %d 魔法和物理豁免，技能等级 5 时，还会提升治疗系数 15%%。\n\t\t- 敌对目标: 降低 %d 魔法和物理豁免，技能等级 5 时，还会使技能冷却时间延长 15%%。\n\t\t",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "88830814768d0f6c948de6410acfa7a3b59d7995348fdfda934bd860b3474e16",
+      "revision_uid": "8005c112bb1ff95f5da36a174d0eaf3982b6054f8cd11810ab9d432a37bfa4e2",
+      "tu_uid": "d752b37e7ab2b9544ceade5681654343cc99e92a61da510850386aee1786128a",
+      "section": "mod-tome/data/talents/techniques/archery.lua",
+      "source_tag": "tformat",
+      "source": "You fire a shot without putting much strength into it, doing %d%% damage.\n\t\tThat brief moment of relief allows you to regain %d stamina.",
+      "target": "你轻松射出一箭，造成 %d%% 伤害。\n\t\t短暂的喘息让你回复 %d 点体力。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "defcf6a782239b18d5366bccf8f0491f1e6ff5748feaa7cb845a9f7556c28dc4",
+      "revision_uid": "c2fee6759d41a8b2fe8278a71f06913b4928c6552eada52ffb57c716216d3a7e",
+      "tu_uid": "8f12707cae91d88f9cfa190d802ee831c1b4fea0ca9ba48a3223683eca6f48df",
+      "section": "mod-tome/data/talents/techniques/unarmed-training.lua",
+      "source_tag": "tformat",
+      "source": "When you're targeted by a projectile, your global speed is increased by %d%% for 1 turn.  Taking any action other than movement will break the effect.",
+      "target": "当你被抛射物锁定时，增加你 %d%% 全局速度 1 回合。\n\t\t除了移动外的任何动作均会打破此效果。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+      "revision_uid": "0b3f39b637321a093153b176561f20c585195aafaaf92e89a4aecaaf1fdeaaf7",
+      "tu_uid": "f58fb9aa76c4d37321f52750487c45e2e022af3a928e9c796baee2440c9f20af",
+      "section": "mod-tome/data/timed_effects/magical.lua",
+      "source_tag": "tformat",
+      "source": "Turn into a wraith, passing through walls (but not natural obstacles), granting %d defense and %d armour.",
+      "target": "进入鬼魂形态，可以穿墙（但不能穿过其他障碍物），获得 %d 闪避和 %d 护甲值。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+      "revision_uid": "c8a2dc00a4d9ac1573cfd37c8b12c93b23e8c50ca7c8538bf371e9b76cb2e822",
+      "tu_uid": "b6147146e74dc723d95c957ea54a32b98ef86bf5a970800b67bde5504dfa7286",
+      "section": "mod-tome/data/timed_effects/magical.lua",
+      "source_tag": "tformat",
+      "source": "Improves/gives the ability to see invisible and stealthed creatures (power %d).",
+      "target": "提升/获得侦测隐形或者潜行生物（ %d 侦测等级）",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3",
+      "revision_uid": "09467b59d882608505b13f059b8dbde6f49be8201c719336cd907bb852be184f",
+      "tu_uid": "09ad735e5a7e629a3bced633e5f1584b03b55b14777573c60552c9ca8a8d9241",
+      "section": "mod-tome/data/timed_effects/magical.lua",
+      "source_tag": "tformat",
+      "source": "The target glows in the light, reducing its stealth and invisibility power by %d, defense by %d and looses all evasion bonus from being unseen.",
+      "target": " 目标在光明中显形，减少 %d 潜行与隐身强度，减少 %d 闪避，同时失去不可见带来的闪避加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1",
+      "revision_uid": "94d452309202e800be5c95f06a6dfb79806b81eab5bb287c44817bb8b6041887",
+      "tu_uid": "5c6e3b20ab7c96b4688af16e4f89400f91e760aaac3efea66a8fb964491453d7",
+      "section": "mod-tome/data/zones/orc-breeding-pit/npcs.lua",
+      "source_tag": "_t",
+      "source": "This giant, bloated form towers above you. Mucus and slime ooze from every orifice, dripping onto the cavern floor. Orc children fight over the right to feed from her distended teats whilst small babies are regularly emerge from folds of flesh. The sight and the smell make you retch.\nHere stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.",
+      "target": "这个巨大臃肿的身影耸立在你面前。粘液和脓液从它身上的每个孔洞渗出，滴落在洞穴的地面上。兽人幼崽们争抢着吸奶的权利，婴儿从它的肉褶中出生，眼前的景象和气味令人作呕。\n\n站在我们面前的是一只跟龙差不多体型的怪物。皮肤下鼓起了无数浮肿的肉块，粗大的毛孔里不断流淌出粘稠的液体。上百个垂挂的乳头喂养着一群争吵打斗的年轻兽人——只有最强壮的才能获得宝贵的营养变得更强，弱小的只能在发霉的地面上枯萎。在这只庞然大物的顶端是一颗枯萎的头颅，覆着一头蓬乱纠结的长发。茫然的眼神中混合着悲伤与痛苦，但当它们锁定你时，便转为愤怒，这张脸因护崽的强烈渴望而扭曲。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "multiline",
+        "long-source",
+        "profile-uncertain",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8",
+      "revision_uid": "07aac39273d03453be872f58001ea452da750b6d2981b8b96b2c677455875545",
+      "tu_uid": "aa3de480b8efcf4b2022c97b36ecda5a373df231bdbf3b93c672e7012d15357e",
+      "section": "mod-tome/data/zones/trollmire/npcs.lua",
+      "source_tag": "_t",
+      "source": "His once-shining armour now dull and bloodstained, this Sun Paladin has given in to despair.",
+      "target": "他曾经闪亮的盔甲如今又锈又钝且满是鲜血，这名太阳骑士已经陷入了深深的绝望。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "profile-uncertain",
+        "term-variant-or-review",
+        "source-has-number-or-unit"
+      ]
+    }
+  ]
+}

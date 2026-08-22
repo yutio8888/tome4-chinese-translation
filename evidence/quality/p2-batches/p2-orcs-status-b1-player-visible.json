@@ -1,0 +1,2112 @@
+{
+  "batch_id": "p2-orcs-status-b1-player-visible",
+  "purpose": "P2 Orcs player-visible timed-effect/status review",
+  "version": "tome-1.7.6",
+  "component": "orcs",
+  "source_baseline": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+  "inventory_run": ".artifacts/i18n/quality/runs/20260818T222125.692907Z-inventory",
+  "inventory_sha256": "fac68eaf9ea82c8e73030f339e86e5e7aaf3ac167cecfec6b18817473369690a",
+  "filter": {
+    "section_prefix": "tome-orcs/data/timed_effects/",
+    "source_tags": [
+      "_t",
+      "tformat"
+    ],
+    "min_source_length": 70,
+    "risk_flags_any": [
+      "source-has-number-or-unit",
+      "source-has-negation-or-condition"
+    ],
+    "exclude_workset": "p2-orcs-b1-steam-mechanics-numeric by section/source/source_tag"
+  },
+  "pool_size": 48,
+  "size": 24,
+  "sort_key": "sha256(seed_str|revision_id)",
+  "seed_str": "tome4-p2-orcs-status-b1|fac68eaf9ea82c8e73030f339e86e5e7aaf3ac167cecfec6b18817473369690a|c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+  "items": [
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6149,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2582,
+          "section": "tome-orcs/data/timed_effects/magical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "172e91cb25ecd5324bab814fbc41f685647412b1590c0e34085bb8910973ac92",
+      "revision_uid": "68ed1d737035adffa1d19ff4ea2f699b6a7f038b432ea15e8908647e6c10f5e3",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/magical.lua",
+      "source": "%d spiderbots are protecting you, each with %d life. Current top spiderbot has %d life remaining.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "%d 个蜘蛛机器人正在保护你，每个具有 %d 生命值。目前顶上的蜘蛛机器人还有 %d 生命值。",
+      "tu_uid": "7cf6a47f4fad0b04e19b2aa8186208b2553dacb73817216892cf4b55501b301b",
+      "unit_id": "38fef50b5452208a9e695e6cf8c848a34e5809b0abe8e158ab470656385b75c3",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6554,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2969,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "dc2cb83e74f4fc64711f28ed11a7d3a103c5e20b4d97f0810deb3ff0e2d5f6f3",
+      "revision_uid": "8a8f6d67cf0c5bef98a7d1eeb55ddac9f7567da8d35bb1aacd78bd61d0b19d76",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "The target is covered in burning chemicals, taking %0.2f fire damage each turn. Subsequent shots deal %0.2f fire damage, and if they fall below 25%% life they have a %d%% chance to panic.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f",
+            "f",
+            "d"
+          ],
+          "source_conversions": [
+            "f",
+            "f",
+            "d"
+          ],
+          "source_raw": [
+            "%0.2f",
+            "%0.2f",
+            "%d"
+          ],
+          "target_conversions": [
+            "f",
+            "f",
+            "d"
+          ],
+          "target_raw": [
+            "%0.2f",
+            "%0.2f",
+            "%d"
+          ]
+        }
+      },
+      "target": "目标被燃烧的化学物质所覆盖，每回合受到 %0.2f 火焰伤害。之后的射击将会造成 %0.2f 火焰伤害，若目标降低到 25%% 生命值以下，他们有 %d%% 的几率慌乱逃跑。",
+      "tu_uid": "fed58ac0568154f22fb2e77f15e72667162e7132bf6d7d5cf495159343364735",
+      "unit_id": "032d740731ee4f6efdd71ee24d22f7c95a192fb7bebabcd206ef80523a922909",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6508,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2923,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "52fb0d213caed4ba8bbe96b9ba34597a49ecb63ad4aaa439ae941ae7ed8a2c7b",
+      "revision_uid": "bb001ade5bca7f97c2ff5479c43cd7aa960ce2b4d948d028b52dd5efbdc7efc8",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "Resisting pain, reducing all incoming damage by %0.2f. When the effect ends, take %d un-resistable damage.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f",
+            "d"
+          ],
+          "source_conversions": [
+            "f",
+            "d"
+          ],
+          "source_raw": [
+            "%0.2f",
+            "%d"
+          ],
+          "target_conversions": [
+            "f",
+            "d"
+          ],
+          "target_raw": [
+            "%0.2f",
+            "%d"
+          ]
+        }
+      },
+      "target": "抵抗疼痛，受到的伤害减少 %0.2f。效果结束后受到 %d 点无法抵抗的伤害。",
+      "tu_uid": "7c98a82b044291c6e6b7d552e2e1f2706a7ebb525dfdfafae3df364f0db79cd8",
+      "unit_id": "b652ce3a11aa669d0815b306a57c431dd15802abd992ea874958fc2f1cd21245",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6530,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2945,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "5c60f8f8a6f4d5cbdaec9d6cd1e7cc88c5a0da15cab0ba86e800cb801dbc0a4c",
+      "revision_uid": "a8711c5b79f74bb4ae6fb82b90d52579a7e20be58fed3d475075df8b01cf3243",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "The target is burning for %d fire damage each turn and taking %d%% increased damage from all sources.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "目标被点燃，每回合受到 %d 火焰伤害，所受到的所有伤害增加 %d%%。",
+      "tu_uid": "465b30dd33ffc7dc9e65d05715df097c69683f6febf1c5fae625535f7d386a05",
+      "unit_id": "fee36fccc0e135b6bf2dd01bd97aded870d4a606f8ee32fd24bd8f09cf4d0277",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6564,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2979,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "572d53a4f5ac88c4f97f785d3bbbe7c2eec427daf2e342aad0a60b98c868b45a",
+      "revision_uid": "83cc38dcf3eb38b1cd61e133362c63594f4079093acde3c2f6ce92f1a8bab60a",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "The target is grappled by %s, pinning them, reducing attack, spell and mind speed by %d%% and subjecting them to an automatic tailsaw strike each turn for %d%% damage.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "s",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "s",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%s",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "s",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%s",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "目标被 %s 抓取，被定身，降低战斗、法术和精神速度 %d%%，并每回合受到一次自动的尾部链锯打击，造成 %d%% 伤害。",
+      "tu_uid": "85554a6520180b31b512b5bea573e758c787e2f73a732eba14d76ea11e07d853",
+      "unit_id": "a3e2bcc846154bdd1b81694e693c563df80ce29595fc1f4bf7377403c5f3d77b",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6328,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2743,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "4a428f9478ea5d1e88b2e81a54fc4fb263c41694241b887068cb2de69b603211",
+      "revision_uid": "6b31c6cfb40bc9e4bc7bfe3c7dbbdeae657b3f850fc8e360638f4f52103afa8a",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "Bullets shot are supercharged:  They can pass through multiple targets and have %d additional armour penetration.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "子弹处于超速状态：能够穿透多个目标 , 同时提高护甲穿透 %d 点。",
+      "tu_uid": "0b1bfbe1ada2b19bf7d37ed9cb3a1880081b74ef42f33933a9529c77a8e0aa6b",
+      "unit_id": "b09e6cf1710001f40f33436055304b01b598a8ee760979ec3270dd20b2dd0437",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6318,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2733,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "341e47aa902637e18580961d090f6f18cd0ce10b95267bd1ab98ed0ecded99ed",
+      "revision_uid": "9f7047d925ac1a44be67aa0aecfa20d2dfb6e60dedb14a77e02df0657b6c142c",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "The target has been crushed, pinning it and reducing defense and armour by %d.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "目标被碾压，处于定身状态，护甲和闪避下降 %d。",
+      "tu_uid": "5a709edb1eacd7be7d819eb8216dd36202cddeca089a7c015bda7e1185cb0103",
+      "unit_id": "2f7ce4827b8f94c6f6fb4e686917134d135976a3cfff35bad1dd0978a79a6a77",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": null,
+        "format_signature_match": null,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6222,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2647,
+          "section": "tome-orcs/data/timed_effects/other.lua"
+        }
+      ],
+      "profile": "unknown",
+      "profile_confidence": "low",
+      "relevant_terms": [],
+      "revision_id": "260df83eb27acb38d2bff35fb8eebb238b3c8d1bcb6a4f397f0ab211fbca3530",
+      "revision_uid": "8d12dbb9f162fa140d7a504fd8dc4f37aff484a4205db1303c4f68b4f9e10de2",
+      "risk_flags": [
+        "profile-uncertain",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/timed_effects/other.lua",
+      "source": "This unit is outside of the starscape and cannot be harmed from within it,",
+      "source_length_bin": "long",
+      "source_tag": "_t",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [],
+          "source_conversions": [],
+          "source_raw": [],
+          "target_conversions": [],
+          "target_raw": []
+        }
+      },
+      "target": "该单位处于星界外，不能被星界内单位伤害。",
+      "tu_uid": "fcd8d525a5c3bd4726829591089e4ac2df80312c99ff6175a16e64ef0f24b06b",
+      "unit_id": "0eb7193734a3e9c8d70b8df61654d139624215ed931b31184f176b7c8078914d",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6527,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2942,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "0f0c679b20ec793e7971c95b820a0e0fd2d9301fe6f06be0aa5132b1476ebbdb",
+      "revision_uid": "d1e2893bba331d17e7c5bde798a1a5c0665d1765efadb871da4779b29583bc7c",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "The target is surrounded by a crackling web of lightning, reducing all damage taken by %d.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "目标被闪电之网覆盖，减少所受到的所有伤害 %d 。",
+      "tu_uid": "7758bd2ad067a0257ca3c79bcb39dbb67696f933398f45c730c55cb13a97de4e",
+      "unit_id": "66b376307cd1bb56c260a26b62d8c2e4fda928fc9c2d1f38c7cfec7c59b15335",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6284,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2709,
+          "section": "tome-orcs/data/timed_effects/other.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "8ce975d6a4af30a27a02669a783a119c2a55f0a759651d216bdd41ca1a7009bd",
+      "revision_uid": "eff39b93384bb8d557a0841b7fa10b623d1671c7e542cf2ececa597239544095",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/other.lua",
+      "source": "Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "进入自动修复模式，无法行动，但生命恢复速率增加 %d ，所有抗性提升 %d%%，死亡生命下限为 -%d 。",
+      "tu_uid": "73ec5bb3c4659473e693f893fa66a922669f05fc7d7b71bd01756f1550da352f",
+      "unit_id": "991e8b844a958eb129dc39c745247f70e921fb215991fc460ac87f805d08385f",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6273,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2698,
+          "section": "tome-orcs/data/timed_effects/other.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "cd0be4851ce154162348bd475bfc9754bbf4ec23103572f132cbb40a15ce45f1",
+      "revision_uid": "b452f6017bc501ee469fb630248190f85151fc7caf968aedd50b8b808071fd56",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/other.lua",
+      "source": "Direct control by the pilot increases damage by %d%% and resistances by %d%%.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "机械蜘蛛被驾驶员直接控制，增加伤害 %d%%，增加伤害抗性 %d%%。",
+      "tu_uid": "d7fe52267ddd6f5b1422703cb3afd4a1fa9bbd1d1f49816f435d9ceb04365800",
+      "unit_id": "24928625503a1027083e5333a3e6fb874f65e3ad89d35bd64429510f4ed08b2c",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6516,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2931,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "a038b944f9b276a8c4c7c73d300acd956c65fa1dbcd243a3333d9bcdd3402919",
+      "revision_uid": "81041bc068f171005cfef6c619504fb1760212b111dd7fc3bd63e73016b80067",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "The target has been splashed with acid, taking %0.2f acid damage per turn.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f"
+          ],
+          "source_conversions": [
+            "f"
+          ],
+          "source_raw": [
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "f"
+          ],
+          "target_raw": [
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "目标被酸液溅射，每回合受到 %0.2f 酸性伤害。",
+      "tu_uid": "b5a013c082526ddf5bfd54d68ca1a3890b2460d8f1932fbd2effc900423d3420",
+      "unit_id": "b00683342d3939f973d0c65eb8d583db605794c5b880fdfc3bd4f8d530b9ea35",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6112,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2545,
+          "section": "tome-orcs/data/timed_effects/magical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "dbd7a061c30e76260f2dbfd401853ad8a3175fdfc50f3629350da1841116fa0b",
+      "revision_uid": "ba86f8233be40ad06886641f63f3e8ec36a6eee2401f856238650c405b6ae101",
+      "risk_flags": [
+        "has-printf",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/timed_effects/magical.lua",
+      "source": "The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "f",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%0.2f",
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "f",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%0.2f",
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，在单次受到 %d 点伤害时达到上限。暗影伤害会在目标地格生成一个持续 %d 回合的效果，每回合造成相当于该次暗影伤害 %d%% 的伤害。只要目标继续受到该效果或其他来源的伤害，持续时间就会刷新。",
+      "tu_uid": "066190feb30e3c47ce50efd259d77d53b817c86b0625f2efd8e3c74985e1a54d",
+      "unit_id": "b29103635392996cc5508271484815dd28a276db0f7036fba6133f6fa87d5b69",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6521,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2936,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "7b6a3e2a0d0d209af32bae41424b43439bf8ac52649cc2de2aa2904bc7709e96",
+      "revision_uid": "b94837e0d729321ec7f6604caea9fc9f2aa81ad96db8ccac8ea7065869652658",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "The target is surrounded by a static shield, increasing all resistances by %d%% and causing attacks against them to trigger a shield attack for %d%% damage as lightning.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "目标被静电力场包围，增加所有抗性 %d%%，对它们的攻击将会触发 %d%% 闪电护盾伤害的反击。",
+      "tu_uid": "3202909e5c8bc4a4ba5c4eb95fa32b97d069f04d63ac402f0020a53d877361d5",
+      "unit_id": "ccd1c4db2a421cfb2e7b109b635ccdcec21be254a73f588430cd2c37562a531e",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6580,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2995,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "02baf29c24c30a0430c4052d1ef9cbe970e170763ac3a8c382d16c87cb59af6a",
+      "revision_uid": "c3ae2e36c22a953a730984bcf49b61956ad26d418a25e6b2de5d12f78594fbf1",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "The target is surrounded by a toxic cloud or radius %d. Enemies within will suffer %d%% talent failure, %d%% reduced healing, and take %0.2f additional acid damage from melee and ranged attacks.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d",
+            "f"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d",
+            "f"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d",
+            "f"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "目标被半径为 %d 的瘴气毒云包围。被困在其中的敌人会有 %d%% 的技能失败几率， 降低%d%% 治疗效果，并且在受到近战和远程攻击的时候受到 %0.2f 额外酸性伤害。",
+      "tu_uid": "c82792d5de0c3e8cfbda89cdf942ddb8867227a131bbee28f43153c5de479e2d",
+      "unit_id": "fe9c346e40ac82bc92c055e57da3671a98fb411c85dbc487691e0f33c0ca7995",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6396,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2811,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "520c81004b00d9c3b88d26ca041d9154e10d3ee7962fc863932b68b5364b7a22",
+      "revision_uid": "4a878ec844cc610361c03318c5951fc4f3269afdc853da9959ccbef9d470299f",
+      "risk_flags": [
+        "has-printf",
+        "long-source",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "The target has been impregnated with %d developing ritch larvae which are feeding on it%s.  After a %d turn gestation period, each will burst out violently, dealing %0.2f physical and %0.2f fire damage to its host.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "s",
+            "d",
+            "f",
+            "f"
+          ],
+          "source_conversions": [
+            "d",
+            "s",
+            "d",
+            "f",
+            "f"
+          ],
+          "source_raw": [
+            "%d",
+            "%s",
+            "%d",
+            "%0.2f",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "d",
+            "s",
+            "d",
+            "f",
+            "f"
+          ],
+          "target_raw": [
+            "%d",
+            "%s",
+            "%d",
+            "%0.2f",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "目标被 %d 个里奇幼虫寄生%s. 在%d回合的发育期结束后，幼虫会从寄主体内钻出，每个幼虫造成 %0.2f 物理和 %0.2f 火焰伤害。",
+      "tu_uid": "3b53ace223bf4cb791dbfffedd3e91615be720121917e61ec966b7ff9484e6ba",
+      "unit_id": "df54ab37d735ed92800e0a0cde6ac57b5de157b31dc48779a36304b1971488c0",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6571,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2986,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "bfeabd9966c9701767aa59443189debb4a401d3998b89cceced1ab39b00f354e",
+      "revision_uid": "b28be7f8a1237b902c05b29634b89ac63dadd6ab2f044916bf0199620423dc06",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "Next melee or ranged attack that deals more than 8%% of maximum life is reduced by %d%% and triggers a radius %d conal explosion dealing %d%% steamgun damage. %d stacks remaining.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "下一次受到的近战或远程伤害若大于最大生命值的 8%%，则会降低 %d%% 伤害，并触发一次半径为 %d 的扇形爆炸，造成 %d%% 蒸汽枪伤害。 剩余 %d 层叠加。",
+      "tu_uid": "b5a7f2c3fd2a33a9c380f85207e9e7a857d459d86cf7641d1d9fb68771ec4b03",
+      "unit_id": "244850ce45f9d0fd396430596b9ca7d80fe6c1b0cfd38390a4fc199e7f3f54f1",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6592,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 3007,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "2118167158647486390506e420b1f91dfc3b2c799b2b9d346662eccd746797ea",
+      "revision_uid": "3260e37b6105066a6197b4a1390e9dacb7c8d87d6e45b0160f147a1ebc9a9ece",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "%d corrosive flechettes are embedded in the target. Each melee and ranged attack against them will cause a flechette to burst for %0.2f acid damage",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "f"
+          ],
+          "source_conversions": [
+            "d",
+            "f"
+          ],
+          "source_raw": [
+            "%d",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "d",
+            "f"
+          ],
+          "target_raw": [
+            "%d",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "目标体内嵌有 %d 枚腐蚀性毒镖。每次受到近战或远程攻击时，其中一枚毒镖都会爆裂，造成 %0.2f 点酸性伤害。",
+      "tu_uid": "e5a7c588b25fde99429c7e5d10837ad131b8e4951161ed8100d93b3b3050ab5a",
+      "unit_id": "26ed072db7a9062e9366ab18113bddfcd2ebf5c1c15c5a21aa96f9c4d4329876",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [
+        "resources"
+      ],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": null,
+        "format_signature_match": null,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6086,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2523,
+          "section": "tome-orcs/data/timed_effects/floor.lua"
+        }
+      ],
+      "profile": "unknown",
+      "profile_confidence": "low",
+      "relevant_terms": [
+        {
+          "category": "T.GAME.RESOURCE",
+          "domain": "resources",
+          "match": "partial",
+          "notes": "Embers of Rage 角色资源",
+          "scope": "dlc",
+          "source": "Steam",
+          "source_tag": "_t",
+          "status": "existing",
+          "target": "蒸汽"
+        }
+      ],
+      "revision_id": "52b7e270df732b588d1e58df4b3624176d605c7bd353ff0c0f514b86ff70d2e0",
+      "revision_uid": "075987ddf7680a96d6e7ad9bb69b8f3e80174e5809b71580e9da981182a001a2",
+      "risk_flags": [
+        "profile-uncertain",
+        "term-variant-or-review",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/floor.lua",
+      "source": "The target is warm from the campfire. Increasing steam regeneration by 6/turn, stun immunity by 30% and stamina regeneration by 4/turn.",
+      "source_length_bin": "long",
+      "source_tag": "_t",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [],
+          "source_conversions": [],
+          "source_raw": [],
+          "target_conversions": [],
+          "target_raw": []
+        }
+      },
+      "target": "目标被营火温暖。蒸汽回复 +6 ，震慑免疫 +30% ，体力回复 + 4。",
+      "tu_uid": "65744e86e5dbf7e172c8bf2cfcd1f3c4fa5b361ee7495732b1dd556e7a6e1d74",
+      "unit_id": "d7ae4590dc0164a8252704e48ea56634da0be99bf2ba637876500e65ddfb5b53",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6347,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2762,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "f6eae2b83f1311c413544bc76827c57bba4455468fe67d9f7830ce776e7c226b",
+      "revision_uid": "8adc55b1a90a4bbcd1a17f068f394d37cd62fcfdcf733b87dd2f692cc56f3ff2",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition",
+        "source-target-length-outlier"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "Fight to the brink of death, can not die before going under -%d life (but life under 0 is not shown) and increases all resistances by %d%%.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "获得 -%d 生命下限和 %d%% 全体伤害抗性。",
+      "tu_uid": "8cda86dd2766c4d5e7fc74175adb1504fa5fbc274840f4332843b3270620d033",
+      "unit_id": "4f3ca168e25eba9380d2943a35e8fcf48cd4f5f8d3ccf49b76222cf8da613271",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6536,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2951,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "309a375dea1376d46aa959e9cf8f5787b3507875c70ebdd3757f835a73c663a9",
+      "revision_uid": "2029ebc89ac03909bde2332e4260298168c238a7edf34c05381c3b6dd2d1f5ba",
+      "risk_flags": [
+        "has-printf",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "The target is surrounded by a charged shield, absorbing %d/%d damage before it crumbles. While this holds, they will project a bolt of lightning against a random enemy within range 7 each turn for %0.2f lightning damage.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "f"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "f"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "f"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "目标被充能护盾覆盖，在破碎前可以吸收 %d/%d 伤害。当护盾存在时，他们每回合会朝 7 码范围内的随机敌人发射闪电弹，造成 %0.2f 闪电伤害。",
+      "tu_uid": "9c0c31dde482019890d5152603407aca31ef94d0fc803e454dee035164d10e8d",
+      "unit_id": "730b91342aeeab333821875795762cde9ea73551588112688b724354c22c2630",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6586,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 3001,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "fae102dde51a8f558f27951448aba050b3f4618389d2bf60b23e05cf0cfb3816",
+      "revision_uid": "db68b1b310d9bc517255247a9aa7513d454d381ec9e47e5c13d0069f102d4c67",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "Hovering in place, gaining %d%% evasion, %d%% movement speed and launching a powerful rocket barrage each turn.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "目标悬浮在空中，获得 %d%% 躲闪概率， %d%% 移动速度，每回合可以发射强力的火箭弹幕。",
+      "tu_uid": "4805dc95dc5ee78df661c05426e374353f42bdef3eee167809f52ea161d4cfac",
+      "unit_id": "2e80f25f9042f9927e31d123e3265e594efd1f59f118815d99f2f5227f16120d",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6545,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2960,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "b9b5fb52d924b7ca0c4e7f14cde0d98849dde238bdce2921b9b47e51424c909d",
+      "revision_uid": "32eb8f497f49687a6ad6bdf61c0fd54b12b3ab86a101af2130470d548577a505",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "Improves senses, allowing the detection of enemies in radius %d and increasing resistance penetration by %d%%.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "强化感知，侦测半径 %d 码范围内的所有敌人，增加抗性穿透 %d%%。",
+      "tu_uid": "08b422c1ef1c18fb6863fb9f9c8ff85991887550a7ae870d0df24f49731c75e2",
+      "unit_id": "2dcd767e238067747f8a36c030e8f07de0d9b5729b90e61b20b9d240dd04d254",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 6312,
+          "logical_path": "tome-orcs.lua",
+          "ordinal": 2727,
+          "section": "tome-orcs/data/timed_effects/physical.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "d1695dd5aaa0f8436ef9ec93b183e05f77149ba887b5bc49ef55c5584e401576",
+      "revision_uid": "daa9cd912559ab191127b38373e95841148ae3947b261726f1761895a3395ffb",
+      "risk_flags": [
+        "has-printf",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "The target is moving while shooting, and will reload %sammo when finished strafing.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "s"
+          ],
+          "source_conversions": [
+            "s"
+          ],
+          "source_raw": [
+            "%s"
+          ],
+          "target_conversions": [
+            "s"
+          ],
+          "target_raw": [
+            "%s"
+          ]
+        }
+      },
+      "target": "目标在移动中射击，效果结束后恢复 %s 弹药。",
+      "tu_uid": "eace32f5725fe6b2fade8e839ac842039b2c61a129531d6ea68a4e839dffb6a4",
+      "unit_id": "57a412adc5721d74be830fb4ae3e5260d9ac333959c2e3ffff12de2d2e34335f",
+      "version": "tome-1.7.6"
+    }
+  ]
+}

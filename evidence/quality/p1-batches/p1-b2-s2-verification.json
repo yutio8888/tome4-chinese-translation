@@ -1,0 +1,309 @@
+{
+  "task_id": "p1-b2-condition-controlled-001",
+  "stage": "S2-source-verification-complete",
+  "dispatch_ref": "D1+D2+D3+D4 (complete)",
+  "batch": ".artifacts/i18n/p1-batches/p1-b2-condition-controlled.json",
+  "batch_sha256": "8530d75372f3e6118ba00b0f55aab9ef6db7f2144647909f0e2c0d4af0eb713f",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "adjudicated_by": "orchestrator",
+  "adjudication_basis": "Every verdict re-checked against the pinned source. Terminology claims checked against terminology/ and corpus frequency; the Defense rendering 闪避 was going to be flagged until the corpus showed 127 to 25 in its favour.",
+  "counts": {
+    "correct": 16,
+    "defect": 7,
+    "pending": 0,
+    "legacy_unreachable": 1,
+    "advisory_on_correct": 7
+  },
+  "items": [
+    {
+      "dispatch_ref": "D1",
+      "revision_id": "198dac5c12780c1e1bb73283cc40f772211384157101717c25d9dca95099ff85",
+      "section": "mod-tome/data/talents/celestial/celestial.lua",
+      "source": "The moment of the Eclipse is the moment of Truth, when Sun and Moon are in tandem and the energies of the world hang in the balance. Intense focus allows the greatest Anorithils to harness these energies to unleash devastating forces...",
+      "target": "日蚀之时便是真理显现之时；当太阳与月亮并行，世界的能量悬于平衡。唯有最强大的星月术士，才能以高度专注驾驭这些能量，释放毁灭性的力量……",
+      "verdict": "correct",
+      "severity": null,
+      "source_evidence": "newTalentType celestial/eclipse description (celestial.lua:31-33); pure category flavour, no placeholders, no runtime logic",
+      "note": "Anorithil rendered 星月术士 matches terminology/. Flavour text, faithful."
+    },
+    {
+      "dispatch_ref": "D1",
+      "revision_id": "5e51e8d2d2caafb621e8f6e3bc22e5e334a0d7d1aa34f29cfedd7da7090c9f67",
+      "section": "mod-tome/data/talents/celestial/celestial.lua",
+      "source": "Celestial combat techniques inspired by the dark places that are not empty.",
+      "target": "并非虚无的黑暗，亦能激发太阳般的作战技巧。",
+      "verdict": "defect",
+      "severity": "minor",
+      "source_evidence": "newTalentType celestial/dark-sun description (celestial.lua:37-39); category flavour labelling the Fallen evolution tree",
+      "note": "Celestial is the talent-family adjective. terminology/ records Celestial=天空系, and the corpus splits 天体 4 / 太阳 3. The target renders it 太阳般的, which matches neither, and asserts a sun quality the source does not: this is the Dark Sun tree.",
+      "proposed_target": "并非虚无的黑暗，亦能激发天空系的作战技巧。"
+    },
+    {
+      "dispatch_ref": "D1",
+      "revision_id": "8d4c92a17787a04182fd597508ca5cad500c7c750af5272cc411501b5a9c1ab5",
+      "section": "mod-tome/data/talents/cursed/cursed.lua",
+      "source": "Hate-powered abilities that don't belong anywhere else.",
+      "target": "不适于其他地方的仇恨之力。",
+      "verdict": "correct",
+      "severity": "advisory",
+      "source_evidence": "newTalentType cursed/other description (cursed.lua:42)",
+      "note": "Advisory only: don't belong anywhere else rendered 不适于其他地方 reads as unsuitable rather than not classified elsewhere; 地方 is an odd fit for talent trees."
+    },
+    {
+      "dispatch_ref": "D1",
+      "revision_id": "846776161af08268301899f5ccd5f7970a7cb8d31cd897e6693b617b60ca14b8",
+      "section": "mod-tome/data/talents/cursed/dark-figure.lua",
+      "source": "You hide your terrible nature behind a pitiful figure. Those that see you from a distance of %d will ignore you. If you attack or use a talent they will see you for what you are and pity will be deactivated.",
+      "target": "你收起可怕的本质伪装成可怜虫。那些在 %d 码外看到你的敌人将忽略你。\n\t\t当你攻击或使用技能时，它们会看穿你的本质，怜悯技能将失效。",
+      "verdict": "legacy-unreachable",
+      "severity": null,
+      "source_evidence": "dark-figure.lua:119-146 Pity. Verified dead: cursed.lua load list (207-229, 20 files) omits dark-figure.lua; no type=\"cursed/dark-figure\" declaration exists repo-wide; the pity attribute is written at 131/137 and read nowhere.",
+      "note": "Never displayed at runtime. The scout also cited a git commit for its removal, which cannot be checked from a pinned checkout and was discarded; the dead-code conclusion rests on the three direct checks. No change proposed; excluded from defect counts."
+    },
+    {
+      "dispatch_ref": "D1",
+      "revision_id": "0561d574535f701252e61edae30acca6ff713d03526de78b3e6890214c954ec7",
+      "section": "mod-tome/data/talents/techniques/techniques.lua",
+      "source": "Your will carries you through the most difficult struggles, allowing you to fight on when others would have collapsed from exhaustion.",
+      "target": "你的意志支撑你熬过最艰难的苦战，让你在别人早已因精疲力竭而倒下时仍能继续战斗。",
+      "verdict": "correct",
+      "severity": null,
+      "source_evidence": "newTalentType technique/tireless-combatant description (techniques.lua:53-58)",
+      "note": "Category flavour, faithful."
+    },
+    {
+      "dispatch_ref": "D1",
+      "revision_id": "4dd4e184f9e396fe97b817a6e0c9d0c48212940cc78fe1529e2e65261f3a6be0",
+      "section": "mod-tome/data/talents/uber/mag.lua",
+      "source": "Rewrite the recent past to go back to when you cast Revisionist History.",
+      "target": "改写历史，返回到修正历史施法点。",
+      "verdict": "correct",
+      "severity": "advisory",
+      "source_evidence": "uber/mag.lua Unfold History; reverts world state via chronoClone/chronoRestore to the Revisionist History cast point",
+      "note": "Advisory only: recent past rendered 历史, dropping recent. Meaning preserved."
+    },
+    {
+      "dispatch_ref": "D2",
+      "revision_id": "1bf3c8fa81fc9b84f385771a1a3ea0f249cd5d6831b14d4294ece1066c1e23c5",
+      "section": "mod-tome/data/talents/chronomancy/flux.lua",
+      "source": "Create an anomaly, reducing your Paradox by %d.  This spell will never produce a major anomaly.\n\t\tInduced Anomalies may not be held by Twist Fate, nor do they cause held anomalies to trigger.  However upon learning Twist Fate you may target Induced Anomalies.\n\t\tThe Paradox reduction will increase with your Spellpower.",
+      "target": "引发一次异常，减少你的紊乱值 %d。这个技能不会引发重大异常。\n\t\t引导异常不会被扭曲命运延后，也不会触发被延后的异变。\n\t\t然而，当学会扭曲命运后，你可以选中引导异变作为目标。\n\t\t紊乱值减少效果受法术强度加成。",
+      "verdict": "defect",
+      "severity": "minor",
+      "source_evidence": "flux.lua:23-45 Induce Anomaly, info 39-44, one placeholder. anomaly_type=\"no-major\" bypasses the major branch even above 600 paradox; ignore_energy=true keeps control out of the Twist Fate hold block, which is what makes both hold-related negatives true; allow_target=knowTalent(T_TWIST_FATE)",
+      "note": "All three negatives and the placeholder are rendered correctly. Defect is terminology consistency inside one string: 异常 in the first two sentences, 异变 in the last two, for the same concept. The corpus favours 异常 63 to 异变 3.",
+      "proposed_target": "引发一次异常，减少你的紊乱值 %d。这个技能不会引发重大异常。\n\t\t引导异常不会被扭曲命运延后，也不会触发被延后的异常。\n\t\t然而，当学会扭曲命运后，你可以选中引导异常作为目标。\n\t\t紊乱值减少效果受法术强度加成。"
+    },
+    {
+      "dispatch_ref": "D2",
+      "revision_id": "dea78dd8f835acf2d3700637f3ccba42eb83c7bec3ba1ac75a1c337c5c3c2240",
+      "section": "mod-tome/data/talents/chronomancy/temporal-hounds.lua",
+      "source": "Command your Temporal Hounds to teleport to the targeted location.  If you target an enemy your hounds will set that enemy as their target.\n\t\tWhen you learn this talent, your hounds gain %d defense and %d%% resist all after any teleport.\n\t\tAt talent level five, if you're not at your maximum number of hounds when you cast this spell a new one will be summoned.\n\t\tThe teleportation bonuses scale with your Spellpower.",
+      "target": "命令你的时空猎犬传送至指定位置。\n\t\t如果你指定敌人为目标，猎犬们将视其为目标攻击。\n\t\t当你学会该技能后，你的猎犬在传送后获得 %d 闪避和 %d%% 全体抗性。\n\t\t技能等级 5 时，若猎犬数小于最大召唤数目，使用该技能时将召唤一条新猎犬。\n\t\t传送加成受法术强度加成。",
+      "verdict": "correct",
+      "severity": "advisory",
+      "source_evidence": "temporal-hounds.lua:327-333 info tformat(defense, defense, defense/2, defense/2) against a format string holding only %d and %d%%; args 3 and 4 are never consumed, so resist all displays the same value as defense. Level-five gate at 281-287, countHounds(self) < p.max_hounds at 284.",
+      "note": "Exactly two placeholders retained, which is what matters here: a third would consume defense/2 and change the displayed numbers. Defense as 闪避 matches corpus usage 127 to 25. Level-five gate and the not-at-maximum condition are both rendered correctly. Advisory: after any teleport rendered 传送后 drops any, and the buff does fire on any teleport including the hounds' own tether teleports."
+    },
+    {
+      "dispatch_ref": "D2",
+      "revision_id": "1374091e76889688fad6c753d0eafb07662c27395ec7c45dd3d582bd631462ea",
+      "section": "mod-tome/data/talents/chronomancy/timetravel.lua",
+      "source": "Some rookie paradox mage is about to find out that the standard-issue Temporal Reprieve takes you to a random safe-zone, not a fixed one, and left the contents of their pack strewn about the place. Nearly all of it is equipment that your transmutation chest won't process and is unusable by anything with less than twelve limbs, so you kick most of it into the void, but a crumpled note catches your eye...",
+      "target": "有些新手时空法师还不知道，通常的时空避难所把你带到的是一个随机的安全的地方，而不是一个固定的地方，结果他们就把自己背包里的东西散落在了这里。你发现这些装备都是些十二只脚的人才能用到的东西，并且你的转化之盒也处理不了，就一脚把它们踢进了虚空之中，然而，一张残破的笔记吸引了你的注意力…",
+      "verdict": "correct",
+      "severity": "advisory",
+      "source_evidence": "timetravel.lua lore note attached to Temporal Reprieve",
+      "note": "Lore text; the target is loose but faithful. Advisory: limbs rendered 脚, and the source says fewer than twelve limbs rather than exactly twelve."
+    },
+    {
+      "dispatch_ref": "D2",
+      "revision_id": "73f6308d1c3e093573c7306e10faf4814cf6d0008aecce57f083591debb45f09",
+      "section": "mod-tome/data/talents/cunning/traps.lua",
+      "source": "You prepare an additional trap (up to tier %d) with a special primed trigger that causes it to activate immediately when deployed. (Use this ability to select the trap.)\n\t\tNot all traps can be prepared this way and each trap can have only one type of preparation.\n\t\tKnown primable designs:\n%s\n\nA trap with a primed trigger gains %+d%% effectiveness (replacing the normal bonus from Trap Mastery) and won't break stealth %d%% of the time.\n#YELLOW#Current primed trap: %s#LAST#",
+      "target": "你额外准备一个陷阱（最高材质等级 %d ），带有特殊的控制机关，能在设置后立刻生效。 (使用该技能来选择需要准备的陷阱。)\n\t\t并非所有陷阱都能这样准备，每种陷阱只有一种改进方式。\n\t\t已学会的引爆方式 :\n%s \n\n带有特殊启动机关的陷阱强度增加 %+d%% (取代陷阱专精的加成 ) ，有 %d%% 几率不破坏潜行。\n#YELLOW#当前选择的陷阱 ：%s#LAST#",
+      "verdict": "defect",
+      "severity": "minor",
+      "source_evidence": "traps.lua:770-852 Trap Priming, info 817-851, tformat order getTalentLevelRaw, trap_descs, mastery, stealth_chance, instant. allow_primed_trigger gates which traps qualify; trap_primed holds a single talent id; trap_effectiveness looks up getTrapMastery on T_TRAP_PRIMING instead of T_TRAP_MASTERY, so the bonus is strictly a replacement.",
+      "note": "All five placeholders are in the correct order and the replacing-not-adding semantics is rendered correctly. Defect is a punctuation cluster: half-width parentheses in three places, spaces before a closing parenthesis and before a full-width comma and colon, a space before a half-width colon after 已学会的引爆方式, and a trailing space after the %s design list.",
+      "proposed_target": "你额外准备一个陷阱（最高材质等级 %d），带有特殊的控制机关，能在设置后立刻生效。（使用该技能来选择需要准备的陷阱。）\n\t\t并非所有陷阱都能这样准备，每种陷阱只有一种改进方式。\n\t\t已学会的引爆方式：\n%s\n\n带有特殊启动机关的陷阱强度增加 %+d%%（取代陷阱专精的加成），有 %d%% 几率不破坏潜行。\n#YELLOW#当前选择的陷阱：%s#LAST#"
+    },
+    {
+      "dispatch_ref": "D3",
+      "revision_id": "b6bf0155b9596524a44b88022793e77ee950ab3aa9bb447d2acf737cd9a6e166",
+      "section": "mod-tome/class/Game.lua",
+      "source": "The game could not generate level %s of %s after %s attempts. What do you want to do?",
+      "target": "在经过 %s 次尝试后，游戏未能成功生成 %s 地图的第 %s 层。你想要做什么？",
+      "verdict": "correct",
+      "severity": null,
+      "source_evidence": "Game.lua changeLevelFailure; three %s bind to level, zone name, attempt count",
+      "note": "The target reorders the three slots, which is legitimate here: mod-tome.lua line 482 declares args_order {3,2,1} as the fourth argument to t(), and I18N.default_tformat remaps arguments when that mapping exists. Without the declaration this would have been a major mis-slotting."
+    },
+    {
+      "dispatch_ref": "D3",
+      "revision_id": "4639ffd0f03d28f578e8f1678a00811e3eda7989aad41c507546060cb5dccc70",
+      "section": "mod-tome/data/quests/brotherhood-of-alchemists.lua",
+      "source": "#RED#%s has completed an %s without your aid.#WHITE#",
+      "target": "#RED#%s已经制造了%s，并没有获得你的帮助。#WHITE#",
+      "verdict": "correct",
+      "severity": null,
+      "source_evidence": "brotherhood-of-alchemists.lua desc; %s alchemist name, %s elixir name; no args_order declared",
+      "note": "Order preserved, matching the undeclared default."
+    },
+    {
+      "dispatch_ref": "D3",
+      "revision_id": "5c1dcd70ed993afbcf9c3cdb29c3525b2b72187fe4e2efcf66057362fb0d4828",
+      "section": "mod-tome/data/talents/gifts/call.lua",
+      "source": "Touch a target (or yourself) to infuse it with Nature, healing it for %d (this heal does not work on undead).\n\t\tThe amount healed will increase with your Mindpower.",
+      "target": "对你自己或某个目标注入大自然的能量，治疗 %d 点生命值（对不死族无效）。\n\t\t治疗量受精神强度加成。",
+      "verdict": "correct",
+      "severity": null,
+      "source_evidence": "gifts/call.lua Nature's Touch; action guards the heal with `if not target:attr(\"undead\")`, skipping it entirely rather than reducing it",
+      "note": "对不死族无效 matches the full skip."
+    },
+    {
+      "dispatch_ref": "D3",
+      "revision_id": "e3711cb7d824c44c34733ada5863c5f17313d49ba94673d57f054d7c2fa5aca1",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "source": "- will only auto use when no saturation effect exists",
+      "target": "- 只会在没有纹身/符文饱和效果的时候使用。",
+      "verdict": "defect",
+      "severity": "minor",
+      "source_evidence": "inscriptions.lua auto_use_warning; auto_use_check returns `not self:hasEffect(EFF_<KIND>_COOLDOWN)`, and governs automatic use only",
+      "note": "The condition itself is rendered correctly, and naming 纹身/符文 is a helpful specification of the per-kind check. Defect is the dropped 自动: the target reads as though the inscription can only be used at all while no saturation effect exists, when the gate applies solely to auto-use and manual use is always available.",
+      "proposed_target": "- 只会在没有纹身/符文饱和效果时自动使用。"
+    },
+    {
+      "dispatch_ref": "D3",
+      "revision_id": "0de4699ce4d09bcfd646e80f1395ba83bcf0897e728049009f892f229c4d1fae",
+      "section": "mod-tome/data/talents/misc/misc.lua",
+      "source": "Allows a mage to teleport to the secret town of Angolwen.\n\tYou have studied the magic arts there and have been granted a special portal spell to teleport there.\n\tNobody must learn about this spell and so it should never be used while seen by any creatures.\n\tThe spell will take time to activate. You must be out of sight of any creature when you cast it and when the teleportation takes effect.",
+      "target": "允许你传送至秘密的小镇：安格利文。\n\t你曾在那里研习魔法，并获授一道特殊的传送门法术，可传送回去。\n\t不能让任何人知道此法术，因此绝不能在任何生物能看见你的情况下使用。\n\t法术需要一段时间才能生效。施法时以及传送生效时，你都必须处于任何生物的视线之外。",
+      "verdict": "correct",
+      "severity": null,
+      "source_evidence": "misc.lua Teleport: Angolwen; action runs a radius-20 fov check and aborts if any actor other than self is seen, then applies EFF_TELEPORT_ANGOLWEN for 40 turns; the effect's deactivate re-runs the identical check and cancels the teleport if seen",
+      "note": "Both moments are preserved in the target, which is the load-bearing part: the check really does run twice, at cast and at resolution."
+    },
+    {
+      "dispatch_ref": "D3",
+      "revision_id": "464bce5fa3e16fa9150b153f8ca57b2ce56ff969ae1a663b1c86b7fb837c3635",
+      "section": "mod-tome/data/talents/misc/misc.lua",
+      "source": "Runes are not class abilities, you must find them or learn them from other people.",
+      "target": " 符文不是职业技能，你必须找到它们或从其他人那获得它们。",
+      "verdict": "defect",
+      "severity": "minor",
+      "source_evidence": "misc.lua inscriptions/runes talent-type description",
+      "note": "Content is faithful. Defect is a leading space at the start of the target string.",
+      "proposed_target": "符文不是职业技能，你必须找到它们或从其他人那获得它们。"
+    },
+    {
+      "dispatch_ref": "D3",
+      "revision_id": "526a798edea41c997824e7b2ee7434be0968c1ffeaf4fd0c083385addbffc297",
+      "section": "mod-tome/data/talents/misc/misc.lua",
+      "source": "Infusions are not class abilities, you must find them or learn them from other people.",
+      "target": "纹身不是职业技能，你必须找到它们或从其他人那获得它们。",
+      "verdict": "correct",
+      "severity": null,
+      "source_evidence": "misc.lua inscriptions/infusions talent-type description",
+      "note": "Infusions as 纹身 is consistent with the sibling string and with the auto-use warning."
+    },
+    {
+      "dispatch_ref": "D4",
+      "revision_id": "5670434565b0595ad444203240a4042a197a73eb94060bd6ac238dab55708520",
+      "section": "mod-tome/data/talents/psionic/psi-fighting.lua",
+      "source": "While active, you give your flesh and blood body a boost in the form of precisely applied mental forces. Increases Strength and Dexterity by %d%% of your Willpower and Cunning, respectively.\n\t\tStrength increased by %d\n\t\tDexterity increased by %d",
+      "target": "当开启时，你为了你的血肉之躯精准地灌布精神之力。分别增加意志和灵巧的 %d%% 至力量和敏捷。\n\t\t力量增加 %d 点\n\t\t敏捷增加 %d 点",
+      "verdict": "correct",
+      "severity": null,
+      "source_evidence": "psi-fighting.lua Augmentation; str_power = ceil(inc*getWil()), dex_power = ceil(inc*getCun()), tformat(inc*100, str_power, dex_power)",
+      "note": "The respective mapping is Willpower to Strength and Cunning to Dexterity, and the target preserves that pairing and all three placeholders in order. This was the item most exposed to a direction error and it is correct."
+    },
+    {
+      "dispatch_ref": "D4",
+      "revision_id": "2d75ad7789d669094df2a2413aa02d71584104d2ccced78c65d9bf8797a9a593",
+      "section": "mod-tome/data/talents/psionic/trance.lua",
+      "source": "When you wield or wear an item infused by psionic, nature, or arcane-disrupting forces you improve all values under its 'when wielded/worn' field %d%%.\n\t\tNote this doesn't change the item itself, but rather the effects it has on your person (the item description will not reflect the improved values).",
+      "target": "当你穿戴由灵能、自然或反魔力量灌注的装备时，你增加 %d%% \"当使用或装备时:\"的增益属性。\n\t\t注意此技能不会改变装备属性，它的效果只作用于你自身。（此技能的增益也不会在装备描述上反映出来）。",
+      "verdict": "correct",
+      "severity": "advisory",
+      "source_evidence": "trance.lua:182-190 Deep Trance; info ends in tformat(1), a hardcoded literal, and no code anywhere references the talent",
+      "note": "Target is faithful to the English. The talent is an unimplemented stub whose description promises behaviour the code does not provide, but that is source-side and not a translation defect. Advisory: ASCII double quotes are used around the quoted UI field name where the source uses single quotes."
+    },
+    {
+      "dispatch_ref": "D4",
+      "revision_id": "590fa33e0206af97da2a5627108655ce980dbd13b2bd79be07d3e2ea108179b5",
+      "section": "mod-tome/data/talents/spells/master-necromancer.lua",
+      "source": "Tighten the ethereal leash to some of your minions currently within your aura of undeath, pulling them to you and swapping place with any eventual foes in the way.\n\t\tUp to %d minions are affected.\n\t\tWhen recalling a minion the spell tries to prioritize a spot where there is already a foe, to push it away.",
+      "target": "拉紧你与不死光环内的死灵随从的虚幻连接，将它们拉到你的身边，并与路径上的敌人换位。\n\t\t最多召回 %d 个随从。\n\t\t当你召回随从的时候，会优先选择周围有敌人的格子，将敌人推开。",
+      "verdict": "defect",
+      "severity": "minor",
+      "source_evidence": "master-necromancer.lua Recall Minions; line 133 collects spots_hostile as cells where a hostile actor stands, and line 149 pushes that occupant away",
+      "note": "Minion cap and the swap behaviour are rendered correctly. Defect is the priority rule: the source prioritises a cell a foe already occupies so the recall displaces it, while 周围有敌人的格子 describes a cell with enemies nearby.",
+      "proposed_target": "当你召回随从的时候，会优先选择已有敌人占据的格子，将其推开。"
+    },
+    {
+      "dispatch_ref": "D4",
+      "revision_id": "cf871182cc5a186fcd7e436c805687e3b25897d5bceefa2ebbfdadced9c27467",
+      "section": "mod-tome/data/timed_effects/other.lua",
+      "source": "The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all).",
+      "target": "笼罩在一个屏障内使目标身形逐渐消失 (+%d%% 全体抗性 )。",
+      "verdict": "defect",
+      "severity": "minor",
+      "source_evidence": "timed_effects/other.lua shroud effect; single placeholder for resist all",
+      "note": "Placeholder correct. Defect is punctuation: half-width parentheses with a space before the closing one. The target also drops the not-only-obscure clause, which is descriptive only.",
+      "proposed_target": "笼罩在一个屏障内使目标身形逐渐消失（+%d%% 全体抗性）。"
+    },
+    {
+      "dispatch_ref": "D4",
+      "revision_id": "50d76dff17c6a282550badf512a881edd0b3b9bdc9ec24a4063ea0d5dd69098d",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source": "The target is able to make actions and attacks while remaining stealthed.",
+      "target": "目标能在保持潜行的同时行动和攻击。",
+      "verdict": "correct",
+      "severity": null,
+      "source_evidence": "timed_effects/physical.lua Shadow Dance; Actor:breakStealth checks EFF_SHADOW_DANCE",
+      "note": "Faithful."
+    },
+    {
+      "dispatch_ref": "D4",
+      "revision_id": "9099cb944632ab264413bf5a7a12e0b07dae5926a08ced60b98782a68325fd1e",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source": "The target can't think straight, causing their actions to fail.",
+      "target": "目标不能正常思考，使用技能会失败。",
+      "verdict": "correct",
+      "severity": "advisory",
+      "source_evidence": "timed_effects/physical.lua Delirious Concussion; sets talent_fail_chance consumed by Actor:useTalent",
+      "note": "The target narrows actions to 使用技能, which matches the code more closely than the English does. Advisory: both source and target state failure as certain where the code applies a chance."
+    },
+    {
+      "dispatch_ref": "D4",
+      "revision_id": "b006a99d226fc63d00daf5ba11ea0f4b9085fe1191a24fc98bc40f6fe623ab41",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source": "Dragon blood runs through your veins. You can breathe fire (or have it improved if you already could).",
+      "target": "你流淌着龙的血液。你可以喷吐火焰（如果你原本就会喷火，则吐息会得到强化）。",
+      "verdict": "correct",
+      "severity": null,
+      "source_evidence": "timed_effects/physical.lua dragon breath effect with an already-possessed branch",
+      "note": "Both branches rendered."
+    }
+  ],
+  "subset_analysis": {
+    "mechanical": {
+      "items": 13,
+      "defects": 4,
+      "rate": "4/13 = 30.8%"
+    },
+    "flavour_or_category": {
+      "items": 7,
+      "defects": 2
+    },
+    "system_message": {
+      "items": 3,
+      "defects": 1
+    },
+    "dead_code": {
+      "items": 1
+    },
+    "b1_comparable": "B1 was 24 mechanical items with 8 defects = 33.3%, including 2 major direction reversals"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "batch_id": "p2-orcs-b1-steam-mechanics-numeric",
+  "workset_sha256": "72417c2b472c7820276a06f3ab3b0722d90a80cc1557564080070bd2b4b88151",
+  "source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+  "summary": {"reviewed": 24, "confirmed": 7, "no_issue": 17, "insufficient_evidence": 0},
+  "confirmed": [
+    {
+      "id": "ORB1-001",
+      "revision_id": "022c6fd88fdc241cd8bc31725cd230b7118314581bea9f84df7d9235d9de94fc",
+      "source_path": "data/talents/steam/other.lua:1476-1502",
+      "evidence": "Solid Shell calls archeryShoot with DamageType.PHYSICAL; the player text explicitly says a solid shot and physical weapon damage, while the target reduces this to an unspecified 'special solid' attack and generic weapon damage.",
+      "required_semantics": "special solid shot; physical weapon damage; knockback; the talent itself is ammunition"
+    },
+    {
+      "id": "ORB1-002",
+      "revision_id": "5f883c1b536bc482782c12f921fc3edf041286c4162d13c2831ab48c2ee0dc57",
+      "source_path": "data/talents/steam/other.lua:1548-1572",
+      "evidence": "Saw Shell fires with DamageType.PHYSICALBLEED and its info specifies a steamsaw shot plus physical weapon damage both on impact and over five turns. The target suppresses the shot identity and both physical-damage qualifiers.",
+      "required_semantics": "special steamsaw shot; physical weapon damage on impact and over five turns; the talent itself is ammunition"
+    },
+    {
+      "id": "ORB1-003",
+      "revision_id": "1e35a557e078d3d71763acbfe9b37518ce1f30a0bfb8b3c3dea91e042097f2ab",
+      "source_path": "data/talents/steam/other.lua:1504-1545",
+      "evidence": "Impaler Shell calls archeryShoot with DamageType.PHYSICAL; its info identifies a stake shot and physical weapon damage. The target gives neither the stake-shot identity nor the physical-damage qualifier.",
+      "required_semantics": "special stake shot; physical weapon damage; two-tile knockback and pin duration; the talent itself is ammunition"
+    },
+    {
+      "id": "ORB1-004",
+      "revision_id": "bc380ec2d83d2aa33e9b0dd102dace120485fba25d88ece25b6452063a92fffe",
+      "source_path": "data/talents/steam/turrets.lua:730-737",
+      "evidence": "Upgrade's Steamgun branch explicitly fires a radius-2 rocket for steamgun damage as fire. The target retains the damage magnitude but omits the fire damage type.",
+      "required_semantics": "Steamgun turret rocket deals fire steamgun damage in radius 2"
+    },
+    {
+      "id": "ORB1-005",
+      "revision_id": "65ec262c9a807a7227b680bd18ec796b6abe4c44518dfce12f0f3699a8cdf71a",
+      "source_path": "data/talents/steam/heavy-weapons.lua:556-574, 764-770, 773-787",
+      "evidence": "The Boltgun branch invokes fire_boltgun, which performs archery shots with DamageType.ACID and a disarm duration. The target calls these 'explosive ammunition' and generic acid weapon damage, introducing explosion semantics and losing the steamgun-shot relation.",
+      "required_semantics": "fires the stated number of boltgun shots; acid steamgun damage; five-turn disarm"
+    },
+    {
+      "id": "ORB1-006",
+      "revision_id": "62e9a65c0895e8b61a04d40fe3bc005569c50128a6da78b8bc34b89444c20fea",
+      "source_path": "data/talents/steam/heavy-weapons.lua:434-445",
+      "evidence": "Shockstaff is a sustained talent and its info says that while active it replaces the normal melee attack. The target makes it an unqualified capability rather than an active-state replacement.",
+      "required_semantics": "only while active, the effect replaces the normal melee attack"
+    },
+    {
+      "id": "ORB1-007",
+      "revision_id": "f88827952dadb06411022018d98df1bc2f54b5f230a7f1b6a62115984890c05b",
+      "source_path": "data/talents/steam/gunslinging.lua:103-128; superload/mod/class/interface/Archery.lua:50-58",
+      "evidence": "Startling Shot's bonus is consumed only by Combat:archeryDamage, so it applies to the next shot that hits. The target widens this to the next generic attack.",
+      "required_semantics": "the next shot that hits the startled creature deals the bonus damage"
+    }
+  ],
+  "no_issue_revision_ids": [
+    "175951fda3f21bca46fca01e9ee6146bf5f32d9032292e6dbdaab80ed0717b41",
+    "bfef07276e1337bfdf9e47a9d3c8e5a32859ad8b47131449a82243b6cfcf3203",
+    "237178776b68382cb3367444c75bf75b379568dbd77019361326d235d6a75f69",
+    "17aff34a46ce66bfe966fd202c25c5e0c68f44216d29a351ae0d00d9d6d7af2e",
+    "5239de3746101930c6050dfdb6c6964a12e50603144a7e71abc1a16be36aa216",
+    "85589e79e600c60634b3105f27c11410894d23c38af5c64db72f323c223743f3",
+    "58c5d7b67e9f4b4dcdb78fb252f876db38f7a5ab900763f5169b0bee081665c4",
+    "6f67e46123583cb422503657e8ebd722aab2202400229cc5027020bbd8f16c26",
+    "9962ac882aa0428279097cb107e2e405c4194976414351e1fe101b94d685fe06",
+    "2f1b83d4d77ce2550511affc1c56788be7372913e21903583d9a6d0e8fd37410",
+    "a9eac415366c0e2c62185cb8e8910e32afa6db44cf2cd564de692da263b961ca",
+    "b1a7f75877e3751c61c8a2833e7a94d914da738f192ab72304f71edd94ec8e1b",
+    "c0c9d4c86dfd035bb335780a3384810d631413c5f1a2f8c1b461a3285b4aee0f",
+    "db2fcb2b79f7b976844ba3f9c16c638367dba1571275bad174f6b55942ce8c5c",
+    "4c6cd1bcd6ee75f610d6b7c85d12636c2807b3270ba58005e41f63b939004a94",
+    "4c61f52cb409cd497ed4cdda66153f15c7c73708890cec9c0dc6224eeda4f92c",
+    "1c027236263783db6c14b1b33625bb71e8656953d5f4ff029a7fee12d5889d1b"
+  ]
+}

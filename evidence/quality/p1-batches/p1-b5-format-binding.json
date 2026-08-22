@@ -1,0 +1,440 @@
+{
+  "batch_id": "p1-b5-format-binding",
+  "plan": "docs/p1-execution-plan.md",
+  "purpose": "bounded quality check over already-translated revisions",
+  "note": "Risk flags only order candidates for review. No entry in this batch is asserted to be defective; host source verification decides.",
+  "version": "tome-1.7.6",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "inventory_run": ".artifacts/i18n/quality/runs/20260818T094315.772790Z-inventory",
+  "inventory_sha256": "6a8ddaad1394061294726a1329b554d4feae81dd2ed2e3eb7921c9dc62346488",
+  "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+  "risk_rule_version": "risk-v1",
+  "profile_classifier_version": "profile-v1",
+  "filter": {
+    "component": "tome",
+    "profile": "mechanics",
+    "risk_flags_any": [
+      "has-args-order",
+      "has-at-token",
+      "has-markup",
+      "has-printf"
+    ],
+    "risk_flags_excluded": [],
+    "min_source_len": 40
+  },
+  "pool_size": 2071,
+  "size": 24,
+  "sort_key": "revision_id",
+  "selection": "sha256(seed_str|revision_id) ascending",
+  "seed_str": "tome4-p1-b5-attempt-2|6a8ddaad1394061294726a1329b554d4feae81dd2ed2e3eb7921c9dc62346488|624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "items": [
+    {
+      "revision_id": "212a74d7bedb3e946444882ecc40fe49982108c14da02403f2d88f1040a218fb",
+      "revision_uid": "6fd3691f2fb245912fb514e52620e709f788306578b51cdca179fca4a9937fa7",
+      "tu_uid": "baa5de83ab034832c24106d6b510a9c443b672d4b0dfde0a20be599b04915d21",
+      "section": "mod-tome/data/chats/zigur-trainer.lua",
+      "source_tag": "tformat",
+      "source": "#LIGHT_GREEN#*A grim-looking Fighter stands there, clad in mail armour and a large olive cloak. He doesn't appear hostile - his sword is sheathed.*#WHITE#\n%s, our guild has been watching you and we believe that you have potential.\nWe see that the hermetic arts have always been at the root of each and every trial this land has endured, and we also see that one day they will bring about our destruction. So we have decided to take action by calling upon Nature to help us combat those who wield the arcane.\nWe can train you, but you need to prove you are pure, untouched by the eldritch forces, and ready to fight them to the end.\nYou will be challenged against magical foes. Should you defeat them, we will teach you our ways, and never again will you be able to be tainted by magic, or use it.\n\n#LIGHT_RED#Note:  Completing this quest will forever prevent this character from using spells or items powered by arcane forces.  In exchange you'll be given access to a mindpower based generic talent tree, Anti-magic, and be able to unlock hidden properties in many arcane-disrupting items.",
+      "target": "#LIGHT_GREEN#*一个冷酷的战士站在那里，穿着锁甲和橄榄色的大斗篷，他没有敌意——他的宝剑并没有出鞘。*#WHITE#\n%s，我们观察了你很久，你很有潜力。\n我们都知道，禁忌的奥术力量是我们这片大地上每一场痛苦和灾难的根源。如果继续放任不管，它们最终会毁灭这个世界。因此，我们决定召唤自然的力量，战胜那些奥术力量使用者。\n我们可以训练你，不过你得保证你的纯粹，没有接触奥术力量，并且准备和魔法战斗到底。\n你会挑战几个魔法对手，要是你打败他们，我们就会将我们的技能教给你，今后你再也不能被魔法玷污，也不能再使用魔法。\n\n#LIGHT_RED#注：完成此任务会使该角色永久无法使用法术或由奥术之力驱动的物品。取而代之的，是你可以获得一支精神力量的通用技能树——反魔法，同时你可以开启许多反魔法物品的隐藏属性。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "profile-uncertain",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "3c855b28d23aee5fa2d9c5549e0da7d6b3f9d7e760be8431bd6230c40337b0a1",
+      "revision_uid": "dc7af267027f166b8ec7e796552ae800d7e422a5ac0c484dab1858a164701e8d",
+      "tu_uid": "b211b87a27f355ad19162dda5cab6a180cf13172af614c0b007ac04369eed720",
+      "section": "mod-tome/data/general/objects/world-artifacts-maj-eyal.lua",
+      "source_tag": "tformat",
+      "source": "shoot a cone of flames (radius %d) for %0.2f fire damage (based on Magic)",
+      "target": "发射长度 %d 的锥形火焰，造成 %0.2f 火焰伤害（基于魔法）。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "3b821ce033a3262a122d79634cbb53f90c12fda038fd164556e25225f666c56d",
+      "revision_uid": "45b19c3da991b2bae64e8f52f9275c429574ff9e15495d90db746924540fb911",
+      "tu_uid": "f4482c541c627d4933d74dff2055f3782ca19491baedfe8b803853c84662b0d1",
+      "section": "mod-tome/data/general/objects/world-artifacts.lua",
+      "source_tag": "_t",
+      "source": "10% chance to return the target to a much younger state",
+      "target": "10% 将目标退回到婴儿状态。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "profile-uncertain",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "3de8e4a639ac4913bc43498e9ef39cea1b12023d4f7bd74c52451ae4395e759f",
+      "revision_uid": "e120beeb26665fb190d6a0cc3fdff7989a53a7b442cfb58557b54987e699de77",
+      "tu_uid": "13ed620292ad58de1241157b1eb49e1ef5086dd239e14506596164f5bb41bc07",
+      "section": "mod-tome/data/general/traps/complex.lua",
+      "source_tag": "tformat",
+      "source": "Releases up to 4 delayed fuse fireballs within range %d that each explode for #LIGHT_RED#%d#LAST# fire damage after %d turns.",
+      "target": "在%d范围内释放最多4个延迟的引信火球，每个火球在%d回合后爆炸，造成#LIGHT_RED#%d#LAST#火焰伤害。",
+      "args_order": [
+        1,
+        3,
+        2
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "has-markup",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "40f4533f1fca90d8e1b59374d65831554fce895ee2de08776b08496bea406e28",
+      "revision_uid": "032f8c622a09382f9daabd2172e583d559d7f46cc38186e637aa56e6d62122a0",
+      "tu_uid": "fbf3c06ac80cc1dc63e486039b64d4e65b9aef4acc979075255697ccff5652b6",
+      "section": "mod-tome/data/talents/chronomancy/age-manipulation.lua",
+      "source_tag": "tformat",
+      "source": "You surround yourself with a radius %d distortion of time, which deals %0.2f stacking temporal damage over 3 turns to all other creatures.  The effect lasts %d turns.\n\t\tThe damage dealt will scale with your Spellpower.",
+      "target": "时空扭曲光环围绕着你（ %d 码半径范围），在 3 回合内对范围所有目标造成 %0.2f 累积时空伤害。效果持续 %d 回合。\n\t\t受法术强度影响，伤害按比例加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "d49ab55b397b8658aa6a24c52efbe9de9e42509845e10f2aac33a0694ae9d795",
+      "revision_uid": "e37eb9d0a044a7017dc3150d3aca2ba78d318a5e16f91c2d34c14bda73d2d627",
+      "tu_uid": "5c4bd6619be38aa5906be315b507b4eab2308e6608ead361814c81a8ce5aff04",
+      "section": "mod-tome/data/talents/corruptions/hexes.lua",
+      "source_tag": "tformat",
+      "source": "Hexes your target, forcing it to be your thrall for %d turns.\n\t\tIf you damage the target, it will be freed from the hex.",
+      "target": "对目标施放邪术，使它成为你的奴隶，持续 %d 回合。\n\t\t如果你对目标造成伤害，则目标会脱离诅咒。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "65e237f63fddb5b1586569e401f7cd248228bd91298d084baef1004f5a165d8f",
+      "revision_uid": "8e72848cc452381d4bb8c60fac4853f6b082445b9345e08fdd0f5fedc9de74d4",
+      "tu_uid": "e9bce1088ffc1d5aa05ffabae9e015fea06e8fa763d078e141caefa185a6c323",
+      "section": "mod-tome/data/talents/corruptions/rot.lua",
+      "source_tag": "tformat",
+      "source": "You have a %d%% chance on dealing blight damage to cause the target to rot away, silencing, disarming, blinding or pinning them for %d turns. This effect has a cooldown.\nAt talent level 4, this affects targets in a radius 1 ball.\nYour worms also have a %d%% chance to blind, silence, disarm or pin with their melee attacks, lasting 2 turns.\nThe chance to apply this effect will increase with your Spellpower.",
+      "target": "每次造成枯萎伤害，有 %d%% 几率令目标腐烂，沉默、致盲、缴械或者定身 %d 回合。该效果有冷却时间。\n技能等级 4 时，该效果对半径 1 内所有目标有效。\n同时，你的蠕虫在近战攻击中有 %d%% 几率附加沉默、致盲、缴械或定身效果，持续 2 回合。\n负面状态施加成功率受法术强度影响。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "d8c7ec4b8554629a74a876c476a2d62fa1191f53b3e4a23571e6a7cc0faef45f",
+      "revision_uid": "be82ef61b287a5c3280b5ca7648289ab9b9b885a777ebe9820416af3b6c50431",
+      "tu_uid": "a385a52a081144d0f4ff06d0fc5b713a2ffafd66d90594bee293ce44b94e7a17",
+      "section": "mod-tome/data/talents/cunning/artifice.lua",
+      "source_tag": "tformat",
+      "source": "Throw a vial of volatile liquid that explodes in a radius %d cloud of smoke lasting %d turns.  The smoke blocks line of sight, and enemies within will have their vision range reduced by %d.\n\t\tUse of this talent will not break stealth, and creatures affected by the smokes can never prevent you from activating stealth, even if their proximity would normally forbid it.\n\t\t#YELLOW#Prepared with: %s#LAST#",
+      "target": "扔出烟雾弹，产生半径 %d 的烟雾，持续 %d 回合。烟雾阻挡视野，所有烟雾中的敌人视野下降 %d。\n\t\t使用该技能不解除潜行。被烟雾影响的生物不能阻止你潜行。\n\t\t#YELLOW#已装填：%s#LAST#",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "08e00d3571bdd648150eabcbe240dd605c862cf3e1aff38ce4f7d0c106ae0e8f",
+      "revision_uid": "2b78532e5eb0f97341acc56ea3acb1f137acc4dfbf0fa7be5fa0ad56f450e31d",
+      "tu_uid": "b9e4ecb9ca737efaa716dfaca3108c206039f771f33be15b676809ed9541ffc1",
+      "section": "mod-tome/data/talents/cunning/traps.lua",
+      "source_tag": "tformat",
+      "source": "Lay a trap that releases a radius 3 cloud of thick poisonous gas lasting 4 turns.\n\t\tEach turn, the cloud poisons all within (%0.2f nature damage over 5 turns).   There is a 25%% chance the poison is enhanced with crippling, numbing or insidious effects.\n\t\tThis trap can use a primed trigger and a high level lure can trigger it.%s",
+      "target": "放置一个陷阱，释放半径 3 格的浓密毒云，持续 4 回合。\n\t\t每回合，毒云会使范围内的所有目标中毒，在 5 回合内造成 %0.2f 点自然伤害。毒素有 25%% 几率强化为致残、麻痹或阴险毒素。\n\t\t该陷阱可使用即爆启动机关，高等级诱饵也能将其触发。%s",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "dc84a0190fb936ef0618e9700bd99409dc5e128c3ff0b57efd5b1c609dcd2cd9",
+      "revision_uid": "69fa9dac95901d2b86791817131e6c9a875326c3168cc23a5ca7f99f3704f1bb",
+      "tu_uid": "1b8a3c2d109fe83b8ab1457cc963db0ba69286d25fc06fe274508617b3b513d3",
+      "section": "mod-tome/data/talents/cunning/traps.lua",
+      "source_tag": "tformat",
+      "source": "This talent allows you to prepare up to %d different trap(s) of tier %d or less for later deployment. (Use this ability to select which to prepare.)\n\t\tDesigns known:\n%s\n\n\t\tTraps prepared this way are difficult to detect (%d detection 'power') and disarm (%d disarm 'power') based on your Cunning.  They gain %+d%% effectiveness, and can be deployed without breaking stealth %d%% of the time.\n\t\tYou are immune to the damage and negative effects of your traps, and traps may critically strike based on your physical crit chance.\n\t\tMost traps last %d turns if not triggered, and refund 80%% of their stamina cost on expiration.\n\t\tMore designs may be discovered via disarming or learned from special instructors in the world.",
+      "target": "该技能允许你准备 %d 个不同的陷阱，最高材质等级为 %d。（使用该技能选择需要准备的陷阱。）\n\t\t已知陷阱：\n%s\n\n\t\t准备好的陷阱更难被发现、被解除（ %d 点侦测强度， %d 点解除强度，基于灵巧）。效果被强化 %+d%%，并有 %d%% 的几率使用不会打破潜行。\n\t\t你免疫自己的陷阱，陷阱可以暴击（使用物理暴击率）。\n\t\t大部分陷阱如果没有触发则会持续 %d 回合。当陷阱消失时，如果效果未触发，回复 80%% 体力消耗。\n\t\t更多陷阱设计可通过解除陷阱发现，或向世界各地的特殊导师学习。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "preferred-term-present",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "6f0d94d7075c91acbe9d6a129e2c94076655a2ea5b6cdaad4c29a97ae59dc018",
+      "revision_uid": "01a67183c928f72ba19e81d9e9f66d69d0adfae763d0ba59c49129f62effe0ad",
+      "tu_uid": "1088104487d812ba6e57e3fc9326b447c969efd0370b338f479d70ba68528d80",
+      "section": "mod-tome/data/talents/cursed/one-with-shadows.lua",
+      "source_tag": "tformat",
+      "source": "You empathy with your shadows causes the line between you and your shadows to blur.\n\t\tYou lose %d%% light resistance, but gain %d%% darkness resistance and affinity. You also gain %0.2f%% all resistance for each shadow in your party.",
+      "target": "你与你的阴影链接，你和你的阴影之间的界限渐渐模糊。\n\t\t你失去 %d%% 光系伤害抗性，获得 %d%% 暗影伤害抗性和伤害吸收。你的队伍里每有一个阴影，就获得 %0.2f%% 所有伤害抗性。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "de8c3216e3da3d97bd97983ed25c9b8350e5c8c19c40c474ebd1eea3190b33d0",
+      "revision_uid": "0b2cc5bfffd22c072c8dd85c6124feb3721a0229217e1742db063c65f62e992a",
+      "tu_uid": "2b4c3e50a39c9bbaddd81430b3dff531a606c0122256b5bebf9735244283c6b0",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "source_tag": "tformat",
+      "source": "%d nature damage, %d%% healing reduction",
+      "target": "%d 自然伤害， %d%% 治疗下降",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "2b9b2d8a086a27c9f7cb3a3088466e6338f7db936f8dc923de3cbf0b3d985d33",
+      "revision_uid": "e6a252c0bb8ab32f855bc99a1fcac706d52c05e10187c6416d6e594f62a9e8ed",
+      "tu_uid": "8ea48148353f7a127da25d31928488ea386232b05381ca0ed5d715fba3bb6bb3",
+      "section": "mod-tome/data/talents/spells/acid-alchemy.lua",
+      "source_tag": "tformat",
+      "source": "A radius %d pool of acid spawns at the target location, doing %0.1f Acid damage each turn for %d turns.\n\t\tAll creatures caught in the mire will also suffer a %d%% slowness effect.\n\t\tThe damage will increase with your Spellpower.",
+      "target": " 一小块酸液覆盖了目标地面，散落在半径 %d 的范围内，每回合造成 %0.1f 点酸性伤害，持续 %d 回合。\n\t\t受影响的生物同时会减速 %d%%。\n\t\t伤害受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "3d91ba47c91f22d01569652623e1a495641bdbc21eb077334898901c9e390ab7",
+      "revision_uid": "6709150a46940958d5dadbbdb3d2733387c54f9d4ca18c862a904e63e8d5717d",
+      "tu_uid": "7332155f83dfd675a1eebdb497a3a9ac81ee17f2fb473d122a844e54cff3c222",
+      "section": "mod-tome/data/talents/spells/arcane.lua",
+      "source_tag": "tformat",
+      "source": "Conjures up mana into a powerful bolt doing %0.2f arcane damage.\n\t\tAt level 3, it becomes a beam.\n\t\tThe damage will increase with your Spellpower.",
+      "target": "将法力凝聚成一枚强力的法力弹，造成 %0.2f 点奥术伤害。\n\t\t技能等级达到 3 时，法力弹会变为光束。\n\t\t伤害随法术强度提高。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "e379bfe25543e5298d911ff042001f48319e1783188dbefc3970ad84c897d37f",
+      "revision_uid": "4f91d1a723fc8a4a3cfc7ec1adbc60072006a2f889a1b3dc69bb14bc4b82c1fa",
+      "tu_uid": "f7434494dce82bf91d9b60780df3d8cc7f45ffd116064f033f32fcb6c8d667f3",
+      "section": "mod-tome/data/talents/spells/earth.lua",
+      "source_tag": "tformat",
+      "source": "Conjures a mudslide, dealing %0.2f physical damage in a radius of %d. Any creatures caught inside will be knocked back 8 spaces.\n\t\tThe damage will increase with your Spellpower.",
+      "target": "召唤一次泥石流，造成 %0.2f 点物理伤害，范围为半径 %d。\n\t\t范围内的所有生物都会被击退 8 格。\n\t\t伤害受法术强度加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "7cec29c1c1de863bebbb326e76e2882ef00a82b1c76ef43bcc85fb64d38ef208",
+      "revision_uid": "db0e3a5485f21161ed8b1fab3fefb8bec014744bc338faa8f679ba2278fdca46",
+      "tu_uid": "2c7c01f6c752e8c935a7631f73ce6f163f22e4e957b9c4a4c16e35e64e97a82f",
+      "section": "mod-tome/data/talents/spells/golem.lua",
+      "source_tag": "tformat",
+      "source": "Your golem rushes to the target, crushing it into the ground for %d turns and doing %d%% damage.\n\t\tPinning chance will increase with talent level.\n\t\tWhile rushing the golem becomes ethereal, passing harmlessly through creatures on the path to its target.",
+      "target": "你的傀儡冲向目标，将其压倒在地并定身 %d 回合，造成 %d%% 伤害。\n\t\t定身成功率随技能等级提高。\n\t\t冲刺期间，傀儡会化为虚体，安全穿过通往目标路径上的生物。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "1eceb8ecc65961dfece07e215b2670b9281a363e41b54a634d105dc69b2cd43d",
+      "revision_uid": "d7410c9d7e8671791805948282b5e7a872db79e8d748558be833ea14223602d8",
+      "tu_uid": "fb54d25d17c09ba45dbc77dbd3a1beee486c64db281d3a9072467ecdba481b7b",
+      "section": "mod-tome/data/talents/techniques/pugilism.lua",
+      "source_tag": "tformat",
+      "source": "Attack your foes in a frontal arc with a spinning backhand, doing %d%% damage. If you're not adjacent to the target, you'll step forward as you spin, gaining up to %d%% bonus damage, which increases the farther you move.\n\t\tThis attack will remove any grapples you're maintaining, and earn one combo point (or one combo point per attack that connects, if the talent level is 4 or greater).",
+      "target": "对你面前的敌人使用一次旋风打击，造成 %d%% 伤害。\n\t\t如果你离目标较远，旋转时你会自动前行，根据移动距离增加至多 %d%% 伤害。\n\t\t此次攻击会移除任何你正在维持的抓取效果并增加 1 点连击点。\n\t\t在等级 4 或更高时，你每次连击均会获得 1 点连击点。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "3928608c1130542d475cc4a5c27a01136be0642b24563460de635a3f0778b53e",
+      "revision_uid": "fbd172a14d2a84bb5e6032eea174b267ca0b898caf54692d871bc6299459c423",
+      "tu_uid": "0714f619ddaa5c778ca2a9ca27f7998f0735d812b281f9de67e489186daeaa1f",
+      "section": "mod-tome/data/talents/techniques/sling.lua",
+      "source_tag": "tformat",
+      "source": "You fire a mighty shot at your target, doing %d%% damage and knocking it back.\n\t\tThe knockback chance increases with your Accuracy.",
+      "target": "你射出一发强力的子弹，对目标造成 %d%% 伤害并击退目标。\n\t\t击退概率受命中加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "411c039e47530152ca71444b8db32312be6322e269f5cfea3c10fadebcdf2a57",
+      "revision_uid": "ae224bb7d5f3fc6b84ef2341d36951b3d8ab1166b0f25828062eb1e134f69f67",
+      "tu_uid": "194153cfeacdae0169b9738e642bde2249159e9270eee3b7a6b16306f3a2c160",
+      "section": "mod-tome/data/talents/techniques/tireless-combatant.lua",
+      "source_tag": "tformat",
+      "source": "Control your movements to increase your defenses. This allows you to shrug off minor damage and, if you have a shield equipped, preemptively Block in reaction to incoming damage.  \n\t\tWhile this talent is activated, you are globally slowed by %0.1f%% and all damage you take is reduced by a flat %0.1f.\n\t\tIf you have a shield equipped and Block is not on cooldown, any blockable damage that is greater than 33%% of your block value (before resistances) will have a %d%% chance to instantly activate Block.\n\t\tThe flat damage reduction will increase with your defense.",
+      "target": "控制你的动作来强化你的防御。这可以让你对轻微的伤害不屑一顾，如果你装备了盾牌，你可以先发制人地格挡来袭的伤害。\n\t\t激活这一技能时，你的全局速度降低 %0.1f%%，你所受的所有伤害固定减少 %0.1f。\n\t\t如果你装备了盾牌，并且格挡技能未在冷却中，任何高于格挡值 33%% 的可格挡伤害（计算抗性前）都有 %d%% 几率立即激活格挡。\n\t\t固定伤害减免受闪避值加成。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "fa64476c230d62434c4e91669c3f8ffca822230a4e8332ff4a3fe6e677f5f9c0",
+      "revision_uid": "f5df7c5cb13216966e172dd3ebf2449ab952767c166000ba132898aa7a4ecbb6",
+      "tu_uid": "54c964c457ece099b8151963b940a81510edc110c30658706cc496ad32379ad7",
+      "section": "mod-tome/data/timed_effects/magical.lua",
+      "source_tag": "tformat",
+      "source": "Sustains a corpselight of radius %d that deals %0.2f cold damage per turn.",
+      "target": "维持一个半径 %d 码的鬼火，每回合造成 %0.2f 寒冷伤害。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "5f72a1ebb3afcf921f706e4479b8d2af22360c8a213296a75d614f189b762041",
+      "revision_uid": "77561bbd4e588c947a865e53e1f29e1a7c6f57a122abfc382a37f314514af49d",
+      "tu_uid": "8b49fef79ff61a83c91cba6b178aa34156580c4bf09f5b7fbe27f23515c7d3b0",
+      "section": "mod-tome/data/timed_effects/mental.lua",
+      "source_tag": "tformat",
+      "source": "The target has been marked as the focus for all nature summons within %d radius, receiving %d%% increased damage from nature summons.",
+      "target": "目标被半径 %d 内所有自然召唤物集火，从自然召唤物那里受到的伤害增加 %d%%。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "d92f5e5d0918538ea7fa889b74c579e2f41220226ac7a37f4381197d078492d5",
+      "revision_uid": "dad83e72c02f792de8493775e6cc1935efd9415e8983e14abaf395469fc5d69e",
+      "tu_uid": "d0e22da2fe482a9d5109eabf9716b9c7d2d90d81541e549b35e178af6de3701e",
+      "section": "mod-tome/data/timed_effects/mental.lua",
+      "source_tag": "tformat",
+      "source": "You have accumulated an electric charge. Your next melee hit does %d extra lightning damage.",
+      "target": "你使用了静电充能，下一次近战攻击将造成额外 %d 点闪电伤害。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "1a9dce0445cb3b7426dc474d7c66a31a49b932f6109aca498b5154e15fdb444a",
+      "revision_uid": "601e8548bd4eebdbb80ea9ccd8c3a90341a03267dd38e7f13ac53580f7d90698",
+      "tu_uid": "99170a13cc46504418de09c1277942509e41f6b4676442c9ad60773791f67a95",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source_tag": "tformat",
+      "source": "The target's physical resistance has been reduced by %d%%.",
+      "target": "目标物理抗性下降 %d%%。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit",
+        "source-target-length-outlier"
+      ]
+    },
+    {
+      "revision_id": "21f3f3ad3e19868620917884dfd877435057fb36dde2501a94db79dfd8beac68",
+      "revision_uid": "1c8866cf2cdba1317066bd0904375837972098dfc1f9f10f647eaa046860ef9b",
+      "tu_uid": "4a6536e34b10158fe0dec5174d9a7586fbc9ce9056f706cd7cdcd4bedca7eae5",
+      "section": "mod-tome/data/timed_effects/physical.lua",
+      "source_tag": "tformat",
+      "source": "The target is encased in ice. All damage done to it will be split, 40%% absorbed by the ice and 60%% by the target. The target's defense is nullified while in the ice, and it may only attack the ice, but it is also immune to any new detrimental status effects (except Wet and Frozen Feet). The target cannot teleport or heal while frozen. %d HP on the iceblock remaining.",
+      "target": "目标被冻结在冰块中，对其造成的所有伤害有 40%%被冰块吸收，目标则受到余下的 60%%伤害。冰冻状态下其闪避无效，只能攻击冰块，但同时也不会受到其他负面状态影响（湿润和冻足除外）。目标被冻结时无法传送也不能回复生命。冰块剩余 %d HP。",
+      "args_order": null,
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    }
+  ]
+}

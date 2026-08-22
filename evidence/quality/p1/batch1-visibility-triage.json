@@ -1,0 +1,55 @@
+{
+  "task_id": "p1-batch1-visibility-triage",
+  "created": "2026-08-17",
+  "source_workset": ".artifacts/i18n/runs/20260816T141345.262103Z-3-workset/dafc9db4cc55570c86c3d8e205459e5090e0ffd5380c1753c3478ad920b77cfd.json",
+  "merge_id": "71755262edb84be0d727ccce9debf44a9ef45b710d8852f43cecb27d268ba95c",
+  "engine_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "total": 100,
+  "categories": {
+    "A_translatable_player_visible": {
+      "count": 0,
+      "items": [],
+      "rationale": "初筛无可直接进入翻译的条目；三个候选经源码核验全部降级（见 notes）"
+    },
+    "B_player_visible_format_only": {
+      "count": 46,
+      "rationale": "玩家可见但 source 为纯格式串（%s/%d/markup 框架），翻译无意义或有害：替换词已由运行时参数（多数已各自翻译）提供；GameState randart 命名方案还参与 define_as/unique 去重键派生（GameState.lua:523-524, name:format(o.name):upper():gsub），翻译 scheme 会破坏唯一性判定"
+    },
+    "C_debug_cheat_gated": {
+      "count": 31,
+      "rationale": "AI 日志受 log_detail_ai 与 config.settings.cheat 双重门控（improved_tactical.lua:851-852, ActorAI.lua:764-766）；Imperium courrier 位于 Ctrl+G cheat 块且被 do return end 截断不可达（Game.lua:2090-2099）；malleable-body 三条为开发占位天赋名（azdadazdazdazd 等），树存在但名称是键盘乱码，不可译"
+    },
+    "C_test_zone_only": {
+      "count": 4,
+      "rationale": "zones/test 仅经 Ctrl+G cheat 键位 changeLevel(1,'test') 可达（Game.lua:2122-2123，其余引用被注释）；vaults/test.lua 仅被 zone.lua 注释块中的 greater_vaults_list={'test2','test'} 引用（活跃配置为 mapscript=!rooms_test2 + lesser_vault 默认 auto 列表，不含 test）；rooms_test.lua 的 greater_vault factory nb_vault=0 永不调用"
+    },
+    "D_markup_punctuation_artifact": {
+      "count": 9,
+      "rationale": "纯标点/markup/空白（'.'、'..'、' '、'#ORANGE#'、'#{bold}#'、'#VIOLET#'）；gem.lua '..' 为字符串拼接被提取器误收（name = \"alchemist \"..name:lower()，实际实体名是 alchemist diamond 等，已全部翻译）；'up' 是 ShowEquipInven 滚动调试消息"
+    },
+    "A_candidates_demoted": [
+      {
+        "entry": "GraphicMode Altefcat/Gervais, Old RPG",
+        "verdict": "不译",
+        "evidence": "GraphicMode.lua:38-39 fs.exists('/data/gfx/altefcat'|'/data/gfx/oldrpg') 在默认安装中不存在（engine gfx 目录无此二目录），条目不显示；即使显示也是专有 tileset 名称"
+      },
+      {
+        "entry": "GraphicMode 16x16/32x32/48x48/64x64",
+        "verdict": "不译",
+        "evidence": "纯数值尺寸标签"
+      },
+      {
+        "entry": "??? x3 (escort-duty.lua:70, other.lua:3412, ChatPortrait.lua:33)",
+        "verdict": "不译",
+        "evidence": "字面回退占位符；现有 3 处 ??? 均保持原样（mod-tome.lua:20259/36965/42873），仓库惯例不转换全角"
+      },
+      {
+        "entry": "Meas Abar (shertul.lua:100)",
+        "verdict": "不译",
+        "evidence": "Sher'Tul 语言文本，游戏设计即玩家未获 speaks_shertul 时不可理解；同文件 7 处同类 Sher'Tul 文本全部保留原文（mod-tome.lua:19372+），译入中文违反设计意图"
+      }
+    ]
+  },
+  "conclusion": "untranslated-existing 100 条经逐类源码核验后没有任何一条构成玩家可见的可译缺陷：46 条纯格式串、31 条 cheat/debug 门控、4 条仅测试区域可达、9 条 markup/标点/提取器伪影、10 条玩家可见但按设计或惯例保持原样。本 workset 不产生翻译批次；P1 首批需改从 revision inventory 风险规则与既有 finding 重新构造输入（roadmap §3.1 第 2/3 类输入）。",
+  "next_step": "构造下一批：从 quality inventory 的确定性风险规则（risk_flags/profile/结构信号）选择 20-30 条已翻译条目做语境修订审核，而非未译队列"
+}

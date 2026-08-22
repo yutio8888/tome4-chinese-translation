@@ -1,0 +1,533 @@
+{
+  "batch_id": "p1-b8-args-order-census",
+  "plan": "docs/p1-execution-plan.md",
+  "purpose": "final census of the remaining P1 args_order mechanics revisions",
+  "note": "Risk flags only define the bounded census. No entry is asserted to be defective; host source verification decides.",
+  "version": "tome-1.7.6",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "inventory_run": ".artifacts/i18n/quality/runs/20260818T120438.006086Z-inventory",
+  "inventory_sha256": "ac767b1b027df7bd68b015c5339882b07b8b02d4e23127ae91b56dedfad3b80c",
+  "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+  "risk_rule_version": "risk-v1",
+  "profile_classifier_version": "profile-v1",
+  "filter": {
+    "component": "tome",
+    "profile": "mechanics",
+    "risk_flags_any": [
+      "has-args-order"
+    ],
+    "risk_flags_excluded": [],
+    "min_source_len": 40
+  },
+  "exclusion": {
+    "identity": "tu_uid",
+    "prior_batches": [
+      "p1-b1-mechanics-numeric.json",
+      "p1-b2-condition-controlled.json",
+      "p1-quality-random-batch-001.json",
+      "p1-b4-mechanics-numeric.json",
+      "p1-b5-format-binding.json",
+      "p1-b6-markup-token.json",
+      "p1-b7-args-order.json"
+    ],
+    "prior_batch_unique_counts": {
+      "p1-b1-mechanics-numeric.json": 24,
+      "p1-b2-condition-controlled.json": 24,
+      "p1-quality-random-batch-001.json": 25,
+      "p1-b4-mechanics-numeric.json": 24,
+      "p1-b5-format-binding.json": 24,
+      "p1-b6-markup-token.json": 24,
+      "p1-b7-args-order.json": 24
+    },
+    "prior_union_size": 169,
+    "pool_overlap_size": 26
+  },
+  "pool_size": 47,
+  "size": 21,
+  "sort_key": "revision_id",
+  "selection": "all entries remaining after stable tu_uid exclusion, revision_id ascending",
+  "items": [
+    {
+      "revision_id": "0fe5888f46b26b41ab73e208a0f361c18dcc9c47cd9daae19351c2e8802c8883",
+      "revision_uid": "0daeff773f5c9d75e00f113378070d6edb6304623bcbecda6082a2cde8e532a4",
+      "tu_uid": "d0e78ebe7e92be1ac02418eb98881d8bb471467beedf0a8b50cb2f40952cc1e5",
+      "section": "mod-tome/data/general/traps/complex.lua",
+      "source_tag": "tformat",
+      "source": "Cold flames slowly spread from %d spots within radius %d, The flames deal %d cold damage with a chance to freeze.",
+      "target": "冷火焰在半径%d码范围内的%d点缓慢扩散，火焰造成%d点寒冷伤害并有机会冻结。",
+      "args_order": [
+        2,
+        1,
+        3
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "1910f2d1f4823488275c7c5e6a71b9d930ad265f801901a4677c4533d27e367b",
+      "revision_uid": "f819a91f443e906555451b2138988ed9a1918d5eab12ac8a40a098e229c2790e",
+      "tu_uid": "d200a01ce528ecbde2e54be64cf6997665b41c4ed34c9ec5fb99e46df46c5199",
+      "section": "mod-tome/data/talents/corruptions/scourge.lua",
+      "source_tag": "tformat",
+      "source": "Strike with each of your weapons, doing %d%% acid weapon damage with each hit.\n\t\tIf at least one of the strikes hits, an acid splash is generated, doing %0.2f acid damage to all enemies in radius %d around the foe you struck.\n\t\tThe splash damage will increase with your Spellpower.",
+      "target": "用每把武器打击目标，每次攻击造成 %d%% 酸性武器伤害。\n\t\t如果有至少一次攻击命中目标，则会产生酸系溅射，对 %d 范围内的所有敌人造成 %0.2f 酸性伤害。\n\t\t溅射伤害受法术强度加成。",
+      "args_order": [
+        1,
+        3,
+        2
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "22de9ff4f589ea03f71377c3d3c4302edcbe165f9047fb70117b4f7b7e34e9cf",
+      "revision_uid": "3e973712daa7cea9e9c14ae7d55e34e33032783cc2ae6f524eec0a7abf4c72c7",
+      "tu_uid": "1c4dd8897057586aa02641f06b97b099503ac4d5f5b88a508d01c831ffeb7435",
+      "section": "mod-tome/data/talents/celestial/star-fury.lua",
+      "source_tag": "tformat",
+      "source": "A surge of twilight pulses from you, doing %0.2f light and %0.2f darkness damage to all others within radius %d.\n\t\tThe damage dealt will increase with your Spellpower.",
+      "target": "一股汹涌的光暗狂潮围绕着你，在你周围 %d 码半径内造成 %0.2f 光系和 %0.2f 暗影范围伤害。\n\t\t伤害受法术强度加成。",
+      "args_order": [
+        3,
+        1,
+        2
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "2ff6f9d2e0d5bbb1f97345a403cfe4d249bd65355dbb8ed7627a002bd30cfd44",
+      "revision_uid": "baa340bd72a7aa3c57684d3844456f32c30d4ae56053c81edcee3d1b27a96270",
+      "tu_uid": "e77bac550964e511b90d6df81249e42af65277a369377c69d21955294c247929",
+      "section": "mod-tome/data/talents/celestial/eclipse.lua",
+      "source_tag": "tformat",
+      "source": "Each time one of your spells criticals, you project a bolt of light or shadow at up to %d targets within radius %d, doing %0.2f light damage or %0.2f darkness damage per bolt.\n\t\tThis effect costs 2 positive or 2 negative energy each time it's triggered, and will not activate if either your positive or negative energy is below 2.\n\t\tThe damage scales with your Spellpower.\n\t\tThis spell cannot crit.",
+      "target": "每当你的法术打出暴击时，你会对最多 %d 个目标发射一颗光球或暗影球，作用半径 %d，造成 %0.2f 光系或 %0.2f 暗影伤害。\n\t\t每次触发该效果时消耗 2 点正能量或 2 点负能量；当你的正能量或负能量低于 2 时不会触发。\n\t\t受法术强度影响，伤害按比例加成。\n\t\t该法术造成的伤害不能暴击。",
+      "args_order": [
+        2,
+        1,
+        3,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "3bf8909bd954be7471a79a28ef641f9466a64c0f8ea3e5b4eaaefbbc02b03b27",
+      "revision_uid": "fd4dc71b5c958872074734c580d967435fc2d80f0c3d844bc27e53cd4c3e3ec0",
+      "tu_uid": "77f31d466e454f79ee5d0321e77d721f2226d87ccec5789ef32d44243b6353f1",
+      "section": "mod-tome/data/timed_effects/mental.lua",
+      "source_tag": "tformat",
+      "source": "An unseen force strikes %s targets in a range of %d around this creature every turn, doing %d damage and knocking them back for %d tiles.",
+      "target": "不可见的力量每回合打击该生物周围%d码的%s个目标，造成%d伤害，并将其击退%d码。",
+      "args_order": [
+        2,
+        1,
+        3,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "4edbe2094a539c706ebd44290f341098bec6c09bc58f9b9f0826c58e56c30c05",
+      "revision_uid": "0ce132c18c46ed6c4a4fd5aea787573896909f02c31d214a5a0b791b65948209",
+      "tu_uid": "8b4396ce5d25de170a9bfec3282cbf5ff3e2eb05ba418d7b53595ef2e7cc0352",
+      "section": "mod-tome/data/general/traps/elemental.lua",
+      "source_tag": "tformat",
+      "source": "Deals up to %d manaburn damage, draining mana, vim, and positive and negative energies within radius %d.",
+      "target": "在%d码范围内造成%d法力燃烧伤害，吸取法力值，活力值和正负能量。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "5b5cf5c89b0dd9caf27c14f3a57cebc349ac151218cd2e74db2be3ec1a8f1ee3",
+      "revision_uid": "aaaa197059304cf94f57b0b35f3545ebe878c53b3dbaea79c6d6ee30301a3846",
+      "tu_uid": "06f826875eba9c0824a5b8838a19ba398679c0da5eb00a9fadb3f076de7b6eff",
+      "section": "mod-tome/data/talents/techniques/grappling.lua",
+      "source_tag": "tformat",
+      "source": "In a mighty show of strength you whirl your grappled victim around and throw them into the air causing %d%% damage to them and enemies in radius %d on landing.  \n\t\t\tIf at least 1 other enemy is hit the thrown enemy will be shaken by the impact losing a full turn.\n\t\t\tYou can only throw enemies that could move normally.",
+      "target": "你使出全力将抓取的目标扔到空中，对他和着陆点周围半径 %d 的生物造成 %d%% 伤害。\n\t\t如果至少有一个其他敌人被击中，被投掷的敌人将会因为冲击而失去一个回合。\n\t\t你只能投掷那些可以移动的敌人。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "5ffa90779b630e05d5da9a14dca1abccc0860e144264b6c7a2c2a9b7e16fd893",
+      "revision_uid": "04ffac34cd6ca381a2627ef70af5e3b676e3c171e31f3ed7ff44f5147ee13b8f",
+      "tu_uid": "00cbfa366f3e8aba688980dd7a64a50e878db365c3595125b268eea489a8b60e",
+      "section": "mod-tome/data/talents/spells/death.lua",
+      "source_tag": "tformat",
+      "source": "Your body starts to radiate shadows, increasing your darkness resistance by %d%%, armour by %d and defence by %d.\n\t\tAny time you absorb a soul the shadows pulse outward, dealing %0.2f frostdusk damage to all foes in range %d and knocking them back 3 tiles.\n\t\tThis can only happen once per turn.\n\t\tThe damage increases with your Spellpower.",
+      "target": "你的身体开始散发暗影，获得 %d%% 暗影抗性， %d 护甲值和 %d 闪避值。\n\t\t每当吸收灵魂，你体内的黑暗会放射出来，对范围 %d 内所有敌人造成 %0.2f 霜暮伤害，并将其击退 3 格。\n\t\t这一效果每回合最多触发一次。\n\t\t伤害受法术强度提升。",
+      "args_order": [
+        1,
+        2,
+        3,
+        5,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "67abfdcb964506c157d415e954a244c6a8d0639adb958e263e6f0ebf0bfbb9ea",
+      "revision_uid": "df186cd60ddf8856fea2ae1f726d570063ff0e5ecd35acc3541e076fe4c08178",
+      "tu_uid": "ba29f8141d7f22a4b1beb8d05381e14b80d8021e1d1914f6549ad8f5e49f6903",
+      "section": "mod-tome/data/talents/spells/master-of-flesh.lua",
+      "source_tag": "tformat",
+      "source": "Ghouls are nothing but mere tools to you, for %d turns you render them bloated with dark forces.\n\t\tAnytime a ghoul or ghast is hit it will explode in a messy splash of gore, dealing %0.2f frostdusk damage to all foes in radius %d of it.\n\t\tAny creature caught in the blast also receives a random disease that deals %0.2f blight damage over 6 turns and reduces one attribute by %d.\n\t\tOnly one ghoul may explode per turn. The one with the least time left to live is always the first to do so.\n\t\tThe damage and disease power is increased by your Spellpower.\n\t\t",
+      "target": "对你来说，食尸鬼只是可以随地丢弃的工具。在 %d 回合内，你让它们的体内充满黑暗的能量。\n\t\t在此期间，每当一个食尸鬼或妖鬼被击中，它会爆炸成为一团碎肉，对 %d 码范围的所有敌人造成 %0.2f 霜暮伤害。\n\t\t所有被爆炸击中的敌人也会感染持续 6 回合的随机疾病，某一项属性值降低 %d 点，并且累计受到 %0.2f 枯萎伤害。\n\t\t每回合内最多只能有一个食尸鬼爆炸。你会优先让剩余时间最短的食尸鬼爆炸。\n\t\t伤害和疾病强度受法术强度加成。\n\t\t",
+      "args_order": [
+        1,
+        3,
+        2,
+        5,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "abf43552188d836c6de2ece8a114f0d04248b54863d53cd9c6509cc44fe53e88",
+      "revision_uid": "d3d36528fa83717960d52bef7cc21d8be74deb87e71bd3e9788f0f60fd47ddb7",
+      "tu_uid": "00c5d1f86a0f5295462f81bace7810f8df11bff116564895327c5000541cc64f",
+      "section": "mod-tome/data/talents/gifts/cold-drake.lua",
+      "source_tag": "tformat",
+      "source": "You call upon the mighty claw of a cold drake and rake a wave of freezing cold in front of you, doing %d%% weapon damage as Ice damage in a cone of radius %d. Ice damage gives a chance of freezing the target.\n\t\tEvery level in Ice Claw additionally raises your Physical Save by 2.\n\t\tEach point in cold drake talents also increases your cold resistance by 1%%.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+      "target": "你召唤强大的冰龙之爪，在半径 %d 范围内造成 %d%% 寒冰武器伤害，有一定几率冻结目标。\n\t\t同时，该技能每等级增加物理豁免 2 点。\n\t\t每一点冰龙系技能同时也能增加你的寒冷抗性 1%%。\n\t\t如果你装备了盾牌，这一技能也会用你的盾牌攻击。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "b25a21bfa49f28da9a0ddf3447295449d455221d80d31b3362e3e723910e54f7",
+      "revision_uid": "5a98c57b12986ff871d18d838dada1d725b75aa61c2a23a565bbddb77dad55e4",
+      "tu_uid": "1b8583f83e21200129cf50f4d025dbaf61eba1772cbee84acddbe7b6367731bd",
+      "section": "mod-tome/data/talents/spells/necrosis.lua",
+      "source_tag": "tformat",
+      "source": "As you learn to tiptoe across the veil of death you learn to master the dark forces.\n\t\tEach time you cross the 1 life threshold you automatically unleash a blast of %0.2f frostdusk damage in radius %d.\n\t\tFor each creature that takes damage from the blast one of your talent's cooldown is reduced by %d turns.\n\t\tThe damage will increase with your Spellpower.",
+      "target": "你对黑暗能量的掌握，让你学会了在死亡的边缘起舞。\n\t\t无论是受到伤害还是被治疗，每当你的生命值穿越 1 的界线的时候，你会自动在周围 %d 码范围内放出爆炸，造成 %0.2f 霜暮伤害，\n\t\t这一爆炸每对一个敌人造成伤害，你的一个随机技能的冷却时间降低 %d 回合。\n\t\t伤害受法术强度加成。",
+      "args_order": [
+        2,
+        1,
+        3
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "b78cb2885a36f726e235b051989f43912b905a9b60ae1f7ef7cb6cda02033acc",
+      "revision_uid": "728dc49c50ba808a1182462f6a110a414520ef685bf0d5175ae8fc87f04bf69e",
+      "tu_uid": "b1b83a76179cb261dd2343376eecba777bf9dc1867e30ccedca7e972ea67a786",
+      "section": "mod-tome/data/talents/spells/phantasm.lua",
+      "source_tag": "tformat",
+      "source": "Surround yourself with a phantasmal shield of pure light.\n\t\tWhenever you would take damage there is %d%% chance to become ethereal for an instant and fully ignore it.\n\t\tIf you do get hit, the shield glows brightly, sending triggering a flash of light on the attacker, dealing %0.2f light damage in radius %d around it and dazzling any affected creature (deal 10%% less damage) for 5 turns. This can only happen every %d turns.\n\t\tThe damage and ignore chance will increase with your Spellpower.",
+      "target": "使用纯净的光构成幻象护盾，保护你自己。\n\t\t每当你受到伤害时，你有 %d%% 的几率瞬间变得虚无，完全无视这一伤害。\n\t\t如果伤害未被无视而确实命中你，护盾会发出强光，在攻击者周围 %d 格范围内引发闪光，造成 %0.2f 光系伤害，并炫目所有受影响的生物（造成的伤害减少 10%%），持续 5 回合。这一效果最多每 %d 回合触发一次。\n\t\t光系伤害和无视伤害几率受法术强度加成。",
+      "args_order": [
+        1,
+        3,
+        2,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "b962bafe523642338dc8f0f8612a17711f957c7ddb24bff0947928b309146da1",
+      "revision_uid": "2fb4a5a3a8666d19dfc23ca30579215eda3f0ea0cc8a292fa83218c0d20a36b2",
+      "tu_uid": "ebb400e83f0c9440c5b0f18e36592c282816b37692682f676eb53429f6201464",
+      "section": "mod-tome/data/general/objects/world-artifacts.lua",
+      "source_tag": "tformat",
+      "source": "summon a stationary shining orb within range %d for 15 turns that will illuminate its area and deal %d light damage (based on your Magic and Strength) to your foes within radius %d each turn",
+      "target": "在 %d 码范围内召唤一个静止的发光球体，持续15回合，照亮其周围区域，并每回合对半径 %d 内的敌人造成 %d 光系伤害（基于魔法和力量）",
+      "args_order": [
+        1,
+        3,
+        2
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "bdb1d9e7dd95e37c0d4e00964c8978d010291cbaafc8a701cc5d5c3619ce0a44",
+      "revision_uid": "19f7e935629022fd517a6db697bc380e6563c1b52c83fda71fbbaf0cb0aad0f9",
+      "tu_uid": "27aa3a7051514286ddb2113d374deb7bb24ce24b724e5af7b897296fba87f7aa",
+      "section": "mod-tome/data/talents/chronomancy/temporal-combat.lua",
+      "source_tag": "tformat",
+      "source": "You now have a %d%% chance to Fold Fate, Gravity, or Warp into your Weapon Folding damage.\n\t\t\n\t\tFold Fate: Deals %0.2f temporal damage to enemies in a radius of %d.  Affected targets may lose %d%% physical and temporal resistance for %d turns.\n\t\tFold Warp: Deals %0.2f physical and %0.2f temporal damage to enemies in a radius of %d.  Affected targets may be stunned, blinded, confused, or pinned for %d turns.\n\t\tFold Gravity: Deals %0.2f physical damage to enemies in a radius of %d.  Affected targets will be slowed (%d%%) for %d turns.\n\t\t\n\t\tEach Fold has an eight turn cooldown.  If an effect would be triggered while on cooldown it will reduce the cooldown of the other two Folds by one turn.",
+      "target": "你现在有 %d%% 几率将命运、重力或扭曲之力折叠进武器折叠伤害中。\n\t\t命运：对半径 %d 内的敌人造成 %0.2f 时空伤害，并可能降低 %d%% 物理和时空抗性，持续 %d 回合。\n\t\t扭曲：对半径 %d 内的敌人造成 %0.2f 物理 %0.2f 时空伤害，并可能震慑、致盲、混乱或者定身 %d 回合。\n\t\t重力：对半径 %d 内的敌人造成 %0.2f 物理伤害，并减速（ %d%% ） %d 回合。\n\t\t每项效果有 8 回合冷却时间。\n\t\t当处于冷却中的效果被触发时，将减少另外两个效果的冷却 1 回合。",
+      "args_order": [
+        1,
+        3,
+        2,
+        4,
+        5,
+        8,
+        6,
+        7,
+        9,
+        11,
+        10,
+        12,
+        13
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "c809338f5093bbab77bac36ca52975d93b0efd4de44e825cfe36048574c74cd6",
+      "revision_uid": "c256e8d84b8a576270fc845b5680a4bc6778195a9f83ec5c3373347060683dd1",
+      "tu_uid": "06252df8141d10e0f5a821238cf80804d79d1919efb39800c72ede0305a32328",
+      "section": "mod-tome/data/talents/chronomancy/temporal-hounds.lua",
+      "source_tag": "tformat",
+      "source": "Command your Temporal Hounds to breathe time, dealing %0.2f temporal damage and reducing the three highest stats of all targets in a radius %d cone.\n\t\tAffected targets will have their stats reduced by %d for %d turns.  You are immune to the breath of your own hounds and your hounds are immune to stat damage from other hounds.\n\t\tWhen you learn this talent, your hounds gain %d%% temporal damage affinity.",
+      "target": "命令猎犬们使用时光吐息，锥形范围半径 %d 范围内造成 %0.2f 时空伤害并减少目标三项最高属性值 %d 点 %d 回合。\n\t\t你免疫自己猎犬的吐息。自己的猎犬免疫其他猎犬的属性降低效果。\n\t\t当你学会该技能后，猎犬们获得 %d%% 时空伤害吸收。",
+      "args_order": [
+        2,
+        1,
+        3,
+        4,
+        5
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "d326e4bbc6da338505d1729f209280228c97ea11291cdfa052099a33fa2a5f64",
+      "revision_uid": "9fe858c44235eb8d93ca0f8221d5b9dbf680868c406e478e33601fd1528ef9a8",
+      "tu_uid": "8d831ad6ac2d4b08e30a47e5143bc837d6e3abcda462e69ef390a5f23fd32bf7",
+      "section": "mod-tome/data/talents/chronomancy/temporal-combat.lua",
+      "source_tag": "tformat",
+      "source": "When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f physical and %0.2f temporal (warp) damage to enemies in a radius of %d.\n\t\tEach target hit may be stunned, blinded, pinned, or confused for %d turns.\n\t\tThis effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Gravity and Fold Fate by one turn.",
+      "target": "当你用武器折叠命中时，有 %d%% 几率在半径 %d 内对敌人造成额外 %0.2f 物理和 %0.2f 时空（扭曲）伤害。\n\t\t受影响的生物可能被震慑、致盲、定身或混乱 %d 回合。\n\t\t这个效果有冷却时间。当处于冷却状态被触发时，会减少重力折叠和命运折叠 1 回合冷却时间。",
+      "args_order": [
+        1,
+        4,
+        2,
+        3,
+        5
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "e6ddcec1b532619d209ff3b208c92416f0455a45e41fd3d064ed4827d3cce6a9",
+      "revision_uid": "c07fdaf2962d761a4cac18d6a3bd886ac3cdb613601e26ebca54418340b532f3",
+      "tu_uid": "f91b44b0d8089db968bf8c92d0815cc6d79bfb3b6d89ef5e0ecd50a9683acaf5",
+      "section": "mod-tome/data/talents/chronomancy/temporal-combat.lua",
+      "source_tag": "tformat",
+      "source": "When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f temporal damage to enemies in a radius of %d.\n\t\tAffected targets may also have their physical and temporal resistance reduced by %d%% for %d turns.\n\t\tThis effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Gravity and Fold Warp by one turn.",
+      "target": "当你用武器折叠命中时，有 %d%% 几率在半径 %d 内造成额外 %0.2f 时空伤害。\n\t\t受影响的生物可能减少 %d%% 物理和时空抗性 %d 回合。\n\t\t这个效果有冷却时间。当处于冷却状态被触发时，会减少重力折叠和扭曲折叠 1 回合冷却时间。",
+      "args_order": [
+        1,
+        3,
+        2,
+        4,
+        5
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "edc5666d3a144e124c9ef77260bf17f336bf39c2cf1ed557705c507b01a3f249",
+      "revision_uid": "58d9c8c3025423afe1839a9617b9e0db62111c98dcf2075d08aa985a2572e95b",
+      "tu_uid": "b8cf79b0a26cabb4d467f43ea369f58e8ac642a9bbf48e9ca11a7b45014ff422",
+      "section": "mod-tome/data/talents/celestial/combat.lua",
+      "source_tag": "tformat",
+      "source": "In a pure display of power, you project a ranged melee attack, doing %d%% weapon damage.\n\t\tIf the target is outside of melee range, you have a chance to project a second attack against it for %d%% weapon damage.\n\t\tThe second strike chance (which increases with distance) is %0.1f%% at range 2 and %0.1f%% at the maximum range of %d.\n\t\tThe range will increase with your Strength.",
+      "target": "你用光明力量释放一次近程打击，造成 %d%% 武器伤害。\n\t\t如果目标在近战范围以外，有一定几率进行二次打击，造成 %d%% 武器伤害。\n\t\t二次打击几率随距离增加，距离 2 时为 %0.1f%%，距离最大（ %d ）时几率为 %0.1f%%。\n\t\t攻击距离受力量值加成。",
+      "args_order": [
+        1,
+        2,
+        3,
+        5,
+        4
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "f15ead4fe953ee4ec53949d59e404be023576b38c3d32f8fe2397d84fbc1c193",
+      "revision_uid": "e6031a1825620107db902e57affe5da0f76f2f52e7fbcfa71555d2a948700f0b",
+      "tu_uid": "9ea0122cf4e7547ed8a264b15cac5699fe19ed7cee939154752a5e3da7910b93",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "source_tag": "tformat",
+      "source": "Activate the rune to instantly dissipate the energy of your ailments, cleansing all cross tier effects and 1 physical, mental, and magical effect.\n\t\tYou use the dissipated energy to create a shield lasting %d turns and blocking %d damage per debuff cleansed (not counting cross-tier ones).\n\t\tIf there were only cross-tier effects to cleanse, no shield is created and the rune goes on a 75%% reduced cooldown.",
+      "target": "激活符文，立刻清除你身上的负面效果。\n\t\t清除所有越层效果（失去平衡、法术冲击和思维封锁），以及物理、精神和魔法负面效果各 1 个。\n\t\t每清除一个负面效果，你都会获得一个抵挡 %d 伤害的护盾，持续 %d 回合。\n\t\t如果只清除了越层效果，不会产生护盾且冷却时间减少75%%。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ]
+    },
+    {
+      "revision_id": "fc48069d340fc0a3b60f171096862ac8807eef254acc3acba11e3804dbaae69e",
+      "revision_uid": "ee7f650a84be1aa2a9693baa07fc1316d33c0ba97e909c8e97cce6e1c0a06c32",
+      "tu_uid": "ba4de2ed9fdc992e2f7de6233c6fc6b204fa4d3c577b137a01c936ca73234abb",
+      "section": "mod-tome/data/talents/spells/spectre.lua",
+      "source_tag": "tformat",
+      "source": "On using Ghost Walk - Return, you create a portal that summons %d spirits around you for %d turns. The spirits do very little damage, but taunt all enemies in radius 3 into attacking them.",
+      "target": "当你使用游魂行走-返回之后，你将会在身边产生一个传送门，在 %d 回合内召唤 %d 个鬼魂。鬼魂造成的伤害很低，但是它们会嘲讽半径 3 码内的敌人攻击它们。",
+      "args_order": [
+        2,
+        1
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit"
+      ]
+    },
+    {
+      "revision_id": "fcafd3ecdea722007ad7825e733d53588fb401b5c333c9d696b03202231a3805",
+      "revision_uid": "9afdf01157c7fc766539752ab4e613f2c312dc157c5966efd746960022b74db8",
+      "tu_uid": "92f88853f51e08ff2ce06241669adba4a8466d4dd91d5a8c8db673395871ca4d",
+      "section": "mod-tome/data/talents/celestial/sunlight.lua",
+      "source_tag": "tformat",
+      "source": "Release a burst of sunlight beams at %d random foes in radius %d, dealing %d damage to all foes hit and increasing your bonus light damage by %d%% of your bonus darkness damage for %d turns.",
+      "target": "向半径 %d 格内的 %d 个随机敌人释放一簇阳光射线，对所有命中的敌人造成 %d 点伤害，并使你的光系伤害加成提高，数值相当于暗影伤害加成的 %d%%，持续 %d 回合。",
+      "args_order": [
+        2,
+        1,
+        3,
+        4,
+        5
+      ],
+      "profile": "mechanics",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit"
+      ]
+    }
+  ]
+}

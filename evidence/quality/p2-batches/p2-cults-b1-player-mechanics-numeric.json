@@ -1,0 +1,2230 @@
+{
+  "batch_id": "p2-cults-b1-player-mechanics-numeric",
+  "purpose": "bounded quality check over already-translated Cults player mechanics",
+  "note": "Risk flags select candidates for host review only; no item is asserted defective.",
+  "version": "tome-1.7.6",
+  "source_baseline": {
+    "kind": "protected-extraction-snapshot",
+    "snapshot_sha256": "ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+    "tdef_count": 2444,
+    "public_dlc_baseline": "1.7.4"
+  },
+  "inventory_run": ".artifacts/i18n/quality/runs/20260818T163332.494782Z-inventory",
+  "inventory_sha256": "001e9d989b640e26cf2e8a6be3f2056073913cfec06d05113666a04a4093ac0e",
+  "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+  "risk_rule_version": "risk-v1",
+  "profile_classifier_version": "profile-v1",
+  "filter": {
+    "component": "cults",
+    "profile": "mechanics",
+    "risk_flags_any": [
+      "source-has-number-or-unit",
+      "source-has-negation-or-condition"
+    ],
+    "min_source_len": 80,
+    "section_prefixes_any": [
+      "tome-cults/data/talents/",
+      "tome-cults/data/timed_effects.lua"
+    ]
+  },
+  "pool_size": 133,
+  "size": 24,
+  "sort_key": "revision_id",
+  "selection": "sha256(seed_str|revision_id) ascending",
+  "seed_str": "tome4-p2-cults-b1|001e9d989b640e26cf2e8a6be3f2056073913cfec06d05113666a04a4093ac0e|ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+  "items": [
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 2603,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 826,
+          "section": "tome-cults/data/talents/demented/beyond-sanity.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "6adf35e7f314c5a301b321635bd1a6c710e12382951ccbc64cb8f57f9ee3c589",
+      "revision_uid": "d27a60d2acf622a54af4f4b13c98d279f0a1b7e944d823eed0966052f96eb57a",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/talents/demented/beyond-sanity.lua",
+      "source": "You consume the chaotic forces of 2 chaos orbs, randomly teleporting you in a general direction up to %d tiles away.\n\t\tYou will always travel at least %d tiles away if possible.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 1,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "消耗 2 个混沌之球，令你朝指定的方向随机传送不超过 %d 格的距离。可能的话，你被传送的最短距离为 %d 格。",
+      "tu_uid": "3b12a1cb34b8b3bd7270e52fdff0cf1e4e8ff82c99ce5a1e3636a7b0e146156d",
+      "unit_id": "fb572d1668a95e1d2ec4cba1dbc1945ab562173ac2d2cc4c35ff393df6ff6735",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3118,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1045,
+          "section": "tome-cults/data/talents/demented/rift.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "54210205ad1af056b6ce7e5336da200e8af6ebaaf37d1d8ce55d839cb8482342",
+      "revision_uid": "d636725c375f05a7fb9026e2d5a9e9d6411d663b5620d33254c4829ed5992fe2",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-cults/data/talents/demented/rift.lua",
+      "source": "Teleport to a target within range 10 and strike them with your fangs dealing %d%% weapon damage.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "传送到范围 10 内的一个敌人处，并用你的尖牙攻击它，造成 %d%% 武器伤害。",
+      "tu_uid": "1776f205e812058b5cc2d549da32e4b4f27f266c33c3f4298c8d148f7af26fda",
+      "unit_id": "d0bea85e01e9a24548fad08172a77d70a7d72108a096b5f919dbae17cbe7ba06",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 2967,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 984,
+          "section": "tome-cults/data/talents/demented/madness.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "f51a614a04e172503efc9198d465c19321a4d296eb5f1980e33560054fbee128",
+      "revision_uid": "2ec87d1f8c4278235437b23300b8da8696e36f8de4c805b869a824c668b0bb6e",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-cults/data/talents/demented/madness.lua",
+      "source": "Raise your Dark Whispers in radius %d to a deafening crescendo for %d turns, applying another stack and drowning out all thought. \n\t\t\tTargets afflicted by Dark Whispers will have 20%% higher chance to spawn hallucinations, and each time they take damage from your Dark Whispers or Sanity Warp they will take an additional %d%% damage as temporal damage.\n\t\tThe damage will improve with your Spellpower.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 2,
+          "target": 2
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": " 使 %d 格内的黑暗低语音量提升 %d 回合，达到震耳欲聋的地步，额外施加一层低语效果，同时干扰一切思考能力。\n\t\t被黑暗低语影响的目标产生幻象的几率增加 20%%，每次受到黑暗低语或失智冲击的伤害时，会受到额外 %d%% 时空伤害。\n\t\t伤害受法术强度加成。",
+      "tu_uid": "8238005719854d8e28202e7df5b4e9b91762dd0036ea01433a6121edc75958ac",
+      "unit_id": "ce54730196c7b6c4f337c416d07524bdf0332225906432ae1c46302e53b92058",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3042,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1014,
+          "section": "tome-cults/data/talents/demented/oblivion.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "6e8b7614aa3f6c47d1e1933e1da7865c8e5c878a94aa92a1298e491a7df8dd8c",
+      "revision_uid": "42ffa7167ae6e618d380798992c1d7247b43b77b56c98802565ac9395bbddcc9",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-cults/data/talents/demented/oblivion.lua",
+      "source": "Summon a radius 4 storm of all-consuming oblivion at the targeted location for %d turns, reducing those within to nothing. Targets within will take %0.2f darkness damage and %0.2f temporal damage each turn.  Walls and other terrain within the storm will be disintegrated.\n\t\tEach time the storm deals damage enemies will have any detrimental magical effect with less than 3 duration set to 3 duration, and all enemy projectiles will be destroyed.\n\t\tThe damage will scale with your Spellpower.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 2,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "f",
+            "f"
+          ],
+          "source_conversions": [
+            "d",
+            "f",
+            "f"
+          ],
+          "source_raw": [
+            "%d",
+            "%0.2f",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "d",
+            "f",
+            "f"
+          ],
+          "target_raw": [
+            "%d",
+            "%0.2f",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "在目标区域召唤出范围 4 码、持续 %d 回合的湮灭风暴，使受到影响的物质化为虚无，每回合造成 %0.2f 暗影 %0.2f 时空伤害。\n\t\t范围内的墙壁和部分其他地形将被粉碎。\n\t\t每次受到风暴伤害时，敌人身上不足 3 回合的负面魔法效果都将重置为 3 回合。风暴范围内敌人的投射物都将被扯碎。\n\t\t伤害受到法术强度加成。",
+      "tu_uid": "c208dc14c134c203d418a75df91e63528849083689ede150f4da981a10cd7d5e",
+      "unit_id": "15cbc343e691cf9af4cc780285b6aac66ca8499a674d6c7708ce99295386a3b0",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 2630,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 836,
+          "section": "tome-cults/data/talents/demented/calamity.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "440eac0d4b646a4d2452ef67ef9784fcf3236c235ec4d212e9bb26e287ac7b2e",
+      "revision_uid": "db066373a6f1eb15418034e7318620338aa025328068aa0d663cf9dc12026d63",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-cults/data/talents/demented/calamity.lua",
+      "source": "You subtly alter the course of events to cause your foes further misfortune. Each stack of Jinx beyond 6 will cause enemies to also suffer a %d%% chance to fail talent usage.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "你微妙地影响因果，让你的敌人更加不幸。六层以上的每层厄运诅咒将使敌人获得 %d%% 技能失败率。",
+      "tu_uid": "0a713a411a07dd144a4df6d092c18564ffda1d028b55fe11e8d46e638e7c23c9",
+      "unit_id": "4ab12043ad791d39e8f3aafb84f5be7e62777dd4fb830ff64cb926e1dfec7c1c",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3676,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1337,
+          "section": "tome-cults/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "2649a46ce64d884258bb28c42daff758c24646374ac9ceb161d0a4038554da00",
+      "revision_uid": "46b7045be3c588a79d98f2f95895b7b17ea0c9cee2b8ecdcecd91163d8d83adf",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit",
+        "source-target-length-outlier"
+      ],
+      "section": "tome-cults/data/timed_effects.lua",
+      "source": "The target is being distracted by a hallucination, reducing all damage dealt to non-hallucinations targets by %d%%.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "目标被幻觉所困，降低其对非幻觉单位造成的伤害 %d%%。",
+      "tu_uid": "47735f33795970baea7e094572ce184498ad09d90b9a6143617197dd0b2daae8",
+      "unit_id": "d0d752f76413e50c172b609cb6e1f502f1adc22064c75505408ccda661706a83",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": [
+        2,
+        1
+      ],
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 2965,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 982,
+          "section": "tome-cults/data/talents/demented/madness.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "ee151b16901b2d47007c34ea58f19288b907d0e1d70780796bd4026cd1391b35",
+      "revision_uid": "ea86105a578b471cadbda5302f470da21eadd79172642637e4da9b094025889c",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/talents/demented/madness.lua",
+      "source": "When a hallucination from Hideous Visions is slain, it unleashes a psychic shriek dealing %0.2f darkness damage to enemies in radius %d.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": [
+            2,
+            1
+          ],
+          "role_order": [
+            "d",
+            "f"
+          ],
+          "source_conversions": [
+            "f",
+            "d"
+          ],
+          "source_raw": [
+            "%0.2f",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "f"
+          ],
+          "target_raw": [
+            "%d",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "每当幻象被消灭时，它将释放心灵冲击，对 %d 格内的敌人造成 %0.2f 暗影伤害。",
+      "tu_uid": "90e80b142db8a1687aa9064c828c91c0faf3ed733a57bc81440a1f5419cea250",
+      "unit_id": "c64ffd2112ee427dbcb7ff5687765a9773f1a2c3970c6bcf32443d202c2afb20",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3143,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1053,
+          "section": "tome-cults/data/talents/demented/scourge-drake.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "928b7892f27ab888e13faf02a33f5e80e6f107cb52a6d1f643e412c4f70a94ea",
+      "revision_uid": "982324989a01d79befdc8266efb53eb7b57495366e91ece5604a0d966972e763",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-cults/data/talents/demented/scourge-drake.lua",
+      "source": "You target a single creature with all your hatred and insanity, augmenting its despair, increasing the duration of detrimental effects by %d turns and dealing %0.2f blight damage per detrimental effect (each effect deals 75%% of the previous one).\n\t\tThe damage will scale with the highest of your spell or mind power.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 1,
+          "target": 2
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "f"
+          ],
+          "source_conversions": [
+            "d",
+            "f"
+          ],
+          "source_raw": [
+            "%d",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "d",
+            "f"
+          ],
+          "target_raw": [
+            "%d",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "你选取一个目标，将你的疯狂和仇恨灌注于它，扩大它的绝望。\n\t\t增加负面效果的持续时间 %d 回合，并且每有一个负面效果，造成 %0.2f 点枯萎伤害（每个效果造成前一个效果 75%% 的伤害）。\n\t\t伤害受你的法术强度或者精神强度两者中更高一方影响。",
+      "tu_uid": "c276c2e992157e8ca64956a9ec37bfcc2ba7099a23ad27715e58924f658f38c6",
+      "unit_id": "8b1892d06e297e3f78c7578a8e0dce50c85db26ccc62c1f99812fec952f5bb83",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3537,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1208,
+          "section": "tome-cults/data/talents/misc/races.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "f36b0b915db177a02a2e4f8c138f3339943f8612f00a5b1171548c95c271438b",
+      "revision_uid": "2fcf1eed63f52690d65708c697d944bc2e78c6330661bf4c0c5c23b558d65ba0",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-cults/data/talents/misc/races.lua",
+      "source": "Creates a shell around you, absorbing %d damage. Lasts for 10 turns.\n\t\tThe total damage the shield can absorb increases with your Constitution.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 1,
+          "target": 1
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "在你身边制造一层持续 10 回合吸收 %d 伤害的外壳。\n\t\t吸收量受体质加成。",
+      "tu_uid": "bd6620bbdd2cd766ff56f72f2acf04ee07e5aaed155c5917d7f4a7cacd484dc9",
+      "unit_id": "c870819e0e76c885889456f9210c8c537bf191e1860b8fcf2e02060837116458",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 2762,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 914,
+          "section": "tome-cults/data/talents/demented/disfigured-face.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "44bf1141f8a9dd26b75f0c7fb78dd6928cea4e6d4e69dec4d50378b199a26e19",
+      "revision_uid": "353d54b3d764593307f4c3b7153466556baa83c57cc3716d437012d447bbdf41",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/talents/demented/disfigured-face.lua",
+      "source": "Your tongue turns into a diseased tentacle that you use to #{italic}#lick#{normal}# enemies in a cone.\n\t\tLicked creatures take %d%% tentacle damage that ignores armor and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.\n\t\t\n\t\tIf at least one enemy is hit you gain %d insanity.\n\t\t\n\t\tDisease damage will increase with your Spellpower.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {
+            "#{italic}#": 1,
+            "#{normal}#": 1
+          },
+          "target": {
+            "#{italic}#": 1,
+            "#{normal}#": 1
+          }
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 5,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "f",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "f",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%0.2f",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "f",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%0.2f",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": " 你的舌头化作疫病触手，让你能 #{italic}#舔舐#{normal}# 锥形范围内的敌人。\n\t\t被舔舐的敌人受到无视护甲的 %d%% 触手伤害并获得一种持续 %d 回合的随机疾病，每回合造成 %0.2f 枯萎伤害并减少力量、敏捷或体质 %d 点。\n\t\t如果你至少命中了一名敌人，你获得 %d 疯狂值。\n\t\t疾病伤害受法术强度加成。",
+      "tu_uid": "0184ee9cc8d293f466a70e788f3099edd856d7f1dd82cc09f7c50e1e683ed481",
+      "unit_id": "64054645c00acc4a87c4590f756620c2abc15fedc7c7fc3f284569d2a604db62",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 2917,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 967,
+          "section": "tome-cults/data/talents/demented/friend-of-the-worm.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "5a0abd670f08de8c42ce8e582238b4783553cd4c817b126d9c9b13991420ba47",
+      "revision_uid": "cb1b7546a23a1a2b9e3b73ae5b611fe3cae47fcd2e339f6aea1817e9857d1a47",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/talents/demented/friend-of-the-worm.lua",
+      "source": "While within range 3 of your Worm that Walks you can project an aura of terror.\n\t\tAt the sight of two maddening horrors fighting together all your foes in radius %d must make a physical save against your spellpower or be stunned for %d turns.\n\n\t\tAdditionally your Shared Insanity effect will cause enemies in radius 3 to lose %d spell save and %d defense for 3 turns.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 2
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": " 当你处于蠕虫合体 3 格范围内时，你可以制造恐怖光环。\n\t\t看到两个疯狂恐魔并肩作战将令周围 %d 格的敌人震慑 %d 回合，除非它们的物理豁免成功对抗了你的法术强度。\n\t\t此外，你的共享疯狂效果将令 3 格内的敌人在 3 回合里失去 %d 法术豁免和 %d 闪避。",
+      "tu_uid": "9915d6720d353fc4f3a9f14c043ebffcfdadf658bd34330ef222b8f22294699b",
+      "unit_id": "5f1fe97ac4d5b188f05b81c0bfd6565586f0e9853a4c2a251ed4f711c8a35722",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": [
+        2,
+        1
+      ],
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3372,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1132,
+          "section": "tome-cults/data/talents/misc/misc.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "b57b16131b37c13d3b4c41cdac5524e0330c8a256047ac1ed07c5b4f5353d5b2",
+      "revision_uid": "ad1bccf45610b97647dc03d612d049d83e92a74e49b5ea77724ec880aa6362a0",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-cults/data/talents/misc/misc.lua",
+      "source": "Self destruct in a glorious explosion of gore dealing %0.2f blight damage to all enemies in %d radius.  Your summoner must be dead to use this talent.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": [
+            2,
+            1
+          ],
+          "role_order": [
+            "d",
+            "f"
+          ],
+          "source_conversions": [
+            "f",
+            "d"
+          ],
+          "source_raw": [
+            "%0.2f",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "f"
+          ],
+          "target_raw": [
+            "%d",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "自爆成一团光荣的血肉，对周围 %d 码半径内所有敌人造成 %0.2f 枯萎伤害。这个技能只有主人死亡时能够使用。",
+      "tu_uid": "464ec6b44546a27bf67ceffeaeecdb89c967792ba1e757debd7c9389a16feec1",
+      "unit_id": "98b9f949782a29431575368cb55b6c31fe5274aca962685b4eed853507736f2a",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3240,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1084,
+          "section": "tome-cults/data/talents/demented/tentacles.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "1e39f8cd310aa0a3ed20338526ed94cbae88b0d980bc51c8927c72ec1d951b35",
+      "revision_uid": "4ab67cda26957863f9e85dbc1fd2191ba375327564b00eeb4e88972218639d4b",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/talents/demented/tentacles.lua",
+      "source": "You extend your tentacle to grab a distant target, pulling it to you.\n\t\tAs long as Constrict stays active the target is bound by your tentacle, it can try to move away but each turn you pull it back in 1 tile.\n\t\tWhile constricting you cannot use your tentacle to enhance your normal attacks but you deal %d%% tentacle damage each turn to your target.\n\t\tEnemies can resist the attempt to pull them but Constrict will always work for purposes of modifying your talents.\n\t\tYour other tentacle talents may act differently when used while constricting (check their descriptions).",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 4,
+          "target": 4
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": "伸展触手缠绕一个远处的目标，并向你拖拽。\n\t\t目标被触手缠绕后，可以尝试向远处移动，但是每回合会被拖回一码。\n\t\t当缠绕了敌人，普通攻击不会额外附加触手攻击，但每回合对缠绕敌人造成 %d%% 触手伤害。\n\t\t敌人可以抵抗触手拖拽，但是缠绕状态会持续生效。\n\t\t其他触手技能在缠绕状态下会发生变化，具体请查看相应技能描述。",
+      "tu_uid": "1f56c6ea834c7b23bb8d1391d7d791921df4bce4f4ea8f4887ae3e72b32ee9dc",
+      "unit_id": "273c4c66a1d86f6953eda81954484a5889cba5e1dd4be1557316230f49f60d09",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3224,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1078,
+          "section": "tome-cults/data/talents/demented/tentacles.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "6a185bcf84b58ede87731ec9a90133906927b24cc4b2337c57ce4b08e91d9b53",
+      "revision_uid": "86acf73f05a5eae9a62db9dfe6a66be91990aba8ac0feb157d1dd9ebadbfd945",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/talents/demented/tentacles.lua",
+      "source": "You plant your tentacle hand in the ground where it splits up and extends to a target zone of radius %d.\n\t\tThe zone will erupt with many black tendrils to hit all foes caught inside dealing %d%% tentacle damage.\n\t\tAny creature hit by the tentacle must save against spell or be numbed by the attack, reducing its damage by %d%% for 5 turns.\n\n\t\tIf at least one enemy is hit you gain %d insanity.\n\n\t\t#YELLOW_GREEN#When constricting:#WHITE#The tendrils pummel your constricted target for %d%% tentacle damage and if adjacent you make an additional mainhand weapon attack.  Talent cooldown reduced to 10.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {
+            "#WHITE#": 1,
+            "#YELLOW_GREEN#": 1
+          },
+          "target": {
+            "#WHITE#": 1,
+            "#YELLOW_GREEN#": 1
+          }
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 6,
+          "target": 4
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "你的触手钻入地下，分布到 %d 码范围的目标区域。\n\t\t该区域喷发出大量黑色触手，对区域内所有敌人造成 %d%% 触手伤害。\n\t\t被触手击中的生物需要进行法术检定，检定失败将被麻痹，5 回合内伤害降低 %d%%。\n\t\t如果有敌人被触手击中，你获得 %d 疯狂值。\n\t\t#YELLOW_GREEN# 当触手处于缠绕状态 :#WHITE# 触手对缠绕对象连续突击，造成 %d%% 触手伤害。如果你与被缠绕对象相邻，则进行一次额外的主手打击。技能冷却时间缩短为 10 回合。",
+      "tu_uid": "5fcd15f5228b8a006a0c3de524572e47b9aa7cce1fefdd487ea1f0452bdf475f",
+      "unit_id": "ed72a4ebbc761e306c18095d87c98c1a4a7b58f043a03ec1b4120a8f7ff92bf7",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3670,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1331,
+          "section": "tome-cults/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "8284d5722027dc83751fdf3ae11f24d47056ed5cafd960b3a59a8b19f038c16e",
+      "revision_uid": "647d9d2594e46e5a17fab6d3ed864587caa3d3904df92d578d2851fda82f6c97",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-cults/data/timed_effects.lua",
+      "source": "The target is being driven mad by the void, taking %0.2f darkness damage per turn and reducing all powers by %d.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f",
+            "d"
+          ],
+          "source_conversions": [
+            "f",
+            "d"
+          ],
+          "source_raw": [
+            "%0.2f",
+            "%d"
+          ],
+          "target_conversions": [
+            "f",
+            "d"
+          ],
+          "target_raw": [
+            "%0.2f",
+            "%d"
+          ]
+        }
+      },
+      "target": "目标被虚空压迫至疯狂，每回合受到 %0.2f 点暗影伤害并且降低 %d 点全部强度。",
+      "tu_uid": "ea41f940b0fa61cf0bea7fcb8d8c8ceaaeb9229358e8cd0a276a46b202eb1f4f",
+      "unit_id": "00f2a4ec86ff67f4236a1c3a1708d73ee3b9137dfa650a43bf6bf7302b867518",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3825,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1470,
+          "section": "tome-cults/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "3e783fa5f9ddd95632b03f94a2627947c56236cc165d8a3ef951b68eb1775ba8",
+      "revision_uid": "c350d82c6e4830ac8905a4c58d2d616c09e22ab1b949ec6a669fae064cc833c2",
+      "risk_flags": [
+        "has-printf",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/timed_effects.lua",
+      "source": "Your body can not function properly here, it is slowly wasting away. Each turn you take %0.2f void damage and any new debuff on you lasts %d%% longer. Each turn those penalties increase until the effect is removed.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f",
+            "d"
+          ],
+          "source_conversions": [
+            "f",
+            "d"
+          ],
+          "source_raw": [
+            "%0.2f",
+            "%d"
+          ],
+          "target_conversions": [
+            "f",
+            "d"
+          ],
+          "target_raw": [
+            "%0.2f",
+            "%d"
+          ]
+        }
+      },
+      "target": "你的身体无法正常运转，被逐渐损耗。每回合你受到 %0.2f 虚空伤害，任何新的负面效果持续时间延长 %d%%。每回合这些惩罚都会增长，直到效果结束。",
+      "tu_uid": "0912e0e9847a13107b641e6dd7f83c3a67e67cf6bf67ae0b7a022fbcb4b8dc50",
+      "unit_id": "d58787c2ae7339bdae77dc96da741671fd693ff8669bfceafc189f64272a4d0e",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3395,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1148,
+          "section": "tome-cults/data/talents/misc/misc.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "290d418f288ccb5f1fac82a7bb447c5cdaf30a0c69add7c27dea3807ed8eb1e8",
+      "revision_uid": "7fe539170ae46c59860c6aee8399109003a96431c4a4c0110b603df8be44b665",
+      "risk_flags": [
+        "has-printf",
+        "has-markup",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-cults/data/talents/misc/misc.lua",
+      "source": "Evolve %d allies within radius 10 in random ways for 5 turns.\n\t\t#ORCHID#Speed:#LAST# Increases global speed by %d%%.\n\t\t#ORCHID#Form:#LAST# Increases all stats by %d.\n\t\t#ORCHID#Power:#LAST# Increases all damage by %d%%.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {
+            "#LAST#": 3,
+            "#ORCHID#": 3
+          },
+          "target": {
+            "#LAST#": 3,
+            "#ORCHID#": 3
+          }
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": "以随机方式进化 10 格范围内至多 %d 名友方单位，持续 5 回合。\n\t\t#ORCHID#速度:#LAST# 增加 %d%% 整体速度。\n\t\t#ORCHID#形态:#LAST# 增加 %d 全属性。\n\t\t#ORCHID#力量:#LAST# 增加 %d%% 伤害。",
+      "tu_uid": "848d75dca8d6761df73de31384773bafd25ba19301741830742ab0b998fb51f1",
+      "unit_id": "11e34bf4116a258c496360ac4a5c1fb96d01460de11102b81a6bf2b5732f89f5",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 2632,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 838,
+          "section": "tome-cults/data/talents/demented/calamity.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "7ec66fc2bf9e5d800f3a3e1b34f16fe66b6845846b2e9ea2a2252ff06e207fda",
+      "revision_uid": "846f4c7b26f45b4c2ab424a580feb94c1f7548a5e6d93f757a151d21ca44a7c2",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/talents/demented/calamity.lua",
+      "source": "Each time you apply Jinx to an enemy, you have a %d%% chance to siphon some of their luck for yourself for 5 turns. This stacks up to 10 times, increasing saves and defense by %0.2f and critical strike chance by %0.2f%%.\n\t\tIf you know Preordain, stacks beyond 6 also grant a %d%% chance for you to entirely avoid damage taken.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 1,
+          "target": 1
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "f",
+            "f",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "f",
+            "f",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%0.2f",
+            "%0.2f",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "f",
+            "f",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%0.2f",
+            "%0.2f",
+            "%d"
+          ]
+        }
+      },
+      "target": "每当你向敌人施加厄运诅咒，有 %d%% 几率吸取敌人的运气为你所用，持续 5 回合。这个效果最多叠加 10 层，每层增加 %0.2f 豁免和闪避， %0.2f%% 暴击率。\n\t\t如果你同时学会了命中注定，六层以上的每层幸运使你获得 %d%% 几率完全避免受到的伤害。",
+      "tu_uid": "ce5528ce4c03f6e7662f3b557fc76e48c3ed08e1002bb5112830c8322b8d4871",
+      "unit_id": "8f7486d56d060dc1345f2ab46e8220d92ddf40ccc7a6650d6afa1429453bd50e",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3692,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1353,
+          "section": "tome-cults/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "ac6ef61d2c8ef2487ca52eb27818dda874510556ecef7f1936ecadd38b317f76",
+      "revision_uid": "c4104421fccc8eb0126d9f064630df2fa3b6a4b07136ca4ad40deb9d17da3d05",
+      "risk_flags": [
+        "has-printf",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-cults/data/timed_effects.lua",
+      "source": "The full force of entropy has been brought to bear on the target, inflicting %0.2f darkness and %0.2f temporal damage each turn.",
+      "source_length_bin": "long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f",
+            "f"
+          ],
+          "source_conversions": [
+            "f",
+            "f"
+          ],
+          "source_raw": [
+            "%0.2f",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "f",
+            "f"
+          ],
+          "target_raw": [
+            "%0.2f",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "全部熵之力都施加于目标身上，每回合造成 %0.2f 暗影和 %0.2f 时空伤害。",
+      "tu_uid": "eb0771d420f0563202aef31fe1d32f373bb394c37cd9373e37cf57e243c25f63",
+      "unit_id": "fca66498a3f6110bd953d8277fd8ca0b510cdb3200fa3eb6b451b50aeb5a5590",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3458,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1174,
+          "section": "tome-cults/data/talents/misc/races.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "4bdf398a1c2fc810421b96b41c473f00c18384fbb5a58ed252fe77993ba9e2da",
+      "revision_uid": "706421b8afdef3c04e0ec85a0703426cf5e9c4a38aa36ef4e41844bf1c74c188",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/talents/misc/races.lua",
+      "source": "Your affinity with things that dwell deep beneath the surface allows you to summon a hungering mouth.\n\t\tThe mouth has %d bonus life, lasts for %d turns, and deals no damage.\n\t\tEach turn the mouth will draw all enemies in radius 10 2 spaces towards itself.\n\t\tIts bonus life depends on your Constitution stat and talent level.  Many other stats will scale with level.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d"
+          ]
+        }
+      },
+      "target": " 你同地下深处某物的联系让你能召唤一只饥饿巨口。\n\t\t每回合它将周围 10 码内所有敌人朝自身拉近 2 码。\n\t\t它有 %d 额外生命，存在 %d 回合，不造成伤害。\n\t\t它的额外生命取决于你的体质和技能等级。许多其他属性受等级影响。",
+      "tu_uid": "0cbafbbfc1fd85eba238ea031b4af4f5faef80f37dbaab1c380629b5fb664520",
+      "unit_id": "db318b698d1edf30f84803d807936e8a166053a6316f090bc61b12a840f7724d",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": [
+        1,
+        3,
+        2,
+        4,
+        5,
+        6
+      ],
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3490,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1192,
+          "section": "tome-cults/data/talents/misc/races.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "30c662b4835953d3f4607623415af0d83d116bd5d5c2318d598380331c11aac1",
+      "revision_uid": "07c9d877f8816d8b4fef2e1cda77e73856038422ecef5dd62ccdba4f6517200c",
+      "risk_flags": [
+        "has-printf",
+        "has-args-order",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/talents/misc/races.lua",
+      "source": "Since ziguranth removed those filthy magic runes from your body you have needed an alternative form of power to sustain your body. Thanks to drake blood you have found that power.\n\t\tYour blood hardens yourself, passively increasing stun resistance by %d%%, %s resistance by %d%% and dealing %d %s damage on melee attacks.\n\t\tYou can activate this talent to change which drake aspect to bring forth, altering the elemental type of the bonus.\n\t\tThe resistance and damage scales with your Willpower.\n\n\t\tChanging your aspect requires combat experience, you may only do so after slaying 100 enemies (current %d).\n\n\t\tWhen you learn this talent you become so strong you can wield any type of one handed weapon in your offhand.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 7,
+          "target": 6
+        },
+        "printf": {
+          "args_order": [
+            1,
+            3,
+            2,
+            4,
+            5,
+            6
+          ],
+          "role_order": [
+            "d",
+            "d",
+            "s",
+            "d",
+            "s",
+            "d"
+          ],
+          "source_conversions": [
+            "d",
+            "s",
+            "d",
+            "d",
+            "s",
+            "d"
+          ],
+          "source_raw": [
+            "%d",
+            "%s",
+            "%d",
+            "%d",
+            "%s",
+            "%d"
+          ],
+          "target_conversions": [
+            "d",
+            "d",
+            "s",
+            "d",
+            "s",
+            "d"
+          ],
+          "target_raw": [
+            "%d",
+            "%d",
+            "%s",
+            "%d",
+            "%s",
+            "%d"
+          ]
+        }
+      },
+      "target": " 伊格除去了你身体内部肮脏的魔法符文，并改用龙血提供能量维持你的身体。\n\t\t龙血强化了你，使你获得 %d%% 震慑抗性， %d%% %s 伤害抗性， %d %s 近战附加伤害。\n\t\t你可以主动开启该技能来改变龙力类型，进而改变相应元素。\n\t\t抗性和附加伤害受意志值加成。\n\t\t改变类型需要战斗经验，你必须杀死 100 生物后才能使用（当前 %d ）。\n\n\t\t当你学会该技能时，你变得如此强大，以至于能双持任何单手武器。",
+      "tu_uid": "2132e59ab7db14b56ff4c4960b1c23f28d0bd1a6e99f94128510b7023d0ec503",
+      "unit_id": "e1e329965cd48ea4635d297dbe082dc85f9ab0d4cd0f166b2aed5553fe161e30",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 2699,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 865,
+          "section": "tome-cults/data/talents/demented/controlled-horrors.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "d94e2a3a87a033f1b50cd13d4e8d30a7e088ba87dc20b1945452fb3ab1cbd8a3",
+      "revision_uid": "175ff5994ccb70a3b3a345ef46b4eceeb958fd7e7f023ca996650b2571fb6f09",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit"
+      ],
+      "section": "tome-cults/data/talents/demented/controlled-horrors.lua",
+      "source": "You attune your horrors to the dead god Amakthel, increasing your summoned horrors damage by %d%%.\nAt talent level 3, your Decaying Devourers spell will summon 4 additional Devourers adjacent to random enemies nearby and your Bloated Horror will learn the Agony talent.\nAt talent level 5, victims of your Horrific Display spell will pull enemies in radius 10 1 space towards them each turn.\nThe damage increase is based on your Spellpower.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "d"
+          ],
+          "source_conversions": [
+            "d"
+          ],
+          "source_raw": [
+            "%d"
+          ],
+          "target_conversions": [
+            "d"
+          ],
+          "target_raw": [
+            "%d"
+          ]
+        }
+      },
+      "target": " 你将你的恐魔和已死之神阿马克泰尔同化，增加恐魔 %d%% 伤害。\n\t\t技能等级 3 后，你的腐败的吞噬者法术将额外召唤四名吞噬者在随机敌人周围，你的浮肿恐魔将学会极度痛苦。\n\t\t技能等级 5 后，恐怖展示的受害者每回合会把范围 10 码内的敌人拉近 1 码。\n伤害加成受法术强度加成。",
+      "tu_uid": "d1b835afabd57c95ca1b57360c3d91ce6c4d7a026df49003c9221f8c5af11628",
+      "unit_id": "ef76e97ce72ba9a548e72dd41b54015b7035df8751bb31dcca5ac89c9be8378c",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3443,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1167,
+          "section": "tome-cults/data/talents/misc/races.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "75f683f69eea0e5f2c379b2a040e4da3badbf8e852e990e8c450aa3fa731aeeb",
+      "revision_uid": "27379084c06ca27f9186153cc0debbdfff4260ab0ce57bc82bfdff4f1b43096d",
+      "risk_flags": [
+        "has-printf",
+        "multiline",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/talents/misc/races.lua",
+      "source": "Your skin grows small spikes coated in dark blight.\n\t\tWhen you are hit in melee the attacker starts bleeding black blood for 5 turns that deals %0.2f darkness damage each turn. This effect may only happen once per turn.\n\t\tYou are empowered by the sight of the black blood, for each bleeding creature in radius 2 you gain 5%% all resistances, limited to %d creatures.\n\t\tThe damage will scale with your Magic stat.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": true,
+        "newlines": {
+          "source": 3,
+          "target": 3
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f",
+            "d"
+          ],
+          "source_conversions": [
+            "f",
+            "d"
+          ],
+          "source_raw": [
+            "%0.2f",
+            "%d"
+          ],
+          "target_conversions": [
+            "f",
+            "d"
+          ],
+          "target_raw": [
+            "%0.2f",
+            "%d"
+          ]
+        }
+      },
+      "target": " 你的皮肤生长出被黑暗和枯萎力量覆盖的尖刺。\n\t\t每回合你第一次被近战攻击命中时，尖刺对攻击者造成伤害，对方将在 5 回合内每回合受到 %0.2f 黑暗流血伤害。\n\t\t同时，你将被敌人的鲜血鼓舞， 2 格范围内每个流血生物（上限 %d ）为你提供 5%% 全体伤害抗性。\n\t\t伤害随魔法属性提升。",
+      "tu_uid": "468d05d5b02fe5033b28353143d5578c636b8463c8f008e15222f69bfc25bcf7",
+      "unit_id": "b8b144b96cdc37fc018fcc21d733f72eadcd3c6a5080f1ded00901ac068cc398",
+      "version": "tome-1.7.6"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "domain_hints": [],
+      "gate_signals": {
+        "at_token_multiset_match": true,
+        "cross_component_variant": false,
+        "empty_target": false,
+        "format_shape_match": true,
+        "format_signature_match": true,
+        "lua_load_valid": true,
+        "markup_multiset_match": true,
+        "needs_review": [
+          "QG_CURRENT",
+          "QG_SEVERE",
+          "QG_CONTEXT",
+          "QG_TERMS"
+        ],
+        "runtime_collision": false
+      },
+      "occurrences": [
+        {
+          "line": 3771,
+          "logical_path": "tome-cults.lua",
+          "ordinal": 1424,
+          "section": "tome-cults/data/timed_effects.lua"
+        }
+      ],
+      "profile": "mechanics",
+      "profile_confidence": "high",
+      "relevant_terms": [],
+      "revision_id": "4b86b09962dc08543de0b5069fe5644679fb6719fa0f552d9f0a8513481a39ed",
+      "revision_uid": "baac72eb1268f3aea4e8644e186f8ed47cfb6aa1877382e506e7a6e34e89910e",
+      "risk_flags": [
+        "has-printf",
+        "long-source",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "section": "tome-cults/data/timed_effects.lua",
+      "source": "The target is being erased from reality. Each time a magical effect is applied, they will take %0.2f darkness damage and %0.2f temporal damage. If 5 effects are applied, a powerful void horror will appear.",
+      "source_length_bin": "very-long",
+      "source_tag": "tformat",
+      "special": null,
+      "structure": {
+        "at_tokens": {
+          "source": {},
+          "target": {}
+        },
+        "markup": {
+          "source": {},
+          "target": {}
+        },
+        "multiline": false,
+        "newlines": {
+          "source": 0,
+          "target": 0
+        },
+        "printf": {
+          "args_order": null,
+          "role_order": [
+            "f",
+            "f"
+          ],
+          "source_conversions": [
+            "f",
+            "f"
+          ],
+          "source_raw": [
+            "%0.2f",
+            "%0.2f"
+          ],
+          "target_conversions": [
+            "f",
+            "f"
+          ],
+          "target_raw": [
+            "%0.2f",
+            "%0.2f"
+          ]
+        }
+      },
+      "target": "目标正被从现实中抹去。每次受到魔法效果时，它承受 %0.2f 暗影 %0.2f 时空伤害。当承受 5 次效果后，强大的虚空恐魔将出现。",
+      "tu_uid": "02d1dd96ba8540b06d64777c8043e0a9ccd64e268083cedd403302732d340ee5",
+      "unit_id": "e7a3c5926fd47282d8a27932d8bd05e91cac68a9f56c1fffcd26073a59041629",
+      "version": "tome-1.7.6"
+    }
+  ]
+}
