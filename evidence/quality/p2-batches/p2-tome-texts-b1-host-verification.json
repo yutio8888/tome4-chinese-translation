@@ -1,0 +1,105 @@
+{
+  "task_id": "p2-tome-texts-b1-001",
+  "batch_path": "evidence/quality/p2-batches/p2-tome-texts-b1-intro.json",
+  "batch_sha256": "9790846d76658d068b876d0c8b7fae56abf23cd25633ce5830f02f633026a284",
+  "source_root": "/home/yun/projects/t-engine4/game/modules/tome",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "method": "ORCHESTRATOR read every English key against `git show 624a673:<path>` (18/18 verbatim), adjudicated EXECUTOR changes and three contextual-review rounds against that source and in-file term precedent; risk flags not used (whole-section slice).",
+  "counts": {
+    "items": 18,
+    "sections_changed": 14,
+    "executor_cycle0_changes": 25,
+    "contextual_observations": 10,
+    "confirmed": 9,
+    "advisory": 1,
+    "insufficient_evidence": 0
+  },
+  "advisory": [
+    {
+      "section": "mod-tome/data/texts/intro-tutorial.lua",
+      "note": "'Tales of Maj'Eyal' rendered as the official short name 'ToME 4'; not a semantic error, left unchanged."
+    }
+  ],
+  "reviews": [
+    ".ai/reviews/p2-tome-texts-b1-001/review-01.json",
+    ".ai/reviews/p2-tome-texts-b1-001/review-02.json",
+    ".ai/reviews/p2-tome-texts-b1-001/review-03.json"
+  ],
+  "preflight": "tools/contextual_anchor_preflight.py whole-section form (commit 7085a98), PREFLIGHT_VERIFIED for ctx-01/02/03",
+  "gates": "5-step batch gates clean; tools/ci-gates.sh ALL GATES PASSED (12, incl. core addon build)",
+  "items": [
+    {
+      "section": "mod-tome/data/texts/intro-archmage.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/intro-arena.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-chronomancer.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-cornac.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-dwarf.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-ghoul.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/intro-halfling.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-higher.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-infinite-dungeon.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-ogre.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-orc.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-shalore.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-skeleton.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/intro-sunwall.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-thalore.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-tutorial-combat-stats.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/intro-tutorial.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/intro-yeek.lua",
+      "changed": true
+    }
+  ],
+  "recorded_at": "2026-08-22T16:15:16Z"
+}
