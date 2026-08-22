@@ -33636,11 +33636,11 @@ You can now create new characters with the #LIGHT_GREEN#Adventurer class#WHITE#.
 Adventurers start the game with 7 talent category points and all possible class and generic trees in the game.
 They are a #{bold}#bonus#{normal}# class, in no way meant to be balanced or even working with all possible talent combos.
 Use at your own risk, and have fun.]], [[祝贺你，你通关了 !
-你现在可以使用新的职业—— #LIGHT_GREEN#冒险者#WHITE#.
+你现在可以使用新的职业—— #LIGHT_GREEN#冒险家#WHITE#.
 
-冒险者初始拥有 7 点技能树解锁点，并且可以解锁游戏中的任何职业技能树和通用技能树。
-他们是一种 #{bold}# 奖励 #{normal}# 职业 , 也就意味着没有经过任何的平衡或者技能连击的测试。
-使用它继续冒险，并且祝你愉快！]], "_t")
+冒险家初始拥有 7 点技能树解锁点，并且可以解锁游戏中的任何职业技能树和通用技能树。
+他们是一种 #{bold}#奖励#{normal}#职业，完全不是为了平衡而设计，甚至不保证能与所有可能的技能组合配合使用。
+使用风险自负，祝你玩得开心。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/texts/unlock-afflicted_cursed.lua"
@@ -33662,22 +33662,22 @@ Class features:#YELLOW#
 
 The Cursed use hate, a resource that grows as they kill their foes and decreases while standing idle.
 Most of their talents are more effective with high hate.
-]], [[利用无知、贪婪或者愚昧被诅咒者为黑暗服务，现在，他们的罪恶必须接受审判。
-他们的唯一主人是他们为生者承担的憎恨。
-他们从对手的死亡中汲取力量使其成为恐怖的战士。
-更可怕的是，任何接近被诅咒者的人会受恐惧光环的影响而变得发狂。
-不过其中的一些人，开始挽回他们的错误，用他们被诅咒的力量与恶魔战斗。
+]], [[被诅咒者因无知、贪婪或愚行而为某个黑暗阴谋效力，如今必须为自己的罪孽付出代价。
+如今，他们唯一的主人，是他们对一切生灵怀有的仇恨。
+他们从遇到的一切生灵的死亡中汲取力量，成为恐怖的战士。
+更可怕的是，任何接近被诅咒者的人都会受其可怕光环影响而发狂。
+不过其中的一些人努力弥补过错，用自己的被诅咒之力与邪恶战斗。
 
 你战胜了本·克鲁塞达尔的诅咒，现在你创建角色时可以选择一个新的职业 #LIGHT_GREEN#被诅咒者#WHITE#。
 
-被诅咒者是强大的近战战士，使用战斧战斗并将所有仇恨注入到他们每一次的攻击中。
+被诅咒者是重型近战战士，将所有仇恨倾注于自己的攻击。
 职业特点： #YELLOW#
 - 用你的黑暗光环将你的对手吞没，削弱、混乱、震慑和对他们造成伤害
-- 追踪你的猎物，标记他们直到他们死去
+- 追踪你的猎物，将其标记为必死目标
 - 强大的近战能力#WHITE#
 
-被诅咒者使用仇恨值，该值在你杀死怪物时提升，脱离战斗该值便会逐渐下降。
-他们的技能往往在高仇恨值时发挥强大效能。
+被诅咒者使用仇恨值；该资源在他们杀死敌人时增长，静止不动时减少。
+他们的大多数技能在仇恨值较高时效果更强。
 ]], "_t")
 
 ------------------------------------------------
@@ -33729,29 +33729,29 @@ The Fortress shadow gave you a transmogrification chest which shall make your de
 
 All your new characters will now start with a transmogrification chest at birth. All items transmogrified before you find the Fortress with them will only yield gold.
 ]], [[你发现了属于神秘的夏·图尔种族的古老堡垒。
-堡垒幽灵给了你一个转化之盒，它可以用来储藏物品，并使你很方便地将物品转化为金币。
+堡垒之影给了你一个转化之盒，让你更轻松地管理物品储存和金币。
 
-现在开始你所有新建的人物一出生就会拥有这个转化之盒，在该人物发现水下堡垒之前只能将物品转化成金币而无法储存能量。
+现在开始你所有新建的人物一出生就会拥有这个转化之盒。在找到堡垒之前转化的所有物品都只能产出金币。
 ]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/texts/unlock-birth_zigur_sacrifice.lua"
 
-t("New birth power: #LIGHT_GREEN#Ziguranth Sacrifice", "新选项：#LIGHT_GREEN#献祭到伊格兰斯", "_t")
+t("New birth power: #LIGHT_GREEN#Ziguranth Sacrifice", "新的出生能力：#LIGHT_GREEN#伊格兰斯献祭", "_t")
 t([[You have discovered Zigur, the bastion of Nature fighting against all arcane magics.
 Magic has caused so much pain and suffering on the world, it needs to stop.
 
 All your new characters will now be able to betray arcane escort quests to send them to Zigur, granting new, different, rewards.
 ]], [[你发现了伊格，一个对抗所有奥术力量的自然堡垒。
-魔法对整个世界造成了不可磨灭的影响和伤痛，它必须被阻止。
+魔法给世界带来了如此多的痛苦与苦难，必须让它停止。
 
-现在 , 你的所有新角色都可以在护送任务里将那些邪恶的法师们送往伊格处置，你将会获得相应的回报。
+现在，你的所有新角色都可以背叛奥术护送任务，将护送对象送往伊格，从而获得新的、不同的奖励。
 ]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/texts/unlock-campaign_arena.lua"
 
-t("New game campaign: #LIGHT_GREEN#The Arena: Challenge of the Master", "新战役： #LIGHT_GREEN#竞技场：挑战领主", "_t")
+t("New game campaign: #LIGHT_GREEN#The Arena: Challenge of the Master", "新战役： #LIGHT_GREEN#竞技场：挑战主宰", "_t")
 t([[The arena, a way of violent entertainment. 
 A delight for the audience, a source of wealth and glory. A place where aspiring fighters, former adventurers and those cursed to fight
 eternally gather to hack away at each other.
@@ -33769,12 +33769,12 @@ Campaign features:#YELLOW#
 
 你解锁了竞技场，现在你可以创建一个新人物进行新的战役模式： #LIGHT_GREEN#竞技场#WHITE#。
 
-竞技场模式中你将与多个敌人在开阔场地上决斗，为了存活下来你得好好使用你的战术策略。
+竞技场模式中你将在开阔场地上与多个敌人战斗，为了存活下来，战斗策略至关重要。
 战役特点： #YELLOW#
-- 没有任务、故事情节和友军，你只有一个方法离开那里：战胜所有对手。
+- 没有任务、剧情、友善生物或逃生途径：只有你独自面对一切逆境。
 - 这里有一个积分系统，你越快杀死你的对手得分越高，分数可是你向别人夸耀的资本哦！
 - 尽情砍杀吧！
-- 你若赢得冠军你就是新的竞技场领主，之后你可以挑战你自己的这个冠军角色了！
+- 你的冠军将成为竞技场的新主宰，让你可以挑战自己的冠军们！
 ]], "_t")
 
 ------------------------------------------------
@@ -33793,16 +33793,16 @@ Campaign features:#YELLOW#
 - No quests, plots, friendly creatures or ways out: only you against all odds.
 - No win condition: you WILL die in the dungeon, but you can prove your worth by going as deep as possible.
 - Pure hack and slash MAYHEM!#WHITE#
-]], [[在混沌纪元，九个弑神者被派去刺杀众神。
-瑞尔克·欺诈之神，在逃离弑神者追杀时创造了这个无尽地下城。
-他撤退到哪里，弑神者就追到哪里，每当快要被追上时，瑞尔克就会创造新的一层。
-直到现在，追杀仍在继续——就在这座地下城的深处。
+]], [[在混沌纪，九位弑神者出发去消灭众神。
+神祇瑞尔克在试图逃离一位弑神者时，创造了无尽地下城。
+他退入其中，但弑神者紧随其后；每当弑神者追上这位神祇，瑞尔克就会创造新的一层。
+据说这场追猎直到现在仍在地下城深处、极深处继续着。
 
 你解锁了神秘的无尽地下城，现在你在创建新人物时可以选择进入一个新的战役模式： #LIGHT_GREEN#无尽地下城#WHITE#。
 
-无尽地下城拥有无限深度的地图和恐怖的敌人。
+无尽地下城由一层层不断增加、充满可怕敌人的楼层组成。
 战役特点： #YELLOW#
-- 没有任务、故事情节和友军，你只有一件事情要做：战胜所有对手。
+- 没有任务、剧情、友善生物或逃生途径：只有你独自面对一切逆境。
 - 不存在最后取胜的情况：你最终会在地城中死去，不过你进入的层数越深说明你的水平越高。
 - 尽情砍杀吧！#WHITE#
 ]], "_t")
@@ -33833,7 +33833,7 @@ The higher their paradox the greater the effect of their powers but the harder t
 时空法师是使用时空魔法重塑宇宙的非传统施法者。
 职业特点：#YELLOW#
 - 控制周围的时间流
-- 扭曲、操纵时间流，甚至从未来拉来另一个自己
+- 扭曲、操纵时间流，甚至将未来的自己拉到现在
 - 操纵空间与重力，将敌人撕成碎片或禁锢在原地
 - 预见未来，甚至回到过去#WHITE#
 
@@ -33859,20 +33859,20 @@ Class features:#YELLOW#
 
 Temporal Wardens use Paradox for their powers.  It represents how much damage they've done to the spacetime continuum.
 The higher their paradox the greater the effect of their powers but the harder they'll be to control.
-]], [[时间并不是像它表面看上的去那样总是线性的。事实上它就像一张布，正是这张布将世界编织在一起。
-其所有强大的力量一样，虽然有些人设法控制它甚至滥用它，还是有人支持它而不是毁灭它。
-那些学习控制而不是破坏时空延续的人可以保持平衡，用于与黑暗力量战斗。
+]], [[时间并非线性，只是看起来如此。事实上，时间是一匹织物，正是维系宇宙的经纬。
+就像所有强大的力量一样，有些人试图操纵并扭曲时间，但也有人试图维护它，而非摧毁它。
+那些学会弯曲而非折断这张织物的人，能够对抗黑暗或贪求力量的势力，维持平衡。
 
 一名时空守卫教会了你时空法术，现在你可以在创建新角色时选择新的职业： #LIGHT_GREEN#时空守卫#WHITE#。
 
 时空守卫是同时精通近战和远程战斗的战士。
 职业特点： #YELLOW#
-- 使用中等尺寸或者短兵刃进行双持近身格斗，或者使用远程武器发动远程攻击
+- 双持一把中型武器和一把小型武器，或使用远程武器技能从远处攻击
 - 操纵时空来加速、制造虫洞或甚至直接将你的目标传送到未来
 - 可以预知未来或者穿越回过去#WHITE#
 
-时空守卫使用紊乱值作为能量。它代表你对时空连续性的破坏程度。
-紊乱值越高他们法术的能量也越强，不过法术会变得更加难以控制。
+时空守卫使用紊乱值施展能力。它代表他们对时空连续体造成了多大破坏。
+紊乱值越高，能力的效果越强，但也越难控制。
 ]], "_t")
 
 ------------------------------------------------
@@ -33903,12 +33903,12 @@ Vim is the life force of all beings. It does not regenerate, and can only be sto
 腐化者是使用魔法进行远程攻击的法师。
 职业特点： #YELLOW#
 - 使你的目标感染并传播致命的疾病
-- 使用邪术或诅咒你的目标，阻止他们前进，使其凋零
+- 对敌人施加邪术和诅咒，妨碍并使其逐渐凋零
 - 从目标身上吸取生命，治疗自身
-- 掌握恶魔能量点燃和摧毁敌人，你甚至可以召唤一个恶魔领域，恐怖之地，来困住你的敌人。#WHITE#
+- 掌握恶魔能量来燃烧和毁灭。你甚至可以召唤恶魔位面的一部分——恶魔空间——来困住敌人。#WHITE#
 
-腐化者使用活力值来施放他们的法术。
-活力是所有生物的生命力量，它不会自己回复，而必须从你的目标身上偷取。
+腐化者使用活力值来施展他们的特殊能力。
+活力是所有生物的生命力量，它不会再生，只能从敌人身上窃取。
 ]], "_t")
 
 ------------------------------------------------
@@ -33930,21 +33930,21 @@ Class features:#YELLOW#
 
 Reavers use "vim" to power their special abilities.
 Vim is the life force of all beings. It does not regenerate, and can only be stolen from your foes.
-]], [[收割者是隐藏在黑暗和枯萎面纱之后的战士。
-作为邪恶军队的马前卒，你可以到处发现收割者。
+]], [[黑暗与枯萎的帷幕下，收割者现身。
+作为邪恶势力的步兵，收割者无处不在。
 极其罕见的，一个收割者认识到了她的错误并开始使用她的力量来赎罪。
 
-你已经杀死了足够多的人形生物，现在你可以在创建人物时选择新的职业： #LIGHT_GREEN#收割者#WHITE#。
+你已经杀死了许多人形生物，现在你可以在创建人物时选择新的职业： #LIGHT_GREEN#收割者#WHITE#。
 
-收割者是拥有法术能力的强力近战职业。
+收割者是以法术辅助的重型近战职业。
 职业特点： #YELLOW#
 - 使你的目标感染并传播致命的疾病
-- 使用邪术或诅咒你的目标，阻止他们前进，使其凋零
+- 对敌人施加邪术和诅咒，妨碍并使其逐渐凋零
 - 用极度邪恶的近战攻击造成致命伤害
 - 使用白骨之力进行攻击和防御#WHITE#
 
-收割者使用活力值来施放他们的法术。
-活力是所有生物的生命力量，它不会自己回复，而必须从你的目标身上偷取。
+收割者使用活力值来施展他们的特殊能力。
+活力是所有生物的生命力量，它不会再生，只能从敌人身上窃取。
 ]], "_t")
 
 ------------------------------------------------
@@ -33980,11 +33980,11 @@ You may now create alchemist characters with a drolem instead of a golem.
 Drolems look awesome and can eventually learn to breathe poison.
 
 #LIGHT_GREEN#This is only available to donators. Thanks for your support!
-]], [[你使用炼金术师职业打败了泰恩，并学习了它制作龙傀儡的技巧。
+]], [[你使用炼金术师职业打败了泰恩，并花了一些时间研究他是如何制造出强大的龙傀儡的。
 龙傀儡是巨龙形状的傀儡，可以朝敌人吐出强力的毒液吐息。
 
 你现在可以创建使用龙傀儡代替普通傀儡的炼金术师角色。
-龙傀儡看起来更炫酷，并且可以学习喷吐毒液。
+龙傀儡看起来更炫酷，并且最终可以学会喷吐毒液。
 
 #LIGHT_GREEN#这项功能仅对捐赠者可用。感谢你的支持！
 ]], "_t")
@@ -33992,7 +33992,7 @@ Drolems look awesome and can eventually learn to breathe poison.
 ------------------------------------------------
 section "mod-tome/data/texts/unlock-cosmetic_race_dwarf_female_beard.lua"
 
-t("New Cosmetic Race Option: #LIGHT_GREEN#Facial Pilosity for Female Dwarves", "新的种族皮肤 ：#LIGHT_GREEN#女性矮人的胡子", "_t")
+t("New Cosmetic Race Option: #LIGHT_GREEN#Facial Pilosity for Female Dwarves", "新的种族外观选项：#LIGHT_GREEN#女性矮人的面部毛发", "_t")
 t([[You have saved the Iron Council from untold horrors from the deep.
 
 You may now create female dwarf characters sporting proudly facial pilosity as is the norm in the upper classes of dwarven society.
@@ -34010,17 +34010,17 @@ This has no effect on gameplay at all but it is fun!
 ------------------------------------------------
 section "mod-tome/data/texts/unlock-cosmetic_race_human_redhead.lua"
 
-t("New Cosmetic Race Option: #LIGHT_GREEN#Redhead Characters", "新的种族皮肤 ：#LIGHT_GREEN#红发皮肤", "_t")
+t("New Cosmetic Race Option: #LIGHT_GREEN#Redhead Characters", "新的种族外观选项：#LIGHT_GREEN#红发角色", "_t")
 t([[You have saved Melinda from untold horrors and torments.
 
 You may now create human, elf, halfling and dwarf characters with red hair.
 This has no effect on gameplay at all but it is fun!
 
 #LIGHT_GREEN#This is only available to donators. Thanks for your support!
-]], [[你从无数的怪物和苦难中救出了梅琳达。
+]], [[你从无数的恐怖和折磨中救出了梅琳达。
 
 现在，你可以创造带有红色头发的人类、精灵、半身人和矮人。
-红发没有任何加成，仅仅是为了好玩 !
+这完全不会影响游戏玩法，但很有趣！
 
 #LIGHT_GREEN#注意这项奖励只有捐赠者们可用。谢谢你们的支持！
 ]], "_t")
@@ -34054,7 +34054,7 @@ Insane features:#YELLOW#
 - 稀有生物出现得频繁得多，并开始出现随机 Boss
 - Boss 会获得随机选取的技能
 - 所有敌人的生命值提高 20%
-- 如果同时采用 Roguelike 永久死亡模式，玩家可以获得疯狂难度版本的成就。
+- 如果同时采用永久死亡模式，玩家可以获得疯狂难度版本的成就。
 
 #WHITE#愿你经历许多有趣又不公平的死亡！
 ]], "_t")
@@ -34083,12 +34083,12 @@ Madness features:#YELLOW#
 欢迎来到绝望模式！
 
 绝望模式的特点 :#YELLOW#
-- 所有地区的怪物等级为基础的 150% + 6
+- 所有区域等级提高 150% + 6
 - 所有怪物的技能等级增加 170%
 - 稀有怪产生频率大幅增加，同时出现随机 Boss
-- Boss 将可以随机获得新技能
-- 玩家成为了猎物！一定半径内的敌人可能感知到你的位置
-- 如果玩家在此模式下同时开启冒险模式或  Roguelike 模式，那么可获得独有的绝望模式成就
+- Boss 将随机获得技能
+- 玩家成为了猎物！随机地，一定半径内的所有敌人都会感知到你所在的位置
+- 如果同时在永久死亡模式或冒险模式下游玩，玩家可以获得绝望难度版本的成就
 
 #WHITE# 祝你玩的愉快，死的开心 !
 ]], "_t")
@@ -34114,23 +34114,23 @@ Class features:#YELLOW#
 
 Anorithil use "positive and negative energy" to use their special abilities.
 These are filled by some of their spells and depleted by others, making them alternate their talents.
-]], [[在遥远的东方，称为远东大陆的地方，居住着幸存下来的精灵和人类，与兽人部落和其他远东大陆的危险生物战斗。
+]], [[在遥远的东方，称为远东大陆的地方，居住着幸存下来的精灵和人类，与兽人部落和远东大陆的种种危险战斗。
 
 星月术士是接受过聚集太阳与月亮神力的特殊魔法训练的法师。
-他们在与部落的战斗中学会了如何同时掌控光与影的能量方法。
-他们的座右铭是：“我们站在太阳与月亮之间，光明与黑暗交汇的地方，在昏暗的黎明深处寻找我们的归宿。”
+他们在与兽人部落的战斗中学会了如何同时掌控光与影的能量方法。
+他们的座右铭是：“我们站在太阳与月亮之间，光明与黑暗交汇的地方，在灰色的暮光中寻找我们的命运。”
 
 你帮助了他们中的一位，现在你可以在创建人物时选择新的职业： #LIGHT_GREEN#星月术士#WHITE#。
 
-星月术士是使用正、负能量作为法力来源的纯粹的魔法师。
+星月术士是依靠正能量和负能量的纯粹施法者。
 职业特点： #YELLOW#
-- 用太阳之火灼烧远处的敌人
+- 用太阳的光与火灼烧远处的敌人
 - 使用太阳赞歌和月亮圣诗在战斗中强化你的力量
 - 用阴影吞噬你的敌人
-- 使用圣印的力量控制或者混乱你的敌人#WHITE#
+- 放置强力圣印来混乱和控制你的敌人#WHITE#
 
-星月术士使用正、负能量来施展他的特殊能力。
-他们可以使用某些法术充满其中一种能量同时耗尽另外一种能量，由此可以变换各种不同的技能。
+星月术士使用正能量和负能量来施展他们的特殊能力。
+其中一些法术会填充这些能量，另一些则会消耗它们，因此他们需要交替使用技能。
 ]], "_t")
 
 ------------------------------------------------
@@ -34154,23 +34154,23 @@ Class features:#YELLOW#
 
 Sun Paladins use "positive energy" to power their special abilities.
 It is filled by some of their spells and depleted by others, making them alternate their talents.
-]], [[在遥远的东方，称为远东大陆的地方，居住着幸存下来的精灵和人类，与兽人部落和其他远东大陆的危险生物战斗。
+]], [[在遥远的东方，称为远东大陆的地方，居住着幸存下来的精灵和人类，与兽人部落和远东大陆的种种危险战斗。
 
 太阳骑士是受过特殊魔法训练的战士，他们学会聚焦太阳的力量施展他们的特殊能力。
-他们在与兽人部落的战争中毫不畏惧，成为典范。
-他们的座右铭是：“太阳是恩赐、纯洁和本质的象征，我们为黑暗带来光明，我们与任何反抗我们的力量战斗到底。”
+他们是一切善的典范，但在与兽人部落的战斗中依然可怕。
+他们的座右铭是：“太阳是我们的赐予者、我们的纯洁、我们的本质。我们将光明带入黑暗之地，凭借我们的力量，无人能够通过。”
 
 你发现了晨曦之门，现在你可以在创建人物时选择新的职业： #LIGHT_GREEN#太阳骑士#WHITE#。
 
-太阳骑士是掌握法术的强力近战职业。
+太阳骑士是以法术辅助的重型近战职业。
 职业特点： #YELLOW#
-- 用太阳之火灼烧远处的敌人
+- 用太阳的光与火灼烧远处的敌人
 - 使用太阳赞歌在战斗中强化你的力量
 - 将太阳之力灌注进你的武器
 - 成为一座移动的堡垒，使用你的盾牌进行防御#WHITE#
 
-太阳骑士使用正能量来施展他的特殊能力。
-他们可以使用某些法术充满正能量，然后再用来施展其他法术。
+太阳骑士使用正能量来施展他们的特殊能力。
+某些法术会充满正能量，而另一些法术会消耗它，因此他们需要交替使用技能。
 ]], "_t")
 
 ------------------------------------------------
@@ -34193,18 +34193,18 @@ Class features:#YELLOW#
 
 All mages use mana to cast their spells.
 It slowly replenishes over time.
-]], [[猎魔行动之后魔法并没有从马基埃亚尔消失。
+]], [[魔法狩猎之后魔法并没有从马基埃亚尔消失。
 
-在黄昏纪元，当猎魔行动接近尾声时，卡·克鲁尔的一名强大的法师——莱娜尼尔——为剩余的各种族的法师们建立了一个避风港。
-这个地方就是安格利文，魔法之城，在这里，魔法得以保留并传承了超过两千年。
+在黄昏纪元，当魔法狩猎接近尾声时，卡·克鲁尔的一名强大的法师——莱娜尼尔——为剩余的各种族的法师们建立了一个避风港。
+这个地方就是安格利文，魔法之城，在这里，两千多年来一直传授魔法，以保存并发扬它。
 
 现在，你已经知道了这个故事，你可以在创建人物时选择新的职业 #LIGHT_GREEN#元素法师#WHITE#。
 
-元素法师是世界上专精于施法和魔法属性的顶尖高手。
+元素法师是施法者中的顶峰，与世界的魔法属性相契合。
 职业特点： #YELLOW#
-- 施放元素法术灼烧你的目标或者冰冻他们
-- 召唤时空的力量保护自己或者削弱敌人
-- 涉猎幻术和附魔法术
+- 施放元素法术将敌人烧死或冻结
+- 召唤时空的力量保护自己并削弱敌人
+- 涉猎幻术和幻象
 - 操控魔法本身的力量#WHITE#
 
 魔法师使用法力值来释放他们的法术。
@@ -34228,15 +34228,15 @@ Talents:
 - #YELLOW#Uttercold: #WHITE#Master the Uttercold and pierce even through cold immunities
 ]], [[自始以来法师们进行着各种元素试验。
 大多数法师满足于使用水系魔法，有些人则进行深入的研究并创造出了冰系魔法。
-其终极魔法技能就是“绝对零度”，它甚至可以对那些常规免疫寒冷魔法的生物造成伤害。
+其核心是“绝对零度”，一种极寒，甚至能伤害通常免疫寒冷的生物。
 
-你掌握了冰系魔法，现在你可以创建一个新的可以学习 #LIGHT_GREEN#冰系技能#WHITE# 的元素法师或者死灵法师角色。
+你掌握了冰系魔法，现在你可以创建新的元素法师和死灵法师角色，让他们学习 #LIGHT_GREEN#冰系技能#WHITE#。
 
 技能：
-- #YELLOW# 冻结：#WHITE# 集中水流伤害目标，并尝试使之冻结。
+- #YELLOW# 冻结：#WHITE# 凝聚目标周围的水，对其造成伤害并使其冻结。
 - #YELLOW# 冻结大地：#WHITE# 在地上施放一个冰冻新星，使其中的生物无法移动。
-- #YELLOW# 寒冰破碎：#WHITE# 对你视线内的所有冰冻目标造成大量伤害，甚至直接将其杀死。
-- #YELLOW# 绝对零度：#WHITE# 掌握绝对零度可以穿透冰冻免疫的生物。
+- #YELLOW# 寒冰破碎：#WHITE# 对你视线内的所有冰冻目标造成更高伤害，甚至直接将其杀死。
+- #YELLOW# 绝对零度：#WHITE# 掌握绝对零度，甚至能穿透寒冷免疫。
 ]], "_t")
 
 ------------------------------------------------
@@ -34256,14 +34256,14 @@ Talents:
 - #YELLOW#Crystalline Focus: #WHITE#Master the Stone and pierce even through physical immunities
 ]], [[自始以来法师们进行着各种元素试验。
 大多数法师满足于使用大地系魔法，有些人则进行深入的研究并创造出了石系魔法。
-其终极魔法技能就是“水晶力场”，使攻击更加犀利可以对物理免疫的生物造成伤害。
+其核心是“水晶力场”，它能制造出锋利到可以穿透物理免疫的攻击。
 
-你掌握了石系魔法，现在你可以创建一个新的可以学习 #LIGHT_GREEN#石系技能#WHITE# 的元素法师或者奥术之刃角色。
+你掌握了石系魔法，现在你可以创建新的元素法师和奥术之刃角色，让他们学习 #LIGHT_GREEN#石系技能#WHITE#。
 
 技能：
-- #YELLOW# 岩石飞弹：#WHITE# 发射数个岩石飞弹向多个目标进行攻击。
-- #YELLOW# 岩石身躯：#WHITE# 进入岩石形态，降低大多数石系/大地系技能的冷却时间。
-- #YELLOW# 地震：#WHITE# 创造一个区域性地震，震慑其中的目标。
+- #YELLOW# 岩石飞弹：#WHITE# 分别向目标发射数枚岩石飞弹。
+- #YELLOW# 岩石身躯：#WHITE# 进入岩石形态，降低许多石系/大地系技能的冷却时间。
+- #YELLOW# 地震：#WHITE# 创造一个区域性地震，震慑区域内的所有生物。
 - #YELLOW# 水晶力场：#WHITE# 掌握石系魔法使你能穿透物理免疫的生物对其造成伤害。
 ]], "_t")
 

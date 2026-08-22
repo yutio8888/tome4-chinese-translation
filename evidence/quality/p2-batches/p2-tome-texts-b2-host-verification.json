@@ -1,0 +1,225 @@
+{
+  "task_id": "p2-tome-texts-b2-001",
+  "batch_path": "evidence/quality/p2-batches/p2-tome-texts-b2-unlock-a.json",
+  "batch_sha256": "992599b016820ac5cae21737c5b4b1dce6fde91d810be409b559cbbb3b635ca4",
+  "source_root": "/home/yun/projects/t-engine4/game/modules/tome",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "method": "ORCHESTRATOR verified all 44 English keys verbatim against `git show 624a673:<path>` at freeze; independently read all 22 sections before the EXECUTOR report; adjudicated 75 cycle-0 executor changes and four contextual-review rounds against that source, the terminology table and in-file precedent (birth descriptor / talent names).",
+  "counts": {
+    "items": 44,
+    "sections": 22,
+    "sections_changed": 20,
+    "executor_cycle0_lines": 75,
+    "contextual_observations": 13,
+    "confirmed": 9,
+    "advisory": 3,
+    "rejected": 1,
+    "insufficient_evidence": 0
+  },
+  "terminology_first": "90acafe added Keeper of Reality / Wayist rows before this batch; d347d52 bumped the test inventory that 90acafe had tripped.",
+  "reviews": [
+    ".ai/reviews/p2-tome-texts-b2-001/review-01.json",
+    ".ai/reviews/p2-tome-texts-b2-001/review-02.json",
+    ".ai/reviews/p2-tome-texts-b2-001/review-03.json",
+    ".ai/reviews/p2-tome-texts-b2-001/review-04.json"
+  ],
+  "preflight": "tools/contextual_anchor_preflight.py whole-section form, PREFLIGHT_VERIFIED for ctx-01..04",
+  "gates": "5-step batch gates clean; tools/ci-gates.sh ALL GATES PASSED (12, incl. core addon build) at d347d52 + worktree",
+  "adjudicated_findings": [
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-adventurer-body",
+      "observation": "术语冲突：输入规定 Adventurer（职业）=“冒险家”，target 两处译为“冒险者”。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "In-file birth descriptor t(\"Adventurer\") = 冒险家; body's class references must match."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-campaign_arena-title",
+      "observation": "关系错误：“Challenge of the Master”表示挑战属于或来自主宰，target“挑战主宰”却改成了对主宰实施挑战。",
+      "verdict": "advisory",
+      "severity": null,
+      "host_basis": "Genitive is ambiguous in English; the campaign body states the goal is defeating the Master, so 挑战主宰 is a defensible reading. Left unchanged."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-corrupter_corruptor-body",
+      "observation": "术语冲突：末句 Vim 译为“活力”，与输入规定的“vim=活力值”以及 target 前一句的“活力值”不一致。",
+      "verdict": "advisory",
+      "severity": null,
+      "host_basis": "Definitional sentence ('Vim is the life force…') naturally uses the bare noun; no conflicting in-file precedent. Left unchanged."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-corrupter_reaver-body",
+      "observation": "术语冲突：末句 Vim 译为“活力”，与输入规定的“vim=活力值”以及 target 前一句的“活力值”不一致。",
+      "verdict": "advisory",
+      "severity": null,
+      "host_basis": "Same as corruptor."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-cosmetic_class_alchemist_drolem-body",
+      "observation": "机制信息遗漏：source 的“can eventually learn to breathe poison”说明龙傀儡到后期／最终才能学会，target“可以学习喷吐毒液”删去了这一时间条件。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'eventually' carries the progression condition."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-divine_anorithil-body",
+      "observation": "语义范围错误：source 的“the many perils of the Far East”泛指远东的种种危险，target 改成“其他远东大陆的危险生物”，无依据地把危险全部限定为生物。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'many perils' is not limited to creatures; pre-existing wording in scope."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-divine_sun_paladin-body",
+      "observation": "语义范围错误：source 的“the many perils of the Far East”泛指远东的种种危险，target 改成“其他远东大陆的危险生物”，无依据地把危险全部限定为生物。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "Same as anorithil."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-mage-body",
+      "observation": "术语及关系错误：两处 Spellhunt 均译为“猎魔行动”，与输入规定的“魔法狩猎”冲突；“has taught magic to preserve and expand it”还被改成魔法被动地“保留并传承”，遗漏安格利文教授魔法以及使其发展壮大的关系。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "Spellhunt preferred term 魔法狩猎 (terminology, batch-1 precedent); 'has taught magic to preserve and expand it' — Angolwen teaches magic, actively."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-mage_geomancer-body",
+      "observation": "专名语义错误：Crystalline Focus 的 Focus 是聚焦／焦点，target 却译为“水晶力场”，无依据地引入力场概念。",
+      "verdict": "rejected",
+      "severity": null,
+      "host_basis": "水晶力场 is the in-file talent name t(\"Crystalline Focus\", \"水晶力场\", \"talent name\"); unlock text must match the talent name."
+    },
+    {
+      "round": "ctx-02",
+      "revision_key": "tome-unlock-divine_anorithil-body",
+      "observation": "职业特点首条将 source 的“the light and fire of the Sun”仅译为“太阳之火”，遗漏了太阳之光这一并列攻击手段。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'light and fire of the Sun' — light dropped; the same bullet in unlock-divine_sun_paladin has the identical omission and is fixed together for consistency."
+    },
+    {
+      "round": "ctx-02",
+      "revision_key": "tome-unlock-mage-body",
+      "observation": "职业特点第二条把 source 的“protect and cripple”并列关系译成“保护自己或者削弱敌人”的选择关系，改变了能力范围关系。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'protect and cripple' lists both uses; 或者 makes them alternatives."
+    },
+    {
+      "round": "ctx-03",
+      "revision_key": "tome-unlock-divine_anorithil-body",
+      "observation": "原文以专名简称“the Pride”回指前文“Orc Pride”，译文却写成泛称“部落”，与冻结术语“Orc Pride=兽人部落”及同篇首句不一致，丢失了“兽人”限定。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'the Pride' = Orc Pride = 兽人部落 (same fix as intro-sunwall in batch 1)."
+    },
+    {
+      "round": "ctx-03",
+      "revision_key": "tome-unlock-mage-body",
+      "observation": "“attuned to the magical properties of the world”表示与世界的魔法属性相契合，译文“世界上专精于施法和魔法属性”把“世界”改成范围状语，并加入“专精于施法”的关系，改变了原意；此外，“burn your foes to death”被译为“灼烧你的目标”，遗漏了“致死”结果。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'attuned to the magical properties of the world' misrendered; 'to death' dropped."
+    }
+  ],
+  "items": [
+    {
+      "section": "mod-tome/data/texts/unlock-adventurer.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-afflicted_cursed.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-afflicted_doomed.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-birth_transmo_chest.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-birth_zigur_sacrifice.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-campaign_arena.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-campaign_infinite_dungeon.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-chronomancer_paradox_mage.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-chronomancer_temporal_warden.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-corrupter_corruptor.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-corrupter_reaver.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-cosmetic_bikini.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-cosmetic_class_alchemist_drolem.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-cosmetic_race_dwarf_female_beard.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-cosmetic_race_human_redhead.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-difficulty_insane.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-difficulty_madness.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-divine_anorithil.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-divine_sun_paladin.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-mage.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-mage_cryomancer.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-mage_geomancer.lua",
+      "changed": true
+    }
+  ],
+  "recorded_at": "2026-08-22T17:22:29Z"
+}
