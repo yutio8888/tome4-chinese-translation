@@ -20,7 +20,7 @@ import sys
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 QUALITY_RUNS = REPO_ROOT / ".artifacts" / "i18n" / "quality" / "runs"
-OUT_DIR = REPO_ROOT / ".artifacts" / "i18n" / "p1-batches"
+OUT_DIR = REPO_ROOT / "evidence" / "quality" / "p1-batches"
 
 ITEM_FIELDS = (
     "revision_id",

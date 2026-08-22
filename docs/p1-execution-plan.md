@@ -31,9 +31,9 @@ tome profile: mechanics 6941 / ui 7059 / dialogue 1973 / term-name 1554 / narrat
 
 **1.3 已存在但无归属的两份 artifact**
 
-- `.artifacts/i18n/p1/batch1-visibility-triage.json` —— 100 条 `untranslated-existing` 的
+- `evidence/quality/p1/batch1-visibility-triage.json` —— 100 条 `untranslated-existing` 的
   可见性三方核验记录，是 §1.1 第三条裁决的证据。**保留**，作为该裁决的依据被本规划引用。
-- `.artifacts/i18n/p1-batches/p1-quality-random-batch-001.json` —— 25 条**随机**抽样批次
+- `evidence/quality/p1-batches/p1-quality-random-batch-001.json` —— 25 条**随机**抽样批次
   （population 23294，seed 已记录，source_commit `624a673`），建于 2026-08-16，从未被审核、
   从未进入任何 task 或 review 记录，仓库中无任何引用。它不符合 §3.2 的风险维度排序口径。
   处置见 §6.2。
@@ -91,7 +91,7 @@ len(source) >= 40
 选择       种子驱动的确定性洗牌后取前 24 条
 ```
 
-冻结产物写入 `.artifacts/i18n/p1-batches/p1-b1-mechanics-numeric.json`，必须记录：
+冻结产物写入 `evidence/quality/p1-batches/p1-b1-mechanics-numeric.json`，必须记录：
 `inventory_sha256`、`source_commit`、过滤条件、排序键、种子字符串、池子大小、
 以及 24 条的 `revision_id` / `revision_uid` / `tu_uid` / `section` / `line` / `source` /
 `target` / `source_tag`。
@@ -112,7 +112,7 @@ len(source) >= 40
 `quality inventory` 的输出当作**只读的确定性排序来源**，选择逻辑独立完成。
 
 **4.3 因此需要一个小的选择脚本**（约 60–80 行，`tools/` 下版本控制，输出只写
-`.artifacts/i18n/p1-batches/`）：读 inventory.jsonl，按 §3.2 过滤、§3.3 排序抽样，写冻结
+`evidence/quality/p1-batches/`）：读 inventory.jsonl，按 §3.2 过滤、§3.3 排序抽样，写冻结
 JSON。它不做判断、不改写任何 Lua、不调用 provider。这是本规划唯一新增的工具面，且刻意做成
 一次性可复用的薄脚本，不是新契约。
 

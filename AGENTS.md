@@ -29,6 +29,7 @@ Paseo 角色行为、最小规则、任务记录格式和外发边界的完整�
 ## 汉化工具入口
 
 - 自动化统一使用 `python3 -B tools/i18n <command>`；首次运行执行 `doctor`，译文修改后执行 `lint`。工具与报告只在任务允许的边界内工作，派生文件写入已忽略的 `.artifacts/i18n/`。
+- 可重生成的 derived 工具产物可留在被忽略的 `.artifacts/`；含人工判断或不可重生成核验锚点的 adjudicated 产物必须写入受跟踪的 `evidence/`。
 - 翻译 proposal 必须经 `tools/i18n proposal --strict` 校验；审核、源码侦察和计划审查只走 Paseo 角色路由，具体权限与外发边界见上文。
 - Lua 仅按 Lua 5.1／LuaJIT 运行；使用 manifest、`TOME_LUAJIT` 和 `TOME_LUAROCKS_ROOT`，直接 Lua 调用也必须在同一次调用中配置搜索路径。LPeg 固定为已验证的 0.10.2；不得退回新版 Lua。
 - 审核、修复和门禁操作步骤见 [`docs/agent-workflow.md`](docs/agent-workflow.md)；Lua、提取器兼容设置、依赖命令与工具／manifest 说明见 [`i18n/README.md`](i18n/README.md)。
