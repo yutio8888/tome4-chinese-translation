@@ -6,7 +6,7 @@
 
 - **主代理**负责范围、裁决、验证和最终交付，通常也是仓库写入者。
 - **审核子进程／项目 subagent**只返回 proposal、context 或 findings；其结果由主代理核验后再应用。
-- **Paseo 编排**启用时，主代理任 ORCHESTRATOR；EXECUTOR 是任务内容文件的唯一写入 agent，REVIEWER 做常规独立复审，SENIOR_REVIEWER 做超过两轮后的范围校准和高影响流程交叉复审，SCOUT 做只读源码侦察（返回压缩代码上下文，不产生审核 contract 结果）。
+- **Paseo 编排**启用时，主代理任 ORCHESTRATOR；EXECUTOR 是任务内容文件的唯一写入 agent，REVIEWER 做常规独立复审，SENIOR_REVIEWER 做第二轮后的范围校准和高影响流程交叉复审，SCOUT 做只读源码侦察（返回压缩代码上下文，不产生审核 contract 结果）。
 
 无论采用哪种协作方式，模型输出都不是最终事实：机制以固定版本源码为准，修改以后文门禁和验收标准为准。
 所有 finding 必须有源码或语境证据；主代理独立标为 `confirmed`、`pending` 或 `advisory`，只有 `confirmed` 可自动进入修复，模型报告的 severity 不是真实事实。
@@ -22,7 +22,7 @@ ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 角色完成。门�
 
 ## Paseo 轻量编排（大型任务）
 
-当前已核验的 Paseo 0.4.0（CLI 或等价注入的 agent-scoped Paseo MCP 操作）用于需要多步实现和独立复审的大型任务；小型修改由主代理直接完成。任务级 orchestration_transport 在 STATE 中只允许 cli|mcp，两种传输必须保持相同的 role、purpose、workspace、lineage、歧义恢复和 reviewer 只读语义。用户明确要求 Paseo 时必须使用；否则 Paseo 不可用时，只有尚未创建 child 或全部 child 已确认归档才可回退主代理执行并说明，仍有未确认归档 child 则进入 WAIT_USER。角色 prompt 见 .ai/roles/，轻量设计说明见 docs/paseo-orchestration-v2-contract.md。活跃角色或契约修改后运行 `python3 -B tools/paseo_contract_check.py`，只检查角色/purpose 约束和固定运行时身份回流。
+当前已核验的 Paseo 0.4.0（CLI 或等价注入的 agent-scoped Paseo MCP 操作）用于需要多步实现和独立复审的大型任务；小型修改由主代理直接完成。任务级 orchestration_transport 在 STATE 中只允许 cli|mcp，两种传输必须保持相同的 role、purpose、workspace、lineage、歧义恢复和 reviewer 只读语义。用户明确要求 Paseo 时必须使用；否则 Paseo 不可用时，只有尚未创建 child 或全部 child 已确认归档才可回退主代理执行并说明，仍有未确认归档 child 则进入 WAIT_USER。角色 prompt 见 .ai/roles/，轻量设计说明见 docs/paseo-orchestration-v2-contract.md；translation_contextual_v1 的候选身份、envelope 冻结与派发契约另见独立的 docs/paseo-translation-context-review-v1-contract.md（`tools/paseo_contract_check.py` 同时校验这两份契约文件）。活跃角色或契约修改后运行 `python3 -B tools/paseo_contract_check.py`，只检查角色/purpose 约束和固定运行时身份回流。
 
 ### 最小规则
 
@@ -31,7 +31,9 @@ ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 角色完成。门�
 3. ORCHESTRATOR 独立核验测试和 finding，只把已接受的 finding 交给 EXECUTOR 修复；reviewer 的 severity、verdict 和范围建议都不自动生效。
 4. 自动修复最多五轮。第二轮后若普通 review finding 仍要求进入下一轮 FIX，必须先由 SENIOR_REVIEWER 审查意见是否偏离设计意图、功能边界或个人项目规模；每个后续轮次都重新校准当轮意见。
 5. 所有 agent 委托只使用 EXECUTOR、REVIEWER、SENIOR_REVIEWER、SCOUT；旧项目 Skill 已归档，不再调度，其输出不得计入任何 Paseo contract。SCOUT 只做只读源码侦察，不承担审核 contract、不产生 finding。
-6. 译文审核由 Paseo REVIEWER 按 purpose=translation_contextual_v1 承担：有界、只读、独立记录与指标；SENIOR_REVIEWER 不承担该 purpose。语境候选冻结后先计算 candidate_identity，把外层 envelope 以紧凑 JSON 字节冻结到任务作用域 workspace 相对输入文件；initialPrompt 只携带任务、输入和输出三行的短派发 prompt。
+6. 译文审核由 Paseo REVIEWER 按 purpose=translation_contextual_v1 承担：有界、只读、独立记录与指标；SENIOR_REVIEWER 不承担该 purpose。语境候选冻结后先计算 candidate_identity（= SHA-256(规范序列化的 contextual payload 字节)，key 按字节序排序、无多余空白，配方与 code-diff 的 candidate_ref 不同且不可互相复用，规范序列化规则见 docs/paseo-translation-context-review-v1-contract.md 第六节），把外层 envelope 以紧凑 JSON 字节冻结到任务作用域 workspace 相对输入文件；initialPrompt 只携带任务、输入和输出三行的短派发 prompt。
+
+冻结或哈希 translation_contextual_v1 payload 前，ORCHESTRATOR 必须先用任务作用域 `.ai/task/<task_id>/SCOPE.json` 和精确的七字段 draft payload 运行确定性离线 contextual-anchor preflight：SCOPE.json 只能声明 workspace 相对的普通允许文件，以及 file、section_path 和按顺序排列的实际章节标题 anchor，不安全、重复、缺失或有歧义的声明一律 fail closed；每个声明的 anchor window 从其实际章节标题 `t(...)` 调用开始，到时间上最早出现的下一个实际章节标题、下一个 section marker 或 EOF 为止，因此未声明的标题仍会界定窗口边界；只有当每个 translation_snapshot 来源都被证明是某个声明 anchor window 内一次真实 `t(...)` 调用的已解码首参数时，ORCHESTRATOR 才能冻结 payload；该 preflight 本身不向 payload、candidate_identity、review JSON 或 STATE 收束身份添加任何内容。
 
 Before freezing or hashing a translation_contextual_v1 payload, ORCHESTRATOR must run the deterministic offline contextual-anchor preflight with the task-scoped `.ai/task/<task_id>/SCOPE.json` and the exact seven-key draft payload.
 The task-scoped SCOPE.json must declare only workspace-relative ordinary allowed files plus file, section_path, and ordered actual chapter-title anchors; unsafe, duplicate, missing, or ambiguous declarations fail closed.
@@ -95,6 +97,7 @@ At creation of the second reviewer, ORCHESTRATOR must obtain both live exact mod
 When paired reviewer exact model identities collide, archive the second child before creating a fresh retry child, preserving the role, purpose, workspace, lineage, and candidate binding.
 If either exact model identity remains unavailable after one retry, enter `WAIT_USER` and do not infer identity from provider, profile, title, memory, or enum.
 If a second reviewer exists or was unambiguously adopted but either `model_diversity_verified` proof is missing or partial, re-resolve both exact model identities once; persist literal `true` on both entries when they differ, archive the second child and fresh-retry on collision, and enter `WAIT_USER` if either identity remains unavailable.
+两名 reviewer 的精确 model identity 冲突时，先归档第二个 child，再创建保持相同 role、purpose、workspace、lineage 与候选绑定的 fresh retry child；重试一次后仍有任一精确身份不可用，则进入 `WAIT_USER`，不得从 provider、profile、标题或记忆推断身份；已存在或已明确 adopt 的第二个 reviewer 若 `model_diversity_verified` 证明缺失或不完整，须重新解析一次两个精确身份——不同则在两条记录上写入 `true`，冲突则归档并 fresh retry，仍不可用则进入 `WAIT_USER`。
 Operational author_provider_resolution and model_diversity_verified fields are excluded from runtime tuples, candidate identity, review-contract identity, review JSON, and offline STATE-checker closure predicates.
 明确删除的复杂度只禁止 runtime tuple 的预注册／持久化，
 不禁止上述创建／恢复时的 live comparison 与 derived operational provenance。
