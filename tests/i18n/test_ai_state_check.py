@@ -14,6 +14,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[2]
 TOOLS = ROOT / "tools"
 FIXTURES = ROOT / "tests" / "i18n" / "fixtures" / "paseo_state_v2"
+EVIDENCE_FIXTURES = ROOT / "tests" / "i18n" / "fixtures" / "review_evidence"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
@@ -75,6 +76,422 @@ class StateCheckerFixtureTests(unittest.TestCase):
         self._write(state_path.parent / "review.json", record)
         self._write(state_path, state)
         return ai_state_check.check_state(state_path, target=target)
+
+    def _evidence_code(self) -> tuple[Path, dict[str, object], dict[str, object], Path]:
+        directory = self.work / "evidence-code"
+        shutil.copytree(FIXTURES / "code", directory)
+        shutil.copytree(EVIDENCE_FIXTURES / ".ai", self.work / ".ai")
+        state_path, record_path = directory / "STATE.json", directory / "review.json"
+        state, record = self._read(state_path), self._read(record_path)
+        state["task_id"] = "review-evidence-fixture"
+        record["task_id"] = "review-evidence-fixture"
+        relative = directory.relative_to(self.work)
+        state["review_records"] = [str(relative / "review.json")]
+        locator = record["candidate_locator"]
+        assert isinstance(locator, dict)
+        locator["spec_path"] = str(relative / "SPEC.md")
+        locator["diff_path"] = str(relative / "CODE_DIFF-FINAL_REVIEW-0-1.patch")
+        self._write(record_path, record)
+        self._write(state_path, state)
+        return state_path, state, record, directory
+
+    @staticmethod
+    def _new_file_patch(relative: str, content: bytes, *, duplicate: bool = False) -> bytes:
+        lines = content.splitlines(keepends=True)
+        if content and not lines:
+            lines = [content]
+        blocks: list[bytes] = []
+        for _ in range(2 if duplicate else 1):
+            block = [
+                f"diff --git a/{relative} b/{relative}\n".encode(),
+                b"new file mode 100644\n",
+                b"--- /dev/null\n",
+                f"+++ b/{relative}\n".encode(),
+                f"@@ -0,0 +1,{len(lines)} @@\n".encode(),
+            ]
+            for line in lines:
+                if line.endswith(b"\n"):
+                    block.append(b"+" + line)
+                else:
+                    block.extend((b"+" + line + b"\n", b"\\ No newline at end of file\n"))
+            blocks.append(b"".join(block))
+        return b"".join(blocks)
+
+    def _install_evidence_candidate(
+        self, state: dict[str, object], record: dict[str, object], directory: Path,
+        *, content: bytes | None = None, spec: bytes | None = None,
+        duplicate: bool = False, diff_name: str = "CODE_DIFF-FINAL_REVIEW-0-1.patch",
+    ) -> bytes:
+        if content is None:
+            content = (EVIDENCE_FIXTURES / "good-reconciliation.json").read_bytes()
+        if spec is None:
+            spec = b"# Fixture SPEC\n"
+        sidecar = directory / "EVIDENCE-RECONCILIATION.json"
+        sidecar.write_bytes(content)
+        spec_path = directory / "SPEC.md"
+        spec_path.write_bytes(spec)
+        diff_path = directory / diff_name
+        relative_sidecar = (directory.relative_to(self.work) / sidecar.name).as_posix()
+        completed = subprocess.run(
+            ["git", "diff", "--no-index", "--", "/dev/null", relative_sidecar],
+            cwd=self.work,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 1, completed.stderr.decode())
+        diff = completed.stdout
+        if duplicate:
+            diff += diff
+        diff_path.write_bytes(diff)
+        locator = record["candidate_locator"]
+        assert isinstance(locator, dict)
+        locator["spec_path"] = str(spec_path.relative_to(self.work))
+        locator["diff_path"] = str(diff_path.relative_to(self.work))
+        record["candidate_ref"] = ai_state_check.candidate_ref(spec, diff)
+        return diff
+
+    def test_new_file_parser_ignores_rename_only_patch_without_sidecar(self) -> None:
+        rename = (
+            b"diff --git a/x b/archive/x\n"
+            b"similarity index 100%\n"
+            b"rename from x\n"
+            b"rename to archive/x\n"
+        )
+        self.assertIsNone(
+            ai_state_check._new_file_entry_bytes(rename, "evidence-code/EVIDENCE-RECONCILIATION.json")
+        )
+
+    def test_new_file_parser_rejects_truncation_crlf_bad_index_and_modification(self) -> None:
+        content = (EVIDENCE_FIXTURES / "good-reconciliation.json").read_bytes()
+        directory = self.work / "parser"
+        directory.mkdir()
+        sidecar = directory / "EVIDENCE-RECONCILIATION.json"
+        sidecar.write_bytes(content)
+        completed = subprocess.run(
+            ["git", "diff", "--no-index", "--", "/dev/null", "parser/EVIDENCE-RECONCILIATION.json"],
+            cwd=self.work,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 1, completed.stderr.decode())
+        positive = completed.stdout
+        self.assertEqual(
+            ai_state_check._new_file_entry_bytes(
+                positive, "parser/EVIDENCE-RECONCILIATION.json"
+            ),
+            content,
+        )
+        bad_index = positive.replace(b"index 0000000..", b"index invalid..", 1)
+        self.assertNotEqual(bad_index, positive)
+        cases = {
+            "truncated": positive[:-1],
+            "crlf": positive.replace(b"\n", b"\r\n"),
+            "bad_index": bad_index,
+            "modification": positive.replace(
+                b"new file mode 100644\n", b"", 1
+            ).replace(b"--- /dev/null\n", b"--- a/parser/EVIDENCE-RECONCILIATION.json\n", 1),
+        }
+        for name, patch in cases.items():
+            with self.subTest(case=name):
+                with self.assertRaises(ai_state_check.ContractError):
+                    ai_state_check._new_file_entry_bytes(
+                        patch, "parser/EVIDENCE-RECONCILIATION.json"
+                    )
+
+    def test_new_file_parser_reconstructs_real_git_patch_with_12_digit_index(self) -> None:
+        content = (EVIDENCE_FIXTURES / "good-reconciliation.json").read_bytes()
+        directory = self.work / "parser-full-index"
+        directory.mkdir()
+        sidecar = directory / "EVIDENCE-RECONCILIATION.json"
+        sidecar.write_bytes(content)
+        completed = subprocess.run(
+            [
+                "git", "-c", "core.abbrev=12", "diff", "--no-index", "--",
+                "/dev/null", "parser-full-index/EVIDENCE-RECONCILIATION.json",
+            ],
+            cwd=self.work,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 1, completed.stderr.decode())
+        self.assertIn(b"index 000000000000..", completed.stdout)
+        self.assertEqual(
+            ai_state_check._new_file_entry_bytes(
+                completed.stdout, "parser-full-index/EVIDENCE-RECONCILIATION.json"
+            ),
+            content,
+        )
+
+    def _check_evidence_state(self, state_path: Path) -> ai_state_check.CheckResult:
+        with patch.object(ai_state_check, "ROOT", self.work):
+            return ai_state_check.check_state(state_path)
+
+    def test_evidence_e1_no_bound_record_fails_existing_closure_predicate(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        state.update({"schema_version": 3, "mode": "review_only", "change_class": "infrastructure", "review_records": []})
+        self._write(state_path, state)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("no bound completion record", result.detail)
+
+    def test_evidence_e2_required_for_v3_review_only_infrastructure(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        state.update({"schema_version": 3, "mode": "review_only", "change_class": "infrastructure"})
+        self._write(state_path, state)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual((result.outcome, result.exit_code), ("NEW_CONTRACT_FAILED", 1))
+        self.assertIn("evidence_reconciliation_required", result.detail)
+
+    def test_evidence_e3_reviewer_must_not_be_orchestrator(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        state.update({"schema_version": 3, "mode": "review_only", "change_class": "infrastructure", "orchestrator_agent_id": "agent-review-1"})
+        self._write(state_path, state)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("reviewer_identity", result.detail)
+
+    def test_evidence_f_is_candidate_bound_and_on_disk_sidecar_is_checked(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        self._install_evidence_candidate(state, record, directory)
+        self._write(directory / "review.json", record)
+        self._write(state_path, state)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual((result.outcome, result.exit_code), ("DONE_VERIFIED", 0), result)
+
+        directory.joinpath("EVIDENCE-RECONCILIATION.json").write_bytes(b"different\n")
+        result = self._check_evidence_state(state_path)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("on-disk sidecar", result.detail)
+
+    def test_evidence_sidecar_task_id_must_match_state(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        content = json.loads((EVIDENCE_FIXTURES / "good-reconciliation.json").read_text(encoding="utf-8"))
+        content["task_id"] = "different-task"
+        self._install_evidence_candidate(
+            state, record, directory,
+            content=(json.dumps(content, ensure_ascii=False, indent=2) + "\n").encode("utf-8"),
+        )
+        self._write(directory / "review.json", record)
+        self._write(state_path, state)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("task_id", result.detail)
+
+    def test_evidence_binding_rejects_duplicate_new_file_and_handles_no_newline_marker(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        content = (EVIDENCE_FIXTURES / "good-reconciliation.json").read_bytes().rstrip(b"\n")
+        self._install_evidence_candidate(state, record, directory, content=content)
+        self._write(directory / "review.json", record)
+        self._write(state_path, state)
+        self.assertEqual(self._check_evidence_state(state_path).outcome, "DONE_VERIFIED")
+
+        self._install_evidence_candidate(state, record, directory, duplicate=True)
+        self._write(directory / "review.json", record)
+        self._write(state_path, state)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("duplicate new-file entries", result.detail)
+
+    def test_evidence_binding_accepts_two_attempts_when_disk_is_latest(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        first = self._install_evidence_candidate(state, record, directory)
+        self._write(directory / "review.json", record)
+        second = dict(record)
+        second["dispatch_id"] = "review-2"
+        second["agent_id"] = "agent-review-2"
+        second["attempt"] = 2
+        second_diff = directory / "CODE_DIFF-FINAL_REVIEW-0-2.patch"
+        second_content = bytearray((EVIDENCE_FIXTURES / "good-reconciliation.json").read_bytes())
+        second_content.extend(b"\n")
+        (directory / "EVIDENCE-RECONCILIATION.json").write_bytes(bytes(second_content))
+        completed = subprocess.run(
+            ["git", "diff", "--no-index", "--", "/dev/null", "evidence-code/EVIDENCE-RECONCILIATION.json"],
+            cwd=self.work,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 1)
+        second_diff.write_bytes(completed.stdout)
+        second["candidate_locator"] = {
+            "spec_path": "evidence-code/SPEC.md",
+            "diff_path": "evidence-code/CODE_DIFF-FINAL_REVIEW-0-2.patch",
+        }
+        second["candidate_ref"] = ai_state_check.candidate_ref(
+            (directory / "SPEC.md").read_bytes(), second_diff.read_bytes()
+        )
+        second_path = directory / "review-2.json"
+        self._write(second_path, second)
+        state["review_records"].append("evidence-code/review-2.json")  # type: ignore[union-attr]
+        state["child_dispatches"].append({  # type: ignore[union-attr]
+            "dispatch_id": "review-2", "role": "REVIEWER", "purpose": "normal_review",
+            "agent_id": "agent-review-2", "lineage_verified": True,
+            "lifecycle": "archived", "archive_confirmed": True,
+        })
+        directory.joinpath("EVIDENCE-RECONCILIATION.json").write_bytes(bytes(second_content))
+        self._write(state_path, state)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual((result.outcome, result.exit_code), ("DONE_VERIFIED", 0), result)
+
+    def test_evidence_latest_paired_records_must_have_identical_embedded_sidecar(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        self._install_evidence_candidate(state, record, directory)
+        self._write(directory / "review.json", record)
+
+        cross_directory = directory / "cross"
+        cross_directory.mkdir()
+        second_content = (EVIDENCE_FIXTURES / "good-reconciliation.json").read_bytes() + b"\n"
+        second_diff = cross_directory / "CODE_DIFF-FINAL_REVIEW-0-1.patch"
+        cross_sidecar = directory / "EVIDENCE-RECONCILIATION.json"
+        completed = subprocess.run(
+            ["git", "diff", "--no-index", "--", "/dev/null", "evidence-code/EVIDENCE-RECONCILIATION.json"],
+            cwd=self.work,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 1)
+        # The second embedded candidate is deliberately distinct but still a valid sidecar.
+        cross_sidecar.write_bytes(second_content)
+        completed = subprocess.run(
+            ["git", "diff", "--no-index", "--", "/dev/null", "evidence-code/EVIDENCE-RECONCILIATION.json"],
+            cwd=self.work,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 1)
+        second_diff.write_bytes(completed.stdout)
+        cross_sidecar.write_bytes((EVIDENCE_FIXTURES / "good-reconciliation.json").read_bytes())
+
+        second = dict(record)
+        second.update({"dispatch_id": "review-2", "agent_id": "agent-review-2"})
+        second["candidate_locator"] = {
+            "spec_path": "evidence-code/SPEC.md",
+            "diff_path": "evidence-code/cross/CODE_DIFF-FINAL_REVIEW-0-1.patch",
+        }
+        second["candidate_ref"] = ai_state_check.candidate_ref(
+            (directory / "SPEC.md").read_bytes(), second_diff.read_bytes()
+        )
+        self._write(directory / "review-2.json", second)
+        state["review_records"].append("evidence-code/review-2.json")  # type: ignore[union-attr]
+        state["child_dispatches"].append({  # type: ignore[union-attr]
+            "dispatch_id": "review-2", "role": "REVIEWER", "purpose": "normal_review",
+            "agent_id": "agent-review-2", "lineage_verified": True,
+            "lifecycle": "archived", "archive_confirmed": True,
+        })
+        self._write(state_path, state)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("disagree", result.detail)
+
+    def test_evidence_latest_tied_records_must_derive_one_sidecar_path(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        self._install_evidence_candidate(state, record, directory)
+        self._write(directory / "review.json", record)
+
+        other_directory = self.work / "evidence-code-other"
+        other_directory.mkdir()
+        other_sidecar = other_directory / "EVIDENCE-RECONCILIATION.json"
+        other_sidecar.write_bytes((EVIDENCE_FIXTURES / "good-reconciliation.json").read_bytes())
+        other_spec = other_directory / "SPEC.md"
+        other_spec.write_bytes(b"# Fixture SPEC\n")
+        completed = subprocess.run(
+            [
+                "git", "diff", "--no-index", "--", "/dev/null",
+                "evidence-code-other/EVIDENCE-RECONCILIATION.json",
+            ],
+            cwd=self.work,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 1, completed.stderr.decode())
+        other_diff = other_directory / "CODE_DIFF-FINAL_REVIEW-0-1.patch"
+        other_diff.write_bytes(completed.stdout)
+
+        second = dict(record)
+        second.update({"dispatch_id": "review-2", "agent_id": "agent-review-2"})
+        second["candidate_locator"] = {
+            "spec_path": "evidence-code-other/SPEC.md",
+            "diff_path": "evidence-code-other/CODE_DIFF-FINAL_REVIEW-0-1.patch",
+        }
+        second["candidate_ref"] = ai_state_check.candidate_ref(
+            other_spec.read_bytes(), other_diff.read_bytes()
+        )
+        second_path = directory / "review-2.json"
+        self._write(second_path, second)
+        state["review_records"].append("evidence-code/review-2.json")  # type: ignore[union-attr]
+        state["child_dispatches"].append({  # type: ignore[union-attr]
+            "dispatch_id": "review-2", "role": "REVIEWER", "purpose": "normal_review",
+            "agent_id": "agent-review-2", "lineage_verified": True,
+            "lifecycle": "archived", "archive_confirmed": True,
+        })
+        self._write(state_path, state)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("different sidecar paths", result.detail)
+
+    def test_evidence_citation_consistency_rejects_uncited_exact_review_path(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        extra = self.work / ".ai" / "reviews" / "review-evidence-fixture" / "review-03.json"
+        self._write(extra, {"task_id": "extra", "findings": [{"id": "Z1"}]})
+        self._install_evidence_candidate(
+            state, record, directory,
+            spec=b"# Fixture SPEC cites .ai/reviews/review-evidence-fixture/review-03.json\n",
+        )
+        self._write(directory / "review.json", record)
+        self._write(state_path, state)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("citation", result.detail)
+
+    def test_evidence_schema_2_compatibility_and_implement_validate_if_present(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        state.update({"schema_version": 2, "mode": "review_only", "change_class": "infrastructure"})
+        self._write(state_path, state)
+        self.assertEqual(self._check_evidence_state(state_path).outcome, "DONE_VERIFIED")
+
+        state["schema_version"] = 3
+        state["mode"] = "implement"
+        self._write(state_path, state)
+        self.assertEqual(self._check_evidence_state(state_path).outcome, "DONE_VERIFIED")
+
+    def test_evidence_schema_3_requires_valid_change_class_and_code_record(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        for change_class in (None, "invalid"):
+            with self.subTest(change_class=change_class):
+                state.update({"schema_version": 3, "mode": "review_only"})
+                if change_class is None:
+                    state.pop("change_class", None)
+                else:
+                    state["change_class"] = change_class
+                self._write(state_path, state)
+                result = self._check_evidence_state(state_path)
+                self.assertEqual(result.exit_code, 1)
+                self.assertIn("change_class", result.detail)
+
+        state_path, state, record = self._copy_fixture("contextual")
+        state.update({
+            "schema_version": 3,
+            "change_class": "infrastructure",
+            "orchestrator_agent_id": "agent-orchestrator",
+        })
+        self._write(state_path.parent / "review.json", record)
+        self._write(state_path, state)
+        result = ai_state_check.check_state(state_path)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("evidence_reconciliation_required", result.detail)
+
+    def test_evidence_scope_audit_is_checked_when_present_in_schema_3(self) -> None:
+        state_path, state, record, directory = self._evidence_code()
+        audit_path = self.work / "evidence-code" / "scope-audit.json"
+        shutil.copy2(EVIDENCE_FIXTURES / "scope-audit.json", audit_path)
+        state.update({"schema_version": 3, "change_class": "standard", "senior_review_records": ["evidence-code/scope-audit.json"]})
+        self._write(state_path, state)
+        self.assertEqual(self._check_evidence_state(state_path).outcome, "DONE_VERIFIED")
+        audit = self._read(audit_path)
+        audit["calibration"] = {"F1": "keep"}
+        self._write(audit_path, audit)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("scope_audit", result.detail)
 
     def test_production_code_and_contextual_fixtures_are_done_verified(self) -> None:
         self.assertEqual(ai_state_check.check_state(FIXTURES / "code" / "STATE.json").outcome, "DONE_VERIFIED")

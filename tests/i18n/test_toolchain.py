@@ -18621,7 +18621,8 @@ exit 0
                 "tests/i18n/qa/test_injected_defects.py "
                 "tests/i18n/test_terminology_inventory.py "
                 "tests/i18n/test_ai_state_check.py "
-                "tests/i18n/test_contextual_anchor_preflight.py\n"
+                "tests/i18n/test_contextual_anchor_preflight.py "
+                "tests/i18n/test_review_evidence.py\n"
             ),
             "06-runtime-collision-scan.log": (
                 "-B tools/scan_runtime_collisions.py\n"

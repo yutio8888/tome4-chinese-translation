@@ -24,6 +24,8 @@ python3 -B tools/i18n doctor
 
 每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
 
+涉及 evidence-citing candidate 时，先用 `python3 -B tools/review_evidence.py inventory` 从 `.ai/reviews/` 源记录生成原始 finding 清单，再用 `check` 校验 proposer 的 `EVIDENCE-RECONCILIATION.json`；用 `render` 派生计数，不手填 counts。reviewer 仍须直接核对引用和未列出的相关记录。
+
 ## 批次门禁
 
 译文每批按以下顺序运行，任何失败都必须先修复，不得用管道吞掉退出码：

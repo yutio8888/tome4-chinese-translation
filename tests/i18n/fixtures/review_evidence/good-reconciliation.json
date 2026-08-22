@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "review-evidence-fixture",
+  "source_reviews": [
+    ".ai/reviews/review-evidence-fixture/review-01.json",
+    ".ai/reviews/review-evidence-fixture/review-02.json"
+  ],
+  "claims": [
+    {"id": "C1", "text": "The first claim is represented by the cited findings."},
+    {"id": "C2", "text": "The second claim is represented by the cited findings."}
+  ],
+  "findings": [
+    {"review": ".ai/reviews/review-evidence-fixture/review-01.json", "id": "F1", "disposition": "included", "claims": ["C1", "C2"]},
+    {"review": ".ai/reviews/review-evidence-fixture/review-01.json", "id": "F2", "disposition": "included", "claims": ["C1"]},
+    {"review": ".ai/reviews/review-evidence-fixture/review-01.json", "id": "F3", "disposition": "excluded", "reason": "Not part of this candidate's supported scope."},
+    {"review": ".ai/reviews/review-evidence-fixture/review-02.json", "id": "G1", "disposition": "included", "claims": ["C2"]},
+    {"review": ".ai/reviews/review-evidence-fixture/review-02.json", "id": "F1", "disposition": "duplicate_of", "duplicate_of": {"review": ".ai/reviews/review-evidence-fixture/review-01.json", "id": "F1"}, "reason": "The same finding was reported in both records."}
+  ]
+}

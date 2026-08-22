@@ -2,7 +2,7 @@
 
 > 状态：设计草案，运行时解耦版。
 >
-> 契约版本：`paseo-orchestration/2.15-draft`。
+> 契约版本：`paseo-orchestration/2.16-draft`（取代 `paseo-orchestration/2.15-draft`）。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文约束角色行为、任务边界和候选一致性，
 > 不固定具体运行时载体；创建参数按当前 Paseo 接口和本地可用配置提供。
@@ -217,6 +217,7 @@ pending/completed、不产生 finding，也不参与 `candidate_ref` 冻结。
 .ai/task/<task_id>/CODE_DIFF-<phase>-<cycle>-<attempt>.patch
 .ai/task/<task_id>/SCOPE.json
 .ai/task/<task_id>/CONTEXTUAL-ENVELOPE-<dispatch_id>.json
+.ai/task/<task_id>/EVIDENCE-RECONCILIATION.json  # required for schema 3 review_only infrastructure/translation_workflow; may be empty
 .ai/task/<task_id>/STATE.json
 .ai/reviews/<task_id>/review-NN.json
 ```
@@ -233,7 +234,7 @@ SPEC 必须写明任务模式、范围、允许修改文件、禁止扩展项和
 
 ```json
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "task_id": "example-001",
   "mode": "implement",
   "change_class": "translation_workflow",
@@ -323,6 +324,28 @@ diff 原始字节)`。派发、返回和 contract 完成前的引用必须一致
 记录只保存 finding、证据、裁决和结果，不要求复制完整 prompt、运行时选择或构造 lineage
 manifest。已完成的历史记录不重写。
 
+`EVIDENCE-RECONCILIATION.json` 是 proposer assertion，不是 reviewer finding，也不替代
+ORCHESTRATOR 的独立裁决；reviewer 仍须直接核对其中列出的源记录，并检查是否漏列与候选
+相关的 review。`scope_audit` 记录若采用新的复合 finding ref，`calibration` 或
+`assessments` 的 key 必须为 `<review path> / <finding id>`，且由
+`python3 -B tools/review_evidence.py check-audit` 解析到其 `source_reviews`；历史主题键记录
+不因本规则被重写。
+
+对于 `schema_version >= 3`、`mode == review_only` 且 `change_class` 为 `infrastructure` 或
+`translation_workflow` 的任务，必须在冻结候选中写入并冻结 `EVIDENCE-RECONCILIATION.json`，
+即使它是空 map；缺少 bound code-review completion record 或任一 bound code-review diff 未冻结
+sidecar 都会使 DONE 失败。其他模式或分类在 sidecar 出现时校验；候选引用审核记录时，任务
+也可在自己的目录写入该文件。它必须是
+只含 `schema_version`、`task_id`、`source_reviews`、`claims`、`findings` 的 JSON object，且
+`schema_version` 为 1。`source_reviews` 是 `.ai/reviews/` 下的 workspace-relative 普通文件
+路径数组；每个源记录中的 finding 由 `{review, id}` 复合引用，且每个源 finding 必须恰好有一
+个 `included`、`excluded` 或 `duplicate_of` disposition。included 必须列出至少一个已定义
+claim；excluded 与 duplicate_of 必须有非空 reason；duplicate_of 必须是指向 included finding
+的 `{review, id}` 对象，不能自指或形成链。claim ID 必须唯一且至少被一个 included finding
+引用。source_reviews 不得有重复路径。`classification` 是可选自由字符串；不得保存 `counts`，数量由
+`python3 -B tools/review_evidence.py render` 从源记录派生。空 source_reviews 只在 claims 和
+findings 都为空时允许。checker 不判断 claim 是否被事实支持。
+
 `candidate_author_agent_id` 是冻结时写入任务作用域 `.ai/task/<task_id>/STATE.json` 的
 候选作者指针；它与 `child_dispatches` 中的每次 reviewer 副本属于候选绑定元数据，不是
 provider、model、mode、thinking 或 fallback tuple。指针在同一冻结候选内不可变，候选改变时
@@ -342,6 +365,27 @@ schema、已关闭 review contract、review-record 到 dispatch 的绑定、冻�
 lineage、implement 的最终验证、finding 清空及所有 child 已归档；`STOP` 只要求无 child 或
 每个 child 的规范化 lifecycle 为 `archived` 且 `archive_confirmed` 为 literal `true`。
 A child counts as archived only when its normalized lifecycle is `archived` and `archive_confirmed` is literal `true`.
+
+对于每个 bound code-review completion record，DONE 还按以下五项检查：
+
+1. 若其冻结 diff 含有严格的新建 `EVIDENCE-RECONCILIATION.json` entry，checker 从唯一 hunk
+   的加号行（含 `\\ No newline at end of file`）重构 bytes，并校验 reconciliation；最新
+   `(cycle, attempt)` record 的重构 bytes 必须与磁盘 sidecar 字节相等。多次 attempt 各自独立校验。
+2. sidecar 存在时，SPEC 或 diff 中精确出现的
+   `.ai/reviews/<task>/review-NN.json` 与 `senior-audit-NN.json` 路径都必须在 `source_reviews`；
+   通配符和 basename 不会被解析。
+3. `schema_version >= 3`、`mode == review_only` 且 `change_class` 为 `infrastructure` 或
+   `translation_workflow` 时，每个 bound code-review completion record 的 diff 都必须冻结
+   sidecar；否则失败原因为 `evidence_reconciliation_required`。implement 模式只在 sidecar
+   出现时校验。
+4. `orchestrator_agent_id` 必须与每个 bound completion record 的 `agent_id` 不同；schema
+   低于 3 或缺失时，只有该字段存在才比较，schema 3 起要求它是非空字符串。
+5. schema 3 起，`senior_review_records` 中 `purpose == scope_audit` 的记录若存在，必须通过
+   `check-audit` 的复合引用检查；scope audit 本身不是必需的 contract。
+
+`python3 -B tools/review_evidence.py inventory review.json...` 只生成源记录的原始字段和
+finding ID 清单；`check` 返回结构化 reconciliation 结果，`render` 输出表格及派生 cycle
+counts。这些命令都不访问 Paseo、Git 或网络。
 
 `.ai/legacy-cohort-manifest.json` 是 B-prime 采用时的 task-id 边界，不是历史审计或快照清单。
 它的唯一 schema 是 `{"schema_version": 1, "unsupported_tasks": ["..."]}`，数组按字典序且
@@ -512,6 +556,12 @@ The task-scoped SCOPE.json must declare only workspace-relative ordinary allowed
 Each declared anchor window begins at its actual chapter-title t(...) call and ends at the earliest later actual chapter title, later section marker, or EOF, so undeclared titles still bound the window.
 ORCHESTRATOR may freeze the payload only after every translation_snapshot source is proven to be the decoded first argument of a real t(...) call inside a declared anchor window; the preflight adds nothing to the payload, candidate_identity, review JSON, or STATE closure identity.
 
+当 code review briefing 涉及 evidence-citing candidate 时，ORCHESTRATOR 必须同时交接冻结
+候选中引用的 source review paths 和 task-scoped `EVIDENCE-RECONCILIATION.json` 路径；无需交接
+inventory 的临时输出，REVIEWER 应直接重新运行 inventory 或读取规范记录。REVIEWER 直接核对
+sidecar 的每个复合引用，并把未列出的相关 review、缺失 disposition、错误 duplicate target
+或无 reason 作为 finding；这些语义判断不由 checker 代替。
+
 ---
 
 ## 十、验证与完成
@@ -588,4 +638,5 @@ ORCHESTRATOR may freeze the payload only after every translation_snapshot source
 | `2.12-draft` | 设计草案 | 增加完成即归档、保留 dispatch 记录、不可变身份字段、持久化 `archive_attempts_started` 预算与原地更新生命周期字段；明确 `archive_pending` 在外部归档状态解决并确认前必须停留 `WAIT_USER`，拆分创建歧义发现、已知终态 reconciliation 与 active 恢复，明确语境重试保留候选／输入但更换 dispatch／agent，并要求 `DONE`／`STOP` 前完成全部归档。 |
 | `2.13-draft` | 上一版草案 | 固定 `lifecycle` 与 canonical persisted role literals，保留 reader alias；记录路径数组、dispatch-to-review 绑定、NUL 分隔的候选身份和离线 `DONE`／`STOP` closure checker 及 B-prime adoption boundary。 |
 | `2.14-draft` | 上一版草案 | 增加可恢复的 `candidate_author_agent_id`、归档 metadata 核验和 `author_provider_resolution` 三值枚举；明确 unavailable 的软偏好语义、reviewer child 的 operational field 分类，以及第二 reviewer 创建时的 `model_diversity_verified` 证明、碰撞 fresh retry 和 exact-identity 不可用时的 `WAIT_USER`。 |
-| `2.15-draft` | 当前草案 | 增加冻结／哈希前的离线 contextual-anchor preflight：任务作用域 SCOPE、实际 chapter-title 边界和 source-within-window 证明；它不改变 reviewer 可见的七键 payload 或任何 identity。 |
+| `2.15-draft` | 上一版草案 | 增加冻结／哈希前的离线 contextual-anchor preflight：任务作用域 SCOPE、实际 chapter-title 边界和 source-within-window 证明；它不改变 reviewer 可见的七键 payload 或任何 identity。 |
+| `2.16-draft` | 当前草案 | 增加条件性 EVIDENCE-RECONCILIATION.json、确定性 inventory/render/check/check-audit，以及 DONE 的 sidecar 候选绑定、引用一致性、前瞻性 presence、reviewer/orchestrator 身份不等和 scope-audit 复合引用检查。 |

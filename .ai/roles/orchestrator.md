@@ -52,7 +52,7 @@ Skill。已归档 Skill 产生的 review 结果不得用来完成 Paseo 的 code
 
 ~~~json
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "task_id": "...",
   "mode": "implement",
   "change_class": "standard",
@@ -215,6 +215,18 @@ patch／副本生成 baseline→current 任务自身 diff，确认用户原有�
 路径集只包含 SPEC 允许且相对任务基线实际变更／新建的任务内容；candidate_ref 精确为
 `SHA256(SPEC 原始字节 + 一个 NUL 字节 + diff 原始字节)`。派发、返回和 contract 完成前重新枚举路径集，路径集或
 配方变化即重建候选。
+
+当候选引用 `.ai/reviews/` 记录时，先在当前 task 目录写
+`EVIDENCE-RECONCILIATION.json`，列出每个复合 `{review,id}` disposition，再冻结候选并运行
+`python3 -B tools/review_evidence.py check .ai/task/<task_id>/EVIDENCE-RECONCILIATION.json`。
+新文件必须进入任务自身 diff；可用两文件配方
+`git diff --no-index -- /dev/null .ai/task/<task_id>/EVIDENCE-RECONCILIATION.json`，并把
+生成的 entry 合并到 phase diff。不要把 inventory 临时输出当作交接 artifact。
+对于 `schema_version >= 3`、`mode == review_only` 且 `change_class` 为
+`infrastructure` 或 `translation_workflow` 的 STATE，sidecar 是必需的：即使没有 finding，
+也必须冻结一个空 map；缺少 bound code-review completion record 或任一 bound code-review
+diff 未冻结 sidecar 都会使 DONE 失败。ORCHESTRATOR 可以记录 self-review observations，
+但它们永远不能满足 review contract。
 
 代码、工具和文档由 role=reviewer、purpose=normal_review 接收有界 diff、SPEC 和必要
 上下文；SENIOR_REVIEWER 在 cross_review 时接收同一份 SPEC 和 diff，二者返回前不得互看

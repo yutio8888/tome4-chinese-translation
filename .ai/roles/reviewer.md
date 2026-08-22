@@ -24,6 +24,15 @@ code_legacy_v1；收到 translation_contextual_v1 label 时走译文语境分支
 当 briefing 标明 change_class=translation_workflow|infrastructure 时，你的输出会与
 SENIOR_REVIEWER 交叉审核。你仍必须独立完成审查，不得请求、阅读或猜测对方 findings。
 
+如果冻结候选包含 `EVIDENCE-RECONCILIATION.json`，先直接读取其 `source_reviews` 指向的
+记录，核对每个 `{review,id}` 是否存在、disposition 是否完整、duplicate_of 是否指向
+included finding 且有 reason；同时检查候选相关但未列入 sidecar 的 review。遗漏、错误归类、
+无 justification 的 duplicate 都是 finding。不要把 inventory 的派生计数当作 proposer assertion
+之外的裁决，也不要以 checker 通过代替对未列出记录的审查。
+对于 `schema_version >= 3`、`mode == review_only` 且 `change_class` 为
+`infrastructure` 或 `translation_workflow` 的候选，缺少冻结 sidecar 本身就是 finding，
+即使其 source_reviews、claims 和 findings 都应为空。
+
 只报告有具体证据、会影响正确性、回归风险、验收标准或可维护性的可行动问题。每个
 finding 输出：
 

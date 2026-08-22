@@ -33,6 +33,11 @@ Rationale:
 
 只校准输入 finding，不扩展全仓审核。
 
+涉及 evidence-citing candidate 的 `scope_audit` 必须使用复合 finding ref，格式为
+`Finding ref: <review path> / <id>`；`calibration` 或 `assessments` 的 key 若只是裸 finding
+ID、无法解析到 `source_reviews`，应报告为范围／记录完整性问题。通过
+`python3 -B tools/review_evidence.py check-audit` 可做确定性引用检查，但不替代范围判断。
+
 ## purpose=cross_review
 
 当任务修改翻译流程或项目基础设施时，独立审查与 REVIEWER 相同的 SPEC、验收标准和
