@@ -32390,9 +32390,9 @@ This calls for urgency; should you find this Golbug or the portal, please invest
 你留在最后的希望的法杖不见了。一群兽人伏击了正将它押送往秘密金库的守卫。
 我们的部队设法俘虏了其中一个兽人，并让他开了口。
 他知道的不多，但他提到了远东大陆的“主人”。
-他提到了高尔布格，貌似是瑞库纳的一个战士头领，带队将一个神秘的包裹穿过了传送门。
+他提到了高尔布格，貌似是瑞库纳的一位战争领主，带领一场袭击，以便将一个“包裹”送过传送门。
 
-事情非常紧急，请你调查一下这个高尔布格或者传送门。
+事情非常紧急；如果你找到这个高尔布格或那个传送门，请务必调查。
 			   
 			   #GOLD#-- 托拉克，联合王国国王。]], "_t")
 t([[@playername@, this message is of utmost importance.
@@ -32409,14 +32409,16 @@ This calls for urgency; should you find this Golbug or the portal, please invest
                #GOLD#-- Tolak, King of the Allied Kingdoms]], [[@playername@，这份报告极其重要。
 
 我们的长老从古老文献中查找你提到的那个法杖的线索。
-它的确是一件非常强大的神器，它可以从周边物体和生物身上吸收能量。
+它的确是一件非常强大的物品，可以吸收地点和生物的力量。
 所以它绝对不能落入坏人的手中，很显然包括兽人。
-你不在的时候，我们的一个巡逻队遭遇了乌克鲁克带领的一个小分队，
+你不在的时候，我们的一个巡逻队遭遇了乌克鲁克带领的一群兽人，
 我们没法阻止他们，不过我们抓了他们中的一个。
 
 他知道的不多，但他提到了远东大陆的“主人”。
-他提到了高尔布格，貌似是瑞库纳的一个战士头领，带队将一个神秘的包
-裹穿过了传送门。
+他提到了与高尔布格会面——貌似是瑞库纳的一位战争领主——以便将一个“包
+裹”送过传送门。
+
+事情非常紧急；如果你找到这个高尔布格或那个传送门，请务必调查。
 			   
 			   #GOLD#-- 托拉克，联合王国国王。]], "_t")
 
@@ -32444,14 +32446,14 @@ Press Escape, save & exit and create a new character!
 ]], [[#GOLD#恭喜你！#WHITE#
 
 你完成了这个简单教程，应该已经了解 ToME4 的基础。现在你已准备好踏入这个世界，寻找荣耀与财富，并被一群你自以为能对付的怪物无情屠杀！
-在教程中，一些生物为了配合技能教学进行了一些修改，记住，真正的世界并不会设
-定的如此简单的。
+在教程中，一些生物为了配合教学进行了调整；记住，在真实世界里，巨魔通常不
+会这么友善！
 
 如果你想知道快捷键的功能，你可以按 #GOLD#Esc#WHITE#键进入游戏菜单检查按键设定(你也可以
 根据你的需要改变设置)。
 
-也许这是你第一次玩这个游戏，你会发现部分种族选择和职业选择被锁定，如果你想
-用这些种族或职业，你必须在游戏中完成指定的任务或成就来解锁。
+也许这是你第一次玩这个游戏，你会发现可供游玩的种族和职业数量有限；游戏中还存
+在许多其他种族和职业，你会在游戏过程中解锁它们。
 
 现在，勇敢前进并记住： #GOLD#好好享受游戏的乐趣！#WHITE#
 请按下Esc键，保存并退出游戏，建立一个新的角色吧！
@@ -32477,7 +32479,7 @@ Now open the levelup screen and assign your points.
 
 每升一级你会获得更多的生命值和其他能量值(比如体力、法力等等)。另外还能获得
 不同的点数来提升你的角色。
-* #GOLD#属性点数#WHITE#：允许你提升6个主要属性：力量、敏捷、魔法、意志、灵巧和体质。每等级你能获
+* #GOLD#属性点数#WHITE#：允许你提升6个主要属性：力量、敏捷、魔力、意志、灵巧和体质。每等级你能获
 得3个点数。
 * #GOLD#职业技能点数#WHITE#：职业技能是你的职业的核心能力，每升一级获得1点，每5级额外获得1点。
 * #GOLD#通用技能点数#WHITE#：通用技能是非职业限定的一些角色提升技能，在等级不是 5 的倍数时，你每升一级获得 1 点。
@@ -32516,13 +32518,13 @@ Attack them!
 * #GOLD#命中#WHITE#：你的命中几率。
 * #GOLD#伤害#WHITE#：你所造成的伤害值。
 * #GOLD#闪避#WHITE#：你躲闪攻击的几率。
-* #GOLD#护甲值#WHITE#：能减少的伤害量。
+* #GOLD#护甲值#WHITE#：固定的伤害减免。
 * #GOLD#护甲穿透#WHITE#：你可以忽视目标多少护甲值。
 
-你可以在角色面板中查看你的这些属性值。
-按 'C' 键，或者右键点击你自己的角色并选择“查看生物”，即可打开角色面板。
+你可以在角色信息面板中查看你的这些属性值。
+按 'C' 键，或者右键点击你自己的角色并选择“查看生物”，即可打开角色信息面板。
 
-你发现了一些敌对的果冻怪围着一件装备。
+你发现了一些敌对的果冻怪围着一件物品。
 攻击他们！
 ]], "_t")
 
@@ -32551,18 +32553,18 @@ Now close this dialog and go west (left) until you arrive in a bigger area.
 
 #GOLD#键盘：#WHITE#
 - 按下方向键或数字键盘的方向键向指定方向移动。
-- 按下 shift + 方向键可以快速向指定方向移动。
+- 按下 Shift + 方向键或数字键盘的方向键向指定方向奔跑。
 - 按下数字键盘的5键可以原地待命一回合(不做任何动作)。
 - 按下 z 键可以自动探索，直到发现危险或有趣的事物。
 
 #GOLD#鼠标：#WHITE#
 - 在地图上单击某个地方向那里移动。
-- 如果地图上没有怪物，你会快速移动至该地点。
-- 如果那里有未知的东西或者发现有趣的事物，你会停下来。
+- 如果没有怪物且道路已知，你会跑到那里。
+- 如果沿途有未知或有趣的格子，你可能会停下来。
 - 如果视线内有敌对生物，你每次点击只能移动一格，以免莫名其妙的死掉。
 - 单击你自己一次可以原地待命一回合(不做任何动作)。
 
-你可以通过鼠标左键拖曳操作来移动地图或者按下"L"键，再使用 shift+移动操作。
+你可以按住 Shift 并用鼠标点击拖动来滚动地图，或者按下 "L" 键并使用 Shift + 移动键。
 
 现在关闭这个对话框并向西方(左侧)移动到达一个更广阔的区域。
 ]], "_t")
@@ -32586,16 +32588,16 @@ Now move on to the west.
 ]], [[在你的冒险过程中你会获得各种各样的物品。
 每一件物品都有重量。你能携带多少物品取决于你的力量属性：你有一个最大负重上限。
 按下 'g'键来拾取物品，或者当你的人物站在物品上时右键点击你自己并选择拾取物品。
-要查看物品栏，按下 'i'键或者右键点击自己选择查看物品选项。
+要查看物品栏，按下 'i'键或者右键点击自己选择物品栏。
 
-你的物品栏被分成两个部分：你装备的物品和装备箱内的物品。
+你的物品栏被分成两个部分：你装备的物品和背包中的物品。
 选择物品，可以用移动键来选择再按Enter来确认，或者直接鼠标左键单击即可，也可以
 直接按物品名字旁边的快捷键。
 
 你发现的物品是一个纹身，纹身和符文可以将一种能力印刻到你的身上，获得新的技能。
 纹身源于自然之力；符文则使用魔法，刻印后可以无限次使用。
 这个纹身的功能是能使你在你需要的时候回复生命值。你只能印刻有限数量的刻印，但
-你可以非常方便的切换他们。
+你可以轻松地替换它们。
 
 现在继续向西前进。
 ]], "_t")
@@ -32613,15 +32615,15 @@ Once a quest is finished or failed it will disappear from the quest log. Most qu
 When this tutorial started you were tasked to kill the Lone Wolf, you are nearing its position.
 #GOLD#Beware and fight with honour!#WHITE#
 ]], [[在游戏过程中你会接到各种任务。
-任务内容一般是完成某个指定动作、寻找物品或者同某人对话等等之类。
+任务可能来自执行某个动作、找到一件物品、与某人交谈等等。
 
 你可以按下 'j'键或右键点击你自己来查看当前获得的任务。
 
 当任务完成或者失败，会从任务列表消失。ToME4中大多数任务是可选的。假如你觉得
-你完不成，就可以不做。
+自己无法活着完成某个任务，就不要去做。
 
 教程开始时，你接到的任务是杀死孤狼；你已经接近它的位置了。
-#GOLD#谨记：要为荣誉而战！#WHITE#
+#GOLD#小心，并光明正大地战斗！#WHITE#
 ]], "_t")
 
 ------------------------------------------------
@@ -32638,15 +32640,15 @@ To equip your bow and arrows:
 * Select your bow and arrows, wield them.
 
 There are trolls to the west. Go use your bow and arrows to kill them!
-]], [[远程攻击主要包括射箭、用投石索发射子弹或者施法。
+]], [[远程攻击主要包括射箭、用投石索投掷石块或者施法。
 你现在获得了一把弓，你得用双手来装备它。
 箭矢数量无限，但需要不时通过等待、休息或走动来重新装填。你也可以在箭袋中装备特殊箭矢，以造成额外伤害或附加效果。
-想要射箭，使用射击技能。攻击目标会显示高亮，其他技能也是一样。
+想要射箭，使用射击技能。目标界面会弹出，就像使用其他技能一样。
 
 装备你的弓和箭矢的方法：
 * 打开你的物品栏。
-* 点击副武器栏切换武器。
-* 选择你的弓和箭矢，选择装备。
+* 点击副装备按钮切换武器。
+* 选择你的弓和箭矢，将它们装备上。
 
 西部有一些巨魔，用弓箭来杀死他们！
 ]], "_t")
@@ -32655,8 +32657,7 @@ There are trolls to the west. Go use your bow and arrows to kill them!
 section "mod-tome/data/texts/tutorial/stats/mechintro.lua"
 
 t([[ToME 4 is a large, complex game. Despite this, the most important mechanics-- the ones that directly influence the decisions you need to make as a player-- are governed by relatively simple rules. This mechanics guide will provide a brief introduction to these rules.
-]], [[ToME 4 是一个大而复杂的游戏。
-因此一些重要的可能影响你角色行动的游戏规则在这里介绍一下。
+]], [[ToME 4 是一个大而复杂的游戏。尽管如此，最重要的机制——那些直接影响你作为玩家需要做出的决策的机制——都由相对简单的规则支配。本机制指南将简要介绍这些规则。
 ]], "_t")
 
 ------------------------------------------------
@@ -32671,14 +32672,14 @@ The first two of these #GOLD#combat stats#WHITE# are:
 When you try to stab somebody, your #LIGHT_GREEN#Accuracy#WHITE# score is measured against your target's #LIGHT_GREEN#Defense#WHITE# score, and a percentage chance of success is determined. We'll look at the exact calculation later.
 
 ]], [[基础角色属性比如力量和意志是非常重要的，重要性在于他们如何影响你的 #GOLD#战斗属性#WHITE#，
-这是本次教程的一个主题。
+这是整个教程的主题。
 首先两个 #GOLD#战斗属性#WHITE# 是：
 
 #LIGHT_GREEN#命中：#WHITE#决定了你的物理攻击是否可以击中目标。
 #LIGHT_GREEN#闪避：#WHITE#你躲避攻击的能力。
 
-当你尝试攻击某个目标，你的 #LIGHT_GREEN#命中#WHITE# 等级会和目标的 #LIGHT_GREEN#闪避#WHITE# 等级进行一个计算得出成功击
-中目标概率，我们在后面会看到实际的计算结果。
+当你尝试刺击某人时，你的 #LIGHT_GREEN#命中#WHITE# 数值会和目标的 #LIGHT_GREEN#闪避#WHITE# 数值进行一个计算得出成功击
+中目标概率，我们稍后会看具体的计算方法。
 
 ]], "_t")
 
@@ -32736,7 +32737,7 @@ Four of them are offensive...
 
 ]], [[总结一下重要的战斗属性：
 
-ToME 一共有八个重要的 #GOLD#战斗属性#WHITE# 影响你的战斗成功率：
+ToME 中的每个生物都有八个重要的 #GOLD#战斗属性#WHITE#，它们影响战斗成功率：
 有四项是攻击性的……
 #LIGHT_GREEN#命中#WHITE#
 #LIGHT_GREEN#物理强度#WHITE#
@@ -32759,13 +32760,13 @@ t([[Many times when you perform an attack, or suffer one, the success of the att
 What about the other #GOLD#combat stats#WHITE#?
 
 They're a little harder to pin down. #LIGHT_GREEN#Physical save#WHITE#,  #LIGHT_GREEN#Spell save#WHITE#,  and #LIGHT_GREEN#Mental save#WHITE# are generally used by a defender when there's some sort of unpleasant effect at stake-- say, getting pinned to the ground or blinded or knocked flying. The #GOLD#combat stat#WHITE# used by the attacker in such cases depends on the source of the attack. Let's consider a few examples...
-]], [[当你攻击某个目标时，你攻击的成功率通常是对攻击者和防御者的 #GOLD#战斗属性#WHITE# 进行比较计算。
+]], [[很多时候，当你发动攻击或承受攻击时，攻击是否成功取决于比较攻击者和防御者的 #GOLD#战斗属性#WHITE# 数值。
 我们已经看到物理攻击（如近身的打击和远程射箭）的成功率和攻击者的 #LIGHT_GREEN#命中#WHITE# 和防御者的 #LIGHT_GREEN#闪避#WHITE# 值进行比较结果有关。
 
 那么其他 #GOLD#战斗属性#WHITE#呢？
 
 有点难以被确定下来。 #LIGHT_GREEN#物理豁免#WHITE#、#LIGHT_GREEN#法术豁免#WHITE#和#LIGHT_GREEN#精神豁免#WHITE# 一般是防御者用来计算一些不良效果如定身、致盲或者击退。
-攻击者在这种情况下使用的#GOLD#战斗属性#WHITE#和他选择的攻击方式有关，我们来看一个例子……
+攻击者在这种情况下使用的#GOLD#战斗属性#WHITE#取决于攻击来源，我们来看几个例子……
 ]], "_t")
 
 ------------------------------------------------
@@ -32818,7 +32819,7 @@ The spell will also attempt to stun the target. Stunning, you recall, is a physi
 
 法术造成的火焰伤害由你的 #LIGHT_GREEN#法术强度#WHITE#决定。
 #GOLD#战斗属性#WHITE# 并不是用来减轻伤害的，所以防御者会受到全部法术伤害，
-实际受到伤害量与火焰抗性相关(这是教程中的另外一个主题)。
+实际受到伤害量与火焰抗性相关(这是另一个教程的主题)。
 
 法术另外也会尝试震慑目标，说起震慑你会回想起来这是一个物理效果，所以目标
 以 #LIGHT_GREEN#物理豁免#WHITE# 来计算。
@@ -32858,12 +32859,12 @@ But don't worry. It's usually easy to know what will get used for two reasons:
 #LIGHT_GREEN#法术豁免#WHITE#
 #LIGHT_GREEN#精神豁免#WHITE#
 
-别着急，通常有两种方法很容易知道是怎么计算的：
+别着急，通常很容易知道会使用什么，原因有两个：
 
 #GOLD#1)#WHITE#  防御性 #GOLD#战斗属性#WHITE#的使用方式相当固定：无论来源是什么，物理效果使用 #LIGHT_GREEN#物理豁免#WHITE#，魔法效果使用 #LIGHT_GREEN#法术豁免#WHITE#，精神效果使用 #LIGHT_GREEN#精神豁免#WHITE#。
 
 #GOLD#2)#WHITE#  大多数情况下，某种职业都使用单一的攻击性 #GOLD#战斗属性#WHITE#，所以也不太会混淆。
-狂战士只会用 #LIGHT_GREEN#物理强度#WHITE# 判定效果，而法师基本都使用 #LIGHT_GREEN#法术强度#WHITE#。
+狂战士只会用 #LIGHT_GREEN#物理强度#WHITE# 判定效果，而元素法师只会使用 #LIGHT_GREEN#法术强度#WHITE#。
 ]], "_t")
 
 ------------------------------------------------
@@ -32872,7 +32873,7 @@ section "mod-tome/data/texts/tutorial/stats/stats9.lua"
 t([[Now you know the basics: what these eight #GOLD#combat stats#WHITE# mean and when they're used. It's time to look at some numbers.
 
 Head north to the stairs, and descend into the #GOLD#Dungeon of Adventurer Enlightenment.#WHITE#
-]], [[现在你应该知道，这八个 #GOLD#战斗属性#WHITE# 的意义和运算方法了。现在来看一些数字计算。
+]], [[现在你应该知道，这八个 #GOLD#战斗属性#WHITE# 的含义和使用时机了。现在来看一些数字计算。
 
 向北前进，从楼梯进入 #GOLD#冒险者启蒙地下城#WHITE#。
 ]], "_t")
@@ -33054,7 +33055,7 @@ section "mod-tome/data/texts/tutorial/stats-scale/informed1.lua"
 t([[Armed with the knowledge of how important #GOLD#combat stats#WHITE# are, we now go in search of them. Yours are displayed in your character sheet. Once you've closed this window, you can open it and move your mouse cursor over them to see a brief description of what they do. The tooltip mentions some stuff we haven't covered yet, but we'll get there.
 
 So what about seeing a monster's #GOLD#combat stats#WHITE#? This would hardly be a dungeon without creepy denizens; there's an orc ahead you can examine. Use the mouse or the 'l'ook command to examine that orc.
-]], [[既然已经知道 #GOLD#战斗属性#WHITE# 有多重要，现在就来找找它们。你的属性显示在角色面板中。关闭此窗口后，你可以打开角色面板，把鼠标指针移到这些属性上，查看它们作用的简要说明。提示中会提到一些尚未讲到的内容，不过我们很快就会讲到。
+]], [[既然已经知道 #GOLD#战斗属性#WHITE# 有多重要，现在就来找找它们。你的属性显示在角色信息面板中。关闭此窗口后，你可以打开角色信息面板，把鼠标指针移到这些属性上，查看它们作用的简要说明。提示中会提到一些尚未讲到的内容，不过我们很快就会讲到。
 
 那么，怎样查看怪物的 #GOLD#战斗属性#WHITE# 呢？没有诡异住民可算不上地下城；前方有个兽人供你查看。使用鼠标或 l（查看）命令查看那个兽人。
 ]], "_t")

@@ -1,0 +1,180 @@
+{
+  "task_id": "p2-tome-texts-b5-001",
+  "batch_path": "evidence/quality/p2-batches/p2-tome-texts-b5-tutorial-a.json",
+  "batch_sha256": "5473f2cb38c75a41e5a8ea9d82cf0b00326bc0b2dd20bc86049239fc746d9f85",
+  "source_root": "/home/yun/projects/t-engine4/game/modules/tome",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "method": "ORCHESTRATOR verified all 22 English keys against the pinned data/texts files at freeze and recorded each call's args_order (none); independently read all 22 pairs before the EXECUTOR report; stat/UI names checked against in-file 'stat name' and UI t() entries (Magic=魔力, Character Sheet=角色信息面板, Off Set=副装备, Inventory=物品栏); three contextual-review rounds adjudicated against source.",
+  "counts": {
+    "items": 22,
+    "sections": 21,
+    "sections_changed": 16,
+    "executor_cycle0_lines": 36,
+    "contextual_observations": 7,
+    "confirmed": 7,
+    "advisory": 0,
+    "rejected": 0,
+    "orchestrator_added": 1,
+    "insufficient_evidence": 0
+  },
+  "reviews": [
+    ".ai/reviews/p2-tome-texts-b5-001/review-01.json",
+    ".ai/reviews/p2-tome-texts-b5-001/review-02.json",
+    ".ai/reviews/p2-tome-texts-b5-001/review-03.json"
+  ],
+  "preflight": "tools/contextual_anchor_preflight.py whole-section form + args_order disclosure (2.18-draft), PREFLIGHT_VERIFIED for ctx-01..03",
+  "gates": "5-step batch gates clean (collisions 0); tools/ci-gates.sh ALL GATES PASSED (12, incl. core addon build)",
+  "adjudicated_findings": [
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-text-message-last-hope-1",
+      "observation": "将 Golbug 袭击的目的 to send a package through a portal 译成了已完成的结果“将一个‘包裹’送过了传送门”，错误改变了包裹是否已经通过传送门的事件状态。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "purpose, not completed result"
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-text-message-last-hope-2",
+      "observation": "遗漏整句 This calls for urgency; should you find this Golbug or the portal, please investigate.，丢失了事情紧急以及发现 Golbug 或传送门时应调查的任务指示。",
+      "verdict": "confirmed",
+      "severity": "medium",
+      "host_basis": "closing instruction sentence omitted; ORCHESTRATOR held this independently"
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-text-objects",
+      "observation": "源文右键菜单项 Inventory 与术语快照规定的“物品栏”不符：目标写成“查看物品选项”，属于界面名错误。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "menu item name = 物品栏 (in-file Inventory)"
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-text-quests",
+      "observation": "将任务可由执行动作、发现物品或交谈等行为触发（A quest can come from...）误成这些是“任务内容”，改变了任务出现条件与任务要求的关系；末句还遗漏 Beware 的警告，并将 fight with honour（以荣誉的方式战斗）误成“为荣誉而战”。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "quest origin vs content; Beware dropped; 'with honour' = honourably"
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-text-mechintro",
+      "observation": "OK",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "ORCHESTRATOR-added: target wrapped mid-sentence over 3 lines while the English is one line (line-structure rule)."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-text-stats1",
+      "observation": "将 combat stats 是整个教程的主题（the subject of this entire tutorial）缩小成“本次教程的一个主题”；又把 Accuracy/Defense 的 score 译为“等级”，并将稍后讲解 exact calculation 误成查看“实际的计算结果”，均改变了教程所述范围或机制术语。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "subject of the entire tutorial; score=数值; exact calculation"
+    },
+    {
+      "round": "ctx-02",
+      "revision_key": "tome-text-message-last-hope-1",
+      "observation": "源文将调查指令限定为“若找到高尔布格或传送门”；译文删去了这一条件，改成无条件要求调查，改变了任务指令的条件关系。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'should you find…' conditional dropped; the pre-existing message-1 wording (which FIX-1 told the executor to reuse) had the same gap."
+    },
+    {
+      "round": "ctx-02",
+      "revision_key": "tome-text-message-last-hope-2",
+      "observation": "源文将调查指令限定为“若找到高尔布格或传送门”；译文删去了这一条件，改成无条件要求调查，改变了任务指令的条件关系。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'should you find…' conditional dropped; the pre-existing message-1 wording (which FIX-1 told the executor to reuse) had the same gap."
+    }
+  ],
+  "items": [
+    {
+      "section": "mod-tome/data/texts/message-last-hope.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/combat-stats-intro.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/done.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/levelup.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/melee.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/move.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/objects.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/quests.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/ranged.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats/mechintro.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats/stats1.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats/stats2.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats/stats3.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats/stats4.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats/stats5.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats/stats6.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats/stats7.1.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats/stats7.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats/stats8.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats/stats9.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/tutorial/stats-scale/informed1.lua",
+      "changed": true
+    }
+  ],
+  "recorded_at": "2026-08-23T12:35:43Z"
+}
