@@ -1,0 +1,204 @@
+{
+  "task_id": "p2-tome-texts-b4-001",
+  "batch_path": "evidence/quality/p2-batches/p2-tome-texts-b4-unlock-b.json",
+  "batch_sha256": "d5025381146bff8294d28b66c1258dfdd22d21c709a7f4b79a91c8765895787e",
+  "source_root": "/home/yun/projects/t-engine4/game/modules/tome",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "method": "ORCHESTRATOR verified all 42 English keys verbatim against `git show 624a673:<path>` at freeze and recorded each call's args_order (none present); independently read all 21 sections before the EXECUTOR report; adjudicated 44 cycle-0 executor lines and three contextual-review rounds against source, the terminology table and in-file birth-descriptor/talent-name precedent. First batch run under contract 2.18-draft (args_order disclosure enforced by the preflight).",
+  "counts": {
+    "items": 42,
+    "sections": 21,
+    "sections_changed": 18,
+    "executor_cycle0_lines": 44,
+    "contextual_observations": 11,
+    "confirmed": 10,
+    "advisory": 1,
+    "rejected": 0,
+    "orchestrator_added": 1,
+    "insufficient_evidence": 0
+  },
+  "reviews": [
+    ".ai/reviews/p2-tome-texts-b4-001/review-01.json",
+    ".ai/reviews/p2-tome-texts-b4-001/review-02.json",
+    ".ai/reviews/p2-tome-texts-b4-001/review-03.json"
+  ],
+  "preflight": "tools/contextual_anchor_preflight.py whole-section form + args_order disclosure (2.18-draft), PREFLIGHT_VERIFIED for ctx-01..03",
+  "gates": "5-step batch gates clean (collisions 0); tools/ci-gates.sh ALL GATES PASSED (12, incl. core addon build)",
+  "adjudicated_findings": [
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-mage_necromancer-body",
+      "observation": "将 whole races suppressed 扩大成“所有种族的人们都受到压迫”，并把 practitioners（从业者）改成“魔法的开拓者”，分别改变了受压迫范围并新增了开创魔法的身份。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'whole races suppressed' ≠ 所有种族的人们; 'misunderstood practitioners' ≠ 开拓者."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-mage_pyromancer-body",
+      "observation": "Combust 的机制是打断已有的常规燃烧效果并使这些效果立即爆燃；译文改成“立即灼烧目标”，丢失了对已有燃烧效果的指代与一次性引爆关系。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "Combust disrupts existing burning effects and makes them combust at once."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-paladin_fallen-body",
+      "observation": "“Swap your paladin Talents”指当前 Sun Paladin 的技能，译成“圣骑士技能”与本条及冻结术语 Sun Paladin=太阳骑士不一致，形成了不存在于该语境的职业称呼。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "Sun Paladin=太阳骑士; 圣骑士 introduced by cycle-0 executor."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-race_ogre-body",
+      "observation": "terrified creators 表示创造者感到恐惧；“恐怖的创造者”却表示创造者令人恐惧，施受关系反转。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'terrified' = frightened, not terrifying (ORCHESTRATOR held this independently)."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-rogue_skirmisher-body",
+      "observation": "原文明确体力用于驱动散兵的 techniques；“使用体力为其战斗续航”把技能消耗资源的机制泛化成维持战斗，遗漏了体力与技能施放的关系。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'use stamina to fuel their techniques' — match the marauder wording. ORCHESTRATOR adds: the three class-feature bullets were rendered as numbered rhymed slogans with invented flourishes (沾我不到, 堪比流水) instead of '- ' bullets; restore plain bulleted renderings of the three English lines."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-undead_ghoul-body",
+      "observation": "天赋名 Ghoulish Leap 译为“定向跳跃”，与冻结术语 Ghoulish Leap=食尸鬼跳跃冲突。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "Talent name t(\"Ghoulish Leap\",\"食尸鬼跳跃\") in-file; ORCHESTRATOR held this independently."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-wilder_stone_warden-body",
+      "observation": "split yourself into two powerful halves 是将自身分裂为两个强大的半身；“产生两个强大的分身”改成生成两个分身，改变了技能的主体关系和分裂机制。",
+      "verdict": "advisory",
+      "severity": null,
+      "host_basis": "'split yourself into two powerful halves' — the talent does create a second self; 分身 is a defensible rendering. Left unchanged."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-unlock-wilder_summoner-body",
+      "observation": "“Summoners are Wilders”明确说明召唤师属于野性系；译文只说“以自然为家”，遗漏了职业分类关系。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'Summoners are Wilders' — class family dropped; sibling sections state it."
+    },
+    {
+      "round": "ctx-02",
+      "revision_key": "tome-unlock-race_ogre-body",
+      "observation": "两处关系错误：原文称发光符文使食人魔在魔法狩猎期间无法隐藏，译文却改称这使他们成为首要目标；原文 terrified creators 指惊恐的创造者，译文“让他们惊恐万分的创造者”反转为创造者使食人魔惊恐。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'impossible to hide' ≠ 首要目标; 让他们惊恐万分的创造者 reads as 'creators who terrify them' — still reversed."
+    },
+    {
+      "round": "ctx-02",
+      "revision_key": "tome-unlock-rogue_skirmisher-body",
+      "observation": "职业特点第一项漏译与 roll 并列的 Vault（跃过/腾跃）动作，只保留了翻滚。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'Vault and roll' — vault dropped."
+    },
+    {
+      "round": "ctx-02",
+      "revision_key": "tome-unlock-wilder_summoner-body",
+      "observation": "原文 are at home in the wilds 表示召唤师适应、擅长在野外生活，译文“居住在野外”改成了固定居所陈述。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'at home in the wilds' ≠ 居住在野外; the same cycle-0 wording is in oozemancer and wyrmic — fix all three to 以野外为家 for consistency."
+    }
+  ],
+  "items": [
+    {
+      "section": "mod-tome/data/texts/unlock-mage_necromancer.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-mage_pyromancer.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-mage_tempest.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-mage_thaumaturgist.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-paladin_avatar.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-paladin_fallen.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-psionic_mindslayer.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-psionic_solipsist.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-race_ogre.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-rogue_marauder.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-rogue_poisons.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-rogue_skirmisher.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-undead_ghoul.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-undead_skeleton.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-wanderer.lua",
+      "changed": false
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-warrior_brawler.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-wilder_oozemancer.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-wilder_stone_warden.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-wilder_summoner.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-wilder_wyrmic.lua",
+      "changed": true
+    },
+    {
+      "section": "mod-tome/data/texts/unlock-yeek.lua",
+      "changed": true
+    }
+  ],
+  "recorded_at": "2026-08-23T11:52:34Z"
+}
