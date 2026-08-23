@@ -1,0 +1,91 @@
+{
+  "task_id": "p2-tome-texts-b3-001",
+  "batch_path": "evidence/quality/p2-batches/p2-tome-texts-b3-inscriptions.json",
+  "batch_sha256": "4e7f742667f2492c31339c396ce127f7e1b19275183d0558e81cdece02b170e9",
+  "source_root": "/home/yun/projects/t-engine4/game/modules/tome",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "method": "ORCHESTRATOR verified all 120 English keys present in the pinned inscriptions.lua at freeze; independently read the 67 tformat pairs and ran a printf-specifier-sequence diff across them before the EXECUTOR report (found the two placeholder-order defects); EXECUTOR cross-checked ambiguous mechanics against the pinned implementation; two contextual-review rounds adjudicated against source, terminology and in-file precedent (wound=创伤, 相位之门, 脱离相位).",
+  "counts": {
+    "items": 120,
+    "executor_cycle0_pairs_changed": 17,
+    "contextual_observations": 6,
+    "confirmed": 6,
+    "advisory": 0,
+    "rejected": 0,
+    "insufficient_evidence": 0,
+    "tformat_specifier_mismatches_after": 0
+  },
+  "placeholder_order_defects": [
+    {
+      "line": 26122,
+      "talent": "Rune of Vision (sense any %s)",
+      "defect": "%s/%d swapped in the 4th/5th positions → Lua string.format would receive a string for %d (runtime error)",
+      "severity": "high"
+    },
+    {
+      "line": 26078,
+      "talent": "Rune of Dissipation",
+      "defect": "turns/damage %d order transposed → values displayed swapped",
+      "severity": "medium"
+    }
+  ],
+  "cross_component": "cycle-0 term fix 传送门→相位之门 on the shared logPlayer key 'The targetted phase door fizzles and works randomly!' tripped tools/scan_runtime_collisions.py; resolved per docs/runtime-key-collisions.md §3.3 precedent by applying the identical wording to tome-ashes-urhrok.lua L1058 (SPEC revision 1, gate-triggered FIX-3). Scan now reports 0.",
+  "reviews": [
+    ".ai/reviews/p2-tome-texts-b3-001/review-01.json",
+    ".ai/reviews/p2-tome-texts-b3-001/review-02.json",
+    ".ai/reviews/p2-tome-texts-b3-001/review-03.json"
+  ],
+  "preflight": "tools/contextual_anchor_preflight.py whole-section form, PREFLIGHT_VERIFIED for ctx-01..03",
+  "gates": "5-step batch gates clean; tools/ci-gates.sh ALL GATES PASSED (12, incl. core addon build)",
+  "adjudicated_findings": [
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-inscr-L26078",
+      "observation": "tformat 为位置参数；source 的两个 %d 依次是护盾持续回合、每个负面效果的吸收量，target 却依次写成吸收量、持续回合，运行时数值会互换。",
+      "verdict": "confirmed",
+      "severity": "medium",
+      "host_basis": "tformat is positional: English order is turns then damage; Chinese transposes them, so displayed numbers would be swapped. ORCHESTRATOR found this independently before dispatch."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-inscr-L26091",
+      "observation": "source 的 taint 应按冻结术语译为“印记”，target 使用“堕落印记”，与术语快照冲突。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "taint=印记 (in-file L26088 and term snapshot); 堕落印记 inconsistent."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-inscr-L26109",
+      "observation": "source 明确随机移除一个负面精神效果，target 遗漏“随机”，未说明效果不可指定。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'one random detrimental mental effect' — random dropped."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-inscr-L26122",
+      "observation": "tformat 为位置参数；source 第二句的参数顺序是持续回合数后接感知类别，而 target 先写 %s 再写 %d，导致第 4、5 个参数错位（且会使 %d 接收类别字符串）。",
+      "verdict": "confirmed",
+      "severity": "high",
+      "host_basis": "tformat positional: Chinese swaps the 4th (%d turns) and 5th (%s kind) arguments; %d would receive a string → Lua string.format error at runtime. ORCHESTRATOR found this independently (specifier-sequence diff) before dispatch."
+    },
+    {
+      "round": "ctx-01",
+      "revision_key": "tome-inscr-L26141",
+      "observation": "source 明确随机移除一个负面魔法效果，target 遗漏“随机”，未说明效果不可指定。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'one random detrimental magical effect' — random dropped."
+    },
+    {
+      "round": "ctx-02",
+      "revision_key": "tome-inscr-L26141",
+      "observation": "原文的“bolt of poison”在固定源码实现中是单目标 bolt/projectile；译为“毒气弹”凭空增加了“气体/炸弹”含义，改变了投射物形态，应译为毒液箭/毒液弹一类。",
+      "verdict": "confirmed",
+      "severity": "low",
+      "host_basis": "'spit a bolt of poison' is a projectile; 毒气 adds a gas notion absent from the source; no in-file precedent either way → 毒液弹."
+    }
+  ],
+  "recorded_at": "2026-08-23T00:56:53Z"
+}
