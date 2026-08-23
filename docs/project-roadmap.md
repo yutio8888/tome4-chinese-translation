@@ -36,8 +36,9 @@
   解锁文本（`ff25042`，20/22 区块修订，9 个 confirmed）。批次 3 为 `data/talents/misc/inscriptions.lua` 全部 120 条（`1feed76`，由用户报告的
   Infusion: Wild 缺陷 `a33a63b` 触发）。该批次曾误判两条带 `args_order` 的条目并引入回归，
   已在 `9097c6f` 修正；随后以独立基础设施任务让语境审核 preflight 强制披露 `args_order`
-  （契约 2.18-draft，`a2e86d4`）。下一候选为其余 21 个
-  `unlock-*.lua`（`unlock-mage_necromancer` 起），不自动启动。
+  （契约 2.18-draft，`a2e86d4`）。批次 4 为其余 21 个 `unlock-*.lua`（`f3c6bba`，18/21 区块修订，10 个 confirmed），
+  `data/texts/` 的 intro 与 unlock 全部完成。下一候选未定（例如 `data/texts/` 其余文件、
+  `data/chats/` 或 `data/lore/` 的有界切片），不自动启动。
 - 该批次首次消费 2.16 的 contextual-anchor preflight 并暴露契约缺陷（仅接受 Fay Willows 式
   章节标题锚点）；经用户裁决以独立基础设施任务扩展为 whole-section window
   （`ordered_titles: []`），契约升至 2.17-draft，提交 `7085a98`。
