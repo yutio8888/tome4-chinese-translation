@@ -9,26 +9,14 @@
     "items": 120,
     "executor_cycle0_pairs_changed": 17,
     "contextual_observations": 6,
-    "confirmed": 6,
+    "confirmed": 4,
     "advisory": 0,
     "rejected": 0,
     "insufficient_evidence": 0,
-    "tformat_specifier_mismatches_after": 0
+    "tformat_specifier_mismatches_after": 0,
+    "retracted": 2
   },
-  "placeholder_order_defects": [
-    {
-      "line": 26122,
-      "talent": "Rune of Vision (sense any %s)",
-      "defect": "%s/%d swapped in the 4th/5th positions → Lua string.format would receive a string for %d (runtime error)",
-      "severity": "high"
-    },
-    {
-      "line": 26078,
-      "talent": "Rune of Dissipation",
-      "defect": "turns/damage %d order transposed → values displayed swapped",
-      "severity": "medium"
-    }
-  ],
+  "placeholder_order_defects": [],
   "cross_component": "cycle-0 term fix 传送门→相位之门 on the shared logPlayer key 'The targetted phase door fizzles and works randomly!' tripped tools/scan_runtime_collisions.py; resolved per docs/runtime-key-collisions.md §3.3 precedent by applying the identical wording to tome-ashes-urhrok.lua L1058 (SPEC revision 1, gate-triggered FIX-3). Scan now reports 0.",
   "reviews": [
     ".ai/reviews/p2-tome-texts-b3-001/review-01.json",
@@ -42,9 +30,9 @@
       "round": "ctx-01",
       "revision_key": "tome-inscr-L26078",
       "observation": "tformat 为位置参数；source 的两个 %d 依次是护盾持续回合、每个负面效果的吸收量，target 却依次写成吸收量、持续回合，运行时数值会互换。",
-      "verdict": "confirmed",
+      "verdict": "retracted",
       "severity": "medium",
-      "host_basis": "tformat is positional: English order is turns then damage; Chinese transposes them, so displayed numbers would be swapped. ORCHESTRATOR found this independently before dispatch."
+      "host_basis": "tformat is positional: English order is turns then damage; Chinese transposes them, so displayed numbers would be swapped. ORCHESTRATOR found this independently before dispatch. — RETRACTED 2026-08-23: line carried args_order; see correction_2026-08-23."
     },
     {
       "round": "ctx-01",
@@ -66,9 +54,9 @@
       "round": "ctx-01",
       "revision_key": "tome-inscr-L26122",
       "observation": "tformat 为位置参数；source 第二句的参数顺序是持续回合数后接感知类别，而 target 先写 %s 再写 %d，导致第 4、5 个参数错位（且会使 %d 接收类别字符串）。",
-      "verdict": "confirmed",
+      "verdict": "retracted",
       "severity": "high",
-      "host_basis": "tformat positional: Chinese swaps the 4th (%d turns) and 5th (%s kind) arguments; %d would receive a string → Lua string.format error at runtime. ORCHESTRATOR found this independently (specifier-sequence diff) before dispatch."
+      "host_basis": "tformat positional: Chinese swaps the 4th (%d turns) and 5th (%s kind) arguments; %d would receive a string → Lua string.format error at runtime. ORCHESTRATOR found this independently (specifier-sequence diff) before dispatch. — RETRACTED 2026-08-23: line carried args_order; see correction_2026-08-23."
     },
     {
       "round": "ctx-01",
@@ -87,5 +75,13 @@
       "host_basis": "'spit a bolt of poison' is a projectile; 毒气 adds a gas notion absent from the source; no in-file precedent either way → 毒液弹."
     }
   ],
-  "recorded_at": "2026-08-23T00:56:53Z"
+  "recorded_at": "2026-08-23T00:56:53Z",
+  "correction_2026-08-23": {
+    "commit": "9097c6f",
+    "summary": "The two 'placeholder-order defects' recorded at 1feed76 were misdiagnosed: both lines carried args_order (Vision {1,2,3,5,4}, Dissipation {2,1}), which the runtime applies, so the original texts were valid and lint's format-mismatch rule correctly accepted them. The batch's Dissipation text reorder left {2,1} in place and introduced a real swap; 9097c6f drops that args_order. Vision's reorder updated args_order consistently and is harmless. Root cause: the contextual envelope and the orchestrator's specifier diff ignored args_order.",
+    "severity_corrections": {
+      "tome-inscr-L26122": "high → none (valid via args_order)",
+      "tome-inscr-L26078": "medium → none before batch; batch introduced a regression, fixed in 9097c6f"
+    }
+  }
 }
