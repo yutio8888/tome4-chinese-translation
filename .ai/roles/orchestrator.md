@@ -241,6 +241,7 @@ Each declared anchor window begins at its actual chapter-title t(...) call and e
 For ordered_titles: [], the window is the whole section from its section marker to the earliest later section marker or EOF.
 ORCHESTRATOR may freeze the payload only after every translation_snapshot source is proven to be the decoded first argument of a real t(...) call inside a declared anchor window; the preflight adds nothing to the payload, candidate_identity, review JSON, or STATE closure identity.
 The same source proof applies to a whole-section window, and the preflight adds no payload or identity fields.
+The preflight requires each translation_snapshot entry whose matching in-window t(...) call has args_order to disclose the exact canonical token args_order={i,j,...} in bounded_context.context, rejects any args_order= token when the call has none, and fails closed when matching calls disagree.
 
 review 记录必须标明 task_id、review_contract、review_phase、cycle、attempt、reviewer_role、
 purpose、dispatch_id、agent_id 和结果。STATE 的 review_records 与 senior_review_records 新写入为

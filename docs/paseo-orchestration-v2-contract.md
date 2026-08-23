@@ -2,7 +2,7 @@
 
 > 状态：设计草案，运行时解耦版。
 >
-> 契约版本：`paseo-orchestration/2.17-draft`（取代 `paseo-orchestration/2.16-draft`；更早的
+> 契约版本：`paseo-orchestration/2.18-draft`（取代 `paseo-orchestration/2.17-draft`；更早的
 > `paseo-orchestration/2.15-draft` 已归档）。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文约束角色行为、任务边界和候选一致性，
@@ -560,6 +560,7 @@ Each declared anchor window begins at its actual chapter-title t(...) call and e
 For ordered_titles: [], the window is the whole section from its section marker to the earliest later section marker or EOF.
 ORCHESTRATOR may freeze the payload only after every translation_snapshot source is proven to be the decoded first argument of a real t(...) call inside a declared anchor window; the preflight adds nothing to the payload, candidate_identity, review JSON, or STATE closure identity.
 The same source proof applies to a whole-section window, and the preflight adds no payload or identity fields.
+The preflight requires each translation_snapshot entry whose matching in-window t(...) call has args_order to disclose the exact canonical token args_order={i,j,...} in bounded_context.context, rejects any args_order= token when the call has none, and fails closed when matching calls disagree.
 
 当 code review briefing 涉及 evidence-citing candidate 时，ORCHESTRATOR 必须同时交接冻结
 候选中引用的 source review paths 和 task-scoped `EVIDENCE-RECONCILIATION.json` 路径；无需交接
@@ -645,4 +646,5 @@ sidecar 的每个复合引用，并把未列出的相关 review、缺失 disposi
 | `2.14-draft` | 上一版草案 | 增加可恢复的 `candidate_author_agent_id`、归档 metadata 核验和 `author_provider_resolution` 三值枚举；明确 unavailable 的软偏好语义、reviewer child 的 operational field 分类，以及第二 reviewer 创建时的 `model_diversity_verified` 证明、碰撞 fresh retry 和 exact-identity 不可用时的 `WAIT_USER`。 |
 | `2.15-draft` | 上一版草案 | 增加冻结／哈希前的离线 contextual-anchor preflight：任务作用域 SCOPE、实际 chapter-title 边界和 source-within-window 证明；它不改变 reviewer 可见的七键 payload 或任何 identity。 |
 | `2.16-draft` | 上一版草案 | 增加条件性 EVIDENCE-RECONCILIATION.json、确定性 inventory/render/check/check-audit，以及 DONE 的 sidecar 候选绑定、引用一致性、前瞻性 presence、reviewer/orchestrator 身份不等和 scope-audit 复合引用检查。 |
-| `2.17-draft` | 当前草案 | 扩展 contextual-anchor preflight：无实际 chapter-title 的 section 可用 `ordered_titles: []` 声明 whole-section window；含 chapter-title 的 section 对空数组 fail closed，且不改变 payload 或 identity。 |
+| `2.17-draft` | 上一版草案 | 扩展 contextual-anchor preflight：无实际 chapter-title 的 section 可用 `ordered_titles: []` 声明 whole-section window；含 chapter-title 的 section 对空数组 fail closed，且不改变 payload 或 identity。 |
+| `2.18-draft` | 当前草案 | 要求 `translation_snapshot` 条目的 in-window `t(...)` 调用若带有 `args_order`，必须在 `bounded_context.context` 披露规范 token，并对缺失、错误、无关或歧义的 disclosure fail closed。 |

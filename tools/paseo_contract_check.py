@@ -61,6 +61,7 @@ CONTEXTUAL_ANCHOR_PREFLIGHT_MARKERS = (
     "An anchor scope may instead declare ordered_titles: [] only when its section contains no actual chapter-title t(...) calls; a titled section with [] fails closed and must declare explicit anchors.",
     "For ordered_titles: [], the window is the whole section from its section marker to the earliest later section marker or EOF.",
     "The same source proof applies to a whole-section window, and the preflight adds no payload or identity fields.",
+    "The preflight requires each translation_snapshot entry whose matching in-window t(...) call has args_order to disclose the exact canonical token args_order={i,j,...} in bounded_context.context, rejects any args_order= token when the call has none, and fails closed when matching calls disagree.",
 )
 
 REQUIRED_MARKERS = {

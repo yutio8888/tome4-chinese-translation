@@ -203,6 +203,7 @@ CLI positional prompt 与 MCP initialPrompt 必须是相同文本；输出格式
 - 术语子集；
 - 同文件／同 section 的邻近译文；
 - 固定版本公共源码证据片段。
+- 若对应的 in-window `t(...)` 调用携带 `args_order`，必须在 `bounded_context.context` 中以规范形式披露精确 token `args_order={i,j,...}`；调用不携带时不得出现任何 `args_order=`，由 preflight 强制执行。
 
 禁止注入先前 finding、裁决决定、建议修复或任何宿主 lineage。
 

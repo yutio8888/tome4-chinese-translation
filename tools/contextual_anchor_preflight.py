@@ -55,6 +55,7 @@ class PreflightResult:
 class Call:
     start: int
     source: str
+    args_order: str | None = None
 
 
 @dataclass(frozen=True)
@@ -187,9 +188,56 @@ def _decode_lua_long_bracket(text: str, start: int) -> tuple[str, int]:
     return source, end + len(closing)
 
 
+def _scan_args_order_table(text: str, start: int, identifier_start: int) -> tuple[str, int]:
+    values: list[str] = []
+    cursor = _skip_space_and_comments(text, start + 1)
+    while cursor < len(text):
+        digit_start = cursor
+        while cursor < len(text) and text[cursor] in "0123456789":
+            cursor += 1
+        if digit_start == cursor:
+            raise InputError(
+                f"unsupported 4th argument to t(...) at offset {identifier_start}"
+            )
+        value = text[digit_start:cursor].lstrip("0")
+        if not value:
+            raise InputError(
+                f"4th argument to t(...) must contain positive integer literals at offset {identifier_start}"
+            )
+        values.append(value)
+        cursor = _skip_space_and_comments(text, cursor)
+        if cursor >= len(text):
+            break
+        if text[cursor] == "}":
+            if not values:
+                break
+            return "{" + ",".join(values) + "}", cursor + 1
+        if text[cursor] not in ",;":
+            break
+        cursor = _skip_space_and_comments(text, cursor + 1)
+        if cursor < len(text) and text[cursor] == "}":
+            return "{" + ",".join(values) + "}", cursor + 1
+    raise InputError(
+        f"4th argument to t(...) must be a non-empty flat table of positive integer literals at offset {identifier_start}"
+    )
+
+
+def _scan_args_order(text: str, start: int, identifier_start: int) -> tuple[str | None, int]:
+    cursor = _skip_space_and_comments(text, start)
+    if cursor >= len(text) or text[cursor] == ")":
+        return None, cursor
+    if text[cursor] == "{":
+        return _scan_args_order_table(text, cursor, identifier_start)
+    if text.startswith("nil", cursor) and (
+        cursor + 3 >= len(text) or not _is_ident_part(text[cursor + 3])
+    ):
+        return None, cursor + 3
+    raise InputError(f"unsupported non-nil 4th argument to t(...) at offset {identifier_start}")
+
+
 def _scan_complete_t_call(
     text: str, identifier_start: int, open_paren: int
-) -> tuple[str, int]:
+) -> tuple[str, int, str | None]:
     """Parse one global t call far enough to prove it is complete.
 
     The first argument must be a complete literal followed by either the call's
@@ -216,13 +264,28 @@ def _scan_complete_t_call(
             f"first argument to t(...) is not a complete literal at offset {identifier_start}"
         )
     if text[cursor] == ")":
-        return source, cursor + 1
+        return source, cursor + 1, None
 
     delimiters = ["("]
     cursor += 1
+    argument_number = 2
+    fourth_checked = False
     matching = {")": "(", "]": "[", "}": "{"
     }
     while cursor < len(text):
+        if len(delimiters) == 1:
+            cursor = _skip_space_and_comments(text, cursor)
+            if cursor >= len(text):
+                break
+            if argument_number == 4 and not fourth_checked:
+                args_order, cursor = _scan_args_order(text, cursor, identifier_start)
+                fourth_checked = True
+                cursor = _skip_space_and_comments(text, cursor)
+                if cursor >= len(text) or text[cursor] not in (",", ")"):
+                    raise InputError(
+                        f"4th argument to t(...) is not a complete literal at offset {identifier_start}"
+                    )
+                continue
         if text.startswith("--", cursor):
             cursor = _skip_space_and_comments(text, cursor)
             continue
@@ -244,8 +307,10 @@ def _scan_complete_t_call(
             delimiters.pop()
             cursor += 1
             if not delimiters:
-                return source, cursor
+                return source, cursor, args_order if fourth_checked else None
             continue
+        if char == "," and len(delimiters) == 1:
+            argument_number += 1
         cursor += 1
     raise InputError(f"unterminated t(...) call at offset {identifier_start}")
 
@@ -301,8 +366,8 @@ def _scan_lua(text: str) -> tuple[list[Section], list[Call]]:
             previous_token = "literal"
             continue
         if not is_member_access and identifier == "t" and after < len(text) and text[after] == "(":
-            source, _ = _scan_complete_t_call(text, start, after)
-            calls.append(Call(start, source))
+            source, _, args_order = _scan_complete_t_call(text, start, after)
+            calls.append(Call(start, source, args_order))
             # Continue lexing the verified call body so nested global t(...) calls
             # are discoverable, while strings/comments remain skipped by the loop.
             cursor = _skip_space_and_comments(text, cursor)
@@ -453,7 +518,7 @@ def _validate_scope(scope: dict[str, Any], root: Path) -> tuple[list[dict[str, A
     return validated, normalized_allowed
 
 
-def _allowed_call_starts(text: str, section_path: str, titles: list[str]) -> set[int]:
+def _allowed_calls(text: str, section_path: str, titles: list[str]) -> list[Call]:
     sections, calls = _scan_lua(text)
     matching_sections = [section for section in sections if section.path == section_path]
     if len(matching_sections) != 1:
@@ -468,7 +533,7 @@ def _allowed_call_starts(text: str, section_path: str, titles: list[str]) -> set
                 f"section_path {section_path!r} contains actual chapter-title t(...) calls; "
                 "ordered_titles=[] is only valid for untitled sections; titled sections must keep declaring explicit anchors"
             )
-        return {call.start for call in section_calls}
+        return section_calls
     anchors: list[Call] = []
     for title in titles:
         matches = [call for call in title_calls if call.source == title]
@@ -478,14 +543,51 @@ def _allowed_call_starts(text: str, section_path: str, titles: list[str]) -> set
     anchor_offsets = [anchor.start for anchor in anchors]
     if anchor_offsets != sorted(anchor_offsets):
         raise PreflightFailure("declared anchor order does not equal file order")
-    allowed: set[int] = set()
+    allowed: list[Call] = []
     for anchor in anchors:
         boundary = min(
             [next_section]
             + [title.start for title in title_calls if title.start > anchor.start]
         )
-        allowed.update(call.start for call in section_calls if anchor.start <= call.start < boundary)
+        allowed.extend(call for call in section_calls if anchor.start <= call.start < boundary)
     return allowed
+
+
+def _allowed_call_starts(text: str, section_path: str, titles: list[str]) -> set[int]:
+    return {call.start for call in _allowed_calls(text, section_path, titles)}
+
+
+def _tokenize_args_order_disclosures(context: str) -> tuple[tuple[str, ...], bool]:
+    """Tokenize standalone args_order disclosures and flag malformed occurrences."""
+    prefix = "args_order="
+    tokens: list[str] = []
+    malformed = False
+    cursor = 0
+    while True:
+        occurrence = context.find(prefix, cursor)
+        if occurrence < 0:
+            break
+        if occurrence > 0 and _is_ident_part(context[occurrence - 1]):
+            malformed = True
+            cursor = occurrence + len(prefix)
+            continue
+        literal_start = occurrence + len(prefix)
+        if literal_start >= len(context) or context[literal_start] != "{":
+            malformed = True
+            cursor = literal_start
+            continue
+        literal_end = context.find("}", literal_start + 1)
+        if literal_end < 0:
+            malformed = True
+            cursor = literal_start + 1
+            continue
+        if literal_end + 1 < len(context) and _is_ident_part(context[literal_end + 1]):
+            malformed = True
+            cursor = literal_end + 1
+            continue
+        tokens.append(context[occurrence : literal_end + 1])
+        cursor = literal_end + 1
+    return tuple(tokens), malformed
 
 
 def run_preflight(
@@ -501,19 +603,53 @@ def run_preflight(
         payload = _read_json(Path(payload_path), "payload")
         sources = _validate_payload(payload)
         scopes, _ = _validate_scope(scope, root)
-        in_scope_sources: set[str] = set()
+        in_scope_calls: list[Call] = []
         for anchor_scope in scopes:
             path = root / anchor_scope["file"]
             try:
                 text = path.read_text(encoding="utf-8")
             except (OSError, UnicodeError) as error:
                 raise InputError(f"cannot read scoped Lua file: {error}") from error
-            starts = _allowed_call_starts(text, anchor_scope["section_path"], anchor_scope["ordered_titles"])
-            _, calls = _scan_lua(text)
-            in_scope_sources.update(call.source for call in calls if call.start in starts)
-        missing = [source for source in sources if source not in in_scope_sources]
+            in_scope_calls.extend(
+                _allowed_calls(text, anchor_scope["section_path"], anchor_scope["ordered_titles"])
+            )
+        missing = [
+            source
+            for source in sources
+            if not any(call.source == source for call in in_scope_calls)
+        ]
         if missing:
             raise PreflightFailure("snapshot source is absent from declared anchor windows: " + repr(missing[0]))
+        contexts = payload["bounded_context"]
+        for index, (revision_key, source) in enumerate(zip(payload["ordered_revision_keys"], sources)):
+            matching_calls = [call for call in in_scope_calls if call.source == source]
+            args_orders = {call.args_order for call in matching_calls}
+            if len(args_orders) > 1:
+                raise PreflightFailure(
+                    f"revision key {revision_key!r} has differing in-window args_order values; "
+                    "expected one consistent args_order={...} token"
+                )
+            args_order = next(iter(args_orders))
+            context = contexts[index]["context"]
+            disclosure_tokens, malformed_disclosure = _tokenize_args_order_disclosures(context)
+            if args_order is None:
+                if malformed_disclosure or disclosure_tokens:
+                    raise PreflightFailure(
+                        f"revision key {revision_key!r} must not contain any args_order= token "
+                        "when the expected token is absent"
+                    )
+                continue
+            expected_token = f"args_order={args_order}"
+            if malformed_disclosure or any(token != expected_token for token in disclosure_tokens):
+                raise PreflightFailure(
+                    f"revision key {revision_key!r} bounded_context.context must contain "
+                    f"only the exact expected token {expected_token!r}"
+                )
+            if expected_token not in disclosure_tokens:
+                raise PreflightFailure(
+                    f"revision key {revision_key!r} bounded_context.context must contain "
+                    f"the exact expected token {expected_token!r}"
+                )
     except PreflightFailure as error:
         return PreflightResult("PREFLIGHT_FAILED", (str(error),))
     except (InputError, OSError, ValueError) as error:

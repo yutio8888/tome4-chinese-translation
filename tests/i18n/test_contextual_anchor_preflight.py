@@ -169,6 +169,25 @@ class ContextualAnchorPreflightTests(unittest.TestCase):
             "translation_snapshot": [{"revision_key": "r1", "source": "inside", "target": "译文"}]
         })
 
+    def _run_args_order_case(self, fourth_argument: str, context: str) -> preflight.PreflightResult:
+        temporary, root, scope, payload = self._workspace()
+        with temporary:
+            (root / "story.lua").write_text(
+                'section "story"\n'
+                't("Book [Book 9, Chapter 1] - One", "", "_t")\n'
+                f't("inside", "", "_t"{fourth_argument})\n'
+                't("Book [Book 9, Chapter 2] - Two", "", "_t")\n',
+                encoding="utf-8",
+            )
+            self._write_valid_pair(scope, payload)
+            value = self._payload("envelope_good.json")
+            value["translation_snapshot"] = [
+                {"revision_key": "r1", "source": "inside", "target": "译文"}
+            ]
+            value["bounded_context"] = [{"revision_key": "r1", "context": context}]
+            self._write(payload, value)
+            return preflight.run_preflight(scope, payload, workspace_root=root)
+
     def test_empty_ordered_titles_verifies_whole_untitled_section(self) -> None:
         temporary, root, scope, payload = self._untitled_workspace()
         with temporary:
@@ -230,6 +249,111 @@ class ContextualAnchorPreflightTests(unittest.TestCase):
             result = preflight.run_preflight(scope, payload, workspace_root=root)
             self.assertEqual(result.status, "PREFLIGHT_FAILED")
             self.assertEqual(result.exit_code, 1)
+
+    def test_args_order_disclosure_verifies_matching_canonical_token(self) -> None:
+        result = self._run_args_order_case(", {2,1}", "args_order={2,1}")
+        self.assertEqual(result.status, "PREFLIGHT_VERIFIED")
+        self.assertEqual(result.exit_code, 0)
+
+    def test_args_order_disclosure_missing_token_fails(self) -> None:
+        result = self._run_args_order_case(", {2,1}", "")
+        self.assertEqual(result.status, "PREFLIGHT_FAILED")
+        self.assertIn("revision key 'r1'", result.errors[0])
+        self.assertIn("args_order={2,1}", result.errors[0])
+
+    def test_args_order_token_without_call_args_order_fails(self) -> None:
+        result = self._run_args_order_case("", "args_order={2,1}")
+        self.assertEqual(result.status, "PREFLIGHT_FAILED")
+        self.assertIn("revision key 'r1'", result.errors[0])
+        self.assertIn("args_order=", result.errors[0])
+
+    def test_args_order_disclosure_wrong_token_fails(self) -> None:
+        result = self._run_args_order_case(", {2,1}", "args_order={1,2}")
+        self.assertEqual(result.status, "PREFLIGHT_FAILED")
+        self.assertIn("args_order={2,1}", result.errors[0])
+
+    def test_args_order_prefixed_disclosure_fails(self) -> None:
+        result = self._run_args_order_case(", {2,1}", "previous_args_order={2,1}")
+        self.assertEqual(result.status, "PREFLIGHT_FAILED")
+
+    def test_args_order_correct_plus_wrong_disclosures_fail(self) -> None:
+        result = self._run_args_order_case(", {2,1}", "args_order={2,1} args_order={1,2}")
+        self.assertEqual(result.status, "PREFLIGHT_FAILED")
+
+    def test_args_order_longer_value_disclosure_fails(self) -> None:
+        result = self._run_args_order_case(", {2,1}", "args_order={2,1,3}")
+        self.assertEqual(result.status, "PREFLIGHT_FAILED")
+
+    def test_args_order_malformed_disclosure_fails(self) -> None:
+        for context in ("args_order=wrong", "args_order={2,1"):
+            with self.subTest(context=context):
+                result = self._run_args_order_case(", {2,1}", context)
+                self.assertEqual(result.status, "PREFLIGHT_FAILED")
+
+    def test_args_order_disclosure_with_suffix_fails(self) -> None:
+        result = self._run_args_order_case(", {2,1}", "args_order={2,1}suffix")
+        self.assertEqual(result.status, "PREFLIGHT_FAILED")
+
+    def test_args_order_disclosure_with_underscore_suffix_fails(self) -> None:
+        result = self._run_args_order_case(", {2,1}", "args_order={2,1}_suffix")
+        self.assertEqual(result.status, "PREFLIGHT_FAILED")
+
+    def test_args_order_explicit_nil_is_treated_as_absent(self) -> None:
+        result = self._run_args_order_case(", nil", "")
+        self.assertEqual(result.status, "PREFLIGHT_VERIFIED")
+        _, calls = preflight._scan_lua('t("inside", "", "_t", nil)')
+        self.assertIsNone(calls[0].args_order)
+
+    def test_args_order_malformed_fourth_argument_is_input_error(self) -> None:
+        for fourth_argument in (
+            "identifier", "{1, {2}}", "{1.0}", "{-1}", "{0}", "{}"
+        ):
+            with self.subTest(fourth_argument=fourth_argument):
+                with self.assertRaises(preflight.InputError):
+                    preflight._scan_lua(f't("inside", "", "_t", {fourth_argument})')
+                result = self._run_args_order_case(", " + fourth_argument, "")
+                self.assertEqual(result.status, "INPUT_ERROR")
+
+    def test_args_order_spaces_canonicalize_and_verify(self) -> None:
+        _, calls = preflight._scan_lua('t("inside", "", "_t", { 2, 1 })')
+        self.assertEqual(calls[0].args_order, "{2,1}")
+        result = self._run_args_order_case(", { 2, 1 }", "args_order={2,1}")
+        self.assertEqual(result.status, "PREFLIGHT_VERIFIED")
+
+    def test_args_order_lua_separators_scan_and_verify(self) -> None:
+        for fourth_argument in ("{2;1}", "{2,1,}"):
+            with self.subTest(fourth_argument=fourth_argument):
+                _, calls = preflight._scan_lua(
+                    f't("inside", "", "_t", {fourth_argument})'
+                )
+                self.assertEqual(calls[0].args_order, "{2,1}")
+                result = self._run_args_order_case(", " + fourth_argument, "args_order={2,1}")
+                self.assertEqual(result.status, "PREFLIGHT_VERIFIED")
+
+    def test_differing_in_window_args_order_values_fail_closed(self) -> None:
+        temporary, root, scope, payload = self._workspace()
+        with temporary:
+            (root / "story.lua").write_text(
+                'section "story"\n'
+                't("Book [Book 9, Chapter 1] - One", "", "_t")\n'
+                't("inside", "", "_t", {2,1})\n'
+                't("inside", "", "_t", {1,2})\n'
+                't("Book [Book 9, Chapter 2] - Two", "", "_t")\n',
+                encoding="utf-8",
+            )
+            self._write_valid_pair(scope, payload)
+            value = self._payload("envelope_good.json")
+            value["translation_snapshot"] = [
+                {"revision_key": "r1", "source": "inside", "target": "译文"}
+            ]
+            value["bounded_context"] = [
+                {"revision_key": "r1", "context": "args_order={2,1}"}
+            ]
+            self._write(payload, value)
+            result = preflight.run_preflight(scope, payload, workspace_root=root)
+            self.assertEqual(result.status, "PREFLIGHT_FAILED")
+            self.assertIn("revision key 'r1'", result.errors[0])
+            self.assertIn("args_order={...}", result.errors[0])
 
     def test_nonempty_ordered_titles_explicit_anchor_regression_remains_verified(self) -> None:
         temporary, root, scope, payload = self._workspace()
@@ -430,7 +554,7 @@ class ContextualAnchorPreflightTests(unittest.TestCase):
         text = (
             't("before") .. t("Book [Book 9, Chapter 1] - Found", -- comment\n'
             '  "", [[_t]])\n'
-            't("after", {key = [=[a ) b]=]}, "", "_t")\n'
+            't("after", {key = [=[a ) b]=]}, "")\n'
             'value ... t("after ellipsis")\n'
         )
         _, calls = preflight._scan_lua(text)
