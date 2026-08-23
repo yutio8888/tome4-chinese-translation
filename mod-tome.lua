@@ -25976,7 +25976,7 @@ t("Infusion: Wild", "纹身：野性", "talent name")
 t("%s is cured!", "%s 被治愈！", "logSeen")
 t(" and ", "和", "_t")
 t([[Activate the infusion to cure yourself of one random %s effect and reduce all damage taken by %d%% for %d turns.
-Also removes cross-tier effects of the affected types for free.]], [[激活纹身解除你随机一个 %s 效果并减少所有伤害 %d%% 持续 %d 回合。
+Also removes cross-tier effects of the affected types for free.]], [[激活纹身解除你随机一个 %s 效果并减少受到的所有伤害 %d%%，持续 %d 回合。
 同时除去对应类型的越层效果（失去平衡、法术冲击和思维封锁）。]], "tformat")
 t("res %d%%; %s; dur %d; cd %d", "减伤 %d%%; 解除 %s; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Primal", "纹身：原初", "talent name")
