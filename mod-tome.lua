@@ -26080,7 +26080,7 @@ t([[Activate the rune to instantly dissipate the energy of your ailments, cleans
 		If there were only cross-tier effects to cleanse, no shield is created and the rune goes on a 75%% reduced cooldown.]], [[激活符文，立刻清除你身上的负面效果。
 		清除所有越层效果（失去平衡、法术冲击和思维封锁），以及物理、精神和魔法负面效果各 1 个。
 		你会获得一个护盾，持续 %d 回合，每清除一个非越层负面效果可抵挡 %d 点伤害。
-		如果只清除了越层效果，不会产生护盾且冷却时间减少75%%。]], "tformat", {2,1})
+		如果只清除了越层效果，不会产生护盾且冷却时间减少75%%。]], "tformat")
 t("absorb %d; cd %d", "吸收 %d; 冷却 %d", "tformat")
 t("Rune: Dissipation", "符文：消散", "talent name")
 t("Activate the rune to remove 8 beneficial magical sustains from an enemy target or all magical debuffs from you.", "激活这个符文，从敌人身上移除 8 个正面魔法持续技能，或从自己身上移除所有魔法负面效果。", "tformat")
