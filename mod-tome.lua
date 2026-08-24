@@ -5486,7 +5486,7 @@ t([[Please save me! I will make it worth your whi..
 *#LIGHT_GREEN#刺客领主猛抽了一下他的脸。#WHITE#*闭嘴！]], "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_lost-merchant")
 t("Please get me out of here!", "请带我离开这儿！", "_t")
-t("Come, there is a way out!", "跟我来，这里有条路可以出去!", "_t")
+t("Come, there is a way out!", "跟我来，这里有条路可以出去！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/lumberjack-quest-done.lua"
@@ -5495,9 +5495,9 @@ t([[#LIGHT_GREEN#*Ben lies defeated at your feet*#WHITE#
 T...thank you for... *cough*... saving me from the curse.
 I did no... not want for this to...
 #LIGHT_GREEN#*he coughs one last time and dies, a smile on his face as his curse is gone.*#WHITE#]], [[#LIGHT_GREEN#*本恩倒在你的脚下。*#WHITE#
-感谢你把我从诅咒之中解脱出来……“咳咳”
-我并不想……像这样……。
-#LIGHT_GREEN#*他最后咳嗽了一声，死了。他的脸上带着笑容，诅咒终于从他的身上消失了。*#WHITE#]], "_t")
+谢……谢谢你……*咳嗽*……救我摆脱了诅咒。
+我不……不想让事情变成……
+#LIGHT_GREEN#*他最后咳嗽一声，含笑死去，诅咒终于消散。*#WHITE#]], "_t")
 t("Rest in peace.", "安息吧。", "_t")
 
 ------------------------------------------------
@@ -5506,7 +5506,7 @@ section "mod-tome/data/chats/lumberjack-quest.lua"
 t([[#LIGHT_GREEN#*Before you stands a man covered in dirt and blood. He is out of breath and half mad.*#WHITE#
 PLEASE! You must help! #{bold}#IT#{normal}# is slaughtering everybody in my village! Please!
 #LIGHT_GREEN#*He points his finger at the nearby forest.*#WHITE#]], [[#LIGHT_GREEN#*在你面前站着一个满身是血和污泥的男人。他上气不接下气，失魂落魄。*#WHITE#
-救命！求你救救我们！#{bold}#它#{normal}#正在屠杀所有村子里的人！求求你！
+救命！求你救救我们！#{bold}#它#{normal}#正在屠杀我们村里的所有人！求求你！
 #LIGHT_GREEN#*他伸手指着附近的树林。*#WHITE#]], "_t")
 t("I will go there and see what I can do.", "我去看看我能做什么。", "_t")
 t("This is not my problem. Go away!", "和我没关系，闪开！", "_t")
@@ -5517,51 +5517,51 @@ section "mod-tome/data/chats/mage-apprentice-quest.lua"
 t([[#LIGHT_GREEN#*Before you stands a young man, a novice mage by his looks*#WHITE#
 Good day to yo...#LIGHT_GREEN#*He stares at you and starts to run away fast!*#WHITE#
 Do not kill me please!]], [[#LIGHT_GREEN#*在你面前站着一个年轻人，看上去像是一个法师学徒。*#WHITE#
-你好……#LIGHT_GREEN#*他盯着你看了一会，然后撒腿就跑！*#WHITE#
+你好……#LIGHT_GREEN#*他盯着你，随即撒腿就跑！*#WHITE#
 请不要杀我！]], "_t")
 t("...", "……", "_t")
 t([[#LIGHT_GREEN#*Before you stands a young man, a novice mage by his looks*#WHITE#
 Good day to you, fellow traveler!]], [[#LIGHT_GREEN#*在你面前站着一个年轻人，看上去像是一个法师学徒。*#WHITE#
 你好啊，旅行者！]], "_t")
-t("What brings an apprentice mage out into the wilds?", "一个法师学徒在荒郊野外干什么？", "_t")
+t("What brings an apprentice mage out into the wilds?", "你一个法师学徒，怎么会跑到荒野里来？", "_t")
 t("I found this artefact; it looks powerful and arcane infused. Maybe it would be enough?", "我发现了这件充满奥术能量的神器，看上去很强大，应该够了吧？", "_t")
-t("So you have enough magical items now?", "你找到足够的魔法物品了吗？", "_t")
+t("So you have enough magical items now?", "这么说，你现在已经有足够的魔法物品了？", "_t")
 t("Sorry I have to go!", "抱歉，我必须得走了。", "_t")
 t("Ahh, my story is a sad one... I should not trouble you with it, my friend.", "啊，我的故事说来让人伤心……算了，我不应该打扰你的，我的朋友。", "_t")
 t("It is no trouble at all! Please tell me!", "没关系的，告诉我吧！", "_t")
 t("Ok, bye then!", "好的，那么再见。", "_t")
 t([[Well, if you insist...
 I am a novice mage, as you might have noticed, and my goal is to be accepted by the people of Angolwen and be taught the secrets of the arcane.]], [[好吧，假如你坚持的话……
-我是个法师学徒，你可能已经看出来了。我的目标是被安格利文的人接纳然后他们教给我奥术的秘密。]], "_t")
-t("Who are the people of Angolwen?", "安格利文的人是谁？", "_t")
-t("Ah yes, Angolwen, I have called it home for many years...", "啊，对的，安格利文，很多年来我一直称呼它为我的家……", "_t")
+我是个法师学徒，你可能已经看出来了。我的目标是得到安格利文人的接纳，向他们学习奥术的秘密。]], "_t")
+t("Who are the people of Angolwen?", "安格利文人是什么人？", "_t")
+t("Ah yes, Angolwen, I have called it home for many years...", "啊，安格利文，我多年来一直把那里当作家……", "_t")
 t("Well, good luck, bye!", "那么，祝你好运，再见！", "_t")
 t([[The keepers of ar... err, I do not think I am supposed to talk about them... sorry, my friend...
-In any case, I must collect many items. I have some already but I am still looking for an arcane-infused artefact. You do not happen to have one, I imagine... Well, if you do, tell me please!]], [[他们是世界上仅存的法……唉呀，我好像说了什么不该说的话……抱歉，我的朋友……
-无论如何，我必须得搜集些物品。这些都没问题了，不过我还需要找到一件充满奥术能量的神器。我想你不会恰巧有一件吧……当然如果你有的话，请告诉我！]], "_t")
+In any case, I must collect many items. I have some already but I am still looking for an arcane-infused artefact. You do not happen to have one, I imagine... Well, if you do, tell me please!]], [[他们守护着奥……呃，我好像不该谈论他们……抱歉，我的朋友……
+无论如何，我必须收集许多物品。我已经有了一些，但还在寻找一件充满奥术能量的神器。我想你不会碰巧有一件吧……嗯，要是你有，请一定告诉我！]], "_t")
 t("I will keep that in mind!", "好的，我记住了！", "_t")
 t("No way, bye!", "算了吧，再见！", "_t")
 t([[I hope I will too...
-In any case, I must collect many items. I have some already but I am still looking for an arcane-infused artefact. You do not happen to have one, I imagine... Well, if you do, tell me please!]], [[我希望我也是……
-无论如何，我必须得搜集些物品。这些都没问题了，不过我还需要找到一件充满奥术能量的神器。我想你不会恰巧有一件吧……当然如果你有的话，请告诉我！]], "_t")
+In any case, I must collect many items. I have some already but I am still looking for an arcane-infused artefact. You do not happen to have one, I imagine... Well, if you do, tell me please!]], [[我也希望有朝一日能把那里当作家……
+无论如何，我必须收集许多物品。我已经有了一些，但还在寻找一件充满奥术能量的神器。我想你不会碰巧有一件吧……嗯，要是你有，请一定告诉我！]], "_t")
 t([[Let me examine it.
-Oh yes, my friend, this is indeed a powerful artefact! I think that it should suffice to complete my quest! Many thanks!]], [[让我试试看。
-喔，是的，我的朋友，的确是一件强力神器！我想就凭这个我应该可以交差了！非常感谢！]], "_t")
-t("Well, I cannot use it anyway.", "好的，对我来说没什么用。", "_t")
+Oh yes, my friend, this is indeed a powerful artefact! I think that it should suffice to complete my quest! Many thanks!]], [[让我仔细看看。
+哦，没错，我的朋友，这确实是一件强大的神器！我想有了它就足以完成我的任务了！万分感谢！]], "_t")
+t("Well, I cannot use it anyway.", "反正我也用不上它。", "_t")
 t([[Ah yes! I am so glad! I will be able to go back to Angolw...err... Oh well, I guess I can tell you; you deserve it for helping me.
 During the dark years of the Spellhunt, many thousands of years ago, Linaniil, the great mage of the Kar'Krul, worried that magic might disappear with her generation and be lost to mortals should they need it again.
 So she set a secret plan into action and built a secret place where magic would be kept alive.
 Her plan worked and the group built a town called Angolwen in the western mountains. #LIGHT_GREEN#*He marks it on your map, along with a portal to access it*#WHITE#
-Not many people are accepted there but I will arrange for you to be allowed inside.]], [[啊，太棒了！我终于可以重新返回安格利…，呃……你帮了我这么多，我想我应该告诉你真相了。
-几千年前，在魔法狩猎的那些黑暗年代里，卡库罗尔的大法师莱娜尼尔，担心魔法会在她们那一代人身上灭绝，人们需要的这些魔法会从这个世界上消失。
-于是她秘密安置了一个隐秘的地方继续传承魔法。
-她执行了她的计划，她手下的人在西部的群山之中建立了一个叫做安格利文的小镇。#LIGHT_GREEN#*他在你的地图上做了一个记号，然后为你开启了一个传送门。*#WHITE#
-只有少部分人会被那里的人接受，我会想办法让你进去的。]], "_t")
-t("Oh! How could such a place be kept secret for so long... This is interesting indeed. Thank you for your trust!", "哦！这个秘密的地方怎么能保持隐秘这么长时间，真的很有趣，谢谢你对我的信任。", "_t")
+Not many people are accepted there but I will arrange for you to be allowed inside.]], [[啊，太棒了！我终于可以回到安格利……呃……好吧，我想我可以告诉你；你帮了我，理应知道这些。
+几千年前，在魔法狩猎的黑暗年代，卡·克鲁尔的大法师莱娜尼尔担心魔法会随她那一代一同消失，日后凡人再需要时便无从寻觅。
+于是她秘密实施了一项计划，建造了一处隐秘之地，让魔法得以传承。
+她的计划成功了，众人在西部群山中建起了一座名为安格利文的小镇。#LIGHT_GREEN#*他在你的地图上标出小镇及其入口传送门的位置。*#WHITE#
+能获准进入那里的人不多，但我会安排让你进去。]], "_t")
+t("Oh! How could such a place be kept secret for so long... This is interesting indeed. Thank you for your trust!", "哦！这样的地方怎么能保密这么久……确实很有意思。谢谢你信任我！", "_t")
 t([[Ah yes! I am so glad! I will be able to go back to Angolwen now, and perhaps we will meet there.
 Please take this ring; it has served me well.]], [[啊，太棒了！我终于可以回到安格利文了，也许我们会在那里再次见面。
-请收下这枚戒指，曾经它对我很有用。]], "_t")
-t("Thanks, and best luck in your studies!", "谢谢，祝你好运！", "_t")
+请收下这枚戒指，它帮了我不少忙。]], "_t")
+t("Thanks, and best luck in your studies!", "谢谢，也祝你学业顺利！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/magic-store.lua"
