@@ -26,6 +26,25 @@ ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 角色完成。门�
 
 Paseo 角色行为、最小规则、任务记录格式和外发边界的完整定义见 `docs/paseo-orchestration-v2-contract.md`；本文件只保留启用条件与不变量。
 
+### 子 agent 终态判定不变量
+
+判定 child 挂起、调用 stop／cancel 或宣布任何故障结论之前，必须先取得可核验的事实，
+不得只凭单一 `status` 字段或某个字段长时间未变就下结论：
+
+- 传输状态面可能过期。除 `status` 外还要读 `attentionReason`／`attentionTimestamp` 与
+  activeTurn（为空表示没有进行中的运行），并在动作前重新查询一次。
+- 必须检查工作树：`git status --short` 与 `git diff --stat`。未产出任何改动的 EXECUTOR
+  留下空 diff，这一条即可区分「什么都没做」与「做到一半卡住」。
+- 只有在重新查询后确认仍有进行中的运行且无进展时，才可按挂起处理；字段陈旧本身不是挂起证据。
+
+EXECUTOR 结束但未产出工作成果（无 diff、无报告，或只回了计划／进度说明）时，该次
+dispatch 的输出无效：按单次运行规则先归档，再创建 fresh retry child，保持相同 role、
+purpose、workspace 与 lineage。已结束的 child 即使仍为 idle 且尚未归档，也不得发送
+follow-up 续跑——一次运行结束就不是可继续的会话。
+
+任何已写入记录的故障归因一旦被事实推翻，必须在同一轮立即更正记录并向用户说明，
+不得让已撤回的诊断留在 STATE、review 记录或交接文档中。
+
 ## 汉化工具入口
 
 - 自动化统一使用 `python3 -B tools/i18n <command>`；首次运行执行 `doctor`，译文修改后执行 `lint`。工具与报告只在任务允许的边界内工作，派生文件写入已忽略的 `.artifacts/i18n/`。

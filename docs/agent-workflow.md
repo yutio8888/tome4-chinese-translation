@@ -24,6 +24,25 @@ python3 -B tools/i18n doctor
 
 每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
 
+### 子 agent 状态取证（宣布挂起或取消之前）
+
+委托给子 agent 时，传输状态面的字段可能过期，单一 `status` 不足以判定终态。宣布挂起、
+调用 stop／cancel 或写下任何故障归因之前，按顺序取证：
+
+```bash
+# 1) 重新查询一次实时状态：除 status 外读 attentionReason／attentionTimestamp 与 activeTurn
+#    activeTurn 为空 = 没有进行中的运行 = 已结束，不是挂起
+# 2) 检查工作树：未产出改动的 EXECUTOR 留下空 diff
+git status --short
+git diff --stat
+```
+
+只有重新查询后仍确认有进行中的运行且无进展，才按挂起处理。字段长时间未更新本身不是挂起
+证据。跳过工作树检查而得出的故障结论无效，必须撤回并更正记录。
+
+EXECUTOR 结束却没有工作成果（无 diff、无报告，或只回了计划／进度说明）时，该次 dispatch
+输出无效：先归档，再创建 fresh retry；不得向已结束的 child 发送 follow-up 续跑。
+
 涉及 evidence-citing candidate 时，先用 `python3 -B tools/review_evidence.py inventory` 从 `.ai/reviews/` 源记录生成原始 finding 清单，再用 `check` 校验 proposer 的 `EVIDENCE-RECONCILIATION.json`；用 `render` 派生计数，不手填 counts。reviewer 仍须直接核对引用和未列出的相关记录。
 
 ## 批次门禁

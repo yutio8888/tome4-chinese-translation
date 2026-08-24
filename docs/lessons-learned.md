@@ -121,3 +121,38 @@ tests/i18n/test_toolchain.py`），**全绿后再提交**；失败则修复后�
 `ldd` 解析 Node 的精确动态库闭包，对 Node 可执行文件和每个解析出的绝对库文件逐个
 流式计算摘要。不得遍历整个 `/usr/bin` 或 `/usr`，也不得只记录版本字符串；无法解析
 闭包或出现 `not found` 时继续失败关闭。
+
+## 11. 传输状态面陈旧字段导致的误判挂起（2026-08-24，p2-tome-texts-b25）
+
+**场景**：b25 的 EXECUTOR 派发后，宿主轮询显示 `status: running`、activeTurn 非空，而
+`updatedAt` 已约 34 分钟未变，output token 仅数百。
+
+**事故**：宿主据此断定 child「卡在一条引号不闭合的 shell 命令上」，并据该结论准备
+`cancel_agent`。该诊断被用户拒绝后，child 随即自行结束——它其实在派发后约 2 分钟就已结束，
+只回了一段「前置检查已完成，接下来再开始改」的进度说明，没有做任何修改。`status: running`
+与陈旧的 `updatedAt` 是过期状态，`attentionReason: "finished"` 才是事实。宿主又把 child 的
+工具轨迹倒推去支持已经形成的假设，把一条正常的 `rg` 命令读成了挂起原因。
+
+**根因**：只读单一 `status` 字段就下结论；未读 `attentionReason`／activeTurn；未检查工作树。
+一个什么都没做的 EXECUTOR 会留下空 `git diff`——这条最便宜的证据可以直接证伪「做到一半卡住」，
+却被跳过。
+
+**正确做法**：宣布挂起、调用 stop／cancel 或写下任何故障归因之前，按顺序取证：
+
+```bash
+# 1) 重新查询一次实时状态：读 attentionReason／attentionTimestamp 与 activeTurn
+#    activeTurn 为空 = 没有进行中的运行 = 已结束，不是挂起
+# 2) 检查工作树
+git status --short
+git diff --stat
+```
+
+字段长时间未更新本身不是挂起证据。EXECUTOR 结束却无工作成果（无 diff、无报告，或只回了
+计划／进度说明）时输出无效：先归档，再创建 fresh retry；已结束的 child 即使仍为 idle 且未
+归档也不得发 follow-up 续跑。已写入的故障归因被推翻时，必须同一轮更正 STATE 与
+`child_dispatches.last_error` 并向用户说明。
+
+规则已写入 [`AGENTS.md`](../AGENTS.md)、
+[`docs/paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md) 第七节、
+[`.ai/roles/orchestrator.md`](../.ai/roles/orchestrator.md) 与
+[`docs/agent-workflow.md`](agent-workflow.md)。

@@ -193,6 +193,19 @@ PASEO 状态面无法暴露可验证 parent lineage 时，停止该 child 并进
 或创建 successor；已归档 child 不得 resume 或 send follow-up。无效输出同样先归档，再
 创建 fresh retry。
 
+判定挂起或调用 stop／cancel 前必须先做一次有界终态取证：重新查询一次实时状态，读
+`attentionReason`／`attentionTimestamp` 与 activeTurn（为空即没有进行中的运行，属于已结束
+而非挂起），再看工作树 `git status --short` 与 `git diff --stat`。未产出改动的 EXECUTOR 留下
+空 diff，据此区分「结束但未产出」与「运行中卡住」。只有重新查询后仍确认有进行中的运行且
+无进展，才按挂起处理。单一 status 字段或某字段长时间未更新都不构成挂起证据。
+
+EXECUTOR 结束却没有工作成果（无 diff、无报告，或只回了计划／进度说明）时输出无效：先归档，
+再创建 fresh retry child，保持相同 role、purpose、workspace、lineage 与候选绑定。已结束的
+child 即使仍为 idle 且未归档也不得 send follow-up 续跑。
+
+已记录的故障归因被推翻时，同一轮内立即更正 STATE 与 `child_dispatches.last_error`，写明实际
+终态并向用户说明，不得留存已撤回的诊断。
+
 ### SCOUT 源码侦察
 
 需要源码核验但希望并行委托时，创建 fresh SCOUT，labels 含 task_id、role=scout 和

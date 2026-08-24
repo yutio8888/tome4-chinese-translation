@@ -507,6 +507,26 @@ role、purpose、workspace、lineage 和 candidate binding。
 仍不可确认时继续停留 `WAIT_USER`，直到用户解决外部归档状态并确认归档；在此前不得进入
 `STOP`。
 
+判定挂起或调用 stop／cancel 之前，ORCHESTRATOR 必须先完成一次有界的终态取证，不得只凭
+单一 `status` 字段，也不得只凭某字段长时间未更新就断定挂起：
+
+1. 重新查询一次实时状态，并同时读取 `attentionReason`／`attentionTimestamp` 与 activeTurn；
+   activeTurn 为空表示没有进行中的运行，此时 child 已结束，不属于挂起。
+2. 检查工作树（`git status --short` 与 `git diff --stat`）。未产出任何改动的 EXECUTOR 留下空
+   diff；该证据用于区分「结束但未产出」与「运行中卡住」，并确认是否有可收获的成果。
+3. 只有在重新查询后仍确认存在进行中的运行且无进展时，才按挂起处理并进入 stop／cancel 流程。
+
+传输状态面的字段可能过期；陈旧字段本身不是挂起证据，也不是取消的理由。取证顺序颠倒或跳过
+工作树检查而做出的故障结论无效，必须撤回。
+
+child 结束但输出无效——包括 EXECUTOR 未产出任何改动、未给出报告，或只回了计划／进度说明
+——时，按本节的无效输出处理：先归档，再创建 fresh retry child，保持相同 role、purpose、
+workspace、parent lineage 与候选绑定。已结束的运行不是可继续的会话：即使 child 仍为 idle 且
+尚未归档，也不得对其发送 follow-up 让它续跑，也不得据此跳过归档。
+
+已写入 STATE、`child_dispatches.last_error` 或 review 记录的故障归因被事实推翻时，必须在同一
+轮立即更正该记录，写明实际终态与撤回的结论，并向用户说明；不得让已撤回的诊断继续留存。
+
 用户取消或需要停止仍在运行的 child 时，必须先执行 CLI 的 `paseo stop` 或 MCP 的
 `cancel_agent`，然后重新 inspect 并确认其状态已经是终态（包括明确的 cancelled／stopped
 终态）；未确认终态不得 harvest、archive、phase transition 或创建 replacement。stop／cancel
