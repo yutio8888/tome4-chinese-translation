@@ -14,8 +14,14 @@
 - b22：`lost-merchant.lua`、`lumberjack-quest-done.lua`、`lumberjack-quest.lua`、`mage-apprentice-quest.lua` 共 33 条，提交 `6bcf55b`，修订 18 条 target。冻结工作集恢复为受跟踪的 `evidence/quality/p2-batches/p2-tome-texts-b22-lost-merchant-lumberjack-mage.json`（b19–b21 曾只留在忽略的 `.ai/`），33/33 英文键按固定 commit `624a673` 逐条字节核验，窗口内无 `args_order`。
 - b22 主要修正：安格利文揭示处原译「为你开启了一个传送门」与固定源码不符——`access_angolwen` 放置城镇与入口传送门地形并 `locationRevealAround`，实为在地图上标出而非开启通路；`everybody in my village` 曾被译成「所有村子里的人」；学徒两个分支的「已收集到一些物品」与「祝你学业顺利」的 studies 从句均曾遗漏；本恩临终的结巴与未尽之言被抹平。`Kar'Krul` 批内统一为「卡·克鲁尔」，与同文件另一处及 `unlock-mage.lua` 一致，不做全局替换（`lore/elvala.lua` 仍为「卡库罗尔」）。
 - b22 复审：两轮 `translation_contextual_v1` 全量复审同一冻结集，身份 `471b63ef…`（ctx-01，32/33 `OK`）与 `f2b42ddc…`（ctx-02，32/33 `OK`）。两轮就同一条 `b22-24`「The keepers of ar...」给出相互矛盾的意见（ctx-01 要求补回 keeper 关系，ctx-02 反对补回后的动词化形式）；按本文档规则升级维护者裁决，维护者选择保留「他们守护着奥……」，记为 advisory 未改。五步门禁、完整 `tools/ci-gates.sh`（12/12，含构建）、契约检查与 `DONE_VERIFIED` 均通过。
+- b23：`magic-store.lua`、`melinda-beach-end.lua`、`melinda-beach.lua`、`melinda-fortress.lua` 共 40 条，提交 `f8d8504`，修订 19 条 target。冻结集 `evidence/quality/p2-batches/p2-tome-texts-b23-magic-store-melinda.json`，40/40 英文键按 `624a673` 字节核验，窗口内无 `args_order`。
+- b23 主要修正：`that tank` 原译「通道」与固定源码不符——`shertul-fortress-butler.lua` 说明梅琳达每天需在 `regeneration tank` 中治疗八小时，应为「再生槽」，旧译并漏掉每晚回来接受治疗；`I want to train at Zigur?` 误用阵营名「伊格兰斯」，`Zigur` 是地点「伊格」（`terminology/places.tsv`），这是全文件唯一偏离（其余 45 处均正确区分）；`Shadow` 原为「堡垒幻影」，全文其余 9 处均作「堡垒之影」；`We will find a cure` 漏掉治愈目标，而同段伊格兰斯分支保留了「治好你」；`still tainted` 曾误作「肯定」且漏译 `foul`，`raving zealots` 曾夸大为「杀人狂魔」，`I had no idea this would happen` 整句遗漏，沙滩叙述凭空添加阳光与「五颜六色」。另统一了中文文本内的半角 `!?,...`。
+- b23 保留项：magic store 的欢迎语与范围外 `jewelry-store.lua` 共用英文键且两处译文一致，单改一侧会拆散共享运行时键，故按 `docs/runtime-key-collisions.md` 保留。
+- b23 复审：两轮全量复审，`20b80a8d…`（ctx-01，39/40）与 `09224ef4…`（ctx-02，40/40 `OK`）。五步门禁、完整 `tools/ci-gates.sh`（12/12，含构建）与 `DONE_VERIFIED` 均通过。
+- **教训：复用上一批的 envelope builder 时必须改 revision key 前缀。** b23 的 ctx-01 冻结集沿用了 b22 的 `b22-` 前缀，虽不影响正确性（payload／envelope／返回值内部一致，preflight 通过），但会与上一批的 key 命名空间冲突、误标批次来源；已在 ctx-02 重新冻结时改正为 `b23-`。
+- 术语待办（未做）：建议新增 `Ziguranth → 伊格兰斯`（`T.PN.FACTION`，`society`），并注明与地点 `Zigur → 伊格` 严格区分。全文一致使用 27 次却不在术语库，正是 b23 该行发生偏离的原因。新增术语行需同步 `test_real_terminology_is_fully_mapped` 的硬编码行数，属独立小任务。
 - 当前预期工作树：干净，仅用户本地未跟踪 `.claude/`；不得提交、删除或混入 `.claude/`。`.ai/` 与 `.artifacts/` 是忽略的派生产物。
-- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22 四个 section，从 `magic-store.lua` 起继续下一个有界切片。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`。创建 Paseo 子代理后必须持续轮询、及时响应权限、终态即归档；出现重复的实质翻译分歧再请维护者裁决。
+- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22／b23 八个 section，从 `message-last-hope.lua` 起继续下一个有界切片。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`。创建 Paseo 子代理后必须持续轮询、及时响应权限、终态即归档；出现重复的实质翻译分歧再请维护者裁决。
 - 复审记录格式注意：`.ai/reviews/` 记录必须带 `status`（或 `result`）且取值属于 `completed`／`completed_with_findings`／`PASS`／`CHANGES_REQUIRED`／`FINDINGS`／`OK`，否则 `ai_state_check.py` 的 `candidate_bindings_valid` 会拒绝 DONE。
 
 ## 0. 一句话状态
