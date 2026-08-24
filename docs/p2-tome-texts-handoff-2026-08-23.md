@@ -20,8 +20,15 @@
 - b23 复审：两轮全量复审，`20b80a8d…`（ctx-01，39/40）与 `09224ef4…`（ctx-02，40/40 `OK`）。五步门禁、完整 `tools/ci-gates.sh`（12/12，含构建）与 `DONE_VERIFIED` 均通过。
 - **教训：复用上一批的 envelope builder 时必须改 revision key 前缀。** b23 的 ctx-01 冻结集沿用了 b22 的 `b22-` 前缀，虽不影响正确性（payload／envelope／返回值内部一致，preflight 通过），但会与上一批的 key 命名空间冲突、误标批次来源；已在 ctx-02 重新冻结时改正为 `b23-`。
 - 术语待办（未做）：建议新增 `Ziguranth → 伊格兰斯`（`T.PN.FACTION`，`society`），并注明与地点 `Zigur → 伊格` 严格区分。全文一致使用 27 次却不在术语库，正是 b23 该行发生偏离的原因。新增术语行需同步 `test_real_terminology_is_fully_mapped` 的硬编码行数，属独立小任务。
+- 术语：`Ziguranth = 伊格兰斯`（`T.PN.FACTION`／`society`）已加入术语库，提交 `1a4a236`，同时把 `Zigur = 伊格` 行补上交叉引用并把 `test_real_terminology_is_fully_mapped` 的行数 710→711。固定源码证据：`anti-antimagic.lua` 同句「The defenders of Zigur were crushed, the Ziguranth scattered and weakened.」区分据点与教团；引擎另有 Zigur zone 与 `Zigur (Town)` grid 实体，`init.lua` 称 Ziguranth 为 an ancient order。地点用「伊格」，教团用「伊格兰斯」。
+- 随后 `8fb41dd` 修正 `maj-eyal-npcs.lua` 的实体名 `ziguranth patrol`：伊格巡逻队 → 伊格兰斯巡逻队，与 `ziguranth.lua` 的三个同类实体一致。该实体在固定源码中 `faction = "zigur"`、`hates_arcane = 1`，是教团的游荡队伍而非地点（小写 faction id 是内部键，不是显示文本）。此偏离由「术语改动后用固定 Lua 桥加载 `mod-tome.lua` 复核」发现，lint 与三项术语审计都不会报——两种写法各自合法。
+- b24：`message-last-hope.lua`、`myssil.lua`、`norgan-saved.lua`、`orc-breeding-pits.lua`、`paradoxology.lua`、`player-inscription.lua`、`point-zero-zemekkys.lua`、`pre-charred-scar-eruan.lua`、`pre-charred-scar.lua` 共 40 条，提交 `0b25434`，修订 25 条 target。冻结集 `evidence/quality/p2-batches/p2-tome-texts-b24-myssil-point-zero.json`，40/40 英文键按 `624a673` 字节核验，窗口内无 `args_order`。
+- b24 主要修正：`Grand Keeper` 原作泛指的「伟大的守护者」，按术语库 `Keeper of Reality` 行及 `intro-chronomancer.lua`／`npcs.lua` 统一为「现实至高守护者」；育种棚拒绝分支原译成「一个人做不到」（能力不足），固定源码是玩家拒绝亲手行凶并交由艾琳处置，下一分支还凭空多出「一个人足以解决它们全部」；泽梅奇斯把「更年轻的我」讲反；临终太阳骑士的陈述凭空多出「一万倍」并漏掉手绘地图、吃力递交与最后恳求的目光；米歇尔的任务说明漏掉 eldritch forces／powerful／responsible／All corrupted，并把 `high in the Daikara mountains` 误作「最高峰」；另有 `then rest` 等整句遗漏与中文内半角标点。
+- b24 复审：`ad8bc967…`（ctx-01）首轮即 40/40 `OK`，无修复轮。五步门禁、完整 `tools/ci-gates.sh`（12/12，含构建）与 `DONE_VERIFIED` 均通过。
+- b24 宿主 advisory（未改）：`paradoxology.lua` 的 `What the...` 由「我X！」改为直译「这是什么……」。直译更贴字面，但削弱了被打断的惊愕语气；复审未提出异议，按编辑裁量记录，不作缺陷。
+- 待办（超出当批窗口）：`zemekkys-start-chronomancers.lua` 存在同样的 `Grand Keeper` 偏离，留待轮到该 section 的批次处理。
 - 当前预期工作树：干净，仅用户本地未跟踪 `.claude/`；不得提交、删除或混入 `.claude/`。`.ai/` 与 `.artifacts/` 是忽略的派生产物。
-- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22／b23 八个 section，从 `message-last-hope.lua` 起继续下一个有界切片。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`。创建 Paseo 子代理后必须持续轮询、及时响应权限、终态即归档；出现重复的实质翻译分歧再请维护者裁决。
+- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22／b23／b24 共 17 个 section，从 `ring-of-blood-master.lua` 起继续下一个有界切片。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀。创建 Paseo 子代理后必须持续轮询、及时响应权限、终态即归档；出现重复的实质翻译分歧再请维护者裁决。
 - 复审记录格式注意：`.ai/reviews/` 记录必须带 `status`（或 `result`）且取值属于 `completed`／`completed_with_findings`／`PASS`／`CHANGES_REQUIRED`／`FINDINGS`／`OK`，否则 `ai_state_check.py` 的 `candidate_bindings_valid` 会拒绝 DONE。
 
 ## 0. 一句话状态
