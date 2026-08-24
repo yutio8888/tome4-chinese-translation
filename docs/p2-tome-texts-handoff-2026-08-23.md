@@ -10,8 +10,13 @@
 - 提交基线为 `a5c3ac6`（b6–b19）；其后仅有 b20 的 5 条未提交 `mod-tome.lua` 译文改动。
 - b20：`last-hope-weapon-store.lua`（10 条）。将「军事训练」润色为「战斗训练」，补足两类训练的「基础使用方法」表述；保留 `Technique/Combat-training=技巧/战斗训练系`、`Shoot=射击天赋`、金额、source 与 source_tag。冻结身份 `660d64018b6cd24732efa26e35bfdf71fb3e263638936e246855ff204d4f2798`；独立语境复审 10/10 `OK`，严格 lint、`git diff --check`、完整 `tools/ci-gates.sh`、契约与 DONE 状态检查均通过。
 - b21：`limmir-valley-moon.lua`（2 条）。固定源码核验后无改动；独立语境复审身份 `139f5312c3d97567e2052b00896bad8c5fc089388bb0636461105764592d447d`，2/2 `OK`。任务产物位于忽略的 `.ai/task/p2-tome-texts-b21-001/` 与 `.ai/reviews/...`。
-- 当前预期工作树：`M mod-tome.lua`（仅 b20 的 5 行）及用户本地未跟踪 `.claude/`；不得提交、删除或混入 `.claude/`。`.ai/` 与 `.artifacts/` 是忽略的派生产物。
-- 接手步骤：提交前复跑严格 lint 与 `git diff --check`，核对仅 b20 diff 后单独提交；继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua`，从下一个有意义的 chat section 开始。创建 Paseo 子代理后必须持续轮询、及时响应权限、终态即归档；出现重复的实质翻译分歧再请维护者裁决。
+- b20 已单独提交为 `507d2dc`；本交接文档的 b20／b21 记录提交为 `01179b7`。
+- b22：`lost-merchant.lua`、`lumberjack-quest-done.lua`、`lumberjack-quest.lua`、`mage-apprentice-quest.lua` 共 33 条，提交 `6bcf55b`，修订 18 条 target。冻结工作集恢复为受跟踪的 `evidence/quality/p2-batches/p2-tome-texts-b22-lost-merchant-lumberjack-mage.json`（b19–b21 曾只留在忽略的 `.ai/`），33/33 英文键按固定 commit `624a673` 逐条字节核验，窗口内无 `args_order`。
+- b22 主要修正：安格利文揭示处原译「为你开启了一个传送门」与固定源码不符——`access_angolwen` 放置城镇与入口传送门地形并 `locationRevealAround`，实为在地图上标出而非开启通路；`everybody in my village` 曾被译成「所有村子里的人」；学徒两个分支的「已收集到一些物品」与「祝你学业顺利」的 studies 从句均曾遗漏；本恩临终的结巴与未尽之言被抹平。`Kar'Krul` 批内统一为「卡·克鲁尔」，与同文件另一处及 `unlock-mage.lua` 一致，不做全局替换（`lore/elvala.lua` 仍为「卡库罗尔」）。
+- b22 复审：两轮 `translation_contextual_v1` 全量复审同一冻结集，身份 `471b63ef…`（ctx-01，32/33 `OK`）与 `f2b42ddc…`（ctx-02，32/33 `OK`）。两轮就同一条 `b22-24`「The keepers of ar...」给出相互矛盾的意见（ctx-01 要求补回 keeper 关系，ctx-02 反对补回后的动词化形式）；按本文档规则升级维护者裁决，维护者选择保留「他们守护着奥……」，记为 advisory 未改。五步门禁、完整 `tools/ci-gates.sh`（12/12，含构建）、契约检查与 `DONE_VERIFIED` 均通过。
+- 当前预期工作树：干净，仅用户本地未跟踪 `.claude/`；不得提交、删除或混入 `.claude/`。`.ai/` 与 `.artifacts/` 是忽略的派生产物。
+- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22 四个 section，从 `magic-store.lua` 起继续下一个有界切片。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`。创建 Paseo 子代理后必须持续轮询、及时响应权限、终态即归档；出现重复的实质翻译分歧再请维护者裁决。
+- 复审记录格式注意：`.ai/reviews/` 记录必须带 `status`（或 `result`）且取值属于 `completed`／`completed_with_findings`／`PASS`／`CHANGES_REQUIRED`／`FINDINGS`／`OK`，否则 `ai_state_check.py` 的 `candidate_bindings_valid` 会拒绝 DONE。
 
 ## 0. 一句话状态
 
