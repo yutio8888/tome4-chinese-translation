@@ -5,6 +5,14 @@
 > [`paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md)（2.18-draft）与
 > [`paseo-translation-context-review-v1-contract.md`](paseo-translation-context-review-v1-contract.md)。
 
+## 交接更新（2026-08-24）
+
+- 提交基线为 `a5c3ac6`（b6–b19）；其后仅有 b20 的 5 条未提交 `mod-tome.lua` 译文改动。
+- b20：`last-hope-weapon-store.lua`（10 条）。将「军事训练」润色为「战斗训练」，补足两类训练的「基础使用方法」表述；保留 `Technique/Combat-training=技巧/战斗训练系`、`Shoot=射击天赋`、金额、source 与 source_tag。冻结身份 `660d64018b6cd24732efa26e35bfdf71fb3e263638936e246855ff204d4f2798`；独立语境复审 10/10 `OK`，严格 lint、`git diff --check`、完整 `tools/ci-gates.sh`、契约与 DONE 状态检查均通过。
+- b21：`limmir-valley-moon.lua`（2 条）。固定源码核验后无改动；独立语境复审身份 `139f5312c3d97567e2052b00896bad8c5fc089388bb0636461105764592d447d`，2/2 `OK`。任务产物位于忽略的 `.ai/task/p2-tome-texts-b21-001/` 与 `.ai/reviews/...`。
+- 当前预期工作树：`M mod-tome.lua`（仅 b20 的 5 行）及用户本地未跟踪 `.claude/`；不得提交、删除或混入 `.claude/`。`.ai/` 与 `.artifacts/` 是忽略的派生产物。
+- 接手步骤：提交前复跑严格 lint 与 `git diff --check`，核对仅 b20 diff 后单独提交；继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua`，从下一个有意义的 chat section 开始。创建 Paseo 子代理后必须持续轮询、及时响应权限、终态即归档；出现重复的实质翻译分歧再请维护者裁决。
+
 ## 0. 一句话状态
 
 `p2-tome-texts-b<N>` 轨道已完成 15 个译文批次（2026-08-22 至 08-23）：核心 `mod-tome.lua` 的
