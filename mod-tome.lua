@@ -7173,7 +7173,7 @@ t("Allied Kingdoms halfling patrol", "联合王国半身人巡逻队", "entity n
 t("adventurers party", "冒险家分队", "entity name")
 t("hostile", "敌对", "entity type")
 t("humanoid", "人形生物", "entity subtype")
-t("ziguranth patrol", "伊格巡逻队", "entity name")
+t("ziguranth patrol", "伊格兰斯巡逻队", "entity name")
 t("You have got nothing to fear if you are not using filthy arcane magic. Otherwise: DIE!", "如果你没有使用肮脏的魔法，那不用害怕他们。否则的话：去死吧！", "_t")
 
 ------------------------------------------------
