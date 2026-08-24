@@ -5573,7 +5573,7 @@ t("Recharge?", "充能？", "_t")
 t("This will cost you %d gold.", "这将花费你%d金币。", "tformat")
 t("Welcome, @playername@, to my shop.", "欢迎来我的商店，@playername@。", "_t")
 t("Let me see your wares.", "让我看看你的商品吧。", "_t")
-t("I want to recharge some of my equipment.", "我想要充能我的一些物品。", "_t")
+t("I want to recharge some of my equipment.", "我想给一些装备充能。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_magic-store")
 
 ------------------------------------------------
@@ -5582,15 +5582,15 @@ section "mod-tome/data/chats/melinda-beach-end.lua"
 t("What just happened?!", "刚才发生了什么？！", "_t")
 t("I'm sorry I didn't manage to protect you and as you were about to die you... fired a powerful wave of blight.", "抱歉，刚才我没能保护住你，而就在你快要死去的时候……你发射出了一道强大的枯萎能量波。", "_t")
 t("But I have never cast a spell in my life!", "但我从来没施过法啊！", "_t")
-t("You are still tainted by that ... foul Demon! The taint is not all gone!", "你肯定被污染了...对,那个恶魔！污染还没有被清除干净！", "_t")
-t("There must be some of that demon's taint still inside you.", "你身体里还存在着恶魔的污染。", "_t")
-t("This is terrible! I assure you I had no idea this would happen. You must trust me!", "怎么会！我发誓，什么都不知道，你要相信我！一定要！", "_t")
-t("I do. The Ziguranth are not raving zealots, you know. We will look for a way to cure you, as long as you reject the blight.", "我相信。伊格兰斯不是杀人狂魔，我们会找到方法来治疗你的，只要你拒绝接受这股枯萎能量。", "_t")
-t("This is terrible! What is happening to me?!? You must help me!", "天啊!到底发生了什么?!?你一定要帮我!", "_t")
-t("I will. We will find a cure for this together.", "我当然会帮你。我们一起来想办法。", "_t")
-t("I'm a very lucky girl, am I not... This is the second time I've had you to save me now.", "我真是幸运的女孩，不是吗... 这是你第二次拯救我了。", "_t")
+t("You are still tainted by that ... foul Demon! The taint is not all gone!", "你仍然被那个……可恶的恶魔污染着！污染还没有完全清除！", "_t")
+t("There must be some of that demon's taint still inside you.", "你体内一定还残留着那个恶魔的污染。", "_t")
+t("This is terrible! I assure you I had no idea this would happen. You must trust me!", "太可怕了！我向你保证，我完全不知道会发生这种事。你一定要相信我！", "_t")
+t("I do. The Ziguranth are not raving zealots, you know. We will look for a way to cure you, as long as you reject the blight.", "我相信你。你要知道，伊格兰斯可不是一群丧失理智的狂信徒。只要你拒绝这股枯萎之力，我们就会设法治好你。", "_t")
+t("This is terrible! What is happening to me?!? You must help me!", "太可怕了！我这是怎么了？！你一定要帮帮我！", "_t")
+t("I will. We will find a cure for this together.", "我会的。我们会一起找到治好你的办法。", "_t")
+t("I'm a very lucky girl, am I not... This is the second time I've had you to save me now.", "我真是个幸运的女孩，不是吗……这是你第二次救我了。", "_t")
 t("Over the last weeks you've become very important to me, and I am glad to have you. This is certainly not the place to talk, though, let's go.", "最近的几个星期里，你对我非常重要，有你在身边我很高兴。不过，这里显然不是说话的地方，我们走吧。", "_t")
-t("You're right, let's get out of here.", "你说得对！快点离开这。", "_t")
+t("You're right, let's get out of here.", "你说得对，我们离开这里吧。", "_t")
 t("#LIGHT_GREEN#[go back to Last Hope]", "#LIGHT_GREEN#[回到最后的希望]", "_t")
 
 ------------------------------------------------
@@ -5603,10 +5603,10 @@ This was such a lovely idea!
 I have had a wonderful time with you today.
 
 #LIGHT_GREEN#*She looks longingly into your eyes.*#WHITE#]], [[#LIGHT_GREEN#*你们两个在沙滩上放松了一阵子。
-空气清新无比，阳光照射在砂砾上，闪耀五颜六色的光芒，
-耳边传来海浪轻柔地呼啸。*#WHITE#
+空气清新，沙滩闪闪发光，
+海浪发出轻柔的涛声。*#WHITE#
 
-出来旅行真好！
+来海边真是个好主意！
 今天和你玩得很开心啊。
 
 #LIGHT_GREEN#*她含情脉脉地凝视着你。*#WHITE#]], "_t")
@@ -5614,35 +5614,35 @@ t("#LIGHT_GREEN#[Lean closer and kiss her]#WHITE#", "#LIGHT_GREEN#[你靠了过�
 t([[Just before your lips touch, you sense that something is very wrong.
 ]], [[在你们俩嘴唇相碰之前，你注意到有什么不对劲……
 ]], "_t")
-t("#LIGHT_GREEN#[Continue...]#WHITE#", "#LIGHT_GREEN#[继续...]#WHITE#", "_t")
+t("#LIGHT_GREEN#[Continue...]#WHITE#", "#LIGHT_GREEN#[继续……]#WHITE#", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/melinda-fortress.lua"
 
-t("Hi, sweety!", "嗨亲爱的！", "_t")
+t("Hi, sweety!", "嗨，亲爱的！", "_t")
 t("#LIGHT_GREEN#[kiss her]#WHITE#", "#LIGHT_GREEN#[亲吻她]#WHITE#", "_t")
-t("Are you settling in fine?", "你过得好么？", "_t")
+t("Are you settling in fine?", "你在这里还住得惯吗？", "_t")
 t("I want to open my own little shop in Derth?", "我想在德斯镇开店？", "_t")
 t("I want to study magic at Angolwen?", "我想去安格利文学魔法？", "_t")
-t("I want to train at Zigur?", "我想去伊格兰斯训练？", "_t")
+t("I want to train at Zigur?", "我想去伊格训练？", "_t")
 t([[Well let me say that tank is #{bold}#dreadful#{normal}#, but that weird butler says it is the only way.
 I do start to feel better too.
 However I must say I get bored around here a little.
-Do you remember, I once told you %s Maybe we could find a way to get me there during the day and return for my treatment during the night?]], [[好吧，那个通道确实有些#{bold}#可怕#{normal}#，不过那个长相奇怪的管家说那是唯一的路。
-现在我觉得好多了。
-不过，呆久了还是觉得有些无聊。
-你还记得么,我曾经说过“%s”，或许能想个办法，白天出去，晚上再回来？]], "tformat")
-t("Oh yes, I think we could arrange that. Shadow, would it be possible to create a portal for her?", "当然可以，我相信我们能做到。堡垒幻影，能为她制造一个传送门么？", "_t")
+Do you remember, I once told you %s Maybe we could find a way to get me there during the day and return for my treatment during the night?]], [[好吧，那个再生槽实在是#{bold}#糟透了#{normal}#，不过那个古怪的管家说这是唯一的办法。
+我的确开始感觉好些了。
+不过，我必须说，待在这里有点无聊。
+你还记得吗？我以前说过：%s也许我们可以想个办法，让我白天去那里，晚上再回来接受治疗？]], "tformat")
+t("Oh yes, I think we could arrange that. Shadow, would it be possible to create a portal for her?", "当然可以，我相信我们能做到。堡垒之影，能为她制造一个传送门吗？", "_t")
 t([[Yes Master. I will arrange for that right now.
 She will be able to come and go unnoticed.]], [[是的，主人。我马上做。
 她将能够无声无息地来往于两地之间。]], "_t")
 t("That is perfect.", "很好。", "_t")
 t("Oh this is great, thank you! My own secret lair, my own life.", "噢，太棒了！谢谢！属于我自己的秘密巢穴，属于我自己的人生。", "_t")
-t("I only wish your happiness, I am glad to provide.", "只要你过得幸福，我什么都愿意做。", "_t")
+t("I only wish your happiness, I am glad to provide.", "我只希望你幸福，也很高兴能为你做这些。", "_t")
 t([[#LIGHT_GREEN#*Looking all glamorous she comes closer*#WHITE#
-Now my sweet one, where were we the last time?]], [[#LIGHT_GREEN#*看上去充满魅力，梅琳达走近了你*#WHITE#
+Now my sweet one, where were we the last time?]], [[#LIGHT_GREEN#*她打扮得光彩照人，向你走近*#WHITE#
 亲爱的，我们上次进行到哪儿了？]], "_t")
-t("My memory fails me, care to help me remember? #LIGHT_GREEN#[smile playfully at her]", "我都忘了，你能帮我想起来么？#LIGHT_GREEN#[你调皮地笑着]", "_t")
+t("My memory fails me, care to help me remember? #LIGHT_GREEN#[smile playfully at her]", "我记不清了，愿意帮我回忆一下吗？ #LIGHT_GREEN#[你调皮地冲她微笑]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/message-last-hope.lua"
