@@ -5462,13 +5462,13 @@ section "mod-tome/data/chats/last-hope-weapon-store.lua"
 
 t("Welcome @playername@ to my shop.", "@playername@，欢迎来到我的商店。", "_t")
 t("Let me see your wares.", "让我看看你的商品吧。", "_t")
-t("I am looking for martial training.", "我在寻求军事训练。", "_t")
+t("I am looking for martial training.", "我在寻求战斗训练。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_last-hope-weapon-store")
-t("I can indeed offer some martial training (talent category Technique/Combat-training) for a fee of 50 gold pieces; or the basic usage of bows and slings (Shoot talent) for 8 gold pieces.", "我的确可以为你提供军事训练（技巧/战斗训练系），你需要花费50金币，或者可以学习使用弓和投石索（射击天赋），花费8金币。", "_t")
+t("I can indeed offer some martial training (talent category Technique/Combat-training) for a fee of 50 gold pieces; or the basic usage of bows and slings (Shoot talent) for 8 gold pieces.", "我的确可以为你提供战斗训练（技巧/战斗训练系），你需要花费50金币，或者可以学习使用弓和投石索（射击天赋），花费8金币。", "_t")
 t("Please train me in generic weapons and armour usage.", "请教我通用武器和护甲的使用方法。", "_t")
-t("The smith spends some time with you, teaching you the basics of armour and weapon usage.", "铁匠花了一些时间，教会了你一些武器和护甲的基础知识。", "logPlayer")
-t("Please train me in the basic usage of bows and slings.", "请教我使用弓和投石索。", "_t")
-t("The smith spends some time with you, teaching you the basics of bows and slings.", "铁匠花了一些时间，教会了你一些弓和投石索的基础知识。", "logPlayer")
+t("The smith spends some time with you, teaching you the basics of armour and weapon usage.", "铁匠花了一些时间，教你武器和护甲的基础使用方法。", "logPlayer")
+t("Please train me in the basic usage of bows and slings.", "请教我弓和投石索的基础使用方法。", "_t")
+t("The smith spends some time with you, teaching you the basics of bows and slings.", "铁匠花了一些时间，教你弓和投石索的基础使用方法。", "logPlayer")
 t("No thanks.", "不用了，谢谢。", "_t")
 
 ------------------------------------------------
