@@ -122,7 +122,11 @@ Operational author_provider_resolution and model_diversity_verified fields are e
 不能只凭标题或会话文本推断。
 
 Paseo 在任务明确采用本流程并建立 task ID 时激活，到 `DONE`／`STOP` 或明确记录回退
-时结束。明确回退只允许在尚未创建 child，或所有 `child_dispatches` 都已
+时结束。连续批次工作（如逐段译文复核）中，一个 task 进入 `DONE` 并提交后可以直接
+建立下一个 task ID 并开始，不需要用户逐批确认；每个 task 仍是独立任务，各自完整执行本契约的
+冻结、复审、门禁与生命周期要求，不得跨 task 复用候选、review 记录或 child。批次间的连续推进
+不改变任何 `WAIT_USER` 条件：本契约要求进入 `WAIT_USER` 的情形仍必须停下并交回用户，不得
+因为「保持连续」而绕过。明确回退只允许在尚未创建 child，或所有 `child_dispatches` 都已
 `archive_confirmed=true` 时发生；否则先 reconciliation，无法确认则进入 `WAIT_USER`，
 不得退出 Paseo 后由主代理继续。已归档 Skill 产生的输出不得当作 Paseo contract 结果。
 

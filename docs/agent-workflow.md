@@ -43,6 +43,24 @@ git diff --stat
 EXECUTOR 结束却没有工作成果（无 diff、无报告，或只回了计划／进度说明）时，该次 dispatch
 输出无效：先归档，再创建 fresh retry；不得向已结束的 child 发送 follow-up 续跑。
 
+### 连续批次循环
+
+译文复核默认连续运行，不逐批等待批准。一批收束后按下述顺序直接开始下一批：
+
+1. 选定下一个有界切片（按既定推进顺序，规模参照近期批次），并确认它与已完成批次不重叠。
+2. 冻结工作集到受跟踪的 `evidence/quality/p2-batches/`，逐条按固定 commit 字节核验英文键，
+   记录每个调用的 `args_order`。
+3. 写 `.ai/task/<task>/SPEC.md|PLAN.md|SCOPE.json|STATE.json`；复用上一批的 envelope builder
+   时先改 revision key 前缀。
+4. 派发 EXECUTOR → 机械核验 diff 范围与键漂移 → 归档 → 冻结候选 → preflight → 派发独立复审。
+5. 按固定源码裁决 observation；`confirmed` 进 fresh EXECUTOR 修复，重新冻结后全量复审，直到干净。
+6. 五步门禁 + 适用的完整门禁 → `ai_state_check.py` `DONE_VERIFIED` → 单独提交译文批次与
+   evidence；交接与记忆随后单独提交。
+7. 给出批次简报，直接进入下一批。
+
+停下条件、以及哪些情况自行处理不必停，见 [`AGENTS.md`](../AGENTS.md) 的「连续批次模式」。
+连续运行不豁免本文件的任何门禁或证据要求；批次之间不得为了赶进度合并、跳过或延后门禁。
+
 涉及 evidence-citing candidate 时，先用 `python3 -B tools/review_evidence.py inventory` 从 `.ai/reviews/` 源记录生成原始 finding 清单，再用 `check` 校验 proposer 的 `EVIDENCE-RECONCILIATION.json`；用 `render` 派生计数，不手填 counts。reviewer 仍须直接核对引用和未列出的相关记录。
 
 ## 批次门禁
