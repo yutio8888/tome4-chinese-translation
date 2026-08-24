@@ -49,7 +49,10 @@ EXECUTOR 结束却没有工作成果（无 diff、无报告，或只回了计划
 
 1. 选定下一个有界切片（按既定推进顺序，规模参照近期批次），并确认它与已完成批次不重叠。
 2. 冻结工作集到受跟踪的 `evidence/quality/p2-batches/`，逐条按固定 commit 字节核验英文键，
-   记录每个调用的 `args_order`。
+   记录每个调用的 `args_order`。冻结脚本必须显式传 `tools/i18n context --limit 500`（默认 50
+   会静默截断），断言冻结条数等于该 section 的词法 `t()` 调用数，并在核验英文键时同时接受
+   原文与转义形式（引擎把换行写成 `\n` 两字符转义）。详见
+   [`lessons-learned.md`](lessons-learned.md) 第 12 条。
 3. 写 `.ai/task/<task>/SPEC.md|PLAN.md|SCOPE.json|STATE.json`；复用上一批的 envelope builder
    时先改 revision key 前缀。
 4. 派发 EXECUTOR → 机械核验 diff 范围与键漂移 → 归档 → 冻结候选 → preflight → 派发独立复审。

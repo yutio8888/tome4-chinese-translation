@@ -156,3 +156,28 @@ git diff --stat
 [`docs/paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md) 第七节、
 [`.ai/roles/orchestrator.md`](../.ai/roles/orchestrator.md) 与
 [`docs/agent-workflow.md`](agent-workflow.md)。
+
+## 12. 工作集冻结的两个静默缺陷（2026-08-24，p2-tome-texts-b26）
+
+**场景**：b26 冻结 `shertul-fortress-butler.lua`（单段 53 条），是首个超过 50 条的 section。
+
+**事故一：静默截断**。`tools/i18n context` 的 `--limit` 默认值是 **50**，冻结脚本从未显式传值，
+超过 50 条的 section 会被无声截断。b26 首次触发：脚本只取回 50 条，却没有任何报错。b22–b25
+未受影响——它们逐 section 查询，单段最大只有 24／14／11／12 条，全部远低于 50（已按 section
+逐条机械复核确认）。`--limit` 上限为 500。
+
+**事故二：解码文本与原始文本比较**。按固定 commit 核验英文键时，脚本用解码后的 source 直接
+`in` 引擎文件原文。引擎把字符串里的换行写成两字符转义 `\n`，而解码后的 source 是真换行，
+于是出现**假失败**——该键其实存在。这类比较只会产生假阴性，不会放过不存在的键，所以既往
+批次的 `pinned_source_match: true` 仍然成立。
+
+**正确做法**：冻结脚本必须
+
+1. 显式传 `--limit 500`（envelope builder 也调用 `context`，同样要传，否则 53 条的批次会冻结出
+   50 条的 envelope）；
+2. 断言冻结条数等于该 section 的词法 `t()` 调用数（可用
+   `contextual_anchor_preflight._allowed_calls`），把截断变成硬失败；
+3. 核验英文键时同时接受原文形式与转义形式（至少 `\n`／`\t`／`\\`），或改为解码后再比较。
+
+**教训**：带默认上限的查询命令在批量流程里是静默失真源。凡是「取回一批条目」的命令，都要么
+显式传上限，要么用独立计数断言把截断变成失败。
