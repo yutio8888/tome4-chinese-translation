@@ -27,8 +27,14 @@
 - b24 复审：`ad8bc967…`（ctx-01）首轮即 40/40 `OK`，无修复轮。五步门禁、完整 `tools/ci-gates.sh`（12/12，含构建）与 `DONE_VERIFIED` 均通过。
 - b24 宿主 advisory（未改）：`paradoxology.lua` 的 `What the...` 由「我X！」改为直译「这是什么……」。直译更贴字面，但削弱了被打断的惊愕语气；复审未提出异议，按编辑裁量记录，不作缺陷。
 - 待办（超出当批窗口）：`zemekkys-start-chronomancers.lua` 存在同样的 `Grand Keeper` 偏离，留待轮到该 section 的批次处理。
+- 流程变更（2026-08-24，提交 `5a57f2f`）：译文复核改为**连续批次模式**，一批 `DONE` 并提交后直接开始下一批，不再逐批等待批准。停下条件与自行处理范围见 `AGENTS.md`「连续批次模式」；连续运行不豁免任何冻结、复审、门禁与生命周期要求。
+- 流程变更（2026-08-24，提交 `e21e01e`）：判定 child 挂起或调用 stop／cancel 前必须先做有界终态取证——重查实时状态并读 `attentionReason`／activeTurn，再看工作树（未产出改动的 EXECUTOR 留下空 diff）。EXECUTOR 结束却无工作成果时输出无效：先归档再 fresh retry，不得对已结束 child 发 follow-up。已写入的故障归因被推翻必须同轮更正。见 `docs/lessons-learned.md` 第 11 条。
+- b25：`ring-of-blood-master.lua`、`ring-of-blood-orb.lua`、`ring-of-blood-win.lua`、`sage-kitty.lua`、`shadow-crypt-yeek-clone.lua` 共 37 条，提交 `9ab2a60`，修订 20 条 target。冻结集 `evidence/quality/p2-batches/p2-tome-texts-b25-ring-of-blood-shadow-crypt.json`，37/37 英文键按 `624a673` 字节核验，窗口内无 `args_order`。
+- b25 主要修正：竞技场规则原译承诺奖品是「一个戒指」——任务代码确认「鲜血呼唤」确为戒指，但该句台词只点名奖品，故删去凭空补充的说明，并修正 `会……了` 时态冲突、补回 our pawns；十轮回合数与玩家经水晶球控制奴隶的机制已按任务源码复核。`slave fodder` 曾被译成「像奴隶一样的炮灰」（改变了所指）；`Normally you would be taken as a slave` 漏掉被掳为奴；`standard fee` 遗漏且凭空多出「每次」；小猫漏译橘色却多出「眼泪汪汪」。
+- b25 复审：`0cbb7c58…`（ctx-01）首轮即 37/37 `OK`，无修复轮。五步门禁、完整 `tools/ci-gates.sh`（12/12，含构建）与 `DONE_VERIFIED` 均通过。
+- b25 生命周期：首个 EXECUTOR dispatch 结束却无任何产出（无 diff、无报告），按新规归档为 spent，另建 fresh retry child 完成本批；两者均已确认归档。
 - 当前预期工作树：干净，仅用户本地未跟踪 `.claude/`；不得提交、删除或混入 `.claude/`。`.ai/` 与 `.artifacts/` 是忽略的派生产物。
-- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22／b23／b24 共 17 个 section，从 `ring-of-blood-master.lua` 起继续下一个有界切片。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀。创建 Paseo 子代理后必须持续轮询、及时响应权限、终态即归档；出现重复的实质翻译分歧再请维护者裁决。
+- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b25 共 22 个 section，从 `shertul-fortress-butler.lua` 起继续下一个有界切片（该 section 单独 53 条，建议自成一批）。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
 - 复审记录格式注意：`.ai/reviews/` 记录必须带 `status`（或 `result`）且取值属于 `completed`／`completed_with_findings`／`PASS`／`CHANGES_REQUIRED`／`FINDINGS`／`OK`，否则 `ai_state_check.py` 的 `candidate_bindings_valid` 会拒绝 DONE。
 
 ## 0. 一句话状态
