@@ -5804,26 +5804,26 @@ section "mod-tome/data/chats/ring-of-blood-master.lua"
 
 t([[#LIGHT_GREEN#*Before you stands a small humanoid creature with a disproportionate head.*#WHITE#
 Ah, what have we here? @playerdescriptor.race@, I believe you have turned at the wrong corner.]], [[#LIGHT_GREEN#*在你面前站着一个矮小的人形生物，长着一个不成比例的脑袋。*#WHITE#
-看，来了个什么人，@playerdescriptor.race@, 我相信你一定走错地方了。]], "_t")
-t("So it would seem. What is going on here?", "有可能，这里发生了什么事？", "_t")
+看，来了个什么人，@playerdescriptor.race@，我相信你一定走错地方了。]], "_t")
+t("So it would seem. What is going on here?", "看起来确实如此。这里发生了什么事？", "_t")
 t([[This is my Ring of Blood! Listen, you have now two choices.
 Since you do not look like slave fodder to me I will offer to let you pay to play the game.
 If you feel you cannot take part in a slaver's game, I am afraid you will need to... disappear.]], [[这里是鲜血之环！听着，你现在有两个选择。
-既然你看上去不像那些奴隶一样的炮灰，我可以让你付费参加这个游戏。
+既然你看起来不像是当奴隶的料，我可以让你付费参加这个游戏。
 要是你不愿参加奴隶贩子的游戏，恐怕你就得……消失了。]], "_t")
 t("Slavers? This is so wrong! [attack]", "奴隶贩子？这太邪恶了！[攻击]", "_t")
-t("You think so? Die.", "你这样认为？去死吧。", "_t")
-t("Game? I like playing, what's this about?", "游戏？我喜欢，是个什么样的游戏？", "_t")
+t("You think so? Die.", "你这么想？去死吧。", "_t")
+t("Game? I like playing, what's this about?", "游戏？我喜欢玩，怎么个玩法？", "_t")
 t([[Well, you see, it's quite simple. I will mentally take control of various wild creatures or slaves while you use the orb of command on the other side of this room to take control of a slave.
-Then we fight using our pawns for 10 rounds. If your slave survives you will win the Bloodcaller.]], [[你看，很简单。我会精神控制一些野生怪物或者奴隶，你则用对面的指令水晶球来控制一个奴隶。
-然后我们对战10轮，如果你的奴隶还活着，那你会赢得了一个戒指，鲜血呼唤。]], "_t")
+Then we fight using our pawns for 10 rounds. If your slave survives you will win the Bloodcaller.]], [[你看，很简单。我会精神控制各种野生生物或奴隶，你则用房间另一头的指令水晶球控制一个奴隶。
+然后我们操纵各自的棋子对战10轮。如果你的奴隶活了下来，你就会赢得“鲜血呼唤”。]], "_t")
 t("What if I lose?", "要是我输了呢？", "_t")
 t("Blood, death without self-harm risks? Great fun!", "鲜血和死亡，但自己却不用冒生命危险，太有趣了！", "_t")
-t("Normally you would be taken as a slave, but you look like you would be more useful as a full-time player, so you can just try again.", "一般你自己会成为我的奴隶，不过你看上去应该是个不错的选手，你可以再次尝试。", "_t")
+t("Normally you would be taken as a slave, but you look like you would be more useful as a full-time player, so you can just try again.", "通常你会被抓去当奴隶，不过看起来，让你当个长期选手会更有用，所以你只管再试一次。", "_t")
 t([[Superb. Oh yes, before I forget, to use the orb you will need to pay the standard fee of 150 gold pieces.
-I'm sure this is small money to an adventurer of your class.]], [[好极了，哦对了我差点忘了，每次使用水晶球你得支付150金币。
-对于你们这种冒险家来说我想肯定不过是九牛之一毛而已。]], "_t")
-t("150 gold? Err... yes, sure.", "150金币？呃……好吧当然。", "_t")
+I'm sure this is small money to an adventurer of your class.]], [[好极了。哦，对了，差点忘了：要使用水晶球，你得支付150金币的标准费用。
+对你这样的冒险家来说，这肯定不过是九牛一毛。]], "_t")
+t("150 gold? Err... yes, sure.", "150金币？呃……对，当然。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/ring-of-blood-orb.lua"
@@ -5841,9 +5841,9 @@ section "mod-tome/data/chats/ring-of-blood-win.lua"
 
 t([[So, you tasted blood? Liked it? I am sure you did; you are just that kind of people.
 Anyway, I suppose you deserve your reward.
-You can always participate again for fun, if you've got the gold to spare.]], [[那……你尝到了鲜血的滋味吧，怎么样喜欢么？相信你一定喜欢，你就应该是这种人。
-不管怎样，你应该得到你的奖赏。
-要是你愿意花钱，你可以再来练习取乐。]], "_t")
+You can always participate again for fun, if you've got the gold to spare.]], [[那么，你尝到鲜血的滋味了？喜欢吗？我敢说你一定喜欢；你就是那种人。
+总之，我想你配得上这份奖赏。
+只要你还有闲钱，随时可以再来参加，找点乐子。]], "_t")
 t("Thanks, it was fun!", "谢谢，非常有趣！", "_t")
 
 ------------------------------------------------
@@ -5851,31 +5851,31 @@ section "mod-tome/data/chats/sage-kitty.lua"
 
 t([[#LIGHT_GREEN#*Before you stands a cute little orange cat. It looks hungry and looks at you.*#WHITE#
 Meowww?
-]], [[#LIGHT_GREEN#*在你面前站着一只可爱的小猫咪。它似乎饿了，眼泪汪汪地瞅着你。*#WHITE#
-喵呜...
+]], [[#LIGHT_GREEN#*在你面前站着一只可爱的橘色小猫。它看起来饿了，正眼巴巴地望着你。*#WHITE#
+喵呜呜？
 ]], "_t")
-t("Oh kitty kitty!", "猫咪真可爱！", "_t")
-t("No time for cats!", "我可没时间浪费在猫身上!", "_t")
+t("Oh kitty kitty!", "哦，小猫咪，小猫咪！", "_t")
+t("No time for cats!", "我可没时间逗猫！", "_t")
 t([[#LIGHT_GREEN#*It rubs up against your leg and purrs.*#WHITE#
 Rrrrrrrrrrrr.
-]], [[#LIGHT_GREEN#*它轻轻地蹭着你的腿，咕噜咕噜地叫着。*#WHITE#
-呜呜...
+]], [[#LIGHT_GREEN#*它蹭着你的腿，打起了呼噜。*#WHITE#
+呼噜噜噜噜噜。
 ]], "_t")
-t("Hey maybe you would like some of this delicious lookin troll intestines? #LIGHT_GREEN#[Feed him the intestines]#WHITE#", "小猫，你想吃点东西么？我这里正好有半截巨魔肠子，你要么？ #LIGHT_GREEN#[喂给它吃]#WHITE#", "_t")
+t("Hey maybe you would like some of this delicious lookin troll intestines? #LIGHT_GREEN#[Feed him the intestines]#WHITE#", "嘿，想不想来点这看起来很美味的巨魔肠子？ #LIGHT_GREEN#[把肠子喂给它]#WHITE#", "_t")
 t("Sorry little fellow, I can't help you.", "小猫，抱歉，我帮不了你。", "_t")
-t("#LIGHT_GREEN#*It eats it all and looks happy. After a while it strolls away. Somehow you feel you have not seen the last of it.*#WHITE#", "#LIGHT_GREEN#*它全部吃光了，看起来很开心。过了一会，它就跑开了。不知为何，你感觉你还会再见到它。*#WHITE#", "_t")
+t("#LIGHT_GREEN#*It eats it all and looks happy. After a while it strolls away. Somehow you feel you have not seen the last of it.*#WHITE#", "#LIGHT_GREEN#*它全部吃光了，看起来很开心。过了一会，它溜达着离开了。不知为何，你感觉你还会再见到它。*#WHITE#", "_t")
 t("#LIGHT_GREEN#[Leave]", "#LIGHT_GREEN#[离开]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/shadow-crypt-yeek-clone.lua"
 
-t("No time to talk fellow Wayist! ATTACK! FOR THE WAY!", "没时间闲聊了，我的同胞！冲啊！为了维网！", "_t")
+t("No time to talk fellow Wayist! ATTACK! FOR THE WAY!", "没时间说话了，维网信徒同胞！进攻！为了维网！", "_t")
 t("[leave]", "[离开]", "_t")
-t("The foolish cultist that created me is no more. What am I to do now...", "那个创造了我的愚蠢邪教徒已经死了。我现在应该做什么呢…", "_t")
+t("The foolish cultist that created me is no more. What am I to do now...", "创造我的那个愚蠢邪教徒已经死了。我现在该怎么办……", "_t")
 t("You are me, come with me!", "你就是我，和我一起走吧！", "_t")
 t("You should head back to Irkkk.", "你应该回伊尔克去。", "_t")
-t("I fear that would get confusing very fast. I think I will go back to Irkkk. Farewell my clone!", "我担心这样会让我很困惑的。我觉得我应该回伊尔克去。再见了，我的克隆！", "_t")
-t("Clone? No you are the clone.", "克隆？不，你是我的克隆。", "_t")
+t("I fear that would get confusing very fast. I think I will go back to Irkkk. Farewell my clone!", "恐怕那样很快就会乱套。我想我还是回伊尔克去吧。再见了，我的克隆！", "_t")
+t("Clone? No you are the clone.", "克隆？不，你才是克隆。", "_t")
 t("Farewell.", "再见。", "_t")
 t("Sure... if you prefer to think about it this way. We are all part of The Way anyway.", "啊……如果你愿意这么想也没问题。反正，我们都是维网的一份子。", "_t")
 t("I think so too, farewell my clone.", "我也是这么想的，再见了，我的克隆。", "_t")
