@@ -5650,22 +5650,22 @@ section "mod-tome/data/chats/message-last-hope.lua"
 t([[Well met, @playername@. I was sent with a message from King Tolak of Last Hope.
 I followed the trail of bodies that you left - very impressive! We are lucky to have you on our side.
 But enough talk; take this message. I must go now.
-#LIGHT_GREEN#He gives you a sealed scroll and vanishes into the shadows.#LAST#]], [[终于见到你了，@playername@。我是最后的希望国王托拉克派来给你送信的。
-我循着你留下的尸体痕迹一路找来，令人印象深刻！很荣幸你是站在我们这一边的。
-不聊了，信我已送到，我必须得走了。
+#LIGHT_GREEN#He gives you a sealed scroll and vanishes into the shadows.#LAST#]], [[幸会，@playername@。我奉最后的希望国王托拉克之命前来送信。
+我循着你沿途留下的尸体找到了这里——真令人印象深刻！幸好你站在我们这一边。
+闲话少说；收下这封信吧。我必须走了。
 #LIGHT_GREEN#他递给你一个密封的卷轴，然后消失在阴影中。#LAST#]], "_t")
 t("Thank you for your courage.", "感谢你的勇气。", "_t")
-t("The herald gives you %s.", "传令官交给了你 %s 。", "logPlayer")
+t("The herald gives you %s.", "传令官将%s交给了你。", "logPlayer")
 
 ------------------------------------------------
 section "mod-tome/data/chats/myssil.lua"
 
 t([[#LIGHT_GREEN#*A Halfling woman stands before you, clad in dark steel plate.*#WHITE#
-Take the test, and then we can talk.]], [[#LIGHT_GREEN#*一个半身人女人站在你面前，穿着黑色板甲*#WHITE#
-先到导师那里参加对抗奥术魔法的测试，然后再说话。]], "_t")
+Take the test, and then we can talk.]], [[#LIGHT_GREEN#*一名半身人女子站在你面前，身穿暗色钢制板甲。*#WHITE#
+先接受考验，然后我们再谈。]], "_t")
 t("But...", "但是……", "_t")
 t([[#LIGHT_GREEN#*A Halfling woman stands before you, clad in dark steel plate.*#WHITE#
-I am Protector Myssil. Welcome to Zigur.]], [[#LIGHT_GREEN#*一个半身人女人站在你面前，穿着黑色的钢板甲*#WHITE#
+I am Protector Myssil. Welcome to Zigur.]], [[#LIGHT_GREEN#*一名半身人女子站在你面前，身穿暗色钢制板甲。*#WHITE#
 我是守护者米歇尔，欢迎来到伊格。]], "_t")
 t("I require all the help I can get, not for my sake but for the town of Derth, to the northwest of here.", "我需要一切能得到的帮助，不是为了我自己，而是为了西北方的德斯小镇。", "_t")
 t("Protector, I have dispatched the Tempest as you commanded.", "守护者，我已经按您的意思将风暴术士杀死了。", "_t")
@@ -5673,25 +5673,25 @@ t("Farewell, Protector.", "再见，守护者。", "_t")
 t([[Yes, we have sensed the blight of the eldritch forces there. I have people working to dispel the cloud, but the real threat is not there.
 We know that a Tempest, a powerful Archmage who can control the storms, is responsible for the damage. Those wretched fools from Angolwen will not act. All corrupted!
 So you must act, @playername@. I will show you the location of this mage - high in the Daikara mountains.
-Erase him.]], [[是的，我们已经感觉到了那里的堕落气息，我已经派人去驱散那里的乌云，但是真正的威胁并不在那儿。
-据我们所知，一个风暴术士，可以操控风暴的元素法师，和这些破坏有关。安格利文的那些懦夫居然袖手旁观。真是堕落！
-所以你必须采取行动，@playername@。我会告诉你那个法师所在的位置，在岱卡拉山脉的最高峰。
+Erase him.]], [[是的，我们已经感受到那里奥术力量带来的腐化。我已经派人去驱散乌云，但真正的威胁并不在那里。
+我们知道，造成这场灾难的是一名风暴术士，一个能操纵风暴的强大元素法师。安格利文那些可悲的蠢货不肯行动。他们全都腐化了！
+所以你必须采取行动，@playername@。我会告诉你这名法师的所在——岱卡拉山脉高处。
 除掉他。]], "_t")
-t("You can count on me, Protector.", "你可以信任我，守护者。", "_t")
+t("You can count on me, Protector.", "交给我吧，守护者。", "_t")
 t([[So I have heard, @playername@. You prove worthy of your training. Go with the blessing of nature, @playername@ of Zigur.
 #LIGHT_GREEN#*She touches your skin. You can feel nature infusing your very being.*#WHITE#
-This shall help you on your travels. Farewell!]], [[我已经听说了，@playername@。你已经证明了你训练的价值。愿自然赐福于你，伊格勇士 @playername@。
-#LIGHT_GREEN#*她将手放到你的身上，你感到自然的力量充斥着你的每个毛孔。*#WHITE#
+This shall help you on your travels. Farewell!]], [[我已经听说了，@playername@。你证明了自己无愧于所受的训练。愿自然赐福于你，来自伊格的 @playername@。
+#LIGHT_GREEN#*她轻触你的肌肤。你感到自然正在浸润你的整个身心。*#WHITE#
 这个应该会对你的旅途有所帮助。保重！]], "_t")
 t("Thank you, Protector.", "感谢你，守护者。", "_t")
-t("#00FF00#You gain the fungus talents school and your Mana Clash is enhanced.", "#00FF00#你获得了真菌技能树，你的奥术对撞也被强化了", "logPlayer")
+t("#00FF00#You gain the fungus talents school and your Mana Clash is enhanced.", "#00FF00#你获得了真菌技能树，你的奥术对撞也被强化了。", "logPlayer")
 
 ------------------------------------------------
 section "mod-tome/data/chats/norgan-saved.lua"
 
 t([[Thank you, @playername@! We both survived for the wealth of the Empire. I will bring them the news and then rest.
 I do not think I want to see death so closely for some time now.
-Farewell.]], [[谢谢你 @playername@ ，为了帝国的财富我们都活下来了。我会把这些消息带给他们。
+Farewell.]], [[谢谢你，@playername@！为了帝国的财富，我们俩都活下来了。我会把消息带给他们，然后好好休息。
 我可不希望和死神再来一次亲密接触了。
 再见。]], "_t")
 t("For the Empire! Take care.", "帝国万岁！多保重。", "_t")
@@ -5701,23 +5701,23 @@ section "mod-tome/data/chats/orc-breeding-pits.lua"
 
 t([[#LIGHT_GREEN#*A ray of light illuminates the gleam of steal amidst the grass. Investigating, you find a lone sun paladin lying stricken on the ground. Her wounds are minor, but her pallid features bely a poison that is taking its final toll. She whispers to you.*#WHITE#
 Help, Help me.
-]], [[#LIGHT_GREEN#*一道光线照亮了草丛中钢铁的闪光。经过调查，你发现一个孤单的太阳骑士躺在地上。她的伤口很小，但她苍白的神色显示出她身中剧毒。她无力的对你呼唤。*#WHITE#
-救命，请帮我。
+]], [[#LIGHT_GREEN#*一道光照亮了草丛间闪烁的钢光。你上前查看，发现一名孤身的太阳骑士瘫倒在地。她的伤口并不严重，但苍白的面容表明毒素正夺去她最后的生机。她向你低声恳求。*#WHITE#
+救命，请帮帮我。
 ]], "_t")
-t("What should I do?", "我该做些什么", "_t")
+t("What should I do?", "我该怎么做？", "_t")
 t([[I found it... the abomination Aeryn sent me to seek out. The breeding pits of the orcs... It is more vile than you can imagine... They have it hidden away from their encampments, out of sight of all their people. Their mothers, their young, all there - all vulnerable!
 #LIGHT_GREEN#*She pulls out a sketched map, and with some effort puts it in your palm.*#WHITE#
 
 This could be the final solution, the end to the war... forever. We must strike soon, before reinforcements...
 
-#LIGHT_GREEN#*She looks hard at you, exerting all her effort into a final pleading stare.*#WHITE#]], [[我找到了...艾琳让我去寻找的那个令人憎恶的东西。兽人育种棚...比你能想象的还要邪恶一万倍...他们把它隐藏在远离他们的营地的地方,远离他们所有人的视线。他们的母亲和孩子都在那里——全都毫无防备！
-#LIGHT_GREEN#*她掏出一张地图，递到你手中，目光紧盯着你。*#WHITE#
+#LIGHT_GREEN#*She looks hard at you, exerting all her effort into a final pleading stare.*#WHITE#]], [[我找到了……艾琳派我寻找的那个丑恶之地。兽人育种棚……它比你能想象的还要邪恶……他们将其藏在远离营地的地方，避开了所有族人的视线。他们的母亲和幼儿都在那里——全都毫无防备！
+#LIGHT_GREEN#*她抽出一张手绘地图，吃力地将它放进你的手心。*#WHITE#
 
-这将是最后的解决方案，让战争终结...永远终结。我们必须马上行动，在援军到来之前...
+这可能是最终解决方案，让战争终结……永远终结。我们必须尽快动手，赶在援军之前……
 
-#LIGHT_GREEN#*她努力地盯着你，用她所有的力气来祈求。*#WHITE#]], "_t")
-t("I cannot do this myself... I will tell Aeryn about it, it is in her hands.", "我一个人做不到...我会告诉艾琳，让她来决定。", "_t")
-t("I will go myself and ensure this is thoroughly dealt with.", "我马上就去，一个人足以解决它们全部。", "_t")
+#LIGHT_GREEN#*她直直地看着你，用尽全部力气投来最后恳求的目光。*#WHITE#]], "_t")
+t("I cannot do this myself... I will tell Aeryn about it, it is in her hands.", "我无法亲手这么做……我会把这件事告诉艾琳，交给她处置。", "_t")
+t("I will go myself and ensure this is thoroughly dealt with.", "我会亲自前往，确保彻底解决此事。", "_t")
 t("You want me to kill mothers and children? This is barbaric, I'll have nothing to do with it!", "你让我去杀害母亲和孩子？！这过于残忍了，我绝不接受！", "_t")
 
 ------------------------------------------------
@@ -5728,27 +5728,27 @@ NO! YOU CAN'T! NO GOING THERE! YOU... I... YOU MUST NOT GO THERE!
 THIS CANNOT BE AVOIDED! I MUST STOP IT! PLEASE DON'T!
 I MUST KILL MYSELF TO PROTECT MYSELF!
 #LIGHT_GREEN#*Before you can react, you... I... yourself vanishes into a rift hanging in midair.*#WHITE#
-]], [[#LIGHT_GREEN#*你面前站着……你自己。你看上去稍微有点年老，而且你的样子看上去好像经历过地狱一般。*#WHITE#
+]], [[#LIGHT_GREEN#*你面前站着……你自己。这个你看上去年长了一些，仿佛在地狱中走过一遭。*#WHITE#
 不！你不能！不能去那儿！你……我……你不许去那儿！
 这无法避免！我必须阻止它！请不要这样！
 我必须杀死我自己来保护自己！
-#LIGHT_GREEN#*在你来得及做出反应之前，你…我…你自己消失在半空中的裂缝里。*#WHITE#
+#LIGHT_GREEN#*在你来得及做出反应之前，你……我……你自己消失在悬于半空的裂缝中。*#WHITE#
 ]], "_t")
-t("What the...", "我X！", "_t")
+t("What the...", "这是什么……", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/player-inscription.lua"
 
-t("Buy a new slot with one #{bold}#talent category point#{normal}#.", "使用#{bold}#技能树解锁点#{normal}#开启一个新的刻印位。", "_t")
+t("Buy a new slot with one #{bold}#talent category point#{normal}#.", "花费 1 个#{bold}#技能树解锁点#{normal}#购买一个新刻印位。", "_t")
 t("Cancel", "取消", "_t")
-t("You have too many of this type of inscription. You can only override an existing one. The old inscription will be lost.", "你已经拥有很多此类刻印了，你只能选择覆盖掉现存的某一个。旧的刻印将消失。", "_t")
+t("You have too many of this type of inscription. You can only override an existing one. The old inscription will be lost.", "你拥有的此类刻印过多，只能覆盖一个现有刻印。旧刻印将会消失。", "_t")
 t([[You have reached your maximum number of inscriptions (infusions/runes).
 If you have unassigned #{bold}#talent category points#{normal}# you can use one to create a new slot (up to 5).
 You can replace an existing one or cancel.
 The old inscription will be lost.]], [[你的刻印（注入/符文）数量已经达到上限。
-如果你还有未使用的 #{bold}#技能树解锁点#{normal}# 你可以用一个来开启一个新的刻印位（最多 5 个）。
-你可以替换掉一个现存的刻印，或者取消。
-被替换掉的旧刻印将消失。]], "_t")
+如果你还有未分配的#{bold}#技能树解锁点#{normal}#，可以花费 1 个来创建新刻印位（最多 5 个）。
+你可以替换一个现有刻印，也可以取消。
+旧刻印将会消失。]], "_t")
 -- untranslated text
 --[==[
 t([[#GOLD#%s#LAST#
@@ -5760,16 +5760,16 @@ t([[#GOLD#%s#LAST#
 ------------------------------------------------
 section "mod-tome/data/chats/point-zero-zemekkys.lua"
 
-t("@playername@, nice to see you again! Or is this the first time that you have seen me?", "@playername@，很高兴再次见到你！呃，我们以前见过面么？", "_t")
-t("Farewell, Grand Keeper.", "再见，伟大的守护者。", "_t")
+t("@playername@, nice to see you again! Or is this the first time that you have seen me?", "@playername@，很高兴再次见到你！还是说，这是你第一次见我？", "_t")
+t("Farewell, Grand Keeper.", "再见，现实至高守护者。", "_t")
 t("Yes, this is our first meeting.", "是的，我们是第一次见面。", "_t")
 t([[Ah, for you perhaps, but not for me.
 Listen, someday you will encounter me again but it will not be me you see now. It will be younger me, if you will.
 This is very important: do not tell my previous me about me. Understood?]], [[啊，对你来说也许是的，不过对我来说可不是。
-听着，某一天你会再次遇到我，不过那不是现在的我。如果你见到他，那他一定是过去的我。
-记住这一点很重要：不要告诉那个以前的我有关现在的我的事，明白么？]], "_t")
+听着，有一天你会再次遇到我，但你见到的不会是现在的我，而是更年轻的我。
+这一点非常重要：不要把我的事告诉过去的我。明白吗？]], "_t")
 t("I think so...", "我想是吧……", "_t")
-t("Yes, Grand Keeper.", "是，伟大的守护者。", "_t")
+t("Yes, Grand Keeper.", "是，现实至高守护者。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/pre-charred-scar-eruan.lua"
@@ -5777,10 +5777,10 @@ section "mod-tome/data/chats/pre-charred-scar-eruan.lua"
 t([[@playername@, I am one of a party of Sun Paladins sent by Aeryn. We arrived here tracking the orcs.
 They have gone through the portal, and a few of my friends were pulled in with them.
 We captured an orc earlier.  He revealed that the staff you seek is to be used to absorb the power of a remote place for dark rituals.
-You must traverse this portal, if you have any means to, and stop the orcs.]], [[@playername@，我是艾琳派来的太阳骑士团的一员，我们跟踪兽人的踪迹到了这里。
+You must traverse this portal, if you have any means to, and stop the orcs.]], [[@playername@，我是艾琳派来的一队太阳骑士中的一员。我们追踪兽人来到了这里。
 他们穿过了传送门，我的几个朋友也被卷了进去。
-之前我们抓住过一个兽人。他透露你寻找的法杖是用来吸收远方某个地方举行的黑暗仪式的能量的。
-你必须通过这个传送门，要是你有什么办法，一定要阻止那些兽人。]], "_t")
+之前我们抓住了一个兽人。他透露，你所寻找的法杖将被用来吸收某个遥远之地的力量，以供黑暗仪式之用。
+如果你有办法穿过这道传送门，就必须过去阻止那些兽人。]], "_t")
 t("I think I can use the portal. Do not worry!", "我想我能够使用这个传送门，别担心！", "_t")
 
 ------------------------------------------------
@@ -5794,7 +5794,7 @@ I have some urgent information for you: the staff you were looking for has been 
 t("Where?!", "在哪里？！", "_t")
 t([[One of our patrols noticed some strange orc movements around the southern part of the continent, in the desert of Erúan.
 A group of orcs were guarding something that looked like the staff you asked about.
-You should go there to investigate. This might be your only chance.]], [[我们的一个巡逻队在南部大陆艾露安沙漠注意到了一些兽人的奇怪行踪。
+You should go there to investigate. This might be your only chance.]], [[我们的一支巡逻队在大陆南部的艾露安沙漠发现了一些兽人的异常动向。
 一群兽人在守卫着一件东西，看上去好像是你提到的那个法杖。
 你应该去调查一下，这可能是你仅有的机会。]], "_t")
 t("I will, right now!", "我马上就去！", "_t")
