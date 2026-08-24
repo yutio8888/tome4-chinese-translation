@@ -8161,18 +8161,18 @@ t("She points a location on your map, in a remote area to the north.", "她指�
 t("You are given a strange metal contraption, explaining that using it will transport you to tinker's cave.", "你获得了一个奇怪的金属装置，使用它可以进入工匠大师的山洞。", "_t")
 t("gained knowledge of tinker technology", "获得蒸汽科技的奥秘", "_t")
 t("Steamtech", "蒸汽科技", "_t")
-t("I've changed my mind.", "我决定不买了。", "_t")
-t("Which kind of item would you like ?", "你喜欢什么类型的装备？", "_t")
+t("I've changed my mind.", "我改变主意了。", "_t")
+t("Which kind of item would you like ?", "你想要哪种类型的装备？", "_t")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
 t([[Do you want to name your item?
 %s]], [[你想要命名你的物品吗？
 %s]], "tformat")
 t("Yes, please.", "是的。", "_t")
-t("Name your item", "给你的装备起名", "_t")
+t("Name your item", "为你的装备命名", "_t")
 t("Name", "名称", "_t")
-t("#LIGHT_BLUE#The merchant carefully hands you: %s", "#LIGHT_BLUE#商人小心的交给了你：%s", "log")
+t("#LIGHT_BLUE#The merchant carefully hands you: %s", "#LIGHT_BLUE#商人小心地交给了你：%s", "log")
 t("No thanks.", "不用了，谢谢。", "_t")
-t("Oh I am sorry, it seems we could not make the item your require.", "啊真抱歉，这东西我们可做不了。", "_t")
+t("Oh I am sorry, it seems we could not make the item your require.", "啊真抱歉，看来我们无法制作你所要求的装备。", "_t")
 t("Oh, let's try something else then.", "好吧，我们试试别的东西。", "_t")
 t("Oh well, maybe later then.", "好吧，以后再说。", "_t")
 

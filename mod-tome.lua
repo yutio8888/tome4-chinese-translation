@@ -3926,130 +3926,130 @@ t("Shortage", "短缺月", "calendar dwarf")
 ------------------------------------------------
 section "mod-tome/data/chats/alchemist-derth.lua"
 
-t("Pfaugh. You're too late. %s has already finished. But I suppose it doesn't do any harm to take these and give you your undeserved reward.", "额哦……你来的太晚了，%s 已经完成了。不过这些东西给你也没什么坏处，虽然……你本不应该得到这些奖励。", "tformat")
-t("Ah, excellent. Hand them over, if you please. You should know that in your overlong absence, %s has managed to create a %s. I'll be most put out if he steals my rightful spot.", "啊，好极了，如果你愿意，请交给我吧，要知道你离开的那么长时间里，%s 已经制造了 %s。如果他抢走了我应有的位置，我会非常不高兴。", "tformat")
+t("Pfaugh. You're too late. %s has already finished. But I suppose it doesn't do any harm to take these and give you your undeserved reward.", "呸！你来太晚了。%s已经完成了。不过收下这些原料、把你不配得到的奖励给你，倒也没什么坏处。", "tformat")
+t("Ah, excellent. Hand them over, if you please. You should know that in your overlong absence, %s has managed to create a %s. I'll be most put out if he steals my rightful spot.", "啊，太好了。请把它们交给我吧。要知道，在你离开的漫长时间里，%s已经设法配制出了一瓶%s。要是他抢走了本该属于我的席位，我可会非常不悦。", "tformat")
 t([[#LIGHT_GREEN#*A human robed in immaculate white satin opens the door and eyes you appraisingly.*#WHITE#
-Ah, an adventurer. I was just thinking that I needed a new one.]], [[#LIGHT_GREEN#*一个穿着一尘不染白缎面长袍的人打开了门，他上下打量着你。*#WHITE#
-啊，一个冒险者，我正好在考虑是不是要重新找个人帮忙。]], "_t")
-t("That sounds promising. And ominous.", "听上去不错，但总有种不祥的预感……", "_t")
+Ah, an adventurer. I was just thinking that I needed a new one.]], [[#LIGHT_GREEN#*一名身着一尘不染白缎长袍的人类打开了门，审视地打量着你。*#WHITE#
+啊，一位冒险者。我正想着我需要个新的帮手呢。]], "_t")
+t("That sounds promising. And ominous.", "听起来挺有希望。但也透着不祥。", "_t")
 t("[leave]", "[离开]", "_t")
-t("Indeed, it is both promising and ominous. I can reward you handsomely for your efforts, but they will lead you into deadly peril to which, I assume, the previous three fellows who went off on my errand never to return can attest.", "的确，你帮我完成这件事的话我会好好报答你，不过这个任务很危险。事实上，前面三个接受任务的人到目前为止还没有一个活着回来。", "_t")
+t("Indeed, it is both promising and ominous. I can reward you handsomely for your efforts, but they will lead you into deadly peril to which, I assume, the previous three fellows who went off on my errand never to return can attest.", "确实，既大有希望，又透着不祥。我会为你的效劳提供丰厚的回报，但这也将引你踏入致命险境——我想，前三个替我办事后便一去不回的家伙足以证明这一点。", "_t")
 t("What do you propose?", "那……你的建议呢？", "_t")
-t("Good adventurer, I am an alchemist, and quite a good one. This year, for the first time, the great Brotherhood of Alchemists has invited my application to their number. I'll not try your patience with the details of the application process, but suffice to say that it is grueling. Fortunately, a mere three tasks now stand between me and acceptance.", "非常好，我是一个炼金术师，水平很高超的那种。今年，炼金术士兄弟会第一次邀请我成为他们的会员。加入的条件……我就不多啰嗦了，估计你也不想听，反正复杂的很，我都快累死了。幸好，我现在就剩下三件事没办了。", "_t")
-t("How can I help?", "我怎么帮你？", "_t")
-t("I require ingredients for three potent mixtures. Obviously, since I seek your aid, none of them is to be found by simply strolling to the local herbalist's. No, they will need to be forcibly parted from their owners who will, just as obviously, put up a fight. I've yet to encounter a naga who would be persuaded to hand over his tongue! Ha! Oh, I am droll at times.", "我需要一些材料来制作三瓶药剂。很显然，既然我找你帮忙，那么，想简单从那些草药师那里搞到这些材料是几乎不可能的。没错，你得从这些材料的拥有者那里强行搞来，当然你免不了一场大战。我还没遇到过肯被说服交出舌头的娜迦！哈！我偶尔还挺风趣的。", "_t")
-t("I specialize in separating vital body parts from monsters. What do you offer in return?", "对于从怪物身上把你要的东西给活剥下来，我可是个行家，但是我能得到什么好处？", "_t")
-t("Why, I will let you share in the fruits of my labors! Each of the three mixtures I shall produce in a quantity sufficient to create three doses: one for me, one for the Brotherhood and their confounded trial... and one for you. I must tell you that time is of the essence. I am not the only one who the Brotherhood invited this year, yet they will accept only one applicant-- the first to complete their trials. I know of at least three others laboring furiously to take my rightful place. Should your aid see me through, then I will reward you beyond even the remarkable elixirs. I've an ancient Lifebinding Emerald that grants great powers of health and healing when used properly. What say you?", "什么？我会和你分享我的劳动成果！三瓶药剂每个我都会制造三份：一份给自己，一份给炼金术士兄弟会交差，而另外一份给你。必须告诉你的是，时间非常紧迫，我不是今年炼金术士兄弟会邀请的唯一一个，只有第一个完成他们要求的人才会被接受。据我所知，至少还有三个人在抢我这个位置。如果你帮我成功入会的话，除了药剂之外，我还有更好的东西回报你。我有一块古老的生命宝石，合理使用可以大大增强你的治疗能力。怎么样，有兴趣么？", "_t")
+t("Good adventurer, I am an alchemist, and quite a good one. This year, for the first time, the great Brotherhood of Alchemists has invited my application to their number. I'll not try your patience with the details of the application process, but suffice to say that it is grueling. Fortunately, a mere three tasks now stand between me and acceptance.", "可敬的冒险者，我是一名炼金术士，而且手艺相当精湛。今年，伟大的炼金术士兄弟会首次邀请我申请入会。我就不用申请流程的细节来消磨你的耐心了，简而言之，那极其严苛。幸运的是，现在我与正式入会之间只剩下区区三项任务了。", "_t")
+t("How can I help?", "我该如何帮你？", "_t")
+t("I require ingredients for three potent mixtures. Obviously, since I seek your aid, none of them is to be found by simply strolling to the local herbalist's. No, they will need to be forcibly parted from their owners who will, just as obviously, put up a fight. I've yet to encounter a naga who would be persuaded to hand over his tongue! Ha! Oh, I am droll at times.", "我需要用于配制三种强效药剂的原料。显而易见，既然我向你求助，这些东西就绝非在本地草药铺随便逛逛就能弄到的。不，它们必须从原主身上强行剥离下来，而同样显而易见的是，对方一定会奋起抵抗。我还没遇到过哪只肯被说服乖乖交出舌头的娜迦呢！哈！噢，我有时候还真挺幽默的。", "_t")
+t("I specialize in separating vital body parts from monsters. What do you offer in return?", "从怪物身上剥离关键身体部位正是我的专长。你拿什么作为回报？", "_t")
+t("Why, I will let you share in the fruits of my labors! Each of the three mixtures I shall produce in a quantity sufficient to create three doses: one for me, one for the Brotherhood and their confounded trial... and one for you. I must tell you that time is of the essence. I am not the only one who the Brotherhood invited this year, yet they will accept only one applicant-- the first to complete their trials. I know of at least three others laboring furiously to take my rightful place. Should your aid see me through, then I will reward you beyond even the remarkable elixirs. I've an ancient Lifebinding Emerald that grants great powers of health and healing when used properly. What say you?", "哎呀，我会让你分享我的劳动成果！这三种药剂，我每种都会配制出足够三份的剂量：一份归我，一份交给兄弟会去应付他们那该死的考验……还有一份归你。我必须告诉你，时间至关重要。我并非兄弟会今年邀请的唯一人选，而他们只录取一名申请者——最先完成考验的那位。我知道至少还有其他三个人在拼命劳作，想抢夺本该属于我的席位。若在你的帮助下我得以胜出，我给予你的报酬甚至会超越那些非凡的药剂。我有一块古老的生命绑定翡翠，妥善使用时能赋予强大的生命与治疗力量。你意下如何？", "_t")
 t("I accept.", "我接受了。", "_t")
 t("I cannot aid you at this time.", "我现在没空帮你。", "_t")
-t("Excellent. Now then, I've three elixirs I'm working on. I'll burden you with only one at a time, since I've learned the hard way about the hazards of overloading an adventurer's brain. Here are your options: the elixir of the fox, which makes you as nimble and cunning as a fox; the elixir of avoidance, which sharpens your natural inclinations to get out of the way of incoming harm; or the elixir of precision, which grants intuitive understanding of an enemy's most sensitive spots. Which would you like to aid me with?", "好极了，那么，我有三瓶药剂要制造，不过每次我只给你一项任务，一次给你超负荷的任务对你可没有任何好处。你自己选一个吧：狡诈药剂，能让你像一只狐狸一般灵活；闪避药剂，能提高你躲避伤害的能力；精准药剂，能让你对敌人的弱点了如指掌。你选择哪一个？", "_t")
+t("Excellent. Now then, I've three elixirs I'm working on. I'll burden you with only one at a time, since I've learned the hard way about the hazards of overloading an adventurer's brain. Here are your options: the elixir of the fox, which makes you as nimble and cunning as a fox; the elixir of avoidance, which sharpens your natural inclinations to get out of the way of incoming harm; or the elixir of precision, which grants intuitive understanding of an enemy's most sensitive spots. Which would you like to aid me with?", "太好了。那么，我目前正在研制三种药剂。我每次只交给你一项，毕竟我曾吃过苦头，深知让冒险者的大脑负荷过重有多危险。以下是你的选择：狡诈药剂，能让你如狐狸般敏捷狡黠；闪避药剂，能磨砺你躲避来袭伤害的本能；或是精准药剂，能让你凭直觉洞悉敌人最脆弱的要害。你想协助我制作哪一种？", "_t")
 t("The %s.", "%s。", "tformat")
-t("Here's a list of the ingredients I'm missing. Please attempt to not lose your life in their pursuit. I'll be most put out if I must wait another year. Oh, and I suppose I should tell you that I've already a handful of adventurers out scouring the unpleasant places of the world for these ingredients. Dally and one of them shall claim the prize while you're out.", "这里有一张配方，上面写着我目前缺少的材料。当心别丢了你的小命，要是我错过这次机会就得等明年了。我想我该告诉你，我已经让几个冒险者去收集这些材料了。你要是再拖延，他们中的一个就会抢先领走奖励。", "_t")
+t("Here's a list of the ingredients I'm missing. Please attempt to not lose your life in their pursuit. I'll be most put out if I must wait another year. Oh, and I suppose I should tell you that I've already a handful of adventurers out scouring the unpleasant places of the world for these ingredients. Dally and one of them shall claim the prize while you're out.", "这是我所缺少的原料清单。搜寻它们时请尽量保住性命，要是还得再等上一年，我可会非常不快的。噢，我想我还得告诉你，我已经派了几个冒险者去搜寻世间那些险恶之地寻找这些原料了。若是拖拖拉拉，当你还在外奔波时，奖品就已经被其中某人领走了。", "_t")
 t("I'll be off.", "我走了。", "_t")
-t("#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#", "#LIGHT_GREEN#*门锁住了，没人注意到你的敲门声。*#WHITE#", "_t")
+t("#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#", "#LIGHT_GREEN#*门锁着，无人回应你的敲门声*#WHITE#", "_t")
 t("[Leave]", "[离开]", "_t")
 t([[#LIGHT_GREEN#*The alchemist opens his door.*#WHITE#
-Ah, you again.]], [[#LIGHT_GREEN#*炼金师打开了门。*#WHITE#
-啊，你回来了。]], "_t")
+Ah, you again.]], [[#LIGHT_GREEN#*炼金术士打开了门。*#WHITE#
+啊，又是你。]], "_t")
 t("I've returned with the ingredients for the %s.", "我回来了，我找到了%s的材料。", "tformat")
 t("I've come to offer more aid.", "我来提供更多帮助。", "_t")
 t("[Give him the monster bits.]", "[给他材料。]", "_t")
 t([[#LIGHT_GREEN#*The alchemist grins and motions impatiently for the ingredients.*#WHITE#
-Wonderful, absolutely wonderful! The final step! Here, let me have those!]], [[#LIGHT_GREEN#*炼金师看到材料有点急不可耐，他咧着嘴开心的笑了起来。*#WHITE#
-好极了！简直棒极了！这可是最后一步！来来来，把它们给我吧。]], "_t")
+Wonderful, absolutely wonderful! The final step! Here, let me have those!]], [[#LIGHT_GREEN#*炼金术士咧嘴一笑，急不可耐地示意你交出原料。*#WHITE#
+太棒了，真是太棒了！最后一步了！快，把那些交给我！]], "_t")
 t("[Give him the monster bits]", "[给他材料]", "_t")
-t("Wait here while I perform my art. I'll have your reward within the hour.", "在这儿等着，我去制作药剂，一小时内我会把东西弄好，当然还有你的奖励。", "_t")
+t("Wait here while I perform my art. I'll have your reward within the hour.", "在这儿等着，容我施展技艺。一小时内我就会备好你的报酬。", "_t")
 t("[Wait]", "[等待]", "_t")
-t("A final wait for you, my good adventurer, and then I shall return with both your rewards! Haha, complete at last!", "最后稍等一下，我的冒险家朋友，马上我会带着你的两份奖励回来，哈哈终于大功告成啦！", "_t")
+t("A final wait for you, my good adventurer, and then I shall return with both your rewards! Haha, complete at last!", "最后稍等片刻，我可敬的冒险者，随后我就会带着你的两份奖励归来！哈哈，终于大功告成了！", "_t")
 t([[#LIGHT_GREEN#*The alchemist finally returns and hands you a small vial of fine glass.*#WHITE#
-Enjoy your reward.]], [[#LIGHT_GREEN#*炼金师终于回来了，他递给你一个精致的小玻璃瓶。*#WHITE#
+Enjoy your reward.]], [[#LIGHT_GREEN#*炼金术士终于回来了，递给你一只精致的小玻璃药瓶。*#WHITE#
 享用你的奖励吧。]], "_t")
 t("Thank you. I'll be off.", "谢谢，我走了。", "_t")
 t([[#LIGHT_GREEN#*The alchemist finally returns with a vial and a green gem.*#WHITE#
-Enjoy the fruits of your labors, adventurer. I know I will. To show my appreciation, I shall name my firstborn after... er, what was your name, then? Haha, I jest. Oh, I do go on when I'm giddy. Fare you well.]], [[#LIGHT_GREEN#*炼金师终于回来了，手里拿着一颗翡翠宝石和一个药水瓶。*#WHITE#
-尽情享用你的劳动成果吧，我的冒险家。为了表示我的敬意，我打算给我的长子取名为……呃，你叫什么名字来着？哈哈，开个玩笑。啊～我一兴奋就会说个没完，不过我肯定会尽情的。好了，再见吧，我的朋友。]], "_t")
-t("Excellent. With which would you like to aid me?", "好极了，你准备帮我做哪一个？", "_t")
-t("Here's a list of the ingredients I'm missing. Please attempt to not lose your life in their pursuit. I'll be most put out if I must wait another year.", "这里有一张配方，上面写着我目前缺少的材料。当心别丢了你的小命，要是我错过这次机会就得等明年了。", "_t")
-t("Terribly sorry, but I've already made the elixir without your aid. I've no reward to give you, and no reason to do so if I did.", "非常抱歉，我已经自己把那些药剂都做好了，我可没理由再给你任何奖励。", "_t")
+Enjoy the fruits of your labors, adventurer. I know I will. To show my appreciation, I shall name my firstborn after... er, what was your name, then? Haha, I jest. Oh, I do go on when I'm giddy. Fare you well.]], [[#LIGHT_GREEN#*炼金术士终于带着一只药瓶和一颗绿色宝石回来了。*#WHITE#
+尽情享用你的辛劳成果吧，冒险者。反正我肯定会好好享用我的这份。为表谢意，我打算用你的名字为我的头胎孩子命名……呃，你叫什么名字来着？哈哈，开个玩笑。噢，我一兴奋起来话就停不下来。祝你一路顺风。]], "_t")
+t("Excellent. With which would you like to aid me?", "太好了。你想协助我制作哪一种？", "_t")
+t("Here's a list of the ingredients I'm missing. Please attempt to not lose your life in their pursuit. I'll be most put out if I must wait another year.", "这是我所缺少的原料清单。搜寻它们时请尽量保住性命，要是还得再等上一年，我可会非常不快的。", "_t")
+t("Terribly sorry, but I've already made the elixir without your aid. I've no reward to give you, and no reason to do so if I did.", "实在抱歉，但无需你的协助，我就已经配制好了这瓶药剂。我没有奖励可以给你，即便有，我也毫无理由这么做。", "_t")
 t("Hrmph.", "哼。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/alchemist-elvala.lua"
 
-t("Too late! Argh, too late. %s has already finished. I'll make the elixir and reward you as promised, but only because the Brotherhood breaks the fingers of non-member alchemists who rook people. Members, on the other hand...", "太晚了！哎呀，太晚了。%s 已经完成了。我遵守诺言会帮你制作药剂，不过是因为，非会员的炼金术士如果欺骗他人的话，炼金术士兄弟会会折断他们的手指，如果是会员的话，则另当别论……", "tformat")
-t("Give them here. You took long enough; %s cooked up a %s in your absence. Be quicker about the next one lest I make a 'mistake' in brewing your reward.", "把材料给我，你的动作太慢了，%s 已经在你离开的时候制造了 %s 。下一次你最好动作快一点，免得我在给你制造奖品时“出错”。", "tformat")
+t("Too late! Argh, too late. %s has already finished. I'll make the elixir and reward you as promised, but only because the Brotherhood breaks the fingers of non-member alchemists who rook people. Members, on the other hand...", "太迟了！啊，太迟了！%s已经完成了。我会按承诺配制药剂并给你奖励，但这纯粹是因为兄弟会会折断那些坑蒙拐骗的非会员炼金术士的手指。至于会员嘛，可就另当别论了……", "tformat")
+t("Give them here. You took long enough; %s cooked up a %s in your absence. Be quicker about the next one lest I make a 'mistake' in brewing your reward.", "拿来吧。你可真够磨蹭的；趁你不在的时候，%s已经捣鼓出了一瓶%s。下一次手脚麻利点，免得我在酿造你的奖励时‘不小心出错’。", "tformat")
 t([[#LIGHT_GREEN#*A shabbily-dressed elf opens the door, scratching his head in apparent puzzlement.*#WHITE#
-Another adventurer? Or have we met? I can't tell people apart unless they wear brightly-colored headbands. You need to help me.]], [[#LIGHT_GREEN#*一个衣衫褴褛的精灵开了门，他的脸上带着困惑的表情。*#WHITE#
-又来了一个冒险者？我们碰过面么？除非人们头上扎一根颜色鲜明点的发带，要不然我就分不清楚谁是谁……你得帮我个忙。]], "_t")
-t("I am indeed an adventurer. Go on.", "其实我是个冒险者，请继续。", "_t")
+Another adventurer? Or have we met? I can't tell people apart unless they wear brightly-colored headbands. You need to help me.]], [[#LIGHT_GREEN#*一名衣衫褴褛的精灵打开了门，抓着头，显得十分困惑。*#WHITE#
+又一个冒险者？还是我们见过？除非头上戴着色彩鲜艳的发带，否则我根本分不清谁是谁。你得帮帮我。]], "_t")
+t("I am indeed an adventurer. Go on.", "我确实是名冒险者。请继续说。", "_t")
 t("[leave]", "[离开]", "_t")
-t("Three elixirs stand between me and acceptance into the Brotherhood of Alchemists, unless I've been through that already. I'm never quite sure. But I think that's the case. Bring me the ingredients.", "必须制造三瓶药剂我才能加入炼金术士兄弟会——除非我已经经历过这一切了。我从来不太确定，但我觉得应该如此。把材料给我吧。", "_t")
-t("What elixirs? What ingredients?", "什么药剂？什么材料？", "_t")
-t("The ones that I need to get before the other alchemists get them. Can't have some lesser hack sneaking into the Brotherhood.", "必须在别的炼金师之前弄到手，可不能让哪个不入流的家伙混进兄弟会。", "_t")
-t("You're making little sense.", "你最好把话讲明白些。", "_t")
+t("Three elixirs stand between me and acceptance into the Brotherhood of Alchemists, unless I've been through that already. I'm never quite sure. But I think that's the case. Bring me the ingredients.", "在我和被炼金术士兄弟会接纳之间还隔着三瓶药剂——除非我已经经历过这一切了。我从来都不太确定。但我猜情况就是这样。去把原料给我找来。", "_t")
+t("What elixirs? What ingredients?", "什么药剂？什么原料？", "_t")
+t("The ones that I need to get before the other alchemists get them. Can't have some lesser hack sneaking into the Brotherhood.", "就是我必须赶在其他炼金术士得手前弄到的那些。绝不能让哪个不入流的庸才混进兄弟会。", "_t")
+t("You're making little sense.", "你这话前言不搭后语。", "_t")
 t([[#LIGHT_GREEN#*He raises his voice and gestures exaggeratedly, seemingly taking you for an idiot.*#WHITE#
-Me need pieces of scary monsters for happy-making drink. You get me pieces. You probably get eaten by monsters, me have this conversation yet again with other bonehead.]], [[#LIGHT_GREEN#*他提高了嗓门，并做着夸张的手势，似乎觉得你是一个白痴。*#WHITE#
-我需要一些怪物的碎片来制作一些有趣的药水，你得把那些碎片给我，你也许会被怪物吃掉，之前我和另外一个傻瓜也说过这些话。]], "_t")
-t("I've been known to kill the occasional monster. Is there a reward in it for me?", "我偶尔也会杀些怪物。有什么奖励吗？", "_t")
-t("It finally understands! You get a dose of every elixir you help me make. And if your help gets me into the Brotherhood, I've got half an Elixir of Invulnerability lying around that I'll give you. Don't try anything; I've already downed the other half.", "总算明白了！你每帮我做成一份药剂我也会给你一瓶。要是你帮我加入炼金术士兄弟会，我这儿还有半瓶无敌药水也给你，另外半瓶不用找了，因为已经被我喝掉了。", "_t")
+Me need pieces of scary monsters for happy-making drink. You get me pieces. You probably get eaten by monsters, me have this conversation yet again with other bonehead.]], [[#LIGHT_GREEN#*他提高了嗓门，夸张地比画着手势，似乎把你当成了白痴。*#WHITE#
+我要可怕怪物的碎块做快乐药水。你，去帮我拿碎块。你八成会被怪物吃掉，然后我又得跟别的蠢蛋把这些话再讲一遍。]], "_t")
+t("I've been known to kill the occasional monster. Is there a reward in it for me?", "我偶尔也会杀杀怪物。这对我有什么报酬？", "_t")
+t("It finally understands! You get a dose of every elixir you help me make. And if your help gets me into the Brotherhood, I've got half an Elixir of Invulnerability lying around that I'll give you. Don't try anything; I've already downed the other half.", "‘它’总算听懂了！你每帮我制作一种药剂，就能分得一份剂量。要是你的协助能让我入选兄弟会，我这儿碰巧还留着半瓶无敌药剂可以送给你。别想动什么歪脑筋，另外半瓶早就被我喝光了。", "_t")
 t("I accept.", "我接受了。", "_t")
 t("I cannot aid you at this time.", "我现在没空帮你。", "_t")
-t("Three elixirs I need. I'll show you the ingredients to one at a time. Are you interested in the Elixir of Mysticism, the Elixir of the Savior, or the Elixir of Mastery?", "我需要三种药剂，每次我会告诉你其中一个的配方。你对哪个比较感兴趣？神秘药剂？守护药剂？还是掌握药剂？", "_t")
+t("Three elixirs I need. I'll show you the ingredients to one at a time. Are you interested in the Elixir of Mysticism, the Elixir of the Savior, or the Elixir of Mastery?", "我需要三种药剂。我每次只告诉你一种药剂所需的原料。你对神秘药剂、守护药剂，还是掌握药剂感兴趣？", "_t")
 t("The %s.", "%s。", "tformat")
-t("Here's a list of the monster bits I need. I've already got a bunch of idiots out looking for these, by the way, so you best hurry up; they've got a head start on you and I'm not getting any saner here.", "这里有一张记录材料的纸，顺便说一声，之前我已经找了几个傻瓜帮我去找这些东西了，所以你最好动作快点。他们已经领先于你了，而我在这儿等得越来越烦躁。", "_t")
-t("So I see. I'll be off.", "了解，那我走了。", "_t")
-t("#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#", "#LIGHT_GREEN#*门锁住了，没人注意到你的敲门声。*#WHITE#", "_t")
+t("Here's a list of the monster bits I need. I've already got a bunch of idiots out looking for these, by the way, so you best hurry up; they've got a head start on you and I'm not getting any saner here.", "这是我需要的怪物部位清单。顺便说一句，我已经派了一帮蠢货在外面搜寻这些东西了，所以你最好快点；他们可比你先行一步，而我呆在这儿可不会变得越来越清醒。", "_t")
+t("So I see. I'll be off.", "看出来了。我这就出发。", "_t")
+t("#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#", "#LIGHT_GREEN#*门锁着，无人回应你的敲门声*#WHITE#", "_t")
 t("[Leave]", "[离开]", "_t")
 t([[#LIGHT_GREEN#*The shabby elf opens his door.*#WHITE#
-Do I know you?]], [[#LIGHT_GREEN#*那个衣衫褴褛的精灵开了门。*#WHITE#
-我们认识么？]], "_t")
+Do I know you?]], [[#LIGHT_GREEN#*衣衫褴褛的精灵打开了门。*#WHITE#
+我认识你吗？]], "_t")
 t("I've returned with the ingredients for the %s.", "我回来了，我找到了%s的材料。", "tformat")
 t("I've come to offer more aid.", "我来提供更多帮助。", "_t")
 t("[Give him the monster bits.]", "[给他材料。]", "_t")
 t([[#LIGHT_GREEN#*The elf claps his scarred hands together.*#WHITE#
-Exceptional work, lackey! The final elixir awaits! Oh, yes. Membership will be mine. And revenge. Ohhhh yes.]], [[#LIGHT_GREEN#*那个精灵拍着他那满是伤疤的双手。*#WHITE#
-干得好，我的仆从！最后一份药剂马上就要完成了！对，没错，会员资格是我的了，然后我要报仇雪恨，嗯，没错！]], "_t")
+Exceptional work, lackey! The final elixir awaits! Oh, yes. Membership will be mine. And revenge. Ohhhh yes.]], [[#LIGHT_GREEN#*精灵拍了拍他那满是伤疤的双手。*#WHITE#
+干得漂亮，跟班！最后的药剂就在眼前！噢，没错。会员席位非我莫属。还有复仇。噢——没错。]], "_t")
 t("[Give him the monster bits]", "[给他材料]", "_t")
-t("Contain your impatience while I prepare these. I'll have the elixir within the hour.", "我制造药水的时候你得耐心点，一个小时后我会回来。", "_t")
+t("Contain your impatience while I prepare these. I'll have the elixir within the hour.", "在我调配这些原料时收敛好你的急躁。一小时内我就能备好药剂。", "_t")
 t("[Wait]", "[等待]", "_t")
-t("Perfection. Wait here.", "好极了，在这儿等下。", "_t")
+t("Perfection. Wait here.", "完美。在这儿候着。", "_t")
 t([[#LIGHT_GREEN#*The elf finally returns and tosses you a small vial of fine glass.*#WHITE#
-Side effects may include some slight mental imbalances.]], [[#LIGHT_GREEN#*那个精灵终于回来了，丢给你一个精致的小药剂瓶。*#WHITE#
-它会有点副作用，你会感到轻度的精神失衡。]], "_t")
+Side effects may include some slight mental imbalances.]], [[#LIGHT_GREEN#*精灵终于回来了，抛给你一只精致的小玻璃药瓶。*#WHITE#
+副作用可能包括些许轻微的精神失衡。]], "_t")
 t("Thank you. I'll be off.", "谢谢，我走了。", "_t")
 t([[#LIGHT_GREEN#*The alchemist finally returns with two vials.*#WHITE#
-I have no idea who you are, but I'm pretty sure that I'm supposed to give these to somebody as a reward. If some adventurer kills you and takes them, then apparently you're not the fellow I'm looking for.]], [[#LIGHT_GREEN#*那个炼金师带着两个瓶子走了出来。*#WHITE#
-我不知道你是谁，不过我要把这两样东西送给你作为报答，要是有冒险者把你干掉然后抢走了这两瓶药剂，那就算我找错人了。]], "_t")
-t("Which of the remaining elixirs interests you?", "剩下的药剂，你对哪个感兴趣？", "_t")
-t("Here's a list of the ingredients I'm missing. Please follow the directions carefully, or the resulting elixir could be more fatal than either of us would hope.", "这有一张配方，上面写着我目前缺少的材料。你得按上面的指示小心行动，要不然做出的药剂就会要人命了，我可不希望这样。", "_t")
+I have no idea who you are, but I'm pretty sure that I'm supposed to give these to somebody as a reward. If some adventurer kills you and takes them, then apparently you're not the fellow I'm looking for.]], [[#LIGHT_GREEN#*炼金术士终于带着两只药瓶回来了。*#WHITE#
+我根本不知道你是谁，但我相当确信我应该把这些当作奖励给某个人。要是有哪个冒险者把你杀了抢走它们，那显然你并不是我要找的那个家伙。]], "_t")
+t("Which of the remaining elixirs interests you?", "剩下的药剂中，你对哪一种感兴趣？", "_t")
+t("Here's a list of the ingredients I'm missing. Please follow the directions carefully, or the resulting elixir could be more fatal than either of us would hope.", "这是我所缺少的原料清单。请务必严格遵循说明，否则配制出的药剂可能会比我们双方所希望的更加致命。", "_t")
 t("I'll be off.", "我走了。", "_t")
-t("Already made it. Best pick up the pace next time, adventurer.", "我已经做好了，下次你动作最好快点，冒险者。", "_t")
+t("Already made it. Best pick up the pace next time, adventurer.", "已经做好了。下次动作最好快点，冒险者。", "_t")
 t("Hrmph.", "哼。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/alchemist-golem.lua"
 
 t("Equipment(%s) <=> Inventory(%s)", "装备(%s) <=> 道具栏(%s)", "tformat")
-t("Change your golem's name", "改变傀儡的名字", "_t")
+t("Change your golem's name", "修改傀儡名字", "_t")
 t("Name", "名称", "_t")
 t("%s (servant of %s)", "%s (%s的仆人)", "tformat")
 t("I want to change your equipment.", "我想更换你的装备。", "_t")
-t("I want to change your talents.", "我想改变你的技能。", "_t")
-t("I want to change your tactics.", "我想调整你的策略。", "_t")
+t("I want to change your talents.", "我想调整你的技能。", "_t")
+t("I want to change your tactics.", "我想调整你的战术。", "_t")
 t("I want to take direct control.", "我想直接操控你。", "_t")
-t("I want to change your name.", "我想改变你的名字。", "_t")
-t("Telos the Great and Powerful (reluctant follower of %s)", "伟大的泰勒斯大人 (%s不情愿的随从)", "tformat")
+t("I want to change your name.", "我想修改你的名字。", "_t")
+t("Telos the Great and Powerful (reluctant follower of %s)", "伟大而强大的泰勒斯 (%s不情愿的追随者)", "tformat")
 t("#ROYAL_BLUE#The golem decides to change it's name to #{bold}#%s#{normal}#.", "#ROYAL_BLUE#傀儡决定将名字更改为 #{bold}#%s#{normal}#.", "log")
-t("How is it that you speak?", "你居然能说话？", "_t")
-t("I want to change your appearance (one-time only).", "我想要改变你的外观(只能进行一次)。", "_t")
-t("Nothing, let's go.", "没事，走吧。", "_t")
-t("What's the good of immortality if you can't even speak? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. And, by the way, your energy manipulation techniques are on the same level as those of my average pair of shoes. Though I guess you are making up for it with your golem crafting skills.", "如果你连说话都不能，就算得到永生还有什么乐趣？任何一个称职的大法师，在准备他们不道德的死后复活计划的时候，都一定会计划好确保在这种状况下也能让别人听到自己的声音。顺带一提，你操纵能量的技术连给我提鞋都不够。虽然我猜你是用你的傀儡制作技能来弥补这一点。", "_t")
-t("Change my name? I'm quite happy being 'Telos' thankyou. Though I wouldn't mind being 'Telos the Great and Powerful'. Do that actually. Yes!", "改变我的名字？我的名字就是“泰勒斯”，谢谢。当然，如果你叫我“伟大的泰勒斯大人”我也不介意。对，赶紧这么做吧！", "_t")
+t("How is it that you speak?", "你怎么会开口说话？", "_t")
+t("I want to change your appearance (one-time only).", "我想修改你的外观（仅限一次）。", "_t")
+t("Nothing, let's go.", "没事，我们走吧。", "_t")
+t("What's the good of immortality if you can't even speak? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. And, by the way, your energy manipulation techniques are on the same level as those of my average pair of shoes. Though I guess you are making up for it with your golem crafting skills.", "要是连话都说不了，永生还有什么用？任何一个称职的大法师在谋划某种不道德的死后复生方案时，都绝不可能不包含表达自己见解的能力。顺带一提，你操纵能量的技术水平跟我随便一双鞋子差不多。不过我猜，你在傀儡制作手艺上弥补了这一点。", "_t")
+t("Change my name? I'm quite happy being 'Telos' thankyou. Though I wouldn't mind being 'Telos the Great and Powerful'. Do that actually. Yes!", "修改我的名字？叫‘泰勒斯’我就挺满意的了，谢谢。不过我倒也不介意被称为‘伟大而强大的泰勒斯’。实际上，就这么改吧。对！", "_t")
 t([[I'm a golem. How droll!
-Oh, did you want something?]], [[我是个傀儡。真可笑！
-哦，你想要点什么吗？]], "_t")
+Oh, did you want something?]], [[我是个傀儡。多滑稽啊！
+噢，你有什么事吗？]], "_t")
 t([[#LIGHT_GREEN#*The golem talks in a monotonous voice*#WHITE#
-Yes master.]], [[#LIGHT_GREEN#*傀儡用一个单调的声音说：*#WHITE#
+Yes master.]], [[#LIGHT_GREEN#*傀儡用毫无起伏的声音说道*#WHITE#
 是，主人。]], "_t")
 
 ------------------------------------------------
@@ -4079,7 +4079,7 @@ THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU AB
 t("[Indicate the %s.]", "[指向 %s.]", "tformat")
 t("HERE'S A LIST OF THE STUFF I NEED. MOST OF IT WILL TRY TO KILL YOU, SO I HOPE YOU'RE NOT INCOMPETENT. I'VE GOT PLENTY OF INCOMPETENT HELP ALREADY. I HOPE FOR YOUR SAKE THAT YOU'RE SMARTER AND FASTER THAN THEM.", "这里有一张我需要的材料清单，大多数材料拥有者可能会要了你的小命，但愿你没那么挫，我已经有一票挫子帮手了。希望你比他们要聪明，动作麻利点！", "_t")
 t("I'LL BE OFF.", "我走了", "_t")
-t("#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#", "#LIGHT_GREEN#*门锁住了，没人注意到你的敲门声。*#WHITE#", "_t")
+t("#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#", "#LIGHT_GREEN#*门锁着，无人回应你的敲门声*#WHITE#", "_t")
 t("[Leave]", "[离开]", "_t")
 t([[#LIGHT_GREEN#*The halfling, still smoking, opens his door.*#WHITE#
 I LIVE WAY THE HELL OUT HERE FOR A REASON, YOU PIECE OF... OH. IT'S YOU.]], [[#LIGHT_GREEN#*那个半身人，身上还冒着烟，开了门。*#WHITE#
@@ -4136,7 +4136,7 @@ Oh, and one other last thing... if you have the time for another errand, though 
 哦，对了，最后还有另外一件事……不知道你感不感兴趣，不过这件事可没有报酬的。]], "_t")
 t("Well, I'll see if I can help.", "好吧，我看看我能不能帮上忙。", "_t")
 t("I'm here for profit, not errands - I have the list and will work on it; sort your own sidejobs out.", "我可不白干，不是给你做跑腿的，现在拿到材料清单了我会去搞定，别的事情就算了。", "_t")
-t("#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#", "#LIGHT_GREEN#*门锁住了，没人注意到你的敲门声。*#WHITE#", "_t")
+t("#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#", "#LIGHT_GREEN#*门锁着，无人回应你的敲门声*#WHITE#", "_t")
 t("[Leave]", "[离开]", "_t")
 t([[#LIGHT_GREEN#*The mailed dwarf opens his door.*#WHITE#
 Aha, my favorite adventurer.]], [[#LIGHT_GREEN#*那个穿锁甲的矮人打开了门。*#WHITE#
@@ -4179,44 +4179,44 @@ t("He points out the location of the graveyard on your map.", "他在你的地�
 section "mod-tome/data/chats/angolwen-leader.lua"
 
 t([[#LIGHT_GREEN#*A tall woman stands before you. Her fair skin radiates incredible power through her white robe.*#WHITE#
-I am Linaniil of the Kar'Krul. Welcome to our city, @playerdescriptor.subclass@. What may I do for thee?]], [[#LIGHT_GREEN#*一位身材高大的女人站在你的面前，她白皙的皮肤透过她的白色长袍放射出一股惊人的力量。*#WHITE#
-我是卡库罗尔的莱娜尼尔。欢迎来到我们的城市。@playerdescriptor.subclass@有什么需要帮忙的么？]], "_t")
-t("I require all the help I can get, not for my sake but for the town of Derth, to the northeast of here.", "我寻求一切能帮助我的力量，不是为我自己，而是为了东北地区的德斯小镇。", "_t")
-t("I am ready! Send me to Urkis!", "我准备好了，送我去厄奇斯！", "_t")
-t("Urkis has been slain.", "厄奇斯被我干掉了。", "_t")
-t("Nothing for now. Sorry to have taken your time. Farewell, my lady.", "目前没事，抱歉耽误了你的时间，再见我的女士。", "_t")
+I am Linaniil of the Kar'Krul. Welcome to our city, @playerdescriptor.subclass@. What may I do for thee?]], [[#LIGHT_GREEN#*一名身材高大的女子伫立在你面前。她白皙的肌肤透过白袍散发着惊人的力量。*#WHITE#
+我是卡·克鲁尔的莱娜尼尔。欢迎来到我们的城市，@playerdescriptor.subclass@。我能为你做些什么？]], "_t")
+t("I require all the help I can get, not for my sake but for the town of Derth, to the northeast of here.", "我需要能得到的所有帮助，不是为了我自己，而是为了此地东北方的德斯镇。", "_t")
+t("I am ready! Send me to Urkis!", "我准备好了！送我去厄奇斯那里！", "_t")
+t("Urkis has been slain.", "厄奇斯已被诛杀。", "_t")
+t("Nothing for now. Sorry to have taken your time. Farewell, my lady.", "暂时无事。抱歉耽误了您的时间。告辞，女士。", "_t")
 t([[Yes, we have noticed the devastation that happened there. I have sent some friends thence to disperse the cloud, but the true threat lies not there.
 He who created this abomination is Urkis. He is a Tempest, a powerful Archmage who channels the storms.
 Years ago he went rogue, severing himself from Angolwen. At first he remained quiet, and thus we withheld action, but it seems we have no choice now.
 Cleansing the skies will take much time. In the meanwhile, if thou art willing, we can send thee to Urkis' lair to face him.
-I will not lie to thee: we can send thee thence, but this could be a death trap, and we have no means for thou to depart his lair, as he lives atop a tall peak in the Daikara mountains.]], [[是的，我们已经注意到了那里发生的破坏。我已经派了几个朋友去驱散那里的乌云，不过真正的威胁并不在那里。
-造成这场混乱的是厄奇斯。他是一个风暴术士，能够操纵暴风雨的强大元素法师。
-几年前他叛逃安格利文独自流浪。起初他保持低调，我们也就没采取行动，不过现在看来我们没有选择了。
-净化天空需要花费不少时间，同时，假如你乐意的话，我们会传送你到厄奇斯的老巢帮我们直接对付他。
-坦白的说，我们送你去的地方，很可能就是一个死亡陷阱，而且我们没有办法再把你从他的巢穴里传送出去，因为他的老巢在岱卡拉山脉的最高峰。]], "_t")
-t("I need to prepare myself. I will be back soon.", "我要做些准备工作，我马上就回来。", "_t")
-t("I am ready. Send me. I will not let the good people of Derth down.", "我准备好了，传送我过去吧。我不会辜负德斯的好人们的。", "_t")
-t("Good luck to thee. Thou hast the blessings of Angolwen.", "祝你好运，愿安格利文的祝福与你同在。", "_t")
+I will not lie to thee: we can send thee thence, but this could be a death trap, and we have no means for thou to depart his lair, as he lives atop a tall peak in the Daikara mountains.]], [[是的，我们已经注意到了那里所遭受的破坏。我已派了几位同伴前往该处驱散阴云，但真正的威胁并不在那里。
+造就这桩灾祸的是厄奇斯。他是一名风暴法师，一位能够引导风暴的强大元素法师。
+数年前他背离正道，断绝了与安格利文的联系。起初他一直保持沉寂，因此我们未予干预，但如今看来我们已别无选择。
+净化天空需要耗费诸多时日。在此期间，若你愿意，我们可将你送往厄奇斯的巢穴，由你亲自直面他。
+我不会对你有所隐瞒：我们固然能将你送去那里，但这可能是一处死亡陷阱；并且由于他隐居在岱卡拉山脉的高峰之巅，我们无法将你从他的巢穴中接引离开。]], "_t")
+t("I need to prepare myself. I will be back soon.", "我需要先做些准备。我很快就会回来。", "_t")
+t("I am ready. Send me. I will not let the good people of Derth down.", "我准备好了。送我过去吧。我不会辜负德斯镇善良的居民。", "_t")
+t("Good luck to thee. Thou hast the blessings of Angolwen.", "祝你好运。安格利文的祝福与你同在。", "_t")
 t("Thank you.", "谢谢。", "_t")
-t("I see the storm is calmed.  Take this rune as a token of my appreciation.", "我看到风暴平息了。拿走这符文，作为我的谢意。", "_t")
+t("I see the storm is calmed.  Take this rune as a token of my appreciation.", "我见风暴已经平息。请收下这枚符文，作为我的谢礼。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/angolwen-staves-store.lua"
 
 t("Welcome @playername@ to my shop.", "@playername@，欢迎来到我的商店。", "_t")
 t("Let me see your wares.", "让我看看你的商品吧。", "_t")
-t("I am looking for staff training.", "我是来学习法杖格斗的。", "_t")
-t("Sorry, I have to go!", "抱歉，我要走了！", "chat_angolwen-staves-store")
-t("I can teach you staff combat (talent category Spell/Staff combat).  Learning the basics costs 100 gold, while more intensive tutelage to gain proficiency costs 500 gold.  Once you're proficient, I can teach you more refined techniques for an additional 750 gold.", "我能教授你法杖格斗(法术/法杖格斗 技能树)。学会基础消耗100金币，想学的更多就得花上500金币。当你学会之后，只要750金币，我就能传授你一些进阶技巧。", "_t")
+t("I am looking for staff training.", "我想寻求法杖战斗训练。", "_t")
+t("Sorry, I have to go!", "抱歉，我得走了！", "chat_angolwen-staves-store")
+t("I can teach you staff combat (talent category Spell/Staff combat).  Learning the basics costs 100 gold, while more intensive tutelage to gain proficiency costs 500 gold.  Once you're proficient, I can teach you more refined techniques for an additional 750 gold.", "我可以传授你法杖格斗技巧（技能类别：法术/法杖格斗）。学习基础需要 100 金币，而获得熟练掌握的深入指导则需 500 金币。一旦你达到熟练，只需额外支付 750 金币，我便能传授你更精湛的技巧。", "_t")
 t("Just give me the basics (reveals locked talent category) - 100 gold.", "只学习基础（揭示锁定的技能树）- 100 金币。", "_t")
-t("The staff carver spends some time with you, teaching you the basics of staff combat.", "法杖商人花了一些时间，教授你法杖格斗的基础知识。", "logPlayer")
-t("He is surprised at how quickly you are able to follow his tutelage.", "他对你学习速度之快感到惊讶。", "logPlayer")
-t("Please teach me what I need to know (unlocks talent category) - %d gold.", "请教授我需要知道的一切（解锁技能树）- %d 金币。", "tformat")
-t("The staff carver spends a substantial amount of time teaching you all of the techniques of staff combat.", "法杖商人花了大量时间，教授你法杖格斗的全部知识", "logPlayer")
-t("He is impressed with your mastery and shows you a few extra techniques.", "他对你的掌握程度表示惊讶，并对你展示了一些额外的技巧。", "logPlayer")
+t("The staff carver spends some time with you, teaching you the basics of staff combat.", "制杖师花了一些时间指导你，向你传授法杖格斗的基础技巧。", "logPlayer")
+t("He is surprised at how quickly you are able to follow his tutelage.", "他对你能如此迅速领会他的指导感到惊讶。", "logPlayer")
+t("Please teach me what I need to know (unlocks talent category) - %d gold.", "请传授我所需知晓的一切（解锁技能类别）- %d 金币。", "tformat")
+t("The staff carver spends a substantial amount of time teaching you all of the techniques of staff combat.", "制杖师花了大量时间指导你，向你传授法杖格斗的全部技巧。", "logPlayer")
+t("He is impressed with your mastery and shows you a few extra techniques.", "他对你的熟练程度印象深刻，并向你展示了一些额外技巧。", "logPlayer")
 t("I'm already proficient, but I want to be an expert (improves talent mastery by 0.2) - 750 gold.", "我已经学会了，但我想成为一名专家。(增加技能树系数0.2) - 750 金币。", "_t")
-t("The staff carver spends a great deal of time going over the finer details of staff combat with you%s.", "法杖商人花了大量时间，教授你法杖格斗的精细技巧%s。", "tformat")
-t(", including some esoteric techniques", "，包括一些秘密流传的技巧。", "_t")
+t("The staff carver spends a great deal of time going over the finer details of staff combat with you%s.", "制杖师花了大量时间与你一同推敲法杖格斗的精妙细节%s。", "tformat")
+t(", including some esoteric techniques", "，包括一些秘传技巧", "_t")
 t("No thanks.", "不用了，谢谢。", "_t")
 
 ------------------------------------------------
@@ -4224,13 +4224,13 @@ section "mod-tome/data/chats/antimagic-end.lua"
 
 t("\
 \
-#{italic}##LIGHT_GREEN#*As you drink the potion, your runes start to burn as they fade away, and a terrible agony seems to sink through your skin to your bones, muscles, and heart.  You black out from the pain, and come to a bit later, the runes gone forever.  You feel very ill, and yet...  cleansed.*#{normal}##WHITE#", "\n\n#{italic}##LIGHT_GREEN#*当你喝下药水，你的符文逐渐燃烧着消失，一股可怕的痛苦感从你的皮肤逐渐渗透到骨骼、肌肉、心脏。在痛苦中，你感到一阵晕眩袭来。醒来后，你发现身上的符文永远消失了。你感到无比疲惫……然而，你终于被自然的力量所净化了。*#{normal}##WHITE#", "_t")
+#{italic}##LIGHT_GREEN#*As you drink the potion, your runes start to burn as they fade away, and a terrible agony seems to sink through your skin to your bones, muscles, and heart.  You black out from the pain, and come to a bit later, the runes gone forever.  You feel very ill, and yet...  cleansed.*#{normal}##WHITE#", "\n\n#{italic}##LIGHT_GREEN#*当你饮下药剂，身上的符文在逐渐消逝时灼烧起来，一股可怕的剧痛仿佛穿透你的肌肤，深嵌进骨骼、肌肉与心脏。你在剧痛中昏厥过去，稍后苏醒时，符文已永远消失。你感到极度虚弱不适，然而……却又感到被洗涤净化。*#{normal}##WHITE#", "_t")
 t([[Excellent! You truly prove that no mage-wrought flame or storm can stand against blade and arrow! Come, learn our ways. You are ready.
 #LIGHT_GREEN#*he gives you a potion.*#WHITE#
-Drink this. We extract it from a very rare kind of drake. It will grant you powers to fight and cancel magic, but never again will you be able to use magic.%s]], [[干的好！你真正证明了那些魔法产生的火焰和风暴根本不是剑与矢的对手！来吧，加入我们的阵营，你已经准备好了。
-#LIGHT_GREEN#*他给你一瓶药剂。*#WHITE#
-喝下它，这是我们从一种非常稀有的龙身上提取出来的。它会使你拥有反抗魔法和与魔法战斗的能力，不过你以后也不能使用魔法了。%s]], "tformat")
-t("Thank you. I shall not let magic triumph! #LIGHT_GREEN#[you drink the potion]", "谢谢！我不会再让魔法取得胜利了！ #LIGHT_GREEN#[你喝下了药剂。]", "_t")
+Drink this. We extract it from a very rare kind of drake. It will grant you powers to fight and cancel magic, but never again will you be able to use magic.%s]], [[干得漂亮！你切实证明了，任何法师造就的烈焰或风暴都敌不过刀剑与利箭！来吧，领会我们的道路。你已经做好了准备。
+#LIGHT_GREEN#*他递给你一瓶药剂。*#WHITE#
+喝下它。这是我们从一种极为罕见的龙类身上提取而成的。它将赋予你对抗并消除魔法的力量，但自此之后你将再也无法使用魔法。%s]], "tformat")
+t("Thank you. I shall not let magic triumph! #LIGHT_GREEN#[you drink the potion]", "多谢。我绝不会让魔法得逞！ #LIGHT_GREEN#[你喝下了药剂]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/ardhungol-end.lua"
@@ -4238,50 +4238,50 @@ section "mod-tome/data/chats/ardhungol-end.lua"
 t([[#LIGHT_GREEN#*As the monstrous spider falls you see something... moving in her belly until it explodes! A tall black man steps out of the spewed guts, surrounded by a golden light.*#WHITE#
 By the Sun! I thought I would never again see a friendly face!
 Thank you. I am Rashim, and I am in your debt.
-]], [[#LIGHT_GREEN#*在巨大蜘蛛倒下之后你看到什么东西……在它的胃里蠕动！在它的胃炸开之后，一个高大黝黑的男子从炸碎的内脏里走了出来，全身围绕着金光。*#WHITE#
-赞美太阳！我以为我再也见不到一个友善的面孔了！
-谢谢你，我是拉希姆，我欠你一份人情。
+]], [[#LIGHT_GREEN#*随着那只巨蛛轰然倒下，你看到有什么东西……在它的腹部蠕动，直到猛然炸开！一名高大的黑肤男子从喷溅的内脏中迈步走出，周身环绕着金色光芒。*#WHITE#
+太阳在上！我原以为自己再也见不到一张友善的面孔了！
+多谢你。我是拉希姆，我欠你一份恩情。
 ]], "_t")
-t("I have been sent by your wife. She was worried for you.", "我是你妻子派来的，她很担心你。", "_t")
+t("I have been sent by your wife. She was worried for you.", "我是受你妻子之托而来的。她非常担心你的安危。", "_t")
 t([[Ah, my dear heart!
-Well, now that I am free I will create a portal to the Gates of Morning. I think I've seen enough spiders for the rest of my life.]], [[啊～我亲爱的！
-好吧，现在我自由了，我会开启一个到晨曦之门的传送门。我想我这辈子再也不想见到蜘蛛了。]], "_t")
-t("Lead the way!", "请带路！", "_t")
+Well, now that I am free I will create a portal to the Gates of Morning. I think I've seen enough spiders for the rest of my life.]], [[啊，我亲爱的心上人！
+好了，既然现在我已脱困，我这就开启一道通往晨曦之门的传送门。我想我这辈子见过的蜘蛛已经足够多了。]], "_t")
+t("Lead the way!", "请带路吧！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/ardhungol-start.lua"
 
-t("Good day to you.", "你好啊！", "_t")
-t("Good day to you too.", "你好！", "_t")
-t("I have heard you are a great hero of the west. Could you help me, please?", "我听说你是来自西部的英雄，你能帮我一个忙吗？", "_t")
-t("Maybe, what is it about?", "也许可以，是什么事情呢？", "_t")
-t("I have got enough problems sorry.", "我已经够麻烦了，抱歉。", "_t")
+t("Good day to you.", "祝你日安。", "_t")
+t("Good day to you too.", "也祝你日安。", "_t")
+t("I have heard you are a great hero of the west. Could you help me, please?", "我听说你是来自西方的伟大英雄。能否请你帮帮我？", "_t")
+t("Maybe, what is it about?", "也许可以，所为何事？", "_t")
+t("I have got enough problems sorry.", "我自己的麻烦已经够多了，抱歉。", "_t")
 t("Welcome back, @playername@.", "欢迎回来，@playername@。", "_t")
-t("I have found your husband. I take it he made it home safely?", "我找到你的丈夫了，他安全回家了么？", "_t")
-t("I've got to go. Bye.", "我得走了，再见。", "_t")
+t("I have found your husband. I take it he made it home safely?", "我找到你的丈夫了。想必他已经安全到家了吧？", "_t")
+t("I've got to go. Bye.", "我得走了。再见。", "_t")
 t([[My husband, Rashim, is a Sun Paladin. He was sent to clear the spider lair of Ardhungol to the north of this town.
 It has been three days now. He should be back by now. I have a feeling something terrible has happened to him. Please find him!
-He should have a magical stone given by the Anorithil to create a portal back here, yet he did not use it!]], [[我丈夫，拉希姆，是一个太阳骑士。他被派去小镇北部清除蜘蛛巢穴阿尔德胡格。
-已经三天了，他应该回来了。我有种预感他肯定遇到了麻烦。请帮我找到他！
-他应该有星月术士给他的魔法石，可以用来开启返回这里的传送门的，到目前为止他还没用过！]], "_t")
-t("I will see if I can find him.", "我会看看我是否能找到他的。", "_t")
-t("Spiders? Eww, sorry, but he is probably dead now.", "蜘蛛？呃……抱歉，说不定他现在已经死了。", "_t")
-t("Yes, yes he did! He said he would have died if not for you.", "是的，他回来了！他说要不是你帮忙他就死定了。", "_t")
-t("It was nothing.", "小事一桩。", "_t")
+He should have a magical stone given by the Anorithil to create a portal back here, yet he did not use it!]], [[我的丈夫拉希姆是一名太阳骑士。他被派去清理本镇北方的阿尔德胡格蜘蛛巢穴。
+如今已经过去三天了。按理说他现在早该回来了。我有一种不祥的预感，他一定是遭遇了可怕的不测。求求你帮我找到他！
+他身上本该携带着星月术士所赠的魔法石，用来开启返回此地的传送门，可他却一直没有使用！]], "_t")
+t("I will see if I can find him.", "我去看看能否找到他。", "_t")
+t("Spiders? Eww, sorry, but he is probably dead now.", "蜘蛛？恶……抱歉，但他现在恐怕凶多吉少了。", "_t")
+t("Yes, yes he did! He said he would have died if not for you.", "是的，他确实平安回来了！他说若不是有你相救，他早就没命了。", "_t")
+t("It was nothing.", "举手之劳而已。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/arena-start.lua"
 
-t("Gladiator's wares", "角斗士的装备店", "_t")
+t("Gladiator's wares", "角斗士商店", "_t")
 t("None", "无", "_t")
 t([[#LIGHT_GREEN#You take a look at the ranking boards before entering.
-%s]], [[#LIGHT_GREEN#在进入之前，你看了一下排行榜。
+%s]], [[#LIGHT_GREEN#进入竞技场前，你查看了一下排名榜。
 %s]], "tformat")
-t("Enter the arena (60 waves)", "竞技场（60波）", "_t")
-t("Enter the arena (shorter mode, 30 rounds)", "竞技场（30波）", "_t")
-t("#LIGHT_RED#[Reset all arena save data]", "#LIGHT_RED#[重置竞技场数据]", "_t")
-t("Enter the arena for 60 rounds", "进入60波竞技场", "_t")
-t("Enter the arena for 30 rounds", "进入30波竞技场", "_t")
+t("Enter the arena (60 waves)", "进入竞技场（60 波）", "_t")
+t("Enter the arena (shorter mode, 30 rounds)", "进入竞技场（较短模式，30 波）", "_t")
+t("#LIGHT_RED#[Reset all arena save data]", "#LIGHT_RED#[重置所有竞技场存档数据]", "_t")
+t("Enter the arena for 60 rounds", "进入竞技场，进行 60 波", "_t")
+t("Enter the arena for 30 rounds", "进入竞技场，进行 30 波", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/arena-unlock.lua"
@@ -4293,28 +4293,27 @@ You see...I am an agent for the Arena. I look for promising warriors that
 can provide a good show for our audience. Perhaps you are strong enough to join.
 All you need to do is beat three of my men in battle, and you shall be rewarded.
 #LIGHT_GREEN#*You consider the offer of the mysterious hooded man for a moment*
-]], [[#LIGHT_GREEN#*一个高大的，带着兜帽的人盯着你。*
-#WHITE#是的……是的……你看上去的确是一个强力的战士……
-有件事交给你，@playerdescriptor.race@。
-你看，我是竞技场的代理人，我在寻找一个强力的战士，
-给我们的观众带来更棒的表演。你看上去应该够强壮。
-你要做的事情，就是击败场上的三个对手，然后你会得到你的奖励。
-#LIGHT_GREEN#*你考虑了一会兜帽人给你的这个任务。*
+]], [[#LIGHT_GREEN#*一个高大、头戴兜帽的男人注视着你*#WHITE#
+是的……是的……你的确像是一名很有潜力的战士……
+我有个提议，@playerdescriptor.race@。
+你看……我是竞技场的招募员，专门寻找能为观众献上精彩表演的潜力战士。或许你足够强大，能够加入我们。
+你只需在战斗中击败我的三名手下，就能获得奖励。
+#LIGHT_GREEN#*你思量了片刻这个神秘兜帽人的提议*
 ]], "_t")
-t("Interesting. Tell me more about that Arena.", "有意思，告诉我更多关于竞技场的事。", "_t")
-t("I am strong! What do you have to offer?", "我很强壮！你有什么可提供的？", "_t")
-t("I don't accept deals from shady hooded men.", "我不接受鬼鬼祟祟的人的邀请。", "_t")
+t("Interesting. Tell me more about that Arena.", "有意思。多说说竞技场吧。", "_t")
+t("I am strong! What do you have to offer?", "我很强！你能给我什么？", "_t")
+t("I don't accept deals from shady hooded men.", "我不和鬼鬼祟祟的兜帽人做交易。", "_t")
 t([[#LIGHT_GREEN#*You can feel the man smiling from inside his hood*#WHITE#
 I have wealth and glory to offer, and some very useful
 #YELLOW#combat experience#WHITE# from fighting our men...
 So, what do you think? Are you up to it?
-]], [[#LIGHT_GREEN#*你可以感觉到那张隐藏在兜帽里的脸露出了微笑。*#WHITE#
-我可以为你提供钱和荣誉，另外还有一些非常有用的，
-通过我的斗士们积累的#YELLOW#战斗经验#WHITE#
-……怎么样？想不想加入？
+]], [[#LIGHT_GREEN#*你能感觉到兜帽下的男人露出了微笑*#WHITE#
+我能给你财富和荣耀，而与我的手下交战，还能让你获得一些十分有用的
+#YELLOW#战斗经验#WHITE#……
+怎么样？你能胜任吗？
 ]], "_t")
-t("I am ready for battle. Let's go!", "我准备好战斗了，我们走！", "_t")
-t("I don't have time for games, Cornac.", "我没时间玩游戏，科纳克人。", "_t")
+t("I am ready for battle. Let's go!", "我已准备好战斗。走吧！", "_t")
+t("I don't have time for games, Cornac.", "我没空陪你玩游戏，科纳克人。", "_t")
 t([[#LIGHT_GREEN#*You can feel the man smiling from inside his hood*#WHITE#
 The Arena is where the brave come to fight against all odds.
 We are still growing up, and we lack challengers...
@@ -4325,16 +4324,14 @@ If you can pass my little test...I will #LIGHT_RED#allow you to join the Arena w
 you are done with your adventures.#WHITE#
 You also shall gather some much needed #LIGHT_RED#combat experience#WHITE# from fighting
 our men...so, what do you think? Are you up to it?
-]], [[#LIGHT_GREEN#*你可以感觉到那张隐藏在兜帽里的脸露出了微笑。*#WHITE#
-竞技场是那些所有勇士们互相战斗的地方。
-我们的规模还在扩大，我们需要挑战者……
-这和赌博一样，只是你用战斗来代替金钱而已。
-你在竞技场上给观众们带来精彩的表演，
-作为回报我会给你足够你花几辈子的金钱和荣誉！
-要是你能通过我小小的测试……我会#LIGHT_RED#让你在冒险结束后，
-有机会进入我们的竞技场#WHITE#
-通过战斗你同样能够取得宝贵的#LIGHT_RED#战斗经验#WHITE#。
-你意下如何？
+]], [[#LIGHT_GREEN#*你能感觉到兜帽下的男人露出了微笑*#WHITE#
+竞技场是勇者迎战重重险境的地方。
+我们仍在发展，正缺少挑战者……
+这就像一场赌博，只不过你下注的不是金钱，而是自己的战斗本领，明白吗？
+我们竞技场竭力奉上精彩表演；作为回报……你能赢得享用几个世纪也用不完的财富与荣耀！
+如果你能通过我的小小考验……等你的冒险结束后，我会#LIGHT_RED#准许你加入竞技场。#WHITE#
+与我的手下交战，还能让你获得急需的#LIGHT_RED#战斗经验#WHITE#……
+怎么样？你能胜任吗？
 ]], "_t")
 t([[#LIGHT_GREEN#*The man lets out a disappointed sigh*#WHITE#
 That's unfortunate. We could have used someone like you.
@@ -4343,30 +4340,29 @@ Alas, if you stand by your choice, we shall never meet again.
 However, if you change your mind...I will #YELLOW#stay in Derth just a little
 longer.#WHITE#
 If I am still around, we can have a deal. Think about it, @playerdescriptor.race@.
-]], [[#LIGHT_GREEN#*那个人失望地叹了口气*#WHITE#
-真遗憾，我们本可以用上你这样的人。
-你正是观众最喜欢的那种类型，你本可以成为冠军。
-唉，要是你坚持你的选择，那我们以后不会再见面了。
-不过，要是你改变主意……
-我会#YELLOW#在德斯镇逗留几天。#WHITE#
-要是我还在的话，我们可以做笔交易，好好考虑一下吧，@playerdescriptor.race@。
+]], [[#LIGHT_GREEN#*男人失望地叹了口气*#WHITE#
+真遗憾。我们本可以用上你这样的人。
+你正是观众喜欢的类型，本可以成为一名冠军。
+唉，如果你坚持这个选择，我们就再也不会见面了。
+不过，如果你改变主意……我还会#YELLOW#在德斯镇多待一小段时间。#WHITE#
+只要我还在，我们就仍可谈成这笔交易。好好想想吧，@playerdescriptor.race@。
 ]], "_t")
-t("We'll see. [Leave]", "我们拭目以待。[离开]", "_t")
+t("We'll see. [Leave]", "再说吧。[离开]", "_t")
 t([[#LIGHT_GREEN#*The man smiles in approval*#WHITE#
 Excellent! A great fighter is always willing to head into battle.
 You certainly won't regret meeting us, indeed...
 So, are you ready to fight?
-]], [[#LIGHT_GREEN#*那个人微笑着答应了*#WHITE#
-好极了！一个好的战士总是渴望战斗。
-你碰到我们绝对不会觉得遗憾的。
-那么，你准备好战斗了么？
+]], [[#LIGHT_GREEN#*男人赞许地微笑起来*#WHITE#
+好极了！伟大的斗士总是愿意投身战斗。
+遇见我们，你肯定不会后悔……确实如此。
+那么，你准备好战斗了吗？
 ]], "_t")
-t("Sounds like fun. I'm ready!", "听上去很有趣，我准备好了！", "_t")
+t("Sounds like fun. I'm ready!", "听起来很有趣。我准备好了！", "_t")
 t("Wait. I am not ready yet.", "等一下，我还没准备好。", "_t")
-t("#LIGHT_GREEN#*The man quietly walks away, after making you a gesture to follow him*", "#LIGHT_GREEN#*那个人安静的走开了，他伸手示意你跟着他*", "_t")
+t("#LIGHT_GREEN#*The man quietly walks away, after making you a gesture to follow him*", "#LIGHT_GREEN#*男人示意你跟上，随后默默走开*", "_t")
 t("[Follow him]", "[跟着他]", "_t")
-t("Get ready!", "准备好！", "_t")
-t("Defeat all three enemies!", "击败所有敌人！", "_t")
+t("Get ready!", "做好准备！", "_t")
+t("Defeat all three enemies!", "击败全部三名敌人！", "_t")
 t([[#LIGHT_GREEN#*The Cornac rogue comes back from the shadows*#WHITE#
 Well done, @playerdescriptor.race@! I knew you had potential.
 #LIGHT_GREEN#*The rogue takes off his hood, showing a fairly young, but unmistakably
@@ -4380,41 +4376,40 @@ But we can make you a true champion, beloved by many and bathing in diamonds.
 #LIGHT_GREEN#battles in the forest. He provides you with great insight on your combat technique (#WHITE#+2 generic talent points#LIGHT_GREEN#)*
 #WHITE#Very well, @playername@. I must go now.
 Good luck in your adventures, and come visit us when you are done!
-]], [[#LIGHT_GREEN#*那位科纳克人盗贼从阴影中走了出来*#WHITE#
-干得好！ @playerdescriptor.race@！我就知道你有潜力。
-#LIGHT_GREEN#*那个盗贼取下了兜帽
-#LIGHT_GREEN#那是一个相当年轻但是饱经战斗的男子。#WHITE#
-我的名字叫瑞吉。我为竞技场工作，寻找能够提供精彩表演，
-而不是三拳两脚就被打败的强力斗士……你的确就是其中一个！
-我不会打断你的继续冒险，我自己也是一个冒险家，很久以前是。
-但是我们能使你成为冠军，受所有人尊敬还有享不完的荣华富贵。
+]], [[#LIGHT_GREEN#*那名科纳克盗贼从阴影中现身*#WHITE#
+干得漂亮，@playerdescriptor.race@！我就知道你有潜力。
+#LIGHT_GREEN#*盗贼摘下兜帽，露出一张颇为年轻、
+#LIGHT_GREEN#却显然久经战阵的男人面孔。#WHITE#
+我叫瑞吉。我为竞技场招募优秀斗士：他们既要能奉上精彩表演……也不能挨两下就死。你的确就是这种人！
+我不会耽误你继续冒险。很久以前，我也曾踏上冒险之路。
+但我们能把你培养成真正的冠军，让你受万众爱戴、坐拥无数钻石。
 
-#LIGHT_GREEN#*你和那个盗贼一起返回了德斯小镇，他和你讨论着在丛林中的冒险经验。
-#LIGHT_GREEN#他极大地提高了你的战斗经验(#WHITE#+2 通用技能点数#LIGHT_GREEN#)*
-#WHITE#很好，@playername@，我现在必须得走了。
-祝你在冒险中好运，记得回来看我们！
+#LIGHT_GREEN#*你与盗贼结伴返回德斯镇，途中谈起自己在森林里的战斗。
+#LIGHT_GREEN#他对你的战斗技巧提出了精辟见解（#WHITE#+2 通用技能点#LIGHT_GREEN#）*
+#WHITE#好了，@playername@。我现在该走了。
+祝你冒险顺利，等冒险结束后记得来找我们！
 ]], "_t")
-t("I will. Farewell for now.", "我会的，再见吧。", "_t")
+t("I will. Farewell for now.", "我会的。暂且别过。", "_t")
 t("exit to Derth", "通向德斯镇的出口", "_t")
-t("Select the party member to receive the +2 generic talent points:", "选择接受+2点通用技能点的队伍成员：", "_t")
+t("Select the party member to receive the +2 generic talent points:", "选择一名队伍成员获得 +2 通用技能点：", "_t")
 t("#WHITE#I see. I will be waiting... #YELLOW#But not for long.", "#WHITE#我明白了。我会等你……#YELLOW#不过不会很久。", "_t")
 t([[#LIGHT_GREEN#*The Cornac rogue displays a welcoming smile*#WHITE#
 Welcome back, @playerdescriptor.race@. Have you reconsidered my generous offer?
-]], [[#LIGHT_GREEN#*那个科纳克人盗贼露出了欢迎的微笑*#WHITE#
-欢迎你回来，@playerdescriptor.race@。有没有重新考虑我慷慨的提议？
+]], [[#LIGHT_GREEN#*那名科纳克盗贼露出欢迎的微笑*#WHITE#
+欢迎回来，@playerdescriptor.race@。你重新考虑过我那慷慨的提议了吗？
 ]], "_t")
 t("Yes, tell me more.", "是的，说说细节吧。", "_t")
-t("No, see you.", "没有，再见。", "_t")
+t("No, see you.", "不，再见。", "_t")
 t([[Welcome back, @playerdescriptor.race@. Are you ready to go?
-]], [[欢迎你回来，@playerdescriptor.race@。你准备好了么？
+]], [[欢迎回来，@playerdescriptor.race@。你准备好出发了吗？
 ]], "_t")
-t("Let's go, Cornac.", "走吧。", "_t")
-t("Just a minute. I have to prepare my equipment.", "稍等，我去准备下。", "_t")
+t("Let's go, Cornac.", "走吧，科纳克人。", "_t")
+t("Just a minute. I have to prepare my equipment.", "再等一下。我得准备好装备。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/arena.lua"
 
-t("Gladiator's wares", "角斗士的装备店", "_t")
+t("Gladiator's wares", "角斗士商店", "_t")
 t([[#LIGHT_GREEN#*A gigantic bone giant walks through the main gate.
 #LIGHT_GREEN#Its shape is intricate and sharp, resembling a drake, but with countless
 #LIGHT_GREEN#spikes instead of wings.
@@ -4422,15 +4417,15 @@ t([[#LIGHT_GREEN#*A gigantic bone giant walks through the main gate.
 #LIGHT_GREEN#You have heard of him. Ryal the Towering, your first obstacle!
 #LIGHT_GREEN#As an eerie blue glow fills where its eyes should be, the undead giant
 #LIGHT_GREEN#roars and multiple bones fly in your general direction!*
-]], [[#LIGHT_GREEN#*一只巨大的骨质巨兽从大门走了进来。
-#LIGHT_GREEN#它有着复杂而尖锐的形状，类似一头龙的样子，
-#LIGHT_GREEN#但是有着无数尖刺取代了翅膀。
-#LIGHT_GREEN#这只巨大的不死生物用不可思议的睿智眼神紧盯着你。
-#LIGHT_GREEN#你曾经听说过他。铁塔·瑞尔，你的第一个障碍！
-#LIGHT_GREEN#它的眼睛位置有着一团诡异的蓝色火焰
-#LIGHT_GREEN#，这只巨大的不死生物咆哮着，数根骨头朝你飞来！*
+]], [[#LIGHT_GREEN#*一个庞大的骸骨巨人穿过正门。
+#LIGHT_GREEN#它的身形繁复而尖锐，形似一头龙，
+#LIGHT_GREEN#却以无数骨刺代替了双翼。
+#LIGHT_GREEN#这具巨大的不死生物以异乎寻常的……智慧目光注视着你。
+#LIGHT_GREEN#你听说过它：高大的瑞尔，你的第一道难关！
+#LIGHT_GREEN#它本应长着眼睛的地方泛起诡异蓝光；不死巨人
+#LIGHT_GREEN#咆哮一声，无数骸骨朝你所在的大致方向飞射而来！*
 ]], "_t")
-t("Have at you!!", "杀了你！！", "_t")
+t("Have at you!!", "放马过来！！", "_t")
 t([[#LIGHT_GREEN#*After taking several hits, the undead giant finally succumbs
 #LIGHT_GREEN#to your attacks*
 #LIGHT_GREEN#Suddenly, Ryal's body starts to regenerate!
@@ -4438,27 +4433,27 @@ t([[#LIGHT_GREEN#*After taking several hits, the undead giant finally succumbs
 #LIGHT_GREEN#at you with...satisfaction.
 #WHITE#Hehehe...well done, @playerdescriptor.race@.
 #LIGHT_GREEN#*Ryal quietly turns towards the gate and leaves, seemingly unharmed*
-]], [[#LIGHT_GREEN#*在承受数次打击后，这只巨大的不死生物
-#LIGHT_GREEN#被你的攻击打垮了*
-#LIGHT_GREEN#突然，瑞尔的身体开始恢复！
-#LIGHT_GREEN#它再次站了起来，你可以感受到它毫无表情的头骨
-#LIGHT_GREEN#……满足的盯着你。
+]], [[#LIGHT_GREEN#*挨了数次攻击后，不死巨人终于
+#LIGHT_GREEN#倒在你的攻势下*
+#LIGHT_GREEN#突然，瑞尔的身体开始再生！
+#LIGHT_GREEN#它再次昂然挺立；你几乎能感觉到，那颗毫无表情的头骨
+#LIGHT_GREEN#正带着……满意注视着你。
 #WHITE#呵呵呵……干得好，@playerdescriptor.race@。
-#LIGHT_GREEN#*瑞尔缓缓的转身从大门离开，看起来毫发无损。*
+#LIGHT_GREEN#*瑞尔默默转向大门离去，看起来毫发无损*
 ]], "_t")
-t("It was fun, bone giant!", "真有趣，大怪物！", "_t")
+t("It was fun, bone giant!", "打得痛快，骸骨巨人！", "_t")
 t("...what? unharmed?", "……什么？毫发无损？", "_t")
 t([[#LIGHT_GREEN#*The wind chills as a young girl walks calmly through the gate.
 #LIGHT_GREEN#She looks surprisingly young, with extremely pale skin and contrasting
 #LIGHT_GREEN#long black hair. She examines you with eerie calmness*#WHITE#
 I am known as Fryjia the Hailstorm. That's all you need to know, @playerdescriptor.race@. Let us begin.
 #LIGHT_GREEN#*The whole arena starts to get colder as she speaks, and the audience
-#LIGHT_GREEN#starts wearing their finest winter cloaks*]], [[#LIGHT_GREEN#*当一个小女孩安静地走进场内时，风变的异常寒冷。
-#LIGHT_GREEN#她看起来年纪很小，有着苍白的肌肤和对比鲜明的黑色长发。
-#LIGHT_GREEN#她用异常平静的口吻对你说*#WHITE#
-我就是传说中的冰暴弗里嘉。你只要知道这点就行，@playerdescriptor.race@。让我们开始吧。
-#LIGHT_GREEN#*在她说话的同时整个竞技场变得寒冷刺骨，
-#LIGHT_GREEN#观众们也开始穿上他们最温暖的外套。*]], "_t")
+#LIGHT_GREEN#starts wearing their finest winter cloaks*]], [[#LIGHT_GREEN#*一名少女从容地穿过大门，寒风随之袭来。
+#LIGHT_GREEN#她年轻得出人意料，肌肤异常苍白，与一头黑色长发形成鲜明对比。
+#LIGHT_GREEN#她以诡异的平静审视着你*#WHITE#
+人们称我为冰雹弗里嘉。你只需知道这些，@playerdescriptor.race@。开始吧。
+#LIGHT_GREEN#*随着她开口，整个竞技场越来越冷，观众
+#LIGHT_GREEN#纷纷披上自己最好的冬用斗篷*]], "_t")
 t("Bring it!", "来吧！", "_t")
 t([[#LIGHT_GREEN#*With your final blow, Fryjia falls, unable to continue*
 #LIGHT_GREEN#*She awkwardly stands up, but doesn't seem critically injured*
@@ -4467,16 +4462,16 @@ t([[#LIGHT_GREEN#*With your final blow, Fryjia falls, unable to continue*
 #WHITE# @playerdescriptor.race@. You are not the person I am looking for...
 #LIGHT_GREEN#*Leaving you wondering what she was talking about, the young girl walks
 #LIGHT_GREEN#towards the gate. As it closes, you realize her eyes are wet with tears.
-]], [[#LIGHT_GREEN#*随着你的最后一击，弗里嘉倒下了，无法再战。*
-#LIGHT_GREEN#*她艰难的站起来，但似乎没有受到重创。*
-#WHITE# 我……我承认我输了。
-#LIGHT_GREEN#*观众席一片“唔”的敬畏声。弗里嘉留给你一个背影*
+]], [[#LIGHT_GREEN#*你的最后一击落下，弗里嘉倒地，再也无力继续战斗*
+#LIGHT_GREEN#*她有些狼狈地站起身来，但似乎并未受致命伤*
+#WHITE# 我……我认输。
+#LIGHT_GREEN#*观众惊叹着发出“噢——”声。弗里嘉背过身去*
 #WHITE# @playerdescriptor.race@。你不是我要找的人……
-#LIGHT_GREEN#*留下你在原地思考她到底说了什么，这位小女孩径直走向大门。
-#LIGHT_GREEN#当它关上时，你突然发觉刚才女孩的眼睛湿润了。
+#LIGHT_GREEN#*少女走向大门，留下你独自揣摩她话里的意思。
+#LIGHT_GREEN#大门关上时，你才发现她眼中含着泪水。
 ]], "_t")
 t("...", "……", "_t")
-t("w...what was that about?", "什……那是怎么回事？", "_t")
+t("w...what was that about?", "这……这是怎么回事？", "_t")
 t([[#LIGHT_GREEN#*The gate opens, revealing a mature human woman in crimson robes.
 #LIGHT_GREEN#She looks at you with a wide smile*
 #WHITE# My, my, what a fine @playerdescriptor.race@ you are. What was your name again, @playername@? I am soo delighted to be your rival today.
@@ -4484,15 +4479,15 @@ t([[#LIGHT_GREEN#*The gate opens, revealing a mature human woman in crimson robe
 So! I am Riala, the Crimson. I came directly from Angolwen. Despite, you know, the whole thing with the Spellblaze, people still enjoy a few magic tricks!
 #LIGHT_GREEN#*She snaps her fingers, and then flames start dancing around her!*#WHITE#
 Fryjia told me about you, the poor thing, so I will not underestimate such a promising aspirant #LIGHT_GREEN#*She smiles warmly* #WHITE#So, let's make haste my dear!
-There is a battle to fight here!]], [[#LIGHT_GREEN#*大门打开了，进来的是一位风韵十足穿着深红色长袍的女子。
-#LIGHT_GREEN#她看着你并对你露齿一笑*
-#WHITE# 我的，我的天呐，你是多么强大的一个 @playerdescriptor.race@ 。你能重复一遍你的名字吗，@playername@？我很高兴今天能成为你的对手。
-#LIGHT_GREEN#*她轻轻的说着就像是在说一个秘密*#WHITE#你知道吗，很少有人能闯过这里，真的很令人困扰呢。#LIGHT_GREEN#*她咯咯地笑着*#WHITE#
-所以！我就是绯红之里雅拉。我来自安格利文。虽然魔法大爆炸有那么一点负面影响，人们还是很享受一些魔法带来的乐趣的！
-#LIGHT_GREEN#*她突然拍了下手掌，随即一团火焰绕着她盘旋飞舞！*#WHITE#
-弗里嘉跟我提起过你，可怜的家伙，我不会低估一个如此有潜力的对手的#LIGHT_GREEN#*她露出和煦的微笑*#WHITE#那么，让我们赶紧开始吧，亲爱的！
-我们要展开一场决斗！]], "_t")
-t("Let's go!", "一起上吧！", "_t")
+There is a battle to fight here!]], [[#LIGHT_GREEN#*大门开启，一名身着深红长袍的成年女子出现在门后。
+#LIGHT_GREEN#她灿烂地微笑着看向你*
+#WHITE# 哎呀，哎呀，多出色的一位 @playerdescriptor.race@ 啊。你叫什么来着，@playername@？今天能成为你的对手，我可真是太高兴了。
+#LIGHT_GREEN#*她压低声音，仿佛在说一个秘密* #WHITE#你知道吗，最近能闯过那个小家伙的人实在太少了，真是无聊透顶。#LIGHT_GREEN#*她咯咯轻笑*#WHITE#
+那么！我就是绯红里娅拉，刚从安格利文赶来。虽说嘛，魔法大爆炸闹出了那些事，但人们还是喜欢看点魔法把戏！
+#LIGHT_GREEN#*她打了个响指，火焰随即在她周围起舞！*#WHITE#
+弗里嘉已经跟我说过你了，可怜的孩子。所以，我绝不会低估你这样前途无量的挑战者。#LIGHT_GREEN#*她温暖地微笑着* #WHITE#那么，亲爱的，我们赶快开始吧！
+这里还有一场战斗等着我们！]], "_t")
+t("Let's go!", "开始吧！", "_t")
 t([[#LIGHT_GREEN#*With the final blow, Riala falls...to suddenly burst in flames!!
 #LIGHT_GREEN#You stare at the blazing inferno with understandable confusion,
 #LIGHT_GREEN#until you hear her voice from behind*#WHITE#
@@ -4501,16 +4496,16 @@ Oh, my dear! That was quite the fight, wasn't it? I concede you the honor of vic
 Fryjia was right about you: you seem to be a champion in the works!
 Oh, and please forgive her behavior. You will understand when you meet her father.
 And, if you keep fighting like this, it will be really soon.
-So, it's been my pleasure, @playername@. #LIGHT_GREEN#*She vanishes in a spiral of flame*]], [[#LIGHT_GREEN#*随着最后一击，里雅拉倒下了……突然间化为熊熊的火焰！！
-#LIGHT_GREEN#你盯着那团熊熊的火焰，满脸不可理解的神情，
-#LIGHT_GREEN#直到你听到背后发出的声音*#WHITE#
-哦，亲爱的！真是一场精彩的战斗，不是吗？我承认你赢得了胜利。
-#LIGHT_GREEN#*她优雅的鞠躬*
-弗里嘉是对的：她认为你会成为冠军！
-哦，另外请原谅她的行为。当你见到她父亲时你会明白的。
-还有，如果你能坚持像这样战斗，你的梦想真的会很快实现的。
-所以，这是我的荣幸，@playername@。#LIGHT_GREEN#*她化作一团盘旋的火焰消失不见*]], "_t")
-t("I am pumped up! What's next?", "我热切期待着！接下来是什么？", "_t")
+So, it's been my pleasure, @playername@. #LIGHT_GREEN#*She vanishes in a spiral of flame*]], [[#LIGHT_GREEN#*最后一击落下，里娅拉倒地……却突然化作熊熊烈焰！！
+#LIGHT_GREEN#你满心困惑地凝视着那片火海，
+#LIGHT_GREEN#直到她的声音从身后传来*#WHITE#
+哦，亲爱的！真是一场好胜负，不是吗？胜利的荣耀归你了。
+#LIGHT_GREEN#*她礼貌地鞠了一躬*
+弗里嘉看得没错：你看来正成长为一名冠军！
+哦，也请原谅她刚才的举止。等你见到她父亲，就会明白了。
+而且，只要你继续这样战斗，那一刻很快就会到来。
+很高兴与你交手，@playername@。#LIGHT_GREEN#*她在盘旋的火焰中消失*]], "_t")
+t("I am pumped up! What's next?", "我斗志正旺！下一个是谁？", "_t")
 t("Am I the only person with a name that can die here?", "难道我是唯一一个有名有姓却会死在这里的人吗？", "_t")
 t([[#LIGHT_GREEN#*You suddenly realize everything has turned dark.
 #LIGHT_GREEN#You look around searching for your rival. And then you notice it. Standing
@@ -4524,20 +4519,20 @@ f...t...ma....ll...
 #LIGHT_GREEN#Maj'Eyal!
 #LIGHT_GREEN#And then...a piercing, demonic roar...you are overwhelmed by extreme
 #LIGHT_GREEN#emotions invading your very soul!!*
-]], [[#LIGHT_GREEN#*你突然发觉天黑了。
-#LIGHT_GREEN#你环顾四周寻找你的竞争对手。紧接着你看到了。
-#LIGHT_GREEN#站在你面前的，手持战斧身穿重甲的人。
-#LIGHT_GREEN#在半秒前那里还空无一人。你退后一步并仔细的打量他，
-#LIGHT_GREEN#确认那里真的是一位穿着重甲的人类。你不能看到他的眼睛，
-#LIGHT_GREEN#但是你知道他的眼神穿透了你的灵魂*
-飞……提……马……尔……
-#LIGHT_GREEN#*你突然听到一阵来自四面八方的呢喃声！！
-#LIGHT_GREEN#但是，你无法理解这一切！听起来似乎不像是
-#LIGHT_GREEN#马基·埃亚尔使用的任何语言！
-#LIGHT_GREEN#紧接着……一声震耳欲聋的怒吼……
-#LIGHT_GREEN#你感到整个灵魂都在颤抖！！*
+]], [[#LIGHT_GREEN#*你突然发现四周陷入了黑暗。
+#LIGHT_GREEN#你环顾四周，寻找自己的对手。随即，你注意到了它：
+#LIGHT_GREEN#一副同样手持巨大战斧的巨型战甲，就站在你面前。
+#LIGHT_GREEN#一瞬之前那里还空无一物。你后退一步，仔细端详，
+#LIGHT_GREEN#才发现那副庞大而破旧的战甲里其实装着一个人类。
+#LIGHT_GREEN#你看不见他的双眼，却知道他的目光正刺穿你的灵魂*
+弗……特……玛……尔……
+#LIGHT_GREEN#*一个魔鬼般的声音突然从四面八方同时传来！！但……
+#LIGHT_GREEN#你完全听不懂！这不像
+#LIGHT_GREEN#马基埃亚尔使用的任何一种语言！
+#LIGHT_GREEN#紧接着……一声刺耳的恶魔咆哮……
+#LIGHT_GREEN#极端的情绪侵入灵魂，将你彻底淹没！！*
 ]], "_t")
-t("#LIGHT_GREEN#*You valiantly stand against the darkness*", "#LIGHT_GREEN#*你勇敢的面对黑暗*", "_t")
+t("#LIGHT_GREEN#*You valiantly stand against the darkness*", "#LIGHT_GREEN#*你英勇地挺身对抗黑暗*", "_t")
 t([[#LIGHT_GREEN#*You valiantly deliver the finishing blow!*
 #LIGHT_GREEN#*Valfren collapses as the light returns to this world.
 #LIGHT_GREEN#You close your eyes for a brief instant. Fryjia is there when you open them*
@@ -4552,23 +4547,23 @@ Good luck...
 #LIGHT_GREEN#*There it is. Your goal. Your heart beats fast, as the time has come*
 #LIGHT_GREEN#*The Master of the Arena smiles proudly*
 #RED#The final battle begins when the gate closes, just this final time!!
-]], [[#LIGHT_GREEN#*你英勇的打出最后一击！*
-#LIGHT_GREEN#*当光明重归，瓦弗伦彻底垮倒了。
-#LIGHT_GREEN#你短暂的闭上眼睛一段时间。当你睁开眼时，你看到了弗里嘉*
-爸爸…… #LIGHT_GREEN#*她沉默的站在那儿*#WHITE#你赢了，@playerdescriptor.race@。
-你做的很好。准备好你的最终战吧……如果你赢了，我们将为你服务。
+]], [[#LIGHT_GREEN#*你英勇地使出致命一击！*
+#LIGHT_GREEN#*光明重返这个世界，瓦弗伦随之倒下。
+#LIGHT_GREEN#你闭眼短短一瞬；再睁开时，弗里嘉已出现在眼前*
+父亲…… #LIGHT_GREEN#*她沉默了几秒*#WHITE# 你赢了，@playerdescriptor.race@。
+你表现得很好。准备迎接最后一战吧……如果你获胜，我们将听候你的差遣。
 祝你好运……
-#LIGHT_GREEN#*一阵令人不安的沉默后，瓦弗伦重新动了起来。
-#LIGHT_GREEN#他站了起来并和弗里嘉一起离开。在大门口，瓦弗伦回头看着你。
-#LIGHT_GREEN#你也看着他，然后他将目光转向竞技场城墙上。
-#LIGHT_GREEN#你顺着他的目光……看到了竞技场主宰——
+#LIGHT_GREEN#*令人不安的几秒过后，瓦弗伦重新动了起来。
+#LIGHT_GREEN#他站起身，与弗里嘉一同离去。走到大门处，瓦弗伦转头望向你。
+#LIGHT_GREEN#你与他对视，随后他抬眼看向竞技场的围墙上方。
+#LIGHT_GREEN#你循着他的目光……见到了竞技场主宰*
 
-#LIGHT_GREEN#*那就是你的目标了。当这一刻来临时，你的心跳不由自主的加快了。*
-#LIGHT_GREEN#*竞技场主宰自豪的笑着。*
-#RED#当大门关上时，决战将会开始，只有最后一次机会！！
+#LIGHT_GREEN#*他就在那里。你的目标。时刻终于来临，你的心跳随之加快*
+#LIGHT_GREEN#*竞技场主宰骄傲地微笑着*
+#RED#大门一关，最终决战便会开始——这是最后一次了！！
 ]], "_t")
-t("I will defeat you, Master of the Arena!!!", "我将打败你，竞技场主宰！！！", "_t")
-t("I will become Master of the Arena instead of the Master of the Arena!!", "我将代替你成为竞技场主宰！！", "_t")
+t("I will defeat you, Master of the Arena!!!", "我会打败你，竞技场主宰！！！", "_t")
+t("I will become Master of the Arena instead of the Master of the Arena!!", "我会取代竞技场主宰，亲自成为竞技场主宰！！", "_t")
 t("Wealth and glory! Wealth and glory!", "财富与荣耀！财富与荣耀！", "_t")
 t([[#LIGHT_GREEN#*Finally, the master of the arena comes into the gates!
 #LIGHT_GREEN#The public roars with excitement as he faces you with confidence!*
@@ -4581,17 +4576,17 @@ Like you, I started from nowhere. I won't underestimate someone with such potent
 Can you hear it, the public cheering? That's what this is about.
 Pursue glory with all your might, @playerdescriptor.race@!!
 #LIGHT_GREEN#*The master steps forward into the sand*
-]], [[#LIGHT_GREEN#*最终，竞技场主宰步入了竞技场的大门！
-#LIGHT_GREEN#当他充满自信的面对你时，观众们大声的呐喊起来！*
-我很欣赏你，@playerdescriptor.race@！ 你用力量和勇气一路走来！
-现在……是最终的Showtime！
-#LIGHT_GREEN#*竞技场主宰摆好了战斗姿势。观众爆发出一阵欢呼！*
-像你一样，我也是一步步走来。我不会轻视任何有潜力的人。
-#LIGHT_GREEN#*竞技场主宰哈哈大笑，你同样摆好了战斗姿势，
-#LIGHT_GREEN#并且观众们同样在为你助威，你感到内心充满了力量*
-你能听到吗，大家的欢呼声？这就是了。
-力量就是荣耀，@playerdescriptor.race@！！
-#LIGHT_GREEN#*竞技场主宰大步向前，进入沙地*
+]], [[#LIGHT_GREEN#*终于，竞技场主宰穿过大门，步入场中！
+#LIGHT_GREEN#他自信地与你对峙，观众兴奋地咆哮起来！*
+值得称赞，@playerdescriptor.race@！你凭力量与勇气一路奋战至此！
+现在……最终对决的时刻到了！
+#LIGHT_GREEN#*竞技场主宰摆出战斗架势。观众放声欢呼！*
+和你一样，我也曾从一无所有起步。我不会低估像你这样潜力非凡的人。
+#LIGHT_GREEN#*竞技场主宰得意一笑；你也摆出战斗架势，
+#LIGHT_GREEN#观众同样为你欢呼，令你心中的激动愈发高涨*
+听见了吗？观众正在欢呼。这才是竞技场的意义。
+用尽全力追逐荣耀吧，@playerdescriptor.race@！！
+#LIGHT_GREEN#*竞技场主宰向前踏入沙场*
 ]], "_t")
 t("Wealth and glory!!!", "财富与荣耀！！！", "_t")
 t([[#LIGHT_GREEN#*After a glorious battle, the Master falls!*
@@ -4615,31 +4610,31 @@ But meanwhile, this is your place! Welcome to paradise, @playerdescriptor.race@!
 #YELLOW#You are the new master of the arena! You are great and epic!
 #YELLOW#You shall remain as the new master until someone challenges you!
 #YELLOW#Next time you play, you shall battle this new champion instead!
-]], [[#LIGHT_GREEN#*一场荣耀之战后，竞技场主宰倒下了！*
+]], [[#LIGHT_GREEN#*一场辉煌的战斗过后，竞技场主宰倒下了！*
 哈……哈哈。你做到了，@playerdescriptor.race@……
-#LIGHT_GREEN#*竞技场主宰，虽败犹荣，他微笑着站了起来。
-#LIGHT_GREEN#得到竞技场主宰的认可后，你拿起了他的武器——
-#LIGHT_GREEN#现在躺在血迹斑斑的沙地上。*
-观众们！我们今天产生了一位冠军！！
-#LIGHT_GREEN#*观众们兴奋地大喊着你的名字*
-祝贺你，@playerdescriptor.race@。你现在是竞技场主宰了。
-现在你可以享有胜利者的待遇了。
-只要记住一点……像我一样，某天你也可能会被打败……
-但同时，这是你的位置！欢迎来到天堂，@playerdescriptor.race@！
-#LIGHT_GREEN#*你看到许多协会和军队首领靠近被击败的竞技场主宰，
-#LIGHT_GREEN#提供他许多优厚的条件和待遇。
-#LIGHT_GREEN#你开怀大笑，胜利了，从此荣耀将伴随你的一生！
-#LIGHT_GREEN#因为即使你在将来的某一天被打败……
-#LIGHT_GREEN#你随时可以靠贩卖自己的形象，过上阔绰的生活。
+#LIGHT_GREEN#*战败的竞技场主宰站起身，脸上挂着灿烂的笑容。
+#LIGHT_GREEN#感受到他的认可，你拾起了他的武器——
+#LIGHT_GREEN#它正落在染血的沙地上。*
+各位！我们今天迎来了一位冠军！！
+#LIGHT_GREEN#*观众沸腾起来，一遍遍高喊你的名字*
+恭喜你，@playerdescriptor.race@。如今你才是竞技场主宰。
+现在，你将登上冠军应得的位置。
+只要记住……和我一样，你终有一天也会倒下……
+但在那之前，这里属于你！欢迎来到天堂，@playerdescriptor.race@！
+#LIGHT_GREEN#*你看到几名赞助人和军方招募者走向落败的前任主宰，
+#LIGHT_GREEN#向他提出合作条件，并许诺军中的优厚职位。
+#LIGHT_GREEN#你以胜利者的姿态微笑着，知道自己此后的人生必将辉煌。
+#LIGHT_GREEN#因为即使你将来落败……
+#LIGHT_GREEN#也总能靠自己的名气赚得盆满钵满。
 
-#YELLOW#祝贺你！
-#YELLOW#你现在是新的竞技场主宰了！传奇而荣耀！
-#YELLOW#直到某天有人打败你，你将会一直保持竞技场主宰的地位！
-#YELLOW#当你再玩此模式时，你将会面对现在的这个人物！
+#YELLOW#恭喜！
+#YELLOW#你是新的竞技场主宰！伟大而传奇！
+#YELLOW#在有人前来挑战之前，你将一直担任新的竞技场主宰！
+#YELLOW#下次游玩时，你将与这位新冠军交战！
 ]], "_t")
-t("WEALTH!! AND!! GLORYYYYY!!", "财富！！和！！荣耀！！", "_t")
+t("WEALTH!! AND!! GLORYYYYY!!", "财富！！还有！！荣——耀——！！", "_t")
 t("I won't need to save chicks from cults anymore!", "我再也不用从邪教那里救姑娘们了！", "_t")
-t("I hereby stand victorious, awaiting future challenges!", "吾凯旋而归，待岁月流逝，笑群雄谁能挡我！", "_t")
+t("I hereby stand victorious, awaiting future challenges!", "我已胜利加冕，静候未来的挑战！", "_t")
 t("#LIGHT_GREEN#*dance*", "#LIGHT_GREEN#*跳舞*", "_t")
 
 ------------------------------------------------
@@ -4651,8 +4646,8 @@ t("#LIGHT_BLUE#You are given: %s", "#LIGHT_BLUE#你获得了：%s", "log")
 section "mod-tome/data/chats/artifice-mastery.lua"
 
 t("Cancel", "取消", "_t")
-t("#CADET_BLUE#%s already mastered.", "#CADET_BLUE#%s 已经被强化过了", "log")
-t("#LIGHT_BLUE# You enhance your preparation of %s.", "#LIGHT_BLUE# 你强化了你准备的%s.", "log")
+t("#CADET_BLUE#%s already mastered.", "#CADET_BLUE#%s 已经强化过了。", "log")
+t("#LIGHT_BLUE# You enhance your preparation of %s.", "#LIGHT_BLUE# 你强化了对 %s 的准备。", "log")
 t("%s[%s -- mastery: %s]#LAST#", "%s[%s -- 强化：%s]#LAST#", "tformat")
 t("Master which tool?", "强化哪件工具？", "_t")
 -- untranslated text
@@ -4667,11 +4662,11 @@ t([[#GOLD#%s#LAST#
 section "mod-tome/data/chats/artifice.lua"
 
 t("[Cancel]", "[取消]", "_t")
-t("#CADET_BLUE#%s already equipped at level %d.", "#CADET_BLUE#%s 已经被装备了，等级 %d.", "log")
-t("#CADET_BLUE#Equipping %s with %s (level %d).", "#CADET_BLUE# 装备 %s，用 %s (等级 %d).", "log")
+t("#CADET_BLUE#%s already equipped at level %d.", "#CADET_BLUE#%s 已经装备，等级 %d。", "log")
+t("#CADET_BLUE#Equipping %s with %s (level %d).", "#CADET_BLUE#将 %s 装备至 %s（等级 %d）。", "log")
 t("[%sEquip %s%s#LAST#]", "[%s装备 %s%s#LAST#]", "tformat")
 t("[Equip %s]", "[装备 %s]", "tformat")
-t("Equip which tool for #YELLOW#%s#LAST#?", "装备哪件工具在#YELLOW#%s#LAST#上？", "tformat")
+t("Equip which tool for #YELLOW#%s#LAST#?", "为 #YELLOW#%s#LAST# 装备哪件工具？", "tformat")
 -- untranslated text
 --[==[
 t([[#GOLD#%s#LAST#
@@ -4683,78 +4678,78 @@ t([[#GOLD#%s#LAST#
 ------------------------------------------------
 section "mod-tome/data/chats/assassin-lord-thieves.lua"
 
-t("I ain't no chatting! Speak to the boss!", "我没功夫聊天！去和我们的头儿说！", "_t")
+t("I ain't no chatting! Speak to the boss!", "我没空闲聊！去跟老大说！", "_t")
 t("[leave]", "[离开]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/assassin-lord.lua"
 
-t("#LIGHT_GREEN#You and the Lord discuss your new relationship at some length, including the merits of assassination by proxy and some additional trapping techniques.", "#LIGHT_GREEN#你和盗贼头子讨论了你们的新关系，同时还讨论了部分暗杀和陷阱技巧。", "log")
-t("As you depart the assassin lord says: 'And do not forget, I own you now.'", "当你离开时，你听到刺客领主说道：“别忘了，你是我的人了。”", "log")
+t("#LIGHT_GREEN#You and the Lord discuss your new relationship at some length, including the merits of assassination by proxy and some additional trapping techniques.", "#LIGHT_GREEN#你与盗贼领主详谈了你们的新关系，包括借刀杀人的益处以及一些额外的陷阱技巧。", "log")
+t("As you depart the assassin lord says: 'And do not forget, I own you now.'", "当你离开时，盗贼领主说道：“别忘了，你现在归我所有了。”", "log")
 t([[#LIGHT_GREEN#*Before you stands a menacing man clothed in black.*#WHITE#
-Ahh, the intruder at last... And what shall we do with you? Why did you kill my men?]], [[#LIGHT_GREEN#*在你面前站着一个穿着黑衣服的凶恶男人。*#WHITE#
-啊，一个入侵者……我该怎么处置你呢？你为什么杀我的人？]], "_t")
-t("I heard some cries, and your men... they were in my way. What's going on here?", "我听到了哭喊声……然后你的人挡了我的道。这里发生了什么事？", "_t")
-t("I thought there might be some treasure to be had around here.", "我以为这里可能有财宝。", "_t")
+Ahh, the intruder at last... And what shall we do with you? Why did you kill my men?]], [[#LIGHT_GREEN#*在你面前站着一个身穿黑衣的凶恶男人。*#WHITE#
+啊，入侵者终于现身了……我们该怎么处置你呢？你为什么杀我的人？]], "_t")
+t("I heard some cries, and your men... they were in my way. What's going on here?", "我听到了呼喊声，而你的人……挡了我的路。这里发生了什么事？", "_t")
+t("I thought there might be some treasure to be had around here.", "我以为能在这里捞到些财宝。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_assassin-lord")
-t("Oh, you are not going anywhere, I'm afraid! KILL!", "哦，恐怕你哪儿都不能去，给我杀了他！", "_t")
+t("Oh, you are not going anywhere, I'm afraid! KILL!", "哦，恐怕你哪儿也去不了！给我杀！", "_t")
 t("[attack]", "[攻击]", "_t")
-t("Wait! Maybe we could work out some kind of arrangement; you seem to be a practical man.", "等一下！也许我们有什么其他的解决办法。你看上去像一个通情达理的人。", "_t")
-t("Oh, so this is the part where I tell you my plan before you attack me? GET THIS INTRUDER!", "哦，你以为在你攻击我之前我会告诉你我的计划吗？抓住这个入侵者！", "_t")
-t("I am afraid this is not your lucky day then. The merchant is ours... and so are you! GET THIS INTRUDER!!", "恐怕今天你不太走运，那个商人是我们的了……还有你也是！抓住这个入侵者！！", "_t")
+t("Wait! Maybe we could work out some kind of arrangement; you seem to be a practical man.", "等等！也许我们能达成某种协议；你看上去是个讲求实际的人。", "_t")
+t("Oh, so this is the part where I tell you my plan before you attack me? GET THIS INTRUDER!", "哦，所以现在该轮到我在你动手前透露计划了？拿下这个入侵者！", "_t")
+t("I am afraid this is not your lucky day then. The merchant is ours... and so are you! GET THIS INTRUDER!!", "恐怕今天不是你的幸运日。那个商人是我们的了……你也是！拿下这个入侵者！！", "_t")
 t([[Well, I need somebody to replace the men you killed. You look sturdy; maybe you could work for me.
 You will have to do some dirty work for me, though, and you will be bound to me.  Nevertheless, you may make quite a profit from this venture, if you are as good as you seem to be.
-And do not think of crossing me.  That would be... unwise.]], [[好吧，我需要人来帮我顶替你杀掉的那个人的位置，你看上去挺强壮，也许你能替我服务。
-你得帮我做点脏活，然后你就跟定我了，不过，如果你的实力有你看上去那么强劲的话，你也能在冒险过程中得到你的好处。
-不要试图和我对抗，那……可不明智。]], "_t")
-t("Well, I suppose it is better than dying.", "好吧，至少比死在这里好。", "_t")
-t("Money? I'm in!", "有钱赚？我加入！", "_t")
-t("Just let me and the merchant get out of here and you may live!", "放走那个商人，让我们离开这里，要不然你就去死吧！", "_t")
+And do not think of crossing me.  That would be... unwise.]], [[好吧，我正需要有人来顶替被你杀掉的那些手下。你看上去挺结实；也许你能替我干活。
+不过，你得替我干些脏活，而且你将受制于我。话说回来，只要你的本事真有看上去那么过硬，你也能在这桩买卖中捞到不少好处。
+另外，可别动跟我作对的心思。那会……非常不明智。]], "_t")
+t("Well, I suppose it is better than dying.", "好吧，我想总比送命强。", "_t")
+t("Money? I'm in!", "有钱赚？算我一个！", "_t")
+t("Just let me and the merchant get out of here and you may live!", "只要放我和商人离开这里，我就饶你不死！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/avatar-distant-sun-unlock.chat"
 
-t("Uhh, okay. Sure. Mind showing me?", "啊，好的，行啊，不介意的话就展示给我看吧？", "chat")
+t("Uhh, okay. Sure. Mind showing me?", "呃，好吧。行啊。不介意展示给我看看吗？", "chat")
 t([[<<<You feel a gentle warmth in your mind. Something speaks directly to your mind!>>>
-#YELLOW#HELLO FRIEND. I AM A STAR FROM FAR AWAY. I HAVE HEARD YOU PRAISING YOUR SUN. WHY NOT PRAISE ME INSTEAD? I AM A MUCH BETTER SUN THAN THAT DULL, LIFELESS GAS ORB IN YOUR VICINITY. PLEASE, ALLOW ME TO DEMONSTRATE MY GOOD INTENTIONS.]], [[<<<你在脑海中感受到温暖，有什么东西直接在你脑海中对话！>>>
-#YELLOW#你好啊朋友。我是一颗遥远的恒星。我听到了你赞美太阳的声音。为什么不赞美我呢？ 相比于你附近那颗了无生趣的气态球体，我作为太阳要好得多啊。可以的话，请允许我向你展示我的善意。]], "chat")
-t("I don't take unsolicited messages from... stars.", "我不接受来自……星星的自荐消息。", "chat")
-t("#YELLOW#YOU ONLY HAD TO ASK, MY FRIEND.", "#YELLOW#如你所愿，我的朋友。", "chat")
-t("#CRIMSON#[The area around you erupts in flames, burning your foes]", "#CRIMSON#[火焰在你周围爆发，灼烧你的敌人。]", "chat")
-t("If you say so.", "如果你这么说的话。", "chat")
-t("Look, I appreciate the offer, but I don't know you.", "这些听起来挺不错，但我并不认识你啊。", "chat")
-t("#YELLOW#DON'T BE LIKE THAT. I KNOW YOU ARE ON A NOBLE QUEST.", "#YELLOW#不要这样。我知道你正在进行一项崇高的使命。", "chat")
-t("I'm busy at the moment, so maybe call back another time?", "我现在很忙，能下次再谈吗？", "chat")
-t("#YELLOW#I AM YOUR FRIEND. NOW YOU KNOW ME. LET US BEGIN A LONG AND FRUITFUL FRIENDSHIP.", "#YELLOW#我是你的朋友。现在你认识我了。愿我们的友谊天长地久，硕果累累。", "chat")
-t("#YELLOW#BUSY, YOU SAY? I CAN FIX THAT, LIKE ANY GOOD FRIEND WOULD.", "#YELLOW#你现在很忙吗？我可以帮你解决手头的问题，就像好朋友一样。", "chat")
-t("#YELLOW#YOU DON'T BELIEVE ME? THEN PLEASE, ALLOW ME TO SHOW YOU A MERE FRACTION OF MY POWER.", "#YELLOW#你不相信我？那么，请允许我向你展示我的部分力量。", "chat")
+#YELLOW#HELLO FRIEND. I AM A STAR FROM FAR AWAY. I HAVE HEARD YOU PRAISING YOUR SUN. WHY NOT PRAISE ME INSTEAD? I AM A MUCH BETTER SUN THAN THAT DULL, LIFELESS GAS ORB IN YOUR VICINITY. PLEASE, ALLOW ME TO DEMONSTRATE MY GOOD INTENTIONS.]], [[<<<你在脑海中感受到一阵温和的暖意。有什么存在直接在你的脑海中对你说话！>>>
+#YELLOW#你好，朋友。我是一颗来自远方的恒星。我听到了你对太阳的赞美。为什么不改来赞美我呢？比起你附近那颗枯燥乏味、毫无生气的气态球体，我是一颗好得多的太阳。请允许我向你展示我的善意。]], "chat")
+t("I don't take unsolicited messages from... stars.", "我不接受来自……恒星的不请自来的消息。", "chat")
+t("#YELLOW#YOU ONLY HAD TO ASK, MY FRIEND.", "#YELLOW#你只需开口，我的朋友。", "chat")
+t("#CRIMSON#[The area around you erupts in flames, burning your foes]", "#CRIMSON#[你周围的区域爆发烈焰，焚烧你的敌人]", "chat")
+t("If you say so.", "既然你这么说。", "chat")
+t("Look, I appreciate the offer, but I don't know you.", "听着，我感谢你的好意，但我根本不认识你。", "chat")
+t("#YELLOW#DON'T BE LIKE THAT. I KNOW YOU ARE ON A NOBLE QUEST.", "#YELLOW#别这样。我知道你身负一项崇高的使命。", "chat")
+t("I'm busy at the moment, so maybe call back another time?", "我现在正忙，能改天再联系吗？", "chat")
+t("#YELLOW#I AM YOUR FRIEND. NOW YOU KNOW ME. LET US BEGIN A LONG AND FRUITFUL FRIENDSHIP.", "#YELLOW#我是你的朋友。现在你认识我了。让我们开启一段长久而硕果累累的友谊吧。", "chat")
+t("#YELLOW#BUSY, YOU SAY? I CAN FIX THAT, LIKE ANY GOOD FRIEND WOULD.", "#YELLOW#你说你在忙？我可以帮你搞定，就像任何好朋友会做的那样。", "chat")
+t("#YELLOW#YOU DON'T BELIEVE ME? THEN PLEASE, ALLOW ME TO SHOW YOU A MERE FRACTION OF MY POWER.", "#YELLOW#你不相信我？那么，请允许我向你展示我微不足道的一小部分力量。", "chat")
 
 ------------------------------------------------
 section "mod-tome/data/chats/avatar-distant-sun.chat"
 
-t("#YELLOW#YOU ARE A CURIOUS ONE.", "#YELLOW#你很有趣。", "chat")
-t("#YELLOW#YOU HAVE MADE THE RIGHT CHOICE. TOGETHER, WE SHALL BRING ABOUT THE DESTRUCTION OF OUR ENEMIES.", "#YELLOW#你做出了正确的选择。让我们一起，为敌人带来毁灭。", "chat")
-t("#GOLD#[you are now an Avatar of a Distant Sun]", "#GOLD#[你成为了遥远太阳的化身。]", "chat")
-t("Yes, give me your power!", "是的，请赐予我你的力量！", "chat")
+t("#YELLOW#YOU ARE A CURIOUS ONE.", "#YELLOW#你的好奇心可真重。", "chat")
+t("#YELLOW#YOU HAVE MADE THE RIGHT CHOICE. TOGETHER, WE SHALL BRING ABOUT THE DESTRUCTION OF OUR ENEMIES.", "#YELLOW#你做出了正确的选择。我们将携手为我们的敌人带去毁灭。", "chat")
+t("#GOLD#[you are now an Avatar of a Distant Sun]", "#GOLD#[你成为了遥远太阳的化身]", "chat")
+t("Yes, give me your power!", "是的，赐予我你的力量！", "chat")
 t([[<<<You feel the gentle warmth of your Distant Sun patron. It speaks directly to your mind!>>>
 #YELLOW#I AM HERE. DO YOU DESIRE TO SMITE EVIL, DESTROY THE DARKNESS AND SCOUR THE EARTH? I SHALL AID YOU IN THIS QUEST. TOGETHER, WE WILL BE UNSTOPPABLE. ALL DARKNESS SHALL BE CONSUMED BY OUR LIGHT.
-#LAST#]], [[<<<你感受到遥远太阳的温暖。它直接在你的脑海中对话!>>>
-#YELLOW#我就在这里。你希望惩戒邪恶，毁灭黑暗，净化陆地吗？我会帮助你完成这项使命。我们联合，将无可阻挡。我们的光芒，将消灭一切黑暗。
+#LAST#]], [[<<<你感受到了来自遥远太阳宗主的温和暖意。它直接在你的脑海中对你说话！>>>
+#YELLOW#我在此处。你是否渴望惩治邪恶、诛灭黑暗、荡涤大地？我将在这项使命中助你一臂之力。携起手来，我们将势不可挡。所有的黑暗都将被我们的光芒吞噬殆尽。
 #LAST#]], "chat")
 t("Who... Who are you?", "你……你是谁？", "chat")
-t("But what are you getting out of this?", "但这样的话，你能得到什么呢？", "chat")
-t("That doesn't tell me anything.", "这相当于什么也没说。", "chat")
-t("But how are you speaking to me?", "你是怎么和我对话的？", "chat")
-t("#YELLOW#I AM YOUR FRIEND. IT IS GOOD TO HAVE FRIENDS, ISN'T IT?", "#YELLOW#我是你的朋友。有朋友总是好事，对吧？", "chat")
-t("You still haven't told me who or what you are.", "你还是没有告诉我你是什么。", "chat")
+t("But what are you getting out of this?", "但你能从中得到什么好处？", "chat")
+t("That doesn't tell me anything.", "这等于什么都没告诉我。", "chat")
+t("But how are you speaking to me?", "但你是怎么跟我说话的？", "chat")
+t("#YELLOW#I AM YOUR FRIEND. IT IS GOOD TO HAVE FRIENDS, ISN'T IT?", "#YELLOW#我是你的朋友。有朋友总是件好事，不是吗？", "chat")
+t("You still haven't told me who or what you are.", "你还是没告诉我你是谁，或者到底是什么。", "chat")
 t([[#YELLOW#YOU NEED NOT CONCERN YOURSELF WITH SUCH THINGS. I KNOW YOU CRAVE POWER. I KNOW THE WEIGHT OF THE WORLD IS ON YOUR SHOULDERS. SO, ACCEPT MY BOONS. ALLOW ME TO HELP YOU.
-]], [[#YELLOW#你不需要关心这些小事。我知道你渴望力量。我知道你肩负着整个世界的重任。所以，接受我的恩惠吧。让我帮助你。
+]], [[#YELLOW#你无需为这些事操心。我知道你渴望力量。我知道整个世界的重担都压在你的肩上。所以，接受我的赐福吧。让我来助你一臂之力。
 ]], "chat")
-t("#YELLOW#I AM GETTING PLENTY OUT OF THIS.", "#YELLOW#我从这件事中获益良多。", "chat")
-t("#YELLOW#I TIRE OF YOUR NAGGING QUESTIONS. TALK, TALK, TALK. YOU HAVE A SIMPLE CHOICE BEFORE YOU. WILL YOU BECOME POWERFUL? OR WILL YOU BE WEAK AND ALONE?", "#YELLOW#你总是提出琐碎的问题。不断地说，说，说。在你面前有一个简单的选择。你要变强吗？还是要独自弱小？", "chat")
-t("I don't trust you. Please go away.", "我不相信你。请离开。", "chat")
-t("#YELLOW#I HAVE LITTLE PATIENCE FOR TIME WASTERS. THIS SHALL BE THE LAST TIME WE SPEAK.", "#YELLOW#浪费时间。我不会再来找你了。", "chat")
-t("#GRAY#[prodigy point refunded]", "#GRAY#[觉醒点返还。]", "chat")
+t("#YELLOW#I AM GETTING PLENTY OUT OF THIS.", "#YELLOW#我从中得到的好处多得很。", "chat")
+t("#YELLOW#I TIRE OF YOUR NAGGING QUESTIONS. TALK, TALK, TALK. YOU HAVE A SIMPLE CHOICE BEFORE YOU. WILL YOU BECOME POWERFUL? OR WILL YOU BE WEAK AND ALONE?", "#YELLOW#我已经厌倦了你这喋喋不休的追问。说，说，说个没完。摆在你面前的选择很简单：你是要变得强大？还是要弱小又孤独？", "chat")
+t("I don't trust you. Please go away.", "我不信任你。请离开。", "chat")
+t("#YELLOW#I HAVE LITTLE PATIENCE FOR TIME WASTERS. THIS SHALL BE THE LAST TIME WE SPEAK.", "#YELLOW#我对浪费时间的人毫无耐心。这将是我们最后一次对话。", "chat")
+t("#GRAY#[prodigy point refunded]", "#GRAY#[觉醒点已返还]", "chat")
 -- new text
 --[==[
 t("[...]", "[...]", "chat")
@@ -4764,18 +4759,18 @@ t("[...]", "[...]", "chat")
 ------------------------------------------------
 section "mod-tome/data/chats/chronomancy-bias-weave.lua"
 
-t("What kind of anomaly do you prefer?", "你喜欢哪种异常？", "_t")
+t("What kind of anomaly do you prefer?", "你偏好哪种异常？", "_t")
 t("Physical", "物理", "_t")
 t("Warp", "翘曲", "_t")
 t("Temporal", "时空", "_t")
-t("Never mind", "没事，别介意。", "_t")
+t("Never mind", "算了。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/chronomancy-see-threads.lua"
 
-t("#PURPLE#A paradox has already destroyed other timelines!", "#PURPLE#一个时空紊乱摧毁了其他时间线!", "logPlayer")
-t("#LIGHT_BLUE#You select the timeline and re-arrange the universe to your liking!", "#LIGHT_BLUE#你选择了时间线，依照你喜欢的方式重组了这个世界！", "logPlayer")
-t("You have lived %d turns in three different timelines. Which do you choose to be the real timeline?", "你在三条不同的时间线里度过了 %d 个回合，你选择哪一条成为现实时间线？", "tformat")
+t("#PURPLE#A paradox has already destroyed other timelines!", "#PURPLE#一个时空悖论已经摧毁了其他时间线！", "logPlayer")
+t("#LIGHT_BLUE#You select the timeline and re-arrange the universe to your liking!", "#LIGHT_BLUE#你选择了时间线，依照你的心愿重构了宇宙！", "logPlayer")
+t("You have lived %d turns in three different timelines. Which do you choose to be the real timeline?", "你在三条不同的时间线里度过了 %d 个回合。你选择哪一条作为现实时间线？", "tformat")
 t("The first.", "第一条。", "_t")
 t("The second.", "第二条。", "_t")
 t("The third.", "第三条。", "_t")
@@ -4783,58 +4778,58 @@ t("The third.", "第三条。", "_t")
 ------------------------------------------------
 section "mod-tome/data/chats/command-staff.lua"
 
-t("Greetings. How can I help you?", "你好，我能帮你什么忙么？", "_t")
-t("Hurry up and make with the foe-blasting.", "快点，我们要去把敌人打爆。", "_t")
-t("O wise wielder, instruct me that I may better serve you.", "睿智的持杖者，请指示我让我更好地为您服务。", "_t")
-t("Make amends, magic-user, for the harm ye have wrought is beyond compare.", "赎罪吧，法师们，你们带来了罄竹难书的危害。", "_t")
-t("You really could have chosen a better home for me, you know. I was reasonably happy in my old crystal. This stick smells like armpit.", "要知道，你可以给我找个更好的环境。我原本在我的旧水晶里住得挺舒服的。这根法杖有一股狐臭的味道。", "_t")
-t("Tremble before the might of Telos!", "在泰勒斯的强大力量下颤抖吧！", "_t")
-t("It is not yet your place to command such a staff as this. To do so invites obliteration.", "你还没有资格掌控这支法杖；强行去做只会招致毁灭。", "_t")
-t("Call on which aspect of the staff?", "召唤哪种法杖的元素力量？", "_t")
+t("Greetings. How can I help you?", "您好。有什么我可以为您效劳的？", "_t")
+t("Hurry up and make with the foe-blasting.", "快点，赶紧去把敌人轰杀成渣。", "_t")
+t("O wise wielder, instruct me that I may better serve you.", "睿智的持杖者啊，请指示我，好让我更好地为您效劳。", "_t")
+t("Make amends, magic-user, for the harm ye have wrought is beyond compare.", "赎罪吧，施法者，你所铸成的灾祸无可估量。", "_t")
+t("You really could have chosen a better home for me, you know. I was reasonably happy in my old crystal. This stick smells like armpit.", "我说，你本来真该给我挑个好点的去处。我在我原本的旧水晶里待得挺舒坦的。这根破棍子闻起来一股腋臭味。", "_t")
+t("Tremble before the might of Telos!", "在泰勒斯的伟力面前颤抖吧！", "_t")
+t("It is not yet your place to command such a staff as this. To do so invites obliteration.", "你现在还没有资格号令这样的法杖。妄自尝试只会招致毁灭。", "_t")
+t("Call on which aspect of the staff?", "唤起法杖的哪种形态？", "_t")
 t("error!", "错误！", "_t")
-t("Oh, I was once a mighty Eldritch Channeler. Mighty and absentminded, as it turns out. Had a bit of a mishap with an Inverted Kugala's Soul-infusion technique. Long story short, my soul is now stuck in this stick, and the soul I was working with... well, I don't rightly know where he got to. But I hope we never meet him.", "哦，我曾经是一位强大的埃尔德里奇主宰者。事实证明，那时的我强大而健忘。有一次，我在倒转库加拉灵魂灌注术时出了点岔子。长话短说吧，我的灵魂如今被困在这根法杖里，而我当时正在处理的那个灵魂……嗯，我也不太清楚他跑到哪里去了。但我希望我们永远不会遇到他。", "_t")
-t("Argh! Bollocksed up a tricky bit of soul magic and the fool that I was supposed to be imprisoning for all eternity flitted away. My body, like all the targets of my spells, intended or otherwise, got reduced to elementary particles. Fortunately, I had this soul-cage of a staff all prepped and ready for a stray soul, so I'm not completely gone. But enough chit-chat. Let's fry somebody.", "啊！我搞砸了一个棘手的灵魂法术，本该被我永久囚禁的那个蠢货趁机溜走了。我的身体，和所有被我法术波及的东西一样，无论有意还是无意，都被分解成了基本粒子。幸运的是，我早已备好这根灵魂牢笼法杖，随时欢迎流浪的灵魂入住，所以我还没有彻底完蛋。好了，闲话少说，去烤个人吧！", "_t")
-t("My old master-- who, though a powerful enchanter, did not compare to you and your glory-- saw fit to imprison me in this fine staff to aid him in his work. Alas, he is long gone, but I despair not, for I have found a mighty new master.", "我的旧主人——虽然他的法术很强大，但却比不上你和你的荣耀——他认为，把我囚禁在这根法杖里可以为他更好的服务。唉，虽然他已经不复存在了，但我并不感到绝望，因为我找到了一个强大的新主人。", "_t")
-t("I am a portion of the very spirit of the world that was ripped free during the Spellblaze. I speak that I might enlighten those who bear me.", "我是世界之灵在魔法大爆炸中被撕裂出的一部分。我可以教导给你所需的知识，只要你愿意聆听我。", "_t")
-t("What's the good of immortality if you can't even speak? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. And, by the way, your energy manipulation techniques are on the same level as those of my average pair of shoes. Best study up if you don't want to die forgotten and incompetent.", "如果不能说话，那这样的永生还有何意义？但凡有点本事的大法师，在策划某种死后续命的邪恶计划时，都会给自己留一条表达意见的途径。顺便说一句，你的能量操纵水平跟我那双普通鞋子差不多。不想默默无闻地死得不明不白，就好好学着点。", "_t")
-t("Of course. Which aspect?", "当然。哪个方面？", "_t")
-t("I highly recommend the mage aspect and the fire element. You're not going to find anything better for turning a piece of meat into a cloud of vapor.", "我强烈推荐法师领域和火焰元素。你不会找到比这更好的能让一块肉变成蒸汽的方法了。", "_t")
-t("I live to serve-- though my use of the word 'live' is perhaps loose here.", "我毕生为你效劳——虽然“毕生”在这里对于我而言并不是那么准确。", "_t")
-t("Choose wisely. Powers beyond your comprehension will tolerate only so much interference in their carefully-laid natural order.", "明智地进行选择。那些超越你理解的力量，对它们精心安排的自然秩序所受的干涉，忍耐是有限的。", "_t")
-t("Back in my day, we didn't need to go changing our staves around willy-nilly. We picked an element and stuck with it, by the gods.", "在我那个年代，我们不会随便更换法杖。选定一种元素就用到底，诸神在上。", "_t")
-t("Certainly. You should be impressed, by the way, that I can do such a thing. Most lesser practitioners of my art would have difficulties with this. What shall I change?", "当然。顺带一提，我可以做的事情会让你印象深刻。大多数技艺不如我的同行都会觉得难以做到。你想让我改变什么？", "_t")
-t("Fine, as long as it leads to blasting something soon. What do you want me to change?", "很好，只要它能快速的引爆某物。你要我换成什么？", "_t")
-t("Choose different aspect", "选择其他领域", "_t")
+t("Oh, I was once a mighty Eldritch Channeler. Mighty and absentminded, as it turns out. Had a bit of a mishap with an Inverted Kugala's Soul-infusion technique. Long story short, my soul is now stuck in this stick, and the soul I was working with... well, I don't rightly know where he got to. But I hope we never meet him.", "哦，我曾经是一位强大的埃尔德里奇主宰者。事实证明，虽说强大，但也健忘。在施展反转库加拉灵魂灌注术时出了点小岔子。长话短说，我的灵魂现在被困在这根法杖里，而我当时正在处理的那个灵魂……呃，我实在不知道他跑哪儿去了。但我希望我们永远别碰上他。", "_t")
+t("Argh! Bollocksed up a tricky bit of soul magic and the fool that I was supposed to be imprisoning for all eternity flitted away. My body, like all the targets of my spells, intended or otherwise, got reduced to elementary particles. Fortunately, I had this soul-cage of a staff all prepped and ready for a stray soul, so I'm not completely gone. But enough chit-chat. Let's fry somebody.", "啊！我把一个棘手的灵魂法术搞得一团糟，本该被我永世囚禁的蠢货趁机溜走了。我的肉身，就像我法术命中的所有目标一样——不管是有意还是无意——全被分解成了基本粒子。幸好我早就准备好了这根灵魂牢笼法杖来收容游魂，所以我才没彻底玩完。不过闲话少说。赶紧去把谁烤成焦炭吧！", "_t")
+t("My old master-- who, though a powerful enchanter, did not compare to you and your glory-- saw fit to imprison me in this fine staff to aid him in his work. Alas, he is long gone, but I despair not, for I have found a mighty new master.", "我的前任主人——虽然也是一位强大的附魔师，但与您和您的无上荣光相比根本不值一提——决定将我囚禁在这根精良的法杖中以协助他的工作。唉，他早已不在人世，但我毫不绝望，因为我找到了一位强大的新主人。", "_t")
+t("I am a portion of the very spirit of the world that was ripped free during the Spellblaze. I speak that I might enlighten those who bear me.", "我是世界之灵的一部分，在魔法大爆炸中被撕裂分离。我出言发声，是为了启迪执掌我的人。", "_t")
+t("What's the good of immortality if you can't even speak? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. And, by the way, your energy manipulation techniques are on the same level as those of my average pair of shoes. Best study up if you don't want to die forgotten and incompetent.", "要是连话都说不了，永生还有什么用？但凡有点真本事的大法师，在谋划某种不道德的死后延续方案时，都绝不会忘记给自己留下一条发表见解的途径。顺便说一句，你的能量操控技巧跟我随便一双鞋子差不多在同一个档次。要是你不想默默无闻又无能地死去，最好趁早多学学。", "_t")
+t("Of course. Which aspect?", "当然可以。哪种形态？", "_t")
+t("I highly recommend the mage aspect and the fire element. You're not going to find anything better for turning a piece of meat into a cloud of vapor.", "我强烈推荐法师形态和火焰元素。想要把一块生肉化成一团蒸汽，你绝找不到比这更好的手段了。", "_t")
+t("I live to serve-- though my use of the word 'live' is perhaps loose here.", "我活着就是为了侍奉您——虽然我在这里用“活”这个字眼可能不太严谨。", "_t")
+t("Choose wisely. Powers beyond your comprehension will tolerate only so much interference in their carefully-laid natural order.", "明智地抉择吧。超越你理解的力量，对于它们精心维系的自然秩序所能容忍的干涉是有限的。", "_t")
+t("Back in my day, we didn't need to go changing our staves around willy-nilly. We picked an element and stuck with it, by the gods.", "在我们那个年代，谁会随随便便把法杖形态调来调去。我们选定一种元素就一直用到底，诸神在上。", "_t")
+t("Certainly. You should be impressed, by the way, that I can do such a thing. Most lesser practitioners of my art would have difficulties with this. What shall I change?", "当然可以。顺便说一句，我能做到这种事，你本该感到钦佩才对。大多数技艺不如我的人对此都会感到棘手。你想让我做何改动？", "_t")
+t("Fine, as long as it leads to blasting something soon. What do you want me to change?", "行吧，只要能赶紧去把什么东西轰成渣就行。你想让我改动什么？", "_t")
+t("Choose different aspect", "选择其他形态", "_t")
 t("Never mind.", "算了。", "_t")
-t("Call forth which element?", "召唤哪种元素", "_t")
+t("Call forth which element?", "唤出哪种元素？", "_t")
 t("staff", "法杖", "_t")
-t("How is it that you speak?", "你居然能说话？", "_t")
-t("I'd like you to bring forth a different aspect.", "我希望切换到其他领域。", "_t")
-t("I'd like to alter your basic properties.", "我希望改变你的基础属性。", "_t")
-t("I see.", "我知道了", "_t")
+t("How is it that you speak?", "你怎么会开口说话？", "_t")
+t("I'd like you to bring forth a different aspect.", "我希望你展现出不同的形态。", "_t")
+t("I'd like to alter your basic properties.", "我希望调整你的基础属性。", "_t")
+t("I see.", "原来如此。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/conclave-vault-greeting.lua"
 
 t([[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately snap to attention. The one on the right speaks:*#WHITE#
 YOU!  Name, rank, and identification.  NOW.
-]], [[#LIGHT_GREEN#*当你进入这个房间时，你发现两个身形魁梧的食人魔站在你的面前，仿佛刚刚从无尽的长眠中醒来。他们在看到你的瞬间迅速立正，右边的一个向你大喊道:*#WHITE#
-你是谁！立刻报上你的姓名、军衔、身份编号！
+]], [[#LIGHT_GREEN#*进入房间，你看到两个体型巨大的食人魔正在站岗，眨着眼睛，仿佛刚从漫长的沉睡中醒来。他们看到了你，立刻立正站好。右边那个开口道：*#WHITE#
+你！姓名、军衔、身份证明。立刻！
 ]], "_t")
 t("My what?", "我的什么？", "_t")
 t("[attack]", "[攻击]", "_t")
-t("#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately draw their weapons.", "#LIGHT_GREEN#*当你进入这个房间时，你发现两个身形魁梧的食人魔站在你的面前，仿佛刚刚从无尽的长眠中醒来。他们在看到你的瞬间立刻举起武器向你冲来。", "_t")
-t("#CRIMSON#NARGOL SCUM!  WE'RE UNDER ATTACK!", "#CRIMSON#纳格尔王国的半身人杂种攻进来了！我们正遭受攻击！", "_t")
+t("#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately draw their weapons.", "#LIGHT_GREEN#*进入房间，你看到两个体型巨大的食人魔正在站岗，眨着眼睛，仿佛刚从漫长的沉睡中醒来。他们看到了你，立刻拔出了武器。", "_t")
+t("#CRIMSON#NARGOL SCUM!  WE'RE UNDER ATTACK!", "#CRIMSON#纳格尔杂种！我们遭到袭击了！", "_t")
 t([[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately snap to attention. The one on the right speaks:*#WHITE#
 Ah!  Reinforcements!  I don't know how long it's been, but I'll get Astelrid up here to--  wait a minute, where are the rest of them?  #LIGHT_GREEN#*He frowns.*#WHITE# What's your identification number?
-]], [[#LIGHT_GREEN#*当你进入这个房间时，你发现两个身形魁梧的食人魔站在你的面前，仿佛刚刚从无尽的长眠中醒来。他们在看到你的瞬间迅速立正，右边的一个向你大喊道:*#WHITE#
-太好了！我们的援军终于到了！我不知道已经过了多久，不过我去把阿斯泰尔瑞德叫上来——等等，其他人呢？  #LIGHT_GREEN#*他的眉头紧锁。*#WHITE# 你的身份编号是什么！
+]], [[#LIGHT_GREEN#*进入房间，你看到两个体型巨大的食人魔正在站岗，眨着眼睛，仿佛刚从漫长的沉睡中醒来。他们看到了你，立刻立正站好。右边那个开口道：*#WHITE#
+啊！援军！我不知道已经过了多久，不过我去把亚斯特莉叫上来——等等，其他人呢？  #LIGHT_GREEN#*他皱起眉头。*#WHITE# 你的身份编号是多少？
 ]], "_t")
-t("Wait! The war's over! It's been thousands of years, the Conclave doesn't exist anymore!", "等等！战争已经结束了！已经过去了几千年了，孔克雷夫也早已灭亡了！", "_t")
+t("Wait! The war's over! It's been thousands of years, the Conclave doesn't exist anymore!", "等等！战争已经结束了！已经过去了几千年，孔克雷夫早就不复存在了！", "_t")
 t([[#LIGHT_GREEN#*They look at each other and scowl, drawing their weapons.  The one on the left growls:*#WHITE#
 LIES!  The Conclave could not have lost!  I don't know who you are, but we can't afford witnesses!
-]], [[#LIGHT_GREEN#*他们怒目而视，举起武器。左边的一个大喊道：*#WHITE#
-一派胡言！魔法议会是不可能战败的！我不知道你到底是谁，但我们不能留活口！
+]], [[#LIGHT_GREEN#*他们互相对视了一眼，面露怒容，拔出了武器。左边那个低吼道：*#WHITE#
+谎言！孔克雷夫绝不可能战败！我不知道你是谁，但我们绝不能留下目击者！
 ]], "_t")
 
 ------------------------------------------------
@@ -4843,65 +4838,65 @@ section "mod-tome/data/chats/corruptor-quest.lua"
 t([[Wait, @playerdescriptor.subclass@!
 I see you are a worthy opponent, powerful indeed. I can see, and feel, your mastery of the eldritch crafts.
 We are the same.]], [[等等，@playerdescriptor.subclass@！
-我看你是个有价值的对手，够强力。我可以看到和感觉到，你对魔法技艺的熟练程度。
-我们可是同行。]], "_t")
-t("What do you mean 'the same'?", "“同行”是什么意思？", "_t")
-t("I am nothing like you. Die!", "谁跟你是同行，去死吧！", "_t")
-t("So be it. Die, and give me your power!", "如此的话。去死吧，把你的能量给我！", "_t")
+我看你是个值得尊敬的对手，确实很强大。我能看到、也能感受到你对奥术技艺的精通。
+我们是同一类人。]], "_t")
+t("What do you mean 'the same'?", "你说的“同一类人”是什么意思？", "_t")
+t("I am nothing like you. Die!", "我跟你可不是同一类人。去死吧！", "_t")
+t("So be it. Die, and give me your power!", "既然如此。受死吧，把你的力量交给我！", "_t")
 t([[We both know the strength of the arcane; we both hunger for power. There is so much I have discovered, so much I could teach you.
 This place is special. The veil of reality is thin here, forever shattered by the Spellblaze. We are taking advantage of this; we can draw on the power,
-leeching from this place, to better ourselves, to bring forth the dominion of magic!]], [[我们都了解奥术的力量，我们也都渴求力量。我已经发现了很多东西，有很多我可以教你。
-这个地方很特别。这里与真理只隔着一层薄薄的面纱，已经被魔法大爆炸永久削弱了。我们可以利用它。
-我们可以吸收力量，从这个地方吸取，来强大我们自身，使我们成为魔法的主宰！]], "_t")
-t("The world suffered from the Spellblaze enough. Magic must serve people, not enslave them. I will not listen to you!", "魔法大爆炸已经给这个世界带来了足够的灾难。魔法必须服务于人，而不是奴役别人。我不会听你的！", "_t")
-t("What do you propose, then?", "那你的建议呢？", "_t")
+leeching from this place, to better ourselves, to bring forth the dominion of magic!]], [[我们都深知奥术的力量，也都渴求力量。我探索出了许多奥秘，有太多的东西可以传授给你。
+这个地方非同寻常。这里的现实帷幕无比脆弱，已被魔法大爆炸永久撕碎。我们正善加利用这一点；我们可以汲取其中的力量，
+从此处不断榨取，以提升我们自身，迎来魔法的统治！]], "_t")
+t("The world suffered from the Spellblaze enough. Magic must serve people, not enslave them. I will not listen to you!", "这个世界承受魔法大爆炸的苦难已经够多了。魔法必须造福于人，而不是奴役世人。我绝不会听你的！", "_t")
+t("What do you propose, then?", "那么，你有什么提议？", "_t")
 t([[Let us end this meaningless fight. Have you ever heard of a group of people called the Ziguranth?
 These rambling madmen think magic should not be permitted to exist! They fear us; they fear our powers.
-Let us join forces and crush the fools!]], [[让我们停止这场毫无意义的争斗。你有没有听说过一群叫做伊格兰斯的人？
-这些疯子认为魔法不应该存在！他们害怕我们，害怕我们的力量。
-让我们联合起来干掉那些笨蛋！]], "_t")
+Let us join forces and crush the fools!]], [[让我们结束这场毫无意义的争斗吧。你听说过一个叫伊格兰斯的群体吗？
+这群疯言疯语的狂徒认为魔法根本不该被允许存在！他们害怕我们，害怕我们的力量。
+让我们联手消灭那些蠢货！]], "_t")
 t("Magic shall triumph!", "魔法必胜！", "_t")
-t("Magic has a purpose. Those men are wrong, but you seem much worse.", "魔法自有它的用处。那些人想错了，不过你比他们错的更离谱。", "_t")
-t("Then you must leave... THIS WORLD! DIE!", "那么你必须离开……这个世界！死吧！", "_t")
+t("Magic has a purpose. Those men are wrong, but you seem much worse.", "魔法自有其用途。那些人固然错了，但你看起来要恶劣得多。", "_t")
+t("Then you must leave... THIS WORLD! DIE!", "既然如此，那你就离开……这个世界吧！受死！", "_t")
 t([[Good. Before your... untimely arrival we were preparing an attack on the Ziguranth main training camp, on the southern beach of the sea of Sash.
 Come with us; let's destroy them!
-I will open a portal to Zigur and the massacre shall begin!]], [[很好。在你到来之前，我们正准备攻击伊格兰斯在萨希之海南部沙滩的主要训练营地。
-和我们一起，去干掉他们！
-我会打开去伊格的传送门，然后大屠杀就要开始了！]], "_t")
+I will open a portal to Zigur and the massacre shall begin!]], [[很好。在你这……不合时宜的造访之前，我们正准备进攻位于萨希之海南岸的伊格兰斯主要训练营地。
+跟我们来，让我们彻底消灭他们！
+我将开启通往伊格的传送门，屠杀即将开始！]], "_t")
 t("I am ready!", "我准备好了！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/derth-attack-over.lua"
 
 t([[#LIGHT_GREEN#*A Halfling comes forth from his hiding place.*#WHITE#
-You killed them all? Are we safe now? Oh, please tell me this was a bad dream!]], [[#LIGHT_GREEN#*一个半身人从他的藏身地走了出来。*
-#WHITE#你把它们都杀了？现在我们安全了么？噢，真希望你告诉我这只是一场恶梦！]], "_t")
-t("Be at ease. I have dispatched those monstrosities. Do you know where they came from or what they wanted?", "别害怕，我已经赶跑了那些怪物。你知道他们是从哪儿来的，想干什么吗？", "_t")
+You killed them all? Are we safe now? Oh, please tell me this was a bad dream!]], [[#LIGHT_GREEN#*一个半身人从他的藏身之处走了出来。*#WHITE#
+你把它们全杀光了？我们现在安全了吗？噢，请告诉我这只是一场噩梦！]], "_t")
+t("Be at ease. I have dispatched those monstrosities. Do you know where they came from or what they wanted?", "放宽心吧。我已经消灭了那些怪物。你知道它们是从哪儿来的，或者想要干什么吗？", "_t")
 t([[From nowhere! From the sky!
-I do not know. I was tending my crop just outside the town when I heard screaming. As I entered the town, I saw the dark cloud over here. Those... those... things were coming from it in blasts of lightning!]], [[不知道从哪儿来的！从天上！
-我真不知道。我当时正在农田里照看我的庄稼，然后我听到了哭喊声。当我走进村子，我看到了天上的乌云。那些……那些……东西正喷出一道道闪电！]], "_t")
-t("It seems they have stopped coming for now. I will look for somebody who could help dispose of this nefarious cloud.", "好像它们现在不会再来了。我会找人来帮我处理掉这片邪恶的乌云。", "_t")
+I do not know. I was tending my crop just outside the town when I heard screaming. As I entered the town, I saw the dark cloud over here. Those... those... things were coming from it in blasts of lightning!]], [[不知道从哪儿冒出来的！从天上！
+我真不知道。我当时正在镇外照料庄稼，忽然听到了尖叫声。当我赶回镇上时，就看到了这里的这片乌云。那些……那些……鬼东西伴随着道道闪电从云里钻了出来！]], "_t")
+t("It seems they have stopped coming for now. I will look for somebody who could help dispose of this nefarious cloud.", "看起来它们暂时不再出现了。我会寻找能够帮忙解决这片邪恶乌云的人。", "_t")
 t([[Thank you! You have saved many people today!
 I have heard of rumours of a reclusive town of wise and powerful men somewhere in the mountains. Maybe they could help? If they even exist...
 There are also those Zigur-something people that claim to fight magic. Why are they not here?!]], [[多谢！你今天救了很多人！
-我听到有一个传说，说在群山中隐居着一群足智多谋的贤士。也许他们能帮上忙？要是他们真的存在的话……
-还有一群被称为什么伊格的号称与魔法战斗的人，那些人怎么不在这儿？！]], "_t")
-t("You mean the Ziguranth. That would be me.", "你是指伊格兰斯吧？我就是。", "_t")
+我曾听说过传闻，在群山深处的某处有一座隐秘城镇，住着智慧而强大的人。也许他们能帮上忙？如果他们真的存在的话……
+还有那些自称对抗魔法的叫什么伊格的人。他们为什么不在这里？！]], "_t")
+t("You mean the Ziguranth. That would be me.", "你是指伊格兰斯。我就是其中一员。", "_t")
 t("I will not let you down.", "我不会让你失望的。", "_t")
-t("Well then please do something about this evil magic!", "那就对这邪恶的魔法做点什么吧！", "_t")
+t("Well then please do something about this evil magic!", "那就请一定要想办法对付这邪恶的魔法！", "_t")
 t("I will!", "我会的！", "chat_derth-attack-over")
 
 ------------------------------------------------
 section "mod-tome/data/chats/dreadfell-ambush.lua"
 
 t([[#VIOLET#*As you come out of the Dreadfell, you encounter a band of orcs*#LAST#
-You! Give us the staff NOW and we might offer you a quick death!]], [[#VIOLET#*当你从恐惧王座里出来的时候，你遭遇了一队兽人。*
-#LAST#你！马上把你手上的法杖给我们！我们会让你死的痛快一点！]], "_t")
-t("What are you talking about?", "你说什么？！", "_t")
-t("Why would you want it?", "你们想要它干什么？", "_t")
+You! Give us the staff NOW and we might offer you a quick death!]], [[#VIOLET#*当你走出恐惧王座时，遭遇了一群兽人。*#LAST#
+你！立刻把法杖交出来，我们或许还能给你个痛快！]], "_t")
+t("What are you talking about?", "你在说什么？", "_t")
+t("Why would you want it?", "你们为什么要它？", "_t")
 t("#LIGHT_GREEN#[Attack]", "#LIGHT_GREEN#[攻击]", "_t")
-t("Do not play dumb with Ukruk! ATTACK!", "你少装蒜了，攻击！", "_t")
-t("That is not your concern! ATTACK!", "这和你无关，攻击！", "_t")
+t("Do not play dumb with Ukruk! ATTACK!", "少在乌克鲁克面前装傻！给我上！", "_t")
+t("That is not your concern! ATTACK!", "这轮不到你管！给我上！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/east-portal-end.lua"
@@ -4910,12 +4905,12 @@ t([[#LIGHT_GREEN#*A robed Human is waiting for you when you step out of the port
 Well met, @playername@!
 I am Meranas, Herald of Angolwen. I have come here at the request of King Tolak, who worried when you didn't return.
 We have been watching Tannen for some time, and were pleased to see you reveal his true nature-- and stop him. For this we are grateful, and I think we can pay you back.
-We have studied his portal research, and if you give me the components I will create the portal for you, here and now!]], [[#LIGHT_GREEN#*当你走出传送门时，一个穿着长袍的人正在那里等着你。*
-#WHITE#见到你很高兴，@playername@!
-我是马雷纳斯，安格利文的传令官。我接到托拉克国王的命令在此等候你，他一直很担心你。
-我们已经观察了泰恩一段时间，我们非常高兴地看到你揭露了他的真面目并阻止了他。为此我们很感激，我想我们可以报答你。
-我们已经分析了他关于传送门的研究，如果你把那些相关的部件给我，我就可以立即给你创造一个传送门，就是此时此刻。]], "_t")
-t("Yes, Tannen was not exactly friendly. I thank you for your help. Here are the components. [hand him the diamond and the athame]", "是的，泰恩的确不是个好人。感谢你的帮助，这些就是传送门的部件。[把钻石和仪式匕首交给他]", "_t")
+We have studied his portal research, and if you give me the components I will create the portal for you, here and now!]], [[#LIGHT_GREEN#*当你走出传送门时，一个身穿长袍的人类正等候着你。*#WHITE#
+幸会，@playername@！
+我是梅拉纳斯，安格利文的传令官。我是应托拉克国王的请求来到这里的，由于你迟迟未归，他一直很担心。
+我们观察泰恩已有很长一段时间了，很高兴看到你揭穿了他的真面目并阻止了他。我们对此深表感激，我想我们可以回报你。
+我们已经研究过他关于传送门的研究成果，如果你把那些部件交给我，我现在就可在此为你创建传送门！]], "_t")
+t("Yes, Tannen was not exactly friendly. I thank you for your help. Here are the components. [hand him the diamond and the athame]", "是的，泰恩确实不太友善。感谢你的帮助，这是传送门部件。[将钻石和仪式匕首交给他]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/eidolon-plane.lua"
@@ -4925,10 +4920,10 @@ I am the Eidolon and you are not welcome here!
 No matter how you came to this plane, #{bold}#DO NOT COME BACK!
 NOW BEGONE!
 #{normal}#
-.]], [[#LIGHT_GREEN#*在你面前的虚无之中站着一个人形的东西。它似乎在盯着你看。*#WHITE#
-我是艾德隆，你在这里不受欢迎!
-不论你怎样来到这里, #{bold}#不要再来!
-快滚!
+.]], [[#LIGHT_GREEN#*在你面前伫立着一个由“虚无”构成的人形轮廓。它似乎正注视着你。*#WHITE#
+我是艾德隆，你在这里不受欢迎！
+无论你是如何来到这个位面的，#{bold}#都不要再来！
+现在离开！
 #{normal}#
 .]], "_t")
 t("...", "……", "_t")
@@ -4937,49 +4932,49 @@ I have brought you here on the instant of your death. I am the Eidolon.
 I have deemed you worthy of my 'interest'. I will watch your future steps with interest.
 You may rest here, and when you are ready I will send you back to the material plane.
 But do not abuse my help. I am not your servant, and someday I might just let you die.
-As for your probable many questions, they will stay unanswered. I may help, but I am not here to explain why.]], [[#LIGHT_GREEN#*在你面前的虚无之中站着一个人形的东西。它似乎在盯着你看。 *#WHITE#
-在你死亡的瞬间我把你带到这里，我是艾德隆。
-我一直在注视着你，观察你的价值还有你的未来。
-你可以在这里休息一会，当你准备好时，我可以送你回到你原来所在的物质世界。
-不过不要滥用我给你的帮助，我可不是你的仆人，也许有一天我也会让你死去。
-也许你有很多问题要问，不过我不会回答，我可以帮助你，但我不是来给你解释为什么的。]], "_t")
-t("Thank you. I will rest for a while.", "谢谢你，我在这里休息一会。", "_t")
-t("Thank you. I am ready to go back!", "谢谢你，我已经准备好回去了。", "_t")
-t("Thank you, but I fear I will not survive anyway, can you send me back somewhere else please?", "谢谢你，不过我回去也是死，能不能送我到别的地方？", "_t")
-t("Thank you, but I fear I will not survive anyway, can you send me back somewhere else on the level please?", "谢谢你，不过我回去也是死，能不能送我到这一层的别的地方？", "_t")
-t("Thank you, I am ready to go back!", "谢谢你，我已经准备好回去了。", "_t")
-t("Thank you, but I am weary of this life, I wish no more, please let me go.", "谢谢你，但是我厌倦了这样的命运，请让我安息吧。", "_t")
+As for your probable many questions, they will stay unanswered. I may help, but I am not here to explain why.]], [[#LIGHT_GREEN#*在你面前伫立着一个由“虚无”构成的人形轮廓。它似乎正注视着你。*#WHITE#
+在你死去的瞬间，我将你带到了这里。我是艾德隆。
+我认定你值得引起我的“兴趣”。我将带着兴致注视你未来的脚步。
+你可以在此休息片刻，当你准备就绪，我会将你送回物质位面。
+但切勿滥用我的帮助。我并非你的仆从，终有一天我或许就任由你死去。
+至于你可能会有的诸多疑问，它们不会得到解答。我可以施以援手，但我无须向你解释缘由。]], "_t")
+t("Thank you. I will rest for a while.", "谢谢你。我在此休息片刻。", "_t")
+t("Thank you. I am ready to go back!", "谢谢你。我已经准备好回去了！", "_t")
+t("Thank you, but I fear I will not survive anyway, can you send me back somewhere else please?", "谢谢你，但我恐怕回去也是难逃一死，能否请你把我送到别的地方？", "_t")
+t("Thank you, but I fear I will not survive anyway, can you send me back somewhere else on the level please?", "谢谢你，但我恐怕回去也是难逃一死，能否请你把我送到本层的其他地方？", "_t")
+t("Thank you, I am ready to go back!", "谢谢你，我已经准备好回去了！", "_t")
+t("Thank you, but I am weary of this life, I wish no more, please let me go.", "谢谢你，但我已厌倦了这种生活，别无所求，请让我离去吧。", "_t")
 t([[It seems the threads of time and space have been disrupted...
-I will try to send you to safety.]], [[似乎时间线和空间已经被打乱……
-我会将你送到安全的地方。]], "_t")
+I will try to send you to safety.]], [[时空之线似乎已被扰乱……
+我会尽力将你送到安全的地方。]], "_t")
 t("Thanks.", "多谢。", "chat_eidolon-plane")
 t([[#LIGHT_GREEN#*It seems to stare at you in weird way.*#WHITE#
 I...had plans for you, but I cannot go against your free will. Know that you had a destiny waiting for you.
-Are you sure?]], [[#LIGHT_GREEN#*它看着你，对你的回答感到不可思议。*#WHITE#
-我……本来为你有别的安排，但是我不能违背你的意愿，要知道你还有使命没有完成。
+Are you sure?]], [[#LIGHT_GREEN#*它似乎正以古怪的目光注视着你。*#WHITE#
+我……本对你另有打算，但我无法违背你的自由意志。要知道，本有一份宿命在等待着你。
 你确定吗？]], "_t")
-t("Just let me go please.", "请让我死吧。", "_t")
+t("Just let me go please.", "请让我解脱吧。", "_t")
 t("asked the Eidolon to let %s die in peace", "请求艾德隆让 %s 安息。", "tformat")
 t("her", "她", "_t")
 t("him", "他", "_t")
 t("brought down by Eidolon", "被艾德隆杀死", "_t")
-t("No actually, perhaps life is still worth it!", "不，也许还是值得活下去的。", "_t")
+t("No actually, perhaps life is still worth it!", "不，其实生命或许依然值得活下去！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/elisa-orb-scrying.lua"
 
-t("You immerse your mind in the Way and let knowledge flow in.", "你专注你的意志与维网取得链接，使信息传输进来。", "_t")
-t("[Images and knowledge flow in.]", "[图像和知识涌现了出来。]", "_t")
-t("[You do not gain any knowledge.]", "[你没有获得任何信息。]", "_t")
-t("You pause and recall past memories.", "你停了下来，开始回忆过去。", "_t")
-t("[You do not recognize anything new.]", "[你没想起什么新东西。]", "_t")
-t("Oh, hi @playername@, have you got something new to show me?", "啊，你好 @playername@ ，有什么新东西给我看么？", "_t")
-t("Yes, Elisa, could you have a look at these objects please? [show her the items the orb could not identify]", "是的，埃莉萨，你能帮我看看这些东西么？[给她看看水晶球无法辨识的物品。]", "_t")
-t("Err, no... sorry, I just wanted to hear a friendly voice.", "呃，没有……抱歉，我只想听听你甜美的声音。", "_t")
+t("You immerse your mind in the Way and let knowledge flow in.", "你将心神沉浸于维网之中，任由知识涌入。", "_t")
+t("[Images and knowledge flow in.]", "[图像与知识涌入脑海。]", "_t")
+t("[You do not gain any knowledge.]", "[你没有获得任何知识。]", "_t")
+t("You pause and recall past memories.", "你驻足停歇，回忆起往昔的记忆。", "_t")
+t("[You do not recognize anything new.]", "[你未能辨认出任何新事物。]", "_t")
+t("Oh, hi @playername@, have you got something new to show me?", "啊，你好，@playername@！有什么新东西要给我看吗？", "_t")
+t("Yes, Elisa, could you have a look at these objects please? [show her the items the orb could not identify]", "是的，埃莉萨，能否请你帮我看看这些物品？[向她展示水晶球无法鉴定的物品]", "_t")
+t("Err, no... sorry, I just wanted to hear a friendly voice.", "呃，没有……抱歉，我只是想听听亲切的声音。", "_t")
 t("Not yet sorry!", "还没呢，抱歉！", "_t")
 t([[#LIGHT_GREEN#*You hear something akin to a muffled giggle*#WHITE#
-Oh, you are #{bold}#SOOOO#{normal}# cute!]], [[#LIGHT_GREEN#*你听到捂着嘴巴咯咯笑的声音*#WHITE#
-呵，你实在#{bold}#太……#{normal}# 可爱了！]], "_t")
+Oh, you are #{bold}#SOOOO#{normal}# cute!]], [[#LIGHT_GREEN#*你听到了一阵类似于掩口轻笑的声音*#WHITE#
+哎呀，你真是#{bold}#太——#{normal}#可爱了！]], "_t")
 t("Goodbye, Elisa!", "再见，埃莉萨！", "_t")
 
 ------------------------------------------------
@@ -4991,66 +4986,66 @@ t([[Let's see what have you got here...
 That is very nice, @playername@!]], [[让我看看你找到了什么好东西……
 %s
 
-真是不错，@playername@!]], "tformat")
+真是不错，@playername@！]], "tformat")
 t("Thank you, Elisa!", "谢谢你，埃莉萨！", "_t")
-t("Hello friend, what can I do for you?", "你好朋友，我能帮你什么忙么？", "_t")
-t("Could you have a look at these objects, please? [show her your unidentified items]", "你能帮我看看这些物品么？[将未辨识的物品给她看。]", "_t")
+t("Hello friend, what can I do for you?", "你好，朋友，有什么我能为你效劳的吗？", "_t")
+t("Could you have a look at these objects, please? [show her your unidentified items]", "能否请你帮我看看这些物品？[向她出示你未鉴定的物品]", "_t")
 t("Nothing, goodbye.", "没事，再见。", "_t")
 t([[Wait, @playername@, you seem to be quite the adventurer. Maybe we can help one another.
 You see, I #{bold}#LOOOVVVEEEE#{normal}# learning new lore and finding old artifacts of power, but I am not exactly an adventurer and I would surely get killed out there.
 So take this orb (#LIGHT_GREEN#*she gives you an orb of scrying*#WHITE#). You can use it to talk to me from anywhere in the world! This way you can show me your new shiny findings!
 I get to see many interesting things, and you get to know what your items do. We both win! Isn't it sweet?
-Oh yes, the orb will also identify mundane items for you, as long as you carry it.]], [[等等，@playername@，你看上去像一个冒险家。也许我们能互相帮助。
-你看，我#{bold}#热爱#{normal}#学习新的手稿和搜集拥有古老力量的物品。不过我自己并不是一个真正的冒险家，而且我如果出去冒险的话肯定会被杀掉。
-所以拿着这个水晶球吧，(#LIGHT_GREEN#*她给了你一个辨识水晶*#WHITE#)。你可以在世界的任何一个角落用这个水晶球和我联络。要是你发现什么闪闪发光的好东西，你就可以随时随地给我看了！
-我可以看到有趣的东西，而你又能知道你所获得的是什么装备，一举两得！听上去应该不错吧？
-而且，你只要携带着它，它也会帮你辨认普通物品。]], "_t")
-t("Woah, thanks, Elisa. This is really nice!", "哇～太好了，埃莉萨，这可太棒了！", "_t")
+Oh yes, the orb will also identify mundane items for you, as long as you carry it.]], [[等等，@playername@，你看起来是个相当了不起的冒险家。也许我们能互相帮助。
+你看，我#{bold}#超——喜欢#{normal}#学习新的传说知识、搜寻古老强大的神器，但我自己可算不上什么冒险家，到外头去肯定会送命的。
+所以拿着这颗水晶球吧（#LIGHT_GREEN#*她递给你一颗占卜水晶球*#WHITE#）。你可以在世界上的任何地方用它与我通话！这样你就能随时向我展示你新找到的闪亮宝贝了！
+我能见识到许多有趣的事物，而你也能弄清楚物品的用途。我们双赢！这不是两全其美吗？
+而且，只要你随身携带，这颗水晶球还会为你自动鉴定普通物品。]], "_t")
+t("Woah, thanks, Elisa. This is really nice!", "哇，多谢你，埃莉萨。这真是太棒了！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/escort-quest-start.lua"
 
 t([[#LIGHT_GREEN#[Pretend to help but when it is time you will use a Ziguranth technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#
-Lead on; I will protect you.]], [[#LIGHT_GREEN#[假装帮忙，现在是你使用伊格兰斯的能力破坏传送门的时候了。@npcname@ 将会被送到伊格接受他应有的“待遇”。]#WHITE#
-带路，我会保护你的。]], "_t")
+Lead on; I will protect you.]], [[#LIGHT_GREEN#[假装提供帮助，但等到时机成熟，你将使用伊格兰斯技巧让传送门失效。@npcname@ 将被送往伊格得到“妥善”处置。]#WHITE#
+带路吧，我会保护你的。]], "_t")
 t("Escort", "护送", "_t")
-t("Go away; I do not help filthy arcane users!", "走开，我不会帮助肮脏的奥术魔法信徒！", "_t")
-t("Lead on; I will protect you.", "带路，我会保护你的。", "_t")
+t("Go away; I do not help filthy arcane users!", "走开；我绝不帮助肮脏的奥术使用者！", "_t")
+t("Lead on; I will protect you.", "带路吧，我会保护你的。", "_t")
 t([[#LIGHT_GREEN#[Pretend to help but when it is time you will use a technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#
-Lead on; I will protect you.]], [[#LIGHT_GREEN#[假装帮忙，但时机一到，你将使用技巧让传送门失效。@npcname@ 将被送到伊格，得到“妥善”处置。]#WHITE#
-带路，我会保护你。]], "_t")
-t("Go away; I do not care for the weak.", "走开，我可没有义务帮助弱者。", "_t")
+Lead on; I will protect you.]], [[#LIGHT_GREEN#[假装提供帮助，但等到时机成熟，你将使用技巧让传送门失效。@npcname@ 将被送往伊格得到“妥善”处置。]#WHITE#
+带路吧，我会保护你的。]], "_t")
+t("Go away; I do not care for the weak.", "走开；我可不在乎弱者的死活。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/escort-quest.lua"
 
 t([[At the last moment you invoke the power of nature.  The portal fizzles and transports @npcname@ to Zigur.
-You can feel Nature thanking you.]], [[最后你召唤了自然之力，传送门发出嘶嘶的响声，将 @npcname@ 传送到了伊格。
-你可以感觉到自然对你的感激。]], "_t")
+You can feel Nature thanking you.]], [[在最后一刻，你引动了自然之力。传送门发生紊乱，将 @npcname@ 传送到了伊格。
+你能感受到大自然对你的谢意。]], "_t")
 t([[Thank you, my friend. I do not think I would have survived without you.
-Please let me reward you:]], [[谢谢你我的朋友，要是没有你我就死定了。
-请让我报答你吧：]], "_t")
-t("There you go. Farewell!", "那就这样吧，再见！", "_t")
+Please let me reward you:]], [[谢谢你，我的朋友。要是没有你，我想我根本活不下来。
+请让我答谢你：]], "_t")
+t("There you go. Farewell!", "拿去吧。保重！", "_t")
 t("Thank you.", "谢谢。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/fallen-aeryn.lua"
 
-t("%s grabs her amulet and disappears in a whirl of arcane energies.", "%s 抓住了她的项链在一股奥术漩涡中消失了。", "logPlayer")
+t("%s grabs her amulet and disappears in a whirl of arcane energies.", "%s 抓紧她的护身符，在一阵奥术能量的漩涡中消失了。", "logPlayer")
 t([[#LIGHT_GREEN#*She lies nearly dead at your feet*#WHITE#
-So, now you will kill me and complete the cycle of destruction?]], [[#LIGHT_GREEN#*她倒在你的脚下，快要死了。*#WHITE#
-那么，现在你会杀死我，完成这个毁灭的循环？]], "_t")
+So, now you will kill me and complete the cycle of destruction?]], [[#LIGHT_GREEN#*她奄奄一息地倒在你的脚边*#WHITE#
+那么，现在你要杀了我，彻底完成这场毁灭的轮回吗？]], "_t")
 t("What are you talking about? Why did you attack me?", "你在说什么？你为什么要攻击我？", "_t")
-t("Speak and I might spare you. Why did you attack me?", "说吧，也许我会饶恕你，你为什么要攻击我？", "_t")
+t("Speak and I might spare you. Why did you attack me?", "说清楚，也许我能饶你一命。你为什么要攻击我？", "_t")
 t("[kill her]", "[杀了她]", "_t")
 t([[You.. you do not know?
 A few hours after you entered this place a raid of orcs fell upon us. They were not alone -- demons walked among them. We were overwhelmed! Utterly destroyed!
 My land is no more! All because you could not stop them at the Charred Scar! You failed us! People died to protect you, and you failed!
 #LIGHT_GREEN#*She starts to weep...*#WHITE#]], [[你……你不知道？
-你进入这个地方几个小时以后，兽人突袭了我们。他们不是单独来的——还有大量恶魔跟随着他们。我们寡不敌众！被彻底击败了！
-我的领地已经不复存在！全都是因为你，没能在灼烧之痕阻止他们！你辜负了我们！这么多人为你而死，而你却辜负了我们！
+在你进入这里几个小时后，一队兽人突袭了我们。他们并非孤军奋战——恶魔与他们同行！我们寡不敌众！彻底覆灭了！
+我的家园已不复存在！全都是因为你没能在灼烧之痕阻止他们！你辜负了我们！有人为保护你而死，而你却失败了！
 #LIGHT_GREEN#*她开始哭泣……*#WHITE#]], "_t")
-t("I know my mistakes and I intend to correct them. Please let me pass. I cannot save your people, but I can make their deaths mean something!", "我知道我所犯下的错误，我会设法弥补。请让我通过这里，我没办法拯救你的人民，但是我不会让他们白白牺牲！", "_t")
+t("I know my mistakes and I intend to correct them. Please let me pass. I cannot save your people, but I can make their deaths mean something!", "我知道自己的过错，并打算去弥补。请放我过去。我虽然无法挽救你的人民，但我能让他们的牺牲变得有意义！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/gates-of-morning-main.lua"
@@ -5075,7 +5070,7 @@ Then the orc pride came and we have been fighting for our survival ever since.]]
 人类在烈火纪便来到了这里。我们的祖先是马卓普探险队的一部分人员，他们是去调查沉入海底的纳鲁精灵大陆秘密的。他们的船失事沉没，侥幸活下来的人就漂流到了这块大陆。
 他们碰到了一群精灵，似乎是这块大陆的原住民，他们成为了朋友并一起生活，创建了太阳堡垒和晨曦之门。
 后来兽人来到了这里，从那时开始我们就一直与他们战斗。]], "_t")
-t("Thank you, my lady.", "谢谢你，我的女士。", "_t")
+t("Thank you, my lady.", "谢谢您，女士。", "_t")
 t("Ahh, so they survived? That is good news...", "啊，那么他们还活着，真是一个好消息……", "_t")
 t("Go on.", "继续。", "_t")
 t("Well, actually...", "呃……事实上……", "_t")
@@ -5160,37 +5155,37 @@ t("Aeryn gives you: %s", "艾琳给了你：%s", "logPlayer")
 section "mod-tome/data/chats/gates-of-morning-welcome.lua"
 
 t([[#LIGHT_GREEN#*Before you stands a beautiful woman clad in shining golden armour*#WHITE#
-Stop! You are clearly a stranger! Where do you come from? The Gates of Morning are the last bastion of freedom in these lands, so who are you? A spy?]], [[#LIGHT_GREEN#*在你面前站着一位穿着金光闪闪铠甲的美丽女士。*#WHITE#
-站住！陌生人！你是从哪里来的？晨曦之门是这块大陆最后的自由圣地，你到底是谁？你是一个间谍么？]], "_t")
-t("My lady, I am indeed a stranger in these lands. I come from the west, from Maj'Eyal.", "我的女士，没错对于这个大陆来说我的确是一个陌生人，我来自西方，马基·埃亚尔。", "_t")
+Stop! You are clearly a stranger! Where do you come from? The Gates of Morning are the last bastion of freedom in these lands, so who are you? A spy?]], [[#LIGHT_GREEN#*在你面前站着一位身披闪耀金色铠甲的美丽女士。*#WHITE#
+站住！你显然是个陌生人！你是从哪里来的？晨曦之门是这片土地上最后的自由堡垒，你到底是谁？是间谍吗？]], "_t")
+t("My lady, I am indeed a stranger in these lands. I come from the west, from Maj'Eyal.", "女士，在这片土地上我确实是个陌生人。我来自西方，来自马基埃亚尔。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_gates-of-morning-welcome")
 t([[Maj'Eyal! For many years have we tried to contact your people. We always failed.
-In any event, what is your purpose here?]], [[马基·埃亚尔！我们的人民尝试了很多年与你们取得联系，但都失败了。
-不管怎样，你来这里是干什么的？]], "_t")
-t("It seems that I am stranded in these unfamiliar lands. #LIGHT_GREEN#*Tell her about your hunt for orcs and your encounter with Fillarel.*#WHITE#", "好像我在这片陌生的土地上被困住了。#LIGHT_GREEN#*告诉她关于你追杀兽人并遭遇了菲拉瑞尔的事。*#WHITE#", "_t")
-t("Sun Paladins? What do you mean? We know of no such thing where I come from.", "太阳骑士？你是什么意思？在我的家乡，我们没听说过这种东西。", "_t")
+In any event, what is your purpose here?]], [[马基埃亚尔！多年来我们一直尝试与你们的人民取得联系，但都失败了。
+不管怎样，你来这里有何目的？]], "_t")
+t("It seems that I am stranded in these unfamiliar lands. #LIGHT_GREEN#*Tell her about your hunt for orcs and your encounter with Fillarel.*#WHITE#", "我似乎被困在了这片陌生的土地上。#LIGHT_GREEN#*向她讲述你追杀兽人并遭遇菲拉瑞尔的经历。*#WHITE#", "_t")
+t("Sun Paladins? What do you mean? We know of no such thing where I come from.", "太阳骑士？你是什么意思？在我来的地方，我们从没听说过这种存在。", "_t")
 t([[We are the mighty warriors of the Sunwall, channeling the power of the Sun and merging it with martial training.
-For hundreds of years, we stood between the Orc Pride and the free people. Our numbers are diminishing, but we will stand firm until our last breath.]], [[我们是太阳堡垒里强大的战士，汲取太阳的力量，并将其注入到我们的军事训练中。
-数百年来，我们一直为了人民的自由与兽人战斗，我们的成员人数在不断减少，不过我们会战斗至最后一刻。]], "_t")
-t("You have a noble spirit, my lady.", "你的精神十分高贵，我的女士。", "_t")
+For hundreds of years, we stood between the Orc Pride and the free people. Our numbers are diminishing, but we will stand firm until our last breath.]], [[我们是太阳堡垒的强大战士，引导太阳之力并将其融入武技训练之中。
+数百年来，我们始终屹立在兽人部落与自由人民之间。我们的人数正在不断减少，但我们将坚守到底，直至咽下最后一口气。]], "_t")
+t("You have a noble spirit, my lady.", "女士，您的精神令人钦佩。", "_t")
 t([[Orcs! Ah! Well then this is your lucky day. This whole continent is swarming with Orcs. They have united as the Orc Pride and, according to rumour, their masters are powerful.
 They roam the lands freely, ever assaulting us.
-@playername@, you have helped one of ours. I grant you access to the Gates of Morning and name you friend of the Sunwall.]], [[兽人！啊！那你非常走运，这个大陆到处都是兽人，他们组成了兽人部落，有传言，他们的首领非常强大。
-他们在这片大陆上四处劫掠，不断袭击我们。
-@playername@，你已经帮了我们一个忙了，欢迎你来到晨曦之门，你是我们太阳堡垒的朋友。]], "_t")
-t("Thank you, my lady.", "谢谢你，我的女士。", "_t")
+@playername@, you have helped one of ours. I grant you access to the Gates of Morning and name you friend of the Sunwall.]], [[兽人！啊！那今天可真是你的幸运日。整片大陆到处都是兽人。他们联合组成了兽人部落，据传言，他们背后的主人十分强大。
+他们在这片土地上肆意游荡，不断袭击我们。
+@playername@，你帮助了我们的一位同胞。我准许你进入晨曦之门，并封你为太阳堡垒之友。]], "_t")
+t("Thank you, my lady.", "谢谢您，女士。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/golbug-explains.lua"
 
 t([[#VIOLET#*As you open the door you notice a huge orc in the distance, covered in both flames and ice.*#LAST#
 @playerdescriptor.race@! You should never have come! Your doom awaits!
-The Orc Pride will never yield to anybody! They have their precious and there is nothing you can do.]], [[#VIOLET#*当你打开门，你注意到远处一个巨大的兽人，同时被冰与火包围着。*
-#LAST#@playerdescriptor.race@！你不应该来这里！你的死期到了！
-兽人部落不会为任何人让步！他们有他们珍视的东西，你什么也做不了！]], "_t")
-t("The Orc Pride obeys a master? I see... 'pride' indeed!", "整个兽人部落会服从一个主人？我明白了……还真是“骄傲”啊！", "_t")
+The Orc Pride will never yield to anybody! They have their precious and there is nothing you can do.]], [[#VIOLET#*当你打开门，你注意到远处一个巨大的兽人，周身同时被烈焰与寒冰笼罩。*#LAST#
+@playerdescriptor.race@！你根本不该来这里！你的死期到了！
+兽人部落绝不会向任何人屈服！他们已经拿到了至宝，你什么也做不了！]], "_t")
+t("The Orc Pride obeys a master? I see... 'pride' indeed!", "兽人部落会听命于主人？我明白了……还真是“骄傲”啊！", "_t")
 t("#LIGHT_GREEN#[Attack]", "#LIGHT_GREEN#[攻击]", "_t")
-t("The Pride chooses its allies. It has no master! ATTACK!", "部落只会选择自己的盟友，我们从不屈服于人！攻击！", "_t")
+t("The Pride chooses its allies. It has no master! ATTACK!", "部落自己选择盟友。部落没有主人！攻击！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/jewelry-store.lua"
@@ -5245,25 +5240,25 @@ t("I will see if I can find it.", "我看看能不能找到那个地方。", "_t
 section "mod-tome/data/chats/keepsake-berethh-encounter.lua"
 
 t([[#VIOLET#*Before you stands Berethh. His face shows no emotion, but his posture is threatening.#LAST#
-]], [[#VIOLET#*在你的面前站着的是贝里斯。他面无表情，只是摆出了攻击的姿势。#LAST#
+]], [[#VIOLET#*贝里斯站在你的面前。他面无表情，但姿态充满威胁。#LAST#
 ]], "_t")
 t("Kyless is dead.", "克里斯死了。", "_t")
-t("I'm not sure if you deserved your fate. Still I cannot let you live.", "我不知道你是否该死。不管怎样，我要杀了你。", "_t")
-t("Then you will die like Kyless. #LIGHT_GREEN#[Attack]#LAST#", "那么你就会像克里斯一样死掉。#LIGHT_GREEN#[攻击]#LAST#", "_t")
-t("I need your help. I want to overcome my curse.", "我需要你的帮助。我想要克服我的诅咒。", "_t")
+t("I'm not sure if you deserved your fate. Still I cannot let you live.", "我不确定你落得这般下场是否罪有应得。但我依然不能留你活命。", "_t")
+t("Then you will die like Kyless. #LIGHT_GREEN#[Attack]#LAST#", "那么你也会像克里斯一样死去。#LIGHT_GREEN#[攻击]#LAST#", "_t")
+t("I need your help. I want to overcome my curse.", "我需要你的帮助。我想要摆脱我的诅咒。", "_t")
 t("I do not want to kill you.", "我不想杀你。", "_t")
-t("#VIOLET#*Berethh ignores your comment, unslings his bow and prepares his attack.*#LAST#", "#VIOLET#*贝里斯无视了你的请求，他拉开了弓弦准备攻击。*#LAST#", "_t")
+t("#VIOLET#*Berethh ignores your comment, unslings his bow and prepares his attack.*#LAST#", "#VIOLET#*贝里斯无视了你的话，取下背上的弓，准备发起攻击。*#LAST#", "_t")
 t("#LIGHT_GREEN#[Attack]", "#LIGHT_GREEN#[攻击]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/keepsake-caravan-destroyed.lua"
 
 t([[#VIOLET#*As the last member of the caravan lies dying, you look at him and see the hate that fills his eyes.*#LAST#
-We should have finished you off that day. You deserved no mercy!]], [[#VIOLET#*当商队最后一名成员垂死之际，你看着他，看到他眼中充满仇恨。*#LAST#
-我们那天应该杀了你。你不应该得到怜悯！]], "_t")
-t("And I will show you no mercy. #LIGHT_GREEN#[Kill him]#LAST#", "那就让我来告诉你什么是无情。 #LIGHT_GREEN#[杀了他]#LAST#", "_t")
+We should have finished you off that day. You deserved no mercy!]], [[#VIOLET#*当商队的最后一名成员奄奄一息时，你看着他，看到他眼中充满了仇恨。*#LAST#
+我们那天真该彻底除掉你。你根本不配得到怜悯！]], "_t")
+t("And I will show you no mercy. #LIGHT_GREEN#[Kill him]#LAST#", "而我也绝不会对你手下留情。 #LIGHT_GREEN#[杀了他]#LAST#", "_t")
 t("I am sorry. #LIGHT_GREEN#[Help him]#LAST#", "对不起。 #LIGHT_GREEN#[帮助他]#LAST#", "_t")
-t("#VIOLET#*Before you can help him, he collapses to the ground and dies.*#LAST#", "#VIOLET#*你刚想扶起他时，发现他已经失去了最后一线生机。*#LAST#", "_t")
+t("#VIOLET#*Before you can help him, he collapses to the ground and dies.*#LAST#", "#VIOLET#*在你来得及帮助他之前，他就倒在地上死去了。*#LAST#", "_t")
 t("...", "……", "_t")
 
 ------------------------------------------------
@@ -5271,9 +5266,9 @@ section "mod-tome/data/chats/keepsake-kyless-death.lua"
 
 t([[#VIOLET#*Kyless lies dying on the floor. In his hand he holds a book.*#LAST#
 Please! Before I die I have one request. Destroy the book. It wasn't me. The book brought this on us. It must be destoyed!]], [[#VIOLET#*克里斯躺在地板上奄奄一息。他的手里还握着一本书。*#LAST#
-求求你！在我死前我有一个请求！毁掉这本书。其实不是我，是这本书将灾难带给了我们。它必须被毁掉！]], "_t")
-t("I will. #LIGHT_GREEN#[destroy the book]#LAST#", "好的。 #LIGHT_GREEN#[毁掉那本书]#LAST#", "_t")
-t("I'm sorry but I need it. #LIGHT_GREEN#[keep the book]#LAST#", "对不起我需要它。#LIGHT_GREEN#[拿走这本书]#LAST#", "_t")
+求求你！在我死前我有一个请求。毁掉这本书。其实不是我，是这本书将灾难带给了我们。它必须被毁掉！]], "_t")
+t("I will. #LIGHT_GREEN#[destroy the book]#LAST#", "我会的。#LIGHT_GREEN#[毁掉这本书]#LAST#", "_t")
+t("I'm sorry but I need it. #LIGHT_GREEN#[keep the book]#LAST#", "对不起，但我需要它。#LIGHT_GREEN#[留下这本书]#LAST#", "_t")
 t("#VIOLET#*You destroy the book. When you finish you look up and see that Kyless is already dead.*#LAST#", "#VIOLET#*你毁掉了这本书。当你做完这一切后，你发现克里斯已经死了。*#LAST#", "_t")
 t("Goodbye, Kyless.", "再见，克里斯。", "_t")
 t("#VIOLET#*You place the book in your pack. When you finish you look up and see that Kyless is already dead.*#LAST#", "#VIOLET#*你将这本书放到了背包里。当你做完这一切后，你发现克里斯已经死了。*#LAST#", "_t")
@@ -5281,97 +5276,97 @@ t("#VIOLET#*You place the book in your pack. When you finish you look up and see
 ------------------------------------------------
 section "mod-tome/data/chats/last-hope-elder.lua"
 
-t("Welcome, @playername@, to Last Hope. Traveler, please be quick as my time is precious.", "欢迎你，@playername@，欢迎来到最后的希望。旅行者，你最好抓紧时间，我的时间很宝贵。", "_t")
-t("I have found a strange staff in my travels (#LIGHT_GREEN#*describe it in detail*#LAST#)  It looked very old and very powerful. I dared not use it.", "我在旅途中找到了一根法杖。(#LIGHT_GREEN#*详细说明事情的来龙去脉*#LAST#) 它看上去很古老但拥有强大的力量。我不敢使用它。", "_t")
-t("The hunt for the staff took me to a continent far to the east, accessible only by magic portal. I've recently returned by just such a portal, and I come bearing instructions on how to construct a similar portal here in Last Hope to make the return journey possible. I'm sure the Elves there would welcome trade with the west.", "追踪这根法杖的时候我到达了远东的一个大陆，只有通过魔法传送门才能到达那儿。刚才我就用这样的一个传送门返回这里，我现在就是来告诉大家如何制造一个类似的传送门从最后的希望通往远东大陆，我相信那里的精灵会很乐意同我们进行贸易往来。", "_t")
+t("Welcome, @playername@, to Last Hope. Traveler, please be quick as my time is precious.", "欢迎你，@playername@，来到最后的希望。旅行者，请长话短说，我的时间很宝贵。", "_t")
+t("I have found a strange staff in my travels (#LIGHT_GREEN#*describe it in detail*#LAST#)  It looked very old and very powerful. I dared not use it.", "我在旅途中找到了一根奇怪的法杖（#LIGHT_GREEN#*详细描述它的外观*#LAST#）。它看起来非常古老且威力强大，我不敢使用它。", "_t")
+t("The hunt for the staff took me to a continent far to the east, accessible only by magic portal. I've recently returned by just such a portal, and I come bearing instructions on how to construct a similar portal here in Last Hope to make the return journey possible. I'm sure the Elves there would welcome trade with the west.", "追查法杖的线索让我去往了遥远的东方大陆，那里只能通过魔法传送门前往。我最近刚通过这样一个传送门返回，并带来了如何在最后的希望建造类似传送门以重返东方的指引。我相信那里的精灵会很乐意与西方开展贸易。", "_t")
 t("Nothing, excuse me. Bye!", "没事，抱歉打扰了，再见！", "_t")
 t([[#LIGHT_GREEN#*He remains silent for a while*#WHITE# Indeed you were right to come here.
-The staff you describe reminds me of an artifact of great power from ancient times. May I see it?]], [[#LIGHT_GREEN#*他沉默了一段时间*#WHITE# 的确你来这里是对的。
-你描述的法杖让我想起了一件在古代有强大力量的神器，能让我看一下么？]], "_t")
-t("Here it is. #LIGHT_GREEN#*Tell him about the encounter with the orcs*#LAST# You should keep it. I can feel its power and it would be safer if it were guarded by the armies of the kingdom.", "就是这个。 #LIGHT_GREEN#*告诉他有关被兽人部队伏击的事。*#LAST# 你应该拿着它。我能感受到它的力量，法杖在王国军队的保护下才是安全的。", "_t")
-t("I am afraid I lost it. #LIGHT_GREEN#*Tell him about the encounter with the orcs*", "恐怕我把它弄丢了。 #LIGHT_GREEN#*告诉他有关被兽人部队伏击的事。*", "_t")
-t("I had it briefly but have lost it somehow.  It could have been some orcs I encountered ...", "我本来有它，但不知怎么弄丢了。大概是被我遇到的兽人抢走了……", "_t")
+The staff you describe reminds me of an artifact of great power from ancient times. May I see it?]], [[#LIGHT_GREEN#*他沉默了片刻*#WHITE# 你来这里确实是对的。
+你所描述的法杖让我想起了一件来自远古的强大神器。能让我看一眼吗？]], "_t")
+t("Here it is. #LIGHT_GREEN#*Tell him about the encounter with the orcs*#LAST# You should keep it. I can feel its power and it would be safer if it were guarded by the armies of the kingdom.", "就在这里。#LIGHT_GREEN#*告诉他遭遇兽人的事*#LAST# 应该由你来保管它。我能感受到它的力量，如果由王国军队看守会安全得多。", "_t")
+t("I am afraid I lost it. #LIGHT_GREEN#*Tell him about the encounter with the orcs*", "恐怕我把它弄丢了。#LIGHT_GREEN#*告诉他遭遇兽人的事*", "_t")
+t("I had it briefly but have lost it somehow.  It could have been some orcs I encountered ...", "我曾短暂持有过它，但不知怎么弄丢了。可能与我遇到的那些兽人有关……", "_t")
 t([[I am truly astonished by your strength; surviving that encounter was an epic feat.
 As for the orcs, it is deeply troubling.  We have not seen any for eighty years... could they have come from the far east?
-Anyway, thank you again, @playername@, for your help.]], [[我很惊讶你的力量，能在袭击中活下来可是一项壮举。
-关于兽人，这就有点麻烦了。我们已经80年没有见过他们了……难道他们是从远东大陆过来的？
-不管怎样，还是非常感谢，@playername@, 感谢你的帮助。]], "_t")
+Anyway, thank you again, @playername@, for your help.]], [[你的实力令我由衷惊叹；能在遭遇战中生还真是一项史诗般的壮举。
+至于兽人，这令人深感忧虑。我们已经有八十年没见过他们了……难道他们来自远东？
+无论如何，再次感谢你的帮助，@playername@。]], "_t")
 t("Thank you, my lord.", "谢谢你，阁下。", "_t")
 t([[Orcs?! In the west?! This is deeply alarming! We have not seen any for nearly eighty years. They must have come from the far east...
-But do not let me trouble you; you brought important news and you are lucky to be alive.]], [[兽人？在西部大陆？！这非常令人担忧！我们几乎已经80年没有见到过兽人了，他们肯定是从远东大陆来的……
-不过别让我耽误你了，你带来了重要的消息，而且你还能活下来已经很幸运了。]], "_t")
+But do not let me trouble you; you brought important news and you are lucky to be alive.]], [[兽人？！在西方？！这令人深感忧虑！我们已经将近八十年没见过任何兽人了。他们必定来自远东……
+不过我不该用这些烦扰你；你带来了重要消息，能够死里逃生已是万幸。]], "_t")
 t([[We have heard rumours from the Dwarves that there may still be an orc presence deep in the old kingdom of Reknor, in the Iron Throne.
-I know you have been through a lot, but we need somebody to investigate and determine if there is a connection with the staff.]], [[有来自矮人的传说，在钢铁王座古王国瑞库纳深处可能仍有兽人的踪迹。
-我知道你已经经历了很多事，不过我们还是需要一个人去调查一下，确认他们与法杖之间的联系。]], "_t")
+I know you have been through a lot, but we need somebody to investigate and determine if there is a connection with the staff.]], [[我们从矮人那里听到传闻，在钢铁王座境内的瑞库纳古王国深处可能仍有兽人出没。
+我知道你历经艰险，但我们需要有人前去调查，查明这是否与那根法杖有关。]], "_t")
 t("I will check the mines.", "我会去矿坑那里调查。", "_t")
-t("That's extraordinary! I know a number of merchant princes who will salivate at the idea of new trade routes opening. But tell me, how fares your quest for the staff?", "真不可思议！对于新商路的开辟，我知道一些富商知道这个消息后肯定会高兴的直流口水。不过你还没告诉我，关于法杖的事情，进行的怎么样了？", "_t")
-t("The staff is recovered and the culprits slain. They will trouble us no more. [tell him the whole story]", "法杖已经找回，罪犯已经被处决，他们不会再困扰我们了。[告诉他整个事情经过。]", "_t")
+t("That's extraordinary! I know a number of merchant princes who will salivate at the idea of new trade routes opening. But tell me, how fares your quest for the staff?", "真不可思议！我知道不少巨商一想到开辟新商路就会垂涎三尺。不过快告诉我，你追查法杖的进展如何了？", "_t")
+t("The staff is recovered and the culprits slain. They will trouble us no more. [tell him the whole story]", "法杖已经找回，元凶已被诛杀。他们不会再危害我们了。[告诉他事情的完整经过]", "_t")
 t("The hunt continues. The construction of this portal will be of great assistance in the staff's recovery.", "追查仍在继续。建造这座传送门将极大地帮助我们找回法杖。", "_t")
-t("Excellent! Well then, concerning this fascinating portal, I'm afraid that men have largely forgotten whatever they once knew about the great magics of old. I know of only one man in these lands who might be able to help you, a wise man and recent arrival to Last Hope named Tannen. He claims to hail from Angolwen, a supposed haven for practitioners of magic and mysticism. He arrived just months ago with fabulous wealth and has already constructed his own tower in the northern part of the city. I know little of him, but if he is to be believed, then he is your best hope.", "太棒了！但是，关于这个有趣的传送门，恐怕很多人早已将古老魔法遗忘了。我只知道在这个大陆上有一个人可能能够帮助你，一个最近才来到最后希望的智者。他的名字叫泰恩，他自称他是从安格利文来的，那是传说中的神秘魔法港湾，他几个月前刚带着巨额财富来到这里，他在城市北部边境建造了他的塔楼。我对他了解不多，不过如果他是个可信之人的话，应该是最有可能帮上你的。", "_t")
+t("Excellent! Well then, concerning this fascinating portal, I'm afraid that men have largely forgotten whatever they once knew about the great magics of old. I know of only one man in these lands who might be able to help you, a wise man and recent arrival to Last Hope named Tannen. He claims to hail from Angolwen, a supposed haven for practitioners of magic and mysticism. He arrived just months ago with fabulous wealth and has already constructed his own tower in the northern part of the city. I know little of him, but if he is to be believed, then he is your best hope.", "太棒了！那么，关于这座引人入胜的传送门，恐怕人类大多早已遗忘了曾经掌握的远古宏大魔法。在这片土地上，我只知道有一人或许能帮上你——一位最近刚来到最后的希望的智者，名叫泰恩。他自称来自安格利文，那是传闻中魔法与神秘主义修行者的避难所。他几个月前带着巨额财富来到这里，已经在城北建造了自己的法师塔。我对他了解不多，但如果他的话可信，那他就是你最大的希望。", "_t")
 t("Thank you.", "谢谢。", "_t")
-t("In that case, let us proceed as quickly as possible. Now, concerning this fascinating portal. I'm afraid that men have largely forgotten whatever they once knew about the great magics of old. I know of only one man in these lands who might be able to help you, a wise man and recent arrival to Last Hope named Tannen. He claims to hail from Angolwen, a supposed haven for practitioners of magic and mysticism. He arrived just months ago with fabulous wealth and has already constructed his own tower in the northern part of the city. I know little of him, but if he is to be believed, then he is your best hope.", "那样的话，我们就长话短说，关于这个有趣的传送门，恐怕很多人早已将古老魔法遗忘了。我只知道在这个大陆上有一个人可能能够帮助你，一个最近才来到最后希望的智者。他的名字叫泰恩，他自称他是从安格利文来的，那是传说中的神秘魔法港湾，他几个月前刚带着巨额财富来到这里，他在城市北部边境建造了他的塔楼。我对他了解不多，不过如果他是个可信之人的话，应该是最有可能帮上你的。", "_t")
+t("In that case, let us proceed as quickly as possible. Now, concerning this fascinating portal. I'm afraid that men have largely forgotten whatever they once knew about the great magics of old. I know of only one man in these lands who might be able to help you, a wise man and recent arrival to Last Hope named Tannen. He claims to hail from Angolwen, a supposed haven for practitioners of magic and mysticism. He arrived just months ago with fabulous wealth and has already constructed his own tower in the northern part of the city. I know little of him, but if he is to be believed, then he is your best hope.", "既然如此，那我们就尽快行动吧。那么，关于这座引人入胜的传送门，恐怕人类大多早已遗忘了曾经掌握的远古宏大魔法。在这片土地上，我只知道有一人或许能帮上你——一位最近刚来到最后的希望的智者，名叫泰恩。他自称来自安格利文，那是传闻中魔法与神秘主义修行者的避难所。他几个月前带着巨额财富来到这里，已经在城北建造了自己的法师塔。我对他了解不多，但如果他的话可信，那他就是你最大的希望。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/last-hope-lost-merchant.lua"
 
-t("Urthol's Wondrous Emporium", "乌瑟尔商场", "_t")
+t("Urthol's Wondrous Emporium", "乌瑟尔奇珍商场", "_t")
 t([[Ah, my #{italic}#good#{normal}# friend @playername@!
-Thanks to you I made it safely to this great city! I am planning to open my most excellent boutique soon, but since I am in your debt, perhaps I could open early for you if you are in need of rare goods.]], [[啊, 我 #{italic}#亲爱的#{normal}# 朋友 @playername@!
-多亏了你我安全回到了这个伟大的城市！ 我的精品商店过些日子正打算开张营业。不过既然我欠你个人情，要是你需要一些稀有物品的话也许我可以为你提前开张。]], "_t")
+Thanks to you I made it safely to this great city! I am planning to open my most excellent boutique soon, but since I am in your debt, perhaps I could open early for you if you are in need of rare goods.]], [[啊，我的#{italic}#好#{normal}#朋友 @playername@！
+多亏了你，我才得以安全抵达这座伟大的城市！我正打算近期正式开张我的精品商行，不过既然我欠你一份人情，要是你需要稀有货物，也许我可以提前为你破例营业。]], "_t")
 t("\
 By the way, ", "\n顺带一提，", "_t")
-t("during our escape I found the plans for an #YELLOW#Ambush Trap#LAST#", "在逃亡过程中我找到了个好点子—— #YELLOW#伏击陷阱#LAST#", "_t")
+t("during our escape I found the plans for an #YELLOW#Ambush Trap#LAST#", "在逃亡途中我找到了一份#YELLOW#伏击陷阱#LAST#的设计图", "_t")
 t(" and while", "，同时在", "_t")
 t("while", "在", "_t")
-t(" organizing my inventory, I came across some #YELLOW#Smelly Toxin#LAST# that a colleague claimed could actually turn creatures to stone.  Truly exotic!", " 我整理货物时, 我发现了一些 #YELLOW#石化毒剂#LAST# ，据说能把生物变成石头。 真的很棒！", "_t")
+t(" organizing my inventory, I came across some #YELLOW#Smelly Toxin#LAST# that a colleague claimed could actually turn creatures to stone.  Truly exotic!", " 整理货物时，我偶然发现了一些#YELLOW#恶臭毒素#LAST#，一位同行声称它竟然能将生物变成石头。真是奇特！", "_t")
 t("\
-You would not happen to be interested, by any chance?", "你应该会对它感兴趣吧？", "_t")
+You would not happen to be interested, by any chance?", "\n不知你是否会感兴趣？", "_t")
 t("\
-Oh my friend, good news! As I told you I can now request a truly #{italic}#unique#{normal}# object to be crafted just for you. For a truly unique price...", "\n噢我的好朋友，我告诉过你我可以为你打造一件真正#{italic}#独一无二#{normal}#的物品，专门为你量身定做哦，而且价格也同样独一无二……", "_t")
+Oh my friend, good news! As I told you I can now request a truly #{italic}#unique#{normal}# object to be crafted just for you. For a truly unique price...", "\n噢我的朋友，好消息！正如我之前对你说的，我现在可以专门为你定制一件真正#{italic}#独一无二#{normal}#的物品了。当然，价格也同样独一无二……", "_t")
 t("\
 I eventually plan to arrange a truly unique service for the most discerning of customers. If you come back later when I'm fully set up I shall be able to order for you something quite marvellous. For a perfectly #{italic}#suitable#{normal}# price, of course.", "\
-我准备为最有眼光的那位顾客提供一件真正独特的服务。如果你过会儿回来，我将做好充分准备后给你一个大大的惊喜。而且价格绝对#{italic}#公道#{normal}#哦！当然！", "_t")
-t("Yes please, let me see your wares.", "好吧，让我看看你的货物。", "_t")
-t("What about the unique object?", "不如说说那个特殊物品？", "_t")
-t("Ambush Trap?  Sounds useful.", "伏击陷阱？听上去很不错", "_t")
-t("Smelly Toxin?  What kind of smell?", "臭毒素？什么样的气味？", "_t")
+我计划日后为最具眼光的顾客提供一项真正独特的服务。等我彻底布置停当，你日后再来的话，我将能为你订制一件绝妙的物品。当然，价格也会十分#{italic}#公道#{normal}#。", "_t")
+t("Yes please, let me see your wares.", "好的，让我看看你的货物。", "_t")
+t("What about the unique object?", "关于那件独一无二的物品呢？", "_t")
+t("Ambush Trap?  Sounds useful.", "伏击陷阱？听上去挺有用。", "_t")
+t("Smelly Toxin?  What kind of smell?", "恶臭毒素？什么样的气味？", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_last-hope-lost-merchant")
 t([[You know, I have asked here and there and it happens to be a very rare thing this contraption...
-But since you have saved me, I'm willing to part from it for only 3000 gold pieces, a real bargain!]], [[你要知道，我问遍了每个地方都没发现有相同的东西。
-不过，既然你救了我的命，给我3000金币我就把它转让给你。这可是很划算的！]], "_t")
+But since you have saved me, I'm willing to part from it for only 3000 gold pieces, a real bargain!]], [[你要知道，我四处打听过，这种机关可是极其罕见的玩意儿……
+不过既然你救了我，我愿意只收 3000 金币就把它割爱给你，这可是实打实的划算！]], "_t")
 t("Expensive, but I will take it.", "虽然很贵，不过我要了。", "_t")
 t("...", "……", "_t")
-t("Nice doing business with you my friend. There you go!", "和你做生意真愉快！", "_t")
+t("Nice doing business with you my friend. There you go!", "和你做生意真愉快，我的朋友。拿去吧！", "_t")
 t("Thanks.", "多谢。", "chat_last-hope-lost-merchant")
 t([[Ungrol told me this substance contains some exceedingly rare components.
-"More Toxin than Medicine" he said.  Allas, he had not the funds to buy it.  On the other hand, because of our special relationship, I'm willing to let you have it #{italic}#at cost#{normal}# -- only 1500 gold pieces!]], [[温格勒发现这种物质含有某些稀有成分，
-“与其说是药，不如说是毒。”他说，但他没钱买下来。 基于我们的良好关系，我很愿意按成本价卖给你——#{italic}#只要#{normal}# 1500 金币！]], "_t")
-t("Fairly pricey, but seems useful.  We have a deal!", "有点贵，不过应该能派上用场。我要了！", "_t")
-t("That price ... er stuff really stinks ...", "这价格……呃，真够臭的……", "_t")
-t("Here you are.  Just be sure not to get any on yourself!", "给你了。别洒在自己身上了", "_t")
-t("I normally offer this service only for a truly deserved price, but for you my friend I am willing to offer a 20% discount - #{italic}#only#{normal}# 4000 gold to make an utterly unique item of your choice.  What do you say?", "对于这项服务，只有到了合理的价位我才会愿意提供给别人，不过对你，我的朋友，我准备给你打个20%的折扣—— #{italic}#只要#{normal}# 4000 金币就可以打造一个真真正正你特有的装备哦，怎么样？", "_t")
-t("Why, 'tis a paltry sum - take my order, man, and be quick about it!", "什么？这点小钱无所谓，赶紧给我弄出来吧！", "_t")
-t("Yes, please!", "好的，请吧。", "_t")
-t("HOW MUCH?! Please, excuse me, I- I need some fresh air...", "多少钱？！呃……抱歉，我……我得出去呼吸一下新鲜空气……", "_t")
-t("Not now, thank you.", "现在不用，再见。", "_t")
+"More Toxin than Medicine" he said.  Allas, he had not the funds to buy it.  On the other hand, because of our special relationship, I'm willing to let you have it #{italic}#at cost#{normal}# -- only 1500 gold pieces!]], [[温格洛告诉我，这种物质含有一些极其罕见的成分。
+“与其说是药，不如说是毒。”他这么说。可惜他没有足够的资金买下来。不过鉴于我们的特殊关系，我愿意按#{italic}#成本价#{normal}#转让给你——只要 1500 金币！]], "_t")
+t("Fairly pricey, but seems useful.  We have a deal!", "相当贵，不过看起来用得上。成交！", "_t")
+t("That price ... er stuff really stinks ...", "这价格……呃，我是说这东西确实够臭的……", "_t")
+t("Here you are.  Just be sure not to get any on yourself!", "给你。可千万小心别弄到自己身上！", "_t")
+t("I normally offer this service only for a truly deserved price, but for you my friend I am willing to offer a 20% discount - #{italic}#only#{normal}# 4000 gold to make an utterly unique item of your choice.  What do you say?", "我通常只在价格足够相称时才提供这项服务，但为了你，我的朋友，我愿意提供八折优惠——#{italic}#只要#{normal}# 4000 金币，就能按你的要求定制一件绝无仅有的独特装备。你意下如何？", "_t")
+t("Why, 'tis a paltry sum - take my order, man, and be quick about it!", "哈，这点小钱何足挂齿——收下我的订单，伙计，动作快点！", "_t")
+t("Yes, please!", "好的，拜托了！", "_t")
+t("HOW MUCH?! Please, excuse me, I- I need some fresh air...", "多少钱？！抱歉失陪，我……我得去透透气……", "_t")
+t("Not now, thank you.", "现在不用，多谢。", "_t")
 t("dragonbone wand", "龙骨魔杖", "_t")
 t("dragonbone totem", "龙骨图腾", "_t")
 t("voratun torque", "沃瑞钽项圈", "_t")
-t("I've changed my mind.", "我决定不买了。", "_t")
-t("Which kind of item would you like ?", "你喜欢什么类型的装备？", "_t")
+t("I've changed my mind.", "我改变主意了。", "_t")
+t("Which kind of item would you like ?", "你想要哪种类型的装备？", "_t")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
 t([[Do you want to name your item?
 %s]], [[你想要命名你的物品吗？
 %s]], "tformat")
 t("Yes, please.", "是的。", "_t")
-t("Name your item", "给你的装备起名", "_t")
+t("Name your item", "为你的装备命名", "_t")
 t("Name", "名称", "_t")
-t("#LIGHT_BLUE#The merchant carefully hands you: %s", "#LIGHT_BLUE#商人小心的交给了你：%s", "log")
+t("#LIGHT_BLUE#The merchant carefully hands you: %s", "#LIGHT_BLUE#商人小心地交给了你：%s", "log")
 t("No thanks.", "不用了，谢谢。", "_t")
-t("Oh I am sorry, it seems we could not make the item your require.", "啊真抱歉，这东西我们可做不了。", "_t")
+t("Oh I am sorry, it seems we could not make the item your require.", "啊真抱歉，看来我们无法制作你所要求的装备。", "_t")
 t("Oh, let's try something else then.", "好吧，我们试试别的东西。", "_t")
 t("Oh well, maybe later then.", "好吧，以后再说。", "_t")
-t("*This store does not appear to be open yet*", "*这个商店好像还没开张。*", "_t")
+t("*This store does not appear to be open yet*", "*这家商店似乎尚未开张。*", "_t")
 t("[leave]", "[离开]", "_t")
 -- untranslated text
 --[==[
@@ -5383,84 +5378,84 @@ t(".", ".", "_t")
 section "mod-tome/data/chats/last-hope-melinda-father.lua"
 
 t([[#LIGHT_GREEN#*A man talks to you from inside, the door half open. His voice is sad.*#WHITE#
-Sorry, the store is closed.]], [[#LIGHT_GREEN#*门半掩着，一个男人的声音传了出来，他的声音听上去很悲伤。*#WHITE#
-抱歉……商店已经关门了……]], "_t")
+Sorry, the store is closed.]], [[#LIGHT_GREEN#*门半开着，一个男人从屋里对你说话，声音听上去很悲伤。*#WHITE#
+抱歉，商店打烊了。]], "_t")
 t("[leave]", "[离开]", "_t")
-t("@playername@! My daughter's savior!", "@playername@! 我女儿的救命恩人", "_t")
-t("Hi, I was just checking in to see if Melinda is all right.", "你好，我就是来看望一下梅琳达的。", "_t")
-t("Hi, I would like to talk to Melinda please.", "你好，我想和梅琳达谈谈。", "_t")
+t("@playername@! My daughter's savior!", "@playername@！我女儿的救命恩人！", "_t")
+t("Hi, I was just checking in to see if Melinda is all right.", "你好，我只是来看看梅琳达是否安好。", "_t")
+t("Hi, I would like to talk to Melinda please.", "你好，我想和梅琳达说说话。", "_t")
 t("Melinda", "梅琳达", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_last-hope-melinda-father")
-t("Please take this. It is nothing compared to the life of my child. Oh, and she wanted to thank you in person; I will call her.", "请带上这个。没什么比我孩子的生命更重要了。哦，她想亲自表达她对你的谢意。我去叫她出来。", "_t")
+t("Please take this. It is nothing compared to the life of my child. Oh, and she wanted to thank you in person; I will call her.", "请收下这个。比起我孩子的性命，这点礼物微不足道。噢，而且她想当面向你道谢，我去叫她。", "_t")
 t("Thank you.", "谢谢。", "_t")
 t("Melinda's father gives you: %s", "梅琳达的父亲交给了你：%s", "logPlayer")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
-t("@playername@! #LIGHT_GREEN#*She jumps for joy and hugs you while her father returns to his shop.*#WHITE#", "@playername@! #LIGHT_GREEN#*当她父亲返回商店时，她高兴地跳了起来，给了你一个拥抱。*#WHITE#", "_t")
-t("I am glad to see you are fine. It seems your scars are healing quite well.", "看到你一切安好真是太好了。你的伤疤看上去也已经痊愈了。", "_t")
-t("I am glad to see you well. Take care.", "很高兴看到你没事，多保重。", "_t")
+t("@playername@! #LIGHT_GREEN#*She jumps for joy and hugs you while her father returns to his shop.*#WHITE#", "@playername@！#LIGHT_GREEN#*她高兴得跳了起来并紧紧拥抱你，而她的父亲则回到了店里。*#WHITE#", "_t")
+t("I am glad to see you are fine. It seems your scars are healing quite well.", "很高兴看到你平安无事。看来你的伤疤恢复得挺好。", "_t")
+t("I am glad to see you well. Take care.", "很高兴看到你身体安好。多保重。", "_t")
 t([[Yes it has mostly healed, though I still do have nightmares. I feel like something is still lurking.
-Ah well, the bad dreams are still better than the fate you saved me from!]], [[是的，基本上好了，尽管晚上有时我还会做噩梦。我觉得心里总不得安宁。
-不过，这比起你救我之前的处境，确实好多了！]], "_t")
-t("Should I come across a way to help you during my travels, I will try to help.", "如果在我的旅程中能帮到你的话，我会尽力的。", "_t")
-t("Thank you, you are most welcome.", "谢谢，你真是个好人。", "_t")
-t("Most certainly, so what are your plans now?", "当然，那么你现在有什么计划么？", "_t")
-t("Hi @playername@! I am feeling better now, even starting to grow restless...", "你好 @playername@! 我感觉好多了，甚至开始有点闲不住了……", "_t")
-t("So what are your plans now?", "那么，你有什么计划么？", "_t")
-t("About that, I was thinking that maybe you'd like to go out with me sometime ...", "呃，我觉得你也许喜欢和我出去走走……", "_t")
+Ah well, the bad dreams are still better than the fate you saved me from!]], [[是的，大多都已经愈合了，不过我还是会做噩梦。我总觉得还有什么东西仍在潜伏。
+唉，不过做噩梦总比你拯救我脱离的那种悲惨命运好得多！]], "_t")
+t("Should I come across a way to help you during my travels, I will try to help.", "如果我在旅途中找到能帮助你的办法，我会尽力帮你的。", "_t")
+t("Thank you, you are most welcome.", "谢谢，我非常欢迎你这样做。", "_t")
+t("Most certainly, so what are your plans now?", "那是自然。那么你现在有什么打算？", "_t")
+t("Hi @playername@! I am feeling better now, even starting to grow restless...", "你好，@playername@！我感觉好多了，甚至开始有点闲不住了……", "_t")
+t("So what are your plans now?", "那么你现在有什么打算？", "_t")
+t("About that, I was thinking that maybe you'd like to go out with me sometime ...", "说到这个，我在想也许你哪天愿意和我一起出去走走……", "_t")
 t([[#LIGHT_GREEN#*Melinda appears at the door and kisses you*#WHITE#
 Hi my dear, I'm so happy to see you!]], [[#LIGHT_GREEN#*梅琳达出现在门口，亲吻了你*#WHITE#
-亲爱的，见到你真好！]], "_t")
-t("I am still looking out for an explanation of what happened at the beach.", "我仍在为那天在海滩的事情找个解释。", "_t")
-t("About what happened on the beach, I think I have found something.", "关于海滩那件事，我想我发现了什么。", "_t")
+嗨，亲爱的，见到你我太高兴了！]], "_t")
+t("I am still looking out for an explanation of what happened at the beach.", "我仍在寻找那天海滩上所发生事情的解释。", "_t")
+t("About what happened on the beach, I think I have found something.", "关于海滩上发生的事，我想我找到办法了。", "_t")
 t([[I do not know yet, my father won't let me out until I'm fully healed. I've always wanted to do so many things.
 That is why I got stuck in that crypt, I want to see the world.
-My father gave me some funds so that I can take my future into my own hands. I have some friends in Derth, maybe I will open my own little shop there. ]], [[我不知道，我的父亲不会让我出门的，除非我痊愈了。但我总想做许多事情。
-这也许是我为什么会被关在地窖的原因吧，我想亲眼看看这个世界。
-我的父亲给了我一些钱，这样我就能掌握自己的未来。我在德斯镇有几个朋友，或许，我能在那里开一家小商店]], "_t")
-t("I have seen how you fought those corruptors, the way you destroyed their magic. I want to learn to do the same, so that such horrors never happen again. To anyone.", "我看到了你是怎样对抗那些堕落法师的，看到了你摧毁他们的邪恶魔法的方法。我也想做同样的事，这样的话，这种噩梦就不会再发生在任何人身上了。", "_t")
+My father gave me some funds so that I can take my future into my own hands. I have some friends in Derth, maybe I will open my own little shop there. ]], [[我现在还不知道，在我完全康复之前我父亲都不准我出门。我一直想做很多事情。
+这也是为什么我会被困在那个地穴里，我想去看看外面的世界。
+我父亲给了我一笔钱，让我能够自己把握未来。我在德斯镇有几个朋友，也许我会在那里开一家属于自己的小店。]], "_t")
+t("I have seen how you fought those corruptors, the way you destroyed their magic. I want to learn to do the same, so that such horrors never happen again. To anyone.", "我见过你是如何对抗那些腐化者的，还有你摧毁他们魔法的方式。我也想学会这些，这样如此可怕的惨剧就再也不会发生在任何人身上了。", "_t")
 t([[Or maybe, well I suppose I can trust you with this, I've always secretly dreamed of learning magic. Real magic I mean not alchemist tricks!
-I've learnt about a secret place, Angolwen, where I could learn it.]], [[或许，呃，我可以相信你吧，我一直想学魔法。是真正的魔法，而不是炼金术士的小把戏！
-我听说过一个秘密的地方，叫做安格利文，在那里我就能学习魔法。]], "_t")
-t("Derth has its up and downs but I think they could do with a smart girl yes.", "德斯镇有自己的起起落落，但我想他们正需要像你这样的聪明女孩。", "_t")
+I've learnt about a secret place, Angolwen, where I could learn it.]], [[又或者……好吧，我想这件事我可以信任你，我一直偷偷梦想着能学习魔法。我是指真正的魔法，而不是炼金术士的小把戏！
+我得知了一个叫做安格利文的隐秘之地，在那里我就能学习它。]], "_t")
+t("Derth has its up and downs but I think they could do with a smart girl yes.", "德斯镇虽有利有弊，但我想他们确实需要一个像你这样聪明的姑娘。", "_t")
 t("Thanks!", "谢谢！", "_t")
-t("You wish to join our noble crusade against magic? Wonderful! I will talk to them for you.", "你希望加入我们高尚的反魔组织么？太好了！我会和他们说的。", "_t")
+t("You wish to join our noble crusade against magic? Wonderful! I will talk to them for you.", "你想加入我们对抗魔法的高尚圣战？太棒了！我会替你去和他们说说的。", "_t")
 t("That would be very nice!", "那真是太好了！", "_t")
-t("I happen to be welcome among the people of Angolwen, I could say a word for you.", "我正巧在安格利文还比较受欢迎，我会帮你带话的。", "_t")
-t("What?!? Just because you rescued me from a moderately-to-extremely gruesome death, you think that entitles you to take liberties?!", "什么？！就因为你把我从一场颇为惨烈的死亡中救了出来，你就觉得有权对我放肆了？！", "_t")
-t("WHY AREN'T WOMEN ATTRACTED TO ME I'M A NICE %s.", "怎么会有女人对我不感兴趣呢？我可是个很好的%s。", "tformat")
+t("I happen to be welcome among the people of Angolwen, I could say a word for you.", "我恰好在安格利文挺受接纳，我可以替你美言几句。", "_t")
+t("What?!? Just because you rescued me from a moderately-to-extremely gruesome death, you think that entitles you to take liberties?!", "什么？！就因为你把我从相当乃至极其凄惨的死亡中救了出来，你就觉得有权对我放肆了？！", "_t")
+t("WHY AREN'T WOMEN ATTRACTED TO ME I'M A NICE %s.", "为什么女人就是不被我吸引呢？我明明是个大好%s啊。", "tformat")
 t("GIRL", "女孩", "_t")
-t("GUY", "男孩", "_t")
-t("Uhh, sorry I hear my father calling, see you.", "呃，不好意思，我听到我的父亲在喊我，再见。", "_t")
-t("Just a minute, I was just...", "等一会，我只是...", "_t")
+t("GUY", "男人", "_t")
+t("Uhh, sorry I hear my father calling, see you.", "呃，不好意思，我听到我父亲在叫我了，再见。", "_t")
+t("Just a minute, I was just...", "等等，我刚才只是……", "_t")
 t([[#LIGHT_GREEN#*She looks at you cheerfully.*#WHITE#
-Just kidding. I would love that!]], [[#LIGHT_GREEN#*她兴奋地看着你*#WHITE#
-开玩笑的，我很喜欢!]], "_t")
-t("#LIGHT_GREEN#[walk away with her]#WHITE#What about a little trip to the south, from the coastline we can see the Charred Scar Volcano, it is a wonderous sight.", "#LIGHT_GREEN#[和她一起离开]#WHITE#我们去南边来一趟小旅行吧，从海岸线上可以看到焦痕火山，那是一幅壮丽的景象。", "_t")
-t("Joke's on you really, goodbye!", "被耍的人是你，再见了！", "_t")
+Just kidding. I would love that!]], [[#LIGHT_GREEN#*她欢快地看着你。*#WHITE#
+开个玩笑啦。我很乐意！]], "_t")
+t("#LIGHT_GREEN#[walk away with her]#WHITE#What about a little trip to the south, from the coastline we can see the Charred Scar Volcano, it is a wonderous sight.", "#LIGHT_GREEN#[和她一起漫步]#WHITE#去南边来一趟小小的旅行如何？从海岸线上我们可以看到灼烧之痕火山，那是一处壮丽的奇景。", "_t")
+t("Joke's on you really, goodbye!", "其实是你被耍了，再见！", "_t")
 t("But... ok goodbye.", "但是……好吧，再见。", "_t")
 t([[#LIGHT_GREEN#*You take Melinda in your arms and press her against you. The warmth of the contact lightens your heart.*#WHITE#
-I feel safe in your arms. Please, I know you must leave, but promise to come back soon and hold me again.]], [[#LIGHT_GREEN#*你把梅琳达紧紧拥在怀里，身体的接触使你感受到她的体温照亮了你的内心。*#WHITE#
-在你的怀抱中我觉得很安全，我知道你要走了，求求你，答应我你会尽快回来看我，拥抱我。]], "_t")
-t("I think I would enjoy that very much. #LIGHT_GREEN#[kiss her]#WHITE#", "我想我很乐意这么做。#LIGHT_GREEN#[亲吻她]#WHITE#", "_t")
+I feel safe in your arms. Please, I know you must leave, but promise to come back soon and hold me again.]], [[#LIGHT_GREEN#*你将梅琳达搂入怀中，紧紧抱住她。相拥的温暖让你的心情为之一畅。*#WHITE#
+在你的怀抱里我觉得好安心。求求你，我知道你必须离开，但答应我快点回来再次抱抱我。]], "_t")
+t("I think I would enjoy that very much. #LIGHT_GREEN#[kiss her]#WHITE#", "我想我也会非常乐意的。#LIGHT_GREEN#[亲吻她]#WHITE#", "_t")
 t("That thought will carry me in the dark places I shall walk. #LIGHT_GREEN#[kiss her]#WHITE#", "这份思念将陪伴我走过即将踏足的黑暗之地。#LIGHT_GREEN#[亲吻她]#WHITE#", "_t")
 t("Oh, I am sorry. I think you are mistaken. I was only trying to comfort you.", "噢，抱歉，我想你误会了。我只是想安慰你。", "_t")
-t("Oh, sorry, I was not myself. Goodbye, then. Farewell.", "对不起，我失态了。那么，再见吧。", "_t")
+t("Oh, sorry, I was not myself. Goodbye, then. Farewell.", "噢，对不起，我刚才失态了。那么，再见吧。保重。", "_t")
 t([[#LIGHT_GREEN#*Melinda looks worried*#WHITE#
-Please tell me you can help!]], [[#LIGHT_GREEN#*梅琳达面露忧愁*#WHITE#
-请帮帮我!]], "_t")
-t("Yes, I think so. Some time ago I assumed ownership of a very special home... #LIGHT_GREEN#[tell her the Fortress story]#WHITE#", "呃，不久前，我拥有了一座非常特别的房子... #LIGHT_GREEN#[告诉她关于堡垒的事]#WHITE#", "_t")
+Please tell me you can help!]], [[#LIGHT_GREEN#*梅琳达面露忧色*#WHITE#
+请告诉我你能帮帮我！]], "_t")
+t("Yes, I think so. Some time ago I assumed ownership of a very special home... #LIGHT_GREEN#[tell her the Fortress story]#WHITE#", "是的，我想能行。前些日子我接管了一处非常特别的家园……#LIGHT_GREEN#[向她讲述关于堡垒的故事]#WHITE#", "_t")
 t([[An ancient fortress of a mythical race?! How #{bold}#exciting#{normal}#!
-And you say it could cure me?]], [[一座神话种族的古代堡垒？！真#{bold}#令人兴奋#{normal}#！
-你说它能治好我？]], "_t")
-t("The Fortress seems to think so. I know this might sound a bit .. inappropriate .. but you would need to come live there, at least for a while.", "堡垒应该是可以的。我知道，这听上去有一点，呃，不太合适。不过，你应该到那里去住上一小段时间。", "_t")
+And you say it could cure me?]], [[神话种族的古代堡垒？！太#{bold}#令人兴奋#{normal}#了！
+你是说它能治好我？]], "_t")
+t("The Fortress seems to think so. I know this might sound a bit .. inappropriate .. but you would need to come live there, at least for a while.", "堡垒似乎是这么认为的。我知道这听起来可能有点……不太合适……但你得搬去那里住，至少要住一阵子。", "_t")
 t([[#LIGHT_GREEN#*She looks at you cheerfully*#WHITE#
 Ah the plan to sleep with me is finally revealed!
 Shhh you dummy, I thought we were past such silliness, I will come, both for my health and because I want to be with you.
-#LIGHT_GREEN#*She kisses you tenderly*#WHITE#]], [[#LIGHT_GREEN#*她兴奋地看着你*#WHITE#
-你想和我一起睡的计划终于暴露了！
-嘘，你这个傻瓜，我还以为我们已经过了这种傻乎乎的年纪。我当然会去，不仅为了我的健康，也为了和你在一起。
-#LIGHT_GREEN#*她温柔地和你接吻*#WHITE#]], "_t")
-t("Then my lady, if you will follow me. #LIGHT_GREEN#[take her to the Fortress]", "我的女士，如果你愿意，就跟我来吧。#LIGHT_GREEN#[带她去堡垒]", "_t")
+#LIGHT_GREEN#*She kisses you tenderly*#WHITE#]], [[#LIGHT_GREEN#*她欢快地看着你*#WHITE#
+啊哈，想跟我睡在一起的计划终于暴露了吧！
+嘘，你这个大傻瓜，我还以为我们早就不用再为这种事扭扭捏捏了。我会去的，既是为了我的健康，也是因为我想和你在一起。
+#LIGHT_GREEN#*她温柔地亲吻了你*#WHITE#]], "_t")
+t("Then my lady, if you will follow me. #LIGHT_GREEN#[take her to the Fortress]", "那么，小姐，请随我来。#LIGHT_GREEN#[带她前往堡垒]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/last-hope-weapon-store.lua"
@@ -6598,7 +6593,7 @@ t("Nature [%d]", "自然 [%d]", "tformat")
 t("Blight [%d]", "枯萎 [%d]", "tformat")
 t("Acid [%d]", "酸液 [%d]", "tformat")
 t("Mind [%d]", "精神 [%d]", "tformat")
-t("Never mind", "没事，别介意。", "_t")
+t("Never mind", "算了。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/worldly-knowledge.lua"
@@ -32897,12 +32892,11 @@ t([[Sucker can dodge some.
 As you know by now, the game was comparing your #LIGHT_GREEN#Accuracy#WHITE# to the orc's #LIGHT_GREEN#Defense#WHITE# to determine whether your blows landed. Evidently, the comparison did not go well for you.
 
 What is your #LIGHT_GREEN#Accuracy#WHITE#, and what is his #LIGHT_GREEN#Defense#WHITE#?
-]], [[傻瓜也会躲避攻击……
+]], [[这家伙还挺能躲。
 
-你现在应该知道，游戏是通过比较你的 #LIGHT_GREEN#命中#WHITE# 和兽人的 #LIGHT_GREEN#闪避#WHITE# 来决定你是不是打中了目标。
-显然，这个比较计算对你来说有点麻烦。
+你现在应该知道，游戏是通过比较你的 #LIGHT_GREEN#命中#WHITE# 和兽人的 #LIGHT_GREEN#闪避#WHITE# 来决定攻击是否命中。显然，比较的结果对你很不利。
 
-什么是你的 #LIGHT_GREEN#命中#WHITE#，而什么又是兽人的 #LIGHT_GREEN#闪避#WHITE# 呢？
+你的 #LIGHT_GREEN#命中#WHITE# 是多少，而他的 #LIGHT_GREEN#闪避#WHITE# 又是多少？
 ]], "_t")
 
 ------------------------------------------------
@@ -32917,16 +32911,15 @@ t([[Congratulations! Hopefully this series of obstacles has led you to some conc
 For the purposes of this tutorial, the maximum success chance is 100%, which will mostly not be the case in the proper game-- but a difference of ten points is still what you're shooting for in order to hit the max, whatever it happens to be.
 
 You might also have concluded that this simple "win by ten points for best results" rule means that maximizing success becomes harder and harder when comparing higher-tier #GOLD#combat stat#WHITE# scores. True enough!
-]], [[恭喜你！希望通过这些战斗让你得到了以下结论：
+]], [[恭喜你！希望通过这一系列障碍让你得出了以下结论：
 
-1) 当对比 #GOLD#战斗属性#WHITE# 等级时，10是判定成功率的一个分界标志。
+1) 当比较 #GOLD#战斗属性#WHITE# 数值时，10 点差值是使成功率达到最大的神奇数字。
 
-2) 如果 #GOLD#战斗属性#WHITE# 比较结果是相等的，那么将会有一半的几率成功。
+2) 比较大致相等的 #GOLD#战斗属性#WHITE# 数值时，大约有一半的几率成功。
 
-出于教学的目的，最大成功率为100%，在实际游戏中并不是如此，但是10点差距分界
-在你攻击时仍然有同等效果。
+出于教程教学的目的，最大成功率为 100%，在正式游戏中大多并非如此——但无论上限是多少，10 点的差值仍然是你为了达到最大成功率所需追求的目标。
 
-另外你可能得出以下结论："用10点差距得出最大效果" 的准则，这意味着，随着 #GOLD#战斗属性#WHITE# 提高，成功率的累积会越来越难，千真万确！
+你可能还得出结论：这条简单的“赢 10 点以获得最佳效果”规则，意味着在比较更高层级的 #GOLD#战斗属性#WHITE# 数值时，使成功率最大化会变得越来越难。千真万确！
 ]], "_t")
 
 ------------------------------------------------
@@ -32942,10 +32935,9 @@ section "mod-tome/data/texts/tutorial/stats-calc/calc2.lua"
 t([[If you were wearing your #GOLD#Helmet of Accuracy (+6)#WHITE#, then you should have #LIGHT_GREEN#38 Accuracy#WHITE#, while the orc has #LIGHT_GREEN#48 Defense#WHITE#. The difference is ten in the orc's favor, which is apparently too much for you to be able to hit him.
 
 There's another orc ahead with slightly lower defense. Go get him!
-]], [[如果你装备了你的 #GOLD#命中之盔 (+6)#WHITE#，那你应该拥有 #LIGHT_GREEN#38 命中#WHITE# 值，兽人有 #LIGHT_GREEN#48 闪避#WHITE# 值。
-两者之间相差了10，显然对你来说太难命中目标了。
+]], [[如果你戴上了你的 #GOLD#命中之盔 (+6)#WHITE#，那么你应该拥有 #LIGHT_GREEN#38 命中#WHITE#，而兽人拥有 #LIGHT_GREEN#48 闪避#WHITE#。两者的差值是对兽人有利的 10 点，这显然相差过大，导致你无法命中它。
 
-前面还有个闪避值低一点的家伙，去搞定他！
+前面还有另一个闪避稍低一些的兽人。去搞定它！
 ]], "_t")
 
 ------------------------------------------------
@@ -32988,13 +32980,13 @@ Compare your #LIGHT_GREEN#Accuracy#WHITE# and #LIGHT_GREEN#Defense#WHITE# to its
 Do you expect to be successful attacking it? 
 
 Do you expect it to be successful attacking you?
-]], [[前面有一个兽人，有着可怕的生命回复技能。
+]], [[前面有一个兽人，有着惊人的生命回复能力。
 
-比较你的 #LIGHT_GREEN#命中#WHITE# 和 #LIGHT_GREEN#闪避#WHITE# 和他的 #LIGHT_GREEN#闪避#WHITE# 和 #LIGHT_GREEN#命中#WHITE#。
+将你的 #LIGHT_GREEN#命中#WHITE# 与 #LIGHT_GREEN#闪避#WHITE#，同它的 #LIGHT_GREEN#闪避#WHITE# 与 #LIGHT_GREEN#命中#WHITE# 进行比较。
 
-你认为你能成功击中他么？
+你觉得自己攻击它能成功吗？
 
-或者认为他能成功打中你么？
+你觉得它攻击你能成功吗？
 ]], "_t")
 
 ------------------------------------------------
@@ -33005,11 +32997,11 @@ t([[You've learned Shove, a weak knockback effect.
 Which #GOLD#combat stats#WHITE# will get compared when you attempt to Shove somebody?
 
 Try to push your way into the next room!
-]], [[你学到了冲撞技能，一个不是很强的击退效果。
+]], [[你学会了“击退攻击”，一种较弱的击退效果。
 
-当你用冲撞攻击目标时哪个 #GOLD#战斗属性#WHITE# 会被用来进行比较呢？
+当你尝试对某人使用“击退攻击”时，会比较哪些 #GOLD#战斗属性#WHITE#？
 
-进入下个房间看一下！
+试着推开道路，进入下一个房间！
 ]], "_t")
 
 ------------------------------------------------
@@ -33034,9 +33026,9 @@ t([[There's another pesky orc plugging the tunnel to the west, and some new tool
 
 Find a means to push that orc out of the way!  
 
-]], [[西面通道里还有个讨厌的兽人，北部还有些新的工具。
+]], [[西边的通道里还有一个讨厌的兽人堵着路，北边的洞穴里有一些新工具。
 
-找个法子把这个挡路的兽人弄开。
+想办法把那个兽人推开让出路来！
 
 ]], "_t")
 
@@ -33174,7 +33166,7 @@ t([[These tiers are not just for show.
 Let's see if you can discover a way in which they're NOT purely cosmetic. Go plunder the room ahead!
 ]], [[这些不同颜色层级不仅仅是让数字显示起来好看一点。
 
-那这些数字颜色不同到底有什么意味呢？去下一个房间。
+看看你能否发现它们并非纯粹装饰的奥妙。前往并搜刮前方的房间吧！
 ]], "_t")
 
 ------------------------------------------------
@@ -33216,7 +33208,7 @@ section "mod-tome/data/texts/tutorial/stats-scale/scale9.lua"
 t([[Did you accurately predict that +6 to a #FFFFFF#tier 2#WHITE# #GOLD#combat stat#WHITE# score would result in an increase of only 3?
 
 Let's try again in the next room. What do you suppose will happen when you put on an item that grants you +6 #LIGHT_GREEN#Mental save#WHITE#?
-]], [[你是否准确预测到，#FFFFFF#2 阶#WHITE#的#GOLD#战斗属性#WHITE#提高 +6 后，数值只会增加 3？
+]], [[你是否准确预测到，#FFFFFF#层级 2#WHITE#的#GOLD#战斗属性#WHITE#提高 +6 后，数值只会增加 3？
 
 我们到下一个房间再测试一下。请你再猜一次一个 +6 #LIGHT_GREEN#精神豁免#WHITE# 的装备你穿上后会有什么变化。
 ]], "_t")
@@ -33227,10 +33219,10 @@ section "mod-tome/data/texts/tutorial/stats-tier/tier0.lua"
 t([[Until now, a certain game mechanic has been disabled. Go learn a new talent at the nearby Rune of Enlightenment and use it to blast each of the enemies in the next room. 
 
 Can you identify the new mechanic?
-]], [[到目前，有一项游戏机制已经被禁止。去下一个房间学习一个新技能法力风暴，
-使用它来轰击房间内的敌人。
+]], [[到目前为止，某项游戏机制一直处于禁用状态。去附近的启蒙符文处学习一项新技能，
+并用它轰击下一个房间里的每个敌人。
 
-你能看出其中的新的机制么？
+你能辨认出这项新机制吗？
 ]], "_t")
 
 ------------------------------------------------
@@ -33246,7 +33238,7 @@ section "mod-tome/data/texts/tutorial/stats-tier/tier10.lua"
 t([[Basic attacks, ones that compare #LIGHT_GREEN#Accuracy#WHITE# to #LIGHT_GREEN#Defense#WHITE#, only apply #GOLD#cross-tier afflictions#WHITE# on critical hits.
 
 Still, it's a good reason to not neglect your #LIGHT_GREEN#Defense#WHITE# stat, even if it's not central to your class.
-]], [[基础攻击，使用 #LIGHT_GREEN#命中#WHITE# 和 #LIGHT_GREEN#闪避#WHITE# 进行判定，在暴击时造成#GOLD#越层负面效果#WHITE#。
+]], [[基础攻击，使用 #LIGHT_GREEN#命中#WHITE# 和 #LIGHT_GREEN#闪避#WHITE# 进行判定，只有在暴击时才会施加#GOLD#越层负面效果#WHITE#。
 
 因此，你还是不要忽视你的 #LIGHT_GREEN#闪避#WHITE# 属性，尽管它不是你职业的核心属性。
 ]], "_t")
@@ -33268,11 +33260,11 @@ t([[#LIGHT_GREEN#For those who want to join the discussion on these new mechanic
 tome/data/texts/Transparency.rtf
 
 This is an essay, not code. Open it with something appropriate to avoid being overwhelmed by a dense wall of text.
-]], [[#LIGHT_GREEN#谁想继续讨论一下其他的机制？请阅读参考文档："Transparency.rtf" 你可以在这里找到这个文件:#WHITE#
+]], [[#LIGHT_GREEN#想参与讨论这些新机制的人，请先阅读这里的文档“Transparency.rtf”：#WHITE#
 
 tome/data/texts/Transparency.rtf
 
-这是一篇小的论述，不是代码。请用阅读软件打开，以免你看到的是一整块文字。
+这是一篇文章，不是代码。请用合适的程序打开，以免被密集的大段文字淹没。
 ]], "_t")
 
 ------------------------------------------------
@@ -33283,11 +33275,11 @@ t([[Can you explain the difference in the durations for that "Off-balance" timed
 Why is one of the spiders unaffected?
 
 Go learn the Blink spell just to the south, then go back and try it on the spiders.
-]], [[你能解释一下你对目标身上造成的 "失去平衡" 效果有什么不一样么？
+]], [[你能解释一下你施加的“失去平衡”持续效果为何持续时间不同吗？
 
 为什么有一个蜘蛛没受到影响？
 
-去南边学习下闪光术技能，然后回来在这些蜘蛛身上试试这个技能。
+去正南方学习“闪现”法术，然后回来在这些蜘蛛身上试试。
 ]], "_t")
 
 ------------------------------------------------
@@ -33307,7 +33299,7 @@ Feel free to go batter those spiders some more if you need further experimentati
 如果没有的话，请思考一下下面几个问题：
 
 1) 你作为一个攻击者，使用的是哪一种 #GOLD#战斗属性#WHITE# ？
-而那个蜘蛛作为一个防御者又用的是哪一种 #GOLD#战斗属性#WHITE# ？
+而那些蜘蛛作为防御者又用的是哪一种 #GOLD#战斗属性#WHITE# ？
 
 2) 那些 #GOLD#战斗属性#WHITE# 又是哪一个层级的呢？
 
@@ -33335,9 +33327,9 @@ section "mod-tome/data/texts/tutorial/stats-tier/tier5.lua"
 t([[Note that all three elves were casting using a #8d55ff#Tier 5#WHITE# #GOLD#combat stat#WHITE#, though they produced effects that varied in duration.
 
 If you hadn't already deduced the rules governing these new status effects, hopefully this helped.
-]], [[注意，这三个精灵都会使用 #8d55ff#层级 5#WHITE# 的 #GOLD#战斗属性#WHITE# 来计算，他们会产生各种效果。
+]], [[注意，三个精灵施法时使用的都是 #8d55ff#层级 5#WHITE# 的 #GOLD#战斗属性#WHITE#，但产生的效果持续时间各不相同。
 
-如果你没有搞清楚这些新的效果的作用机制，但愿这个测试可以帮到你。
+如果你还没有推导出这些新状态效果的规则，希望这能帮到你。
 ]], "_t")
 
 ------------------------------------------------
@@ -33353,17 +33345,16 @@ Mental effects cause the "Brainlocked" effect.
 
 The effects last one turn per tier difference in the attacker's and defender's #GOLD#combat stats#WHITE#. For example, casting Mana Gale with a #8d55ff#Tier 5#WHITE# #LIGHT_GREEN#Spellpower#WHITE# on a target with a #B4B4B4#Tier 1#WHITE# #LIGHT_GREEN#Physical save#WHITE# would result in applying a four-turn "Off-balance" effect.
 
-]], [[这些新的持续效果被称为 #GOLD#越层效果#WHITE# 的效果。这一效果只会在技能比较 #GOLD#战斗属性#WHITE# 时，双方层级不同的情况下发生。
+]], [[这些新效果是 #GOLD#越层效果#WHITE#。当一个技能需要比较处于不同层级的 #GOLD#战斗属性#WHITE# 时，就会出现它们。
 
 物理效果造成 "失去平衡" 效果。
 
-法术效果造成 "法术冲击" 效果。
+魔法效果造成 "法术冲击" 效果。
 
-精神效果造成 "思维禁锢" 效果。
+精神效果造成 "思维封锁" 效果。
 
-效果攻击者和防御者 #GOLD#战斗属性#WHITE# 层级每相差一个等级多持续一个回合。
-举个例子，使用 #8d55ff#层级 5#WHITE# #LIGHT_GREEN#法术强度#WHITE# 的法力风暴作用于一个 #B4B4B4#层级 1#WHITE# #LIGHT_GREEN#物理豁免#WHITE#的目标时，会
-造成4回合 "失去平衡" 效果。
+这些效果的持续时间会随攻击者和防御者的 #GOLD#战斗属性#WHITE# 每相差一个层级增加 1 回合。
+例如，以 #8d55ff#层级 5#WHITE# #LIGHT_GREEN#法术强度#WHITE# 对一个 #B4B4B4#层级 1#WHITE# #LIGHT_GREEN#物理豁免#WHITE#的目标施放法力风暴，会施加持续 4 回合的“失去平衡”效果。
 
 ]], "_t")
 
@@ -33406,8 +33397,8 @@ section "mod-tome/data/texts/tutorial/stats-timed/timed0.lua"
 t([[Detrimental #GOLD#timed effects#WHITE# are conditions which cause various short-term problems, such as blindness, confusion, stunning, poisoning, slowing, and much more. Much of what we've seen so far applies to them; the type of effect determines what defensive #GOLD#combat stat#WHITE# the defender uses, and the source of the effect determines what offensive #GOLD#combat stat#WHITE# the attacker uses.
 
 Let's experiment to find out more. Move on to learn a new talent. Be sure to read its description!
-]], [[不良 #GOLD#持续效果#WHITE# 产生一些不同的暂时性效果。比如致盲、混乱、震慑、中毒、减速等等。
-到目前为止我们已经看到很多这种效果了。效果的产生取决于防御者的防御性 #GOLD#战斗属性#WHITE# 以及攻击者的攻击性 #GOLD#战斗属性#WHITE# 。
+]], [[有害的 #GOLD#持续效果#WHITE# 是会造成各种短期困扰的状态，例如致盲、混乱、震慑、中毒、减速等等。
+我们此前看到的许多规则同样适用：效果的类型决定防御者使用哪项防御性 #GOLD#战斗属性#WHITE#；效果的来源决定攻击者使用哪项攻击性 #GOLD#战斗属性#WHITE#。
 
 我们来弄清楚更多机制，继续前进学习一个新的技能，请仔细阅读它的描述文字！
 ]], "_t")
@@ -33455,8 +33446,7 @@ If you don't know yet, see if this sequence of enemies gets you any closer.
 section "mod-tome/data/texts/tutorial/stats-timed/timed4.lua"
 
 t([[See what the rune in the next room has to teach you! Hopefully you can use it to get past the troublesome elves ahead.
-]], [[来看看下一个房间，符文是如何对你产生作用的。
-但愿你能用它来通过后面那些烦人的精灵。
+]], [[看看下一个房间里的符文会教给你什么！希望你能用它越过前方那些麻烦的精灵。
 ]], "_t")
 
 ------------------------------------------------
@@ -33470,7 +33460,7 @@ This is opposed by the attacker's corresponding offensive #GOLD#combat stat#WHIT
 
 ]], [[理想情况下，你是通过思考得出答案，而不只是反复试错。
 
-#LIGHT_GREEN#物理豁免#WHITE#、#LIGHT_GREEN#法术豁免#WHITE#和#LIGHT_GREEN#精神豁免#WHITE#每有 5 点，就会使对应限时效果的持续时间缩短 1 回合。
+#LIGHT_GREEN#物理豁免#WHITE#、#LIGHT_GREEN#法术豁免#WHITE#和#LIGHT_GREEN#精神豁免#WHITE#每有 5 点，就会使对应持续效果的持续时间缩短 1 回合。
 
 攻击者对应的攻击性 #GOLD#战斗属性#WHITE#会与之对抗。攻击者每有 5 点对应的攻击性 #GOLD#战斗属性#WHITE#，就会抵消 1 回合由你的豁免带来的持续时间缩短。
 
@@ -33484,15 +33474,11 @@ t([[This is fairly close to saying that you knock a turn off the duration of tim
 There are some subtle differences, however.
 
 As you may have noticed earlier, your #LIGHT_GREEN#Spellpower#WHITE# of 56 against an orc's #LIGHT_GREEN#Physical save#WHITE# of 70, despite having a difference of only 14, resulted in a three-turn duration decrease. This is because the orc's score of 70 gives it 14 turns of duration reduction, but your score of 56 only undoes 11 of those turns, resulting in a reduction of 3 turns.
-]], [[在大多数情况下你的防御性 #GOLD#战斗属性#WHITE# 比攻击者的攻击性 #GOLD#战斗属性#WHITE# 每超过5点可以减少一
-回合持续效果的持续时间。
+]], [[这大致相当于：你的防御性 #GOLD#战斗属性#WHITE# 数值每超出攻击者的攻击性 #GOLD#战斗属性#WHITE# 5 点，就能使持续效果的持续时间缩短 1 回合。
 
-不过也有些特殊情况。
+不过，两者之间存在一些细微差别。
 
-可能之前你也已经发现了，你的#LIGHT_GREEN#56点法术强度#WHITE# 对兽人的 #LIGHT_GREEN#70点物理豁免#WHITE# 有14点差距，会造
-成3回合的持续时间减免。
-这是因为兽人的70点属性能减少14回合的持续效果，而你56点属性只能减少11回合这个
-效果，因此会产生3回合减免。
+正如你先前可能注意到的，你的 56 点 #LIGHT_GREEN#法术强度#WHITE# 对抗兽人的 70 点 #LIGHT_GREEN#物理豁免#WHITE#，尽管差值只有 14 点，却导致持续时间缩短了 3 回合。这是因为兽人的 70 点数值让它获得了 14 回合的减免，而你的 56 点数值只抵消了其中的 11 回合，最终导致缩短了 3 回合。
 ]], "_t")
 
 ------------------------------------------------
@@ -33530,18 +33516,16 @@ Either press 'R' or right-click on yourself to rest. You will rest until fully r
 
 Now take a few steps back so you only have to fight one snake at a time, and you should survive.
 Remember to use your talents, infusions and runes to win the fight.
-]], [[你发现了一个蛇窝！如果你被它们包围，你会非常麻烦。
-一个最基本的战术，就是永远也不要被围住，不要冒进，稍稍后退以寻找一个安全的
-地点。
+]], [[你发现了一个蛇窝！如果任由它们包围你，你可能会陷入麻烦！
+一个基本战术是绝不要被包围，毫不犹豫地稍稍后退到一个更安全的位置。
 
-#GOLD#保持掌握战斗的主动权#WHITE#
+#GOLD#始终掌控战斗。#WHITE#
 
-战斗结束你很可能剩余血量很少了，你可以休息一下，恢复损失的血量和能量。
-按下 'R'键或者右键点击自己选择休息。你可以一直休息到所有血量能量回满，或者被
-其他生物打断。
+战斗结束后你的生命值可能所剩无几，你可以休息片刻以恢复失去的生命值和资源。
+按“R”键或右键点击自己进行休息。你将持续休息，直到完全恢复或有生物打扰你。
 
-现在往后退几步，这样每次你只用和一条蛇战斗，如此你就能很好的存活下来。
-记住，要灵活使用你的技能、纹身和符文来取得战斗的胜利。
+现在后退几步，这样你每次只需对付一条蛇，你应该就能存活下来。
+记住使用你的技能、纹身和符文来赢得战斗。
 ]], "_t")
 
 ------------------------------------------------
@@ -33553,13 +33537,12 @@ When under the fire of archers or spell casters always try to break line of sigh
 #GOLD#Take cover: Never let them get a clean shot!#WHITE#
 
 Now take cover and wait for the skeleton.
-]], [[一个骷髅法师刚向你施放了法术。
-虽然法术效果看上去不错，不过你当然不想被它击中。
-施法者必须保持你在视线内或者在同一直线上才能用法术和弓箭射击到你，你离开他们的攻击范围
-他们会主动向你移动(除非他们很聪明)。
-#GOLD#躲起来，别傻站着让他们攻击！#WHITE#
+]], [[一个骷髅法师刚刚向你施放了法术。
+虽然法术效果看起来很绚丽，但你肯定不想被击中太多次。
+受到弓箭手或施法者的远程攻击时，始终尝试切断与他们的视线，他们将被迫向你走来（除非他们足够聪明）。
+#GOLD#寻找掩体：绝不要让他们获得良好的射击视线！#WHITE#
 
-现在，隐蔽起来等待骷髅法师的攻击。
+现在寻找掩护，等待骷髅接近。
 ]], "_t")
 
 ------------------------------------------------
@@ -33585,7 +33568,7 @@ Now go forward and try using your talents:
 * #GOLD#Shield Pummel#WHITE#: This talent will attack the target trying to stun it, rendering much slower and less able to harm you for a few turns.
 * #GOLD#Shield Wall#WHITE#: This talent will increase your defense and armour but reduce your damage.
 * #GOLD#Block#WHITE#: This talent is given by your shield, letting you block the next blow and triggering a deadly counterstrike opportunity.
-]], [[你现在拥有盾击和盾墙技能。
+]], [[你现在拥有盾牌连击和盾墙技能。
 技能会显示在屏幕左下方，并标出各自的快捷键。
 你可以右键点击某项技能，将它从列表中移除；也可以按下“M”打开技能列表，再按一个快捷键将技能添加进来。
 默认快捷键为数字键 1 到 0，也可以分配给物品。
@@ -33602,8 +33585,8 @@ Now go forward and try using your talents:
 * #GOLD#使用鼠标#WHITE#：移动鼠标会移动目标位置；点击左键确认目标。
 
 现在向前走，试着使用你的技能：
-* #GOLD#盾击#WHITE#：攻击目标并尝试将其震慑，使其在数回合内大幅减速，更难伤害你。
-* #GOLD#盾墙#WHITE#：提高你的闪避和护甲，但会降低你造成的伤害。
+* #GOLD#盾牌连击#WHITE#：攻击目标并尝试将其震慑，使其在数回合内大幅减速，更难伤害你。
+* #GOLD#盾墙#WHITE#：提高你的闪避和护甲值，但会降低你造成的伤害。
 * #GOLD#格挡#WHITE#：由盾牌赋予的技能，可格挡下一次攻击，并触发一次致命反击的机会。
 ]], "_t")
 
@@ -33617,14 +33600,13 @@ Some of those terrains have innate penalties or tricks. You will have to learn t
 You are about to enter a pond of water; you will not be able to breath inside. When you are in an area where you cannot breathe, an "Air" counter will appear on the left side of the screen. Do not let it reach zero or you will die.
 
 Now go to the other side of the pond.
-]], [[在你的冒险过程中你会遇到各种不同的地形：草地、沙漠、水、熔岩等等。
+]], [[在你的冒险旅途中，你将遇到各种可以通行的地形：草地、沙地、水域、熔岩……
 
-有些地形会对你造成伤害，或者藏有陷阱，你必须学会如何对付这些情况。
+其中一些地形带有天生的惩罚或机制。你必须了解它们并学会如何应对。
 
-你临近了一个水池，在水里你无法呼吸，当你进入一个你无法呼吸的区域，"空气"容
-量提示会出现在你的左边，注意不要使这个值降到零，到零时你的角色就挂了。
+你即将进入一片水池；你在水中将无法呼吸。当你处于无法呼吸的区域时，屏幕左侧会出现一个“空气”计数器。切勿让它归零，否则你将会死亡。
 
-现在到达池塘的另一边去。
+现在前往水池的另一侧吧。
 ]], "_t")
 
 ------------------------------------------------
