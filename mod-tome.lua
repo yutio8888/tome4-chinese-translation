@@ -5998,66 +5998,66 @@ t("This is great news! I will tell her at once.", "太好了！我马上告诉�
 ------------------------------------------------
 section "mod-tome/data/chats/shertul-fortress-caldizar.lua"
 
-t("\"You should not be here. How di-\"#{normal}# It stops abruptly, and its attention seems to turn to the staff in your hands. #{italic}#\"How did you get that?! You fool, you do not know what forces you play with! Get it away from here - BEGONE!\"", "\"你不应该来这里。你怎么……\"#{normal}#它突然停了下来，似乎被你手中的法杖所吸引。 #{italic}#\"你怎么弄到这个的？蠢货，你知不知道你手中掌握着什么力量！把它从这里带走——滚开！\"", "_t")
-t("\"You should not be here. How did you get here?! BEGONE!\"", "\"你不应该来这里，你是怎么过来的，给我消失！\"", "_t")
+t("\"You should not be here. How di-\"#{normal}# It stops abruptly, and its attention seems to turn to the staff in your hands. #{italic}#\"How did you get that?! You fool, you do not know what forces you play with! Get it away from here - BEGONE!\"", "\"你不该来这里。你怎——\"#{normal}# 它的话戛然而止，注意力似乎转向你手中的法杖。 #{italic}#\"你是怎么得到它的？！蠢货，你根本不知道自己在玩弄怎样的力量！把它带离这里——滚！\"", "_t")
+t("\"You should not be here. How did you get here?! BEGONE!\"", "\"你不该来这里。你是怎么进来的？！滚！\"", "_t")
 t([[#{italic}#As you open the door you stare in amazement at what is beyond. A creature stands before you, with long tentacle-like appendages and a squat bump in place of a head. An intense aura of power radiates from this being unlike anything you've ever felt before. It can only be a Sher'Tul. A living Sher'Tul!
 
 But your wonder is cut short as the Sher'Tul notices you, and you feel its intense concentration bear down on you like an unstoppable force. A voice in your head booms, #{normal}#%s#{italic}#
 
-A wave of mental and magical power blasts into you with the might of a falling star. You are lifted into the air, and intense pressure bears down on every inch of your skin, threatening to crush you into nothingness. You try to resist for a moment, until--#{normal}#]], [[#{italic}#当你打开门时，你很吃惊的看着眼前的一切。一个生物站在你面前，长着触手一样的附属物，在脑袋的位置有个肿块一样的鼓起物。它的身上放射出一种你从来没有碰到过的力量光环。这只能是夏·图尔，活着的夏·图尔！
+A wave of mental and magical power blasts into you with the might of a falling star. You are lifted into the air, and intense pressure bears down on every inch of your skin, threatening to crush you into nothingness. You try to resist for a moment, until--#{normal}#]], [[#{italic}#打开门后，你惊讶地凝视着门后的景象。一个生物站在你面前，长着触手般的细长附肢，头部位置只有一个低矮的隆起。它身上散发出极其强烈的力量气息，是你前所未感受过的。它只能是一个夏·图尔。一个活生生的夏·图尔！
 
-不过你的惊愕没有持续多久，那个夏·图尔注意到了你，你感觉到它身上释放出一种令你窒息的压倒性的力量。一个声音在你的脑海中响起 #{normal}#%s#{italic}#
+然而，你的惊叹很快被打断：那个夏·图尔注意到了你，你感到它高度集中的意念如不可阻挡的力量般压向你。一个声音在你脑海中轰然响起：#{normal}#%s#{italic}#
 
-流星的力量对你形成一股精神和魔法的冲击，你被举到空中，强大的力量侵入了你的每一寸肌肤，差点把你撕成碎片，你挣扎着抵抗了一会，直到——#{normal}#]], "tformat")
+一股精神与魔法力量如坠星般猛烈轰入你的身体。你被抬到空中，巨大的压力挤压着每一寸肌肤，仿佛要将你碾得荡然无存。你试着抵抗了片刻，直到——#{normal}#]], "tformat")
 t("[continue]", "[继续]", "_t")
-t("#{italic}#You wake up suddenly next to your farportal with a pounding headache. Your cheeks feel wet, and touching them you see your fingers stained red - you have been crying tears of blood. A dark and terrible memory lurks at the back of your mind, but the more you try to remember it the harder it becomes, and slowly it fades completely, like a dream.#{normal}#", "#{italic}#你在远古传送门边上突然醒了过来，你感觉头痛欲裂。你感觉到你脸颊上很潮湿，当你用手从脸上拂过，你发现你的指尖沾着血液——你流出了血泪。你感觉到你的脑海中埋藏着黑暗、可怕的记忆，但是你越是极力回想越是想不起来，它慢慢地从你的脑海深处完全消失，就像做了一场梦。#{normal}#", "_t")
+t("#{italic}#You wake up suddenly next to your farportal with a pounding headache. Your cheeks feel wet, and touching them you see your fingers stained red - you have been crying tears of blood. A dark and terrible memory lurks at the back of your mind, but the more you try to remember it the harder it becomes, and slowly it fades completely, like a dream.#{normal}#", "#{italic}#你突然在远古传送门旁醒来，头痛欲裂。你的双颊湿漉漉的；伸手一摸，指尖竟染成了红色——你流下了血泪。一段黑暗而可怕的记忆潜伏在脑海深处，但你越想回忆，就越难抓住它；它慢慢彻底消散，仿佛一场梦。#{normal}#", "_t")
 t("[done]", "[完成]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/shertul-fortress-command-orb.lua"
 
 t([[*#LIGHT_GREEN#This orb seems to represent the world of Eyal as a whole. It is also probably used for controlling the fortress.
-]], [[*#LIGHT_GREEN#在水晶球里你似乎能看到整个马基·埃亚尔，可能它也是用来控制这座堡垒的。
+]], [[*#LIGHT_GREEN#这个水晶球似乎展现着整个埃亚尔世界，大概也用于控制这座堡垒。
 ]], "_t")
 t([[You do not understand the inscriptions there.#WHITE#*
-#{italic}#"Rokzan krilt copru."#{normal}#]], [[你没有明白上面铭文的意思。#WHITE#*
+#{italic}#"Rokzan krilt copru."#{normal}#]], [[你看不懂那里的铭文。#WHITE#*
 #{italic}#"Rokzan krilt copru."#{normal}#]], "_t")
-t("#WHITE#*#{italic}#\"Insert control rod.\"#{normal}#", "#WHITE#*#{italic}#\"插入魔杖。\"#{normal}#", "_t")
+t("#WHITE#*#{italic}#\"Insert control rod.\"#{normal}#", "#WHITE#*#{italic}#\"插入控制棒。\"#{normal}#", "_t")
 t("[Examine the orb]", "[检查水晶球]", "_t")
-t("[Fly the fortress -- #LIGHT_RED#FOR TESTING ONLY#LAST#]", "[飞起堡垒 -- #LIGHT_RED#仅测试模式！#LAST#]", "_t")
-t("[Begin the Lichform ceremory]", "[开始巫妖形态仪式]", "_t")
+t("[Fly the fortress -- #LIGHT_RED#FOR TESTING ONLY#LAST#]", "[让堡垒起飞——#LIGHT_RED#仅供测试#LAST#]", "_t")
+t("[Begin the Lichform ceremory]", "[开始巫妖转生仪式]", "_t")
 t("[Leave the orb alone]", "[离开水晶球]", "_t")
 t([[*#LIGHT_GREEN#The device seems to be made of pure crystal. It projects a very accurate map of the known world - including the forbidden continent of the south.
 There seems to be a hole about the size and form of your Rod of Recall.#WHITE#*]], [[*#LIGHT_GREEN#这个装置似乎完全由水晶制成，里面显现出已知世界的精确地图，包括南部的禁秘大陆。
-上面有一个形状类似回归之杖的小孔。#WHITE#*]], "_t")
-t("[Insert the rod]", "[插入魔杖]", "_t")
+上面似乎有一个孔洞，其大小和形状都与回归之杖相仿。#WHITE#*]], "_t")
+t("[Insert the rod]", "[插入回归之杖]", "_t")
 t([[*#LIGHT_GREEN#As you take the rod close to the orb it seems to vibrate and react.
 A shadow appears in a corner of the room! You retract the rod immediately but the shadow stays.
 It looks like the horrors you fought when coming inside, only less degenerated.
-The thing looks roughly humanoid, but it has no head and its limbs look like tentacles. It does not seem hostile.#WHITE#*]], [[*#LIGHT_GREEN#当你用回归之杖接近水晶球时，你感觉到它发生了感应和共鸣。
-一个影子从房间的角落里出现了！你赶紧拿回了回归之杖，但是那个影子还在。
+The thing looks roughly humanoid, but it has no head and its limbs look like tentacles. It does not seem hostile.#WHITE#*]], [[*#LIGHT_GREEN#当你将回归之杖靠近水晶球时，水晶球似乎振动起来，并有了反应。
+房间的一角出现了一个影子！你立刻抽回回归之杖，但那个影子仍然留在那里。
 它看起来很像你进来时战斗过的恐魔，只是退化程度较轻。
-那个东西有着粗略的人形，但它没有脑袋，只有像触角一样的肢体。看上去似乎不像是敌人。#WHITE#*]], "_t")
+那东西大致呈人形，却没有头，四肢也如触手一般。它似乎并无敌意。#WHITE#*]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/shertul-fortress-gladium-orb.lua"
 
-t("*#LIGHT_GREEN#This orb is used to control the gladium arena.#WHITE#*", "*#LIGHT_GREEN#这个水晶球用于控制角斗竞技场。#WHITE#*", "_t")
+t("*#LIGHT_GREEN#This orb is used to control the gladium arena.#WHITE#*", "*#LIGHT_GREEN#这个水晶球用于控制堡垒竞技场。#WHITE#*", "_t")
 t("[Go back to the Fortress]", "[返回堡垒]", "_t")
 t("[Leave the orb alone]", "[离开水晶球]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/shertul-fortress-shimmer.lua"
 
-t("[Alter the appearance of %s]", "[改变%s的形象]", "tformat")
-t("[Alter the appearance of your body]", "[改变你身体的形象。]", "_t")
-t("[Alter the appearance of your facial features]", "[改变你的脸部特征。]", "_t")
+t("[Alter the appearance of %s]", "[改变%s的外观]", "tformat")
+t("[Alter the appearance of your body]", "[改变你的身体外观]", "_t")
+t("[Alter the appearance of your facial features]", "[改变你的面部特征]", "_t")
 t("[Alter the appearance of your hair]", "[改变你的发型。]", "_t")
-t("[Alter the appearance of your cosmetic aura]", "[改变你外观的光环。]", "_t")
-t("[Load/Save outfit]", "[读取/保存外观]", "_t")
-t("[Disable the visual effects of your sustains]", "[取消你持续技能的动画效果。]", "_t")
+t("[Alter the appearance of your cosmetic aura]", "[改变你的装饰光环]", "_t")
+t("[Load/Save outfit]", "[读取/保存装束]", "_t")
+t("[Disable the visual effects of your sustains]", "[禁用持续技能的视觉效果]", "_t")
 t("[Leave the mirror alone]", "[离开镜子]", "_t")
-t("*#LIGHT_GREEN#As you gaze into the mirror you see an infinite number of slightly different reflections of yourself. You feel dizzy.#WHITE#*", "*#LIGHT_GREEN#当你凝视镜子时，你会看到无数个略有不同的你自己的倒影。你感到一阵头晕。#WHITE#*", "_t")
+t("*#LIGHT_GREEN#As you gaze into the mirror you see an infinite number of slightly different reflections of yourself. You feel dizzy.#WHITE#*", "*#LIGHT_GREEN#你凝视着镜子，看见无数个略有差异的自身倒影，不禁感到一阵头晕。#WHITE#*", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/shertul-fortress-training-orb.lua"
@@ -6068,13 +6068,13 @@ t("Armour Hardiness", "护甲强度", "_t")
 t("Armour", "护甲值", "_t")
 t("From 0 to 1000", "从 0 到 1000", "_t")
 t("*#LIGHT_GREEN#This orb is used to control the training facilities.#WHITE#*", "*#LIGHT_GREEN#这个水晶球用于控制训练室。#WHITE#*", "_t")
-t("[Create one target dummy]", "[制造一个傀儡]", "_t")
-t("[Create two target dummy]", "[制造两个傀儡]", "_t")
-t("[Create three target dummy]", "[制造三个傀儡]", "_t")
-t("[Create five target dummy]", "[制造五个傀儡]", "_t")
-t("[Create ten target dummy]", "[制造十个傀儡]", "_t")
-t("[Change dummies armour]", "[改变傀儡护甲]", "_t")
-t("[Change dummies resistances]", "[改变傀儡抗性]", "_t")
+t("[Create one target dummy]", "[制造一个训练假人]", "_t")
+t("[Create two target dummy]", "[制造两个训练假人]", "_t")
+t("[Create three target dummy]", "[制造三个训练假人]", "_t")
+t("[Create five target dummy]", "[制造五个训练假人]", "_t")
+t("[Create ten target dummy]", "[制造十个训练假人]", "_t")
+t("[Change dummies armour]", "[调整训练假人的护甲]", "_t")
+t("[Change dummies resistances]", "[调整训练假人的抗性]", "_t")
 t("[Reset]", "[重置]", "_t")
 t("[Leave the orb alone]", "[离开水晶球]", "_t")
 
