@@ -1,0 +1,121 @@
+{
+ "schema_version": 1,
+ "task_id": "p2-tome-texts-b31-001",
+ "component": "tome",
+ "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "workset": "evidence/quality/p2-batches/p2-tome-texts-b31-tarelion-tutorial.json",
+ "sections": [
+  "mod-tome/data/chats/tarelion.lua",
+  "mod-tome/data/chats/tarelion-start-archmage.lua",
+  "mod-tome/data/chats/temporal-rift-end.lua",
+  "mod-tome/data/chats/temporal-rift-start.lua",
+  "mod-tome/data/chats/the-master-resurrect.lua",
+  "mod-tome/data/chats/trap-priming.lua",
+  "mod-tome/data/chats/tutorial-start.lua"
+ ],
+ "workset_note": "37 items, not the 38 a rough grep estimated: trap-priming.lua has 8 lexical t() calls. The freeze asserts the context count equals the lexical _allowed_calls count per section, which caught the discrepancy.",
+ "host_verification_of_executor_claims": [
+  {
+   "claim": "'more of us should get out of here once in a while' is about how many people leave, not how often",
+   "verified": "pinned chats/tarelion-start-archmage.lua:28-30",
+   "result": "confirmed"
+  },
+  {
+   "claim": "the Spellblaze tore off exactly one part, not several fragments",
+   "verified": "pinned chats/tarelion-start-archmage.lua:37 names a single part, the Abashed Expanse, ripped from the world and thrown into the void; the old target asserted 几个碎片",
+   "result": "confirmed"
+  },
+  {
+   "claim": "'He looks at you more closely' contains no approach",
+   "verified": "pinned chats/temporal-rift-start.lua:24; the old target added 靠近",
+   "result": "confirmed"
+  },
+  {
+   "claim": "'Not Prepared' is a UI state label, not dialogue",
+   "verified": "pinned chats/trap-priming.lua:44-48 selects it alongside Primed Trigger / Not Usable / Normal Trigger and renders them through the %s[%s: %s] label format",
+   "result": "confirmed"
+  },
+  {
+   "claim": "the trap is the object prepared with a primed trigger, or dismantled",
+   "verified": "pinned chats/trap-priming.lua:71-72; the old target made 即爆机关 the object of 准备",
+   "result": "confirmed"
+  },
+  {
+   "claim": "the tutorial limits races and classes specifically",
+   "verified": "pinned chats/tutorial-start.lua:54 states the selection of races and classes is limited and more unlock during play; the old target generalised to 内容",
+   "result": "confirmed"
+  },
+  {
+   "claim": "Temporal Warden is 时空守卫",
+   "verified": "terminology row T.GAME.CLASS; post-fix corpus shows 24 occurrences of 时空守卫 and 0 of 时间守卫",
+   "result": "confirmed"
+  }
+ ],
+ "review": {
+  "contract": "translation_contextual_v1",
+  "dispatch": "ctx-01",
+  "candidate_identity": "7d444e18770ca8a4e905017ae6a3853fc38b4806518dacd4c56256efa1005525",
+  "revisions_total": 37,
+  "observations_ok": 35,
+  "adjudications": [
+   {
+    "revision_key": "b31-01-tarelion",
+    "host_adjudication": "confirmed",
+    "finding": "'up to all sorts of doo-daddle in the outside world, I imagine' rendered with 大不了……算是, an 'at most' cap absent from the English",
+    "ground": "pinned chats/tarelion.lua:20-24 - the clause is an appositive elaborating 'the adventuring fare', friendly speculation by Tarelion disguised as a genial old man soliciting library patronage; the cap inverted the stance toward the player",
+    "applied": true
+   },
+   {
+    "revision_key": "b31-20-temporal-rift-start",
+    "host_adjudication": "advisory",
+    "finding": "'But what is all th...' breaks off mid-word; the target was a grammatically complete question",
+    "ground": "pinned chats/temporal-rift-start.lua:26-28 - the answer's action calls game:changeLevel(2) and grants the quest, so the speaker is genuinely cut off. But the target's trailing ellipsis already conveys an unfinished utterance, so what is lost is the abruptness of a mid-word break, not the fact of interruption. Form-level, meaning recoverable, advisory per b22-24 and consistent with the b30-39 ruling on the same shape",
+    "applied": true,
+    "why_applied": "a fix round was already required for b31-01"
+   }
+  ],
+  "note": "Both findings fall on lines the executor left unchanged. They are under first review in this window, so the b26 unchanged-text decline default does not apply - that rule guards against a later round contradicting an earlier pass."
+ },
+ "host_induced_regression": {
+  "round": 2,
+  "what": "the round-2 briefing offered 这到底是…… as an example of the dangling shape for b31-20; the executor copied it verbatim",
+  "effect": "dropped the contrastive 但 (the player is protesting the warning just delivered) and 'all this', and rendered byte-identical to the unrelated tannen.lua line for 'What in the...'",
+  "correction": "round 3 restored both elements while keeping the cut-off shape: 但是这一切到底是……",
+  "lesson": "give the constraint, not a verbatim example string, or the example gets copied instead of adapted"
+ },
+ "declined": [
+  {
+   "item": "#LIGHT_BLUE#You cannot prepare this trap: %s. carries a trailing half-width period",
+   "reason": "the runtime key appears at mod-tome.lua:6399 (in-window) and :42350 (mod-tome/dialogs/TrapsSelect.lua, out-of-window) with byte-identical targets; editing one side alone would split the key and trip scan_runtime_collisions. Unlike the b30 title, both sides stay consistent if left alone, so there is no desynchronisation to prevent",
+   "precedent": "b23 shared-key rule"
+  },
+  {
+   "item": "The Master rendered 领主 (entity) and 主人 (ownership relation) within one string",
+   "reason": "correct by design per the b27 control-rod ruling - the corpus uses 领主 for the Dreadfell entity while 主人 is the ownership relation b28 confirmed for the Fortress Shadow's master; judged per occurrence, not unified"
+  }
+ ],
+ "gates": {
+  "five_step": "PASS",
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "runtime_collisions": 0,
+  "diff": "mod-tome.lua 11 insertions / 11 deletions across 11 hunks, all in-window"
+ },
+ "open_items": [
+  {
+   "item": "Angolwen transliteration split",
+   "detail": "50 安格利文 vs 10 安格列文 across lore/derth, lore/elvala, lore/high-peak, lore/tannen, quests/east-portal and load.lua; the terminology row itself is marked 需统一 with status existing",
+   "disposition": "maintainer decision; clearest of the three open splits"
+  },
+  {
+   "item": "Maj'Eyal split",
+   "detail": "71 with interpunct / 54 without",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Sholtar split",
+   "detail": "2 肖塔尔 / 2 肖塔",
+   "disposition": "maintainer decision"
+  }
+ ]
+}

@@ -6326,7 +6326,7 @@ t("Archmage Tarelion?", "大法师泰尔兰？", "_t")
 t([[Yes @playername@, I have heard you plan on going into the wild world, looking for some adventures of your own.
 This is good, more of us should get out of here once in a while and actually help people out there.
 Say, maybe you might want to get an adventure and help Angolwen?]], [[是的，@playername@，我听说你计划到野外，去寻求冒险。
-这样很好，我们应该多多出去到外面的世界，去帮助那里的人们。
+这样很好，我们中应该有更多人偶尔走出这里，真正帮助外面的人们。
 这么说，也许你会想进行一场冒险，来帮助安格利文？]], "_t")
 t("Perhaps, what do you need?", "也许吧，你想要什么？", "_t")
 t([[During the Spellblaze the world was torn apart - literally. A part of it, that we now call the Abashed Expanse, was ripped from the world and thrown into the void between the stars.
@@ -6334,7 +6334,7 @@ We managed to stabilize it and it is now orbiting Eyal. Recently we have noticed
 Because it was once part of a land we know well we can teleport you there. You will need to stabilize three wormholes by firing any attack spells at them.
 The instability is also to your advantage there, your simple phase door spell will be fully controllable.
 
-So, you think you can help us ?]], [[魔法大爆炸把这个世界分裂成了几个碎片。其中一部分，我们称它为次元浮岛，从这个世界分离了出去，落入了群星之中的无尽虚空。
+So, you think you can help us ?]], [[魔法大爆炸从字面意义上撕裂了这个世界。其中一部分，我们称它为次元浮岛，从这个世界分离了出去，落入了群星之中的无尽虚空。
 我们设法让它稳定了下来，如今它正环绕埃亚尔运行。最近我们在那儿也注意到一些骚动，如果我们任其发展它会撞向埃亚尔大陆造成极大的灾难。
 由于我们以前对那块大陆比较熟悉，我们可以将你传送至那里，你需要向三个不稳定的虫洞施放各种攻击性法术使它们稳定下来。
 虽然那里的时空很不稳定，它同时也能给你带来好处，你的相位之门法术在那里可以变得完全受你控制。
@@ -6352,7 +6352,7 @@ section "mod-tome/data/chats/tarelion.lua"
 
 t([[I say, you there. Yes, you, young one!
 You seem like the adventuring fare, up to all sorts of doo-daddle in the outside world, I imagine. Well, don't forget to pay patronage to our good library here in the city. The riches of the world are all well and good, but where would we be without the gift of knowledge? And all proceeds go towards the funding of further research. No greater cause, yes?]], [[我说，那边那个，对对，就是你，年轻人！
-你看上去像一个冒险者之类的，大不了算是一个在外面世界闯荡的小子。好吧，别忘了为这个城里最好的图书馆捐点钱。世间的财富固然很好，但若没有知识的馈赠，我们又会怎样？所有募集的资金都会直接用于进一步研究。没有比这更崇高的理由了，对吧？]], "_t")
+你看上去像一个冒险者之类的，想必在外面的世界里也做过不少稀奇古怪的事。好吧，别忘了为这个城里最好的图书馆捐点钱。世间的财富固然很好，但若没有知识的馈赠，我们又会怎样？所有募集的资金都会直接用于进一步研究。没有比这更崇高的理由了，对吧？]], "_t")
 t("Uh, yes, of course... I'll be moving on now.", "啊，是的，当然……我得继续赶路了。", "_t")
 t("Hold on! You... You're that apprentice mage I met in the wilds!", "打住！你……你不就是那个荒野之中的法师学徒么？", "_t")
 t("Why, well-spotted, whippersnapper! Indeed, when the mood takes me I sometimes travel under the guise of an apprentice. It permits me to traverse the land unnoticed in my research, and if I meet any I deem worthy and sympathetic to Angolwen's cause, then so much the better. And it does provide the odd chortle, I tell you!", "眼力不错嘛，小家伙！的确我有时会心血来潮假扮成一个学徒到处旅行，这样在我的研修旅行中就不会引人注意。如果我遇到值得信赖、且认同安格利文事业的人，那就更好了。而且我告诉你，这偶尔也确实让我觉得好笑！", "_t")
@@ -6368,7 +6368,7 @@ I cannot stay. I still have much to do. But take this-- it should help you.
 我不能留在这里，我还有很多事情要做。带上这个，它也许会对你有帮助。
 #LIGHT_GREEN#*你刚想回答，他就又消失了。面前出现一道时空裂缝，希望是通往马基埃亚尔的……*#WHITE#]], "_t")
 t("Ok...", "好吧……", "_t")
-t("The temporal warden gives you: %s.", "时间守卫给了你： %s", "log")
+t("The temporal warden gives you: %s.", "时空守卫给了你：%s。", "log")
 
 ------------------------------------------------
 section "mod-tome/data/chats/temporal-rift-start.lua"
@@ -6380,16 +6380,16 @@ Do not meddle in the affairs of Time, for it passes swiftly and is easily disrup
 You seem capable. Help me, fight the abominations while I repair the timeline. It is your only way out!]], [[#LIGHT_GREEN#*一个高大的男人，全身像星星一样闪耀着光芒，在你面前出现了。*#WHITE#
 噢，不，又来了一个“冒险家”！你不该插手超出你理解范围的事物！
 不要搅进有关时间的事物里，时间流逝非常快，而且很容易被搅乱！
-#LIGHT_GREEN#*他靠近并注视着你*#WHITE#
+#LIGHT_GREEN#*他更仔细地端详着你。*#WHITE#
 你看上去很强，帮帮我，在我修理时间线的时候帮我干掉那些憎恶，只有这样你才能离开这里！]], "_t")
-t("But what is all th...", "但是到底是怎么回事……", "_t")
+t("But what is all th...", "但是这一切到底是……", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/the-master-resurrect.lua"
 
 t([[#LIGHT_GREEN#*The Master crumbles before you, vanquished. Yet in the blink of an eye you see his form recreating from dust; unharmed and ready to fight again!*#WHITE#
 Ahah you fool! See how even death has no meaning for me; for I am the Master and you are my toy, now and forever.]], [[#LIGHT_GREEN#*领主在你面前倒下，化成灰烬。突然，你发现他从尘土里站了起来，毫发未伤，正准备战斗！*#WHITE#
-啊哈,你这个愚蠢的傻瓜！看吧，死亡对我毫无意义;我是主人，你只是我的玩具，永远如此！]], "_t")
+啊哈，你这个愚蠢的傻瓜！看吧，死亡对我毫无意义；我是主人，你只是我的玩具，永远如此！]], "_t")
 t("Never! Die!", "绝不！去死吧！", "_t")
 
 ------------------------------------------------
@@ -6397,13 +6397,13 @@ section "mod-tome/data/chats/trap-priming.lua"
 
 t("[Cancel]", "[取消]", "_t")
 t("#LIGHT_BLUE#You cannot prepare this trap: %s.", "#LIGHT_BLUE#你不能准备这个陷阱：%s.", "logPlayer")
-t("Not Prepared", "还没准备好", "_t")
+t("Not Prepared", "未准备", "_t")
 t("Primed Trigger", "即爆机关", "_t")
 t("Not Usable", "无法使用", "_t")
 t("Normal Trigger", "常规机关", "_t")
 t("%s[%s: %s]#LAST#", "%s[%s：%s]#LAST#", "tformat")
 t([[Choose a trap to prepare with a primed (instant) trigger or to dismantle.
-#YELLOW#Newly prepared traps are placed on cooldown.#LAST#]], [[选择一个陷阱，准备即爆机关或者分解之。
+#YELLOW#Newly prepared traps are placed on cooldown.#LAST#]], [[选择一个陷阱，以即爆机关将其准备好，或将其拆解。
 #YELLOW#新准备的陷阱将进入冷却。#LAST#]], "_t")
 -- untranslated text
 --[==[
@@ -6418,7 +6418,7 @@ section "mod-tome/data/chats/tutorial-start.lua"
 
 t("Hello there. What subject interests you?", "你好，你对哪一个主题比较感兴趣？", "_t")
 t("Basic gameplay", "基本游戏玩法。", "_t")
-t("Combat stat mechanics", "战斗属性。", "_t")
+t("Combat stat mechanics", "战斗属性机制。", "_t")
 t("Never mind.", "算了。", "_t")
 t("Is there nothing more for me to learn here?", "没别的东西可以学了么？", "_t")
 t("\
@@ -6437,7 +6437,7 @@ Press #GOLD#Escape#WHITE#, then select #GOLD#Save and Exit#WHITE#, and create a 
 
 要是你想看看你的按键设置细节，你可以按下#GOLD#Esc键#WHITE#进入游戏菜单检查按键绑定，你可以更改设置直到你满意为止。
 
-如果你第一次接触这个游戏，你会发现你所能选择的种族和职业是有限制的，别担心，许多内容在你的旅行过程中可以被解锁。
+如果你第一次接触这个游戏，你会发现可供选择的种族和职业很有限。别担心，随着你在冒险中不断解锁，更多种族和职业将可供选择。
 
 现在，勇敢的前进吧，并且记住：#GOLD#玩的开心！#WHITE#
 按下 #GOLD#Esc键#WHITE#，选择 #GOLD#保存并退出#WHITE#，然后创建一个新的角色吧！]], "_t")
