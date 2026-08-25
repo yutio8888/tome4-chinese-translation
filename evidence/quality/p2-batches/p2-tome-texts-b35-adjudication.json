@@ -1,0 +1,116 @@
+{
+ "schema_version": 1,
+ "task_id": "p2-tome-texts-b35-001",
+ "component": "tome",
+ "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "workset": "evidence/quality/p2-batches/p2-tome-texts-b35-zigur-trainer-zoisla.json",
+ "sections": [
+  "mod-tome/data/chats/zigur-trainer.lua",
+  "mod-tome/data/chats/zoisla.lua"
+ ],
+ "milestone": "final data/chats/ slice; with this batch all 100 data/chats sections have been reviewed across b6-b35",
+ "host_verification_of_executor_claims": [
+  {
+   "claim": "the 'too young' line is a hard character-level gate",
+   "verified": "pinned zigur-trainer.lua answer conditions are player.level >= 10 and player.level < 10, so the refusal is a level-10 requirement rather than a remark about age",
+   "result": "confirmed"
+  },
+  {
+   "claim": "arcane-powered worn items are removed automatically",
+   "verified": "the action function tests o.power_source.arcane and calls player:removeObject; the briefing line says such items will be unequipped, i.e. done for the player, not by them",
+   "result": "confirmed"
+  },
+  {
+   "claim": "the Ogre line concerns infusions replacing runes",
+   "verified": "pinned ogretext replaces unclean runes with a mixture of infusions and removes the dependence; the talent rows confirm the 纹身 sense rather than the 充能 talent-type sense",
+   "result": "confirmed"
+  }
+ ],
+ "shared_runtime_keys": [
+  {
+   "key": "...",
+   "occurrences": 153,
+   "disposition": "left byte-unchanged"
+  },
+  {
+   "key": "Farewell.",
+   "occurrences": 2,
+   "disposition": "left byte-unchanged; both already identical"
+  },
+  {
+   "key": "You cannot use your %s anymore; it is tainted by magic.",
+   "shared_with": "infinite-dungeon/objects.lua",
+   "disposition": "executor edited it, lint --strict caught the split, executor reverted its own edit and reported",
+   "host_note": "found by the executor, not by the host survey, which had identified only the first two. This is the behaviour the b34 briefing failure was meant to elicit, and it occurred unprompted"
+  }
+ ],
+ "review": {
+  "contract": "translation_contextual_v1",
+  "dispatch": "ctx-01",
+  "candidate_identity": "89598ec11346346bd1ce97c697c99c52256fc5e1e34b3d2aedfed2ffdfa726fa",
+  "revisions_total": 23,
+  "observations_ok": 22,
+  "adjudications": [
+   {
+    "revision_key": "b35-17-zigur-trainer",
+    "host_adjudication": "confirmed",
+    "finding": "the trainer's capitalised title Fighter read 战士 in one revision and 斗士 in another",
+    "ground": "same character, two titles. The fix direction was constrained: within the arena revision 战士 already renders the lowercase 'warriors' who seize the player, so collapsing the Fighter into 战士 would merge the trainer with his own subordinates. The English keeps Fighter and warriors distinct, so the Chinese must too. No terminology row exists for Fighter",
+    "applied": true,
+    "result": "trainer 斗士 in both revisions; warriors remain 战士"
+   }
+  ]
+ },
+ "declined": [
+  {
+   "item": "'serpent' kept as a slur rather than the formal race term",
+   "reason": "the English pointedly avoids the neutral word naga at that moment; the executor preserved the insult, which is correct"
+  }
+ ],
+ "gates": {
+  "five_step": "PASS",
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "runtime_collisions": 0,
+  "diff": "mod-tome.lua 17 insertions / 17 deletions across 10 hunks, all in-window"
+ },
+ "evidence_anchor_gap": {
+  "sections": [
+   "mod-tome/data/chats/gates-of-morning-main.lua",
+   "mod-tome/data/chats/jewelry-store.lua",
+   "mod-tome/data/chats/last-hope-melinda-father.lua",
+   "mod-tome/data/chats/last-hope-weapon-store.lua",
+   "mod-tome/data/chats/limmir-valley-moon.lua"
+  ],
+  "status": "reviewed but without a tracked workset",
+  "ground": "all five sort before sorcerer-fight.lua, the recorded completion point of the b6-b21 run; limmir-valley-moon.lua is logged as verified-with-no-change at b21. The missing artefacts stem from the known b19-b21 lapse of leaving worksets only in ignored .ai/",
+  "disposition": "documentation gap, not a review gap; reconstructing the anchors is a separate task and was not undertaken unasked"
+ },
+ "open_items": [
+  {
+   "item": "Angolwen split",
+   "detail": "50 安格利文 / 10 安格列文; term row marked 需统一",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Maj'Eyal split",
+   "detail": "71 / 54",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Sholtar split",
+   "detail": "2 / 2",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Krogar out-of-window",
+   "detail": "strange-new-world.lua reads 克洛加尔",
+   "disposition": "leftover"
+  },
+  {
+   "item": "Corrupted Sand Wyrm",
+   "detail": "堕落沙龙 vs 巨型沙虫",
+   "disposition": "leftover"
+  }
+ ]
+}

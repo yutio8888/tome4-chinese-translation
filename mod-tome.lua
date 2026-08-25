@@ -6736,22 +6736,22 @@ We see that the hermetic arts have always been at the root of each and every tri
 We can train you, but you need to prove you are pure, untouched by the eldritch forces, and ready to fight them to the end.
 You will be challenged against magical foes. Should you defeat them, we will teach you our ways, and never again will you be able to be tainted by magic, or use it.
 
-#LIGHT_RED#Note:  Completing this quest will forever prevent this character from using spells or items powered by arcane forces.  In exchange you'll be given access to a mindpower based generic talent tree, Anti-magic, and be able to unlock hidden properties in many arcane-disrupting items.]], [[#LIGHT_GREEN#*一个冷酷的战士站在那里，穿着锁甲和橄榄色的大斗篷，他没有敌意——他的宝剑并没有出鞘。*#WHITE#
+#LIGHT_RED#Note:  Completing this quest will forever prevent this character from using spells or items powered by arcane forces.  In exchange you'll be given access to a mindpower based generic talent tree, Anti-magic, and be able to unlock hidden properties in many arcane-disrupting items.]], [[#LIGHT_GREEN#*一个面色阴沉的斗士站在那里，身穿锁甲，披着一件橄榄色大斗篷。他似乎没有敌意——剑还收在鞘中。*#WHITE#
 %s，我们观察了你很久，你很有潜力。
-我们都知道，禁忌的奥术力量是我们这片大地上每一场痛苦和灾难的根源。如果继续放任不管，它们最终会毁灭这个世界。因此，我们决定召唤自然的力量，战胜那些奥术力量使用者。
-我们可以训练你，不过你得保证你的纯粹，没有接触奥术力量，并且准备和魔法战斗到底。
-你会挑战几个魔法对手，要是你打败他们，我们就会将我们的技能教给你，今后你再也不能被魔法玷污，也不能再使用魔法。
+我们看到，秘术一直是这片大地所经受的一次次磨难的根源，也看到它们终有一天会毁灭我们。因此，我们决定采取行动，借助自然之力对抗那些操纵奥术的人。
+我们可以训练你，但你必须证明自己纯洁无瑕，未受奥术力量沾染，并已准备好与之战斗到底。
+你将面对魔法敌人的挑战。若能击败他们，我们便会传授你我们的道路；从此以后，你将再也不会受魔法玷污，也无法使用魔法。
 
-#LIGHT_RED#注：完成此任务会使该角色永久无法使用法术或由奥术之力驱动的物品。取而代之的，是你可以获得一支精神力量的通用技能树——反魔法，同时你可以开启许多反魔法物品的隐藏属性。]], "tformat")
+#LIGHT_RED#注：完成此任务会使该角色永久无法使用法术或由奥术之力驱动的物品。作为交换，你将解锁基于精神强度的通用技能树“反魔法”，并能解锁许多反魔法物品的隐藏属性。]], "tformat")
 t("I will face your challenge!", "我接受挑战！", "_t")
 t("I'm not interested.", "我没什么兴趣。", "_t")
 t("Very well. I will say that this is disappointing, but it is your choice. Farewell.", "好吧，不得不说我有点失望，不过这是你自己的选择，再见。", "_t")
-t("Ah, you seem eager, but maybe still too young. Come back when you have grown a bit.", "啊，你很渴望战斗，但也许你还太年轻，回去等你成长一些再来吧。", "_t")
-t("I shall.", "好的。", "_t")
+t("Ah, you seem eager, but maybe still too young. Come back when you have grown a bit.", "啊，你似乎跃跃欲试，但等级或许还太低。等升到10级后再来吧。", "_t")
+t("I shall.", "我会的。", "_t")
 t("\
 Worry not, though, Ogre - we can replace your unclean runes with a newly-discovered mixture of infusions, eliminating your dependence on them.  The process will feel...  unpleasant, and will dramatically shorten your lifespan, but you will finally be free from the addictive grip of the arcane!\
 ", "\
-请不要担心，虽然你是个食人魔，我们可以用我们最新研究出的新型复合纹身来取代你身上的不洁符文，从而永久消除了你对他们的依赖。这个过程可能有些……不适，并且会大幅缩短你的寿命，但是在此之后，你终于能够从奥术力量的依赖中得到解脱！\
+不过别担心，食人魔——我们可以用一种新发现的复合纹身配方替换你的不洁符文，让你不再依赖这些符文。这个过程会让你感到……不适，也会大幅缩短你的寿命，但你终将摆脱奥术令人上瘾的控制！\
 ", "_t")
 t([[We'll also reinforce the infusions you've been granted to replace your runes - the newest mixture should give you about five years of your life that the initial mixture took from you.
 ]], [[我们还会加强授予你的那些纹身，用来替代你的符文——最新配方能弥补最初配方从你身上夺走的约五年寿命。
@@ -6760,33 +6760,33 @@ t([[Very well. Before you start, we will make sure no magic can help you:
 - You will not be able to use any spells or magical devices
 - Any worn objects that are powered by the arcane will be unequipped
 %s
-Are you ready, or do you wish to prepare first?]], [[很好，在开始之前，我们得确认你不是在用魔法的诡计来作弊：
-- 你不能施放法术也不能使用任何魔法物品
-- 你所装备的所有由魔法灌输能量的物品都必须取下。
+Are you ready, or do you wish to prepare first?]], [[很好。在开始之前，我们要确保没有魔法能助你一臂之力：
+- 你将无法施放任何法术或使用任何魔法装置
+- 所有已装备的奥术驱动物品都会被卸下
 %s
-准备好了么？或者你还要再准备一下？]], "tformat")
+准备好了吗？还是想先准备一下？]], "tformat")
 t("I am ready", "我准备好了。", "_t")
 t("I need to prepare.", "我需要准备一下。", "_t")
 t([[#VIOLET#*You are grabbed by two olive-clad warriors and thrown into a crude arena!*
 #LIGHT_GREEN#*You hear the voice of the Fighter ring above you.*#WHITE#
 %s! Your training begins! I want to see you prove your superiority over the works of magic! Fight!]], [[#VIOLET#*你被两个身着橄榄色服装的战士抓了起来，扔进了一个简陋的角斗场里！*
 #LIGHT_GREEN#*你听到斗士的声音在你头顶上方响起！*#WHITE#
-%s！你的训练开始了！我们要看到你超越魔法的能力，战斗吧！]], "tformat")
+%s！你的训练开始了！我要看到你证明自己胜过魔法造物！战斗吧！]], "tformat")
 t("But wha.. [you notice your first opponent is already there]", "但什……[你注意到你的第一个对手已经出现在战场上了]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/zoisla.lua"
 
 t([[#LIGHT_GREEN#*A naga steps through the portal, she seems to be a high ranked one.*#WHITE#
-NO! You fool, the portal is breaking down!]], [[#LIGHT_GREEN#*一个娜迦穿过了传送门，看上去她好像级别比较高。*#WHITE#
-不！你个蠢货！传送门要完了！]], "_t")
+NO! You fool, the portal is breaking down!]], [[#LIGHT_GREEN#*一个娜迦穿过传送门，她似乎身居高位。*#WHITE#
+不！你这个蠢货，传送门正在崩溃！]], "_t")
 t("And thus my task is done, serpent!", "那么，我的任务也完成了，臭蛇人！", "_t")
 t("You do not understand: it will explode!", "你不明白：它会爆炸！", "_t")
 t("...", "……", "_t")
 t([[The portal randomly teleported us before exploding.
 You fool! You have doomed us, we could be #{bold}#anywhere!#{normal}#
-DIE !]], [[在爆炸之前，传送门同时把我们两个随机传送了一个地方。
-蠢货！你把事情全搞砸了，#{bold}#谁也不知道#{normal}#我们被传送到哪里去了！
+DIE !]], [[传送门在爆炸前把我们随机传送到了某个地方。
+蠢货！你害惨我们了，我们可能身处#{bold}#任何地方#{normal}#！
 死吧！]], "_t")
 
 ------------------------------------------------
