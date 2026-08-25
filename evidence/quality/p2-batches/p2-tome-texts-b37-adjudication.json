@@ -1,0 +1,86 @@
+{
+ "schema_version": 1,
+ "task_id": "p2-tome-texts-b37-001",
+ "component": "tome",
+ "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "workset": "evidence/quality/p2-batches/p2-tome-texts-b37-lore-arena-dreadfell.json",
+ "sections": [
+  "mod-tome/data/lore/arena.lua",
+  "mod-tome/data/lore/blighted-ruins.lua",
+  "mod-tome/data/lore/daikara.lua",
+  "mod-tome/data/lore/derth.lua",
+  "mod-tome/data/lore/dreadfell.lua"
+ ],
+ "collateral_section": "mod-tome/data/zones/dreadfell/objects.lua (one line, conditionally authorised by SPEC)",
+ "the_master_adjudication": {
+  "rule_applied": "b32 established that the Dreadfell Master is 领主 as a character (entity name t(\"The Master\",\"领主\",\"entity name\")) while 主人 expresses the ownership relation; b27 requires deciding per occurrence",
+  "before": "the window used 主人 twelve times and 领主 zero",
+  "after": "领主 x10 for character references - the note and letter labels, the three signatures, 'slain master', and the staff taken from his dead hands; 主人 x4 retained where he addresses his minions as their master and commander",
+  "verse": "the parallel epithets in the chalked poem were kept as rhetorical roles rather than treated as the entity name - apposition, not naming",
+  "review_outcome": "passed review in full; no finding raised against any Master decision"
+ },
+ "conditional_collateral": {
+  "line": "mod-tome.lua:38385 t(\"a letter from the Master\", ... , \"entity name\")",
+  "trigger": "the in-window letter labels changed to 领主, so leaving this sibling item name as 主人的信 would have split a previously consistent set",
+  "verified": "exactly one line changed in that section; no other content touched"
+ },
+ "review": {
+  "contract": "translation_contextual_v1",
+  "dispatch": "ctx-01",
+  "candidate_identity": "aa61fcad103182087d9862c19499c79a0683d86f238f297ffb33ac9ee9d1feec",
+  "revisions_total": 47,
+  "observations_ok": 42,
+  "findings": {
+   "class": "the Cornac race was dropped from five expedition journal headers",
+   "ids": [
+    "b37-12-daikara",
+    "b37-14-daikara",
+    "b37-15-daikara",
+    "b37-18-daikara",
+    "b37-20-daikara"
+   ],
+   "host_adjudication": "confirmed",
+   "ground": "the journal headers follow a single name-race-class format, honoured for two of the four members: Sodelost, Dwarf Rogue renders 矮人盗贼 and Xann, Shaloren Wyrmic renders 永恒精灵龙战士. The five Relle and Gorran headers gave only rank and class. Verified mechanically against the frozen workset, including that the apparent race word in the first Relle entry is a body mention rather than part of the header. The dropped fact is load-bearing: two of the four being Cornac is what makes the dwarf's and the elf's otherness legible in the entries that follow",
+   "resolution": "科纳克人 restored across all five, compounded as the sibling headers are (科纳克人战士, 科纳克人弓箭手)",
+   "terminology": "creatures.tsv Cornac=科纳克人 (T.PN.RACE); corpus carries 科纳克 20 times"
+  }
+ },
+ "other_substantive_repairs": [
+  "Daikara journal agency: who stabbed whom, who took the longsword, who fled - the mutiny account had the actors crossed",
+  "trap mechanics: the pressure plate mixes the reagents in proportion rather than the device being assembled, and the effects are dragonsfire and ice respectively",
+  "a non-lethal incapacitate had become a knockback, and the distress signal to Angolwen was restored",
+  "the Master's disciplinary note: a thousand skeletons dispatched versus two hundred fifty executed, and Kor'Pul already long dead",
+  "a pluralised dwarf count corrected to the single Borfast"
+ ],
+ "declined": [
+  {
+   "item": "a smudged-poem key",
+   "reason": "shared with an out-of-scope objects section; the executor edited it, lint --strict caught the split, and it reverted its own edit and reported rather than editing the other side",
+   "note": "third consecutive batch where this occurred unprompted"
+  }
+ ],
+ "gates": {
+  "five_step": "PASS",
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "runtime_collisions": 0,
+  "diff": "mod-tome.lua 83 insertions / 83 deletions across 49 hunks"
+ },
+ "open_items": [
+  {
+   "item": "Sholtar",
+   "detail": "2 肖塔尔 / 4 肖塔. Host recommends 肖尔塔: syllable-final L conventionally gives 尔, and the sibling kingdoms Cornacs=科纳克 and Mardrop=马卓普 both drop the r-coda. No terminology row exists for any of the three, so adding one would require bumping the 711 assertion",
+   "disposition": "awaiting maintainer confirmation"
+  },
+  {
+   "item": "Atamathon / spellblade",
+   "detail": "傀儡之王 and 魔宗 add relations the English does not carry, but both are governed by entity names",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "data/quests/ scope",
+   "detail": "52 sections / 514 pairs with zero tracked coverage; narrative content never named in the P2 roadmap, which listed only data/chats and data/lore",
+   "disposition": "scoping question for the maintainer"
+  }
+ ]
+}

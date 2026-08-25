@@ -14396,21 +14396,21 @@ Every few rounds, a miniboss round will come. After two miniboss rounds, one out
 #YELLOW#Kill enemies fast to get better scores!
 #YELLOW#Take advantage of the trap at the center of the arena!
 Good luck!
-]], [[#{italic}#你发现了一个上面有着闪光文字的便条……
+]], [[#{italic}#你发现了一张标出了若干重点词语的便条……
 #{bold}#竞技场规则
 
 #{normal}#竞技场的规则很简单。
 在每一波里，大门将打开，并放出一些敌人。当大门关上时，你将得到一些奖励分。
-奖励将会#YELLOW#随着每回合减少 #LAST#，但是#YELLOW#你在这波里杀死的敌人#LAST#，将会增加你的分数。
-当你击败所有敌人时，你将会得到最终分数，即奖励分乘以你的奖励加成。
+奖励分将会#YELLOW#每回合减少 #LAST#，但#YELLOW#此时被你杀死的敌人#LAST#会提高奖励分。
+当你击败所有敌人时，你将获得奖励分乘以奖励倍率所得的分数。
 
-每过一些回合，一个小BOSS会出现与你交战，当你击败2个小BOSS后，四大BOSS之一将出现在你面前。
-#YELLOW#在大门关上前击败所有敌人#LAST#提高你的奖励加成！
-#YELLOW#一次性击杀多个敌人或者强壮的敌人#LAST#取悦观众以提高你的等级！
-#YELLOW#收集金币#LAST#在每回合后提高你的分数并赚取你的资源。
-#YELLOW#更快的杀死敌人以得到更高的分数！
+每隔几轮就会有一轮小头目战。经过两轮小头目战后，四名头目之一将会出现。
+#YELLOW#在大门关上前击杀敌人#LAST#以提高分数倍率！
+#YELLOW#一次击杀多个敌人或非常强大的敌人#LAST#以取悦观众并提高你的等级！
+#YELLOW#收集金币#LAST#以在每轮结束时提高分数并获得更多资源。
+#YELLOW#迅速击杀敌人以获得更高分数！
 #YELLOW#好好利用场地中心的陷阱！
-祝君武运昌隆!
+祝君好运！
 ]], "_t")
 
 ------------------------------------------------
@@ -14418,11 +14418,11 @@ section "mod-tome/data/lore/blighted-ruins.lua"
 
 t("blighted ruins", "荒芜废墟", "newLore category")
 t("note from the Necromancer", "死灵法师的笔记", "_t")
-t("Work on my glorious project has been delayed. This displeases me. The fools from the nearby village are starting to suspect my presence, and have begun guarding their graveyards and cemeteries closely. Whatever meagre remains I can steal away are often too rotted or insubstantial to use for my project, so I have no choice but to use them as sub-par minions instead. Perhaps they will sow enough conflict and discord so that new, fresher remains will become available...", [[我伟大的计划被耽搁了。这真让我不爽。
-	附近村庄里的傻瓜们开始怀疑我来此的目的了，并在墓地周围竖起了防御，其实我从墓地得来的那些残渣早就腐烂不堪了，万般无奈下我只能将它们当做备用品使用，也许让这些家伙的互相猜忌会产生更多新鲜的尸体供我驱使……]], "_t")
-t("The cloak of deception is complete! Truly my finest work, not counting my project of course, it allows my minions to walk amongst the living without arousing their suspicions at all. Already I have taken a stroll to a nearby town alongside a ghoulish thrall, wrapped in the cloak... hah! The fools didn't even bat an eyelid! With this item, acquisition of components for my project shall be all the more simple.", "欺诈斗篷已经完成！这简直是我伟大计划以外的最高杰作，他能使我的仆人们轻易的穿梭于人群而不会引起任何怀疑。我已穿着此袍大摇大摆地裹着一个食尸鬼仆从在周围的一个小镇晃荡了一圈, 镇里的傻瓜们眼皮都不抬一下! 有了这件袍子，我计划所需的材料真是太容易获得了……", "_t")
-t("Fate smiles upon me. What did I come across today but the body of an unfortunate %s? Unfortunate indeed, but rather fortunate for me. The body displays next to no decomposition... it shall be perfect! With this new minion and the cloak of deception, the completion of my project is all but assured. I must prepare for the ritual... my dark menagerie shall soon have a new member.", "命运女神向我微笑，我今天发现了一具%s倒霉鬼的尸体？这个彻头彻尾的倒霉鬼却是我命中的福星。他的尸体几乎没有腐烂……真是完美！有了这个新仆从和欺诈斗篷，吾的计划几乎十拿九稳了。我必须尽快开始准备仪式……我的黑暗兽群很快又将加入一名新成员。", "tformat")
-t("My masterpiece walks! It is glorious, beautiful. While it remains unfinished, it is finished enough to serve in its purpose of protecting my lair. No would-be hero will be able to defeat it, and once it is complete it will be nigh invulnerable! Now all that remains is to animate my newest minion and bend it to my will... then they'll see. They'll ALL see. What can possibly stop me now, I ask? What?!", "我的大师之作！它闪耀着荣光，真是美极了。虽然它还没有全部完成，但却足以保护我的巢穴。绝对没有任何英雄能击败它，当它成为完全体时就是无敌的存在啊，那时我将成为世界之主，谁能挡我，我大吼三声谁来斩我！哇哈哈！", "_t")
+t("Work on my glorious project has been delayed. This displeases me. The fools from the nearby village are starting to suspect my presence, and have begun guarding their graveyards and cemeteries closely. Whatever meagre remains I can steal away are often too rotted or insubstantial to use for my project, so I have no choice but to use them as sub-par minions instead. Perhaps they will sow enough conflict and discord so that new, fresher remains will become available...", [[我伟大的计划被耽搁了。这令我很不悦。
+	附近村庄里的傻瓜开始怀疑我的存在，严密守卫起他们的坟地和墓园。我能偷走的少量遗骸往往腐烂得太厉害或残缺得无法用于计划，因此只得把它们制成次等仆从。或许这些仆从能制造足够多的冲突和混乱，让我得到更新鲜的遗骸……]], "_t")
+t("The cloak of deception is complete! Truly my finest work, not counting my project of course, it allows my minions to walk amongst the living without arousing their suspicions at all. Already I have taken a stroll to a nearby town alongside a ghoulish thrall, wrapped in the cloak... hah! The fools didn't even bat an eyelid! With this item, acquisition of components for my project shall be all the more simple.", "欺诈斗篷已经完成！当然不算我的计划，这确实是我最杰出的作品。它能让我的仆从行走于活人之间而不引起丝毫怀疑。我已经带着一名裹在斗篷里的食尸鬼奴仆到附近城镇散过步了……哈！那些傻瓜连眼皮都没抬一下！有了这件物品，取得计划所需的材料就简单多了。", "_t")
+t("Fate smiles upon me. What did I come across today but the body of an unfortunate %s? Unfortunate indeed, but rather fortunate for me. The body displays next to no decomposition... it shall be perfect! With this new minion and the cloak of deception, the completion of my project is all but assured. I must prepare for the ritual... my dark menagerie shall soon have a new member.", "命运向我微笑。今天我竟遇上了一具倒霉的%s的尸体。对其而言确实不幸，对我而言却相当幸运。这具尸体几乎没有腐烂……它再完美不过！有了这名新仆从和欺诈斗篷，我的计划几乎必定能够完成。我必须准备仪式……我的黑暗兽群很快就会迎来新成员。", "tformat")
+t("My masterpiece walks! It is glorious, beautiful. While it remains unfinished, it is finished enough to serve in its purpose of protecting my lair. No would-be hero will be able to defeat it, and once it is complete it will be nigh invulnerable! Now all that remains is to animate my newest minion and bend it to my will... then they'll see. They'll ALL see. What can possibly stop me now, I ask? What?!", "我的杰作走起来了！它壮丽而美妙。虽然尚未彻底完成，却已经足以履行守卫我巢穴的使命。没有哪个自诩英雄的人能够击败它；等到它完全完成，更将近乎无敌！现在只剩唤醒我最新的仆从、使其屈从于我的意志……到时他们就会明白。他们全都会明白。我倒要问，如今还有什么能阻止我？什么？！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/daikara.lua"
@@ -14430,42 +14430,42 @@ section "mod-tome/data/lore/daikara.lua"
 t("daikara", "岱卡拉", "newLore category")
 t("expedition journal entry (daikara)", "探险队日记（岱卡拉）", "_t")
 t([[#{bold}#Relle, Cornac Fighter & Expedition Captain#{normal}#
-Nothing but hatchlings so far. Honestly, if this keeps up we won't have enough dragonhide to cover a dragon, let alone cover our losses. I've really spared no expense this time as well: Gorran is one of the finest rangers I know, and Sodelost... his prices are exorbitant, but then what else would you expect from those money-grubbing dwarven Thronesmen? I must admit I don't know much about Xann. The locals say there's no finer wyrmic in the area, and I admit she is something special in combat. Now, if only she could turn her draconic talents to FINDING some dragons!]], [[#{bold}#探险队队长，战士瑞丽#{normal}#
-到现在为止，到手的都是幼龙。老实说，如果这种情况继续下去，我们都凑不够一条龙的龙皮，更别说弥补我们的损失了。这次我可要倾家荡产了：高岚是我所知道的最棒的寻林客之一，而苏达罗斯特……他要价太高了，但这些矮人王的部下财迷心窍也不是一天两天了。我确实不是很了解希安。当地人称她为这个区域里首屈一指的龙战士，这家伙打架确实有一手。但她要是在猎龙方面也如此出色的话，我就别无他求了！]], "_t")
+Nothing but hatchlings so far. Honestly, if this keeps up we won't have enough dragonhide to cover a dragon, let alone cover our losses. I've really spared no expense this time as well: Gorran is one of the finest rangers I know, and Sodelost... his prices are exorbitant, but then what else would you expect from those money-grubbing dwarven Thronesmen? I must admit I don't know much about Xann. The locals say there's no finer wyrmic in the area, and I admit she is something special in combat. Now, if only she could turn her draconic talents to FINDING some dragons!]], [[#{bold}#探险队队长，科纳克人战士瑞丽#{normal}#
+到目前为止只遇上了幼龙。老实说，照这样下去，我们得到的龙皮连一条龙都盖不住，更别说弥补损失了。这次我也确实不惜血本：高岚是我认识的最优秀的巡林客之一；至于苏达罗斯特……他的要价高得离谱，不过钢铁王座那群贪财的矮人还能是什么样？我得承认，自己并不了解希安。当地人说这一带没有比她更出色的龙战士，而她在战斗中确实不同凡响。现在只盼她能把操控龙族力量的本事用来找出几条龙！]], "_t")
 t([[#{bold}#Sodelost, Dwarf Rogue#{normal}#
 Can't believe I agreed to this expedition. I suppose it's because I've known Relle for a while. We've crossed paths many times at Derth's trading post. I even gave her a special rate for my services. Sentimental fool! All it's got me is boots filled with snow and a light coinpurse. I still don't understand why these Kingdom types are so enamoured with drakeskin... makes superior armour they say. Pah! If you can't handle metal armour, what business do you have even wearing armour? Leather has about as much use as a halfling tied to a... noises up ahead, must stop writing.]], [[#{bold}#矮人盗贼，苏达罗斯特#{normal}#
-不敢相信我居然同意了这次探险，也许是因为我和瑞丽相熟的缘故吧。我们多次在德斯的交易站打过照面。她还拥有我的特殊折扣券。多愁善感的我真是愚蠢啊！现在落得口袋空空、满靴积雪的下场……这些皇子皇孙们咋就这么钟爱龙皮…… 听说这玩意能做很好的盔甲？靠！你要是穿不了金属铠甲，干嘛还穿个毛线盔甲啊？皮能给你带来的保护就像半身人尝试……上面好吵，先搁笔了。]], "_t")
+真不敢相信我居然答应参加这次远征。大概是因为我和瑞丽相识已久吧。我们曾多次在德斯镇的贸易站碰面，我甚至还给她的雇佣费打了折。多愁善感的蠢货！结果只换来满靴子的雪和空瘪的钱袋。我还是不明白联合王国那些人为什么如此迷恋飞龙皮……他们说能制成上好的护甲。呸！连金属护甲都承受不了，还有什么资格穿护甲？皮革的用处就跟一个被绑在……前面有动静，得停笔了。]], "_t")
 t([[#{bold}#Gorran, Cornac Archer#{normal}#
-That snake. That addlepated beardling. That coin-hounding, blackhearted, stump-kneed dwarf! A scout he calls himself! The finest eyes of the Iron Throne, able to read the sign of the tavern in Last Hope from the tavern in Derth! Surely someone with such grandiose praise for his own eyesight would have spotted that cold drake waiting in ambush for us! Damnable thing, I'll be lucky if I can ever use my left arm again. I can't use my bow now ... I'm effectively dead wood to the team. I'm beginning to think that Sodelost has ulterior motives... I wouldn't put it past a dwarf to lead us up this forsaken mountain to die just so he could rifle through our pockets! I keep telling Relle, but she won't listen. The fool...]], [[#{bold}#弓箭手，高岚#{normal}#
-这个贼眉鼠眼的恶棍，财迷心窍的混蛋，黑心黑肺黑肚肠的小人，满脸胡须的蠢材，行动迟缓的矮子！他还有脸说自己是个哨兵，你就是个烧饼！钢铁王座最好的眼线，能一眼看穿从德斯到最后的希望发生的所有事情! 嘴上吹的这么牛，眼力劲这么好，你丫的就不能发现埋伏我们的冰龙吗。无能的白痴，老子手臂以后还能用就谢天谢地了。该死的，现在我连弓都拉不开了……我现在就是个废物…… 这家伙是不是心怀鬼胎，想在这鬼地方整死我，好掏空我的口袋，洗劫我的尸体，我早就告诫过瑞丽，这傻女人就是不听……]], "_t")
+That snake. That addlepated beardling. That coin-hounding, blackhearted, stump-kneed dwarf! A scout he calls himself! The finest eyes of the Iron Throne, able to read the sign of the tavern in Last Hope from the tavern in Derth! Surely someone with such grandiose praise for his own eyesight would have spotted that cold drake waiting in ambush for us! Damnable thing, I'll be lucky if I can ever use my left arm again. I can't use my bow now ... I'm effectively dead wood to the team. I'm beginning to think that Sodelost has ulterior motives... I wouldn't put it past a dwarf to lead us up this forsaken mountain to die just so he could rifle through our pockets! I keep telling Relle, but she won't listen. The fool...]], [[#{bold}#科纳克人弓箭手，高岚#{normal}#
+那个毒蛇。那个没脑子的毛脸小子。那个追着钱跑、心肠漆黑、短腿跛脚的矮人！还自称斥候！还说自己是钢铁王座眼力最好的家伙，坐在德斯镇的酒馆里就能看清最后的希望城酒馆的招牌！如此夸耀自己视力的人，理应发现那条等着伏击我们的寒冰飞龙才对！该死的东西，我这辈子还能用左臂就算走运了。现在我拉不了弓……对队伍而言简直成了废物。我开始怀疑苏达罗斯特另有所图……矮人为了翻我们的口袋，故意把我们领上这座鬼山送死，也不是做不出来！我一再提醒瑞丽，她却听不进去。这个蠢货……]], "_t")
 t([[#{bold}#Relle, Cornac Fighter & Expedition Captain#{normal}#
-Sodelost is dead, and so is Gorran. The former by Gorran's hand, the latter by my hand. Even in these wastes I cannot abide such an act of mutiny. I was aware of Gorran's anger ever since the drake attack, but I never dreamed he would turn on Sodelost like he did. He had taken my longsword as I slept the previous night, strode up to Sodelost, unheeding of I and Xann watching him, ran him through and laughed. Simply laughed. There was nothing for it; I wrenched my sword from his hand and brought it down on his neck. The commotion seems to have stirred up a nearby drake's nest, and now I fear we don't have the strength to repel a concentrated attack. We may have to abandon this expedition.]], [[#{bold}#探险队队长，战士瑞丽#{normal}#
-苏达罗斯特已经死了，高岚步了他的后尘。高岚干掉了前者，我则搞定了后者。就算是损兵折将，我也绝不能容忍这样的背叛。在飞龙突袭我们后，我就开始提防高岚，防止他在背后捅刀子，但他居然真的对苏达罗斯特下了手。这家伙趁夜色偷走了我的长剑并一路奔向苏达罗斯特，完全没有留意我和希安笑着对他一路尾随。可笑的蠢材，我一把扭住他的手，夺回我的剑并在他脖子上留了一道深深的口子。 这场暴乱似乎惊动了附近的一个飞龙巢，这可不妙，恐怕我们现在完全无法反抗成群飞龙的侵袭。这次冒险看来要就此结束了。]], "_t")
+Sodelost is dead, and so is Gorran. The former by Gorran's hand, the latter by my hand. Even in these wastes I cannot abide such an act of mutiny. I was aware of Gorran's anger ever since the drake attack, but I never dreamed he would turn on Sodelost like he did. He had taken my longsword as I slept the previous night, strode up to Sodelost, unheeding of I and Xann watching him, ran him through and laughed. Simply laughed. There was nothing for it; I wrenched my sword from his hand and brought it down on his neck. The commotion seems to have stirred up a nearby drake's nest, and now I fear we don't have the strength to repel a concentrated attack. We may have to abandon this expedition.]], [[#{bold}#探险队队长，科纳克人战士瑞丽#{normal}#
+苏达罗斯特死了，高岚也死了。前者死于高岚之手，后者死于我手。即便身处这片荒野，我也不能容忍这种叛乱行为。自从飞龙袭击后，我就知道高岚心怀愤怒，却从未想到他会那样袭击苏达罗斯特。前一晚我熟睡时，他拿走了我的长剑，径直走到苏达罗斯特面前，丝毫不顾我和希安就在一旁看着，一剑将他刺穿，然后放声大笑。只是笑个不停。我别无选择，只得从他手中夺回长剑，挥剑斩向他的脖颈。这场骚乱似乎惊动了附近的飞龙巢，如今我担心我们已无力抵挡它们的集中进攻。我们或许只能放弃这次远征。]], "_t")
 t([[#{bold}#Xann, Shaloren Wyrmic#{normal}# (This entry was scrawled by an unsteady hand)
 #{italic}#impudent fools treading upon dragon's ground. slaying my dear kin just for their skin they will pay they will pay. i called the drake, told it to be cunning, avoid the dwarf's gaze. i laughed as it bit into that ranger's arm ahaahaa. they're killing each other now, simple creatures, simple soft skinned creatures. not like dragons, so perfect, symbols of power, perfection... their captain still lives, but not for long. i will bring her to you to feast.
 
-rantha i will see you soon#{normal}#]], [[#{bold}#永恒精灵龙战士，希安#{normal}# (便条由颤抖的手潦草涂鸦而成)
-#{italic}#愚蠢的家伙，你们竟敢踏入龙的领地，残害我们的子孙，剥取他们的皮毛，你们会付出代价的，惨痛的代价。我唤来了飞龙，亲授一条狡猾的计策，让它避开矮人的巡视，当它一口咬住猎人的手臂时我大笑不止。这些蠢货肯定会自相残杀，单纯的生物，单纯的软皮生物，他们有哪点比的上我们龙类，我们是这么完美，简直就是美与力量的象征……他们的领队还活蹦乱跳着，等过一会我就会请她参加我的宴会——作为主菜，哦哈哈哈！
+rantha i will see you soon#{normal}#]], [[#{bold}#永恒精灵龙战士，希安#{normal}#（这篇日记由一只颤抖的手潦草写成）
+#{italic}#狂妄的蠢货踏上龙族的土地。只为取皮便杀害我亲爱的同族，他们会付出代价，他们会付出代价。我召来那条飞龙，叫它机灵些，避开矮人的目光。当它咬住那个巡林客的手臂时，我笑了，啊哈哈。他们现在正自相残杀，简单的生物，简单的软皮生物。不像龙，龙如此完美，是力量与完美的象征……他们的队长还活着，但活不了多久。我会把她带给你享用。
 
-兰莎，一会见#{normal}#]], "_t")
+兰莎，我很快就会见到你#{normal}#]], "_t")
 t("Dragonsfire Trap", "龙火陷阱", "_t")
 t([[#{bold}#Relle, Cornac Fighter and Expedition Leader#{normal}#
 It knows we're here.  Xann's gone, and I have to assume the worst.  Too late to run.  One option left, a contraption Sodelost ensured us he'd be able to use to get the kill...  shame he didn't leave instructions behind with it, it's unclear how to arm it, and I don't want to add "being charred to a crisp" to my list of troubles today.
 I might not know a great deal about artifice, but I know how wild animals work, and for all the praise they get, dragons are no better.  I don't need to know how to rig this device so it goes off when the beast steps on it - I just need to put it inside something it'll eat whole...
-#{italic}#Judging from this note's intact state and delicate placement next to a sack covered in assorted animal viscera, the dragon not only avoided setting off the trap, but has kept it as a trophy.  Inside the sack is a disarmed trap featuring a few recognizable alchemical flasks, and a means of mixing them in the right proportion when a pressure plate is triggered to produce a blast of dragonsfire. Figuring out how to arm it is almost as easy as figuring out how to make more traps like it.#{normal}#]], [[#{bold}#探险队队长，战士瑞丽#{normal}#
-那些龙知道我们在这里。希安自己一个人跑了，我必须承担最坏的情况。逃跑已经来不及了，只剩下一个选择了，苏达罗斯特曾经跟我们说过这个小东西可以保证可以杀掉……该死，可惜他根本没留下说明书，我根本不知道该怎么用这玩意儿，而我可不想在今天遇到的这么多麻烦中间再加上“被烤焦”一项。
+#{italic}#Judging from this note's intact state and delicate placement next to a sack covered in assorted animal viscera, the dragon not only avoided setting off the trap, but has kept it as a trophy.  Inside the sack is a disarmed trap featuring a few recognizable alchemical flasks, and a means of mixing them in the right proportion when a pressure plate is triggered to produce a blast of dragonsfire. Figuring out how to arm it is almost as easy as figuring out how to make more traps like it.#{normal}#]], [[#{bold}#探险队队长，科纳克人战士瑞丽#{normal}#
+那条龙知道我们在这里。希安失踪了，我只能作最坏的打算。逃跑已经太迟。只剩一个选择：苏达罗斯特向我们保证，他能用这套装置杀死那条龙……可惜他没把说明留在装置旁边，没人知道该如何启动它，而我可不想让今天的麻烦清单再多出“被烧成焦炭”这一项。
 
-我可能不太了解机关装置的原理，但我知道怎么对付野生动物。尽管人们都说龙很厉害，但我可不觉得他们能比动物强多少。我不需要知道具体怎么组装这个装置才能让它在动物踩上去的时候启动——我只要把它放到什么东西里面，等到龙把它一口吞下的时候……
-#{italic}#从这张纸条毫无破损的完整状态，以及它正处在一个装满动物内脏的袋子旁边这一微妙的位置来看，龙不仅避免了陷阱，而且还把这个东西收藏起来作为战利品。袋中装着一个已解除的陷阱，里面依稀可以辨认出一些炼金瓶子。当压力板被触发的时候，这些炼金材料可以混合起来，产生一股龙火的爆炸。你可以很容易地搞清楚如何组装和制造更多这样的陷阱。#{normal}#]], "_t")
+我或许不太懂机关术，却知道野兽会怎么做。龙尽管备受赞颂，在这一点上也不比其他野兽高明。我无需知道怎样把装置设成野兽踩中时触发——只须将它放进某种会被一口吞下的东西里……
+#{italic}#从纸条完好无损的状态，以及它被小心摆放在一个沾满各种动物内脏的袋子旁边来看，那条龙不仅没有触发陷阱，还把它当作战利品收藏了起来。袋中有一个已解除的陷阱，装有几只尚能辨认的炼金药瓶；压力板触发时，机关会按正确比例混合其中的药剂，爆发出龙火。弄清如何启动它，几乎与弄清如何制作更多同类陷阱一样简单。#{normal}#]], "_t")
 t("Freezing Trap", "冰冻陷阱", "_t")
 t([[#{bold}#Relle, Cornac Fighter and Expedition Leader#{normal}#
 It knows we're here.  Xann's gone, and I have to assume the worst.  Too late to run.  One option left, a contraption Sodelost ensured us he'd be able to use to get the kill...  shame he didn't leave instructions behind with it, it's unclear how to arm it, and I don't want to add "being frozen solid" to my list of troubles today.
 I might not know a great deal about artifice, but I know how wild animals work, and for all the praise they get, dragons are no better.  I don't need to know how to rig this device so it goes off when the beast steps on it - I just need to put it inside something it'll eat whole...
-#{italic}#Judging from this note's intact state and delicate placement next to a sack covered in assorted animal viscera, the dragon not only avoided setting off the trap, but has kept it as a trophy.  Inside the sack is a disarmed trap featuring a few recognizable alchemical flasks, and a means of mixing them in the right proportion when a pressure plate is triggered to produce a blast of ice. Figuring out how to arm it is almost as easy as figuring out how to make more traps like it.#{normal}#]], [[#{bold}#探险队队长，战士瑞丽#{normal}#
-那些龙知道我们在这里。希安自己一个人跑了，我必须承担最坏的情况。逃跑已经来不及了，只剩下一个选择了，苏达罗斯特曾经跟我们说过这个小东西可以保证可以杀掉……该死，可惜他根本没留下说明书，我根本不知道该怎么用这玩意儿，而我可不想在今天遇到的这么多麻烦中间再加上“被冻僵”一项。
+#{italic}#Judging from this note's intact state and delicate placement next to a sack covered in assorted animal viscera, the dragon not only avoided setting off the trap, but has kept it as a trophy.  Inside the sack is a disarmed trap featuring a few recognizable alchemical flasks, and a means of mixing them in the right proportion when a pressure plate is triggered to produce a blast of ice. Figuring out how to arm it is almost as easy as figuring out how to make more traps like it.#{normal}#]], [[#{bold}#探险队队长，科纳克人战士瑞丽#{normal}#
+那条龙知道我们在这里。希安失踪了，我只能作最坏的打算。逃跑已经太迟。只剩一个选择：苏达罗斯特向我们保证，他能用这套装置杀死那条龙……可惜他没把说明留在装置旁边，没人知道该如何启动它，而我可不想让今天的麻烦清单再多出“被彻底冻住”这一项。
 
-我可能不太了解机关装置的原理，但我知道怎么对付野生动物。尽管人们都说龙很厉害，但我可不觉得他们能比动物强多少。我不需要知道具体怎么组装这个装置才能让它在动物踩上去的时候启动——我只要把它放到什么东西里面，等到龙把它一口吞下的时候……
-#{italic}#从这张纸条毫无破损的完整状态，以及它正处在一个装满动物内脏的袋子旁边这一微妙的位置来看，龙不仅避免了陷阱，而且还把这个东西收藏起来作为战利品。袋中装着一个已解除的陷阱，里面依稀可以辨认出一些炼金瓶子。当压力板被触发的时候，这些炼金材料可以混合起来，产生一团极冷的冷气。你可以很容易地搞清楚如何组装和制造更多这样的陷阱。#{normal}#]], "_t")
+我或许不太懂机关术，却知道野兽会怎么做。龙尽管备受赞颂，在这一点上也不比其他野兽高明。我无需知道怎样把装置设成野兽踩中时触发——只须将它放进某种会被一口吞下的东西里……
+#{italic}#从纸条完好无损的状态，以及它被小心摆放在一个沾满各种动物内脏的袋子旁边来看，那条龙不仅没有触发陷阱，还把它当作战利品收藏了起来。袋中有一个已解除的陷阱，装有几只尚能辨认的炼金药瓶；压力板触发时，机关会按正确比例混合其中的药剂，爆发出寒冰。弄清如何启动它，几乎与弄清如何制作更多同类陷阱一样简单。#{normal}#]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/derth.lua"
@@ -14476,44 +14476,44 @@ t([[#{italic}#A villager runs up to you, carrying a hefty looking sack.#{normal}
 You've saved us from the storms!  We can't ever repay you enough, but, well...  Shortly after you stopped them, a witch approached us and offered us some...  magical #{italic}#things#{normal}# and said they would protect our town if anything like that happened again.
 It's not that I don't trust her, not after you and they - mostly you! - saved us, but...  I just don't feel comfortable having all this arcane stuff around us all the time.  None of us do.  If you've got a use for these, you're more than welcome to them.
 #{italic}#He hands you a sack, containing a few dozen of the same strange magical object; included is a guide to using them and producing more, written for users completely inexperienced with magic.  Apparently, they're designed to be mounted on walls and rooftops, and will try to non-lethally incapacitate outside invaders while sending a message of distress to Angolwen.  With a few tweaks, you can make them deadly instead (and avoid harassing Angolwen while you're at it).#{normal}#]], [[#{italic}#一个村民向你跑来，手里拿着一个沉甸甸的麻袋。#{normal}#
-你从风暴中救了我们！你的恩情我们无以为报，不过，正好…在你阻止了风暴之后，一个女巫到我们这里来，给了我们一些…有魔法的#{italic}#东西#{normal}#。她说，如果这种事情再发生的话，它们就会保护我们的城镇。
-这可不是我不信任她，更何况你和他们——主要是你的功劳！——你们救了我，但是…我总觉得在我们周围放着这些奥术魔法的东西让我们感到有些不舒服。我们都是这么想的。如果你能更好地利用这些东西，那么请你好好收下它们吧。
-#{italic}#他递给你一个麻袋，里面装着几十个一模一样的奇怪的魔法物品。里面还包含了有关如何使用和制造它们的说明，说明清晰易懂，不会魔法的人也能理解。显然，它们是用来安装在墙上或者屋顶上，会自动用非致命的手段击退入侵者，并向安格利文报告这里遇到危险的信息。通过一些调整，你可以让它们变得更加致命（而且你使用它们的时候也不会骚扰到安格利文的人了）。#{normal}#]], "_t")
+你从风暴中救了我们！你的恩情我们永远无法报答，不过，这个……你阻止风暴后不久，一位女巫来找我们，送来了一些……有魔法的#{italic}#东西#{normal}#，说如果再发生类似的事，它们就能保护我们的城镇。
+并不是我不信任她——毕竟你和他们，主要是你！救了我们——只是……总让这些奥术物品待在身边，我实在觉得不自在。大家都这么想。如果你用得上，尽管拿走便是。
+#{italic}#他递给你一个麻袋，里面装着几十个一模一样的奇怪魔法物品；袋中还附有使用和制作更多同类物品的指南，专门写给毫无魔法经验的人。它们显然是为安装在墙壁和屋顶上而设计的，会尝试以非致命方式制服外来入侵者，同时向安格利文发送求救讯息。稍作调整，你便能让它们改为致命攻击（同时也不会再去惊扰安格利文）。#{normal}#]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/dreadfell.lua"
 
 t("dreadfell", "恐惧王座", "newLore category")
-t("note from the Master", "主人的笔记", "_t")
+t("note from the Master", "领主的笔记", "_t")
 t([[MINIONS: Perhaps you feel your Master has been lax or absent? Well, I shall amend that. I have been studying an object of great import. It is of much greater interest than your foolish unlives. But do not think that I will let you get away with things because of this.
 
-Skeletons, you have been getting noticeably behind in your adventurer slaughtering quotas. The next skeleton archer I see drinking coffee and chatting with the wights shall be rent limb from limb and fed to the orcs. Also, as a punishment for your general laxness, 1,000 skeletons shall be remanded down to Kor'Pul as punishment. A further 250 shall be slaughtered. These orders to be carried out by myself tomorrow at 3am.]], [[奴才们：也许汝等觉得吾最近松懈了？是啊，吾会改进这点。最近吾一直醉心于研究一个重要的项目，它给吾带来的好处可比汝等这些不死废物要大多了。但汝等可不要指望能因此而偷懒。
+Skeletons, you have been getting noticeably behind in your adventurer slaughtering quotas. The next skeleton archer I see drinking coffee and chatting with the wights shall be rent limb from limb and fed to the orcs. Also, as a punishment for your general laxness, 1,000 skeletons shall be remanded down to Kor'Pul as punishment. A further 250 shall be slaughtered. These orders to be carried out by myself tomorrow at 3am.]], [[奴才们：汝等也许觉得自己的主人近来懈怠或不见踪影？好吧，吾会纠正这一点。吾一直在研究一件至关重要的物品，它可比汝等愚蠢的不死性命有趣得多。但别以为吾会因此放任汝等胡作非为。
 
-骷髅众，最近你们猎杀冒险者的数量明显落后于指标。下一个被吾看到与尸妖喝咖啡闲聊的骷髅射手，将被撕成碎片拿去喂兽人。作为对汝等普遍懈怠的惩罚，1000个骷髅将被发配到卡·普尔，另有250个骷髅将被屠杀。明早3点，吾将亲自执行这些命令。]], "_t")
+骷髅们，汝等猎杀冒险者的数量已明显落后于指标。吾若再看见哪个骷髅射手边喝咖啡边与尸妖闲聊，就把它撕成碎片喂给兽人。此外，为惩罚汝等普遍的懈怠，吾将把一千名骷髅发配到卡·普尔，另行屠杀二百五十名。明日凌晨三点，吾将亲自执行这些命令。]], "_t")
 t([[MINIONS: Be aware, I your great Master have found an item. It is of extreme power, but not yet complete, at least for my purposes.
 
 All hail your brilliant Master. Would you like to walk in the sun? Would you like to be free to roam green meadows and crush innocent children? Such are my wishes also. The reward to anyone who brings me any item that will help me bend this sta... item to my will shall be stupendous.
 
-Also, any new minions who have magical research skills are wanted. Recruit them and you shall be rewarded. Though if they steal my secrets, your blood will be my wine and your heart my appetizer.]], [[奴才们：注意了，汝等伟大的主人吾发现了一个宝物，它蕴藏着巨大的力量，虽然它并不完整，至少还不够完成吾的宏图大业。
+Also, any new minions who have magical research skills are wanted. Recruit them and you shall be rewarded. Though if they steal my secrets, your blood will be my wine and your heart my appetizer.]], [[奴才们，听好了：吾，汝等伟大的主人，找到了一件物品。它拥有无比强大的力量，但至少对吾的目的而言，还不完整。
 
-赞美汝等英明的主人。汝等想在阳光下行走吗？想自由漫步于青翠草原、碾碎无辜孩童吗？吾亦有此愿。任何能带来物品、帮助吾将这根法……这件宝物纳入掌控者，都将获得惊人的奖赏。
+向汝等英明的主人欢呼吧。汝等想在阳光下行走吗？想自由漫步于青翠草原、碾碎无辜孩童吗？吾亦有此愿。无论是谁，只要带来能帮助吾使这根法……这件物品屈从于吾之意志的东西，便可获得惊人的奖赏。
 
-同时，任何能使用魔法的物种都是我眼中的人才，替吾雇佣他们，而汝亦将被吾嘉奖。但小心了，要是找回来个倒钩泄露了吾的秘密，我就会食汝之肉，饮汝之血，寝汝之皮。]], "_t")
+此外，吾还需要任何具备魔法研究本领的新仆从。招募他们，汝便会得到奖赏。不过，倘若他们偷走吾的秘密，汝之鲜血将成为吾的美酒，汝之心脏将成为吾的开胃菜。]], "_t")
 t([[MINIONS: Perhaps you are minor dens of foulness because you have nothing to aspire to? Perhaps you could be greater if you had a worse example before you? Consider Me! I began my long unlife as a foolish pipsqueak such as yourself. Why, there was a time before I had conquered even a pit let alone a level or a dungeon. Now, behold all that is Mine.
 
-You must have aspirations. I am not content with just the rule of Dreadfell. No, soon I shall have more. Much more. My boots shall tread the surface of the earth! I shall explore and destroy the most beautiful mountains. All shall be mine once I can walk in the sun once more. Where will you be? Do you wish to be more than the wight I stepped on yesterday? I shall need great leaders to guide my armies across the land.]], [[奴才们：汝等是否觉得身为孤魂野鬼而感到前途一片黑暗，汝等是否对未来失去了憧憬，是否对自身失去了信心？也许汝等需要的只是一点点激励，和一个榜样。汝等的榜样就是眼前：汝等伟大的主人！我最初和你们一样是杂兵，其貌不扬，无足轻重，但吾坚持日行一善：坚持不懈的屠杀新手迷宫的探险者，天长日久总算修成正果，雄霸一方了。
+You must have aspirations. I am not content with just the rule of Dreadfell. No, soon I shall have more. Much more. My boots shall tread the surface of the earth! I shall explore and destroy the most beautiful mountains. All shall be mine once I can walk in the sun once more. Where will you be? Do you wish to be more than the wight I stepped on yesterday? I shall need great leaders to guide my armies across the land.]], [[奴才们：汝等之所以只是微不足道的污秽巢穴，莫非是因为没有可追求的目标？若眼前有个更恶劣的榜样，汝等或许便能更加伟大？看看吾！吾开始这漫长的不死生涯时，也曾是汝等这般愚蠢的小角色。吾甚至有过连一个坑洞都未征服的时期，更不必说一层区域或整座地城。如今，看看吾拥有的一切。
 
-做骷髅要有抱负。吾的目标可不光是对恐惧王座的统治而已。不久吾就会拥有更多，更多啊！吾将再次踏足地表，群山将为吾折服，大地将因吾沉陷。而那时的汝等又身居何职，难道那时的汝甘心做一名默默无闻的尸妖而已吗，吾期待汝等之中的杰出精英替我掌管妖鬼大军，一马平川横扫大陆，成就吾千秋霸业啊……]], "_t")
+汝等必须心怀抱负。吾绝不满足于仅仅统治恐惧王座。不，吾很快还会拥有更多，多得多。吾之长靴将踏上地表！吾将探索并摧毁最美丽的群山。待吾能再次行走于阳光下，一切都将归吾所有。那时汝等又会身在何处？汝等是否想比吾昨日踩过的那只尸妖更有出息？吾需要伟大的统帅率领大军横越这片土地。]], "_t")
 t([[MINIONS: You are foolish sods. Have you heard of the great Kor'Pul? Perhaps not, because you know very little and he died long before you were so stupid as to be born. However, he was great and had the chance to be greater still. He let himself be cooped into a small hellhole and was destroyed when the right hero invaded it and destroyed his plaything. Now he is but a mere shade of his former glory.
 
-I shall not make this mistake. Be ready, for soon we shall march out upon the lands. Soon we shall conquer as even he could not. Pity the fool who thinks he can keep me stuck in even the grandest of pits, Dreadfell.]], [[奴才们：愚钝的汝等可曾听过伟大的卡·普尔的故事? 也许没有吧，因为他传奇的时代远在闭塞又狭隘的汝等出生以前。他当时是那样的不可一世的巫妖，并有机会变得更加伟大。但他居然作起了宅男，将自己龟缩在一个小小的迷宫之类，直到一名天命英雄侵入迷宫并摧毁了他的玩物。现在它仅仅是徘徊在自己过去荣光中的阴影而已。
+I shall not make this mistake. Be ready, for soon we shall march out upon the lands. Soon we shall conquer as even he could not. Pity the fool who thinks he can keep me stuck in even the grandest of pits, Dreadfell.]], [[奴才们：汝等这些蠢货可曾听说过伟大的卡·普尔？或许没有，因为汝等所知甚少，而且早在汝等蠢到降生之前，他便已死去。然而，他的确伟大，并且本有机会变得更加伟大。他任由自己困在一个小小的鬼地方；待合适的英雄闯入其中、毁掉他的玩物，他也随之覆灭。如今，他不过是昔日荣光的一抹残影。
 
-吾绝不能重蹈他的覆辙。磨亮汝等的刀，清空汝等的肚腩，不久汝等将随吾以雷霆万钧之势冲上地表，征服一切。可怜那些以为哪怕是恐惧王座这般宏伟的深坑也能困住吾的蠢货。]], "_t")
+吾绝不会犯下同样的错误。做好准备，我们很快就将进军地表。我们很快就会完成连他都未能做到的征服。竟有蠢货以为即便是恐惧王座这般宏伟的深坑也能困住吾，真是可悲。]], "_t")
 t([[MINIONS: To my newest vampire: burn, foolish adventurer, burn! I bet you are sorry for that flame spell now, aren't you? Suffer as I revisit it upon you.
 
-To the rest of you, there will be punishment. An adventurer got down to my bedroom and surprised me. I, Myself, was hurt and almost had to use My special power. All is well now and I am as dangerous as ever, but you shall suffer for letting him get so low. The next minion I see shall be toasted with my marshmallows. Where then were the special pits of doom I organized? Where were the poisons of my wights or the diseases of my ghouls? Indeed, I should slaughter all of you, and I would, but those who were most foully remiss were already slaughtered by the adventurer. The rest of you? Beware My wrath.]], [[奴才们，致吾新来的吸血鬼：燃烧吧，愚蠢的冒险者，燃烧吧！现在你一定后悔无礼对我释放这法术了吧？在你自己的魔法烈焰里被烧成灰烬吧。
+To the rest of you, there will be punishment. An adventurer got down to my bedroom and surprised me. I, Myself, was hurt and almost had to use My special power. All is well now and I am as dangerous as ever, but you shall suffer for letting him get so low. The next minion I see shall be toasted with my marshmallows. Where then were the special pits of doom I organized? Where were the poisons of my wights or the diseases of my ghouls? Indeed, I should slaughter all of you, and I would, but those who were most foully remiss were already slaughtered by the adventurer. The rest of you? Beware My wrath.]], [[奴才们，致吾最新的吸血鬼：燃烧吧，愚蠢的冒险者，燃烧吧！如今汝定然后悔施放那道火焰法术了，是不是？吾将那火焰还施于汝，好好受苦吧。
 
-至于汝等，汝等居然让一个冒险者冲到了吾的寝宫来吓了吾一跳，汝等将接受惩罚。而吾不但受惊了还差点被迫动用了吾的特殊能力。虽然吾一如既往的强大不可战胜，但汝等将要承担放他到如此深入的责任，下一个让吾看到的家伙，将被吾做成棉花糖。尸鬼汝的毒液喷吐哪，鬼魂汝的疾病之触哪，吾费尽心血组建的禁卫队哪，简直是一堆废物。奇耻大辱啊，吾真想把汝等全都碾成碎片，虽然汝等中最渣的一部分已被那个冒险者摧毁，但余下的家伙，小心吾的震怒。]], "_t")
+至于其余奴才，惩罚必不可少。一个冒险者一路闯到吾的寝室，令吾措手不及。吾，吾本人，受了伤，几乎不得不动用吾的特殊力量。如今一切无恙，吾仍像以往一样危险；但汝等放任他深入至此，必将为之受罚。吾接下来见到的仆从，将会和吾的棉花糖一起被烤熟。吾布置的特殊毁灭陷坑当时在哪里？吾的尸妖之毒在哪里？吾的食尸鬼所施疾病又在哪里？吾的确应该把汝等尽数屠杀，而且吾本会如此；可渎职最为严重的那些废物，已经被那冒险者杀掉了。至于剩下的汝等？小心吾之震怒。]], "_t")
 t("A smudged poem chalked on a dark piece of slate", "一首写在石板上的被弄脏的诗歌", "_t")
 t([[Master of life, Master of death,
 All fall to a word
@@ -14532,20 +14532,20 @@ Dare not oppose him
 Or your blood will spill!
 
 Master of shadows beyond mortal thought,
-Against undying death all are as naught.]], [[他是生命之主，死亡之主，
-一切生灵都将在他的恐怖呼吸中消亡！
+Against undying death all are as naught.]], [[生命之主，死亡之主，
+他可怕吐息的一句话便令万物尽皆臣服！
 
-他是众仆之主，钢铁之主，
-无人能理解他对暴虐的狂热！
+法杖之主，钢铁之主，
+无人能够抵挡他冷酷无情的狂热！
 
-他是魔法之主，火焰之主，
-怜悯那些挑动他心火的人！
+魔法之主，火焰之主，
+可怜那竟敢激起他盛怒的蠢货！
 
-他是力量之主，法力之主，
-违抗他者必将血溅当场！
+力量之主，意志之主，
+莫敢与他为敌，否则必将血流满地！
 
-他是暗影之主远非凡人可知，
-挑战永恒死亡之人必将灰飞烟灭。]], "_t")
+暗影之主，远超凡俗思量，
+面对不朽之死，万物皆如虚妄。]], "_t")
 t("A poem written in scribbled, child-like writing", "像小孩子写的潦草诗歌", "_t")
 t([[Me like Master,
 He's a real laster,
@@ -14567,14 +14567,14 @@ Alabaster... raster... pastor? Grr, need more brains...]], [[我爱我主
 t("A poem written in an elegant Gothic script", "高雅的哥特体诗歌", "_t")
 t([[No staff will save thee
 Against the blindness of pride
-Death will catch thee up]], [[高傲的无知者
-没人能拯救你的性命
-死亡终将追上你]], "_t")
-t("a note about undead poetry from the Master", "主人关于不死诗歌的笔记", "_t")
+Death will catch thee up]], [[没有法杖能救汝
+摆脱傲慢的蒙蔽
+死亡终将追上汝]], "_t")
+t("a note about undead poetry from the Master", "领主关于不死诗歌的笔记", "_t")
 t("As an aside, I notice one of my skeletons has amused himself by writing a poem about me. Whilst my first reaction was to have his bones crunched into dust and what remained of his undead soul sent to the darkest depths of the abyss, I do now realise that there is some merit to this. Every great leader needs tales penned of his brilliant conquest. Therefore I now command you all to write more poetry in my honour, praising my amazing powers, unrivalled leadership, unconquerable strength, etc etc. Any that fail to produce works of sufficient standard shall be annihilated.", "说些题外话，今天吾发现吾的一只小骷髅正在自娱自乐地写一首关于吾的诗。吾的第一反应是将它挫骨扬灰，再把它残存的不死灵魂打入深渊最黑暗之处；但吾现在意识到，此事也有可取之处。每个伟大的领导者都需要有人书写其辉煌征服的传奇。故吾现在命令汝等多作诗歌来歌颂吾，赞美吾惊人的力量、无双的领导力、不可征服的强大，诸如此类。作品不合标准者一律消灭。", "_t")
-t("slain master", "杀死主人", "_t")
-t("A powerful staff is grabbed from the Master's dead hands.", "一把从主人手上夺来的强力法杖。", "_t")
-t("a letter to Borfast from the Master", "主人写给波法斯特的信", "_t")
+t("slain master", "被杀的领主", "_t")
+t("A powerful staff is grabbed from the Master's dead hands.", "一根强大的法杖被从领主僵死的双手中夺走。", "_t")
+t("a letter to Borfast from the Master", "领主写给波法斯特的信", "_t")
 t([[Ah, my dear Borfast, welcome to your glorious undeath! Your armour a cage, your hopes despair, your axe enslaved to my will, your soul mine to feast upon. How does it feel? Rather lovely I like to imagine! You were a valiant opponent, and though you were little threat to me I do like to honour you with this special treatment. And you do like honour, don't you? I know you wished to honour your people by defeating me and destroying my tower, but I'm sure you realise now that it was a rather vain endeavour.
 
 I apologise for what happened to that lovely suit of plate. I know it got a little... worn... during the treatment. But I'm afraid I really did need to find out the locations of your companion, and certain pressures had to be applied. You weren't very talkative, now were you? But I soon made you sing, oh yes. Of course, I could have just used a little divination magic to find out what I wanted, but I do so enjoy a good torture... And my, how joyous your screams were whenever the acid splashed against your beard! Hoh, we did chortle, did we not? But no matter, I've had my best skeletal smiths work on fixing your armour, fit to be worn by my new champion.
@@ -14583,16 +14583,16 @@ I hope you enjoy your new work. Approach it with gusto, that sort of thing. I kn
 
 Until then, do enjoy the work, try to keep the place clean, and remember - I own you forever.
 
-- The Master]], [[啊，吾亲爱的波法斯特，来迎接这不朽的新生吧！汝的护甲成了汝的笼子，汝的希望支离破碎，汝的斧头只能顺从吾的意志，汝的灵魂吾会尽情享用。这滋味怎样？吾喜欢看到这样可爱的画面！汝是一个值得尊敬的对手，尽管汝对吾几乎构不成什么威胁，吾还是决定赐予汝这特殊的荣耀。并且吾知道汝喜欢荣耀，是不？吾知道汝希望通过打败吾并摧毁吾的高塔来获得荣耀，但是吾肯定汝现在知道了这是多么自命不凡的行为。
+- The Master]], [[啊，吾亲爱的波法斯特，欢迎迎接汝荣耀的不死新生！汝的护甲成了牢笼，汝的希望化作绝望，汝的斧头受吾意志奴役，汝的灵魂则归吾享用。感觉如何？想必相当美妙！汝曾是英勇的对手，虽然对吾构不成多少威胁，吾仍愿以这番特殊待遇来向汝致敬。汝的确喜欢荣誉，不是吗？吾知道汝曾想通过击败吾、摧毁吾的高塔来荣耀自己的人民；不过如今汝想必明白，那不过是徒劳之举。
 
-吾为汝那可爱的护甲所经历的事感到抱歉。吾知道……在赐予汝这特殊的待遇过程中它受到了一点……轻微的……损伤。但是吾恐怕很需要找到汝同伴的位置，必要的手段还是要采取的。汝好像不是很健谈，是吗？不过很快吾就会让汝唱歌，是的。当然吾也可以用一点占卜魔法来找出什么是吾辈想要的，但吾更享受折磨人的快感……还有天哪，当硫酸溅到汝身上时，汝的尖叫声听起来是多么的欢快啊！哈，吾应该哈哈大笑，不是吗？但是没关系，吾已经吩咐了最好的骷髅工匠去修补汝的护甲，使它可以用于吾的新成员。
+吾对那套可爱的板甲所遭遇的事深表歉意。吾知道它在处置过程中有一点……磨损……但吾实在需要查出汝同伴的下落，只得施加一定的压力。汝当时不太健谈，是不是？可吾很快就让汝开口高歌了，没错。当然，吾大可以用一点占卜魔法得到想要的答案，但吾实在太享受一场精彩的拷问了……而且，每当酸液溅上汝的胡须，汝的尖叫何等悦耳！呵，我们当时笑得很开心，不是吗？不过无妨，吾已命最优秀的骷髅铁匠修好汝的护甲，让吾的新勇士穿上它。
 
-吾希望汝喜欢汝的新工作。汝会爱死这份工作。吾知道，在汝活着的时候汝总是梦想成为一个强大的史诗英雄。但是，好吧，还有什么比这更加荣耀的？汝将会作为吾的奴仆永生，为吾辈的王座战斗不止！汝将会成为所有食尸鬼们都梦寐以求的近身侍卫。恩，直到汝被某个蠢蛋冒险家弄死，当然……但那就是汝辈所谓的英雄啊——一个进来，把这边弄的一团糟，然后吾就有了一个新的玩具。汝猜谁会代替汝呢，恩？
+吾希望汝能享受这份新差事。拿出些干劲来，诸如此类。吾知道汝生前总梦想成为传说中的强大英雄。不过，还有什么能比这更加荣耀？汝将作为吾的仆从永远活下去，注定永世守卫吾的王座！那些在吾厅堂里蹒跚游荡的低等食尸鬼都会嫉妒汝。嗯，当然，只到汝被某个闯进来的蠢冒险者杀掉为止……但这正是汝等英雄的妙处：一个英雄闯进来，搞得一团糟，然后吾又有了一个新玩物。下一个取代汝的会是谁呢？
 
-直到那一刻前，请享受汝的工作，保持此处的清洁，并且记住——汝永远是我的了。
+在那之前，好好享受差事，尽力保持此处整洁，并且记住——吾永远拥有汝。
 
-——主人]], "_t")
-t("a letter to Aletta from the Master", "主人写给阿蕾塔的信", "_t")
+——领主]], "_t")
+t("a letter to Aletta from the Master", "领主写给阿蕾塔的信", "_t")
 t([[Ah, sweet Aletta! How rich your blood tasted on my lips! I know it's not quite what you were expecting from the next step in our relationship, but aren't surprises the true joy of any romance?
 
 I don't blame you for falling for me, you know, even to the point of betraying all your companions just for me. Women have always had a weakness for my brooding personality and sparkling wit. Even in life I was quite the charmer, and death only improves things, I assure you. I really do have the reputation as a heartbreaker, in more ways than one... Your heart shall now sit in a special place, next to the rest of the offal in my pits.
@@ -14601,30 +14601,30 @@ Thank you for telling me of Borfast's weaknesses - it shall make overcoming the 
 
 You must feel a little betrayed of course. I promised you power beyond your imaginings, and instead I drained your blood, fed your flesh to my servants, and enthralled your soul to my bidding. Well, we all struggle to manage expectations sometimes, eh? At least be glad I let your tortured essence roam the cold fastness of my fortress, haunting anyone foolish enough to invade. And some power I will impart to you, and it is indeed beyond your imaginings, for your mind could never reach the dark places I can. But open your eyes now, for such dark places shall be with you till the end of time... Welcome, indeed, to the dark place of my heart.
 
-- The Master]], [[哦，阿蕾塔甜心，吾的宝贝！汝的血液尝起来是多么的醇厚啊！吾知道这不是汝所期盼的进一步关系，但是汝难道没有感受到一点点浪漫的真谛吗？
+- The Master]], [[啊，甜美的阿蕾塔！汝的鲜血在吾唇上尝起来何等醇厚！吾知道，这不太像汝期待的下一步关系，但惊喜不正是所有浪漫情事真正的乐趣吗？
 
-吾不怪你爱上了我，知道吗，即使你为吾背叛了所有同伴。女人们总是倾慕吾的气质和才华。即使在生前吾也是英俊潇洒，死亡只会让吾更加玉树临风，我保证。作为一个爱情杀手，吾确实有必要承担责任，办法有很多……汝的心脏现在位于一个特殊的地方，和其他内脏一起放在吾的后厅里。
+吾并不怪汝爱上吾，明白吗？即便汝因此背叛了所有同伴。女人向来无法抗拒吾深沉的性情与闪耀的才智。即便生前，吾也颇具魅力；而吾向汝保证，死亡只会让这一切更加出色。吾确实以令人心碎闻名，而且不止一种意义上的心碎……如今汝的心脏将被安置在一个特殊位置，与吾坑穴里的其他内脏为伴。
 
-谢谢你告诉吾波法斯特的弱点——这使得我更加容易对付那些矮人。汝的盗贼朋友还在潜逃，但他很快就会被抓住并撕裂。你看我总是对这类事情有种嗜血的冲动。即便是这座高塔里的一只蟑螂，都会完全遵循吾的意志，吾会看到它的一举一动。
+多谢汝告诉吾波法斯特的弱点——这会让吾更容易击败那个矮人莽夫。汝的盗贼朋友更加难以捉摸，不过他终会被找到并毁灭。汝瞧，吾处理这类事情时总有股锲而不舍的狠劲。此塔中没有一只蟑螂胆敢不服从吾的每一个念头与意志，而吾会确保情形永远如此。
 
-汝肯定会有一点被背叛的感觉。吾答应给汝的力量远超汝的想象，相反吾抽干了你的血液，将你的肉体赐予了吾的侍从，并且奴役你的灵魂。好吧，有时吾辈都曾向着期盼的那样努力过，恩？至少汝应该感到高兴的是，吾将你扭曲的灵魂放逐在要塞里漫步，去猎食任何敢于侵入要塞的敌人。并且，吾将会赐予汝一些力量，同样这也会远超汝的想象，因为汝永远达不到吾所处的黑暗巅峰。但是，睁开汝的双眼，汝会发现汝已经永坠黑暗……欢迎你，你来到了吾内心真正黑暗的世界。
+当然，汝想必觉得有些遭到背叛。吾曾许诺赐汝超乎想象的力量，却转而吸干汝的鲜血，把汝的血肉喂给仆从，并奴役汝的灵魂听吾号令。好吧，我们有时都会难以妥善管理他人的期待，是不是？至少汝该庆幸，吾允许汝饱受折磨的精魂游荡于这座冰冷而坚固的堡垒，纠缠每一个胆敢入侵的蠢货。吾也会赐汝一些力量，而且的确超乎汝的想象，因为汝的心智永远无法抵达吾所能触及的黑暗之地。不过现在睁开双眼吧，这等黑暗将伴随汝直到时间尽头……诚挚欢迎汝来到吾内心的黑暗之处。
 
-——主人]], "_t")
-t("a letter to Filio from the Master", "主人写给菲里奥的信", "_t")
+——领主]], "_t")
+t("a letter to Filio from the Master", "领主写给菲里奥的信", "_t")
 t([[Oh Filio, what a fun game we have had of cat and mouse! Well, perhaps to you it was a life and death struggle, but for me this past three weeks of patiently hunting you through my halls has been the most entertaining of past-times. I have enjoyed extending the game so, letting you escape my clutches when I felt it most prudent, watching as you got ever more desperate. Alas, you have now degraded too much, and it was simply too embarrassing watching you eat your own faeces to survive. I had to put an end to it - I'm sure you understand.
 
 But ah, it's not truly an end, for you get to experience the wonder of undead enslavement! Is it not most exciting? Do your bones not quiver with delight? It is just your bones now, since I have a certain fondness for skeletal servants, but I have been nice enough to pad your heels with leather so you can still sneak about quietly. How you did love to sneak! Now you may spend an eternity doing so, ensuring any future trespassers get quite the surprise wandering through my great keep.
 
 I have let you keep your little sling, since I know you like to play with it. Such a quaint weapon... But this staff I found in your possession - my, what a treasure you have brought me! I do not know whence you stole this artifact, but you clearly were completely unaware of its value or power. It has a history beyond your very comprehension, and in my hands it shall change the future! Thank you kindly, my servant; already you have served your Master well. I'm sure we shall enjoy a great friendship over the many years to come. Well, not friendship exactly - it more involves eternal agony on your part, and a rise to ultimate power and majesty for me. Such is the fate of the weak and the strong, a lesson you have already learned well. What a great teacher I make...
 
-- The Master]], [[哦，菲里奥，猫鼠游戏多么的有趣啊！好吧，也许对于汝来说这是生死挣扎，但是对于吾，却是这三个星期以来打发无聊时光最有趣的游戏。吾一直都在延长比赛时间，看着你苟延残喘，看着你陷入绝望。不过，汝现在也太自甘堕落了，仅仅是看到汝靠吃自己的粪便生存都让吾感到尴尬。吾决定华丽的终结这场游戏——你懂的。
+- The Master]], [[哦，菲里奥，我们这场猫鼠游戏玩得多么愉快！好吧，对汝而言或许是一场生死挣扎；但对吾来说，过去三周耐心地在厅堂中追猎汝，乃是最有趣的消遣。吾很享受这般延长游戏，在认为适当的时候任汝逃脱掌握，看着汝日渐绝望。可惜汝如今已经堕落得太过分，眼看汝为了活命而吞食自己的粪便，实在令人难堪。吾只得让游戏结束——汝想必能够理解。
 
-但是呢，这不是真正的结束，因为汝可以充分体验作为不死奴隶的乐趣！难道这不是最令人兴奋的吗？汝的骨头有没有兴奋的发颤呢？现在它们仍是汝的骨头，虽然吾一直爱好骷髅侍从，但是吾也会很大方的将你的皮毛附上去，这样汝还可以无声无息的潜行。汝是多么的喜欢潜行啊！现在汝可以花一辈子来做这件事，给每位闯入我宫殿的侵入者一个惊喜，一个可以使他们永远沉默的惊喜。
+不过，这并非真正的终结，因为汝将体验被奴役为不死生物的奇妙！岂不令人激动？汝的骨头难道没有因喜悦而颤抖？如今汝只剩下骨头了，因为吾格外偏爱骷髅仆从；但吾已仁慈地在汝的脚跟垫上皮革，让汝依然可以悄无声息地潜行。汝过去多么喜爱潜行！如今汝可以永远做下去，确保今后每个在吾宏伟要塞中游荡的闯入者都大吃一惊。
 
-吾还可以让你保留你的投石索，因为吾知道你喜欢用它。如此精巧的武器……但是吾在你包里找到的这根法杖——天哪，你给我带来了多么好的财宝！吾真不知道你从何处偷来这件神器，但吾也很清楚汝肯定不知道它的价值或力量。它的历史远非汝所能理解，在吾辈手里它可以改变未来！谢谢你的慷慨，吾的侍卫，显然你已经把主子我伺候得很好了。吾肯定我们将会在未来的许多年内保持良好的友谊。好吧，也不能算是友谊——对于汝是更多的痛苦和折磨，对于吾则是力量和威严的增长。这就是弱肉强食的命运，汝已经很好地学习了这一课。吾真是个伟大的老师……
+吾让汝保留那把小投石索，因为吾知道汝喜欢把玩它。多么古朴的武器……不过，吾在汝身上发现的这根法杖——天哪，汝为吾带来了何等珍宝！吾不知道汝从哪里偷来这件神器，但汝显然完全不知其价值与力量。它的历史远超汝的理解，而在吾手中，它将改变未来！多谢了，吾的仆从；汝已经尽心侍奉了自己的主人。吾确信，未来许多年里我们都会享受一段伟大的友谊。好吧，倒也不完全是友谊——更多的是汝承受永恒痛苦，而吾登临至高的力量与威严。这便是弱者与强者的命运，一堂汝已学得很好的课。吾真是位伟大的老师……
 
-——主人]], "_t")
-t("#0080FF#On the back of the letter you can just make out a coarsely scrawled and badly faded diagram.#LAST#", "#0080FF#在信件背面，你只能看到潦草的涂鸦和严重褪色的图表。#LAST#", "log")
+——领主]], "_t")
+t("#0080FF#On the back of the letter you can just make out a coarsely scrawled and badly faded diagram.#LAST#", "#0080FF#在信件背面，你勉强能辨认出一幅笔触粗糙、严重褪色的示意图。#LAST#", "log")
 
 ------------------------------------------------
 section "mod-tome/data/lore/elvala.lua"
@@ -38382,7 +38382,7 @@ t("paper scrap", "碎纸片", "entity name")
 t("A smudged poem chalked on a dark piece of slate", "一首写在石板上的被弄脏的诗歌", "_t")
 t("A poem written in scribbled, child-like writing", "像小孩子写的潦草诗歌", "_t")
 t("A poem written in an elegant Gothic script", "高雅的哥特体诗歌", "_t")
-t("a letter from the Master", "主人的信", "entity name")
+t("a letter from the Master", "领主的信", "entity name")
 t("A letter written in a bold, commanding script", "用粗体的命令性文字写的信", "_t")
 
 ------------------------------------------------
