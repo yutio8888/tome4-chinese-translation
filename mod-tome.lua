@@ -6082,44 +6082,44 @@ t("[Leave the orb alone]", "[离开水晶球]", "_t")
 section "mod-tome/data/chats/slasul.lua"
 
 t([[What is this? Why have you entered my temple and slain my followers?
-Speak or die, for I am Slasul and you shall not disrupt my plans.]], [[怎么回事？为什么你要闯入我的神庙杀死我的人？
-说，要不然你就得死，我是萨拉苏尔，你不应该打乱我的计划。]], "_t")
+Speak or die, for I am Slasul and you shall not disrupt my plans.]], [[这是怎么回事？你为何闯入我的神庙，杀害我的追随者？
+开口，否则就死！我是萨拉苏尔，休想破坏我的计划。]], "_t")
 t("[attack]", "[攻击]", "_t")
 t("So be it... Die now!", "那好……你去死吧！", "_t")
-t("I was sent by Ukllmswwik to stop your mad schemes to control all underwater life!", "我是乌克勒姆斯维奇派来的，阻止你试图控制所有水下生物的疯狂计划。", "_t")
+t("I was sent by Ukllmswwik to stop your mad schemes to control all underwater life!", "乌克勒姆斯维奇派我来阻止你的疯狂计划，不让你控制所有水下生物！", "_t")
 t([[I see. So the dragon sent you. He told you I am insane, I assume?
 But which of us is truly evil? Myself, working to better my people, doing no harm to anyone, or you, who comes here to kill me, destroying my friends and planning to do the same to me?
-Who is the insane one?]], [[我明白了，是那条龙叫你来的。他告诉你我疯了，我猜？
-但我们到底谁才是恶魔？我自己，为我的族人做好事，对任何人都没有伤害，而你，来这里想要杀死我，杀死了我的朋友，现在还想连我一起干掉？
+Who is the insane one?]], [[我明白了，是那条龙派你来的。想必他告诉你我疯了吧？
+但我们之中究竟谁才是真正邪恶的一方？我努力改善族人的处境，从未伤害任何人；而你却来到这里，杀死我的朋友，还打算以同样的手段对付我？
 谁才是疯子？]], "_t")
-t("Your feeble attempt to sway me from the side of good will not work. Pay for you sins!", "你想用狡辩动摇我的立场么？这可不起作用，为你犯下的罪恶付出代价吧。", "_t")
-t("If you refuse to see reason, you leave me no choice!", "既然你不听我解释，那我别无选择！", "_t")
-t("Your words are... disturbing. Why should I spare you?", "你说的话让我有点……搞不清楚了，但我为什么要宽恕你？", "_t")
+t("Your feeble attempt to sway me from the side of good will not work. Pay for you sins!", "你这番拙劣的说辞动摇不了我站在正义一方的决心。为你的罪行付出代价吧！", "_t")
+t("If you refuse to see reason, you leave me no choice!", "既然你执意不肯讲理，那我别无选择！", "_t")
+t("Your words are... disturbing. Why should I spare you?", "你的话……令人不安。但我为什么要饶你？", "_t")
 t([[Spare me?#LIGHT_GREEN#*He laughs.*#WHITE#
 Do not be so hasty to assume YOU are in a position to offer mercy to ME!
 Yet I shall tell you my story. You surface dwellers do not know much about nagas, but let me tell you this: our current condition was not our choice.
 When Nalore sank, many of us died, so we resorted to using the magic of this temple. It worked, it saved us, and yet we are cursed. Cursed in this form by the terrible magic.
 If you do not believe anything else of what I say, please believe at least this: the Sher'Tul are hiding, not gone, and they are not benevolent entities.
-Recently, that water dragon that sent you here started sending "agents" to secure the temple. I can only imagine his goals, but they are clearly not peaceful.]], [[宽恕我？#LIGHT_GREEN#*他笑了起来*#WHITE#
-别用这种怜悯的态度对我！
+Recently, that water dragon that sent you here started sending "agents" to secure the temple. I can only imagine his goals, but they are clearly not peaceful.]], [[饶我一命？#LIGHT_GREEN#*他笑了起来*#WHITE#
+别急着认定你有资格饶我一命！
 我会告诉你我的故事，你们地面上的居民并不了解娜迦，让我告诉你：我们目前的处境并不是我们自己的选择。
-当纳鲁大陆沉没时，我们很多人死了，因此我们求助于这间神庙的魔法。它起作用了，它救了我们，但是我们受到了诅咒。在这种可怕的魔法下我们变成了现在这副模样。
-要是你不相信我所说的，至少你应该相信这个：夏·图尔只是隐藏了起来，并没有消失，而且它们并不是友善的种族。
-最近，那条派你来这里的水龙开始派“代理人”来控制这座神庙。我只能猜测他的真正目的，肯定不是出于善意。]], "_t")
+当纳鲁大陆沉没时，我们很多人死了，因此不得不借助这座神庙的魔法。魔法奏效了，救了我们，却也诅咒我们变成如今这副模样。
+即使你不相信我说的其他任何话，也请至少相信这一点：夏·图尔只是藏了起来，并未消失，而且他们绝非仁慈的存在。
+最近，那条派你来这里的水龙开始派“代理人”来控制这座神庙。我只能猜测他的目的，但显然不会是为了和平。]], "_t")
 t("You do not sound mad to me... could Ukllmswwik have lied?", "听上去你不像是个疯子，难道乌克勒姆斯维奇说谎了么？", "_t")
-t("I will not be deceived by your lies! I will make your pay for your victims!", "我不会被你的谎言所欺骗，你必须为你的牺牲者付出代价！", "_t")
+t("I will not be deceived by your lies! I will make your pay for your victims!", "我不会被你的谎言蒙骗！我要让你为那些受害者付出代价！", "_t")
 t("As you wish. It did not have to come to this...", "如你所愿吧，本来不至于如此……", "_t")
 t("Use this portal. It will bring you back to his cave; ask him the truth.", "使用这个传送门，可以把你传送回他的洞穴，去问他事情的真相吧。", "_t")
-t("I will make him pay for his treachery.", "我会让他的背叛付出代价。", "_t")
+t("I will make him pay for his treachery.", "我会让他为自己的背叛付出代价。", "_t")
 t("Thank you for listening to me.", "谢谢你听我说完。", "_t")
 t("The dragon was lying, I can feel it. I have decided to embrace your cause.", "那头巨龙在说谎，我能看出来。我决定支持你的事业。", "_t")
 t("Farewell, Slasul.", "再见，萨拉苏尔。", "_t")
 t([[I secretly hoped you would.
 Then let us seal this alliance. Share your lifeforce with me! So long you should live I shall not be killed!
-In return let me offer you this powerful trident.]], [[我希望你能配合。
-现在，让我们开始履行同盟仪式。将你的生命与我同享！这样只要你活着，我就永远不死！
+In return let me offer you this powerful trident.]], [[我暗自盼望你会作出这个选择。
+那么，让我们缔结这份盟约。与我分享你的生命力！只要你还活着，我便不会被杀死！
 作为回报，我会赐予你这柄强大的三叉戟。]], "_t")
-t("I shall accept your offer, my liege.", "我接受你的馈赠，我的主人。", "_t")
+t("I shall accept your offer, my liege.", "我接受你的提议，领主大人。", "_t")
 t("LET US BE BOUND!", "让我们缔结契约吧！", "_t")
 t("This sounds strange. I need to think about it.", "听起来有点奇怪，我要考虑一下。", "_t")
 
