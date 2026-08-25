@@ -4214,7 +4214,7 @@ t("He is surprised at how quickly you are able to follow his tutelage.", "他对
 t("Please teach me what I need to know (unlocks talent category) - %d gold.", "请传授我所需知晓的一切（解锁技能类别）- %d 金币。", "tformat")
 t("The staff carver spends a substantial amount of time teaching you all of the techniques of staff combat.", "制杖师花了大量时间指导你，向你传授法杖格斗的全部技巧。", "logPlayer")
 t("He is impressed with your mastery and shows you a few extra techniques.", "他对你的熟练程度印象深刻，并向你展示了一些额外技巧。", "logPlayer")
-t("I'm already proficient, but I want to be an expert (improves talent mastery by 0.2) - 750 gold.", "我已经学会了，但我想成为一名专家。(增加技能树系数0.2) - 750 金币。", "_t")
+t("I'm already proficient, but I want to be an expert (improves talent mastery by 0.2) - 750 gold.", "我已经熟练掌握了，但我想成为一名专家。(增加技能树系数0.2) - 750 金币。", "_t")
 t("The staff carver spends a great deal of time going over the finer details of staff combat with you%s.", "制杖师花了大量时间与你一同推敲法杖格斗的精妙细节%s。", "tformat")
 t(", including some esoteric techniques", "，包括一些秘传技巧", "_t")
 t("No thanks.", "不用了，谢谢。", "_t")
@@ -6648,23 +6648,23 @@ t("Whatever.", "无所谓。", "chat_zemekkys-done")
 section "mod-tome/data/chats/zemekkys-start-chronomancers.lua"
 
 t([[@playername@, you are called to serve. The nearby unhallowed morass inhabitants are growing restless.
-You must go there and find the source.]], [[@playername@，你效力的时候到了。附近混沌之沼中的怪物们正在蠢蠢欲动。
-你最好尽快过去，找到这一切的源头。]], "_t")
-t("I will, Grand Keeper.", "我会的，伟大的守护者。", "_t")
+You must go there and find the source.]], [[@playername@，你效力的时候到了。附近不洁沼泽中的居民正在蠢蠢欲动。
+你必须去那里，找到这一切的源头。]], "_t")
+t("I will, Grand Keeper.", "我会的，现实至高守护者。", "_t")
 t("I am sorry, but I cannot do that.", "抱歉，我不能这么做。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/zemekkys.lua"
 
 t([[#LIGHT_GREEN#*A slot in the door opens and a pair of wild eyes peer out.*#WHITE#
-What do you want, @playerdescriptor.race@?]], [[#LIGHT_GREEN#*门上开了一个小洞，一副野蛮的眼睛凝视着你。*#WHITE#
+What do you want, @playerdescriptor.race@?]], [[#LIGHT_GREEN#*门上开了一个小洞，一副狂乱的眼睛凝视着你。*#WHITE#
 你想干什么，@playerdescriptor.race@？]], "_t")
 t("Paladin Aeryn told me that you could help me. I need to get to Maj'Eyal.", "太阳骑士艾琳跟我说你能帮助我，我想去马基·埃亚尔。", "_t")
 t("I found the Blood-Runed Athame, but there was no Resonating Diamond.", "我找到了血符仪式匕首，不过没找到共鸣钻石。", "_t")
 t("I have a Resonating Diamond.", "我找到了共鸣钻石。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_zemekkys")
 t([[Pfaugh! Her goal in life is to waste my time! Maj'Eyal? Why not Narnia or Chicago? Just as easy to send you someplace entirely fictional as Maj'Eyal. Go away.
-#LIGHT_GREEN#*Slot slams shut.*#WHITE#]], [[呸！她的生活目标就是在浪费我的时间！马基·埃亚尔？怎么不是纳尼亚或者芝加哥？就像送你到小说里的马基·埃亚尔一样简单，走开。
+#LIGHT_GREEN#*Slot slams shut.*#WHITE#]], [[呸！她的生活目标就是在浪费我的时间！马基·埃亚尔？怎么不是纳尼亚或者芝加哥？把你送到一个完全虚构的地方，和送到马基·埃亚尔一样简单。走开。
 #LIGHT_GREEN#*小洞呯的一声关上了。*#WHITE#]], "_t")
 t("I got here from Maj'Eyal, didn't I? I have this magic Orb I looted from a dead orc, see, and...", "我来自马基·埃亚尔，不是么，我有一个从一个兽人尸体上找到的魔法水晶球，看……", "_t")
 t([[#LIGHT_GREEN#*Slot opens.*#WHITE#
@@ -6672,8 +6672,8 @@ Orb, you say? That you used to travel here from Maj'Eyal? Surely you don't posse
 你说水晶球？你说你是从马基·埃亚尔来的？你拿到的肯定不是多元水晶球！它已经消失很多年了！]], "_t")
 t("[Hold up the orb]", "[拿出水晶球]", "_t")
 t([[#LIGHT_GREEN#*His eyes widen.*#WHITE#
-Great Socks of Aeryn! It IS the Orb! Maybe we can get you home after all. Or maybe we can get you embedded in magma a thousand leagues straight down.]], [[#LIGHT_GREEN#*他瞪大了眼睛*#WHITE#
-艾琳的袜子啊！真是那个水晶球！说不定我们可以让你回家，说不准也可以给你在熔岩深渊中安个家。]], "_t")
+Great Socks of Aeryn! It IS the Orb! Maybe we can get you home after all. Or maybe we can get you embedded in magma a thousand leagues straight down.]], [[#LIGHT_GREEN#*他瞪大了眼睛。*#WHITE#
+艾琳的袜子啊！真是那个水晶球！说不定我们终究能让你回家，也说不定能把你嵌进正下方一千里深的岩浆里。]], "_t")
 t("May I come in?", "我能进来了么？", "_t")
 t([[You think I'm letting some filthy @playerdescriptor.race@ in my house with the Orb of Many Ways?
 I blow myself up quite enough already without that thing in the house, thank you.
@@ -6682,18 +6682,18 @@ Err, and that portal must be etched on a piece of prepared Resonating Marble.
 The Gates of the Morning has a slab of Marble that once could have served, but a number of, um, incidents have taken their toll.
 It'll require a Resonating Diamond to get it properly prepared. Oh, and I want 100 gold.]], [[你认为我会让一个肮脏的 @playerdescriptor.race@ 带着多元水晶球进我家么？
 谢了，没有那东西在屋里，我已经够经常把自己炸得够呛了。
-况且，我没法帮助你，除非你搞到一把血符仪式匕首来开启这个传送门。
+况且，我没法帮助你，除非你搞到一把血符仪式匕首来刻画这个传送门。
 呃……要想把它准备好，传送门必须刻在一块准备好的共鸣大理石上。
 晨曦之门原本有一块这样的共鸣大理石，不过过去发生过一些……呃……事故，对它造成了损伤。
 要想妥善处理它，还需要一块共鸣钻石，哦，我还要收取 100 金币费用。]], "_t")
 t("Where can I find all that?", "我上哪儿去找那些东西？", "_t")
 t("Try your purse for the 100 gold. As for an Athame and a Resonating Diamond, I assume the orcs have some if they're cooking up portals to use that Orb on. Try the Vor Armory. It so happens that I know a back way in. Never mind why.", "100 金币嘛……你摸摸自己的钱袋就有了。至于仪式匕首和共鸣钻石，既然那些兽人正准备配合多元水晶球开启传送门，我猜他们手上就有。去沃尔军械库找找吧。碰巧我知道一条后门，别问为什么。", "_t")
 t("Thank you.", "谢谢。", "_t")
-t("Of course there was no Resonating Diamond. What makes you think Briagh would let one loose for even a second?", "你当然找不到共鸣钻石，你想想布莱亚弗怎么可能让一颗钻石溜走？", "_t")
-t("Briagh?", "布莱亚弗？", "_t")
-t("Briagh the Great Sand Wyrm. Where do you think Resonating Diamonds come from? They're just regular diamonds until they get stuck between Briagh's scales for a few centuries and get infused with his life rhythms. He sleeps on a hoard of precious gems and metals, you see.", "布莱亚弗，那条巨型土龙，要不然你认为共鸣钻石是哪里来的？它们原本只是普通的钻石，卡在布莱亚弗的鳞片间长达几个世纪，逐渐被灌注了生命活力。你看，它正是睡在一堆矿石和宝石上呢。", "_t")
-t("Where might I find Briagh's lair??", "布莱亚弗的老巢在什么地方？？", "_t")
-t("Well south of the Sunwall. I'll mark it for you on your map.", "在太阳堡垒的南面，我会在你的地图上给你做个记号。", "_t")
+t("Of course there was no Resonating Diamond. What makes you think Briagh would let one loose for even a second?", "你当然找不到共鸣钻石，你想想布莱亚怎么可能让一颗钻石溜走？", "_t")
+t("Briagh?", "布莱亚？", "_t")
+t("Briagh the Great Sand Wyrm. Where do you think Resonating Diamonds come from? They're just regular diamonds until they get stuck between Briagh's scales for a few centuries and get infused with his life rhythms. He sleeps on a hoard of precious gems and metals, you see.", "布莱亚，那条巨型沙虫，要不然你认为共鸣钻石是哪里来的？它们原本只是普通的钻石，卡在布莱亚的鳞片间长达几个世纪，逐渐被灌注了生命节律。你看，它正是睡在一堆珍贵宝石和金属上呢。", "_t")
+t("Where might I find Briagh's lair??", "布莱亚的老巢在什么地方？？", "_t")
+t("Well south of the Sunwall. I'll mark it for you on your map.", "在太阳堡垒以南很远的地方，我会在你的地图上给你做个记号。", "_t")
 t("I'll be back with a Resonating Diamond.", "我会带回共鸣钻石。", "_t")
 t("Yes? You got the Athame, the gem and 100 gold?", "怎么，你拿到仪式匕首、宝石和 100 金币了？", "_t")
 t("[Give him the gem, the athame and 100 gold]", "[把宝石、仪式匕首和 100 金币交给他]", "_t")
@@ -6708,17 +6708,17 @@ section "mod-tome/data/chats/zigur-mindstar-store.lua"
 
 t("Welcome @playername@ to my shop.", "@playername@，欢迎来到我的商店。", "_t")
 t("Let me see your wares.", "让我看看你的商品吧。", "_t")
-t("I am looking for mindstar training.", "我是来学习灵晶掌握的", "_t")
+t("I am looking for mindstar training.", "我是来学习灵晶掌握的。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_zigur-mindstar-store")
-t("I can teach you mindstar mastery (talent category Wild-gift/Mindstar mastery).  Learning the basics costs 100 gold, while more intensive training to gain proficiency costs 500 gold.  Once you're proficient, I can teach you some additional skills for 750 gold.", "我能教授你灵晶掌握（自然/灵晶掌握 技能树）。学会基础消耗100金币，想学的更多就得花上500金币。当你学会之后，只要750金币，我就能传授你一些进阶技巧。", "_t")
+t("I can teach you mindstar mastery (talent category Wild-gift/Mindstar mastery).  Learning the basics costs 100 gold, while more intensive training to gain proficiency costs 500 gold.  Once you're proficient, I can teach you some additional skills for 750 gold.", "我能教授你灵晶掌握（自然/灵晶掌握 技能树）。基础训练需要 100 金币，进一步训练至熟练需要 500 金币。熟练之后，我还能以 750 金币的价格教你一些额外技巧。", "_t")
 t("Just give me the basics (reveals locked talent category) - 100 gold.", "只学习基础（揭示锁定的技能树）- 100 金币。", "_t")
-t("The shopkeeper spends some time with you, teaching you the basics of channeling energy through mindstars.", "商人花了一些时间，教授你使用灵晶的基础技巧", "logPlayer")
-t("He is impressed with your affinity for natural forces.", "他对你同自然力量的亲和度感到惊讶", "logPlayer")
+t("The shopkeeper spends some time with you, teaching you the basics of channeling energy through mindstars.", "商人花了一些时间，教授你引导能量流经灵晶的基础方法。", "logPlayer")
+t("He is impressed with your affinity for natural forces.", "他对你与自然力量的亲和度印象深刻。", "logPlayer")
 t("Please teach me what I need to know (unlocks talent category) - 500 gold.", "请教授我需要知道的一切（解锁技能树）- 500 金币。", "_t")
-t("The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you.", "商人花了大量时间，教授你使用灵晶的全部技巧。", "logPlayer")
-t("He is impressed with your mastery and shows you a few tricks to handle stronger energy flows.", "他对你已经掌握的知识印象深刻，并展示给你一些应付更强大能量流的技巧", "logPlayer")
-t("I'm already proficient, but I want to be an expert (improves talent mastery by 0.2) - 750 gold.", "我已经学会了，但我想成为一名专家。(增加技能树系数0.2) - 750 金币。", "_t")
-t("The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you%s.", "商人花了大量时间，教授你使用灵晶的全部技巧%s。", "tformat")
+t("The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you.", "商人花了大量时间，向你讲解引导能量流经灵晶的精妙细节。", "logPlayer")
+t("He is impressed with your mastery and shows you a few tricks to handle stronger energy flows.", "他对你的熟练程度印象深刻，并向你展示了一些驾驭更强能量流的技巧。", "logPlayer")
+t("I'm already proficient, but I want to be an expert (improves talent mastery by 0.2) - 750 gold.", "我已经熟练掌握了，但我想成为一名专家。(增加技能树系数0.2) - 750 金币。", "_t")
+t("The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you%s.", "商人花了大量时间，向你讲解引导能量流经灵晶的精妙细节%s。", "tformat")
 t(", and teaches you enhanced mental discipline needed to maintain powerful energy fields", "，并传授你维持强大能量场所需的强化精神修养", "_t")
 t("No thanks.", "不用了，谢谢。", "_t")
 

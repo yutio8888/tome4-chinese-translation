@@ -1,0 +1,127 @@
+{
+ "schema_version": 1,
+ "task_id": "p2-tome-texts-b34-001",
+ "component": "tome",
+ "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "workset": "evidence/quality/p2-batches/p2-tome-texts-b34-zemekkys-zigur-store.json",
+ "sections": [
+  "mod-tome/data/chats/zemekkys.lua",
+  "mod-tome/data/chats/zemekkys-start-chronomancers.lua",
+  "mod-tome/data/chats/zigur-mindstar-store.lua"
+ ],
+ "collateral_section": "mod-tome/data/chats/angolwen-staves-store.lua (one line, authorised by the round-2 SPEC amendment)",
+ "required_alignments": [
+  {
+   "name": "Briagh",
+   "before": "布莱亚弗 x5 across 4 in-window lines",
+   "after": "布莱亚, matching the entity name 巨型沙虫布莱亚",
+   "anchor": "entity name row; zone.lua, grids.lua and west-portal.lua already agreed",
+   "residue": "grep -c 布莱亚弗 = 0",
+   "closes_set": true,
+   "host_note": "the first corpus count reported 8/8 consistent because 布莱亚弗 contains 布莱亚 as a substring; a negative lookahead exposed the real 4-vs-4 split. Substring matching hides this class of name drift"
+  },
+  {
+   "name": "Grand Keeper",
+   "before": "伟大的守护者 x1 (the leftover b24 flagged)",
+   "after": "现实至高守护者",
+   "anchor": "entity name 伊莫克斯，现实至高守护者; three other corpus occurrences already agreed",
+   "residue": "grep -c 伟大的守护者 = 0",
+   "closes_set": true,
+   "note": "the separate term row Keeper of Reality=现实守护者 is a different, non-superlative title and was not substituted"
+  },
+  {
+   "name": "Great Sand Wyrm",
+   "before": "巨型土龙 x1, in-window",
+   "after": "巨型沙虫",
+   "anchor": "entity names 巨型沙虫布莱亚 and 巨型沙虫挖掘者, plus sandworm.lua",
+   "residue": "grep -c 巨型土龙 = 0",
+   "closes_set": true,
+   "host_note": "missed by the host survey, caught by review: the survey checked the proper noun Briagh but not the title attached to it in the same line. Survey appellations whole, not just the name"
+  }
+ ],
+ "review": {
+  "contract": "translation_contextual_v1",
+  "dispatch": "ctx-01",
+  "candidate_identity": "3db98e34bebf349ea6a22da32f120bf0f0140667b1646c0033bcdd7ece7b8eb3",
+  "revisions_total": 44,
+  "observations_ok": 40,
+  "adjudications": [
+   {
+    "revision_key": "b34-01-zemekkys",
+    "host_adjudication": "confirmed",
+    "finding": "'wild eyes' rendered 野蛮 (savage)",
+    "ground": "wild here is frantic/unhinged; Zemekkys is a scholarly recluse who jokes about blowing himself up, and nothing in the section supports barbarism",
+    "applied": true
+   },
+   {
+    "revision_key": "b34-18-zemekkys",
+    "host_adjudication": "confirmed",
+    "finding": "title contradicted the entity name, and 'life rhythms' flattened to 生命活力",
+    "ground": "the line explains that ordinary diamonds become Resonating Diamonds by absorbing the wyrm's life rhythms over centuries - the rhythm is what the resonance is named for",
+    "applied": true
+   },
+   {
+    "revision_key": "b34-27-zemekkys-start-chronomancers",
+    "host_adjudication": "confirmed",
+    "finding": "'unhallowed' rendered 混沌 (chaos); neutral 'inhabitants' narrowed to 怪物们",
+    "ground": "unhallowed is a consecration property, not a cosmology; and the player is sent to find the source of the disturbance, so pre-labelling the residents monsters gives away the answer",
+    "applied": true
+   },
+   {
+    "revision_key": "b34-41-zigur-mindstar-store",
+    "host_adjudication": "confirmed",
+    "finding": "'I'm already proficient' rendered as merely having learned the category",
+    "ground": "the shop has three tiers - 100 reveals, 500 unlocks and confers proficiency, 750 improves mastery by 0.2 for someone already proficient - so the old wording collapsed the 500 and 750 prerequisites",
+    "applied": true
+   }
+  ]
+ },
+ "host_induced_failure": {
+  "cycle": 2,
+  "what": "the round-2 briefing warned the executor off the half-width parentheses in the 750-gold string because its runtime key is shared with angolwen-staves-store.lua, then directed an edit to that same shared target",
+  "effect": "editing one side split the key; lint --strict and classify_runtime_keys failed",
+  "executor_conduct": "correct - refused to make an unauthorised fifth edit and surfaced the red gates rather than reverting or hiding them",
+  "resolution": "unification, not revert. Pinned angolwen-staves-store.lua has the identical three-tier structure and English key, so the defect existed on both sides; the collision archive section 4.0 resolves a divergent shared key by unifying to the adjudicated form. SPEC amended to authorise line 4217; both targets are now byte-identical",
+  "lesson": "a shared runtime key constrains the whole target, not just the hazard you happened to notice in it"
+ },
+ "declined": [
+  {
+   "item": "half-width parentheses in the 750-gold option",
+   "reason": "present identically on both sides of the shared key; changing them would require a second collateral edit for no semantic gain, and they remain consistent as-is"
+  }
+ ],
+ "gates": {
+  "five_step": "PASS",
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "runtime_collisions": 0,
+  "diff": "mod-tome.lua 22 insertions / 22 deletions across 11 hunks"
+ },
+ "open_items": [
+  {
+   "item": "Angolwen split",
+   "detail": "50 安格利文 / 10 安格列文; term row marked 需统一",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Maj'Eyal split",
+   "detail": "71 / 54",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Sholtar split",
+   "detail": "2 / 2",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Krogar out-of-window",
+   "detail": "strange-new-world.lua reads 克洛加尔",
+   "disposition": "leftover"
+  },
+  {
+   "item": "Corrupted Sand Wyrm",
+   "detail": "堕落沙龙 vs Great Sand Wyrm 巨型沙虫; out of window",
+   "disposition": "leftover"
+  }
+ ]
+}
