@@ -6591,14 +6591,14 @@ t("Temporal [%d]", "时空 [%d]", "tformat")
 t("Physical [%d]", "物理 [%d]", "tformat")
 t("Nature [%d]", "自然 [%d]", "tformat")
 t("Blight [%d]", "枯萎 [%d]", "tformat")
-t("Acid [%d]", "酸液 [%d]", "tformat")
+t("Acid [%d]", "酸性 [%d]", "tformat")
 t("Mind [%d]", "精神 [%d]", "tformat")
 t("Never mind", "算了。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/worldly-knowledge.lua"
 
-t("[%s (at mastery %0.2f)]", "[%s(技能树系数%0.2f)]", "tformat")
+t("[%s (at mastery %0.2f)]", "[%s（技能树系数%0.2f）]", "tformat")
 t([[#GOLD#%s / %s#LAST#
 %s]], [[#GOLD#%s/%s#LAST#
 %s]], "tformat")
@@ -6609,31 +6609,31 @@ section "mod-tome/data/chats/yeek-wayist.lua"
 
 t([[#LIGHT_GREEN#*Before you stands a creature about as tall as a Halfling, covered in small white fur and with a disproportionate head.
 You also notice he does not wield his greatsword. It seems to float in the air, bound to his will.*#WHITE#
-Why did you save me, stranger? You are not of the Way.]], [[#LIGHT_GREEN#*在你面前站着一个和半身人一样高的生物，拥有白色的毛发和大小不协调的脑袋。
+Why did you save me, stranger? You are not of the Way.]], [[#LIGHT_GREEN#*在你面前站着一个和半身人一样高的生物，身披细密的白色绒毛，脑袋与身体大小不协调。
 你同时注意到他并没有用手握持大剑，剑正漂浮在空中，仿佛受他的意志控制。*#WHITE#
 你为什么救我，陌生人？你不属于维网。]], "_t")
 t("Well, you seemed to need help.", "你看上去似乎需要帮助。", "_t")
 t("So I could rip your throat myself!", "这样我可以亲自割破你的喉咙！", "_t")
 t([[#LIGHT_GREEN#*The greatsword floats to a less aggressive stance. He seems surprised.*#WHITE#
-Then, on behalf of the Way, I thank you.]], [[#LIGHT_GREEN#*大剑在空中后退了些，显得不那么有敌意。他好像很吃惊。*#WHITE#
+Then, on behalf of the Way, I thank you.]], [[#LIGHT_GREEN#*大剑在空中变换到不那么咄咄逼人的架势。他好像很吃惊。*#WHITE#
 那么，我代表维网感谢你。]], "_t")
-t("What is the Way, and what are you?", "维网是什么，你是谁？", "_t")
+t("What is the Way, and what are you?", "维网是什么，你是什么种族？", "_t")
 t("The Way is enlightenment, peace and protection. I am a Yeek. I came through this tunnel to explore this part of the world that was closed to us for centuries.", "维网是启迪、和平和守护，我是一个夺心魔。我穿过隧道，希望探索这个已经与我们隔绝了数个世纪的地方。", "_t")
 t("Can you tell me more about the Way?", "你能告诉我更多有关维网的事么？", "_t")
 t("Select the party member to receive the mental shield:", "选择接受精神防护的队伍成员：", "_t")
-t("The contact with the Wayist mind has improved your mental shields. (+15 mental save, +10%% confusion resistance)", "与夺心魔的接触提高了你的精神防御。（+15精神豁免，+10%%混乱抵抗）", "logPlayer")
+t("The contact with the Wayist mind has improved your mental shields. (+15 mental save, +10%% confusion resistance)", "与维网信徒的心灵接触提高了你的精神防御。（+15精神豁免，+10%%混乱抵抗）", "logPlayer")
 t("I am never alone. I have the Way.", "我并不孤单，我拥有维网。", "_t")
 t("Farewell, then.", "那么，再见。", "_t")
 t([[I cannot, but I may show you a glimpse.
 #LIGHT_GREEN#*He leans toward you. Your mind is suddenly filled with feelings of peace and happiness.*#WHITE#
 This is the Way.]], [[不行，不过我可以让你看一下。
-#LIGHT_GREEN#*他靠向你，你的脑海里突然充满了和平和幸福。*#WHITE#
+#LIGHT_GREEN#*他靠向你，你的脑海里突然充满了平静和幸福。*#WHITE#
 这就是维网。]], "_t")
 t("Thank you for this vision. Farewell, my friend.", "谢谢你让我看到这些，再见吧，我的朋友。", "_t")
 t("Thank the Way. This... thing... would have killed me.", "感谢维网，这个……东西……差点杀了我。", "_t")
-t("The Way sent me to explore this side of the tunnel.", "维网指引我来搜查这个隧道。", "_t")
-t("Yes, me too. We should split up to cover more ground.", "是的我也是，我们应该分头去探索这个大陆。", "_t")
-t("Farewell. We are the Way, always.", "再见。我们永远属于维网。", "_t")
+t("The Way sent me to explore this side of the tunnel.", "维网派我来探索隧道这一侧。", "_t")
+t("Yes, me too. We should split up to cover more ground.", "是的，我也是。我们应该分头行动，以探索更多区域。", "_t")
+t("Farewell. We are the Way, always.", "再见。我们永远是维网。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/zemekkys-done.lua"
@@ -6642,7 +6642,7 @@ t([[What? Ah, it is you, @playername@.
 I take it you are satisfied with the portal.]], [[谁？啊，原来是你，@playername@。
 我想你应该对传送门还满意。]], "_t")
 t("Yes, thank you.", "是的，谢谢你。", "_t")
-t("Whatever.", "还行吧。", "chat_zemekkys-done")
+t("Whatever.", "无所谓。", "chat_zemekkys-done")
 
 ------------------------------------------------
 section "mod-tome/data/chats/zemekkys-start-chronomancers.lua"

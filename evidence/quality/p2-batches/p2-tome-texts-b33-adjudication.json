@@ -1,0 +1,108 @@
+{
+ "schema_version": 1,
+ "task_id": "p2-tome-texts-b33-001",
+ "component": "tome",
+ "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "workset": "evidence/quality/p2-batches/p2-tome-texts-b33-ward-zemekkys-done.json",
+ "sections": [
+  "mod-tome/data/chats/ward.lua",
+  "mod-tome/data/chats/worldly-knowledge.lua",
+  "mod-tome/data/chats/yeek-wayist.lua",
+  "mod-tome/data/chats/zemekkys-done.lua"
+ ],
+ "ui_vs_prose": {
+  "finding": "ward.lua and worldly-knowledge.lua are UI, not dialogue",
+  "evidence": "pinned ward.lua builds each answer via ('Fire [%d]'):tformat(...) keyed to engine DamageType constants (FIRE, LIGHTNING, COLD, ARCANE, LIGHT, DARKNESS, TEMPORAL, PHYSICAL, NATURE, BLIGHT, ACID, MIND), with %d holding the remaining charge count",
+  "consequence": "the T.GAME.DAMAGE terminology rows are the controlling authority for these labels"
+ },
+ "host_verification_of_executor_claims": [
+  {
+   "claim": "the Acid ward label deviates from its damage-type row",
+   "verified": "eleven labels already matched their rows; acid alone read 酸液 while the T.GAME.DAMAGE row is 酸性. 酸液 is legitimate in talent names (Acid Spray=酸液喷吐), a different role",
+   "result": "confirmed"
+  },
+  {
+   "claim": "the mental-shield log names the Wayist, not the race",
+   "verified": "pinned yeek-wayist.lua logPlayer reads 'the Wayist mind'; the old target said 夺心魔 (Yeek, the race). The speaker is both, which is what makes the two easy to conflate; terminology gives Wayist=维网信徒, Yeek=夺心魔",
+   "result": "confirmed"
+  },
+  {
+   "claim": "'what are you?' asks the kind of creature",
+   "verified": "the next chat node answers 'I am a Yeek'",
+   "result": "confirmed"
+  },
+  {
+   "claim": "the greatsword changes stance rather than retreating",
+   "verified": "pinned text has it float to a less aggressive stance; the old target invented a positional withdrawal",
+   "result": "confirmed"
+  },
+  {
+   "claim": "the creature description dropped the fur detail",
+   "verified": "pinned text specifies it is covered in small white fur",
+   "result": "confirmed"
+  }
+ ],
+ "review": {
+  "contract": "translation_contextual_v1",
+  "dispatch": "ctx-01",
+  "candidate_identity": "7c564bb1e128ec0e0633716ac1926b07e6cd6cd9854d4a9e3b8c27184977a699",
+  "revisions_total": 37,
+  "observations_ok": 34,
+  "adjudications": [
+   {
+    "revision_key": "b33-29-yeek-wayist",
+    "host_adjudication": "confirmed",
+    "finding": "'feelings of peace' rendered 和平, the political sense",
+    "ground": "the clause describes a sensation the yeek transmits into the player's mind; 和平 denotes the social state and cannot fill a mind. The same English word stays 和平 a few lines earlier where the Way is a creed of enlightenment, peace and protection - one word, two roles, and only the sensation occurrence is wrong",
+    "applied": true,
+    "result": "平静"
+   },
+   {
+    "revision_key": "b33-34-yeek-wayist",
+    "host_adjudication": "confirmed",
+    "finding": "'We are the Way, always' rendered as belonging to the Way",
+    "ground": "the English asserts identity, which is the doctrinal point the section builds toward - the yeek is never alone because he has the Way; 属于 downgrades it to membership in something he stands outside of",
+    "applied": true,
+    "result": "我们永远是维网"
+   },
+   {
+    "revision_key": "b33-37-zemekkys-done",
+    "host_adjudication": "confirmed",
+    "finding": "dismissive 'Whatever.' rendered 还行吧, a positive appraisal",
+    "ground": "it is the indifferent alternative to the sibling answer 'Yes, thank you.'; rating the portal acceptable collapses the contrast between the two branches",
+    "applied": true,
+    "result": "无所谓"
+   }
+  ],
+  "note": "all three findings fall on lines the executor left unchanged, under first review in this window, so the b26 unchanged-text decline default does not apply"
+ },
+ "gates": {
+  "five_step": "PASS",
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "runtime_collisions": 0,
+  "diff": "mod-tome.lua 11 insertions / 11 deletions across 9 hunks, all in-window"
+ },
+ "open_items": [
+  {
+   "item": "Angolwen split",
+   "detail": "50 安格利文 / 10 安格列文; term row marked 需统一",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Maj'Eyal split",
+   "detail": "71 / 54",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Sholtar split",
+   "detail": "2 / 2",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Krogar out-of-window",
+   "detail": "strange-new-world.lua reads 克洛加尔",
+   "disposition": "leftover"
+  }
+ ]
+}
