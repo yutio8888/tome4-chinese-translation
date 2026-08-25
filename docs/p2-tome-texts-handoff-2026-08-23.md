@@ -39,8 +39,13 @@
 - b26 术语裁决：堡垒问候语的 `a control rod` 一度被改成专名「回归之杖」，复审反对并获维持——源文用不定冠词泛指，同一文件另有 `the rod of recall` 并说明它并非夏·图尔造物，且文件内 `has_rod` helper 定义后从未被调用（死代码）。已恢复泛指译法。
 - **b26 首次触发高级范围校准（`senior-audit-01`）**：ctx-02 在 ctx-01 已判 OK 且字节未变的 3 条上提出新 finding。按契约 `cycle >= 2` 的规则先做 `SENIOR_REVIEW` scope_audit，裁定其中 2 条为源码可证的真缺陷、1 条以错误语法前提为由驳回（`是不是` 是正反问，并不预设存在）。**由此确立的常规**：对未改动且此前判 OK 的文本提出的新 finding，默认驳回，除非带有固定源码或引擎行为证据；若后续轮次就同一 revision 推翻本次校准，按 `AGENTS.md` 的重复实质分歧条件交回维护者。
 - **验收标准措辞修正**：b26 的 SPEC 验收第 4 条原写作「独立复审对全部 53 条返回 OK」，即要求复审一致同意，而非缺陷已解决。两名独立复审对字节相同的文本给出互不重叠的 finding 集，说明该机制不可靠地达成一致；已在任务内按高级校准改为「confirmed finding 全部解决、驳回项记为 advisory、cycle ≥ 2 的修复经 scope 校准」。后续批次沿用此措辞。
+- b27：`shertul-fortress-caldizar.lua`、`command-orb`、`gladium-orb`、`shimmer`、`training-orb` 共 43 条，提交 `7deb1ee`，修订 27 条 target；复审 42/43，唯一 finding 经固定源码裁定驳回，无修复轮。
+- b27 rod 裁决（承接 b26）：同一节内四种写法按指代逐条裁定——水晶球自身铭文 `"Insert control rod."` 保留泛指「控制棒」（古代机器对所需部件的称呼）；孔洞描述、`[Insert the rod]` 与插入场景用「回归之杖」，因为该分支只在 `command-orb.lua:21` 的 `ROD_OF_RECALL` 检查通过后出现。两种译名在同一节共存是有意的；原「魔杖」两者都不符。
+- b27 其他修正：`the world of Eyal` 被误作马基·埃亚尔大陆而非整个世界；`Lichform` 统一为「巫妖转生」（与 `talents.lua`、`lichform.lua`、`mag.lua` 一致，英文键的 `ceremory` 拼写错误原样保留）；target dummy 原作「傀儡」与既有实体撞名，改为语料已有 9 处的「训练假人」；shimmer 各选项按其独立 `SHIMMER_*` 槽核对。
+- b27 驳回记录：复审称「堡垒竞技场」把竞技场与堡垒混同。固定源码显示 gladium 是独立 zone，且该 zone 自身名称即 `Fortress Gladium`（`zones/gladium/zone.lua:21`），故「堡垒」二字来自原作者而非译文；`[Go back to the Fortress]` 与之并不矛盾。按 advisory 记录，未改。
+- 待办（超出当批窗口）：`other.lua` 仍把 `Lichform` 译作「巫妖形态」，与语料的「巫妖转生」不一致，留待轮到该 section 的批次处理。
 - 当前预期工作树：干净，仅用户本地未跟踪 `.claude/`；不得提交、删除或混入 `.claude/`。`.ai/` 与 `.artifacts/` 是忽略的派生产物。
-- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b26 共 23 个 section，从 `shertul-fortress-caldizar.lua` 起继续下一个有界切片。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
+- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b27 共 28 个 section，从 `slasul.lua` 起继续下一个有界切片。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
 - 复审记录格式注意：`.ai/reviews/` 记录必须带 `status`（或 `result`）且取值属于 `completed`／`completed_with_findings`／`PASS`／`CHANGES_REQUIRED`／`FINDINGS`／`OK`，否则 `ai_state_check.py` 的 `candidate_bindings_valid` 会拒绝 DONE。
 
 ## 0. 一句话状态
