@@ -53,7 +53,13 @@
 - **校准要点（重要）**：高级复审明确指出 b26 确立的「对未改动且此前判 OK 的文本默认驳回」**必须保持为「证据默认」，不得硬化为一概不接受**——因为 ctx-01 确实漏掉了上述确认缺陷。证据门在首次实测中判别正确：带固定源码／引擎行为证据的通过，只有措辞偏好的被驳回。
 - b29 收尾：高级校准要求「应用 A、驳回 B、结束本批，不再跑第三轮全量复审」。宿主据此未再做整段复审，仅对修复的那一条做了单条有界核验（ctx-03，1/1 `OK`）；该偏离及理由已记入 `senior-audit-01` 的 host_note。
 - 当前预期工作树：干净，仅用户本地未跟踪 `.claude/`；不得提交、删除或混入 `.claude/`。`.ai/` 与 `.artifacts/` 是忽略的派生产物。
-- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b29 共 31 个 section，从 `tannen.lua` 起继续下一个有界切片（39 条）。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
+- b30：`tannen.lua` 单段 39 条，提交 `20cc334`，修订 15 条 target，另加 1 条越界一致性传播；一轮复审（38/39 `OK`）。
+- b30 主要修正：泰恩要求 `hold onto the Orb` 原译成「研究一下多元水晶球」，漏掉保管权转移——固定源码 `east-portal.lua:92-97` 的 `give_orb` 会把「多元水晶球」从玩家背包移除，而 `withheld_orb`（:99-101）只改任务状态、不移除；搜寻提示把 `Diamond` 降格成泛指的「宝石」，而 `remove_materials`（:104-115）按原名移除的是「共鸣钻石」与「血符仪式匕首」；文献标题 `Inverted and Reverted Probabilistic Fields` 原译《关于力场翻转与回复的可能性研究》，把 probabilistic 读成「可能性研究」，切断了与两行后「反转还是复原概率场」提问的对应，玩家无法把要找的书与要问的问题对上；`cursory examination` 原作「粗略的试验」（examination 误作 experiment）；`What in the...` 原用带字母审查的「我X…」，源文只是被打断的惊呼。
+- b30 范围修正：该标题在窗口外还出现一次（`data/zones/telmur/npcs.lua` 的阴影消散提示，`mod-tome.lua:40069`）。对固定 commit 执行 `git grep -l 'Inverted and Reverted' -- game/modules/tome` 只返回 `data/chats/tannen.lua` 与 `data/zones/telmur/npcs.lua`，且没有任何物品实体使用该名，四处调用即闭合全集。只修窗口内会把原本一致的一对**新拆成不一致**，故经 SPEC 修正案授权把已定译法传播到该行；`SCOPE.json` 锚点仍只含 `tannen.lua`——标题语义已在窗口内复审三次，40069 只是字节传播，为一行冻结整个 section 不成比例。
+- b30 复审裁定：唯一 finding 落在背叛台词 `I am ready. You are not.`（`你还没好`）。裁为 **advisory 而非 confirmed**——固定源码 `tannen.lua:177-183` 的 `wait_end` 是 `fake_orb_end`（:170-175）的孪生分支，两者同为背叛前的挑衅且都走向 `tannen_tower`，对照关系确是该句的修辞内容，但中文「好」承前句「准备好了」省略，语义可还原且无机制损失，按 b22–b24 先例属纯形式异议。因传播已需一轮修复，顺带应用以恢复显式对照。注意该句是 executor 未改动的既有译文，但属本窗口首轮复审，故 b26 的「未改动文本默认驳回」不适用。
+- b30 保留项：`Sholtar` 在本段作「肖塔尔」（2 处），在 `misc.lua`／`load.lua` 的复合词「肖塔王国」中作「肖塔」（2 处），二比二无优势形式且跨批次边界，按专名分裂规则（只在批内统一、绝不全局改名）保留；`Maj'Eyal` 全语料分裂为带间隔点 71 处、不带 54 处，术语行仅 `existing` 状态，属全局改名议题，需维护者裁决后再动。
+
+- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b30 共 32 个 section，从 `tarelion.lua` 起继续下一个有界切片。`data/chats/` 剩余 22 个 section 共 192 条，建议按字母序切成约 40 条一批（b31 = `tarelion.lua` 起至 `tutorial-start.lua`，38 条）。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
 - 复审记录格式注意：`.ai/reviews/` 记录必须带 `status`（或 `result`）且取值属于 `completed`／`completed_with_findings`／`PASS`／`CHANGES_REQUIRED`／`FINDINGS`／`OK`，否则 `ai_state_check.py` 的 `candidate_bindings_valid` 会拒绝 DONE。
 
 ## 0. 一句话状态
