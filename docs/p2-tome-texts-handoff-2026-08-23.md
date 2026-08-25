@@ -93,9 +93,24 @@
 - b36 驳回并上呈的两条：`Atamathon, the giant golem` 保留「阿塔玛森·傀儡之王」、`The spellblade` 保留「魔宗利刃」。复审指出「傀儡之王」「魔宗」都添加了英文没有的身份／门派关系，**这一点成立**；但两者均受实体名支配（`t("Atamathon the Giant Golem", "傀儡之王阿塔玛森", "entity name")`、`t("Spellblade", "魔宗利刃", "entity name")`），只改叙述文本会让文本与玩家所见的实体名脱节，而改实体名属术语层裁决。故窗口内驳回、作为术语议题上呈。注意 `Atamathon` 语料本已分裂：成就行用的是忠实的「巨型傀儡阿塔玛森」。
 - b36 宿主核查：本批修订率 25/43（58%），显著高于对话批次的 20–40%，故在接受前对三条最高风险论断逐条比对固定源码（Cataclysm、无痛窒息、高阶太阳骑士艾琳），均成立，判定为 lore 长文本的真实漂移而非 SPEC 禁止的流畅度改写。
 
+- b37：`arena.lua`、`blighted-ruins.lua`、`daikara.lua`、`derth.lua`、`dreadfell.lua` 共 47 条，提交 `f3790d9`，修订 36 条 target（含 1 条条件性越界 collateral）；一轮复审（42/47 `OK`）加一轮修复。
+- b37 主线：**恐惧王座领主的逐处裁决**。b32 已确立——该角色本身是「领主」（实体名 `t("The Master","领主","entity name")`），而「主人」表达的是支配／占有关系；b27 要求逐处判断。本窗口原为「主人」12 处、「领主」0 处，现改为角色指称 10 处作「领主」（笔记与书信的物品名、三封信的署名、`slain master`、从其僵死双手夺走法杖），支配关系 4 处保留「主人」（他称呼奴仆时的 `your (great) Master`、`served your Master well`、儿童体诗的 `Me like Master`）。石板诗中的九个并列称号按**修辞性同位语**保留为「……之主」，未按实体名处理。以上全部通过复审，无一条被提出异议。
+- b37 条件性 collateral：因窗口内三封信的物品名改为「领主写给……的信」，若不动 `mod-tome/data/zones/dreadfell/objects.lua` 的同类物品名「主人的信」，原本一致的一组物品名反而会被拆散，故按 SPEC 的条件授权一并对齐；已核验该 section 只改动了这一行。
+- b37 复审 finding（5 条，同一缺陷类，全部 confirmed）：`daikara.lua` 探险队日记的标题格式为「姓名，种族＋职业」，四名成员中 `Sodelost, Dwarf Rogue`＝矮人盗贼、`Xann, Shaloren Wyrmic`＝永恒精灵龙战士**保留了种族**，而瑞丽与高岚的五处标题只剩职务与职业，`Cornac` 被略去。该事实是**承重**的：四人中两人是科纳克人，正是这一点让后续日记里矮人与精灵的「异类感」成立（高岚对矮人的鄙夷、希安对「软皮生物」的疏离）。已按 `creatures.tsv` 的 `Cornac＝科纳克人` 统一补回，复合方式与同侪标题一致（科纳克人战士／科纳克人弓箭手）。宿主对冻结工作集做了机械核验，并确认首条瑞丽日记中出现的种族词属正文提及、不在标题内。
+- b37 其他修正：叛乱记述的施事关系颠倒（谁刺穿谁、谁夺剑、谁失踪）；陷阱机制是压力板触发时**按比例混合**药剂而非组装装置，效果分别为龙火与寒冰；`incapacitate` 的非致命制服被泛化为击退，并补回向安格利文发送求救讯息；领主惩戒令中「一千骷髅发配／二百五十处决」与「卡·普尔早已死去」；复数化的矮人数量改回单指波法斯特。
+- b37 保留项：一条被弄脏的诗歌键与范围外 objects section 共享，executor 改动后被 `lint --strict` 捕获，**自行回退并如实报告**，未改动另一侧——这是连续第三批 executor 无需提示即出现该行为。
+
 - 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b31 共 39 个 section，`data/chats/` 已于 b35 全部完成（100 个 section，b6–b35）。`data/lore/` 共 34 个 section 约 582 条，b36 已完成首批 4 个 section；`misc.lua`（110）与 `last-hope.lua`（71）体量过大，各自单独成批。`Grand Keeper` 遗留项已在 b34 清零。
 
-**下一步不是 b37，而是一个专门的术语批次。** 维护者已于 2026-08-25 裁定两项统一：`Angolwen`＝**安格利文**（10 处／6 个 section），`Maj'Eyal`＝**马基·埃亚尔**（带间隔点，55 处／33 个 section）。后者更棘手：术语行当前持有的恰是被否决的写法（`Maj'Eyal 马基埃亚尔`，`existing`），需改写行的 target 而非仅提升状态；且波及 `init.lua`、`class/Game.lua`、`class/uiset/Minimalist.lua`、成就、出生世界、区域 grids 等非叙事文件。按 `Ziguranth`（`1a4a236`＋`8fb41dd`）的先例作为**独立术语批次**执行，五步门禁后追加三项术语审计，不并入任何叙事切片。完成后再开 b37（`arena`、`blighted-ruins`、`daikara`、`derth`、`dreadfell`），届时 `derth.lua` 已干净。
+**术语批次已于 `de44127` 完成**（详见下文「已完成」）。原文如下保留作为记录：**下一步不是 b37，而是一个专门的术语批次。** 维护者已于 2026-08-25 裁定两项统一：`Angolwen`＝**安格利文**（10 处／6 个 section），`Maj'Eyal`＝**马基·埃亚尔**（带间隔点，55 处／33 个 section）。后者更棘手：术语行当前持有的恰是被否决的写法（`Maj'Eyal 马基埃亚尔`，`existing`），需改写行的 target 而非仅提升状态；且波及 `init.lua`、`class/Game.lua`、`class/uiset/Minimalist.lua`、成就、出生世界、区域 grids 等非叙事文件。按 `Ziguranth`（`1a4a236`＋`8fb41dd`）的先例作为**独立术语批次**执行，五步门禁后追加三项术语审计，不并入任何叙事切片。完成后再开 b37（`arena`、`blighted-ruins`、`daikara`、`derth`、`dreadfell`），届时 `derth.lua` 已干净。——**均已完成**：术语批次 `de44127`（`安格列文`／`马基埃亚尔` 残留归零，计数 60／126 与基线算术吻合，复审以哨兵替换法证明无附带改动），b37 `f3790d9`。
+
+## 当前进度与暂停
+
+**维护者已指示：b37 之后暂停。** 连续批次模式在此边界挂起，恢复需明确指令。
+
+`data/lore/` 34 个 section／582 条中，已完成 9 个 section／90 条（b36、b37），**剩余 25 个 section／492 条，约 9 个切片**：`misc.lua`（110）与 `last-hope.lua`（71）各自单独成批，其余 311 条按约 45 条一批约 7 批。下一切片为 `elvala`、`fearscape`、`fun`、`high-peak`——其中 `elvala.lua` 与 `high-peak.lua` 已被术语批次清理干净。
+
+**全局覆盖**：`data/chats/` 100 section／1260 条已完成；`data/texts/` 132 section／176 条按受跟踪证据已完成；`data/lore/` 如上；**`data/quests/` 52 section／514 条受跟踪覆盖为零，且从未列入 P2 范围**（路线图只点名 chats 与 lore）。该目录同属叙事内容，是否纳入需维护者裁决——若纳入，另需约 12 个切片。
 
 `Sholtar` 仍待裁决：实际分布为 2 处「肖塔尔」／4 处「肖塔」（此前记为 2:2 系宿主漏计）。宿主建议「肖尔塔」——音节尾 L 依惯例作「尔」，且同句并列的 `Cornacs`＝科纳克、`Mardrop`＝马卓普 均舍弃 r 尾；三者皆无术语行。`Atamathon`／`spellblade` 亦待裁决。**冻结脚本必须断言取回条数等于该 section 的词法 `t()` 调用数**——b31 就靠这条发现粗略 grep 多算了一条（`trap-priming.lua` 实为 8 条）。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
 - 复审记录格式注意：`.ai/reviews/` 记录必须带 `status`（或 `result`）且取值属于 `completed`／`completed_with_findings`／`PASS`／`CHANGES_REQUIRED`／`FINDINGS`／`OK`，否则 `ai_state_check.py` 的 `candidate_bindings_valid` 会拒绝 DONE。
