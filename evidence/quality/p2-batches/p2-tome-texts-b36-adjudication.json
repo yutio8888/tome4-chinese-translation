@@ -1,0 +1,119 @@
+{
+ "schema_version": 1,
+ "task_id": "p2-tome-texts-b36-001",
+ "component": "tome",
+ "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "workset": "evidence/quality/p2-batches/p2-tome-texts-b36-lore-age-ardhungol.json",
+ "sections": [
+  "mod-tome/data/lore/age-allure.lua",
+  "mod-tome/data/lore/age-pyre.lua",
+  "mod-tome/data/lore/angolwen.lua",
+  "mod-tome/data/lore/ardhungol.lua"
+ ],
+ "phase": "first data/lore/ slice",
+ "host_verification_of_executor_claims": [
+  {
+   "claim": "Cataclysm and Spellblaze are distinct events and were conflated",
+   "verified": "pinned age-allure.lua:177 reads 'the Cataclysm's tectonic upheaval ... bypassing the ruined tunnels entirely'; the old target rendered Cataclysm as 魔法大爆炸. Cataclysm has no terminology row; 大灾变 has 10 corpus occurrences",
+   "result": "confirmed"
+  },
+  {
+   "claim": "a euphemism concealed the Overseers' standing order",
+   "verified": "pinned :241 places an alchemical vial in the ventilation system, 'painlessly suffocating us'; the old 永久沉睡 hid that the order is a mass killing, which the narrator then refuses to carry out",
+   "result": "confirmed"
+  },
+  {
+   "claim": "High Sun Paladin Aeryn keeps the rank",
+   "verified": "three preferred terminology rows give 高阶太阳骑士艾琳; a fourth existing row drops the rank",
+   "result": "confirmed"
+  }
+ ],
+ "host_note_on_revision_rate": {
+  "rate": "25 of 43 targets revised (58%), against 20-40% typical for chat batches",
+  "action": "sampled the three highest-stakes claims against pinned source before accepting",
+  "conclusion": "the rate reflects genuine drift in dense factual lore logs, not the fluency over-reach the SPEC forbids"
+ },
+ "review": {
+  "contract": "translation_contextual_v1",
+  "dispatch": "ctx-01",
+  "candidate_identity": "04c7ad087786dfcf60bef9bdfcca8efd7873a9228c3bbbc9addf077a2adce0b0",
+  "revisions_total": 43,
+  "observations_ok": 36,
+  "confirmed": [
+   {
+    "revision_key": "b36-17-age-allure",
+    "finding": "inscriptions narrowed to 纹身",
+    "ground": "terminology/talents.tsv has inscriptions=刻印 as a T.GAME.TALENT_CATEGORY row (preferred, global) whose subtypes are runes=符文 and infusions=纹身. The passage turns on runic affinity and rune maintenance, which the sibling subtype excludes. Corpus renders inscription(s) as 刻印 throughout the UI",
+    "result": "刻印"
+   },
+   {
+    "revision_key": "b36-19-age-allure",
+    "finding": "Ogric inscriptions narrowed to 纹身",
+    "ground": "pinned age-allure.lua:245 reads 'apply the Ogric inscriptions to us'; same category error",
+    "result": "刻印"
+   },
+   {
+    "revision_key": "b36-13-age-allure",
+    "finding": "a policy decision rendered as a reassurance",
+    "ground": "the Elders judge the aggressive tendency good for morale and therefore postpone treatment until the war ends; that deferral is what makes the healer's later misgivings coherent. The old text asserted the effects were easily treated afterwards, dropping the decision and adding an ease claim absent from the source"
+   },
+   {
+    "revision_key": "b36-21-age-allure",
+    "finding": "an accomplished trap rendered as a future intention",
+    "ground": "the English states discovery and encirclement as already achieved; the old text had the enemy still preparing"
+   },
+   {
+    "revision_key": "b36-42-ardhungol",
+    "finding": "the object of the operation shifted from a place to people",
+    "ground": "the source makes the local sun paladin nest the object - the speaker's contemptuous framing of their base, which characterises the speaker as much as the act"
+   }
+  ],
+  "declined_and_escalated": [
+   {
+    "revision_key": "b36-23-age-pyre",
+    "kept": "阿塔玛森·傀儡之王",
+    "reviewer_objection": "傀儡之王 ('king of golems') overstates 'the giant golem'",
+    "host_ground": "the objection is sound, but the in-window lore tip is governed by the entity name t(\"Atamathon the Giant Golem\", \"傀儡之王阿塔玛森\", \"entity name\"). Changing the tip alone would split the lore text from the name shown on the entity, and correcting the entity name is a terminology decision across 5 occurrences of 傀儡之王. The keys differ, so no runtime collision is at stake. Note the corpus is already split: an achievement line uses the faithful 巨型傀儡阿塔玛森",
+    "disposition": "open terminology item for the maintainer"
+   },
+   {
+    "revision_key": "b36-30-angolwen",
+    "kept": "魔宗利刃",
+    "reviewer_objection": "魔宗 imports a sect or school that 'spellblade' does not name",
+    "host_ground": "same shape - the target is byte-identical to the entity name t(\"Spellblade\", \"魔宗利刃\", \"entity name\"), and only two occurrences exist; changing the lore one alone would split the item's name from its description",
+    "disposition": "open terminology item for the maintainer"
+   }
+  ],
+  "host_note": "both declines overturn reviewer findings and uphold executor decisions to keep existing corpus forms. The executor was right: the entity name governs. The semantic objections are escalated rather than dismissed"
+ },
+ "gates": {
+  "five_step": "PASS",
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "runtime_collisions": 0,
+  "diff": "mod-tome.lua 89 insertions / 89 deletions across 80 hunks, all in-window",
+  "inscriptions_verification": "every remaining 纹身 in age-allure.lua sits in a string whose English also contains 'infusion', so subtype and category now coexist correctly"
+ },
+ "open_items": [
+  {
+   "item": "Angolwen",
+   "detail": "maintainer ruled 2026-08-25: unify to 安格利文 (10 occurrences / 6 sections)",
+   "disposition": "pending dedicated terminology batch"
+  },
+  {
+   "item": "Maj'Eyal",
+   "detail": "maintainer ruled 2026-08-25: use the interpunct form 马基·埃亚尔 (55 occurrences / 33 sections; the term row currently holds the losing form)",
+   "disposition": "pending dedicated terminology batch"
+  },
+  {
+   "item": "Sholtar",
+   "detail": "2 肖塔尔 / 4 肖塔 (an earlier report of 2-vs-2 was an undercount). Host recommends 肖尔塔: syllable-final L conventionally gives 尔, and the sibling kingdoms Cornacs=科纳克 and Mardrop=马卓普 both drop the r-coda. No terminology row exists for any of the three",
+   "disposition": "awaiting maintainer confirmation"
+  },
+  {
+   "item": "Atamathon / spellblade",
+   "detail": "傀儡之王 and 魔宗 both add relations the English does not carry, but both are governed by entity names",
+   "disposition": "maintainer decision"
+  }
+ ]
+}

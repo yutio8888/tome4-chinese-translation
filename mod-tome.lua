@@ -13767,22 +13767,22 @@ Third test confirms it - the orb allows transition between portal gates. This is
 ]], [[#{bold}#红帕兰的日志记录一#{normal}#
 #{italic}#厄流纪 4537年#{normal}#
 
-夏·图尔遗迹的开发已近完成。其中的奇妙符文类型与我们上次开发的南边遗迹中的种类大致吻合。
-目前的推论是：这会是个传送门之类的东西吗？我们只能在各种传言和故事里了解夏·图尔。传说中用他们的传送门能瞬间周游埃亚尔大陆。即使用魔法尝试去理解他们的世界，似乎也困难的难以想象。我们上次送去遗迹的通灵师仍昏迷不醒。我们要坚持研究下去。
+夏·图尔遗迹的发掘已近完成。其中的标记似乎与之前在南方遗迹中发现的相符。
+目前的推测是：这会是某种传送门吗？我们对夏·图尔所知的只有传言与神话，而它们都说夏·图尔能在眨眼间游遍埃亚尔。此处的法力读数高得根本令人无法理解。我上次派下去的占卜师仍昏迷不醒。必须继续研究。
 
 
 #{bold}#红帕兰的日志记录二#{normal}#
 #{italic}#厄流纪 4541年#{normal}#
 
-在活的夺心魔身上的实验似乎并不顺利。谢天谢地，实验里的污浊物我都让助手们替我打扫了……四年的艰苦实验，却让我感到我们甚至还没了解这些遗迹，而研究资金能否维继更让我苦恼不已。
-但是我仍怀有希望，最近新发掘的一些东西能指引我们找到传送门的钥匙。又或者，这些东西只是夏·图尔人的健身设备。让我们拭目以待。
+用活体夺心魔进行的测试并不顺利。幸好我可以把清理工作都交给技术员……四年过去了，感觉我们对这些遗迹的了解根本还没开始。我担心研究经费很快就会被削减。
+但我仍心存希望：最近发掘出的某些物品也许能成为开启传送门的某种钥匙。又或者，它们只是夏·图尔进行某种运动时用的器具？走着瞧吧。
 
 
 #{bold}#红帕兰的日志记录三#{normal}#
 #{italic}#厄流纪 4542年#{normal}#
 
-第三次实验发现了——这个球体能让我们在传送门间瞬移。这真是我人生中最伟大的发现。我们是第一个能从夏·图尔遗迹中解开谜题的研究组！这些夺心魔的表现真让我失望。这些该死的试验品真的除了吃吃喝喝什么也不会吗…… 
-好吧，幸好还有很多备用的夺心魔。
+第三次测试证实了——这个球体能让人在传送门之间转移。这是我一生中最伟大的发现。我们是有史以来第一支从夏·图尔遗迹中解封如此力量的研究团队！只可惜之前送进去了那么多夺心魔。我越来越怀疑，那件带尖叉的器具其实是某种餐具……
+算了，反正愚蠢的夺心魔还有很多。
 ]], "_t")
 t([[#{bold}#Hompalan's Log Entry 4#{normal}#
 #{italic}#Age of Allure 4544#{normal}#
@@ -13814,14 +13814,14 @@ We're really getting somewhere here... Just a shame humans are such messy creatu
 ]], [[#{bold}#红帕兰的日志记录四#{normal}#
 #{italic}#厄流纪 4544年#{normal}#
 
-正当我的研究刚有进展时，军方就闯进来接管了一切。他们难道没有意识到这个实验的重要性吗？这些人满脑子想的就是肩上的杠杠。有传言说一些人类威胁要进攻这里，但老子才不管你们这些微不足道的政治游戏。此外，这些愚蠢的细腿男能构成什么威胁？现在我能做的只有不折不挠地继续实验，并绕开那些疯狂的安全条款。
+正当我的研究刚有进展时，军方就闯进来接管了一切。他们难道没有意识到这是个严肃的科学项目吗？这些人满脑子想的就是头盔上那几道小杠杠。有传言说人类威胁要进攻这座设施，但我根本不在乎这种琐碎的政治。再说，那些愚蠢的长腿能有什么威胁？看来我还是只能坚持下去，想办法绕开这些荒唐的安保限制。
 
 
 #{bold}#红帕兰的日志记录五#{normal}#
 #{italic}#厄流纪 4545年#{normal}#
 
-好吧……战争的谣言并非空穴来风。外面好像死了很多人。真麻烦，我只是想在实验资源充足的情况下进行研究而已。苦中作乐的是，我们的实验也有了进步——人类试验品。接下来的几个月里，我们将开始在他们身上进行实验。
-必须承认的是我对能摆脱那些夺心魔感到庆幸。他们巨大的脑袋不但影响我的心情，也妨碍到了实验。我们以前咋会考虑采用这么愚蠢的试验品……人类再不济也能说话，虽然他们确实在精神力量上有所欠缺。
+好吧……看来这场战争并不只是空话。外面显然死了很多人。真麻烦——我只想继续工作，不要断了我的补给。不过倒有一个好处——人类试验品！接下来几个月就要开始在他们身上测试了。
+我必须说，能摆脱这些令人作呕的夺心魔真让我高兴。他们那大得过分的脑袋总让我感到不安。我们当初究竟为什么会决定让这些无用的生物当仆从……至少人类试验品能够说话，尽管他们并不具备真正的思考能力。
 
 
 #{bold}#红帕兰的日志记录六#{normal}#
@@ -13829,7 +13829,7 @@ We're really getting somewhere here... Just a shame humans are such messy creatu
 
 实验品 A-C：在传送过程中体内发生爆裂。
 试验品 D：在传送过程中爆炸。
-试验品 E：一半传送走了，留下了一半？这也算是个成功的传送门案例？
+试验品 E：一半传送走了，一半留在原地。这算部分成功？
 试验品 F：在传送过程中体内发生爆裂。
 试验品 G：在传送过程中变成肉酱。
 试验品 H-K：在传送过程中体内发生爆裂。
@@ -13837,7 +13837,7 @@ We're really getting somewhere here... Just a shame humans are such messy creatu
 试验品 M：在第一次传送中存活，2秒后体内发生爆裂，总算是有点进展了。
 试验品 N：在第一次传送中存活，但昏迷不醒，于4天后死亡。
 
-我们的实验的确有了进展……可惜人类是如此垃圾的试验品！大肠，小肠，十二指肠挤成一团，你们到底要多少肠子才够啊？！明年我们会在新的试验品中尽快开始实验。
+我们的实验真的有进展了……只可惜人类真是肮脏的生物！说真的，他们到底需要多少肠子？！明年初就开始测试下一批试验品。
 ]], "_t")
 t([[#{bold}#Hompalan's Log Entry 7#{normal}#
 #{italic}#Age of Allure 4547#{normal}#
@@ -13869,8 +13869,8 @@ Subject Z currently raving, but I believe this is due to stressful conditions, n
 试验品 P：在第一次传送中存活，但疯了，不得不被处死。
 试验品 Q：在第一次传送中存活，在传送回来的过程中体内发生爆裂。
 试验品 R：在第一次传送中死亡。
-试验品 S-T：在传送回来的过程中死亡。
-试验品 U：挺过了一轮传送，但在其后喃喃自语说听到主的呼唤，就自己又跳进传送门离去了——然后就爆炸了。真烦躁。
+试验品 S-T：在返回传送过程中向内爆裂。
+试验品 U：在返回传送中存活。他喃喃说了句似乎听见某个声音的话，便又跳进传送门——随后向内爆裂。真麻烦！
 试验品 V：在传送回来的过程中死亡。
 
 试验品编号的字母快用完了，眼下试验品也已耗尽。必须等待士兵们给我提供更多的人类。
@@ -13879,12 +13879,12 @@ Subject Z currently raving, but I believe this is due to stressful conditions, n
 #{bold}#红帕兰的日志记录八#{normal}#
 #{italic}#厄流纪 4548年#{normal}#
 
-试验品 W：在第一次传送中缩小，最终体内发生爆裂。(校准错误?)
+试验品 W：在第一次传送中缩小，随后爆炸。（校准错误？）
 试验品 X：在传送回来时头没了，真古怪。
 试验品 Y：在传送过程中消失不见。
-试验品 Z：在来回的传送中存活了下来，效果拔群！
+试验品 Z：在两次传送中都存活了下来。了不起！
 
-试验品Z目前仍在胡言乱语，但我把这归咎于他长时间的高度紧张而非传送门对精神力的侵蚀。我们需要对其进行进一步的研究。
+试验品 Z 目前仍在胡言乱语，但我相信这是紧张环境所致，而非使用传送门直接侵蚀了他的心智。还需进一步研究。
 ]], "_t")
 t([[#{bold}#Hompalan's Log Entry 9#{normal}#
 #{italic}#Age of Allure 4549#{normal}#
@@ -13907,23 +13907,23 @@ The military are annoying me to no end. I told them to find me more test subject
 ]], [[#{bold}#红帕兰的日志记录九#{normal}#
 #{italic}#厄流纪 4549年#{normal}#
 
-试验品Z状态良好。已完成多次重复传送实验。虽然这是个智力低下的种族，但仍可以成功和其进行数次谈话。他看来完全不明白发生了什么，还老是问我们现在几点了。真是个愚蠢的家伙，人类是不是太高了以至于血压无法把血送到大脑啊。 我仍然坚绝反对送任何半身人进传送门，但是其他的人类试验品都已经死光了，真纠结。
+试验品 Z 状态依然良好。已经让他完成了许多次后续传送。他偶尔能进行有条理的对话，尽管他的种族智力颇为有限。他似乎根本不知道发生了什么，而且总在问现在是什么时候。真是个傻瓜……我猜，人类长得太高，血液根本泵不到他们的大脑。不过，我暂时仍不敢冒险把半身人送进传送门，而此后送进去的人类又全都死了。
 
 
 #{bold}#红帕兰的日志记录十#{normal}#
 #{italic}#厄流纪 4550年#{normal}#
 
-我开始怀疑试验品Z拥有潜在的魔法力量。他比我所想象中人类的移动速度快得多，并能修补一些我认为无法修补的物品，虽然这只是些微不足道的小事，但我认为传送门也许加强了他的某些能力。 虽然他看上去还是如此愚蠢，但我们仍要对其进行下一步实验。他说上次旅程花了3天，可那次明明只过了几秒。其后他开始胡吃海喝，这也许是他贪婪的本性作祟。我发现他今天一直盯着传送门看，就让助手在他做傻事造成危害前，将他拖离了传送门。
+我开始怀疑试验品 Z 拥有潜在的魔法力量。我曾看见他以远超我对其种族预期的速度移动，还在没有任何明显修理手段的情况下修好损坏的物品。这些都是小事，但我相信传送门可能以某种方式增强了他的基础能力。还需要更多测试。不过他依然看起来相当愚蠢。他说上一次旅程花了 3 天，而明明只过了几秒。此后他便狼吞虎咽地吃了起来。我怀疑他只是贪吃。之前我看见他盯着远古传送门看了很久，但在他造成破坏之前，我就让助手把他拉开了。
 
 
 #{bold}#红帕兰的日志记录十一#{normal}#
 #{italic}#厄流纪 4551年#{normal}#
 
-试验品Z消失了！真糟糕！他甚至不是在传送实验中消失的，看上去就像他跳进了自己的影子里，一下不见了。我的实验彻底被毁了！！再也不会有像他一样的试验品了！
+试验品 Z 消失了！真糟糕！这甚至不是发生在传送门转移期间。他看起来只是一步跨入自己的影子，然后就消失了。我的研究毁了！！再也不会有像他一样的试验品了！
 
-军方开始没完没了的抱怨我。我让他们找更多的试验品给我，他们居然拿这区域发现零星的敌人巡逻做理由推脱我。这些屁事也要我操心？！现在我能听到他们在走廊里操练战斗。他们甚至像弱智儿童一样发出尖叫与吼声。 他们到底明不明白这机构是何等的重要？这些家伙会打扰我这个天才的……
+军方真是把我烦透了。我让他们立即给我找来更多试验品，他们却用附近有敌方巡逻队这种借口推脱。他们以为我会在乎这种琐事吗？！现在我又听见他们在走廊里练习战斗。他们甚至像蠢孩子一样哼哼哈哈，故意发出战斗时的吼叫声。他们难道不知道这座设施有多重要吗？他们难道不明白自己如何打扰了我这位天才的——
 ]], "_t")
-t("order for director Hompalan", "致半身人法师红帕兰的绝密命令", "_t")
+t("order for director Hompalan", "给主管红帕兰的命令", "_t")
 t([[#{italic}#To: Research Director Hompalan - #{bold}#TOP PRIORITY#{normal}#
 
 Thanks to one of our scouting parties catching a Conclave lieutenant's squad off-guard, we have found directions to a noteworthy laboratory hidden underground, in what's newly Nargol territory.  Unfortunately, the long-legs scuttled the entrances before we could arrive, and it'd take us years to dig ourselves in, even if we could afford recalling our geomancers from the front lines to work on it - which we can't.  
@@ -13935,21 +13935,21 @@ I know you think yourself "above" such "petty politics" like how vital this faci
 -General Martolep
 
 #{italic}#(Some coordinates are enclosed, along with a large, magic-infused key.  You think you can figure out, roughly, where this sealed Conclave facility is.)#{normal}#
-]], [[#{italic}#致： 研究主管 红帕兰 - #{bold}#最高指示#{normal}#
+]], [[#{italic}#致：研究主管红帕兰——#{bold}#最高优先级#{normal}#
 
-在我们的巡逻队将一支猝不及防的孔克雷夫小分队当场擒获的同时，我们从他们身上搜查出了一份重要情报：在附近有一个重要的地下秘密实验室，现在已经处于我们伟大的纳格尔王国的占领之下。不幸的是，这帮瘦长腿在仓皇逃窜之时就已经破坏了实验室的入口。即使将我们最精锐的地卜师部队从前线调回，也要花上几年的时间才能炸出一条通路来——而这对于我们的战事是不可容忍的。
+我们的一支侦察队打了孔克雷夫一名中尉所率小队一个措手不及，因此找到了通往一座值得注意的地下实验室的路线；那里如今刚成为纳格尔领土。不幸的是，这帮长腿在我们到达前就破坏了入口。即使我们能把地卜师从前线召回来动工——而我们做不到——要挖进去也得花上好几年。
 
-你现在的新任务是立即找到一个方法，把我们的突击部队传送到那个实验室里，肃清一切，然后将里面所有的研究资料安全地带过来。假如他们找到了什么办法在实验室里布设了阻止传送的领域，这里有实验室大门的钥匙。这样你就可以把我们的部队传送到废弃的通道里，然后从大门突破。我可不想听到你因为在终点附近没有可靠的传送门这种小事跟我说什么“不可能”之类的废话：三十年前的你也会告诉我你现在每天所干的一切都是“不可能”的。
+你的新目标是找出办法，把一支回收小队传送进去搜集物资，然后让他们带着资料安全返回。对方可能已经想出防止传送的封禁手段；随信附上一枚钥匙，万一有必要，可以用它瞄准阻碍与入口之间的一点。我不想听你胡扯什么目标附近没有相连的传送门，所以这事“不可能”；三十年前，你会把如今每天都在做的几乎每件事都说成不可能。
 
-我知道你自视甚高，视我们的政治理念如同儿戏，也不会在乎这个实验室对于我们的生存是有多么重要。所以我不再多费口舌，并且开门见山地告诉你：这是来自我的命令，你那些用烂了的借口不管用，无论如何必须完成你的工作。#{bold}#赶！快！行！动！#{normal}#
+我知道你觉得自己“高于”这种“琐碎政治”，也就是这座设施对我们的生存有多重要之类的事，所以我就不用它对我们有多重要来烦你了。那么，我换个你能听懂的说法：这是命令，你平时那套借口不管用。你的职位可就抵在这上面了。#{bold}#把。它。做。成。#{normal}#
 
-——半身人将军 马特勒普
+——马特勒普将军
 
-#{italic}#(在信上记录着几个坐标，外加信封里一把巨大的，魔法所铸的钥匙。你觉得通过这些信息，你可以大致找到那座被封印的孔克雷夫实验室。)#{normal}#
+#{italic}#（信中附有一些坐标，还有一枚灌注了魔力的大钥匙。你觉得自己能大致推断出那座被封锁的孔克雷夫设施在哪里。）#{normal}#
 ]], "_t")
-t("Door to an old Conclave vault", "通向古老的孔克雷夫地下实验室的大门", "_t")
-t("Conclave Vault", "孔克雷夫地下实验室", "_t")
-t("Arriving at the location given by the coordinates, you see an enormous crack in the ground; peering down, the gleam of exposed metal catches your eye, and you recognize it as a massive door.  It would seem that the Cataclysm's tectonic upheaval has carved a path right to one of its entrances, bypassing the ruined tunnels entirely. You climb down, just outside the door.", "在你到达地图上坐标所指的位置时，你惊奇地发现地上有一个巨大的裂谷，深邃的谷底中闪烁着金属的光泽，那是一扇古老的大门。看起来，魔法大爆炸的强大力量所造成的地震正好将地面切裂，让本来在爆炸中被毁的，通向孔克雷夫古老遗迹的通道重现人间。你小心地从裂谷上攀爬而下，站在门前。", "_t")
+t("Door to an old Conclave vault", "一座孔克雷夫古老宝库的大门", "_t")
+t("Conclave Vault", "孔克雷夫宝库", "_t")
+t("Arriving at the location given by the coordinates, you see an enormous crack in the ground; peering down, the gleam of exposed metal catches your eye, and you recognize it as a massive door.  It would seem that the Cataclysm's tectonic upheaval has carved a path right to one of its entrances, bypassing the ruined tunnels entirely. You climb down, just outside the door.", "到达坐标指定的位置后，你看见地面上裂开一道巨大缝隙；俯身望下去，裸露金属的闪光吸引了你的目光，你认出那是一扇巨大的门。看来，大灾变引发的地壳剧变直接劈出了一条通往其中一个入口的路，完全绕过了已毁的隧道。你攀爬而下，来到大门外。", "_t")
 t("healer Astelrid log 1", "孔克雷夫治疗师亚斯特莉的日志 第一部分", "_t")
 t([[Work in a hospital like this is more draining than I thought it'd be.  I thought I'd have no trouble with motivation, helping our wounded get back to health again, but seeing so many of them, and knowing there are some I cannot help...  it weighs heavily on my mind.  It would be difficult to go on, if I did not keep a few things in mind: 
 
@@ -13961,17 +13961,17 @@ And three, that the war will soon be over, and with it we shall no longer have t
 
 "This is your last chance to back down.  A great tragedy will ensue if you continue to push further, and do not accept our previously-stated terms of peaceful resolution.  Do not force us to do this."
 
-After waging a war of trickery and deceit, those halflings think they can bluff us!  Once their military is broken, we can bring their citizens into our fold and enlighten them, and then the true healing can begin.]], [[在战地医院工作真是让人身心俱疲，让我时不时想起我是不是偏离了自己的本意：我的医术只能治疗一个人，而只有在战场上面对着这样的人间地狱，我才会想起世界上有那么多我所不能改变的……这样的念头在心头久久徘徊不能离去。坦率地说，如果不是由于下面这些事情的鼓舞，我可能很难支撑下去。
+After waging a war of trickery and deceit, those halflings think they can bluff us!  Once their military is broken, we can bring their citizens into our fold and enlighten them, and then the true healing can begin.]], [[在这样的医院工作，比我预想的更令人精疲力竭。我本以为，帮助伤员恢复健康定能让我始终充满动力；可看到他们有这么多，又知道有些人我无能为力……这令我心情沉重。若不是时刻记着几件事，我很难继续坚持。
 
-第一点的话，那就是我真的已经尽我所能以尽量减少世界上的痛苦；不仅是通过我的医术使伤口愈合，而且是通过我们对这一伟大事业的努力：让世界上所有的力量团结在孔克雷夫亲切而睿智的周全管理之下。现在，对治疗纹身的广泛应用使得即使身受重伤的军人也可以在短时间内迅速恢复健康，重返沙场。同时，在我们的长老的亲切关怀和诱导性失忆术也能轻轻弥合那些亲历战争的恐怖的士兵心灵中难以拭去的创伤——还有，我们孔克雷夫的希望，高等人类。真希望他们君临天下，指引着人类走向一个千年盛世的时代早日到来。
+第一，我确实在尽全力减少世间的痛苦：既直接治疗病痛，也间接保证世界将在孔克雷夫明智而深思熟虑的统治下归于一统。随时可用的再生纹身确保即便最严重的伤势也能在几天内治愈，让士兵重返战场；此外，长老会还授予我们使用致人失忆的法术，让我们能够妥善治疗那些被战场恐怖景象创伤的人。愿高等人的眼睛在未来数千年间守望这个世界。
 
-第二点的话，就是在长老的殷切督导之下，我目前正在进行的子计划十分顺利。那些同意参加我们的试验性治疗，接受经过单独试验处理的英勇纹身和护盾符文的结合治疗的伤者，在术后在体力和耐力上都有了不同程度的提升，并且这一提升并不随时间消退。尽管如此，还是有一个轻微的副作用稍稍引起了我得注意，虽然我不敢把我的疑虑告诉其他人：其中一部分志愿者已经由于在战斗中表现得过于“士气高涨”而受到了处分。长老向我保证，这一提升对提升部队的整体士气有不言而喻的强大作用，而其副作用在战争结束后可以轻松得到治疗。在此期间，我为我的工作深感骄傲。虽然比起高等人类这实在只能算是微不足道的改进，然而长期而言这也将会给我们的社会带来巨大的福音。
+第二点的话，就是在长老的殷切督导之下，我目前正在进行的子计划十分顺利。那些同意参加我们的试验性治疗，接受经过单独试验处理的英勇纹身和护盾符文的结合治疗的伤者，在术后在体力和耐力上都有了不同程度的提升，并且这一提升并不随时间消退。尽管如此，还是有一个轻微的副作用稍稍引起了我得注意，虽然我不敢把我的疑虑告诉其他人：其中一部分志愿者已经由于在战斗中表现得过于“士气高涨”而受到了处分。长老向我保证，这种攻击性其实整体上有助于提高部队士气，因此我可以等到战争结束后再治疗这些攻击倾向。在此期间，我为我的工作深感骄傲。虽然比起高等人类这实在只能算是微不足道的改进，然而长期而言这也将会给我们的社会带来巨大的福音。
 
-还有第三点，这场战争马上就要结束了。厚颜无耻的纳格尔王国将会被终结在历史的耻辱柱上，而我们士兵的鲜血也永远不会白流。在最近几天，我们在各个战线取得了令人瞩目的伟大胜利，挫败了敌人的伏击并大幅向前，我们的雄师正朝着纳格尔王国的核心进一步挺进。诚然，我也不知道有多少消息是被我们的长老“筛选”和“净化”过的，不过纳格尔王国最近的一份声明让我相信这些战报是真的。
+第三，战争很快就会结束，我们将不必再忍受骄傲士兵们的残缺，也不必再忍受纳格尔的傲慢。最近几天，我们取得了令人瞩目的领土进展，粉碎了多次伏击，在继续深入纳格尔领土时仍保持着推进势头。当然，没人能确定我们听到的消息有多少经过长老会“润色”，但纳格尔最近的一份声明让我相信战报属实：
 
-"……这一严正警告将是你们最后的机会。如果你仍然无视我们之前提出的对两国和平解决争端的倡议，继续你们的侵略行径的话，你们最终将会面临你们的终极毁灭。请不要让爱好和平的我们被迫采取最终的措施……"
+“这是你们退让的最后机会。如果你们继续向前推进，拒绝接受我们先前提出的和平解决条件，巨大的悲剧就会随之而来。不要逼我们这么做。”
 
-在厚颜无耻地主动发动战争之后，这些半身人居然还天真地认为他们可以继续这样恐吓我们！等到我们的军队解放了他们的人民，向他们的人民传递来自孔克雷夫的智慧和启蒙之时，才是对这个世界的“治疗”真正开始之日。]], "_t")
+这些半身人打了一场充满阴谋与欺骗的战争，如今竟以为能吓住我们！等他们的军队被击垮，我们就能将他们的公民纳入自己的怀抱、启蒙他们，届时真正的治愈就会开始。]], "_t")
 t("healer Astelrid log 2", "孔克雷夫治疗师亚斯特莉的日志 第二部分", "_t")
 t([[The Nargol were not bluffing, and what they did was worse than anything we could've imagined.  The details coming from the survivors - of which there are both far too many and far too few - are conflicting at times, but from what I can tell...
 
@@ -13981,15 +13981,15 @@ As our forces began their final push, the ground began to rumble and give way be
 
 No...  the real horrid creatures here are the halflings.  We've seen necromancy before, but mostly as a parlor trick by deranged cults; we never dreamed that any large organization would tolerate it, let alone hide necromantic charms on every one of its ranking officers.  They've been planning to do this since the start of the war, and only sprung the trap now...  Any misgivings I had about the aggression associated with our new treatment are gone forever; we cannot be ferocious enough in purging these fiends from Maj'Eyal.  I have requested an audience with the Overseers to broaden the scope of our experiments, setting our sights higher so we may crush this evil empire as swiftly as possible.  
 
-May the Conclave prevail, and may the Empire's fate serve as a warning to all who would defy our wisdom.]], [[不，这并不是恐吓——纳格尔王国的所作所为超越了任何人的想象。我只能从那些惊魂未定的幸存者中或多或少地了解一些互相矛盾的情况，但是无论这样，我所能知道的是…
+May the Conclave prevail, and may the Empire's fate serve as a warning to all who would defy our wisdom.]], [[纳格尔并非虚张声势，他们所做的事比我们能想象的任何情况都更糟。幸存者既多得过分，又少得过分；他们透露的细节有时互相矛盾，但依我看来……
 
-当我们的部队开始最后冲锋的时候，背后的地面突然开始隆隆作响，逐渐塌陷，从中钻出来的是无数恐怖的尸骸——既有半身人也有我们过去战友的尸体。它们挥舞着自己过去的武器，疯狂地向我们的部队冲来。它们太多了……那些有幸站在没有塌陷的地面上的人形容，简直如同腐肉和白骨的海洋…尽管我们勇猛抵挡，但是仍然寡不敌众，只能被迫后撤，然而挡在前面的是那群邪恶的半身人和他们背后恐怖的憎恶…我们的损失不计其数，战地的医疗中心里满是身受重伤的伤员。他们几乎都感染了纳格尔王国的食尸鬼身上传播的恐怖疾病。我们没有任何办法治疗它们，而我已经不得不“仁慈地”为几十个被感染的同胞带来了永久的安息，让他们免于经受漫长，痛苦的死亡过程，最终变成这些可怕生物的一员……包括……包括……
+当我们的部队开始最后推进时，他们身后的地面开始震动、塌陷，战争中死去的人——无论半身人还是孔克雷夫的成员——的骨头站了起来，拿起曾被丢弃的武器，疯狂地冲向我们的士兵。它们实在太多了……当时身处高地的人说，那景象就像一片白骨与腐肉之海。我军寡不敌众，队形溃散并试图撤退，但半身人挡在前面，那些憎恶之物又追在后面，我们伤亡惨重……这座简陋的医疗中心已挤满重伤者。许多人感染了纳格尔食尸鬼传播的可怕疾病；这种病无药可救，我已不得不“仁慈地”结束十多名男女的生命，使他们免受漫长折磨后死去、并最终转化为那种可怕生物的命运……其中还包括——
 
-[接下来的几行文字被重复写下又被奋力划掉，笔迹几近疯狂]
+[上一段结尾的几行文字被狂怒地涂掉了。]
 
-不……不……最可怕的生物就是半身人它们自己。天哪。我们之前也曾见过死灵法术的存在，但是那只是某些邪教的小伎俩而已。不可能的……我们做梦也不会想到任何大型组织会容忍这种邪恶的存在，更不能想象它们每一位高级官员身上都带着死灵法术的符咒。一定是这样的，它们早在战争开始之前就已经预备了这一切，然而选择在这一时刻让我们陷入这一陷阱…在我脑中，任何对之前计划的疑虑都已经一去不复返了。对于这群半身人恶魔来说，采取任何手段都不过分。我已要求觐见长老会，以扩大我们的实验范围，设立更加激进的目标，以确保迅速将这一邪恶帝国从马基埃亚尔肃清。
+不……真正可怕的生物是这些半身人。我们以前也见过死灵法术，但大都只是疯狂邪教的小把戏；我们从未想过任何大型组织会容忍它，更别说在每一名高级军官身上暗藏死灵护符。他们从战争开始就在计划这一切，直到现在才发动陷阱……我对新治疗所引发的攻击性的任何疑虑都永远消失了；要把这些恶魔从马基埃亚尔清除干净，我们再凶猛也不为过。我已申请觐见长老会，以扩大实验范围、提高目标，好尽快粉碎这个邪恶帝国。
 
-孔克雷夫终将胜利，邪恶帝国的毁灭命运将会向全天下昭示，叛离孔克雷夫的智慧将会带来什么样的恶果。]], "_t")
+愿孔克雷夫获胜，愿这个帝国的命运警示所有胆敢反抗我们智慧的人。]], "_t")
 t("healer Astelrid log 3", "孔克雷夫治疗师亚斯特莉的日志 第三部分", "_t")
 t([[The Overseers were ecstatic about my ideas!  Our staff have been relocated to a more secure location, deep underground with several extensive tunnels leading in from different locations.  Although this means we can no longer leave to harvest herbs for our infusions, the increased budget the Overseers have given us does more than enough to compensate.  Many wounded are still brought to me through the tunnels, but now our goal is not simply to make them as strong and healthy as they were before, but far stronger and far healthier than they could've dreamed.  They are brought to us unconscious, with amnesia spells already applied to ensure they do not resist our experiments; although they are not told they will be test subjects before being brought here, we are sure they would consent to these experiments, if they knew how valuable they were to help the Conclave.  As such, although this process violates several oaths we have taken as healers, I ultimately do not see any moral problem with this, and nobody else at this facility has expressed any concerns to me.  After all, those who join the Conclave as soldiers have already volunteered to give their lives in service to the Overseers' enlightened rule, and this is surely a much more productive way to do so than dying to a Nargol sling-bullet.
 
@@ -14000,15 +14000,15 @@ The Overseers have been working with us personally to make psychological changes
 These Ogres are integrating into our military very well!  The rank-and-file soldiers know better than to attract attention from the Overseers by asking too many questions about where their new, giant allies came from, and thus acceptance came rather swiftly once they saw these creations in action.  We received one report that an Ogre sergeant was seen eating a particularly insolent halfling alive, after he feigned surrender and attempted to cast a lightning spell; this spectacle was both highly motivating to our troops and demoralized the remnants of that halfling's squad into surrendering, so I shall be enhancing their digestive capabilities as well.  
 
 For the most part, though, our research work is done.  All that's left to do is get a response from the Overseers as to whether to increase their birth rate or not (currently set very low as a precaution against future overpopulation), and improve the training we give freshly-created Ogres for runic magic, given that regular maintenance of their runes is necessary to keep them alive.  This is not to say we have idle staff, however!  Some of us have made a project for after the war ends - a modification to our experimental growth-tanks, rendering them capable of holding a person of Ogric biology indefinitely in a "sleeping" state where they do not age or starve.  We can install tanks filled with these "sleeping" Ogres stationed near bridges that may need regular maintenance, stashed in reserve armories, or any other place where you'd need a batch of dependable workers or guards, without having to incur all the other costs associated with keeping extra citizens around.
-]], [[长老会十分欣赏我的计划！我们的工作人员已经搬迁到了一个更加安全的地下设施，有着大量通向不同方向的秘密隧道。尽管我们没有办法收集草药来制造纹身了，不过长老所安排的无穷无尽的预算远远弥补了这一点。和往常一样，有许多伤员被我们带进实验室，不过，我们的目标已经不是让他们恢复强壮和健康，而是让他们变得比以前更加健康，更加强壮。我们的法师对他们的思维施加了小小的处理，以确保他们不会突然恢复意识后对实验造成什么破坏。尽管他们或许并不知道自己参加的实验的意义，但是我相信它们如果知道了这对于孔克雷夫有多么重要的话，一定会支持我们伟大的事业。因此，虽然这和我成为治疗师时候的宣誓有那么一点点小小的抵触，无论是我还是实验室的其他同事们都不觉得这有什么道德上的疑虑。毕竟，既然那些士兵已经决定为孔克雷夫及其长老的睿智统治奉献终生，那么让他们尝试为了这一伟大事业做出贡献不是比在战场上被半身人的投石索所杀显得更为光荣得多吗？
+]], [[长老会对我的想法欣喜若狂！我们的人员已被迁往一个更安全的地方：深藏地下，几条广阔隧道分别从不同地点通往此处。这意味着我们再也无法外出采集制作纹身的草药，但长老会增加的预算足以补偿。仍有许多伤员经隧道被送到我这里，可我们如今的目标不再只是让他们恢复原有的强壮健康，而是让他们变得远比梦想中更强壮、更健康。他们被送来时都昏迷不醒，且已施过失忆法术，以确保不会抵抗实验；他们在被带到这里之前并未被告知将成为试验品，但我们确信，若是知道这些实验对孔克雷夫何等宝贵，他们定会同意。因此，这一过程虽违反了我们作为治疗师立下的几项誓言，我终究看不出它有什么道德问题，设施中的其他人也没向我表达过担忧。毕竟，加入孔克雷夫的士兵早已自愿为长老会的开明统治献出生命，而这显然比死在一枚纳格尔投石索弹丸下有用得多。
 
-在如此多的帮助之下，我们的计划蒸蒸日上，然而我们永远不会止步于此。在足够的实验品和长老的充分授权支持下，我们已经取得了重大的成果。对试验体的体格的大幅强化带来了与之相配的战斗能力的大幅提升，同时对身体的强化也使得他们能够承载更多的符文而不会被符文对身体的重负所压倒。一位同行的研究人员完成了这一重大突破：符文的强大适应性能量不仅是它们的超人的魔法适性强大后备，也是支撑其巨大的身躯的澎湃动力。现在，我们的前线战士不需要经过多少训练就可以向敌人投射毁灭性的火球。并且，那些毛脚怪在试图使用它们的卑劣魔法将他们变成邪恶的行尸走肉之时，失去魔法力量支撑的躯壳会直接炸裂开来。
+有了更好的材料，我们仍能像从前一样对他们的力量作出基础改良，但变化远不止此！有这么多试验品可供研究，加上长老会鼓励我们冒险，我们让他们的体型变得大得多（作战效能也随之成倍提升），还强化了他们的体质，使其能承载更多刻印而不会被负荷压垮。一位同事想出了一个绝妙主意：利用这种符文亲和力，既强化他们与魔法织网的联系，又让他们在生物和身体结构上依赖它；如今，我们的前线士兵稍加训练就能召出毁灭性火球，而若那些毛脚害虫企图从死亡中唤起这些士兵，他们就会因失去生前维系躯体完整的魔力而崩溃。
 
-长老会也一直在和我们合作以帮助它们养成健全向上的性格。在心灵操纵法术的帮助下，我们已经成功为他们设计了符合一切美德的优秀性格，使他们无论是在为孔克雷夫的事业而战时，还是在即将到来的太平盛世之时都能够更好地为社会做贡献。忠实可靠，乐于助人，勤勉奋进，在生活中不垂涎于权力和个人的荣耀，明智而清晰得了解自己的职责并且不轻易发怒……但在需要的时候绝对威猛。正如高等人类生来就是为成为人类的领导者和指引者，其发挥的能力远远超出孔克雷夫过去的任何想象。这种“食人魔”（来自某个同事起的昵称）将会成为我们勤勉的工人和忠诚的卫士，他们的勤奋工作和敬职守法将会成为我们伟大社会的坚实基础。当然，这个社会还会留下一小部分没有经过改造的人类，它们良好的适应性将会成为社会的粘合剂，填补社会的所有空白。
+长老会还亲自与我们合作，对他们的心理作出改变；凭借失忆法术提供的空白心智，我们成功赋予他们一种既适合战争，又适合随后光荣统治的心态。他们在日常生活中无比尽职、乐于助人、追求卓越，却不贪图权力或个人荣耀，明白自己在世界中的位置，不轻易动怒……但在需要时却极其凶猛。高等人被创造为学者与政策制定者，在这一职责上的成功远超孔克雷夫最大胆的梦想；同样，这些被工作人员昵称为“食人魔”的新人种将成为我们的劳工与士兵，以辛勤劳作和尽职执法作为社会的坚实基础。当然，未经改造的各个种族仍将有一席之地；它们天生的适应力正适合填补空缺，成为将其余部分凝聚在一起的粘合剂。
 
-这些食人魔们很快就融入了我们的军队。在喋喋不休地询问关于这些巨型盟友从哪里来而被长老会盯上之前，聪明的普通士兵就已经学会了哪些问题该问而哪些问题不该问。而当食人魔们在战场上首次亮相，其出色的表现便立刻地被士兵们所接纳。我们收到报告称有个特别张狂的半身人试图假装投降之时向食人魔发射闪电，结果被其活生生地吞了下去。这一意外出人意料地大幅提升了我们的士气，把周围半身人的残兵败将吓得屁滚尿流纷纷投降，所以我也在考虑是不是提高一下他们的消化能力会比较好。
+这些食人魔正很好地融入我们的军队！普通士兵明白，过多追问新来的巨人盟友究竟从何而来，只会引起长老会的注意；因此一旦看到这些造物投入战斗，他们很快就接纳了对方。有份报告说，一名食人魔中士活吃了一个特别嚣张的半身人；那人佯装投降后又企图施放闪电法术。这一景象既极大鼓舞了我军士气，又令那名半身人小队的残部士气崩溃、举手投降，所以我还要增强食人魔的消化能力。
 
-总体而言，食人魔的计划已经基本完成。剩下来的事情就是向长老会提出申请，以解除对实验品的生育能力的限制，并教会新生的食人魔如何维护自己身上的符文，鉴于对他们的存活来说定期维护自己身上的符文是必要的。当然，这可不意味着我们在闲着。我们的一个小组完成了一个项目——经过对培养槽的研究，我们制造出了一种休眠仓，在那里食人魔可以无限期处于休眠状态，不吃不喝，也不会变老。我们可以把他们放在需要经常定期维护的工程设施附近，储存在储备军工厂内，或者任何时候，只要我们有对工人和军队的紧急需求，我们都可以立刻唤醒一批，而不需要负担长期供养他们的额外费用。
+不过总体而言，研究工作已经完成。剩下的只是等待长老会答复是否提高食人魔的出生率（目前出于防止未来人口过剩的考虑，被设得很低），并改进新生食人魔接受的符文魔法训练，因为定期维护他们的符文是维持生命的必要条件。这并不意味着工作人员无事可做！我们中的一些人为战后准备了一个项目——改造实验用生长槽，使其能让具有食人魔生理构造的人无限期地保持在不会衰老或饥饿的“沉睡”状态。我们可以把装满这些“沉睡”食人魔的槽置于需要定期维护的桥梁附近、藏在后备军械库里，或放在其他任何需要一批可靠工人或守卫的地方，而不必承担供养额外公民的其余费用。
 ]], "_t")
 t("healer Astelrid log 4", "孔克雷夫治疗师亚斯特莉的日志 第四部分", "_t")
 t([[Announcement to All Staff:
@@ -14026,13 +14026,13 @@ It has been an honor working with such talented individuals, and an honor doing 
 Long live the Conclave!
 Healer Astelrid]], [[敬告所有工作人员：
 
-我知道，你们大家都听说了有关我们的占卜师在水晶球中见到了什么的传闻，也有人因为这几天突如其来的封锁而议论纷纷。现在，请允许我宣布一个沉痛的事实：传言是真的，我们的部队在纳格尔王国的攻势下遭受了严重挫折，实验室上方的领土已经沦陷。它们正在使用傀儡进行地毯式搜寻，试图寻找一个能够突入的入口。通道上保护性的爆炸陷阱已经被触发启动，炸毁了其中一条通道，而它们也在寻求办法解除其他的爆炸陷阱。总而言之，我们已经无处可逃了。如果假以时间，它们最终会找到这里，杀死我们，卑鄙地窃取我们所有的研究成果。我们绝不能让纳格尔王国窃取食人魔的秘密，否则孔克雷夫将会失去一切。
+我相信你们都听过占卜师看到了什么的传言，也知道我们过去几天为何一直处于封锁状态；我必须沉痛地证实，传言属实。纳格尔已经占领我们设施上方的土地，正用傀儡搜遍周边地区，寻找入口。我们已经失去一处入口，用来使它塌毁的保险爆炸符文陷阱被触发了；如今他们也会试着拆除这些陷阱。简而言之，我们无路可逃；只要有足够时间，他们就会找到进来的路，杀死我们，夺走我们宝贵的研究成果。这个帝国在没有食人魔时就已经足够难以对付；我们绝不能冒险让他们发现我们，使局势向他们倾斜。
 
-我们无路可选，无论怎样都改变不了我们的命运。在这样的处境下，我从长老会接到的命令要求我摧毁我们的所有的研究结果，然后把一瓶炼金药水放入通风系统中，无痛苦地进入永久的沉睡。然而，我可不愿意把我们足以书写历史的伟大成果就这样付之一炬。相反，我已经提前引爆了所有的炸药陷阱，炸毁了所有通道，让整个研究所彻底与世隔绝——我们处于如此深邃的地下，没有任何通道可以通过，纳格尔王国将要花费几十年才有可能挖掘到这样的地方。换句话说，我们已经彻底与外面的世界隔绝——无论是纳格尔王国的余孽，还是孔克雷夫的同志。
+无论发生什么，我们都注定要死。长老会为这种情况下达的命令，是摧毁研究成果，然后把他们交给我的一瓶炼金药剂放进通风系统，让我们在没有痛苦的情况下窒息而死。我不打算照做，把我们应得的历史地位白白丢掉。相反，我已经提前引爆所有剩余爆炸陷阱，彻底封死了进入此处的道路。我们位于极深的地下，既然无隧道可循，纳格尔挖掘队可能要几十年才能到达这里。换句话说，我们已经与纳格尔彻底隔绝……也与孔克雷夫的其余部分隔绝。
 
-我们有少量的应急口粮，但它最多只能支撑几个月的时间，我可不能保证孔克雷夫在那个时候已经能够光复这片领土。我们也可以试着拔掉用于符文的草药，在药草园上种植可以食用的植物——但是那也最多能够给我们增加一个月的缓刑期，很快魔力灯就会失去魔力而熄灭。如果不采取断然的措施，我们必定会被饿死，然而幸运的是，我们有一个新的选择，选择做出了一个断然的举措。
+我们储备了少量应急口粮，但最多只能维持几个月，我们不能假定孔克雷夫会在此期间收复这片领土。我们可以试着把用来栽种纹身草药的花园改种食用作物，但那也只能再争取一个月，之后生长灯就会失去魔力。不采取激烈手段，我们必将饿死；幸运的是，我们确实有激烈手段可用。
 
-这就是我最后的命令：我已经准备好了我们的手术傀儡以在我们的身上刻下食人魔的符文，并更新了我们所有的记录，记录下关于这一符文的效果和影响的全部知识。我也已经让傀儡把所有的培养槽升级成了休眠仓。并且…满怀着无比愧疚的心情，妥善处理掉了一部分生存几率太低的实验体，为我们腾出足够的仓位。当你看到这张纸条的时候，我本人已经经历了这个流程，并沉睡在我办公室的休眠舱中。如果你还想活下去，请你在军械库里拿上你的武器，然后按我说的去做。当我们都处于休眠状态之时，我们将不受时间侵蚀，随时准备迎接任何通过挖掘进入这里的人——如果是孔克雷夫的增援部队，我们将交出我们的所有知识，结束我们的伟大使命，然后等待下一个属于我们的事业；而如果不是的话——他们将会为此而后悔。用我们的武力告诉他们“禁止入内”这四个字是什么意思，然后回到我们的永恒的守卫之中。
+这是我的最后一道命令：我已准备好手术傀儡，让它们将食人魔刻印施加在我们身上，并已更新所有记录，使之反映我们对这些刻印的效果与效能所掌握的最新知识。我还让傀儡把所有生长槽——包括正在使用的——升级为最新的“停滞舱”设计，并且通过……处理掉一些存活希望很低的试验品，腾出了足以让我们每人使用一座的空间（我已开始后悔这一行动）。等你看到这张字条时，我本人已经接受了这一过程，正在一座被搬进我办公室的舱中冬眠。如果你不想死，就从军械库取得一件武器，然后照我做的做。陷入沉睡后，我们将不受时间摧残，并准备好迎接终有一天挖到这里并发现我们的人。希望那会是孔克雷夫的援军；若果如此，我们就放下武器，把笔记交给他们，等待后续命令。若来的不是孔克雷夫……就让他们后悔。发出比任何“禁止入内”标志都更有力的警告，然后继续沉睡。
 
 非常荣幸和你们这些杰出的人才一起工作，为这样前无古人后无来者的伟大事业奉献终生。或许我们仍然还有机会做出更多的成就，但总之，我已经对我们目前的成就感到无比自豪——也为伟大的食人魔种族将会对马基埃亚尔带来的改变无比自豪。
 
@@ -14108,10 +14108,10 @@ But we won't age sleeping in these ruins
 They won't work on normal humans
 But we won't age sleeping in these ruins#{normal}#
 
-...Everyone reacts to grief differently, I guess. #{bold}#-Churrack#{normal}#]], [[寄信人: 密探楚拉克
+...Everyone reacts to grief differently, I guess. #{bold}#-Churrack#{normal}#]], [[寄信人：密探楚拉克
 收件人：长老会忠诚司最高长官，不过我不知道等到我们出来的时候这个职位是谁了。
 
-虽然我和那些治疗师一起被困在了这里，但我一直没有停止过对她们的忠诚的检验，确认她们到底是否仍然忠于我们。这一次的事件真是比千层饼还复杂，虽然亚斯特莉显然违反了长老会的命令（并且对这里的人公布秘密命令这件事也违反了众多纪律），她提出的方案仍然忠于我们的最终目标。那些工作人员反应不一，虽然大部分人因为别无选择而不情愿地追随着她的计划，但还有一些人似乎正十分热烈地追随她的步伐，在等待手术的时候唱起了这首歌：
+虽然我和这些治疗师一起被困在此处，但我一直在暗中探查，判断他们究竟忠于我们，还是忠于自己。这个案子比该死的洋葱还多层；亚斯特莉虽然的确违抗了一道直接命令（她公布这道命令的存在，又违反了好几道命令），但她提出的备选方案似乎仍符合我们的目标。工作人员的反应不一。大多数人因别无选择，只得不情愿地接受她的计划；但有些人似乎热情地追随她，并在排队等待接受处理时唱起了这首歌：
 
 #{italic}#纳格尔人吹嘘他们的帝国要把我们打倒，
 我们在亡灵军团面前只能逃跑。
@@ -14139,7 +14139,7 @@ But we won't age sleeping in these ruins#{normal}#
 水晶球已经看到了战争的火焰。
 
 他们离我们所处的地方越来越近。
-他们的哨兵已经就绪，准备将我们一网打尽。
+他们的斥候已经发现我们，并把我们全都围困在此。
 我们炸毁了隧道——现在是背水一战，
 在孔克雷夫找到我们之前，给入侵者来点好看。
 
@@ -14186,9 +14186,9 @@ t("age of pyre", "烈火纪", "newLore category")
 t("Atamathon, the giant golem", "阿塔玛森·傀儡之王", "_t")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. One of its eyes seems to be missing. At over 40 feet high it towers above you.
-Someone foolish has tried to reconstruct it, but it seems like it misses an eye to be completed.]], [[这尊巨型傀儡是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
-它的躯干是用大理石铸造，关节部分则灌入沃瑞钽衔接，双眼由纯净的红宝石构成。它的一只眼睛似乎已经失落。四十多英尺高的巨像似乎默默地俯视着你。
-一些蠢货似乎想要重塑他，但由于找不到那只眼睛而没有完成。]], "_t")
+Someone foolish has tried to reconstruct it, but it seems like it misses an eye to be completed.]], [[这尊巨型傀儡是由半身人在烈火战争期间为对抗兽人而建造的，但它被吞噬者加库尔击倒了。
+它的身体由大理石制成，关节由坚实的沃瑞钽制成，双眼则由最纯净的红宝石制成。它似乎缺了一只眼睛。它高逾四十英尺，高高耸立在你面前。
+有个蠢货试图重新建造它，但要完成似乎还差一只眼睛。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/angolwen.lua"
@@ -14211,23 +14211,23 @@ Ah, how much hope was in me then. But foolish were I to think it could be so eas
 
 Aye, and humility is what I teach to ye now. Know ye well that there are forces out there which dwarf ye into insignificance. Know as well that they have no glory, no pride, for they are forces of ultimate destruction which bring only terror and pain.
 
-Our mission is to help the world. Our penance is to act in secret. Old wounds remain and new threats do arise, but all must be dealt with from behind our cloak of silence. The mistrust of our ilk still lies deep in people's minds, and there are even those who hate us with a violent passion. But the world is changing, and perhaps one day we shall be accepted again in society. Until then remember well this lesson of humility, and in the open world keep ye secret, and keep ye safe.]], [[距我们最优秀的两个学生叛逃安格利文已经数年了，他们背离了我们保密的原则，玷污了我们静默的责任。 每当想起他们的天才本来能为我们做出多大的贡献，我内心仍然止不住的酸楚。我期盼着他们能迷途知返，期盼着他们能了解我们庄严任务的真正意义。
+Our mission is to help the world. Our penance is to act in secret. Old wounds remain and new threats do arise, but all must be dealt with from behind our cloak of silence. The mistrust of our ilk still lies deep in people's minds, and there are even those who hate us with a violent passion. But the world is changing, and perhaps one day we shall be accepted again in society. Until then remember well this lesson of humility, and in the open world keep ye secret, and keep ye safe.]], [[我们最聪慧的两名学生离开安格利文已有数年，他们厌倦了我们隐秘的帷幕和无声的职责。想到他们若留在我们这秘密的圈子里能有何种成就，我心头依然沉重。我只希望他们终有一日归来，并理解我们为何肩负这项庄严的使命。
 
-但我现在必须要面向未来，过去的后悔已然过去，不应过多纠结于他们的叛逃而成为我们沉重的负担。我必须将注意力放在你们这些师从我的年轻学徒身上，我必须向你们灌输我们的知识、任务以及正义，这样你们才能明白我们所做的一切与这样做的理由。我们秘密行事，来弥补我们过去的错误，来创造一个美妙的未来。我们为带来恐怖的魔法大爆炸而深切忏悔，它的危害绝不会被埃亚尔大陆的人们所遗忘。
+但我必须思考未来，我遥远的过去已有太多憾事，长期背负它们只会被压垮。我必须想到你们——这些刚开始学习我们知识的年轻学徒。我必须向你们解释我们的使命、目的与理由，让你们明白我们做的一切以及为何要做。我们在秘密中行动，试图治愈过去造成的伤害，试图建立更美好的未来。我们需要做出巨大赎罪，整个埃亚尔都永不应忘记魔法大爆炸的恐怖。
 
 我对此无比了解，因为那时，身为一个年轻法师我就在现场。我听说了永恒精灵法师在夏·图尔遗迹上的实验。是的，我对他们将发掘出的力量感到无比的嫉妒。年少轻狂的我满脑子都是机遇和荣誉的诱惑，一点也不明白谨慎与小心的重要。看看吧，这样的想法带来了什么样的恶果……
 
-两千六百多年已然过去，我仍不能从当天梦魇般的记忆里逃脱，漫天的炙焰与破碎的大地仍时时折磨着我的灵魂。我能感受到空气中的法力、实验中瞬间爆发出的奥术能量远超任何人的控制。 我立刻明白永恒精灵们终于成功解开了传送门的力量，但这股力量的强大却远超他们的想象。我看见闪亮的能量柱贯穿头顶的天空，然后血红的毁灭之焰如雨般落下。我唯一能做的就是为自己开启了护盾，即便如此我仍身受重伤，留下了至今不灭的伤痕。我的亲朋好友都在这一场灾难中死去。至今姐姐尼耶拉那短促的悲鸣与她死前的惨状仍历历在目，那时我只能眼睁睁的看着身边的她皮肤被闪电撕裂，肉体被火焰吞噬，连骨灰都被大地可怕的颤抖化作乌有。二十六个世纪以来，每晚我都被她最后的悲鸣所惊醒。
+两千六百次太阳轮回已从我头顶流过，可我仍无法摆脱那一天天空化为火海、大地被撕成碎片的记忆。我感受到空气中的魔力，感受到远超任何人控制的奥术能量猛然释放。我瞬间明白，永恒精灵已解开远古传送门的力量，但那股力量远超他们的预期。短短几秒间，我看见燃烧的能量洪流撕裂头顶的天空，继而化作绯红的毁灭烟柱倾泻而下。我只来得及给自己罩上护盾，却仍被严重烧伤，疤痕至今尚存。我身边无人生还。我仍记得姐姐尼拉站在我身旁时那声截然而止的尖叫：可怕的能量剥去她的皮肤，火堆般的烈焰吞没她的身体，她的灰烬被大地的剧烈震动抛散。二十六个世纪过去了，我仍会被那声尖叫惊醒……
 
-在那天我失去了许多深爱的人，但受难的绝不只是我一个。事故迸发出的能量在大陆上横行，无数的人因其而死，更多的人则被其后引起的混乱所杀害。然后猎魔行动开始了，人们揭竿而起，他们再也无法压抑对高傲法师的不满，并无情地屠杀着我们。在这次法术大爆炸后，我们的法术通道被堵死，我们的能量难以恢复。 毫无反抗能力的我们花了大功夫才聚集了同伴们，建立了庇护所安格利文。大量法师在这次暴乱中被屠杀，更不幸的是，更多无辜民众由于弥漫的不信任感和对鲜血的渴望而丧命。但是，哎，付出的代价远不止如此。
+那天我失去了许多所爱之人，而且绝不只有我。无数人死于各地，更有无数人死于随后的混乱。之后魔法狩猎开始，民众奋起反抗法师的傲慢，毫不留情地屠杀我们。魔法大爆炸后，我们的能力陷入紊乱，法力通道也被切断。我们几乎毫无防卫能力，历尽艰辛才聚集众多法师，建立隐藏城市安格利文。随后的暴乱中，许多法师被杀，也有许多无辜者死去；当时猜忌遍地，嗜血欲望吞噬了一切。但不幸的是，苦难并未到此结束。
 
-我们至今仍能通过扭曲的大陆和枯萎的土地看到魔法大爆炸的灾难性后果。而在黄昏纪，情况则更加糟糕。这段岁月的灾难尤为严重。疾病丛生，瘟疫横行，文明荡然无存。所有种族都濒临灭绝，知识和思想的黑暗时代降临。军阀与土匪为了所剩无几的完整土地而争斗不休，末日的回响则继续席卷着幸存者们。在那个时刻，我隐秘地启动了修复任务，来纠正之前的错误行动。 我们悄无声息地走遍破碎的大地，用我们的力量来恢复而不是破坏。虽然花了数个世纪，但最终魔法大爆炸的灾后余波逐渐消散，灾民们也开始了零星的重建工作。
+魔法大爆炸的影响今日仍随处可见：土地扭曲，大地枯萎。黄昏纪时，情况还要糟得多。新疾病不断出现，瘟疫席卷各座城市，文明化为乌有。所有种族都接近灭绝，知识与启蒙堕入黑暗时代。封建领主和强盗团伙为剩下的少数健康土地争战，枯萎病却继续蹂躏尚存的自由人民。正是在那时，我开始秘密行动，修复世界，弥补我们行为的过错。我们默默访问破碎的土地，用力量治愈，而非毁灭。这耗费了数个世纪，但魔法大爆炸的后果终于开始减退，人们也开始重建。
 
-当时我心中报有极大的憧憬，美好的愿望，但是我竟然傻到以为这件事会很容易。 埃亚尔大陆的伤口远比表面蔓延的疾病更深更危险。魔法的毒素影响得太深，世界的根源已经开始碎裂。在一个黑暗的雷雨天，一场大灾变从东方席卷而来，绵延数千里的广袤土地被连根拔起甩上了天空。当整个城市和种族被掀入了大海时，我们也只能如其他不会魔法的人一样在惊恐中无助的喘息。地壳被撕裂，整个埃亚尔永远改变了。此情此景，哪怕是伟大的魔导师也只能甘拜下风。
+啊，那时我心中充满希望。可我竟愚蠢地以为事情会如此简单。埃亚尔的伤口比表面的疾病深得多。毒素深入下方，裂缝撕开了我们世界的根基。一个黑暗的风暴日，一场大灾变从东方席卷而来，大地升至天空五百里格之高。整座城市、整个种族被卷入海中，我们只能惊恐地倒吸凉气。各片大陆被生生切开，整个埃亚尔从此永远改变。那番景象，足以令最伟大的大法师也心生谦卑。
 
 是的，这就是为何我要让你学习身为法师的谦卑。让你了解在绝对的力量下你是多么的渺小。让你了解这力量无关荣耀与自豪，它终极的破坏力只会带来痛苦与恐惧。
 
-我们的任务是拯救世界，我们的忏悔是暗中行动。旧的创伤仍未修复，新的威胁业已袭来。但一切必须在静默之中化解。纵使猜忌之种仍深埋在人们脑海，纵使甚至有人对我们拳脚相向，但这世界总在不断改变，或有一日我们会被社会再次接纳。在那一天来临之前，请切记保持法师的谦卑，在这个广阔的世界中保持行动的隐秘，注意自己的安全。]], "_t")
+我们的使命是帮助世界。我们的赎罪是在秘密中行动。旧伤仍在，新威胁又不断出现，但一切都必须在沉默的斗篷后处理。人们心中对我们同类的不信任依然根深蒂固，甚至有人狂热而暴力地憎恨我们。但世界正在改变，也许终有一日，我们会重新被社会接纳。在此之前，牢记这节谦卑之课；踏入外界时保守秘密，保护好自己。]], "_t")
 t("Lecture on the nature of magic by Archmage Tarelion", "大法师泰尔兰关于魔法本质的演讲", "_t")
 t([[#{bold}#"What is Magic?"
 #{italic}#A study by Archmage Tazimar Tarelion#{normal}#
@@ -14248,17 +14248,17 @@ Some believe that magic is inherently wrong, that the so-called twisting of the 
 ]], [[#{bold}#“魔法究竟是什么？”
 #{italic}#大法师塔兹玛·泰尔兰的研究报告#{normal}#
 
-不管这个问题看上去有多粗鲁有多愚蠢，我身边仍不乏询问者，其中竟然也包括了我最有天赋的学生。 我们的教育过分的集中在练习，模仿和对成果的追求上了，以至于忘记告诉学生们最重要的基本概念。就像一个音乐家可以快乐地弹奏着他的竖琴，而不需要懂得音乐是如何由弦的震动发出的一样。所以一个法师也可以在不知道魔法本质的情况下使用魔法。在这个报告里我希望能阐述魔法的本质，并说明这些基本的概念是如何产出实用魔法这一甜美果实的。
+这问题听起来多么粗俗平常，可它偏偏是我最常被问到的问题，甚至一些学识最渊博的学生也会询问。我们太常借实践、模仿和对最终效果的专注来教授魔法技艺，却不更详细地教授底层原理。正如音乐家可以快乐地弹奏竖琴，却不知声音如何由琴弦震动产生，法师也可以运用魔法，却不了解其中真正起作用的力量。我希望在这篇文章中教授魔法的本质，以及底层效应如何结出我们所能创造的一切奇妙果实。
 
 炼金师会告诉你这世界是由许多基本材料构成——铅、铜、铁、金等等。他们专注于将物品分解成基本元素来分析他们是如何互相影响的。但这只是世界的一面，基本元素虽然表现了物质面上世界的构成，却不能解释将这些元素精密结合在一起的力量。火之力、冰之力、闪电之力、乃至生命之力都是真实存在的，而这些力量我们称之为埃亚尔元素。真正的大法师专注于元素之力是如何影响这个世界的，并善于操作这股力量为己所用。
 
-元素之力自然存于世间，无处不在，无所不包。它们移动着，震动着，链接着世界上的材料，它们对彼此的影响也非常巨大。所有的物种都能自然的运用这些元素，但其中的一些相较其他物种更能协调元素之力。而且，经过大量的指导和练习后我们作为个体就能拥有协调元素之力的能力，通过元素之力的运用，我们可以得到狼的速度、熊的力量、树人的坚韧、甚至是龙的强大自然力量。
+元素之力天然存在于世界，编织在万物周围，构成一幅无所不包的织布。它们与世界中的物质一同移动、震动与共鸣，彼此的效应互相深刻影响。所有生物都会自然地运用这些元素，但有些生物比其他生物更贴合这些丝线。通过大量训练与实践，我们自己也能更贴合这些狂野力量；如此一来，有些人就能匹敌狼的速度、熊的力量、树人的坚韧，甚至巨龙的浩大自然之力。
 
-但还有另一个方法能让我们得到元素之力——一种更加直接的方式，虽然有些人会称其为非自然。很久前，人们发现了经过大量的训练如何集中精神以将元素直接提炼出来的方法。通过这个方法，他们能释放巨大的能量，而通过塑能法术这些能量可以成为世界上真实的现象。通过训练，火球、闪电箭、冰风暴都能响应法师召唤而出。而真正的大魔导师则能更进一步，通过操纵多重元素的共鸣来使他们产生复合效果。
+但还有另一种获得元素之力的方式——一种更直接、虽然有人会称之为不自然的方式。很久以前，人们发现，经过大量训练后，可以集中意志，直接拨动元素丝线。这能释放巨大能量，而这些能量又可被塑造成世界中真实存在的效果。受过适当训练的人可召出火焰烟柱、闪电之箭与寒冰爆流。真正的魔法大师还能走得更远，将多种共鸣力量结合起来，创造复杂的物质效果。
 
-要提炼这些元素之力可是个累人的活，需要许多的能量和意志力来维持。这些力量就是我们奥术领域的法力——一种精神上的“体力”，我们使用它们来影响世界中的元素。不间断的使用魔法就像持续举起和支撑重物一样，最终都会耗尽个人的精神力。不断的练习能让我们拥有更多的精神力量，一些特定的符文和咒语也能让我们在紧急情况下快速的回复法力。
+拨动丝线会消耗巨大，需要投入大量意志来维持。我们精通奥术之人将这种专门用于与世界元素互动的精神耐力称为“法力”。持续使用魔法就像不断举起并托住重物，最终会发现自己的能力已被耗尽。练习能让人积累更庞大的法力储备，某些符文与法术也能逐渐积累额外储备，以供需要时调用。
 
-魔法符文和物品渗透着特定的元素回路，这需要经验丰富而富有天赋的附魔师。最复杂的魔法物品需要耗费多年的工作和巨大的精神力才能将正确的元素之力附着于材料上。宝石则是最容易被用在这项工作上的材料，炼金师常用他们来呼唤元素之力。
+魔法符文和物品都被灌注了与某些元素丝线的联系。这需要经验丰富、天赋过人的附魔师进行精巧作业。最精密的魔法神器需要多年制作，以强大精神力将核心材料永久调谐到正确的元素能量。宝石尤其容易用于这种技艺，炼金术师常用它们引发元素效应。
 
 一些人笃信法术的存在本身就是个错误，所谓的凭某人意志扭曲元素之力只能带来可怕的后果。作为安格利文里的学生我假定你们都是不同意这种说法的。魔法只是自然之力的延伸，我们身为自然生物为何不能去尝试运用它？但你们要谨记魔法的存在仍是一柄双刃剑。作为工具它确实能产生极大的价值——明智的使用它。
 ]], "_t")
@@ -14268,11 +14268,11 @@ Another day dawns on Angolwen. I hesitate to write this, but it almost feels as 
 
 This is not to say that life has been without conflict at all. An agent of the Ziguranth infiltrated Angolwen under the guise of a travelling alchemist a few days ago; an unhappy first, I'm afraid. Having used choking powder to incapacitate the guards and rob the surrounding mages of their voices, things may have turned ugly if Linaniil hadn't been passing by on one of her walks. Little was left of that man... or the tree he hid behind... or many of the surrounding buildings, to be honest.
 
-In a way, the incident lit a fire under me to pursue my studies and develop my powers, but I must admit that my interest in staff practice has waned as of late. My fencing, on the other hand, improves by the day. Hmm... I wonder if I can get some of the enchanters to help me "augment" my old sword. After all, what is a blade but a sharpened metal staff?]], [[来自大法师沃利尔的桌子，
+In a way, the incident lit a fire under me to pursue my studies and develop my powers, but I must admit that my interest in staff practice has waned as of late. My fencing, on the other hand, improves by the day. Hmm... I wonder if I can get some of the enchanters to help me "augment" my old sword. After all, what is a blade but a sharpened metal staff?]], [[大法师沃利尔书，
 
-又一个安格利文的黎明。我犹豫着写下了这些，但拂晓几乎让我感觉到和平再一次回到了埃亚尔。提到这，我甚至希望所有的战争和破坏能一次性于世上爆发——这如果不是恶意的命运又是什么。不管如何，我的睡眠受猎魔运动后遗症的干扰越来越小了，现在，我终于能够全身心投入到创造这隐蔽在深山中的小社区的福祉上了。
+安格利文又迎来了一个黎明。我写下这句话时颇为犹豫，但感觉和平似乎正重新回到埃亚尔。这么一说，我几乎以为战争与毁灭会立刻爆发——命运再怎么说也是充满恶意的。不管怎样，我的睡眠正日渐少受魔法狩猎记忆的困扰，如今我能全心全意地改善我们隐居山间的这片社群了。
 
-生活并不是充满了平静，数日前一名伊格兰斯的探子乔装为旅行炼金师渗透进了安格利文。这是首个恶意的来访者，他用窒息粉制服了守卫和周围的法师们，如果不是莱娜尼尔恰好散步路过的话，事态可能一发不可收拾。不过，老实说，无论这个人用以躲藏的树，或者周围的很多建筑，都已经灰飞烟灭了。
+这并不是说生活完全没有冲突。几天前，一名伊格兰斯特工伪装成旅行炼金术师，潜入了安格利文；恐怕这是一个令人不快的首例。他用窒息粉制服守卫，并夺去周围法师的声音；要不是莱娜尼尔恰好散步经过，事情可能会变得很糟。那个人几乎没剩下什么……他藏身的树也是如此……老实说，附近的许多建筑也一样。
 
 这件事激发了我继续研究和修行自身力量的欲望，但不得不承认我对练习法杖搏击已是兴趣索然。我的剑术却是日益精进。呼，也许有天我能找个附魔师来为我的老剑附一下魔，说到底剑不就是一柄磨尖了的金属杖吗？]], "_t")
 t("Angolwen Fountain", "安格利文的喷泉", "_t")
@@ -14288,25 +14288,25 @@ MAY WE HAVE THE WISDOM TO ONE DAY REUNITE THE WORLD IN SAFETY AND ENLIGHTENMENT
 
 ALL ARE WELCOME WHO PREVENT THE THREATS OF THE FUTURE
 
-GATHER HERE IN PEACE TO DISCOVER AND PERFECT THE KNOWLEDGE OF HOW, AND WHEN, TO WEAVE THE WORLD'S FABRIC]], [[#{italic}#(你在这里看到一个大而精美的喷泉。莱娜尼尔的雕像矗立在中央，她张开双臂欢迎所有的来客。围绕喷泉外站立着一位操纵大地符文的矮人；一位紧握治疗之杖的人类；一位身佩精致法杖的精灵；一位手拿单手法杖的半身人，火球在他的另一只手上飞舞。令人感到惊奇的是，雕刻而成的火球与符文没有和任何东西连结在一起，而是漂浮于空中。在喷泉的边缘，你看到上面雕刻着一行小字。)#{normal}#
+GATHER HERE IN PEACE TO DISCOVER AND PERFECT THE KNOWLEDGE OF HOW, AND WHEN, TO WEAVE THE WORLD'S FABRIC]], [[#{italic}#（你在此看到一座庞大而精致的喷泉。莱娜尼尔的雕像站在中央，她伸展双臂，欢迎所有人；喷泉外缘周围站着几座雕像：一名操纵大地符文的矮人，一名持简朴治疗师权杖的人类，一名持高大精巧法杖的精灵，以及一名一手握着权杖、另一手上方悬浮火球的半身人。那些符文与火球未与任何东西相连，却保持在空中的固定位置。你看见喷泉边缘反复雕着一行细小字样。）#{normal}#
 
-欢迎一切深刻反省过去的错误之人
+欢迎所有从过去的错误中吸取教训之人
 
-愿你们的魔法，成为世界的福音而非祸害
+愿奥术再度成为马基埃亚尔的助益，而非灾祸
 
-欢迎一切竭力缓解现今的苦难之人
+欢迎所有缓解当下苦难之人
 
-愿你们的智慧，赐予世界的和平以及启迪
+愿我们拥有智慧，终有一日在安全与启蒙中使世界重新团结
 
-欢迎一切矢志排除未来的威胁之人
+欢迎所有阻止未来威胁之人
 
-愿你们的团聚，共铸世界的探索愈加完美]], "_t")
+在此和平相聚，探索并完善何时、如何编织世界织物的知识]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/ardhungol.lua"
 
 t("ardhungol", "阿尔德胡格", "newLore category")
-t("Rashim Journal (1)", "拉希姆的日记 (1)", "_t")
+t("Rashim Journal (1)", "拉希姆的日记（1）", "_t")
 t([[#{bold}#Journal Entry I#{normal}#
 
 It's been some time since High Sun Paladin Aeryn sent me out on an assignment. According to recent intelligence, it would seem that a cavern has mysteriously emerged near our outpost, the Gates of Morning. They have bestowed the name "Ardhungol" on the newly discovered cavern. The elder warriors seem anxious in regards to the origin of this new subterranean area; they're likely concerned that the orcs are using Ardhungol as a staging point for further aggression against the Gates of Morning. I'll have to make sure I'm well equipped for this journey; the fate of us all could hang in the balance.
@@ -14316,13 +14316,13 @@ It's been some time since High Sun Paladin Aeryn sent me out on an assignment. A
 I spoke with the border patrols tonight. There seem to have been several sightings of orcs and other wild beasts roaming throughout the wilderness, yet strangely enough, none seem to have been anywhere near Ardhungol. Perhaps the subterranean cavern was simply a natural phenomenon with unfortunate timing. It's either that, or an unknown force powerful enough to alter the very foundation of the land upon its arrival. I shudder at the latter thought, but for now this is all merely speculation. If all goes well, I'll be ready to depart by dawn.
 ]], [[#{bold}#第一篇#{normal}#
 
-距离至高太阳骑士艾琳上次分配我任务已经有一段时间了。根据最近的情报，我们的基地，晨曦之门的附近神秘地出现了一个洞穴。他们用阿尔德胡格来称呼这一新发现的洞穴。高阶武士们似乎对这些地下区域的来源紧张不安：他们担心兽人们使用阿尔德胡格来作为更进一步袭击晨曦之门的站点。我必须要保证我为这次旅行全副武装；我们的命运可不能如此悬而未决。
+高阶太阳骑士艾琳派我外出执行任务已有一段时间。根据最近的情报，我们的前哨晨曦之门附近似乎神秘地出现了一座洞穴。人们将这座新发现的洞穴命名为“阿尔德胡格”。资深战士们似乎对这片新地下区域的来源忧心忡忡；他们可能担心兽人正把阿尔德胡格当作进一步侵犯晨曦之门的前进基地。我必须确保自己为此行配备齐全；我们所有人的命运都可能取决于此。
 
 #{bold}#第二篇#{normal}#
 
-今晚我和边境巡逻队谈了谈。兽人与其它野兽在野外漫游被目击到了几次，但奇怪的是，他们并没有靠近阿尔德胡格。也许这个地下洞穴仅仅只是一个不合时宜的自然现象。或许是那样的，或许是一种强大的足够在到来之时改变大地根基的未知能量。我为后者这样的想法而颤栗，但现在一切只是怀疑。如果一切顺利的话，我将在黎明前出发。
+今晚我与边境巡逻队交谈过。荒野中似乎数次有人目击兽人与其他野兽四处游荡，但奇怪的是，它们似乎都没有靠近阿尔德胡格。也许这座地下洞穴只是出现得不是时候的自然现象。要么如此，要么有一股未知力量到来，而它强大得足以改变大地的根基。想到后一种可能，我不寒而栗，但目前这一切都只是推测。如果一切顺利，到黎明时我就能做好出发准备。
 ]], "_t")
-t("Rashim Journal (2)", "拉希姆的日记 (2)", "_t")
+t("Rashim Journal (2)", "拉希姆的日记（2）", "_t")
 t([[#{bold}#Journal Entry III#{normal}#
 
 It was a half days journey from the Gates of Morning to Ardhungol, but I've finally arrived. I've decided to rest beneath the shade of a great oak tree and enjoy one of the sweet rolls my wife Melnela prepared for me. I'm unsure why, but the closer I've come to Ardhungol, the thicker the atmosphere has become, almost as if there is a foreign energy infecting the very air I breathe. I've been to many places in this vast world, but I've never felt an aura quite like this; I will have to uncover the source of this energy before I can bring a full report back to Aeryn.
@@ -14336,17 +14336,17 @@ A thick green veil of mist permeates the air within this cavern; I'm uncertain i
 Impossible; how could spiders have grown to such an immense size? Not only that, but the markings and physical traits are unlike any arachnid I have previously encountered. The first one I encountered nearly took my left arm during its initial assault, if my reflexes had been a split second slower, I fear the worst may have transpired. If the Gates of Morning are assaulted by not only the orcs, but also this new –found species of arachnids, I fear all hope will be lost. For the sake of all Eyal, I must venture further into this spider infested cavern and destroy the source of this incursion.
 ]], [[#{bold}#第三篇#{normal}#
 
-从晨曦之门到阿尔德胡格足有半天旅程，不过我最终还是到达了。我决定在一棵大橡树的树荫下休息，享受我的妻子梅涅拉准备给我的甜卷面包。我不知道为什么，但是我离阿尔德胡格越近，空气就更黏稠，似乎有一股异常的力量在扰乱着我每次呼吸的空气。我去过许多这个广阔世界的许多地点，但我从没感受过这样的氛围；在我把完整的报告交给艾琳之前，我必须了解这股能量的来源。
+从晨曦之门到阿尔德胡格走了半天，我终于到达。我决定在一棵大橡树的树荫下休息，享用妻子梅涅拉为我准备的一只甜面包卷。我不明白原因，但越接近阿尔德胡格，空气就越沉重，仿佛有一股外来能量正在侵染我呼吸的空气。这广阔世界的许多地方我都去过，却从未感受过这样的气息；要向艾琳交上完整报告，我必须先查清这股能量的源头。
 
 #{bold}#第四篇#{normal}#
 
-一股绿色邪恶的黏稠迷雾弥漫在洞穴的空气之中；我不确定这是否是居住在此地的未知生物的产物还是直接产生于另外的源头。整个洞穴各处似乎也有奥术裂缝出现，但我不敢靠近；等我将此处清理干净这些就交给我们的星月术士来评估。我必须承认，我并不期待与如此严重的威胁之源遭遇，但面对前方未知威胁是我作为太阳骑士的诺言与责任；即使这会带来我的终结与死亡。
+一层浓厚的绿色迷雾帷幕弥漫在洞穴的空气中；我不确定它是如今栖息此处的某种生物所产生的副产物，还是直接来自另一个源头。洞穴中的不同位置似乎还有奥术裂隙不断出现，但我不敢靠近；等我确保这片区域安全后，就留给我们的星月术士评估。我必须承认，我并不期待遭遇这种严重威胁的源头，然而作为太阳骑士，面对前方之物是我誓言承担的职责；即便那将成为我的末日。
 
 #{bold}#第五篇#{normal}#
 
-这不可能：蜘蛛怎么会长得这么如此巨大？不仅仅如此，这些印记与物理特征与我以前所遇见的任何蛛形动物都不同。我遇到的第一只在首次对我的袭击中就几乎带走了我的左臂，如果我再迟一秒反应过来，恐怕最坏的事情就会发生。如果晨曦之门不仅被兽人还要被这些新发现的蛛形物种所侵扰，我担心所有的希望都会消失。看在这个埃亚尔大陆的份上，我必须向这被蜘蛛侵蚀的洞穴进发，摧毁这侵略的源头。
+不可能；蜘蛛怎么会长到如此巨大？不仅如此，它们的斑纹和身体特征与我以前遇到过的任何蛛形动物都不同。我遇到的第一只在初次攻击时几乎夺走我的左臂；要是我的反应再慢片刻，恐怕最糟的情况已经发生。如果晨曦之门不仅遭受兽人进攻，还要遭受这个新发现的蛛形物种攻击，我担心一切希望都将破灭。为了整个埃亚尔，我必须继续深入这座爬满蜘蛛的洞穴，摧毁这场入侵的源头。
 ]], "_t")
-t("Rashim Journal (3)", "拉希姆的日记 (3)", "_t")
+t("Rashim Journal (3)", "拉希姆的日记（3）", "_t")
 t([[#{bold}#Journal Entry VI#{normal}#
 
 It took some time, but my muscles have started to adapt and react to the unique movements of these arachnid. The way they fight, it's almost as if they possess a higher level of thought, elevating them far beyond the base intelligence of lesser arachnid... is it possible that they could be sentient? Do they act individually, or are they perhaps manipulated by a greater arachnid? Let us pray that this species is not connected through a hive mind, for this threat could become even greater than I had imagined.
@@ -14359,7 +14359,7 @@ I have slain dozens of these arachnids, each one seemingly more difficult than t
 
 Incredible, the size of that arachnid is unimaginable; there is no doubt about it, that spider is the matriarch here. I am heavily wounded, but there is no turning back now; I must finish what I started for the sake of all those awaiting my return. If I don't make it back, whoever is now reading this journal, please make High Sun Paladin Aeryn at the Gates of Morning aware of the grave situation... and tell Melnela that I'm sorry.]], [[#{bold}#第六篇#{normal}#
 
-尽管花了我一些时间，我的肌肉终于开始适应并能够对这些蛛形生物的独特动作做出反应。他们战斗的方式就好像他们拥有更高层次的智能，使他们远远超出低等蛛形生物的基本心智……它们是否可能也是智慧生物？它们单独行动，还是受一只大蜘蛛所控制统率？让我们祈祷这物种并没有群体思维，否则这威胁的危险程度将会超过我所能之想像。
+这花了些时间，但我的肌肉已开始适应这些蛛形生物的独特动作，并作出反应。它们的战斗方式就像拥有更高层次的思维，令它们远超低等蛛形生物的基础智力……它们有可能具有知觉吗？它们是独立行动，还是可能受一只更高等的蛛形生物操纵？愿我们祈祷这个物种并非通过蜂巢思维相连，否则这项威胁可能会比我想象的更大。
 
 #{bold}#第七篇#{normal}#
 
@@ -14368,11 +14368,11 @@ Incredible, the size of that arachnid is unimaginable; there is no doubt about i
 
 #{bold}#第八篇#{normal}#
 
-难以置信，这只蜘蛛的体型大的不可思议；无需怀疑，这只蜘蛛就是这里的女王。我负伤严重，而现在已经无路可退；我必须为那些等待我回归之人终结我开始的这个任务。如果我没有回去，正在阅读这份日志的人啊，请告知晨曦之门至高太阳骑士艾琳这阴暗的形势……还请告诉梅涅拉我很抱歉。]], "_t")
+难以置信，那只蛛形生物的体型大得难以想象；毫无疑问，那只蜘蛛就是此地的族母。我身受重伤，但现在已无法回头；为了所有等待我归来的人，我必须完成自己开始的事。如果我无法回去，无论是谁正在阅读这本日记，请将这严峻的局势告知晨曦之门的高阶太阳骑士艾琳……并告诉梅涅拉，我很抱歉。]], "_t")
 t("scrap of paper", "破纸片", "_t")
 t([[#{italic}#A few tattered scraps of paper lie on the ground, ruined from your fight with the creature carrying it.  It's almost completely illegible, but you can piece some of it together to read:#{normal}#
 "...pheromone signals effective on much Eyalite wildlife ineffective on species 'sun paladin.'  at current planetary core cooling rates, passive study would lead to great loss - next step of emigration program should be cleaning of local 'sun paladin' nest and establishment of..."]], [[#{italic}#地上有一些破烂的纸片，看来在你刚才和那个生物搏斗的时候被打碎了。纸片上的文字几乎完全无法辨认，你只能依稀拼凑出一些文字：#{normal}#
-“…对大部分埃亚尔野生生命体有效的信息素在‘太阳骑士’这种物种的身上被证明无效。在当前的行星核心冷却速率下，被动的研究会导致巨大的损失——移民计划的下一步是对本地的“太阳骑士”进行杀灭和建立…”]], "_t")
+“…对大部分埃亚尔野生生命体有效的信息素在‘太阳骑士’这种物种的身上被证明无效。在当前的行星核心冷却速率下，被动的研究会导致巨大的损失——移民计划的下一步是清理本地的“太阳骑士”巢穴并建立…”]], "_t")
 t("#{italic}#This pile of tattered paper could theoretically be assembled into something legible, but without more text to draw back on, it'd still be in a language you could never interpret.  If only you had more Spydric text to help translate this...#{normal}#", "#{italic}#原理上，从这些破烂的纸片上可以还原出某些可以理解的信息。但缺少了足够多作为参考的语料，你是永远无法理解这种语言的内容的。也许找到更多蜘蛛语的材料能够帮助你理解这些……#{normal}#", "_t")
 
 ------------------------------------------------
