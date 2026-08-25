@@ -6298,7 +6298,7 @@ t("Thank you. I will treat it with the utmost care.", "谢谢，我一定会极�
 t("Farewell. I'll return with the Athame and Diamond.", "再见，我会把血符仪式匕首和共鸣钻石带回来的。", "_t")
 t("Very well. There is no hurry. But I will need to spend a number of days studying it before we can create your portal.", "好极了，不用着急。要创造你需要的传送门我还得花上几天来学习一下呢。", "_t")
 t("I understand. I'll return with the Athame and Diamond.", "我明白了，我会把血符仪式匕首和共鸣钻石带回来的。", "_t")
-t("Excellent. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields,\" return with it and your odds of surviving our portal attempt will go up drastically.", "很好，几天后你回来，我肯定把一切都准备好了。哦，带上这个。#LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖塔尔人封印的地方。要是你在废墟之中找到一份标题是《反转与复原概率场》的文献，请帮我带回来，这能大大提高你通过传送门时存活的几率。", "_t")
+t("Excellent. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields,\" return with it and your odds of surviving our portal attempt will go up drastically.", "很好，几天后你回来，我肯定把一切都准备好了。哦，带上这个。#LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖尔塔人封印的地方。要是你在废墟之中找到一份标题是《反转与复原概率场》的文献，请帮我带回来，这能大大提高你通过传送门时存活的几率。", "_t")
 t("Thank you, and farewell.", "谢谢，再见！", "_t")
 t("Excellent. Are you yet willing to leave the Orb in my care for a time?", "太好了，那你同意把多元水晶球留给我研究一段时间了？", "_t")
 t("I dare not let it out of my sight. I'm sorry.", "我可不希望它离开我的视线，抱歉。", "_t")
@@ -6309,7 +6309,7 @@ t("Thank you. Give me a few minutes. #LIGHT_GREEN#*He begins to pace back and fo
 t("[Wait]", "[等待]", "_t")
 t("#LIGHT_GREEN#*He stops pacing and returns the Orb to you.*#WHITE# I believe I know most of what I need to. But I need a few details cleared up. You'll have to return to this Elven Chronomancer and ask him whether he meant an inverted probabilistic field or a reverted probabilistic field. I dare not guess, as the result could be quite unpleasant for you.", "#LIGHT_GREEN#*他停下踱步，把多元水晶球交还给你。*#WHITE# 我想我知道大多数我需要的东西，不过一些细节内容还得搞搞清楚。你得回去找那个精灵时空法师，问问他到底指的是反转概率场还是复原概率场。我可不敢瞎猜，否则后果可能会非常糟糕。", "_t")
 t("I'll return with the answer.", "我会回去寻找答案的。", "_t")
-t("Fear not. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields\", return with it and your odds of surviving our portal attempt will go up drastically.", "别害怕，几天后你回来，我肯定把一切都准备好了。哦，带上这个。 #LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖塔尔人封印的地方。要是你在废墟之中找到一份标题是《反转与复原概率场》的文献，请帮我带回来，这能大大提高你通过传送门时存活的几率。", "_t")
+t("Fear not. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields\", return with it and your odds of surviving our portal attempt will go up drastically.", "别害怕，几天后你回来，我肯定把一切都准备好了。哦，带上这个。 #LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖尔塔人封印的地方。要是你在废墟之中找到一份标题是《反转与复原概率场》的文献，请帮我带回来，这能大大提高你通过传送门时存活的几率。", "_t")
 t([[I think not, fool. Look down.
 #LIGHT_GREEN#*You notice you're standing on an etched portal.*#WHITE#]], [[我可不这么想，笨蛋，低头看看。
 #LIGHT_GREEN#*你注意到你正站在一个铭文传送门上。*#WHITE#]], "_t")
@@ -12349,7 +12349,7 @@ t("Corpsebow", "腐尸之弓", "entity name")
 t("rotting longbow", "腐朽的长弓", "_t")
 t("A lost artifact of the Age of Dusk, the Corpsebow is filled with a lingering essence of that era's terrible plagues. Those struck by arrows fired from its rotten string find themselves afflicted by echoes of ancient sickness.", "一件黄昏纪遗失的武器，腐尸之弓浑身缠绕着那个时代的瘟疫精华。被腐朽弓弦射出的箭所击中的人，会因古老疾病在体内的共鸣而倍受折磨。", "_t")
 t("#DARK_BLUE#You feel a kindred spirit in this bow...", "#DARK_BLUE#你在弓中感受到了共鸣的灵魂…", "logPlayer")
-t("Spellblade", "魔宗利刃", "entity name")
+t("Spellblade", "法术之刃", "entity name")
 t("glowing long sword", "光辉的长剑", "_t")
 t("Mages sometimes have funny ideas. Archmage Varil once learned how to handle a sword and found he preferred wielding it instead of his staff.", "法师总是时不时冒出古怪的点子。大法师沃利尔曾学会了怎样擎起一柄剑，同时发现自己对耍剑比玩法杖更感冒。", "_t")
 t("Genocide", "兽人末日", "entity name")
@@ -14183,7 +14183,7 @@ But we won't age sleeping in these ruins#{normal}#
 section "mod-tome/data/lore/age-pyre.lua"
 
 t("age of pyre", "烈火纪", "newLore category")
-t("Atamathon, the giant golem", "阿塔玛森·傀儡之王", "_t")
+t("Atamathon, the giant golem", "阿塔玛森·巨型傀儡", "_t")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. One of its eyes seems to be missing. At over 40 feet high it towers above you.
 Someone foolish has tried to reconstruct it, but it seems like it misses an eye to be completed.]], [[这尊巨型傀儡是由半身人在烈火战争期间为对抗兽人而建造的，但它被吞噬者加库尔击倒了。
@@ -14262,7 +14262,7 @@ Some believe that magic is inherently wrong, that the so-called twisting of the 
 
 一些人笃信法术的存在本身就是个错误，所谓的凭某人意志扭曲元素之力只能带来可怕的后果。作为安格利文里的学生我假定你们都是不同意这种说法的。魔法只是自然之力的延伸，我们身为自然生物为何不能去尝试运用它？但你们要谨记魔法的存在仍是一柄双刃剑。作为工具它确实能产生极大的价值——明智的使用它。
 ]], "_t")
-t("The spellblade", "魔宗利刃", "_t")
+t("The spellblade", "法术之刃", "_t")
 t([[From the desk of Archmage Varil,
 Another day dawns on Angolwen. I hesitate to write this, but it almost feels as if peace is once again returning to Eyal. Saying this, I almost expect war and destruction to erupt immediately - fate is anything if not spiteful. Regardless, my sleep grows less disturbed by my memories of the Spellhunt day by day, and I can now devote myself wholly to the betterment of our cloistered community here in the mountains.
 
@@ -17992,11 +17992,11 @@ Mardrop humans are all but extinct, after the Spellhunt and the plagues during t
 
 Highers are on average 6'0", with fair hair and skin and blue or grey eyes. The majority of scholarly roles are taken up by Highers, and they tend to fill most of the noble classes. Some say this is due to discrimination and elitism, though these may simply be jealous sentiments. There are also rumours that the superior intellects of Highers are due to arcane experiments instigated by the ancient Conclave during the Age of Allure, but I have found no records to support this idea and must consider it to be baseless. The Higher bloodline is renowned as a mark of excellence, and mixing with lower bloods is strongly frowned upon.
 
-All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]], [[我从人类的研究开始，基本上来说是马基·埃亚尔人口最多的种族。若论人口数量，科纳克王国远超其他人类王国。但在历史上，肖塔王国和马卓普王国以及高等人类这一血统支系也十分值得一提。最大的人类聚居地是在联合王国首都最后的希望周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。
+All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]], [[我从人类的研究开始，基本上来说是马基·埃亚尔人口最多的种族。若论人口数量，科纳克王国远超其他人类王国。但在历史上，肖尔塔王国和马卓普王国以及高等人类这一血统支系也十分值得一提。最大的人类聚居地是在联合王国首都最后的希望周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。
 
 科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后希望地区，这种现象尤为明显。
 
-肖塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身师或猎龙者行走于世。
+肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身师或猎龙者行走于世。
 
 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以对魔法亲和著称，而这类人通常是猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在遥远后裔的身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
 
@@ -18951,7 +18951,7 @@ When Garkul next returned from the east he heard from his spies of great operati
 
 然而，在矮人堡垒瑞库纳的下面我们的探子发现了一件令人惊奇的事情——一扇夏·图尔传送门。血法师们研究了它一段时间，然后他们终于成功的激活了它并发现了一个新世界。那是失落的远东大陆，在一场大灾难后和整个马基·埃亚尔分开了。加库尔认为这是上天赐予的机遇，他组织了数千名年轻战士和法师传送了过去。他们在那里建立了训练场——一个可以训练部队战斗技巧，以备西部战争的地方。加库尔给他们命名为普莱德，因为这是他们种族得以兴盛的基础，并且这里将会是我们的骄傲。
 
-但是当加库尔忙着普莱德的建设时，纳格尔的国王也在筹划着防御战略。他知道兽族的部队很快就会来攻打他的王国，所以他准备了一个绝对力量的战略。他召集了大陆上所有的精英炼金术师，并且研发出了一只空前绝后的战争机器：傀儡之王阿塔玛森。
+但是当加库尔忙着普莱德的建设时，纳格尔的国王也在筹划着防御战略。他知道兽族的部队很快就会来攻打他的王国，所以他准备了一个绝对力量的战略。他召集了大陆上所有的精英炼金术师，并且研发出了一只空前绝后的战争机器：巨型傀儡阿塔玛森。
 
 当加库尔从远东回来时，他从间谍口中获悉了纳格尔王国正在进行战争机器的研究，他知道，他必须对半身人发动攻击了。但他并不知道，这会是他的最后一次战争。]], "_t")
 t([[#{bold}#Chapter Five: Fall of the Mighty#{normal}#
@@ -18994,7 +18994,7 @@ Our forces never full recovered from the loss of our great leader. The wars cont
 
 兽人部队疯狂的攻击这具傀儡，无数的武器朝着巨人的脚上砸去，可是毫无作用。法师向巨人的胸膛投射冰火法术，但同样没有任何效果。半身人的炼金师们走上前并激活了傀儡，炙热的火焰从傀儡眼中喷发而出，烧死了许多兽人。傀儡继续向前，每步都能踩死许多战士，同时它的束状火焰对后方的法师团也造成了巨大的伤害。接着，炼金师们也开始投掷炸弹，投掷手们也一发接着一发，一场屠杀开始了。
 
-加库尔看到他的部队一片混乱，他也知道，硬撼这个战争机器他们毫无胜算。于是，他跑向他的战狼坐骑——一只长达十英尺的凶猛座狼，骑着它冲进了战场。他骑着座狼笔直的冲向傀儡之王，并驾驭它跳上了傀儡的胸膛。突然，傀儡的一只拳头横扫过来，将座狼打的四分五裂，千钧一发之际，加库尔跳了起来并抓住了傀儡的头部，接着，他拔出了战斧，用尽全力砍碎了傀儡的一只眼睛。
+加库尔看到他的部队一片混乱，他也知道，硬撼这个战争机器他们毫无胜算。于是，他跑向他的战狼坐骑——一只长达十英尺的凶猛座狼，骑着它冲进了战场。他骑着座狼笔直的冲向巨型傀儡，并驾驭它跳上了傀儡的胸膛。突然，傀儡的一只拳头横扫过来，将座狼打的四分五裂，千钧一发之际，加库尔跳了起来并抓住了傀儡的头部，接着，他拔出了战斧，用尽全力砍碎了傀儡的一只眼睛。
 
 然而，傀儡伸出双手抓住加库尔的双臂，他的战斧也掉在了地上。阿塔玛森以大理石般的巨力紧握这位伟大兽人的肢体，试图将其撕下。但加库尔鼓起全身肌肉，抵抗傀儡的力量，慢慢将傀儡的拳头扭向前方，使自己靠近怪物的头颅。当他足够接近那大理石额头时，便猛地用头撞了上去，钢盔撞击坚石的巨响划破长空。傀儡颤抖了一下，加库尔再次头槌，钢盔也从头顶裂开。他又一次向前猛撞，自己的太阳穴被撞出一道深口，傀儡厚重的大理石头颅也被撞凹。又一记头槌，接着再来两次，傀儡的头骨开始碎裂，双腿也在身下垮塌。加库尔满头鲜血地仰天怒吼，随后发出最后致命的一撞。他的额头砸上厚重大理石，傀儡的头颅在巨力下彻底粉碎。傀儡倒塌下来，加库尔也随之坠落。巨型傀儡阿塔玛森就此倒下，世间再未出现过同类。
 
@@ -38577,7 +38577,7 @@ t("Cancel", "取消", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/golem-graveyard/npcs.lua"
 
-t("Atamathon the Giant Golem", "傀儡之王阿塔玛森", "entity name")
+t("Atamathon the Giant Golem", "巨型傀儡阿塔玛森", "entity name")
 t("This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer. Someone foolish has tried to reconstruct it, but has lost control of it, and now it rampages in search of its original creators, who are long dead. Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. At over 40 feet tall, it towers above you, and its crimson orbs seem to glow with rage.", "这只巨大的傀儡是半身人在烈火战争期间为对抗兽人而建造的，但被吞噬者加库尔击倒。某个愚蠢的家伙试图重建它，却已失去对它的控制，如今它横冲直撞，寻找早已死去的制造者们。它的躯体由大理石制成，关节由坚固的沃瑞钽制成，眼睛则由最纯净的红宝石构成。它足有四十多英尺高，像铁塔般耸立在你面前，猩红的眼眸似乎闪烁着怒火。", "_t")
 t("DESTROY!", "毁灭一切!", "_t")
 t("LIFE-ENDING SYSTEMS ACTIVATED!", "屠杀系统已启动!", "_t")
@@ -43133,7 +43133,7 @@ t("In the Age of Pyre the orcs learned the secrets of magic, and with their newf
 t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们几乎已经灭绝，不过传言他们正准备秘密地卷土重来。", "init.lua load_tips")
 t("Intense willpower lets wyrmics take on the natural powers of dragons.", "高强度的意志使龙战士可以获得龙族的自然力量。", "init.lua load_tips")
 t("Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.", "炼金术士可以转化宝石制造强大的爆炸，同时他们还可以召唤傀儡来守护他们。", "init.lua load_tips")
-t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在烈火纪，人们建造了傀儡之王阿塔玛森以对抗兽人首领吞噬者加库尔所领导的兽人军队。加库尔不仅孤身一人亲自干掉了傀儡王，在他倒下之前，还单枪匹马斩杀了上千人的部队。", "init.lua load_tips")
+t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在烈火纪，人们建造了巨型傀儡阿塔玛森以对抗兽人首领吞噬者加库尔所领导的兽人军队。加库尔不仅孤身一人亲自干掉了傀儡王，在他倒下之前，还单枪匹马斩杀了上千人的部队。", "init.lua load_tips")
 t("None know what the Sher'Tul looked like, or what caused them all to disappear thousands of years ago. Their rare ruins are a source of mystery and terror.", "无人知晓夏·图尔人的长相，也没有人知道为什么他们在几千年前突然消失了。至今我们仍能从他们仅存的废墟里感受到他们的神秘和恐怖。", "init.lua load_tips")
 t("In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.", "地城深处潜藏着无法用语言描述或理解的黑暗事物，无人知道它们是从哪里而来。", "init.lua load_tips")
 t("Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.", "天知道是怎样的堕落思想才能使一个人成为死灵法师。这门艺术就像魔法一样历史悠久，它的出现在最初的岁月里给所有种族带来了非常的劫难。", "init.lua load_tips")
@@ -43271,11 +43271,11 @@ t([[I begin my writings with a study of the humans, currently the most populous 
 
  Highers are on average 6'0", with fair hair and skin and blue or grey eyes. The majority of scholarly roles are taken up by Highers, and they tend to fill most of the noble classes. Some say this is due to discrimination and elitism, though these may simply be jealous sentiments. There are also rumours that the superior intellects of Highers are due to arcane experiments instigated by the ancient Conclave during the Age of Allure, but I have found no records to support this idea and must consider it to be baseless. The Higher bloodline is renowned as a mark of excellence, and mixing with lower bloods is strongly frowned upon.
 
- All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]], [[我从人类的研究开始，基本上来说是马基·埃亚尔人口最多的种族。迄今为止，最强的人类王国是科纳克王国。但在历史上，肖塔王国和马卓普王国以及高等人类这一血统支系也十分值得一提。最大的人类聚居地是在联合王国首都最后的希望周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。
+ All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]], [[我从人类的研究开始，基本上来说是马基·埃亚尔人口最多的种族。迄今为止，最强的人类王国是科纳克王国。但在历史上，肖尔塔王国和马卓普王国以及高等人类这一血统支系也十分值得一提。最大的人类聚居地是在联合王国首都最后的希望周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。
 
  科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后希望地区，这种现象尤为明显。
 
- 肖塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身师或猎龙者行走于世。
+ 肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大爆炸将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身师或猎龙者行走于世。
 
  马卓普人在黄昏纪和魔法大爆炸后基本已经灭绝。他们以对魔法亲和著称，而这类人通常是猎魔者的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍能在某些偏远的地方找到。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
 

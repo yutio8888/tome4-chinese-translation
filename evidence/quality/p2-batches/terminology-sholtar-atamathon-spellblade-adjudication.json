@@ -1,0 +1,81 @@
+{
+ "schema_version": 1,
+ "task_id": "terminology-sholtar-atamathon-spellblade-001",
+ "component": "tome",
+ "change_class": "terminology",
+ "review_contract": "code_legacy_v1",
+ "authorisation": "maintainer instruction 2026-08-25",
+ "rulings": [
+  {
+   "term": "Sholtar",
+   "decision": "肖尔塔",
+   "occurrences": 6,
+   "before": "split in effect - 肖塔尔 x2 (chats/tannen.lua) and 肖塔 x4 (misc.lua, load.lua, as 肖塔王国 and 肖塔人)",
+   "row": "new T.PN.PLACE row added, preferred, noting the ruling and both superseded forms",
+   "rationale": "Shol-tar: syllable-final L conventionally takes 尔 (Walter=沃尔特, Albert=阿尔伯特), and the two sibling kingdoms named in the same sentence both drop their r-coda (Cornacs=科纳克, Mardrop=马卓普). The superseded 肖塔尔 inverted both conventions - deleting the L and spending its 尔 on the R"
+  },
+  {
+   "term": "Atamathon",
+   "decision": "巨型傀儡",
+   "occurrences": 5,
+   "before": "傀儡之王 (king of golems)",
+   "rationale": "the English is 'the giant golem', an epithet rather than a title of kingship. 巨型傀儡 was already the corpus's own faithful form in an achievement line, so this aligns rather than invents",
+   "origin": "raised as a b36 review finding, declined in-window because an entity name governed it, and escalated as a terminology item"
+  },
+  {
+   "term": "Spellblade",
+   "decision": "法术之刃",
+   "occurrences": 2,
+   "before": "魔宗利刃",
+   "rationale": "魔宗 names a school or sect that appears nowhere in the source. The artifact is a unique arcane longsword granting spellpower and spellcrit, described as Archmage Varil's preferred weapon over his staff. The corpus renders X-Blade artifacts as X之刃 (暗影之刃, 黎明之刃, 静寂之刃, 次元之刃), and the Japanese and Korean locales both render it literally",
+   "origin": "same as Atamathon - a b36 finding declined in-window and escalated"
+  }
+ ],
+ "substring_hazard": {
+  "risk": "肖塔 is a substring of 肖塔尔; replacing the shorter form first would have produced 肖尔塔尔",
+  "why_dangerous": "the corruption reads plausibly and would pass every gate, since no tool checks transliteration sanity",
+  "mitigation": "SPEC mandated replacing 肖塔尔 first, then the remainder, with grep -oP '肖塔(?!尔)' asserting zero afterwards",
+  "verified": "grep -c 肖尔塔尔 = 0"
+ },
+ "authorised_test_edit": {
+  "what": "test_real_terminology_is_fully_mapped bumped 711 -> 712, two assertions only",
+  "why": "adding a row changes the count; this is the case that edit exists for",
+  "contrast": "the previous terminology batch modified rows without adding any, so the count should not have moved and the instruction was to stop and report rather than touch the assertion. The licence was scoped to those two numbers, with instructions to stop if any other assertion failed"
+ },
+ "verification": {
+  "counts": {
+   "肖塔尔": 0,
+   "肖塔(not+尔)": 0,
+   "肖尔塔": 6,
+   "傀儡之王": 0,
+   "巨型傀儡": 10,
+   "魔宗利刃": 0,
+   "法术之刃": 2,
+   "肖尔塔尔": 0
+  },
+  "no_collateral_change": "the reviewer normalised all old and new renderings to sentinels in HEAD and the working tree; cmp passed and both SHA-256 digests were 575eed5659fb2cccccdac0c0a3407e3dd49f6000ef1921129f677c141449b274",
+  "row_count": "712, matching the bumped assertion"
+ },
+ "audits": {
+  "audit_static": "PASS, 712 rows",
+  "audit_dynamic": "PASS",
+  "annotate_domains": "PASS, 0 unmapped",
+  "unused_delta": {
+   "observed": "69 -> 70",
+   "cause": "the new Sholtar row itself, tag=nil - the audit binds rows to corpus entries by tag, so a nil-tagged row cannot bind once preferred",
+   "verdict": "established pattern; twelve nil-tagged rows already present including Angolwen, Zigur and Dwarven Empire"
+  }
+ },
+ "gates": {
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "runtime_collisions": 0
+ },
+ "still_open": [
+  {
+   "item": "data/quests/ scope",
+   "detail": "52 sections / 514 pairs, zero tracked coverage, never named in the P2 roadmap which listed only data/chats and data/lore",
+   "disposition": "scoping question for the maintainer"
+  }
+ ]
+}
