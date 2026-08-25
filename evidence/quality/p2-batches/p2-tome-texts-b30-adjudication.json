@@ -1,0 +1,71 @@
+{
+ "schema_version": 1,
+ "task_id": "p2-tome-texts-b30-001",
+ "component": "tome",
+ "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "workset": "evidence/quality/p2-batches/p2-tome-texts-b30-tannen.json",
+ "sections": [
+  "mod-tome/data/chats/tannen.lua",
+  "mod-tome/data/zones/telmur/npcs.lua"
+ ],
+ "host_verification_of_executor_claims": [
+  {
+   "claim": "give_orb transfers custody of the Orb of Many Ways",
+   "verified": "quests/east-portal.lua:92-97 findInAllInventories(\"Orb of Many Ways\", raw_name) then removeObject; withheld_orb (:99-101) only sets quest status and does not remove it",
+   "result": "confirmed"
+  },
+  {
+   "claim": "the materials are named quest items, not a generic gem",
+   "verified": "quests/east-portal.lua:104-115 remove_materials strips \"Resonating Diamond\" and \"Blood-Runed Athame\" by raw name; open_telmur (:117-118) calls it",
+   "result": "confirmed"
+  },
+  {
+   "claim": "the text title and the inverted/reverted field question are the same referent",
+   "verified": "chats/tannen.lua:125 and :161 name the title; :155 poses the inverted-vs-reverted choice. The superseded rendering read 'probabilistic fields' as possibility research, severing the link the player needs to match book to question",
+   "result": "confirmed"
+  }
+ ],
+ "scope_amendment": {
+  "authorized": "propagation of the settled title rendering to mod-tome.lua:40069 (section mod-tome/data/zones/telmur/npcs.lua)",
+  "enumeration_evidence": "git grep -l 'Inverted and Reverted' 624a673 -- game/modules/tome returns only data/chats/tannen.lua and data/zones/telmur/npcs.lua (plus locale files); no item object carries the name, so four call sites close the set",
+  "rationale": "repairing only the in-window calls would newly desynchronise a previously-consistent pair; SCOPE anchors stayed tannen.lua because the title's semantics are reviewed three times in-window and 40069 is byte propagation of an already-settled string",
+  "post_state": "3 title occurrences byte-equal to 《反转与复原概率场》, 0 occurrences of the superseded rendering"
+ },
+ "review": {
+  "contract": "translation_contextual_v1",
+  "dispatch": "ctx-01",
+  "candidate_identity": "5d098630ccb8dc9c353d183c0addfe6b914c2fd911143afe3e53109de529d126",
+  "revisions_total": 39,
+  "observations_ok": 38,
+  "adjudications": [
+   {
+    "revision_key": "b30-39-tannen",
+    "finding": "the parallel 'I am ready. You are not.' was elided to 你还没好, which can read as not recovered / not finished",
+    "host_adjudication": "advisory",
+    "ground": "pinned chats/tannen.lua:177-183 defines wait_end as the twin of fake_orb_end (:170-175); both are the betrayal taunt and both route their sole answer to tannen_tower, so the parallel is the rhetorical content of the line. The Chinese 好 does echo the preceding 准备好了 by ellipsis, so meaning is recoverable and no mechanism or quest state is lost - form-only objection, advisory per the b22-24 precedent",
+    "applied": true,
+    "why_applied": "a fix round was already required for the title propagation, so restoring the explicit parallel cost nothing",
+    "note": "this line was pre-existing text the executor never touched, but it is under first review in this window, so the b26 unchanged-text decline default does not apply"
+   }
+  ]
+ },
+ "gates": {
+  "five_step": "PASS",
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "runtime_collisions": 0,
+  "diff": "mod-tome.lua 17 insertions / 17 deletions"
+ },
+ "open_items": [
+  {
+   "item": "Sholtar transliteration split",
+   "detail": "肖塔尔 in chats/tannen.lua (2 calls) vs 肖塔 in the compound 肖塔王国 in misc.lua and load.lua (2 calls); no dominant form, both sides straddle the batch boundary",
+   "disposition": "left as-is per the split-proper-name rule (unify within a batch, never globally)"
+  },
+  {
+   "item": "Maj'Eyal transliteration split",
+   "detail": "71 occurrences with the interpunct vs 54 without; terminology row status is only 'existing'",
+   "disposition": "global rename question, out of batch scope, needs a maintainer decision"
+  }
+ ]
+}
