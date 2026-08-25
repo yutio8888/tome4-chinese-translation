@@ -6137,40 +6137,40 @@ You feel you the gentle warmth of your Distant Sun patron. It speaks directly to
 <<<Those last words are compelling. You can not resist!>>>
 ]], [[<<<两个魔法师死在你面前。
 他们的尸体化成了一缕青烟消失了。
-你感受到遥远太阳的温暖。它直接在你的脑海中对话!>>>
-#YELLOW#你做的很好 %s！ 你值得奖励！#LAST#
-<<<你感觉你的脑海充满了温暖，以及对服从太阳的渴望。>>>
-#YELLOW#但你还有一项任务!#LAST#
+你感受到主上遥远太阳传来的温柔暖意。它直接在你的脑海中说话！>>>
+#YELLOW#你做得很好，%s！你理应得到奖赏！#LAST#
+<<<你感觉脑海中充满了暖意，以及侍奉主上的欲望。>>>
+#YELLOW#但你还必须完成一项任务！#LAST#
 <<<你脑海里的温暖变得剧烈，过于剧烈。你感觉你的理智快要燃烧殆尽！>>>
-#YELLOW#进入传送门！打开通道，让我的力量辐射到你的世界！ #CRIMSON#快！#LAST#
-<<<这些话语如此诱人，你无法抗拒！>>>
+#YELLOW#纵身投入传送门！打开道路，让我的力量照耀你的世界！ #CRIMSON#照做！#LAST#
+<<<最后那句话有着不可抗拒的力量。你无法反抗！>>>
 ]], "tformat")
-t("#YELLOW#[sacrifice yourself to bring forth your patron to Eyal!]", "#YELLOW#[牺牲自己，让遥远的太阳降临埃亚尔世界！]", "_t")
-t("sacrificing %s to bring the fiery wrath of the Distant Sun", "牺牲 %s 以带来遥远太阳的愤怒", "tformat")
-t("Nnnnnooo! Get.. get out of my head!", "不……滚出我的大脑！", "_t")
+t("#YELLOW#[sacrifice yourself to bring forth your patron to Eyal!]", "#YELLOW#[牺牲自己，让遥远太阳降临埃亚尔世界！]", "_t")
+t("sacrificing %s to bring the fiery wrath of the Distant Sun", "%s牺牲自己，引来遥远太阳炽烈的怒火", "tformat")
+t("Nnnnnooo! Get.. get out of my head!", "不——！滚……滚出我的脑海！", "_t")
 t([[<<<The warmth in your mind turns into searing pain!>>>
 #CRIMSON#YOU WILL DO AS YOU ARE TOLD! YOU ARE MY TOOL AND I INTEND TO USE IT!
 ]], [[<<<你脑海里的温暖化作灼热的疼痛！>>>
-#CRIMSON#你会照我说的做！你只是我的工具，遵循我的意志行动！
+#CRIMSON#你会照我说的做！你是我的工具，我要利用你！
 ]], "_t")
-t("#LIGHT_GREEN#[sacrifice yourself to bring forth your patron to Eyal!]", "#LIGHT_GREEN#[牺牲自己，让遥远的太阳降临埃亚尔世界！]", "_t")
-t("#LIGHT_GREEN#[In a last incredible display of willpower you fight the Distant Sun for a few seconds, letting you project your thoughts to Aeryn.]#WHITE# High Lady! Kill me #{bold}#NOW#{normal}#", "#LIGHT_GREEN#[在最后关头你用意志抵抗了遥远太阳几秒钟，向艾琳传递了信息。]#WHITE# 艾琳女士，快杀了我！#{bold}#快！#{normal}#", "_t")
+t("#LIGHT_GREEN#[sacrifice yourself to bring forth your patron to Eyal!]", "#LIGHT_GREEN#[牺牲自己，让遥远太阳降临埃亚尔世界！]", "_t")
+t("#LIGHT_GREEN#[In a last incredible display of willpower you fight the Distant Sun for a few seconds, letting you project your thoughts to Aeryn.]#WHITE# High Lady! Kill me #{bold}#NOW#{normal}#", "#LIGHT_GREEN#[在最后关头，你以惊人的意志力抵抗了遥远太阳几秒钟，趁机将念头传给艾琳。]#WHITE# 艾琳女士！#{bold}#现在#{normal}#就杀了我！", "_t")
 t("#LIGHT_GREEN#[In a last incredible display of willpower you fight the Distant Sun for a few seconds, unsure how to stop it.]#WHITE##{bold}#NO!#{normal}#", "#LIGHT_GREEN#[在最后关头你用意志抵抗了遥远太阳几秒钟，但不知道如何阻止它。]#WHITE##{bold}#不！#{normal}#", "_t")
 t([[<<<Through your mind Aeryn sees what the Distant Sun is planning.>>>
 You were a precious ally and a friend. The world will remember your last act of selfless sacrifice. I swear it.
 <<<As she says this she pierces your body with a mighty thrust of her sword, ending the plans of your mad patron.>>>
 ]], [[<<<通过你的精神力量，艾琳明白了遥远太阳的计划。>>>
-你是一位伟大的盟友和罕见的伙伴。我发誓，整个世界都会铭记你的牺牲。
-<<<一边说，她一边用剑刺入你的身体，终结了疯狂太阳的计划。>>>
+你是一位珍贵的盟友，也是一位朋友。我发誓，整个世界都会铭记你最后这次无私的牺牲。
+<<<说着，她猛然一剑刺穿你的身体，终结了你那疯狂主上的计划。>>>
 ]], "_t")
 t("#LIGHT_GREEN#[slip peacefully into death.]", "#LIGHT_GREEN#[平静地走向死亡。]", "_t")
-t("sacrificing %s to stop the mad sun's plans", "牺牲 %s 以阻止疯狂太阳的计划", "tformat")
+t("sacrificing %s to stop the mad sun's plans", "%s牺牲自己，以阻止疯狂太阳的计划", "tformat")
 t([[<<<The precious seconds fly by, but as you feel your mind breaking and burning you see a strange figure appearing in front of you, it radiates of immense power.>>>
 <<<The strange, amorphous figure in front of you remains completely silent. With a gesture of one of its tendrils, the staff is ripped from your hands. A surge of energy goes through the room as it grips the staff. Then you remember the old myth of the Godslayers. This is none other than a ***Sher'Tul***#{italic}#, and it knows you have been colluding with a god. That alone tells you everything you need to know.>>>
-]], [[<<<珍贵的数秒钟飞快地过去，你头痛欲裂燃烧不止的同时，看到前面出现了奇怪的身影，它充满了能量。>>>
-<<<站在你面前的怪异无定形生物保持着沉默。它伸出触手，法杖从你手中脱落。当它握住法杖时，一股能量充满了房间。这时，你想起了关于弑神者的古代传说。这是一个 ***夏·图尔人***#{italic}#，它知道你和神明的密谋。这就是你现在需要知道的一切。>>>
+]], [[<<<宝贵的几秒飞逝而过。就在你感觉心智即将崩溃、燃烧之际，一个散发着无穷威能的奇异身影出现在你面前。>>>
+<<<面前这个奇异而无定形的身影始终一言不发。它挥动一根触须，法杖便从你手中被夺走；当它握住法杖时，一股能量席卷了整个房间。你忽然想起关于弑神者的古老传说：这正是一位 ***夏·图尔***#{italic}#，而它知道你一直在与神明勾结。仅此一点，就足以说明一切。>>>
 ]], "_t")
-t("#CRIMSON#[Your mind is burnt by your patron sun! Fight for your sun god now!]", "#CRIMSON#[你的思维已被遥远太阳灼烧！为太阳神而战！]", "_t")
+t("#CRIMSON#[Your mind is burnt by your patron sun! Fight for your sun god now!]", "#CRIMSON#[你的心智已被太阳主上焚毁！现在就为你的太阳神而战！]", "_t")
 t([[#LIGHT_GREEN#*The two Sorcerers lie dead before you.*#WHITE#
 #LIGHT_GREEN#*Their bodies vanish in a small cloud of mist, quickly fading away.*#WHITE#
 #LIGHT_GREEN#*You feel the Way reaching out to you, the whole yeek race speaks to you.*#WHITE#
@@ -6183,28 +6183,28 @@ The Way will never forget you. Now go and make history!
 #LIGHT_GREEN#*他们的尸体化成了一缕青烟，很快消失了。*#WHITE#
 #LIGHT_GREEN#*你感觉到维网和你发生了联系，整个夺心魔族在和你对话。*#WHITE#
 你完成了令人难以置信的使命，%s！你也为夺心魔族创造了千载难逢的机会！
-远古传送门的能量强大到难以想象，我们可以利用这个能量扩展维网到整个埃亚尔，并进入其他种族，将我们从维网中得到的和平与幸福带给他们。
-你必须穿过传送门，牺牲你自己，你的精神意志会使能量注入维网并使维网向远处传播。
-虽然你会死去，但是你会给这个世界和夺心魔族带来永久的和平。
+这些远古传送门蕴含着难以想象的能量。我们可以利用它们让维网照遍整个埃亚尔，将维网强加给其他种族，使他们也获得我们在维网中感受到的和平与幸福。
+你必须穿过远古传送门，自愿在其中牺牲。你的心智将融入远古传送门网络，让维网传播到四面八方！
+即使你将死去，也会为整个世界和夺心魔带来最终的和平。
 维网永远不会忘记你，现在，去创造历史吧！
 ]], "tformat")
 t("sister", "姐妹", "_t")
 t("brother", "兄弟", "_t")
 t("#LIGHT_GREEN#[sacrifice yourself to bring the Way to every sentient creature.]", "#LIGHT_GREEN#[牺牲你自己，将维网传播到所有智慧生命。]", "_t")
-t("sacrificing %s to bring the Way to all", "%s牺牲自己，把维网传播到全世界", "tformat")
+t("sacrificing %s to bring the Way to all", "%s牺牲自己，将维网带给众生", "tformat")
 t("But... I did so much, I could do so much more for the Way by staying alive!", "但是……我已经做了那么多，我活着还能为维网做更多！", "_t")
 t([[#LIGHT_GREEN#*You feel the Way taking over your mind, your body.*#WHITE#
 You will do as asked, for the good of all Yeeks! The Way is always right.
-]], [[#LIGHT_GREEN#*你感到维网充斥了你的身心*#WHITE#
-你会按照所要求的去做，为了整个夺心魔族！维网总是正确的。
+]], [[#LIGHT_GREEN#*你感到维网接管了你的心智与身体。*#WHITE#
+为了所有夺心魔，你会遵命行事！维网永远正确。
 ]], "_t")
-t("#LIGHT_GREEN#[In a last incredible display of willpower you fight the Way for a few seconds, letting you project your thoughts to Aeryn.]#WHITE# High Lady! Kill me #{bold}#NOW#{normal}#", "#LIGHT_GREEN#[在最后关头你用意志抵抗了维网几秒钟，向艾琳传递了信息。]#WHITE# 艾琳女士，快杀了我！#{bold}#快！#{normal}#", "_t")
+t("#LIGHT_GREEN#[In a last incredible display of willpower you fight the Way for a few seconds, letting you project your thoughts to Aeryn.]#WHITE# High Lady! Kill me #{bold}#NOW#{normal}#", "#LIGHT_GREEN#[在最后关头，你以惊人的意志力抵抗了维网几秒钟，趁机将念头传给艾琳。]#WHITE# 艾琳女士！#{bold}#现在#{normal}#就杀了我！", "_t")
 t([[#LIGHT_GREEN#*Through your mind Aeryn sees what the Way is planning.*#WHITE#
 You were a precious ally and a friend. The world will remember your last act of selfless sacrifice. I swear it.
 #LIGHT_GREEN#*As she says this she pierces your body with a mighty thrust of her sword, ending the plans of the Way.*#WHITE#
 ]], [[#LIGHT_GREEN#*通过你的精神力量，艾琳明白了维网的计划。*#WHITE#
-你是一位伟大的盟友和罕见的伙伴。我发誓，整个世界都会铭记你的牺牲。
-#LIGHT_GREEN#*一边说，她一边用剑刺入你的身体，终结了维网的计划。*#WHITE#
+你是一位珍贵的盟友，也是一位朋友。我发誓，整个世界都会铭记你最后这次无私的牺牲。
+#LIGHT_GREEN#*说着，她猛然一剑刺穿你的身体，终结了维网的计划。*#WHITE#
 ]], "_t")
 t("sacrificing %s to stop the Way", "%s牺牲自己，阻止了维网。", "tformat")
 t([[#LIGHT_GREEN#*The two Sorcerers lie dead before you.*#WHITE#
@@ -6212,14 +6212,14 @@ t([[#LIGHT_GREEN#*The two Sorcerers lie dead before you.*#WHITE#
 But the portal to the Void is already open. It must be closed before the Creator can come through or all will have been in vain!
 After searching the remains of the Sorcerers you find a note explaining that the portal can only be closed with a sentient being's sacrifice.]], [[#LIGHT_GREEN#*两个魔法师死在你面前。*#WHITE#
 #LIGHT_GREEN#*他们的尸体化成了一缕青烟，很快消失了。*#WHITE#
-但是虚空传送门仍然打开着，在造物主穿过之前必须得关闭，否则一切努力都白费了！
-你搜索魔法师的尸体找到了一本笔记，上面写道：想要关闭传送门，只有牺牲一个生命才行。]], "_t")
+但是虚空传送门已经开启。必须在造物主穿过它之前将其关闭，否则一切努力都会白费！
+你搜索魔法师的遗骸时找到一张便条，上面写着：只有牺牲一个有智慧的生命，才能关闭传送门。]], "_t")
 t("Aeryn, I am sorry but one of us needs to be sacrificed for the world to go on. #LIGHT_GREEN#[sacrifice Aeryn for the sake of the world]", "艾琳，很抱歉我们之中得有一个人牺牲才能维持这个世界的存在。#LIGHT_GREEN#[为了这个世界牺牲艾琳]", "_t")
 t("I will close it. #LIGHT_GREEN#[sacrifice yourself for the sake of the world]", "我会关闭它。#LIGHT_GREEN#[为了这个世界牺牲你自己。]", "_t")
 t("sacrificing %s for the sake of the world", "%s为了世界牺牲了自己", "tformat")
 t([[I cannot believe we succeeded. I was prepared to die and it seems I will die, but at least I will do so knowing my sacrifice is not in vain.
-Please, make sure the world is safe.]], [[真不敢相信我们成功了。我已经准备好去死了，至少我知道我的牺牲不会白费。
-请你确保这个世界的和平。]], "_t")
+Please, make sure the world is safe.]], [[真不敢相信我们成功了。我早已准备赴死，而现在看来我确实将死，但至少我知道自己的牺牲不会白费。
+请务必保护好这个世界。]], "_t")
 t("You will never be forgotten.", "你会永远被人铭记。", "_t")
 t([[#LIGHT_GREEN#*The two Sorcerers lie dead before you.*#WHITE#
 #LIGHT_GREEN#*Their bodies vanish in some immaterial mist.*#WHITE#
@@ -6227,13 +6227,13 @@ You have won the game!
 Both Maj'Eyal and the Far East are safe from the dark schemes of the Sorcerers and their God.]], [[#LIGHT_GREEN#*两个魔法师死在你面前。*#WHITE#
 #LIGHT_GREEN#*他们的尸体化成了一缕青烟消失了。*#WHITE#
 你赢得了这个游戏！
-马基·埃亚尔和远东大陆从法师会的黑暗计划和他们的神手中获救了。]], "_t")
+马基·埃亚尔和远东大陆都摆脱了两名魔法师及其神明的黑暗阴谋。]], "_t")
 t("Aeryn, are you well?", "艾琳，你还好么？", "_t")
 t("[leave]", "[离开]", "_t")
 t([[I cannot believe we succeeded. I was prepared to die and yet I live.
-I might have underestimated you. You did more than we could have hoped for!]], [[真不敢相信我们成功了！我准备好去死了但我还活着。
-我可能低估你了，你做了比我们预想的多的多的事情。]], "_t")
-t("We both did.", "我们俩都是。", "_t")
+I might have underestimated you. You did more than we could have hoped for!]], [[真不敢相信我们成功了。我本已准备赴死，却活了下来。
+或许我低估了你。你所做到的远超我们的期望！]], "_t")
+t("We both did.", "这是我们共同的功劳。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/sorcerer-fight.lua"
@@ -6241,34 +6241,34 @@ section "mod-tome/data/chats/sorcerer-fight.lua"
 t("High Sun Paladin Aeryn appears next to you!", "高阶太阳骑士艾琳在你的身边出现了！", "logPlayer")
 t([[#LIGHT_GREEN#*The two Sorcerers stands before you, shining like the Sun.*#WHITE#
 Ah! Our guest is finally here. I take it you found the peak entertaining?]], [[#LIGHT_GREEN#*两个魔法师站在你面前，像太阳一样闪闪发光。*#WHITE#
-喔～！我们的客人终于来到了这里。我想你在山巅看得很尽兴？]], "_t")
+喔～！我们的客人终于来到了这里。我想你在山巅玩得很尽兴？]], "_t")
 t("Spare me the small talk. I am here to stop you!", "我不是来和你们聊天的，我是来阻止你们的！", "_t")
-t("Why are you doing all that? You were supposed to help people!", "你们为什么这么做？你们本来是被期望帮助别人的！", "_t")
+t("Why are you doing all that? You were supposed to help people!", "你们为什么要做这一切？你们本该帮助人们！", "_t")
 t([[Oh, but all we want is to help people. We have come to the self-evident conclusion that common people are just unfit to govern themselves, always bickering, arguing...
-Since the last invasion of the orcs there has been no threat to unite them!]], [[唔～但是我们确实一直在帮助人们，我们得出了一个明确的结论，就是普通人根本不能管好自己，只会无休止的争吵、争斗……
-自从最后一波兽人入侵之后，人们就不再有别的威胁使他们联合在一起了！]], "_t")
-t("So you have decided to become the threat yourselves?", "所以你们想要使你们自己成为人们新的威胁？", "_t")
-t("Us? Ah, no, we are merely instruments for the Master. We have planned for His return.", "我们？哦，不是，我们不过是主人的工具。我们正在筹划他的到来。", "_t")
+Since the last invasion of the orcs there has been no threat to unite them!]], [[哦，但我们想做的正是帮助人们。我们得出了一个不言自明的结论：普通人根本不适合治理自己，只会不断争吵、争执……
+自从上次兽人入侵以来，再也没有能够让他们团结起来的威胁了！]], "_t")
+t("So you have decided to become the threat yourselves?", "所以你们决定亲自成为那个威胁？", "_t")
+t("Us? Ah, no, we are merely instruments for the Master. We have planned for His return.", "我们？啊，不，我们只是主人的工具。我们一直在谋划让他归来。", "_t")
 t("And 'He' would be...?", "那他是……？", "_t")
 t([[The Creator. The God who made this world, He who watched silently as the races fought and burnt the land.
 He who felt great sorrow for this world. He who shall now shatter the barriers of this world to remake it, only better!
 The staff has allowed us to drain enough energy from this world to open the portal to the Void and summon Him through!
-It is already too late. He is coming through as we speak -- it is only a matter of hours!]], [[造物主，创造这个世界的神，他默默的看着你们这些种族在这个大陆上争战不休。
-他为这个世界感到悲伤，他现在将要扫清这个世界所有的障碍，然后重新创造它，使它更美好！
-法杖的力量使我们吸收了足够的能量来开启虚空传送门召唤他的降临！
-已经太晚了！在我们说话的时刻他已经在穿越传送门了！只需几个小时的时间！]], "_t")
-t("I *WILL* stop you! The world will not end today!", "我要阻止你，世界不会在今天灭亡！", "_t")
+It is already too late. He is coming through as we speak -- it is only a matter of hours!]], [[造物主，创造这个世界的神。他默默注视着各个种族争战不休，将大地付之一炬。
+他为这个世界深感悲痛。如今他将击碎这个世界的屏障，将它重塑得更加美好！
+这根法杖让我们得以从这个世界抽取足够的能量，打开通往虚空的传送门并召唤他降临！
+已经太迟了。就在我们说话的此刻，他正在穿过传送门——只需几个小时！]], "_t")
+t("I *WILL* stop you! The world will not end today!", "我一定会阻止你们！世界不会在今天灭亡！", "_t")
 t("High Sun Paladin Aeryn", "高阶太阳骑士艾琳", "_t")
 t([[The Creator. The God who made this world, He who watched silently as the races fought and burnt the land.
 He who felt great sorrow for this world. He who shall now shatter the barriers of this world to remake it, only better!
 The staff will allow us to drain enough energy from this world to open the portal to the Void and summon Him through!
-You cannot stop us now!]], [[造物之主，创造这个世界的神，他默默的看着你们在这个大陆上争战不休。
-他为这个世界感到悲伤，他现在将要扫清这个世界所有的障碍，然后重新创造它，使它更好！
-法杖的力量使我们吸收了足够的能量开启虚空传送门来召唤他的降临！
-你已经无法阻止我们了！]], "_t")
+You cannot stop us now!]], [[造物主，创造这个世界的神。他默默注视着各个种族争战不休，将大地付之一炬。
+他为这个世界深感悲痛。如今他将击碎这个世界的屏障，将它重塑得更加美好！
+这根法杖将让我们得以从这个世界抽取足够的能量，打开通往虚空的传送门并召唤他降临！
+你现在已经无法阻止我们了！]], "_t")
 t([[#LIGHT_GREEN#*The air whirls at your side and suddenly High Sun Paladin Aeryn appears!*#WHITE#
 Then you shall not fight alone! Together we shall stop them, or die trying!]], [[#LIGHT_GREEN#*空气在你身边回旋，突然高阶太阳骑士艾琳出现了！*#WHITE#
-你不是一个人在战斗！我们一起来阻止他们，战斗至最后一刻！]], "_t")
+你不必独自作战！我们要一起阻止他们，哪怕付出生命！]], "_t")
 t("I am glad to have you at my side, my Lady. Let's hunt some wizards!", "很高兴你能协助我，女士！我们来打败这些巫师！", "_t")
 
 ------------------------------------------------
