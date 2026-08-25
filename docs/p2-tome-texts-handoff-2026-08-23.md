@@ -47,8 +47,13 @@
 - b28：`slasul.lua` 单段 21 条，提交 `63e7b1d`，修订 13 条 target；两轮复审（18/21 → 21/21 `OK`）。
 - b28 主要修正：萨拉苏尔反驳中的 `which of us is truly evil` 原作「谁才是恶魔」，把反问读成了生物名称，丢失「我未伤人、你却杀我朋友」的论证；`refuse to see reason` 原作「不听我解释」，而固定源码 `slasul.lua:43` 显示该句是玩家拒绝分支的攻击台词，位于萨拉苏尔已经申辩之后，玩家是听过后拒绝接受；`spare / offer mercy` 原用「宽恕」（道德赦免），源文是生杀之权，且与紧邻上一条已用的「饶」自相矛盾；`my liege` 原作「我的主人」，而 `slasul.lua:91` 是玩家缔结生命契约时的效忠称呼，属封建主君关系——「主人」在 b26／b27 中已正确用于堡垒之影称呼玩家的 master，此处沿用会把两种关系混为一谈。
 - b28 保留项：`[attack]` 与另外四个 section 共用英文键且译文一致（均为「[攻击]」），单改一侧会拆散共享运行时键，故保留；英文源码中的两处上游拼写错误（`Pay for you sins!`、`I will make your pay`）按约束不改英文键。
+- b29：`sorcerer-end.lua` + `sorcerer-fight.lua` 共 48 条，提交 `83a313d`，修订 29 条 target；三轮复审加一次高级范围校准。
+- b29 主要修正：遥远太阳牺牲日志的 `%s` 位置使姓名读成「被牺牲的对象」；抵抗分支漏掉强调的 NOW 且把粗体标记落在凭空新增的词上；艾琳的诀别把 `a precious ally and a friend` 误作「伟大的盟友和罕见的伙伴」，并漏掉 `last` 与 `selfless`；主上的 `you are my tool and I intend to use it` 被弱化为泛泛「遵循意志」；`sorcerer-fight` 两段近乎相同的 Creator 台词互相矛盾（造物主／造物之主），统一为语料中五处使用的「造物主」；`I *WILL* stop you!` 对两名魔法师用了单数「你」，而同段其余三句玩家台词均用「你们」。
+- **b29 第二次触发高级范围校准（`senior-audit-01`）**：ctx-02 在 ctx-01 已判 OK 且字节未变的 2 条上提出新 finding。校准裁定——`found the peak entertaining` 译成「在山巅看得很尽兴」属**确认缺陷**：固定源码该从句没有任何感知动词，且 `high-peak/zone.lua` 定义高峰是十层战斗关卡，玩家是打上去的，无可观看之物，「看」是凭空新增的动作；`have you at my side` 译成「你能协助我」属**驳回**：`aeryn_comes` 将该事件记为 `aeryn-helps`，引擎本身即把艾琳的到来记作「协助玩家」，且同句后半仍保留共同行动。
+- **校准要点（重要）**：高级复审明确指出 b26 确立的「对未改动且此前判 OK 的文本默认驳回」**必须保持为「证据默认」，不得硬化为一概不接受**——因为 ctx-01 确实漏掉了上述确认缺陷。证据门在首次实测中判别正确：带固定源码／引擎行为证据的通过，只有措辞偏好的被驳回。
+- b29 收尾：高级校准要求「应用 A、驳回 B、结束本批，不再跑第三轮全量复审」。宿主据此未再做整段复审，仅对修复的那一条做了单条有界核验（ctx-03，1/1 `OK`）；该偏离及理由已记入 `senior-audit-01` 的 host_note。
 - 当前预期工作树：干净，仅用户本地未跟踪 `.claude/`；不得提交、删除或混入 `.claude/`。`.ai/` 与 `.artifacts/` 是忽略的派生产物。
-- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b28 共 29 个 section，从 `sorcerer-end.lua` 起继续下一个有界切片（建议 `sorcerer-end` + `sorcerer-fight` 共 48 条自成一批，保持该弧完整）。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
+- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b29 共 31 个 section，从 `tannen.lua` 起继续下一个有界切片（39 条）。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
 - 复审记录格式注意：`.ai/reviews/` 记录必须带 `status`（或 `result`）且取值属于 `completed`／`completed_with_findings`／`PASS`／`CHANGES_REQUIRED`／`FINDINGS`／`OK`，否则 `ai_state_check.py` 的 `candidate_bindings_valid` 会拒绝 DONE。
 
 ## 0. 一句话状态
