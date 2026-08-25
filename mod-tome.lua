@@ -5896,17 +5896,17 @@ t("You asked me to come, about a farportal?", "你叫我来，是为了远古传
 t("You asked me to come, about the rod of recall?", "你叫我来，是为了回归之杖？", "_t")
 t("Would it be possible for my Transmogrification Chest to automatically extract gems?", "可以让我的转化之盒自动提取宝石吗？", "_t")
 t("Are there any training facilities?", "这里是不是有一间训练室？", "_t")
-t("Can you use your magic to alter the appearance of my gear?", "你能用魔法改变我装备的外形么?", "_t")
-t("I find your appearance unsettling. Any way you can change it?", "你的样子看上去让我不舒服，你可以改变外形么？", "_t")
+t("Can you use your magic to alter the appearance of my gear?", "你能用魔法改变我装备的外形吗？", "_t")
+t("I find your appearance unsettling. Any way you can change it?", "你的样子让我感到不安，你能改变一下外形吗？", "_t")
 t("I have come upon a strange thing indeed. #LIGHT_GREEN#[tell him about Melinda]", "我的确遇到了一件奇怪的事。 #LIGHT_GREEN#[告诉它梅琳达的事]", "_t")
 t("[leave]", "[离开]", "_t")
 t([[*#LIGHT_GREEN#The creature glares at you.#WHITE#*
 You possess a control rod. You are the master.]], [[*#LIGHT_GREEN#那个生物瞪着你。#WHITE#*
-你拿着控制魔杖，你就是我的主人。]], "_t")
+你拥有一根控制棒，你就是主人。]], "_t")
 t("Err... ok.", "哦……好吧。", "_t")
 t([[*#LIGHT_GREEN#The creature glares at you.#WHITE#*
 You are the master; you have the rod. I am created to speak to the master.]], [[*#LIGHT_GREEN#那个生物瞪着你。#WHITE#*
-你拥有魔杖，你就是主人，我是被制造出来和主人对话的。]], "_t")
+你是主人；你有那根棒。我被创造出来，就是为了与主人交谈。]], "_t")
 t([[*#LIGHT_GREEN#The creature glares at you with intensity. You 'see' images in your head.
 You see titanic wars in an age now forgotten. You see armies of what you suppose are Sher'Tuls since they look like the shadow.
 They fight with weapons, magic and other things. They fight gods. They hunt them down, killing or banishing them.
@@ -5917,11 +5917,11 @@ Then you see darkness; it seems like the shadow does not know what followed thos
 You shake your head as the vision dissipates, and your normal sight comes back slowly.
 #WHITE#*
 ]], [[*#LIGHT_GREEN#那个生物集中精神注视着你，你“看到”了脑海中的影像。
-你看到了已被人遗忘的泰坦之战。你看到了一支军队，你推测它们是夏·图尔人，因为它们看起来很像那个阴影生物。
-他们使用魔法、武器和其他东西战斗，他们和众神战斗，将他们击倒、杀死、驱散。
-你看到巨大的类似这里的堡垒飘浮在埃亚尔的上空，在阳光之下释放出强大的能量光芒。
+你看到了发生在一个早已被遗忘的时代里的浩大战争。你看到一支支军队，猜想他们是夏·图尔人，因为他们的外形与堡垒之影相似。
+他们用武器、魔法和其他事物作战。他们与众神交战，追猎众神，将其杀死或放逐。
+你看到一座座与这里相似的宏伟堡垒飞遍埃亚尔的天空——这些力量强大的璀璨堡垒在尚且年轻的太阳下熠熠生辉。
 你看到众神都被击败、杀死，除了一个。
-随后你看到了黑暗；似乎那个阴影并不知道那些事件之后发生了什么。
+随后你看到了黑暗；似乎堡垒之影并不知道那些事件之后发生了什么。
 
 你摇了摇头，驱散了脑海中的影像，眼前慢慢恢复了现实的景象。
 #WHITE#*
@@ -5935,22 +5935,22 @@ t("Fine.", "好吧。", "_t")
 t([[*#LIGHT_GREEN#The creature glares at you.#WHITE#*
 You are the master. You can use this place as you desire. However, most of the energies are depleted and only some rooms are usable.
 To the south you will find the storage room.]], [[*#LIGHT_GREEN#那个生物瞪着你。#WHITE#*
-你是主人，你可以随意使用这个地方。不过，大多数这里的能量已经耗竭，只有一些房间可以使用。
-在南面你可以看到储藏室。]], "_t")
+你是主人，可以随意使用这里。不过，这里的能量大多已经耗尽，只有少数房间还能使用。
+南面是储藏室。]], "_t")
 t("Thanks.", "多谢。", "chat_shertul-fortress-butler")
 t([[This Fortress is designed as a mobile base for the Godslayers - it can fly.
 It is also equiped with various facilities: exploratory farportal, emergency containment field, remote storage, ...
 However, the Fortress is badly damaged and has lain dormant for too long. Its energies are nearly depleted.
 Take this Transmogrification Chest. It is linked by a permanent farportal to the Fortress. Any item you put inside will be sent to the power core and dismantled for energy.
-There are, however, unwanted byproducts to this operation: the generation of a metal known as gold. It is of no use to the Fortress and thus will be sent back to you.]], [[这个堡垒是弑神者们的移动堡垒，它可以飞行。
-它还装备了其他设施：探索用远古传送门、紧急防护场、远程存储……
-然而，堡垒已经严重损坏，而且已经休眠了太久了。它的能量几近枯竭。
-拿着这个转化之盒。它与堡垒有永久链接，所有放进去的物品都可以使用它分解，转化为堡垒的能量。
-不过它还有这样一个副作用：转化物品会产生一种叫做金子的金属，它们对于要塞是没有用的，所以会变成金币返还给你。]], "_t")
-t("I will, thanks.", "我知道了，谢谢。", "_t")
-t("I have already found such a chest in my travel. Will it work?", "我已经在我的旅途中找到了一个，它有发挥效用么？", "_t")
+There are, however, unwanted byproducts to this operation: the generation of a metal known as gold. It is of no use to the Fortress and thus will be sent back to you.]], [[这座堡垒被设计为弑神者的移动基地——它能够飞行。
+它还配备了各种设施：探索用远古传送门、紧急遏制力场、远程储藏……
+然而，堡垒损毁严重，又休眠了太久，能量已近乎耗尽。
+拿着这个转化之盒。它通过一座永久远古传送门与堡垒相连。你放入其中的任何物品都会被送往能量核心，拆解成能量。
+不过，这个过程会产生一种不需要的副产物：名为黄金的金属。堡垒用不上它，因此会将它送还给你。]], "_t")
+t("I will, thanks.", "我收下了，谢谢。", "_t")
+t("I have already found such a chest in my travel. Will it work?", "我在旅途中已经找到过一个这样的转化之盒。它能用吗？", "_t")
 t([[Yes, it will. I will attune it to this fortress.
-Done.]], [[是的它会，我会把它和堡垒联系在一起。
+Done.]], [[可以。我会将它与这座堡垒调谐。
 好了。]], "_t")
 t("Thanks.", "多谢。", "_t")
 t([[Long ago the Sher'tuls used farportals not only for transportation to known locations, but also to explore new parts of the world, or even other worlds.
@@ -5962,37 +5962,37 @@ You may use the farportal; however, beware - I sense a strange presence in the f
 你现在可以使用这座远古传送门；不过要小心——我感觉传送门房间里有某种异常存在。]], "_t")
 t("I will check it out, thanks.", "我会去检查一下的，谢谢。", "_t")
 t([[The rod of recall you possess is not a Sher'tul artifact, but it is based on Sher'tul design.
-The Fortress now has enough energy to upgrade it. It can be changed to recall you to the Fortress.]], [[你所拥有的回归之杖并不是夏·图尔的产物，不过是基于夏·图尔的知识而制造的。
-堡垒现在有足够的能量来升级它的功能，可以使你传送时返回到堡垒来。]], "_t")
+The Fortress now has enough energy to upgrade it. It can be changed to recall you to the Fortress.]], [[你所拥有的回归之杖并非夏·图尔造物，但它采用了夏·图尔的设计。
+堡垒现在有足够的能量来升级它。升级后，它便能将你传送回堡垒。]], "_t")
 t("I like it the way it is now. Thanks anyway.", "我喜欢保持原样，不过还是谢谢了。", "_t")
 t("That could be quite useful. Yes, please do it.", "这很有用。好，就这么办。", "_t")
 t([[Yes master, a training facility is available to the north, but it is not yet powered on.
-I will need to use 50 energy to do this.]], [[是的，主人。北方是有一间训练室，不过它需要能量。
-	我需要至少50能量来激活它。]], "_t")
+I will need to use 50 energy to do this.]], [[是的，主人。北面有一处训练设施，但尚未通电。
+我需要消耗 50 点能量来启动它。]], "_t")
 t("Maybe later.", "以后再说。", "_t")
 t([[Yes master, the Mirror of Reflections is what you need. It is currently dormant but could be re-activated.
-I will need to use 10 energy to do this.]], [[好的主人。反射之镜能满足您的需求。它目前处于休眠状态，但可以重新激活。
-它需要10点能量激活。]], "_t")
+I will need to use 10 energy to do this.]], [[是的，主人。你需要的是反射之镜。它目前处于休眠状态，但可以重新激活。
+我需要消耗 10 点能量来启动它。]], "_t")
 t("\
 #{italic}##CRIMSON#This feature is purely cosmetic is available only to donators/buyers. You can unlock the room and use the preview but you will not be able to validate your choices.#{normal}#", "\
-#{italic}##CRIMSON#此功能仅限捐赠者/购买者使用。您可以解锁房间并使用预览，但无法生效您的选择。#{normal}#", "_t")
+#{italic}##CRIMSON#此功能纯粹用于改变外观，且仅限捐赠者/购买者使用。你可以解锁房间并进行预览，但无法应用你的选择。#{normal}#", "_t")
 t("That could be quite nice. Yes, please do it.", "非常好，就这么做吧。", "_t")
 t([[Ah yes, you seem to master the simple art of alchemy. I can change the chest to automatically use your power to extract a gem if the transmogrification of the gem would reward more energy.
-However, I will need to use 25 energy to do this.]], [[嗯可以，你似乎掌握了基本的炼金术。如果转化宝石能获得更多能量，我可以让转化之盒自动使用你的力量来提取宝石，
-不过这需要耗费 25 点能量值。]], "_t")
+However, I will need to use 25 energy to do this.]], [[啊，是的，你似乎已经掌握了简单的炼金术。如果提取出的宝石经转化后能提供更多能量，我可以改造转化之盒，让它自动借助你的力量提取宝石。
+不过，我需要消耗 25 点能量来完成改造。]], "_t")
 t("Maybe sometime later.", "以后再说。", "_t")
-t("I can alter the Fortress holographic projection matrix to accomodate your racial tastes. This will require 60 energy, however.", "我可以通过堡垒的全息投影矩阵来调整外观，以适应你的种族审美。这需要耗费60能量值。", "_t")
-t("Can you try for a human female appearance please?", "请你变成一个女性人类的样子吧？", "_t")
-t("Can you try for a human male appearance please?", "请你变成一个男性人类的样子吧？", "_t")
+t("I can alter the Fortress holographic projection matrix to accomodate your racial tastes. This will require 60 energy, however.", "我可以调整堡垒的全息投影矩阵，使我的外形符合你的种族审美。不过，这需要消耗 60 点能量。", "_t")
+t("Can you try for a human female appearance please?", "请试着变成人类女性的外形。", "_t")
+t("Can you try for a human male appearance please?", "请试着变成人类男性的外形。", "_t")
 t("Please revert to your default appearance.", "请变回原来默认的样子。", "_t")
 t("Well, you do not look so bad actually. Let it be for now.", "好吧，其实你看上去没那么糟，就保持这个样子吧。", "_t")
 t([[Yes Master. I can use 10 energy to infuse your cloak. When you take it off the effect should still persist.
-However, I suggest you still carry it with you in case something manages to remove it from you.]], [[是的主人，我可以耗费10能量来提升斗篷，使你脱下斗篷仍能保持它的特效。
-不过，我建议你还是随身携带，以备万一特效被从你身上消除时使用。]], "_t")
+However, I suggest you still carry it with you in case something manages to remove it from you.]], [[是的，主人。我可以消耗 10 点能量为你的斗篷注入力量。即使你脱下斗篷，效果也应当继续维持。
+不过，我建议你仍将它随身携带，以防有什么东西设法消除你身上的效果。]], "_t")
 t("Not now.", "暂时不用。", "_t")
 t([[Demonic taint. Yes I have a way to help in the archives. However this is a long process, the subject will need to live here for a while.
-She will have to spend 8 hours per day in the regeneration tank.]], [[恶魔的污染么，是的，档案区里有办法帮忙。不过这需要一段时间，目标生物必须在这里住上一段时间。
-她每天必须在再生槽中呆上8小时。]], "_t")
+She will have to spend 8 hours per day in the regeneration tank.]], [[恶魔污染。是的，我有办法在档案区帮她。不过这个过程很漫长，她需要在这里住上一段时间。
+她每天必须在再生槽中待上 8 小时。]], "_t")
 t("This is great news! I will tell her at once.", "太好了！我马上告诉她。", "_t")
 
 ------------------------------------------------
