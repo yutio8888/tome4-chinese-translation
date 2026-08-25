@@ -33,8 +33,14 @@
 - b25 主要修正：竞技场规则原译承诺奖品是「一个戒指」——任务代码确认「鲜血呼唤」确为戒指，但该句台词只点名奖品，故删去凭空补充的说明，并修正 `会……了` 时态冲突、补回 our pawns；十轮回合数与玩家经水晶球控制奴隶的机制已按任务源码复核。`slave fodder` 曾被译成「像奴隶一样的炮灰」（改变了所指）；`Normally you would be taken as a slave` 漏掉被掳为奴；`standard fee` 遗漏且凭空多出「每次」；小猫漏译橘色却多出「眼泪汪汪」。
 - b25 复审：`0cbb7c58…`（ctx-01）首轮即 37/37 `OK`，无修复轮。五步门禁、完整 `tools/ci-gates.sh`（12/12，含构建）与 `DONE_VERIFIED` 均通过。
 - b25 生命周期：首个 EXECUTOR dispatch 结束却无任何产出（无 diff、无报告），按新规归档为 spent，另建 fresh retry child 完成本批；两者均已确认归档。
+- 冻结方法修正（2026-08-24，提交 `683b674`）：`tools/i18n context` 的 `--limit` 默认 50 且静默截断，冻结脚本与 envelope builder 都必须显式传 `--limit 500`，并断言冻结条数等于该 section 的词法 `t()` 调用数；核验英文键时同时接受原文与转义形式（引擎把换行写成 `\n` 两字符转义）。b22–b25 单段最大仅 24 条，已逐段机械复核未受影响。详见 `docs/lessons-learned.md` 第 12 条。
+- b26：`shertul-fortress-butler.lua` 单段 53 条，提交 `300e104`，修订 21 条 target。冻结集 `evidence/quality/p2-batches/p2-tome-texts-b26-shertul-fortress-butler.json`。
+- b26 主要修正：多处机制数值与描述有误——`open_training` 实际恰好消耗 50 点能量（旧译「至少 50」）、训练设施是「尚未通电」而非仅「需要能量」、堡垒概述漏掉永久远古传送门并凭空说黄金副产物会折算成金币；`titanic wars` 误作「泰坦之战」，`hunt down, killing or banishing` 弱化为「击倒、驱散」；异象段同一指称一处作「堡垒之影」另一处作「那个阴影」，且后者紧接「随后你看到了黑暗；」会被读成那团黑暗；`I will, thanks.` 只译出「知悉」，而该选项带 `spawn_transmo_chest()`，选它就是收下转化之盒。
+- b26 术语裁决：堡垒问候语的 `a control rod` 一度被改成专名「回归之杖」，复审反对并获维持——源文用不定冠词泛指，同一文件另有 `the rod of recall` 并说明它并非夏·图尔造物，且文件内 `has_rod` helper 定义后从未被调用（死代码）。已恢复泛指译法。
+- **b26 首次触发高级范围校准（`senior-audit-01`）**：ctx-02 在 ctx-01 已判 OK 且字节未变的 3 条上提出新 finding。按契约 `cycle >= 2` 的规则先做 `SENIOR_REVIEW` scope_audit，裁定其中 2 条为源码可证的真缺陷、1 条以错误语法前提为由驳回（`是不是` 是正反问，并不预设存在）。**由此确立的常规**：对未改动且此前判 OK 的文本提出的新 finding，默认驳回，除非带有固定源码或引擎行为证据；若后续轮次就同一 revision 推翻本次校准，按 `AGENTS.md` 的重复实质分歧条件交回维护者。
+- **验收标准措辞修正**：b26 的 SPEC 验收第 4 条原写作「独立复审对全部 53 条返回 OK」，即要求复审一致同意，而非缺陷已解决。两名独立复审对字节相同的文本给出互不重叠的 finding 集，说明该机制不可靠地达成一致；已在任务内按高级校准改为「confirmed finding 全部解决、驳回项记为 advisory、cycle ≥ 2 的修复经 scope 校准」。后续批次沿用此措辞。
 - 当前预期工作树：干净，仅用户本地未跟踪 `.claude/`；不得提交、删除或混入 `.claude/`。`.ai/` 与 `.artifacts/` 是忽略的派生产物。
-- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b25 共 22 个 section，从 `shertul-fortress-butler.lua` 起继续下一个有界切片（该 section 单独 53 条，建议自成一批）。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
+- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b26 共 23 个 section，从 `shertul-fortress-caldizar.lua` 起继续下一个有界切片。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
 - 复审记录格式注意：`.ai/reviews/` 记录必须带 `status`（或 `result`）且取值属于 `completed`／`completed_with_findings`／`PASS`／`CHANGES_REQUIRED`／`FINDINGS`／`OK`，否则 `ai_state_check.py` 的 `candidate_bindings_valid` 会拒绝 DONE。
 
 ## 0. 一句话状态
