@@ -1,0 +1,121 @@
+{
+ "schema_version": 1,
+ "task_id": "p2-tome-texts-b32-001",
+ "component": "tome",
+ "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "workset": "evidence/quality/p2-batches/p2-tome-texts-b32-ukllmswwik-cave.json",
+ "sections": [
+  "mod-tome/data/chats/ukllmswwik.lua",
+  "mod-tome/data/chats/undead-start-game.lua",
+  "mod-tome/data/chats/undead-start-kill.lua",
+  "mod-tome/data/chats/unremarkable-cave-bosses.lua",
+  "mod-tome/data/chats/unremarkable-cave-fillarel.lua",
+  "mod-tome/data/chats/unremarkable-cave-krogar.lua"
+ ],
+ "host_verification_of_executor_claims": [
+  {
+   "claim": "the necromancer's cloak is a real unique quest item",
+   "verified": "pinned blighted-ruins/npcs.lua:55-58 resolvers.equip carries defined=\"CLOAK_DECEPTION\"; blighted-ruins/objects.lua:23 defines it as unique/quest with unided_name 'black cloak'",
+   "result": "confirmed"
+  },
+  {
+   "claim": "'a normal average Human' names the race",
+   "verified": "pinned undead-start-kill.lua capitalises Human, so 普通人类 is right against the generic 普通人",
+   "result": "confirmed"
+  },
+  {
+   "claim": "Krogar is a single entity with an authoritative display name",
+   "verified": "pinned unremarkable-cave/npcs.lua:103 defines one name=\"Krogar\" and :85 tests act.name==\"Krogar\"; mod-tome.lua:40985 carries the entity name 克罗加尔",
+   "result": "confirmed"
+  }
+ ],
+ "required_alignment": {
+  "name": "Krogar",
+  "before": "three renderings across the corpus - 克罗格 (3 in-window), 克罗加尔 (entity name), 克洛加尔 (strange-new-world.lua)",
+  "after": "all in-window occurrences read 克罗加尔, matching the entity name",
+  "leftover": "strange-new-world.lua:20814 still reads 克洛加尔; out of window, left for the batch that reaches it, per the b24 Grand Keeper precedent"
+ },
+ "review": {
+  "contract": "translation_contextual_v1",
+  "dispatch": "ctx-01",
+  "candidate_identity": "233d6c59d39caa6af029898cea07eb05bc205bb5fd008b87fc4d07b542fc8d5f",
+  "revisions_total": 50,
+  "observations_ok": 47,
+  "adjudications": [
+   {
+    "revision_key": "b32-05-ukllmswwik",
+    "host_adjudication": "confirmed",
+    "finding": "'You seem to be worthy' rendered 有点价值, recasting the dragon's assessment of the player's standing as an appraisal of their usefulness, weakened further by 有点",
+    "ground": "worthiness is his stated precondition for confiding the story; his register across the section is imperious, not transactional",
+    "applied": true,
+    "result": "够资格"
+   },
+   {
+    "revision_key": "b32-37-undead-start-kill",
+    "host_adjudication": "confirmed",
+    "finding": "'Thanks for the information' rendered 谢谢你的帮忙 ('for your help')",
+    "ground": "the answer's action kills the necromancer outright; the player extracts intelligence and reneges, and he never renders assistance",
+    "applied": true,
+    "result": "谢谢你的情报"
+   },
+   {
+    "revision_key": "b32-38-unremarkable-cave-bosses",
+    "host_adjudication": "confirmed",
+    "finding": "'Abandon this fight, orc!' rendered 投降吧, adding a submission-to-Fillarel relation",
+    "ground": "she demands he break off the engagement, backing it with her own power; Krogar's reply mocks her stamina rather than answering a surrender demand",
+    "applied": true,
+    "result": "罢手吧"
+   }
+  ]
+ },
+ "host_initiated_findings": [
+  {
+   "id": "b32-36-undead-start-kill",
+   "host_adjudication": "advisory",
+   "applied": true,
+   "finding": "round 1 promoted the indefinite 'a cloak' to the proper item name 欺诈斗篷",
+   "ground": "the reviewer passed this revision as OK, so it is host-initiated. The referent is genuine and the corpus name is correct, but the English is deliberately indefinite and the speaker is a stranger bargaining with a newly risen undead who has never seen the item, so naming it discloses a proper noun he does not utter. This is the b26 shape; the b27 refinement does not rescue it because there the item name was used on a branch actually gated on ROD_OF_RECALL, whereas nothing here gates on the cloak - the player kills him and loots it",
+   "resolution": "item name reverted to a generic 斗篷; round 1's other improvements to the same string were kept"
+  }
+ ],
+ "declined": [
+  {
+   "item": "[attack] in ukllmswwik.lua",
+   "reason": "English key shared with four other sections all rendering 「[攻击]」; editing one side splits the runtime key",
+   "precedent": "b23/b28"
+  },
+  {
+   "item": "the dragon's account of Slasul vs Slasul's own account",
+   "reason": "the two contradict each other by design - the branch the player believes decides which of the two dies; harmonising them would destroy the choice"
+  }
+ ],
+ "gates": {
+  "five_step": "PASS",
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "runtime_collisions": 0,
+  "diff": "mod-tome.lua 21 insertions / 21 deletions across 15 hunks, all in-window"
+ },
+ "open_items": [
+  {
+   "item": "Angolwen split",
+   "detail": "50 安格利文 / 10 安格列文; term row marked 需统一",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Maj'Eyal split",
+   "detail": "71 / 54",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Sholtar split",
+   "detail": "2 / 2",
+   "disposition": "maintainer decision"
+  },
+  {
+   "item": "Krogar out-of-window",
+   "detail": "strange-new-world.lua reads 克洛加尔",
+   "disposition": "leftover for the batch that reaches it"
+  }
+ ]
+}

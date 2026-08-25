@@ -6460,15 +6460,15 @@ One of them, Slasul, rebelled against his order and decided he wanted the world 
 He believes he can use it to #{italic}#improve#{normal}# nagas.
 But he has become mad and now looks upon all other intelligent water life as a threat, and that includes myself.
 I cannot leave this sanctuary, but perhaps you could help me?
-After all, it would be an act of mercy to end his madness.]], [[等下！你看上去有点价值，让我告诉你一个故事。
+After all, it would be an act of mercy to end his madness.]], [[等下！你看上去够资格，让我告诉你一个故事。
 在烈火纪，世界被魔法大爆炸的余波撕裂，马基·埃亚尔的一部分大陆架被撕裂出去漂向了海洋。
-纳鲁精灵种族灭亡了……至少世界上的人都这么认为。事实上他们之中的一些人使用古代夏·图尔的魔法存活了下来，他们转而在水下生活。
+纳鲁精灵种族灭亡了……至少世界上的人都这么认为。事实上他们之中的一些人使用秘藏的古代夏·图尔魔法存活了下来，并改变自身以适应水下生活。
 他们现在被称为娜迦，他们生活在马基·埃亚尔和远东大陆之间的海洋深处。
-他们中的一个，萨拉苏尔，违抗了他的使命，妄图控制整个水上和水下世界，他发现了一个有可能残留有夏·图尔遗迹的古代神庙，叫做造物者神庙。
+他们中的一个，萨拉苏尔，背叛了自己所属的组织，妄图独占水上和水下的整个世界。他发现了一座古老神庙，可能是夏·图尔的遗迹，名为造物者神庙。
 他相信可以利用它来#{italic}#进化#{normal}#娜迦。
 但是他陷入了疯狂，把一切水下智慧生物都视为对他的威胁，包括我自己。
 我不能离开这个圣所，但是也许你能帮我结果了他？
-毕竟，算是对他疯狂的一种宽恕吧。]], "_t")
+毕竟，终结他的疯狂也算是一种仁慈。]], "_t")
 t("I would still rather kill you and take your treasure!", "我还是要杀了你，夺取你的财宝！", "_t")
 t("I shall do as you say, but how do I find him?", "我会照着你的话去做，但是去哪儿找他呢？", "_t")
 t("That seems... unwise. My apologies, but I must refuse.", "这似乎不是明智之举，很抱歉，我必须拒绝。", "_t")
@@ -6477,16 +6477,16 @@ t("I will.", "好的。", "_t")
 t("This is a death trap! Goodbye.", "这是个陷阱！再见！", "_t")
 t("Yes?", "嗯？", "_t")
 t("[attack]", "[攻击]", "_t")
-t("TREACHERY!", "背叛者！", "_t")
+t("TREACHERY!", "背叛！", "_t")
 t("I want your treasures, water beast!", "我需要你的财宝，水下怪物！", "_t")
 t("Oh, is that so? Well, COME GET THEM!", "哦，你确定？好啊，来拿啊！", "_t")
-t("I spoke with Slasul, and he did not seem hostile, or mad.", "我询问过萨拉苏尔，他貌似不是个坏人，也没疯。", "_t")
+t("I spoke with Slasul, and he did not seem hostile, or mad.", "我与萨拉苏尔交谈过，他似乎并无敌意，也没有发疯。", "_t")
 t("Farewell, dragon.", "告辞了，巨龙。", "_t")
 t([[#LIGHT_GREEN#*@npcname@ roars!*#WHITE# You listen to the lies of this mad naga!
 You are corrupted! TAINTED!]], [[#LIGHT_GREEN#*@npcname@ 发出了怒吼！*#WHITE# 你居然听信这个疯子娜迦的谎言！
-你也堕落了！]], "_t")
+你已被腐化！被玷污了！]], "_t")
 t("DO NOT MEDDLE IN THE AFFAIRS OF DRAGONS!", "不要管巨龙的闲事！", "_t")
-t("#LIGHT_GREEN#*Shake your head.*#LAST#He swayed my mind! Please, I am not your enemy.", "#LIGHT_GREEN#*你摇摇头。*#LAST#好吧，我被他骗了，我不是你的敌人。", "_t")
+t("#LIGHT_GREEN#*Shake your head.*#LAST#He swayed my mind! Please, I am not your enemy.", "#LIGHT_GREEN#*你摇摇头。*#LAST#他蛊惑了我的心智！求你了，我不是你的敌人。", "_t")
 t("#LIGHT_GREEN#*@npcname@ calms down!*#WHITE# Very well; he is indeed a trickster.  Now go finish your task, or do not come back!", "#LIGHT_GREEN#*@npcname@ 冷静了下来！*#WHITE# 好吧，他的确是个骗子，那现在去完成你的任务吧，要不然就不要回来了！", "_t")
 t("Thank you, mighty one.", "谢谢你，强大的巨龙。", "_t")
 
@@ -6508,7 +6508,7 @@ You are mine! Be quiet!
 #LIGHT_GREEN#*As his mind drifts off you notice part of the summoning circle is fading. You can probably escape!*#WHITE#
 ]], [[你不可能说话，你不可能说话的啊！你是一个奴隶，一件工具！
 你是我的，安静点！
-#LIGHT_GREEN#*当他的注意力开始分散时，你注意到召唤法阵正在消失，你可以逃跑了！*#WHITE#
+#LIGHT_GREEN#*当他的注意力开始分散时，你注意到召唤法阵的一部分正在消退，你应该可以逃出去！*#WHITE#
 ]], "_t")
 t("[attack]", "[攻击]", "_t")
 
@@ -6529,10 +6529,10 @@ t("[kill him]", "[杀了他]", "_t")
 t("ARRGGggg... You are alone! You will be destroyed!", "啊啊啊啊噶……你孤身一人！注定走向毁灭！", "_t")
 t([[I can give you a cloak that will conceal your true nature!
 With it all people will see when they look at you is a normal average Human. You can go about your business.
-Please!]], [[我可以给你一件斗篷，让别人认不出你的本来面目。
-穿着它你的外形看上去就会像一个普通人一样，不会引起别人的注意，这样你就可以干任何你想干的事了。
+Please!]], [[我可以给你一件斗篷，它能隐藏你的真实本质！
+穿上它，任何人看到的都只会是一个普通人类，你便可以自由行事。
 求求你！]], "_t")
-t("Thanks for the information. Now you may die. [kill him]", "谢谢你的帮忙，现在你可以死了。[杀了他]", "_t")
+t("Thanks for the information. Now you may die. [kill him]", "谢谢你的情报，现在你可以死了。[杀了他]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/unremarkable-cave-bosses.lua"
@@ -6543,12 +6543,12 @@ Krogar: "Ha! It's only been one hour and you already look tired, my 'lady'."
 #LIGHT_GREEN#*As you enter the room they notice you.*#WHITE#
 Fillarel: "You! @playerdescriptor.race@! Help me defeat this monster or begone!"
 Krogar: "Ah, looking for help? Bah. @playerdescriptor.race@, kill this wench for me and I shall reward you!"]], [[#LIGHT_GREEN#*一个穿着金色长袍的美丽精灵女子站在你面前，另一边是穿着锁甲的兽人。*#WHITE#
-菲拉瑞尔：“投降吧，兽人！你不会赢的，太阳的伟力、月亮的暗影与我同在。”
-克罗格： “哈！才过了一个小时而已，你看上去都很疲惫了，‘女士’。”
+菲拉瑞尔：“罢手吧，兽人！你不会赢的，太阳的伟力、月亮的暗影与我同在。”
+克罗加尔： “哈！才过了一个小时而已，你看上去都很疲惫了，‘女士’。”
 #LIGHT_GREEN#*当你进入房间时他们注意到了你*#WHITE#
-菲拉瑞尔： “你！ @playerdescriptor.race@!帮我干掉这只怪物，不然就快离开！”
-克罗格： “哦？想找人帮忙？呸，@playerdescriptor.race@，给我干掉这个臭婊子，我会报答你的！”]], "_t")
-t("[attack Krogar]", "[攻击克罗格]", "_t")
+菲拉瑞尔： “你！ @playerdescriptor.race@！帮我干掉这只怪物，不然就快离开！”
+克罗加尔： “哦？想找人帮忙？呸，@playerdescriptor.race@，给我干掉这个臭婊子，我会报答你的！”]], "_t")
+t("[attack Krogar]", "[攻击克罗加尔]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/unremarkable-cave-fillarel.lua"
@@ -6561,8 +6561,8 @@ My companions were... were slaughtered by orcs, and I nearly died as well. Thank
 我的伙伴们…都被兽人杀死了，我也差点丧命，再次感谢你的帮助。]], "_t")
 t("It was my pleasure. But may I ask a favor myself? I am not from these lands. I used a farportal guarded by orcs deep below the Iron Throne and was brought here.", "我的荣幸，不过我有个请求。我其实不是这个大陆的人，使用了钢铁王座地下深处，被兽人保护的远古传送门，然后就到了这里。", "_t")
 t([[Yes, I noticed you were not from here. Your only hope is the Gates of Morning, the last bastion of freedom in this orc territory. When you leave the caves, head southeast; you cannot miss it.
-Tell High Sun Paladin Aeryn that you met me. I'll send word to let you pass.]], [[是的，我也注意到了你不是这里的人，晨曦之门，这座兽人领地中仅存的自由基地，将是你的唯一希望。你离开洞穴，往东南方走就可以到达那里。
-告诉高阶太阳骑士艾琳你碰到我的事，我会留下口信让他们给你放行。]], "_t")
+Tell High Sun Paladin Aeryn that you met me. I'll send word to let you pass.]], [[是的，我也注意到了你不是这里的人。晨曦之门是兽人领地中仅存的自由堡垒，将是你的唯一希望。离开洞穴后往东南走；你绝不会错过它。
+告诉高阶太阳骑士艾琳你遇到了我，我会传信让他们放行。]], "_t")
 t("Thank you, I will talk with Aeryn.", "谢谢你，我会找艾琳谈谈的。", "_t")
 t([[Gone? Wait, this face.. you are @playername@! We thought you died in the naga portal explosion!
 Thanks to your courage the Gates of Morning still stand.
@@ -6574,8 +6574,8 @@ t("Sadly I am the bringer of bad news, the orcs are planning something. Good luc
 ------------------------------------------------
 section "mod-tome/data/chats/unremarkable-cave-krogar.lua"
 
-t("@playerdescriptor.race@, you have helped me kill the Elf-wench. The Orc Pride thanks you... for now", "@playerdescriptor.race@，你帮我干掉了那个精灵臭婊子，现在兽人部落很感谢你。", "_t")
-t("I hate Elves anyway...", "我讨厌精灵……", "_t")
+t("@playerdescriptor.race@, you have helped me kill the Elf-wench. The Orc Pride thanks you... for now", "@playerdescriptor.race@，你帮我干掉了那个精灵臭婊子。兽人部落感谢你……暂时如此。", "_t")
+t("I hate Elves anyway...", "反正我也讨厌精灵……", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/ward.lua"
