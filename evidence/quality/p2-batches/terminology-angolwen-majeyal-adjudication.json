@@ -1,0 +1,72 @@
+{
+ "schema_version": 1,
+ "task_id": "terminology-angolwen-majeyal-001",
+ "component": "tome",
+ "change_class": "terminology",
+ "review_contract": "code_legacy_v1",
+ "authorisation": "maintainer rulings 2026-08-25",
+ "rulings": [
+  {
+   "term": "Angolwen",
+   "decision": "安格利文",
+   "row_change": "status existing -> preferred; target unchanged; note rewritten to record the ruling and mark 安格列文 superseded",
+   "corpus": "10 occurrences of 安格列文 replaced; 安格利文 now 60 (was 50)"
+  },
+  {
+   "term": "Maj'Eyal",
+   "decision": "马基·埃亚尔 (interpunct)",
+   "row_change": "target 马基埃亚尔 -> 马基·埃亚尔; status existing -> preferred; note records the ruling and the superseded form",
+   "note": "unlike Angolwen, the row held the rejected form, so the target itself was rewritten rather than the status merely promoted",
+   "corpus": "55 occurrences of 马基埃亚尔 replaced across 33 sections; 马基·埃亚尔 now 126 (was 71)",
+   "reach": "not confined to narrative - includes init.lua, achievements/donator.lua, class/Game.lua, class/uiset/Minimalist.lua, class/interface/WorldAchievements.lua, birth/worlds.lua, general/objects/world-artifacts.lua, zone grids and quest files"
+  }
+ ],
+ "verification": {
+  "counts": {
+   "安格列文": 0,
+   "马基埃亚尔": 0,
+   "安格利文": 60,
+   "马基·埃亚尔": 126
+  },
+  "counts_verdict": "all four match the expectations computed from the pre-change baseline (50+10, 71+55)",
+  "no_collateral_change": "the reviewer normalised both old and new renderings to sentinels and showed HEAD and working-tree mod-tome.lua byte-identical, proving no other Chinese text, English source key, source_tag, args_order, line structure or surrounding Lua changed. This technique is stronger than line-by-line inspection and is worth reusing for mechanical renames",
+  "row_count": "711 unchanged - modifying rows does not change the count; only adding does, which is what produced a red HEAD when Ziguranth was added",
+  "runtime_keys": "0 collisions - replacing every occurrence of a rendering keeps both sides of any shared key in step, verified rather than assumed"
+ },
+ "audits": {
+  "audit_static": "PASS, 711 rows",
+  "audit_dynamic": "PASS",
+  "annotate_domains": "PASS",
+  "unused_delta": {
+   "observed": "68 -> 69",
+   "investigated": "diffed the unused lists against HEAD; the single new entry is the Angolwen row itself",
+   "cause": "the row carries tag=nil, and promoting it to preferred brings it into the audit set, where a nil tag cannot bind to corpus entries by tag",
+   "verdict": "benign and established - Zigur is already in that list, as are 11 nil-tagged rows including Dwarven Empire and Brotherhood of Alchemists; Ziguranth is the same shape",
+   "note": "audit_dynamic mismatch:1 was verified pre-existing at HEAD"
+  }
+ },
+ "process_correction": {
+  "what": "the batch was initially set up with no review contract, on the reasoning that translation_contextual_v1 is the wrong instrument for a mechanical rename",
+  "why_wrong": "that reasoning was half-right. translation_contextual_v1 does review translation candidates for semantic fidelity and is indeed inapplicable, but ai_state_check requires every DONE task to carry a review contract with a bound, archived completion record. The correct instrument is code_legacy_v1 / normal_review - a diff review",
+  "resolution": "waiver retracted in STATE, code_legacy_v1 review dispatched and passed, candidate bound by spec_path + diff_path with candidate_ref = SHA256(SPEC || NUL || diff)",
+  "note": "satisfying the checker by inventing a contract name was available and was rejected - it is the same antipattern this task's own briefing warned the executor against regarding the 711-row assertion"
+ },
+ "gates": {
+  "five_step": "PASS",
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "diff": "mod-tome.lua 126 lines, terminology/places.tsv 4 lines; 65 insertions / 65 deletions"
+ },
+ "still_open": [
+  {
+   "item": "Sholtar",
+   "detail": "2 肖塔尔 / 4 肖塔. Host recommends 肖尔塔: syllable-final L conventionally gives 尔, and the sibling kingdoms Cornacs=科纳克 and Mardrop=马卓普 both drop the r-coda. No terminology row exists for any of the three, so adding one would require bumping the 711 assertion",
+   "disposition": "awaiting maintainer confirmation"
+  },
+  {
+   "item": "Atamathon / spellblade",
+   "detail": "傀儡之王 and 魔宗 add relations the English does not carry, but both are governed by entity names",
+   "disposition": "maintainer decision"
+  }
+ ]
+}

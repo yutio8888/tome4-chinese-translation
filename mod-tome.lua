@@ -455,7 +455,7 @@ section "mod-tome/class/Game.lua"
 t("<Scroll mode, press direction keys to scroll, press again to exit>", "<地图滚动模式，按上下左右键滚动地图，再次按键退出>", "_t")
 t("Main character", "主角色", "_t")
 t("Character Creation ( %s unlocked options)", "角色创建 ( %s 解锁选项)", "tformat")
-t("Welcome to #LIGHT_BLUE#Tales of Maj'Eyal", "欢迎来到#LIGHT_BLUE#马基埃亚尔的传说", "_t")
+t("Welcome to #LIGHT_BLUE#Tales of Maj'Eyal", "欢迎来到#LIGHT_BLUE#马基·埃亚尔的传说", "_t")
 t([[%s the level %d %s %s.
 Difficulty: %s / %s
 Campaign: %s
@@ -527,9 +527,9 @@ t("Displaying creatures.", "显示生物。", "log")
 t("Displaying talents.", "显示技能。", "log")
 t("Tooltip %s", "提示%s", "log")
 t("Show Achievements", "显示成就", "_t")
-t("Tales of Maj'Eyal Achievements", "马基埃亚尔的传说成就", "_t")
+t("Tales of Maj'Eyal Achievements", "马基·埃亚尔的传说成就", "_t")
 t("Show known Lore", "显示已知手札", "_t")
-t("Tales of Maj'Eyal Lore", "马基埃亚尔的传说手札", "_t")
+t("Tales of Maj'Eyal Lore", "马基·埃亚尔的传说手札", "_t")
 t("Show ingredients", "显示材料", "_t")
 t("Character Sheet", "角色信息面板", "_t")
 t("Game Options", "游戏选项", "_t")
@@ -2283,7 +2283,7 @@ Mind damage cannot be blocked. Against other damage types you gain a 50%% bonus 
 
 section "mod-tome/class/interface/WorldAchievements.lua"
 
-t("Maj'Eyal", "马基埃亚尔", "_t")
+t("Maj'Eyal", "马基·埃亚尔", "_t")
 t("%s (Roguelike)", "%s (永久死亡模式)", "tformat")
 t("%s (Exploration mode)", "%s (探索模式)", "tformat")
 t("%s (Nightmare (Adventure) difficulty)", "%s (噩梦难度 (冒险模式))", "tformat")
@@ -2499,7 +2499,7 @@ t("Left mouse to show message/chat log.", "左键点击显示信息/聊天栏。
 t([[Left mouse to show quest log.
 Right mouse to show all known lore.]], [[左键点击显示任务日志
 右键点击显示所有已知手札。]], "_t")
-t("Tales of Maj'Eyal Lore", "马基埃亚尔的传说手札", "_t")
+t("Tales of Maj'Eyal Lore", "马基·埃亚尔的传说手札", "_t")
 t("Left mouse to show main menu", "左键点击显示主菜单", "_t")
 t("Unlock all interface elements so they can be moved and resized.", "解锁所有界面元素，使其可以移动和改变大小。", "_t")
 t("Lock all interface elements so they can not be moved nor resized.", "锁定所有界面元素，使其无法移动和改变大小。", "_t")
@@ -2556,15 +2556,15 @@ t("Killed 10 or more enemies in one single attack in the arena.", "在竞技场�
 section "mod-tome/data/achievements/donator.lua"
 
 t("Bronze Donator", "黄铜捐赠者", "achievement name")
-t("Donated up to 5 euros to Tales of Maj'Eyal.", "为马基埃亚尔的传说捐赠不超过 5 欧元。", "_t")
+t("Donated up to 5 euros to Tales of Maj'Eyal.", "为马基·埃亚尔的传说捐赠不超过 5 欧元。", "_t")
 t("Silver Donator", "白银捐赠者", "achievement name")
-t("Donated at least 6 euros to Tales of Maj'Eyal.", "为马基埃亚尔的传说捐赠至少 6 欧元。", "_t")
+t("Donated at least 6 euros to Tales of Maj'Eyal.", "为马基·埃亚尔的传说捐赠至少 6 欧元。", "_t")
 t("Gold Donator", "黄金捐赠者", "achievement name")
-t("Donated at least 16 euros to Tales of Maj'Eyal.", "为马基埃亚尔的传说捐赠至少 16 欧元。", "_t")
+t("Donated at least 16 euros to Tales of Maj'Eyal.", "为马基·埃亚尔的传说捐赠至少 16 欧元。", "_t")
 t("Stralite Donator", "蓝锆石捐赠者", "achievement name")
-t("Donated at least 31 euros to Tales of Maj'Eyal.", "为马基埃亚尔的传说捐赠至少 31 欧元。", "_t")
+t("Donated at least 31 euros to Tales of Maj'Eyal.", "为马基·埃亚尔的传说捐赠至少 31 欧元。", "_t")
 t("Voratun Donator", "沃瑞钽捐赠者", "achievement name")
-t("Donated more than 60 euros to Tales of Maj'Eyal.", "为马基埃亚尔的传说捐赠超过 60 欧元。", "_t")
+t("Donated more than 60 euros to Tales of Maj'Eyal.", "为马基·埃亚尔的传说捐赠超过 60 欧元。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/achievements/events.lua"
@@ -2820,9 +2820,9 @@ t("Completed antimagic training in the Ziguranth camp.", "在伊格兰斯训练�
 t("Anti-Antimagic!", "摧毁反魔法！", "achievement name")
 t("Destroyed the Ziguranth camp with your Rhaloren allies.", "和罗兰精灵的同盟队伍一起，摧毁伊格兰斯训练营。", "_t")
 t("There and back again", "穿越回来", "achievement name")
-t("Opened a portal to Maj'Eyal from the Far East.", "从远东打开回到马基埃亚尔的传送门。", "_t")
+t("Opened a portal to Maj'Eyal from the Far East.", "从远东打开回到马基·埃亚尔的传送门。", "_t")
 t("Back and there again", "去而复返", "achievement name")
-t("Opened a portal to the Far East from Maj'Eyal.", "从马基埃亚尔打开去远东的传送门。", "_t")
+t("Opened a portal to the Far East from Maj'Eyal.", "从马基·埃亚尔打开去远东的传送门。", "_t")
 t("Arachnophobia", "蜘蛛杀手", "achievement name")
 t("Destroyed the spydric menace.", "清除蜘蛛威胁。", "_t")
 t("Clone War", "克隆战争", "achievement name")
@@ -3873,8 +3873,8 @@ t("You are a male of the species.", "你是一位男性角色。", "_t")
 ------------------------------------------------
 section "mod-tome/data/birth/worlds.lua"
 
-t("Maj'Eyal: The Age of Ascendancy", "马基埃亚尔:卓越纪", "_t")
-t("The people of Maj'Eyal: Humans, Halflings, Elves and Dwarves.", "马基埃亚尔生活着人类、半身人、精灵和矮人。", "_t")
+t("Maj'Eyal: The Age of Ascendancy", "马基·埃亚尔:卓越纪", "_t")
+t("The people of Maj'Eyal: Humans, Halflings, Elves and Dwarves.", "马基·埃亚尔生活着人类、半身人、精灵和矮人。", "_t")
 t("The known world has been at relative peace for over one hundred years, and people are prospering again.", "世界已经保持了超过一百年的和平，各大种族再次繁荣起来。", "_t")
 t("You are an adventurer, setting out to find lost treasure and glory.", "你是一位冒险者，出发去寻找失落的宝藏和荣耀。", "_t")
 t("But what lurks in the shadows of the world?", "在世界的阴影之下究竟潜伏着什么呢？", "_t")
@@ -4068,7 +4068,7 @@ t("SPEAK UP, HAMBRAIN. I'VE JUST GOTTEN MY EARDRUMS BLOWN OUT BY YET ANOTHER BY-
 t("I SAID, MAYBE THERE'S SOMETHING THAT I CAN HELP YOU WITH!", "我说，也许我能帮上什么忙！！", "_t")
 t("STILL CAN'T HEAR YOU, BUT LISTEN UP. THE BROTHERHOOD OF ALCHEMISTS IS ACCEPTING THE FIRST NEW APPLICANT TO DEMONSTRATE, AMONG OTHER THINGS, THREE VERY COMPLICATED ELIXIRS. I WOULDN'T BOTHER TRYING TO JOIN SUCH A BUNCH OF ADDLE-BRAINED DEGENERATES, BUT IT SO HAPPENS THAT THE BROTHERHOOD OF ALCHEMISTS HOLDS THE SECRET CURE FOR THE COMMON BLOWN-OFF ASS, WHICH IT SO HAPPENS IS OF SOME INTEREST TO ME.", "还是听不见，不过听着，炼金术士兄弟会最近会吸收最先做好三瓶指定药剂的炼金师作为会员。我本来对那些呆瓜组成的团体没什么兴趣，不过碰巧兄弟会有一种治疗烂屁股的秘方，我对这个很感兴趣。", "_t")
 t("HOW CAN I HELP?", "我怎么帮你？", "_t")
-t("THE BROTHERHOOD KNOWS DAMNED WELL WHAT ADVANCES IN THE FIELD OF ALCHEMY WOULD DO FOR EVERY CIVILIZATION IN EXISTENCE, BUT THEY HOARD THEIR FEW WORTHWHILE SECRETS LIKE A GREAT BROWN WYRM SITTING ON ITS PILE OF CRAP. YOU KNOW WHAT? I DON'T EVEN WANT THE ASS-CURE FOR ME. I'M GOING TO STEAL EVERY SECRET THEY'VE GOT, WRITE THEM DOWN, MAKE A HUNDRED COPIES, AND NAIL ONE TO A TREE IN EVERY VILLAGE IN MAJ'EYAL.", "兄弟会非常清楚炼金术的进步对每个文明意味着什么，但他们却像一头大棕龙坐在粪堆上一样，把为数不多的有价值秘密捂得严严实实！要知道，其实我才不想要那什么蛋疼的秘方，我准备把他们的秘密都偷出来，写在纸上，抄上一百份，然后贴到马基埃亚尔所有村庄的树上去！", "_t")
+t("THE BROTHERHOOD KNOWS DAMNED WELL WHAT ADVANCES IN THE FIELD OF ALCHEMY WOULD DO FOR EVERY CIVILIZATION IN EXISTENCE, BUT THEY HOARD THEIR FEW WORTHWHILE SECRETS LIKE A GREAT BROWN WYRM SITTING ON ITS PILE OF CRAP. YOU KNOW WHAT? I DON'T EVEN WANT THE ASS-CURE FOR ME. I'M GOING TO STEAL EVERY SECRET THEY'VE GOT, WRITE THEM DOWN, MAKE A HUNDRED COPIES, AND NAIL ONE TO A TREE IN EVERY VILLAGE IN MAJ'EYAL.", "兄弟会非常清楚炼金术的进步对每个文明意味着什么，但他们却像一头大棕龙坐在粪堆上一样，把为数不多的有价值秘密捂得严严实实！要知道，其实我才不想要那什么蛋疼的秘方，我准备把他们的秘密都偷出来，写在纸上，抄上一百份，然后贴到马基·埃亚尔所有村庄的树上去！", "_t")
 t("THAT'S NOT A VERY HERMIT-LIKE ATTITUDE.", "这可不像一个隐士的态度。", "_t")
 t("AND THEN WHAT WILL THEY DO? ONCE THEIR PRECIOUS SECRETS-- WHICH, IN ALL PROBABILITY, EITHER DON'T EXIST OR ARE THINGS LIKE RECIPES FOR ELIXIRS OF WHO-GIVES-A-FLYING-DUCK-- ARE OUT IN THE OPEN, THE BROTHERHOOD OF ASSWIPES WILL HAVE NOTHING TO HOLD IT TOGETHER BUT ELIXIRS OF THEIR TEARS AND WIDESPREAD DISDAIN FROM THE REST OF THE WORLD. SPEAK UP, THEN. ARE YOU IN OR OUT?", "然后他们会怎么样？当他们的宝贝秘密，或许根本就不存在，或者就是些操蛋秘方公之于众之后，除了用他们的泪水做药剂和被大家鄙视之外，“蠢货兄弟会”将一无所有。现在，说大声点！你是接受任务还是拒绝？", "_t")
 t("I'M IN.", "我接受！", "_t")
@@ -4089,7 +4089,7 @@ t("I'VE COME TO OFFER MORE AID.", "我来接下一步的任务！", "_t")
 t("[Give him the monster bits.]", "[给他材料。]", "_t")
 t([[#LIGHT_GREEN#*For the first time you've seen, genuine pleasure lights up the halfling's soot-smeared face.*#WHITE#
 GOOD WORK, WHOEVER YOU ARE. ALL OF MAJ'EYAL OWES YOU THEIR THANKS, EXCEPT FOR MEMBERS OF THE BROTHERHOOD OF ALCHEMISTS, WHO MIGHT TRY TO DO YOU BODILY HARM. FORTUNATELY FOR YOU, THEY'RE MOSTLY HARMLESS.]], [[#LIGHT_GREEN#*你第一次看到，半身人满是煤灰的脸上绽放出了诚恳的笑容。*#WHITE#
-干的好！不管你是谁！整个马基埃亚尔都应该感谢你，除了那些炼金术士兄弟会成员，他们想加害于你。不过幸运的是，那些货通常来说根本伤不到你。]], "_t")
+干的好！不管你是谁！整个马基·埃亚尔都应该感谢你，除了那些炼金术士兄弟会成员，他们想加害于你。不过幸运的是，那些货通常来说根本伤不到你。]], "_t")
 t("[Give him the monster bits]", "[给他材料]", "_t")
 t("WAIT HERE. THERE'S A GOOD CHANCE YOU'LL GET BLOWN INTO ADVENTURER KIBBLE IF YOU STEP INSIDE THIS BUILDING. MY ROBE OF MAD ALCHEMIST PROTECTION IS THE ONLY REASON I'M NOT VAPOUR.", "在这儿等着就好，如果你进入这栋建筑，你会有幸成为冒险家牌肉松。由于我有这件强大的炼金长袍保护，我才没变成粉蒸肉。", "_t")
 t("[Wait]", "[等待]", "_t")
@@ -4122,7 +4122,7 @@ t("I propose that I give you a list of monster parts to fetch, then you go and f
 t("Sounds like a plan.", "听上去是一个不错的计划。", "_t")
 t("I make excellent plans. And brews, which the Brotherhood will no doubt make me call 'elixirs' once I'm in. And I'll obey, because they have ways of getting what they want. Now, where were we?", "这可是一个极好的计划，而这些药剂，好吧，显然如果我加入炼金术士兄弟会的话，他们一定会称我的这些为“万能药”，我会照他们说的话去做的，因为他们自有他们的一套办法让我不得不服从他们的命令……那……我们刚说到哪儿了？", "_t")
 t("Aiding you with getting into some Brotherhood. What's in it for me?", "帮你加入那个什么什么兄弟会……我能得到什么回报？", "_t")
-t("Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest, and possibly your eyelids and fingernails. And, if your aid proves the deciding factor, then I've got a real treat for you: perhaps the last Taint of Purging left in Maj'Eyal.", "很简单，每份药剂我都会让你先喝个痛快的。喝下这些药剂会让你长出有男子汉气概的胸毛，可能还能长你脸上或者指甲盖里。而且，要是你的帮助能起决定性作用的话，我还会额外给你一件真正的宝物：传说中马基埃亚尔唯一的堕落印记——清除印记哦！", "_t")
+t("Oh, easy. You get a swig of each brew, of course. They'll put hair on your chest, and possibly your eyelids and fingernails. And, if your aid proves the deciding factor, then I've got a real treat for you: perhaps the last Taint of Purging left in Maj'Eyal.", "很简单，每份药剂我都会让你先喝个痛快的。喝下这些药剂会让你长出有男子汉气概的胸毛，可能还能长你脸上或者指甲盖里。而且，要是你的帮助能起决定性作用的话，我还会额外给你一件真正的宝物：传说中马基·埃亚尔唯一的堕落印记——清除印记哦！", "_t")
 t("I accept.", "我接受了。", "_t")
 t("I cannot aid you at this time.", "我现在没空帮你。", "_t")
 t("One last thing. There's a few other fellows angling for the same slot in the Brotherhood that I am. They're not going to be sitting on their hands while we're at work here, so best move quick-like. Now, which of these do you want to help me with first: the Brew of Brawn, the Brew of Stoneskin, or the Brew of Foundations? Or Elixirs, rather. Not Brews. Best get in the habit now, I suppose.", "最后一件事，除我之外还有几个家伙对炼金术士兄弟会的这个会员资格虎视眈眈，他们肯定不希望我来坐这个位置的，因此你越快动身越好。现在，你选择帮我完成哪个药剂吧：蛮牛药剂？石肤药剂？还是领悟药剂？哦，应该说药剂（Elixirs）。不是酿造物（Brews）。最好现在就开始改口，我想。", "_t")
@@ -4528,7 +4528,7 @@ f...t...ma....ll...
 弗……特……玛……尔……
 #LIGHT_GREEN#*一个魔鬼般的声音突然从四面八方同时传来！！但……
 #LIGHT_GREEN#你完全听不懂！这不像
-#LIGHT_GREEN#马基埃亚尔使用的任何一种语言！
+#LIGHT_GREEN#马基·埃亚尔使用的任何一种语言！
 #LIGHT_GREEN#紧接着……一声刺耳的恶魔咆哮……
 #LIGHT_GREEN#极端的情绪侵入灵魂，将你彻底淹没！！*
 ]], "_t")
@@ -5157,10 +5157,10 @@ section "mod-tome/data/chats/gates-of-morning-welcome.lua"
 t([[#LIGHT_GREEN#*Before you stands a beautiful woman clad in shining golden armour*#WHITE#
 Stop! You are clearly a stranger! Where do you come from? The Gates of Morning are the last bastion of freedom in these lands, so who are you? A spy?]], [[#LIGHT_GREEN#*在你面前站着一位身披闪耀金色铠甲的美丽女士。*#WHITE#
 站住！你显然是个陌生人！你是从哪里来的？晨曦之门是这片土地上最后的自由堡垒，你到底是谁？是间谍吗？]], "_t")
-t("My lady, I am indeed a stranger in these lands. I come from the west, from Maj'Eyal.", "女士，在这片土地上我确实是个陌生人。我来自西方，来自马基埃亚尔。", "_t")
+t("My lady, I am indeed a stranger in these lands. I come from the west, from Maj'Eyal.", "女士，在这片土地上我确实是个陌生人。我来自西方，来自马基·埃亚尔。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_gates-of-morning-welcome")
 t([[Maj'Eyal! For many years have we tried to contact your people. We always failed.
-In any event, what is your purpose here?]], [[马基埃亚尔！多年来我们一直尝试与你们的人民取得联系，但都失败了。
+In any event, what is your purpose here?]], [[马基·埃亚尔！多年来我们一直尝试与你们的人民取得联系，但都失败了。
 不管怎样，你来这里有何目的？]], "_t")
 t("It seems that I am stranded in these unfamiliar lands. #LIGHT_GREEN#*Tell her about your hunt for orcs and your encounter with Fillarel.*#WHITE#", "我似乎被困在了这片陌生的土地上。#LIGHT_GREEN#*向她讲述你追杀兽人并遭遇菲拉瑞尔的经历。*#WHITE#", "_t")
 t("Sun Paladins? What do you mean? We know of no such thing where I come from.", "太阳骑士？你是什么意思？在我来的地方，我们从没听说过这种存在。", "_t")
@@ -6366,7 +6366,7 @@ I cannot stay. I still have much to do. But take this-- it should help you.
 #LIGHT_GREEN#*He disappears again before you can even reply. A rift opens, to Maj'Eyal... you hope.*#WHITE#]], [[#LIGHT_GREEN#*一个高大的男人，全身像星星一样闪耀着光芒，在你面前出现了。*#WHITE#
 你把它们都摧毁了？真抱歉我们刚见面时候我对你有点刻薄，不过修复时间线是件压力很大的事。
 我不能留在这里，我还有很多事情要做。带上这个，它也许会对你有帮助。
-#LIGHT_GREEN#*你刚想回答，他就又消失了。面前出现一道时空裂缝，希望是通往马基埃亚尔的……*#WHITE#]], "_t")
+#LIGHT_GREEN#*你刚想回答，他就又消失了。面前出现一道时空裂缝，希望是通往马基·埃亚尔的……*#WHITE#]], "_t")
 t("Ok...", "好吧……", "_t")
 t("The temporal warden gives you: %s.", "时空守卫给了你：%s。", "log")
 
@@ -12354,7 +12354,7 @@ t("glowing long sword", "光辉的长剑", "_t")
 t("Mages sometimes have funny ideas. Archmage Varil once learned how to handle a sword and found he preferred wielding it instead of his staff.", "法师总是时不时冒出古怪的点子。大法师沃利尔曾学会了怎样擎起一柄剑，同时发现自己对耍剑比玩法杖更感冒。", "_t")
 t("Genocide", "兽人末日", "entity name")
 t("pitch black blade", "漆黑的剑", "_t")
-t("Farian was King Toknor's captain, and fought by his side in the great Battle of Last Hope.  However, when he returned after the battle to find his hometown burnt in an orcish pyre, a madness overtook him.  The desire for vengeance made him quit the army and strike out on his own, lightly armoured and carrying nought but his sword.  Most thought him dead until the reports came back of a fell figure tearing through the orcish encampments, slaughtering all before him and mercilessly butchering the corpses after.  It is said his blade drank the blood of 100 orcs each day until finally all of Maj'Eyal was cleared of their presence.  When the final orc was slain and no more were to be found, Farian at the last turned the blade on himself and stuck it through his chest.  Those nearby said his body shook with convulsions as he did so, though they could not tell whether he was laughing or crying.", "法瑞安曾是图库纳国王的指挥官，在最后希望的伟大战役中跟随国王并肩作战。然而，当战争结束，凯旋归来之时，他却发现故乡处处燃烧着兽人的火焰，无边的怒火吞噬了他。复仇的欲望使他离开军队，孤身一人踏上了征程，他除了护甲之外只带了一柄剑。大多数人认为他已经死了。直到有消息称有一个毁灭者般的身影正在摧残兽人的营地，他屠杀了所有见到的兽人并残忍的肢解对方的尸体。据说他每天要用100个兽人的鲜血来祭刀直到杀光马基埃亚尔的兽人。当最后一个兽人被杀死并且没有发现更多的时候，法瑞安最终把利刃转向了自己——那把剑刺穿了他的胸膛。那些在附近的目击者说，当法瑞安这样做的时候身体伴随着阵阵痉挛，他们说不清他到底是哭是笑。", "_t")
+t("Farian was King Toknor's captain, and fought by his side in the great Battle of Last Hope.  However, when he returned after the battle to find his hometown burnt in an orcish pyre, a madness overtook him.  The desire for vengeance made him quit the army and strike out on his own, lightly armoured and carrying nought but his sword.  Most thought him dead until the reports came back of a fell figure tearing through the orcish encampments, slaughtering all before him and mercilessly butchering the corpses after.  It is said his blade drank the blood of 100 orcs each day until finally all of Maj'Eyal was cleared of their presence.  When the final orc was slain and no more were to be found, Farian at the last turned the blade on himself and stuck it through his chest.  Those nearby said his body shook with convulsions as he did so, though they could not tell whether he was laughing or crying.", "法瑞安曾是图库纳国王的指挥官，在最后希望的伟大战役中跟随国王并肩作战。然而，当战争结束，凯旋归来之时，他却发现故乡处处燃烧着兽人的火焰，无边的怒火吞噬了他。复仇的欲望使他离开军队，孤身一人踏上了征程，他除了护甲之外只带了一柄剑。大多数人认为他已经死了。直到有消息称有一个毁灭者般的身影正在摧残兽人的营地，他屠杀了所有见到的兽人并残忍的肢解对方的尸体。据说他每天要用100个兽人的鲜血来祭刀直到杀光马基·埃亚尔的兽人。当最后一个兽人被杀死并且没有发现更多的时候，法瑞安最终把利刃转向了自己——那把剑刺穿了他的胸膛。那些在附近的目击者说，当法瑞安这样做的时候身体伴随着阵阵痉挛，他们说不清他到底是哭是笑。", "_t")
 t("Bolbum's Big Knocker", "鲍尔本的大门扣", "entity name")
 t("thick staff", "一根厚重的法杖", "_t")
 t("A thick staff with a heavy knob on the end.  It was said to be used by the grand alchemist Bolbum in the Age of Allure.  Much renowned is the fear of his students for their master, and the high rate of cranial injuries amongst them.  Bolbum died with seven daggers in his back and his much-cursed staff went missing after.", "这是一根末端有着厚重门扣的沉重法杖。据说是炼金魔导师鲍尔本在厄流纪使用的法杖。它之所以闻名于世，大部分来源于鲍尔本的学生们对他的恐惧以及被它打伤脑袋的超高几率。鲍尔本被7把匕首插在后背而死，那根被众人诅咒的法杖也从此消失不见。", "_t")
@@ -13039,7 +13039,7 @@ t("Fortune's Eye", "幸运之眼", "entity name")
 t("golden telescope", "金色望远镜", "_t")
 t([[This finely crafted telescope once belonged to the explorer and adventurer Kestin Highfin. With this tool in hand he traveled in search of treasures all across Maj'Eyal, and before his death it was said his collection was incredibly vast. He often credited this telescope with his luck, saying that as long as he had it, he could escape any situation, no matter how dangerous. It is said he died confronting a demon seeking revenge for a stolen sword.
 
-His last known words were "Somehow this feels like an ending, yet I know there is so much more to find."]], "这副精致的望远镜曾属于一位著名的冒险家和探险家科斯汀·赫菲因。有此宝在手，赫菲因遍历了整个马基埃亚尔大陆，在他死前据说他搜集了许多宝贵的财富。他相信这副望远镜能带给他好运，有此物在手，无论面对任何险境，都能死里逃生。相传，他死于一名恶魔的报复，报复他偷走了恶魔私藏的一把剑。他留下的最后遗言是“不知为何，这感觉像是结局，但我知道前方还有太多值得探寻的东西。”", "_t")
+His last known words were "Somehow this feels like an ending, yet I know there is so much more to find."]], "这副精致的望远镜曾属于一位著名的冒险家和探险家科斯汀·赫菲因。有此宝在手，赫菲因遍历了整个马基·埃亚尔大陆，在他死前据说他搜集了许多宝贵的财富。他相信这副望远镜能带给他好运，有此物在手，无论面对任何险境，都能死里逃生。相传，他死于一名恶魔的报复，报复他偷走了恶魔私藏的一把剑。他留下的最后遗言是“不知为何，这感觉像是结局，但我知道前方还有太多值得探寻的东西。”", "_t")
 t("Eye of the Forest", "森林之眼", "entity name")
 t("overgrown leather cap", "长满苔藓的皮帽", "_t")
 t("This leather cap is overgrown with a thick moss, except for around the very front, where an eye, carved of wood, rests. A thick green slime slowly pours from the corners of the eye, like tears.", "这顶皮帽上长满了厚厚的苔藓，帽子正前方用木头刻上了一只眼睛——绿色的液体缓缓从眼睛的眼角流出，仿佛眼泪一样。", "_t")
@@ -13188,7 +13188,7 @@ t("#RED#You feel yourself lost in the aura of the robe.", "#RED#你觉得你在�
 t("#RED#The robe drapes comfortably over your doomed body.", "#RED#长袍舒服地披在你被诅咒的身躯上。", "logPlayer")
 t("Exiler", "放逐", "entity name")
 t([[The chronomancer known as Solith was renowned across all of Eyal. He always seemed to catch his enemies alone.
-In the case of opponents who weren't alone, he had to improvise.]], "时空法师索利斯在马基埃亚尔的世界中十分有名。他总是抓住了他的敌人落单之时。即使对手不是独自一人,他也能临场发挥。", "_t")
+In the case of opponents who weren't alone, he had to improvise.]], "时空法师索利斯在马基·埃亚尔的世界中十分有名。他总是抓住了他的敌人落单之时。即使对手不是独自一人,他也能临场发挥。", "_t")
 t("insignia ring", "荣誉之戒", "_t")
 t("attempt to inflict %0.2f temporal damage (based on Spellpower and Paradox, if any) on foes in a radius %d ball out to range %d (chance depends on rank, summons are always affected), removing any that survive from time for up to %d turn(s)", "尝试对半径 %d 内的所有目标造成 %0.2f 时空伤害（射程 %d，基于法术强度和紊乱，若有的话；成功率取决于等级，召唤物必定受影响），存活者将被移出时间线最多 %d 回合。", "tformat", {2,1,3,4})
 t("%s focuses time flows through %s %s!", "%s将时间线集中在%s%s!", "logSeen")
@@ -13209,7 +13209,7 @@ t("Can block like a shield, potentially disarming the enemy.", "可以像盾牌�
 t("Breaks enemy weapon.", "破坏对方武器", "_t")
 t("Shieldsmaiden", "女武神之心", "entity name")
 t("icy shield", "冰冻的盾", "_t")
-t("Myths tell of shieldsmaidens, a tribe of warrior women from the northern wastes of Maj'Eyal. Their martial prowess and beauty drew the fascination of swaths of admirers, yet all unrequited. So began the saying, that a shieldsmaiden's heart is as cold and unbreakable as her shield.", "传说中的女武神，来自马基埃亚尔世界的北方荒地。她的美貌和力量吸引了众多爱慕者前去，然而所有人都空手而归。因此，有这样一句谚语：女武神的心同她的盾一样冰冷而不可打破。", "_t")
+t("Myths tell of shieldsmaidens, a tribe of warrior women from the northern wastes of Maj'Eyal. Their martial prowess and beauty drew the fascination of swaths of admirers, yet all unrequited. So began the saying, that a shieldsmaiden's heart is as cold and unbreakable as her shield.", "传说中的女武神，来自马基·埃亚尔世界的北方荒地。她的美貌和力量吸引了众多爱慕者前去，然而所有人都空手而归。因此，有这样一句谚语：女武神的心同她的盾一样冰冷而不可打破。", "_t")
 t("Granted talent can block up to 1 instance of damage each 10 turns.", "提供技能:每十回合能抵挡一次攻击。", "_t")
 t("Tirakai's Maul", "提瑞卡之锤", "entity name")
 t("This massive hammer is formed from a thick mass of strange crystalline growths. In the side of the hammer itself you see an empty slot; it looks like a gem of your own could easily fit inside it.", "这柄巨型锤子是用一种厚厚的古怪结晶体制成的，锤子里面能看到一个空槽，似乎很容易就能将宝石放进去。", "_t")
@@ -13631,7 +13631,7 @@ t("Beautiful and nearly impregnable. Separating it from the dragon must have bee
 t("If you think collecting one of these is hard, try liquefying one.", "如果你认为收集一片龙鳞很困难，那么去尝试溶解它吧。", "_t")
 t("giant spider spinneret", "巨蛛的丝腺", "entity name")
 t("An ugly, ripped-out chunk of giant spider. Bits of silk protrude from an orifice.", "从巨型蜘蛛身上扯下的一大块丑陋的器官，少量的丝线从某个洞中伸出。", "_t")
-t("The spiders in your barn won't do. You'll know a giant spider when you see one, though they're rare in Maj'Eyal.", "你家仓库里的蜘蛛是不行的。当你看到一只时，你就会明白什么是巨型蜘蛛，尽管在马基埃亚尔这种蜘蛛很稀少。", "_t")
+t("The spiders in your barn won't do. You'll know a giant spider when you see one, though they're rare in Maj'Eyal.", "你家仓库里的蜘蛛是不行的。当你看到一只时，你就会明白什么是巨型蜘蛛，尽管在马基·埃亚尔这种蜘蛛很稀少。", "_t")
 t("honey tree root", "蜜蜂树的根", "entity name")
 t("The severed end of one of a honey tree's roots. It wriggles around occasionally, seemingly unwilling to admit that it's dead... and a *plant*.", "蜜蜂树的一根树根。它偶尔会蠕动下，似乎不承认它已经死了，而且还是个“植物”。", "_t")
 t("Keep a firm grip on it. These things will dig themselves right back into the ground if you drop them.", " 牢牢的抓住它，如果你不小心把它掉在地上，它会立刻挖地逃走。", "_t")
@@ -13987,7 +13987,7 @@ May the Conclave prevail, and may the Empire's fate serve as a warning to all wh
 
 [上一段结尾的几行文字被狂怒地涂掉了。]
 
-不……真正可怕的生物是这些半身人。我们以前也见过死灵法术，但大都只是疯狂邪教的小把戏；我们从未想过任何大型组织会容忍它，更别说在每一名高级军官身上暗藏死灵护符。他们从战争开始就在计划这一切，直到现在才发动陷阱……我对新治疗所引发的攻击性的任何疑虑都永远消失了；要把这些恶魔从马基埃亚尔清除干净，我们再凶猛也不为过。我已申请觐见长老会，以扩大实验范围、提高目标，好尽快粉碎这个邪恶帝国。
+不……真正可怕的生物是这些半身人。我们以前也见过死灵法术，但大都只是疯狂邪教的小把戏；我们从未想过任何大型组织会容忍它，更别说在每一名高级军官身上暗藏死灵护符。他们从战争开始就在计划这一切，直到现在才发动陷阱……我对新治疗所引发的攻击性的任何疑虑都永远消失了；要把这些恶魔从马基·埃亚尔清除干净，我们再凶猛也不为过。我已申请觐见长老会，以扩大实验范围、提高目标，好尽快粉碎这个邪恶帝国。
 
 愿孔克雷夫获胜，愿这个帝国的命运警示所有胆敢反抗我们智慧的人。]], "_t")
 t("healer Astelrid log 3", "孔克雷夫治疗师亚斯特莉的日志 第三部分", "_t")
@@ -14034,7 +14034,7 @@ Healer Astelrid]], [[敬告所有工作人员：
 
 这是我的最后一道命令：我已准备好手术傀儡，让它们将食人魔刻印施加在我们身上，并已更新所有记录，使之反映我们对这些刻印的效果与效能所掌握的最新知识。我还让傀儡把所有生长槽——包括正在使用的——升级为最新的“停滞舱”设计，并且通过……处理掉一些存活希望很低的试验品，腾出了足以让我们每人使用一座的空间（我已开始后悔这一行动）。等你看到这张字条时，我本人已经接受了这一过程，正在一座被搬进我办公室的舱中冬眠。如果你不想死，就从军械库取得一件武器，然后照我做的做。陷入沉睡后，我们将不受时间摧残，并准备好迎接终有一天挖到这里并发现我们的人。希望那会是孔克雷夫的援军；若果如此，我们就放下武器，把笔记交给他们，等待后续命令。若来的不是孔克雷夫……就让他们后悔。发出比任何“禁止入内”标志都更有力的警告，然后继续沉睡。
 
-非常荣幸和你们这些杰出的人才一起工作，为这样前无古人后无来者的伟大事业奉献终生。或许我们仍然还有机会做出更多的成就，但总之，我已经对我们目前的成就感到无比自豪——也为伟大的食人魔种族将会对马基埃亚尔带来的改变无比自豪。
+非常荣幸和你们这些杰出的人才一起工作，为这样前无古人后无来者的伟大事业奉献终生。或许我们仍然还有机会做出更多的成就，但总之，我已经对我们目前的成就感到无比自豪——也为伟大的食人魔种族将会对马基·埃亚尔带来的改变无比自豪。
 
 孔克雷夫万岁！
 治疗师 亚斯特莉]], "_t")
@@ -14292,7 +14292,7 @@ GATHER HERE IN PEACE TO DISCOVER AND PERFECT THE KNOWLEDGE OF HOW, AND WHEN, TO 
 
 欢迎所有从过去的错误中吸取教训之人
 
-愿奥术再度成为马基埃亚尔的助益，而非灾祸
+愿奥术再度成为马基·埃亚尔的助益，而非灾祸
 
 欢迎所有缓解当下苦难之人
 
@@ -14478,7 +14478,7 @@ It's not that I don't trust her, not after you and they - mostly you! - saved us
 #{italic}#He hands you a sack, containing a few dozen of the same strange magical object; included is a guide to using them and producing more, written for users completely inexperienced with magic.  Apparently, they're designed to be mounted on walls and rooftops, and will try to non-lethally incapacitate outside invaders while sending a message of distress to Angolwen.  With a few tweaks, you can make them deadly instead (and avoid harassing Angolwen while you're at it).#{normal}#]], [[#{italic}#一个村民向你跑来，手里拿着一个沉甸甸的麻袋。#{normal}#
 你从风暴中救了我们！你的恩情我们无以为报，不过，正好…在你阻止了风暴之后，一个女巫到我们这里来，给了我们一些…有魔法的#{italic}#东西#{normal}#。她说，如果这种事情再发生的话，它们就会保护我们的城镇。
 这可不是我不信任她，更何况你和他们——主要是你的功劳！——你们救了我，但是…我总觉得在我们周围放着这些奥术魔法的东西让我们感到有些不舒服。我们都是这么想的。如果你能更好地利用这些东西，那么请你好好收下它们吧。
-#{italic}#他递给你一个麻袋，里面装着几十个一模一样的奇怪的魔法物品。里面还包含了有关如何使用和制造它们的说明，说明清晰易懂，不会魔法的人也能理解。显然，它们是用来安装在墙上或者屋顶上，会自动用非致命的手段击退入侵者，并向安格列文报告这里遇到危险的信息。通过一些调整，你可以让它们变得更加致命（而且你使用它们的时候也不会骚扰到安格列文的人了）。#{normal}#]], "_t")
+#{italic}#他递给你一个麻袋，里面装着几十个一模一样的奇怪的魔法物品。里面还包含了有关如何使用和制造它们的说明，说明清晰易懂，不会魔法的人也能理解。显然，它们是用来安装在墙上或者屋顶上，会自动用非致命的手段击退入侵者，并向安格利文报告这里遇到危险的信息。通过一些调整，你可以让它们变得更加致命（而且你使用它们的时候也不会骚扰到安格利文的人了）。#{normal}#]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/dreadfell.lua"
@@ -14683,7 +14683,7 @@ Turthel paused reflectively before nodding his head slowly, and it was clear tha
 
 第一次遇见莱娜尼尔时，我们正准备举行一场特殊的会议，我们的领袖伊菲尼亚斯与卡库罗尔的首领谈话。我还记得那个体型庞大的人类男子是怎样昂首迈入我们的城门，包括我在内的大群精灵被他宽厚的胸膛，怒立的头发，美丽的毛皮衣物和坚定不屈的脚步所吸引震慑。在我们瘦弱渺小的精灵肉体面前，他仿佛是异世来的怪物……
 
-有些同伴把他视为野人，但我从他冰霜般的眼睛里看到了强大的力量。他来自于人类种族中勇敢坚强的一支，那是曾居住于埃亚尔北方的一群人，据说他们是从北方那永冬的天空里闪烁的绿色火焰里汲取了力量。他的名字是特塞尔，几个世纪以来，大地上或雪原上都未曾有过他这样的人。他的右手带着卡库罗尔之戒，光彩耀人的黄金戒指上镶嵌着闪亮的红宝石，这是他的地位象征——他领导着全马基埃亚尔大陆最伟大的人类法师联盟。
+有些同伴把他视为野人，但我从他冰霜般的眼睛里看到了强大的力量。他来自于人类种族中勇敢坚强的一支，那是曾居住于埃亚尔北方的一群人，据说他们是从北方那永冬的天空里闪烁的绿色火焰里汲取了力量。他的名字是特塞尔，几个世纪以来，大地上或雪原上都未曾有过他这样的人。他的右手带着卡库罗尔之戒，光彩耀人的黄金戒指上镶嵌着闪亮的红宝石，这是他的地位象征——他领导着全马基·埃亚尔大陆最伟大的人类法师联盟。
 
 走在他身前的，是和他一起来的一对双胞胎，他的女儿们，莱娜尼尔与尼耶拉。她们的相貌别无二致，但我立刻发现她们的性格迥然不同。她们的发色同样深红，蓄着同样的长发，在阳光下露出同样苍白的皮肤。尽管同样身着丝绸长袍，尼耶拉的长袍是橙色与金黄，莱娜尼尔却是深蓝与银白。尼耶拉性格开朗，声音愉快，讨论着一路上走过埃尔瓦拉庭院时见到的美好事物。而莱娜尼尔安静文雅，面色严肃，冷静地分析计算她见到的一切。不过，在她那冷若寒霜的外表下，我能看到一团火焰——不，不仅仅是火，那是一团正在燃烧的火光，一团散发光和热的激情，正被压抑着，等待着释放。当人群到达我们的大本营时，有那么一会儿，我们彼此眼神相触，短短的一瞬间，我看到了她野性的灵魂和激烈的思绪，那是不可征服的坚定意志与精神力量。那一刻，我停止了呼吸。
 
@@ -15167,7 +15167,7 @@ But mine was just one voice, one torment, a single note in the great cacophony t
 
 我开始在莱娜尼尔身上释放我所有的治疗魔法，但是我知道这些都远远不够，我的能力几乎全失，根本不可能有拯救她的希望。想到发生的这一切恐怖的遭遇，想到在这一瞬间我失去了我曾经拥有的一切，我开始放声痛哭。我们的希望瞬间变成了毁灭，命运的残酷让我无法承受。抱着我正在死去的爱人的脸庞，我向着天空发出怒吼。呜咽着嘶哑的嗓音，周围只剩下血肉、白骨和尘埃，我对命运的不公和这场战争的毫无意义发出绝望的咆哮。在那一瞬间，无数有着自己希望和梦想的灵魂，在顷刻间化为了风中的尘埃，他们无意义的痛苦和死亡在我的心头只留下无尽的绝望。
 
-但是，相比之下，我的痛苦只是传遍整个大陆的无尽的苦痛中多么微小的一个而已。在那一刻，数以百万的生命毁灭破碎，数以百万的人在痛苦和折磨中发出绝望的怒吼。在那一刻，终极的毁灭力量带来的无尽灾厄将会继续在马基埃亚尔蔓延。这，就是魔法大爆炸。]], "_t")
+但是，相比之下，我的痛苦只是传遍整个大陆的无尽的苦痛中多么微小的一个而已。在那一刻，数以百万的生命毁灭破碎，数以百万的人在痛苦和折磨中发出绝望的怒吼。在那一刻，终极的毁灭力量带来的无尽灾厄将会继续在马基·埃亚尔蔓延。这，就是魔法大爆炸。]], "_t")
 t("The Spellblaze Chronicles(6): A Changed Eyal", "魔法大爆炸纪事(6)：被改变的埃亚尔", "_t")
 t([[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#
 
@@ -15547,7 +15547,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 “我们还会再见面吗？”
 
-她忧伤地笑了。“也许会。也许不会。这个世界正在风云变幻之中，我们无法预知会发生什么。但如果我们还会再见面的话，我们会在一个现在还不存在的地方——安格列文魔法城相见。”然后，她伸出一只手，射出一道奥术能量的脉冲。紫罗兰的闪光射向洞穴的顶部，将其射穿，然后一直延伸，直到它彻底击穿了我们上方一英里厚的岩层，露出了天空的姿态。阳光从中倾泻而下，洒落在莱娜尼尔的轻盈身形之上。看来，我们所经历的这个漫漫长夜已经过去了很长时间。
+她忧伤地笑了。“也许会。也许不会。这个世界正在风云变幻之中，我们无法预知会发生什么。但如果我们还会再见面的话，我们会在一个现在还不存在的地方——安格利文魔法城相见。”然后，她伸出一只手，射出一道奥术能量的脉冲。紫罗兰的闪光射向洞穴的顶部，将其射穿，然后一直延伸，直到它彻底击穿了我们上方一英里厚的岩层，露出了天空的姿态。阳光从中倾泻而下，洒落在莱娜尼尔的轻盈身形之上。看来，我们所经历的这个漫漫长夜已经过去了很长时间。
 
 “不过现在，再见，艾伦尼恩”，她的身体慢慢飞向空中，然后加快了速度，消失在了我的视线当中。
 
@@ -15559,7 +15559,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 我们独立于其它种族之间的纷争，并不参与毫无意义的战争，寻求一种对生命的新的尊重。直到吞噬者加库尔在烈火纪袭击了我们的大门，我们才重新开始了大规模战争，而我则亲自在战场上直面了他。
 
-啊，不过，这就是另一个故事了。那是在漫长而充实的历史之中，马基埃亚尔的传说中的另一个故事…]], "_t")
+啊，不过，这就是另一个故事了。那是在漫长而充实的历史之中，马基·埃亚尔的传说中的另一个故事…]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/fearscape.lua"
@@ -16072,7 +16072,7 @@ I have my theories, unsettling as they are, as to what's coming over me - what I
 
 [...]
 
-我对侵袭我的东西已有猜测，尽管这些猜测令人不安——我怀疑它已经悄无声息地取代了我的潜意识；只要不集中精神，我就不断感觉有意识的思绪向它飘去；而我将注意力维持在其他任何事物上的能力，仿佛每分钟都在进一步衰退。自杀，或把自己送进安格列文的疯人院（如果他们肯这么仁慈），都不是选项——听来或许自负，但我知道，我给埃兰达悲惨人生带来的幸福，是支撑他活下去的唯一事物。我相信，我能善加利用这份联结，以及随之而来的那些#FIREBRICK#反常得令人痛苦#LAST#的冲动……既不让爱人心碎，也不留下一个更加糟糕的世界。我会幸福，埃兰达会幸福，#FIREBRICK#他#LAST#也会幸福。]], "_t")
+我对侵袭我的东西已有猜测，尽管这些猜测令人不安——我怀疑它已经悄无声息地取代了我的潜意识；只要不集中精神，我就不断感觉有意识的思绪向它飘去；而我将注意力维持在其他任何事物上的能力，仿佛每分钟都在进一步衰退。自杀，或把自己送进安格利文的疯人院（如果他们肯这么仁慈），都不是选项——听来或许自负，但我知道，我给埃兰达悲惨人生带来的幸福，是支撑他活下去的唯一事物。我相信，我能善加利用这份联结，以及随之而来的那些#FIREBRICK#反常得令人痛苦#LAST#的冲动……既不让爱人心碎，也不留下一个更加糟糕的世界。我会幸福，埃兰达会幸福，#FIREBRICK#他#LAST#也会幸福。]], "_t")
 t("Elandar's journal (1)", "埃兰达的笔记 (1)", "_t")
 t([[I am increasingly certain that what I gave my love was not the Blood of Life.
 
@@ -16080,7 +16080,7 @@ Her demeanor has...  changed, but not in the way one would expect.  If I had giv
 
 She is terrified of losing me, losing this world, losing #{italic}#herself#{normal}# - but to what, I have no idea.  Ultimately, it does not matter what is running through her mind; I will study the texts in this ruin for summoning rituals, farportal schematics, or something else that would fulfill her plan for her.  She will get to see this "Gerlyk" once, for herself - and then his magic will be absorbed and it will be over.  Whatever this creature is, it can't give orders when it's dead.]], [[我越来越确信，我给爱人的并非生命之血。
 
-她的举止……变了，却不是预想中的变化。假如我给她的是某位被夏·图尔击伤、放干鲜血作为战利品的神祇精华，或者某个浑身枯萎之力的恶魔精华，又或者任何会影响心智的东西，我本以为她会开始举止反常——变得更加残忍、更加傲慢、少几分#{italic}#人性#{normal}#。然而……她的表现就像知道世界即将毁灭，却不能告诉任何人。她不断喃喃，说必须利用那座遗迹里的东西——我们甚至还不能告诉安格列文这座遗迹#{italic}#存在#{normal}#——建立一种新的魔法统治秩序，就像泰恩所希望的那样，“趁一切还来得及”。有什么东西正啃噬着她，她害怕我会查明真相；可除此之外……她几乎#{italic}#理智得过了头#{normal}#。
+她的举止……变了，却不是预想中的变化。假如我给她的是某位被夏·图尔击伤、放干鲜血作为战利品的神祇精华，或者某个浑身枯萎之力的恶魔精华，又或者任何会影响心智的东西，我本以为她会开始举止反常——变得更加残忍、更加傲慢、少几分#{italic}#人性#{normal}#。然而……她的表现就像知道世界即将毁灭，却不能告诉任何人。她不断喃喃，说必须利用那座遗迹里的东西——我们甚至还不能告诉安格利文这座遗迹#{italic}#存在#{normal}#——建立一种新的魔法统治秩序，就像泰恩所希望的那样，“趁一切还来得及”。有什么东西正啃噬着她，她害怕我会查明真相；可除此之外……她几乎#{italic}#理智得过了头#{normal}#。
 
 她害怕失去我，失去这个世界，失去#{italic}#她自己#{normal}#——可会被什么夺走，我毫无头绪。说到底，她脑中究竟有何念头并不重要；我会研究遗迹里的典籍，寻找召唤仪式、远古传送门图纸，或任何能替她完成计划的东西。她将亲眼见到一次这个“盖里克”——仅此一次；随后他的魔力会被吸收，一切便会结束。不管这个生物是什么，死后就不能再发号施令。]], "_t")
 t("Argoniel's blood-runed athame", "艾格尼尔的血符仪式匕首", "_t")
@@ -19699,11 +19699,11 @@ t([[Angolwen is too timid.  Too paranoid about repeating the mistakes of the pas
 My arguments have just gotten me blank stares and an increasing amount of whispering behind my back (aside from a young couple whose abrupt departure might've been inspired by a particularly passionate rant in response to a lecture on "ethics").  Some of them have even resorted to deflecting my arguments, blaming them on my lack of magical power and saying I've spent too much time working on my drolem!  They think they can inspire the world and protect it from danger without getting their hands dirty; the orc invasions proved that, no, they can't, and I fear that if the demons ever start arriving in full force, we'll be even more woefully unprepared for it.  We even cower from the Ziguranth, no matter how many people die from diseases our healers could cure if they could roam freely, and no matter how easily we could find a way around their defenses if we started capturing a few of their agents.
 
 Well, I won't have it.  I've been selling potions and inscriptions on the side for a couple of years now, in spite of Angolwen's regulations, and managed to amass enough money to set up a laboratory far away from Angolwen.  There, I intend to do the experiments my cowardly, squeamish peers won't.  I'm sure they won't approve, but I'm beyond caring - there are certain things we need to know before it's too late, and if a few zealots or criminals die in the process, it won't matter when my data saves countless lives in the long run.  Construction begins tomorrow - I've got three separate sets of contractors lined up to work on it, so none know the tower's full layout, and I've made arrangements with powerful merchants in Last Hope so I can conduct some of my experiments publicly (they want working portals for trade, and I convinced them I won't cause another Spellblaze trying to make one), providing a convenient cover story for the more...  controversial experiments.  I can have my drolem carry in sensitive equipment so I don't have to answer any problematic questions.  I will NOT escape one band of stuck-up fools just to have another confiscate bone-giants which I spent a fortune on.
-]], [[安格列文的人都是一群胆小鬼。一群对重蹈过去覆辙过于偏执的人。一群“谨慎”到只知空谈不知实干却又对别人指手划脚的人。他们只知道去避免那些微小的罪过，毫无大局观念。我已经一遍遍告诉它们我们先祖的错误并不是试着去启动夏·图尔传送门，而是试图在对其毫无了解的情况下试着将它作为武器——难道我们不能乘火打劫没收那些纳格尔王国的设施来获得更多研究资料，或者仅仅是绑架一些兽人探险队来作为我们最初的实验品？为什么非要让时局的绝望逼迫我们在充分了解夏·图尔人_之前_将半个世界炸烂？不，正是因为我们脑中那些“禁忌的魔法”“我们这样的凡人不能篡改这么强大的东西”那样陈腐的观念束缚了我们的思想，直到我们终于明白力量有多么重要。这就像一个和平主义者最终不得不拿起连枷自卫，结果不小心打烂了自己的脑袋。正是我们对知识的极度缺乏导致了这样可怕的灾难。
+]], [[安格利文的人都是一群胆小鬼。一群对重蹈过去覆辙过于偏执的人。一群“谨慎”到只知空谈不知实干却又对别人指手划脚的人。他们只知道去避免那些微小的罪过，毫无大局观念。我已经一遍遍告诉它们我们先祖的错误并不是试着去启动夏·图尔传送门，而是试图在对其毫无了解的情况下试着将它作为武器——难道我们不能乘火打劫没收那些纳格尔王国的设施来获得更多研究资料，或者仅仅是绑架一些兽人探险队来作为我们最初的实验品？为什么非要让时局的绝望逼迫我们在充分了解夏·图尔人_之前_将半个世界炸烂？不，正是因为我们脑中那些“禁忌的魔法”“我们这样的凡人不能篡改这么强大的东西”那样陈腐的观念束缚了我们的思想，直到我们终于明白力量有多么重要。这就像一个和平主义者最终不得不拿起连枷自卫，结果不小心打烂了自己的脑袋。正是我们对知识的极度缺乏导致了这样可怕的灾难。
 
 唉，可惜我的正义言论只受到了那些愚蒙之人的白眼和背后的议论，（除了一对年轻夫妇，他们的突然离开也许是受了我某次针对“道德”讲座的激烈抨击的启发。）他们中的某些野蛮人无法在论点上击败我，就只能从别的方面对我造谣污蔑，别有用心地指责我“魔法技巧不精”，说什么我在我那伟大的龙傀儡身上浪费了太多时间！那些蠢人自以为自己可以用他们“干净”的方法保护这个世界；而事实上，兽人的入侵已经证明了他们是一群眼高手低的无能之徒。并且，一旦恶魔们强大的侵略部队真的到达这里，我们根本没有办法与他们为敌——是啊，我们甚至在伊格兰斯面前卑躬屈膝，东躲西藏，如果我们可以自由地在这片土地上漫游，我们的治疗师本来可以消除世界上那么多的疾病和痛苦。并且，只需要抓住几个他们的走狗进行实验，我们很快就能知道到打破他们防御的方法。
 
-不，我绝对不会向那些权威屈服。几年来，通过违反安格列文的规章偷偷出售药水和刻印，我已经积攒了一大笔钱，足以让我在没有安格列文人监视的地方建造一个我自己的实验室。在那里，我可以秘密进行我自己的实验——那些娇气的同事们绝对没有本事做到这样的事情。我相信他们绝对不会同意，但是我不在乎——有些事情绝不能等到为时已晚再去了解，即使付出几个伊格狂徒或者罪犯的生命也没什么关系，我的研究成果最终将会拯救无数人的生命。建造工程明天就开始——我把任务交给了三个独立的建筑团队，这样没有人真正知道这座塔的详细构造。我已经和一些有权有势的商人达成了协议，这样我可以公开进行其中一些实验（他们希望一个用于贸易的传送门，而我向他们证明我的实验绝对不会再来一次魔法大爆炸），这样可以作为一些更加……有争议的实验提供掩饰。我可以让我的龙傀儡带上那些敏感的设备，这样我就不用亲自去回答那些烦人的问题。我可不想让被一群高傲自大的傻子再没收掉一个骨巨人——那种东西一个就要花掉我不少钱。]], "_t")
+不，我绝对不会向那些权威屈服。几年来，通过违反安格利文的规章偷偷出售药水和刻印，我已经积攒了一大笔钱，足以让我在没有安格利文人监视的地方建造一个我自己的实验室。在那里，我可以秘密进行我自己的实验——那些娇气的同事们绝对没有本事做到这样的事情。我相信他们绝对不会同意，但是我不在乎——有些事情绝不能等到为时已晚再去了解，即使付出几个伊格狂徒或者罪犯的生命也没什么关系，我的研究成果最终将会拯救无数人的生命。建造工程明天就开始——我把任务交给了三个独立的建筑团队，这样没有人真正知道这座塔的详细构造。我已经和一些有权有势的商人达成了协议，这样我可以公开进行其中一些实验（他们希望一个用于贸易的传送门，而我向他们证明我的实验绝对不会再来一次魔法大爆炸），这样可以作为一些更加……有争议的实验提供掩饰。我可以让我的龙傀儡带上那些敏感的设备，这样我就不用亲自去回答那些烦人的问题。我可不想让被一群高傲自大的傻子再没收掉一个骨巨人——那种东西一个就要花掉我不少钱。]], "_t")
 t("Personal note (2)", "个人笔记（2）", "_t")
 t([[Well...  that was interesting.
 
@@ -20033,7 +20033,7 @@ t("#YELLOW#The air comes alive with terrible magics!", "#YELLOW#在可怕的魔�
 ------------------------------------------------
 section "mod-tome/data/maps/wilderness/eyal.lua"
 
-t("Maj'Eyal", "马基埃亚尔", "_t")
+t("Maj'Eyal", "马基·埃亚尔", "_t")
 t("Island of Rel", "瑞尔岛", "_t")
 t("Charred Scar", "灼烧之痕", "_t")
 t("Far East", "远东", "_t")
@@ -20151,7 +20151,7 @@ section "mod-tome/data/quests/brotherhood-of-alchemists.lua"
 t("The Brotherhood of Alchemists", "炼金术士兄弟会", "_t")
 t("#LIGHT_GREEN#Thanks to your timely aid, %s is the newest member of the Brotherhood of Alchemists.#WHITE#", "#LIGHT_GREEN#感谢你的及时帮助，%s成为了炼金术士兄弟会的新成员。#WHITE#", "tformat")
 t("#RED#You aided various denizens of Maj'Eyal in their attempts to join the Brotherhood of Alchemists, though you did not prove the deciding factor for any. This year's new member is %s.#WHITE#", "#RED#你帮助了马基·埃亚尔的许多人加入炼金术士兄弟会，但是你没有成为任何一个决定性因素。今年的新成员是%s。#WHITE#", "tformat")
-t("#LIGHT_BLUE#Various alchemists around Maj'Eyal are competing to gain entry into the great Brotherhood of Alchemists, and one or more have enlisted your aid.#WHITE#", "#LIGHT_BLUE#很多马基埃亚尔的炼金术士想竞争加入强大的炼金术士兄弟会，其中有一个或者几个人请求你的帮助。#WHITE#", "_t")
+t("#LIGHT_BLUE#Various alchemists around Maj'Eyal are competing to gain entry into the great Brotherhood of Alchemists, and one or more have enlisted your aid.#WHITE#", "#LIGHT_BLUE#很多马基·埃亚尔的炼金术士想竞争加入强大的炼金术士兄弟会，其中有一个或者几个人请求你的帮助。#WHITE#", "_t")
 t("#GREEN#You have aided %s in creating an %s.#WHITE#", "#GREEN#你帮助%s制造了%s。#WHITE#", "tformat")
 t("#RED#%s has completed an %s without your aid.#WHITE#", "#RED#%s已经制造了%s，并没有获得你的帮助。#WHITE#", "tformat")
 t("#SLATE#Having failed to gain admittance to the Brotherhood of the Alchemists, %s no longer needs your help making the %s.", "#SLATE#无法获得炼金术士兄弟会的承认，%s不再需要你帮忙制作 %s。", "tformat")
@@ -20215,7 +20215,7 @@ t("Perhaps you should explore it and find the truth, and the treasures, for your
 section "mod-tome/data/quests/east-portal.lua"
 
 t("Back and there again", "去而复返", "_t")
-t("You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back.", " 你创造了一个回到马基埃亚尔的传送门，你应该试试找最后的希望的某个人谈谈关于这件事。", "_t")
+t("You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back.", " 你创造了一个回到马基·埃亚尔的传送门，你应该试试找最后的希望的某个人谈谈关于这件事。", "_t")
 t("You talked to the Elder in Last Hope who in turn told you to talk to Tannen, who lives in the north of the city.", " 你和最后的希望的长者交谈，得知要去找城市北边的泰恩 ", "_t")
 t("You gave the Orb of Many Ways to Tannen to study while you look for the athame and diamond in Reknor.", "你把多元水晶球交给泰恩研究，自己则去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
 t("You kept the Orb of Many Ways despite Tannen's request to study it. You must now look for the athame and diamond in Reknor.", "尽管泰恩想要研究多元水晶球，你还是把它留在了自己手中。现在你必须去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
@@ -20227,7 +20227,7 @@ t("Tannen revealed himself as the vile scum he really is and trapped you in his 
 t("#LIGHT_GREEN#* The portal to the Far East is now functional and can be used to go back.#WHITE#", "#LIGHT_GREEN#* 通向远东的传送门开始运作了，你可以用它来回去。#WHITE#", "_t")
 t("Tannen points to the location of Telmur on your map.", "泰恩在你的地图上指出了泰尔玛的位置。", "logPlayer")
 t("A portal appears in the center of the tower!", "在塔的中间出现了一个传送门!", "_t")
-t("Meranas, Herald of Angolwen", "安格列文传令官 梅拉纳斯", "_t")
+t("Meranas, Herald of Angolwen", "安格利文传令官 梅拉纳斯", "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you are back in Last Hope.", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经回到了最后的希望。", "logPlayer")
 -- untranslated text
 --[==[
@@ -20286,7 +20286,7 @@ t("#LIGHT_RED#Fallen Sun Paladin Aeryn: '%s YOU BROUGHT ONLY DESTRUCTION TO THE 
 t("Ruins of the Gates of Morning", "晨曦之门的废墟", "_t")
 t("The Sunwall was destroyed while you were trapped in the High Peak.", "当你在巅峰被困的时候，太阳堡垒被摧毁了。", "_t")
 t("Winner", "游戏胜利", "_t")
-t("#GOLD#Well done! You have won the Tales of Maj'Eyal: The Age of Ascendancy#WHITE#", "#GOLD#干得好！你赢得了《马基埃亚尔的传说：卓越纪》#WHITE#", "_t")
+t("#GOLD#Well done! You have won the Tales of Maj'Eyal: The Age of Ascendancy#WHITE#", "#GOLD#干得好！你赢得了《马基·埃亚尔的传说：卓越纪》#WHITE#", "_t")
 t("The Sorcerers are dead, and the Orc Pride lies in ruins, thanks to your efforts.", "法师已经死去，兽人部落也沦为废墟，这都归功于你的努力。", "_t")
 t("Your patron's plan worked. As your body was crushed by the raw forces of the void portal it opened wide. In an instant the connection was made and waves of heat came through.", "你的庇护者的计划成功了。你的身体被虚空传送门的原始力量碾碎，传送门随之完全开启。连接转瞬建立，滚滚热浪从门中涌出。", "_t")
 t("The mad sun brought forth all its power through the portal, turning the High Peak into a giant searing needle!", "疯狂的太阳带着所有力量穿越了传送门，将巅峰化为一根灼烧的巨针！", "_t")
@@ -20305,7 +20305,7 @@ t("In a selfless act, High Sun Paladin Aeryn sacrificed herself to close the por
 t("In a selfless act, you sacrificed yourself to close the portal to the Void and thus stopped the Creator from bringing about the end of the world.", "你无私地牺牲了自己，关闭通往虚空的传送门，从而阻止造物主毁灭世界。", "_t")
 t("The Gates of Morning have been destroyed and the Sunwall has fallen. The last remnants of the free people in the Far East will surely diminish, and soon only orcs will inhabit this land.", "晨曦之门已被摧毁，太阳堡垒已经陷落。远东自由人民最后的残余势力必将衰亡，不久后，这片土地上将只剩兽人。", "_t")
 t("The orc presence in the Far East has greatly been diminished by the loss of their leaders and the destruction of the Sorcerers. The free people of the Sunwall will be able to prosper and thrive on this land.", "随着首领丧生、法师被消灭，远东的兽人势力已大幅削弱。太阳堡垒的自由人民将得以在这片土地上繁衍兴盛。", "_t")
-t("Maj'Eyal will once more know peace. Most of its inhabitants will never know they even were on the verge of destruction, but then this is what being a true hero means: to do the right thing even though nobody will know about it.", "马基埃亚尔将重归和平。大多数居民永远不会知道自己曾濒临毁灭，但这正是真正英雄的意义：即使无人知晓，也要做正确的事。", "_t")
+t("Maj'Eyal will once more know peace. Most of its inhabitants will never know they even were on the verge of destruction, but then this is what being a true hero means: to do the right thing even though nobody will know about it.", "马基·埃亚尔将重归和平。大多数居民永远不会知道自己曾濒临毁灭，但这正是真正英雄的意义：即使无人知晓，也要做正确的事。", "_t")
 t("You may continue playing and enjoy the rest of the world.", "你可以继续在这个世界上探险。", "_t")
 -- untranslated text
 --[==[
@@ -20566,7 +20566,7 @@ section "mod-tome/data/quests/rel-tunnel.lua"
 
 t("Light at the end of the tunnel", "隧道尽头的亮光", "_t")
 t([[You must find a way to Maj'Eyal through the tunnel to the north of the island.
-]], [[你必须在小岛北部找到一条穿过这个通道到达马基埃亚尔的路。
+]], [[你必须在小岛北部找到一条穿过这个通道到达马基·埃亚尔的路。
 ]], "_t")
 
 ------------------------------------------------
@@ -20779,7 +20779,7 @@ t("#LIGHT_GREEN#* You have explored the underwater zone and vanquished Murgol.#W
 t("#SLATE#* You must explore the underwater lair of Murgol.#WHITE#", "#SLATE#* 你必须调查一下穆格尔位于水下的巢穴。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the ritch tunnels and vanquished their queen.#WHITE#", "#LIGHT_GREEN#* 你调查了里奇通道并击败了它们的虫母。#WHITE#", "_t")
 t("#SLATE#* You must explore the ritch tunnels.#WHITE#", "#SLATE#* 你必须调查一下里奇通道。#WHITE#", "_t")
-t("You should head to the tunnel to Maj'Eyal and explore the world. For the Way.", "你应该通过通道到达马基埃亚尔，探索这个世界。为了维网。", "logPlayer")
+t("You should head to the tunnel to Maj'Eyal and explore the world. For the Way.", "你应该通过通道到达马基·埃亚尔，探索这个世界。为了维网。", "logPlayer")
 
 ------------------------------------------------
 section "mod-tome/data/quests/starter-zones.lua"
@@ -32042,7 +32042,7 @@ However, Grand Keeper of Reality Zemekkys has requested to see you.
 你大半生都在守护者的大本营——“城镇”零点圣域接受训练；自从魔法大爆炸扰乱了时空流、使时空法术得以存在以来，它就位于所有时间线的正中央。
 零点圣域的守护者们必须时刻对虚幻时空中的怪物们保持警惕。
 
-你听说了发生在马基埃亚尔的时空干扰事件，并且想前去一探究竟。
+你听说了发生在马基·埃亚尔的时空干扰事件，并且想前去一探究竟。
 不过，现实至高守护者伊莫克斯要求见你。
 ]], "_t")
 
@@ -32193,7 +32193,7 @@ After days of travel, you have found the caves and entered it. What will you fin
 
 你面临着来自一个从未被你的同族伤害过的世界的轻蔑和恐惧；若非永恒精灵表示同情并允许你的祖先在埃尔瓦拉避难，魔法狩猎本会将你的种族彻底灭绝。
 如今，你的同族开始摆脱旧有形象，但这并不是你踏上冒险之路的原因；你得知这个世界正面临着无数问题，并打算亲自解决它们。
-你的种族生来就是为战斗和苦工而造就的，现在马基埃亚尔大陆正需要这些。
+你的种族生来就是为战斗和苦工而造就的，现在马基·埃亚尔大陆正需要这些。
 
 你来到了永恒精灵首都埃尔瓦拉北部，寻找闪光洞穴，那里被害虫和看似有生命的水晶所侵扰。
 西部还有一个危险的地方：罗兰精灵营地。他们是永恒精灵的叛徒，不愿限制魔法的使用。阻止他们总体上有益于这个世界，尤其有益于庇护你们的永恒精灵恩人。
@@ -34176,7 +34176,7 @@ Class features:#YELLOW#
 
 All mages use mana to cast their spells.
 It slowly replenishes over time.
-]], [[魔法狩猎之后魔法并没有从马基埃亚尔消失。
+]], [[魔法狩猎之后魔法并没有从马基·埃亚尔消失。
 
 在黄昏纪元，当魔法狩猎接近尾声时，卡·克鲁尔的一名强大的法师——莱娜尼尔——为剩余的各种族的法师们建立了一个避风港。
 这个地方就是安格利文，魔法之城，在这里，两千多年来一直传授魔法，以保存并发扬它。
@@ -34632,7 +34632,7 @@ reach
 - Block enemy fire with your buckler mastery and counter attack#WHITE#
 
 Skirmisher use stamina to fuel their techniques, which replenishes slowly over time.
-]], [[当你漫步在马基埃亚尔大陆上广袤的荒野之地时，你会发现威胁无处不在。一些盗贼放弃了传统的潜行手段，利用盾牌的保护和手中的投石索取而代之，使用其诡诈的技能在远处悄悄地干掉对手。
+]], [[当你漫步在马基·埃亚尔大陆上广袤的荒野之地时，你会发现威胁无处不在。一些盗贼放弃了传统的潜行手段，利用盾牌的保护和手中的投石索取而代之，使用其诡诈的技能在远处悄悄地干掉对手。
 
 你已经学会了从远处发动反击的能力，并且现在可以创建#LIGHT_GREEN#散兵#WHITE#这个角色
 
@@ -34889,7 +34889,7 @@ Race features:#YELLOW#
 ]], [[夺心魔是热带小岛瑞尔岛上比较神秘的人形原住民种族。
 他们的身体长着白色的毛发，另外他们有着不成比例的巨大脑袋使他们看上去样子有点滑稽。
 不过他们是非常灵巧而且意志强大的种族。
-尽管在马基埃亚尔几乎没有听说过他们，但在烈火纪元之前的漫长岁月里，他们曾是半身人国家纳格尔的秘密奴隶。
+尽管在马基·埃亚尔几乎没有听说过他们，但在烈火纪元之前的漫长岁月里，他们曾是半身人国家纳格尔的秘密奴隶。
 他们在烈火纪元获得了自由，并从此遵循“维网”——一种由他们强大的灵能维系的心灵统一。
 
 你帮助了一名夺心魔维网信徒，现在你可以在创建人物时选择新的种族： #LIGHT_GREEN#夺心魔#WHITE#。
@@ -37779,7 +37779,7 @@ t("%s from %s", "%s的%s", "tformat", {2,1})
 ------------------------------------------------
 section "mod-tome/data/wda/eyal.lua"
 
-t("Maj'Eyal", "马基埃亚尔", "_t")
+t("Maj'Eyal", "马基·埃亚尔", "_t")
 t("Far East", "远东", "_t")
 
 ------------------------------------------------
@@ -38302,8 +38302,8 @@ section "mod-tome/data/zones/demon-plane/grids.lua"
 t("Demonic Portal", "恶魔传送门", "entity name")
 t("This portal seems to be connected with Maj'Eyal; you could probably use it to go back.", "这个传送门似乎与马基·埃亚尔相连，你也许能通过它回去。", "_t")
 t("Back and there again", "去而复返", "_t")
-t("Enter the portal back to Maj'Eyal? (Warning loot Draebor first)", "进入传送门回到马基埃亚尔？（记得先捡走德瑞宝的掉落）", "_t")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you are back to Maj'Eyal, near the Daikara.", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经回到了马基埃亚尔的岱卡拉附近！", "logPlayer")
+t("Enter the portal back to Maj'Eyal? (Warning loot Draebor first)", "进入传送门回到马基·埃亚尔？（记得先捡走德瑞宝的掉落）", "_t")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you are back to Maj'Eyal, near the Daikara.", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经回到了马基·埃亚尔的岱卡拉附近！", "logPlayer")
 t("Stay", "呆在这里", "_t")
 t("Enter", "进入", "_t")
 
@@ -41196,7 +41196,7 @@ t("Way into the heart of the gloom", "通往黑暗之心的路", "entity name")
 t("A mysterious hole in the beach", "沙滩上的一个秘密洞穴", "entity name")
 t("Tunnel into the ritchs grounds", "里奇通道", "entity name")
 t("Charred Scar Volcano", "灼烧之痕火山", "entity name")
-t("Tunnel to Maj'Eyal", "马基埃亚尔通道", "entity name")
+t("Tunnel to Maj'Eyal", "马基·埃亚尔通道", "entity name")
 t("Long tunnel", "漫长的通道", "_t")
 t("You cannot abandon the yeeks of Rel to the dangers that lie within the island.", "岛屿的安全仍然在威胁之中，你不能丢下瑞尔岛的夺心魔出去。", "_t")
 t("Unremarkable cave", "不显眼的山洞", "entity name")
@@ -41288,7 +41288,7 @@ While this is a free game that I am doing for fun, if it can help feed my family
 You will need an online profile active and connected for the tile selector to enable. If you choose to donate now you will need to restart the game to be granted access.
 
 Donators will also gain access to the custom tiles for their characters.]], [[探索模式提供给角色无限的生命数。
-马基埃亚尔的故事是一款非常耐玩的游戏，你需要不断的从错误中学习。（同样从死亡的错误中学习）
+马基·埃亚尔的故事是一款非常耐玩的游戏，你需要不断的从错误中学习。（同样从死亡的错误中学习）
 我觉得这款游戏可能不会被所有人接受并且在接受了许多建议后，我决定开放探索模式给捐赠者，因为它允许喜欢这款游戏的玩家能全面地体验这款游戏。
 不过要注意的是，无限的生命并不意味着难度的减少，仅仅意味着你可以有着无限多的尝试次数。
 
@@ -43107,7 +43107,7 @@ While the people of Maj'Eyal know that the mages helped put an end to the terror
 Still, this is a golden age. Civilisations are healing the wounds of thousands of years of conflict, and the Humans and the Halflings have made a lasting peace.
 
 You are an adventurer, set out to discover wonders, explore old places, and venture into the unknown for wealth and glory.
-]], [[欢迎来到马基埃亚尔的世界！
+]], [[欢迎来到马基·埃亚尔的世界！
 
 现在的埃亚尔大陆是卓越纪。在长达一万年的冲突痛苦和混乱之后，我们所知的世界终于进入了一个相对和平的时期。
 #FF0000#“魔法大爆炸”#WHITE#所造成的影响已经渐渐减轻，大地的伤痕也慢慢开始愈合。在烈火纪末，各个文明也纷纷开始重建家园。
@@ -43120,12 +43120,12 @@ You are an adventurer, set out to discover wonders, explore old places, and vent
 
 一百年来，钢铁王座的矮人们一直小心谨慎的和联合王国的人类们开展贸易活动，尽管他们的种族为人所知甚少，甚至也不知道他们的统治者姓甚名谁。
 
-尽管马基埃亚尔大陆上的居民都知道是魔法师们帮忙终止了恐怖的魔法大爆炸，但他们也没有忘记正是魔法本身造成了这场灾难。因此法师们遭到排斥，甚至被猎杀，大多数法师宁愿避开公众的视线。
+尽管马基·埃亚尔大陆上的居民都知道是魔法师们帮忙终止了恐怖的魔法大爆炸，但他们也没有忘记正是魔法本身造成了这场灾难。因此法师们遭到排斥，甚至被猎杀，大多数法师宁愿避开公众的视线。
 无论如何，这是个黄金时代，所有的文明在过去数千年中经历的不幸正在好转，甚至人类和半身人之间已经形成了长久的和平。
 
 你是一个冒险者，追寻古老的力量、宝藏和荣耀。你勇敢的踏入被遗忘的大陆、未被开发的森林，和神秘封印的废墟。在这个所谓的和平年代，谁也不知道最终会找到些什么。
 ]], "init.lua description")
-t("Though magic is still shunned in Maj'Eyal, rumours abound of secret havens of mages.", "尽管魔法在马基埃亚尔大陆遭到排斥，不过传说仍然有一个法师的秘密庇护所。", "init.lua load_tips")
+t("Though magic is still shunned in Maj'Eyal, rumours abound of secret havens of mages.", "尽管魔法在马基·埃亚尔大陆遭到排斥，不过传说仍然有一个法师的秘密庇护所。", "init.lua load_tips")
 t("The Rush talent lets you close in on an enemy quickly and daze them, disabling them whilst you hack down their friends.", "冲锋技能可以让你快速接近敌人并眩晕目标，你可以借此时机击倒它的同伴。", "init.lua load_tips")
 t("Stunning an opponent slows down their movement and reduces their damage output, giving you the opportunity to tactically reposition or finish them off at less risk.", "震慑可以减缓目标的移动速度，降低其伤害输出，这样可以为你制造机会解决它们，或者降低他们对你的威胁。", "init.lua load_tips")
 t("Movement is key on the battlefield. A stationary fighter will become a dead fighter. One must always seek the position of greatest tactical advantage and continue to re-evaluate throughout the battle.", "移动是战斗制胜的关键。一个固定不动的战士只会变成一个死的战士。战斗过程中你必须随时调整你的走位以保持你的优势。", "init.lua load_tips")
@@ -43156,10 +43156,10 @@ t("The Ziguranth are an ancient order vehemently opposed to magic. Some have bec
 t("Records say that giants once lived civilised lives, with mastery of many crafts and sciences. Now, though, they have adopted nomadic cultures, turning hostile against those that encroach on their lands.", "据史书记载，巨人族曾经也有高度发达的文明，掌握着许多手工和科学技术。不过现在他们已经适应了游牧生活，他们会攻击任何试图侵略的敌人。", "init.lua load_tips")
 t("Zigur was founded by escapees of Conclave experiments during the Allure wars between humans and halflings.", "伊格是由厄流纪人类与半身人战争中的孔克雷夫实验逃亡者创立的。", "init.lua load_tips")
 t("The Thaloren and Shaloren elves have never had good relations, and have been outright hostile since the Spellblaze devastated many Thaloren lands.", "自然精灵与永恒精灵之间关系一直不佳，自从魔法大爆炸摧毁了很多自然精灵大陆之后，他们之间更是相互敌视。", "init.lua load_tips")
-t("The third elven race, the Naloren, were rendered extinct after a huge cataclysm swept the eastern side of Maj'Eyal into the sea.", "精灵第三分支，纳鲁精灵，在魔法大爆炸将马基埃亚尔的东部地区沉入海底后，彻底灭绝。", "init.lua load_tips")
+t("The third elven race, the Naloren, were rendered extinct after a huge cataclysm swept the eastern side of Maj'Eyal into the sea.", "精灵第三分支，纳鲁精灵，在魔法大爆炸将马基·埃亚尔的东部地区沉入海底后，彻底灭绝。", "init.lua load_tips")
 t("Trolls were once seen as little more than beasts or pests, but the orcs trained them up for use in war and they became much more intelligent and fearsome.", "巨魔的力量原先不过与野兽和毒虫差不多，不过后来兽人因为战争的需要对它们进行了训练。现在他们变得更聪明更可怕。", "init.lua load_tips")
 t("Some say that the foot of a halfling is lucky to own. Halflings do not take well to those who enquire too forcefully.", "有人说半身人的脚是幸运护身符。对于这一点半身人可并不赞成。", "init.lua load_tips")
-t("The Nargol empire was once the largest force in Maj'Eyal, but a combination of the Spellblaze and orcish attacks have dwindled it into insignificance.", "纳格尔王国曾经是马基埃亚尔最强大的国家。但是经历了魔法大爆炸和兽人的入侵之后他们已经变得无足轻重了。", "init.lua load_tips")
+t("The Nargol empire was once the largest force in Maj'Eyal, but a combination of the Spellblaze and orcish attacks have dwindled it into insignificance.", "纳格尔王国曾经是马基·埃亚尔最强大的国家。但是经历了魔法大爆炸和兽人的入侵之后他们已经变得无足轻重了。", "init.lua load_tips")
 t("Some of the most powerful undead do not fall easily, and only through extreme persistence can they be put to rest.", "那些最强大的不死族并不是那么容易被打败的，只有通过不懈的战斗才能将它们彻底置于死地。", "init.lua load_tips")
 t("History says little of the ancient race of yeeks that lived in halfling territory, but vanished before the time of the Spellblaze.", "历史对居住在半身人领地上的古代夺心魔族记载甚少，他们在魔法大爆炸之前就已销声匿迹。", "init.lua load_tips")
 t("Dwarves are naturally a inquisitive people, but do not enjoy such inquisition turned on them. Most live secretive lives in their closed-off city, the Iron Throne.", "矮人们好管闲事，但他们自己却不喜欢别人来打搅，他们大多数居住在秘密的地下城市——钢铁王座之中。", "init.lua load_tips")
@@ -43171,7 +43171,7 @@ t("The art of potion making fell into decline after the Spellhunt, and only a ra
 t("It's said that some rare powers can save your soul from the edge of death.", "传说有些罕见的力量可以在死亡边缘拯救你的灵魂。", "init.lua load_tips")
 t("Rumours tell of a shadowy cult kidnapping women and performing strange rites. Their intentions are unknown, and they have so far evaded capture.", "传说有一个邪教组织，他们绑架妇女举行奇怪的仪式，没人知道他们真正的目的，至今他们还没有被抓捕。", "init.lua load_tips")
 t("Though slavery is illegal there is still a black market for it, and in some areas men are even used for blood sports.", "尽管贩奴被严令禁止但地下交易却仍然存在。有些地方奴隶甚至被作为一种血腥运动项目的道具。", "init.lua load_tips")
-t("Maj'Eyal is the biggest continent in the world of Eyal. Though records suggest other continents and islands may exist it has not been possible to cross the wide and stormy oceans since the Spellblaze and the Cataclysm.", "马基埃亚尔是埃亚尔世界中最大的一块大陆。虽然有记载世界上有可能还存在着其他大陆或者岛屿，但自从魔法大爆炸和大灾变发生之后，穿越浩瀚的风暴之海已经不大可能了。", "init.lua load_tips")
+t("Maj'Eyal is the biggest continent in the world of Eyal. Though records suggest other continents and islands may exist it has not been possible to cross the wide and stormy oceans since the Spellblaze and the Cataclysm.", "马基·埃亚尔是埃亚尔世界中最大的一块大陆。虽然有记载世界上有可能还存在着其他大陆或者岛屿，但自从魔法大爆炸和大灾变发生之后，穿越浩瀚的风暴之海已经不大可能了。", "init.lua load_tips")
 t("The effects of the Spellblaze were not all instant, and many centuries later the Cataclysm tore the continent apart once more, devastating coastal areas the destroying all of the Naloren lands.", "魔法大爆炸造成的影响并非仅局限于那一瞬间，数个世纪之后，大灾变再次撕裂了大陆，摧毁了沿海地区，并摧毁了所有纳鲁人的土地。", "init.lua load_tips")
 t("Archers are fast and deadly, and with pinning shots can render their foes helpless as they swiftly dispatch them.", "弓箭手行动迅捷而致命，他们可以使用定身射击使敌人无力反抗，然后迅速解决他们。", "init.lua load_tips")
 t("Reavers are powerful fighters with corrupted blood, and the strength to wield a one-handed weapon in each arm.", "收割者是流着堕落之血的强大战士，他们双手各可以装备一件单手武器。", "init.lua load_tips")
@@ -43324,5 +43324,5 @@ t([[Quekorja was the god of time and possibilities. What stands out about Eyal's
 
  奎科加也被认为创……[i]（你记得你读过这段文字，但就是记不起其内容，就好像它是被有意从你的脑海中抹去了一样。）[/i]
 
- 根据安格列文的记载，奎科加在弑神之战之中被杀死了，它的尸体后来被法师莱娜尼尔发现。她成功通过一个危险的仪式吸收了此神的一小部分力量，而就是这微小的力量也使她成为了无可匹敌的大法师。这也证实了诸神的力量是多么的强大。]], "_t")
+ 根据安格利文的记载，奎科加在弑神之战之中被杀死了，它的尸体后来被法师莱娜尼尔发现。她成功通过一个危险的仪式吸收了此神的一小部分力量，而就是这微小的力量也使她成为了无可匹敌的大法师。这也证实了诸神的力量是多么的强大。]], "_t")
 t("You have accomplished great deeds, but if you enter the infinite dungeon there will be no way back. You will go on and on until you meet your glorious death.", "你已经完成了你的伟大使命，不过当你进入无尽地下城之后就永远不能再回来，你只有不断地前进直到你光荣地死去。", "_t")
