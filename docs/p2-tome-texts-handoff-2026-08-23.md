@@ -87,7 +87,17 @@
 - b35 共享键：本窗口三个运行时键与范围外 section 共享，均保持统一未改——`...`（全语料 153 处）、`Farewell.`（2 处，本已一致），以及与 `infinite-dungeon/objects.lua` 共享的中魔提示行。**第三个是 executor 自行发现的**：它改动后被 `lint --strict` 捕获，随即回退自己的修改并如实报告，而非改动另一侧或放任红门禁——正是 b34 briefing 失误想要建立的行为，此次无需提示即自发出现。
 - **证据锚点缺口（非审校缺口）**：`gates-of-morning-main`、`jewelry-store`、`last-hope-melinda-father`、`last-hope-weapon-store`、`limmir-valley-moon` 五个 section 在 `evidence/quality/p2-batches/` 无受跟踪工作集。五者字母序均在 `sorcerer-fight.lua` 之前，属 b6–b21 已审范围，`limmir-valley-moon.lua` 更明确记为 b21「已核验无改动」。缺的是审计锚点，源于已记录的 b19–b21「工作集只留在被忽略的 `.ai/`」失误。**重建锚点是独立的文档任务，未擅自开展。**
 
-- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b31 共 39 个 section，`data/chats/` 已于 b35 全部完成（100 个 section，b6–b35）。**下一阶段进入 `data/lore/`**，按字母序切成约 40–50 条一批，流程与门禁不变。`Grand Keeper` 遗留项已在 b34 清零。**冻结脚本必须断言取回条数等于该 section 的词法 `t()` 调用数**——b31 就靠这条发现粗略 grep 多算了一条（`trap-priming.lua` 实为 8 条）。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
+- b36：**`data/lore/` 首批** —— `age-allure.lua`、`age-pyre.lua`、`angolwen.lua`、`ardhungol.lua` 共 43 条，提交 `fb8d717`，修订 30 条 target；一轮复审（36/43 `OK`）加一轮修复。
+- b36 关键修正（类别错误，出现两次）：`inscriptions` 被译成「纹身」。术语库裁定明确——`inscriptions`＝**刻印** 是 `T.GAME.TALENT_CATEGORY` 行（`preferred`／global），其**子类**才是 `runes`＝符文 与 `infusions`＝纹身；该段落讲的正是符文亲和与符文需定期维护，用同级子类「纹身」恰好把主题排除在外，且语料 UI 一律作「刻印」。已改回「刻印」；同一批字符串中残留的「纹身」经核验均对应英文 `infusion`，子类与上位类现已各归其位。
+- b36 其他主要修正：`Cataclysm` 与 `Spellblaze` 是**两个不同事件**，宝库条目讲的是「大灾变的地壳剧变绕过已毁隧道」，原译写成魔法大爆炸；监督者的命令原译「永久沉睡」，固定源码 `age-allure.lua:241` 是把炼金药瓶放进通风系统「无痛窒息」全体人员——委婉语掩盖了这道屠杀命令，而叙述者随后正是拒绝执行它；长老会「认为攻击倾向利于士气因而把治疗推迟到战后」这一**决定**被写成「战后可以轻松治疗」，既丢了决定也凭空加了「轻松」；敌方斥候的发现与围困是**已完成**的事实，原译写成哨兵正准备动手；`ardhungol` 清理行动的对象是太阳骑士的**巢穴**（说话者的蔑称），原译写成杀灭太阳骑士本人。
+- b36 驳回并上呈的两条：`Atamathon, the giant golem` 保留「阿塔玛森·傀儡之王」、`The spellblade` 保留「魔宗利刃」。复审指出「傀儡之王」「魔宗」都添加了英文没有的身份／门派关系，**这一点成立**；但两者均受实体名支配（`t("Atamathon the Giant Golem", "傀儡之王阿塔玛森", "entity name")`、`t("Spellblade", "魔宗利刃", "entity name")`），只改叙述文本会让文本与玩家所见的实体名脱节，而改实体名属术语层裁决。故窗口内驳回、作为术语议题上呈。注意 `Atamathon` 语料本已分裂：成就行用的是忠实的「巨型傀儡阿塔玛森」。
+- b36 宿主核查：本批修订率 25/43（58%），显著高于对话批次的 20–40%，故在接受前对三条最高风险论断逐条比对固定源码（Cataclysm、无痛窒息、高阶太阳骑士艾琳），均成立，判定为 lore 长文本的真实漂移而非 SPEC 禁止的流畅度改写。
+
+- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b31 共 39 个 section，`data/chats/` 已于 b35 全部完成（100 个 section，b6–b35）。`data/lore/` 共 34 个 section 约 582 条，b36 已完成首批 4 个 section；`misc.lua`（110）与 `last-hope.lua`（71）体量过大，各自单独成批。`Grand Keeper` 遗留项已在 b34 清零。
+
+**下一步不是 b37，而是一个专门的术语批次。** 维护者已于 2026-08-25 裁定两项统一：`Angolwen`＝**安格利文**（10 处／6 个 section），`Maj'Eyal`＝**马基·埃亚尔**（带间隔点，55 处／33 个 section）。后者更棘手：术语行当前持有的恰是被否决的写法（`Maj'Eyal 马基埃亚尔`，`existing`），需改写行的 target 而非仅提升状态；且波及 `init.lua`、`class/Game.lua`、`class/uiset/Minimalist.lua`、成就、出生世界、区域 grids 等非叙事文件。按 `Ziguranth`（`1a4a236`＋`8fb41dd`）的先例作为**独立术语批次**执行，五步门禁后追加三项术语审计，不并入任何叙事切片。完成后再开 b37（`arena`、`blighted-ruins`、`daikara`、`derth`、`dreadfell`），届时 `derth.lua` 已干净。
+
+`Sholtar` 仍待裁决：实际分布为 2 处「肖塔尔」／4 处「肖塔」（此前记为 2:2 系宿主漏计）。宿主建议「肖尔塔」——音节尾 L 依惯例作「尔」，且同句并列的 `Cornacs`＝科纳克、`Mardrop`＝马卓普 均舍弃 r 尾；三者皆无术语行。`Atamathon`／`spellblade` 亦待裁决。**冻结脚本必须断言取回条数等于该 section 的词法 `t()` 调用数**——b31 就靠这条发现粗略 grep 多算了一条（`trap-priming.lua` 实为 8 条）。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
 - 复审记录格式注意：`.ai/reviews/` 记录必须带 `status`（或 `result`）且取值属于 `completed`／`completed_with_findings`／`PASS`／`CHANGES_REQUIRED`／`FINDINGS`／`OK`，否则 `ai_state_check.py` 的 `candidate_bindings_valid` 会拒绝 DONE。
 
 ## 0. 一句话状态
