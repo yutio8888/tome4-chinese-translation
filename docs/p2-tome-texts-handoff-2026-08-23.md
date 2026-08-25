@@ -44,8 +44,11 @@
 - b27 其他修正：`the world of Eyal` 被误作马基·埃亚尔大陆而非整个世界；`Lichform` 统一为「巫妖转生」（与 `talents.lua`、`lichform.lua`、`mag.lua` 一致，英文键的 `ceremory` 拼写错误原样保留）；target dummy 原作「傀儡」与既有实体撞名，改为语料已有 9 处的「训练假人」；shimmer 各选项按其独立 `SHIMMER_*` 槽核对。
 - b27 驳回记录：复审称「堡垒竞技场」把竞技场与堡垒混同。固定源码显示 gladium 是独立 zone，且该 zone 自身名称即 `Fortress Gladium`（`zones/gladium/zone.lua:21`），故「堡垒」二字来自原作者而非译文；`[Go back to the Fortress]` 与之并不矛盾。按 advisory 记录，未改。
 - 待办（超出当批窗口）：`other.lua` 仍把 `Lichform` 译作「巫妖形态」，与语料的「巫妖转生」不一致，留待轮到该 section 的批次处理。
+- b28：`slasul.lua` 单段 21 条，提交 `63e7b1d`，修订 13 条 target；两轮复审（18/21 → 21/21 `OK`）。
+- b28 主要修正：萨拉苏尔反驳中的 `which of us is truly evil` 原作「谁才是恶魔」，把反问读成了生物名称，丢失「我未伤人、你却杀我朋友」的论证；`refuse to see reason` 原作「不听我解释」，而固定源码 `slasul.lua:43` 显示该句是玩家拒绝分支的攻击台词，位于萨拉苏尔已经申辩之后，玩家是听过后拒绝接受；`spare / offer mercy` 原用「宽恕」（道德赦免），源文是生杀之权，且与紧邻上一条已用的「饶」自相矛盾；`my liege` 原作「我的主人」，而 `slasul.lua:91` 是玩家缔结生命契约时的效忠称呼，属封建主君关系——「主人」在 b26／b27 中已正确用于堡垒之影称呼玩家的 master，此处沿用会把两种关系混为一谈。
+- b28 保留项：`[attack]` 与另外四个 section 共用英文键且译文一致（均为「[攻击]」），单改一侧会拆散共享运行时键，故保留；英文源码中的两处上游拼写错误（`Pay for you sins!`、`I will make your pay`）按约束不改英文键。
 - 当前预期工作树：干净，仅用户本地未跟踪 `.claude/`；不得提交、删除或混入 `.claude/`。`.ai/` 与 `.artifacts/` 是忽略的派生产物。
-- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b27 共 28 个 section，从 `slasul.lua` 起继续下一个有界切片。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
+- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b28 共 29 个 section，从 `sorcerer-end.lua` 起继续下一个有界切片（建议 `sorcerer-end` + `sorcerer-fight` 共 48 条自成一批，保持该弧完整）。每批把冻结工作集写入受跟踪的 `evidence/quality/p2-batches/`；复用上一批的 envelope builder 时先改 revision key 前缀并确认已传 `--limit 500`。连续批次模式下不必逐批请示，按 `AGENTS.md` 的停下条件判断何时交回维护者。
 - 复审记录格式注意：`.ai/reviews/` 记录必须带 `status`（或 `result`）且取值属于 `completed`／`completed_with_findings`／`PASS`／`CHANGES_REQUIRED`／`FINDINGS`／`OK`，否则 `ai_state_check.py` 的 `candidate_bindings_valid` 会拒绝 DONE。
 
 ## 0. 一句话状态
