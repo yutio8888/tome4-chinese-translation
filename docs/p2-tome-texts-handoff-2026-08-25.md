@@ -1,14 +1,14 @@
-# P2 Tome Texts — active handoff at the b39 boundary (2026-08-25)
+# P2 Tome Texts — active handoff at the b40 boundary (2026-08-25)
 
 Consolidated pickup document. Supersedes
 [`p2-tome-texts-handoff-2026-08-23.md`](p2-tome-texts-handoff-2026-08-23.md) as the entry point;
 that file remains the per-batch log and is still the place to read *why* a specific batch decided
 what it did.
 
-**Status: ACTIVE.** The maintainer resumed continuous review; b38 completed with all gates passing.
-The next bounded slice is b39 and does not require separate approval.
+**Status: ACTIVE.** The maintainer resumed continuous review; b39 completed with all gates passing.
+The next bounded slice is b40 and does not require separate approval.
 
-b38 reaches `DONE_VERIFIED` in its completion commit. Every completed batch below passed
+b39 reaches `DONE_VERIFIED` in its completion commit. Every completed batch below passed
 `tools/ci-gates.sh` 12/12 including the strict addon build.
 
 ## 1. Coverage
@@ -17,21 +17,31 @@ b38 reaches `DONE_VERIFIED` in its completion commit. Every completed batch belo
 |---|---|---|---|
 | `data/texts/` | 132 | 176 | Complete |
 | `data/chats/` | 100 | 1260 | Complete (b6–b35) |
-| `data/lore/` | 34 | 582 | 13 done (b36–b38); **21 sections / 440 pairs left** |
+| `data/lore/` | 34 | 582 | 15 done (b36–b39); **19 sections / 398 pairs left** |
 | `data/quests/` | 52 | 514 | **Zero coverage — and never scoped into P2** |
 
 ### Remaining `data/lore/` sections
 
-`infinite-dungeon`(21), `iron-throne`(21), `keepsake`(34), `kor-pul`(7), `last-hope`(71),
+`keepsake`(34), `kor-pul`(7), `last-hope`(71),
 `maze`(6), `misc`(110), `noxious-caldera`(7),
 `old-forest`(10), `orc-prides`(37), `rhaloren`(8), `sandworm`(6), `scintillating-caves`(13),
 `shertul`(41), `slazish`(7), `spellblaze`(3), `spellhunt`(9), `sunwall`(6), `tannen`(9),
 `trollmire`(5), `zigur`(9)
 
-**About 8 more slices.** `misc.lua` (110) and `last-hope.lua` (71) each need their own batch; the
-other 259 pairs make roughly 6 at the ~45 pairs/batch this track has settled into.
+**About 7 more slices.** `misc.lua` (110) and `last-hope.lua` (71) each need their own batch; the
+other 217 pairs make roughly 5 at the ~45 pairs/batch this track has settled into.
 
-**Next slice (b39):** `infinite-dungeon`, `iron-throne` — 42 pairs.
+**Next slice (b40):** `keepsake`, `kor-pul` — 41 pairs.
+
+### b39 completion
+
+`infinite-dungeon`, `iron-throne` — 42 pairs; 22 targets changed (12/10 by section). One bounded
+FIX restored seven physical inscriptions, the arcane/fire element cue and the ruined-dungeon place
+label after the executor's connected lore and fiscal-history pass. The second full review left only
+three `Deep Bellow` title observations; the senior audit declined them together because the place is
+already localized repository-wide as `无尽深渊`, and a local rename would split the same name.
+Durable records: `p2-tome-texts-b39-lore-infinite-dungeon-iron-throne.json` and
+`p2-tome-texts-b39-adjudication.json`. Five-step gates and full CI passed.
 
 ### b38 completion
 
