@@ -1999,7 +1999,10 @@ def _changed_content_paths(ctx: WaveContext) -> set[str]:
             value = raw.decode("utf-8")
         except UnicodeDecodeError as error:
             raise InputError(f"changed path is not UTF-8: {error}") from error
-        result.add(_relative_path(value, "changed content path"))
+        relative = _relative_path(value, "changed content path")
+        if relative.startswith(RUNTIME_PREFIXES):
+            continue
+        result.add(relative)
     return result
 
 

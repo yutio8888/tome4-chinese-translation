@@ -36,7 +36,7 @@ class WaveFixture:
         self._git(self.root, "init", "-q")
         self._git(self.root, "config", "user.email", "fixture@example.invalid")
         self._git(self.root, "config", "user.name", "Wave Fixture")
-        self.write_raw(".gitignore", b".ai/\n.artifacts/\n")
+        self.write_raw(".gitignore", b".ai/task/\n.ai/reviews/\n.artifacts/\n")
         self.write_raw("tools/lua/load_locale.lua", (TOOLS / "lua/load_locale.lua").read_bytes())
         manifest_raw = (
             ROOT / f"i18n/versions/{wave_review.DEFAULT_VERSION}.json"
@@ -1394,6 +1394,35 @@ class WaveReviewTests(unittest.TestCase):
         self.assertEqual(repeated.exit_code, 0, repeated.detail)
         done = self.call(wave_review.done, str(f.wave_path))
         self.assertEqual(done.exit_code, 0, done.detail)
+
+    def test_done_ignores_runtime_untracked_but_rejects_ordinary_untracked(self) -> None:
+        f = self.fixture
+        runtime_path = f.path(f".ai/waves/{f.wave_id}/runtime-marker.txt")
+        runtime_path.write_text("runtime\n")
+        self.assertIn(
+            str(runtime_path.relative_to(f.root)),
+            subprocess.run(
+                [
+                    "git",
+                    "-C",
+                    str(f.root),
+                    "ls-files",
+                    "--others",
+                    "--exclude-standard",
+                ],
+                text=True,
+                capture_output=True,
+                check=True,
+            ).stdout.splitlines(),
+        )
+        runtime_result = self.call(wave_review.done, str(f.wave_path))
+        self.assertEqual(runtime_result.exit_code, 0, runtime_result.detail)
+
+        ordinary_path = f.path("ordinary-untracked.txt")
+        ordinary_path.write_text("unauthorized\n")
+        ordinary_result = self.call(wave_review.done, str(f.wave_path))
+        self.assertEqual(ordinary_result.exit_code, 1)
+        self.assertIn("ordinary-untracked.txt", ordinary_result.detail)
 
     def test_publish_fails_closed_on_missing_evidence_and_identity_or_byte_drift(self) -> None:
         f = self.fixture
