@@ -87,17 +87,20 @@ def _read_json(path: Path, label: str) -> Any:
         raise InputError(f"{label} is not valid JSON: {error}") from error
 
 
-def _ordinary_workspace_file(value: object, label: str) -> Path:
+def _ordinary_workspace_file(
+    value: object, label: str, *, root: Path = ROOT
+) -> Path:
     """Resolve one existing ordinary, repository-relative file or fail closed."""
     if not isinstance(value, str) or not value:
         raise ContractError(f"{label} must be a non-empty workspace-relative path")
     relative = Path(value)
     if relative.is_absolute() or ".." in relative.parts:
         raise InputError(f"{label} escapes the workspace: {value!r}")
-    candidate = ROOT / relative
+    root = root.resolve()
+    candidate = root / relative
     try:
         resolved = candidate.resolve(strict=True)
-        resolved.relative_to(ROOT.resolve())
+        resolved.relative_to(root)
     except (OSError, ValueError) as error:
         raise InputError(f"{label} is not an existing workspace file: {value!r}") from error
     if candidate.is_symlink() or not resolved.is_file():
@@ -123,6 +126,7 @@ def _schema_valid(state: dict[str, Any]) -> tuple[bool, str]:
     children = state.get("child_dispatches")
     if children is not None and not isinstance(children, list):
         return False, "child_dispatches must be a list or null"
+    orchestrator_agent_id = state.get("orchestrator_agent_id")
     seen_ids: set[str] = set()
     for index, dispatch in enumerate(children or []):
         if not isinstance(dispatch, dict):
@@ -136,6 +140,11 @@ def _schema_valid(state: dict[str, Any]) -> tuple[bool, str]:
         agent_id = dispatch.get("agent_id")
         if not isinstance(agent_id, str) or not agent_id:
             return False, f"dispatch {dispatch_id!r} must have a non-empty string agent_id"
+        if agent_id == orchestrator_agent_id:
+            return False, (
+                f"dispatch {dispatch_id!r} agent_id must differ from "
+                "orchestrator_agent_id"
+            )
         if "purpose" in dispatch and (
             not isinstance(dispatch["purpose"], str) or not dispatch["purpose"]
         ):
@@ -161,7 +170,7 @@ def _strict_manifest(path: Path) -> frozenset[str]:
     return frozenset(tasks)
 
 
-def _record_paths(state: dict[str, Any]) -> list[Path]:
+def _record_paths(state: dict[str, Any], *, root: Path = ROOT) -> list[Path]:
     paths: list[Path] = []
     for field in ("review_records", "senior_review_records"):
         value = state.get(field, [])
@@ -172,16 +181,18 @@ def _record_paths(state: dict[str, Any]) -> list[Path]:
         if not isinstance(value, list):
             raise ContractError(f"{field} must be an array (or legacy mapping)")
         for index, item in enumerate(value):
-            paths.append(_ordinary_workspace_file(item, f"{field}[{index}]"))
+            paths.append(_ordinary_workspace_file(item, f"{field}[{index}]", root=root))
     return paths
 
 
-def _load_records(state: dict[str, Any]) -> list[tuple[dict[str, Any], Path]]:
+def _load_records(
+    state: dict[str, Any], *, root: Path = ROOT
+) -> list[tuple[dict[str, Any], Path]]:
     loaded: list[tuple[dict[str, Any], Path]] = []
-    for path in _record_paths(state):
-        record = _read_json(path, f"review record {path.relative_to(ROOT)}")
+    for path in _record_paths(state, root=root):
+        record = _read_json(path, f"review record {path.relative_to(root)}")
         if not isinstance(record, dict):
-            raise ContractError(f"review record {path.relative_to(ROOT)} must be an object")
+            raise ContractError(f"review record {path.relative_to(root)} must be an object")
         loaded.append((record, path))
     return loaded
 
@@ -326,14 +337,15 @@ def _has_completion_indicator(record: dict[str, Any]) -> bool:
 
 
 def _candidate_bindings_valid(
-    state: dict[str, Any], records: list[tuple[dict[str, Any], dict[str, Any], Path]]
+    state: dict[str, Any], records: list[tuple[dict[str, Any], dict[str, Any], Path]],
+    *, root: Path = ROOT,
 ) -> tuple[bool, str]:
     required = (
         "task_id", "review_contract", "review_phase", "cycle", "attempt",
         "reviewer_role", "purpose", "agent_id", "dispatch_id",
     )
     for record, dispatch, path in records:
-        relative = path.relative_to(ROOT)
+        relative = path.relative_to(root)
         if any(record.get(key) in (None, "") for key in required):
             return False, f"{relative} is missing a required completion field"
         if record.get("task_id") != state.get("task_id"):
@@ -355,7 +367,10 @@ def _candidate_bindings_valid(
                 return False, f"{relative} lacks a valid contextual identity or input_path"
             if identity != dispatch.get("candidate_identity") or input_path != dispatch.get("input_path"):
                 return False, f"{relative} contextual binding does not match its dispatch"
-            envelope = _read_json(_ordinary_workspace_file(input_path, "contextual input_path"), "contextual envelope")
+            envelope = _read_json(
+                _ordinary_workspace_file(input_path, "contextual input_path", root=root),
+                "contextual envelope",
+            )
             if not isinstance(envelope, dict) or envelope.get("candidate_identity") != identity or "payload" not in envelope:
                 return False, f"{relative} contextual envelope does not match candidate_identity"
             if hashlib.sha256(_canonical_payload_bytes(envelope["payload"])).hexdigest() != identity:
@@ -364,8 +379,12 @@ def _candidate_bindings_valid(
         locator = record.get("candidate_locator")
         if not isinstance(locator, dict) or set(locator) != {"spec_path", "diff_path"}:
             return False, f"{relative} candidate_locator must have exactly spec_path and diff_path"
-        spec = _ordinary_workspace_file(locator["spec_path"], "candidate_locator.spec_path")
-        diff = _ordinary_workspace_file(locator["diff_path"], "candidate_locator.diff_path")
+        spec = _ordinary_workspace_file(
+            locator["spec_path"], "candidate_locator.spec_path", root=root
+        )
+        diff = _ordinary_workspace_file(
+            locator["diff_path"], "candidate_locator.diff_path", root=root
+        )
         match = CODE_DIFF_NAME.fullmatch(diff.name)
         if not match:
             return False, f"{relative} diff_path has an invalid CODE_DIFF filename"
@@ -495,22 +514,22 @@ def _new_file_entry_bytes(diff_bytes: bytes, sidecar_relative: str) -> bytes | N
     return bytes(content)
 
 
-def _sidecar_path(spec: Path) -> tuple[Path, str]:
+def _sidecar_path(spec: Path, *, root: Path = ROOT) -> tuple[Path, str]:
     path = spec.parent / "EVIDENCE-RECONCILIATION.json"
     try:
-        relative = path.resolve().relative_to(ROOT.resolve()).as_posix()
+        relative = path.resolve().relative_to(root.resolve()).as_posix()
     except (OSError, ValueError) as error:
         raise InputError(f"sidecar path escapes the workspace: {path}") from error
     return path, relative
 
 
-def _read_sidecar_on_disk(path: Path) -> bytes:
+def _read_sidecar_on_disk(path: Path, *, root: Path = ROOT) -> bytes:
     try:
         resolved = path.resolve(strict=True)
     except OSError as error:
         raise InputError(f"evidence reconciliation sidecar is not present: {path}") from error
     try:
-        resolved.relative_to(ROOT.resolve())
+        resolved.relative_to(root.resolve())
     except ValueError as error:
         raise InputError(f"evidence reconciliation sidecar escapes the workspace: {path}") from error
     if path.is_symlink() or not resolved.is_file():
@@ -529,6 +548,8 @@ def _evidence_checks(
     state: dict[str, Any],
     loaded: list[tuple[dict[str, Any], Path]],
     completed: list[tuple[dict[str, Any], dict[str, Any], Path]],
+    *,
+    root: Path = ROOT,
 ) -> tuple[bool, str]:
     code_records = [
         item for item in completed
@@ -536,17 +557,21 @@ def _evidence_checks(
     ]
     frozen: list[tuple[dict[str, Any], Path, bytes, bytes]] = []
     for record, _, record_path in code_records:
-        relative = record_path.relative_to(ROOT)
+        relative = record_path.relative_to(root)
         locator = record.get("candidate_locator")
         if not isinstance(locator, dict):
             return False, f"{relative} has no candidate_locator for evidence checking"
-        spec = _ordinary_workspace_file(locator["spec_path"], "candidate_locator.spec_path")
-        diff = _ordinary_workspace_file(locator["diff_path"], "candidate_locator.diff_path")
-        sidecar, sidecar_relative = _sidecar_path(spec)
+        spec = _ordinary_workspace_file(
+            locator["spec_path"], "candidate_locator.spec_path", root=root
+        )
+        diff = _ordinary_workspace_file(
+            locator["diff_path"], "candidate_locator.diff_path", root=root
+        )
+        sidecar, sidecar_relative = _sidecar_path(spec, root=root)
         embedded = _new_file_entry_bytes(_read_candidate_bytes(diff, "candidate diff"), sidecar_relative)
         if embedded is None:
             continue
-        evidence_result = review_evidence.check_reconciliation(embedded, root=ROOT)
+        evidence_result = review_evidence.check_reconciliation(embedded, root=root)
         if evidence_result.exit_code:
             return False, f"{relative}: evidence_reconciliation: {evidence_result.detail}"
         try:
@@ -561,7 +586,9 @@ def _evidence_checks(
         if not isinstance(source_reviews, list) or any(path not in source_reviews for path in cited):
             missing = sorted(path for path in cited if not isinstance(source_reviews, list) or path not in source_reviews)
             return False, f"{relative}: evidence citation is not listed in source_reviews: {missing[0]!r}"
-        frozen.append((record, sidecar, embedded, _read_sidecar_on_disk(sidecar)))
+        frozen.append(
+            (record, sidecar, embedded, _read_sidecar_on_disk(sidecar, root=root))
+        )
 
     if frozen:
         latest_key = max((item[0]["cycle"], item[0]["attempt"]) for item in frozen)
@@ -571,7 +598,7 @@ def _evidence_checks(
         if any(item[2] != latest[0][2] for item in latest[1:]):
             return False, "bound records at the latest (cycle, attempt) disagree on embedded sidecar bytes"
         if latest[0][2] != latest[0][3]:
-            return False, f"{latest[0][1].relative_to(ROOT)}: on-disk sidecar does not match the latest bound embedded copy"
+            return False, f"{latest[0][1].relative_to(root)}: on-disk sidecar does not match the latest bound embedded copy"
 
     schema_version = state.get("schema_version")
     if (
@@ -591,17 +618,21 @@ def _evidence_checks(
         return False, "evidence_reconciliation_required"
 
     if type(schema_version) is int and schema_version >= 3:
-        senior_paths = set(_record_paths_for_field(state, "senior_review_records"))
+        senior_paths = set(
+            _record_paths_for_field(state, "senior_review_records", root=root)
+        )
         for record, path in loaded:
             if path not in senior_paths or record.get("purpose") != "scope_audit":
                 continue
-            audit_result = review_evidence.check_audit(record, root=ROOT)
+            audit_result = review_evidence.check_audit(record, root=root)
             if audit_result.exit_code:
-                return False, f"{path.relative_to(ROOT)}: scope_audit: {audit_result.detail}"
+                return False, f"{path.relative_to(root)}: scope_audit: {audit_result.detail}"
     return True, "ok"
 
 
-def _record_paths_for_field(state: dict[str, Any], field: str) -> list[Path]:
+def _record_paths_for_field(
+    state: dict[str, Any], field: str, *, root: Path = ROOT
+) -> list[Path]:
     value = state.get(field, [])
     if value is None:
         value = []
@@ -610,13 +641,14 @@ def _record_paths_for_field(state: dict[str, Any], field: str) -> list[Path]:
     if not isinstance(value, list):
         return []
     return [
-        _ordinary_workspace_file(item, f"{field}[{index}]")
+        _ordinary_workspace_file(item, f"{field}[{index}]", root=root)
         for index, item in enumerate(value)
     ]
 
 
 def _reviewer_identity_valid(
-    state: dict[str, Any], completed: list[tuple[dict[str, Any], dict[str, Any], Path]]
+    state: dict[str, Any], completed: list[tuple[dict[str, Any], dict[str, Any], Path]],
+    *, root: Path = ROOT,
 ) -> tuple[bool, str]:
     schema_version = state.get("schema_version")
     orchestrator = state.get("orchestrator_agent_id")
@@ -629,7 +661,7 @@ def _reviewer_identity_valid(
         return False, "orchestrator_agent_id must be a non-empty string when present"
     for record, _, path in completed:
         if record.get("agent_id") == orchestrator:
-            return False, f"{path.relative_to(ROOT)} reviewer agent_id equals orchestrator_agent_id"
+            return False, f"{path.relative_to(root)} reviewer agent_id equals orchestrator_agent_id"
     return True, "ok"
 
 
@@ -642,16 +674,16 @@ def _children_archived(state: dict[str, Any]) -> tuple[bool, str]:
     return True, "ok"
 
 
-def _done(state: dict[str, Any]) -> CheckResult:
+def _done(state: dict[str, Any], *, root: Path = ROOT) -> CheckResult:
     if not isinstance(state.get("task_id"), str) or not state["task_id"]:
         return _result("NEW_CONTRACT_FAILED", "schema_valid: task_id must be a non-empty string", 1)
     for name, check in (("schema_valid", _schema_valid(state)), ("review_contracts_closed", _review_contracts_closed(state))):
         if not check[0]:
             return _result("NEW_CONTRACT_FAILED", f"{name}: {check[1]}", 1)
     try:
-        loaded = _load_records(state)
+        loaded = _load_records(state, root=root)
         completed = _completion_records(state, loaded)
-        bindings = _candidate_bindings_valid(state, completed)
+        bindings = _candidate_bindings_valid(state, completed, root=root)
     except ContractError as error:
         return _result("NEW_CONTRACT_FAILED", f"candidate_bindings_valid: {error}", 1)
     except InputError as error:
@@ -661,7 +693,7 @@ def _done(state: dict[str, Any]) -> CheckResult:
     for name, check in (("completion_records_bound", _completion_records_bound(state, completed)), ("candidate_bindings_valid", bindings)):
         if not check[0]:
             return _result("NEW_CONTRACT_FAILED", f"{name}: {check[1]}", 1)
-    identity = _reviewer_identity_valid(state, completed)
+    identity = _reviewer_identity_valid(state, completed, root=root)
     if not identity[0]:
         return _result("NEW_CONTRACT_FAILED", f"reviewer_identity: {identity[1]}", 1)
     if any(dispatch.get("lineage_verified") is not True for _, dispatch, _ in completed):
@@ -676,7 +708,7 @@ def _done(state: dict[str, Any]) -> CheckResult:
     if state.get("deferred_findings") != []:
         return _result("NEW_CONTRACT_FAILED", "no_deferred_findings: deferred_findings must be []", 1)
     try:
-        evidence = _evidence_checks(state, loaded, completed)
+        evidence = _evidence_checks(state, loaded, completed, root=root)
     except ContractError as error:
         return _result("NEW_CONTRACT_FAILED", f"evidence_reconciliation: {error}", 1)
     except InputError as error:
@@ -692,14 +724,28 @@ def _done(state: dict[str, Any]) -> CheckResult:
 
 
 def check_state(
-    state_path: str | Path, *, target: str | None = None, manifest_path: str | Path | None = None
+    state_path: str | Path,
+    *,
+    target: str | None = None,
+    manifest_path: str | Path | None = None,
+    workspace_root: str | Path | None = None,
 ) -> CheckResult:
     """Check one STATE file and return a structured result without printing."""
     if target is not None and (not isinstance(target, str) or target not in {"DONE", "STOP"}):
         return _result("INPUT_ERROR", "target must be DONE or STOP", 2)
     try:
-        state = _read_json(Path(state_path), "STATE")
-    except InputError as error:
+        root = (
+            Path(workspace_root).resolve(strict=True)
+            if workspace_root is not None
+            else ROOT.resolve()
+        )
+        if not root.is_dir():
+            raise InputError("workspace_root must be an existing directory")
+        state_file = Path(state_path)
+        if workspace_root is not None and not state_file.is_absolute():
+            state_file = root / state_file
+        state = _read_json(state_file, "STATE")
+    except (InputError, OSError) as error:
         return _result("INPUT_ERROR", str(error), 2)
     if not isinstance(state, dict) or not isinstance(state.get("task_id"), str) or not state["task_id"]:
         return _result("INPUT_ERROR", "STATE task_id must be a non-empty string", 2)
@@ -733,7 +779,117 @@ def check_state(
             "STOP requires no children or every child archived with literal archive_confirmed=true",
             1,
         )
-    return _done(state)
+    return _done(state, root=root)
+
+
+def check_wave_state_context(
+    state_path: str | Path,
+    *,
+    task_id: str,
+    workspace_id: str,
+    orchestrator_agent_id: str,
+    workspace_root: str | Path,
+    manifest_path: str | Path | None = None,
+) -> CheckResult:
+    """Verify DONE plus the direct-child context required by a managed wave.
+
+    The ordinary serial checker deliberately remains backwards compatible: old
+    STATE records do not acquire wave-only fields.  A wave checker calls this
+    stricter entry point after resolving the STATE path from WAVE.json.
+    """
+    closed = check_state(
+        state_path,
+        target="DONE",
+        manifest_path=manifest_path,
+        workspace_root=workspace_root,
+    )
+    if closed.exit_code:
+        return closed
+    try:
+        state = _read_json(Path(state_path), "wave-bound STATE")
+    except InputError as error:
+        return _result("INPUT_ERROR", str(error), 2)
+    if not isinstance(state, dict):
+        return _result("NEW_CONTRACT_FAILED", "wave_context: STATE must be an object", 1)
+    if state.get("state") != "DONE":
+        return _result(
+            "NEW_CONTRACT_FAILED",
+            "wave_context: managed-wave closure requires persisted STATE.state=DONE",
+            1,
+        )
+    if state.get("task_id") != task_id:
+        return _result("NEW_CONTRACT_FAILED", "wave_context: task_id does not match WAVE", 1)
+    if state.get("workspace_id") != workspace_id:
+        return _result("NEW_CONTRACT_FAILED", "wave_context: workspace_id does not match WAVE", 1)
+    if state.get("orchestrator_agent_id") != orchestrator_agent_id:
+        return _result(
+            "NEW_CONTRACT_FAILED",
+            "wave_context: orchestrator_agent_id does not match WAVE",
+            1,
+        )
+    children = state.get("child_dispatches")
+    if not isinstance(children, list):
+        return _result("NEW_CONTRACT_FAILED", "wave_context: child_dispatches must be an array", 1)
+    seen_agents: set[str] = set()
+    for index, dispatch in enumerate(children):
+        if not isinstance(dispatch, dict):
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                f"wave_context: child_dispatches[{index}] must be an object",
+                1,
+            )
+        if dispatch.get("workspace_id") != workspace_id:
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                f"wave_context: child_dispatches[{index}].workspace_id does not match its task",
+                1,
+            )
+        if dispatch.get("task_id") != task_id:
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                f"wave_context: child_dispatches[{index}].task_id does not match its task",
+                1,
+            )
+        if dispatch.get("parent_agent_id") != orchestrator_agent_id:
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                f"wave_context: child_dispatches[{index}].parent_agent_id does not match WAVE",
+                1,
+            )
+        purpose = dispatch.get("purpose")
+        if not isinstance(purpose, str) or not purpose:
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                f"wave_context: child_dispatches[{index}].purpose must be a non-empty string",
+                1,
+            )
+        if dispatch.get("lineage_verified") is not True:
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                f"wave_context: child_dispatches[{index}] lacks literal lineage_verified=true",
+                1,
+            )
+        if str(dispatch.get("role", "")).lower() == "orchestrator":
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                f"wave_context: child_dispatches[{index}] is a forbidden lane orchestrator",
+                1,
+            )
+        agent_id = dispatch.get("agent_id")
+        if not isinstance(agent_id, str) or not agent_id:
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                f"wave_context: child_dispatches[{index}].agent_id must be non-empty",
+                1,
+            )
+        if agent_id in seen_agents:
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                f"wave_context: duplicate child agent_id {agent_id!r}",
+                1,
+            )
+        seen_agents.add(agent_id)
+    return _result("DONE_VERIFIED", "DONE and managed-wave context verified", 0)
 
 
 def validate(path: str | Path, target: str | None = None) -> CheckResult:

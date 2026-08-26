@@ -2,7 +2,7 @@
 
 > 状态：设计草案，运行时解耦版。
 >
-> 契约版本：`paseo-orchestration/2.18-draft`（取代 `paseo-orchestration/2.17-draft`；更早的
+> 契约版本：`paseo-orchestration/2.22-draft`（取代 `paseo-orchestration/2.21-draft`；更早的
 > `paseo-orchestration/2.15-draft` 已归档）。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文约束角色行为、任务边界和候选一致性，
@@ -19,8 +19,8 @@
 
 1. 同一 workspace 同时只有一个任务内容写入 agent；ORCHESTRATOR 可写编排记录和验证产物。
 2. 主代理定义范围、独立验证并裁决 finding。
-3. EXECUTOR、REVIEWER、SENIOR_REVIEWER 和 SCOUT 都使用当前 workspace；只读角色不得修改
-   任务内容。
+3. 普通串行任务的 EXECUTOR、REVIEWER、SENIOR_REVIEWER 和 SCOUT 使用当前 workspace；受管
+   wave 则使用下文唯一的跨 workspace 直系 child 拓扑。只读角色不得修改任务内容。
 4. 自动修复最多五轮；第二轮后的普通 review finding 必须先经 SENIOR_REVIEWER 按个人项目
    尺度校准，才能触发后续 FIX。
 5. 任务开始前记录工作树，结束前运行适用门禁。
@@ -299,7 +299,7 @@ STATE 在阶段变化、contract 完成、agent ID 变化、出现错误或 chil
 结束且不得删除。每条记录保存 `role`、`purpose`、`agent_id`、`lifecycle`、
 `archive_confirmed` 和 `archive_attempts_started`；语境 REVIEWER 的记录还必须保存不可变的
 `candidate_identity`、`dispatch_id` 和 `input_path`。child 创建成功后 `agent_id` 必须
-非空，且这些身份字段创建后不可修改。新持久化 role 只写 `EXECUTOR`、`REVIEWER`、`SCOUT`、
+非空、不得等于任务的 `orchestrator_agent_id`，且这些身份字段创建后不可修改。新持久化 role 只写 `EXECUTOR`、`REVIEWER`、`SCOUT`、
 `senior-reviewer`；`labels.role` 仍使用小写运行时值。`lifecycle`、`archive_confirmed`、
 `archive_attempts_started`、`last_error` 和 `archived_at` 是生命周期字段，按传输结果在
 保留的原记录上更新。持久化 canonical role 集合为 `EXECUTOR`、`REVIEWER`、`SCOUT`、`senior-reviewer`。
@@ -361,6 +361,135 @@ provider、model、mode、thinking 或 fallback tuple。指针在同一冻结候
 reconciliation 与 recovery 都要在使用前重新解析，暂时缺 enum 本身不触发 `WAIT_USER`。
 `not_applicable` 是统一枚举值，适用于 review-only、早于受管 EXECUTOR 的实现候选，或无冻结
 代码候选的 `scope_audit`。
+
+### 受管 Phase 1 wave
+
+受管并行 wave 采用且只采用一个跨 workspace 拓扑：`WAVE.json` 中唯一的
+`orchestrator_agent_id` 所指 ORCHESTRATOR 通过 agent-scoped 接口直接创建全部 lane 与
+integration child。不存在 lane-orchestrator 或中间编排根。每条 lane 使用与
+`root_workspace_id` 不同且彼此不同的 workspace；integration 可以使用 root workspace。
+每个 task 的 `STATE.orchestrator_agent_id` 必须等于 wave ORCHESTRATOR，且
+`STATE.child_dispatches` 只记录该 task 的直系 child。每条 wave child dispatch 必须持久化非空
+`workspace_id`、`task_id`、`parent_agent_id` 与 `purpose`：前两者分别等于所属 task 的
+`STATE.workspace_id`／`STATE.task_id`，parent 精确等于 WAVE ORCHESTRATOR，purpose 与实际
+dispatch 用途一致且非空。`lineage_verified=true` 只是附加声明，不能代替这些原始身份字段。
+恢复、归档和歧义 reconciliation 都先
+按该 child 的 task workspace 限定，再按 task、role、purpose、parent lineage 和候选绑定过滤，
+不得从 root workspace 的列表猜测其他 lane。`ai_state_check.check_wave_state_context` 在普通
+`DONE` closure 之外检查这些 wave-only workspace／lineage 条件；普通串行 STATE 不被追溯改写。
+
+角色写权限保持单写入者语义：ORCHESTRATOR 只维护 ignored 的 `.ai/waves/` 编排记录并执行只读
+核验；lane EXECUTOR 只写其 lane SPEC 的任务内容；REVIEWER、SENIOR_REVIEWER 与 SCOUT 只读；
+fresh integration EXECUTOR 是组合译文的唯一写入者。唯一受跟踪 wave evidence 也只能由同一
+integration task 中 lineage 核验的 fresh、归档确认、`purpose=wave_evidence` EXECUTOR 写入；
+其 dispatch 必须唯一绑定 `wave_evidence_path` 与 prospective DONE WAVE 的 SHA-256 identity，且
+agent ID 不得复用 `integration_apply`／`integration_fix` 或其他 dispatch。必要的 evidence-only EXECUTOR 是该 task
+唯一 `task-content-allowed-files/1` 授权面的语义子集，不得另建第二份 allowed-files，也不得改动
+任何 `translation_fix_paths` 字节。ORCHESTRATOR 不 cherry-pick、不 apply target、不编辑译文，
+也不创建、编辑或覆盖 wave evidence。
+
+Phase 1 的机器入口只能是普通、相对、非 symlink 的
+`.ai/waves/<wave-id>/WAVE.json`。`python3 -B tools/wave_review.py` 从该入口绑定并读取
+MERGE-QUEUE、CONFLICT-PREFLIGHT、lane-workset、lane／integration STATE、SPEC、SCOPE、
+TARGET-PATCH、integration-content-diff、prospective DONE WAVE 与唯一 evidence；CLI 不接受这些
+从属路径作为参数。上述 Phase 1 JSON 都使用 exact-key、紧凑 canonical UTF-8 字节；object key
+递归排序、array 保持冻结顺序、无额外空白或末尾换行，identity 为这些 canonical bytes 的
+SHA-256。路径逃逸、绝对路径、非规范路径、symlink 或 workspace 越界为输入错误。稳定退出码为
+`0=PASS`、`1=contract failed`、`2=input/usage error`。
+
+每次调用还必须用重复的 `--workspace-root WORKSPACE_ID=ROOT` 提供 WAVE 当前引用的全部
+workspace 的可信 root map。映射键集合必须与 WAVE 的 root、两条 lane 和已绑定 integration
+workspace ID 精确 1:1；不同 ID 不得解析到同一路径，所有 root 必须是同一 Git common-dir 下的
+真实 worktree，且 root workspace 必须就是权威 WAVE 入口所在 worktree。checker 在每个任务所属
+root 独立执行 path escape、父目录、symlink、Git object 和 tracked-file 检查；不得从 root
+workspace 读取同名的 lane 影子 STATE／SPEC／SCOPE／patch／review／envelope。
+
+`preflight` 必须从 pinned manifest 的唯一 `component.sources.mount`（或该组件的受保护 mount）
+定位 `component.translation` 并独立导出 primary，要求其精确等于 workset、lane
+`translation_fix_paths` 和 collateral artifact 的声明。Phase 1 lane SPEC 必须含有独占一行的
+`phase1_collateral: forbidden`；ordinary 规范常量为 `[]`，授权 remainder 必须重算为 `[]`。
+三类集合 identity、调用集合与 workset 的 1:1 关系、pairwise intersections、preflight PASS 和
+空 collateral 都从 WAVE 绑定字节重算，不信声明 bool／empty。
+`lane-workset/1` 必须非空且 revision、调用定位 1:1；checker 还须使用仓库固定 manifest、LuaJIT
+5.1 loader 和 `base_commit^{tree}`／所属 worktree 当前译文逐调用解析完整
+`(section, source, source_tag, args_order, special)` 身份。runtime set 精确由 workset 调用重建为
+`(source, source_tag)`；Phase 1 dry-run 的 term/narrative provenance 精确由每个
+`ordered_revision_keys` 重建为 `narrative_closure` 依赖键。两类声明不得自报为空。
+
+规范门禁命令为：
+
+```bash
+python3 -B tools/wave_review.py preflight .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+python3 -B tools/wave_review.py export-target-patch .ai/waves/<wave-id>/WAVE.json --lane-id <lane-id> <workspace-root-args>
+python3 -B tools/wave_review.py verify-target-patch .ai/waves/<wave-id>/WAVE.json --lane-id <lane-id> <workspace-root-args>
+python3 -B tools/wave_review.py apply-target-patch .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+python3 -B tools/wave_review.py verify-content-diff .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+python3 -B tools/wave_review.py prepare-publication .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+python3 -B tools/wave_review.py publish .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+python3 -B tools/wave_review.py done .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+```
+
+其中 `<workspace-root-args>` 是对 WAVE 当前全部 workspace ID 各重复一次的
+`--workspace-root WORKSPACE_ID=/absolute/git/worktree/root`。
+
+当前 Phase 1 工具的 TARGET-PATCH 能力边界是明确的 no-change dry-run：它严格校验
+`target-patch/1`、base commit/tree、final candidate、revision order、workset、queue、额外译文
+diff 与当前旧值漂移。空 patch 只有在每个 workset revision 的 candidate target、固定 base
+target 和 lane 当前 target 三者逐字节相等时才成立；integration full envelope 还必须按
+MERGE-QUEUE 顺序精确覆盖所有 lane workset／最终 envelope 的 key、source、target。遗漏、乱序或
+source／target 漂移均失败。工具只导出、verify 和 apply `changes=[]`。任何非空 patch 即使 schema 正确也
+fail closed；这不是生产 Lua apply。后续要启用非空 patch，必须另行实现按
+`(section, source, source_tag, args_order, special, call_index)` 解析 Lua、重算 base old target、
+证明 current old target、拒绝重叠与额外 diff，并经独立契约复审后才能解除此门禁。
+
+no-change closure 还要求每条 lane 及 integration 的全部 `translation_fix_paths` 当前字节逐文件
+等于 `base_commit`；这项全文件约束覆盖 workset 外的调用、target 和其他字节漂移，不能由只重算
+workset 调用或 whole-file hash 后回填声明绕过。`integration-content-diff/1` 的
+`changed_paths` 与 `entries` 必须都严格为 `[]`。`apply-target-patch` 在检查任何 lane patch 前，
+必须先读取 integration 的 task-derived STATE／SPEC／SCOPE，核验 task、workspace、共同
+orchestrator、唯一 `allowed_files = translation_fix_paths ∪ {wave_evidence_path}`，并找到恰好一个
+task／workspace／parent lineage／`purpose=integration_apply` 绑定的 integration EXECUTOR
+dispatch；调用进程的非空 `PASEO_AGENT_ID` 必须精确等于该唯一 EXECUTOR 的 `agent_id`，环境变量
+缺失、不等、记录缺失或歧义都 fail closed，`integration_fix` 不得代替 apply caller。
+
+每条 lane 的 `fixed_source_identity` 必须从 `base_commit` 固定字节的版本 manifest 重建：公共
+Git 组件取其 `source_repository` 的 `commit:<40-lowercase-hex>`，受保护组件取其
+`source_baseline.snapshot_sha256` 的 `snapshot:<64-lowercase-hex>`；当前 manifest 字节与
+`base_commit` 不同、来源机制缺失、或一个候选跨多个不同固定 identity 都失败关闭。integration
+使用全部 lane workset 按 MERGE-QUEUE 顺序重做相同校验，并机械构造其余 provenance：
+`bounded_context` 是各 lane 冻结 context array 的顺序串接；`terminology_snapshot` 是下列对象的
+canonical compact JSON UTF-8 字节解码字符串：
+
+```json
+{"schema_id":"phase1-integration-terminology-snapshot/1","lanes":[{"lane_id":"<queue lane>","terminology_snapshot":"<lane frozen string>"}]}
+```
+
+`rendered_briefing` 同样是下列对象的 canonical compact JSON UTF-8 字节解码字符串；数组保持
+MERGE-QUEUE／revision 顺序，`translation_snapshot` 的 target 从 integration 当前译文重解析：
+
+```json
+{"schema_id":"phase1-integration-contextual-briefing/1","ordered_lane_ids":["<lane>"],"ordered_revision_keys":["<revision>"],"translation_snapshot":[{"revision_key":"<revision>","source":"<source>","target":"<integration target>"}],"fixed_source_identity":"<manifest identity>","terminology_snapshot":"<canonical terminology render>","bounded_context":[{"revision_key":"<revision>","context":"<lane frozen context>"}],"lane_briefings":[{"lane_id":"<lane>","rendered_briefing":"<lane frozen briefing>"}]}
+```
+
+仅重算七键 payload／candidate identity 不能替代这些来源校验；空 context／术语／briefing 或任意
+重渲染值只要不等于上述机械结果就必须拒绝。
+
+终结恢复只复用冻结字节：GATED 后先用 `prepare-publication` 验证全部 lane／integration
+STATE 为真实 `DONE` closure、唯一 final completion record、归档 child、组合 full envelope 和
+translation hash，再写 canonical prospective DONE WAVE；由 integration EXECUTOR 写绑定该
+identity 的 evidence，随后由 `publish` 在再次核验 evidence／identity／translation bytes 后原子
+发布完全相同的权威 WAVE。`done` 只做发布后的 allowed-files／diff／evidence closure。
+prospective 已有而 evidence 缺失时续写 evidence；evidence 已有而
+权威 WAVE 未发布时，核验引用后发布相同字节；权威 WAVE 已发布时只重跑 closure。任意三者字节
+或 identity 不一致都 `WAIT_USER`，不得重渲染或修补哈希。`done` 还重跑 lane／integration STATE
+closure、translation-only 内容哈希、唯一 allowed-files 的 base→工作树 diff 与 evidence
+publication；成功仅报告外部 `DONE_VERIFIED`，不得把该字段写入 WAVE。
+其中每个 lane／integration 的 final full review 必须跨 STATE 的 `review_records` 与
+`senior_review_records` 扫描 `REVIEW`／`RE_REVIEW`／`FINAL_REVIEW` 等合法 review phase 的全部
+terminal full completion records，并唯一绑定最大 `(cycle, attempt)` 的一条。terminal completion
+包含 `CHANGES_REQUIRED`：更新的失败结论必须参与最大值选择并阻断 closure，不能因非 PASS 而先被
+过滤。最大 tuple 平局、跨数组重复路径、路径歧义、WAVE 指向较旧 completion 或最新记录不通过
+均失败关闭。
 
 ### 离线终态检查与采用边界
 
@@ -671,4 +800,8 @@ sidecar 的每个复合引用，并把未列出的相关 review、缺失 disposi
 | `2.15-draft` | 上一版草案 | 增加冻结／哈希前的离线 contextual-anchor preflight：任务作用域 SCOPE、实际 chapter-title 边界和 source-within-window 证明；它不改变 reviewer 可见的七键 payload 或任何 identity。 |
 | `2.16-draft` | 上一版草案 | 增加条件性 EVIDENCE-RECONCILIATION.json、确定性 inventory/render/check/check-audit，以及 DONE 的 sidecar 候选绑定、引用一致性、前瞻性 presence、reviewer/orchestrator 身份不等和 scope-audit 复合引用检查。 |
 | `2.17-draft` | 上一版草案 | 扩展 contextual-anchor preflight：无实际 chapter-title 的 section 可用 `ordered_titles: []` 声明 whole-section window；含 chapter-title 的 section 对空数组 fail closed，且不改变 payload 或 identity。 |
-| `2.18-draft` | 当前草案 | 要求 `translation_snapshot` 条目的 in-window `t(...)` 调用若带有 `args_order`，必须在 `bounded_context.context` 披露规范 token，并对缺失、错误、无关或歧义的 disclosure fail closed。 |
+| `2.18-draft` | 上一版草案 | 要求 `translation_snapshot` 条目的 in-window `t(...)` 调用若带有 `args_order`，必须在 `bounded_context.context` 披露规范 token，并对缺失、错误、无关或歧义的 disclosure fail closed。 |
+| `2.19-draft` | 上一版草案 | 增加受管 Phase 1 wave：唯一跨 workspace 直系 child 拓扑、角色写权限、WAVE-only CLI、pinned-manifest primary／空 collateral 重算、no-change TARGET-PATCH 能力边界、prospective／evidence／publication 恢复和外部 DONE closure。 |
+| `2.20-draft` | 上一版草案 | 把 workspace ID 绑定到显式 1:1 real-worktree root map；逐调用解析 base/current/candidate 与组合 envelope；由 workset 重建非空 runtime／narrative provenance；wave STATE 持久化 parent/task/purpose；增加 prepare-publication／原子 publish，并把 done 收窄为发布后 closure。 |
+| `2.21-draft` | 上一版草案 | 收紧 Phase 1 no-change 全文件字节闭合、空 content-diff、最新唯一 full completion、apply 前 integration 身份／授权／EXECUTOR provenance，以及 child agent 与 orchestrator 身份分离。 |
+| `2.22-draft` | 当前草案 | 把最新 full completion 扩展到两个 STATE review 数组和全部合法 review phase；apply 强制实际 `PASEO_AGENT_ID`；wave evidence 强制 fresh 专用 EXECUTOR 与 path/prospective identity；从固定 manifest 及 lane 冻结输入机械重建 integration source/context/terminology/briefing provenance。 |

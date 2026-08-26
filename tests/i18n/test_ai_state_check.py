@@ -248,7 +248,7 @@ class StateCheckerFixtureTests(unittest.TestCase):
         self._write(state_path, state)
         result = self._check_evidence_state(state_path)
         self.assertEqual(result.exit_code, 1)
-        self.assertIn("reviewer_identity", result.detail)
+        self.assertIn("agent_id must differ", result.detail)
 
     def test_evidence_f_is_candidate_bound_and_on_disk_sidecar_is_checked(self) -> None:
         state_path, state, record, directory = self._evidence_code()
@@ -947,6 +947,48 @@ class StateCheckerFixtureTests(unittest.TestCase):
                 )
                 self.assertEqual(usage.returncode, 2)
                 self.assertTrue(usage.stdout.startswith("INPUT_ERROR:"), usage)
+
+    def test_managed_wave_context_is_opt_in_and_workspace_bound(self) -> None:
+        state_path, state, record = self._copy_fixture("code")
+        self.assertEqual(ai_state_check.check_state(state_path).outcome, "DONE_VERIFIED")
+        state.update({"workspace_id": "lane-workspace", "orchestrator_agent_id": "wave-orchestrator"})
+        state["child_dispatches"][0].update({  # type: ignore[index]
+            "workspace_id": "lane-workspace",
+            "task_id": state["task_id"],
+            "parent_agent_id": "wave-orchestrator",
+            "lineage_verified": True,
+        })
+        self._write(state_path, state)
+        result = ai_state_check.check_wave_state_context(
+            state_path,
+            task_id=state["task_id"],  # type: ignore[arg-type]
+            workspace_id="lane-workspace",
+            orchestrator_agent_id="wave-orchestrator",
+            workspace_root=ROOT,
+        )
+        self.assertEqual((result.outcome, result.exit_code), ("DONE_VERIFIED", 0))
+
+        for field, value in (
+            ("workspace_id", "other-workspace"),
+            ("task_id", "other-task"),
+            ("parent_agent_id", "other-parent"),
+            ("purpose", ""),
+            ("lineage_verified", False),
+            ("role", "orchestrator"),
+            ("agent_id", "wave-orchestrator"),
+        ):
+            with self.subTest(field=field):
+                mutated = json.loads(json.dumps(state))
+                mutated["child_dispatches"][0][field] = value
+                self._write(state_path, mutated)
+                result = ai_state_check.check_wave_state_context(
+                    state_path,
+                    task_id=state["task_id"],  # type: ignore[arg-type]
+                    workspace_id="lane-workspace",
+                    orchestrator_agent_id="wave-orchestrator",
+                    workspace_root=ROOT,
+                )
+                self.assertEqual(result.exit_code, 1)
 
 
 class AdoptionBoundaryTests(unittest.TestCase):

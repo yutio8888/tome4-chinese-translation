@@ -66,6 +66,94 @@ EXECUTOR 结束却没有工作成果（无 diff、无报告，或只回了计划
 
 涉及 evidence-citing candidate 时，先用 `python3 -B tools/review_evidence.py inventory` 从 `.ai/reviews/` 源记录生成原始 finding 清单，再用 `check` 校验 proposer 的 `EVIDENCE-RECONCILIATION.json`；用 `render` 派生计数，不手填 counts。reviewer 仍须直接核对引用和未列出的相关记录。
 
+### 受管 Phase 1 wave
+
+并行只在 [`paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md) 的受管 wave
+契约已经启用时执行。一个 wave ORCHESTRATOR 必须直接拥有恰好两条 lane 及 integration 的全部
+child；每条 lane 使用不同 workspace，child dispatch 的 `workspace_id` 等于所属 task STATE，
+并同时持久化与 WAVE／STATE 一致的 `task_id`、`parent_agent_id` 和非空 `purpose`，不得只信
+`lineage_verified=true`，每个 child 的 `agent_id` 还必须不同于 wave ORCHESTRATOR，且不得创建 lane-orchestrator。ORCHESTRATOR 只写 ignored 编排记录；lane／integration 任务内容和
+唯一 wave evidence 只能由各自 lineage 核验的 EXECUTOR 写入，只读角色不得改变 workspace。
+
+派发前以 `WAVE.json` 为唯一入口运行：
+
+```bash
+python3 -B tools/wave_review.py preflight .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+```
+
+`<workspace-root-args>` 必须对 WAVE 当前引用的每个 workspace ID 各包含一个
+`--workspace-root WORKSPACE_ID=/absolute/git/worktree/root`。工具要求键集合 1:1、不同 ID 指向
+不同真实 worktree、全部 root 共享同一 Git common-dir，并在 lane／integration 所属 root 内独立
+做 escape／symlink 检查；root workspace 的同名影子文件不参与核验。
+
+preflight 必须重算 pinned-manifest primary、workset／SCOPE／collateral 的等值关系、
+`ordinary_non_collateral_paths=[]`、授权 remainder、三类集合 identity 与 pairwise intersection。
+每条 lane SPEC 必须含独占一行的 `phase1_collateral: forbidden`。任何声明为空而重算非空、path
+escape／symlink、identity 漂移或集合冲突都不得 DISPATCHED。
+workset 必须非空；调用须由固定 manifest 与仓库 LuaJIT loader 在 `base_commit^{tree}` 和所属
+lane 当前译文逐条唯一解析。runtime keys 从 `(source, source_tag)` 重建；本 dry-run 的
+term/narrative 集合从每个 ordered revision key 重建为明确的 `narrative_closure` 依赖键，不能
+自报空集合。
+
+lane 外部 `DONE_VERIFIED` 后按冻结 queue 导出和验证 patch：
+
+```bash
+python3 -B tools/wave_review.py export-target-patch .ai/waves/<wave-id>/WAVE.json --lane-id <lane-id> <workspace-root-args>
+python3 -B tools/wave_review.py verify-target-patch .ai/waves/<wave-id>/WAVE.json --lane-id <lane-id> <workspace-root-args>
+python3 -B tools/wave_review.py apply-target-patch .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+```
+
+当前 Phase 1 实现只支持 no-change dry-run 的 `changes=[]`：首次 apply 仍要求 HEAD commit 等于
+`base_commit`，index tree 与 tracked worktree tree 等于 `base_commit^{tree}`，且无任务内容
+dirty／untracked；verify/apply 只接受合法 `INTEGRATING` WAVE，并要求每条 lane 的实际 STATE
+持久化为 `DONE`、`ai_state_check` 返回 `DONE_VERIFIED`、唯一 final full completion record 与
+dispatch/envelope 绑定且全部 child 已归档。工具按完整 merge queue 核验空 patch；每个 candidate
+target 必须等于固定 base target 和 lane 当前 target，不能因 `changes=[]` 丢弃变化。非空 patch 一律 fail closed，不能把此
+结果报告为生产 apply。
+
+此外，每条 lane 的全部 `translation_fix_paths` 必须逐文件字节等于 `base_commit`，因此 workset
+之外的 call／target 或其他文件字节漂移也会失败。apply 在处理 lane patch 前先核验 integration
+task-derived STATE／SPEC／SCOPE、task／workspace／共同 orchestrator、唯一 translation+evidence
+allowed-files union，以及恰好一个 lineage／`purpose=integration_apply` 绑定的 integration
+EXECUTOR dispatch；实际调用进程还必须提供与该唯一记录 `agent_id` 相同的非空
+`PASEO_AGENT_ID`，缺失、不等或由 `integration_fix` 冒充均失败关闭。
+
+integration 的 final full envelope 必须按 MERGE-QUEUE 顺序精确合并每条 lane 的完整 workset 与
+最终 envelope：ordered keys、source、target、context 全部逐项 1:1，并由 integration 当前译文
+重新解析 target。`fixed_source_identity` 必须从 `base_commit` 固定字节的 manifest 按 public
+commit／protected snapshot 机制重建；integration 的 terminology snapshot 与 briefing 按编排契约
+规定的 canonical JSON recipe 从 queue 顺序、lane 冻结输入和 integration 实际 snapshot
+确定性重渲染。空值或任意重算 payload identity 不能替代这些 provenance。lane 与 integration 的
+final full review 还必须跨 `review_records`／`senior_review_records` 的合法 review phase 唯一指向
+最大 `(cycle, attempt)` full completion；更新的 `CHANGES_REQUIRED` 也参与最大值并阻断 closure，
+最大 tuple 平局、歧义或指向旧 completion 都失败关闭。
+
+integration 完整复审和门禁通过后，先冻结 prospective DONE WAVE，再由唯一 fresh、归档确认的
+`purpose=wave_evidence` integration EXECUTOR 写 evidence；该 dispatch 必须绑定唯一 evidence path
+和 prospective identity，且不得复用 apply／fix agent ID。随后原子发布完全相同的 WAVE bytes，
+最后运行：
+
+```bash
+python3 -B tools/wave_review.py verify-content-diff .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+python3 -B tools/wave_review.py prepare-publication .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+# integration EXECUTOR 写入绑定上一命令所报 identity 的唯一 wave evidence
+python3 -B tools/wave_review.py publish .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+python3 -B tools/wave_review.py done .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
+```
+
+`prepare-publication` 在 GATED 状态冻结或复用 prospective；`publish` 在发布前重验 prospective、
+evidence identity 与 translation hashes，并原子发布完全相同 bytes。prospective 缺失时只可从
+唯一 GATED 绑定确定性重建；evidence 缺失时停下等待 integration EXECUTOR；已发布时重复
+`publish` 幂等；identity／bytes 不一致一律失败关闭。`done` 只做发布后 closure，并复用
+`ai_state_check` 验证每个 lane／integration STATE，追加 task workspace、共同
+orchestrator、禁止 lane-orchestrator、child agent 不跨 task 复用、prospective／publication
+字节全等、evidence binding、translation-only hash 未漂移及唯一 allowed-files 的最终 diff
+closure。其 `DONE_VERIFIED` 只作为外部结果，不写回 WAVE。恢复时只续做缺失步骤：已有
+prospective 就不重算，已有 evidence 就先核验引用再发布，已发布 WAVE 就只重跑 closure；字节或
+identity 不一致时进入 `WAIT_USER`。
+integration 的全部 `translation_fix_paths` 也必须逐文件字节等于 `base_commit`，且
+`integration-content-diff/1.changed_paths` 与 `entries` 必须同时严格为空。
+
 ## 批次门禁
 
 译文每批按以下顺序运行，任何失败都必须先修复，不得用管道吞掉退出码：
