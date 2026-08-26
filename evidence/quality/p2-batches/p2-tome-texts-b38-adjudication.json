@@ -1,0 +1,69 @@
+{
+ "schema_version": 1,
+ "task_id": "p2-tome-texts-b38-001",
+ "component": "tome",
+ "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "workset": "evidence/quality/p2-batches/p2-tome-texts-b38-lore-elvala-high-peak.json",
+ "sections": [
+  "mod-tome/data/lore/elvala.lua",
+  "mod-tome/data/lore/fearscape.lua",
+  "mod-tome/data/lore/fun.lua",
+  "mod-tome/data/lore/high-peak.lua"
+ ],
+ "scope": {
+  "pairs": 52,
+  "targets_changed": 22,
+  "changed_by_section": {
+   "mod-tome/data/lore/elvala.lua": 10,
+   "mod-tome/data/lore/fearscape.lua": 3,
+   "mod-tome/data/lore/fun.lua": 6,
+   "mod-tome/data/lore/high-peak.lua": 3
+  },
+  "invariants": "All source keys, source_tag values, args_order/special metadata, markup/placeholders and target newline counts were preserved; all out-of-scope section blocks remained byte-identical."
+ },
+ "substantive_repairs": [
+  "Spellblaze memoir relationships and event sequences: Turthel's place among the elves, Linaniil's coercive character, twin relationships, northern raids, equipment and phase movement, battle deployment, Crystal Tower collapse, post-Spellblaze terrain and succession, Quekorja's defenders, and the final forbidden expedition",
+  "four late review tails with material action or causality: numerical overwhelm of cities, present battlefield orders, the cause of the orcs' fear, and wilderness communities versus larger settlements",
+  "four fourth-cycle relationship and timing repairs: drawing the orc forces out, ice-before-fire plus adrenaline leaving, Turthel's restraint with a solo-storm exception, and Cuilan being sent by Linaniil's father",
+  "Fearscape altar and planar-description wording, comic doggerel and mock-guide meaning, and High Peak horror/blood/ending semantics"
+ ],
+ "review": {
+  "contract": "translation_contextual_v1",
+  "valid_reviews": [
+   {"dispatch": "ctx-03", "candidate_identity": "25f01e7f876ade8fbe41657bd330e841960aa8610c1bc60af8387be11cf9b2b6", "observations_ok": 42, "findings": 10},
+   {"dispatch": "ctx-04", "candidate_identity": "e65169546366daf1449b041a95dbe848f19dcc7c0595823da9156651d8045d6d", "observations_ok": 45, "findings": 7},
+   {"dispatch": "ctx-05", "candidate_identity": "a3e9d2909a3fbaf257ec8c4d8dc0ec9255e254886fba74355def7e64ffae63c6", "observations_ok": 45, "findings": 7},
+   {"dispatch": "ctx-07", "candidate_identity": "f35b0a448c29b0900b6539f20fbc33ac0f7dffd72163f0bc56d6f0bab0a1fd10", "observations_ok": 48, "findings": 4},
+   {"dispatch": "ctx-08", "candidate_identity": "7ab06ea943967184adba67a7d5ebea1f30ce677966328c0e9de589d9a784b89d", "observations_ok": 49, "findings": 3}
+  ],
+  "invalid_dispatches": [
+   "ctx-01 returned only 4 of 52 revisions",
+   "ctx-02 returned 52 revisions but 22 frozen evidence pairs differed",
+   "ctx-06 returned 52 revisions but b38-07 evidence.source differed by 36 bytes"
+  ],
+  "infrastructure_retry": "exec-01 timed out with no diff or report; it was archived and fresh exec-02 produced the initial candidate",
+  "senior_scope_audits": 4,
+  "fix_cycles": 4,
+  "result": "All confirmed findings were resolved. Final-cycle scope audit declined the two remaining new tails and prohibited a fifth FIX."
+ },
+ "declined": [
+  {"items": ["b38-03-elvala-round2"], "reason": "missing weaver-of-threads epithet was a completeness tail below the second-cycle threshold"},
+  {"items": ["b38-31-fun-round2"], "reason": "soulless distinction was weakened but the two-way necromancy contrast remained legible"},
+  {"items": ["b38-41-fun-round2", "b38-41-fun-round5"], "reason": "skeleton armour-frequency inflation was a degree tail; the later occurrence was closed as a duplicate"},
+  {"items": ["b38-31-fun-round3", "b38-33-fun-round3", "b38-35-fun-round3"], "reason": "the three Tren? question marks were one punctuation/name-certainty tail and were declined together"},
+  {"items": ["b38-07-elvala-round5"], "reason": "star-cloud versus nebula-like portal energy was an imagery tail that did not change portal identity at the fifth-cycle threshold"},
+  {"items": ["b38-09-elvala-round5"], "reason": "warning versus warding was an interpretive dream-simile reading below the fifth-cycle threshold"}
+ ],
+ "gates": {
+  "five_step": "PASS",
+  "toolchain_unittests": "464 tests PASS",
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "ai_state": "DONE_VERIFIED",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "runtime_collisions": 0,
+  "diff": "mod-tome.lua 169 insertions / 169 deletions; 22 target values changed"
+ },
+ "open_items": [
+  {"item": "data/quests scope", "disposition": "unchanged maintainer scoping question; not part of b38"}
+ ]
+}

@@ -1,14 +1,14 @@
-# P2 Tome Texts — handoff at the b37 pause (2026-08-25)
+# P2 Tome Texts — active handoff at the b39 boundary (2026-08-25)
 
 Consolidated pickup document. Supersedes
 [`p2-tome-texts-handoff-2026-08-23.md`](p2-tome-texts-handoff-2026-08-23.md) as the entry point;
 that file remains the per-batch log and is still the place to read *why* a specific batch decided
 what it did.
 
-**Status: PAUSED at the b37 boundary on maintainer instruction.** Continuous batch mode is
-suspended. Resuming needs an explicit instruction.
+**Status: ACTIVE.** The maintainer resumed continuous review; b38 completed with all gates passing.
+The next bounded slice is b39 and does not require separate approval.
 
-Working tree is clean at `bde9a61`. Every batch below reached `DONE_VERIFIED` and passed
+b38 reaches `DONE_VERIFIED` in its completion commit. Every completed batch below passed
 `tools/ci-gates.sh` 12/12 including the strict addon build.
 
 ## 1. Coverage
@@ -17,22 +17,29 @@ Working tree is clean at `bde9a61`. Every batch below reached `DONE_VERIFIED` an
 |---|---|---|---|
 | `data/texts/` | 132 | 176 | Complete |
 | `data/chats/` | 100 | 1260 | Complete (b6–b35) |
-| `data/lore/` | 34 | 582 | 9 done (b36–b37); **25 sections / 492 pairs left** |
+| `data/lore/` | 34 | 582 | 13 done (b36–b38); **21 sections / 440 pairs left** |
 | `data/quests/` | 52 | 514 | **Zero coverage — and never scoped into P2** |
 
 ### Remaining `data/lore/` sections
 
-`elvala`(17), `fearscape`(5), `fun`(19), `high-peak`(11), `infinite-dungeon`(21), `iron-throne`(21),
-`keepsake`(34), `kor-pul`(7), `last-hope`(71), `maze`(6), `misc`(110), `noxious-caldera`(7),
+`infinite-dungeon`(21), `iron-throne`(21), `keepsake`(34), `kor-pul`(7), `last-hope`(71),
+`maze`(6), `misc`(110), `noxious-caldera`(7),
 `old-forest`(10), `orc-prides`(37), `rhaloren`(8), `sandworm`(6), `scintillating-caves`(13),
 `shertul`(41), `slazish`(7), `spellblaze`(3), `spellhunt`(9), `sunwall`(6), `tannen`(9),
 `trollmire`(5), `zigur`(9)
 
-**About 9 more slices.** `misc.lua` (110) and `last-hope.lua` (71) each need their own batch; the
-other 311 pairs make roughly 7 at the ~45 pairs/batch this track has settled into.
+**About 8 more slices.** `misc.lua` (110) and `last-hope.lua` (71) each need their own batch; the
+other 259 pairs make roughly 6 at the ~45 pairs/batch this track has settled into.
 
-**Next slice (b38):** `elvala`, `fearscape`, `fun`, `high-peak` — 52 pairs. Both `elvala.lua` and
-`high-peak.lua` were cleaned by the Angolwen ruling, so they are ready.
+**Next slice (b39):** `infinite-dungeon`, `iron-throne` — 42 pairs.
+
+### b38 completion
+
+`elvala`, `fearscape`, `fun`, `high-peak` — 52 pairs; 22 targets changed (10/3/6/3 by section).
+Four bounded FIX cycles resolved all confirmed action, relationship, timing and causality errors.
+The final senior audit declined two fifth-cycle tails and prohibited another FIX. Durable records:
+`evidence/quality/p2-batches/p2-tome-texts-b38-lore-elvala-high-peak.json` and
+`p2-tome-texts-b38-adjudication.json`. Five-step gates and full CI passed.
 
 ### The `data/quests/` question
 

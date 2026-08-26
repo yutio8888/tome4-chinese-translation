@@ -100,15 +100,16 @@
 - b37 其他修正：叛乱记述的施事关系颠倒（谁刺穿谁、谁夺剑、谁失踪）；陷阱机制是压力板触发时**按比例混合**药剂而非组装装置，效果分别为龙火与寒冰；`incapacitate` 的非致命制服被泛化为击退，并补回向安格利文发送求救讯息；领主惩戒令中「一千骷髅发配／二百五十处决」与「卡·普尔早已死去」；复数化的矮人数量改回单指波法斯特。
 - b37 保留项：一条被弄脏的诗歌键与范围外 objects section 共享，executor 改动后被 `lint --strict` 捕获，**自行回退并如实报告**，未改动另一侧——这是连续第三批 executor 无需提示即出现该行为。
 
-- 接手步骤：继续审校时跳过已核验且无改动的 `limmir-valley-moon.lua` 与已完成的 b22–b31 共 39 个 section，`data/chats/` 已于 b35 全部完成（100 个 section，b6–b35）。`data/lore/` 共 34 个 section 约 582 条，b36 已完成首批 4 个 section；`misc.lua`（110）与 `last-hope.lua`（71）体量过大，各自单独成批。`Grand Keeper` 遗留项已在 b34 清零。
+- b38：`elvala.lua`、`fearscape.lua`、`fun.lua`、`high-peak.lua` 共 52 条，修订 22 条 target（10/3/6/3）。四轮有界 FIX 解决了魔法大爆炸回忆录中的人物关系、战术动作、事件时序与因果错误，恶魔空间祭坛措辞，喜剧诗歌／亡灵指南的原意，以及巅峰日志语义。五份有效全量复审均通过 52/52 冻结 evidence 校验；三次畸形 review 输出按 failure-close 归档，未接受其中意见。四次高级范围校准最终关闭全部 finding，未开启第五轮 FIX。五步门禁、464 项工具链单测、完整 `tools/ci-gates.sh` 12/12（含构建）与 `DONE_VERIFIED` 均通过。受跟踪记录为 `p2-tome-texts-b38-lore-elvala-high-peak.json` 与 `p2-tome-texts-b38-adjudication.json`。
+- 接手步骤：`data/chats/` 已于 b35 全部完成（100 个 section，b6–b35）。`data/lore/` 共 34 个 section／582 条，b36–b38 已完成 13 个 section／142 条；剩余 21 个 section／440 条。下一批 b39 为 `infinite-dungeon.lua`＋`iron-throne.lua` 共 42 条；`misc.lua`（110）与 `last-hope.lua`（71）各自单独成批。
 
 **术语批次已于 `de44127` 完成**（详见下文「已完成」）。原文如下保留作为记录：**下一步不是 b37，而是一个专门的术语批次。** 维护者已于 2026-08-25 裁定两项统一：`Angolwen`＝**安格利文**（10 处／6 个 section），`Maj'Eyal`＝**马基·埃亚尔**（带间隔点，55 处／33 个 section）。后者更棘手：术语行当前持有的恰是被否决的写法（`Maj'Eyal 马基埃亚尔`，`existing`），需改写行的 target 而非仅提升状态；且波及 `init.lua`、`class/Game.lua`、`class/uiset/Minimalist.lua`、成就、出生世界、区域 grids 等非叙事文件。按 `Ziguranth`（`1a4a236`＋`8fb41dd`）的先例作为**独立术语批次**执行，五步门禁后追加三项术语审计，不并入任何叙事切片。完成后再开 b37（`arena`、`blighted-ruins`、`daikara`、`derth`、`dreadfell`），届时 `derth.lua` 已干净。——**均已完成**：术语批次 `de44127`（`安格列文`／`马基埃亚尔` 残留归零，计数 60／126 与基线算术吻合，复审以哨兵替换法证明无附带改动），b37 `f3790d9`。
 
-## 当前进度与暂停
+## 当前进度
 
-**维护者已指示：b37 之后暂停。** 连续批次模式在此边界挂起，恢复需明确指令。
+**维护者已明确恢复连续批次模式。** b38 已完成；下一批从 b39 开始，无需逐批确认。
 
-`data/lore/` 34 个 section／582 条中，已完成 9 个 section／90 条（b36、b37），**剩余 25 个 section／492 条，约 9 个切片**：`misc.lua`（110）与 `last-hope.lua`（71）各自单独成批，其余 311 条按约 45 条一批约 7 批。下一切片为 `elvala`、`fearscape`、`fun`、`high-peak`——其中 `elvala.lua` 与 `high-peak.lua` 已被术语批次清理干净。
+`data/lore/` 34 个 section／582 条中，已完成 13 个 section／142 条（b36–b38），**剩余 21 个 section／440 条，约 8 个切片**：`misc.lua`（110）与 `last-hope.lua`（71）各自单独成批，其余 259 条按约 45 条一批约 6 批。下一切片为 `infinite-dungeon`、`iron-throne`（42 条）。
 
 **全局覆盖**：`data/chats/` 100 section／1260 条已完成；`data/texts/` 132 section／176 条按受跟踪证据已完成；`data/lore/` 如上；**`data/quests/` 52 section／514 条受跟踪覆盖为零，且从未列入 P2 范围**（路线图只点名 chats 与 lore）。该目录同属叙事内容，是否纳入需维护者裁决——若纳入，另需约 12 个切片。
 
