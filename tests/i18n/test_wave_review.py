@@ -22,14 +22,17 @@ import wave_review
 
 
 class WaveFixture:
-    """A two-lane wave whose task records live in real detached Git worktrees."""
+    """A 2-4 lane wave whose task records live in real detached Git worktrees."""
 
     wave_id = "p2-wave-phase1-test"
     wave_path = Path(".ai/waves/p2-wave-phase1-test/WAVE.json")
     integration_apply_agent_id = "integration-apply-agent"
     wave_evidence_agent_id = "integration-evidence-agent"
 
-    def __init__(self, parent: Path) -> None:
+    def __init__(self, parent: Path, lane_count: int = 2) -> None:
+        if not wave_review.MIN_LANES <= lane_count <= wave_review.MAX_LANES:
+            raise ValueError("fixture lane_count must be between 2 and 4")
+        self.lane_ids = tuple("ABCD"[:lane_count])
         self.parent = parent
         self.root = parent / "integration"
         self.root.mkdir()
@@ -49,8 +52,15 @@ class WaveFixture:
             "commit:" + manifest_value["repositories"]["engine"]["commit"]
         )
         self.calls_by_lane = {
-            "A": self._calls("A", "mod-tome/data/lore/fun.lua"),
-            "B": self._calls("B", "mod-tome/data/lore/infinite-dungeon.lua"),
+            lane_id: self._calls(
+                lane_id,
+                (
+                    "mod-tome/data/lore/fun.lua"
+                    if index % 2 == 0
+                    else "mod-tome/data/lore/infinite-dungeon.lua"
+                ),
+            )
+            for index, lane_id in enumerate(self.lane_ids)
         }
         self.write_raw("mod-tome.lua", self._locale_bytes())
         self._git(
@@ -67,15 +77,17 @@ class WaveFixture:
             self.root, "rev-parse", f"{self.base}^{{tree}}"
         ).stdout.strip()
         self.lane_roots = {
-            "A": parent / "lane-A",
-            "B": parent / "lane-B",
+            lane_id: parent / f"lane-{lane_id}"
+            for lane_id in self.lane_ids
         }
         for lane_root in self.lane_roots.values():
             self._git(self.root, "worktree", "add", "--detach", "-q", str(lane_root), self.base)
         self.workspace_roots = {
             "root-workspace": self.root,
-            "lane-workspace-A": self.lane_roots["A"],
-            "lane-workspace-B": self.lane_roots["B"],
+            **{
+                f"lane-workspace-{lane_id}": self.lane_roots[lane_id]
+                for lane_id in self.lane_ids
+            },
         }
         self.lanes: list[dict[str, object]] = []
         self.worksets: list[dict[str, object]] = []
@@ -112,7 +124,7 @@ class WaveFixture:
 
     def _locale_bytes(self) -> bytes:
         lines = ['locale "zh_CN"']
-        for lane_id in ("A", "B"):
+        for lane_id in self.lane_ids:
             calls = self.calls_by_lane[lane_id]
             lines.append(f'section "{calls[0]["section"]}"')
             for index, call in enumerate(calls):
@@ -292,7 +304,7 @@ class WaveFixture:
         return state, review
 
     def _build_lanes(self) -> None:
-        for lane_id in ("A", "B"):
+        for lane_id in self.lane_ids:
             task_id = f"lane-task-{lane_id}"
             workspace_id = f"lane-workspace-{lane_id}"
             calls = self.calls_by_lane[lane_id]
@@ -441,7 +453,7 @@ class WaveFixture:
             "schema_version": 1,
             "wave_id": self.wave_id,
             "base_commit": self.base,
-            "ordered_lane_ids": ["A", "B"],
+            "ordered_lane_ids": list(self.lane_ids),
             "sets": self.preflight_sets,
             "pairwise_intersections_empty": True,
             "result": "PASS",
@@ -453,7 +465,7 @@ class WaveFixture:
             "schema_version": 1,
             "wave_id": self.wave_id,
             "base_commit": self.base,
-            "ordered_lane_ids": ["A", "B"],
+            "ordered_lane_ids": list(self.lane_ids),
             "items": [
                 {
                     "lane_id": lane["lane_id"],
@@ -472,11 +484,11 @@ class WaveFixture:
         task_id = "integration-task"
         workspace_id = "root-workspace"
         evidence_path = f"evidence/quality/p2-waves/{self.wave_id}-adjudication.json"
-        calls = self.calls_by_lane["A"] + self.calls_by_lane["B"]
+        calls = [call for lane_id in self.lane_ids for call in self.calls_by_lane[lane_id]]
         envelope, identity = self._envelope(calls, "integration")
         lane_payloads = [
             (lane_id, envelope_value["payload"])
-            for lane_id, envelope_value in zip(("A", "B"), self.lane_envelopes)
+            for lane_id, envelope_value in zip(self.lane_ids, self.lane_envelopes)
         ]
         payload = envelope["payload"]
         payload["bounded_context"] = [
@@ -564,7 +576,7 @@ class WaveFixture:
             "base_commit": self.base,
             "orchestrator_agent_id": "wave-orchestrator",
             "root_workspace_id": "root-workspace",
-            "ordered_lane_ids": ["A", "B"],
+            "ordered_lane_ids": list(self.lane_ids),
             "lanes": self.lanes,
             "integration": self.integration,
             "merge_queue_path": self.merge_path,
@@ -730,6 +742,150 @@ class WaveReviewTests(unittest.TestCase):
             return function(*args, self.fixture.workspace_roots)
         finally:
             __import__("os").chdir(previous)
+
+    def call_fixture(self, fixture: WaveFixture, function, *args):
+        previous = Path.cwd()
+        try:
+            os.chdir(fixture.root)
+            return function(*args, fixture.workspace_roots)
+        finally:
+            os.chdir(previous)
+
+    def test_configurable_two_through_four_lane_positive_closure(self) -> None:
+        fixtures = [self.fixture]
+        for lane_count in (3, 4):
+            temporary = tempfile.TemporaryDirectory(
+                prefix=f"wave-review-{lane_count}-lane-"
+            )
+            self.addCleanup(temporary.cleanup)
+            fixtures.append(WaveFixture(Path(temporary.name), lane_count=lane_count))
+        for expected_count, fixture in zip((2, 3, 4), fixtures):
+            with self.subTest(lane_count=expected_count):
+                self.assertEqual(len(fixture.lanes), expected_count)
+                preflight = self.call_fixture(
+                    fixture, wave_review.preflight, str(fixture.wave_path)
+                )
+                self.assertEqual(preflight.exit_code, 0, preflight.detail)
+                done = self.call_fixture(
+                    fixture, wave_review.done, str(fixture.wave_path)
+                )
+                self.assertEqual(done.exit_code, 0, done.detail)
+
+    def test_lane_bounds_duplicates_and_missing_lane_fail_closed(self) -> None:
+        base = self.fixture.wave
+        mutations: dict[str, object] = {}
+
+        too_few = copy.deepcopy(base)
+        too_few["ordered_lane_ids"] = too_few["ordered_lane_ids"][:1]
+        too_few["lanes"] = too_few["lanes"][:1]
+        mutations["too-few"] = too_few
+
+        too_many = copy.deepcopy(base)
+        too_many["ordered_lane_ids"] = ["A", "B", "C", "D", "E"]
+        too_many["lanes"] = [copy.deepcopy(base["lanes"][0]) for _ in range(5)]
+        mutations["too-many"] = too_many
+
+        duplicate_id = copy.deepcopy(base)
+        duplicate_id["ordered_lane_ids"][1] = duplicate_id["ordered_lane_ids"][0]
+        mutations["duplicate-id"] = duplicate_id
+
+        duplicate_workspace = copy.deepcopy(base)
+        duplicate_workspace["lanes"][1]["workspace_id"] = duplicate_workspace["lanes"][0][
+            "workspace_id"
+        ]
+        mutations["duplicate-workspace"] = duplicate_workspace
+
+        duplicate_task = copy.deepcopy(base)
+        first = duplicate_task["lanes"][0]
+        second = duplicate_task["lanes"][1]
+        second["task_id"] = first["task_id"]
+        second["state_path"] = first["state_path"]
+        second["spec_path"] = first["spec_path"]
+        second["target_patch_path"] = first["target_patch_path"]
+        mutations["duplicate-task"] = duplicate_task
+
+        missing_lane = copy.deepcopy(base)
+        missing_lane["lanes"] = missing_lane["lanes"][:1]
+        mutations["missing-lane"] = missing_lane
+
+        for name, value in mutations.items():
+            with self.subTest(name=name):
+                with self.assertRaises(wave_review.ContractError):
+                    wave_review.validate_schema(value, "wave/1")
+
+    def test_three_lane_queue_and_evidence_order_or_cardinality_drift_fails(self) -> None:
+        for name, mutate, expected in (
+            (
+                "queue-order",
+                lambda fixture: fixture.merge["items"].reverse(),
+                "MERGE-QUEUE",
+            ),
+            (
+                "queue-cardinality",
+                lambda fixture: fixture.merge["items"].pop(),
+                "MERGE-QUEUE",
+            ),
+            (
+                "evidence-order",
+                lambda fixture: fixture.evidence["lanes"].reverse(),
+                "wave evidence lane",
+            ),
+            (
+                "evidence-cardinality",
+                lambda fixture: fixture.evidence["lanes"].pop(),
+                "cardinality",
+            ),
+        ):
+            with self.subTest(name=name):
+                temporary = tempfile.TemporaryDirectory(prefix=f"wave-{name}-")
+                self.addCleanup(temporary.cleanup)
+                fixture = WaveFixture(Path(temporary.name), lane_count=3)
+                mutate(fixture)
+                if name.startswith("queue"):
+                    fixture.write(fixture.merge_path, fixture.merge)
+                    result = self.call_fixture(
+                        fixture, wave_review.preflight, str(fixture.wave_path)
+                    )
+                else:
+                    fixture.write(
+                        str(fixture.wave["wave_evidence_path"]), fixture.evidence
+                    )
+                    result = self.call_fixture(
+                        fixture, wave_review.done, str(fixture.wave_path)
+                    )
+                self.assertEqual(result.exit_code, 1)
+                self.assertIn(expected, result.detail)
+
+    def test_four_lane_pairwise_conflict_checks_nonadjacent_pair(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="wave-four-lane-conflict-")
+        self.addCleanup(temporary.cleanup)
+        fixture = WaveFixture(Path(temporary.name), lane_count=4)
+        source_call = fixture.worksets[0]["calls"][0]
+        conflicting_call = fixture.worksets[3]["calls"][0]
+        for field in ("section", "source", "source_tag", "args_order", "special"):
+            conflicting_call[field] = copy.deepcopy(source_call[field])
+        frozen = fixture.preflight_sets[3]
+        frozen["call_set"]["items"] = copy.deepcopy(fixture.worksets[3]["calls"])
+        frozen["call_set_identity"] = wave_review.canonical_sha256(frozen["call_set"])
+        frozen["runtime_key_set"]["items"][0] = {
+            "runtime_key": source_call["source"],
+            "source_tag": source_call["source_tag"],
+        }
+        frozen["runtime_key_set_identity"] = wave_review.canonical_sha256(
+            frozen["runtime_key_set"]
+        )
+        fixture.write(
+            str(fixture.lanes[3]["workset_path"]), fixture.worksets[3]
+        )
+        fixture.lanes[3]["workset_identity"] = wave_review.canonical_sha256(
+            fixture.worksets[3]
+        )
+        fixture.refresh_preflight()
+        result = self.call_fixture(
+            fixture, wave_review.preflight, str(fixture.wave_path)
+        )
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("intersect", result.detail)
 
     def test_real_cross_worktree_preflight_and_no_root_shadow_reads(self) -> None:
         f = self.fixture

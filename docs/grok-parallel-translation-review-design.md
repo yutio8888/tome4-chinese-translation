@@ -23,7 +23,7 @@ lane **不是**无契约／无流程变更的优化：在下文列出的契约�
 - Phase 1 并行 lane 的 collateral 集必须为空，且 SPEC 禁止 collateral 修改；
 - 术语库、全局重命名、P3 操作仍由维护者单独授权。
 
-目标是在不降低上述标准的前提下，把稳定批次吞吐提高到当前的 2–3 倍，并
+目标是在不降低上述标准的前提下，把稳定批次吞吐提高到当前的 2–4 倍，并
 显著减少多轮复审重复读取和回显完整长文本的成本。墙钟加速不得早于契约与
 checker 落地。
 
@@ -68,7 +68,8 @@ workspace 之间。同一 lane 内部仍保持作者、审核者和修复者的�
 WAVE PLANNER → 最小 conflict preflight（不确定则串行或 WAIT_USER）
   ├─ Lane A workspace/worktree ─ EXECUTOR → REVIEWER → FIX/REVIEW → lane DONE
   ├─ Lane B workspace/worktree ─ EXECUTOR → REVIEWER → FIX/REVIEW → lane DONE
-  └─ Lane C workspace/worktree ─ EXECUTOR → REVIEWER → FIX/REVIEW → lane DONE
+  ├─ Lane C workspace/worktree ─ EXECUTOR → REVIEWER → FIX/REVIEW → lane DONE
+  └─ Lane D workspace/worktree ─ EXECUTOR → REVIEWER → FIX/REVIEW → lane DONE
                                       │
                                       ▼ 全部参与 lane 均 DONE
                     受管 integration task（fresh EXECUTOR 为唯一集成写入者）
@@ -86,7 +87,7 @@ WAVE PLANNER → 最小 conflict preflight（不确定则串行或 WAIT_USER）
 - 唯一跨 workspace 拓扑见第 5.1 节：一个 wave ORCHESTRATOR 直接创建并拥有
   全部 lane／integration child；契约扩展允许 `child_dispatch.workspace_id`
   与 root workspace 不同。禁止再引入任何 lane-orchestrator。
-- 建议并发上限为三条活跃 lane，另留协调槽位。Phase 1 并行恰好两条 lane。
+- Phase 1 的并行度可配置为 2–4 条活跃 lane，默认 2、硬上限 4。
   在契约允许跨 workspace 的受管 wave、且 Phase 1 最小 WAVE／MERGE-QUEUE
   schema 与 checker 落地之前，不得派发并行 lane。
 - Wave ORCHESTRATOR 只提供／裁决受控输入并做核验：维护 `.ai/waves/` 编排
@@ -175,15 +176,14 @@ collateral，必须另定义独立补丁契约（例如 `collateral-patch/1`）�
 `t()` 路径的有界 hunk；不得借用 `TARGET-PATCH` 的 schema、身份配方或
 apply／verify。在该独立契约落地前，并行 wave 继续要求 collateral 为空。
 
-### 4.2 冲突图（Phase 2 对 Phase 1 字段的扩展）
+### 4.2 冲突图（Phase 2 的可选调度扩展）
 
 Phase 1 交付最小 WAVE／MERGE-QUEUE／CONFLICT-PREFLIGHT（含根 identity
 与 `collateral-authorization/1`）／`lane-workset/1`／
 `task-content-allowed-files/1`／`integration-content-diff/1`／
-wave-evidence schema 与 checker，并执行 4.1 的可重算相交检测。Phase 2
-**不**新写一套
-checker，只把同一 checker 扩展为：允许第三条 lane，并要求
-`CONFLICT-GRAPH.json` 的 exact-key 字段与检查。
+wave-evidence schema 与 checker，并执行 4.1 的可重算相交检测；同一
+checker 在 Phase 1 即允许 2–4 条 lane。Phase 2 **不**新写一套 checker，
+只可选增加 `CONFLICT-GRAPH.json` 的 exact-key 字段、图着色和调度检查。
 
 Phase 2 冲突图：节点是有界批次，边表示两个批次不适合同时进入可合并状态。
 边至少来自 4.1 的四类集合，以及「相同 section 或相同 `t()` 调用」。规划器
@@ -532,7 +532,8 @@ SPEC 或 lane `allowed_files`。
 `lanes[]` 每项恰好包含示例中的 14 个键；`integration` 恰好包含示例中的
 12 个键。被哈希 WAVE **不得**包含 `done_verified` 键。`ordered_lane_ids`
 与 `lanes[].lane_id` 集合和顺序 1:1。Phase 1 并行 `ordered_lane_ids`
-长度必须为 2；Phase 2 checker 另允许 3。`wave_evidence_path` 必须精确
+长度必须在 2–4 之间，默认生成 2 条，少于 2 或多于 4 均 fail closed。
+`wave_evidence_path` 必须精确
 等于 `evidence/quality/p2-waves/<wave-id>-adjudication.json`，其中
 `<wave-id>` 与根上 `wave_id` 字节相等。`conflict_preflight_path` 必须
 精确等于 `.ai/waves/<wave-id>/CONFLICT-PREFLIGHT.json`。每条 lane 的
@@ -1266,9 +1267,9 @@ evidence。任一项失败则不得报告 wave `DONE_VERIFIED`：
     核验通过后，checker 才报告外部 `DONE_VERIFIED`；该结果不写入
     WAVE 字节。
 
-Checker 不把「各 lane 均 DONE」当作 wave DONE。Phase 2 只在此 predicate
-上增加：`ordered_lane_ids` 允许长度为 3；存在并校验
-`CONFLICT-GRAPH.json`（第 13 节）。MERGE-QUEUE checker 与 DONE checker
+Checker 不把「各 lane 均 DONE」当作 wave DONE。Phase 2 只可选在此
+predicate 上增加：存在并校验 `CONFLICT-GRAPH.json`（第 13 节）。
+MERGE-QUEUE checker 与 DONE checker
 均须绑定并核验同一 `wave_evidence_path`、其 identity 字段与内容；不得
 另设入口绕过 WAVE。
 
@@ -1730,12 +1731,14 @@ Grok 不依赖这项优化。
 
 ## 10. 调度策略
 
-建议最多三个活跃 worker（仅在 PREFLIGHT 通过且契约已允许跨 workspace 受管
-lane 之后）：
+建议按 wave 配置 2–4 条活跃 lane（默认 2；仅在 PREFLIGHT 通过且契约已允许
+跨 workspace 受管 lane 之后）：
 
 - reviewer 优先于新 executor，尽快释放已写入 lane；
-- 同一时刻最多两个 EXECUTOR，降低 CPU、磁盘和大模型写入竞争；
-- 第三个槽位用于 REVIEWER、SENIOR_REVIEWER 或 SCOUT；
+- 资源充足时可同时推进最多四条 lane；资源受限时保持默认两条，不因配置上限
+  强行占满 worker；
+- REVIEWER、SENIOR_REVIEWER 或 SCOUT 与 lane 的具体并发由编排器按可用槽位
+  调度，不改变每条 lane 内的角色顺序；
 - 完成的 child 经 status、attention、activeTurn 和工作树复核后立即归档；
 - progress-only 或无 diff 的 executor 仍按无效 dispatch 处理，fresh retry，
   不续跑旧 child。
@@ -1908,17 +1911,16 @@ dispatch、finding 数和门禁时间，建立基线。这是唯一无需契约�
 
 上述落地后才允许：
 
-- 恰好两条独立 worktree／workspace lane；
+- 2–4 条独立 worktree／workspace lane，默认 2、硬上限 4；
 - lane 内仍用 `translation_contextual_v1`，首轮／最终轮全量，完整门禁；
 - 全部 lane DONE 后由 integration EXECUTOR 应用 TARGET-PATCH，再冻结
   integration 自己的组合候选并做独立最终全量复审；有 finding 则走 5.5。
 
-不得把「两条 worktree + 主编排者 cherry-pick」当作 Phase 1。带
+不得把「多条 worktree + 主编排者 cherry-pick」当作 Phase 1。带
 collateral 的批次在本阶段保持串行或 `WAIT_USER`。
 
-### Phase 2：三 lane 与完整冲突图（扩展，不新写 checker）
+### Phase 2：完整冲突图与调度优化（可选扩展，不新写 checker）
 
-- 扩展 Phase 1 已交付的 wave checker：`ordered_lane_ids` 允许长度 3；
 - 增加独立文件 `CONFLICT-GRAPH.json` 的 exact-key 字段与检查，并在最小
   preflight 之上做着色；
 - 不把「增加 wave 状态检查」写成新能力——该检查属于 Phase 1；
@@ -1999,11 +2001,13 @@ review shard。所有 shard 必须精确分区且最终仍经过一个全量 rev
 基础设施任务：先改契约／最小 wave schema 与 checker／跨 workspace 拓扑
 扩展／TARGET-PATCH／`lane-workset/1` 独立导出的空 collateral preflight
 ／唯一 integration allowed-files 授权面／translation-only content-diff
-／finding 收敛／第 5.6 节终结协议，再跑两条 lane。不要批准「无契约变更
+／finding 收敛／第 5.6 节终结协议，再以默认两条 lane 做首轮验证，并用
+3／4 lane 正例确认可配置上限。不要批准「无契约变更
 的并行 MVP」，也不要把 wave checker 推迟到 Phase 2。带 collateral 的
 批次继续串行，直到另有独立补丁契约。
 
-Phase 2 在两 lane 试运行稳定后实施，只扩展三 lane 与冲突图字段／检查。
+Phase 2 在 Phase 1 的 2–4 lane 试运行稳定后按需实施，只增加完整冲突图、
+图着色与调度优化，不负责引入第三或第四条 lane。
 Phase 3 涉及审核契约语义变化，应作为单独基础设施任务交叉复审，并按第
 7.2／7.3 节已冻结的 exact-key schema 落地。Phase 4 仅在跨批次并行仍不足
 以处理超大 section 时启用。

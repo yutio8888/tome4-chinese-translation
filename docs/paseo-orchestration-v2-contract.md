@@ -398,7 +398,8 @@ SHA-256。路径逃逸、绝对路径、非规范路径、symlink 或 workspace 
 `0=PASS`、`1=contract failed`、`2=input/usage error`。
 
 每次调用还必须用重复的 `--workspace-root WORKSPACE_ID=ROOT` 提供 WAVE 当前引用的全部
-workspace 的可信 root map。映射键集合必须与 WAVE 的 root、两条 lane 和已绑定 integration
+workspace 的可信 root map。Phase 1 接受 2–4 条 lane（默认 2 条，不允许无界并发）；映射键集合
+必须与 WAVE 的 root、全部 lane 和已绑定 integration
 workspace ID 精确 1:1；不同 ID 不得解析到同一路径，所有 root 必须是同一 Git common-dir 下的
 真实 worktree，且 root workspace 必须就是权威 WAVE 入口所在 worktree。checker 在每个任务所属
 root 独立执行 path escape、父目录、symlink、Git object 和 tracked-file 检查；不得从 root

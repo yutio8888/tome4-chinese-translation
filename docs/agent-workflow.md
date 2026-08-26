@@ -69,7 +69,7 @@ EXECUTOR 结束却没有工作成果（无 diff、无报告，或只回了计划
 ### 受管 Phase 1 wave
 
 并行只在 [`paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md) 的受管 wave
-契约已经启用时执行。一个 wave ORCHESTRATOR 必须直接拥有恰好两条 lane 及 integration 的全部
+契约已经启用时执行。一个 wave ORCHESTRATOR 必须直接拥有 2–4 条 lane（默认 2 条）及 integration 的全部
 child；每条 lane 使用不同 workspace，child dispatch 的 `workspace_id` 等于所属 task STATE，
 并同时持久化与 WAVE／STATE 一致的 `task_id`、`parent_agent_id` 和非空 `purpose`，不得只信
 `lineage_verified=true`，每个 child 的 `agent_id` 还必须不同于 wave ORCHESTRATOR，且不得创建 lane-orchestrator。ORCHESTRATOR 只写 ignored 编排记录；lane／integration 任务内容和

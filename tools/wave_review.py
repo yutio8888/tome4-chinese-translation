@@ -24,6 +24,7 @@ import argparse
 import copy
 from dataclasses import dataclass, replace
 import hashlib
+import itertools
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -48,6 +49,8 @@ LANE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
 RUNTIME_PREFIXES = (".ai/task/", ".ai/waves/", ".ai/reviews/", ".artifacts/")
 COLLATERAL_FORBIDDEN_MARKER = "phase1_collateral: forbidden"
 FULL_REVIEW_PHASES = frozenset({"REVIEW", "RE_REVIEW", "FINAL_REVIEW"})
+MIN_LANES = 2
+MAX_LANES = 4
 
 WAVE_KEYS = frozenset({
     "schema_id", "schema_version", "wave_id", "state", "base_commit",
@@ -480,18 +483,23 @@ def _validate_wave(value: object) -> dict[str, Any]:
     _string(obj["orchestrator_agent_id"], "orchestrator_agent_id")
     root_workspace = _string(obj["root_workspace_id"], "root_workspace_id")
     ordered = _string_array(obj["ordered_lane_ids"], "ordered_lane_ids")
-    if len(ordered) != 2 or any(LANE_ID.fullmatch(item) is None for item in ordered):
-        raise ContractError("Phase 1 requires exactly two path-safe lane IDs")
-    if not isinstance(obj["lanes"], list) or len(obj["lanes"]) != 2:
-        raise ContractError("wave lanes must contain exactly two entries")
+    lane_count = len(ordered)
+    if not MIN_LANES <= lane_count <= MAX_LANES or any(
+        LANE_ID.fullmatch(item) is None for item in ordered
+    ):
+        raise ContractError("Phase 1 requires 2 through 4 path-safe lane IDs")
+    if not isinstance(obj["lanes"], list) or len(obj["lanes"]) != lane_count:
+        raise ContractError("wave lanes must match ordered_lane_ids cardinality")
     workspaces: list[str] = []
     lane_ids: list[str] = []
+    task_ids: list[str] = []
     for index, value_item in enumerate(obj["lanes"]):
         lane = _exact(value_item, WAVE_LANE_KEYS, f"wave lanes[{index}]")
         lane_id = _string(lane["lane_id"], "lane_id")
         task_id = _string(lane["task_id"], "lane task_id")
         workspace_id = _string(lane["workspace_id"], "lane workspace_id")
         lane_ids.append(lane_id)
+        task_ids.append(task_id)
         workspaces.append(workspace_id)
         formulas = {
             "state_path": f".ai/task/{task_id}/STATE.json",
@@ -515,7 +523,9 @@ def _validate_wave(value: object) -> dict[str, Any]:
         _nullable_hex(lane["target_patch_identity"], "lane target_patch_identity")
     if lane_ids != ordered:
         raise ContractError("ordered_lane_ids and lanes must be 1:1 in order")
-    if len(set(workspaces)) != 2 or root_workspace in workspaces:
+    if len(set(task_ids)) != lane_count:
+        raise ContractError("lane task_ids must be distinct")
+    if len(set(workspaces)) != lane_count or root_workspace in workspaces:
         raise ContractError("lane workspaces must be distinct and different from root_workspace_id")
     integration = _exact(obj["integration"], WAVE_INTEGRATION_KEYS, "wave integration")
     for field in ("task_id", "workspace_id"):
@@ -1278,7 +1288,10 @@ def preflight_context(ctx: WaveContext) -> PreflightBundle:
         raise ContractError("CONFLICT-PREFLIGHT identity does not match WAVE")
     if preflight["wave_id"] != wave["wave_id"] or preflight["base_commit"] != wave["base_commit"]:
         raise ContractError("CONFLICT-PREFLIGHT wave/base does not match WAVE")
-    if preflight["ordered_lane_ids"] != wave["ordered_lane_ids"] or len(preflight["sets"]) != 2:
+    if (
+        preflight["ordered_lane_ids"] != wave["ordered_lane_ids"]
+        or len(preflight["sets"]) != len(wave["lanes"])
+    ):
         raise ContractError("CONFLICT-PREFLIGHT lane order/length does not match WAVE")
     lanes: list[LanePreflight] = []
     call_intersection_sets: list[set[tuple[bytes, ...]]] = []
@@ -1350,8 +1363,9 @@ def preflight_context(ctx: WaveContext) -> PreflightBundle:
             )
         )
     intersections_empty = all(
-        not collections[0].intersection(collections[1])
+        not left.intersection(right)
         for collections in (call_intersection_sets, runtime_sets, term_sets)
+        for left, right in itertools.combinations(collections, 2)
     )
     if not intersections_empty:
         raise ContractError("recomputed Phase 1 call/runtime/term sets intersect")
@@ -2105,8 +2119,8 @@ def _evidence_bindings(
         != ctx.wave["conflict_preflight_identity"]
     ):
         raise ContractError("wave evidence preflight binding does not match WAVE")
-    if len(evidence["lanes"]) != 2:
-        raise ContractError("wave evidence must contain exactly two lanes")
+    if len(evidence["lanes"]) != len(final.bundle.lanes):
+        raise ContractError("wave evidence lane cardinality must match WAVE")
     all_agent_ids: set[str] = set()
     lane_candidates: set[str] = set()
     patch_identities = set(final.patch_identities)
