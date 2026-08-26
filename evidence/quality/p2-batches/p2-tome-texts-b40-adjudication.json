@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-texts-b40-001",
+  "component": "tome",
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "workset": "evidence/quality/p2-batches/p2-tome-texts-b40-lore-keepsake-kor-pul.json",
+  "sections": [
+    "mod-tome/data/lore/keepsake.lua",
+    "mod-tome/data/lore/kor-pul.lua"
+  ],
+  "scope": {
+    "pairs": 41,
+    "targets_changed": 29,
+    "changed_by_section": {
+      "mod-tome/data/lore/keepsake.lua": 23,
+      "mod-tome/data/lore/kor-pul.lua": 6
+    },
+    "invariants": "All source keys, source_tag values, parameter metadata, markup and placeholders were preserved. Target newline counts were preserved except for the explicitly authorized removal of one unsupported blank line in b40-23. Out-of-scope sections remained unchanged."
+  },
+  "substantive_repairs": [
+    "Keepsake dream and recollection sequence: character identities, possession and betrayal relationships, curse causality, spatial actions, modal strength, diary progression and both ending variants",
+    "Natural Chinese narration and dialogue, including removal of literal English noun structures and unsupported additions while retaining the source register",
+    "Kor'Pul journal voice: comic bravado, equipment progression, ancestry and place-name clue, enemy descriptions, lantern wordplay and event chronology",
+    "Kyless journal titles standardized as 第一篇 through 第四篇 by explicit user decision"
+  ],
+  "review": {
+    "contract": "translation_contextual_v1",
+    "parallel_lanes": 4,
+    "fix_cycles": 15,
+    "final_reviews": [
+      {"dispatch": "r15-a", "candidate_identity": "9d45ba14c92958b49532f5b1b6f3ad6b24e743e18a0e7801c0533067fc571122", "revisions": 11, "result": "PASS"},
+      {"dispatch": "r15-b", "candidate_identity": "6087d610118cc371673c8e679250e97e88a8e1fba3f3bd600c0ef77bed5f8bc3", "revisions": 11, "result": "PASS"},
+      {"dispatch": "r15-c", "candidate_identity": "8e3f8bf2399bafb33f8c305bad6163d88d95f6e30b70ed2fcc93033f3ec2982f", "revisions": 12, "result": "PASS"},
+      {"dispatch": "r15-d", "candidate_identity": "600cef3a9308d28da96992341336cb27bd984ffc1f63010a904239f0087583f7", "revisions": 7, "result": "PASS"}
+    ],
+    "result": "All 41 revisions passed the final four-lane full contextual review."
+  },
+  "declined": [
+    {
+      "items": ["b40-33-keepsake", "b40-34-keepsake"],
+      "reason": "Changing meadow from 草原 to 草地 only in the ending text would split the established in-batch location label 宁静的草原; the local wording was retained."
+    }
+  ],
+  "gates": {
+    "five_step": "PASS",
+    "toolchain_unittests": "464 tests PASS",
+    "ci_gates": "12/12 PASS incl. core addon strict build",
+    "ai_state": "DONE_VERIFIED",
+    "lint": "30308 translations, 0 errors, 0 warnings",
+    "runtime_collisions": 0,
+    "diff": "mod-tome.lua 104 insertions / 105 deletions; 29 target values changed"
+  },
+  "open_items": []
+}

@@ -16389,11 +16389,11 @@ You feel the hate inside you melt away. You feel as if the curse has subsided fo
 This place makes you wonder if there is a way to end the curse.
 And if you can't overcome it you might be able to master it and take back a part of your life.
 Either way, you feel the time has come to do something more about this curse.
-]], [[映入眼帘的，是一片宁静祥和的草原。这里的一切看起来都是那么熟悉，但是你不是很肯定。
-唯一可以确定的是，它在你长达多年的被诅咒生涯中，给你提供了一段短暂的温馨时光。
-你感到了憎恨在体内逐渐消逝，并且折磨你多年的诅咒似乎也渐渐平息乃至几不可觉。
-在这片宁静的草地中，你萌发出一个念头。是否有什么方法能结束这诅咒的生活？即使你无法消除诅咒，你却有可能掌控它，并且取回原本属于你的一部分灵魂。
-不管怎样，对于身上的诅咒，你感觉是有做点什么的必要了。
+]], [[映入眼帘的，是一片宁静祥和的草原。这里似乎有什么令你感到熟悉，但你并不十分确定。
+唯一可以确定的是，它让你从受诅咒人生的漫长苦难中得到了片刻喘息。
+你感到体内的仇恨渐渐消融，仿佛连诅咒也暂时消退了。
+在这片宁静的草地中，你萌发出一个念头。是否有什么方法能结束诅咒？即使你无法消除诅咒，你却有可能掌控它，并且夺回自己的一部分人生。
+不管怎样，你感到是时候进一步应对这道诅咒了。
 ]], "_t")
 t("A Haunting Dream", "噩梦", "_t")
 t([[As you wander the meadow you grow more relaxed. You lie down for a moment and close your eyes...
@@ -16401,11 +16401,11 @@ t([[As you wander the meadow you grow more relaxed. You lie down for a moment an
 You wake up (if you can call it that) in a vivid dream. A small trail winds through the dense forest.
 The branches of the trees seem to close in around you. The tranquil feeling of the meadow is gone.
 Instead you feel the rising fear and hatred that rule your waking life. Further down the trail you hear voices.
-]], [[当你徜徉在这片草原上时，你感到身心更放松了一些。你惬意的躺下并闭上了双眼……
+]], [[当你徜徉在这片草原上时，你感到身心更放松了一些。你惬意地躺下一会儿，闭上双眼……
 
-你睁开双眼，却发觉似乎进入了一个鲜活的梦境。正前方有一条小径蜿蜒穿过密集的丛林。
-参差不齐的树枝似乎将你整个包围。宁静草原的惬意一去不复返，取而代之的是蔓延的恐惧和重新统治你身体的憎恨。
-沿着小径向前，你似乎听到了什么声音……
+你在清晰逼真的梦境中醒来（如果那也算醒来）。正前方有一条小径蜿蜒穿过茂密的森林。
+树枝似乎从四周向你合拢。草原带给你的宁静已荡然无存，取而代之的是再次涌起、支配着你清醒时生活的恐惧与仇恨。
+沿着小径向前，你听到了人声……
 ]], "_t")
 t("Bander's Notes", "班德的笔记", "_t")
 t([[#{italic}#You find a folded up piece of paper with some notes on it...#{normal}#
@@ -16423,17 +16423,17 @@ t([[#{italic}#You find a folded up piece of paper with some notes on it...#{norm
 * Someone said "Bander, you ask too many questions." I'll have to give them some time. Even after all these years.
 ]], [[#{italic}#你发现了一张折叠起来的纸片，上面记录着一些信息……#{normal}#
 
-* 妈妈显然和其他人一样去世了，但他们不肯多说。我想所有尸体都被烧掉了。
+* 妈妈似乎也和其他人一样死了，但他们不肯多说。我想所有尸体都被烧掉了。
 
 * 泰里克曾经提到过，那一年商队十分顺利，赚取丰厚利润的同时，也没遭到过小偷和强盗的骚扰，难道是有什么把他们吓跑了？
 
-* 在死去的人中，有的身上有明显的'正常'创伤，而有的就是'毫无生气'或者'脸色苍白'。2个月前，贾克的死法也是如此诡异。
+* 在死去的人中，有的身上有'正常'创伤，而有的就是'毫无生气'或者'脸色苍白'。贾克被发现时也是如此，那还要比这次事件早两个月。
 
-* 袭击者都是灵魂或者是黑暗中的幻影。就我所知，每个人都遭遇过攻击，尽管一些人活下来了。我需要查证一下他们的说法。
+* 袭击者都是灵魂或者黑暗鬼火。就我所知，每个人都遭遇过攻击，尽管一些人活下来了。我需要查证一下他们的说法。
 
-* 当我问到此事时，人们通常会提到新雇佣的3个人。为什么会提到他们？我只听说贝里斯是这一代的英雄。阿尔瓦认为克里斯是一个烂人，据我所知，不止她一个人这么讲过。
+* 当我问到此事时，人们通常会提到三名新雇员。为什么会提到他们？我听说贝里斯算是这一带的英雄。阿尔瓦认为克里斯是一个烂人，据我所知，不止她一个人这么讲过。
 
-* 有的人说：“班德，你问的太多了。”我得给他们一些时间，尽管已经过去了这么多年。
+* 有的人说：“班德，你问得太多了。”我得给他们一些时间，尽管已经过去了这么多年。
 ]], "_t")
 t("The Acorn", "铁质橡果", "_t")
 t([[Along the trail you see something at your feet. It's a small acorn, made of iron. You stare at the acorn for a while and pick it up.
@@ -16441,25 +16441,25 @@ It belonged to Bander's mom, and before that, his dad. You remember she never we
 Bander was just a kid then. You wonder how he's turned out. Not well you imagine. Thanks to Berethh, Kyless and you.
 You keep turning the acorn in your hand and squeezing it until the cold iron bites into your skin.
 That gives you comfort somehow. Unable to part with it, you put it in your pack.
-]], [[在小径的一侧，你发现了某样东西。那是一个小巧的铁制橡果。你盯着它看了一会儿，捡了起来。
-这个小东西应该属于班德的妈妈，而在那之前，属于班德的爸爸。你记得她当时几乎是走到哪带到哪。
-那个时候，班德只是一个孩子。不知道他后来怎样了？想必不会有什么好结局。多亏了贝里斯、克里斯和你。
-你继续在手中转动这颗橡果，挤压它直到冰冷的金属刺入你的手掌。
-不管怎样，这给你了些许安慰。因为不忍将其丢弃，你将它塞到了背包里。
+]], [[在小径上，你发现脚边有某样东西。那是一个小巧的铁制橡果。你盯着它看了一会儿，捡了起来。
+这个小东西属于班德的妈妈，而在那之前，属于班德的爸爸。你记得她当时总是走到哪带到哪。
+那个时候，班德只是一个孩子。不知道他后来怎么样了？想必过得不太好——这都拜贝里斯、克里斯和你所赐。
+你继续在手中转动这颗橡果，越握越紧，冰冷的铁压得皮肤生疼。
+不知为何，这给了你些许安慰。因为不忍将其丢弃，你将它塞到了背包里。
 ]], "_t")
-t("The Merchant Caravan", "商队营地", "_t")
+t("The Merchant Caravan", "商队", "_t")
 t([[The trail leads out to a clearing where a group of people sit around talking.	
 This is the merchant caravan you once belonged to. You haven't thought of them for a long time, but now they haunt your dreams.
 
 You suddenly realize how much you despise them now. Is it this hate that fuels your curse?
 They wanted to kill you, but left you to die instead. They could feel what you had become.
 And they can feel it now. Each in turn grabs a weapon and begins to head your way...
-]], [[这条小径一直引导向一片空地，有一大群人坐在那里聊天。
-那是你曾经工作过的商队。很长一段时间，你已经记不清他们了，但是现在他们却出现在了你的梦境中。
+]], [[小径通向一片空地，一群人正坐在那里交谈。
+这就是你曾经加入的那支商队。你已经很久没有想起他们了，但是现在他们却萦绕在你的梦境中。
 
-你突然感到你是如此的憎恨他们。是这份仇恨在给诅咒添柴吗？
-他们曾经想杀死你，但最终却选择抛弃你，让你自生自灭。他们可能察觉到了你的变化。
-现在，他们也能感觉到你变成了什么。他们一个接一个拿起武器，开始朝你走来……
+你突然意识到，自己如今竟如此憎恨他们。是这份仇恨在滋养你的诅咒吗？
+他们曾经想杀死你，但最终却选择抛弃你，让你自生自灭。他们当时能察觉你变成了什么。
+如今，他们又感觉到了。他们一个接一个拿起武器，开始朝你走来……
 ]], "_t")
 t("The Dream's End", "梦的终结", "_t")
 t([[You wake up in the tranquil meadow, feeling refreshed. The dream seemed to release you from a burden you've been carrying.
@@ -16471,27 +16471,27 @@ He had a sanctuary: a cave where he would store his 'profits'. Perhaps you could
 
 As you look around the meadow you realize what this place is and perhaps what drew you here.
 Kyless had taken you this way once. On the north side of the meadow was a secret path that led to his cave.
-]], [[你在宁静的草原醒来，感到浑身轻松。梦境似乎将你一直背负着的仇恨给释放了出来。
-当你重新躺下时，你感到手中有什么东西可以转动。那居然是——梦境中的铁制橡果。
-你摊开手掌，发现橡果上沾上了不知谁的鲜血。你将橡果握的更紧，直到能感受到金属刺破皮肤的痛楚。
+]], [[你在宁静的草原醒来，感到浑身轻松。梦境似乎让你摆脱了一直背负着的重担。
+当你躺在那里时，你发现自己正在手中转动着什么。那居然是——梦境中的那颗小铁橡果。
+你摊开手掌，发现橡果上沾上了别人的鲜血。你将橡果握得更紧，直到冰冷的铁硌得掌心生疼。
 
-你内心深处的仇恨再次被点燃。如果这仇恨之火需要发泄的话，那么有一个人无疑是最佳的发泄对象。
-他居住在某个避难所——一个可以储藏他的“宝藏”的洞穴。也许你能在那找到他。
+你心中的仇恨再次燃起。如果必须发泄这股仇恨，那么有一个人比谁都更该承受你的怒火。
+他有一个藏身处——一个可以储藏他的“所得”的洞穴。也许你能在那找到他。
 
-当你环顾四周时，你总算想起了此地为何处，想起了把你吸引过来的东西。
-克里斯曾经带你到这来过一次。在草原的北方，有个秘密的小径通向他的洞穴。
+当你环顾四周时，你认出了这是何处，也隐约明白或许是什么将你引来。
+克里斯曾带你走过这条路。草原北侧有一条秘密小径通向他的洞穴。
 ]], "_t")
-t("The Stone Marker", "岩石标记", "_t")
+t("The Stone Marker", "石碑", "_t")
 t([[#{italic}#You find a stone marker at the entrance to a sealed off cave...#{normal}#
 #{bold}#Do Not Enter#{normal}#
 
 This cave holds a danger that should never be released upon this world again. Break the seal and you will suffer.
 
 * Under the protection of Berethh
-]], [[#{italic}#你在一个被封闭的洞穴入口发现了一块石制标记……#{normal}#
+]], [[#{italic}#你在一个被封闭的洞穴入口发现了一块石碑……#{normal}#
 #{bold}#禁止进入#{normal}#
 
-这个洞穴中封印着绝不能再次释放到世上的危险。打破封印者，必将受罚。
+这个洞穴中封印着绝不能再次释放到世上的危险。打破封印，你必将付出代价。
 
 * 贝里斯之佑
 ]], "_t")
@@ -16500,10 +16500,10 @@ t([[The entrance to the cave appears to be sealed. There are many strange markin
 You suspect the cave is protected by some kind of natural magic.
 
 It looks as if the protections were meant to keep someone in. You don't think it would be difficult to force the door from the outside.
-]], [[这个洞穴的入口被封印了。在入口的石头上刻着许多奇特的符文和记号。
-你认为这个洞穴应该被某种自然力量所保护着。
+]], [[这个洞穴的入口似乎已被封印。在入口的石头上刻着许多奇特的符文和记号。
+你怀疑某种自然魔法保护着这个洞穴。
 
-看起来，这层封印只是为了把某些人封在洞里。你认为从外面破门而入并非难事。
+看起来，这层封印只是为了把某个人封在洞里。你认为从外面破门而入并非难事。
 ]], "_t")
 t("The Battle of the Cave", "洞穴之战", "_t")
 t([[You step into the cave and give your eyes a moment to adjust to the darkness.
@@ -16512,14 +16512,14 @@ The bodies don't look old enough to have decomposed but seem rather gnawed on. T
 Suddenly you catch movement in the corner. One of the dogs appears to be alive. It's lean and dirty and has an unnatural way of moving.
 That's when you notice shadows move across the floor towards the dog. The animal lifts its head as if listening to something.
 Together the dog and the shadows rise up to face you.
-]], [[你走进这个洞穴，黑暗使你的眼睛需要一定的时间来适应。
-你能发现，似乎很久以前此地曾发生过一场激烈的战斗。地上躺着两个穿着手工制护甲的骷髅，它们的手里仍握着简单却被精心打磨过的武器。
-尸体看起来还没有老到足以腐烂，却像是被啃咬得很厉害。此外，还有几只大型犬的遗骸躺在旁边。
+]], [[你走进洞穴，停下来让双眼适应黑暗。
+这里留有昔日战斗的痕迹。地上躺着两个穿着手工制护甲的骷髅，它们的手里仍握着简单但做工精良的武器。
+这两具尸体看起来还没死多久，本不该已经分解，却像遭到了严重啃噬。旁边还躺着几只大型犬的遗骸。
 突然间，你看到角落里有什么东西动了一下。其中一只狗似乎还活着。它又脏又瘦，动作也很不自然。
-你注意到了一些阴影，在向那条狗靠近。这只狗侧了侧头，似乎在倾听着什么。
-突然，这些阴影伴随着这只狗向你迎面扑来……
+你注意到一些阴影沿着地面向那条狗移动。这只狗抬起头，似乎在倾听着什么。
+那条狗站起身，阴影也从地面升起，一同面对着你。
 ]], "_t")
-t("Kyless' Journal: First Entry", "克里斯的日记：第一页", "_t")
+t("Kyless' Journal: First Entry", "克里斯的日记：第一篇", "_t")
 t([[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
 
 I finally made it out. I don't think I could stay another year on that farm.
@@ -16531,15 +16531,15 @@ The caravan hired a couple of other porters too. They won't say but I think the 
 I'll have to learn to defend myself or let others do it for me. Still, this is better than being a farmer.
 ]], [[#{italic}#你感觉这应该是克里斯日记中的一页。#{normal}#
 
-我终于成功了。我可不认为能继续在那个农场再呆一年。
+我终于离开了。我可没法在那个农场再待上一年。
 爸爸一点志气都没有。每次我和他去卖我们的庄稼时，总是商贩开价什么他就答应什么。
-所以当商队过来招人时，我又怎能不去？我相信，我会很快回来孝敬爹娘的。
+所以当商队过来招人时，我又怎能不去？我相信，我会很快回去看望父母。
 迄今为止，商队的工作都很无聊。但是我一直注意着那些商贩。
-他们让我跟随队伍一起去城里。我学到了很多，相信我很快就能成为他们中的一员。
-商队也雇佣了另外两名搬运工。虽然他们不会说，但是我感觉之前的搬运工是在某场袭击中丧命。
-我必须学会保护自己，或者请其他人帮忙保护我。不过，这所有的一切，总比当一名农民要来得强。
+他们让我跟着他们一起去城里。我学到了很多，假以时日，也许我能成为他们中的一员。
+商队也雇佣了另外两名搬运工。他们不肯透露，但我感觉之前的搬运工是在某场袭击中丧命。
+我必须学会保护自己，或者请其他人帮忙保护我。不过，这总比当农民强。
 ]], "_t")
-t("Kyless' Journal: Second Entry", "克里斯的日记：第二页", "_t")
+t("Kyless' Journal: Second Entry", "克里斯的日记：第二篇", "_t")
 t([[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
 
 Berethh found something in the woods...a dead man and a few dead trolls.
@@ -16553,18 +16553,17 @@ My mind can reach out. Control things. Control people. But there's more. Somethi
 Once I've mastered this I may be able to use it to advance in the caravan. I'm tired of just being a porter.
 ]], [[#{italic}#你感觉这应该是克里斯日记中的一页。#{normal}#
 
-贝里斯在森林中发现了什么——一个死人和一些死掉的巨魔。
-
-一开始我们认为他们是同归于尽，但是实际上他们的身上看不出任何外伤。另一方面，我们可以从死者惊恐的表情上看出，一定是因为什么可怕的事物。
-贝里斯只是想离开。他不喜欢这种诡异的气氛。但是我可不想错过这样的机遇。
+贝里斯在森林中发现了什么——一具男尸和几具巨魔尸体。
+一开始我们以为他们同归于尽，身上却看不出任何外伤。可他们显然遭遇了什么可怕的事，从他们脸上就看得出来。
+贝里斯只是想离开。他不喜欢这种诡异的气氛。但这种白捡的便宜，我怎么可能错过。
 他们身上有一些钱和其他东西，我们瓜分了它们。那人身上还有一本书，我拿走了它。
-我阅读了那本书。那看起来似乎是某种魔法，但是却不像任何传说中所述的魔法体系。
-这更像是某种语言。通过它，你可以召唤出脑海里所想的东西。我正在努力研究。
-我似乎能听到什么在我脑袋里窃窃私语。并且我发现，我也可以给它们回悄悄话。
-我能够使用念力控物，控制其他人。但是还有更多，有未知的东西在那，我必须了解它们。
-一旦我掌握了它，我就能靠它来帮我在商队中获得晋升。当搬运工实在是太无趣了。
+我一直钻研着那本书。那看起来似乎是某种魔法，但是却不像任何传说中所述的魔法体系。
+这更像是某种语言。一种用心灵思考或呼唤的方式。我正在学习这种语言。
+我听见脑海中传来窃窃私语般的声音。我发现自己也能以低语回应。
+我的心灵能够向外探触。我可以控制物体，控制别人。但还不止如此。外面还有某种存在。我必须把心灵探得更远。
+一旦我掌握了它，也许就能靠它来帮我在商队中获得晋升。我已经厌倦了只能当搬运工。
 ]], "_t")
-t("Kyless' Journal: Third Entry", "克里斯的日记：第三页", "_t")
+t("Kyless' Journal: Third Entry", "克里斯的日记：第三篇", "_t")
 t([[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
 
 I've come so far in the last year. The other merchants listen to me now. They think I have a real gift for trade.
@@ -16576,15 +16575,15 @@ Until then, I'll stay with the caravan. The only prolem is Jak. He doesn't trust
 I guess I threaten his authority. Not sure what I'll have to do about that...
 ]], [[#{italic}#你感觉这应该是克里斯日记中的一页。#{normal}#
 
-在过去一年内我进步神速。现在那些商人都愿意听从我了。他们认为我真的有商业天赋。
-那些灵魂脆弱的农民真的太容易控制了。事实上他们就是把钱白送给我。
-但是真正的钱财来源却是那些强盗们。上次那2个偷袭我的人已经得到了他们应有的惩罚。同样的，他们的营地也被我搜刮一空。
-在我攻击他们后，他们脸上惊恐的表情着实有趣。令我欣喜若狂的是，他们所掠夺的财富远远超过了车队一年的盈利！
-我叫了些帮手帮我把战利品抬到附近的洞穴里。再来一些像这样的强盗，我就可以成为百万富翁啦！
-在那之前，我还会和商队呆在一起。眼下只有1个问题，那就是贾克。他并不信任我。
-我猜是因为我最近的所作所为动摇了他的地位。嘛，我到底要不要除掉他呢……
+在过去一年内我进步神速。现在其他商人都愿意听从我了。他们认为我真的有商业天赋。
+那些跟我们做买卖的农民意志薄弱，实在太容易控制了。他们简直是在把钱白送给我。
+但是真正的钱财与力量却掌握在那些强盗手里。上次那两个偷袭我的人已经得到了他们应有的惩罚。他们营地里的其他人也一样。
+我攻击他们时，他们脸上惊恐的表情令我感到无比快意。他们的黄金想必比商队一年赚的还多！
+我叫了些帮手帮我把战利品抬到附近的洞穴里。再有几次这样的遭遇，我就能发财了！
+在那之前，我还会和商队呆在一起。眼下只有一个问题，那就是贾克。他并不信任我。
+我猜是因为我对他的权威构成了威胁。我还不知道该怎么处理这件事……
 ]], "_t")
-t("Kyless' Journal: Fourth Entry", "克里斯的日记：第四页", "_t")
+t("Kyless' Journal: Fourth Entry", "克里斯的日记：第四篇", "_t")
 t([[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
 
 Berethh! He must have followed me back to the cave. How could he know I was behind the attacks?
@@ -16596,13 +16595,13 @@ It's as though the seal were alive, growing stronger with every attack. Berethh 
 I'm sure I can overcome his wards though. I just need some time to grow my power.
 ]], [[#{italic}#你感觉这应该是克里斯日记中的一页。#{normal}#
 
-贝里斯！他肯定尾随着进入过我的藏宝洞。他怎么知道我就是幕后黑手？
-现在他背叛了我。可我们曾经是好朋友！但似乎这些年他也交了不少新朋友啊。
+贝里斯！他肯定尾随我回到了洞穴。他怎么知道我就是幕后黑手？
+现在他背叛了我。可我们曾经是好朋友！但似乎他在这一带交了些新朋友啊。
 我本打算撤退至洞穴里。在黑暗处，我可以像往常一样干掉他们。
-但是他们并没有跟进来。他一定知道我的强大之处。
-入口已经被封印了起来。我似乎无法打破它。所有尝试过的努力都只是徒劳。
-就好像，这个封印是活的一样，我的每次攻击都会加强这层封印。贝里斯对此一定精心策划了很久。
-尽管如此，我仍相信自己能打破他的牢笼。我需要一点时间来积攒力量。
+但是他们并没有跟进来。他一定知道我太强了，不敢追进来。
+入口已经被封印了起来。我似乎无法打破它。我试过的办法全都不管用。
+就好像这个封印是活的一样，我的每次攻击都会加强这层封印。贝里斯一定把这事计划得很周密。
+尽管如此，我仍相信自己能破除他布下的结界。我需要一点时间来积攒力量。
 ]], "_t")
 t("The Vault", "藏宝室", "_t")
 t([[You find yourself at the entrance to a small room.
@@ -16615,14 +16614,14 @@ You never thought he would go after the caravan. How could you have known?
 You've tried to forget that day for a long time. You've tried to forget what he did to those people.
 And those things of his almost killed you too. But maybe you were cursed long before that day ever happened.
 ]], [[你发现自己正站在一个小房间的入口。
-这里，曾经是克里斯用来储存他在冒险中掠夺来的宝藏之处。
-你曾经帮他抬过这些东西。他也给了你不少好处。
-当时觉得，这些卑鄙强盗的赃物真是一大笔财富。现在看来，这想法是多么可笑啊。
-你当时就不应该帮他，整个情形从那时起急转直下。
+这是克里斯用过的藏宝室之一，他把外出时带回的值钱东西存放在这里。
+你曾以分成为报酬，帮他把东西搬到这里。你靠他赚了不少钱。
+当时觉得，这些不入流强盗的赃物真是一大笔财富。现在看来，这想法是多么可笑啊。
+你当时就该与他决裂，事情到最后变得非常糟糕。
 你知道他的贪婪和野心，但是却不知道他有多么冷血。
 你从未想过他竟会对商队下手。你又怎么可能预料到？
-很长一段时间你在试图忘记那天发生的事情。你也曾试图忘记他对那些人的所作所为。
-他弄出来的那些东西也险些要了你的命。也许早在那天之前，你就已经被诅咒了。
+很长一段时间里，你一直试图忘掉那一天。你也曾试图忘记他对那些人的所作所为。
+他的那些东西也险些要了你的命。也许早在那天之前，你就已经被诅咒了。
 ]], "_t")
 t("Kyless", "克里斯", "_t")
 t([[A figure squats in the darkness with his face turned your way. At first you're not sure if Kyless recognizes you.
@@ -16630,10 +16629,10 @@ His face seems twisted by hunger and madness. But soon it softens and he begins 
 He speaks your name in recognition but doesn't move. Slowly, almost imperceptibly, the air in the room begins to change.
 A charge seems to fill the space around you. Small gusts of wind pick up and scatter dust across the floor.
 You feel as if the room itself is coming to bear upon you. Kyless smiles and then attacks.
-]], [[在黑暗的角落中，坐着一位面朝你的人。一开始，你无法确认克里斯是否认出了你。
-他的脸上满是饥饿和疯狂。但是很快，这张脸变成了你所熟知的克里斯的模样。
-他一动不动，叫出了你的名字。慢慢地，你发觉这个空间里的空气发生了几不可察地变化。
-你感到身周的空间中弥漫着一股压力，连地上的灰尘，也被这股压力所造成的阵风吹拂的到处分散。
+]], [[黑暗中蹲伏着一个面朝你的人。一开始，你无法确认克里斯是否认出了你。
+他的面容仿佛因饥饿与疯狂而扭曲。但很快，他的神情缓和下来，渐渐恢复了昔日的模样。
+他一动不动，叫出了你的名字。慢慢地，你发觉这个空间里的空气发生了几不可察的变化。
+你感到四周仿佛充满了某种能量。阵阵微风吹起，卷散了地面上的尘土。
 你感到整个空间似乎都压向了你。克里斯嘴角扬起一抹微笑，向你发起了攻击……
 ]], "_t")
 t("Keepsake", "往昔信物", "_t")
@@ -16644,13 +16643,13 @@ The cold iron hardens your resolve. Whether the curse consumes you or not, you w
 As the iron cuts your flesh, you slowly become aware of a sound coming from the direction of the meadow.
 Dogs barking. Following that come the voices of men. These must be Berethh's companions. Arriving too late.
 You rise and prepare to kill again.
-]], [[贝里斯倒下了。克里斯也被杀死了。商队分崩离析了。你过去的一切都不复存在。
+]], [[贝里斯已经死了。克里斯也被杀死了。商队全军覆没了。你过去的一切都不复存在。
 你曾以为能在这里找到想要的答案，但是却只找到了一个真相——你被诅咒了。
-当你试图将这些想法从头脑里赶出时，你发现自己又掏出了那个铁质橡果放在手中。
-冰冷的铁质橡果坚定了你的信念。不管诅咒是否会了断你的生命，你都要继续前行。
+当你试图将这些想法从头脑里赶出时，你发现自己正在手中转动那个铁质橡果。
+冰冷的铁质橡果让你的意志变得坚定。不管诅咒是否会吞噬你，你都要继续前行。
 当铁质橡果划破你的皮肤时，你才慢慢注意到从草原方向传来的声音。
-那是狗吠声。紧跟着传来的，是人的声音。他们肯定是贝里斯的同伴，可惜来得太迟了。
-你缓缓地站起来，看来又要大开杀戒了……
+那是狗吠声。紧跟着传来的，是人的声音。他们肯定是贝里斯的同伴。他们来得太迟了。
+你起身准备再次杀人。
 ]], "_t")
 t([[Berethh lies dead. Kyless has been destroyed. The merchant caravan wiped out. Nothing of your past remains.
 You thought you might find answers in this place but you have been left with only one certainty. You are cursed.
@@ -16659,41 +16658,41 @@ The acorn now serves as a focus for your anger. Though the curse may consume you
 As the iron cuts your flesh, you slowly become aware of a sound coming from the direction of the meadow.
 Dogs barking. Following that come the voices of men. These must be Berethh's companions. Arriving too late.
 You rise and prepare to kill again.
-]], [[贝里斯倒下了。克里斯也被杀死了。商队分崩离析了。你过去的一切都不复存在。
+]], [[贝里斯死了。克里斯也被杀死了。商队全军覆没了。你过去的一切都不复存在。
 你曾以为能在这里找到想要的答案，但是却只找到了一个真相——你被诅咒了。
-当你试图将这些想法从头脑里赶出时，你发现自己又掏出了那个铁质橡果放在手中。
-冰冷的橡果将你心中的怒火彻底点燃。尽管诅咒可能会随时了断你的生命，但仍然有许多该死的人等着你去宣泄怒火。他们会尝到这怒火的滋味。
+当你试图将这些想法从头脑里赶出时，你发现自己正在手中转动那个铁质橡果。
+如今，这颗橡果承载着你所有的愤怒。尽管诅咒可能会吞噬你，但仍然有许多人理应承受你的怒火。他们会尝到这怒火的滋味。
 当铁质橡果划破你的皮肤时，你才慢慢注意到从草原方向传来的声音。
-那是狗吠声。紧跟着传来的，是人的声音。他们肯定是贝里斯的同伴，可惜来得太迟了。
-你缓缓地站起来，看来又要大开杀戒了……
+那是狗吠声。紧跟着传来的，是人的声音。他们肯定是贝里斯的同伴。他们来得太迟了。
+你起身准备再次杀人。
 ]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/kor-pul.lua"
 
 t("kor'pul", "卡·普尔", "newLore category")
-t("journal page (kor'pul)", "卡·普尔游记", "_t")
+t("journal page (kor'pul)", "日记页（卡·普尔）", "_t")
 t([[Damn that Zemekkys! Damn his insane experiments!! Why in the blackest night did I ever agree to take part in them?!
 
 Oh yeah, because I was broke. Bah...
 
 I think I might have considered things differently had I known I'd be transported without my clothes though! Imagine my embarrassment turning up in a foreign land, with my... my unmentionables on display... Thankfully I managed to borrow a robe from a friendly farmer, and did some work for him to earn gold enough for a bit of food, a journal, and a rusty old sword. When I heard there were ruins filled with undead nearby I knew my calling had come! So here I am, mighty Sun Paladin Telthar, to prove my strength in these foreign lands of the west!
 
-But all I've found so far is rats. I hate rats...]], [[该死的伊莫克斯！操他这疯狂的该死实验！！天知道我为何要答应和他们搀和在一起？！
+But all I've found so far is rats. I hate rats...]], [[该死的伊莫克斯！该死的疯狂实验！！至暗长夜在上，我当初为什么会答应参加这些实验？！
 
 好吧，因为我很穷。呸……
 
-要是我早知道传送过后会一丝不挂，我一定会重新考虑他们的提议！想象一下我尴尬地出现在一片陌生的土地上，连私处都暴露在外……谢天谢地，我总算从一名友善的农民那里借来了一件法袍，还帮他干活挣了些钱，够我买一点食物、一本日记和一把锈迹斑斑的旧剑。当我听说附近的遗迹里满是不死族时，我知道命运的召唤终于来了！于是我来了，伟大的太阳骑士泰尔沙，要在这陌生的西方大陆证明我的实力！
+不过，要是早知道传送后会一丝不挂，我想自己或许会另作考虑！想象一下我尴尬地出现在一片陌生的土地上，我的……我的……那个地方就这么露在外面……谢天谢地，我总算从一名友善的农民那里借来了一件长袍，还帮他干活挣了些钱，够我买一点食物、一本日记和一把锈迹斑斑的旧剑。当我听说附近的遗迹里满是不死族时，我知道命运的召唤终于来了！于是我来了，伟大的太阳骑士泰尔沙，要在这陌生的西方大陆证明我的实力！
 
-但我在那里找到了老鼠，我讨厌老鼠……]], "_t")
+但直到现在，我找到的就只有老鼠。我讨厌老鼠……]], "_t")
 t([[Aha, I have found the accursed undead that plague this nefarious dungeon! The skeletal fool was thankfully no match for me! I suppose it helped that he had no arms...
 
 I've found myself an old shield that in spite of a few dents seems serviceable enough. Some of these rats are BIG, and giving them a strong bash with the shield helps to stop their poisonous bites before I get my sword to their necks. I also found a few gems - I may have to hunt round for more. Not out of any personal greed of course, but my noble quest requires that I gather resources to defeat the great evils in this land and back home!
 
-Diamonds are my favourite, so sparkly.]], [[啊哈，我总算找到了占据这邪恶地牢的可憎不死族！谢天谢地这些纯骷髅都不是我的对手！当然也许……可能是因为它们缺胳膊短手……
+Diamonds are my favourite, so sparkly.]], [[啊哈，我总算找到了占据这邪恶地牢的可憎不死族！谢天谢地，那个骷髅蠢货根本不是我的对手！不过我想，它没有双臂大概也帮了点忙……
 
-我在这找到了一面老旧的盾牌，它虽然凹凸不平，不过将就用吧。这里有些老鼠特别大，给它们一个强力的盾击能在我用剑切开它们脖子前阻止它们带毒的撕咬。
-我还发现了一些宝石——看来我要在这多转转。必须申明的是，这肯定不是出于任何贪念，只是因为我崇高的任务需要我收集更多的资源来打倒这片土地上最强大的恶魔，然后荣归故里！
+我在这找到了一面老旧的盾牌，它虽有几处凹痕但仍堪用。这里有些老鼠特别大，给它们一个强力的盾击能在我用剑切开它们脖子前阻止它们带毒的撕咬。
+我还发现了一些宝石——看来我得继续四处搜寻更多宝石。必须申明的是，这肯定不是出于任何贪念，只是因为我崇高的任务需要我收集更多的资源，好打败这里和故乡的强大邪恶势力！
 
 我最喜欢钻石了，一闪一闪亮晶晶～]], "_t")
 t([[This place is infested! I've found a lot of skeletons now, and unfortunately most of them have borne a full set of limbs. However, my holy quest cannot be denied! Plus I got a really great sword off one of the blighters, I can chop anything up easily now!
@@ -16701,22 +16700,22 @@ t([[This place is infested! I've found a lot of skeletons now, and unfortunately
 The skeletal mages have been a night-born nuisance, but I've found a new weapon to use against them - a phase door rune! As soon as I catch sight of one of the robed wretches I activate my rune and foom, I'm away!
 
 It's not fleeing, it's just tactical repositioning...
-]], [[这真是个绝命的魔穴！我发现了一大堆的骷髅，不幸的是它们大多都生就一整副好身板。即便如此，我神圣的任务也绝不能终止！顺带一提，我从一只怪物那得来一把极好的剑，得了这把好剑，剩下的只是平砍！
+]], [[这里到处都是怪物！我发现了一大堆的骷髅，不幸的是它们大多都四肢齐全。即便如此，我的神圣使命也不容阻挡！顺带一提，我从一只怪物那得来一把极好的剑，有了这把好剑，我现在砍什么都轻而易举！
 
-骷髅法师们真是婊子养的禽兽，但我已经发现了一种新式武器对付他们——一块相位门符文！只要我一被这些穿袍子的可怜人发现，我就启动符文，远离那里！
+这些骷髅法师真是一群黑夜孳生的麻烦精，但我已经发现了一种新式武器对付他们——一块相位门符文！只要我一看见其中一个穿袍子的混蛋，我就启动符文，呼的一声，我就没影了！
 
 这可不是逃跑，这只是战术性调整站位……
 ]], "_t")
 t([[Kor'Pul, Kor'Pul... When the farmer told me what this place was called it reminded me of something, and I think it's coming back to me now. My mother used to tell me a story about our ancestors, how they fled by ship to escape the grasp of an evil sorcerer who dominated the lands. The sorcerer was a vile necromancer who took advantage of the destruction from the Spellblaze and the Cataclysm to create huge armies of undead. The people fought against him time and time again, but though he would be defeated he would still come back, sometimes after hundreds of years. And that sorcerer's name was.... Kor'Pul.
 
-Probably just a coincidence.]], [[卡·普尔，卡·普尔……当农民伯伯告诉我这个地方的名字时我好像想起啥事了，嗯……我现在快能想起来了。妈妈曾对我讲述过一个祖先的故事，是关于他们如何乘船逃离一名称霸大陆的邪恶巫师之手。 这名卑鄙的巫师利用了法术大爆炸和大灾变的毁灭性影响，召唤了庞大的不死军团。人们无数次的与他斗争，但即使他被打败了，数百年后也必将卷土重来。这术士的名字好像是……卡·普尔。
+Probably just a coincidence.]], [[卡·普尔，卡·普尔……农夫告诉我这里的名字时，我觉得有些耳熟，现在好像渐渐想起来了。妈妈曾对我讲述过我们祖先的故事，关于他们如何乘船逃离一名称霸大陆的邪恶巫师之手。这名卑鄙的死灵法师利用法术大爆炸和大灾变造成的毁灭，建立了庞大的不死军团。人们无数次地与他斗争，但即使他被打败了，仍会卷土重来，有时甚至隔了数百年。那个巫师的名字就是……卡·普尔。
 
 ——大概是个巧合吧。]], "_t")
 t([[It's quiet down here. And dark... very dark. I suppose I should have brought a lantern. Our motto is to bring light into dark places, but I guess I should have thought about that in practical terms. I've cleared out pretty much all of this area, and there's not much left to explore beyond this last room.
 
 This adventuring stuff is quite lonely, I must say. I guess keeping this journal helps a bit. I miss home a lot now. I miss... I miss Falia. Maybe I should have said something to her about how I feel... but I guess running away on an adventure seemed easier. Pah, how brave of me...
 
-I'm not cut out for this paladin work. Here I am, alone in a horrible dark dungeon in an unknown land, without a single sound to keep me company beyond the scratchings of my own quill. Hmm, except for--]], [[这里真安静。一片黑暗……好黑啊。应该买个灯笼带来的。太阳骑士的座右铭是给黑暗之地带来光明，我真是该从现实的角度好好理解它的意思。 差不多这片地区所有地方都已经被清理干净了，看来已经没有值得探索的了——除了这最后的房间以外。
+I'm not cut out for this paladin work. Here I am, alone in a horrible dark dungeon in an unknown land, without a single sound to keep me company beyond the scratchings of my own quill. Hmm, except for--]], [[这里真安静。一片黑暗……好黑啊。我应该带个灯笼来。我们的座右铭是给黑暗之地带来光明——看来我真该好好想想这句话的字面意思。这片区域差不多都被我清理干净了，只剩最后这个房间可以探索。
 
 冒险可真是孤独。我想写日记确实让我好受了一些。我现在非常想家。我想……我想念法丽雅。也许我早就该告诉她自己的感受……但我想，逃出来冒险似乎容易得多。呸，我可真勇敢……
 
