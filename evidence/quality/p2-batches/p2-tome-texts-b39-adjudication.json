@@ -1,0 +1,58 @@
+{
+ "schema_version": 1,
+ "task_id": "p2-tome-texts-b39-001",
+ "component": "tome",
+ "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "workset": "evidence/quality/p2-batches/p2-tome-texts-b39-lore-infinite-dungeon-iron-throne.json",
+ "sections": [
+  "mod-tome/data/lore/infinite-dungeon.lua",
+  "mod-tome/data/lore/iron-throne.lua"
+ ],
+ "scope": {
+  "pairs": 42,
+  "targets_changed": 22,
+  "changed_by_section": {
+   "mod-tome/data/lore/infinite-dungeon.lua": 12,
+   "mod-tome/data/lore/iron-throne.lua": 10
+  },
+  "invariants": "All source keys, source_tag values, parameter metadata, markup/placeholders and target newline counts were preserved; all out-of-scope section blocks remained byte-identical."
+ },
+ "substantive_repairs": [
+  "Hunter and Hunted chronology and relationships: the pursuer and quarry, transformations, Madrath ownership, the Atamathon campaign and the connected mythic register",
+  "Iron Throne dates, profit-and-loss causality, hunting metrics, treaty and trade figures, the Reknor expedition, and the progressively corrupted voice of the three excavation reports",
+  "Seven physical inscriptions restored from generic hints, including the arcane-plus-fire element cue, and the ruined-dungeon place label aligned within the frozen section"
+ ],
+ "review": {
+  "contract": "translation_contextual_v1",
+  "valid_reviews": [
+   {"dispatch": "ctx-01", "candidate_identity": "d185eddcde50fbe7410fa3a318d615ccb5d01a88e2f8ce1b7da22d5e654b9848", "observations_ok": 30, "findings": 12},
+   {"dispatch": "ctx-02", "candidate_identity": "4103f26e306692f46b45876e0cb5495aa8c7dd13f74ac81a687bd484a33cd022", "observations_ok": 39, "findings": 3}
+  ],
+  "senior_scope_audits": 1,
+  "fix_cycles": 1,
+  "result": "Eight first-review targets were repaired. The second review left only the three Deep Bellow report titles; the senior audit declined them as one inseparable repository-wide terminology group, so no second FIX was opened."
+ },
+ "declined": [
+  {
+   "items": ["b39-37-iron-throne", "b39-39-iron-throne", "b39-41-iron-throne"],
+   "reason": "Deep Bellow is already localized outside the batch as 无尽深渊. Changing only these titles would create a same-place inconsistency; any rename requires a separate cross-batch terminology strategy."
+  },
+  {
+   "items": ["b39-42-iron-throne"],
+   "reason": "The first review noted the Tamoth/mouth phonetic wordplay, but an isolated rewrite would require a coordinated person/entity naming strategy; the full second review accepted the retained degeneration cue."
+  }
+ ],
+ "gates": {
+  "five_step": "PASS",
+  "toolchain_unittests": "464 tests PASS",
+  "ci_gates": "12/12 PASS incl. core addon strict build",
+  "ai_state": "DONE_VERIFIED",
+  "lint": "30308 translations, 0 errors, 0 warnings",
+  "runtime_collisions": 0,
+  "diff": "mod-tome.lua 65 insertions / 65 deletions; 22 target values changed"
+ },
+ "open_items": [
+  {"item": "Deep Bellow naming", "disposition": "No b39 action; only a separately authorized cross-batch terminology task may reconsider the established 无尽深渊 family."},
+  {"item": "data/quests scope", "disposition": "unchanged maintainer scoping question; not part of b39"}
+ ]
+}

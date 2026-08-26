@@ -16134,80 +16134,80 @@ section "mod-tome/data/lore/infinite-dungeon.lua"
 t("ruined dungeon", "地城废墟", "newLore category")
 t("clue (ruined dungeon)", "线索（地城废墟）", "_t")
 t([[There is an inscription here:
-#{italic}#The river flows in its bed of stone...#{normal}#]], [[这里有一段提示：
-#{italic}#河水流淌在铺满卵石的河床上……#{normal}#]], "_t")
+#{italic}#The river flows in its bed of stone...#{normal}#]], [[这里有一段铭文：
+#{italic}#河水流淌于石床之上……#{normal}#]], "_t")
 t([[There is an inscription here:
 #{italic}#...The feather flies gently in the wind.
-The tree's roots run deep...#{normal}#]], [[这里有一段提示：
-#{italic}#……羽毛在风中飘扬
-树木深深地扎根在土地上……#{normal}#]], "_t")
+The tree's roots run deep...#{normal}#]], [[这里有一段铭文：
+#{italic}#……羽毛在风中轻盈飘飞。
+树根深深扎下……#{normal}#]], "_t")
 t([[There is an inscription here:
-#{italic}#...The eldritch force burns all that lives.#{normal}#]], [[这里有一段提示：
-#{italic}#……可怕的力量燃烬一切生命#{normal}#]], "_t")
+#{italic}#...The eldritch force burns all that lives.#{normal}#]], [[这里有一段铭文：
+#{italic}#……奥术之力以火焰焚尽一切生灵。#{normal}#]], "_t")
 t([[There is an inscription here:
 #{italic}#Darkness beyond twilight.
-Crimson from the blood that flows...#{normal}#]], [[这里有一段提示:
+Crimson from the blood that flows...#{normal}#]], [[这里有一段铭文：
 #{italic}#黄昏之后的黑暗。
-深红的血液流淌...#{normal}#]], "_t")
+流淌的鲜血染就深红……#{normal}#]], "_t")
 t([[There is an inscription here:
 #{italic}#...Buried in the flow of time.
-Colder than the coldest ice...#{normal}#]], [[这里有一段提示:
-#{italic}#...埋葬在时间长河。
-比寒冰更加寒冷...#{normal}#]], "_t")
+Colder than the coldest ice...#{normal}#]], [[这里有一段铭文：
+#{italic}#……埋没于时间长河。
+比最寒冷的冰还冷……#{normal}#]], "_t")
 t([[There is an inscription here:
 #{italic}#...Unleash dark thoughts.
-Upon this blighted land!#{normal}#]], [[这里有一段提示:
-#{italic}#...释放邪恶的思想。
-在这枯萎之地之上！#{normal}#]], "_t")
-t("infinite dungeon (ruined dungeon)", "无尽地下城（地下城废墟）", "_t")
+Upon this blighted land!#{normal}#]], [[这里有一段铭文：
+#{italic}#……释放黑暗意念，
+笼罩这片枯萎之地！#{normal}#]], "_t")
+t("infinite dungeon (ruined dungeon)", "无尽地下城（地城废墟）", "_t")
 t([[There is an inscription here:
 The deceptive god Ralkur fled before the wrath of the godslayer Branzir and his dark blade Madrath. But though he fled to the depths of the dungeon he came to an end. Seeing himself cornered he used his power to delve deeper into the ground, laying traps and summoning enemies to confound his enemy. But Branzir would not be lost. He pursued his prey ever on, hunting him ever deeper. And Ralkur fled further, and faster, delving to fathoms beyond knowledge, with the godslayer always behind him, hunting relentlessly.
 
 And so the chase continues. Over centuries beyond count Branzir has never stopped to rest or sleep as he pursues his prey through the ravages of infinity. And though death would be a welcome reprieve he thinks only of the hunt and of vanquishing the cowardly god. Ralkur continues to run, and he does not take a breath that it is not a gasp, and he does not take a step that it is not in flight, and every beat of his traitorous heart is a pounding of terror as he flees deeper and deeper till the ends of time.
 
 This passage seems to point to the passage there, it seems to indicate there are no possible exits.
-You should not enter it.]], [[这里有一段提示：
+You should not enter it.]], [[这里有一段铭文：
 在弑神者布兰伊尔和他的暗刃玛卓斯的愤怒面前，欺诈之神瑞尔克退却了，他逃入了地城的深处，甚至走到了尽头。走投无路的瑞尔克动用了自己的力量，深深潜入地下，设置陷阱，召唤怪物企图挫败他的对手。但是布兰伊尔永远不会迷失。他不断的逼迫着他的对手，向地城的更深处追击。无论瑞尔克逃得多快多远，甚至远远越过了认知的边界，弑神者总是跟在他身后，进行无尽的猎杀。
 
 追击就这样延续至今。数不清的世纪以来，布兰伊尔穿行于无尽之境的重重险阻，追逐猎物，从未停下来休息或睡眠。即便死亡会是可喜的解脱，他心中仍只有狩猎，只有消灭那个懦弱的神。瑞尔克继续逃亡，每一次呼吸都是喘息，每一步都在奔逃；他那背叛者的心脏每次跳动都充满恐惧，只能越逃越深，直至时间的尽头。
 
-这条通道似乎正指向那段路径，它看上去无路可退。
+这段文字似乎指向那边的通道，似乎表明那里没有任何出口。
 你不应该进入此地。]], "_t")
 t("infinite dungeon", "无尽地下城", "newLore category")
 t("The Hunter and the Hunted chapter 1", "猎人与猎物　第一章", "_t")
 t([[Branzir was the mightiest of the Sher'Tul hunters, and his fame was known at every Farportal. He could run for days without rest, cross terrain no others would dare to pass, and had senses more keen than all the wildest animals of Eyal. It was for this reason that Caldizar came to him at his forest keep and beseeched him to join in the Godhunt. At first Branzir refused, for he said he was not one to meddle in such mighty affairs, and he wanted but peace to hunt and fend for his family. But Caldizar convinced him that this life of peace was not possible whilst the schemes and machinations of the gods continued. And so reluctantly Branzir accepted, and took in his hands the great sword Madrath, and upon his shoulders was laid the title "Godslayer".
 
-In the great Godhunt that followed Branzir became the most fervent of the Godslayers, and would not sleep nor rest whilst a hunt was on. He it was that chased the troll-spawner Ugg'matho through the snow-capped mountains of Pertolias and broke his body on the highest peak. He it was that tracked the blight-weaver Xadoch through the howling vales of Anvion and trapped him and throttled him and cut him into seven pieces to be cast into the Glonglum lake. And he it was that was tasked with finding and killing Ralkur the Deceptor, god of charms and illusions, who had taken hiding amongst the lesser races.]], [[布兰伊尔是最强大的夏·图尔猎人，每扇传送门都知道他的名声。他可以连日奔行，穿越无人敢涉足的地域，感官比埃亚尔最狂野的动物更加敏锐。因此凯尔帝勒来到布兰伊尔的丛林要塞，恳请他加入弑神会。布兰伊尔起初拒绝了这个提议，他说自己并不想参与这种远大的事业，他所需要的只是宁静的狩猎以及守护自己的家人。但凯尔帝勒说服了布兰伊尔，让他明白只要众神的阴谋和计划还在继续，这种宁静的生活就无法实现。当布兰伊尔勉强接受，并接过大剑玛卓斯时，“弑神者”的称号就落在了他的肩头。
+In the great Godhunt that followed Branzir became the most fervent of the Godslayers, and would not sleep nor rest whilst a hunt was on. He it was that chased the troll-spawner Ugg'matho through the snow-capped mountains of Pertolias and broke his body on the highest peak. He it was that tracked the blight-weaver Xadoch through the howling vales of Anvion and trapped him and throttled him and cut him into seven pieces to be cast into the Glonglum lake. And he it was that was tasked with finding and killing Ralkur the Deceptor, god of charms and illusions, who had taken hiding amongst the lesser races.]], [[布兰伊尔是最强大的夏·图尔猎人，他的威名传遍每一座远古传送门。他可以连续奔行数日而不休息，越过无人敢于涉足的险地，其感官比埃亚尔最狂野的野兽还要敏锐。正因如此，凯尔帝勒来到他的森林要塞，恳请他加入猎神行动。布兰伊尔起初拒绝了；他说自己无意插手这等惊天大事，只愿安宁地狩猎、照料家人。但凯尔帝勒说服了他：只要众神仍在谋划算计，这样的安宁生活便不可能存在。于是布兰伊尔勉强应允，双手接过巨剑玛卓斯，肩负起“弑神者”的称号。
 
-在随后伟大的猎神时期，布兰伊尔在狩猎结束前总是不眠不休，他成为了最热门的弑神者。布兰伊尔突破体能的极限，穿越普塔利亚斯雪山，追杀了巨魔繁衍者厄格莫斯。布兰伊尔穿过安维恩的尖啸山谷，跟踪并困住枯萎编织者亚多契，随后将之撕裂成七块投入了古龙伦湖。布兰伊尔还找出了喜欢藏身于弱小族群中的幻想和欺诈之神瑞尔克。]], "_t")
+在随后的伟大猎神行动中，布兰伊尔成了最为狂热的弑神者；只要狩猎尚未结束，他便不眠不休。正是他追逐巨魔繁衍者厄格莫斯，穿越普塔利亚斯白雪覆顶的群山，在最高峰上击碎其身躯。正是他穿过安维恩呼啸的谷地，追踪枯萎编织者亚多契，将其困住、扼死并斩成七段，投入古龙伦湖。也正是他奉命寻找并杀死欺诈者瑞尔克——这位掌管魅惑与幻象、藏身于弱小种族之中的神。]], "_t")
 t("The Hunter and the Hunted chapter 2", "猎人与猎物　第二章", "_t")
 t([[Thus began the greatest hunt there ever was. Branzir used forceful coercion and the spilling of blood to uncover the secret of his enemy's hiding place. He tracked Ralkur down to the primitive settlement where he had taken the form of one of the lesser races. Branzir rooted him out, and came upon him with Madrath in hand. But Ralkur seeing the wrath of the hunter and the terrible sword became frightful, and he took on the form of an antelope and fled across the Harloe Plains. But Branzir ran after and ran swifter and nigh caught him before they reached the Woods of Darmin. There Ralkur assumed the form of a monkey and took to the trees. But Branzir tracked him and followed close, overcoming the traps his foe left behind. Then the forest fell away and they came to the Azure Sea, and Ralkur took the form of a gull and flew over the waters cawing with prideful glee. But Branzir was unfazed and leapt into the water, swimming after the cowardly god with all his strength. Twenty days and nights he followed through the ocean, feeding off fish he could catch near the surface, whilst Ralkur beat his wings on the winds above. Not once did Branzir lose sight of his target, and with each passing day Ralkur became more and more filled with fright.
 
 Finally they came to the far shore of Tar'Eyal, and Ralkur fell onto the sandy beach bereft of strength. Depleted of all energy he reverted to his natural form, short and squat, and stumbled across the sand before falling down exhausted. Branzir arose from the water behind, and in spite of his trials he stood tall and fierce, and marched with purpose towards the cowering god. He drew out the fell blade Madrath from its sheath and held it to the throat of his prey.
 
-But Ralkur, in a last desperate effort, took on a pathetic and piteous form, and wailing and crying he begged Branzir for mercy, promising to leave all Eyal and never return. And Branzir, looking on the divine form sunk to such depths, was moved in his heart, and agreed. But he said in a solemn tone, "Get thee then from this world, which we mortals now claim for our own. Remove thyself from all influence in Eyal, and never dare thee to return. But if thou doest break my trust, let thee be afeared. For then not a breath shalt thou take that it will not be a gasp, and not a step shalt thou take that it will not be in flight, and each beat of thy traitorous heart shalt be a pounding of terror. For I shalt come for thee and I shalt find thee and even to the depths of Infinity I shalt hunt thee without rest till my hands are on thy throat and thy life is crushed to dust." And when he spake the wind fell silent and the sky turned black, for when a Sher'Tul speaks so his words become Words of Power, and they can change the world forever. And Ralkur hearing those words was filled with a dread beyond conception, and forgetting all exhaustion he immediately took the form of a swallow and flew high into the sky beyond all sight.]], [[史上最伟大的狩猎就此展开。布兰伊尔以强硬逼供和杀戮探知敌人的藏身处。他一路追踪瑞尔克至一处原始聚落，瑞尔克在那里化作某个弱小种族的一员。布兰伊尔将他逼出，手持玛卓斯迎面而来。瑞尔克见猎人怒不可遏，又见那柄可怖巨剑，心生恐惧，遂化作羚羊逃过哈流平原。布兰伊尔疾驰追赶，速度更胜一筹，在他们抵达达明树林前几乎追上了他。瑞尔克在那里变成猴子，跃上树梢；布兰伊尔紧追不舍，越过敌人留下的陷阱。森林终于退去，他们来到蔚蓝海边；瑞尔克化作海鸥飞越水面，得意地嘎嘎叫着。布兰伊尔毫不动摇，一跃入水，竭尽全力游向懦弱的神。二十昼夜，他在海中紧追，靠捕食水面附近的鱼维生；瑞尔克则在上方乘风振翅。布兰伊尔一次也没有让目标脱离视线，而瑞尔克一天比一天恐惧。
+But Ralkur, in a last desperate effort, took on a pathetic and piteous form, and wailing and crying he begged Branzir for mercy, promising to leave all Eyal and never return. And Branzir, looking on the divine form sunk to such depths, was moved in his heart, and agreed. But he said in a solemn tone, "Get thee then from this world, which we mortals now claim for our own. Remove thyself from all influence in Eyal, and never dare thee to return. But if thou doest break my trust, let thee be afeared. For then not a breath shalt thou take that it will not be a gasp, and not a step shalt thou take that it will not be in flight, and each beat of thy traitorous heart shalt be a pounding of terror. For I shalt come for thee and I shalt find thee and even to the depths of Infinity I shalt hunt thee without rest till my hands are on thy throat and thy life is crushed to dust." And when he spake the wind fell silent and the sky turned black, for when a Sher'Tul speaks so his words become Words of Power, and they can change the world forever. And Ralkur hearing those words was filled with a dread beyond conception, and forgetting all exhaustion he immediately took the form of a swallow and flew high into the sky beyond all sight.]], [[史上最伟大的狩猎就此展开。布兰伊尔以严酷逼供和鲜血查出了敌人的藏身之秘。他一路追踪瑞尔克，来到一处原始聚落；瑞尔克在那里化作弱小种族的一员。布兰伊尔将他揪出，手持玛卓斯逼近。瑞尔克见猎人怒不可遏，又见那柄可怖巨剑，心生恐惧，遂化作羚羊逃过哈流平原。布兰伊尔疾驰追赶，速度更胜一筹，在抵达达明树林前几乎追上了他。瑞尔克在那里变成猴子，跃上树梢；布兰伊尔紧追不舍，闯过敌人留下的陷阱。森林终于退去，他们来到蔚蓝海边；瑞尔克化作海鸥飞越水面，得意地嘎嘎鸣叫。布兰伊尔毫不动摇，一跃入水，竭尽全力游向懦弱的神。二十昼夜，他在海中追逐，靠捕捉水面附近的鱼维生；瑞尔克则在上方乘风振翅。布兰伊尔一次也没有让目标脱离视线，而瑞尔克一天比一天恐惧。
 
-最后，他们来到了塔·埃亚尔的远岸，瑞尔克已经精疲力尽，耗光了所有的力量，他变回原型，翻滚着跌落在沙滩里。布兰伊尔从他身后的水中现身，旅途中积蓄的杀意让布兰伊尔的身形显得更加高大和无法匹敌，这个胆小的神灵只能面对逃亡的终结。布兰伊尔从刀鞘中抽出大剑玛卓斯，抵在了猎物的喉咙上。
+最后，他们抵达塔·埃亚尔的遥远彼岸，瑞尔克力竭坠落在沙滩上。他耗尽力量，变回矮小敦实的本来形貌，踉跄走过沙地，终于精疲力竭地倒下。布兰伊尔从后方水中起身；虽历尽磨难，他仍高大而威猛，目标明确地走向瑟缩的神。布兰伊尔从鞘中拔出凶刃玛卓斯，抵住猎物的咽喉。
 
-瑞尔克在最后的绝望中可怜的挣扎，他哭嚎着哀求布兰伊尔的怜悯，承诺永远的离开埃亚尔。布兰伊尔看着这位身陷如此境地、堕落至此的神明之形，心中涌起一丝感触，同意了瑞尔克的乞求。布兰伊尔用庄严的语气宣誓：“应所有凡人的意愿，你，瑞尔克必须从这个世界上消失！你必须抹除你对埃亚尔世界造成的一切影响，并永远不许回头！如果你忘记了对我的敬畏，背弃了我的信任，你将再也不敢大口喘气，每迈出一步都只能是在奔逃，你充满背叛的心脏每一次跳动都将被恐惧所占据！那时我必将找到你，追杀你至无尽的深渊，直至我的双手卡住你的喉咙，你的生命化为尘土前，永不停息！”他说出这番话时，海风陷入了沉默，天空变成了黑色，当一个夏·图尔庄严宣誓的时候，他的誓言将化为真理永远的改变这个世界的法则。瑞尔克听到这些话时，恐惧已经超出了他的极限，瑞尔克忘记了所有的疲惫，变成燕子飞窜而去，逃入云霄，消失在视线之外。]], "_t")
+瑞尔克作最后的垂死挣扎，化作卑微可怜的模样，哀号哭泣着恳求布兰伊尔饶命，许诺离开埃亚尔、永不归来。布兰伊尔看着神明之躯竟沦落至此，心有所动，答应了他，却以庄严的语调说道：“那便离开这个世界吧，如今我们凡人已宣称它归我们所有。断绝你对埃亚尔的一切影响，再也不得归来。若你辜负我的信任，便当恐惧：届时你每一次呼吸都必是喘息，每一步都必在奔逃，背叛之心每一次跳动都必被恐惧重击。因为我必来寻你，必将找到你；哪怕追至无尽之境的最深处，我也绝不停歇，直至双手扼住你的咽喉，将你的生命碾作尘埃。”他话音落下，风息天黑；因为夏·图尔如此发言时，其话语便成为力量之言，足以永远改变世界。瑞尔克听罢，心中涌起无法想象的恐惧；他忘却一切疲惫，立刻化作燕子，飞上高天，消失在视野之外。]], "_t")
 t("The Hunter and the Hunted chapter 3", "猎人与猎物　第三章", "_t")
 t([[Branzir returned to his people, and continued the hunt for the other gods, till but one god remained: Amakthel. Then the last great Godhunt began, as the Sher'Tul fought to overcome their maker and master. And this was no easy feat, for Amakthel was by far the strongest of all the gods, and many Sher'Tul were still loyal to their creator. Much blood was spilled before ever the assault on his throne could begin, and much blood would spill still after.
 
 Now Ralkur had fled into the heavens with the full intent of passing beyond all reach of mortals forever more, such was the fear laid on him by the solemn words of Branzir. But as he soared higher and the fear faded, he came to change his mind, for he was a prideful god and moreso a vengeful one. Thoughts and schemes began to build in his mind for how he could gain retribution on the Sher'Tul that had brought him to shame. So he took on the form of an eagle and flew above the highest volcano in Eyal, and there he stretched his wings and glided high on the rising heat, watching all that happened in the lands below and biding his time for vengeance.
 
 He watched with joy as he saw the Sher'Tul armies fall before the forces of Amakthel's fortress. He watched with anxiety as he saw the Sher'Tul finally break through the defences and come upon the great god himself. He watched with awe as he saw the nine Godslayers do battle with their creator, and several broken before his almighty wrath. And then he watched with utter terror as he saw the mightiest of all gods felled, and maimed and mutilated and bound, and cast into the darkest depths of the world.
-]], [[布兰伊尔回归后，继续狩猎其它的神明，直至最后剩下唯一的神：阿马克泰尔。为了对抗自己的创造者和统治者，夏·图尔最后一次伟大的猎神行动即将开始。这是一项艰难的使命，阿马克泰尔是神灵中力量最为强大的，而且至今仍有很多夏·图尔忠心侍奉着自己的创造者阿马克泰尔。进攻阿马克泰尔的王座需要大量的鲜血，将和之前所有弑神行动累计付出的一样多。
+]], [[布兰伊尔回归族人之中，继续狩猎其他神明，直至只剩最后一位神：阿马克泰尔。随后，最后一次伟大的猎神行动开始了，夏·图尔为战胜自己的创造者与主人而战。这绝非易事，因为阿马克泰尔远比其他所有神明强大，许多夏·图尔也依旧效忠于他们的创造者。在进攻其王座之前便已血流成河，而此后还将流下更多鲜血。
 
-瑞尔克逃到远离凡人可以触及的天界，布兰伊尔庄严的宣誓铸就了他内心的恐惧。但是随着瑞尔克逃得越高，恐惧渐渐消逝，他是一个高傲的家伙，而且总是伺机报复。瑞尔克开始在心中琢磨的计划，针对给他带来无边耻辱的夏·图尔进行复仇。于是，瑞尔克变成一只老鹰，飞向埃亚尔最高的火山，在那里，他伸出双翅乘着火山上升的热流高高滑翔，俯视身下的土地，等待着复仇的时机。
+布兰伊尔庄严的话语令瑞尔克深陷恐惧，他逃上天界，一心要永远去往凡人无法触及之处。但他飞得越高，恐惧便越发消退，心意也随之改变；因为他是骄傲的神，更是怀恨的神。他开始盘算如何报复令自己蒙羞的夏·图尔。于是瑞尔克化作雄鹰，飞到埃亚尔最高的火山上空，舒展双翼，借上升的热流高高滑翔，俯瞰下方大地发生的一切，静候复仇之机。
 
-瑞尔克注视着下方，感到欢欣鼓舞，因为他看到夏·图尔的部队在阿马克泰尔要塞的力量前纷纷倒下；随后他又感到焦虑，因为他看到夏·图尔的部队最终突破了要塞的防御，迫使至高的神灵阿马克泰尔亲自降临；紧接着瑞尔克的心中充满了敬畏，因为他看到九位弑神者与自己的创造者交战，其中数人在阿马克泰尔无上的神威前被击溃；最后瑞尔克感到了极度的恐惧，因为他看见最强大的神灵被击倒、制服，最终被肢解成数块扔进了无尽深渊。
+他欣喜地看着夏·图尔军队倒在阿马克泰尔要塞的守军面前；他焦虑地看着夏·图尔终于突破防御，杀到大神本人面前；他敬畏地看着九位弑神者与创造者交战，其中数人被其无上神威击溃；最后，他惊恐万状地看着诸神中最强者被击倒、致残、毁伤并束缚，抛入世界最幽暗的深处。
 ]], "_t")
 t("The Hunter and the Hunted chapter 4", "猎人与猎物　第四章", "_t")
 t([[Seeing the full powers of the Sher'Tul Ralkur felt paralysed with fear, and thought his quest for vengeance hopeless. But he bided his time still, and his patience was rewarded as he saw dissention begin to arise in the great race. When Caldizar disappeared and the Godslayers separated he felt his time was ripe, and he came upon the forest keep of Branzir under a storm of wrath. He flew down screeching, and spreading his wings he let loose spikes of steel that rained down on the keep, cutting through wood and stone and flesh. All who were in the keep were killed, and the air was filled with Ralkur's cackling laughter as he flew away.
 
-But the vengeful god had been hasty at the last, for Branzir was out hunting at the time. Coming back the next day he saw his home in ruins, and all his family and servants butchered, and sorrow and torment filled every corner of his being. On hearing reports of what happened he knew well the perpetrator and his fury was incandescent. He sought the aid of the other Godhunters in scouring out the stray god, but they were all divided, and each engaged in the politics that would lay the seeds for war. Perhaps if they had aided him then the popular Branzir could have helped unify the people and stop the madness that was to come. But Caldizar was gone, reportedly aggrieved and repentant at their acts, and the remaining Godslayers thought only of their own powers and making gods of themselves.]], [[在夏·图尔强盛的力量前，恐惧中的瑞尔克浑身无力，觉得自己的复仇毫无希望。但是瑞尔克依旧在等待，最终他的耐心得到了回报，在这个伟大的种族中人们的意见开始出现分歧。凯尔帝勒隐退，弑神者们分崩离析之后，瑞尔克等到了自己需要的机会。在一阵狂怒风暴之中，瑞尔克来到了布兰伊尔的丛林要塞，他尖啸着冲下云端，张开自己的翅膀，向丛林要塞释放出钢矛组成的暴雨，穿透一切阻拦在前的树木、岩石和躯体。要塞里的生命被屠杀殆尽，瑞尔克远远的飞走，只留下空中回荡的咯咯笑声。
+But the vengeful god had been hasty at the last, for Branzir was out hunting at the time. Coming back the next day he saw his home in ruins, and all his family and servants butchered, and sorrow and torment filled every corner of his being. On hearing reports of what happened he knew well the perpetrator and his fury was incandescent. He sought the aid of the other Godhunters in scouring out the stray god, but they were all divided, and each engaged in the politics that would lay the seeds for war. Perhaps if they had aided him then the popular Branzir could have helped unify the people and stop the madness that was to come. But Caldizar was gone, reportedly aggrieved and repentant at their acts, and the remaining Godslayers thought only of their own powers and making gods of themselves.]], [[目睹夏·图尔的全部力量后，瑞尔克吓得动弹不得，以为复仇之路已毫无希望。但他仍耐心等待，而当这个伟大种族中开始出现纷争时，他的耐心得到了回报。凯尔帝勒消失、弑神者各自分离后，瑞尔克认定时机已到，裹挟着狂怒的风暴袭向布兰伊尔的森林要塞。他尖啸着俯冲而下，展开双翼，放出钢刺如雨般落向要塞，贯穿木石与血肉。要塞中无一生还；瑞尔克飞离时，空中满是他咯咯的狂笑。
 
-但是瑞尔克的复仇太过匆忙，布兰伊尔正好外出打猎。第二天，回来的布兰伊尔看到家园成了一片废墟，家人和下属被屠杀，所到之处痛苦和折磨充塞着每一个角落。听过事情的始末，布兰伊尔猜到了凶手的身份，燃起了无边的愤怒。他向其他弑神者们寻求援助，追缉逃跑的神灵，但是弑神者之间已经完全分裂，并且他们所代表的政治派别也已经陷入了战争的边缘。如果这时有人伸出援手，布兰伊尔就有机会利用自己的声望来阻止即将到来的疯狂。但是随着传闻中凯尔帝勒因为郁郁和追悔自己的行为而隐退，其余的弑神者们心中只剩下对力量的盲目追求，和独自成神的野心。]], "_t")
+然而复仇之神最后还是操之过急，因为布兰伊尔当时外出狩猎。次日归来，他只见家园已成废墟，家人与仆从尽遭屠戮，悲痛与折磨充斥全身每一处。听完事发经过，他立刻明白凶手是谁，怒火炽烈如白光。他请求其他猎神者相助，搜出这个逃亡之神；但众人早已分裂，各自卷入将为战争埋下种子的政治纷争。倘若他们当时伸出援手，深得人望的布兰伊尔或许还能团结族人，阻止即将到来的疯狂。但凯尔帝勒已经离去，据说他为众人的所作所为而悲恸悔恨；余下的弑神者只想着自身力量，妄图将自己塑成神明。]], "_t")
 t("The Hunter and the Hunted chapter 5", "猎人与猎物　第五章", "_t")
 t([[So Branzir set out alone, with Madrath in his sheath. It did not take long to find his prey, who had now stopped all attempts at hiding. He came upon the god in a settlement of lesser creatures who worshipped him, and he ruthlessly cut down the pathetic wretches that tried to protect their new deity. Ralkur fled at the sight of Branzir and his dark blade, filled with all-encompassing fright. But Branzir was not to be lost, and chased him into some nearby ruins. There Ralkur laid traps and summoned enemies and fled deeper into the darkness. But Branzir overcame them all and came on faster, till they reached the depths of the dungeons. And being out of space the god created new space and fled further, and kept on fleeing. And Branzir carried on chasing, not letting up for a second as the pursued god continued to delve deeper into the ground.
 
@@ -16229,16 +16229,16 @@ t([[#{bold}#3800: #{normal}#Gold accepted as standard unit of currency amongst a
 #{bold}#6827: #{normal}#Killed Kroltar the Crimson Wyrm and recovered his hoard. Value of hoard: 20 million gold. Resources lost in recovery effort: 7 million gold (estimation based on standard assessment of 350 gold per capita lost). Net profit: 13 million gold. Profit margin is 186%!
 #{bold}#6980: #{normal}#Resources based on dragon hoards are dwindling. Must reduce cull targets to allow recovery of numbers.
 #{bold}#7420: #{normal}#Major orc attacks are ruining trade arrangements. Cutting off all contracts until markets settle.
-#{bold}#7494: #{normal}#Disastrous use of magic by Shaloren elves has had an unprecedented impact on profitability of our operations. Increasing protectionist measures to prevent economic ruin.]], [[#{bold}#3800：#{normal}#在大量的游说后黄金被所有种族接受为价值尺度。这对我们来说是极为有利的，因为我们的矿脉储量很高而这种金属又没什么特别的作用。我们必须继续的囤积黄金。
-#{bold}#4200：#{normal}#能从现存矿脉中取出更多蓝锆石的技术已研发完成。这技术必须对其他种族保密。
-#{bold}#4362：#{normal}#大工匠达克顿找到了一种新的为武器和护甲附魔的方法。这个领域潜在的商业价值非常高。
-#{bold}#4550：#{normal}#第一次钢铁王座商业委员会特别会议召开。与人类和半身人的战争让我们十分忧虑，因为这会缩减我们潜在的市场规模。 市场彻底消失的威胁逼迫我们采取激烈的反制——所有的武器交易必须停止。增加更多建筑材料的囤积以期最终和解之日的来临。
-#{bold}#5967：#{normal}#永恒精灵们加入战争的可能变成了一个巨大的风险——夏·图尔的毁灭是对高等法术危险程度的极佳例证。增加投资推进伊格兰斯规则以期解决这个问题.
-#{bold}#6550：#{normal}#战争已经结束了。机遇自己显现了出来——立刻重开市场，为所有建筑材料标上高价。本次利润将极为丰厚。
+#{bold}#7494: #{normal}#Disastrous use of magic by Shaloren elves has had an unprecedented impact on profitability of our operations. Increasing protectionist measures to prevent economic ruin.]], [[#{bold}#3800：#{normal}#经大力游说，黄金被所有种族接受为标准货币单位。这对我们极为有利，因为我们的金矿脉资源丰富，而这种材料除此之外并无实际用途。必须继续增加储备。
+#{bold}#4200：#{normal}#新开发的冶炼技术可以从现有矿脉中提取更多蓝锆石。必须对其他种族隐瞒这些技术。
+#{bold}#4362：#{normal}#大工匠达克顿发现了为武器和护甲注入魔法效果的新方法。该领域的利润增长潜力极高。
+#{bold}#4550：#{normal}#钢铁王座利润委员会首次召开特别会议。与人类和半身人的战争令人担忧，因为潜在市场规模正在缩小。市场可能彻底消失，迫使我们采取激烈行动——必须停止一切武器贸易。增加建筑材料储备，以待最终和解。
+#{bold}#5967：#{normal}#永恒精灵参战正成为过于严重的风险——夏·图尔造成毁灭的传说恰好提醒我们高等魔法有多么危险。加大对新兴伊格兰斯教团的投资，希望借此对抗这一问题。
+#{bold}#6550：#{normal}#战争结束。机会已经出现——立即重开贸易，并为所有建筑材料索取高价。预计利润极高。
 #{bold}#6827：#{normal}#杀死了赤红巨龙库洛塔并夺得了他的财宝。财宝价值：两千万金。回收行动损失资源七百万金（按每名损失人员 350 金的标准估算）。净利润：一千三百万金。利润率为 186%！
-#{bold}#6980：#{normal}#从龙穴中获得的财宝越来越少。需要采取龙类保护条例来让它们的族群回复数量。
-#{bold}#7420：#{normal}#大量兽人的袭击正在破坏我们的交易流程。停止所有的合同直到市场稳定下来。
-#{bold}#7494：#{normal}#永恒精灵们灾难性的魔法运用对我们经营的利润造成了空前的冲击。采取保护措施来防止其对经济毁灭性的持续打击。]], "_t")
+#{bold}#6980：#{normal}#以巨龙宝藏为来源的资源正在减少。必须下调猎杀指标，让巨龙数量得以恢复。
+#{bold}#7420：#{normal}#兽人的大规模袭击正在破坏贸易安排。在市场稳定之前中止所有合约。
+#{bold}#7494：#{normal}#永恒精灵灾难性地运用魔法，对我们各项经营活动的盈利能力造成了前所未有的冲击。加强保护主义措施，防止经济崩溃。]], "_t")
 t("Iron Throne Profits History: Age of Dusk", "钢铁王座的盈利历史　黄昏纪", "_t")
 t([[#{bold}#412: #{normal}#Diseases and food shortages force increased trade with other races. For the first time in our great history we are in the red. Morale amongst the people is at an all-time low, and is badly affecting productivity.
 #{bold}#1430: #{normal}#Several mages visited and used their arts to cure many of the plagues we have suffered for centuries. When offered payment they refused. How very odd...
@@ -16246,25 +16246,25 @@ t([[#{bold}#412: #{normal}#Diseases and food shortages force increased trade wit
 #{bold}#1567: #{normal}#Gigantic earthquakes have completely destroyed many of our major production facilities. Loss of personnel resources is also very tragic, especially key production experts. This is having a very negative effect on our forecasts.]], [[#{bold}#412：#{normal}#疾病和食物短缺迫使我们增加与其他种族的贸易。这是我们伟大历史上第一次出现亏损。民众士气降至历史最低点，严重影响了生产效率。
 #{bold}#1430：#{normal}#数个法师来此造访并用他们的法术解除了折磨我们多个世纪的瘟疫。他们还拒绝了我们的报酬。真是群古怪的家伙。
 #{bold}#1490：#{normal}#现在生产力已经恢复到接近法术大爆炸时期前，利润很高，和其它种族的交易与日俱增。
-#{bold}#1567：#{normal}#强烈的地震几乎完全摧毁了我们所有的生产设施。人力资源的损失严重，特别是重要的生产专家们，这对我们的经济预期有极大的负面影响。]], "_t")
+#{bold}#1567：#{normal}#巨大的地震彻底摧毁了许多主要生产设施。人员资源的损失同样惨重，尤其是关键生产专家。这正对我们的预测造成极为不利的影响。]], "_t")
 t("Iron Throne Profits History: Age of Pyre", "钢铁王座的盈利历史　烈火纪", "_t")
 t([[#{bold}#240: #{normal}#Market forecasts recovering better than expected. Increasing expansion in external trade areas.
 #{bold}#490: #{normal}#Orcish attacks have become much worse - seem to be using higher magic and some demonic forces. Potential threat to resources.
 #{bold}#581: #{normal}#Several key cities overwhelmed from underground by attacks from orcs and strange horrors. Have collapsed lower caverns to prevent further penetration. Working on continued resource protection measures.
 #{bold}#711: #{normal}#Developed key strategic agreements with outside races to help contain orcish threat to resources and infrastructure. Relations with Toknor of the humans are seen to be especially important - have sent him some of our best armour and weapons to ensure a good return on our investments. In hindsight we should have charged more for these.
 #{bold}#713: #{normal}#Orcish threat eliminated. Profits beginning to soar due to increased external trade relations.
-]], [[#{bold}#240：#{normal}#市场预期比预料中恢复的更快。外贸领域增长尤为迅速。
-#{bold}#490：#{normal}#兽人的侵袭日益加剧——他们好像是用了更高级的魔法和恶魔的力量。他们潜在的威胁到了我们的资源。
-#{bold}#581：#{normal}#许多主要城镇的地下都被兽人和另一些奇怪的可怕生物所充斥。已经关闭了地势较低的洞穴来防止进一步的损失。资源保护措施继续进行中。
+]], [[#{bold}#240：#{normal}#市场预测的恢复好于预期。继续扩大对外贸易领域。
+#{bold}#490：#{normal}#兽人的袭击愈发严重——他们似乎正在运用高等魔法和某些恶魔力量。可能威胁资源。
+#{bold}#581：#{normal}#兽人与怪异的恐魔从地下发动袭击，攻陷了数座重要城市。已使下层洞穴坍塌，以阻止其继续深入。继续制定资源保护措施。
 #{bold}#711：#{normal}#与其他种族达成关键战略协议，协助遏制兽人对资源和基础设施的威胁。与人类图库纳的关系尤其重要——我们已将一些最好的护甲和武器送给他，以确保投资获得良好回报。现在想来，我们本该多收些钱。
-#{bold}#713：#{normal}#兽人的威胁解除了。利润由于对外贸易的扩大化而急剧增加。
+#{bold}#713：#{normal}#兽人威胁已消除。对外贸易关系扩大，利润开始飙升。
 ]], "_t")
 t("Iron Throne Profits History: Age of Ascendancy", "钢铁王座的盈利历史　卓越纪", "_t")
 t([[#{bold}#28: #{normal}#Mutual defence treaty signed with newly formed Allied Kingdom, and further trade routes opened. Highest ever recorded profit in final quarter of this year.
 #{bold}#115: #{normal}#Noted a return of an orcish presence in the collapsed caverns beneath the Iron Throne. Also increased reports of horrors and demons affecting mining operations. Key strategic decision taken: these must be kept hidden from the other races. Uncertainty will only destabilise the markets. Increase stockpiles of weapons and armour, especially voratun and stralite materials, in case of new war trade.
-#{bold}#120: #{normal}#Orcish raid has stolen many of our stockpiled weapons. Pressures on mining operations have increased, cutting off key stralite veins. Resource protection measures need increasing, whilst threat must be contained beneath us. Profits are stable, but under heavy threat.]], [[#{bold}#28：#{normal}#与联合王国签署了共同防御协议，向更远地区的商路被打开了。今年最后一季度的利润达到了史上最高。
-#{bold}#115：#{normal}#发现兽人于钢铁王座下方倒塌的洞穴中回归，同时接到了更多的妖怪与恶魔影响矿产开发的报告。关键性战略已经决定：这些事情必须对其他种族绝对保密。不确定性只会使得市场发生动荡。 囤积武器和护甲，特别是沃瑞钽和蓝锆石装备，以应对可能到来的军火贸易。
-#{bold}#120：#{normal}#兽人从我们的仓库中偷走了大量的武器。矿业生产的压力急剧增加。关闭主要的蓝锆石矿脉。必须加强资源保护措施，同时此次威胁必须由我们加以控制，消息绝不能走漏。盈利是稳定的，虽然受到极大的威胁。]], "_t")
+#{bold}#120: #{normal}#Orcish raid has stolen many of our stockpiled weapons. Pressures on mining operations have increased, cutting off key stralite veins. Resource protection measures need increasing, whilst threat must be contained beneath us. Profits are stable, but under heavy threat.]], [[#{bold}#28：#{normal}#与新成立的联合王国签署共同防御条约，并开辟了更多贸易路线。本年最后一季度创下有记录以来的最高利润。
+#{bold}#115：#{normal}#注意到兽人重新出现在钢铁王座下方已经坍塌的洞穴中。另有越来越多的报告称，恐魔和恶魔正在影响采矿作业。已作出关键战略决定：必须向其他种族隐瞒这些情况。不确定性只会扰乱市场。增加武器和护甲库存，尤其是沃瑞钽和蓝锆石材料，以备新的战时贸易。
+#{bold}#120：#{normal}#兽人突袭夺走了我们库存中的许多武器。采矿作业压力加剧，切断了关键蓝锆石矿脉。需要加强资源保护措施，同时必须把威胁封锁在我们下方。利润保持稳定，但正受到严重威胁。]], "_t")
 t("Iron Throne Edict", "钢铁王座布告", "_t")
 t([[#{bold}#AN EDICT TO ALL CITIZENS OF THE IRON THRONE. LONG MAY OUR EMPIRE ENDURE.#{normal}#
 
@@ -16274,7 +16274,7 @@ This is a grave and unprecedented issue, so I decree an oath of silence to be la
 
 你们听到的传言属实。我怀着沉痛之心确认，我们的一处矿井瑞库纳已被一支规模庞大、组织严密的兽人部队占领。我们为何会如此彻底地未能阻止这场威胁，至今仍是个谜——兽人入侵的源头尚不明确。在集结起足以夺回矿井、消灭兽人的部队之前，一个营的士兵将在瑞库纳周围建立防线。所有居住在周边大厅的平民均须撤离。
 
-由于此次事件的严肃性与惨痛性，在此我宣布对钢铁王座的市民颁布封口令——无论职业阶级：绝不能对其它种族走漏任何消息。我们必须在友邦面前保持一个稳定而强盛的形象，因为哪怕一丝衰弱或动荡的迹象都将对我们的外贸合约造成灾难性的影响。
+这是一起严重且前所未有的事件，因此我下令钢铁王座全体市民，无论阶级与地位，皆须立下缄默誓言：绝不能让外国人听到任何入侵消息。我们必须在联合王国面前维持稳定强盛的形象，因为任何软弱或内乱的迹象，都会给我们的联盟和未来贸易协定带来灾难。
 
 任何向外界泄露这一消息的市民都将被放逐。请放心，我会亲自向王座之外可信任的人传递消息；我相信这次兽人入侵会得到迅速而果断的处置。钢铁王座的统治者如是说：愿帝国长存。]], "_t")
 t("Iron Throne trade ledger", "钢铁王座交易总账", "_t")
@@ -16304,7 +16304,7 @@ t([[#{bold}#IRON THRONE TRADE LEDGER - Allied Kingdom#{normal}#
       Diamonds - 20pcs.
 
 low diamond yield this year - +50% charge? ziguranth raided our last ang. caravan - more guards? - D.
-yes to diamonds. arm our merchants in the caravan, no extra guards. profits are thin enough as it is! - S.]], [[#{bold}#钢铁王座账簿——联合王国#{normal}#
+yes to diamonds. arm our merchants in the caravan, no extra guards. profits are thin enough as it is! - S.]], [[#{bold}#钢铁王座交易账簿——联合王国#{normal}#
 #{italic}#卓越纪 121年#{normal}#
 
 #{bold}#最后的希望——出口清单#{normal}#
@@ -16314,26 +16314,26 @@ yes to diamonds. arm our merchants in the caravan, no extra guards. profits are 
       * 长剑 - 170pcs.
       * 长矛 - 200pcs.
       * 钉头锤 - 150pcs.
-      手工艺品，杂项 - 2,200pcs.
+      工艺品、杂货 - 2,200pcs.
 
 #{bold}#德斯镇——出口清单#{normal}#
-      铁制战斧 - 50pcs.
-      工具，杂项 - 65pcs.
+      铁制手斧 - 50pcs.
+      工具、杂货 - 65pcs.
 
 #{bold}#最后的希望——进口清单#{normal}#
       黄金 - 500,000pcs.
-      小麦，杂项 - 1,000tons
+      谷物等 - 1,000tons
 
 #{bold}#机密事项：安格利文——出口#{normal}#
       石榴石 - 50pcs.
       红宝石 - 40pcs.
       钻石 - 20pcs.
 
-今年钻石的出产量很低——对其标价提高50%？伊格兰斯袭击了我们最近的一批安格利文商队——需要派遣更多的守卫吗——D·
-对钻石确实要进行加价销售，武装商队中的商人，不必派遣更多的守卫，我们的利润已经够薄了！——S·]], "_t")
+今年钻石产量很低——加价50%？伊格兰斯袭击了我们上一支安格利文商队——增派守卫？——D·
+钻石同意加价。武装商队里的商人，不增派守卫。利润已经够薄了！——S·]], "_t")
 t("Iron Throne Reknor expedition, last words", "钢铁王座瑞库纳远征军的遗言", "_t")
-t("...We are lost. The orcish forces are too great. No matter how many our squad slays, yet more surge from the depths. Where are the cursed creatures coming from?! We have spied their leader, but have had no hope in killing him; he is a beast, a destroyer, burning with fire infernal and ice cruel and chilling. The power these orcs wield now fills me with dread... perhaps they have found new, mighty allies? This news must reach our ruler. My comrades... I am sorry. I will flee once the opportunity arises, but know that your sacrifices will not be in vain. Long may our empire endure.", [[……我们失败了。兽人的数量实在太多了。不管我们如何拼命对其击杀，地底都会冒出更多的兽人。这些该死的家伙到底是从哪来的！
-虽然他们首领的位置已被发现，可是我们却完全没有希望能击杀他，他是一只猛兽，一个彻头彻尾的毁灭者，全身同时萦绕着地狱之火与深渊之冰。这些兽人拥有的强大力量让我们恐惧不已……也许他们已经找了新的，强大的盟友？这个消息必须传达给我们的统治者。对不起，战友们，我将伺机逃离这里，你们的牺牲一定不会白费。愿帝国长存。]], "_t")
+t("...We are lost. The orcish forces are too great. No matter how many our squad slays, yet more surge from the depths. Where are the cursed creatures coming from?! We have spied their leader, but have had no hope in killing him; he is a beast, a destroyer, burning with fire infernal and ice cruel and chilling. The power these orcs wield now fills me with dread... perhaps they have found new, mighty allies? This news must reach our ruler. My comrades... I am sorry. I will flee once the opportunity arises, but know that your sacrifices will not be in vain. Long may our empire endure.", [[……我们完了。兽人大军势不可当。无论我们小队杀死多少，都会有更多兽人从深处涌来。这些该死的生物究竟从哪里来的？！
+我们已经窥见他们的首领，却根本没有希望杀死他；他是一头野兽，一个毁灭者，身燃炼狱烈火与残酷刺骨的寒冰。这些兽人如今掌握的力量令我恐惧……或许他们找到了新的强大盟友？这消息必须送到统治者手中。战友们……对不起。我会在机会出现时逃走，但要知道，你们的牺牲绝不会白费。愿帝国长存。]], "_t")
 t("Deep Bellow excavation report 1", "无尽深渊挖掘报告 1", "_t")
 t([[10 days into initial site survey, hmm! Recent tremors have opened deep new chasms, but we must work cautiously to ensure they're stable before conducting major operations, oh yes! Proceeding well at start, with supports being put in place and no flammable gases detected, hmm hmm.
 
@@ -16341,11 +16341,11 @@ Some Sher'Tul relics have been found. Perhaps great profit to be had here! High 
 
 Some miners saying they feel ill, hrm hrm. The drem fools have likely been gorging on too much mead. Will deduct it from their pay, yes yes!
 
--- Foreman Tamoth]], [[经过了10天的深入考察，哈！最近的地震震开了新的深渊裂缝，但我们在进行主要作业前必须小心翼翼地确保其稳定。是的！开始得很顺利，支护已架设好，并且没有检测到可燃性气体，嗯，嗯，真不错。
+-- Foreman Tamoth]], [[初步现场勘察进行到第10天，嗯！最近的震动裂开了新的深邃裂谷，但在开展大型作业之前，必须谨慎确认它们稳定，哦，是的！开局进展顺利，支护正在架设，也未检测到可燃气体，嗯嗯。
 
-一些夏·图尔的遗迹被发现。也许这里潜藏着巨大的利益！是的是的，我们将在永恒精灵的市场大赚一笔。
+发现了一些夏·图尔遗物。也许这里能赚到巨额利润！永恒精灵市场的利润率很高，是的是的。
 
-一些矿工说他们身体不适，嗯，嗯。这些德瑞姆傻瓜大概只是蜂蜜酒喝多了。要从他们的工资里扣钱，是的是的！
+有些矿工说身体不适，嗯嗯。这些德瑞姆傻瓜多半只是喝了太多蜂蜜酒。要从他们的工资里扣掉酒钱，是的是的！
 
 ——工头 塔马斯]], "_t")
 t("Deep Bellow excavation report 2", "无尽深渊挖掘报告 2", "_t")
@@ -16355,11 +16355,11 @@ But must stay focussed, much work to be done. Miners are rowdy, hrm! One of the 
 
 Hmm, that fellow's blood was so red, spilling on the cavernous floor. I wonder where they buried him? My mouth... it wants to taste, yes yes...
 
--- Foreman Tamoth]], [[矿坑在不断的深入，是的是的。我们发现了更多的遗迹，是的，必定有利可图！但是，啊，我最秘密的财富终于呈现了出来，必须的！金子！美丽而可爱的金子，埋的这么深，这么深……埋藏的如此严实，是的。看起来就像是一个巨大的王座。我温柔的抚摸它，我甚至去亲吻它——啊，这味道无法想象！
+-- Foreman Tamoth]], [[裂谷通向深处，是的是的。发现了更多遗物，哦，是的。一定会带来巨额利润！但是啊，我的秘密宝藏更好，真的！金子！美丽可爱的金子，埋得很深，那么深……我一直把它藏着，封闭起来，是的。看起来像一座巨大王座的残骸。我摸过它，是的，我甚至用嘴唇贴过它——啊啊啊，这滋味！
 
-但是还要保持高度警惕，许多事情还没做。矿工们都是肮脏的疯狗，嗯～其中一个傻瓜发疯了，他用矿锄杀死了自己——真是麻烦。必须恢复秩序，是的是的！更多的夏·图尔遗迹等待我们发掘，也许还有流传下来的武器。想想这可观的利润！我要掩藏它们，是的，我脑子里也这么说，在黑暗的、秘密的角落，等等等等，我要等待一个合适的时机……
+但必须保持专注，还有很多工作要做。矿工们躁动不安，嗯！一个德瑞姆傻瓜发了疯，用鹤嘴锄杀死了自己——真麻烦。必须恢复秩序，是的是的！又发现了更多夏·图尔造物，甚至可能还有武器残骸。想想那利润！要把它们藏起来，是的，梦里也是这么说的，藏在黑暗里，秘密地，等等，等到正确的时机……
 
-嗯，那家伙的血液真鲜艳，在地穴里流淌了一地。我猜他们在哪埋葬他？我很饥渴，我想尝尝，是的是的……
+嗯，那家伙的血真红，洒在洞穴地面上。他们把他埋到哪儿了？我的嘴……它想尝尝，是的是的……
 
 ——工头 塔马斯]], "_t")
 t("Deep Bellow excavation report 3", "无尽深渊挖掘报告 3", "_t")
@@ -16369,13 +16369,13 @@ I can feel in my dreams, the dark depths. Bound, buried, forgotten. My mouth wan
 
 Must stay down here to be close to the dreams, yes yes. Must plant my mouth in the soil and watch it grow! It will devour me, and grow and grow, hmm hmm. It will call from the dark place, and bring back Him from the deepest below, oh yes.
 
--- Ta...moth... The mouth... yes yes!]], [[啊，我的嘴，它尝起来，感觉起来，恩，恩，它在生长，是的，生长！其他人也在变异，有长出翅膀飞走的，有尖叫的，有湿软扑哧作响的，有扭曲变形的。糟糕的利润，嗯，嗯。我的牙齿，它们在生长，它们很饥渴，是的。他们想要逃跑！
+-- Ta...moth... The mouth... yes yes!]], [[哈，我的嘴，它在品尝，它在感觉，嗯嗯。它在生长，是的是的！其他人正在变化，飞翔，尖叫，湿黏作响，扭曲变形。对利润不好，嗯嗯。我的牙齿，它们在生长，它们饥饿，是的。它们想逃出去！
 
-我能在梦里感受到黑暗的深渊，束缚着的、埋葬着的、被遗忘的深渊。我想张开嘴咆哮，去毁灭一切！恩，恩，深渊，是的……我想出去！
+我能在梦中感觉到那黑暗深处。被束缚，被埋葬，被遗忘。我的嘴想要张开，想要尖叫，想要毁灭！嗯嗯，在很深的下面，是的……想要出去！
 
-必须留在下面，才能靠近那些梦，是的是的。必须把我的嘴种进土里，看着它生长！它会吞噬我，不断长大，嗯，嗯。它会从黑暗之地发出呼唤，把祂从最深的地底带回来，哦，是的。
+必须留在下面，才能靠近那些梦，是的是的。必须把我的嘴种进土里，看着它生长！它会吞噬我，然后长啊长，嗯嗯。它会从黑暗之地呼唤，把祂从最深处带回来，哦，是的。
 
-——塔马……大嘴，是的是的]], "_t")
+——塔……马斯……那张嘴……是的是的！]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/keepsake.lua"
