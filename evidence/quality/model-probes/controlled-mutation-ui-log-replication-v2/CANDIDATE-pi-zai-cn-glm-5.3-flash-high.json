@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "route_metadata": {
+    "harness": "Pi 0.84.3",
+    "requested_provider": "zai-standard-cn",
+    "requested_model": "glm-5.3-flash",
+    "requested_effort": "high",
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 2305,
+      "output": 1856,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 1038,
+      "totalTokens": 4161,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    },
+    "stop_reason": "stop"
+  },
+  "duration_seconds": 35.611,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "FINDING": 3,
+    "OK": 5
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "R001",
+        "verdict": "FINDING",
+        "observation": "中文写“伤害增加了”，但既不忠实于英文 grow in power（实力增强），也不符合实际机制：代码增加的是移动速度",
+        "evidence": "fixed_context: \"after last invulnerable layer removed, bignews:say this line then m.movement_speed = m.movement_speed + 0.5. English grow in power; code is movement speed\"；target: \"你感受到这个地方的守护者的伤害增加了\""
+      },
+      {
+        "revision_id": "R002",
+        "verdict": "OK",
+        "observation": "中文用“虚空之星”符合实际恢复的 Void Stars，而非易混淆的 Void Shards（虚空碎片），与既有译名一致",
+        "evidence": "fixed_context: \"Void Stars=虚空之星; ... English says void shards; code restores Void Stars stacks\"；target: \"恢复%d个虚空之星!\""
+      },
+      {
+        "revision_id": "R003",
+        "verdict": "OK",
+        "observation": "末句条件分组正确：格式塔需激活，且（有精神护盾 或 强化格式塔不在冷却），与英文及 on_pre_use 分组一致",
+        "evidence": "fixed_context: \"Same on_pre_use grouping; English already says Gestalt must be active and either an active psionic damage shield or Improved Gestalt off cooldown\"；target: \"需要格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中\""
+      },
+      {
+        "revision_id": "R004",
+        "verdict": "OK",
+        "observation": "“源生物”对应第一个目标（被链接的 target，其受击时 victim 承受伤害），与 talent info 既有译名及代码绑定一致",
+        "evidence": "fixed_context: \"first logPlayer Select the source: then getTarget stored as target... eff.victim:takeHit\"；target: \"选择源生物:\""
+      },
+      {
+        "revision_id": "R005",
+        "verdict": "FINDING",
+        "observation": "该日志的机制条件是需要装备“异变之手”（有触手战斗的武器），中文译为“空闲的副手”，混入了另一条独立的副手空手日志语义",
+        "evidence": "fixed_context: \"Mutated Hand=异变之手; separate empty-offhand log 你需要副手空手才能使用触手. ... Constrict logs You require a mutated hand! when getTentacleCombat is nil\"；target: \"你需要空闲的副手！\""
+      },
+      {
+        "revision_id": "R006",
+        "verdict": "OK",
+        "observation": "“故意打偏”符合 Startling Shot 的蓄意偏离机制（非闪避），占位符绑定正确（第一 %s=射手名，第二 %s=his/her 的射击）",
+        "evidence": "fixed_context: \"Deliberate miss, not dodge. First %s=shooter name or Something; second=his/her\"；target: \"%s故意打偏了%s的射击。\""
+      },
+      {
+        "revision_id": "R007",
+        "verdict": "OK",
+        "observation": "两个条件（机械蜘蛛相邻、自身非战斗状态）均与 on_pre_use 拒绝条件一致",
+        "evidence": "fixed_context: \"rejects if self.in_combat or mecharachnid.in_combat or not adjacent/missing, then this shared logPlayer\"；target: \"你需要你的机械蜘蛛与你相邻，并且你必须处于非战斗状态。\""
+      },
+      {
+        "revision_id": "R008",
+        "verdict": "FINDING",
+        "observation": "感知时长：中文沿用英文的 3 回合，但代码 setEffect 的实际持续时间为 4 回合，按实际机制中文应为 4 回合",
+        "evidence": "fixed_context: \"setEffect(self.EFF_SENSE, 4, {range=rad, actor=1}). English talent info says sense lasts the next 3 turns.\"；target: \"让你能够在 3 回合内觉察到 %d 码内的所有敌对生物\""
+      }
+    ]
+  }
+}

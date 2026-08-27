@@ -189,3 +189,11 @@ Union、consensus 和多模型讨论只能作为派生候选生成策略，不�
 - 单次 12 个注入缺陷不能回答方差、自然缺陷率、语言质量或 reviewer × translation-origin 自我偏好。
 
 预算受限下，下一步应先做小型 fresh-category replication，而不是直接支付四种译文来源 × 四个 reviewer 的完整矩阵。只有在 direct primitive tracing 能把 control 污染降到可接受水平、且重复运行显示差异不是单次波动后，才进入 translation-origin 因子实验。
+
+## UI/日志 fresh-category replication v2（已完成）
+
+小型重复使用 8 条此前未进入 pilot/v1 的 UI 与战斗日志：4 个预注册变异、4 个在推理前完成全目标源码核验的 control。为了避免再次污染 control，Startling Shot 的历史占位符组合先仅在 fixture 中修正，另一个与已选 tooltip 同机制的近重复日志在冻结前排除。四路线和 prompt 判定口径不变。
+
+主要结果为 Codex 4/4、Opus 3/4、GLM 3/4、Gemini 2/4；四路 consensus 2/4，union 4/4。四条 control 在所有路线中均为 `OK`，因此没有 control 污染或误报候选。R007 删除了“机械蜘蛛本身也必须脱离战斗”的条件，只有 Codex 发现；R008 把运行时四回合感知改回过时英文的三回合，Codex/GLM 判 finding，Opus 判 uncertain，Gemini 漏掉。
+
+这次重复改变了研究判断：v1 的近满分不能外推为跨类别稳定能力，模型盲点会随条件主体、运行时优先级和 UI 文本形态变化。Codex 在两个实验中都保持全命中，但总计仍只有 16 个注入变异，且没有同一冻结输入的重复运行，不能据此宣称稳定优势或无系统性偏差。直接源码 control 构造则通过了本轮门禁，说明下一次应优先重复同一 v2 输入来估计随机方差，而不是继续增加新的类别或立即进入 translation-origin 全因子矩阵。

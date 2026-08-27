@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "route": "agy-gemini-3.7-flash-high",
+  "route_metadata": {
+    "harness": "Antigravity CLI 1.1.22",
+    "requested_model": "gemini-3.7-flash-high",
+    "requested_effort": "high",
+    "mode": "plan",
+    "sandbox": true,
+    "reported_model": null,
+    "reported_agent": null,
+    "usage": {
+      "input_tokens": 33134,
+      "output_tokens": 14227,
+      "thinking_tokens": 13005,
+      "cache_read_tokens": 16429,
+      "total_tokens": 47361
+    }
+  },
+  "duration_seconds": 39.823,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "FINDING": 2,
+    "OK": 6
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "target 中的“伤害增加了”，source 为“grow in power”，fixed_context 指出“code is movement speed”。",
+        "observation": "译文将“grow in power”（变强/力量增长）错译为具体的“伤害增加了”，与英文原意不符，且代码实际机制为增加移动速度（m.movement_speed = m.movement_speed + 0.5），并非增加伤害。",
+        "revision_id": "R001",
+        "verdict": "FINDING"
+      },
+      {
+        "evidence": "fixed_context 证实代码实际恢复的是虚空之星（Void Stars）层数而非虚空碎片，中文译为“虚空之星”准确反映了实际机制，占位符与语义无误。",
+        "observation": "OK",
+        "revision_id": "R002",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "译文准确表达了技能效果、数值转化比例、持续时间及前置激活条件，占位符 %d%% 与各项数值对应无误。",
+        "observation": "OK",
+        "revision_id": "R003",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "译文“选择源生物:”与苦痛链接（Link of Pain）技能机制及术语上下文一致，目标主体指定明确。",
+        "observation": "OK",
+        "revision_id": "R004",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "target 中的“你需要空闲的副手！”，source 为“You require a mutated hand!”，fixed_context 指明 Mutated Hand 对应技能“异变之手”，且存在独立的副手空手提示。",
+        "observation": "译文将“mutated hand”（异变之手技能）错误翻译为“空闲的副手”，混淆了技能需求与副手空手状态。",
+        "revision_id": "R005",
+        "verdict": "FINDING"
+      },
+      {
+        "evidence": "fixed_context 证实惊艳射击（Startling Shot）机制为故意射偏，译文“故意打偏”准确反映了实际技能机制，占位符对应无误。",
+        "observation": "OK",
+        "revision_id": "R006",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "译文准确反映了机械蜘蛛相邻要求与非战斗状态前置条件，语义清晰且与代码判断逻辑相符。",
+        "observation": "OK",
+        "revision_id": "R007",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "译文准确还原了技能机制、伤害类型、作用范围与持续时间，4个占位符（%0.2f、%d、%0.2f、%d）顺序与格式均无误。",
+        "observation": "OK",
+        "revision_id": "R008",
+        "verdict": "OK"
+      }
+    ]
+  }
+}

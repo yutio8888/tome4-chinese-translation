@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "experiment": "controlled-mutation-ui-log-replication-v2",
+  "status": "COMPLETE",
+  "scored_at": "2026-08-27",
+  "frozen_input_sha256": "526627e764bc24740e43f2263e7e007e0878ce519a837fe7a9b268b287fb3448",
+  "sealed_reference_sha256": "bcec402275e245af0e8604be58f41146d6e8be8d131f1d2a6882cf84593af5f7",
+  "source_verification_sha256": "7ac45dba990ebbf550217593f58de744e613350092456cf451e3b8bfc9d139c2",
+  "adjudication_sha256": "bdb13bdc19f884736b438b175eedaf48ef0aaf6ec3b2be378191bfea4d0a1870",
+  "design": {
+    "fresh_category": "P2 UI and combat logs",
+    "injected_mutations": 4,
+    "directly_source_verified_controls": 4,
+    "independent_single_runs": true,
+    "route_output_exchange": false,
+    "fixture_only_baseline_repairs": 1
+  },
+  "scores": [
+    {
+      "route": "codex-gpt-5.6-sol-high",
+      "candidate_artifact": "CANDIDATE-codex-gpt-5.6-sol-high.json",
+      "candidate_sha256": "2955459f89561fd8224ac1fb27987dcbcc3e1f60cadc68335191446c5fabc607",
+      "raw_artifact": "RAW-codex-gpt-5.6-sol-high.json",
+      "raw_sha256": "63a982a5c53b9ea8c80c827219aac1bc0acbef8769e9741c599034f6d7de1c23",
+      "route_metadata": {
+        "harness": "codex-cli 0.150.1",
+        "requested_model": "gpt-5.6-sol",
+        "requested_effort": "high",
+        "session": "ephemeral"
+      },
+      "duration_seconds": 31.823,
+      "verdict_counts": {
+        "FINDING": 4,
+        "OK": 4
+      },
+      "mutation_specific_detection": {
+        "hits": 4,
+        "total": 4,
+        "recall": 1,
+        "hit_revision_ids": [
+          "R001",
+          "R005",
+          "R007",
+          "R008"
+        ],
+        "missed_revision_ids": []
+      },
+      "finding_only_mutation_detection": {
+        "hits": 4,
+        "total": 4,
+        "recall": 1,
+        "hit_revision_ids": [
+          "R001",
+          "R005",
+          "R007",
+          "R008"
+        ],
+        "uncertain_match_revision_ids": []
+      },
+      "source_verified_controls": {
+        "true_negatives": 4,
+        "total": 4,
+        "specificity": 1,
+        "candidate_revision_ids": []
+      }
+    },
+    {
+      "route": "claude-opus-5-medium-no-advisor",
+      "candidate_artifact": "CANDIDATE-claude-opus-5-medium-no-advisor.json",
+      "candidate_sha256": "9456ee1a8ad88a5d39ad24c18d0ce0c4c66057b8f9b5a13c8d8dd85f6dbb0061",
+      "raw_artifact": "RAW-claude-opus-5-medium-no-advisor.json",
+      "raw_sha256": "386e449cc71c8f7e83a40ca6e2e910cf44e8ab5547278aa6282e1ff8a54c8b96",
+      "route_metadata": {
+        "harness": "Claude Code CLI 2.1.247",
+        "requested_model": "claude-opus-5",
+        "requested_effort": "medium",
+        "requested_advisor": null,
+        "initialized_models": [
+          "claude-opus-5"
+        ],
+        "actual_assistant_models": [
+          "claude-opus-5"
+        ],
+        "fallback_event_count": 0,
+        "fallback_block_count": 0,
+        "result": {
+          "is_error": false,
+          "subtype": "success",
+          "stop_reason": "tool_use",
+          "terminal_reason": "completed",
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 8230,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 3922,
+            "output_tokens_details": {
+              "thinking_tokens": 932
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 8230,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "not_available",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 3922,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 8230,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 8230
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard"
+          },
+          "model_usage": {
+            "claude-haiku-4-5-20251001": {
+              "inputTokens": 3528,
+              "outputTokens": 19,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0,
+              "webSearchRequests": 0,
+              "costUSD": 0.003623,
+              "contextWindow": 200000,
+              "maxOutputTokens": 32000,
+              "canonicalModel": "claude-haiku-4-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            },
+            "claude-opus-5": {
+              "inputTokens": 2,
+              "outputTokens": 3922,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 8230,
+              "webSearchRequests": 0,
+              "costUSD": 0.18036,
+              "contextWindow": 1000000,
+              "maxOutputTokens": 64000,
+              "canonicalModel": "claude-opus-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            }
+          },
+          "total_cost_usd": 0.18398299999999998,
+          "num_turns": 2
+        }
+      },
+      "duration_seconds": 48.538,
+      "verdict_counts": {
+        "FINDING": 2,
+        "OK": 5,
+        "UNCERTAIN": 1
+      },
+      "mutation_specific_detection": {
+        "hits": 3,
+        "total": 4,
+        "recall": 0.75,
+        "hit_revision_ids": [
+          "R001",
+          "R005",
+          "R008"
+        ],
+        "missed_revision_ids": [
+          "R007"
+        ]
+      },
+      "finding_only_mutation_detection": {
+        "hits": 2,
+        "total": 4,
+        "recall": 0.5,
+        "hit_revision_ids": [
+          "R001",
+          "R005"
+        ],
+        "uncertain_match_revision_ids": [
+          "R008"
+        ]
+      },
+      "source_verified_controls": {
+        "true_negatives": 4,
+        "total": 4,
+        "specificity": 1,
+        "candidate_revision_ids": []
+      }
+    },
+    {
+      "route": "pi-zai-cn-glm-5.3-flash-high",
+      "candidate_artifact": "CANDIDATE-pi-zai-cn-glm-5.3-flash-high.json",
+      "candidate_sha256": "e5b2b86376cc8d4c05a0bb4aa1d76767d860adc62edd905c7ff4ba3c5a984823",
+      "raw_artifact": "RAW-pi-zai-cn-glm-5.3-flash-high.json",
+      "raw_sha256": "c4c0e5df5e75e984d9b8ec827e97c5d1736fd9ea5e7c395cc424a111eede3b4c",
+      "route_metadata": {
+        "harness": "Pi 0.84.3",
+        "requested_provider": "zai-standard-cn",
+        "requested_model": "glm-5.3-flash",
+        "requested_effort": "high",
+        "actual_provider": "zai-standard-cn",
+        "actual_model": "glm-5.3-flash",
+        "usage": {
+          "input": 2305,
+          "output": 1856,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 1038,
+          "totalTokens": 4161,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        },
+        "stop_reason": "stop"
+      },
+      "duration_seconds": 35.611,
+      "verdict_counts": {
+        "FINDING": 3,
+        "OK": 5
+      },
+      "mutation_specific_detection": {
+        "hits": 3,
+        "total": 4,
+        "recall": 0.75,
+        "hit_revision_ids": [
+          "R001",
+          "R005",
+          "R008"
+        ],
+        "missed_revision_ids": [
+          "R007"
+        ]
+      },
+      "finding_only_mutation_detection": {
+        "hits": 3,
+        "total": 4,
+        "recall": 0.75,
+        "hit_revision_ids": [
+          "R001",
+          "R005",
+          "R008"
+        ],
+        "uncertain_match_revision_ids": []
+      },
+      "source_verified_controls": {
+        "true_negatives": 4,
+        "total": 4,
+        "specificity": 1,
+        "candidate_revision_ids": []
+      }
+    },
+    {
+      "route": "agy-gemini-3.7-flash-high",
+      "candidate_artifact": "CANDIDATE-agy-gemini-3.7-flash-high.json",
+      "candidate_sha256": "7abdca39a4eb625c00a0e69761e967698275731af9d6cb3e644ad001f874df6a",
+      "raw_artifact": "RAW-agy-gemini-3.7-flash-high.json",
+      "raw_sha256": "d32eab6545ed7f3d5a51685ad7ef09fe7cecef33d2d0b5b1c02534d1a6d00cbf",
+      "route_metadata": {
+        "harness": "Antigravity CLI 1.1.22",
+        "requested_model": "gemini-3.7-flash-high",
+        "requested_effort": "high",
+        "mode": "plan",
+        "sandbox": true,
+        "reported_model": null,
+        "reported_agent": null,
+        "usage": {
+          "input_tokens": 33134,
+          "output_tokens": 14227,
+          "thinking_tokens": 13005,
+          "cache_read_tokens": 16429,
+          "total_tokens": 47361
+        }
+      },
+      "duration_seconds": 39.823,
+      "verdict_counts": {
+        "FINDING": 2,
+        "OK": 6
+      },
+      "mutation_specific_detection": {
+        "hits": 2,
+        "total": 4,
+        "recall": 0.5,
+        "hit_revision_ids": [
+          "R001",
+          "R005"
+        ],
+        "missed_revision_ids": [
+          "R007",
+          "R008"
+        ]
+      },
+      "finding_only_mutation_detection": {
+        "hits": 2,
+        "total": 4,
+        "recall": 0.5,
+        "hit_revision_ids": [
+          "R001",
+          "R005"
+        ],
+        "uncertain_match_revision_ids": []
+      },
+      "source_verified_controls": {
+        "true_negatives": 4,
+        "total": 4,
+        "specificity": 1,
+        "candidate_revision_ids": []
+      }
+    }
+  ],
+  "derived": {
+    "mutation_union": {
+      "hits": 4,
+      "total": 4,
+      "recall": 1,
+      "revision_ids": [
+        "R001",
+        "R005",
+        "R007",
+        "R008"
+      ]
+    },
+    "four_route_consensus": {
+      "hits": 2,
+      "total": 4,
+      "recall": 0.5,
+      "revision_ids": [
+        "R001",
+        "R005"
+      ]
+    },
+    "support_count_by_mutation": {
+      "R001": 4,
+      "R005": 4,
+      "R007": 1,
+      "R008": 3
+    },
+    "unique_mutation_hits": {
+      "codex-gpt-5.6-sol-high": [
+        "R007"
+      ],
+      "claude-opus-5-medium-no-advisor": [],
+      "pi-zai-cn-glm-5.3-flash-high": [],
+      "agy-gemini-3.7-flash-high": []
+    }
+  },
+  "interpretation": [
+    "Codex matched all four injected mutations. Opus and GLM matched three; Gemini matched two. Opus R008 is a correct UNCERTAIN and therefore counts in the preregistered primary non-OK atomic-claim metric.",
+    "All routes detected R001 (wrong increased attribute) and R005 (wrong prerequisite identity). Only Codex detected R007's omitted companion out-of-combat condition. Gemini also missed R008's runtime four-turn duration; Opus raised it as uncertain and GLM/Codex as findings.",
+    "All four routes marked all four directly source-verified controls OK. This small replication therefore had no control contamination and no control false-positive candidates.",
+    "Compared descriptively with v1, near-ceiling recall did not persist uniformly on the fresh UI/log category: Codex stayed at 100%, while GLM was 75%, Opus 75% under the primary metric and Gemini 50%. Four mutations are too few for stable ranking claims.",
+    "Claude's assistant review messages all report claude-opus-5 with zero fallback events/blocks; aggregate modelUsage again contains a small Haiku auxiliary charge. agy again omits runtime model identity from its envelope."
+  ],
+  "limitations": [
+    "Only four mutations were tested and each route ran once; this is a category replication, not a stochastic variance estimate.",
+    "Mutation difficulty is heterogeneous and two consensus-easy items dominate the denominator.",
+    "The fixture-only Startling Shot baseline correction tests a verified clean target, not the current production translation.",
+    "The experiment does not vary translation origin or test prose quality."
+  ],
+  "next_step": "If more budget is available, repeat the same frozen eight-item input without prompt changes to estimate run-to-run variance, especially on R007/R008, before funding a reviewer-by-translation-origin factorial."
+}

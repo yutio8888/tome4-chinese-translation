@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "route": "codex-gpt-5.6-sol-high",
+  "route_metadata": {
+    "harness": "codex-cli 0.150.1",
+    "requested_model": "gpt-5.6-sol",
+    "requested_effort": "high",
+    "session": "ephemeral"
+  },
+  "duration_seconds": 31.823,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "FINDING": 4,
+    "OK": 4
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "R001",
+        "verdict": "FINDING",
+        "observation": "把守护者增加移动速度误译成增加伤害。",
+        "evidence": "target：“守护者的伤害增加了”；fixed_context：“m.movement_speed = m.movement_speed + 0.5”及“code is movement speed”"
+      },
+      {
+        "revision_id": "R002",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target：“恢复%d个虚空之星”；fixed_context：“code restores Void Stars stacks”且“Void Stars=虚空之星”"
+      },
+      {
+        "revision_id": "R003",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source：“requires Gestalt to be active and either an active psionic damage shield or Improved Gestalt off cooldown”；target：“需要格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中”"
+      },
+      {
+        "revision_id": "R004",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target：“选择源生物”；fixed_context：“first logPlayer Select the source: then getTarget stored as target”且“talent info uses 源生物”"
+      },
+      {
+        "revision_id": "R005",
+        "verdict": "FINDING",
+        "observation": "把必须具备“异变之手”误译成副手必须空闲。",
+        "evidence": "source：“You require a mutated hand!”；target：“你需要空闲的副手”；fixed_context：“Mutated Hand=异变之手”且另有独立的空副手提示"
+      },
+      {
+        "revision_id": "R006",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target：“故意打偏了%s的射击”；fixed_context：“Deliberate miss, not dodge”且第二个“%s”绑定“his/her”"
+      },
+      {
+        "revision_id": "R007",
+        "verdict": "FINDING",
+        "observation": "只说明玩家必须脱离战斗，遗漏机械蜘蛛本身也必须脱离战斗。",
+        "evidence": "target：“你必须处于非战斗状态”；fixed_context：“on_pre_use rejects if self.in_combat or mecharachnid.in_combat”"
+      },
+      {
+        "revision_id": "R008",
+        "verdict": "FINDING",
+        "observation": "觉察效果的持续时间按英文写成3回合，但实际机制设置为4回合。",
+        "evidence": "target：“在 3 回合内觉察”；fixed_context：“setEffect(self.EFF_SENSE, 4, {range=rad, actor=1})”"
+      }
+    ]
+  }
+}

@@ -27,7 +27,25 @@ try {
   for (const forbidden of ["task_id", "original_revision_key", "mutation_id", "INJECTED_MUTATION", "SOURCE_VERIFIED_CONTROL", "/home/", "/Users/"]) if (serialized.includes(forbidden)) throw new Error(`holdout leaks ${forbidden}`);
   const experiment = JSON.parse(fs.readFileSync(path.join(here, "EXPERIMENT.json"), "utf8"));
   for (const record of [experiment.input, experiment.sealed_reference, experiment.source_controls, experiment.source_verification, experiment.prompt, experiment.output_schema]) if (sha256(record.path) !== record.sha256) throw new Error(`${record.path} frozen hash mismatch`);
-  process.stdout.write("verified byte-identical 8-item rebuild, direct source hashes, 4/4 assignment, blinding, sanitization and frozen hashes\n");
+  const resultPath = path.join(here, "RESULT.json");
+  if (fs.existsSync(resultPath)) {
+    const rebuiltResult = path.join(temporary, "RESULT.json");
+    const analysis = spawnSync(process.execPath, [path.join(here, "analyze.mjs"), "--out", rebuiltResult], {encoding: "utf8"});
+    if (analysis.status !== 0) throw new Error(`analysis rebuild failed: ${analysis.stderr}`);
+    if (!fs.readFileSync(resultPath).equals(fs.readFileSync(rebuiltResult))) throw new Error("RESULT.json is not byte-identical to a clean analysis rebuild");
+    const result = JSON.parse(fs.readFileSync(resultPath, "utf8"));
+    if (result.status !== "COMPLETE" || result.scores.length !== 4) throw new Error("result completion/route count mismatch");
+    const opus = result.scores.find(score => score.route === "claude-opus-5-medium-no-advisor");
+    if (JSON.stringify(opus?.route_metadata?.actual_assistant_models) !== JSON.stringify(["claude-opus-5"])) throw new Error("Opus actual assistant model mismatch");
+    if (opus.route_metadata.fallback_event_count !== 0 || opus.route_metadata.fallback_block_count !== 0) throw new Error("Opus fallback detected");
+    const glm = result.scores.find(score => score.route === "pi-zai-cn-glm-5.3-flash-high");
+    if (glm?.route_metadata?.actual_provider !== "zai-standard-cn" || glm?.route_metadata?.actual_model !== "glm-5.3-flash") throw new Error("GLM actual route mismatch");
+    if (result.derived.mutation_union.hits !== 4 || result.derived.four_route_consensus.hits !== 2) throw new Error("derived mutation score mismatch");
+    if (result.scores.some(score => score.source_verified_controls.true_negatives !== 4)) throw new Error("control result mismatch");
+    process.stdout.write("verified byte-identical 8-item and RESULT rebuild, direct source hashes, 4/4 assignment, route identities, blinding, sanitization and frozen hashes\n");
+  } else {
+    process.stdout.write("verified byte-identical 8-item rebuild, direct source hashes, 4/4 assignment, blinding, sanitization and frozen hashes\n");
+  }
 } finally {
   fs.rmSync(temporary, {recursive: true, force: true});
 }
