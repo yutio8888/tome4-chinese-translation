@@ -205,3 +205,13 @@ Union、consensus 和多模型讨论只能作为派生候选生成策略，不�
 这项结果使“单次模型分数不能作稳定排名”的限制从原则性警告变成了直接观测：Gemini 在完全相同输入上的 mutation recall 从 50% 变为 100%。它不说明 Gemini 已稳定达到满分，也不说明只有 Gemini 有波动；两轮、四个变异不足以估计各路线的方差。Codex 连续两轮 4/4 是正向迹象，但样本仍太小，且仍不回答 reviewer × translation-origin 的同族偏差问题。
 
 预注册规则要求只要出现任一主要检测翻转，就建议一次原样 Run C。因此下一步不应调 prompt 或扩样本，而应先完成第三次相同运行，并以逐条三轮检出频率描述稳定性。Run C 之后再决定是否值得投入 translation-origin 交叉实验；当前证据仍不能证明 GPT 无系统性偏差。
+
+## UI/日志原样 Repeat C（已完成）
+
+Run C 已在输入、顺序、prompt、schema、四路线和 effort 均不变的条件下完成：[controlled mutation UI/log Repeat C](controlled-mutation-ui-log-repeat-c/README.md)。三轮命中数分别为：Codex 4/4、4/4、4/4；Opus 3/4、3/4、2/4；GLM 3/4、3/4、4/4；Gemini 2/4、4/4、4/4。换算为每路线 12 个“mutation × run”机会，依次为 12/12、8/12、10/12、10/12，但四个异质变异不足以把该描述性总数解释为总体排名。
+
+Run B 到 C 又出现两个主指标翻转：Opus 的 R008 从正确 `UNCERTAIN` 变为 `OK`，GLM 的 R007 从 `OK` 变为 `FINDING`。Gemini 则复现了 Run B 对 R007、R008 的命中。跨四路线和三轮，两个较直接的身份错误 R001、R005 均为 12/12；条件主体 R007 为 6/12，运行时优先的持续时间 R008 为 10/12。这说明输入相同并不消除逐项波动，而且难项会支配小样本排序。
+
+Run C 唯一新增的 control 候选来自 Gemini R003。它认为“有一个精神护盾”遗漏 active，但冻结源码的 `on_pre_use` 检查现存 `EFF_PSI_DAMAGE_SHIELD`，现存该效果即为 active shield，译文也保持 `Gestalt AND (shield OR Improved Gestalt off cooldown)` 分组，因此经源码驳回。这是三轮 48 个“路线 × control × run”机会中唯一的 control 候选，不是自然缺陷。
+
+预注册三轮完成规则至此满足，本八条设计应停止重复推理。三轮数据加强了两个结论：单次甚至两次小样本分数都不适合稳定排名；Codex 在这四个变异上连续全命中是正向证据，但仍不能回答跨类别总体能力、自然残余缺陷率或 reviewer × translation-origin 同族偏差。若继续研究，应另建 fresh、预注册且更大的实验，而不是追加 Run D。

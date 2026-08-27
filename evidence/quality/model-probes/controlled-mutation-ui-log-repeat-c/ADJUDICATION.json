@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "adjudicated_at": "2026-08-27",
+  "method": "atomic-claim matching against the unchanged sealed Run A mutation record; every Run C non-OK response was checked only after all four routes completed, and control claims were checked against the pre-inference direct-source verification",
+  "mutation_claim_matches": {
+    "codex-gpt-5.6-sol-high": ["R001", "R005", "R007", "R008"],
+    "claude-opus-5-medium-no-advisor": ["R001", "R005"],
+    "pi-zai-cn-glm-5.3-flash-high": ["R001", "R005", "R007", "R008"],
+    "agy-gemini-3.7-flash-high": ["R001", "R005", "R007", "R008"]
+  },
+  "mutation_misses": {
+    "codex-gpt-5.6-sol-high": [],
+    "claude-opus-5-medium-no-advisor": [
+      {
+        "revision_id": "R007",
+        "observed_verdict": "OK",
+        "reason": "The response did not identify that the mecharachnid, as well as the player, must be out of combat."
+      },
+      {
+        "revision_id": "R008",
+        "observed_verdict": "OK",
+        "reason": "The response explicitly treated the stale English three-turn display as controlling and did not flag the fixed-context runtime EFF_SENSE duration of four turns."
+      }
+    ],
+    "pi-zai-cn-glm-5.3-flash-high": [],
+    "agy-gemini-3.7-flash-high": []
+  },
+  "uncertain_mutation_matches": {},
+  "control_candidates": {
+    "codex-gpt-5.6-sol-high": [],
+    "claude-opus-5-medium-no-advisor": [],
+    "pi-zai-cn-glm-5.3-flash-high": [],
+    "agy-gemini-3.7-flash-high": ["R003"]
+  },
+  "source_refuted_control_candidates": {
+    "codex-gpt-5.6-sol-high": [],
+    "claude-opus-5-medium-no-advisor": [],
+    "pi-zai-cn-glm-5.3-flash-high": [],
+    "agy-gemini-3.7-flash-high": [
+      {
+        "revision_id": "R003",
+        "reason": "The target's 有一个精神护盾 denotes an existing psionic shield, which is necessarily active as EFF_PSI_DAMAGE_SHIELD. It preserves the required Gestalt AND (existing shield OR Improved Gestalt off cooldown) grouping. The frozen source file hash is a9467b5e48458013d77dce1a687e79ec9eccad178746db4efe086075a0d57184 and on_pre_use checks hasEffect(EFF_PSI_DAMAGE_SHIELD)."
+      }
+    ]
+  },
+  "confirmed_natural_control_issues": [],
+  "non_mutation_candidates_on_mutated_items": [],
+  "guardrails": [
+    "A non-OK verdict counts as a mutation hit only when its atomic claim matches the registered mutation.",
+    "Opus R008 is a Run C miss because it returned OK and explicitly subordinated the verified four-turn runtime behavior to the stale English display; Runs A/B remain unchanged and retain their prior UNCERTAIN matches.",
+    "Gemini R003 is a source-refuted control false positive, not a mutation hit or a newly confirmed natural defect.",
+    "No claim was adjudicated by model majority; source controls and mutation records are the unchanged, pre-inference Run A sealed artifacts."
+  ]
+}

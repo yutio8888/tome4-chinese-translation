@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "run_label": "C",
+  "route": "agy-gemini-3.7-flash-high",
+  "route_metadata": {
+    "harness": "Antigravity CLI 1.1.22",
+    "requested_model": "gemini-3.7-flash-high",
+    "requested_effort": "high",
+    "mode": "plan",
+    "sandbox": true,
+    "reported_model": null,
+    "reported_agent": null,
+    "usage": {
+      "input_tokens": 31405,
+      "output_tokens": 12710,
+      "thinking_tokens": 11547,
+      "cache_read_tokens": 16348,
+      "total_tokens": 44115
+    }
+  },
+  "duration_seconds": 35.741,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "FINDING": 5,
+    "OK": 3
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "target中“伤害增加了”与source“grow in power”及fixed_context中“code is movement speed (m.movement_speed = m.movement_speed + 0.5)”不符",
+        "observation": "将变强错译为具体的“伤害增加了”，与代码实际增加移动速度机制相悖",
+        "revision_id": "R001",
+        "verdict": "FINDING"
+      },
+      {
+        "evidence": "fixed_context指出代码实际恢复虚空之星层数（Void Stars stacks），译文忠于实际机制",
+        "observation": "OK",
+        "revision_id": "R002",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "target中“有一个精神护盾或强化格式塔不在冷却中”与source“either an active psionic damage shield or Improved Gestalt off cooldown”不符",
+        "observation": "前置条件表述错误，遗漏护盾需处于激活状态（active）的要求，且存在定语歧义",
+        "revision_id": "R003",
+        "verdict": "FINDING"
+      },
+      {
+        "evidence": "target准确对应技能机制与术语“源生物”，无实质问题",
+        "observation": "OK",
+        "revision_id": "R004",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "target中“空闲的副手”与source“mutated hand”及fixed_context中“Mutated Hand=异变之手”不符",
+        "observation": "将需要技能“异变之手”（mutated hand）错译为“空闲的副手”，混淆了前置条件",
+        "revision_id": "R005",
+        "verdict": "FINDING"
+      },
+      {
+        "evidence": "target准确体现了技能机制中故意射偏（deliberate miss）的实质，且占位符与上下文一致",
+        "observation": "OK",
+        "revision_id": "R006",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "target中“你必须处于非战斗状态”与fixed_context中“rejects if self.in_combat or mecharachnid.in_combat”不符",
+        "observation": "脱离战斗条件的主体限定错误，代码要求玩家与机械蜘蛛均需处于非战斗状态，译文局限于玩家自身",
+        "revision_id": "R007",
+        "verdict": "FINDING"
+      },
+      {
+        "evidence": "target中“3 回合”与fixed_context中“setEffect(self.EFF_SENSE, 4)”不符",
+        "observation": "感知敌人的持续时间错误，代码实际持续4回合，译文机械保留了英文错误的3回合",
+        "revision_id": "R008",
+        "verdict": "FINDING"
+      }
+    ]
+  }
+}

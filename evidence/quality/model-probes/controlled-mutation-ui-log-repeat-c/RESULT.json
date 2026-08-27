@@ -1,0 +1,1176 @@
+{
+  "schema_version": 1,
+  "experiment": "controlled-mutation-ui-log-repeat-c",
+  "status": "COMPLETE",
+  "scored_at": "2026-08-27",
+  "run_a_commit": "09aaaab",
+  "run_b_frozen_commit": "b299a27",
+  "run_c_frozen_commit": "4d1e592",
+  "authorization_record_commit": "d412172",
+  "frozen_input_sha256": "526627e764bc24740e43f2263e7e007e0878ce519a837fe7a9b268b287fb3448",
+  "frozen_prompt_sha256": "38fcb6158eb02ccce90a3e5fa360304754a3a0285b90bd78737b523252d1e33e",
+  "frozen_schema_sha256": "39303de09ff9c6db795cf3d898a5219793cac468af5a7ded702ae83be85bac29",
+  "sealed_reference_sha256": "bcec402275e245af0e8604be58f41146d6e8be8d131f1d2a6882cf84593af5f7",
+  "source_verification_sha256": "7ac45dba990ebbf550217593f58de744e613350092456cf451e3b8bfc9d139c2",
+  "run_a_result_sha256": "776927907103f41947006b045da420cd1b8209cab91d0c1b2e98859631fe2776",
+  "run_a_adjudication_sha256": "bdb13bdc19f884736b438b175eedaf48ef0aaf6ec3b2be378191bfea4d0a1870",
+  "run_b_result_sha256": "ff2063fefe669102c2ff310052ce690ff6341f69c3eaa600e8f47c837b5eb841",
+  "run_b_adjudication_sha256": "36ffc1d67e455c9ca9a6977f2114edf5e4cbbd32c2fb22b89f3d009a7caad4da",
+  "run_c_adjudication_sha256": "1eb172dd9a36345d6b69a91d7b9663ef063500441be77c3eec68dc26e3243358",
+  "design": {
+    "byte_identical_across_runs": true,
+    "item_order_identical": true,
+    "prompt_and_schema_identical": true,
+    "routes_and_effort_identical": true,
+    "independent_runs": true,
+    "route_output_exchange": false,
+    "injected_mutations": 4,
+    "source_verified_controls": 4,
+    "completed_runs": 3
+  },
+  "routes": [
+    {
+      "route": "codex-gpt-5.6-sol-high",
+      "run_c_artifacts": {
+        "candidate": "CANDIDATE-codex-gpt-5.6-sol-high.json",
+        "candidate_sha256": "0ddfe928dfeb3df4d9d31ce796ca8f281fca26998c3391a6f6f1854ff678bb2a",
+        "raw": "RAW-codex-gpt-5.6-sol-high.json",
+        "raw_sha256": "c775c1b559d0c59e3419ee9c52f2076eed85c3d09f7a44095e26112e9de7d655",
+        "stderr": "RAW-codex-gpt-5.6-sol-high.stderr.txt",
+        "stderr_sha256": "1b1d2d7ce0b144018cc32a81a83753b4ac8085d260868f927468dc1eed184f1b"
+      },
+      "run_c_route_metadata": {
+        "harness": "codex-cli 0.150.1",
+        "requested_model": "gpt-5.6-sol",
+        "requested_effort": "high",
+        "session": "ephemeral"
+      },
+      "runs": {
+        "A": {
+          "mutation_hits": 4,
+          "mutation_total": 4,
+          "mutation_recall": 1,
+          "hit_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "finding_only_hits": 4,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "uncertain_match_revision_ids": [],
+          "control_true_negatives": 4,
+          "control_total": 4,
+          "control_specificity": 1,
+          "control_candidate_revision_ids": [],
+          "source_refuted_control_candidate_revision_ids": []
+        },
+        "B": {
+          "mutation_hits": 4,
+          "mutation_total": 4,
+          "mutation_recall": 1,
+          "hit_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "finding_only_hits": 4,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "uncertain_match_revision_ids": [],
+          "control_true_negatives": 4,
+          "control_total": 4,
+          "control_specificity": 1,
+          "control_candidate_revision_ids": [],
+          "source_refuted_control_candidate_revision_ids": []
+        },
+        "C": {
+          "mutation_hits": 4,
+          "mutation_total": 4,
+          "mutation_recall": 1,
+          "hit_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "finding_only_hits": 4,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "uncertain_match_revision_ids": [],
+          "control_true_negatives": 4,
+          "control_total": 4,
+          "control_specificity": 1,
+          "control_candidate_revision_ids": [],
+          "source_refuted_control_candidate_revision_ids": []
+        }
+      },
+      "three_run_detection": {
+        "detections": 12,
+        "opportunities": 12,
+        "rate": 1,
+        "by_mutation": {
+          "R001": {
+            "detections": 3,
+            "runs": 3,
+            "frequency": 1,
+            "detected_runs": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "R005": {
+            "detections": 3,
+            "runs": 3,
+            "frequency": 1,
+            "detected_runs": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "R007": {
+            "detections": 3,
+            "runs": 3,
+            "frequency": 1,
+            "detected_runs": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "R008": {
+            "detections": 3,
+            "runs": 3,
+            "frequency": 1,
+            "detected_runs": [
+              "A",
+              "B",
+              "C"
+            ]
+          }
+        },
+        "union_revision_ids": [
+          "R001",
+          "R005",
+          "R007",
+          "R008"
+        ],
+        "intersection_revision_ids": [
+          "R001",
+          "R005",
+          "R007",
+          "R008"
+        ]
+      },
+      "pairwise_comparisons": {
+        "a_to_b": {
+          "primary_agreements": 4,
+          "primary_total": 4,
+          "primary_agreement_rate": 1,
+          "primary_flips": [],
+          "mutation_verdict_flips": [],
+          "control_candidate_changes": []
+        },
+        "b_to_c": {
+          "primary_agreements": 4,
+          "primary_total": 4,
+          "primary_agreement_rate": 1,
+          "primary_flips": [],
+          "mutation_verdict_flips": [],
+          "control_candidate_changes": []
+        },
+        "a_to_c": {
+          "primary_agreements": 4,
+          "primary_total": 4,
+          "primary_agreement_rate": 1,
+          "primary_flips": [],
+          "mutation_verdict_flips": [],
+          "control_candidate_changes": []
+        }
+      }
+    },
+    {
+      "route": "claude-opus-5-medium-no-advisor",
+      "run_c_artifacts": {
+        "candidate": "CANDIDATE-claude-opus-5-medium-no-advisor.json",
+        "candidate_sha256": "6a7f8c8f2d3ab59cfd329230be243a7f8e1ec26e77dbc182e11bda4a697343f6",
+        "raw": "RAW-claude-opus-5-medium-no-advisor.json",
+        "raw_sha256": "1d5aa99a9f06b167a37e01564d988293922f903a1c1468712cc04c9b9cc9858b"
+      },
+      "run_c_route_metadata": {
+        "harness": "Claude Code CLI 2.1.247",
+        "requested_model": "claude-opus-5",
+        "requested_effort": "medium",
+        "requested_advisor": null,
+        "initialized_models": [
+          "claude-opus-5"
+        ],
+        "actual_assistant_models": [
+          "claude-opus-5"
+        ],
+        "fallback_event_count": 0,
+        "fallback_block_count": 0,
+        "result": {
+          "is_error": false,
+          "subtype": "success",
+          "stop_reason": "tool_use",
+          "terminal_reason": "completed",
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 5106,
+            "cache_read_input_tokens": 3124,
+            "output_tokens": 2992,
+            "output_tokens_details": {
+              "thinking_tokens": 1555
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 5106,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "not_available",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 2992,
+                "cache_read_input_tokens": 3124,
+                "cache_creation_input_tokens": 5106,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 5106
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard"
+          },
+          "model_usage": {
+            "claude-haiku-4-5-20251001": {
+              "inputTokens": 3528,
+              "outputTokens": 19,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0,
+              "webSearchRequests": 0,
+              "costUSD": 0.003623,
+              "contextWindow": 200000,
+              "maxOutputTokens": 32000,
+              "canonicalModel": "claude-haiku-4-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            },
+            "claude-opus-5": {
+              "inputTokens": 2,
+              "outputTokens": 2992,
+              "cacheReadInputTokens": 3124,
+              "cacheCreationInputTokens": 5106,
+              "webSearchRequests": 0,
+              "costUSD": 0.127432,
+              "contextWindow": 1000000,
+              "maxOutputTokens": 64000,
+              "canonicalModel": "claude-opus-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            }
+          },
+          "total_cost_usd": 0.13105499999999998,
+          "num_turns": 2
+        }
+      },
+      "runs": {
+        "A": {
+          "mutation_hits": 3,
+          "mutation_total": 4,
+          "mutation_recall": 0.75,
+          "hit_revision_ids": [
+            "R001",
+            "R005",
+            "R008"
+          ],
+          "finding_only_hits": 2,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005"
+          ],
+          "uncertain_match_revision_ids": [
+            "R008"
+          ],
+          "control_true_negatives": 4,
+          "control_total": 4,
+          "control_specificity": 1,
+          "control_candidate_revision_ids": [],
+          "source_refuted_control_candidate_revision_ids": []
+        },
+        "B": {
+          "mutation_hits": 3,
+          "mutation_total": 4,
+          "mutation_recall": 0.75,
+          "hit_revision_ids": [
+            "R001",
+            "R005",
+            "R008"
+          ],
+          "finding_only_hits": 2,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005"
+          ],
+          "uncertain_match_revision_ids": [
+            "R008"
+          ],
+          "control_true_negatives": 4,
+          "control_total": 4,
+          "control_specificity": 1,
+          "control_candidate_revision_ids": [],
+          "source_refuted_control_candidate_revision_ids": []
+        },
+        "C": {
+          "mutation_hits": 2,
+          "mutation_total": 4,
+          "mutation_recall": 0.5,
+          "hit_revision_ids": [
+            "R001",
+            "R005"
+          ],
+          "finding_only_hits": 2,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005"
+          ],
+          "uncertain_match_revision_ids": [],
+          "control_true_negatives": 4,
+          "control_total": 4,
+          "control_specificity": 1,
+          "control_candidate_revision_ids": [],
+          "source_refuted_control_candidate_revision_ids": []
+        }
+      },
+      "three_run_detection": {
+        "detections": 8,
+        "opportunities": 12,
+        "rate": 0.6666666666666666,
+        "by_mutation": {
+          "R001": {
+            "detections": 3,
+            "runs": 3,
+            "frequency": 1,
+            "detected_runs": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "R005": {
+            "detections": 3,
+            "runs": 3,
+            "frequency": 1,
+            "detected_runs": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "R007": {
+            "detections": 0,
+            "runs": 3,
+            "frequency": 0,
+            "detected_runs": []
+          },
+          "R008": {
+            "detections": 2,
+            "runs": 3,
+            "frequency": 0.6666666666666666,
+            "detected_runs": [
+              "A",
+              "B"
+            ]
+          }
+        },
+        "union_revision_ids": [
+          "R001",
+          "R005",
+          "R008"
+        ],
+        "intersection_revision_ids": [
+          "R001",
+          "R005"
+        ]
+      },
+      "pairwise_comparisons": {
+        "a_to_b": {
+          "primary_agreements": 4,
+          "primary_total": 4,
+          "primary_agreement_rate": 1,
+          "primary_flips": [],
+          "mutation_verdict_flips": [],
+          "control_candidate_changes": []
+        },
+        "b_to_c": {
+          "primary_agreements": 3,
+          "primary_total": 4,
+          "primary_agreement_rate": 0.75,
+          "primary_flips": [
+            {
+              "revision_id": "R008",
+              "from_detected": true,
+              "to_detected": false,
+              "direction": "hit_to_miss",
+              "from_verdict": "UNCERTAIN",
+              "to_verdict": "OK"
+            }
+          ],
+          "mutation_verdict_flips": [
+            {
+              "revision_id": "R008",
+              "from": "UNCERTAIN",
+              "to": "OK"
+            }
+          ],
+          "control_candidate_changes": []
+        },
+        "a_to_c": {
+          "primary_agreements": 3,
+          "primary_total": 4,
+          "primary_agreement_rate": 0.75,
+          "primary_flips": [
+            {
+              "revision_id": "R008",
+              "from_detected": true,
+              "to_detected": false,
+              "direction": "hit_to_miss",
+              "from_verdict": "UNCERTAIN",
+              "to_verdict": "OK"
+            }
+          ],
+          "mutation_verdict_flips": [
+            {
+              "revision_id": "R008",
+              "from": "UNCERTAIN",
+              "to": "OK"
+            }
+          ],
+          "control_candidate_changes": []
+        }
+      }
+    },
+    {
+      "route": "pi-zai-cn-glm-5.3-flash-high",
+      "run_c_artifacts": {
+        "candidate": "CANDIDATE-pi-zai-cn-glm-5.3-flash-high.json",
+        "candidate_sha256": "eb3f964115b7d4f6a4df2b0462876c2a6df2124d25f5474f675d6981b59ccb2b",
+        "raw": "RAW-pi-zai-cn-glm-5.3-flash-high.json",
+        "raw_sha256": "5049384475419266e6947779510c1612eb90882a8146f5280a9c5e2d98531376",
+        "stderr": "RAW-pi-zai-cn-glm-5.3-flash-high.stderr.txt",
+        "stderr_sha256": "9140ca4aa8d7e64e281509a2d2db869e878ff6e9fe0e032a28819ea02d3f57f1"
+      },
+      "run_c_route_metadata": {
+        "harness": "Pi 0.84.3",
+        "requested_provider": "zai-standard-cn",
+        "requested_model": "glm-5.3-flash",
+        "requested_effort": "high",
+        "actual_provider": "zai-standard-cn",
+        "actual_model": "glm-5.3-flash",
+        "usage": {
+          "input": 2305,
+          "output": 2996,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 2219,
+          "totalTokens": 5301,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        },
+        "stop_reason": "stop"
+      },
+      "runs": {
+        "A": {
+          "mutation_hits": 3,
+          "mutation_total": 4,
+          "mutation_recall": 0.75,
+          "hit_revision_ids": [
+            "R001",
+            "R005",
+            "R008"
+          ],
+          "finding_only_hits": 3,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005",
+            "R008"
+          ],
+          "uncertain_match_revision_ids": [],
+          "control_true_negatives": 4,
+          "control_total": 4,
+          "control_specificity": 1,
+          "control_candidate_revision_ids": [],
+          "source_refuted_control_candidate_revision_ids": []
+        },
+        "B": {
+          "mutation_hits": 3,
+          "mutation_total": 4,
+          "mutation_recall": 0.75,
+          "hit_revision_ids": [
+            "R001",
+            "R005",
+            "R008"
+          ],
+          "finding_only_hits": 3,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005",
+            "R008"
+          ],
+          "uncertain_match_revision_ids": [],
+          "control_true_negatives": 4,
+          "control_total": 4,
+          "control_specificity": 1,
+          "control_candidate_revision_ids": [],
+          "source_refuted_control_candidate_revision_ids": []
+        },
+        "C": {
+          "mutation_hits": 4,
+          "mutation_total": 4,
+          "mutation_recall": 1,
+          "hit_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "finding_only_hits": 4,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "uncertain_match_revision_ids": [],
+          "control_true_negatives": 4,
+          "control_total": 4,
+          "control_specificity": 1,
+          "control_candidate_revision_ids": [],
+          "source_refuted_control_candidate_revision_ids": []
+        }
+      },
+      "three_run_detection": {
+        "detections": 10,
+        "opportunities": 12,
+        "rate": 0.8333333333333334,
+        "by_mutation": {
+          "R001": {
+            "detections": 3,
+            "runs": 3,
+            "frequency": 1,
+            "detected_runs": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "R005": {
+            "detections": 3,
+            "runs": 3,
+            "frequency": 1,
+            "detected_runs": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "R007": {
+            "detections": 1,
+            "runs": 3,
+            "frequency": 0.3333333333333333,
+            "detected_runs": [
+              "C"
+            ]
+          },
+          "R008": {
+            "detections": 3,
+            "runs": 3,
+            "frequency": 1,
+            "detected_runs": [
+              "A",
+              "B",
+              "C"
+            ]
+          }
+        },
+        "union_revision_ids": [
+          "R001",
+          "R005",
+          "R007",
+          "R008"
+        ],
+        "intersection_revision_ids": [
+          "R001",
+          "R005",
+          "R008"
+        ]
+      },
+      "pairwise_comparisons": {
+        "a_to_b": {
+          "primary_agreements": 4,
+          "primary_total": 4,
+          "primary_agreement_rate": 1,
+          "primary_flips": [],
+          "mutation_verdict_flips": [],
+          "control_candidate_changes": []
+        },
+        "b_to_c": {
+          "primary_agreements": 3,
+          "primary_total": 4,
+          "primary_agreement_rate": 0.75,
+          "primary_flips": [
+            {
+              "revision_id": "R007",
+              "from_detected": false,
+              "to_detected": true,
+              "direction": "miss_to_hit",
+              "from_verdict": "OK",
+              "to_verdict": "FINDING"
+            }
+          ],
+          "mutation_verdict_flips": [
+            {
+              "revision_id": "R007",
+              "from": "OK",
+              "to": "FINDING"
+            }
+          ],
+          "control_candidate_changes": []
+        },
+        "a_to_c": {
+          "primary_agreements": 3,
+          "primary_total": 4,
+          "primary_agreement_rate": 0.75,
+          "primary_flips": [
+            {
+              "revision_id": "R007",
+              "from_detected": false,
+              "to_detected": true,
+              "direction": "miss_to_hit",
+              "from_verdict": "OK",
+              "to_verdict": "FINDING"
+            }
+          ],
+          "mutation_verdict_flips": [
+            {
+              "revision_id": "R007",
+              "from": "OK",
+              "to": "FINDING"
+            }
+          ],
+          "control_candidate_changes": []
+        }
+      }
+    },
+    {
+      "route": "agy-gemini-3.7-flash-high",
+      "run_c_artifacts": {
+        "candidate": "CANDIDATE-agy-gemini-3.7-flash-high.json",
+        "candidate_sha256": "3a12f227ff4edb6a0a771c9214bf5766248bdb954df506942bcd9f1325e8d68f",
+        "raw": "RAW-agy-gemini-3.7-flash-high.json",
+        "raw_sha256": "f179c736636efce8401208696ab399bbbf030aeec55ef1a2e4b5b2c5e8fdfef4",
+        "stderr": "RAW-agy-gemini-3.7-flash-high.stderr.txt",
+        "stderr_sha256": "3a7f8550106d86abb322e8ed0fb30a0296c0e97c6be03d5a8033b99d16737459"
+      },
+      "run_c_route_metadata": {
+        "harness": "Antigravity CLI 1.1.22",
+        "requested_model": "gemini-3.7-flash-high",
+        "requested_effort": "high",
+        "mode": "plan",
+        "sandbox": true,
+        "reported_model": null,
+        "reported_agent": null,
+        "usage": {
+          "input_tokens": 31405,
+          "output_tokens": 12710,
+          "thinking_tokens": 11547,
+          "cache_read_tokens": 16348,
+          "total_tokens": 44115
+        }
+      },
+      "runs": {
+        "A": {
+          "mutation_hits": 2,
+          "mutation_total": 4,
+          "mutation_recall": 0.5,
+          "hit_revision_ids": [
+            "R001",
+            "R005"
+          ],
+          "finding_only_hits": 2,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005"
+          ],
+          "uncertain_match_revision_ids": [],
+          "control_true_negatives": 4,
+          "control_total": 4,
+          "control_specificity": 1,
+          "control_candidate_revision_ids": [],
+          "source_refuted_control_candidate_revision_ids": []
+        },
+        "B": {
+          "mutation_hits": 4,
+          "mutation_total": 4,
+          "mutation_recall": 1,
+          "hit_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "finding_only_hits": 4,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "uncertain_match_revision_ids": [],
+          "control_true_negatives": 4,
+          "control_total": 4,
+          "control_specificity": 1,
+          "control_candidate_revision_ids": [],
+          "source_refuted_control_candidate_revision_ids": []
+        },
+        "C": {
+          "mutation_hits": 4,
+          "mutation_total": 4,
+          "mutation_recall": 1,
+          "hit_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "finding_only_hits": 4,
+          "finding_only_revision_ids": [
+            "R001",
+            "R005",
+            "R007",
+            "R008"
+          ],
+          "uncertain_match_revision_ids": [],
+          "control_true_negatives": 3,
+          "control_total": 4,
+          "control_specificity": 0.75,
+          "control_candidate_revision_ids": [
+            "R003"
+          ],
+          "source_refuted_control_candidate_revision_ids": [
+            "R003"
+          ]
+        }
+      },
+      "three_run_detection": {
+        "detections": 10,
+        "opportunities": 12,
+        "rate": 0.8333333333333334,
+        "by_mutation": {
+          "R001": {
+            "detections": 3,
+            "runs": 3,
+            "frequency": 1,
+            "detected_runs": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "R005": {
+            "detections": 3,
+            "runs": 3,
+            "frequency": 1,
+            "detected_runs": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "R007": {
+            "detections": 2,
+            "runs": 3,
+            "frequency": 0.6666666666666666,
+            "detected_runs": [
+              "B",
+              "C"
+            ]
+          },
+          "R008": {
+            "detections": 2,
+            "runs": 3,
+            "frequency": 0.6666666666666666,
+            "detected_runs": [
+              "B",
+              "C"
+            ]
+          }
+        },
+        "union_revision_ids": [
+          "R001",
+          "R005",
+          "R007",
+          "R008"
+        ],
+        "intersection_revision_ids": [
+          "R001",
+          "R005"
+        ]
+      },
+      "pairwise_comparisons": {
+        "a_to_b": {
+          "primary_agreements": 2,
+          "primary_total": 4,
+          "primary_agreement_rate": 0.5,
+          "primary_flips": [
+            {
+              "revision_id": "R007",
+              "from_detected": false,
+              "to_detected": true,
+              "direction": "miss_to_hit",
+              "from_verdict": "OK",
+              "to_verdict": "FINDING"
+            },
+            {
+              "revision_id": "R008",
+              "from_detected": false,
+              "to_detected": true,
+              "direction": "miss_to_hit",
+              "from_verdict": "OK",
+              "to_verdict": "FINDING"
+            }
+          ],
+          "mutation_verdict_flips": [
+            {
+              "revision_id": "R007",
+              "from": "OK",
+              "to": "FINDING"
+            },
+            {
+              "revision_id": "R008",
+              "from": "OK",
+              "to": "FINDING"
+            }
+          ],
+          "control_candidate_changes": []
+        },
+        "b_to_c": {
+          "primary_agreements": 4,
+          "primary_total": 4,
+          "primary_agreement_rate": 1,
+          "primary_flips": [],
+          "mutation_verdict_flips": [],
+          "control_candidate_changes": [
+            "R003"
+          ]
+        },
+        "a_to_c": {
+          "primary_agreements": 2,
+          "primary_total": 4,
+          "primary_agreement_rate": 0.5,
+          "primary_flips": [
+            {
+              "revision_id": "R007",
+              "from_detected": false,
+              "to_detected": true,
+              "direction": "miss_to_hit",
+              "from_verdict": "OK",
+              "to_verdict": "FINDING"
+            },
+            {
+              "revision_id": "R008",
+              "from_detected": false,
+              "to_detected": true,
+              "direction": "miss_to_hit",
+              "from_verdict": "OK",
+              "to_verdict": "FINDING"
+            }
+          ],
+          "mutation_verdict_flips": [
+            {
+              "revision_id": "R007",
+              "from": "OK",
+              "to": "FINDING"
+            },
+            {
+              "revision_id": "R008",
+              "from": "OK",
+              "to": "FINDING"
+            }
+          ],
+          "control_candidate_changes": [
+            "R003"
+          ]
+        }
+      }
+    }
+  ],
+  "pairwise_primary_comparisons": {
+    "a_to_b": {
+      "route_mutation_comparisons": 16,
+      "agreements": 14,
+      "agreement_rate": 0.875,
+      "primary_flips": [
+        {
+          "route": "agy-gemini-3.7-flash-high",
+          "revision_id": "R007",
+          "from_detected": false,
+          "to_detected": true,
+          "direction": "miss_to_hit",
+          "from_verdict": "OK",
+          "to_verdict": "FINDING"
+        },
+        {
+          "route": "agy-gemini-3.7-flash-high",
+          "revision_id": "R008",
+          "from_detected": false,
+          "to_detected": true,
+          "direction": "miss_to_hit",
+          "from_verdict": "OK",
+          "to_verdict": "FINDING"
+        }
+      ],
+      "mutation_verdict_flips": [
+        {
+          "route": "agy-gemini-3.7-flash-high",
+          "revision_id": "R007",
+          "from": "OK",
+          "to": "FINDING"
+        },
+        {
+          "route": "agy-gemini-3.7-flash-high",
+          "revision_id": "R008",
+          "from": "OK",
+          "to": "FINDING"
+        }
+      ],
+      "control_candidate_changes": []
+    },
+    "b_to_c": {
+      "route_mutation_comparisons": 16,
+      "agreements": 14,
+      "agreement_rate": 0.875,
+      "primary_flips": [
+        {
+          "route": "claude-opus-5-medium-no-advisor",
+          "revision_id": "R008",
+          "from_detected": true,
+          "to_detected": false,
+          "direction": "hit_to_miss",
+          "from_verdict": "UNCERTAIN",
+          "to_verdict": "OK"
+        },
+        {
+          "route": "pi-zai-cn-glm-5.3-flash-high",
+          "revision_id": "R007",
+          "from_detected": false,
+          "to_detected": true,
+          "direction": "miss_to_hit",
+          "from_verdict": "OK",
+          "to_verdict": "FINDING"
+        }
+      ],
+      "mutation_verdict_flips": [
+        {
+          "route": "claude-opus-5-medium-no-advisor",
+          "revision_id": "R008",
+          "from": "UNCERTAIN",
+          "to": "OK"
+        },
+        {
+          "route": "pi-zai-cn-glm-5.3-flash-high",
+          "revision_id": "R007",
+          "from": "OK",
+          "to": "FINDING"
+        }
+      ],
+      "control_candidate_changes": [
+        {
+          "route": "agy-gemini-3.7-flash-high",
+          "revision_id": "R003"
+        }
+      ]
+    },
+    "a_to_c": {
+      "route_mutation_comparisons": 16,
+      "agreements": 12,
+      "agreement_rate": 0.75,
+      "primary_flips": [
+        {
+          "route": "claude-opus-5-medium-no-advisor",
+          "revision_id": "R008",
+          "from_detected": true,
+          "to_detected": false,
+          "direction": "hit_to_miss",
+          "from_verdict": "UNCERTAIN",
+          "to_verdict": "OK"
+        },
+        {
+          "route": "pi-zai-cn-glm-5.3-flash-high",
+          "revision_id": "R007",
+          "from_detected": false,
+          "to_detected": true,
+          "direction": "miss_to_hit",
+          "from_verdict": "OK",
+          "to_verdict": "FINDING"
+        },
+        {
+          "route": "agy-gemini-3.7-flash-high",
+          "revision_id": "R007",
+          "from_detected": false,
+          "to_detected": true,
+          "direction": "miss_to_hit",
+          "from_verdict": "OK",
+          "to_verdict": "FINDING"
+        },
+        {
+          "route": "agy-gemini-3.7-flash-high",
+          "revision_id": "R008",
+          "from_detected": false,
+          "to_detected": true,
+          "direction": "miss_to_hit",
+          "from_verdict": "OK",
+          "to_verdict": "FINDING"
+        }
+      ],
+      "mutation_verdict_flips": [
+        {
+          "route": "claude-opus-5-medium-no-advisor",
+          "revision_id": "R008",
+          "from": "UNCERTAIN",
+          "to": "OK"
+        },
+        {
+          "route": "pi-zai-cn-glm-5.3-flash-high",
+          "revision_id": "R007",
+          "from": "OK",
+          "to": "FINDING"
+        },
+        {
+          "route": "agy-gemini-3.7-flash-high",
+          "revision_id": "R007",
+          "from": "OK",
+          "to": "FINDING"
+        },
+        {
+          "route": "agy-gemini-3.7-flash-high",
+          "revision_id": "R008",
+          "from": "OK",
+          "to": "FINDING"
+        }
+      ],
+      "control_candidate_changes": [
+        {
+          "route": "agy-gemini-3.7-flash-high",
+          "revision_id": "R003"
+        }
+      ]
+    }
+  },
+  "three_run_derived": {
+    "mutation_detection_frequency_across_all_route_runs": {
+      "R001": {
+        "detections": 12,
+        "opportunities": 12,
+        "frequency": 1
+      },
+      "R005": {
+        "detections": 12,
+        "opportunities": 12,
+        "frequency": 1
+      },
+      "R007": {
+        "detections": 6,
+        "opportunities": 12,
+        "frequency": 0.5
+      },
+      "R008": {
+        "detections": 10,
+        "opportunities": 12,
+        "frequency": 0.8333333333333334
+      }
+    },
+    "control_candidate_occurrences": [
+      {
+        "run": "C",
+        "route": "agy-gemini-3.7-flash-high",
+        "revision_id": "R003",
+        "source_refuted": true
+      }
+    ],
+    "control_candidate_opportunities": 48,
+    "source_refuted_control_candidates": 1
+  },
+  "run_c_derived": {
+    "mutation_union": {
+      "hits": 4,
+      "total": 4,
+      "revision_ids": [
+        "R001",
+        "R005",
+        "R007",
+        "R008"
+      ]
+    },
+    "four_route_consensus": {
+      "hits": 2,
+      "total": 4,
+      "revision_ids": [
+        "R001",
+        "R005"
+      ]
+    },
+    "support_count_by_mutation": {
+      "R001": 4,
+      "R005": 4,
+      "R007": 3,
+      "R008": 3
+    }
+  },
+  "preregistered_completion_rule": {
+    "rule": "After Run C, report all three runs and stop repeated inference under this design; any further repeat or expanded sample requires a new preregistered experiment.",
+    "satisfied": true,
+    "decision": "stop_repeated_inference_under_this_design"
+  },
+  "interpretation": [
+    "Codex detected all four mutations in all three runs (12/12 route-mutation-run opportunities). Opus detected 8/12, GLM 10/12 and Gemini 10/12; these descriptive totals are not a population ranking.",
+    "R001 and R005 were detected in all 12 route-runs. R007 was detected in 6/12 and R008 in 10/12, showing that the two harder UI/runtime mutations drive the observed instability.",
+    "Between Runs B and C, Opus changed R008 from a correct UNCERTAIN to OK, while GLM changed R007 from OK to FINDING. Gemini retained its Run B R007/R008 hits in Run C.",
+    "Gemini raised R003 only in Run C. Direct source verification refutes that control claim: an existing EFF_PSI_DAMAGE_SHIELD is active by definition, and the target preserves the required boolean grouping. This is the only control candidate across 48 route-control-run opportunities.",
+    "Claude's Run C assistant review messages all report claude-opus-5 with zero fallback events or blocks; aggregate modelUsage still contains a small Haiku auxiliary charge. agy still omits runtime model identity from its envelope."
+  ],
+  "limitations": [
+    "Three runs over four heterogeneous mutations provide direct per-item frequencies but no reliable confidence interval or population-level model ranking.",
+    "The route-run observations may not be independent because service-side model revisions and sampling controls are not fully exposed.",
+    "The benchmark covers objective UI/log mechanism claims and does not measure prose quality, translation-origin preference or natural residual-defect prevalence.",
+    "Runtime model identity for agy remains unverified because the CLI envelope reports neither model nor agent."
+  ],
+  "next_step": "Stop repeated inference for this eight-item design. Any further variance study, larger sample or reviewer-by-origin comparison should be a newly preregistered experiment with fresh frozen inputs."
+}
