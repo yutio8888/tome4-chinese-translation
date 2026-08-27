@@ -11,6 +11,7 @@ import argparse
 from dataclasses import dataclass
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 from typing import Any
@@ -128,7 +129,97 @@ def _archived(dispatch: dict[str, Any]) -> bool:
     return _lifecycle(dispatch) == "archived" and dispatch.get("archive_confirmed") is True
 
 
+def _is_json_value(value: object) -> bool:
+    if value is None or isinstance(value, (str, bool)):
+        return True
+    if type(value) is int:
+        return True
+    if type(value) is float:
+        return math.isfinite(value)
+    if isinstance(value, list):
+        return all(_is_json_value(item) for item in value)
+    if isinstance(value, dict):
+        return all(
+            isinstance(key, str) and _is_json_value(item)
+            for key, item in value.items()
+        )
+    return False
+
+
+def _runtime_observation_valid(value: object) -> tuple[bool, str]:
+    fields = {"provider", "model", "mode", "thinking"}
+    expected = {
+        "schema_version", "source", "captured_at", "capture_status", *fields,
+    }
+    if not isinstance(value, dict) or set(value) != expected:
+        return False, "must be an exact runtime_observation object"
+    if type(value["schema_version"]) is not int or value["schema_version"] != 1:
+        return False, "schema_version must be integer 1"
+    if value["source"] != "live_agent_metadata":
+        return False, "source must be live_agent_metadata"
+    if not isinstance(value["captured_at"], str) or not value["captured_at"]:
+        return False, "captured_at must be a non-empty string"
+    if value["capture_status"] != "captured":
+        return False, "capture_status must be captured"
+    for field in fields:
+        observation = value[field]
+        if not isinstance(observation, dict):
+            return False, f"{field} must be a FieldObservation object"
+        presence = observation.get("presence")
+        if presence == "missing" and set(observation) == {"presence"}:
+            continue
+        if (
+            presence == "present"
+            and set(observation) == {"presence", "value"}
+            and _is_json_value(observation["value"])
+        ):
+            continue
+        return False, f"{field} must be exact present/value or missing form"
+    return True, "ok"
+
+
+def _runtime_observation_placement_valid(value: object) -> tuple[bool, str]:
+    """Allow observations only on direct dispatches and ignore their raw-value subtrees."""
+    def walk(node: object, path: tuple[object, ...]) -> tuple[bool, str]:
+        if isinstance(node, dict):
+            for key, item in node.items():
+                if key == "runtime_observation":
+                    direct_dispatch = (
+                        len(path) == 2
+                        and path[0] == "child_dispatches"
+                        and type(path[1]) is int
+                    )
+                    if not direct_dispatch:
+                        return False, f"runtime_observation is forbidden at STATE path {path!r}"
+                    valid, detail = _runtime_observation_valid(item)
+                    if not valid:
+                        return False, f"runtime_observation {detail}"
+                    continue
+                valid, detail = walk(item, (*path, key))
+                if not valid:
+                    return valid, detail
+        elif isinstance(node, list):
+            for index, item in enumerate(node):
+                valid, detail = walk(item, (*path, index))
+                if not valid:
+                    return valid, detail
+        return True, "ok"
+
+    return walk(value, ())
+
+
+def _contains_key(value: object, needle: str) -> bool:
+    if isinstance(value, dict):
+        return needle in value or any(_contains_key(item, needle) for item in value.values())
+    if isinstance(value, list):
+        return any(_contains_key(item, needle) for item in value)
+    return False
+
+
 def _schema_valid(state: dict[str, Any]) -> tuple[bool, str]:
+    placement = _runtime_observation_placement_valid(state)
+    if not placement[0]:
+        return placement
     children = state.get("child_dispatches")
     if children is not None and not isinstance(children, list):
         return False, "child_dispatches must be a list or null"
@@ -199,8 +290,42 @@ def _load_records(
         record = _read_json(path, f"review record {path.relative_to(root)}")
         if not isinstance(record, dict):
             raise ContractError(f"review record {path.relative_to(root)} must be an object")
+        if _contains_key(record, "runtime_observation"):
+            raise ContractError(
+                f"review record {path.relative_to(root)} forbids runtime_observation at any depth"
+            )
         loaded.append((record, path))
     return loaded
+
+
+def _stop_records_forbid_runtime_observation(
+    state: dict[str, Any], *, root: Path = ROOT
+) -> tuple[bool, str]:
+    """Best-effort STOP audit without making review records a STOP prerequisite."""
+    for field in ("review_records", "senior_review_records"):
+        locators = state.get(field, [])
+        if isinstance(locators, dict):
+            locators = list(locators.values())
+        if not isinstance(locators, list):
+            continue
+        for index, locator in enumerate(locators):
+            try:
+                path = _ordinary_workspace_file(
+                    locator, f"{field}[{index}]", root=root
+                )
+                record = _read_json(
+                    path, f"review record {path.relative_to(root)}"
+                )
+            except (ContractError, InputError, OSError, ValueError):
+                continue
+            if isinstance(record, dict) and _contains_key(
+                record, "runtime_observation"
+            ):
+                return False, (
+                    f"review record {path.relative_to(root)} forbids "
+                    "runtime_observation at any depth"
+                )
+    return True, "ok"
 
 
 def _dispatches(state: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -992,6 +1117,15 @@ def check_state(
             return _result("INPUT_ERROR", "non-terminal STATE requires --target DONE or STOP", 2)
         target = state_name
     if target == "STOP":
+        review_observations = _stop_records_forbid_runtime_observation(
+            state, root=root
+        )
+        if not review_observations[0]:
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                f"review_records: {review_observations[1]}",
+                1,
+            )
         children = state.get("child_dispatches")
         if children == [] or (
             isinstance(children, list)

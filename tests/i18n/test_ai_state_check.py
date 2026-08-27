@@ -1167,6 +1167,141 @@ class StateCheckerFixtureTests(unittest.TestCase):
         self.assertIsInstance(result, ai_state_check.CheckResult)
         self.assertEqual((result.outcome, result.exit_code), ("NEW_CONTRACT_FAILED", 1))
 
+    @staticmethod
+    def _runtime_observation() -> dict[str, object]:
+        return {
+            "schema_version": 1,
+            "source": "live_agent_metadata",
+            "captured_at": "2026-08-27T17:30:00Z",
+            "capture_status": "captured",
+            "provider": {"presence": "present", "value": "raw-provider"},
+            "model": {"presence": "present", "value": None},
+            "mode": {"presence": "present", "value": {"raw": [1, True]}},
+            "thinking": {"presence": "missing"},
+        }
+
+    def test_runtime_observation_is_optional_and_completion_neutral(self) -> None:
+        self.assertEqual(self._check_code().outcome, "DONE_VERIFIED")
+
+        def add_observation(state, record, directory):
+            state["child_dispatches"][0]["runtime_observation"] = self._runtime_observation()
+
+        self.assertEqual(self._check_code(add_observation).outcome, "DONE_VERIFIED")
+
+        def add_observation_to_stop(state, record, directory):
+            state["state"] = "STOP"
+            state["child_dispatches"][0]["runtime_observation"] = self._runtime_observation()
+
+        self.assertEqual(
+            self._check_code(add_observation_to_stop, target="STOP").outcome,
+            "STOP_VERIFIED",
+        )
+
+        def raw_value_contains_ordinary_same_name(state, record, directory):
+            observation = self._runtime_observation()
+            observation["provider"] = {
+                "presence": "present",
+                "value": {"runtime_observation": {"ordinary": "raw metadata"}},
+            }
+            state["child_dispatches"][0]["runtime_observation"] = observation
+
+        self.assertEqual(
+            self._check_code(raw_value_contains_ordinary_same_name).outcome,
+            "DONE_VERIFIED",
+        )
+
+    def test_runtime_observation_exact_schema_and_placement(self) -> None:
+        invalid: list[object] = [None, [], {"schema_version": 1}]
+        for field, value in (
+            ("schema_version", True),
+            ("schema_version", 2),
+            ("source", "profile"),
+            ("captured_at", ""),
+            ("captured_at", None),
+            ("capture_status", "partial"),
+        ):
+            observation = self._runtime_observation()
+            observation[field] = value
+            invalid.append(observation)
+        extra = self._runtime_observation()
+        extra["extra"] = True
+        invalid.append(extra)
+        for field_value in (
+            {"presence": "missing", "value": None},
+            {"presence": "present"},
+            {"presence": "present", "value": "x", "extra": True},
+            {"presence": "unknown"},
+            [],
+        ):
+            observation = self._runtime_observation()
+            observation["provider"] = field_value
+            invalid.append(observation)
+        non_json = self._runtime_observation()
+        non_json["provider"] = {"presence": "present", "value": float("nan")}
+        invalid.append(non_json)
+
+        for value in invalid:
+            def mutate(state, record, directory, value=value):
+                state["child_dispatches"][0]["runtime_observation"] = value
+
+            with self.subTest(value=value):
+                result = self._check_code(mutate)
+                self.assertEqual((result.outcome, result.exit_code), ("NEW_CONTRACT_FAILED", 1))
+
+        placements = (
+            lambda state, record, directory: state.update(
+                {"runtime_observation": self._runtime_observation()}
+            ),
+            lambda state, record, directory: state.update(
+                {"executor": {"runtime_observation": self._runtime_observation()}}
+            ),
+            lambda state, record, directory: state.update(
+                {"baseline": {"runtime_observation": self._runtime_observation()}}
+            ),
+            lambda state, record, directory: state.update(
+                {"wait": {"runtime_observation": self._runtime_observation()}}
+            ),
+            lambda state, record, directory: state["child_dispatches"][0].update(
+                {"nested": {"runtime_observation": self._runtime_observation()}}
+            ),
+        )
+        for mutate in placements:
+            with self.subTest(placement=mutate):
+                self.assertEqual(self._check_code(mutate).exit_code, 1)
+
+        def nested_review_record(state, record, directory):
+            record["evidence"] = [{"runtime_observation": self._runtime_observation()}]
+
+        self.assertEqual(self._check_code(nested_review_record).exit_code, 1)
+
+        def nested_review_record_stop(state, record, directory):
+            state["state"] = "STOP"
+            record["evidence"] = [{"runtime_observation": self._runtime_observation()}]
+
+        self.assertEqual(
+            self._check_code(nested_review_record_stop, target="STOP").exit_code,
+            1,
+        )
+
+    def test_stop_ignores_unavailable_or_non_object_review_records(self) -> None:
+        def unavailable_records(state, record, directory):
+            state["state"] = "STOP"
+            invalid_json = directory / "invalid-review.json"
+            invalid_json.write_text("{", encoding="utf-8")
+            non_object = directory / "non-object-review.json"
+            self._write(non_object, [{"ordinary": "value"}])
+            relative = directory.relative_to(ROOT)
+            state["review_records"] = [
+                str(relative / "missing-review.json"),
+                str(invalid_json.relative_to(ROOT)),
+                str(non_object.relative_to(ROOT)),
+            ]
+
+        self.assertEqual(
+            self._check_code(unavailable_records, target="STOP").outcome,
+            "STOP_VERIFIED",
+        )
+
     def test_review_only_does_not_require_final_validation_and_stop_is_narrow(self) -> None:
         state_path, state, record = self._copy_fixture("contextual")
         self.assertNotIn("final_validation_passed", state)
@@ -1293,6 +1428,7 @@ class StateCheckerFixtureTests(unittest.TestCase):
             "task_id": state["task_id"],
             "parent_agent_id": "wave-orchestrator",
             "lineage_verified": True,
+            "runtime_observation": self._runtime_observation(),
         })
         self._write(state_path, state)
         result = ai_state_check.check_wave_state_context(

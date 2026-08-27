@@ -18730,56 +18730,6 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
     ARCHIVE_SKILLS_DIR = ROOT / "archive" / ".agents" / "skills"
     ARCHIVE_SKILL_DIR = ROOT / "archive" / ".agents" / "skills" / "tome4-pi-subagent"
     CONTRACT_DOC = ROOT / "archive" / "docs" / "pi-review-v2-contract.md"
-    MIGRATED_REQUIRED_MARKER_REFS = (
-        (".ai/roles/orchestrator.md", 4),
-        (".ai/roles/orchestrator.md", 5),
-        (".ai/roles/orchestrator.md", 8),
-        (".ai/roles/orchestrator.md", 9),
-        (".ai/roles/orchestrator.md", 10),
-        (".ai/roles/orchestrator.md", 11),
-        (".ai/roles/orchestrator.md", 12),
-        (".ai/roles/orchestrator.md", 13),
-        (".ai/roles/orchestrator.md", 14),
-        (".ai/roles/orchestrator.md", 15),
-        (".ai/roles/orchestrator.md", 16),
-        (".ai/roles/orchestrator.md", 18),
-        (".ai/roles/orchestrator.md", 19),
-        (".ai/roles/orchestrator.md", 20),
-        (".ai/roles/orchestrator.md", 21),
-        (".ai/roles/orchestrator.md", 22),
-        (".ai/roles/orchestrator.md", 23),
-        (".ai/roles/orchestrator.md", 24),
-        (".ai/roles/orchestrator.md", 25),
-        (".ai/roles/orchestrator.md", 26),
-        (".ai/roles/orchestrator.md", 27),
-        (".ai/roles/orchestrator.md", 28),
-        (".ai/roles/orchestrator.md", 29),
-        (".ai/roles/orchestrator.md", 30),
-        (".ai/roles/orchestrator.md", 31),
-        (".ai/roles/orchestrator.md", 32),
-        (".ai/roles/orchestrator.md", 33),
-        (".ai/roles/orchestrator.md", 34),
-        (".ai/roles/orchestrator.md", 35),
-        (".ai/roles/orchestrator.md", 36),
-        (".ai/roles/orchestrator.md", 37),
-        (".ai/roles/orchestrator.md", 38),
-        (".ai/roles/orchestrator.md", 39),
-        (".ai/roles/orchestrator.md", 40),
-        (".ai/roles/orchestrator.md", 41),
-        (".ai/roles/orchestrator.md", 42),
-        (".ai/roles/orchestrator.md", 43),
-        (".ai/roles/orchestrator.md", 44),
-        (".ai/roles/orchestrator.md", 45),
-        (".ai/roles/orchestrator.md", 46),
-        (".ai/roles/orchestrator.md", 47),
-        (".ai/roles/orchestrator.md", 48),
-        (".ai/roles/orchestrator.md", 49),
-        (".ai/roles/orchestrator.md", 50),
-        (".ai/roles/orchestrator.md", 51),
-        (".ai/roles/orchestrator.md", 52),
-        (".ai/roles/orchestrator.md", 53),
-    )
-
     def _frontmatter(self, path: Path) -> dict:
         text = path.read_text(encoding="utf-8")
         if not text.startswith("---\n"):
@@ -18907,49 +18857,87 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertIn("PASS:", completed.stdout)
 
     def test_migrated_markers_stay_out_of_agents_with_exact_checker_owners(self) -> None:
-        texts = {
-            relative: (ROOT / relative).read_text(encoding="utf-8")
-            for relative in paseo_contract_check.ACTIVE_FILES
-        }
-        agents = texts["AGENTS.md"]
-        markers = tuple(
-            paseo_contract_check.REQUIRED_MARKERS[relative][index]
-            for relative, index in self.MIGRATED_REQUIRED_MARKER_REFS
-        )
-        expected_markers = {
-            marker
-            for required_markers in paseo_contract_check.REQUIRED_MARKERS.values()
-            for marker in required_markers
-            if marker not in agents
-            and not marker.startswith("role=")
-            and {
-                relative
-                for relative, text in texts.items()
-                if marker in text
-            }
-            == {
-                relative
-                for relative, required in paseo_contract_check.REQUIRED_MARKERS.items()
-                if marker in required
-            }
-        }
-        self.assertEqual(set(markers), expected_markers)
+        contract = self._normative_texts()["contract"]
+        for relative, clauses in paseo_contract_check.ROLE_CLAUSE_REFERENCES.items():
+            role_text = (ROOT / relative).read_text(encoding="utf-8")
+            for clause in clauses:
+                with self.subTest(role=relative, clause=clause):
+                    self.assertIn(clause, role_text)
+                    self.assertIn(f"`{clause}`", contract)
 
-        for relative, index in self.MIGRATED_REQUIRED_MARKER_REFS:
-            marker = paseo_contract_check.REQUIRED_MARKERS[relative][index]
-            actual_owners = {
-                owner
-                for owner, text in texts.items()
-                if marker in text
-            }
-            expected_owners = {
-                owner
-                for owner, required in paseo_contract_check.REQUIRED_MARKERS.items()
-                if marker in required
-            }
-            with self.subTest(marker=marker[:48]):
-                self.assertNotIn(marker, agents)
-                self.assertEqual(actual_owners, expected_owners)
+        for clause in paseo_contract_check.ROUTING_PROVENANCE_MARKERS:
+            with self.subTest(normative_clause=clause[:48]):
+                self.assertEqual(contract.count(clause), 1)
+                for relative in paseo_contract_check.ROLE_FILES:
+                    self.assertNotIn(clause, (ROOT / relative).read_text(encoding="utf-8"))
+
+    def test_role_prompts_resolve_clause_semantics_and_guard_exact_outputs(self) -> None:
+        for relative in paseo_contract_check.ROLE_FILES:
+            with self.subTest(role=relative):
+                self.assertIn(
+                    paseo_contract_check.ROLE_CONTRACT_PATH,
+                    paseo_contract_check.REQUIRED_MARKERS[relative],
+                )
+                self.assertIn(
+                    paseo_contract_check.ROLE_CONTRACT_PATH,
+                    (ROOT / relative).read_text(encoding="utf-8"),
+                )
+        for relative, markers in paseo_contract_check.ROLE_OUTPUT_MARKERS.items():
+            required = paseo_contract_check.REQUIRED_MARKERS[relative]
+            for marker in markers:
+                with self.subTest(role=relative, marker=marker):
+                    self.assertEqual(required.count(marker), 1)
+
+    def test_role_marker_matching_is_whitespace_normalized(self) -> None:
+        relative = ".ai/roles/orchestrator.md"
+        source = (ROOT / relative).read_text(encoding="utf-8")
+        marker = paseo_contract_check.CONTEXTUAL_ANCHOR_PREFLIGHT_MARKERS[0]
+        mutated = source.replace(marker, marker.replace(" ", "\n", 1), 1)
+        with tempfile.TemporaryDirectory(prefix="paseo-normalized-marker-") as temporary:
+            temporary_root = Path(temporary)
+            for active in paseo_contract_check.ACTIVE_FILES:
+                destination = temporary_root / active
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_text(
+                    mutated if active == relative else (ROOT / active).read_text(encoding="utf-8"),
+                    encoding="utf-8",
+                )
+            with patch.object(paseo_contract_check, "ROOT", temporary_root):
+                self.assertEqual(paseo_contract_check.main(), 0)
+
+    def test_scout_output_markers_ignore_cjk_reflow_but_reject_clause_deletion(self) -> None:
+        relative = ".ai/roles/scout.md"
+        source = (ROOT / relative).read_text(encoding="utf-8")
+        clause = "`start_here` 必须是字符串。"
+        self.assertIn(clause, source)
+        reflowed = source.replace(clause, "`start_here` 必须是字\n符串。", 1)
+        with tempfile.TemporaryDirectory(prefix="paseo-scout-reflow-") as temporary:
+            temporary_root = Path(temporary)
+            for active in paseo_contract_check.ACTIVE_FILES:
+                destination = temporary_root / active
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_text(
+                    reflowed if active == relative else (ROOT / active).read_text(encoding="utf-8"),
+                    encoding="utf-8",
+                )
+            with patch.object(paseo_contract_check, "ROOT", temporary_root):
+                self.assertEqual(paseo_contract_check.main(), 0)
+
+            (temporary_root / relative).write_text(source.replace(clause, "", 1), encoding="utf-8")
+            with (
+                patch.object(paseo_contract_check, "ROOT", temporary_root),
+                contextlib.redirect_stderr(io.StringIO()),
+            ):
+                self.assertEqual(paseo_contract_check.main(), 1)
+
+    def test_complete_availability_and_budget_clauses_are_role_guarded(self) -> None:
+        required = paseo_contract_check.REQUIRED_MARKERS[".ai/roles/orchestrator.md"]
+        for marker in (
+            "同一 provider 的另一个 profile 只能是复杂度升级，不能在该 provider 已不可用时充当 availability fallback。",
+            "候选作者属于主要订阅 provider 且 `author_provider_resolution=verified` 时，预算例外才允许同 provider 审核。",
+        ):
+            with self.subTest(marker=marker):
+                self.assertEqual(required.count(marker), 1)
 
     def test_active_route_docs_do_not_pin_runtime_identity(self) -> None:
         texts = self._normative_texts()
@@ -18970,40 +18958,29 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
 
     def test_runtime_profiles_are_discovered_and_provider_neutral(self) -> None:
         texts = self._normative_texts()
-        for name in ("orchestrator", "contract"):
-            text = self._normalized_markdown(texts[name])
-            with self.subTest(document=name):
-                self.assertIn("每次 child 调度前，ORCHESTRATOR 必须读取实时 `list_profiles`", text)
-                self.assertIn("profile notes", text)
-                self.assertIn("provider/model 能力", text)
-                self.assertIn(
-                    "同一 provider 的另一个 profile 只能是复杂度升级，不能在该 provider 已不可用时充当 availability fallback",
-                    text,
-                )
-                self.assertIn("reviewer 尽量避开候选作者的 provider", text)
-                self.assertIn(
-                    "候选作者属于主要订阅 provider 且 `author_provider_resolution=verified` 时，预算例外才允许同 provider 审核",
-                    text,
-                )
-                if name in ("agents", "orchestrator"):
-                    self.assertIn("不把运行时组合写入 STATE", text)
-                else:
-                    self.assertIn("禁止进入 STATE schema", text)
+        orchestrator = self._normalized_markdown(texts["orchestrator"])
+        contract = self._normalized_markdown(texts["contract"])
+        for marker in ("list_profiles", "profile notes", "provider/model 能力", "P2-LIVE-ROUTING"):
+            self.assertIn(marker, orchestrator)
+        for marker in (
+            "每次 child 调度前，ORCHESTRATOR 必须读取实时 `list_profiles`",
+            "同一 provider 的另一个 profile 只能是复杂度升级",
+            "reviewer 尽量避开候选作者的 provider",
+            "预算例外才允许同 provider 审核",
+        ):
+            self.assertIn(marker, contract)
 
     def test_author_provider_avoidance_and_cross_review_model_deduplication(self) -> None:
         texts = self._normative_texts()
-        for name in ("orchestrator", "contract"):
-            text = self._normalized_markdown(texts[name])
-            with self.subTest(document=name):
-                self.assertIn("reviewer 尽量避开候选作者的 provider", text)
-                self.assertIn(
-                    "候选作者属于主要订阅 provider 且 `author_provider_resolution=verified` 时，预算例外才允许同 provider 审核",
-                    text,
-                )
-                self.assertIn("不同的精确 model identity", text)
-                self.assertIn("不同 provider 优先", text)
-                self.assertIn("无法组成不同 model 时", text)
-                self.assertIn("WAIT_USER", text)
+        orchestrator = self._normalized_markdown(texts["orchestrator"])
+        contract = self._normalized_markdown(texts["contract"])
+        self.assertIn("P2-AUTHOR-PROVENANCE", orchestrator)
+        self.assertIn("P2-MODEL-DIVERSITY", orchestrator)
+        for marker in (
+            "reviewer 尽量避开候选作者的 provider", "不同的精确 model identity",
+            "不同 provider 优先", "无法组成不同 model 时", "WAIT_USER",
+        ):
+            self.assertIn(marker, contract)
 
     def test_reviewer_routing_provenance_is_recoverable_and_fail_closed(self) -> None:
         texts = self._normative_texts()
@@ -19018,13 +18995,12 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
             "derived operational provenance",
             "明确删除的复杂度",
         )
-        for name in ("orchestrator", "contract"):
-            text = self._normalized_markdown(texts[name])
-            with self.subTest(document=name):
-                for marker in required:
-                    self.assertIn(marker, text)
-
         contract = self._normalized_markdown(texts["contract"])
+        for marker in required:
+            self.assertIn(marker, contract)
+        self.assertIn("P2-AUTHOR-PROVENANCE", texts["orchestrator"])
+        self.assertIn("P2-MODEL-DIVERSITY", texts["orchestrator"])
+
         for marker in (
             "只有对应 reviewer 条目",
             "review JSON 不记录该枚举",
@@ -19048,62 +19024,60 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
             "unavailable",
             "明确删除的复杂度",
         )
-        targets = {
-            ".ai/roles/orchestrator.md": ROOT / ".ai" / "roles" / "orchestrator.md",
-            "docs/paseo-orchestration-v2-contract.md": (
-                ROOT / "docs" / "paseo-orchestration-v2-contract.md"
-            ),
-        }
-        for relative, path in targets.items():
-            text = path.read_text(encoding="utf-8")
-            with self.subTest(document=relative):
-                for marker in marker_set:
-                    self.assertEqual(
-                        paseo_contract_check.REQUIRED_MARKERS[relative].count(marker),
-                        1,
-                    )
-                    self.assertIn(marker, text)
+        relative = "docs/paseo-orchestration-v2-contract.md"
+        text = (ROOT / relative).read_text(encoding="utf-8")
+        for marker in marker_set:
+            with self.subTest(marker=marker):
+                self.assertEqual(paseo_contract_check.REQUIRED_MARKERS[relative].count(marker), 1)
+                self.assertIn(marker, text)
+        self.assertIn("P2-AUTHOR-PROVENANCE", self._normative_texts()["orchestrator"])
 
     def test_provenance_complete_clauses_make_guard_fail_closed(self) -> None:
-        targets = {
-            ".ai/roles/orchestrator.md": ROOT / ".ai" / "roles" / "orchestrator.md",
-            "docs/paseo-orchestration-v2-contract.md": (
-                ROOT / "docs" / "paseo-orchestration-v2-contract.md"
-            ),
-        }
-        for relative, path in targets.items():
-            for clause in paseo_contract_check.ROUTING_PROVENANCE_MARKERS:
-                with self.subTest(document=relative, clause=clause):
-                    self.assertEqual(
-                        paseo_contract_check.REQUIRED_MARKERS[relative].count(clause),
-                        1,
-                    )
-                    source_text = path.read_text(encoding="utf-8")
-                    self.assertEqual(source_text.count(clause), 1)
-                    self.assertGreaterEqual(len(clause.split()), 10)
-                    self.assertTrue(clause.endswith("."))
+        relative = "docs/paseo-orchestration-v2-contract.md"
+        path = ROOT / relative
+        source_text = path.read_text(encoding="utf-8")
+        for clause in paseo_contract_check.ROUTING_PROVENANCE_MARKERS:
+            with self.subTest(clause=clause):
+                self.assertEqual(paseo_contract_check.REQUIRED_MARKERS[relative].count(clause), 1)
+                self.assertEqual(source_text.count(clause), 1)
+                with tempfile.TemporaryDirectory(prefix="paseo-contract-marker-") as temporary:
+                    temporary_root = Path(temporary)
+                    for active in paseo_contract_check.ACTIVE_FILES:
+                        destination = temporary_root / active
+                        destination.parent.mkdir(parents=True, exist_ok=True)
+                        destination.write_text((ROOT / active).read_text(encoding="utf-8"), encoding="utf-8")
+                    (temporary_root / relative).write_text(source_text.replace(clause, "", 1), encoding="utf-8")
+                    with (
+                        patch.object(paseo_contract_check, "ROOT", temporary_root),
+                        contextlib.redirect_stderr(io.StringIO()),
+                    ):
+                        self.assertEqual(paseo_contract_check.main(), 1)
 
-                    with tempfile.TemporaryDirectory(
-                        prefix="paseo-contract-marker-"
-                    ) as temporary:
-                        temporary_root = Path(temporary)
-                        for active in paseo_contract_check.ACTIVE_FILES:
-                            destination = temporary_root / active
-                            destination.parent.mkdir(parents=True, exist_ok=True)
-                            destination.write_text(
-                                (ROOT / active).read_text(encoding="utf-8"),
-                                encoding="utf-8",
-                            )
-                        mutated = temporary_root / relative
-                        mutated.write_text(
-                            source_text.replace(clause, "", 1),
-                            encoding="utf-8",
-                        )
-                        with (
-                            patch.object(paseo_contract_check, "ROOT", temporary_root),
-                            contextlib.redirect_stderr(io.StringIO()),
-                        ):
-                            self.assertEqual(paseo_contract_check.main(), 1)
+    def test_runtime_observation_clauses_are_contract_owned_and_guarded(self) -> None:
+        relative = "docs/paseo-orchestration-v2-contract.md"
+        source_text = (ROOT / relative).read_text(encoding="utf-8")
+        orchestrator = (ROOT / ".ai/roles/orchestrator.md").read_text(encoding="utf-8")
+        self.assertIn("P2-RUNTIME-OBSERVATION", orchestrator)
+        for marker in paseo_contract_check.RUNTIME_OBSERVATION_MARKERS:
+            with self.subTest(marker=marker):
+                self.assertEqual(paseo_contract_check.REQUIRED_MARKERS[relative].count(marker), 1)
+                self.assertEqual(source_text.count(marker), 1)
+                for role in paseo_contract_check.ROLE_FILES:
+                    self.assertNotIn(marker, (ROOT / role).read_text(encoding="utf-8"))
+
+        with tempfile.TemporaryDirectory(prefix="paseo-runtime-marker-") as temporary:
+            temporary_root = Path(temporary)
+            for active in paseo_contract_check.ACTIVE_FILES:
+                destination = temporary_root / active
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_text((ROOT / active).read_text(encoding="utf-8"), encoding="utf-8")
+            marker = paseo_contract_check.RUNTIME_OBSERVATION_MARKERS[0]
+            (temporary_root / relative).write_text(source_text.replace(marker, "", 1), encoding="utf-8")
+            with (
+                patch.object(paseo_contract_check, "ROOT", temporary_root),
+                contextlib.redirect_stderr(io.StringIO()),
+            ):
+                self.assertEqual(paseo_contract_check.main(), 1)
 
     def test_provenance_markers_are_self_contained(self) -> None:
         markers = paseo_contract_check.ROUTING_PROVENANCE_MARKERS
@@ -19185,30 +19159,20 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
 
     def test_fallback_is_fresh_and_preserves_bindings(self) -> None:
         texts = self._normative_texts()
-        for name in ("orchestrator", "contract"):
-            text = self._normalized_markdown(texts[name])
-            with self.subTest(document=name):
-                self.assertIn("fresh child", text)
-                self.assertIn("role、purpose、workspace", text)
-                self.assertIn("parent lineage", text)
-                self.assertIn("candidate binding", text)
-                self.assertIn("不得 resume 已完成或已归档 child", text)
+        contract = self._normalized_markdown(texts["contract"])
+        for marker in ("fresh child", "role、purpose、workspace", "parent lineage", "candidate binding", "不得 resume 已完成或已归档 child"):
+            self.assertIn(marker, contract)
+        self.assertIn("P2-FRESH-RETRY", texts["orchestrator"])
 
     def test_runtime_route_identity_is_excluded_from_state_and_review_identity(self) -> None:
         texts = self._normative_texts()
-        for name in ("orchestrator", "contract"):
-            text = self._normalized_markdown(texts[name])
-            with self.subTest(document=name):
-                self.assertIn(
-                    "provider、model、mode、thinking 和 fallback tuple 不写入 STATE、candidate identity 或 review contract identity",
-                    text,
-                )
-                if name == "contract":
-                    self.assertIn("STATE schema", text)
-                else:
-                    self.assertIn("写入 STATE", text)
-                self.assertIn("candidate identity", text)
-                self.assertIn("review contract identity", text)
+        contract = self._normalized_markdown(texts["contract"])
+        self.assertIn("provider、model、mode、thinking 和 fallback tuple 只属于运行时选择", contract)
+        self.assertIn("禁止进入 candidate identity 或 review contract identity", contract)
+        self.assertIn("除第 19 条规定的审计性 `runtime_observation` 外，不在 STATE 复制运行时选择", contract)
+        orchestrator = self._normalized_markdown(texts["orchestrator"])
+        self.assertIn("role/purpose 永不绑定 provider、model、 mode、thinking", orchestrator)
+        self.assertIn("P2-RUNTIME-OBSERVATION", orchestrator)
 
     def test_paseo_roles_require_parent_lineage(self) -> None:
         texts = self._normative_texts()
@@ -19242,15 +19206,10 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
 
     def test_recovery_is_filtered_by_role_before_cardinality(self) -> None:
         texts = self._normative_texts()
-        for name in ("orchestrator", "contract"):
-            text = texts[name]
-            self.assertIn("过滤先于基数判定", text)
-            self.assertIn("labels.task_id", text)
-            self.assertIn("labels.role", text)
-            self.assertIn("唯一匹配", text)
-            self.assertIn("重试一次", text)
-            self.assertIn("多个匹配", text)
-            self.assertIn("WAIT_USER", text)
+        contract = texts["contract"]
+        for marker in ("过滤先于基数判定", "labels.task_id", "labels.role", "唯一匹配", "重试一次", "多个匹配", "WAIT_USER"):
+            self.assertIn(marker, contract)
+        self.assertIn("P2-RECOVERY", texts["orchestrator"])
 
     def test_role_permissions_and_fresh_replacement_are_preserved(self) -> None:
         texts = self._normative_texts()
@@ -19283,24 +19242,9 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertIn("DONE", agents)
         self.assertIn("STOP", agents)
 
-        orchestrator = self._normalized_markdown(texts["orchestrator"])
-        for marker in (
-            "先收获输出并验证为有效或判为无效",
-            "再立即使用当前 transport",
-            "只有 archive_confirmed=true 才算 dispatch 完成",
-            "或创建 successor",
-            "已归档 child 不得 resume 或 send follow-up",
-            "无效输出同样先归档",
-        ):
-            self.assertIn(marker, orchestrator)
-
+        self.assertIn("P2-HARVEST-ARCHIVE", texts["orchestrator"])
+        self.assertIn("P2-FRESH-RETRY", texts["orchestrator"])
         ordered = {
-            "orchestrator": (
-                "先收获输出并验证为有效或判为无效",
-                "再立即使用当前 transport",
-                "只有 archive_confirmed=true 才算 dispatch 完成",
-                "才可推进阶段",
-            ),
             "contract": (
                 "先收获其输出并将结果验证为有效或无效",
                 "随后 通过当前选定的传输立即归档",
@@ -19334,7 +19278,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
 
     def test_recovery_separates_ambiguous_create_reconciliation_and_active_resume(self) -> None:
         texts = self._normative_texts()
-        for name in ("orchestrator", "contract"):
+        for name in ("contract",):
             text = self._normalized_markdown(texts[name])
             ambiguous = text.index("创建结果不明确")
             reconciliation = text.index("reconciliation", ambiguous)
@@ -19356,6 +19300,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
                 self.assertIn("archive_confirmed=true", text[recorded:reconciliation])
                 self.assertIn("archive_pending", text[reconciliation:active])
                 self.assertIn("排除", text[active:])
+        self.assertIn("P2-RECOVERY", texts["orchestrator"])
 
     def test_archive_retry_budget_is_durable_and_contextual_retry_is_fresh(self) -> None:
         texts = self._normative_texts()
@@ -19373,10 +19318,8 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
         self.assertIn("新的 `dispatch_id` 和 `agent_id`", contract)
 
         orchestrator = self._normalized_markdown(texts["orchestrator"])
-        self.assertIn("每次调用前持久化递增 archive_attempts_started", orchestrator)
-        self.assertIn("计数达到 2 后仍无法确认", orchestrator)
-        self.assertIn("保持同一 candidate_identity 与冻结 input_path 字节", orchestrator)
-        self.assertIn("新的 dispatch_id 和 agent_id", orchestrator)
+        self.assertIn("P2-HARVEST-ARCHIVE", orchestrator)
+        self.assertIn("P2-FRESH-RETRY", orchestrator)
 
         self.assertIn("每次 `archive_attempts_started` 递增必须在外部归档调用前立即持久化", contract)
 
@@ -19402,11 +19345,7 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
             contract,
         )
         self.assertIn("全部 child 已确认归档才可回退主代理", agents)
-        orchestrator = self._normalized_markdown(texts["orchestrator"])
-        self.assertIn(
-            "只有尚未创建 child 或全部 child 已确认归档才进入 STOP，否则进入 WAIT_USER",
-            orchestrator,
-        )
+        self.assertIn("P2-STOP-CLOSED", texts["orchestrator"])
 
     def test_child_lifecycle_has_equivalent_cli_and_mcp_paths(self) -> None:
         contract = self._normalized_markdown(self._normative_texts()["contract"])
@@ -19424,21 +19363,15 @@ class ProjectSubagentDefinitionTests(unittest.TestCase):
     def test_dispatch_history_and_review_records_retain_agent_identity(self) -> None:
         texts = self._normative_texts()
         contract = self._normalized_markdown(texts["contract"])
-        orchestrator = self._normalized_markdown(texts["orchestrator"])
         self.assertIn('"child_dispatches": []', contract)
-        self.assertIn('"child_dispatches": []', orchestrator)
         self.assertIn('"review_records": []', contract)
-        self.assertIn('"review_records": []', orchestrator)
         for marker in ('"role": "EXECUTOR"', '"role": "REVIEWER"',
                        '"role": "SCOUT"', '"role": "senior-reviewer"',
                        '"lifecycle":"archived"'):
             with self.subTest(marker=marker):
                 self.assertIn(marker, contract)
-                self.assertIn(marker, orchestrator)
         self.assertIn('labels.role', contract)
-        self.assertIn('labels.role', orchestrator)
         self.assertIn('小写', contract)
-        self.assertIn('小写', orchestrator)
         for marker in (
             "每次创建 child 追加一条记录",
             "child 创建成功后 `agent_id` 必须 非空",
@@ -19682,11 +19615,11 @@ class PaseoRuntimeNeutralContractTests(unittest.TestCase):
         contextual = (
             ROOT / "docs" / "paseo-translation-context-review-v1-contract.md"
         ).read_text(encoding="utf-8")
-        self.assertIn("paseo-orchestration/2.23-draft", orchestration)
+        self.assertIn("paseo-orchestration/2.24-draft", orchestration)
         self.assertIn("translation-contextual/1.6", contextual)
         self.assertNotIn("paseo-orchestration/2.11-draft", orchestration)
-        self.assertIn("| `2.23-draft` | 当前草案", orchestration)
-        self.assertIn("| `2.22-draft` | 上一版草案", orchestration)
+        self.assertIn("| `2.24-draft` | 当前草案", orchestration)
+        self.assertIn("| `2.23-draft` | 上一版草案", orchestration)
         self.assertNotIn("translation-contextual/1.4", contextual)
 
     def test_quality_and_archive_surfaces_are_not_moved(self) -> None:

@@ -2,7 +2,7 @@
 
 > 状态：设计草案，运行时解耦版。
 >
-> 契约版本：`paseo-orchestration/2.23-draft`（取代 `paseo-orchestration/2.22-draft`；更早的
+> 契约版本：`paseo-orchestration/2.24-draft`（取代 `paseo-orchestration/2.23-draft`；更早的
 > `paseo-orchestration/2.15-draft` 已归档）。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文约束角色行为、任务边界和候选一致性，
@@ -42,9 +42,8 @@
     两种传输必须保持相同的 role、purpose、workspace、lineage、恢复和只读语义。
 13. 每次 child 调度前，ORCHESTRATOR 必须读取实时 `list_profiles`，根据 profile notes
     与当前 provider/model 能力选择；provider、model、mode、thinking 和 fallback tuple
-    只属于运行时选择，禁止进入 STATE schema、candidate identity 或 review contract identity。
-    provider、model、mode、thinking 和 fallback tuple 不写入 STATE、candidate identity 或
-    review contract identity。
+    只属于运行时选择，不绑定 role／purpose，也禁止进入 candidate identity 或 review contract
+    identity。除第 19 条规定的审计性 `runtime_observation` 外，不在 STATE 复制运行时选择。
 14. 可用性按 provider 处理：同一 provider 的另一个 profile 只能是复杂度升级，不能在该 provider 已不可用时充当 availability fallback。reviewer 尽量避开候选作者的 provider；候选作者属于主要订阅 provider 且 `author_provider_resolution=verified` 时，预算例外才允许同 provider 审核，但必须仍满足角色、
     purpose 与候选边界。
 Before selecting any reviewer profile, ORCHESTRATOR must freeze the implementation candidate, re-enumerate the task's allowed changed paths, and persist candidate_author_agent_id in the task-scoped `.ai/task/<task_id>/STATE.json` at that freeze/path-re-enumeration event.
@@ -84,6 +83,12 @@ At creation of the second reviewer, ORCHESTRATOR must obtain both live exact mod
     When paired reviewer exact model identities collide, archive the second child before creating a fresh retry child, preserving the role, purpose, workspace, lineage, and candidate binding. If either exact model identity remains unavailable after one retry, enter `WAIT_USER` and do not infer identity from provider, profile, title, memory, or enum. If a second reviewer exists or was unambiguously adopted but either `model_diversity_verified` proof is missing or partial, re-resolve both exact model identities once; persist literal `true` on both entries when they differ, archive the second child and fresh-retry on collision, and enter `WAIT_USER` if either identity remains unavailable. fallback 必须创建 fresh child，保持 role、purpose、workspace、
     parent lineage 与 candidate binding 不变，且不得 resume 已完成或已归档 child。
 Operational author_provider_resolution and model_diversity_verified fields are excluded from runtime tuples, candidate identity, review-contract identity, review JSON, and offline STATE-checker closure predicates.
+19. 每个新 child dispatch 在身份／lineage 已无歧义且首次取得可核验 live agent metadata 后，
+    必须在该 `child_dispatches` 条目写一次 `runtime_observation`。它只原样记录当次 live metadata
+    中实际呈现的 provider、model、mode、thinking；缺失字段诚实记 missing，显式 JSON `null`
+    必须记为 present/value null。禁止从 profile、title、memory、其他字段或其他 dispatch 推断、
+    归一化、复制，也不为历史条目回填。该记录不得参与路由、role／purpose、候选／引用身份、
+    review JSON、review-contract identity、完成谓词、wave 判定或 model diversity proof。
 
 ### 明确删除的复杂度
 
@@ -95,7 +100,7 @@ Operational author_provider_resolution and model_diversity_verified fields are e
   从比较结果持久化上述 operational enum／boolean；这些衍生字段不等于运行时元组；
 - `selected`、回退原因与具体运行时选择绑定；
 - 因运行时切换而修改 STATE、升级契约版本或重跑行为审核；
-- 专用控制器、workspace 锁、operation WAL、通用文件 hash、immutable artifact store、
+- 专用控制器、workspace 锁、全仓通用 operation WAL、文件 hash 或 immutable artifact store（但允许基于目标的 task-bounded journal、hash 与 immutable shadow/snapshot）、
   父子 hash 链或 outbound payload manifest；
 - REVIEWER 输入的固定字节数／文件数上限；
 - 常驻 RSS 监控、进程监督器、强制内存沙箱或通用循环静态分析器。
@@ -118,6 +123,27 @@ Operational author_provider_resolution and model_diversity_verified fields are e
 | REVIEWER | `reviewer` | 独立审查代码、工具、测试、文档或译文语境 | 只读；只返回 findings 或 observations |
 | SENIOR_REVIEWER | `senior-reviewer` | 范围校准和高影响流程交叉复审 | 只读；只返回 assessment/findings |
 | SCOUT | `scout` | 只读源码侦察，返回压缩代码上下文 | 只读；只返回上下文，不产生 finding |
+
+### 稳定条款 ID
+
+角色 prompt 只引用下列稳定 ID；完整语义由本文对应章节承载：
+
+| Clause ID | 短触发语 | 规范位置 |
+| --- | --- | --- |
+| `P2-SINGLE-WRITER` | 唯一任务内容写入者 | 第一、二、八节 |
+| `P2-DIRECT-LINEAGE` | 当前 ORCHESTRATOR 直系 child | 第五、六节 |
+| `P2-LIVE-ROUTING` | 每次派发前 live profile lookup | 第一、五节“运行时 profile 路由” |
+| `P2-RUNTIME-OBSERVATION` | 首次可核验 live metadata 原样留档 | 第一节第 19 条、第五节 |
+| `P2-CANDIDATE-FREEZE` | SPEC/diff/envelope 冻结与引用 | 第一、五、九节 |
+| `P2-READ-ONLY` | REVIEWER/SENIOR_REVIEWER/SCOUT 只读 | 第二、八、十一节 |
+| `P2-REVIEW-INDEPENDENCE` | 配对复审互不读取 findings | 第一、三、八节 |
+| `P2-AUTHOR-PROVENANCE` | 作者 provider 只做 live lookup | 第一、五节“运行时 profile 路由” |
+| `P2-MODEL-DIVERSITY` | 配对 reviewer 精确 model 不同 | 第一、五节“运行时 profile 路由” |
+| `P2-HARVEST-ARCHIVE` | 终态先收获后归档 | 第七节 |
+| `P2-FRESH-RETRY` | 无效/替换均 fresh child | 第六至八节 |
+| `P2-RECOVERY` | 创建歧义→生命周期→active 恢复 | 第六节 |
+| `P2-STOP-CLOSED` | 不可核验即 WAIT_USER | 第四、六、七、十节 |
+| `P2-TRANSLATION-CONVERGENCE` | schema 4 译文 full/closure/final-full 收敛 | 第四、九、十节 |
 
 所有子 agent 都不继承主会话的隐含任务状态。briefing 必须包含当前角色的范围、验收
 标准和必要上下文。角色身份由 task／role label、workspace 和 parent lineage 共同确认，
@@ -298,8 +324,8 @@ SPEC 必须写明任务模式、范围、允许修改文件、禁止扩展项和
 
 STATE 在阶段变化、contract 完成、agent ID 变化、出现错误或 child 生命周期字段变化时
 更新；每次 `archive_attempts_started` 递增必须在外部归档调用前立即持久化。
-`orchestrator_agent_id` 在任务内不得改变。角色字段是当前契约身份；历史运行时元数据
-不参与新任务的有效性判断。
+`orchestrator_agent_id` 在任务内不得改变。角色字段是当前契约身份；历史条目缺少
+`runtime_observation` 仍然有效，不追溯回填。
 
 `child_dispatches` 是紧凑的 dispatch 历史；每次创建 child 追加一条记录，记录保留至任务
 结束且不得删除。每条记录保存 `role`、`purpose`、`agent_id`、`lifecycle`、
@@ -314,6 +340,29 @@ STATE 在阶段变化、contract 完成、agent ID 变化、出现错误或 chil
 `archive_pending` 和 `archived`，而 `archive_confirmed` 只有在传输返回可核验的归档状态
 后才可为 true。当前 active dispatch 是角色当前字段所指向的、且状态为 `active` 的唯一
 记录；只有它可以在恢复时复用。
+
+`runtime_observation` 只允许出现在 `child_dispatches[*]`，且出现时使用 exact schema：
+
+```json
+{
+  "schema_version": 1,
+  "source": "live_agent_metadata",
+  "captured_at": "<non-empty timestamp string>",
+  "capture_status": "captured",
+  "provider": {"presence": "present", "value": "<raw JSON value>"},
+  "model": {"presence": "missing"},
+  "mode": {"presence": "present", "value": null},
+  "thinking": {"presence": "missing"}
+}
+```
+
+顶层 STATE 与任何 review record 禁止 `runtime_observation`。容器必须恰含上述八个字段：
+`schema_version` 是非 boolean 整数 1，`source` 精确为 `live_agent_metadata`，`captured_at` 是
+非空字符串，`capture_status` 精确为 `captured`。四个 FieldObservation 中，present 形式必须
+恰为 `{"presence":"present","value":<原始 JSON 值>}`，missing 形式必须恰为
+`{"presence":"missing"}`；不接受额外键。原始值不做类型收窄、规范化或解释，因此显式 null
+与 missing 保持可区分。旧 STATE 可以没有该字段；有效观测不改变 DONE／STOP、wave、candidate
+或 review completion 判定。
 
 当前 ORCHESTRATOR 进程必须有非空 `PASEO_AGENT_ID`。每个子 agent 都必须由当前 ORCHESTRATOR 进程直接创建，使用 agent-scoped 的 Paseo 创建
 接口或其 CLI 等价操作。创建载荷至少包含 workspace、task／role label 和初始 briefing。
@@ -341,7 +390,7 @@ payload、candidate identity 或结果 schema。每份 code review
 diff 原始字节)`。派发、返回和 contract 完成前的引用必须一致。
 
 记录只保存 finding、证据、裁决和结果，不要求复制完整 prompt、运行时选择或构造 lineage
-manifest。已完成的历史记录不重写。
+manifest；review record 明确禁止 `runtime_observation`。已完成的历史记录不重写。
 
 `EVIDENCE-RECONCILIATION.json` 是 proposer assertion，不是 reviewer finding，也不替代
 ORCHESTRATOR 的独立裁决；reviewer 仍须直接核对其中列出的源记录，并检查是否漏列与候选
@@ -572,7 +621,7 @@ closure predicates。
 
 CLI 和 MCP 是等价传输，不改变角色、purpose、workspace、lineage、label 恢复、只读和
 候选一致性要求。本文只规定编排语义；运行时选择参数按当前 Paseo 接口和本地环境提供，
-不进入 STATE 规范、不作为验收条件。
+除审计性 `runtime_observation` 外不进入 STATE，且观测本身不作为验收条件。
 
 | 目的 | CLI／Paseo | MCP 等价操作 |
 | --- | --- | --- |
@@ -708,6 +757,27 @@ SCOUT 只返回压缩源码上下文，不进入 review contract、不产生 fin
 
 运行时失败时，按基础设施重试规则处理；如需更换普通 child，必须创建同 role、同 purpose、同 workspace、同 lineage 和同候选绑定的新会话。语境 REVIEWER 更换时保留同一 `candidate_identity` 与冻结 `input_path` 字节，但使用新的 `dispatch_id` 和 `agent_id`。旧未验收输出作废，不得与新输出混合。无需判断失败属于哪一种运行时或为其填写固定回退元组。
 
+
+### Bounded EXECUTOR 事务与恢复
+
+1. **目标路径级事务**：禁止 `git reset --hard`、`git checkout` 或任何整树清理。允许非目标路径存在未提交的 dirty changes；对目标路径必须使用 `allowed_paths` 声明的 required preimage state/hash/mode 进行 fail-closed 检查。`allowed_paths` 与恢复 journal 的 `ordered_paths` 使用同一原始 POSIX 路径集合校验，并必须在任何 artifact、journal 或目标写入前拒绝空组件、`.`／`..` 组件、重复或末尾分隔符、任何非唯一规范形式，以及任一路径为另一条路径严格祖先的祖先／后代重叠（与声明顺序无关）；合法兄弟路径不构成重叠。同时拒绝首路径组件为 `.git`、`.ai` 或 `.artifacts` 的 privileged namespace。其他不在该拒绝集中的普通 dot-prefixed 项目文件（例如 `.gitignore`）允许作为目标。拒绝 symlink、目录或特殊文件。状态必须是明确的 `file` 或 `absent`，mode 必须是非 boolean 的整数 `0..0o777`。
+2. **Shadow Output 与持久化事务日志**：实现 shadow output 与持久化事务日志，必须写入已忽略的 `.artifacts/paseo-bounded/<workspace_id>/<dispatch_id>/`，不得写入 `.ai/` 或受跟踪目录。artifact helper 与 journal reader 自身必须验证 ASCII identifier allowlist、路径 containment、ordinary-file/no-symlink 和 exact schema，不能信任调用方已完成检查。
+   - decoded edit 的 bytes/state/mode 必须与 postimage 完全一致，且所有目标初始状态符合 preimage；任一不一致必须在首个 journal 或目标写入前失败。
+   - shadow 与 preimage snapshot 是该事务的 immutable artifact；首次准备及每次中断恢复都必须以声明的 hash/mode 重新验证，验证失败不得触碰目标。
+   - artifact 准备开始前先原子持久化 exact-schema preparation identity，绑定 workspace、dispatch、candidate 与 envelope hash。首个 PREPARED journal 尚未持久化时，只能在全部目标仍为 preimage、identity 精确匹配，且现有目录树没有未知文件、symlink 或特殊文件时恢复；已有 artifact 必须逐项通过声明的 hash/mode 复验，缺失的预期 artifact 才可安全补齐。identity 缺失或不匹配、artifact hash/mode 错误、未知条目或目标漂移都 fail closed 且不得触碰目标。
+   - file mode `0o000`、`0o200` 等 owner-unreadable 值仍是有效声明。hash 复验不得依赖 root 绕过权限：实现可在保持 file descriptor 打开的有界区间临时增加 owner-read，但必须立即恢复原 mode 后才读取并在返回前复验；`fdopen` 成功后 descriptor ownership 必须立即转交 stream，读取异常不得被重复 close 的 `EBADF` 掩盖；复验完成后的目标以及 immutable artifact mode 必须精确等于声明值，错误时同样 fail closed，不得永久放宽权限。
+   - 目标与 journal 使用同目录内不可预测、排他创建且不跟随 symlink 的临时文件，写 bytes、`chmod`、文件 `fsync` 后才 `replace`；replace 或 unlink 后必须 `fsync` 目标父目录。失败时只清理由本事务排他创建且已证明属于该父目录的临时文件，异常不得吞掉。
+   - 不得声称多文件 OS 原子，只保证基于日志的可恢复事务。状态机为 PREPARED、APPLYING、COMMITTED、ROLLING_BACK、ROLLED_BACK、ROLLBACK_CONFLICT。APPLYING 恢复时实际 post 但未记入 `applied_paths` 的目标必须补入；ROLLING_BACK 恢复时实际 pre 但仍在列表中的目标必须移除；任何 journal 写入都必须先拒绝未知或重复的 applied path，再将 `applied_paths` 按 `ordered_paths` 唯一重排为 ordered subset；任何既非明确 pre 也非明确 post 的第三种状态必须记录冲突且不得覆盖目标。
+3. **拆分 candidate_id 与 envelope_hash**：杜绝循环哈希。新增的这两个标识仅属于 `bounded_apply_v1` envelope/runner，不得替代或全局重构 `translation_contextual_v1` 中已有的 `candidate_identity`。两者必须是 64 字符 lowercase hex。
+   - `candidate_id=SHA256(canonical candidate body excluding candidate_id)`，内容绑定 author、allowed_paths、edits、invariants，但不含时间戳与 dispatch 环境。
+   - `envelope_hash=SHA256(canonical full envelope excluding envelope_hash)`，绑定 candidate、workspace_id/dispatch_id/parent_lineage/base_revision/preimages/gates/postimages/retry_of。
+4. **固定验证顺序与幂等性**：`candidate_id` -> `envelope_hash` -> `workspace`/`lineage`/`base`/`preimages` -> `replay ledger`。
+   - 定义 `(workspace_id, dispatch_id)` 幂等：相同 hash 已完成且目标仍匹配 postimage 时返回 `already_committed`，中断按日志恢复；同 dispatch 不同 hash 硬失败。新 dispatch 重用 candidate 必须 `retry_of` 且存在 host 注入、精确绑定 task/workspace/prior dispatch/candidate 的可信 `archive_receipts` 条目，其 `archive_confirmed` 必须为 literal boolean `true`；runner 只验证该事实，不生成或推断 receipt。重试还必须重新冻结 `base`/`preimages`。
+5. **规范化 JSON 与 Exact Schema**：
+   - Envelope 的 `envelope_version` 必须精确为 `bounded_apply_v1`，journal 的 `schema_version` 必须精确为 `bounded_apply_journal_v1`。Canonical JSON 采用严格无多余空白的 UTF-8 序列化，`allow_nan=False`，字典键按字典序排序；CLI 输入和 journal 都拒绝 duplicate JSON keys。
+   - Schema 必须 exact/fail-closed：拒绝额外键、错误类型、重复或缺失 allowed paths、edit/path 不一致、绝对路径、点路径（穿越）、NUL 字符和 symlink。author 必须是精确的 `{role, dispatch_id}` object，其中 `role` 必须是精确字符串 `ORCHESTRATOR` 或 `EXECUTOR`，`dispatch_id` 必须是 ASCII identifier；`allowed_paths` 全为 string；`invariants` 与 `gates` 为 `list[str]`；`archive_receipts` 必须是 list 且每个 receipt 的字段、identifier、candidate hash 和 boolean 类型均精确。
+   - edits 的 file state 使用 strict Base64 bytes 与 mode，preimages/postimages 的 file state 使用 SHA-256 与 mode；absent state 不得携带其他字段。`gates` 只进入 envelope identity，runner 不执行 gate。
+
 ---
 
 ## 九、Review 输入与输出
@@ -822,12 +892,13 @@ max_cycles；唯一最早记录必须是 cycle 0 的 `REVIEW/full`，intervening
    candidate_identity 规则仍完整；
 3. `translation_contextual_v1` 仍是译文审核唯一活跃路由，结果 schema 和冻结 envelope
    规则不变；
-4. CLI／MCP 只作为等价传输，运行时选择不写入 STATE 规范；
+4. CLI／MCP 只作为等价传输；运行时选择只可按第 19 条形成非规范性审计观测；
 5. 历史 task、review artifact、archive 和质量 evaluator 预注册不被重写；
 6. 文档之间的 role／purpose／lineage 语义一致，Markdown 和 `git diff --check` 通过。
 7. 禁止 runtime tuple 的预注册／持久化，但允许 reviewer 创建／恢复时的有界 live comparison
    以及仅由其产生的 `author_provider_resolution`／`model_diversity_verified` operational
-   provenance；该 provenance 不进入 candidate 或 review identity。
+   provenance，并允许第 19 条 exact-schema `runtime_observation` 审计例外；二者均不进入
+   candidate 或 review identity，观测也不参与路由或完成谓词。
 
 ---
 
@@ -846,4 +917,5 @@ max_cycles；唯一最早记录必须是 cycle 0 的 `REVIEW/full`，intervening
 | `2.20-draft` | 上一版草案 | 把 workspace ID 绑定到显式 1:1 real-worktree root map；逐调用解析 base/current/candidate 与组合 envelope；由 workset 重建非空 runtime／narrative provenance；wave STATE 持久化 parent/task/purpose；增加 prepare-publication／原子 publish，并把 done 收窄为发布后 closure。 |
 | `2.21-draft` | 上一版草案 | 收紧 Phase 1 no-change 全文件字节闭合、空 content-diff、最新唯一 full completion、apply 前 integration 身份／授权／EXECUTOR provenance，以及 child agent 与 orchestrator 身份分离。 |
 | `2.22-draft` | 上一版草案 | 把最新 full completion 扩展到两个 STATE review 数组和全部合法 review phase；apply 强制实际 `PASEO_AGENT_ID`；wave evidence 强制 fresh 专用 EXECUTOR 与 path/prospective identity；从固定 manifest 及 lane 冻结输入机械重建 integration source/context/terminology/briefing provenance。 |
-| `2.23-draft` | 当前草案 | 为 schema 4 translation implement 增加 v1 七键 full／closure／final-full 收敛、三轮默认上限、accepted revision reopening 门槛、分层门禁和最新 terminal full DONE 闭合；schema 3 与 review-only 保持兼容。 |
+| `2.23-draft` | 上一版草案 | 为 schema 4 translation implement 增加 v1 七键 full／closure／final-full 收敛、三轮默认上限、accepted revision reopening 门槛、分层门禁和最新 terminal full DONE 闭合；schema 3 与 review-only 保持兼容。收紧 bounded EXECUTOR：拒绝 `.git`／`.ai`／`.artifacts` 目标 namespace、非规范 POSIX 路径别名和祖先／后代目标重叠，以 preparation identity 和严格 artifact tree 恢复首个 journal 前崩溃，支持精确保持 `0o000`／`0o200` 等 owner-unreadable mode 的 hash 复验与回滚，保证恢复期 `applied_paths` 始终按目标顺序持久化，并避免读取异常被重复关闭 descriptor 掩盖。 |
+| `2.24-draft` | 当前草案 | active role prompt 改为稳定 clause ID 加角色本地触发语；新增 child dispatch 的 exact-schema `runtime_observation`，原样区分 present/null/missing，且明确排除路由、候选、review 与离线完成谓词。 |
