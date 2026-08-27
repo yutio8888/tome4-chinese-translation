@@ -1,14 +1,14 @@
-# P2 Tome Texts — active handoff at the b40 boundary (2026-08-25)
+# P2 Tome Texts — active handoff at the b42 boundary (2026-08-27)
 
 Consolidated pickup document. Supersedes
 [`p2-tome-texts-handoff-2026-08-23.md`](p2-tome-texts-handoff-2026-08-23.md) as the entry point;
 that file remains the per-batch log and is still the place to read *why* a specific batch decided
 what it did.
 
-**Status: ACTIVE.** The maintainer resumed continuous review; b39 completed with all gates passing.
-The next bounded slice is b40 and does not require separate approval.
+**Status: ACTIVE.** b40 and b41 completed with all gates passing. The next bounded slice is b42
+and does not require separate approval.
 
-b39 reaches `DONE_VERIFIED` in its completion commit. Every completed batch below passed
+b41 reaches `DONE_VERIFIED` in its completion commit. Every completed batch below passed
 `tools/ci-gates.sh` 12/12 including the strict addon build.
 
 ## 1. Coverage
@@ -17,21 +17,32 @@ b39 reaches `DONE_VERIFIED` in its completion commit. Every completed batch belo
 |---|---|---|---|
 | `data/texts/` | 132 | 176 | Complete |
 | `data/chats/` | 100 | 1260 | Complete (b6–b35) |
-| `data/lore/` | 34 | 582 | 15 done (b36–b39); **19 sections / 398 pairs left** |
+| `data/lore/` | 34 | 582 | 18 done (b36–b41); **16 sections / 286 pairs left** |
 | `data/quests/` | 52 | 514 | **Zero coverage — and never scoped into P2** |
 
 ### Remaining `data/lore/` sections
 
-`keepsake`(34), `kor-pul`(7), `last-hope`(71),
 `maze`(6), `misc`(110), `noxious-caldera`(7),
 `old-forest`(10), `orc-prides`(37), `rhaloren`(8), `sandworm`(6), `scintillating-caves`(13),
 `shertul`(41), `slazish`(7), `spellblaze`(3), `spellhunt`(9), `sunwall`(6), `tannen`(9),
 `trollmire`(5), `zigur`(9)
 
-**About 7 more slices.** `misc.lua` (110) and `last-hope.lua` (71) each need their own batch; the
-other 217 pairs make roughly 5 at the ~45 pairs/batch this track has settled into.
+`misc.lua` (110) still needs its own batch; the other 176 pairs can be grouped into bounded slices.
 
-**Next slice (b40):** `keepsake`, `kor-pul` — 41 pairs.
+### b41 completion
+
+`last-hope` — 71 pairs; 51 targets changed. Eight bounded FIX cycles resolved military and family
+relationships, Southspar chronology and register, damaged-document handling, epitaph fidelity and
+remaining translationese. The final four-lane full review passed 8/17/23/23 revisions with no
+findings. Durable records: `p2-tome-texts-b41-lore-last-hope.json` and
+`p2-tome-texts-b41-adjudication.json`. Five-step gates and full CI passed.
+
+### b40 completion
+
+`keepsake`, `kor-pul` — 41 pairs; 29 targets changed. Four-lane review converged after the
+maintainer explicitly allowed fidelity-backed polishing and chose 第一篇 through 第四篇 for the
+Kyless journal titles. Durable records: `p2-tome-texts-b40-lore-keepsake-kor-pul.json` and
+`p2-tome-texts-b40-adjudication.json`. Five-step gates and full CI passed.
 
 ### b39 completion
 

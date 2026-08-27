@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-texts-b41-001",
+  "component": "tome",
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "workset": "evidence/quality/p2-batches/p2-tome-texts-b41-lore-last-hope.json",
+  "sections": ["mod-tome/data/lore/last-hope.lua"],
+  "scope": {
+    "pairs": 71,
+    "targets_changed": 51,
+    "invariants": "All source keys, source_tag values, parameter metadata, markup, placeholders and target newline counts were preserved. Out-of-scope sections remained unchanged."
+  },
+  "substantive_repairs": [
+    "King Toknor diary: military chronology, force relationships, royal family identities, emotional register and campaign geography",
+    "Southspar history and Last Hope documents: political relationships, modality, document register, damaged-text handling and natural Chinese prose",
+    "Last Hope epitaphs: names, death circumstances, memorial voice, grammar and natural Chinese while retaining wordplay"
+  ],
+  "review": {
+    "contract": "translation_contextual_v1",
+    "parallel_lanes": 4,
+    "max_fix_cycles": 10,
+    "fix_cycles_used": 8,
+    "final_reviews": [
+      {"dispatch":"cycle8-a","candidate_identity":"877d4d7a464226bf0899c7baec4d40dcc6f1b7ef49e56d9db462172f4826706a","revisions":8,"result":"PASS"},
+      {"dispatch":"cycle8-b","candidate_identity":"c98421e438fb8e82a84a42edfeaee25d3edc3d141f4c16d8992ace4df17e3cfa","revisions":17,"result":"PASS"},
+      {"dispatch":"cycle8-c","candidate_identity":"c4c7202dcd2208b66d7c1b1f6fbb8dfbbef30ea3dbd9a835bc3b757a6f8d1e5e","revisions":23,"result":"PASS"},
+      {"dispatch":"cycle8-d","candidate_identity":"87c4ca5025f2a301718cf7cc82bce2e90f68e5f6c63b36a70a32548b8521f21a","revisions":23,"result":"PASS"}
+    ],
+    "result": "All 71 revisions passed the final four-lane full contextual review."
+  },
+  "gates": {
+    "five_step": "PASS",
+    "toolchain_unittests": "465 tests PASS",
+    "ci_gates": "12/12 PASS incl. core addon strict build",
+    "lint": "30308 translations, 0 errors, 0 warnings",
+    "runtime_collisions": 0,
+    "diff": "mod-tome.lua 118 insertions / 118 deletions; 51 target values changed"
+  },
+  "open_items": []
+}

@@ -16725,34 +16725,34 @@ I'm not cut out for this paladin work. Here I am, alone in a horrible dark dunge
 section "mod-tome/data/lore/last-hope.lua"
 
 t("last hope", "最后的希望", "newLore category")
-t("The Diaries of King Toknor the Brave", "勇气之王图库纳的笔记", "_t")
+t("The Diaries of King Toknor the Brave", "勇者图库纳国王的日记", "_t")
 t([[#{italic}#68th of Dusk, Year of Pyre 710#{normal}#
 The orcish tribe have routed us. We have retreated to some Mardrop ruins and secured ourselves amongst the fortifications. I have just shy of 2,000 men under my banner, some of the best warriors I have ever served with, but we are simply no match for the numbers we face. Counting them is difficult, but I would put a minimum estimate at 10,000. The tribe has camped a league away - they seem to be waiting for reinforcements. This does not bode well...
 
 I have sent messenger crows to all the kingdoms. I can but hope they send aid in time.]], [[#{italic}#烈火纪710年，黄昏月68日#{normal}#
-兽人部落已经击溃了我们。我们已经撤到一些马卓普遗迹里并修建起了军事工事。虽然我帐下已聚集了2000士兵，有些家伙是我生平罕见的勇者，但我们还是处于数量上的绝对劣势。我也没办法算清到底有多少兽人，最起码也有上万只吧。 他们按兵不动——看上去像是在等待增援的样子，真要命……
+兽人部落击溃了我们。我们已退至马卓普的一处遗迹，依托其中的工事据守。我麾下不足两千人，其中不乏我并肩作战过的最出色战士，可面对如此数量的敌人，我们实在无力匹敌。敌军难以清点，但至少有一万。兽人部落在一里格之外扎下营寨——他们似乎正在等待增援。这可不是好兆头……
 
-我已派出信使向王国方面请求增援。剩下的只能祈求上天让援军及时赶到了。]], "_t")
+我已派信鸦前往所有王国。只盼他们的援军能及时赶到。]], "_t")
 t([[#{italic}#25th of Haze, Year of Pyre 710#{normal}#
 Five men tried deserting last night. Today I had them flogged in front of all the others. I have given warning that any future deserters shall be hanged. These are measures I do not like to take, but harsh times call for harsher discipline.
 
 Our supplies are holding steady for now, but I fear they may not last. I've received word that it will take at least fifty days to muster a force that can save us. Alas, food may well be the least of our worries, for the orcs have begun to attack our strongholds. Thankfully we have had time to reinforce the existing structures. Indeed, little work was needed, for the foundations of this place are strong. My loremaster tells me it was abandoned following the Crimson Pox, but was once the capital of Mardrop. The men have taken a fondness to the place, and have named it "Last Hope". Though I normally discourage such romantic notions I cannot help but feel the same. These stone walls give strength to my heart - I feel we can fight through this.
 
 Their attack has begun again. They seem to have mages now. Ah, it will be a long night...]], [[#{italic}#烈火纪710年，混沌月25日#{normal}#
-昨晚出现了五个逃兵。今天我在众人面前对他们处以了鞭刑，并警告剩下的人：若再有临阵叛逃者，将处以绞杀。虽然我也不喜欢这样，但非常时期需用非常手段。
+昨晚有五人企图逃跑。今天我下令当着众人的面鞭打他们，并警告全军：今后再有逃兵，一律绞死。我不愿采取这种手段，但时局越严峻，军纪就越要严酷。
 
-虽然军中粮草目前还能坚持，但我担心撑不了多久。我已经收到消息说，他们至少要用50天才能集结起一支足以解救我们的部队。哎，粮食或许还不是最要紧的问题，因为兽人已经开始进攻我们的要塞。所幸我们有时间加固现有的建筑。其实并不需要多少工夫，因为这里的地基十分牢固。我的历史学家说，这里曾是马卓普的首都，后来因猩红热而被遗弃。将士们喜欢上了这里，并将此地命名为“最后的希望”。尽管我通常不鼓励这种浪漫的想法，此刻却也深有同感。面前的石墙给了我力量——我相信我们能挺过去。
+军中粮草目前尚算充足，但我担心维持不了多久。我已收到消息，至少要五十天才能集结起一支足以解救我们的部队。唉，粮食或许还不是最要紧的问题，因为兽人已经开始进攻我们的要塞。所幸我们有时间加固现有建筑。其实用不了多少工夫，这里的根基本就十分牢固。我的博闻者告诉我，这里曾是马卓普的都城，猩红痘疫过后才遭到遗弃。将士们渐渐喜欢上了这里，并为此地取名“最后的希望”。我向来不鼓励这种浪漫念头，此刻却也不禁心有同感。这些石墙给予我力量——我相信我们能挺过去。
 
-兽人又开始攻击了。这次似乎有法师的加入。哎，漫长的夜晚……]], "_t")
+兽人又开始攻击了。这次似乎有法师的加入。哎，今晚会是个漫长的夜晚……]], "_t")
 t([[#{italic}#47th of Haze, Year of Pyre 710#{normal}#
 Rations low. Men demoralised. Winterhaze wind is making conditions unbearable. The fortress is holding, but each night they pick off some of our troops. It is but a matter of time before we no longer have the strength to resist.
 
 I can hear their blasted trumpets again. Accursed swine! We have no rest or sleep, not the slightest sojourn without their braying, howling, jeering, taunting, insufferable cantations! It is driving me from my wits! But I must remain strong... I must put on a brave face for the men. They are relying on me, and though the burden feels close to crushing me I must bear it with the dignity of a king.
 
 It is getting dark again. Who will die this night? I am so very afraid... but I cannot show it...]], [[#{italic}#烈火纪710年，混沌月47日#{normal}#
-粮草不足，士气低落。刺骨的北风让我们的处境雪上加霜。要塞虽然还能勉强守住，但每晚我们的人员都会出现不少伤亡。我们抵抗的瓦解看来也只是时间问题了。
+口粮见底。士气低落。寒冬的风让这里苦不堪言。要塞尚能守住，可他们每晚都会袭杀我们几名士兵。我们失去抵抗之力只是迟早的事。
 
-我又听见他们吵嚷这该死的战歌了。这群该死的猪猡！我们没有任何睡眠和休息的机会，他们整日整夜震耳欲聋的叫骂、嘲讽、战歌、挑衅弄的人心神不宁！过度的疲劳和吵杂的噪音搅得我意识都模糊了！ 但我必须坚强……必须在我的人面前摆出一张无畏的面容。他们可都指望我了，尽管方方面面的沉重负担感觉快要将我压垮了，但我赌上身为一名国王的尊严必须担负起这一切。
+我又听见他们那该死的号角了。该死的猪猡！他们没完没了地号叫、咆哮、讥笑、嘲弄，吟唱着不堪入耳的调子，我们连片刻安宁都没有，更别提休息和睡眠！我快被逼疯了！但我必须坚强……必须在将士面前装出无所畏惧的样子。他们都指望着我；这重担虽几乎要将我压垮，我仍必须以国王的尊严扛住它。
 
 夜幕又将落下。谁又会在今夜死去？我真的非常害怕……但我绝不能表现出来……]], "_t")
 t([[#{italic}#51st of Haze, Year of Pyre 710#{normal}#
@@ -16763,13 +16763,13 @@ Last night as dusk approached, the orcish armies began to prepare a major attack
 The orcish army suddenly forgot about us, turning upon their new enemy. But foolish is any who ignores the wrath of a caged lion which sees its chance for vengeance! I led my men immediately into battle, taking the enemy swiftly from the rear, and throwing their organisation into madness. When the halfling army came upon their flank it was a massacre, and we drove them mercilessly towards the southern lake. There upon the shores we beat them to the last number, and their blood stained the water a horrific black.
 
 Our victory sealed, I immediately met with the halfling leader, and found it to be no less than the princess Mirvenia! Truly words cannot express my joy when I saw her face flushed red in the last embers of the setting sun. I almost felt... no, I should not think such things.]], [[#{italic}#烈火纪710年，混沌月51日#{normal}#
-啊，快乐的日子！欢乐的制裁！在关键时刻我们得救了，我从来没这么兴奋过！
+啊，快乐的日子！快意的复仇！在关键时刻我们得救了，我从来没这么兴奋过！
 
-昨天的黄昏时分，兽人军队准备发动一次大规模的进攻。我的部下也都准备好了，我已经下定决心，我们每死一个都要让对方付出三倍的代价。但是当太阳在西边缓缓落下时，我突然看到一蓬金色的雨点砸向兽人部队，他们顷刻间阵脚大乱。另一波雨点又砸了下来，我终于发现，它们并不是什么金子，而是钢质的箭头反射出的落日余辉。“是半身人！”我的侦查员叫道，紧接着我看见了一大批半身人军队出现在兽人部队的侧翼。
+昨天的黄昏时分，兽人军队准备发动一次大规模的进攻。我的部下也都准备好了，我已经下定决心，我们每死一个都要让对方付出三倍的代价。但是当太阳在西边缓缓落下时，我突然看到一蓬金色的雨点砸向兽人部队，他们顷刻间阵脚大乱。另一波雨点又砸了下来，我终于发现，它们并不是什么金子，而是映照着落日余晖的钢制弩矢。“是半身人！”我的侦查员叫道，紧接着我看见了一大批半身人军队出现在兽人部队的侧翼。
 
-于是，兽人部队顾不上我们了，它们必须面对新的敌人。但是他们居然傻到忽视了一头被关在笼子里、伺机报复的狮子！我让我的部队立刻加入战斗，从后面包抄敌人，将他们的阵型打乱。当半身人军队到达时，整个局面就变成了一边倒的屠杀，我们一直追击至南湖。在湖岸边我们杀死了最后一个敌人，他们的鲜血将整个湖水染成了可怕的黑色。
+于是，兽人部队顾不上我们了，它们必须面对新的敌人。但是他们居然傻到忽视了一头被关在笼子里、伺机报复的狮子！我让我的部队立刻加入战斗，从后面包抄敌人，将他们的阵型打乱。当半身人军队从兽人侧翼压上时，我们前后夹击，整个局面便成了一边倒的屠杀，我们一直追击至南湖。在湖岸边我们杀死了最后一个敌人，他们的鲜血将整个湖水染成了可怕的黑色。
 
-我们获得了完胜，我立刻会见了半身人领袖——美丽的米雯尼雅公主！看着她在落日余晖中通红的脸颊，没有任何语言能诠释我的快乐。我几乎觉得……不，我不应该想这些事情。]], "_t")
+我们获得了完胜，我立刻会见了半身人领袖——竟是米雯尼雅公主！看着她在落日余晖中通红的脸颊，没有任何语言能诠释我的快乐。我几乎觉得……不，我不应该想这些事情。]], "_t")
 t([[#{italic}#2nd of Allure, Year of Pyre 711#{normal}#
 We have solidified the defences at Last Hope and received more troops from all of the kingdoms. Our tactical position near the sea is proving an excellent base for further attacks on the orcs. I hope to expand our facilities here much further. I am drawing up an alliance now with the other leaders, for only together can we hope to beat this terrible threat to all our kingdoms.
 
@@ -16778,13 +16778,13 @@ Mirvenia has been key to the discussions and the plans. She is a tactical genius
 She is a remarkable force for good, Mirvenia, popular with all the troops. I feel my normal iron rule smoothed by her presence. Too long have I led the cold life of a soldier... alone...
 
 Ah, the beating of my heart cannot be silenced. I must speak to Mirvenia, and tell her how I feel... I only hope she shares some inkling of my emotion.]], [[#{italic}#烈火纪711年，厄流月2日#{normal}#
-我们巩固了最后的希望的防御工事，从各个国家收编了更多的军队。海边的要塞提供了一个绝佳的打击兽人的战术地理位置。我希望能够在这里进一步扩建我们的设施。我正在和其他领导人起草一个盟约，只有大家团结合作，才能够消灭这所有王国的威胁。
+我们巩固了最后的希望的防御工事，也得到了各王国派来的更多援军。这里濒临大海，战略位置优越，正可作为进一步进攻兽人的基地。我希望能够在这里进一步扩建我们的设施。我正在和其他领导人起草一个盟约，只有大家团结合作，才能消灭这个威胁所有王国的可怕敌人。
 
-米雯尼雅在计划中起到了关键性的作用。她是一个战术天才，我完全被她的博学多才震惊了。然而有个奇怪的女人始终陪伴她左右，那个女人有着长长的头发、穿着丝质长袍——她的名字叫莱娜尼尔。我的一个部下发誓说他看到这个女人踏着一团火焰切入了战场，将她周围所有的兽人化为灰烬。大魔导师在我们中间令大家很不安，但是米雯尼雅说我们应该信任她。既然米雯尼雅这么说，我也必须相信她。
+米雯尼雅在商议和规划中起到了关键作用。她是一个战术天才，我完全被她的博学多才震惊了。然而有个奇怪的女人始终陪伴她左右，那个女人留着一头火红长发、穿着丝质长袍——她的名字叫莱娜尼尔。我的一个部下发誓说他看到这个女人踏着一团火焰切入了战场，将她面前所有的兽人化为灰烬。这样一位织法者身处我们之中，实在令人不安，但是米雯尼雅说我应当信任她。既然米雯尼雅这么说，我便必须相信她。
 
-她是一股了不起的力量，米雯尼雅，在各个军队中都备受欢迎。我觉得我的铁腕政策因她的出现而被抹平了。我作为将领度过了太久太久冰冷孤独的岁月……
+米雯尼雅是一股了不起的正义力量，深受全军爱戴。她的存在让我一贯的铁腕作风也柔和了几分。我作为将领度过了太久太久冰冷孤独的岁月……
 
-啊，我的心跳个不停。我必须告诉米雯尼雅，告诉她我的感受……我只希望她能懂得我的爱意。]], "_t")
+啊，我无法让这颗心停止悸动。我必须去找米雯尼雅，告诉她我的感受……只希望她对我也怀有一丝同样的情意。]], "_t")
 t([[#{italic}#6th of Flare, Year of Pyre 713#{normal}#
 Why is it only in times of darkness I turn to my journal? Today has been the darkest day in over two years, but it could have been darker still.
 
@@ -16793,20 +16793,20 @@ Mirvenia's convoy was attacked by a rogue band of orcs. Though the brutes were r
 The baby... our baby. My son! Mirvenia is still recovering, but the boy seems hale as any freshly-born child. But still I worry... How I wish that he were born into a more perfect world. How I worry for my wife and child in this age of suffering. I want to make a new age for them, free from such threats as almost took away the woman I love. I want to give my son the chance to reign in an era of peace.
 
 Too long have we been content with repelling orcish raids and pushing back small tribes. Last Hope is now a gleaming city, and a focal point for all the armies of the west. Now is the time for us to drive forward and root out every orcish colony on the continent. I will not rest until Maj'Eyal is free from their vile influence, till every accursed brood is burned to ashes and every pig-spawn orc is cast from existence. I shall end this terrible Age of Pyre and usher in a new Age of Ascendancy! This I do solemnly swear.]], [[#{italic}#烈火纪713年，辉耀月6日#{normal}#
-为什么只有在黑暗时期我才会翻开日记？今天是过去2年里最黑暗的一天，但是它本可以更加黑暗。
+为什么只有在黑暗时期我才会翻开日记？今天是两年多以来最黑暗的一天，但是它本可以更加黑暗。
 
-米雯尼雅的车队遭到了兽人盗贼小队的袭击。虽然敌人被击退了，但她也在战斗中受了重伤，而且她提前分娩了。她在死亡大厅里躺了数个小时。谢天谢地她的人民有着高超的医疗手段，她和孩子都活了下来。
+米雯尼雅的车队遭到了一伙不受管束的兽人袭击。虽然这些蛮兵被击退了，她却在冲突中受伤，并因此提前分娩。她命悬一线长达数小时。全靠她族中医者医术高超，她和孩子才得以幸存。
 
-孩子……我们的孩子。我的儿子！米雯尼雅仍在恢复中，但是这孩子看起来却比任何新生儿都更加强壮。但是我依旧忧心忡忡……我多么希望他能出生在一个更加完美的世界。我是多么担心我的妻儿在这乱世中所承受的苦难。我希望给他们带来新的世界，没有如此苦难和威胁——差点要了我深爱的女人性命的威胁。我要给我的儿子一个在和平时代执掌王权的机会。
+孩子……我们的孩子。我的儿子！米雯尼雅仍在康复，但这男孩看起来就像任何刚出生的婴儿一样健康。可我依旧忧心忡忡……我多么希望他能降生在一个更完美的世界。我多么担心妻儿要在这苦难的时代承受什么。我想为他们开创一个新时代，让那险些夺走我挚爱之人的威胁再也不存在。我要让我的儿子有机会在和平年代执掌王权。
 
-我们满足于仅仅击退兽人的袭击、驱逐小股部落已经太久了。最后的希望已经成为了西部军队的枢纽。现在，是时候让我们向前推进并铲除这块大陆的每个兽人部落了。直到那肮脏的兽人们在马基·埃亚尔消失，直到每个可恶的兽人化为灰烬，直到每个畜生般的兽人被消灭，我才会休息。我将结束烈火纪并开启新的纪元——卓越纪！我郑重发誓。]], "_t")
+太久以来，我们只满足于击退兽人的袭扰、赶走小型部落。如今，最后的希望已是一座熠熠生辉的城市，也是西方各路大军的汇聚之地。现在正是挥军向前、铲除大陆上每一处兽人殖民地的时候。只要马基·埃亚尔还未摆脱它们的邪恶影响，只要还有一窝该死的兽人未被烧成灰烬，还有一个猪猡所生的兽人未从世上消失，我便绝不休息。我要终结这可怕的烈火纪，开创崭新的卓越纪！我在此郑重起誓。]], "_t")
 t("All Hail King Tolak the Fair!", "公正之王托拉克万岁！", "_t")
 t([[Twice blessed is he of the union of King Toknor of the humans and Queen Mirvenia of the halflings! Praise his glory!
 By royal decree it is under absolute conditions forbidden to show racial prejudice against humans or halflings. There shall be no preference of price or service, and no discrimination of trade or business or employment. No halfling shall be named fur-toes, midget or shortbum, and no human shall be named lanklegs, cloudhead or stumpfoot.
-The penalty for disobedience shall be flogging. Intolerance will not be tolerated!]], [[愿双倍的祝福赐予他——人类皇帝图库纳与半身人皇后米雯尼雅的结晶！赞美他的荣耀！
-官方宣称不得在半身人和人类之间有任何的种族歧视。不得有特殊服务，或者特殊价格，任何歧视性的商业或者招聘都被严格禁止。禁止称呼半身人为大毛脚、矮子或者侏儒，也禁止称呼人类为瘦长腿、大头怪或傻大个。
+The penalty for disobedience shall be flogging. Intolerance will not be tolerated!]], [[他是人类的图库纳国王与半身人的米雯尼雅女王结合所生之子，蒙受双重祝福！赞美他的荣耀！
+奉王室法令，任何情况下都严禁歧视人类或半身人。价格与服务不得有所偏袒，贸易、经营与雇佣也不得存在歧视。禁止称半身人为大毛脚、矮子或侏儒，也禁止称人类为瘦长腿、大头怪或傻大个。
 若有违抗，则处以鞭刑。歧视和偏见不可容忍！]], "_t")
-t("All Hail King Toknor the Brave!", "勇气之王图库纳万岁！", "_t")
+t("All Hail King Toknor the Brave!", "勇者图库纳国王万岁！", "_t")
 t([[Born the 23th Allure, Year of Pyre 682
 Died the 2th Summertide, Year of Ascendancy 108
 
@@ -16814,9 +16814,9 @@ King of Kings, Founder of Last Hope, Purger of Orcs, Father of the Age of Ascend
 Quoth King Toknor: "I have lived for the future, a future of peace and prosperity, a future free for all. How happy I am to see that future now... Aye, and it is brighter than any sword, and stronger than any armour, and more enduring than any war. Though warrior I am in flesh and mind, my heart belongs to peace."]], [[生于烈火纪682年，厄流月23日
 死于卓越纪108年，夏殇2日
 
-万王之王，最后的希望创始人，兽人清剿者，卓越纪的缔造者。他终生为和平而战，并获得了胜利。
-图库纳的遗言：“我奋斗未来，一个和平繁荣的未来，一个自由平等的未来。我是多么高兴现在就看到了未来……啊，它比任何刀剑都要明亮，比任何装甲都要坚固，比任何战争都要持久。虽然我的肉体依旧是战士，但我的心却早已归于宁静。”]], "_t")
-t("All Hail Queen Mirvenia the Inspirer!", "尊敬的米雯尼雅女王万岁！", "_t")
+万王之王，最后的希望创始人，兽人清剿者，卓越纪的缔造者。这位为和平而战并赢得胜利的战士，值得世人永远铭记。
+图库纳国王曾言：“我为未来而活——一个和平繁荣、人人自由的未来。如今能亲眼见到这个未来，我何其欣慰……是啊，它比任何刀剑更明亮，比任何护甲更坚固，比任何战争更长久。纵然我在肉体与思想上都是一名战士，我的心却属于和平。”]], "_t")
+t("All Hail Queen Mirvenia the Inspirer!", "鼓舞者米雯尼雅女王万岁！", "_t")
 t([[Born the 5th Flare, Year of Pyre 688
 Died the 2th Summertide, Year of Ascendancy 113
 
@@ -16825,9 +16825,9 @@ Quoth Queen Mirvenia: "Nothing moves me more than seeing the sun set over Last H
 死于卓越纪113年，夏殇2日
 
 最后的希望战役的救世主，团结的缔造者，心灵的抚慰者。人们深切怀念这位能化悲伤为喜悦、化绝望为希望、化失败为胜利的炼金术士。
-米雯尼雅的遗言：“没有什么能比最后希望的日落更能打动我，沐浴在我们带来的欢乐和美丽阳光中是如此的美好。在这一刻我仍能感到他在我身边，并且我知道我这辈子值了。今天是一个好日子……今天我想我该走了。”]], "_t")
+米雯尼雅女王曾言：“没有什么比这一幕更令我动容：夕阳落在最后的希望之上，我们带到此地的一切欢乐与美好都沐浴在灿烂光辉中。每逢此刻，我依然觉得他就在身旁，也明白自己此生无憾。今天是个好日子……我想，今天我将死去。”]], "_t")
 t("southspar", "南晶岛", "newLore category")
-t("The Pale King, part one", "亡灵国王，第一章", "_t")
+t("The Pale King, part one", "苍白之王，第一章", "_t")
 t([[#{italic}#A study into Southspar's most unusual ruler.#{normal}#
 
 Chances are you haven't heard of Southspar.
@@ -16861,33 +16861,33 @@ By the time Drake left the Iron Council, the Dwarves had agreed to pay thirty ti
 
 你可能从未听说过南晶岛。
 
-为什么你从未听说过呢？因为这是一个穷乡僻壤的岛国，在厄流纪和黄昏纪时，它座落于塔·埃亚尔的海岸边。人人都说，南晶岛是一个适宜居住的地方：温和的气候，与内陆王国良好的贸易关系，最幸运的是，整个王国座落的这个岛屿拥有丰富的蓝锆石矿脉。
+为什么你从未听说过呢？因为这是一个穷乡僻壤的岛国，在厄流纪和黄昏纪时，它坐落于塔·埃亚尔的海岸边。人人都说，南晶岛是一个适宜居住的地方：温和的气候，与大陆上的人类王国保持着良好的贸易关系，最幸运的是，整个王国坐落的这个岛屿拥有丰富的蓝锆石矿脉。
 
-尽管拥有这样的好运，南晶岛仍注定平庸一生。为什么？一切都要归咎于它的统治者。据说，那是一个人模狗样、七老八十、糊涂昏庸的国王，他的名字早已被时间掩盖，他腐朽的统治几乎葬送了整个南晶岛。钢铁王座的矮人们，自从听说这岛屿下埋藏了很多蓝锆石矿，便利用这个国王去开采并将蓝锆石以一个极低的价格卖给他们。同时，尽管南晶岛只有微不足道的军事力量，老国王依然看到他觉得合适的机会就把军队送出去，帮助人类王国抵抗半身人，在此之前，半身人们还从未听说过南晶岛的存在。他们装备落后的部队不但在半身人强大的军事力量下土崩瓦解，而且还成功吸引了半身人们对偏僻岛屿的注意。几乎是第二天，袭击便开始了。
+尽管拥有这样的好运，南晶岛仍注定平庸一生。为什么？一切都要归咎于它的统治者。据说，那是一个行事笨拙、年逾八旬且老糊涂的国王，他的名字早已被时间掩盖，他腐朽的统治几乎葬送了整个南晶岛。钢铁王座的矮人们，自从听说这岛屿下埋藏了很多蓝锆石矿，便利用这个国王去开采并将蓝锆石以一个极低的价格卖给他们。同时，尽管南晶岛只有微不足道的军事力量，老国王仍执意把能召集到的军队派去援助大陆上的人类王国，参与他们与半身人的多场战争；在此之前，半身人甚至几乎不知道南晶岛的存在。他们训练不足、装备落后的部队不但在半身人强大的军事力量下如害虫般被碾碎，这些莽撞的进攻还成功吸引了半身人对偏僻岛屿的注意。袭击几乎随即开始。
 
-从现存的记录来看，国王对国家的衰落困惑不已，直到最后仍坚信自己的每一步都是正确的。在半身人开始袭击后不久，他便去世了。不管这是自杀、暗杀或者老死，都成了一个谜。老国王从未结婚，没有子女，他的家族剩下的只有他的远方表亲——一位叫德瑞克的少年人。
+从现存的记录来看，国王对国家的衰落困惑不已，直到最后仍坚信自己的每一步都是正确的。在半身人开始袭击后不久，他便去世了。不管这是自杀、暗杀或者老死，都成了一个谜。老国王从未结婚，没有子女，他的家族剩下的只有他的远房表亲——一位叫德瑞克的少年人。
 
 所以德瑞克继承了王位，南晶岛也由此进入了黄金时代。
 
 #{bold}#1、德瑞克和半身人部落。#{normal}#
 
-对于新加冕的德瑞克，最大也最明显的威胁来自于半身人日益频繁和规模庞大的袭击。为此，他命令整个南晶岛的部队重组，将他们从一群乌合之众转变为极富破坏性的战争机器。德瑞克知道，他的部队唯一的优势就在于他们比半身人更熟悉这座岛屿的地形。并且，他命令部队隐秘行动，携带精致小巧、能撕裂护甲的蓝锆石匕首而不是刀剑，他们只进攻进入他们埋伏圈的小股敌人。南晶岛建立的“游击队”是成功的。虽然半身人们在数量上有着极大的优势，但是德瑞克游击队的频繁骚扰使他们士气低落，最终他们气急败坏的宣布——南晶岛“一钱不值”，半身人部队撤退了。
+对于新加冕的德瑞克，最大也最明显的威胁来自半身人日益频繁的袭击和出击。为此，他下令彻底重建南晶岛的军队，将一群乌合之众般的民兵改造成规模虽小却极其高效的战争机器。德瑞克知道，己方对半身人唯一的优势就是熟悉岛上地形。因此，他命令部队隐秘行动，携带小巧而能破甲的蓝锆石匕首，不用长矛和刀剑，并且只在对己方有利的条件下与半身人交战。南晶岛新建的“游击军”取得了成功。半身人虽人数众多，德瑞克的军队一次次精准打击却沉重挫伤了他们的士气；最后，半身人恼怒地宣称南晶岛“不值得费事”，撤军而去。
 
-南晶岛欢庆胜利和它新建的游击力量。但是对德瑞克来说，庆祝只是透支罢了。他所用来装备游击队装备的蓝锆石本应进入矮人们的口袋，矮人为此已经很不高兴了。德瑞克正在准备一个计划——那时，可能矮人们会更加的生气吧。
+南晶岛欢庆胜利和它新建的游击力量。但是对德瑞克来说，这番庆祝没有持续多久。他用于打造游击军匕首和护甲的蓝锆石没有落入矮人的口袋，他们为此十分不满。德瑞克已经拟定了一个计划——等计划完成，矮人们会更加恼火。
 
 #{bold}#2、德瑞克和蓝锆石战略。#{normal}#
 
-在世人眼里，矮人们一直保持着神秘的面纱。直到现在，也只有极少一部分人知道他们的“钢铁议会”所在，即使在南晶岛，仍有很多人认为矮人只存在于传说中。不过，坐拥大量蓝锆石矿脉的国王，连最隐秘的大门也能敲开……德瑞克请求钢铁议会接见。矮人们原以为这次会面会是一场卑躬屈膝的道歉，并承诺按他们支付的价钱继续供应蓝锆石，于是爽快地答应了。
+矮人一直是个神秘的种族。即便如今，也只有极少数人知道他们的“钢铁议会”位于何处；而在南晶岛存在的年代，仍有人认为矮人不过是神话。然而，一位拥有大量蓝锆石的国王，就连最隐蔽的大门也能敲开……德瑞克请求钢铁议会接见。矮人们以为这次会面会是一场卑躬屈膝的道歉，并承诺按他们支付的价钱继续供应蓝锆石，于是爽快地答应了。
 
-但实际上，矮人们发现理想和现实有很大的差距。昏庸的老国王去世了，他们面对的是年轻有为的新国王——这位年轻人甚至要求矮人们提高20倍原来价钱来购买1单位南晶岛的蓝锆石。
+但实际上，矮人们发现理想和现实有很大的差距。昏庸的老国王去世了，他们面对的是一位年轻、目光冷硬的人类——这位年轻人甚至要求矮人们把南晶岛蓝锆石的收购价提高到原来的二十倍。
 
-据说，矮人们都在嘲笑这不合实际的要求，当这一要求被提出时，笑声差点掀翻了整个大厅。除去南晶岛最近对半身人的军事行动，钢铁王座的矮人们认为要拿下这个岛屿的矿脉简直是小菜一碟。在德瑞克心里，他知道矮人有能力靠武力夺下这座岛，当他把脖子上的小袋子带到议会时，这一切都将终结。
+说矮人对此嗤之以鼻都算轻了；他们分明是在放声讥笑。尽管南晶岛不久前才击退半身人，钢铁王座的矮人仍认为以武力夺取岛上的蓝锆石毫无困难。德瑞克心里清楚他们确实做得到，正为威慑他们，他才把颈间的小口袋带到了议会。
 
-德瑞克高举着这只龙皮口袋并打开了它，里面的物品掉落了一地：磨成粉并掺杂了杂质和其他金属的蓝锆石——这种蓝锆石无法使用且价值极低。议会的矮人们震惊于这种恐怖的浪费，某个矮人（如果传闻是真的）甚至晕了过去。德瑞克继续说，如果不满足他的要求，整个南晶岛蕴藏的蓝锆石矿都会变成这样。
+德瑞克高举着这只龙皮口袋并打开了它，里面的物品掉落了一地：磨成粉并掺杂了杂质和其他金属的蓝锆石——这种蓝锆石无法使用且毫无价值。议会的矮人们震惊于这种恐怖的浪费，某个矮人（如果传闻是真的）甚至晕了过去。德瑞克继续说，如果不满足他的要求，整个南晶岛蕴藏的蓝锆石矿都会变成这样。
 
 当德瑞克离开钢铁议会时，矮人们以30倍的价钱签订了协议。
 ]], "_t")
-t("The Pale King, part two", "亡灵国王，第二章", "_t")
+t("The Pale King, part two", "苍白之王，第二章", "_t")
 t([[#{bold}#3. Drake and the Conclave Mages.#{normal}#
 
 With its borders unassailed, ands its coffers rapidly filling with Dwarven gold, many believed that the fortune of Southspar could not increase any further. Drake, however, had one last task to accomplish, and it regarded the Conclave.
@@ -16922,24 +16922,24 @@ I leave you with a copy of one of the last pieces of Southspar's history, a part
 
 当它的国界再也没有受到攻击，金库逐渐堆满矮人的金币时，许多人认为南晶岛已经无法更进一步了。但是对于德瑞克来说，不管怎样他还有最后一项任务——那就是孔克雷夫。
 
-一直以来，南晶岛都存在着一批定居于此的孔克雷夫法师。偏远的位置和昏庸的国王使他们能够毫无顾忌的实验和练习禁术。由于法师们基本不问世事，只有少部分人知道新国王的上任，并且他们丝毫不以为意。直到德瑞克的禁卫军踹开了他们实验室的大门，国王的亲自到来终于引起了他们足够的重视。德瑞克给他们下达了最后通牒：
+一直以来，南晶岛都存在着一批定居于此的孔克雷夫法师。偏远的位置与老国王的昏聩，使他们能够进行大陆上不允许的实验、修习大陆上禁用的魔法。由于法师们基本不问世事，只有少部分人知道新国王的上任，并且他们丝毫不以为意。直到德瑞克的禁卫军踹开了孔克雷夫法师们的书房大门，国王的亲自到来终于引起了他们足够的重视。德瑞克给他们下达了最后通牒：
 
-“这里是南晶国，我的国家，所以在她界内的所有事都必须在我的掌控之中。包括她的人民，她的土地，她的资源以及她的魔法。我允许你们在此但必须满足我一个条件：成为我的宫廷法师，遵守我的命令，并使用你们的魔法来改善王国。当没有任务时，你可以随心所欲的做你们自己的事，但是你必须向我表示最高的忠诚。你们接受吗？”
+“这里是南晶国，我的国家，所以在她界内的所有事都必须在我的掌控之中。包括她的人民，她的土地，她的资源以及她的魔法。我允许你们在此但必须满足我一个条件：成为我的宫廷法师，遵守我的命令，并使用你们的魔法来改善王国。没有任务时，你们可以随意处理自己的事务，但你们必须首先忠于我。你们接受吗？”
 
 
-孔克雷夫法师们的回应？大笑。但是这笑声并不是矮人们那样嘲笑的声音，而是一种质疑的笑声。据说，法师们是这样回答的：
+孔克雷夫法师们的回应？大笑。但是这笑声并不是矮人们那样嘲笑的声音，而是难以置信的笑声。据说，法师们是这样回答的：
 
-“德瑞克国王！你没必要给予我们如此严肃的最后通牒！一个简单的命令足矣。确实，在过去的时间里我们一直隐居于此过着简单的生活，但是不可否认的是南晶岛正在崛起。王国的荣耀将被延续，我们愿意成为他的一员。我们接受。”
+“德瑞克国王！您何必拿如此严厉的最后通牒来打扰我们？只需提一个简单的请求就够了。不错，过去我们选择住在这里，或许只是为了避世，但南晶岛这颗冉冉升起的新星实在不容忽视。这个王国将愈发辉煌，我们也愿置身其中。我们接受。”
 
-不再受到半身人的骚扰，不再有矮人们的不公平贸易，现在王国又加入了孔克雷夫这一新鲜的血液。大家猜想，还有什么奇迹会继续发生呢？
+摆脱了半身人的袭击，得到了矮人带来的财富，如今又有孔克雷夫的魔法赐福南晶岛。百姓不禁猜想，接下来还会发生什么呢？
 
-几乎是孔克雷夫法师们加入宫廷的几周后，德瑞克便生病去世了。
+孔克雷夫法师加入宫廷才几周，德瑞克便病逝了。
 
-#{bold}#4、德瑞克和空虚王座#{normal}#
+#{bold}#4、德瑞克和空王座#{normal}#
 
-德瑞克去世了，留给南晶岛人民无尽的悲痛和恐惧。他们的王，在过去的一段时间里，使他们的国家成为马基·埃亚尔发展最迅速的国家，没有之一。王座一直空虚着，没有任何人竞争新的王位。因为南晶岛人民的全体意志，那就是德瑞克的王座，任何人都无权拥有。
+德瑞克死了，南晶岛人民陷入悲恸与彻底的恐慌。他们的国王本正迅速带领王国跻身马基·埃亚尔最伟大的王国之列，如今却不在了。王座空悬，没有一个人争夺这空缺的王位。在南晶岛民众看来，那是德瑞克的王座，不属于任何别人。
 
-这类故事发展到此，一般王国会缓慢起步，从国王的去世中恢复过来，重现当年的繁荣昌盛。但南晶岛并非如此。德瑞克的去世给南晶岛留下了一个无法治愈的创伤，很显然，有一些事情必须要做。德瑞克的一个心腹，他的大臣，为了一个“使命”神秘地消失了，他希望在他回来之前，王国不会垮掉。几个月后，他真的回来了。他首先去了哪里？孔克雷夫法师们的书房。他的手里捧着一本由人皮装订、刻有血红符文的古书。其主题一目了然：死灵术。大臣对法师们只有一个命令：
+这类故事发展到此，一般王国会慢慢重新站稳脚跟，从国王去世的打击中恢复，最终回归常态。但南晶岛并非如此。德瑞克之死给南晶岛留下了一道迟迟不愈的创伤，显然必须有人采取行动。德瑞克生前最亲近的人之一——他的宰相——突然为一桩神秘的“差事”离开，只盼王国不至于在他回来前崩溃。几个月后，他果真归来。第一站是哪里？孔克雷夫法师们的书房。他手里捧着一本以皮装订、刻有血红符文的古书，其主题一目了然：死灵术。宰相只对法师们下了一道命令：
 
 “带他回来。”
 
@@ -16947,9 +16947,9 @@ I leave you with a copy of one of the last pieces of Southspar's history, a part
 
 遗憾的是，从这里开始，关于南晶岛和德瑞克命运的确切史实便湮灭了。有人说，德瑞克的复活大获成功；当化为骷髅的德瑞克重登王座时，空洞头骨中的目光与生前毫无二致，南晶岛的国势也继续蒸蒸日上。另一些人则认为，他被从墓中归来者常有的疯狂攫住，并借助孔克雷夫赋予的新力量开始了将南晶岛淹没在鲜血中的恐怖统治。唯一可以确定的事实，是臣民在他死后给他的新称号：苍白之王德瑞克、苍白之王，或干脆叫苍白德瑞克。
 
-我给你留下了南晶岛最后的一部分历史，一张部分缺损的羊皮纸，据称写于南晶岛被海啸摧毁的那一刻，被塔·埃亚尔的波涛所吞噬。
+最后，我为你附上一份南晶岛末期史料的抄本：一张残缺的羊皮纸，据称写于大灾变爆发、南晶岛随塔·埃亚尔其余地区一同沉入波涛之下的前一刻。
 
-“时机成熟了……书在船上……找到。结合……成功的。现在，面向大海，对于……额，恐惧王……高贵的国王。在我新的……堕落……如你所愿！”]], "_t")
+“时间越来越紧迫……书在船上……找到。束缚……成功了。现在，面向大海，对于……额，德雷德菲……高贵的国王。在我的新……里随你腐烂吧！”]], "_t")
 t("Declaration of the Unification of the Allied Kingdoms", "联合王国统一公告", "_t")
 t([[Herewith is set the constitutional declaration of the Allied Kingdoms under the rule of King Toknor and Queen Mirvenia. Any who defy or seek to undermine the laws here set shall suffer torment and death.
 
@@ -16961,17 +16961,17 @@ This unification shall make our lands stronger, more whole. Too long have we suf
 
 To those who oppose this, let thee be afeared, for a new dawn is rising and it shall suffer no obstruction. This Alliance and the era it brings shall be protected at all costs. Treason will not be tolerated, and divisors will be damned. All shall follow the rule of Toknor and Mirvenia, or face the righteous wrath of a new age.
 
-All hail the reign of King Toknor and Queen Mirvenia! All hail the Allied Kingdoms! All hail the Age of Ascendancy!]], [[为了联合王国的可持续发展，图库纳国王和米雯尼雅皇后特此声明。任何违抗或破坏法律者将受到严惩和制裁，严重者将处以死刑。
+All hail the reign of King Toknor and Queen Mirvenia! All hail the Allied Kingdoms! All hail the Age of Ascendancy!]], [[兹颁布由图库纳国王与米雯尼雅女王统治之联合王国宪制宣言。凡违抗或企图破坏此处所定法律者，必受折磨并处死。
 
-在烈火纪714年厄流月1日，以及从今以后将为众人所知的卓越纪1年，所有的人类和半身人王国都将统一在联合王国的旗帜之下。这包括了每一个村庄，每一个城镇，每一个农场以及每一块土地超过50%马基·埃亚尔人口的人类或半身人。
+自烈火纪714年厄流月1日起——此日今后定为卓越纪元年——所有人类与半身人王国均统一于联合王国旗帜之下。马基·埃亚尔全境内，凡人类或半身人人口超过半数的城镇、村庄、农奴领及农庄，皆属其列。
 
-联合王国将由图库纳国王和米雯尼雅皇后共同治理，愿其血脉长存。他们的王座和居所将设于最后的希望堡垒，所有行政和军事机关也将设于此地。联合王国各方之间实行自由贸易，由王室国库统一征税。联合王国境内各地均由正式卫队定期巡逻，以维护和平。所有人都适用同一种统治和同一部法律。
+联合王国由图库纳国王与米雯尼雅女王共同统治，愿其血脉长存。他们的王座与居所设于最后的希望堡垒，所有行政与军事机关亦设于此。联合王国各方之间实行自由贸易，中央税赋由王室国库统一征收。联合王国境内各地均由正式卫队定期巡逻，以维护和平。所有人皆受同一统治、同一法律管辖。
 
 此次统一将使我们的土地更加强大、更加完整。长久以来，我们饱受入侵与恐怖的阴影；长久以来，我们四分五裂，被琐碎的内斗击破。但现在我们将摆脱过去的失败，在统一而有力的统治与牢不可破的联盟之下共同繁荣、寻得和平。我们将携手击退黑暗，迎来光明的时代，从此不再畏惧黑夜。
 
-那些反对的人，你们将在恐惧中颤抖，因为新的黎明即将到来，任何人都无法阻止。我们将不惜一切代价保护它。任何的背叛都是不可容忍的，任何不稳定因素都将被摧毁。所有人都要遵守图库纳国王和米雯尼雅皇后共同制定的法律或面对新纪元公正的审判。
+反对此举者，尽管恐惧吧：新的黎明正在升起，绝不容任何阻碍。这个联盟及其带来的时代将不惜一切代价得到捍卫。叛国绝不姑息，分裂者必受诅咒。所有人都须服从图库纳与米雯尼雅的统治，否则便要承受新时代的正义之怒。
 
-图库纳国王和米雯尼雅皇后万岁！联合王国万岁！卓越纪万岁！]], "_t")
+图库纳国王与米雯尼雅女王的统治万岁！联合王国万岁！卓越纪万岁！]], "_t")
 t("The Oceans of Eyal", "埃亚尔之海", "_t")
 t([[The Oceans of Eyal represent a frontier which we have been powerless to break. In spite of advanced craft and skill, and even the more forbidden areas of magic, there are natural barriers that we simply cannot overcome. Long range seafaring has become seen as unprofitable and a fruitless endeavour. The last great ship to be built was the Vanguard, over a thousand years ago, which disappeared over the eastern horizon and was never seen again.
 
@@ -16993,15 +16993,15 @@ It’s a remarkable report, and one I’m minded to believe, in spite of the not
 
 可惜，魔法大爆炸与大灾变时期的记录表明，那些古老航线已无法通行。洋流重塑、风暴增多以及危险海洋生物的大量出现，将我们困在了马基·埃亚尔大陆。
 
-但是，我对知识的渴望仍未平息。不久前我对一名老海员——一个有着坚硬胡须和丑陋疤痕，身边围绕着啤酒恶臭的半身人谈过话，从他那散发臭气牙齿掉光的嘴里，我不得不说，我获得了许多珍贵的资料，接下来，我会尽我所能来复述：
+但是，我对知识的渴望仍未平息。不久前，我与一名老渔夫交谈过——他是个半身人老水手，胡须结成硬块，脸上伤疤骇人，浑身散发着陈年麦酒的恶臭。他从没牙的嘴里吐出阵阵恶臭的气息，断断续续地告诉了我一些宝贵资料。现将其尽我所能转录如下：
 
 “不成，你甭想离岸太远。往北会撞上几里宽的浮冰，它们一合拢，就从底下把你的船壳压碎。往西尽是风暴，旋风和飓风会吞掉任何靠近的船。至于东边……唉，东边最糟。娜迦、海龙、变幻的洋流、海中裂隙，还有你最可怕的噩梦里都没见过的仇恨风暴。南边嘛，最适合捕鱼之类的营生，那儿有几片好地方。但走得太远，就会碰上某种……我也说不清，魔法屏障还是啥。船撞上去，就像撞到一堵空气墙；冲得太快，船头都会撞个粉碎！屏障外头……地平线上笼着一团黑云。俺跟你讲，我们都躲得远远的。”
 
 这是一份非同寻常的报告。尽管水手故事出了名地不可靠，我仍倾向于相信它。南方过去曾是塔·埃亚尔大陆，据说那里遍布沙漠，充满狂野能量。如今究竟是何种命运令我们无法抵达，实在难以断言。但我的好奇心已被彻底激起，我会设法租一艘船，调查南方这道奇异的屏障。驾船的低等种族或许会畏缩不前，但我相信，凭我这位高等人类的领导力和影响力，定能让他们拿出些胆量。
 
-- 埃斯蒂 阿斯米
+- 埃斯特万·阿西米尔领主
 
-#{italic}#尾注：在这份报告印刷不久，阿斯米被发现死在最后的希望周围的某个小港口，身上值钱的东西都不见了。#{normal}#]], "_t")
+#{italic}#尾注：本文刊印后，阿西米尔领主被发现死于最后的希望所属的一座港口，身上财物遭洗劫一空。#{normal}#]], "_t")
 t("A creased letter", "皱巴巴的信", "_t")
 t([[Oh Cecil, what must you think of me? But I remember your words to me, before the fever took you - you told me to live. And live I must... And yet that fever has now spread to me and I feel my days are numbered.
 
@@ -17015,17 +17015,17 @@ Amidst this darkness I have good news for you, my darling. I am with child. Thou
 
 I am cold and alone in this chilly crypt, thinking back on my times of warmth with you. Abominations lie beyond the walls, their haunting cries torturing my ears, reminding me of the black deeds I have performed. But every now and then I feel a gentle kick, and my resolve is stiffened, and to my experiments I return.
 
-I must live. For you, my love, I will live.]], [[哦，塞西尔，你是怎么看待我的呢？不过我始终记得，在狂热病带走你之前你对我说过的话——你告诉我要活下去。我必须活下去……尽管我已经感染上了狂热病并且我感到时日无多。
+I must live. For you, my love, I will live.]], [[哦，塞西尔，你会怎么看我？可我还记得热病带走你之前，你对我说过的话——你要我活下去。我必须活下去……然而如今这热病也已传到我身上，我知道自己时日无多。
 
-我必须坦白一件事，亲爱的。我为你的疾病所炼制的药水，那些延长你在我怀里时间的药水，它们并不是出自正常的炼金术。在绝望中，我只能转向黑暗炼金术来拯救你。尽管它们延长了一点你的呼吸时间，但却没有把你留给我。
+我必须向你坦白一件事，亲爱的。你病入膏肓时，我为你炼制的那些药剂，让你能在我怀中多留几个星期的那些药剂，并非用我惯常的炼金术炼成。在拯救你的执念中，我绝望地转向了更黑暗的技艺。可它们虽让你多清醒了一阵，却无法让你继续留在我身边。
 
-我是多么的想念你……每当夜晚病魔快要撕裂我时，要是你在我身边，我就能承受这一切。但是孤身一人的我并没有那么坚强，黑暗始终徘徊在我身边。我的困扰依旧。
+我是多么渴望你……每到夜里，病痛几乎将我撕裂；只要你还在身边，我便能忍受这一切。可孤身一人的我没有那份力量，黑暗的念头又回来了。我的执念仍在。
 
-如果你看到我所做的事情，你肯定会不赞成。你会感到恶心！每当想到如果你看见现在的我时，我都充满了畏惧。但是请理解我，亲爱的，请原谅我。因为我必须活下去！虽然每个早晨我都更加虚弱，但是我的意志却更加坚定。并且这也不仅仅是为了我自己……
+如果你看到我所做的事情，你肯定会不赞成。你会感到恶心！每当想到你若看见现在的我会有何反应，我便畏缩不已。但是请理解我，亲爱的，请原谅我。因为我必须活下去！虽然每个早晨我都更加虚弱，但是我的意志却更加坚定。并且这也不仅仅是为了我自己……
 
 在这片黑暗中，我有一个好消息要告诉你，亲爱的。我怀孕了。虽然你已经去世，你的血脉仍在我体内延续；即使我自己的肉体日渐枯萎，我仍能感觉到我们的孩子正在腹中成长。正因如此，我才继续进行这些实验，无论它们多么可怕。为了我们的孩子，我必须硬起心肠挣扎求生，不断延长自己的生命。
 
-在这寒冷的地穴中我又冷又孤单，我一直思念着和你一起度过的温暖时光。憎恶们位于墙的另一边，它们疯狂的尖叫声折磨着我的耳朵，提醒我所做的黑暗。但是每当此刻我都能感受到一次温柔的脚踢，我的信念也会更加坚定，为了我的实验我必须回去。
+在这寒冷的地穴中我又冷又孤单，我一直思念着和你一起度过的温暖时光。墙外潜伏着畸形怪物，它们疯狂的尖叫声折磨着我的耳朵，提醒我曾犯下的黑暗行径。但偶尔，我会感到腹中轻轻一踢，意志也随之更加坚定，随后便重新投入实验。
 
 我必须活下去。为了你，亲爱的。我将活下去。]], "_t")
 t("last hope graveyard", "最后的希望墓地", "newLore category")
@@ -17036,7 +17036,7 @@ Here lies Jake, son of Borlin and Clarise
 Rest well, our child
 This world was too dark for thee
 #{normal}#]], [[#{bold}#
-这里埋葬着杰克·伯林和克拉丽丝的儿子
+这里埋葬着伯林和克拉丽丝之子杰克
 #{normal}#112 - 118#{italic}#
 安息吧，我们的儿子
 这世界对你来说太黑暗了
@@ -17050,8 +17050,8 @@ Rot here together
 #{normal}#]], [[#{bold}#
 这里躺着阿兰达和帕瑞尔
 #{normal}#92 - 115, 94 - 115#{italic}#
-因罪孽而生 
-因罪孽而死
+在罪中度日
+在罪中死去
 深埋此处共同腐烂
 #{normal}#]], "_t")
 t([[#{bold}#
@@ -17062,8 +17062,8 @@ Humbled in death
 #{normal}#]], [[#{bold}#
 不朽的玛库斯
 #{normal}#23 - 107#{italic}#
-伟大的生者
-卑微的死者
+生前雄心勃勃
+终为死亡所折服
 #{normal}#]], "_t")
 t([[#{bold}#
 Lord Gracion Bestelle
@@ -17081,10 +17081,10 @@ Inilasac Salocin
 All tomes shall remember thee
 And thine dark blessings
 #{normal}#]], [[#{bold}#
-尼拉萨克·萨拉辛
+尼里萨卡·斯拉古尼
 #{normal}#32 - 120#{italic}#
 所有典籍都将铭记你
-和你黑暗的祝福
+和你的黑暗祝福
 #{normal}#]], "_t")
 t([[#{bold}#
 RIP Cecil Farion
@@ -17100,7 +17100,7 @@ Rest now from the burdens of the flesh
 纯洁的灵魂
 愿你摆脱肉体的重负获得安息
 
-#{normal}#墓碑下放着一枝玫瑰。]], "_t")
+#{normal}#此处放着一枝新鲜的玫瑰。]], "_t")
 t([[#{bold}#
 Here lies Golan of Derth
 #{normal}#65 - 113#{italic}#
@@ -17109,8 +17109,8 @@ Always bring joy and love
 #{normal}#]], [[#{bold}#
 这里躺着德斯镇的格兰 
 #{normal}#65 - 113#{italic}#
-希望你的回忆
-总是带来爱与欢乐
+愿关于你的回忆
+永远带来爱与欢乐
 #{normal}#]], "_t")
 t([[#{bold}#
 Here lies Mara
@@ -17159,7 +17159,7 @@ Captain Lepant
 #{normal}#56 - 102#{italic}#
 A hero to all elements of society
 #{normal}#]], [[#{bold}#
-警长乐潘特
+队长乐潘特
 #{normal}#56 - 102#{italic}#
 社会各界公认的英雄
 #{normal}#]], "_t")
@@ -17170,10 +17170,10 @@ In this bright age
 Of new adventures
 You are not forgotten
 #{normal}#]], [[#{bold}#
-黑夜古尔莫特
+黑暗者古尔莫特
 #{normal}#0 - 97#{italic}#
-在这个新冒险者的黄金年代
-你将不会被遗忘
+在这个充满崭新冒险的光明时代
+你不会被遗忘
 #{normal}#]], "_t")
 t([[#{bold}#
 Gygax the Great
@@ -17205,8 +17205,8 @@ Inspire us forever
 #{normal}#]], [[#{bold}#
 维奇曼·托伊
 #{normal}#80 - 121#{italic}#
-你侠盗般的美丽
-将永远启发我们
+你那浪子般的魅力
+将永远激励我们
 #{normal}#]], "_t")
 t([[#{bold}#
 Annei Caffrey
@@ -17216,8 +17216,8 @@ You forever soar
 #{normal}#]], [[#{bold}#
 阿内·凯芙瑞
 #{normal}#26 - 102#{italic}#
-你将用龙翼
-永远飞翔
+乘着龙翼
+你将永远翱翔
 #{normal}#]], "_t")
 t([[#{bold}#
 Here lies Eden of Derth
@@ -17226,10 +17226,10 @@ Untamed in spirit
 Unhesitant in flight
 Unlifed in grimmest darkness
 #{normal}#]], [[#{bold}#
-这躺着德斯镇的艾登
+这里安葬着德斯镇的艾登
 #{normal}#97 - 121#{italic}#
 他的灵魂桀骜不驯
-他的飞行从不犹豫
+他飞行时毫不犹豫
 但他却未能在最冷酷的黑暗中生存
 #{normal}#]], "_t")
 t([[#{bold}#
@@ -17239,7 +17239,7 @@ Alas that bravery was not enough
 #{normal}#]], [[#{bold}#
 勇敢的凯利斯
 #{normal}#86 - 113#{italic}#
-哎光有一腔热血是不够的啊
+可惜，光有勇气还不够
 #{normal}#]], "_t")
 t([[#{bold}#
 Barbrim the Cursed
@@ -17257,20 +17257,20 @@ Slain by the dark magics she fought
 We shall never forget
 Death to the spellweavers!
 #{normal}#]], [[#{bold}#
-猎魔者法希拉
+法师杀手法希拉
 #{normal}#78 - 104#{italic}#
 被她所抗争的黑暗魔法杀害
 我们将永不遗忘
-灭绝所有法师!
+织法者都去死吧！
 #{normal}#]], "_t")
 t([[#{bold}#
 Here lies Amalla
 #{normal}#86 - 105#{italic}#
 Burned for witchcraft
 #{normal}#]], [[#{bold}#
-这躺着阿玛拉
+此处安葬着阿玛拉
 #{normal}#86 - 105#{italic}#
-因使用妖术而被处死
+因巫术罪名被烧死
 #{normal}#]], "_t")
 t([[#{bold}#
 Gamrik Dellhorn
@@ -17279,16 +17279,16 @@ Fell to the Wintertide blizzard
 #{normal}#]], [[#{bold}#
 加米里克·戴尔亨
 #{normal}#47 - 93#{italic}#
-因冬季的暴风雪而死
+死于霜华时节的暴风雪
 #{normal}#]], "_t")
 t([[#{bold}#
 Here lies Peterin
 #{normal}#32 - 89#{italic}#
 Died alone
 #{normal}#]], [[#{bold}#
-这躺着彼特林
+这里长眠着彼特林
 #{normal}#32 - 89#{italic}#
-孤独的死去
+孤独死去
 #{normal}#]], "_t")
 t([[#{bold}#
 Ben Harrison
@@ -17308,16 +17308,16 @@ The Pixels finally got him...
 #{normal}#]], [[#{bold}#
 雷蒙德·加斯塔德在这里长眠
 #{normal}#84 - 120#{italic}#
-彼克索们还是找到他了...
+像素们终于还是逮到他了...
 #{normal}#]], "_t")
 t([[#{bold}#
 Here lies Crokar
 #{normal}#86 - 113#{italic}#
 His love of trolls proved too dangerous a hobby
 #{normal}#]], [[#{bold}#
-这躺着克罗克
+这里安葬着克罗克
 #{normal}#86 - 113#{italic}#
-他对巨魔的喜爱被证明是个太过危险的兴趣
+他对巨魔的热爱，终究成了要命的嗜好
 #{normal}#]], "_t")
 t([[#{bold}#
 Lyrissa the Wyrmfriend
@@ -17336,26 +17336,26 @@ Bereft of pride
 On a comrade's sword
 He quickly died
 #{normal}#]], [[#{bold}#
-这躺着逃兵韦德斯
+这里长眠着逃兵韦德斯
 #{normal}#86 - 103#{italic}#
-从战场上逃走
-丧失骄傲
-在一个同伴剑下
-他很快便死了
+逃离战场
+尊严尽丧
+不久便死在
+同袍剑下
 #{normal}#]], "_t")
 t([[#{italic}#
 This gravestone has been desecrated
 #{normal}#]], [[#{italic}#
-这块墓碑被破坏了
+这块墓碑遭到了亵渎
 #{normal}#]], "_t")
 t([[#{bold}#
 Seria Swanfoot
 #{normal}#56 - 109#{italic}#
 May your feet now walk amongst the stars
 #{normal}#]], [[#{bold}#
-天鹅西瑞亚
+天鹅之足西瑞亚
 #{normal}#56 - 109#{italic}#
-你的双足将漫步于星海
+愿你的双足如今漫步星海
 #{normal}#]], "_t")
 t([[#{bold}#
 Eric and Erik
@@ -17375,7 +17375,7 @@ Death by ricochet
 #{normal}#]], [[#{bold}#
 神枪手哈宝
 #{normal}#94 - 120#{italic}#
-被跳弹击中
+死于跳弹
 #{normal}#]], "_t")
 t([[#{bold}#
 Grave of the Unknown Mason
@@ -17384,7 +17384,7 @@ In dedication to all those lost building the dungeons of Maj'Eyal
 #{normal}#]], [[#{bold}#
 无名泥瓦匠的坟墓
 #{normal}#??? - ???#{italic}#
-献给所有建造了马基·埃亚尔地牢的人
+献给所有在建造马基·埃亚尔地牢时丧生的人
 #{normal}#]], "_t")
 t([[#{bold}#
 Here lies Albert Deathproof
@@ -17401,7 +17401,7 @@ RIP Legless Jack
 His life's dream was to dance
 But even dreams must die
 #{normal}#]], [[#{bold}#
-愿瘸子杰克安息
+愿无腿杰克安息
 #{normal}#26 - 98#{italic}#
 他一生的梦想是去跳舞
 但就算是梦想也有消逝的一天
@@ -17411,7 +17411,7 @@ The Blightbringer
 #{normal}#14 - 46#{italic}#
 Do not disturb
 #{normal}#]], [[#{bold}#
-荒芜携带者
+枯萎使者
 #{normal}#14 - 46#{italic}#
 请勿打扰
 #{normal}#]], "_t")
@@ -17420,9 +17420,9 @@ Matthew the Brawler
 #{normal}#101 - 122#{italic}#
 Killed in a ring of blood
 #{normal}#]], [[#{bold}#
-格斗家马特苏
+格斗家马修
 #{normal}#101 - 122#{italic}#
-在斗技场中被杀
+在鲜血之环中被杀
 #{normal}#]], "_t")
 t([[#{bold}#
 Sarusan the Timeraper
@@ -17430,10 +17430,10 @@ Sarusan the Timeraper
 He who wields Time
 Dies by Time
 #{normal}#]], [[#{bold}#
-时空法师萨茹森
+时间蹂躏者萨茹森
 #{normal}#102 - 87#{italic}#
-操纵时光者
-死于时光
+操纵时间者
+死于时间
 #{normal}#]], "_t")
 t([[#{bold}#
 Palia the Poacher
@@ -17442,16 +17442,16 @@ Shown no mercy in the cursed woods
 #{normal}#]], [[#{bold}#
 偷猎者帕利亚
 #{normal}#94 - 118#{italic}#
-他在受诅咒的森林中未得怜悯
+在受诅咒的森林中，无人手下留情
 #{normal}#]], "_t")
 t([[#{bold}#
 Here lies the merchant Dalio
 #{normal}#83 - 121#{italic}#
 Slain by an assassin's deadly poison
 #{normal}#]], [[#{bold}#
-这躺着商人达里奥
+此处安葬着商人达里奥
 #{normal}#83 - 121#{italic}#
-为刺客的毒匕首所杀
+死于刺客的致命毒药
 #{normal}#]], "_t")
 t([[#{bold}#
 Here lies Jazak
@@ -17459,10 +17459,10 @@ Here lies Jazak
 He played with the wildest fires
 And got burnt
 #{normal}#]], [[#{bold}#
-这躺着吉扎克
+这里长眠着吉扎克
 #{normal}#92 - 113#{italic}#
-他在火海中嬉戏
-被烧着了
+玩弄烈火
+终究引火烧身
 #{normal}#]], "_t")
 t([[#{bold}#
 RIP Gedis the Paladin
@@ -17472,7 +17472,7 @@ We weep your fallen light
 #{normal}#]], [[#{bold}#
 愿圣骑士吉迪斯安息
 #{normal}#?? - 118#{italic}#
-来自未知大陆的闪亮新星
+来自异乡的璀璨星辰
 我们为你的陨落而哭泣
 #{normal}#]], "_t")
 t([[#{bold}#
@@ -17484,7 +17484,7 @@ The joke was over
 #{normal}#]], [[#{bold}#
 小丑福萨
 #{normal}#82 - 114#{italic}#
-这个笑话让我们从头笑到尾
+我们笑了，直到发现——笑话已经结束
 #{normal}#]], "_t")
 
 ------------------------------------------------
