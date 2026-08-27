@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "route": {
+    "harness": "Claude Code CLI 2.1.247",
+    "requested_model": "claude-opus-5",
+    "requested_effort": "medium",
+    "setting_sources": "project,local",
+    "initialized_model": "claude-opus-5",
+    "actual_assistant_models": [
+      "claude-opus-5"
+    ],
+    "provider": "firstParty"
+  },
+  "duration_seconds": 206.648,
+  "exit_status": 0,
+  "strict_json": true,
+  "parse_error": null,
+  "fallback_events": [],
+  "fallback_blocks": [],
+  "result_metadata": {
+    "is_error": false,
+    "subtype": "success",
+    "stop_reason": "tool_use",
+    "terminal_reason": "completed",
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 23801,
+      "cache_read_input_tokens": 16031,
+      "output_tokens": 12387,
+      "output_tokens_details": {
+        "thinking_tokens": 3215
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 23801,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 4657,
+          "cache_read_input_tokens": 16031,
+          "cache_creation_input_tokens": 7770,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 7770
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "model_usage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 10229,
+        "outputTokens": 19,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.010324,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5": {
+        "inputTokens": 4,
+        "outputTokens": 12387,
+        "cacheReadInputTokens": 16031,
+        "cacheCreationInputTokens": 23801,
+        "webSearchRequests": 0,
+        "costUSD": 0.5557205000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "canonicalModel": "claude-opus-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.5660445000000001,
+    "num_turns": 3,
+    "permission_denials": [],
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    }
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "bbe6a6d1496e967559d5d19258c5963ccc7f9337d92af6801560820335ce3ac2",
+        "observation": "OK",
+        "evidence": "source \"inflict %0.2f mind damage (range 10), gaining psi and hate equal to 10%%%% of the damage done\" ↔ target \"造成%0.2f精神伤害（距离10），获得相当于造成伤害10%%%%的灵能值和仇恨值\"：单占位符、距离 10、10%% 比例与灵能/仇恨双资源均保留"
+      },
+      {
+        "revision_id": "6a52673dfad9af782ada1d01ee831f23676794f08a97f1ef7d999688cf07846c",
+        "observation": "OK",
+        "evidence": "source \"explode against your foes for %d cold damage (based on your Magic)\" ↔ target \"造成%d寒冷伤害（基于魔法）\"：自爆行为、伤害类型与加成属性一致"
+      },
+      {
+        "revision_id": "9efb27ea36219825be5bb9e38fbb552786d6cdacf8c37fca2923d869a065ffb4",
+        "observation": "OK",
+        "evidence": "两个 %0.2f 顺序对应 \"temporal damage\"/\"physical damage\" → \"时空伤害和 %0.2f 物理伤害\"；\"(<20%%)\" → \"不足 20%%\"；\"50%% additional damage to targets affected by temporal destabilization and/or continuum destabilization\" → \"对受时空紊乱和/或连续紊乱的目标会多造成 50%%的伤害\" 条件完整"
+      },
+      {
+        "revision_id": "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+        "observation": "OK",
+        "evidence": "\"Extends the duration of the selected chronomancy spell by %d%%\" → \"延展指定法术的持续时间 %d%%\"；\"Current Extended Spell: %s\" → \"当前强化法术： %s\"，%d/%s 顺序与语义槽位一致"
+      },
+      {
+        "revision_id": "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+        "observation": "数值基准丢失：源文 100%% 是“所造成伤害”的百分比（转为流血），译文“100%% 的额外流血伤害”缺少百分比参照物，易被读成凭空的 100%% 加成",
+        "evidence": "source \"inflicting an additional 100%% of the damage dealt as a bleed over 4 turns\" ↔ target \"使其在 4 回合内受到 100%% 的额外流血伤害\"（缺 \"of the damage dealt\" 对应的“所造成伤害的”）"
+      },
+      {
+        "revision_id": "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+        "observation": "作用范围轻微扩大：源文冷却缩减针对护符（charms），仅“能量消耗”覆盖所有可用物品；译文把两项都归到“所有可用物品”",
+        "evidence": "source \"reducing their cooldowns and the power cost of all usable items by %d%%\" ↔ target \"使所有可用物品的冷却时间和能量消耗降低 %d%%\"；第二个 %d 的 \"(%d disarm 'power', improves with Cunning)\" → \"（解除强度 %d，随灵巧提高）\" 绑定正确"
+      },
+      {
+        "revision_id": "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017",
+        "observation": "OK",
+        "evidence": "source \"Explodes (radius 2) for %0.2f fire damage over 3 turns.\" ↔ target \"爆炸(范围 2) ：3回合内 %0.2f 火焰伤害。\"：半径 2、3 回合持续与占位符均保留"
+      },
+      {
+        "revision_id": "6f2623b7cf2eda3d4914dc9c377f08f047b7a3fc7026b3f9fb38254cd5517159",
+        "observation": "OK",
+        "evidence": "\"a trio of shadowy rogues\" → \"三名阴影盗贼\"；\"receive your damage bonuses and are permanently stealthed\" → \"继承你的伤害加成，并永久处于潜行状态\"；\"after %d turns or when their work is done\" → \"在 %d 回合后，或完成任务时消失\""
+      },
+      {
+        "revision_id": "c46aedd1fa773ba4738ae1e99615704dc12064692d4d5db5fd2380be264f6408",
+        "observation": "OK",
+        "evidence": "五个占位符按源序绑定 radius %d / %d damage / %d knockback / increases all critical damage by %d%% / (currently: %d%%) → \"半径 %d 格 ... 造成 %d 点伤害并击退 %d 格 ... 暴击伤害提高 %d%%（当前：%d%%）\"；\"dazed for 3 turns\" → \"眩晕 3 回合\" 保留"
+      },
+      {
+        "revision_id": "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+        "observation": "条件主语错位：\"if in line of sight\" 限定的是你已激活的粘液软泥怪，译文把“视线内”挂到了被击中的目标上；且译文加入源文没有的“随机”限定",
+        "evidence": "source \"Any Mucus Oozes you have active will, if in line of sight, instantly spit slime (at reduced power) at one of the targets hit by the splash\" ↔ target \"如果你有任何粘液软泥怪存在，则会向视线内的某个被淤泥击中的随机目标释放史莱姆喷吐（较低强度）\""
+      },
+      {
+        "revision_id": "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+        "observation": "OK",
+        "evidence": "source \"Pull all foes toward you in radius 5 while dealing %d physical damage.\" ↔ target \"将 5 码范围内的目标拉向你并造成 %d 物理伤害。\"：半径 5、拉近效果与伤害类型一致"
+      },
+      {
+        "revision_id": "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b",
+        "observation": "OK",
+        "evidence": "\"If two or more foes are in sight\" → \"如果有 2 个或多个敌人在你的视野里\"；\"increased by %0.1f per foe (up to 5 foes)\" → \"每个敌人都会使你的所有强度和豁免提高 %0.1f 。（最多 5 个敌人）\"，“所有强度和豁免”覆盖源文列举的三强度三豁免"
+      },
+      {
+        "revision_id": "ba45293063c0e7e0e91ab6c236c4968ab6cc12049b709074cbc08b1a6f3e0b10",
+        "observation": "OK",
+        "evidence": "\"+%d Strength, +%d Dexterity, and +%d Constitution\" → \"%d 点力量、 %d 点敏捷和 %d 体质\" 顺序一致；\"Activating this talent will put all other thought-forms on cooldown\" → \"激活此技能会使其他思维形态技能进入冷却\"；\"improve with your Mindpower\" → \"属性增益受精神强度加成\""
+      },
+      {
+        "revision_id": "cce8b1eea8f36519d4f8101be6fac546d1d7cda39df96bc92273619461d0cb01",
+        "observation": "OK",
+        "evidence": "六个占位符按源序绑定：\"carrying capacity by %d, defense against projectiles by %d, pin immunity by %d%% and stun immunity by %d%%\" → \"负重能力 ... 对抛射物的闪避 ... 定身免疫 ... 震慑免疫\"；\"At level 5 ... %d%% movement speed and removes %d fatigue\" → \"等级 5 ... %d%% 的移动速度并且移除 %d 点疲劳\""
+      },
+      {
+        "revision_id": "6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244",
+        "observation": "OK",
+        "evidence": "\"healing you for %d and generating %d mana\" → \"恢复 %d 生命值，获得 %d 法力值\"；\"If used below 1 life the surge increases your spellpower by %d for 10 turns\" → \"如果你当前生命值在 1 以下 ... 提升你的法术强度 %d ，持续 10 回合\""
+      },
+      {
+        "revision_id": "d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2",
+        "observation": "OK",
+        "evidence": "\"%0.2f fire damage in a radius of %d each turn for %d turns\" → \"每回合可对敌我双方造成 %0.2f 火焰伤害，半径 %d 码，持续 %d 回合\"，三占位符顺序与 \"foes and allies alike\" 均保留"
+      },
+      {
+        "revision_id": "67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88",
+        "observation": "OK",
+        "evidence": "\"if friendly: magical and physical saves increased by %d, at level 5 healing factor is also increased by 15%%\" → \"友方目标: 提升 %d 魔法和物理豁免，技能等级 5 时，还会提升治疗系数 15%%\"；\"if hostile: ... reduced by %d, at level 5 all talents cool down 15%% slower\" → \"敌对目标: 降低 %d ... 使技能冷却时间延长 15%%\""
+      },
+      {
+        "revision_id": "88830814768d0f6c948de6410acfa7a3b59d7995348fdfda934bd860b3474e16",
+        "observation": "OK",
+        "evidence": "\"doing %d%% damage\" → \"造成 %d%% 伤害\"；\"allows you to regain %d stamina\" → \"让你回复 %d 点体力\"，两占位符顺序一致"
+      },
+      {
+        "revision_id": "defcf6a782239b18d5366bccf8f0491f1e6ff5748feaa7cb845a9f7556c28dc4",
+        "observation": "OK",
+        "evidence": "\"When you're targeted by a projectile, your global speed is increased by %d%% for 1 turn\" → \"当你被抛射物锁定时，增加你 %d%% 全局速度 1 回合\"；\"Taking any action other than movement will break the effect\" → \"除了移动外的任何动作均会打破此效果\""
+      },
+      {
+        "revision_id": "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+        "observation": "限定词丢失：\"natural obstacles\"（自然障碍）译为“其他障碍物”，把不可穿越对象泛化，弱化了“可穿墙、不可穿自然障碍”的区分；占位符绑定正确",
+        "evidence": "source \"passing through walls (but not natural obstacles), granting %d defense and %d armour\" ↔ target \"可以穿墙（但不能穿过其他障碍物），获得 %d 闪避和 %d 护甲值\""
+      },
+      {
+        "revision_id": "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+        "observation": "OK",
+        "evidence": "\"Improves/gives the ability to see invisible and stealthed creatures (power %d)\" → \"提升/获得侦测隐形或者潜行生物（ %d 侦测等级）\"，提升/获得二分与 power 数值槽位保留"
+      },
+      {
+        "revision_id": "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3",
+        "observation": "OK",
+        "evidence": "\"reducing its stealth and invisibility power by %d, defense by %d and looses all evasion bonus from being unseen\" → \"减少 %d 潜行与隐身强度，减少 %d 闪避，同时失去不可见带来的闪避加成\"，两占位符按源序绑定"
+      },
+      {
+        "revision_id": "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1",
+        "observation": "OK",
+        "evidence": "纯描述文本、无占位符与机制数值；\"almost the size of a dragon\" → \"跟龙差不多体型\"，\"Hundreds of hanging teats\" → \"上百个垂挂的乳头\"，\"only the toughest ... the weaker ones left to wither on the mouldy floor\" → \"只有最强壮的 ... 弱小的只能在发霉的地面上枯萎\" 均对应"
+      },
+      {
+        "revision_id": "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8",
+        "observation": "OK",
+        "evidence": "source \"His once-shining armour now dull and bloodstained, this Sun Paladin has given in to despair.\" ↔ target \"他曾经闪亮的盔甲如今又锈又钝且满是鲜血，这名太阳骑士已经陷入了深深的绝望。\"：无机制信息，语义一致（“锈”“深深”为风格性增补）"
+      }
+    ]
+  }
+}

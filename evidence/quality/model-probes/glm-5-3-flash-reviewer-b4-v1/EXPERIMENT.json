@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "scope": "single-run exploratory REVIEWER probe; not evaluator_selection_v1 and not a production adjudication",
+  "frozen_at": "2026-08-27",
+  "base_commit": "0c6c35e8a9efff4656e3093d66cb1e95f6daf747",
+  "authorization": {
+    "service": "Z.ai/BigModel China standard API via Pi custom provider",
+    "basis": "The user's 2026-08-27 request explicitly asked to test pi/z.ai cn/GLM 5.3 Flash and then supplied a custom provider for the route.",
+    "data_scope": "existing frozen B4 source/target reviewer sample only"
+  },
+  "input": {
+    "path": "../../p1-batches/p1-b4-mechanics-numeric.json",
+    "sha256": "9034f605bcf471bd7fce0d603ee52c6a8d5fbb9b2807e2b801b9fb52316ee332",
+    "items": 24
+  },
+  "sealed_reference": {
+    "path": "../../p1-batches/p1-b4-s2-verification.json",
+    "sha256": "df16fc3702a4ffceca9a81ff86ae4583d76174e992090370eac62baaeafb3154",
+    "visible_to_candidate": false,
+    "defect_revisions": 7,
+    "clean_revisions": 17
+  },
+  "prompt": {
+    "path": "PROMPT.md",
+    "sha256": "05cee8f6006f3b3ba7bf6a653753f2b8aa0a33ce063d576b5387216309f0103d",
+    "source": "../qwen3-8-27b-p1-b8/PROMPT.md",
+    "adjustment": "Only the required item count was mechanically changed from 21 to 24."
+  },
+  "output_schema": {
+    "path": "REVIEWER-SCHEMA.json",
+    "sha256": "a006f81a00d2243bec90865b24409e45050bf8f6e473399a4df0889b6fed804f",
+    "enforcement": "Pi has no JSON-schema CLI flag; the unchanged schema is enforced by the local post-inference validator."
+  },
+  "route": {
+    "harness": "pi 0.84.3 print mode with JSON event stream",
+    "provider": "zai-standard-cn",
+    "requested_model": "glm-5.3-flash",
+    "catalog_name": "GLM-5.3-Flash",
+    "endpoint": "https://open.bigmodel.cn/api/paas/v4",
+    "thinking": "high",
+    "context_window": 1000000,
+    "max_output_tokens": 131072,
+    "tools": "disabled",
+    "project_context": "disabled",
+    "session": "ephemeral",
+    "catalog_verified_at": "2026-08-27",
+    "provider_config_origin": "user-managed global Pi models.json; credential value is not copied into this experiment",
+    "cost_metadata": "not configured on the custom model, so Pi reports zero cost; this is not evidence that the service call was free"
+  },
+  "decision_rule": {
+    "candidate_label": "DEFECT when observation is not exactly OK; CLEAN when observation is exactly OK",
+    "reference_label": "DEFECT when verdict/decision is defect; CLEAN otherwise",
+    "valid_candidate": "strict JSON, exact schema, exactly 24 revisions in frozen input order",
+    "primary_metrics": [
+      "schema validity",
+      "coverage",
+      "defect recall",
+      "precision",
+      "clean false-positive rate",
+      "balanced accuracy"
+    ],
+    "qualification": "single run; compare descriptively with recorded B4 baseline runs but do not infer variance or production fitness"
+  }
+}

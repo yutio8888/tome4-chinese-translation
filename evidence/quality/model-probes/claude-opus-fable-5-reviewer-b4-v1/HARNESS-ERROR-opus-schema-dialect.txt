@@ -1,0 +1,5 @@
+2026-08-27 local pre-dispatch harness error; excluded from model scoring.
+
+Error: --json-schema is not a valid JSON Schema: no schema with key or ref "https://json-schema.org/draft/2020-12/schema"
+
+Resolution: the runner now removes only the unsupported `$schema` dialect annotation from the CLI argument. The frozen schema file and all validation constraints are unchanged.

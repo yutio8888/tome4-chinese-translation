@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "route": {
+    "harness": "Claude Code CLI 2.1.247",
+    "requested_model": "claude-fable-5",
+    "requested_effort": "medium",
+    "initialized_model": "claude-fable-5",
+    "actual_assistant_models": [
+      "claude-fable-5"
+    ],
+    "provider": "firstParty"
+  },
+  "duration_seconds": 336.665,
+  "exit_status": 0,
+  "strict_json": true,
+  "parse_error": null,
+  "fallback_events": [],
+  "fallback_blocks": [],
+  "result_metadata": {
+    "is_error": false,
+    "subtype": "success",
+    "stop_reason": "tool_use",
+    "terminal_reason": "completed",
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 24303,
+      "cache_read_input_tokens": 17806,
+      "output_tokens": 9650,
+      "output_tokens_details": {
+        "thinking_tokens": 5694
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 17806,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 5446,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 17806,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 17806
+          },
+          "type": "message"
+        },
+        {
+          "input_tokens": 24514,
+          "output_tokens": 12479,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "advisor_message",
+          "model": "claude-fable-5"
+        },
+        {
+          "input_tokens": 2,
+          "output_tokens": 4204,
+          "cache_read_input_tokens": 17806,
+          "cache_creation_input_tokens": 6497,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 6497,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "model_usage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 10211,
+        "outputTokens": 16,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.010291,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-fable-5": {
+        "inputTokens": 24518,
+        "outputTokens": 22129,
+        "cacheReadInputTokens": 17806,
+        "cacheCreationInputTokens": 24303,
+        "webSearchRequests": 0,
+        "costUSD": 1.8067685,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "canonicalModel": "claude-fable-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 1.8170595,
+    "num_turns": 2,
+    "permission_denials": [],
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    }
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "bbe6a6d1496e967559d5d19258c5963ccc7f9337d92af6801560820335ce3ac2",
+        "observation": "OK",
+        "evidence": "source \"inflict %0.2f mind damage (range 10), gaining psi and hate equal to 10%%%%\" 与 target \"造成%0.2f精神伤害（距离10），获得相当于造成伤害10%%%%的灵能值和仇恨值\" 数值、占位符与机制一致"
+      },
+      {
+        "revision_id": "6a52673dfad9af782ada1d01ee831f23676794f08a97f1ef7d999688cf07846c",
+        "observation": "OK",
+        "evidence": "source \"explode against your foes for %d cold damage (based on your Magic)\" 与 target \"对你的敌人自爆，造成%d寒冷伤害（基于魔法）\" 一致"
+      },
+      {
+        "revision_id": "9efb27ea36219825be5bb9e38fbb552786d6cdacf8c37fca2923d869a065ffb4",
+        "observation": "OK",
+        "evidence": "两个 %0.2f 顺序对应时空/物理伤害；\"<20%%\"→\"不足 20%%\"、\"50%% additional damage\"→\"多造成 50%%的伤害\"、Spellpower→法术强度均保留"
+      },
+      {
+        "revision_id": "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+        "observation": "OK",
+        "evidence": "\"Extends the duration ... by %d%%\"→\"延展指定法术的持续时间 %d%%\"，\"Current Extended Spell: %s\"→\"当前强化法术： %s\"，%d%%、%s 顺序一致"
+      },
+      {
+        "revision_id": "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+        "observation": "OK",
+        "evidence": "\"a %d%% chance ... 100%% of the damage dealt as a bleed over 4 turns\"→\"有 %d%% 的几率...在 4 回合内受到 100%% 的额外流血伤害\"，几率、比例与回合数一致，100% 的基数只能指造成的伤害"
+      },
+      {
+        "revision_id": "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+        "observation": "作用范围偏移：原文为降低护符（charms）的冷却时间及所有可用物品的能量消耗，译文将冷却时间降低也扩大到\"所有可用物品\"",
+        "evidence": "source \"reducing their cooldowns and the power cost of all usable items by %d%%\"（their 指 charms）vs target \"使所有可用物品的冷却时间和能量消耗降低 %d%%\""
+      },
+      {
+        "revision_id": "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017",
+        "observation": "OK",
+        "evidence": "\"Explodes (radius 2) for %0.2f fire damage over 3 turns\"→\"爆炸(范围 2) ：3回合内 %0.2f 火焰伤害\"，半径、伤害、持续回合均保留"
+      },
+      {
+        "revision_id": "6f2623b7cf2eda3d4914dc9c377f08f047b7a3fc7026b3f9fb38254cd5517159",
+        "observation": "OK",
+        "evidence": "\"disappear after %d turns or when their work is done\"→\"会在 %d 回合后，或完成任务时消失\"，三名盗贼、继承伤害加成、永久潜行均保留"
+      },
+      {
+        "revision_id": "c46aedd1fa773ba4738ae1e99615704dc12064692d4d5db5fd2380be264f6408",
+        "observation": "OK",
+        "evidence": "五个占位符顺序（半径 %d、伤害 %d、击退 %d、暴伤 %d%%、当前 %d%%）与原文一致；\"dazed for 3 turns\"→\"眩晕 3 回合\"、\"decreases with distance\"→\"随离爆心的距离增加而降低\"均保留"
+      },
+      {
+        "revision_id": "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+        "observation": "OK",
+        "evidence": "\"radius %d acidic explosion, dealing %0.1f acid damage\"→\"%d 码半径...造成 %0.1f 酸性伤害\"，视线条件与\"（较低强度）\"（at reduced power）均保留"
+      },
+      {
+        "revision_id": "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+        "observation": "目标范围偏移：原文只拉拽敌人（foes），译文写作\"目标\"，扩大了作用对象",
+        "evidence": "source \"Pull all foes toward you in radius 5\" vs target \"将 5 码范围内的目标拉向你\""
+      },
+      {
+        "revision_id": "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b",
+        "observation": "语义翻转：\"have always been\"（一直是）被译为\"曾是\"，暗示现在不再如此；机制部分将六项属性概括为\"所有强度和豁免\"则是准确的（恰为三种强度加三种豁免）",
+        "evidence": "source \"Halflings have always been a very organised and methodical race\" vs target \"半身人曾是一个有组织纪律的种族\""
+      },
+      {
+        "revision_id": "ba45293063c0e7e0e91ab6c236c4968ab6cc12049b709074cbc08b1a6f3e0b10",
+        "observation": "OK",
+        "evidence": "\"+%d Strength, +%d Dexterity, and +%d Constitution\"→\"%d 点力量、 %d 点敏捷和 %d 体质\"顺序一致；技能列表与\"put all other thought-forms on cooldown\"→\"使其他思维形态技能进入冷却\"均保留"
+      },
+      {
+        "revision_id": "cce8b1eea8f36519d4f8101be6fac546d1d7cda39df96bc92273619461d0cb01",
+        "observation": "OK",
+        "evidence": "六个占位符（负重 %d、抛射物闪避 %d、定身免疫 %d%%、震慑免疫 %d%%、移速 %d%%、疲劳 %d）顺序与原文一致，等级 4/5 的附加效果均保留"
+      },
+      {
+        "revision_id": "6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244",
+        "observation": "OK",
+        "evidence": "\"healing you for %d and generating %d mana ... below 1 life ... spellpower by %d for 10 turns\"→\"恢复 %d 生命值，获得 %d 法力值...生命值在 1 以下...提升你的法术强度 %d ，持续 10 回合\"，顺序与条件一致"
+      },
+      {
+        "revision_id": "d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2",
+        "observation": "OK",
+        "evidence": "\"%0.2f fire damage in a radius of %d each turn for %d turns\"→\"每回合...造成 %0.2f 火焰伤害，半径 %d 码，持续 %d 回合\"，占位符顺序一致，敌我皆伤（foes and allies alike→敌我双方）保留"
+      },
+      {
+        "revision_id": "67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88",
+        "observation": "OK",
+        "evidence": "友方\"saves increased by %d ... healing factor ... 15%%\"与敌方\"saves reduced by %d ... cool down 15%% slower\"分别对应\"提升 %d 魔法和物理豁免...治疗系数 15%%\"与\"降低 %d ...冷却时间延长 15%%\""
+      },
+      {
+        "revision_id": "88830814768d0f6c948de6410acfa7a3b59d7995348fdfda934bd860b3474e16",
+        "observation": "OK",
+        "evidence": "\"doing %d%% damage ... regain %d stamina\"→\"造成 %d%% 伤害...回复 %d 点体力\"，占位符顺序与数值关系一致"
+      },
+      {
+        "revision_id": "defcf6a782239b18d5366bccf8f0491f1e6ff5748feaa7cb845a9f7556c28dc4",
+        "observation": "OK",
+        "evidence": "\"global speed is increased by %d%% for 1 turn. Taking any action other than movement will break the effect\"→\"增加你 %d%% 全局速度 1 回合...除了移动外的任何动作均会打破此效果\"，触发条件与打破条件均保留"
+      },
+      {
+        "revision_id": "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+        "observation": "OK",
+        "evidence": "\"passing through walls (but not natural obstacles), granting %d defense and %d armour\"→\"可以穿墙（但不能穿过其他障碍物），获得 %d 闪避和 %d 护甲值\"，\"其他障碍物\"为等效的超集表述，实际规则不变"
+      },
+      {
+        "revision_id": "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+        "observation": "OK",
+        "evidence": "\"see invisible and stealthed creatures (power %d)\"→\"侦测隐形或者潜行生物（ %d 侦测等级）\"，Improves/gives→提升/获得，机制保留（措辞略生硬属风格问题）"
+      },
+      {
+        "revision_id": "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3",
+        "observation": "术语混同：原文区分 defense 与 evasion 两种属性，译文将两者都译为\"闪避\"，读者无法区分被降低的闪避（defense）与失去的回避加成（evasion bonus）",
+        "evidence": "source \"defense by %d and looses all evasion bonus from being unseen\" vs target \"减少 %d 闪避，同时失去不可见带来的闪避加成\""
+      },
+      {
+        "revision_id": "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1",
+        "observation": "OK",
+        "evidence": "两段描述均完整译出：\"Orc children fight over the right to feed\"→\"兽人幼崽们争抢着吸奶的权利\"，\"the size of a dragon\"→\"跟龙差不多体型\"，无机制内容缺失"
+      },
+      {
+        "revision_id": "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8",
+        "observation": "OK",
+        "evidence": "\"once-shining armour now dull and bloodstained ... given in to despair\"→\"曾经闪亮的盔甲如今又锈又钝且满是鲜血...陷入了深深的绝望\"，语义完整（\"锈\"为轻微增译，属风格）"
+      }
+    ]
+  }
+}

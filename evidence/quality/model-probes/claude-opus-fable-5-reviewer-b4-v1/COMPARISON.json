@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "kind": "derived_comparison",
+  "population": {
+    "items": 24,
+    "defect_revisions": 7,
+    "clean_revisions": 17
+  },
+  "frozen_inputs": {
+    "input": {
+      "path": "../../p1-batches/p1-b4-mechanics-numeric.json",
+      "sha256": "9034f605bcf471bd7fce0d603ee52c6a8d5fbb9b2807e2b801b9fb52316ee332"
+    },
+    "reference": {
+      "path": "../../p1-batches/p1-b4-s2-verification.json",
+      "sha256": "df16fc3702a4ffceca9a81ff86ae4583d76174e992090370eac62baaeafb3154"
+    },
+    "prompt_sha256": "05cee8f6006f3b3ba7bf6a653753f2b8aa0a33ce063d576b5387216309f0103d",
+    "reviewer_schema_sha256": "a006f81a00d2243bec90865b24409e45050bf8f6e473399a4df0889b6fed804f"
+  },
+  "source_results": [
+    {
+      "path": "../glm-5-3-flash-reviewer-b4-v1/RESULT.json",
+      "sha256": "9e9d9d3a24041ab6f04cb19096c32ca93fce847d80077d5c754204c71297bd8f"
+    },
+    {
+      "path": "RESULT.json",
+      "sha256": "bcbc59e7fce2fcd804f93fe667c1c0f93728ec2231de3bb33534599c5f455a6b"
+    },
+    {
+      "path": "../non-args-reviewer-model-comparison-b4-v1/RESULT.json",
+      "sha256": "bff3cdc49e921718ecb5a83bd9d73a5fcbb8b124fb245af2d62b7f9b80a002d3"
+    }
+  ],
+  "new_routes": [
+    {
+      "route": "pi-zai-cn-glm-5.3-flash-high",
+      "classification": "single_model",
+      "harness": "Pi 0.84.3",
+      "duration_seconds": 118.084,
+      "cost_usd": null,
+      "metrics": {
+        "tp": 2,
+        "fp": 2,
+        "fn": 5,
+        "tn": 15,
+        "recall": 0.2857142857142857,
+        "precision": 0.5,
+        "clean_false_positive_rate": 0.11764705882352941,
+        "balanced_accuracy": 0.5840336134453781
+      }
+    },
+    {
+      "route": "claude-opus-5-medium",
+      "classification": "single_model",
+      "harness": "Claude Code CLI 2.1.247",
+      "duration_seconds": 206.648,
+      "cost_usd": 0.5660445000000001,
+      "metrics": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 4,
+        "tn": 16,
+        "recall": 0.42857142857142855,
+        "precision": 0.75,
+        "clean_false_positive_rate": 0.058823529411764705,
+        "balanced_accuracy": 0.6848739495798319
+      }
+    },
+    {
+      "route": "claude-fable-5-medium",
+      "classification": "single_model",
+      "harness": "Claude Code CLI 2.1.247",
+      "duration_seconds": 105.904,
+      "cost_usd": 0.676399,
+      "metrics": {
+        "tp": 2,
+        "fp": 2,
+        "fn": 5,
+        "tn": 15,
+        "recall": 0.2857142857142857,
+        "precision": 0.5,
+        "clean_false_positive_rate": 0.11764705882352941,
+        "balanced_accuracy": 0.5840336134453781
+      }
+    },
+    {
+      "route": "claude-opus-5-medium-plus-fable-advisor",
+      "classification": "advisor_composite",
+      "harness": "Claude Code CLI 2.1.247",
+      "main_model": "claude-opus-5",
+      "advisor_model": "claude-fable-5",
+      "duration_seconds": 344.906,
+      "cost_usd": 1.3615019999999998,
+      "metrics": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 4,
+        "tn": 16,
+        "recall": 0.42857142857142855,
+        "precision": 0.75,
+        "clean_false_positive_rate": 0.058823529411764705,
+        "balanced_accuracy": 0.6848739495798319
+      }
+    },
+    {
+      "route": "claude-fable-5-medium-plus-fable-advisor",
+      "classification": "advisor_composite",
+      "harness": "Claude Code CLI 2.1.247",
+      "main_model": "claude-fable-5",
+      "advisor_model": "claude-fable-5",
+      "duration_seconds": 336.665,
+      "cost_usd": 1.8170595,
+      "metrics": {
+        "tp": 1,
+        "fp": 3,
+        "fn": 6,
+        "tn": 14,
+        "recall": 0.14285714285714285,
+        "precision": 0.25,
+        "clean_false_positive_rate": 0.17647058823529413,
+        "balanced_accuracy": 0.4831932773109243
+      }
+    }
+  ],
+  "advisor_effects": {
+    "opus_main_with_fable_advisor_vs_opus_only": {
+      "metric_delta": {
+        "recall": 0,
+        "precision": 0,
+        "clean_false_positive_rate": 0,
+        "balanced_accuracy": 0
+      },
+      "duration_seconds_delta": 138.258,
+      "duration_ratio": 1.6690502201860303,
+      "cost_usd_delta": 0.7954574999999997,
+      "cost_ratio": 2.405291988527403,
+      "finding_change": {
+        "lost_true_positive_ids": [
+          "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6"
+        ],
+        "gained_true_positive_ids": [
+          "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8"
+        ]
+      }
+    },
+    "fable_main_with_fable_advisor_vs_fable_only": {
+      "metric_delta": {
+        "recall": -0.14285714285714285,
+        "precision": -0.25,
+        "clean_false_positive_rate": 0.05882352941176472,
+        "balanced_accuracy": -0.10084033613445381
+      },
+      "duration_seconds_delta": 230.761,
+      "duration_ratio": 3.178964911618069,
+      "cost_usd_delta": 1.1406605,
+      "cost_ratio": 2.6863725437796407
+    }
+  },
+  "historical_context": {
+    "provenance": "Recorded historical runs from ../non-args-reviewer-model-comparison-b4-v1/RESULT.json; not re-run here.",
+    "routes": [
+      {
+        "route": "codex-gpt-5.6-sol-high-baseline",
+        "recall": 0.571429,
+        "precision": 0.666667,
+        "clean_false_positive_rate": 0.117647,
+        "balanced_accuracy": 0.726891,
+        "duration_seconds": 102.967
+      },
+      {
+        "route": "grok-4.6-cli-default-baseline",
+        "recall": 0.428571,
+        "precision": 0.6,
+        "clean_false_positive_rate": 0.117647,
+        "balanced_accuracy": 0.655462,
+        "duration_seconds": 438.619
+      },
+      {
+        "route": "gemini-3.7-flash-high-baseline",
+        "recall": 0,
+        "precision": null,
+        "clean_false_positive_rate": 0,
+        "balanced_accuracy": 0.5,
+        "duration_seconds": 39.092
+      }
+    ]
+  },
+  "sensitivity": {
+    "route": "claude-fable-5-medium",
+    "reason": "The frozen scorer treats every observation other than the exact string OK as a defect prediction. One observation began with OK and explicitly described the translation as acceptable, so the primary comparable score is preserved and a semantic-label sensitivity is reported separately.",
+    "affected_revision_id": "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+    "primary_metrics": {
+      "tp": 2,
+      "fp": 2,
+      "fn": 5,
+      "tn": 15,
+      "recall": 0.2857142857142857,
+      "precision": 0.5,
+      "clean_false_positive_rate": 0.11764705882352941,
+      "balanced_accuracy": 0.5840336134453781
+    },
+    "semantic_label_sensitivity_metrics": {
+      "tp": 1,
+      "fp": 2,
+      "fn": 6,
+      "tn": 15,
+      "recall": 0.14285714285714285,
+      "precision": 0.3333333333333333,
+      "clean_false_positive_rate": 0.11764705882352941,
+      "balanced_accuracy": 0.5126050420168067
+    }
+  },
+  "interpretation": {
+    "advisor": "The Opus-plus-Fable advisor route kept the same aggregate confusion matrix as Opus alone but exchanged one true positive for another at materially higher latency and cost. The Fable self-advisor route reduced recall and balanced accuracy while increasing false positives, latency, and cost.",
+    "sample_size": "Each route has one full B4 run. The set contains only seven defect revisions, so these measurements do not establish stable model rankings or variance.",
+    "adjudication": "All model findings are test candidates and cannot override the frozen source verification."
+  }
+}

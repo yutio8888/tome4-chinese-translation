@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "scope": "single-run exploratory REVIEWER comparison; not evaluator_selection_v1 and not a production adjudication",
+  "frozen_at": "2026-08-27",
+  "base_commit": "0c6c35e8a9efff4656e3093d66cb1e95f6daf747",
+  "authorization": {
+    "service": "Anthropic first-party via Claude Code CLI",
+    "basis": "The user's 2026-08-27 requests explicitly added Claude Opus 5 medium and Claude Fable 5 medium and required Claude Code CLI.",
+    "data_scope": "existing frozen B4 source/target reviewer sample only"
+  },
+  "input": {
+    "path": "../../p1-batches/p1-b4-mechanics-numeric.json",
+    "sha256": "9034f605bcf471bd7fce0d603ee52c6a8d5fbb9b2807e2b801b9fb52316ee332",
+    "items": 24
+  },
+  "sealed_reference": {
+    "path": "../../p1-batches/p1-b4-s2-verification.json",
+    "sha256": "df16fc3702a4ffceca9a81ff86ae4583d76174e992090370eac62baaeafb3154",
+    "visible_to_candidate": false,
+    "defect_revisions": 7,
+    "clean_revisions": 17
+  },
+  "prompt": {
+    "path": "PROMPT.md",
+    "sha256": "05cee8f6006f3b3ba7bf6a653753f2b8aa0a33ce063d576b5387216309f0103d",
+    "source": "../qwen3-8-27b-p1-b8/PROMPT.md",
+    "adjustment": "Only the required item count was mechanically changed from 21 to 24; the source file's extra trailing blank line is not retained."
+  },
+  "output_schema": {
+    "path": "REVIEWER-SCHEMA.json",
+    "sha256": "a006f81a00d2243bec90865b24409e45050bf8f6e473399a4df0889b6fed804f",
+    "enforcement": "Claude Code --json-schema plus an independent local post-inference validator",
+    "harness_compatibility": "Claude Code 2.1.247 rejects the draft-2020-12 $schema annotation locally. The runner removes only that dialect annotation from the CLI argument; all schema constraints and the frozen schema file remain unchanged."
+  },
+  "routes": [
+    {
+      "route": "claude-opus-5-medium",
+      "harness": "Claude Code CLI 2.1.247 print mode with stream-json",
+      "requested_model": "claude-opus-5",
+      "provider": "firstParty",
+      "effort": "medium",
+      "tools": "disabled",
+      "customizations": "safe-mode",
+      "project_context": "disabled by safe-mode and /tmp cwd",
+      "setting_sources": "project,local; both absent under /tmp, excluding the user-level advisorModel setting",
+      "session": "ephemeral"
+    },
+    {
+      "route": "claude-fable-5-medium",
+      "harness": "Claude Code CLI 2.1.247 print mode with stream-json",
+      "requested_model": "claude-fable-5",
+      "provider": "firstParty",
+      "effort": "medium",
+      "tools": "disabled",
+      "customizations": "safe-mode",
+      "project_context": "disabled by safe-mode and /tmp cwd",
+      "setting_sources": "project,local; both absent under /tmp, excluding the user-level advisorModel setting",
+      "session": "ephemeral",
+      "identity_rule": "Any model_refusal_fallback or assistant message from a model other than claude-fable-5 invalidates the Fable candidate; no fallback output is scored as Fable."
+    }
+  ],
+  "excluded_preflight_events": [
+    "A local Claude CLI argument-order error consumed the smoke prompt before dispatch.",
+    "The first Opus B4 launch was rejected locally because Claude Code does not accept the draft-2020-12 $schema annotation; no model dispatch occurred and the error is preserved in HARNESS-ERROR-opus-schema-dialect.txt.",
+    "Simple no-project-data connectivity checks are not model scores and are not repeated after the user clarified that simple tasks may be routed differently.",
+    "The first complete Opus and Fable B4 envelopes inherited user-level advisorModel=fable despite safe-mode. Opus used Fable cross-model advice and Fable used Fable self-advice. Their RAW/CANDIDATE artifacts are retained and reported as separate composite routes, while corrected single-model artifacts carry the -no-advisor suffix."
+  ],
+  "decision_rule": {
+    "candidate_label": "DEFECT when observation is not exactly OK; CLEAN when observation is exactly OK",
+    "reference_label": "DEFECT when verdict/decision is defect; CLEAN otherwise",
+    "valid_candidate": "requested model handled the full task with no fallback; strict JSON; exact schema; exactly 24 revisions in frozen input order",
+    "primary_metrics": [
+      "runtime model identity",
+      "fallback status",
+      "schema validity",
+      "coverage",
+      "defect recall",
+      "precision",
+      "clean false-positive rate",
+      "balanced accuracy"
+    ],
+    "qualification": "one run per route; compare descriptively with recorded B4 baseline runs but do not infer variance or production fitness"
+  }
+}

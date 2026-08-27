@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "route": {
+    "harness": "Claude Code CLI 2.1.247",
+    "requested_model": "claude-fable-5",
+    "requested_effort": "medium",
+    "setting_sources": "project,local",
+    "initialized_model": "claude-fable-5",
+    "actual_assistant_models": [
+      "claude-fable-5"
+    ],
+    "provider": "firstParty"
+  },
+  "duration_seconds": 105.904,
+  "exit_status": 0,
+  "strict_json": true,
+  "parse_error": null,
+  "fallback_events": [],
+  "fallback_blocks": [],
+  "result_metadata": {
+    "is_error": false,
+    "subtype": "success",
+    "stop_reason": "tool_use",
+    "terminal_reason": "completed",
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 16353,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 6780,
+      "output_tokens_details": {
+        "thinking_tokens": 2999
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 16353,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 6780,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 16353,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 16353
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "model_usage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 10229,
+        "outputTokens": 18,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.010319,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-fable-5": {
+        "inputTokens": 2,
+        "outputTokens": 6780,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 16353,
+        "webSearchRequests": 0,
+        "costUSD": 0.66608,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "canonicalModel": "claude-fable-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.676399,
+    "num_turns": 2,
+    "permission_denials": [],
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    }
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "bbe6a6d1496e967559d5d19258c5963ccc7f9337d92af6801560820335ce3ac2",
+        "observation": "OK",
+        "evidence": "source \"inflict %0.2f mind damage (range 10), gaining psi and hate equal to 10%%%% of the damage done\" 与 target \"造成%0.2f精神伤害（距离10）……10%%%%的灵能值和仇恨值\" 机制与数值一致"
+      },
+      {
+        "revision_id": "6a52673dfad9af782ada1d01ee831f23676794f08a97f1ef7d999688cf07846c",
+        "observation": "OK",
+        "evidence": "source \"explode against your foes for %d cold damage (based on your Magic)\" 与 target \"自爆，造成%d寒冷伤害（基于魔法）\" 一致"
+      },
+      {
+        "revision_id": "9efb27ea36219825be5bb9e38fbb552786d6cdacf8c37fca2923d869a065ffb4",
+        "observation": "OK",
+        "evidence": "source \"<20%%\"/\"50%% additional damage\" 对应 target \"生命值不足 20%%\"/\"多造成 50%%的伤害\"，两个 %0.2f 顺序保持时空/物理"
+      },
+      {
+        "revision_id": "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+        "observation": "OK",
+        "evidence": "source \"Extends the duration ... by %d%%\" 与 \"Current Extended Spell: %s\" 对应 target \"延展指定法术的持续时间 %d%%\" 与 \"当前强化法术： %s\""
+      },
+      {
+        "revision_id": "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+        "observation": "OK",
+        "evidence": "source \"%d%% chance ... 100%% of the damage dealt as a bleed over 4 turns\" 对应 target \"%d%% 的几率……4 回合内受到 100%% 的额外流血伤害\""
+      },
+      {
+        "revision_id": "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+        "observation": "OK",
+        "evidence": "source \"reducing their cooldowns and the power cost ... by %d%%\" 与 \"(%d disarm 'power', improves with Cunning)\" 对应 target \"冷却时间和能量消耗降低 %d%%\" 与 \"解除强度 %d，随灵巧提高\""
+      },
+      {
+        "revision_id": "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017",
+        "observation": "OK",
+        "evidence": "source \"Explodes (radius 2) for %0.2f fire damage over 3 turns\" 对应 target \"爆炸(范围 2) ：3回合内 %0.2f 火焰伤害\"，数值与时限保留"
+      },
+      {
+        "revision_id": "6f2623b7cf2eda3d4914dc9c377f08f047b7a3fc7026b3f9fb38254cd5517159",
+        "observation": "OK",
+        "evidence": "source \"disappear after %d turns or when their work is done\" 对应 target \"在 %d 回合后，或完成任务时消失\"，潜行与伤害加成均保留"
+      },
+      {
+        "revision_id": "c46aedd1fa773ba4738ae1e99615704dc12064692d4d5db5fd2380be264f6408",
+        "observation": "OK",
+        "evidence": "五个占位符顺序（半径 %d、伤害 %d、击退 %d、暴击伤害 %d%%、当前 %d%%）与 source \"radius of %d ... %d damage and %d knockback ... by %d%% (currently: %d%%)\" 一致，\"dazed for 3 turns\" 译为 \"眩晕 3 回合\""
+      },
+      {
+        "revision_id": "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+        "observation": "条件绑定偏移：source 中 \"if in line of sight\" 限定的是粘液软泥怪须与目标有视线，target 把视线条件挪到了目标身上",
+        "evidence": "source \"Any Mucus Oozes you have active will, if in line of sight, instantly spit slime ... at one of the targets\" vs target \"则会向视线内的某个被淤泥击中的随机目标释放史莱姆喷吐\""
+      },
+      {
+        "revision_id": "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+        "observation": "作用对象弱化：source 明确只拉动敌人（foes），target 泛化为 \"目标\"，丢失仅敌方生效的范围限定",
+        "evidence": "source \"Pull all foes toward you in radius 5\" vs target \"将 5 码范围内的目标拉向你\""
+      },
+      {
+        "revision_id": "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b",
+        "observation": "时态误译：source \"have always been\"（一直是）被译为 \"曾是\"（过去曾是，暗示现已不是），语义相反；具体六项属性被概括为 \"所有强度和豁免\" 属可接受概括",
+        "evidence": "source \"Halflings have always been a very organised and methodical race\" vs target \"半身人曾是一个有组织纪律的种族\""
+      },
+      {
+        "revision_id": "ba45293063c0e7e0e91ab6c236c4968ab6cc12049b709074cbc08b1a6f3e0b10",
+        "observation": "OK",
+        "evidence": "source \"+%d Strength, +%d Dexterity, and +%d Constitution\" 对应 target \"%d 点力量、 %d 点敏捷和 %d 体质\"，冷却与精神强度加成说明均保留"
+      },
+      {
+        "revision_id": "cce8b1eea8f36519d4f8101be6fac546d1d7cda39df96bc92273619461d0cb01",
+        "observation": "OK",
+        "evidence": "六个占位符（负重 %d、抛射物闪避 %d、定身 %d%%、震慑 %d%%、移速 %d%%、疲劳 %d）与 source 顺序一致，等级 4/5 条件保留"
+      },
+      {
+        "revision_id": "6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244",
+        "observation": "OK",
+        "evidence": "source \"healing you for %d and generating %d mana ... below 1 life ... spellpower by %d for 10 turns\" 对应 target \"恢复 %d 生命值，获得 %d 法力值……生命值在 1 以下……法术强度 %d ，持续 10 回合\""
+      },
+      {
+        "revision_id": "d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2",
+        "observation": "OK",
+        "evidence": "source \"foes and allies alike, doing %0.2f fire damage in a radius of %d each turn for %d turns\" 对应 target \"敌我双方造成 %0.2f 火焰伤害，半径 %d 码，持续 %d 回合\"，占位符顺序一致"
+      },
+      {
+        "revision_id": "67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88",
+        "observation": "OK",
+        "evidence": "source 友方 \"saves increased by %d ... healing factor +15%%\" 与敌方 \"saves reduced by %d ... cool down 15%% slower\" 对应 target \"提升 %d 魔法和物理豁免……治疗系数 15%%\" 与 \"降低 %d……冷却时间延长 15%%\""
+      },
+      {
+        "revision_id": "88830814768d0f6c948de6410acfa7a3b59d7995348fdfda934bd860b3474e16",
+        "observation": "OK",
+        "evidence": "source \"doing %d%% damage ... regain %d stamina\" 对应 target \"造成 %d%% 伤害……回复 %d 点体力\""
+      },
+      {
+        "revision_id": "defcf6a782239b18d5366bccf8f0491f1e6ff5748feaa7cb845a9f7556c28dc4",
+        "observation": "OK",
+        "evidence": "source \"global speed is increased by %d%% for 1 turn. Taking any action other than movement will break the effect\" 对应 target \"增加你 %d%% 全局速度 1 回合……除了移动外的任何动作均会打破此效果\""
+      },
+      {
+        "revision_id": "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+        "observation": "OK（\"natural obstacles\" 译为 \"其他障碍物\" 丢失 \"天然\" 一词，但指代范围实质等同，属可接受）",
+        "evidence": "source \"passing through walls (but not natural obstacles), granting %d defense and %d armour\" vs target \"可以穿墙（但不能穿过其他障碍物），获得 %d 闪避和 %d 护甲值\""
+      },
+      {
+        "revision_id": "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+        "observation": "OK",
+        "evidence": "source \"Improves/gives the ability to see invisible and stealthed creatures (power %d)\" 对应 target \"提升/获得侦测隐形或者潜行生物（ %d 侦测等级）\""
+      },
+      {
+        "revision_id": "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3",
+        "observation": "OK",
+        "evidence": "source \"reducing its stealth and invisibility power by %d, defense by %d and looses all evasion bonus from being unseen\" 对应 target \"减少 %d 潜行与隐身强度，减少 %d 闪避，同时失去不可见带来的闪避加成\""
+      },
+      {
+        "revision_id": "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1",
+        "observation": "OK",
+        "evidence": "纯描述文本无占位符；source \"only the toughest of them are able to gain the precious nutrients\" 等关键内容在 target \"只有最强壮的才能获得宝贵的营养变得更强\" 中完整对应"
+      },
+      {
+        "revision_id": "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8",
+        "observation": "OK",
+        "evidence": "source \"His once-shining armour now dull and bloodstained ... given in to despair\" 对应 target \"曾经闪亮的盔甲如今又锈又钝且满是鲜血……陷入了深深的绝望\"，\"又锈又钝\" 为轻微渲染，属风格范畴"
+      }
+    ]
+  }
+}

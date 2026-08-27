@@ -1,0 +1,719 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "experiment": "EXPERIMENT.json",
+  "population": {
+    "items": 24,
+    "defect_revisions": 7,
+    "clean_revisions": 17
+  },
+  "measured_runs": {
+    "claude-opus-5-medium": {
+      "qualification": "single_model",
+      "valid": true,
+      "identity_valid": true,
+      "strict_json": true,
+      "ordered_coverage": true,
+      "validation_errors": [],
+      "duration_seconds": 206.648,
+      "route": {
+        "harness": "Claude Code CLI 2.1.247",
+        "requested_model": "claude-opus-5",
+        "requested_effort": "medium",
+        "setting_sources": "project,local",
+        "initialized_model": "claude-opus-5",
+        "actual_assistant_models": [
+          "claude-opus-5"
+        ],
+        "provider": "firstParty"
+      },
+      "fallback_events": [],
+      "fallback_blocks": [],
+      "advisor_iterations": [],
+      "expected_advisor_model": null,
+      "result_metadata": {
+        "is_error": false,
+        "subtype": "success",
+        "stop_reason": "tool_use",
+        "terminal_reason": "completed",
+        "usage": {
+          "input_tokens": 4,
+          "cache_creation_input_tokens": 23801,
+          "cache_read_input_tokens": 16031,
+          "output_tokens": 12387,
+          "output_tokens_details": {
+            "thinking_tokens": 3215
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 23801,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "not_available",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 4657,
+              "cache_read_input_tokens": 16031,
+              "cache_creation_input_tokens": 7770,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 7770
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard"
+        },
+        "model_usage": {
+          "claude-haiku-4-5-20251001": {
+            "inputTokens": 10229,
+            "outputTokens": 19,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0,
+            "webSearchRequests": 0,
+            "costUSD": 0.010324,
+            "contextWindow": 200000,
+            "maxOutputTokens": 32000,
+            "canonicalModel": "claude-haiku-4-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          },
+          "claude-opus-5": {
+            "inputTokens": 4,
+            "outputTokens": 12387,
+            "cacheReadInputTokens": 16031,
+            "cacheCreationInputTokens": 23801,
+            "webSearchRequests": 0,
+            "costUSD": 0.5557205000000001,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "canonicalModel": "claude-opus-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "total_cost_usd": 0.5660445000000001,
+        "num_turns": 3,
+        "permission_denials": [],
+        "subagent_stats": {
+          "spawned": 0,
+          "requested": {
+            "background": 0,
+            "foreground": 0,
+            "unset": 0
+          },
+          "started_in_background": 0,
+          "max_depth": 0,
+          "spawned_by_subagents": 0,
+          "completed": 0,
+          "failed": 0,
+          "killed": {
+            "parent": 0,
+            "user": 0,
+            "system": 0
+          },
+          "refused": {
+            "depth_limit": 0,
+            "concurrency_limit": 0,
+            "budget": 0
+          },
+          "by_type": {}
+        }
+      },
+      "metrics": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 4,
+        "tn": 16,
+        "recall": 0.42857142857142855,
+        "precision": 0.75,
+        "clean_false_positive_rate": 0.058823529411764705,
+        "specificity": 0.9411764705882353,
+        "balanced_accuracy": 0.6848739495798319
+      },
+      "predicted_defect_ids": [
+        "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+        "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+        "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+        "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b"
+      ],
+      "missed_defect_ids": [
+        "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+        "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+        "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3",
+        "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8"
+      ],
+      "false_positive_ids": [
+        "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697"
+      ],
+      "label_contract_warnings": []
+    },
+    "claude-fable-5-medium": {
+      "qualification": "single_model",
+      "valid": true,
+      "identity_valid": true,
+      "strict_json": true,
+      "ordered_coverage": true,
+      "validation_errors": [],
+      "duration_seconds": 105.904,
+      "route": {
+        "harness": "Claude Code CLI 2.1.247",
+        "requested_model": "claude-fable-5",
+        "requested_effort": "medium",
+        "setting_sources": "project,local",
+        "initialized_model": "claude-fable-5",
+        "actual_assistant_models": [
+          "claude-fable-5"
+        ],
+        "provider": "firstParty"
+      },
+      "fallback_events": [],
+      "fallback_blocks": [],
+      "advisor_iterations": [],
+      "expected_advisor_model": null,
+      "result_metadata": {
+        "is_error": false,
+        "subtype": "success",
+        "stop_reason": "tool_use",
+        "terminal_reason": "completed",
+        "usage": {
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 16353,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 6780,
+          "output_tokens_details": {
+            "thinking_tokens": 2999
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 16353,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "not_available",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 6780,
+              "cache_read_input_tokens": 0,
+              "cache_creation_input_tokens": 16353,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 16353
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard"
+        },
+        "model_usage": {
+          "claude-haiku-4-5-20251001": {
+            "inputTokens": 10229,
+            "outputTokens": 18,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0,
+            "webSearchRequests": 0,
+            "costUSD": 0.010319,
+            "contextWindow": 200000,
+            "maxOutputTokens": 32000,
+            "canonicalModel": "claude-haiku-4-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          },
+          "claude-fable-5": {
+            "inputTokens": 2,
+            "outputTokens": 6780,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 16353,
+            "webSearchRequests": 0,
+            "costUSD": 0.66608,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "canonicalModel": "claude-fable-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "total_cost_usd": 0.676399,
+        "num_turns": 2,
+        "permission_denials": [],
+        "subagent_stats": {
+          "spawned": 0,
+          "requested": {
+            "background": 0,
+            "foreground": 0,
+            "unset": 0
+          },
+          "started_in_background": 0,
+          "max_depth": 0,
+          "spawned_by_subagents": 0,
+          "completed": 0,
+          "failed": 0,
+          "killed": {
+            "parent": 0,
+            "user": 0,
+            "system": 0
+          },
+          "refused": {
+            "depth_limit": 0,
+            "concurrency_limit": 0,
+            "budget": 0
+          },
+          "by_type": {}
+        }
+      },
+      "metrics": {
+        "tp": 2,
+        "fp": 2,
+        "fn": 5,
+        "tn": 15,
+        "recall": 0.2857142857142857,
+        "precision": 0.5,
+        "clean_false_positive_rate": 0.11764705882352941,
+        "specificity": 0.8823529411764706,
+        "balanced_accuracy": 0.5840336134453781
+      },
+      "predicted_defect_ids": [
+        "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+        "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+        "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b",
+        "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b"
+      ],
+      "missed_defect_ids": [
+        "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+        "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+        "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+        "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3",
+        "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8"
+      ],
+      "false_positive_ids": [
+        "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+        "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b"
+      ],
+      "label_contract_warnings": [
+        {
+          "revision_id": "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+          "observation": "OK（\"natural obstacles\" 译为 \"其他障碍物\" 丢失 \"天然\" 一词，但指代范围实质等同，属可接受）"
+        }
+      ]
+    }
+  },
+  "advisor_assisted_runs": {
+    "claude-opus-5-medium-plus-fable-advisor": {
+      "qualification": "composite_advisor_route",
+      "valid": true,
+      "identity_valid": true,
+      "strict_json": true,
+      "ordered_coverage": true,
+      "validation_errors": [],
+      "duration_seconds": 344.906,
+      "route": {
+        "harness": "Claude Code CLI 2.1.247",
+        "requested_model": "claude-opus-5",
+        "requested_effort": "medium",
+        "initialized_model": "claude-opus-5",
+        "actual_assistant_models": [
+          "claude-opus-5"
+        ],
+        "provider": "firstParty"
+      },
+      "fallback_events": [],
+      "fallback_blocks": [],
+      "advisor_iterations": [
+        {
+          "input_tokens": 22167,
+          "output_tokens": 14563,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "advisor_message",
+          "model": "claude-fable-5"
+        }
+      ],
+      "expected_advisor_model": "claude-fable-5",
+      "result_metadata": {
+        "is_error": false,
+        "subtype": "success",
+        "stop_reason": "tool_use",
+        "terminal_reason": "completed",
+        "usage": {
+          "input_tokens": 4,
+          "cache_creation_input_tokens": 22073,
+          "cache_read_input_tokens": 17487,
+          "output_tokens": 7563,
+          "output_tokens_details": {
+            "thinking_tokens": 3391
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 17487,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "not_available",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 3418,
+              "cache_read_input_tokens": 0,
+              "cache_creation_input_tokens": 17487,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 17487
+              },
+              "type": "message"
+            },
+            {
+              "input_tokens": 22167,
+              "output_tokens": 14563,
+              "cache_read_input_tokens": 0,
+              "cache_creation_input_tokens": 0,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 0
+              },
+              "type": "advisor_message",
+              "model": "claude-fable-5"
+            },
+            {
+              "input_tokens": 2,
+              "output_tokens": 4145,
+              "cache_read_input_tokens": 17487,
+              "cache_creation_input_tokens": 4586,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 4586,
+                "ephemeral_1h_input_tokens": 0
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard"
+        },
+        "model_usage": {
+          "claude-haiku-4-5-20251001": {
+            "inputTokens": 10211,
+            "outputTokens": 20,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0,
+            "webSearchRequests": 0,
+            "costUSD": 0.010310999999999999,
+            "contextWindow": 200000,
+            "maxOutputTokens": 32000,
+            "canonicalModel": "claude-haiku-4-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          },
+          "claude-opus-5": {
+            "inputTokens": 4,
+            "outputTokens": 7563,
+            "cacheReadInputTokens": 17487,
+            "cacheCreationInputTokens": 22073,
+            "webSearchRequests": 0,
+            "costUSD": 0.401371,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "canonicalModel": "claude-opus-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          },
+          "claude-fable-5": {
+            "inputTokens": 22167,
+            "outputTokens": 14563,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0,
+            "webSearchRequests": 0,
+            "costUSD": 0.9498199999999999,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "canonicalModel": "claude-fable-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "total_cost_usd": 1.3615019999999998,
+        "num_turns": 2,
+        "permission_denials": [],
+        "subagent_stats": {
+          "spawned": 0,
+          "requested": {
+            "background": 0,
+            "foreground": 0,
+            "unset": 0
+          },
+          "started_in_background": 0,
+          "max_depth": 0,
+          "spawned_by_subagents": 0,
+          "completed": 0,
+          "failed": 0,
+          "killed": {
+            "parent": 0,
+            "user": 0,
+            "system": 0
+          },
+          "refused": {
+            "depth_limit": 0,
+            "concurrency_limit": 0,
+            "budget": 0
+          },
+          "by_type": {}
+        }
+      },
+      "metrics": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 4,
+        "tn": 16,
+        "recall": 0.42857142857142855,
+        "precision": 0.75,
+        "clean_false_positive_rate": 0.058823529411764705,
+        "specificity": 0.9411764705882353,
+        "balanced_accuracy": 0.6848739495798319
+      },
+      "predicted_defect_ids": [
+        "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+        "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+        "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+        "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8"
+      ],
+      "missed_defect_ids": [
+        "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+        "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+        "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+        "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3"
+      ],
+      "false_positive_ids": [
+        "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697"
+      ],
+      "label_contract_warnings": []
+    },
+    "claude-fable-5-medium-plus-fable-advisor": {
+      "qualification": "self_advisor_route",
+      "valid": true,
+      "identity_valid": true,
+      "strict_json": true,
+      "ordered_coverage": true,
+      "validation_errors": [],
+      "duration_seconds": 336.665,
+      "route": {
+        "harness": "Claude Code CLI 2.1.247",
+        "requested_model": "claude-fable-5",
+        "requested_effort": "medium",
+        "initialized_model": "claude-fable-5",
+        "actual_assistant_models": [
+          "claude-fable-5"
+        ],
+        "provider": "firstParty"
+      },
+      "fallback_events": [],
+      "fallback_blocks": [],
+      "advisor_iterations": [
+        {
+          "input_tokens": 24514,
+          "output_tokens": 12479,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "advisor_message",
+          "model": "claude-fable-5"
+        }
+      ],
+      "expected_advisor_model": "claude-fable-5",
+      "result_metadata": {
+        "is_error": false,
+        "subtype": "success",
+        "stop_reason": "tool_use",
+        "terminal_reason": "completed",
+        "usage": {
+          "input_tokens": 4,
+          "cache_creation_input_tokens": 24303,
+          "cache_read_input_tokens": 17806,
+          "output_tokens": 9650,
+          "output_tokens_details": {
+            "thinking_tokens": 5694
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 17806,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "not_available",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 5446,
+              "cache_read_input_tokens": 0,
+              "cache_creation_input_tokens": 17806,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 17806
+              },
+              "type": "message"
+            },
+            {
+              "input_tokens": 24514,
+              "output_tokens": 12479,
+              "cache_read_input_tokens": 0,
+              "cache_creation_input_tokens": 0,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 0
+              },
+              "type": "advisor_message",
+              "model": "claude-fable-5"
+            },
+            {
+              "input_tokens": 2,
+              "output_tokens": 4204,
+              "cache_read_input_tokens": 17806,
+              "cache_creation_input_tokens": 6497,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 6497,
+                "ephemeral_1h_input_tokens": 0
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard"
+        },
+        "model_usage": {
+          "claude-haiku-4-5-20251001": {
+            "inputTokens": 10211,
+            "outputTokens": 16,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0,
+            "webSearchRequests": 0,
+            "costUSD": 0.010291,
+            "contextWindow": 200000,
+            "maxOutputTokens": 32000,
+            "canonicalModel": "claude-haiku-4-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          },
+          "claude-fable-5": {
+            "inputTokens": 24518,
+            "outputTokens": 22129,
+            "cacheReadInputTokens": 17806,
+            "cacheCreationInputTokens": 24303,
+            "webSearchRequests": 0,
+            "costUSD": 1.8067685,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "canonicalModel": "claude-fable-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "total_cost_usd": 1.8170595,
+        "num_turns": 2,
+        "permission_denials": [],
+        "subagent_stats": {
+          "spawned": 0,
+          "requested": {
+            "background": 0,
+            "foreground": 0,
+            "unset": 0
+          },
+          "started_in_background": 0,
+          "max_depth": 0,
+          "spawned_by_subagents": 0,
+          "completed": 0,
+          "failed": 0,
+          "killed": {
+            "parent": 0,
+            "user": 0,
+            "system": 0
+          },
+          "refused": {
+            "depth_limit": 0,
+            "concurrency_limit": 0,
+            "budget": 0
+          },
+          "by_type": {}
+        }
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 3,
+        "fn": 6,
+        "tn": 14,
+        "recall": 0.14285714285714285,
+        "precision": 0.25,
+        "clean_false_positive_rate": 0.17647058823529413,
+        "specificity": 0.8235294117647058,
+        "balanced_accuracy": 0.4831932773109243
+      },
+      "predicted_defect_ids": [
+        "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+        "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+        "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b",
+        "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3"
+      ],
+      "missed_defect_ids": [
+        "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+        "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+        "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+        "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+        "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+        "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8"
+      ],
+      "false_positive_ids": [
+        "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+        "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+        "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b"
+      ],
+      "label_contract_warnings": []
+    }
+  },
+  "historical_b4_baselines": {
+    "provenance": "../non-args-reviewer-model-comparison-b4-v1/RESULT.json; recorded prior runs, not re-run here",
+    "codex_gpt_5_6_sol_high_baseline": {
+      "recall": 0.571429,
+      "precision": 0.666667,
+      "clean_false_positive_rate": 0.117647,
+      "balanced_accuracy": 0.726891,
+      "duration_seconds": 102.967
+    },
+    "grok_4_6_cli_default_baseline": {
+      "recall": 0.428571,
+      "precision": 0.6,
+      "clean_false_positive_rate": 0.117647,
+      "balanced_accuracy": 0.655462,
+      "duration_seconds": 438.619
+    },
+    "gemini_3_7_flash_high_baseline": {
+      "recall": 0,
+      "precision": null,
+      "clean_false_positive_rate": 0,
+      "balanced_accuracy": 0.5,
+      "duration_seconds": 39.092
+    }
+  },
+  "interpretation": {
+    "measured_only": "One full B4 run was attempted per requested Claude model at medium effort.",
+    "advisor_routes": "Advisor-assisted envelopes are reported as composite routes, not attributed to the main model alone.",
+    "fallback_rule": "Fallback output is retained as route evidence but is never scored as the requested model.",
+    "variance": "No repeat-run variance was measured; small metric differences must not be treated as stable model differences.",
+    "adjudication": "Candidate findings remain test outputs and cannot override fixed-source verification."
+  }
+}
