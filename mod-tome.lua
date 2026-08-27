@@ -17491,7 +17491,7 @@ The joke was over
 section "mod-tome/data/lore/maze.lua"
 
 t("maze", "迷宫", "newLore category")
-t("diary (the maze)", "迷宫日记", "_t")
+t("diary (the maze)", "日记（迷宫）", "_t")
 t([[Dear diary,
 
 Lessons are off this week as my tutor has fallen ill, so I've decided to sneak out and have a wander round the old mazed ruins nearby. I know I'll get in trouble if I'm caught, but as long as I'm back in a couple of days no one will notice... Besides, I get so bored cooped up in those mountains! I want some fun!
@@ -17501,13 +17501,13 @@ This is rather a dirty place though. I've come across a few bandits and snakes i
 I remember hearing that this labyrinth used to be a prison used by the halfling king Roupar during the Age of Dusk, and that with the lawlessness of the time captives were simply sent here to rot. Some say a magical curse infected the place and turned them into bull-like monsters that patrol the halls to this day. How exciting!!
 ]], [[亲爱的日记，
 
-因为我的导师生病了，所以这一周课比较少，于是我决定溜去附近的迷宫废墟散散步。我知道如果被抓住了会很麻烦，但是只要我在一两天之内回来的话应该不会有人发现...因为被困在这大山里面实在是太无聊了！我要找些乐子！
+导师病了，这个星期不用上课，于是我决定偷偷溜出去，到附近那片古老的迷宫废墟里逛逛。被抓到肯定要挨罚，不过只要我过两天就回来，谁也不会发现……再说，整天困在那些山里实在太无聊了！我想找点乐子！
 
-我擦，这地方太脏了！我已经在这儿遇到了好几个强盗和好多蛇了，但是没什么能吓倒我这样的三年级魔法师。
+不过这地方真够脏的。我已经碰上了几个强盗和几条蛇，但这些还威胁不到我这样的三级小法师。
 
-我想起来我曾经听说过，这迷宫是黄昏纪时半身人王洛帕用来做监狱的，在那个没有法制的年代，囚犯们就被简简单单的扔到这自生自灭了。
+我记得听人说过，这座迷宫在黄昏纪曾是半身人国王洛帕的监狱。那时法纪荡然，俘虏一送进来就只能在这里慢慢腐烂。
 
-有人说这地方被魔法诅咒之后影响了那些囚犯，让他们变成像公牛一样的野兽，盘踞此地直到今日。太让人兴奋了！！
+还有人说，一道魔法诅咒侵染了这里，把囚犯变成了公牛般的怪物；直到今天，它们仍在这些厅堂里巡游。太刺激了！！
 ]], "_t")
 t([[I'm having so much fun! Probability Travel is making this little trip a breeze. And you should have seen the look on that bandit's face when I came out one wall, disappeared through another, and came around behind him! Hee hee hee...
 
@@ -17515,14 +17515,14 @@ I still remember Archmage Tarelion's lecture about the spell - "Probability effe
 
 Besides, I'm enjoying myself - I'm having an adventure!!
 
-I saw something! I don't know what it was... but it was big and shadowy! But when I tried chasing it I got lost... Um, maybe I just imagined it? No, I'm sure it must be something cool and exciting, I just have to keep exploring!]], [[我太开心了！次元移动让这趟短途旅行变得如此轻而易举。你真应该看看当那个强盗看到我从一堵墙出来，消失在另一堵墙面前，又出现在他背后的时候的那个表情！嘿嘿嘿……
+I saw something! I don't know what it was... but it was big and shadowy! But when I tried chasing it I got lost... Um, maybe I just imagined it? No, I'm sure it must be something cool and exciting, I just have to keep exploring!]], [[太好玩了！有次元移动在，这趟小小的出游简直轻而易举。你真该看看那个强盗当时的表情：我从一堵墙里钻出来，又穿过另一堵墙消失，最后绕到他背后！嘻嘻嘻……
 
-我仍然记得大法师泰尔兰老师关于这个魔法的讲课——“次元穿行魔法操作简单，但是很容易使你依赖它。越是简单的操作越容易让人大意，缺乏警惕。由于缺少判断危险的常识，一些人很快就会让自己处于危险的状况之中。千万留心！”
+我还记得大法师泰尔兰讲解这个法术时说过：“概率效应固然能给人方便，却万万不可依赖。事情越是容易，心神就越容易松懈，人的意志和专注也会随之削弱。到头来，一旦身陷险境，既失去了平常判断危险的能力，也没有足够的心力自救。务必谨记。”
 
-呸！简直就是放屁！他以为我有那么蠢么？ 另外，我现在非常享受！我正在冒险呢！！
+哼，什么胡话！！！他真觉得我有那么蠢吗？！再说，我玩得正高兴呢——我这可是在冒险！！
 
-我看到了些东西！我不知道那是什么……但是他很大而且很模糊！在我试着追赶它的时候我竟然迷路了……额，可能这仅仅只是我的想象？不，我确信那一定是很酷的和令人兴奋的什么东西，我得继续探索！]], "_t")
-t("the perfect killing device", "完美的杀人装置", "_t")
+我看到什么东西了！不知道那究竟是什么……可它又大又像团影子！我试着追上去，结果却迷了路……呃，也许只是我的幻觉？不，那肯定是什么又酷又刺激的东西，我只管继续探索下去！]], "_t")
+t("the perfect killing device", "完美猎杀装置", "_t")
 t([[I have now devised the perfect trap for the horned beast that walks these halls! Truly he cannot avoid this amazing contraption - the perfect blend of technical mastery and nature's lethal gifts. Ah, how I look forward to having that monster's head mounted on my walls - it shall be the pride of my collection!
 
 The contraption is elegant and simple, though many months I have spent getting the formula perfect. There are two vials attached together - one containing finely ground hemlock, the other containing a carefully prepared zinc compound. When the vials are broken the materials react with the air and pump out an amazing cloud of poisonous vapour! The poison is supremely effective, killing within minutes. All I have to do is carefully hide the vials beneath a thin piece of slate and wait for my prey to step upon the trap - then POOF, it's dead!
@@ -17535,21 +17535,21 @@ I seem to have misplaced one though... I'm sure it must be close by.
 No, NO! I have - I --- acci--- pain, such pa--______
 
 
-#{italic}#You find a dusty case filled with many small vials of powder. They seem serviceable.#{normal}#]], [[我为那些走在大殿里面且长着角的野兽设置了完美的陷阱。它们铁定避不开这个神奇的新玩意儿——精湛技巧与致命天赋的完美融合。
-	
-啊，我多么期待把那些野兽的头颅作为战利品挂满我的墙壁啊——那将是多么令人骄傲和自豪的收藏！
+#{italic}#You find a dusty case filled with many small vials of powder. They seem serviceable.#{normal}#]], [[我终于为那头在厅堂间出没的长角野兽设计出了完美陷阱！它绝不可能躲过这件惊人装置——这是精湛技艺与自然致命馈赠的完美结合。
 
-这个新发明既精致又简单，尽管如此我还是花了好几个月的时间来让它的配方变得完美。有两个小药瓶被连接一起——一个瓶子里面装着磨碎的毒芹，另一个里面装着我小心准备好的锌混合物。当两个小药瓶破碎的时候，里面的物质和空气发生化学反应，就会一阵一阵的喷出有剧毒的雾！
+啊，我已经等不及要把那怪物的头挂上墙了——它必将成为我最得意的藏品！
 
-这毒非常有效，在瞬间就能杀死他们。所有我要做的就是小心的将小药瓶藏在一块很薄的石板下面，然后等待我的猎物踩到陷阱上——噗！他就死了！
+这装置精巧而简单，配方却耗费了我数月才臻于完美。两个小瓶连在一起：一瓶装着磨得极细的毒芹，另一瓶装着精心调制的锌化合物。瓶子一破，两种物质便与空气反应，喷出一大团剧毒气体！
 
-为了让我的整个打猎季从头到尾都能持续战斗，我准备了非常多的小药瓶。明年的打猎季恐怕我收藏的战利品数量就要赶上国王的了！
+这个毒气陷阱效力绝佳，几分钟内便能置猎物于死地。我只需把小瓶藏在一片薄石板下，等猎物踩上去——砰，死定了！
 
-我好像把一个瓶子放错地方了……我敢肯定它应该在附近的某处。
+我备下了许多小瓶，足够用上整个狩猎季。到明年这个时候，我的战利品收藏就能与诸王的收藏相媲美了！
 
-不，不！我……我……（一阵痉挛）……好痛苦，好痛……
+不过有一瓶好像不见了……我敢肯定它就在附近。
 
-#{italic}#你找到了一个布满灰尘的箱子，里面都是装满粉末的小药瓶。它们好像还能用。#{normal}#]], "_t")
+不，不！我——我——意---好痛，好---______
+
+#{italic}#你找到一只落满灰尘的匣子，里面装着许多盛有粉末的小瓶。它们似乎还能使用。#{normal}#]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/misc.lua"
@@ -18570,37 +18570,37 @@ that drowned her at last.]], [[纳鲁精灵的挽歌
 section "mod-tome/data/lore/noxious-caldera.lua"
 
 t("dogroth caldera", "达格罗斯火山", "newLore category")
-t("tattered paper scrap", "破烂的碎纸片", "_t")
+t("tattered paper scrap", "破烂纸片", "_t")
 t([[What wending path brought me to this place? I know not. The mists have obscured all passage, all trail. I see but the enclosing dominance of the caldera ahead. The ashen cauldron of steam lures me, yet repels me. I feel there is a force here trying to sway my thoughts.
 
-Where are the rest of my party? Have my friends abandoned me?]], [[我怎么到这来了？搞不懂。雾气把所有的通道和小径都遮蔽了。我唯一能看到的，就是前方那蒸笼一般的火山口。尽管灰色的雾气令人不悦，但它还是散发着奇异的诱惑。我觉得前面有种莫名的力量在动摇我的意志。
+Where are the rest of my party? Have my friends abandoned me?]], [[是哪条曲折的小路把我带到了这里？我不知道。浓雾遮断了所有道路，也抹去了所有踪迹；眼前只剩火山口合围而来的庞然威势。那口盛满灰白蒸汽的巨釜既引诱着我，又令我退缩。我感觉这里有某种力量正试图左右我的思想。
 
-	我的好基友们在哪里？难道他们抛弃我了？]], "_t")
+同行的人都到哪里去了？朋友们抛下我了吗？]], "_t")
 t([[I fell into a trance, I know not how. Were it the rich blossoms or the oppressive heat? I swooned into the grass and the mists swirled over my face, playing out fantastic shapes before my eyes. Dancing ladies strode across the skies, and a row of dwarves stood laughing as their beards flew into the wind. Then I felt a Shadow near, and the ladies scattered and the dwarves in terror screamed, their mouths yowling and spilling black petals. I tried to move, but I couldn't, and frozen in fear I saw the Shadow above me, looking down upon my countenance. It grunted and lurched away. I passed out then, and have just recovered.
 
 I am not sure what to make of this. I wish to leave, but I do not know the way. Only by escaping this mist shall I have a clear view of the land. Yet each path seems to wind unexpected, each step takes me closer to the centre, not further. I must make haste from this place.
-]], [[我似乎陷入了幻境中，别问我，我也不知道怎么回事。是因为那些鲜艳的花朵还是这异乎寻常的高温？我只记得，之前我晕倒在了草地上，晕倒前所见，只有缭绕的雾气及其所形成的虚无缥缈的幻影。舞女们在天空中飞舞，一伙矮人在旁嬉笑怒骂，大胡子随着笑声在风中飘荡。紧接着，一团阴影的降临破坏了整个场面，伴随着舞女们的尖叫和矮人们惊慌失措的神情，幻影们皆爆裂为黑色的花瓣。我试图逃走，但是恐惧使我不能动弹分毫。阴影从天而降并罩住了我，我能感到它低头注视的目光。它轻轻的哼了一声，便转身离开了，那时我方从中脱离出来，到现在仍惊魂未定。
+]], [[我不知怎么陷入了恍惚。是繁茂的花朵，还是逼人的酷热？我昏倒在草丛里，雾气在我脸庞上方打着旋，在眼前演出种种奇景。起舞的女子跨过天空，一排矮人放声大笑，胡须迎风飞扬。随后我感觉一道阴影逼近，女子四散而逃，矮人惊恐尖叫，张开的嘴里一边哀号，一边涌出黑色花瓣。我想动，却动弹不得；我吓得僵在原地，看着那道阴影悬在上方，俯视我的面孔。它哼了一声，踉跄着离开。之后我便失去了意识，刚刚才醒来。
 
-我仍然不清楚是什么造成了这一切。我想离开此地，但却找不到出口。只有走出这团雾气，我才能搞清这里的地形。尽管如此，每条通道似乎都通往错误的地点，每个脚步都使我离中心更近，而不是更远。我必须尽快离开这里。
+我不知道该如何理解这一切。我想离开，却不知道路在何方。只有逃出浓雾，我才能看清这片土地；可每条路都出人意料地迂回曲折，每一步都把我带向中心，而不是远离它。我必须尽快逃出这里。
 ]], "_t")
 t([[I have found a body, a fellow Thaloren by the looks of things. Her face was contorted in horror, her limbs twisted into painful shapes. Yet there was no blood, and I see not how she were felled. Was it the Shadow? I have buried her as best I could.
 
 There are strange things in this land, and I am afeared. I saw a large ant earlier, and when I tried to stomp it underfoot it screamed at me, and called me names. I crushed it, and its eyes went red and burst, and it let out a shrill death cry that still echoes round my skull, scattering my thoughts.
 
-My head aches, and with each pounding the earth visibly shakes beneath my feet. Is this a fever? I must get out of here!]], [[我找到了一具尸体，这家伙看样子是个自然精灵。她的脸上满是惊恐，她的四肢痛苦的扭曲着。虽然没有任何创伤，但我看不出她是怎么被杀的。是那团阴影吗？尽我所能，还是让她入土为安吧。
+My head aches, and with each pounding the earth visibly shakes beneath my feet. Is this a fever? I must get out of here!]], [[我发现了一具尸体，看样子是我的自然精灵同胞。她的面孔因恐惧而扭曲，四肢也拧成了痛苦的姿势；身上却没有一滴血，我完全看不出她是怎么死的。是那道阴影所为吗？我已经尽力将她安葬。
 
-这片土地上有着一些很诡异的事物，我很害怕。之前我看到过一只大蚂蚁。当我试图一脚踩死它时，它朝我尖叫，还辱骂我。我碾碎了它，它的眼睛迅速变红并爆裂，发出的刺耳临死尖叫至今仍回荡在我脑海里，搅乱着我的思绪。
+这片土地上尽是怪事，我很害怕。早些时候，我看到一只大蚂蚁；我抬脚想踩死它，它竟冲我尖叫，还开口辱骂我。我把它碾碎，它的眼睛骤然变红、爆裂，随即发出尖利的临终哀号。那声音至今仍在我的颅骨里回荡，冲散我的思绪。
 
-走在地上的每一步，都晃的我头好疼。我发烧了吗？我必须离开这！]], "_t")
+我的头一阵阵抽痛，每痛一下，脚下的大地就肉眼可见地震颤一次。这是发烧吗？我必须离开这里！]], "_t")
 t([[Another body, if one could call it that. Mangled remains strewn about a rocky outcrop, of whom I know not. Only the armour and weapon give tell that it were once an intelligent race. The breastplate still polished and undented, the axe still clean and un-notched, yet the flesh ripped apart like shredded paper. What could do this?!
 
 I did not even attempt to bury the remains. I ran, and as frightful thoughts filled my head the sky turned red and the earth turned black, and spiders appeared with morphing faces. They laughed at me and spun their webs. I tore through them, the strands sticking to my fingers, mucousy remnants dripping over my skin. A surge of revulsion pulsed through me and suddenly the webs evaporated and the spiders coalesced into a giant face, its mouth a red flower. I reached into the midst of the crimson petals and it exploded in a wet mess, blinding all sight and thought.
 
-I woke up with my flesh drenched in blood. Or is it blood? Is it my flesh? The ground rumbles with my every moan, the mists swirl with my every sigh. I am closer to the heart of the caldera now. Closer to finding the truth. The truth of this place. The truth of myself...]], [[又一具尸体，如果还能这么称呼的话。从这堆支离破碎的碎肉中，很难辨认出究竟是什么。唯一的信息来自于武器和护甲，它们生前的主人应该属于一支智慧种族。地上的胸甲仍然光亮如新，斧头也很干净，甚至没有任何卷口，但是一旁像被撕裂的纸张一般的碎肉仍提醒着我——这里曾发生过残酷的战斗。到底是谁做了这一切？！
+I woke up with my flesh drenched in blood. Or is it blood? Is it my flesh? The ground rumbles with my every moan, the mists swirl with my every sigh. I am closer to the heart of the caldera now. Closer to finding the truth. The truth of this place. The truth of myself...]], [[又一具尸体——如果那还称得上尸体。我不知道裸露岩石旁散落的残骸属于谁，只有铠甲和武器表明，死者生前属于某个智慧种族。胸甲依旧光洁平整，斧刃依旧干净无缺，血肉却像碎纸一样被撕得七零八落。究竟是什么造成的？！
 
-我甚至没有埋葬尸骨的勇气。我迅速的离开了，随着恐惧充斥了我的心脏，天空也呈现出鲜血般的颜色，大地也变的黝黑，蜘蛛们也跳了出来——它们的面孔在不断的变化。它们嘲笑我并向我喷射蛛丝。我撕开了它们，蛛丝缠绕着我的手指，毒液在不断的侵蚀我的皮肤，一股强烈的厌恶感油然而生。突然手中的蛛丝蒸发了，蜘蛛们也凝聚成了一张脸，它的嘴就像一朵巨大的红色花朵。我掉进了这朵花里，然后它便爆裂成了一团粘糊糊的液体，遮住了我的所有视线和意识。
+我甚至没有尝试掩埋残骸。我转身逃跑，恐怖的念头刚涌入脑海，天空便变成红色，大地化作黑色，脸孔不断变形的蜘蛛凭空出现。它们嘲笑我，吐丝结网。我从蛛网中撕出一条路，丝缕粘住手指，黏滑的残丝顺着皮肤淌下。一阵强烈的恶心感贯穿全身，蛛网忽然蒸发，蜘蛛则聚合成一张巨脸，嘴巴是一朵红花。我把手探进猩红的花瓣之间，它顿时炸成一团湿烂之物，遮蔽了我的视野，也淹没了我的思想。
 
-当我醒来时，我发现全身是血。是血吗？是我的？还是……？我的呻吟声回荡在大地上，我的叹息声消散在雾气中。我现在离火山腹地更近了，也离真相更近了一步。是时候出发了，寻找真相，寻找自我……]], "_t")
+醒来时，我的血肉浸满鲜血。那真是血吗？这是我的血肉吗？我每呻吟一声，大地便隆隆震动；我每叹息一次，雾气便随之盘旋。如今我离火山口的中心更近了，也更接近真相。这里的真相。关于我自己的真相……]], "_t")
 t([[Broken land and broken thoughts. If I think clearly the land runs smooth. But my thoughts are not clear. I think.
 
 I am here and here is me, a reflection of my will. Is it my will any more? Perhaps I am the reflection, my actions inspired by the mists about me.
@@ -18609,21 +18609,21 @@ My dreams follow me as I wake, and wake as I follow them. I seek them and summon
 
 Others want to disturb my games. They come as hawks and moths and snakes, and their mouths spill putrescence over my blessed soil. But let them come. I will play with them. We shall have a fun game together, I think.
 
-And what I think is what is real.]], [[支离破碎的大地，犹如我的思维。如果我能清醒的思考，道路也要平坦些吧。可惜我并不清醒，我这样想着。
+And what I think is what is real.]], [[破碎的土地，破碎的思绪。我若想得清楚，土地便会平整舒展。可我的思绪并不清楚。我想。
 
-我一直在此，这就是我，一切都是我意志的体现。这是我的意识吗？或许我才是那个意识，我的行动一直受周围的雾气所引导。
+我在这里，这里就是我，是我意志的倒影。那还算是我的意志吗？也许我才是倒影，一举一动都可能受周围的雾气驱使，甚至由它催生。
 
-当我醒着时，梦中的情景如影随形，亦如我跟随着他们一般。我寻找它们，呼唤它们并和它们一起玩耍。这里是我的小天地。不管我梦到什么，都会出现，当我厌倦时，我会撕裂它们，驱除它们。
+我的梦在我醒来后依然跟随着我；我追随它们时，它们也随之醒来。我寻找它们，召来它们，和它们玩耍。这里如今是我的游乐场。梦见什么，什么就会现身；玩腻之后，我便将它们丢弃，撕扯开来。
 
-有人想打扰我的游戏。它们就像鹰犬一样蜂拥而至，它们的嘴里散发着腐烂的气息，污染着我那圣洁的土地。但是让它们来吧，我要尽情的陪它们玩耍。我想，我们将会有一场欢乐的游戏。
+还有人想搅扰我的游戏。他们化作鹰、飞蛾和蛇而来，嘴里吐出的腐败之物洒在我受祝福的土地上。不过尽管来吧。我会陪他们玩。我想，我们会一起玩一场有趣的游戏。
 
-我思即存在。]], "_t")
+而我所想的，就是现实。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/old-forest.lua"
 
 t("old forest", "古老森林", "newLore category")
-t("journal entry (old forest)", "古老森林冒险日志", "_t")
+t("journal entry (old forest)", "日志条目（古老森林）", "_t")
 t([[#{italic}#From the notes of Darwood Oakton, explorer:
 #{bold}#CHAPTER ONE: THE SHER'TUL
 
@@ -18631,37 +18631,37 @@ t([[#{italic}#From the notes of Darwood Oakton, explorer:
 
 My quest has drawn me into the Old Forest. What is there to be said about a place like "the old forest"? It is a forest, and it is old. By its unimaginative moniker you can guess how important this place is to the people of Derth; the only locals who commonly venture under its boughs are novice alchemists in search of ingredients, plus the odd hunter with his sights set low. However, the story of this old forest now takes a more interesting twist...
 
-Rumours are growing of trees roaming in its depths, moving as you or I would. Some even claim that they now possess the spark of sentience. The Sher'Tul were rumoured to hold the power of animism... is this mere coincidence?]], [[#{italic}#根据探险者达沃德·欧卡顿手稿上的内容，
-#{bold}#第一章：夏·图尔人
+Rumours are growing of trees roaming in its depths, moving as you or I would. Some even claim that they now possess the spark of sentience. The Sher'Tul were rumoured to hold the power of animism... is this mere coincidence?]], [[#{italic}#摘自探险家达沃德·欧卡顿的笔记：
+#{bold}#第一章：夏·图尔
 
-#{normal}#夏·图尔——他们是谁？他们从何处来？ 他们又要去往何处？这个古老的种族有着近乎无穷的神秘性。这些小纸片上的信息隐约提及到了一个强大的分布全世界范围的文明，他们运用着我们无法想象的力量和魔法。
- 
-然而，现在他们所有的遗迹都被我们忘记了，被风吹蚀的废墟以及他们隐居圣人的研究中所发现的未知技术的小细节。亲爱的读者，他们的神秘性有没有像引起我的好奇本能一样引起你的兴趣呢？
+#{normal}#夏·图尔。他们是谁？从何而来？又去了哪里？围绕这个古老种族的谜团几乎无穷无尽。我们掌握的寥寥资料，只隐约指向一个强盛而遍及世界的文明，他们驾驭着难以想象的力量与魔法。
 
-我的任务将我带到了远古丛林。什么样的地方能叫“远古丛林”呢？首先它是一个森林，然后它很古老。从它平淡无奇的名字，你大概就能猜到这地方对德斯镇居民来说有多重要了：只有新手的炼金术学徒会来这儿寻找炼金材料，新晋猎人也把它当作练手的地方。不管怎样，关于远古丛林的故事现在有了戏剧性的转折……
+然而如今，他们只剩下遭人遗忘、饱受风蚀的废墟；其技术最细微的片段，也被封存在离群索居的贤者书斋中。亲爱的读者，他们的谜团是否也像呼唤我一样，唤起了你的好奇心？
 
-有传言说在丛林深处，有着像你我一样能自由移动的树木。有人甚至声称，它们如今已萌生了灵智的火花。另外，据说夏·图尔人掌握着赋予万物灵性的力量……这只是巧合吗？]], "_t")
+我的探寻将我带进了古老森林。对于一个叫作“古老森林”的地方，还能说些什么？它是一片森林，而且很古老。只看这毫无新意的名字，你就能猜到德斯人有多么重视这里：当地经常走入林荫之下的，只有寻找材料的新手炼金术师，外加偶尔几个志向不高的猎人。不过，这片古老森林的故事如今有了更有趣的转折……
+
+越来越多的传言声称，森林深处的树会像你我一样四处行走。甚至有人说，它们如今已经萌生了心智。传说夏·图尔拥有赋予万物灵性的力量……这难道只是巧合？]], "_t")
 t([[#{italic}#From the notes of Darwood Oakton, explorer:
 #{bold}#CHAPTER TWO: ANCIENT RUINS
 
-#{normal}#My inquiries have paid off! It took much searching, and even more arm-twisting and cajoling once I had found my man, but a local lumberjack who plies his trade in the old forest has divulged to me an amazing secret! He speaks of ruins within the forest, a location where the living trees seem to congregate in larger numbers. He would not speak much of the place, and seemed to believe it cursed, but I did manage to squeeze out of him the appearance of the ruins, submerged in the middle of the great lake. There is no longer any doubt in my mind now: They belonged to the Sher'Tul!]], [[#{italic}#根据探险者达沃德·欧卡顿手稿上的内容，
+#{normal}#My inquiries have paid off! It took much searching, and even more arm-twisting and cajoling once I had found my man, but a local lumberjack who plies his trade in the old forest has divulged to me an amazing secret! He speaks of ruins within the forest, a location where the living trees seem to congregate in larger numbers. He would not speak much of the place, and seemed to believe it cursed, but I did manage to squeeze out of him the appearance of the ruins, submerged in the middle of the great lake. There is no longer any doubt in my mind now: They belonged to the Sher'Tul!]], [[#{italic}#摘自探险家达沃德·欧卡顿的笔记：
 #{bold}#第二章：古代废墟
 
-#{normal}#我的探索终于有了回报！我做了很多的调查工作，才找到我要找的人，甚至更多的是用强迫和哄骗。但是有一次，一个远古丛林本地的伐木工在我不停的提问中泄露了一个天大的秘密！他说出了丛林中的废墟位置，那个位置附近聚集了一大片活着的树。他不愿多谈那个地方，似乎认定那里受到了诅咒，不过我还是设法从他口中套出了废墟的样貌：它们沉没在大湖中央。这下我心中再无疑问：它们属于夏·图尔！]], "_t")
+#{normal}#我的调查终于有了回报！为了找到合适的人选，我费尽周折；找到之后，又花了更大力气软硬兼施，才让一名在古老森林谋生的当地伐木工吐露了一个惊人的秘密！他说森林里有一处废墟，活树似乎会在那里大批聚集。他不肯多谈那个地方，似乎认定那里受了诅咒；但我还是设法从他口中逼问出废墟的样貌——它沉没在大湖中央。如今我再无疑问：那是夏·图尔的遗迹！]], "_t")
 t([[#{italic}#From the notes of Darwood Oakton, explorer:
 #{bold}#CHAPTER THREE: DISASTER!
 
-#{normal}#Does my title not tell you enough? Disaster, and again disaster! True enough, these Sher'Tul ruins exist... several hundred feet at the bottom of a mighty lake! The lake of Nur, one of the largest in the old forest, has swallowed up the ruins in its murky depths. I am hardly a strong swimmer, gentle reader, but even if I could swim like a naga-spawned beast I could not hope to explore the ruin's sunken expanses before drowning. I fear I must abandon my present expedition... the trees are paying closer attention to me, and I do not believe it is of the pleasant sort...]], [[#{italic}#根据探险者达沃德·欧卡顿手稿上的内容，
-#{bold}#第三章：灾难
+#{normal}#Does my title not tell you enough? Disaster, and again disaster! True enough, these Sher'Tul ruins exist... several hundred feet at the bottom of a mighty lake! The lake of Nur, one of the largest in the old forest, has swallowed up the ruins in its murky depths. I am hardly a strong swimmer, gentle reader, but even if I could swim like a naga-spawned beast I could not hope to explore the ruin's sunken expanses before drowning. I fear I must abandon my present expedition... the trees are paying closer attention to me, and I do not believe it is of the pleasant sort...]], [[#{italic}#摘自探险家达沃德·欧卡顿的笔记：
+#{bold}#第三章：灾难！
 
-#{normal}#标题说得还不够清楚吗？灾难，又一场灾难！这些夏·图尔废墟确实存在……却位于一座大湖数百英尺深的湖底！纳尔湖是远古丛林最大的湖泊之一，废墟已被吞没在它浑浊的深处。亲爱的读者，我根本不擅长游泳；即使我能像娜迦所生的野兽那样游，也不可能在溺死前探索完那片沉没的广阔废墟。恐怕我必须放弃这次探险……那些树正越来越留意我，而我不认为那是什么善意的关注……]], "_t")
+#{normal}#标题说得还不够明白吗？灾难，彻头彻尾的灾难！夏·图尔废墟的确存在……却沉在一座大湖湖底，距水面足有数百英尺！纳尔湖是古老森林最大的湖泊之一，废墟已被吞没在幽暗浑浊的深处。亲爱的读者，我的水性着实算不上好；可即使我游得像娜迦所生的野兽，也不可能在溺死之前探索完那片广阔的水下遗迹。恐怕我必须放弃眼下这次探险了……树木正越来越密切地注视着我，而我看那绝不是什么友善的注视……]], "_t")
 t([[#{italic}#From the notes of Darwood Oakton, explorer:
 #{bold}#CHAPTER FOUR: NEEDS MUST...
 
-#{normal}#Before I continue, I must make one thing clear: I am no great friend to the mages. Some powers simply were not meant for mortal hands or minds. As history has taught us time and again, from the sudden disappearance of the Sher'Tul to the Spellblaze and the plagues it brought in its wake, magic is wont to cause more harm than good. But I fear it is a necessity for my current task. During my stay in Derth a fellow traveller and I have become fast friends, often drinking together in the local tavern. I can't put my finger on it, but I believe him to be a mage; he has an unexplainable feeling of power surrounding him, not to mention a rather ostentatious hat. I wonder what his thoughts would be on the art of water-breathing...?]], [[#{italic}#根据探险者达沃德·欧卡顿手稿上的内容，
-#{bold}#第四章：不得不提的……
+#{normal}#Before I continue, I must make one thing clear: I am no great friend to the mages. Some powers simply were not meant for mortal hands or minds. As history has taught us time and again, from the sudden disappearance of the Sher'Tul to the Spellblaze and the plagues it brought in its wake, magic is wont to cause more harm than good. But I fear it is a necessity for my current task. During my stay in Derth a fellow traveller and I have become fast friends, often drinking together in the local tavern. I can't put my finger on it, but I believe him to be a mage; he has an unexplainable feeling of power surrounding him, not to mention a rather ostentatious hat. I wonder what his thoughts would be on the art of water-breathing...?]], [[#{italic}#摘自探险家达沃德·欧卡顿的笔记：
+#{bold}#第四章：情势所迫……
 
-#{normal}#在我继续之前，我得明确一件事：我可不是魔法师们的好朋友。某些力量根本就不能简单的被凡人的双手和头脑驾驭。通过夏·图尔人的覆灭和魔法大爆炸带来的灾难和瘟疫，历史一次又一次的教会我们，魔法通常坏处大于益处。但是对我现在的任务来讲，恐怕使用魔法是必须的。在我停留德斯镇的日子里，我和一个年轻的旅行者成为了要好的朋友，我们常在小旅馆一起喝酒。我不能确切的指出，但是我相信他是一个魔法师——他身边总有一股解释不清的能量围绕着他，更别提一顶值得炫耀的法师帽。我在思考他对水中呼吸术有什么想法……？]], "_t")
+#{normal}#继续之前，我必须说明一点：我向来对法师没什么好感。有些力量原本就不该落入凡人的双手或心智。历史一次又一次给出教训——从夏·图尔的突然消失，到魔法大爆炸及其随后带来的瘟疫，魔法往往弊大于利。可为了眼下的任务，恐怕非借助魔法不可。我住在德斯期间，很快便与另一位旅人成了好友，我们常在当地酒馆对饮。我说不清缘由，却相信他是一名法师；他周身萦绕着一种难以解释的力量感，更不用说还戴着一顶颇为招摇的帽子。不知他对水下呼吸术有何见解……？]], "_t")
 t([[#{italic}#From the notes of Darwood Oakton, explorer:
 #{bold}#CHAPTER FIVE: HORR...
 
@@ -18681,30 +18681,30 @@ But this, is this their legacy? ... horrifying ... all my dreams ... Perhaps dea
 If any come after, I bid you turn ... horrors ... too much. If you are foolish enough to ... my only advice is to ...
 
 #{italic}#You find with the note a tiny, faintly glowing orb - is this the key the note mentions?
-#{normal}#]], [[#{italic}#根据探险者达沃德·欧卡顿手稿上的内容，
+#{normal}#]], [[#{italic}#摘自探险家达沃德·欧卡顿的笔记：
 #{bold}#第五章：恐……
 
-#{italic}#这个手稿似乎在匆忙中写就，并且沾满了水渍和血迹。
+#{italic}#这张笔记似乎写得极其仓促，还沾着水和血。
 
-#{normal}#我……我没能坚持下去。
-钥匙在这，但是我永远也不能……那扇门。
+#{normal}#我……我没多少时间了。
+钥匙就在这里，但我始终没能……那扇门。
 
-我没有做好充分的准备！那些树我还可以抵抗，但是水里的……我……已经扭曲了、超越了……
+我毫无准备！树木我还能躲开，水域我能……横渡，可越过之后……
 
-恐怖的……触须……瞬间燃烧的光芒……
-我的肉体被吞噬了，我的精神被击垮了……活生生的虫子群，可以走路的……
-……很难逃脱。而且我的伤口太……血流不止……
+恐魔……触手……炽烈强光，刹那间灼烧……
+我的血肉被吞噬，心智支离破碎……虫子，活着，成群行……
+……我才勉强逃脱。可我的伤太……血止不住……
 
-我曾以为夏·图尔很梦幻。我一度为此着迷……我去努力调查过找到的每个线索……
+我曾以为夏·图尔无比神奇，令我着迷……渴求能得到的每一分知识……
 
-但是这，这就是他们的遗迹吗？……如此恐怖……超出我的想象……也许死神要带走我吧。
+可这，这就是他们的遗产吗？……太可怕了……我所有的梦想……或许死亡如今反倒是一种解脱……
 
-如果以后有任何人进来，我劝告你回……恐惧……太多了。如果你够蠢的话……我唯一的建议是……
+若有人随后来到这里，我劝你回……恐怖……承受不住。若你愚蠢到还要……我唯一的忠告是……
 
-#{italic}#你在这个手稿旁发现了一枚小巧的、微微闪光的水晶球……这就是手稿中提到的钥匙吗？#{normal}#]], "_t")
+#{italic}#你在笔记旁找到一颗微微发光的小球——这就是笔记里提到的钥匙吗？#{normal}#]], "_t")
 t("lake of nur", "纳尔湖", "newLore category")
 t("magical barrier", "魔法屏障", "_t")
-t("As you descend to the next level you traverse a kind of magical barrier keeping the water away. You hear terrible screams.", "当你进入下一层时，你感觉自己穿过了某种隔绝水的魔法屏障。你听到了恐怖的尖叫声。", "_t")
+t("As you descend to the next level you traverse a kind of magical barrier keeping the water away. You hear terrible screams.", "你向下一层深入时，穿过了某种将水阻隔在外的魔法屏障。可怕的尖叫声传入耳中。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/orc-prides.lua"
@@ -19135,15 +19135,15 @@ In time! Bah! This will be my ruin if it comes to that. If there is any appearan
 section "mod-tome/data/lore/rhaloren.lua"
 
 t("rhaloren", "罗兰精灵", "newLore category")
-t("letter (rhaloren camp)", "信（罗兰精灵营地）", "_t")
+t("letter (rhaloren camp)", "信件（罗兰精灵营地）", "_t")
 t([[We must be on guard. The Council of Elders is desperate to find us, to hunt us down and suppress us. But we will not be suppressed. We have our rights! Their scouts try to track us down, and their spies try to infiltrate our numbers. They cannot accept any others having power, or any voice but their own being heard.
 
 We have split away from our people, and we follow our own path now. We are outcasts. They call us renegades, anarchists; they think of us as nothing but vermin to be crushed underfoot. But we will not endure their cruel suppression. Our voice will be heard across the world and they shall recognise a new race of power - the mighty Rhaloren!
 
 -- The Inquisitor
-]], [[我们必须保持警惕。长老会正在不顾一切的寻找我们，镇压并杀死我们。但是我们不会放弃。我们有自己的权利！他们的侦察兵试图追踪我们，他们的间谍试图渗透我们的队伍。他们不能接受他人掌权或出现不一致的声音。
+]], [[我们必须时刻戒备。长老会正不顾一切地寻找我们，企图追捕、镇压我们。但我们绝不会屈服。我们有自己的权利！他们的斥候试图追踪我们，间谍则企图混入我们的队伍。他们容不得别人拥有力量，也容不得任何不同于他们的声音被世人听见。
 
-我们将离开我们的人民，我们要走出自己的道路。我们是流浪者。他们称我们为背叛者，并把我们当做可以轻易踩死的虫子。但是我们不会容忍他们残酷的压迫。我们的声音将传遍世界，他们将认识新种族的力量——强大的罗兰精灵！
+我们已经脱离永恒精灵，走上了自己的道路。我们是被放逐者。他们骂我们是叛徒、无政府之徒，只把我们当成该踩死的害虫。但我们绝不会忍受他们残酷的镇压。我们的声音将传遍世界，他们终将承认一个强大的新种族——伟大的罗兰精灵！
 
 ——审判者
 ]], "_t")
@@ -19153,8 +19153,8 @@ More have joined our cause. Their eyes have been opened to the injustice our peo
 
 Trust in his power, for he shall bring us all to glory.
 
--- The Inquisitor]], [[闪光洞穴必须受到重点保护——我们的伟大领袖所下的命令，他的话比任何法律都更具有约束力。虽然我们的数量极少，并且我们行动隐蔽，但是在洞穴里放上一个固定的侦查之眼却是有必要的。任何被发现的人都必须被带到我们的力量大厅，来到我的面前接受审判。
-	更多的人加入了我们的伟大事业。他们亲眼见证了我们的人民所遭受的不幸以及魔法大爆炸所带来的灾难。他们已经厌倦了议会的怯懦，那帮小丑只会保持沉默，而我们在世界各地被蔑视和仇视。但最重要的是他们被我们的伟大领袖所鼓舞，他通过研究魔法大爆炸来获得力量。只有他能挖掘我们的潜力，只有他才能看到我们真正的能力。他拯救了我，使我脱离苦海并感受他的伟大。只有他才能指引我们！在他的领导下，世界将会见证我们这股不容小觑的力量。相信他的力量，他会带来荣耀。
+-- The Inquisitor]], [[闪光洞穴必须受到保护。伟大的领袖已经下令，他的话比任何法律都更不容违逆。我们人数不多，行动必须隐秘，但仍要暗中监视洞穴。凡被发现干涉其中事务的人，都必须诱到我们这处据点，再带到我面前接受审问。
+又有更多人投身我们的事业。他们终于看清了我族遭受的不公：其他种族把魔法大爆炸及其影响都归罪于我们。他们受够了长老会的怯懦——当我们在世界各地遭到蔑视与憎恨时，那群人只会默不作声。但最令他们振奋的，还是我们伟大的领袖，以及他研究魔法大爆炸所得的力量。唯有他洞悉我族全部潜能，唯有他能看透我们内心真正拥有的力量。他赐福于我，将我从备受折磨的人生中拯救出来，又以自己的力量触碰了我。唯有他能领导我们的人民！在他的掌控下，世界将见证我们的力量，承认我们是一股不可轻视的势力。信赖他的力量吧，他必将带领我们所有人走向荣耀。
 
 -- 审判者]], "_t")
 t([[For too long we have been taught that the Spellblaze was a tragedy, that we are responsible for the deaths of millions and for suffering across the world. These are lies! Lies spread to defame us, to prevent our people from using magic to its rightful degree. The lesser races are jealous of our powers, of our amazing potential, and so they think to keep us underfoot, to stop us from ascending to our rightful place in the world. They fear us.
@@ -19166,13 +19166,13 @@ mercilessly, and even those with no affinity to magic were brutally slaughtered 
 
 But no more! The time will come when the truth shall be known, and retribution will fall on any that deny us our rights.
 
--- The Inquisitor]], [[很长一段时间，人们一直教导我们，魔法大爆炸是一场灾难，我们应对数百万人死亡和全世界的苦难负责。这都是谎言！这些诋毁我们的谎言四处传播，只为阻止我们的人民正当地运用魔法。那些低等种族嫉妒我们的力量和惊人潜力，于是妄图将我们踩在脚下，不让我们登上世界中应有的位置。他们害怕我们。
+-- The Inquisitor]], [[太久以来，我们一直被教导说魔法大爆炸是一场悲剧，说数百万人因此丧命，全世界的苦难都应由我们负责。全是谎言！这些谎言只是为了诋毁我们，阻止我们的人民充分而正当地运用魔法。低等种族嫉妒我们的力量与惊人潜能，便想把我们踩在脚下，不让我们登上在世间应有的位置。他们害怕我们。
 
-事实上，魔法大爆炸只是一场失败的实验。我们的许多精英法师都死于辐射的能量，一些靠近的陆地甚至都被烧焦了。但是其他种族并没有伤亡——都是他们自己的战争导致的，他们肮脏的社会带来了紧随其后的灾难。许多世纪后，一场大地震使整个大陆支离破碎，那些种族才开始厚颜无耻的指责我们。
+真相是，魔法大爆炸不过是一场出了差错的实验。我族许多最伟大的法师死于随之爆发的能量，附近一些土地也燃起大火。但其他种族根本没有因此丧命——夺走他们生命的是他们自己的战争，随后那些瘟疫也是由他们肮脏污秽的社会滋生。许多个世纪以后，一场天然大地震撕裂了大地，他们竟还有脸把那也怪罪到我们头上。
 
-因为这个原因，他们在猎魔行动中迫害我们。我们的许多法师被残忍杀害，甚至那些没有任何魔法亲和力的无辜者都在这次可怕的屠杀中牺牲。直到今天，我们仍备受歧视和迫害，经常会听到无辜的永恒精灵受到火刑或凌迟的消息。长老会做了什么？他们只会保持沉默，期待人们忘记过去。
+正因如此，他们在魔法狩猎期间迫害我们。我族许多法师遭到无情杀害，就连那些没有魔法天赋的人，也在那场可怕的讨伐中被残酷屠杀。即便到了今天，我们仍在遭受歧视和迫害，无辜永恒精灵被绑上火刑柱或剁成碎块的消息仍不时传来。长老会做了什么？他们只是沉默地坐着，指望世人自己忘掉一切。
 
-不是不报，时候未到！真相大白之日，报应降临之时。
+但到此为止！真相终有大白的一天，任何否认我们权利的人都将遭到报应。
 
 -- 审判者]], "_t")
 t([[I have great news! Our glorious leader has written to me, telling me of his travels. He is on a great pilgrimage, a holy quest to discover more about the Spellblaze and its powers, so that we may show the truth about it to the world. It is a quest fraught with peril, for we have many enemies in the world. But by his powers he cannot fail. He cannot! He cannot...
@@ -19180,13 +19180,13 @@ t([[I have great news! Our glorious leader has written to me, telling me of his 
 One day soon he will return to us, and bring us to our proper glory. Look forward to that great time, when he is amongst us once more. Be ready for that moment when he stands tall before us and looks at us with his deep eyes... Work hard now and be attentive in your duties, so that we may make him proud. We fight for him, we struggle for him, and if needs be we will die for him. He is our hope and our glory, and the only joy we have in this dispassionate world.
 
 -- The Inquisitor
-]], [[我有重大喜讯！我们伟大的领袖写信给我，告诉我他即将远行。他正在朝圣之行的路上，一条能够真正发掘魔法大爆炸和它的力量的道路，这样，我们便可以向世界公布事情的真相。这是一条艰辛的道路，因为我们有许多敌人虎视眈眈。但是以他的能力，绝对不会失败……绝对不会……
+]], [[我有天大的好消息！我们荣耀的领袖来信了，告诉我他旅途中的见闻。他正进行一场伟大的朝圣，一项探寻魔法大爆炸及其力量的神圣使命，好让我们向世界揭示它的真相。这项使命危机四伏，因为我们在世上树敌众多。但凭他的力量，他绝不会失败。他不会！他不会……
 
-很快他就会回到我们的身边，带领我们取得荣耀。期待那美好的时光，当他再次回到我们身边。准备好迎接那个时刻的到来——当他站在我们面前用深邃的眼神看着我们……现在开始，努力做好自己的工作，我们会成为他的骄傲。我们为他战斗，我们为他斗争，如果有必要我们可以为他去死。他是骄傲和荣耀的化身，也是我们在这个残酷现实的唯一希望。
+用不了多久，他便会回到我们身边，带领我们赢得应有的荣耀。期盼那伟大的日子吧，期盼他再度与我们同在。做好准备，迎接他挺立在我们面前、用那双深邃眼眸凝望我们的时刻……现在务必勤勉工作，专心尽责，好让他为我们骄傲。我们为他战斗，为他抗争，必要时也将为他献出生命。他是我们的希望与荣耀，也是这个冷漠世界中我们唯一的喜悦。
 
 -- 审判者
 ]], "_t")
-t("carefully preserved letter (rhaloren camp)", "小心保存的信（罗兰精灵营地）", "_t")
+t("carefully preserved letter (rhaloren camp)", "珍藏的信件（罗兰精灵营地）", "_t")
 t([[My dearest,
 
 I hope this letter finds you well. I worry for you, so close to the city, so vulnerable should they find our base... But I trust in your strength, and I know you will be safe. Yet should anything happen...
@@ -19200,22 +19200,22 @@ Look after our people well, and keep strong our base for when I return. It shall
 With passion abound,
 Your dearest love]], [[我最亲爱的，
 
-我希望这封信能平安的到达你手里。我为你担忧，离城市这么近，而我们的基地又是如此脆弱……但是我相信你的能力，我知道你会安然无恙。但是如果有意外发生……
+愿你收到这封信时一切安好。我很担心你：你离城市那么近，一旦他们发现我们的基地，你就太容易遭到袭击了……但我相信你的力量，也知道你会平安无事。可万一发生什么……
 
-我希望你能到这来，分享我所看到的奇迹。虽然这次旅行充满了危险。伊格兰斯一直在仔细的搜查我们，打乱了我的许多计划。他们是一股真正的不可忽视的力量。幸运的是——我设法抓住了一个并且拷问出了他们基地的位置。很快我们将发动突袭，将他们化为永远的回忆。
+真希望你就在我身边，能与我一同分享沿途所见的奇观。可这趟旅程的凶险远多于奇观。伊格兰斯已经盯上了我们，一路穷追不舍，破坏了我的许多计划。他们确实是一股不容小觑的力量。不过幸运站在我这边——我设法抓住了其中一人，并从俘虏口中得知了他们基地的位置。很快，我们便会筹备一场进攻，永远终结他们的威胁。
 
-啊，但是还有比那更加令人兴奋的事情！在灼热疤痕附近我发现了一件真正令人惊叹的东西——魔法大爆炸的标记。啊，我多么渴望你能来到这里，与我一同领略它的奇妙！所有人中唯有你最了解我的热忱；看到我在这里发现的东西，你一定会无比欣喜。这里寄托着我们的未来。我们将在这里获得真正独立自主的力量！
+啊，还有一件事，甚至比这更令人兴奋！我在灼烧之痕附近发现了一样真正惊人的东西——魔法大爆炸留下的痕迹。哦，我多么渴望你能在这里，与我一同目睹这份奇观！所有人中，唯有你最了解我的热情；若能看到我在这里的发现，你该会多么欣喜。我们的未来就在这里。我们将在这里获得力量，真正走出属于自己的道路！
 
-好好照顾我们的人，在我回来之前保持基地的力量。在不久的将来，我希望，我会带着荣耀而归。
+请照顾好我们的人民，也守好营地，等我归来。我希望那一天很快便会到来，而我将携荣耀而归。
 
-炽热的爱，
-你最亲爱的人。]], "_t")
+满怀炽情，
+你至爱的恋人]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/sandworm.lua"
 
 t("sandworm lair", "沙虫巢穴", "newLore category")
-t("song of the sands", "流沙之歌", "_t")
+t("song of the sands", "沙之歌", "_t")
 t([[I have stared in the mouths of crimson wyrms
 And felt the claws of drakes so sleek
 But through deserts dry and sandy storms
@@ -19224,14 +19224,14 @@ There is something else I seek
 In the trail of giant worms I walk
 Through tunnels of sand below
 Of arcane tools let there be no talk
-It's on the wyrmic path I go!]], [[我曾直视赤红巨龙的血盆大口
-也曾感受迅龙光滑锋利的爪牙
-但穿过干涸沙漠与漫天沙暴
-另有一物才是我所寻
+It's on the wyrmic path I go!]], [[我曾凝视赤红巨龙的巨口深处
+也曾领教矫健幼龙利爪
+可穿过干旱荒漠与沙暴
+我所追寻的另有其物
 
-我追随巨型沙虫的踪迹
-穿行于地下的沙砾隧道
-莫要谈什么奥术器具
+我循着巨型沙虫的踪迹
+穿行在地下沙土隧道
+休要再提那些奥术器具
 我走的是龙战士之道！]], "_t")
 t([[The dragon's breath corrodes my eyes
 It tears flesh from my skin
@@ -19241,16 +19241,16 @@ Amidst the sandy depths within
 The piles of sand fall past my head
 Nearly crushing me alive
 But I hurry on bereft of dread
-For my quest I must survive!]], [[巨龙吐息腐蚀了我的双眼
-撕裂了我的身体
-但我仍然坚定的前进
-去看那坐落彼端的它
-在那无尽沙堆的深处
+For my quest I must survive!]], [[巨龙吐息腐蚀我的双眼
+从皮肤上撕下一片片血肉
+我却仍要一路向前
+只为探明沙海深处
+究竟隐藏着什么
 
-那些沙柱从我头边擦过
-差点把我活埋
-但是匆忙中我竟忘记了恐惧
-为了任务我一定要活着！]], "_t")
+沙堆从我头顶倾泻而过
+险些将我活活压死
+我毫无畏惧地疾步前行
+为了此行，我必须活下去！]], "_t")
 t([[The sandworms go from strength to strength
 Ever greater do they seem
 Of towering height and massive length
@@ -19259,28 +19259,28 @@ It is all as if a dream...
 To the darkest depths I now depart
 In search of my one fate
 How I long to taste the beating heart
-Of the legendary worm so great!]], [[这沙虫变得越来越强大
-似乎比它们以往更巨大
-无法描述的高与宽
-好像是做梦一般……
+Of the legendary worm so great!]], [[沙虫的力量节节攀升
+身躯似乎也越发庞大
+高高耸立，身躯长得惊人
+一切恍若梦境……
 
-我现在正准备启程前往黑暗深处
-寻找属于我自己的命运
-我是多么的渴望尝到那跳动的心脏
-传说沙虫跳动的心脏美味无比！]], "_t")
+如今我要奔赴最黑暗的深处
+追寻我唯一的宿命
+我多么渴望尝一尝
+那条传奇巨虫搏动的心脏！]], "_t")
 t([[I have seen the Queen in glory true
 And she has moved me to my soul
 Oh Queen! Let me be a part of you!
-Please devour me! Swallow me whole!!]], [[我看到了真实的女王！
-她深深打动了我的灵魂
-啊，女王！请让我和你融为一体！
-请吞噬我！将我整个都吞下去吧！！]], "_t")
+Please devour me! Swallow me whole!!]], [[我见到了女王真正的荣光
+她令我的灵魂为之震颤
+啊，女王！让我成为你的一部分吧！
+请吞噬我！把我整个吞下吧！！]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/scintillating-caves.lua"
 
 t("scintillating caves", "闪光洞穴", "newLore category")
-t("research journal part 1", "研修旅行笔记 1", "_t")
+t("research journal part 1", "研究日志（一）", "_t")
 t([[I have been given permission to explore the scintillating caves to the east. Normally they are sealed off, but having a father on the council has its uses, even if he is normally a dumb buffoon...
 
 These caves are the site of where the Spellblaze began. An ancient Sher'Tul farportal lay buried here, and our ancestors tapped into that power to their destruction. Many of the greatest Shaloren mages stood here, and when the energies beyond comprehension erupted they were all annihilated instantly. It was a terrible loss to our people - such knowledge and power lost forever!
@@ -19288,57 +19288,57 @@ These caves are the site of where the Spellblaze began. An ancient Sher'Tul farp
 Now the ancient ruins have become overgrown by crystals. Reports say that they grow each year. Could they be alive..?
 
 I must admit that stepping into the starting place of the Spellblaze fills me with immense trepidation. This was where the great destruction began, that tore through our world, wiping out cities, tearing the world apart. And yet look at the beauty here!
-]], [[我已经获准探索东边的闪光洞穴。那里通常处于封锁状态，不过有个父亲在议会里确实有些用处——尽管他平时是个愚蠢的老糊涂……
+]], [[我获准探索东面的闪光洞穴。那里通常被严密封锁，不过有个身居长老会的父亲确实很有用——哪怕他平日只是个愚蠢的小丑……
 
-这些洞穴是魔法大爆炸开始的地方。一扇远古的夏·图尔传送门被埋在这里，我们的祖先激活了它导致了他们的毁灭。许多伟大的永恒精灵法师站在这，当紊乱的能量爆发时，他们瞬间化为了灰烬。对我们来说，那是一次严重的损失——我们永远失去了那些学识渊博的强大法师！
+魔法大爆炸正是从这些洞穴开始的。一座夏·图尔时代遗留的远古传送门深埋于此，我们的祖先抽取其中的力量，最终招致自身毁灭。许多最伟大的永恒精灵法师都曾站在这里；超乎理解的能量失控爆发时，他们顷刻间尽数湮灭。这是我族惨痛的损失——那般学识与力量从此永远消逝！
 
-现在这片远古废墟长满了水晶体。据报告，它们每年都会增长。它们是活的吗？
+如今，水晶已经爬满了古老废墟。据报告，它们每年都在生长。它们会不会是活的……？
 
-我必须得承认，当我走进魔法大爆炸开始的地方时，我的心一直悬的紧紧的。这是大爆炸开始的地方，我们的世界就是被这里的能量所撕裂，城市湮灭，大陆分离。但是，看看这美丽的洞穴！
+我必须承认，踏入魔法大爆炸的起点，令我心中充满强烈的不安。席卷世界的大毁灭就是从这里开始的：城市被抹去，整个世界遭到撕裂。可是看看这里，多么美丽！
 ]], "_t")
-t("research journal part 2", "研修旅行笔记 2", "_t")
+t("research journal part 2", "研究日志（二）", "_t")
 t([[I have definitely seen crystals move of their own volition here, and some even seem capable of producing magical effects in self-defence. They are no threat to me whatsoever - my arcane powers are far beyond whatever latent magic seems to possess these things.
 
 Possession... is what it almost seems like. These crystals are not natural. I have broken some down and studied them, and the very structure of the material seems vastly distinct from any other I have seen. I have even studied Sher'Tul relics in the Academy and this is most certainly something different. Truly fascinating!
-]], [[我确实看到了许多自主移动的水晶体，有的甚至能产生奇妙的效果来保护自己。不管怎样，它们对我构不成任何威胁——我的奥术能力远远超越了这些能和魔法产生共鸣的水晶体。
+]], [[我确实亲眼看到这里的水晶自行移动，有些甚至能产生魔法效应自卫。不过它们根本威胁不到我——我的奥术力量远远胜过那股似乎占据着它们的潜藏魔力。
 
-附身……看起来几乎就是这么回事。这些水晶并非自然形成。我打碎了一些进行研究，其材质结构与我见过的任何东西都截然不同。我甚至在学院研究过夏·图尔遗物，而这绝对是另一种东西。真是令人着迷！
+占据……看上去几乎就是这么回事。这些水晶并非天然产物。我敲碎了一些加以研究，发现这种材质本身的结构，与我见过的任何材质都截然不同。我甚至在学院研究过夏·图尔遗物，而这绝对是截然不同的东西。实在迷人！
 ]], "_t")
-t("research journal part 3", "研修旅行笔记 3", "_t")
+t("research journal part 3", "研究日志（三）", "_t")
 t([[Earth, water, fire, air - these are the elements we forge our magic with, and all of these I have seen manifested in the crystals here. But there is something else, something different... There are dark crystals here which seem to posses some new, destructive element - a very twisting of the nature of the other elements, warping them into malign designs.
 
 Why have I never seen this before?! I must study it, I must understand it - I must comprehend its very nature and hold its power in my own hands... The thirst for knowledge is all-consuming!
 
-I shall name this new element "blight".]], [[土、水、火、气——这些通常是我们用来召唤魔法的元素，并且这里的水晶体都有类似的体现。但是，这里也有一些其他的，完全不同的——那些黑水晶似乎是由新的破坏性元素构成——一种非常反常的元素，将那些水晶整个扭曲了。
+I shall name this new element "blight".]], [[土、水、火、气——我们以这四种元素铸就魔法，而它们都在这里的水晶中显现出来。但其中还有某种别的、截然不同的东西……这里的黑色水晶似乎蕴含一种全新而极具破坏性的元素。它扭曲了其他元素的本质，使其化为有害而邪异的形态。
 
-为什么我之前没有见过？！我必须研究它，我必须弄明白——我必须了解它的特性并将它控制在我的手里……我的求知欲燃烧起来了！
+为什么我过去从未见过它？！我必须研究它，必须理解它——我必须彻底参透它的本质，把它的力量掌握在自己手中……对知识的渴求吞没了一切！
 
-我将新元素命名为“枯萎”。]], "_t")
-t("research journal part 4", "研修旅行笔记 4", "_t")
+我要把这种新元素命名为“枯萎”。]], "_t")
+t("research journal part 4", "研究日志（四）", "_t")
 t([[I can see it now, I can see so clearly... The forces at work here are not of this world. They are a result of the Spellblaze, from the tearing of the fabric of our world. And from outside that fabric... something else, something truly powerful, trying to force its way in. I feel I can almost reach out and touch it! Such awesome power it is... could this even rival the renowned powers of the Sher'Tul?
 
 The crystals are a corruption of the elements of Maj'Eyal. These outside forces are changing the very make-up of the matter of our world. This cavern is truly a garden of delights, a font of growth and energy. Who knows how far this garden of wonders could spread if we encourage it more? Perhaps the whole of our world could be enveloped in this scintillating glory, a grand corruption for all Eyal!
 
-I have begun to train myself in controlling this "blight". It takes much energy, draining my very vim, but I can feel the tremendous power behind it. I must tap into it more...]], [[我现在看见了，看得如此清晰……这里运作的力量并不属于这个世界。它们是魔法大爆炸造成的结果，源自我们世界结构的撕裂。而在那层结构之外……有某种别的东西，某种真正强大的存在，正试图强行闯入。我觉得自己几乎能伸手触碰到它！何等惊人的力量……这甚至能与夏·图尔闻名于世的力量匹敌吗？
+I have begun to train myself in controlling this "blight". It takes much energy, draining my very vim, but I can feel the tremendous power behind it. I must tap into it more...]], [[我如今看见了，看得如此清楚……在这里运作的力量并不属于这个世界。它们源自魔法大爆炸，源自我们世界织构上被撕开的伤口。而在织构之外……另有某种真正强大的力量，正试图强行挤进来。我几乎觉得自己伸手就能触碰到它！何等可畏的力量……它甚至能与夏·图尔闻名于世的伟力抗衡吗？
 
-这些水晶是马基·埃亚尔诸元素的腐化产物。外界力量正在改变我们世界物质的根本构成。这座洞穴真是一座令人愉悦的花园，是生长与能量的源泉。若是我们进一步促进它，谁知道这座奇迹花园能扩展多远？也许整个世界都会笼罩在这闪耀的荣光之中，让整个埃亚尔迎来一场宏伟的腐化！
+这些水晶是马基·埃亚尔诸元素遭到腐化的产物。来自世界之外的力量正在改变我们这个世界中物质本身的构成。这座洞穴真是一片愉悦的花园，是生长与能量的源泉。若再推它一把，谁知道这座奇迹花园能蔓延多远？也许整个世界都能被这闪耀的荣光包裹，让整个埃亚尔迎来一场宏伟的腐化！
 
-我正在尝试控制“枯萎”元素。它需要很多能量，我体内的活力正在不断的流失，但是我可以感受到它隐藏着的巨大能量。我必须更加深入的了解它……]], "_t")
-t("research journal part 5", "研修旅行笔记 5", "_t")
+我已经开始训练自己控制这种“枯萎”。这会消耗大量力量，甚至不断抽干我的活力值，但我能感受到它背后的无穷威能。我必须从中汲取更多……]], "_t")
+t("research journal part 5", "研究日志（五）", "_t")
 t([[I sought to reach out and touch the abyss, but I found it touched me first... I have been blessed, I have been fully awoken!
 
 There is a wonder here, a wonder beyond all else I have ever seen. A crystal of amazing intricacy and beauty, with a halo of power that echoes of the original energies of the Spellblaze. All the power that our ancestors unlocked, mixed with the glorious corruption that it triggered. What beauty - what tremendous beauty!
 
 I felt it touch me, I felt it reach into my heart and imbue me with its strength. I stood entranced as its energy flowed into me. Oh how the blood now courses through my veins! Blood corrupted with true power!
 
-I see now the path that lies before me. The Spellblaze was not a curse, it was a blessing. I must open our people's eyes to the glory that our race has unlocked! I shall bring the wonders of this corruption to the whole world!]], [[我寻找联系核心的方法，但我发现它之前就已经……我已被赐福，我已经被唤醒。
+I see now the path that lies before me. The Spellblaze was not a curse, it was a blessing. I must open our people's eyes to the glory that our race has unlocked! I shall bring the wonders of this corruption to the whole world!]], [[我试图伸手触碰深渊，却发现是深渊先触碰了我……我得到了赐福，我已经彻底觉醒！
 
-这是一个奇迹，一个我所见过的最罕见的奇迹。一块结构精致、绚丽多彩的水晶，并且身上还环绕着魔法大爆炸产生的能量光环。我们祖先所开启的能量触发了新的堕落元素。真是漂亮——漂亮极了！
+这里有一件奇迹，远胜我生平所见的一切。一块结构精妙、无比美丽的水晶，周围笼罩着力量的光晕，仿佛仍残留着魔法大爆炸最初的能量。我们祖先所解放的全部力量，与它引发的荣耀腐化交融在一起。何等美丽——何等惊人的美丽！
 
-我能感觉到它在触摸我，我能感到它钻进我的心底向我灌输它的力量。当它把能量灌输给我时，我兴高采烈的站在原地。啊，我热血沸腾了！血液被真正的能量所同化！
+我感觉它触碰了我，感觉它探入我的心脏，将它的力量灌注进我的身体。当能量流入体内时，我入迷地站在原地。哦，如今鲜血在我的血管中奔涌！被真正力量腐化的鲜血！
 
-我看到了未来的道路。魔法大爆炸不是诅咒，它是一种祝福。我必须使人们正视我族开启的荣耀！我将把这堕落的奇迹带给世界！]], "_t")
-t("exploration journal", "探险笔记", "_t")
+我终于看清了前方的道路。魔法大爆炸不是诅咒，而是赐福。我必须让族人睁开双眼，看见我族所释放的荣耀！我要把这腐化的奇迹带给整个世界！]], "_t")
+t("exploration journal", "探索日志", "_t")
 t([[#{italic}#10th Mirth, Year 122 of the Age of Ascendancy#{normal}#
 The council has seen fit to allow me to investigate the scintillating caverns after that Rhaloren madman started raving on the streets about how someone had "befouled" them... I do not see any such befoulment, but neither do I see the moving crystals this place was rumoured to have. There are oddly misplaced crystal shards, which seem to have sheared off of something larger, but hardly anything spectacular.
 
@@ -19346,14 +19346,14 @@ The council has seen fit to allow me to investigate the scintillating caverns af
 It's strange, really.. from the fragments I've been able to find, they seem to adhere to the ethereal geometry of magics - the red fragments seem to be pieces of fire magic from their geometry; the blue adheres to water, etc... there also seem to be pieces of deformed crystal, as though some terrible power warped whatever colour some of these crystals used to be into something they were never intended to be - is this the "befoulment" the madman raved about?
 
 #{italic}#3rd Summertide, Year 122 of the Age of Ascendancy#{normal}#
-Well... that was certainly unexpected. There may be some truth to the rumours that these crystals can move about, or at least that they have some will of their own - I was just about to finish my investigation of the caves, when in the very last part of the cave I hadn't yet explored, I saw what appeared to be two giant... legs, growing from the cavern. I was immediately overcome by feelings of fear and malice, and not my own - that crystal sent them to me, that I was unwelcome here, that it was not yet finished. I dare not tell the council of my cowardice, so I shall... invent a more fitting report in a much safer place. If some wayward adventurer finds these notes, it is my surmise that whomever destroyed the original crystals left such a strong impression of strength and will that the rudimentary intelligence governing them decided the form of its destroyer was stronger than the original, crystalline shapes.]], [[#{italic}#卓越纪，122年狂欢月10日#{normal}#
-那个罗兰精灵疯子开始在街头叫嚷，说有人“污染”了闪光洞穴，随后议会终于决定准许我前来调查……我看不出这里有任何这样的污染，却也没有见到传闻中会移动的水晶。这里只有一些位置古怪的水晶碎片，似乎从某个更大的物体上断裂下来，实在没什么惊人之处。
+Well... that was certainly unexpected. There may be some truth to the rumours that these crystals can move about, or at least that they have some will of their own - I was just about to finish my investigation of the caves, when in the very last part of the cave I hadn't yet explored, I saw what appeared to be two giant... legs, growing from the cavern. I was immediately overcome by feelings of fear and malice, and not my own - that crystal sent them to me, that I was unwelcome here, that it was not yet finished. I dare not tell the council of my cowardice, so I shall... invent a more fitting report in a much safer place. If some wayward adventurer finds these notes, it is my surmise that whomever destroyed the original crystals left such a strong impression of strength and will that the rudimentary intelligence governing them decided the form of its destroyer was stronger than the original, crystalline shapes.]], [[#{italic}#卓越纪122年狂欢月10日#{normal}#
+那个罗兰精灵疯子走上街头大喊大叫，声称有人“玷污”了闪光洞穴，长老会这才认为应该准许我前来调查……我没看出这里有任何所谓的玷污，但也没有见到传闻中会移动的水晶。只有一些位置古怪的水晶碎片，像是从某个更大的东西上断裂下来的，实在称不上惊人。
 
-#{italic}#卓越纪，122年夏殇2日#{normal}#
-真奇怪，真的……从那些我找到的水晶碎片来看，这些碎片似乎曾经附着空气中的魔法元素——红色的碎片似乎附着火元素，蓝色的则附着水元素等等……这里也有些水晶体，似乎被某种力量扭曲过了，总之，不是自然形成的水晶——难道这就是那些疯子所胡言乱语的东西？
+#{italic}#卓越纪122年夏殇2日#{normal}#
+说来确实奇怪……从我找到的碎片判断，它们似乎都遵循魔法那无形的几何结构：以形态来看，红色碎片似乎是火焰魔法的一部分，蓝色则对应水，诸如此类……此外还有一些畸变的水晶碎片，仿佛某种可怕力量把这些水晶原有的颜色与元素属性扭成了绝不应有的形态——这就是那个疯子叫嚷的“玷污”吗？
 
-#{italic}#卓越纪，122年夏殇3日#{normal}#
-好吧……这可真是出乎意料。关于这些水晶能够移动，或者至少拥有某种自身意志的传闻，或许确有几分真实——当时我正要完成洞穴调查，却在最后一个尚未探索的区域看见了两条仿佛从洞穴中长出的巨大……双腿。我立刻被并不属于自己的恐惧与恶意淹没；是那块水晶把这些感受传给了我：这里不欢迎我，它还没有完成。我不敢把自己的怯懦告诉议会，所以我会……去一个安全得多的地方，编造一份更体面的报告。如果有哪位迷路的冒险者发现这些笔记，我推测，摧毁最初那些水晶的人展现出的力量与意志给它们留下了极其深刻的印象，以至于支配水晶的初级意识认定，毁灭者的形态比它们原本的水晶形态更加强大。]], "_t")
+#{italic}#卓越纪122年夏殇3日#{normal}#
+好吧……这可真是出乎意料。水晶能够移动的传闻或许确有几分真实，至少它们似乎拥有自己的意志——我正要结束洞穴调查，却在最后一处尚未探索的角落里，看见两条巨大的……腿，仿佛正从洞穴中生长出来。恐惧与恶意顿时淹没了我，可那不是我的情绪——是水晶把它们送进我心里，告诉我这里不欢迎我，也告诉我它的形态尚未完成。我不敢向长老会坦白自己的怯懦，所以还是……到安全得多的地方，编一份更体面的报告吧。若有哪位四处游荡的冒险者发现这些笔记，我的推测是：摧毁原有水晶的某个存在，以其力量与意志留下了无比深刻的印象，于是支配水晶的原始意识认定，毁灭者的形态比原本的水晶形态更加强大。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/shertul.lua"

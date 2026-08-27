@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-texts-b42-001",
+  "component": "tome",
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "workset": "evidence/quality/p2-batches/p2-tome-texts-b42-lore-small-dungeons.json",
+  "sections": [
+    "mod-tome/data/lore/maze.lua",
+    "mod-tome/data/lore/noxious-caldera.lua",
+    "mod-tome/data/lore/old-forest.lua",
+    "mod-tome/data/lore/rhaloren.lua",
+    "mod-tome/data/lore/sandworm.lua",
+    "mod-tome/data/lore/scintillating-caves.lua"
+  ],
+  "scope": {
+    "pairs": 50,
+    "targets_changed": 42,
+    "changed_by_section": {"maze":5,"noxious-caldera":6,"old-forest":7,"rhaloren":7,"sandworm":5,"scintillating-caves":12},
+    "invariants": "All source keys, source_tag values, parameter metadata, markup, placeholders and target newline counts were preserved. Out-of-scope sections remained unchanged."
+  },
+  "substantive_repairs": [
+    "Maze: young-mage chronology, Probability Travel warning, horned-beast trap mechanics and deliberately broken death note",
+    "Noxious Caldera: one traveller's progressive reality collapse, hallucination imagery, headache/terrain causality and natural Chinese prose",
+    "Old Forest: Darwood Oakton's Sher'Tul research chronology, lake ruin expedition, damaged final note and document register",
+    "Rhaloren and Sandworm: faction propaganda, intimate-letter pronouns, Spellhunt/Charred Scar anchors, poem imagery and speaker reversal",
+    "Scintillating Caves: farportal provenance, elemental/blight/vim research chain, corruption mechanics and the later investigator's deductions"
+  ],
+  "review": {
+    "contract": "translation_contextual_v1",
+    "parallel_lanes": 4,
+    "max_fix_cycles": 10,
+    "fix_cycles_used": 3,
+    "process_adjustment": "After repeated newline-only observations, the reviewer prompt explicitly excluded source/target paragraph-layout differences unless an independent semantic defect could be fixed without changing frozen target newline counts. Later full reviews used medium reasoning while retaining full coverage.",
+    "declined": "Pure newline/paragraph restructuring observations for b42-03, b42-16, b42-20, b42-27 and b42-35 were declined; they did not imply semantic loss and target newline counts were frozen.",
+    "final_reviews": [
+      {"dispatch":"cycle3-a","candidate_identity":"b237abce46e733d0aa72c12b6a6c31061afb806b3d91a403141e4946f31f9045","revisions":13,"result":"PASS"},
+      {"dispatch":"cycle3-b","candidate_identity":"c05db03cdc9d9089ba261aaa5c7dc4fd9025b3a7bed89c483067d7503c11d8b6","revisions":10,"result":"PASS"},
+      {"dispatch":"cycle3-c","candidate_identity":"087f48a333363564cb26a2a58044e22944ff90e88ba4c24b200672560ee6e569","revisions":14,"result":"PASS"},
+      {"dispatch":"cycle3-d","candidate_identity":"b7a27577eae78d8c22b755569e8169f45c11ba0c1abea182a737f628aa764fd0","revisions":13,"result":"PASS"}
+    ],
+    "result": "All 50 revisions passed the final four-lane full contextual review."
+  },
+  "gates": {
+    "five_step": "PASS",
+    "toolchain_unittests": "465 tests PASS",
+    "ci_gates": "12/12 PASS incl. core addon strict build",
+    "lint": "30308 translations, 0 errors, 0 warnings",
+    "runtime_collisions": 0,
+    "diff": "mod-tome.lua 142 insertions / 142 deletions; 42 target values changed"
+  },
+  "open_items": []
+}
