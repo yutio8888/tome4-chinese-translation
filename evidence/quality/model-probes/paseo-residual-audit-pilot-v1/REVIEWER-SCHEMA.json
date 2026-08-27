@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["revisions"],
+  "properties": {
+    "revisions": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["revision_id", "verdict", "observation", "evidence"],
+        "properties": {
+          "revision_id": {"type": "string", "pattern": "^H\\d{3}$"},
+          "verdict": {"type": "string", "enum": ["OK", "FINDING", "UNCERTAIN"]},
+          "observation": {"type": "string", "minLength": 1},
+          "evidence": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

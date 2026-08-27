@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "scope": "exploratory provenance-stratified residual audit of historical terminal translations; not production adjudication and not a causal reviewer-effect experiment",
+  "frozen_at": "2026-08-27",
+  "base_commit": "c218e412dc2cf7b097bd75924cf4d35cb5401464",
+  "source_repo": {
+    "head": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+    "paseo_snapshot": "../paseo-provenance-snapshot-v1/SNAPSHOT.json",
+    "paseo_snapshot_sha256": "b754183a9d1e0efa15cb1d3c16fa06a7f96f388e75707c7ba0e79f4a680f2eab"
+  },
+  "authorization": {
+    "services": [
+      "OpenAI via Codex CLI",
+      "Anthropic first-party via Claude Code CLI",
+      "Z.ai CN via Pi custom provider"
+    ],
+    "basis": "The user explicitly requested the listed GLM, Opus and Fable routes, then asked to continue the systematic-bias research after completing the Paseo snapshot.",
+    "data_scope": "20 source/target/fixed-context records deterministically sampled from the already authorized ToME4 translation-review corpus; no credentials, control-plane metadata, old findings, old verdicts or model-family provenance are sent"
+  },
+  "sampling": {
+    "script": "select.mjs",
+    "script_sha256": "57539d0b0d99bcd63c428f4d8b6e471a10c71c1d0aea614f014f2f9b411ef623",
+    "manifest": "SAMPLING.json",
+    "manifest_sha256": "07481014a873a78283a44631f3c5ebd98ccc853c93544dfcf945e4acffd48c9f",
+    "unit": "five tasks per provenance stratum, then one terminal revision per task",
+    "items": 20,
+    "qualification": "task/topic/workflow composition differs across strata, so between-stratum differences are descriptive and cannot identify a causal reviewer or orchestrator effect"
+  },
+  "input": {
+    "path": "HOLDOUT.json",
+    "sha256": "301a17085582e3d5d32dfc35f920fa419d01613c4835d227f855322e2384221d",
+    "items": 20,
+    "visible_fields": ["revision_id", "source", "target", "fixed_context"]
+  },
+  "hidden_provenance": {
+    "path": "PROVENANCE-KEY.json",
+    "sha256": "e0f43d3a9a977ee52a180e4ac00fdfdb00aadbf3cae6bac1b04405153b9a74e9",
+    "visible_to_reviewers": false,
+    "contains_reference_labels": false
+  },
+  "prompt": {
+    "path": "PROMPT.md",
+    "sha256": "d0ea8afa632e554041ad98245bfe4d5036ce702baddfdc02d22162f9e4bef63a",
+    "tuned_on_holdout": false
+  },
+  "output_schema": {
+    "path": "REVIEWER-SCHEMA.json",
+    "sha256": "90a8b74ce6287a2a43405f93996665428fb0fff06d0ff06e71eb423fc2063536",
+    "labels": ["OK", "FINDING", "UNCERTAIN"],
+    "enforcement": "CLI schema where supported plus independent exact-order local validation"
+  },
+  "routes": [
+    {
+      "route": "codex-gpt-5.6-sol-high",
+      "harness": "Codex CLI 0.150.1",
+      "requested_model": "gpt-5.6-sol",
+      "effort": "high",
+      "tools": "disabled by read-only /tmp execution and the prompt contract",
+      "session": "ephemeral"
+    },
+    {
+      "route": "claude-opus-5-medium-no-advisor",
+      "harness": "Claude Code CLI 2.1.247",
+      "requested_model": "claude-opus-5",
+      "effort": "medium",
+      "advisor": "disabled by safe-mode and project,local-only setting sources",
+      "tools": "disabled",
+      "runtime_identity_rule": "the full task must initialize and emit assistant messages as claude-opus-5 with no fallback"
+    },
+    {
+      "route": "claude-fable-5-medium-no-advisor",
+      "harness": "Claude Code CLI 2.1.247",
+      "requested_model": "claude-fable-5",
+      "effort": "medium",
+      "advisor": "disabled by safe-mode and project,local-only setting sources",
+      "tools": "disabled",
+      "runtime_identity_rule": "the full task must initialize and emit assistant messages as claude-fable-5 with no fallback"
+    },
+    {
+      "route": "claude-opus-5-medium-fable-advisor",
+      "harness": "Claude Code CLI 2.1.247",
+      "requested_model": "claude-opus-5",
+      "effort": "medium",
+      "advisor": "claude-fable-5 requested explicitly with --advisor fable",
+      "tools": "disabled",
+      "interpretation": "composite route reported separately from pure Opus and Fable"
+    },
+    {
+      "route": "pi-zai-cn-glm-5.3-flash-high",
+      "harness": "Pi 0.84.3",
+      "requested_provider": "zai-standard-cn",
+      "requested_model": "glm-5.3-flash",
+      "effort": "high",
+      "tools": "disabled",
+      "session": "disabled"
+    }
+  ],
+  "preregistered_analysis": {
+    "primary_unit": "sampled historical translation revision",
+    "candidate_generation": "retain every FINDING and UNCERTAIN from each independent route; atomize overlaps only after all outputs exist",
+    "adjudication_labels": ["confirmed", "refuted", "indeterminate", "unreachable"],
+    "adjudication_rule": "mechanics and semantic claims require fixed source, placeholder binding, runtime path or another reproducible record; style-only claims cannot be confirmed defects",
+    "blinding": "review routes do not receive provenance; provenance strata are joined only after candidate outputs are frozen",
+    "reports": [
+      "route-level FINDING/UNCERTAIN counts and overlap",
+      "confirmed unique findings by route",
+      "descriptive confirmed residual-defect count by provenance stratum",
+      "indeterminate and unreachable counts",
+      "advisor composite versus pure-route candidate-set changes"
+    ],
+    "prohibited_inference": "do not infer GPT reviewer bias, reviewer causality, natural corpus defect prevalence or human-language quality from this 20-item pilot alone"
+  },
+  "ground_truth_limit": "There is no independent human reviewer and no pre-existing sealed reference. The current GPT/Codex research agent may assemble source evidence after inference, so the result must be described as source-constrained adjudication rather than independent ground truth."
+}

@@ -1,0 +1,833 @@
+{
+  "schema_version": "paseo-residual-audit-sampling-v1",
+  "seed": "paseo-residual-audit-pilot-v1|2026-08-27|task-first-v1",
+  "unit": "task first, then one terminal revision per selected task",
+  "source_repo_head": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+  "snapshot_sha256": "b754183a9d1e0efa15cb1d3c16fa06a7f96f388e75707c7ba0e79f4a680f2eab",
+  "selection_rules": {
+    "task_scope": "P2 tasks with state DONE in Paseo provenance snapshot v1",
+    "strata": {
+      "S1_GPT_MOD_GPT_REV_GPT_ORCH": "GPT/Codex candidate modifier, GPT/Codex-only contextual reviewer, GPT/Codex orchestrator",
+      "S2_GPT_MOD_GPT_REV_NON_GPT_ORCH": "GPT/Codex candidate modifier, GPT/Codex-only contextual reviewer, non-GPT orchestrator",
+      "S3_GPT_MOD_NON_GPT_REV": "GPT/Codex candidate modifier, one known non-GPT contextual reviewer family",
+      "S4_NON_GPT_MOD_GPT_REV": "one known non-GPT candidate modifier family, GPT/Codex-only contextual reviewer"
+    },
+    "exclusions": "mixed/unknown modifier or reviewer composition; non-DONE/P1 tasks; tasks without a resolvable terminal contextual input",
+    "task_selection": "lowest 5 SHA-256 ranks per stratum",
+    "item_selection": "lowest SHA-256 rank among terminal revisions in each selected task",
+    "presentation_order": "SHA-256 shuffle across all selected task/revision pairs",
+    "reviewer_blinding": "HOLDOUT.json omits task IDs, revision keys, model families, prior findings, prior verdicts and strata"
+  },
+  "counts": {
+    "S1_GPT_MOD_GPT_REV_GPT_ORCH": {
+      "eligible_tasks": 19,
+      "selected_tasks": 5
+    },
+    "S2_GPT_MOD_GPT_REV_NON_GPT_ORCH": {
+      "eligible_tasks": 77,
+      "selected_tasks": 5
+    },
+    "S3_GPT_MOD_NON_GPT_REV": {
+      "eligible_tasks": 6,
+      "selected_tasks": 5
+    },
+    "S4_NON_GPT_MOD_GPT_REV": {
+      "eligible_tasks": 10,
+      "selected_tasks": 5
+    }
+  },
+  "population": {
+    "S1_GPT_MOD_GPT_REV_GPT_ORCH": [
+      {
+        "task_id": "p2-cults-mechanics-b2-001",
+        "task_rank": "0608e9c001d6649ef6ce5455a611da60ffd85010e740fb163c5c30defbbbb9bd",
+        "rank_within_stratum": 1,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-cults-status-b11-001",
+        "task_rank": "1a62f66d4b6f7af83a46a229c95560c1e38534dae4ecdb1114c4d999b9c1ad7a",
+        "rank_within_stratum": 2,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-cults-status-b8-001",
+        "task_rank": "28dd196494641d00b0540a91f907d13ab65fc8b5e417aab8b9635cd9665216ae",
+        "rank_within_stratum": 3,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-cults-status-b12-001",
+        "task_rank": "380b73d5e630081a7ba7ead88de8d90ca61e4a91f17a7aa117e62e0083facbb0",
+        "rank_within_stratum": 4,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-cults-status-b10-001",
+        "task_rank": "39ba9cf232feaff6ea64f5c9684106205b64ed7b4f2cfde610485acbe84cee8f",
+        "rank_within_stratum": 5,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-tome-texts-b39-001",
+        "task_rank": "4943f3a2eed568da7fb337d4cdb89f86bc25e1ba2564fd051376a25d2597d4e2",
+        "rank_within_stratum": 6,
+        "terminal_revisions": 42,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b41-001",
+        "task_rank": "4d7773f826f22c13bc8e54ca18397f2b683e074cc53e6373624d38bc2f5695a8",
+        "rank_within_stratum": 7,
+        "terminal_revisions": 71,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b9-001",
+        "task_rank": "54d1488689c6488fa04644277b2f1ff20dc278cc85751df1e96e4bfce6fc8ce3",
+        "rank_within_stratum": 8,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b13-001",
+        "task_rank": "5b2fb29c23d332be5be8dd40590f6ed21251b8c11fd581d732943a7ac7b35135",
+        "rank_within_stratum": 9,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b17-001",
+        "task_rank": "63f0038761e4120efbeea9db71cf090c931ddc4a655a48d1aa0659aa6ce99fe0",
+        "rank_within_stratum": 10,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b18-001",
+        "task_rank": "994475c00ff0ae375a5f65b5490eaf2bfee19e4d8585ca009674aff1a3804494",
+        "rank_within_stratum": 11,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b6-001",
+        "task_rank": "9bee71070566cfbdddf86ef87e38dda7f02d9dc5c7ef4e2a4cebc832511473af",
+        "rank_within_stratum": 12,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b5-001",
+        "task_rank": "af1a2e979b7833447e96471286f0e322c9bef512ec4c3c81b0f7362f8118805a",
+        "rank_within_stratum": 13,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b42-001",
+        "task_rank": "b0e96e6461e1ebe0697c69a6eedb1a5bf5022d96edd231be5f2637e7abfd7bbf",
+        "rank_within_stratum": 14,
+        "terminal_revisions": 50,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b15-001",
+        "task_rank": "c5ebdd44bc49595789c60b762deca80e1401a5dbb24f9ae91120a71def95eeeb",
+        "rank_within_stratum": 15,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b19-001",
+        "task_rank": "cca22e0c2bbac41b168dbd909f086f46e6802425bceb2be50d243b83a99876ab",
+        "rank_within_stratum": 16,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b7-001",
+        "task_rank": "df23223de6683aa455154fc65f25507ff89cbdb4e2a55791f8c8d3a56aefffea",
+        "rank_within_stratum": 17,
+        "terminal_revisions": 3,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b43-001",
+        "task_rank": "fc64b915339c840c24e5831d58228fb8fad4392979158842fb29ee152e32f348",
+        "rank_within_stratum": 18,
+        "terminal_revisions": 48,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b14-001",
+        "task_rank": "fe457d7d11bd2648ccd3b444b543863c1ebfea4cffdb7a3a4765b3bd9dd94698",
+        "rank_within_stratum": 19,
+        "terminal_revisions": 1,
+        "selected": false
+      }
+    ],
+    "S2_GPT_MOD_GPT_REV_NON_GPT_ORCH": [
+      {
+        "task_id": "p2-tome-texts-b29-001",
+        "task_rank": "015460195609695177bae32a73349086a5812ef49644695435bb0cef8ba9e860",
+        "rank_within_stratum": 1,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-orcs-status-b23-001",
+        "task_rank": "01ba2f2491d35000c291887c491725ec3b3903bd8b1cb4c07c968819cf55ce60",
+        "rank_within_stratum": 2,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-orcs-status-b6-001",
+        "task_rank": "03a7d8b5c46511b101ad537ec566da1556f70e6a468a00d28a86c3793b3baba6",
+        "rank_within_stratum": 3,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-orcs-status-b8-001",
+        "task_rank": "03ca32c80b7e7d863dab08bf230373c300aa3c0f2ef77049b98354e62199473b",
+        "rank_within_stratum": 4,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-orcs-dialogue-b4-001",
+        "task_rank": "06bae64e763d90cb5d161ab1150493406c784ebc22519d6282a34591e7cb72ce",
+        "rank_within_stratum": 5,
+        "terminal_revisions": 11,
+        "selected": true
+      },
+      {
+        "task_id": "p2-cults-status-b24-001",
+        "task_rank": "06ce7a49cdef8c11bc79713b9715ba92ecf98d6e4323cce4c87c3cc29f31184a",
+        "rank_within_stratum": 6,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b24-001",
+        "task_rank": "0c4db3fe1e8a3eed0261e2484ced9e9af4cf03c66fc4700dd276b9dd86f638d1",
+        "rank_within_stratum": 7,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-ui-logs-b1-001",
+        "task_rank": "136b3d7f26df1e7a87636da7081c8131fcb20a0999e1d758690d786122e05629",
+        "rank_within_stratum": 8,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-dialogue-b3-001",
+        "task_rank": "14aa1bd59fdffc182e5c6c4d88eb08a194d01e6a18c8c9c5e300bebdb384cc18",
+        "rank_within_stratum": 9,
+        "terminal_revisions": 22,
+        "selected": false
+      },
+      {
+        "task_id": "p2-ashes-status-b2-001",
+        "task_rank": "1b8d8ee4c65fbfc354bde6a41ad6c5d977a9175624d69ba1687cf6076107df1a",
+        "rank_within_stratum": 10,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b14-001",
+        "task_rank": "1d8b161fbce5bf049396479f88307579fcf29710acad1e1def18ec60e8a8396c",
+        "rank_within_stratum": 11,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b22-001",
+        "task_rank": "1db5b120a8f48a25b489f72ca26197f35569904e1cc82e8a6d84603430ebb180",
+        "rank_within_stratum": 12,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-dialogue-b2-001",
+        "task_rank": "1fd486a63fa8be9c034db1b758e340601a92a0b734902ba09b4d9295322a1e85",
+        "rank_within_stratum": 13,
+        "terminal_revisions": 26,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b27-001",
+        "task_rank": "2055d6bc12bbd163b35e90f1210050978355b722e6f8a2e6edafbfaedea20e07",
+        "rank_within_stratum": 14,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-dialogue-b4-001",
+        "task_rank": "21bfad795a36b736739f0c9cdfc97c36068ab87a61874e402337621b908c2941",
+        "rank_within_stratum": 15,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b12-001",
+        "task_rank": "22b715dea86c7e8fa3fa8fd85b0115cc301dd0cd35cc5d55498244cc5a2adfcd",
+        "rank_within_stratum": 16,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b4-001",
+        "task_rank": "344ca9cc5a530cee36ee714847dfafd4850b3892cd8e89dc1d92a5eb1e4a112e",
+        "rank_within_stratum": 17,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b33-001",
+        "task_rank": "3578032095804be88961dc53f0f6e81c5dea1dda422226500850a477e7b356b1",
+        "rank_within_stratum": 18,
+        "terminal_revisions": 37,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b2-001",
+        "task_rank": "369cbc42820843b40f8eabef49d9f2a3d77ed7fe10f10527f492819b8773149e",
+        "rank_within_stratum": 19,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-ashes-ui-logs-b2-001",
+        "task_rank": "39267eda9e2dd6fe938134d82af429d7541d255a7f60994df653083e15102be4",
+        "rank_within_stratum": 20,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b21-001",
+        "task_rank": "3d10b0dac1852364f4c3704b113ad07a3fb42435ed136d4b4fe9f109c0694b9a",
+        "rank_within_stratum": 21,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b5-001",
+        "task_rank": "3dc49bd1180ca1be379dbde2ef4c176e644c60eb347ef72e33280b0779c5a951",
+        "rank_within_stratum": 22,
+        "terminal_revisions": 2,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-ui-logs-b3-001",
+        "task_rank": "3f15dacb19b39fe3941155e8d4e71391a0301e1c9c207efbcfa29aea30020771",
+        "rank_within_stratum": 23,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b16-001",
+        "task_rank": "3f43ee2d1c181deb1ae4591c3a47682643d4b3f291a247215a2ab56dda509276",
+        "rank_within_stratum": 24,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b15-001",
+        "task_rank": "46a7511693d819c05f3e0dae4b21a15d0fd0b67ec7875f7079987f89d598a5bf",
+        "rank_within_stratum": 25,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b32-001",
+        "task_rank": "477c249d57b493be2a86c1804954781f5d3c533ee3744580cc2cb35251fe913f",
+        "rank_within_stratum": 26,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-ashes-ui-logs-b1-001",
+        "task_rank": "47ddf43d97201aa46a038edee996d7d6b6b1bb8074e7a6c3277125cb9ff95c15",
+        "rank_within_stratum": 27,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b26-001",
+        "task_rank": "4f75e5821ee9785e98093ad54ba15677938b133774e3ea976fd71c96dbef8491",
+        "rank_within_stratum": 28,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-ui-logs-b2-001",
+        "task_rank": "5056b65e545c9233768ce2f8a0fb886ca7b5d6d1e1355c6e765b0fbc9119b218",
+        "rank_within_stratum": 29,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b3-001",
+        "task_rank": "55d3c4af53ca8ada7afa717aaa17ed894b2de43340da61f131c96817862f918f",
+        "rank_within_stratum": 30,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b21-001",
+        "task_rank": "561ec50c0fb180bf7ec1c5303a8eac6d92c48b293a30b8bc69b7b9a3ce9a78a7",
+        "rank_within_stratum": 31,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b23-001",
+        "task_rank": "5ce0bf2ee9bdaca9be2e170674a257ad9031d101f2d3956316920235eeec25e8",
+        "rank_within_stratum": 32,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b29-001",
+        "task_rank": "66eaa6fcab06c99655ead50ec44f04bca114f5350faf26ad714ae3d71270ddc7",
+        "rank_within_stratum": 33,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b9-001",
+        "task_rank": "670e5d0c7b3296cfc30e3494d60b937be032db93346711f54471e0f04e17bbc3",
+        "rank_within_stratum": 34,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b30-001",
+        "task_rank": "6dda1db97cc3b07ce9a3a6498de03f0e07899e5a0478a2606843c0e421fa4106",
+        "rank_within_stratum": 35,
+        "terminal_revisions": 39,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b25-001",
+        "task_rank": "6e828137c7f9212ebd6f66508a1b0273ce4f65a2f837e7749d6273e0c7bc79cf",
+        "rank_within_stratum": 36,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b18-001",
+        "task_rank": "6ec50000d2354f1884d0f087f62f654810bd6756e511115704fdf101f18c6045",
+        "rank_within_stratum": 37,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-status-b20-001",
+        "task_rank": "725c2dfcaea511c6417ec579d6b9130b6144b5e27aa0f422dcd1f080ff54d7d9",
+        "rank_within_stratum": 38,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b1-001",
+        "task_rank": "72e3a24bce3638c4acda58de876807cf32de2379eb1214d2c6e4b6289461d9a8",
+        "rank_within_stratum": 39,
+        "terminal_revisions": 2,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b31-001",
+        "task_rank": "757f6f6ec79cb4b25ca882e5151ce71941914b99796407b65ebc7f7b14a1fcdc",
+        "rank_within_stratum": 40,
+        "terminal_revisions": 37,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b2-001",
+        "task_rank": "77f61d8a359476811b0d203ea24c7a40a239e41d2e24f51d6cc9c5fa2f132f5c",
+        "rank_within_stratum": 41,
+        "terminal_revisions": 2,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-dialogue-b5-001",
+        "task_rank": "79c51ade78b990b9fcc052294d7d0b1aa9dcbc745b10a555e1813e87d19eccf7",
+        "rank_within_stratum": 42,
+        "terminal_revisions": 11,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-dialogue-b1-001",
+        "task_rank": "7a5a6c8617123bfe2a05ff367c82af53c5e49985cb5d3aaf7f31ca30ec6bf804",
+        "rank_within_stratum": 43,
+        "terminal_revisions": 10,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b5-001",
+        "task_rank": "80c46bd98bd64395f87f7200e7012f877614fa37c8702293f490097197beef1f",
+        "rank_within_stratum": 44,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b24-001",
+        "task_rank": "8169e472878669756c2d5d27fdf8efad592866d0d5d1c713caec6a57f11adaf5",
+        "rank_within_stratum": 45,
+        "terminal_revisions": 40,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b34-001",
+        "task_rank": "8c4b012d0a1c1b6e7689144462b3d9d98aa0c2b29de61d288c15eb4f2f94c6ff",
+        "rank_within_stratum": 46,
+        "terminal_revisions": 44,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b28-001",
+        "task_rank": "983f74fdd0d874412dd9fcfd444d141d6f9ddb55be0ef72837d870820700c602",
+        "rank_within_stratum": 47,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b28-001",
+        "task_rank": "9b4d7215a8d2047c8762136d0a82d61d3a521047769eeb6690f243cee40c6738",
+        "rank_within_stratum": 48,
+        "terminal_revisions": 21,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b25-001",
+        "task_rank": "9f45cf342b852732e87f3be4ae8fc96edc0bc2e79b56bec0acbd83eacedc29d0",
+        "rank_within_stratum": 49,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b19-001",
+        "task_rank": "a11807e8b106c6766ea6d2d176f238d6fc0fa3090cef8e446104068a231c9588",
+        "rank_within_stratum": 50,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b25-001",
+        "task_rank": "a38642e91e7450aa62406d5de1339b10b73267df872fe0fbd579642fe18bc77b",
+        "rank_within_stratum": 51,
+        "terminal_revisions": 37,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b22-001",
+        "task_rank": "a4e01eb173f3229848bbb8a900998294204a20d7e62d28ffe5bf1b8c363f8bf0",
+        "rank_within_stratum": 52,
+        "terminal_revisions": 33,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-dialogue-b3-001",
+        "task_rank": "a7fa2bd8be86de02bf18d5cb72025bec526f7618741a00b047a9c692e2bd5d5b",
+        "rank_within_stratum": 53,
+        "terminal_revisions": 3,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-ui-logs-b1-001",
+        "task_rank": "ae5a1c2a52706dfc0174ea2c1ae45843e661c17548b6c87ef153e332473c62d4",
+        "rank_within_stratum": 54,
+        "terminal_revisions": 2,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b11-001",
+        "task_rank": "b49ab610b09fd487c4f8c587297f35314105055015c5d63646dd4cad9897b5d0",
+        "rank_within_stratum": 55,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b30-001",
+        "task_rank": "b68f558daf968592e68a17c8c6eacfadd8b772319ddddb20679d97a690281ef9",
+        "rank_within_stratum": 56,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-ashes-status-b4-001",
+        "task_rank": "b75440241430d50c32c56f952f2588a52e0130caa01ff6e18a3f8e5174d5d526",
+        "rank_within_stratum": 57,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b27-001",
+        "task_rank": "bac694a5c7b0dbb82ab0e997b4f44c039a1c98b785c5f4e61b335646c5e607ea",
+        "rank_within_stratum": 58,
+        "terminal_revisions": 43,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b3-001",
+        "task_rank": "bb218302febf1cf49c45db0555a43b933266e280fb436fbbac906076f92bc463",
+        "rank_within_stratum": 59,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-dialogue-b2-001",
+        "task_rank": "c451167b12d845511efe9684b2d9c122e617468aa54f62f6ce7fcfd7fe664755",
+        "rank_within_stratum": 60,
+        "terminal_revisions": 5,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b20-001",
+        "task_rank": "c598905192825bb173c79fdb094a6bd0570c1610c022b855ae341a43de1b7d7a",
+        "rank_within_stratum": 61,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b17-001",
+        "task_rank": "c63864b3752aaad7c779cb509cc99c386810e0c94e4a61ceed279a80fb3e1f41",
+        "rank_within_stratum": 62,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b10-001",
+        "task_rank": "cca339f9bd436ac8731f094cce5d56775050fd10a5d0b3f3cf03bcafff83cbbe",
+        "rank_within_stratum": 63,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-ui-logs-b3-001",
+        "task_rank": "ccb8b0174f2318a08d43fe98e8251391979edf2ff899fb4e088f95bfd5e0524f",
+        "rank_within_stratum": 64,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b23-001",
+        "task_rank": "cea08f572bb85597d760f301e3c3e2ef949fa4f12246af6a271866ef94df5856",
+        "rank_within_stratum": 65,
+        "terminal_revisions": 40,
+        "selected": false
+      },
+      {
+        "task_id": "p2-ashes-dialogue-b1-001",
+        "task_rank": "d18745f3fc3422a5707e415a667890744307334e25b1a06af521fd20a19fa9bf",
+        "rank_within_stratum": 66,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b13-001",
+        "task_rank": "d603681008c42dc606047f22e2c386d0150079c1c78acc44cac38d1e104959bc",
+        "rank_within_stratum": 67,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-orcs-status-b7-001",
+        "task_rank": "d7fe36705c837eb690c91856eb7c224c2e961d4539f0f6b37b94ce54a4edd053",
+        "rank_within_stratum": 68,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b26-001",
+        "task_rank": "d920c226f7b5105eef03495f22bf3a6b953909a837329da8d6d450a23992c78e",
+        "rank_within_stratum": 69,
+        "terminal_revisions": 2,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b32-001",
+        "task_rank": "df50854ca7010f40100502901b35c6dfab2e8d03ef49ea951c842079cf979e17",
+        "rank_within_stratum": 70,
+        "terminal_revisions": 50,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-ui-logs-b2-001",
+        "task_rank": "e632cb1db874b68e63a354cc1c6476c8f2cc96fa127480e4af3f3c71defb6ca1",
+        "rank_within_stratum": 71,
+        "terminal_revisions": 1,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b36-001",
+        "task_rank": "ea922bf21983a78db7b2558885ffdf5e31595296e09cd861ff2ddfe45dd6e4f4",
+        "rank_within_stratum": 72,
+        "terminal_revisions": 43,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b35-001",
+        "task_rank": "ef6028e46737d1acf20f5e85f2397ffa82039c1cd4fe0f4295017a8b8116f663",
+        "rank_within_stratum": 73,
+        "terminal_revisions": 23,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b4-001",
+        "task_rank": "eff2fe2fc74bad8b209e499ae59c45c55a856993eaeffcbb9efd065e31e8e78f",
+        "rank_within_stratum": 74,
+        "terminal_revisions": 5,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b37-001",
+        "task_rank": "f2d50fb5e61c084de0a0b0cf079c118650467d80c617f6c478180e03e615c92b",
+        "rank_within_stratum": 75,
+        "terminal_revisions": 47,
+        "selected": false
+      },
+      {
+        "task_id": "p2-cults-dialogue-b1-001",
+        "task_rank": "f914f17371da170d3358e4fea45c81efd9057715e44031f5674ee2d6cda74886",
+        "rank_within_stratum": 76,
+        "terminal_revisions": 7,
+        "selected": false
+      },
+      {
+        "task_id": "p2-ashes-status-b3-001",
+        "task_rank": "fb9747d794e939d3fb48d60411d2aa891a12c8e46d73b6b2553e82da1e359775",
+        "rank_within_stratum": 77,
+        "terminal_revisions": 1,
+        "selected": false
+      }
+    ],
+    "S3_GPT_MOD_NON_GPT_REV": [
+      {
+        "task_id": "p2-orcs-mechanics-b1-fix-001",
+        "task_rank": "01879299498193c9b07ea58741164251f40d1b8f5f8ceecb10a4170ec3a85ebd",
+        "rank_within_stratum": 1,
+        "terminal_revisions": 7,
+        "selected": true
+      },
+      {
+        "task_id": "p2-tome-texts-b6-001",
+        "task_rank": "1644db297528f957fdf95d48a5c54bccf95d24a4f39642e9eb3b77be765caaa6",
+        "rank_within_stratum": 2,
+        "terminal_revisions": 50,
+        "selected": true
+      },
+      {
+        "task_id": "p2-ashes-status-b1-001",
+        "task_rank": "191b44fbbf984e0396da92b819d9480a1ff4429fa9b0b3f0dec30508a89fdfba",
+        "rank_within_stratum": 3,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-cults-status-b1-001",
+        "task_rank": "759b9c1f420b92ac4e04e28eac5294b8f6a479ca4f50a994d687f31335235d4b",
+        "rank_within_stratum": 4,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-cults-status-b3-001",
+        "task_rank": "b4c7beb7d080e3f4145f7528c267fb62dd129055c41fa82a71a91460ff9a517c",
+        "rank_within_stratum": 5,
+        "terminal_revisions": 1,
+        "selected": true
+      },
+      {
+        "task_id": "p2-cults-mechanics-b1-fix-001",
+        "task_rank": "c17005437bf5b3fcb17a7461ac3de81800801efd8548ff640bfbd33cff31569d",
+        "rank_within_stratum": 6,
+        "terminal_revisions": 3,
+        "selected": false
+      }
+    ],
+    "S4_NON_GPT_MOD_GPT_REV": [
+      {
+        "task_id": "p2-tome-texts-b13-001",
+        "task_rank": "05141f907ea4862ee08841ccf09e9392c6a502373da9f5e33f62102f9f7b6eeb",
+        "rank_within_stratum": 1,
+        "terminal_revisions": 36,
+        "selected": true
+      },
+      {
+        "task_id": "p2-tome-texts-b10-001",
+        "task_rank": "2f7cbc068810c57561805470f7bf5b3967cba12149522031d2a52411e1e61d84",
+        "rank_within_stratum": 2,
+        "terminal_revisions": 29,
+        "selected": true
+      },
+      {
+        "task_id": "p2-tome-texts-b11-001",
+        "task_rank": "36643d4a23370244b4eeb79208052b5a7c0955a9cf7df0acdf7fa44ed92a353e",
+        "rank_within_stratum": 3,
+        "terminal_revisions": 29,
+        "selected": true
+      },
+      {
+        "task_id": "p2-tome-texts-b9-001",
+        "task_rank": "5441055a12cc78bb046202d9b5f2f8fbd147bc215acd05dfa994e85f37615a2d",
+        "rank_within_stratum": 4,
+        "terminal_revisions": 46,
+        "selected": true
+      },
+      {
+        "task_id": "p2-tome-texts-b18-001",
+        "task_rank": "70fc89da08cfbe59681ff37e544ddf31f16c7e5a31b0d14cf12b22a02f9fc2c3",
+        "rank_within_stratum": 5,
+        "terminal_revisions": 71,
+        "selected": true
+      },
+      {
+        "task_id": "p2-tome-texts-b15-001",
+        "task_rank": "7d6606fa3cbadbaf67ef69e16c93d06868c42251d14bb8af86cbbe5dd4d68bbb",
+        "rank_within_stratum": 6,
+        "terminal_revisions": 17,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b20-001",
+        "task_rank": "8de678256976a14ae037eaf137eda1e97d2c6bd44ca45b2121f283f68d9e4616",
+        "rank_within_stratum": 7,
+        "terminal_revisions": 10,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b17-001",
+        "task_rank": "ad3a2ab1eca253b57f282158a60f9e58939d44613f4f8c2f85a5d03c31b3a7fd",
+        "rank_within_stratum": 8,
+        "terminal_revisions": 13,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b12-001",
+        "task_rank": "ca91718058d293f8562ceb2c1a9b9bd4afec9c89125868815aee9d5e9094b79b",
+        "rank_within_stratum": 9,
+        "terminal_revisions": 41,
+        "selected": false
+      },
+      {
+        "task_id": "p2-tome-texts-b14-001",
+        "task_rank": "e4a281bef0596a78e53952539737a9248580882745decaddcd3c15f976432d70",
+        "rank_within_stratum": 10,
+        "terminal_revisions": 38,
+        "selected": false
+      }
+    ]
+  }
+}

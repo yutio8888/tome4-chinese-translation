@@ -1,0 +1,126 @@
+{
+  "schema_version": "paseo-residual-audit-holdout-v1",
+  "instructions": "Review every item in order. Provenance and historical decisions are intentionally withheld.",
+  "items": [
+    {
+      "revision_id": "H001",
+      "source": "Linked to their horror ally gaining %d%% all damage resistance.",
+      "target": "和恐魔建立链接，获得 %d%% 全部抗性。",
+      "fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source WTW_SHARED_INSANITY applies resists={all=eff.resist}; terminology/combat.tsv maps resists.all / All Resists to 全部抗性."
+    },
+    {
+      "revision_id": "H002",
+      "source": "Newly applied status effects durations are reduced by %d%%.",
+      "target": "新施加的负面效果持续时间缩短 %d%%。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Healing Mist=治愈之雾. EFF_HEALING_MIST.activate (timed_effects/physical.lua) only addTemporaryValue('reduce_detrimental_status_effects_time', eff.power). Medic turret on_act applies this to allies. Same-file talent tooltip already uses 新施加的负面效果持续时间缩短 %d%%."
+    },
+    {
+      "revision_id": "H003",
+      "source": "Sorry, I have to go!",
+      "target": "抱歉，我要走了！",
+      "fixed_context": "section=mod-tome/data/chats/assassin-lord.lua; source_tag=chat_assassin-lord; fixed_source=game/modules/tome/data/chats/assassin-lord.lua@624a67329fe2ad440c5b344785a9c73fcf22ae63; artifice tool UI or assassin-lord lost-merchant quest dialogue."
+    },
+    {
+      "revision_id": "H004",
+      "source": "Covered in defiled blood, healing the source for %d%% of all damage done.",
+      "target": "被污血覆盖的目标对效果来源造成伤害时，效果来源恢复该伤害的 %d%%。",
+      "fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed talent Defiled Blood callbackOnTakeDamage runs on the talent owner: if damage source src has EFF_DEFILED_BLOOD, self:heal(dam * getHeal / 100, src). The marked target therefore damages the effect source, which heals for the configured percentage of that damage."
+    },
+    {
+      "revision_id": "H005",
+      "source": "Welcome @playername@ to my shop.",
+      "target": "@playername@，欢迎来到我的商店。",
+      "fixed_context": "section=mod-tome/data/chats/angolwen-staves-store.lua; source_tag=_t; fixed_source=game/modules/tome/data/chats/angolwen-staves-store.lua@624a67329fe2ad440c5b344785a9c73fcf22ae63; early Angolwen, antimagic and Ardhungol quest dialogue."
+    },
+    {
+      "revision_id": "H006",
+      "source": "Enter a psionic gestalt with your steam generators, boosting them",
+      "target": "与你的蒸汽发生器进入灵能格式塔，从而强化它们。",
+      "fixed_context": "'Enter a psionic gestalt with your steam generators, boosting them' - 'them' = the generators, not the character"
+    },
+    {
+      "revision_id": "H007",
+      "source": "You fire a special steamsaw shot with your steamgun(s) at a target for %d%% physical weapon damage.\n\t\tThe steamsaw will cut into the target, doing %d%% physical weapon damage over 5 turns.\n\t\tThis talent does not use ammo as it is the ammo.",
+      "target": "你使用蒸汽枪发射特殊蒸汽链锯弹，造成 %d%% 物理武器伤害。\n\t\t蒸汽链锯会切入目标，在 5 回合内造成 %d%% 物理武器伤害。\n\t\t这个技能本身就是弹药，因此不消耗弹药。",
+      "fixed_context": "translation: tome-orcs.lua; source_tag=tformat; section=data/talents/steam/other.lua. Public fixed source data/talents/steam/other.lua: Saw Shell action calls archeryShoot with DamageType.PHYSICALBLEED; info describes a steamsaw shot with an impact and five-turn damage component."
+    },
+    {
+      "revision_id": "H008",
+      "source": "<<<You feel a gentle warmth in your mind. Something speaks directly to your mind!>>>\n#YELLOW#HELLO FRIEND. I AM A STAR FROM FAR AWAY. I HAVE HEARD YOU PRAISING YOUR SUN. WHY NOT PRAISE ME INSTEAD? I AM A MUCH BETTER SUN THAN THAT DULL, LIFELESS GAS ORB IN YOUR VICINITY. PLEASE, ALLOW ME TO DEMONSTRATE MY GOOD INTENTIONS.",
+      "target": "<<<你在脑海中感受到一阵温和的暖意。有什么存在直接在你的脑海中对你说话！>>>\n#YELLOW#你好，朋友。我是一颗来自远方的恒星。我听到了你对太阳的赞美。为什么不改来赞美我呢？比起你附近那颗枯燥乏味、毫无生气的气态球体，我是一颗好得多的太阳。请允许我向你展示我的善意。",
+      "fixed_context": "section=mod-tome/data/chats/avatar-distant-sun-unlock.chat; source_tag=chat; fixed_source=game/modules/tome/data/chats/avatar-distant-sun-unlock.chat@624a67329fe2ad440c5b344785a9c73fcf22ae63; initial unsolicited contact and escalating demonstration of power; false-friendly alien-star patron becomes controlling and impatient."
+    },
+    {
+      "revision_id": "H009",
+      "source": "%s talent '%s%s' is energized by the revelation!",
+      "target": "启示使%s技能'%s%s'的冷却时间缩短了！",
+      "fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=logSeen. Fixed source PROPHECY_OF_MADNESS.callbackOnTalentPost selects a non-fixed-cooldown talent from eff.src.talents_cd, calls eff.src:alterTalentCoolingdown(tid, -eff.cd), then emits this log. The log therefore names a selected talent whose cooldown is shortened by revelation."
+    },
+    {
+      "revision_id": "H010",
+      "source": "The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment",
+      "target": "目标的火焰抗性下降 %d%%，并且极易受到恐惧空间火焰的伤害。效果结束时将受到 %d 火焰伤害，并追加效果期间受到的总伤害的 %d%%。",
+      "fixed_context": "translation: tome-ashes-urhrok.lua; source_tag=tformat; section=data/timed_effects.lua. Fixed source EFF_FIERY_TORMENT reduces fire resistance, sets fiery_torment, accumulates a final fire hit from incoming damage, and deals it when the effect ends."
+    },
+    {
+      "revision_id": "H011",
+      "source": "Can walk through walls and quake every turn, %d%% more damage and %d%% more resistances.",
+      "target": "能够穿过墙壁，并在移动时引发地震；造成的伤害增加 %d%%，全部抗性增加 %d%%。",
+      "fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source CULTS_OVERGROWTH uses callbackOnMove for quakes, can_pass={pass_wall=20, pass_tree=1}, inc_damage={all=eff.dam}, and resists={all=eff.resist}."
+    },
+    {
+      "revision_id": "H012",
+      "source": "All resistances increased by %d%%, all new detrimental effects reduced by %d%%, %0.2f fire splash damage.",
+      "target": "全部抗性提高 %d%%，新施加的负面效果持续时间缩短 %d%%，近战命中持有者的生物受到 %0.2f 点火焰伤害。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Molten Iron Blood=铁水血液. EFF_MOLTEN_IRON_BLOOD.activate (timed_effects/physical.lua) sets on_melee_hit FIRE=eff.dam, resists.all=eff.resists, reduce_detrimental_status_effects_time=eff.reduction. T_MOLTEN_IRON_BLOOD info (talents/steam/thoughts-of-iron.lua): all creatures that hit you in melee take fire damage. resists.all terminology is All Resists=全部抗性. fire=火焰."
+    },
+    {
+      "revision_id": "H013",
+      "source": "What about #LIGHT_GREEN#Defense?#WHITE# Is it safe to neglect that?\n\nGo see how your #B4B4B4#Tier 1#WHITE# #LIGHT_GREEN#Defense#WHITE# holds up against the orcs in the next room.\n",
+      "target": "那么 #LIGHT_GREEN#闪避#WHITE# 呢？要是不重视这项属性是不是安全呢？\n\n来看看下一个房间 #B4B4B4#层级 1#WHITE# #LIGHT_GREEN#闪避#WHITE# 对那些兽人是如何作用的。\n",
+      "fixed_context": "section mod-tome/data/texts/tutorial/stats-tier/tier8.lua, line 33380; source_tag=_t; numeric combat-stat comparison lesson; numbers, comparison direction, causal relations, duration/range and UI labels must be exact; pinned engine source game/modules/tome/data/texts/tutorial/stats-tier/tier8.lua at commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 (English key verbatim). Terminology in force: Accuracy=命中; Defense=闪避; Armour=护甲值; Armour Penetration=护甲穿透; Physical power=物理强度; Spellpower=法术强度; Mindpower=精神强度; Physical save=物理豁免; Spell save=法术豁免; Mental save=精神豁免; combat stat(s)=战斗属性; tier=层级; timed effects=持续效果; Shove=击退攻击; Off-balance=失衡; Brainlocked=思维封锁; Blink=闪现; Shield Pummel=盾牌连击; infusion=纹身; rune=符文; Air=空气。"
+    },
+    {
+      "revision_id": "H014",
+      "source": "All cooldowns increased by %d%%.",
+      "target": "所有技能冷却时间增加 %d%%。",
+      "fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed source DECAYING_GROUND.long_desc emits this visible status text. All applies to cooldowns without any category exception."
+    },
+    {
+      "revision_id": "H015",
+      "source": "That's extraordinary! I know a number of merchant princes who will salivate at the idea of new trade routes opening. But tell me, how fares your quest for the staff?",
+      "target": "真不可思议！我知道不少巨商一想到开辟新商路就会垂涎三尺。不过快告诉我，你追查法杖的进展如何了？",
+      "fixed_context": "section=mod-tome/data/chats/last-hope-elder.lua; source_tag=_t; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; preserve markup, placeholders, choices, quest state, and dialogue relationships."
+    },
+    {
+      "revision_id": "H016",
+      "source": "The target is covered in burning chemicals, taking %0.2f fire damage each turn. Subsequent shots deal %0.2f fire damage, and if they fall below 25%% life they have a %d%% chance to panic.",
+      "target": "目标被燃烧的化学物质所覆盖，每回合受到 %0.2f 火焰伤害。之后的射击会立即造成 %0.2f 火焰伤害；施加者死亡后，该效果会在目标下次行动时结束。若目标生命值低于 25%% 且能够行动，则有 %d%% 的几率慌乱逃跑。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Burning Phosphorous=燃烧的磷. Public source /home/yun/projects/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua EFF_BURNING_PHOSPHOROUS: on_timeout deals fire damage each turn; on_merge immediately deals initdam fire and refreshes duration to 3 turns; callbackOnAct removes the effect when eff.src.dead; panic check only if life/max_life < 0.25 and enoughEnergy, then %d%% flee (resistable via mental save / fear immunity). Apply path /home/yun/projects/tome4-dlcs/orcs/tome-orcs/data/damage_types.lua PHOSPHOROUS projector if attacker knows Incendiary Powder. fire=火焰."
+    },
+    {
+      "revision_id": "H017",
+      "source": "#LIGHT_GREEN#*The two Sorcerers stands before you, shining like the Sun.*#WHITE#\nAh! Our guest is finally here. I take it you found the peak entertaining?",
+      "target": "#LIGHT_GREEN#*两个魔法师站在你面前，像太阳一样闪闪发光。*#WHITE#\n喔～！我们的客人终于来到了这里。我想你在山巅玩得很尽兴？",
+      "fixed_context": "section=mod-tome/data/chats/sorcerer-fight.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; bounded verification of the single revision repaired under senior scope calibration senior-audit-01. The two Sorcerers greet the player on arrival; the closing clause is a sarcastic taunt asking whether the player found the High Peak entertaining. The High Peak is a ten-level combat gauntlet the player fights up, not somewhere to spectate. source_tag=_t."
+    },
+    {
+      "revision_id": "H018",
+      "source": "Let us end this meaningless fight. Have you ever heard of a group of people called the Ziguranth?\nThese rambling madmen think magic should not be permitted to exist! They fear us; they fear our powers.\nLet us join forces and crush the fools!",
+      "target": "让我们结束这场毫无意义的争斗吧。你听说过一个叫伊格兰斯的群体吗？\n这群疯言疯语的狂徒认为魔法根本不该被允许存在！他们害怕我们，害怕我们的力量。\n让我们联手消灭那些蠢货！",
+      "fixed_context": "fixed source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; path=game/modules/tome/data/chats/corruptor-quest.lua; source_tag=_t; Grand Corruptor recruits an arcane player to exploit the Spellblaze-rent reality and attack Ziguranth/Zigur; choices reject, negotiate, or join and open the anti-antimagic quest."
+    },
+    {
+      "revision_id": "H019",
+      "source": "When this target is damaged %d%% of the damage will also be done to the source of this effect.",
+      "target": "当目标受到伤害时，效果来源也受到目标所受伤害的 %d%%。",
+      "fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed source MARK_OF_TREASON.callbackOnHit calculates linked_damage = cb.value * eff.power / 100, then calls eff.source:takeHit(linked_damage, src). The source therefore receives the configured percentage of damage received by the target."
+    },
+    {
+      "revision_id": "H020",
+      "source": "Your skin grows small spikes coated in dark blight.\n\t\tWhen you are hit in melee the attacker starts bleeding black blood for 5 turns that deals %0.2f darkness damage each turn. This effect may only happen once per turn.\n\t\tYou are empowered by the sight of the black blood, for each bleeding creature in radius 2 you gain 5%% all resistances, limited to %d creatures.\n\t\tThe damage will scale with your Magic stat.",
+      "target": " 你的皮肤生长出被黑暗和枯萎力量覆盖的尖刺。\n\t\t当你被近战攻击命中时，攻击者开始流出黑血，持续 5 回合，每回合造成 %0.2f 暗影伤害。该效果每回合只能触发一次。\n\t\t同时，目睹黑血会使你受到强化：2 格范围内每个可见的流着黑血的生物，都使你获得 5%% 全部抗性，最多计 %d 个生物。\n\t\t伤害随魔法属性提升。",
+      "fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/talents/misc/races.lua. Fixed source Spikeskin callbackOnMeleeHit applies EFF_SPIKESKIN_BLACK_BLOOD. callbackOnActBase counts visible actors with that effect at distance <= 2, caps at talent level, and sets EFF_SPIKESKIN power=5 per actor; SPIKESKIN applies resists={all=eff.power}."
+    }
+  ]
+}
