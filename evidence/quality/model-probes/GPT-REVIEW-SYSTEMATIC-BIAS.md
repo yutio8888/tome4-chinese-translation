@@ -1,6 +1,6 @@
 # GPT 主导译文审核的系统性偏差风险与研究设计
 
-状态：研究说明，尚未执行其中提出的新实验。
+状态：研究说明；Paseo 分层残余审计 pilot v1 已完成，受控变异实验尚未执行。
 
 日期：2026-08-27
 
@@ -160,3 +160,13 @@ Union、consensus 和多模型讨论只能作为派生候选生成策略，不�
 - “GPT 审核总体无偏”或“某非 GPT 模型总体更公正”。
 
 因此，下一步不应继续在 B4 上调整 prompt 来回答系统性偏差问题。应先建立新的、未参与设计的前瞻性 holdout，并并行建立受控变异集。所有主观语言项目在没有外部独立审核者前应保留为 `indeterminate` 或“需要社区复核”，而不是补写成确定 ground truth。
+
+## Paseo 分层残余审计 pilot v1（已完成）
+
+在 provenance snapshot 完成后，已执行一个 20 条探索性 pilot：[Paseo residual audit pilot v1](paseo-residual-audit-pilot-v1/README.md)。抽样先按任务分四层，每层 5 个任务，再从各任务终态 contextual input 确定性抽一条；模型只看到匿名 source、target 和当时冻结的 context。路线为 Codex、Opus、Fable、Opus+Fable Advisor 与 GLM，所有路线均执行完整任务且通过运行时身份和输出门禁。
+
+五条路线的候选联合集只有 H013、H016、H020。固定源码裁决确认 H013 的防御关系错译，驳回 H016 的 source-scope 指控和 H020 的术语指控。唯一确认项的历史链是 GPT 修改、Grok-only contextual review、GPT 编排；历史终态 Grok review 曾把该条标为 `OK`。15 条 GPT-only reviewer 样本未发现确认缺陷，5 条非 GPT-only reviewer 样本发现 1 条。
+
+这个结果不支持“GPT-only reviewer 在本样本留下更多可检测残余缺陷”的窄假设，但不能用于证明 GPT 无系统性偏差：只有模型提名的 3 条经过源码裁决，其余 17 条没有独立逐条核验；每层只有 5 条且题材不匹配；原始译文生成者仍未知；裁决者仍是 GPT/Codex 研究 agent，不是独立人工。Advisor 在本次删除了纯 Opus 的一真一假两条候选，净结果为漏掉唯一确认项。
+
+该 pilot 使下一步优先级更明确：不应继续从小型自然样本推断 reviewer 因果效应。应执行预注册的受控变异 × 译文来源交叉实验，以变异记录和固定源码提供客观标签；自然语料残余率则要等真正的逐条源码审计或外部独立审核资源。

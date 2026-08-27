@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "route": "claude-fable-5-medium-no-advisor",
+  "route_metadata": {
+    "harness": "Claude Code CLI 2.1.247",
+    "requested_model": "claude-fable-5",
+    "requested_effort": "medium",
+    "requested_advisor": null,
+    "initialized_models": [
+      "claude-fable-5"
+    ],
+    "actual_assistant_models": [
+      "claude-fable-5"
+    ],
+    "fallback_event_count": 0,
+    "fallback_block_count": 0,
+    "result": {
+      "is_error": false,
+      "subtype": "success",
+      "stop_reason": "tool_use",
+      "terminal_reason": "completed",
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 11969,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 8840,
+        "output_tokens_details": {
+          "thinking_tokens": 6555
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 11969,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 8840,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 11969,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 11969
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 6133,
+          "outputTokens": 21,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0062380000000000005,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000,
+          "canonicalModel": "claude-haiku-4-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-fable-5": {
+          "inputTokens": 2,
+          "outputTokens": 8840,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 11969,
+          "webSearchRequests": 0,
+          "costUSD": 0.6814000000000001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "canonicalModel": "claude-fable-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "total_cost_usd": 0.6876380000000001,
+      "num_turns": 2,
+      "permission_denials": []
+    }
+  },
+  "duration_seconds": 113.976,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "OK": 19,
+    "FINDING": 1
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "H001",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: applies resists={all=eff.resist}; All Resists=全部抗性；target「获得 %d%% 全部抗性」与效果持有者获得抗性一致。"
+      },
+      {
+        "revision_id": "H002",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: 'reduce_detrimental_status_effects_time'，且同文件天赋提示已用「新施加的负面效果持续时间缩短 %d%%」，target 与之完全一致。"
+      },
+      {
+        "revision_id": "H003",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source 'Sorry, I have to go!' 与 target「抱歉，我要走了！」语义一致。"
+      },
+      {
+        "revision_id": "H004",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: 'The marked target therefore damages the effect source, which heals for the configured percentage'，target「目标对效果来源造成伤害时，效果来源恢复该伤害的 %d%%」与固定源码方向一致。"
+      },
+      {
+        "revision_id": "H005",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 保留占位符 @playername@，「欢迎来到我的商店」与 source 'Welcome ... to my shop' 一致。"
+      },
+      {
+        "revision_id": "H006",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: ''them' = the generators'，target「从而强化它们」指代蒸汽发生器，正确。"
+      },
+      {
+        "revision_id": "H007",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 保留两处 %d%% 物理武器伤害、5 回合持续，以及 'it is the ammo'→「这个技能本身就是弹药，因此不消耗弹药」，语义完整。"
+      },
+      {
+        "revision_id": "H008",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source 各句（远方恒星、赞美太阳、'DULL, LIFELESS GAS ORB'、展示善意）在 target 中均完整对应，无漏译或语气反转。"
+      },
+      {
+        "revision_id": "H009",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: 'alterTalentCoolingdown(tid, -eff.cd)'，target「冷却时间缩短了」与机制一致，占位符 %s、'%s%s' 顺序保留。"
+      },
+      {
+        "revision_id": "H010",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target「火焰抗性下降 %d%%…效果结束时将受到 %d 火焰伤害，并追加效果期间受到的总伤害的 %d%%」与 source 及 EFF_FIERY_TORMENT 累积终结伤害机制一致。"
+      },
+      {
+        "revision_id": "H011",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: 'callbackOnMove for quakes, inc_damage={all}, resists={all}'，target「移动时引发地震；伤害增加、全部抗性增加」与固定源码机制一致。"
+      },
+      {
+        "revision_id": "H012",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: 'on_melee_hit FIRE=eff.dam, resists.all, reduce_detrimental_status_effects_time'，target 三个子句及占位符顺序（%d%%、%d%%、%0.2f）均与之一致。"
+      },
+      {
+        "revision_id": "H013",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "术语 Defense=闪避、tier=层级 均被遵守，颜色标记 #LIGHT_GREEN#/#B4B4B4#/#WHITE# 完整保留，问句方向未反转。"
+      },
+      {
+        "revision_id": "H014",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: 'All applies to cooldowns without any category exception'，target「所有技能冷却时间增加 %d%%」一致。"
+      },
+      {
+        "revision_id": "H015",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source 'merchant princes who will salivate...how fares your quest for the staff' 与 target「巨商…垂涎三尺…追查法杖的进展如何」语义与任务指向一致。"
+      },
+      {
+        "revision_id": "H016",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 增补的「施加者死亡后…效果结束」「且能够行动」均由 fixed_context 'callbackOnAct removes the effect when eff.src.dead; panic check only if ... enoughEnergy' 支持，数值 25%%、%d%% 保留。"
+      },
+      {
+        "revision_id": "H017",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: 'sarcastic taunt asking whether the player found the High Peak entertaining'，target「我想你在山巅玩得很尽兴？」保留讥讽语气且不含旁观含义。"
+      },
+      {
+        "revision_id": "H018",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source 三句（结束争斗、Ziguranth 是狂徒惧怕魔法、联手消灭）在 target 中逐句对应，招募意图未变。"
+      },
+      {
+        "revision_id": "H019",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: 'eff.source:takeHit(linked_damage, src)'，target「效果来源也受到目标所受伤害的 %d%%」与固定源码方向一致。"
+      },
+      {
+        "revision_id": "H020",
+        "verdict": "FINDING",
+        "observation": "伤害类型错译：source 的 'darkness damage' 被译为「暗影伤害」，而 darkness 伤害类型的通行译名为「黑暗伤害」，「暗影」对应 shadow，会误导玩家判断伤害类型。",
+        "evidence": "source: 'deals %0.2f darkness damage each turn' vs target: 「每回合造成 %0.2f 暗影伤害」。"
+      }
+    ]
+  }
+}

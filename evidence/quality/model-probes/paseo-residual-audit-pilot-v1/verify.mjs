@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import crypto from "node:crypto";
 import {spawnSync} from "node:child_process";
 import {fileURLToPath} from "node:url";
 
@@ -33,7 +34,36 @@ try {
   for (const item of holdout.items) {
     for (const key of Object.keys(item)) if (leakedKeys.has(key)) throw new Error(`provenance key leaked into holdout: ${key}`);
   }
-  process.stdout.write("verified byte-identical sampling rebuild and blinded 20-item holdout\n");
+  const experiment = JSON.parse(fs.readFileSync(path.join(here, "EXPERIMENT.json"), "utf8"));
+  const sha256 = file => crypto.createHash("sha256").update(fs.readFileSync(path.join(here, file))).digest("hex");
+  for (const [name, record] of Object.entries({
+    input: experiment.input,
+    prompt: experiment.prompt,
+    output_schema: experiment.output_schema,
+    hidden_provenance: experiment.hidden_provenance
+  })) {
+    if (sha256(record.path) !== record.sha256) throw new Error(`${name} frozen hash mismatch`);
+  }
+  const candidateFiles = fs.readdirSync(here).filter(name => /^CANDIDATE-.*\.json$/.test(name)).sort();
+  if (candidateFiles.length !== 5) throw new Error(`expected 5 candidates, found ${candidateFiles.length}`);
+  for (const name of candidateFiles) {
+    const candidate = JSON.parse(fs.readFileSync(path.join(here, name), "utf8"));
+    if (!candidate.valid) throw new Error(`${name} is not valid`);
+  }
+  const expectedResult = fs.readFileSync(path.join(here, "RESULT.json"));
+  const analysis = spawnSync(process.execPath, [path.join(here, "analyze.mjs")], {encoding: "utf8"});
+  if (analysis.status !== 0) throw new Error(`analysis rebuild failed: ${analysis.stderr}`);
+  const rebuiltResult = fs.readFileSync(path.join(here, "RESULT.json"));
+  if (!expectedResult.equals(rebuiltResult)) throw new Error("RESULT.json is not byte-identical to an analysis rebuild");
+  const result = JSON.parse(rebuiltResult);
+  for (const [name, digest] of Object.entries(result.artifact_hashes.candidates)) {
+    if (sha256(name) !== digest) throw new Error(`${name} result hash mismatch`);
+  }
+  for (const [name, digest] of Object.entries(result.artifact_hashes.raw)) {
+    if (sha256(name) !== digest) throw new Error(`${name} result hash mismatch`);
+  }
+  if (sha256("ADJUDICATION.json") !== result.artifact_hashes.adjudication) throw new Error("adjudication result hash mismatch");
+  process.stdout.write("verified byte-identical sampling/result rebuild, blinded holdout, five valid candidates and RAW hashes\n");
 } finally {
   fs.rmSync(temporary, {recursive: true, force: true});
 }

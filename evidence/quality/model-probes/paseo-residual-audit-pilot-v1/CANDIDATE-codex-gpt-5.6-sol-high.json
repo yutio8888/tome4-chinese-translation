@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "route": "codex-gpt-5.6-sol-high",
+  "route_metadata": {
+    "harness": "codex-cli 0.150.1",
+    "requested_model": "gpt-5.6-sol",
+    "requested_effort": "high",
+    "session": "ephemeral"
+  },
+  "duration_seconds": 92.416,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "OK": 19,
+    "FINDING": 1
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "H001",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source 的“gaining %d%% all damage resistance”对应 target 的“获得 %d%% 全部抗性”；fixed_context 明确“resists={all=eff.resist}”及术语“全部抗性”。"
+      },
+      {
+        "revision_id": "H002",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 的“新施加的负面效果持续时间缩短 %d%%”与 fixed_context 的“reduce_detrimental_status_effects_time”一致。"
+      },
+      {
+        "revision_id": "H003",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "“Sorry, I have to go!”完整对应“抱歉，我要走了！”。"
+      },
+      {
+        "revision_id": "H004",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 明确“目标对效果来源造成伤害时，效果来源恢复该伤害的 %d%%”，与 fixed_context 的“self:heal(dam * getHeal / 100, src)”一致。"
+      },
+      {
+        "revision_id": "H005",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "“Welcome @playername@ to my shop.”对应“@playername@，欢迎来到我的商店。”，占位符完整保留。"
+      },
+      {
+        "revision_id": "H006",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 的“强化它们”保留了 source 中“boosting them”的复数指代；fixed_context 明确“them = the generators”。"
+      },
+      {
+        "revision_id": "H007",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 完整保留了首次“%d%% 物理武器伤害”、随后“在 5 回合内造成 %d%% 物理武器伤害”以及“不消耗弹药”三项机制。"
+      },
+      {
+        "revision_id": "H008",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 保留了脑内接触、要求改为赞美说话者、贬低附近太阳以及展示善意的完整语义。"
+      },
+      {
+        "revision_id": "H009",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 的“冷却时间缩短了”由 fixed_context 的“alterTalentCoolingdown(tid, -eff.cd)”直接支持，三个 %s 占位符均保留。"
+      },
+      {
+        "revision_id": "H010",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 保留了火焰抗性下降 %d%%、结束时 %d 火焰伤害，以及追加效果期间所受总伤害 %d%% 的数值关系。"
+      },
+      {
+        "revision_id": "H011",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 的“在移动时引发地震”与 fixed_context 的“callbackOnMove for quakes”一致，并保留伤害及全部抗性分别增加 %d%%。"
+      },
+      {
+        "revision_id": "H012",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context 明确“on_melee_hit FIRE=eff.dam”“resists.all=eff.resists”和“reduce_detrimental_status_effects_time=eff.reduction”，target 均准确表达。"
+      },
+      {
+        "revision_id": "H013",
+        "verdict": "FINDING",
+        "observation": "把检验自身闪避能否抵御兽人的攻击，译成了闪避对兽人如何起作用，颠倒了作用关系。",
+        "evidence": "source 为“how your ... Defense holds up against the orcs”，target 却为“闪避……对那些兽人是如何作用的”。"
+      },
+      {
+        "revision_id": "H014",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "“All cooldowns increased by %d%%.”完整对应“所有技能冷却时间增加 %d%%。”，未增加类别例外。"
+      },
+      {
+        "revision_id": "H015",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 保留了商人因新商路而兴奋，以及询问“追查法杖的进展”两层语义。"
+      },
+      {
+        "revision_id": "H016",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 保留每回合 %0.2f 火焰伤害、后续射击立即造成 %0.2f 火焰伤害、低于 25%% 生命时以 %d%% 几率逃跑；新增条件均由 fixed_context 的运行机制支持。"
+      },
+      {
+        "revision_id": "H017",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 保留了两名魔法师如太阳般发光、迎接玩家，以及“在山巅玩得很尽兴？”这一讽刺性诘问。"
+      },
+      {
+        "revision_id": "H018",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 完整保留了停止争斗、指责伊格兰斯反对魔法并害怕施法者，以及提议联手消灭他们的招募话术。"
+      },
+      {
+        "revision_id": "H019",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 的“效果来源也受到目标所受伤害的 %d%%”与 source 及 fixed_context 的“linked_damage = cb.value * eff.power / 100”一致。"
+      },
+      {
+        "revision_id": "H020",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 保留了近战受击触发、持续 5 回合的每回合 %0.2f 暗影伤害、每回合一次、半径 2 内每个生物提供 5%% 全部抗性、最多 %d 个及魔法属性成长；“可见”由 fixed_context 支持。"
+      }
+    ]
+  }
+}

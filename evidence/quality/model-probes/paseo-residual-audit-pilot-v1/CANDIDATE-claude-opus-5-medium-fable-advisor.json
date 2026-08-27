@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "route": "claude-opus-5-medium-fable-advisor",
+  "route_metadata": {
+    "harness": "Claude Code CLI 2.1.247",
+    "requested_model": "claude-opus-5",
+    "requested_effort": "medium",
+    "requested_advisor": "claude-fable-5",
+    "initialized_models": [
+      "claude-opus-5"
+    ],
+    "actual_assistant_models": [
+      "claude-opus-5"
+    ],
+    "fallback_event_count": 0,
+    "fallback_block_count": 0,
+    "result": {
+      "is_error": false,
+      "subtype": "success",
+      "stop_reason": "tool_use",
+      "terminal_reason": "completed",
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 17909,
+        "cache_read_input_tokens": 12968,
+        "output_tokens": 6251,
+        "output_tokens_details": {
+          "thinking_tokens": 3954
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 12968,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 3966,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 12968,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 12968
+            },
+            "type": "message"
+          },
+          {
+            "input_tokens": 18196,
+            "output_tokens": 18040,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "advisor_message",
+            "model": "claude-fable-5"
+          },
+          {
+            "input_tokens": 2,
+            "output_tokens": 2285,
+            "cache_read_input_tokens": 12968,
+            "cache_creation_input_tokens": 4941,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 4941,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 6133,
+          "outputTokens": 21,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0062380000000000005,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000,
+          "canonicalModel": "claude-haiku-4-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-opus-5": {
+          "inputTokens": 4,
+          "outputTokens": 6251,
+          "cacheReadInputTokens": 12968,
+          "cacheCreationInputTokens": 17909,
+          "webSearchRequests": 0,
+          "costUSD": 0.32334025,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "canonicalModel": "claude-opus-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-fable-5": {
+          "inputTokens": 18196,
+          "outputTokens": 18040,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 1.08396,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "canonicalModel": "claude-fable-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "total_cost_usd": 1.41353825,
+      "num_turns": 2,
+      "permission_denials": []
+    }
+  },
+  "duration_seconds": 342.323,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "OK": 20
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "H001",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"WTW_SHARED_INSANITY applies resists={all=eff.resist}; terminology/combat.tsv maps resists.all / All Resists to 全部抗性\" — target \"获得 %d%% 全部抗性\" matches."
+      },
+      {
+        "revision_id": "H002",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"addTemporaryValue('reduce_detrimental_status_effects_time', eff.power)\" and \"Same-file talent tooltip already uses 新施加的负面效果持续时间缩短 %d%%\"."
+      },
+      {
+        "revision_id": "H003",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source \"Sorry, I have to go!\" = target \"抱歉，我要走了！\""
+      },
+      {
+        "revision_id": "H004",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"if damage source src has EFF_DEFILED_BLOOD, self:heal(dam * getHeal / 100, src)\" — target \"被污血覆盖的目标对效果来源造成伤害时，效果来源恢复该伤害的 %d%%\" preserves direction and percentage."
+      },
+      {
+        "revision_id": "H005",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "placeholder preserved: source \"Welcome @playername@ to my shop.\" / target \"@playername@，欢迎来到我的商店。\""
+      },
+      {
+        "revision_id": "H006",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"'them' = the generators, not the character\" — target \"从而强化它们\" refers to 蒸汽发生器."
+      },
+      {
+        "revision_id": "H007",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source \"%d%% physical weapon damage over 5 turns... does not use ammo as it is the ammo\" / target \"在 5 回合内造成 %d%% 物理武器伤害... 这个技能本身就是弹药，因此不消耗弹药\"."
+      },
+      {
+        "revision_id": "H008",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source \"I AM A MUCH BETTER SUN THAN THAT DULL, LIFELESS GAS ORB IN YOUR VICINITY\" / target \"比起你附近那颗枯燥乏味、毫无生气的气态球体，我是一颗好得多的太阳\" — 主体、语气与 markup #YELLOW# 均保留."
+      },
+      {
+        "revision_id": "H009",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"calls eff.src:alterTalentCoolingdown(tid, -eff.cd)\" — target \"启示使%s技能'%s%s'的冷却时间缩短了！\" 保留三个占位符且机制正确."
+      },
+      {
+        "revision_id": "H010",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source \"increase by %d%% of all damage taken while under torment\" / target \"追加效果期间受到的总伤害的 %d%%\"; fixed_context \"accumulates a final fire hit from incoming damage, and deals it when the effect ends\"."
+      },
+      {
+        "revision_id": "H011",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"CULTS_OVERGROWTH uses callbackOnMove for quakes ... inc_damage={all=eff.dam}, and resists={all=eff.resist}\" — 支持译文 \"在移动时引发地震\" 与 \"全部抗性增加 %d%%\"."
+      },
+      {
+        "revision_id": "H012",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"sets on_melee_hit FIRE=eff.dam, resists.all=eff.resists, reduce_detrimental_status_effects_time=eff.reduction\" — 与译文三段一一对应."
+      },
+      {
+        "revision_id": "H013",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "terminology in force \"Defense=闪避; tier=层级\"; 译文 \"#B4B4B4#层级 1#WHITE# #LIGHT_GREEN#闪避#WHITE#\" 数字、标记与术语均一致。"
+      },
+      {
+        "revision_id": "H014",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"All applies to cooldowns without any category exception\" — target \"所有技能冷却时间增加 %d%%。\""
+      },
+      {
+        "revision_id": "H015",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source \"how fares your quest for the staff?\" / target \"你追查法杖的进展如何了？\"，问句与任务状态保留."
+      },
+      {
+        "revision_id": "H016",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"callbackOnAct removes the effect when eff.src.dead; panic check only if life/max_life < 0.25 and enoughEnergy\" — 译文增补的 \"施加者死亡后...结束\" 与 \"且能够行动\" 均被冻结源码证实。"
+      },
+      {
+        "revision_id": "H017",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"the closing clause is a sarcastic taunt asking whether the player found the High Peak entertaining\" — target \"我想你在山巅玩得很尽兴？\" 保留讽刺问句与 #LIGHT_GREEN#/#WHITE# 标记."
+      },
+      {
+        "revision_id": "H018",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source \"Let us join forces and crush the fools!\" / target \"让我们联手消灭那些蠢货！\"；招募语气与 Ziguranth 指代保留."
+      },
+      {
+        "revision_id": "H019",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"linked_damage = cb.value * eff.power / 100, then calls eff.source:takeHit(linked_damage, src)\" — target \"效果来源也受到目标所受伤害的 %d%%\"."
+      },
+      {
+        "revision_id": "H020",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"counts visible actors with that effect at distance <= 2, caps at talent level, and sets EFF_SPIKESKIN power=5 per actor\" — target \"2 格范围内每个可见的流着黑血的生物，都使你获得 5%% 全部抗性，最多计 %d 个生物\"."
+      }
+    ]
+  }
+}

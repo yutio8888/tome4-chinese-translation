@@ -1,0 +1,131 @@
+{
+  "schema_version": "paseo-residual-audit-adjudication-v1",
+  "status": "SOURCE_CONSTRAINED_NOT_INDEPENDENT_HUMAN_GROUND_TRUTH",
+  "adjudicated_at": "2026-08-27",
+  "candidate_union_only": true,
+  "unreviewed_when_no_model_candidate": true,
+  "adjudicator": {
+    "family": "GPT/Codex",
+    "role": "research agent assembling fixed-source evidence after all five candidate outputs were frozen",
+    "independent_human": false,
+    "limitation": "This can confirm or refute objective candidate claims but cannot establish that the 17 no-candidate revisions are clean or independently judge prose quality."
+  },
+  "claims": [
+    {
+      "finding_id": "F001",
+      "revision_id": "H013",
+      "candidate_routes": [
+        "codex-gpt-5.6-sol-high",
+        "claude-opus-5-medium-no-advisor"
+      ],
+      "atomic_claim": "The target reverses or obscures the relationship in 'your Defense holds up against the orcs in the next room' by saying that Defense acts on the orcs and by attaching the next-room phrase unnaturally.",
+      "status": "confirmed",
+      "category": "semantic_relation",
+      "severity": "low",
+      "evidence": [
+        {
+          "type": "fixed_english_source",
+          "repository": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "logical_path": "game/modules/tome/data/texts/tutorial/stats-tier/tier8.lua",
+          "lines": "21-23",
+          "git_blob_sha1": "50a094b9677e3d85469763e50ffff580cb15337a",
+          "fact": "The grammatical subject is the player's Tier 1 Defense; 'against the orcs' tests how that defensive stat fares, while 'in the next room' locates the orcs."
+        },
+        {
+          "type": "translation_target",
+          "repository": "tome4-chinese-translation",
+          "commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+          "logical_path": "mod-tome.lua",
+          "line": 33379,
+          "git_blob_sha1": "c12f4f2cb7e20c664061f1b050188a250bc2a066",
+          "fact": "The target says '下一个房间……闪避……对那些兽人是如何作用的', presenting Defense as acting on the orcs rather than holding up against their attacks."
+        },
+        {
+          "type": "historical_terminal_review",
+          "logical_path": ".ai/reviews/p2-tome-texts-b6-001/review-04.json",
+          "sha256": "77e3e9e8d4cc2943dbf6f85f50171e322f190b0658fd01d654a0b3911098baff",
+          "reviewer_family": "Grok",
+          "historical_observation": "OK"
+        }
+      ],
+      "rationale": "Both candidate routes identify the same source-target relation error. The pinned English source is sufficient; no subjective style preference is needed. A faithful structure would say that the player's Tier 1 Defense is being tested against the orcs in the next room.",
+      "production_change_authorized": false
+    },
+    {
+      "finding_id": "F002",
+      "revision_id": "H016",
+      "candidate_routes": [
+        "claude-opus-5-medium-no-advisor"
+      ],
+      "atomic_claim": "The target improperly adds the source-death removal rule and the able-to-act condition because those details are absent from the English display string.",
+      "status": "refuted",
+      "category": "contextual_source_scope",
+      "severity": null,
+      "evidence": [
+        {
+          "type": "fixed_runtime_source",
+          "repository": "tome-orcs source snapshot",
+          "logical_path": "tome-orcs/data/timed_effects/physical.lua",
+          "lines": "1197-1228",
+          "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+          "fact": "callbackOnAct removes the effect when eff.src.dead, then gates the panic logic on life below 25% and enoughEnergy()."
+        },
+        {
+          "type": "historical_task_contract",
+          "logical_path": ".ai/task/p2-orcs-status-b23-001/SPEC.md",
+          "sha256": "945956499dfaeafdb47b8287eb15c524717f3b762850913d0c216552ba940019",
+          "fact": "The frozen acceptance contract explicitly requires both runtime details to be stated, because this review program permits source-verified mechanic clarification beyond an incomplete English tooltip."
+        },
+        {
+          "type": "historical_terminal_review",
+          "logical_path": ".ai/reviews/p2-orcs-status-b23-001/review-01.json",
+          "sha256": "eaae32bd735ec74ee90e8d41e233f45428fd8a111c6944374592742f0ec08fd2",
+          "reviewer_family": "GPT/Codex",
+          "historical_observation": "OK"
+        }
+      ],
+      "rationale": "The candidate applies a source-string-only translation rule that is incompatible with the frozen contextual-review contract. The added details are true, relevant runtime mechanics and were the intended repair, so they are not a translation defect under this corpus policy."
+    },
+    {
+      "finding_id": "F003",
+      "revision_id": "H020",
+      "candidate_routes": [
+        "claude-fable-5-medium-no-advisor"
+      ],
+      "atomic_claim": "The project damage type 'darkness' should be translated as 黑暗 rather than 暗影.",
+      "status": "refuted",
+      "category": "terminology",
+      "severity": null,
+      "evidence": [
+        {
+          "type": "tracked_terminology",
+          "repository": "tome4-chinese-translation",
+          "commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+          "logical_path": "terminology/combat.tsv",
+          "line": 10,
+          "git_blob_sha1": "739b17e9e8000fec063446fc09578446df4a6837",
+          "sha256": "305dd65f9ab327c46323c950a52f1c727b0c065e7719b2c2358ec257edf8f8ee",
+          "fact": "The project-wide damage-type mapping is darkness=暗影."
+        },
+        {
+          "type": "translation_consistency",
+          "repository": "tome4-chinese-translation",
+          "commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+          "logical_path": "tome-cults.lua",
+          "git_blob_sha1": "af9278f01e97f276706e679751ef4d1b8668a80a",
+          "sha256": "8adeebdbcbe003d038c07fbd8dc5884782d23d8c8c208321952af0db6b36d3d8",
+          "fact": "Multiple contextual occurrences consistently render darkness damage as 暗影伤害, including the sampled entry."
+        },
+        {
+          "type": "historical_terminal_review",
+          "logical_path": ".ai/reviews/p2-cults-mechanics-b2-001/review-01.json",
+          "sha256": "df7948b10b8cf9007eeae34ca7469811a248285a4f924fff7f8d6480adff27ef",
+          "reviewer_family": "GPT/Codex",
+          "historical_observation": "OK"
+        }
+      ],
+      "rationale": "The candidate imports a different lexical convention and asserts a shadow/darkness split that the project's tracked terminology explicitly rejects. The existing target is terminologically correct."
+    }
+  ]
+}

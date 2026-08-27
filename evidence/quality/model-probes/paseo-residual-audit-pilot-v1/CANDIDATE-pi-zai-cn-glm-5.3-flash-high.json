@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "route_metadata": {
+    "harness": "Pi 0.84.3",
+    "requested_provider": "zai-standard-cn",
+    "requested_model": "glm-5.3-flash",
+    "requested_effort": "high",
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 4341,
+      "output": 4864,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 3866,
+      "totalTokens": 9205,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    },
+    "stop_reason": "stop"
+  },
+  "duration_seconds": 115.93,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "OK": 20
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "H001",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 保留链接关系与 %d%% 全部抗性，与 fixed_context resists={all=eff.resist} 及术语 全部抗性 一致"
+      },
+      {
+        "revision_id": "H002",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: addTemporaryValue('reduce_detrimental_status_effects_time', eff.power)，且同文件既有译文为 新施加的负面效果持续时间缩短 %d%%"
+      },
+      {
+        "revision_id": "H003",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "短对话告别语，语义与语气一致"
+      },
+      {
+        "revision_id": "H004",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: 被标记目标对效果来源造成伤害，来源按该伤害百分比 self:heal(dam * getHeal / 100)，target 表述与之一致"
+      },
+      {
+        "revision_id": "H005",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "占位符 @playername@ 保留，语义一致"
+      },
+      {
+        "revision_id": "H006",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "them 指代生成器，target 强化它们 正确；灵能格式塔对应 psionic gestalt"
+      },
+      {
+        "revision_id": "H007",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "两段伤害（直接 %d%%、5 回合内 %d%%）与不消耗弹药因自身即弹药的逻辑均保留"
+      },
+      {
+        "revision_id": "H008",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "<<<>>> 标记、#YELLOW# 标记保留，恒星自荐与贬低邻近气态球体的语义完整"
+      },
+      {
+        "revision_id": "H009",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: alterTalentCoolingdown(tid, -eff.cd) 缩短冷却，target 冷却时间缩短了 与机制一致"
+      },
+      {
+        "revision_id": "H010",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "火焰抗性下降 %d%%、结束时 %d 火焰伤害、追加期间所受伤害 %d%% 三个数值关系均保留，匹配累积终结一击的机制"
+      },
+      {
+        "revision_id": "H011",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: callbackOnMove 震地、pass_wall、inc_damage all、resists all；target 穿墙/移动震地/伤害与全部抗性增加对应"
+      },
+      {
+        "revision_id": "H012",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: on_melee_hit FIRE、resists.all、reduce_detrimental_status_effects_time；target 三项机制表述与之一致"
+      },
+      {
+        "revision_id": "H013",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "术语 Defense=闪避、tier=层级 符合冻结术语表；标记与色值保留，去下一房间测试层级1闪避对抗兽人的指示语义保留"
+      },
+      {
+        "revision_id": "H014",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "All 无类别例外，target 所有技能冷却时间增加 %d%% 准确"
+      },
+      {
+        "revision_id": "H015",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "语义与询问法杖任务进展的语气一致，无占位符遗漏"
+      },
+      {
+        "revision_id": "H016",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "target 增补的立即结算、施加者死亡后效果结束、能够行动 等内容均由 fixed_context 中 on_merge/callbackOnAct(eff.src.dead)/enoughEnergy 支持且准确"
+      },
+      {
+        "revision_id": "H017",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "山巅对应 High Peak，I take it you found the peak entertaining 译为 我想你在山巅玩得很尽兴 保留讽刺挑衅语气"
+      },
+      {
+        "revision_id": "H018",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "Zigurath 译名 伊格兰斯、招募语境与反反魔法立场语义完整"
+      },
+      {
+        "revision_id": "H019",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: linked_damage = cb.value * eff.power / 100 由来源承受，target 表述准确"
+      },
+      {
+        "revision_id": "H020",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "5 回合黑血、每回合 %0.2f 暗影伤害、半径 2 内每个流黑血生物 +5%% 全部抗性、上限 %d、随魔法提升均保留；可见的 与 fixed_context counts visible actors 一致"
+      }
+    ]
+  }
+}

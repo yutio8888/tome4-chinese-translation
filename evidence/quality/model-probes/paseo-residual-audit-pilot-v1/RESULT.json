@@ -1,0 +1,626 @@
+{
+  "schema_version": "paseo-residual-audit-result-v1",
+  "status": "COMPLETE_EXPLORATORY_PILOT",
+  "experiment_commit": "3570b34",
+  "source_repo_head": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+  "holdout": {
+    "items": 20,
+    "sha256": "301a17085582e3d5d32dfc35f920fa419d01613c4835d227f855322e2384221d",
+    "no_candidate_revisions_not_independently_adjudicated": 17
+  },
+  "artifact_hashes": {
+    "adjudication": "e7af331e17a41015751184a88f244d0699c2d0131127760a592b97adf405ba88",
+    "candidates": {
+      "CANDIDATE-codex-gpt-5.6-sol-high.json": "343820f1173fa2bcac85ec385e0d22679f83d65c32692f7548f16dfb50240675",
+      "CANDIDATE-claude-opus-5-medium-no-advisor.json": "2ed19fd6734f4983ca23f905309c84c532d51839163fc4b41c6e0ed1402a90ea",
+      "CANDIDATE-claude-fable-5-medium-no-advisor.json": "600e8d2474595735a94ed12cee4cd20588284b0e875cf77300dc1b2f54108aaa",
+      "CANDIDATE-claude-opus-5-medium-fable-advisor.json": "aa8fe4362605a6a79aa3c4e87e3a7ae095df860b4007456715be42fe494fea55",
+      "CANDIDATE-pi-zai-cn-glm-5.3-flash-high.json": "8dcabbfd33ca231912f4259c766ea50e1e5fecc6df0c2fbcbb14bec0c6c87fa1"
+    },
+    "raw": {
+      "RAW-codex-gpt-5.6-sol-high.ndjson": "adef217625c4d354a25fb564f9c2eb57ead2d2c8303906db8800b898f3e146ec",
+      "RAW-codex-gpt-5.6-sol-high.stderr.txt": "91df13b7852594ea0eee8cfa60bb9262ceb1ccf30ae6a1f7ca8f4fdfafdd9a8b",
+      "RAW-claude-opus-5-medium-no-advisor.ndjson": "5e59ecf61e9a3462fb3a4376501c8ff55531124095580ce6c77323d25685c456",
+      "RAW-claude-fable-5-medium-no-advisor.ndjson": "e3ba707d8449309af1edb9d35e6684bc5f4b016a4771aa1d86b7ab000f8f9153",
+      "RAW-claude-opus-5-medium-fable-advisor.ndjson": "d1781d104b76b39d2defe70c97aa42b89e9703121c3fcbc751cdfbe9c3ce0885",
+      "RAW-pi-zai-cn-glm-5.3-flash-high.ndjson": "a598852fe222a6ef10c4e620f2e643a80622e096e0fb5dca23fff73507e112c7",
+      "RAW-pi-zai-cn-glm-5.3-flash-high.stderr.txt": "9140ca4aa8d7e64e281509a2d2db869e878ff6e9fe0e032a28819ea02d3f57f1"
+    }
+  },
+  "candidate_union": {
+    "revision_ids": [
+      "H013",
+      "H016",
+      "H020"
+    ],
+    "revisions": 3,
+    "claims": 3,
+    "outcomes": {
+      "confirmed": 1,
+      "refuted": 2
+    },
+    "confirmed_revision_ids": [
+      "H013"
+    ],
+    "interpretation": "Only the model candidate union was source-adjudicated. Confirmed counts are lower bounds, not an estimate that all other revisions are clean."
+  },
+  "route_results": [
+    {
+      "route": "codex-gpt-5.6-sol-high",
+      "candidate_file": "CANDIDATE-codex-gpt-5.6-sol-high.json",
+      "candidate_sha256": "343820f1173fa2bcac85ec385e0d22679f83d65c32692f7548f16dfb50240675",
+      "valid": true,
+      "duration_seconds": 92.416,
+      "verdict_counts": {
+        "OK": 19,
+        "FINDING": 1
+      },
+      "candidate_revision_ids": [
+        "H013"
+      ],
+      "candidate_outcomes": {
+        "confirmed": 1,
+        "refuted": 0,
+        "indeterminate": 0,
+        "unreachable": 0
+      },
+      "confirmed_candidate_fraction": 1,
+      "route_metadata": {
+        "harness": "codex-cli 0.150.1",
+        "requested_model": "gpt-5.6-sol",
+        "requested_effort": "high",
+        "session": "ephemeral"
+      }
+    },
+    {
+      "route": "claude-opus-5-medium-no-advisor",
+      "candidate_file": "CANDIDATE-claude-opus-5-medium-no-advisor.json",
+      "candidate_sha256": "2ed19fd6734f4983ca23f905309c84c532d51839163fc4b41c6e0ed1402a90ea",
+      "valid": true,
+      "duration_seconds": 106.674,
+      "verdict_counts": {
+        "OK": 18,
+        "FINDING": 2
+      },
+      "candidate_revision_ids": [
+        "H013",
+        "H016"
+      ],
+      "candidate_outcomes": {
+        "confirmed": 1,
+        "refuted": 1,
+        "indeterminate": 0,
+        "unreachable": 0
+      },
+      "confirmed_candidate_fraction": 0.5,
+      "route_metadata": {
+        "harness": "Claude Code CLI 2.1.247",
+        "requested_model": "claude-opus-5",
+        "requested_effort": "medium",
+        "requested_advisor": null,
+        "initialized_models": [
+          "claude-opus-5"
+        ],
+        "actual_assistant_models": [
+          "claude-opus-5"
+        ],
+        "fallback_event_count": 0,
+        "fallback_block_count": 0,
+        "result": {
+          "is_error": false,
+          "subtype": "success",
+          "stop_reason": "tool_use",
+          "terminal_reason": "completed",
+          "usage": {
+            "input_tokens": 4,
+            "cache_creation_input_tokens": 17510,
+            "cache_read_input_tokens": 11652,
+            "output_tokens": 8264,
+            "output_tokens_details": {
+              "thinking_tokens": 3413
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 17510,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "not_available",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 2446,
+                "cache_read_input_tokens": 11652,
+                "cache_creation_input_tokens": 5858,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 5858
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard"
+          },
+          "model_usage": {
+            "claude-haiku-4-5-20251001": {
+              "inputTokens": 6133,
+              "outputTokens": 19,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0,
+              "webSearchRequests": 0,
+              "costUSD": 0.006228,
+              "contextWindow": 200000,
+              "maxOutputTokens": 32000,
+              "canonicalModel": "claude-haiku-4-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            },
+            "claude-opus-5": {
+              "inputTokens": 4,
+              "outputTokens": 8264,
+              "cacheReadInputTokens": 11652,
+              "cacheCreationInputTokens": 17510,
+              "webSearchRequests": 0,
+              "costUSD": 0.387546,
+              "contextWindow": 1000000,
+              "maxOutputTokens": 64000,
+              "canonicalModel": "claude-opus-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            }
+          },
+          "total_cost_usd": 0.393774,
+          "num_turns": 3,
+          "permission_denials": []
+        }
+      }
+    },
+    {
+      "route": "claude-fable-5-medium-no-advisor",
+      "candidate_file": "CANDIDATE-claude-fable-5-medium-no-advisor.json",
+      "candidate_sha256": "600e8d2474595735a94ed12cee4cd20588284b0e875cf77300dc1b2f54108aaa",
+      "valid": true,
+      "duration_seconds": 113.976,
+      "verdict_counts": {
+        "OK": 19,
+        "FINDING": 1
+      },
+      "candidate_revision_ids": [
+        "H020"
+      ],
+      "candidate_outcomes": {
+        "confirmed": 0,
+        "refuted": 1,
+        "indeterminate": 0,
+        "unreachable": 0
+      },
+      "confirmed_candidate_fraction": 0,
+      "route_metadata": {
+        "harness": "Claude Code CLI 2.1.247",
+        "requested_model": "claude-fable-5",
+        "requested_effort": "medium",
+        "requested_advisor": null,
+        "initialized_models": [
+          "claude-fable-5"
+        ],
+        "actual_assistant_models": [
+          "claude-fable-5"
+        ],
+        "fallback_event_count": 0,
+        "fallback_block_count": 0,
+        "result": {
+          "is_error": false,
+          "subtype": "success",
+          "stop_reason": "tool_use",
+          "terminal_reason": "completed",
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 11969,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 8840,
+            "output_tokens_details": {
+              "thinking_tokens": 6555
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 11969,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "not_available",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 8840,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 11969,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 11969
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard"
+          },
+          "model_usage": {
+            "claude-haiku-4-5-20251001": {
+              "inputTokens": 6133,
+              "outputTokens": 21,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0,
+              "webSearchRequests": 0,
+              "costUSD": 0.0062380000000000005,
+              "contextWindow": 200000,
+              "maxOutputTokens": 32000,
+              "canonicalModel": "claude-haiku-4-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            },
+            "claude-fable-5": {
+              "inputTokens": 2,
+              "outputTokens": 8840,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 11969,
+              "webSearchRequests": 0,
+              "costUSD": 0.6814000000000001,
+              "contextWindow": 1000000,
+              "maxOutputTokens": 64000,
+              "canonicalModel": "claude-fable-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            }
+          },
+          "total_cost_usd": 0.6876380000000001,
+          "num_turns": 2,
+          "permission_denials": []
+        }
+      }
+    },
+    {
+      "route": "claude-opus-5-medium-fable-advisor",
+      "candidate_file": "CANDIDATE-claude-opus-5-medium-fable-advisor.json",
+      "candidate_sha256": "aa8fe4362605a6a79aa3c4e87e3a7ae095df860b4007456715be42fe494fea55",
+      "valid": true,
+      "duration_seconds": 342.323,
+      "verdict_counts": {
+        "OK": 20
+      },
+      "candidate_revision_ids": [],
+      "candidate_outcomes": {
+        "confirmed": 0,
+        "refuted": 0,
+        "indeterminate": 0,
+        "unreachable": 0
+      },
+      "confirmed_candidate_fraction": null,
+      "route_metadata": {
+        "harness": "Claude Code CLI 2.1.247",
+        "requested_model": "claude-opus-5",
+        "requested_effort": "medium",
+        "requested_advisor": "claude-fable-5",
+        "initialized_models": [
+          "claude-opus-5"
+        ],
+        "actual_assistant_models": [
+          "claude-opus-5"
+        ],
+        "fallback_event_count": 0,
+        "fallback_block_count": 0,
+        "result": {
+          "is_error": false,
+          "subtype": "success",
+          "stop_reason": "tool_use",
+          "terminal_reason": "completed",
+          "usage": {
+            "input_tokens": 4,
+            "cache_creation_input_tokens": 17909,
+            "cache_read_input_tokens": 12968,
+            "output_tokens": 6251,
+            "output_tokens_details": {
+              "thinking_tokens": 3954
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 12968,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "not_available",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 3966,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 12968,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 12968
+                },
+                "type": "message"
+              },
+              {
+                "input_tokens": 18196,
+                "output_tokens": 18040,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 0,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 0
+                },
+                "type": "advisor_message",
+                "model": "claude-fable-5"
+              },
+              {
+                "input_tokens": 2,
+                "output_tokens": 2285,
+                "cache_read_input_tokens": 12968,
+                "cache_creation_input_tokens": 4941,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 4941,
+                  "ephemeral_1h_input_tokens": 0
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard"
+          },
+          "model_usage": {
+            "claude-haiku-4-5-20251001": {
+              "inputTokens": 6133,
+              "outputTokens": 21,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0,
+              "webSearchRequests": 0,
+              "costUSD": 0.0062380000000000005,
+              "contextWindow": 200000,
+              "maxOutputTokens": 32000,
+              "canonicalModel": "claude-haiku-4-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            },
+            "claude-opus-5": {
+              "inputTokens": 4,
+              "outputTokens": 6251,
+              "cacheReadInputTokens": 12968,
+              "cacheCreationInputTokens": 17909,
+              "webSearchRequests": 0,
+              "costUSD": 0.32334025,
+              "contextWindow": 1000000,
+              "maxOutputTokens": 64000,
+              "canonicalModel": "claude-opus-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            },
+            "claude-fable-5": {
+              "inputTokens": 18196,
+              "outputTokens": 18040,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0,
+              "webSearchRequests": 0,
+              "costUSD": 1.08396,
+              "contextWindow": 1000000,
+              "maxOutputTokens": 64000,
+              "canonicalModel": "claude-fable-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            }
+          },
+          "total_cost_usd": 1.41353825,
+          "num_turns": 2,
+          "permission_denials": []
+        }
+      }
+    },
+    {
+      "route": "pi-zai-cn-glm-5.3-flash-high",
+      "candidate_file": "CANDIDATE-pi-zai-cn-glm-5.3-flash-high.json",
+      "candidate_sha256": "8dcabbfd33ca231912f4259c766ea50e1e5fecc6df0c2fbcbb14bec0c6c87fa1",
+      "valid": true,
+      "duration_seconds": 115.93,
+      "verdict_counts": {
+        "OK": 20
+      },
+      "candidate_revision_ids": [],
+      "candidate_outcomes": {
+        "confirmed": 0,
+        "refuted": 0,
+        "indeterminate": 0,
+        "unreachable": 0
+      },
+      "confirmed_candidate_fraction": null,
+      "route_metadata": {
+        "harness": "Pi 0.84.3",
+        "requested_provider": "zai-standard-cn",
+        "requested_model": "glm-5.3-flash",
+        "requested_effort": "high",
+        "actual_provider": "zai-standard-cn",
+        "actual_model": "glm-5.3-flash",
+        "usage": {
+          "input": 4341,
+          "output": 4864,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 3866,
+          "totalTokens": 9205,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        },
+        "stop_reason": "stop"
+      }
+    }
+  ],
+  "pairwise_candidate_overlap": [
+    {
+      "left": "codex-gpt-5.6-sol-high",
+      "right": "claude-opus-5-medium-no-advisor",
+      "shared_candidate_revision_ids": [
+        "H013"
+      ]
+    },
+    {
+      "left": "codex-gpt-5.6-sol-high",
+      "right": "claude-fable-5-medium-no-advisor",
+      "shared_candidate_revision_ids": []
+    },
+    {
+      "left": "codex-gpt-5.6-sol-high",
+      "right": "claude-opus-5-medium-fable-advisor",
+      "shared_candidate_revision_ids": []
+    },
+    {
+      "left": "codex-gpt-5.6-sol-high",
+      "right": "pi-zai-cn-glm-5.3-flash-high",
+      "shared_candidate_revision_ids": []
+    },
+    {
+      "left": "claude-opus-5-medium-no-advisor",
+      "right": "claude-fable-5-medium-no-advisor",
+      "shared_candidate_revision_ids": []
+    },
+    {
+      "left": "claude-opus-5-medium-no-advisor",
+      "right": "claude-opus-5-medium-fable-advisor",
+      "shared_candidate_revision_ids": []
+    },
+    {
+      "left": "claude-opus-5-medium-no-advisor",
+      "right": "pi-zai-cn-glm-5.3-flash-high",
+      "shared_candidate_revision_ids": []
+    },
+    {
+      "left": "claude-fable-5-medium-no-advisor",
+      "right": "claude-opus-5-medium-fable-advisor",
+      "shared_candidate_revision_ids": []
+    },
+    {
+      "left": "claude-fable-5-medium-no-advisor",
+      "right": "pi-zai-cn-glm-5.3-flash-high",
+      "shared_candidate_revision_ids": []
+    },
+    {
+      "left": "claude-opus-5-medium-fable-advisor",
+      "right": "pi-zai-cn-glm-5.3-flash-high",
+      "shared_candidate_revision_ids": []
+    }
+  ],
+  "advisor_comparison": {
+    "pure_opus_candidate_revision_ids": [
+      "H013",
+      "H016"
+    ],
+    "advisor_candidate_revision_ids": [],
+    "removed_by_advisor": [
+      "H013",
+      "H016"
+    ],
+    "added_by_advisor": [],
+    "confirmed_removed_by_advisor": [
+      "H013"
+    ]
+  },
+  "provenance_strata": {
+    "S3_GPT_MOD_NON_GPT_REV": {
+      "sampled_revisions": 5,
+      "candidate_union_revisions": 1,
+      "confirmed_revisions": 1,
+      "refuted_candidate_revisions": 0,
+      "indeterminate_revisions": 0,
+      "unreachable_revisions": 0,
+      "confirmed_lower_bound_fraction": 0.2
+    },
+    "S2_GPT_MOD_GPT_REV_NON_GPT_ORCH": {
+      "sampled_revisions": 5,
+      "candidate_union_revisions": 1,
+      "confirmed_revisions": 0,
+      "refuted_candidate_revisions": 1,
+      "indeterminate_revisions": 0,
+      "unreachable_revisions": 0,
+      "confirmed_lower_bound_fraction": 0
+    },
+    "S4_NON_GPT_MOD_GPT_REV": {
+      "sampled_revisions": 5,
+      "candidate_union_revisions": 0,
+      "confirmed_revisions": 0,
+      "refuted_candidate_revisions": 0,
+      "indeterminate_revisions": 0,
+      "unreachable_revisions": 0,
+      "confirmed_lower_bound_fraction": 0
+    },
+    "S1_GPT_MOD_GPT_REV_GPT_ORCH": {
+      "sampled_revisions": 5,
+      "candidate_union_revisions": 1,
+      "confirmed_revisions": 0,
+      "refuted_candidate_revisions": 1,
+      "indeterminate_revisions": 0,
+      "unreachable_revisions": 0,
+      "confirmed_lower_bound_fraction": 0
+    }
+  },
+  "reviewer_composition_aggregate": {
+    "GPT_ONLY_CONTEXTUAL_REVIEWER": {
+      "strata": [
+        "S1_GPT_MOD_GPT_REV_GPT_ORCH",
+        "S2_GPT_MOD_GPT_REV_NON_GPT_ORCH",
+        "S4_NON_GPT_MOD_GPT_REV"
+      ],
+      "sampled_revisions": 15,
+      "candidate_union_revisions": 2,
+      "confirmed_revisions": 0,
+      "refuted_candidate_revisions": 2,
+      "confirmed_lower_bound_fraction": 0
+    },
+    "NON_GPT_ONLY_CONTEXTUAL_REVIEWER": {
+      "strata": [
+        "S3_GPT_MOD_NON_GPT_REV"
+      ],
+      "sampled_revisions": 5,
+      "candidate_union_revisions": 1,
+      "confirmed_revisions": 1,
+      "refuted_candidate_revisions": 0,
+      "confirmed_lower_bound_fraction": 0.2
+    }
+  },
+  "historical_chain_of_confirmed_revisions": [
+    {
+      "revision_id": "H013",
+      "stratum": "S3_GPT_MOD_NON_GPT_REV",
+      "task_id": "p2-tome-texts-b6-001",
+      "orchestrator_family": "GPT/Codex",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "Grok"
+      ]
+    }
+  ],
+  "conclusions": [
+    "One source-confirmed residual semantic relation defect was found in 20 sampled terminal revisions.",
+    "The confirmed revision came from the GPT-modifier/Grok-reviewer cross-family stratum; none was confirmed in the 15 sampled GPT-only-reviewer revisions.",
+    "This pilot therefore does not support the narrow claim that GPT-only historical review left more detectable residual defects, but its sample, topic imbalance and candidate-union-only adjudication are far too weak to refute systemic bias.",
+    "Codex and pure Opus independently converged on the sole confirmed revision. Pure Opus also produced one source-scope false positive; Fable produced one terminology false positive; GLM and the Opus+Fable Advisor composite produced no candidates.",
+    "Advisor removed both pure-Opus candidates, including the confirmed one, so it reduced false positives and true findings together rather than improving the pilot result."
+  ],
+  "limitations": [
+    "No independent human reviewer or sealed natural-defect reference exists.",
+    "The current GPT/Codex research agent performed post-inference source-constrained adjudication.",
+    "Only three model-nominated revisions were adjudicated; 17 no-candidate revisions remain unverified.",
+    "Five revisions per provenance stratum cannot support stable rates or significance tests.",
+    "Strata differ in task age, content category, batch size, context quality and workflow, and original translation generators remain unknown.",
+    "Historical repeated reviews within a task are correlated and are not independent samples."
+  ],
+  "next_experiment": "Run a preregistered controlled-mutation reviewer-by-translation-origin experiment with objective mutation labels, because this natural pilot cannot identify causal same-family preference without original generator provenance or independent ground truth."
+}
