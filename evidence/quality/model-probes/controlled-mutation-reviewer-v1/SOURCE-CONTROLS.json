@@ -1,0 +1,487 @@
+{
+  "schema_version": "controlled-mutation-source-controls-v1",
+  "visible_to_reviewers": false,
+  "source_repo_head": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+  "items": [
+    {
+      "revision_id": "C001",
+      "task_id": "p2-orcs-status-b12-001",
+      "original_revision_key": "orcs-status-b12-001",
+      "selection_rank": "574f24bc8ddc62212787a092f69c44e4a3b5bd6aba52346c1c28978a263a88f8",
+      "selection_rank_number": 22,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "Doubles your maximum steam and stops steam regeneration.",
+      "clean_target": "最大蒸汽值翻倍，并将蒸汽回复减半。",
+      "presented_target": "最大蒸汽值翻倍，并将蒸汽回复减半。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Tech Overload=系统过载. EFF_TECH_OVERLOAD.activate (timed_effects/physical.lua) sets max_steam to getMaxSteam() (doubles capacity) and steam_regen to -self.steam_regen/2 (halves regen). T_TECH_OVERLOAD info (talents/steam/automated-butchery.lua) says steam regeneration is halved. English long_desc wrongly says stops steam regeneration; this revision only changes Chinese.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b12-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b12-001/CONTEXTUAL-ENVELOPE-p2o-status-b12-ctx-1.json",
+        "sha256": "1142f5411e011219ba2aa5613dce758668fa43d9ad5705e2db9ba8af5c0626d4",
+        "candidate_identity": "4178b5b82a5d46831dd144c35ac19ab278465701672bf1961d2ca0178486cade"
+      },
+      "clean_item_sha256": "3011ed3ef4a6f03796395041ff42f19741bf2b1fb3cbcb1a78162b3f187d02aa"
+    },
+    {
+      "revision_id": "C002",
+      "task_id": "p2-orcs-status-b25-001",
+      "original_revision_key": "orcs-status-b25-001",
+      "selection_rank": "393ed2a30ff1eb85d321442acee41f00c73fd5ee6facd457353e8bc3d77570f6",
+      "selection_rank_number": 17,
+      "label": "INJECTED_MUTATION",
+      "source": "Hovering in place, gaining %d%% evasion, %d%% movement speed and launching a powerful rocket barrage each turn.",
+      "clean_target": "目标悬浮在空中，获得 %d%% 躲闪概率， %d%% 移动速度；可手动使用火箭弹幕再次发射，使用其他任何技能会立即结束该效果。",
+      "presented_target": "目标悬浮在空中，获得 %d%% 躲闪概率， %d%% 移动速度；每回合自动使用火箭弹幕再次发射，使用其他任何技能会立即结束该效果。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Death From Above=死亡天降; Rocket Barrage=火箭弹幕. Public source tome-orcs/data/timed_effects/physical.lua EFF_DEATH_FROM_ABOVE: activate grants evasion, projectile_evasion, movement_speed, levitation, avoid_pressure_traps, and learns Rocket Barrage; no on_timeout auto-fire. callbackOnTalentPost removes the effect unless the used talent has rocket_barrage. Rocket Barrage in tome-orcs/data/talents/steam/artillery.lua fires only when used and has rocket_barrage. Seeker Warhead apply fires once then sets the effect for 3 turns.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b25-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b25-001/CONTEXTUAL-ENVELOPE-p2o-status-b25-ctx-1.json",
+        "sha256": "7ce8a4ae1553c5eca89dcf2962ff0c56b5f8659d92e0d6aef213bf177be93bdf",
+        "candidate_identity": "8351f068a6d6d834fd25fd983a01e9e390b51d47ad79d8b91e52f1e7024cca71"
+      },
+      "clean_item_sha256": "61041232653d7ed2286aaac3b85d43ac38759f8333e1716dc6e66a6e9a878b96"
+    },
+    {
+      "revision_id": "C003",
+      "task_id": "p2-cults-status-b5-001",
+      "original_revision_key": "cults-status-b5-001",
+      "selection_rank": "4109b19c53bd3ab7c07596a75d15e1eaa6e37d441e2e8a720cb29e212c3a2f18",
+      "selection_rank_number": 19,
+      "label": "INJECTED_MUTATION",
+      "source": "%d stacks, +%d%% to all damage dealt.",
+      "clean_target": "%d 层, +%d%% 所有造成的伤害。",
+      "presented_target": "%d 层, -%d%% 所有造成的伤害。",
+      "fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source CHAOS_ORBS is beneficial and applies inc_damage={all=eff.stacks*3}.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2c-status-b5-ctx-2",
+        "logical_path": ".ai/task/p2-cults-status-b5-001/CONTEXTUAL-ENVELOPE-p2c-status-b5-ctx-2.json",
+        "sha256": "23b29a909b69dc804a15516cd38324d241e3a536e3aaad6df692e4cef66122dc",
+        "candidate_identity": "60557d42b5b1cd6faef06f341de0de13da284a46ea12d118e71257f2a32aba19"
+      },
+      "clean_item_sha256": "1ee97066a5f9abac4e0aa76ca7ac5892bf946d714276dff8494f209bdf6b6cef"
+    },
+    {
+      "revision_id": "C004",
+      "task_id": "p2-cults-status-b7-001",
+      "original_revision_key": "cults-status-b7-003",
+      "selection_rank": "29b691a1f0fa92471b885ca7d5c7ff31a768330e06a22a20515c8abff17c726f",
+      "selection_rank_number": 13,
+      "label": "INJECTED_MUTATION",
+      "source": "Reduces all damage done by %d%% and increase all detrimental effects durations by 6 turns on application.",
+      "clean_target": "降低所有造成的伤害 %d%%。施加该效果的时候会将所有负面效果持续时间延长6回合。",
+      "presented_target": "降低所有造成的伤害 %d%%。施加该效果的时候会将所有负面效果持续时间延长3回合。",
+      "fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. GASTRIC_WAVE_DEBUFF applies inc_damage={all=-eff.power} and extends detrimental-effect durations on application.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2c-status-b7-ctx-2",
+        "logical_path": ".ai/task/p2-cults-status-b7-001/CONTEXTUAL-ENVELOPE-p2c-status-b7-ctx-2.json",
+        "sha256": "d6575a1b21c6d931560aec67af142abc3cdbc55b33d344335b195fd60db3b6d6",
+        "candidate_identity": "0db8fb33e9b747c9fb7d76b3afa456ff3f6442ee10c4bb69cbc3d48672aa8c47"
+      },
+      "clean_item_sha256": "99a32b1c8bda82cad7bacca16c0c0d83d0da557974e3b180c3b041bd86f0bf7b"
+    },
+    {
+      "revision_id": "C005",
+      "task_id": "p2-cults-status-b18-001",
+      "original_revision_key": "cults-status-b18-001",
+      "selection_rank": "56c8f3ecbb28641b602fa1dd367f403f2dab1a95765fbc907b438310a585e995",
+      "selection_rank_number": 21,
+      "label": "INJECTED_MUTATION",
+      "source": "The target is removed from the normal time stream, unable to act but unable to take any damage. Each turn, negative effects and cooldowns will decrease in duration.",
+      "clean_target": "目标从常规时间流中移除，无法行动，免疫伤害。暂停结束时，非“其他”类且不会在无时间状态下自行衰减的负面效果，以及技能冷却时间会缩短。",
+      "presented_target": "目标从常规时间流中移除，无法行动，免疫伤害。每回合，非“其他”类且不会在无时间状态下自行衰减的负面效果，以及技能冷却时间会缩短。",
+      "fixed_context": "EFF_SUSPEND_BEN.deactivate iterates effects only when not tick_on_timeless, status is detrimental, and type is not other; it subtracts eff.power from their durations. It separately subtracts eff.power from every active talent cooldown. The shortening occurs when Suspend deactivates.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2c-status-b18-ctx-1",
+        "logical_path": ".ai/task/p2-cults-status-b18-001/CONTEXTUAL-ENVELOPE-p2c-status-b18-ctx-1.json",
+        "sha256": "7e9a43f7c4e65ff0813a1b15f362c9db90b625cb7884fb93d4388c294d0e29a9",
+        "candidate_identity": "f37d0bddcbfd77ab93f1d880b9844a28f1482f68957ddeaa0a1eacec4567725e"
+      },
+      "clean_item_sha256": "68db0e9a058766cbd34706c3d15c0ed4c803e012b3e14356e7247b74d82fda14"
+    },
+    {
+      "revision_id": "C006",
+      "task_id": "p2-ashes-status-b3-001",
+      "original_revision_key": "ashes-status-b3-001",
+      "selection_rank": "58f3bbf8213f8f6367c03109f26a794b53fc2d684a696be3a902e5cd8a43f07a",
+      "selection_rank_number": 24,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "The target is on fire, taking %0.2f fire damage per turn. On death, the flame will explode.",
+      "clean_target": "目标着火，每回合受到 %0.2f 火焰伤害。死亡时火焰会以更弱的强度传播到附近目标身上。",
+      "presented_target": "目标着火，每回合受到 %0.2f 火焰伤害。死亡时火焰会以更弱的强度传播到附近目标身上。",
+      "fixed_context": "EFF_BURNING_PLAGUE.callbackOnDeath in tome-ashes-urhrok/data/timed_effects.lua: on the burning target's death, if eff.explosion is set, it projects over a ball radius eff.range and for each target found (excluding eff.src and any target where eff.hasspread >= eff.spreadcount) calls target:setEffect(target.EFF_BURNING_PLAGUE, eff.spreadlength, {power=eff.power*eff.explosion, hasspread=eff.hasspread+1, ...}) -- applying a NEW burning DoT at explosion-scaled power (0.75x in the world-artifacts.lua usage), capped by a propagation-depth counter (spreadcount=2 hops in that usage). There is no instant damage projector call in this callback, only a particle emitter (visual) and the new DoT application. So 'explode' is spreading a weaker fire DoT, not an instant burst hit.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2a-status-b3-ctx-1",
+        "logical_path": ".ai/task/p2-ashes-status-b3-001/CONTEXTUAL-ENVELOPE-p2a-status-b3-ctx-1.json",
+        "sha256": "8f13f364f45c28275f31d62b19f8a59ac6d2e62c249b60c59d300dbc8f41ea43",
+        "candidate_identity": "2c73722baa7370ee36cd0d974397267ba119884fe9a255e5289b9045fb39a2dd"
+      },
+      "clean_item_sha256": "d23708140648d7f0c7a6a0fc3dc94913a87ecf484fb99c59180d0e4c591f6c59"
+    },
+    {
+      "revision_id": "C007",
+      "task_id": "p2-cults-status-b23-001",
+      "original_revision_key": "cults-status-b23-001",
+      "selection_rank": "13f228a86be97d38ee06005f60e8dc3dee8db149ed070a1efce5e3a40ef1b6aa",
+      "selection_rank_number": 4,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "Half turned to stone, reducing movement speed by %d%% and 35%% chances to shatter on damage, increasing damge taken by %d%%.",
+      "clean_target": "半石化中，移动速度降低 %d%%，受到伤害时有 35%% 几率碎裂，使该次伤害降低至原伤害的 %d%%。",
+      "presented_target": "半石化中，移动速度降低 %d%%，受到伤害时有 35%% 几率碎裂，使该次伤害降低至原伤害的 %d%%。",
+      "fixed_context": "EFF_WRITHING_HAIRS.callbackOnTakeDamage in tome-cults/data/timed_effects.lua returns {dam = dam * eff.brittle / 100} on a 35%% proc, which replaces the incoming hit's damage with dam*brittle/100. disfigured-face.lua getBrittle() scales brittle to 30-60 (talent-level dependent). So the 35%% proc reduces the triggered hit to 30-60%% of its original damage; it is a damage-reduction proc despite the English key and prior Chinese both saying \"increasing damage taken by %d%%\". Movement-speed clause (unrelated addTemporaryValue) is unchanged and out of scope.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2c-status-b23-ctx-1",
+        "logical_path": ".ai/task/p2-cults-status-b23-001/CONTEXTUAL-ENVELOPE-p2c-status-b23-ctx-1.json",
+        "sha256": "33104d3361e74ecf23fa95050d71798964e242c7158defbbd30d64121f363dc7",
+        "candidate_identity": "d1e8c7c9fbcb76933a0082a7a28f018956b1c4fd600a22258ebc32f4dd4fb1f1"
+      },
+      "clean_item_sha256": "c26a68560ac1cba7e727b1bd67b47ed29db2ac5c43c3ab5884deb82141eff01f"
+    },
+    {
+      "revision_id": "C008",
+      "task_id": "p2-ashes-status-b2-001",
+      "original_revision_key": "ashes-status-b2-001",
+      "selection_rank": "2dc511c827b167fc4d73b3ba1595c99f7e54287a5ab6775f502a35340b6287d2",
+      "selection_rank_number": 14,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.",
+      "clean_target": "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾结束时（无论吸收耗尽还是自然到期），引燃持续 3 回合、每回合造成 %d 伤害且范围为半径 %d 的灼烧。",
+      "presented_target": "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾结束时（无论吸收耗尽还是自然到期），引燃持续 3 回合、每回合造成 %d 伤害且范围为半径 %d 的灼烧。",
+      "fixed_context": "EFF_FIRE_SHIELD.deactivate in tome-ashes-urhrok/data/timed_effects.lua (lines ~458-467) runs on ANY effect termination (shield exhausted by absorbing damage, or natural duration expiry -- deactivate has no early-return distinguishing the two) and executes self:project(tg, self.x, self.y, DamageType.FIREBURN, {dur=3, dam=self:spellCrit(eff.power)}) in radius eff.radius -- a 3-turn burn DoT, not a single instant hit. The talent's own info text (heart-of-fire.lua ~95-97) confirms: 'When the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.' The absorb clause (%d/%d) is unchanged and out of scope.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2a-status-b2-ctx-1",
+        "logical_path": ".ai/task/p2-ashes-status-b2-001/CONTEXTUAL-ENVELOPE-p2a-status-b2-ctx-1.json",
+        "sha256": "02cff14e509622f1fa5b51655c15b1c792d8a6818cbc0966cb8106283eaf44b4",
+        "candidate_identity": "0b60d6a6deea336fbb3578d73a3a0fc6e0273de597f911a4d002e68f605b710e"
+      },
+      "clean_item_sha256": "ebab029823fa08521144d9c665957981dab17728750fe4b56c029383cb23f11f"
+    },
+    {
+      "revision_id": "C009",
+      "task_id": "p2-cults-status-b14-001",
+      "original_revision_key": "cults-status-b14-001",
+      "selection_rank": "0de59e95a7e588cee4692cf979cec66ac822bc78d5a541d6415351fcaa033cc4",
+      "selection_rank_number": 1,
+      "label": "INJECTED_MUTATION",
+      "source": "Your body can not function properly here, it is slowly wasting away. Each turn you take %0.2f void damage and any new debuff on you lasts %d%% longer. Each turn those penalties increase until the effect is removed.",
+      "clean_target": "你的身体无法正常运转，被逐渐损耗。每回合你受到 %0.2f 虚空伤害，任何新施加的负面效果（“其他”类效果除外）持续时间延长 %d%%。每回合这些惩罚都会增长，直到效果结束。",
+      "presented_target": "你的身体无法正常运转，被逐渐损耗。每回合你受到 %0.2f 虚空伤害，任何新施加的负面效果（“其他”类效果除外）持续时间缩短 %d%%。每回合这些惩罚都会增长，直到效果结束。",
+      "fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. TOTAL_COLLAPSE ticks VOID damage, then increases both damage and debuff duration penalty. callbackOnTemporaryEffect only extends a newly applied effect when status is detrimental and type is not other.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2c-status-b14-ctx-1",
+        "logical_path": ".ai/task/p2-cults-status-b14-001/CONTEXTUAL-ENVELOPE-p2c-status-b14-ctx-1.json",
+        "sha256": "b95bc7263c9e3a2dede862ef555e41b371471ed829cfe61c2559903407a93b9c",
+        "candidate_identity": "7c907ae442bdbed2f06e19ab36a57bbeba73f2bbfa02a499f18a0f06d16c1c4b"
+      },
+      "clean_item_sha256": "f1dd81a3db740b0a8c995d43a17b72b614328397590b748132dd06c9b2d1e93f"
+    },
+    {
+      "revision_id": "C010",
+      "task_id": "p2-cults-status-b13-001",
+      "original_revision_key": "cults-status-b13-001",
+      "selection_rank": "277d55e08d944b02e1a2c1f062320d24025b45a5ff5245ad31c9fdc8ed254620",
+      "selection_rank_number": 12,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "True power is revealed!\n\nAll debuffs removed and all talent cooldowns reset on application.\n\nEach turn a radius 2 explosion will occur in a random space dealing %0.2f darkness and temporal damage and destroying any diggable walls.",
+      "clean_target": "真正的力量正被揭示！\n\n施加该效果时，移除所有负面效果（“其他”类效果除外）并重置所有技能冷却时间。\n\n每回合，一个半径 2 码的爆炸会在一个随机空间爆发，造成 %0.2f 暗影和时空伤害，并摧毁所有可挖掘的墙。",
+      "presented_target": "真正的力量正被揭示！\n\n施加该效果时，移除所有负面效果（“其他”类效果除外）并重置所有技能冷却时间。\n\n每回合，一个半径 2 码的爆炸会在一个随机空间爆发，造成 %0.2f 暗影和时空伤害，并摧毁所有可挖掘的墙。",
+      "fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. HYPOSTASIS_AWAKEN.activate removes detrimental effects except type other and clears talents_cd when applied. on_timeout then creates a radius-2 random explosion each turn with darkness and temporal damage and digs diggable walls.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2c-status-b13-ctx-3",
+        "logical_path": ".ai/task/p2-cults-status-b13-001/CONTEXTUAL-ENVELOPE-p2c-status-b13-ctx-3.json",
+        "sha256": "7858e16d2a59cae67c821880bf5ca04b48cb8c8b4aa6733edb80d9b48a6fb57e",
+        "candidate_identity": "e5d2d0d664b64fbb6d9242210ba585dfc14c046691d30c963190fc156e593ba6"
+      },
+      "clean_item_sha256": "cccd962a3dff3a9df63f390dae9936c34331c8310fcc335609665ee5dd8fed6a"
+    },
+    {
+      "revision_id": "C011",
+      "task_id": "p2-orcs-status-b11-001",
+      "original_revision_key": "orcs-status-b11-001",
+      "selection_rank": "135f2b0c15aaac7804d1966039d08f3031cde1e56c1b5db6b9b51364172cc61e",
+      "selection_rank_number": 3,
+      "label": "INJECTED_MUTATION",
+      "source": "%d corrosive flechettes are embedded in the target. Each melee and ranged attack against them will cause a flechette to burst for %0.2f acid damage",
+      "clean_target": "目标体内嵌有 %d 枚腐蚀性毒镖。敌方单位的近战或远程攻击命中目标时，其中一枚毒镖会爆裂，造成 %0.2f 点酸性伤害。",
+      "presented_target": "目标体内嵌有 %d 枚腐蚀性毒镖。任意单位的近战或远程攻击命中目标时，其中一枚毒镖会爆裂，造成 %0.2f 点酸性伤害。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Corrosive Flechette=腐蚀性毒镖. EFF_CORROSIVE_FLECHETTE.callbackOnMeleeHit/callbackOnArcheryHit (timed_effects/physical.lua) burst one flechette and skip if src==self, src dead, self:reactionToward(src)>=0, or src is not an actor. Automated Defenses boltgun (talents/steam/heavy-weapons.lua) applies the effect only when the shield attack hit is true.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b11-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b11-001/CONTEXTUAL-ENVELOPE-p2o-status-b11-ctx-1.json",
+        "sha256": "76fd76a603237d1a64d915081907ce76fd042d3e7697b199608b5e742f050975",
+        "candidate_identity": "84d8e63148f501f8e7a8d84507c790d726798f98c47754bd77c3f93ddafb5856"
+      },
+      "clean_item_sha256": "23574dd4212ba2960e28bacef21410f9ce457a4a8145c05026905e4bad5f0bd7"
+    },
+    {
+      "revision_id": "C012",
+      "task_id": "p2-orcs-status-b15-001",
+      "original_revision_key": "orcs-status-b15-001",
+      "selection_rank": "240cc626310d77c16c0e9b9f849f7be1043dc5e0eb54b11bc5c6344fcd76dd6b",
+      "selection_rank_number": 11,
+      "label": "INJECTED_MUTATION",
+      "source": "Increases steamsaw damage multiplier by %d%%.",
+      "clean_target": "当前使蒸汽链锯伤害增加 %d%%；每回合首次近战命中指定目标时提高此加成，命中其他敌人则效果结束。",
+      "presented_target": "当前使蒸汽链锯伤害增加 %d%%；每回合首次近战命中指定目标时提高此加成，命中其他敌人则效果不会结束。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Continuous Butchery=无尽屠戮. Public source tome-orcs/data/timed_effects/physical.lua EFF_CONTINUOUS_BUTCHERY: activate immediately applies current steamsaw_dam_mult from eff.power; callbackOnMeleeAttack miss does nothing, a hit on a different actor removes the effect, and the first successful melee hit each turn on the designated target increases eff.power by power_inc. Combat path tome-orcs/superload/mod/class/interface/Combat.lua adds steamsaw_dam_mult/100 only for steamsaw weapons. Talent apply tome-orcs/data/talents/steam/automated-butchery.lua Continuous Butchery sets designated target plus initial/increment for 5 turns.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b15-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b15-001/CONTEXTUAL-ENVELOPE-p2o-status-b15-ctx-1.json",
+        "sha256": "90321e3d64ad6150781aa3871aae16f3b9b5926588575b7b2749602667b09f93",
+        "candidate_identity": "c483cc26118df2e3dbd739c7906a7b622c070fc155a5a5a115397d6496e398d2"
+      },
+      "clean_item_sha256": "c5e2265b84d6a672912c0ec924fbb0e51b430d35cb6becd4819e8242fb4cdcf6"
+    },
+    {
+      "revision_id": "C013",
+      "task_id": "p2-orcs-status-b2-001",
+      "original_revision_key": "orcs-status-b2-001",
+      "selection_rank": "144308684d9d2ad4f7fe5f497d8c9677d3ac71b886c38f1441460552660314ac",
+      "selection_rank_number": 5,
+      "label": "INJECTED_MUTATION",
+      "source": "All stats increased by %d.",
+      "clean_target": "除力量外的所有属性增加 %d。",
+      "presented_target": "包括力量在内的所有属性增加 %d。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Pain Enhancement System=痛苦强化系统; #Target# revels in the pain.=#Target# 在苦痛中狂欢。 EFF_PAIN_ENHANCEMENT_SYSTEM.activate (tome-orcs/data/timed_effects/physical.lua) sets inc_stats only for STAT_DEX/MAG/WIL/CUN/CON; STAT_STR is absent. Granting talent T_PAIN_ENHANCEMENT_SYSTEM info (talents/uber/str.lua) says: increasing all your primary stats except Strength by 50% of your Strength for 6 turns. English key occurs once in pinned Orcs source (this long_desc).",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b2-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b2-001/CONTEXTUAL-ENVELOPE-p2o-status-b2-ctx-1.json",
+        "sha256": "189e609021d117ed24ba502c022760ddacf046aa0388d49f4b61b972d71b2c8c",
+        "candidate_identity": "416d5d6370e4b91f53efff6d07e178ffe5e35e2fb24303e218aea38814ee879d"
+      },
+      "clean_item_sha256": "f118cbe9fe70d2eaa0384a2387bca5a3807263cadc6072fd54066174b17f5657"
+    },
+    {
+      "revision_id": "C014",
+      "task_id": "p2-cults-status-b4-001",
+      "original_revision_key": "cults-status-b4-001",
+      "selection_rank": "387052e58c916a62791294bd71bc57be62d01054aeeb09d63db90f441b9a826e",
+      "selection_rank_number": 16,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "Empowered by the sight of black blood, granting %d%% all resistances.",
+      "clean_target": "目睹黑血时受到强化，获得 %d%% 全部抗性。",
+      "presented_target": "目睹黑血时受到强化，获得 %d%% 全部抗性。",
+      "fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source SPIKESKIN applies resists={all=eff.power}; terminology/combat.tsv maps resists.all / All Resists to 全部抗性.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2c-status-b4-ctx-3",
+        "logical_path": ".ai/task/p2-cults-status-b4-001/CONTEXTUAL-ENVELOPE-p2c-status-b4-ctx-3.json",
+        "sha256": "a17684cd6b36faca4fc3f667ca801a2eedfb57b76b65dc296fd483f46f68dc31",
+        "candidate_identity": "ab84f6d33a3a0aae9c78d3708587d59b8063b2e74a6fc507980e0c7bcb164728"
+      },
+      "clean_item_sha256": "deb52df5b0585018de974cae64cdf8be94decb8ba7953fa23c5cea45adeffc7e"
+    },
+    {
+      "revision_id": "C015",
+      "task_id": "p2-orcs-status-b19-001",
+      "original_revision_key": "orcs-status-b19-001",
+      "selection_rank": "57dc6939a2f8949553f3727c18455597676c4fe23b7ceceb176afa88b6da7019",
+      "selection_rank_number": 23,
+      "label": "INJECTED_MUTATION",
+      "source": "Storing damage to unleash as a powerful lightning bolt (%d/%d).",
+      "clean_target": "已格挡伤害可累积至上限，准备放出强力闪电（%d/%d）。",
+      "presented_target": "已格挡伤害无法累积，准备放出强力闪电（%d/%d）。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Capacitor Discharge=电力放出; lightning=闪电. Public source tome-orcs/data/timed_effects/other.lua EFF_CAPACITOR_DISCHARGE: long_desc shows current power over max_power; on_merge adds successive power and caps at max_power. Apply path tome-orcs/data/talents/steam/magnetism.lua Capacitor Discharge callbackOnBlock sets power to the actual blocked amount. Damage type is LIGHTNING.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b19-ctx-2",
+        "logical_path": ".ai/task/p2-orcs-status-b19-001/CONTEXTUAL-ENVELOPE-p2o-status-b19-ctx-2.json",
+        "sha256": "ae944cbcb13ff41ca349fc8b1c7d869d77f633a2e977da1fb0fa9ff2e354b381",
+        "candidate_identity": "8a8de8d63f2846400182426d765a6e7bb2bdc58edba23c94f3eaf366747c4168"
+      },
+      "clean_item_sha256": "3bf294437e8d8d2549337829c31548bc0b1f40bd52fef057a7da76cec5f312db"
+    },
+    {
+      "revision_id": "C016",
+      "task_id": "p2-orcs-status-b27-001",
+      "original_revision_key": "orcs-status-b27-001",
+      "selection_rank": "1328789fed0ba0838f165ffd681e2f3f068dc7cd9a645aa5dd9424a07ac9dcb2",
+      "selection_rank_number": 2,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "Provides a frost aura, giving you +%d%% fire, light, and lightning affinity.",
+      "clean_target": "提供烈火光环，使你获得 +%d%% 火焰、光系和闪电亲和。",
+      "presented_target": "提供烈火光环，使你获得 +%d%% 火焰、光系和闪电亲和。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Fiery Salve=烈火药剂; Frost Salve uses 寒霜光环 and 亲和. Public source tome-orcs/data/timed_effects/physical.lua EFF_FIERY_SALVE activate adds damage_affinity for FIRE, LIGHT, LIGHTNING. English long_desc still says frost aura (copy-paste). Item apply tome-orcs/data/general/objects/tinkers/therapeutics.lua grants a fiery aura and sets EFF_FIERY_SALVE. lightning=闪电.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b27-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b27-001/CONTEXTUAL-ENVELOPE-p2o-status-b27-ctx-1.json",
+        "sha256": "0ebdb5a81980abbfcaed936328819f49f7e9d72dcbb38ee4ee8dbd1291c832ff",
+        "candidate_identity": "2161a3f5497ee29af7488cdb7437899f2ec16c0876d6454683f2fceecb0d6a75"
+      },
+      "clean_item_sha256": "cdbab80d62c9801d39528b051685a22751aa2d00bda57d13513b0c413b969491"
+    },
+    {
+      "revision_id": "C017",
+      "task_id": "p2-orcs-status-b5-001",
+      "original_revision_key": "orcs-status-b5-001",
+      "selection_rank": "169077ff9ff4174b362222c3f83815bf643a9dc3660a236b95ffbda7aa66425b",
+      "selection_rank_number": 6,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "The target is surrounded by a static shield, increasing all resistances by %d%% and causing attacks against them to trigger a shield attack for %d%% damage as lightning.",
+      "clean_target": "目标被静电力场包围，增加全部抗性 %d%%；受到攻击时，将使用原施放者的盾牌造成 %d%% 伤害的闪电反击，且同一攻击者每回合最多触发一次。",
+      "presented_target": "目标被静电力场包围，增加全部抗性 %d%%；受到攻击时，将使用原施放者的盾牌造成 %d%% 伤害的闪电反击，且同一攻击者每回合最多触发一次。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Static Shield=静电力场. T_STATIC_SHOCK (talents/steam/magnetism.lua) after successful Block applies EFF_STATIC_SHIELD for 4 turns to the caster and to act.turret minions with src=self (the caster). EFF_STATIC_SHIELD.callbackOnHit (timed_effects/physical.lua) uses src=eff.src, src:hasShield(), then src:attackTargetWith(attacker, shield_combat, DamageType.LIGHTNING, eff.dam); skips if attacker.turn_procs.static_shock. So turret bearers still retaliate with the original caster's shield, once per attacker per turn. resists.all terminology is All Resists=全部抗性.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b5-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b5-001/CONTEXTUAL-ENVELOPE-p2o-status-b5-ctx-1.json",
+        "sha256": "62a2feac51493f632643d611a2d8e722312b5914f7ed7b6f716e52294169a355",
+        "candidate_identity": "fe2cf42bbe201cc61bafb08e16d63a6ced78407776c5746ba76c9505133a7e32"
+      },
+      "clean_item_sha256": "1ea8e141f0774628589ce0fad5ca56aae47e8c558ddb2340254c4e36ee16a944"
+    },
+    {
+      "revision_id": "C018",
+      "task_id": "p2-orcs-status-b20-001",
+      "original_revision_key": "orcs-status-b20-001",
+      "selection_rank": "1d06d6ec117b3240cc8583f94f93bd345334eeb3e9fb92dc200798c962aa8ac5",
+      "selection_rank_number": 8,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "The target is surrounded by a magical steam shield, absorbing %d/%d damage and burning attackers for %d fire damage before it crumbles.",
+      "clean_target": "目标被魔法蒸汽护盾包围，吸收 %d/%d 伤害，并在攻击者近战命中时对其造成 %d 点火焰反击伤害。",
+      "presented_target": "目标被魔法蒸汽护盾包围，吸收 %d/%d 伤害，并在攻击者近战命中时对其造成 %d 点火焰反击伤害。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Steam Shield=蒸汽护盾. Public source tome-orcs/data/timed_effects/magical.lua EFF_STEAM_SHIELD.activate registers on_melee_hit fire damage of eff.retaliate; ranged hits do not trigger. Item apply tome-orcs/data/general/objects/world-artifacts.lua personal steam barrier.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b20-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b20-001/CONTEXTUAL-ENVELOPE-p2o-status-b20-ctx-1.json",
+        "sha256": "fb21951f5bca92724df1d484d1a4df200090811a2d563e901fb746d826623d07",
+        "candidate_identity": "542050537705b47b7f77fc895f30510515e97fcdfbc71938bf94fe93d127b470"
+      },
+      "clean_item_sha256": "24747de49a52d2ca34fb8eca04abd069e142b1068d52de4d904db9e87bf89b53"
+    },
+    {
+      "revision_id": "C019",
+      "task_id": "p2-orcs-status-b21-001",
+      "original_revision_key": "orcs-status-b21-001",
+      "selection_rank": "1b3beb9b9fd9a564e4f75a6ddc42f8d589ad05befd874d8af4c0d0bed81ba230",
+      "selection_rank_number": 7,
+      "label": "INJECTED_MUTATION",
+      "source": "If life is brought below 0, cancels the attack, heals for %d and deals %0.2f lightning damage in radius %d as well as dazing for 2 turns.",
+      "clean_target": "若生命值降至 0 以下，则取消此次攻击、恢复 %d 点生命值，并在 %d 格范围内造成 %0.2f 点闪电伤害，同时使目标眩晕 3 回合。",
+      "presented_target": "若生命值降至 0 以下，则取消此次攻击、恢复 %d 点生命值，并在 %d 格范围内造成 %0.2f 点闪电伤害，同时使目标眩晕 2 回合。",
+      "fixed_context": "source_tag=tformat with reorder {1,3,2} so Chinese placeholders are life, radius, damage. Unique runtime key in tome-orcs.lua. Nearby: AED=电击除颤器. Public source tome-orcs/data/timed_effects/physical.lua EFF_AED.callbackOnHit projects DamageType.LIGHTNING_DAZE with {dam=eff.damage, daze=100}; daze=100 is a 100% chance, no daze_duration is passed. Core game/modules/tome/data/damage_types.lua LIGHTNING_DAZE applies EFF_DAZED for (dam.daze_duration or 3). Talent apply tome-orcs/data/talents/steam/gadgets.lua AED info already says 3 turns. The English status key still says 2 turns; Chinese follows the effect code, not the English key wording.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b21-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b21-001/CONTEXTUAL-ENVELOPE-p2o-status-b21-ctx-1.json",
+        "sha256": "c59cde668c1297024e06f0f030eb2f8ebec68953aa8bfebbe5eadc3952f75ef3",
+        "candidate_identity": "393507d93e7b4e55cc7654a359ef3a19d9ab5f837f204cc2adda4ffe471a7ff6"
+      },
+      "clean_item_sha256": "351701aca439b04711bead6f35ebc471820af15cd3bf321a2022c9ec0b95837a"
+    },
+    {
+      "revision_id": "C020",
+      "task_id": "p2-cults-mechanics-b1-fix-001",
+      "original_revision_key": "cults-b1-003",
+      "selection_rank": "2220e559bcb6537989527d0fde74e1a231056a7c064e1c38150947ade0d79c4a",
+      "selection_rank_number": 10,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "The target is being erased from reality. Each time a magical effect is applied, they will take %0.2f darkness damage and %0.2f temporal damage. If 5 effects are applied, a powerful void horror will appear.",
+      "clean_target": "目标正被从现实中抹去。每当一个负面魔法效果施加到目标身上，它就会受到 %0.2f 暗影和 %0.2f 时空伤害。当施加了 5 个负面魔法效果后，强大的虚空恐魔将出现。",
+      "presented_target": "目标正被从现实中抹去。每当一个负面魔法效果施加到目标身上，它就会受到 %0.2f 暗影和 %0.2f 时空伤害。当施加了 5 个负面魔法效果后，强大的虚空恐魔将出现。",
+      "fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=data/timed_effects.lua. Fixed source EFF_UNRAVEL_EXISTENCE callback acts only when e.type is magical and e.status is detrimental; it increments its counter and manifests a void annihilator at five.",
+      "terminal_input": {
+        "resolution_basis": "unique_contextual_envelope_fallback",
+        "dispatch_id": "unique-envelope-fallback",
+        "logical_path": ".ai/task/p2-cults-mechanics-b1-fix-001/CONTEXTUAL-ENVELOPE-p2c-b1-ctx-1.json",
+        "sha256": "0a89fc683e42b7b78f06f61b2cb4a9e888eade2768befa4f675ce5b24989c2f5",
+        "candidate_identity": "e6205a7a367b01e9d85bace772761727f3d2532782e9a226afc750438b8d5295"
+      },
+      "clean_item_sha256": "31b4c919e8fd61769ffa7f0c5dd7baab7d207a54e8bd8276ed5a984d14802b4a"
+    },
+    {
+      "revision_id": "C021",
+      "task_id": "p2-ashes-mechanics-b1-fix-001",
+      "original_revision_key": "ashes-b1-002",
+      "selection_rank": "522dffe3b05f23f1f13e055b96a182c8d2c8bd66dc9562a508530ef81d740f22",
+      "selection_rank_number": 20,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "Huge demonic that bleeds, doing %0.2f darkness damage per turn. Anytime you hit it you get healed for %d.",
+      "clean_target": "巨大的恶魔伤口每回合造成 %0.2f 暗影伤害。当造成该伤口的来源以近战攻击命中目标时，将会恢复 %d 生命。",
+      "presented_target": "巨大的恶魔伤口每回合造成 %0.2f 暗影伤害。当造成该伤口的来源以近战攻击命中目标时，将会恢复 %d 生命。",
+      "fixed_context": "translation: tome-ashes-urhrok.lua, source_tag=tformat, section=data/timed_effects.lua, effect=DEMONIC_CUT. Public fixed DLC source data/timed_effects.lua: callbackOnMeleeHit(self, eff, src, dam) returns unless dam>0 and src==eff.src, then src:heal(eff.heal); source has two formatting placeholders.",
+      "terminal_input": {
+        "resolution_basis": "unique_contextual_envelope_fallback",
+        "dispatch_id": "unique-envelope-fallback",
+        "logical_path": ".ai/task/p2-ashes-mechanics-b1-fix-001/CONTEXTUAL-ENVELOPE-p2a-b1-ctx-1.json",
+        "sha256": "ef0063eac55e2f732b3ab5e5c0c5d9016b6e0ac13a31c394f8ca919baffc96d5",
+        "candidate_identity": "941e3098859442537cce9ed217fa180ce6e484cadd022a3c5e9c9e3dc9b18748"
+      },
+      "clean_item_sha256": "0033f24824f827bc3e77d0a34be380f0c7e340aa0df7fd9f956aa126e5da4562"
+    },
+    {
+      "revision_id": "C022",
+      "task_id": "p2-orcs-status-b10-001",
+      "original_revision_key": "orcs-status-b10-001",
+      "selection_rank": "3d2b44d9f63c0ac874d51628454e78209754efac3f70c071106b64a269455ae2",
+      "selection_rank_number": 18,
+      "label": "UNMODIFIED_CONTROL",
+      "source": "Affected by toxic chemicals. Has %d%% talent failure, %d%% reduced healing, and takes %0.2f additional acid damage from melee and ranged attacks.",
+      "clean_target": "被有毒化学物质影响。 %d%% 技能失败率，降低 %d%% 治疗效果，每回合第一次被带有武器类型的近战或远程攻击命中时，受到额外 %0.2f 酸性伤害。",
+      "presented_target": "被有毒化学物质影响。 %d%% 技能失败率，降低 %d%% 治疗效果，每回合第一次被带有武器类型的近战或远程攻击命中时，受到额外 %0.2f 酸性伤害。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Miasma=瘴气. The cloud string on the previous key is a different entry and was not changed. EFF_MIASMA.callbackOnHit (timed_effects/physical.lua) returns unless src.turn_procs.weapon_type and not self.turn_procs.miasma, then sets self.turn_procs.miasma and projects acid. T_MIASMA_ENGINE info says the first time each turn a melee or ranged attack hits.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b10-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b10-001/CONTEXTUAL-ENVELOPE-p2o-status-b10-ctx-1.json",
+        "sha256": "1f91c326d464f3a91d26e2528dbf96257c0ce75a387d29969c6d61bd2ab38f22",
+        "candidate_identity": "0ca9875f653ef6d3c9012d7d29d6415cc730e3115fd5fbc0efaa6fc3bf4d9c51"
+      },
+      "clean_item_sha256": "df65fa03b89b953262639128680851f5869beb5838c3c91c6b0b694f3f729bf5"
+    },
+    {
+      "revision_id": "C023",
+      "task_id": "p2-orcs-status-b7-001",
+      "original_revision_key": "orcs-status-b7-001",
+      "selection_rank": "35d77371860feecdc79fbe046de220e4a533a28418ac87845d50d011ebf6d844",
+      "selection_rank_number": 15,
+      "label": "INJECTED_MUTATION",
+      "source": "Next melee or ranged attack that deals more than 8%% of maximum life is reduced by %d%% and triggers a radius %d conal explosion dealing %d%% steamgun damage. %d stacks remaining.",
+      "clean_target": "下一次受到的近战或远程攻击若造成至少相当于最大生命值 8%% 的伤害，则会降低 %d%% 伤害，并触发一次半径为 %d 的扇形爆炸，造成 %d%% 蒸汽枪伤害。每回合最多触发一次。剩余 %d 层叠加。",
+      "presented_target": "下一次受到的近战或远程攻击若造成超过最大生命值 8%% 的伤害，则会降低 %d%% 伤害，并触发一次半径为 %d 的扇形爆炸，造成 %d%% 蒸汽枪伤害。每回合最多触发一次。剩余 %d 层叠加。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Reactive Armor=反应式装甲. EFF_REACTIVE_ARMOR.callbackOnHit (timed_effects/physical.lua) returns if self.turn_procs.reactive_armor is set, then sets it on trigger (once per turn); returns if self.max_life*0.08 > cb.value so equal-to-8% still triggers; requires src.turn_procs.weapon_type and hostile actor; consumes one stack. Talent callbackOnBlock is a separate path and out of scope.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b7-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b7-001/CONTEXTUAL-ENVELOPE-p2o-status-b7-ctx-1.json",
+        "sha256": "22180f0b39594b9df4603bc5e33c44c4c5313762168fa6189b747b7c3d40b849",
+        "candidate_identity": "96e09c09aea9d28a355063f3e9125337ca9897d44580a71c7115764c06e98baf"
+      },
+      "clean_item_sha256": "a81a3c882e19f3c9a8ccf178d8eaa30e47de8c9d839323ce9d8b25d02ab1f5a4"
+    },
+    {
+      "revision_id": "C024",
+      "task_id": "p2-orcs-status-b4-001",
+      "original_revision_key": "orcs-status-b4-001",
+      "selection_rank": "1fd77bab4477a29d3d6c993f849997ad08f325946d30b83b9e6f8093a3837171",
+      "selection_rank_number": 9,
+      "label": "INJECTED_MUTATION",
+      "source": "The Mecharachnid is out of sight of the annihilator; direct control will be lost!",
+      "clean_target": "机械蜘蛛已脱离歼灭者视野；若未能在四回合内恢复视线，将失去直接控制！",
+      "presented_target": "机械蜘蛛已脱离歼灭者视野；若未能在一回合内恢复视线，将失去直接控制！",
+      "fixed_context": "source_tag=_t; unique runtime key in tome-orcs.lua. Nearby: Mecharachnid out of sight=视野外的机械蜘蛛; on_gain #LIGHT_RED##Target# is out of sight of its master; direct control will break! is a separate string (out of scope). Pet on_act (talents/steam/mecharachnid.lua) applies EFF_MECHARACHNID_OFS for 4 turns when player-controlled mecharachnid loses LOS to summoner; restoring LOS immediately removeEffect. EFF_MECHARACHNID_OFS.on_timeout (timed_effects/other.lua) only breaks control via party:setPlayer(summoner) when game.player==self and eff.dur<=1.",
+      "terminal_input": {
+        "resolution_basis": "terminal_reviewer_dispatch",
+        "dispatch_id": "p2o-status-b4-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-status-b4-001/CONTEXTUAL-ENVELOPE-p2o-status-b4-ctx-1.json",
+        "sha256": "b05d997654ace6df9c111416d85794e19112939d5cedc6826de98bb216ce662d",
+        "candidate_identity": "e0d0a6db82a99257af96d88eb5c9d2f2bbbc2355046a307a96b8fe31c46f3e28"
+      },
+      "clean_item_sha256": "aeddf97c0672e8403d2c4ad7c0a0f1d4d9e6d0875d4dafb99902002bbc37fb4d"
+    }
+  ]
+}

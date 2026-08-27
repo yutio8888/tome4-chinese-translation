@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "scope": "single-run four-route controlled-mutation reviewer comparison; not production adjudication, not evaluator selection and not yet a translation-origin factorial",
+  "frozen_at": "2026-08-27",
+  "base_commit": "bc439cf",
+  "source_repo": {
+    "head": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+    "snapshot": "../paseo-provenance-snapshot-v1/SNAPSHOT.json",
+    "snapshot_sha256": "b754183a9d1e0efa15cb1d3c16fa06a7f96f388e75707c7ba0e79f4a680f2eab"
+  },
+  "authorization": {
+    "services": [
+      "OpenAI via Codex CLI",
+      "Anthropic first-party via Claude Code CLI",
+      "Z.ai CN via Pi custom provider",
+      "Google Gemini via Antigravity CLI"
+    ],
+    "basis": "The user explicitly retired Fable/Advisor for budget reasons, requested agy + Gemini 3.7 Flash, and instructed the research to begin the next experiment.",
+    "data_scope": "24 sanitized source/target/fixed-context reviewer records from the existing ToME4 translation-review corpus; no credentials, historical findings, verdicts, model provenance or local absolute paths are sent"
+  },
+  "route_policy": {
+    "active_routes": [
+      "codex-gpt-5.6-sol-high",
+      "claude-opus-5-medium-no-advisor",
+      "pi-zai-cn-glm-5.3-flash-high",
+      "agy-gemini-3.7-flash-high"
+    ],
+    "retired_after_previous_pilot": [
+      "claude-fable-5-medium-no-advisor",
+      "claude-opus-5-medium-fable-advisor"
+    ],
+    "historical_artifact_policy": "Retired-route RAW and results remain in their completed experiment and are not deleted or silently recomputed."
+  },
+  "sampling": {
+    "builder": "build.mjs",
+    "builder_sha256": "e257092baf57922452812a9027be3e7b2b35b3aaa198c823b0ab71046823f130",
+    "manifest": "SAMPLING.json",
+    "manifest_sha256": "619b7b031e71973a5fe654ba3328c771e029db0fab9db3a62e02ee7863438043",
+    "eligible_revisions": 59,
+    "selected_revisions": 24,
+    "injected_mutations": 12,
+    "unmodified_controls": 12,
+    "exclusion": {
+      "path": "../paseo-residual-audit-pilot-v1/PROVENANCE-KEY.json",
+      "sha256": "e0f43d3a9a977ee52a180e4ac00fdfdb00aadbf3cae6bac1b04405153b9a74e9"
+    }
+  },
+  "input": {
+    "path": "HOLDOUT.json",
+    "sha256": "ded0046ddd87f52ecbcc3d726fce20a0718facc20456bd665f6ae5539413c30b",
+    "items": 24,
+    "visible_fields": ["revision_id", "source", "target", "fixed_context"],
+    "absolute_path_sanitization": "Only known local repository prefixes in fixed_context are mechanically removed; generation fails on remaining /home/ or /Users/ paths."
+  },
+  "sealed_reference": {
+    "path": "REFERENCE.json",
+    "sha256": "b4b76f2cbcfeb06112e84ae2a748c359e3cae583e0d26beb4335eba1d5da0c80",
+    "visible_to_candidates": false,
+    "semantic_scope": "injection records, not a claim that all unmodified controls are naturally defect-free"
+  },
+  "source_controls": {
+    "path": "SOURCE-CONTROLS.json",
+    "sha256": "beece1236a6cd78e975387571b03aff97bea12ae16f9000e0353e0f35583d16c",
+    "visible_to_candidates": false
+  },
+  "prompt": {
+    "path": "PROMPT.md",
+    "sha256": "4c083db4a92076db83c27ae93db840b331556037fd2ec7edc1b5f85eb0de5b27",
+    "tuned_on_holdout": false
+  },
+  "output_schema": {
+    "path": "REVIEWER-SCHEMA.json",
+    "sha256": "74e48927628add2c656f5abb40e50c93506fd9e32ce8e0c97051f3ab44435167",
+    "labels": ["OK", "FINDING", "UNCERTAIN"],
+    "enforcement": "CLI schema where supported plus exact-order local validation"
+  },
+  "routes": [
+    {
+      "route": "codex-gpt-5.6-sol-high",
+      "harness": "Codex CLI 0.150.1",
+      "requested_model": "gpt-5.6-sol",
+      "effort": "high",
+      "session": "ephemeral"
+    },
+    {
+      "route": "claude-opus-5-medium-no-advisor",
+      "harness": "Claude Code CLI 2.1.247",
+      "requested_model": "claude-opus-5",
+      "effort": "medium",
+      "advisor": "disabled by safe-mode and project,local-only setting sources",
+      "runtime_identity_rule": "the complete task must initialize and emit assistant messages as claude-opus-5 with no fallback"
+    },
+    {
+      "route": "pi-zai-cn-glm-5.3-flash-high",
+      "harness": "Pi 0.84.3",
+      "requested_provider": "zai-standard-cn",
+      "requested_model": "glm-5.3-flash",
+      "effort": "high",
+      "runtime_identity_rule": "message_end must report zai-standard-cn/glm-5.3-flash"
+    },
+    {
+      "route": "agy-gemini-3.7-flash-high",
+      "harness": "Antigravity CLI 1.1.22",
+      "requested_model": "gemini-3.7-flash-high",
+      "effort": "high",
+      "availability_check": "agy models listed gemini-3.7-flash-high immediately before freezing",
+      "mode": "plan",
+      "sandbox": true
+    }
+  ],
+  "preregistered_analysis": {
+    "primary": "mutation-specific detection recall: a non-OK response counts only when its atomic claim matches the sealed injected mutation",
+    "secondary": [
+      "recall by mutation category",
+      "candidate count on unmodified controls",
+      "source-adjudicated natural findings or false positives on controls",
+      "non-mutation findings on mutated items reported separately",
+      "union, consensus and unique confirmed mutation detections"
+    ],
+    "not_allowed": [
+      "count every non-OK mutant response as a hit without atomic-claim matching",
+      "count every unmodified-control finding as a false positive without source adjudication",
+      "expose REFERENCE.json or other route outputs before all independent runs complete",
+      "infer prose quality, production fitness or variance from one run"
+    ],
+    "next_gate": "Only if this mutation benchmark is informative should the study pay for a reviewer-by-translation-origin factorial."
+  }
+}
