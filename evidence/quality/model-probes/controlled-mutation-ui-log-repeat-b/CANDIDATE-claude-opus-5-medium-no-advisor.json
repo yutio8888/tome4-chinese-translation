@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "run_label": "B",
+  "route": "claude-opus-5-medium-no-advisor",
+  "route_metadata": {
+    "harness": "Claude Code CLI 2.1.247",
+    "requested_model": "claude-opus-5",
+    "requested_effort": "medium",
+    "requested_advisor": null,
+    "initialized_models": [
+      "claude-opus-5"
+    ],
+    "actual_assistant_models": [
+      "claude-opus-5"
+    ],
+    "fallback_event_count": 0,
+    "fallback_block_count": 0,
+    "result": {
+      "is_error": false,
+      "subtype": "success",
+      "stop_reason": "tool_use",
+      "terminal_reason": "completed",
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 5104,
+        "cache_read_input_tokens": 3124,
+        "output_tokens": 3627,
+        "output_tokens_details": {
+          "thinking_tokens": 1261
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 5104,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 3627,
+            "cache_read_input_tokens": 3124,
+            "cache_creation_input_tokens": 5104,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 5104
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 3528,
+          "outputTokens": 19,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.003623,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000,
+          "canonicalModel": "claude-haiku-4-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-opus-5": {
+          "inputTokens": 2,
+          "outputTokens": 3627,
+          "cacheReadInputTokens": 3124,
+          "cacheCreationInputTokens": 5104,
+          "webSearchRequests": 0,
+          "costUSD": 0.143287,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "canonicalModel": "claude-opus-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "total_cost_usd": 0.14690999999999999,
+      "num_turns": 2
+    }
+  },
+  "duration_seconds": 45.984,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "FINDING": 2,
+    "OK": 5,
+    "UNCERTAIN": 1
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "R001",
+        "verdict": "FINDING",
+        "observation": "守护者获得的增益类型被改写为“伤害增加”，既不符合英文 grow in power，也不符合代码实际的移动速度提升。",
+        "evidence": "source: \"You feel the guardian of this place grow in power.\" / target: \"你感受到这个地方的守护者的伤害增加了。\" / fixed_context: \"m.movement_speed = m.movement_speed + 0.5 ... English grow in power; code is movement speed\""
+      },
+      {
+        "revision_id": "R002",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"English says void shards; code restores Void Stars stacks\"；target 用“虚空之星”，与 \"Void Stars=虚空之星\"、\"Essence Reave talent info already 获得 %d 虚空之星\" 一致"
+      },
+      {
+        "revision_id": "R003",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "source: \"requires Gestalt to be active and either an active psionic damage shield or Improved Gestalt off cooldown\" / target: \"需要格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中\"，条件分组一致"
+      },
+      {
+        "revision_id": "R004",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"first logPlayer Select the source: then getTarget stored as target ... talent info uses 源生物 and 牺牲生物\"；target: \"选择源生物:\""
+      },
+      {
+        "revision_id": "R005",
+        "verdict": "FINDING",
+        "observation": "条件身份被替换：实际失败条件是缺少“异变之手”（getTentacleCombat 为 nil），却译为“空闲的副手”，与另一条独立的副手空手提示混淆。",
+        "evidence": "source: \"You require a mutated hand!\" / target: \"你需要空闲的副手！\" / fixed_context: \"Constrict logs You require a mutated hand! when getTentacleCombat is nil\"，且 \"separate empty-offhand log 你需要副手空手才能使用触手\""
+      },
+      {
+        "revision_id": "R006",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"Deliberate miss, not dodge\"、\"talent info already 故意朝目标射出偏离的子弹\"；target: \"%s故意打偏了%s的射击。\"，占位符对应射手名与 his/her"
+      },
+      {
+        "revision_id": "R007",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: \"rejects if self.in_combat or mecharachnid.in_combat or not adjacent/missing\"；target: \"你需要你的机械蜘蛛与你相邻，并且你必须处于非战斗状态。\""
+      },
+      {
+        "revision_id": "R008",
+        "verdict": "UNCERTAIN",
+        "observation": "感知效果时长存疑：代码为 setEffect(EFF_SENSE, 4)，英文与中文均写 3 回合；无法判断是英文显示串滞后还是此处应保持 3，证据不足以裁定中文。",
+        "evidence": "fixed_context: \"setEffect(self.EFF_SENSE, 4, {range=rad, actor=1}). English talent info says sense lasts the next 3 turns.\" / target: \"让你能够在 3 回合内觉察到 %d 码内的所有敌对生物\""
+      }
+    ]
+  }
+}

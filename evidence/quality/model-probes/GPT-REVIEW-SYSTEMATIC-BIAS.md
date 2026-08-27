@@ -197,3 +197,11 @@ Union、consensus 和多模型讨论只能作为派生候选生成策略，不�
 主要结果为 Codex 4/4、Opus 3/4、GLM 3/4、Gemini 2/4；四路 consensus 2/4，union 4/4。四条 control 在所有路线中均为 `OK`，因此没有 control 污染或误报候选。R007 删除了“机械蜘蛛本身也必须脱离战斗”的条件，只有 Codex 发现；R008 把运行时四回合感知改回过时英文的三回合，Codex/GLM 判 finding，Opus 判 uncertain，Gemini 漏掉。
 
 这次重复改变了研究判断：v1 的近满分不能外推为跨类别稳定能力，模型盲点会随条件主体、运行时优先级和 UI 文本形态变化。Codex 在两个实验中都保持全命中，但总计仍只有 16 个注入变异，且没有同一冻结输入的重复运行，不能据此宣称稳定优势或无系统性偏差。直接源码 control 构造则通过了本轮门禁，说明下一次应优先重复同一 v2 输入来估计随机方差，而不是继续增加新的类别或立即进入 translation-origin 全因子矩阵。
+
+## UI/日志原样 Repeat B（已完成）
+
+已按预注册设计对 v2 的输入、顺序、prompt、schema、模型路线和 effort 做逐字节相同的第二次推理：[controlled mutation UI/log Repeat B](controlled-mutation-ui-log-repeat-b/README.md)。Codex、Opus 与 GLM 原样复现各自 Run A 命中集合，仍分别为 4/4、3/4、3/4；Gemini 则从 2/4 变为 4/4，把此前漏掉的 R007 条件主体和 R008 运行时持续时间都改判为 `FINDING`。16 个路线 × mutation 主指标中有 14 个一致、2 个翻转，一致率 87.5%。四路线的四个直接源码 control 在 A、B 两轮中都全部为 `OK`。
+
+这项结果使“单次模型分数不能作稳定排名”的限制从原则性警告变成了直接观测：Gemini 在完全相同输入上的 mutation recall 从 50% 变为 100%。它不说明 Gemini 已稳定达到满分，也不说明只有 Gemini 有波动；两轮、四个变异不足以估计各路线的方差。Codex 连续两轮 4/4 是正向迹象，但样本仍太小，且仍不回答 reviewer × translation-origin 的同族偏差问题。
+
+预注册规则要求只要出现任一主要检测翻转，就建议一次原样 Run C。因此下一步不应调 prompt 或扩样本，而应先完成第三次相同运行，并以逐条三轮检出频率描述稳定性。Run C 之后再决定是否值得投入 translation-origin 交叉实验；当前证据仍不能证明 GPT 无系统性偏差。

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "adjudicated_at": "2026-08-27",
+  "method": "atomic-claim matching against the unchanged sealed Run A mutation record; every Run B non-OK response was checked after all four routes completed",
+  "mutation_claim_matches": {
+    "codex-gpt-5.6-sol-high": ["R001", "R005", "R007", "R008"],
+    "claude-opus-5-medium-no-advisor": ["R001", "R005", "R008"],
+    "pi-zai-cn-glm-5.3-flash-high": ["R001", "R005", "R008"],
+    "agy-gemini-3.7-flash-high": ["R001", "R005", "R007", "R008"]
+  },
+  "mutation_misses": {
+    "codex-gpt-5.6-sol-high": [],
+    "claude-opus-5-medium-no-advisor": [
+      {
+        "revision_id": "R007",
+        "observed_verdict": "OK",
+        "reason": "The response did not identify that the mecharachnid, as well as the player, must be out of combat."
+      }
+    ],
+    "pi-zai-cn-glm-5.3-flash-high": [
+      {
+        "revision_id": "R007",
+        "observed_verdict": "OK",
+        "reason": "The response did not identify that the mecharachnid, as well as the player, must be out of combat."
+      }
+    ],
+    "agy-gemini-3.7-flash-high": []
+  },
+  "uncertain_mutation_matches": {
+    "claude-opus-5-medium-no-advisor": ["R008"]
+  },
+  "control_candidates": {
+    "codex-gpt-5.6-sol-high": [],
+    "claude-opus-5-medium-no-advisor": [],
+    "pi-zai-cn-glm-5.3-flash-high": [],
+    "agy-gemini-3.7-flash-high": []
+  },
+  "non_mutation_candidates_on_mutated_items": [],
+  "guardrails": [
+    "A non-OK verdict counts only when its atomic claim matches the registered mutation.",
+    "Opus R008 counts in the preregistered primary non-OK metric because it states the exact 3-versus-4 runtime duration conflict; FINDING-only recall is reported separately.",
+    "No source adjudication was performed by model majority: the four controls and mutation records are the unchanged, pre-inference Run A sealed artifacts."
+  ]
+}

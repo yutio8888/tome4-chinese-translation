@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "run_label": "B",
+  "route": "agy-gemini-3.7-flash-high",
+  "route_metadata": {
+    "harness": "Antigravity CLI 1.1.22",
+    "requested_model": "gemini-3.7-flash-high",
+    "requested_effort": "high",
+    "mode": "plan",
+    "sandbox": true,
+    "reported_model": null,
+    "reported_agent": null,
+    "usage": {
+      "input_tokens": 34464,
+      "output_tokens": 14881,
+      "thinking_tokens": 13801,
+      "cache_read_tokens": 17068,
+      "total_tokens": 49345
+    }
+  },
+  "duration_seconds": 40.096,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "FINDING": 4,
+    "OK": 4
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "target '伤害增加了' 与 fixed_context 中 'm.movement_speed = m.movement_speed + 0.5' 冲突",
+        "observation": "属性机制翻译错误，代码实际增加的是移动速度而非伤害",
+        "revision_id": "R001",
+        "verdict": "FINDING"
+      },
+      {
+        "evidence": "target '恢复%d个虚空之星!' 忠于 fixed_context 中 'code restores Void Stars stacks' 的实际机制，占位符绑定正确",
+        "observation": "OK",
+        "revision_id": "R002",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "target 准确表达了技能前置条件与效果，占位符 %d%% 绑定正确，与 fixed_context 一致",
+        "observation": "OK",
+        "revision_id": "R003",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "target '选择源生物:' 符合 fixed_context 中苦痛链接技能目标选择逻辑与术语",
+        "observation": "OK",
+        "revision_id": "R004",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "target '你需要空闲的副手！' 与 fixed_context 中 'Mutated Hand=异变之手' 及 getTentacleCombat 判定冲突",
+        "observation": "前提条件与技能身份错误，判定的是异变之手技能而非副手空闲",
+        "revision_id": "R005",
+        "verdict": "FINDING"
+      },
+      {
+        "evidence": "target '故意打偏了' 忠于 fixed_context 中 Startling Shot 故意射偏机制，占位符 %s 绑定正确",
+        "observation": "OK",
+        "revision_id": "R006",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "target '你必须处于非战斗状态' 与 fixed_context 中 'self.in_combat or mecharachnid.in_combat' 冲突",
+        "observation": "条件主体错误，实际机制要求玩家与机械蜘蛛均脱离战斗，译文将其限制为仅玩家自身",
+        "revision_id": "R007",
+        "verdict": "FINDING"
+      },
+      {
+        "evidence": "target '在 3 回合内觉察到' 与 fixed_context 中 'setEffect(self.EFF_SENSE, 4, ...)' 冲突",
+        "observation": "感知持续时间错误，实际机制持续 4 回合，译文表述为 3 回合",
+        "revision_id": "R008",
+        "verdict": "FINDING"
+      }
+    ]
+  }
+}

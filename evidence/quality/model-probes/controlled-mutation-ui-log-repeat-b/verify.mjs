@@ -27,6 +27,28 @@ if (fs.existsSync(resultPath)) {
     if (!fs.readFileSync(resultPath).equals(fs.readFileSync(rebuilt))) throw new Error("RESULT.json is not byte-identical to analysis rebuild");
     const result = read("RESULT.json");
     if (result.status !== "COMPLETE" || result.routes.length !== 4) throw new Error("result completion/route mismatch");
+    const routes = new Map(result.routes.map(route => [route.route, route]));
+    const expectedRunBHits = {
+      "codex-gpt-5.6-sol-high": ["R001", "R005", "R007", "R008"],
+      "claude-opus-5-medium-no-advisor": ["R001", "R005", "R008"],
+      "pi-zai-cn-glm-5.3-flash-high": ["R001", "R005", "R008"],
+      "agy-gemini-3.7-flash-high": ["R001", "R005", "R007", "R008"]
+    };
+    for (const [route, hits] of Object.entries(expectedRunBHits)) {
+      if (JSON.stringify(routes.get(route)?.run_b?.hit_revision_ids) !== JSON.stringify(hits)) throw new Error(`${route} Run B hit-set mismatch`);
+      if (routes.get(route).run_b.control_true_negatives !== 4) throw new Error(`${route} Run B control mismatch`);
+    }
+    const opus = routes.get("claude-opus-5-medium-no-advisor")?.run_b_route_metadata;
+    if (JSON.stringify(opus?.initialized_models) !== JSON.stringify(["claude-opus-5"]) || JSON.stringify(opus?.actual_assistant_models) !== JSON.stringify(["claude-opus-5"])) throw new Error("Opus runtime identity mismatch");
+    if (opus.fallback_event_count !== 0 || opus.fallback_block_count !== 0) throw new Error("Opus fallback detected");
+    const glm = routes.get("pi-zai-cn-glm-5.3-flash-high")?.run_b_route_metadata;
+    if (glm?.actual_provider !== "zai-standard-cn" || glm?.actual_model !== "glm-5.3-flash") throw new Error("GLM runtime route mismatch");
+    const expectedFlips = [
+      {route: "agy-gemini-3.7-flash-high", revision_id: "R007", from_detected: false, to_detected: true, direction: "miss_to_hit", from_verdict: "OK", to_verdict: "FINDING"},
+      {route: "agy-gemini-3.7-flash-high", revision_id: "R008", from_detected: false, to_detected: true, direction: "miss_to_hit", from_verdict: "OK", to_verdict: "FINDING"}
+    ];
+    if (result.primary_comparison.agreements !== 14 || result.primary_comparison.route_mutation_comparisons !== 16 || JSON.stringify(result.primary_comparison.flips) !== JSON.stringify(expectedFlips)) throw new Error("A/B primary comparison mismatch");
+    if (!result.preregistered_stop_rule.triggered || result.preregistered_stop_rule.decision !== "recommend_one_more_byte-identical_run_c") throw new Error("preregistered stop-rule decision mismatch");
   } finally { fs.rmSync(temporary, {recursive: true, force: true}); }
   process.stdout.write("verified exact Run A byte reuse, Run B route artifacts and byte-identical RESULT rebuild\n");
 } else process.stdout.write("verified exact Run A input/prompt/schema/reference reuse and blinding before inference\n");
