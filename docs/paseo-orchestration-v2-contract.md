@@ -21,8 +21,9 @@
 2. 主代理定义范围、独立验证并裁决 finding。
 3. 普通串行任务的 EXECUTOR、REVIEWER、SENIOR_REVIEWER 和 SCOUT 使用当前 workspace；受管
    wave 则使用下文唯一的跨 workspace 直系 child 拓扑。只读角色不得修改任务内容。
-4. 一般任务自动修复最多五轮；schema 4 translation implement 任务默认三轮，只有逐字记录
-   `max_cycles_user_authorized=true` 才可高于三轮。第二轮后的普通 review finding 必须先经
+4. 一般任务自动修复最多五轮；schema 4 translation implement 任务默认三轮。4-lane
+   译文审核按维护者 standing authorization 使用十轮上限并逐字记录
+   `max_cycles_user_authorized=true`；其他情形只有同样记录用户授权才可高于三轮。第二轮后的普通 review finding 必须先经
    SENIOR_REVIEWER 按个人项目尺度校准，才能触发后续 FIX。
 5. 任务开始前记录工作树，结束前运行适用门禁。
 6. Paseo 激活期间角色路由独占，不并行使用已归档项目 Skill 或其独立 agent。
@@ -204,7 +205,8 @@ pending/completed、不产生 finding，也不参与 `candidate_ref` 冻结。
 
 `cycle` 在每轮 FIX 开始时增加，一般任务最大值为 5。schema 4、`mode=implement` 且包含
 `translation_contextual_v1` 的任务默认 `max_cycles=3`，始终要求 `cycle <= max_cycles`；
-上限高于 3 时必须有 literal `max_cycles_user_authorized=true`。schema 3 及更早任务和
+4-lane 译文审核显式设置 `max_cycles=10` 与 literal `max_cycles_user_authorized=true`；
+2–3 lane 保持默认 3。其他上限高于 3 的任务也必须有该 literal。schema 3 及更早任务和
 `review_only` 不采用该新机械语义。门禁失败与 reviewer finding 共用对应上限。
 当 `cycle >= 2` 时，客观验证失败可直接触发 FIX；普通 review finding 触发的后续 FIX
 必须先走当轮 `SENIOR_REVIEW`。旧 scope audit 不得用于新一轮 findings。

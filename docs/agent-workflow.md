@@ -86,7 +86,9 @@ correctness backstop，不能由 closure 记录替代。
 
 新 STATE 的 `max_cycles` 默认 3，且 `cycle <= max_cycles`。只有用户明确授权时才可把上限设为
 3 以上，并逐字保存 `max_cycles_user_authorized=true`；该轻量字段不记录授权文本或另建审批
-artifact。schema 3 及更早任务和 `review_only` 保持原行为。
+artifact。维护者已为 4-lane 译文审核给出 standing authorization：此类任务创建时显式设置
+`max_cycles=10` 和该 literal；2–3 lane 仍保持默认 3。schema 3 及更早任务和 `review_only`
+保持原行为。
 
 已被某个 revision 接受的译文只有在 fidelity、completeness、grammar、terminology、runtime
 或 conspicuous translationese 缺陷有源码／语境证据时才可 reopen。纯偏好变化只记 advisory，

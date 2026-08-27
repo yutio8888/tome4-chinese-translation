@@ -48,8 +48,9 @@ Skill。已归档 Skill 产生的 review 结果不得用来完成 Paseo 的 code
    不是 Paseo 托管 parent。
 7. 在当前 task 目录写 SPEC.md、简短 PLAN.md 和最小 STATE.json；实际 `mode=implement` 且
    `review_contracts` 含 `translation_contextual_v1` 的新译文任务必须使用 `schema_version: 4`
-   与默认 `max_cycles: 3`；只有用户明确授权扩展时才可提高上限，并写入 literal
-   `max_cycles_user_authorized=true`。schema 3 及更早任务不追溯升级；非译文任务和
+   与默认 `max_cycles: 3`；4-lane 译文审核按维护者 standing authorization 显式使用
+   `max_cycles: 10` 和 literal `max_cycles_user_authorized=true`，2–3 lane 仍使用默认值。
+   其他情形只有用户明确授权扩展时才可提高上限并写入同一 literal。schema 3 及更早任务不追溯升级；非译文任务和
    `review_only` 保持既有 schema／最多五轮行为。若选择 translation_contextual_v1，冻结前另写任务作用域 SCOPE.json 并运行其离线 anchor preflight。任务开始时选定
    orchestration_transport（只允许 cli|mcp），任务内不切换；CLI 与 MCP 必须保持相同
    role、purpose、workspace、lineage、label 恢复、reviewer 只读与候选一致性语义：
