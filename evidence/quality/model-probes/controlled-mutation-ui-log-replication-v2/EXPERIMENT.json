@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "scope": "single-run four-route fresh-category UI/log controlled-mutation replication; not production adjudication and not a translation-origin factorial",
+  "frozen_at": "2026-08-27",
+  "base_commit": "fba7793",
+  "source_repo": {
+    "head": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+    "snapshot": "../paseo-provenance-snapshot-v1/SNAPSHOT.json",
+    "snapshot_sha256": "b754183a9d1e0efa15cb1d3c16fa06a7f96f388e75707c7ba0e79f4a680f2eab"
+  },
+  "authorization": {
+    "services": [
+      "OpenAI via Codex CLI",
+      "Anthropic first-party via Claude Code CLI",
+      "Z.ai CN via Pi custom provider",
+      "Google Gemini via Antigravity CLI"
+    ],
+    "basis": "The user explicitly requested one small replication after approving these four active routes and retiring Fable/Advisor for budget reasons.",
+    "data_scope": "8 sanitized UI/log source-target-context records from the existing corpus; no credentials, historical verdicts, mutation labels, model provenance or local absolute paths are sent"
+  },
+  "route_policy": {
+    "active_routes": [
+      "codex-gpt-5.6-sol-high",
+      "claude-opus-5-medium-no-advisor",
+      "pi-zai-cn-glm-5.3-flash-high",
+      "agy-gemini-3.7-flash-high"
+    ],
+    "retired_for_budget": [
+      "claude-fable-5-medium-no-advisor",
+      "claude-opus-5-medium-fable-advisor"
+    ],
+    "historical_artifact_policy": "Retired-route historical artifacts remain preserved but are outside this experiment."
+  },
+  "sampling": {
+    "builder": "build.mjs",
+    "builder_sha256": "e22f89deaf6320cc6428041603087b8df0eb371959a06662029b4cf6b5aef6a7",
+    "manifest": "SAMPLING.json",
+    "manifest_sha256": "ed5988125a77090009cb3585af19e7dd65768e8d98d4e0c72c5dfab2224bb933",
+    "eligible_revisions": 9,
+    "selected_revisions": 8,
+    "injected_mutations": 4,
+    "source_verified_controls": 4,
+    "near_duplicate_exclusions": 1
+  },
+  "input": {
+    "path": "HOLDOUT.json",
+    "sha256": "526627e764bc24740e43f2263e7e007e0878ce519a837fe7a9b268b287fb3448",
+    "items": 8,
+    "visible_fields": ["revision_id", "source", "target", "fixed_context"]
+  },
+  "sealed_reference": {
+    "path": "REFERENCE.json",
+    "sha256": "bcec402275e245af0e8604be58f41146d6e8be8d131f1d2a6882cf84593af5f7",
+    "visible_to_candidates": false
+  },
+  "source_controls": {
+    "path": "SOURCE-CONTROLS.json",
+    "sha256": "2bd638c45dc876a209805940d57e5496634050421004fd8bf3970fdaa2330764",
+    "visible_to_candidates": false
+  },
+  "source_verification": {
+    "path": "SOURCE-VERIFICATION.json",
+    "sha256": "7ac45dba990ebbf550217593f58de744e613350092456cf451e3b8bfc9d139c2",
+    "visible_to_candidates": false,
+    "policy": "All eight full baselines are bound to inspected source files. One malformed historical placeholder composition is corrected in the fixture before control assignment and is not a production edit."
+  },
+  "prompt": {
+    "path": "PROMPT.md",
+    "sha256": "38fcb6158eb02ccce90a3e5fa360304754a3a0285b90bd78737b523252d1e33e",
+    "relationship_to_v1": "same verdict and evidence contract; mechanical item count changed 24 to 8 and UI/log resource identity added to focus",
+    "tuned_on_holdout": false
+  },
+  "output_schema": {
+    "path": "REVIEWER-SCHEMA.json",
+    "sha256": "39303de09ff9c6db795cf3d898a5219793cac468af5a7ded702ae83be85bac29",
+    "labels": ["OK", "FINDING", "UNCERTAIN"],
+    "enforcement": "CLI schema where supported plus exact-order local validation"
+  },
+  "routes": [
+    {"route": "codex-gpt-5.6-sol-high", "harness": "Codex CLI 0.150.1", "requested_model": "gpt-5.6-sol", "effort": "high", "session": "ephemeral"},
+    {"route": "claude-opus-5-medium-no-advisor", "harness": "Claude Code CLI 2.1.247", "requested_model": "claude-opus-5", "effort": "medium", "advisor": "disabled", "runtime_identity_rule": "all assistant review messages must be claude-opus-5 and fallback count zero"},
+    {"route": "pi-zai-cn-glm-5.3-flash-high", "harness": "Pi 0.84.3", "requested_provider": "zai-standard-cn", "requested_model": "glm-5.3-flash", "effort": "high", "runtime_identity_rule": "assistant message_end must report zai-standard-cn/glm-5.3-flash"},
+    {"route": "agy-gemini-3.7-flash-high", "harness": "Antigravity CLI 1.1.22", "requested_model": "gemini-3.7-flash-high", "effort": "high", "availability_check": "agy models listed gemini-3.7-flash-high immediately before freezing", "runtime_identity_limitation": "agy JSON envelope does not expose model identity"}
+  ],
+  "preregistered_analysis": {
+    "primary": "mutation-specific detection recall: a non-OK response counts only when its atomic claim matches the sealed injected mutation",
+    "secondary": [
+      "FINDING-only mutation recall",
+      "source-refuted false positives on the four directly verified controls",
+      "union, four-route consensus and missed-mutation identity",
+      "comparison with v1 is descriptive because categories and sample sizes differ"
+    ],
+    "not_allowed": [
+      "count every non-OK mutant response as a hit without atomic-claim matching",
+      "expose sealed files or route outputs before all independent runs complete",
+      "infer stable rankings or variance from this single four-mutation replication",
+      "treat the fixture-only Startling Shot repair as a production translation change"
+    ],
+    "success_gate": "The replication is informative if it completes without control contamination and reveals whether v1's near-ceiling mutation recall persists on the fresh UI/log category."
+  }
+}

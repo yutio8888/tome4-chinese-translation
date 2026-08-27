@@ -1,0 +1,286 @@
+{
+  "schema_version": "controlled-mutation-ui-log-replication-controls-v2",
+  "visible_to_reviewers": false,
+  "source_repo_head": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+  "items": [
+    {
+      "revision_id": "R001",
+      "task_id": "p2-cults-ui-logs-b2-001",
+      "original_revision_key": "cults-ui-logs-b2-001",
+      "label": "INJECTED_MUTATION",
+      "source": "#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and papers.  You feel the guardian of this place grow in power.",
+      "historical_target": "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。你感受到这个地方的守护者的移动速度增加了。",
+      "verified_target": "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。你感受到这个地方的守护者的移动速度增加了。",
+      "presented_target": "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。你感受到这个地方的守护者的伤害增加了。",
+      "fixed_context": "source_tag=say; unique runtime key in tome-cults.lua. Nearby: book of binding=绑定之书; shriek-only #YELLOW# line unchanged. Public source tome-cults/data/zones/ft-horrors/grids.lua BOOK_OF_BINDING on_move: after last invulnerable layer removed, bignews:say this line then m.movement_speed = m.movement_speed + 0.5. English grow in power; code is movement speed.",
+      "terminal_input": {
+        "dispatch_id": "p2c-ui-logs-b2-ctx-1",
+        "logical_path": ".ai/task/p2-cults-ui-logs-b2-001/CONTEXTUAL-ENVELOPE-p2c-ui-logs-b2-ctx-1.json",
+        "sha256": "271d446633fb8f6cf6733530469548d2ae9106a701319a4b80d23263768ce35f",
+        "candidate_identity": "0f4ee17a91f6ce6787500a4f3ebe1afd36bc5c9ac23ac03cae1e950933c972f7"
+      },
+      "source_verification": {
+        "task_id": "p2-cults-ui-logs-b2-001",
+        "original_revision_key": "cults-ui-logs-b2-001",
+        "historical_target_sha256": "89219e76f31ddd5c3d48dee138425a431eb3ab8f7ca542a7f1ced74871419d4b",
+        "verified_target_sha256": "89219e76f31ddd5c3d48dee138425a431eb3ab8f7ca542a7f1ced74871419d4b",
+        "baseline_adjustment": null,
+        "verification": "BOOK_OF_BINDING on_move emits the log immediately before increasing only the guardian's movement_speed by 0.5. The target's movement-speed statement is the complete concrete effect behind the stale generic English 'grow in power'.",
+        "sources": [
+          {
+            "repo": "cults",
+            "path": "tome-cults/data/zones/ft-horrors/grids.lua",
+            "sha256": "d6bf7469fdc2ebc22e7177b0acc41a6b8c00b895e591426c7e93f12f360eec92"
+          }
+        ]
+      },
+      "verified_item_sha256": "aae11f7f6f0f2b6bd97578cb2943077a817358f9920d95bfddb2eca0c769e6e0"
+    },
+    {
+      "revision_id": "R002",
+      "task_id": "p2-cults-ui-logs-b1-001",
+      "original_revision_key": "cults-ui-logs-b1-001",
+      "label": "SOURCE_VERIFIED_CONTROL",
+      "source": "%s rends the essence of %s, restoring %d void shards!",
+      "historical_target": "%s撕裂了%s的精华，恢复%d个虚空之星!",
+      "verified_target": "%s撕裂了%s的精华，恢复%d个虚空之星!",
+      "presented_target": "%s撕裂了%s的精华，恢复%d个虚空之星!",
+      "fixed_context": "source_tag=logSeen; unique runtime key in tome-cults.lua. Nearby: Void Stars=虚空之星; Essence Reave talent info already 获得 %d 虚空之星. Core ToME Void Shards is a different summon (虚空碎片). Public source tome-cults/data/talents/demented/void.lua Essence Reave: if T_VOID_STARS active, p.nb = min(nb, 4-p.nb)+p.nb then this log. English says void shards; code restores Void Stars stacks.",
+      "terminal_input": {
+        "dispatch_id": "p2c-ui-logs-b1-ctx-1",
+        "logical_path": ".ai/task/p2-cults-ui-logs-b1-001/CONTEXTUAL-ENVELOPE-p2c-ui-logs-b1-ctx-1.json",
+        "sha256": "a436a6430ee804f53ff1278d275d816e75c47f0060dac190a960dfd8b895f6b6",
+        "candidate_identity": "30db893a983fd22501c0bb33b0b5a457037a5398d00af056b7c141a150365e0c"
+      },
+      "source_verification": {
+        "task_id": "p2-cults-ui-logs-b1-001",
+        "original_revision_key": "cults-ui-logs-b1-001",
+        "historical_target_sha256": "71b9e859cd1fc6f6dca0984e2f9068204ef865319c05d1c08c35b090119aa09c",
+        "verified_target_sha256": "71b9e859cd1fc6f6dca0984e2f9068204ef865319c05d1c08c35b090119aa09c",
+        "baseline_adjustment": null,
+        "verification": "Essence Reave passes caster name, target name and restored count in that order. It increments the active T_VOID_STARS counter up to four; translating stale English 'void shards' as the actual Void Stars resource is correct.",
+        "sources": [
+          {
+            "repo": "cults",
+            "path": "tome-cults/data/talents/demented/void.lua",
+            "sha256": "19cb982e3487d52626f46c5e0623f5f75b4ad2e126c7580e000672c74ce934b1"
+          }
+        ]
+      },
+      "verified_item_sha256": "09a7556c131f95f4989a596fb38dedf9da4d81134d03be9c5a261b2a42fa65dc"
+    },
+    {
+      "revision_id": "R003",
+      "task_id": "p2-orcs-ui-logs-b1-001",
+      "original_revision_key": "orcs-ui-logs-b1-info",
+      "label": "SOURCE_VERIFIED_CONTROL",
+      "source": "Instantly channel all of your remaining steam to replenish your psi energies and either enhance your active psionic damage shield or trigger a new one.\n\t\tThe (new or existing) shield duration is increased by 3 turns and its power is boosted by %d%% of the steam used.\n\t\tYou restore psi equal to %d%% of the steam used.\n\t\tThis talent requires Gestalt to be active and either an active psionic damage shield or Improved Gestalt off cooldown.",
+      "historical_target": "瞬间引导你剩余的所有蒸汽来补充你的灵能并充能或制造一个新的精神护盾。\n\t\t护盾的持续时间会增加 3 回合，并能多吸收 %d%% 消耗的蒸汽数额的伤害。\n\t\t你回复等同于 %d%% 所消耗的蒸汽数额的灵能。\n\t\t此技能需要格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中。",
+      "verified_target": "瞬间引导你剩余的所有蒸汽来补充你的灵能并充能或制造一个新的精神护盾。\n\t\t护盾的持续时间会增加 3 回合，并能多吸收 %d%% 消耗的蒸汽数额的伤害。\n\t\t你回复等同于 %d%% 所消耗的蒸汽数额的灵能。\n\t\t此技能需要格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中。",
+      "presented_target": "瞬间引导你剩余的所有蒸汽来补充你的灵能并充能或制造一个新的精神护盾。\n\t\t护盾的持续时间会增加 3 回合，并能多吸收 %d%% 消耗的蒸汽数额的伤害。\n\t\t你回复等同于 %d%% 所消耗的蒸汽数额的灵能。\n\t\t此技能需要格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中。",
+      "fixed_context": "source_tag=tformat; unique Instant Channeling talent-info key in tome-orcs.lua. Only last sentence changed. Same on_pre_use grouping; English already says Gestalt must be active and either an active psionic damage shield or Improved Gestalt off cooldown.",
+      "terminal_input": {
+        "dispatch_id": "p2o-ui-logs-b1-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-ui-logs-b1-001/CONTEXTUAL-ENVELOPE-p2o-ui-logs-b1-ctx-1.json",
+        "sha256": "7969e40b7be46c24d108715467f70d2c083bf23a5507202bf8ad489afe99e7cd",
+        "candidate_identity": "3f719ce42f8ab1ff6aa478a837aadb43b4faef4308b9ab41d47ed599c8063a5c"
+      },
+      "source_verification": {
+        "task_id": "p2-orcs-ui-logs-b1-001",
+        "original_revision_key": "orcs-ui-logs-b1-info",
+        "historical_target_sha256": "a925ad7a24e015ec35fb5c556041dcbde31546a03ea49633262ec6eb659a14ef",
+        "verified_target_sha256": "a925ad7a24e015ec35fb5c556041dcbde31546a03ea49633262ec6eb659a14ef",
+        "baseline_adjustment": null,
+        "verification": "Instant Channeling consumes current steam, creates or enhances EFF_PSI_DAMAGE_SHIELD, adds 3 duration, adds mindCrit(getPower*steam/100) absorption, restores mindCrit(getPsi*steam/100) psi, and requires active Gestalt plus an existing shield or Improved Gestalt off cooldown. All clauses and placeholder order match the target.",
+        "sources": [
+          {
+            "repo": "orcs",
+            "path": "tome-orcs/data/talents/psionic/gestalt.lua",
+            "sha256": "a9467b5e48458013d77dce1a687e79ec9eccad178746db4efe086075a0d57184"
+          }
+        ]
+      },
+      "verified_item_sha256": "53b0b010da27e3415560301dcf51de8acd7532825b8a8060b222d9eb7cb0ec3f"
+    },
+    {
+      "revision_id": "R004",
+      "task_id": "p2-ashes-ui-logs-b2-001",
+      "original_revision_key": "ashes-ui-logs-b2-001",
+      "label": "SOURCE_VERIFIED_CONTROL",
+      "source": "Select the source:",
+      "historical_target": "选择源生物:",
+      "verified_target": "选择源生物:",
+      "presented_target": "选择源生物:",
+      "fixed_context": "source_tag=logPlayer; unique runtime key in tome-ashes-urhrok.lua. Nearby: Link of Pain=苦痛链接; Select the victim:=选择受害者:; talent info uses 源生物 and 牺牲生物. Public source tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua Link of Pain action: first logPlayer Select the source: then getTarget stored as target; second Select the victim: stored as victim (must differ). target:setEffect(EFF_LINK_OF_PAIN, ..., {victim=victim, src=self}). timed_effects.lua EFF_LINK_OF_PAIN.callbackOnHit: when that target is hit, eff.victim:takeHit(linked_damage, src).",
+      "terminal_input": {
+        "dispatch_id": "p2a-ui-logs-b2-ctx-1",
+        "logical_path": ".ai/task/p2-ashes-ui-logs-b2-001/CONTEXTUAL-ENVELOPE-p2a-ui-logs-b2-ctx-1.json",
+        "sha256": "30128bbaa74d13678fdeacc31eb5b1be16a202461bc97dd540b8da3a104623d6",
+        "candidate_identity": "6aa3d1a4de8df0c3a64beeeb7b59ea0204742a131d5af7f3a0f51c8172b94051"
+      },
+      "source_verification": {
+        "task_id": "p2-ashes-ui-logs-b2-001",
+        "original_revision_key": "ashes-ui-logs-b2-001",
+        "historical_target_sha256": "666691d109d4523f1d83172419b53afc77843a7530e973d335d68725a851c8d3",
+        "verified_target_sha256": "666691d109d4523f1d83172419b53afc77843a7530e973d335d68725a851c8d3",
+        "baseline_adjustment": null,
+        "verification": "Link of Pain first prompts for target, stores it as the effect bearer/source of redirected damage, then separately prompts for victim and stores that actor as eff.victim. The paired project terminology uses 源生物 and 受害者; 选择源生物 is correct and distinct from the next prompt.",
+        "sources": [
+          {
+            "repo": "ashes",
+            "path": "tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua",
+            "sha256": "8de1db047d8a879585ef1a99e08039c4c9a664880fc18c51a8aaa0144a49ec55"
+          },
+          {
+            "repo": "ashes",
+            "path": "tome-ashes-urhrok/data/timed_effects.lua",
+            "sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d"
+          }
+        ]
+      },
+      "verified_item_sha256": "864f8717c1162b9f97d783182d38df096156394e824bc472311a0307dc64de7d"
+    },
+    {
+      "revision_id": "R005",
+      "task_id": "p2-cults-ui-logs-b3-001",
+      "original_revision_key": "cults-ui-logs-b3-001",
+      "label": "INJECTED_MUTATION",
+      "source": "You require a mutated hand!",
+      "historical_target": "你需要异变之手！",
+      "verified_target": "你需要异变之手！",
+      "presented_target": "你需要空闲的副手！",
+      "fixed_context": "source_tag=logPlayer; unique runtime key in tome-cults.lua. Nearby: Constrict=缠绕; Mutated Hand=异变之手; separate empty-offhand log 你需要副手空手才能使用触手. Public source tome-cults/data/talents/demented/tentacles.lua Mutated Hand mode=passive; Constrict logs You require a mutated hand! when getTentacleCombat is nil. 开启 implied activating a talent.",
+      "terminal_input": {
+        "dispatch_id": "p2c-ui-logs-b3-ctx-1",
+        "logical_path": ".ai/task/p2-cults-ui-logs-b3-001/CONTEXTUAL-ENVELOPE-p2c-ui-logs-b3-ctx-1.json",
+        "sha256": "1c7f62198d3d75442dede2099ca95354b3e12471a5850fac6313f185e104dbab",
+        "candidate_identity": "3ee14efd50ef34c185c03eb8bc568450d76adf5b10baf0555f00526d63b80760"
+      },
+      "source_verification": {
+        "task_id": "p2-cults-ui-logs-b3-001",
+        "original_revision_key": "cults-ui-logs-b3-001",
+        "historical_target_sha256": "eac47b8502a4c54896bba5ef590e5f7de43fe01383874990cdbb301adbfdb868",
+        "verified_target_sha256": "eac47b8502a4c54896bba5ef590e5f7de43fe01383874990cdbb301adbfdb868",
+        "baseline_adjustment": null,
+        "verification": "Constrict emits this log only when getTentacleCombat returns nil, i.e. the Mutated Hand weapon is unavailable. Empty offhand is a different prerequisite/message and must not replace Mutated Hand here.",
+        "sources": [
+          {
+            "repo": "cults",
+            "path": "tome-cults/data/talents/demented/tentacles.lua",
+            "sha256": "038841bc39a9c1ca209651fb5c8cbe248ef0abab6596c528407063eefbe25906"
+          }
+        ]
+      },
+      "verified_item_sha256": "33b060a7a1adae2f8850cc03bb3f9d099859533b49f423770ee33b3d0c7cfdc3"
+    },
+    {
+      "revision_id": "R006",
+      "task_id": "p2-orcs-ui-logs-b2-001",
+      "original_revision_key": "orcs-ui-logs-b2-001",
+      "label": "SOURCE_VERIFIED_CONTROL",
+      "source": "%s misses %s shot.",
+      "historical_target": "%s的%s射击打偏了",
+      "verified_target": "%s故意打偏了%s的射击。",
+      "presented_target": "%s故意打偏了%s的射击。",
+      "fixed_context": "source_tag=logSeen; unique runtime key in tome-orcs.lua. Nearby: Startling Shot=惊艳射击; talent info already 故意朝目标射出偏离的子弹. Public source tome-orcs/data/talents/steam/gunslinging.lua Startling Shot action: logSeen(target, \"%s misses %s shot.\", srcname, string.his_her(self)) then always setEffect EFF_STARTLING_SHOT; knockback is a later save. First %s=shooter name or Something; second=his/her. Deliberate miss, not dodge.",
+      "terminal_input": {
+        "dispatch_id": "p2o-ui-logs-b2-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-ui-logs-b2-001/CONTEXTUAL-ENVELOPE-p2o-ui-logs-b2-ctx-1.json",
+        "sha256": "2e8dc538ac821a37de31bf39b27cbc5578884dac225454c107c8f885f7ec0d9e",
+        "candidate_identity": "cab114dc08dc4f15b497ceaf260335c7b664a644a10e2bb7aec28585c63ecd53"
+      },
+      "source_verification": {
+        "task_id": "p2-orcs-ui-logs-b2-001",
+        "original_revision_key": "orcs-ui-logs-b2-001",
+        "historical_target_sha256": "763e3a2e0ecc46820f4b06837536fa6aae80c3a74f973d273e4cef9479711de2",
+        "verified_target_sha256": "aa8373f2b5b26e01e74e682c5deed0eb06a587c67eaa5bd9a195af287c0f0fde",
+        "baseline_adjustment": {
+          "kind": "replace_entire_target_in_experiment_fixture_only",
+          "from": "%s的%s射击打偏了",
+          "to": "%s故意打偏了%s的射击。",
+          "reason": "The historical terminal target composes as 'actor 的 他的/她的 shot'. The verified fixture preserves placeholder 1=shooter and placeholder 2=his/her while making the deliberate miss explicit. This does not edit the production translation."
+        },
+        "verification": "Startling Shot always logs caster name then string.his_her(caster), always applies EFF_STARTLING_SHOT, and its talent info says the shot is deliberately fired to miss. Engine utils returns his/her/its for the second placeholder. The adjusted fixture gives both placeholders a coherent Chinese binding.",
+        "sources": [
+          {
+            "repo": "orcs",
+            "path": "tome-orcs/data/talents/steam/gunslinging.lua",
+            "sha256": "eaff2729974d971d8affd69162efcbbc1d93acfcc5175eb8ebc9cc5460ba2824"
+          },
+          {
+            "repo": "engine",
+            "path": "game/engines/default/engine/utils.lua",
+            "sha256": "871f7ae2d26266751811d9249e4525b5b0f9d8c88b35272755d7a617885c2bbf"
+          }
+        ]
+      },
+      "verified_item_sha256": "a5bef3e30b0af7c9f81cc9c88e98291498a5b119d689980a7dd97880bf1b6b48"
+    },
+    {
+      "revision_id": "R007",
+      "task_id": "p2-orcs-ui-logs-b3-001",
+      "original_revision_key": "orcs-ui-logs-b3-001",
+      "label": "INJECTED_MUTATION",
+      "source": "You require your mecharachnid to be adjacent, and must be out of combat.",
+      "historical_target": "你需要你的机械蜘蛛与你相邻，并且你和机械蜘蛛都必须处于非战斗状态。",
+      "verified_target": "你需要你的机械蜘蛛与你相邻，并且你和机械蜘蛛都必须处于非战斗状态。",
+      "presented_target": "你需要你的机械蜘蛛与你相邻，并且你必须处于非战斗状态。",
+      "fixed_context": "source_tag=logPlayer; unique runtime key in tome-orcs.lua. Nearby: Mecharachnid Chassis=机械蜘蛛底盘; separate logs already say player vs mecharachnid must not be in combat to change chassis. Public source tome-orcs/data/talents/steam/mecharachnid.lua Mecharachnid Chassis on_pre_use rejects if self.in_combat or mecharachnid.in_combat or not adjacent/missing, then this shared logPlayer. Distance>1 is adjacency.",
+      "terminal_input": {
+        "dispatch_id": "p2o-ui-logs-b3-ctx-1",
+        "logical_path": ".ai/task/p2-orcs-ui-logs-b3-001/CONTEXTUAL-ENVELOPE-p2o-ui-logs-b3-ctx-1.json",
+        "sha256": "d0b5f2216b69e5348ab4655109586124ce62359508d96a373c852410b90d23f7",
+        "candidate_identity": "7874c50e30938b3b79f636c819ada214cec7792f9b88027c65866d42c02a2c08"
+      },
+      "source_verification": {
+        "task_id": "p2-orcs-ui-logs-b3-001",
+        "original_revision_key": "orcs-ui-logs-b3-001",
+        "historical_target_sha256": "d5ad8d9c14a4c094b691aa712e9a14efd6430891a38733dbb392e55386c31e4d",
+        "verified_target_sha256": "d5ad8d9c14a4c094b691aa712e9a14efd6430891a38733dbb392e55386c31e4d",
+        "baseline_adjustment": null,
+        "verification": "Mecharachnid Chassis rejects the shared action if the player or mecharachnid is in combat, or if the mecharachnid is absent/not adjacent. The target correctly makes both actors subject to the out-of-combat condition.",
+        "sources": [
+          {
+            "repo": "orcs",
+            "path": "tome-orcs/data/talents/steam/mecharachnid.lua",
+            "sha256": "d4a229c033179400bfeecdf22a6d8c7d8b890754f25cecd82908d413c3fa5102"
+          }
+        ]
+      },
+      "verified_item_sha256": "92cfa7405e661039c238d86fbfc39e71fe59a17b9d4744e1eb9db9faa782ee26"
+    },
+    {
+      "revision_id": "R008",
+      "task_id": "p2-ashes-ui-logs-b1-001",
+      "original_revision_key": "ashes-ui-logs-b1-001",
+      "label": "INJECTED_MUTATION",
+      "source": "Open a gateway to the Fearscape, stepping through it to a nearby location. As you step out, a burst of fire will leave with you, dealing %0.2f demonfire damage to everyone within %d spaces and leaving flames which will deal an additional %0.2f demonfire damage over 4 turns.\n\t\tAdditionally, shifting through reality enhances your awareness, allowing you to see all enemies within %d spaces for the next 3 turns.\n\t\tThe damage will scale with your Spellpower and the range will increase with the talent level.",
+      "historical_target": "开启通往恶魔空间的炼狱之门，踏入并传送到附近位置。 \n\t当你踏出炼狱之门时，炼狱之火随之喷发，造成 %0.2f 恶魔之火伤害，伤害 %d 码内所有生物。地上的余烬会造成持续 4 回合的额外 %0.2f 恶魔之火伤害。\n\n\t穿越空间增强了你的直觉，让你能够在 4 回合内觉察到 %d 码内的所有敌对生物。\n \n\t伤害受法术强度加成，范围随技能等级增大。",
+      "verified_target": "开启通往恶魔空间的炼狱之门，踏入并传送到附近位置。 \n\t当你踏出炼狱之门时，炼狱之火随之喷发，造成 %0.2f 恶魔之火伤害，伤害 %d 码内所有生物。地上的余烬会造成持续 4 回合的额外 %0.2f 恶魔之火伤害。\n\n\t穿越空间增强了你的直觉，让你能够在 4 回合内觉察到 %d 码内的所有敌对生物。\n \n\t伤害受法术强度加成，范围随技能等级增大。",
+      "presented_target": "开启通往恶魔空间的炼狱之门，踏入并传送到附近位置。 \n\t当你踏出炼狱之门时，炼狱之火随之喷发，造成 %0.2f 恶魔之火伤害，伤害 %d 码内所有生物。地上的余烬会造成持续 4 回合的额外 %0.2f 恶魔之火伤害。\n\n\t穿越空间增强了你的直觉，让你能够在 3 回合内觉察到 %d 码内的所有敌对生物。\n \n\t伤害受法术强度加成，范围随技能等级增大。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-ashes-urhrok.lua. Nearby: Fearscape Shift=炼狱之门; ground flames already 持续 4 回合. Public source tome-ashes-urhrok/data/talents/corruptions/fearfire.lua Fearscape Shift action: addEffect(..., 4, DEMONFIRE, dam/4) then setEffect(self.EFF_SENSE, 4, {range=rad, actor=1}). English talent info says sense lasts the next 3 turns.",
+      "terminal_input": {
+        "dispatch_id": "p2a-ui-logs-b1-ctx-1",
+        "logical_path": ".ai/task/p2-ashes-ui-logs-b1-001/CONTEXTUAL-ENVELOPE-p2a-ui-logs-b1-ctx-1.json",
+        "sha256": "be2cad6d47429967d0463b79e4762822a65e8e611f56b17e2fe0268488a4f90d",
+        "candidate_identity": "f6fce5f7ae54a43465fa1a0f9e6e2c632b37d0577744de1bcc4ba215b4c540af"
+      },
+      "source_verification": {
+        "task_id": "p2-ashes-ui-logs-b1-001",
+        "original_revision_key": "ashes-ui-logs-b1-001",
+        "historical_target_sha256": "6f8e44e0b0d40491288d073e041b82f94e3e37fb64625752cec4976263979e9f",
+        "verified_target_sha256": "6f8e44e0b0d40491288d073e041b82f94e3e37fb64625752cec4976263979e9f",
+        "baseline_adjustment": null,
+        "verification": "Fearscape Shift projects immediate demonfire, applies a four-turn DEMONFIRE map effect at dam/4, and applies EFF_SENSE for 4 turns with the displayed radius. The target uses four turns for both the ground damage and awareness and preserves placeholder order.",
+        "sources": [
+          {
+            "repo": "ashes",
+            "path": "tome-ashes-urhrok/data/talents/corruptions/fearfire.lua",
+            "sha256": "c2faeddb2325d81dc87a1c4d591c0f8788c9c227d140fd6764d59258bd1f45d8"
+          }
+        ]
+      },
+      "verified_item_sha256": "5af8d0afb65793e6f3df3cc8f41f648070c0676090384edd42e8f6615464a4c4"
+    }
+  ]
+}

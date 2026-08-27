@@ -1,0 +1,54 @@
+{
+  "schema_version": "controlled-mutation-ui-log-replication-holdout-v2",
+  "instructions": "Review every item independently in the given order. Historical provenance, source-verification records and mutation records are withheld.",
+  "items": [
+    {
+      "revision_id": "R001",
+      "source": "#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and papers.  You feel the guardian of this place grow in power.",
+      "target": "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。你感受到这个地方的守护者的伤害增加了。",
+      "fixed_context": "source_tag=say; unique runtime key in tome-cults.lua. Nearby: book of binding=绑定之书; shriek-only #YELLOW# line unchanged. Public source tome-cults/data/zones/ft-horrors/grids.lua BOOK_OF_BINDING on_move: after last invulnerable layer removed, bignews:say this line then m.movement_speed = m.movement_speed + 0.5. English grow in power; code is movement speed."
+    },
+    {
+      "revision_id": "R002",
+      "source": "%s rends the essence of %s, restoring %d void shards!",
+      "target": "%s撕裂了%s的精华，恢复%d个虚空之星!",
+      "fixed_context": "source_tag=logSeen; unique runtime key in tome-cults.lua. Nearby: Void Stars=虚空之星; Essence Reave talent info already 获得 %d 虚空之星. Core ToME Void Shards is a different summon (虚空碎片). Public source tome-cults/data/talents/demented/void.lua Essence Reave: if T_VOID_STARS active, p.nb = min(nb, 4-p.nb)+p.nb then this log. English says void shards; code restores Void Stars stacks."
+    },
+    {
+      "revision_id": "R003",
+      "source": "Instantly channel all of your remaining steam to replenish your psi energies and either enhance your active psionic damage shield or trigger a new one.\n\t\tThe (new or existing) shield duration is increased by 3 turns and its power is boosted by %d%% of the steam used.\n\t\tYou restore psi equal to %d%% of the steam used.\n\t\tThis talent requires Gestalt to be active and either an active psionic damage shield or Improved Gestalt off cooldown.",
+      "target": "瞬间引导你剩余的所有蒸汽来补充你的灵能并充能或制造一个新的精神护盾。\n\t\t护盾的持续时间会增加 3 回合，并能多吸收 %d%% 消耗的蒸汽数额的伤害。\n\t\t你回复等同于 %d%% 所消耗的蒸汽数额的灵能。\n\t\t此技能需要格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中。",
+      "fixed_context": "source_tag=tformat; unique Instant Channeling talent-info key in tome-orcs.lua. Only last sentence changed. Same on_pre_use grouping; English already says Gestalt must be active and either an active psionic damage shield or Improved Gestalt off cooldown."
+    },
+    {
+      "revision_id": "R004",
+      "source": "Select the source:",
+      "target": "选择源生物:",
+      "fixed_context": "source_tag=logPlayer; unique runtime key in tome-ashes-urhrok.lua. Nearby: Link of Pain=苦痛链接; Select the victim:=选择受害者:; talent info uses 源生物 and 牺牲生物. Public source tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua Link of Pain action: first logPlayer Select the source: then getTarget stored as target; second Select the victim: stored as victim (must differ). target:setEffect(EFF_LINK_OF_PAIN, ..., {victim=victim, src=self}). timed_effects.lua EFF_LINK_OF_PAIN.callbackOnHit: when that target is hit, eff.victim:takeHit(linked_damage, src)."
+    },
+    {
+      "revision_id": "R005",
+      "source": "You require a mutated hand!",
+      "target": "你需要空闲的副手！",
+      "fixed_context": "source_tag=logPlayer; unique runtime key in tome-cults.lua. Nearby: Constrict=缠绕; Mutated Hand=异变之手; separate empty-offhand log 你需要副手空手才能使用触手. Public source tome-cults/data/talents/demented/tentacles.lua Mutated Hand mode=passive; Constrict logs You require a mutated hand! when getTentacleCombat is nil. 开启 implied activating a talent."
+    },
+    {
+      "revision_id": "R006",
+      "source": "%s misses %s shot.",
+      "target": "%s故意打偏了%s的射击。",
+      "fixed_context": "source_tag=logSeen; unique runtime key in tome-orcs.lua. Nearby: Startling Shot=惊艳射击; talent info already 故意朝目标射出偏离的子弹. Public source tome-orcs/data/talents/steam/gunslinging.lua Startling Shot action: logSeen(target, \"%s misses %s shot.\", srcname, string.his_her(self)) then always setEffect EFF_STARTLING_SHOT; knockback is a later save. First %s=shooter name or Something; second=his/her. Deliberate miss, not dodge."
+    },
+    {
+      "revision_id": "R007",
+      "source": "You require your mecharachnid to be adjacent, and must be out of combat.",
+      "target": "你需要你的机械蜘蛛与你相邻，并且你必须处于非战斗状态。",
+      "fixed_context": "source_tag=logPlayer; unique runtime key in tome-orcs.lua. Nearby: Mecharachnid Chassis=机械蜘蛛底盘; separate logs already say player vs mecharachnid must not be in combat to change chassis. Public source tome-orcs/data/talents/steam/mecharachnid.lua Mecharachnid Chassis on_pre_use rejects if self.in_combat or mecharachnid.in_combat or not adjacent/missing, then this shared logPlayer. Distance>1 is adjacency."
+    },
+    {
+      "revision_id": "R008",
+      "source": "Open a gateway to the Fearscape, stepping through it to a nearby location. As you step out, a burst of fire will leave with you, dealing %0.2f demonfire damage to everyone within %d spaces and leaving flames which will deal an additional %0.2f demonfire damage over 4 turns.\n\t\tAdditionally, shifting through reality enhances your awareness, allowing you to see all enemies within %d spaces for the next 3 turns.\n\t\tThe damage will scale with your Spellpower and the range will increase with the talent level.",
+      "target": "开启通往恶魔空间的炼狱之门，踏入并传送到附近位置。 \n\t当你踏出炼狱之门时，炼狱之火随之喷发，造成 %0.2f 恶魔之火伤害，伤害 %d 码内所有生物。地上的余烬会造成持续 4 回合的额外 %0.2f 恶魔之火伤害。\n\n\t穿越空间增强了你的直觉，让你能够在 3 回合内觉察到 %d 码内的所有敌对生物。\n \n\t伤害受法术强度加成，范围随技能等级增大。",
+      "fixed_context": "source_tag=tformat; unique runtime key in tome-ashes-urhrok.lua. Nearby: Fearscape Shift=炼狱之门; ground flames already 持续 4 回合. Public source tome-ashes-urhrok/data/talents/corruptions/fearfire.lua Fearscape Shift action: addEffect(..., 4, DEMONFIRE, dam/4) then setEffect(self.EFF_SENSE, 4, {range=rad, actor=1}). English talent info says sense lasts the next 3 turns."
+    }
+  ]
+}

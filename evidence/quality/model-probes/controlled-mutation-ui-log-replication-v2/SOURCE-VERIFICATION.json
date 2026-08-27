@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "visible_to_reviewers": false,
+  "verified_at": "2026-08-27",
+  "scope": "complete semantic baseline verification for the eight selected UI/log items; source hashes bind the inspected files",
+  "items": [
+    {
+      "task_id": "p2-cults-ui-logs-b2-001",
+      "original_revision_key": "cults-ui-logs-b2-001",
+      "historical_target_sha256": "89219e76f31ddd5c3d48dee138425a431eb3ab8f7ca542a7f1ced74871419d4b",
+      "verified_target_sha256": "89219e76f31ddd5c3d48dee138425a431eb3ab8f7ca542a7f1ced74871419d4b",
+      "baseline_adjustment": null,
+      "verification": "BOOK_OF_BINDING on_move emits the log immediately before increasing only the guardian's movement_speed by 0.5. The target's movement-speed statement is the complete concrete effect behind the stale generic English 'grow in power'.",
+      "sources": [
+        {
+          "repo": "cults",
+          "path": "tome-cults/data/zones/ft-horrors/grids.lua",
+          "sha256": "d6bf7469fdc2ebc22e7177b0acc41a6b8c00b895e591426c7e93f12f360eec92"
+        }
+      ]
+    },
+    {
+      "task_id": "p2-orcs-ui-logs-b1-001",
+      "original_revision_key": "orcs-ui-logs-b1-info",
+      "historical_target_sha256": "a925ad7a24e015ec35fb5c556041dcbde31546a03ea49633262ec6eb659a14ef",
+      "verified_target_sha256": "a925ad7a24e015ec35fb5c556041dcbde31546a03ea49633262ec6eb659a14ef",
+      "baseline_adjustment": null,
+      "verification": "Instant Channeling consumes current steam, creates or enhances EFF_PSI_DAMAGE_SHIELD, adds 3 duration, adds mindCrit(getPower*steam/100) absorption, restores mindCrit(getPsi*steam/100) psi, and requires active Gestalt plus an existing shield or Improved Gestalt off cooldown. All clauses and placeholder order match the target.",
+      "sources": [
+        {
+          "repo": "orcs",
+          "path": "tome-orcs/data/talents/psionic/gestalt.lua",
+          "sha256": "a9467b5e48458013d77dce1a687e79ec9eccad178746db4efe086075a0d57184"
+        }
+      ]
+    },
+    {
+      "task_id": "p2-ashes-ui-logs-b1-001",
+      "original_revision_key": "ashes-ui-logs-b1-001",
+      "historical_target_sha256": "6f8e44e0b0d40491288d073e041b82f94e3e37fb64625752cec4976263979e9f",
+      "verified_target_sha256": "6f8e44e0b0d40491288d073e041b82f94e3e37fb64625752cec4976263979e9f",
+      "baseline_adjustment": null,
+      "verification": "Fearscape Shift projects immediate demonfire, applies a four-turn DEMONFIRE map effect at dam/4, and applies EFF_SENSE for 4 turns with the displayed radius. The target uses four turns for both the ground damage and awareness and preserves placeholder order.",
+      "sources": [
+        {
+          "repo": "ashes",
+          "path": "tome-ashes-urhrok/data/talents/corruptions/fearfire.lua",
+          "sha256": "c2faeddb2325d81dc87a1c4d591c0f8788c9c227d140fd6764d59258bd1f45d8"
+        }
+      ]
+    },
+    {
+      "task_id": "p2-cults-ui-logs-b1-001",
+      "original_revision_key": "cults-ui-logs-b1-001",
+      "historical_target_sha256": "71b9e859cd1fc6f6dca0984e2f9068204ef865319c05d1c08c35b090119aa09c",
+      "verified_target_sha256": "71b9e859cd1fc6f6dca0984e2f9068204ef865319c05d1c08c35b090119aa09c",
+      "baseline_adjustment": null,
+      "verification": "Essence Reave passes caster name, target name and restored count in that order. It increments the active T_VOID_STARS counter up to four; translating stale English 'void shards' as the actual Void Stars resource is correct.",
+      "sources": [
+        {
+          "repo": "cults",
+          "path": "tome-cults/data/talents/demented/void.lua",
+          "sha256": "19cb982e3487d52626f46c5e0623f5f75b4ad2e126c7580e000672c74ce934b1"
+        }
+      ]
+    },
+    {
+      "task_id": "p2-orcs-ui-logs-b3-001",
+      "original_revision_key": "orcs-ui-logs-b3-001",
+      "historical_target_sha256": "d5ad8d9c14a4c094b691aa712e9a14efd6430891a38733dbb392e55386c31e4d",
+      "verified_target_sha256": "d5ad8d9c14a4c094b691aa712e9a14efd6430891a38733dbb392e55386c31e4d",
+      "baseline_adjustment": null,
+      "verification": "Mecharachnid Chassis rejects the shared action if the player or mecharachnid is in combat, or if the mecharachnid is absent/not adjacent. The target correctly makes both actors subject to the out-of-combat condition.",
+      "sources": [
+        {
+          "repo": "orcs",
+          "path": "tome-orcs/data/talents/steam/mecharachnid.lua",
+          "sha256": "d4a229c033179400bfeecdf22a6d8c7d8b890754f25cecd82908d413c3fa5102"
+        }
+      ]
+    },
+    {
+      "task_id": "p2-orcs-ui-logs-b2-001",
+      "original_revision_key": "orcs-ui-logs-b2-001",
+      "historical_target_sha256": "763e3a2e0ecc46820f4b06837536fa6aae80c3a74f973d273e4cef9479711de2",
+      "verified_target_sha256": "aa8373f2b5b26e01e74e682c5deed0eb06a587c67eaa5bd9a195af287c0f0fde",
+      "baseline_adjustment": {
+        "kind": "replace_entire_target_in_experiment_fixture_only",
+        "from": "%s的%s射击打偏了",
+        "to": "%s故意打偏了%s的射击。",
+        "reason": "The historical terminal target composes as 'actor 的 他的/她的 shot'. The verified fixture preserves placeholder 1=shooter and placeholder 2=his/her while making the deliberate miss explicit. This does not edit the production translation."
+      },
+      "verification": "Startling Shot always logs caster name then string.his_her(caster), always applies EFF_STARTLING_SHOT, and its talent info says the shot is deliberately fired to miss. Engine utils returns his/her/its for the second placeholder. The adjusted fixture gives both placeholders a coherent Chinese binding.",
+      "sources": [
+        {
+          "repo": "orcs",
+          "path": "tome-orcs/data/talents/steam/gunslinging.lua",
+          "sha256": "eaff2729974d971d8affd69162efcbbc1d93acfcc5175eb8ebc9cc5460ba2824"
+        },
+        {
+          "repo": "engine",
+          "path": "game/engines/default/engine/utils.lua",
+          "sha256": "871f7ae2d26266751811d9249e4525b5b0f9d8c88b35272755d7a617885c2bbf"
+        }
+      ]
+    },
+    {
+      "task_id": "p2-cults-ui-logs-b3-001",
+      "original_revision_key": "cults-ui-logs-b3-001",
+      "historical_target_sha256": "eac47b8502a4c54896bba5ef590e5f7de43fe01383874990cdbb301adbfdb868",
+      "verified_target_sha256": "eac47b8502a4c54896bba5ef590e5f7de43fe01383874990cdbb301adbfdb868",
+      "baseline_adjustment": null,
+      "verification": "Constrict emits this log only when getTentacleCombat returns nil, i.e. the Mutated Hand weapon is unavailable. Empty offhand is a different prerequisite/message and must not replace Mutated Hand here.",
+      "sources": [
+        {
+          "repo": "cults",
+          "path": "tome-cults/data/talents/demented/tentacles.lua",
+          "sha256": "038841bc39a9c1ca209651fb5c8cbe248ef0abab6596c528407063eefbe25906"
+        }
+      ]
+    },
+    {
+      "task_id": "p2-ashes-ui-logs-b2-001",
+      "original_revision_key": "ashes-ui-logs-b2-001",
+      "historical_target_sha256": "666691d109d4523f1d83172419b53afc77843a7530e973d335d68725a851c8d3",
+      "verified_target_sha256": "666691d109d4523f1d83172419b53afc77843a7530e973d335d68725a851c8d3",
+      "baseline_adjustment": null,
+      "verification": "Link of Pain first prompts for target, stores it as the effect bearer/source of redirected damage, then separately prompts for victim and stores that actor as eff.victim. The paired project terminology uses 源生物 and 受害者; 选择源生物 is correct and distinct from the next prompt.",
+      "sources": [
+        {
+          "repo": "ashes",
+          "path": "tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua",
+          "sha256": "8de1db047d8a879585ef1a99e08039c4c9a664880fc18c51a8aaa0144a49ec55"
+        },
+        {
+          "repo": "ashes",
+          "path": "tome-ashes-urhrok/data/timed_effects.lua",
+          "sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d"
+        }
+      ]
+    }
+  ]
+}
