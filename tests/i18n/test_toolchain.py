@@ -19517,6 +19517,23 @@ class PaseoTranslationContextReviewTests(unittest.TestCase):
         self.assertIn("dispatch_id", texts["contextual"])
         self.assertIn("唯一结果契约", texts["contextual"])
 
+    def test_active_orchestrator_role_drives_translation_convergence(self) -> None:
+        orchestrator = " ".join(self._texts()["orchestrator"].split())
+        for marker in (
+            '"schema_version": 4',
+            '"max_cycles": 3',
+            "max_cycles_user_authorized=true",
+            "REVIEW/full",
+            "RE_REVIEW/full",
+            "RE_REVIEW/closure",
+            "FINAL_REVIEW/full",
+            "schema 3 及更早任务",
+            "dependency graph",
+            "correctness backstop",
+        ):
+            with self.subTest(marker=marker):
+                self.assertIn(marker, orchestrator)
+
     def test_contextual_contract_is_runtime_neutral(self) -> None:
         texts = self._texts()
         forbidden = (
@@ -19665,11 +19682,11 @@ class PaseoRuntimeNeutralContractTests(unittest.TestCase):
         contextual = (
             ROOT / "docs" / "paseo-translation-context-review-v1-contract.md"
         ).read_text(encoding="utf-8")
-        self.assertIn("paseo-orchestration/2.15-draft", orchestration)
-        self.assertIn("translation-contextual/1.5", contextual)
+        self.assertIn("paseo-orchestration/2.23-draft", orchestration)
+        self.assertIn("translation-contextual/1.6", contextual)
         self.assertNotIn("paseo-orchestration/2.11-draft", orchestration)
-        self.assertIn("| `2.15-draft` |", orchestration)
-        self.assertIn("| `2.14-draft` | 上一版草案", orchestration)
+        self.assertIn("| `2.23-draft` | 当前草案", orchestration)
+        self.assertIn("| `2.22-draft` | 上一版草案", orchestration)
         self.assertNotIn("translation-contextual/1.4", contextual)
 
     def test_quality_and_archive_surfaces_are_not_moved(self) -> None:

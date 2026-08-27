@@ -297,7 +297,8 @@ wave ORCHESTRATOR 一次性完成整个 wave 的只读工作：
 3. 冻结候选并运行 preflight；
 4. 独立 REVIEWER（首轮全量）；
 5. host adjudication；
-6. 有界 FIX 和复审（cycle 2 起先经 SENIOR_REVIEWER）；最终轮全量；
+6. 有界 FIX 和复审（cycle 2 起先经 SENIOR_REVIEWER）；中间轮可用 v1 dependency closure，
+   不确定时回退 full，最终轮全量；
 7. 五步门禁与适用完整门禁；
 8. 从**最终**候选派生 TARGET-PATCH，且 `base_commit` 等于 wave 冻结
    base；
@@ -400,10 +401,11 @@ Apply 成功后，integration EXECUTOR 的工作树是组合译文的当前内�
      + 新冻结 full envelope）。此后组合候选以 integration task 的最新
      候选为权威；既有 lane patch 仍只是历史输入，不再 re-export 为
      组合身份；
-   - 每次修复后重冻最新 full identity **与** translation-only
-     `integration-content-diff/1`，并对**全部 keys** 再做全量复审；
+   - 每次修复后重冻最新候选 identity **与** translation-only
+     `integration-content-diff/1`；中间轮按 schema 4 v1 closure 规则复审确定性子集，不确定时
+     回退 full，收敛后再对**全部 keys** 做一次 `FINAL_REVIEW/full`；
    - `cycle >= 2` 的普通 review finding 必须先经 SENIOR_REVIEWER；
-   - integration 使用自己的 `cycle`／`max_cycles`（默认 5），与各 lane
+   - integration 使用自己的 `cycle`／`max_cycles`（schema 4 translation implement 默认 3），与各 lane
      的计数独立；达到上限仍未清空 finding 则 `WAIT_USER`。
 
 5. 门禁通过后按第 5.6 节**唯一无循环终结协议**收束：构造 prospective
@@ -1419,13 +1421,15 @@ translation-only diff 的冻结、独立最终复审（含 accepted finding
 收敛）、门禁、第 5.6 节终结协议与外部 `DONE_VERIFIED`。这些完成前
 只能串行。
 
-Lane 内与 integration 的最终轮均使用 v1 全量复审，直到 Phase 3 启用 v2。
+Lane 内与 integration 的首轮／最终轮均使用 v1 全量复审；schema 4 implement 的中间轮已经可
+使用普通七键 v1 子集 envelope 做 closure。v2 不是 subset closure 的前置条件。
 
-### 7.2 `translation_contextual_v2`：exact-key full envelope 与结果
+### 7.2 `translation_contextual_v2`：未来紧凑输出优化
 
 v2 **不得**做成 findings-only 加 coverage digest。缺少逐条 disposition
 会使「未报 finding 的 key 已被审核」不可核验。v2 在工具和契约测试完备后
-于 Phase 3 启用；schema 在本文一次性定义完整，落地时不得再发明键。
+可于 Phase 3 启用，但它只优化 full／closure 结果的重复长文本回显，不负责解锁 subset
+closure；后者已由 v1 七键 envelope 加记录层 metadata 实现。schema 在本文一次性定义完整，落地时不得再发明键。
 规范化字节配方与第 6.2 节相同。
 
 #### Full payload（被哈希对象）
@@ -1530,17 +1534,25 @@ disposition_digest = SHA-256(canonical_disposition_bytes)
 
 宿主从冻结 envelope 重算 digest 与每条 source／target hash；digest 或
 hash 不匹配即作废。输出仍与全部冻结 revision 严格绑定，但不回显完整长
-文本。Phase 1 的 full identity 仍使用 `translation_contextual_v1` 的七键
-配方；本节 schema 只在 Phase 3 进入派发与结果。
+文本。现行 full 与 closure identity 都继续使用 `translation_contextual_v1` 的七键
+配方；本节 schema 只在 Phase 3 作为 compact-output 优化进入派发与结果。
 
 ### 7.3 中间轮 review closure
 
 首轮和**最终轮**仍为全量复审：最终 phase 必须复审**最新完整候选的全部
-keys**，绑定完整候选 identity。中间 FIX 后的 reviewer 在 Phase 3 才可读取
-closure，且必须先冻结独立的 closure manifest。closure 结果不能充当
-FINAL_REVIEW 或 wave／integration 的 full 证明。
+keys**，绑定完整候选 identity。schema 4 implement 的中间 FIX 后 reviewer 现在即可读取普通
+七键 v1 subset envelope；review 记录在 envelope 外保存 `review_kind=closure`、
+`parent_candidate_identity` 与有序 inclusion。closure 结果不能充当 FINAL_REVIEW 或
+wave／integration 的 full 证明。现行 v1 的 changed+dependency closure 由 ORCHESTRATOR 根据
+任务 diff、finding 与批内依赖确定；checker 只验证 record／envelope 自洽，不机械重建完整
+依赖集合。任何歧义回退 full，强制最终 full 是 correctness backstop。
 
-#### 冻结 manifest（被哈希对象，无拼接）
+#### 未来 v2 可选的紧凑 closure manifest（不是 v1 subset 的前置条件）
+
+下列 10 键 manifest 只描述未来 v2 compact-output 的可选强绑定设计。现行 v1 subset closure
+不创建它或 dependency graph artifact、不把 `review_kind` 加入 payload，也不改变七键
+candidate identity：STATE review 记录的 parent／inclusion 与普通 v1 envelope 只提供
+self-consistency binding，closure 完整性仍由 ORCHESTRATOR 负责。
 
 路径：`.ai/task/<task-id>/REVIEW-CLOSURE-<cycle>.json`。`schema_id` 必须
 精确为 `review-closure/1`，`schema_version` 必须为整数 `1`。根对象恰好
@@ -1660,16 +1672,17 @@ manifest 重算的 `closure_identity`：
 | 种类 | 哈希对象 | 用途 |
 | --- | --- | --- |
 | full `candidate_identity` | v1 七键 payload，或 v2 8 键 full payload（含 `review_kind=full`） | 首轮、最终轮、TARGET-PATCH、integration 组合候选 |
-| closure identity | 整个 10 键 `review-closure/1` 对象的 canonical JSON（`schema_id`、`schema_version`、`review_kind`、`parent_candidate_identity`、`cycle`、`post_fix_diff_identity`、`ordered_revision_keys`、`inclusion`、`dependency_graph_digest`、`subset_payload`） | 仅中间轮 |
+| v1 closure `candidate_identity` | 普通七键 v1 subset payload；`review_kind`、parent 与 inclusion 仅在 review 记录 | 现行 schema 4 中间轮 |
+| future v2 closure identity | 整个 10 键 `review-closure/1` 对象的 canonical JSON（`schema_id`、`schema_version`、`review_kind`、`parent_candidate_identity`、`cycle`、`post_fix_diff_identity`、`ordered_revision_keys`、`inclusion`、`dependency_graph_digest`、`subset_payload`） | 仅未来 compact-output 中间轮 |
 | `target_patch_identity` | canonical TARGET-PATCH（7 键根对象，不含自身 identity） | export／apply／verify；写入 wave evidence 的 `lanes[].target_patch_identity` |
 | `conflict_preflight_identity` | canonical 8 键 CONFLICT-PREFLIGHT 根（不含自身 identity） | WAVE 从 DISPATCHED 冻结；wave-evidence 与 DONE checker 交叉核验当前字节 |
 | `workset_identity` | canonical 7 键 `lane-workset/1` 根（不含自身 identity） | WAVE `lanes[]` 从 DISPATCHED 冻结；checker 独立导出 primary |
 | `wave_record_identity` | canonical 14 键 prospective DONE WAVE 根（`state=DONE`，不含 `done_verified`，不含自身 identity） | 只写入 wave evidence；权威 WAVE 必须是相同字节 |
 | `content_diff_identity` | canonical 8 键 `integration-content-diff/1`（不含自身 identity；preimage 为 translation-only） | WAVE 与 wave-evidence 绑定；不得用含 evidence 的最终 diff 或自哈希冒充 |
 
-full 与 closure 的配方必须包含互斥的 `review_kind` 字面量，使两类 identity
-不能互相冒充。review 记录必须保存 `review_kind` 及其绑定 identity；
-closure 记录还必须保存 `parent_candidate_identity`、`cycle`、
+现行 v1 保持七键 identity 不变，由 review 记录的互斥 `review_kind` 区分 full／closure；
+closure 记录另存 `parent_candidate_identity` 与有序 inclusion。未来 v2 若启用，则其 full 与
+closure 哈希对象包含互斥的 `review_kind` 字面量，且 v2 closure 记录再保存 `cycle`、
 `post_fix_diff_identity` 与 `dependency_graph_digest`。
 
 checker 与 ORCHESTRATOR 不得把 closure identity／closure 记录当作
@@ -1678,9 +1691,9 @@ FINAL_REVIEW 完成证明，也不得把它写入 WAVE 的
 FINAL_REVIEW 必须绑定最新完整候选的 full identity 与其全部 keys。
 
 若 closure 无法可靠计算、post-fix diff 含声明外写入、parent identity
-漂移、key 集合不确定、或 dependency graph 不能得出单一 digest，则自动
-回退全量复审。这项优化需要新契约和工具支持，不能在现行
-`translation_contextual_v1` 下自行采用。
+漂移、key 集合不确定、或 dependency graph 不能得出单一结果，则自动
+回退 `RE_REVIEW/full`。v1 subset closure 由 schema 4 契约支持，checker 只验证其 envelope／
+record 自洽；未来 v2 仅替换输出的长文本回显方式，不改变该 fallback 或最终 full 要求。
 
 ## 8. 术语与共享键隔离
 
@@ -1935,13 +1948,13 @@ Phase 2 `CONFLICT-GRAPH.json` 最小 exact-key：`schema_id` 精确为
 `a`、`b`、`reasons` 三键（`reasons` 为非空字符串数组）。`nodes` 与
 WAVE.`ordered_lane_ids` 1:1。无边才可并行。
 
-### Phase 3：紧凑 review 与闭包复审
+### Phase 3：紧凑 review 输出（closure 已由 v1 支持）
 
-- 启用第 7.2／7.3 节已定义的 `translation_contextual_v2` exact-key full
-  envelope／结果与 **10 键** `review-closure/1`；有序 disposition +
+- 可选启用第 7.2／7.3 节定义的 `translation_contextual_v2` exact-key full
+  envelope／结果与 10 键 `review-closure/1`，仅用于压缩输出；有序 disposition +
   canonical digest + finding 1:1，而不是 findings-only；
-- 中间轮依赖冻结 10 键 closure manifest 的单一 canonical JSON 哈希；
-  full 与 closure identity／record 分离；closure 不得充当 final full；
+- v1 中间 closure 不依赖该 manifest；采用 v2 时 full 与 closure identity／record 分离，
+  closure 仍不得充当 final full；
 - 首轮／最终轮仍全量覆盖最新完整候选全部 keys；不确定即回退全量；
 - 更新契约文档、角色 prompt、checker 和单测后才启用。
 
@@ -1960,7 +1973,8 @@ review shard。所有 shard 必须精确分区且最终仍经过一个全量 rev
 - source／tag／args_order／special／markup／newline 漂移为 0；
 - runtime collision 为 0；
 - invalid review 输出率不高于现有基线，Phase 3 后目标低于 2%；
-- 中间复审输入／输出 token 降低至少 50%（仅 Phase 3 启用 closure 后）；
+- 中间复审输入 token 由 v1 closure 降低；Phase 3 启用 v2 compact output 后，输入／输出 token
+  合计降低至少 50%；
 - 语义补丁 merge 因冲突 fail closed 的比例可解释，且不得靠人工猜测合并；
   目标低于 10% 的可恢复冲突；
 - 随机抽取至少 10% 已合并条目做全量独立复审，不出现确认级漏检；
@@ -2008,8 +2022,8 @@ review shard。所有 shard 必须精确分区且最终仍经过一个全量 rev
 
 Phase 2 在 Phase 1 的 2–4 lane 试运行稳定后按需实施，只增加完整冲突图、
 图着色与调度优化，不负责引入第三或第四条 lane。
-Phase 3 涉及审核契约语义变化，应作为单独基础设施任务交叉复审，并按第
-7.2／7.3 节已冻结的 exact-key schema 落地。Phase 4 仅在跨批次并行仍不足
+Phase 3 只承担 compact-output 契约变化，应作为单独基础设施任务交叉复审，并按第
+7.2／7.3 节已冻结的 exact-key schema 落地；它不是 v1 subset closure 的前置条件。Phase 4 仅在跨批次并行仍不足
 以处理超大 section 时启用。
 
 不建议一开始就在同一 workspace 内让多个 writer 修改 `mod-tome.lua`，不建议

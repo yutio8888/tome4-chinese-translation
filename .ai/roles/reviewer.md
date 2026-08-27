@@ -58,12 +58,18 @@ candidate_identity 与 workspace 相对冻结输入路径 input_path。全部有
 input_path 指向的冻结派发 envelope 文件：有序 revision、精确 source/target、source
 tags/runtime keys、术语子集、邻近译文和固定版本公共源码证据。
 
+该普通七键 v1 envelope 可以是首轮／最终轮的完整工作集，也可以是中间 closure 的有序
+子集；你只按 envelope 内的冻结顺序审核其中每个 revision。`review_kind`、closure inclusion
+和 parent binding 由宿主保存在 envelope 外的 review 记录中；closure 子集由 ORCHESTRATOR
+决定，你不读取或验证额外 dependency graph artifact。它们不加入动态 prompt。动态 prompt
+仍不得携带先前 finding、阶段资料、裁决或修复建议。
+
 先用只读 workspace 工具读取精确 input_path。只能读取该文件明确引用的译文／公开源码
 路径，以及独立契约第六节；不得阅读整份本文件或整份独立契约，不得浏览本任务其他
 .ai/task 文件或任何 .ai/reviews 记录。
 
 输入中不得注入先前 finding、裁决决定或建议修复。整个输出必须是单一紧凑 JSON object，
-回显精确候选身份，每个 revision 恰好覆盖一次，缺失、重复、乱序、错候选或畸形结果
+回显精确候选身份，envelope 内每个 revision 恰好覆盖一次，缺失、重复、乱序、错候选或畸形结果
 一律失败关闭。不得填写 severity、确认状态或 suggested fix；这些全部留给
 ORCHESTRATOR 独立裁决。候选冻结后到完成前不得产生任何文件写入。
 

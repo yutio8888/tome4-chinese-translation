@@ -2,7 +2,7 @@
 
 > 状态：设计草案，运行时解耦版。
 >
-> 契约版本：`paseo-orchestration/2.22-draft`（取代 `paseo-orchestration/2.21-draft`；更早的
+> 契约版本：`paseo-orchestration/2.23-draft`（取代 `paseo-orchestration/2.22-draft`；更早的
 > `paseo-orchestration/2.15-draft` 已归档）。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文约束角色行为、任务边界和候选一致性，
@@ -21,8 +21,9 @@
 2. 主代理定义范围、独立验证并裁决 finding。
 3. 普通串行任务的 EXECUTOR、REVIEWER、SENIOR_REVIEWER 和 SCOUT 使用当前 workspace；受管
    wave 则使用下文唯一的跨 workspace 直系 child 拓扑。只读角色不得修改任务内容。
-4. 自动修复最多五轮；第二轮后的普通 review finding 必须先经 SENIOR_REVIEWER 按个人项目
-   尺度校准，才能触发后续 FIX。
+4. 一般任务自动修复最多五轮；schema 4 translation implement 任务默认三轮，只有逐字记录
+   `max_cycles_user_authorized=true` 才可高于三轮。第二轮后的普通 review finding 必须先经
+   SENIOR_REVIEWER 按个人项目尺度校准，才能触发后续 FIX。
 5. 任务开始前记录工作树，结束前运行适用门禁。
 6. Paseo 激活期间角色路由独占，不并行使用已归档项目 Skill 或其独立 agent。
 7. 四类子 agent 必须由当前 ORCHESTRATOR 通过 Paseo 管理接口创建，并建立可验证的父级
@@ -201,7 +202,10 @@ pending/completed、不产生 finding，也不参与 `candidate_ref` 冻结。
 | 任意非终态 | 需要用户决定 | `WAIT_USER` |
 | 任意非终态 | 用户取消或无法继续，且全部 child 已确认归档 | `STOP`；否则 `WAIT_USER` |
 
-`cycle` 在每轮 FIX 开始时增加，最大值为 5。门禁失败与 reviewer finding 共用这五轮。
+`cycle` 在每轮 FIX 开始时增加，一般任务最大值为 5。schema 4、`mode=implement` 且包含
+`translation_contextual_v1` 的任务默认 `max_cycles=3`，始终要求 `cycle <= max_cycles`；
+上限高于 3 时必须有 literal `max_cycles_user_authorized=true`。schema 3 及更早任务和
+`review_only` 不采用该新机械语义。门禁失败与 reviewer finding 共用对应上限。
 当 `cycle >= 2` 时，客观验证失败可直接触发 FIX；普通 review finding 触发的后续 FIX
 必须先走当轮 `SENIOR_REVIEW`。旧 scope audit 不得用于新一轮 findings。
 
@@ -239,7 +243,7 @@ SPEC 必须写明任务模式、范围、允许修改文件、禁止扩展项和
 
 ```json
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "task_id": "example-001",
   "mode": "implement",
   "change_class": "translation_workflow",
@@ -249,7 +253,7 @@ SPEC 必须写明任务模式、范围、允许修改文件、禁止扩展项和
   "pending_review_contracts": [],
   "completed_review_contracts": [],
   "cycle": 0,
-  "max_cycles": 5,
+  "max_cycles": 3,
   "workspace_id": "...",
   "orchestrator_agent_id": "...",
   "orchestration_transport": "cli",
@@ -321,7 +325,15 @@ Paseo daemon 必须以 `PASEO_AGENT_ID` 对应的 ORCHESTRATOR 建立 parent lin
 `reviewer_role`、`purpose`、`dispatch_id`、`agent_id` 和完成状态。新写入的
 `review_records`、`senior_review_records` 是 workspace-relative review 文件路径的数组；
 reader 兼容旧 mapping。语境 review 还必须保存
-`candidate_identity`、`dispatch_id` 和 `input_path`。每份 code review
+`candidate_identity`、`dispatch_id` 和 `input_path`。schema 4 translation implement 的每份
+语境记录还在 envelope 外保存 `review_kind=full|closure`；closure 记录另存
+`parent_candidate_identity` 和与子集 keys 同序的 `inclusion`，其 reason 词表固定为
+`changed_target`、`open_finding`、`shared_runtime_key`、`narrative_or_term_claim`、
+`extra_touched_target`。changed+dependency closure 由 ORCHESTRATOR 根据任务 diff、finding 与
+批内依赖确定；现行 v1 不创建 dependency graph、closure manifest 或其他附加 artifact。
+checker 只验证记录／envelope 的 cycle、phase、parent、顺序、source 与 inclusion 自洽，不证明
+closure 已穷尽依赖；存在歧义时 ORCHESTRATOR 必须派发 `RE_REVIEW/full`。这些字段不进入七键
+payload、candidate identity 或结果 schema。每份 code review
 记录还保存派发时的 `candidate_ref` 和恰含 `spec_path`／`diff_path` 的
 `candidate_locator`；candidate_ref 精确为 `SHA256(SPEC 原始字节 + 一个 NUL 字节 +
 diff 原始字节)`。派发、返回和 contract 完成前的引用必须一致。
@@ -706,6 +718,19 @@ reviewer 只返回 findings；SENIOR_REVIEWER 只返回 assessment/findings；SC
 快照、术语子集、邻近译文、source tags／runtime keys 和固定源码证据；输入不包含先前
 finding、裁决或建议修复。
 
+schema 4 translation implement 采用三阶段收敛：唯一最早 contextual terminal 必须是 cycle 0
+的 `REVIEW/full`，冻结原始完整有序 keys 与 source；所有 intervening terminal 只允许
+`RE_REVIEW/full|closure`，但失败的历史 `FINAL_REVIEW/full` 可在更高 cycle 的
+`RE_REVIEW/full|closure` 修复序列后保留。closure 使用普通七键 v1 子集 envelope，keys 必须与 inclusion 相等、
+保持原顺序且 source 不漂移，并绑定最新更早 full identity。不确定时回退 `RE_REVIEW/full`。
+唯一最新 terminal 必须是 STATE.cycle 的成功 `FINAL_REVIEW/full`，覆盖最新候选的原始完整 keys
+与 source；失败 terminal 同样参与顺序。该最终 full 是 correctness backstop。
+REVIEWER 的三行动态 prompt 仍只有 candidate identity 与 input path，不注入 prior findings、
+stage data、裁决或建议修复。
+
+接受过的 revision 仅可因有证据的 fidelity、completeness、grammar、terminology、runtime 或
+conspicuous translationese 缺陷 reopen；preference churn 只作 advisory，不能扩张 closure。
+
 Before freezing or hashing a translation_contextual_v1 payload, ORCHESTRATOR must run the deterministic offline contextual-anchor preflight with the task-scoped `.ai/task/<task_id>/SCOPE.json` and the exact seven-key draft payload.
 The preflight also accepts the whole-section form for sections without actual chapter-title t(...) calls.
 The task-scoped SCOPE.json must declare only workspace-relative ordinary allowed files plus file, section_path, and ordered actual chapter-title anchors; unsafe, duplicate, missing, or ambiguous declarations fail closed.
@@ -739,6 +764,10 @@ sidecar 的每个复合引用，并把未列出的相关 review、缺失 disposi
 - 按冻结 SPEC 和任务基线生成任务自身 diff；
 - 核对 EXECUTOR 越权文件、REVIEWER／SCOUT 工作树变化和候选引用。
 
+schema 4 translation implement 每个 cycle 还必须在 contextual 派发前重跑 preflight，并运行
+strict lint、scope/source/tag/args/special/markup/placeholder/newline 不变量与
+`git diff --check`。五步门禁及完整 `tools/ci-gates.sh` 只在最终 `FINAL_REVIEW/full` 收敛后运行。
+
 完成前：
 
 - 所有 contract 已完成且 findings 已裁决；
@@ -746,6 +775,15 @@ sidecar 的每个复合引用，并把未列出的相关 review、缺失 disposi
 - 最终 AC 与适用门禁通过；
 - 旧用户改动、历史 task 和 archive 未被改写；
 - DONE、STOP 或明确回退前，未创建任何 child，或全部 `child_dispatches` 已确认归档。
+
+schema 4 translation implement 的 DONE 还跨 `review_records` 与 `senior_review_records` 扫描
+全部 contextual terminal 记录（包括失败）。每个记录 cycle 都不得超过 STATE.cycle 或
+max_cycles；唯一最早记录必须是 cycle 0 的 `REVIEW/full`，intervening 记录只允许
+`RE_REVIEW/full|closure`，或允许失败的历史 `FINAL_REVIEW/full` 后接更高 cycle 的
+`RE_REVIEW/full|closure` 修复序列；唯一最新记录必须是 STATE.cycle 的成功
+`FINAL_REVIEW/full`，并覆盖
+最早 full 冻结的完整有序 keys 与 source。closure、stale PASS、乱序 phase、最大 tuple 平局、
+越限记录或更新的失败记录均不能关闭。
 
 仅改变运行时选择而未改变 role 行为、输入边界或输出 schema 时，不需要重新解释候选
 身份，也不要求为运行时选择变更启动行为复审；修改本契约的角色、权限、候选绑定或
@@ -805,4 +843,5 @@ sidecar 的每个复合引用，并把未列出的相关 review、缺失 disposi
 | `2.19-draft` | 上一版草案 | 增加受管 Phase 1 wave：唯一跨 workspace 直系 child 拓扑、角色写权限、WAVE-only CLI、pinned-manifest primary／空 collateral 重算、no-change TARGET-PATCH 能力边界、prospective／evidence／publication 恢复和外部 DONE closure。 |
 | `2.20-draft` | 上一版草案 | 把 workspace ID 绑定到显式 1:1 real-worktree root map；逐调用解析 base/current/candidate 与组合 envelope；由 workset 重建非空 runtime／narrative provenance；wave STATE 持久化 parent/task/purpose；增加 prepare-publication／原子 publish，并把 done 收窄为发布后 closure。 |
 | `2.21-draft` | 上一版草案 | 收紧 Phase 1 no-change 全文件字节闭合、空 content-diff、最新唯一 full completion、apply 前 integration 身份／授权／EXECUTOR provenance，以及 child agent 与 orchestrator 身份分离。 |
-| `2.22-draft` | 当前草案 | 把最新 full completion 扩展到两个 STATE review 数组和全部合法 review phase；apply 强制实际 `PASEO_AGENT_ID`；wave evidence 强制 fresh 专用 EXECUTOR 与 path/prospective identity；从固定 manifest 及 lane 冻结输入机械重建 integration source/context/terminology/briefing provenance。 |
+| `2.22-draft` | 上一版草案 | 把最新 full completion 扩展到两个 STATE review 数组和全部合法 review phase；apply 强制实际 `PASEO_AGENT_ID`；wave evidence 强制 fresh 专用 EXECUTOR 与 path/prospective identity；从固定 manifest 及 lane 冻结输入机械重建 integration source/context/terminology/briefing provenance。 |
+| `2.23-draft` | 当前草案 | 为 schema 4 translation implement 增加 v1 七键 full／closure／final-full 收敛、三轮默认上限、accepted revision reopening 门槛、分层门禁和最新 terminal full DONE 闭合；schema 3 与 review-only 保持兼容。 |

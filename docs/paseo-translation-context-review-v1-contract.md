@@ -2,7 +2,11 @@
 
 > 状态：规范，运行时解耦版。
 >
-> 契约版本：translation-contextual/1.5。
+> 契约版本：translation-contextual/1.6。
+>
+> 1.6：schema 4 implement 任务可在中间收敛轮使用普通七键 v1 子集 envelope；
+> `review_kind`、parent 与 inclusion 只写在 envelope 外的 review 记录。七键 payload、
+> canonical hashing 和第六节结果 schema 不变。
 >
 > 1.5：译文语境审核只绑定 role=reviewer 与 purpose=translation_contextual_v1，不再把
 > 运行时载体、版本、档位或回退选择写入契约、STATE 或 candidate identity。候选 envelope、
@@ -179,15 +183,54 @@ envelope 和返回值三者不一致即作废。
 
 该身份不得复用 code-diff 的 candidate_ref 配方。
 
+### schema 4 implement 的记录层 full／closure 语义
+
+该语义只对 `schema_version >= 4`、`mode=implement` 且 `review_contracts` 包含
+`translation_contextual_v1` 的新任务生效；schema 3 及更早任务、所有 `review_only` 任务
+继续按既有语义读取，不追溯补字段。
+
+新 contextual review 记录在 envelope 外保存 `review_kind=full|closure`。`full` 使用普通七键
+v1 envelope 覆盖完整工作集；`closure` 也使用完全相同的七键形状、哈希配方和结果 schema，
+但 envelope 的三个有序 revision array 只含 ORCHESTRATOR 确定的 changed+dependency closure
+子集。现行 v1 不生成 dependency graph、closure manifest 或其他附加 artifact；checker 只验证
+记录／envelope 自洽，不证明 closure 已穷尽依赖。`review_kind` 不进入 payload、
+candidate identity 或 reviewer 结果。
+
+唯一最早 contextual terminal 必须是 cycle 0 的 `REVIEW/full`，冻结原始完整有序工作集及其
+source。中间 terminal 只允许 `RE_REVIEW/full|closure`；closure 记录还保存：
+
+~~~json
+{
+  "review_kind": "closure",
+  "parent_candidate_identity": "<latest-earlier-full-identity>",
+  "inclusion": [
+    {"revision_key": "<key>", "reasons": ["changed_target"]}
+  ]
+}
+~~~
+
+`inclusion` 顺序必须与子集 envelope 的 `ordered_revision_keys` 完全相等；每项 reasons 非空、
+无重复，且只能使用 `changed_target`、`open_finding`、`shared_runtime_key`、
+`narrative_or_term_claim`、`extra_touched_target`。closure keys 必须是原完整顺序的子序列，
+source 必须逐项等于原完整工作集，`parent_candidate_identity` 必须指向按 `(cycle, attempt)`
+排序的最新更早 full 记录。ORCHESTRATOR 无法确定 closure 完整性时不生成 closure，改用
+`RE_REVIEW/full`。
+
+DONE 必须跨 `review_records` 与 `senior_review_records` 扫描全部 contextual terminal 记录，
+失败记录同样参与 `(cycle, attempt)` 排序。每个记录 cycle 不得超过 STATE.cycle 或 max_cycles；
+最大 tuple 必须唯一，且唯一最新记录必须在 STATE.cycle 是成功的 `FINAL_REVIEW/full`，按原始
+完整顺序覆盖全部 keys 与 source。closure、旧 PASS、乱序 phase、最大 tuple 平局、越限记录或
+较新的失败都不能关闭任务。该强制最终 full 是轻量 closure 的 correctness backstop。
+
 ## 四、短派发 prompt
 
 initialPrompt（CLI positional prompt）只含以下三行，未实例化模板不超过 800 UTF-8 字节；
 唯一动态值是 <candidate_identity> 和 <input_path>：
 
 ~~~text
-任务：审核全部冻结 revision；据输入文件术语、上下文和所引固定源码，只报有证据的实质语义、机制、术语或关系错误，无问题填 OK。
+任务：审核输入文件中的全部冻结 revision；据输入文件术语、上下文和所引固定源码，只报有证据的实质语义、机制、术语或关系错误，无问题填 OK。
 输入：candidate_identity=<candidate_identity>；<input_path> 是唯一候选载体。全程只读，禁止写入任何文件；只读该文件及其所引译文/公开源码、docs/paseo-translation-context-review-v1-contract.md 第六节，不读其他 .ai/task/.ai/reviews。
-输出：仅回第六节单一紧凑 JSON；冻结顺序全量覆盖并回显 <candidate_identity>；首字节{、末字节}，无其他文字、Markdown/围栏。
+输出：仅回第六节单一紧凑 JSON；按 envelope 冻结顺序全量覆盖并回显 <candidate_identity>；首字节{、末字节}，无其他文字、Markdown/围栏。
 ~~~
 
 模板不内联 envelope、revision、source/target、术语、上下文、源码片段或其他候选数据。
@@ -196,7 +239,7 @@ CLI positional prompt 与 MCP initialPrompt 必须是相同文本；输出格式
 
 ## 五、输入（有界 briefing）
 
-冻结 envelope 只包含：
+冻结 envelope（完整工作集或 closure 子集）只包含：
 
 - 精确 source/target 对；
 - source tags／runtime keys；

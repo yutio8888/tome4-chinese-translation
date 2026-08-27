@@ -56,13 +56,46 @@ EXECUTOR 结束却没有工作成果（无 diff、无报告，或只回了计划
 3. 写 `.ai/task/<task>/SPEC.md|PLAN.md|SCOPE.json|STATE.json`；复用上一批的 envelope builder
    时先改 revision key 前缀。
 4. 派发 EXECUTOR → 机械核验 diff 范围与键漂移 → 归档 → 冻结候选 → preflight → 派发独立复审。
-5. 按固定源码裁决 observation；`confirmed` 进 fresh EXECUTOR 修复，重新冻结后全量复审，直到干净。
-6. 五步门禁 + 适用的完整门禁 → `ai_state_check.py` `DONE_VERIFIED` → 单独提交译文批次与
+5. 按固定源码裁决 observation；`confirmed` 进 fresh EXECUTOR 修复。schema 4 的
+   translation implement 任务按下节执行中间 closure 或不确定时的 `RE_REVIEW/full`，收敛后做
+   一次最终全量复审。
+6. 最终全量复审收敛后运行五步门禁 + 适用的完整门禁 → `ai_state_check.py`
+   `DONE_VERIFIED` → 单独提交译文批次与
    evidence；交接与记忆随后单独提交。
 7. 给出批次简报，直接进入下一批。
 
 停下条件、以及哪些情况自行处理不必停，见 [`AGENTS.md`](../AGENTS.md) 的「连续批次模式」。
 连续运行不豁免本文件的任何门禁或证据要求；批次之间不得为了赶进度合并、跳过或延后门禁。
+
+### 译文三阶段收敛复审（schema 4 implement）
+
+仅当 `schema_version >= 4`、`mode=implement` 且含 `translation_contextual_v1` 时启用：首轮
+`REVIEW/full` 冻结完整有序工作集；中间修复轮只复审 changed target、open finding、共享
+runtime key、叙事／术语 claim 和额外触及 target 的确定性依赖闭包；收敛后以
+`FINAL_REVIEW/full` 对最新候选完整复审一次。闭包或 parent 不确定时直接使用
+`RE_REVIEW/full`，不得猜测子集。
+
+changed+dependency closure 由 ORCHESTRATOR 根据任务 diff、finding 与批内依赖确定，不新增
+dependency graph、closure manifest 或其他 artifact。`ai_state_check.py` 只验证 review 记录与
+七键 envelope 的 cycle／phase、parent、顺序、source 和 inclusion 自洽，不能替代 closure
+完整性的编排判断；任何歧义都必须回退 full。强制 `FINAL_REVIEW/full` 是该轻量优化的
+correctness backstop，不能由 closure 记录替代。
+若一次 `FINAL_REVIEW/full` 失败，可在更高 cycle 完成 `RE_REVIEW/full|closure` 修复序列后再次
+执行 final full；历史失败记录保留在顺序中，最新 terminal 仍必须是 STATE.cycle 的成功
+`FINAL_REVIEW/full`。
+
+新 STATE 的 `max_cycles` 默认 3，且 `cycle <= max_cycles`。只有用户明确授权时才可把上限设为
+3 以上，并逐字保存 `max_cycles_user_authorized=true`；该轻量字段不记录授权文本或另建审批
+artifact。schema 3 及更早任务和 `review_only` 保持原行为。
+
+已被某个 revision 接受的译文只有在 fidelity、completeness、grammar、terminology、runtime
+或 conspicuous translationese 缺陷有源码／语境证据时才可 reopen。纯偏好变化只记 advisory，
+不得进入 accepted finding，也不得扩大 closure。
+
+每个 cycle 在 contextual 派发前运行 preflight；修复后运行 strict lint、范围与
+source／source_tag／args_order／special／markup／placeholder／newline 不变量检查，以及
+`git diff --check`。五步门禁和完整 `tools/ci-gates.sh` 只在最终 `FINAL_REVIEW/full` 收敛后运行；
+任一 per-cycle 检查失败仍须先修复，不能延后到最终门禁。
 
 涉及 evidence-citing candidate 时，先用 `python3 -B tools/review_evidence.py inventory` 从 `.ai/reviews/` 源记录生成原始 finding 清单，再用 `check` 校验 proposer 的 `EVIDENCE-RECONCILIATION.json`；用 `render` 派生计数，不手填 counts。reviewer 仍须直接核对引用和未列出的相关记录。
 

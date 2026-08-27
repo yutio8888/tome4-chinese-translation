@@ -77,6 +77,135 @@ class StateCheckerFixtureTests(unittest.TestCase):
         self._write(state_path, state)
         return ai_state_check.check_state(state_path, target=target)
 
+    def _policy_state(self) -> tuple[Path, dict[str, object]]:
+        state_path, state, _ = self._copy_fixture("contextual")
+        state.update({
+            "schema_version": 4,
+            "mode": "implement",
+            "change_class": "translation_workflow",
+            "orchestrator_agent_id": "agent-orchestrator",
+            "cycle": 2,
+            "max_cycles": 3,
+            "final_validation_passed": True,
+            "child_dispatches": [],
+            "review_records": [],
+            "senior_review_records": [],
+        })
+        return state_path, state
+
+    def _add_policy_contextual_record(
+        self,
+        state_path: Path,
+        state: dict[str, object],
+        *,
+        dispatch_id: str,
+        phase: str,
+        cycle: int,
+        attempt: int,
+        review_kind: str,
+        keys: list[str],
+        sources: dict[str, str] | None = None,
+        targets: dict[str, str] | None = None,
+        result: str = "PASS",
+        parent_candidate_identity: str | None = None,
+        inclusion: list[dict[str, object]] | None = None,
+        senior: bool = False,
+    ) -> str:
+        sources = sources or {key: f"Source {key}" for key in keys}
+        targets = targets or {key: f"Target {key}" for key in keys}
+        payload = {
+            "contract": "translation_contextual_v1",
+            "ordered_revision_keys": keys,
+            "translation_snapshot": [
+                {
+                    "revision_key": key,
+                    "source": sources[key],
+                    "target": targets[key],
+                }
+                for key in keys
+            ],
+            "fixed_source_identity": "commit:61bb370c33e46c4df4b2bbfd56113a0de1822300",
+            "terminology_snapshot": "fixture terminology",
+            "bounded_context": [
+                {"revision_key": key, "context": f"context {key}"}
+                for key in keys
+            ],
+            "rendered_briefing": f"fixture {dispatch_id}",
+        }
+        identity = hashlib.sha256(ai_state_check._canonical_payload_bytes(payload)).hexdigest()
+        directory = state_path.parent
+        envelope_path = directory / f"CONTEXTUAL-ENVELOPE-{dispatch_id}.json"
+        self._write(envelope_path, {"candidate_identity": identity, "payload": payload})
+        input_path = str(envelope_path.relative_to(ROOT))
+        agent_id = f"agent-{dispatch_id}"
+        record: dict[str, object] = {
+            "task_id": state["task_id"],
+            "review_contract": "translation_contextual_v1",
+            "review_phase": phase,
+            "cycle": cycle,
+            "attempt": attempt,
+            "reviewer_role": "REVIEWER",
+            "purpose": "translation_contextual_v1",
+            "dispatch_id": dispatch_id,
+            "agent_id": agent_id,
+            "result": result,
+            "candidate_identity": identity,
+            "input_path": input_path,
+            "review_kind": review_kind,
+        }
+        if review_kind == "closure":
+            record["parent_candidate_identity"] = parent_candidate_identity
+            record["inclusion"] = inclusion if inclusion is not None else [
+                {"revision_key": key, "reasons": ["changed_target"]}
+                for key in keys
+            ]
+        record_path = directory / f"{dispatch_id}.json"
+        self._write(record_path, record)
+        field = "senior_review_records" if senior else "review_records"
+        state[field].append(str(record_path.relative_to(ROOT)))  # type: ignore[union-attr]
+        state["child_dispatches"].append({  # type: ignore[union-attr]
+            "dispatch_id": dispatch_id,
+            "role": "REVIEWER",
+            "purpose": "translation_contextual_v1",
+            "agent_id": agent_id,
+            "lineage_verified": True,
+            "lifecycle": "archived",
+            "archive_confirmed": True,
+            "candidate_identity": identity,
+            "input_path": input_path,
+        })
+        return identity
+
+    def _finish_policy_state(
+        self, state_path: Path, state: dict[str, object]
+    ) -> ai_state_check.CheckResult:
+        self._write(state_path, state)
+        return ai_state_check.check_state(state_path)
+
+    def _positive_policy_sequence(
+        self, *, final_cycle: int = 2,
+    ) -> tuple[Path, dict[str, object], str]:
+        state_path, state = self._policy_state()
+        state["cycle"] = final_cycle
+        full_sources = {"r1": "Source r1", "r2": "Source r2", "r3": "Source r3"}
+        initial_identity = self._add_policy_contextual_record(
+            state_path, state,
+            dispatch_id="initial-full", phase="REVIEW", cycle=0, attempt=1,
+            review_kind="full", keys=["r1", "r2", "r3"], sources=full_sources,
+        )
+        self._add_policy_contextual_record(
+            state_path, state,
+            dispatch_id="closure-one", phase="RE_REVIEW", cycle=1, attempt=1,
+            review_kind="closure", keys=["r2"], sources=full_sources,
+            parent_candidate_identity=initial_identity,
+        )
+        self._add_policy_contextual_record(
+            state_path, state,
+            dispatch_id="final-full", phase="FINAL_REVIEW", cycle=final_cycle, attempt=1,
+            review_kind="full", keys=["r1", "r2", "r3"], sources=full_sources,
+        )
+        return state_path, state, initial_identity
+
     def _evidence_code(self) -> tuple[Path, dict[str, object], dict[str, object], Path]:
         directory = self.work / "evidence-code"
         shutil.copytree(FIXTURES / "code", directory)
@@ -499,6 +628,213 @@ class StateCheckerFixtureTests(unittest.TestCase):
         self._write(state_path.parent / "review.json", record)
         self._write(state_path, state)
         self.assertEqual(ai_state_check.check_state(state_path).outcome, "DONE_VERIFIED")
+
+    def test_schema4_translation_full_closure_final_full_can_close(self) -> None:
+        state_path, state, _ = self._positive_policy_sequence()
+        result = self._finish_policy_state(state_path, state)
+        self.assertEqual((result.outcome, result.exit_code), ("DONE_VERIFIED", 0), result)
+
+    def test_schema4_translation_failed_final_repair_successful_final_can_close(self) -> None:
+        state_path, state = self._policy_state()
+        self._add_policy_contextual_record(
+            state_path, state,
+            dispatch_id="initial-full", phase="REVIEW", cycle=0, attempt=1,
+            review_kind="full", keys=["r1", "r2", "r3"],
+        )
+        self._add_policy_contextual_record(
+            state_path, state,
+            dispatch_id="failed-final", phase="FINAL_REVIEW", cycle=1, attempt=1,
+            review_kind="full", keys=["r1", "r2", "r3"],
+            result="CHANGES_REQUIRED",
+        )
+        self._add_policy_contextual_record(
+            state_path, state,
+            dispatch_id="repair-full", phase="RE_REVIEW", cycle=2, attempt=1,
+            review_kind="full", keys=["r1", "r2", "r3"],
+        )
+        self._add_policy_contextual_record(
+            state_path, state,
+            dispatch_id="successful-final", phase="FINAL_REVIEW", cycle=3, attempt=1,
+            review_kind="full", keys=["r1", "r2", "r3"],
+        )
+        state["cycle"] = 3
+        result = self._finish_policy_state(state_path, state)
+        self.assertEqual((result.outcome, result.exit_code), ("DONE_VERIFIED", 0), result)
+
+    def test_schema4_translation_adjudicated_pass_overrides_producer_status(self) -> None:
+        state_path, state, _ = self._positive_policy_sequence()
+        final_path = state_path.parent / "final-full.json"
+        final = self._read(final_path)
+        final["status"] = "completed_with_findings"
+        self._write(final_path, final)
+        result = self._finish_policy_state(state_path, state)
+        self.assertEqual((result.outcome, result.exit_code), ("DONE_VERIFIED", 0), result)
+
+    def test_schema4_translation_closure_cannot_finish(self) -> None:
+        state_path, state, _ = self._positive_policy_sequence()
+        state["review_records"].pop()  # type: ignore[union-attr]
+        state["child_dispatches"].pop()  # type: ignore[union-attr]
+        state["cycle"] = 1
+        result = self._finish_policy_state(state_path, state)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("FINAL_REVIEW/full", result.detail)
+
+    def test_schema4_translation_stale_pass_cannot_hide_newer_failure(self) -> None:
+        state_path, state, _ = self._positive_policy_sequence(final_cycle=3)
+        final_path = state_path.parent / "final-full.json"
+        final = self._read(final_path)
+        final["status"] = "completed"
+        final["result"] = "CHANGES_REQUIRED"
+        self._write(final_path, final)
+        result = self._finish_policy_state(state_path, state)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("successful FINAL_REVIEW/full", result.detail)
+
+    def test_schema4_translation_stale_final_cannot_close_newer_state_cycle(self) -> None:
+        state_path, state, _ = self._positive_policy_sequence()
+        state["cycle"] = 3
+        result = self._finish_policy_state(state_path, state)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("FINAL_REVIEW/full cycle must equal STATE.cycle", result.detail)
+
+    def test_schema4_translation_record_cycles_are_state_and_limit_bounded(self) -> None:
+        cases = (
+            (3, "STATE.cycle"),
+            (99, "max_cycles"),
+        )
+        for record_cycle, expected in cases:
+            with self.subTest(record_cycle=record_cycle):
+                state_path, state, _ = self._positive_policy_sequence()
+                self._add_policy_contextual_record(
+                    state_path, state,
+                    dispatch_id=f"future-{record_cycle}",
+                    phase="FINAL_REVIEW",
+                    cycle=record_cycle,
+                    attempt=1,
+                    review_kind="full",
+                    keys=["r1", "r2", "r3"],
+                )
+                result = self._finish_policy_state(state_path, state)
+                self.assertEqual(result.exit_code, 1)
+                self.assertIn(expected, result.detail)
+
+    def test_schema4_translation_terminal_phases_must_be_ordered(self) -> None:
+        cases = (
+            ("initial-full.json", {"review_phase": "RE_REVIEW"}, "earliest"),
+            (
+                "closure-one.json",
+                {"review_phase": "REVIEW", "review_kind": "full"},
+                "intervening",
+            ),
+            ("final-full.json", {"review_phase": "RE_REVIEW"}, "latest"),
+        )
+        for record_name, mutation, expected in cases:
+            with self.subTest(record=record_name):
+                state_path, state, _ = self._positive_policy_sequence()
+                record_path = state_path.parent / record_name
+                record = self._read(record_path)
+                record.update(mutation)
+                self._write(record_path, record)
+                result = self._finish_policy_state(state_path, state)
+                self.assertEqual(result.exit_code, 1)
+                self.assertIn(expected, result.detail)
+
+    def test_schema4_translation_closure_key_source_and_parent_drift_fail(self) -> None:
+        cases = (
+            ("keys", ["r2"], {"r2": "Source r2"}, [
+                {"revision_key": "r1", "reasons": ["changed_target"]}
+            ], None, "closure keys"),
+            ("source", ["r2"], {"r2": "Drifted source"}, None, None, "sources drift"),
+            ("parent", ["r2"], {"r2": "Source r2"}, None, "0" * 64, "parent_candidate_identity"),
+            ("order", ["r2", "r1"], {"r1": "Source r1", "r2": "Source r2"}, None, None, "ordered subset"),
+        )
+        for name, keys, sources, inclusion, parent_override, expected in cases:
+            with self.subTest(case=name):
+                state_path, state = self._policy_state()
+                initial_identity = self._add_policy_contextual_record(
+                    state_path, state,
+                    dispatch_id=f"initial-{name}", phase="REVIEW", cycle=0, attempt=1,
+                    review_kind="full", keys=["r1", "r2", "r3"],
+                )
+                self._add_policy_contextual_record(
+                    state_path, state,
+                    dispatch_id=f"closure-{name}", phase="RE_REVIEW", cycle=1, attempt=1,
+                    review_kind="closure", keys=keys, sources=sources,
+                    parent_candidate_identity=parent_override or initial_identity,
+                    inclusion=inclusion,
+                )
+                self._add_policy_contextual_record(
+                    state_path, state,
+                    dispatch_id=f"final-{name}", phase="FINAL_REVIEW", cycle=2, attempt=1,
+                    review_kind="full", keys=["r1", "r2", "r3"],
+                )
+                result = self._finish_policy_state(state_path, state)
+                self.assertEqual(result.exit_code, 1)
+                self.assertIn(expected, result.detail)
+
+    def test_schema4_translation_closure_parent_must_be_latest_earlier_full(self) -> None:
+        state_path, state = self._policy_state()
+        initial_identity = self._add_policy_contextual_record(
+            state_path, state,
+            dispatch_id="initial-parent", phase="REVIEW", cycle=0, attempt=1,
+            review_kind="full", keys=["r1", "r2"],
+        )
+        self._add_policy_contextual_record(
+            state_path, state,
+            dispatch_id="fallback-full", phase="RE_REVIEW", cycle=1, attempt=1,
+            review_kind="full", keys=["r1", "r2"],
+        )
+        self._add_policy_contextual_record(
+            state_path, state,
+            dispatch_id="stale-parent", phase="RE_REVIEW", cycle=2, attempt=1,
+            review_kind="closure", keys=["r2"],
+            parent_candidate_identity=initial_identity,
+        )
+        self._add_policy_contextual_record(
+            state_path, state,
+            dispatch_id="final-parent", phase="FINAL_REVIEW", cycle=3, attempt=1,
+            review_kind="full", keys=["r1", "r2"],
+        )
+        state["cycle"] = 3
+        result = self._finish_policy_state(state_path, state)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("latest earlier full", result.detail)
+
+    def test_schema4_translation_max_cycles_default_and_authorization(self) -> None:
+        state_path, state, _ = self._positive_policy_sequence(final_cycle=3)
+        state.pop("max_cycles")
+        result = self._finish_policy_state(state_path, state)
+        self.assertEqual(result.outcome, "DONE_VERIFIED", result)
+
+        state_path, state, _ = self._positive_policy_sequence(final_cycle=4)
+        state.pop("max_cycles")
+        result = self._finish_policy_state(state_path, state)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("cycle must not exceed max_cycles", result.detail)
+
+        state["max_cycles"] = 4
+        result = self._finish_policy_state(state_path, state)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("max_cycles_user_authorized", result.detail)
+
+        state["max_cycles_user_authorized"] = True
+        result = self._finish_policy_state(state_path, state)
+        self.assertEqual(result.outcome, "DONE_VERIFIED", result)
+
+    def test_schema3_translation_implement_record_remains_compatible(self) -> None:
+        def schema3_implement(state, record, directory):
+            state.update({
+                "schema_version": 3,
+                "mode": "implement",
+                "change_class": "translation_workflow",
+                "orchestrator_agent_id": "agent-orchestrator",
+                "cycle": 99,
+                "max_cycles": 1,
+                "final_validation_passed": True,
+            })
+
+        result = self._check_contextual(schema3_implement)
+        self.assertEqual((result.outcome, result.exit_code), ("DONE_VERIFIED", 0), result)
 
     def test_nul_candidate_vector_is_exact_and_not_the_obsolete_separator(self) -> None:
         spec = (FIXTURES / "code" / "SPEC.md").read_bytes()

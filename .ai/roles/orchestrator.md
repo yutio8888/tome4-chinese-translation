@@ -46,23 +46,27 @@ Skill。已归档 Skill 产生的 review 结果不得用来完成 Paseo 的 code
 
 6. 确认当前进程存在非空 PASEO_AGENT_ID。若缺失，不得创建子 agent，应报告当前主代理
    不是 Paseo 托管 parent。
-7. 在当前 task 目录写 SPEC.md、简短 PLAN.md 和最小 STATE.json；若选择 translation_contextual_v1，冻结前另写任务作用域 SCOPE.json 并运行其离线 anchor preflight。任务开始时选定
+7. 在当前 task 目录写 SPEC.md、简短 PLAN.md 和最小 STATE.json；实际 `mode=implement` 且
+   `review_contracts` 含 `translation_contextual_v1` 的新译文任务必须使用 `schema_version: 4`
+   与默认 `max_cycles: 3`；只有用户明确授权扩展时才可提高上限，并写入 literal
+   `max_cycles_user_authorized=true`。schema 3 及更早任务不追溯升级；非译文任务和
+   `review_only` 保持既有 schema／最多五轮行为。若选择 translation_contextual_v1，冻结前另写任务作用域 SCOPE.json 并运行其离线 anchor preflight。任务开始时选定
    orchestration_transport（只允许 cli|mcp），任务内不切换；CLI 与 MCP 必须保持相同
    role、purpose、workspace、lineage、label 恢复、reviewer 只读与候选一致性语义：
 
 ~~~json
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "task_id": "...",
   "mode": "implement",
-  "change_class": "standard",
+  "change_class": "translation_workflow",
   "review_contracts": ["code_legacy_v1", "translation_contextual_v1"],
   "state": "PLAN",
   "review_phase": null,
   "pending_review_contracts": [],
   "completed_review_contracts": [],
   "cycle": 0,
-  "max_cycles": 5,
+  "max_cycles": 3,
   "workspace_id": "...",
   "orchestrator_agent_id": "...",
   "orchestration_transport": "cli",
@@ -253,6 +257,18 @@ diff 未冻结 sidecar 都会使 DONE 失败。ORCHESTRATOR 可以记录 self-re
 findings。译文语义审核由 role=reviewer、purpose=translation_contextual_v1 按独立契约
 接收冻结 envelope；不得把历史 finding 注入其中。
 
+schema 4 translation implement 的 contextual 首轮必须是 cycle 0 的 `REVIEW/full`，覆盖冻结
+完整有序工作集。每轮 FIX 后由 ORCHESTRATOR 根据 changed target、open finding、共享 runtime
+key、叙事／术语 claim 和额外触及 target 确定 changed+dependency closure；确定且非空时派发
+`RE_REVIEW/closure`，否则回退 `RE_REVIEW/full`。checker 只核对记录、envelope、parent、顺序、
+source 和 cycle／phase 的自洽性，不证明 ORCHESTRATOR 选择的 closure 已穷尽依赖，因此任何
+歧义都必须回退 full。收敛后对最新完整候选派发 `FINAL_REVIEW/full`；该强制最终全量复审是
+closure 优化的 correctness backstop，且其 cycle 必须等于 STATE.cycle。不得创建 dependency
+graph 或其他 closure artifact；`review_kind`、parent 与 inclusion 只保存在 review 记录层。
+若 `FINAL_REVIEW/full` 失败，保留该 terminal，并在更高 cycle 派发
+`RE_REVIEW/full|closure` 修复序列后重新执行 final full；不得跳过更高 cycle 的 RE_REVIEW，且
+最新 terminal 仍必须是 STATE.cycle 的成功 `FINAL_REVIEW/full`。
+
 Before freezing or hashing a translation_contextual_v1 payload, ORCHESTRATOR must run the deterministic offline contextual-anchor preflight with the task-scoped `.ai/task/<task_id>/SCOPE.json` and the exact seven-key draft payload.
 The preflight also accepts the whole-section form for sections without actual chapter-title t(...) calls.
 The task-scoped SCOPE.json must declare only workspace-relative ordinary allowed files plus file, section_path, and ordered actual chapter-title anchors; unsafe, duplicate, missing, or ambiguous declarations fail closed.
@@ -279,11 +295,15 @@ preflight 显式传 `--target DONE|STOP`）。它只读取持久化 STATE、revi
 ## 修复与完成
 
 每轮把全部 accepted findings 按依赖顺序交给 fresh EXECUTOR，修复后收获回报并立即
-归档，再重新验证和复审。自动修复最多五轮；相同问题持续存在时可以更换新的 EXECUTOR，
+归档，再重新验证和复审。schema 4 translation implement 默认自动修复最多三轮；用户明确
+授权扩展且 STATE 保存 literal `max_cycles_user_authorized=true` 时才可提高上限。schema 3 及
+更早任务、非译文任务和 review_only 仍最多五轮。相同问题持续存在时可以更换新的 EXECUTOR，
 也可以询问用户。
 
 当 cycle >= 2 且普通 review finding 触发 FIX 时，先完成当轮 scope_audit；客观验证失败
-直接触发的 FIX 不需要 scope audit。修复后的验证通过进入 RE_REVIEW。
+直接触发的 FIX 不需要 scope audit。修复后的验证通过进入 RE_REVIEW；schema 4 translation
+implement 在中间轮只允许 `RE_REVIEW/full|closure`，最终收敛轮必须转入
+`FINAL_REVIEW/full`，不得用 closure 完成任务。
 
 review_only 在全部 contract 完成、findings 已裁决且无 deferred 后进入 DONE。implement
 还要求无 open accepted finding 且最终验收通过。需要决定时进入 WAIT_USER；取消或无法

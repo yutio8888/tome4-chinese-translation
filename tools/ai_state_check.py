@@ -43,6 +43,7 @@ PURPOSE_ROLES = {
 COMPLETION_VALUES = frozenset({
     "completed", "completed_with_findings", "PASS", "CHANGES_REQUIRED", "FINDINGS", "OK",
 })
+SUCCESSFUL_COMPLETION_VALUES = frozenset({"completed", "PASS", "OK"})
 CODE_DIFF_NAME = re.compile(r"^CODE_DIFF-([A-Za-z0-9_]+)-(\d+)-(\d+)\.patch$")
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 SOURCE_IDENTITY = re.compile(r"^(?:commit:[0-9a-f]{40}|snapshot:[0-9a-f]{64})$")
@@ -54,6 +55,11 @@ CONTEXTUAL_PAYLOAD_KEYS = frozenset({
     "contract", "ordered_revision_keys", "translation_snapshot",
     "fixed_source_identity", "terminology_snapshot", "bounded_context",
     "rendered_briefing",
+})
+CONTEXTUAL_REVIEW_KINDS = frozenset({"full", "closure"})
+CLOSURE_REASONS = frozenset({
+    "changed_target", "open_finding", "shared_runtime_key",
+    "narrative_or_term_claim", "extra_touched_target",
 })
 
 
@@ -334,6 +340,208 @@ def _has_completion_indicator(record: dict[str, Any]) -> bool:
     return bool(present) and all(
         isinstance(record[key], str) and record[key] in COMPLETION_VALUES for key in present
     )
+
+
+def _has_successful_completion(record: dict[str, Any]) -> bool:
+    if "result" in record:
+        return record["result"] in SUCCESSFUL_COMPLETION_VALUES
+    return record.get("status") in SUCCESSFUL_COMPLETION_VALUES
+
+
+def _translation_convergence_enabled(state: dict[str, Any]) -> bool:
+    contracts = state.get("review_contracts")
+    return (
+        type(state.get("schema_version")) is int
+        and state["schema_version"] >= 4
+        and state.get("mode") == "implement"
+        and isinstance(contracts, list)
+        and "translation_contextual_v1" in contracts
+    )
+
+
+def _contextual_payload(
+    record: dict[str, Any], *, root: Path
+) -> dict[str, Any]:
+    envelope = _read_json(
+        _ordinary_workspace_file(
+            record.get("input_path"), "contextual input_path", root=root
+        ),
+        "contextual envelope",
+    )
+    if not isinstance(envelope, dict) or not isinstance(envelope.get("payload"), dict):
+        raise ContractError("contextual envelope payload must be an object")
+    return envelope["payload"]
+
+
+def _translation_convergence_valid(
+    state: dict[str, Any],
+    loaded: list[tuple[dict[str, Any], Path]],
+    bound_records: list[tuple[dict[str, Any], dict[str, Any], Path]],
+    *,
+    root: Path = ROOT,
+) -> tuple[bool, str]:
+    """Validate schema-4 translation full/closure/full convergence records."""
+    if not _translation_convergence_enabled(state):
+        return True, "ok"
+
+    cycle = state.get("cycle")
+    max_cycles = state.get("max_cycles", 3)
+    if type(cycle) is not int or cycle < 0:
+        return False, "cycle must be a non-negative integer"
+    if type(max_cycles) is not int or max_cycles < 1:
+        return False, "max_cycles must be a positive integer (default 3)"
+    if max_cycles > 3 and state.get("max_cycles_user_authorized") is not True:
+        return False, "max_cycles greater than 3 requires literal max_cycles_user_authorized=true"
+    if cycle > max_cycles:
+        return False, "cycle must not exceed max_cycles"
+
+    contextual = [
+        item for item in loaded
+        if item[0].get("review_contract") == "translation_contextual_v1"
+        and item[0].get("purpose") == "translation_contextual_v1"
+        and _has_completion_indicator(item[0])
+    ]
+    if not contextual:
+        return False, "no bound contextual terminal records"
+    bound_paths = [
+        path for record, _, path in bound_records
+        if record.get("review_contract") == "translation_contextual_v1"
+        and record.get("purpose") == "translation_contextual_v1"
+    ]
+    for _, path in contextual:
+        if path not in bound_paths:
+            return False, f"{path.relative_to(root)} contextual terminal record is not dispatch-bound"
+
+    enriched: list[
+        tuple[dict[str, Any], Path, tuple[int, int], dict[str, Any]]
+    ] = []
+    for record, path in contextual:
+        relative = path.relative_to(root)
+        kind = record.get("review_kind")
+        if kind not in CONTEXTUAL_REVIEW_KINDS:
+            return False, f"{relative} review_kind must be full or closure"
+        phase = record.get("review_phase")
+        if phase not in {"REVIEW", "RE_REVIEW", "FINAL_REVIEW"}:
+            return False, f"{relative} has an invalid contextual review_phase"
+        record_cycle, attempt = record.get("cycle"), record.get("attempt")
+        if (
+            type(record_cycle) is not int or record_cycle < 0
+            or type(attempt) is not int or attempt < 1
+        ):
+            return False, f"{relative} cycle/attempt must be non-negative/positive integers"
+        if record_cycle > max_cycles:
+            return False, f"{relative} contextual record cycle must not exceed max_cycles"
+        if record_cycle > cycle:
+            return False, f"{relative} contextual record cycle must not exceed STATE.cycle"
+        payload = _contextual_payload(record, root=root)
+        keys = payload.get("ordered_revision_keys")
+        if not isinstance(keys, list) or not keys or len(keys) != len(set(keys)):
+            return False, f"{relative} contextual workset keys must be non-empty and unique"
+        enriched.append((record, path, (record_cycle, attempt), payload))
+
+    ordered = sorted(enriched, key=lambda item: item[2])
+    for earlier, later in zip(ordered, ordered[1:]):
+        if earlier[2] == later[2]:
+            return False, "contextual terminal (cycle, attempt) tuples must be unique"
+
+    initial_record, _, initial_key, initial_payload = ordered[0]
+    if (
+        initial_key[0] != 0
+        or initial_record.get("review_phase") != "REVIEW"
+        or initial_record.get("review_kind") != "full"
+    ):
+        return False, "earliest contextual terminal record must be REVIEW/full at cycle 0"
+
+    for index, (record, path, record_key, _) in enumerate(ordered[1:-1], start=1):
+        phase, kind = record.get("review_phase"), record.get("review_kind")
+        if phase == "RE_REVIEW" and kind in CONTEXTUAL_REVIEW_KINDS:
+            continue
+        if phase == "FINAL_REVIEW" and kind == "full" and not _has_successful_completion(record):
+            has_higher_cycle_repair = any(
+                later_record.get("review_phase") == "RE_REVIEW"
+                and later_record.get("review_kind") in CONTEXTUAL_REVIEW_KINDS
+                and later_key[0] > record_key[0]
+                for later_record, _, later_key, _ in ordered[index + 1:-1]
+            )
+            if has_higher_cycle_repair:
+                continue
+        return False, (
+            f"{path.relative_to(root)} intervening contextual terminal record must be "
+            "RE_REVIEW/full, RE_REVIEW/closure, or an unsuccessful FINAL_REVIEW/full "
+            "followed by a higher-cycle RE_REVIEW"
+        )
+
+    full_keys = initial_payload["ordered_revision_keys"]
+    full_sources = {
+        item["revision_key"]: item["source"]
+        for item in initial_payload["translation_snapshot"]
+    }
+
+    full_records = [item for item in enriched if item[0].get("review_kind") == "full"]
+    for _, path, _, payload in full_records:
+        relative = path.relative_to(root)
+        if payload["ordered_revision_keys"] != full_keys:
+            return False, f"{relative} full review does not cover the original ordered workset"
+        sources = [item["source"] for item in payload["translation_snapshot"]]
+        if sources != [full_sources[key] for key in full_keys]:
+            return False, f"{relative} full review sources drift from the original workset"
+
+    for record, path, record_key, payload in enriched:
+        if record.get("review_kind") != "closure":
+            continue
+        relative = path.relative_to(root)
+        if record.get("review_phase") != "RE_REVIEW":
+            return False, f"{relative} closure review is only valid in RE_REVIEW"
+        inclusion = record.get("inclusion")
+        if not isinstance(inclusion, list) or not inclusion:
+            return False, f"{relative} closure inclusion must be a non-empty array"
+        inclusion_keys: list[str] = []
+        for index, entry in enumerate(inclusion):
+            if not isinstance(entry, dict) or set(entry) != {"revision_key", "reasons"}:
+                return False, f"{relative} inclusion[{index}] must have exactly revision_key and reasons"
+            revision_key, reasons = entry.get("revision_key"), entry.get("reasons")
+            if (
+                not isinstance(revision_key, str) or not revision_key
+                or not isinstance(reasons, list) or not reasons
+                or any(not isinstance(reason, str) or reason not in CLOSURE_REASONS for reason in reasons)
+                or len(reasons) != len(set(reasons))
+            ):
+                return False, f"{relative} inclusion[{index}] has an invalid key or reasons"
+            inclusion_keys.append(revision_key)
+        closure_keys = payload["ordered_revision_keys"]
+        if closure_keys != inclusion_keys:
+            return False, f"{relative} closure keys do not equal ordered inclusion keys"
+        closure_key_set = set(closure_keys)
+        if [key for key in full_keys if key in closure_key_set] != closure_keys:
+            return False, f"{relative} closure keys are not an ordered subset of the full workset"
+        closure_sources = [item["source"] for item in payload["translation_snapshot"]]
+        if closure_sources != [full_sources.get(key) for key in closure_keys]:
+            return False, f"{relative} closure sources drift from the full workset"
+        earlier_full = [item for item in full_records if item[2] < record_key]
+        if not earlier_full:
+            return False, f"{relative} closure has no earlier full review"
+        parent_key = max(item[2] for item in earlier_full)
+        parent = [item for item in earlier_full if item[2] == parent_key]
+        if len(parent) != 1:
+            return False, f"{relative} latest earlier full review is not unique"
+        parent_identity = record.get("parent_candidate_identity")
+        if (
+            not isinstance(parent_identity, str)
+            or not SHA256.fullmatch(parent_identity)
+            or parent_identity != parent[0][0].get("candidate_identity")
+        ):
+            return False, f"{relative} parent_candidate_identity does not bind the latest earlier full review"
+
+    latest_record, _, latest_key, _ = ordered[-1]
+    if (
+        latest_record.get("review_phase") != "FINAL_REVIEW"
+        or latest_record.get("review_kind") != "full"
+        or not _has_successful_completion(latest_record)
+    ):
+        return False, "latest contextual terminal record must be a successful FINAL_REVIEW/full"
+    if latest_key[0] != cycle:
+        return False, "latest FINAL_REVIEW/full cycle must equal STATE.cycle"
+    return True, "ok"
 
 
 def _candidate_bindings_valid(
@@ -693,6 +901,22 @@ def _done(state: dict[str, Any], *, root: Path = ROOT) -> CheckResult:
     for name, check in (("completion_records_bound", _completion_records_bound(state, completed)), ("candidate_bindings_valid", bindings)):
         if not check[0]:
             return _result("NEW_CONTRACT_FAILED", f"{name}: {check[1]}", 1)
+    try:
+        convergence = _translation_convergence_valid(
+            state, loaded, completed, root=root
+        )
+    except ContractError as error:
+        return _result("NEW_CONTRACT_FAILED", f"translation_convergence: {error}", 1)
+    except InputError as error:
+        return _result("INPUT_ERROR", str(error), 2)
+    except (TypeError, ValueError, KeyError, AttributeError) as error:
+        return _result(
+            "NEW_CONTRACT_FAILED",
+            f"translation_convergence: malformed JSON value ({error})",
+            1,
+        )
+    if not convergence[0]:
+        return _result("NEW_CONTRACT_FAILED", f"translation_convergence: {convergence[1]}", 1)
     identity = _reviewer_identity_valid(state, completed, root=root)
     if not identity[0]:
         return _result("NEW_CONTRACT_FAILED", f"reviewer_identity: {identity[1]}", 1)
