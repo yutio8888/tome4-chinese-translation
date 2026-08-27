@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "scope": "strict byte-identical Run C of controlled-mutation-ui-log-replication-v2 after the preregistered Run B stop rule triggered",
+  "frozen_at": "2026-08-27",
+  "base_commit": "4df3c92e8ec3aeee7cbf40489e9cc986f847ef18",
+  "run_label": "C",
+  "run_a": {
+    "directory": "../controlled-mutation-ui-log-replication-v2",
+    "result_sha256": "776927907103f41947006b045da420cd1b8209cab91d0c1b2e98859631fe2776",
+    "adjudication_sha256": "bdb13bdc19f884736b438b175eedaf48ef0aaf6ec3b2be378191bfea4d0a1870",
+    "candidate_sha256": {
+      "codex-gpt-5.6-sol-high": "2955459f89561fd8224ac1fb27987dcbcc3e1f60cadc68335191446c5fabc607",
+      "claude-opus-5-medium-no-advisor": "9456ee1a8ad88a5d39ad24c18d0ce0c4c66057b8f9b5a13c8d8dd85f6dbb0061",
+      "pi-zai-cn-glm-5.3-flash-high": "e5b2b86376cc8d4c05a0bb4aa1d76767d860adc62edd905c7ff4ba3c5a984823",
+      "agy-gemini-3.7-flash-high": "7abdca39a4eb625c00a0e69761e967698275731af9d6cb3e644ad001f874df6a"
+    }
+  },
+  "run_b": {
+    "directory": "../controlled-mutation-ui-log-repeat-b",
+    "result_sha256": "ff2063fefe669102c2ff310052ce690ff6341f69c3eaa600e8f47c837b5eb841",
+    "adjudication_sha256": "36ffc1d67e455c9ca9a6977f2114edf5e4cbbd32c2fb22b89f3d009a7caad4da",
+    "candidate_sha256": {
+      "codex-gpt-5.6-sol-high": "dd4a416ff8633373bc2c6f6e3b8c92da4d25913818ac92cd39086d5b324d83ac",
+      "claude-opus-5-medium-no-advisor": "4fef692dc1c85f91bda6998036bf009bbe5bab1816f12bbee993693da2fb0681",
+      "pi-zai-cn-glm-5.3-flash-high": "e3305de0ec7fd05255c3c0f31cc2d07b57e73fe979acb2c810ab59e2a7908365",
+      "agy-gemini-3.7-flash-high": "29d4638bcf42743efff8ee898e950ebff049e2c3e8e7ca7b661658831dfc5f25"
+    }
+  },
+  "frozen_bytes": {
+    "input": {"path": "../controlled-mutation-ui-log-replication-v2/HOLDOUT.json", "sha256": "526627e764bc24740e43f2263e7e007e0878ce519a837fe7a9b268b287fb3448"},
+    "prompt": {"path": "../controlled-mutation-ui-log-replication-v2/PROMPT.md", "sha256": "38fcb6158eb02ccce90a3e5fa360304754a3a0285b90bd78737b523252d1e33e"},
+    "schema": {"path": "../controlled-mutation-ui-log-replication-v2/REVIEWER-SCHEMA.json", "sha256": "39303de09ff9c6db795cf3d898a5219793cac468af5a7ded702ae83be85bac29"},
+    "reference": {"path": "../controlled-mutation-ui-log-replication-v2/REFERENCE.json", "sha256": "bcec402275e245af0e8604be58f41146d6e8be8d131f1d2a6882cf84593af5f7"},
+    "source_verification": {"path": "../controlled-mutation-ui-log-replication-v2/SOURCE-VERIFICATION.json", "sha256": "7ac45dba990ebbf550217593f58de744e613350092456cf451e3b8bfc9d139c2"}
+  },
+  "authorization": {
+    "basis": "The user explicitly requested Run C using the same four active services and the previously authorized byte-identical sample.",
+    "data_scope": "exact same 8 sanitized records as Runs A and B; no new data category"
+  },
+  "routes": [
+    {"route": "codex-gpt-5.6-sol-high", "harness": "Codex CLI 0.150.1", "model": "gpt-5.6-sol", "effort": "high"},
+    {"route": "claude-opus-5-medium-no-advisor", "harness": "Claude Code CLI 2.1.247", "model": "claude-opus-5", "effort": "medium", "identity_rule": "all assistant review messages Opus 5; zero fallback"},
+    {"route": "pi-zai-cn-glm-5.3-flash-high", "harness": "Pi 0.84.3", "provider": "zai-standard-cn", "model": "glm-5.3-flash", "effort": "high"},
+    {"route": "agy-gemini-3.7-flash-high", "harness": "Antigravity CLI 1.1.22", "model": "gemini-3.7-flash-high", "effort": "high", "availability_check": "agy models confirmed immediately before freeze", "identity_limitation": "agy envelope omits runtime model identity"}
+  ],
+  "preregistered_analysis": {
+    "primary": "per-route per-mutation three-run atomic-claim detection frequency across byte-identical Runs A, B and C",
+    "secondary": [
+      "per-run mutation recall and FINDING-only recall",
+      "FINDING versus UNCERTAIN confidence-class frequencies",
+      "pairwise A/B, B/C and A/C primary agreement and flips",
+      "source-verified control candidates in each run",
+      "three-run per-route union and intersection"
+    ],
+    "completion_rule": "After Run C, report all three runs and stop repeated inference under this design; any further repeat or expanded sample requires a new preregistered experiment.",
+    "not_allowed": [
+      "change input bytes, item order, prompt, schema, reference, routes or effort",
+      "expose reference or Runs A/B outputs to candidate models",
+      "count wording differences as detection flips",
+      "overwrite or recompute Runs A/B artifacts",
+      "interpret three runs over four mutations as a stable population ranking"
+    ]
+  }
+}
