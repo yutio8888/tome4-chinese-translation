@@ -1,6 +1,6 @@
 # GPT 主导译文审核的系统性偏差风险与研究设计
 
-状态：研究说明；Paseo 分层残余审计 pilot v1 已完成，受控变异实验尚未执行。
+状态：研究说明；Paseo 分层残余审计 pilot v1 与受控变异 reviewer v1 均已完成。
 
 日期：2026-08-27
 
@@ -8,7 +8,7 @@
 
 如果译文生成、风险候选筛选、reference 起草、prompt 调整和最终审核基本都由 GPT 或 Codex 完成，那么系统性偏差是现实风险。主要问题不是某一次判断出错，而是多个环节的误差可能高度相关：同一模型族可能反复接受自己惯用的省略、语义压缩和措辞，同时共同忽略不符合其显著性模式的缺陷。因此，多轮 GPT 审核不能直接视为多份独立证据。
 
-当前证据只支持“需要专门排查该风险”，尚不能证明偏差已经发生，也不能量化其大小。历史 B4 上 Codex 的表现最好，既可能来自真实能力优势，也可能部分来自样本、prompt 或 reference 与 GPT 判断方式更一致；现有实验不能区分这两种解释。
+当前证据支持“存在至少一个 GPT/Codex 修改并由 GPT/Codex 终审后仍保留的客观机制缺陷”，但尚不能证明这是 GPT 特有的系统性偏差，也不能量化其发生率。历史 B4 上 Codex 的表现最好，既可能来自真实能力优势，也可能部分来自样本、prompt 或 reference 与 GPT 判断方式更一致；现有实验仍不能区分这两种解释。
 
 ## 当前证据链的保护与局限
 
@@ -30,6 +30,10 @@ Paseo 本机记录现已整理为一份可跟踪重建的脱敏快照：[Paseo p
 - Opus 加 Fable Advisor 后混淆矩阵不变，却丢失一个原有 true positive 并获得另一个 true positive。相同总分会掩盖不同的盲点。
 
 这些现象说明单模型审核不足，但不构成 GPT 系统性偏差的直接证据。
+
+受控变异 reviewer v1 新增了更客观的一层证据：[controlled mutation reviewer v1](controlled-mutation-reviewer-v1/README.md)。Codex 与 GLM 命中 12/12 个预注册变异，Opus 与 Gemini 各命中 11/12；四路 consensus 为 10/12，union 为 12/12。这个结果没有显示 Codex 在注入机制缺陷上出现相对劣势，但只有单次 12 条变异，不能视为模型能力排名或稳定差异。
+
+该实验同时在未变异 C008 中发现了一个固定源码确认的自然缺陷：`FIREBURN` 的 `%d` 是经即时伤害和三回合灼烧分摊的总量，历史终态却写成“每回合造成 %d”。Paseo 快照记录其候选修改者为 GPT/Codex、终态 contextual reviewer 为 GPT/Codex same-family-only；Codex 新路线发现它，Opus 提出正确疑点，GLM 与 Gemini 未提名。它证明同族终审并非独立保护，也证明“历史 DONE 终态”不能直接当 clean control；但它不证明只有 GPT 会漏报，也不足以估算 GPT 系统性偏差率。
 
 ## 可能的偏差路径
 
@@ -69,7 +73,7 @@ Paseo 本机记录现已整理为一份可跟踪重建的脱敏快照：[Paseo p
    - 删除一个并列效果或将两个不同机制合并；
    - 添加源码中不存在的机制、状态或限制。
 3. 每个 clean control 与对应 defect variant 成对保存，但向模型隐藏配对关系、变异类型和标签。
-4. GPT、Claude、GLM 等路线使用相同输入、顺序规则、schema 和计分口径独立审核，不交换意见。
+4. GPT、Claude、GLM、Gemini 等路线使用相同输入、顺序规则、schema 和计分口径独立审核，不交换意见。
 5. ground truth 来自冻结的变异记录和固定源码；先计分，再揭示变异类型。
 
 ### 可以回答的问题
@@ -90,7 +94,7 @@ Paseo 本机记录现已整理为一份可跟踪重建的脱敏快照：[Paseo p
 
 1. 在查看模型输出前冻结抽样总体、排除规则、随机种子、样本清单、prompt、schema 和计分方案。
 2. 从未进入历史 finding、verification 或 prompt 开发集的语料中确定性随机抽样。不能只抽取 GPT 风险筛选器命中的条目。
-3. GPT、Claude、GLM 独立首审；模型之间不得交换输出。
+3. GPT、Claude、GLM、Gemini 独立首审；模型之间不得交换输出。
 4. 将 finding 拆成原子主张，隐藏模型身份并随机排序。保留原始输出以便审计，但裁决界面不显示模型来源。
 5. 对机制性主张只按固定源码、参数绑定、运行时路径或可复现实验裁决，使用 `confirmed`、`refuted`、`indeterminate` 和 `unreachable`，不强迫不确定项进入二元 reference。
 6. 如果存在人工首轮判断，应在展示模型 finding 前锁定；展示后发生的改变另行记录，用于测量意见传播。
@@ -104,9 +108,9 @@ Paseo 本机记录现已整理为一份可跟踪重建的脱敏快照：[Paseo p
 
 ### 设计
 
-1. 对同一批原文分别生成 GPT、Claude、GLM 译文，并保留翻译生成路线。
+1. 对同一批原文分别生成 GPT、Claude、GLM、Gemini 译文，并保留翻译生成路线。
 2. 对不同来源译文注入相同类别、强度和数量的客观可验证变异，同时保留未变异 controls。
-3. 隐藏译文来源，让 GPT、Claude、GLM 分别审核全部版本。
+3. 隐藏译文来源，让 GPT、Claude、GLM、Gemini 分别审核全部版本。
 4. 以源码和受控变异记录作为 ground truth，比较审核器与译文来源之间的交互效应。
 
 主要问题是：控制缺陷类别和条目难度后，GPT 审核 GPT 来源译文的漏报率是否显著高于它审核其他来源译文的漏报率。若出现稳定的 reviewer × origin 交互，才是比“Codex 总分较高”更强的同族偏差证据。
@@ -159,7 +163,7 @@ Union、consensus 和多模型讨论只能作为派生候选生成策略，不�
 - 需要文化解释而没有固定证据的争议；
 - “GPT 审核总体无偏”或“某非 GPT 模型总体更公正”。
 
-因此，下一步不应继续在 B4 上调整 prompt 来回答系统性偏差问题。应先建立新的、未参与设计的前瞻性 holdout，并并行建立受控变异集。所有主观语言项目在没有外部独立审核者前应保留为 `indeterminate` 或“需要社区复核”，而不是补写成确定 ground truth。
+因此，下一步不应继续在 B4 上调整 prompt 来回答系统性偏差问题。受控变异 v1 已证明方法可行，也暴露了 historical-terminal control 的污染风险；应先加强 control 的底层源码核验，并在新机制类别做小型重复。所有主观语言项目在没有外部独立审核者前应保留为 `indeterminate` 或“需要社区复核”，而不是补写成确定 ground truth。
 
 ## Paseo 分层残余审计 pilot v1（已完成）
 
@@ -170,3 +174,18 @@ Union、consensus 和多模型讨论只能作为派生候选生成策略，不�
 这个结果不支持“GPT-only reviewer 在本样本留下更多可检测残余缺陷”的窄假设，但不能用于证明 GPT 无系统性偏差：只有模型提名的 3 条经过源码裁决，其余 17 条没有独立逐条核验；每层只有 5 条且题材不匹配；原始译文生成者仍未知；裁决者仍是 GPT/Codex 研究 agent，不是独立人工。Advisor 在本次删除了纯 Opus 的一真一假两条候选，净结果为漏掉唯一确认项。
 
 该 pilot 使下一步优先级更明确：不应继续从小型自然样本推断 reviewer 因果效应。应执行预注册的受控变异 × 译文来源交叉实验，以变异记录和固定源码提供客观标签；自然语料残余率则要等真正的逐条源码审计或外部独立审核资源。
+
+## 受控变异 reviewer v1（已完成）
+
+本实验从未进入上一 pilot 的 P2 终态机制条目中确定性抽取 24 条，对 12 条注入预注册变异，保留 12 条未变异 control；四条活动路线为 Codex GPT-5.6 Sol high、Claude Code Opus 5 medium、Pi/Z.ai CN GLM-5.3 Flash high、agy Gemini 3.7 Flash high。Fable 与 Advisor 因预算退出后续比较，历史 RAW 不删除。
+
+按非 `OK` 且原子主张匹配变异记录的主要口径，Codex 12/12、GLM 12/12、Opus 11/12、Gemini 11/12。Opus 的 C023 为正确 `UNCERTAIN`；若只计 `FINDING`，其结果为 10/12。四路共同命中 10 条，C005 只被 Opus 漏掉，C023 只被 Gemini 漏掉。
+
+未变异 C008 暴露一条真实历史缺陷和一个设计教训。固定源码裁决确认“每回合造成 %d”把 FIREBURN 总伤害误写成逐回合伤害；它由 Codex 提名、Opus 质疑，不计误报。剔除这个被污染 control 后，其余 11 条上四路均无候选。本结果说明：
+
+- 同族 GPT 修改 + GPT 终审确实可能留下一条后续可由固定源码证实的缺陷；
+- 新版 Codex 又能发现同一缺陷，因此证据更符合“工作流并非独立且存在具体漏报”，而不是“GPT 必然持续共享同一盲点”；
+- 把所有历史 `DONE` 终态当 clean control 会低估自然缺陷并误罚新的 reviewer；
+- 单次 12 个注入缺陷不能回答方差、自然缺陷率、语言质量或 reviewer × translation-origin 自我偏好。
+
+预算受限下，下一步应先做小型 fresh-category replication，而不是直接支付四种译文来源 × 四个 reviewer 的完整矩阵。只有在 direct primitive tracing 能把 control 污染降到可接受水平、且重复运行显示差异不是单次波动后，才进入 translation-origin 因子实验。

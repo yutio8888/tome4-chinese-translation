@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "classification": "schema-output compatibility repair",
+  "resampled": false,
+  "raw_sha256": "38c5bc95a7cdc5d272ee3960e52d6ff94a117cb4fee9bf276b55ce889aa7cd3d",
+  "original_candidate_sha256": "4ea6745255a87f97933036ab28112f1f094f091dd64e4bdd9c121c7b075df03b",
+  "original_candidate_valid": false,
+  "original_validation_errors": [
+    "revision 15 has unexpected keys"
+  ],
+  "changes": [
+    {
+      "revision_id": "C016",
+      "operation": "drop_empty_unrecognized_field",
+      "field": "vision",
+      "original_value": "",
+      "semantic_fields_changed": false
+    }
+  ],
+  "policy": "The original RAW is authoritative and preserved. Only the single empty unrecognized key is removed; revision identity, verdict, observation and evidence are byte-for-byte values parsed from that RAW."
+}

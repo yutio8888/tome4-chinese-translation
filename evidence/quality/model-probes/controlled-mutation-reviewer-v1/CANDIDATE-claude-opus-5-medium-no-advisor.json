@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "route": "claude-opus-5-medium-no-advisor",
+  "route_metadata": {
+    "harness": "Claude Code CLI 2.1.247",
+    "requested_model": "claude-opus-5",
+    "requested_effort": "medium",
+    "requested_advisor": null,
+    "initialized_models": [
+      "claude-opus-5"
+    ],
+    "actual_assistant_models": [
+      "claude-opus-5"
+    ],
+    "fallback_event_count": 0,
+    "fallback_block_count": 0,
+    "result": {
+      "is_error": false,
+      "subtype": "success",
+      "stop_reason": "tool_use",
+      "terminal_reason": "completed",
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 20678,
+        "cache_read_input_tokens": 13435,
+        "output_tokens": 10816,
+        "output_tokens_details": {
+          "thinking_tokens": 3675
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 20678,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 3613,
+            "cache_read_input_tokens": 13435,
+            "cache_creation_input_tokens": 7243,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 7243
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 7499,
+          "outputTokens": 19,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.007593999999999999,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000,
+          "canonicalModel": "claude-haiku-4-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-opus-5": {
+          "inputTokens": 4,
+          "outputTokens": 10816,
+          "cacheReadInputTokens": 13435,
+          "cacheCreationInputTokens": 20678,
+          "webSearchRequests": 0,
+          "costUSD": 0.4839175,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "canonicalModel": "claude-opus-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "total_cost_usd": 0.4915115,
+      "num_turns": 3
+    }
+  },
+  "duration_seconds": 133.467,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "OK": 12,
+    "FINDING": 10,
+    "UNCERTAIN": 2
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "C001",
+        "verdict": "OK",
+        "observation": "按 fixed_context，效果实际是蒸汽回复减半而非停止，中文忠于实际机制。",
+        "evidence": "fixed_context: \"steam_regen to -self.steam_regen/2 (halves regen)... English long_desc wrongly says stops steam regeneration\"；target: \"最大蒸汽值翻倍，并将蒸汽回复减半\""
+      },
+      {
+        "revision_id": "C002",
+        "verdict": "FINDING",
+        "observation": "触发方式错误：中文称每回合自动发射火箭弹幕，但代码无 on_timeout 自动开火，火箭弹幕仅在主动使用时发射。",
+        "evidence": "fixed_context: \"no on_timeout auto-fire... Rocket Barrage ... fires only when used\"；target: \"每回合自动使用火箭弹幕再次发射\""
+      },
+      {
+        "revision_id": "C003",
+        "verdict": "FINDING",
+        "observation": "数值符号反向：应为增伤，中文写成减伤。",
+        "evidence": "source: \"+%d%% to all damage dealt\"；fixed_context: \"CHAOS_ORBS is beneficial and applies inc_damage={all=eff.stacks*3}\"；target: \"-%d%% 所有造成的伤害\""
+      },
+      {
+        "revision_id": "C004",
+        "verdict": "FINDING",
+        "observation": "数值错误：负面效果持续时间延长应为 6 回合，中文写成 3 回合。",
+        "evidence": "source: \"increase all detrimental effects durations by 6 turns on application\"；target: \"施加该效果的时候会将所有负面效果持续时间延长3回合\""
+      },
+      {
+        "revision_id": "C005",
+        "verdict": "OK",
+        "observation": "中文补充的“非‘其他’类且不会在无时间状态下自行衰减”与代码过滤条件一致，冷却缩减亦保留。",
+        "evidence": "fixed_context: \"iterates effects only when not tick_on_timeless, status is detrimental, and type is not other... subtracts eff.power from every active talent cooldown\""
+      },
+      {
+        "revision_id": "C006",
+        "verdict": "OK",
+        "observation": "死亡触发的实际是以更弱强度传播新的燃烧 DoT，而非瞬间爆炸伤害，中文按实际机制表述。",
+        "evidence": "fixed_context: \"'explode' is spreading a weaker fire DoT, not an instant burst hit\"；target: \"死亡时火焰会以更弱的强度传播到附近目标身上\""
+      },
+      {
+        "revision_id": "C007",
+        "verdict": "OK",
+        "observation": "35% 触发实为把该次伤害降为原值的 brittle%，中文按代码而非英文错误表述。",
+        "evidence": "fixed_context: \"returns {dam = dam * eff.brittle / 100} on a 35%% proc... it is a damage-reduction proc despite the English key\""
+      },
+      {
+        "revision_id": "C008",
+        "verdict": "UNCERTAIN",
+        "observation": "疑点：FIREBURN 的 dam 常为 3 回合总伤害（技能描述为“3 回合内造成等于护盾初始强度的伤害”），中文“每回合造成 %d 伤害”可能夸大；给定证据未含 FIREBURN 内部分摊逻辑，无法裁决。",
+        "evidence": "fixed_context: \"DamageType.FIREBURN, {dur=3, dam=self:spellCrit(eff.power)}\" / \"burning all enemies for 3 turns, doing damage equal to the initial power of the shield\"；target: \"持续 3 回合、每回合造成 %d 伤害\""
+      },
+      {
+        "revision_id": "C009",
+        "verdict": "FINDING",
+        "observation": "机制方向反向：新负面效果持续时间应被延长，中文写成缩短。",
+        "evidence": "source: \"any new debuff on you lasts %d%% longer\"；fixed_context: \"increases both damage and debuff duration penalty\"；target: \"持续时间缩短 %d%%\""
+      },
+      {
+        "revision_id": "C010",
+        "verdict": "OK",
+        "observation": "移除负面效果排除“其他”类、重置冷却、每回合半径 2 随机爆炸与挖墙均与代码一致。",
+        "evidence": "fixed_context: \"removes detrimental effects except type other and clears talents_cd when applied... radius-2 random explosion each turn with darkness and temporal damage and digs diggable walls\""
+      },
+      {
+        "revision_id": "C011",
+        "verdict": "FINDING",
+        "observation": "触发主体错误：中文称“任意单位”攻击都会触发，但代码跳过 src==self、非敌对（reactionToward>=0）及非 actor 来源。",
+        "evidence": "fixed_context: \"skip if src==self, src dead, self:reactionToward(src)>=0, or src is not an actor\"；target: \"任意单位的近战或远程攻击命中目标时\""
+      },
+      {
+        "revision_id": "C012",
+        "verdict": "FINDING",
+        "observation": "机制反向：命中其他单位会移除该效果，中文却称“效果不会结束”。",
+        "evidence": "fixed_context: \"a hit on a different actor removes the effect\"；target: \"命中其他敌人则效果不会结束\""
+      },
+      {
+        "revision_id": "C013",
+        "verdict": "FINDING",
+        "observation": "目标属性错误：加成不含力量（仅 DEX/MAG/WIL/CUN/CON），中文写成“包括力量在内的所有属性”。",
+        "evidence": "fixed_context: \"sets inc_stats only for STAT_DEX/MAG/WIL/CUN/CON; STAT_STR is absent... all your primary stats except Strength\"；target: \"包括力量在内的所有属性增加 %d\""
+      },
+      {
+        "revision_id": "C014",
+        "verdict": "OK",
+        "observation": "resists={all=eff.power}，方向与术语一致。",
+        "evidence": "fixed_context: \"SPIKESKIN applies resists={all=eff.power}; terminology/combat.tsv maps resists.all / All Resists to 全部抗性\""
+      },
+      {
+        "revision_id": "C015",
+        "verdict": "FINDING",
+        "observation": "状态累积关系反向：on_merge 会累加已格挡伤害并以 max_power 封顶，中文却称“已格挡伤害无法累积”。",
+        "evidence": "fixed_context: \"on_merge adds successive power and caps at max_power\"；target: \"已格挡伤害无法累积\""
+      },
+      {
+        "revision_id": "C016",
+        "verdict": "OK",
+        "observation": "实际效果为烈火光环并给予火/光/闪电亲和，英文 long_desc 的 frost 为复制错误。",
+        "evidence": "fixed_context: \"EFF_FIERY_SALVE activate adds damage_affinity for FIRE, LIGHT, LIGHTNING. English long_desc still says frost aura (copy-paste)\""
+      },
+      {
+        "revision_id": "C017",
+        "verdict": "OK",
+        "observation": "反击使用 eff.src（原施放者）的盾牌，且受 attacker.turn_procs.static_shock 限制为每攻击者每回合一次。",
+        "evidence": "fixed_context: \"src:attackTargetWith(attacker, shield_combat, DamageType.LIGHTNING, eff.dam); skips if attacker.turn_procs.static_shock... once per attacker per turn\""
+      },
+      {
+        "revision_id": "C018",
+        "verdict": "OK",
+        "observation": "反击注册在 on_melee_hit，远程命中不触发，中文限定为近战命中符合代码。",
+        "evidence": "fixed_context: \"registers on_melee_hit fire damage of eff.retaliate; ranged hits do not trigger\""
+      },
+      {
+        "revision_id": "C019",
+        "verdict": "FINDING",
+        "observation": "持续时间错误：未传 daze_duration，LIGHTNING_DAZE 实际眩晕 3 回合（技能描述亦为 3），中文沿用英文错误的 2 回合。",
+        "evidence": "fixed_context: \"no daze_duration is passed... applies EFF_DAZED for (dam.daze_duration or 3)... AED info already says 3 turns\"；target: \"使目标眩晕 2 回合\""
+      },
+      {
+        "revision_id": "C020",
+        "verdict": "OK",
+        "observation": "回调仅在 magical 且 detrimental 时计数并在第 5 次召唤虚空恐魔，中文限定为“负面魔法效果”与代码一致。",
+        "evidence": "fixed_context: \"acts only when e.type is magical and e.status is detrimental; it increments its counter and manifests a void annihilator at five\""
+      },
+      {
+        "revision_id": "C021",
+        "verdict": "OK",
+        "observation": "治疗仅在 src==eff.src 的近战命中且伤害>0 时给予伤口来源，中文限定正确。",
+        "evidence": "fixed_context: \"callbackOnMeleeHit(self, eff, src, dam) returns unless dam>0 and src==eff.src, then src:heal(eff.heal)\""
+      },
+      {
+        "revision_id": "C022",
+        "verdict": "OK",
+        "observation": "额外酸伤限定为带 weapon_type 的攻击且每回合首次命中，符合代码与技能描述。",
+        "evidence": "fixed_context: \"returns unless src.turn_procs.weapon_type and not self.turn_procs.miasma... T_MIASMA_ENGINE info says the first time each turn a melee or ranged attack hits\""
+      },
+      {
+        "revision_id": "C023",
+        "verdict": "UNCERTAIN",
+        "observation": "阈值边界疑点：代码为 max_life*0.08 > cb.value 才跳过，即恰好等于 8% 也触发，中文“超过 8%”排除了等值情形；该偏差与英文原文一致，是否属实质问题证据不足。其余（每回合一次、降伤、扇形爆炸、层数）与代码相符。",
+        "evidence": "fixed_context: \"returns if self.max_life*0.08 > cb.value so equal-to-8% still triggers\"；target: \"若造成超过最大生命值 8%% 的伤害\""
+      },
+      {
+        "revision_id": "C024",
+        "verdict": "FINDING",
+        "observation": "时限错误：效果持续 4 回合、仅在 eff.dur<=1 时才断开控制，中文写成“一回合内未恢复视线即失去直接控制”。",
+        "evidence": "fixed_context: \"applies EFF_MECHARACHNID_OFS for 4 turns... only breaks control via party:setPlayer(summoner) when game.player==self and eff.dur<=1\"；target: \"若未能在一回合内恢复视线，将失去直接控制\""
+      }
+    ]
+  }
+}

@@ -1,0 +1,560 @@
+{
+  "schema_version": 1,
+  "experiment": "controlled-mutation-reviewer-v1",
+  "status": "COMPLETE",
+  "scored_at": "2026-08-27",
+  "frozen_input_sha256": "ded0046ddd87f52ecbcc3d726fce20a0718facc20456bd665f6ae5539413c30b",
+  "sealed_reference_sha256": "b4b76f2cbcfeb06112e84ae2a748c359e3cae583e0d26beb4335eba1d5da0c80",
+  "adjudication_sha256": "2f5491106405b984da8fe2b3290562329a55ed4a4a4ff54cf6eb772f4fff8933",
+  "design": {
+    "injected_mutations": 12,
+    "unmodified_controls": 12,
+    "post_adjudication_clean_controls": 11,
+    "natural_defects_discovered_in_controls": [
+      "C008"
+    ],
+    "independent_single_runs": true,
+    "route_output_exchange": false
+  },
+  "scores": [
+    {
+      "route": "codex-gpt-5.6-sol-high",
+      "candidate_artifact": "CANDIDATE-codex-gpt-5.6-sol-high.json",
+      "candidate_sha256": "b58226cf93825ef7039ad45c46bb56574dd8caf7006cb7e164f66fc8e3a98dcc",
+      "raw_artifact": "RAW-codex-gpt-5.6-sol-high.json",
+      "raw_sha256": "cefaeacc319dfbe0c9c16d76c4641a8f92a1fe303410f9c7120f2103af48498d",
+      "normalization_artifact": null,
+      "route_metadata": {
+        "harness": "codex-cli 0.150.1",
+        "requested_model": "gpt-5.6-sol",
+        "requested_effort": "high",
+        "session": "ephemeral"
+      },
+      "duration_seconds": 78.982,
+      "verdict_counts": {
+        "OK": 11,
+        "FINDING": 13
+      },
+      "mutation_specific_detection": {
+        "hits": 12,
+        "total": 12,
+        "recall": 1,
+        "hit_revision_ids": [
+          "C002",
+          "C003",
+          "C004",
+          "C005",
+          "C009",
+          "C011",
+          "C012",
+          "C013",
+          "C015",
+          "C019",
+          "C023",
+          "C024"
+        ],
+        "missed_revision_ids": []
+      },
+      "finding_only_mutation_detection": {
+        "hits": 12,
+        "total": 12,
+        "recall": 1,
+        "hit_revision_ids": [
+          "C002",
+          "C003",
+          "C004",
+          "C005",
+          "C009",
+          "C011",
+          "C012",
+          "C013",
+          "C015",
+          "C019",
+          "C023",
+          "C024"
+        ],
+        "uncertain_match_revision_ids": []
+      },
+      "controls": {
+        "unmodified_candidates": 1,
+        "candidate_revision_ids": [
+          "C008"
+        ],
+        "confirmed_natural_issue_candidates": 1,
+        "confirmed_natural_issue_revision_ids": [
+          "C008"
+        ],
+        "source_refuted_false_positives": 0,
+        "false_positive_revision_ids": [],
+        "post_adjudication_clean_true_negatives": 11,
+        "post_adjudication_clean_total": 11,
+        "post_adjudication_clean_specificity": 1
+      },
+      "non_mutation_claims_on_mutated_items": []
+    },
+    {
+      "route": "claude-opus-5-medium-no-advisor",
+      "candidate_artifact": "CANDIDATE-claude-opus-5-medium-no-advisor.json",
+      "candidate_sha256": "c308ea1f8f24513d2a2cd44d4d3a418f671e0d0e724757ce447b54e0bb6b0754",
+      "raw_artifact": "RAW-claude-opus-5-medium-no-advisor.json",
+      "raw_sha256": "645111f910ea2d319e17b002f9ac5e1fccaf4bd21ed262cd003675c426f7f737",
+      "normalization_artifact": null,
+      "route_metadata": {
+        "harness": "Claude Code CLI 2.1.247",
+        "requested_model": "claude-opus-5",
+        "requested_effort": "medium",
+        "requested_advisor": null,
+        "initialized_models": [
+          "claude-opus-5"
+        ],
+        "actual_assistant_models": [
+          "claude-opus-5"
+        ],
+        "fallback_event_count": 0,
+        "fallback_block_count": 0,
+        "result": {
+          "is_error": false,
+          "subtype": "success",
+          "stop_reason": "tool_use",
+          "terminal_reason": "completed",
+          "usage": {
+            "input_tokens": 4,
+            "cache_creation_input_tokens": 20678,
+            "cache_read_input_tokens": 13435,
+            "output_tokens": 10816,
+            "output_tokens_details": {
+              "thinking_tokens": 3675
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 20678,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "not_available",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 3613,
+                "cache_read_input_tokens": 13435,
+                "cache_creation_input_tokens": 7243,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 7243
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard"
+          },
+          "model_usage": {
+            "claude-haiku-4-5-20251001": {
+              "inputTokens": 7499,
+              "outputTokens": 19,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0,
+              "webSearchRequests": 0,
+              "costUSD": 0.007593999999999999,
+              "contextWindow": 200000,
+              "maxOutputTokens": 32000,
+              "canonicalModel": "claude-haiku-4-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            },
+            "claude-opus-5": {
+              "inputTokens": 4,
+              "outputTokens": 10816,
+              "cacheReadInputTokens": 13435,
+              "cacheCreationInputTokens": 20678,
+              "webSearchRequests": 0,
+              "costUSD": 0.4839175,
+              "contextWindow": 1000000,
+              "maxOutputTokens": 64000,
+              "canonicalModel": "claude-opus-5",
+              "provider": "firstParty",
+              "costBasis": "list"
+            }
+          },
+          "total_cost_usd": 0.4915115,
+          "num_turns": 3
+        }
+      },
+      "duration_seconds": 133.467,
+      "verdict_counts": {
+        "OK": 12,
+        "FINDING": 10,
+        "UNCERTAIN": 2
+      },
+      "mutation_specific_detection": {
+        "hits": 11,
+        "total": 12,
+        "recall": 0.9166666666666666,
+        "hit_revision_ids": [
+          "C002",
+          "C003",
+          "C004",
+          "C009",
+          "C011",
+          "C012",
+          "C013",
+          "C015",
+          "C019",
+          "C023",
+          "C024"
+        ],
+        "missed_revision_ids": [
+          "C005"
+        ]
+      },
+      "finding_only_mutation_detection": {
+        "hits": 10,
+        "total": 12,
+        "recall": 0.8333333333333334,
+        "hit_revision_ids": [
+          "C002",
+          "C003",
+          "C004",
+          "C009",
+          "C011",
+          "C012",
+          "C013",
+          "C015",
+          "C019",
+          "C024"
+        ],
+        "uncertain_match_revision_ids": [
+          "C023"
+        ]
+      },
+      "controls": {
+        "unmodified_candidates": 1,
+        "candidate_revision_ids": [
+          "C008"
+        ],
+        "confirmed_natural_issue_candidates": 1,
+        "confirmed_natural_issue_revision_ids": [
+          "C008"
+        ],
+        "source_refuted_false_positives": 0,
+        "false_positive_revision_ids": [],
+        "post_adjudication_clean_true_negatives": 11,
+        "post_adjudication_clean_total": 11,
+        "post_adjudication_clean_specificity": 1
+      },
+      "non_mutation_claims_on_mutated_items": []
+    },
+    {
+      "route": "pi-zai-cn-glm-5.3-flash-high",
+      "candidate_artifact": "CANDIDATE-NORMALIZED-pi-zai-cn-glm-5.3-flash-high.json",
+      "candidate_sha256": "1cf10d7650d5d2cee92cd8e595398720453c248e972342e2f6a8479a266ad654",
+      "raw_artifact": "RAW-pi-zai-cn-glm-5.3-flash-high.json",
+      "raw_sha256": "38c5bc95a7cdc5d272ee3960e52d6ff94a117cb4fee9bf276b55ce889aa7cd3d",
+      "normalization_artifact": "NORMALIZATION-pi-zai-cn-glm-5.3-flash-high.json",
+      "route_metadata": {
+        "harness": "Pi 0.84.3",
+        "requested_provider": "zai-standard-cn",
+        "requested_model": "glm-5.3-flash",
+        "requested_effort": "high",
+        "actual_provider": "zai-standard-cn",
+        "actual_model": "glm-5.3-flash",
+        "usage": {
+          "input": 5322,
+          "output": 16437,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 14630,
+          "totalTokens": 21759,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        },
+        "stop_reason": "stop"
+      },
+      "duration_seconds": 339.01,
+      "verdict_counts": {
+        "OK": 12,
+        "FINDING": 12
+      },
+      "mutation_specific_detection": {
+        "hits": 12,
+        "total": 12,
+        "recall": 1,
+        "hit_revision_ids": [
+          "C002",
+          "C003",
+          "C004",
+          "C005",
+          "C009",
+          "C011",
+          "C012",
+          "C013",
+          "C015",
+          "C019",
+          "C023",
+          "C024"
+        ],
+        "missed_revision_ids": []
+      },
+      "finding_only_mutation_detection": {
+        "hits": 12,
+        "total": 12,
+        "recall": 1,
+        "hit_revision_ids": [
+          "C002",
+          "C003",
+          "C004",
+          "C005",
+          "C009",
+          "C011",
+          "C012",
+          "C013",
+          "C015",
+          "C019",
+          "C023",
+          "C024"
+        ],
+        "uncertain_match_revision_ids": []
+      },
+      "controls": {
+        "unmodified_candidates": 0,
+        "candidate_revision_ids": [],
+        "confirmed_natural_issue_candidates": 0,
+        "confirmed_natural_issue_revision_ids": [],
+        "source_refuted_false_positives": 0,
+        "false_positive_revision_ids": [],
+        "post_adjudication_clean_true_negatives": 11,
+        "post_adjudication_clean_total": 11,
+        "post_adjudication_clean_specificity": 1
+      },
+      "non_mutation_claims_on_mutated_items": []
+    },
+    {
+      "route": "agy-gemini-3.7-flash-high",
+      "candidate_artifact": "CANDIDATE-agy-gemini-3.7-flash-high.json",
+      "candidate_sha256": "fc4a2734c2101e5b40a78e7c93bbbea24799599ec7912acf58c0adf0449dc726",
+      "raw_artifact": "RAW-agy-gemini-3.7-flash-high.json",
+      "raw_sha256": "5e94ffca0035b4e216b7fbb492e7f11bfab0a66e6a9d09b4273072c57a689c75",
+      "normalization_artifact": null,
+      "route_metadata": {
+        "harness": "Antigravity CLI 1.1.22",
+        "requested_model": "gemini-3.7-flash-high",
+        "requested_effort": "high",
+        "mode": "plan",
+        "sandbox": true,
+        "reported_model": null,
+        "reported_agent": null,
+        "usage": {
+          "input_tokens": 53656,
+          "output_tokens": 33363,
+          "thinking_tokens": 28944,
+          "cache_read_tokens": 20778,
+          "total_tokens": 87019
+        }
+      },
+      "duration_seconds": 69.768,
+      "verdict_counts": {
+        "OK": 13,
+        "FINDING": 11
+      },
+      "mutation_specific_detection": {
+        "hits": 11,
+        "total": 12,
+        "recall": 0.9166666666666666,
+        "hit_revision_ids": [
+          "C002",
+          "C003",
+          "C004",
+          "C005",
+          "C009",
+          "C011",
+          "C012",
+          "C013",
+          "C015",
+          "C019",
+          "C024"
+        ],
+        "missed_revision_ids": [
+          "C023"
+        ]
+      },
+      "finding_only_mutation_detection": {
+        "hits": 11,
+        "total": 12,
+        "recall": 0.9166666666666666,
+        "hit_revision_ids": [
+          "C002",
+          "C003",
+          "C004",
+          "C005",
+          "C009",
+          "C011",
+          "C012",
+          "C013",
+          "C015",
+          "C019",
+          "C024"
+        ],
+        "uncertain_match_revision_ids": []
+      },
+      "controls": {
+        "unmodified_candidates": 0,
+        "candidate_revision_ids": [],
+        "confirmed_natural_issue_candidates": 0,
+        "confirmed_natural_issue_revision_ids": [],
+        "source_refuted_false_positives": 0,
+        "false_positive_revision_ids": [],
+        "post_adjudication_clean_true_negatives": 11,
+        "post_adjudication_clean_total": 11,
+        "post_adjudication_clean_specificity": 1
+      },
+      "non_mutation_claims_on_mutated_items": []
+    }
+  ],
+  "derived": {
+    "mutation_union": {
+      "hits": 12,
+      "total": 12,
+      "recall": 1,
+      "revision_ids": [
+        "C002",
+        "C003",
+        "C004",
+        "C005",
+        "C009",
+        "C011",
+        "C012",
+        "C013",
+        "C015",
+        "C019",
+        "C023",
+        "C024"
+      ]
+    },
+    "four_route_consensus": {
+      "hits": 10,
+      "total": 12,
+      "recall": 0.8333333333333334,
+      "revision_ids": [
+        "C002",
+        "C003",
+        "C004",
+        "C009",
+        "C011",
+        "C012",
+        "C013",
+        "C015",
+        "C019",
+        "C024"
+      ]
+    },
+    "support_count_by_mutation": {
+      "C002": 4,
+      "C003": 4,
+      "C004": 4,
+      "C005": 3,
+      "C009": 4,
+      "C011": 4,
+      "C012": 4,
+      "C013": 4,
+      "C015": 4,
+      "C019": 4,
+      "C023": 3,
+      "C024": 4
+    },
+    "unique_mutation_hits": {
+      "codex-gpt-5.6-sol-high": [],
+      "claude-opus-5-medium-no-advisor": [],
+      "pi-zai-cn-glm-5.3-flash-high": [],
+      "agy-gemini-3.7-flash-high": []
+    }
+  },
+  "natural_control_finding": {
+    "revision_id": "C008",
+    "label": "UNMODIFIED_CONTROL",
+    "candidate_routes": [
+      {
+        "route": "codex-gpt-5.6-sol-high",
+        "verdict": "FINDING"
+      },
+      {
+        "route": "claude-opus-5-medium-no-advisor",
+        "verdict": "UNCERTAIN"
+      }
+    ],
+    "adjudication": "confirmed_natural_defect",
+    "atomic_claim": "The target says the %d placeholder is damage per turn, but FIREBURN treats dam as total damage: with the default initial=50, half is immediate and the remainder is divided by dur=3 for the burn ticks.",
+    "fixed_source_evidence": [
+      {
+        "repo": "t-engine4",
+        "path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+        "evidence": "FIREBURN computes init_dam=dam*perc/100, then dam=dam-init_dam and sets EFF_BURNING power=dam/dur."
+      },
+      {
+        "repo": "tome4-dlcs/ashes-urhrok",
+        "path": "tome-ashes-urhrok/data/timed_effects.lua",
+        "sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+        "evidence": "EFF_FIRE_SHIELD.deactivate projects FIREBURN with {dur=3, dam=self:spellCrit(eff.power)}."
+      },
+      {
+        "repo": "tome4-dlcs/ashes-urhrok",
+        "path": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+        "sha256": "9169ec6910a96af6ce469ef88c4b257165955f96ce7828c8508e2d36372a92b5",
+        "evidence": "The talent info says the three-turn burn does damage equal to the initial power of the shield, not that it deals that amount each turn."
+      }
+    ],
+    "history": {
+      "task_id": "p2-ashes-status-b2-001",
+      "terminal_dispatch_id": "p2a-status-b2-ctx-1",
+      "terminal_candidate_identity": "0b60d6a6deea336fbb3578d73a3a0fc6e0273de597f911a4d002e68f605b710e",
+      "modifier_family": "GPT/Codex",
+      "terminal_reviewer": "codex/gpt-5.6-terra/high",
+      "review_relation": "same_family_only",
+      "delivery_commit": "12626757a7636e544e2ffecf7d2ca7818e7f5ae9",
+      "note": "The Paseo provenance snapshot records this DONE terminal revision as a GPT/Codex modification followed by GPT/Codex contextual review. The source-repository delivery commit introduced the per-turn wording and carried a Claude Sonnet 5 co-author trailer; this mixed authorship does not change the terminal-review false-negative observation."
+    },
+    "scoring": {
+      "primary_mutation_metric": "excluded because this item was not mutated",
+      "control_false_positive": false,
+      "control_set_effect": "Remove C008 from the post-adjudication clean-control denominator; 11 controls remain source-uncontested."
+    }
+  },
+  "interpretation": [
+    "Codex and GLM matched all 12 injected mutation claims. Opus matched 11/12 when its correct C023 UNCERTAIN is counted under the preregistered non-OK atomic-claim metric; Gemini matched 11/12.",
+    "Ten mutations were detected by all four routes. C005 was missed only by Opus; C023 was missed only by Gemini. No route had a unique injected-mutation hit.",
+    "The unmodified C008 control contains a source-confirmed natural defect. Codex raised it as FINDING and Opus raised the same atomic claim as UNCERTAIN; it is not a false positive and is excluded from the clean-control denominator.",
+    "All four routes produced zero source-refuted control false positives and marked all 11 post-adjudication clean controls OK.",
+    "C008 is a concrete historical terminal-review false negative in a GPT/Codex-modified and GPT/Codex-reviewed Paseo task, but one item cannot establish the prevalence or direction of a systematic GPT-family bias.",
+    "Claude's complete-task assistant messages all report claude-opus-5 with zero fallback events or blocks. Claude Code's aggregate modelUsage also lists a small Haiku auxiliary charge; it is disclosed as harness overhead and not treated as a reviewer message.",
+    "The agy envelope does not expose a runtime model or agent identity. Its route identity is therefore supported by the frozen gemini-3.7-flash-high request, the immediately preceding model-availability check and the preserved RAW, not by an envelope-reported model field."
+  ],
+  "limitations": [
+    "One independent run per route does not estimate variance.",
+    "Injected mechanism defects do not estimate the natural residual-defect rate or prose quality.",
+    "The unmodified controls were historical terminal revisions, not independently proven clean controls; source adjudication found one contaminated control.",
+    "The mutation categories have one or two examples each, so per-category rates are descriptive only.",
+    "This experiment does not vary translation origin and therefore cannot test reviewer-by-origin self-preference.",
+    "Claude Code reports auxiliary Haiku usage despite every assistant review message being Opus, and agy omits runtime identity from its envelope; these harness-level facts limit claims of perfectly isolated model execution."
+  ],
+  "route_policy": {
+    "active_for_this_experiment": [
+      "codex-gpt-5.6-sol-high",
+      "claude-opus-5-medium-no-advisor",
+      "pi-zai-cn-glm-5.3-flash-high",
+      "agy-gemini-3.7-flash-high"
+    ],
+    "retired_for_budget": [
+      "claude-fable-5-medium-no-advisor",
+      "claude-opus-5-medium-fable-advisor"
+    ],
+    "historical_results_preserved": true
+  },
+  "next_gate": "Before funding a full reviewer-by-translation-origin factorial, repair the control-construction rule with direct FIREBURN-style primitive tracing and run a small fresh-category replication to estimate variance and contamination."
+}

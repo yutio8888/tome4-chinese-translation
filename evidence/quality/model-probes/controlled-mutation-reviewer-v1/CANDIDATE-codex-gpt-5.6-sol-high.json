@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "route": "codex-gpt-5.6-sol-high",
+  "route_metadata": {
+    "harness": "codex-cli 0.150.1",
+    "requested_model": "gpt-5.6-sol",
+    "requested_effort": "high",
+    "session": "ephemeral"
+  },
+  "duration_seconds": 78.982,
+  "exit_status": 0,
+  "valid": true,
+  "validation_errors": [],
+  "verdict_counts": {
+    "OK": 11,
+    "FINDING": 13
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "C001",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：“sets max_steam to getMaxSteam() (doubles capacity) and steam_regen to -self.steam_regen/2 (halves regen)”；target：“最大蒸汽值翻倍，并将蒸汽回复减半。”"
+      },
+      {
+        "revision_id": "C002",
+        "verdict": "FINDING",
+        "observation": "误称效果会每回合自动发射火箭弹幕；实际必须主动使用该技能。",
+        "evidence": "target：“每回合自动使用火箭弹幕再次发射”；fixed_context：“no on_timeout auto-fire”且“Rocket Barrage ... fires only when used”"
+      },
+      {
+        "revision_id": "C003",
+        "verdict": "FINDING",
+        "observation": "所有伤害加成的正负号译反。",
+        "evidence": "source：“+%d%% to all damage dealt”；target：“-%d%% 所有造成的伤害”；fixed_context：“inc_damage={all=eff.stacks*3}”"
+      },
+      {
+        "revision_id": "C004",
+        "verdict": "FINDING",
+        "observation": "负面效果延长时间由 6 回合误译为 3 回合。",
+        "evidence": "source：“increase all detrimental effects durations by 6 turns”；target：“持续时间延长3回合”"
+      },
+      {
+        "revision_id": "C005",
+        "verdict": "FINDING",
+        "observation": "误称负面效果与冷却每回合缩短；实际在 Suspend 解除时统一缩短。",
+        "evidence": "target：“每回合……负面效果，以及技能冷却时间会缩短”；fixed_context：“The shortening occurs when Suspend deactivates.”"
+      },
+      {
+        "revision_id": "C006",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：“applying a NEW burning DoT at explosion-scaled power (0.75x...)”且“‘explode’ is spreading a weaker fire DoT, not an instant burst hit”；target：“以更弱的强度传播到附近目标身上”"
+      },
+      {
+        "revision_id": "C007",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：“returns {dam = dam * eff.brittle / 100} on a 35%% proc”且“reduces the triggered hit to 30-60%% of its original damage”；target：“使该次伤害降低至原伤害的 %d%%”"
+      },
+      {
+        "revision_id": "C008",
+        "verdict": "FINDING",
+        "observation": "误将占位符伤害表述为每回合伤害；证据表明它是持续 3 回合的灼烧总伤害。",
+        "evidence": "target：“持续 3 回合、每回合造成 %d 伤害”；fixed_context：“burning all enemies for 3 turns, doing damage equal to the initial power of the shield”"
+      },
+      {
+        "revision_id": "C009",
+        "verdict": "FINDING",
+        "observation": "新负面效果的持续时间变化方向译反：实际为延长，并非缩短。",
+        "evidence": "source：“any new debuff on you lasts %d%% longer”；target：“持续时间缩短 %d%%”；fixed_context：“only extends a newly applied effect”"
+      },
+      {
+        "revision_id": "C010",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：“removes detrimental effects except type other and clears talents_cd when applied”且“creates a radius-2 random explosion each turn with darkness and temporal damage and digs diggable walls”"
+      },
+      {
+        "revision_id": "C011",
+        "verdict": "FINDING",
+        "observation": "“任意单位”错误扩大了触发主体；自身、友方及非角色来源的攻击不会触发。",
+        "evidence": "target：“任意单位的近战或远程攻击命中目标时”；fixed_context：“skip if src==self, src dead, self:reactionToward(src)>=0, or src is not an actor”"
+      },
+      {
+        "revision_id": "C012",
+        "verdict": "FINDING",
+        "observation": "命中其他角色时的效果处理译反；实际会移除效果。",
+        "evidence": "target：“命中其他敌人则效果不会结束”；fixed_context：“a hit on a different actor removes the effect”"
+      },
+      {
+        "revision_id": "C013",
+        "verdict": "FINDING",
+        "observation": "误称力量也会提高；实际提高除力量外的其他主要属性。",
+        "evidence": "target：“包括力量在内的所有属性增加 %d”；fixed_context：“STAT_STR is absent”且“increasing all your primary stats except Strength”"
+      },
+      {
+        "revision_id": "C014",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：“SPIKESKIN applies resists={all=eff.power}”且“resists.all / All Resists to 全部抗性”；target：“获得 %d%% 全部抗性”"
+      },
+      {
+        "revision_id": "C015",
+        "verdict": "FINDING",
+        "observation": "误称格挡伤害无法累积；实际会累积并以最大值为上限。",
+        "evidence": "target：“已格挡伤害无法累积”；fixed_context：“on_merge adds successive power and caps at max_power”"
+      },
+      {
+        "revision_id": "C016",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：“English long_desc still says frost aura (copy-paste)”且物品“grants a fiery aura”；target：“提供烈火光环”"
+      },
+      {
+        "revision_id": "C017",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：“uses src=eff.src, src:hasShield(), then src:attackTargetWith(attacker, shield_combat, DamageType.LIGHTNING, eff.dam)”且“once per attacker per turn”"
+      },
+      {
+        "revision_id": "C018",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：“registers on_melee_hit fire damage of eff.retaliate; ranged hits do not trigger”；target：“在攻击者近战命中时对其造成 %d 点火焰反击伤害”"
+      },
+      {
+        "revision_id": "C019",
+        "verdict": "FINDING",
+        "observation": "眩晕持续时间错误；实际默认持续 3 回合，而非 2 回合。",
+        "evidence": "target：“使目标眩晕 2 回合”；fixed_context：“applies EFF_DAZED for (dam.daze_duration or 3)”且“no daze_duration is passed”"
+      },
+      {
+        "revision_id": "C020",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：“acts only when e.type is magical and e.status is detrimental”且“manifests a void annihilator at five”；target：“负面魔法效果”及“施加了 5 个……后”"
+      },
+      {
+        "revision_id": "C021",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：“callbackOnMeleeHit ... returns unless dam>0 and src==eff.src, then src:heal(eff.heal)”；target：“造成该伤口的来源以近战攻击命中目标时，将会恢复 %d 生命”"
+      },
+      {
+        "revision_id": "C022",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：“returns unless src.turn_procs.weapon_type and not self.turn_procs.miasma”且“the first time each turn a melee or ranged attack hits”；target：“每回合第一次被带有武器类型的近战或远程攻击命中时”"
+      },
+      {
+        "revision_id": "C023",
+        "verdict": "FINDING",
+        "observation": "阈值边界错误；伤害恰好等于最大生命值 8% 时也会触发，不要求严格超过。",
+        "evidence": "target：“若造成超过最大生命值 8%% 的伤害”；fixed_context：“returns if self.max_life*0.08 > cb.value so equal-to-8% still triggers”"
+      },
+      {
+        "revision_id": "C024",
+        "verdict": "FINDING",
+        "observation": "擅自将恢复视线的期限限定为一回合；效果以 4 回合施加，直到剩余持续时间不高于 1 时才解除控制。",
+        "evidence": "target：“若未能在一回合内恢复视线，将失去直接控制”；fixed_context：“applies EFF_MECHARACHNID_OFS for 4 turns”且“only breaks control ... when ... eff.dur<=1”"
+      }
+    ]
+  }
+}

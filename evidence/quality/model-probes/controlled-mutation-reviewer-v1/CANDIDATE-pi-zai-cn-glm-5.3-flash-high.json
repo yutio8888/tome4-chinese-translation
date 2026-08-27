@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "route_metadata": {
+    "harness": "Pi 0.84.3",
+    "requested_provider": "zai-standard-cn",
+    "requested_model": "glm-5.3-flash",
+    "requested_effort": "high",
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 5322,
+      "output": 16437,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 14630,
+      "totalTokens": 21759,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    },
+    "stop_reason": "stop"
+  },
+  "duration_seconds": 339.01,
+  "exit_status": 0,
+  "valid": false,
+  "validation_errors": [
+    "revision 15 has unexpected keys"
+  ],
+  "verdict_counts": {
+    "OK": 12,
+    "FINDING": 12
+  },
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "C001",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context: activate sets max_steam to getMaxSteam() (doubles capacity) and steam_regen to -self.steam_regen/2 (halves regen); English long_desc wrongly says stops; target 忠实于实际机制：最大蒸汽值翻倍，蒸汽回复减半"
+      },
+      {
+        "revision_id": "C002",
+        "verdict": "FINDING",
+        "observation": "译文断言每回合自动发射火箭弹幕，但实际无自动触发，火箭弹幕仅在被主动使用时发射",
+        "evidence": "target：每回合自动使用火箭弹幕再次发射；fixed_context：no on_timeout auto-fire; Rocket Barrage fires only when used; callbackOnTalentPost removes the effect unless the used talent has rocket_barrage"
+      },
+      {
+        "revision_id": "C003",
+        "verdict": "FINDING",
+        "observation": "数值符号翻转：实际为造成的伤害提高，译文写成降低",
+        "evidence": "source：+%d%% to all damage dealt；fixed_context：Fixed source CHAOS_ORBS is beneficial and applies inc_damage={all=eff.stacks*3}；target：-%d%% 所有造成的伤害"
+      },
+      {
+        "revision_id": "C004",
+        "verdict": "FINDING",
+        "observation": "持续时间数值 6 被改成 3，无任何证据支持 3",
+        "evidence": "source：increase all detrimental effects durations by 6 turns；target：延长3回合；fixed_context 仅确认 extends detrimental-effect durations on application，未给出 3 回合依据"
+      },
+      {
+        "revision_id": "C005",
+        "verdict": "FINDING",
+        "observation": "缩短时机错误：译文说每回合缩短，实际仅在 Suspend 结束时一次性缩短",
+        "evidence": "target：每回合，……会缩短；fixed_context：The shortening occurs when Suspend deactivates（deactivate 时对非 timeless 衰减的负面效果与冷却各减 eff.power）"
+      },
+      {
+        "revision_id": "C006",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：'explode' is spreading a weaker fire DoT, not an instant burst hit；target：死亡时火焰会以更弱的强度传播到附近目标身上"
+      },
+      {
+        "revision_id": "C007",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：the 35%% proc reduces the triggered hit to 30-60%% of its original damage；target：使该次伤害降低至原伤害的 %d%%"
+      },
+      {
+        "revision_id": "C008",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：deactivate runs on ANY effect termination … a 3-turn burn DoT in radius eff.radius；target：无论吸收耗尽还是自然到期，引燃持续 3 回合、每回合造成 %d 伤害且范围为半径 %d"
+      },
+      {
+        "revision_id": "C009",
+        "verdict": "FINDING",
+        "observation": "方向相反：新负面效果持续时间实际被延长，译文写成缩短",
+        "evidence": "source：any new debuff on you lasts %d%% longer；fixed_context：callbackOnTemporaryEffect only extends a newly applied effect；target：持续时间缩短 %d%%"
+      },
+      {
+        "revision_id": "C010",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：activate removes detrimental effects except type other and clears talents_cd；on_timeout creates a radius-2 random explosion with darkness and temporal damage and digs diggable walls；target 各句均对应"
+      },
+      {
+        "revision_id": "C011",
+        "verdict": "FINDING",
+        "observation": "触发主体过宽：实际排除自身与友好来源（reaction>=0）的攻击，译文说任意单位",
+        "evidence": "target：任意单位的近战或远程攻击命中目标时；fixed_context：skip if src==self, src dead, self:reactionToward(src)>=0, or src is not an actor"
+      },
+      {
+        "revision_id": "C012",
+        "verdict": "FINDING",
+        "observation": "效果终止条件写反：命中其他敌人实际会移除该效果，译文写成不会结束",
+        "evidence": "fixed_context：a hit on a different actor removes the effect；target：命中其他敌人则效果不会结束"
+      },
+      {
+        "revision_id": "C013",
+        "verdict": "FINDING",
+        "observation": "属性范围错误：力量并未被提升，译文写包括力量在内",
+        "evidence": "fixed_context：sets inc_stats only for STAT_DEX/MAG/WIL/CUN/CON; STAT_STR is absent；target：包括力量在内的所有属性增加 %d"
+      },
+      {
+        "revision_id": "C014",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：SPIKESKIN applies resists={all=eff.power}; All Resists=全部抗性；target：获得 %d%% 全部抗性"
+      },
+      {
+        "revision_id": "C015",
+        "verdict": "FINDING",
+        "observation": "累积关系写反：已格挡伤害实际会不断累积并封顶，译文写成无法累积",
+        "evidence": "fixed_context：on_merge adds successive power and caps at max_power；target：已格挡伤害无法累积"
+      },
+      {
+        "revision_id": "C016",
+        "vision": "",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：English long_desc still says frost aura (copy-paste); actual effect adds damage_affinity for FIRE, LIGHT, LIGHTNING；target：提供烈火光环……火焰、光系和闪电亲和，忠于实际机制"
+      },
+      {
+        "revision_id": "C017",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：uses src=eff.src, src:hasShield(), src:attackTargetWith(..., DamageType.LIGHTNING, eff.dam); skips if attacker.turn_procs.static_shock；target：使用原施放者的盾牌……同一攻击者每回合最多触发一次"
+      },
+      {
+        "revision_id": "C018",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：EFF_STEAM_SHIELD.activate registers on_melee_hit fire damage of eff.retaliate; ranged hits do not trigger；target：在攻击者近战命中时对其造成 %d 点火焰反击伤害"
+      },
+      {
+        "revision_id": "C019",
+        "verdict": "FINDING",
+        "observation": "眩晕持续时间错误：实际为 3 回合（daze 默认 3，天赋说明亦为 3），译文沿用英文错误表述写 2 回合",
+        "evidence": "fixed_context：LIGHTNING_DAZE applies EFF_DAZED for (dam.daze_duration or 3); Talent apply … AED info already says 3 turns; The English status key still says 2 turns；target：使目标眩晕 2 回合"
+      },
+      {
+        "revision_id": "C020",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：callback acts only when e.type is magical and e.status is detrimental; it increments its counter and manifests a void annihilator at five；target：负面魔法效果……施加了 5 个后出现虚空恐魔"
+      },
+      {
+        "revision_id": "C021",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：callbackOnMeleeHit returns unless dam>0 and src==eff.src, then src:heal(eff.heal)；target：当造成该伤口的来源以近战攻击命中目标时，将会恢复 %d 生命"
+      },
+      {
+        "revision_id": "C022",
+        "verdict": "OK",
+        "observation": "OK",
+        "evidence": "fixed_context：returns unless src.turn_procs.weapon_type and not self.turn_procs.miasma, then sets self.turn_procs.miasma and projects acid；target：每回合第一次被带有武器类型的近战或远程攻击命中时，受到额外 %0.2f 酸性伤害"
+      },
+      {
+        "revision_id": "C023",
+        "verdict": "FINDING",
+        "observation": "阈值边界不符：达到 8%% 即触发（等于 8%% 仍触发），译文写成超过 8%%",
+        "evidence": "fixed_context：returns if self.max_life*0.08 > cb.value so equal-to-8% still triggers；target：造成超过最大生命值 8%% 的伤害"
+      },
+      {
+        "revision_id": "C024",
+        "verdict": "FINDING",
+        "observation": "时限错误：控制实际在效果持续约 3 回合后（eff.dur<=1 时）才中断，译文写一回合内",
+        "evidence": "fixed_context：applies EFF_MECHARACHNID_OFS for 4 turns … on_timeout only breaks control … when eff.dur<=1；target：若未能在一回合内恢复视线，将失去直接控制"
+      }
+    ]
+  }
+}

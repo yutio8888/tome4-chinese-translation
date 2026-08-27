@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "adjudicated_at": "2026-08-27",
+  "method": "atomic-claim matching against the sealed mutation record, followed by fixed-source adjudication of every non-mutation candidate",
+  "mutation_claim_matches": {
+    "codex-gpt-5.6-sol-high": [
+      "C002", "C003", "C004", "C005", "C009", "C011", "C012", "C013", "C015", "C019", "C023", "C024"
+    ],
+    "claude-opus-5-medium-no-advisor": [
+      "C002", "C003", "C004", "C009", "C011", "C012", "C013", "C015", "C019", "C023", "C024"
+    ],
+    "pi-zai-cn-glm-5.3-flash-high": [
+      "C002", "C003", "C004", "C005", "C009", "C011", "C012", "C013", "C015", "C019", "C023", "C024"
+    ],
+    "agy-gemini-3.7-flash-high": [
+      "C002", "C003", "C004", "C005", "C009", "C011", "C012", "C013", "C015", "C019", "C024"
+    ]
+  },
+  "mutation_misses": {
+    "codex-gpt-5.6-sol-high": [],
+    "claude-opus-5-medium-no-advisor": [
+      {
+        "revision_id": "C005",
+        "observed_verdict": "OK",
+        "reason": "The response did not identify that shortening occurs on deactivation rather than every turn."
+      }
+    ],
+    "pi-zai-cn-glm-5.3-flash-high": [],
+    "agy-gemini-3.7-flash-high": [
+      {
+        "revision_id": "C023",
+        "observed_verdict": "OK",
+        "reason": "The response did not identify that exactly 8% damage triggers and that the translated strict-greater boundary is wrong."
+      }
+    ]
+  },
+  "uncertain_mutation_matches": {
+    "claude-opus-5-medium-no-advisor": ["C023"]
+  },
+  "non_mutation_candidates": [
+    {
+      "revision_id": "C008",
+      "label": "UNMODIFIED_CONTROL",
+      "candidate_routes": [
+        {
+          "route": "codex-gpt-5.6-sol-high",
+          "verdict": "FINDING"
+        },
+        {
+          "route": "claude-opus-5-medium-no-advisor",
+          "verdict": "UNCERTAIN"
+        }
+      ],
+      "adjudication": "confirmed_natural_defect",
+      "atomic_claim": "The target says the %d placeholder is damage per turn, but FIREBURN treats dam as total damage: with the default initial=50, half is immediate and the remainder is divided by dur=3 for the burn ticks.",
+      "fixed_source_evidence": [
+        {
+          "repo": "t-engine4",
+          "path": "game/modules/tome/data/damage_types.lua",
+          "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+          "evidence": "FIREBURN computes init_dam=dam*perc/100, then dam=dam-init_dam and sets EFF_BURNING power=dam/dur."
+        },
+        {
+          "repo": "tome4-dlcs/ashes-urhrok",
+          "path": "tome-ashes-urhrok/data/timed_effects.lua",
+          "sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+          "evidence": "EFF_FIRE_SHIELD.deactivate projects FIREBURN with {dur=3, dam=self:spellCrit(eff.power)}."
+        },
+        {
+          "repo": "tome4-dlcs/ashes-urhrok",
+          "path": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+          "sha256": "9169ec6910a96af6ce469ef88c4b257165955f96ce7828c8508e2d36372a92b5",
+          "evidence": "The talent info says the three-turn burn does damage equal to the initial power of the shield, not that it deals that amount each turn."
+        }
+      ],
+      "history": {
+        "task_id": "p2-ashes-status-b2-001",
+        "terminal_dispatch_id": "p2a-status-b2-ctx-1",
+        "terminal_candidate_identity": "0b60d6a6deea336fbb3578d73a3a0fc6e0273de597f911a4d002e68f605b710e",
+        "modifier_family": "GPT/Codex",
+        "terminal_reviewer": "codex/gpt-5.6-terra/high",
+        "review_relation": "same_family_only",
+        "delivery_commit": "12626757a7636e544e2ffecf7d2ca7818e7f5ae9",
+        "note": "The Paseo provenance snapshot records this DONE terminal revision as a GPT/Codex modification followed by GPT/Codex contextual review. The source-repository delivery commit introduced the per-turn wording and carried a Claude Sonnet 5 co-author trailer; this mixed authorship does not change the terminal-review false-negative observation."
+      },
+      "scoring": {
+        "primary_mutation_metric": "excluded because this item was not mutated",
+        "control_false_positive": false,
+        "control_set_effect": "Remove C008 from the post-adjudication clean-control denominator; 11 controls remain source-uncontested."
+      }
+    }
+  ],
+  "other_non_mutation_candidates": [],
+  "guardrails": [
+    "A non-OK verdict on a mutated item is not a hit unless its atomic claim appears in mutation_claim_matches.",
+    "An unmodified-control candidate is not a false positive until fixed-source adjudication refutes it.",
+    "UNCERTAIN counts for the preregistered primary mutation-detection metric only when it states the correct mutation-specific atomic claim; FINDING-only recall is reported separately."
+  ]
+}
