@@ -17,7 +17,11 @@
 - B4 reference 为每项裁决记录固定源码位置和机制证据，而不是只依赖语言直觉：[p1-b4-s2-verification.json](../p1-batches/p1-b4-s2-verification.json)。
 - 模型推理时不读取 sealed reference，reference 只在输出完成后由本地计分器读取。
 
-但这些保护不能证明 ground truth 独立于 GPT。现有记录没有为每项译文完整标注译文生成者、候选发现者、reference 起草者、源码核验者和最终裁决者，因而无法重建各阶段的模型家族相关性。
+但这些保护不能证明 ground truth 独立于 GPT。现有记录没有为每项译文完整标注译文生成者、候选发现者、reference 起草者、源码核验者和最终裁决者，因而无法完整重建各阶段的模型家族相关性。
+
+Paseo 本机记录现已整理为一份可跟踪重建的脱敏快照：[Paseo provenance snapshot v1](paseo-provenance-snapshot-v1/README.md)。它能重建 contextual-review 任务中的编排者、候选修改者、正式 reviewer、dispatch 轮次、review artifact 和部分交付 commit，但不能识别 read-and-fix 之前的原始译文生成者。
+
+快照清点了 128 个完成任务：P1 的 8 个完成任务没有 GPT reviewer；P2 的 120 个完成任务中，113 个包含 GPT reviewer，107 个只出现 GPT reviewer。全部完成任务中，候选修改者归因有 113 个为 GPT/Codex；96 个任务是已解析候选修改者与 reviewer 同族 only。这个结果把风险定位为“P2 中候选修改和正式审核高度同族相关”，而不是“全部历史审核都由 GPT 完成”。它仍然不能证明偏差已经发生，因为任务编排者有 Claude/Grok，Paseo 候选修改者也不是原始译文生成者，且 reference/source adjudication 的作者链仍不完整。
 
 当前模型比较也显示不同路线存在互补盲点：
 
