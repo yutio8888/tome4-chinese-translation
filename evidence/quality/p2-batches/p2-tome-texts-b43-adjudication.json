@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-texts-b43-001",
+  "component": "tome",
+  "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "workset": "evidence/quality/p2-batches/p2-tome-texts-b43-lore-small-tail.json",
+  "sections": [
+    "mod-tome/data/lore/slazish.lua",
+    "mod-tome/data/lore/spellblaze.lua",
+    "mod-tome/data/lore/spellhunt.lua",
+    "mod-tome/data/lore/sunwall.lua",
+    "mod-tome/data/lore/tannen.lua",
+    "mod-tome/data/lore/trollmire.lua",
+    "mod-tome/data/lore/zigur.lua"
+  ],
+  "scope": {
+    "pairs": 48,
+    "targets_changed": 28,
+    "changed_by_section": {"slazish":3,"spellblaze":2,"spellhunt":7,"sunwall":4,"tannen":4,"trollmire":4,"zigur":4},
+    "invariants": "All source keys, source_tag values, parameter metadata, markup, placeholders and target newline counts were preserved. Out-of-scope sections remained unchanged."
+  },
+  "substantive_repairs": [
+    "Slazish and Spellblaze: naga ranks and mission register, dialogue punctuation, Rhaloren fanaticism and natural apocalyptic letter prose",
+    "Spellhunt: mob persecution, anti-magic propaganda, spell detection guidance, disease chronology and hellhound corruption mechanics",
+    "Sunwall and Tannen: expedition narrative, Bloran epithet adjudication, portal-experiment causality, injury and raving details",
+    "Trollmire and Zigur: document titles, movement and threat descriptions, mandatory rules, natural-world imagery, anti-magic agency and survivor testimony"
+  ],
+  "review": {
+    "contract": "translation_contextual_v1",
+    "parallel_lanes": 4,
+    "max_fix_cycles": 30,
+    "fix_cycles_used": 27,
+    "process_adjustment": "Four full contextual lanes ran in parallel with evidence-backed polishing enabled. Code/process over-hardening was excluded, while translation fidelity, grammar and conspicuous translationese remained actionable.",
+    "declined": [
+      "b43-21 retained the existing Sunwall report title because the same runtime key is shared with a range-out entity-name anchor; a local rename would create same-key inconsistency.",
+      "b43-25 retained user-selected ‘黑者布罗伦’ after expanded context and repository-wide SCOUT search found no independent lore that resolved the epithet differently.",
+      "b43-43 and the matching term inside b43-44 retained ‘罪恶之源’ because the shared range-out title anchor requires a separate cross-batch terminology decision."
+    ],
+    "final_reviews": [
+      {"dispatch":"cycle27-a","candidate_identity":"60c3c1eb74214d031d1c70ffafe422cc538eefa19e202631bd8af026357ad8cf","revisions":10,"result":"PASS"},
+      {"dispatch":"cycle27-b","candidate_identity":"a424d5a13a9695e72ea9fa6041e9daa5471aeecf72f6e2f8e5861ce0ee754431","revisions":15,"result":"PASS_WITH_DECLINED_SCOPE_FINDING"},
+      {"dispatch":"cycle27-c","candidate_identity":"bb2ae8d8abfdcbb81bcc393dafec42fd28dead0566a0c7fab234338cbea7cc60","revisions":14,"result":"PASS"},
+      {"dispatch":"cycle27-d","candidate_identity":"d3ae36bf6b1b9fa61ed9e329ca453893e04805b479b0b61f15c6c7bd25df401a","revisions":9,"result":"PASS"}
+    ],
+    "result": "All 48 revisions completed final four-lane full contextual review; no accepted findings remain."
+  },
+  "gates": {
+    "five_step": "PASS",
+    "toolchain_unittests": "465 tests PASS",
+    "ci_gates": "12/12 PASS incl. core addon strict build",
+    "lint": "30308 translations, 0 errors, 0 warnings",
+    "runtime_collisions": 0,
+    "diff": "mod-tome.lua 137 insertions / 137 deletions; 28 target values changed"
+  },
+  "open_items": []
+}
