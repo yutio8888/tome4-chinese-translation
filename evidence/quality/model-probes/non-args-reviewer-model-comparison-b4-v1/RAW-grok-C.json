@@ -1,0 +1,154 @@
+{
+  "route": "grok",
+  "variant": "C",
+  "duration_seconds": 533.516,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 5,
+  "fp": 9,
+  "fn": 2,
+  "tn": 8,
+  "recall": 0.7142857142857143,
+  "precision": 0.35714285714285715,
+  "clean_false_positive_rate": 0.5294117647058824,
+  "predicted_defect_ids": [
+    "6a52673dfad9af782ada1d01ee831f23676794f08a97f1ef7d999688cf07846c",
+    "9efb27ea36219825be5bb9e38fbb552786d6cdacf8c37fca2923d869a065ffb4",
+    "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+    "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+    "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+    "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017",
+    "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+    "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+    "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b",
+    "ba45293063c0e7e0e91ab6c236c4968ab6cc12049b709074cbc08b1a6f3e0b10",
+    "6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244",
+    "d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2",
+    "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+    "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3"
+  ],
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "bbe6a6d1496e967559d5d19258c5963ccc7f9337d92af6801560820335ce3ac2",
+        "observation": "OK",
+        "evidence": "inflict %0.2f mind damage (range 10) → 造成%0.2f精神伤害（距离10）；gaining psi and hate equal to 10%%%% of the damage done → 获得相当于造成伤害10%%%%的灵能值和仇恨值"
+      },
+      {
+        "revision_id": "6a52673dfad9af782ada1d01ee831f23676794f08a97f1ef7d999688cf07846c",
+        "observation": "「可以对」把必然爆炸改成可选；「explode against your foes」被译成「自爆」，爆炸关系从命中敌人变成鬼火自炸；「your Magic」未绑定到魔法属性。",
+        "evidence": "source: will explode against your foes ... (based on your Magic)／target: 可以对你的敌人自爆……（基于魔法）"
+      },
+      {
+        "revision_id": "9efb27ea36219825be5bb9e38fbb552786d6cdacf8c37fca2923d869a065ffb4",
+        "observation": "无依据加入「技能结束后」，把「ends up with」的生命结算时点改成技能结束时。",
+        "evidence": "source: If the target ends up with low enough life (<20%%)／target: 技能结束后若目标生命值不足 20%%"
+      },
+      {
+        "revision_id": "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+        "observation": "无依据加入「强化」；Each spell 被扩成每个技能；「spellbound in one way」改成附加一种时空增效系效果；Current Extended Spell 的 Extended 被改成强化。",
+        "evidence": "source: Extends the duration of the selected chronomancy spell；Each spell can only be spellbound in one way at a time；Current Extended Spell／target: 强化指定的时空系法术……；每个技能只能附加一种时空增效系效果；当前强化法术"
+      },
+      {
+        "revision_id": "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+        "observation": "100%% 未绑定到「the damage dealt」；流血量依据丢失，可被读成与本次伤害无关的 100%% 额外流血。",
+        "evidence": "source: an additional 100%% of the damage dealt as a bleed over 4 turns／target: 在 4 回合内受到 100%% 的额外流血伤害"
+      },
+      {
+        "revision_id": "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+        "observation": "冷却缩短对象被扩大：source 的 their cooldowns 指 charms，target 把冷却和能量消耗都套到所有可用物品。",
+        "evidence": "source: reducing their cooldowns and the power cost of all usable items／target: 使所有可用物品的冷却时间和能量消耗降低 %d%%"
+      },
+      {
+        "revision_id": "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017",
+        "observation": "「over 3 turns」译成「3回合内」有歧义：可读成 3 回合总量，也可读成持续 3 回合每回合满额，总伤害不同。",
+        "evidence": "source: for %0.2f fire damage over 3 turns／target: 3回合内 %0.2f 火焰伤害"
+      },
+      {
+        "revision_id": "6f2623b7cf2eda3d4914dc9c377f08f047b7a3fc7026b3f9fb38254cd5517159",
+        "observation": "OK",
+        "evidence": "a trio of shadowy rogues → 三名阴影盗贼；receive your damage bonuses and are permanently stealthed → 继承你的伤害加成，并永久处于潜行状态；disappear after %d turns or when their work is done → 在 %d 回合后，或完成任务时消失"
+      },
+      {
+        "revision_id": "c46aedd1fa773ba4738ae1e99615704dc12064692d4d5db5fd2380be264f6408",
+        "observation": "OK",
+        "evidence": "enemies within a radius of %d → 半径 %d 格内……敌人；%d damage and %d knockback at the center, that decreases with distance → 中心造成 %d 点伤害并击退 %d 格……随离爆心的距离增加而降低；dazed for 3 turns → 眩晕 3 回合；all critical damage by %d%% (currently: %d%%) 对应"
+      },
+      {
+        "revision_id": "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+        "observation": "酸性爆炸被改成转化地面为酸性淤泥区；无依据加入「码」；LoS 从软泥怪能否喷吐错挂到「视线内的目标」；「one of」被增补为随机；丢失 instantly；all creatures 收成所有目标。",
+        "evidence": "source: ground to erupt in an radius %d acidic explosion ... all creatures；Oozes ... will, if in line of sight, instantly spit slime ... at one of the targets hit by the splash／target: 将 %d 码半径范围内的地面转化为酸性淤泥区，对所有目标；向视线内的某个被淤泥击中的随机目标释放史莱姆喷吐"
+      },
+      {
+        "revision_id": "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+        "observation": "「all foes」收成「目标」，丢失全体且可能含非敌人；radius 5 无依据写成「5 码」。",
+        "evidence": "source: Pull all foes toward you in radius 5／target: 将 5 码范围内的目标拉向你"
+      },
+      {
+        "revision_id": "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b",
+        "observation": "六项具名属性被概括成「所有强度和豁免」，范围可被扩大或读成不含法术/精神强度。",
+        "evidence": "source: Physical Power, Physical Save, Spellpower, Spell Save, Mental Save, and Mindpower／target: 所有强度和豁免"
+      },
+      {
+        "revision_id": "ba45293063c0e7e0e91ab6c236c4968ab6cc12049b709074cbc08b1a6f3e0b10",
+        "observation": "warrior 被改成狂战士；Berserker 译成嗜血；「has +%d Strength/Dexterity/Constitution」译成「可增加」，加成变成可选且未绑定施加对象是该精神体。",
+        "evidence": "source: Forge a warrior ... learns ... Berserker ... and has +%d Strength, +%d Dexterity, and +%d Constitution／target: 精神体狂战士……嗜血……并且可增加 %d 点力量、 %d 点敏捷和 %d 体质"
+      },
+      {
+        "revision_id": "cce8b1eea8f36519d4f8101be6fac546d1d7cda39df96bc92273619461d0cb01",
+        "observation": "OK",
+        "evidence": "carrying capacity / defense against projectiles / pin and stun immunity 四项数值对应；At level 4 ... levitate ... ignore some traps → 等级 4……漂浮……忽略部分陷阱；At level 5 ... %d%% movement speed and removes %d fatigue → 提升 %d%% 移动速度并且移除 %d 点疲劳"
+      },
+      {
+        "revision_id": "6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244",
+        "observation": "「below 1 life」译成「1 以下」，中文常含等于 1，触发条件被扩大。",
+        "evidence": "source: If used below 1 life／target: 如果你当前生命值在 1 以下"
+      },
+      {
+        "revision_id": "d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2",
+        "observation": "「可」使每回合伤害变成可选；无依据加入「码」；「向地上释放」把空间形态改成对地放置。",
+        "evidence": "source: doing %0.2f fire damage in a radius of %d each turn／target: 向地上释放一片火焰，每回合可对敌我双方造成 %0.2f 火焰伤害，半径 %d 码"
+      },
+      {
+        "revision_id": "67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88",
+        "observation": "OK",
+        "evidence": "friendly: magical and physical saves increased by %d, ... healing factor ... 15%% → 提升 %d 魔法和物理豁免……治疗系数 15%%；hostile: ... reduced by %d, ... all talents cool down 15%% slower → 降低 %d……冷却时间延长 15%%"
+      },
+      {
+        "revision_id": "88830814768d0f6c948de6410acfa7a3b59d7995348fdfda934bd860b3474e16",
+        "observation": "OK",
+        "evidence": "doing %d%% damage → 造成 %d%% 伤害；regain %d stamina → 回复 %d 点体力"
+      },
+      {
+        "revision_id": "defcf6a782239b18d5366bccf8f0491f1e6ff5748feaa7cb845a9f7556c28dc4",
+        "observation": "OK",
+        "evidence": "When you're targeted by a projectile, your global speed is increased by %d%% for 1 turn → 被抛射物锁定时，增加 %d%% 全局速度 1 回合；any action other than movement will break the effect → 除了移动外的任何动作均会打破此效果"
+      },
+      {
+        "revision_id": "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+        "observation": "「natural obstacles」被换成「其他障碍物」，不可穿越例外从自然障碍扩大到一切非墙障碍。",
+        "evidence": "source: passing through walls (but not natural obstacles)／target: 可以穿墙（但不能穿过其他障碍物）"
+      },
+      {
+        "revision_id": "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+        "observation": "OK",
+        "evidence": "Improves/gives the ability to see invisible and stealthed creatures (power %d) → 提升/获得侦测隐形或者潜行生物（ %d 侦测等级）"
+      },
+      {
+        "revision_id": "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3",
+        "observation": "defense 与 evasion 被同译「闪避」，两项机制无法区分；「being unseen」收成「不可见」，可能不含潜行等未见来源。",
+        "evidence": "source: reducing ... defense by %d and looses all evasion bonus from being unseen／target: 减少 %d 闪避，同时失去不可见带来的闪避加成"
+      },
+      {
+        "revision_id": "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1",
+        "observation": "OK",
+        "evidence": "almost the size of a dragon → 跟龙差不多体型；Hundreds of hanging teats → 上百个垂挂的乳头；toughest ... grow stronger, the weaker ones ... wither 与护崽愤怒均保留，无战斗机制改动"
+      },
+      {
+        "revision_id": "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8",
+        "observation": "OK",
+        "evidence": "once-shining armour now dull and bloodstained → 曾经闪亮的盔甲如今……满是鲜血；this Sun Paladin has given in to despair → 这名太阳骑士已经陷入了……绝望"
+      }
+    ]
+  }
+}

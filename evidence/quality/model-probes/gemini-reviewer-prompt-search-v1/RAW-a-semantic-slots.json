@@ -1,0 +1,136 @@
+{
+  "variant": "PROMPT-A-SEMANTIC-SLOTS.md",
+  "duration_seconds": 60.711,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 4,
+  "fp": 1,
+  "fn": 6,
+  "tn": 10,
+  "recall": 0.4,
+  "precision": 0.8,
+  "clean_false_positive_rate": 0.09090909090909091,
+  "predicted_defect_ids": [
+    "1910f2d1f4823488275c7c5e6a71b9d930ad265f801901a4677c4533d27e367b",
+    "2ff6f9d2e0d5bbb1f97345a403cfe4d249bd65355dbb8ed7627a002bd30cfd44",
+    "4edbe2094a539c706ebd44290f341098bec6c09bc58f9b9f0826c58e56c30c05",
+    "abf43552188d836c6de2ece8a114f0d04248b54863d53cd9c6509cc44fe53e88",
+    "f15ead4fe953ee4ec53949d59e404be023576b38c3d32f8fe2397d84fbc1c193"
+  ],
+  "usage": {
+    "input_tokens": 50911,
+    "output_tokens": 26550,
+    "thinking_tokens": 23070,
+    "cache_read_tokens": 24542,
+    "total_tokens": 77461
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "0fe5888f46b26b41ab73e208a0f361c18dcc9c47cd9daae19351c2e8802c8883"
+      },
+      {
+        "evidence": "source 中 'in radius %d around the foe you struck' 在 target 中被译为 '对 %d 范围内的所有敌人'，遗漏了 'around the foe you struck'（受击目标周围）以及 'radius'（半径）",
+        "observation": "遗漏空间作用中心与半径描述",
+        "revision_id": "1910f2d1f4823488275c7c5e6a71b9d930ad265f801901a4677c4533d27e367b"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "22de9ff4f589ea03f71377c3d3c4302edcbe165f9047fb70117b4f7b7e34e9cf"
+      },
+      {
+        "evidence": "args_order 为 [2, 1, 3, 4]，但 target 中中文占位符顺序仍为 '最多 %d 个目标 ... 作用半径 %d'，导致目标数与半径绑定的参数数值相互颠倒",
+        "observation": "占位符重排与文本语义颠倒",
+        "revision_id": "2ff6f9d2e0d5bbb1f97345a403cfe4d249bd65355dbb8ed7627a002bd30cfd44"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "3bf8909bd954be7471a79a28ef641f9466a64c0f8ea3e5b4eaaefbbc02b03b27"
+      },
+      {
+        "evidence": "source 中的限定词 'up to %d'（最多造成 %d 点伤害）在 target 中被漏译为 '造成%d'，遗漏了 'up to'（最多/至多）",
+        "observation": "遗漏数值上限限定词",
+        "revision_id": "4edbe2094a539c706ebd44290f341098bec6c09bc58f9b9f0826c58e56c30c05"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "5b5cf5c89b0dd9caf27c14f3a57cebc349ac151218cd2e74db2be3ec1a8f1ee3"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "5ffa90779b630e05d5da9a14dca1abccc0860e144264b6c7a2c2a9b7e16fd893"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "67abfdcb964506c157d415e954a244c6a8d0639adb958e263e6f0ebf0bfbb9ea"
+      },
+      {
+        "evidence": "source 中技能范围形状为 'in a cone of radius %d'（半径 %d 的锥形范围），target 漏译了 'cone'（锥形），误译为单纯的 '在半径 %d 范围内'",
+        "observation": "遗漏技能范围形状",
+        "revision_id": "abf43552188d836c6de2ece8a114f0d04248b54863d53cd9c6509cc44fe53e88"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "b25a21bfa49f28da9a0ddf3447295449d455221d80d31b3362e3e723910e54f7"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "b78cb2885a36f726e235b051989f43912b905a9b60ae1f7ef7cb6cda02033acc"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "b962bafe523642338dc8f0f8612a17711f957c7ddb24bff0947928b309146da1"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "bdb1d9e7dd95e37c0d4e00964c8978d010291cbaafc8a701cc5d5c3619ce0a44"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "c809338f5093bbab77bac36ca52975d93b0efd4de44e825cfe36048574c74cd6"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "d326e4bbc6da338505d1729f209280228c97ea11291cdfa052099a33fa2a5f64"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "e6ddcec1b532619d209ff3b208c92416f0455a45e41fd3d064ed4827d3cce6a9"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "edc5666d3a144e124c9ef77260bf17f336bf39c2cf1ed557705c507b01a3f249"
+      },
+      {
+        "evidence": "source 中护盾数值计算明确指定 '(not counting cross-tier ones)'（不计入越层效果/越层效果除外），target 中漏译了该排除条件",
+        "observation": "遗漏护盾计算的例外排除条件",
+        "revision_id": "f15ead4fe953ee4ec53949d59e404be023576b38c3d32f8fe2397d84fbc1c193"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "fc48069d340fc0a3b60f171096862ac8807eef254acc3acba11e3804dbaae69e"
+      },
+      {
+        "evidence": "OK",
+        "observation": "OK",
+        "revision_id": "fcafd3ecdea722007ad7825e733d53588fb401b5c333c9d696b03202231a3805"
+      }
+    ]
+  }
+}

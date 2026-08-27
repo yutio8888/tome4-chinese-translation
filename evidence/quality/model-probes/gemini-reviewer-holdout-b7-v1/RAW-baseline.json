@@ -1,0 +1,147 @@
+{
+  "variant": "baseline",
+  "duration_seconds": 62.451,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 1,
+  "fp": 0,
+  "fn": 5,
+  "tn": 18,
+  "recall": 0.16666666666666666,
+  "precision": 1,
+  "clean_false_positive_rate": 0,
+  "predicted_defect_ids": [
+    "4a6af5f88ca18aafc5b5bf91621ac53ee053694319d05e7d70297cf6be69d6b8"
+  ],
+  "usage": {
+    "input_tokens": 56141,
+    "output_tokens": 32317,
+    "thinking_tokens": 25541,
+    "cache_read_tokens": 28195,
+    "total_tokens": 88458
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "source: \"inflicting %0.2f light damage in radius %d ... lighting the area within radius %d\", target: \"在半径%d内造成%0.2f光系伤害...并照明%d码\", args_order: [2, 1, 3]",
+        "observation": "OK",
+        "revision_id": "c13206e1600fc7777fcec48dd77048c6dce102eeb32c03444475611de2db6c42"
+      },
+      {
+        "evidence": "source: \"%0.2f temporal damage ... in a radius %d ball out to range %d ... up to %d turn(s)\", target: \"半径 %d ... %0.2f 时空伤害（射程 %d ... 最多 %d 回合\", args_order: [2, 1, 3, 4]",
+        "observation": "OK",
+        "revision_id": "2fb2f6bd97db72980c910f5d7c676624b19d1919962dc59ebbf289a0fe5ab104"
+      },
+      {
+        "evidence": "source: \"increases ... by %d%% and, up to %d times per turn ... gain %0.1f Positive Energy\", target: \"增加 %d%% ... 恢复 %0.1f 点正能量 ... 最多每回合触发 %d 次\", args_order: [1, 3, 2]",
+        "observation": "OK",
+        "revision_id": "5a12b22274a16e07fe9610542ccce4db693094788983cd971b0ec933b5fceca2"
+      },
+      {
+        "evidence": "source: \"slowed by %d%% for %d turns\", target: \"受到 %d%% 的减速效果，持续 %d 回合\", args_order: [2, 1, 3, 4, 5]",
+        "observation": "占位符与参数顺序绑定错误：在 args_order=[2,1,3,4,5] 下，第 1 个占位符 %d%% 绑定了第 2 个参数（减速持续回合），第 2 个占位符 %d 回合绑定了第 1 个参数（减速百分比），导致减速百分比与持续回合数颠倒",
+        "revision_id": "4a6af5f88ca18aafc5b5bf91621ac53ee053694319d05e7d70297cf6be69d6b8"
+      },
+      {
+        "evidence": "source: \"cooldown of %d or less ... %d turns pass\", target: \"接下来的 %d 回合内 ... 冷却时间不超过 %d 回合\", args_order: [2, 1]",
+        "observation": "OK",
+        "revision_id": "9754d8f40538505b00e7bf285a4fdd9426903007d12ffc2e36f7a162417af7a8"
+      },
+      {
+        "evidence": "source: \"%d%% chance ... %0.2f physical (gravity) damage ... radius of %d ... %d%% for %d turns\", target: \"%d%% 几率 ... 半径 %d ... %0.2f 物理( 重力) 伤害 ... %d%%，持续 %d 回合\", args_order: [1, 3, 2, 4, 5]",
+        "observation": "OK",
+        "revision_id": "b362d2fcd77e16d2e8169844e56f27a8a91419184b2b7ce93954e177b6b73fac"
+      },
+      {
+        "evidence": "source: \"Target knocked back up to %d grids%s and dazed\", target: \"目标被击退到%s最多 %d 格，并眩晕\", args_order: [2, 1]",
+        "observation": "OK",
+        "revision_id": "32c46a2286893f5686f0ae71843659c3ea05fc7946334c2b214846c9969fbe99"
+      },
+      {
+        "evidence": "source: \"%d mind damage to targets in radius %d ... %d%% less damage\", target: \"%d 码半径 ... 造成 %d 精神伤害 ... 减少 %d%% 伤害\", args_order: [2, 1, 3]",
+        "observation": "OK",
+        "revision_id": "0e9abbbfe5a19f46705d5f5c461b64320885ab424e8af08725c1bee851907460"
+      },
+      {
+        "evidence": "source: \"length %d for %d turns ... dealing %0.2f damage ... within radius %d\", target: \"长度为 %d、持续 %d 回合 ... 半径 %d ... 造成 %0.2f 点寒冷伤害\", args_order: [1, 2, 4, 3]",
+        "observation": "OK",
+        "revision_id": "f05b671cb7e1d6867ac36b8df609baf87b574d5c0759a1763e46dd640c9b4f75"
+      },
+      {
+        "evidence": "source: \"%d%% weapon damage ... %0.2f of that damage ... radius %d ... speeds by %d%%\", target: \"%d%% 点对应伤害类型的武器伤害 ... %d 码半径 ... %0.2f 伤害 ... 提升 %d%%\", args_order: [1, 3, 2, 4]",
+        "observation": "OK",
+        "revision_id": "c9354016f3bd79bc13b8663b9c2c65ed4c890824bcfd442819964386ce342182"
+      },
+      {
+        "evidence": "source: \"for %d turns ... %0.1f Manaburn damage in radius %d ... restore %0.1f Equilibrium\", target: \"持续 %d 个回合 ... 在 %d 半径内造成 %0.1f 点法力燃烧伤害 ... 回复 %0.1f 点失衡值\", args_order: [1, 3, 2, 4]",
+        "observation": "OK",
+        "revision_id": "668ed05733aa6a55d8a7a2c0da4471c6428c186cc29c18f62c55ca4dbd8e646e"
+      },
+      {
+        "evidence": "source: \"(%d radius) ... (power %d) for %d turns ... receptive for %d turns ... any %s around\", target: \"（ %d 有效范围） ... （ %d 强度），持续 %d 回合 ... 感知到周围的 %s ，持续 %d 回合\", args_order: [1, 2, 3, 5, 4]",
+        "observation": "OK",
+        "revision_id": "99d240ff521351466cac61646f8ceff1019c7926939c26a51f80052229b6ef51"
+      },
+      {
+        "evidence": "source: \"take %d%% ... gain %d%% Evasion and %d additional defense for the next %d turns\", target: \"受到超过 %d%% 生命值 ... 接下来的 %d 回合内获得 %d%% 躲闪概率和 %d 点闪避值\", args_order: [1, 4, 2, 3]",
+        "observation": "OK",
+        "revision_id": "8f00dbfb14cfd9e0b97212d40a047b0eff2c7d1b33b679379ab2b094c9b36f98"
+      },
+      {
+        "evidence": "source: \"dealing %0.1f Lightning damage within radius %d\", target: \"造成半径为 %d 的 %0.1f 闪电伤害\", args_order: [2, 1]",
+        "observation": "OK",
+        "revision_id": "3770baeaf33779789df0e8d78d7313d4be8b57eca3592fc11f5ce18101a9ed80"
+      },
+      {
+        "evidence": "source: \"%0.1f (max %0.1f) ... radius %d ... %d%% (max %d%%) ... %d (max %d) Psi\", target: \"半径 %d 格 ... %0.1f（最多 %0.1f） ... %d%%（最多 %d%%） ... %d（最多 %d）点灵能值\", args_order: [3, 1, 2, 4, 5, 6, 7]",
+        "observation": "OK",
+        "revision_id": "9c33961add4f019c1d845bbbf73af0073c03b3ddf4152b184e43885a9f499436"
+      },
+      {
+        "evidence": "source: \"melee attack for %d%% arcane damage against everyone within radius %d\", target: \"对半径 %d 内的生物造成 %d%% 奥术武器伤害\", args_order: [2, 1]",
+        "observation": "OK",
+        "revision_id": "fb89c051332625fb662fba5af1cbde7470445d723fc35902bb235a979698a75a"
+      },
+      {
+        "evidence": "source: \"loses %d%% ... %0.2f cold damage ... radius %d ... regenerate %0.1f%% ... %d desolate wastes\", target: \"原始护盾值 %d%% ... 半径 %d 格 ... %0.2f 点寒冷伤害 ... 恢复原始护盾值的 %0.1f%% ... 最多触发 %d 片荒芜之地\", args_order: [1, 3, 2, 4, 5]",
+        "observation": "OK",
+        "revision_id": "8618efd7627691da576af49fa48f8384657724ff5e929c422315a41c714e2bf8"
+      },
+      {
+        "evidence": "source: \"doing %0.2f cold damage in a radius of %d ... reducing all damage they take by %d\", target: \"对半径 %d 内的生物造成 %0.2f 点寒冷伤害 ... 受到的所有伤害降低 %d 点\", args_order: [2, 1, 3]",
+        "observation": "OK",
+        "revision_id": "7b59869c4ff64ba517ef3393cea333697f764a1120aad73f81ff43def58aa582"
+      },
+      {
+        "evidence": "source: \"for %d turns ... has a %d%% chance\", target: \"有 %d%% 概率 ... 持续 %d 回合\", args_order: [2, 1]",
+        "observation": "OK",
+        "revision_id": "0117dc2fe5de0301dc91305c15fd752a09a4650dcb165ccdb9baa4400bf8e854"
+      },
+      {
+        "evidence": "source: \"absorbing %d/%d damage ... up to %d (currently %d) Arcane damage in a radius %d\", target: \"吸收 %d/%d 点伤害 ... 半径 %d 内的目标造成至多 %d（当前 %d）点奥术伤害\", args_order: [1, 2, 5, 3, 4]",
+        "observation": "OK",
+        "revision_id": "f29c5c9ed295a344f4370f2332a23ee0d4bdf37611c5bf6d2234cd562c7e4364"
+      },
+      {
+        "evidence": "source: \"%d more turns within range %d ... fear (%s) ... take %d mind and darkness damage\", target: \"恐惧源头 (%s) 的 %d 范围内 ... 停留 %d 回合 ... 受到%d精神和暗影伤害\", args_order: [3, 2, 1, 4]",
+        "observation": "OK",
+        "revision_id": "122d658ee7464e0457f0a239514fa31fcb40cc2e59a7e988977c89e29ca1c735"
+      },
+      {
+        "evidence": "source: \"increasing Mind resistance penetration by +%d%% and turning its attention on %s\", target: \"集中在 %s ，增加%d%%精神抗性穿透\", args_order: [2, 1]",
+        "observation": "OK",
+        "revision_id": "36ed00c6a37e94df55fc623df53d3f4d10a2db5f72d31700ff92527d4fbe5c9e"
+      },
+      {
+        "evidence": "source: \"%d%% additional speed in a single direction (%s)\", target: \"单方向（%s）移动时获得 %d%% 额外速度\", args_order: [2, 1]",
+        "observation": "OK",
+        "revision_id": "c82d7fe6258b9c7981f2b29374d1e7d84f028f54963703a18f96d843485069de"
+      },
+      {
+        "evidence": "source: \"taking %0.2f physical damage %s\", target: \"%s受到 %0.2f 物理伤害\", args_order: [2, 1]",
+        "observation": "OK",
+        "revision_id": "f53835f9612a964f59e05930d8cc176370a5dc1bf0bf40463e84ef4107f1d966"
+      }
+    ]
+  }
+}

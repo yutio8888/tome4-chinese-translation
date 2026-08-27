@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "experiment": "EXPERIMENT.json",
+  "population": {"items":24,"defect_revisions":7,"clean_revisions":17},
+  "protocols": {
+    "single_codex_baseline": {
+      "tp":4,"fp":2,"fn":3,"tn":15,"recall":0.571429,"precision":0.666667,"clean_false_positive_rate":0.117647,"balanced_accuracy":0.726891,"duration_seconds":102.967
+    },
+    "structured_intermediate_discussion": {
+      "description":"Both reconsideration rounds emit full 24-item JSON; Codex chair emits final JSON.",
+      "tp":5,"fp":4,"fn":2,"tn":13,"recall":0.714286,"precision":0.555556,"clean_false_positive_rate":0.235294,"balanced_accuracy":0.739496,
+      "critical_path_seconds_from_scratch":324.093,
+      "stage_durations":{"round1_parallel_max":102.967,"reconsider_parallel_max":139.643,"chair":81.483}
+    },
+    "free_text_intermediate_discussion": {
+      "description":"Only the chair is schema-constrained. Codex and Gemini exchange free-text critique focused on disagreements, evidence, blind spots and uncertainty.",
+      "tp":5,"fp":3,"fn":2,"tn":14,"recall":0.714286,"precision":0.625,"clean_false_positive_rate":0.176471,"balanced_accuracy":0.768908,
+      "critical_path_seconds_from_scratch":358.088,
+      "stage_durations":{"round1_parallel_max":102.967,"discussion_parallel_max":144.9,"chair":110.221}
+    }
+  },
+  "alternative_aggregation": {
+    "post_reconsideration_union":{"tp":5,"fp":5,"fn":2,"tn":12,"recall":0.714286,"precision":0.5,"clean_false_positive_rate":0.294118},
+    "post_reconsideration_consensus":{"tp":3,"fp":2,"fn":4,"tn":15,"recall":0.428571,"precision":0.6,"clean_false_positive_rate":0.117647}
+  },
+  "free_text_chair_changes_vs_single_codex": {
+    "new_true_positive":"8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+    "dropped_false_positive":"67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88",
+    "new_false_positives":[
+      "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+      "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1"
+    ],
+    "remaining_false_negatives":[
+      "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+      "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3"
+    ]
+  },
+  "recommendation": {
+    "preferred_discussion_protocol":"free_text_intermediate_discussion",
+    "reason":"It retains the structured protocol's 71.43% recall while reducing false positives from four to three; it has the highest balanced accuracy of the tested modes.",
+    "tradeoff":"Compared with single Codex, it gains one net true positive and raises balanced accuracy by 4.20 percentage points, but requires five model calls and about 3.48 times the critical-path latency.",
+    "use_case":"Use Discussion for high-impact or disputed slices, not every routine batch. For ordinary review, single Codex remains more cost-efficient.",
+    "safety":"Discussion still exhibits opinion propagation and misses source-dependent distinctions. Fixed-source adjudication and deterministic lint remain mandatory."
+  }
+}

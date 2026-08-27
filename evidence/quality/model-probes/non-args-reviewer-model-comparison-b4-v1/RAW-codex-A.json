@@ -1,0 +1,150 @@
+{
+  "route": "codex",
+  "variant": "A",
+  "duration_seconds": 159.359,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 5,
+  "fp": 5,
+  "fn": 2,
+  "tn": 12,
+  "recall": 0.7142857142857143,
+  "precision": 0.5,
+  "clean_false_positive_rate": 0.29411764705882354,
+  "predicted_defect_ids": [
+    "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+    "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+    "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017",
+    "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+    "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+    "6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244",
+    "d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2",
+    "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+    "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1",
+    "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8"
+  ],
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "bbe6a6d1496e967559d5d19258c5963ccc7f9337d92af6801560820335ce3ac2",
+        "observation": "OK",
+        "evidence": "精神伤害、距离10，以及按伤害量10%同时获得灵能值和仇恨值均保留；%0.2f绑定伤害数值。"
+      },
+      {
+        "revision_id": "6a52673dfad9af782ada1d01ee831f23676794f08a97f1ef7d999688cf07846c",
+        "observation": "OK",
+        "evidence": "释放鬼火、对敌人自爆、造成寒冷伤害及伤害基于魔法属性均保留；%d绑定寒冷伤害。"
+      },
+      {
+        "revision_id": "9efb27ea36219825be5bb9e38fbb552786d6cdacf8c37fca2923d869a065ffb4",
+        "observation": "OK",
+        "evidence": "两种伤害、生命低于20%时可能即死、两类紊乱目标受到额外50%伤害及法术强度加成都保留；两个%0.2f依次绑定时空与物理伤害。"
+      },
+      {
+        "revision_id": "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+        "observation": "限制对象被扩大",
+        "evidence": "source限定“Each spell”一次只能有一种spellbound方式，target写成“每个技能”，把法术限制扩大为所有技能；%d与%s的绑定正确。"
+      },
+      {
+        "revision_id": "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+        "observation": "遗漏流血伤害的计算基准",
+        "evidence": "source是额外流血总量等于“100% of the damage dealt”，target仅说“受到100%的额外流血伤害”，未说明该100%以本次攻击造成的伤害为基准。"
+      },
+      {
+        "revision_id": "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+        "observation": "OK",
+        "evidence": "所有可用物品的冷却与能量消耗降低、解除已发现陷阱及解除强度随灵巧提高均保留；两个%d依次绑定降耗比例和解除强度。"
+      },
+      {
+        "revision_id": "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017",
+        "observation": "爆炸形状不明确",
+        "evidence": "source明确为“radius 2”，target仅写“范围2”，未保留半径限定；%0.2f仍正确绑定3回合内的火焰伤害。"
+      },
+      {
+        "revision_id": "6f2623b7cf2eda3d4914dc9c377f08f047b7a3fc7026b3f9fb38254cd5517159",
+        "observation": "OK",
+        "evidence": "召唤三名盗贼攻击目标、继承伤害加成、永久潜行，以及在%d回合后或任务完成时消失均保留。"
+      },
+      {
+        "revision_id": "c46aedd1fa773ba4738ae1e99615704dc12064692d4d5db5fd2380be264f6408",
+        "observation": "OK",
+        "evidence": "全方向半径、中心伤害与击退、两者随距离衰减、范围内所有生物眩晕3回合、暴击伤害增益及精神强度加成都保留；五个占位符绑定正确。"
+      },
+      {
+        "revision_id": "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+        "observation": "改变视线条件并增译随机选择",
+        "evidence": "source的“if in line of sight”修饰活动中的粘液软泥怪，target改为向“视线内”的受击目标喷吐；target还增添“随机”，而source只说命中目标之一。此外“acidic explosion”被改成地面转化为淤泥区。"
+      },
+      {
+        "revision_id": "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+        "observation": "遗漏敌对与全体限定",
+        "evidence": "source是拉动半径5内“all foes”，target仅写“5码范围内的目标”，未明确只作用于敌人且作用于全部敌人。"
+      },
+      {
+        "revision_id": "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b",
+        "observation": "OK",
+        "evidence": "视野内至少2名敌人的触发条件、每名敌人分别提供增益、六项强度与豁免以及最多计算5名敌人均保留；%0.1f绑定每名敌人的增量。"
+      },
+      {
+        "revision_id": "ba45293063c0e7e0e91ab6c236c4968ab6cc12049b709074cbc08b1a6f3e0b10",
+        "observation": "OK",
+        "evidence": "战斧战士、随等级学习五项技能、力量敏捷体质增益、激活后其他思维形态冷却及增益随精神强度提高均保留；三个%d依次绑定三项属性。"
+      },
+      {
+        "revision_id": "cce8b1eea8f36519d4f8101be6fac546d1d7cda39df96bc92273619461d0cb01",
+        "observation": "OK",
+        "evidence": "负重、抛射物防御、定身与震慑免疫，以及4级漂浮避开部分陷阱、5级移动速度和疲劳减免均保留；六个占位符绑定正确。"
+      },
+      {
+        "revision_id": "6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244",
+        "observation": "生命条件边界不等价",
+        "evidence": "source条件是“below 1 life”，即生命值严格小于1；target写“在1以下”，通常包含等于1，扩大了触发范围。三个%d仍依次绑定治疗、法力和法术强度。"
+      },
+      {
+        "revision_id": "d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2",
+        "observation": "增译地面释放关系",
+        "evidence": "source只说明狂暴火焰在指定半径内每回合灼烧敌我双方，未说明火焰被“向地上释放”；target新增地面放置关系，可能使玩家理解为地面目标区域。三个占位符的伤害、半径和持续回合绑定正确。"
+      },
+      {
+        "revision_id": "67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88",
+        "observation": "OK",
+        "evidence": "友方提升魔法与物理豁免且5级提升15%治疗系数、敌方降低对应豁免且5级使所有技能冷却变慢的两组条件均保留；两个%d分别绑定友方增益和敌方减益。"
+      },
+      {
+        "revision_id": "88830814768d0f6c948de6410acfa7a3b59d7995348fdfda934bd860b3474e16",
+        "observation": "OK",
+        "evidence": "低力度射击造成%d%伤害，以及该短暂喘息恢复另一%d点体力均保留，占位符归属正确。"
+      },
+      {
+        "revision_id": "defcf6a782239b18d5366bccf8f0491f1e6ff5748feaa7cb845a9f7556c28dc4",
+        "observation": "OK",
+        "evidence": "被抛射物锁定时提升全局速度1回合，以及除移动外任何动作都会中断效果均保留；%d绑定速度百分比。"
+      },
+      {
+        "revision_id": "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+        "observation": "例外范围被扩大",
+        "evidence": "source允许穿墙，但不能穿过“natural obstacles”；target写成不能穿过“其他障碍物”，把禁止范围扩大到了所有其他障碍物。两个%d仍依次绑定闪避和护甲。"
+      },
+      {
+        "revision_id": "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+        "observation": "OK",
+        "evidence": "提升或获得侦测隐形与潜行生物的能力均保留；%d正确绑定该侦测能力的强度。"
+      },
+      {
+        "revision_id": "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3",
+        "observation": "OK",
+        "evidence": "目标在光中显形、潜行与隐身强度共同降低、基础闪避降低，以及失去因未被看见获得的全部闪避加成都保留；两个%d绑定正确。"
+      },
+      {
+        "revision_id": "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1",
+        "observation": "描述信息被替换和遗漏",
+        "evidence": "source的“Mucus and slime”被译为“粘液和脓液”，把slime替换成了脓液；“babies regularly emerge”还遗漏了“regularly”，第二段的厚重皮肤褶皱被改成皮肤下“无数浮肿的肉块”。"
+      },
+      {
+        "revision_id": "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8",
+        "observation": "增译生锈并误解黯淡",
+        "evidence": "source只说盔甲由闪亮变得“dull and bloodstained”，target增添“锈”，并把表示失去光泽的dull译成表示锋利度的“钝”。"
+      }
+    ]
+  }
+}

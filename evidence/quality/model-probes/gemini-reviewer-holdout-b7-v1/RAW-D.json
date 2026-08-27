@@ -1,0 +1,147 @@
+{
+  "variant": "D",
+  "duration_seconds": 75.262,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 1,
+  "fp": 0,
+  "fn": 5,
+  "tn": 18,
+  "recall": 0.16666666666666666,
+  "precision": 1,
+  "clean_false_positive_rate": 0,
+  "predicted_defect_ids": [
+    "4a6af5f88ca18aafc5b5bf91621ac53ee053694319d05e7d70297cf6be69d6b8"
+  ],
+  "usage": {
+    "input_tokens": 54751,
+    "output_tokens": 29476,
+    "thinking_tokens": 23489,
+    "cache_read_tokens": 25324,
+    "total_tokens": 84227
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "args_order [2, 1, 3] 正确将伤害半径 %d、光系伤害数值 %0.2f 与照明半径 %d 分别置入对应分句，基于属性与效果归属完全等价。",
+        "observation": "OK",
+        "revision_id": "c13206e1600fc7777fcec48dd77048c6dce102eeb32c03444475611de2db6c42"
+      },
+      {
+        "evidence": "args_order [2, 1, 3, 4] 正确对应爆炸半径 %d、时空伤害 %0.2f、施放射程 %d 及移出时间线的最大持续回合数 %d；存活条件与召唤物必定受影响等限定词均保留。",
+        "observation": "OK",
+        "revision_id": "2fb2f6bd97db72980c910f5d7c676624b19d1919962dc59ebbf289a0fe5ab104"
+      },
+      {
+        "evidence": "args_order [1, 3, 2] 正确对应光火伤害增幅 %d%%、单次受击回复正能量 %0.1f 以及每回合触发次数上限 %d 次；被武器攻击击中的触发条件保留完整。",
+        "observation": "OK",
+        "revision_id": "5a12b22274a16e07fe9610542ccce4db693094788983cd971b0ec933b5fceca2"
+      },
+      {
+        "evidence": "source 中 arg1 为减速百分比、arg2 为持续回合数；target 中文本占位符顺序为“受到 %d%% 的减速效果，持续 %d 回合”，但 args_order 配置为 [2, 1, 3, 4, 5]，导致 arg2（回合数）被传入 %d%%，arg1（百分比）被传入持续回合。",
+        "observation": "args_order 错误导致减速百分比与持续回合数数值互换",
+        "revision_id": "4a6af5f88ca18aafc5b5bf91621ac53ee053694319d05e7d70297cf6be69d6b8"
+      },
+      {
+        "evidence": "args_order [2, 1] 正确将效果失效时限 %d 回合置于句首，技能冷却时间上限 %d 置于条件从句，机制关系与生效边界完全等价。",
+        "observation": "OK",
+        "revision_id": "9754d8f40538505b00e7bf285a4fdd9426903007d12ffc2e36f7a162417af7a8"
+      },
+      {
+        "evidence": "args_order [1, 3, 2, 4, 5] 正确将触发几率 %d%%、伤害半径 %d、额外物理(重力)伤害 %0.2f、全局减速比例 %d%% 及减速持续 %d 回合准确映射。",
+        "observation": "OK",
+        "revision_id": "b362d2fcd77e16d2e8169844e56f27a8a91419184b2b7ce93954e177b6b73fac"
+      },
+      {
+        "evidence": "args_order [2, 1] 正确将额外修饰串 %s 与最大击退距离 %d 格按中文语序组合，击退上限与眩晕效果保持等价。",
+        "observation": "OK",
+        "revision_id": "32c46a2286893f5686f0ae71843659c3ea05fc7946334c2b214846c9969fbe99"
+      },
+      {
+        "evidence": "args_order [2, 1, 3] 正确将作用半径 %d、基础精神伤害 %d 及每个目标的伤害衰减比例 %d%% 对应到位，25% 概率思维封锁保持一致。",
+        "observation": "OK",
+        "revision_id": "0e9abbbfe5a19f46705d5f5c461b64320885ab424e8af08725c1bee851907460"
+      },
+      {
+        "evidence": "args_order [1, 2, 4, 3] 正确对应冰墙长度 %d、持续回合 %d、作用半径 %d 及每格冰墙造成的寒冷伤害 %0.2f；友方免伤与冻结几率完全保留。",
+        "observation": "OK",
+        "revision_id": "f05b671cb7e1d6867ac36b8df609baf87b574d5c0759a1763e46dd640c9b4f75"
+      },
+      {
+        "evidence": "args_order [1, 3, 2, 4] 正确对应主攻击武器伤害 %d%%、AOE 半径 %d、爆炸伤害量 %0.2f 与攻击速度加成 %d%%，命中与否均触发的机制保留。",
+        "observation": "OK",
+        "revision_id": "c9354016f3bd79bc13b8663b9c2c65ed4c890824bcfd442819964386ce342182"
+      },
+      {
+        "evidence": "args_order [1, 3, 2, 4] 正确对应全抗增益持续回合 %d、法力燃烧半径 %d、法力燃烧伤害 %0.1f 与每回合失衡回复量 %0.1f。",
+        "observation": "OK",
+        "revision_id": "668ed05733aa6a55d8a7a2c0da4471c6428c186cc29c18f62c55ca4dbd8e646e"
+      },
+      {
+        "evidence": "args_order [1, 2, 3, 5, 4] 正确对应开图半径 %d、识破隐形强度 %d、识破持续回合 %d、感知生物类型 %s 与感知持续回合 %d。",
+        "observation": "OK",
+        "revision_id": "99d240ff521351466cac61646f8ceff1019c7926939c26a51f80052229b6ef51"
+      },
+      {
+        "evidence": "args_order [1, 4, 2, 3] 正确对应受击触发阈值 %d%% 生命、增益持续回合 %d、躲闪几率 %d%% 及额外防御数值 %d。",
+        "observation": "OK",
+        "revision_id": "8f00dbfb14cfd9e0b97212d40a047b0eff2c7d1b33b679379ab2b094c9b36f98"
+      },
+      {
+        "evidence": "args_order [2, 1] 正确将爆炸半径 %d 调整至闪电伤害数值 %0.1f 前，越层思维封锁效果保留。",
+        "observation": "OK",
+        "revision_id": "3770baeaf33779789df0e8d78d7313d4be8b57eca3592fc11f5ce18101a9ed80"
+      },
+      {
+        "evidence": "args_order [3, 1, 2, 4, 5, 6, 7] 正确对应作用半径 %d、闪电伤害（基础/最大）、眩晕几率（基础/最大）及首目标灵能回复（基础/最大）。",
+        "observation": "OK",
+        "revision_id": "9c33961add4f019c1d845bbbf73af0073c03b3ddf4152b184e43885a9f499436"
+      },
+      {
+        "evidence": "args_order [2, 1] 正确对应近战冲击波半径 %d 与奥术武器伤害比例 %d%%，3 回合反击判定与 5 级重置格挡机制完全保留。",
+        "observation": "OK",
+        "revision_id": "fb89c051332625fb662fba5af1cbde7470445d723fc35902bb235a979698a75a"
+      },
+      {
+        "evidence": "args_order [1, 3, 2, 4, 5] 正确对应护盾损失触发阈值 %d%%、荒地半径 %d、每回合寒冷伤害 %0.2f、护盾回复比例 %0.1f%% 及单次开启最大触发次数 %d。",
+        "observation": "OK",
+        "revision_id": "8618efd7627691da576af49fa48f8384657724ff5e929c422315a41c714e2bf8"
+      },
+      {
+        "evidence": "args_order [2, 1, 3] 正确对应爆炸半径 %d、寒冷伤害 %0.2f 与死灵随从 4 回合内的伤害减免数值 %d。",
+        "observation": "OK",
+        "revision_id": "7b59869c4ff64ba517ef3393cea333697f764a1120aad73f81ff43def58aa582"
+      },
+      {
+        "evidence": "args_order [2, 1] 正确对应触发额外攻击几率 %d%% 与增益持续回合 %d，每回合每把武器限一次的限制条件得到保留。",
+        "observation": "OK",
+        "revision_id": "0117dc2fe5de0301dc91305c15fd752a09a4650dcb165ccdb9baa4400bf8e854"
+      },
+      {
+        "evidence": "args_order [1, 2, 5, 3, 4] 正确对应护盾吸收量（当前/最大 %d/%d）、爆炸半径 %d 以及爆炸奥术伤害（最大 %d/当前 %d）。",
+        "observation": "OK",
+        "revision_id": "f29c5c9ed295a344f4370f2332a23ee0d4bdf37611c5bf6d2234cd562c7e4364"
+      },
+      {
+        "evidence": "args_order [3, 2, 1, 4] 正确对应恐惧来源名称 %s、距离范围 %d、触发所需停留回合 %d 及触发造成的精神与暗影伤害 %d。",
+        "observation": "OK",
+        "revision_id": "122d658ee7464e0457f0a239514fa31fcb40cc2e59a7e988977c89e29ca1c735"
+      },
+      {
+        "evidence": "args_order [2, 1] 正确将关注目标名称 %s 与精神抗性穿透增加比例 +%d%% 放置于对应分句。",
+        "observation": "OK",
+        "revision_id": "36ed00c6a37e94df55fc623df53d3f4d10a2db5f72d31700ff92527d4fbe5c9e"
+      },
+      {
+        "evidence": "args_order [2, 1] 正确将移动方向 %s 与增加的速度比例 %d%% 调整为目标语序，停止或变向移除效果的机制保留。",
+        "observation": "OK",
+        "revision_id": "c82d7fe6258b9c7981f2b29374d1e7d84f028f54963703a18f96d843485069de"
+      },
+      {
+        "evidence": "args_order [2, 1] 正确将伤害周期或修饰语 %s 置于动作前，物理伤害数值 %0.2f 准确归属于扭曲伤害效果。",
+        "observation": "OK",
+        "revision_id": "f53835f9612a964f59e05930d8cc176370a5dc1bf0bf40463e84ef4107f1d966"
+      }
+    ]
+  }
+}

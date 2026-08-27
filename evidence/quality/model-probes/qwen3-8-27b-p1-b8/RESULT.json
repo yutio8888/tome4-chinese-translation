@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "experiment_status": "COMPLETE_WITH_INVALID_CANDIDATE",
+  "candidate_route": {
+    "actual_model": "qwen3.8-27b",
+    "system_fingerprint": "b1-c1d0e7a",
+    "parameter_count": 26895998464,
+    "quantization": "Q4_K_M",
+    "context_window": 49152
+  },
+  "attempts": [
+    {
+      "configuration": "Pi print mode, requested thinking=low",
+      "result": "not_dispatched",
+      "reason": "Pi 0.84.2 resolved a stale enabled-model entry llamacpp-local/qwen3-coder-next instead of the requested model"
+    },
+    {
+      "configuration": "direct OpenAI-compatible API, default thinking, max_tokens=4096",
+      "result": "invalid",
+      "finish_reason": "length",
+      "visible_content": "empty"
+    },
+    {
+      "configuration": "direct API with prompt token /no_think, max_tokens=4096",
+      "result": "invalid",
+      "finish_reason": "length",
+      "completion_tokens": 4096,
+      "visible_content": "empty",
+      "note": "the server chat template ignored the prompt-level switch"
+    },
+    {
+      "configuration": "direct API with chat_template_kwargs.enable_thinking=false, temperature=0, max_tokens=4096",
+      "result": "invalid",
+      "finish_reason": "length",
+      "prompt_tokens": 11191,
+      "completion_tokens": 4096,
+      "fully_covered_items": 18,
+      "partially_covered_items": 1,
+      "missing_items": 2,
+      "schema_valid": false,
+      "ordered_full_coverage": false,
+      "latency_seconds_approx": 93,
+      "candidate_labels_for_fully_covered_prefix": {
+        "OK": 18,
+        "DEFECT": 0
+      },
+      "reference_labels_for_fully_covered_prefix": {
+        "DEFECT": 8,
+        "CLEAN": 10
+      },
+      "prefix_metrics": {
+        "defect_recall": 0.0,
+        "clean_false_positive_rate": 0.0,
+        "balanced_accuracy": 0.5
+      },
+      "qualitative_failure": "The response mechanically validated placeholder ordering but missed all eight adjudicated semantic/mechanics defects in its 18-item complete prefix."
+    }
+  ],
+  "verdict": {
+    "translation_contextual_reviewer": "NO_GO at the tested batch size and configurations",
+    "general_agent": "not established by this probe",
+    "recommended_next_probe": "use bounded chunks of 4-6 revisions and a concise result schema, then separately test read-only SCOUT tool use after repairing Pi model selection"
+  }
+}

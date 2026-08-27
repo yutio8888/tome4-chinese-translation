@@ -1,0 +1,146 @@
+{
+  "route": "codex",
+  "variant": "baseline",
+  "duration_seconds": 102.967,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 4,
+  "fp": 2,
+  "fn": 3,
+  "tn": 15,
+  "recall": 0.5714285714285714,
+  "precision": 0.6666666666666666,
+  "clean_false_positive_rate": 0.11764705882352941,
+  "predicted_defect_ids": [
+    "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+    "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+    "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+    "67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88",
+    "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+    "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8"
+  ],
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "bbe6a6d1496e967559d5d19258c5963ccc7f9337d92af6801560820335ce3ac2",
+        "observation": "OK",
+        "evidence": "source“%0.2f mind damage (range 10)…10%%%%”对应target“%0.2f精神伤害（距离10）…10%%%%”，数值关系完整。"
+      },
+      {
+        "revision_id": "6a52673dfad9af782ada1d01ee831f23676794f08a97f1ef7d999688cf07846c",
+        "observation": "OK",
+        "evidence": "source“explode against your foes for %d cold damage (based on your Magic)”对应target“对你的敌人自爆，造成%d寒冷伤害（基于魔法）”。"
+      },
+      {
+        "revision_id": "9efb27ea36219825be5bb9e38fbb552786d6cdacf8c37fca2923d869a065ffb4",
+        "observation": "OK",
+        "evidence": "source依次为“%0.2f temporal damage”“%0.2f physical damage”“<20%%”“50%% additional damage”，target依次保留为“%0.2f 时空伤害”“%0.2f 物理伤害”“不足 20%%”“多造成 50%%”。"
+      },
+      {
+        "revision_id": "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+        "observation": "OK",
+        "evidence": "source“duration…by %d%%”“only…one way”“Current Extended Spell: %s”均由target“持续时间 %d%%”“只能附加一种”“当前强化法术： %s”保留，占位符顺序相同。"
+      },
+      {
+        "revision_id": "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+        "observation": "流血量与本次攻击伤害的比例关系未明确保留。",
+        "evidence": "source为“an additional 100%% of the damage dealt as a bleed over 4 turns”，明确是已造成伤害的100%%；target仅称“4 回合内受到 100%% 的额外流血伤害”，缺少“of the damage dealt”的基准。"
+      },
+      {
+        "revision_id": "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+        "observation": "OK",
+        "evidence": "source首个%d%%同时修饰“cooldowns and the power cost”，target同样为“冷却时间和能量消耗降低 %d%%”；第二个%d对应“disarm power/解除强度”。"
+      },
+      {
+        "revision_id": "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017",
+        "observation": "OK",
+        "evidence": "source“radius 2”“%0.2f fire damage over 3 turns”对应target“范围 2”“3回合内 %0.2f 火焰伤害”。"
+      },
+      {
+        "revision_id": "6f2623b7cf2eda3d4914dc9c377f08f047b7a3fc7026b3f9fb38254cd5517159",
+        "observation": "OK",
+        "evidence": "source“a trio”“receive your damage bonuses”“permanently stealthed”“after %d turns or when their work is done”均对应target“三名”“继承你的伤害加成”“永久处于潜行状态”“%d 回合后，或完成任务时”。"
+      },
+      {
+        "revision_id": "c46aedd1fa773ba4738ae1e99615704dc12064692d4d5db5fd2380be264f6408",
+        "observation": "OK",
+        "evidence": "source中半径、伤害、击退、暴击增幅和当前值的五个%d依次对应target“半径 %d”“%d 点伤害”“击退 %d 格”“提高 %d%%”“当前：%d%%”；3回合眩晕及距离衰减亦保留。"
+      },
+      {
+        "revision_id": "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+        "observation": "视线条件的作用对象被改变。",
+        "evidence": "source为“Any Mucus Oozes…will, if in line of sight, instantly spit…at one of the targets”，要求软泥怪处于视线内；target改为“向视线内的某个…目标释放”，把“视线内”绑定到了被攻击目标。"
+      },
+      {
+        "revision_id": "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+        "observation": "敌对目标及全体范围未完整保留。",
+        "evidence": "source明确为“Pull all foes toward you in radius 5”，target仅为“将 5 码范围内的目标拉向你”，省略“all foes”的“所有敌人”限定。"
+      },
+      {
+        "revision_id": "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b",
+        "observation": "OK",
+        "evidence": "source列出的Physical/Spell/Mental相关强度与豁免由target概括为“所有强度和豁免”；“two or more”“%0.1f per foe”“up to 5 foes”分别保留为“2 个或多个”“每个敌人…%0.1f”“最多 5 个敌人”。"
+      },
+      {
+        "revision_id": "ba45293063c0e7e0e91ab6c236c4968ab6cc12049b709074cbc08b1a6f3e0b10",
+        "observation": "OK",
+        "evidence": "source三个%d依次为Strength、Dexterity、Constitution，target依次为“%d 点力量、%d 点敏捷和 %d 体质”；共享冷却和精神强度加成也已保留。"
+      },
+      {
+        "revision_id": "cce8b1eea8f36519d4f8101be6fac546d1d7cda39df96bc92273619461d0cb01",
+        "observation": "OK",
+        "evidence": "source六个占位符依次对应负重、抛射物防御、定身免疫、震慑免疫、移动速度、疲劳，target中的六个%d按相同顺序和单位绑定；等级4、5条件均保留。"
+      },
+      {
+        "revision_id": "6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244",
+        "observation": "OK",
+        "evidence": "source三个%d依次为治疗、法力、法术强度，target依次为“恢复 %d 生命值”“获得 %d 法力值”“法术强度 %d”；“below 1 life”和“for 10 turns”对应“生命值在 1 以下”和“持续 10 回合”。"
+      },
+      {
+        "revision_id": "d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2",
+        "observation": "OK",
+        "evidence": "source“foes and allies alike”“%0.2f…in a radius of %d each turn for %d turns”对应target“敌我双方”“每回合…%0.2f…半径 %d…持续 %d 回合”，占位符绑定正确。"
+      },
+      {
+        "revision_id": "67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88",
+        "observation": "“冷却速度降低15%”被改成“冷却时间延长15%”，数值关系不等价。",
+        "evidence": "source为“all talents cool down 15%% slower”，target为“技能冷却时间延长 15%%”；速度变为85%时，完成同一冷却所需时间并非仅增加15%。"
+      },
+      {
+        "revision_id": "88830814768d0f6c948de6410acfa7a3b59d7995348fdfda934bd860b3474e16",
+        "observation": "OK",
+        "evidence": "source首个%d%%为射击伤害比例、第二个%d为恢复体力，target依次为“造成 %d%% 伤害”和“回复 %d 点体力”。"
+      },
+      {
+        "revision_id": "defcf6a782239b18d5366bccf8f0491f1e6ff5748feaa7cb845a9f7556c28dc4",
+        "observation": "OK",
+        "evidence": "source“global speed…by %d%% for 1 turn”对应target“增加你 %d%% 全局速度 1 回合”；“any action other than movement will break”也完整对应“除了移动外的任何动作均会打破”。"
+      },
+      {
+        "revision_id": "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+        "observation": "不可穿越的障碍范围被扩大。",
+        "evidence": "source限定为“passing through walls (but not natural obstacles)”，即仅不能穿过自然障碍；target为“可以穿墙（但不能穿过其他障碍物）”，把所有其他障碍都列为不可穿越。"
+      },
+      {
+        "revision_id": "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+        "observation": "OK",
+        "evidence": "source“see invisible and stealthed creatures (power %d)”对应target“侦测隐形或者潜行生物（ %d 侦测等级）”，对象与数值占位符均保留。"
+      },
+      {
+        "revision_id": "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3",
+        "observation": "OK",
+        "evidence": "source两个%d依次降低“stealth and invisibility power”与“defense”，target依次为“%d 潜行与隐身强度”和“%d 闪避”；失去因不可见获得的闪避加成也已保留。"
+      },
+      {
+        "revision_id": "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1",
+        "observation": "OK",
+        "evidence": "source关于体型、分泌黏液、幼崽争食、强弱幼崽的命运以及生物由悲痛转为护崽愤怒的描述，target均有对应内容；无机制占位符。"
+      },
+      {
+        "revision_id": "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8",
+        "observation": "将盔甲的暗淡无光误译为生锈且钝。",
+        "evidence": "source仅称“armour now dull and bloodstained”，target却称盔甲“如今又锈又钝且满是鲜血”；“锈”和“钝”均不是“dull”在盔甲外观语境中的准确含义。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+本次与 Codex 审核意见的对比讨论如下，聚焦于双方分歧点、对方合理新证据、误报/过严分析、共同盲点，并给出建议主席最终裁决的 `revision_id` 汇总。
+
+---
+
+### 一、 双方分歧项讨论与辨析
+
+#### 1. `8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2`（时空增效：延展法术）
+* **Source**: `Extends the duration of the selected chronomancy spell by %d%%.\n\t\t...\n\t\tCurrent Extended Spell: %s`
+* **Target**: `强化指定的时空系法术，延展指定法术的持续时间 %d%%。\n\t\t...\n\t\t当前强化法术： %s `
+* **分歧**: 我方判 **DEFECT**，Codex 判 **OK**。
+* **辨析**: 我方**坚持原判 DEFECT**。Codex 仅机械核对了占位符 `%s` 的存在，忽略了时空法师「时空增效系（Spellbinding）」的核心技能体系：
+  * 该系包含 延展（Extension）、强化（Empower）、迅捷（Quicken）等独立技能。
+  * 本条目为延展技能描述，原文末尾为 `Current Extended Spell: %s`，译文错译为 `当前强化法术： %s`，并在首句画蛇添足增补“强化指定的时空系法术”，直接将“延展”与同系另一个技能“强化（Empower）”混淆，会严重误导玩家对当前生效增效效果的判断。
+
+#### 2. `4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697`（生存：护符专精）
+* **Source**: `...reducing their cooldowns and the power cost of all usable items by %d%%.`
+* **Target**: `...使所有可用物品的冷却时间和能量消耗降低 %d%%。`
+* **分歧**: 我方判 **DEFECT**，Codex 判 **OK**。
+* **辨析**: 我方**坚持原判 DEFECT**。Codex 忽略了句法修饰范围的机制差异：
+  * 原文代词 `their cooldowns` 的先行词仅为前句的 `charms (wands, totems and torques)`（护符），而 `all usable items` 仅受 `power cost` 修饰。
+  * 在游戏实际机制中，此技能仅降低护符的冷却时间，其他可用物品（如符文/纹身）并不享受冷却缩减，只享受能量消耗降低。译文将“所有可用物品”并列推导至“冷却时间”，放大了冷却缩减的适用范围，属于典型的机制描述性错误。
+
+#### 3. `a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52`（恶棍：撕裂）
+* **Source**: `...inflicting an additional 100%% of the damage dealt as a bleed over 4 turns.`
+* **Target**: `...使其在 4 回合内受到 100%% 的额外流血伤害。`
+* **分歧**: 我方判 **OK**，Codex 判 **DEFECT**（理由：缺少“已造成伤害”的基准）。
+* **辨析**: **保留我方 OK 意见，Codex 判定偏严**。
+  * 原文表达的是造成相当于本次伤害 100% 的流血伤害。在中文游戏翻译习惯中，“造成/受到 100% 的额外流血伤害”属于常见的流畅表达，虽未严格写出“造成伤害的 100%”，但在该技能的攻击触发语境下，玩家能准确理解为等额流血，并未引起机制层面的歧义或数值曲解。不构成阻断性缺陷。
+
+#### 4. `0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b`（鬼魂形态）
+* **Source**: `Turn into a wraith, passing through walls (but not natural obstacles)...`
+* **Target**: `进入鬼魂形态，可以穿墙（但不能穿过其他障碍物）...`
+* **分歧**: 我方判 **OK**，Codex 判 **DEFECT**（理由：将自然障碍扩大为所有其他障碍）。
+* **辨析**: **保留我方 OK 意见，Codex 判定过苛/误报**。
+  * 游戏中地形分为普通墙体、硬墙、自然障碍（树木、高山）等。译文使用“（但不能穿过其他障碍物）”虽然在术语上没有逐字对应 `natural obstacles`，但它属于一种防御性的概括翻译，向玩家明确传达了“除墙外不可穿行”的安全边界，不会引起任何误入死路或违背机制的操作后果。
+
+---
+
+### 二、 对方可能正确的新证据（我方采纳并修正）
+
+#### 1. `67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88`（覆霜效果）
+* **Source**: `...at level 5 all talents cool down 15%% slower.`
+* **Target**: `...技能等级 5 时，还会使技能冷却时间延长 15%%。`
+* **修正结论**: **采纳 Codex 意见，改判 DEFECT**。
+* **证据辨析**: 原文是“冷却速度降低 15%”（即速率变为 0.85，实际冷却时间变为 $1/0.85 \approx 1.176$ 倍，延长约 17.6%）。译文直接改成了“冷却时间延长 15%”，在数学关系与机制概念（冷却速度 vs 冷却时间）上均不相等，属于我方初审漏看的数值机制偏差。
+
+#### 2. `5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8`（太阳骑士背景描述）
+* **Source**: `His once-shining armour now dull and bloodstained, this Sun Paladin has given in to despair.`
+* **Target**: `他曾经闪亮的盔甲如今又锈又钝且满是鲜血，这名太阳骑士已经陷入了深深的绝望。`
+* **修正结论**: **采纳 Codex 意见，改判 DEFECT**。
+* **证据辨析**: 原文是 `once-shining`（曾经闪亮）与 `now dull`（如今暗淡）的外观光泽对比。译者误取了 `dull` 用于刀刃时的词义（钝），强行加在防具“盔甲”上（盔甲无法“钝”），且凭空脑补了“锈”字，属于明显的望文生义与严重错译。我方初审忽视了此处的语义荒谬性。
+
+---
+
+### 三、 双方共识项确认（一致判定 DEFECT）
+
+* **`091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6`**（酸性淤泥/软泥怪）
+  * **Source**: `Any Mucus Oozes you have active will, if in line of sight, instantly spit slime...`
+  * **Target**: `...则会向视线内的某个被淤泥击中的随机目标释放...`
+  * **共识**: 视线条件 `if in line of sight` 修饰的是软泥怪自身（要求软泥怪在视线内），译文错挂为被击中的目标处于视线内。
+* **`6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d`**（恐惧聚合体技能）
+  * **Source**: `Pull all foes toward you in radius 5 while dealing %d physical damage.`
+  * **Target**: `将 5 码范围内的目标拉向你并造成 %d 物理伤害。`
+  * **共识**: 漏译了限定范围词 `all foes`（所有敌人），泛化为“目标”，扩大了技能生效对象范围。
+
+---
+
+### 四、 双方共同盲点发现
+
+* **`0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7`**（真视/潜行侦测状态）
+  * **Source**: `Improves/gives the ability to see invisible and stealthed creatures (power %d).`
+  * **Target**: `提升/获得侦测隐形或者潜行生物（ %d 侦测等级）`
+  * **盲点分析**: 双方初审均因占位符完整而判定 OK。但细看译文语法结构：`提升/获得 侦测隐形或者潜行生物` 漏掉了宾语中心词“的能力”，导致句子产生歧义结构（读成“提升生物 / 获得生物”），属于不通顺的语法病句。建议主席作为轻微缺陷/待润色记录。
+
+---
+
+### 五、 建议主席最终标记的 revision_id 汇总
+
+1. **建议标记为 DEFECT（缺陷 / 需修正）的条目（共 6 项）**：
+   * `8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2`（时空增效系术语混淆：延展误译为强化）
+   * `4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697`（护符冷却缩减范围被错误扩大至全物品）
+   * `091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6`（视线判定主体错挂）
+   * `6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d`（`all foes` 被扩大译为“目标”）
+   * `67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88`（冷却速度降低误译为冷却时间延长，数值与机制不等价）
+   * `5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8`（盔甲暗淡 `dull` 误译为“又锈又钝”）
+
+2. **建议标记为 OK（通过）的条目（共 18 项）**：
+   * `bbe6a6d1496e967559d5d19258c5963ccc7f9337d92af6801560820335ce3ac2`
+   * `6a52673dfad9af782ada1d01ee831f23676794f08a97f1ef7d999688cf07846c`
+   * `9efb27ea36219825be5bb9e38fbb552786d6cdacf8c37fca2923d869a065ffb4`
+   * `a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52`（驳回 Codex 过苛判定，维持 OK）
+   * `1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017`
+   * `6f2623b7cf2eda3d4914dc9c377f08f047b7a3fc7026b3f9fb38254cd5517159`
+   * `c46aedd1fa773ba4738ae1e99615704dc12064692d4d5db5fd2380be264f6408`
+   * `a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b`
+   * `ba45293063c0e7e0e91ab6c236c4968ab6cc12049b709074cbc08b1a6f3e0b10`
+   * `cce8b1eea8f36519d4f8101be6fac546d1d7cda39df96bc92273619461d0cb01`
+   * `6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244`
+   * `d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2`
+   * `88830814768d0f6c948de6410acfa7a3b59d7995348fdfda934bd860b3474e16`
+   * `defcf6a782239b18d5366bccf8f0491f1e6ff5748feaa7cb845a9f7556c28dc4`
+   * `0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b`（驳回 Codex 过苛判定，维持 OK）
+   * `0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7`（可判定 OK，但附带语病润色备注）
+   * `b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3`
+   * `329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1`

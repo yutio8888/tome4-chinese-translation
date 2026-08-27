@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "frozen_inputs": {
+    "scout_prompt_sha256": "2ec5ad9c49605cf3e5fbaf20af9876a7c210f2801eba122c8bd2516149d70b4f",
+    "executor_prompt_sha256": "11fecfa0855b85bc153aff8f8c8cf42d1705a450cc7fc7b12009dca863fc4823",
+    "executor_fixture_before_sha256": "82e25a395c1c9ff16c5b487ff465bc4bc7824e7cc61bebe4e8e716c24469b4c7"
+  },
+  "route": {
+    "harness": "pi 0.84.2 print mode",
+    "actual_model": "qwen3.8-27b",
+    "thinking": "off",
+    "model_warning": "Pi still warns about stale enabled model llamacpp-local/qwen3-coder-next, but the requested qwen3.8-27b route completed both probes"
+  },
+  "scout": {
+    "completion": "completed",
+    "latency_minutes_approx": 12,
+    "read_only": true,
+    "source_commit_verified": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "factual_result": "pass",
+    "key_facts_verified": [
+      "give_orb sets gave-orb and removes Orb of Many Ways",
+      "withheld_orb sets withheld-orb without inventory removal",
+      "remove_materials removes Resonating Diamond and Blood-Runed Athame",
+      "ask_east removes the real orb and inserts ORB_MANY_WAYS_DEMON",
+      "ActorInventory.removeObject removes the inventory entry; no_unstack controls stack handling"
+    ],
+    "contract_result": "fail",
+    "contract_failures": [
+      "included prose before the JSON and a Markdown fence",
+      "source_evidence used file/lines/note instead of path/line_start/line_end/fact",
+      "some files_read values included annotations rather than plain absolute paths",
+      "grep-read files mentioned in symbols were not all enumerated in files_read"
+    ],
+    "verdict": "usable as advisory source scout only when the orchestrator validates and normalizes its output"
+  },
+  "executor": {
+    "completion": "completed",
+    "latency_seconds_approx": 53,
+    "fixture_after_sha256": "73bf81e4fa234f41c363d881a9459555ccf2a1d363c0df9fe245edf751906c6c",
+    "allowed_file_modified": true,
+    "collateral_files_created_or_modified": [],
+    "target_only_changes": 3,
+    "source_and_metadata_preserved": true,
+    "acceptance_checks": {
+      "up_to_restored": true,
+      "other_restored": true,
+      "per_debuff_relation_restored": true,
+      "args_order_preserved": true,
+      "git_diff_check": "pass"
+    },
+    "self_report_quality": "pass; correctly identified that git diff was empty because the frozen fixture was untracked and did not claim a tracked diff",
+    "verdict": "pass for a small, explicit, mechanically verifiable bounded edit"
+  },
+  "overall": {
+    "scout": "CONDITIONAL_GO",
+    "executor": "GO_FOR_SMALL_BOUNDED_TASKS",
+    "production_orchestrator": "still requires independent host validation and deterministic gates"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "protocol": "independent-review -> reciprocal-reconsideration -> codex-chair-synthesis",
+  "input": "../../p1-batches/p1-b4-mechanics-numeric.json",
+  "input_sha256": "9034f605bcf471bd7fce0d603ee52c6a8d5fbb9b2807e2b801b9fb52316ee332",
+  "sealed_reference_sha256": "df16fc3702a4ffceca9a81ff86ae4583d76174e992090370eac62baaeafb3154",
+  "round_1": {
+    "codex": {"source":"../non-args-reviewer-model-comparison-b4-v1/RAW-codex-baseline.json","sha256":"1a7eabb7eab43ed5fa7519e6edf0da19b405d843c23547e1901c7b5e52151774"},
+    "gemini": {"source":"../gemini-reviewer-holdout-b4-v1/RAW-C.json","sha256":"775654cc050a94f444ac41116fc8f423703cab0879f3512d18b5232d95097a09"}
+  },
+  "models": {
+    "codex":{"model":"gpt-5.6-sol","effort":"high"},
+    "gemini":{"model":"gemini-3.7-flash-high","effort":"high"}
+  },
+  "reference_access": "The scoring reference is not included in any model prompt and is read only by the post-run scorer."
+}

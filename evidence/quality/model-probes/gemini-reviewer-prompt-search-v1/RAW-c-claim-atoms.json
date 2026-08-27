@@ -1,0 +1,137 @@
+{
+  "variant": "PROMPT-C-CLAIM-ATOMS.md",
+  "duration_seconds": 79.443,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 5,
+  "fp": 1,
+  "fn": 5,
+  "tn": 10,
+  "recall": 0.5,
+  "precision": 0.8333333333333334,
+  "clean_false_positive_rate": 0.09090909090909091,
+  "predicted_defect_ids": [
+    "1910f2d1f4823488275c7c5e6a71b9d930ad265f801901a4677c4533d27e367b",
+    "2ff6f9d2e0d5bbb1f97345a403cfe4d249bd65355dbb8ed7627a002bd30cfd44",
+    "4edbe2094a539c706ebd44290f341098bec6c09bc58f9b9f0826c58e56c30c05",
+    "abf43552188d836c6de2ece8a114f0d04248b54863d53cd9c6509cc44fe53e88",
+    "f15ead4fe953ee4ec53949d59e404be023576b38c3d32f8fe2397d84fbc1c193",
+    "fc48069d340fc0a3b60f171096862ac8807eef254acc3acba11e3804dbaae69e"
+  ],
+  "usage": {
+    "input_tokens": 60270,
+    "output_tokens": 34992,
+    "thinking_tokens": 29731,
+    "cache_read_tokens": 25831,
+    "total_tokens": 95262
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "args_order [2, 1, 3] 与 target 占位符正确绑定：radius %d -> 半径%d码范围，spots %d -> %d点，damage %d -> 造成%d点寒冷伤害",
+        "observation": "OK",
+        "revision_id": "0fe5888f46b26b41ab73e208a0f361c18dcc9c47cd9daae19351c2e8802c8883"
+      },
+      {
+        "evidence": "source: \"around the foe you struck\" / target: \"对 %d 范围内的所有敌人\" 缺少溅射中心目标",
+        "observation": "丢失空间范围中心断言，漏译酸系溅射以被命中敌人为中心",
+        "revision_id": "1910f2d1f4823488275c7c5e6a71b9d930ad265f801901a4677c4533d27e367b"
+      },
+      {
+        "evidence": "args_order [3, 1, 2] 正确对应 radius %d -> 周围 %d 码半径，light damage %0.2f -> %0.2f 光系，darkness damage %0.2f -> %0.2f 暗影",
+        "observation": "OK",
+        "revision_id": "22de9ff4f589ea03f71377c3d3c4302edcbe165f9047fb70117b4f7b7e34e9cf"
+      },
+      {
+        "evidence": "source: \"at up to %d targets within radius %d\" (Arg 1: targets, Arg 2: radius) / target: \"最多 %d 个目标...作用半径 %d\" / args_order: [2, 1, 3, 4] 导致 Arg 2(半径) 填入目标数，Arg 1(目标数) 填入半径",
+        "observation": "数值与概念绑定错误，args_order 将目标数上限与作用半径颠倒",
+        "revision_id": "2ff6f9d2e0d5bbb1f97345a403cfe4d249bd65355dbb8ed7627a002bd30cfd44"
+      },
+      {
+        "evidence": "args_order [2, 1, 3, 4] 正确对应 range %d -> 周围%d码，targets %s -> %s个目标，damage %d -> 造成%d伤害，knockback %d -> 击退%d码",
+        "observation": "OK",
+        "revision_id": "3bf8909bd954be7471a79a28ef641f9466a64c0f8ea3e5b4eaaefbbc02b03b27"
+      },
+      {
+        "evidence": "source: \"Deals up to %d manaburn damage\" / target: \"造成%d法力燃烧伤害\" 丢失 \"up to\"（至多/最多）",
+        "observation": "丢失数量上限断言，漏译 \"up to\" 将上限值表述为固定伤害",
+        "revision_id": "4edbe2094a539c706ebd44290f341098bec6c09bc58f9b9f0826c58e56c30c05"
+      },
+      {
+        "evidence": "args_order [2, 1] 正确对应 radius %d -> 半径 %d，damage %d%% -> %d%% 伤害",
+        "observation": "OK",
+        "revision_id": "5b5cf5c89b0dd9caf27c14f3a57cebc349ac151218cd2e74db2be3ec1a8f1ee3"
+      },
+      {
+        "evidence": "args_order [1, 2, 3, 5, 4] 正确对应 resist %d%%、armour %d、defence %d、range %d 以及 frostdusk damage %0.2f",
+        "observation": "OK",
+        "revision_id": "5ffa90779b630e05d5da9a14dca1abccc0860e144264b6c7a2c2a9b7e16fd893"
+      },
+      {
+        "evidence": "args_order [1, 3, 2, 5, 4] 正确对应 turns %d、radius %d、frostdusk damage %0.2f、attribute %d、blight damage %0.2f",
+        "observation": "OK",
+        "revision_id": "67abfdcb964506c157d415e954a244c6a8d0639adb958e263e6f0ebf0bfbb9ea"
+      },
+      {
+        "evidence": "source: \"in a cone of radius %d\" / target: \"在半径 %d 范围内\" 丢失 \"cone\"（锥形/扇形）",
+        "observation": "丢失空间形状断言，漏译锥形范围",
+        "revision_id": "abf43552188d836c6de2ece8a114f0d04248b54863d53cd9c6509cc44fe53e88"
+      },
+      {
+        "evidence": "args_order [2, 1, 3] 正确对应 radius %d -> 周围 %d 码范围，damage %0.2f -> 造成 %0.2f 霜暮伤害，cooldown %d -> 降低 %d 回合",
+        "observation": "OK",
+        "revision_id": "b25a21bfa49f28da9a0ddf3447295449d455221d80d31b3362e3e723910e54f7"
+      },
+      {
+        "evidence": "args_order [1, 3, 2, 4] 正确对应 ignore chance %d%%、radius %d、light damage %0.2f、cooldown %d",
+        "observation": "OK",
+        "revision_id": "b78cb2885a36f726e235b051989f43912b905a9b60ae1f7ef7cb6cda02033acc"
+      },
+      {
+        "evidence": "args_order [1, 3, 2] 正确对应 summon range %d -> 在 %d 码范围内召唤，effect radius %d -> 半径 %d 内，light damage %d -> 造成 %d 光系伤害",
+        "observation": "OK",
+        "revision_id": "b962bafe523642338dc8f0f8612a17711f957c7ddb24bff0947928b309146da1"
+      },
+      {
+        "evidence": "args_order [1, 3, 2, 4, 5, 8, 6, 7, 9, 11, 10, 12, 13] 准确映射触发几率及 Fate/Warp/Gravity 各分支的半径、伤害、抗性削减/异常状态和持续时间数值",
+        "observation": "OK",
+        "revision_id": "bdb1d9e7dd95e37c0d4e00964c8978d010291cbaafc8a701cc5d5c3619ce0a44"
+      },
+      {
+        "evidence": "args_order [2, 1, 3, 4, 5] 正确对应 cone radius %d、temporal damage %0.2f、stats %d、duration %d、affinity %d%%",
+        "observation": "OK",
+        "revision_id": "c809338f5093bbab77bac36ca52975d93b0efd4de44e825cfe36048574c74cd6"
+      },
+      {
+        "evidence": "args_order [1, 4, 2, 3, 5] 正确对应 chance %d%%、radius %d、phys damage %0.2f、temp damage %0.2f、duration %d",
+        "observation": "OK",
+        "revision_id": "d326e4bbc6da338505d1729f209280228c97ea11291cdfa052099a33fa2a5f64"
+      },
+      {
+        "evidence": "args_order [1, 3, 2, 4, 5] 正确对应 chance %d%%、radius %d、damage %0.2f、resistance reduction %d%%、duration %d",
+        "observation": "OK",
+        "revision_id": "e6ddcec1b532619d209ff3b208c92416f0455a45e41fd3d064ed4827d3cce6a9"
+      },
+      {
+        "evidence": "args_order [1, 2, 3, 5, 4] 正确对应 first strike %d%%、second strike %d%%、range 2 chance %0.1f%%、max range %d、max range chance %0.1f%%",
+        "observation": "OK",
+        "revision_id": "edc5666d3a144e124c9ef77260bf17f336bf39c2cf1ed557705c507b01a3f249"
+      },
+      {
+        "evidence": "source: \"(not counting cross-tier ones)\" / target: \"每清除一个负面效果，你都会获得一个抵挡 %d 伤害的护盾\" 漏译排除越层效果的限定",
+        "observation": "丢失例外断言，漏译护盾格挡值计算时排除越层效果的限制条件",
+        "revision_id": "f15ead4fe953ee4ec53949d59e404be023576b38c3d32f8fe2397d84fbc1c193"
+      },
+      {
+        "evidence": "source: \"summons %d spirits around you for %d turns\" / target: \"在 %d 回合内召唤 %d 个鬼魂\" (args_order: [2, 1]) 歧义为在 %d 回合期间陆续召唤",
+        "observation": "存在机制歧义与持续时间关系错挂，将鬼魂存活持续时间表述为召唤动作发生的周期",
+        "revision_id": "fc48069d340fc0a3b60f171096862ac8807eef254acc3acba11e3804dbaae69e"
+      },
+      {
+        "evidence": "args_order [2, 1, 3, 4, 5] 正确对应 radius %d、foes %d、damage %d、bonus ratio %d%%、turns %d",
+        "observation": "OK",
+        "revision_id": "fcafd3ecdea722007ad7825e733d53588fb401b5c333c9d696b03202231a3805"
+      }
+    ]
+  }
+}

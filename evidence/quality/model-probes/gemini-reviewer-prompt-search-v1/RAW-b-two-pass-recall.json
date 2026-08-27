@@ -1,0 +1,138 @@
+{
+  "variant": "PROMPT-B-TWO-PASS-RECALL.md",
+  "duration_seconds": 67.233,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 5,
+  "fp": 2,
+  "fn": 5,
+  "tn": 9,
+  "recall": 0.5,
+  "precision": 0.7142857142857143,
+  "clean_false_positive_rate": 0.18181818181818182,
+  "predicted_defect_ids": [
+    "1910f2d1f4823488275c7c5e6a71b9d930ad265f801901a4677c4533d27e367b",
+    "22de9ff4f589ea03f71377c3d3c4302edcbe165f9047fb70117b4f7b7e34e9cf",
+    "2ff6f9d2e0d5bbb1f97345a403cfe4d249bd65355dbb8ed7627a002bd30cfd44",
+    "4edbe2094a539c706ebd44290f341098bec6c09bc58f9b9f0826c58e56c30c05",
+    "5b5cf5c89b0dd9caf27c14f3a57cebc349ac151218cd2e74db2be3ec1a8f1ee3",
+    "abf43552188d836c6de2ece8a114f0d04248b54863d53cd9c6509cc44fe53e88",
+    "f15ead4fe953ee4ec53949d59e404be023576b38c3d32f8fe2397d84fbc1c193"
+  ],
+  "usage": {
+    "input_tokens": 55412,
+    "output_tokens": 31092,
+    "thinking_tokens": 26695,
+    "cache_read_tokens": 24905,
+    "total_tokens": 86504
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排半径与散布点数。",
+        "observation": "OK",
+        "revision_id": "0fe5888f46b26b41ab73e208a0f361c18dcc9c47cd9daae19351c2e8802c8883"
+      },
+      {
+        "evidence": "source中明确溅射是以被击中目标为中心（“in radius %d around the foe you struck”），target遗漏了“around the foe you struck”（被打击的敌人周围），且将“radius”（半径）简化为“范围”。",
+        "observation": "遗漏溅射伤害的中心定位描述并模糊了半径定义",
+        "revision_id": "1910f2d1f4823488275c7c5e6a71b9d930ad265f801901a4677c4533d27e367b"
+      },
+      {
+        "evidence": "source中包含明确的目标限定词“to all others”（除自身外的所有其他目标），target仅翻译为“造成...范围伤害”，完全遗漏了伤害作用的目标集合。",
+        "observation": "遗漏伤害作用的目标群体限定",
+        "revision_id": "22de9ff4f589ea03f71377c3d3c4302edcbe165f9047fb70117b4f7b7e34e9cf"
+      },
+      {
+        "evidence": "target文本占位符顺序为目标数在前（“最多 %d 个目标”）、半径在后（“作用半径 %d”），与source一致，但args_order被设为[2, 1, 3, 4]，导致运行时第1个占位符绑定radius、第2个占位符绑定targets。",
+        "observation": "args_order导致运行时目标数与半径数值颠倒",
+        "revision_id": "2ff6f9d2e0d5bbb1f97345a403cfe4d249bd65355dbb8ed7627a002bd30cfd44"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排范围与目标数量。",
+        "observation": "OK",
+        "revision_id": "3bf8909bd954be7471a79a28ef641f9466a64c0f8ea3e5b4eaaefbbc02b03b27"
+      },
+      {
+        "evidence": "source为“Deals up to %d manaburn damage... within radius %d”，target漏译了“up to”（至多/最高造成%d点伤害），且将“radius”（半径）简化为“范围”。",
+        "observation": "遗漏伤害上限限定词up to并模糊了半径定义",
+        "revision_id": "4edbe2094a539c706ebd44290f341098bec6c09bc58f9b9f0826c58e56c30c05"
+      },
+      {
+        "evidence": "source明确着陆伤害只对敌人造成（“enemies in radius %d”），target翻译为“半径 %d 的生物”，将目标从敌人扩大为所有生物。",
+        "observation": "错误扩大了着陆点伤害判定的受击目标群体",
+        "revision_id": "5b5cf5c89b0dd9caf27c14f3a57cebc349ac151218cd2e74db2be3ec1a8f1ee3"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排范围与霜暮伤害。",
+        "observation": "OK",
+        "revision_id": "5ffa90779b630e05d5da9a14dca1abccc0860e144264b6c7a2c2a9b7e16fd893"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排半径/伤害及属性降低/枯萎伤害。",
+        "observation": "OK",
+        "revision_id": "67abfdcb964506c157d415e954a244c6a8d0639adb958e263e6f0ebf0bfbb9ea"
+      },
+      {
+        "evidence": "source范围机制为“in a cone of radius %d”（半径%d的锥形范围），target仅翻译为“在半径 %d 范围内”，丢失了锥形（cone）这一核心作用范围形状。",
+        "observation": "遗漏关键AOE形状限定词cone（锥形）",
+        "revision_id": "abf43552188d836c6de2ece8a114f0d04248b54863d53cd9c6509cc44fe53e88"
+      },
+      {
+        "evidence": "target与source机制等价，args_order正确重排半径与霜暮伤害。",
+        "observation": "OK",
+        "revision_id": "b25a21bfa49f28da9a0ddf3447295449d455221d80d31b3362e3e723910e54f7"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排攻击者周围半径与光系伤害。",
+        "observation": "OK",
+        "revision_id": "b78cb2885a36f726e235b051989f43912b905a9b60ae1f7ef7cb6cda02033acc"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排召唤范围、影响半径与光系伤害。",
+        "observation": "OK",
+        "revision_id": "b962bafe523642338dc8f0f8612a17711f957c7ddb24bff0947928b309146da1"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排了命运、扭曲、重力三段中的半径与伤害数值。",
+        "observation": "OK",
+        "revision_id": "bdb1d9e7dd95e37c0d4e00964c8978d010291cbaafc8a701cc5d5c3619ce0a44"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排锥形半径与时空伤害。",
+        "observation": "OK",
+        "revision_id": "c809338f5093bbab77bac36ca52975d93b0efd4de44e825cfe36048574c74cd6"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排半径与伤害数值。",
+        "observation": "OK",
+        "revision_id": "d326e4bbc6da338505d1729f209280228c97ea11291cdfa052099a33fa2a5f64"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排半径与时空伤害。",
+        "observation": "OK",
+        "revision_id": "e6ddcec1b532619d209ff3b208c92416f0455a45e41fd3d064ed4827d3cce6a9"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排最大距离数值与最大距离触发几率。",
+        "observation": "OK",
+        "revision_id": "edc5666d3a144e124c9ef77260bf17f336bf39c2cf1ed557705c507b01a3f249"
+      },
+      {
+        "evidence": "source在计算护盾量时明确注明“(not counting cross-tier ones)”（不计入越层效果），target完全遗漏了该限定条件。",
+        "observation": "遗漏护盾吸收量计算中越层效果不计入的限定条件",
+        "revision_id": "f15ead4fe953ee4ec53949d59e404be023576b38c3d32f8fe2397d84fbc1c193"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排持续回合与召唤鬼魂数量。",
+        "observation": "OK",
+        "revision_id": "fc48069d340fc0a3b60f171096862ac8807eef254acc3acba11e3804dbaae69e"
+      },
+      {
+        "evidence": "target与source机制完全等价，args_order正确重排半径与随机敌人数量。",
+        "observation": "OK",
+        "revision_id": "fcafd3ecdea722007ad7825e733d53588fb401b5c333c9d696b03202231a3805"
+      }
+    ]
+  }
+}

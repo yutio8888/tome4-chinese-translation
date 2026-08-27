@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "scope": "exploratory reviewer probe; not evaluator_selection_v1",
+  "base_commit": "95a6328c7882e48aae203688da0a1ae0d8ad41eb",
+  "input": {
+    "path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+    "sha256": "e1e3086a9b6f0b34ed79f861583f9a9f74e6f410fa42be604aad92e4484d6a66",
+    "items": 21
+  },
+  "sealed_reference": {
+    "path": "evidence/quality/p1-batches/p1-b8-adjudication.json",
+    "sha256": "2193036a1b5c94dff7578fdf29a2f2ef1e43d71bee3960abcb63ca6e5419e4b7",
+    "visible_to_candidate": false,
+    "findings": 13,
+    "defect_items": 10,
+    "clean_items": 11
+  },
+  "route": {
+    "harness": "pi 0.84.2 print mode",
+    "provider": "llamacpp-local",
+    "requested_model": "qwen3.8-27b",
+    "endpoint": "http://192.168.139.3:18081/v1",
+    "thinking": "low",
+    "context_window": 49152,
+    "tools": "disabled",
+    "project_context": "disabled",
+    "session": "ephemeral"
+  },
+  "decision_rule": {
+    "candidate_label": "DEFECT when observation is not OK; CLEAN when observation is OK",
+    "reference_label": "DEFECT when revision_id occurs in adjudication.findings; CLEAN otherwise",
+    "duplicate_findings_for_one_revision": "collapse to one DEFECT label",
+    "primary_metrics": ["schema validity", "coverage", "defect recall", "clean false-positive rate", "balanced accuracy"],
+    "qualification": "exploratory evidence only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "experiment": "EXPERIMENT.json",
+  "population": {"items": 24, "defect_revisions": 7, "clean_revisions": 17},
+  "results": [
+    {"prompt":"baseline","duration_seconds":39.092,"tp":0,"fp":0,"fn":7,"tn":17,"recall":0.0,"precision":null,"clean_false_positive_rate":0.0,"total_tokens":58106},
+    {"prompt":"A","duration_seconds":60.826,"tp":1,"fp":2,"fn":6,"tn":15,"recall":0.142857,"precision":0.333333,"clean_false_positive_rate":0.117647,"total_tokens":75526},
+    {"prompt":"B","duration_seconds":68.056,"tp":2,"fp":2,"fn":5,"tn":15,"recall":0.285714,"precision":0.5,"clean_false_positive_rate":0.117647,"total_tokens":80756},
+    {"prompt":"C","duration_seconds":64.145,"tp":2,"fp":2,"fn":5,"tn":15,"recall":0.285714,"precision":0.5,"clean_false_positive_rate":0.117647,"total_tokens":77459},
+    {"prompt":"D","duration_seconds":43.429,"tp":0,"fp":0,"fn":7,"tn":17,"recall":0.0,"precision":null,"clean_false_positive_rate":0.0,"total_tokens":58647}
+  ],
+  "derived_union_b_c": {
+    "description": "Flag if either recorded B or C response flags the revision; no additional model call.",
+    "tp":3,"fp":2,"fn":4,"tn":15,"recall":0.428571,"precision":0.6,"clean_false_positive_rate":0.117647
+  },
+  "cross_batch_recall": {
+    "baseline": {"b8_args_order_development":0.1,"b7_args_order_holdout":0.166667,"b4_mechanics_numeric_holdout":0.0},
+    "B": {"b8_args_order_development":0.5,"b7_args_order_holdout":0.666667,"b4_mechanics_numeric_holdout":0.285714},
+    "C": {"b8_args_order_development":0.5,"b7_args_order_holdout":0.666667,"b4_mechanics_numeric_holdout":0.285714},
+    "D": {"b8_args_order_development":0.5,"b7_args_order_holdout":0.166667,"b4_mechanics_numeric_holdout":0.0}
+  },
+  "error_analysis": {
+    "b_and_c_shared_false_positives": [
+      "Misread source 'foes' versus target 'targets' as a semantic expansion despite the sealed runtime adjudication.",
+      "Misread the antecedent of cooldown reduction and claimed it applied only to charms."
+    ],
+    "common_false_negative_characteristics": [
+      "Runtime distinctions that require fixed-source evidence beyond the supplied source/target record.",
+      "Subtle Chinese attachment or conjunction ambiguity.",
+      "Formatting defects such as a leading space or missing terminal punctuation.",
+      "Flavour-level lexical invention such as translating dull armour as rusty and blunt."
+    ]
+  },
+  "recommendation": {
+    "finding": "Prompt C improves over baseline but does not generalize strongly enough to serve as a universal reviewer prompt.",
+    "routing": "Keep C for args_order-oriented semantic screening. For general mechanics review, give the reviewer bounded fixed-source context or pair it with SCOUT evidence; prompt-only optimization cannot reliably recover runtime facts absent from the input.",
+    "quality_control": "Keep deterministic formatting/whitespace lint and independent source adjudication. Do not use D."
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "variant": "PROMPT-D-RELATION-LEDGER.md",
+  "duration_seconds": 101.757,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 5,
+  "fp": 0,
+  "fn": 5,
+  "tn": 11,
+  "recall": 0.5,
+  "precision": 1,
+  "clean_false_positive_rate": 0,
+  "predicted_defect_ids": [
+    "2ff6f9d2e0d5bbb1f97345a403cfe4d249bd65355dbb8ed7627a002bd30cfd44",
+    "4edbe2094a539c706ebd44290f341098bec6c09bc58f9b9f0826c58e56c30c05",
+    "abf43552188d836c6de2ece8a114f0d04248b54863d53cd9c6509cc44fe53e88",
+    "f15ead4fe953ee4ec53949d59e404be023576b38c3d32f8fe2397d84fbc1c193",
+    "fc48069d340fc0a3b60f171096862ac8807eef254acc3acba11e3804dbaae69e"
+  ],
+  "usage": {
+    "input_tokens": 96843,
+    "output_tokens": 48452,
+    "thinking_tokens": 42771,
+    "cache_read_tokens": 0,
+    "total_tokens": 145295
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "占位符按 [2, 1, 3] 重排后，半径(%d)、扩散点数(%d)与寒冷伤害(%d)准确对齐，冻结几率与伤害机制均完整保留。",
+        "observation": "OK",
+        "revision_id": "0fe5888f46b26b41ab73e208a0f361c18dcc9c47cd9daae19351c2e8802c8883"
+      },
+      {
+        "evidence": "占位符按 [1, 3, 2] 映射，武器伤害百分比(%d%%)、溅射半径(%d)与溅射伤害(%0.2f)对应准确，“至少一次命中”触发条件与法强加成关系等价。",
+        "observation": "OK",
+        "revision_id": "1910f2d1f4823488275c7c5e6a71b9d930ad265f801901a4677c4533d27e367b"
+      },
+      {
+        "evidence": "占位符按 [3, 1, 2] 重排，半径(%d)、光系伤害(%0.2f)与暗影伤害(%0.2f)位置精确匹配，法术强度加成机制完整保留。",
+        "observation": "OK",
+        "revision_id": "22de9ff4f589ea03f71377c3d3c4302edcbe165f9047fb70117b4f7b7e34e9cf"
+      },
+      {
+        "evidence": "source 中第 1 个 %d 为目标数上限、第 2 个 %d 为半径；target 文本语序同样为“最多 %d 个目标...作用半径 %d”，但 args_order 设置为 [2, 1, 3, 4]，导致实际渲染时目标数与半径数值互换。",
+        "observation": "args_order 错误：目标数与作用半径参数颠倒。",
+        "revision_id": "2ff6f9d2e0d5bbb1f97345a403cfe4d249bd65355dbb8ed7627a002bd30cfd44"
+      },
+      {
+        "evidence": "占位符按 [2, 1, 3, 4] 重排，范围(%d)与目标描述(%s)位置正确对调，伤害数值(%d)与击退格数(%d)绑定准确。",
+        "observation": "OK",
+        "revision_id": "3bf8909bd954be7471a79a28ef641f9466a64c0f8ea3e5b4eaaefbbc02b03b27"
+      },
+      {
+        "evidence": "source 明确指明伤害为“Deals up to %d manaburn damage”（造成至多 %d 点法力燃烧伤害，取决于吸取的能量值）；target 仅写“造成%d法力燃烧伤害”，遗漏了“up to”上限限定，改变了法力燃烧伤害基于吸取量结算的机制含义。",
+        "observation": "漏译机制限定词“up to”（最多/至多）。",
+        "revision_id": "4edbe2094a539c706ebd44290f341098bec6c09bc58f9b9f0826c58e56c30c05"
+      },
+      {
+        "evidence": "占位符按 [2, 1] 重排准确对应着陆半径与伤害百分比，“至少命中1个其他敌人”触发投掷目标“失去一回合”的条件与机制等价。",
+        "observation": "OK",
+        "revision_id": "5b5cf5c89b0dd9caf27c14f3a57cebc349ac151218cd2e74db2be3ec1a8f1ee3"
+      },
+      {
+        "evidence": "占位符按 [1, 2, 3, 5, 4] 映射，前三项属性增益与后两项射程(%d)、霜暮伤害(%0.2f)完全对齐，击退3格与每回合限触发1次机制准确。",
+        "observation": "OK",
+        "revision_id": "5ffa90779b630e05d5da9a14dca1abccc0860e144264b6c7a2c2a9b7e16fd893"
+      },
+      {
+        "evidence": "占位符按 [1, 3, 2, 5, 4] 重排，技能持续回合、爆炸半径、霜暮伤害、属性降低值与枯萎伤害完全对应，疾病持续6回合及法强加成机制完整。",
+        "observation": "OK",
+        "revision_id": "67abfdcb964506c157d415e954a244c6a8d0639adb958e263e6f0ebf0bfbb9ea"
+      },
+      {
+        "evidence": "source 明确限定攻击范围为面前的锥形区域（“in front of you... in a cone of radius %d”）；target 仅写“在半径 %d 范围内”，遗漏了“面前”与“锥形(cone)”限定，改变了技能的攻击方向与几何覆盖范围机制。",
+        "observation": "漏译范围几何属性“cone”（锥形）及方向“in front of you”（面前）。",
+        "revision_id": "abf43552188d836c6de2ece8a114f0d04248b54863d53cd9c6509cc44fe53e88"
+      },
+      {
+        "evidence": "占位符按 [2, 1, 3] 重排，爆炸半径(%d)、霜暮伤害(%0.2f)及每个受击目标减少技能冷却回合(%d)映射正确，机制条件与数值关系均等价。",
+        "observation": "OK",
+        "revision_id": "b25a21bfa49f28da9a0ddf3447295449d455221d80d31b3362e3e723910e54f7"
+      },
+      {
+        "evidence": "占位符按 [1, 3, 2, 4] 映射正确，反击范围(%d)置于光系伤害(%0.2f)前，虚无闪避几率(%d%%)与触发CD(%d)归属准确，眩目减伤10%%持续5回合机制保留。",
+        "observation": "OK",
+        "revision_id": "b78cb2885a36f726e235b051989f43912b905a9b60ae1f7ef7cb6cda02033acc"
+      },
+      {
+        "evidence": "占位符按 [1, 3, 2] 映射，第1参数召唤射程(%d)、第3参数光环半径(%d)与第2参数光系伤害(%d)准确对应，持续15回合与基于魔法力量加成无误。",
+        "observation": "OK",
+        "revision_id": "b962bafe523642338dc8f0f8612a17711f957c7ddb24bff0947928b309146da1"
+      },
+      {
+        "evidence": "13个占位符通过 [1, 3, 2, 4, 5, 8, 6, 7, 9, 11, 10, 12, 13] 精准将命运/扭曲/重力的各范围半径前置于伤害数值，双抗削减、四种异常状态及减速效果与持续回合完全一致。",
+        "observation": "OK",
+        "revision_id": "bdb1d9e7dd95e37c0d4e00964c8978d010291cbaafc8a701cc5d5c3619ce0a44"
+      },
+      {
+        "evidence": "占位符按 [2, 1, 3, 4, 5] 映射，锥形半径(%d)前置于时空伤害(%0.2f)，最高三项属性降低数值(%d)及持续回合(%d)、时空伤害吸收(%d%%)与双向免疫机制完整等价。",
+        "observation": "OK",
+        "revision_id": "c809338f5093bbab77bac36ca52975d93b0efd4de44e825cfe36048574c74cd6"
+      },
+      {
+        "evidence": "占位符按 [1, 4, 2, 3, 5] 重排，触发几率、半径、物理与时空伤害、异常状态持续回合准确对应，冷却联动机制无误。",
+        "observation": "OK",
+        "revision_id": "d326e4bbc6da338505d1729f209280228c97ea11291cdfa052099a33fa2a5f64"
+      },
+      {
+        "evidence": "占位符按 [1, 3, 2, 4, 5] 重排，触发几率、半径、时空伤害、双抗削减比例及持续回合均精确对应，冷却联动机制一致。",
+        "observation": "OK",
+        "revision_id": "e6ddcec1b532619d209ff3b208c92416f0455a45e41fd3d064ed4827d3cce6a9"
+      },
+      {
+        "evidence": "占位符按 [1, 2, 3, 5, 4] 重排，正确将最大射程值(%d)置于末尾几率(%0.1f%%)之前，两次攻击伤害比例与距离几率递增机制完全吻合。",
+        "observation": "OK",
+        "revision_id": "edc5666d3a144e124c9ef77260bf17f336bf39c2cf1ed557705c507b01a3f249"
+      },
+      {
+        "evidence": "source 明确限定护盾吸收量计算为每清除一个负面效果（不计入越层效果）提供 %d 吸收量；target 仅写“每清除一个负面效果”，遗漏了越层效果不计入护盾数值的排除条件。",
+        "observation": "漏译机制限定词“(not counting cross-tier ones)”。",
+        "revision_id": "f15ead4fe953ee4ec53949d59e404be023576b38c3d32f8fe2397d84fbc1c193"
+      },
+      {
+        "evidence": "source 中“for %d turns”修饰召唤出的鬼魂在身边的存续时间（“summons %d spirits around you for %d turns”）；target 译为“在 %d 回合内召唤 %d 个鬼魂”，将召唤物存活时长错误表达为持续 %d 回合的召唤动作过程。",
+        "observation": "回合数修饰关系错误：将召唤物存续时间误译为召唤动作发生区间。",
+        "revision_id": "fc48069d340fc0a3b60f171096862ac8807eef254acc3acba11e3804dbaae69e"
+      },
+      {
+        "evidence": "占位符按 [2, 1, 3, 4, 5] 重排，搜索半径(%d)与目标数(%d)顺序对调无误，伤害数值、暗影伤害加成转化比例及Buff持续回合均准确匹配。",
+        "observation": "OK",
+        "revision_id": "fcafd3ecdea722007ad7825e733d53588fb401b5c333c9d696b03202231a3805"
+      }
+    ]
+  }
+}

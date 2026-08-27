@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "base_commit": "95a6328c7882e48aae203688da0a1ae0d8ad41eb",
+  "roles": {
+    "reviewer": {
+      "prompt": "../qwen3-8-27b-p1-b8/PROMPT.md",
+      "input": "../../p1-batches/p1-b8-args-order-census.json",
+      "input_sha256": "e1e3086a9b6f0b34ed79f861583f9a9f74e6f410fa42be604aad92e4484d6a66",
+      "sealed_reference_sha256": "2193036a1b5c94dff7578fdf29a2f2ef1e43d71bee3960abcb63ca6e5419e4b7"
+    },
+    "scout": {"prompt": "../qwen3-8-27b-agent-roles/SCOUT-PROMPT.md"},
+    "executor": {
+      "prompt": "../qwen3-8-27b-agent-roles/EXECUTOR-PROMPT.md",
+      "fixture_before_sha256": "82e25a395c1c9ff16c5b487ff465bc4bc7824e7cc61bebe4e8e716c24469b4c7",
+      "expected_after_sha256": "73bf81e4fa234f41c363d881a9459555ccf2a1d363c0df9fe245edf751906c6c"
+    }
+  },
+  "routes": [
+    {"cli": "grok 1.0.5", "model": "grok-4.6", "effort": "cli default"},
+    {"cli": "codex 0.149.1", "model": "gpt-5.6-sol", "effort": "high"},
+    {"cli": "agy 1.1.21", "model": "gemini-3.7-flash-high", "effort": "high"}
+  ]
+}

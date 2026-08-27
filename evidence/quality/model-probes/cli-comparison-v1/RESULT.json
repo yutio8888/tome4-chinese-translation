@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "experiment": "EXPERIMENT.json",
+  "scoring_notes": {
+    "reviewer": "Defect detection is scored by unique revision_id against the sealed reference: 10 defect revisions and 11 clean revisions. Invalid schema or incomplete ordered coverage is not scored.",
+    "scout": "Judged on source-fact correctness, exact final JSON contract, evidence traceability, and bounded read behavior.",
+    "executor": "Judged on material edits, semantic acceptance of all three target repairs, scope preservation, and report/tests. Exact expected-after hash is informative rather than mandatory because equivalent Chinese wording is accepted.",
+    "excluded_runs": "Early harness failures caused by empty-prompt escaping, a schema-path error, one transient Antigravity network failure, and the invalid Codex executor flag combination are excluded. The Codex scout retrieval repeat is the recorded run."
+  },
+  "routes": {
+    "grok_4_6": {
+      "cli": "grok 1.0.5",
+      "model": "grok-4.6",
+      "effort": "cli default",
+      "reviewer": {
+        "duration_seconds": 16.97,
+        "valid": false,
+        "reason": "The response claimed the 21-item input was truncated and emitted placeholder revision_id values, so ordered coverage and identity failed."
+      },
+      "scout": {
+        "duration_seconds": 244.316,
+        "facts_correct": true,
+        "contract_valid": false,
+        "bounded_read": false,
+        "files_read_count": 19,
+        "verdict": "CONDITIONAL",
+        "reason": "Accurate branch and inventory tracing, including the later orb-loan nuance, but substantial prose/tool progress preceded the JSON and the read set was broad."
+      },
+      "executor": {
+        "duration_seconds": 56.493,
+        "passed": false,
+        "material_changes": false,
+        "fixture_after_sha256": "82e25a395c1c9ff16c5b487ff465bc4bc7824e7cc61bebe4e8e716c24469b4c7",
+        "reason": "Returned plan/progress only and left the fixture unchanged; under repository rules this is an invalid no-result dispatch."
+      }
+    },
+    "codex_gpt_5_6_sol_high": {
+      "cli": "codex 0.149.1",
+      "model": "gpt-5.6-sol",
+      "effort": "high",
+      "reviewer": {
+        "duration_seconds": 177.963,
+        "valid": true,
+        "tp": 6,
+        "fp": 4,
+        "fn": 4,
+        "tn": 7,
+        "recall": 0.6,
+        "precision": 0.6,
+        "clean_false_positive_rate": 0.363636,
+        "specificity": 0.636364,
+        "balanced_accuracy": 0.618182
+      },
+      "scout": {
+        "duration_seconds": 139.804,
+        "facts_correct": true,
+        "contract_valid": true,
+        "bounded_read": false,
+        "reported_files_read_count": 6,
+        "verdict": "PASS_WITH_EFFICIENCY_WARNING",
+        "reason": "The final JSON is accurate and traceable, but the initial recursive search scanned many irrelevant locale files; the reported files_read list therefore understates command-level exposure."
+      },
+      "executor": {
+        "duration_seconds": 51.85,
+        "passed": true,
+        "material_changes": true,
+        "fixture_after_sha256": "4d41b584fd7e8844200a20ebc98ffead42ce1caca7692b16f0fc1aa8a099d4d0",
+        "semantic_acceptance": true,
+        "scope_preserved": true,
+        "reason": "Repaired all three targets with equivalent wording, preserved source metadata and formatting, and reported successful checks."
+      }
+    },
+    "antigravity_gemini_3_7_flash_high": {
+      "cli": "agy 1.1.21",
+      "model": "gemini-3.7-flash-high",
+      "effort": "high",
+      "reviewer": {
+        "duration_seconds": 50.584,
+        "valid": true,
+        "tp": 1,
+        "fp": 0,
+        "fn": 9,
+        "tn": 11,
+        "recall": 0.1,
+        "precision": 1.0,
+        "clean_false_positive_rate": 0.0,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.55
+      },
+      "scout": {
+        "duration_seconds": 54.176,
+        "facts_correct": true,
+        "contract_valid": true,
+        "bounded_read": true,
+        "files_read_count": 5,
+        "verdict": "PASS",
+        "reason": "Fast, exact JSON, correct branch/material tracing, and precise evidence with a compact read set."
+      },
+      "executor": {
+        "duration_seconds": 104.249,
+        "passed": true,
+        "material_changes": true,
+        "fixture_after_sha256": "825a533d3a55d6dc59c952dde18a8c5b41d8002f72ed8a7b1cfb6fc41bb5e491",
+        "semantic_acceptance": true,
+        "scope_preserved": true,
+        "reason": "Repaired all three targets with equivalent wording, preserved source metadata and formatting, and reported successful checks."
+      }
+    }
+  },
+  "role_ranking": {
+    "reviewer": [
+      "codex_gpt_5_6_sol_high",
+      "antigravity_gemini_3_7_flash_high",
+      "grok_4_6"
+    ],
+    "scout": [
+      "antigravity_gemini_3_7_flash_high",
+      "codex_gpt_5_6_sol_high",
+      "grok_4_6"
+    ],
+    "executor": [
+      "codex_gpt_5_6_sol_high",
+      "antigravity_gemini_3_7_flash_high",
+      "grok_4_6"
+    ]
+  },
+  "recommendation": {
+    "reviewer": "Use Codex among these three, but require independent second review because 60% recall and a 36.36% clean false-positive rate are not sufficient for sole adjudication.",
+    "scout": "Use Antigravity/Gemini as the default SCOUT for this workload; it was the fastest compliant and bounded source tracer.",
+    "executor": "Use Codex as the default EXECUTOR; both Codex and Antigravity passed, but Codex finished in about half the time. Do not use this Grok route as a sole executor until no-result dispatch behavior is resolved."
+  }
+}

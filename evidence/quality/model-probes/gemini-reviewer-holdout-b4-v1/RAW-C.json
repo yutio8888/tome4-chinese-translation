@@ -1,0 +1,150 @@
+{
+  "variant": "C",
+  "duration_seconds": 64.145,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 2,
+  "fp": 2,
+  "fn": 5,
+  "tn": 15,
+  "recall": 0.2857142857142857,
+  "precision": 0.5,
+  "clean_false_positive_rate": 0.11764705882352941,
+  "predicted_defect_ids": [
+    "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+    "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+    "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+    "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d"
+  ],
+  "usage": {
+    "input_tokens": 50088,
+    "output_tokens": 27371,
+    "thinking_tokens": 22080,
+    "cache_read_tokens": 24706,
+    "total_tokens": 77459
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "造成%0.2f精神伤害（距离10），获得相当于造成伤害10%%%%的灵能值和仇恨值",
+        "observation": "OK",
+        "revision_id": "bbe6a6d1496e967559d5d19258c5963ccc7f9337d92af6801560820335ce3ac2"
+      },
+      {
+        "evidence": "放出鬼火，可以对你的敌人自爆，造成%d寒冷伤害（基于魔法）",
+        "observation": "OK",
+        "revision_id": "6a52673dfad9af782ada1d01ee831f23676794f08a97f1ef7d999688cf07846c"
+      },
+      {
+        "evidence": "造成 %0.2f 时空伤害和 %0.2f 物理伤害 , 技能结束后若目标生命值不足 20%% 则可能会被立刻杀死",
+        "observation": "OK",
+        "revision_id": "9efb27ea36219825be5bb9e38fbb552786d6cdacf8c37fca2923d869a065ffb4"
+      },
+      {
+        "evidence": "Current Extended Spell: %s vs 当前强化法术： %s",
+        "observation": "机制名称与效果混淆：原文“Current Extended Spell”指延展法术（Extension），译文误译为“当前强化法术”（并在首句增补“强化指定的时空系法术”），混淆了时空增效系中的延展与强化（Empower）机制。",
+        "revision_id": "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2"
+      },
+      {
+        "evidence": "你的近战和远程攻击有 %d%% 的几率撕裂敌人，使其在 4 回合内受到 100%% 的额外流血伤害",
+        "observation": "OK",
+        "revision_id": "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52"
+      },
+      {
+        "evidence": "reducing their cooldowns and the power cost of all usable items vs 使所有可用物品的冷却时间和能量消耗降低",
+        "observation": "冷却缩减范围被扩大：原文“reducing their cooldowns”的缩减对象仅指护符（charms），译文“使所有可用物品的冷却时间和能量消耗降低”将冷却缩减扩大到所有可用物品。",
+        "revision_id": "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697"
+      },
+      {
+        "evidence": "爆炸(范围 2) ：3回合内 %0.2f 火焰伤害",
+        "observation": "OK",
+        "revision_id": "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017"
+      },
+      {
+        "evidence": "召唤三名阴影盗贼攻击目标。\\n这些盗贼继承你的伤害加成，并永久处于潜行状态。\\n它们会在 %d 回合后，或完成任务时消失",
+        "observation": "OK",
+        "revision_id": "6f2623b7cf2eda3d4914dc9c377f08f047b7a3fc7026b3f9fb38254cd5517159"
+      },
+      {
+        "evidence": "轰击半径 %d 格内四面八方的敌人。爆炸中心造成 %d 点伤害并击退 %d 格...爆炸范围内的所有生物还会被眩晕 3 回合",
+        "observation": "OK",
+        "revision_id": "c46aedd1fa773ba4738ae1e99615704dc12064692d4d5db5fd2380be264f6408"
+      },
+      {
+        "evidence": "Any Mucus Oozes you have active will, if in line of sight, instantly spit slime vs 如果你有任何粘液软泥怪存在，则会向视线内的某个被淤泥击中的随机目标释放",
+        "observation": "条件修饰对象错挂：原文“if in line of sight”条件修饰的是软泥怪自身（要求软泥怪在视线内），译文将其错挂为被击中的目标处于视线内。",
+        "revision_id": "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6"
+      },
+      {
+        "evidence": "Pull all foes toward you vs 将 5 码范围内的目标拉向你",
+        "observation": "目标范围被扩大：原文明确作用目标为敌方（foes），译文译为“目标”，丢失了仅对敌人起效的限定。",
+        "revision_id": "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d"
+      },
+      {
+        "evidence": "如果有 2 个或多个敌人在你的视野里，每个敌人都会使你的所有强度和豁免提高 %0.1f 。（最多 5 个敌人）",
+        "observation": "OK",
+        "revision_id": "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b"
+      },
+      {
+        "evidence": "增加 %d 点力量、 %d 点敏捷和 %d 体质。\\n\\t\\t激活此技能会使其他思维形态技能进入冷却。\\n\\t\\t属性增益受精神强度加成",
+        "observation": "OK",
+        "revision_id": "ba45293063c0e7e0e91ab6c236c4968ab6cc12049b709074cbc08b1a6f3e0b10"
+      },
+      {
+        "evidence": "增加 %d 点负重能力，增加 %d 点对抛射物的闪避，获得 %d%% 定身免疫和 %d%% 震慑免疫",
+        "observation": "OK",
+        "revision_id": "cce8b1eea8f36519d4f8101be6fac546d1d7cda39df96bc92273619461d0cb01"
+      },
+      {
+        "evidence": "恢复 %d 生命值，获得 %d 法力值。\\n\\t\\t如果你当前生命值在 1 以下，这股力量还将会提升你的法术强度 %d ，持续 10 回合",
+        "observation": "OK",
+        "revision_id": "6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244"
+      },
+      {
+        "evidence": "每回合可对敌我双方造成 %0.2f 火焰伤害，半径 %d 码，持续 %d 回合",
+        "observation": "OK",
+        "revision_id": "d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2"
+      },
+      {
+        "evidence": "友方目标: 提升 %d 魔法和物理豁免...敌对目标: 降低 %d 魔法和物理豁免，技能等级 5 时，还会使技能冷却时间延长 15%%",
+        "observation": "OK",
+        "revision_id": "67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88"
+      },
+      {
+        "evidence": "造成 %d%% 伤害。\\n\\t\\t短暂的喘息让你回复 %d 点体力",
+        "observation": "OK",
+        "revision_id": "88830814768d0f6c948de6410acfa7a3b59d7995348fdfda934bd860b3474e16"
+      },
+      {
+        "evidence": "当你被抛射物锁定时，增加你 %d%% 全局速度 1 回合。\\n\\t\\t除了移动外的任何动作均会打破此效果",
+        "observation": "OK",
+        "revision_id": "defcf6a782239b18d5366bccf8f0491f1e6ff5748feaa7cb845a9f7556c28dc4"
+      },
+      {
+        "evidence": "进入鬼魂形态，可以穿墙（但不能穿过其他障碍物），获得 %d 闪避和 %d 护甲值",
+        "observation": "OK",
+        "revision_id": "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b"
+      },
+      {
+        "evidence": "提升/获得侦测隐形或者潜行生物（ %d 侦测等级）",
+        "observation": "OK",
+        "revision_id": "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7"
+      },
+      {
+        "evidence": "减少 %d 潜行与隐身强度，减少 %d 闪避，同时失去不可见带来的闪避加成",
+        "observation": "OK",
+        "revision_id": "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3"
+      },
+      {
+        "evidence": "这个巨大臃肿的身影耸立在你面前...上百个垂挂的乳头喂养着一群争吵打斗的年轻兽人",
+        "observation": "OK",
+        "revision_id": "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1"
+      },
+      {
+        "evidence": "他曾经闪亮的盔甲如今又锈又钝且满是鲜血，这名太阳骑士已经陷入了深深的绝望",
+        "observation": "OK",
+        "revision_id": "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8"
+      }
+    ]
+  }
+}

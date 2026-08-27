@@ -1,0 +1,151 @@
+{
+  "variant": "A",
+  "duration_seconds": 82.961,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 3,
+  "fp": 2,
+  "fn": 3,
+  "tn": 16,
+  "recall": 0.5,
+  "precision": 0.6,
+  "clean_false_positive_rate": 0.1111111111111111,
+  "predicted_defect_ids": [
+    "2fb2f6bd97db72980c910f5d7c676624b19d1919962dc59ebbf289a0fe5ab104",
+    "4a6af5f88ca18aafc5b5bf91621ac53ee053694319d05e7d70297cf6be69d6b8",
+    "32c46a2286893f5686f0ae71843659c3ea05fc7946334c2b214846c9969fbe99",
+    "0e9abbbfe5a19f46705d5f5c461b64320885ab424e8af08725c1bee851907460",
+    "0117dc2fe5de0301dc91305c15fd752a09a4650dcb165ccdb9baa4400bf8e854"
+  ],
+  "usage": {
+    "input_tokens": 60042,
+    "output_tokens": 34673,
+    "thinking_tokens": 29589,
+    "cache_read_tokens": 25149,
+    "total_tokens": 94715
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "source 与 target 在伤害数值、伤害类型、作用半径、照明范围及占位符重排上均完全等价",
+        "observation": "OK",
+        "revision_id": "c13206e1600fc7777fcec48dd77048c6dce102eeb32c03444475611de2db6c42"
+      },
+      {
+        "evidence": "source 明确作用对象为敌方目标（foes），target 译为“所有目标”，改变了作用对象限定，造成是否存在友军伤害的机制理解偏差",
+        "observation": "作用对象与范围限定词不等价",
+        "revision_id": "2fb2f6bd97db72980c910f5d7c676624b19d1919962dc59ebbf289a0fe5ab104"
+      },
+      {
+        "evidence": "伤害加成、能量回复量、每回合触发上限及各数值占位符映射均等价",
+        "observation": "OK",
+        "revision_id": "5a12b22274a16e07fe9610542ccce4db693094788983cd971b0ec933b5fceca2"
+      },
+      {
+        "evidence": "args_order 指定为 [2,1,3,4,5]，导致 target 中第 1 个占位符 `%d%%`（减速幅度）错误绑定 source 第 2 个参数（持续回合），第 2 个占位符 `%d`（持续回合）错误绑定 source 第 1 个参数（减速幅度）",
+        "observation": "占位符参数绑定顺序错误导致数值颠倒",
+        "revision_id": "4a6af5f88ca18aafc5b5bf91621ac53ee053694319d05e7d70297cf6be69d6b8"
+      },
+      {
+        "evidence": "持续回合数与冷却时间上限的语义槽位及重排映射完全对应",
+        "observation": "OK",
+        "revision_id": "9754d8f40538505b00e7bf285a4fdd9426903007d12ffc2e36f7a162417af7a8"
+      },
+      {
+        "evidence": "触发几率、范围、伤害数值、减速幅度及持续时间等参数与 args_order 映射完全一致",
+        "observation": "OK",
+        "revision_id": "b362d2fcd77e16d2e8169844e56f27a8a91419184b2b7ce93954e177b6b73fac"
+      },
+      {
+        "evidence": "source 中 `%s` 为后置修饰（`grids%s`），target 将其移至“被击退到”与“最多 %d 格”之间（`被击退到%s最多 %d 格`），割裂了击退距离（up to %d grids）的修饰关系，且“击退到%s”曲解了句法结构",
+        "observation": "占位符位置与句法修饰关系错误",
+        "revision_id": "32c46a2286893f5686f0ae71843659c3ea05fc7946334c2b214846c9969fbe99"
+      },
+      {
+        "evidence": "source 明确机制为受影响目标按随机顺序（ordered at random）受到的伤害比上一个目标递减 %d%%（takes %d%% less damage than the last）；target 遗漏了“随机顺序”及“比上一个目标递减（than the last）”，且错误增译“攻击可能会指向多个目标”",
+        "observation": "伤害衰减机制与目标判定严重曲解",
+        "revision_id": "0e9abbbfe5a19f46705d5f5c461b64320885ab424e8af08725c1bee851907460"
+      },
+      {
+        "evidence": "冰墙长度、持续回合、散发寒气的作用半径与伤害数值及占位符映射完全一致",
+        "observation": "OK",
+        "revision_id": "f05b671cb7e1d6867ac36b8df609baf87b574d5c0759a1763e46dd640c9b4f75"
+      },
+      {
+        "evidence": "武器伤害百分比、爆发伤害、作用半径和攻速加成等数值及槽位关系均正确对应",
+        "observation": "OK",
+        "revision_id": "c9354016f3bd79bc13b8663b9c2c65ed4c890824bcfd442819964386ce342182"
+      },
+      {
+        "evidence": "抗性持续时间、反魔爆发伤害、范围与失衡值回复等槽位与占位符映射完全一致",
+        "observation": "OK",
+        "revision_id": "668ed05733aa6a55d8a7a2c0da4471c6428c186cc29c18f62c55ca4dbd8e646e"
+      },
+      {
+        "evidence": "视野半径、侦测强度、持续时间与感知类型占位符重排后语义完全等价",
+        "observation": "OK",
+        "revision_id": "99d240ff521351466cac61646f8ceff1019c7926939c26a51f80052229b6ef51"
+      },
+      {
+        "evidence": "触发伤害阈值、持续回合、闪避率和防御值增加量均正确绑定并等价表达",
+        "observation": "OK",
+        "revision_id": "8f00dbfb14cfd9e0b97212d40a047b0eff2c7d1b33b679379ab2b094c9b36f98"
+      },
+      {
+        "evidence": "伤害数值与爆炸半径重排后语义与机制均完全等价",
+        "observation": "OK",
+        "revision_id": "3770baeaf33779789df0e8d78d7313d4be8b57eca3592fc11f5ce18101a9ed80"
+      },
+      {
+        "evidence": "7 个数值占位符重排后分别准确对应半径、伤害（及上限）、眩晕几率（及上限）、灵能回复（及上限）",
+        "observation": "OK",
+        "revision_id": "9c33961add4f019c1d845bbbf73af0073c03b3ddf4152b184e43885a9f499436"
+      },
+      {
+        "evidence": "近战奥术伤害百分比与作用半径重排后语义完全一致",
+        "observation": "OK",
+        "revision_id": "fb89c051332625fb662fba5af1cbde7470445d723fc35902bb235a979698a75a"
+      },
+      {
+        "evidence": "护盾损失阈值、荒地伤害、作用半径、护盾回复量及生成上限占位符完全匹配",
+        "observation": "OK",
+        "revision_id": "8618efd7627691da576af49fa48f8384657724ff5e929c422315a41c714e2bf8"
+      },
+      {
+        "evidence": "法术伤害、爆炸半径以及死灵随从伤害减免数值和持续时间均等价",
+        "observation": "OK",
+        "revision_id": "7b59869c4ff64ba517ef3393cea333697f764a1120aad73f81ff43def58aa582"
+      },
+      {
+        "evidence": "source 机制为“在近战范围内命中目标（land on your target in melee range）”时有概率“触发另一次类似的攻击（trigger another, similar strike）”；target 遗漏了近战范围（in melee range）与命中（land），并将额外攻击（strike/blow）误译为“附加伤害”，混淆了额外攻击判定与附加伤害机制",
+        "observation": "动作类型与触发条件误译（额外攻击被译为附加伤害，且遗漏近战范围限定）",
+        "revision_id": "0117dc2fe5de0301dc91305c15fd752a09a4650dcb165ccdb9baa4400bf8e854"
+      },
+      {
+        "evidence": "护盾当前/最大吸收量、爆炸伤害上限/当前值及半径重排后完全对应",
+        "observation": "OK",
+        "revision_id": "f29c5c9ed295a344f4370f2332a23ee0d4bdf37611c5bf6d2234cd562c7e4364"
+      },
+      {
+        "evidence": "恐惧源名称、停留回合、有效距离和伤害数值占位符映射与语义完全等价",
+        "observation": "OK",
+        "revision_id": "122d658ee7464e0457f0a239514fa31fcb40cc2e59a7e988977c89e29ca1c735"
+      },
+      {
+        "evidence": "目标对象占位符与精神抗性穿透数值重排后完全对应",
+        "observation": "OK",
+        "revision_id": "36ed00c6a37e94df55fc623df53d3f4d10a2db5f72d31700ff92527d4fbe5c9e"
+      },
+      {
+        "evidence": "移动方向与额外移动速度加成数值重排后语义完全等价",
+        "observation": "OK",
+        "revision_id": "c82d7fe6258b9c7981f2b29374d1e7d84f028f54963703a18f96d843485069de"
+      },
+      {
+        "evidence": "伤害数值与伤害触发频率占位符重排后语义完全一致",
+        "observation": "OK",
+        "revision_id": "f53835f9612a964f59e05930d8cc176370a5dc1bf0bf40463e84ef4107f1d966"
+      }
+    ]
+  }
+}

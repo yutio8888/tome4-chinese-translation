@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "experiment": "EXPERIMENT.json",
+  "population": {"items":24,"defect_revisions":7,"clean_revisions":17},
+  "models": {
+    "grok_4_6": {
+      "baseline":{"duration_seconds":438.619,"valid":true,"tp":3,"fp":2,"fn":4,"tn":15,"recall":0.428571,"precision":0.6,"clean_false_positive_rate":0.117647,"balanced_accuracy":0.655462},
+      "A":{"duration_seconds":511.502,"valid":true,"tp":4,"fp":7,"fn":3,"tn":10,"recall":0.571429,"precision":0.363636,"clean_false_positive_rate":0.411765,"balanced_accuracy":0.579832},
+      "B":{"duration_seconds":470.78,"valid":true,"tp":4,"fp":4,"fn":3,"tn":13,"recall":0.571429,"precision":0.5,"clean_false_positive_rate":0.235294,"balanced_accuracy":0.668067},
+      "C":{"duration_seconds":533.516,"valid":true,"tp":5,"fp":9,"fn":2,"tn":8,"recall":0.714286,"precision":0.357143,"clean_false_positive_rate":0.529412,"balanced_accuracy":0.592437},
+      "D":{"duration_seconds":23.16,"valid":false,"reason":"The model reported input truncation and emitted repeated placeholder revision IDs; max-turns was reached."}
+    },
+    "codex_gpt_5_6_sol_high": {
+      "baseline":{"duration_seconds":102.967,"valid":true,"tp":4,"fp":2,"fn":3,"tn":15,"recall":0.571429,"precision":0.666667,"clean_false_positive_rate":0.117647,"balanced_accuracy":0.726891},
+      "A":{"duration_seconds":159.359,"valid":true,"tp":5,"fp":5,"fn":2,"tn":12,"recall":0.714286,"precision":0.5,"clean_false_positive_rate":0.294118,"balanced_accuracy":0.710084},
+      "B":{"duration_seconds":150.933,"valid":true,"tp":4,"fp":4,"fn":3,"tn":13,"recall":0.571429,"precision":0.5,"clean_false_positive_rate":0.235294,"balanced_accuracy":0.668067},
+      "C":{"duration_seconds":138.591,"valid":true,"tp":4,"fp":6,"fn":3,"tn":11,"recall":0.571429,"precision":0.4,"clean_false_positive_rate":0.352941,"balanced_accuracy":0.609244},
+      "D":{"duration_seconds":147.294,"valid":true,"tp":3,"fp":2,"fn":4,"tn":15,"recall":0.428571,"precision":0.6,"clean_false_positive_rate":0.117647,"balanced_accuracy":0.655462}
+    },
+    "gemini_3_7_flash_high_prior_run": {
+      "baseline":{"duration_seconds":39.092,"valid":true,"tp":0,"fp":0,"fn":7,"tn":17,"recall":0.0,"precision":null,"clean_false_positive_rate":0.0,"balanced_accuracy":0.5},
+      "A":{"duration_seconds":60.826,"valid":true,"tp":1,"fp":2,"fn":6,"tn":15,"recall":0.142857,"precision":0.333333,"clean_false_positive_rate":0.117647,"balanced_accuracy":0.512605},
+      "B":{"duration_seconds":68.056,"valid":true,"tp":2,"fp":2,"fn":5,"tn":15,"recall":0.285714,"precision":0.5,"clean_false_positive_rate":0.117647,"balanced_accuracy":0.584034},
+      "C":{"duration_seconds":64.145,"valid":true,"tp":2,"fp":2,"fn":5,"tn":15,"recall":0.285714,"precision":0.5,"clean_false_positive_rate":0.117647,"balanced_accuracy":0.584034},
+      "D":{"duration_seconds":43.429,"valid":true,"tp":0,"fp":0,"fn":7,"tn":17,"recall":0.0,"precision":null,"clean_false_positive_rate":0.0,"balanced_accuracy":0.5}
+    }
+  },
+  "recommendations": {
+    "best_overall_on_b4": "Codex baseline: highest balanced accuracy (72.69%), 57.14% recall, 66.67% precision, and much lower latency than Grok.",
+    "codex_recall_mode": "Codex A raises recall to 71.43%, but precision falls to 50% and clean false-positive rate rises to 29.41%.",
+    "grok_balanced_mode": "Grok B is its best balanced prompt (66.81% balanced accuracy), but takes 470.78 seconds and remains below Codex baseline.",
+    "grok_recall_mode": "Grok C reaches 71.43% recall but flags 9 of 17 clean items, so it is unsuitable without heavy downstream adjudication.",
+    "gemini": "Gemini remains materially weaker on this non-args_order batch. Prompt C should not be treated as a universal reviewer prompt.",
+    "routing": "For general non-args_order mechanics text, use Codex baseline among these tested configurations. If recall is explicitly prioritized over review load, use Codex A. All routes still require fixed-source adjudication."
+  },
+  "harness_note": "Grok returned schema content wrapped in a CLI text envelope; existing raw outputs were decoded and rescored without rerunning. Grok D is genuinely invalid, not a wrapper failure."
+}

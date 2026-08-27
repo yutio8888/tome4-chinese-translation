@@ -1,0 +1,11 @@
+import fs from "node:fs";import path from "node:path";
+const root="/home/yun/research/tome4-agent-eval",dir=path.join(root,"evidence/quality/model-probes/discussion-codex-gemini-b4-v1");
+const input=JSON.parse(fs.readFileSync(path.join(root,"evidence/quality/p1-batches/p1-b4-mechanics-numeric.json"),"utf8"));
+const ref=JSON.parse(fs.readFileSync(path.join(root,"evidence/quality/p1-batches/p1-b4-s2-verification.json"),"utf8"));
+const ids=input.items.map(x=>x.revision_id),gold=new Set(ref.items.filter(x=>x.decision==="defect").map(x=>x.revision_id));
+const load=p=>JSON.parse(fs.readFileSync(p,"utf8")).response.revisions;
+const sets={r1_codex:new Set(load(path.join(root,"evidence/quality/model-probes/non-args-reviewer-model-comparison-b4-v1/RAW-codex-baseline.json")).filter(x=>x.observation!=="OK").map(x=>x.revision_id)),r1_gemini:new Set(load(path.join(root,"evidence/quality/model-probes/gemini-reviewer-holdout-b4-v1/RAW-C.json")).filter(x=>x.observation!=="OK").map(x=>x.revision_id)),r2_codex:new Set(load(path.join(dir,"RAW-reconsider-codex.json")).filter(x=>x.observation!=="OK").map(x=>x.revision_id)),r2_gemini:new Set(load(path.join(dir,"RAW-reconsider-gemini.json")).filter(x=>x.observation!=="OK").map(x=>x.revision_id)),chair:new Set(load(path.join(dir,"RAW-synthesize-codex.json")).filter(x=>x.observation!=="OK").map(x=>x.revision_id))};
+sets.r2_union=new Set([...sets.r2_codex,...sets.r2_gemini]);sets.r2_consensus=new Set([...sets.r2_codex].filter(x=>sets.r2_gemini.has(x)));
+function score(pred){let tp=0,fp=0,fn=0,tn=0;for(const id of ids){if(gold.has(id)&&pred.has(id))tp++;else if(!gold.has(id)&&pred.has(id))fp++;else if(gold.has(id))fn++;else tn++;}return{tp,fp,fn,tn,recall:tp/(tp+fn),precision:tp+fp?tp/(tp+fp):null,clean_false_positive_rate:fp/(fp+tn),predicted_defect_ids:[...pred]};}
+if(fs.existsSync(path.join(dir,"RAW-free-chair-codex.json")))sets.free_chair=new Set(load(path.join(dir,"RAW-free-chair-codex.json")).filter(x=>x.observation!=="OK").map(x=>x.revision_id));
+const result=Object.fromEntries(Object.entries(sets).map(([k,v])=>[k,score(v)]));fs.writeFileSync(path.join(dir,"SCORES.json"),JSON.stringify(result,null,2)+"\n");console.log(JSON.stringify(result));

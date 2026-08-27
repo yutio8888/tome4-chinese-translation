@@ -1,0 +1,38 @@
+综合原文后，我建议标记 8 条。Gemini 新提出的两项并非误报；真正的问题主要是它把几处明确的信息损失判成了 OK。另有一项我撤回原先的确定判断，保留等待实现代码或术语表验证。
+
+双方已经一致确认两条：
+
+- `091ae9…`：source “Any Mucus Oozes … will, **if in line of sight**, … spit … at one of the targets” 中，视线条件修饰软泥怪；target “向**视线内的某个……目标**释放”改成修饰受击目标。条件对象确实错挂。
+- `6eef01…`：source “Pull **all foes**”至少明确限定敌方，target“将……范围内的**目标**拉向你”丢失敌我限制。至于是否还丢失“all”，中文“范围内的目标”可以作集合解读，因此我只坚持“foes”这一项，不再把“all”单独作为确定错误。
+
+Gemini 提供的新证据中，两项都应接受：
+
+- `4f929d…`：source 的结构是“use **charms** … reducing **their cooldowns** and **the power cost of all usable items**”。“their”只回指 charms，而“all usable items”只限定 power cost。target“使**所有可用物品的冷却时间和能量消耗**降低”让“所有可用物品”同时支配冷却和能量消耗，确实扩大了冷却缩减范围。我首审把同一个 `%d%%` 绑定正确误当成了作用域也正确。
+- `8d84a9…`：source 明确使用 “Extends”“spellbound”以及状态标签“Current **Extended** Spell”，target 虽在首句保留“延展……持续时间”，却把总称和状态标签写成“强化”“当前强化法术”，丢失了 Extended/延展这一具体类别，应标记。Gemini 所说它一定会与游戏中的 Empower 机制冲突，需要同系技能或术语表才能完全坐实；但即使不依赖该外部推断，状态标签由“延展”变成泛称“强化”本身已经足够构成问题。
+
+Gemini 判为 OK、但证据明显不足或结论明显错误的有三条：
+
+- `a2e351…`：source 是“an additional 100%% **of the damage dealt** as a bleed”，流血总量以本次已造成伤害为基准；target“受到 100%% 的额外流血伤害”没有说明这个 100% 的基数。占位符和百分比仍在，不等于数值关系得到保留。
+- `0bbf247…`：source 只排除“**natural obstacles**”，target 排除“**其他障碍物**”。“其他”通常指除墙之外的一切障碍，比“自然障碍”范围更大；在没有游戏术语证明二者等价前，应按范围扩大处理。
+- `5c20b…`：source “armour now **dull and bloodstained**”是盔甲失去光泽、染有血迹；target“**又锈又钝**且满是鲜血”凭空加入“锈”。`dull` 单独译成“暗淡/无光”最稳妥，“锈”没有来源。即便宽容接受“钝”对 dull 的直译，“锈”仍是确定增译。
+
+双方还有一个共同盲点：
+
+- `329500…` 不宜继续判 OK。source “**Mucus and slime** ooze”被译成“**粘液和脓液**”，其中“脓液”加入了感染、化脓含义；第二段 “Here stands … above **you**”又变成“站在**我们**面前”，叙述人称发生改变。此外 “babies **regularly** emerge”中的频繁性也被省略。单看后两项可能只是文风问题，但“slime→脓液”与人称漂移合并后，已经足以要求修订。
+
+我会撤回或至少降级原先对 `67b03c…` 的确定标记。source “all talents cool down 15%% slower”和target“冷却时间延长 15%%”若严格把前者解释为冷却速率乘以 0.85，数学上确实不等价；但游戏说明中的“15% slower”也经常只是非严格地表示“需要多 15% 的冷却时间”。仅凭这组 source/target 无法确定程序采用速率乘数还是时长乘数。除非实现代码显示冷却推进速度确实降低 15%，否则不建议主席据此标记。
+
+若“误报”专指把正确条目标成错误，Gemini 此轮没有明显误报：它新增的 `4f929d…` 和 `8d84a9…` 都成立。它的问题是漏报，即对 `a2e351…`、`0bbf247…`、`5c20b…` 以及共同漏看的 `329500…` 给出了不充分的 OK。
+
+建议主席最终标记以下 revision_id：
+
+- `8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2`
+- `a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52`
+- `4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697`
+- `091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6`
+- `6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d`
+- `0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b`
+- `329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1`
+- `5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8`
+
+`67b03c…` 暂不标记，保留待实现证据确认；其余共同判为 OK 的条目，没有出现足以推翻原结论的新证据。

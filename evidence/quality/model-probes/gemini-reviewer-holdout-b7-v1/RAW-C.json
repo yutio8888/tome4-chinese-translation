@@ -1,0 +1,151 @@
+{
+  "variant": "C",
+  "duration_seconds": 75.121,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 4,
+  "fp": 1,
+  "fn": 2,
+  "tn": 17,
+  "recall": 0.6666666666666666,
+  "precision": 0.8,
+  "clean_false_positive_rate": 0.05555555555555555,
+  "predicted_defect_ids": [
+    "2fb2f6bd97db72980c910f5d7c676624b19d1919962dc59ebbf289a0fe5ab104",
+    "4a6af5f88ca18aafc5b5bf91621ac53ee053694319d05e7d70297cf6be69d6b8",
+    "0e9abbbfe5a19f46705d5f5c461b64320885ab424e8af08725c1bee851907460",
+    "c9354016f3bd79bc13b8663b9c2c65ed4c890824bcfd442819964386ce342182",
+    "0117dc2fe5de0301dc91305c15fd752a09a4650dcb165ccdb9baa4400bf8e854"
+  ],
+  "usage": {
+    "input_tokens": 50772,
+    "output_tokens": 28441,
+    "thinking_tokens": 23590,
+    "cache_read_tokens": 24510,
+    "total_tokens": 79213
+  },
+  "response": {
+    "revisions": [
+      {
+        "evidence": "args_order [2,1,3] 绑定正确",
+        "observation": "OK",
+        "revision_id": "c13206e1600fc7777fcec48dd77048c6dce102eeb32c03444475611de2db6c42"
+      },
+      {
+        "evidence": "source: 'on foes', target: '所有目标'",
+        "observation": "受影响目标范围被扩大：source 中限定为“foes”（敌人），target 误译为“所有目标”。",
+        "revision_id": "2fb2f6bd97db72980c910f5d7c676624b19d1919962dc59ebbf289a0fe5ab104"
+      },
+      {
+        "evidence": "args_order [1,3,2] 绑定正确",
+        "observation": "OK",
+        "revision_id": "5a12b22274a16e07fe9610542ccce4db693094788983cd971b0ec933b5fceca2"
+      },
+      {
+        "evidence": "args_order [2, 1, 3, 4, 5] 与 target 中的 '受到 %d%% 的减速效果，持续 %d 回合'",
+        "observation": "参数数值绑定错误：args_order 为 [2, 1, 3, 4, 5]，导致 target 中减速百分比绑定了持续回合（参数2），持续回合绑定了减速百分比（参数1）。",
+        "revision_id": "4a6af5f88ca18aafc5b5bf91621ac53ee053694319d05e7d70297cf6be69d6b8"
+      },
+      {
+        "evidence": "args_order [2,1] 绑定正确",
+        "observation": "OK",
+        "revision_id": "9754d8f40538505b00e7bf285a4fdd9426903007d12ffc2e36f7a162417af7a8"
+      },
+      {
+        "evidence": "args_order [1,3,2,4,5] 绑定正确",
+        "observation": "OK",
+        "revision_id": "b362d2fcd77e16d2e8169844e56f27a8a91419184b2b7ce93954e177b6b73fac"
+      },
+      {
+        "evidence": "args_order [2,1] 绑定正确",
+        "observation": "OK",
+        "revision_id": "32c46a2286893f5686f0ae71843659c3ea05fc7946334c2b214846c9969fbe99"
+      },
+      {
+        "evidence": "source: 'Each affected target (ordered at random) takes %d%% less damage than the last', target: '攻击可能会指向多个目标，但是每个目标会减少 %d%% 伤害'",
+        "observation": "机制被歪曲且丢失关键断言：source 中每个目标依次递减伤害（takes %d%% less damage than the last）和随机排序机制（ordered at random）被误译为所有目标固定减伤，并增补了无依据的“攻击可能会指向多个目标”。",
+        "revision_id": "0e9abbbfe5a19f46705d5f5c461b64320885ab424e8af08725c1bee851907460"
+      },
+      {
+        "evidence": "args_order [1,2,4,3] 绑定正确",
+        "observation": "OK",
+        "revision_id": "f05b671cb7e1d6867ac36b8df609baf87b574d5c0759a1763e46dd640c9b4f75"
+      },
+      {
+        "evidence": "source: 'freezing and slowing ice', target: '冻结之息'",
+        "observation": "丢失效果机制：source 中寒冰伤害附带的减速效果（freezing and slowing ice）在 target 中被译为“冻结之息”而丢失减速断言；且“with equal odds”（等概率）与“%0.2f of that damage”（该伤害的 %0.2f 比例）被遗漏或弱化。",
+        "revision_id": "c9354016f3bd79bc13b8663b9c2c65ed4c890824bcfd442819964386ce342182"
+      },
+      {
+        "evidence": "args_order [1,3,2,4] 绑定正确",
+        "observation": "OK",
+        "revision_id": "668ed05733aa6a55d8a7a2c0da4471c6428c186cc29c18f62c55ca4dbd8e646e"
+      },
+      {
+        "evidence": "args_order [1,2,3,5,4] 绑定正确",
+        "observation": "OK",
+        "revision_id": "99d240ff521351466cac61646f8ceff1019c7926939c26a51f80052229b6ef51"
+      },
+      {
+        "evidence": "args_order [1,4,2,3] 绑定正确",
+        "observation": "OK",
+        "revision_id": "8f00dbfb14cfd9e0b97212d40a047b0eff2c7d1b33b679379ab2b094c9b36f98"
+      },
+      {
+        "evidence": "args_order [2,1] 绑定正确",
+        "observation": "OK",
+        "revision_id": "3770baeaf33779789df0e8d78d7313d4be8b57eca3592fc11f5ce18101a9ed80"
+      },
+      {
+        "evidence": "args_order [3,1,2,4,5,6,7] 绑定正确",
+        "observation": "OK",
+        "revision_id": "9c33961add4f019c1d845bbbf73af0073c03b3ddf4152b184e43885a9f499436"
+      },
+      {
+        "evidence": "args_order [2,1] 绑定正确",
+        "observation": "OK",
+        "revision_id": "fb89c051332625fb662fba5af1cbde7470445d723fc35902bb235a979698a75a"
+      },
+      {
+        "evidence": "args_order [1,3,2,4,5] 绑定正确",
+        "observation": "OK",
+        "revision_id": "8618efd7627691da576af49fa48f8384657724ff5e929c422315a41c714e2bf8"
+      },
+      {
+        "evidence": "args_order [2,1,3] 绑定正确",
+        "observation": "OK",
+        "revision_id": "7b59869c4ff64ba517ef3393cea333697f764a1120aad73f81ff43def58aa582"
+      },
+      {
+        "evidence": "source: 'each strike you land on your target in melee range has a %d%% chance to trigger another, similar strike', target: '每次攻击有 %d%% 概率对目标造成一次类似的附加伤害'",
+        "observation": "丢失空间触发条件与机制歪曲：source 中限定为“in melee range”（在近战范围内）命中目标触发额外攻击，target 遗漏了近战范围限制，且将触发额外攻击（trigger another, similar strike）改写为造成附加伤害。",
+        "revision_id": "0117dc2fe5de0301dc91305c15fd752a09a4650dcb165ccdb9baa4400bf8e854"
+      },
+      {
+        "evidence": "args_order [1,2,5,3,4] 绑定正确",
+        "observation": "OK",
+        "revision_id": "f29c5c9ed295a344f4370f2332a23ee0d4bdf37611c5bf6d2234cd562c7e4364"
+      },
+      {
+        "evidence": "args_order [3,2,1,4] 绑定正确",
+        "observation": "OK",
+        "revision_id": "122d658ee7464e0457f0a239514fa31fcb40cc2e59a7e988977c89e29ca1c735"
+      },
+      {
+        "evidence": "args_order [2,1] 绑定正确",
+        "observation": "OK",
+        "revision_id": "36ed00c6a37e94df55fc623df53d3f4d10a2db5f72d31700ff92527d4fbe5c9e"
+      },
+      {
+        "evidence": "args_order [2,1] 绑定正确",
+        "observation": "OK",
+        "revision_id": "c82d7fe6258b9c7981f2b29374d1e7d84f028f54963703a18f96d843485069de"
+      },
+      {
+        "evidence": "args_order [2,1] 绑定正确",
+        "observation": "OK",
+        "revision_id": "f53835f9612a964f59e05930d8cc176370a5dc1bf0bf40463e84ef4107f1d966"
+      }
+    ]
+  }
+}

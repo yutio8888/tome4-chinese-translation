@@ -1,0 +1,148 @@
+{
+  "route": "codex",
+  "variant": "B",
+  "duration_seconds": 150.933,
+  "exit_status": 0,
+  "valid": true,
+  "tp": 4,
+  "fp": 4,
+  "fn": 3,
+  "tn": 13,
+  "recall": 0.5714285714285714,
+  "precision": 0.5,
+  "clean_false_positive_rate": 0.23529411764705882,
+  "predicted_defect_ids": [
+    "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+    "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+    "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017",
+    "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+    "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+    "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+    "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1",
+    "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8"
+  ],
+  "response": {
+    "revisions": [
+      {
+        "revision_id": "bbe6a6d1496e967559d5d19258c5963ccc7f9337d92af6801560820335ce3ac2",
+        "observation": "OK",
+        "evidence": "target完整保留精神伤害、距离10，以及按伤害量10%同时获得灵能值和仇恨值；args_order为null。"
+      },
+      {
+        "revision_id": "6a52673dfad9af782ada1d01ee831f23676794f08a97f1ef7d999688cf07846c",
+        "observation": "OK",
+        "evidence": "target保留鬼火对敌人爆炸、造成基于魔法的寒冷伤害；args_order为null。"
+      },
+      {
+        "revision_id": "9efb27ea36219825be5bb9e38fbb552786d6cdacf8c37fca2923d869a065ffb4",
+        "observation": "OK",
+        "evidence": "两类伤害及数值归属、生命低于20%的即死条件、两种紊乱状态下增伤50%和法术强度缩放均一致。"
+      },
+      {
+        "revision_id": "8d84a9b520508b30da3bd821adbd75364c346ebb92ce7492577ac454114da3e2",
+        "observation": "OK",
+        "evidence": "target保留所选法术的持续时间增幅、每个法术同时只能采用一种增效方式及当前法术名称；args_order为null。"
+      },
+      {
+        "revision_id": "a2e351c3744c4274acbc77395eb4a64ed60a84bdda8ff171b57c777055316f52",
+        "observation": "流血伤害的计算基数遗漏",
+        "evidence": "source规定流血总伤害为本次攻击已造成伤害的100%，target仅称“100%的额外流血伤害”，未说明这100%以已造成伤害为基数。"
+      },
+      {
+        "revision_id": "4f929d372b27942e7f8ed997c898d578eb9e34326cddfef3f2575bf067f8d697",
+        "observation": "冷却缩减的物品范围被扩大",
+        "evidence": "source只降低护符的冷却时间，而同一百分比降低所有可用物品的能量消耗；target将所有可用物品的冷却时间和能量消耗都降低。"
+      },
+      {
+        "revision_id": "1d3c32f0baeb423388a3e022f39d92ea7f5aa98edfe3ee4754ee1fc2e21f9017",
+        "observation": "爆炸半径被弱化为未定义形状的范围",
+        "evidence": "source明确为radius 2，target仅写“范围2”，未保留以爆心为中心、半径为2的机制形状。"
+      },
+      {
+        "revision_id": "6f2623b7cf2eda3d4914dc9c377f08f047b7a3fc7026b3f9fb38254cd5517159",
+        "observation": "OK",
+        "evidence": "三名盗贼、继承伤害加成、永久潜行，以及在指定回合后或完成任务时消失均与source一致。"
+      },
+      {
+        "revision_id": "c46aedd1fa773ba4738ae1e99615704dc12064692d4d5db5fd2380be264f6408",
+        "observation": "OK",
+        "evidence": "半径、中心伤害与击退、二者随距离衰减、爆炸内所有生物眩晕3回合及暴击伤害增幅均完整对应。"
+      },
+      {
+        "revision_id": "091ae9f7c43dc7aacd0e67240f53010b5dce4532480af2af6059a6a8d51026f6",
+        "observation": "视线条件归属错误，并凭空增加随机选择",
+        "evidence": "source要求每只已激活的粘液软泥怪须处于视线内，随后向一个被爆炸命中的目标喷吐；target把“视线内”挂到受击目标上，并增加source没有的“随机目标”。"
+      },
+      {
+        "revision_id": "6eef01a8e539ced6a0d746ae9dcfbfd513dd70ffb52d7a136ccb3d09f3d5a61d",
+        "observation": "目标集合和半径限定均未完整保留",
+        "evidence": "source是拉动radius 5内的all foes；target只写“5码范围内的目标”，既未限定全部敌人，也未明确这是半径5。"
+      },
+      {
+        "revision_id": "a298ac5be35e5df67abfb83eff0d120e5bacf96fa7e4b35ad3ea51f0810a850b",
+        "observation": "OK",
+        "evidence": "至少两个可见敌人的触发条件、每名敌人提供增幅、涵盖三种强度与三种豁免以及最多计入5名敌人均一致。"
+      },
+      {
+        "revision_id": "ba45293063c0e7e0e91ab6c236c4968ab6cc12049b709074cbc08b1a6f3e0b10",
+        "observation": "OK",
+        "evidence": "战斧精神体的技能成长、三项属性加成、使所有其他思维形态进入冷却及精神强度缩放均对应；参数顺序未变。"
+      },
+      {
+        "revision_id": "cce8b1eea8f36519d4f8101be6fac546d1d7cda39df96bc92273619461d0cb01",
+        "observation": "OK",
+        "evidence": "负重、对抛射物防御、定身与震慑免疫、4级漂浮效果及5级移动速度和疲劳削减均完整对应。"
+      },
+      {
+        "revision_id": "6ab61121f8fe24878b09f75e959545c8def5052fa16a7a792aaa128a7dda5244",
+        "observation": "OK",
+        "evidence": "消耗一个灵魂后的治疗与法力、生命低于1时持续10回合的法术强度增益，以及缩放项均一致。"
+      },
+      {
+        "revision_id": "d4d5bcf1bcf5b17968ec196fdb85ef0236ac29a9b8a8fe6c85b787562641c3e2",
+        "observation": "OK",
+        "evidence": "敌我双方、每回合伤害、半径、持续回合及法术强度缩放均与source一致。"
+      },
+      {
+        "revision_id": "67b03c352d27fd6e323b10fe58d3e22bde99464fec1fcb64b108d1ee0416de88",
+        "observation": "OK",
+        "evidence": "友方与敌对分支的魔法和物理豁免变化、5级治疗系数提高15%及技能冷却变慢15%均对应。"
+      },
+      {
+        "revision_id": "88830814768d0f6c948de6410acfa7a3b59d7995348fdfda934bd860b3474e16",
+        "observation": "OK",
+        "evidence": "低力度射击的伤害百分比与随后恢复的体力数值归属正确；args_order为null。"
+      },
+      {
+        "revision_id": "defcf6a782239b18d5366bccf8f0491f1e6ff5748feaa7cb845a9f7556c28dc4",
+        "observation": "OK",
+        "evidence": "被抛射物锁定时获得持续1回合的全局速度增益，以及任何非移动动作打破效果的限制均一致。"
+      },
+      {
+        "revision_id": "0bbf247dc88e4578430485250ed205e9520f28e062e094d308c232b3b9a7853b",
+        "observation": "不可穿越的障碍范围被扩大",
+        "evidence": "source仅明确不能穿过natural obstacles；target改成不能穿过“其他障碍物”，将限制扩大到所有非墙障碍。"
+      },
+      {
+        "revision_id": "0d90566925841bc413e81fa789722c36619c5d7b6914715d696ce0d9c3f4fbf7",
+        "observation": "OK",
+        "evidence": "获得或提升侦测隐形与潜行生物的能力及其强度参数均对应；args_order为null。"
+      },
+      {
+        "revision_id": "b65111ede1082383026f8531d0ebf10fa0d29e559f14f2d66ae5d36a24607ee3",
+        "observation": "OK",
+        "evidence": "潜行与隐身强度共用第一个减值、防御使用第二个减值，并失去因未被看见而获得的全部闪避加成，归属均正确。"
+      },
+      {
+        "revision_id": "329500b55034b96418081e8b62121a02d853ba96fcf3ab75fe7a9b794d877ea1",
+        "observation": "多处实质性描写偏差",
+        "evidence": "source的slime被target改成“脓液”，regularly emerge的频率限定被遗漏，第二段的“you”又被改成“我们”；这些并非单纯文风调整。"
+      },
+      {
+        "revision_id": "5c20bfb85cb28e98d5b2bfd303685de7191cf1a53752fdeb0dd8a4a2a7c5add8",
+        "observation": "盔甲状态被凭空增加和误解",
+        "evidence": "source只说盔甲失去光泽且染血；target增加“锈”，并把表示失去光泽的dull写成盔甲“钝”。"
+      }
+    ]
+  }
+}

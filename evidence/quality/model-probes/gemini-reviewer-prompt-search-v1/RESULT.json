@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "model": "gemini-3.7-flash-high",
+  "cli": "agy 1.1.21",
+  "effort": "high",
+  "dataset": "../../p1-batches/p1-b8-args-order-census.json",
+  "dataset_sha256": "e1e3086a9b6f0b34ed79f861583f9a9f74e6f410fa42be604aad92e4484d6a66",
+  "reference_sha256": "2193036a1b5c94dff7578fdf29a2f2ef1e43d71bee3960abcb63ca6e5419e4b7",
+  "population": {"items": 21, "defect_revisions": 10, "clean_revisions": 11},
+  "results": [
+    {
+      "prompt": "original-baseline",
+      "duration_seconds": 50.584,
+      "tp": 1, "fp": 0, "fn": 9, "tn": 11,
+      "recall": 0.1, "precision": 1.0, "clean_false_positive_rate": 0.0
+    },
+    {
+      "prompt": "PROMPT-A-SEMANTIC-SLOTS.md",
+      "duration_seconds": 60.711,
+      "tp": 4, "fp": 1, "fn": 6, "tn": 10,
+      "recall": 0.4, "precision": 0.8, "clean_false_positive_rate": 0.090909
+    },
+    {
+      "prompt": "PROMPT-B-TWO-PASS-RECALL.md",
+      "duration_seconds": 67.233,
+      "tp": 5, "fp": 2, "fn": 5, "tn": 9,
+      "recall": 0.5, "precision": 0.714286, "clean_false_positive_rate": 0.181818
+    },
+    {
+      "prompt": "PROMPT-C-CLAIM-ATOMS.md",
+      "duration_seconds": 79.443,
+      "tp": 5, "fp": 1, "fn": 5, "tn": 10,
+      "recall": 0.5, "precision": 0.833333, "clean_false_positive_rate": 0.090909
+    },
+    {
+      "prompt": "PROMPT-D-RELATION-LEDGER.md",
+      "duration_seconds": 101.757,
+      "tp": 5, "fp": 0, "fn": 5, "tn": 11,
+      "recall": 0.5, "precision": 1.0, "clean_false_positive_rate": 0.0
+    }
+  ],
+  "derived_ensembles": {
+    "union_of_b_c_d": {
+      "description": "Flag a revision if any of B, C, or D flags it; derived from the three recorded responses without another model call.",
+      "tp": 6, "fp": 2, "fn": 4, "tn": 9,
+      "recall": 0.6, "precision": 0.75, "clean_false_positive_rate": 0.181818
+    },
+    "majority_of_b_c_d": {
+      "description": "Flag a revision if at least two of B, C, or D flag it.",
+      "tp": 5, "fp": 1, "fn": 5, "tn": 10,
+      "recall": 0.5, "precision": 0.833333, "clean_false_positive_rate": 0.090909
+    }
+  },
+  "recommendation": {
+    "single_prompt": "PROMPT-D-RELATION-LEDGER.md",
+    "reason": "It improved recall from 10% to 50% while retaining 100% precision and zero clean false positives on this sample.",
+    "higher_recall_option": "Use the union of independent B/C/D runs when 60% recall is worth an 18.18% clean false-positive rate and roughly triple inference cost.",
+    "validation_warning": "These prompts were selected on the same 21-item sample used for scoring. Treat the gain as development-set evidence and confirm it on a separately frozen holdout before changing production routing."
+  },
+  "harness_note": "Antigravity duplicated JSON in its textual response for A-C; scoring used the schema-validated structured_output field from the successful CLI envelope. No model reruns were used to repair parsing."
+}

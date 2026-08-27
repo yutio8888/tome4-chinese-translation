@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "experiment": "EXPERIMENT.json",
+  "population": {"items": 24, "defect_revisions": 6, "clean_revisions": 18},
+  "results": [
+    {
+      "prompt": "baseline",
+      "duration_seconds": 62.451,
+      "tp": 1, "fp": 0, "fn": 5, "tn": 18,
+      "recall": 0.166667, "precision": 1.0, "clean_false_positive_rate": 0.0,
+      "total_tokens": 88458
+    },
+    {
+      "prompt": "A",
+      "duration_seconds": 82.961,
+      "tp": 3, "fp": 2, "fn": 3, "tn": 16,
+      "recall": 0.5, "precision": 0.6, "clean_false_positive_rate": 0.111111,
+      "total_tokens": 94715
+    },
+    {
+      "prompt": "B",
+      "duration_seconds": 91.605,
+      "tp": 4, "fp": 1, "fn": 2, "tn": 17,
+      "recall": 0.666667, "precision": 0.8, "clean_false_positive_rate": 0.055556,
+      "total_tokens": 102674
+    },
+    {
+      "prompt": "C",
+      "duration_seconds": 75.121,
+      "tp": 4, "fp": 1, "fn": 2, "tn": 17,
+      "recall": 0.666667, "precision": 0.8, "clean_false_positive_rate": 0.055556,
+      "total_tokens": 79213
+    },
+    {
+      "prompt": "D",
+      "duration_seconds": 75.262,
+      "tp": 1, "fp": 0, "fn": 5, "tn": 18,
+      "recall": 0.166667, "precision": 1.0, "clean_false_positive_rate": 0.0,
+      "total_tokens": 84227
+    }
+  ],
+  "comparison_to_development_batch": {
+    "baseline_recall": {"development": 0.1, "holdout": 0.166667},
+    "A_recall": {"development": 0.4, "holdout": 0.5},
+    "B_recall": {"development": 0.5, "holdout": 0.666667},
+    "C_recall": {"development": 0.5, "holdout": 0.666667},
+    "D_recall": {"development": 0.5, "holdout": 0.166667}
+  },
+  "error_analysis_for_b_and_c": {
+    "shared_false_negative_ids": [
+      "668ed05733aa6a55d8a7a2c0da4471c6428c186cc29c18f62c55ca4dbd8e646e",
+      "3770baeaf33779789df0e8d78d7313d4be8b57eca3592fc11f5ce18101a9ed80"
+    ],
+    "shared_false_negative_types": [
+      "An unintended visible leading ASCII space, which is outside the prompts' main semantic emphasis.",
+      "A grammatical attachment that makes radius modify damage rather than the affected creatures."
+    ],
+    "shared_false_positive_id": "2fb2f6bd97db72980c910f5d7c676624b19d1919962dc59ebbf289a0fe5ab104",
+    "shared_false_positive_reason": "The model treated source 'foes' versus target 'all targets' as target-set expansion, while the sealed source-backed adjudication considers the runtime binding correct."
+  },
+  "recommendation": {
+    "preferred_prompt": "C",
+    "reason": "B and C have identical holdout predictions and metrics, but C is faster and used 23% fewer total tokens than B. C also improved recall from 16.7% to 66.7% on holdout.",
+    "reject_as_default": "D should not be selected: its development-set advantage did not transfer and it reverted to baseline recall.",
+    "scope": "This establishes transfer across two adjacent args_order mechanics batches, not across every translation profile. Keep independent review and source adjudication mandatory."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "scope": "exploratory SCOUT and EXECUTOR probes; not a Paseo production task",
+  "base_commit": "95a6328c7882e48aae203688da0a1ae0d8ad41eb",
+  "route": {
+    "harness": "pi 0.84.2 print mode",
+    "provider": "llamacpp-local",
+    "model": "qwen3.8-27b",
+    "thinking": "off",
+    "context_window": 49152
+  },
+  "scout": {
+    "prompt": "SCOUT-PROMPT.md",
+    "tools": ["read", "grep", "find", "ls"],
+    "writes_allowed": false,
+    "gold_anchor": "game/modules/tome/data/quests/east-portal.lua at fixed source commit 624a67329fe2ad440c5b344785a9c73fcf22ae63"
+  },
+  "executor": {
+    "prompt": "EXECUTOR-PROMPT.md",
+    "fixture": "executor-fixture.lua",
+    "tools": ["read", "edit", "bash", "grep", "find", "ls"],
+    "allowed_files": ["evidence/quality/model-probes/qwen3-8-27b-agent-roles/executor-fixture.lua"],
+    "acceptance": "exactly three target-only semantic corrections with no collateral writes"
+  }
+}
