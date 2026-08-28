@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-ashes-fiery-aegis-info-b1-001",
+  "kind": "frozen_fiery_aegis_info_semantics_workset",
+  "frozen_at": "2026-08-28T04:48:30Z",
+  "translation_baseline": {
+    "head": "184fe83d3f7515c325b8c19294dc50428f453be5",
+    "file": "tome-ashes-urhrok.lua",
+    "file_sha256": "025f845008131c90ead72fb702ce86a29f4446c0ef39da3e02aa706ece256fd4",
+    "fixed_source_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+    "engine_fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63"
+  },
+  "section_freeze": [
+    {
+      "component": "ashes-urhrok",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+      "selected": 8,
+      "available": 8,
+      "limit": 500,
+      "content_sha256": "f3162d15793a4a6b4f88791262fed3c3b53ba5eef83a2c907f9a1860db2a62c1"
+    },
+    {
+      "component": "ashes-urhrok",
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "selected": 212,
+      "available": 212,
+      "limit": 500,
+      "content_sha256": "82fcb1e80270f75bc38492bc1bf7a63268adce8524ae155370c6861b5b0e6446"
+    }
+  ],
+  "samples": [
+    {
+      "sample_id": "fiery_aegis_talent_info",
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "entry_id": "eb367b35d6741189e674d51bb09b99661026c37bbde876ac3abff4f8e77b838a",
+      "line": 1222,
+      "section": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+      "source": "Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.\n\t\tWhen the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.",
+      "source_tag": "tformat",
+      "special": null,
+      "target": "吸取燃烧中的烈焰，将自己包裹其中。\n\t\t除去半径 5 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 轮的 %d 强度的护盾，每吸收一层燃烧效果护盾强度增加 15%%。\n\t\t当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧周围生物 3 回合，造成等于护盾初始值的伤害。"
+    },
+    {
+      "sample_id": "fiery_aegis_status_control",
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "entry_id": "0569222a3e30d6d75d2401723b618a49762253ae451b342129bcbcfafc740cd0",
+      "line": 1542,
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "source": "The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.",
+      "source_tag": "tformat",
+      "special": null,
+      "target": "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾结束时（无论吸收耗尽还是自然到期），引燃持续 3 回合、总计造成 %d 伤害且范围为半径 %d 的灼烧。"
+    }
+  ],
+  "prior_review_origin": {
+    "task_id": "p2-ashes-fireburn-regression-b1-001",
+    "initial_adjudication": ".ai/task/p2-ashes-fireburn-regression-b1-001/ADJUDICATION-REVIEW-0.md",
+    "final_adjudication": ".ai/task/p2-ashes-fireburn-regression-b1-001/ADJUDICATION-FINAL-0.md",
+    "finding": "Fiery Aegis talent info translates burning all enemies as 灼烧周围生物, losing the enemy-only recipient relation.",
+    "disposition": "confirmed pre-existing advisory queued for this separate bounded batch"
+  },
+  "source_resolution": {
+    "record": ".ai/task/p2-ashes-fiery-aegis-info-b1-001/SCOUT-SOURCE-01.md",
+    "agent_id": "1b25267d-9f2c-4cd9-af73-72cd56592cdc",
+    "role": "SCOUT",
+    "purpose": "source_scout",
+    "model_observed": "claude-fable-5",
+    "thinking_observed": "high",
+    "host_resolution": "confirmed",
+    "claims": [
+      "The burn-removal projection uses explicit radius 10 and no directly relevant helper rewrites it.",
+      "friendlyfire=false prevents self, allied and neutral actors from reaching the burn-removal callback under the fixed engine filter; hostile actors can reach it.",
+      "The shield-end FIREBURN projection uses friendlyfire=false and eff.radius, matching the enemy-only English and burst-radius placeholder.",
+      "The hard-coded English radius 5 conflicts with the observed unpinned Ashes action radius 10.",
+      "The info has three format arguments; changing literal 5 to 10 does not affect placeholders or 15%% escaping."
+    ],
+    "routing_note": "A later user decision makes Gemini 3.7 Flash high the default for future straightforward source scouts; this completed read-only dispatch is retained and not repeated."
+  },
+  "runtime_source_anchors": [
+    {
+      "component": "ashes-urhrok",
+      "revision": null,
+      "source_pinned": false,
+      "path": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+      "sha256": "9169ec6910a96af6ce469ef88c4b257165955f96ce7828c8508e2d36372a92b5",
+      "symbol": "T_FIERY_AEGIS.action/info",
+      "facts": [
+        "action creates a range-0 ball with radius 10 and friendlyfire=false, then removes fire detrimental effects from actors reaching its callback.",
+        "info hard-codes radius 5 and says burning all enemies; its three arguments are shield duration, shield power and burst radius."
+      ]
+    },
+    {
+      "component": "ashes-urhrok",
+      "revision": null,
+      "source_pinned": false,
+      "path": "tome-ashes-urhrok/data/timed_effects.lua",
+      "sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+      "symbol": "EFF_FIRE_SHIELD.deactivate",
+      "facts": [
+        "deactivate projects FIREBURN with radius=eff.radius, friendlyfire=false, dur=3 and dam=spellCrit(eff.power)."
+      ]
+    },
+    {
+      "component": "tome-engine",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/engines/default/engine/interface/ActorProject.lua",
+      "sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+      "symbol": "ActorProject.project",
+      "facts": [
+        "The projection excludes reaction-nonnegative actors when friendlyfire is false and calls the function/damage projector only in the remaining branch."
+      ]
+    },
+    {
+      "component": "tome-engine",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/engines/default/engine/Target.lua",
+      "sha256": "d89c2dd92471ac5cdd9fb02c6a20c7432deabecb9617902a9bf1acdced117bed",
+      "symbol": "Target.getType/ball",
+      "facts": [
+        "An explicit target radius is copied to typ.ball and not rewritten by default filling."
+      ]
+    }
+  ],
+  "required_correction": {
+    "exact_target_before": "吸取燃烧中的烈焰，将自己包裹其中。\n\t\t除去半径 5 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 轮的 %d 强度的护盾，每吸收一层燃烧效果护盾强度增加 15%%。\n\t\t当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧周围生物 3 回合，造成等于护盾初始值的伤害。",
+    "remove_burns_radius_before": 5,
+    "remove_burns_radius_after": 10,
+    "burst_recipient_before": "周围生物",
+    "burst_recipient_required": "all enemies/enemy creatures within the burst radius",
+    "exactly_one_translation_target": true
+  },
+  "provenance_note": "The Ashes extraction snapshot is manifest-fixed, but the inspected public Ashes source repository/commit/version is not fixed; its hashes are observed anchors. Engine behavior is fixed at the manifest commit."
+}

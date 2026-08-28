@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-ashes-fiery-aegis-info-b1-001",
+  "workset": {
+    "path": "evidence/quality/p2-batches/p2-ashes-fiery-aegis-info-b1-workset.json",
+    "sha256": "efe2c1f1ae28fd825d7e92f64f931bb5a05fc7233de10c6ee21b20ec9d70efb6",
+    "frozen_and_unchanged": true
+  },
+    "previous_contextual_advisory": {
+    "origin_task_id": "p2-ashes-fireburn-regression-b1-001",
+    "initial_adjudication": ".ai/task/p2-ashes-fireburn-regression-b1-001/ADJUDICATION-REVIEW-0.md",
+    "final_adjudication": ".ai/task/p2-ashes-fireburn-regression-b1-001/ADJUDICATION-FINAL-0.md",
+    "finding": "Fiery Aegis translated burning all enemies as 灼烧周围生物, losing the enemy-only recipient relation.",
+        "host_disposition": "confirmed pre-existing advisory queued for this separate bounded batch"
+    },
+    "cycle_0_finding_lineage": {
+        "finding_id": "CTX-F0-001",
+        "control": "fiery-aegis-status-control",
+        "initial_contextual_review": {
+            "record": ".ai/task/p2-ashes-fiery-aegis-info-b1-001/ADJUDICATION-REVIEW-0.md",
+            "disposition": "OK"
+        },
+        "final_contextual_review": {
+            "record": ".ai/task/p2-ashes-fiery-aegis-info-b1-001/ADJUDICATION-FINAL-0.md",
+            "disposition": "material finding",
+            "finding": "The status target leaves 引燃 without a recipient and omits that the shield-end FIREBURN projection applies the burn only to enemy creatures in the radius."
+        },
+        "host_disposition": "confirmed pre-existing defect",
+        "user_decision": {
+            "record": ".ai/task/p2-ashes-fiery-aegis-info-b1-001/USER-DECISION-RESUME-CYCLE1.md",
+            "disposition": "authorized cycle-1 repair with a five-cycle ceiling"
+        }
+    },
+    "translation_identity": {
+    "file": "tome-ashes-urhrok.lua",
+    "section": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+    "baseline_line": 1222,
+    "baseline_entry_id": "eb367b35d6741189e674d51bb09b99661026c37bbde876ac3abff4f8e77b838a",
+    "source": "Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.\n\t\tWhen the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.",
+    "source_unchanged": true,
+    "source_tag_before": "tformat",
+    "source_tag_after": "tformat",
+    "args_order_before": null,
+    "args_order_after": null,
+    "special_before": null,
+    "special_after": null,
+    "target_before": "吸取燃烧中的烈焰，将自己包裹其中。\n\t\t除去半径 5 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 轮的 %d 强度的护盾，每吸收一层燃烧效果护盾强度增加 15%%。\n\t\t当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧周围生物 3 回合，造成等于护盾初始值的伤害。",
+        "target_after": "吸取燃烧中的烈焰，将自己包裹其中。\n\t\t除去半径 10 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 轮的 %d 强度的护盾，每吸收一层燃烧效果护盾强度增加 15%%。\n\t\t当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧范围内的所有敌方生物 3 回合，造成等于护盾初始值的伤害。"
+    },
+    "status_control_identity": {
+        "file": "tome-ashes-urhrok.lua",
+        "section": "tome-ashes-urhrok/data/timed_effects.lua",
+        "baseline_line": 1542,
+        "baseline_entry_id": "0569222a3e30d6d75d2401723b618a49762253ae451b342129bcbcfafc740cd0",
+        "source": "The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.",
+        "source_unchanged": true,
+        "source_tag_before": "tformat",
+        "source_tag_after": "tformat",
+        "args_order_before": null,
+        "args_order_after": null,
+        "special_before": null,
+        "special_after": null,
+        "target_before": "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾结束时（无论吸收耗尽还是自然到期），引燃持续 3 回合、总计造成 %d 伤害且范围为半径 %d 的灼烧。",
+        "target_after": "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾结束时（无论吸收耗尽还是自然到期），对周围敌方生物施加持续 3 回合的灼烧，总计造成 %d 伤害，作用半径为 %d。"
+    },
+  "source_resolution": {
+    "record": ".ai/task/p2-ashes-fiery-aegis-info-b1-001/SCOUT-SOURCE-01.md",
+    "agent_id": "1b25267d-9f2c-4cd9-af73-72cd56592cdc",
+    "role": "SCOUT",
+    "purpose": "source_scout",
+    "historical_runtime": {
+      "model": "claude-fable-5",
+      "thinking": "high",
+      "mode": "plan/read-only"
+    },
+    "result": "all five bounded claims confirmed; host resolution confirmed",
+    "routing_decision": "Future straightforward bounded source scouts use Gemini 3.7 Flash high. This already completed Fable read-only trace is historical and was not repeated.",
+    "provenance_reconciliation": "The host-transcribed SCOUT-SOURCE-01.md task record was corrected to Target.lua SHA-256 d89c2dd92471ac5cdd9fb02c6a20c7432deabecb9617902a9bf1acdced117bed. The corrected SCOUT record, frozen workset, verification runtime-source anchor, actual file and fixed commit now agree."
+  },
+  "runtime_source_anchors": [
+    {
+      "component": "ashes-urhrok",
+      "source_pinned_by_manifest": false,
+      "revision": null,
+      "path": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+      "observed_sha256": "9169ec6910a96af6ce469ef88c4b257165955f96ce7828c8508e2d36372a92b5",
+      "fact": "T_FIERY_AEGIS.action projects a range-0 ball with radius=10 and friendlyfire=false; its info supplies shield duration, shield power and burst radius as exactly three arguments."
+    },
+    {
+      "component": "ashes-urhrok",
+      "source_pinned_by_manifest": false,
+      "revision": null,
+      "path": "tome-ashes-urhrok/data/timed_effects.lua",
+      "observed_sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+      "fact": "EFF_FIRE_SHIELD.deactivate projects FIREBURN with radius=eff.radius, friendlyfire=false, dur=3 and damage based on eff.power."
+    },
+    {
+      "component": "tome-engine",
+      "source_pinned_by_manifest": true,
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/engines/default/engine/interface/ActorProject.lua",
+      "sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+      "fact": "ActorProject.project excludes reaction-nonnegative actors when friendlyfire=false before invoking the projection callback."
+    },
+    {
+      "component": "tome-engine",
+      "source_pinned_by_manifest": true,
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/engines/default/engine/Target.lua",
+      "sha256": "d89c2dd92471ac5cdd9fb02c6a20c7432deabecb9617902a9bf1acdced117bed",
+      "fact": "Target.getType/ball retains the explicit target radius without rewriting it."
+    }
+  ],
+  "assertions": {
+    "burn_removal_radius": {
+      "expected": 10,
+      "target_evidence": "除去半径 10 内",
+      "result": "pass"
+    },
+    "burn_removal_recipients": {
+      "expected": "enemy creatures only",
+      "target_evidence": "敌方生物身上的燃烧效果",
+      "runtime_evidence": "radius-10 removal projection uses friendlyfire=false",
+      "result": "pass"
+    },
+    "shield_end_burst_recipients": {
+      "expected": "all enemy creatures within the burst radius only",
+      "target_evidence": "灼烧范围内的所有敌方生物",
+      "runtime_evidence": "FIREBURN projection uses friendlyfire=false and radius=eff.radius",
+      "result": "pass"
+    },
+    "shield_duration": {
+      "expected": "first %d placeholder, measured in turns",
+      "target_evidence": "持续 %d 轮",
+      "result": "pass"
+    },
+    "shield_power": {
+      "expected": "second %d placeholder",
+      "target_evidence": "%d 强度的护盾",
+      "result": "pass"
+    },
+    "burn_scaling": {
+      "expected": "15%% per burn removed",
+      "target_evidence": "每吸收一层燃烧效果护盾强度增加 15%%",
+      "result": "pass"
+    },
+    "burst_radius": {
+      "expected": "third %d placeholder",
+      "target_evidence": "半径 %d 范围内",
+      "result": "pass"
+    },
+    "burst_duration": {
+      "expected_turns": 3,
+      "target_evidence": "3 回合",
+      "result": "pass"
+    },
+    "burst_damage_total": {
+      "expected": "damage equal to the initial shield power",
+      "target_evidence": "造成等于护盾初始值的伤害",
+      "result": "pass"
+    },
+        "format_invariants": {
+      "placeholders_before": ["%d", "%d", "%d"],
+      "placeholders_after": ["%d", "%d", "%d"],
+      "placeholder_order_unchanged": true,
+      "escaped_percent_before": ["15%%"],
+      "escaped_percent_after": ["15%%"],
+      "markup_unchanged": true,
+      "newline_and_tab_shape_unchanged": true,
+            "result": "pass"
+        },
+        "status_control_recipients": {
+            "expected": "surrounding enemy creatures only",
+            "target_evidence": "对周围敌方生物施加",
+            "runtime_evidence": "EFF_FIRE_SHIELD.deactivate projects FIREBURN with friendlyfire=false",
+            "result": "pass"
+        },
+        "status_control_duration": {
+            "expected_turns": 3,
+            "target_evidence": "持续 3 回合的灼烧",
+            "runtime_evidence": "EFF_FIRE_SHIELD.deactivate supplies dur=3",
+            "result": "pass"
+        },
+        "status_control_damage_total": {
+            "expected": "third %d is the total FIREBURN damage over its duration",
+            "target_evidence": "总计造成 %d 伤害",
+            "runtime_evidence": "EFF_FIRE_SHIELD.deactivate supplies dam=spellCrit(eff.power) to FIREBURN",
+            "result": "pass"
+        },
+        "status_control_radius": {
+            "expected": "fourth %d is the shield-end FIREBURN projection radius",
+            "target_evidence": "作用半径为 %d",
+            "runtime_evidence": "EFF_FIRE_SHIELD.deactivate projects with radius=eff.radius",
+            "result": "pass"
+        },
+        "status_control_expiry": {
+            "expected": "shield end includes both absorption exhaustion and natural expiry",
+            "target_evidence": "护盾结束时（无论吸收耗尽还是自然到期）",
+            "result": "pass"
+        },
+        "status_control_format_invariants": {
+            "placeholder_roles": [
+                "absorbed",
+                "maximum",
+                "total damage",
+                "radius"
+            ],
+            "placeholders_before": [
+                "%d",
+                "%d",
+                "%d",
+                "%d"
+            ],
+            "placeholders_after": [
+                "%d",
+                "%d",
+                "%d",
+                "%d"
+            ],
+            "placeholder_order_unchanged": true,
+            "result": "pass"
+        }
+    },
+    "scope": {
+        "baseline_head": "184fe83d3f7515c325b8c19294dc50428f453be5",
+        "translation_targets_changed_relative_to_baseline_head": 2,
+        "exactly_two_translation_targets_changed": true,
+        "changed_targets": [
+            "Fiery Aegis talent-info tformat entry beginning Draw in the raging fires and envelop yourself in them.",
+            "Fiery Aegis timed-effect status tformat entry beginning The target is surrounded by a magical shield."
+        ],
+        "english_source_changed": false,
+        "talent_name_changed": false,
+        "status_changed": true,
+        "fiery_aegis_timed_effect_status_changed": true,
+        "other_fiery_aegis_text_changed": false,
+        "other_fireburn_text_changed": false,
+        "all_unrelated_text_unchanged": true,
+        "all_unrelated_translation_text_unchanged": true,
+    "terminology_changed": false,
+    "tools_docs_ai_or_workset_changed_by_executor": false
+  }
+}

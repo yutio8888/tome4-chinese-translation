@@ -1221,8 +1221,8 @@ t([[Whenever you kill a burning enemy, you will instantly deal a melee attack ag
 t("Fiery Aegis", "火焰守护", "talent name")
 t([[Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.
 		When the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.]], [[吸取燃烧中的烈焰，将自己包裹其中。
-		除去半径 5 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 轮的 %d 强度的护盾，每吸收一层燃烧效果护盾强度增加 15%%。
-		当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧周围生物 3 回合，造成等于护盾初始值的伤害。]], "tformat")
+		除去半径 10 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 轮的 %d 强度的护盾，每吸收一层燃烧效果护盾强度增加 15%%。
+		当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧范围内的所有敌方生物 3 回合，造成等于护盾初始值的伤害。]], "tformat")
 t("Devouring Flames", "吞噬之焰", "talent name")
 t([[Your connection to fire nourishes you. Whenever you strike an enemy in melee, you inflict a burning curse upon them. As long as they continue to burn, you gain %0.2f health and %0.2f vim per turn.
 		Each turn they remain within 10 spaces of you, all enemies with cursed flames will spread it to other burning enemies in radius 1, causing you to heal for the same amount for each enemy, as well as dealing %d fire damage on spreading.]], [[恶魔之炎抚育你成长。每次你近战攻击命中时，你对目标施加诅咒，只要其处于燃烧状态，你每回合获得 %0.2f 生命与 %0.2f 活力。 
@@ -1539,7 +1539,7 @@ t("-Fiery Grasp", "-炙炎之牢", "_t")
 t("arcane", "奥术", "effect subtype")
 t("shield", "护盾", "effect subtype")
 t("Fiery Aegis", "火焰守护", "_t")
-t("The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.", "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾结束时（无论吸收耗尽还是自然到期），引燃持续 3 回合、总计造成 %d 伤害且范围为半径 %d 的灼烧。", "tformat")
+t("The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.", "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾结束时（无论吸收耗尽还是自然到期），对周围敌方生物施加持续 3 回合的灼烧，总计造成 %d 伤害，作用半径为 %d。", "tformat")
 t("A shield forms around #target#.", "#target#的周围产生了一道护盾。", "_t")
 t("+Shield", "+护盾", "_t")
 t("The shield around #target# crumbles.", "#target#周围的护盾消失了。", "_t")
