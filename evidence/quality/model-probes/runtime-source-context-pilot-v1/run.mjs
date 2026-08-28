@@ -131,6 +131,9 @@ if (route.kind === "codex") {
   adaptedSchemaPath = path.join("/tmp", `runtime-context-schema-${callStem}-attempt${attempt}-${process.pid}.json`);
   const adaptedSchema = structuredClone(schemaObject);
   delete adaptedSchema.properties.revisions.items.allOf;
+  const canonicalClaim = adaptedSchema.properties.revisions.items.properties.claim;
+  const claimObject = canonicalClaim.oneOf.find(option => option.type === "object");
+  adaptedSchema.properties.revisions.items.properties.claim = {...claimObject, type: ["object", "null"]};
   fs.writeFileSync(adaptedSchemaPath, `${JSON.stringify(adaptedSchema)}\n`);
   responseFormatSchemaSha256 = sha256File(adaptedSchemaPath);
   command = "codex";
@@ -213,7 +216,7 @@ if (route.kind === "claude") {
   if (routeMetadata.fallback_event_count !== 0 || routeMetadata.fallback_block_count !== 0) validation.errors.push("Claude fallback detected");
 }
 if (route.kind === "pi" && (routeMetadata.actual_provider !== "zai-standard-cn" || routeMetadata.actual_model !== "glm-5.3-flash")) validation.errors.push("Pi actual route mismatch");
-const candidate = {schema_version: "runtime-source-context-candidate-v1", arm, run: runNumber, route: route.slug, attempt, request_sha256: requestSha256, input_sha256: sha256File(files.input), prompt_sha256: sha256File(files.prompt), schema_sha256: sha256File(files.schema), response_format_schema_sha256: responseFormatSchemaSha256, schema_adapter: route.kind === "codex" ? "drop unsupported item-level allOf; prompt and local verdict/claim validator remain binding" : null, raw_artifact: path.basename(rawPath), raw_sha256: sha256File(rawPath), stderr_artifact: path.basename(stderrPath), stderr_sha256: sha256File(stderrPath), route_metadata: routeMetadata, duration_seconds: durationSeconds, exit_status: result.status, valid: validation.errors.length === 0, validation_errors: validation.errors, claim_validation: validation.semantic, verdict_counts: response?.revisions?.reduce((counts, revision) => { counts[revision.verdict] = (counts[revision.verdict] ?? 0) + 1; return counts; }, {}) ?? null, response};
+const candidate = {schema_version: "runtime-source-context-candidate-v1", arm, run: runNumber, route: route.slug, attempt, request_sha256: requestSha256, input_sha256: sha256File(files.input), prompt_sha256: sha256File(files.prompt), schema_sha256: sha256File(files.schema), response_format_schema_sha256: responseFormatSchemaSha256, schema_adapter: route.kind === "codex" ? "drop unsupported item-level allOf and express claim nullability as type=[object,null]; prompt and local verdict/claim validator remain binding" : null, raw_artifact: path.basename(rawPath), raw_sha256: sha256File(rawPath), stderr_artifact: path.basename(stderrPath), stderr_sha256: sha256File(stderrPath), route_metadata: routeMetadata, duration_seconds: durationSeconds, exit_status: result.status, valid: validation.errors.length === 0, validation_errors: validation.errors, claim_validation: validation.semantic, verdict_counts: response?.revisions?.reduce((counts, revision) => { counts[revision.verdict] = (counts[revision.verdict] ?? 0) + 1; return counts; }, {}) ?? null, response};
 fs.writeFileSync(candidatePath, `${JSON.stringify(candidate, null, 2)}\n`);
 process.stdout.write(`${JSON.stringify({...candidate, response: undefined, claim_validation: undefined}, null, 2)}\n`);
 if (!candidate.valid) process.exitCode = 2;

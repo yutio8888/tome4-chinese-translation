@@ -8,8 +8,8 @@
       "call": "A|1|codex-gpt-5.6-sol-high",
       "attempt": 1,
       "classification": "HARNESS_SCHEMA_COMPATIBILITY",
-      "symptom": "OpenAI response-format rejected item-level allOf before inference.",
-      "resolution": "For Codex only, mechanically derive a response-format schema by dropping the unsupported allOf. The canonical schema, prompt, and strict local verdict/claim correlation validation remain unchanged.",
+      "symptom": "OpenAI response-format rejected item-level allOf in attempt 1 and claim.oneOf in attempt 2, both before inference.",
+      "resolution": "For Codex only, mechanically derive a response-format schema by dropping the unsupported allOf and expressing the same claim nullability as type=[object,null], the nullable form documented by OpenAI Structured Outputs. The canonical schema, prompt, and strict local verdict/claim correlation validation remain unchanged.",
       "resample": "One identical prompt/payload/model request is required because attempt 1 produced no model response."
     },
     {
