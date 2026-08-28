@@ -5159,7 +5159,7 @@ t([[You replace your steamgun and attack with an incendiary device that projects
 t("Flame Jet", "火焰喷射", "talent name")
 t("You are disarmed.", "你被缴械了。", "logPlayer")
 t("You require heavy ammunition to fire your flamethrower.", "你需要重装武器弹药才能使用火焰喷射器。", "logPlayer")
-t("Fire a jet of flame, dealing %d%% weapon damage as fire over 3 turns.", "发射一团火焰，在 3 回合内造成 %d%% 火焰武器伤害。", "tformat")
+t("Fire a jet of flame, dealing %d%% weapon damage as fire over 3 turns.", "发射一团火焰，在 3 回合内造成相当于 %d%% 武器伤害的火焰伤害。", "tformat")
 t("Shockstaff", "电击棒", "talent name")
 t("You require heavy ammunition to power your shockstaff.", "你需要重装武器弹药才能使用电击棒。", "logPlayer")
 t([[You replace your steamgun and attack with a lightning-charged staff to engage in close combat.
