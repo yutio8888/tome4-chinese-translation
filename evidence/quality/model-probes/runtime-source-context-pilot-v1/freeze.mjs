@@ -15,6 +15,7 @@ const files = [
   "EXPERIMENT.json",
   "HOLDOUT-A.json",
   "HOLDOUT-B.json",
+  "HARNESS-AMENDMENT.json",
   "MANIFEST-SCHEMA.json",
   "MANIFEST.json",
   "PREFLIGHT-FIXTURES.json",
@@ -29,6 +30,7 @@ const files = [
   "build.mjs",
   "freeze.mjs",
   "preflight.mjs",
+  "repair-pi-candidate.mjs",
   "run.mjs",
   "score.mjs"
 ];

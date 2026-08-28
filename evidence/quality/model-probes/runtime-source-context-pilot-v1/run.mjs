@@ -23,6 +23,11 @@ const route = routes[routeName];
 const sha256Bytes = value => crypto.createHash("sha256").update(value).digest("hex");
 const sha256File = file => sha256Bytes(fs.readFileSync(file));
 const readJson = file => JSON.parse(fs.readFileSync(file, "utf8"));
+const parseModelJson = text => {
+  const trimmed = text.trim();
+  const fenced = trimmed.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/i);
+  return JSON.parse(fenced ? fenced[1] : trimmed);
+};
 
 const frozenPath = path.join(here, "FROZEN-HASHES.json");
 if (!fs.existsSync(frozenPath)) throw new Error("FROZEN-HASHES.json missing; inference is not frozen");
@@ -110,13 +115,20 @@ const schemaObject = readJson(files.schema);
 let command;
 let args;
 let lastPath = null;
+let adaptedSchemaPath = null;
+let responseFormatSchemaSha256 = sha256File(files.schema);
 let expectedVersion;
 if (route.kind === "codex") {
   expectedVersion = "codex-cli 0.150.1";
   if (cliVersion("codex") !== expectedVersion) throw new Error("unexpected Codex CLI version");
   lastPath = path.join("/tmp", `runtime-context-${callStem}-attempt${attempt}-${process.pid}.json`);
+  adaptedSchemaPath = path.join("/tmp", `runtime-context-schema-${callStem}-attempt${attempt}-${process.pid}.json`);
+  const adaptedSchema = structuredClone(schemaObject);
+  delete adaptedSchema.properties.revisions.items.allOf;
+  fs.writeFileSync(adaptedSchemaPath, `${JSON.stringify(adaptedSchema)}\n`);
+  responseFormatSchemaSha256 = sha256File(adaptedSchemaPath);
   command = "codex";
-  args = ["exec", "-m", "gpt-5.6-sol", "-c", "model_reasoning_effort=\"high\"", "--ephemeral", "--ignore-rules", "--skip-git-repo-check", "-o", lastPath, "-C", "/tmp", "-s", "read-only", "--output-schema", files.schema, prompt];
+  args = ["exec", "-m", "gpt-5.6-sol", "-c", "model_reasoning_effort=\"high\"", "--ephemeral", "--ignore-rules", "--skip-git-repo-check", "-o", lastPath, "-C", "/tmp", "-s", "read-only", "--output-schema", adaptedSchemaPath, prompt];
 } else if (route.kind === "claude") {
   expectedVersion = "2.1.247 (Claude Code)";
   if (cliVersion("claude") !== expectedVersion) throw new Error("unexpected Claude Code version");
@@ -141,6 +153,7 @@ const result = spawnSync(command, args, {cwd: "/tmp", encoding: "utf8", maxBuffe
 const durationSeconds = (Date.now() - started) / 1000;
 fs.writeFileSync(rawPath, result.stdout ?? "");
 fs.writeFileSync(stderrPath, result.stderr ?? "");
+if (adaptedSchemaPath && fs.existsSync(adaptedSchemaPath)) fs.unlinkSync(adaptedSchemaPath);
 if (result.error || result.status !== 0) {
   const failure = {schema_version: "runtime-source-context-failure-v1", arm, run: runNumber, route: route.slug, attempt, request_sha256: requestSha256, duration_seconds: durationSeconds, status: result.status, signal: result.signal ?? null, error: result.error ? String(result.error) : null, raw_artifact: path.basename(rawPath), raw_sha256: sha256File(rawPath), stderr_artifact: path.basename(stderrPath), stderr_sha256: sha256File(stderrPath)};
   fs.writeFileSync(failurePath, `${JSON.stringify(failure, null, 2)}\n`);
@@ -177,7 +190,7 @@ if (route.kind === "codex") {
     if (!message) parseError = `expected one assistant message_end, got ${ends.length}`;
     else {
       const body = (message.content ?? []).filter(block => block.type === "text").map(block => block.text).join("");
-      try { response = JSON.parse(body.trim()); } catch (error) { parseError = String(error); }
+      try { response = parseModelJson(body); } catch (error) { parseError = String(error); }
       routeMetadata = {harness: `Pi ${expectedVersion}`, requested_provider: "zai-standard-cn", requested_model: "glm-5.3-flash", requested_effort: "high", actual_provider: message.provider ?? null, actual_model: message.model ?? null, usage: message.usage ?? null, stop_reason: message.stopReason ?? null};
     }
   }
@@ -194,7 +207,7 @@ if (route.kind === "claude") {
   if (routeMetadata.fallback_event_count !== 0 || routeMetadata.fallback_block_count !== 0) validation.errors.push("Claude fallback detected");
 }
 if (route.kind === "pi" && (routeMetadata.actual_provider !== "zai-standard-cn" || routeMetadata.actual_model !== "glm-5.3-flash")) validation.errors.push("Pi actual route mismatch");
-const candidate = {schema_version: "runtime-source-context-candidate-v1", arm, run: runNumber, route: route.slug, attempt, request_sha256: requestSha256, input_sha256: sha256File(files.input), prompt_sha256: sha256File(files.prompt), schema_sha256: sha256File(files.schema), raw_artifact: path.basename(rawPath), raw_sha256: sha256File(rawPath), stderr_artifact: path.basename(stderrPath), stderr_sha256: sha256File(stderrPath), route_metadata: routeMetadata, duration_seconds: durationSeconds, exit_status: result.status, valid: validation.errors.length === 0, validation_errors: validation.errors, claim_validation: validation.semantic, verdict_counts: response?.revisions?.reduce((counts, revision) => { counts[revision.verdict] = (counts[revision.verdict] ?? 0) + 1; return counts; }, {}) ?? null, response};
+const candidate = {schema_version: "runtime-source-context-candidate-v1", arm, run: runNumber, route: route.slug, attempt, request_sha256: requestSha256, input_sha256: sha256File(files.input), prompt_sha256: sha256File(files.prompt), schema_sha256: sha256File(files.schema), response_format_schema_sha256: responseFormatSchemaSha256, schema_adapter: route.kind === "codex" ? "drop unsupported item-level allOf; prompt and local verdict/claim validator remain binding" : null, raw_artifact: path.basename(rawPath), raw_sha256: sha256File(rawPath), stderr_artifact: path.basename(stderrPath), stderr_sha256: sha256File(stderrPath), route_metadata: routeMetadata, duration_seconds: durationSeconds, exit_status: result.status, valid: validation.errors.length === 0, validation_errors: validation.errors, claim_validation: validation.semantic, verdict_counts: response?.revisions?.reduce((counts, revision) => { counts[revision.verdict] = (counts[revision.verdict] ?? 0) + 1; return counts; }, {}) ?? null, response};
 fs.writeFileSync(candidatePath, `${JSON.stringify(candidate, null, 2)}\n`);
 process.stdout.write(`${JSON.stringify({...candidate, response: undefined, claim_validation: undefined}, null, 2)}\n`);
 if (!candidate.valid) process.exitCode = 2;

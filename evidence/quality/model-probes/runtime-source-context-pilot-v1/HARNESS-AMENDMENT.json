@@ -1,0 +1,24 @@
+{
+  "schema_version": "runtime-source-context-harness-amendment-v1",
+  "amended_at": "2026-08-27",
+  "original_freeze_commit": "57b776f19fc431d525a405d1d89d182e71438f43",
+  "scope": "Mechanical harness compatibility only; no sample, item order, prompt, payload, logical output contract, model parameter, sealed reference, scorer or gate changed.",
+  "incidents": [
+    {
+      "call": "A|1|codex-gpt-5.6-sol-high",
+      "attempt": 1,
+      "classification": "HARNESS_SCHEMA_COMPATIBILITY",
+      "symptom": "OpenAI response-format rejected item-level allOf before inference.",
+      "resolution": "For Codex only, mechanically derive a response-format schema by dropping the unsupported allOf. The canonical schema, prompt, and strict local verdict/claim correlation validation remain unchanged.",
+      "resample": "One identical prompt/payload/model request is required because attempt 1 produced no model response."
+    },
+    {
+      "call": "A|1|pi-zai-cn-glm-5.3-flash-high",
+      "attempt": 1,
+      "classification": "PARSER_COMPATIBILITY",
+      "symptom": "The valid JSON object was wrapped in a Markdown json code fence.",
+      "resolution": "Strip one outer JSON code fence and reuse the successful raw envelope; do not resample.",
+      "resample": "None."
+    }
+  ]
+}
