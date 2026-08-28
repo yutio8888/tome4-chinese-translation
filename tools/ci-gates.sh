@@ -60,6 +60,19 @@ check() { # check <日志 slug> <描述> <命令...>
     fi
 }
 
+check_out() { # check_out <输出 slug> <描述> <命令...>; outside frozen *.log contract
+    local slug="$1"
+    local desc="$2"
+    local output_path="$LOG_DIR/$slug.out"
+    shift 2
+    if "$@" >"$output_path" 2>&1; then
+        echo "PASS  $desc"
+    else
+        echo "FAIL  $desc (output: $output_path)"
+        FAILED=1
+    fi
+}
+
 step 1 "doctor"
 check "01-doctor" "doctor" python3 -B tools/i18n doctor
 
@@ -81,6 +94,16 @@ check \
     tests/i18n/test_quality_v3.py \
     tests/i18n/test_facts_study.py \
     tests/i18n/test_facts_curation.py
+check_out \
+    "04-semantic-claim-unit-tests" \
+    "semantic claim unittest" \
+    python3 -m unittest -q tests/i18n/test_semantic_claims.py
+check_out \
+    "04-semantic-claims-strict-registry" \
+    "semantic claims strict registry" \
+    python3 -B tools/i18n claims check \
+    --registry evidence/quality/semantic-claim-regressions-v1.json \
+    --strict
 
 step 5 "contract suite unit tests"
 check \

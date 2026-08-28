@@ -95,6 +95,7 @@ from .review import (
     review_index_summary,
 )
 from .runtime import LuaRuntime
+from .semantic_claims import DEFAULT_REGISTRY as DEFAULT_CLAIMS_REGISTRY, check_registry
 from .status import status_report
 from .translation_review import DEFAULT_TRANSLATION_CHARACTER_BUDGET
 from .workset import create_workset
@@ -395,6 +396,23 @@ def _parser() -> argparse.ArgumentParser:
     proposal.add_argument("--proposal", required=True, type=Path)
     proposal.add_argument("--allow-partial", action="store_true")
     proposal.add_argument("--strict", action="store_true")
+
+    claims = subparsers.add_parser(
+        "claims", help="validate semantic-claim and runtime-composition registries"
+    )
+    claims_subparsers = claims.add_subparsers(dest="claims_command", required=True)
+    claims_check = claims_subparsers.add_parser(
+        "check", help="strictly validate a semantic-claim regression registry"
+    )
+    claims_check.add_argument(
+        "--registry", type=Path, default=DEFAULT_CLAIMS_REGISTRY,
+        help=f"registry path (default: {DEFAULT_CLAIMS_REGISTRY})",
+    )
+    claims_check.add_argument(
+        "--strict", action="store_true",
+        help="request the normative fail-closed validation profile",
+    )
+    claims_check.add_argument("--json", action="store_true", help="print machine-readable JSON")
 
     quality = subparsers.add_parser(
         "quality",
@@ -3526,6 +3544,21 @@ def _quality_facts_study_curation_select(arguments: argparse.Namespace) -> int:
     return int(report.get("status_code", 0))
 
 
+def _claims_check(arguments: argparse.Namespace) -> int:
+    report = check_registry(arguments.registry, strict=arguments.strict)
+    if arguments.json:
+        _print_json(report)
+    else:
+        print(
+            "OK  semantic claims "
+            f"numeric={report['numeric_claims']} "
+            f"briefings={report['reviewer_briefings']} "
+            f"compositions={report['runtime_compositions']} "
+            f"pending={report['pending']}"
+        )
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     _inject_public_dlc_env()
     arguments = _parser().parse_args(argv)
@@ -3568,6 +3601,10 @@ def main(argv: list[str] | None = None) -> int:
             return _review(arguments)
         if arguments.command == "proposal":
             return _proposal(arguments)
+        if arguments.command == "claims":
+            if arguments.claims_command == "check":
+                return _claims_check(arguments)
+            raise AssertionError(f"unhandled claims command: {arguments.claims_command}")
         if arguments.command == "quality":
             if arguments.quality_command == "inventory":
                 return _quality_inventory(arguments)

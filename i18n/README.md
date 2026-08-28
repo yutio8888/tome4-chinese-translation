@@ -28,6 +28,7 @@ tools/i18n workset --merge-report <merge-run>/tome/merge.json --limit 50
 tools/pi-subagent --workset <workset.json>
 tools/i18n context --component tome --query Dreadfell --limit 20
 tools/i18n proposal --workset <workset.json> --proposal <proposal.json> --strict
+tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v1.json --strict
 tools/i18n review --scope code
 tools/i18n review --scope translations
 tools/i18n review --scope code --scope translations
@@ -156,6 +157,19 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
 - `proposal` 校验 Pi 或人工返回的结构化译文：workset 内容身份、条目覆盖率、原文、
   `source_tag`、Lua 值、printf 参数及首选术语。成功后只生成内容寻址的
   `*.validated.json`；`--allow-partial` 允许分批返回，`--strict` 会阻断警告。
+- `claims check` 对机制 claim、anchors-only reviewer briefing 与 runtime composition
+  registry 执行无外部依赖的 exact-schema 校验。默认 registry 锚定 repository root 下的
+  `evidence/quality/semantic-claim-regressions-v1.json`，因此从仓库外 CWD 调用绝对 `tools/i18n` 仍可用；
+  规范／CI 调用使用显式 `--registry` 与 `--strict`。成功退出 0
+  并报告三类记录及 pending 数，读取／JSON／schema／路径／anchor／placeholder binding／组成算术／
+  explicitness 关系／args_order raw-token permutation／variant 多层 anchor／Lua 5.1 format token
+  边界／sample conversion 类型／完整 variant 覆盖／完整句重渲染或 assertion 失败时以
+  validation exit code 5 失败。pending 是诚实记录未固定来源，本身不是 schema 错误；无效 UTF-8
+  也按读取 validation error 报错并退出 5，不输出 traceback。runtime composition v1 的
+  `sample_value` 必须是 non-empty string；`%s` 只接受 raw bare token，`%q` 样例不得含除 LF 外的
+  C0 或 DEL；数值机制证据留在 numeric claim／decomposition，数值 runtime
+  composition 需由未来的版本化 renderer 支持。详细字段、保守默认与复用边界见
+  [`docs/semantic-claim-runtime-composition-v1.md`](../docs/semantic-claim-runtime-composition-v1.md)。
 - `review` 只生成离线审核 bundle／index／diff artifact（全部写入
   `.artifacts/i18n/`），不调用 provider、不构成审核结论。必须用 `--scope code`
   或 `--scope translations` 显式选择范围，重复参数才会同时选择两者。翻译使用

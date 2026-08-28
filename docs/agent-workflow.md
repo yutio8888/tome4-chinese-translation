@@ -24,6 +24,46 @@ python3 -B tools/i18n doctor
 
 每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
 
+### 机制 claim 与运行时组合
+
+遇到下列任一客观条件时，必须为相关数值 placeholder 建立 directional value-flow 记录，而不能先
+凭作者判断它是否属于复合机制：quantity kind 为 damage／heal／shield；同句数值与 duration
+共现；中文新增英文没有的 scope／时序／触发限定；数值经过 DamageType、timed effect、projector
+或等价运行时层；reviewer 或 lint 对 scope 提出冲突。每个数值 placeholder 至少记录 index 和
+quantity kind，不能可靠分类时写 `unknown`。
+
+新增或修改受跟踪 claim、anchors-only briefing 或 runtime composition fixture 后运行：
+
+```bash
+python3 -B tools/i18n claims check \
+  --registry evidence/quality/semantic-claim-regressions-v1.json \
+  --strict
+```
+
+exact schema、directional anchor、结构化 decomposition、完整句重渲染和来源固定规则见
+[`semantic-claim-runtime-composition-v1.md`](semantic-claim-runtime-composition-v1.md)。关键词扫描
+只生成候选，不直接决定 finding 或阻断批次。
+
+`tools/ci-gates.sh` 的 semantic claim 两步使用 `*.out`，而非 `*.log`。这是因为既有
+`tests/i18n/test_toolchain.py` 会对门禁产生的 `*.log` 集合做精确相等断言，而该测试不在本任务
+allowlist；新增 gate 因而不受该 frozen exact-log contract 覆盖，不借此扩大修改范围。
+
+数值 claim 与 anchors-only briefing 都必须填写 `args_order=null` 或 source placeholder 的完整排列，
+并保持 target/candidate target 的完整 raw-token permutation；`placeholder_index` 始终按 source 顺序
+绑定。数值 claim 必须同时填写 source/target explicitness；target 更明确时只能在非 pending 且所有 required
+anchor 固定的情况下显式 justification，没有增加明确度时 justification 必须为 false。固定分解还要
+声明适用条件；已有 timed effect 会触发 merge 时，不得把仅 `effect_absent` 成立的 tick 分布写成
+unconditional。runtime composition 必须为每个运行时表面 variant 登记非空、含 required 项的
+anchors，按适用性分列 call-site、helper 与 locale 来源，并冻结其全部组合的完整句。
+
+Paseo 激活时，EXECUTOR 仍是任务内容与 adjudicated evidence 的唯一写入者；REVIEWER 只读并从
+anchors-only briefing 独立重建，不接收预填 scope、components、tick count、total 或期待 verdict；
+ORCHESTRATOR 核验源码、裁决 finding 并写编排／review record。required anchor 未固定或数据流
+无法闭合时，自行降级为 `pending`，采用不比英文更明确的保守中文，不自动进入机制性改写，并在
+批次简报记录。首次同 revision 的高风险字段分歧进入正常 FIX／RE_REVIEW；重复实质分歧、固定
+源码仍不能支持唯一结论、达到 `max_cycles`，或需要跨批次策略时进入 `WAIT_USER`。普通 accepted
+finding 清零且门禁通过后方可收束。
+
 ### 子 agent 状态取证（宣布挂起或取消之前）
 
 委托给子 agent 时，传输状态面的字段可能过期，单一 `status` 不足以判定终态。宣布挂起、
