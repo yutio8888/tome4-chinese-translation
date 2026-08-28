@@ -1,0 +1,72 @@
+{
+  "schema_version": "route-familiarity-reference-audit-build-report-v1",
+  "status": "PASS_ZERO_INFERENCE_REFERENCE_FREEZE_GATES",
+  "model_calls": 0,
+  "network_calls": 0,
+  "production_translation_commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+  "frozen_inputs": {
+    "presentation": {
+      "logical_path": "evidence/quality/model-probes/route-familiarity-runtime-expansion-v1/FUTURE-MODEL-CANDIDATES.json",
+      "sha256": "6e8b2a3b485418fca4bdb9d777f4a7a572f0f872efdb27905e52080a23e11084",
+      "size_bytes": 104865
+    },
+    "source_binding_registry": {
+      "logical_path": "evidence/quality/model-probes/route-familiarity-runtime-expansion-v1/TERMINAL-IDENTITY-BINDING-REGISTRY.json",
+      "sha256": "9cc58a068801a707be0eca32a2597493d8fb2b6d64e37914355ac9cd2552d436",
+      "size_bytes": 340018
+    },
+    "source_build_report": {
+      "logical_path": "evidence/quality/model-probes/route-familiarity-runtime-expansion-v1/BUILD-REPORT.json",
+      "sha256": "a0eeb216c4412f0dbb0ef3fcef1302294c09ea0c757a771cc21e280fff1fda2c",
+      "size_bytes": 5158
+    },
+    "executor_fixture": {
+      "logical_path": "evidence/quality/model-probes/qwen3-8-27b-agent-roles/executor-fixture.lua",
+      "sha256": "82e25a395c1c9ff16c5b487ff465bc4bc7824e7cc61bebe4e8e716c24469b4c7",
+      "size_bytes": 582
+    }
+  },
+  "counts": {
+    "items": 145,
+    "populated_responses": 0,
+    "profiles": {
+      "dialogue": 61,
+      "mechanics": 63,
+      "ui-log": 7,
+      "unknown-text": 14
+    },
+    "categories": {
+      "Dialogue": 61,
+      "Runtime-focused": 70,
+      "Unknown-text": 14
+    }
+  },
+  "generated_artifacts": {
+    "OUTBOUND-AUDIT-QUEUE.json": {
+      "sha256": "620b736996ac254c43b3c721cdbfca20f7e68d8f553b7fe21b9effa0c025b3d2",
+      "size_bytes": 108282,
+      "logical_path": "OUTBOUND-AUDIT-QUEUE.json"
+    },
+    "LOCAL-BINDING-REGISTRY.json": {
+      "sha256": "64013413c5a30956185a7a71c2b21d7960a6b2ddda55e9c709657fe10ac3a7a1",
+      "size_bytes": 155070,
+      "logical_path": "LOCAL-BINDING-REGISTRY.json"
+    },
+    "REFERENCE-SCHEMA.json": {
+      "sha256": "c197e30ebaaae353df58049c2f3479dc2a0c799d3633dba4e70b5db27f859f34",
+      "size_bytes": 35469,
+      "logical_path": "REFERENCE-SCHEMA.json"
+    }
+  },
+  "gates": {
+    "frozen_input_hashes": "PASS",
+    "source_presentation_order": "PASS",
+    "unique_neutral_ids": "PASS",
+    "byte_exact_content_bindings": "PASS",
+    "local_route_cell_join": "PASS",
+    "outbound_exact_keys": "PASS",
+    "outbound_response_slots_unpopulated": "PASS",
+    "reference_schema_unpopulated": "PASS"
+  },
+  "artifact_hash_dependency": "BUILD-REPORT hashes the queue, local registry, and schema. EXPERIMENT hashes those plus BUILD-REPORT. No artifact contains its own hash."
+}
