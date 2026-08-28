@@ -1,0 +1,65 @@
+{
+  "schema_version": "prior-exposure-registry-fixtures-v1",
+  "cases": {
+    "pair_hash": {
+      "source": "alpha",
+      "target": "甲",
+      "expected_sha256": "c7c52dd02fa1fd01a99fc74807d1d9f41c0c6e5b8c769f5c4a3828925ff96a86"
+    },
+    "task_revision_hash": {
+      "task_id": "task-1",
+      "revision_key": "rev-1",
+      "expected_sha256": "962bd46fac1a5f0438b5ab222b7ad116dcaa799224f122bfb05c95554a2cba31"
+    },
+    "recursive_pairs": {
+      "value": {
+        "items": [
+          {"source": "one", "target": "一"},
+          {"nested": {"source": "two", "target": "二"}},
+          {"source": "incomplete"}
+        ]
+      },
+      "expected_pairs": 2
+    },
+    "json_escape": {
+      "value": "line one\n\"line two\"",
+      "expected_hex_variants": [
+        "6c696e65206f6e650a226c696e652074776f22",
+        "6c696e65206f6e655c6e5c226c696e652074776f5c22"
+      ]
+    },
+    "raw_basenames": {
+      "accepted": [
+        "attempt/RAW-output.jsonl",
+        "attempt/RAW.stdout",
+        "attempt/RAW.stderr"
+      ],
+      "rejected": [
+        "attempt/NOT-RAW.jsonl",
+        "attempt/RAWstdout",
+        "attempt/raw.stderr"
+      ]
+    },
+    "nested_outbound_containment": {
+      "candidate": "candidate source text",
+      "short_candidate": "短",
+      "value": {
+        "outer": {
+          "prompt": "prefix candidate source text suffix",
+          "equal_value": "candidate source text",
+          "short_prompt": "prefix 短 suffix"
+        },
+        "items": [
+          {"unrelated": "candidate source"}
+        ]
+      },
+      "expected_matches": 1
+    },
+    "raw_character_boundary": {
+      "ascii_11": "abcdefghijk",
+      "ascii_12": "abcdefghijkl",
+      "astral_11": "😀😀😀😀😀😀😀😀😀😀😀",
+      "astral_12": "😀😀😀😀😀😀😀😀😀😀😀😀"
+    }
+  }
+}
