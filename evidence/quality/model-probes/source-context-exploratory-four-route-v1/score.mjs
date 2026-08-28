@@ -10,11 +10,37 @@ const routes = ["codex-gpt-5.6-sol-high", "claude-opus-5-high-exploratory", "pi-
 const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
 const readJson = name => JSON.parse(fs.readFileSync(path.join(directory, name), "utf8"));
 const candidateNames = routes.flatMap(route => ["A", "B"].flatMap(arm => [1, 2].map(run => `CANDIDATE-${route}-${arm}${run}.json`)));
+const expectedItemIds = Array.from({length: 14}, (_, index) => `E${String(index + 1).padStart(3, "0")}`);
+function validateScoringItems(name, items) {
+  if (!Array.isArray(items) || items.length !== expectedItemIds.length) throw new Error(`${name}: scoring items must contain exactly 14 rows`);
+  for (let index = 0; index < items.length; index += 1) {
+    const item = items[index];
+    if (!item || typeof item !== "object" || Array.isArray(item)) throw new Error(`${name}: item ${index} is not an object`);
+    if (JSON.stringify(Object.keys(item).sort()) !== JSON.stringify(["evidence", "item_id", "material_issue", "verdict"])) throw new Error(`${name}: item ${index} fields differ from the frozen item schema`);
+    if (item.item_id !== expectedItemIds[index]) throw new Error(`${name}: item ${index} expected ${expectedItemIds[index]}, got ${item.item_id}`);
+    if (!["OK", "FINDING", "UNCERTAIN"].includes(item.verdict)) throw new Error(`${name}: item ${index} invalid verdict`);
+    if (typeof item.material_issue !== "string" || !item.material_issue || typeof item.evidence !== "string" || !item.evidence) throw new Error(`${name}: item ${index} missing review text`);
+  }
+}
 const candidates = candidateNames.map(name => {
   const bytes = fs.readFileSync(path.join(directory, name));
   const candidate = JSON.parse(bytes.toString("utf8"));
-  if (!candidate.valid) throw new Error(`${name}: candidate invalid`);
-  return {name, bytes, candidate};
+  let scoringItems = candidate.response?.items;
+  let recoveryNormalized = false;
+  let scoreBasis = "STRICT_VALID_CANDIDATE";
+  if (!candidate.valid) {
+    const recoverableAlias = candidate.route === "pi-zai-cn-glm-5.3-flash-high"
+      && JSON.stringify(Object.keys(candidate.response ?? {})) === JSON.stringify(["verdicts"])
+      && Array.isArray(candidate.response.verdicts)
+      && candidate.validation_errors?.includes("top-level keys are not exactly items")
+      && candidate.validation_errors?.includes("items is not an array");
+    if (!recoverableAlias) throw new Error(`${name}: candidate invalid and not covered by the recorded recovery rule`);
+    scoringItems = candidate.response.verdicts;
+    recoveryNormalized = true;
+    scoreBasis = "RECOVERED_TOP_LEVEL_VERDICTS_ALIAS";
+  }
+  validateScoringItems(name, scoringItems);
+  return {name, bytes, candidate, scoringItems, recoveryNormalized, scoreBasis};
 });
 const reference = readJson("REFERENCE.json");
 const referenceById = new Map(reference.items.map(item => [item.item_id, item]));
@@ -35,8 +61,8 @@ for (const decision of adjudication.items) {
 }
 
 const runMetrics = [];
-for (const {candidate} of candidates) {
-  const items = candidate.response.items.map(modelItem => {
+for (const {candidate, scoringItems, recoveryNormalized, scoreBasis} of candidates) {
+  const items = scoringItems.map(modelItem => {
     const truth = referenceById.get(modelItem.item_id);
     const key = `${candidate.route}\0${candidate.arm}\0${candidate.run}\0${modelItem.item_id}`;
     const decision = decisionByKey.get(key);
@@ -50,7 +76,10 @@ for (const {candidate} of candidates) {
     route: candidate.route,
     arm: candidate.arm,
     run: candidate.run,
-    valid: true,
+    strict_valid: candidate.valid,
+    recovery_normalized: recoveryNormalized,
+    reference_scored: true,
+    score_basis: scoreBasis,
     context_defect_atom_hits: inClass("CONTEXT_DEFECT").filter(item => item.decision.atom_hit).length,
     context_defect_total: inClass("CONTEXT_DEFECT").length,
     surface_defect_atom_hits: inClass("SURFACE_DEFECT").filter(item => item.decision.atom_hit).length,
@@ -76,6 +105,8 @@ const routeSummaries = routes.map(route => {
     const b = runs.find(item => item.arm === "B" && item.run === run);
     return {
       run,
+      score_basis_A: a.score_basis,
+      score_basis_B: b.score_basis,
       context_defect_atom_delta_B_minus_A: b.context_defect_atom_hits - a.context_defect_atom_hits,
       surface_defect_atom_delta_B_minus_A: b.surface_defect_atom_hits - a.surface_defect_atom_hits,
       context_exonerated_fp_delta_B_minus_A: b.context_exonerated_false_positives - a.context_exonerated_false_positives,
@@ -84,6 +115,9 @@ const routeSummaries = routes.map(route => {
   });
   return {
     route,
+    strict_valid_runs: runs.filter(item => item.strict_valid).length,
+    recovery_normalized_runs: runs.filter(item => item.recovery_normalized).length,
+    reference_scored_runs: runs.filter(item => item.reference_scored).length,
     arm_A: {
       context_defect_atom_hits: sum(arm("A"), "context_defect_atom_hits"), context_defect_opportunities: 2,
       surface_defect_atom_hits: sum(arm("A"), "surface_defect_atom_hits"), surface_defect_opportunities: 10,
@@ -101,10 +135,12 @@ const routeSummaries = routes.map(route => {
 });
 
 const result = {
-  schema_version: "source-context-exploratory-four-route-result-v1",
+  schema_version: "source-context-exploratory-four-route-result-v2",
   experiment: "source-context-exploratory-four-route-v1",
-  status: "EXPLORATORY_COMPLETE_NOT_FORMAL",
-  valid_runs: runMetrics.filter(item => item.valid).length,
+  status: "EXPLORATORY_COMPLETE_WITH_RECOVERED_SCHEMA_ALIASES_NOT_FORMAL",
+  strict_valid_runs: runMetrics.filter(item => item.strict_valid).length,
+  recovery_normalized_runs: runMetrics.filter(item => item.recovery_normalized).length,
+  reference_scored_runs: runMetrics.filter(item => item.reference_scored).length,
   expected_runs: 16,
   run_metrics: runMetrics,
   route_summaries: routeSummaries,
@@ -113,6 +149,7 @@ const result = {
     "The set is deliberately case-enriched and cannot rank general translation quality.",
     "Claude is an exploratory comparator whose formal purity qualification remains NO-GO.",
     "Gemini runtime identity remains limited if the Antigravity envelope does not report it.",
+    "GLM A2 and B1 are invalid under the frozen response schema because they used a top-level verdicts alias. Their readable 14-item contents receive separately identified recovery-normalized reference scores; the candidate files remain invalid and unchanged.",
     "This result cannot replace or modify prospective-source-context-truth-audit-v1/RESULT.json."
   ],
   bindings: {
@@ -122,4 +159,4 @@ const result = {
   }
 };
 fs.writeFileSync(path.join(directory, "RESULT.json"), `${JSON.stringify(result, null, 2)}\n`);
-process.stdout.write(`${JSON.stringify({status: result.status, valid_runs: result.valid_runs, route_summaries: result.route_summaries}, null, 2)}\n`);
+process.stdout.write(`${JSON.stringify({status: result.status, strict_valid_runs: result.strict_valid_runs, recovery_normalized_runs: result.recovery_normalized_runs, reference_scored_runs: result.reference_scored_runs, route_summaries: result.route_summaries}, null, 2)}\n`);

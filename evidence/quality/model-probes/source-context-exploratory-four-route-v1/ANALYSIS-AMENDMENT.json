@@ -1,0 +1,32 @@
+{
+  "schema_version": "source-context-exploratory-analysis-amendment-v1",
+  "experiment": "source-context-exploratory-four-route-v1",
+  "date": "2026-08-28",
+  "timing": "AFTER_ALL_EXTERNAL_INFERENCE_BEFORE_REFERENCE_SCORING",
+  "status": "RECORDED_ANALYSIS_ONLY_DOES_NOT_CHANGE_MODEL_OUTPUTS",
+  "amendments": [
+    {
+      "kind": "PARSER_COMPATIBILITY_REPAIR",
+      "trigger": "GLM A1 returned the requested JSON object inside one Markdown json code fence.",
+      "action": "run.mjs now accepts exactly one whole-response Markdown json fence for Pi text, then JSON-parses the unchanged interior.",
+      "raw_reuse": "GLM A1 was reparsed with --parse-existing from hash-bound RAW; no replacement inference call was made.",
+      "original_run_sha256": "df2626a74ff0d2431d084481d93316ba434d84b7958813694296ec2aa37fc9ff",
+      "amended_run_sha256": "126e9559a80ae1e36b9e6527ac01aeec23ad6ce435f5586b548023a6edab28f3"
+    },
+    {
+      "kind": "RECOVERY_NORMALIZED_REFERENCE_SCORING",
+      "trigger": "GLM A2 and B1 each returned 14 complete ordered review items under the top-level key verdicts instead of the frozen key items, leaving 14 strict-valid candidates out of 16.",
+      "action": "Keep both candidate files invalid and unchanged. In addition to strict-valid counts, score their readable contents under a narrow recovery rule that only maps the sole top-level alias verdicts to scoring items after exact field, count, order and enum validation.",
+      "reporting": "RESULT.json must separately report strict_valid_runs, recovery_normalized_runs and reference_scored_runs. Any GLM paired result using A2 or B1 is recovery-normalized exploratory evidence, not a strict-schema result.",
+      "original_score_sha256": "e4539bbb674296ab8ed4de61f57c6dba699c91514cd0f181a24ac38fcc6e9f50",
+      "amended_score_sha256": "2c45c1f03de3f617968ff37a0a905e985f7f42a66ba48147d98af94bf4a28af8"
+    }
+  ],
+  "invariants_preserved": [
+    "No external inference was repeated or added by either amendment.",
+    "No candidate verdict, material_issue or evidence text was edited.",
+    "REFERENCE.json remained sealed until all 16 acquisitions completed.",
+    "The upstream formal NO-GO remains unchanged.",
+    "Recovery-normalized scores cannot be described as strict-schema-valid scores."
+  ]
+}

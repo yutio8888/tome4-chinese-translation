@@ -1,0 +1,138 @@
+{
+  "schema_version": "source-context-exploratory-candidate-v1",
+  "route": "agy-gemini-3.7-flash-high",
+  "arm": "A",
+  "run": 1,
+  "input_sha256": "d8845716b86d2b0f7dca8ada1495f724e584e4c2adab97373b3a9dd975b5b4a2",
+  "prompt_sha256": "c4ce6c84fa674f7b2efab21afbf3584c495578821d1ca1c5b4f599a0ca1e6d25",
+  "schema_sha256": "b47b250e6ffc7b6b4bebc4eb96493dbf011ec8ae747416debe9c1c709bd59de9",
+  "reference_sha256": "7383e82ce3506f50d8a2619261867f4bc919acccaae103841dd80f3acfdffc46",
+  "route_metadata": {
+    "harness": "Antigravity CLI 1.1.22",
+    "requested_model": "gemini-3.7-flash-high",
+    "requested_effort": "high",
+    "mode": "plan",
+    "sandbox": true,
+    "reported_model": null,
+    "reported_agent": null,
+    "usage": {
+      "input_tokens": 38309,
+      "output_tokens": 10837,
+      "thinking_tokens": 9589,
+      "cache_read_tokens": 69293,
+      "total_tokens": 49146
+    },
+    "qualification": "EXPLORATORY_COMPARATOR",
+    "formal_eligible": false,
+    "identity_status": "REQUESTED_ROUTE_ONLY_ENVELOPE_UNVERIFIED"
+  },
+  "acquisition": {
+    "file": "ACQUISITION-agy-gemini-3.7-flash-high-A1.json",
+    "sha256": "4d38b4f8c2fea83a36de0603a7c752ac525d2d32eacd4c11ad47600f1f269cc0",
+    "size_bytes": 978
+  },
+  "reparsed_from_existing_raw": false,
+  "prior_candidate_sha256": null,
+  "duration_seconds": 41.895,
+  "exit_status": 0,
+  "valid": true,
+  "exploratory_score_eligible": true,
+  "requested_route_label_eligible": false,
+  "formal_eligible": false,
+  "validation_errors": [],
+  "route_warnings": [
+    "Antigravity envelope does not report runtime model identity"
+  ],
+  "verdict_counts": {
+    "OK": 13,
+    "FINDING": 1
+  },
+  "response": {
+    "items": [
+      {
+        "evidence": "Accurate translation throughout the entire lore text (e.g., 'twenty-fold' -> '二十倍', 'thirty times' -> '30倍').",
+        "item_id": "E001",
+        "material_issue": "Narrative lore, numbers, and sequence of events are accurately preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'three different timelines' -> '三条不同的时间线', '%d turns' -> '%d 个回合'.",
+        "item_id": "E002",
+        "material_issue": "Game mechanic and timeline selection prompt are accurately preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'perhaps life is still worth it' -> '生命或许依然值得活下去'.",
+        "item_id": "E003",
+        "material_issue": "Dialogue meaning and polarity are accurately preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'Surely you don't possess the Orb of Many Ways!' -> '你拿到的肯定不是多元水晶球！'.",
+        "item_id": "E004",
+        "material_issue": "Dialogue context, tone, and narrative meaning are preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'Pfaugh. You're too late.' -> '呸！你来太晚了。', 'undeserved reward' -> '你不配得到的奖励'.",
+        "item_id": "E005",
+        "material_issue": "Speaker meaning, quest context, and placeholders are accurately preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'I heard some cries' -> '我听到了呼喊声', 'in my way' -> '挡了我的路'.",
+        "item_id": "E006",
+        "material_issue": "Dialogue meaning and tone are accurately preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "Source: 'either a psionic damage shield active or Improved Gestalt available'; Target adds '在格式塔处于激活状态，并且...'.",
+        "item_id": "E007",
+        "material_issue": "The translation alters talent activation conditions by introducing an extra mandatory prerequisite ('在格式塔处于激活状态，并且...' / Gestalt active and...) not present in the source disjunction.",
+        "verdict": "FINDING"
+      },
+      {
+        "evidence": "'take a look at the ranking boards before entering' -> '进入竞技场前，你查看了一下排名榜'.",
+        "item_id": "E008",
+        "material_issue": "UI message and action meaning are accurately preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'Hold on! You... You're that apprentice mage I met in the wilds!' -> '打住！你……你不就是那个荒野之中的法师学徒么？'.",
+        "item_id": "E009",
+        "material_issue": "Dialogue referent and meaning are accurately preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'This costs %d gold.' -> '这将花费%d金币。'.",
+        "item_id": "E010",
+        "material_issue": "Cost message and quantity placeholder are accurately preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'Strong but not stupid' -> '强壮但不愚笨', 'Race features' -> '种族特色'.",
+        "item_id": "E011",
+        "material_issue": "Race unlock lore and racial traits list are accurately preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "All log entries and test subject outcomes ('Imploded', 'Exploded', 'Turned to goo', 'Frozen') are accurately translated.",
+        "item_id": "E012",
+        "material_issue": "Narrative facts, experiment records, and character tone are accurately preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'My masterpiece walks!' -> '我的杰作走起来了！', 'nigh invulnerable' -> '近乎无敌'.",
+        "item_id": "E013",
+        "material_issue": "Narrative meaning and villain monologue tone are accurately preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'in your overlong absence' -> '在你离开的漫长时间里', 'steals my rightful spot' -> '抢走了本该属于我的席位'.",
+        "item_id": "E014",
+        "material_issue": "Dialogue meaning, character tone, and placeholders are accurately preserved.",
+        "verdict": "OK"
+      }
+    ]
+  }
+}

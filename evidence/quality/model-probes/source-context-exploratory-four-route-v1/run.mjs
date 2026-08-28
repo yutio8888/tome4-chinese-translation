@@ -72,6 +72,17 @@ function validateResponse(response) {
   return errors;
 }
 
+function parsePiJsonText(value) {
+  const trimmed = value.trim();
+  try {
+    return JSON.parse(trimmed);
+  } catch (initialError) {
+    const fenced = trimmed.match(/^```(?:json)?\s*\n([\s\S]*?)\n```$/u);
+    if (!fenced) throw initialError;
+    return JSON.parse(fenced[1]);
+  }
+}
+
 let command;
 let args;
 let lastPath = null;
@@ -198,7 +209,7 @@ if (route.kind === "codex") {
     if (!message) parseError = `expected one assistant message_end, got ${messageEnds.length}`;
     else {
       const text = (message.content ?? []).filter(block => block.type === "text").map(block => block.text).join("");
-      try { response = JSON.parse(text.trim()); } catch (error) { parseError = String(error); }
+      try { response = parsePiJsonText(text); } catch (error) { parseError = String(error); }
       routeMetadata = {harness: `Pi ${route.version}`, requested_provider: "zai-standard-cn", requested_model: "glm-5.3-flash", requested_effort: "high", actual_provider: message.provider ?? null, actual_model: message.model ?? null, usage: message.usage ?? null, stop_reason: message.stopReason ?? null, qualification: "EXPLORATORY_AFTER_FORMAL_TRUTH_SET_NO_GO", formal_eligible: false};
     }
   }

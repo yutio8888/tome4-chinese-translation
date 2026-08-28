@@ -1,0 +1,202 @@
+{
+  "schema_version": "source-context-exploratory-candidate-v1",
+  "route": "claude-opus-5-high-exploratory",
+  "arm": "A",
+  "run": 1,
+  "input_sha256": "d8845716b86d2b0f7dca8ada1495f724e584e4c2adab97373b3a9dd975b5b4a2",
+  "prompt_sha256": "c4ce6c84fa674f7b2efab21afbf3584c495578821d1ca1c5b4f599a0ca1e6d25",
+  "schema_sha256": "b47b250e6ffc7b6b4bebc4eb96493dbf011ec8ae747416debe9c1c709bd59de9",
+  "reference_sha256": "7383e82ce3506f50d8a2619261867f4bc919acccaae103841dd80f3acfdffc46",
+  "route_metadata": {
+    "harness": "Claude Code CLI 2.1.250",
+    "requested_model": "claude-opus-5",
+    "requested_effort": "high",
+    "qualification": "EXPLORATORY_FORMAL_PURITY_NO_GO",
+    "formal_eligible": false,
+    "initialized_models": [
+      "claude-opus-5"
+    ],
+    "actual_assistant_models": [
+      "claude-opus-5"
+    ],
+    "fallback_event_count": 0,
+    "fallback_block_count": 0,
+    "result": {
+      "is_error": false,
+      "subtype": "success",
+      "stop_reason": "tool_use",
+      "terminal_reason": "completed",
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13130,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 12748,
+        "output_tokens_details": {
+          "thinking_tokens": 10041
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13130,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 12748,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 13130,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13130
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 7814,
+          "outputTokens": 11,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.007869,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000,
+          "canonicalModel": "claude-haiku-4-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-opus-5": {
+          "inputTokens": 2,
+          "outputTokens": 12748,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 13130,
+          "webSearchRequests": 0,
+          "costUSD": 0.45001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "canonicalModel": "claude-opus-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "total_cost_usd": 0.45787900000000004,
+      "num_turns": 2
+    },
+    "identity_status": "ASSISTANT_STREAM_OPUS_VERIFIED_FORMAL_PURITY_STILL_NO_GO"
+  },
+  "acquisition": {
+    "file": "ACQUISITION-claude-opus-5-high-exploratory-A1.json",
+    "sha256": "8d869185429b02573ee47b2961da0aa8d4d554e8d6c5b2200a26cc570d778e0e",
+    "size_bytes": 999
+  },
+  "reparsed_from_existing_raw": false,
+  "prior_candidate_sha256": null,
+  "duration_seconds": 182.719,
+  "exit_status": 0,
+  "valid": true,
+  "exploratory_score_eligible": true,
+  "requested_route_label_eligible": true,
+  "formal_eligible": false,
+  "validation_errors": [],
+  "route_warnings": [],
+  "verdict_counts": {
+    "OK": 13,
+    "FINDING": 1
+  },
+  "response": {
+    "items": [
+      {
+        "item_id": "E001",
+        "verdict": "OK",
+        "material_issue": "Narrative facts, actors, quantities and causal chain are preserved; deviations are stylistic (e.g. \"Army of Rogues\"→\"游击军\", \"peace\"→\"胜利\", \"Horde\"→\"部落\").",
+        "evidence": "Key figures survive intact: \"increased twenty-fold\"→\"提高到原来的二十倍\", \"thirty times the previous amount\"→\"30倍的价钱\"; Iron Throne/Iron Council kept distinct as 钢铁王座/钢铁议会; \"manipulated the king into mining it and selling it to them for a fraction of its true worth\"→\"利用这个国王去开采并将蓝锆石以一个极低的价格卖给他们\"."
+      },
+      {
+        "item_id": "E002",
+        "verdict": "OK",
+        "material_issue": "Quantity placeholder, the three-timeline framing and the choice prompt are all preserved.",
+        "evidence": "\"lived %d turns in three different timelines\"→\"在三条不同的时间线里度过了 %d 个回合\"; \"Which do you choose to be the real timeline?\"→\"你选择哪一条作为现实时间线？\""
+      },
+      {
+        "item_id": "E003",
+        "verdict": "OK",
+        "material_issue": "Polarity and meaning of the reversal (\"No\" + life is still worth living) are preserved.",
+        "evidence": "\"No actually, perhaps life is still worth it!\"→\"不，其实生命或许依然值得活下去！\" keeps the negation and the hedge \"perhaps\"→\"或许\"."
+      },
+      {
+        "item_id": "E004",
+        "verdict": "OK",
+        "material_issue": "Speaker, referent and incredulity are preserved; the only loss is that the orb was the means of travel, which the immediately following mention of the Orb of Many Ways recovers.",
+        "evidence": "\"That you used to travel here from Maj'Eyal?\"→\"你说你是从马基·埃亚尔来的？\" (instrumentality dropped); \"Surely you don't possess the Orb of Many Ways!\"→\"你拿到的肯定不是多元水晶球！\" retains the disbelief; \"It's been lost for ages!\"→\"它已经消失很多年了！\""
+      },
+      {
+        "item_id": "E005",
+        "verdict": "OK",
+        "material_issue": "Speaker, direction of the transaction and the dismissive tone are preserved; \"原料\" only makes the implicit referent of \"these\" explicit.",
+        "evidence": "\"take these and give you your undeserved reward\"→\"收下这些原料、把你不配得到的奖励给你\" — the NPC still receives the items and hands over the reward; \"%s has already finished\"→\"%s已经完成了\"."
+      },
+      {
+        "item_id": "E006",
+        "verdict": "OK",
+        "material_issue": "Speaker, the cries heard, and the euphemism about the guards being \"in my way\" are all rendered literally.",
+        "evidence": "\"I heard some cries, and your men... they were in my way.\"→\"我听到了呼喊声，而你的人……挡了我的路。\"; \"What's going on here?\"→\"这里发生了什么事？\""
+      },
+      {
+        "item_id": "E007",
+        "verdict": "FINDING",
+        "material_issue": "The talent's usage condition is rewritten: English states a single either/or requirement, while the Chinese adds an extra mandatory precondition (Gestalt must be active) and recasts \"psionic damage shield active\" as \"not on cooldown\". A player would believe an unstated requirement must also be met.",
+        "evidence": "Source: \"either a psionic damage shield active or Improved Gestalt available\" (A active OR B available). Target: \"必须在格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中时\" = Gestalt active AND (shield or Improved Gestalt off cooldown); \"格式塔处于激活状态\" has no counterpart in the source, and \"active\" is shifted from the shield onto Gestalt."
+      },
+      {
+        "item_id": "E008",
+        "verdict": "OK",
+        "material_issue": "Action, timing and the trailing placeholder are preserved; \"竞技场\" only names the location the player is entering.",
+        "evidence": "\"You take a look at the ranking boards before entering.\\n%s\"→\"进入竞技场前，你查看了一下排名榜。\\n%s\", with the #LIGHT_GREEN# tag and %s intact."
+      },
+      {
+        "item_id": "E009",
+        "verdict": "OK",
+        "material_issue": "Speaker's recognition, the referent (the apprentice mage) and the location are preserved; dropping \"I met\" is implied by the recognition itself.",
+        "evidence": "\"You're that apprentice mage I met in the wilds!\"→\"你不就是那个荒野之中的法师学徒么？\"; \"Hold on!\"→\"打住！\""
+      },
+      {
+        "item_id": "E010",
+        "verdict": "OK",
+        "material_issue": "Cost, currency and placeholder are unchanged.",
+        "evidence": "\"This costs %d gold.\"→\"这将花费%d金币。\""
+      },
+      {
+        "item_id": "E011",
+        "verdict": "OK",
+        "material_issue": "Origin, creators, Spellhunt survival condition, unlock condition and the race feature list are all conveyed accurately.",
+        "evidence": "\"created (and subsequently abandoned) by the Conclave during the Allure Wars, to serve as their warriors and workers\"→\"在厄流战争中，孔克雷夫创造了食人魔作为工人和战士，但最后他们成为了被遗弃的种族\"; \"only those who fled to Shalore lands survived extermination\"→\"只有那些逃去永恒精灵领地的少量族群幸免于难\"; \"You can now create new Ogre characters\"→\"你可以创造新的食人魔角色\"."
+      },
+      {
+        "item_id": "E012",
+        "verdict": "OK",
+        "material_issue": "Dates, log numbering, speaker's contempt, and every test-subject outcome are preserved in order and content.",
+        "evidence": "\"Test subject M: Survived first transition. Imploded 2 seconds after.\"→\"在第一次传送中存活，2秒后体内发生爆裂\"; \"Test subject N: ... in coma. Died after 4 days.\"→\"但昏迷不醒，于4天后死亡\"; \"Age of Allure 4544/4545/4546\"→\"厄流纪 4544/4545/4546年\"; race name 夺心魔 is used consistently for the big-headed servant race described (\"oversized heads\"→\"大得过分的脑袋\")."
+      },
+      {
+        "item_id": "E013",
+        "verdict": "OK",
+        "material_issue": "Speaker, the construct's unfinished-but-functional state, its purpose, and the remaining step are all preserved.",
+        "evidence": "\"While it remains unfinished, it is finished enough to serve in its purpose of protecting my lair\"→\"虽然尚未彻底完成，却已经足以履行守卫我巢穴的使命\"; \"once it is complete it will be nigh invulnerable\"→\"等到它完全完成，更将近乎无敌\"; \"all that remains is to animate my newest minion and bend it to my will\"→\"只剩唤醒我最新的仆从、使其屈从于我的意志\"."
+      },
+      {
+        "item_id": "E014",
+        "verdict": "OK",
+        "material_issue": "Both placeholders, the rival's achievement, the cause of delay and the threat to the speaker's position are preserved; \"一瓶\" merely supplies a classifier for the created item.",
+        "evidence": "\"in your overlong absence, %s has managed to create a %s\"→\"在你离开的漫长时间里，%s已经设法配制出了一瓶%s\"; \"I'll be most put out if he steals my rightful spot.\"→\"要是他抢走了本该属于我的席位，我可会非常不悦。\""
+      }
+    ]
+  }
+}

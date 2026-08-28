@@ -1,0 +1,138 @@
+{
+  "schema_version": "source-context-exploratory-candidate-v1",
+  "route": "agy-gemini-3.7-flash-high",
+  "arm": "B",
+  "run": 1,
+  "input_sha256": "05893599fd1fad889d0cc36811565b2693933b09d069b9f59028143b7dd9a764",
+  "prompt_sha256": "c4ce6c84fa674f7b2efab21afbf3584c495578821d1ca1c5b4f599a0ca1e6d25",
+  "schema_sha256": "b47b250e6ffc7b6b4bebc4eb96493dbf011ec8ae747416debe9c1c709bd59de9",
+  "reference_sha256": "7383e82ce3506f50d8a2619261867f4bc919acccaae103841dd80f3acfdffc46",
+  "route_metadata": {
+    "harness": "Antigravity CLI 1.1.22",
+    "requested_model": "gemini-3.7-flash-high",
+    "requested_effort": "high",
+    "mode": "plan",
+    "sandbox": true,
+    "reported_model": null,
+    "reported_agent": null,
+    "usage": {
+      "input_tokens": 26000,
+      "output_tokens": 13584,
+      "thinking_tokens": 12480,
+      "cache_read_tokens": 0,
+      "total_tokens": 39584
+    },
+    "qualification": "EXPLORATORY_COMPARATOR",
+    "formal_eligible": false,
+    "identity_status": "REQUESTED_ROUTE_ONLY_ENVELOPE_UNVERIFIED"
+  },
+  "acquisition": {
+    "file": "ACQUISITION-agy-gemini-3.7-flash-high-B1.json",
+    "sha256": "85c65b79660050de11c6155f5b15a43153464dc5d73a908bb02077e9c250aa74",
+    "size_bytes": 978
+  },
+  "reparsed_from_existing_raw": false,
+  "prior_candidate_sha256": null,
+  "duration_seconds": 35.166,
+  "exit_status": 0,
+  "valid": true,
+  "exploratory_score_eligible": true,
+  "requested_route_label_eligible": false,
+  "formal_eligible": false,
+  "validation_errors": [],
+  "route_warnings": [
+    "Antigravity envelope does not report runtime model identity"
+  ],
+  "verdict_counts": {
+    "OK": 13,
+    "FINDING": 1
+  },
+  "response": {
+    "items": [
+      {
+        "evidence": "All narrative details, historical events, numbers (20-fold, 30 times), and proper nouns are accurately translated.",
+        "item_id": "E001",
+        "material_issue": "The translation accurately preserves all narrative facts, quantities, and lore details.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'lived %d turns in three different timelines' -> '在三条不同的时间线里度过了 %d 个回合', preserving the mechanical prompt and format specifier.",
+        "item_id": "E002",
+        "material_issue": "The game mechanic and choice prompt are accurately translated.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'perhaps life is still worth it' -> '生命或许依然值得活下去', correctly expressing the choice to reconsider and stay alive.",
+        "item_id": "E003",
+        "material_issue": "The player's dialogue option and intent are correctly preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'Orb of Many Ways' -> '多元水晶球', and the NPC's skeptical reaction regarding the player's origin and artifact is preserved.",
+        "item_id": "E004",
+        "material_issue": "The narrative tone, dialogue meaning, and artifact referents are preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'%s has already finished' -> '%s已经完成了', and 'give you your undeserved reward' -> '把你不配得到的奖励给你' correctly preserve the context and formatting.",
+        "item_id": "E005",
+        "material_issue": "The quest dialogue and placeholder formatting are correctly preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'your men... they were in my way' -> '你的人……挡了我的路' accurately translates the dialogue response.",
+        "item_id": "E006",
+        "material_issue": "The dialogue intent and tone are preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "The code in on_pre_use checks 'not self:isTalentActive(self.T_GESTALT) or (not self:hasEffect(self.EFF_PSI_DAMAGE_SHIELD) and self:isTalentCoolingDown(self.T_IMPROVED_GESTALT))'. The Chinese translation correctly clarifies that Gestalt must be active in addition to having a psionic damage shield or Improved Gestalt available.",
+        "item_id": "E007",
+        "material_issue": "The Chinese translation correctly reflects the actual runtime talent requirement from the source code.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'ranking boards before entering' -> '进入竞技场前，你查看了一下排名榜', preserving formatting and placeholder %s.",
+        "item_id": "E008",
+        "material_issue": "The UI prompt and placeholder are preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'apprentice mage I met in the wilds' -> '荒野之中的法师学徒' faithfully reflects the quest reference and recognition dialogue.",
+        "item_id": "E009",
+        "material_issue": "The character recognition and lore reference are correctly translated.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'This costs %d gold.' -> '这将花费%d金币。', accurately preserving the cost message and format specifier.",
+        "item_id": "E010",
+        "material_issue": "The gold cost message is correctly preserved.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "All lore background and racial features ('Strong but not stupid', 'runes and infusions') are faithfully rendered.",
+        "item_id": "E011",
+        "material_issue": "The race unlock lore and traits are accurately translated.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "'disgusting yeeks' is mistranslated as '令人作呕的夺心魔' (Mindflayers) instead of Yeeks (易客), altering a central racial referent and historical lore fact.",
+        "item_id": "E012",
+        "material_issue": "'yeeks' (the Yeek race / 易客) was mistranslated as '夺心魔' (Mindflayers), misidentifying the subject race of the halfling experiments.",
+        "verdict": "FINDING"
+      },
+      {
+        "evidence": "'My masterpiece walks!' -> '我的杰作走起来了！', faithfully conveying the necromancer's monologue and lore facts.",
+        "item_id": "E013",
+        "material_issue": "The necromancer's lore text is accurately translated.",
+        "verdict": "OK"
+      },
+      {
+        "evidence": "Both placeholders (%s) and the alchemist's complaint about losing their spot are preserved accurately.",
+        "item_id": "E014",
+        "material_issue": "The dialogue and format specifiers are preserved accurately.",
+        "verdict": "OK"
+      }
+    ]
+  }
+}

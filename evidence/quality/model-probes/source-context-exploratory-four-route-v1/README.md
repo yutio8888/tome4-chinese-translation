@@ -1,6 +1,6 @@
 # Source-context exploratory four-route v1
 
-Status: `FROZEN_BEFORE_EXTERNAL_INFERENCE`.
+Status: `EXPLORATORY_COMPLETE_WITH_RECOVERED_SCHEMA_ALIASES_NOT_FORMAL`.
 
 This is a deliberately exploratory follow-up to `prospective-source-context-truth-audit-v1`, whose formal GLM gate returned `NO_GO_INSUFFICIENT_TRUTH_SET`. It does not relax or replace that result.
 
@@ -19,3 +19,7 @@ node run.mjs gemini A 1
 ```
 
 Use the same command shape for the remaining frozen waves. If acquisition succeeded but parsing failed, fix only the parser and run the same command with `--parse-existing`; this reuses hash-bound RAW and makes no model call. Never expose `REFERENCE.json` or `ATOM-ADJUDICATION.json` to a candidate model.
+
+All 16 planned acquisitions completed. Fourteen candidates satisfy the frozen response schema. GLM A2 and B1 each contain 14 complete ordered review rows under the top-level key `verdicts` rather than `items`; their candidate files remain strict-invalid. `ANALYSIS-AMENDMENT.json` records the post-inference rule that gives those unchanged rows separately labeled recovery-normalized reference scores. `RESULT.json` therefore reports 14 strict-valid runs, two recovery-normalized runs and 16 reference-scored runs.
+
+The main observation is narrow: fixed source context removed the repeated E007 clean false positive in every route, but no route identified the single context-dependent E013 defect. Codex retained some surface-defect detection but declined from 7/10 atom hits without context to 4/10 with context. The other three routes recorded 0/10 surface atom hits in both arms under the sealed atom rule. These are repeated observations of a deliberately enriched 14-case set, not general provider rankings.

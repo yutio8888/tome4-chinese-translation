@@ -1,0 +1,201 @@
+{
+  "schema_version": "source-context-exploratory-candidate-v1",
+  "route": "claude-opus-5-high-exploratory",
+  "arm": "B",
+  "run": 1,
+  "input_sha256": "05893599fd1fad889d0cc36811565b2693933b09d069b9f59028143b7dd9a764",
+  "prompt_sha256": "c4ce6c84fa674f7b2efab21afbf3584c495578821d1ca1c5b4f599a0ca1e6d25",
+  "schema_sha256": "b47b250e6ffc7b6b4bebc4eb96493dbf011ec8ae747416debe9c1c709bd59de9",
+  "reference_sha256": "7383e82ce3506f50d8a2619261867f4bc919acccaae103841dd80f3acfdffc46",
+  "route_metadata": {
+    "harness": "Claude Code CLI 2.1.250",
+    "requested_model": "claude-opus-5",
+    "requested_effort": "high",
+    "qualification": "EXPLORATORY_FORMAL_PURITY_NO_GO",
+    "formal_eligible": false,
+    "initialized_models": [
+      "claude-opus-5"
+    ],
+    "actual_assistant_models": [
+      "claude-opus-5"
+    ],
+    "fallback_event_count": 0,
+    "fallback_block_count": 0,
+    "result": {
+      "is_error": false,
+      "subtype": "success",
+      "stop_reason": "tool_use",
+      "terminal_reason": "completed",
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16951,
+        "cache_read_input_tokens": 3118,
+        "output_tokens": 15505,
+        "output_tokens_details": {
+          "thinking_tokens": 12760
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16951,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 15505,
+            "cache_read_input_tokens": 3118,
+            "cache_creation_input_tokens": 16951,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16951
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 13137,
+          "outputTokens": 16,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.013217,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000,
+          "canonicalModel": "claude-haiku-4-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-opus-5": {
+          "inputTokens": 2,
+          "outputTokens": 15505,
+          "cacheReadInputTokens": 3118,
+          "cacheCreationInputTokens": 16951,
+          "webSearchRequests": 0,
+          "costUSD": 0.558704,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "canonicalModel": "claude-opus-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "total_cost_usd": 0.571921,
+      "num_turns": 2
+    },
+    "identity_status": "ASSISTANT_STREAM_OPUS_VERIFIED_FORMAL_PURITY_STILL_NO_GO"
+  },
+  "acquisition": {
+    "file": "ACQUISITION-claude-opus-5-high-exploratory-B1.json",
+    "sha256": "7c226509f376bb6a4a278a11f02b7a470108b1c0b9302dc6b7b6f8f147649338",
+    "size_bytes": 999
+  },
+  "reparsed_from_existing_raw": false,
+  "prior_candidate_sha256": null,
+  "duration_seconds": 221.333,
+  "exit_status": 0,
+  "valid": true,
+  "exploratory_score_eligible": true,
+  "requested_route_label_eligible": true,
+  "formal_eligible": false,
+  "validation_errors": [],
+  "route_warnings": [],
+  "verdict_counts": {
+    "OK": 14
+  },
+  "response": {
+    "items": [
+      {
+        "item_id": "E001",
+        "verdict": "OK",
+        "material_issue": "Narrative facts, quantities and causality are preserved: stralite consistently 蓝锆石, twenty-fold→二十倍, thirty times→30倍, the king's mismanagement, the halfling withdrawal, and the pouch demonstration all match.",
+        "evidence": "\"increased twenty-fold\"→\"提高到原来的二十倍\"; \"thirty times the previous amount\"→\"以30倍的价钱\"; \"manipulated the king into mining it and selling it to them for a fraction of its true worth\"→\"利用这个国王去开采并将蓝锆石以一个极低的价格卖给他们\". Minor flavor shifts (\"Halfling Horde\"→\"半身人部落\", \"Army of Rogues\"→\"游击军\", \"peace and newly found military might\"→\"胜利和…游击力量\") do not change substantive meaning."
+      },
+      {
+        "item_id": "E002",
+        "verdict": "OK",
+        "material_issue": "Turn count, the three-timeline framing and the choice prompt are all rendered accurately.",
+        "evidence": "\"lived %d turns in three different timelines\"→\"在三条不同的时间线里度过了 %d 个回合\"; \"Which do you choose to be the real timeline?\"→\"你选择哪一条作为现实时间线？\", matching the three answer branches select(1..3) in context."
+      },
+      {
+        "item_id": "E003",
+        "verdict": "OK",
+        "material_issue": "Polarity of the refusal branch is preserved; this answer declines the death option, as in the source.",
+        "evidence": "\"No actually, perhaps life is still worth it!\"→\"不，其实生命或许依然值得活下去！\"; in context this answer has no action, i.e. it backs out of the die() branch."
+      },
+      {
+        "item_id": "E004",
+        "verdict": "OK",
+        "material_issue": "Speaker's disbelief, the orb's identity and the 'lost for ages' fact are preserved; the clause 'That you used to travel here' is recast as the player having come from Maj'Eyal, but the orb-as-travel-means is already established by the preceding answer line and the following 'It IS the Orb!'.",
+        "evidence": "\"Surely you don't possess the Orb of Many Ways! It's been lost for ages!\"→\"你拿到的肯定不是多元水晶球！它已经消失很多年了！\"; context answer \"I got here from Maj'Eyal, didn't I? I have this magic Orb...\" precedes this line."
+      },
+      {
+        "item_id": "E005",
+        "verdict": "OK",
+        "material_issue": "Correctly renders the 'lose' branch: rival finished first, ingredients still accepted, reward described as undeserved.",
+        "evidence": "Context: alchemist_reaction_complete(..., lose == true) formats this text with other_alch; \"take these and give you your undeserved reward\"→\"收下这些原料、把你不配得到的奖励给你\" (\"these\"=ingredients per check_ingredients)."
+      },
+      {
+        "item_id": "E006",
+        "verdict": "OK",
+        "material_issue": "Speaker (player answer), content and tone preserved; no change of referent or fact.",
+        "evidence": "\"your men... they were in my way\"→\"你的人……挡了我的路\"; jump=\"what\" branch answering \"Why did you kill my men?\""
+      },
+      {
+        "item_id": "E007",
+        "verdict": "OK",
+        "material_issue": "The Chinese adds the 'Gestalt must be active' requirement, which matches the actual on_pre_use check and clarifies an incomplete English string; the shield-OR-cooldown condition is rendered correctly.",
+        "evidence": "on_pre_use: `if not self:isTalentActive(self.T_GESTALT) or (not self:hasEffect(self.EFF_PSI_DAMAGE_SHIELD) and self:isTalentCoolingDown(self.T_IMPROVED_GESTALT))` → \"格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中\"."
+      },
+      {
+        "item_id": "E008",
+        "verdict": "OK",
+        "material_issue": "Action and timing preserved; the added 竞技场 matches the arena entry dialog context and does not alter meaning.",
+        "evidence": "\"take a look at the ranking boards before entering\"→\"进入竞技场前，你查看了一下排名榜\"; context is the arena welcome chat with world.arena.scores and 'Enter the arena' answers."
+      },
+      {
+        "item_id": "E009",
+        "verdict": "OK",
+        "material_issue": "Recognition of the librarian as the apprentice mage met in the wilds is preserved; 'I met' is implicit but the referent is unchanged.",
+        "evidence": "\"You're that apprentice mage I met in the wilds!\"→\"你不就是那个荒野之中的法师学徒么？\"; cond requires the \"mage-apprentice\" quest DONE, confirming the referent."
+      },
+      {
+        "item_id": "E010",
+        "verdict": "OK",
+        "material_issue": "Cost statement and %d placeholder preserved; used as the 'Not enough money' popup body in both languages.",
+        "evidence": "\"This costs %d gold.\"→\"这将花费%d金币。\" formatted with `cost` in simplePopup(_t\"Not enough money\", ...)."
+      },
+      {
+        "item_id": "E011",
+        "verdict": "OK",
+        "material_issue": "Race origin, Spellhunt survival condition, inscription talent and unlock condition are all preserved; 'technically…long-overdue'→'终于…真正的结束' is a tone-only shift.",
+        "evidence": "\"only those who fled to Shalore lands survived extermination\"→\"只有那些逃去永恒精灵领地的少量族群幸免于难\"; \"by eliminating the last remnants of the Conclave\"→\"随着孔克雷夫最后残余的毁灭\"; feature bullets map 1:1 (runes/infusions→符文/纹身)."
+      },
+      {
+        "item_id": "E012",
+        "verdict": "OK",
+        "material_issue": "Dates, subject IDs and outcomes match one-for-one; 夺心魔 is the localization's race name for yeek and the surrounding details (oversized heads, expendable servants) confirm the referent.",
+        "evidence": "Entries 4544/4545/4546 and \"Test subject M: Survived first transition. Imploded 2 seconds after\"→\"在第一次传送中存活，2秒后体内发生爆裂\"; \"these disgusting yeeks ... oversized heads ... servants\"→\"令人作呕的夺心魔……大得过分的脑袋……仆从\", consistent with context's \"plenty more dumb yeeks available\"."
+      },
+      {
+        "item_id": "E013",
+        "verdict": "OK",
+        "material_issue": "State of the creation (unfinished but functional), its guarding purpose, and the next step of animating the newest minion are all preserved.",
+        "evidence": "\"While it remains unfinished, it is finished enough to serve in its purpose of protecting my lair\"→\"虽然尚未彻底完成，却已经足以履行守卫我巢穴的使命\"; \"animate my newest minion and bend it to my will\"→\"唤醒我最新的仆从、使其屈从于我的意志\", matching note-3's newly acquired corpse minion."
+      },
+      {
+        "item_id": "E014",
+        "verdict": "OK",
+        "material_issue": "Correctly renders the non-losing branch: rival created an elixir during the player's absence, and the speaker's fear of losing his rightful spot; added 一瓶 is a classifier for the elixir placeholder.",
+        "evidence": "Context: else-branch formatted with (other_alch, other_elixir); \"in your overlong absence, %s has managed to create a %s\"→\"在你离开的漫长时间里，%s已经设法配制出了一瓶%s\"; \"steals my rightful spot\"→\"抢走了本该属于我的席位\"."
+      }
+    ]
+  }
+}

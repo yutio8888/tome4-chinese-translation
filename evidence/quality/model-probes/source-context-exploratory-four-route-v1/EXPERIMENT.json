@@ -1,7 +1,7 @@
 {
   "schema_version": "source-context-exploratory-four-route-experiment-v1",
   "experiment": "source-context-exploratory-four-route-v1",
-  "status": "FROZEN_BEFORE_EXTERNAL_INFERENCE",
+  "status": "EXPLORATORY_COMPLETE_WITH_RECOVERED_SCHEMA_ALIASES_NOT_FORMAL",
   "date_frozen": "2026-08-28",
   "purpose": "Exploratory A/B comparison of source-target-only review versus the same pairs with fixed public-source context after the formal GLM truth-set gate returned NO_GO.",
   "formal_status": "NOT_FORMAL_CANNOT_CHANGE_UPSTREAM_NO_GO",
@@ -30,6 +30,20 @@
     "B": "identical source + target + sanitized raw fixed public-source excerpts with [SOURCE_MATCH] marker",
     "runs_per_arm_per_route": 2,
     "total_model_calls_planned": 16
+  },
+  "execution_outcome": {
+    "external_inference_calls": 16,
+    "strict_valid_candidates": 14,
+    "recovery_normalized_reference_scored_candidates": 2,
+    "reference_scored_candidates": 16,
+    "invalid_but_recoverable_candidates": [
+      "CANDIDATE-pi-zai-cn-glm-5.3-flash-high-A2.json",
+      "CANDIDATE-pi-zai-cn-glm-5.3-flash-high-B1.json"
+    ],
+    "analysis_amendment": {
+      "file": "ANALYSIS-AMENDMENT.json",
+      "sha256": "d3feaa626880003b60a545b098e86c3401e21d918a80730e5b832581d848aae7"
+    }
   },
   "execution_schedule": [
     {"wave": 1, "arm": "A", "run": 1, "routes_in_parallel": true},
@@ -90,5 +104,9 @@
     "basis": "The user permanently authorized this project to send sanitized experimental records to OpenAI, Anthropic, Z.ai CN/GLM and Google Gemini.",
     "outbound_fields": ["item_id", "source", "target", "fixed_context", "review instructions", "output schema"],
     "excluded": ["credentials", "sealed reference", "adjudication conclusions", "audit/task IDs", "model provenance in prompt", "local absolute paths"]
+  },
+  "result_bindings": {
+    "ATOM-ADJUDICATION.json": "e8ddacab54eb13925bc5044d5046f735e992d24ef43c574f8e99f8a8886c6873",
+    "RESULT.json": "ab16f6d415f93939a08d361a833b7b8520634f0aa2d2895b2fd2afcc4f1a9cf4"
   }
 }

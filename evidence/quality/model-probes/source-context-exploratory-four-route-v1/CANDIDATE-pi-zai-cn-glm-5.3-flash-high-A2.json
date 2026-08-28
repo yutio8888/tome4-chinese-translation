@@ -1,0 +1,144 @@
+{
+  "schema_version": "source-context-exploratory-candidate-v1",
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "arm": "A",
+  "run": 2,
+  "input_sha256": "d8845716b86d2b0f7dca8ada1495f724e584e4c2adab97373b3a9dd975b5b4a2",
+  "prompt_sha256": "c4ce6c84fa674f7b2efab21afbf3584c495578821d1ca1c5b4f599a0ca1e6d25",
+  "schema_sha256": "b47b250e6ffc7b6b4bebc4eb96493dbf011ec8ae747416debe9c1c709bd59de9",
+  "reference_sha256": "7383e82ce3506f50d8a2619261867f4bc919acccaae103841dd80f3acfdffc46",
+  "route_metadata": {
+    "harness": "Pi 0.84.3",
+    "requested_provider": "zai-standard-cn",
+    "requested_model": "glm-5.3-flash",
+    "requested_effort": "high",
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 55,
+      "output": 6674,
+      "cacheRead": 5312,
+      "cacheWrite": 0,
+      "reasoning": 5205,
+      "totalTokens": 12041,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    },
+    "stop_reason": "stop",
+    "qualification": "EXPLORATORY_AFTER_FORMAL_TRUTH_SET_NO_GO",
+    "formal_eligible": false,
+    "identity_status": "PROVIDER_AND_MODEL_VERIFIED"
+  },
+  "acquisition": {
+    "file": "ACQUISITION-pi-zai-cn-glm-5.3-flash-high-A2.json",
+    "sha256": "96952ee7037fe0e3235707cb4405f4ef28fba622891b9fdb0894f2fe6e5b11ad",
+    "size_bytes": 985
+  },
+  "reparsed_from_existing_raw": false,
+  "prior_candidate_sha256": null,
+  "duration_seconds": 157.591,
+  "exit_status": 0,
+  "valid": false,
+  "exploratory_score_eligible": false,
+  "requested_route_label_eligible": true,
+  "formal_eligible": false,
+  "validation_errors": [
+    "top-level keys are not exactly items",
+    "items is not an array"
+  ],
+  "route_warnings": [],
+  "verdict_counts": null,
+  "response": {
+    "verdicts": [
+      {
+        "item_id": "E001",
+        "verdict": "OK",
+        "material_issue": "Narrative facts, quantities (twenty-fold demand / thirty-times agreement: 二十倍 / 30倍), and causality are all preserved; minor additions like 签订了协议 for 'agreed to pay' and 少年人 for 'young man' do not change substantive meaning.",
+        "evidence": "'demanding that the amount of gold... be increased twenty-fold' → 提高到原来的二十倍; 'agreed to pay thirty times the previous amount' → 以30倍的价钱"
+      },
+      {
+        "item_id": "E002",
+        "verdict": "OK",
+        "material_issue": "Quantity (%d turns), three timelines, and the choice question are all preserved.",
+        "evidence": "'lived %d turns in three different timelines' → 度过了 %d 个回合；'which do you choose to be the real timeline' → 选择哪一条作为现实时间线"
+      },
+      {
+        "item_id": "E003",
+        "verdict": "OK",
+        "material_issue": "Polarity and hedging preserved: 'No, actually, perhaps life is still worth it' → 不，其实生命或许依然值得活下去.",
+        "evidence": "'No actually' → 不，其实；'perhaps... still worth it' → 或许依然值得"
+      },
+      {
+        "item_id": "E004",
+        "verdict": "OK",
+        "material_issue": "Disbelief about possessing the Orb and its long loss are preserved; '*Slot opens.*' rendered as 小洞打开了 is a loose but non-material rendering of an opening appearing.",
+        "evidence": "'Surely you don't possess the Orb of Many Ways!' → 你拿到的肯定不是多元水晶球；'It's been lost for ages' → 已经消失很多年了"
+      },
+      {
+        "item_id": "E005",
+        "verdict": "OK",
+        "material_issue": "Meaning preserved: lateness, %s having finished, and giving the undeserved reward all match; 'these' → 这些原料 only names the handed-over items, consistent with a consolation handover and not changing the mechanic.",
+        "evidence": "'You're too late. %s has already finished' → 你来太晚了。%s已经完成了；'your undeserved reward' → 你不配得到的奖励"
+      },
+      {
+        "item_id": "E006",
+        "verdict": "OK",
+        "material_issue": "Speaker's actions and question are preserved exactly.",
+        "evidence": "'I heard some cries' → 我听到了呼喊声；'they were in my way' → 挡了我的路；'What's going on here?' → 这里发生了什么事？"
+      },
+      {
+        "item_id": "E007",
+        "verdict": "FINDING",
+        "material_issue": "The source requires EITHER an active psionic damage shield OR Improved Gestalt being available; the Chinese adds a new required condition (格式塔处于激活状态) and turns the either/or into an AND structure, materially changing the talent's usage condition.",
+        "evidence": "Source: 'must have either a psionic damage shield active or Improved Gestalt available'; Target: 必须...格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中"
+      },
+      {
+        "item_id": "E008",
+        "verdict": "OK",
+        "material_issue": "Timing (before entering) and action (looking at ranking boards) are preserved; %s placement unchanged.",
+        "evidence": "'before entering' → 进入竞技场前；'ranking boards' → 排名榜"
+      },
+      {
+        "item_id": "E009",
+        "verdict": "OK",
+        "material_issue": "Recognition and referents preserved: apprentice mage met in the wilds.",
+        "evidence": "'that apprentice mage I met in the wilds' → 那个荒野之中的法师学徒"
+      },
+      {
+        "item_id": "E010",
+        "verdict": "OK",
+        "material_issue": "Cost and currency fully preserved.",
+        "evidence": "'This costs %d gold.' → 这将花费%d金币。"
+      },
+      {
+        "item_id": "E011",
+        "verdict": "FINDING",
+        "material_issue": "The race feature 'runes and infusions' is rendered 纹身和符文; 纹身 means 'tattoo', misnaming the infusion mechanic (a distinct item type) and materially misstating what the race is efficient with.",
+        "evidence": "'Efficient at using all kind of runes and infusions' → 善于使用各种纹身和符文"
+      },
+      {
+        "item_id": "E012",
+        "verdict": "FINDING",
+        "material_issue": "'Yeeks' is translated as 夺心魔 (mind flayers), changing the creature referent; the log's servants/experimental stewards become an entirely different species, materially altering a narrative fact.",
+        "evidence": "'these disgusting yeeks... Why we ever decided to use these useless creatures as servants' → 令人作呕的夺心魔...让这些无用的生物当仆从"
+      },
+      {
+        "item_id": "E013",
+        "verdict": "OK",
+        "material_issue": "Status of the masterpiece, its purpose, future invulnerability, and the villain's boast are all preserved.",
+        "evidence": "'while it remains unfinished... protecting my lair' → 虽然尚未彻底完成...守卫我巢穴；'once it is complete it will be nigh invulnerable' → 等到它完全完成，更将近乎无敌"
+      },
+      {
+        "item_id": "E014",
+        "verdict": "OK",
+        "material_issue": "Meaning preserved: handing over the items, the rival %s having created a %s during the player's absence, and the threat to the speaker's 'rightful spot'; 配制出了一瓶 is a benign alchemy-specific rendering of 'create a %s' consistent with the handover context.",
+        "evidence": "'in your overlong absence, %s has managed to create a %s' → 在你离开的漫长时间里，%s已经设法配制出了一瓶%s；'steals my rightful spot' → 抢走了本该属于我的席位"
+      }
+    ]
+  }
+}

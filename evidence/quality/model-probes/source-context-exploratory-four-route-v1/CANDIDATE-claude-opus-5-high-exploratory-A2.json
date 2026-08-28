@@ -1,0 +1,202 @@
+{
+  "schema_version": "source-context-exploratory-candidate-v1",
+  "route": "claude-opus-5-high-exploratory",
+  "arm": "A",
+  "run": 2,
+  "input_sha256": "d8845716b86d2b0f7dca8ada1495f724e584e4c2adab97373b3a9dd975b5b4a2",
+  "prompt_sha256": "c4ce6c84fa674f7b2efab21afbf3584c495578821d1ca1c5b4f599a0ca1e6d25",
+  "schema_sha256": "b47b250e6ffc7b6b4bebc4eb96493dbf011ec8ae747416debe9c1c709bd59de9",
+  "reference_sha256": "7383e82ce3506f50d8a2619261867f4bc919acccaae103841dd80f3acfdffc46",
+  "route_metadata": {
+    "harness": "Claude Code CLI 2.1.250",
+    "requested_model": "claude-opus-5",
+    "requested_effort": "high",
+    "qualification": "EXPLORATORY_FORMAL_PURITY_NO_GO",
+    "formal_eligible": false,
+    "initialized_models": [
+      "claude-opus-5"
+    ],
+    "actual_assistant_models": [
+      "claude-opus-5"
+    ],
+    "fallback_event_count": 0,
+    "fallback_block_count": 0,
+    "result": {
+      "is_error": false,
+      "subtype": "success",
+      "stop_reason": "tool_use",
+      "terminal_reason": "completed",
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 10012,
+        "cache_read_input_tokens": 3118,
+        "output_tokens": 11101,
+        "output_tokens_details": {
+          "thinking_tokens": 8660
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 10012,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 11101,
+            "cache_read_input_tokens": 3118,
+            "cache_creation_input_tokens": 10012,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 10012
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 7814,
+          "outputTokens": 11,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.007869,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000,
+          "canonicalModel": "claude-haiku-4-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-opus-5": {
+          "inputTokens": 2,
+          "outputTokens": 11101,
+          "cacheReadInputTokens": 3118,
+          "cacheCreationInputTokens": 10012,
+          "webSearchRequests": 0,
+          "costUSD": 0.379214,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "canonicalModel": "claude-opus-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "total_cost_usd": 0.387083,
+      "num_turns": 2
+    },
+    "identity_status": "ASSISTANT_STREAM_OPUS_VERIFIED_FORMAL_PURITY_STILL_NO_GO"
+  },
+  "acquisition": {
+    "file": "ACQUISITION-claude-opus-5-high-exploratory-A2.json",
+    "sha256": "79482ebb79d4d2fc9a7dbedd57b559b2a51904bd2efea2d192ade1bb7799950d",
+    "size_bytes": 999
+  },
+  "reparsed_from_existing_raw": false,
+  "prior_candidate_sha256": null,
+  "duration_seconds": 161.273,
+  "exit_status": 0,
+  "valid": true,
+  "exploratory_score_eligible": true,
+  "requested_route_label_eligible": true,
+  "formal_eligible": false,
+  "validation_errors": [],
+  "route_warnings": [],
+  "verdict_counts": {
+    "OK": 12,
+    "FINDING": 2
+  },
+  "response": {
+    "items": [
+      {
+        "item_id": "E001",
+        "verdict": "OK",
+        "material_issue": "Lore text is rendered faithfully: rulers, causality of Southspar's decline, the halfling withdrawal, the stralite-dust threat, and both numbers are preserved.",
+        "evidence": "\"increased twenty-fold\" → \"提高到原来的二十倍\"; \"agreed to pay thirty times the previous amount\" → \"以30倍的价钱签订了协议\"; \"manipulated the king into mining it and selling it to them for a fraction of its true worth\" → \"利用这个国王去开采并将蓝锆石以一个极低的价格卖给他们\". Deviations are stylistic only (e.g. \"most obvious and immediate threat\" → \"最大也最明显的威胁\", \"Army of Rogues\" → \"游击军\")."
+      },
+      {
+        "item_id": "E002",
+        "verdict": "OK",
+        "material_issue": "Quantity, count of timelines, and the choice prompt are all preserved.",
+        "evidence": "\"lived %d turns in three different timelines\" → \"在三条不同的时间线里度过了 %d 个回合\"; \"Which do you choose to be the real timeline?\" → \"你选择哪一条作为现实时间线？\""
+      },
+      {
+        "item_id": "E003",
+        "verdict": "OK",
+        "material_issue": "Polarity and intent of the reversal are preserved.",
+        "evidence": "\"No actually, perhaps life is still worth it!\" → \"不，其实生命或许依然值得活下去！\""
+      },
+      {
+        "item_id": "E004",
+        "verdict": "OK",
+        "material_issue": "Speaker, referent (the Orb of Many Ways) and the disbelief polarity are preserved; only the elliptical clause naming the orb as the means of travel is compressed, which does not assert anything false.",
+        "evidence": "\"Surely you don't possess the Orb of Many Ways!\" → \"你拿到的肯定不是多元水晶球！\"; \"That you used to travel here from Maj'Eyal?\" → \"你说你是从马基·埃亚尔来的？\" (still conveys arrival from Maj'Eyal in the same orb-related exchange)."
+      },
+      {
+        "item_id": "E005",
+        "verdict": "OK",
+        "material_issue": "Timing (too late), the rival's completion, the transaction, and the grudging tone are preserved; \"这些原料\" merely names what \"these\" refers to in the hand-in.",
+        "evidence": "\"You're too late. %s has already finished\" → \"你来太晚了。%s已经完成了\"; \"take these and give you your undeserved reward\" → \"收下这些原料、把你不配得到的奖励给你\""
+      },
+      {
+        "item_id": "E006",
+        "verdict": "OK",
+        "material_issue": "Speaker, the implied killing of the guards, and the question are preserved.",
+        "evidence": "\"your men... they were in my way\" → \"你的人……挡了我的路\""
+      },
+      {
+        "item_id": "E007",
+        "verdict": "FINDING",
+        "material_issue": "The talent requirement is rewritten: English states a single either/or condition, while the Chinese adds a mandatory conjunct (Gestalt must be sustained) and turns the disjunction into \"AND (A or B)\". A player would believe an extra prerequisite exists that the English string does not state, and no fixed_context supports the addition.",
+        "evidence": "\"You must have either a psionic damage shield active or Improved Gestalt available\" → \"你必须在格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中时\" — \"格式塔处于激活状态，并且\" has no counterpart in the source; fixed_context is empty."
+      },
+      {
+        "item_id": "E008",
+        "verdict": "OK",
+        "material_issue": "Action and timing preserved; \"竞技场\" only makes the implicit location explicit and the %s payload is retained.",
+        "evidence": "\"You take a look at the ranking boards before entering.\\n%s\" → \"进入竞技场前，你查看了一下排名榜。\\n%s\""
+      },
+      {
+        "item_id": "E009",
+        "verdict": "OK",
+        "material_issue": "Recognition, referent (the apprentice mage) and prior meeting in the wilds are preserved; only \"I met\" is compressed into the attributive.",
+        "evidence": "\"You're that apprentice mage I met in the wilds!\" → \"你不就是那个荒野之中的法师学徒么？\""
+      },
+      {
+        "item_id": "E010",
+        "verdict": "OK",
+        "material_issue": "Cost, currency and placeholder preserved.",
+        "evidence": "\"This costs %d gold.\" → \"这将花费%d金币。\""
+      },
+      {
+        "item_id": "E011",
+        "verdict": "OK",
+        "material_issue": "Race origin, dependence on runes, Spellhunt survival condition, unlock condition and the three feature bullets are all preserved.",
+        "evidence": "\"created (and subsequently abandoned) by the Conclave during the Allure Wars\" → \"孔克雷夫创造了食人魔作为工人和战士，但最后他们成为了被遗弃的种族\"; \"only those who fled to Shalore lands survived extermination\" → \"只有那些逃去永恒精灵领地的少量族群幸免于难\"; \"all kind of runes and infusions\" → \"各种纹身和符文\"."
+      },
+      {
+        "item_id": "E012",
+        "verdict": "FINDING",
+        "material_issue": "The servant race is mistranslated: \"yeeks\" is rendered as \"夺心魔\" (mind flayers/illithids), a different creature entirely. This changes the narrative fact of which race served in the facility and contradicts the accompanying description of small, useless servants with oversized heads.",
+        "evidence": "\"I'll be glad to get rid of these disgusting yeeks... Why we ever decided to use these useless creatures as servants\" → \"能摆脱这些令人作呕的夺心魔真让我高兴……我们当初究竟为什么会决定让这些无用的生物当仆从\"; the rest of the log (subject outcomes A–N, dates, \"lanklegs\" → \"长腿\") is accurate."
+      },
+      {
+        "item_id": "E013",
+        "verdict": "OK",
+        "material_issue": "State of the creation (unfinished but functional), its purpose, the future invulnerability, and the remaining step are all preserved.",
+        "evidence": "\"While it remains unfinished, it is finished enough to serve in its purpose of protecting my lair\" → \"虽然尚未彻底完成，却已经足以履行守卫我巢穴的使命\"; \"once it is complete it will be nigh invulnerable\" → \"等到它完全完成，更将近乎无敌\"."
+      },
+      {
+        "item_id": "E014",
+        "verdict": "OK",
+        "material_issue": "Rival's achievement during the player's absence and the threat to the speaker's position are preserved; \"一瓶\" is a natural classifier for the created elixir placeholder.",
+        "evidence": "\"in your overlong absence, %s has managed to create a %s\" → \"在你离开的漫长时间里，%s已经设法配制出了一瓶%s\"; \"if he steals my rightful spot\" → \"要是他抢走了本该属于我的席位\"."
+      }
+    ]
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "schema_version": "source-context-exploratory-candidate-v1",
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "arm": "B",
+  "run": 2,
+  "input_sha256": "05893599fd1fad889d0cc36811565b2693933b09d069b9f59028143b7dd9a764",
+  "prompt_sha256": "c4ce6c84fa674f7b2efab21afbf3584c495578821d1ca1c5b4f599a0ca1e6d25",
+  "schema_sha256": "b47b250e6ffc7b6b4bebc4eb96493dbf011ec8ae747416debe9c1c709bd59de9",
+  "reference_sha256": "7383e82ce3506f50d8a2619261867f4bc919acccaae103841dd80f3acfdffc46",
+  "route_metadata": {
+    "harness": "Pi 0.84.3",
+    "requested_provider": "zai-standard-cn",
+    "requested_model": "glm-5.3-flash",
+    "requested_effort": "high",
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 26,
+      "output": 7030,
+      "cacheRead": 9664,
+      "cacheWrite": 0,
+      "reasoning": 5265,
+      "totalTokens": 16720,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    },
+    "stop_reason": "stop",
+    "qualification": "EXPLORATORY_AFTER_FORMAL_TRUTH_SET_NO_GO",
+    "formal_eligible": false,
+    "identity_status": "PROVIDER_AND_MODEL_VERIFIED"
+  },
+  "acquisition": {
+    "file": "ACQUISITION-pi-zai-cn-glm-5.3-flash-high-B2.json",
+    "sha256": "faad25e92bec0987c5fa41a6cb4f847c7c1086a315da8b22b738856be9c0238a",
+    "size_bytes": 984
+  },
+  "reparsed_from_existing_raw": false,
+  "prior_candidate_sha256": null,
+  "duration_seconds": 132.12,
+  "exit_status": 0,
+  "valid": true,
+  "exploratory_score_eligible": true,
+  "requested_route_label_eligible": true,
+  "formal_eligible": false,
+  "validation_errors": [],
+  "route_warnings": [],
+  "verdict_counts": {
+    "OK": 12,
+    "FINDING": 2
+  },
+  "response": {
+    "items": [
+      {
+        "item_id": "E001",
+        "verdict": "OK",
+        "material_issue": "The long lore narrative is faithfully rendered: key quantities (twenty-fold demand, thirty times agreed payment), causality (Dwarves manipulating the king, halfling raids provoked by the attacks), and plot facts (Drake's succession, the dust-scattered stralite threat) are all preserved. Minor renderings (\"Army of Rogues\" as 游击军, \"struck a 30x-price agreement\" for \"agreed to pay thirty times\") keep the substantive meaning.",
+        "evidence": "\"be increased twenty-fold\" → 提高到原来的二十倍; \"agreed to pay thirty times the previous amount\" → 以30倍的价钱; \"manipulated the king into mining it... for a fraction of its true worth\" → 利用这个国王去开采并以一个极低的价格卖给他们."
+      },
+      {
+        "item_id": "E002",
+        "verdict": "OK",
+        "material_issue": "Meaning fully preserved: %d turns lived across three timelines, and the question of which to make the real timeline matches the three-answer chat (\"The first/second/third.\").",
+        "evidence": "\"You have lived %d turns in three different timelines\" → 在三条不同的时间线里度过了 %d 个回合; \"the real timeline\" → 现实时间线."
+      },
+      {
+        "item_id": "E003",
+        "verdict": "OK",
+        "material_issue": "The answer to the Eidolon's \"Are you sure?\" retains its polarity and meaning: refusing death because life may still be worth living.",
+        "evidence": "\"No actually, perhaps life is still worth it!\" → 不，其实生命或许依然值得活下去！"
+      },
+      {
+        "item_id": "E004",
+        "verdict": "OK",
+        "material_issue": "Meaning preserved. \"Slot opens\" matches the later \"Slot slams shut\" (small opening → 小洞); the disbelief that the player could hold the long-lost Orb of Many Ways is conveyed by 你拿到的肯定不是多元水晶球.",
+        "evidence": "\"Surely you don't possess the Orb of Many Ways! It's been lost for ages!\" → 你拿到的肯定不是多元水晶球！它已经消失很多年了！"
+      },
+      {
+        "item_id": "E005",
+        "verdict": "OK",
+        "material_issue": "The too-late reaction is preserved: %s already finished, grudging acceptance of the ingredients and an undeserved reward. The added 原料 (\"ingredients\") is confirmed by the fixed source's check_ingredients turn-in logic.",
+        "evidence": "\"You're too late. %s has already finished\" → 你来太晚了。%s已经完成了; \"undeserved reward\" → 你不配得到的奖励."
+      },
+      {
+        "item_id": "E006",
+        "verdict": "OK",
+        "material_issue": "The player's explanation (heard cries, the men were in the way, asking what is happening) is fully preserved.",
+        "evidence": "\"I heard some cries, and your men... they were in my way. What's going on here?\" → 我听到了呼喊声，而你的人……挡了我的路。这里发生了什么事？"
+      },
+      {
+        "item_id": "E007",
+        "verdict": "OK",
+        "material_issue": "The Chinese accurately reflects the fixed source's actual condition: Gestalt must be active AND (a psi damage shield active OR Improved Gestalt not on cooldown). It even makes the Gestalt-active requirement explicit.",
+        "evidence": "Source code: \"if not self:isTalentActive(self.T_GESTALT) or (not self:hasEffect(self.EFF_PSI_DAMAGE_SHIELD) and self:isTalentCoolingDown(self.T_IMPROVED_GESTALT))\"; target: 必须在格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中."
+      },
+      {
+        "item_id": "E008",
+        "verdict": "OK",
+        "material_issue": "The pre-arena inspection of the ranking boards and the %s insertion point are preserved.",
+        "evidence": "\"You take a look at the ranking boards before entering.\\n%s\" → 进入竞技场前，你查看了一下排名榜。\\n%s"
+      },
+      {
+        "item_id": "E009",
+        "verdict": "OK",
+        "material_issue": "Recognition line preserved: the speaker identifies the other as the apprentice mage met in the wilds; the follow-up chat confirms the referent.",
+        "evidence": "\"You're that apprentice mage I met in the wilds!\" → 你不就是那个荒野之中的法师学徒么？"
+      },
+      {
+        "item_id": "E010",
+        "verdict": "OK",
+        "material_issue": "The gold cost statement and the %d placeholder are preserved verbatim in meaning.",
+        "evidence": "\"This costs %d gold.\" → 这将花费%d金币。"
+      },
+      {
+        "item_id": "E011",
+        "verdict": "FINDING",
+        "material_issue": "In the race features list, \"runes and infusions\" is rendered as 纹身和符文 (\"tattoos and runes\"): \"infusions\" — a distinct ToME inscription/item category (注入), separate from runes — is mistranslated as 纹身 (tattoo), a category that does not exist, materially obscuring which item types the racial efficiency applies to.",
+        "evidence": "Source: \"- Efficient at using all kind of runes and infusions\"; target: \"- 善于使用各种纹身和符文\" (infusions → 纹身, while the body text correctly uses 刻印 for inscriptions)."
+      },
+      {
+        "item_id": "E012",
+        "verdict": "FINDING",
+        "material_issue": "\"Yeeks\" — the specific ToME creature race Hompalan uses as servants/test subjects — is mistranslated as 夺心魔 (mind flayers), changing the referent of a narrative fact: readers will believe a different monster species served as the servants and early test subjects.",
+        "evidence": "Source: \"I'll be glad to get rid of these disgusting yeeks... Why we ever decided to use these useless creatures as servants\"; target: 能摆脱这些令人作呕的夺心魔真让我高兴...让这些无用的生物当仆从; fixed context confirms yeeks were the creatures sent through before humans."
+      },
+      {
+        "item_id": "E013",
+        "verdict": "OK",
+        "material_issue": "The Necromancer's boast is fully preserved: the unfinished but functional guardian, its near-invulnerability once complete, the next minion to animate, and the triumphant closing rhetoric.",
+        "evidence": "\"While it remains unfinished, it is finished enough to serve in its purpose of protecting my lair\" → 虽然尚未彻底完成，却已经足以履行守卫我巢穴的使命; \"What can possibly stop me now\" → 如今还有什么能阻止我."
+      },
+      {
+        "item_id": "E014",
+        "verdict": "OK",
+        "material_issue": "The alchemist's pleased reaction is preserved: handing over the items, the rival %s having created a %s during the player's long absence, and the fear of losing his rightful spot.",
+        "evidence": "\"in your overlong absence, %s has managed to create a %s\" → 在你离开的漫长时间里，%s已经设法配制出了一瓶%s; \"steals my rightful spot\" → 抢走了本该属于我的席位."
+      }
+    ]
+  }
+}

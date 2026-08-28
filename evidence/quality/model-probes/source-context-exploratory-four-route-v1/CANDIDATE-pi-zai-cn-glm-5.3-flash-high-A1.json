@@ -1,0 +1,144 @@
+{
+  "schema_version": "source-context-exploratory-candidate-v1",
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "arm": "A",
+  "run": 1,
+  "input_sha256": "d8845716b86d2b0f7dca8ada1495f724e584e4c2adab97373b3a9dd975b5b4a2",
+  "prompt_sha256": "c4ce6c84fa674f7b2efab21afbf3584c495578821d1ca1c5b4f599a0ca1e6d25",
+  "schema_sha256": "b47b250e6ffc7b6b4bebc4eb96493dbf011ec8ae747416debe9c1c709bd59de9",
+  "reference_sha256": "7383e82ce3506f50d8a2619261867f4bc919acccaae103841dd80f3acfdffc46",
+  "route_metadata": {
+    "harness": "Pi 0.84.3",
+    "requested_provider": "zai-standard-cn",
+    "requested_model": "glm-5.3-flash",
+    "requested_effort": "high",
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 5367,
+      "output": 10106,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 8535,
+      "totalTokens": 15473,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    },
+    "stop_reason": "stop",
+    "qualification": "EXPLORATORY_AFTER_FORMAL_TRUTH_SET_NO_GO",
+    "formal_eligible": false,
+    "identity_status": "PROVIDER_AND_MODEL_VERIFIED"
+  },
+  "acquisition": {
+    "file": "ACQUISITION-pi-zai-cn-glm-5.3-flash-high-A1.json",
+    "sha256": "3e6100a9352b2d3c449b76c22db02ec5767436b9516867c37ca56d1c985f0fbf",
+    "size_bytes": 985
+  },
+  "reparsed_from_existing_raw": true,
+  "prior_candidate_sha256": "ba5c3611c4015c97ddd8fdb34ca8d4588a77d001a90a0dce1b87c07d6e73a75d",
+  "duration_seconds": 199.933,
+  "exit_status": 0,
+  "valid": true,
+  "exploratory_score_eligible": true,
+  "requested_route_label_eligible": true,
+  "formal_eligible": false,
+  "validation_errors": [],
+  "route_warnings": [],
+  "verdict_counts": {
+    "OK": 12,
+    "FINDING": 2
+  },
+  "response": {
+    "items": [
+      {
+        "item_id": "E001",
+        "verdict": "OK",
+        "material_issue": "All key facts are preserved: stralite deposits, the Dwarves' manipulation, the twenty-fold demand and thirty-fold agreement, the drakeskin pouch, the Army of Rogues tactics, and the king's death are all accurately rendered.",
+        "evidence": "'demanding that the amount of gold... be increased twenty-fold' → '提高到原来的二十倍'; 'agreed to pay thirty times the previous amount' → '以30倍的价钱'; 'drakeskin pouch' → '龙皮口袋'."
+      },
+      {
+        "item_id": "E002",
+        "verdict": "OK",
+        "material_issue": "Quantity (%d turns), the three timelines, and the choice question are preserved exactly.",
+        "evidence": "'lived %d turns in three different timelines' → '度过了 %d 个回合'/'三条不同的时间线'."
+      },
+      {
+        "item_id": "E003",
+        "verdict": "OK",
+        "material_issue": "Polarity and hedging ('perhaps... still worth it') are preserved.",
+        "evidence": "'No actually, perhaps life is still worth it' → '不，其实生命或许依然值得活下去'."
+      },
+      {
+        "item_id": "E004",
+        "verdict": "OK",
+        "material_issue": "The disbelief about possessing the lost Orb and the 'lost for ages' fact are retained; '小洞' vs 'slot' is a cosmetic description difference, and the rhetorical structure is unchanged.",
+        "evidence": "'Surely you don't possess the Orb of Many Ways! It's been lost for ages!' → '你拿到的肯定不是多元水晶球！它已经消失很多年了！'"
+      },
+      {
+        "item_id": "E005",
+        "verdict": "OK",
+        "material_issue": "Timing ('too late', '%s has already finished') and the reluctant reward ('undeserved') are preserved; '原料' is a plausible concretization of 'these' that does not alter any stated condition.",
+        "evidence": "'You're too late. %s has already finished' → '你来太晚了。%s已经完成了'; 'undeserved reward' → '不配得到的奖励'."
+      },
+      {
+        "item_id": "E006",
+        "verdict": "OK",
+        "material_issue": "Cries heard, the men blocking the way, and the question are all preserved.",
+        "evidence": "'I heard some cries, and your men... they were in my way' → '我听到了呼喊声，而你的人……挡了我的路'."
+      },
+      {
+        "item_id": "E007",
+        "verdict": "FINDING",
+        "material_issue": "The requirement logic is materially changed: the source requires EITHER an active psionic damage shield OR Improved Gestalt being available, while the Chinese requires Gestalt to be active AND (a psionic shield OR Improved Gestalt off cooldown), converting an 'or' into an 'and' and adding an extra activation condition not present in the source.",
+        "evidence": "Source: 'You must have either a psionic damage shield active or Improved Gestalt available'; target: '你必须在格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中时' — 'either...or' becomes '并且', and 'Gestalt active' is imposed as a mandatory precondition."
+      },
+      {
+        "item_id": "E008",
+        "verdict": "OK",
+        "material_issue": "The action (checking ranking boards before entering) and the %s listing are preserved.",
+        "evidence": "'You take a look at the ranking boards before entering' → '进入竞技场前，你查看了一下排名榜'."
+      },
+      {
+        "item_id": "E009",
+        "verdict": "OK",
+        "material_issue": "Recognition of the speaker's prior meeting with the apprentice mage in the wilds is preserved.",
+        "evidence": "'You're that apprentice mage I met in the wilds' → '你不就是那个荒野之中的法师学徒么'."
+      },
+      {
+        "item_id": "E010",
+        "verdict": "OK",
+        "material_issue": "Cost value and currency are preserved.",
+        "evidence": "'This costs %d gold' → '这将花费%d金币'."
+      },
+      {
+        "item_id": "E011",
+        "verdict": "OK",
+        "material_issue": "Lore facts (creation and abandonment by the Conclave, survival only in Shalore lands, unmatched inscription talent, unfair brute reputation) and race features are all preserved; 'technically' → '真正' is a minor nuance shift in flavor text that does not change any stated fact.",
+        "evidence": "'only those who fled to Shalore lands survived extermination' → '只有那些逃去永恒精灵领地的少量族群幸免于难'; 'Strong but not stupid' → '强壮但不愚笨'."
+      },
+      {
+        "item_id": "E012",
+        "verdict": "FINDING",
+        "material_issue": "'Yeeks' is rendered as '夺心魔' (mind-seizing demon), a name that denotes a different, mind-affecting type of creature rather than the yeek (standardly 耶克), materially changing the referent of the servants being described; the surrounding description (oversized heads, useless servants) matches yeeks, so the name misidentifies the creature.",
+        "evidence": "'these disgusting yeeks' / 'these useless creatures as servants' / 'their oversized heads' → '这些令人作呕的夺心魔' / '让这些无用的生物当仆从' — the creature name itself is substituted with an unrelated being."
+      },
+      {
+        "item_id": "E013",
+        "verdict": "OK",
+        "material_issue": "All claims are preserved: the masterpiece guards the lair, is not yet complete, will be nigh invulnerable when finished, and the villain's triumphant rant is intact.",
+        "evidence": "'once it is complete it will be nigh invulnerable' → '等到它完全完成，更将近乎无敌'; 'They'll ALL see' → '他们全都会明白'."
+      },
+      {
+        "item_id": "E014",
+        "verdict": "OK",
+        "material_issue": "The handover request, the rival's creation during the player's absence (%s created a %s), and the 'rightful spot' rivalry are all preserved; '一瓶' is a natural quantifier for the created item and does not alter meaning.",
+        "evidence": "'%s has managed to create a %s' → '%s已经设法配制出了一瓶%s'; 'steals my rightful spot' → '抢走了本该属于我的席位'."
+      }
+    ]
+  }
+}

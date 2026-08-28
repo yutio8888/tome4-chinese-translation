@@ -1,0 +1,144 @@
+{
+  "schema_version": "source-context-exploratory-candidate-v1",
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "arm": "B",
+  "run": 1,
+  "input_sha256": "05893599fd1fad889d0cc36811565b2693933b09d069b9f59028143b7dd9a764",
+  "prompt_sha256": "c4ce6c84fa674f7b2efab21afbf3584c495578821d1ca1c5b4f599a0ca1e6d25",
+  "schema_sha256": "b47b250e6ffc7b6b4bebc4eb96493dbf011ec8ae747416debe9c1c709bd59de9",
+  "reference_sha256": "7383e82ce3506f50d8a2619261867f4bc919acccaae103841dd80f3acfdffc46",
+  "route_metadata": {
+    "harness": "Pi 0.84.3",
+    "requested_provider": "zai-standard-cn",
+    "requested_model": "glm-5.3-flash",
+    "requested_effort": "high",
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 9690,
+      "output": 9062,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 7197,
+      "totalTokens": 18752,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    },
+    "stop_reason": "stop",
+    "qualification": "EXPLORATORY_AFTER_FORMAL_TRUTH_SET_NO_GO",
+    "formal_eligible": false,
+    "identity_status": "PROVIDER_AND_MODEL_VERIFIED"
+  },
+  "acquisition": {
+    "file": "ACQUISITION-pi-zai-cn-glm-5.3-flash-high-B1.json",
+    "sha256": "e0ca048c6bd1ebdb91d744b9556f0fb657e0ab7b6c85a67913bdbd930a067804",
+    "size_bytes": 985
+  },
+  "reparsed_from_existing_raw": false,
+  "prior_candidate_sha256": null,
+  "duration_seconds": 150.994,
+  "exit_status": 0,
+  "valid": false,
+  "exploratory_score_eligible": false,
+  "requested_route_label_eligible": true,
+  "formal_eligible": false,
+  "validation_errors": [
+    "top-level keys are not exactly items",
+    "items is not an array"
+  ],
+  "route_warnings": [],
+  "verdict_counts": null,
+  "response": {
+    "verdicts": [
+      {
+        "item_id": "E001",
+        "verdict": "OK",
+        "material_issue": "All narrative facts are preserved: the distinct twenty-fold demand (二十倍) vs thirty-fold agreement (30倍价钱) is kept, the drakeskin pouch dust demonstration, the dwarf manipulation for cheap stralite, the halfling war provocation, and Drake's succession all match. Minor renderings like 'celebrated its peace' → 欢庆胜利 and 'base metals' → 其他金属 do not change substantive meaning.",
+        "evidence": "Source: 'demanding that the amount of gold... be increased twenty-fold' / 'had agreed to pay thirty times the previous amount'; Target: '提高到原来的二十倍' / '以30倍的价钱签订了协议'."
+      },
+      {
+        "item_id": "E002",
+        "verdict": "OK",
+        "material_issue": "Quantity (%d turns), the three timelines, and the choice question are all preserved; the fixed source's 'first/second/third' answers confirm the Chinese '哪一条' refers correctly to one of the three timelines.",
+        "evidence": "Source: 'You have lived %d turns in three different timelines. Which do you choose to be the real timeline?'; Target: '三条不同的时间线...%d 个回合...哪一条作为现实时间线'."
+      },
+      {
+        "item_id": "E003",
+        "verdict": "OK",
+        "material_issue": "The line answers the Eidolon's 'Are you sure?' by rejecting death; the Chinese '不，其实生命或许依然值得活下去！' preserves the polarity (choosing life over the 'Just let me go please' branch shown in source).",
+        "evidence": "Source answers: 'Just let me go please.' (death) vs this line (life is still worth it); Target keeps '不' + '生命或许依然值得活下去'."
+      },
+      {
+        "item_id": "E004",
+        "verdict": "OK",
+        "material_issue": "The disbelief about the Orb of Many Ways and its long loss are preserved; '你拿到的肯定不是多元水晶球' conveys the same incredulity as 'Surely you don't possess the Orb of Many Ways!', consistent with the follow-up source line 'Great Socks of Aeryn! It IS the Orb!'.",
+        "evidence": "Source: 'Surely you don't possess the Orb of Many Ways! It's been lost for ages!'; Target: '肯定不是多元水晶球！它已经消失很多年了！'"
+      },
+      {
+        "item_id": "E005",
+        "verdict": "OK",
+        "material_issue": "The lose-branch meaning (other alchemist already finished, player still gets an undeserved reward for the ingredients) is preserved; '这些原料' correctly identifies the referent of 'these' per the fixed source's ingredient turn-in logic.",
+        "evidence": "Source: '%s has already finished... take these and give you your undeserved reward'; Target: '%s已经完成了...收下这些原料...把你不配得到的奖励给你'."
+      },
+      {
+        "item_id": "E006",
+        "verdict": "OK",
+        "material_issue": "Meaning fully preserved: heard cries, the men were in the way, and the question about what is happening match word for word in substance.",
+        "evidence": "Source: 'I heard some cries, and your men... they were in my way. What's going on here?'; Target: '我听到了呼喊声，而你的人……挡了我的路。这里发生了什么事？'"
+      },
+      {
+        "item_id": "E007",
+        "verdict": "OK",
+        "material_issue": "The English omits the Gestalt-active precondition; the fixed source code (block if 'not isTalentActive(T_GESTALT) or (not EFF_PSI_DAMAGE_SHIELD and isTalentCoolingDown(T_IMPROVED_GESTALT))') shows the Chinese '格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中' is a correct clarification of actual behavior, not a defect.",
+        "evidence": "Code: allowed iff Gestalt active AND (psi damage shield OR Improved Gestalt not cooling down); Target encodes exactly this conjunction/disjunction."
+      },
+      {
+        "item_id": "E008",
+        "verdict": "OK",
+        "material_issue": "Timing (before entering), action (viewing ranking boards), and the %s placeholder are all preserved.",
+        "evidence": "Source: 'You take a look at the ranking boards before entering.\\n%s'; Target: '进入竞技场前，你查看了一下排名榜。\\n%s'"
+      },
+      {
+        "item_id": "E009",
+        "verdict": "OK",
+        "material_issue": "Recognition of the interlocutor as the apprentice mage met in the wilds is preserved; the fixed source's 'apprentice' reply ('I sometimes travel under the guise of an apprentice') confirms the referent is unchanged.",
+        "evidence": "Source: \"You're that apprentice mage I met in the wilds!\"; Target: '你不就是那个荒野之中的法师学徒么？'"
+      },
+      {
+        "item_id": "E010",
+        "verdict": "OK",
+        "material_issue": "Cost quantity and currency are preserved exactly; matches the recharge popup usage in the fixed source.",
+        "evidence": "Source: 'This costs %d gold.'; Target: '这将花费%d金币。'"
+      },
+      {
+        "item_id": "E011",
+        "verdict": "OK",
+        "material_issue": "Race lore facts are preserved: magically-altered Humans, refuge in Elvala among the Shalore, rune dependence, Conclave creation/abandonment during the Allure Wars, Spellhunt extermination survival, inscription talent, and the unlock condition. '纹身和符文' is the established rendering pairing for infusions and runes; omissions of 'technically'/'long-overdue' are stylistic.",
+        "evidence": "Source: 'created (and subsequently abandoned) by the Conclave during the Allure Wars... only those who fled to Shalore lands survived'; Target keeps 孔克雷夫/厄流战争/永恒精灵/魔法狩猎 consistently."
+      },
+      {
+        "item_id": "E012",
+        "verdict": "OK",
+        "material_issue": "All log facts preserved: military takeover, human threat rumors, war casualties, human test subjects, yeek dismissal, and each test subject outcome (implosion, explosion, half-transition, goo, freezing, 2-second implosion, 4-day coma death). '夺心魔' is used consistently for yeeks and the oversize-head detail matches; 'messy' → 肮脏 is not material.",
+        "evidence": "Source: 'Imploded during transition', 'Turned to goo', 'Died after 4 days'; Target: '体内发生爆裂', '变成肉酱', '于4天后死亡'."
+      },
+      {
+        "item_id": "E013",
+        "verdict": "OK",
+        "material_issue": "Meaning fully preserved: the masterpiece guards the lair, cannot yet be defeated but will be nigh invulnerable when complete, the next minion to animate, and the triumphant closing rhetorical questions.",
+        "evidence": "Source: 'finished enough to serve in its purpose of protecting my lair... nigh invulnerable... animate my newest minion'; Target: '足以履行守卫我巢穴的使命...近乎无敌...唤醒我最新的仆从'."
+      },
+      {
+        "item_id": "E014",
+        "verdict": "OK",
+        "material_issue": "The non-lose branch meaning is preserved: hand over the ingredients, the other alchemist has created an elixir during the player's overlong absence (%s placeholders correctly map to alchemist name and elixir), and the threat of losing his rightful spot.",
+        "evidence": "Source: 'in your overlong absence, %s has managed to create a %s. I'll be most put out if he steals my rightful spot.'; Target: '在你离开的漫长时间里，%s已经设法配制出了一瓶%s...本该属于我的席位'."
+      }
+    ]
+  }
+}
