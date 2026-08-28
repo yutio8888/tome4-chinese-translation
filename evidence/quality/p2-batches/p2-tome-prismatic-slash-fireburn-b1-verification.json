@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-prismatic-slash-fireburn-b1-001",
+  "kind": "prismatic_slash_fireburn_cycle_1_repair_verification",
+  "dispatch": {
+    "role": "EXECUTOR",
+    "dispatch_id": "executor-c1-01",
+    "cycle": 1,
+    "workspace_id": "wks_8b6698b6f065cdbb",
+    "parent_orchestrator_agent_id": "c72986b3-487d-427f-89cb-fab03cc190cd"
+  },
+  "frozen_workset": {
+    "path": "evidence/quality/p2-batches/p2-tome-prismatic-slash-fireburn-b1-workset.json",
+    "sha256": "4c3e899cfee092b8895c529abab9382bd5ea0a100369622f94b0a89be24d4d48",
+    "immutable": true
+  },
+  "translation_file": {
+    "path": "mod-tome.lua",
+    "baseline_sha256": "e4150471ed93602769066433dd22dc32488b36b53d2678e559b494e1d194d863",
+    "current_sha256": "1032c5245a35ea5bee1e483fe2f8ac002d5e03b3230f744922bf8e6d1be03e2d",
+    "byte_unchanged": false,
+    "production_targets_changed": 1
+  },
+  "translation_entry": {
+    "entry_id": "b4f83f3459dd3fb6f755a9737dec8d3971b3586189e56f666d50af225a592015",
+    "source": "Unleash raw, chaotic elemental damage upon your enemy.\n\t\tYou strike your enemy for %d%% weapon damage in one of blinding sand, disarming acid, freezing and slowing ice, dazing lightning or stunning flames, with equal odds.\n\t\tAdditionally, you will cause a burst that deals %0.2f of that damage to creatures in radius %d, regardless of if you hit with the blow.\n\t\tLevels in Prismatic Slash increase your Physical and Mental attack speeds by %d%%.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+    "source_tag": "tformat",
+    "special": null,
+    "args_order": [
+      1,
+      3,
+      2,
+      4
+    ],
+    "cycle_0_before_target": "向你的敌人释放原始的混乱元素攻击。\n\t\t你会等概率地从致盲之沙、缴械酸雾、可冻结并减速的寒冰、眩晕闪电或震慑之焰中选择一种攻击敌人，造成 %d%% 对应伤害类型的武器伤害。\n\t\t此外，无论你的元素攻击是否命中敌人你都会对 %d 码半径范围内的生物造成 %0.2f 伤害。\n\t\t五灵挥击还会使你的物理和精神攻击速度提升 %d%%。\n\t\t如果你装备了盾牌，这一技能也会用你的盾牌攻击。",
+    "cycle_1_after_target": "向你的敌人释放原始的混乱元素攻击。\n\t\t你会等概率地从致盲之沙、缴械酸雾、可冻结并减速的寒冰、眩晕闪电或震慑之焰中选择一种攻击敌人，造成 %d%% 对应伤害类型的武器伤害。\n\t\t此外，无论此次攻击是否命中，你都会对半径 %d 内的生物造成 %0.2f 点相同属性的伤害。\n\t\t五灵挥击还会使你的物理和精神攻击速度提升 %d%%。\n\t\t如果你装备了盾牌，这一技能也会用你的盾牌攻击。",
+    "target_byte_unchanged": false,
+    "placeholder_bindings": [
+      {
+        "argument": 1,
+        "source_token": "%d%%",
+        "meaning": "direct weapon-damage multiplier percentage",
+        "source_occurrence": 1,
+        "target_occurrence": 1
+      },
+      {
+        "argument": 2,
+        "source_token": "%0.2f",
+        "meaning": "independent radius-burst damage",
+        "source_occurrence": 2,
+        "target_occurrence": 3
+      },
+      {
+        "argument": 3,
+        "source_token": "%d",
+        "meaning": "radius of the independent burst",
+        "source_occurrence": 3,
+        "target_occurrence": 2
+      },
+      {
+        "argument": 4,
+        "source_token": "%d%%",
+        "meaning": "Physical and Mental attack-speed increase percentage",
+        "source_occurrence": 4,
+        "target_occurrence": 4
+      }
+    ],
+    "source_placeholder_argument_order": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "target_placeholder_argument_order": [
+      1,
+      3,
+      2,
+      4
+    ],
+    "invariants": {
+      "source_exact": true,
+      "target_exact": true,
+      "source_tag_exact": true,
+      "special_exact": true,
+      "args_order_exact": true,
+      "placeholder_count": 4,
+      "placeholder_meanings_and_order_preserved": true,
+      "markup": {
+        "source_tokens": [],
+        "target_tokens": [],
+        "unchanged": true
+      },
+      "newlines_and_tabs_unchanged": true,
+      "paragraph_structure_unchanged_from_baseline": true
+    }
+  },
+  "fixed_source": {
+    "component": "tome",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_files": [
+      {
+        "path": "game/modules/tome/data/talents/gifts/higher-draconic.lua",
+        "sha256": "7c3c30265a1926809c44e6b393a12a23ba8af03a342aa11fc8edcfe907c0b331"
+      },
+      {
+        "path": "game/modules/tome/class/interface/Combat.lua",
+        "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13"
+      },
+      {
+        "path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479"
+      },
+      {
+        "path": "game/modules/tome/data/timed_effects/physical.lua",
+        "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e"
+      }
+    ]
+  },
+  "confirmed_runtime_facts": {
+    "selection": {
+      "branches": [
+        "physical",
+        "cold",
+        "fire",
+        "lightning",
+        "acid"
+      ],
+      "equal_odds": true,
+      "mechanism": "one unweighted five-item rng.table selection"
+    },
+    "attack_mode": {
+      "without_shield": "attackTarget is called once with the selected damage type and weapon-damage multiplier",
+      "with_shield": "attackTargetWith is called separately for the main-hand combat object and the shield combat object, each with the selected damage type and multiplier",
+      "successful_hit_projector_input": "post-armor, post-critical, multiplied scalar damage",
+      "projector": "the selected DamageType projector"
+    },
+    "fire_primary": {
+      "damage_type": "FIREBURN",
+      "input": "successful direct weapon or shield attack scalar after combat processing",
+      "input_is_total_event_damage": true,
+      "immediate_fire_fraction": 0.5,
+      "burning_remainder_fraction": 0.5,
+      "burning_effect": "EFF_BURNING",
+      "default_duration_turns": 3,
+      "remainder_delivery": "the remaining half is divided across the three-turn burning effect"
+    },
+    "fire_burst": {
+      "occurs_regardless_of_primary_hit_success": true,
+      "relationship": "a separate radius projection after attack_mode whose execution is not conditioned on the melee hit result",
+      "damage_type": "FIRE_STUN",
+      "input": "independent burst-damage scalar",
+      "immediate_fire_fraction": 0.5,
+      "burning_remainder_fraction": 0.5,
+      "default_duration_turns": 3,
+      "flameshock_chance_percent": 25,
+      "flameshock_duration_turns": 3,
+      "control_condition": "the independent 25% FLAMESHOCK attempt applies EFF_BURNING_SHOCK only if the target passes the stun-applicability check"
+    },
+    "compact_primary_burst_pairings": [
+      {
+        "element": "physical",
+        "primary_damage_type": "PHYSICAL",
+        "burst_damage_type": "SAND",
+        "compact_label": "blinding sand"
+      },
+      {
+        "element": "cold",
+        "primary_damage_type": "ICE",
+        "burst_damage_type": "ICE_SLOW",
+        "compact_label": "freezing and slowing ice"
+      },
+      {
+        "element": "fire",
+        "primary_damage_type": "FIREBURN",
+        "burst_damage_type": "FIRE_STUN",
+        "compact_label": "stunning flames"
+      },
+      {
+        "element": "lightning",
+        "primary_damage_type": "LIGHTNING_DAZE",
+        "burst_damage_type": "LIGHTNING_DAZE",
+        "compact_label": "dazing lightning"
+      },
+      {
+        "element": "acid",
+        "primary_damage_type": "ACID_DISARM",
+        "burst_damage_type": "ACID_DISARM",
+        "compact_label": "disarming acid"
+      }
+    ],
+    "all_five_labels_share_compact_abstraction": true
+  },
+  "scout_provenance": {
+    "accepted_payload": "scout-source-retry-01",
+    "accepted_agent_id": "a9f6e9e9-4912-4395-8761-3d66d2afb228",
+    "parent_orchestrator_agent_id": "c72986b3-487d-427f-89cb-fab03cc190cd",
+    "lineage_status": "accepted retry; ORCHESTRATOR independently re-read every cited source and recomputed all four hashes",
+    "prior_dispatch_disposition": "not consumed because its task label and parent-lineage evidence did not satisfy the contract",
+    "transport_reconciliation": "the accepted retry's stale active-turn indication was resolved by repeated status, activity, and worktree checks before archival",
+    "sand_correction": {
+      "overstatement_rejected": true,
+      "corrected_fact": "SAND blindness has no explicit rng.percent gate, but remains conditional on target:canBe(\"blind\")",
+      "impact_on_fire_adjudication": "none"
+    }
+  },
+  "materiality_adjudication": {
+    "decision": "targeted_repair",
+    "production_target_changed": true,
+    "production_targets_changed": 1,
+    "current_fire_label": "震慑之焰",
+    "current_fire_label_assessment": "adequate compact rendering of English 'stunning flames' at the same abstraction level as the other four element labels",
+    "reason": "CTX-R0-001 confirmed that the cycle-0 radius-burst sentence omitted that its displayed damage has the damage type corresponding to the element selected for this use. Cycle 1 repairs only that relationship without expanding the compact fire label into implementation-level split, duration, or proc detail.",
+    "fiery_aegis_distinction": "The original Fiery Aegis defect converted a total damage value into a per-turn numeric claim. This Prismatic Slash target states neither the weapon multiplier nor the independent burst value as per-turn damage, so that numeric error is absent."
+  },
+  "finding_closure": {
+    "finding_id": "CTX-R0-001",
+    "source_review": ".ai/reviews/p2-tome-prismatic-slash-fireburn-b1-001/review-context-01.json",
+    "review_cycle": 0,
+    "host_status": "confirmed",
+    "fixed_cycle": 1,
+    "closure_status": "closed_by_cycle_1_candidate",
+    "before_sentence": "此外，无论你的元素攻击是否命中敌人你都会对 %d 码半径范围内的生物造成 %0.2f 伤害。",
+    "after_sentence": "此外，无论此次攻击是否命中，你都会对半径 %d 内的生物造成 %0.2f 点相同属性的伤害。",
+    "resolution": "The repaired sentence now states that the unconditional radius burst deals the displayed amount as damage of the same selected elemental attribute."
+  },
+  "focused_verification": {
+    "expected_executor_write_set": [
+      "mod-tome.lua",
+      "evidence/quality/p2-batches/p2-tome-prismatic-slash-fireburn-b1-verification.json"
+    ],
+    "preexisting_untracked_not_owned_by_executor": [
+      ".claude/",
+      "evidence/quality/p2-batches/p2-tome-prismatic-slash-fireburn-b1-workset.json"
+    ],
+    "production_target_change_proof": {
+      "mod_tome_baseline_and_current_sha256_equal": false,
+      "exact_source_and_metadata_match_frozen_workset": true,
+      "exact_cycle_0_target_matches_frozen_workset": true,
+      "exact_cycle_1_target_matches_mod_tome": true,
+      "changed_t_calls": 1,
+      "changed_target_is_frozen_prismatic_slash_entry": true
+    },
+    "task_external_write_proof": {
+      "preexisting_paths_preserved": true,
+      "only_authorized_task_content_files_changed_by_executor": true,
+      "no_task_external_tracked_diff_created_by_executor": true
+    },
+    "checks": [
+      {
+        "command": "JSON parse and frozen-workset SHA-256 binding",
+        "result": "PASS"
+      },
+      {
+        "command": "fixed-source git-object SHA-256 checks for all four source files",
+        "result": "PASS"
+      },
+      {
+        "command": "exact source/target/tag/special/args/placeholder/markup/newline invariants",
+        "result": "PASS"
+      },
+      {
+        "command": "sha256sum mod-tome.lua",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n doctor",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "PASS (30308 translations, 0 errors, 0 warnings)"
+      },
+      {
+        "command": "focused scope check: baseline-to-current mod-tome diff plus verification artifact",
+        "result": "PASS (exactly one frozen t(...) target and the verification JSON changed; no other task-content path changed)"
+      },
+      {
+        "command": "git diff --check",
+        "result": "PASS"
+      }
+    ]
+  }
+}

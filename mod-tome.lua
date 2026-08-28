@@ -25098,7 +25098,7 @@ t([[Unleash raw, chaotic elemental damage upon your enemy.
 
 		This talent will also attack with your shield, if you have one equipped.]], [[向你的敌人释放原始的混乱元素攻击。
 		你会等概率地从致盲之沙、缴械酸雾、可冻结并减速的寒冰、眩晕闪电或震慑之焰中选择一种攻击敌人，造成 %d%% 对应伤害类型的武器伤害。
-		此外，无论你的元素攻击是否命中敌人你都会对 %d 码半径范围内的生物造成 %0.2f 伤害。
+		此外，无论此次攻击是否命中，你都会对半径 %d 内的生物造成 %0.2f 点相同属性的伤害。
 		五灵挥击还会使你的物理和精神攻击速度提升 %d%%。
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat", {1,3,2,4})
 t("Venomous Breath", "剧毒吐息", "talent name")
