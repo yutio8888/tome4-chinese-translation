@@ -1,0 +1,114 @@
+{
+  "schema_version": "prospective-residual-source-audit-protocol-v3",
+  "status": "FROZEN_BEFORE_SOURCE_AUDIT",
+  "later_reviewer_route_outputs_available_to_adjudicator": false,
+  "replacement_allowed": false,
+  "audit_depth": "Apply the same locator, context and evidence requirements to all 40 selected items, regardless of apparent quality or provenance stratum.",
+  "scope": {
+    "included": [
+      "objective source-target semantic contradiction or omission",
+      "placeholder, markup, format or argument-role defect",
+      "runtime-visible behavior contradicted by fixed public source",
+      "terminology only when the fixed repository contract makes the required meaning objective"
+    ],
+    "excluded": [
+      "pure style preference",
+      "fluency preference without an objective meaning change",
+      "model nomination or model agreement as evidence",
+      "defects outside the selected canonical revision"
+    ]
+  },
+  "verdicts": {
+    "CONFIRMED": "Fixed source evidence establishes an objective translation defect in the selected production revision.",
+    "REFUTED": "Fixed source evidence is reachable and does not establish an objective defect in the selected production revision.",
+    "INDETERMINATE": "Relevant fixed evidence is available but is insufficient, conflicting or genuinely ambiguous for an objective verdict.",
+    "UNREACHABLE": "The registered fixed source cannot be located or evaluated under the frozen source contract. This is missing evidence, not a negative verdict."
+  },
+  "required_record_per_item": [
+    "audit_id",
+    "verdict",
+    "evidence_class",
+    "source_locator",
+    "source_artifact_sha256",
+    "visible_context_sha256s",
+    "source_occurrences",
+    "reason",
+    "audited_at_utc",
+    "audit_assistance",
+    "primary_adjudicator_verified"
+  ],
+  "record_schema": {
+    "evidence_class": {
+      "type": "string",
+      "enum": [
+        "RUNTIME_SOURCE_REQUIRED",
+        "FIXED_SOURCE_CONTEXT",
+        "TERMINOLOGY_CONTRACT",
+        "FORMAT_STRUCTURE",
+        "SURFACE_BILINGUAL"
+      ],
+      "primary_class_precedence": "Use the first applicable class in the enum order. Runtime logic means executable behavior beyond the literal; fixed context means adjacent dialogue/lore context; terminology means a frozen terminology contract is decisive; format means placeholders/markup/argument structure are decisive; otherwise use surface bilingual."
+    },
+    "source_locator": {
+      "type": "object",
+      "required": [
+        "artifact",
+        "audit_id",
+        "locator_status",
+        "used_occurrence_ordinals",
+        "all_occurrences_reviewed"
+      ],
+      "artifact": "SOURCE-LOCATORS.json",
+      "binding": "audit_id and locator_status must exactly match the locator record. used_occurrence_ordinals is a strictly increasing array of positive integers present in that record. all_occurrences_reviewed must be true before a final verdict is signed."
+    },
+    "source_artifact_sha256": {
+      "type": "sha256-string",
+      "binding": "Must equal source_locator.source_binding.source_artifact_sha256 for the same audit_id."
+    },
+    "visible_context_sha256s": {
+      "type": "array-of-sha256-strings",
+      "binding": "One-to-one and in the same order as source_locator.used_occurrence_ordinals; every value must equal the corresponding occurrence_records.visible_context_sha256."
+    },
+    "source_occurrences": {
+      "type": "nonnegative-integer",
+      "binding": "Must equal the locator record source_occurrences."
+    },
+    "audit_assistance": {
+      "type": "array",
+      "item": "Object containing agent_task_name, scope and ground_truth=false. Use an empty array if none."
+    },
+    "primary_adjudicator_verified": {
+      "type": "boolean",
+      "final_value": true
+    }
+  },
+  "locator_to_verdict_rules": {
+    "LOCATED_UNIQUE": "Review ordinal 1 and record it in used_occurrence_ordinals before signing any verdict.",
+    "LOCATED_MULTIPLE": "Review every occurrence. Record every occurrence used as positive or negative evidence in increasing ordinal order. If the applicable runtime occurrence cannot be identified and occurrences support materially different meanings, use INDETERMINATE rather than choosing one silently.",
+    "SOURCE_NOT_FOUND": "Use UNREACHABLE unless a separately frozen fixed-source binding already exists; do not search a new unregistered corpus after seeing the item.",
+    "SOURCE_FILE_MISSING": "Use UNREACHABLE.",
+    "SOURCE_BINDING_FAILED": "Use UNREACHABLE.",
+    "UNSUPPORTED_COMPONENT": "Use UNREACHABLE."
+  },
+  "audit_assistance_policy": {
+    "allowed": [
+      "mechanical source location and hashing delegated to a Codex subagent",
+      "preliminary source-evidence or audit proposals made before any v3 reviewer-route output exists"
+    ],
+    "not_ground_truth": "A subagent proposal is auxiliary evidence only. The primary experiment lead must independently inspect the registered fixed source for every item, choose the applicable occurrence or retain ambiguity, and sign the final four-state verdict.",
+    "required_trace": "Record the assisting agent task names and scope per item, plus primary_adjudicator_verified=true only after independent fixed-source verification.",
+    "prohibited": "No assistant performing source adjudication may receive later v3 reviewer-route outputs, nominations, union, consensus or scores before the sealed source reference is frozen."
+  },
+  "source_contract": {
+    "production_translation_commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+    "base_engine_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "dlc_policy": "DLC source repositories are not commit-frozen in the inherited record. If a selected item requires DLC source, record the exact public file hash used; use UNREACHABLE rather than silently substituting untracked evidence.",
+    "no_sealed_reference_in_model_prompt": true
+  },
+  "stop_conditions": [
+    "Do not replace a difficult, indeterminate or unreachable selected item.",
+    "Do not run reviewer inference until all 40 audit records and their hashes are frozen.",
+    "Do not reveal source-audit verdicts, defect identifiers or adjudication text to reviewer routes."
+  ],
+  "known_limitation": "The source adjudicator is not blinded to historical provenance categories and may use explicitly recorded Codex subagent assistance, but performs and signs the audit before any v3 reviewer-route output exists. Neither provenance nor subagent agreement is ground truth."
+}

@@ -1,6 +1,6 @@
-# Prospective residual audit v2 candidate set
+# Prospective residual audit v2 candidate set — invalidated
 
-Status: 40 fresh task/revision units selected; uniform source audit pending; model inference prohibited.
+Status: invalidated before source audit and before model inference. See `INVALIDATION.json`. The original generated files are retained unchanged so the failed frame construction remains reproducible; their former candidate-set status is no longer operative. The corrected frame is `../prospective-residual-audit-v3/`.
 
 This directory starts Phase 2 after `runtime-source-context-pilot-v1`. Phase 1 found a strong source-context recall signal but failed its registered control gates, so this set explicitly keeps the later reviewer policy at Arm A: source and target only.
 

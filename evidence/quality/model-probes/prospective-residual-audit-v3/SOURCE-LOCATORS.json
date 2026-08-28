@@ -1,0 +1,1773 @@
+{
+  "schema_version": "prospective-residual-source-locators-v3",
+  "status": "ALL_SOURCE_ARTIFACTS_LOCATED",
+  "contains_audit_verdicts": false,
+  "model_calls_made": 0,
+  "queue_sha256": "f785989e8bddf8b06fda34915154b7b5bbe76022926b0e3462aede44e625e159",
+  "locator_contract_sha256": "c0a8a52f2a2a99afe00881132d224ad14e2f82c91e77f61c735cb23be669313a",
+  "counts": {
+    "items": 40,
+    "by_locator_status": {
+      "LOCATED_UNIQUE": 37,
+      "LOCATED_MULTIPLE": 3
+    }
+  },
+  "items": [
+    {
+      "audit_id": "R001",
+      "task_id": "p2-tome-texts-b25-001",
+      "original_revision_key": "b25-32-shadow-crypt-yeek",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/shadow-crypt-yeek-clone.lua",
+      "canonical_revision_uid": "47e02516bb6e2db7ddd22d0e8a5c0c682fec1a411a27168eee86fbf3215d5474",
+      "source_sha256": "355b5ede051bc3d0ed2d001ef5fac7003174e41d996d8c14ee9320bdaba86e9a",
+      "target_sha256": "73419f70c172a8d1f4d190a4a35eccb4ebb938666846af9b96a6cb64cdf84b7e",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/shadow-crypt-yeek-clone.lua",
+        "source_artifact_sha256": "8ba38e5a1583666827e52982b3ad79563b482ecc5e03aab658ef0b6da34dde8a",
+        "source_artifact_size_bytes": 2003
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 38,
+          "line_end": 38,
+          "column_start": 7,
+          "matched_span_sha256": "355b5ede051bc3d0ed2d001ef5fac7003174e41d996d8c14ee9320bdaba86e9a",
+          "matched_chars": 30,
+          "context_start_line": 26,
+          "context_end_line": 50,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 635,
+          "truncated": false,
+          "visible_context": "\ttext = _t[[No time to talk fellow Wayist! ATTACK! FOR THE WAY!]],\n\tanswers = {\n\t\t{_t\"[leave]\"},\n\t}\n}\n\nelse \n\nnewChat{ id=\"welcome\",\n\ttext = _t[[The foolish cultist that created me is no more. What am I to do now...]],\n\tanswers = {\n\t\t{_t\"You are me, come with me!\", jump=\"nocome\"},\n\t\t{_t\"You should head back to Irkkk.\", jump=\"irkkk\"},\n\t}\n}\n\nnewChat{ id=\"nocome\",\n\ttext = _t[[I fear that would get confusing very fast. I think I will go back to Irkkk. Farewell my clone!]],\n\tanswers = {\n\t\t{_t\"Clone? No you are the clone.\", jump=\"clone\"},\n\t\t{_t\"Farewell.\", action=function(npc, player) npc:disappear() end},\n\t}\n}\n\nnewChat{ id=\"clone\",\n",
+          "visible_context_sha256": "67ef0139922631105c28608dfc97cb21f1a47d77a18659e8da2f2d844ea3a8f9"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R002",
+      "task_id": "p2-tome-texts-b27-001",
+      "original_revision_key": "b27-34-training-orb",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/shertul-fortress-training-orb.lua",
+      "canonical_revision_uid": "6ad5054928546da8933baac20483773ddfc0d11a83c56b78280322cf9f75625f",
+      "source_sha256": "596e21049209eec94240cf489a80b74a83d19712da09024b6103e0aa67a7275b",
+      "target_sha256": "b1e4d1c9017064a6ae25af2deef1e7ba03c95dd82e2d41d44000128a0415dbd9",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/shertul-fortress-training-orb.lua",
+        "source_artifact_sha256": "df5cbf6359829fcfc644b706ffb3ae20ccd548869c9dbf71704356a575b0caf6",
+        "source_artifact_size_bytes": 3288
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 79,
+          "line_end": 79,
+          "column_start": 13,
+          "matched_span_sha256": "596e21049209eec94240cf489a80b74a83d19712da09024b6103e0aa67a7275b",
+          "matched_chars": 74,
+          "context_start_line": 67,
+          "context_end_line": 91,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 875,
+          "truncated": false,
+          "visible_context": "\t\tend\n\n\t\tgame:registerDialog(GetQuantity.new(_t\"Armour\", _t\"From 0 to 1000\", 0, 1000, function(qty)\n\t\t\tqty = util.bound(qty, 0, 1000)\n\t\t\tfor uid, e in pairs(game.level.entities) do\n\t\t\t\tif e.define_as == \"TRAINING_DUMMY\" then e.combat_armor = qty end\n\t\t\tend\n\t\tend, 1))\n\tend, 1))\nend\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[*#LIGHT_GREEN#This orb is used to control the training facilities.#WHITE#*]],\n\tanswers = {\n\t\t{_t\"[Create one target dummy]\", action=dummies(1)},\n\t\t{_t\"[Create two target dummy]\", action=dummies(2)},\n\t\t{_t\"[Create three target dummy]\", action=dummies(3)},\n\t\t{_t\"[Create five target dummy]\", action=dummies(5)},\n\t\t{_t\"[Create ten target dummy]\", action=dummies(10)},\n\t\t{_t\"[Change dummies armour]\", action=armor_dummies},\n\t\t{_t\"[Change dummies resistances]\", action=resist_dummies},\n\t\t{_t\"[Reset]\", action=remove_dummies},\n\t\t{_t\"[Leave the orb alone]\"},\n\t}\n}\n",
+          "visible_context_sha256": "a21edc2779840e168d5ad153702549244053cbfa1d63f8c524334981c9495914"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R003",
+      "task_id": "p2-tome-texts-b34-001",
+      "original_revision_key": "b34-40-zigur-mindstar-store",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/zigur-mindstar-store.lua",
+      "canonical_revision_uid": "804870e448c8c291e3c2e3ba57ae9654a9a8bea73c4932404e5fda624c2eb85f",
+      "source_sha256": "cd80f12484e33663956a762523fc8d1b6af4e801a299c9cd369b1f03196b886f",
+      "target_sha256": "c1e3ea3a1ccb2b3e69517e33fe77e1ad0a38324bb1c37e4990cb982d5419604a",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/zigur-mindstar-store.lua",
+        "source_artifact_sha256": "6c0fbad65192ac9e144c9551374591c7f0f548248e23cbd3711511d869d622f4",
+        "source_artifact_size_bytes": 4407
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 57,
+          "line_end": 57,
+          "column_start": 29,
+          "matched_span_sha256": "cd80f12484e33663956a762523fc8d1b6af4e801a299c9cd369b1f03196b886f",
+          "matched_chars": 93,
+          "context_start_line": 45,
+          "context_end_line": 69,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1941,
+          "truncated": false,
+          "visible_context": "\t\t\tif player.money < 100 then return end\n\t\t\tif player:knowTalentType(\"wild-gift/mindstar-mastery\") or player:knowTalentType(\"wild-gift/mindstar-mastery\") == false then return end\n\t\t\treturn true\n\t\tend},\n\t\t{_t\"Please teach me what I need to know (unlocks talent category) - 500 gold.\", action=function(npc, player)\n\t\t\tgame.logPlayer(player, \"The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you.\")\n\t\t\tplayer:incMoney(-500)\n\t\t\tplayer:learnTalentType(\"wild-gift/mindstar-mastery\", true)\n\t\t\tif player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\") < 1 then -- Special case for previously locked category (escort)\n\t\t\t\tplayer:setTalentTypeMastery(\"wild-gift/mindstar-mastery\", math.max(1.0, player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\", true) + 0.3))\n\t\t\tend\n\t\t\tif player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\") > 1 then\n\t\t\t\tgame.logPlayer(player, \"He is impressed with your mastery and shows you a few tricks to handle stronger energy flows.\")\n\t\t\tend\n\t\t\tplayer.changed = true\n\t\tend, cond=function(npc, player)\n\t\t\tif player.money < 500 then return end\n\t\t\tif player:knowTalentType(\"wild-gift/mindstar-mastery\") then return end\n\t\t\treturn true\n\t\tend},\n\t\t{_t\"I'm already proficient, but I want to be an expert (improves talent mastery by 0.2) - 750 gold.\", action=function(npc, player) --Enhanced intensive training\n\t\t\tplayer:incMoney(-750)\n\t\t\tplayer:learnTalentType(\"wild-gift/mindstar-mastery\", true)\n\t\t\tplayer:setTalentTypeMastery(\"wild-gift/mindstar-mastery\", player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\", true) + 0.2)\n\t\t\tgame.logPlayer(player, (\"The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you%s.\"):tformat(player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\")>1 and _t\", and teaches you enhanced mental discipline needed to maintain powerful energy fields\" or \"\"))\n",
+          "visible_context_sha256": "ec1810a4d190350a78c9edc341a2d148c536780d6ab568fe62ca5b7e2711431d"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R004",
+      "task_id": "p2-tome-texts-b36-001",
+      "original_revision_key": "b36-36-ardhungol",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/lore/ardhungol.lua",
+      "canonical_revision_uid": "80778aeae3fffd845bde226fd48243aec5f4f86e9981201a54fdcfb8337ae470",
+      "source_sha256": "631a8f2df50b1e87f298f4b30b611c339221c8acbc90a4b0628d52feae8629d3",
+      "target_sha256": "38e65a4ee63ef2fd85874c8261b7899ec9a21ad806454ce1719819e284eb8923",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/lore/ardhungol.lua",
+        "source_artifact_sha256": "d42ada87fc12e926e350757f2f2d599fc60da78280430a951bd94bf80ce0769f",
+        "source_artifact_size_bytes": 7117
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 28,
+          "line_end": 34,
+          "column_start": 13,
+          "matched_span_sha256": "fd8937299642a3ada8e781d3e3bfd4452ed54049793983f17037f2a3fb72eef1",
+          "matched_chars": 1221,
+          "context_start_line": 16,
+          "context_end_line": 46,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 2300,
+          "truncated": false,
+          "visible_context": "--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\n--------------------------------------------------------------------------\n-- Ardhungol & Spiderkin\n--------------------------------------------------------------------------\n\nnewLore{\n\tid = \"ardhungol-1\",\n\tcategory = \"ardhungol\",\n\tname = _t\"Rashim Journal (1)\",\n\tlore = _t[[#{bold}#Journal Entry I#{normal}#\n\nIt's been some time since High Sun Paladin Aeryn sent me out on an assignment. According to recent intelligence, it would seem that a cavern has mysteriously emerged near our outpost, the Gates of Morning. They have bestowed the name \"Ardhungol\" on the newly discovered cavern. The elder warriors seem anxious in regards to the origin of this new subterranean area; they're likely concerned that the orcs are using Ardhungol as a staging point for further aggression against the Gates of Morning. I'll have to make sure I'm well equipped for this journey; the fate of us all could hang in the balance.\n\n#{bold}#Journal Entry II#{normal}#\n\nI spoke with the border patrols tonight. There seem to have been several sightings of orcs and other wild beasts roaming throughout the wilderness, yet strangely enough, none seem to have been anywhere near Ardhungol. Perhaps the subterranean cavern was simply a natural phenomenon with unfortunate timing. It's either that, or an unknown force powerful enough to alter the very foundation of the land upon its arrival. I shudder at the latter thought, but for now this is all merely speculation. If all goes well, I'll be ready to depart by dawn.\n]]\n}\n\nnewLore{\n\tid = \"ardhungol-2\",\n\tcategory = \"ardhungol\",\n\tname = _t\"Rashim Journal (2)\",\n\tlore = _t[[#{bold}#Journal Entry III#{normal}#\n\nIt was a half days journey from the Gates of Morning to Ardhungol, but I've finally arrived. I've decided to rest beneath the shade of a great oak tree and enjoy one of the sweet rolls my wife Melnela prepared for me. I'm unsure why, but the closer I've come to Ardhungol, the thicker the atmosphere has become, almost as if there is a foreign energy infecting the very air I breathe. I've been to many places in this vast world, but I've never felt an aura quite like this; I will have to uncover the source of this energy before I can bring a full report back to Aeryn.\n\n#{bold}#Journal Entry IV#{normal}#\n",
+          "visible_context_sha256": "b7b9146f336a4680ffa2101d9d40f0daea861b8462b32a58ec26c788674ee3ff"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R005",
+      "task_id": "p2-tome-texts-b11-001",
+      "original_revision_key": "b11-06-avatar-distant-sun-unlock",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/avatar-distant-sun-unlock.chat",
+      "canonical_revision_uid": "53e6a489eff3323fe018fa7089bb1cccd4687fc5a3aafd6c70a330c37da96aca",
+      "source_sha256": "e64c8bcc4cce05d7756b75eef3f42da5cbb6382d69f30f93092abdefb8e98834",
+      "target_sha256": "a65be58beb24c88e55861b0c9c73f8b693e88c168a1a7ac356d86818f7240f58",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/avatar-distant-sun-unlock.chat",
+        "source_artifact_sha256": "f066dd827d78c558b5a1ae698fe63de55e4db19ea1c34e2d678a1dc254f0eff0",
+        "source_artifact_size_bytes": 7463
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 121,
+          "line_end": 121,
+          "column_start": 25,
+          "matched_span_sha256": "e64c8bcc4cce05d7756b75eef3f42da5cbb6382d69f30f93092abdefb8e98834",
+          "matched_chars": 14,
+          "context_start_line": 109,
+          "context_end_line": 133,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 773,
+          "truncated": false,
+          "visible_context": "        },\n        \"pos_x\": 2084.3333333333335,\n        \"pos_y\": 265\n    },\n    \"29\": {\n        \"id\": 29,\n        \"name\": \"chat\",\n        \"data\": {\n            \"chatid\": \"chat3\",\n            \"chat\": \"#YELLOW#DON'T BE LIKE THAT. I KNOW YOU ARE ON A NOBLE QUEST.\",\n            \"answer1\": \"Look, I appreciate the offer, but I don't know you.\",\n            \"answer2\": \"I'm busy at the moment, so maybe call back another time?\",\n            \"answer3\": \"If you say so.\"\n        },\n        \"class\": \"chat\",\n        \"html\": \"chat3\",\n        \"typenode\": true,\n        \"inputs\": {\n            \"input_1\": {\n                \"connections\": [\n                    {\n                        \"node\": \"25\",\n                        \"input\": \"output_2\"\n                    }\n                ]\n",
+          "visible_context_sha256": "41f8c968f6dc032dd3a289fd87566f971348c137c8e54ed45a80e139a24e3907"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R006",
+      "task_id": "p2-tome-texts-b39-001",
+      "original_revision_key": "b39-11-infinite-dungeon",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/lore/infinite-dungeon.lua",
+      "canonical_revision_uid": "4edc0286f8c30dd4e09157e7b1338b8e0756cc0bd063c3eb254405282195e153",
+      "source_sha256": "d6f4b0ec618e08fd5543415fd855ea0a6cdd191df38303decf7306e5d90b2f30",
+      "target_sha256": "d82e3fe5fe33da88aa7c504d27d273cb3492444f902b7f322265f341a1796a08",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/lore/infinite-dungeon.lua",
+        "source_artifact_sha256": "8c1e6100de0d85eb540f81cce66c759f23dd084d3de3047de6c44b9ce2c608c2",
+        "source_artifact_size_bytes": 13420
+      },
+      "locator_status": "LOCATED_MULTIPLE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 6,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 80,
+          "line_end": 80,
+          "column_start": 12,
+          "matched_span_sha256": "d6f4b0ec618e08fd5543415fd855ea0a6cdd191df38303decf7306e5d90b2f30",
+          "matched_chars": 16,
+          "context_start_line": 68,
+          "context_end_line": 92,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1750,
+          "truncated": false,
+          "visible_context": "\tid = \"alt1-infinite-dungeon-3\",\n\tcategory = \"ruined dungeon\",\n\tname = _t\"clue (ruined dungeon)\", always_pop = true,\n\tlore = _t[[There is an inscription here:\n#{italic}#...Unleash dark thoughts.\nUpon this blighted land!#{normal}#]],\n}\n\n\nnewLore{\n\tid = \"infinite-dungeon-4\",\n\tcategory = \"ruined dungeon\",\n\tname = _t\"infinite dungeon (ruined dungeon)\", always_pop = true,\n\tlore = _t[[There is an inscription here:\nThe deceptive god Ralkur fled before the wrath of the godslayer Branzir and his dark blade Madrath. But though he fled to the depths of the dungeon he came to an end. Seeing himself cornered he used his power to delve deeper into the ground, laying traps and summoning enemies to confound his enemy. But Branzir would not be lost. He pursued his prey ever on, hunting him ever deeper. And Ralkur fled further, and faster, delving to fathoms beyond knowledge, with the godslayer always behind him, hunting relentlessly.\n\nAnd so the chase continues. Over centuries beyond count Branzir has never stopped to rest or sleep as he pursues his prey through the ravages of infinity. And though death would be a welcome reprieve he thinks only of the hunt and of vanquishing the cowardly god. Ralkur continues to run, and he does not take a breath that it is not a gasp, and he does not take a step that it is not in flight, and every beat of his traitorous heart is a pounding of terror as he flees deeper and deeper till the ends of time.\n\nThis passage seems to point to the passage there, it seems to indicate there are no possible exits.\nYou should not enter it.]],\n}\n\n--------------------------------------------------------------------------\n-- The Infinite Dungeon\n--------------------------------------------------------------------------\n",
+          "visible_context_sha256": "8d2e33f7cd69bb78207ff6c9c7b3a114844e9c37176b1284060759d9f208c212"
+        },
+        {
+          "occurrence_ordinal": 2,
+          "line_start": 96,
+          "line_end": 96,
+          "column_start": 14,
+          "matched_span_sha256": "d6f4b0ec618e08fd5543415fd855ea0a6cdd191df38303decf7306e5d90b2f30",
+          "matched_chars": 16,
+          "context_start_line": 84,
+          "context_end_line": 108,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 3724,
+          "truncated": false,
+          "visible_context": "And so the chase continues. Over centuries beyond count Branzir has never stopped to rest or sleep as he pursues his prey through the ravages of infinity. And though death would be a welcome reprieve he thinks only of the hunt and of vanquishing the cowardly god. Ralkur continues to run, and he does not take a breath that it is not a gasp, and he does not take a step that it is not in flight, and every beat of his traitorous heart is a pounding of terror as he flees deeper and deeper till the ends of time.\n\nThis passage seems to point to the passage there, it seems to indicate there are no possible exits.\nYou should not enter it.]],\n}\n\n--------------------------------------------------------------------------\n-- The Infinite Dungeon\n--------------------------------------------------------------------------\n\nnewLore{\n\tid = \"infinite-dungeon-history-1\",\n\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 1\",\n\tlore = _t[[Branzir was the mightiest of the Sher'Tul hunters, and his fame was known at every Farportal. He could run for days without rest, cross terrain no others would dare to pass, and had senses more keen than all the wildest animals of Eyal. It was for this reason that Caldizar came to him at his forest keep and beseeched him to join in the Godhunt. At first Branzir refused, for he said he was not one to meddle in such mighty affairs, and he wanted but peace to hunt and fend for his family. But Caldizar convinced him that this life of peace was not possible whilst the schemes and machinations of the gods continued. And so reluctantly Branzir accepted, and took in his hands the great sword Madrath, and upon his shoulders was laid the title \"Godslayer\".\n\nIn the great Godhunt that followed Branzir became the most fervent of the Godslayers, and would not sleep nor rest whilst a hunt was on. He it was that chased the troll-spawner Ugg'matho through the snow-capped mountains of Pertolias and broke his body on the highest peak. He it was that tracked the blight-weaver Xadoch through the howling vales of Anvion and trapped him and throttled him and cut him into seven pieces to be cast into the Glonglum lake. And he it was that was tasked with finding and killing Ralkur the Deceptor, god of charms and illusions, who had taken hiding amongst the lesser races.]],\n}\n\nnewLore{\n\tid = \"infinite-dungeon-history-2\",\n\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 2\",\n\tlore = _t[[Thus began the greatest hunt there ever was. Branzir used forceful coercion and the spilling of blood to uncover the secret of his enemy's hiding place. He tracked Ralkur down to the primitive settlement where he had taken the form of one of the lesser races. Branzir rooted him out, and came upon him with Madrath in hand. But Ralkur seeing the wrath of the hunter and the terrible sword became frightful, and he took on the form of an antelope and fled across the Harloe Plains. But Branzir ran after and ran swifter and nigh caught him before they reached the Woods of Darmin. There Ralkur assumed the form of a monkey and took to the trees. But Branzir tracked him and followed close, overcoming the traps his foe left behind. Then the forest fell away and they came to the Azure Sea, and Ralkur took the form of a gull and flew over the waters cawing with prideful glee. But Branzir was unfazed and leapt into the water, swimming after the cowardly god with all his strength. Twenty days and nights he followed through the ocean, feeding off fish he could catch near the surface, whilst Ralkur beat his wings on the winds above. Not once did Branzir lose sight of his target, and with each passing day Ralkur became more and more filled with fright.\n\n",
+          "visible_context_sha256": "5b354bdcfa5d17e1da0e44d1c5950f83758dc4fc3af68f3915c222d72834646b"
+        },
+        {
+          "occurrence_ordinal": 3,
+          "line_start": 105,
+          "line_end": 105,
+          "column_start": 14,
+          "matched_span_sha256": "d6f4b0ec618e08fd5543415fd855ea0a6cdd191df38303decf7306e5d90b2f30",
+          "matched_chars": 16,
+          "context_start_line": 93,
+          "context_end_line": 117,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 4746,
+          "truncated": false,
+          "visible_context": "\nnewLore{\n\tid = \"infinite-dungeon-history-1\",\n\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 1\",\n\tlore = _t[[Branzir was the mightiest of the Sher'Tul hunters, and his fame was known at every Farportal. He could run for days without rest, cross terrain no others would dare to pass, and had senses more keen than all the wildest animals of Eyal. It was for this reason that Caldizar came to him at his forest keep and beseeched him to join in the Godhunt. At first Branzir refused, for he said he was not one to meddle in such mighty affairs, and he wanted but peace to hunt and fend for his family. But Caldizar convinced him that this life of peace was not possible whilst the schemes and machinations of the gods continued. And so reluctantly Branzir accepted, and took in his hands the great sword Madrath, and upon his shoulders was laid the title \"Godslayer\".\n\nIn the great Godhunt that followed Branzir became the most fervent of the Godslayers, and would not sleep nor rest whilst a hunt was on. He it was that chased the troll-spawner Ugg'matho through the snow-capped mountains of Pertolias and broke his body on the highest peak. He it was that tracked the blight-weaver Xadoch through the howling vales of Anvion and trapped him and throttled him and cut him into seven pieces to be cast into the Glonglum lake. And he it was that was tasked with finding and killing Ralkur the Deceptor, god of charms and illusions, who had taken hiding amongst the lesser races.]],\n}\n\nnewLore{\n\tid = \"infinite-dungeon-history-2\",\n\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 2\",\n\tlore = _t[[Thus began the greatest hunt there ever was. Branzir used forceful coercion and the spilling of blood to uncover the secret of his enemy's hiding place. He tracked Ralkur down to the primitive settlement where he had taken the form of one of the lesser races. Branzir rooted him out, and came upon him with Madrath in hand. But Ralkur seeing the wrath of the hunter and the terrible sword became frightful, and he took on the form of an antelope and fled across the Harloe Plains. But Branzir ran after and ran swifter and nigh caught him before they reached the Woods of Darmin. There Ralkur assumed the form of a monkey and took to the trees. But Branzir tracked him and followed close, overcoming the traps his foe left behind. Then the forest fell away and they came to the Azure Sea, and Ralkur took the form of a gull and flew over the waters cawing with prideful glee. But Branzir was unfazed and leapt into the water, swimming after the cowardly god with all his strength. Twenty days and nights he followed through the ocean, feeding off fish he could catch near the surface, whilst Ralkur beat his wings on the winds above. Not once did Branzir lose sight of his target, and with each passing day Ralkur became more and more filled with fright.\n\nFinally they came to the far shore of Tar'Eyal, and Ralkur fell onto the sandy beach bereft of strength. Depleted of all energy he reverted to his natural form, short and squat, and stumbled across the sand before falling down exhausted. Branzir arose from the water behind, and in spite of his trials he stood tall and fierce, and marched with purpose towards the cowering god. He drew out the fell blade Madrath from its sheath and held it to the throat of his prey.\n\nBut Ralkur, in a last desperate effort, took on a pathetic and piteous form, and wailing and crying he begged Branzir for mercy, promising to leave all Eyal and never return. And Branzir, looking on the divine form sunk to such depths, was moved in his heart, and agreed. But he said in a solemn tone, \"Get thee then from this world, which we mortals now claim for our own. Remove thyself from all influence in Eyal, and never dare thee to return. But if thou doest break my trust, let thee be afeared. For then not a breath shalt thou take that it will not be a gasp, and not a step shalt thou take that it will not be in flight, and each beat of thy traitorous heart shalt be a pounding of terror. For I shalt come for thee and I shalt find thee and even to the depths of Infinity I shalt hunt thee without rest till my hands are on thy throat and thy life is crushed to dust.\" And when he spake the wind fell silent and the sky turned black, for when a Sher'Tul speaks so his words become Words of Power, and they can change the world forever. And Ralkur hearing those words was filled with a dread beyond conception, and forgetting all exhaustion he immediately took the form of a swallow and flew high into the sky beyond all sight.]],\n}\n\nnewLore{\n\tid = \"infinite-dungeon-history-3\",\n\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 3\",\n",
+          "visible_context_sha256": "bf2a05d09fb1b487ff872f482f11a632d460d584c30c189d8959499f6ca3381d"
+        },
+        {
+          "occurrence_ordinal": 4,
+          "line_start": 116,
+          "line_end": 116,
+          "column_start": 14,
+          "matched_span_sha256": "d6f4b0ec618e08fd5543415fd855ea0a6cdd191df38303decf7306e5d90b2f30",
+          "matched_chars": 16,
+          "context_start_line": 104,
+          "context_end_line": 128,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 4941,
+          "truncated": false,
+          "visible_context": "\tid = \"infinite-dungeon-history-2\",\n\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 2\",\n\tlore = _t[[Thus began the greatest hunt there ever was. Branzir used forceful coercion and the spilling of blood to uncover the secret of his enemy's hiding place. He tracked Ralkur down to the primitive settlement where he had taken the form of one of the lesser races. Branzir rooted him out, and came upon him with Madrath in hand. But Ralkur seeing the wrath of the hunter and the terrible sword became frightful, and he took on the form of an antelope and fled across the Harloe Plains. But Branzir ran after and ran swifter and nigh caught him before they reached the Woods of Darmin. There Ralkur assumed the form of a monkey and took to the trees. But Branzir tracked him and followed close, overcoming the traps his foe left behind. Then the forest fell away and they came to the Azure Sea, and Ralkur took the form of a gull and flew over the waters cawing with prideful glee. But Branzir was unfazed and leapt into the water, swimming after the cowardly god with all his strength. Twenty days and nights he followed through the ocean, feeding off fish he could catch near the surface, whilst Ralkur beat his wings on the winds above. Not once did Branzir lose sight of his target, and with each passing day Ralkur became more and more filled with fright.\n\nFinally they came to the far shore of Tar'Eyal, and Ralkur fell onto the sandy beach bereft of strength. Depleted of all energy he reverted to his natural form, short and squat, and stumbled across the sand before falling down exhausted. Branzir arose from the water behind, and in spite of his trials he stood tall and fierce, and marched with purpose towards the cowering god. He drew out the fell blade Madrath from its sheath and held it to the throat of his prey.\n\nBut Ralkur, in a last desperate effort, took on a pathetic and piteous form, and wailing and crying he begged Branzir for mercy, promising to leave all Eyal and never return. And Branzir, looking on the divine form sunk to such depths, was moved in his heart, and agreed. But he said in a solemn tone, \"Get thee then from this world, which we mortals now claim for our own. Remove thyself from all influence in Eyal, and never dare thee to return. But if thou doest break my trust, let thee be afeared. For then not a breath shalt thou take that it will not be a gasp, and not a step shalt thou take that it will not be in flight, and each beat of thy traitorous heart shalt be a pounding of terror. For I shalt come for thee and I shalt find thee and even to the depths of Infinity I shalt hunt thee without rest till my hands are on thy throat and thy life is crushed to dust.\" And when he spake the wind fell silent and the sky turned black, for when a Sher'Tul speaks so his words become Words of Power, and they can change the world forever. And Ralkur hearing those words was filled with a dread beyond conception, and forgetting all exhaustion he immediately took the form of a swallow and flew high into the sky beyond all sight.]],\n}\n\nnewLore{\n\tid = \"infinite-dungeon-history-3\",\n\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 3\",\n\tlore = _t[[Branzir returned to his people, and continued the hunt for the other gods, till but one god remained: Amakthel. Then the last great Godhunt began, as the Sher'Tul fought to overcome their maker and master. And this was no easy feat, for Amakthel was by far the strongest of all the gods, and many Sher'Tul were still loyal to their creator. Much blood was spilled before ever the assault on his throne could begin, and much blood would spill still after.\n\nNow Ralkur had fled into the heavens with the full intent of passing beyond all reach of mortals forever more, such was the fear laid on him by the solemn words of Branzir. But as he soared higher and the fear faded, he came to change his mind, for he was a prideful god and moreso a vengeful one. Thoughts and schemes began to build in his mind for how he could gain retribution on the Sher'Tul that had brought him to shame. So he took on the form of an eagle and flew above the highest volcano in Eyal, and there he stretched his wings and glided high on the rising heat, watching all that happened in the lands below and biding his time for vengeance.\n\nHe watched with joy as he saw the Sher'Tul armies fall before the forces of Amakthel's fortress. He watched with anxiety as he saw the Sher'Tul finally break through the defences and come upon the great god himself. He watched with awe as he saw the nine Godslayers do battle with their creator, and several broken before his almighty wrath. And then he watched with utter terror as he saw the mightiest of all gods felled, and maimed and mutilated and bound, and cast into the darkest depths of the world.\n]],\n}\n\nnewLore{\n\tid = \"infinite-dungeon-history-4\",\n\tcategory = \"infinite dungeon\",\n",
+          "visible_context_sha256": "d62815a089a0ad9610031d2364d54654eeb5fba9d39fe2f5fa5ee01ed12b1e32"
+        },
+        {
+          "occurrence_ordinal": 5,
+          "line_start": 128,
+          "line_end": 128,
+          "column_start": 14,
+          "matched_span_sha256": "d6f4b0ec618e08fd5543415fd855ea0a6cdd191df38303decf7306e5d90b2f30",
+          "matched_chars": 16,
+          "context_start_line": 116,
+          "context_end_line": 140,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 4297,
+          "truncated": false,
+          "visible_context": "\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 3\",\n\tlore = _t[[Branzir returned to his people, and continued the hunt for the other gods, till but one god remained: Amakthel. Then the last great Godhunt began, as the Sher'Tul fought to overcome their maker and master. And this was no easy feat, for Amakthel was by far the strongest of all the gods, and many Sher'Tul were still loyal to their creator. Much blood was spilled before ever the assault on his throne could begin, and much blood would spill still after.\n\nNow Ralkur had fled into the heavens with the full intent of passing beyond all reach of mortals forever more, such was the fear laid on him by the solemn words of Branzir. But as he soared higher and the fear faded, he came to change his mind, for he was a prideful god and moreso a vengeful one. Thoughts and schemes began to build in his mind for how he could gain retribution on the Sher'Tul that had brought him to shame. So he took on the form of an eagle and flew above the highest volcano in Eyal, and there he stretched his wings and glided high on the rising heat, watching all that happened in the lands below and biding his time for vengeance.\n\nHe watched with joy as he saw the Sher'Tul armies fall before the forces of Amakthel's fortress. He watched with anxiety as he saw the Sher'Tul finally break through the defences and come upon the great god himself. He watched with awe as he saw the nine Godslayers do battle with their creator, and several broken before his almighty wrath. And then he watched with utter terror as he saw the mightiest of all gods felled, and maimed and mutilated and bound, and cast into the darkest depths of the world.\n]],\n}\n\nnewLore{\n\tid = \"infinite-dungeon-history-4\",\n\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 4\",\n\tlore = _t[[Seeing the full powers of the Sher'Tul Ralkur felt paralysed with fear, and thought his quest for vengeance hopeless. But he bided his time still, and his patience was rewarded as he saw dissention begin to arise in the great race. When Caldizar disappeared and the Godslayers separated he felt his time was ripe, and he came upon the forest keep of Branzir under a storm of wrath. He flew down screeching, and spreading his wings he let loose spikes of steel that rained down on the keep, cutting through wood and stone and flesh. All who were in the keep were killed, and the air was filled with Ralkur's cackling laughter as he flew away.\n\nBut the vengeful god had been hasty at the last, for Branzir was out hunting at the time. Coming back the next day he saw his home in ruins, and all his family and servants butchered, and sorrow and torment filled every corner of his being. On hearing reports of what happened he knew well the perpetrator and his fury was incandescent. He sought the aid of the other Godhunters in scouring out the stray god, but they were all divided, and each engaged in the politics that would lay the seeds for war. Perhaps if they had aided him then the popular Branzir could have helped unify the people and stop the madness that was to come. But Caldizar was gone, reportedly aggrieved and repentant at their acts, and the remaining Godslayers thought only of their own powers and making gods of themselves.]],\n}\n\nnewLore{\n\tid = \"infinite-dungeon-history-5\",\n\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 5\",\n\tlore = _t[[So Branzir set out alone, with Madrath in his sheath. It did not take long to find his prey, who had now stopped all attempts at hiding. He came upon the god in a settlement of lesser creatures who worshipped him, and he ruthlessly cut down the pathetic wretches that tried to protect their new deity. Ralkur fled at the sight of Branzir and his dark blade, filled with all-encompassing fright. But Branzir was not to be lost, and chased him into some nearby ruins. There Ralkur laid traps and summoned enemies and fled deeper into the darkness. But Branzir overcame them all and came on faster, till they reached the depths of the dungeons. And being out of space the god created new space and fled further, and kept on fleeing. And Branzir carried on chasing, not letting up for a second as the pursued god continued to delve deeper into the ground.\n\n",
+          "visible_context_sha256": "113e99dbe213cb7d0dc94821c539a9825b488d51e16ed77c6bfcedbedb8be404"
+        },
+        {
+          "occurrence_ordinal": 6,
+          "line_start": 137,
+          "line_end": 137,
+          "column_start": 14,
+          "matched_span_sha256": "d6f4b0ec618e08fd5543415fd855ea0a6cdd191df38303decf7306e5d90b2f30",
+          "matched_chars": 16,
+          "context_start_line": 125,
+          "context_end_line": 142,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 3095,
+          "truncated": false,
+          "visible_context": "\nnewLore{\n\tid = \"infinite-dungeon-history-4\",\n\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 4\",\n\tlore = _t[[Seeing the full powers of the Sher'Tul Ralkur felt paralysed with fear, and thought his quest for vengeance hopeless. But he bided his time still, and his patience was rewarded as he saw dissention begin to arise in the great race. When Caldizar disappeared and the Godslayers separated he felt his time was ripe, and he came upon the forest keep of Branzir under a storm of wrath. He flew down screeching, and spreading his wings he let loose spikes of steel that rained down on the keep, cutting through wood and stone and flesh. All who were in the keep were killed, and the air was filled with Ralkur's cackling laughter as he flew away.\n\nBut the vengeful god had been hasty at the last, for Branzir was out hunting at the time. Coming back the next day he saw his home in ruins, and all his family and servants butchered, and sorrow and torment filled every corner of his being. On hearing reports of what happened he knew well the perpetrator and his fury was incandescent. He sought the aid of the other Godhunters in scouring out the stray god, but they were all divided, and each engaged in the politics that would lay the seeds for war. Perhaps if they had aided him then the popular Branzir could have helped unify the people and stop the madness that was to come. But Caldizar was gone, reportedly aggrieved and repentant at their acts, and the remaining Godslayers thought only of their own powers and making gods of themselves.]],\n}\n\nnewLore{\n\tid = \"infinite-dungeon-history-5\",\n\tcategory = \"infinite dungeon\",\n\tname = _t\"The Hunter and the Hunted chapter 5\",\n\tlore = _t[[So Branzir set out alone, with Madrath in his sheath. It did not take long to find his prey, who had now stopped all attempts at hiding. He came upon the god in a settlement of lesser creatures who worshipped him, and he ruthlessly cut down the pathetic wretches that tried to protect their new deity. Ralkur fled at the sight of Branzir and his dark blade, filled with all-encompassing fright. But Branzir was not to be lost, and chased him into some nearby ruins. There Ralkur laid traps and summoned enemies and fled deeper into the darkness. But Branzir overcame them all and came on faster, till they reached the depths of the dungeons. And being out of space the god created new space and fled further, and kept on fleeing. And Branzir carried on chasing, not letting up for a second as the pursued god continued to delve deeper into the ground.\n\nAnd so the chase continues. Over centuries beyond count Branzir has never stopped to rest or sleep as he pursues his prey through the ravages of infinity. And though death would be a welcome reprieve he thinks only of the hunt and of vanquishing the cowardly god. Ralkur continues to run, and he does not take a breath that it is not a gasp, and he does not take a step that it is not in flight, and every beat of his traitorous heart is a pounding of terror as he flees deeper and deeper till the ends of time.]],\n}\n",
+          "visible_context_sha256": "465e35d6933f6c48a672dc2de14b36f3e52dd177d6f19a9065c0a91713be86fb"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R007",
+      "task_id": "p2-tome-texts-b40-001",
+      "original_revision_key": "b40-40-kor-pul",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/lore/kor-pul.lua",
+      "canonical_revision_uid": "695679676e0ac4e64363b2624e325fde1cf20a745da4f9d209501403c9ae21c7",
+      "source_sha256": "7dedd40f75a56d27482b1949ea5404fd1f6ed905a9172569396c5ebd613bc2ae",
+      "target_sha256": "060bb9dad972552227b5bf4c25b0310810a210a68be44841d3eb9f9469e44de9",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/lore/kor-pul.lua",
+        "source_artifact_sha256": "55fb8d2bb8a162fac6f5570520ca206577e2e63e16d8a0866a4a2c5ca0a2bf0e",
+        "source_artifact_size_bytes": 4868
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 64,
+          "line_end": 66,
+          "column_start": 13,
+          "matched_span_sha256": "7dedd40f75a56d27482b1949ea5404fd1f6ed905a9172569396c5ebd613bc2ae",
+          "matched_chars": 642,
+          "context_start_line": 52,
+          "context_end_line": 78,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 2201,
+          "truncated": false,
+          "visible_context": "\tlore = _t[[This place is infested! I've found a lot of skeletons now, and unfortunately most of them have borne a full set of limbs. However, my holy quest cannot be denied! Plus I got a really great sword off one of the blighters, I can chop anything up easily now!\n\nThe skeletal mages have been a night-born nuisance, but I've found a new weapon to use against them - a phase door rune! As soon as I catch sight of one of the robed wretches I activate my rune and foom, I'm away!\n\nIt's not fleeing, it's just tactical repositioning...\n]],\n}\n\nnewLore{\n\tid = \"kor-pul-note-4\",\n\tcategory = \"kor'pul\",\n\tname = _t\"journal page (kor'pul)\",\n\tlore = _t[[Kor'Pul, Kor'Pul... When the farmer told me what this place was called it reminded me of something, and I think it's coming back to me now. My mother used to tell me a story about our ancestors, how they fled by ship to escape the grasp of an evil sorcerer who dominated the lands. The sorcerer was a vile necromancer who took advantage of the destruction from the Spellblaze and the Cataclysm to create huge armies of undead. The people fought against him time and time again, but though he would be defeated he would still come back, sometimes after hundreds of years. And that sorcerer's name was.... Kor'Pul.\n\nProbably just a coincidence.]],\n}\n\nnewLore{\n\tid = \"kor-pul-note-5\",\n\tcategory = \"kor'pul\",\n\tname = _t\"journal page (kor'pul)\",\n\tlore = _t[[It's quiet down here. And dark... very dark. I suppose I should have brought a lantern. Our motto is to bring light into dark places, but I guess I should have thought about that in practical terms. I've cleared out pretty much all of this area, and there's not much left to explore beyond this last room.\n\nThis adventuring stuff is quite lonely, I must say. I guess keeping this journal helps a bit. I miss home a lot now. I miss... I miss Falia. Maybe I should have said something to her about how I feel... but I guess running away on an adventure seemed easier. Pah, how brave of me...\n\nI'm not cut out for this paladin work. Here I am, alone in a horrible dark dungeon in an unknown land, without a single sound to keep me company beyond the scratchings of my own quill. Hmm, except for--]],\n}\n",
+          "visible_context_sha256": "8d6ebd439dab55870b30bfc210ea52c83709387e5edd9ef95925c2869cf07b16"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R008",
+      "task_id": "p2-tome-texts-b23-001",
+      "original_revision_key": "b23-02-magic-store",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/magic-store.lua",
+      "canonical_revision_uid": "4f5975a95317bdb491995189afaf2ea830c844dba212bbbaa76ac6f797010c1c",
+      "source_sha256": "eeb698263e24999f6654c2fb2feda513577a8500f337cbb676759b62fbb9dca1",
+      "target_sha256": "1472ab90e5d0cd0972f63c2ddff888209916ba21ff0fba2750a24ef61d51c02f",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/magic-store.lua",
+        "source_artifact_sha256": "b8959b3f90c4384575aa40e0bdd426f58d84f28b6556d5cbb002480c9991d9a6",
+        "source_artifact_size_bytes": 1863
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 23,
+          "line_end": 23,
+          "column_start": 74,
+          "matched_span_sha256": "eeb698263e24999f6654c2fb2feda513577a8500f337cbb676759b62fbb9dca1",
+          "matched_chars": 16,
+          "context_start_line": 11,
+          "context_end_line": 35,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1102,
+          "truncated": false,
+          "visible_context": "-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nlocal function recharge(npc, player)\n\tplayer:showEquipInven(_t\"Select the item to recharge\", function(o) return o.recharge_cost and o.power and o.max_power and o.power < o.max_power end, function(o, inven, item)\n\t\tlocal cost = math.ceil(o.recharge_cost * (o.max_power / (o.use_talent and o.use_talent.power or o.use_power.power)))\n\t\tif cost > player.money then require(\"engine.ui.Dialog\"):simplePopup(_t\"Not enough money\", (\"This costs %d gold.\"):tformat(cost)) return true end\n\t\trequire(\"engine.ui.Dialog\"):yesnoPopup(_t\"Recharge?\", (\"This will cost you %d gold.\"):tformat(cost), function(ok) if ok then\n\t\t\to.power = o.max_power\n\t\t\tplayer:incMoney(-cost)\n\t\t\tplayer.changed = true\n\t\tend end)\n\t\treturn true\n\tend)\n\nend\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[Welcome, @playername@, to my shop.]],\n",
+          "visible_context_sha256": "63efe479707fb61ad5355b3e8c1f6f148d3202407e45f62c476bf407011ab6c1"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R009",
+      "task_id": "p2-tome-texts-b1-001",
+      "original_revision_key": "tome-intro-halfling",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/texts/intro-halfling.lua",
+      "canonical_revision_uid": "765d64d6225e2a246def9ef98b1b6ad0089eb6776f224c8307d1f676a06d5524",
+      "source_sha256": "e3d382e2126ce882cb14f94729d6e4e0bca282e5b5eab6dd7d074adb80071058",
+      "target_sha256": "1ca351316ee0bddbab703b90c372631e74973a749e5d2273d525dd4203bcc536",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/texts/intro-halfling.lua",
+        "source_artifact_sha256": "792678b3b8668f1acb1b1812415b0f3db6746ef0debfa72fcda210838ed9aa08",
+        "source_artifact_size_bytes": 1792
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 20,
+          "line_end": 30,
+          "column_start": 12,
+          "matched_span_sha256": "b4c19c70994b285f3c4fb5ebb84001969a4080dff365659258ceb7f9e0b871a2",
+          "matched_chars": 1001,
+          "context_start_line": 8,
+          "context_end_line": 31,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1463,
+          "truncated": false,
+          "visible_context": "--\n-- This program is distributed in the hope that it will be useful,\n-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nreturn _t[[Welcome #LIGHT_GREEN#@name@#WHITE#.\nYou are a Halfling of Derth. Most people take Halflings for peaceful crop-growers that never leave the borders of their gardens.\nYet history has taught that Halflings are a force to be reckoned with. They still maintain a powerful army.\nYou have chosen a rare path for yourself: the path of adventuring, whose loneliness does not usually fit your people.\n\nInspired by the stories of dragons, gold, and the treasures to be found in ancient ruins, you have decided to venture into the old and wild places of the world, looking for fame and glory.\n\nYou have come to a land called the Derthfields on the western border of the Thaloren forest, in search of the Trollmire. It is an old forest infested with trolls and all kinds of wild animals.\nTo the west lies another dangerous place: the old ruins of Kor'Pul. You heard the caves below it were infested by vermin and undead.\n\nAfter days of travel, you have found the forest and entered it. What will you find there...?\n]]\n",
+          "visible_context_sha256": "08d2c6ec15f512b8d3dbbd1ad236313cb9e37b9258f15773a7edaf53fcb19f89"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R010",
+      "task_id": "p2-tome-texts-b26-001",
+      "original_revision_key": "b26-29-butler",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/shertul-fortress-butler.lua",
+      "canonical_revision_uid": "c2fd87b9b347fa79f13458d4d273154f3b039901aa1f0cc0da49f2ccc31a682d",
+      "source_sha256": "f204fcc6b711621ed05717aad51c01fc9032f5861b9dc9f3241ba634f382c88f",
+      "target_sha256": "32586d894c2851e83db24887a583a3bce6ef5a879f28175de75b47a150183774",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/shertul-fortress-butler.lua",
+        "source_artifact_sha256": "94c88969060abd9920538ed55c9aa0c984e4c52348a59dc17f4aa6948926e884",
+        "source_artifact_size_bytes": 12403
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 113,
+          "line_end": 113,
+          "column_start": 7,
+          "matched_span_sha256": "f204fcc6b711621ed05717aad51c01fc9032f5861b9dc9f3241ba634f382c88f",
+          "matched_chars": 15,
+          "context_start_line": 101,
+          "context_end_line": 125,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1313,
+          "truncated": false,
+          "visible_context": "\tanswers = {\n\t\t{_t(\"Thanks.\", \"chat_shertul-fortress-butler\"), jump=\"welcome\"},\n\t}\n}\n\nnewChat{ id=\"energy\",\n\ttext = _t[[This Fortress is designed as a mobile base for the Godslayers - it can fly.\nIt is also equiped with various facilities: exploratory farportal, emergency containment field, remote storage, ...\nHowever, the Fortress is badly damaged and has lain dormant for too long. Its energies are nearly depleted.\nTake this Transmogrification Chest. It is linked by a permanent farportal to the Fortress. Any item you put inside will be sent to the power core and dismantled for energy.\nThere are, however, unwanted byproducts to this operation: the generation of a metal known as gold. It is of no use to the Fortress and thus will be sent back to you.]],\n\tanswers = {\n\t\t{_t\"I will, thanks.\", jump=\"welcome\", action=function() q:spawn_transmo_chest() end, cond=function(npc, player) return not player:attr(\"has_transmo\") end},\n\t\t{_t\"I have already found such a chest in my travel. Will it work?\", jump=\"alreadychest\", action=function() q:setStatus(q.COMPLETED, \"transmo-chest\") end, cond=function(npc, player) return player:attr(\"has_transmo\") end},\n\t}\n}\n\nnewChat{ id=\"alreadychest\",\n\ttext = _t[[Yes, it will. I will attune it to this fortress.\nDone.]],\n\tanswers = {\n\t\t{_t\"Thanks.\", jump=\"welcome\"},\n\t}\n}\n\n",
+          "visible_context_sha256": "8bbbb6deee47e84fc6804d773145d9539ca1fa4dbb9600da9d56ea80ae2c83a3"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R011",
+      "task_id": "p2-tome-texts-b43-001",
+      "original_revision_key": "b43-46-zigur",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/lore/zigur.lua",
+      "canonical_revision_uid": "75b20aaa34a974309fdc6fc8ac4336633c21d8fad73d19572b0918c22ef48c19",
+      "source_sha256": "e7e55ce3df8748e9d711e350555d4ee8c37af581b037027f6f40dae2b1665095",
+      "target_sha256": "69bee26f9670e7cf771c32490a71151f7b48314c51271d01b989ee125c8e9483",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/lore/zigur.lua",
+        "source_artifact_sha256": "b977debae1ae9f4a4810463c75288439191200469ea565cb7c51c6edda7b67bd",
+        "source_artifact_size_bytes": 12835
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 72,
+          "line_end": 86,
+          "column_start": 13,
+          "matched_span_sha256": "eefc09e1f459907b851b509a3a7724ce398a5ca251ff791c62d263d46e21290f",
+          "matched_chars": 4324,
+          "context_start_line": 60,
+          "context_end_line": 98,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 6645,
+          "truncated": false,
+          "visible_context": "\nBut we are not clear of danger yet. Magic still exists, though oft it lies secret and hidden. Memories of the dark days have waned, and one can even see alchemists and enchanters walking openly in the streets, unheeding of the pain their ilk have brought to our world. But worse exists... Secret societies hide themselves in unknown places, plotting and scheming to bring further destruction on Maj'Eyal. Dark cults exist in quiet isolation, kidnapping innocents and performing vile ceremonies. We try our best to hunt these monsters down, to root them out from their fell dens and bring an end to their depraved plans. Yet we must try harder, for our world is in mortal peril if these fiends are allowed to act unhindered.\n\nWe must never forget the terrors of the Great Evil, and the suffering brought upon us by those who choose to corrupt nature with arcane powers. Be wary in your travels, and be thorough in your duties. Our fight is difficult, but it is just and true, and not until all Maj'Eyal is cleansed of the impurities of magic can we ever know peace. We are the protectors of the world, and by our strength and our union with nature we shall be its saviours.\n\n-- Protector Myssil]],\n}\n\nnewLore{\n\tid = \"zigur-potion\",\n\tcategory = \"zigur\",\n\tname = _t\"The story of my salvation\",\n\tlore = _t[[I used to be a potion merchant in Derth. I brewed alchemical tonics and elixirs for locals and travellers. My trade was good, and I lived very happily from the gold I earned. For a young woman to have such a business I was very proud.\n\nOne day however several people in the town fell ill from a mystery disease. Rumours spread that my potions were to blame, and people stopped coming to my shop. My business was in ruins, and I soon ran the risk of becoming destitute. Then one of the elders died, and though he had been ill for some time, I was blamed for his death. People said I had laid a hex on him, and murmurs arose of witchcraft.\n\nI still remember how peaceful the evening had seemed when the townsfolk came for me. I was looking up at the brightness of the stars and the clear crescent Summertide moon, thinking of how I should restart my business, when I heard shouts from the distance. I saw the crowd appear from round the corner, advancing with their torches. I screamed for help, but they broke through my door, smashed through my windows and grabbed me. They dragged me outside and set their torches to my house. I was stripped to my skin and beaten heavily whilst they cursed and jeered, and even the man who had been my fiancé spat on my face and cursed me.\n\nThey pulled me over grass and stone to the town square, and though half-blinded by the tears and my swollen flesh I could still make out the wooden stake they were erecting. I tried to cry out, I tried to beg for mercy, but their response was to hold me down by my throat and pull out my tongue with the blacksmith's tongs. As I coughed up blood they put me against the wooden pole and used barbed cords to tie my wrists to it above my head. The pain was unbearable and I passed out, and did not wake until I could feel the burning at my feet. The crowd were cheering as the smoke began to wrap around me, and they cheered louder with every pained scream I released from my lungs.\n\nI was choking from the smoke, barely able to breathe, and I could no longer feel my legs. Just when I felt my consciousness slipping away again I heard a commotion and a woman's voice shouted out, \"She is no witch!\" Then I saw some people coming towards me, and at the front was a halfling woman in dark armour. She rushed towards me, unheeding of the flames, and with a swift flick from her long sword she cut my bonds. She caught me as I fell and pulled me away from the fire, laying me down on the ground. I saw her soft face above mine as she whispered to me, \"Tell me child, do you reject magic in all its forms?\" I nodded my head - I could not say no to those bright eyes. She wiped the tears streaming down my face and kissed my forehead. \"Then you will be safe - rest now.\" At once I passed out.\n\nWhen I awoke I was in another village in a soft bed. There were wrappings round my legs and bandages covering the cuts and bruises over the rest of my body. Healers tended to me, using natural remedies and herbal balms. The halfling woman would come and see me every day to check up on me. I longed for her every visit. She would speak to me sometimes. She explained how the townsfolk weren't to blame for their actions. It was all the mages' fault. They were corrupting the world, spreading chaos, and turning people against each other. I realised I was wrong for ever brewing potions - they were infested with arcane energies and could only bring harm to the world.\n\nShe explained how she and her friends were helping to save the world, to rid our lands of all magic. And she has saved me. Not just from a terrible death, but also from the evil influences of the arcane. Even if I still had a tongue I could not find words to express my thanks to her, and my joy at the new life I lead, free from the abominations of magic. Thanks to her help I can now walk again with the aid of a crutch, and I can find true happiness in my rightful place in nature.\n\nI have no voice now to tell my story to others, and so I write it down instead, and I spread it to the winds. I have suffered from my contact with magic, and others will suffer too. Do not trust in the terrible powers of these devious arts. They will only betray you and bring you to harm. Turn your back on magic, and make others repent too. Find your own salvation in nature's joys before it is too late.\n]],\n}\n\nnewLore{\n\tid = \"zigur-purging-trap\",\n\tcategory = \"zigur\",\n\tname = _t\"Purging Trap\",\n\tlore = _t[[[As you begin to leave, Protector Myssil stops you.]\n\nActually...  You fight in a more subtle way than most, do you not?  It is a point of pride for many of us that we stand tall in the face of arcane aggression and give warlocks one chance to repent before purging them, and much of our training reflects that, but I won't deny that less...  #{italic}#traditionally glorious#{normal}# methods can be extremely effective.  Decorum's no reason to let a necromancer get away alive when you could've planted a trap in their escape route.\n\n(She hands you a scroll.) Here - some of us have come up with a pre-prepared device which will sap magic from whoever or whatever sets it off.  All we ask is that you use discretion with these devices; no matter what our #{italic}#last#{normal}# assassin thought, planting them in some lesser rune-scribe's shop would be more likely to do us harm than good in the long run.]],\n",
+          "visible_context_sha256": "ae5d950e41bae20befb664093547b353bc1b0f2942a79fe77901cfd9438c5bd9"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R012",
+      "task_id": "p2-tome-texts-b41-001",
+      "original_revision_key": "b41-45-last-hope",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/lore/last-hope.lua",
+      "canonical_revision_uid": "44f26ec1ff75ad711f800f96ffccbd1e634035aff3198723c3f21d55a7bc2098",
+      "source_sha256": "0abb15d297dc24779528b78ad72f3e24dbaa38428e5a451bf055e6f7497b223b",
+      "target_sha256": "393d8c9d20bf1a15a6f5ba886da349c038d5dba9e6aac771aba815bae20e7cca",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/lore/last-hope.lua",
+        "source_artifact_sha256": "9fee9b5c64625aa10692c77691bf1207a64e7a048589b44bed3788069f33a145",
+        "source_artifact_size_bytes": 41473
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 393,
+          "line_end": 399,
+          "column_start": 195,
+          "matched_span_sha256": "0abb15d297dc24779528b78ad72f3e24dbaa38428e5a451bf055e6f7497b223b",
+          "matched_chars": 140,
+          "context_start_line": 381,
+          "context_end_line": 411,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1316,
+          "truncated": false,
+          "visible_context": "#{normal}#80 - 121#{italic}#\nYour rogueish charms\nInspire us forever\n#{normal}#]]}\n\ni=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = _t[[#{bold}#\nAnnei Caffrey\n#{normal}#26 - 102#{italic}#\nOn the wings of dragons\nYou forever soar\n#{normal}#]]}\n\ni=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = _t[[#{bold}#\nHere lies Eden of Derth\n#{normal}#97 - 121#{italic}#\nUntamed in spirit\nUnhesitant in flight\nUnlifed in grimmest darkness\n#{normal}#]]}\n\ni=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = _t[[#{bold}#\nCalici the Brave\n#{normal}#86 - 113#{italic}#\nAlas that bravery was not enough\n#{normal}#]]}\n\ni=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = _t[[#{bold}#\nBarbrim the Cursed\n#{normal}#92 - 119#{italic}#\nBetrayed by those he trusted\n#{normal}#]]}\n",
+          "visible_context_sha256": "a2297dfd217f183ecb24166f566d14c1a72ac17b231f40662795e697adcd3490"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R013",
+      "task_id": "p2-tome-texts-b19-001",
+      "original_revision_key": "b19-45-last-hope-melinda-father",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/last-hope-melinda-father.lua",
+      "canonical_revision_uid": "09a6c24a5857ae06112e311f6184c1dbcec37ca2e7a7564079db8774b8654043",
+      "source_sha256": "0f5f2ba0a1e338c818fb0e219d16540be432a5c1f8ea8a9534ccb400cbe585e6",
+      "target_sha256": "25f24bd401f936d011d56d17a1b36b9bcd2a23a9226c452bc7184f94e3f79328",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/last-hope-melinda-father.lua",
+        "source_artifact_sha256": "0fad4d21805c32e1de2a9c7662d21297a4b366eaee2404afa750fec2978b1c5c",
+        "source_artifact_size_bytes": 9668
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 158,
+          "line_end": 158,
+          "column_start": 7,
+          "matched_span_sha256": "0f5f2ba0a1e338c818fb0e219d16540be432a5c1f8ea8a9534ccb400cbe585e6",
+          "matched_chars": 90,
+          "context_start_line": 146,
+          "context_end_line": 170,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1534,
+          "truncated": false,
+          "visible_context": "Just kidding. I would love that!]],\n\tanswers = {\n\t\t{_t\"#LIGHT_GREEN#[walk away with her]#WHITE#What about a little trip to the south, from the coastline we can see the Charred Scar Volcano, it is a wonderous sight.\", action=function() ql.inlove = true ql:toBeach() end},\n\t\t{_t\"Joke's on you really, goodbye!\", quick_reply=_t\"But... ok goodbye.\", action=function() ql.nolove = true end},\n\t}\n}\n\nnewChat{ id=\"hug\",\n\ttext = _t[[#LIGHT_GREEN#*You take Melinda in your arms and press her against you. The warmth of the contact lightens your heart.*#WHITE#\nI feel safe in your arms. Please, I know you must leave, but promise to come back soon and hold me again.]],\n\tanswers = {\n\t\t{_t\"I think I would enjoy that very much. #LIGHT_GREEN#[kiss her]#WHITE#\", action=function(npc, player)  end},\n\t\t{_t\"That thought will carry me in the dark places I shall walk. #LIGHT_GREEN#[kiss her]#WHITE#\", action=function(npc, player) player:grantQuest(\"love-melinda\") end},\n\t\t{_t\"Oh, I am sorry. I think you are mistaken. I was only trying to comfort you.\", quick_reply=_t\"Oh, sorry, I was not myself. Goodbye, then. Farewell.\"},\n\t}\n}\n\n------------------------------------------------------------------\n-- Moving in\n------------------------------------------------------------------\nnewChat{ id=\"home1\",\n\ttext = _t[[#LIGHT_GREEN#*Melinda looks worried*#WHITE#\nPlease tell me you can help!]],\n\tanswers = {\n\t\t{_t\"Yes, I think so. Some time ago I assumed ownership of a very special home... #LIGHT_GREEN#[tell her the Fortress story]#WHITE#\", jump=\"home2\"},\n",
+          "visible_context_sha256": "516b0742437e6d76962097c8575dfee41ec41f3d4c3b15c31cfd120023dc06e5"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R014",
+      "task_id": "p2-tome-texts-b4-001",
+      "original_revision_key": "tome-unlock-wilder_wyrmic-body",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/texts/unlock-wilder_wyrmic.lua",
+      "canonical_revision_uid": "e708adbc7efcc6242f1e4c3b394cd0017cc25d44578d1b8fb9758acd39b9d528",
+      "source_sha256": "dbc740128d89465a96b3796d77f7ebe4771ed02108ff4ae42c1bab490829d018",
+      "target_sha256": "a68c8396f1652eeb562b0ea4ace43cc5153da22caee53441057303789557f3f5",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/texts/unlock-wilder_wyrmic.lua",
+        "source_artifact_sha256": "84d9c5009808e4f37f1662c142f8fbdd68bb6b738269fd2d61739c85e386fc55",
+        "source_artifact_size_bytes": 1681
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 22,
+          "line_end": 33,
+          "column_start": 1,
+          "matched_span_sha256": "8d371cc20c9295e37b8c29faa5bdca0be217dd68debdd6ba9b84c3cd00faf1a7",
+          "matched_chars": 844,
+          "context_start_line": 10,
+          "context_end_line": 34,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1282,
+          "truncated": false,
+          "visible_context": "-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nreturn _t\"New Class: #LIGHT_GREEN#Wyrmic (Wilder)\",\n_t[[\nSome people, either through training or magic, can take on the defining aspects of the dragon-kin themselves.\nYou have consumed a magic that allows you to gain such a power. You can now also create new characters with the #LIGHT_GREEN#Wyrmic class#WHITE#.\n\nWyrmics are Wilders, who are at home in the wilds and draw their power from their connection with the dragons.\nClass features:#YELLOW#\n- Take on the aspects of drakes: fire, cold, sand, and more\n- Breath weapons: fire, ice, sand, and more\n- Powerful melee combatant#WHITE#\n\nAll Wilder classes use Equilibrium for their powers. It represents their connection to nature. \nThe higher it gets the more off-balance they are with it. A high equilibrium makes for a chance to fail to use a power and lose a turn.\nWyrmics are also trained in the martial arts and use stamina for some techniques.\n]]\n",
+          "visible_context_sha256": "95632d00a4e5018106bec1e98c76cee5f4862582c1a7fb657613ff66864551ea"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R015",
+      "task_id": "p2-tome-texts-b37-001",
+      "original_revision_key": "b37-43-dreadfell",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/lore/dreadfell.lua",
+      "canonical_revision_uid": "6928ee64b933a6f1bab9f1a19dcc819105d3adf7b11a596551e57eddd83a780b",
+      "source_sha256": "2b6beb17bd7140d5cda2c45d450e8676981f4761e2d997d0073e78decb8c726c",
+      "target_sha256": "0e769e2c5f252be538e2b63113317594070b2b498e363210ba03d24ac187e5a0",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/lore/dreadfell.lua",
+        "source_artifact_sha256": "f5508a609ab3c656731b21b17d8b8b8230c799c23c38c117a935ceaf02ccf18b",
+        "source_artifact_size_bytes": 13080
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 151,
+          "line_end": 151,
+          "column_start": 12,
+          "matched_span_sha256": "2b6beb17bd7140d5cda2c45d450e8676981f4761e2d997d0073e78decb8c726c",
+          "matched_chars": 34,
+          "context_start_line": 139,
+          "context_end_line": 163,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 3180,
+          "truncated": false,
+          "visible_context": "I apologise for what happened to that lovely suit of plate. I know it got a little... worn... during the treatment. But I'm afraid I really did need to find out the locations of your companion, and certain pressures had to be applied. You weren't very talkative, now were you? But I soon made you sing, oh yes. Of course, I could have just used a little divination magic to find out what I wanted, but I do so enjoy a good torture... And my, how joyous your screams were whenever the acid splashed against your beard! Hoh, we did chortle, did we not? But no matter, I've had my best skeletal smiths work on fixing your armour, fit to be worn by my new champion.\n\nI hope you enjoy your new work. Approach it with gusto, that sort of thing. I know in life you always dreamed of being a mighty hero of legend. But, well, what can be more glorious than this? You will live forever as my servant, destined to defend my throne for all time! You will be the envy of all the lesser ghouls that shamble about my halls. Well, until you get slain by some dumb intruding adventurer, of course... But that's the beauty of you heroes - one comes in, makes a mess, and then I get a new plaything to toy with. I wonder who shall replace you, eh?\n\nUntil then, do enjoy the work, try to keep the place clean, and remember - I own you forever.\n\n- The Master]],\n}\n\nnewLore{\n\tid = \"dreadfell-aletta-letter\",\n\tcategory = \"dreadfell\",\n\tname = _t\"a letter to Aletta from the Master\",\n\tlore = _t[[Ah, sweet Aletta! How rich your blood tasted on my lips! I know it's not quite what you were expecting from the next step in our relationship, but aren't surprises the true joy of any romance?\n\nI don't blame you for falling for me, you know, even to the point of betraying all your companions just for me. Women have always had a weakness for my brooding personality and sparkling wit. Even in life I was quite the charmer, and death only improves things, I assure you. I really do have the reputation as a heartbreaker, in more ways than one... Your heart shall now sit in a special place, next to the rest of the offal in my pits.\n\nThank you for telling me of Borfast's weaknesses - it shall make overcoming the dwarven grunt all the simpler. Your rogue friend remains more elusive, but he will be found and destroyed. You see I have a sort of persistent bloody-mindedness about this sort of thing. There is not a cockroach in this tower that does not obey my every whim and will, and I shall see to it that it remains that way.\n\nYou must feel a little betrayed of course. I promised you power beyond your imaginings, and instead I drained your blood, fed your flesh to my servants, and enthralled your soul to my bidding. Well, we all struggle to manage expectations sometimes, eh? At least be glad I let your tortured essence roam the cold fastness of my fortress, haunting anyone foolish enough to invade. And some power I will impart to you, and it is indeed beyond your imaginings, for your mind could never reach the dark places I can. But open your eyes now, for such dark places shall be with you till the end of time... Welcome, indeed, to the dark place of my heart.\n\n- The Master]],\n}\n\nnewLore{\n",
+          "visible_context_sha256": "a6adb6db1e05ee3b4bc7dff1e9daa4e945d64779421b649fada109895e2160cf"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R016",
+      "task_id": "p2-tome-texts-b24-001",
+      "original_revision_key": "b24-11-myssil",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/myssil.lua",
+      "canonical_revision_uid": "8cc9f34eb7438592b53558e9d855527b1b42f293de625e6c77b016b805c5b7a3",
+      "source_sha256": "9c6b4dcc49be91d2234fb591589ba7b79eb3fcdbc83b30ade8c46f924eacf6e1",
+      "target_sha256": "3be2c7a256425d98e6ad6f73254e9d9c498a0f29ae530c15d3ff33a69202e74c",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/myssil.lua",
+        "source_artifact_sha256": "b54bb2afac77a2615a826cff5e7a7338377f17a5c43ba76b0eed671862797cfd",
+        "source_artifact_size_bytes": 4037
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 53,
+          "line_end": 53,
+          "column_start": 7,
+          "matched_span_sha256": "9c6b4dcc49be91d2234fb591589ba7b79eb3fcdbc83b30ade8c46f924eacf6e1",
+          "matched_chars": 31,
+          "context_start_line": 41,
+          "context_end_line": 65,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1186,
+          "truncated": false,
+          "visible_context": "\t\t\treturn q and q:isCompleted(\"tempest-urkis-slain\") and not q:isCompleted(\"antimagic-reward\")\n\t\tend},\n\t\t{_t\"Farewell, Protector.\"},\n\t}\n}\n\nnewChat{ id=\"save-derth\",\n\ttext = _t[[Yes, we have sensed the blight of the eldritch forces there. I have people working to dispel the cloud, but the real threat is not there.\nWe know that a Tempest, a powerful Archmage who can control the storms, is responsible for the damage. Those wretched fools from Angolwen will not act. All corrupted!\nSo you must act, @playername@. I will show you the location of this mage - high in the Daikara mountains.\nErase him.]],\n\tanswers = {\n\t\t{_t\"You can count on me, Protector.\", action=function(npc, player)\n\t\t\tplayer:hasQuest(\"lightning-overload\"):create_entrance()\n\t\t\tgame:unlockBackground(\"myssil\", \"Protector Myssil\")\n\t\tend},\n\t}\n}\n\nnewChat{ id=\"tempest-dead\",\n\ttext = _t[[So I have heard, @playername@. You prove worthy of your training. Go with the blessing of nature, @playername@ of Zigur.\n#LIGHT_GREEN#*She touches your skin. You can feel nature infusing your very being.*#WHITE#\nThis shall help you on your travels. Farewell!]],\n\tanswers = {\n\t\t{_t\"Thank you, Protector.\", action=function(npc, player)\n",
+          "visible_context_sha256": "092c100c4cb1bbfa570e24eac84161b8f4b5a540f4145af3625c5110e3b20161"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R017",
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-16-assassin-lord",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/assassin-lord.lua",
+      "canonical_revision_uid": "aaefbbfcb7fbaf45c1b8f01952e7b6aeeb70d528a4ec6a18a34902ec5d921d97",
+      "source_sha256": "b603130afb6cd4cdfb2ea29554a82be4fae85ace71858b98bb66a4b7c2b349e9",
+      "target_sha256": "2eabc94837563d093f5ed8030db243e184c37353c68220d8ef2a87bd4fac4d8c",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/assassin-lord.lua",
+        "source_artifact_sha256": "921909aa7e5498180ced64ff006760d24282e8029d3bfb1f46f9f556d722b676",
+        "source_artifact_size_bytes": 4198
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 44,
+          "line_end": 44,
+          "column_start": 12,
+          "matched_span_sha256": "b603130afb6cd4cdfb2ea29554a82be4fae85ace71858b98bb66a4b7c2b349e9",
+          "matched_chars": 73,
+          "context_start_line": 32,
+          "context_end_line": 56,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1225,
+          "truncated": false,
+          "visible_context": "\telseif p.descriptor.subclass == \"Marauder\" or p.descriptor.subclass == \"Archer\" or p.descriptor.subclass == \"Skirmisher\" then\n\t\tif p:knowTalentType(\"cunning/poisons\") == nil then\n\t\t\tp:learnTalentType(\"cunning/poisons\", false)\n\t\t\tif p.descriptor.subclass == \"Skirmisher\" then p:setTalentTypeMastery(\"cunning/poisons\", 1.3) end\n\t\tend\n\tend\n\tif p:knowTalentType(\"cunning/trapping\") then\n\t\tgame.log(\"#LIGHT_GREEN#You and the Lord discuss your new relationship at some length, including the merits of assassination by proxy and some additional trapping techniques.\")\n\t\tgame.state:unlockTalent(player.T_AMBUSH_TRAP, player)\n\tend\n\n\tgame:changeLevel(1, \"wilderness\")\n\tgame.log(\"As you depart the assassin lord says: 'And do not forget, I own you now.'\")\nend\n\nlocal function do_attack(npc, player)\n\tengine.Faction:setFactionReaction(player.faction, npc.faction, -100, true)\n\tif npc.on_takehit then npc:on_takehit() end\nend\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[#LIGHT_GREEN#*Before you stands a menacing man clothed in black.*#WHITE#\nAhh, the intruder at last... And what shall we do with you? Why did you kill my men?]],\n\tanswers = {\n\t\t{_t\"I heard some cries, and your men... they were in my way. What's going on here?\", jump=\"what\"},\n",
+          "visible_context_sha256": "bff965c525be23e850c69875910086337b5f66862c6781c8ebdd44a10430aecb"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R018",
+      "task_id": "p2-tome-texts-b15-001",
+      "original_revision_key": "b15-02-escort-quest-start",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/escort-quest-start.lua",
+      "canonical_revision_uid": "697560396d88ca07fadd50de5c491ccb0ab7b1e236cc70c0feb5a9f9d86175c9",
+      "source_sha256": "4cc2da8a6ad3b75b9604b5f987108e5313bde95155e849647cd95656ae36639f",
+      "target_sha256": "936589dfa23c21e14dadfab41125b3c9d390152784204a3db1541be4e739096b",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/escort-quest-start.lua",
+        "source_artifact_sha256": "a30c280a5e491a583654a6f7483b18f56ef4e60029bde39314a84a7cdd6b0bdc",
+        "source_artifact_size_bytes": 3513
+      },
+      "locator_status": "LOCATED_MULTIPLE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 7,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 33,
+          "line_end": 33,
+          "column_start": 14,
+          "matched_span_sha256": "4cc2da8a6ad3b75b9604b5f987108e5313bde95155e849647cd95656ae36639f",
+          "matched_chars": 6,
+          "context_start_line": 21,
+          "context_end_line": 45,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 881,
+          "truncated": false,
+          "visible_context": "if p:attr(\"forbid_arcane\") and not npc.antimagic_ok then\n\nnewChat{ id=\"welcome\",\n\ttext = text,\n\tanswers =\n\t{\n\t\t{_t\"#LIGHT_GREEN#[Pretend to help but when it is time you will use a Ziguranth technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#\\nLead on; I will protect you.\", action=function(npc, player)\n\t\t\tplayer:hasQuest(npc.quest_id).to_zigur = true\n\t\t\tnpc.ai_state.tactic_leash = 100\n\t\t\tgame.party:addMember(npc, {\n\t\t\t\tcontrol=\"order\",\n\t\t\t\ttype=\"escort\",\n\t\t\t\ttitle=_t\"Escort\",\n\t\t\t\torders = {escort_portal=true, escort_rest=true},\n\t\t\t})\n\t\tend},\n\t\t{_t\"Go away; I do not help filthy arcane users!\", action=function(npc, player)\n\t\t\tgame.player:registerEscorts(\"lost\")\n\t\t\tnpc:disappear()\n\t\t\tnpc:removed()\n\t\t\tplayer:hasQuest(npc.quest_id).abandoned = true\n\t\t\tplayer:setQuestStatus(npc.quest_id, engine.Quest.FAILED)\n\t\tend},\n\t},\n}\n",
+          "visible_context_sha256": "f502d0a0208ab6c3e603eddcdff22ca3f07081fc656a81d1b5fc63627fe2b025"
+        },
+        {
+          "occurrence_ordinal": 2,
+          "line_start": 38,
+          "line_end": 38,
+          "column_start": 24,
+          "matched_span_sha256": "4cc2da8a6ad3b75b9604b5f987108e5313bde95155e849647cd95656ae36639f",
+          "matched_chars": 6,
+          "context_start_line": 26,
+          "context_end_line": 50,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 901,
+          "truncated": false,
+          "visible_context": "\t{\n\t\t{_t\"#LIGHT_GREEN#[Pretend to help but when it is time you will use a Ziguranth technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#\\nLead on; I will protect you.\", action=function(npc, player)\n\t\t\tplayer:hasQuest(npc.quest_id).to_zigur = true\n\t\t\tnpc.ai_state.tactic_leash = 100\n\t\t\tgame.party:addMember(npc, {\n\t\t\t\tcontrol=\"order\",\n\t\t\t\ttype=\"escort\",\n\t\t\t\ttitle=_t\"Escort\",\n\t\t\t\torders = {escort_portal=true, escort_rest=true},\n\t\t\t})\n\t\tend},\n\t\t{_t\"Go away; I do not help filthy arcane users!\", action=function(npc, player)\n\t\t\tgame.player:registerEscorts(\"lost\")\n\t\t\tnpc:disappear()\n\t\t\tnpc:removed()\n\t\t\tplayer:hasQuest(npc.quest_id).abandoned = true\n\t\t\tplayer:setQuestStatus(npc.quest_id, engine.Quest.FAILED)\n\t\tend},\n\t},\n}\n\nelse\n\nif not npc.antimagic_ok and profile.mod.allow_build.birth_zigur_sacrifice and not p:attr(\"has_arcane_knowledge\") then\n\n",
+          "visible_context_sha256": "bb652f3cc6b99df7ad0251a3e1b1a2dd9e273a4840d18f2af61304e0c6a85389"
+        },
+        {
+          "occurrence_ordinal": 3,
+          "line_start": 60,
+          "line_end": 60,
+          "column_start": 14,
+          "matched_span_sha256": "4cc2da8a6ad3b75b9604b5f987108e5313bde95155e849647cd95656ae36639f",
+          "matched_chars": 6,
+          "context_start_line": 48,
+          "context_end_line": 72,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 906,
+          "truncated": false,
+          "visible_context": "\nif not npc.antimagic_ok and profile.mod.allow_build.birth_zigur_sacrifice and not p:attr(\"has_arcane_knowledge\") then\n\nnewChat{ id=\"welcome\",\n\ttext = text,\n\tanswers =\n\t{\n\t\t{_t\"Lead on; I will protect you.\", action=function(npc, player)\n\t\t\tnpc.ai_state.tactic_leash = 100\n\t\t\tgame.party:addMember(npc, {\n\t\t\t\tcontrol=\"order\",\n\t\t\t\ttype=\"escort\",\n\t\t\t\ttitle=_t\"Escort\",\n\t\t\t\torders = {escort_portal=true, escort_rest=true},\n\t\t\t})\n\t\tend},\n\t\t{_t\"#LIGHT_GREEN#[Pretend to help but when it is time you will use a technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#\\nLead on; I will protect you.\", action=function(npc, player)\n\t\t\tplayer:hasQuest(npc.quest_id).to_zigur = true\n\t\t\tnpc.ai_state.tactic_leash = 100\n\t\t\tgame.party:addMember(npc, {\n\t\t\t\tcontrol=\"order\",\n\t\t\t\ttype=\"escort\",\n\t\t\t\ttitle=_t\"Escort\",\n\t\t\t\torders = {escort_portal=true, escort_rest=true},\n\t\t\t})\n",
+          "visible_context_sha256": "95bfdd724d11e9c9e948e5134be70259dd5d7947b525192511ebc2ac96dd7297"
+        },
+        {
+          "occurrence_ordinal": 4,
+          "line_start": 70,
+          "line_end": 70,
+          "column_start": 14,
+          "matched_span_sha256": "4cc2da8a6ad3b75b9604b5f987108e5313bde95155e849647cd95656ae36639f",
+          "matched_chars": 6,
+          "context_start_line": 58,
+          "context_end_line": 82,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 884,
+          "truncated": false,
+          "visible_context": "\t\t\t\tcontrol=\"order\",\n\t\t\t\ttype=\"escort\",\n\t\t\t\ttitle=_t\"Escort\",\n\t\t\t\torders = {escort_portal=true, escort_rest=true},\n\t\t\t})\n\t\tend},\n\t\t{_t\"#LIGHT_GREEN#[Pretend to help but when it is time you will use a technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#\\nLead on; I will protect you.\", action=function(npc, player)\n\t\t\tplayer:hasQuest(npc.quest_id).to_zigur = true\n\t\t\tnpc.ai_state.tactic_leash = 100\n\t\t\tgame.party:addMember(npc, {\n\t\t\t\tcontrol=\"order\",\n\t\t\t\ttype=\"escort\",\n\t\t\t\ttitle=_t\"Escort\",\n\t\t\t\torders = {escort_portal=true, escort_rest=true},\n\t\t\t})\n\t\tend},\n\t\t{_t\"Go away; I do not care for the weak.\", action=function(npc, player)\n\t\t\tgame.player:registerEscorts(\"lost\")\n\t\t\tnpc:disappear()\n\t\t\tnpc:removed()\n\t\t\tplayer:hasQuest(npc.quest_id).abandoned = true\n\t\t\tplayer:setQuestStatus(npc.quest_id, engine.Quest.FAILED)\n\t\tend},\n\t},\n}\n",
+          "visible_context_sha256": "4546bd8bb6b876dcbd5d043e7dc0378e70960affda702d9be5a76bafba62629d"
+        },
+        {
+          "occurrence_ordinal": 5,
+          "line_start": 75,
+          "line_end": 75,
+          "column_start": 24,
+          "matched_span_sha256": "4cc2da8a6ad3b75b9604b5f987108e5313bde95155e849647cd95656ae36639f",
+          "matched_chars": 6,
+          "context_start_line": 63,
+          "context_end_line": 87,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 807,
+          "truncated": false,
+          "visible_context": "\t\tend},\n\t\t{_t\"#LIGHT_GREEN#[Pretend to help but when it is time you will use a technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#\\nLead on; I will protect you.\", action=function(npc, player)\n\t\t\tplayer:hasQuest(npc.quest_id).to_zigur = true\n\t\t\tnpc.ai_state.tactic_leash = 100\n\t\t\tgame.party:addMember(npc, {\n\t\t\t\tcontrol=\"order\",\n\t\t\t\ttype=\"escort\",\n\t\t\t\ttitle=_t\"Escort\",\n\t\t\t\torders = {escort_portal=true, escort_rest=true},\n\t\t\t})\n\t\tend},\n\t\t{_t\"Go away; I do not care for the weak.\", action=function(npc, player)\n\t\t\tgame.player:registerEscorts(\"lost\")\n\t\t\tnpc:disappear()\n\t\t\tnpc:removed()\n\t\t\tplayer:hasQuest(npc.quest_id).abandoned = true\n\t\t\tplayer:setQuestStatus(npc.quest_id, engine.Quest.FAILED)\n\t\tend},\n\t},\n}\n\nelse\n\nnewChat{ id=\"welcome\",\n\ttext = text,\n",
+          "visible_context_sha256": "10ae67ec1bc9df0ec013f33aca84d4d7a9f1fe2f69beeb001a539741288b13ae"
+        },
+        {
+          "occurrence_ordinal": 6,
+          "line_start": 95,
+          "line_end": 95,
+          "column_start": 14,
+          "matched_span_sha256": "4cc2da8a6ad3b75b9604b5f987108e5313bde95155e849647cd95656ae36639f",
+          "matched_chars": 6,
+          "context_start_line": 83,
+          "context_end_line": 107,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 592,
+          "truncated": false,
+          "visible_context": "\nelse\n\nnewChat{ id=\"welcome\",\n\ttext = text,\n\tanswers =\n\t{\n\t\t{_t\"Lead on; I will protect you.\", action=function(npc, player)\n\t\t\tnpc.ai_state.tactic_leash = 100\n\t\t\tgame.party:addMember(npc, {\n\t\t\t\tcontrol=\"order\",\n\t\t\t\ttype=\"escort\",\n\t\t\t\ttitle=_t\"Escort\",\n\t\t\t\torders = {escort_portal=true, escort_rest=true},\n\t\t\t})\n\t\tend},\n\t\t{_t\"Go away; I do not care for the weak.\", action=function(npc, player)\n\t\t\tgame.player:registerEscorts(\"lost\")\n\t\t\tnpc:disappear()\n\t\t\tnpc:removed()\n\t\t\tplayer:hasQuest(npc.quest_id).abandoned = true\n\t\t\tplayer:setQuestStatus(npc.quest_id, engine.Quest.FAILED)\n\t\tend},\n\t},\n}\n",
+          "visible_context_sha256": "91b837832d6a6319e6702f4d3400a03f4c66e883045c3deff68ae008d07c4921"
+        },
+        {
+          "occurrence_ordinal": 7,
+          "line_start": 100,
+          "line_end": 100,
+          "column_start": 24,
+          "matched_span_sha256": "4cc2da8a6ad3b75b9604b5f987108e5313bde95155e849647cd95656ae36639f",
+          "matched_chars": 6,
+          "context_start_line": 88,
+          "context_end_line": 112,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 559,
+          "truncated": false,
+          "visible_context": "\tanswers =\n\t{\n\t\t{_t\"Lead on; I will protect you.\", action=function(npc, player)\n\t\t\tnpc.ai_state.tactic_leash = 100\n\t\t\tgame.party:addMember(npc, {\n\t\t\t\tcontrol=\"order\",\n\t\t\t\ttype=\"escort\",\n\t\t\t\ttitle=_t\"Escort\",\n\t\t\t\torders = {escort_portal=true, escort_rest=true},\n\t\t\t})\n\t\tend},\n\t\t{_t\"Go away; I do not care for the weak.\", action=function(npc, player)\n\t\t\tgame.player:registerEscorts(\"lost\")\n\t\t\tnpc:disappear()\n\t\t\tnpc:removed()\n\t\t\tplayer:hasQuest(npc.quest_id).abandoned = true\n\t\t\tplayer:setQuestStatus(npc.quest_id, engine.Quest.FAILED)\n\t\tend},\n\t},\n}\n\nend\n\nend\n\n",
+          "visible_context_sha256": "47f9d044c51c7205a2400bd6c9c704032792ac8e100ef26da609cbc66ad0c886"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R019",
+      "task_id": "p2-tome-texts-b17-001",
+      "original_revision_key": "b17-09-keepsake-caravan-destroyed",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/keepsake-caravan-destroyed.lua",
+      "canonical_revision_uid": "13d0f7f4c5b4a85a5740db203e47efcaedb15c87d10158c057bf851ff407365b",
+      "source_sha256": "996688fcf48e48e63bbed43bd2b4c79b060acc85ed1d38995653450f99457af9",
+      "target_sha256": "e6c50313a0b0eab26f8c4d79e90d6aeb643d98cb18fe0de47c5d64e599bbe2e5",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/keepsake-caravan-destroyed.lua",
+        "source_artifact_sha256": "52754a51f0fe740f429deb3cf46c293e775622f12389c8e5496e76d5bf1589d7",
+        "source_artifact_size_bytes": 1712
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 21,
+          "line_end": 22,
+          "column_start": 13,
+          "matched_span_sha256": "996688fcf48e48e63bbed43bd2b4c79b060acc85ed1d38995653450f99457af9",
+          "matched_chars": 180,
+          "context_start_line": 9,
+          "context_end_line": 34,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1059,
+          "truncated": false,
+          "visible_context": "-- This program is distributed in the hope that it will be useful,\n-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nnewChat{ id=\"caravan\",\n\ttext = _t[[#VIOLET#*As the last member of the caravan lies dying, you look at him and see the hate that fills his eyes.*#LAST#\nWe should have finished you off that day. You deserved no mercy!]],\n\tanswers = {\n\t\t{\n\t\t\t_t\"And I will show you no mercy. #LIGHT_GREEN#[Kill him]#LAST#\",\n\t\t\taction=function(npc, player)\n\t\t\t\tplayer:hasQuest(\"keepsake\"):on_evil_choice(player)\n\t\t\t\tplayer:hasQuest(\"keepsake\"):on_caravan_destroyed_chat_over(player)\n\t\t\tend\n\t\t},\n\t\t{\n\t\t\t_t\"I am sorry. #LIGHT_GREEN#[Help him]#LAST#\",\n\t\t\taction=function(npc, player)\n\t\t\t\tplayer:hasQuest(\"keepsake\"):on_good_choice(player)\n",
+          "visible_context_sha256": "f9c9ee040cbf815b26209f62402432dca771b5f1e5ae9234ba8758451d382168"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R020",
+      "task_id": "p2-tome-texts-b38-001",
+      "original_revision_key": "b38-14-elvala",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/lore/elvala.lua",
+      "canonical_revision_uid": "48a079a60b7a0070e5f81ae61c9d487dff8c4606cda1dd216c52d91c98bd7200",
+      "source_sha256": "2bcb2716a06593e6fd31492f5d248ebc83e2700b31d90988772110de78a18423",
+      "target_sha256": "3441da73724ede6564d5d458bcba351c5a84c6c0d013ec3c2450ae729b846efc",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/lore/elvala.lua",
+        "source_artifact_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+        "source_artifact_size_bytes": 85096
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 412,
+          "line_end": 412,
+          "column_start": 12,
+          "matched_span_sha256": "2bcb2716a06593e6fd31492f5d248ebc83e2700b31d90988772110de78a18423",
+          "matched_chars": 43,
+          "context_start_line": 400,
+          "context_end_line": 424,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 2830,
+          "truncated": false,
+          "visible_context": "The first waves of the storm of hate came the next day.  Human peasants and farmers, ordinary workers armed poorly, their looted swords and spears badly wielded.  I stood alone at our gates as they approached, Mooncutter in my hand.  When the first few charged at me I thrust the blade into the soil and tore a great chasm in the earth, and our mages summoned forth mists and smoke that rose from the ground and began to surround our whole city.  As the peasants stumbled in confusion archers started firing from our walls.  What few made it through the smoke and arrows I took on, tearing Mooncutter through their flesh with little resistance.  Their blood gushed out in the gallons, drenching our ground, staining my skin.  It was like a warm shower over my boiling emotions, a bath of blood to wash over my sins.\n\nThe Shroud of Elvala was begun, as our whole city was wreathed in cloud and smoke.  Our shield, our mask, our hiding.  It would last for centuries, the only dealings with the outside world being in furtive secrecy.\n]],\n\ton_learn = function(who)\n\t\tworld:gainAchievement(\"SPELLBLAZE_LORE\")\n\tend,\n}\n\nnewLore{\n\tid = \"spellblaze-chronicles-7\",\n\tcategory = \"spellblaze\",\n\tname = _t\"The Spellblaze Chronicles(7): Into Darkness\",\n\tlore = _t[[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#\n\n#{bold}#Chapter Seven: Into Darkness#{normal}#\n\nWe veiled our guilt, cloaked our crimes.  Though we had some communication with the outside through halfling traders and the odd disguised Shaloren adventurer, we remained mute to the world at large, hidden from their accusing gaze.  Outside our quiet walls others had not the luxury of hiding.  The Spellhunt was begun, and it knew no mercy.\n\nOrdinary people rose up against what they perceived as the arrogance of the mages, a revolt against the power of the few that had ruined the lives of so many.  Any suspected of sorcery or ties to the Art were cruelly dealt with.  There was sympathy for none, and many innocents fell victim to the unquenchable thirst for retribution.  The madness swept across the whole of Maj’Eyal.\n\nLaw and order had broken down.  Armies, territories and whole cities had been destroyed or ravaged by the Spellblaze, with many areas left completely uninhabitable.  Kingdoms fell and tyrants arose.  Bandits picked at the bones of civilisation like vultures on a rotten corpse.\n\nAn organisation called the Ziguranth, thought dead long ago, came into resurgence, gaining popular support from the people in their anti-magic crusade.  We heard of some mages going into hiding, but inevitably being rooted out, or fleeing desperately from place to place.  Dark tales also arose of necromancers and fell wizards creating dungeons and strongholds, fending off or evading attacks, and beginning reigns of terror.\n\n",
+          "visible_context_sha256": "4ec4ce09e6e11b23c591da896d6245453c367171dea0e3998293834ddc4654b2"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R021",
+      "task_id": "p2-tome-texts-b12-001",
+      "original_revision_key": "b12-39-command-staff",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/command-staff.lua",
+      "canonical_revision_uid": "cbb0053e622cd8cc78511cd67431e03b1c51288ae45fe31e57d79a1dfe3d8241",
+      "source_sha256": "aba0f076dc127a5f83869d28a994cace12d491acb308b69276d22b05f6b208f6",
+      "target_sha256": "988eb5a6167cf6e4798dd735ec9a5e822e7c24da6bcc612952a9ba1b01da2bf2",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/command-staff.lua",
+        "source_artifact_sha256": "52b02e0de93c5566a725446e1dfee69569025fbef82cb0b19b499cd2214db99e",
+        "source_artifact_size_bytes": 9780
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 163,
+          "line_end": 163,
+          "column_start": 7,
+          "matched_span_sha256": "aba0f076dc127a5f83869d28a994cace12d491acb308b69276d22b05f6b208f6",
+          "matched_chars": 40,
+          "context_start_line": 151,
+          "context_end_line": 175,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1069,
+          "truncated": false,
+          "visible_context": "\tnewChat{id=\"element_\"..flavor, text = _t\"Call forth which element?\", answers = answers}\n\n\tlocal flavor_name = _t(flavor):gsub(_t\"staff\", \"\"):capitalize()\n\taspect_answers[#aspect_answers + 1] = {(\"[%s]\"):format(flavor_name), jump = \"element_\"..flavor}\nend\n\naspect_answers[#aspect_answers + 1] = {_t\"Never mind.\"}\n\nif is_sentient() then\n\tlocal answers = {\n\t\t{_t\"How is it that you speak?\", cond = function() return is_sentient() and not o.no_command end, jump=\"how_speak\"},\n\t\t{_t\"I'd like you to bring forth a different aspect.\", cond = function() return is_sentient() and not o.no_command end, jump=\"which_aspect\"},\n\t\t{_t\"I'd like to alter your basic properties.\", cond = function() return is_sentient() and not o.no_command end, \n\t\t\taction = function()\n\t\t\t\tcoroutine.resume(co, true)\n\t\t\t\tlocal SentientWeapon = require \"mod.dialogs.SentientWeapon\"\n\t\t\t\tlocal ds = SentientWeapon.new({actor=game.player, o=o})\n\t\t\t\tgame:registerDialog(ds)\n\t\t\tend,\n\t\t},\n\t}\n\n\tcur_chat:triggerHook{\"CommandStaff:SentientChat\", o=o, answers=answers}\n\tanswers[#answers+1] = {_t\"Never mind.\"}\n\n",
+          "visible_context_sha256": "99e7bff7d2923127db491b56d480d31cd2f0b7c4f39ba89109040bd706e0e45c"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R022",
+      "task_id": "p2-tome-texts-b20-001",
+      "original_revision_key": "b20-05-last-hope-weapon-store",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/last-hope-weapon-store.lua",
+      "canonical_revision_uid": "16993053b1dcf7046689790ce07c0f4695a9b0d4d44414af85f2a403fb903167",
+      "source_sha256": "6c765c9516e50c3dcccd213ff161c0cecd3ede40da83beb5face05908b901e00",
+      "target_sha256": "fb1266a5a458ede592dacab7d01c87868f8c264d43c93cafb3f8e99c9f4dbd4d",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/last-hope-weapon-store.lua",
+        "source_artifact_sha256": "bed03e2b8a71940d177353e47ef9aaed37cf7a215d0083807694de97f03ef042",
+        "source_artifact_size_bytes": 2370
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 33,
+          "line_end": 33,
+          "column_start": 13,
+          "matched_span_sha256": "6c765c9516e50c3dcccd213ff161c0cecd3ede40da83beb5face05908b901e00",
+          "matched_chars": 185,
+          "context_start_line": 21,
+          "context_end_line": 45,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1150,
+          "truncated": false,
+          "visible_context": "\ttext = _t[[Welcome @playername@ to my shop.]],\n\tanswers = {\n\t\t{_t\"Let me see your wares.\", action=function(npc, player)\n\t\t\tnpc.store:loadup(game.level, game.zone)\n\t\t\tnpc.store:interact(player)\n\t\tend},\n\t\t{_t\"I am looking for martial training.\", jump=\"training\"},\n\t\t{_t(\"Sorry, I have to go!\", \"chat_last-hope-weapon-store\")},\n\t}\n}\n\nnewChat{ id=\"training\",\n\ttext = _t[[I can indeed offer some martial training (talent category Technique/Combat-training) for a fee of 50 gold pieces; or the basic usage of bows and slings (Shoot talent) for 8 gold pieces.]],\n\tanswers = {\n\t\t{_t\"Please train me in generic weapons and armour usage.\", action=function(npc, player)\n\t\t\tgame.logPlayer(player, \"The smith spends some time with you, teaching you the basics of armour and weapon usage.\")\n\t\t\tplayer:incMoney(-50)\n\t\t\tplayer:learnTalentType(\"technique/combat-training\", true)\n\t\t\tplayer.changed = true\n\t\tend, cond=function(npc, player)\n\t\t\tif player.money < 50 then return end\n\t\t\tif player:knowTalentType(\"technique/combat-training\") then return end\n\t\t\treturn true\n\t\tend},\n\t\t{_t\"Please train me in the basic usage of bows and slings.\", action=function(npc, player)\n",
+          "visible_context_sha256": "cf744b6f4e2db43cef75561a77cb14c1bfb3613998581946f382514d058f5dee"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R023",
+      "task_id": "p2-tome-texts-b31-001",
+      "original_revision_key": "b31-13-tarelion-start-archmage",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/tarelion-start-archmage.lua",
+      "canonical_revision_uid": "312991c83a355b06b94c9cf2f17ade3c9e3f7ff88cb40699d9585b284613d18b",
+      "source_sha256": "5b5424d4ab3127b23bbe0f5c48a19b5b24aec88eaddb2ef9720aad8cfd38cb9e",
+      "target_sha256": "fbbd33b37d370f243a86a395f319e13479b6bcfa7f612a811ccb7a4134fea835",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/tarelion-start-archmage.lua",
+        "source_artifact_sha256": "7ba241761358880e4af43221f01688bd2f8395e01add5dc5b2c780a189eac949",
+        "source_artifact_size_bytes": 2536
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 52,
+          "line_end": 52,
+          "column_start": 7,
+          "matched_span_sha256": "5b5424d4ab3127b23bbe0f5c48a19b5b24aec88eaddb2ef9720aad8cfd38cb9e",
+          "matched_chars": 10,
+          "context_start_line": 40,
+          "context_end_line": 63,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 712,
+          "truncated": false,
+          "visible_context": "The instability is also to your advantage there, your simple phase door spell will be fully controllable.\n\nSo, you think you can help us ?]],\n\tanswers = {\n\t\t{_t\"Yes Archmage, send me there!\", jump=\"teleport\"},\n\t\t{_t\"No sorry, I need to go.\", jump=\"refuse\"},\n\t}\n}\n\nnewChat{ id=\"teleport\",\n\ttext = _t[[Good luck!]],\n\tanswers = {\n\t\t{_t\"[teleport]\", action=function(npc, player) game:changeLevel(1, \"abashed-expanse\", {direct_switch=true}) end},\n\t}\n}\n\nnewChat{ id=\"refuse\",\n\ttext = _t[[Oh well, farewell on your trips. Now I need to find somebody else to go up there.]],\n\tanswers = {\n\t\t{_t\"Bye.\", action=function(npc, player) player:setQuestStatus(\"start-archmage\", engine.Quest.FAILED) end},\n\t}\n}\n\nreturn \"welcome\"\n",
+          "visible_context_sha256": "842285c02c79fa5bf887f3a682b5d44d4f81a4628b3ea769a4191d26575541d5"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R024",
+      "task_id": "p2-cults-dialogue-b1-001",
+      "original_revision_key": "cults-b1-never-seen-undead",
+      "canonical_component": "cults",
+      "canonical_section": "tome-cults/data/chats/space-dwarf-trinket.lua",
+      "canonical_revision_uid": "af3bce1a078ba7fd6e8c06b800fe83eac675abb95e4f5fc83d492971810082c2",
+      "source_sha256": "9031270a3ff3a1c95fa0d956682fa59a8fe1fcce419128e40c3e3388c3917005",
+      "target_sha256": "10d0dd2e1043d15144b718f8cfd17c09d8a3a5a68798d0b628bd2e9e8b65dffb",
+      "source_binding": {
+        "kind": "dlc_file_sha256",
+        "repository_alias": "tome-cults",
+        "commit": null,
+        "relative_path": "data/chats/space-dwarf-trinket.lua",
+        "source_artifact_sha256": "a13e3fcfef2cf14583841454696d007394ce4cd04bc4036db2d6faec34920a10",
+        "source_artifact_size_bytes": 3674,
+        "provenance_note": "DLC repository commit is not frozen; this exact public file hash is the binding."
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 68,
+          "line_end": 68,
+          "column_start": 7,
+          "matched_span_sha256": "9031270a3ff3a1c95fa0d956682fa59a8fe1fcce419128e40c3e3388c3917005",
+          "matched_chars": 30,
+          "context_start_line": 56,
+          "context_end_line": 80,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 915,
+          "truncated": false,
+          "visible_context": "newChat{ id=\"drem\",\n\ttext = _t[[#YELLOW_GREEN##{bold}#The device beeps again and speaks.#{normal}##LAST#\nUser's biological signature indicates dangerous degeneration of genome due to unknown factors. Sending information for further analysis.]],\n\tanswers = {\n\t\t{_t\"Genome?\", jump=\"end\"},\n\t}\n}\n\nnewChat{ id=\"undead\",\n\ttext = _t[[#YELLOW_GREEN##{bold}#The device beeps again and speaks.#{normal}##LAST#\nNo signs of life detected. User appears to be still moving despite absence of living tissue. Sending information for further analysis.]],\n\tanswers = {\n\t\t{_t\"Never seen an undead have you?\", jump=\"end\"},\n\t}\n}\n\nnewChat{ id=\"default\",\n\ttext = _t[[#YELLOW_GREEN##{bold}#The device beeps again and speaks.#{normal}##LAST#\nUser's biological signature does not match any currently known species in database. Sending information for further analysis.]],\n\tanswers = {\n\t\t{_t\"Database?\", jump=\"end\"},\n\t}\n}\n\nnewChat{ id=\"end\",\n",
+          "visible_context_sha256": "996390e961c370e57ce76f5a92efd593917367824f0b391041330dba8d56925d"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R025",
+      "task_id": "p2-tome-texts-b32-001",
+      "original_revision_key": "b32-39-unremarkable-cave-bosses",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/unremarkable-cave-bosses.lua",
+      "canonical_revision_uid": "a9b59daf0b550c835bb3328b5cbf1f4f39a03dbc49a86bda3e6712d1d258192a",
+      "source_sha256": "07176f770d8058016bb55b71621719fe8dca5ce16e6d474b360de6376699403f",
+      "target_sha256": "e34f21b8cdcb0dd9c942803a23756b506e14b5f021d5d781f0fccf17cd05633a",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/unremarkable-cave-bosses.lua",
+        "source_artifact_sha256": "b64294b4876ae408d765b868724b2b00c7e2910c8268f5ce195befc0a894c8bf",
+        "source_artifact_size_bytes": 2572
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 56,
+          "line_end": 56,
+          "column_start": 7,
+          "matched_span_sha256": "07176f770d8058016bb55b71621719fe8dca5ce16e6d474b360de6376699403f",
+          "matched_chars": 15,
+          "context_start_line": 44,
+          "context_end_line": 60,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 879,
+          "truncated": false,
+          "visible_context": "end\n\ngame.player:grantQuest(\"strange-new-world\")\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[#LIGHT_GREEN#*A beautiful Elven woman in golden robes stands before you, facing an orc clad in mail.*#WHITE#\nFillarel: \"Abandon this fight, orc! You cannot win: I stand with the power of the Sun and the shadows of the Moons.\"\nKrogar: \"Ha! It's only been one hour and you already look tired, my 'lady'.\"\n#LIGHT_GREEN#*As you enter the room they notice you.*#WHITE#\nFillarel: \"You! @playerdescriptor.race@! Help me defeat this monster or begone!\"\nKrogar: \"Ah, looking for help? Bah. @playerdescriptor.race@, kill this wench for me and I shall reward you!\"]],\n\tanswers = {\n\t\t{_t\"[attack Krogar]\", action=attack_krogar},\n--\t\t{_t\"[attack Fillarel]\", action=attack_fillarel, cond=function(npc, player) return not player:hasQuest(\"start-sunwall\") and config.settings.cheat end},\n\t}\n}\nreturn \"welcome\"\n",
+          "visible_context_sha256": "3ef0b0acec7299b050f8471741f3504cbf19ec1769073e18f2a1c42d52d38c78"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R026",
+      "task_id": "p2-tome-texts-b3-001",
+      "original_revision_key": "tome-inscr-L26141",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "canonical_revision_uid": "e6257e361fad571bd2ad263ae99967c36049eaf8da6f15e66601e98f9eedd0d0",
+      "source_sha256": "0de3a263789b203d97501fdbccf7b3c215cfdc578af76257166a98281c4d3438",
+      "target_sha256": "59e29ea4a32c618f2f7fcd7a1974dc6b538213fcd32c562e7d980289dd077027",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+        "source_artifact_sha256": "9c90062320a8661c73529bf90271369a897e5eb8b1393aae460d6a10677281c2",
+        "source_artifact_size_bytes": 61727
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 1524,
+          "line_end": 1525,
+          "column_start": 13,
+          "matched_span_sha256": "0de3a263789b203d97501fdbccf7b3c215cfdc578af76257166a98281c4d3438",
+          "matched_chars": 242,
+          "context_start_line": 1512,
+          "context_end_line": 1537,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1371,
+          "truncated": false,
+          "visible_context": "\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tlocal tg = {type=\"bolt\", range=self:getTalentRange(t), talent=t, display={particle=\"bolt_slime\", trail=\"slimetrail\"}}\n\t\tlocal x, y = self:getTarget(tg)\n\t\tif not x or not y then return nil end\n\t\tself:projectile(tg, x, y, DamageType.INSIDIOUS_POISON, {dam=data.power + data.inc_stat, dur=7, heal_factor=data.heal_factor}, {type=\"slime\"})\n\t\tself:removeEffectsFilter(self, {status=\"detrimental\", type=\"magical\", ignore_crosstier=true}, 1)\n\t\tgame:playSoundNear(self, \"talents/slime\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Activate the infusion to spit a bolt of poison doing %0.2f nature damage per turn for 7 turns, and reducing the target's healing received by %d%%.\n\t\tThe sudden stream of natural forces also strips you of one random detrimental magical effect.]]):tformat(damDesc(self, DamageType.NATURE, data.power + data.inc_stat) / 7, data.heal_factor)\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[%d nature damage, %d%% healing reduction]]):tformat(damDesc(self, DamageType.NATURE, data.power + data.inc_stat) / 7, data.heal_factor)\n\tend,\n}\n\nnewInscription{\n\tname = \"Rune: Invisibility\",\n\ttype = {\"inscriptions/runes\", 1},\n\tpoints = 1,\n\tis_spell = true,\n",
+          "visible_context_sha256": "c1accd598fcfcf23b3e5b153831cfc98928ea8de8f7a0237cf69631d8612ac81"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R027",
+      "task_id": "p2-tome-texts-b42-001",
+      "original_revision_key": "b42-50-scintillating-caves",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/lore/scintillating-caves.lua",
+      "canonical_revision_uid": "82a0504b77c16afa7a6b95fcb305edcf3e3764621d53dcc883ef70538bd5fb67",
+      "source_sha256": "3f0eeda9728f92edbe181c9aac52b06f58ce18e5ff37902044a890a49298060d",
+      "target_sha256": "25f78bf5347a5030e7c3b2c9e4f71537660959b13f4e796e0a37b1f911f65c3f",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/lore/scintillating-caves.lua",
+        "source_artifact_sha256": "75f94a624142c7806528ab009020468534ac9a5903ac08e2961f8004b4ce6cc5",
+        "source_artifact_size_bytes": 7762
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 87,
+          "line_end": 94,
+          "column_start": 13,
+          "matched_span_sha256": "3f0eeda9728f92edbe181c9aac52b06f58ce18e5ff37902044a890a49298060d",
+          "matched_chars": 2005,
+          "context_start_line": 75,
+          "context_end_line": 95,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 2903,
+          "truncated": false,
+          "visible_context": "\nThere is a wonder here, a wonder beyond all else I have ever seen. A crystal of amazing intricacy and beauty, with a halo of power that echoes of the original energies of the Spellblaze. All the power that our ancestors unlocked, mixed with the glorious corruption that it triggered. What beauty - what tremendous beauty!\n\nI felt it touch me, I felt it reach into my heart and imbue me with its strength. I stood entranced as its energy flowed into me. Oh how the blood now courses through my veins! Blood corrupted with true power!\n\nI see now the path that lies before me. The Spellblaze was not a curse, it was a blessing. I must open our people's eyes to the glory that our race has unlocked! I shall bring the wonders of this corruption to the whole world!]],\n}\n\nnewLore{\n\tid = \"scintillating-caves-note-6\",\n\tcategory = \"scintillating caves\",\n\tname = _t\"exploration journal\",\n\tlore = _t[[#{italic}#10th Mirth, Year 122 of the Age of Ascendancy#{normal}#\nThe council has seen fit to allow me to investigate the scintillating caverns after that Rhaloren madman started raving on the streets about how someone had \"befouled\" them... I do not see any such befoulment, but neither do I see the moving crystals this place was rumoured to have. There are oddly misplaced crystal shards, which seem to have sheared off of something larger, but hardly anything spectacular.\n\n#{italic}#2nd Summertide, Year 122 of the Age of Ascendancy#{normal}#\nIt's strange, really.. from the fragments I've been able to find, they seem to adhere to the ethereal geometry of magics - the red fragments seem to be pieces of fire magic from their geometry; the blue adheres to water, etc... there also seem to be pieces of deformed crystal, as though some terrible power warped whatever colour some of these crystals used to be into something they were never intended to be - is this the \"befoulment\" the madman raved about?\n\n#{italic}#3rd Summertide, Year 122 of the Age of Ascendancy#{normal}#\nWell... that was certainly unexpected. There may be some truth to the rumours that these crystals can move about, or at least that they have some will of their own - I was just about to finish my investigation of the caves, when in the very last part of the cave I hadn't yet explored, I saw what appeared to be two giant... legs, growing from the cavern. I was immediately overcome by feelings of fear and malice, and not my own - that crystal sent them to me, that I was unwelcome here, that it was not yet finished. I dare not tell the council of my cowardice, so I shall... invent a more fitting report in a much safer place. If some wayward adventurer finds these notes, it is my surmise that whomever destroyed the original crystals left such a strong impression of strength and will that the rudimentary intelligence governing them decided the form of its destroyer was stronger than the original, crystalline shapes.]]\n}\n",
+          "visible_context_sha256": "03da8ffa897f7e7d2966ee91d3d8592336ca72bd6dae56b8b7157d95b4c0e99a"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R028",
+      "task_id": "p2-tome-texts-b7-001",
+      "original_revision_key": "arena-b7-23-arena-unlock",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/arena-unlock.lua",
+      "canonical_revision_uid": "5336ccb1a19cf6dd60b2b114fe0337ca9fc5ec0784fff2b3813b3110c13b845c",
+      "source_sha256": "1141be77144823f709e6e8b971b07144f866782c1c34dcffcf5e6a84b4c16933",
+      "target_sha256": "0938cf320a9c9d47acb819d03b45a1d5ddcdb3e2b0b5dd0d14ead2e26e02230f",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/arena-unlock.lua",
+        "source_artifact_sha256": "351bbaa7c2a7bf1e73148436bc22e1b847514b28b6900dad1e6fa761209b153b",
+        "source_artifact_size_bytes": 7019
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 100,
+          "line_end": 100,
+          "column_start": 7,
+          "matched_span_sha256": "1141be77144823f709e6e8b971b07144f866782c1c34dcffcf5e6a84b4c16933",
+          "matched_chars": 12,
+          "context_start_line": 88,
+          "context_end_line": 112,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 626,
+          "truncated": false,
+          "visible_context": "You certainly won't regret meeting us, indeed...\nSo, are you ready to fight?\n]],\n\tanswers = {\n\t\t{_t\"Sounds like fun. I'm ready!\", jump=\"go\"},\n\t\t{_t\"Wait. I am not ready yet.\", jump=\"ok\"},\n\t}\n}\n\nnewChat{ id=\"go\",\n\ttext = _t\"#LIGHT_GREEN#*The man quietly walks away, after making you a gesture to follow him*\",\n\tanswers = {\n\t\t{_t\"[Follow him]\",\n\t\taction = function (self, player)\n\t\t\tself:die()\n\t\t\tplayer:grantQuest(\"arena-unlock\")\n\t\t\tgame:changeLevel(1, \"arena-unlock\", {direct_switch=true})\n\t\t\trequire(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Get ready!\", _t\"Defeat all three enemies!\", 400)\n\t\tend\n\t\t},\n\t}\n}\n\n\nnewChat{ id=\"win\",\n",
+          "visible_context_sha256": "8d5fe9f1bfc9acbd474906ca627e50546ed2bc8ccf79f6383b74f2334ddcbf0f"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R029",
+      "task_id": "p2-tome-texts-b35-001",
+      "original_revision_key": "b35-02-zigur-trainer",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/zigur-trainer.lua",
+      "canonical_revision_uid": "ec7ab5dc180d14da4ee432cf2299ae42cb85ab159ba00286b0f1dc869ad431ef",
+      "source_sha256": "52ea67359dfa70ce35169fd2493590d8371919161a7fb2e28e322863448b9a87",
+      "target_sha256": "06263c2d6ffcb55ac60d57cc5c4aa66e6d80645255d42754eea992819e6ecfb9",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/zigur-trainer.lua",
+        "source_artifact_sha256": "28f22b69466a59728d6e916f1325ebab2eb171dfc1f29ed950617a037519f84d",
+        "source_artifact_size_bytes": 5078
+      },
+      "locator_status": "LOCATED_MULTIPLE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 3,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 24,
+          "line_end": 24,
+          "column_start": 7,
+          "matched_span_sha256": "52ea67359dfa70ce35169fd2493590d8371919161a7fb2e28e322863448b9a87",
+          "matched_chars": 9,
+          "context_start_line": 12,
+          "context_end_line": 36,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 699,
+          "truncated": false,
+          "visible_context": "-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nif game.player:isQuestStatus(\"antimagic\", engine.Quest.DONE) then\nnewChat{ id=\"welcome\",\n\ttext = _t[[Well met, friend.]],\n\tanswers = {\n\t\t{_t\"Farewell.\"},\n\t}\n}\nreturn \"welcome\"\nend\n\nlocal sex = game.player.female and _t\"Sister\" or _t\"Brother\"\n\nlocal remove_magic = function(npc, player)\n\tfor tid, _ in pairs(player.sustain_talents) do\n\t\tlocal t = player:getTalentFromId(tid)\n\t\tif t.is_spell then player:forceUseTalent(tid, {ignore_energy=true}) end\n\tend\n",
+          "visible_context_sha256": "17666e90cad1963a2876ee8089327e3d37e28b141e44ef1d057d77210f91fdd1"
+        },
+        {
+          "occurrence_ordinal": 2,
+          "line_start": 71,
+          "line_end": 71,
+          "column_start": 86,
+          "matched_span_sha256": "52ea67359dfa70ce35169fd2493590d8371919161a7fb2e28e322863448b9a87",
+          "matched_chars": 9,
+          "context_start_line": 59,
+          "context_end_line": 83,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1189,
+          "truncated": false,
+          "visible_context": "We can train you, but you need to prove you are pure, untouched by the eldritch forces, and ready to fight them to the end.\nYou will be challenged against magical foes. Should you defeat them, we will teach you our ways, and never again will you be able to be tainted by magic, or use it.\n\n#LIGHT_RED#Note:  Completing this quest will forever prevent this character from using spells or items powered by arcane forces.  In exchange you'll be given access to a mindpower based generic talent tree, Anti-magic, and be able to unlock hidden properties in many arcane-disrupting items.]]):tformat(sex),\n\tanswers = {\n\t\t{_t\"I will face your challenge!\", cond=function(npc, player) return player.level >= 10 end, jump=\"testok\"},\n\t\t{_t\"I will face your challenge!\", cond=function(npc, player) return player.level < 10 end, jump=\"testko\"},\n\t\t{_t\"I'm not interested.\", jump=\"ko\"},\n\t}\n}\n\nnewChat{ id=\"ko\",\n\ttext = _t[[Very well. I will say that this is disappointing, but it is your choice. Farewell.]],\n\tanswers = {\n\t\t{_t\"Farewell.\"},\n\t}\n}\n\nnewChat{ id=\"testko\",\n\ttext = _t[[Ah, you seem eager, but maybe still too young. Come back when you have grown a bit.]],\n\tanswers = {\n\t\t{_t\"I shall.\"},\n\t}\n}\n\n",
+          "visible_context_sha256": "dd087f950802ac4971bb3983a39ac96b05fa5daca377b9f96158877a0267cbd9"
+        },
+        {
+          "occurrence_ordinal": 3,
+          "line_start": 73,
+          "line_end": 73,
+          "column_start": 7,
+          "matched_span_sha256": "52ea67359dfa70ce35169fd2493590d8371919161a7fb2e28e322863448b9a87",
+          "matched_chars": 9,
+          "context_start_line": 61,
+          "context_end_line": 85,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 986,
+          "truncated": false,
+          "visible_context": "\n#LIGHT_RED#Note:  Completing this quest will forever prevent this character from using spells or items powered by arcane forces.  In exchange you'll be given access to a mindpower based generic talent tree, Anti-magic, and be able to unlock hidden properties in many arcane-disrupting items.]]):tformat(sex),\n\tanswers = {\n\t\t{_t\"I will face your challenge!\", cond=function(npc, player) return player.level >= 10 end, jump=\"testok\"},\n\t\t{_t\"I will face your challenge!\", cond=function(npc, player) return player.level < 10 end, jump=\"testko\"},\n\t\t{_t\"I'm not interested.\", jump=\"ko\"},\n\t}\n}\n\nnewChat{ id=\"ko\",\n\ttext = _t[[Very well. I will say that this is disappointing, but it is your choice. Farewell.]],\n\tanswers = {\n\t\t{_t\"Farewell.\"},\n\t}\n}\n\nnewChat{ id=\"testko\",\n\ttext = _t[[Ah, you seem eager, but maybe still too young. Come back when you have grown a bit.]],\n\tanswers = {\n\t\t{_t\"I shall.\"},\n\t}\n}\n\nlocal ogretext = \"\"\nif player.descriptor and player.descriptor.subrace == \"Ogre\" then\n",
+          "visible_context_sha256": "10db217c1a1871975e3edf875456999280f98eb1187433128e75a6b62c0f40f5"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R030",
+      "task_id": "p2-tome-texts-b8-001",
+      "original_revision_key": "alchemist-b8-07-alchemist-derth",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/alchemist-derth.lua",
+      "canonical_revision_uid": "c8412747afcd6426a7081af7e7833e3e4b9f3e533dd9644c2e03648beac77794",
+      "source_sha256": "7fdc3a939e6c431ebd7c768fb3c171e69e6f54fa62297a7f183a7c578631705d",
+      "target_sha256": "189d02135a455266580ad04c5689f4aae3e6c0e6d4cb899c130c5e8675d17de5",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/alchemist-derth.lua",
+        "source_artifact_sha256": "c5165a2eb8eec5078adb663a0aa908af23a75ef35cb35044fc69e50516b394f4",
+        "source_artifact_size_bytes": 23778
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 134,
+          "line_end": 134,
+          "column_start": 7,
+          "matched_span_sha256": "7fdc3a939e6c431ebd7c768fb3c171e69e6f54fa62297a7f183a7c578631705d",
+          "matched_chars": 20,
+          "context_start_line": 122,
+          "context_end_line": 146,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1485,
+          "truncated": false,
+          "visible_context": "newChat{ id=\"welcome\",\n\ttext = _t[[#LIGHT_GREEN#*A human robed in immaculate white satin opens the door and eyes you appraisingly.*#WHITE#\nAh, an adventurer. I was just thinking that I needed a new one.]],\n\tanswers = {\n\t\t{_t\"That sounds promising. And ominous.\", jump=\"ominous\"},\n\t\t{_t\"[leave]\"},\n\t}\n}\n\nnewChat{ id=\"ominous\",\n\ttext = _t[[Indeed, it is both promising and ominous. I can reward you handsomely for your efforts, but they will lead you into deadly peril to which, I assume, the previous three fellows who went off on my errand never to return can attest.]],\n\tanswers = {\n\t\t{_t\"What do you propose?\", jump=\"proposal\"},\n\t}\n}\n\nnewChat{ id=\"proposal\",\n\ttext = _t[[Good adventurer, I am an alchemist, and quite a good one. This year, for the first time, the great Brotherhood of Alchemists has invited my application to their number. I'll not try your patience with the details of the application process, but suffice to say that it is grueling. Fortunately, a mere three tasks now stand between me and acceptance.]],\n\tanswers = {\n\t\t{_t\"How can I help?\", jump=\"help\"},\n\t}\n}\n\nnewChat{ id=\"help\",\n\ttext = _t[[I require ingredients for three potent mixtures. Obviously, since I seek your aid, none of them is to be found by simply strolling to the local herbalist's. No, they will need to be forcibly parted from their owners who will, just as obviously, put up a fight. I've yet to encounter a naga who would be persuaded to hand over his tongue! Ha! Oh, I am droll at times.]],\n",
+          "visible_context_sha256": "a9cbf761b92ce744c6530c8a4a1914585bbd4210f0831d04d96e4783e937920a"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R031",
+      "task_id": "p2-tome-texts-b14-001",
+      "original_revision_key": "b14-33-elisa-shop",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/elisa-shop.lua",
+      "canonical_revision_uid": "9dc533e21fb188b6fd6c55ee1f2bd7a5fe7785e87b53c8c33ba94367e4b15e6c",
+      "source_sha256": "82543e1c904ab05dd8cbb5e3e1a22c87d27f77a0d4d9349f6ee80e937084a314",
+      "target_sha256": "2cfd33a587a8810d511e66c00cbe6998a666078efeaf7405134dddcb0a8b85fe",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/elisa-shop.lua",
+        "source_artifact_sha256": "22b346fea3c73eb1fa7c0bc81a10ebd421f22402aac35246ed8e537fae4fdb1b",
+        "source_artifact_size_bytes": 2847
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 48,
+          "line_end": 48,
+          "column_start": 8,
+          "matched_span_sha256": "82543e1c904ab05dd8cbb5e3e1a22c87d27f77a0d4d9349f6ee80e937084a314",
+          "matched_chars": 17,
+          "context_start_line": 36,
+          "context_end_line": 60,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 603,
+          "truncated": false,
+          "visible_context": "\t\t\t\tlist[#list+1] = o:getName{do_color=true}\n\t\t\tend\n\t\tend\n\tend\n\n\t-- Create the chat\n\tnewChat{ id=\"id_list\",\n\t\ttext = ([[Let's see what have you got here...\n%s\n\nThat is very nice, @playername@!]]):tformat(table.concat(list, \"\\n\")),\n\t\tanswers = {\n\t\t\t{_t\"Thank you, Elisa!\", jump=do_quest and \"quest\" or nil},\n\t\t}\n\t}\n\n\t-- Switch to that chat\n\treturn \"id_list\"\nend\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[Hello friend, what can I do for you?]],\n\tanswers = {\n\t\t{_t\"Could you have a look at these objects, please? [show her your unidentified items]\", cond=can_auto_id, action=auto_id},\n\t\t{_t\"Nothing, goodbye.\"},\n",
+          "visible_context_sha256": "e5c646d623c891a272d232a61d249d944eceff3848bb8cf40ac61b6bab984b51"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R032",
+      "task_id": "p2-tome-texts-b18-001",
+      "original_revision_key": "b18-07-last-hope-elder",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/last-hope-elder.lua",
+      "canonical_revision_uid": "135f164c105dff506599424d9d95acfbcc45b1cb7991b1e9e7c58f28f455890a",
+      "source_sha256": "627470530f2b467112da47d46bc5134a2a58eb045910eb2077126110b0e46d9b",
+      "target_sha256": "145f4746e5f0de125b024bf192d65ffce8005b460ded73b4cfe2af63929be4cf",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/last-hope-elder.lua",
+        "source_artifact_sha256": "e360e079ccb4a4bebcbe955bb90791f1cb2b27d18079734df6e3f0c8a6fb03cd",
+        "source_artifact_size_bytes": 6740
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 21,
+          "line_end": 21,
+          "column_start": 13,
+          "matched_span_sha256": "627470530f2b467112da47d46bc5134a2a58eb045910eb2077126110b0e46d9b",
+          "matched_chars": 86,
+          "context_start_line": 9,
+          "context_end_line": 33,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1813,
+          "truncated": false,
+          "visible_context": "-- This program is distributed in the hope that it will be useful,\n-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[Welcome, @playername@, to Last Hope. Traveler, please be quick as my time is precious.]],\n\tanswers = {\n\t\t{_t\"I have found a strange staff in my travels (#LIGHT_GREEN#*describe it in detail*#LAST#)  It looked very old and very powerful. I dared not use it.\", jump=\"found_staff\", cond=function(npc, player) return player:isQuestStatus(\"staff-absorption\", engine.Quest.PENDING) end},\n\t\t{_t\"The hunt for the staff took me to a continent far to the east, accessible only by magic portal. I've recently returned by just such a portal, and I come bearing instructions on how to construct a similar portal here in Last Hope to make the return journey possible. I'm sure the Elves there would welcome trade with the west.\", jump=\"east_portal\", cond=function(npc, player) local q = player:hasQuest(\"east-portal\"); return q and not q:isCompleted(\"talked-elder\") end},\n\t\t{_t\"Nothing, excuse me. Bye!\"},\n\t}\n}\n\nnewChat{ id=\"found_staff\",\n\ttext = _t[[#LIGHT_GREEN#*He remains silent for a while*#WHITE# Indeed you were right to come here.\nThe staff you describe reminds me of an artifact of great power from ancient times. May I see it?]],\n\tanswers = {\n\t\t{_t\"Here it is. #LIGHT_GREEN#*Tell him about the encounter with the orcs*#LAST# You should keep it. I can feel its power and it would be safer if it were guarded by the armies of the kingdom.\",\n",
+          "visible_context_sha256": "95030a5ee0f23e7722d028b1c591a48216c17c0129767a87f4596a0ab3dd4fb0"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R033",
+      "task_id": "p2-tome-texts-b5-001",
+      "original_revision_key": "tome-text-message-last-hope-2",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/texts/message-last-hope.lua",
+      "canonical_revision_uid": "4afdbee636368ee689137675bde47df7c56cc00bd97e1bfe929466e4f81c275e",
+      "source_sha256": "0a8e23f98f346244dc716884c2863142eb30bedb4e152104384df143bc2c4b5e",
+      "target_sha256": "9a46f97ed9d2c99d57f95764e571757d6b6deccda95e4ad3cdd2c39c68282f5b",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/texts/message-last-hope.lua",
+        "source_artifact_sha256": "1f6de45076db0c1cf4e8e02ea17a9cf63fa36e3232324f8ee741cf871af64980",
+        "source_artifact_size_bytes": 2331
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 36,
+          "line_end": 47,
+          "column_start": 12,
+          "matched_span_sha256": "0a8e23f98f346244dc716884c2863142eb30bedb4e152104384df143bc2c4b5e",
+          "matched_chars": 785,
+          "context_start_line": 24,
+          "context_end_line": 48,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1339,
+          "truncated": false,
+          "visible_context": "\nThe staff you left at Last Hope is gone. A raid of orcs ambushed the guards that were transporting it to a secret vault.\nOur troops managed to capture one of the orcs and made him talk.\nHe did not know much, but he did speak about \"masters\" in the Far East.\nHe spoke about Golbug -- this seems to be a warmaster in Reknor -- leading a raid to send a \"package\" through a portal.\n\nThis calls for urgency; should you find this Golbug or the portal, please investigate.\n\n               #GOLD#-- Tolak, King of the Allied Kingdoms]]\n\nelse\n\nreturn _t[[@playername@, this message is of utmost importance.\n\nOur elders searched the old texts looking for clues about the staff of which you spoke.\nIt turns out to be a powerful object indeed, able to absorb the power of places, and beings.\nThis must not fall in the wrong hands, which certainly include orcish hands.\nWhile you were gone, one of our patrols met a group of orcs led by Ukruk. We could not stop them, but we managed to capture one of them.\nHe did not know much, but he did speak about \"masters\" in the Far East.\nHe spoke about meeting with Golbug -- this seems to be a warmaster in Reknor -- to send a \"package\" through a portal.\n\nThis calls for urgency; should you find this Golbug or the portal, please investigate.\n\n               #GOLD#-- Tolak, King of the Allied Kingdoms]]\nend\n",
+          "visible_context_sha256": "10ac40883a65be0d6051d787d99490edc70447c54f465ab3dff80d030bd46245"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R034",
+      "task_id": "p2-tome-texts-b28-001",
+      "original_revision_key": "b28-21-slasul",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/slasul.lua",
+      "canonical_revision_uid": "513f280f1a7d78e448d92809ece1e8813f2a4fd6255edf5b95ba8b831c095c78",
+      "source_sha256": "385e7cc81d8f8149502efd0bcb72d9e5f54f231a64d803693a74ea9e5a11d4ec",
+      "target_sha256": "d34c43926478c575218b82af555ed1ea1d47b27f3776fd04f7a8fdc5aacfed3e",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/slasul.lua",
+        "source_artifact_sha256": "bd38b75cbbf665c8468440e1b41bc3064fe659c4b58ddd3f2ce57280b2b407ee",
+        "source_artifact_size_bytes": 5224
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 104,
+          "line_end": 104,
+          "column_start": 7,
+          "matched_span_sha256": "385e7cc81d8f8149502efd0bcb72d9e5f54f231a64d803693a74ea9e5a11d4ec",
+          "matched_chars": 46,
+          "context_start_line": 92,
+          "context_end_line": 110,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 591,
+          "truncated": false,
+          "visible_context": "\t\t\tlocal o = game.zone:makeEntityByName(game.level, \"object\", \"LEGACY_NALOREN\", true)\n\t\t\tif o then\n\t\t\t\to:identify(true)\n\t\t\t\tplayer:addObject(player.INVEN_INVEN, o)\n\t\t\t\tnpc:doEmote(_t\"LET US BE BOUND!\", 150)\n\t\t\t\tgame.level.map:particleEmitter(npc.x, npc.y, 1, \"demon_teleport\")\n\t\t\t\tgame.level.map:particleEmitter(player.x, player.y, 1, \"demon_teleport\")\n\t\t\t\tnpc.invulnerable = 1\n\t\t\t\tnpc.never_anger = 1\n\t\t\t\tplayer:setQuestStatus(\"temple-of-creation\", engine.Quest.COMPLETED, \"legacy-naloren\")\n\t\t\tend\n\t\tend},\n\t\t{_t\"This sounds strange. I need to think about it.\"},\n\t}\n}\n\nend\n\nreturn \"welcome\"\n",
+          "visible_context_sha256": "99bf581c9658aefa15c2a1a38a54ecc74f6db235b98f3b4265dbdc87dd5976da"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R035",
+      "task_id": "p2-tome-texts-b33-001",
+      "original_revision_key": "b33-06-ward",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/ward.lua",
+      "canonical_revision_uid": "57217674cff52ec3cde55db48e00a73acaf9f19c1aad3b37a21533f530d681e8",
+      "source_sha256": "fef3e0e4da5a00d1432fe16e60e6615ded47dcbf186f9b3eb4812771bc086143",
+      "target_sha256": "f0a178d50c070402f355fce0040af1544ce0a85963a933eccf032b5663dfec89",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/ward.lua",
+        "source_artifact_sha256": "9520ccda277a7f0d8c1b106418510b28d810f6802a1b724870b4a3bcf6d0251d",
+        "source_artifact_size_bytes": 4013
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 53,
+          "line_end": 53,
+          "column_start": 6,
+          "matched_span_sha256": "fef3e0e4da5a00d1432fe16e60e6615ded47dcbf186f9b3eb4812771bc086143",
+          "matched_chars": 10,
+          "context_start_line": 41,
+          "context_end_line": 65,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1471,
+          "truncated": false,
+          "visible_context": "\t\t{(\"Lightning [%d]\"):tformat(src.wards[DamageType.LIGHTNING] or 0),\n\t\t\tcond = function() return has_ward(DamageType.LIGHTNING) end,\n\t\t\taction = function() return set_ward(DamageType.LIGHTNING, (src.wards[DamageType.LIGHTNING] or 0)) end,\n\t\t},\n\t\t{(\"Cold [%d]\"):tformat(src.wards[DamageType.COLD] or 0),\n\t\t\tcond = function(who) return has_ward(DamageType.COLD) end,\n\t\t\taction = function() return set_ward(DamageType.COLD, (src.wards[DamageType.COLD] or 0)) end,\n\t\t},\n\t\t{(\"Arcane [%d]\"):tformat(src.wards[DamageType.ARCANE] or 0),\n\t\t\tcond = function(who) return has_ward(DamageType.ARCANE) end,\n\t\t\taction = function() return set_ward(DamageType.ARCANE, (src.wards[DamageType.ARCANE] or 0)) end,\n\t\t},\n\t\t{(\"Light [%d]\"):tformat(src.wards[DamageType.LIGHT] or 0), \n\t\t\tcond = function() return has_ward(DamageType.LIGHT) end,\n\t\t\taction = function() return set_ward(DamageType.LIGHT, (src.wards[DamageType.LIGHT] or 0)) end,\n\t\t},\n\t\t{(\"Darkness [%d]\"):tformat(src.wards[DamageType.DARKNESS] or 0), \n\t\t\tcond = function() return has_ward(DamageType.DARKNESS) end,\n\t\t\taction = function() return set_ward(DamageType.DARKNESS, (src.wards[DamageType.DARKNESS] or 0)) end,\n\t\t},\n\t\t{(\"Temporal [%d]\"):tformat(src.wards[DamageType.TEMPORAL] or 0), \n\t\t\tcond = function() return has_ward(DamageType.TEMPORAL) end,\n\t\t\taction = function() return set_ward(DamageType.TEMPORAL, (src.wards[DamageType.TEMPORAL] or 0)) end,\n\t\t},\n\t\t{(\"Physical [%d]\"):tformat(src.wards[DamageType.PHYSICAL] or 0), \n",
+          "visible_context_sha256": "6ea80e93eb62c0fce4ad2aa6f7bb9b738b729b922f32e931a9511404b657cae5"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R036",
+      "task_id": "p2-tome-texts-b9-001",
+      "original_revision_key": "b9-17-angolwen-staves-store",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/angolwen-staves-store.lua",
+      "canonical_revision_uid": "c8a8d18ee776f0d49e781006b8046f6ebce421fbafa1a1b3936c9e543a5044c3",
+      "source_sha256": "4a570ec90af6a19742328303ae04a2da9864ae71f4f920d0f2f7af474858148a",
+      "target_sha256": "cd1c2ab786dbc62d8810740dc9f3692742a1ef7592737c5b13ffc5d36fecd956",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/angolwen-staves-store.lua",
+        "source_artifact_sha256": "febf624946bcf55f01c15a89f698448f138e488a7f79cb3d4fb8623f90617a1e",
+        "source_artifact_size_bytes": 4191
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 35,
+          "line_end": 35,
+          "column_start": 7,
+          "matched_span_sha256": "4a570ec90af6a19742328303ae04a2da9864ae71f4f920d0f2f7af474858148a",
+          "matched_chars": 68,
+          "context_start_line": 23,
+          "context_end_line": 47,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1447,
+          "truncated": false,
+          "visible_context": "\t\t{_t\"Let me see your wares.\", action=function(npc, player)\n\t\t\tnpc.store:loadup(game.level, game.zone)\n\t\t\tnpc.store:interact(player)\n\t\tend},\n\t\t{_t\"I am looking for staff training.\", jump=\"training\"},\n\t\t{_t(\"Sorry, I have to go!\", \"chat_angolwen-staves-store\")},\n\t}\n}\n\nnewChat{ id=\"training\",\n\ttext = _t[[I can teach you staff combat (talent category Spell/Staff combat).  Learning the basics costs 100 gold, while more intensive tutelage to gain proficiency costs 500 gold.  Once you're proficient, I can teach you more refined techniques for an additional 750 gold.]],\n\tanswers = {\n\t\t{_t\"Just give me the basics (reveals locked talent category) - 100 gold.\", action=function(npc, player) -- Normal basic training\n\t\t\tgame.logPlayer(player, \"The staff carver spends some time with you, teaching you the basics of staff combat.\")\n\t\t\tplayer:incMoney(-100)\n\t\t\tplayer:learnTalentType(\"spell/staff-combat\", false)\n\t\t\tif player:getTalentTypeMastery(\"spell/staff-combat\") < 1 then\n\t\t\t\tplayer:setTalentTypeMastery(\"spell/staff-combat\", math.min(1.1, player:getTalentTypeMastery(\"spell/staff-combat\", true) + 0.3))\n\t\t\t\tgame.logPlayer(player, \"He is surprised at how quickly you are able to follow his tutelage.\")\n\t\t\tend\n\t\t\tplayer.changed = true\n\t\tend, cond=function(npc, player)\n\t\t\tif player.money < 100 then return end\n\t\t\tif player:knowTalentType(\"spell/staff-combat\") or player:knowTalentType(\"spell/staff-combat\") == false then return end\n\t\t\treturn true\n",
+          "visible_context_sha256": "7fa21bdde98d040b118fd3b838a6f50364cc30557ea2759f6f93f15bac63bd2a"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R037",
+      "task_id": "p2-tome-texts-b22-001",
+      "original_revision_key": "b22-31-mage-apprentice",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/mage-apprentice-quest.lua",
+      "canonical_revision_uid": "1bcb527b33d88966535063d39e2e019e076e5cd102c67a9dbc074f4eaad92ea2",
+      "source_sha256": "1cd070ad7d3d98016d875728fa92ae24616eb39363298c398ae218631825ed72",
+      "target_sha256": "b41b40f2752ce3e15474c1dfb642e244bbbef9182946afcc37a2a2aea8bc526e",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/mage-apprentice-quest.lua",
+        "source_artifact_sha256": "72682dc9b62c4645e75b14b6316e580a297cb4596aafc1fa6cfcee007849ff3f",
+        "source_artifact_size_bytes": 6060
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 117,
+          "line_end": 117,
+          "column_start": 7,
+          "matched_span_sha256": "1cd070ad7d3d98016d875728fa92ae24616eb39363298c398ae218631825ed72",
+          "matched_chars": 110,
+          "context_start_line": 105,
+          "context_end_line": 129,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1262,
+          "truncated": false,
+          "visible_context": "\tanswers = {\n\t\t{_t\"Well, I cannot use it anyway.\", jump=\"welcome\"},\n\t}\n}\n\nnewChat{ id=\"thanks\",\n\ttext = _t[[Ah yes! I am so glad! I will be able to go back to Angolw...err... Oh well, I guess I can tell you; you deserve it for helping me.\nDuring the dark years of the Spellhunt, many thousands of years ago, Linaniil, the great mage of the Kar'Krul, worried that magic might disappear with her generation and be lost to mortals should they need it again.\nSo she set a secret plan into action and built a secret place where magic would be kept alive.\nHer plan worked and the group built a town called Angolwen in the western mountains. #LIGHT_GREEN#*He marks it on your map, along with a portal to access it*#WHITE#\nNot many people are accepted there but I will arrange for you to be allowed inside.]],\n\tanswers = {\n\t\t{_t\"Oh! How could such a place be kept secret for so long... This is interesting indeed. Thank you for your trust!\",\n\t\t\taction = function(npc, player)\n\t\t\t\tplayer:hasQuest(\"mage-apprentice\"):access_angolwen(player)\n\t\t\t\tnpc:die()\n\t\t\tend,\n\t\t},\n\t}\n}\n\nnewChat{ id=\"thanks_mage\",\n\ttext = _t[[Ah yes! I am so glad! I will be able to go back to Angolwen now, and perhaps we will meet there.\nPlease take this ring; it has served me well.]],\n\tanswers = {\n",
+          "visible_context_sha256": "97277696414b9fed0fb577da398141d866ab6ef736e96096305846bcd9087fbd"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R038",
+      "task_id": "p2-tome-texts-b6-001",
+      "original_revision_key": "tutorial-b6-47-tactics1",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/texts/tutorial/tactics1.lua",
+      "canonical_revision_uid": "7afc2f5179a46f8a5bddd222621de03ab53be8d49d7f888c52dbcef8b52d42dd",
+      "source_sha256": "25bdb54c722ee5c7dedb0b1b066df2e3bd9c38709472da07f403988c496942ef",
+      "target_sha256": "634ebf222a60986f06e5d55db1d0180e15fbe36c7ce6301ca00f9c25e6720955",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/texts/tutorial/tactics1.lua",
+        "source_artifact_sha256": "a549d98676c4f20d97a3eb472fabf947af0935675928665431c76e775946ee50",
+        "source_artifact_size_bytes": 1417
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 20,
+          "line_end": 29,
+          "column_start": 12,
+          "matched_span_sha256": "18d30839d748097adea0a9d158efc8bf3379ed4a3405b0f1c1be7797f5cae621",
+          "matched_chars": 626,
+          "context_start_line": 8,
+          "context_end_line": 30,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1088,
+          "truncated": false,
+          "visible_context": "--\n-- This program is distributed in the hope that it will be useful,\n-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nreturn _t[[You have found a nest of snakes! If you let them surround you, you might be in trouble!\nA basic tactic is to never get surrounded, do not hesitate to backtrack a bit to a safer spot.\n\n#GOLD#Always control the fight.#WHITE#\n\nAfter the combat you will probably be low on health, you can rest for a while to regain lost health and resources.\nEither press 'R' or right-click on yourself to rest. You will rest until fully restored or until a creature disturbs you.\n\nNow take a few steps back so you only have to fight one snake at a time, and you should survive.\nRemember to use your talents, infusions and runes to win the fight.\n]]\n",
+          "visible_context_sha256": "3d63fdd6a16bfc41bccc6abb41bba81535f3a40d94a09113dbf669dfc32b8bf5"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R039",
+      "task_id": "p2-tome-texts-b30-001",
+      "original_revision_key": "b30-13-tannen",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/tannen.lua",
+      "canonical_revision_uid": "13b3f4480df4b82af3a443f3cadf9727b41f60f04621f7f12b83972e22afebc0",
+      "source_sha256": "6e4c5f6f348614e608ce9ff6f0510e23b6753578d792bb87ec7088bf9a812d83",
+      "target_sha256": "455be4058dfa6beae936246105c069902d09ea835e6c299b3ee9159b8c86d8bc",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/tannen.lua",
+        "source_artifact_sha256": "94c4a7d33b028df11e4ed781e1aba510207747482e4b3d0a5a3350c87e58c18c",
+        "source_artifact_size_bytes": 9555
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 81,
+          "line_end": 81,
+          "column_start": 7,
+          "matched_span_sha256": "6e4c5f6f348614e608ce9ff6f0510e23b6753578d792bb87ec7088bf9a812d83",
+          "matched_chars": 43,
+          "context_start_line": 69,
+          "context_end_line": 93,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1463,
+          "truncated": false,
+          "visible_context": "-- Explain the situation and get quest going\n---------------------------------------------------------------\nnewChat{ id=\"east_portal1\",\n\ttext = _t[[Astonishing! I have heard tell of this Orb in ancient texts and legends. Might I see it?]],\n\tanswers = {\n\t\t{_t\"[Show him the Orb of Many Ways]\", jump=\"east_portal2\"},\n\t}\n}\n\nnewChat{ id=\"east_portal2\",\n\ttext = _t[[Truly, it is the work of a great master. Perhaps Linaniil herself had a hand in its making. And you say you come bearing instructions in its usage?]],\n\tanswers = {\n\t\t{_t\"I do. [Show him Zemekkys's scribbled notes]\", jump=\"east_portal3\"},\n\t}\n}\n\nnewChat{ id=\"east_portal3\",\n\ttext = _t[[#LIGHT_GREEN#*He spends a few minutes reading*#WHITE# Ah! I see. I did not at first grasp this Zemekkys's methods, but I see now that they are sound, and it is simply his penmanship that needs improvement. We can manage to reproduce his work here, but, as he says, we will need the Blood-Runed Athame and a Resonating Diamond.]],\n\tanswers = {\n\t\t{_t\"Have you any idea where they might be found?\", jump=\"east_portal4\"},\n\t}\n}\n\nnewChat{ id=\"east_portal4\",\n\ttext = _t[[If the orcs created a portal in the depths of Reknor, they must have had access to such items. And if these items cannot pass through the portal they created, then it stands to reason that they must still be in Maj'Eyal. I would search Reknor, starting near the portal itself. Perhaps they did not move the Athame and Diamond far after its creation.]],\n",
+          "visible_context_sha256": "460c71520db6f2b438af0e5010e623e331f95f50e6cfccfbbb2e70b536415963"
+        }
+      ],
+      "locator_error": null
+    },
+    {
+      "audit_id": "R040",
+      "task_id": "p2-tome-texts-b13-001",
+      "original_revision_key": "b13-28-derth-attack-over",
+      "canonical_component": "tome",
+      "canonical_section": "mod-tome/data/chats/derth-attack-over.lua",
+      "canonical_revision_uid": "661654ad12af21cf111c7fadf3fbf42173268fd973ae05b5d6700e1b1c6f7244",
+      "source_sha256": "0433106336dc993876429ca96d5fdd18dbbd2ed7625ece97fd158d4b7601d5f1",
+      "target_sha256": "1d388eb99dcfce4c5e585553754353e577abd950afcb9c0f5cc59fb3fd72a498",
+      "source_binding": {
+        "kind": "git_commit_blob",
+        "repository_alias": "t-engine4",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "relative_path": "game/modules/tome/data/chats/derth-attack-over.lua",
+        "source_artifact_sha256": "d10aa1ebb7f2d94fb40fd6c1e7ba596d3cdd18f183902b248ccbda71e9d10f32",
+        "source_artifact_size_bytes": 2407
+      },
+      "locator_status": "LOCATED_UNIQUE",
+      "match_contract": "complete_source_whitespace_normalized_literal_substring_v1",
+      "source_occurrences": 1,
+      "occurrence_records": [
+        {
+          "occurrence_ordinal": 1,
+          "line_start": 42,
+          "line_end": 42,
+          "column_start": 7,
+          "matched_span_sha256": "0433106336dc993876429ca96d5fdd18dbbd2ed7625ece97fd158d4b7601d5f1",
+          "matched_chars": 24,
+          "context_start_line": 30,
+          "context_end_line": 53,
+          "extraction_mode": "line_window_12",
+          "visible_chars": 1238,
+          "truncated": false,
+          "visible_context": "I do not know. I was tending my crop just outside the town when I heard screaming. As I entered the town, I saw the dark cloud over here. Those... those... things were coming from it in blasts of lightning!]],\n\tanswers = {\n\t\t{_t\"It seems they have stopped coming for now. I will look for somebody who could help dispose of this nefarious cloud.\", jump=\"quest2\"},\n\t}\n}\n\nnewChat{ id=\"quest2\",\n\ttext = _t[[Thank you! You have saved many people today!\nI have heard of rumours of a reclusive town of wise and powerful men somewhere in the mountains. Maybe they could help? If they even exist...\nThere are also those Zigur-something people that claim to fight magic. Why are they not here?!]],\n\tanswers = {\n\t\t{_t\"You mean the Ziguranth. That would be me.\", cond=function(npc, player) return player:isQuestStatus(\"antimagic\", engine.Quest.DONE) end, jump=\"zigur\"},\n\t\t{_t\"I will not let you down.\", action=function(npc, player) player:hasQuest(\"lightning-overload\"):done_derth() end},\n\t}\n}\n\nnewChat{ id=\"zigur\",\n\ttext = _t[[Well then please do something about this evil magic!]],\n\tanswers = {\n\t\t{_t(\"I will!\", \"chat_derth-attack-over\"), action=function(npc, player) player:hasQuest(\"lightning-overload\"):done_derth() end},\n\t}\n}\n\nreturn \"welcome\"\n",
+          "visible_context_sha256": "fd661212953b89512ca7476050c35ebc1c7f940089790615a420f3ff349bdd98"
+        }
+      ],
+      "locator_error": null
+    }
+  ]
+}

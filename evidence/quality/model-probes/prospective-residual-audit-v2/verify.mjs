@@ -25,10 +25,12 @@ try {
     JSON.parse(fs.readFileSync(tracked, "utf8"));
   }
   const experiment = JSON.parse(fs.readFileSync(path.join(here, "EXPERIMENT.json"), "utf8"));
+  const invalidation = JSON.parse(fs.readFileSync(path.join(here, "INVALIDATION.json"), "utf8"));
   const frame = JSON.parse(fs.readFileSync(path.join(here, "FRAME.json"), "utf8"));
   const audit = JSON.parse(fs.readFileSync(path.join(here, "AUDIT-QUEUE.json"), "utf8"));
   const holdout = JSON.parse(fs.readFileSync(path.join(here, "HOLDOUT-DRAFT.json"), "utf8"));
   if (experiment.model_calls_made !== 0 || audit.reviewer_inference_allowed !== false) throw new Error("inference gate is open");
+  if (invalidation.status !== "INVALIDATED_BEFORE_SOURCE_AUDIT" || invalidation.model_calls_made !== 0 || invalidation.source_audit_records_made !== 0) throw new Error("v2 invalidation contract");
   if (audit.items.length !== 40 || new Set(audit.items.map(item => item.task_id)).size !== 40) throw new Error("selected units are not 40 unique tasks");
   if (new Set(audit.items.map(item => `${item.task_id}\0${item.original_revision_key}`)).size !== 40) throw new Error("duplicate selected revision");
   if (holdout.items.length !== 40 || holdout.status !== "NOT_FROZEN_FOR_INFERENCE") throw new Error("holdout draft contract");
@@ -50,7 +52,7 @@ try {
   ];
   for (const [pattern, label] of forbidden) if (pattern.test(serialized)) throw new Error(`forbidden ${label}`);
   process.stdout.write(`${JSON.stringify({
-    status: "GO_FOR_SOURCE_AUDIT_ONLY",
+    status: "INVALIDATED_BEFORE_SOURCE_AUDIT",
     inference_allowed: false,
     selected_items: 40,
     selected_unique_tasks: 40,

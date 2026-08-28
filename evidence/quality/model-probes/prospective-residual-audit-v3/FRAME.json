@@ -1,0 +1,656 @@
+{
+  "schema_version": "prospective-residual-audit-frame-v3",
+  "status": "FROZEN_CANDIDATE_FRAME",
+  "seed": "prospective-residual-audit-v3|2026-08-27|canonical-task-first-systematic-pps-v1",
+  "snapshot": {
+    "logical_path": "../paseo-provenance-snapshot-v1/SNAPSHOT.json",
+    "sha256": "b754183a9d1e0efa15cb1d3c16fa06a7f96f388e75707c7ba0e79f4a680f2eab",
+    "source_repo_head": "1666481409f4c0d63d66e84659f6b6145d8d25d0"
+  },
+  "canonical_inventory": {
+    "production_translation_commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+    "canonical_sha256": "bf9153e83aba7318741f065d8541ae74783eebc5d4552ec38627a4313456b215"
+  },
+  "unit": "one uniquely production-resolved canonical revision from each selected task",
+  "item_exclusion_policy": "Exclude only task/revision pairs exposed in prior model experiments; do not exclude untouched revisions merely because another revision from the same task was exposed.",
+  "canonical_membership_policy": "After item-level prior-experiment exclusion, component/source/target must resolve to exactly one canonical inventory revision. Frozen bounded-context section metadata may disambiguate repeated exact pairs; unresolved records are excluded, never manually assigned.",
+  "strata": {
+    "same_family_only": "candidate modifier and contextual reviewer are the same known model family only",
+    "cross_or_mixed_family": "known cross-family or known mixed-family reviewer relation",
+    "unknown_provenance": "candidate or reviewer family contains unresolved, unknown or mixed candidate provenance"
+  },
+  "quota_rule": "Census the two capped strata (14 known cross/mixed and 2 unknown), then assign the remaining 24 of 40 slots to same-family.",
+  "selection_method": "Within each stratum, task-first systematic PPS without replacement using eligible canonical revision count as size; certainty tasks are peeled iteratively. One canonical revision is then selected uniformly by seeded SHA-256 rank within each selected task.",
+  "quotas": {
+    "same_family_only": 24,
+    "cross_or_mixed_family": 14,
+    "unknown_provenance": 2
+  },
+  "counts": {
+    "same_family_only": {
+      "eligible_tasks": 30,
+      "eligible_canonical_revisions": 733,
+      "selected_tasks": 24,
+      "systematic_start": 0.3071879304672167,
+      "census": false
+    },
+    "cross_or_mixed_family": {
+      "eligible_tasks": 14,
+      "eligible_canonical_revisions": 569,
+      "selected_tasks": 14,
+      "systematic_start": null,
+      "census": true
+    },
+    "unknown_provenance": {
+      "eligible_tasks": 2,
+      "eligible_canonical_revisions": 94,
+      "selected_tasks": 2,
+      "systematic_start": null,
+      "census": true
+    }
+  },
+  "tasks": [
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b6-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "Grok"
+      ],
+      "eligible_canonical_revisions": 49,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "069a790a7f7f6e70a7d34ff899ef28bbdc9080e116e36a73edd54b90825a99fb",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b15-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "Gemini",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 17,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "074ff3c13d202e2827c597814061895c8c4180bbd370b97518da2e7cf4e1d97d",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b10-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "Gemini",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 16,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "0a2cfe54960f410e20384219993b039b0245b1a80153e0174d2330186680e286",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b18-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "Gemini",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 70,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "229adccb834d78ff8de580f4fd2c8d3adf2dc0592010a41887c6c44ca2584397",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b14-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "Gemini",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 38,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "3c03ca4d9098aaa3641e46890c7b264268bb5d171885bfa019226b6a097a22d7",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b13-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "Gemini",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 35,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "4871275072a279876a02a6ee9ee683e07aa8670b7f2412ec47f8a7b461d887b0",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b7-001",
+      "candidate_reviewer_relation": "mixed_same_and_cross_family",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex",
+        "Grok"
+      ],
+      "eligible_canonical_revisions": 64,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "6716df85a707419c0ad227425114a4706cdcfcb8f5dabd6d21fbec8b76abd9af",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b20-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "Gemini",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 10,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "6c1f3d1446e6d5f680379a84f3c4c10d538ab7ccf08995057bf6a1dc995200ca",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b17-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "Gemini",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 13,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "83b6399bf7fe57afbf7718dd93fd80eb0cc2f15c7236f777c1019da611f0f14b",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b12-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "Gemini",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 41,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "87c5e2209c6a21724230789bc57559e6915c98358957baba385d3f7884db667d",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b11-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "Gemini",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 28,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "9078a2188210e807f3f84cffcd6dc310fedf5db08bd04a2888d7f3e21c8111f5",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b38-001",
+      "candidate_reviewer_relation": "mixed_same_and_cross_family",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex",
+        "Grok"
+      ],
+      "eligible_canonical_revisions": 52,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "cf613ad93bfb6e0830a65c285faa481e3d755cbff57111065c0334f253188249",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b9-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "Gemini",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 44,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "f3dc14152eb56596c0bb98beb277f9316ae1539e8d074affc2ce93df5248f40d",
+      "selected": true
+    },
+    {
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b8-001",
+      "candidate_reviewer_relation": "cross_family_only",
+      "candidate_modifier_family": "Gemini",
+      "contextual_reviewer_families": [
+        "GPT/Codex",
+        "Grok"
+      ],
+      "eligible_canonical_revisions": 92,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "f75fb18aee89703f42a7efec0507a1977fbc8843d7bdbb877eb50e609e9ae427",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b36-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 34,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "01ad36f02570a89e33f3d8300c76c6474ed101d5b8226e0e11577dff7b961924",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b32-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 46,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "1aef82fb2bc1b09bf928ede626945d5e0ec6412cf1328cc9e2b47d27ccf02e68",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b34-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 40,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "2ecffd943155949461a01ad9cae8b42e45cfa029d9ba5e65236558be3734cb9f",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b5-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 2,
+      "task_inclusion_probability": 0.625,
+      "pps_order_rank": "332777958305e3ee50b1c11480d758c8306107cc08e1696dd89d5c25cf395753",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b27-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 43,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "3e090622971a912b46ccdaaa7e0dc87c88ed7f67f05144d92f1574b3ec670bb3",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b24-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 40,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "4865f9ec009118fa872a7c618d5c25d6ccb6cde7af6f01eca6a71cab50733b63",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b39-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 42,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "5d72e5d4c40a67fcfe787e4dadd6d04d73c74115bd4411d00979160fbee1988e",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b43-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 48,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "65fd7d4bdd4e80b5e988641233b898a8fcbfd3bc5d33c3443af942ef5df4606b",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-orcs-dialogue-b3-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 2,
+      "task_inclusion_probability": 0.625,
+      "pps_order_rank": "9cb74837820258da41a36e779c7e20fdf53d2afa3ed20e173355cc0fff9c4b31",
+      "selected": false
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b22-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 33,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "a37c1fb96c5dc41abac32a1fddb8fd9f28f0cf4331f6c68260bd393cc027a68f",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b37-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 42,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "a7dd2846dccb15756cd335dc272f27facf689600364cda425ab9860fa31fd5aa",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b26-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 2,
+      "task_inclusion_probability": 0.625,
+      "pps_order_rank": "ad8df4557c894b66c346b6e8b432a961b2d385c70b3c12e2c74660f5dc9f8ee9",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-cults-status-b9-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 1,
+      "task_inclusion_probability": 0.3125,
+      "pps_order_rank": "b332419f3fd4e1fe5af6dffce4f736a5220607d8cee49ede91bd5883ae47bf5d",
+      "selected": false
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b31-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 34,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "b8cc8b46cbe9313a026c9c82de3904fb6d78df02a0d4d833eb97618899b376ff",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b42-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 50,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "ba283ed6841e397b82fd1231ff78718cba5c037c8442d0268604ce9bbd4b20d2",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b1-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 2,
+      "task_inclusion_probability": 0.625,
+      "pps_order_rank": "bca151aa1cef418174331e5562c41d4a1d5ae1b1b1d58f2615d184a61a390d1a",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-orcs-dialogue-b2-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 1,
+      "task_inclusion_probability": 0.3125,
+      "pps_order_rank": "bde6a7f0d957718bb82ecf2fe144e31db658958a04185516ead4d0aebf1a91ef",
+      "selected": false
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b3-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 1,
+      "task_inclusion_probability": 0.3125,
+      "pps_order_rank": "c878e3d1dce3cbe9f1e23e1cd579c677db8605fccbe61cd9a8ebcc1346d77744",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b28-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 21,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "cbf124f831a6722e464c0279ec3bbbaa0627b4f413937c9f844f3f957ce2906a",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b41-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 71,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "d09f61043dae072e5405b0074b5c7ee3f46075e4ed766c25dd57b19208f58124",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b23-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 40,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "d501ba1d6482215b2d6ac96411c55c71aae06164a737f338ef467d3dc55c99e5",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b4-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 4,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "d5e53e9d8550c47f2f4f6a860b1ea6e3406fba444f95767082dda7c1101248e2",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-orcs-ui-logs-b1-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 1,
+      "task_inclusion_probability": 0.3125,
+      "pps_order_rank": "dc52646f872d8a7b4d8f8b5c3f1b2f1de6d13c8146933835b34e20024a44518a",
+      "selected": false
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b35-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 22,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "e7256685bfd519199dbd3f869a249df07b032aa032c274a7047cb25cbf1bbf2d",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b33-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 34,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "e7dd9122fdb5c70db6697387c741485181d0bff9fe98899bebb8387ff15ac3de",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b30-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 36,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "f351201fa1f7dc37c27c16cb23b5f97cb5bfee50b8dc9341e47722be6092b574",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b25-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 37,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "f4e5180009b7c6746718c5fb88e05dcd46cbec07ec8c96ede6c1b603d76ebd91",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b2-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 1,
+      "task_inclusion_probability": 0.3125,
+      "pps_order_rank": "f851171094a8c3ebfb1156c3a0959c2d3b0ba3e02a7c9e87ec83a145589741e1",
+      "selected": false
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-cults-dialogue-b1-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 2,
+      "task_inclusion_probability": 0.625,
+      "pps_order_rank": "fc7a72100676c0e066f867f97cf430f6657a6826a6f6db23546ef87baec1794d",
+      "selected": true
+    },
+    {
+      "stratum": "same_family_only",
+      "task_id": "p2-orcs-status-b24-001",
+      "candidate_reviewer_relation": "same_family_only",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 1,
+      "task_inclusion_probability": 0.3125,
+      "pps_order_rank": "ff48b3d8a3bc60041242cdc6ab29d904dbdad1b54f6891f82025bdb48e3f48d2",
+      "selected": false
+    },
+    {
+      "stratum": "unknown_provenance",
+      "task_id": "p2-tome-texts-b40-001",
+      "candidate_reviewer_relation": "mixed_same_and_unknown_family",
+      "candidate_modifier_family": "GPT/Codex",
+      "contextual_reviewer_families": [
+        "GPT/Codex",
+        "Unknown"
+      ],
+      "eligible_canonical_revisions": 41,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "38df978bbf97a8cc0a1180f06e5408d4705b16e2f05159d0e15633a5c1a49640",
+      "selected": true
+    },
+    {
+      "stratum": "unknown_provenance",
+      "task_id": "p2-tome-texts-b19-001",
+      "candidate_reviewer_relation": "unresolved",
+      "candidate_modifier_family": "Unknown",
+      "contextual_reviewer_families": [
+        "GPT/Codex"
+      ],
+      "eligible_canonical_revisions": 53,
+      "task_inclusion_probability": 1,
+      "pps_order_rank": "f9f2591e962ddea12425d4391f420b0c1e745d2f4718670971a55a685cbcdd13",
+      "selected": true
+    }
+  ]
+}

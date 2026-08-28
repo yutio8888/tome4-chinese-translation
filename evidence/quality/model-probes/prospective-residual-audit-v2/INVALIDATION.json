@@ -1,0 +1,32 @@
+{
+  "schema_version": "prospective-residual-audit-invalidation-v1",
+  "experiment": "prospective-residual-audit-v2",
+  "status": "INVALIDATED_BEFORE_SOURCE_AUDIT",
+  "effective_at_utc": "2026-08-28T04:34:16Z",
+  "model_calls_made": 0,
+  "source_audit_records_made": 0,
+  "replacement_or_resampling_after_outcome": false,
+  "reason": "The frame treated historical terminal translation_snapshot records as production revisions without re-resolving the complete source-target pair at the frozen production translation commit. Some records are intermediate review snippets or stale candidate targets, so the registered production-residual estimand is not supported.",
+  "examples": [
+    {
+      "audit_id": "R012",
+      "task_id": "p2-tome-texts-b32-001",
+      "original_revision_key": "b32-37-undead-start-kill",
+      "failure": "The terminal candidate target differs from the target in the frozen production inventory."
+    },
+    {
+      "audit_id": "R013",
+      "task_id": "p2-cults-dialogue-b3-001",
+      "original_revision_key": "cults-b3-sparing-you-was-mistake",
+      "failure": "The terminal record is a review snippet and does not resolve to a complete canonical production source-target pair."
+    },
+    {
+      "audit_id": "R021",
+      "task_id": "p2-orcs-dialogue-b2-001",
+      "original_revision_key": "orcs-b2-until-defeat",
+      "failure": "The terminal candidate target differs from the target in the frozen production inventory."
+    }
+  ],
+  "superseded_by": "../prospective-residual-audit-v3/",
+  "preservation_policy": "Keep the original v2 generated files unchanged. This invalidation record overrides their earlier candidate-set status and preserves the pre-inference failure trail."
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "prospective-residual-audit-experiment-v3",
+  "experiment": "prospective-residual-audit-v3",
+  "supersedes": "prospective-residual-audit-v2",
+  "status": "CANDIDATE_SET_SELECTED_SOURCE_AUDIT_PENDING",
+  "model_calls_made": 0,
+  "primary_estimand": "Design-weighted confirmed residual translation-defect rate in the frozen, uniquely production-resolved eligible P2 revision frame.",
+  "inference_scope": "The canonical production-commit frame defined by this snapshot, item-level prior-experiment exclusions and three provenance strata only.",
+  "selected_units": 40,
+  "unique_tasks_required": 40,
+  "context_policy": "A_SOURCE_AND_TARGET_ONLY",
+  "frozen_contracts": {
+    "source_audit_protocol": {
+      "logical_path": "SOURCE-AUDIT-PROTOCOL.json",
+      "sha256": "95d290e728956c0ac9efeeaa05164ba53d37e3d2a78790c7e3cf82b1b078c35b"
+    },
+    "source_locator_contract": {
+      "logical_path": "SOURCE-LOCATOR-CONTRACT.json",
+      "sha256": "c0a8a52f2a2a99afe00881132d224ad14e2f82c91e77f61c735cb23be669313a"
+    }
+  },
+  "next_gate": "Complete and freeze the uniform four-state source audit for all 40 selected items; then define the sealed reference, exact weighted estimators, missingness bounds, prompt, schema, scorer, routes and fail-closed preflight before any model call.",
+  "stopping_rule": "No model inference and no item replacement while status is SOURCE_AUDIT_PENDING."
+}

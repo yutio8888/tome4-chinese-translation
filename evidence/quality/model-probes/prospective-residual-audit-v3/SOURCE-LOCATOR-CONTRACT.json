@@ -1,0 +1,58 @@
+{
+  "schema_version": "prospective-residual-source-locator-contract-v3",
+  "status": "FROZEN_BEFORE_SOURCE_LOCATION",
+  "purpose": "Mechanically bind every selected audit item to fixed public source and extract reproducible visible context. This artifact contains no audit verdict.",
+  "queue": "AUDIT-QUEUE.json",
+  "expected_items": 40,
+  "bindings": {
+    "tome": {
+      "repository_alias": "t-engine4",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "section_prefix": "mod-tome/",
+      "repository_prefix": "game/modules/tome/",
+      "read_mode": "git_commit_blob"
+    },
+    "cults": {
+      "repository_alias": "tome-cults",
+      "commit": null,
+      "section_prefix": "tome-cults/",
+      "dlc_subdirectory": "cults/tome-cults",
+      "read_mode": "working_tree_file_with_required_sha256"
+    },
+    "orcs": {
+      "repository_alias": "tome-orcs",
+      "commit": null,
+      "section_prefix": "tome-orcs/",
+      "dlc_subdirectory": "orcs/tome-orcs",
+      "read_mode": "working_tree_file_with_required_sha256"
+    },
+    "ashes-urhrok": {
+      "repository_alias": "tome-ashes-urhrok",
+      "commit": null,
+      "section_prefix": "tome-ashes-urhrok/",
+      "dlc_subdirectory": "ashes-urhrok/tome-ashes-urhrok",
+      "read_mode": "working_tree_file_with_required_sha256"
+    }
+  },
+  "locator": {
+    "file": "Use the canonical inventory section only. Reject absolute paths, parent traversal, unsupported components, missing git objects and DLC files escaping their registered root.",
+    "match": "Find every whitespace-normalized literal occurrence of the complete selected English source. Treat actual whitespace and Lua escaped newline, carriage-return or tab sequences as one space.",
+    "context": "For each occurrence, retain 12 complete source lines before and after the matched span, capped deterministically at 12000 characters while retaining the entire matched span.",
+    "multiple_occurrences": "Record every occurrence. Do not choose one occurrence or infer equivalence mechanically.",
+    "missing_policy": "A failed binding or zero occurrence is a locator failure. Preserve it in the output; do not replace the selected item and do not convert it into an audit verdict."
+  },
+  "statuses": {
+    "LOCATED_UNIQUE": "The registered file was bound and contains exactly one normalized occurrence.",
+    "LOCATED_MULTIPLE": "The registered file was bound and contains more than one normalized occurrence; all occurrences are retained for audit.",
+    "SOURCE_NOT_FOUND": "The registered file was bound but contains no normalized occurrence.",
+    "SOURCE_FILE_MISSING": "The canonical section did not resolve to a readable registered source artifact.",
+    "SOURCE_BINDING_FAILED": "The fixed git object, DLC root or safety invariant could not be verified.",
+    "UNSUPPORTED_COMPONENT": "No binding exists for the canonical component."
+  },
+  "non_judgment_invariants": [
+    "Do not write CONFIRMED, REFUTED, INDETERMINATE or UNREACHABLE.",
+    "Do not write defect identifiers, audit reasons or corrections.",
+    "Do not call a model or expose this artifact to reviewer routes.",
+    "Do not embed local absolute paths in generated artifacts."
+  ]
+}
