@@ -16,8 +16,8 @@
       "call": "A|1|pi-zai-cn-glm-5.3-flash-high",
       "attempt": 1,
       "classification": "PARSER_COMPATIBILITY",
-      "symptom": "The complete JSON object was wrapped in a Markdown json code fence and used the legacy aliases items/result for revisions/verdict.",
-      "resolution": "Strip one outer JSON code fence, mechanically map items to revisions and result to verdict, then apply the unchanged strict validator. Reuse the successful raw envelope; do not resample.",
+      "symptom": "GLM produced complete 36-item JSON content in reversible envelope variants: an outer Markdown json code fence, legacy items/result aliases, or the revisions array directly at the top level.",
+      "resolution": "Strip one outer JSON code fence, mechanically map items to revisions and result to verdict when present, or wrap a direct top-level array as revisions, then apply the unchanged strict validator. Reuse each successful raw envelope; do not resample.",
       "resample": "None."
     }
   ]

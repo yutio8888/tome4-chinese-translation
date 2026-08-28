@@ -29,6 +29,7 @@ const parseModelJson = text => {
   return JSON.parse(fenced ? fenced[1] : trimmed);
 };
 const normalizePiResponse = response => {
+  if (Array.isArray(response)) return {revisions: response};
   if (response && !response.revisions && Array.isArray(response.items) && response.items.every(item => item && typeof item === "object" && "result" in item && !("verdict" in item))) {
     return {revisions: response.items.map(({result, ...item}) => ({...item, verdict: result}))};
   }
