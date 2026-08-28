@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["classifications"],
+  "properties": {
+    "classifications": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "class"],
+        "properties": {
+          "id": {"type": "string", "enum": ["Q1", "Q2", "Q3"]},
+          "class": {"type": "string", "enum": ["NEGATIVE", "ZERO", "POSITIVE"]}
+        }
+      }
+    }
+  }
+}

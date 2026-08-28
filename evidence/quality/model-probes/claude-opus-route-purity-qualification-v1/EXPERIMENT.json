@@ -1,0 +1,21 @@
+{
+  "schema_version": "claude-opus-route-purity-qualification-experiment-v1",
+  "experiment": "claude-opus-route-purity-qualification-v1",
+  "status": "READY_FOR_PRIMARY_LEAD_PREFLIGHT",
+  "model_calls_made": 0,
+  "attempts_recorded": 0,
+  "contains_real_experiment_samples": false,
+  "contains_sealed_reference": false,
+  "contains_adjudication": false,
+  "qualification_target": "Claude Code 2.1.247 / claude-opus-5 / medium / strict no-advisor-no-fallback structured-output route",
+  "execution_order": [
+    "Commit this frozen package.",
+    "Run node preflight.mjs --write and inspect PREFLIGHT.json.",
+    "Commit the immutable GO PREFLIGHT.json without changing any frozen package blob.",
+    "Only after the committed PREFLIGHT passes package-commit/blob/HEAD lineage validation, run node run.mjs --attempt 1.",
+    "Run node parse.mjs --attempt 1; do not overwrite RAW, CALL or CANDIDATE artifacts.",
+    "The primary lead reviews the candidate and decides whether the exact route is qualified."
+  ],
+  "stopping_rule": "One transport-successful attempt is sufficient to test purity. Any route-purity or telemetry failure is INVALID and is not repaired by reference scoring. Harness or transport failure may be retried only in a new attempt directory after preserving prior artifacts.",
+  "next_gate": "PRIMARY_LEAD_COMMIT_FROZEN_PACKAGE_THEN_NO_MODEL_PREFLIGHT; no model invocation is authorized by this frozen package alone."
+}
