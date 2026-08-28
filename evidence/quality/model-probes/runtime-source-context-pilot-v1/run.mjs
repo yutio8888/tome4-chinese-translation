@@ -34,6 +34,7 @@ const normalizePiResponse = response => {
   return {revisions: revisions.map(item => {
     const normalized = item && typeof item === "object" && "result" in item && !("verdict" in item) ? (({result, ...rest}) => ({...rest, verdict: result}))(item) : {...item};
     if (normalized.description === "placeholder") delete normalized.description;
+    if (normalized.id === normalized.revision_id) delete normalized.id;
     return normalized;
   })};
 };

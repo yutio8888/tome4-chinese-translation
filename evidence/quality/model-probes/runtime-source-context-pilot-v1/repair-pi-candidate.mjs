@@ -23,6 +23,7 @@ const revisions = Array.isArray(parsed) ? parsed : parsed?.revisions ?? parsed?.
 const response = Array.isArray(revisions) ? {revisions: revisions.map(item => {
   const normalized = item && typeof item === "object" && "result" in item && !("verdict" in item) ? (({result, ...rest}) => ({...rest, verdict: result}))(item) : {...item};
   if (normalized.description === "placeholder") delete normalized.description;
+  if (normalized.id === normalized.revision_id) delete normalized.id;
   return normalized;
 })} : parsed;
 const input = JSON.parse(fs.readFileSync(path.join(here, `HOLDOUT-${original.arm}.json`), "utf8"));
