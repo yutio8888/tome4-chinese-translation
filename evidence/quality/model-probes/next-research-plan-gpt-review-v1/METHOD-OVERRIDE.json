@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "changed_at": "2026-08-27",
+  "reason": "The user explicitly replaced the Codex CLI review route with the Codex built-in subagent mechanism.",
+  "abandoned_cli_attempts": {
+    "count": 2,
+    "valid_results": 0,
+    "repository_raw_or_review_artifacts": 0,
+    "treatment": "harness/interruption events; excluded from the review evidence"
+  },
+  "actual_review_route": {
+    "mechanism": "collaboration.spawn_agent",
+    "task": "/root/independent_plan_review",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "high",
+    "fork_turns": "none",
+    "filesystem_mode": "read-only by task instruction",
+    "substantive_inputs": [
+      "PLAN-CANDIDATE.md",
+      "REVIEW-PROMPT.md",
+      "REVIEW-SCHEMA.json"
+    ],
+    "output": "RAW-subagent-gpt-5.6-sol-high.json"
+  },
+  "frozen_input_policy": "The original frozen candidate plan, prompt and schema were unchanged. Only the execution transport changed at the user's direction."
+}

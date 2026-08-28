@@ -1,9 +1,11 @@
 # 下一步研究方案独立审阅 v1
 
-状态：候选方案与独立审阅契约已冻结，尚未运行。
+状态：已完成独立审阅、批判性综合与修订方案。
 
 日期：2026-08-27
 
-本实验将 `PLAN-CANDIDATE.md` 交给一个全新、ephemeral、在 `/tmp` 运行且不加载仓库上下文的 GPT-5.6 Sol high。审阅者只获得汇总实验结果、候选三阶段方案、方法学审查问题和输出 schema，不获得逐条样本、sealed reference、adjudication、defect ID、项目 provenance 或后续本地综合意见。
+原始冻结契约计划通过 ephemeral Codex CLI 审阅。两次 CLI 尝试均在产生任何有效输出前遭遇 harness/interruption，且未留下可计分的仓库或临时结果。用户随后明确要求改用 Codex 内置 subagent；该 transport override 记录在 `METHOD-OVERRIDE.json`，冻结候选方案、prompt、schema、模型和 effort 均未改变。
 
-审阅完成后，本地主代理逐条将实质建议标为接受、修改或拒绝，再形成 `PLAN-REVISED.md` 与 `SYNTHESIS.json`。模型审阅是研究设计建议，不是最终裁决。
+实际审阅由独立 `gpt-5.6-sol` high 子代理完成，`fork_turns=none`，实质输入仅为 `PLAN-CANDIDATE.md`、`REVIEW-PROMPT.md` 和 `REVIEW-SCHEMA.json`。原始严格 JSON 保存在 `RAW-subagent-gpt-5.6-sol-high.json`。
+
+本地主代理随后逐条将建议标为接受、修改或拒绝，见 `SYNTHESIS.json`；最终方案见 `PLAN-REVISED.md`。审阅发现两项致命可识别性问题、八项主要问题和六项次要问题。综合结果接受九项、修改三项、拒绝两项。模型审阅是研究设计建议，不是最终裁决。

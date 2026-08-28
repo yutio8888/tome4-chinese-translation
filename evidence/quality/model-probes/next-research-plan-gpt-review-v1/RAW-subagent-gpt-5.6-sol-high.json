@@ -1,0 +1,176 @@
+{
+  "overall_assessment": "方案具备冻结、源码裁决和全量留痕的正确骨架，但按现稿不能支持其最重要的两个推断：阶段二无法把 reviewer × origin 的操作性交互归因于“同族偏差”，阶段三也没有足以定义总体残余率的抽样框与分母规则。阶段一可在缩窄问题并预注册门槛后作为探索性 pilot；阶段二、三按现稿 no-go。更合理且节省预算的顺序是先做精简的 runtime context pilot，再做前瞻性自然残余审计，只有自然审计证明该问题具备实际优先级且 provenance 可恢复时才启动 origin pilot。",
+  "fatal_issues": [
+    {
+      "issue": "Translation-origin pilot 的同族偏差归因不可识别。",
+      "evidence": "每个原文仅由每个家族生成一份译文，origin 因而与该份译文的措辞、质量、可变异位置和缺陷可见度完全绑定。Latin-square 只能平衡预先标注的类别和位置，不能消除 origin 输出自身的难度差异；重复审核同一批输出也不会增加独立的生成样本。",
+      "consequence": "即使观察到 GPT reviewer 在 GPT-origin 上检出率不同，也只能称为“该 reviewer 在这些匿名 GPT 输出上的表现差异”，不能区分同族偏好、风格识别、生成质量、变异自然度或少数输出的特殊难度。",
+      "required_fix": "把 estimand 降格为操作性的 reviewer × generator-output interaction，并为每个 item × origin 至少生成两个独立且经源码确认的 baseline；以原文条目为聚类单位，平衡 mutation/control 与生成重复。若仍要使用“同族偏差”这一因果措辞，则必须增加能把风格线索与真实 origin 解耦的独立操纵，否则不得作该归因。"
+    },
+    {
+      "issue": "自然残余审计没有定义可估计总体率所需的抽样框、纳入概率和分母。",
+      "evidence": "方案只写“从未进入历史 finding/reference 的总体中确定性抽样至少 40 条”以及按历史流程特征“尽量匹配”，没有冻结总体快照、唯一条目清单、抽样算法、各层纳入概率、未知 provenance 层，也没有规定 indeterminate 和 unreachable 如何进入分母。",
+      "consequence": "即使逐条完成源码审计，结果仍可能只是便利样本中的比例；无法推广到目标总体，也无法判断 same-family-only 与 cross-family 分层差异是否源于选择偏差。",
+      "required_fix": "推理前冻结目标总体、排除规则、唯一抽样框、可复现的概率抽样种子或等价确定性概率算法、层权重和 unknown-provenance 层；预先规定 confirmed、refuted、indeterminate、unreachable 的分母与上下界处理。无法获得这些信息时，只能报告样本审计清单，不能报告总体残余率。"
+    }
+  ],
+  "major_issues": [
+    {
+      "issue": "Context ablation 的主要结论实际上只依赖 6 个 runtime mutant items。",
+      "evidence": "36 条中 runtime_source_required 仅有 6 个变异；A/B 两臂和两次逐字节重复都复用了这 6 个条目。",
+      "consequence": "arm × run 产生的多次观察是重复测量而非新的独立样本，少数 item 难度即可决定 recall 增量；把重复机会当独立机会会构成伪重复。",
+      "required_fix": "以原文条目为推断单位，至少把 12 个独立 runtime mutant 和 12 个独立 clean controls 作为 pilot 下限；重复运行只用于描述推理随机性，不能扩大有效样本量或缩窄 item-level 不确定性。"
+    },
+    {
+      "issue": "Context 决策规则没有可执行门槛。",
+      "evidence": "“改善 runtime recall”“没有明显增加 control 候选”和“正确 UNCERTAIN”均未给出操作定义；同时列出三层、四路线、两次运行及多个次要指标。",
+      "consequence": "揭封后可以在路线、运行、层级和指标间选择性解释，也可能把随机波动升级为统一输入契约。",
+      "required_fix": "冻结一个主要 contrast、一个 false-positive guardrail 和明确的逐 route 汇总规则；其余指标标为描述性，并在推理前冻结 go/no-go 数值门槛及 mixed-result 的停止动作。"
+    },
+    {
+      "issue": "A/B 臂之间的 source context 构造没有防止答案泄漏或信息量不一致的规则。",
+      "evidence": "方案只称 B 含“脱敏 fixed source context”，未规定上下文选择者、窗口、调用链深度、长度上限和是否可根据已知变异位置挑选片段。",
+      "consequence": "B 的提升可能来自人工选择已暴露答案的证据，而不是模型利用一般化源码上下文的能力；不同层级的上下文质量也会成为未控制混杂。",
+      "required_fix": "在变异和 reference 揭封前冻结机械化上下文提取规则、最大长度、缺失处理及泄漏检查；A/B 除该固定字段外必须字节级一致。"
+    },
+    {
+      "issue": "lint_detectable 层把确定性工具能力与模型能力混入同一实验。",
+      "evidence": "该层定义为占位符、参数顺序和格式数量等可由确定性检查发现，却仍安排四 reviewers、两臂和重复运行。",
+      "consequence": "增加模型预算和多重比较，却不能回答 source context 对 runtime 推理的核心问题；若随后从“模型主分数中剥离”，又会形成事后改分母风险。",
+      "required_fix": "推理前把 lint_detectable 从模型主要分析集中移出，单独运行确定性 lint 并报告覆盖率；context pilot 聚焦 runtime_source_required，surface 项至多作为预注册的负对照。"
+    },
+    {
+      "issue": "Origin baseline 的清洁筛选和缺失处理会造成 origin 相关选择。",
+      "evidence": "方案称天然有客观缺陷者“不得直接作为 clean control”，但没有说明其是排除、修复、改作 mutant，还是补生成；不同 origin 的天然缺陷率很可能导致不同数量和难度的可用输出。",
+      "consequence": "分析样本会条件化于生成质量，origin cell 的构成和可变异性不再可比，clean false-positive rate 也可能被人为美化。",
+      "required_fix": "预生成并冻结有顺序的 reserve；报告所有生成失败和天然缺陷率。主要注入分析只使用完整的 item × origin × generation-replicate clean blocks，不得按观察到的 reviewer 结果补样或修复，且须报告由完整块筛选限定的 estimand。"
+    },
+    {
+      "issue": "Origin pilot 的重复运行不足以解决 item、generation 和变异自然度的混杂。",
+      "evidence": "两次 reviewer 运行审核相同的 64 个 variants；每个 origin 只有单一生成输出，机械变异虽可逆但未要求跨 origin 具有等价的可见度和自然度。",
+      "consequence": "重复方向一致只能说明同一材料上的随机稳定性，不能证明效应跨新条目或新生成输出成立。",
+      "required_fix": "优先增加独立生成重复和 item 覆盖，并按 item 聚类分析；变异模板、位置可用性和可见度须在 reviewer 推理前由盲于 origin 对比的规则冻结。"
+    },
+    {
+      "issue": "自然审计虽承诺全条目裁决，但裁决过程未与模型提名和历史 provenance 隔离。",
+      "evidence": "方案没有规定源码裁决者是否对四路线提名、origin 路由和历史流程特征盲化，也没有处理 provenance 缺失。",
+      "consequence": "候选显著性可能影响源码查找深度或 indeterminate 判定；缺失 provenance 若被排除，会进一步选择样本。",
+      "required_fix": "先按统一核验模板完成盲化源码裁决，再揭示模型提名；unknown provenance 必须保留为显式层。若无法设置独立裁决者，至少冻结证据充分性规则并对全部条目使用相同审计深度。"
+    },
+    {
+      "issue": "三阶段顺序把高成本 origin pilot 放在实际残余问题是否存在之前。",
+      "evidence": "阶段二需生成、核验和审核 64 个 origin variants，而自然残余审计直到阶段三才检验真实总体中的客观机制残余。",
+      "consequence": "可能先花费大量预算研究一个在实际总体中优先级很低、provenance 又无法可靠恢复的交互。",
+      "required_fix": "保留 context 先于其他 reviewer 实验的依赖，但把自然残余审计提前到 origin pilot 之前；origin pilot 仅在自然审计达到预注册的实际相关性和 provenance 完整度门槛后启动。"
+    }
+  ],
+  "minor_issues": [
+    "“FINDING-only”和“正确 UNCERTAIN”需要互斥计分定义，并明确 UNCERTAIN 是否进入 recall、specificity 或单独校准指标。",
+    "固定顺序满足路线公平性，但无法估计位置或批次疲劳效应；应把顺序作为冻结限制而不是可推广结论。",
+    "成本不应只按调用次数报告，还应报告每臂输入 token、输出 token、失败重试和上下文构造成本。",
+    "四条路线是固定的比较对象，不是从模型总体随机抽取的四个独立样本；跨路线平均值只能是等权描述性汇总。",
+    "“效应不由少数条目独占”应转换为冻结的 leave-one-item-out 或按 item 贡献上限规则。",
+    "字节重建 verifier 应同时验证样本顺序、arm 唯一差异、匿名化映射和生成 reserve 的冻结顺序。"
+  ],
+  "accepted_elements": [
+    "样本、reference、prompt、schema 和路线在推理前冻结。",
+    "四路线使用相同输入、顺序、schema 和计分口径，且不交换候选输出。",
+    "clean controls 要求在推理前完成源码核验。",
+    "自然残余审计承诺无论模型是否提名都审计每个抽样条目，避免只裁决模型候选。",
+    "自然审计明确限于客观机制主张，不冒充独立母语语言质量审核。",
+    "结果区分实测、派生统计和人工建议，不以 union 或 consensus 代替源码裁决。",
+    "保留原始输出、裁决、结果和重建 verifier，且不因 harness 错误给模型计分。",
+    "pilot 信号弱时报告证据不足、不事后追加样本追求显著性的原则正确。"
+  ],
+  "recommended_plan": {
+    "sequence": [
+      {
+        "phase": "0. 统一预注册与可识别性检查",
+        "objective": "在任何推理前固定 estimand、抽样单位、上下文提取、缺失处理和数值决策门槛。",
+        "design": "为每个实验只指定一个主要 contrast；冻结 item ID、mutation map、clean 判据、路线和模型版本、随机种子、顺序、schema、计分器、indeterminate/unreachable 规则以及所有 reserve。明确 run 是重复测量而非独立 item。",
+        "minimum_sample": "不涉及模型样本；所有后续样本清单和 reserve 必须在读取任何 reviewer 输出前冻结。",
+        "model_calls": "0。",
+        "decision_gate": "任一主要 estimand、分母、上下文生成规则或缺失处理仍不明确则 no-go，不运行模型。"
+      },
+      {
+        "phase": "1. 精简的 runtime source-context pilot",
+        "objective": "判断固定源码上下文是否对需要运行时源码的客观缺陷提供足够稳定且不牺牲 specificity 的操作性增益。",
+        "design": "使用配对 A/B 臂，除 fixed context 字段外完全一致；四路线各自独立。主要集合仅含 runtime_source_required，lint 单独由确定性工具评估。以 item 为单位分析配对 discordance；两次完全冻结的重复仅衡量推理随机性。",
+        "minimum_sample": "至少 12 个独立 runtime mutants 和 12 个独立、同类匹配的 clean controls。这只是能检查 item 集中度和方向稳定性的 pilot 下限，不构成功效保证。",
+        "model_calls": "4 routes × 2 arms × 2 frozen runs = 16；完成后停止，不增加第三次运行。",
+        "decision_gate": "仅当两个 run 中按 route 等权的 runtime recall 增量都至少为 0.20、每个 run 至少 3/4 routes 为正、按 route 等权的 control 候选率增量不超过 0.05，且任一路线每个 run 最多新增 1 个 control 候选时，才在下一阶段统一采用 B；否则采用 A。结果混合时不得选路线或指标解释为总体成功。"
+      },
+      {
+        "phase": "2. 前瞻性自然残余审计",
+        "objective": "先判断目标总体中客观机制残余是否具有实际研究优先级，并验证 provenance 是否足以支持后续 origin 分层。",
+        "design": "冻结版本化总体和概率抽样框，保留 same-family-only、cross-family 和 unknown provenance 层及纳入概率。四路线各做一次匿名独立提名；源码裁决对提名和路线盲化，所有抽样条目使用同一核验模板。报告加权 confirmed 率、exact interval，以及把 indeterminate/unreachable 分别计入或排除时的预注册界限。",
+        "minimum_sample": "40 个独立条目只可作为总体可行性 pilot 下限，不能支持稳定分层比较；若目标是具有指定精度的总体率，必须在冻结前按预先选择的区间宽度目标推导更大的 n，不能在看到结果后补样。",
+        "model_calls": "4 routes × 1 frozen run = 4；残余率由全量源码审计估计，不靠 reviewer 重复增加样本。",
+        "decision_gate": "只有在零个样本被结果依赖地替换、至少 90% 条目得到 determinate 裁决且至少 90% 条目 provenance 可分类时才报告单一加权点估计；否则只报告上下界和可行性失败。只有出现至少 4 个 confirmed residuals、分布于至少 4 个独立条目且 provenance 门槛通过时，才把 origin pilot列为下一优先项。该门槛是预算优先级规则，不是显著性结论。"
+      },
+      {
+        "phase": "3. 条件启动的 reviewer × generator-output pilot",
+        "objective": "估计匿名输出上的操作性 reviewer × origin interaction，而非未经识别的心理性同族偏差。",
+        "design": "每个 source item、每个 origin 生成至少两个独立 baseline；完整源码核验并用冻结 reserve 补足完整块。每个 item × origin 的两个 clean generation replicates 分别平衡分配为 mutant/control，mutation 类别和位置跨 origin、item、replicate 平衡。四 reviewers 审核同一匿名固定列表两次；主要 contrast 只预注册 GPT reviewer 的 GPT-origin 对非 GPT-origin，完整矩阵为次要描述性结果。",
+        "minimum_sample": "至少 12 个独立 source items × 4 origins × 2 independent generations = 96 variants，其中每个 origin 至少 12 mutants 和 12 controls。该下限只能检验信号是否跨 item 和 generation 重复，不能声称已获得预定功效。",
+        "model_calls": "4 routes × 2 frozen runs = 8 reviewer calls，外加在推理前冻结的生成调用；第二次后停止。",
+        "decision_gate": "只有主要 adjusted contrast 在两次 run 同方向且绝对差至少 0.15、leave-one-item-out 后不反向、两个 generation replicates 方向一致，并且 own-origin 与 non-own-origin 的 control 候选率绝对差不超过 0.10，才称为值得新 holdout 验证的“操作性交互信号”；否则结论为证据不足。即使通过，也不得称为已识别的同族偏差。"
+      }
+    ],
+    "analysis": [
+      "所有 recall、specificity 和 arm 差异以 source item 为聚类单位；同一 item 的 arms、origins、generation replicates 和 runs 均作为重复测量处理。",
+      "Context 主要分析使用 A/B 配对 discordance；同时逐 item 展示四路线结果，避免把 route × run 机会数当作独立 n。",
+      "Origin 主要模型至少控制 source item、mutation/control、mutation 类别、位置和 generation replicate；报告绝对风险差及 item-clustered 区间，不以模型身份排名替代交互估计。",
+      "每个实验只允许一个预注册主要 contrast；其他路线、层级、union、consensus、FINDING-only 和 UNCERTAIN 指标均标为次要或探索性，并报告比较数量而不挑选显著项。",
+      "自然残余率使用冻结纳入概率加权；confirmed 为下界基础，indeterminate/unreachable 按预注册最坏与最好情形给出识别区间，绝不静默删除。",
+      "生成天然缺陷、reserve 使用、完整块淘汰和 provenance 缺失分别按 origin 报告，不能只报告最终 clean 分析集。",
+      "成本同时报告调用数、输入和输出 token、失败调用及源码审计工时。"
+    ],
+    "stopping_rules": [
+      "每个实验达到冻结样本数和冻结重复数即停止；不得因结果接近门槛而增加条目、第三次运行或新指标。",
+      "不得继续追加现有八条实验的 Run D。",
+      "harness、网络或解析错误不计成绩；修复后复用已成功 envelope，且修复不得改变冻结输入或模型参数。",
+      "Context 结果未通过统一门槛时停止采用 B，不按单一路线或单一 run 选择性推广。",
+      "自然审计的抽样框、权重或分母不可重建时停止总体率推断，只保留逐条审计事实。",
+      "Origin baseline 无法形成冻结的完整 clean blocks 时停止 pilot，不用事后人工修文或非冻结补生成挽救样本。",
+      "任何 gate 得到 mixed 或边界结果都报告 inconclusive，并另行提出未来独立 holdout；不得在本实验内追样。"
+    ]
+  },
+  "go_no_go": [
+    {
+      "gate": "Context 实验启动门槛",
+      "pass_condition": "至少 12 个 runtime mutants 和 12 个 clean controls 均已源码确认，A/B 唯一差异、上下文机械提取规则、两个 runs 和数值门槛全部冻结。",
+      "fail_action": "不运行 reviewer；修订并重新冻结设计版本。"
+    },
+    {
+      "gate": "统一采用 source context",
+      "pass_condition": "两个 frozen runs 都达到等权 recall 增量至少 0.20、至少 3/4 routes 为正、等权 control 候选率增量不超过 0.05，且任何 route 每个 run 新增 control 候选不超过 1 个。",
+      "fail_action": "后续统一使用 source/target-only；若方向混合，报告 route-specific 探索结果但不增加运行。"
+    },
+    {
+      "gate": "自然残余率可估计",
+      "pass_condition": "目标总体、纳入概率和层权重可重建，无结果依赖替换，determinate 裁决和可分类 provenance 均至少达到 90%。",
+      "fail_action": "不报告单一点残余率或流程分层差异，只报告预注册上下界、缺失结构和逐条裁决。"
+    },
+    {
+      "gate": "Origin pilot 启动",
+      "pass_condition": "自然审计至少产生 4 个跨 4 个独立条目的 confirmed objective residuals，provenance 门槛通过，且 origin 实验能在揭示 reviewer 输出前冻结至少 12 × 4 × 2 的完整 clean blocks。",
+      "fail_action": "停止在该方向投入预算；保留自然审计结论，不用受控 mutation 人为制造开展理由。"
+    },
+    {
+      "gate": "Origin 操作性交互信号",
+      "pass_condition": "预注册主要 contrast 在两个 runs 中同方向且绝对差至少 0.15，leave-one-item-out 不反向，两个 generation replicates 方向一致，且 control 候选率差不超过 0.10。",
+      "fail_action": "结论为证据不足并停止；不新增样本、不切换主要 reviewer、不改称其他矩阵单元为主要发现。"
+    }
+  ],
+  "uncertainties": [
+    "Context 和 origin 的数值门槛是用于预算决策的预注册 materiality rules，不是由现有样本推导的功效结论。",
+    "即使有两个 runs，item 泛化仍主要取决于独立条目数量；重复运行只能有限描述随机推理方差。",
+    "没有独立母语人工审核者，因此所有结论都必须限于固定源码可裁决的客观机制，不能外推到语言质量。",
+    "匿名化不能消除模型对自身家族风格的识别；风格识别与真实 origin 在当前可行设计中仍不可完全分离。",
+    "完整 clean block 筛选会把 origin estimand 限定为能够产生可源码确认 clean 输出的条目和生成结果。",
+    "40 条自然样本若残余罕见，只能给出宽区间；在没有预先精度目标时不能声称这是充分样本量。",
+    "若同一研究团队完成上下文抽取和源码裁决，残余的非独立判断风险只能通过盲化、固定模板和审计轨迹缓解，不能完全消除。",
+    "固定顺序确保路线公平，但位置效应与 item 难度仍绑定，不能从该设计中单独估计。"
+  ]
+}

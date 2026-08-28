@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "synthesized_at": "2026-08-27",
+  "reviewer": {
+    "mechanism": "collaboration.spawn_agent",
+    "task": "/root/independent_plan_review",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "high",
+    "fork_turns": "none",
+    "raw_output": "RAW-subagent-gpt-5.6-sol-high.json",
+    "raw_output_sha256": "7b6ad58902534bfe35adba6f51155a39b4f93c15b4c2e4cab4cfea8cc0b4d19c"
+  },
+  "review_counts": {
+    "fatal_issues": 2,
+    "major_issues": 8,
+    "minor_issues": 6
+  },
+  "overall_judgment": "The review correctly identifies two non-negotiable identification failures in the candidate plan: generator origin was bound to a single realized output, and the natural audit lacked a probability sampling frame and denominator. Most operational fixes are adopted. Two recommendations are narrowed because they are budget-policy choices rather than scientific prerequisites, and one generation-replicate gate is rejected as undefined under the proposed mutant/control assignment.",
+  "decisions": [
+    {
+      "id": "D01",
+      "topic": "Unified preregistration and identifiability check",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "Freeze one primary estimand and contrast, units, denominators, extraction, missingness and numeric gates before inference.",
+      "local_reasoning": "This directly prevents post-result denominator changes and pseudoreplication without adding model cost.",
+      "revised_plan_effect": "Added Phase 0 as a mandatory zero-call no-go gate for all later phases."
+    },
+    {
+      "id": "D02",
+      "topic": "Origin causal language",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "A single realized output per origin cannot identify same-family bias; downgrade the estimand to reviewer by generator-output interaction unless style and origin are independently manipulated.",
+      "local_reasoning": "Anonymization does not remove origin-linked wording, quality or defect visibility, so causal same-family language would exceed the design.",
+      "revised_plan_effect": "Renamed Phase 3 and limited its conclusion to an operational interaction signal that would require a fresh holdout."
+    },
+    {
+      "id": "D03",
+      "topic": "Context pilot independent item count",
+      "disposition": "MODIFIED",
+      "reviewer_claim": "Use at least 12 runtime mutants and 12 independent clean controls; repetitions are repeated measurements, not new samples.",
+      "local_reasoning": "The 12 plus 12 runtime minimum is adopted. Six surface mutants and six independent controls are retained only as a preregistered negative-control family because they add no reviewer calls and can expose a nonspecific context effect.",
+      "revised_plan_effect": "Phase 1 now freezes 36 unique source items and treats item as the inferential unit; surface results are secondary."
+    },
+    {
+      "id": "D04",
+      "topic": "Deterministic lint items",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "Remove lint-detectable items from the model experiment and evaluate them with deterministic tooling.",
+      "local_reasoning": "They do not answer the runtime-context question and would dilute the primary denominator.",
+      "revised_plan_effect": "Lint coverage is a separate deterministic report and is excluded from the model primary analysis."
+    },
+    {
+      "id": "D05",
+      "topic": "Mechanical source-context construction",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "Freeze extraction, length, missingness and leakage rules before mutation/reference reveal; A and B must otherwise be byte-identical.",
+      "local_reasoning": "Without this, hand-selected evidence could encode the answer and destroy the ablation.",
+      "revised_plan_effect": "Phase 1 specifies a manifest-driven code-only extractor, one-callee limit, deterministic truncation, CONTEXT_MISSING and reject-on-leak checks."
+    },
+    {
+      "id": "D06",
+      "topic": "Context decision thresholds",
+      "disposition": "MODIFIED",
+      "reviewer_claim": "Adopt one primary contrast, one false-positive guardrail and frozen numeric go/no-go rules.",
+      "local_reasoning": "The proposed 0.20 recall, 0.05 candidate-rate and per-route maximum are useful operational materiality rules, but the small item count cannot justify power or significance claims.",
+      "revised_plan_effect": "Adopted the numeric gates, labeled them budget/input-contract policies, and made failure or mixed results default to source/target-only with no third run."
+    },
+    {
+      "id": "D07",
+      "topic": "Natural-audit sampling frame and denominator",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "Freeze a target population, unique probability sampling frame, inclusion probabilities, weights, unknown provenance and indeterminate/unreachable denominator rules.",
+      "local_reasoning": "These are prerequisites for any population-rate statement rather than a convenience-sample proportion.",
+      "revised_plan_effect": "Phase 2 uses a frozen snapshot, provenance strata, PPS task sampling, seeded within-task selection, explicit weights and lower/upper identification bounds."
+    },
+    {
+      "id": "D08",
+      "topic": "Natural-audit adjudication order",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "Lock uniform source audits before exposing model nominations and retain unknown provenance.",
+      "local_reasoning": "This reduces nomination-driven search-depth bias and preserves the full sampling denominator.",
+      "revised_plan_effect": "All 40 source audits are locked first with confirmed, refuted, indeterminate or unreachable verdicts; four model calls occur only afterward."
+    },
+    {
+      "id": "D09",
+      "topic": "Natural audit before origin pilot",
+      "disposition": "MODIFIED",
+      "reviewer_claim": "Run the natural residual audit first and launch the origin pilot only if residual prevalence and provenance cross a gate.",
+      "local_reasoning": "The ordering is efficient for this project, but natural prevalence is not a scientific identifiability prerequisite for a controlled reviewer-output interaction study.",
+      "revised_plan_effect": "Reordered the phases and made four confirmed residuals across four tasks a budget-priority gate only, explicitly not a validity claim."
+    },
+    {
+      "id": "D10",
+      "topic": "Independent generation replicates and complete blocks",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "Generate at least two baselines per item and origin, use frozen reserves, analyze only complete clean blocks and report origin-specific failures and natural defects.",
+      "local_reasoning": "This reduces binding to a single realization and makes origin-dependent selection visible, though it does not identify psychological bias.",
+      "revised_plan_effect": "Phase 3 freezes 16 ordered items, requires 12 complete 4-origin by 2-generation blocks, and stops without repair if fewer are available."
+    },
+    {
+      "id": "D11",
+      "topic": "Generation-replicate direction gate",
+      "disposition": "REJECTED",
+      "reviewer_claim": "Require the primary contrast to have the same direction in both generation replicates.",
+      "local_reasoning": "Under the recommended design, one of the two generation outputs in each item-origin block is mutant and the other is control. A mutant-origin detection contrast is therefore not separately estimable for each generation label without changing the design or introducing confounding.",
+      "revised_plan_effect": "Generation assignment is handled as a balanced block/repeated-measure factor; stability gates use two reviewer runs and leave-one-item-out analysis instead."
+    },
+    {
+      "id": "D12",
+      "topic": "Origin primary contrast and clustering",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "Predeclare one GPT-reviewer contrast, cluster by source item, control design factors and make the full reviewer-origin matrix secondary.",
+      "local_reasoning": "This limits researcher degrees of freedom and treats routes and repeated observations correctly.",
+      "revised_plan_effect": "The sole primary contrast is GPT reviewer risk difference on GPT-origin versus pooled non-GPT-origin mutants; all other cells are descriptive."
+    },
+    {
+      "id": "D13",
+      "topic": "Uncertainty, costs and reproducibility checks",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "Define FINDING versus correct UNCERTAIN, report tokens/failures/audit labor, disclose fixed-order limits, and verify ordering, arm differences, anonymization and reserves.",
+      "local_reasoning": "These additions improve auditability and prevent opportunity counts from being mistaken for independent evidence.",
+      "revised_plan_effect": "Added mutually explicit detection reporting, fixed-route/run limitations, full cost accounting and expanded verifier requirements."
+    },
+    {
+      "id": "D14",
+      "topic": "Natural residuals as a scientific launch prerequisite",
+      "disposition": "REJECTED",
+      "reviewer_claim": "Do not use controlled mutations as an artificial reason to proceed if natural residuals fail the launch gate.",
+      "local_reasoning": "A controlled interaction pilot can answer a method question even when the production residual is rare. Low prevalence can rationally lower project priority, but it does not make the controlled estimand invalid.",
+      "revised_plan_effect": "The natural-audit gate controls current-project budget priority only; a separately motivated future controlled study would require a new freeze, not a claim of scientific prohibition."
+    }
+  ],
+  "disposition_counts": {
+    "ACCEPTED": 9,
+    "MODIFIED": 3,
+    "REJECTED": 2
+  },
+  "key_changes": [
+    "Added a zero-call preregistration and identifiability phase.",
+    "Expanded the context pilot to 12 independent runtime mutants and 12 controls, removed lint from model inference, and mechanically froze context extraction.",
+    "Moved the natural audit ahead of the origin study and supplied a probability frame, weights, unknown-provenance stratum and explicit identification bounds.",
+    "Downgraded same-family-bias language to an operational reviewer by generator-output interaction and added independent generation replicates and complete clean blocks.",
+    "Rejected an undefined generation-direction gate and separated scientific validity from project budget priority."
+  ],
+  "residual_risks": [
+    "The proposed numeric gates are materiality policies, not powered hypothesis tests.",
+    "Forty natural items can yield only wide bounds when residuals are rare.",
+    "Complete-block filtering limits the origin estimand to items for which all origins produce source-verifiable clean outputs.",
+    "Anonymization cannot fully separate recognizable style from true generator origin.",
+    "Without an independent native-language adjudicator, conclusions remain limited to objective source-verifiable mechanics."
+  ],
+  "revised_plan": "PLAN-REVISED.md"
+}

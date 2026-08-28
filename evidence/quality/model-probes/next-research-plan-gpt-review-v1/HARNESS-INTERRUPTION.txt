@@ -1,0 +1,7 @@
+2026-08-27
+
+The first independent-review attempt was terminated when the surrounding unified exec wait was interrupted after more than 90 seconds. After interruption, the exec session no longer existed, no runner/codex process remained, and no RAW, stderr or REVIEW artifact had been written.
+
+A second Codex CLI attempt used the same frozen files and started successfully, but its surrounding wait was interrupted before it produced a result. The user then explicitly replaced the transport with the Codex built-in subagent mechanism. The main agent resolved and terminated the surviving CLI parent and child processes and confirmed that neither the temporary output path nor any repository RAW, stderr or REVIEW artifact existed.
+
+Both CLI attempts are harness/interruption events, not model results. They are excluded from the evidence. The successful review kept the frozen candidate plan, prompt, schema, model and effort unchanged, while changing only the transport as recorded in METHOD-OVERRIDE.json.
