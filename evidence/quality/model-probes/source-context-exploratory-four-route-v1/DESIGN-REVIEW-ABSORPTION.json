@@ -1,0 +1,47 @@
+{
+  "schema_version": "source-context-exploratory-design-review-absorption-v1",
+  "status": "REVIEWED_BEFORE_EXTERNAL_INFERENCE",
+  "date": "2026-08-28",
+  "reviewer": "independent internal subagent /root/v4_lead_challenger_1",
+  "accepted_changes": [
+    {
+      "finding": "A/B exposed different top-level arm labels.",
+      "resolution": "Removed the arm field from both model inputs. The only remaining item-level difference is fixed_context: empty in A and populated in B."
+    },
+    {
+      "finding": "B repeated the complete source at each source marker.",
+      "resolution": "Replaced the exact occurrence with a stable [SOURCE_MATCH] marker so B adds surrounding context without a second copy of the source."
+    },
+    {
+      "finding": "Reference bytes were not bound to candidate artifacts.",
+      "resolution": "Runner now verifies and records the sealed reference SHA-256 without reading reference contents into the prompt."
+    },
+    {
+      "finding": "Context sanitization deleted every line containing @ and could remove game placeholders.",
+      "resolution": "Sanitization now removes only explicit comment-header emails and license lines. REFERENCE.json records sanitized hashes and every removed line for audit."
+    },
+    {
+      "finding": "Parser fixes could force resampling because RAW files blocked reruns.",
+      "resolution": "Runner now writes a hash-bound ACQUISITION record and Codex last-message RAW, and supports --parse-existing. It may replace only an invalid derived candidate while preserving the original RAW bytes and prior candidate hash."
+    },
+    {
+      "finding": "Route identity, output validity and formal eligibility were conflated.",
+      "resolution": "Candidate metadata separates response validity, exploratory score eligibility, requested-route label eligibility, identity status and formal_eligible=false."
+    },
+    {
+      "finding": "Execution order was not frozen.",
+      "resolution": "The experiment freezes four parallel waves: A1, B1, B2, A2. Each route therefore sees AB in repeat 1 and BA in repeat 2. Acquisition records preserve actual UTC timing."
+    }
+  ],
+  "partially_accepted": [
+    {
+      "finding": "Exclude any route whose runtime identity is not fully verified.",
+      "resolution": "Not adopted as an exploratory exclusion because the user explicitly requires scores even without formal isolation. Such routes remain descriptively scored, but requested-route label eligibility and identity limitations are machine-readable and formal_eligible is always false. Pi provider/model mismatch remains a hard validity error because Pi supplies exact identity."
+    }
+  ],
+  "limitations_retained": [
+    "Only one CONTEXT_DEFECT exists; every context-hit result is a repeated observation of that single Narrative case, never population recall.",
+    "Two context-exonerated controls share one upstream task because the small set deliberately covers two different referent ambiguities from that task.",
+    "Ordinary clean controls require both audit candidates to have said CLEAN, so they are deliberately low-dispute controls and cannot estimate population specificity."
+  ]
+}

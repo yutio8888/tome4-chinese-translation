@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "candidate_hashes", "items"],
+  "properties": {
+    "schema_version": {"const": "source-context-exploratory-atom-adjudication-v1"},
+    "status": {"const": "LEAD_ATOM_ADJUDICATION_COMPLETE"},
+    "candidate_hashes": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["file", "sha256", "size_bytes"],
+        "properties": {
+          "file": {"type": "string", "pattern": "^CANDIDATE-.*\\.json$"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "size_bytes": {"type": "integer", "minimum": 1}
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 224,
+      "maxItems": 224,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["route", "arm", "run", "item_id", "truth_class", "model_verdict", "atom_hit", "rationale", "lead_verified"],
+        "properties": {
+          "route": {"type": "string", "minLength": 1},
+          "arm": {"enum": ["A", "B"]},
+          "run": {"enum": [1, 2]},
+          "item_id": {"type": "string", "pattern": "^E[0-9]{3}$"},
+          "truth_class": {"enum": ["CONTEXT_DEFECT", "SURFACE_DEFECT", "CONTEXT_EXONERATED_CLEAN", "ORDINARY_CLEAN"]},
+          "model_verdict": {"enum": ["OK", "FINDING", "UNCERTAIN"]},
+          "atom_hit": {"type": ["boolean", "null"]},
+          "rationale": {"type": "string", "minLength": 1},
+          "lead_verified": {"const": true}
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"truth_class": {"enum": ["CONTEXT_DEFECT", "SURFACE_DEFECT"]}}},
+            "then": {"properties": {"atom_hit": {"type": "boolean"}}},
+            "else": {"properties": {"atom_hit": {"const": null}}}
+          },
+          {
+            "if": {"properties": {"model_verdict": {"enum": ["OK", "UNCERTAIN"]}}},
+            "then": {"properties": {"atom_hit": {"enum": [false, null]}}}
+          }
+        ]
+      }
+    }
+  }
+}

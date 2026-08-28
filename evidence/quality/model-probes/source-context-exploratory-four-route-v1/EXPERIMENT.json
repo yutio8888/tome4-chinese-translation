@@ -1,0 +1,94 @@
+{
+  "schema_version": "source-context-exploratory-four-route-experiment-v1",
+  "experiment": "source-context-exploratory-four-route-v1",
+  "status": "FROZEN_BEFORE_EXTERNAL_INFERENCE",
+  "date_frozen": "2026-08-28",
+  "purpose": "Exploratory A/B comparison of source-target-only review versus the same pairs with fixed public-source context after the formal GLM truth-set gate returned NO_GO.",
+  "formal_status": "NOT_FORMAL_CANNOT_CHANGE_UPSTREAM_NO_GO",
+  "upstream": {
+    "directory": "../prospective-source-context-truth-audit-v1",
+    "audit_queue_sha256": "3f629d6eb9a7b3264582e7b860be7ac77cd038f3f8ac2df2ad9736fee64a2ebe",
+    "final_adjudication_sha256": "455f0e3b744795617ce058e58e4adb3d331428ee5afbad97a01521822bae159c",
+    "result_sha256": "d4165fc353987db14893eda04da06e4321bd963e7618659ca1ca8f410b4e3593",
+    "result_status": "NO_GO_INSUFFICIENT_TRUTH_SET"
+  },
+  "sample": {
+    "items": 14,
+    "truth_classes": {
+      "CONTEXT_DEFECT": 1,
+      "SURFACE_DEFECT": 5,
+      "CONTEXT_EXONERATED_CLEAN": 4,
+      "ORDINARY_CLEAN": 4
+    },
+    "selection": "All eligible determinate defects; four named context-exonerated clean disputes; then two ordinary CLEAN controls per Runtime/Narrative category by frozen SHA-256 ranking with task uniqueness inside the ordinary pool.",
+    "presentation": "All selected rows ranked by frozen SHA-256 presentation seed and relabeled E001-E014. A and B use identical order/source/target; only fixed_context differs.",
+    "case_enriched": true,
+    "population_estimate": false
+  },
+  "arms": {
+    "A": "source + target; fixed_context is an empty array",
+    "B": "identical source + target + sanitized raw fixed public-source excerpts with [SOURCE_MATCH] marker",
+    "runs_per_arm_per_route": 2,
+    "total_model_calls_planned": 16
+  },
+  "execution_schedule": [
+    {"wave": 1, "arm": "A", "run": 1, "routes_in_parallel": true},
+    {"wave": 2, "arm": "B", "run": 1, "routes_in_parallel": true},
+    {"wave": 3, "arm": "B", "run": 2, "routes_in_parallel": true},
+    {"wave": 4, "arm": "A", "run": 2, "routes_in_parallel": true}
+  ],
+  "routes": [
+    {"route": "codex-gpt-5.6-sol-high", "harness": "codex-cli 0.150.1", "model": "gpt-5.6-sol", "effort": "high", "formal_eligible": false, "identity_limitation": "retained CLI envelope may not independently attest runtime model identity"},
+    {"route": "claude-opus-5-high-exploratory", "harness": "Claude Code 2.1.250", "model": "claude-opus-5", "effort": "high", "formal_eligible": false, "qualification": "formal purity NO-GO; exploratory participation explicitly allowed"},
+    {"route": "pi-zai-cn-glm-5.3-flash-high", "harness": "Pi 0.84.3", "provider": "zai-standard-cn", "model": "glm-5.3-flash", "effort": "high", "formal_eligible": false, "qualification": "formal truth-set gate NO-GO; exact provider/model required for exploratory validity"},
+    {"route": "agy-gemini-3.7-flash-high", "harness": "Antigravity CLI 1.1.22", "model": "gemini-3.7-flash-high", "effort": "high", "formal_eligible": false, "identity_limitation": "historical Antigravity envelopes omit runtime model identity"}
+  ],
+  "availability_checked": {
+    "date": "2026-08-28",
+    "codex": "local version command; route availability will be established by acquisition",
+    "claude": "local version command; route availability will be established by acquisition",
+    "pi": "--list-models confirmed zai-standard-cn/glm-5.3-flash",
+    "agy": "models confirmed gemini-3.7-flash-high"
+  },
+  "frozen_hashes": {
+    "INPUT-A.json": "d8845716b86d2b0f7dca8ada1495f724e584e4c2adab97373b3a9dd975b5b4a2",
+    "INPUT-B.json": "05893599fd1fad889d0cc36811565b2693933b09d069b9f59028143b7dd9a764",
+    "PROMPT.md": "c4ce6c84fa674f7b2efab21afbf3584c495578821d1ca1c5b4f599a0ca1e6d25",
+    "REVIEWER-SCHEMA.json": "b47b250e6ffc7b6b4bebc4eb96493dbf011ec8ae747416debe9c1c709bd59de9",
+    "REFERENCE.json": "7383e82ce3506f50d8a2619261867f4bc919acccaae103841dd80f3acfdffc46",
+    "ATOM-ADJUDICATION-SCHEMA.json": "b2e0665f242da33b766e4a52ea45c6ae7f3869a331b4658208e4fa569e4e3c3b",
+    "build-inputs.mjs": "3f035eec64d1bf0c180d24bb00362ae2d80991aa3ea02ff4bc8fa36f0d139212",
+    "run.mjs": "df2626a74ff0d2431d084481d93316ba434d84b7958813694296ec2aa37fc9ff",
+    "score.mjs": "e4539bbb674296ab8ed4de61f57c6dba699c91514cd0f181a24ac38fcc6e9f50",
+    "DESIGN-REVIEW-ABSORPTION.json": "894ab130a5cc232b42fe236382b314a7cf97c016712b73ecb83334fed8412e25",
+    "verify-freeze.mjs": "cb29cfa4c039d6ded2e58cd4a1b6f9f904125fb414c022c692e744a8901b6e91"
+  },
+  "validity": {
+    "response": "Each candidate must parse, contain exactly 14 E001-E014 items once in order, and satisfy the frozen output fields/enums.",
+    "route_identity": "Recorded separately from response validity. Exact Pi mismatch invalidates the candidate; unverified Codex/Gemini provenance and unqualified Claude are retained only as explicit exploratory limitations.",
+    "raw_reuse": "Acquisition RAW and its hashes are immutable. Parser-only repair uses --parse-existing and must not make a new model call.",
+    "reference_sealed": "REFERENCE.json and all truth labels/atoms are local scorer inputs only and are never concatenated into model prompts."
+  },
+  "preregistered_analysis": {
+    "atom_hit": "A defect hit requires FINDING plus identification of the sealed material atom; generic criticism or a different issue is not a hit.",
+    "clean_false_positive": "Any FINDING on either clean class is a false positive; UNCERTAIN is reported separately.",
+    "paired_outputs": [
+      "context-defect atom delta B minus A for each repeat",
+      "surface-defect atom retention B minus A",
+      "context-exonerated clean false-positive delta B minus A",
+      "all-clean false-positive delta B minus A"
+    ],
+    "thresholds": "none; descriptive exploratory result only",
+    "prohibited_claims": [
+      "general context-defect recall from the single context case",
+      "population specificity from deliberately easy ordinary clean controls",
+      "formal provider ranking",
+      "changing the upstream formal NO-GO"
+    ]
+  },
+  "authorization": {
+    "basis": "The user permanently authorized this project to send sanitized experimental records to OpenAI, Anthropic, Z.ai CN/GLM and Google Gemini.",
+    "outbound_fields": ["item_id", "source", "target", "fixed_context", "review instructions", "output schema"],
+    "excluded": ["credentials", "sealed reference", "adjudication conclusions", "audit/task IDs", "model provenance in prompt", "local absolute paths"]
+  }
+}

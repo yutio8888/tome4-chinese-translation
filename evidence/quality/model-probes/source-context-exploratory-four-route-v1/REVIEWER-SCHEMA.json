@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "minItems": 14,
+      "maxItems": 14,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item_id", "verdict", "material_issue", "evidence"],
+        "properties": {
+          "item_id": {"type": "string", "pattern": "^E[0-9]{3}$"},
+          "verdict": {"enum": ["OK", "FINDING", "UNCERTAIN"]},
+          "material_issue": {"type": "string", "minLength": 1},
+          "evidence": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}
