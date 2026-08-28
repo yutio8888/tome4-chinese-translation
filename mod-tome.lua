@@ -23812,10 +23812,10 @@ t([[Lay a trap that releases a burst of antimagic energies (radius 2), draining 
 t("Explosion Trap", "爆炸陷阱", "talent name")
 t("You have learned how to create Explosion traps!", "你学会了如何制作爆炸陷阱！", "_t")
 t("explosion trap", "爆炸陷阱", "_t")
-t("Explodes (radius 2) for %0.2f fire damage over 3 turns.", "爆炸(范围 2) ：3回合内 %0.2f 火焰伤害。", "tformat")
+t("Explodes (radius 2) for %0.2f fire damage over 3 turns.", "爆炸(半径 2) ：3回合内 %0.2f 火焰伤害。", "tformat")
 t([[Lay a simple yet effective trap that explodes in a radius 2 on contact, setting those affected on fire for %0.2f fire damage over 3 turns.
-		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个简单而有效的陷阱，激活后触发半径 2 的爆炸, 3 回合内造成 %0.2f 火焰伤害。
-		该陷阱可以被设置为直接激活，也可以被诱饵激活。 %s]], "tformat")
+		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个简单而有效的陷阱，有目标接触陷阱时，它会在半径 2 范围内爆炸，使受影响的目标着火，并在 3 回合内造成 %0.2f 点火焰伤害。
+		该陷阱可以被设置为直接激活，也可以被高等级的诱饵激活。 %s]], "tformat")
 t("Catapult Trap", "弹射陷阱", "talent name")
 t("You have learned how to create Catapult traps!", "你学会了如何制作弹射陷阱！", "_t")
 t("catapult trap", "弹射陷阱", "_t")

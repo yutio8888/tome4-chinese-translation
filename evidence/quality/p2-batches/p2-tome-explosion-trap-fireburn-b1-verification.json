@@ -1,0 +1,347 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-explosion-trap-fireburn-b1-001",
+  "kind": "explosion_trap_fireburn_bounded_translation_verification",
+  "frozen_workset": {
+    "path": "evidence/quality/p2-batches/p2-tome-explosion-trap-fireburn-b1-workset.json",
+    "sha256": "b99f2cf620e2b0545957d07f2ea71df68473369c35faf25622f0d3fa80ff4bac",
+    "immutable": true
+  },
+  "inventory_origin": {
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "reference_ids": [
+      "fireburn-ref-022"
+    ]
+  },
+  "translation_file": {
+    "path": "mod-tome.lua",
+    "baseline_head": "a347dc81144b1778ea8c0e8bb6c985bce3b724b7",
+    "baseline_sha256": "aa16324a04793b80ea4db745d1c68c26bff82c3aeb6ae91f6358860ae8a07e90",
+    "current_sha256": "4649d2514b2dbad86c449f743f1f198be0e0d766afc8d299c27840824a764bab",
+    "production_targets_changed": 2
+  },
+  "translation_revisions": [
+    {
+      "revision_key": "tome-explosion-trap-short",
+      "reference_id": "fireburn-ref-022",
+      "entry_id": "5c2d5bd302ceb71ca0af46b6aea18bfee8bf5190f88e3bb9a57234fd9f3610ac",
+      "decision": "repair_confirmed_explicit_radius_quantity",
+      "before": {
+        "source": "Explodes (radius 2) for %0.2f fire damage over 3 turns.",
+        "target": "爆炸(范围 2) ：3回合内 %0.2f 火焰伤害。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": [
+          "%0.2f"
+        ],
+        "newline_count": 0,
+        "markup_tokens": []
+      },
+      "after": {
+        "source": "Explodes (radius 2) for %0.2f fire damage over 3 turns.",
+        "target": "爆炸(半径 2) ：3回合内 %0.2f 火焰伤害。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": [
+          "%0.2f"
+        ],
+        "newline_count": 0,
+        "markup_tokens": []
+      },
+      "placeholder_bindings": [
+        {
+          "placeholder_index": 1,
+          "token": "%0.2f",
+          "quantity_kind": "damage_total",
+          "source_expression": "damDesc(self, DamageType.FIRE, t.getDamage(self, t))",
+          "runtime_origin": "t.getDamage(self, t) -> trap self.dam -> scalar FIREBURN total",
+          "source_explicitness": "complete fire damage amount over 3 turns",
+          "target_explicitness_before": "complete fire damage amount within 3 turns",
+          "target_explicitness_after": "complete fire damage amount within 3 turns",
+          "target_more_explicit_than_source": false,
+          "explicitness_justification_required": false,
+          "explicitness_justification": null
+        }
+      ]
+    },
+    {
+      "revision_key": "tome-explosion-trap-info",
+      "reference_id": "fireburn-ref-022",
+      "entry_id": "098a15b3e7c6e92ce66d7d99c1494f4968d3e7e8b0712e295927988ac677b119",
+      "decision": "repair_confirmed_high_level_lure_trigger_condition",
+      "before": {
+        "source": "Lay a simple yet effective trap that explodes in a radius 2 on contact, setting those affected on fire for %0.2f fire damage over 3 turns.\n\t\tThis trap can use a primed trigger and a high level lure can trigger it.%s",
+        "target": "放置一个简单而有效的陷阱，激活后触发半径 2 的爆炸, 3 回合内造成 %0.2f 火焰伤害。\n\t\t该陷阱可以被设置为直接激活，也可以被诱饵激活。 %s",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": [
+          "%0.2f",
+          "%s"
+        ],
+        "newline_count": 1,
+        "continuation_prefix": "\t\t",
+        "markup_tokens": []
+      },
+      "after": {
+        "source": "Lay a simple yet effective trap that explodes in a radius 2 on contact, setting those affected on fire for %0.2f fire damage over 3 turns.\n\t\tThis trap can use a primed trigger and a high level lure can trigger it.%s",
+        "target": "放置一个简单而有效的陷阱，有目标接触陷阱时，它会在半径 2 范围内爆炸，使受影响的目标着火，并在 3 回合内造成 %0.2f 点火焰伤害。\n\t\t该陷阱可以被设置为直接激活，也可以被高等级的诱饵激活。 %s",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": [
+          "%0.2f",
+          "%s"
+        ],
+        "newline_count": 1,
+        "continuation_prefix": "\t\t",
+        "markup_tokens": []
+      },
+      "placeholder_bindings": [
+        {
+          "placeholder_index": 1,
+          "token": "%0.2f",
+          "quantity_kind": "damage_total",
+          "source_expression": "damDesc(self, DamageType.FIRE, t.getDamage(self, t))",
+          "runtime_origin": "t.getDamage(self, t) -> trap self.dam -> scalar FIREBURN total",
+          "source_explicitness": "complete fire damage amount over 3 turns",
+          "target_explicitness_before": "complete fire damage amount within 3 turns",
+          "target_explicitness_after": "complete fire damage amount over 3 turns through ignition of targets affected by the contact-triggered radius-2 explosion",
+          "target_more_explicit_than_source": false,
+          "explicitness_justification_required": false,
+          "explicitness_justification": null
+        },
+        {
+          "placeholder_index": 2,
+          "token": "%s",
+          "quantity_kind": "non_numeric_optional_suffix",
+          "source_expression": "instant",
+          "runtime_origin": "self.trap_primed == t.id ? localized immediate-trigger suffix : empty string",
+          "suffix_relation": "appended after the final source and target sentence without reordering",
+          "source_explicitness": "optional primed-trigger status suffix",
+          "target_explicitness_before": "optional primed-trigger status suffix",
+          "target_explicitness_after": "optional primed-trigger status suffix",
+          "target_more_explicit_than_source": false,
+          "explicitness_justification_required": false,
+          "explicitness_justification": null
+        }
+      ]
+    }
+  ],
+  "repair_cycles": [
+    {
+      "cycle": 1,
+      "source_review_cycle": 0,
+      "accepted_finding_path": ".ai/reviews/p2-tome-explosion-trap-fireburn-b1-001/review-context-01.json",
+      "finding_id": "CTX-EXP-TRAP-R0-001",
+      "revision_key": "tome-explosion-trap-info",
+      "host_adjudication": "confirmed",
+      "exact_repair": {
+        "before": "该陷阱可以被设置为直接激活，也可以被诱饵激活。 %s",
+        "after": "该陷阱可以被设置为直接激活，也可以被高等级的诱饵激活。 %s"
+      }
+    },
+    {
+      "cycle": 2,
+      "source_review_cycle": 1,
+      "accepted_finding_path": ".ai/reviews/p2-tome-explosion-trap-fireburn-b1-001/review-context-rereview-c1-01.json",
+      "finding_id": "CTX-EXP-TRAP-R1-001",
+      "revision_key": "tome-explosion-trap-info",
+      "host_adjudication": "confirmed after Senior scope calibration",
+      "senior_scope_calibration": {
+        "source_review_path": ".ai/reviews/p2-tome-explosion-trap-fireburn-b1-001/review-senior-scope-c1-01.json",
+        "senior_proposal": "Narrow the repair to the on-contact trigger only and otherwise preserve the frozen first sentence.",
+        "orchestrator_decision": "partially accepted",
+        "orchestrator_basis": "The trigger narrowing was accepted, while the explicit affected-target EFF_BURNING relation was retained because the frozen English and fixed FIREBURN source explicitly establish it."
+      },
+      "exact_repair": {
+        "before": "放置一个简单而有效的陷阱，激活后触发半径 2 的爆炸, 3 回合内造成 %0.2f 火焰伤害。",
+        "after": "放置一个简单而有效的陷阱，有目标接触陷阱时，它会在半径 2 范围内爆炸，使受影响的目标着火，并在 3 回合内造成 %0.2f 点火焰伤害。"
+      }
+    }
+  ],
+  "fixed_source": {
+    "component": "tome",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_pinned": true,
+    "source_files": [
+      {
+        "path": "game/modules/tome/data/talents/cunning/traps.lua",
+        "sha256": "cad2fa64c07f8ae38f30c2e5d49b58356d70d052108aa419d10433e65ce08947",
+        "relevant_lines": [1984, 1985, 1991, 1994, 2000, 2005, 2027, 2035]
+      },
+      {
+        "path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+        "relevant_lines": [1187, 1205]
+      },
+      {
+        "path": "game/modules/tome/data/timed_effects/physical.lua",
+        "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+        "relevant_lines": [428, 439]
+      }
+    ]
+  },
+  "directional_numeric_value_flow": {
+    "origin": "t.getDamage(self, t) = 30 + trap_effectiveness(cun) * 35",
+    "storage": "action computes dam = t.getDamage(self, t), then trapping_CreateTrap stores dam as trap self.dam",
+    "projection": "triggered iterates the radius-2 ball and passes self.dam as a scalar to DamageType.FIREBURN.projector for each grid except the summoner's grid",
+    "tooltip_short": "damDesc(FIRE, t.getDamage(self, t)) -> short %0.2f",
+    "tooltip_info": "damDesc(FIRE, t.getDamage(self, t)) -> info %0.2f; instant -> info %s",
+    "displayed_quantity": "the complete incoming FIREBURN event total before downstream mitigation, not per-turn damage"
+  },
+  "damage_type_semantics": {
+    "scalar_fireburn": {
+      "incoming_total": "D = self.dam",
+      "applicability": "scalar FIREBURN input with no explicit table overrides",
+      "duration_turns": 3,
+      "initial_percent": 50,
+      "immediate_damage": "D * 50 / 100 = D/2 projected immediately as FIRE",
+      "remaining_damage": "D - D/2 = D/2",
+      "burning_power": "(D/2) / 3 = D/6 per timeout before downstream mitigation",
+      "unmerged_nominal_total": "D/2 immediate plus three D/6 timeouts equals D"
+    },
+    "burning_merge_qualification": {
+      "condition": "the target already has EFF_BURNING and on_merge runs",
+      "old_remaining": "old_eff.power * old_eff.dur",
+      "incoming_remaining": "new_eff.power * new_eff.dur",
+      "merged_duration": "ceil((old_eff.dur + new_eff.dur) / 2)",
+      "merged_power": "(old remaining + incoming remaining) / merged duration",
+      "qualification": "The incoming remaining contribution is conserved in the pool, but after merge it is not guaranteed to retain an isolated three-tick schedule."
+    }
+  },
+  "target_geometry": {
+    "target_type": "ball",
+    "radius": 2,
+    "source_literal_short": "radius 2",
+    "source_literal_info": "in a radius 2",
+    "summoner_exclusion": "the projected grid actor is skipped when who == self.summoner",
+    "adjudication_consequence": "The frozen short target must name the typed quantity as 半径 2; the full target already does."
+  },
+  "orchestrator_adjudication": {
+    "confirmed_repairs": [
+      {
+        "id": "EXP-TRAP-RADIUS-001",
+        "status": "confirmed",
+        "revision_key": "tome-explosion-trap-short",
+        "repair": "范围 2 -> 半径 2",
+        "scope": "one minimal semantic substitution only"
+      },
+      {
+        "id": "CTX-EXP-TRAP-R0-001",
+        "status": "confirmed",
+        "revision_key": "tome-explosion-trap-info",
+        "repair": "该陷阱可以被设置为直接激活，也可以被诱饵激活。 %s -> 该陷阱可以被设置为直接激活，也可以被高等级的诱饵激活。 %s",
+        "scope": "one minimal trigger-condition qualification only"
+      },
+      {
+        "id": "CTX-EXP-TRAP-R1-001",
+        "status": "confirmed",
+        "revision_key": "tome-explosion-trap-info",
+        "repair": "放置一个简单而有效的陷阱，激活后触发半径 2 的爆炸, 3 回合内造成 %0.2f 火焰伤害。 -> 放置一个简单而有效的陷阱，有目标接触陷阱时，它会在半径 2 范围内爆炸，使受影响的目标着火，并在 3 回合内造成 %0.2f 点火焰伤害。",
+        "scope": "frozen full target first sentence only; contact trigger and affected-target EFF_BURNING relation"
+      }
+    ],
+    "no_change": [
+      {
+        "revision_key": "tome-explosion-trap-short",
+        "subject": "FIREBURN total versus per-turn",
+        "reason": "3回合内 does not assert that %0.2f is dealt each turn and therefore does not make the Fiery Aegis error."
+      },
+      {
+        "revision_key": "both",
+        "subject": "format bindings",
+        "reason": "The short %0.2f and full %0.2f/%s orders, tformat source tag, null args/special fields, newline/tab shape, and optional suffix relation remain correct and preserved across both confirmed repairs."
+      }
+    ],
+    "neighbor_normalization_performed": false
+  },
+  "invariant_checks": {
+    "exact_reference_ids": [
+      "fireburn-ref-022"
+    ],
+    "ordered_revision_keys": [
+      "tome-explosion-trap-short",
+      "tome-explosion-trap-info"
+    ],
+    "context_limit_is_500": true,
+    "context_selected_equals_available_equals_lexical_t_calls": true,
+    "context_count": 123,
+    "fixed_english_keys_accept_raw_or_escaped_forms": true,
+    "source_unchanged_both": true,
+    "exactly_two_targets_changed": true,
+    "changed_target_count": 2,
+    "changed_revision_keys": [
+      "tome-explosion-trap-short",
+      "tome-explosion-trap-info"
+    ],
+    "exact_two_target_diff_from_baseline": true,
+    "all_other_targets_byte_unchanged": true,
+    "source_tag_unchanged_both": true,
+    "args_order_remains_null_both": true,
+    "special_remains_null_both": true,
+    "placeholder_indexes_and_sequences_unchanged_both": true,
+    "newline_tab_and_markup_shape_unchanged_both": true,
+    "optional_suffix_relation_unchanged": true,
+    "only_confirmed_findings_applied": true,
+    "adjacent_trap_targets_unchanged": true,
+    "inventory_hash_bound": true,
+    "translation_baseline_head_and_hash_bound": true,
+    "source_hashes_match_fixed_commit": true,
+    "workset_hash_bound": true,
+    "closure_update_bounded": true,
+    "result": "pass"
+  },
+  "campaign_index_lineage": {
+    "closure_index_path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-closure.json",
+    "preceding_data_binding_batch": {
+      "task_id": "p2-fireburn-data-binding-default-b1-001",
+      "status": "closed",
+      "commit": "a347dc81144b1778ea8c0e8bb6c985bce3b724b7"
+    },
+    "this_batch": {
+      "task_id": "p2-tome-explosion-trap-fireburn-b1-001",
+      "reference_ids": [
+        "fireburn-ref-022"
+      ],
+      "status": "review_pending",
+      "independent_review_and_done_claimed": false,
+      "qualification": "Implementation and EXECUTOR verification evidence exist, but this batch remains review_pending until independent review and DONE verification."
+    }
+  },
+  "focused_verification": {
+    "checks": [
+      {
+        "command": "focused invariant script: exact ref/revision order; context count 123 with --limit 500; raw/escaped English source matching; exact before/after targets; cycle-1 finding lineage and exact repair; placeholder indexes/kinds/order; source_tag/args_order/special/newlines/tabs/markup/%s suffix invariants; source hashes; exact two-target Lua diff with no adjacent target change; bounded closure lineage; JSON parsing",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n doctor",
+        "result": "PASS (manifest tome-1.7.6; LuaJIT 2.1/Lua 5.1; LPeg 0.10.2-1; configured repositories available; protected-source engine worktree scan warning only)"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "PASS (30308 translations, 0 errors, 0 warnings)"
+      },
+      {
+        "command": "git diff --check",
+        "result": "PASS"
+      },
+      {
+        "command": "cycle-2 focused invariant script: reconstruct baseline HEAD a347dc81144b1778ea8c0e8bb6c985bce3b724b7 by reversing exactly the two frozen target repairs; reconstruct cycle-1 candidate SHA-256 97e2abb183da5aa76cdfe07780d17ca8e290f499574e1dac13c1723758209775 by reversing only the full target first sentence; verify source/tag/null args/null special, placeholder sequences, full newline count and continuation tabs, byte-identical second line, JSON parsing, current mod-tome.lua hash, production target count and frozen workset hash",
+        "result": "PASS (exactly two frozen targets differ from baseline; only the full first sentence differs from cycle 1; all metadata, placeholder, newline/tab, second-line, JSON and hash invariants hold)"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict (cycle 2)",
+        "result": "PASS (30308 translations, 0 errors, 0 warnings)"
+      },
+      {
+        "command": "git diff --check (cycle 2)",
+        "result": "PASS"
+      }
+    ]
+  }
+}

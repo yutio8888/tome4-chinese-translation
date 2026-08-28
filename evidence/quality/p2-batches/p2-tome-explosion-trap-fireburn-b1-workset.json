@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-explosion-trap-fireburn-b1-001",
+  "kind": "frozen_explosion_trap_fireburn_workset",
+  "frozen_at": "2026-08-28T14:32:17Z",
+  "inventory_origin": {
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "commit": "a68cbede82a5f0ab112451a4ccc41fadc05948cd",
+    "immutable": true,
+    "reference_ids": [
+      "fireburn-ref-022"
+    ],
+    "record": {
+      "reference_id": "fireburn-ref-022",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/cunning/traps.lua",
+      "line": 2004,
+      "matched_line": "\t\t\t\t\tengine.DamageType:get(engine.DamageType.FIREBURN).projector(self.summoner, px, py, engine.DamageType.FIREBURN, self.dam)",
+      "source_file_sha256": "cad2fa64c07f8ae38f30c2e5d49b58356d70d052108aa419d10433e65ce08947",
+      "source_pinned": true,
+      "classification": "delegated_projector",
+      "enclosing_symbol": "Explosion Trap trigger",
+      "effective_input_shape": "scalar self.dam radius 2",
+      "duration_turns": 3,
+      "initial_percent": 50,
+      "mechanism_group_id": "scalar-default-projection",
+      "translation_entry_ids": [
+        "tome-explosion-trap-short",
+        "tome-explosion-trap-info"
+      ],
+      "risk_class": "appears_consistent"
+    }
+  },
+  "translation_baseline": {
+    "head": "a347dc81144b1778ea8c0e8bb6c985bce3b724b7",
+    "file": "mod-tome.lua",
+    "file_sha256": "aa16324a04793b80ea4db745d1c68c26bff82c3aeb6ae91f6358860ae8a07e90",
+    "closure_file": "evidence/quality/semantic-claim-fireburn-backsweep-v1-closure.json",
+    "closure_sha256": "0a2eaa9a2079daf2ede949bb69d9c987ea444eebad4fb9c0c66b43b67aa8f6ec",
+    "component": "tome",
+    "version": "tome-1.7.6"
+  },
+  "section_freeze": {
+    "component": "tome",
+    "section": "mod-tome/data/talents/cunning/traps.lua",
+    "resolver_contract": "tome4-context-v2",
+    "tool_version": "0.5.0",
+    "command": "python3 -B tools/i18n context --component tome --section mod-tome/data/talents/cunning/traps.lua --limit 500 --json",
+    "limit": 500,
+    "selected": 123,
+    "available": 123,
+    "lexical_t_call_count": 123,
+    "count_assertion": "selected == available == lexical_t_call_count",
+    "context_id": "7a0890e7182bf0fb172a007ab935de70513636ffb05301b51dca09cf9ff5ae5d",
+    "content_sha256": "b121c0e0eec0d18570af64e1f678ef3566441a843931ea50b97096e98b0abb94",
+    "canonical_sha256": "aa16324a04793b80ea4db745d1c68c26bff82c3aeb6ae91f6358860ae8a07e90",
+    "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+    "terminology_sha256": "96783486cf8790762fcab2e2379dfc0b3e13a50ca055410960395bcab1f9065c",
+    "fixed_english_key_check": {
+      "accepted_forms": [
+        "decoded raw source",
+        "Lua-source escaped form for newline, tab, and backslash"
+      ],
+      "short_key_matched": true,
+      "info_key_matched": true
+    }
+  },
+  "translation_revisions": [
+    {
+      "revision_key": "tome-explosion-trap-short",
+      "reference_id": "fireburn-ref-022",
+      "entry_id": "5c2d5bd302ceb71ca0af46b6aea18bfee8bf5190f88e3bb9a57234fd9f3610ac",
+      "line": 23815,
+      "source": "Explodes (radius 2) for %0.2f fire damage over 3 turns.",
+      "target": "爆炸(范围 2) ：3回合内 %0.2f 火焰伤害。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_sequence": [
+        "%0.2f"
+      ]
+    },
+    {
+      "revision_key": "tome-explosion-trap-info",
+      "reference_id": "fireburn-ref-022",
+      "entry_id": "098a15b3e7c6e92ce66d7d99c1494f4968d3e7e8b0712e295927988ac677b119",
+      "line": 23816,
+      "source": "Lay a simple yet effective trap that explodes in a radius 2 on contact, setting those affected on fire for %0.2f fire damage over 3 turns.\n\t\tThis trap can use a primed trigger and a high level lure can trigger it.%s",
+      "target": "放置一个简单而有效的陷阱，激活后触发半径 2 的爆炸, 3 回合内造成 %0.2f 火焰伤害。\n\t\t该陷阱可以被设置为直接激活，也可以被诱饵激活。 %s",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_sequence": [
+        "%0.2f",
+        "%s"
+      ]
+    }
+  ],
+  "source_anchors": [
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/talents/cunning/traps.lua",
+      "sha256": "cad2fa64c07f8ae38f30c2e5d49b58356d70d052108aa419d10433e65ce08947",
+      "symbols": [
+        "T_EXPLOSION_TRAP.getDamage",
+        "T_EXPLOSION_TRAP.target",
+        "T_EXPLOSION_TRAP.action.triggered",
+        "T_EXPLOSION_TRAP.short_info",
+        "T_EXPLOSION_TRAP.info"
+      ],
+      "relevant_lines": [1984, 1985, 1991, 1994, 2000, 2005, 2027, 2035]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/damage_types.lua",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "symbols": [
+        "DamageType.FIREBURN"
+      ],
+      "relevant_lines": [1187, 1205]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/timed_effects/physical.lua",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "symbols": [
+        "EFF_BURNING.on_merge",
+        "EFF_BURNING.on_timeout"
+      ],
+      "relevant_lines": [428, 439]
+    }
+  ],
+  "claims_to_verify": [
+    "t.getDamage produces the scalar stored as trap self.dam, and the trigger passes that same self.dam to the FIREBURN projector.",
+    "The trigger uses ball geometry with exact radius 2 and skips the summoner.",
+    "Scalar FIREBURN defaults to duration 3 and initial 50: half is immediate FIRE and the remaining half is divided across three BURNING timeouts.",
+    "An existing BURNING effect causes remaining damage to be pooled and duration/power to be recomputed, so the isolated three-tick schedule is qualified by merge.",
+    "Both %0.2f placeholders bind damDesc(FIRE, t.getDamage); the full target's %s binds only the optional primed-trigger suffix.",
+    "Only the short target's 范围 2 is repaired to 半径 2; the full target and all adjacent trap entries remain byte-identical."
+  ],
+  "exclusions": [
+    "No reference outside fireburn-ref-022.",
+    "No translation revision outside tome-explosion-trap-short and tome-explosion-trap-info.",
+    "No neighboring trap cleanup or punctuation normalization.",
+    "No terminology, tooling, manifest, inventory, prior evidence, public-source, .claude, or .ai change."
+  ]
+}
