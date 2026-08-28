@@ -1,6 +1,6 @@
 # Prospective residual audit v3 candidate set
 
-Status: 40 production-resolved task/revision units selected; uniform source audit frozen; reviewer inference remains prohibited pending the sealed-reference and scoring preflight.
+Status: 40 production-resolved task/revision units selected; source audit, minimal sealed reference and exact estimator contract frozen; reviewer inference remains prohibited pending prompt, schema, scorer, route and isolation preflight.
 
 This directory supersedes `prospective-residual-audit-v2`. The v2 selection was invalidated before source adjudication or model inference because some historical Paseo `translation_snapshot` entries were intermediate review snippets rather than the complete translation revision present at the frozen production commit. The v2 artifacts remain preserved as an audit trail.
 
@@ -29,7 +29,11 @@ No v3 reviewer-route model call has been made. `SOURCE-AUDIT-PROTOCOL.json` froz
 
 `SOURCE-AUDIT-DECISIONS.json` records the primary experiment lead's signed decisions and discloses the preliminary Codex subagent proposals as non-ground-truth assistance. `SOURCE-AUDIT.json` mechanically binds those decisions to every registered source occurrence and hash. The frozen result is 1 `CONFIRMED` item (R033, an objective hard-line-break format defect), 39 `REFUTED`, 0 `INDETERMINATE` and 0 `UNREACHABLE`. A subagent proposed R009 as confirmed, but the primary lead independently overrode it and retained the trace: reflowing one adjacent prose line break did not lose a paragraph boundary, token or Chinese word.
 
-The later reviewer context remains Arm A, source and target only. `HOLDOUT-DRAFT.json` is deliberately not inference-ready. The next gate is to derive and freeze a reviewer-hidden reference, exact weighted estimators and missingness bounds, then freeze the prompt, output schema, scorer, model routes and fail-closed preflight. Reviewer inference remains prohibited until all of those artifacts pass verification.
+`SEALED-REFERENCE.json` contains only the minimal reviewer-hidden identity, stratum, binary scoring label and exact-weight bindings. It does not copy reasons, findings, evidence classes, source or target. `ESTIMATOR-CONTRACT.json` and `REFERENCE-ESTIMATES.json` freeze exact rational weights, Horvitz-Thompson and Hájek reporting, missing-evidence bounds, the 90% determinate gate, zero-denominator rules and the prohibition on a conventional confidence interval under this one-realization design. The design-weighted estimate is `4/1745` (about 0.229%), while the unweighted `1/40` (2.5%) is sample-only and may not be presented as the finite-frame rate.
+
+Both the 40/40 determinate gate and the 38/40 provenance-classifiable gate pass. The translation-origin pilot budget-priority gate fails because only one confirmed item from one task was found, below the frozen four-items/four-tasks requirement; that pilot is deferred, not scientifically disproved. The later independent reviewer audit may still proceed after its own contract is frozen, but it cannot support a stable model ranking with one positive item.
+
+The later reviewer context remains Arm A, source and target only. `HOLDOUT-DRAFT.json` is deliberately not inference-ready. The next gate is to freeze the public holdout, prompt, output schema, reviewer-hidden atom matcher, scorer, actual model routes and fail-closed isolated-run preflight. Reviewer inference remains prohibited until all of those artifacts pass verification.
 
 ## Rebuild and verify
 
@@ -46,6 +50,8 @@ node evidence/quality/model-probes/prospective-residual-audit-v3/verify-source-l
   --dlc-root /path/to/tome4-dlcs
 node evidence/quality/model-probes/prospective-residual-audit-v3/build-source-audit.mjs
 node evidence/quality/model-probes/prospective-residual-audit-v3/verify-source-audit.mjs
+node evidence/quality/model-probes/prospective-residual-audit-v3/build-reference.mjs
+node evidence/quality/model-probes/prospective-residual-audit-v3/verify-reference.mjs
 ```
 
 The verifier creates and removes its own detached temporary worktree, regenerates the canonical inventory, checks the production input digest and all historical terminal-input fingerprints, regenerates every derived JSON, validates selection probabilities and confirms that inference remains disabled.

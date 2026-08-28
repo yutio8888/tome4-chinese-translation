@@ -1,0 +1,103 @@
+{
+  "schema_version": "prospective-residual-estimator-contract-v3",
+  "status": "FROZEN_BEFORE_REVIEWER_INFERENCE",
+  "visible_to_reviewer_routes": false,
+  "reviewer_route_model_calls_made": 0,
+  "estimand": "Design-weighted objective residual translation-defect prevalence in the 1,396-revision frozen eligible frame.",
+  "population": {
+    "unit": "uniquely production-resolved eligible canonical revision",
+    "canonical_revisions": 1396,
+    "stratum_sizes": {
+      "same_family_only": 733,
+      "cross_or_mixed_family": 569,
+      "unknown_provenance": 94
+    }
+  },
+  "reference_mapping": {
+    "CONFIRMED": {"binary_label": "DEFECT", "y": 1, "scorable": true},
+    "REFUTED": {"binary_label": "NO_DEFECT", "y": 0, "scorable": true},
+    "INDETERMINATE": {"binary_label": "NOT_SCORABLE", "y": null, "scorable": false},
+    "UNREACHABLE": {"binary_label": "NOT_SCORABLE", "y": null, "scorable": false}
+  },
+  "weight_contract": {
+    "item_inclusion_probability": "pi_i = task_inclusion_probability_i * item_probability_given_task_i",
+    "design_weight": "w_i = 1 / pi_i",
+    "exact_serialization": "Store every realized design weight and aggregate as a reduced rational. A JSON floating value may be canonicalized to an integer or one-decimal rational only when equal within 1e-9 and its reciprocal inclusion probability agrees within 1e-9.",
+    "required_checks": [
+      "40 unique sampled tasks and 40 unique canonical revisions",
+      "every pi_i is strictly positive and at most one",
+      "every queue design_weight equals 1/pi_i within 1e-9",
+      "realized exact weights sum to each frozen stratum size and to 1396"
+    ],
+    "ht_hajek_equivalence_for_this_design": "This equivalence is specific to the frozen design, not a general property. In same_family_only, 19 certainty tasks contribute exact weight 717; the remaining 11 tasks contain 16 revisions, exactly 5 tasks are selected, and every selected noncertainty revision has pi=5/16 and weight=16/5, contributing 16. The stratum weight sum is therefore always 733. The two census-task strata have exact sums 569 and 94. Thus sum(w)=N within every stratum and overall for every valid realization of this design."
+  },
+  "prevalence_estimators": {
+    "primary_bounds": {
+      "lower": "L = sum_i(w_i * I(verdict_i = CONFIRMED)) / sum_i(w_i)",
+      "upper": "U = sum_i(w_i * I(verdict_i in {CONFIRMED, INDETERMINATE, UNREACHABLE})) / sum_i(w_i)",
+      "interpretation": "Always report L and U. They are design-weighted missing-evidence identification bounds for the realized sample, not confidence limits."
+    },
+    "point_estimate": {
+      "availability_gate": "Report only when at least 90% of the 40 sampled units have verdict CONFIRMED or REFUTED.",
+      "primary": "Horvitz-Thompson known-denominator rate: sum_i(w_i * y_i) / 1396, with y_i defined only for determinate verdicts. Because the gate does not make missingness ignorable, this value is reported as a population point estimate only when no item is INDETERMINATE or UNREACHABLE; otherwise report a determinate-only conditional sensitivity analysis instead.",
+      "secondary": "Hájek ratio sensitivity estimate: sum_i(w_i * y_i) / sum_i(w_i) over determinate items, explicitly labeled conditional if any reference outcome is missing.",
+      "unweighted_descriptive": "sum_i(y_i) / count_i(y_i observed), labeled sample-only and never substituted for the design-weighted estimate."
+    },
+    "strata": "Repeat exact lower, upper and—when fully determinate—point calculations within each frozen stratum. Treat between-stratum differences as descriptive, never causal.",
+    "uncertainty": {
+      "variance_status": "NOT_ESTIMABLE_UNDER_FROZEN_DESIGN",
+      "confidence_interval": null,
+      "reason": "The single systematic-PPS realization has no generally unbiased variance estimator from first-order inclusion probabilities alone, and only one revision was observed per sampled task, so within-task variance is not estimable. Binomial, iid bootstrap and model-based confidence intervals are prohibited for confirmatory reporting.",
+      "future_precision_claim": "Requires a new design with variance-identifiable replication or frozen joint inclusion probabilities and an adequate per-task second stage."
+    }
+  },
+  "feasibility_gates": {
+    "determinate": {
+      "formula": "count(CONFIRMED or REFUTED) / 40",
+      "pass_if": ">= 0.90"
+    },
+    "provenance_classifiable": {
+      "formula": "count(stratum != unknown_provenance) / 40",
+      "pass_if": ">= 0.90",
+      "weighted_share_reported_separately": true,
+      "unknown_never_excluded": true
+    },
+    "origin_pilot_budget_priority": {
+      "formula": "confirmed item count >= 4 AND distinct confirmed task count >= 4 AND determinate gate passes AND provenance-classifiable gate passes",
+      "effect": "Passing gives the separately designed origin pilot budget priority. Failing defers that pilot; it is not evidence that reviewer-origin interaction is absent."
+    }
+  },
+  "reviewer_scoring": {
+    "prediction_positive": "A valid route output label DEFECT for the audit_id.",
+    "prediction_negative": "A valid route output label NO_DEFECT for the audit_id.",
+    "invalid_route_policy": "Missing, duplicate, reordered, unparsable or out-of-schema item output invalidates the whole route result as a model score; harness or transport failures are repaired or retried under the later frozen runner policy and are not model scores.",
+    "binary_nomination_role": "The weighted confusion metrics below describe whether a route nominated an item. They are secondary. A DEFECT label with the wrong reason does not establish detection of the sealed defect atom.",
+    "primary_atom_detection_requirement": "Before reviewer inference, freeze a minimal reviewer-hidden atom map and deterministic matching rubric. On a positive item, a wrong-rationale DEFECT nomination is an off-target candidate plus a missed reference atom, not a detected atom. Do not derive the atom matcher after seeing route output.",
+    "weighted_confusion_cells": "For scorable references, nomination HT_TP=sum(w*y*p), HT_FN=sum(w*y*(1-p)), HT_FP=sum(w*(1-y)*p), HT_TN=sum(w*(1-y)*(1-p)).",
+    "metrics": {
+      "recall": "HT_TP / (HT_TP + HT_FN)",
+      "specificity": "HT_TN / (HT_TN + HT_FP)",
+      "precision": "HT_TP / (HT_TP + HT_FP)",
+      "f1": "2*HT_TP / (2*HT_TP + HT_FP + HT_FN)",
+      "balanced_accuracy": "0.5 * (recall + specificity)",
+      "candidate_mass_rate": "(HT_TP + HT_FP) / sum(w over scorable references)",
+      "false_positive_mass_rate": "HT_FP / sum(w over scorable references)"
+    },
+    "zero_denominator": "Serialize the affected ratio as null; never coerce it to zero or one.",
+    "required_parallel_report": [
+      "unweighted TP, FN, FP and TN item counts",
+      "R033 detection as an explicit boolean because the reference has only one positive item",
+      "candidate item count and design-weighted candidate mass",
+      "invalid or failed route status separately from all metrics"
+    ],
+    "interpretation_limit": "With one confirmed positive, route recall is a one-item feasibility observation and must not be presented as stable model capability."
+  },
+  "reporting_rules": [
+    "Keep natural residual prevalence separate from reviewer detection metrics.",
+    "Report exact fractions and decimal expansions together.",
+    "Do not call missingness bounds confidence intervals.",
+    "Do not report a precision claim or rank reviewer routes from this one-positive pilot.",
+    "Keep the sealed reference minimal: audit ID, canonical revision UID, stratum, scoring label, exact weight and source-audit item hash only.",
+    "Do not reveal this contract, the sealed reference, verdicts, findings, provenance strata or design weights to reviewer routes."
+  ]
+}
