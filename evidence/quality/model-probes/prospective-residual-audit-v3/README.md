@@ -1,6 +1,6 @@
 # Prospective residual audit v3 candidate set
 
-Status: 40 production-resolved task/revision units selected; uniform source audit pending; model inference prohibited.
+Status: 40 production-resolved task/revision units selected; uniform source audit frozen; reviewer inference remains prohibited pending the sealed-reference and scoring preflight.
 
 This directory supersedes `prospective-residual-audit-v2`. The v2 selection was invalidated before source adjudication or model inference because some historical Paseo `translation_snapshot` entries were intermediate review snippets rather than the complete translation revision present at the frozen production commit. The v2 artifacts remain preserved as an audit trail.
 
@@ -21,13 +21,15 @@ The frozen eligible frame has 46 tasks and 1,396 unique canonical revisions:
 
 One revision is selected by seeded equal-probability SHA-256 rank within each selected task. The result is 40 unique production revisions from 40 distinct tasks. `CANONICAL-MEMBERSHIP.json` records the complete frame membership without copying source or target text. `AUDIT-QUEUE.json` records the selected items and design weights.
 
-## Current gate
+## Source-audit result and current gate
 
-No v3 reviewer-route model call has been made. `SOURCE-AUDIT-PROTOCOL.json` freezes four possible source-audit outcomes: `CONFIRMED`, `REFUTED`, `INDETERMINATE` and `UNREACHABLE`. It also records that Codex subagents may provide mechanical location or preliminary evidence proposals, but the primary experiment lead must independently verify every fixed source and sign the final verdict before any reviewer-route output exists. All 40 items must receive equal-depth source audit, and none may be replaced after selection.
+No v3 reviewer-route model call has been made. `SOURCE-AUDIT-PROTOCOL.json` froze four possible source-audit outcomes: `CONFIRMED`, `REFUTED`, `INDETERMINATE` and `UNREACHABLE`. It also records that Codex subagents may provide mechanical location or preliminary evidence proposals, but the primary experiment lead must independently verify every fixed source and sign the final verdict before any reviewer-route output exists. All 40 items received equal-depth source audit, and none was replaced after selection.
 
 `SOURCE-LOCATOR-CONTRACT.json` and `SOURCE-LOCATORS.json` bind all 40 items to public source without writing verdicts. Thirty-nine use Git blobs from fixed engine commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`; the one Cults item uses an explicit public-file SHA-256 because the DLC repository was not commit-frozen. There are 37 unique normalized matches and 3 short-source multiple matches; every occurrence is retained for adjudication. No item is currently unreachable at the source-location stage.
 
-The later reviewer context remains Arm A, source and target only. `HOLDOUT-DRAFT.json` is deliberately not inference-ready. A sealed reference, exact weighted estimators and missingness bounds, prompt, schema, scorer, model routes and fail-closed preflight still have to be frozen after source audit.
+`SOURCE-AUDIT-DECISIONS.json` records the primary experiment lead's signed decisions and discloses the preliminary Codex subagent proposals as non-ground-truth assistance. `SOURCE-AUDIT.json` mechanically binds those decisions to every registered source occurrence and hash. The frozen result is 1 `CONFIRMED` item (R033, an objective hard-line-break format defect), 39 `REFUTED`, 0 `INDETERMINATE` and 0 `UNREACHABLE`. A subagent proposed R009 as confirmed, but the primary lead independently overrode it and retained the trace: reflowing one adjacent prose line break did not lose a paragraph boundary, token or Chinese word.
+
+The later reviewer context remains Arm A, source and target only. `HOLDOUT-DRAFT.json` is deliberately not inference-ready. The next gate is to derive and freeze a reviewer-hidden reference, exact weighted estimators and missingness bounds, then freeze the prompt, output schema, scorer, model routes and fail-closed preflight. Reviewer inference remains prohibited until all of those artifacts pass verification.
 
 ## Rebuild and verify
 
@@ -42,6 +44,8 @@ node evidence/quality/model-probes/prospective-residual-audit-v3/verify.mjs \
 node evidence/quality/model-probes/prospective-residual-audit-v3/verify-source-locators.mjs \
   --engine-repo /path/to/t-engine4 \
   --dlc-root /path/to/tome4-dlcs
+node evidence/quality/model-probes/prospective-residual-audit-v3/build-source-audit.mjs
+node evidence/quality/model-probes/prospective-residual-audit-v3/verify-source-audit.mjs
 ```
 
 The verifier creates and removes its own detached temporary worktree, regenerates the canonical inventory, checks the production input digest and all historical terminal-input fingerprints, regenerates every derived JSON, validates selection probabilities and confirms that inference remains disabled.
