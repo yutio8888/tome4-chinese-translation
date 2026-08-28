@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-ashes-devouring-flames-fireburn-b1-001",
+  "workset_path": "evidence/quality/p2-batches/p2-ashes-devouring-flames-fireburn-b1-workset.json",
+  "workset_sha256": "9f58a9411256c98d07faa6147ba8fb2c979890f8c7393ddd2faac649a411a52e",
+  "accepted_finding_lineage": {
+    "review_context_path": ".ai/reviews/p2-ashes-devouring-flames-fireburn-b1-001/review-context-01.json",
+    "review_context_sha256": "71dd10234e470987eb44e8ade777a737b3087f9820922a1d572c7166e3871cd5",
+    "scout_source_path": ".ai/task/p2-ashes-devouring-flames-fireburn-b1-001/SCOUT-SOURCE-01.md",
+    "scout_source_sha256": "5c1314206555392f3740c959175b183d47d83a9798a5a2e62655779513cf3afc",
+    "review_contract": "translation_contextual_v1",
+    "review_phase": "REVIEW",
+    "review_kind": "full",
+    "review_cycle": 0,
+    "dispatch_id": "ctx-review-01",
+    "reviewer_role": "REVIEWER",
+    "agent_id": "97fc3e35-053f-4c7f-9d69-ca35aef1a9ba",
+    "candidate_identity": "18eb7ec3451ae38db0224eaef9eebf87c5071856af992c226faab6a4f54fdb65",
+    "finding_id": "CTX-R0-001",
+    "host_status": "confirmed",
+    "repair_cycle": 1,
+    "accepted_claim": "The displayed %d is total nominal FIREBURN damage: 50 percent is dealt immediately and the remaining 50 percent is dealt across the following three burn turns.",
+    "cycle_2_evidence_repair": {
+      "review_path": ".ai/reviews/p2-ashes-devouring-flames-fireburn-b1-001/review-code-rereview-01.json",
+      "review_sha256": "06e1939ad410e0325e6d9cf7ec01782f30f1a6a67546c340c75ff82f0c630e8f",
+      "review_contract": "code_legacy_v1",
+      "review_phase": "RE_REVIEW",
+      "review_cycle": 1,
+      "finding_id": "RER-R1-001",
+      "host_status": "confirmed",
+      "repair_cycle": 2,
+      "accepted_claim": "The pinned Target.lua anchor must name the relevant symbol Target.getType; Target.project does not exist in that file at the fixed engine revision.",
+      "changed_field": "source_provenance.anchors[5].symbol",
+      "change_scope": "evidence_only",
+      "cycle_1_lua_candidate_sha256": "3de6f8726dfd89594f09f7a5f4eeb6c5db1269aac072919c97fb38284bae6e2a",
+      "cycle_2_lua_candidate_sha256": "3de6f8726dfd89594f09f7a5f4eeb6c5db1269aac072919c97fb38284bae6e2a",
+      "lua_candidate_byte_identical_to_cycle_1": true
+    },
+    "cycle_3_evidence_binding_refresh": {
+      "repair_cycle": 3,
+      "change_scope": "evidence_only",
+      "reconciliation": "The review record was normalized from raw reviewer result FAIL to schema-4 result CHANGES_REQUIRED while preserving raw_result=FAIL; its evidence binding was refreshed to the normalized bytes.",
+      "review_result": "CHANGES_REQUIRED",
+      "review_raw_result": "FAIL",
+      "review_sha256": "06e1939ad410e0325e6d9cf7ec01782f30f1a6a67546c340c75ff82f0c630e8f",
+      "cycle_2_lua_candidate_sha256": "3de6f8726dfd89594f09f7a5f4eeb6c5db1269aac072919c97fb38284bae6e2a",
+      "cycle_3_lua_candidate_sha256": "3de6f8726dfd89594f09f7a5f4eeb6c5db1269aac072919c97fb38284bae6e2a",
+      "lua_candidate_byte_identical_to_cycle_2": true
+    }
+  },
+  "translation_identity": {
+    "file": "tome-ashes-urhrok.lua",
+    "section": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+    "baseline_line": 1227,
+    "entry_id": "79cc1282786263492eb621ef0e714442ab46d6ffb5501051785ac10f0a629e7a",
+    "before": {
+      "source": "Your connection to fire nourishes you. Whenever you strike an enemy in melee, you inflict a burning curse upon them. As long as they continue to burn, you gain %0.2f health and %0.2f vim per turn.\n\t\tEach turn they remain within 10 spaces of you, all enemies with cursed flames will spread it to other burning enemies in radius 1, causing you to heal for the same amount for each enemy, as well as dealing %d fire damage on spreading.",
+      "target": "恶魔之炎抚育你成长。每次你近战攻击命中时，你对目标施加诅咒，只要其处于燃烧状态，你每回合获得 %0.2f 生命与 %0.2f 活力。 \n\t同时，在你周围 10 码范围内，所有被诅咒火焰燃烧的敌方生物会将诅咒传播至半径 1 内的燃烧生物上，并造成 %d 火焰伤害同时给予你等量治疗。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_sequence": ["%0.2f", "%0.2f", "%d"],
+      "escaped_percent_sequence": []
+    },
+    "after": {
+      "source": "Your connection to fire nourishes you. Whenever you strike an enemy in melee, you inflict a burning curse upon them. As long as they continue to burn, you gain %0.2f health and %0.2f vim per turn.\n\t\tEach turn they remain within 10 spaces of you, all enemies with cursed flames will spread it to other burning enemies in radius 1, causing you to heal for the same amount for each enemy, as well as dealing %d fire damage on spreading.",
+      "target": "恶魔之火滋养着你。每当你的近战攻击命中敌人，便会对其施加诅咒之焰。每个受到诅咒之焰影响的敌人只要仍在燃烧，每回合都会为你恢复 %0.2f 点生命值并提供 %0.2f 点活力值。\n\t每回合，你半径 10 内每个受到诅咒之焰影响的敌人都有 50%% 几率，将诅咒传播给其半径 1 内尚未受诅咒的敌人，无论后者此前是否在燃烧。新受诅咒的敌人在持续燃烧期间，也会每回合为你恢复同等生命值并提供同等活力值。传播还会造成总计 %d 点火焰伤害，其中一半立即造成，另一半在接下来的 3 回合内造成。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_sequence": ["%0.2f", "%0.2f", "%d"],
+      "escaped_percent_sequence": ["%%"]
+    },
+    "cycle_1_repair": {
+      "finding_id": "CTX-R0-001",
+      "before_target": "恶魔之火滋养着你。每当你的近战攻击命中敌人时，便会对其施加诅咒之焰；只要该目标持续燃烧，这个独立诅咒每回合就会为你恢复 %0.2f 点生命值并提供 %0.2f 点活力值。\n\t每个基础回合中，你半径 10 内的每个受诅咒敌人均有 50%% 几率将诅咒传播给其半径 1 内尚未受诅咒的敌人，不论后者是否已在燃烧。每个新受诅咒的敌人在持续燃烧期间，也会独立提供同样的每回合生命值与活力值；传播还会施加持续 3 回合、总计造成 %d 点火焰伤害的燃烧。",
+      "after_target": "恶魔之火滋养着你。每当你的近战攻击命中敌人，便会对其施加诅咒之焰。每个受到诅咒之焰影响的敌人只要仍在燃烧，每回合都会为你恢复 %0.2f 点生命值并提供 %0.2f 点活力值。\n\t每回合，你半径 10 内每个受到诅咒之焰影响的敌人都有 50%% 几率，将诅咒传播给其半径 1 内尚未受诅咒的敌人，无论后者此前是否在燃烧。新受诅咒的敌人在持续燃烧期间，也会每回合为你恢复同等生命值并提供同等活力值。传播还会造成总计 %d 点火焰伤害，其中一半立即造成，另一半在接下来的 3 回合内造成。",
+      "source_unchanged": true,
+      "source_tag_unchanged": true,
+      "args_order_remains_null": true,
+      "special_remains_null": true,
+      "placeholder_sequence_unchanged": true,
+      "placeholder_sequence": ["%0.2f", "%0.2f", "%d"],
+      "escaped_percent_sequence": ["%%"],
+      "target_newline_count_before": 1,
+      "target_newline_count_after": 1,
+      "tformat_invariants_unchanged": true
+    }
+  },
+  "source_provenance": {
+    "ashes_snapshot_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+    "ashes_source_status": "The extraction snapshot identity is fixed, but the inspected public Ashes repository, commit, version and source revision are not fixed by the manifest. Its file hashes are frozen observed GPL-source anchors, not a pinned DLC revision.",
+    "engine_revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "engine_source_pinned": true,
+    "anchors": [
+      {
+        "component": "ashes-urhrok",
+        "revision": null,
+        "source_pinned": false,
+        "path": "game/dlcs/tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+        "sha256": "9169ec6910a96af6ce469ef88c4b257165955f96ce7828c8508e2d36372a92b5",
+        "symbols": ["T_INFERNO_NEXUS.callbackOnMeleeAttack", "T_INFERNO_NEXUS.callbackOnActBase", "T_INFERNO_NEXUS.info"]
+      },
+      {
+        "component": "ashes-urhrok",
+        "revision": null,
+        "source_pinned": false,
+        "path": "game/dlcs/tome-ashes-urhrok/data/timed_effects.lua",
+        "sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+        "symbol": "EFF_CURSED_FLAMES"
+      },
+      {
+        "component": "tome-engine",
+        "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "source_pinned": true,
+        "path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+        "symbol": "DamageType.FIREBURN"
+      },
+      {
+        "component": "tome-engine",
+        "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "source_pinned": true,
+        "path": "game/modules/tome/data/timed_effects/physical.lua",
+        "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+        "symbol": "EFF_BURNING"
+      },
+      {
+        "component": "tome-engine",
+        "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "source_pinned": true,
+        "path": "game/engines/default/engine/interface/ActorProject.lua",
+        "sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+        "symbol": "ActorProject.project"
+      },
+      {
+        "component": "tome-engine",
+        "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "source_pinned": true,
+        "path": "game/engines/default/engine/Target.lua",
+        "sha256": "d89c2dd92471ac5cdd9fb02c6a20c7432deabecb9617902a9bf1acdced117bed",
+        "symbol": "Target.getType"
+      }
+    ]
+  },
+  "damage_value_flow": {
+    "placeholder_index": 3,
+    "placeholder": "%d",
+    "quantity_kind": "damage",
+    "flow": [
+      "T_INFERNO_NEXUS.info formats the third placeholder from damDesc(..., t.getDam(self, t)).",
+      "A successful spread calls the already selected DamageType.FIREBURN projector directly with scalar t.getDam(self, t); the fourth argument DamageType.FIRE does not change the selected projector.",
+      "Scalar FIREBURN defaults to dur=3 and initial=50 percent.",
+      "FIREBURN immediately projects t.getDam * 0.5 as fire damage, then installs EFF_BURNING with power=(t.getDam * 0.5) / 3 for three timeouts.",
+      "EFF_BURNING.on_timeout projects eff.power as fire damage. Thus the displayed value is the nominal total of the complete default three-turn event."
+    ],
+    "distribution": {
+      "immediate_fraction": 0.5,
+      "remaining_fraction": 0.5,
+      "default_duration_turns": 3,
+      "nominal_tick_fraction_each": "0.5 / 3"
+    },
+    "decision": "Render %d as total nominal FIREBURN damage, explicitly split between 50 percent immediate damage and the remaining 50 percent across the following three burn turns; it is not immediate-only damage, per-turn damage, or healing. Existing EFF_BURNING merge behavior can redistribute outstanding damage, so the rendering describes the nominal newly applied event rather than promising an unconditional observed tick schedule."
+  },
+  "spread_behavior": {
+    "timing": "On each caster base turn, the outer radius-10 hostile projection considers every actor carrying EFF_CURSED_FLAMES.",
+    "chance": "Each cursed host independently rolls rng.percent(50) once for that base turn before projecting radius 1.",
+    "host_filter": "The host must be hostile, within radius 10 and currently carry EFF_CURSED_FLAMES.",
+    "receiver_filter": "The receiver must be hostile, within radius 1 of the successful host and not already carry EFF_CURSED_FLAMES; it does not need to be burning before receipt.",
+    "receiver_deduplication": "turn_procs.doombringer_burnt prevents multiple successful hosts from processing the same receiver during the same turn.",
+    "applications": ["default three-turn FIREBURN", "EFF_CURSED_FLAMES at tick end"],
+    "player_facing_decision": "State the independent 50%% chance, both radii, hostile/not-yet-cursed eligibility and absence of a pre-existing-burning prerequisite without exposing internal deduplication fields or callback names."
+  },
+  "heal_vim_value_flow": {
+    "placeholders": [
+      {"placeholder_index": 1, "placeholder": "%0.2f", "quantity_kind": "health", "source": "t.getHeal"},
+      {"placeholder_index": 2, "placeholder": "%0.2f", "quantity_kind": "vim", "source": "t.getVim"}
+    ],
+    "melee_application": "A successful melee hit applies EFF_CURSED_FLAMES with independent heal=t.getHeal and vim=t.getVim fields.",
+    "spread_application": "Each newly cursed receiver receives EFF_CURSED_FLAMES with the same independently computed heal and vim fields.",
+    "timeout_behavior": "Each cursed actor's effect timeout calls eff.src:heal(eff.heal) and eff.src:incVim(eff.vim), then removes the curse after the host no longer has a detrimental fire effect.",
+    "decision": "Each cursed enemy independently contributes the first two displayed values per turn while it keeps burning. These values do not come from t.getDam, are not equal to %d, and spreading grants no immediate heal."
+  },
+  "english_runtime_discrepancies": [
+    {
+      "surface_claim": "Spread receivers are other burning enemies.",
+      "runtime_fact": "The computed is_burning value is never used as a guard, so an eligible receiver need not already be burning.",
+      "adopted_rendering": "无论后者此前是否在燃烧",
+      "disposition": "runtime_backed_correction"
+    },
+    {
+      "surface_claim": "Every cursed enemy spreads each turn.",
+      "runtime_fact": "Each cursed host independently passes rng.percent(50) on each caster base turn.",
+      "adopted_rendering": "每回合……每个受到诅咒之焰影响的敌人都有 50%% 几率",
+      "disposition": "runtime_backed_correction"
+    },
+    {
+      "surface_claim": "Spreading heals for the same amount for each enemy.",
+      "runtime_fact": "Spreading adds a separate EFF_CURSED_FLAMES instance whose timeouts later grant t.getHeal and t.getVim while its host remains burning.",
+      "adopted_rendering": "新受诅咒的敌人在持续燃烧期间，也会每回合为你恢复同等生命值并提供同等活力值",
+      "disposition": "runtime_backed_correction"
+    },
+    {
+      "surface_claim": "%d is fire damage on spreading without a delivery shape.",
+      "runtime_fact": "%d is t.getDam passed as the nominal total damage of a default FIREBURN event: half is immediate and half is divided across the following three burn turns.",
+      "adopted_rendering": "传播还会造成总计 %d 点火焰伤害，其中一半立即造成，另一半在接下来的 3 回合内造成",
+      "disposition": "runtime_backed_clarification"
+    }
+  ],
+  "invariant_checks": {
+    "source_unchanged": true,
+    "source_tag_unchanged": true,
+    "args_order_remains_null": true,
+    "special_remains_null": true,
+    "placeholder_sequence_unchanged": true,
+    "placeholder_sequence": ["%0.2f", "%0.2f", "%d"],
+    "markup_sequence_before": [],
+    "markup_sequence_after": [],
+    "markup_sequence_unchanged": true,
+    "literal_percentage_escaped_for_tformat": "50%%",
+    "target_newline_count_before": 1,
+    "target_newline_count_after": 1,
+    "target_line_count_before": 2,
+    "target_line_count_after": 2,
+    "english_source_changed": false,
+    "talent_name_changed": false,
+    "surrounding_entries_changed": false,
+    "exactly_one_translation_target_changed": true,
+    "result": "pass"
+  },
+  "one_target_diff_proof": {
+    "baseline_head": "a68cbede82a5f0ab112451a4ccc41fadc05948cd",
+    "translation_file_sha256_before": "c37a9dc56dfda885eee71b4d0e3baa2812d78292fbbf09193c0828e3c6b4a01d",
+    "translation_file_sha256_after": "3de6f8726dfd89594f09f7a5f4eeb6c5db1269aac072919c97fb38284bae6e2a",
+    "translation_file_numstat": {
+      "added_lines": 2,
+      "deleted_lines": 2
+    },
+    "changed_t_call_count": 1,
+    "changed_entry_ids": ["79cc1282786263492eb621ef0e714442ab46d6ffb5501051785ac10f0a629e7a"],
+    "english_source_changed": false,
+    "talent_name_changed": false,
+    "surrounding_entries_changed": false,
+    "terminology_changed": false,
+    "tools_docs_ai_manifest_or_workset_changed_by_executor": false
+  }
+}

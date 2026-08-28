@@ -1225,8 +1225,8 @@ t([[Draw in the raging fires and envelop yourself in them. Remove all burns from
 		当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧范围内的所有敌方生物 3 回合，造成等于护盾初始值的伤害。]], "tformat")
 t("Devouring Flames", "吞噬之焰", "talent name")
 t([[Your connection to fire nourishes you. Whenever you strike an enemy in melee, you inflict a burning curse upon them. As long as they continue to burn, you gain %0.2f health and %0.2f vim per turn.
-		Each turn they remain within 10 spaces of you, all enemies with cursed flames will spread it to other burning enemies in radius 1, causing you to heal for the same amount for each enemy, as well as dealing %d fire damage on spreading.]], [[恶魔之炎抚育你成长。每次你近战攻击命中时，你对目标施加诅咒，只要其处于燃烧状态，你每回合获得 %0.2f 生命与 %0.2f 活力。 
-	同时，在你周围 10 码范围内，所有被诅咒火焰燃烧的敌方生物会将诅咒传播至半径 1 内的燃烧生物上，并造成 %d 火焰伤害同时给予你等量治疗。]], "tformat")
+		Each turn they remain within 10 spaces of you, all enemies with cursed flames will spread it to other burning enemies in radius 1, causing you to heal for the same amount for each enemy, as well as dealing %d fire damage on spreading.]], [[恶魔之火滋养着你。每当你的近战攻击命中敌人，便会对其施加诅咒之焰。每个受到诅咒之焰影响的敌人只要仍在燃烧，每回合都会为你恢复 %0.2f 点生命值并提供 %0.2f 点活力值。
+	每回合，你半径 10 内每个受到诅咒之焰影响的敌人都有 50%% 几率，将诅咒传播给其半径 1 内尚未受诅咒的敌人，无论后者此前是否在燃烧。新受诅咒的敌人在持续燃烧期间，也会每回合为你恢复同等生命值并提供同等活力值。传播还会造成总计 %d 点火焰伤害，其中一半立即造成，另一半在接下来的 3 回合内造成。]], "tformat")
 t("Blazing Rebirth", "烈焰重生", "talent name")
 t("Restore yourself to full health, but take damage equal to the damage healed over %d turns. This damage is split evenly among you and all burning enemies in radius %d. Damage you take is irresistable. Damage to enemies is fire damage.", [[生命值恢复为满值，但治疗值转化为持续 %d 回合的伤害。 
 	伤害会平均分配给你自己和 %d 码范围内的燃烧敌对生物。
