@@ -1,6 +1,6 @@
 # Prospective residual audit v3 candidate set
 
-Status: the 40-item public holdout, generic reviewer prompt, exact schema, sealed atom matcher, scorer, four preregistered routes and fail-closed runner are frozen; no v3 reviewer inference has been made. A committed-package preflight must report GO before either executable route is invoked.
+Status: the 40-item public holdout, generic reviewer prompt, exact schema, sealed atom matcher and scorer are frozen. The initial committed-package preflight reported GO. Claude and Gemini produced preserved terminal envelopes; Codex and two Pi launches failed before an assistant response because of runtime/configuration write constraints. `HARNESS-ERRATA-1.json` freezes the mechanical correction and permits only Codex attempt 2 and GLM attempt 3 after a committed retry preflight reports GO. Claude and Gemini may not be resampled.
 
 This directory supersedes `prospective-residual-audit-v2`. The v2 selection was invalidated before source adjudication or model inference because some historical Paseo `translation_snapshot` entries were intermediate review snippets rather than the complete translation revision present at the frozen production commit. The v2 artifacts remain preserved as an audit trail.
 
@@ -23,7 +23,7 @@ One revision is selected by seeded equal-probability SHA-256 rank within each se
 
 ## Source-audit result and current gate
 
-No v3 reviewer-route model call has been made. `SOURCE-AUDIT-PROTOCOL.json` froze four possible source-audit outcomes: `CONFIRMED`, `REFUTED`, `INDETERMINATE` and `UNREACHABLE`. It also records that Codex subagents may provide mechanical location or preliminary evidence proposals, but the primary experiment lead must independently verify every fixed source and sign the final verdict before any reviewer-route output exists. All 40 items received equal-depth source audit, and none was replaced after selection.
+The source audit and all hidden scoring inputs were completed before any v3 reviewer-route model call. `SOURCE-AUDIT-PROTOCOL.json` froze four possible source-audit outcomes: `CONFIRMED`, `REFUTED`, `INDETERMINATE` and `UNREACHABLE`. It also records that Codex subagents may provide mechanical location or preliminary evidence proposals, but the primary experiment lead must independently verify every fixed source and sign the final verdict before any reviewer-route output exists. All 40 items received equal-depth source audit, and none was replaced after selection.
 
 `SOURCE-LOCATOR-CONTRACT.json` and `SOURCE-LOCATORS.json` bind all 40 items to public source without writing verdicts. Thirty-nine use Git blobs from fixed engine commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`; the one Cults item uses an explicit public-file SHA-256 because the DLC repository was not commit-frozen. There are 37 unique normalized matches and 3 short-source multiple matches; every occurrence is retained for adjudication. No item is currently unreachable at the source-location stage.
 
@@ -36,6 +36,8 @@ Both the 40/40 determinate gate and the 38/40 provenance-classifiable gate pass.
 The later reviewer context remains Arm A, source and target only. `HOLDOUT-DRAFT.json` is deliberately not inference-ready. `PUBLIC-HOLDOUT.json`, `PROMPT.md`, `REVIEWER-SCHEMA.json`, `SEALED-ATOM-MAP.json`, `score-lib.mjs` and `REVIEW-CONTRACT.json` now define the frozen review package. The prompt checklist is mechanically derived from the pre-audit scope in `SOURCE-AUDIT-PROTOCOL.json`, not from the sealed positive finding.
 
 All four historical routes remain registered. Claude Opus 5 medium/no-advisor and Pi Z.ai CN GLM 5.3 Flash high are the primary verified routes. At the user's explicit direction, Codex CLI 0.150.1 and agy 1.1.22 are also run and scored as `REFERENCE_ONLY_UNVERIFIED`: Codex cannot mechanically prove that every file tool is absent and lacks server runtime-model attestation; agy cannot disable all tools and does not report runtime identity. Their scores are auxiliary references and cannot enter the primary ranking. Every attempt gets an exclusive directory with immutable raw stdout/stderr; parsing is a separate step.
+
+The initial execution exposed two harness compatibility errors, not model outcomes. Codex attempt 1 exited before any thread/turn event when its app-server needed a writable runtime. Pi attempts 1 and 2 exited before an assistant response because the first runtime was read-only and the second omitted the custom provider definition. The retry harness masks the complete user home and writable-binds a fresh minimal per-route runtime; it does not change any outbound request or scoring byte. Codex remains reference-only and unverified. A matching Claude `StructuredOutput` result receipt is now recognized by the parser, but the frozen non-Opus `modelUsage` rejection is unchanged; the existing Claude RAW must be reused.
 
 ## Rebuild and verify
 
@@ -57,6 +59,7 @@ node evidence/quality/model-probes/prospective-residual-audit-v3/verify-referenc
 node evidence/quality/model-probes/prospective-residual-audit-v3/test-scorer.mjs
 node evidence/quality/model-probes/prospective-residual-audit-v3/test-runner.mjs
 node evidence/quality/model-probes/prospective-residual-audit-v3/preflight.mjs --route-check --write
+node evidence/quality/model-probes/prospective-residual-audit-v3/preflight-retry.mjs --write
 ```
 
 The verifier creates and removes its own detached temporary worktree, regenerates the canonical inventory, checks the production input digest and all historical terminal-input fingerprints, regenerates every derived JSON, validates selection probabilities and confirms that inference remains disabled.

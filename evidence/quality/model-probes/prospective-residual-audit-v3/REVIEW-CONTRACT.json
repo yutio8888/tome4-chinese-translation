@@ -30,13 +30,16 @@
   },
   "harness": {
     "public_builder": {"logical_path": "build-public-holdout.mjs", "sha256": "f28de8e1081007aac42e5b5dec0ce1f6cc9d79b88a05f68ec97495a083bad6a1"},
-    "runner_library": {"logical_path": "runner-lib.mjs", "sha256": "73268e7a34d44fba01a7b0904e088c1408d95e80ac04dc1fbe7149de950a1329"},
-    "runner_fixture": {"logical_path": "RUNNER-FIXTURE.json", "sha256": "c1b8b707d7aefccf9dbe9a72a498f8abd2dd1f654085f5686c385f5e78a4fb60"},
-    "runner_test": {"logical_path": "test-runner.mjs", "sha256": "d7d18bf835f5765ac3f1cc17e49b98e57e6027203ecfeee18c8d1e604b7cb982"},
+    "runner_library": {"logical_path": "runner-lib.mjs", "sha256": "ef2319b22f835233c6a3e6d2715f78ac606404069051f3a99cccbf13c5c38929"},
+    "runner_fixture": {"logical_path": "RUNNER-FIXTURE.json", "sha256": "4235cc38b4a5b7a19de0f77f465212c76f02d75e8d0eee826eacb660adb7f51f"},
+    "runner_test": {"logical_path": "test-runner.mjs", "sha256": "5b9212a7061ea7e7b22b5a9e39565bc47b6b0bc6617b62ddc69deb0d9f7e0cf4"},
     "preflight": {"logical_path": "preflight.mjs", "sha256": "de469451d66de026cd83c0bc9aa9e5220adf5b5650eff978514b40b3f765dd34"},
     "run": {"logical_path": "run.mjs", "sha256": "bc3e6a3962a54a4e4aa503e0efc67035f8d5385db46747e58859dda17281f116"},
-    "parse": {"logical_path": "parse.mjs", "sha256": "17fe001d2c3d4ae943763a63b42a88376aac0d7acb5a6368521bb799b385426d"},
-    "score": {"logical_path": "score.mjs", "sha256": "44837eb8c2dfe48a9f9d5c1110e849ae7a537562e5ca8567834e2a81f2fd5b60"}
+    "parse": {"logical_path": "parse.mjs", "sha256": "970f1eb9b14c3da442dcf66123febdacb0e255fd4c4e50f7d2ab7c1669930470"},
+    "score": {"logical_path": "score.mjs", "sha256": "a472875063a4289dcd1343e6d71605b00cfbbfe58882d8d171ee33edf1fc6229"},
+    "harness_errata_1": {"logical_path": "HARNESS-ERRATA-1.json", "sha256": "a4faf033a3d2d2ad7be19efee118e81f236820f9ace5ba8e5837dedb93c5e553"},
+    "retry_preflight": {"logical_path": "preflight-retry.mjs", "sha256": "0121342b85755da91e06eae772a633176bee26956f458ce03f437754d64539df"},
+    "retry_run": {"logical_path": "run-retry.mjs", "sha256": "e5b627671b826193340c37f84a6133cf1e591cd1aacf68dde0da7d5d18c7aa46"}
   },
   "routes": [
     {
@@ -100,7 +103,8 @@
     "environment": "An explicit minimal environment-variable allowlist is used. Authentication may be obtained from inherited read-only home/config or provider credential variables, but values and host home paths are never written to artifacts or the user request. All routes run at the generic /mnt cwd inside the frozen OS sandbox; primary routes disable tools mechanically, while reference-only routes retain their declared isolation limitation.",
     "retry": "Only harness/transport/parse failures may receive a new explicit attempt. A successful raw envelope is reparsed rather than resampled when only parser compatibility changes.",
     "parallelism": "All four routes are independent and may run in parallel after the preflight package is committed and preflight reports GO. The two evidence tiers remain separate after scoring.",
-    "reference_only_user_direction": "On 2026-08-27 the user explicitly requested auxiliary reference scores even without a fully verified isolation mode. This changes reporting eligibility only; it does not relax outbound sanitization, sealed-reference withholding or invalid-candidate rules."
+    "reference_only_user_direction": "On 2026-08-27 the user explicitly requested auxiliary reference scores even without a fully verified isolation mode. This changes reporting eligibility only; it does not relax outbound sanitization, sealed-reference withholding or invalid-candidate rules.",
+    "post_inference_harness_errata": "HARNESS-ERRATA-1.json freezes two retry route/attempt pairs after transport failures with no assistant terminal response. Public request and hidden scoring bytes remain unchanged; completed Claude/Gemini envelopes may not be resampled. Retry uses a masked user home and a fresh minimal writable runtime that is deleted after each call."
   },
   "authorization": {
     "scope": "Sanitized project experiment records only",

@@ -155,6 +155,36 @@ export function validatePreflightRecord({preflight, contractSha256, packageGitCo
   return errors;
 }
 
+export function validateRetryPreflightRecord({preflight, contractSha256, errataSha256, packageGitCommit}) {
+  const errors = [];
+  if (preflight?.schema_version !== "prospective-residual-retry-preflight-v3-1" || preflight?.status !== "GO") errors.push("retry PREFLIGHT status/identity is not GO");
+  if (preflight?.route_check_performed !== true) errors.push("retry PREFLIGHT route check was not performed");
+  if (preflight?.review_contract_sha256 !== contractSha256) errors.push("retry PREFLIGHT contract hash drift");
+  if (preflight?.harness_errata_sha256 !== errataSha256) errors.push("retry PREFLIGHT errata hash drift");
+  if (preflight?.package_git_commit !== packageGitCommit) errors.push("retry PREFLIGHT package Git commit drift");
+  if (JSON.stringify(preflight?.route_versions ?? null) !== JSON.stringify(EXPECTED_ROUTE_VERSIONS)) errors.push("retry PREFLIGHT route versions are incomplete or drifted");
+  if (JSON.stringify(preflight?.model_availability ?? null) !== JSON.stringify(EXPECTED_MODEL_AVAILABILITY)) errors.push("retry PREFLIGHT model availability is incomplete or drifted");
+  if (JSON.stringify(preflight?.allowed_route_attempts ?? null) !== JSON.stringify({codex: 2, glm: 3})) errors.push("retry PREFLIGHT allowed attempts drift");
+  return errors;
+}
+
+export function validateHarnessErrataArtifacts(root, errata) {
+  const errors = [];
+  if (errata?.schema_version !== "prospective-residual-harness-errata-v3-1" || errata?.status !== "FROZEN_BEFORE_RETRY_INFERENCE") errors.push("harness errata identity/status mismatch");
+  const bindings = [errata?.initial_preflight, ...(errata?.preserved_artifacts ?? [])].filter(Boolean);
+  for (const binding of bindings) {
+    const file = path.join(root, binding.logical_path);
+    if (!fs.existsSync(file)) {
+      errors.push(`${binding.logical_path}: preserved artifact missing`);
+      continue;
+    }
+    const stat = fs.lstatSync(file);
+    if (!stat.isFile() || stat.isSymbolicLink()) errors.push(`${binding.logical_path}: preserved artifact is not an ordinary file`);
+    else if (sha256File(file) !== binding.sha256) errors.push(`${binding.logical_path}: preserved artifact hash mismatch`);
+  }
+  return errors;
+}
+
 const FORBIDDEN_OUTBOUND = [
   {label: "local absolute path", pattern: /(?:\/(?:home|Users)\/|[A-Za-z]:\\Users\\)/u},
   {label: "sealed artifact name", pattern: /(?:SEALED-(?:REFERENCE|ATOM-MAP)|SOURCE-AUDIT|REFERENCE-ESTIMATES|ESTIMATOR-CONTRACT)/iu},
@@ -217,7 +247,52 @@ export function minimalEnvironment(kind, tmpdir, source = process.env) {
   return output;
 }
 
-export function invocationPlan(route, bundleDirectory, request) {
+export function createRouteRuntime(route, parent = os.tmpdir()) {
+  assert(["codex", "pi"].includes(route.kind), `${route.slug}: no writable runtime is defined`);
+  const directory = fs.mkdtempSync(path.join(parent, "residual-route-runtime-v3-"));
+  fs.chmodSync(directory, 0o700);
+  fs.mkdirSync(path.join(directory, "xdg"), {mode: 0o700});
+  if (route.kind === "codex") {
+    const codex = path.join(directory, "codex");
+    fs.mkdirSync(codex, {mode: 0o700});
+    const source = path.join(os.homedir(), ".codex", "auth.json");
+    const stat = fs.lstatSync(source);
+    assert(stat.isFile() && !stat.isSymbolicLink(), "Codex auth source is not an ordinary file");
+    const destination = path.join(codex, "auth.json");
+    fs.copyFileSync(source, destination, fs.constants.COPYFILE_EXCL);
+    fs.chmodSync(destination, 0o600);
+  } else {
+    const pi = path.join(directory, "pi");
+    fs.mkdirSync(pi, {mode: 0o700});
+    const sourceAuth = readJson(path.join(os.homedir(), ".pi", "agent", "auth.json"));
+    const sourceModels = readJson(path.join(os.homedir(), ".pi", "agent", "models.json"));
+    assert(sourceAuth["zai-standard-cn"]?.type === "api_key", "Pi Z.ai CN credential is unavailable");
+    const provider = structuredClone(sourceModels.providers?.["zai-standard-cn"]);
+    assert(provider && Array.isArray(provider.models) && provider.models.some(model => model.id === "glm-5.3-flash"), "Pi GLM route definition is unavailable");
+    delete provider.apiKey;
+    writeNewFile(path.join(pi, "auth.json"), `${JSON.stringify({"zai-standard-cn": sourceAuth["zai-standard-cn"]})}\n`);
+    writeNewFile(path.join(pi, "models.json"), `${JSON.stringify({providers: {"zai-standard-cn": provider}})}\n`);
+  }
+  return directory;
+}
+
+export function removeRouteRuntime(directory) {
+  assert(path.basename(directory).startsWith("residual-route-runtime-v3-"), "refusing to remove an unrecognized runtime directory");
+  const stat = fs.lstatSync(directory);
+  assert(stat.isDirectory() && !stat.isSymbolicLink(), "refusing to remove a non-directory runtime");
+  fs.rmSync(directory, {recursive: true, force: false});
+}
+
+export function runtimeEnvironment(kind, source = process.env) {
+  const output = minimalEnvironment(kind, "/tmp", source);
+  delete output.DBUS_SESSION_BUS_ADDRESS;
+  output.XDG_RUNTIME_DIR = "/tmp/route-runtime/xdg";
+  if (kind === "codex") output.CODEX_HOME = "/tmp/route-runtime/codex";
+  if (kind === "pi") output.PI_CODING_AGENT_DIR = "/tmp/route-runtime/pi";
+  return output;
+}
+
+export function invocationPlan(route, bundleDirectory, request, sandboxOptions = {}) {
   const schemaText = fs.readFileSync(path.join(bundleDirectory, "REVIEWER-SCHEMA.json"), "utf8");
   const codexSchemaText = fs.readFileSync(path.join(bundleDirectory, "CODEX-TRANSPORT-SCHEMA.json"), "utf8");
   const scanErrors = scanOutboundBuffers([
@@ -230,6 +305,7 @@ export function invocationPlan(route, bundleDirectory, request) {
     const disabledFeatures = ["shell_tool", "unified_exec", "apps", "browser_use", "browser_use_external", "browser_use_full_cdp_access", "computer_use", "multi_agent", "multi_agent_v2", "plugins", "plugin_sharing", "remote_plugin", "skill_search", "view_image", "image_generation", "hooks", "goals", "tool_suggest", "tool_call_mcp_elicitation", "workspace_dependencies"];
     const featureArgs = disabledFeatures.flatMap(feature => ["--disable", feature]);
     return wrapInOsSandbox({
+      ...sandboxOptions,
       bundleDirectory,
       command: "codex",
       args: [...featureArgs, "-a", "never", "exec", "-m", "gpt-5.6-sol", "-c", "model_reasoning_effort=\"high\"", "--ephemeral", "--ignore-user-config", "--ignore-rules", "--skip-git-repo-check", "-C", "/mnt", "-s", "read-only", "--output-schema", "CODEX-TRANSPORT-SCHEMA.json", "--json", request.toString("utf8")],
@@ -240,6 +316,7 @@ export function invocationPlan(route, bundleDirectory, request) {
     const cliSchema = JSON.parse(schemaText);
     delete cliSchema.$schema;
     return wrapInOsSandbox({
+      ...sandboxOptions,
       bundleDirectory,
       command: "claude",
       args: ["--print", "--model", "claude-opus-5", "--effort", "medium", "--output-format", "stream-json", "--verbose", "--safe-mode", "--tools", "", "--strict-mcp-config", "--mcp-config", "{\"mcpServers\":{}}", "--no-session-persistence", "--disable-slash-commands", "--prompt-suggestions", "false", "--permission-mode", "plan", "--json-schema", JSON.stringify(cliSchema), "--", request.toString("utf8")],
@@ -248,6 +325,7 @@ export function invocationPlan(route, bundleDirectory, request) {
   }
   if (route.kind === "pi") {
     return wrapInOsSandbox({
+      ...sandboxOptions,
       bundleDirectory,
       command: "pi",
       args: ["--provider", "zai-standard-cn", "--model", "glm-5.3-flash", "--thinking", "high", "--no-tools", "--no-session", "--no-extensions", "--no-skills", "--no-prompt-templates", "--no-themes", "--no-context-files", "--no-approve", "--mode", "json", "--print", "--", request.toString("utf8")],
@@ -256,6 +334,7 @@ export function invocationPlan(route, bundleDirectory, request) {
   }
   assert(route.kind === "agy", `unsupported runnable route kind ${route.kind}`);
   return wrapInOsSandbox({
+    ...sandboxOptions,
     bundleDirectory,
     command: "agy",
     args: ["-p", request.toString("utf8"), "--model", "gemini-3.7-flash-high", "--effort", "high", "--disable-slash-commands", "--output-format", "json", "--print-timeout", "15m", "--mode", "plan", "--sandbox", "--json-schema", "REVIEWER-SCHEMA.json"],
@@ -263,7 +342,15 @@ export function invocationPlan(route, bundleDirectory, request) {
   });
 }
 
-export function wrapInOsSandbox({bundleDirectory, command, args, displayArgs = args}) {
+export function wrapInOsSandbox({bundleDirectory, command, args, displayArgs = args, runtimeDirectory = null, maskUserHome = false}) {
+  if (runtimeDirectory !== null) {
+    const stat = fs.lstatSync(runtimeDirectory);
+    assert(stat.isDirectory() && !stat.isSymbolicLink(), "runtime bind source is not an ordinary directory");
+  }
+  const privateMounts = maskUserHome
+    ? ["--tmpfs", os.homedir()]
+    : ["--tmpfs", path.join(os.homedir(), "research")];
+  const runtimeMount = runtimeDirectory === null ? [] : ["--dir", "/tmp/route-runtime", "--bind", runtimeDirectory, "/tmp/route-runtime"];
   return {
     command: "bwrap",
     args: [
@@ -275,14 +362,17 @@ export function wrapInOsSandbox({bundleDirectory, command, args, displayArgs = a
       "--proc", "/proc",
       "--ro-bind", bundleDirectory, "/mnt",
       "--tmpfs", "/tmp",
-      "--tmpfs", "/home/yun/research",
+      ...privateMounts,
+      ...runtimeMount,
       "--chdir", "/mnt",
       "--",
       command,
       ...args
     ],
     display_args: [
-      "[OS_SANDBOX: host filesystem read-only; research root hidden; public bundle read-only at /mnt; cwd /mnt]",
+      maskUserHome
+        ? "[OS_SANDBOX: host filesystem read-only; user home hidden; route runtime private+writable; public bundle read-only at /mnt; cwd /mnt]"
+        : "[OS_SANDBOX: host filesystem read-only; research root hidden; public bundle read-only at /mnt; cwd /mnt]",
       command,
       ...displayArgs
     ]
@@ -310,12 +400,19 @@ function hasToolSignal(value) {
   return Object.values(value).some(child => Array.isArray(child) ? child.some(hasToolSignal) : hasToolSignal(child));
 }
 
-function hasForbiddenClaudeToolSignal(value) {
+function hasForbiddenClaudeToolSignal(value, allowedStructuredOutputIds = new Set()) {
   if (!value || typeof value !== "object") return false;
   if (value.type === "tool_use" && value.name === "StructuredOutput") return false;
+  if (value.type === "tool_result" && allowedStructuredOutputIds.has(value.tool_use_id)) {
+    return Object.entries(value).some(([key, child]) => !["type", "tool_use_id"].includes(key) && (Array.isArray(child)
+      ? child.some(item => hasForbiddenClaudeToolSignal(item, allowedStructuredOutputIds))
+      : hasForbiddenClaudeToolSignal(child, allowedStructuredOutputIds)));
+  }
   if (["tool_call", "tool_use", "tool_result", "tool_execution_start", "tool_execution_end"].includes(value.type)) return true;
   if (typeof value.type === "string" && /tool_(?:call|use|result|execution)/u.test(value.type)) return true;
-  return Object.values(value).some(child => Array.isArray(child) ? child.some(hasForbiddenClaudeToolSignal) : hasForbiddenClaudeToolSignal(child));
+  return Object.values(value).some(child => Array.isArray(child)
+    ? child.some(item => hasForbiddenClaudeToolSignal(item, allowedStructuredOutputIds))
+    : hasForbiddenClaudeToolSignal(child, allowedStructuredOutputIds));
 }
 
 const CODEX_ALLOWED_TOP_LEVEL_EVENT_TYPES = new Set([
@@ -411,8 +508,11 @@ export function parseClaudeRaw(raw) {
   if (JSON.stringify(assistantModels) !== JSON.stringify(["claude-opus-5"])) errors.push(`Claude assistant model mismatch: ${assistantModels.join(",")}`);
   const blocks = assistant.flatMap(event => event.message.content ?? []);
   const toolBlocks = blocks.filter(block => block.type === "tool_use");
+  const structuredOutputIds = new Set(toolBlocks.filter(block => block.name === "StructuredOutput").map(block => block.id).filter(Boolean));
+  const toolResultBlocks = events.flatMap(event => event.message?.content ?? []).filter(block => block.type === "tool_result");
   if (toolBlocks.length !== 1 || toolBlocks[0]?.name !== "StructuredOutput") errors.push("Claude must invoke exactly one StructuredOutput tool and no other tool");
-  if (events.some(hasForbiddenClaudeToolSignal)) errors.push("Claude non-StructuredOutput tool signal detected");
+  if (toolResultBlocks.length !== 1 || !structuredOutputIds.has(toolResultBlocks[0]?.tool_use_id)) errors.push("Claude must return exactly one matching StructuredOutput result");
+  if (events.some(event => hasForbiddenClaudeToolSignal(event, structuredOutputIds))) errors.push("Claude non-StructuredOutput tool signal detected");
   if (events.some(event => event.parent_tool_use_id != null)) errors.push("Claude subagent/parent tool-use event detected");
   if (events.some(event => /advisor/iu.test(`${event.type ?? ""} ${event.subtype ?? ""}`)) || blocks.some(block => /advisor/iu.test(`${block.type ?? ""} ${block.name ?? ""}`))) errors.push("Claude advisor signal detected");
   if (events.some(event => event.type === "system" && /fallback/iu.test(event.subtype ?? "")) || blocks.some(block => block.type === "fallback")) errors.push("Claude fallback detected");

@@ -12,6 +12,7 @@ import {
   routeFor,
   sha256Bytes,
   sha256File,
+  validateHarnessErrataArtifacts,
   validateReviewContract,
   writeNewFile
 } from "./runner-lib.mjs";
@@ -19,13 +20,14 @@ import {
 const here = path.dirname(fileURLToPath(import.meta.url));
 const argv = process.argv.slice(2);
 const expectedFlags = ["--codex-attempt", "--opus-attempt", "--glm-attempt", "--gemini-attempt"];
+const candidateFlags = ["--codex-candidate", "--opus-candidate", "--glm-candidate", "--gemini-candidate"];
 const values = new Map();
 let out = "SCORES.json";
 for (let index = 0; index < argv.length; index += 2) {
   const flag = argv[index];
   const value = argv[index + 1];
   assert(value !== undefined, `${flag}: missing value`);
-  assert([...expectedFlags, "--out"].includes(flag), `unexpected score argument ${flag}`);
+  assert([...expectedFlags, ...candidateFlags, "--out"].includes(flag), `unexpected score argument ${flag}`);
   assert(!values.has(flag), `duplicate score argument ${flag}`);
   values.set(flag, value);
 }
@@ -35,6 +37,9 @@ assert(path.basename(out) === out, "--out must be a plain filename inside the ex
 
 const contractCheck = validateReviewContract(here);
 assert(contractCheck.errors.length === 0, `review contract validation failed: ${contractCheck.errors.join("; ")}`);
+const errata = readJson(path.join(here, "HARNESS-ERRATA-1.json"));
+const errataArtifactErrors = validateHarnessErrataArtifacts(here, errata);
+assert(errataArtifactErrors.length === 0, `preserved artifact validation failed: ${errataArtifactErrors.join("; ")}`);
 const holdout = readJson(path.join(here, "PUBLIC-HOLDOUT.json"));
 const reference = readJson(path.join(here, "SEALED-REFERENCE.json"));
 const atomMap = readJson(path.join(here, "SEALED-ATOM-MAP.json"));
@@ -49,7 +54,9 @@ const routeResults = [];
 for (const selection of selected) {
   const route = routeFor(selection.key);
   const directory = attemptDirectory(here, route, selection.attempt);
-  const candidatePath = path.join(directory, "CANDIDATE.json");
+  const candidateName = values.get(`--${selection.key}-candidate`) ?? "CANDIDATE.json";
+  assert(path.basename(candidateName) === candidateName && /^CANDIDATE(?:-[A-Z0-9-]+)?\.json$/u.test(candidateName), `${selection.key}: invalid candidate filename`);
+  const candidatePath = path.join(directory, candidateName);
   const candidateExists = fs.existsSync(candidatePath);
   const base = {
     route: route.slug,

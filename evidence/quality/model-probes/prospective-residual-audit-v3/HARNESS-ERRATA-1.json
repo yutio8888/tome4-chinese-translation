@@ -1,0 +1,99 @@
+{
+  "schema_version": "prospective-residual-harness-errata-v3-1",
+  "experiment": "prospective-residual-audit-v3",
+  "status": "FROZEN_BEFORE_RETRY_INFERENCE",
+  "initial_frozen_commit": "ae1cf61303f48372c0d0a17c04892e1e15375ebb",
+  "initial_preflight": {
+    "logical_path": "PREFLIGHT.json",
+    "sha256": "de0bf67f42dc4503e151677d9885be2e4a7f3ebde8b857f351d75424955fa88d",
+    "status": "GO"
+  },
+  "unchanged_in_retry": [
+    "PUBLIC-HOLDOUT.json bytes and order",
+    "PROMPT.md bytes",
+    "REVIEWER-SCHEMA.json semantics",
+    "CODEX-TRANSPORT-SCHEMA.json bytes",
+    "SEALED-REFERENCE.json bytes",
+    "SEALED-ATOM-MAP.json bytes",
+    "score-lib.mjs scoring semantics"
+  ],
+  "failure_classification": [
+    {
+      "route": "codex-gpt-5.6-sol-high",
+      "attempt": 1,
+      "classification": "HARNESS_TRANSPORT_FAILURE_NO_MODEL_SCORE",
+      "reason": "The CLI exited before thread/turn/assistant events because its app-server runtime attempted writes on the read-only home view.",
+      "terminal_assistant_response": false,
+      "retry": {"allowed": true, "attempt": 2}
+    },
+    {
+      "route": "pi-zai-cn-glm-5.3-flash-high",
+      "attempt": 1,
+      "classification": "HARNESS_TRANSPORT_FAILURE_NO_MODEL_SCORE",
+      "reason": "The CLI emitted only a session event and exited while attempting credential/settings lock writes on the read-only home view.",
+      "terminal_assistant_response": false,
+      "retry": {"allowed": false, "superseded_by": 2}
+    },
+    {
+      "route": "pi-zai-cn-glm-5.3-flash-high",
+      "attempt": 2,
+      "classification": "HARNESS_TRANSPORT_FAILURE_NO_MODEL_SCORE",
+      "reason": "The empty temporary Pi config removed the locks but omitted the custom frozen zai-standard-cn model definition, so the CLI exited before a session or assistant response.",
+      "terminal_assistant_response": false,
+      "retry": {"allowed": true, "attempt": 3}
+    }
+  ],
+  "successful_envelope_policy": [
+    {
+      "route": "claude-opus-5-medium-no-advisor",
+      "attempt": 1,
+      "transport_success": true,
+      "rerun_prohibited": true,
+      "note": "The raw envelope is reused after a parser compatibility correction. Frozen route purity still rejects non-Opus modelUsage and is not relaxed."
+    },
+    {
+      "route": "agy-gemini-3.7-flash-high",
+      "attempt": 1,
+      "transport_success": true,
+      "rerun_prohibited": true,
+      "note": "The valid reference-only candidate is reused unchanged."
+    }
+  ],
+  "retry_transport": {
+    "allowed_route_attempts": {
+      "codex": 2,
+      "glm": 3
+    },
+    "writable_runtime": "A fresh 0700 host temporary directory is writable-bound at a generic private runtime path. The entire user home is masked. Codex receives only its 0600 auth file; Pi receives only the zai-standard-cn credential plus a model definition restricted to glm-5.3-flash with provider apiKey removed. Runtime paths, credential values and credential hashes are not written to artifacts.",
+    "codex_evidence_tier": "REFERENCE_ONLY_UNVERIFIED",
+    "codex_limitation": "The writable authentication runtime and best-effort feature disables do not mechanically prove complete file-tool isolation or runtime model identity. Any observed tool or identity mismatch remains invalid.",
+    "glm_evidence_tier": "PRIMARY_VERIFIED",
+    "glm_requirement": "Pi --no-tools remains mandatory, and the parsed terminal provider/model must be exactly zai-standard-cn/glm-5.3-flash with no tool signal."
+  },
+  "parser_compatibility": {
+    "change": "A Claude tool_result block is allowed only when its tool_use_id matches the sole StructuredOutput invocation. All other tool_result/tool signals remain invalid.",
+    "raw_reuse_required": true,
+    "route_acceptance_unchanged": true
+  },
+  "preserved_artifacts": [
+    {"logical_path": "attempts/agy-gemini-3.7-flash-high/attempt-001/CALL.json", "sha256": "2cdfe903809fb71892571688265446257bd71f815365a286dc830e964f1ac79e"},
+    {"logical_path": "attempts/agy-gemini-3.7-flash-high/attempt-001/CANDIDATE.json", "sha256": "48d82f2b13a7896156d6ab77a205ffd26bbbb81a0aa78fee55cfaafd665d131c"},
+    {"logical_path": "attempts/agy-gemini-3.7-flash-high/attempt-001/RAW.stderr", "sha256": "e5b4084d9b961c8c6af82951e7439f090a20f9e6199f00d189031a1ff9599366"},
+    {"logical_path": "attempts/agy-gemini-3.7-flash-high/attempt-001/RAW.stdout", "sha256": "0c1e4020a4284777a181f739cf30720516130dc827f9932b66a92b127e1d7f59"},
+    {"logical_path": "attempts/claude-opus-5-medium-no-advisor/attempt-001/CALL.json", "sha256": "3811b0648c0ef9b3e8acd821df48488d540236d9c4a4faa9bacd02a4e55a8386"},
+    {"logical_path": "attempts/claude-opus-5-medium-no-advisor/attempt-001/CANDIDATE.json", "sha256": "ce3c8ef1517025abfa2ae7430a035389e0041df45c80b5e63eb9eed319aa200e"},
+    {"logical_path": "attempts/claude-opus-5-medium-no-advisor/attempt-001/RAW.stderr", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"logical_path": "attempts/claude-opus-5-medium-no-advisor/attempt-001/RAW.stdout", "sha256": "51dd460aeda9ab3e426f479654c6b277b7dbed87505029b35540ee7803fb27a0"},
+    {"logical_path": "attempts/codex-gpt-5.6-sol-high/attempt-001/CALL.json", "sha256": "bde8d784b4a0aa853878136d1a5c382e8c4babae6d615df315fbe56fa07ae20e"},
+    {"logical_path": "attempts/codex-gpt-5.6-sol-high/attempt-001/CANDIDATE.json", "sha256": "537a9e29c2e2e4257ef290cca7c97f17a3695e90adb5f36d5bf23eee3c69dda6"},
+    {"logical_path": "attempts/codex-gpt-5.6-sol-high/attempt-001/RAW.stderr", "sha256": "eae080369e91b8869ecdd955b8e2a9840b501bc2c8dfb0889bae645cc549d4b5"},
+    {"logical_path": "attempts/codex-gpt-5.6-sol-high/attempt-001/RAW.stdout", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"logical_path": "attempts/pi-zai-cn-glm-5.3-flash-high/attempt-001/CALL.json", "sha256": "6265b531ee51f6033180f94652b735b43a7c6605213e93741348d07b5fe333d3"},
+    {"logical_path": "attempts/pi-zai-cn-glm-5.3-flash-high/attempt-001/CANDIDATE.json", "sha256": "2b83b2028c6cab219fe997722afe9d4187f7ed345702210adbf5a140aa5f8f58"},
+    {"logical_path": "attempts/pi-zai-cn-glm-5.3-flash-high/attempt-001/RAW.stderr", "sha256": "e94a0108338cd0251ba978d57ab9572284b41aeae82fb27e76e0154c305113de"},
+    {"logical_path": "attempts/pi-zai-cn-glm-5.3-flash-high/attempt-001/RAW.stdout", "sha256": "a06a66819edc72b72628f370418da77456b52f2642daa288e340e47aa23c9e6f"},
+    {"logical_path": "attempts/pi-zai-cn-glm-5.3-flash-high/attempt-002/CALL.json", "sha256": "328f36b9c7bcabd8eadd414814509493bad7671050f9500440ac2fadbdfa454e"},
+    {"logical_path": "attempts/pi-zai-cn-glm-5.3-flash-high/attempt-002/RAW.stderr", "sha256": "a3189aa1a6aa0e026376448e854f38583e6a2f8af3ed0bfe7e6783d15ef49f86"},
+    {"logical_path": "attempts/pi-zai-cn-glm-5.3-flash-high/attempt-002/RAW.stdout", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+  ]
+}
