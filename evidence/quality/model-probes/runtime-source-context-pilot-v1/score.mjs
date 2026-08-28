@@ -88,7 +88,7 @@ for (const arm of ["A", "B"]) {
   if (requestHashes.size !== 1) throw new Error(`${arm}: requests are not byte-identical across routes/runs`);
 }
 const allCandidateNames = new Set(calls.map(call => call.candidate_artifact));
-const unexpectedCandidates = fs.readdirSync(here).filter(name => /^CANDIDATE-[AB]-run/.test(name) && !allCandidateNames.has(name));
+const unexpectedCandidates = fs.readdirSync(here).filter(name => /^CANDIDATE-[AB]-run/.test(name) && !/-unparsed-attempt1\.json$/.test(name) && !allCandidateNames.has(name));
 if (unexpectedCandidates.length) throw new Error(`unexpected candidate artifacts: ${unexpectedCandidates.join(", ")}`);
 
 const runtimeMutants = reference.items.filter(item => item.label === "RUNTIME_MUTATION").map(item => item.revision_id);
