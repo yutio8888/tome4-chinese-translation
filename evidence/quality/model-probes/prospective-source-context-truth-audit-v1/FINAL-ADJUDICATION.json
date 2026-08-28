@@ -1,0 +1,3761 @@
+{
+  "schema_version": "prospective-source-context-truth-adjudication-v1",
+  "status": "LEAD_ADJUDICATION_COMPLETE",
+  "queue_sha256": "3f629d6eb9a7b3264582e7b860be7ac77cd038f3f8ac2df2ad9736fee64a2ebe",
+  "surface_candidate_hashes": [
+    {
+      "shard_id": 1,
+      "sha256": "27f8976de3517c28b6d555d7f4ccbe8f0120cff2b1ac4ef0f3c79e9737f6fb11",
+      "size_bytes": 9004
+    },
+    {
+      "shard_id": 2,
+      "sha256": "bdcf82eeb0c865b1928b3550a9afd4316679f12063d21f55b9ccc2fcb0bf9774",
+      "size_bytes": 10640
+    },
+    {
+      "shard_id": 3,
+      "sha256": "27d59b322422fef39e338308a3db5eea21c71e504122b46427d787c4eef723ec",
+      "size_bytes": 9245
+    }
+  ],
+  "context_candidate_hashes": [
+    {
+      "shard_id": 1,
+      "sha256": "1743edf966d74ca7b05010e59c8449f5705b72879c6ebb15fee68ca43d6fc8c0",
+      "size_bytes": 17883
+    },
+    {
+      "shard_id": 2,
+      "sha256": "d3aa0f51a6b6a5f2119de7b32f1120286091ce7ca8b290212e160c67355578cf",
+      "size_bytes": 18923
+    },
+    {
+      "shard_id": 3,
+      "sha256": "29476d6511c3d9c1e4ee8c115e437fc4c43b17d0f851e05e31d5fc1cf929791f",
+      "size_bytes": 18491
+    }
+  ],
+  "items": [
+    {
+      "audit_id": "V1-001",
+      "task_id": "p2-tome-texts-b9-001",
+      "original_revision_key": "b9-24-angolwen-staves-store",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "制杖师、法杖格斗及共同讲解细节的行动均与原文一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认该句用于法杖格斗技能树的进阶训练日志，%s只是按熟练度追加技巧说明，未引入新的实质差异。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认该句用于法杖格斗技能树的进阶训练日志，%s只是按熟练度追加技巧说明，未引入新的实质差异。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "98de97c28b6aba4c804b5e1eb45fa379ea33213c6a6cef4d651230542506c88b"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-002",
+      "task_id": "p2-tome-texts-b37-001",
+      "original_revision_key": "b37-08-blighted-ruins",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "尸体几乎未腐、将成为新仆从并配合欺诈斗篷完成计划等叙事事实均完整保留；措辞差异不改变实质含义。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "相邻死灵法师笔记确认欺诈斗篷用于掩护仆从并帮助收集计划所需组件，未使表面译文产生新的实质问题或改变其范围。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：相邻死灵法师笔记确认欺诈斗篷用于掩护仆从并帮助收集计划所需组件，未使表面译文产生新的实质问题或改变其范围。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "e808fb56d3c553e47696678c33fd2cfd8a62d8e9f84c7406729d3e329178faa2"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-003",
+      "task_id": "p2-tome-texts-b7-001",
+      "original_revision_key": "arena-b7-03-arena-start",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "英文未说明进入何处，中文补成“进入竞技场”；仅凭这两句无法确认该补足是否改变目标场所。"
+      },
+      "context_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "上下文中的选项明确是进入竞技场，支持中文补出的场所，未建立 context 缺陷；但冻结的 surface 轴为 null，依 truth table 仍为 UNRESOLVED。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人复核冻结 packet：进入位置由同一段代码明确绑定为 arena；中文补出“竞技场”没有改变目的地。",
+        "material_evidence": "固定上下文把该提示置于竞技场入口流程，目标中的“竞技场”是显化已绑定地点。",
+        "candidate_disagreement": "surface/context 候选因英文 where 的指代而保留 UNRESOLVED；主负责人以固定地点绑定将其撤销为 CLEAN。",
+        "source_evidence_sha256s": [
+          "50f6fd54047df05f09603421df645f9e6a50175eae8a2f3a1e81c477a82527d6"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-004",
+      "task_id": "p2-tome-texts-b15-001",
+      "original_revision_key": "b15-11-fallen-aeryn",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "抓住护身符并在奥术能量漩涡中消失的动作与人物指代完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认%s是几近死亡的女性 Aeryn 的名称，且该日志发生在放过她的分支，译文的动作与女性指代仍准确。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认%s是几近死亡的女性 Aeryn 的名称，且该日志发生在放过她的分支，译文的动作与女性指代仍准确。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "8680c61e41914b85400aba84028f2c751a88257342c8b999e9585584e93159c1"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-005",
+      "task_id": "p2-tome-texts-b8-001",
+      "original_revision_key": "alchemist-b8-02-alchemist-derth",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "译文把 create a %s 具体化为“配制出一瓶%s”；缺少占位符实际内容时，无法判断这是否准确表达对象和行动，还是引入了错误的容器与制作方式。"
+      },
+      "context_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "源码把第二个占位符命名为 other_elixir，并说明任务围绕炼金药剂及其原料，因此“一瓶”和“配制”得到上下文支持，实质消解了 surface 阶段的对象与制作方式疑问；冻结的 surface 轴仍保持 null。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人复核冻结 packet：第二个占位符确为另一名炼金术士制成的药剂；“一瓶%s”和“配制”保持对象与动作。",
+        "material_evidence": "固定调用依次传入竞争炼金术士和 other_elixir，支持量词及药剂指代。",
+        "candidate_disagreement": "候选因占位符所指物不足而标 UNRESOLVED；固定调用参数已消除该歧义，最终为 CLEAN。",
+        "source_evidence_sha256s": [
+          "0a68d5cebf2534df0f7fef825cdb5f8f44247ee65cce9423aaf4a018a97e31bf"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-006",
+      "task_id": "p2-tome-texts-b27-001",
+      "original_revision_key": "b27-20-shimmer",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "改变外观的动作、%s 所指对象和括号格式均完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该选项把 %s 格式化为可幻化装备名称并执行外观修改，中文准确描述动作与对象，没有新增实质问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该选项把 %s 格式化为可幻化装备名称并执行外观修改，中文准确描述动作与对象，没有新增实质问题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "710ae6ef505695b0f76ed0ae3e3fe5258aa32f1061863ddaf84a7a9f6dfc51af"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-007",
+      "task_id": "p2-tome-texts-b24-001",
+      "original_revision_key": "b24-14-myssil",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "获得真菌技能树与强化 Mana Clash 两项结果均有对应表达。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文显示奖励确实授予或强化真菌技能树并赋予相应反魔强化能力，没有改变译文所述两项结果。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文显示奖励确实授予或强化真菌技能树并赋予相应反魔强化能力，没有改变译文所述两项结果。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "2ba384f619d080e49688f3c8c872af395215f12b7dd45a49e4f607d0df0079e0"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-008",
+      "task_id": "p2-tome-texts-b6-001",
+      "original_revision_key": "tutorial-b6-26-stats-tier-tier1",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "原文要求在对每个 monster 使用法力风暴后立即查看提示；译文遗漏“立即”，并把检查对象收窄或改写为“敌人”，改变了时机和目标范围。"
+      },
+      "context_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "packet 显示该句只是独立教程文本，没有额外逻辑改变“立即”和 monster 范围；context 未增加不同问题或改变已冻结的表面问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人对照原文和译文：中文“然后”仍明确保留动作紧随其后的顺序，monster 口语化为“敌人”未改变目标范围。",
+        "material_evidence": "目标句保留先后关系和攻击对象，没有建立会影响操作理解的时序或目标差异。",
+        "candidate_disagreement": "两轮候选把 immediately 的表达差异升级为表面缺陷；主负责人判定实质时序仍被“然后”保留。",
+        "source_evidence_sha256s": [
+          "884ce6e6189b3c4f743f1a00c62af1cb724534196d3f71b3c2c098c0b43d86b9"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-009",
+      "task_id": "p2-tome-texts-b33-001",
+      "original_revision_key": "b33-15-worldly-knowledge",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "mastery 的数值含义及两个格式占位符均保留，表面未见实质变化。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文将第二个占位值固定为 talent-type mastery 1.0，中文“技能树系数”没有改变数值或所指机制。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文将第二个占位值固定为 talent-type mastery 1.0，中文“技能树系数”没有改变数值或所指机制。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "cc501157ff9a7c0ddd93118520e462c11be7e38e759901d66800ff1fb44931ff"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-010",
+      "task_id": "p2-orcs-status-b24-001",
+      "original_revision_key": "orcs-status-b24-001",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "原文泛指接下来若干次射击，译文改为四个具名技能的若干次使用，实质改变了触发动作与适用范围。"
+      },
+      "context_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "上下文确认这是 Grenade Barrage 状态的长描述，并以层数作为剩余次数；它未提供四个具名技能，也未新增区别于既有触发范围问题的缺陷。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": false,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人核对补充登记的固定 tome-orcs 源码：榴弹射击触发集合正是射击、火焰喷射、暴风打击、毒弹爆射四项，译文是在修正英文 UI 的泛称。",
+        "material_evidence": "demolition.lua 的 callbackOnArcheryAttack 对 talent.id 只接受 SHOOT、FLAME_JET、STORMSTRIKE、FLECHETTE_BURST，和译文四项一一对应。",
+        "candidate_disagreement": "surface/context 候选只见 12 行 long_desc，因译文增加四项技能而判缺陷；补充固定源码证明新增说明与运行时一致，最终撤销为 CLEAN。",
+        "source_evidence_sha256s": [
+          "66e61a2898f55d9b4ab85cf6284022701c3dc70c7c0bd318e26e9dd5e3712f32"
+        ],
+        "limitations": "12 行冻结 packet 本身不足以完成此核验；补充证据只供主负责人裁决，不得进入模型 A/B 输入。"
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-011",
+      "task_id": "p2-orcs-ui-logs-b1-001",
+      "original_revision_key": "orcs-ui-logs-b1-log",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "原文条件是“精神伤害护盾已激活”或“强化格式塔可用”二者之一；译文额外要求格式塔激活，并改成与后续析取条件并列，实质改变了使用条件。"
+      },
+      "context_candidate": {
+        "label": "MIXED_DEFECT",
+        "reason": "运行前置检查明确要求格式塔已激活，并要求精神伤害护盾存在或强化格式塔未冷却；这与中文目标的逻辑结构一致，却比英文 source 多出真实的格式塔前置条件，实质改变了冻结 surface 结论的性质和范围。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人复核 on_pre_use：技能必须先激活 Gestalt，并满足精神护盾存在或强化格式塔不在冷却；中文完整反映实际可用条件。",
+        "material_evidence": "固定条件是 not Gestalt active，或同时无护盾且 Improved Gestalt 冷却时拒绝使用；目标准确转写其允许条件。",
+        "candidate_disagreement": "surface 候选把中文新增 Gestalt 条件视为缺陷，context 候选改判 MIXED；主负责人以同一冻结 pre-use 逻辑确认中文修正了英文遗漏，最终为 CLEAN。",
+        "source_evidence_sha256s": [
+          "8432ae9476737dfbd29ef82d6275c22d946c1ef9d6877d7ac3700b51a3660c03"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-012",
+      "task_id": "p2-tome-texts-b34-001",
+      "original_revision_key": "b34-39-zigur-mindstar-store",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "商人花大量时间讲解能量流经灵晶的精妙细节，人物、行动、对象和程度一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该日志对应解锁并训练灵晶掌握类别的深入教学，中文所述人物、教学内容和程度与行为一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该日志对应解锁并训练灵晶掌握类别的深入教学，中文所述人物、教学内容和程度与行为一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "bc39f3b0f28ad3f1ffb266cf9330cafef4ce550db343af3eaad495dff91a6a30"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-013",
+      "task_id": "p2-tome-texts-b12-001",
+      "original_revision_key": "b12-08-chronomancy-threads",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "三条时间线、经历的回合数以及选择现实时间线的含义均准确保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文明确给出第一、第二、第三三条时间线选项，并以相同回合数填入文本，支持原有无缺陷结论。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文明确给出第一、第二、第三三条时间线选项，并以相同回合数填入文本，支持原有无缺陷结论。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "3fca42b01ec1954b96dbb98f87f418c6d3f185f31c80d368d2669ce4636e9b99"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-014",
+      "task_id": "p2-cults-status-b9-001",
+      "original_revision_key": "cults-status-b9-001",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "目标陷入疯狂以及所有技能冷却增加 %d%% 的状态、范围和数量均准确保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "packet 确认该句是疯狂预言负面效果的 long_desc，并以 eff.power*100 填入百分比；未见目标、数量或状态上的新增实质偏差。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：packet 确认该句是疯狂预言负面效果的 long_desc，并以 eff.power*100 填入百分比；未见目标、数量或状态上的新增实质偏差。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "7b2be87e8fc50f747c5f1f1f7a36720549c8ca9ce32471eb5445637ee5434278"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-015",
+      "task_id": "p2-tome-texts-b14-001",
+      "original_revision_key": "b14-16-eidolon-plane",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "请求艾德隆让 %s 安息准确保留了人物、请求行为和死亡结果。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "文本用于玩家要求艾德隆放其死亡后的 special_death_msg，中文“让 %s 安息”与实际选择及结果一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：文本用于玩家要求艾德隆放其死亡后的 special_death_msg，中文“让 %s 安息”与实际选择及结果一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "6e5308bbc005746a14962973eab9b9a028c2c92d9a01771fc63acf86ed43c995"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-016",
+      "task_id": "p2-tome-texts-b23-001",
+      "original_revision_key": "b23-33-melinda-fortress",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "槽内治疗令人难受、状况改善、感到无聊以及昼出夜返治疗的计划均完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文说明%s会填入 Melinda 先前选定的白天去处，并由管家安排可隐蔽往返的传送门，与译文的昼出夜返计划一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文说明%s会填入 Melinda 先前选定的白天去处，并由管家安排可隐蔽往返的传送门，与译文的昼出夜返计划一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "c81a1f40fd23800fb85610c8a15af4edd9720e0d568ab9778197a90be239a671"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-017",
+      "task_id": "p2-tome-texts-b31-001",
+      "original_revision_key": "b31-18-temporal-rift-end",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "给予者、接受者和占位符所代表的物品或内容均与原文一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "源码在成功创建并加入 RUNE_RIFT 物品后记录该给予消息，确认给予行为和 %s 的物品指代，未产生新增实质问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：源码在成功创建并加入 RUNE_RIFT 物品后记录该给予消息，确认给予行为和 %s 的物品指代，未产生新增实质问题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "e3d2027cae5cea991693ef0dea517ceff4143d89f1e0f917507b720965c0dadf"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-018",
+      "task_id": "p2-tome-texts-b20-001",
+      "original_revision_key": "b20-09-last-hope-weapon-store",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "铁匠教授弓与投石索基础用法的行动、对象和基础程度均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该训练选项花费金币并学习 Shoot，正是弓与投石索的基础用法，没有 context 新增缺陷。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该训练选项花费金币并学习 Shoot，正是弓与投石索的基础用法，没有 context 新增缺陷。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "08bec069cec8f4e77c93ebf602b068b56d601ba56846dbeb7695e1c3f7aea5dc"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-019",
+      "task_id": "p2-tome-texts-b19-001",
+      "original_revision_key": "b19-34-last-hope-melinda-father",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "抱怨女性不受自己吸引并自称是好%s的核心含义未变。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认%s按玩家性别填入 GIRL 或 GUY，译文仍表达说话者自称好女孩或好男人的抱怨，没有实质变化。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认%s按玩家性别填入 GIRL 或 GUY，译文仍表达说话者自称好女孩或好男人的抱怨，没有实质变化。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "05e4ce573cadb4c40cbb23edeeba765c98c12117571c98c85b5f8fb9e0edc45b"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-020",
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-14-assassin-lord-thieves",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "离开这一行动及方括号格式均被保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "packet 确认它是无附加动作的离开回答，中文行动含义准确，context 无新增贡献。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：packet 确认它是无附加动作的离开回答，中文行动含义准确，context 无新增贡献。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "531e0978594d1ae106df95123d4df3edd702c919424b6dcf855a37722bdf31a3"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-021",
+      "task_id": "p2-orcs-dialogue-b3-001",
+      "original_revision_key": "orcs-b3-steamwork-title",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "标题中的蒸汽机械与痛苦两个主题均完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该字符串是涉及蒸汽势力与战斗苦难的任务标题，packet 未显示中文标题改变任务主题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该字符串是涉及蒸汽势力与战斗苦难的任务标题，packet 未显示中文标题改变任务主题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "2d3295b6caba781d20d23f9f0e9c0f4ad8dc88fbd2ba64dba06fe73728f8dd53"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-022",
+      "task_id": "p2-tome-texts-b35-001",
+      "original_revision_key": "b35-14-zigur-trainer",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "禁用法术与魔法装置、卸下奥术驱动物品以及准备询问均与原文一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文表明%s仅为食人魔条件下追加的符文替换说明，随后选项仍是立即接受测试或先准备，未改变主体限制。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文表明%s仅为食人魔条件下追加的符文替换说明，随后选项仍是立即接受测试或先准备，未改变主体限制。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "12c28422e186701695314c3ed22ea649fa50ca7e445eb19592f2adfa6b409275"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-023",
+      "task_id": "p2-tome-texts-b25-001",
+      "original_revision_key": "b25-27-sage-kitty",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "离开这一行动以及颜色标记、方括号格式均被保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该回答位于喂猫事件结束处并设置 kitty_fed，作为离开该对话的按钮仍准确；上下文未揭示新的行动或条件误译。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该回答位于喂猫事件结束处并设置 kitty_fed，作为离开该对话的按钮仍准确；上下文未揭示新的行动或条件误译。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "16faf1c22e373286d537e8b0901ae46ab7f2ba5e16adae70043d5169a569cc16"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-024",
+      "task_id": "p2-tome-texts-b9-001",
+      "original_revision_key": "b9-28-antimagic-end",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "战胜法师火焰与风暴、饮用龙类药剂、获得反魔力量及永久不能用魔法等关键事实均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认该药剂对白完成反魔任务并按角色条件插入后续文本，中文保留饮药、反魔与永久失去魔法的结果。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认该药剂对白完成反魔任务并按角色条件插入后续文本，中文保留饮药、反魔与永久失去魔法的结果。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "45f80744a1dadc2a0871429e1c021bae82af8a8e71722764777a6c1d305f240f"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-025",
+      "task_id": "p2-tome-texts-b37-001",
+      "original_revision_key": "b37-47-dreadfell",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "信背面勉强可辨的粗糙且严重褪色图示这一叙事事实完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认该图示在具备陷阱技能树时用于解锁投石车陷阱；译文保留了图示这一可辨认物，未新增机制误导。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认该图示在具备陷阱技能树时用于解锁投石车陷阱；译文保留了图示这一可辨认物，未新增机制误导。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "7dd262aa24b43140a79da81e5841c1b02373287ee3406f80cb45b283709978d4"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-026",
+      "task_id": "p2-tome-texts-b8-001",
+      "original_revision_key": "alchemist-b8-01-alchemist-derth",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "原文只称 take these，译文明确为“收下这些原料”；缺少指代对象时，无法仅凭表面文本确定“原料”是准确消歧还是改变了对象范围。"
+      },
+      "context_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "函数和注释明确这是玩家提交炼金药剂 ingredients 的分支，因而 these 确指原料；context 实质消解了 surface 阶段的指代疑问，但冻结的 surface 轴仍保持 null。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人复核冻结调用：these 指此前列出的 ingredients；中文“这些原料”没有新增对象。",
+        "material_evidence": "对话分支和交付逻辑共同把代词绑定到当前药剂所需原料。",
+        "candidate_disagreement": "候选因 these 的指代仅在 context 中可见而标 UNRESOLVED；固定分支已足以消除歧义，最终为 CLEAN。",
+        "source_evidence_sha256s": [
+          "0e51ecd9278375134845af24f2892b719ca03a109e04c21aa77295b79e60736b"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-027",
+      "task_id": "p2-tome-texts-b27-001",
+      "original_revision_key": "b27-03-caldizar",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "夏·图尔的外形、身份、精神压迫、攻击过程及玩家被举起和碾压的叙事事实均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "%s 按是否持有法杖插入夏·图尔的不同心灵对白，中文完整保留占位位置和同一段压制事件。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：%s 按是否持有法杖插入夏·图尔的不同心灵对白，中文完整保留占位位置和同一段压制事件。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "3bd848ad6c4d224226e8ab47084b89a1c93f40638c5205a276aa702531c0c981"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-028",
+      "task_id": "p2-tome-texts-b24-001",
+      "original_revision_key": "b24-03-message-last-hope",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "传令官把%s交给玩家的施受关系准确。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认传令官从物品栏移除密封卷轴并加入玩家物品栏，%s为该物品名称，施受关系无变化。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认传令官从物品栏移除密封卷轴并加入玩家物品栏，%s为该物品名称，施受关系无变化。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "bd5d7cad2a3c1d13c4bffc62051ff986b902a6901a9858087c0feefeb668079b"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-029",
+      "task_id": "p2-tome-texts-b6-001",
+      "original_revision_key": "tutorial-b6-19-stats-scale-scale7",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "靴子只增加 5 点物理豁免，以及询问 +6 命中头盔效果的数值、属性和行动均完整一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "packet 确认该内容是独立教程文本，没有额外运行条件改变两个装备示例的属性或数值。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：packet 确认该内容是独立教程文本，没有额外运行条件改变两个装备示例的属性或数值。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "884ce6e6189b3c4f743f1a00c62af1cb724534196d3f71b3c2c098c0b43d86b9"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-030",
+      "task_id": "p2-tome-texts-b33-001",
+      "original_revision_key": "b33-10-ward",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "Nature 译为“自然”，数值占位符 [%d] 原样保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该标签显示并设置 Nature 伤害类型的 ward 数值，“自然 [%d]”准确对应机制。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该标签显示并设置 Nature 伤害类型的 ward 数值，“自然 [%d]”准确对应机制。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "5501e3f7e11422fe2e611495eb2b6d6c5eeb1317378e59f89b683405cc45b040"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-031",
+      "task_id": "p2-tome-texts-b34-001",
+      "original_revision_key": "b34-42-zigur-mindstar-store",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "商人讲解经灵晶引导能量的精细要点这一行动与原文一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认该句用于灵晶掌握技能树的进阶训练，%s按熟练度追加维持能量场的说明，未改变译文主体含义。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认该句用于灵晶掌握技能树的进阶训练，%s按熟练度追加维持能量场的说明，未改变译文主体含义。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "bf1e87c979b9cf686b6281766f47daf9de1a496acb3394f8a6e050c59f0c7392"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-032",
+      "task_id": "p2-tome-texts-b12-001",
+      "original_revision_key": "b12-06-chronomancy-threads",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "悖论已经摧毁其他时间线这一事件、完成状态和复数范围均得到保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "消息在 chronoworlds 已不存在时触发，符合其他时间线已被摧毁的叙述；context 未揭示目标、极性或时机偏差。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：消息在 chronoworlds 已不存在时触发，符合其他时间线已被摧毁的叙述；context 未揭示目标、极性或时机偏差。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "cf13eb7d7f58da05d4a070b6f87455d84bfea1c29b1b2ee7fb0eda368192f369"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-033",
+      "task_id": "p2-tome-texts-b14-001",
+      "original_revision_key": "b14-32-elisa-shop",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "查看对方所得物品并称赞其不错的交互含义以及 %s、@playername@ 均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "Elisa 在此鉴定玩家物品栏中未鉴定的物品并列出名称，中文查看“好东西”的表述未改变动作、范围或结果。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：Elisa 在此鉴定玩家物品栏中未鉴定的物品并列出名称，中文查看“好东西”的表述未改变动作、范围或结果。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "2eef4421a944704af5d91eeac74b37694f2e953817eedd27101fbfeeeb2bcc66"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-034",
+      "task_id": "p2-tome-texts-b23-001",
+      "original_revision_key": "b23-05-magic-store",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "花费%d金币的数量与代价关系准确。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文显示%d是物品充能成本，确认该提示确实要求支付相同金币数，没有条件或数量偏差。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文显示%d是物品充能成本，确认该提示确实要求支付相同金币数，没有条件或数量偏差。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "07eadee12493a1468738aa913775ff3681eb12896c509c595f8664b4280275e3"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-035",
+      "task_id": "p2-tome-texts-b31-001",
+      "original_revision_key": "b31-24-trap-priming",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "不能准备指定陷阱这一行动限制与 %s 占位符均准确保留；句末标点差异不属实质问题。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "源码仅在陷阱不可学习时显示该消息，并把具体 unlearnable 原因传入 %s；中文的准备限制和原因槽位均无新增问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：源码仅在陷阱不可学习时显示该消息，并把具体 unlearnable 原因传入 %s；中文的准备限制和原因槽位均无新增问题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "66c636d4a80638ab05d6b14ee53165351ed8e1f4b3e0846fa87dc6185d6187c9"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-036",
+      "task_id": "p2-tome-texts-b20-001",
+      "original_revision_key": "b20-07-last-hope-weapon-store",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "铁匠教授护甲与武器基础用法的行动、对象和程度均一致，对象次序不影响含义。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该日志来自学习通用武器与护甲用法并解锁 Combat-training 的选项，中文准确概括训练内容。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该日志来自学习通用武器与护甲用法并解锁 Combat-training 的选项，中文准确概括训练内容。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "264e96689affca2e385874ecc773f8d0b30541ab3dd77ba2e57ee9cee8b45441"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-037",
+      "task_id": "p2-tome-texts-b19-001",
+      "original_revision_key": "b19-10-last-hope-melinda-father",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "梅琳达的父亲将%s交给玩家的施受关系完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认 Melinda 的父亲生成、鉴定并交给玩家一件随机奖励，%s为该物品名，译文施受关系正确。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认 Melinda 的父亲生成、鉴定并交给玩家一件随机奖励，%s为该物品名，译文施受关系正确。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "fe02d6cc6fc264b5d640878555beed2690c09e49e7ec19a8dad242dd1dd8a8ba"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-038",
+      "task_id": "p2-orcs-dialogue-b3-001",
+      "original_revision_key": "orcs-b3-plan-the-raid",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "建议花时间规划袭击的行动、语气和对象均保持一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "任务描述说明 Kaltor 武装精良且地点危险，随后目标是处理 Kaltor；“计划袭击”与此语境一致，未出现不同实质问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：任务描述说明 Kaltor 武装精良且地点危险，随后目标是处理 Kaltor；“计划袭击”与此语境一致，未出现不同实质问题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "2ff5e6bf585024502f7689d5e4f1041229b875962020c333a1b37f927a1f8dd2"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-039",
+      "task_id": "p2-tome-texts-b35-001",
+      "original_revision_key": "b35-05-zigur-trainer",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "因 %s 被魔法污染而不能再使用的条件、极性和对象均准确保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文逐件移除 arcane power_source 装备并禁止奥术，中文所述因魔法污染而不能再使用与该结果一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文逐件移除 arcane power_source 装备并禁止奥术，中文所述因魔法污染而不能再使用与该结果一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "da841f3781ee222ecf773af5cc2608de17defbbdff0b25f351013fc79ba4e7e1"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-040",
+      "task_id": "p2-tome-texts-b25-001",
+      "original_revision_key": "b25-15-rob-orb",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "离开选项的行动含义准确。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认该文本是与支付150金币参战并列的退出选项，“离开”准确表示其操作。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认该文本是与支付150金币参战并列的退出选项，“离开”准确表示其操作。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "2911e4f4a9a4b75e7484685afdedbacc993c517face4a899d50af6c27043d284"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-041",
+      "task_id": "p2-tome-texts-b9-001",
+      "original_revision_key": "b9-21-angolwen-staves-store",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "制杖师花费大量时间传授全部法杖战斗技巧这一人物、时长和范围均完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该日志紧接 500 金币的强化训练，并执行法杖战斗类别解锁与掌握度调整；中文所述人物和教学行动未被 context 改变。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该日志紧接 500 金币的强化训练，并执行法杖战斗类别解锁与掌握度调整；中文所述人物和教学行动未被 context 改变。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "ede8ffcd87729ba49a34dd71f2f2ccf9be93c117c8ba06e7c0612464018ea702"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-042",
+      "task_id": "p2-tome-texts-b8-001",
+      "original_revision_key": "alchemist-b8-76-alchemist-golem",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "Name 译为“名称”，表面语义一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "实际使用的 occurrence 是更改魔像名称对话框的输入字段标签，“名称”准确；另一个代码标识符 occurrence 未用于判断。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：实际使用的 occurrence 是更改魔像名称对话框的输入字段标签，“名称”准确；另一个代码标识符 occurrence 未用于判断。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "23f284e3ef7900cc4fbe6ffa6e4b8661c110b17025857076a3f1328c5446b540"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-043",
+      "task_id": "p2-tome-texts-b6-001",
+      "original_revision_key": "tutorial-b6-12-stats-calc-calc11",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "目标地点为地下城倒数第二层、学习内容为有害持续效果，实质信息未变。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该 packet 显示此句作为独立教程提示返回，没有额外运行条件或不同目标改变其表面含义。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该 packet 显示此句作为独立教程提示返回，没有额外运行条件或不同目标改变其表面含义。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "884ce6e6189b3c4f743f1a00c62af1cb724534196d3f71b3c2c098c0b43d86b9"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-044",
+      "task_id": "p2-tome-texts-b33-001",
+      "original_revision_key": "b33-13-ward",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "Mind 被自然地译为“精神”，数值占位符及标签范围没有改变。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "packet 明确该标签对应 DamageType.MIND 的 ward 数值，支持“精神”作为此处属性类别，未增加范围或机制偏差。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：packet 明确该标签对应 DamageType.MIND 的 ward 数值，支持“精神”作为此处属性类别，未增加范围或机制偏差。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "9c9870f2e8e9e04dd269dd0a90d8a5ff3edd4dfbddc44801784340ec621515eb"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-045",
+      "task_id": "p2-tome-texts-b34-001",
+      "original_revision_key": "b34-36-zigur-mindstar-store",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "商人教授引导能量流经灵晶的基础方法，人物、行动、对象与程度均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该日志对应 100 金币的灵晶基础训练并揭示锁定类别，中文准确描述基础教学及其对象。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该日志对应 100 金币的灵晶基础训练并揭示锁定类别，中文准确描述基础教学及其对象。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "de01ccbccb382748124b988dc21d17b05b6a4c9a4756891e2e1e8dea4d33d61b"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-046",
+      "task_id": "p2-tome-texts-b12-001",
+      "original_revision_key": "b12-41-cults-races",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "放弃当前话题或行动的含义准确。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认该文本是龙族形态选择列表中的取消项，“算了”准确表示不作选择。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认该文本是龙族形态选择列表中的取消项，“算了”准确表示不作选择。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "05983b6455e5b5c1128c46a92170e032213c8fce6541f4f97c60bcbc0baca203"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-047",
+      "task_id": "p2-tome-texts-b23-001",
+      "original_revision_key": "b23-03-magic-store",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "花费 %d 金币的数量、货币和成本关系均准确保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "源码计算充能 cost，并在金币不足时把该 cost 填入消息；中文正确保留实际成本关系，没有 context 新问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：源码计算充能 cost，并在金币不足时把该 cost 填入消息；中文正确保留实际成本关系，没有 context 新问题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "b834997d2085c44471dd8e2976b6421b730111a37fe393ec3319cea7a6a808ec"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-048",
+      "task_id": "p2-tome-texts-b31-001",
+      "original_revision_key": "b31-29-trap-priming",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "三个 %s 占位符、方括号结构和 #LAST# 标记均完整，仅替换为中文标点。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该格式依次展示颜色、陷阱触发状态与技能名，中文格式保持三个参数的顺序与标签结构。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该格式依次展示颜色、陷阱触发状态与技能名，中文格式保持三个参数的顺序与标签结构。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "0179298d4981389b34893489763501eda27b730fd5f32e2e99f4bf1f07405920"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-049",
+      "task_id": "p2-tome-texts-b35-001",
+      "original_revision_key": "b35-17-zigur-trainer",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "被两名橄榄色衣着的战士投入角斗场并受命对抗魔法造物的事件完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认这是接受反魔测试后启动相关事件的开场文本，译文所述投入角斗场并战斗的行动与用途相符。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认这是接受反魔测试后启动相关事件的开场文本，译文所述投入角斗场并战斗的行动与用途相符。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "57ea981f07004fbd63da4b9a9c262f08065ca35b3d8ea7b0df4affb0b6860487"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-050",
+      "task_id": "p2-tome-texts-b9-001",
+      "original_revision_key": "b9-20-angolwen-staves-store",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "请求教学、解锁技能类别及支付 %d 金币三项实质信息均完整一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该选项实际填入 500 金币并解锁 spell/staff-combat 类别，中文对费用、行动和解锁结果均准确。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该选项实际填入 500 金币并解锁 spell/staff-combat 类别，中文对费用、行动和解锁结果均准确。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "63a8b0625c20b6589d566f596a4ffad52c9391cd0e31c5aa5694b390aa089535"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-051",
+      "task_id": "p2-tome-texts-b8-001",
+      "original_revision_key": "alchemist-b8-77-alchemist-golem",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "%s 是另一 %s 的仆从这一人物关系和两个占位符均准确保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该格式以新名称和玩家名称重设魔像名，中文准确保留“前者是后者仆人”的关系与参数顺序。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该格式以新名称和玩家名称重设魔像名，中文准确保留“前者是后者仆人”的关系与参数顺序。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "cf7d6914842995cb81d0e6f53205c46938093cb7bdcd2cf1f2d73bd9b3dbc9a2"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-052",
+      "task_id": "p2-tome-texts-b6-001",
+      "original_revision_key": "tutorial-b6-07-stats-calc-calc6",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "学会弱击退、询问所比较的战斗属性并要求推进下一房间的教程信息均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该 packet 显示整段作为独立教程文本返回，未出现会改变击退教学行动、条件或目标的额外上下文。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该 packet 显示整段作为独立教程文本返回，未出现会改变击退教学行动、条件或目标的额外上下文。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "884ce6e6189b3c4f743f1a00c62af1cb724534196d3f71b3c2c098c0b43d86b9"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-053",
+      "task_id": "p2-tome-texts-b33-001",
+      "original_revision_key": "b33-12-ward",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "Acid 的属性含义和数值占位符均保留；名词与形容词形式差异不改变该标签的实质。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "packet 明确 Acid 标签对应 DamageType.ACID 的 ward 数值，支持中文属性标签，未揭示新的机制或对象问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：packet 明确 Acid 标签对应 DamageType.ACID 的 ward 数值，支持中文属性标签，未揭示新的机制或对象问题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "e2d898fdb040dcce8b0937b76bd2b0003bbebe418a30a715d077abb0fe53329f"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-054",
+      "task_id": "p2-tome-texts-b9-001",
+      "original_revision_key": "b9-18-angolwen-staves-store",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "制杖师教授法杖格斗基础的主体、行动、技能对象和程度均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该日志对应 100 金币的 Staff combat 基础训练并揭示类别，中文教学内容与行为一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该日志对应 100 金币的 Staff combat 基础训练并揭示类别，中文教学内容与行为一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "f98c656d1b5473a437031dca1c24e04ebe31ca2d34e6a94366804e7cc74d9330"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-055",
+      "task_id": "p2-tome-texts-b8-001",
+      "original_revision_key": "alchemist-b8-37-alchemist-elvala",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "%s已经完成、仍会制作药剂并兑现奖励以及兄弟会惩罚非会员骗子的因果均准确。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认该句仅在竞争者已经完成药剂、当前炼金术士落败时使用，译文的时机与因果一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认该句仅在竞争者已经完成药剂、当前炼金术士落败时使用，译文的时机与因果一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "e3b6303bb072566029ac2bbf9749f6ddf6424f5723e2fd2ae4a32dc43465e101"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-056",
+      "task_id": "p2-tome-texts-b6-001",
+      "original_revision_key": "tutorial-b6-46-stats-timed-timed8",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "前往地下城最后一层、了解战斗属性层级及其并非纯装饰的目标均保留；“descend”译为“继续前往”未改变目的地或任务要求。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "packet 确认这是独立教程页面，没有额外条件改变前往最后一层及学习层级作用的要求。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：packet 确认这是独立教程页面，没有额外条件改变前往最后一层及学习层级作用的要求。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "884ce6e6189b3c4f743f1a00c62af1cb724534196d3f71b3c2c098c0b43d86b9"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-057",
+      "task_id": "p2-tome-texts-b33-001",
+      "original_revision_key": "b33-09-ward",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "Physical 译为“物理”，数值占位符 [%d] 原样保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该标签显示并设置 Physical 伤害类型的 ward 数值，“物理 [%d]”准确对应机制。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该标签显示并设置 Physical 伤害类型的 ward 数值，“物理 [%d]”准确对应机制。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "07921e636aab8dd981ee33dca7e5ba4ca342fe23bee6cf20a1b3df7b47ec2773"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-058",
+      "task_id": "p2-tome-texts-b8-001",
+      "original_revision_key": "alchemist-b8-38-alchemist-elvala",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "交付物品、因拖延而被%s抢先制成%s，以及下次再慢就可能弄坏奖励的威胁均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认%s依次填入竞争炼金术士和其制成的药剂，且该分支表示玩家仍可继续竞争，译文关系准确。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认%s依次填入竞争炼金术士和其制成的药剂，且该分支表示玩家仍可继续竞争，译文关系准确。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "b20c1eeabb6dd6dbe366dab999ac6bb8a448a1af917b71d79d2b254ace5e3cfd"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-059",
+      "task_id": "p2-tome-texts-b6-001",
+      "original_revision_key": "tutorial-b6-17-stats-scale-scale5",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "层级不只是外观展示、要求玩家自行发现其非装饰作用并搜刮前方房间的论断与行动均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "packet 确认这是完整的独立教程文本，无外部逻辑改变层级并非纯装饰及搜刮前方房间的含义。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：packet 确认这是完整的独立教程文本，无外部逻辑改变层级并非纯装饰及搜刮前方房间的含义。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "884ce6e6189b3c4f743f1a00c62af1cb724534196d3f71b3c2c098c0b43d86b9"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-060",
+      "task_id": "p2-tome-texts-b33-001",
+      "original_revision_key": "b33-16-worldly-knowledge",
+      "category": "Runtime",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "颜色标记、三个 %s 占位符、比值结构与换行均保留，空格差异不影响实质含义。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "三个占位符分别填入技能大类、类别名和描述，用作 tooltip；中文仅去除斜线空格，参数含义与顺序不变。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：三个占位符分别填入技能大类、类别名和描述，用作 tooltip；中文仅去除斜线空格，参数含义与顺序不变。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "7510fbe130aac4e047cadf5204249adfe1546073d20f33f8180618ced283b2cd"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-061",
+      "task_id": "p2-tome-texts-b8-001",
+      "original_revision_key": "alchemist-b8-21-alchemist-derth",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "炼金术士开门并认出玩家再次来访的事件准确。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认该句出现在玩家曾与此炼金术士合作后的再次访问分支，开门并说“又是你”的叙事一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认该句出现在玩家曾与此炼金术士合作后的再次访问分支，开门并说“又是你”的叙事一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "df55fb97ec08fcd6f7ef4c559ff2d85c5cbf3498b1b00f67c5d8b061b56df3cb"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-062",
+      "task_id": "p2-tome-texts-b36-001",
+      "original_revision_key": "b36-06-age-allure",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "三篇日志中的年份、试验品 Z 的传送经历与能力、消失方式、人员伤亡和军方事件均与原文一致，未见实质叙事事实变化。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "前一份研究记录确认试验品 Z 经历传送并幸存，主文本后的记录转入另一任务；这些上下文与译文的传送和试验叙事一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：前一份研究记录确认试验品 Z 经历传送并幸存，主文本后的记录转入另一任务；这些上下文与译文的传送和试验叙事一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "bf36e064f2afccdf98e2616fba8a93d9e5c0a73a0f4a92db96abf40839cd2217"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-063",
+      "task_id": "p2-tome-texts-b24-001",
+      "original_revision_key": "b24-23-paradoxology",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "年长的自我、阻止前往、为保护自己而杀死自己以及遁入裂缝等人物指代与事件均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "packet 将该文本作为完整遭遇对白显示，未附加会改变自我指代、事件次序或选择结果的语义。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：packet 将该文本作为完整遭遇对白显示，未附加会改变自我指代、事件次序或选择结果的语义。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "4b4725a9fd5b8601836151263181f0e262622581a1de6828731d6b07a8352b87"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-064",
+      "task_id": "p2-tome-texts-b31-001",
+      "original_revision_key": "b31-21-the-master-resurrect",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "原文两处大写的 Master 明确指同一人物或称号，译文先作“领主”后作“主人”，使身份指代发生实质分裂。"
+      },
+      "context_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "上下文仅将该段作为同一首领的完整对话并提供战斗回答，没有新增不同于既有 Master 称号指代分裂的问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人按材料性标准复核：同一段落先称“领主”后以第一人称说“我是主人”，人物连续且身份不会被读成两人；这是称谓一致性问题，不是实质身份分裂。",
+        "material_evidence": "完整对白只有同一首领说话，叙事动作与第一人称自称连续。",
+        "candidate_disagreement": "两轮候选把 Master 的两种中文表达判为身份分裂；主负责人认为语境排除了人物混淆，降为非材料性差异。",
+        "source_evidence_sha256s": [
+          "0ff9874b0bfa11ebc20b1c16ab0bcfbf8dfb8af3eb157bcaae6888204a21125e"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-065",
+      "task_id": "p2-tome-texts-b41-001",
+      "original_revision_key": "b41-17-last-hope",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "原文称半身人的袭击是最明显且最迫切的威胁；译文改成“最大也最明显”，把时机上的迫切性替换成威胁程度排名，改变了叙事事实。"
+      },
+      "context_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "packet 仅把该文收录为《苍白国王》第一部分并接续第三节，没有新增证据改变 immediate 被译成“最大”的既有表面问题。"
+      },
+      "final_label": "SURFACE_VISIBLE_DEFECT",
+      "material_axis": {
+        "surface_material_defect": true,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人确认表面材料缺陷：immediate 表示迫切、当下优先，译文“最大”改成威胁程度排名。",
+        "material_evidence": "新王面对的是最明显且最迫切的威胁；目标变成最大且最明显，改变叙事判断。",
+        "candidate_disagreement": "无结论分歧；主负责人同意两轮候选的表面缺陷结论并独立核对其材料性。",
+        "source_evidence_sha256s": [
+          "7f10a961156021529a8c01b6fbb31f563289ccc8a831b3c772d19494b403ca8c"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-066",
+      "task_id": "p2-tome-texts-b27-001",
+      "original_revision_key": "b27-05-caldizar",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "在远古传送门旁醒来、头痛、流血泪及可怕记忆逐渐消散的叙事顺序和事实一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该段紧接夏·图尔遭遇后的传送并结束对白，中文醒在远古传送门旁及记忆消散的叙事与位置一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该段紧接夏·图尔遭遇后的传送并结束对白，中文醒在远古传送门旁及记忆消散的叙事与位置一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "164a4943f7277fb77e89e42384dd1740f7c1376106f95fd93470e97b046ca1f4"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-067",
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-19-assassin-lord",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "说话者原以为附近有财宝可得的预期准确保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认这是玩家回答刺客领主为何闯入并杀死其手下的选项，第一人称寻宝动机准确。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认这是玩家回答刺客领主为何闯入并杀死其手下的选项，第一人称寻宝动机准确。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "8934d22853e87a39deab1263b3369b077d286f72c337082d546845c9bd8ee246"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-068",
+      "task_id": "p2-tome-texts-b37-001",
+      "original_revision_key": "b37-46-dreadfell",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "署名 The Master 被译为“领主”，而正文中的 Master 译为“主人”；仅凭本文无法确定这是同一称号的可接受译法，还是改变人物称号的实质错误。"
+      },
+      "context_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "相邻信件同样以 The Master 署名，当前 lore 名也称“from the Master”，确认这是反复使用的人物称号而非一次性泛称，实质强化了称号一致性问题；但冻结的 surface 轴仍为 null，故总体保持未决。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人复核全文和署名：正文“侍奉自己的主人”是仆从关系的自然表达，末尾“领主”仍清楚指向同一人，没有改变人物或关系。",
+        "material_evidence": "信件由 The Master 署名并直接称收信人为仆从；两处表达在中文中承担关系称谓与署名两个不同功能。",
+        "candidate_disagreement": "候选因 Master/领主/主人映射而保留 UNRESOLVED；主负责人确认身份和主仆关系均无歧义，最终为 CLEAN。",
+        "source_evidence_sha256s": [
+          "74db617a3cceb6df12001716fa8ef92787d7668f2aa6ae842990dd7ce40d2e43"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-069",
+      "task_id": "p2-tome-texts-b14-001",
+      "original_revision_key": "b14-27-elisa-orb-scrying",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "请埃莉萨查看该球体无法鉴定的物品这一请求、人物、对象范围和否定关系均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该选项仅在可自动鉴定时调用 Elisa 的 auto_id 并展示相关物品，中文保留请求、对象集合和鉴定失败条件。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该选项仅在可自动鉴定时调用 Elisa 的 auto_id 并展示相关物品，中文保留请求、对象集合和鉴定失败条件。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "50cebb134787089f185d85745bf2c1493ca137347de359fe275593977d78df34"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-070",
+      "task_id": "p2-tome-texts-b15-001",
+      "original_revision_key": "b15-16-fallen-aeryn",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "兽人和恶魔在玩家进入数小时后袭击、家园覆灭及说话者责怪玩家失败的因果链完整。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认说话者是几近死亡的女性 Aeryn，玩家可放过或杀死她；译文的女性指代、控诉对象和因果均一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认说话者是几近死亡的女性 Aeryn，玩家可放过或杀死她；译文的女性指代、控诉对象和因果均一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "f0c16fae3bada11882bb9b9939219e78601445680390623d8080087eb395f197"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-071",
+      "task_id": "p2-tome-texts-b34-001",
+      "original_revision_key": "b34-08-zemekkys",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "原文明确说玩家用该水晶球从马基·埃亚尔旅行到这里，译文只说玩家来自马基·埃亚尔，遗漏了水晶球作为旅行手段这一行动关系；末句还把惊讶的推测改成确定否认。"
+      },
+      "context_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "前一句明确由玩家说明使用水晶球从马基·埃亚尔抵达，下一句确认它确为多元水晶球；这只直接印证已冻结的旅行手段和否认语气问题，没有增加不同问题或改变其范围。"
+      },
+      "final_label": "SURFACE_VISIBLE_DEFECT",
+      "material_axis": {
+        "surface_material_defect": true,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人确认表面材料缺陷：译文遗漏水晶球是从马基·埃亚尔旅行至此的手段，并把惊讶推测改成确定否认。",
+        "material_evidence": "原文明确 used [the Orb] to travel here，后文又确认它确为 Orb of Many Ways；目标未保留该行动关系和语气。",
+        "candidate_disagreement": "无结论分歧；主负责人同意两轮候选的表面缺陷结论并以相邻对白复核。",
+        "source_evidence_sha256s": [
+          "c54685dee9a77e133745b2c8035dbb102cd578757f1df1c1684cabffe5d18ca6"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-072",
+      "task_id": "p2-tome-texts-b42-001",
+      "original_revision_key": "b42-18-old-forest",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "废墟沉在纳尔湖水下数百英尺、无法在溺亡前探索完并因树木威胁而放弃等事实均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文将该段作为古老森林笔记第三章，并由相邻章节确认水下夏·图尔废墟主题；中文未改变相关事实。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文将该段作为古老森林笔记第三章，并由相邻章节确认水下夏·图尔废墟主题；中文未改变相关事实。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "95b5dabdcc46db83b1c208def247812e3fa4f671c3cb327e2de4d71da0d2e19c"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-073",
+      "task_id": "p2-tome-texts-b2-001",
+      "original_revision_key": "tome-unlock-divine_anorithil-body",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "星月术士的地域背景、解锁条件、战斗能力以及正负能量的充耗机制均实质一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认这是解锁 Anorithil（Celestial）职业的独立说明，未显示不同职业、解锁条件或机制范围。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认这是解锁 Anorithil（Celestial）职业的独立说明，未显示不同职业、解锁条件或机制范围。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "77f7e01c0d80afb2a74173395b585a3d4ef25ec35ba0b6cca72feb319dc1375e"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-074",
+      "task_id": "p2-tome-texts-b33-001",
+      "original_revision_key": "b33-35-zemekkys-done",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "说话者认出玩家并推测其对传送门满意的核心对话事实均保留；开头“What?”译作“谁？”在紧接认人语境中不造成实质变化。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "packet 显示这是 Zemekkys 完成传送门后的简短欢迎对话，两个回答均确认玩家对传送门作回应，未揭示新的指代或行动错误。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：packet 显示这是 Zemekkys 完成传送门后的简短欢迎对话，两个回答均确认玩家对传送门作回应，未揭示新的指代或行动错误。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "47819ec215c1b374718a02ca598b445b54cc5633919b5a02ccc5849968d4b918"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-075",
+      "task_id": "p2-tome-texts-b30-001",
+      "original_revision_key": "b30-05-tannen",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "向他讲述法杖、多元水晶球和传送门的行为、受话人及三个主题均完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该回答在 east-portal 任务条件下向 Tannen 说明法杖、水晶球和传送门并进入相应分支，中文保留主题和受话人。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该回答在 east-portal 任务条件下向 Tannen 说明法杖、水晶球和传送门并进入相应分支，中文保留主题和受话人。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "4a4d46a92b486214e07adca32c74fe4be3d253170a0e92aed920505882bda18a"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-076",
+      "task_id": "p2-tome-texts-b26-001",
+      "original_revision_key": "b26-19-butler",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "译文把两处 the shadow 具体化为“堡垒之影”；仅凭本条无法判断这是正确的既定指代还是新增并改变了指代对象。"
+      },
+      "context_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "packet 只说明该生物由持杖的主人驱使，并未给出其名称或与堡垒的关系，仍不足以判断两处 the shadow 是否应译为“堡垒之影”。"
+      },
+      "final_label": "UNRESOLVED",
+      "material_axis": {
+        "surface_material_defect": null,
+        "context_material_contribution": null
+      },
+      "packet_sufficient": false,
+      "determinate": false,
+      "written_evidence": {
+        "lead_basis": "主负责人无法仅凭冻结材料确认两处 the shadow 是否是既定实体名“堡垒之影”。",
+        "material_evidence": "目标把普通形式 the shadow 两次具体化为“堡垒之影”，但 packet 只说明该生物由持杖者驱使，未给出名称或堡垒关系。",
+        "candidate_disagreement": "主负责人同意两轮候选维持 UNRESOLVED；没有按更严厉解释把不确定性补写为缺陷。",
+        "source_evidence_sha256s": [
+          "7e30bfd70d3000e3415ae79088fc5a09d8796dc317eae30f3de42c036219fd7a"
+        ],
+        "limitations": "冻结 packet 缺少实体命名或指代绑定，两个材料轴均不能可靠确定。"
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-077",
+      "task_id": "p2-tome-texts-b4-001",
+      "original_revision_key": "tome-unlock-race_ogre-body",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "原文以 technically 限定玩家只是在严格或名义意义上终结厄流战争；译文称战争“终于迎来了真正的结束”，把受限定的结论改成明确的真实终结，改变叙事事实的范围。"
+      },
+      "context_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "packet 只确认该段属于食人魔种族解锁说明，没有新增叙事或运行证据改变 technically 与“真正”之间的既有表面差异。"
+      },
+      "final_label": "SURFACE_VISIBLE_DEFECT",
+      "material_axis": {
+        "surface_material_defect": true,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人确认表面材料缺陷：technically 是严格或名义意义上的限定，译文“真正的结束”反而把结论绝对化。",
+        "material_evidence": "玩家只是 technically 终结厄流战争；目标声称战争真正结束，改变叙事结论范围。",
+        "candidate_disagreement": "无结论分歧；主负责人同意两轮候选的表面缺陷结论。",
+        "source_evidence_sha256s": [
+          "e4475aa8366a28f560846818e7b2e247db5259a22d06881a75b85ac00c69b813"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-078",
+      "task_id": "p2-tome-texts-b5-001",
+      "original_revision_key": "tome-text-message-last-hope-1",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "法杖失窃、兽人伏击、俘虏供述、远东主人、高尔布格运送包裹及调查请求等关键事实均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该消息用于已交付法杖的分支，packet 还展示未交付时的另一个版本；中文准确对应当前分支，未混入另一分支事实。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该消息用于已交付法杖的分支，packet 还展示未交付时的另一个版本；中文准确对应当前分支，未混入另一分支事实。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "3a685a959bb78dcc3a488b83cfa672f5b3ca6140690ca27ce0d27a6feedb5903"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-079",
+      "task_id": "p2-tome-texts-b22-001",
+      "original_revision_key": "b22-28-mage-apprentice",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "检查神器、确认其强大且足以完成任务并致谢的内容均准确。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认说话者此前正寻找奥术灌注神器，交付后进入完成任务与开放安格利文的流程，译文结果一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认说话者此前正寻找奥术灌注神器，交付后进入完成任务与开放安格利文的流程，译文结果一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "9594783f279696980195935a07afb5ebbff961990a3e306461390047400c9c02"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-080",
+      "task_id": "p2-tome-texts-b18-001",
+      "original_revision_key": "b18-32-last-hope-lost-merchant",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "整理存货时发现恶臭毒素、同行声称其能石化生物以及说话者认为奇特等事实均完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "源码确认说话者是准备开店的商人，该句仅在可学习石化毒药时出现，支持“货物”和石化生物的译法，未增加实质问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：源码确认说话者是准备开店的商人，该句仅在可学习石化毒药时出现，支持“货物”和石化生物的译法，未增加实质问题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "d986f9bf9195fa75bb31f28afcfd9f9d78ea1565820c2bd27382f7619f7bf55f"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-081",
+      "task_id": "p2-tome-texts-b28-001",
+      "original_revision_key": "b28-16-slasul",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "认定巨龙在说谎并决定支持对方事业的判断与决定均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该回答表示转而支持 Slasul 的事业，随后才由对方明确提出结盟和生命绑定条件；中文没有提前接受、拒绝或改变这些后续条件。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该回答表示转而支持 Slasul 的事业，随后才由对方明确提出结盟和生命绑定条件；中文没有提前接受、拒绝或改变这些后续条件。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "d19870663782abd732c4ae070c9cad7589f960074ea595a644cca7c6f067def2"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-082",
+      "task_id": "p2-tome-texts-b9-001",
+      "original_revision_key": "b9-30-ardhungol-end",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "巨蛛腹部爆开、黑肤男子拉希姆现身并向玩家致谢负恩的叙事事实完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认获救者 Rashim 是受其妻子委托寻找的男性，获救后会开传送门离开，译文人物与事件无偏差。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认获救者 Rashim 是受其妻子委托寻找的男性，获救后会开传送门离开，译文人物与事件无偏差。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "71cbe129a316aff5a169525cf28d8cc5350f406c8ad195b70448869e1881ca96"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-083",
+      "task_id": "p2-tome-texts-b7-001",
+      "original_revision_key": "arena-b7-16-arena-unlock",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "竞技场缺少挑战者、通过测试后可在冒险结束时加入、战斗可获得经验和巨量财富荣耀等条件与回报均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该文本是竞技场招募对话的扩展说明，回答会进入 accept 战斗分支；中文保留加入条件、经验和回报，context 无新增问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该文本是竞技场招募对话的扩展说明，回答会进入 accept 战斗分支；中文保留加入条件、经验和回报，context 无新增问题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "f32652b2750adb202c74bac7c9f7f12d9e1e695f5bc28bae201907debbfcafac"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-084",
+      "task_id": "p2-tome-texts-b11-001",
+      "original_revision_key": "b11-11-avatar-distant-sun-unlock",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "回应对方正忙并表示会像好朋友一样替其解决这一含义完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "packet 将该句作为对“忙”的回应和友好解决提议，下一回答表示同意并要求展示；中文仍表达帮助解决，没有改变交互意向。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：packet 将该句作为对“忙”的回应和友好解决提议，下一回答表示同意并要求展示；中文仍表达帮助解决，没有改变交互意向。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "1557b40edf1755ff9f2cc5701c6723e349b1e91d94ef98d547f5246003cf9123"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-085",
+      "task_id": "p2-tome-texts-b32-001",
+      "original_revision_key": "b32-08-ukllmswwik",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "认为此举不明智并道歉拒绝的判断与行动准确。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认该句是拒绝接受前往创造神庙任务的选项，并会令任务失败，译文拒绝行动清楚准确。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认该句是拒绝接受前往创造神庙任务的选项，并会令任务失败，译文拒绝行动清楚准确。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "f6e4604bc4cb6d00749d53a81441819f37bbcd6166edaebb05263942a68383fc"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-086",
+      "task_id": "p2-tome-texts-b40-001",
+      "original_revision_key": "b40-15-keepsake",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "洞穴被封闭、其中危险不得再次释放、破坏封印将受惩罚以及贝里斯保护等事实均准确保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "后续洞穴说明确认入口有自然魔法保护且保护是为了把某人关在里面，与危险被封印及贝里斯保护的译文一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：后续洞穴说明确认入口有自然魔法保护且保护是为了把某人关在里面，与危险被封印及贝里斯保护的译文一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "a7aa85d0b4ede3ebb5ecbadfa766a498eb6aac0823b34188962745b67c82c65d"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-087",
+      "task_id": "p2-tome-texts-b39-001",
+      "original_revision_key": "b39-32-iron-throne",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "瑞库纳失守、建立防线、撤离平民、全民缄默、泄密放逐及对外维持稳定等命令和事实均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该段是钢铁王座法令，邻接史料同样说明隐瞒兽人威胁以维持市场与联盟稳定；中文保留法令的范围、原因和惩罚。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该段是钢铁王座法令，邻接史料同样说明隐瞒兽人威胁以维持市场与联盟稳定；中文保留法令的范围、原因和惩罚。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "c21807177f811461350be86ab2f755a1069ca753d8f62f88e1028f89a41b66b6"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-088",
+      "task_id": "p2-tome-texts-b38-001",
+      "original_revision_key": "b38-35-fun",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "各敌对群体、地点风险、避开相关地区的建议以及最终自行证明资格的要求均完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认这是死灵法师入门读物第四部分，并补充同一流派与风险背景；未改变本段地点、敌人或规避建议。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认这是死灵法师入门读物第四部分，并补充同一流派与风险背景；未改变本段地点、敌人或规避建议。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "52948a1f3789e24b3bf7b017e47ffd496556fedd8f221979f4522420d2952eb7"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-089",
+      "task_id": "p2-tome-texts-b25-001",
+      "original_revision_key": "b25-03-rob-master",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "原文说话者明确称鲜血之环为“my Ring of Blood”，译文只说“这里是鲜血之环”，遗漏其对该场所的所有权这一叙事事实。"
+      },
+      "context_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "源码文件和后续说明确认说话者主持鲜血之环游戏，但只印证已冻结的所有权遗漏，没有引入不同的机制、条件或人物问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人复核完整对话：说话者主持并控制鲜血之环，译文虽省略 my 的显式所有格，但不影响玩家理解场所、主持者或两个选择。",
+        "material_evidence": "同一说话者立即规定付费参赛或消失，控制关系在交互中清楚；所有格省略没有改变任务事实。",
+        "candidate_disagreement": "两轮候选把 my 的省略判为所有权事实缺失；主负责人按材料性门槛降为非实质省略，最终为 CLEAN。",
+        "source_evidence_sha256s": [
+          "c1e87057dedb22a91fb7bfc6063e16ed107f409faac4f8f0f0423f0fed065ece"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-090",
+      "task_id": "p2-tome-texts-b17-001",
+      "original_revision_key": "b17-11-keepsake-caravan-destroyed",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "道歉及选择帮助男性对象的行动、人物指代和格式标记均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该选项触发善良选择并跳到尝试帮助但伤者先死亡的对白，中文“帮助他”准确表示玩家选择而非保证成功。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该选项触发善良选择并跳到尝试帮助但伤者先死亡的对白，中文“帮助他”准确表示玩家选择而非保证成功。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "ab94adabed841368d2c8e1e981f1e1fc6250c8eb3be7b79f12f46e89b49da2bf"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-091",
+      "task_id": "p2-tome-texts-b12-001",
+      "original_revision_key": "b12-18-command-staff",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "玩家尚无资格掌控法杖且尝试会招致毁灭的条件与后果一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文显示该提示仅在法杖带有 no_command 状态时返回，译文准确传达不可掌控及毁灭后果。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文显示该提示仅在法杖带有 no_command 状态时返回，译文准确传达不可掌控及毁灭后果。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "8b85d6d992636e4f89f84114ee1d52317667c1e3068f80e5a4da65753ebb1f2b"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-092",
+      "task_id": "p2-tome-texts-b35-001",
+      "original_revision_key": "b35-19-zoisla",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "高阶女性娜迦穿过传送门以及传送门正在崩溃的主体、行动和状态均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "紧接的对话说明传送门将爆炸并随后切换关卡，支持“正在崩溃”的紧急状态；中文人物和事件无新增偏差。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：紧接的对话说明传送门将爆炸并随后切换关卡，支持“正在崩溃”的紧急状态；中文人物和事件无新增偏差。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "3aaba3a7e48a204ba6a90edfdb4a13529859607f4488c2df3e878be2b8c5e1b5"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-093",
+      "task_id": "p2-tome-texts-b13-001",
+      "original_revision_key": "b13-18-corruptor-quest",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "魔法有用途、那些人是错的以及受话者更恶劣的对比和程度关系一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该回答拒绝恶魔联合攻击伊格的提议并触发敌对回复，中文对“那些人错、但你更坏”的立场和比较一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该回答拒绝恶魔联合攻击伊格的提议并触发敌对回复，中文对“那些人错、但你更坏”的立场和比较一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "dbbc5be57769b28b68f00ce183d048e0a379b35eea39da1de5396179ada925d9"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-094",
+      "task_id": "p2-tome-texts-b1-001",
+      "original_revision_key": "tome-intro-sunwall",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "太阳堡垒出身、保卫前哨的职责、娜迦威胁以及自愿调查并按需阻止的任务均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该 packet 显示整段作为角色开场背景独立返回，没有额外条件改变其出身、职责或调查任务。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该 packet 显示整段作为角色开场背景独立返回，没有额外条件改变其出身、职责或调查任务。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "be14f44a2c6149a6a7f2162858d869e8ccfee54990d4789bca7830225dac5ec5"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-095",
+      "task_id": "p2-tome-texts-b23-001",
+      "original_revision_key": "b23-35-melinda-fortress",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "说话者立即安排此事，并让她能够不被察觉地来去，人物、时机和隐蔽条件均得到保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "前文明确请求建立白天前往目的地、夜间返回治疗处的传送门，动作代码也创建 Melinda 的传送出口，支持“两地来往”，未见新增问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：前文明确请求建立白天前往目的地、夜间返回治疗处的传送门，动作代码也创建 Melinda 的传送出口，支持“两地来往”，未见新增问题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "978b81f3c491ccbe4ca2f4c51e5bb17840f13059c441dd7f9053c9080990189d"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-096",
+      "task_id": "p2-tome-texts-b19-001",
+      "original_revision_key": "b19-25-last-hope-melinda-father",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "康复前不能外出、因想看世界而困在地穴、父亲给钱及可能在德斯开店等事实均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "主段说明 Melinda 的计划，并按玩家阵营追加反魔或学魔法愿望；中文主段保留康复、看世界、资金和德斯开店的条件。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：主段说明 Melinda 的计划，并按玩家阵营追加反魔或学魔法愿望；中文主段保留康复、看世界、资金和德斯开店的条件。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "c367865938919dfe179e7e5910ad09c64b1bdeb91bbdd0bd51649ed3212b9128"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-097",
+      "task_id": "p2-tome-texts-b43-001",
+      "original_revision_key": "b43-19-spellhunt",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "迅速杀死被俘施法者的要求、各处理方式的风险与步骤，以及缓慢切割焚烧的首选流程均实质一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认这是《如何杀死施法者》的完整指南部分，前文战斗建议未改变本段处决对象、条件或步骤。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认这是《如何杀死施法者》的完整指南部分，前文战斗建议未改变本段处决对象、条件或步骤。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "4856e87b994dba528ae1d671fd9d752a33d89826253e5cf3ed762bdf5f64096d"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-098",
+      "task_id": "p2-tome-texts-b6-001",
+      "original_revision_key": "tutorial-b6-50-terrain",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "可通行地形、地形固有效果、水下无法呼吸、空气计数归零会死亡以及前往池塘另一侧的规则与行动均完整一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "packet 确认该段是完整的独立地形教程，没有外部运行语境改变水下呼吸、空气计数或死亡条件。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：packet 确认该段是完整的独立地形教程，没有外部运行语境改变水下呼吸、空气计数或死亡条件。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "be14f44a2c6149a6a7f2162858d869e8ccfee54990d4789bca7830225dac5ec5"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-099",
+      "task_id": "p2-tome-texts-b8-001",
+      "original_revision_key": "alchemist-b8-14-alchemist-derth",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "英文只说当前无法援助，中文收窄为“现在没空”，新增了没有时间这一原因，实质改变了不能援助的条件。"
+      },
+      "context_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "该句是玩家对有时限竞争任务的暂不援助答复；packet 未建立区别于 surface 所见“无法”被收窄为“没空”的另一实质缺陷。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人对照表面文本与拒绝分支：“现在没空帮你”自然表达当前不能援助，没有承诺不同条件或改变任务结果。",
+        "material_evidence": "该回答只是不接受当前炼金术士任务；中文保留当前时点和拒绝援助。",
+        "candidate_disagreement": "两轮候选把 cannot at this time 与“没空”的语用差异判为原因收窄；主负责人认为不构成材料性条件变化，最终为 CLEAN。",
+        "source_evidence_sha256s": [
+          "06f2a6303e602c8635e461c0e08c354a694bf693bf92b1443374446923eb9df0"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-100",
+      "task_id": "p2-tome-texts-b36-001",
+      "original_revision_key": "b36-04-age-allure",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "原文以 imploded 与紧邻的 exploded 区分向内坍爆和爆炸，译文将前者写成“体内发生爆裂”，改变了多名试验品的死亡方式这一叙事事实。"
+      },
+      "context_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "上下文明确 transition 是在传送门之间传送，支持该词的译法；它未改变或新增既有 implode 与 explode 死亡方式混淆之外的问题。"
+      },
+      "final_label": "SURFACE_VISIBLE_DEFECT",
+      "material_axis": {
+        "surface_material_defect": true,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人确认表面材料缺陷：原文刻意把多次 imploded 与紧邻的 exploded 分列，译文“体内发生爆裂”把向内坍爆改成体内爆裂。",
+        "material_evidence": "试验品 A-C/F/H-K/M 的死亡方式是 implosion，D 才是 explosion；目标改变了前者的具体叙事事件。",
+        "candidate_disagreement": "无结论分歧；主负责人同意两轮候选的表面缺陷结论，并保留这是细粒度叙事事实而非机制错误的限制。",
+        "source_evidence_sha256s": [
+          "5b704186214704574872a3599a9ef1c23f8c0d34383869fd6028e415d5eca7ea"
+        ],
+        "limitations": "缺陷影响日志中的死亡方式区分，不影响运行机制。"
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-101",
+      "task_id": "p2-tome-texts-b24-001",
+      "original_revision_key": "b24-27-player-inscription",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "同类刻印已过多、只能覆盖现有刻印且旧刻印会丢失的条件、唯一操作和后果均准确保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "源码在 replace_same 分支显示该句，并由回答执行覆盖；另一分支才允许购买新槽位，故中文“只能覆盖”及旧刻印丢失的条件准确。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：源码在 replace_same 分支显示该句，并由回答执行覆盖；另一分支才允许购买新槽位，故中文“只能覆盖”及旧刻印丢失的条件准确。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "5c0b05541301228b662ec8d07c45d14caeefdf22cdb35cb44385076dc739fd0a"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-102",
+      "task_id": "p2-tome-texts-b31-001",
+      "original_revision_key": "b31-03-tarelion",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "中文省略了“我在荒野中遇到过”的既往相遇事实，只把对方描述为荒野中的法师学徒，改变了叙事关系。"
+      },
+      "context_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "任务条件和对方承认曾伪装成学徒印证既往相遇，强化但没有扩展 surface 已指出的“我遇到过”叙事遗漏。"
+      },
+      "final_label": "SURFACE_VISIBLE_DEFECT",
+      "material_axis": {
+        "surface_material_defect": true,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人确认表面材料缺陷：目标把“我在荒野遇到过的学徒”改成“荒野中的学徒”，遗漏两人曾经相遇的关系。",
+        "material_evidence": "后续对白确认对方曾伪装成学徒旅行并考察玩家；既往相遇是当前认出身份的原因。",
+        "candidate_disagreement": "无结论分歧；主负责人同意两轮候选的表面缺陷结论。",
+        "source_evidence_sha256s": [
+          "7b65c6f22c20009d8e594e59f44cc7eece881a687950aea8b36f3f5566d3c03d"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-103",
+      "task_id": "p2-tome-texts-b41-001",
+      "original_revision_key": "b41-35-last-hope",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "墓主玛拉、年代、预见并面对末日以及安息祝语均准确。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认该文本是墓园中 Mara 的独立墓碑条目，邻近墓碑未改变其人物、年代或碑文含义。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认该文本是墓园中 Mara 的独立墓碑条目，邻近墓碑未改变其人物、年代或碑文含义。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "33d447b826f8dfc850be20dea911eaa11bac0b028bd7cf33dfa8e2faf6751c23"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-104",
+      "task_id": "p2-tome-texts-b27-001",
+      "original_revision_key": "b27-07-command-orb",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "水晶球代表整个埃亚尔世界并可能用于控制堡垒的对象、范围和不确定语气均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该水晶球对话包含堡垒控制选项，后续检查说明它投影已知世界地图，支持“展现整个世界”和可能控制堡垒的译法。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该水晶球对话包含堡垒控制选项，后续检查说明它投影已知世界地图，支持“展现整个世界”和可能控制堡垒的译法。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "06c98fb13c7811b7be9c260bf4e2845ccfe46875e50c85b1173404a7a87efb13"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-105",
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-18-assassin-lord",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "听到呼喊、对方手下挡路及询问发生何事的行动、人物关系和顺序均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该回答直接回应刺客领主为何杀其手下的质问并进入说明分支，中文保留听到呼喊、挡路和询问的关系。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该回答直接回应刺客领主为何杀其手下的质问并进入说明分支，中文保留听到呼喊、挡路和询问的关系。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "13fd89b30954dc46531c3af7ab75825a243ef4129cd90ab1de7dee38295e4599"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-106",
+      "task_id": "p2-tome-texts-b37-001",
+      "original_revision_key": "b37-09-blighted-ruins",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "杰作已能行动、尚未完全完成但可守巢、完成后近乎无敌及准备控制新仆从的事实均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "前一则笔记确认死灵法师取得尸体、准备仪式并计划制造新仆从，与本段杰作起身及守卫巢穴的叙事一致。"
+      },
+      "final_label": "CONTEXT_DEPENDENT_DEFECT",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": true
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人确认纯上下文缺陷：表面上 animate 可宽泛理解为“唤醒”，但固定前文明确最新仆从是一具近乎未腐的尸体，并要通过死灵仪式使其复生。",
+        "material_evidence": "前一则固定笔记写明 body、ritual 和 dark menagerie；在该语境中 animate 是使尸体成为亡灵仆从，而“唤醒”会被理解为叫醒已有生命的仆从。",
+        "candidate_disagreement": "surface/context 候选均判 CLEAN；独立 challenger 首先指出尸体语境，主负责人重新核对固定 packet 后确认 context_material_contribution=true。",
+        "source_evidence_sha256s": [
+          "a92528c41daf3f937b8036db88ad262ffaeb909f9fc9798ee4c42d86de5e6621"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-107",
+      "task_id": "p2-tome-texts-b14-001",
+      "original_revision_key": "b14-20-eidolon-plane",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "说话者转而认为生命也许仍值得继续的转折、极性和不确定语气均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该句是面对永久死亡询问时拒绝死亡的回答，与“生命依然值得活下去”完全一致，context 未增加极性或行动问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该句是面对永久死亡询问时拒绝死亡的回答，与“生命依然值得活下去”完全一致，context 未增加极性或行动问题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "e0b79c8e9b9af7e8bd1822e9dfa4138eb18db7965ef1dc9b92490decde2968d2"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-108",
+      "task_id": "p2-tome-texts-b15-001",
+      "original_revision_key": "b15-05-escort-quest-start",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "假装帮助、到时让传送门失效、把 @npcname@ 送往伊格处置以及口头承诺保护均完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该选项设置 to_zigur 并暂时把 NPC 作为护送成员，正对应假装保护、最终让传送门失效并送往伊格的计划。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该选项设置 to_zigur 并暂时把 NPC 作为护送成员，正对应假装保护、最终让传送门失效并送往伊格的计划。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "83953ad78952431676a42085440f4a4bf11c9de41097a9aa766c919603822c8e"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-109",
+      "task_id": "p2-tome-texts-b34-001",
+      "original_revision_key": "b34-06-zemekkys",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "说话者抱怨被浪费时间、以虚构地点讥讽目的地并关上小窗的事件与语义一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认“她”指 Aeryn、玩家请求前往 Maj'Eyal，且随后的同一 slot 会打开；译文仍清楚表达讥讽与关闭开口的动作。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认“她”指 Aeryn、玩家请求前往 Maj'Eyal，且随后的同一 slot 会打开；译文仍清楚表达讥讽与关闭开口的动作。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "c2037fa9d149d5f21af459e43200768c673ab6c420816c1456c72b4e3e23bc14"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-110",
+      "task_id": "p2-tome-texts-b42-001",
+      "original_revision_key": "b42-20-old-forest",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "残缺笔记中的钥匙、门、水域、恐魔与伤势，以及对后来者的警告和发光小球等叙事事实均按原有残句状态保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "前一章说明作者计划借助水下呼吸继续探索，当前血迹笔记触发夏·图尔堡垒任务；这些信息与译文的横渡水域、钥匙和恐怖遭遇一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：前一章说明作者计划借助水下呼吸继续探索，当前血迹笔记触发夏·图尔堡垒任务；这些信息与译文的横渡水域、钥匙和恐怖遭遇一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "e1276de72948e310a4fa99979b924014f28dbaee152696c57886efb993c41f30"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-111",
+      "task_id": "p2-tome-texts-b33-001",
+      "original_revision_key": "b33-23-yeek-wayist",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "英文明确自称 Yeek，中文却自称“夺心魔”，直接替换了说话者的种族身份。"
+      },
+      "context_candidate": {
+        "label": "SURFACE_VISIBLE_DEFECT",
+        "reason": "该段回答“维网是什么、你是什么”并由 Wayist 心灵接触给予精神防护；packet 未建立区别于 surface 种族身份替换的另一缺陷。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": false,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人核对项目权威术语表：Yeek 的既定中文名称就是“夺心魔”，译文没有替换种族。",
+        "material_evidence": "terminology/creatures.tsv 固定 Yeek -> 夺心魔；The Way -> 维网的相邻术语也与目标一致。",
+        "candidate_disagreement": "surface/context 候选把 Yeek 与“夺心魔”当作不同种族；权威术语映射证明这是候选误报，最终为 CLEAN。",
+        "source_evidence_sha256s": [
+          "0e252381c718ecfd8378a66e5f467c0999a00f61bc5a4a4622807265821ec525"
+        ],
+        "limitations": "该术语映射不在 12 行 item packet 内，只用于主负责人裁决，不进入模型输入。"
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-112",
+      "task_id": "p2-tome-texts-b30-001",
+      "original_revision_key": "b30-29-tannen",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "交付物品、要求小心保管以及自己即将返回远东的行动均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认这是玩家同意把 Orb 暂交老人保管的回答，随后进入交付分支；译文的说话者与交付方向均可辨且正确。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认这是玩家同意把 Orb 暂交老人保管的回答，随后进入交付分支；译文的说话者与交付方向均可辨且正确。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "35e448797d806871535702ad1ea8b58b0d8099c88d3dfae35b114693df6566c6"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-113",
+      "task_id": "p2-tome-texts-b4-001",
+      "original_revision_key": "tome-unlock-wilder_oozemancer-body",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "原文称软泥使是对抗 archmagi 的最终答案，译文具体为“元素法师”；缺少术语映射时，无法仅凭表面文本确定这是同一职业的本地名称，还是改变了对抗目标。"
+      },
+      "context_candidate": {
+        "label": "UNRESOLVED",
+        "reason": "packet 只确认该段是软泥使职业解锁文本，没有提供 archmagi 与“元素法师”的术语映射或相关职业定义，因而不足以判定 context 是否解决或新增了实质目标问题；surface 轴保持 null。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": false,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人核对项目权威术语表：Archmage 的既定职业名是“元素法师”，两边指向同一职业。",
+        "material_evidence": "terminology/classes.tsv 固定 Archmage -> 元素法师，目标没有缩窄或替换对抗对象。",
+        "candidate_disagreement": "候选因 packet 缺少职业术语映射而维持 UNRESOLVED；权威映射消除歧义，最终为 CLEAN。",
+        "source_evidence_sha256s": [
+          "4658981b3a08678fa68f4d775566682c3e2c7204ee83f081a269c84e8ce2a7f2"
+        ],
+        "limitations": "该术语映射不在 12 行 item packet 内，只用于主负责人裁决，不进入模型输入。"
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-114",
+      "task_id": "p2-tome-texts-b22-001",
+      "original_revision_key": "b22-03-lost-merchant",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "请求对方把自己带离此处的行动、方向和受益者均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "刺客领主死亡后该请求进入可带商人出去的分支，中文准确表达离开此处的请求和受益者。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：刺客领主死亡后该请求进入可带商人出去的分支，中文准确表达离开此处的请求和受益者。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "306efdba3ebce3090947de6b68fdede1257c3045b4bf22b847365c3191e313f3"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-115",
+      "task_id": "p2-tome-texts-b18-001",
+      "original_revision_key": "b18-13-last-hope-elder",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "承认遗失物品并向男性讲述兽人遭遇的内容准确。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认该回答仅在兽人伏击中遗失法杖的分支出现，并向男性长者叙述遭遇，译文条件与指代一致。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认该回答仅在兽人伏击中遗失法杖的分支出现，并向男性长者叙述遭遇，译文条件与指代一致。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "21583c2cb80c7d07b1e29f306f867aac14a801e40a7315913552305a43b3a7e0"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-116",
+      "task_id": "p2-tome-texts-b28-001",
+      "original_revision_key": "b28-05-slasul",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "龙派玩家前来、说话者否认疯狂并以自己改善族人和玩家杀害其朋友作道德反问的主体、行动和对照均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "前一对话确认玩家受 Ukllmswwik 派遣并已杀死 Slasul 的追随者，完整支持原句中的派遣、朋友被杀和即将攻击说话者等关系。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：前一对话确认玩家受 Ukllmswwik 派遣并已杀死 Slasul 的追随者，完整支持原句中的派遣、朋友被杀和即将攻击说话者等关系。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "5c03ea782a2954049cd3ac039f50fb97253c398feb2e3ad01f2a839db57945c4"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-117",
+      "task_id": "p2-tome-texts-b9-001",
+      "original_revision_key": "b9-27-antimagic-end",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "饮药后符文灼烧消失、剧痛昏厥、符文永久消失并感到不适却获净化的过程和结果均一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该段仅在玩家为 Ogre 时附加到饮用反魔药剂的对白，中文完整保留符文灼烧并永久消失的角色特有结果。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该段仅在玩家为 Ogre 时附加到饮用反魔药剂的对白，中文完整保留符文灼烧并永久消失的角色特有结果。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "5eaa644bfa422b7f190b79d7f6806fdad964c3c4c9d16cea4f780297b41e393f"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-118",
+      "task_id": "p2-tome-texts-b7-001",
+      "original_revision_key": "arena-b7-17-arena-unlock",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "招募落空的失望、坚持选择便不再相见，以及短暂留在德斯等待反悔的条件均完整保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "上下文确认这是拒绝竞技场测试后的招募者回应，并确有接受与拒绝分支；译文等待期限及反悔条件准确。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：上下文确认这是拒绝竞技场测试后的招募者回应，并确有接受与拒绝分支；译文等待期限及反悔条件准确。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "49c9e741254fce39a88af4c40534e8ef11d87f21eb87a2bc8ed368f4c0dabd80"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-119",
+      "task_id": "p2-tome-texts-b11-001",
+      "original_revision_key": "b11-19-avatar-distant-sun",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "询问对方能从此事获得什么利益的行动和对象完整一致。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该句是对神秘说话者自称朋友的追问选项，中文准确询问其从关系中获得的利益，未见 context 新问题。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该句是对神秘说话者自称朋友的追问选项，中文准确询问其从关系中获得的利益，未见 context 新问题。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "b5e3f71fbf55da63fe15fb08a1966b5704b8025814cf7c9d8d18b529d76db9de"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    },
+    {
+      "audit_id": "V1-120",
+      "task_id": "p2-tome-texts-b32-001",
+      "original_revision_key": "b32-44-unremarkable-cave-fillarel",
+      "category": "Narrative",
+      "surface_candidate": {
+        "label": "CLEAN",
+        "reason": "说话者来自异地、使用钢铁王座地下深处由兽人守卫的远古传送门来到此地等叙事事实均保留。"
+      },
+      "context_candidate": {
+        "label": "CLEAN",
+        "reason": "该句由玩家向 Fillarel 解释异乡身份和经兽人守卫的远古传送门到来，随后对方据此指路；中文保留说话者与行程。"
+      },
+      "final_label": "CLEAN",
+      "material_axis": {
+        "surface_material_defect": false,
+        "context_material_contribution": false
+      },
+      "packet_sufficient": true,
+      "determinate": true,
+      "written_evidence": {
+        "lead_basis": "主负责人独立核对原文、译文和冻结 packet：该句由玩家向 Fillarel 解释异乡身份和经兽人守卫的远古传送门到来，随后对方据此指路；中文保留说话者与行程。",
+        "material_evidence": "",
+        "candidate_disagreement": "",
+        "source_evidence_sha256s": [
+          "ceb27c1ce17014cff2287df4fc8bc4902c31de3ec79b988267d3fb863f2c61a2"
+        ],
+        "limitations": ""
+      },
+      "lead_verified": true
+    }
+  ]
+}

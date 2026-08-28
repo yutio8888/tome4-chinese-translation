@@ -1,0 +1,41 @@
+{
+  "schema_version": "prospective-source-context-lead-supplemental-evidence-v1",
+  "status": "FROZEN_BEFORE_FINAL_ADJUDICATION",
+  "date_frozen": "2026-08-28",
+  "scope": "Lead-only resolution of candidate disputes that the 12-line evidence packet or source-target pair could not settle. These records were not available to surface/context candidates and must not be supplied to downstream model arms.",
+  "items": [
+    {
+      "audit_id": "V1-010",
+      "evidence_kind": "fixed_public_source",
+      "repository_alias": "tome-orcs",
+      "commit": "76563bfe4cfebd2042ecc6264862c0161584c4a8",
+      "relative_path": "data/talents/steam/demolition.lua",
+      "artifact_sha256": "66e61a2898f55d9b4ab85cf6284022701c3dc70c7c0bd318e26e9dd5e3712f32",
+      "line_anchor": "callbackOnArcheryAttack",
+      "material_fact": "Grenade Barrage is triggered only when talent.id is SHOOT, FLAME_JET, STORMSTRIKE, or FLECHETTE_BURST; the target's four named skills preserve this fixed trigger set.",
+      "limitation": "The frozen 12-line packet contains only the status long_desc, not this callback. Therefore packet_sufficient is false even though the lead can resolve the translation against the separately fingerprinted public source."
+    },
+    {
+      "audit_id": "V1-111",
+      "evidence_kind": "authoritative_project_terminology",
+      "repository_alias": "research-worktree",
+      "commit": "b8c34fe051eb4953927c4a11772b1717cc0ab25b",
+      "relative_path": "terminology/creatures.tsv",
+      "artifact_sha256": "0e252381c718ecfd8378a66e5f467c0999a00f61bc5a4a4622807265821ec525",
+      "line_anchor": "Yeek",
+      "material_fact": "The authoritative race mapping is Yeek -> 夺心魔, so the target preserves rather than replaces the speaker's species.",
+      "limitation": "The terminology mapping is not present in the frozen item packet and is used only by the lead to resolve a candidate false positive."
+    },
+    {
+      "audit_id": "V1-113",
+      "evidence_kind": "authoritative_project_terminology",
+      "repository_alias": "research-worktree",
+      "commit": "b8c34fe051eb4953927c4a11772b1717cc0ab25b",
+      "relative_path": "terminology/classes.tsv",
+      "artifact_sha256": "4658981b3a08678fa68f4d775566682c3e2c7204ee83f081a269c84e8ce2a7f2",
+      "line_anchor": "Archmage",
+      "material_fact": "The authoritative class mapping is Archmage -> 元素法师, so archmagi and 元素法师 identify the same localized class rather than different target groups.",
+      "limitation": "The terminology mapping is not present in the frozen item packet and is used only by the lead to resolve a candidate unresolved label."
+    }
+  ]
+}

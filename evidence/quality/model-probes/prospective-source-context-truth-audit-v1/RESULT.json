@@ -1,0 +1,169 @@
+{
+  "schema_version": "prospective-source-context-truth-audit-result-v1",
+  "experiment": "prospective-source-context-truth-audit-v1",
+  "status": "NO_GO_INSUFFICIENT_TRUTH_SET",
+  "date_completed": "2026-08-28",
+  "measured": {
+    "items": 120,
+    "determinate_items": 119,
+    "labels": {
+      "CONTEXT_DEPENDENT_DEFECT": 1,
+      "SURFACE_VISIBLE_DEFECT": 5,
+      "MIXED_DEFECT": 0,
+      "CLEAN": 113,
+      "UNRESOLVED": 1
+    },
+    "categories": {
+      "Runtime": 60,
+      "Narrative": 60
+    },
+    "candidate_labels": {
+      "surface_pass": {
+        "CONTEXT_DEPENDENT_DEFECT": 0,
+        "SURFACE_VISIBLE_DEFECT": 12,
+        "MIXED_DEFECT": 0,
+        "CLEAN": 102,
+        "UNRESOLVED": 6
+      },
+      "context_pass": {
+        "CONTEXT_DEPENDENT_DEFECT": 0,
+        "SURFACE_VISIBLE_DEFECT": 11,
+        "MIXED_DEFECT": 1,
+        "CLEAN": 102,
+        "UNRESOLVED": 6
+      }
+    },
+    "pools": {
+      "context_cases": {
+        "items": 1,
+        "tasks": 1,
+        "categories": {
+          "Runtime": 0,
+          "Narrative": 1
+        },
+        "packet_sufficient_items": 1
+      },
+      "surface_controls": {
+        "items": 5,
+        "tasks": 5,
+        "categories": {
+          "Runtime": 0,
+          "Narrative": 5
+        },
+        "packet_sufficient_items": 5
+      },
+      "clean_controls": {
+        "items": 113,
+        "tasks": 42,
+        "categories": {
+          "Runtime": 60,
+          "Narrative": 53
+        },
+        "packet_sufficient_items": 110
+      }
+    }
+  },
+  "formal_glm_gate": {
+    "route_candidate": "pi-zai-cn-glm-5.3-flash-high",
+    "decision": "NO_GO",
+    "failures": [
+      "context_cases.items 1 < 8",
+      "context_cases.tasks 1 < 6",
+      "context_cases.Runtime 0 < 2",
+      "context_cases.Narrative 1 < 2",
+      "surface_controls.Runtime 0 < 1"
+    ],
+    "thresholds_relaxed": false,
+    "replacements_made": false,
+    "pilot_sample_generated": false,
+    "model_calls": 0,
+    "explanation": "The frozen truth set does not contain enough eligible context-dependent cases, and its surface-defect pool has no Runtime case. The formal GLM pilot must not run under the pre-registered contract."
+  },
+  "exploratory_policy": {
+    "allowed_after_this_no_go": true,
+    "separation": "OpenAI/Codex, Claude and GLM may participate in a separately versioned exploratory experiment using frozen inputs, but those results cannot be reported as the formal GLM pilot or used to relax this gate.",
+    "formal_result_impact": "none"
+  },
+  "lead_review": {
+    "all_items_verified": true,
+    "decision_method": "Independent lead review of all 120 source-target pairs and frozen packets; challenger identity, vote count and harsher label were not decision rules.",
+    "supplemental_evidence": {
+      "file": "LEAD-SUPPLEMENTAL-EVIDENCE.json",
+      "sha256": "a6b693f6ba58b5ecca57f8c18d77ecf714ea6240912cc5d69533cf7c4ffac07c",
+      "size_bytes": 2656
+    },
+    "challenger_outputs": [
+      {
+        "shard_id": 1,
+        "sha256": "27ab36de1b37e534af7e5e81934fc1bcaad420c1a5b7f0890d28d7ea32373f7b",
+        "size_bytes": 18762,
+        "items": 40,
+        "matches_final": 39,
+        "disagreements": [
+          {
+            "audit_id": "V1-010",
+            "challenger_label": "SURFACE_VISIBLE_DEFECT",
+            "final_label": "CLEAN"
+          }
+        ]
+      },
+      {
+        "shard_id": 2,
+        "sha256": "c27aa7605d524231f6efec9f9a295796f03f516d103ad9e6ea79b542236efe6c",
+        "size_bytes": 18885,
+        "items": 40,
+        "matches_final": 38,
+        "disagreements": [
+          {
+            "audit_id": "V1-011",
+            "challenger_label": "MIXED_DEFECT",
+            "final_label": "CLEAN"
+          },
+          {
+            "audit_id": "V1-113",
+            "challenger_label": "UNRESOLVED",
+            "final_label": "CLEAN"
+          }
+        ]
+      },
+      {
+        "shard_id": 3,
+        "sha256": "2eac31c1ebae204713de0fa7d7f48211650ac0a6d184fc9ba0ccafedd7aad322",
+        "size_bytes": 19296,
+        "items": 40,
+        "matches_final": 39,
+        "disagreements": [
+          {
+            "audit_id": "V1-111",
+            "challenger_label": "SURFACE_VISIBLE_DEFECT",
+            "final_label": "CLEAN"
+          }
+        ]
+      }
+    ]
+  },
+  "bindings": {
+    "audit_contract": {
+      "file": "AUDIT-CONTRACT.json",
+      "sha256": "306758eb0b66279198d057cd2bbd37e54a11d5f319500bb215418eb420ee7ba0",
+      "size_bytes": 7451
+    },
+    "audit_queue": {
+      "file": "AUDIT-QUEUE.json",
+      "sha256": "3f629d6eb9a7b3264582e7b860be7ac77cd038f3f8ac2df2ad9736fee64a2ebe",
+      "size_bytes": 544881
+    },
+    "final_adjudication": {
+      "file": "FINAL-ADJUDICATION.json",
+      "sha256": "455f0e3b744795617ce058e58e4adb3d331428ee5afbad97a01521822bae159c",
+      "size_bytes": 163885
+    },
+    "executor_fixture_expected_sha256": "82e25a395c1c9ff16c5b487ff465bc4bc7824e7cc61bebe4e8e716c24469b4c7"
+  },
+  "limitations": [
+    "The 120-item screen yielded only one pure context-dependent defect, so it cannot support the frozen 8-case context arm.",
+    "All five determinate surface-visible defects are Narrative; the required Runtime surface control is absent.",
+    "V1-010, V1-111 and V1-113 required lead-only supplemental fixed-source or terminology evidence outside the 12-line item packet; these materials are excluded from downstream model inputs.",
+    "V1-076 remains unresolved because the frozen packet does not bind the identity of 'the shadow'."
+  ]
+}
