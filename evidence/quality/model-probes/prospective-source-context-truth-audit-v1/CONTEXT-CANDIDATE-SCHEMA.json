@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "prospective-source-context-truth-audit-v1/CONTEXT-CANDIDATE-SCHEMA.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "phase", "shard_id", "context_queue_sha256", "surface_candidate_sha256", "items"],
+  "properties": {
+    "schema_version": {"const": "prospective-source-context-context-candidate-v1"},
+    "status": {"const": "CONTEXT_CANDIDATE_COMPLETE"},
+    "phase": {"const": "CONTEXT"},
+    "shard_id": {"type": "integer", "minimum": 1, "maximum": 3},
+    "context_queue_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "surface_candidate_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "items": {
+      "type": "array",
+      "minItems": 40,
+      "maxItems": 40,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["audit_id", "label", "surface_material_defect", "context_material_contribution", "packet_sufficient", "reason", "evidence_sha256s"],
+        "properties": {
+          "audit_id": {"type": "string", "pattern": "^V1-[0-9]{3}$"},
+          "label": {"enum": ["CONTEXT_DEPENDENT_DEFECT", "SURFACE_VISIBLE_DEFECT", "MIXED_DEFECT", "CLEAN", "UNRESOLVED"]},
+          "surface_material_defect": {"type": ["boolean", "null"]},
+          "context_material_contribution": {"type": ["boolean", "null"]},
+          "packet_sufficient": {"type": "boolean"},
+          "reason": {"type": "string", "minLength": 1},
+          "evidence_sha256s": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "uniqueItems": true}
+        }
+      }
+    }
+  }
+}

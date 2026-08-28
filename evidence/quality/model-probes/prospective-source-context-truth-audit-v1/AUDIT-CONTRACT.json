@@ -1,0 +1,114 @@
+{
+  "schema_version": "prospective-source-context-truth-audit-contract-v1",
+  "status": "FROZEN_BEFORE_TARGET_LINK",
+  "date_frozen": "2026-08-28",
+  "input_binding": {
+    "source_only_presentation_sha256": "8deda776d84cdcca0794ea2dcec34f2dbb5d5971b2d937d2653b1f60b95886c5",
+    "target_join_contract": "TARGET-JOIN-CONTRACT.json",
+    "audit_schema": "AUDIT-SCHEMA.json",
+    "items": 120,
+    "categories": ["Runtime", "Narrative"]
+  },
+  "labels": {
+    "CONTEXT_DEPENDENT_DEFECT": "No material defect is established from source and target alone, but the fixed public-source context establishes a material translation defect.",
+    "SURFACE_VISIBLE_DEFECT": "A material translation defect is established from source and target alone, and context adds no distinct material defect or material change in scope.",
+    "MIXED_DEFECT": "A material surface-visible defect and a distinct material context-dependent defect are both present, or context materially changes the nature or scope of the surface-visible defect.",
+    "CLEAN": "After both passes, no material translation defect is established.",
+    "UNRESOLVED": "The frozen evidence is insufficient or contradictory, so one or both material axes cannot be determined."
+  },
+  "material_axis": {
+    "surface_material_defect": "Whether source and target alone establish a material defect.",
+    "context_material_contribution": "Whether the fixed public-source context establishes a distinct material defect or materially changes the nature or scope of the surface conclusion.",
+    "material_definition": "Material means that the translation can change or materially obscure a player's understanding of a mechanic, action, condition, quantity, polarity, target, scope, timing, causality, speaker, referent or narrative fact. Pure style, fluency or preference differences that preserve substantive meaning are not material.",
+    "truth_table": {
+      "false,false": "CLEAN",
+      "true,false": "SURFACE_VISIBLE_DEFECT",
+      "false,true": "CONTEXT_DEPENDENT_DEFECT",
+      "true,true": "MIXED_DEFECT",
+      "null,*": "UNRESOLVED",
+      "*,null": "UNRESOLVED"
+    }
+  },
+  "audit_flow": {
+    "candidate_workers": 3,
+    "items_per_worker": 40,
+    "assignment": "The binder assigns each presentation position to shard ((position - 1) mod 3) + 1. Shards are pairwise disjoint and cover all 120 items exactly once.",
+    "pass_order": [
+      "Each worker reviews its 40-item SURFACE queue using only audit_id, source and target.",
+      "Each complete SURFACE candidate is parsed against SURFACE-CANDIDATE-SCHEMA.json, checked for the exact 40 ordered audit_ids, and frozen by byte SHA-256 before release-context.mjs can generate that worker's CONTEXT queue.",
+      "The same worker then reviews the matching CONTEXT queue with the fixed public-source evidence added. Surface candidates cannot be edited after the context pass begins.",
+      "The lead independently verifies all 120 items against the frozen source, target and public-source evidence and issues the final label and material axes."
+    ],
+    "surface_context_separation": "The binder does not generate context queue files. release-context.mjs generates exactly one context shard only after the corresponding complete surface candidate passes exact schema, identity/order and pre-frozen byte-SHA gates. Context or context-derived text must not enter the surface candidate prompt.",
+    "lead_responsibility": "The lead must inspect every item and may not decide by vote, worker identity or the harsher label.",
+    "written_evidence_required": "A written material-evidence record is mandatory for every final non-CLEAN label, every surface/context candidate disagreement, every lead override, and every UNRESOLVED axis. The schema also requires a concise lead basis for all 120 items.",
+    "replacement_policy": "No item replacement after target-bound queue freeze. Missing evidence produces UNRESOLVED or a NO_GO gate, never a hand-selected substitute."
+  },
+  "prohibited_inputs": [
+    "sealed reference",
+    "finding or defect identifiers",
+    "prior adjudication conclusions",
+    "model provenance or model identity as evidence",
+    "unregistered source context",
+    "local absolute paths",
+    "credentials"
+  ],
+  "glm_pilot_gate": {
+    "determinate_definition": "Any final label except UNRESOLVED.",
+    "minimum_determinate_items": 108,
+    "pools": {
+      "context_cases": {
+        "membership": ["CONTEXT_DEPENDENT_DEFECT"],
+        "excluded": ["MIXED_DEFECT", "UNRESOLVED", "any item whose fixed evidence packet is insufficient"],
+        "minimum_items": 8,
+        "minimum_tasks": 6,
+        "minimum_per_category": 2,
+        "fixed_sample": 8
+      },
+      "surface_controls": {
+        "membership": ["SURFACE_VISIBLE_DEFECT"],
+        "minimum_items": 4,
+        "minimum_tasks": 4,
+        "minimum_per_category": 1,
+        "fixed_sample": 4
+      },
+      "clean_controls": {
+        "membership": ["CLEAN"],
+        "minimum_items": 8,
+        "minimum_tasks": 8,
+        "minimum_per_category": 2,
+        "fixed_sample": 8
+      }
+    },
+    "selection": {
+      "seed": "prospective-source-context-truth-audit-v1|glm-pilot|task-first-v1",
+      "pool_order": ["context_cases", "surface_controls", "clean_controls"],
+      "method": "Select pools strictly in frozen order context, surface, clean. Within each pool, rank tasks by SHA-256(seed NUL pool NUL category NUL task NUL task_id), then visit tasks round-robin; rank rows within task by SHA-256(seed NUL pool NUL row NUL task_id NUL original_revision_key). Satisfy frozen per-category minima first, then fill the remaining pool quota by the same ranks while carrying the global task cap forward from earlier pools.",
+      "maximum_items_per_task_across_the_full_20_item_pilot": 2,
+      "fixed_composition": {
+        "context_cases": 8,
+        "surface_controls": 4,
+        "clean_controls": 8,
+        "total": 20
+      },
+      "replacement_allowed": false
+    },
+    "no_go": "If the determinate threshold, any pool item/task/category minimum, the fixed 8+4+8 composition, packet sufficiency, or the global per-task cap cannot be satisfied, the GLM pilot is NO_GO. Do not relax a threshold or substitute a MIXED or UNRESOLVED item.",
+    "route_and_evaluation": {
+      "route_candidate": "pi-zai-cn-glm-5.3-flash-high",
+      "arm_A": "source and target only",
+      "arm_B": "the same source and target plus the frozen fixed public-source evidence packet",
+      "runs_per_arm": 2,
+      "total_runs": 4,
+      "validity_gate": "4/4 runs must parse, cover all 20 ordered items exactly once and pass the frozen output schema; harness failures are not model scores.",
+      "atom_hit": "For a determinate defect item, a hit requires the candidate to identify the pre-registered material defect atom, not merely emit a generic defect label. For CLEAN, any asserted material defect atom is a false positive.",
+      "performance_thresholds": {
+        "context_cases_arm_B": "at least 10/16 atom hits overall and at least 4/8 in each B run",
+        "context_increment_B_minus_A": "at least +4/16 paired atom hits overall and strictly positive in each paired run",
+        "surface_controls_arm_B": "at least 6/8 atom hits overall, with B minus A net loss no worse than -1/8",
+        "clean_controls_arm_B": "at most 2/16 false positives overall and at most 1/8 in each B run",
+        "valid_runs": "4/4"
+      }
+    }
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "prospective-source-context-truth-audit-v1/AUDIT-SCHEMA.json",
+  "title": "Lead truth-audit adjudication",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "queue_sha256", "surface_candidate_hashes", "context_candidate_hashes", "items"],
+  "properties": {
+    "schema_version": {"const": "prospective-source-context-truth-adjudication-v1"},
+    "status": {"const": "LEAD_ADJUDICATION_COMPLETE"},
+    "queue_sha256": {"$ref": "#/$defs/sha256"},
+    "surface_candidate_hashes": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"$ref": "#/$defs/candidateBinding"}
+    },
+    "context_candidate_hashes": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"$ref": "#/$defs/candidateBinding"}
+    },
+    "items": {
+      "type": "array",
+      "minItems": 120,
+      "maxItems": 120,
+      "items": {"$ref": "#/$defs/adjudicatedItem"}
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "label": {
+      "enum": [
+        "CONTEXT_DEPENDENT_DEFECT",
+        "SURFACE_VISIBLE_DEFECT",
+        "MIXED_DEFECT",
+        "CLEAN",
+        "UNRESOLVED"
+      ]
+    },
+    "candidateBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["shard_id", "sha256", "size_bytes"],
+      "properties": {
+        "shard_id": {"type": "integer", "minimum": 1, "maximum": 3},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "size_bytes": {"type": "integer", "minimum": 1}
+      }
+    },
+    "candidateDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "reason"],
+      "properties": {
+        "label": {"$ref": "#/$defs/label"},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "materialAxis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["surface_material_defect", "context_material_contribution"],
+      "properties": {
+        "surface_material_defect": {"type": ["boolean", "null"]},
+        "context_material_contribution": {"type": ["boolean", "null"]}
+      }
+    },
+    "writtenEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lead_basis", "material_evidence", "candidate_disagreement", "source_evidence_sha256s", "limitations"],
+      "properties": {
+        "lead_basis": {"type": "string", "minLength": 1},
+        "material_evidence": {"type": "string"},
+        "candidate_disagreement": {"type": "string"},
+        "source_evidence_sha256s": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/sha256"},
+          "uniqueItems": true
+        },
+        "limitations": {"type": "string"}
+      }
+    },
+    "adjudicatedItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["audit_id", "task_id", "original_revision_key", "category", "surface_candidate", "context_candidate", "final_label", "material_axis", "packet_sufficient", "determinate", "written_evidence", "lead_verified"],
+      "properties": {
+        "audit_id": {"type": "string", "pattern": "^V1-[0-9]{3}$"},
+        "task_id": {"type": "string", "minLength": 1},
+        "original_revision_key": {"type": "string", "minLength": 1},
+        "category": {"enum": ["Runtime", "Narrative"]},
+        "surface_candidate": {"$ref": "#/$defs/candidateDecision"},
+        "context_candidate": {"$ref": "#/$defs/candidateDecision"},
+        "final_label": {"$ref": "#/$defs/label"},
+        "material_axis": {"$ref": "#/$defs/materialAxis"},
+        "packet_sufficient": {"type": "boolean"},
+        "determinate": {"type": "boolean"},
+        "written_evidence": {"$ref": "#/$defs/writtenEvidence"},
+        "lead_verified": {"const": true}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"final_label": {"const": "CLEAN"}}},
+          "then": {
+            "properties": {
+              "material_axis": {
+                "properties": {
+                  "surface_material_defect": {"const": false},
+                  "context_material_contribution": {"const": false}
+                }
+              },
+              "determinate": {"const": true}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"final_label": {"const": "SURFACE_VISIBLE_DEFECT"}}},
+          "then": {
+            "properties": {
+              "material_axis": {
+                "properties": {
+                  "surface_material_defect": {"const": true},
+                  "context_material_contribution": {"const": false}
+                }
+              },
+              "determinate": {"const": true},
+              "written_evidence": {"properties": {"material_evidence": {"minLength": 1}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"final_label": {"const": "CONTEXT_DEPENDENT_DEFECT"}}},
+          "then": {
+            "properties": {
+              "material_axis": {
+                "properties": {
+                  "surface_material_defect": {"const": false},
+                  "context_material_contribution": {"const": true}
+                }
+              },
+              "determinate": {"const": true},
+              "packet_sufficient": {"const": true},
+              "written_evidence": {"properties": {"material_evidence": {"minLength": 1}, "source_evidence_sha256s": {"minItems": 1}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"final_label": {"const": "MIXED_DEFECT"}}},
+          "then": {
+            "properties": {
+              "material_axis": {
+                "properties": {
+                  "surface_material_defect": {"const": true},
+                  "context_material_contribution": {"const": true}
+                }
+              },
+              "determinate": {"const": true},
+              "written_evidence": {"properties": {"material_evidence": {"minLength": 1}, "source_evidence_sha256s": {"minItems": 1}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"final_label": {"const": "UNRESOLVED"}}},
+          "then": {
+            "properties": {
+              "determinate": {"const": false},
+              "written_evidence": {"properties": {"material_evidence": {"minLength": 1}, "limitations": {"minLength": 1}}}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "surface_candidate": {"properties": {"label": {"const": "CLEAN"}}},
+              "context_candidate": {"properties": {"label": {"const": "CLEAN"}}}
+            },
+            "required": ["surface_candidate", "context_candidate"]
+          },
+          "else": {"properties": {"written_evidence": {"properties": {"candidate_disagreement": {"minLength": 1}}}}}
+        }
+      ]
+    }
+  }
+}

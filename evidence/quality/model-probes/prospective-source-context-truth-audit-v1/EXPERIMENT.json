@@ -1,0 +1,38 @@
+{
+  "schema_version": "prospective-source-context-truth-audit-experiment-v1",
+  "experiment": "prospective-source-context-truth-audit-v1",
+  "status": "FROZEN_BEFORE_TARGET_LINK",
+  "date_frozen": "2026-08-28",
+  "purpose": "Freeze the target-link, two-pass human audit and downstream GLM pilot contracts for the already frozen 120-item source-context presentation without reading a sealed reference or generating a real target-bound queue.",
+  "phase": "PHASE1_TARGET_LINK_CONTRACT_ONLY",
+  "production_translation_commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+  "source_only_presentation_sha256": "8deda776d84cdcca0794ea2dcec34f2dbb5d5971b2d937d2653b1f60b95886c5",
+  "model_calls": 0,
+  "network_calls": 0,
+  "real_target_inputs_read": false,
+  "real_target_queue_generated": false,
+  "reference_scoring": false,
+  "contracts": {
+    "target_join": "TARGET-JOIN-CONTRACT.json",
+    "audit": "AUDIT-CONTRACT.json",
+    "audit_schema": "AUDIT-SCHEMA.json"
+  },
+  "frozen_contract_and_schema_hashes": {
+    "TARGET-JOIN-CONTRACT.json": "600d2b10db8c8803ad6026ae98ad4373aca90ab20e5464616855456f30df223b",
+    "AUDIT-CONTRACT.json": "306758eb0b66279198d057cd2bbd37e54a11d5f319500bb215418eb420ee7ba0",
+    "AUDIT-SCHEMA.json": "bb4a0788b98c1de67a10c43a85fff79a9d3b17d43036fbc198f704608b6065d5",
+    "SURFACE-CANDIDATE-SCHEMA.json": "f346a0622a44a0a5218ebbd9bbc0ecc90c066139dff32874a3511e073a76d992",
+    "CONTEXT-CANDIDATE-SCHEMA.json": "caa05088fd820670e7922f7a662a0478fc972b215af8a30a7c34ab097fcfdf23"
+  },
+  "binder_outputs_when_target_link_is_authorized": [
+    "TARGET-BINDING-REGISTRY.json",
+    "AUDIT-QUEUE.json",
+    "SURFACE-QUEUE-1.json",
+    "SURFACE-QUEUE-2.json",
+    "SURFACE-QUEUE-3.json",
+    "TARGET-JOIN-REPORT.json"
+  ],
+  "released_context_outputs": ["CONTEXT-QUEUE-1.json", "CONTEXT-QUEUE-2.json", "CONTEXT-QUEUE-3.json"],
+  "validation_performed": "Synthetic fixtures only. The production binder and verifier are intentionally not run in this phase.",
+  "next_gate": "An explicitly authorized target-link run must rebuild the frozen inputs, verify all 58 terminal fingerprints, produce and verify the six bind artifacts before surface audit begins; each of the three context queues is released later, one shard at a time, only after its surface candidate is frozen."
+}

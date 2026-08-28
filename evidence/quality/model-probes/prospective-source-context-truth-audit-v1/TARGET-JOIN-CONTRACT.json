@@ -1,0 +1,105 @@
+{
+  "schema_version": "prospective-source-context-target-join-contract-v1",
+  "status": "FROZEN_BEFORE_TARGET_LINK",
+  "date_frozen": "2026-08-28",
+  "mode": "PHASE1_TARGET_LINK_NO_INFERENCE",
+  "model_calls_allowed": 0,
+  "network_calls_allowed": 0,
+  "production_translation_commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+  "source_only_presentation_sha256": "8deda776d84cdcca0794ea2dcec34f2dbb5d5971b2d937d2653b1f60b95886c5",
+  "frozen_inputs": {
+    "source_screen_contract": {
+      "logical_path": "evidence/quality/model-probes/prospective-source-context-audit-v4/SCREEN-CONTRACT.json",
+      "sha256": "0932fb76492c609e1e4fe8a2e85b8cb8238d8342c5a0bfb3d6ce095c993a538b"
+    },
+    "source_screen_frame": {
+      "logical_path": "evidence/quality/model-probes/prospective-source-context-audit-v4/SOURCE-SCREEN-FRAME.json",
+      "sha256": "1c10e40a9e10d76a39eff6ad69e9c5a2c2d084f7cc4ae9543aa6af0893fd63cd"
+    },
+    "source_evidence_packets": {
+      "logical_path": "evidence/quality/model-probes/prospective-source-context-audit-v4/SOURCE-EVIDENCE-PACKETS.json",
+      "sha256": "4d2e21c2e144636d1752329263c44704909b39efeb4b837a7a41f648c9ee481d"
+    },
+    "canonical_membership": {
+      "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/CANONICAL-MEMBERSHIP.json",
+      "sha256": "477c0e97f59e4f29159ed7baa16b7ef5ddb4165cbe5785ad15b667eadfda2049"
+    },
+    "provenance_snapshot": {
+      "logical_path": "evidence/quality/model-probes/paseo-provenance-snapshot-v1/SNAPSHOT.json",
+      "sha256": "b754183a9d1e0efa15cb1d3c16fa06a7f96f388e75707c7ba0e79f4a680f2eab"
+    },
+    "fingerprinted_terminal_input_manifest": {
+      "count": 58,
+      "bytes": 1664921,
+      "manifest_sha256": "6c3ce0004e25991c7228a7341402ef7b639078ba2b1211d05d253cf03df83e85",
+      "record_source": "The frozen provenance snapshot supplies logical_path, sha256 and size_bytes for terminal translation_contextual_v1 REVIEWER inputs at each task's terminal cycle."
+    }
+  },
+  "join": {
+    "identity_key": "task_id + NUL + original_revision_key",
+    "terminal_identity_key": "task_id + NUL + translation_snapshot.revision_key",
+    "terminal_item_exact_fields": ["revision_key", "source", "target"],
+    "cardinality": "Every selected identity must occur exactly once in the source frame, evidence packets, canonical membership and terminal rows. Any duplicate fails even when values are identical.",
+    "source_binding": "terminal source must byte-equal frame source and sha256(raw source UTF-8) must equal both frame and membership source_sha256",
+    "target_binding": "sha256(raw target UTF-8) must equal canonical membership target_sha256; no Unicode, whitespace, newline or escape normalization is allowed",
+    "terminal_input_policy": "Verify all 58 frozen terminal files before extracting any selected target, including terminal files not used by the selected 120 items.",
+    "terminal_dispatch_rule": "Use REVIEWER/translation_contextual_v1 dispatches with input_path. If any have numeric cycle, use every dispatch at the maximum numeric cycle; otherwise use only the final matching dispatch.",
+    "production_binding": "canonical membership production_translation_commit and provenance snapshot source_repo_head must both equal the frozen production commit",
+    "presentation_order": "Preserve category order Runtime then Narrative and preserve the exact item order within each source-screen category. Never resort after target join.",
+    "audit_id": "V1- plus the one-based presentation ordinal padded to three digits"
+  },
+  "expected": {
+    "items": 120,
+    "tasks": 43,
+    "categories": [
+      {"category": "Runtime", "items": 60},
+      {"category": "Narrative", "items": 60}
+    ],
+    "terminal_inputs": 58,
+    "shards": 3,
+    "items_per_shard": 40
+  },
+  "hashing": {
+    "sha256": "lower-case hexadecimal SHA-256",
+    "raw_string": "SHA-256 over the exact UTF-8 bytes of the JavaScript string",
+    "canonical_json": "UTF-8 bytes of JSON.stringify(value) with no trailing newline",
+    "file": "UTF-8 pretty JSON with two-space indentation and one trailing LF",
+    "terminal_manifest_record": "logical_path NUL sha256 NUL size_bytes LF, sorted by logical_path",
+    "binding_manifest_record": "audit_id NUL category NUL task_id NUL original_revision_key NUL source_sha256 NUL target_sha256 NUL membership_sha256 NUL terminal logical_path NUL terminal sha256 NUL terminal size_bytes LF, in presentation order",
+    "target_bound_presentation": "Canonical JSON of schema_version plus ordered categories whose items are exactly revision_id, source, target and source_evidence"
+  },
+  "outputs": {
+    "names": [
+      "TARGET-BINDING-REGISTRY.json",
+      "AUDIT-QUEUE.json",
+      "SURFACE-QUEUE-1.json",
+      "SURFACE-QUEUE-2.json",
+      "SURFACE-QUEUE-3.json",
+      "TARGET-JOIN-REPORT.json"
+    ],
+    "released_context_names": ["CONTEXT-QUEUE-1.json", "CONTEXT-QUEUE-2.json", "CONTEXT-QUEUE-3.json"],
+    "target_binding_registry_top_fields": ["schema_version", "status", "production_translation_commit", "source_only_presentation_sha256", "target_bound_presentation_sha256", "fingerprinted_terminal_input_manifest", "binding_manifest_sha256", "counts", "records"],
+    "target_binding_record_fields": ["audit_id", "category", "task_id", "original_revision_key", "canonical_revision_id", "membership_sha256", "source_sha256", "target_sha256", "terminal_input", "binding_sha256"],
+    "audit_queue_top_fields": ["schema_version", "status", "reviewer_inference_allowed", "production_translation_commit", "source_only_presentation_sha256", "target_bound_presentation_sha256", "counts", "surface_visible_fields", "context_visible_fields", "items"],
+    "audit_queue_item_fields": ["audit_id", "category", "task_id", "original_revision_key", "canonical_identity", "component", "section", "source_tag", "profile", "source", "source_sha256", "target", "target_sha256", "source_only_flags", "source_evidence", "item_sha256"],
+    "surface_item_fields": ["audit_id", "source", "target"],
+    "context_item_fields": ["audit_id", "source", "target", "source_evidence"],
+    "context_release_exact_top_fields": ["schema_version", "status", "phase", "shard_id", "shard_count", "target_bound_presentation_sha256", "surface_queue_sha256", "surface_candidate_sha256", "surface_candidate_size_bytes", "item_count", "items"],
+    "sharding": "presentation position modulo three; each item appears in exactly one surface shard. A matching context shard is generated later only after the complete surface candidate passes its exact schema and frozen byte-hash gate."
+  },
+  "required_gates": [
+    "all frozen file hashes match",
+    "production commit matches membership and snapshot",
+    "58 terminal fingerprints and the terminal manifest match",
+    "120 selected identities and 120 evidence packets are exact and unique",
+    "all four join sides have cardinality one",
+    "all source and target hashes match",
+    "Runtime and Narrative remain 60 items each in frozen order",
+    "three surface shards are a disjoint complete 40-item partition and no context shard exists at bind time",
+    "each released context shard binds one exact-schema 40-item surface candidate and its pre-frozen byte SHA-256",
+    "all output objects have exact field sets",
+    "two independent builds are byte-identical",
+    "model and network call counts remain zero"
+  ],
+  "current_phase_boundary": "This contract authorizes implementation and synthetic testing only. It does not authorize reading production target text, generating the real target-bound queue or starting an audit."
+}
