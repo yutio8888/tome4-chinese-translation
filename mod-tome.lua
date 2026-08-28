@@ -13453,7 +13453,7 @@ section "mod-tome/data/general/traps/elemental.lua"
 t("elemental", "元素", "entity type")
 t("trap", "陷阱", "_t")
 t("Deals %s%d#LAST# %s damage", "造成%s%d#LAST#%s伤害", "tformat")
-t("Deals %s%d#LAST# %s damage (radius %d)", "造成%s%d#LAST# %s伤害(范围 %d)", "tformat")
+t("Deals %s%d#LAST# %s damage (radius %d)", "造成%s%d#LAST# %s伤害(半径 %d)", "tformat")
 t("acid", "酸性", "entity subtype")
 t("acid trap", "酸液陷阱", "entity name")
 t("A stream of acid gushes onto @target@!", "一股酸液击中了@target@！", "_t")

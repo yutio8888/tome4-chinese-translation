@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-fireburn-data-binding-default-b1-001",
+  "kind": "frozen_fireburn_data_binding_default_workset",
+  "frozen_at": "2026-08-28T13:24:19Z",
+  "immutable": true,
+  "inventory_origin": {
+    "commit": "a68cbede82a5f0ab112451a4ccc41fadc05948cd",
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "reference_ids": [
+      "fireburn-ref-008",
+      "fireburn-ref-020",
+      "fireburn-ref-021"
+    ],
+    "mechanism_group_id": "data-binding-default",
+    "risk_class": "appears_consistent",
+    "records": [
+      {
+        "reference_id": "fireburn-ref-008",
+        "component": "orcs",
+        "path": "game/dlcs/tome-orcs/data/talents/steam/butchery.lua",
+        "line": 49,
+        "matched_line": "\t\tself:talentTemporaryValue(ret, \"melee_project\", {[DamageType.FIREBURN]=t.getDamage(self, t)})",
+        "source_file_sha256": "bfa25b61b72b50db05c1488b8c62b8d9c4a3222a2b822a97dd1e964e6a8ea603",
+        "source_pinned": false,
+        "classification": "damage_type_data_binding",
+        "enclosing_symbol": "Overheat Saws melee_project",
+        "effective_input_shape": "scalar t.getDamage(self,t)",
+        "duration_turns": 3,
+        "initial_percent": 50,
+        "mechanism_group_id": "data-binding-default",
+        "translation_entry_ids": ["orcs-butchery-overheat-saws-info"],
+        "risk_class": "appears_consistent"
+      },
+      {
+        "reference_id": "fireburn-ref-020",
+        "component": "tome",
+        "path": "game/modules/tome/data/general/traps/elemental.lua",
+        "line": 72,
+        "matched_line": "\tdamtype = DamageType.FIREBURN,",
+        "source_file_sha256": "1e0bfda7a837b41364fe34c79306d52dcc85783760b90e3d7f370d90cf9796ec",
+        "source_pinned": true,
+        "classification": "damage_type_data_binding",
+        "enclosing_symbol": "elemental fire trap",
+        "effective_input_shape": "scalar trap damage",
+        "duration_turns": 3,
+        "initial_percent": 50,
+        "mechanism_group_id": "data-binding-default",
+        "translation_entry_ids": ["tome-elemental-trap-damage"],
+        "risk_class": "appears_consistent"
+      },
+      {
+        "reference_id": "fireburn-ref-021",
+        "component": "tome",
+        "path": "game/modules/tome/data/general/traps/elemental.lua",
+        "line": 139,
+        "matched_line": "\tdamtype = DamageType.FIREBURN, radius = 2,",
+        "source_file_sha256": "1e0bfda7a837b41364fe34c79306d52dcc85783760b90e3d7f370d90cf9796ec",
+        "source_pinned": true,
+        "classification": "damage_type_data_binding",
+        "enclosing_symbol": "elemental fire blast trap",
+        "effective_input_shape": "scalar trap damage radius 2",
+        "duration_turns": 3,
+        "initial_percent": 50,
+        "mechanism_group_id": "data-binding-default",
+        "translation_entry_ids": ["tome-elemental-trap-radius-damage"],
+        "risk_class": "appears_consistent"
+      }
+    ]
+  },
+  "translation_baseline": {
+    "head": "502a37361fe6664514f57862c8b51acd408723be",
+    "component_versions": {
+      "tome": "tome-1.7.6",
+      "orcs": "GPL public source; manifest does not pin a DLC commit"
+    },
+    "files": [
+      {
+        "file": "tome-orcs.lua",
+        "sha256": "e47608009bd59ca13158f032b720e4ec0244d8e80064b4c21aa8157829352fd3"
+      },
+      {
+        "file": "mod-tome.lua",
+        "sha256": "df873495893589a414ff6bf48d676b9232a85a702bed61bc03d733c86531f2b4"
+      }
+    ],
+    "section_freezes": [
+      {
+        "file": "tome-orcs.lua",
+        "section": "tome-orcs/data/talents/steam/butchery.lua",
+        "sha256": "e0bbf1cfe605ed15b333c8e6da7777c41c0d266302cc77ad04d3df844eee1374"
+      },
+      {
+        "file": "mod-tome.lua",
+        "section": "mod-tome/data/general/traps/elemental.lua",
+        "sha256": "5b642a6db55acda7d08acdfc02d41f356aaf26263d9ea067bd4c776fe68f98fd"
+      }
+    ]
+  },
+  "translation_entries": [
+    {
+      "revision_key": "overheat-saws-info",
+      "reference_id": "fireburn-ref-008",
+      "entry_id": "orcs-butchery-overheat-saws-info",
+      "identity": {
+        "component": "orcs",
+        "translation_file": "tome-orcs.lua",
+        "section": "tome-orcs/data/talents/steam/butchery.lua",
+        "source_tag": "tformat"
+      },
+      "source": "Channel hot steam around your saws, burning foes you strike in melee for %0.2f fire damage over 3 turns (which can stack)!\n\t\t#{italic}#Hot, steamy maiming!#{normal}#",
+      "target": "用蒸汽包裹链锯，对近战攻击命中的目标在 3 回合内造成 %0.2f 点火焰伤害（可以叠加）。\n\t\t#{italic}#滚烫的蒸汽，死吧！#{normal}#",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_order": [1],
+      "placeholder_sequence": ["%0.2f"],
+      "newline_count": 1,
+      "markup_sequence": ["#{italic}#", "#{normal}#"]
+    },
+    {
+      "revision_key": "elemental-trap-damage",
+      "reference_id": "fireburn-ref-020",
+      "entry_id": "tome-elemental-trap-damage",
+      "identity": {
+        "component": "tome",
+        "translation_file": "mod-tome.lua",
+        "section": "mod-tome/data/general/traps/elemental.lua",
+        "source_tag": "tformat"
+      },
+      "source": "Deals %s%d#LAST# %s damage",
+      "target": "造成%s%d#LAST#%s伤害",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_order": [1, 2, 3],
+      "placeholder_sequence": ["%s", "%d", "%s"],
+      "newline_count": 0,
+      "markup_sequence": ["#LAST#"]
+    },
+    {
+      "revision_key": "elemental-trap-radius-damage",
+      "reference_id": "fireburn-ref-021",
+      "entry_id": "tome-elemental-trap-radius-damage",
+      "identity": {
+        "component": "tome",
+        "translation_file": "mod-tome.lua",
+        "section": "mod-tome/data/general/traps/elemental.lua",
+        "source_tag": "tformat"
+      },
+      "source": "Deals %s%d#LAST# %s damage (radius %d)",
+      "target": "造成%s%d#LAST# %s伤害(范围 %d)",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_order": [1, 2, 3, 4],
+      "placeholder_sequence": ["%s", "%d", "%s", "%d"],
+      "newline_count": 0,
+      "markup_sequence": ["#LAST#"]
+    }
+  ],
+  "source_anchors": [
+    {
+      "component": "orcs",
+      "revision": null,
+      "source_pinned": false,
+      "provenance": "GPL public source; manifest does not pin a DLC commit; inspected file is hash-matched to the frozen inventory only",
+      "path": "game/dlcs/tome-orcs/data/talents/steam/butchery.lua",
+      "sha256": "bfa25b61b72b50db05c1488b8c62b8d9c4a3222a2b822a97dd1e964e6a8ea603",
+      "symbol": "Overheat Saws",
+      "relevant_lines": [44, 49, 57, 58],
+      "bindings": [
+        "t.getDamage(self, t) -> self.melee_project[DamageType.FIREBURN]",
+        "t.getDamage(self, t) -> damDesc(self, DamageType.FIRE, ...) -> %0.2f"
+      ]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "symbol": "melee_project successful-hit application",
+      "relevant_lines": [761, 765],
+      "binding": "hitted and not target.dead -> self.melee_project entries with dam > 0 -> matching DamageType projector"
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/general/traps/elemental.lua",
+      "sha256": "1e0bfda7a837b41364fe34c79306d52dcc85783760b90e3d7f370d90cf9796ec",
+      "symbols": ["TRAP_ELEMENTAL", "TRAP_ELEMENTAL_BLAST", "fire trap", "fire blast trap"],
+      "relevant_lines": [24, 30, 35, 41, 70, 72, 137, 139],
+      "formatter_bindings": [
+        {
+          "entry_id": "tome-elemental-trap-damage",
+          "args": ["dtype.text_color or #WHITE#", "self.dam", "dtype.name"],
+          "args_order": [1, 2, 3]
+        },
+        {
+          "entry_id": "tome-elemental-trap-radius-damage",
+          "args": ["dtype.text_color or #WHITE#", "self.dam", "dtype.name", "self.radius or 2"],
+          "args_order": [1, 2, 3, 4]
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/damage_types.lua",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "symbol": "DamageType.FIREBURN",
+      "relevant_lines": [1187, 1205],
+      "defaults": {"duration_turns": 3, "initial_percent": 50},
+      "localized_name_binding": "DamageType FIREBURN name 'fire burn' is localized as '火焰燃烧' by the existing damage-type locale entry"
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/timed_effects/physical.lua",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "symbol": "EFF_BURNING",
+      "relevant_lines": [417, 438],
+      "merge_binding": "old remaining damage plus incoming remaining damage is pooled; duration is recomputed and power is the pooled amount divided by the recomputed duration"
+    }
+  ],
+  "expected_claims": [
+    "The Overheat Saws displayed scalar and melee_project FIREBURN scalar have the same t.getDamage origin; application occurs only for living targets of successful melee hits.",
+    "A scalar FIREBURN input defaults to dur=3 and initial=50, so half is projected immediately and the other half becomes a three-turn BURNING contribution; the incoming scalar is the complete event amount before downstream mitigation.",
+    "BURNING reapplication supports the English stacking statement by pooling old remaining and new incoming remaining damage and recomputing duration/power; it does not preserve an isolated new-effect tick schedule.",
+    "The two elemental-trap descriptions are generic templates shared across acid, fire, ice, lightning and poison variants; their formatter arguments preserve color, scalar amount, localized damage-type name and, for the blast, runtime radius.",
+    "For fire trap instances the dynamic localized damage-type name is 火焰燃烧; the fire blast binds radius=2, and the generic template fallback is also 2."
+  ],
+  "exclusions": [
+    "No reference outside fireburn-ref-008, fireburn-ref-020 and fireburn-ref-021.",
+    "No Explosion Trap, direct-projection entry, terminology, tooling, manifest, inventory, prior evidence, public-source or .claude change.",
+    "Do not hardcode FIREBURN duration into either polymorphic elemental-trap template.",
+    "Do not make a preference-only punctuation or radius wording edit to the accepted 范围 %d rendering.",
+    "No claim that Orcs source is commit-pinned; only its inspected file hash is matched.",
+    "No claim that the incoming total guarantees an unchanged standalone per-turn schedule after BURNING merge or downstream mitigation."
+  ]
+}
