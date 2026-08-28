@@ -26106,8 +26106,8 @@ t([[Activate the rune to fire a bolt of ice, doing %0.2f cold damage with a chan
 t("%d cold damage", "%d 寒冷伤害", "tformat")
 t("Rune: Heat Beam", "符文：热能射线", "talent name")
 t([[Activate the rune to fire a beam of heat, doing %0.2f fire damage over 5 turns
-		The intensity of the heat will also remove one random detrimental physical effect from you.]], [[激活这个符文发射一束射线，造成 %0.2f 火焰伤害持续 5 回合。
-		高温同时会解除你受到的一个负面物理状态。]], "tformat")
+		The intensity of the heat will also remove one random detrimental physical effect from you.]], [[激活这个符文发射一束热能射线，在 5 回合内总计造成 %0.2f 火焰伤害。
+		高温同时会随机解除你受到的一个负面物理状态。]], "tformat")
 t("%d fire damage", "%d 火焰伤害", "tformat")
 t("Rune: Speed", "符文：加速", "talent name")
 t("Activate the rune to increase your global speed by %d%% for %d turns.", "激活这个符文提高全局速度 %d%% 持续 %d 回合。", "tformat")
@@ -29836,7 +29836,7 @@ section "mod-tome/data/talents/spells/war-alchemy.lua"
 
 t("Heat", "加热", "talent name")
 t([[Turn part of your target into fire, burning the rest for %0.2f fire damage over 8 turns.
-		The damage will increase with your Spellpower.]], [[将你的敌人化为火焰，在8回合内造成 %0.2f 火焰伤害。
+		The damage will increase with your Spellpower.]], [[将目标的一部分化为火焰，令其余部分燃烧，并在 8 回合内总计造成 %0.2f 火焰伤害。
 		伤害受法术强度加成。]], "tformat")
 
 ------------------------------------------------

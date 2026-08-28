@@ -1,0 +1,1584 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-fireburn-explicit-duration-b1-001",
+  "kind": "frozen_fireburn_explicit_duration_sampling_workset",
+  "frozen_at": "2026-08-28T10:25:08Z",
+  "inventory_origin": {
+    "commit": "a68cbede82a5f0ab112451a4ccc41fadc05948cd",
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "reference_ids": [
+      "fireburn-ref-026",
+      "fireburn-ref-028",
+      "fireburn-ref-035"
+    ],
+    "risk_class": "appears_consistent"
+  },
+  "translation_baseline": {
+    "head": "632ebe5ca48846f149e7972471061fc829d65326",
+    "file": "mod-tome.lua",
+    "file_sha256": "aa94c47ed533ebcadf7637a90984c8cde1a59a5e85596daef9c6e3164d3bc197",
+    "component": "tome",
+    "version": "tome-1.7.6"
+  },
+  "section_freezes": [
+    {
+      "component": "tome",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "resolver_contract": "tome4-context-v2",
+      "tool_version": "0.5.0",
+      "limit": 500,
+      "selected": 119,
+      "available": 119,
+      "lexical_t_call_count": 119,
+      "context_id": "7769a161f0f4410b0b88decbe94eb488a0d4cc8cdbc0053836d99201652ab0b2",
+      "content_sha256": "1e4d8c7504961173fe7203bd28ea132e3a99f25ac3629a4ffe93dfd5db8647f8",
+      "canonical_sha256": "aa94c47ed533ebcadf7637a90984c8cde1a59a5e85596daef9c6e3164d3bc197",
+      "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+      "terminology_sha256": "96783486cf8790762fcab2e2379dfc0b3e13a50ca055410960395bcab1f9065c",
+      "terminology": [
+        {
+          "category": "T.RUNTIME.LOG",
+          "matched_entry_ids": [
+            "c8d4b675b2f9d58fef29e6c482afe6237261ada279fb549e0a521a02cb745694"
+          ],
+          "notes": "通用抵抗日志（18 处）",
+          "scope": "global",
+          "source": "%s resists!",
+          "source_tag": "logSeen",
+          "status": "preferred",
+          "target": "%s抵抗了效果！"
+        },
+        {
+          "category": "T.GAME.STAT",
+          "matched_entry_ids": [
+            "c3f14b147ab947e74c03588272aeee1ba13b04ac8df2c87da1c42d1d0b2a319a"
+          ],
+          "notes": "格式化状态说明中的句首机制名；与小写 global speed 统一",
+          "scope": "core",
+          "source": "Global speed",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "全局速度"
+        },
+        {
+          "category": "T.GAME.STAT",
+          "matched_entry_ids": [
+            "c3f14b147ab947e74c03588272aeee1ba13b04ac8df2c87da1c42d1d0b2a319a"
+          ],
+          "notes": "技能与状态说明中的全局行动速度机制；不写作“整体速度”或“全体速度”",
+          "scope": "core",
+          "source": "global speed",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "全局速度"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "bae1a1b1f2d831c0fabdc00bfb92b697992aa848e4d38efdcaf0105fd1560a64",
+            "c8e956299a0e05eb2f233eb0383926be479f170db49f6648efca80993332f410"
+          ],
+          "notes": "1.8beta 统一 Wild infusion 的译名",
+          "scope": "core",
+          "source": "Infusion: Wild",
+          "source_tag": "talent name",
+          "status": "preferred",
+          "target": "纹身：野性"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "c8e956299a0e05eb2f233eb0383926be479f170db49f6648efca80993332f410"
+          ],
+          "notes": "与 1.8beta 统一为“野性生长”",
+          "scope": "core",
+          "source": "Infusion: Wild Growth",
+          "source_tag": "talent name",
+          "status": "preferred",
+          "target": "纹身：野性生长"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "37ce55c832723fcd7143512322dc0184873f1c276aeca071bc7961a263f76648"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "Lightning",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "闪电术"
+        },
+        {
+          "category": "T.GAME.STAT",
+          "matched_entry_ids": [
+            "b1738904dbc5cc1ee35774a12af087c4dec36c4050ef7673b1904f9a8d7d35dc"
+          ],
+          "notes": "技能与物品机制说明中的精神强度属性；与 Willpower“意志”区分",
+          "scope": "multi",
+          "source": "Mindpower",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "精神强度"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "22936311d63afe6485aaf416de85897826fd63769f0129898bf2c7635f8856dc",
+            "38c5e1681027c108877e4bcd9a7bfb693be76295958372fec1f2b763835d69b4"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "Phase Door",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "相位之门"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "33acd43f66a3790227e8c17e33b1c00b6f92cc1d672a824ab6a2da9b1a88a31f"
+          ],
+          "notes": "与 1.8beta 统一为“酸浪”",
+          "scope": "core",
+          "source": "Rune: Acid Wave",
+          "source_tag": "talent name",
+          "status": "preferred",
+          "target": "符文：酸浪"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "b30f8de3d890058cffaec2634da197e0719a0a09e4a9af09122ef60344cfded8"
+          ],
+          "notes": "与 1.8beta 统一为“冰风”",
+          "scope": "core",
+          "source": "Rune: Biting Gale",
+          "source_tag": "talent name",
+          "status": "preferred",
+          "target": "符文：冰风"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "8b03976994f30eed432f114db9db41439c3da7fa131f0ab21d9cfb17181718d0"
+          ],
+          "notes": "与 1.8beta 统一为“消散”",
+          "scope": "core",
+          "source": "Rune: Dissipation",
+          "source_tag": "talent name",
+          "status": "preferred",
+          "target": "符文：消散"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "bab6679a3f63aca963f5c3b65d02c2a4ac6e342cb33413fd0b8d048c580d44dd"
+          ],
+          "notes": "与 1.8beta 统一为“法力涌动”",
+          "scope": "core",
+          "source": "Rune: Manasurge",
+          "source_tag": "talent name",
+          "status": "preferred",
+          "target": "符文：法力涌动"
+        },
+        {
+          "category": "T.UI.LABEL",
+          "matched_entry_ids": [
+            "886d1122049eb7ec0b112edab262f2009a2c6ae9343332851ac219f725f553d2"
+          ],
+          "notes": "召唤界面/技能按钮（18 处）；与召唤师职业名区分",
+          "scope": "global",
+          "source": "Summon",
+          "source_tag": "_t",
+          "status": "preferred",
+          "target": "召唤"
+        }
+      ],
+      "items": [
+        {
+          "entry_id": "e2c3c60aca9f355c061b3b291a6dd257a074482231193dc6196d8d8b1f90458a",
+          "line": 25959,
+          "source": "- will only auto use when no saturation effect exists",
+          "target": "- 只会在没有饱和效果时自动使用。",
+          "source_tag": "_t",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "c9c870fc0b453f5de573d5726d3b251af4485b2906703ed0761e0abb6bdbaebc",
+          "line": 25960,
+          "source": "\nIts effects scale with your %s stat.",
+          "target": "\n效果随你的%s属性提升。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "4d02739739516ec2adbf9de41fb99a20b9b55c5a6408f973e4577bef9a859773",
+          "line": 25963,
+          "source": "Infusion: Regeneration",
+          "target": "纹身：回复",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "8675244c04bf23fb878a8dbe7d847c14e79cd36c2d669038dd25597efb386236",
+          "line": 25964,
+          "source": "Activate the infusion to heal yourself for %d life over %d turns.",
+          "target": "激活纹身治疗你自己 %d 生命值，持续 %d 回合。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "d5040805256c719d487e9bad2b62b607127bcd1b7d68e2922bc219c78b53e4d8",
+          "line": 25965,
+          "source": "heal %d; %d cd",
+          "target": "治疗 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "b0076fd8086bb2fb46dbfe9f01b81aafceb3700afbe1d3c36872587f98d1d0f0",
+          "line": 25966,
+          "source": "Infusion: Healing",
+          "target": "纹身：治疗",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "352e2d1620c427fdeca922c2a5f687f6c0044d4596665a35e3428f6f1ef7f478",
+          "line": 25967,
+          "source": "Activate the infusion to instantly heal yourself for %d then cleanse 1 wound, poison, and disease effect.",
+          "target": "激活纹身立即治疗你 %d 生命值，然后去除一个创伤、毒素和疾病效果。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "d88dfc502cd1fac7a669ee11f1124a57a016d8b8a6b2d89d8c2d550e16c284d0",
+          "line": 25968,
+          "source": "heal %d; cd %d",
+          "target": "治疗 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "bae1a1b1f2d831c0fabdc00bfb92b697992aa848e4d38efdcaf0105fd1560a64",
+          "line": 25969,
+          "source": "Infusion: Wild",
+          "target": "纹身：野性",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "2b7b575c30ba504d53e4661ad3817457c7d802b2d45a9e49d79367e4f629fddf",
+          "line": 25970,
+          "source": "%s is cured!",
+          "target": "%s 被治愈！",
+          "source_tag": "logSeen",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "b71bf2870870c5fdb8d987d7b2a6084c77931ef24d06c6947954c6c8e4d1f21e",
+          "line": 25971,
+          "source": " and ",
+          "target": "和",
+          "source_tag": "_t",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "436ea53c2670d37c32e14d29eaf51d2fce1833e9d99308bd13bc0ac4001bc33b",
+          "line": 25972,
+          "source": "Activate the infusion to cure yourself of one random %s effect and reduce all damage taken by %d%% for %d turns.\nAlso removes cross-tier effects of the affected types for free.",
+          "target": "激活纹身解除你随机一个 %s 效果并减少受到的所有伤害 %d%%，持续 %d 回合。\n同时除去对应类型的越层效果（失去平衡、法术冲击和思维封锁）。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "5242811dbe5a3ac43614ac90310930ad1cc1256ba6581fd2765dca00c29c837d",
+          "line": 25975,
+          "source": "res %d%%; %s; dur %d; cd %d",
+          "target": "减伤 %d%%; 解除 %s; 持续 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "a36d48cb3a3cc5a1f5accba0c856ac20822bc429f39760a955bae8678b1df6a5",
+          "line": 25976,
+          "source": "Infusion: Primal",
+          "target": "纹身：原初",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "10baeeb448ea3f8e982b5bf07a0a179f0065431f48ca993a844bd6cdb424a0cb",
+          "line": 25977,
+          "source": "Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.",
+          "target": "激活这个纹身，你受到的伤害将部分转化为治疗（在伤害减免之前计算），转化比例为 %d%%。此外，每回合减少一个随机负面效果的持续时间 %d 回合，持续 %d 回合。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "59aa530a80764d07867e1b4102fc800110127332b79db83191bd2e945f5e2096",
+          "line": 25978,
+          "source": "affinity %d%%; reduction %d; dur %d; cd %d",
+          "target": "伤害吸收 %d%%; 减少 %d; 持续 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "5c1d8b30ed30d7dabb9bade1745b32862d18eba1924e1db25202ee61b762358d",
+          "line": 25979,
+          "source": "Infusion: Movement",
+          "target": "纹身：移动",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "aa71c6cdc55b195639eab8a8318243740e746ecb69c023c653e0f99da981d3b1",
+          "line": 25980,
+          "source": "Activate the infusion to increase movement speed by %d%% for 1 game turn.\n\t\tYou gain 100%% stun, daze, and pin immunity during the effect.\n\t\tAny actions other than movement will cancel the effect.\n\t\tNote: since you will be moving very fast, game turns will pass very slowly.",
+          "target": "激活这个纹身可以在 1 个游戏回合内提升移动速度 %d%%。\n\t\t同时获得 100%% 眩晕、震慑和定身免疫。\n\t\t除移动以外其他动作会取消这个效果。\n\t\t注意：由于你的速度非常快，游戏回合会相对很慢。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "dd32dc972dea8a14e0b1a824cb30df82b7b44892de1c1e962ebf2c6b4ce8f8a9",
+          "line": 25987,
+          "source": "speed %d%%; cd %d",
+          "target": "%d%% 加速 ; %d 冷却",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "38200e3f8111d5406bb2a59d7a1204cef063ee3610aaa5eda63e6c1ac91f840a",
+          "line": 25988,
+          "source": "Infusion: Heroism",
+          "target": "纹身：英勇",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "0c9f67548e1f7fd4936a83df158d310dd9000d4d374d004dc9f9324da649043b",
+          "line": 25989,
+          "source": "Activate the infusion to endure even the most grievous of wounds for %d turns.\n\t\tWhile Heroism is active, you will only die when reaching -%d life.\n\t\tThe duration and life will increase by 1%% for every 1%% life you have lost (currently %d life, %d duration)\n\t\tIf your life is below 0 when this effect wears off it will be set to 1.",
+          "target": "激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。\n\t\t当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。\n\t\t你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%。\n\t\t（目前 %d 生命值， %d 持续时间）\n\t\t效果结束时，如果你的生命值在 0 以下，会变为 1 点。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "54b397be81adf6170e246e302474cd135774ad0b7729448c3ac2150f1f5c3f9e",
+          "line": 25997,
+          "source": "die at -%d; dur %d; cd %d",
+          "target": "-%d 死亡底线; 持续 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "c8e956299a0e05eb2f233eb0383926be479f170db49f6648efca80993332f410",
+          "line": 25998,
+          "source": "Infusion: Wild Growth",
+          "target": "纹身：野性生长",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "302a40513b2547a4c4287d005af8c3cc2658a6fb551e7c9de28e6f90b034abba",
+          "line": 25999,
+          "source": "Causes thick vines to spring from the ground and entangle all targets within %d squares for %d turns, pinning them in place for 5 turns and dealing %0.2f physical damage and %0.2f nature damage.\n\t\tThe vines also grow all around you, increasing your armour by %d and armour hardiness by %d.",
+          "target": "从土地中召唤坚硬的藤蔓，缠绕 %d 格范围内所有生物，持续 %d 回合。将其定身 5 回合，并造成 %0.2f 物理伤害和 %0.2f 自然伤害。\n\t\t藤蔓也会生长在你的身边，增加 %d 护甲和 %d 护甲强度。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "37473189d6307ea05b27f08e2ea657734e4eb1b28c1eafdc4907ee9c5238dff4",
+          "line": 26002,
+          "source": "rad %d; dur %d;",
+          "target": "范围 %d 持续 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "257986a261659edd78d0cb1988ef9758eb02917614542430e4ef5a992f4ec0b7",
+          "line": 26003,
+          "source": "Rune: Teleportation",
+          "target": "符文：传送",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "274fa8074de9a14bb603c7f351b828bebe0c5d4b50ce66e67fae59d7278f7fd6",
+          "line": 26004,
+          "source": "Activate the rune to teleport randomly in a range of %d with a minimum range of 15.",
+          "target": "激活这个符文随机传送 %d 码范围内位置，至少传送 15 码以外。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "ae1ef16f76bde94d1910f722d40b50291fb9bbfb1f25bc6aaca7c847de4687e3",
+          "line": 26005,
+          "source": "range %d; cd %d",
+          "target": "范围 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "24981f910acdea8b840bc6d162584bfa76f459ce7e17eac80c1676c3eb9847e5",
+          "line": 26006,
+          "source": "Rune: Shielding",
+          "target": "符文：护盾",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "a44f30808a05063bfb5d1a5b236b1774f12bc028d69b204aa5f3a53266bd9a71",
+          "line": 26007,
+          "source": "Activate the rune to create a protective shield absorbing at most %d damage for %d turns.",
+          "target": "激活这个符文产生一个防护护盾，吸收最多 %d 伤害持续 %d 回合。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "214b7efbad776b43d05ede78e943b57843dcd937a14992d8ce659025d29bbfe2",
+          "line": 26008,
+          "source": "absorb %d; dur %d; cd %d",
+          "target": "吸收 %d; 持续 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "92cd8fbe1b2915dd513ed082b104c20730d362024936ea7b2924da3a494a38b3",
+          "line": 26009,
+          "source": "Rune: Reflection Shield",
+          "target": "符文：反射护盾",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "eacc6da13bdb983830e1d7ee2b9fc657ab1eefc1b902c44879390e097bd8a8ec",
+          "line": 26010,
+          "source": "Activate the rune to create a protective shield absorbing and reflecting at most %d damage for %d turns.",
+          "target": "激活这个符文产生一个防御护盾，吸收并反弹最多 %d 伤害值，持续 %d 回合。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "da6fa665ecbb42c94e49064e64b51a8b93165f216cfdf23b29ec6437fb7243ab",
+          "line": 26011,
+          "source": "absorb and reflect %d; dur %d; cd %d",
+          "target": "吸收并反弹 %d 持续 %d ; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "b30f8de3d890058cffaec2634da197e0719a0a09e4a9af09122ef60344cfded8",
+          "line": 26012,
+          "source": "Rune: Biting Gale",
+          "target": "符文：冰风",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "3465be1b501cb836d20cfaaa2c6f9d62b55eff10201e4f8728bd026b840f191e",
+          "line": 26013,
+          "source": "Activate the rune to direct a cone of chilling stormwind doing %0.2f cold damage.\n\t\t\tThe storm will soak enemies hit reducing their resistance to stuns by 50%% then attempt to freeze them for %d turns.\n\t\t\tThese effects can be resisted but not saved against.",
+          "target": "激活这个符文，形成一股锥形寒风，造成 %0.2f 寒冷伤害。\n\t\t\t寒风会浸湿被击中的敌人，使其震慑抗性降低 50%%，并试图冻结他们 %d 回合。\n\t\t\t效果可以被抵抗，但不能被豁免",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "b4975304edd9a042ba6a51a1a811a7c8e7a0db7a7a6d769133f94a92a507dc53",
+          "line": 26018,
+          "source": "damage %d; dur %d; cd %d",
+          "target": "伤害 %d; 持续 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "33acd43f66a3790227e8c17e33b1c00b6f92cc1d672a824ab6a2da9b1a88a31f",
+          "line": 26019,
+          "source": "Rune: Acid Wave",
+          "target": "符文：酸浪",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "9a23f3ccd6497ba1a6b0fe8871a3aacc032441a7ffc7f46894d8446bf8d72ffd",
+          "line": 26020,
+          "source": "Activate the rune to unleash a cone dealing %0.2f acid damage.\n\t\t\tThe corrosive acid will also disarm enemies struck for %d turns.\n\t\t\tThis effect can be resisted but not saved against.",
+          "target": "发射锥形酸浪，造成 %0.2f 酸性伤害。\n\t\t\t腐蚀性酸液会缴械目标 %d 回合。\n\t\t\t效果可以被抵抗，但不能被豁免。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "bab6679a3f63aca963f5c3b65d02c2a4ac6e342cb33413fd0b8d048c580d44dd",
+          "line": 26025,
+          "source": "Rune: Manasurge",
+          "target": "符文：法力涌动",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "8b72aec2d2ec22d3a80879e0dce1c6b322b9ffe09112bf35af3328f6322b8548",
+          "line": 26026,
+          "source": "Your negative mana regeneration rate is unaffected by the rune.",
+          "target": "你的负法力回复率不受符文影响。",
+          "source_tag": "logPlayer",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "cef6837719283139ebbf62bf219c64f9fe52e97ddca035bf719b84cccb76af9f",
+          "line": 26027,
+          "source": "Your nonexistant mana regeneration rate is unaffected by the rune.",
+          "target": "你没有法力回复率，不受符文影响。",
+          "source_tag": "logPlayer",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "2a864b71e0cda5e6ddffe289aec696fb83a990040333cbfc0c94ebd413d82838",
+          "line": 26028,
+          "source": "Activate the rune to unleash a manasurge upon yourself, increasing mana regeneration by %d%% for %d turns (%d total) and instantly restoring %d mana.\n\t\t\tAlso when resting your mana will regenerate at 0.5 per turn.",
+          "target": "激活这个符文对你自己释放法力回复，增加法力回复 %d%%，持续 %d 回合（总计 %d），并立即回复 %d 点法力值。\n\t\t\t同时，在你休息时法力值每回合回复 0.5。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "5016f9999c6f9ce2702d4f4bc22808c8f47bb3dfc396de6e16614ab61a879345",
+          "line": 26031,
+          "source": "regen %d%% over %d turns; mana %d; cd %d",
+          "target": "回复 %d%% 持续 %d 回合 ; %d 法力瞬回; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "29783f09fd6d583a90d1dff7b87843aaf4dde7961b7204703aaaeedb0fb0ccf6",
+          "line": 26032,
+          "source": "Rune of the Rift",
+          "target": "符文：时空裂隙",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "45d5b6ca80bed12d74739b893f708d21195a1fd91f94b3754219ee42f259e094",
+          "line": 26033,
+          "source": "%s is immune!",
+          "target": "%s 免疫了!",
+          "source_tag": "logSeen",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "c8d4b675b2f9d58fef29e6c482afe6237261ada279fb549e0a521a02cb745694",
+          "line": 26034,
+          "source": "%s resists!",
+          "target": "%s抵抗了效果！",
+          "source_tag": "logSeen",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "72d0be165b9a8cfe18950e9b98857f8f716c26831d257daa628d3bea658a0688",
+          "line": 26035,
+          "source": "Something has prevented the timetravel.",
+          "target": "某物阻止了时空旅行",
+          "source_tag": "logPlayer",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "6f1999b548afaad4b5404d776965ef47a579a88ffb9d636edaf5dbb9bdb93f08",
+          "line": 26036,
+          "source": "temporal instability",
+          "target": "时间不稳定性",
+          "source_tag": "_t",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "01429f3f501f59354e6a36db1cf74a61d88477f559a56c4c397064392d41b6b1",
+          "line": 26037,
+          "source": "%s has moved forward in time!",
+          "target": "%s的时间向前推移！",
+          "source_tag": "logSeen",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "83f707318be56fb9eee8bb8f45112b6dda4c1a34b02935a384c771d2e945e661",
+          "line": 26038,
+          "source": "Inflicts %0.2f temporal damage.  If your target survives, it will be sent %d turns into the future.\n\t\tIt will also lower your paradox by 25 (if you have any).\n\t\tNote that messing with the spacetime continuum may have unforeseen consequences.",
+          "target": "造成 %0.2f 时空伤害。如果你的目标存活，则它会被传送 %d 回合至未来。\n\t\t它还会使你的紊乱值降低 25（如果你拥有紊乱值）。\n\t\t注意，干扰时空连续体可能产生无法预料的后果。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "10f994d49991ec5bae896d42e5ef7468b392bdd89d81b1c0a945722bdce9a1f6",
+          "line": 26043,
+          "source": "%0.2f temporal damage, removed from time %d turns",
+          "target": "%0.2f 时空伤害，从时间中移除 %d 回合",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "45e3a39694cd2a8595e380ccac765f6f079811380629bb6e7edd20104cc37a9a",
+          "line": 26044,
+          "source": "Rune: Blink",
+          "target": "符文：闪烁",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "224ca566d748693b1eec66ea7900de0c961448fc585cfda32552a1341b6c7e7d",
+          "line": 26045,
+          "source": "Activate the rune to teleport up to %d spaces within line of sight.  Afterwards you stay out of phase for %d turns. In this state all new negative status effects duration is reduced by %d%%, your defense is increased by %d and all your resistances by %d%%.",
+          "target": "激活符文，传送到视野内 %d 格内的指定位置。之后，你会脱离相位 %d 回合。在这种状态下，所有新的负面效果的持续时间减少 %d%%，你的闪避增加 %d ，你的全体伤害抗性增加 %d%%。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "4de9e551dfa9912fe899570859ab716892940a83a49b644b2640989dd722c860",
+          "line": 26046,
+          "source": "range %d; phase %d; cd %d",
+          "target": "范围 %d; 相位 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "359bdfe3c879deb3bdacd60a7a15f2bae37e9ff72b50ecdf1356da76012976ca",
+          "line": 26047,
+          "source": "Rune: Ethereal",
+          "target": "符文：虚幻",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "4b8784674965e00e0065832107d693926f937a3ffff43737e427181162806af0",
+          "line": 26048,
+          "source": "Activate the rune to become ethereal for %d turns.\n\t\tWhile ethereal all damage you deal is reduced by %d%%, you gain %d%% all resistance, you move %d%% faster, and you are invisible (power %d).",
+          "target": "启动符文，使你变得虚幻，持续 %d 回合。\n\t\t在虚幻状态下，你造成的伤害减少 %d%%，你获得 %d%% 全体伤害抗性，你的移动速度提升 %d%%，你获得隐形 (强度 %d )。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "8da3364bfc67bf5ac26778200a0ed803f3799523f0f3d4557f69fe53a30646c7",
+          "line": 26051,
+          "source": "power %d; resist %d%%; move %d%%; dur %d; cd %d",
+          "target": "强度 %d; 抗性 %d%%; 移动 %d%%; 持续 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "77b29617b05e32f757791e717ff403fbef8354d1b131cf1e910cb3e50040bd16",
+          "line": 26052,
+          "source": "Rune: Stormshield",
+          "target": "符文：风暴护盾",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "03abba0325b8422368313c2aaa3b11484dd911da5cbd02e09f6d7c747afd888e",
+          "line": 26053,
+          "source": "Activate the rune to summon a protective storm around you for %d turns.\n\t\t\tWhile active the storm will completely block all damage over %d up to %d times.",
+          "target": "启动这个符文，在你的身边召唤一团保护性的风暴，持续 %d 回合。\n\t\t\t当符文生效时，风暴可以抵挡大于 %d 的任何伤害最多 %d 次。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "5e99a6b6b67c428f81b37f09f94c551017c87354aad2acd930cac2d833e6a183",
+          "line": 26056,
+          "source": "threshold %d; blocks %d; dur %d; cd %d",
+          "target": "阈值 %d; 次数 %d; 持续 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "7a606659bd530302ba88ae8882e0baaa026149da824f96b419a381da612bcbf9",
+          "line": 26057,
+          "source": "Rune: Prismatic",
+          "target": "符文：棱彩",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "4049e6e6e7f5f9efddba4cda0bf943237525f54b0fc9431fa822ef839a0fa595",
+          "line": 26058,
+          "source": "Activate the rune to create a shield for %d turns blocking several instances of damage of the following types:%s",
+          "target": "激活符文展开一个护盾，在 %d 回合内，按次数抵挡以下类型的伤害 : %s",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "c9958bc4e74669c4753da2821164d143c6c9d080e16f6e86b61b23131dbfeffe",
+          "line": 26059,
+          "source": "%d turns; %s",
+          "target": "%d 回合; %s",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "db83b198ceab25a648c92463320648b38214d47f0b2204a3cec54cb612413b9a",
+          "line": 26060,
+          "source": "Rune: Mirror Image",
+          "target": "符文：镜像",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "ac1185aaec43bc98afb3a7abba5ef9c900fa7a0ea47ec9f5b1160734f5f1198a",
+          "line": 26061,
+          "source": "You cannot summon; you are suppressed!",
+          "target": "你不能召唤，你被压制了！",
+          "source_tag": "logPlayer",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "7879894ebc7e0f9dfdb550eaba45ea667945dbfe98a8145cbe051bf2c120586c",
+          "line": 26062,
+          "source": "Mirror Image",
+          "target": "镜像",
+          "source_tag": "_t",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "d01bd7b838f792b92f566b99520eae135ac251c9d5c7f1084e14f62aaee3efe1",
+          "line": 26063,
+          "source": "A blurred image.",
+          "target": "一个模糊的镜像。",
+          "source_tag": "_t",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "886d1122049eb7ec0b112edab262f2009a2c6ae9343332851ac219f725f553d2",
+          "line": 26064,
+          "source": "Summon",
+          "target": "召唤",
+          "source_tag": "_t",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "325031ae20b39bfea3920952ca1a31d6d63d8e6461cd6bfa1630d3c74781e256",
+          "line": 26065,
+          "source": "Activate the rune to create up to 3 images of yourself that taunt nearby enemies each turn and immediately after being summoned.\n\t\t\tOnly one image can be created per enemy in radius 10 with the first being created near the closest enemy.\n\t\t\tImages inherit all of your life, resistance, armor, defense, and armor hardiness.",
+          "target": "激活符文，最多召唤你的 3 个镜像，镜像会在每回合以及被召唤后立即嘲讽附近的敌人。\n\t\t\t在半径 10 范围内每有一个敌人才能召唤一个镜像，第一个镜像会被召唤在最近的敌人旁边。\n\t\t\t镜像继承你的生命值、抗性、护甲、闪避和护甲强度。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "998298e589950d2f378274862a09ad659b3cce020d09720f2c056b353d086c8d",
+          "line": 26070,
+          "source": "dur %d; cd %d",
+          "target": "持续 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "80747782a3864b491a8b9a2394a902efb971fb542e190cc8baddbd71c410dabe",
+          "line": 26071,
+          "source": "Rune: Shatter Afflictions",
+          "target": "符文：粉碎痛苦",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "4fe8531223ec3f00134190a3e8d8585ef8d4a1384fb858df4235d0ac679704fb",
+          "line": 26072,
+          "source": "Activate the rune to instantly dissipate the energy of your ailments, cleansing all cross tier effects and 1 physical, mental, and magical effect.\n\t\tYou use the dissipated energy to create a shield lasting %d turns and blocking %d damage per debuff cleansed (not counting cross-tier ones).\n\t\tIf there were only cross-tier effects to cleanse, no shield is created and the rune goes on a 75%% reduced cooldown.",
+          "target": "激活符文，立刻清除你身上的负面效果。\n\t\t清除所有越层效果（失去平衡、法术冲击和思维封锁），以及物理、精神和魔法负面效果各 1 个。\n\t\t你会获得一个护盾，持续 %d 回合，每清除一个非越层负面效果可抵挡 %d 点伤害。\n\t\t如果只清除了越层效果，不会产生护盾且冷却时间减少75%%。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "22d775ffaaa134ef601ce02248c6d4100fef825f4016759cfdab56b812006c27",
+          "line": 26078,
+          "source": "absorb %d; cd %d",
+          "target": "吸收 %d; 冷却 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "8b03976994f30eed432f114db9db41439c3da7fa131f0ab21d9cfb17181718d0",
+          "line": 26079,
+          "source": "Rune: Dissipation",
+          "target": "符文：消散",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "94eb6b149f9ea923b83a1c09141ddd616ddeaa0e88f8e7b0c0c254381710123f",
+          "line": 26080,
+          "source": "Activate the rune to remove 8 beneficial magical sustains from an enemy target or all magical debuffs from you.",
+          "target": "激活这个符文，从敌人身上移除 8 个正面魔法持续技能，或从自己身上移除所有魔法负面效果。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "609b9e57cf1de4ff297a36758219b546bc77b87b1cd59efed331f7e9ab5d7a5e",
+          "line": 26081,
+          "source": "Taint: Devourer",
+          "target": "堕落印记：吞噬",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "ee8c1a4802e3000f98977f6419c9e952e16df97083a691accd2eebec937941e3",
+          "line": 26082,
+          "source": "Activate the taint on a foe, removing up to %d magical or physical effects or sustains from it and healing you for %d for each effect.",
+          "target": "对目标激活此印记，至多移除其 %d 个魔法或物理效果或持续技能，每移除一个治疗你 %d 点生命值。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "da7067986e5f7252e93759d03ad355aec9ae08ea81429993f06320f37219c005",
+          "line": 26083,
+          "source": "%d effects / %d heal",
+          "target": "%d 效果 / %d 回复量",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "4bc2b0e837c0b6b32f9de622c4ee861f4e2a2e214db18d664cfb8e41f2b0ed86",
+          "line": 26084,
+          "source": "Taint: Purging",
+          "target": "堕落印记：清除",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "8d6d4ae374dc7dc10900efd2db22b1bf29f03454b4b8fb214291557b7f2c43c0",
+          "line": 26085,
+          "source": "Activate the taint to purge your body of physical afflictions for %d turns.\n\t\t\tEach turn the purge will attempt to cleanse 1 physical debuff from you, and if one is removed, increase its duration by 1.",
+          "target": "激活这个印记，清除你身上的物理负面效果，持续 %d 回合。\n\t\t\t每一回合，这个印记将会尝试从你的身上解除一个物理负面效果。\n\t\t\t如果它解除了一个负面效果，它的持续时间会增加 1 回合。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "3e3a2fea238e141ac04c7719baecebb93d2540ac88de257b7839501b5c44d504",
+          "line": 26089,
+          "source": "%d turns",
+          "target": "%d 回合",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "320bb9aa80e88f5fa87209a3e76b86ed36cf6edaf1636fc19aab2bea5979a0e6",
+          "line": 26090,
+          "source": "Infusion: Sun",
+          "target": "纹身：太阳",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "2dd212fede95866d1b3afee4ae761b9338e804c9516e9fe15bd04b97e069f3d9",
+          "line": 26091,
+          "source": "Activate the infusion to brighten the area in a radius of %d and illuminate stealthy creatures, possibly revealing them (reduces stealth power by %d).%s\n\t\tIt will also blind any creatures caught inside (power %d) for %d turns.",
+          "target": "激活这个纹身照亮半径为 %d 的区域和潜行单位，可能使潜行目标显形（降低 %d 潜行强度）。%s\n\t\t同时，区域内的生物会被致盲（强度 %d），持续 %d 回合。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "37b6e002d64bec588b91afc5146fdf8a521f3ff64e2879cf04ed14dade40e06c",
+          "line": 26094,
+          "source": "\nThe light is so powerful it will also banish magical darkness",
+          "target": "\n这一光芒是如此强大，它会消除魔法带来的黑暗。",
+          "source_tag": "_t",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "7c46b40e3d19eabfe6da92f5a72ab794d2250359e1f74713aa9288766a4ec043",
+          "line": 26097,
+          "source": "rad %d; power %d; turns %d%s",
+          "target": "范围 %d; 强度 %d; 持续 %d%s",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "a22383dca2423a62c259df0d27155978c37a57cb6b0bf95078d1c7b1f8c05450",
+          "line": 26098,
+          "source": "; dispels darkness",
+          "target": "; 驱散黑暗",
+          "source_tag": "_t",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "9a7846876a51918d0e9267bccb8ac4d60326bb0b80fb4e1811cfc7406a80cc08",
+          "line": 26099,
+          "source": "Taint: Telepathy",
+          "target": "堕落印记：感应",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "b1738904dbc5cc1ee35774a12af087c4dec36c4050ef7673b1904f9a8d7d35dc",
+          "line": 26100,
+          "source": "Strip the protective barriers from your mind for %d turns, allowing in the thoughts all creatures within %d squares but reducing mind save by %d and increasing your mindpower by %d for 10 turns.",
+          "target": "解除你的精神束缚 %d 回合，感应 %d 格范围内的所有生物；精神豁免降低 %d，精神强度提高 %d，持续 10 回合。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "56a6abe4b31552d2afff05c49465036fdbe3bcb1ada199f6f1e39010c2ddd7dd",
+          "line": 26101,
+          "source": "Range %d telepathy for %d turns",
+          "target": "范围 %d 码心灵感应持续 %d 回合。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "8feb6add0c4bc70da1b43c94876888f6508654b8f3d00f5efb8f024eff190a11",
+          "line": 26102,
+          "source": "Rune: Frozen Spear",
+          "target": "符文：冰枪",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "d85aae1033d8cd0b82180f32ed69b59e5da5f0f35c3918b177d0e286d2bce1d4",
+          "line": 26103,
+          "source": "Activate the rune to fire a bolt of ice, doing %0.2f cold damage with a chance to freeze the target.\n\t\tThe deep cold also crystalizes your mind, removing one random detrimental mental effect from you.",
+          "target": "激活这个符文发射一束冰枪，造成 %0.2f 寒冷伤害并有一定几率冻结你的目标。\n\t\t寒冰同时会解除你受到的一个随机负面精神状态。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "31834203640d2354eac4b1739e3ee884c33a66277fa85256db469d91a22fb59b",
+          "line": 26106,
+          "source": "%d cold damage",
+          "target": "%d 寒冷伤害",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "2c3bab91d3a7fb97e1f444ba1e541eac1fa5e884b469b0082c0a36350b06a90b",
+          "line": 26107,
+          "source": "Rune: Heat Beam",
+          "target": "符文：热能射线",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "8e6fc42b79c0f34c466986ea987619c3f510f3ab63c62ab551ff9d79c232d00f",
+          "line": 26108,
+          "source": "Activate the rune to fire a beam of heat, doing %0.2f fire damage over 5 turns\n\t\tThe intensity of the heat will also remove one random detrimental physical effect from you.",
+          "target": "激活这个符文发射一束射线，造成 %0.2f 火焰伤害持续 5 回合。\n\t\t高温同时会解除你受到的一个负面物理状态。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "a8705fc6d9990fe97aa253af11910bab5aafa7c4b23f66e7643d52c9db4e7e96",
+          "line": 26111,
+          "source": "%d fire damage",
+          "target": "%d 火焰伤害",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "64267058da38662efa38d63c02a23f00c29839b219a780a8c4a88a93614f9ea9",
+          "line": 26112,
+          "source": "Rune: Speed",
+          "target": "符文：加速",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "c3f14b147ab947e74c03588272aeee1ba13b04ac8df2c87da1c42d1d0b2a319a",
+          "line": 26113,
+          "source": "Activate the rune to increase your global speed by %d%% for %d turns.",
+          "target": "激活这个符文提高全局速度 %d%% 持续 %d 回合。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "e08d592eead9ae0a3c48bed5e276e0e6ea163085038972724cfeff7d2a73384e",
+          "line": 26114,
+          "source": "speed %d%% for %d turns",
+          "target": "提速 %d%% 持续 %d 回合",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "fe3ef284da7ef80eca04bf0d6ac3d69a0a7123c92872f16df45a6c79c70129a1",
+          "line": 26115,
+          "source": "Rune: Vision",
+          "target": "符文：视野",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "650784e739c25849465af14364bc383f9cbee278323aa9517b102f6236bcee24",
+          "line": 26116,
+          "source": "Activate the rune to get a vision of the area surrounding you (%d radius) and to allow you to see invisible and stealthed creatures (power %d) for %d turns.\n\t\tYour mind will become more receptive for %d turns, allowing you to sense any %s around.",
+          "target": "激活这个符文可以使你查看周围环境（ %d 有效范围），使你能看到隐身和潜行生物（ %d 强度），持续 %d 回合。\n\t\t你的精神会变得更加敏锐 %d 回合，让你能感知到周围的任何 %s。",
+          "source_tag": "tformat",
+          "args_order": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "special": null
+        },
+        {
+          "entry_id": "fb703fef6fc618fd0f1abc91c3e6628a6aeaf4f2b5d1210686d11dc74808f00c",
+          "line": 26119,
+          "source": "radius %d; dur %d; see %s",
+          "target": "范围 %d; 持续 %d; 感知 %s",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "22936311d63afe6485aaf416de85897826fd63769f0129898bf2c7635f8856dc",
+          "line": 26120,
+          "source": "Rune: Phase Door",
+          "target": "符文：相位之门",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "e33bea163d0d8ee6c98e4f1e0be5386d8a7d7320efe7f8557b65ded0148cd7c1",
+          "line": 26121,
+          "source": "Activate the rune to teleport randomly in a range of %d.\n\t\tAfterwards you stay out of phase for %d turns. In this state all new negative status effects duration is reduced by %d%%, your defense is increased by %d and all your resistances by %d%%.",
+          "target": "激活这个符文会使你在 %d 码范围内随机传送。\n\t\t之后，你会脱离相位 %d 回合，所有新的负面状态持续时间减少 %d%%，闪避增加 %d，全体伤害抗性增加 %d%%。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "b4df58642b92475d894109a4a52785da3ff570fe9ea944e83c135dc564d59ce0",
+          "line": 26124,
+          "source": "range %d; power %d; dur %d",
+          "target": "范围 %d; 强度 %d; 持续 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "38c5e1681027c108877e4bcd9a7bfb693be76295958372fec1f2b763835d69b4",
+          "line": 26125,
+          "source": "Rune: Controlled Phase Door",
+          "target": "符文：可控相位之门",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "c17c6d073d992e61820f41e5b20151f29191da3dcdaca869a40e149ae48a2412",
+          "line": 26126,
+          "source": "The targetted phase door fizzles and works randomly!",
+          "target": "指定的相位之门失效，改为随机传送！",
+          "source_tag": "logPlayer",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "19330d4f287d15008df578d92284fec1d1add16d5cd28c4d6b7f1564c2d2ea3d",
+          "line": 26127,
+          "source": "Activate the rune to teleport in a range of %d.",
+          "target": "激活这个符文，传送至 %d 码内的指定位置。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "f3e22461f430d1ca27889906991f6a4c646df3e2150f05bd603d9e37d20310d0",
+          "line": 26128,
+          "source": "range %d",
+          "target": "范围 %d",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "37ce55c832723fcd7143512322dc0184873f1c276aeca071bc7961a263f76648",
+          "line": 26129,
+          "source": "Rune: Lightning",
+          "target": "符文：闪电",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "9f05fd61b4f57d62ae2c40916f0ae86b0dee528866e7a314b85edc35013efa2f",
+          "line": 26130,
+          "source": "Activate the rune to fire a beam of lightning, doing %0.2f to %0.2f lightning damage.\n\t\tAlso transform you into pure lightning for %d turns; any damage will teleport you to an adjacent tile and ignore the damage (can only happen once per turn)",
+          "target": "激活这个符文发射一束闪电打击目标，造成 %0.2f 至 %0.2f 闪电伤害。\n\t\t同时会让你进入闪电形态 %d 回合：受到伤害时你会瞬移到附近的一格并防止此伤害，一回合只能触发一次。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "e6b9e764aeb9bffd56e6f8994dd64d7be294cfddfe0356062d891fab208b7b0b",
+          "line": 26133,
+          "source": "%d lightning damage",
+          "target": "%d 闪电伤害",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "f48018943f7fcd79258c608c2715b533d6e8002deb3907b4d5ba013fe44842b1",
+          "line": 26134,
+          "source": "Infusion: Insidious Poison",
+          "target": "纹身：阴险毒素",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "0a6df0370c5983b5b37b424cbbba29d87c41a6367b0618bb8e9b1090410bb0bd",
+          "line": 26135,
+          "source": "Activate the infusion to spit a bolt of poison doing %0.2f nature damage per turn for 7 turns, and reducing the target's healing received by %d%%.\n\t\tThe sudden stream of natural forces also strips you of one random detrimental magical effect.",
+          "target": "激活这个纹身会发射一个毒液弹造成每回合 %0.2f 自然伤害持续 7 回合，并降低目标受到的治疗效果 %d%%。\n\t\t突然涌动的自然力量会除去你受到的一个随机负面魔法效果。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "cc6b2ec1d462b3ff90ac4ce6abe5d1fe0ef71033e738e7d3ddd7936fb790ffb7",
+          "line": 26138,
+          "source": "%d nature damage, %d%% healing reduction",
+          "target": "%d 自然伤害，受到的治疗降低 %d%%",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "3c81241d9f4ff1a57713442e579d374b059ea659304a71504726384dce211731",
+          "line": 26139,
+          "source": "Rune: Invisibility",
+          "target": "符文：隐身",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "e725b9ccf63e5abaaec6d9fd8b5cc873ab5cb9d9f1b600c247eaaf20ca090a09",
+          "line": 26140,
+          "source": "Activate the rune to become invisible (power %d) for %d turns.\n\t\tAs you become invisible you fade out of phase with reality, all your damage is reduced by 40%%.\n\t\t",
+          "target": "激活这个符文使你变得隐形（ %d 隐形等级）持续 %d 回合。\n\t\t由于你的隐形使你从现实相位中脱离，你造成的所有伤害降低 40%%。\n\t\t",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "c0066a52da5a15762c96634fd27044bc2ddef7a983f2226024136b9a4bfc01e8",
+          "line": 26145,
+          "source": "power %d for %d turns",
+          "target": "强度 %d 持续 %d 回合",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "e8e8db43618e5d53ef44a80904d495f023b4cf10fb98e3544c5c27665d1c878e",
+          "line": 26153,
+          "source": "Activate the infusion to endure even the most grievous of wounds for %d turns.\n\t\tWhile Heroism is active, you will only die when reaching -%d life.\n\t\tThe duration and life will increase by 1%% for every 1%% life you have lost, to a maximum of 100%% at 0 life or less (currently %d life, %d duration)\n\t\tIf your life is below 0 when this effect wears off it will be set to 1.",
+          "target": "激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。\n\t\t当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。\n\t\t你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%，在生命值降至 0 或更低时最多提高 100%%。\n\t\t（目前 %d 生命值， %d 持续时间）\n\t\t效果结束时，如果你的生命值在 0 以下，会变为 1 点。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "section": "mod-tome/data/talents/psionic/focus.lua",
+      "resolver_contract": "tome4-context-v2",
+      "tool_version": "0.5.0",
+      "limit": 500,
+      "selected": 9,
+      "available": 9,
+      "lexical_t_call_count": 9,
+      "context_id": "3f94c5e2ef8e60cac9c3a63b15f094ddd02b867318b2623629d489e8bb44daaa",
+      "content_sha256": "0f74cd3a0140c6d7fc9ddef8a6a8eaac6a8660746324bb8639f2f21338937b59",
+      "canonical_sha256": "aa94c47ed533ebcadf7637a90984c8cde1a59a5e85596daef9c6e3164d3bc197",
+      "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+      "terminology_sha256": "96783486cf8790762fcab2e2379dfc0b3e13a50ca055410960395bcab1f9065c",
+      "terminology": [
+        {
+          "category": "T.GAME.STAT",
+          "matched_entry_ids": [
+            "6807f4bd1049ecfda399f6142314df71c1d6e4827088182b840cdf63cc063d72",
+            "18a5a8b77747aa6c04d0e88a684dad1fb3feb6c7187c03dd1899d5b40bb1c47e"
+          ],
+          "notes": "技能与物品机制说明中的精神强度属性；与 Willpower“意志”区分",
+          "scope": "multi",
+          "source": "Mindpower",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "精神强度"
+        }
+      ],
+      "items": [
+        {
+          "entry_id": "69010037c3904e95232fcb977b30cafeb6c50b1cf7403490f52150d67677eac0",
+          "line": 27436,
+          "source": "Mindlash",
+          "target": "心灵鞭笞",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "6807f4bd1049ecfda399f6142314df71c1d6e4827088182b840cdf63cc063d72",
+          "line": 27437,
+          "source": "Focus energies into a beam to lash all creatures in a line with physical force, doing %d Physical damage and knocking them off balance (-15%% damage penalty) for 2 turns.\n\t\tThe damage will scale with your Mindpower.",
+          "target": "汇聚能量形成一道光束鞭笞敌人，造成 %d 点物理伤害并使他们失去平衡两轮（-15%% 伤害）。\n\t\t伤害受精神强度加成。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "47d7295d748df32356b6dfcb3e9c6031005810e5984d7741714a85fdd23dbdc7",
+          "line": 27440,
+          "source": "Pyrokinesis",
+          "target": "意念燃烧",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "932be4b4423c7130666faf4f4bda3eb5ae297ca9ccef4aa29c14a29acf9940ca",
+          "line": 27441,
+          "source": "Telekinetically energize the matter of all foes within %d squares at the molecular level, setting them ablaze. This does %0.1f fire damage over six turns.",
+          "target": "对 %d 范围内的所有敌人，用意念使组成其身体的分子活化并引燃他们，在 6 回合内造成 %0.1f 火焰伤害。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "b3764955e2a1b4c183e63a0c2e1574eae0a879d3036aa46bffbac80ef605c7ac",
+          "line": 27442,
+          "source": "Brain Storm",
+          "target": "头脑风暴",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "18a5a8b77747aa6c04d0e88a684dad1fb3feb6c7187c03dd1899d5b40bb1c47e",
+          "line": 27443,
+          "source": "Mentally focus electricity into a ball of plasma and hurl it at the target.\n\t\tThe plasma will explode on impact, dealing %0.1f Lightning damage within radius %d.\n\t\tThis talent will apply cross tier Brainlock.\n\t\tThe damage will increase with your Mindpower.",
+          "target": "念力电离空气，将等离子体球掷向敌人。\n\t\t等离子球命中后爆炸，对半径 %d 内的敌人造成 %0.1f 点闪电伤害。\n\t\t此技能将施加越层效果“思维封锁”。\n\t\t伤害受精神强度加成。",
+          "source_tag": "tformat",
+          "args_order": [
+            2,
+            1
+          ],
+          "special": null
+        },
+        {
+          "entry_id": "f0e69aaa98cc80e64c5f3dec5fbc75974e0809d5a325abea28ae89cc41edaea6",
+          "line": 27450,
+          "source": "Iron Will",
+          "target": "钢铁意志",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "d527f4c0ae4ad58c4f5a6e6f0e033b9bebee2717f24006c7ada5b01a2ef683cc",
+          "line": 27451,
+          "source": "#ORCHID#%s has recovered!",
+          "target": "#ORCHID#%s 已经恢复！",
+          "source_tag": "logSeen",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "da461247ee0fe70091d991cd6c7f72a345fcab1d4efbf1f1dda97aa3caa3a44a",
+          "line": 27452,
+          "source": "Your Iron Will improves your stun immunity by %d%% and gives you a %d%% chance of recovering from a random mental effect each turn.",
+          "target": "钢铁意志提高 %d%% 震慑免疫，并使得你每回合有 %d%% 的几率从随机一个精神效果中恢复。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "section": "mod-tome/data/talents/spells/war-alchemy.lua",
+      "resolver_contract": "tome4-context-v2",
+      "tool_version": "0.5.0",
+      "limit": 500,
+      "selected": 2,
+      "available": 2,
+      "lexical_t_call_count": 2,
+      "context_id": "32158ff68e5d8f0eebed1b987b8202d96cd9a8b9d9133427fda85c837ece561b",
+      "content_sha256": "a7c735314f67f4da8bab0de3c98b2194d52b9fef9177e5ea873b194417baa314",
+      "canonical_sha256": "aa94c47ed533ebcadf7637a90984c8cde1a59a5e85596daef9c6e3164d3bc197",
+      "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+      "terminology_sha256": "96783486cf8790762fcab2e2379dfc0b3e13a50ca055410960395bcab1f9065c",
+      "terminology": [],
+      "items": [
+        {
+          "entry_id": "5aaeade5aae84ae6691e7398019d927cdc4d1b86c531d40f722f50944ec03619",
+          "line": 29837,
+          "source": "Heat",
+          "target": "加热",
+          "source_tag": "talent name",
+          "args_order": null,
+          "special": null
+        },
+        {
+          "entry_id": "cac04085a7ace80deb8676209ad117d891d4871a7d1fe29a73ed68ee7b53ea8d",
+          "line": 29838,
+          "source": "Turn part of your target into fire, burning the rest for %0.2f fire damage over 8 turns.\n\t\tThe damage will increase with your Spellpower.",
+          "target": "将你的敌人化为火焰，在8回合内造成 %0.2f 火焰伤害。\n\t\t伤害受法术强度加成。",
+          "source_tag": "tformat",
+          "args_order": null,
+          "special": null
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "revision_key": "heat-beam-info",
+      "inventory_entry_id": "tome-inscriptions-heat-beam-info",
+      "editable": true,
+      "entry_id": "8e6fc42b79c0f34c466986ea987619c3f510f3ab63c62ab551ff9d79c232d00f",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "line": 26108,
+      "source": "Activate the rune to fire a beam of heat, doing %0.2f fire damage over 5 turns\n\t\tThe intensity of the heat will also remove one random detrimental physical effect from you.",
+      "target": "激活这个符文发射一束射线，造成 %0.2f 火焰伤害持续 5 回合。\n\t\t高温同时会解除你受到的一个负面物理状态。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_order": [
+        1
+      ]
+    },
+    {
+      "revision_key": "heat-beam-short-control",
+      "inventory_entry_id": "tome-inscriptions-fire-damage-short",
+      "editable": false,
+      "entry_id": "a8705fc6d9990fe97aa253af11910bab5aafa7c4b23f66e7643d52c9db4e7e96",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "line": 26111,
+      "source": "%d fire damage",
+      "target": "%d 火焰伤害",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_order": [
+        1
+      ]
+    },
+    {
+      "revision_key": "pyrokinesis-info",
+      "inventory_entry_id": "tome-psionic-focus-pyrokinesis-info",
+      "editable": true,
+      "entry_id": "932be4b4423c7130666faf4f4bda3eb5ae297ca9ccef4aa29c14a29acf9940ca",
+      "section": "mod-tome/data/talents/psionic/focus.lua",
+      "line": 27441,
+      "source": "Telekinetically energize the matter of all foes within %d squares at the molecular level, setting them ablaze. This does %0.1f fire damage over six turns.",
+      "target": "对 %d 范围内的所有敌人，用意念使组成其身体的分子活化并引燃他们，在 6 回合内造成 %0.1f 火焰伤害。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_order": [
+        1,
+        2
+      ]
+    },
+    {
+      "revision_key": "heat-info",
+      "inventory_entry_id": "tome-war-alchemy-heat-info",
+      "editable": true,
+      "entry_id": "cac04085a7ace80deb8676209ad117d891d4871a7d1fe29a73ed68ee7b53ea8d",
+      "section": "mod-tome/data/talents/spells/war-alchemy.lua",
+      "line": 29838,
+      "source": "Turn part of your target into fire, burning the rest for %0.2f fire damage over 8 turns.\n\t\tThe damage will increase with your Spellpower.",
+      "target": "将你的敌人化为火焰，在8回合内造成 %0.2f 火焰伤害。\n\t\t伤害受法术强度加成。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_order": [
+        1
+      ]
+    }
+  ],
+  "source_anchors": [
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+      "sha256": "9c90062320a8661c73529bf90271369a897e5eb8b1393aae460d6a10677281c2",
+      "reference_id": "fireburn-ref-026",
+      "line": 1299,
+      "matched_line": "\t\tself:project(tg, x, y, DamageType.FIREBURN, {dur=5, initial=0, dam=data.power + data.inc_stat})",
+      "enclosing_symbol": "Rune: Heat Beam",
+      "effective_input_shape": "table {dur=5,initial=0,dam=power+inc_stat}",
+      "duration_turns": 5,
+      "initial_percent": 0
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/talents/psionic/focus.lua",
+      "sha256": "324b35ec3ea43f54144e2e552f20cf65c86006c8d1a70d00d112d4507b4aef77",
+      "reference_id": "fireburn-ref-028",
+      "line": 91,
+      "matched_line": "\t\t\tself:project(tg, self.x, self.y, DamageType.FIREBURN, {dur=6, initial=0, dam=dam})",
+      "enclosing_symbol": "Pyrokinesis",
+      "effective_input_shape": "table {dur=6,initial=0,dam=dam}",
+      "duration_turns": 6,
+      "initial_percent": 0
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/talents/spells/war-alchemy.lua",
+      "sha256": "be4027adfbfa06849423e1d5cfd2619271b3c7e968fc7d3e1b8e45a6eb38a4a1",
+      "reference_id": "fireburn-ref-035",
+      "line": 39,
+      "matched_line": "\t\tself:project(tg, x, y, DamageType.FIREBURN, {dur=8, initial=0, dam=t.getDamage(self, t)}, {type=\"flame\"})",
+      "enclosing_symbol": "war-alchemy Heat",
+      "effective_input_shape": "table {dur=8,initial=0,dam=getDamage}",
+      "duration_turns": 8,
+      "initial_percent": 0
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/damage_types.lua",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "symbols": [
+        "DamageType.FIREBURN",
+        "DamageType.FLAMESHOCK"
+      ],
+      "relevant_lines": [
+        1187,
+        1203,
+        1337,
+        1355
+      ]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/timed_effects/physical.lua",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "symbols": [
+        "EFF_BURNING",
+        "EFF_BURNING_SHOCK"
+      ],
+      "relevant_lines": [
+        417,
+        438
+      ]
+    }
+  ],
+  "claims_to_verify": [
+    "For each of fireburn-ref-026, fireburn-ref-028 and fireburn-ref-035, the displayed damage argument is one total scalar passed as dam with an explicit duration and initial=0.",
+    "FIREBURN with initial=0 deals no immediate damage and applies dam/dur per turn across the explicit duration when no prior burning effect is present.",
+    "Existing burning effects merge by conserving old plus new remaining damage while recomputing duration; the tooltip describes the newly applied contribution, not a guaranteed standalone tick schedule.",
+    "Pyrokinesis uses FLAMESHOCK while Transcendent Pyrokinesis is active; that projector likewise divides dam by dur over six turns, so the same tooltip total remains valid.",
+    "The three editable Chinese targets must not imply that the displayed total is dealt every turn; the short Heat Beam control contains no duration claim and must remain unchanged."
+  ],
+  "provenance_note": "All runtime source anchors are fixed at manifest commit 624a67329fe2ad440c5b344785a9c73fcf22ae63. Each context call used --limit 500, and selected equals available and the independent lexical t() count for all three frozen sections."
+}
+
