@@ -1,0 +1,16 @@
+{
+  "schema_version": "deterministic-linebreak-lint-experiment-v1",
+  "experiment": "deterministic-linebreak-lint-v1",
+  "status": "COMPLETE_EXPLORATORY_CANDIDATE_DISCOVERY",
+  "model_calls_made": 0,
+  "purpose": "Turn the real R033 Chinese word-splitting failure into a deterministic, conservative candidate generator and inventory-wide audit queue.",
+  "estimand": null,
+  "prohibited_claims": [
+    "independent model comparison",
+    "unbiased precision or recall",
+    "finite-population defect prevalence",
+    "CI-ready defect classification"
+  ],
+  "next_gate": "Evaluate the unchanged rule on a future frozen translation snapshot or a fresh holdout before considering an error-level CI gate.",
+  "stopping_rule": "No model inference. Audit every emitted candidate; do not replace or hide candidates after seeing their status."
+}

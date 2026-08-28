@@ -1,0 +1,55 @@
+{
+  "schema_version": "deterministic-linebreak-lint-result-v1",
+  "experiment": "deterministic-linebreak-lint-v1",
+  "status": "COMPLETE_EXPLORATORY_FIVE_OF_FIVE_CANDIDATES_CONFIRMED",
+  "model_calls_made": 0,
+  "frozen_input": {
+    "production_translation_commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+    "canonical_inventory_sha256": "bf9153e83aba7318741f065d8541ae74783eebc5d4552ec38627a4313456b215",
+    "inventory_rows": 30308
+  },
+  "measured_scan": {
+    "raw_han_lf_han_boundaries": 246,
+    "raw_revisions": 89,
+    "emitted_candidates": 5,
+    "emitted_candidate_revisions": 5,
+    "tiers": {"Q_QUOTED_TWO_HAN_TOKEN": 1, "A_FREQUENT_BIGRAM": 3, "B_LOW_SUPPORT_BIGRAM": 1}
+  },
+  "measured_candidate_audit": {
+    "audited": 5,
+    "confirmed_format_defects": 5,
+    "refuted": 0,
+    "indeterminate": 0,
+    "known_calibration_positive_R033_detected": true,
+    "known_calibration_recall": "1/1",
+    "newly_discovered_beyond_R033": 4,
+    "confirmed_boundaries": ["包\\n裹", "存\\n在", "获\\n得", "使\\n用", "误\\n解"]
+  },
+  "interpretation": [
+    "A deterministic lexical-cohesion scan catches the R033 failure that every v3 reviewer route missed and surfaces four additional real word-splitting line feeds.",
+    "The 获得 finding is retained: being inside a list item does not make a literal LF inside a Chinese word structurally valid.",
+    "This is an exploratory, post-calibration result. Five confirmed emitted candidates are not an unbiased precision estimate and say nothing about missed defects.",
+    "The current rule should be a review warning, not an automatic error gate, until it passes a fresh frozen snapshot or independent holdout."
+  ],
+  "limitations": [
+    "R033 and exploratory candidate outputs were visible during rule development.",
+    "The PMI threshold misses some common functional-word splits and does not provide complete word segmentation.",
+    "All five confirmed candidates are Tome narrative text, so the result does not establish cross-component performance.",
+    "No prevalence, confidence interval or model ranking is reported."
+  ],
+  "artifact_bindings": {
+    "rule_contract": {"logical_path": "RULE-CONTRACT.json", "sha256": "fef9fb556adcd4b083a05213b40d483d528ef87185f6eda41e58d93f8d565b4d"},
+    "candidates": {"logical_path": "CANDIDATES.json", "sha256": "d048499955350a07988ee49f7e4c1a8aa26fb6ba3b115c774f09d25e45432aab"},
+    "source_audit": {"logical_path": "SOURCE-AUDIT.json", "sha256": "1efe9a87f936df187443e1f54ccf3bcebbdee27aec6975e74595da690ba20091"},
+    "scanner_fixtures": {"logical_path": "SCANNER-FIXTURES.json", "sha256": "b00d56a8573efaf204e260bee055b24daa704fd38277e9562f1724ed33b25356"}
+  },
+  "post_run_validation": {
+    "candidate_regeneration": "PASS",
+    "scanner_fixture": "PASS_10_OF_10",
+    "json_parse": "PASS",
+    "node_syntax": "PASS",
+    "git_diff_check": "PASS",
+    "executor_fixture_baseline": "PASS_82e25a395c1c9ff16c5b487ff465bc4bc7824e7cc61bebe4e8e716c24469b4c7",
+    "independent_source_audit": "PASS: all five candidate identities and fixed source/target decisions were independently checked; the 获得 list-item finding must remain included."
+  }
+}

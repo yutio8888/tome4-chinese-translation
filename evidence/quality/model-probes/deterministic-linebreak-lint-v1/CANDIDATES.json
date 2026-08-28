@@ -1,0 +1,300 @@
+{
+  "schema_version": "deterministic-linebreak-candidates-v1",
+  "experiment": "deterministic-linebreak-lint-v1",
+  "status": "CANDIDATES_REQUIRE_SOURCE_AUDIT",
+  "model_calls_made": 0,
+  "input_bindings": {
+    "production_translation_commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+    "inventory_rows": 30308,
+    "inventory_raw_sha256": "fceec52bdc2888542024f059c842a85230d8ecb396992be43b1bf8310aef5ea3",
+    "inventory_canonical_sha256": "bf9153e83aba7318741f065d8541ae74783eebc5d4552ec38627a4313456b215",
+    "inventory_schema_sha256": "483b4bc93b8c3816dc6b29c58e5e68dd931521c93dbcb25423c08ac99233a0ac",
+    "rule_contract": {
+      "logical_path": "RULE-CONTRACT.json",
+      "sha256": "fef9fb556adcd4b083a05213b40d483d528ef87185f6eda41e58d93f8d565b4d"
+    }
+  },
+  "corpus_statistics": {
+    "han_characters": 722375,
+    "distinct_han_characters": 3348,
+    "distinct_contiguous_han_bigrams": 106668
+  },
+  "scan_counts": {
+    "raw_han_lf_han_boundaries": 246,
+    "raw_revisions": 89,
+    "overlapping_filter_failures": {
+      "indented_boundaries": 30,
+      "no_target_newline_excess": 207,
+      "short_adjacent_lines": 215,
+      "below_lexical_threshold": 237
+    },
+    "candidates": 5,
+    "candidate_revisions": 5,
+    "by_tier": {
+      "Q_QUOTED_TWO_HAN_TOKEN": 1,
+      "A_FREQUENT_BIGRAM": 3,
+      "B_LOW_SUPPORT_BIGRAM": 1
+    }
+  },
+  "candidates": [
+    {
+      "candidate_id": "LB001",
+      "tier": "Q_QUOTED_TWO_HAN_TOKEN",
+      "revision_id": "2bcc427d50b01aadbb1229339812de295cf389975dca23cb16950d6a9e998ba2",
+      "revision_uid": "4afdbee636368ee689137675bde47df7c56cc00bd97e1bfe929466e4f81c275e",
+      "component": "tome",
+      "section": "mod-tome/data/texts/message-last-hope.lua",
+      "source_tag": "_t",
+      "profile": "narrative",
+      "risk_flags": [
+        "has-markup",
+        "has-at-token",
+        "multiline",
+        "long-source",
+        "profile-uncertain",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "occurrences": [
+        {
+          "line": 32392,
+          "logical_path": "mod-tome.lua",
+          "ordinal": 15480,
+          "section": "mod-tome/data/texts/message-last-hope.lua"
+        }
+      ],
+      "boundary": {
+        "line_ordinal_zero_based": 9,
+        "bigram": "包裹",
+        "rendered": "包\\n裹"
+      },
+      "lexical_support": {
+        "bigram_frequency": 34,
+        "pmi": 10.924599058741157,
+        "han_character_count": 722375
+      },
+      "structural_support": {
+        "source_newlines": 11,
+        "target_newlines": 14,
+        "target_newline_excess": 3,
+        "left_line_han_characters": 30,
+        "right_line_han_characters": 6,
+        "quoted_two_han_token": true
+      },
+      "target_excerpt": {
+        "left_line": "他提到了与高尔布格会面——貌似是瑞库纳的一位战争领主——以便将一个“包",
+        "right_line": "裹”送过传送门。"
+      },
+      "source_sha256": "0a8e23f98f346244dc716884c2863142eb30bedb4e152104384df143bc2c4b5e",
+      "target_sha256": "9a46f97ed9d2c99d57f95764e571757d6b6deccda95e4ad3cdd2c39c68282f5b",
+      "status": "CANDIDATE_NOT_GROUND_TRUTH"
+    },
+    {
+      "candidate_id": "LB002",
+      "tier": "A_FREQUENT_BIGRAM",
+      "revision_id": "4a90a04256cf29abc4701e8c09df9a9387dab5bd0b8f435dd03f7bb8777338d5",
+      "revision_uid": "9d22e37e31e2f7960d822794f267589029b68db6fb3ebe1c0e9cfabdb6224986",
+      "component": "tome",
+      "section": "mod-tome/data/texts/tutorial/done.lua",
+      "source_tag": "_t",
+      "profile": "narrative",
+      "risk_flags": [
+        "has-markup",
+        "multiline",
+        "long-source",
+        "profile-uncertain",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "occurrences": [
+        {
+          "line": 32429,
+          "logical_path": "mod-tome.lua",
+          "ordinal": 15482,
+          "section": "mod-tome/data/texts/tutorial/done.lua"
+        }
+      ],
+      "boundary": {
+        "line_ordinal_zero_based": 9,
+        "bigram": "存在",
+        "rendered": "存\\n在"
+      },
+      "lexical_support": {
+        "bigram_frequency": 260,
+        "pmi": 5.359549335876668,
+        "han_character_count": 722375
+      },
+      "structural_support": {
+        "source_newlines": 11,
+        "target_newlines": 14,
+        "target_newline_excess": 3,
+        "left_line_han_characters": 36,
+        "right_line_han_characters": 22,
+        "quoted_two_han_token": false
+      },
+      "target_excerpt": {
+        "left_line": "也许这是你第一次玩这个游戏，你会发现可供游玩的种族和职业数量有限；游戏中还存",
+        "right_line": "在许多其他种族和职业，你会在游戏过程中解锁它们。"
+      },
+      "source_sha256": "8e00c4d765974e39ce5e10fcca1cb33eb6e35c85bee3001a9bcec6412352eef1",
+      "target_sha256": "dea82deb32b4682de454df3a4d246c841862510a72079be40c26ff5e74cd1a52",
+      "status": "CANDIDATE_NOT_GROUND_TRUTH"
+    },
+    {
+      "candidate_id": "LB003",
+      "tier": "A_FREQUENT_BIGRAM",
+      "revision_id": "bdd093fa6e7f6624c94406dfc2bc16b4ae96e09b258213401ca59be710d7019a",
+      "revision_uid": "cef85c5bf566d47bf669791fd47bf2bbe0899287aac1d571efd367b517eb47d0",
+      "component": "tome",
+      "section": "mod-tome/data/texts/tutorial/levelup.lua",
+      "source_tag": "_t",
+      "profile": "narrative",
+      "risk_flags": [
+        "has-markup",
+        "multiline",
+        "long-source",
+        "profile-uncertain",
+        "preferred-term-present",
+        "term-variant-or-review",
+        "source-has-number-or-unit",
+        "source-has-negation-or-condition"
+      ],
+      "occurrences": [
+        {
+          "line": 32459,
+          "logical_path": "mod-tome.lua",
+          "ordinal": 15483,
+          "section": "mod-tome/data/texts/tutorial/levelup.lua"
+        }
+      ],
+      "boundary": {
+        "line_ordinal_zero_based": 4,
+        "bigram": "获得",
+        "rendered": "获\\n得"
+      },
+      "lexical_support": {
+        "bigram_frequency": 714,
+        "pmi": 8.427018472083862,
+        "han_character_count": 722375
+      },
+      "structural_support": {
+        "source_newlines": 13,
+        "target_newlines": 16,
+        "target_newline_excess": 3,
+        "left_line_han_characters": 33,
+        "right_line_han_characters": 4,
+        "quoted_two_han_token": false
+      },
+      "target_excerpt": {
+        "left_line": "* #GOLD#属性点数#WHITE#：允许你提升6个主要属性：力量、敏捷、魔力、意志、灵巧和体质。每等级你能获",
+        "right_line": "得3个点数。"
+      },
+      "source_sha256": "acfe2db1a51ce4c989453808d5528b0a9b22ff89739ef5d921aff772fcea4c1f",
+      "target_sha256": "ab8280d4d140e8a0644c8b488c62ab70fed86ba457900a08cc41ed544887088c",
+      "status": "CANDIDATE_NOT_GROUND_TRUTH"
+    },
+    {
+      "candidate_id": "LB004",
+      "tier": "A_FREQUENT_BIGRAM",
+      "revision_id": "f7ed4ddd9c0d6f0e72ac90fe6f89721b0e952d5fc6b5219fda3a854a8247375d",
+      "revision_uid": "e3528551bac0953fb582aebab09475e9aa0ffd01c14a4aa3711ed1ce0116ba58",
+      "component": "tome",
+      "section": "mod-tome/data/texts/tutorial/stats/stats7.1.lua",
+      "source_tag": "_t",
+      "profile": "narrative",
+      "risk_flags": [
+        "has-markup",
+        "multiline",
+        "long-source",
+        "profile-uncertain",
+        "preferred-term-present",
+        "source-has-negation-or-condition"
+      ],
+      "occurrences": [
+        {
+          "line": 32790,
+          "logical_path": "mod-tome.lua",
+          "ordinal": 15496,
+          "section": "mod-tome/data/texts/tutorial/stats/stats7.1.lua"
+        }
+      ],
+      "boundary": {
+        "line_ordinal_zero_based": 5,
+        "bigram": "使用",
+        "rendered": "使\\n用"
+      },
+      "lexical_support": {
+        "bigram_frequency": 1458,
+        "pmi": 7.0164316018792,
+        "han_character_count": 722375
+      },
+      "structural_support": {
+        "source_newlines": 5,
+        "target_newlines": 7,
+        "target_newline_excess": 2,
+        "left_line_han_characters": 33,
+        "right_line_han_characters": 29,
+        "quoted_two_han_token": false
+      },
+      "target_excerpt": {
+        "left_line": "但实际上你会怎么操作呢？你不是像狂战士那样用你的蛮力来打击目标，你是使",
+        "right_line": "用灵巧的动作来完成这个技能的，所以我们使用的仍然是 #LIGHT_GREEN#命中#WHITE# 来判定。"
+      },
+      "source_sha256": "4ff481c7bed158b48535a94c6b43b7da43c568f28df816a3f323e831dc51743a",
+      "target_sha256": "1d0dbeb979993e1b330145d38cca6bace51814646af5cc5c27f428e90ab76485",
+      "status": "CANDIDATE_NOT_GROUND_TRUTH"
+    },
+    {
+      "candidate_id": "LB005",
+      "tier": "B_LOW_SUPPORT_BIGRAM",
+      "revision_id": "01675a8633eaaa3dbfd0f2466f31bebfb41acf4348c24c2acc6eac955a64eead",
+      "revision_uid": "efad4c057773f1c4463aa63564646a78dc060124ca05e07b09b01b24f3bc6286",
+      "component": "tome",
+      "section": "mod-tome/data/texts/unlock-mage_necromancer.lua",
+      "source_tag": "_t",
+      "profile": "narrative",
+      "risk_flags": [
+        "has-markup",
+        "multiline",
+        "long-source",
+        "profile-uncertain",
+        "preferred-term-present",
+        "term-variant-or-review",
+        "source-has-number-or-unit"
+      ],
+      "occurrences": [
+        {
+          "line": 34256,
+          "logical_path": "mod-tome.lua",
+          "ordinal": 15596,
+          "section": "mod-tome/data/texts/unlock-mage_necromancer.lua"
+        }
+      ],
+      "boundary": {
+        "line_ordinal_zero_based": 6,
+        "bigram": "误解",
+        "rendered": "误\\n解"
+      },
+      "lexical_support": {
+        "bigram_frequency": 2,
+        "pmi": 4.253468262563687,
+        "han_character_count": 722375
+      },
+      "structural_support": {
+        "source_newlines": 19,
+        "target_newlines": 20,
+        "target_newline_excess": 1,
+        "left_line_han_characters": 53,
+        "right_line_han_characters": 45,
+        "quoted_two_han_token": false
+      },
+      "target_excerpt": {
+        "left_line": "那些所谓的“高贵”的元素法师们认为死灵法师是他们走入歧途的兄弟，必须予以纠正或者消灭。但是死灵法师们认为自己是被误",
+        "right_line": "解的从业者，他们深入了别人不敢或者没有能力掌控的魔法领域，而正是这种魔法给他们带来了强大的力量。"
+      },
+      "source_sha256": "30749cbd4e22d595a236859c308bcd82275e038c3826f002cc59a571773f2228",
+      "target_sha256": "33d0f81958e44688a57739f598f3e63e16280d81676cd3d12df7f28f9f956836",
+      "status": "CANDIDATE_NOT_GROUND_TRUTH"
+    }
+  ]
+}

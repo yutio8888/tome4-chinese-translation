@@ -1,0 +1,47 @@
+{
+  "schema_version": "deterministic-linebreak-rule-contract-v1",
+  "experiment": "deterministic-linebreak-lint-v1",
+  "status": "EXPLORATORY_RULE_FROZEN_BEFORE_RECORDED_SOURCE_AUDIT",
+  "calibration_disclosure": {
+    "known_positive_used": "R033 from prospective-residual-audit-v3",
+    "known_positive_revision_id": "2bcc427d50b01aadbb1229339812de295cf389975dca23cb16950d6a9e998ba2",
+    "candidate_outputs_seen_during_rule_development": true,
+    "consequence": "This is tool development and candidate discovery, not an independent recall, precision or prevalence evaluation. Generalization requires a future frozen snapshot or fresh holdout."
+  },
+  "frozen_inputs": {
+    "production_translation_commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+    "inventory_rows": 30308,
+    "inventory_raw_sha256": "fceec52bdc2888542024f059c842a85230d8ecb396992be43b1bf8310aef5ea3",
+    "inventory_canonical_sha256": "bf9153e83aba7318741f065d8541ae74783eebc5d4552ec38627a4313456b215",
+    "inventory_schema_sha256": "483b4bc93b8c3816dc6b29c58e5e68dd931521c93dbcb25423c08ac99233a0ac",
+    "translation_inputs_sha256": "051423b82b6594b42d9777f2e9f487e49014e7a82401187bd09c14d9d181c4da"
+  },
+  "lexicon": {
+    "corpus": "Every maximal Unicode Script=Han run in every target in the frozen canonical inventory.",
+    "han_character_count": 722375,
+    "bigram": "Overlapping adjacent Han pairs within the same run; a newline is never treated as adjacency.",
+    "pmi_formula": "log2(freq(ab) * han_character_count / (freq(a) * freq(b)))"
+  },
+  "candidate_rule": {
+    "base_boundary": "A Han character is the last character before LF and another Han character is the first character after optional horizontal indentation.",
+    "required": [
+      "horizontal indentation length is zero",
+      "target newline count is greater than source newline count",
+      "at least one adjacent line contains 20 Han characters",
+      "the cross-boundary bigram occurs contiguously at least twice elsewhere in the target corpus",
+      "cross-boundary PMI is at least 4"
+    ],
+    "tiers": {
+      "Q_QUOTED_TWO_HAN_TOKEN": "The boundary is exactly inside a two-Han token enclosed by paired Chinese quotation marks.",
+      "A_FREQUENT_BIGRAM": "Not Q; contiguous corpus frequency is at least 5.",
+      "B_LOW_SUPPORT_BIGRAM": "Not Q/A; contiguous corpus frequency is 2 to 4."
+    },
+    "list_policy": "Do not blanket-exclude a long wrapped line merely because its paragraph contains list items; a split inside a list item's Chinese word is still a candidate.",
+    "output_semantics": "Every hit remains CANDIDATE_NOT_GROUND_TRUTH until separately audited against the frozen source and target."
+  },
+  "known_limitations": [
+    "The PMI threshold misses common functional bigrams such as 不会 and is not a complete word segmenter.",
+    "Long legitimate prose line breaks can still create candidates; the output is not suitable as an error-level CI gate without independent validation.",
+    "The rule was developed after R033 was known and after exploratory inspection of this snapshot."
+  ]
+}
