@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["overall_assessment", "fatal_issues", "major_issues", "minor_issues", "accepted_elements", "recommended_plan", "go_no_go", "uncertainties"],
+  "properties": {
+    "overall_assessment": {"type": "string"},
+    "fatal_issues": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/issue"}
+    },
+    "major_issues": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/issue"}
+    },
+    "minor_issues": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "accepted_elements": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "recommended_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sequence", "analysis", "stopping_rules"],
+      "properties": {
+        "sequence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["phase", "objective", "design", "minimum_sample", "model_calls", "decision_gate"],
+            "properties": {
+              "phase": {"type": "string"},
+              "objective": {"type": "string"},
+              "design": {"type": "string"},
+              "minimum_sample": {"type": "string"},
+              "model_calls": {"type": "string"},
+              "decision_gate": {"type": "string"}
+            }
+          }
+        },
+        "analysis": {"type": "array", "items": {"type": "string"}},
+        "stopping_rules": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "go_no_go": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["gate", "pass_condition", "fail_action"],
+        "properties": {
+          "gate": {"type": "string"},
+          "pass_condition": {"type": "string"},
+          "fail_action": {"type": "string"}
+        }
+      }
+    },
+    "uncertainties": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["issue", "evidence", "consequence", "required_fix"],
+      "properties": {
+        "issue": {"type": "string"},
+        "evidence": {"type": "string"},
+        "consequence": {"type": "string"},
+        "required_fix": {"type": "string"}
+      }
+    }
+  }
+}

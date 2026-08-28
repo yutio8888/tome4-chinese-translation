@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "scope": "one independent GPT-5.6 Sol high methodological review of the proposed next research plan, followed by local critical synthesis",
+  "frozen_at": "2026-08-27",
+  "base_commit": "d1e9515683f8f50989f65aded223638bb71c37df",
+  "authorization": {
+    "service": "OpenAI via Codex CLI",
+    "basis": "The user explicitly requested an independent GPT-5.6 Sol review and permanently authorized sanitized research records to OpenAI.",
+    "data_scope": "aggregate benchmark results and a research design; no item-level records, sealed references, adjudication artifacts, defect IDs, local paths or project provenance"
+  },
+  "frozen_inputs": {
+    "candidate_plan": {"path": "PLAN-CANDIDATE.md", "sha256": "f0a1ea6d2dad69dd2d53ad3ea6481c0a889e882a603688c7a2809a3f5d6cc056"},
+    "review_prompt": {"path": "REVIEW-PROMPT.md", "sha256": "df129d56756cc98c156a8e250c3b9dff577ce505eb65950511d2d26b31f0eef8"},
+    "review_schema": {"path": "REVIEW-SCHEMA.json", "sha256": "7ba334dec692ca6a0687349ce0c24def95ea88a9c56b7ff9d485b1622fb60526"},
+    "runner": {"path": "run.mjs", "sha256": "c325a35d59a60e5a3af346eaa1a25508e7b4949ce14185f7e698d522509233db"}
+  },
+  "route": {
+    "harness": "Codex CLI 0.150.1",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "session": "ephemeral",
+    "working_directory": "/tmp",
+    "repository_context": false,
+    "tools": "none required; read-only sandbox"
+  },
+  "independence": {
+    "reviewer_sees_candidate_plan": true,
+    "reviewer_sees_aggregate_evidence": true,
+    "reviewer_sees_local_post_review_synthesis": false,
+    "reviewer_sees_item_level_reference_or_adjudication": false,
+    "reviewer_sees_repository_rules_or_history": false
+  },
+  "output": {
+    "raw": "RAW-codex-gpt-5.6-sol-high.json",
+    "stderr": "RAW-codex-gpt-5.6-sol-high.stderr.txt",
+    "review": "REVIEW-codex-gpt-5.6-sol-high.json",
+    "schema_enforced": true
+  },
+  "local_synthesis_contract": [
+    "Classify each material review recommendation as accepted, modified or rejected with a concrete reason.",
+    "Do not defer to reviewer identity, severity wording or volume of criticism.",
+    "Preserve the original plan and raw review; never rewrite them to match the synthesis.",
+    "Produce a revised plan with explicit sequencing, sample design, analysis, go/no-go gates and stopping rules."
+  ]
+}
