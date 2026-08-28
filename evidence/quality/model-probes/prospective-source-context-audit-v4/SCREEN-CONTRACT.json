@@ -1,0 +1,205 @@
+{
+  "schema_version": "prospective-source-context-screen-contract-v4",
+  "status": "FROZEN_BEFORE_SOURCE_ONLY_BUILD",
+  "date_frozen": "2026-08-28",
+  "mode": "NO_INFERENCE/SOURCE_SCREEN_ONLY",
+  "inference_allowed": false,
+  "model_calls_allowed": 0,
+  "network_calls_allowed": 0,
+  "production_translation_commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+  "seed": "prospective-source-context-audit-v4|2026-08-28|source-only-screen-v5",
+  "frozen_inputs": {
+    "canonical_membership": {
+      "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/CANONICAL-MEMBERSHIP.json",
+      "sha256": "477c0e97f59e4f29159ed7baa16b7ef5ddb4165cbe5785ad15b667eadfda2049"
+    },
+    "provenance_snapshot": {
+      "logical_path": "evidence/quality/model-probes/paseo-provenance-snapshot-v1/SNAPSHOT.json",
+      "sha256": "b754183a9d1e0efa15cb1d3c16fa06a7f96f388e75707c7ba0e79f4a680f2eab"
+    },
+    "fingerprinted_terminal_input_manifest": {
+      "count": 58,
+      "bytes": 1664921,
+      "manifest_sha256": "6c3ce0004e25991c7228a7341402ef7b639078ba2b1211d05d253cf03df83e85",
+      "binding": "The frozen provenance snapshot supplies the individual logical paths, SHA-256 values and byte sizes. The builder verifies all 58 before source-only projection."
+    },
+    "source_locator_contract": {
+      "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/SOURCE-LOCATOR-CONTRACT.json",
+      "sha256": "c0a8a52f2a2a99afe00881132d224ad14e2f82c91e77f61c735cb23be669313a"
+    },
+    "executor_fixture": {
+      "logical_path": "evidence/quality/model-probes/qwen3-8-27b-agent-roles/executor-fixture.lua",
+      "sha256": "82e25a395c1c9ff16c5b487ff465bc4bc7824e7cc61bebe4e8e716c24469b4c7"
+    },
+    "tracked_model_facing_structured_inputs": {
+      "definition": "The complete Git-tracked structured outbound-input corpus frozen by the committed context-evidence pilot at this repository state. RAW stdout, stderr, candidate and reasoning artifacts are excluded by contract.",
+      "count": 9,
+      "bytes": 260241,
+      "manifest_sha256": "90926f4d4baa523b81680468678793ca285d6b90f0099bb13df0ffd3be248564",
+      "records": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "sha256": "ded0046ddd87f52ecbcc3d726fce20a0718facc20456bd665f6ae5539413c30b",
+          "size_bytes": 19890
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/HOLDOUT.json",
+          "sha256": "526627e764bc24740e43f2263e7e007e0878ce519a837fe7a9b268b287fb3448",
+          "size_bytes": 6825
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "sha256": "301a17085582e3d5d32dfc35f920fa419d01613c4835d227f855322e2384221d",
+          "size_bytes": 15037
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "sha256": "912ac6a90161a2e2bd55b356196a6be9163640f830e816939f6793b8f5fe6c5d",
+          "size_bytes": 29086
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "sha256": "b7187e3966c97135b65f3b5d9e72eb8feb74346156e2d31e2ffc0170e44ed028",
+          "size_bytes": 11240
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "sha256": "73b2f680c5af7643736c5878470f924a777a0d7db84cbfe494240d328467a4bf",
+          "size_bytes": 91448
+        },
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "sha256": "9034f605bcf471bd7fce0d603ee52c6a8d5fbb9b2807e2b801b9fb52316ee332",
+          "size_bytes": 26534
+        },
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "sha256": "69ac3b4f0a2a65fc68ec5c9d6061a542a675e13efa43461f6ea1a281bba08147",
+          "size_bytes": 30573
+        },
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "sha256": "e1e3086a9b6f0b34ed79f861583f9a9f74e6f410fa42be604aad92e4484d6a66",
+          "size_bytes": 29608
+        }
+      ]
+    }
+  },
+  "phase0": {
+    "allowed_scalar_fields": [
+      "task_id",
+      "original_revision_key",
+      "component",
+      "section",
+      "source_tag",
+      "profile",
+      "source",
+      "source_sha256"
+    ],
+    "allowed_source_only_flags": [
+      "has-printf",
+      "has-at-token",
+      "short-ambiguous-source",
+      "profile-uncertain",
+      "repeated-runtime-key",
+      "source-has-number-or-unit",
+      "source-has-negation-or-condition"
+    ],
+    "base_frame": "Reconstruct all 1,396 task/revision rows directly from canonical membership and the provenance snapshot's fingerprinted terminal contextual inputs. Match only task_id plus original_revision_key/revision_key and verify only source_sha256.",
+    "access_control": "Every canonical membership and terminal translation_snapshot item is wrapped in a fail-closed Proxy. Reconstruction reads only the eight permitted source fields and recomputes all seven source-only flags; it never reads upstream mixed risk flags, canonical identities, pair hashes, terminology snapshots or translation-side values.",
+    "invariance_gate": "Changing or deleting all translation-side fields in upstream terminal items and canonical membership must leave the base frame, screen counts, seeded ranks, selection and final presentation canonical-byte-identical. This is exercised from reconstructSourceOnlyBaseRows by test-builder.mjs.",
+    "source_bytes": {
+      "minimum": 1,
+      "maximum": 6000,
+      "encoding": "canonical UTF-8"
+    },
+    "term_name_policy": "Rows whose profile is term-name are ineligible before classification and cannot appear in either category. No terminology records or terminology-derived flags are read."
+  },
+  "exposure_registry": {
+    "revision_key": "sha256(task_id + NUL + original_revision_key)",
+    "content_key": "sha256(normalize_source(source))",
+    "normalization": "Collapse actual whitespace and literal Lua escaped newline, carriage-return and tab sequences to one ASCII space; remove leading and trailing whitespace.",
+    "exclusion": "A candidate is excluded when either key is present in a frozen structured model-facing input.",
+    "raw_output_tier_used": false
+  },
+  "categories": {
+    "Runtime": {
+      "profiles": ["mechanics", "runtime-log", "ui", "unknown"],
+      "predicate": "At least one of the seven source-only flags is present."
+    },
+    "Narrative": {
+      "profiles": ["narrative", "dialogue"],
+      "predicate": "At least four of the seven source-only flags are present, or the frozen English pronoun/demonstrative regular expression matches.",
+      "pronoun_or_demonstrative_regex": "\\b(?:he|him|his|himself|she|her|hers|herself|they|them|their|theirs|themselves|it|its|itself|this|that|these|those|here|there|such|former|latter)\\b",
+      "regex_flags": "iu"
+    }
+  },
+  "source_bindings": {
+    "tome": {
+      "repository_alias": "t-engine4",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "section_prefix": "mod-tome/",
+      "repository_prefix": "game/modules/tome/",
+      "read_mode": "git_commit_blob"
+    },
+    "cults": {
+      "repository_alias": "tome-cults",
+      "commit": null,
+      "section_prefix": "tome-cults/",
+      "dlc_subdirectory": "cults/tome-cults",
+      "read_mode": "working_tree_file_with_required_sha256"
+    },
+    "orcs": {
+      "repository_alias": "tome-orcs",
+      "commit": null,
+      "section_prefix": "tome-orcs/",
+      "dlc_subdirectory": "orcs/tome-orcs",
+      "read_mode": "working_tree_file_with_required_sha256"
+    },
+    "ashes-urhrok": {
+      "repository_alias": "tome-ashes-urhrok",
+      "commit": null,
+      "section_prefix": "tome-ashes-urhrok/",
+      "dlc_subdirectory": "ashes-urhrok/tome-ashes-urhrok",
+      "read_mode": "working_tree_file_with_required_sha256"
+    }
+  },
+  "locator_and_selection": {
+    "order": [
+      "reconstruct the 1,396-row source-only base from canonical membership and fingerprinted terminal inputs",
+      "apply source byte/profile/category predicates",
+      "exclude frozen structured source exposure",
+      "bind the registered source artifact and locate the complete normalized source",
+      "accept exactly one or two occurrences",
+      "deduplicate by sha256(component + NUL + normalize_source(source))",
+      "sample by seeded task-first round robin"
+    ],
+    "content_dedup_key": "sha256(component + NUL + normalize_source(source))",
+    "duplicate_representative": "Lexicographically first task_id, then original_revision_key, then section.",
+    "task_order": "sha256(seed + NUL + category + NUL + task + NUL + task_id), then task_id.",
+    "within_task_order": "sha256(seed + NUL + category + NUL + row + NUL + task_id + NUL + original_revision_key), then original_revision_key.",
+    "round_robin": "Visit every task once per round and select at most one row from that task in that round.",
+    "per_task_per_category_cap": 6,
+    "per_category": 60
+  },
+  "source_evidence_packet": {
+    "match": "Complete whitespace-normalized literal source match; accept one or two occurrences only.",
+    "marker_template": "[[SOURCE_MATCH_<ordinal>]]",
+    "before_and_after_line_cap_each": 12,
+    "before_and_after_utf8_byte_cap_each": 2000,
+    "visible_context_utf8_byte_cap": 8192,
+    "supplemental_json_utf8_byte_cap": 12288,
+    "matched_span_policy": "Replace the matched span with the marker. Never concatenate, compare or otherwise bind a translation target.",
+    "utf8_policy": "All byte caps trim only on Unicode code-point boundaries."
+  },
+  "required_gates": {
+    "Runtime": {"items": 60, "minimum_tasks": 20},
+    "Narrative": {"items": 60, "minimum_tasks": 30},
+    "per_task_per_category_maximum": 6,
+    "mutually_exclusive_categories": true,
+    "duplicate_content_allowed": false,
+    "locator_anomalies_allowed": false,
+    "term_name_allowed": false,
+    "deterministic_byte_rebuild": true
+  }
+}

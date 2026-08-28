@@ -1,0 +1,65 @@
+{
+  "schema_version": "prospective-source-context-build-report-v4",
+  "status": "PASS_SOURCE_SCREEN_GATES",
+  "mode": "NO_INFERENCE/SOURCE_SCREEN_ONLY",
+  "presentation_sha256": "8deda776d84cdcca0794ea2dcec34f2dbb5d5971b2d937d2653b1f60b95886c5",
+  "source_only_base_frame_sha256": "1dd35585ca15826c29d55aabd7cbfa0637bd6a1cc5baeb39062ee2085944b152",
+  "counts": {
+    "source_only_base_rows": 1396,
+    "source_only_base_tasks": 46,
+    "source_size_and_non_term_rows": 1387,
+    "classified_rows": 700,
+    "classified_Runtime": 99,
+    "classified_Narrative": 601,
+    "rows_after_structured_source_exposure": 679,
+    "eligible_Runtime_after_structured_source_exposure": 94,
+    "eligible_Narrative_after_structured_source_exposure": 585,
+    "structured_source_exposure_exclusions": 21,
+    "locator_statuses": {
+      "LOCATED_ACCEPTED": 663,
+      "LOCATED_TOO_MANY": 11,
+      "SOURCE_NOT_FOUND": 5
+    },
+    "locator_accepted_rows": 663,
+    "content_deduplicated_rows": 656,
+    "content_duplicate_rows_removed": 7,
+    "selected_items": 120,
+    "selected_tasks": 43,
+    "selected_Runtime_tasks": 23,
+    "selected_Narrative_tasks": 38,
+    "selected_task_per_category_maximum": 6,
+    "selected_one_occurrence": 119,
+    "selected_two_occurrences": 1,
+    "selected_source_artifacts": 83
+  },
+  "frozen_input_hashes": {
+    "canonical_membership_sha256": "477c0e97f59e4f29159ed7baa16b7ef5ddb4165cbe5785ad15b667eadfda2049",
+    "provenance_snapshot_sha256": "b754183a9d1e0efa15cb1d3c16fa06a7f96f388e75707c7ba0e79f4a680f2eab",
+    "fingerprinted_terminal_input_manifest_sha256": "6c3ce0004e25991c7228a7341402ef7b639078ba2b1211d05d253cf03df83e85",
+    "source_locator_contract_sha256": "c0a8a52f2a2a99afe00881132d224ad14e2f82c91e77f61c735cb23be669313a",
+    "tracked_structured_input_manifest_sha256": "90926f4d4baa523b81680468678793ca285d6b90f0099bb13df0ffd3be248564",
+    "executor_fixture_sha256": "82e25a395c1c9ff16c5b487ff465bc4bc7824e7cc61bebe4e8e716c24469b4c7"
+  },
+  "fingerprinted_terminal_input_manifest": {
+    "count": 58,
+    "bytes": 1664921,
+    "manifest_sha256": "6c3ce0004e25991c7228a7341402ef7b639078ba2b1211d05d253cf03df83e85"
+  },
+  "source_artifact_manifest_sha256": "899be82c4a482ebdbd2b0365ae71ad53e1e7a0b0d708f50da211e250b947e268",
+  "gates": {
+    "Runtime_items_60": true,
+    "Runtime_tasks_at_least_20": true,
+    "Narrative_items_60": true,
+    "Narrative_tasks_at_least_30": true,
+    "task_per_category_at_most_6": true,
+    "mutually_exclusive_identity": true,
+    "no_term_name": true,
+    "no_duplicate_component_content": true,
+    "locator_occurrences_one_or_two": true,
+    "raw_output_tier_unused": true,
+    "model_calls_zero": true,
+    "network_calls_zero": true
+  },
+  "no_go": [],
+  "next_gate": "NO-GO for inference: this package freezes only the source-only screen and fixed public-source presentation."
+}

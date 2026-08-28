@@ -1,0 +1,2004 @@
+{
+  "schema_version": "prospective-source-exposure-registry-v4",
+  "status": "FROZEN_STRUCTURED_SOURCE_ONLY_EXPOSURE",
+  "mode": "NO_INFERENCE/SOURCE_SCREEN_ONLY",
+  "key_contract": {
+    "revision_key": "sha256(task_id + NUL + original_revision_key)",
+    "content_key": "sha256(normalize_source(source))",
+    "normalization": "actual whitespace and literal escaped n/r/t collapse to one ASCII space; leading and trailing whitespace removed"
+  },
+  "raw_output_tier_used": false,
+  "tracked_model_facing_structured_input_manifest": {
+    "records": [
+      {
+        "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+        "sha256": "ded0046ddd87f52ecbcc3d726fce20a0718facc20456bd665f6ae5539413c30b",
+        "size_bytes": 19890
+      },
+      {
+        "logical_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/HOLDOUT.json",
+        "sha256": "526627e764bc24740e43f2263e7e007e0878ce519a837fe7a9b268b287fb3448",
+        "size_bytes": 6825
+      },
+      {
+        "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+        "sha256": "301a17085582e3d5d32dfc35f920fa419d01613c4835d227f855322e2384221d",
+        "size_bytes": 15037
+      },
+      {
+        "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+        "sha256": "912ac6a90161a2e2bd55b356196a6be9163640f830e816939f6793b8f5fe6c5d",
+        "size_bytes": 29086
+      },
+      {
+        "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+        "sha256": "b7187e3966c97135b65f3b5d9e72eb8feb74346156e2d31e2ffc0170e44ed028",
+        "size_bytes": 11240
+      },
+      {
+        "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+        "sha256": "73b2f680c5af7643736c5878470f924a777a0d7db84cbfe494240d328467a4bf",
+        "size_bytes": 91448
+      },
+      {
+        "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+        "sha256": "9034f605bcf471bd7fce0d603ee52c6a8d5fbb9b2807e2b801b9fb52316ee332",
+        "size_bytes": 26534
+      },
+      {
+        "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+        "sha256": "69ac3b4f0a2a65fc68ec5c9d6061a542a675e13efa43461f6ea1a281bba08147",
+        "size_bytes": 30573
+      },
+      {
+        "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+        "sha256": "e1e3086a9b6f0b34ed79f861583f9a9f74e6f410fa42be604aad92e4484d6a66",
+        "size_bytes": 29608
+      }
+    ],
+    "count": 9,
+    "bytes": 260241,
+    "manifest_sha256": "90926f4d4baa523b81680468678793ca285d6b90f0099bb13df0ffd3be248564"
+  },
+  "counts": {
+    "source_field_records": 233,
+    "unique_content_keys": 197,
+    "task_revision_records": 0,
+    "unique_revision_keys": 0
+  },
+  "exposed_content_keys": [
+    {
+      "content_key": "00958b8b9cf767ca8acea3054d86d660a1520b6f18cf91b5f1ef9c2bdb84dd00",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/7"
+        }
+      ]
+    },
+    {
+      "content_key": "01598491cbb775c7a3c68a53569e2ae4bfaecbdde9b1e39957bf75b2761a38b0",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/8"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/8"
+        }
+      ]
+    },
+    {
+      "content_key": "02548bfbcb19c8564eceea9cef9f6168bd0308cdfa5feb53a26d1c9f3cf76a6d",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/17"
+        }
+      ]
+    },
+    {
+      "content_key": "0433106336dc993876429ca96d5fdd18dbbd2ed7625ece97fd158d4b7601d5f1",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/39"
+        }
+      ]
+    },
+    {
+      "content_key": "048710526b964553f2b1146b026ee8f828580ec50820b2b5d582b24f90875a1f",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/HOLDOUT.json",
+          "json_pointer": "/items/5"
+        }
+      ]
+    },
+    {
+      "content_key": "04e9317de2b01697d751526d79dfb8f8a81877f265b83d129370b0d3d2dc8bff",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/3"
+        }
+      ]
+    },
+    {
+      "content_key": "04eeb33cc2c36b8e10ed5c1856f1d4f6427f93f55b710fef08446d2251577262",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/14"
+        }
+      ]
+    },
+    {
+      "content_key": "04f2a23891e622636eef4ac5b82c3f59d2e0d9b3ebecbc6ffc4668df7449569a",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/HOLDOUT.json",
+          "json_pointer": "/items/2"
+        }
+      ]
+    },
+    {
+      "content_key": "0660afae5a1b3c28e6c829df917918f5b979e56b30bbd0afd4159789d13cffa8",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/12"
+        }
+      ]
+    },
+    {
+      "content_key": "07176f770d8058016bb55b71621719fe8dca5ce16e6d474b360de6376699403f",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/24"
+        }
+      ]
+    },
+    {
+      "content_key": "07d6c3980b42e9ebc8a4f5dd94eeca714362a00396f41268247dfe83fab7067d",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/8"
+        }
+      ]
+    },
+    {
+      "content_key": "0937d9d1da3544f38b1e98cb832c61000c98b77c77a094a718b6ff1b7ff49b63",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/18"
+        }
+      ]
+    },
+    {
+      "content_key": "09678eaf407102518e4fa97c364e3a9c70a29b7a462cf0e55cb78b76d292203d",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/7"
+        }
+      ]
+    },
+    {
+      "content_key": "09ff1654fb4b2666f54d8964cbfd12418d5091ad9ce771430a7cf35110892a79",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/7"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/7"
+        }
+      ]
+    },
+    {
+      "content_key": "0f5f2ba0a1e338c818fb0e219d16540be432a5c1f8ea8a9534ccb400cbe585e6",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/12"
+        }
+      ]
+    },
+    {
+      "content_key": "1141be77144823f709e6e8b971b07144f866782c1c34dcffcf5e6a84b4c16933",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/27"
+        }
+      ]
+    },
+    {
+      "content_key": "11c67cd926d11f02ed3400e4395aaa8bd74c641965055962201bee7cc35ff7c8",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/0"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/0"
+        }
+      ]
+    },
+    {
+      "content_key": "16f93d90ccbf141fa165ec46c4821de138b3c65b02fbe78a06b6abcaa88ef78b",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/5"
+        }
+      ]
+    },
+    {
+      "content_key": "170272499511a4a9270dd0bb78883656515d452ae5c93882346ddfadad1cc610",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/0"
+        }
+      ]
+    },
+    {
+      "content_key": "19766ed6ccb2f4a32778eed80d1928d2c87a18d7c275ccb163ec6709d3eb2e27",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/27"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/27"
+        }
+      ]
+    },
+    {
+      "content_key": "1cd070ad7d3d98016d875728fa92ae24616eb39363298c398ae218631825ed72",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/36"
+        }
+      ]
+    },
+    {
+      "content_key": "1d1a969798bd99a0dd2b865e315132c14ed332cef6ad6b7225bd4af5b1fa1aa7",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/2"
+        }
+      ]
+    },
+    {
+      "content_key": "1de221146633b4d84dd0997a27ea4b7a4fe79a9215c5f8a6d09118e4a166bbba",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/16"
+        }
+      ]
+    },
+    {
+      "content_key": "2029b0e03b52a5d4f76b6d35a7c3904f051808f0c5b081c3c154213241abc725",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/18"
+        }
+      ]
+    },
+    {
+      "content_key": "211362c2524432bced8c01ad9cb8e681123de61e5f7d08ffbdc2b96bc68fa908",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/11"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/11"
+        }
+      ]
+    },
+    {
+      "content_key": "234430d47ecac20d0732a1f530bfb87f42fb92a17994fb5f48a90fb271d18c5d",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/10"
+        }
+      ]
+    },
+    {
+      "content_key": "2399a2f7f2758dfcb92a4c13320a761839381765ff136e49d008f2809cd3662b",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/3"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/3"
+        }
+      ]
+    },
+    {
+      "content_key": "2a50ebb84a534b6d39abd454055decea8277a3b7c296691c7d588da78108bd08",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/4"
+        }
+      ]
+    },
+    {
+      "content_key": "2a83891e27f624bd18ff5a1be1e55cc9127c8aa759c52158a14d66d81ad03f46",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/14"
+        }
+      ]
+    },
+    {
+      "content_key": "2b6beb17bd7140d5cda2c45d450e8676981f4761e2d997d0073e78decb8c726c",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/14"
+        }
+      ]
+    },
+    {
+      "content_key": "2bcb2716a06593e6fd31492f5d248ebc83e2700b31d90988772110de78a18423",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/19"
+        }
+      ]
+    },
+    {
+      "content_key": "2bfb637506632197311a60727faa0d6a3c8d8c3cf432d2dac385d485f0163012",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/HOLDOUT.json",
+          "json_pointer": "/items/3"
+        }
+      ]
+    },
+    {
+      "content_key": "2caf70bf3af83f1d61c8371b044e08066c45b415eccafabf8dbeaf91ac27167e",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/15"
+        }
+      ]
+    },
+    {
+      "content_key": "2cfa1b000943034a12f001e034a21229677a209bcaa48e7ab7af0ea5fee3c71f",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/13"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/13"
+        }
+      ]
+    },
+    {
+      "content_key": "2d83df044d4461dc79d9ed911106fd4ff62d8c12147baa0bb7a6f20411f55ef3",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/HOLDOUT.json",
+          "json_pointer": "/items/1"
+        }
+      ]
+    },
+    {
+      "content_key": "302d33315f140407e2bf6d67702e60d8b36d29924b9e9be3b496acbff902eab6",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/31"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/31"
+        }
+      ]
+    },
+    {
+      "content_key": "3178a71ec52a6ffec8e5345b5221a0d513c78cda1e4c130e2ff824619d704fca",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/16"
+        }
+      ]
+    },
+    {
+      "content_key": "3263317f3ae079a6c7b9a75218ed6378bd4721677efd8256925555aa2c71d95f",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/4"
+        }
+      ]
+    },
+    {
+      "content_key": "3421fa0a50fcbb7664299ac89ed23da37c1da3ddde2bb80674b9c8c9c317090e",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/5"
+        }
+      ]
+    },
+    {
+      "content_key": "348b9c445cc29d661fbe7f97dcd6141f927578687a0a877b8f52285e1aaec49e",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/19"
+        }
+      ]
+    },
+    {
+      "content_key": "355b5ede051bc3d0ed2d001ef5fac7003174e41d996d8c14ee9320bdaba86e9a",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/0"
+        }
+      ]
+    },
+    {
+      "content_key": "35d1949c723ec5a9745378546ed0a127ba22db9fa1bacc6a6dc19e9ddd2904eb",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/37"
+        }
+      ]
+    },
+    {
+      "content_key": "37a05852121268a45291d7c080d911ba4ae10d60a586b960b2c6fca0dba683ec",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/22"
+        }
+      ]
+    },
+    {
+      "content_key": "38328bea5458232d2ef4aa9175355a5624da151ab1f9a84c48f025e545585aa6",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/3"
+        }
+      ]
+    },
+    {
+      "content_key": "385e7cc81d8f8149502efd0bcb72d9e5f54f231a64d803693a74ea9e5a11d4ec",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/33"
+        }
+      ]
+    },
+    {
+      "content_key": "3867b840caf7ce48162e89e9c2f30209c557843d279e358e849003da60d6c3e0",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/21"
+        }
+      ]
+    },
+    {
+      "content_key": "38ece1a9e5a152dd6baadb337e3b2f6cfb5cf8c1202a866700c854f32018cd4b",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/4"
+        }
+      ]
+    },
+    {
+      "content_key": "3a819d799871e362955cf28e3e219149d091ea4b06e76f47b8becafe60320b4e",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/18"
+        }
+      ]
+    },
+    {
+      "content_key": "3aade5ff4bd7900daea97f6874a56b14e4f5a38712acfcec6bf807507f1b7472",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/11"
+        }
+      ]
+    },
+    {
+      "content_key": "3af0701c619c1afda03d06a39b9fafc38043b46b8ceedaa6d53ec7bab2839a74",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/22"
+        }
+      ]
+    },
+    {
+      "content_key": "3bea40190eb088f01ab13d1723d61e65fd4289fc8c5c55b78905ebcc3cc45986",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/9"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/9"
+        }
+      ]
+    },
+    {
+      "content_key": "3eab068c88764a37c3ecd1e4d60e78f1b66867b85cb158e29711289b1a0e7299",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/3"
+        }
+      ]
+    },
+    {
+      "content_key": "3fa225baa43ff0478aa04f454d5b967c4357bc56dc70aeeb3aaad6a3736c3308",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/25"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/25"
+        }
+      ]
+    },
+    {
+      "content_key": "411874c5bb4ac0622ee54d5afd95ad94f8c14b759c47299d93ad0f8bfce3af58",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/13"
+        }
+      ]
+    },
+    {
+      "content_key": "45ef80a37439b5fdeaa9440dc8577ac7d819750c1d72fde66f01e203a642c935",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/23"
+        }
+      ]
+    },
+    {
+      "content_key": "46de9215bce4aa8d6b7030af44bff2124616369022a6241a0610150ee37647d6",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/17"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/17"
+        }
+      ]
+    },
+    {
+      "content_key": "46fbc6b216640989120986cbd37b4b57b0cf2df8234ea29f068b26db06f2df82",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/1"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/1"
+        }
+      ]
+    },
+    {
+      "content_key": "47a67f8bbb27ce8d53fc8175a93e9f0dbafcb1e193d544a91555eb846c908263",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/13"
+        }
+      ]
+    },
+    {
+      "content_key": "487bf7636fb720e8ab83a78e5ffcf3fb9dd4f54d7f844f4c427314b58a6d35c8",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/6"
+        }
+      ]
+    },
+    {
+      "content_key": "4a570ec90af6a19742328303ae04a2da9864ae71f4f920d0f2f7af474858148a",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/35"
+        }
+      ]
+    },
+    {
+      "content_key": "4cc2da8a6ad3b75b9604b5f987108e5313bde95155e849647cd95656ae36639f",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/17"
+        }
+      ]
+    },
+    {
+      "content_key": "4d9e8f714f84dd17bacc193b275d45b03628a7f4cbac6bf499569ae8bf63b6e9",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/1"
+        }
+      ]
+    },
+    {
+      "content_key": "4ea106cd9a6a46e098586753f9b5590be1cc9cde9569a04354cfe4826bb02c78",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/34"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/34"
+        }
+      ]
+    },
+    {
+      "content_key": "4edd447b42891af06ea14fd78f4fd810c37d71d18f8ec868d154f51627675d6b",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/1"
+        }
+      ]
+    },
+    {
+      "content_key": "4f1bbd53d2ec499ee5425909f64ad305b0333f9da32dbed72a7e7cf1733b482c",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/11"
+        }
+      ]
+    },
+    {
+      "content_key": "52ea67359dfa70ce35169fd2493590d8371919161a7fb2e28e322863448b9a87",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/28"
+        }
+      ]
+    },
+    {
+      "content_key": "5348a759194fc4084f8838f03e9223368689f597525b3d8b87a832c0b84ccc3a",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/22"
+        }
+      ]
+    },
+    {
+      "content_key": "553fe8e5725d9878d68287e0e806ba6616cafb0dae2ed1124ad5649856bbfe42",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/17"
+        }
+      ]
+    },
+    {
+      "content_key": "5912691b0b94d6e809c3e51faf04783b7ee62a4a0189714feae213a235b56c03",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/11"
+        }
+      ]
+    },
+    {
+      "content_key": "596e21049209eec94240cf489a80b74a83d19712da09024b6103e0aa67a7275b",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/1"
+        }
+      ]
+    },
+    {
+      "content_key": "59a0ee1b17aa9347ec220026119fff1a811d3e7866c2062a6f55c62ff43166f3",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/29"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/29"
+        }
+      ]
+    },
+    {
+      "content_key": "5b5424d4ab3127b23bbe0f5c48a19b5b24aec88eaddb2ef9720aad8cfd38cb9e",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/22"
+        }
+      ]
+    },
+    {
+      "content_key": "5b57fafe8c1ba8de9e69a35320acf786b0dec54229313d95a454b07cc9b7fdbd",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/9"
+        }
+      ]
+    },
+    {
+      "content_key": "5d018688ef391df611954c554fb30bfbe360f55291375b9a18b619fa238c2c32",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/17"
+        }
+      ]
+    },
+    {
+      "content_key": "5d4be274e3bc5f8009fd0122c240dc6e618abe528a89f2cad71f9aa5960fae93",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/14"
+        }
+      ]
+    },
+    {
+      "content_key": "6264065461cfd53f95cccd9e4cf45999e8d12dec4b83d5d86289a83fa73cd637",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/5"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/5"
+        }
+      ]
+    },
+    {
+      "content_key": "627470530f2b467112da47d46bc5134a2a58eb045910eb2077126110b0e46d9b",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/31"
+        }
+      ]
+    },
+    {
+      "content_key": "6518f546de0782686ef70ccba8de7d3eeecb082ae4586e2f0b3f3d9ace930443",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/8"
+        }
+      ]
+    },
+    {
+      "content_key": "665a63fe74ed9a8965377319f47bf68e5ec81b6924002eca26d14e3132a80da3",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/15"
+        }
+      ]
+    },
+    {
+      "content_key": "693217b584eb8147f2dbec9a5309aa018714a180f2b55a8799992786ce9234d1",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/HOLDOUT.json",
+          "json_pointer": "/items/0"
+        }
+      ]
+    },
+    {
+      "content_key": "69cd48e4c860af0f6254f1163782a42ecedded913d94e42f707d013dbd438423",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/21"
+        }
+      ]
+    },
+    {
+      "content_key": "6b07749c966d025d84091e16501c1cbbbdc1a39406d86efd27a7d9dbd70ac39b",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/2"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/2"
+        }
+      ]
+    },
+    {
+      "content_key": "6b47ff1b57cc110b8cebe5c98a9ea4551cfb0bf35518fa6d8226d1ee6bba083d",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/2"
+        }
+      ]
+    },
+    {
+      "content_key": "6bb9c0abc5bba371926dccb6f0dae955121382a6a392e5240d10ed5601b00cba",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/6"
+        }
+      ]
+    },
+    {
+      "content_key": "6c765c9516e50c3dcccd213ff161c0cecd3ede40da83beb5face05908b901e00",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/21"
+        }
+      ]
+    },
+    {
+      "content_key": "6e4c5f6f348614e608ce9ff6f0510e23b6753578d792bb87ec7088bf9a812d83",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/38"
+        }
+      ]
+    },
+    {
+      "content_key": "7331d84e30dec03c45055a63ab2197d9a20eab52adf387ecd34b27ba99abab97",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/0"
+        }
+      ]
+    },
+    {
+      "content_key": "7464de0bc8cf8ac4cb4126659a067c6664e4fe1e215e7ce883fad28118be8039",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/14"
+        }
+      ]
+    },
+    {
+      "content_key": "74cc58605ac74410e77b275615258d3d0466a9c320a2b81cc7a8c79a15759677",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/22"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/22"
+        }
+      ]
+    },
+    {
+      "content_key": "7634b2b7ac198733a0287ec3eb97dfb1106a60ad47a72cfe19af89af4b437e71",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/3"
+        }
+      ]
+    },
+    {
+      "content_key": "76e13baa0e4c303cc8a8d0c4203b95f643ac5cfba75d50404277f067e7f10fe8",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/32"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/32"
+        }
+      ]
+    },
+    {
+      "content_key": "77b69d031e674e514d0cd1cae3e99295874a1b6383a40525d90e11de4c0a3f2a",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/13"
+        }
+      ]
+    },
+    {
+      "content_key": "7a50a427d69e46c8ffe2725a2305ac81ee7304f94f3b041deebaa28ea5e1d9e4",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/10"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/10"
+        }
+      ]
+    },
+    {
+      "content_key": "7d8e63cbca46e459750a2d7d04f260172344a0d3817762790674cff13d932c50",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/19"
+        }
+      ]
+    },
+    {
+      "content_key": "7fdc3a939e6c431ebd7c768fb3c171e69e6f54fa62297a7f183a7c578631705d",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/29"
+        }
+      ]
+    },
+    {
+      "content_key": "80488c41374ba2238b6ffefb6869c8bbf65396d6d2529ec66a1382599d155b00",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/9"
+        }
+      ]
+    },
+    {
+      "content_key": "82543e1c904ab05dd8cbb5e3e1a22c87d27f77a0d4d9349f6ee80e937084a314",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/30"
+        }
+      ]
+    },
+    {
+      "content_key": "825bdf28b15fab384950c1ff744d40acd0dacf179279ff02c040291cab2b54ae",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/26"
+        }
+      ]
+    },
+    {
+      "content_key": "83afed0e732a5d8f93259ef964aa75c1a8e34a5a28f2a5bfd96fffedb3e10438",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/7"
+        }
+      ]
+    },
+    {
+      "content_key": "8b5a4933c64377b6112a599780d18f10132140079427de0d9bc31005fa7168de",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/16"
+        }
+      ]
+    },
+    {
+      "content_key": "8bf2637417cef0ca7a887becab1743071302d58f837898287739e7117269e267",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/16"
+        }
+      ]
+    },
+    {
+      "content_key": "8d3c112fbea7dc369fa16da826f0ea619fdfc5104aa4dac8b89bdc641b44ac2a",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/11"
+        }
+      ]
+    },
+    {
+      "content_key": "8fbbee9e51b9e8c030e43c2addc228582ff7ae85ff1905d0f922ad404117b186",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/8"
+        }
+      ]
+    },
+    {
+      "content_key": "9031270a3ff3a1c95fa0d956682fa59a8fe1fcce419128e40c3e3388c3917005",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/23"
+        }
+      ]
+    },
+    {
+      "content_key": "914d4c7599ec6195c37111dff4908c9107a972ad798bd0b360b63c93e72b924c",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/20"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/20"
+        }
+      ]
+    },
+    {
+      "content_key": "95ccad4011be2ce117dffbdfa7d8b191fa00eff8fd640de725cd56e6479e3043",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/HOLDOUT.json",
+          "json_pointer": "/items/6"
+        }
+      ]
+    },
+    {
+      "content_key": "95ceed42b4dd770a9bdebb735d88459a0587aec819cb0db19736a46443ab2a29",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/25"
+        }
+      ]
+    },
+    {
+      "content_key": "960f4adb00c1af19a6619934fc095642dded46c557364481acc3f948e9a7b347",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/9"
+        }
+      ]
+    },
+    {
+      "content_key": "9728423ff7ddedbe6f354af43d5ad294c6263aa827a1d14eb4f28e9c46ec5f4c",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/4"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/4"
+        }
+      ]
+    },
+    {
+      "content_key": "986c5daaf8f1055c9f323bae0a84c4dd46b1e51e51a80d88205ab2e447fd366a",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/23"
+        }
+      ]
+    },
+    {
+      "content_key": "993e27edb442caa4a908ecffeb473da8d7bbe8671f51d41c1898901963646405",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/11"
+        }
+      ]
+    },
+    {
+      "content_key": "9c65afd442d553a126f2377fd98da55868e2da03f9e583868a8885caa51e3637",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/19"
+        }
+      ]
+    },
+    {
+      "content_key": "9c6b4dcc49be91d2234fb591589ba7b79eb3fcdbc83b30ade8c46f924eacf6e1",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/15"
+        }
+      ]
+    },
+    {
+      "content_key": "9cd4d508725086f7d0a34999c3757864c455b9f5f65478d21dc4a1cbda07b5d3",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/HOLDOUT.json",
+          "json_pointer": "/items/7"
+        }
+      ]
+    },
+    {
+      "content_key": "9e1800b2646f282f3467c9474fe96f37a3b03d97bf3c92b1a33d36fc91e58e84",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/5"
+        }
+      ]
+    },
+    {
+      "content_key": "9fc4345fc5dd7c5fe4c06efa7306d65400739690e8378dac65bdcea26ea3f7a3",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/15"
+        }
+      ]
+    },
+    {
+      "content_key": "a015803f856ecbdcd0ccd979a0a8b4caef69ce1dab10f05bee1cfa8f625c3f98",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/10"
+        }
+      ]
+    },
+    {
+      "content_key": "a0fe312f74e536722c0bb0c8adb7081ce24b4bdddd059163e67211fbf01d7b6a",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/12"
+        }
+      ]
+    },
+    {
+      "content_key": "a18b5c92e7865a1f95b156b221490111dbdd929951761f4b95dcdef34dc38d65",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/10"
+        }
+      ]
+    },
+    {
+      "content_key": "a1b0c825b34c860a9cbb33e0383a5640d411d6eea9579d55184d7ed4335b86ed",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/6"
+        }
+      ]
+    },
+    {
+      "content_key": "a3161c7447c0dea9fb1bdca1a4ce76f194fc2e1e5407b40432c2fc1147a99da9",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/33"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/33"
+        }
+      ]
+    },
+    {
+      "content_key": "a349e230a4a0ff7e32d260e50a91a0a13461e87c82f58f967df7f6e3183db28c",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/16"
+        }
+      ]
+    },
+    {
+      "content_key": "a7d296606efba709e32e3e781ef8ea9548001cf2c130c348b1ee39216c36666a",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/1"
+        }
+      ]
+    },
+    {
+      "content_key": "a8c33ffe3a4982842630d29210a7e911123b05c4cac886944a6d08d904f4eef7",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/13"
+        }
+      ]
+    },
+    {
+      "content_key": "a9fc6c85a13840d4d7149bdd20e3576af72b7ca6411b85b827d7def45d7bc9e9",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/20"
+        }
+      ]
+    },
+    {
+      "content_key": "aaccaca0943c83e790c5bf0b7eb6e602f71b2d2e0cdef039072eb5a35dce853c",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/6"
+        }
+      ]
+    },
+    {
+      "content_key": "aba0f076dc127a5f83869d28a994cace12d491acb308b69276d22b05f6b208f6",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/20"
+        }
+      ]
+    },
+    {
+      "content_key": "abcd9f2af6ef1fedc2b8a5e78397ffebda9ec2f4802370122751c4cd1f0f8ba3",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/0"
+        }
+      ]
+    },
+    {
+      "content_key": "ae867035830628e681be6eed88d1c86c6d67168ba1a412c1ed85da9b7bfd03ae",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/18"
+        }
+      ]
+    },
+    {
+      "content_key": "b000e15fcbc8655b7dc8cae4bed764fbc83ca99d7c4155b69805bcd4360d3e8f",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/2"
+        }
+      ]
+    },
+    {
+      "content_key": "b03dc8a519b9ac926875c09293bab1024b4284104f03aa87f0a338dd4f5dc809",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/17"
+        }
+      ]
+    },
+    {
+      "content_key": "b11626d7cf88c51bd6cbb6b0da2094304ccc64e51ce766494a3f61014c4981bd",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/7"
+        }
+      ]
+    },
+    {
+      "content_key": "b324f02d3897789ec092d3fda36765cac0b585347b17d90f6fcc8c9b6b73a210",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/12"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/12"
+        }
+      ]
+    },
+    {
+      "content_key": "b57d88ac860f6cfaf8255c575518e8c8c7c0b66206ea7b6ad54a07013011441f",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/8"
+        }
+      ]
+    },
+    {
+      "content_key": "b603130afb6cd4cdfb2ea29554a82be4fae85ace71858b98bb66a4b7c2b349e9",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/16"
+        }
+      ]
+    },
+    {
+      "content_key": "b83241e8c27c7d1c7e903e9b650530d2aaafa7b8e683d4dd46e07945037ad3e5",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/6"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/6"
+        }
+      ]
+    },
+    {
+      "content_key": "b941f924e05b26796377ac01d442296572f6053844590f8778bbbba2e8f8dc4f",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/10"
+        }
+      ]
+    },
+    {
+      "content_key": "b9a80b5a838221ef95e4e645f3eacc027826ff779182b8e9e14af9fbe2078783",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/10"
+        }
+      ]
+    },
+    {
+      "content_key": "bf8a14fd1cb2606dbc3b46afdb7f97703b22e6dbc9cc4dc9e9e6dd05ab74053a",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/1"
+        }
+      ]
+    },
+    {
+      "content_key": "c382580470d381d9cd6475e30a8bd667b2df8b9021c69edf2c72b2f1ac38cb2e",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/2"
+        }
+      ]
+    },
+    {
+      "content_key": "c3d3c2b73bc98aa1a74527db26874fb71615fb254b467250596e1773ab82820c",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/5"
+        }
+      ]
+    },
+    {
+      "content_key": "c457881bf041b38cdb58cf9ac2f62135e15e7b7282ef79489d31a18a1dd29d5f",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/3"
+        }
+      ]
+    },
+    {
+      "content_key": "c6559aa81bf426c792cae9582e83c891eb88457d1076d7d4964e234fea8860ea",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/30"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/30"
+        }
+      ]
+    },
+    {
+      "content_key": "c6b69e5308a4052043ca472d6a9a56f5fb93d8e6a9f85d0ac36bfe5c112df1d5",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/6"
+        }
+      ]
+    },
+    {
+      "content_key": "c80115a9449ca2acb8eae4d420fd9a7b640f02aac12831714b565b1f720d23a0",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/20"
+        }
+      ]
+    },
+    {
+      "content_key": "c8f2a80a440557aaf259f7f3e6e68fbbffe7ff57c915596c7e8c12cd8e37f223",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/12"
+        }
+      ]
+    },
+    {
+      "content_key": "c9642c65dfcfa9c4116f140140c1b25278510e28a98f197bfde059941b378621",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/15"
+        }
+      ]
+    },
+    {
+      "content_key": "cb8b472945b75cf9042616f0739eafa9363483b325c110585e1491d1deb55eb0",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/13"
+        }
+      ]
+    },
+    {
+      "content_key": "cc3145fb9b194772395b95a9034509d7b24a065e7b5ec19d496d76ddf14d5cd8",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/5"
+        }
+      ]
+    },
+    {
+      "content_key": "cc3e6ffb4d00a574fafe7fb9bd9aa703bb0086d51456d18aab1573eda581c2d1",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/3"
+        }
+      ]
+    },
+    {
+      "content_key": "cd80f12484e33663956a762523fc8d1b6af4e801a299c9cd369b1f03196b886f",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/2"
+        }
+      ]
+    },
+    {
+      "content_key": "cfacff27b2d6ce739f1a6945a33befa4dce238acfd3a6a72ab90248f024680ff",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/19"
+        }
+      ]
+    },
+    {
+      "content_key": "cfc9d037bbcb643e76bee78cf124590e02f024718ed6730e56685d686da5fb10",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/35"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/35"
+        }
+      ]
+    },
+    {
+      "content_key": "d0e3e52953476746d956d3c9f6c3b21ba821dfce40100016953fb0fca8c96111",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/21"
+        }
+      ]
+    },
+    {
+      "content_key": "d1b3c31cabe84dd230f5293204c4f59ff334a166265194a4cfdff739df43a4d3",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/19"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/19"
+        }
+      ]
+    },
+    {
+      "content_key": "d2bf99afa73b2ab50b78eff29461c6e5a8a185ce75d1816b053b34436f21f8c4",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/18"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/18"
+        }
+      ]
+    },
+    {
+      "content_key": "d2f7263dbd4b5beb7cd3a2851c9c9a667d1ea4211a375da6190a9d60f57e34b3",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/19"
+        }
+      ]
+    },
+    {
+      "content_key": "d46b90f3637114b426b5846ccceafb541d6cca328c9325d7f95a51c04834e87e",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/4"
+        }
+      ]
+    },
+    {
+      "content_key": "d4c609981f4de03e260e3b6d4350c54ba686036f2936c4f4f4db3d45372a53de",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/12"
+        }
+      ]
+    },
+    {
+      "content_key": "d521a733522d2f3a9a8ca5cbe3f0bd8d04138d70adcf872e24aaf2e38b371afe",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/16"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/16"
+        }
+      ]
+    },
+    {
+      "content_key": "d5a5a679cfb8f6eb18bc21b4109b598ba849588064a761f545fdb68ac42f069d",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/8"
+        }
+      ]
+    },
+    {
+      "content_key": "d66e8ecbd81d974916967ee4ce1764c1820369a2d34a0c984a753339bc5216cd",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/2"
+        }
+      ]
+    },
+    {
+      "content_key": "d684b28331addf29b6a9a88835a1522494418f482f27b38a628ab1317f24ab44",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/6"
+        }
+      ]
+    },
+    {
+      "content_key": "d6f4b0ec618e08fd5543415fd855ea0a6cdd191df38303decf7306e5d90b2f30",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/5"
+        }
+      ]
+    },
+    {
+      "content_key": "d75f64623684706dc41052f03812253c27795fadc503e05be891994e7b959321",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/0"
+        }
+      ]
+    },
+    {
+      "content_key": "d845fdd5a399c50092fa2e9cc2ce6b7be8187c7b59c297ca8e993ba044fc2292",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/1"
+        }
+      ]
+    },
+    {
+      "content_key": "d8911c7f971529cae672ad6ec97abcbc42658b59506a50fd70c06c14023986ea",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/23"
+        }
+      ]
+    },
+    {
+      "content_key": "da260bc06fea551393a7166b95f8d847695fb0d89b95c9d8a0e5779ffb988893",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/14"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/14"
+        }
+      ]
+    },
+    {
+      "content_key": "db16ef2a525932a9844735425593114a5e881a256e1ac32be7d67b161ed4db87",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/18"
+        }
+      ]
+    },
+    {
+      "content_key": "dcccbf6c8fa2a11e0dddf26c7c4495b723b258c271773b3ca8409955add25b85",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/15"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/15"
+        }
+      ]
+    },
+    {
+      "content_key": "dd22a679a7634b75d4a85131dab4a422261ef16d4178a1ec31a88a45916aaaa1",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/15"
+        }
+      ]
+    },
+    {
+      "content_key": "ddaa4456599b6de3c8ac92b1368833ab9b839c95ec30490c85e81f1a0d7ade28",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/24"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/24"
+        }
+      ]
+    },
+    {
+      "content_key": "ded0e225b3b4123763f768ec7564b77f71d98e225b03a960e158281bfcf0209d",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/0"
+        }
+      ]
+    },
+    {
+      "content_key": "e0d03486fb68ad8a88d03d588e905922a1f29d47ed21d51a75f1863161788112",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/11"
+        }
+      ]
+    },
+    {
+      "content_key": "e11874871b2c328fe03702a727edf1dd7c4a301d4d3da6e01215118cf16a13d6",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/32"
+        }
+      ]
+    },
+    {
+      "content_key": "e3e1c5e5f8f06148ec603edf2fc3e4d0099f79206f1a49ae6be62ca5ede5fe32",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/28"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/28"
+        }
+      ]
+    },
+    {
+      "content_key": "e406c7f7fe8ff8bd9ab7b8bb58fa1222148bcaea0c9a109de1ceb516a7366160",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/23"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/23"
+        }
+      ]
+    },
+    {
+      "content_key": "e4c23d8f598e1e848950752ee65d69eea8546538e380f3c07cb289eb5cf7bed4",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/21"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/21"
+        }
+      ]
+    },
+    {
+      "content_key": "e64c8bcc4cce05d7756b75eef3f42da5cbb6382d69f30f93092abdefb8e98834",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/4"
+        }
+      ]
+    },
+    {
+      "content_key": "e64de387c4b466b2a67a489b73963ab36bcd0abef69d494d7a14aaa562305233",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/HOLDOUT.json",
+          "json_pointer": "/items/4"
+        }
+      ]
+    },
+    {
+      "content_key": "e68d7f054e40c59f95a3d30f015b4304d010afd840392be83bd18540a91cce43",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/17"
+        }
+      ]
+    },
+    {
+      "content_key": "eaca3e4ff0c511f85c7db5a7e30ca5d677e7c2b0fc9822d6e6019c2dca5b3ecf",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/12"
+        }
+      ]
+    },
+    {
+      "content_key": "edc56e2da8c15f7935ab077926f3115730ea2ba252cf0b48a1c7a390ffbef2d1",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/8"
+        }
+      ]
+    },
+    {
+      "content_key": "ee03747f1a309a48c0ddba6697f63459c30bcb4cc9e167824f7287c932133050",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/HOLDOUT.json",
+          "json_pointer": "/items/9"
+        }
+      ]
+    },
+    {
+      "content_key": "ee24135740aa817bc6269e16a342dee00ed25710e5296438e3ea4e4fa8aab033",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/13"
+        }
+      ]
+    },
+    {
+      "content_key": "eeb698263e24999f6654c2fb2feda513577a8500f337cbb676759b62fbb9dca1",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/7"
+        }
+      ]
+    },
+    {
+      "content_key": "efe5ea75793a9ce6a0edc0fec68439e8f68da980126fa0c03e7d43a1831a6619",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b7-args-order.json",
+          "json_pointer": "/items/20"
+        }
+      ]
+    },
+    {
+      "content_key": "f03925945e55144ebf688ae5bf664d82d5b9701b341b80f1d88fccf0f72b4fc2",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-A.json",
+          "json_pointer": "/items/26"
+        },
+        {
+          "logical_path": "evidence/quality/model-probes/runtime-source-context-pilot-v1/HOLDOUT-B.json",
+          "json_pointer": "/items/26"
+        }
+      ]
+    },
+    {
+      "content_key": "f1f53a06d765c8ccc172f85608be5d3f1d2d7e18abd28a91b4b5badaf76a07b7",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/14"
+        }
+      ]
+    },
+    {
+      "content_key": "f204fcc6b711621ed05717aad51c01fc9032f5861b9dc9f3241ba634f382c88f",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/9"
+        }
+      ]
+    },
+    {
+      "content_key": "f5196955da7d6809528a9e137e36f0051c52cd2f20ce272d1927f25c607d6de6",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/20"
+        }
+      ]
+    },
+    {
+      "content_key": "f6932e1a0e5be64458806544cbaee08a34b84770bd1705f06adb85a754221ba5",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/9"
+        }
+      ]
+    },
+    {
+      "content_key": "f9f33da67b74da191667ddfc445387f77a4991347066c2c6d3956066c92d7b15",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/7"
+        }
+      ]
+    },
+    {
+      "content_key": "fae72b291b85011ad40c2e9269cfb1fca361e70a75ce7059514774068dacfc0b",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b4-mechanics-numeric.json",
+          "json_pointer": "/items/10"
+        }
+      ]
+    },
+    {
+      "content_key": "fc46d88db95f3321467d56908d35951af08e45a03ee7ffff87940e928f4613d3",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/paseo-residual-audit-pilot-v1/HOLDOUT.json",
+          "json_pointer": "/items/18"
+        }
+      ]
+    },
+    {
+      "content_key": "fc8047d3cae9566c29694f2f382155e65f268ba7e4d14f0fbdbcd46993c8aab4",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/p1-batches/p1-b8-args-order-census.json",
+          "json_pointer": "/items/4"
+        }
+      ]
+    },
+    {
+      "content_key": "fef3e0e4da5a00d1432fe16e60e6615ded47dcbf186f9b3eb4812771bc086143",
+      "evidence": [
+        {
+          "logical_path": "evidence/quality/model-probes/prospective-residual-audit-v3/PUBLIC-HOLDOUT.json",
+          "json_pointer": "/items/34"
+        }
+      ]
+    }
+  ],
+  "exposed_revision_keys": [],
+  "frozen_future_model_facing_structured_outputs": [
+    {
+      "logical_path": "SOURCE-SCREEN-FRAME.json",
+      "role": "source_only_screen_items",
+      "sha256": "1c10e40a9e10d76a39eff6ad69e9c5a2c2d084f7cc4ae9543aa6af0893fd63cd",
+      "size_bytes": 99248
+    },
+    {
+      "logical_path": "SOURCE-EVIDENCE-PACKETS.json",
+      "role": "fixed_public_source_context",
+      "sha256": "4d2e21c2e144636d1752329263c44704909b39efeb4b837a7a41f648c9ee481d",
+      "size_bytes": 363282
+    }
+  ],
+  "limitation": "This registry covers only the frozen Git-tracked structured outbound-input manifest. It makes no claim about untracked, deleted, external or provider-side content."
+}
