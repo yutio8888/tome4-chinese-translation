@@ -1,0 +1,49 @@
+{
+  "schema_version": "claude-opus-route-purity-result-v1",
+  "status": "ROUTE_NOT_QUALIFIED",
+  "experiment": "claude-opus-route-purity-qualification-v1",
+  "route": "claude-opus-5-medium-strict-purity",
+  "attempts": 1,
+  "transport_successes": 1,
+  "valid_candidates": 0,
+  "qualified_candidates": 0,
+  "model_calls": 1,
+  "synthetic_only": true,
+  "real_experiment_samples_sent": 0,
+  "attempt_001": {
+    "candidate": "attempts/claude-opus-5-medium-strict-purity/attempt-001/CANDIDATE.json",
+    "transport_success": true,
+    "duration_seconds": 7.076,
+    "qualification": "INVALID_ROUTE_PURITY",
+    "validation_errors": [
+      "Claude receipt/result order is invalid",
+      "Claude usage.iterations telemetry is missing"
+    ],
+    "observed_supporting_telemetry": {
+      "initialized_model": "claude-opus-5",
+      "assistant_models": [
+        "claude-opus-5"
+      ],
+      "model_usage_keys": [
+        "claude-opus-5"
+      ],
+      "provider": "firstParty",
+      "exposed_tools": [
+        "StructuredOutput"
+      ],
+      "mcp_servers": [],
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "subagent_activity": 0,
+      "usage_iterations": []
+    },
+    "observed_event_topology": "init; thinking telemetry; three contiguous Opus assistant events; one matching StructuredOutput receipt; one rate-limit event; terminal success result",
+    "frozen_topology_requirement": "the matching receipt must be immediately followed by the terminal success result",
+    "frozen_iteration_requirement": "usage.iterations must be nonempty message iterations whose token totals reconcile with terminal usage and modelUsage"
+  },
+  "decision": "NO_GO_FOR_REAL_TRANSLATION_EXPERIMENTS_ON_THIS_ROUTE",
+  "resampling": "No retry: transport succeeded and the frozen purity candidate was validly parsed as unqualified.",
+  "interpretation": "The envelope contains substantial Opus-only supporting telemetry, but it does not satisfy both frozen acceptance conditions. This is a route-qualification result, not a translation-quality score, and it does not alter the earlier mixed-route reference score."
+}
