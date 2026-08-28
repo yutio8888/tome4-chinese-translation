@@ -1,0 +1,446 @@
+{
+  "schema_version": "route-familiarity-reference-collection-shard-v1",
+  "status": "FROZEN_ZERO_INFERENCE_UNPOPULATED",
+  "parent_queue_sha256": "620b736996ac254c43b3c721cdbfca20f7e68d8f553b7fe21b9effa0c025b3d2",
+  "shard_id": "SHARD-01",
+  "item_count": 29,
+  "items": [
+    {
+      "neutral_id": "RFR-0001",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "- will only auto use when no saturation effect exists",
+      "target": "- 只会在没有饱和效果时自动使用。",
+      "bounded_fixed_context": "section=mod-tome/data/talents/misc/inscriptions.lua; source_tag=_t; fixed source evidence: inscriptions.lua:36-40 assigns the same auto_use_warning to inscriptions/infusions, inscriptions/runes, and inscriptions/taints; auto_use_check tests the corresponding EFF_INFUSION_COOLDOWN, EFF_RUNE_COOLDOWN, or EFF_TAINT_COOLDOWN saturation effect before automatic use",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0002",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "#CRIMSON#%s twitches, alerting %s that a hidden trap is nearby.",
+      "target": "#CRIMSON#%s扭动着，警告%s旁边有隐藏的陷阱。",
+      "bounded_fixed_context": "section=mod-tome/data/general/objects/boss-artifacts-maj-eyal.lua; source_tag=logSeen; fixed source evidence: boss-artifacts-maj-eyal.lua:1619-1633 logs when the worn Lucky Foot detects a hidden nearby trap; first %s is self:getName(), second %s is actor:getName():capitalize()",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0003",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "#LIGHT_GREEN#No high scores. This should not happen.",
+      "target": "#LIGHT_GREEN#没有最高分。这不应该发生。",
+      "bounded_fixed_context": "section=mod-tome/dialogs/ArenaFinish.lua; source_tag=_t; fixed source evidence: ArenaFinish.lua:31-35 returns this coloured player-visible fallback when scores[1].name is absent",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0004",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "After the Spellblaze came the Spellhunt, when the normal people rose against the arrogance of the mages and hunted them down like wolves. Some survived and went into hiding, but many innocents were killed.",
+      "target": "魔法大爆炸之后，猎魔行动随之而来。普通民众奋起反抗法师的傲慢，像猎狼一样追杀他们。一些法师幸存下来并躲藏起来，但也有许多无辜者遇害。",
+      "bounded_fixed_context": "section=mod-tome/init.lua; source_tag=init.lua load_tips; fixed source evidence: init.lua:125 is a loading-screen lore tip describing the Spellhunt after the Spellblaze, ordinary people rising against mages' arrogance, hunting them like wolves, surviving mages hiding, and many innocent deaths",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0005",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Extends the duration of the selected chronomancy spell by %d%%.\n\t\tEach spell can only be spellbound in one way at a time.\n\t\t\n\t\tCurrent Extended Spell: %s",
+      "target": "将选定时空法术的持续时间延长 %d%%。\n\t\t每个法术同时只能通过一种方式获得时空增效。\n\n\t\t当前延展法术：%s",
+      "bounded_fixed_context": "section=mod-tome/data/talents/chronomancy/spellbinding.lua; source_tag=tformat; fixed source evidence: spellbinding.lua:86-95 binds duration percentage first and selected spell name second; each spell can be spellbound only one way",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0006",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Your melee and ranged attacks have a %d%% chance to shred enemies inflicting an additional 100%% of the damage dealt as a bleed over 4 turns.",
+      "target": "你的近战和远程攻击有 %d%% 的几率撕裂敌人，使其在 4 回合内受到相当于本次伤害 100%% 的额外流血伤害。",
+      "bounded_fixed_context": "section=mod-tome/data/talents/cunning/scoundrel.lua; source_tag=tformat; fixed source evidence: scoundrel.lua:32-52 applies EFF_CUT for 4 turns with power dam/4, totaling the triggering damage; %d is proc chance",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0007",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Calling upon nature, you cause the ground to erupt in an radius %d acidic explosion, dealing %0.1f acid damage to all creatures and creating mucus in the area.\n\t\tAny Mucus Oozes you have active will, if in line of sight, instantly spit slime (at reduced power) at one of the targets hit by the splash.\n\t\tThe damage increases with your Mindpower.",
+      "target": "你召唤大自然的力量，引发半径 %d 格的酸液爆炸，对所有目标造成 %0.1f 酸性伤害，并在区域内制造粘液。\n\t\t你现有的粘液软泥怪若在视线内，会立即以较低威力向一个被酸液飞溅命中的目标喷吐粘液。\n\t\t伤害受精神强度加成。",
+      "bounded_fixed_context": "section=mod-tome/data/talents/gifts/mucus.lua; source_tag=tformat; fixed source evidence: mucus.lua:110-151 binds radius then acid damage; active Mucus Oozes if in line of sight spit at one splash-hit target at reduced power",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0008",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Turn into a wraith, passing through walls (but not natural obstacles), granting %d defense and %d armour.",
+      "target": "进入鬼魂形态，可以穿墙（但不能穿过天然障碍），并获得 %d 闪避和 %d 护甲值。",
+      "bounded_fixed_context": "section=mod-tome/data/timed_effects/magical.lua; source_tag=tformat; fixed source evidence: magical.lua:1314-1325 binds defense then armour and grants can_pass pass_wall=20 while excluding natural obstacles",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0009",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Improves/gives the ability to see invisible and stealthed creatures (power %d).",
+      "target": "提升或获得侦测隐形和潜行生物的能力（侦测强度 %d）。",
+      "bounded_fixed_context": "section=mod-tome/data/timed_effects/magical.lua; source_tag=tformat; fixed source evidence: magical.lua:485-496 binds eff.power and adds it to both see_invisible and see_stealth",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0010",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target glows in the light, reducing its stealth and invisibility power by %d, defense by %d and looses all evasion bonus from being unseen.",
+      "target": "目标在光明中显形，潜行与隐形强度降低 %d，闪避值降低 %d，并失去因不可见而获得的躲闪优势。",
+      "bounded_fixed_context": "section=mod-tome/data/timed_effects/magical.lua; source_tag=tformat; fixed source evidence: magical.lua:3338-3352 binds stealth/invisibility power then combat defense; blind_fighted bypasses the separate unseen 1-in-3 hit check in class/interface/Combat.lua:510",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0011",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "His once-shining armour now dull and bloodstained, this Sun Paladin has given in to despair.",
+      "target": "他曾经光亮的盔甲如今已黯淡无光、沾满血迹；这名太阳骑士已经陷入绝望。",
+      "bounded_fixed_context": "section=mod-tome/data/zones/trollmire/npcs.lua; source_tag=_t; fixed source evidence: trollmire/npcs.lua:222-229 is Aluin the Fallen NPC description; dull describes lost shine and bloodstained describes the armour",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0012",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "This talent allows you to prepare up to %d different trap(s) of tier %d or less for later deployment. (Use this ability to select which to prepare.)\n\t\tDesigns known:\n%s\n\n\t\tTraps prepared this way are difficult to detect (%d detection 'power') and disarm (%d disarm 'power') based on your Cunning.  They gain %+d%% effectiveness, and can be deployed without breaking stealth %d%% of the time.\n\t\tYou are immune to the damage and negative effects of your traps, and traps may critically strike based on your physical crit chance.\n\t\tMost traps last %d turns if not triggered, and refund 80%% of their stamina cost on expiration.\n\t\tMore designs may be discovered via disarming or learned from special instructors in the world.",
+      "target": "该技能允许你最多准备 %d 个不同的陷阱，最高等级为 %d。（使用该技能选择需要准备的陷阱。）\n\t\t已知陷阱：\n%s\n\n\t\t准备好的陷阱更难被发现和解除（侦测强度 %d，解除强度 %d，基于灵巧）。它们的效果提高 %+d%%，且有 %d%% 几率在布设时不打破潜行。\n\t\t你免疫自己陷阱的伤害和负面效果；陷阱可按你的物理暴击率造成暴击。\n\t\t大多数陷阱未触发时持续 %d 回合；到期时返还 80%% 的体力消耗。\n\t\t解除陷阱或向世界各地的特殊导师学习，可以发现更多设计。",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/talents/cunning/traps.lua; source_tag=tformat; fixed source evidence: traps.lua:556-667 binds prepared count, maximum talent tier, design list, detection power, disarm power, effectiveness, stealth deployment chance and duration",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0013",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "You empathy with your shadows causes the line between you and your shadows to blur.\n\t\tYou lose %d%% light resistance, but gain %d%% darkness resistance and affinity. You also gain %0.2f%% all resistance for each shadow in your party.",
+      "target": "你与阴影之间的共鸣，使彼此的界限逐渐模糊。\n\t\t你的光系伤害抗性变化 %d%%，并获得 %d%% 暗影伤害抗性和伤害吸收。你的队伍里每有一个阴影，就获得 %0.2f%% 所有伤害抗性。",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/talents/cursed/one-with-shadows.lua; source_tag=tformat; fixed source evidence: one-with-shadows.lua:37-92 applies darkness resistance through resists and equal-valued darkness affinity through damage_affinity; each shadow scales all resistance",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0014",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "You have accumulated an electric charge. Your next melee hit does %d extra lightning damage.",
+      "target": "你积累了静电荷；下一次近战命中将额外造成 %d 点闪电伤害。",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/timed_effects/mental.lua; source_tag=tformat; fixed source evidence: mental.lua:2801-2811 stores eff.power as STATIC_CHARGE; damage_types.lua:3937-3946 accumulates it and Combat.lua:966-973 discharges it on the next successful melee hit",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0015",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Carved with runes of power, this staff seems to have been made long ago, yet it bears no signs of tarnish.\nLight around it seems to dim and you can feel its tremendous power simply by touching it.\nThe Sorcerers seem to have awakened its power.\n#{italic}#\"And lo they came to Amakthel himself, and thousands were killed in the assault on his throne, and three of the Godslayers were broken beneath his feet. But Falion with his dying breath pierced the great god on his knee with the icy sword Arkil, and seeing his opportunity Caldizar, leader of the Godslayers, advanced with the Staff of Absorption and struck a terrifying blow against Amakthel. So fell the greatest of the gods by the hands of his own children, and his face was forced into the dust.\"#{normal}#",
+      "target": "杖身铭刻着强大的符文。这根法杖似乎铸造于久远年代，却毫无锈蚀的痕迹。\n它周围的光线仿佛也随之暗淡；仅仅触摸它，你就能感受到其中蕴藏的惊人力量。\n巫师们似乎已经唤醒了它的力量。\n#{italic}#“于是，他们来到阿马克泰尔本人面前。数千人在进攻他的王座时丧生，三名弑神者被碾碎在他脚下。然而，法利恩在临终之际用冰剑阿奇尔刺中了伟大神祇的膝盖。弑神者首领凯尔帝勒抓住机会，手持吸能法杖上前，对阿马克泰尔发动了骇人的一击。众神中最强大的存在就这样倒在自己的儿女手中，脸也被压进尘土。”#{normal}#",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/zones/high-peak/objects.lua; source_tag=_t; fixed source evidence: data/zones/high-peak/objects.lua:58-75 defines the Awakened Staff of Absorption description as three prose lines followed by one complete quotation inside paired #{italic}#/#{normal}#; the quote names Amakthel, Falion, Arkil, Caldizar, the Godslayers and the Staff of Absorption",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0016",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Unleash raw, chaotic elemental damage upon your enemy.\n\t\tYou strike your enemy for %d%% weapon damage in one of blinding sand, disarming acid, freezing and slowing ice, dazing lightning or stunning flames, with equal odds.\n\t\tAdditionally, you will cause a burst that deals %0.2f of that damage to creatures in radius %d, regardless of if you hit with the blow.\n\t\tLevels in Prismatic Slash increase your Physical and Mental attack speeds by %d%%.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+      "target": "向你的敌人释放原始的混乱元素攻击。\n\t\t你会等概率地从致盲之沙、缴械酸雾、可冻结并减速的寒冰、眩晕闪电或震慑之焰中选择一种攻击敌人，造成 %d%% 对应伤害类型的武器伤害。\n\t\t此外，无论你的元素攻击是否命中敌人你都会对 %d 码半径范围内的生物造成 %0.2f 伤害。\n\t\t五灵挥击还会使你的物理和精神攻击速度提升 %d%%。\n\t\t如果你装备了盾牌，这一技能也会用你的盾牌攻击。",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/talents/gifts/higher-draconic.lua; source_tag=tformat; fixed source evidence: data/talents/gifts/higher-draconic.lua:34-103 uses rng.table over five equal entries; cold branch performs a DamageType.ICE weapon/shield hit and a radius DamageType.ICE_SLOW burst; target args_order={1,3,2,4}",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0017",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "On using Ghost Walk - Return, you create a portal that summons %d spirits around you for %d turns. The spirits do very little damage, but taunt all enemies in radius 3 into attacking them.",
+      "target": "使用游魂行走——返回时，你会创建一个传送门，并在身边召唤鬼魂；鬼魂会存在 %d 回合，共 %d 个。鬼魂造成的伤害很低，但会嘲讽半径 3 码内的所有敌人，迫使它们攻击鬼魂。",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; data/talents/spells/spectre.lua:98-147 creates no persistent portal entity and assigns getDuration to each summoned actor's summon_time; info formats spirit count then duration; target args_order={2,1}",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0018",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Waves of terrible magic burst forth from the portals, which it's now clear were never intended to help us. They were a deadly trap, a ticking time bomb that would go off when the Sher'Tul wanted it to - and it went off with incredible force. Most of the worlds we had once visited were obliterated completely. Ours was not, but I can barely say we were \"spared\"; our Father's jungles turned to a cursed pyre instantly, burning with flame that could never be extinguished, and our planet cracked apart, whole continents flying into the void. What little land was left obviously couldn't be used for farming. Most of us died instantly, the survivors being those close enough to a skilled mage who could create enough oxygen to breathe, and convert ambient magic into caloric energy for our bodies. Life for the survivors was - is - endless torment, the burning ground constantly searing our feet, and all the beauty we once knew destroyed.\n\nFortunately, this woke our Father up. We confessed our treachery, but did not beg forgiveness, as we knew what we had done was unforgivable; he disagreed, and to this day is using nearly every shred of his power to keep the shattered fragments of our planet together. We were not satisfied with this fate, our Father suffering and exhausting himself for the sake of our mistakes. We begged him to give us a command, something we could do to help his situation, or at least make him happier about it.\n\nHis command: End the Sher'Tul. End their creations. Never let anything be hurt by Eyal again.\n\nWe have taken his words to heart. Our mages have devised new magic from old inspiration, alteration spells to make us warlike and brutal once more - but with our ascended minds and honed bodies, we shall be a force of destruction far greater than the dust-storms ever were. Our green bretheren underwent a process to make their skin drip with acid; not to be outdone, our onyx brethren grew faster and stronger, with a birth-rate high enough to overwhelm whatever Sher'Tul or Sher'Tul-made monsters lay on Eyal. The red ones proclaimed they now existed only to destroy, and fused bits of the burnt earth to their hands, leaving them unable to do anything but sear Eyal with its own fires. The finished results of these alterations have taken up residence on our largest drifting continent, the one drawing ever closer to Eyal.\n\nOnce this continent arrives, we shall take revenge on Eyal. Not just for our own sakes, our planet ravaged by their treachery, with a pristine one waiting as our prize. Not just for our Father's sake, condemned to an eternity of suffering for trusting his children too much. But for *everyone's* sake, the untold trillions of souls on planets less fortunate than ours, torn apart in a fiery instant. The Sher'Tul shall never hurt anyone again; we shall make sure of it by cleansing Eyal in blighted fire, and any survivors will be taken back to our planet and chained to the burning earth, kept alive so they can forever feel the flames they created consuming their flesh. Their eternal torture will still not be justice, as they shall feel only a tiny portion of the suffering they inflicted... but it's a start.\n",
+      "target": "很显然，夏·图尔人从来没有真心想要过帮助我们。在那一天，一股可怕的破坏性魔法能量从所有的传送门中放射出来。这一切都是他们设置的死亡陷阱，这些传送门都是具有强大力量的定时炸弹，只要夏·图尔人想要就会随时爆炸。大部分我们曾经访问过的世界几乎被瞬间湮灭。我们的世界仍然残存，但是被强大的爆炸力量炸了个粉碎：我们父亲创造的丛林被魔法能量的诅咒下瞬间变成了冲天的永恒火柱，燃烧的火焰永远无法被任何方法扑灭，我们的星球被炸裂开来，大部分的大陆都被消失在无尽的虚空之中。即使是残留下来的少许土地，也永远无法用于耕种。我们中的大部分人当场死亡。幸存者只是那些离强大法师足够近的人——他们用魔法创造出可供呼吸的氧气，并将周围涌动的魔法能量转化成身体所需的能量。对于这些幸存者来说，生命宛如无尽的折磨，燃烧的大地在我们的脚下灼烧，我们曾见过的一切美好事物都被焚毁殆尽。\n\n幸运的是，这场天灾地变惊醒了我们的父亲。我们为我们背叛的行为深深忏悔，然而我们不是为了乞求原谅，因为我们所做的一切永远没法被原谅。他并不同意，使用了他全部的力量将我们破碎的星球重新维持在了一起。我们对这样不公命运感到十分痛心，我们的父亲因为我们的错误而不得不受尽磨难，却仍然决意为我们付出。我们向他祈求，希望他向我们下达命令。我们愿意做任何我们能做的来帮助他，至少能够让他感到喜悦。\n\n他的命令是：终结夏·图尔人。终结他们的造物。让埃亚尔的住民再也无法危害人间。\n\n我们将他的话铭记在心。我们的法师从过去被我们废弃的法术中获取灵感，创造了新的法术，让我们再一次变得好战和残忍——然而，我们的意志早已变得更加坚定，我们的身体早已锻炼得更加强韧，我们将会成为毁灭一切的力量——比那些过去的尘土风暴更加可怕。我们绿翡翠色的同胞让他们的皮肤上滴落酸液，缟玛瑙之子成长得更快、更强，生育率高到足以压倒埃亚尔上的夏·图尔人和他们创造的一切怪物。红宝石之子更是声称他们唯一存在的意义就是为了毁灭一切，他们将我们星球上永久灼烧的土壤与双手熔接在一起，毕生的精力都将用于以他们的烈火将埃亚尔的一切燃烧殆尽。最终，这些变化了自身的同胞在我们星球飘离在外的最大碎片上定居，而那块碎片正不断漂近埃亚尔。\n\n当这块大陆的碎片降临埃亚尔，我们将开始我们真正的复仇。那不仅仅是为了我们自己的原因：我们的星球被他们的背信弃义所蹂躏，只有将它们的自己完好无损的星球作为战利品才能补偿我们的损失。那不仅仅是为了我们父亲的原因：因为太过信任自己的孩子，他遭受了这样永恒的磨难和苦痛。那是为了世界上的所有人：那些在无数星球上受苦受难的亿万生灵，他们没有像我们那样的幸运，在灾难中瞬间被烈火吞噬。夏·图尔人再也不能这样为害人间，我们将用枯萎之火净化整个埃亚尔。任何残存的生还者将会被带到我们的星球，绑在无尽灼烧的土地上经受永恒的折磨，让他们体会自己所造下的罪孽和折磨降临到自己身上的感觉。即使这样也不足以弥补它们所做的恶行，他们所将经历的只是他们所造成的邪恶的一小部分……但是这将是一个开始。\n",
+      "bounded_fixed_context": "source_tag=_t; unique lore key in tome-ashes-urhrok.lua. Nearby title: history of Mal'Rok (3)=玛·洛克的历史（3）; 缟玛瑙之子. Public source <DLC_ROOT>/ashes-urhrok/tome-ashes-urhrok/data/lore/demon.lua history of Mal'Rok (3): our onyx brethren grew faster and stronger, with a birth-rate high enough to overwhelm whatever Sher'Tul or Sher'Tul-made monsters lay on Eyal. Green brethren acid-drip and red ones fused burnt earth are separate clauses.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0020",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is on fire, taking %0.2f fire damage per turn. On death, the flame will explode.",
+      "target": "目标着火，每回合受到 %0.2f 火焰伤害。死亡时火焰会以更弱的强度传播到附近目标身上。",
+      "bounded_fixed_context": "EFF_BURNING_PLAGUE.callbackOnDeath in tome-ashes-urhrok/data/timed_effects.lua: on the burning target's death, if eff.explosion is set, it projects over a ball radius eff.range and for each target found (excluding eff.src and any target where eff.hasspread >= eff.spreadcount) calls target:setEffect(target.EFF_BURNING_PLAGUE, eff.spreadlength, {power=eff.power*eff.explosion, hasspread=eff.hasspread+1, ...}) -- applying a NEW burning DoT at explosion-scaled power (0.75x in the world-artifacts.lua usage), capped by a propagation-depth counter (spreadcount=2 hops in that usage). There is no instant damage projector call in this callback, only a particle emitter (visual) and the new DoT application. So 'explode' is spreading a weaker fire DoT, not an instant burst hit.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0022",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "Open a gateway to the Fearscape, stepping through it to a nearby location. As you step out, a burst of fire will leave with you, dealing %0.2f demonfire damage to everyone within %d spaces and leaving flames which will deal an additional %0.2f demonfire damage over 4 turns.\n\t\tAdditionally, shifting through reality enhances your awareness, allowing you to see all enemies within %d spaces for the next 3 turns.\n\t\tThe damage will scale with your Spellpower and the range will increase with the talent level.",
+      "target": "开启通往恶魔空间的炼狱之门，踏入并传送到附近位置。 \n\t当你踏出炼狱之门时，炼狱之火随之喷发，造成 %0.2f 恶魔之火伤害，伤害 %d 码内所有生物。地上的余烬会造成持续 4 回合的额外 %0.2f 恶魔之火伤害。\n\n\t穿越空间增强了你的直觉，让你能够在 4 回合内觉察到 %d 码内的所有敌对生物。\n \n\t伤害受法术强度加成，范围随技能等级增大。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-ashes-urhrok.lua. Nearby: Fearscape Shift=炼狱之门; ground flames already 持续 4 回合. Public source <DLC_ROOT>/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/fearfire.lua Fearscape Shift action: addEffect(..., 4, DEMONFIRE, dam/4) then setEffect(self.EFF_SENSE, 4, {range=rad, actor=1}). English talent info says sense lasts the next 3 turns.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0023",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "Select the source:",
+      "target": "选择源生物:",
+      "bounded_fixed_context": "source_tag=logPlayer; unique runtime key in tome-ashes-urhrok.lua. Nearby: Link of Pain=苦痛链接; Select the victim:=选择受害者:; talent info uses 源生物 and 牺牲生物. Public source <DLC_ROOT>/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua Link of Pain action: first logPlayer Select the source: then getTarget stored as target; second Select the victim: stored as victim (must differ). target:setEffect(EFF_LINK_OF_PAIN, ..., {victim=victim, src=self}). timed_effects.lua EFF_LINK_OF_PAIN.callbackOnHit: when that target is hit, eff.victim:takeHit(linked_damage, src).",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0024",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "collecting wood from fallen and dead trees while planting and cultivating new trees to grow",
+      "target": "从倒下的树木和枯死的树上采集木材",
+      "bounded_fixed_context": "'fallen and dead trees' - old '倒栽树' is a garbled non-word, not a translation of 'fallen'",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0025",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "I soon learned the tablets I had been given were called manasurge runes",
+      "target": "我很快就知道，我得到的平板被称为法力涌动符文",
+      "bounded_fixed_context": "'manasurge runes' - terminology/items.tsv preferred entity name is 法力涌动符文, matching terminology/talents.tsv Rune: Manasurge = 符文：法力涌动; old used a different rendering 法力风暴符文",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0026",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "and that they enabled the restoration of mana lines within a person",
+      "target": "它们可以恢复人体内的法力通路",
+      "bounded_fixed_context": "'enabled the restoration of mana lines within a person' = mana lines/pathways, not a numeric 'mana value'",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0027",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "In their hubris they burned down the building with the arcane powers found within the items therein.",
+      "target": "因为他们的狂妄，他们借助其中物品蕴含的奥术力量烧毁了这座建筑。",
+      "bounded_fixed_context": "'they burned down the building WITH the arcane powers found within the items' - the items' power was the means of arson, not a separate fact discovered afterward",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0028",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "They publicly executed those who they believed to be the culprits and planted their heads on stakes within the walls of the city.",
+      "target": "他们公开处决了那些他们认为是罪魁祸首的人，并把他们的头插在城墙内的木桩上。",
+      "bounded_fixed_context": "'planted their heads on stakes' = impaled/displayed on stakes, not buried; a nearly identical sentence elsewhere in this file (line 790-792) already correctly uses 插 (impale/insert), confirming consistency",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0029",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "another ogre continued,",
+      "target": "另一个食人魔很快说道",
+      "bounded_fixed_context": "'another ogre continued' - not 'another commander'",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0030",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "shaking their hands while making odd gestures with them",
+      "target": "一边挥动双手，一边做着奇怪的手势",
+      "bounded_fixed_context": "'shaking their hands while making odd gestures' during a group war-roar - a personal gesture (waving hands), not mutual handshaking between ogres",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0031",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "he gave the order to advance and we quickly began to forge ahead",
+      "target": "他下令前进",
+      "bounded_fixed_context": "'gave the order to advance' - advance, not a vague 'trigger'",
+      "response": null
+    }
+  ],
+  "source_evidence": [
+    {
+      "evidence_id": "EVIDENCE-RFR-0001",
+      "neutral_id": "RFR-0001",
+      "sha256": "52654f83680ba441027bbaa02a350b721635b65d4d9b380df28e1bf7b6cda098",
+      "text": "section=mod-tome/data/talents/misc/inscriptions.lua; source_tag=_t; fixed source evidence: inscriptions.lua:36-40 assigns the same auto_use_warning to inscriptions/infusions, inscriptions/runes, and inscriptions/taints; auto_use_check tests the corresponding EFF_INFUSION_COOLDOWN, EFF_RUNE_COOLDOWN, or EFF_TAINT_COOLDOWN saturation effect before automatic use"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0002",
+      "neutral_id": "RFR-0002",
+      "sha256": "a5c8a8fea26e5b70347dc9b423dc3c99d9225283ae8ba5ddfce562ee3b907564",
+      "text": "section=mod-tome/data/general/objects/boss-artifacts-maj-eyal.lua; source_tag=logSeen; fixed source evidence: boss-artifacts-maj-eyal.lua:1619-1633 logs when the worn Lucky Foot detects a hidden nearby trap; first %s is self:getName(), second %s is actor:getName():capitalize()"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0003",
+      "neutral_id": "RFR-0003",
+      "sha256": "0e5be3a1c3fdd1aa60e0622229ee4697480221078294fc8dceac6aad52128b60",
+      "text": "section=mod-tome/dialogs/ArenaFinish.lua; source_tag=_t; fixed source evidence: ArenaFinish.lua:31-35 returns this coloured player-visible fallback when scores[1].name is absent"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0004",
+      "neutral_id": "RFR-0004",
+      "sha256": "8f1ec9b10c0977805a721612bc67a148e81ec746f7e39a045a6c9da54c644227",
+      "text": "section=mod-tome/init.lua; source_tag=init.lua load_tips; fixed source evidence: init.lua:125 is a loading-screen lore tip describing the Spellhunt after the Spellblaze, ordinary people rising against mages' arrogance, hunting them like wolves, surviving mages hiding, and many innocent deaths"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0005",
+      "neutral_id": "RFR-0005",
+      "sha256": "b8b14760038c59e3d021f36a7fbb16859cdfd665790553b490ed79b9fea00107",
+      "text": "section=mod-tome/data/talents/chronomancy/spellbinding.lua; source_tag=tformat; fixed source evidence: spellbinding.lua:86-95 binds duration percentage first and selected spell name second; each spell can be spellbound only one way"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0006",
+      "neutral_id": "RFR-0006",
+      "sha256": "6a0a0aca3884ffe4cade08b914fc306ab04888344a1f02f4e59d46bca5141fa8",
+      "text": "section=mod-tome/data/talents/cunning/scoundrel.lua; source_tag=tformat; fixed source evidence: scoundrel.lua:32-52 applies EFF_CUT for 4 turns with power dam/4, totaling the triggering damage; %d is proc chance"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0007",
+      "neutral_id": "RFR-0007",
+      "sha256": "7a1314b8fa83e79539828bdd5f66551ac69d614c245052089bd3ea4060de1921",
+      "text": "section=mod-tome/data/talents/gifts/mucus.lua; source_tag=tformat; fixed source evidence: mucus.lua:110-151 binds radius then acid damage; active Mucus Oozes if in line of sight spit at one splash-hit target at reduced power"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0008",
+      "neutral_id": "RFR-0008",
+      "sha256": "ed4e303e253959dccbdf79aec2736f5f6d75812ffc44aea57e43f3d19c999283",
+      "text": "section=mod-tome/data/timed_effects/magical.lua; source_tag=tformat; fixed source evidence: magical.lua:1314-1325 binds defense then armour and grants can_pass pass_wall=20 while excluding natural obstacles"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0009",
+      "neutral_id": "RFR-0009",
+      "sha256": "3217c86dfd1e81c4d0c73fad69f1d9928446917272f335d51c0ef07f857348df",
+      "text": "section=mod-tome/data/timed_effects/magical.lua; source_tag=tformat; fixed source evidence: magical.lua:485-496 binds eff.power and adds it to both see_invisible and see_stealth"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0010",
+      "neutral_id": "RFR-0010",
+      "sha256": "89aab00fc50a43c359aa4ec5e959e01f19332a8491193dd46945479cc7e86142",
+      "text": "section=mod-tome/data/timed_effects/magical.lua; source_tag=tformat; fixed source evidence: magical.lua:3338-3352 binds stealth/invisibility power then combat defense; blind_fighted bypasses the separate unseen 1-in-3 hit check in class/interface/Combat.lua:510"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0011",
+      "neutral_id": "RFR-0011",
+      "sha256": "d6953ec9214d4b2f022e4113fa610fa18ce1e29bd64af9a81262eaad0506c3ae",
+      "text": "section=mod-tome/data/zones/trollmire/npcs.lua; source_tag=_t; fixed source evidence: trollmire/npcs.lua:222-229 is Aluin the Fallen NPC description; dull describes lost shine and bloodstained describes the armour"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0012",
+      "neutral_id": "RFR-0012",
+      "sha256": "2589e1fa4a3a260d735f6232fff45771b4daf7ebe25d6a89e1fdfb69edc7f67c",
+      "text": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/talents/cunning/traps.lua; source_tag=tformat; fixed source evidence: traps.lua:556-667 binds prepared count, maximum talent tier, design list, detection power, disarm power, effectiveness, stealth deployment chance and duration"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0013",
+      "neutral_id": "RFR-0013",
+      "sha256": "98f03f36ccea6b9b910f8a02ac156cda5a92d375fdbbb5e1135b95433ce43f3b",
+      "text": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/talents/cursed/one-with-shadows.lua; source_tag=tformat; fixed source evidence: one-with-shadows.lua:37-92 applies darkness resistance through resists and equal-valued darkness affinity through damage_affinity; each shadow scales all resistance"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0014",
+      "neutral_id": "RFR-0014",
+      "sha256": "69d39175cb827dc479f466d9f051875c93d450667dce111d9dd2d4a78b6ba5f2",
+      "text": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/timed_effects/mental.lua; source_tag=tformat; fixed source evidence: mental.lua:2801-2811 stores eff.power as STATIC_CHARGE; damage_types.lua:3937-3946 accumulates it and Combat.lua:966-973 discharges it on the next successful melee hit"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0015",
+      "neutral_id": "RFR-0015",
+      "sha256": "82521c6ddb473b61477528d357774eed6b76952559f9b1baff28a1a7d514c220",
+      "text": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/zones/high-peak/objects.lua; source_tag=_t; fixed source evidence: data/zones/high-peak/objects.lua:58-75 defines the Awakened Staff of Absorption description as three prose lines followed by one complete quotation inside paired #{italic}#/#{normal}#; the quote names Amakthel, Falion, Arkil, Caldizar, the Godslayers and the Staff of Absorption"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0016",
+      "neutral_id": "RFR-0016",
+      "sha256": "7c46126290f3f9028365d7144e6c218bbf4a6859e94bcf28fe25f9f8d5b017d2",
+      "text": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/talents/gifts/higher-draconic.lua; source_tag=tformat; fixed source evidence: data/talents/gifts/higher-draconic.lua:34-103 uses rng.table over five equal entries; cold branch performs a DamageType.ICE weapon/shield hit and a radius DamageType.ICE_SLOW burst; target args_order={1,3,2,4}"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0017",
+      "neutral_id": "RFR-0017",
+      "sha256": "9b5e70ef53bbf61833a14bcecce0662f4dc83a4e475274108a8ef61752c5554f",
+      "text": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; data/talents/spells/spectre.lua:98-147 creates no persistent portal entity and assigns getDuration to each summoned actor's summon_time; info formats spirit count then duration; target args_order={2,1}"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0018",
+      "neutral_id": "RFR-0018",
+      "sha256": "4212aac9ead01a5fa254a030a714e5ddb824991778ba81cd62d6fd08fae71953",
+      "text": "source_tag=_t; unique lore key in tome-ashes-urhrok.lua. Nearby title: history of Mal'Rok (3)=玛·洛克的历史（3）; 缟玛瑙之子. Public source <DLC_ROOT>/ashes-urhrok/tome-ashes-urhrok/data/lore/demon.lua history of Mal'Rok (3): our onyx brethren grew faster and stronger, with a birth-rate high enough to overwhelm whatever Sher'Tul or Sher'Tul-made monsters lay on Eyal. Green brethren acid-drip and red ones fused burnt earth are separate clauses."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0020",
+      "neutral_id": "RFR-0020",
+      "sha256": "4182a3f8830c2db6b0774ec92e735625f2f343d0676cd177cfd51b2aa596dfff",
+      "text": "EFF_BURNING_PLAGUE.callbackOnDeath in tome-ashes-urhrok/data/timed_effects.lua: on the burning target's death, if eff.explosion is set, it projects over a ball radius eff.range and for each target found (excluding eff.src and any target where eff.hasspread >= eff.spreadcount) calls target:setEffect(target.EFF_BURNING_PLAGUE, eff.spreadlength, {power=eff.power*eff.explosion, hasspread=eff.hasspread+1, ...}) -- applying a NEW burning DoT at explosion-scaled power (0.75x in the world-artifacts.lua usage), capped by a propagation-depth counter (spreadcount=2 hops in that usage). There is no instant damage projector call in this callback, only a particle emitter (visual) and the new DoT application. So 'explode' is spreading a weaker fire DoT, not an instant burst hit."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0022",
+      "neutral_id": "RFR-0022",
+      "sha256": "7874667c446fa45205506123cabe1c3a6d413447d66fca683674029e4af57391",
+      "text": "source_tag=tformat; unique runtime key in tome-ashes-urhrok.lua. Nearby: Fearscape Shift=炼狱之门; ground flames already 持续 4 回合. Public source <DLC_ROOT>/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/fearfire.lua Fearscape Shift action: addEffect(..., 4, DEMONFIRE, dam/4) then setEffect(self.EFF_SENSE, 4, {range=rad, actor=1}). English talent info says sense lasts the next 3 turns."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0023",
+      "neutral_id": "RFR-0023",
+      "sha256": "b29c3ada14dcfba5b5e316e3a1e9798129e4606d9d66d043514a59b10245f584",
+      "text": "source_tag=logPlayer; unique runtime key in tome-ashes-urhrok.lua. Nearby: Link of Pain=苦痛链接; Select the victim:=选择受害者:; talent info uses 源生物 and 牺牲生物. Public source <DLC_ROOT>/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua Link of Pain action: first logPlayer Select the source: then getTarget stored as target; second Select the victim: stored as victim (must differ). target:setEffect(EFF_LINK_OF_PAIN, ..., {victim=victim, src=self}). timed_effects.lua EFF_LINK_OF_PAIN.callbackOnHit: when that target is hit, eff.victim:takeHit(linked_damage, src)."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0024",
+      "neutral_id": "RFR-0024",
+      "sha256": "6efcff4517d04462af607c4dada0b59a1c00b9ccf54d9c28647fb42699374336",
+      "text": "'fallen and dead trees' - old '倒栽树' is a garbled non-word, not a translation of 'fallen'"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0025",
+      "neutral_id": "RFR-0025",
+      "sha256": "5a59500c2c709689bd208cb8baecf4f2c77f3c4a9ec11152a42c07323d74f5cc",
+      "text": "'manasurge runes' - terminology/items.tsv preferred entity name is 法力涌动符文, matching terminology/talents.tsv Rune: Manasurge = 符文：法力涌动; old used a different rendering 法力风暴符文"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0026",
+      "neutral_id": "RFR-0026",
+      "sha256": "b8225db22132049e5741ca8d352da35ab404c0961498e87810919eb264d18f30",
+      "text": "'enabled the restoration of mana lines within a person' = mana lines/pathways, not a numeric 'mana value'"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0027",
+      "neutral_id": "RFR-0027",
+      "sha256": "ff17761909aab4ad4b6b5efcc0d9b55dbbda8d8a52491acb52ed95c53154921a",
+      "text": "'they burned down the building WITH the arcane powers found within the items' - the items' power was the means of arson, not a separate fact discovered afterward"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0028",
+      "neutral_id": "RFR-0028",
+      "sha256": "a26eab9fd37a3685ed67c452d69cbe96341b719b57fae9cd6da32ff07d605604",
+      "text": "'planted their heads on stakes' = impaled/displayed on stakes, not buried; a nearly identical sentence elsewhere in this file (line 790-792) already correctly uses 插 (impale/insert), confirming consistency"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0029",
+      "neutral_id": "RFR-0029",
+      "sha256": "a49a9373818b5934ae5086645f21e3ba35a844b0ff796760e73cd46a795310af",
+      "text": "'another ogre continued' - not 'another commander'"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0030",
+      "neutral_id": "RFR-0030",
+      "sha256": "656a0d3a5adb2758316fd0f276be0a3970241b4b3817b43561af95c29e4be95a",
+      "text": "'shaking their hands while making odd gestures' during a group war-roar - a personal gesture (waving hands), not mutual handshaking between ogres"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0031",
+      "neutral_id": "RFR-0031",
+      "sha256": "a5bced92322ee73106993b94500a34979ea3c09fe734d6dd13923c2096348139",
+      "text": "'gave the order to advance' - advance, not a vague 'trigger'"
+    }
+  ]
+}

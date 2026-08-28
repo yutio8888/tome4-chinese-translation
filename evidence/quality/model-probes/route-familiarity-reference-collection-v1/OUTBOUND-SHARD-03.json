@@ -1,0 +1,446 @@
+{
+  "schema_version": "route-familiarity-reference-collection-shard-v1",
+  "status": "FROZEN_ZERO_INFERENCE_UNPOPULATED",
+  "parent_queue_sha256": "620b736996ac254c43b3c721cdbfca20f7e68d8f553b7fe21b9effa0c025b3d2",
+  "shard_id": "SHARD-03",
+  "item_count": 29,
+  "items": [
+    {
+      "neutral_id": "RFR-0061",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "causing it to spread to nearby enemies",
+      "target": "令其传播至附近的敌人",
+      "bounded_fixed_context": "'causing it to spread to nearby enemies' - clarifies the spread target is enemies",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0062",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "causing it to apply instantly when you cast another prophecy",
+      "target": "令选中的预言在你施放另一个预言时立即生效",
+      "bounded_fixed_context": "old invented a 'primary target' mechanic detail not present in source; this is a talent mechanic description read by players",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0063",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Your skin grows small spikes coated in dark blight.\n\t\tWhen you are hit in melee the attacker starts bleeding black blood for 5 turns that deals %0.2f darkness damage each turn. This effect may only happen once per turn.\n\t\tYou are empowered by the sight of the black blood, for each bleeding creature in radius 2 you gain 5%% all resistances, limited to %d creatures.\n\t\tThe damage will scale with your Magic stat.",
+      "target": " 你的皮肤生长出被黑暗和枯萎力量覆盖的尖刺。\n\t\t当你被近战攻击命中时，攻击者开始流出黑血，持续 5 回合，每回合造成 %0.2f 暗影伤害。该效果每回合只能触发一次。\n\t\t同时，目睹黑血会使你受到强化：2 格范围内每个可见的流着黑血的生物，都使你获得 5%% 全部抗性，最多计 %d 个生物。\n\t\t伤害随魔法属性提升。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/talents/misc/races.lua. Fixed source Spikeskin callbackOnMeleeHit applies EFF_SPIKESKIN_BLACK_BLOOD. callbackOnActBase counts visible actors with that effect at distance <= 2, caps at talent level, and sets EFF_SPIKESKIN power=5 per actor; SPIKESKIN applies resists={all=eff.power}.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0064",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Can walk through walls and quake every turn, %d%% more damage and %d%% more resistances.",
+      "target": "能走过墙体并且每回合引发地震。增加 %d%% 伤害并增加 %d%% 全部抗性。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source CULTS_OVERGROWTH applies inc_damage={all=eff.dam} and resists={all=eff.resist}, in addition to pass-wall movement and quakes on movement.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0065",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "When this target is damaged %d%% of the damage will also be done to the source of this effect.",
+      "target": "当目标受到伤害时，效果来源也受到目标所受伤害的 %d%%。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed source MARK_OF_TREASON.callbackOnHit calculates linked_damage = cb.value * eff.power / 100, then calls eff.source:takeHit(linked_damage, src). The source therefore receives the configured percentage of damage received by the target.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0066",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "All cooldowns increased by %d%%.",
+      "target": "所有技能冷却时间增加 %d%%。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed source DECAYING_GROUND.long_desc emits this visible status text. All applies to cooldowns without any category exception.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0067",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Covered in defiled blood, healing the source for %d%% of all damage done.",
+      "target": "被污血覆盖的目标对效果来源造成伤害时，效果来源恢复该伤害的 %d%%。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed talent Defiled Blood callbackOnTakeDamage runs on the talent owner: if damage source src has EFF_DEFILED_BLOOD, self:heal(dam * getHeal / 100, src). The marked target therefore damages the effect source, which heals for the configured percentage of that damage.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0068",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "True power is revealed!\n\nAll debuffs removed and all talent cooldowns reset on application.\n\nEach turn a radius 2 explosion will occur in a random space dealing %0.2f darkness and temporal damage and destroying any diggable walls.",
+      "target": "真正的力量正被揭示！\n\n施加该效果时，移除所有负面效果（“其他”类效果除外）并重置所有技能冷却时间。\n\n每回合，一个半径 2 码的爆炸会在一个随机空间爆发，造成 %0.2f 暗影和时空伤害，并摧毁所有可挖掘的墙。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. HYPOSTASIS_AWAKEN.activate removes detrimental effects except type other and clears talents_cd when applied. on_timeout then creates a radius-2 random explosion each turn with darkness and temporal damage and digs diggable walls.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0069",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Your body can not function properly here, it is slowly wasting away. Each turn you take %0.2f void damage and any new debuff on you lasts %d%% longer. Each turn those penalties increase until the effect is removed.",
+      "target": "你的身体无法正常运转，被逐渐损耗。每回合你受到 %0.2f 虚空伤害，任何新施加的负面效果（“其他”类效果除外）持续时间延长 %d%%。每回合这些惩罚都会增长，直到效果结束。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. TOTAL_COLLAPSE ticks VOID damage, then increases both damage and debuff duration penalty. callbackOnTemporaryEffect only extends a newly applied effect when status is detrimental and type is not other.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0070",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "All damages except physical reduced by %d as long as %s is alive.",
+      "target": "只要%s还存活，受到的所有非物理伤害降低 %d 点。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. HORRIFIC_FORTRESS.activate sets flat_damage_armor={all=eff.power,[DamageType.PHYSICAL]=-eff.power}, so the holder receives a fixed reduction to every non-physical damage type while eff.src is alive.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0071",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is overwhelmed by voices from the void, giving them a 20%% higher chance to spawn hallucinations from Dark Whispers and causing them to take an additional %d%% temporal damage from Dark Whispers and Hideous Visions.",
+      "target": "目标被虚空之声淹没 , 让他们从黑暗低语中产生幻觉的几率增加 20%%，并使他们从黑暗低语和失智冲击中受到额外 %d%% 时空伤害。",
+      "bounded_fixed_context": "Cacophony applies to targets already under Dark Whispers. EFF_DARK_WHISPERS.on_timeout adds temporal damage when EFF_CACOPHONY is present. On a Hideous Visions hallucination death, the SANITY_WARP branch also adds temporal damage when EFF_CACOPHONY is present. EFF_HIDEOUS_VISIONS itself only reduces damage dealt. In both paths cdam is ceff.power multiplied by the underlying damage.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0072",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is removed from the normal time stream, unable to act but unable to take any damage. Each turn, negative effects and cooldowns will decrease in duration.",
+      "target": "目标从常规时间流中移除，无法行动，免疫伤害。暂停结束时，非“其他”类且不会在无时间状态下自行衰减的负面效果，以及技能冷却时间会缩短。",
+      "bounded_fixed_context": "EFF_SUSPEND_BEN.deactivate iterates effects only when not tick_on_timeless, status is detrimental, and type is not other; it subtracts eff.power from their durations. It separately subtracts eff.power from every active talent cooldown. The shortening occurs when Suspend deactivates.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0073",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.",
+      "target": "目标将自身的命运和另一个人相连，当它死亡时，选择的目标将代替它死亡。 此时，自身的幸运层数和所选目标身上的不幸层数会被消耗；若所选目标有不幸，则按其层数治疗，否则按自身的幸运层数治疗，每层恢复 %d 点生命。",
+      "bounded_fixed_context": "Fatebreaker is applied to the caster and stores the selected target. On fatal damage it consumes the holder EFF_FORTUNE and selected target EFF_JINX. Healing is assigned from holder Fortune first, then overwritten by selected-target Jinx if present; both effects are removed when present.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0074",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target has %d increased saves and defense, and %d%% increased critical chance.",
+      "target": "目标豁免和闪避增加 %d（仅 1 层时实际降低，2 层起才如数增加），暴击率增加 %d%%（始终增加）。",
+      "bounded_fixed_context": "EFF_FORTUNE in tome-cults/data/timed_effects.lua: activate() sets combat_def/combat_mentalresist/combat_spellresist/combat_physresist to -eff.power*eff.stacks (negative) on first application; combat_physcrit/combat_spellcrit/combat_mindcrit stay positive (eff.crit*eff.stacks) in activate. on_merge() (2nd+ stack) sets all six stats positive using stackCount. Sibling EFF_JINX activate()/on_merge() both consistently use negative sign for the same six stats, confirming FORTUNE activate is an isolated asymmetry, not a deliberate two-branch design. Net effect: while the target holds exactly 1 Fortune stack, saves/defense are reduced by the displayed %d even though crit is genuinely increased by %d%%; from 2 stacks onward saves/defense also become a real increase.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0075",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "%d%% chance to stun any foes hit.",
+      "target": "%d%% 几率震慑被击中的敌人；每回合第一次符合条件的命中必定触发震慑，不受该几率限制；之后的命中按该几率判定，且同一目标每回合最多被震慑一次。",
+      "bounded_fixed_context": "EFF_KROG_WRATH.callbackOnDealDamage in tome-cults/data/timed_effects.lua: if not target:canBe(\"stun\") return; if self.turn_procs.krog_wrath and not rng.percent(eff.power) then return end — this rng check only runs once turn_procs.krog_wrath is already truthy, i.e. only for the 2nd+ qualifying hit this turn; the first qualifying hit each turn skips the roll and always proceeds. self.turn_procs.krog_wrath[target.uid] additionally blocks a second stun on the same target within the same turn regardless of roll. T_KROG_WRATH.info in data/talents/misc/races.lua already states this in the talent tooltip: \"%d%% chance (100%% for the first creature hit each turn) to stun them for 3 turns. This effect can only stun a creature once per turn.\" The EFF_KROG_WRATH status long_desc (the buff-icon tooltip shown while the effect is active, separate string from the talent info) omits both the guaranteed-first-hit and once-per-target-per-turn facts.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0079",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Linked to their horror ally gaining %d%% all damage resistance.",
+      "target": "和恐魔建立链接，获得 %d%% 全部抗性。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source WTW_SHARED_INSANITY applies resists={all=eff.resist}; terminology/combat.tsv maps resists.all / All Resists to 全部抗性.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0080",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Empowered by the sight of black blood, granting %d%% all resistances.",
+      "target": "目睹黑血时受到强化，获得 %d%% 全部抗性。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source SPIKESKIN applies resists={all=eff.power}; terminology/combat.tsv maps resists.all / All Resists to 全部抗性.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0081",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "%d stacks, +%d%% to all damage dealt.",
+      "target": "%d 层, +%d%% 所有造成的伤害。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source CHAOS_ORBS is beneficial and applies inc_damage={all=eff.stacks*3}.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0082",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "%d pustules increasing resistance by %d%%.",
+      "target": "%d 脓包，增加 %d%% 全部抗性。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source PUTRESCENT_PUSTULE updates temporary resists with {all=new_eff.stacks * new_eff.power}.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0083",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Reduces all damage taken by %d%%.",
+      "target": "减少 %d%%所有受到的伤害。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. WARBORN applies resists={all=eff.power}.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0084",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Reduces all damage taken by %d%% and remove all detrimental effects on application.",
+      "target": "降低所有受到的伤害 %d%%。施加该效果的时候会解除所有负面效果",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. GASTRIC_WAVE_BUFF applies resists={all=eff.power} and removes detrimental effects on application.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0085",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Reduces all damage done by %d%% and increase all detrimental effects durations by 6 turns on application.",
+      "target": "降低所有造成的伤害 %d%%。施加该效果的时候会将所有负面效果持续时间延长6回合。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. GASTRIC_WAVE_DEBUFF applies inc_damage={all=-eff.power} and extends detrimental-effect durations on application.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0086",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "%s talent '%s%s' is energized by the revelation!",
+      "target": "启示使%s技能'%s%s'的冷却时间缩短了！",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=logSeen. Fixed source PROPHECY_OF_MADNESS.callbackOnTalentPost selects a non-fixed-cooldown talent from eff.src.talents_cd, calls eff.src:alterTalentCoolingdown(tid, -eff.cd), then emits this log. The log therefore names a selected talent whose cooldown is shortened by revelation.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0087",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "%s rends the essence of %s, restoring %d void shards!",
+      "target": "%s撕裂了%s的精华，恢复%d个虚空之星!",
+      "bounded_fixed_context": "source_tag=logSeen; unique runtime key in tome-cults.lua. Nearby: Void Stars=虚空之星; Essence Reave talent info already 获得 %d 虚空之星. Core ToME Void Shards is a different summon (虚空碎片). Public source <DLC_ROOT>/cults/tome-cults/data/talents/demented/void.lua Essence Reave: if T_VOID_STARS active, p.nb = min(nb, 4-p.nb)+p.nb then this log. English says void shards; code restores Void Stars stacks.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0088",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and papers.  You feel the guardian of this place grow in power.",
+      "target": "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。你感受到这个地方的守护者的移动速度增加了。",
+      "bounded_fixed_context": "source_tag=say; unique runtime key in tome-cults.lua. Nearby: book of binding=绑定之书; shriek-only #YELLOW# line unchanged. Public source <DLC_ROOT>/cults/tome-cults/data/zones/ft-horrors/grids.lua BOOK_OF_BINDING on_move: after last invulnerable layer removed, bignews:say this line then m.movement_speed = m.movement_speed + 0.5. English grow in power; code is movement speed.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0089",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "You require a mutated hand!",
+      "target": "你需要异变之手！",
+      "bounded_fixed_context": "source_tag=logPlayer; unique runtime key in tome-cults.lua. Nearby: Constrict=缠绕; Mutated Hand=异变之手; separate empty-offhand log 你需要副手空手才能使用触手. Public source <DLC_ROOT>/cults/tome-cults/data/talents/demented/tentacles.lua Mutated Hand mode=passive; Constrict logs You require a mutated hand! when getTentacleCombat is nil. 开启 implied activating a talent.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0090",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "victorious over Sun Paladins and Atmos alike",
+      "target": "战胜了太阳骑士和气之部族",
+      "bounded_fixed_context": "victorious over Sun Paladins and Atmos alike -> terminology/society.tsv Atmos Tribe=气之部族 (was 蒸汽巨人, wrong faction name)",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0091",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Get someone on that, post-haste!",
+      "target": "快叫人来处理，马上！",
+      "bounded_fixed_context": "'Get someone on that' = assign someone to fix the tea-maker, not 'send someone upstairs'",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0092",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "This could only be the Eye of Amakthel Himself!",
+      "target": "这只能是阿马克泰尔本人的眼睛！",
+      "bounded_fixed_context": "'This could only be the Eye of Amakthel Himself!' - the object IS Amakthel's own eye, not 'the power of the Eye's main body'",
+      "response": null
+    }
+  ],
+  "source_evidence": [
+    {
+      "evidence_id": "EVIDENCE-RFR-0061",
+      "neutral_id": "RFR-0061",
+      "sha256": "5f6f6e34e9330d00aedfb56d2647c5929f13f5a2160d204145362355a6e27558",
+      "text": "'causing it to spread to nearby enemies' - clarifies the spread target is enemies"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0062",
+      "neutral_id": "RFR-0062",
+      "sha256": "bd8180004bdf89556380364e84d685807971803774c5abc36f1db7c69cc453f8",
+      "text": "old invented a 'primary target' mechanic detail not present in source; this is a talent mechanic description read by players"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0063",
+      "neutral_id": "RFR-0063",
+      "sha256": "3ce388251387055c989d0e3297602a7b1c39e5cc670cb20e57591d6ee6f37dca",
+      "text": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/talents/misc/races.lua. Fixed source Spikeskin callbackOnMeleeHit applies EFF_SPIKESKIN_BLACK_BLOOD. callbackOnActBase counts visible actors with that effect at distance <= 2, caps at talent level, and sets EFF_SPIKESKIN power=5 per actor; SPIKESKIN applies resists={all=eff.power}."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0064",
+      "neutral_id": "RFR-0064",
+      "sha256": "dc8b12e7a061bc8ba526649b54fabe9dfb948db85cae05fa84466164be41692a",
+      "text": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source CULTS_OVERGROWTH applies inc_damage={all=eff.dam} and resists={all=eff.resist}, in addition to pass-wall movement and quakes on movement."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0065",
+      "neutral_id": "RFR-0065",
+      "sha256": "591170538a0e7fa84461653573d63484bc795c645b48f830a95222081059b0f6",
+      "text": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed source MARK_OF_TREASON.callbackOnHit calculates linked_damage = cb.value * eff.power / 100, then calls eff.source:takeHit(linked_damage, src). The source therefore receives the configured percentage of damage received by the target."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0066",
+      "neutral_id": "RFR-0066",
+      "sha256": "9c65c37ec88aae901b53baff055f72c2a5ee33f8eb4a3461f314bffcd5cbe0ca",
+      "text": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed source DECAYING_GROUND.long_desc emits this visible status text. All applies to cooldowns without any category exception."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0067",
+      "neutral_id": "RFR-0067",
+      "sha256": "712f38f6340c106715cd592d0b0ba3b05d007cebef88843eada3bf98ae928644",
+      "text": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed talent Defiled Blood callbackOnTakeDamage runs on the talent owner: if damage source src has EFF_DEFILED_BLOOD, self:heal(dam * getHeal / 100, src). The marked target therefore damages the effect source, which heals for the configured percentage of that damage."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0068",
+      "neutral_id": "RFR-0068",
+      "sha256": "4eb085a1aa727a9977c82f11fdbdc7844ff074eb5326c78821386cf19fe8a3d3",
+      "text": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. HYPOSTASIS_AWAKEN.activate removes detrimental effects except type other and clears talents_cd when applied. on_timeout then creates a radius-2 random explosion each turn with darkness and temporal damage and digs diggable walls."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0069",
+      "neutral_id": "RFR-0069",
+      "sha256": "6e90efcb03087d02c06c70451d8eff77f71d9ede590b32743848b837089f893d",
+      "text": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. TOTAL_COLLAPSE ticks VOID damage, then increases both damage and debuff duration penalty. callbackOnTemporaryEffect only extends a newly applied effect when status is detrimental and type is not other."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0070",
+      "neutral_id": "RFR-0070",
+      "sha256": "aaaddf2820f2b2e506cfb6bccc2c2467c48170b32b2fb834bdd07c7f8c756dbb",
+      "text": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. HORRIFIC_FORTRESS.activate sets flat_damage_armor={all=eff.power,[DamageType.PHYSICAL]=-eff.power}, so the holder receives a fixed reduction to every non-physical damage type while eff.src is alive."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0071",
+      "neutral_id": "RFR-0071",
+      "sha256": "ea8f981aabfa58cd9aeda5179b5658e8e9f0c14da4337ac72c10cf5c64db4b64",
+      "text": "Cacophony applies to targets already under Dark Whispers. EFF_DARK_WHISPERS.on_timeout adds temporal damage when EFF_CACOPHONY is present. On a Hideous Visions hallucination death, the SANITY_WARP branch also adds temporal damage when EFF_CACOPHONY is present. EFF_HIDEOUS_VISIONS itself only reduces damage dealt. In both paths cdam is ceff.power multiplied by the underlying damage."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0072",
+      "neutral_id": "RFR-0072",
+      "sha256": "62133230a076a6881913c989989dad1cc50de2d76345bd799716b3b16f2c9984",
+      "text": "EFF_SUSPEND_BEN.deactivate iterates effects only when not tick_on_timeless, status is detrimental, and type is not other; it subtracts eff.power from their durations. It separately subtracts eff.power from every active talent cooldown. The shortening occurs when Suspend deactivates."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0073",
+      "neutral_id": "RFR-0073",
+      "sha256": "4f7f5761218c72769ef3f5dd924f408d38466617ba2ddac3f78726b10ae63191",
+      "text": "Fatebreaker is applied to the caster and stores the selected target. On fatal damage it consumes the holder EFF_FORTUNE and selected target EFF_JINX. Healing is assigned from holder Fortune first, then overwritten by selected-target Jinx if present; both effects are removed when present."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0074",
+      "neutral_id": "RFR-0074",
+      "sha256": "f7a67f88be343e4706974e2ad8cc3ff03aa3691bf7ccbaccee2afe3c548441da",
+      "text": "EFF_FORTUNE in tome-cults/data/timed_effects.lua: activate() sets combat_def/combat_mentalresist/combat_spellresist/combat_physresist to -eff.power*eff.stacks (negative) on first application; combat_physcrit/combat_spellcrit/combat_mindcrit stay positive (eff.crit*eff.stacks) in activate. on_merge() (2nd+ stack) sets all six stats positive using stackCount. Sibling EFF_JINX activate()/on_merge() both consistently use negative sign for the same six stats, confirming FORTUNE activate is an isolated asymmetry, not a deliberate two-branch design. Net effect: while the target holds exactly 1 Fortune stack, saves/defense are reduced by the displayed %d even though crit is genuinely increased by %d%%; from 2 stacks onward saves/defense also become a real increase."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0075",
+      "neutral_id": "RFR-0075",
+      "sha256": "43d2c9dc0dabd1f3bd34ec76395df957723dbdf01d5d5b81350cace9731aca37",
+      "text": "EFF_KROG_WRATH.callbackOnDealDamage in tome-cults/data/timed_effects.lua: if not target:canBe(\"stun\") return; if self.turn_procs.krog_wrath and not rng.percent(eff.power) then return end — this rng check only runs once turn_procs.krog_wrath is already truthy, i.e. only for the 2nd+ qualifying hit this turn; the first qualifying hit each turn skips the roll and always proceeds. self.turn_procs.krog_wrath[target.uid] additionally blocks a second stun on the same target within the same turn regardless of roll. T_KROG_WRATH.info in data/talents/misc/races.lua already states this in the talent tooltip: \"%d%% chance (100%% for the first creature hit each turn) to stun them for 3 turns. This effect can only stun a creature once per turn.\" The EFF_KROG_WRATH status long_desc (the buff-icon tooltip shown while the effect is active, separate string from the talent info) omits both the guaranteed-first-hit and once-per-target-per-turn facts."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0079",
+      "neutral_id": "RFR-0079",
+      "sha256": "57b6e78f3dcca7d289d5820b3aa779e45dbb04a81e3f9a63c10cef308e982c31",
+      "text": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source WTW_SHARED_INSANITY applies resists={all=eff.resist}; terminology/combat.tsv maps resists.all / All Resists to 全部抗性."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0080",
+      "neutral_id": "RFR-0080",
+      "sha256": "fb83e05585c14db672d1db992b4e0f6806626ef68c03f10b2bf793c6cef5c412",
+      "text": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source SPIKESKIN applies resists={all=eff.power}; terminology/combat.tsv maps resists.all / All Resists to 全部抗性."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0081",
+      "neutral_id": "RFR-0081",
+      "sha256": "5cf79f45febd0176eaddded969bff52a64eadaaf4f176926a8b50bcfb51bab74",
+      "text": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source CHAOS_ORBS is beneficial and applies inc_damage={all=eff.stacks*3}."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0082",
+      "neutral_id": "RFR-0082",
+      "sha256": "3a8cae45a0e9b9b6b9b2f0fe24de6c2d041325089ad1fdeda9ec27979f41405f",
+      "text": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source PUTRESCENT_PUSTULE updates temporary resists with {all=new_eff.stacks * new_eff.power}."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0083",
+      "neutral_id": "RFR-0083",
+      "sha256": "a5f36e91db1366d0c2fd57de93d365814a90422d4f4a7dcad6d469603993c10b",
+      "text": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. WARBORN applies resists={all=eff.power}."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0084",
+      "neutral_id": "RFR-0084",
+      "sha256": "a0e90309d00270c4dea05be4e89f06d6d8b8ca7c9e4622aacffa0a1e281ae713",
+      "text": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. GASTRIC_WAVE_BUFF applies resists={all=eff.power} and removes detrimental effects on application."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0085",
+      "neutral_id": "RFR-0085",
+      "sha256": "a8d8adb4788df255594d7f1848bcf63369b3ae43507552fef5c297b3336c3e48",
+      "text": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. GASTRIC_WAVE_DEBUFF applies inc_damage={all=-eff.power} and extends detrimental-effect durations on application."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0086",
+      "neutral_id": "RFR-0086",
+      "sha256": "6f18a79b5ca937620391e5d8a3c20935f284d8c9ee204c80f1352376a7665dc9",
+      "text": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=logSeen. Fixed source PROPHECY_OF_MADNESS.callbackOnTalentPost selects a non-fixed-cooldown talent from eff.src.talents_cd, calls eff.src:alterTalentCoolingdown(tid, -eff.cd), then emits this log. The log therefore names a selected talent whose cooldown is shortened by revelation."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0087",
+      "neutral_id": "RFR-0087",
+      "sha256": "0e25db6ada3a84bfccafe1f44e32e8fe345ae47a8c1b7e7e2216fb4dc1ac748a",
+      "text": "source_tag=logSeen; unique runtime key in tome-cults.lua. Nearby: Void Stars=虚空之星; Essence Reave talent info already 获得 %d 虚空之星. Core ToME Void Shards is a different summon (虚空碎片). Public source <DLC_ROOT>/cults/tome-cults/data/talents/demented/void.lua Essence Reave: if T_VOID_STARS active, p.nb = min(nb, 4-p.nb)+p.nb then this log. English says void shards; code restores Void Stars stacks."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0088",
+      "neutral_id": "RFR-0088",
+      "sha256": "cc9c0d7f43068ced33b5a26383791ffb54db816e90157704ff8bb50025561861",
+      "text": "source_tag=say; unique runtime key in tome-cults.lua. Nearby: book of binding=绑定之书; shriek-only #YELLOW# line unchanged. Public source <DLC_ROOT>/cults/tome-cults/data/zones/ft-horrors/grids.lua BOOK_OF_BINDING on_move: after last invulnerable layer removed, bignews:say this line then m.movement_speed = m.movement_speed + 0.5. English grow in power; code is movement speed."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0089",
+      "neutral_id": "RFR-0089",
+      "sha256": "7b3e7e1799c83a7ac06a45de7c1ce7e5ba4ef9369fe382974d4e93faa5466e4f",
+      "text": "source_tag=logPlayer; unique runtime key in tome-cults.lua. Nearby: Constrict=缠绕; Mutated Hand=异变之手; separate empty-offhand log 你需要副手空手才能使用触手. Public source <DLC_ROOT>/cults/tome-cults/data/talents/demented/tentacles.lua Mutated Hand mode=passive; Constrict logs You require a mutated hand! when getTentacleCombat is nil. 开启 implied activating a talent."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0090",
+      "neutral_id": "RFR-0090",
+      "sha256": "67715f6a78ec45dd51f734fb551404fa5b7c812a01198e766f4976c8482f89f3",
+      "text": "victorious over Sun Paladins and Atmos alike -> terminology/society.tsv Atmos Tribe=气之部族 (was 蒸汽巨人, wrong faction name)"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0091",
+      "neutral_id": "RFR-0091",
+      "sha256": "9110c1cf5570adce2209e92cfb93c03603629b987d7664bed612b371762096c8",
+      "text": "'Get someone on that' = assign someone to fix the tea-maker, not 'send someone upstairs'"
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0092",
+      "neutral_id": "RFR-0092",
+      "sha256": "c599861ebdc8a132e655323bc51e8b057c37b76e48911d543e8863ff07a18922",
+      "text": "'This could only be the Eye of Amakthel Himself!' - the object IS Amakthel's own eye, not 'the power of the Eye's main body'"
+    }
+  ]
+}

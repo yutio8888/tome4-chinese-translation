@@ -1,0 +1,446 @@
+{
+  "schema_version": "route-familiarity-reference-collection-shard-v1",
+  "status": "FROZEN_ZERO_INFERENCE_UNPOPULATED",
+  "parent_queue_sha256": "620b736996ac254c43b3c721cdbfca20f7e68d8f553b7fe21b9effa0c025b3d2",
+  "shard_id": "SHARD-05",
+  "item_count": 29,
+  "items": [
+    {
+      "neutral_id": "RFR-0123",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "If life is brought below 0, cancels the attack, heals for %d and deals %0.2f lightning damage in radius %d as well as dazing for 2 turns.",
+      "target": "若生命值降至 0 以下，则取消此次攻击、恢复 %d 点生命值，并在 %d 格范围内造成 %0.2f 点闪电伤害，同时使目标眩晕 3 回合。",
+      "bounded_fixed_context": "source_tag=tformat with reorder {1,3,2} so Chinese placeholders are life, radius, damage. Unique runtime key in tome-orcs.lua. Nearby: AED=电击除颤器. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_AED.callbackOnHit projects DamageType.LIGHTNING_DAZE with {dam=eff.damage, daze=100}; daze=100 is a 100% chance, no daze_duration is passed. Core <MAIN_GAME_ROOT>/game/modules/tome/data/damage_types.lua LIGHTNING_DAZE applies EFF_DAZED for (dam.daze_duration or 3). Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/gadgets.lua AED info already says 3 turns. The English status key still says 2 turns; Chinese follows the effect code, not the English key wording.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0124",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.",
+      "target": "进入自动修复模式，无法行动，但生命恢复速率增加 %d ，生命值回满时立即结束该模式，全部抗性提升 %d%%，死亡生命下限为 -%d 。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Automated Repair System=自动修复系统. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/other.lua EFF_AUTOMATED_REPAIR_SYSTEM: activate sets never_act, life_regen, resists.all, and a negative die_at; on_timeout removes the effect when self.life == self.max_life. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/mecharachnid.lua Automated Repair System on lethal incoming hit. All Resists terminology is 全部抗性 (resists.all).",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0125",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is covered in burning chemicals, taking %0.2f fire damage each turn. Subsequent shots deal %0.2f fire damage, and if they fall below 25%% life they have a %d%% chance to panic.",
+      "target": "目标被燃烧的化学物质所覆盖，每回合受到 %0.2f 火焰伤害。之后的射击会立即造成 %0.2f 火焰伤害；施加者死亡后，该效果会在目标下次行动时结束。若目标生命值低于 25%% 且能够行动，则有 %d%% 的几率慌乱逃跑。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Burning Phosphorous=燃烧的磷. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_BURNING_PHOSPHOROUS: on_timeout deals fire damage each turn; on_merge immediately deals initdam fire and refreshes duration to 3 turns; callbackOnAct removes the effect when eff.src.dead; panic check only if life/max_life < 0.25 and enoughEnergy, then %d%% flee (resistable via mental save / fear immunity). Apply path <DLC_ROOT>/orcs/tome-orcs/data/damage_types.lua PHOSPHOROUS projector if attacker knows Incendiary Powder. fire=火焰.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0126",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Hovering in place, gaining %d%% evasion, %d%% movement speed and launching a powerful rocket barrage each turn.",
+      "target": "目标悬浮在空中，获得 %d%% 躲闪概率， %d%% 移动速度；可手动使用火箭弹幕再次发射，使用其他任何技能会立即结束该效果。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Death From Above=死亡天降; Rocket Barrage=火箭弹幕. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_DEATH_FROM_ABOVE: activate grants evasion, projectile_evasion, movement_speed, levitation, avoid_pressure_traps, and learns Rocket Barrage; no on_timeout auto-fire. callbackOnTalentPost removes the effect unless the used talent has rocket_barrage. Rocket Barrage in <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/artillery.lua fires only when used and has rocket_barrage. Seeker Warhead apply fires once then sets the effect for 3 turns.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0127",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Direct control by the pilot increases damage by %d%% and resistances by %d%%.",
+      "target": "机械蜘蛛被驾驶员直接控制，增加全部伤害 %d%%，增加全部抗性 %d%%；每回合使非固定冷却技能额外减少 1 回合冷却。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Direct Control=直接控制. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/other.lua EFF_MECHARACHNID_PILOTING_BUFF: activate adds inc_damage all and resists.all; decrease=0; on_timeout removes the buff if EFF_MECHARACHNID_PILOTING is gone, then extra -1 on each talents_cd entry whose talent is not fixed_cooldown unless no_talents_cooldown. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/mecharachnid.lua Direct Control sets both effects; talent info says talents cooldown twice as fast. resists.all=全部抗性.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0128",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Provides a frost aura, giving you +%d%% fire, light, and lightning affinity.",
+      "target": "提供烈火光环，使你获得 +%d%% 火焰、光系和闪电亲和。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Fiery Salve=烈火药剂; Frost Salve uses 寒霜光环 and 亲和. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_FIERY_SALVE activate adds damage_affinity for FIRE, LIGHT, LIGHTNING. English long_desc still says frost aura (copy-paste). Item apply <DLC_ROOT>/orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua grants a fiery aura and sets EFF_FIERY_SALVE. lightning=闪电.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0129",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Provides a frost aura, giving you +%d%% blight, mind and acid affinity.",
+      "target": "提供静水光环，使你获得 +%d%% 枯萎、精神和酸性的亲和。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Water Salve=静水药剂; Frost Salve uses 寒霜光环 and 亲和; Fiery Salve now uses 烈火光环 and 亲和. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_WATER_SALVE activate adds damage_affinity for BLIGHT, MIND, ACID. English long_desc still says frost aura (copy-paste). Item apply <DLC_ROOT>/orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua grants a water aura and sets EFF_WATER_SALVE.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0130",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is very itchy, causing their actions to fail.",
+      "target": "太痒了，技能有几率施放失败。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Itching Powder=痒痒粉. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_ITCHING_POWDER activate only adds talent_fail_chance from eff.chance. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/other.lua Itching Powder sets chance=failChance (15%-40%) and talent info says fail talents. English status key still says actions; Chinese should follow talent_fail_chance, not all actions.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0132",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Target is being assailed by an automated saw blade that cuts its flesh for %0.2f physical damage each turn%s. When the effect expires, the saw will explode for %0.2f fire damage and fly back to its source, pulling the target with it (up to %d tiles).",
+      "target": "你被飞锯击伤，每回合受到 %0.2f 物理伤害 %s。仅当持续时间自然结束且施加者仍在场时，飞锯才会爆炸，造成 %0.2f 火焰伤害并飞回其来源；仅当你可被击退时，才会被拉向施加者（最多 %d 格）。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Explosive Saw=爆炸飞锯. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_EXPLOSIVE_WOUND: on_timeout physical damage; deactivate specials only if eff.dur < 0 and eff.src exists, is not dead, and has coordinates; pull requires canBe knockback. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/automated-butchery.lua Explosive Saw for 4 turns. Early removal does not explode. physical=物理; fire=火焰.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0133",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "You lay moss where you walk.",
+      "target": "成功自行移动到新位置后，会在该处铺设缠绕苔藓；站在其上的敌人会受到自然伤害、移动减速，并可能被定身。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Moss Tread=苔藓之踏; talent info uses 缠绕苔藓. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_MOSS_TREAD callbackOnMove only when moved, not force, and coordinates change; then callTalent T_TINKER_MOSS_TREAD trigger. <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/other.lua trigger places GRASPING_MOSS with nature dam, slow, pin. nature=自然.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0135",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is surrounded by a static shield, increasing all resistances by %d%% and causing attacks against them to trigger a shield attack for %d%% damage as lightning.",
+      "target": "目标被静电力场包围，增加全部抗性 %d%%；受到攻击时，将使用原施放者的盾牌造成 %d%% 伤害的闪电反击，且同一攻击者每回合最多触发一次。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Static Shield=静电力场. T_STATIC_SHOCK (talents/steam/magnetism.lua) after successful Block applies EFF_STATIC_SHIELD for 4 turns to the caster and to act.turret minions with src=self (the caster). EFF_STATIC_SHIELD.callbackOnHit (timed_effects/physical.lua) uses src=eff.src, src:hasShield(), then src:attackTargetWith(attacker, shield_combat, DamageType.LIGHTNING, eff.dam); skips if attacker.turn_procs.static_shock. So turret bearers still retaliate with the original caster's shield, once per attacker per turn. resists.all terminology is All Resists=全部抗性.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0136",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "All resistances increased by %d%%, all new detrimental effects reduced by %d%%, %0.2f fire splash damage.",
+      "target": "全部抗性提高 %d%%，新施加的负面效果持续时间缩短 %d%%，近战命中持有者的生物受到 %0.2f 点火焰伤害。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Molten Iron Blood=铁水血液. EFF_MOLTEN_IRON_BLOOD.activate (timed_effects/physical.lua) sets on_melee_hit FIRE=eff.dam, resists.all=eff.resists, reduce_detrimental_status_effects_time=eff.reduction. T_MOLTEN_IRON_BLOOD info (talents/steam/thoughts-of-iron.lua): all creatures that hit you in melee take fire damage. resists.all terminology is All Resists=全部抗性. fire=火焰.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0138",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Newly applied status effects durations are reduced by %d%%.",
+      "target": "新施加的负面效果持续时间缩短 %d%%。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Healing Mist=治愈之雾. EFF_HEALING_MIST.activate (timed_effects/physical.lua) only addTemporaryValue('reduce_detrimental_status_effects_time', eff.power). Medic turret on_act applies this to allies. Same-file talent tooltip already uses 新施加的负面效果持续时间缩短 %d%%.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0140",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "%s misses %s shot.",
+      "target": "%s的%s射击打偏了",
+      "bounded_fixed_context": "source_tag=logSeen; unique runtime key in tome-orcs.lua. Nearby: Startling Shot=惊艳射击; talent info already 故意朝目标射出偏离的子弹. Public source <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/gunslinging.lua Startling Shot action: logSeen(target, \"%s misses %s shot.\", srcname, string.his_her(self)) then always setEffect EFF_STARTLING_SHOT; knockback is a later save. First %s=shooter name or Something; second=his/her. Deliberate miss, not dodge.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0141",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "You require your mecharachnid to be adjacent, and must be out of combat.",
+      "target": "你需要你的机械蜘蛛与你相邻，并且你和机械蜘蛛都必须处于非战斗状态。",
+      "bounded_fixed_context": "source_tag=logPlayer; unique runtime key in tome-orcs.lua. Nearby: Mecharachnid Chassis=机械蜘蛛底盘; separate logs already say player vs mecharachnid must not be in combat to change chassis. Public source <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/mecharachnid.lua Mecharachnid Chassis on_pre_use rejects if self.in_combat or mecharachnid.in_combat or not adjacent/missing, then this shared logPlayer. Distance>1 is adjacency.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0142",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "#LIGHT_GREEN#*Before you stands a beautiful woman clad in shining golden armour*#WHITE#\nStop! You are clearly a stranger! Where do you come from? The Gates of Morning are the last bastion of freedom in these lands, so who are you? A spy?",
+      "target": "#LIGHT_GREEN#*在你面前站着一位身披闪耀金色铠甲的美丽女士。*#WHITE#\n站住！你显然是个陌生人！你是从哪里来的？晨曦之门是这片土地上最后的自由堡垒，你到底是谁？是间谍吗？",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0143",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "My lady, I am indeed a stranger in these lands. I come from the west, from Maj'Eyal.",
+      "target": "女士，在这片土地上我确实是个陌生人。我来自西方，来自马基埃亚尔。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0144",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "Sorry, I have to go!",
+      "target": "抱歉，我要走了！",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=chat_gates-of-morning-welcome; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0145",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "Maj'Eyal! For many years have we tried to contact your people. We always failed.\nIn any event, what is your purpose here?",
+      "target": "马基埃亚尔！多年来我们一直尝试与你们的人民取得联系，但都失败了。\n不管怎样，你来这里有何目的？",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0146",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "It seems that I am stranded in these unfamiliar lands. #LIGHT_GREEN#*Tell her about your hunt for orcs and your encounter with Fillarel.*#WHITE#",
+      "target": "我似乎被困在了这片陌生的土地上。#LIGHT_GREEN#*向她讲述你追杀兽人并遭遇菲拉瑞尔的经历。*#WHITE#",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0147",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "Sun Paladins? What do you mean? We know of no such thing where I come from.",
+      "target": "太阳骑士？你是什么意思？在我来的地方，我们从没听说过这种存在。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0148",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "We are the mighty warriors of the Sunwall, channeling the power of the Sun and merging it with martial training.\nFor hundreds of years, we stood between the Orc Pride and the free people. Our numbers are diminishing, but we will stand firm until our last breath.",
+      "target": "我们是太阳堡垒的强大战士，引导太阳之力并将其融入武技训练之中。\n数百年来，我们始终屹立在兽人部落与自由人民之间。我们的人数正在不断减少，但我们将坚守到底，直至咽下最后一口气。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0149",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "You have a noble spirit, my lady.",
+      "target": "女士，您的精神令人钦佩。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0150",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "Orcs! Ah! Well then this is your lucky day. This whole continent is swarming with Orcs. They have united as the Orc Pride and, according to rumour, their masters are powerful.\nThey roam the lands freely, ever assaulting us.\n@playername@, you have helped one of ours. I grant you access to the Gates of Morning and name you friend of the Sunwall.",
+      "target": "兽人！啊！那今天可真是你的幸运日。整片大陆到处都是兽人。他们联合组成了兽人部落，据传言，他们背后的主人十分强大。\n他们在这片土地上肆意游荡，不断袭击我们。\n@playername@，你帮助了我们的一位同胞。我准许你进入晨曦之门，并封你为太阳堡垒之友。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0151",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "Thank you, my lady.",
+      "target": "谢谢您，女士。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0152",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "#VIOLET#*As you open the door you notice a huge orc in the distance, covered in both flames and ice.*#LAST#\n@playerdescriptor.race@! You should never have come! Your doom awaits!\nThe Orc Pride will never yield to anybody! They have their precious and there is nothing you can do.",
+      "target": "#VIOLET#*当你打开门，你注意到远处一个巨大的兽人，周身同时被烈焰与寒冰笼罩。*#LAST#\n@playerdescriptor.race@！你根本不该来这里！你的死期到了！\n兽人部落绝不会向任何人屈服！他们已经拿到了至宝，你什么也做不了！",
+      "bounded_fixed_context": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0153",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "The Orc Pride obeys a master? I see... 'pride' indeed!",
+      "target": "兽人部落会听命于主人？我明白了……还真是“骄傲”啊！",
+      "bounded_fixed_context": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0154",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "#LIGHT_GREEN#[Attack]",
+      "target": "#LIGHT_GREEN#[攻击]",
+      "bounded_fixed_context": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    },
+    {
+      "neutral_id": "RFR-0155",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "The Pride chooses its allies. It has no master! ATTACK!",
+      "target": "部落自己选择盟友。部落没有主人！攻击！",
+      "bounded_fixed_context": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua.",
+      "response": null
+    }
+  ],
+  "source_evidence": [
+    {
+      "evidence_id": "EVIDENCE-RFR-0123",
+      "neutral_id": "RFR-0123",
+      "sha256": "9b4a517d1d8954b88ba018b60cd12c531ace182e51664f449c21af34bb0b1397",
+      "text": "source_tag=tformat with reorder {1,3,2} so Chinese placeholders are life, radius, damage. Unique runtime key in tome-orcs.lua. Nearby: AED=电击除颤器. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_AED.callbackOnHit projects DamageType.LIGHTNING_DAZE with {dam=eff.damage, daze=100}; daze=100 is a 100% chance, no daze_duration is passed. Core <MAIN_GAME_ROOT>/game/modules/tome/data/damage_types.lua LIGHTNING_DAZE applies EFF_DAZED for (dam.daze_duration or 3). Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/gadgets.lua AED info already says 3 turns. The English status key still says 2 turns; Chinese follows the effect code, not the English key wording."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0124",
+      "neutral_id": "RFR-0124",
+      "sha256": "bdb74dffa68008aa268c2b1c4c794d6258117082082b8ba35309740fd7e54228",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Automated Repair System=自动修复系统. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/other.lua EFF_AUTOMATED_REPAIR_SYSTEM: activate sets never_act, life_regen, resists.all, and a negative die_at; on_timeout removes the effect when self.life == self.max_life. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/mecharachnid.lua Automated Repair System on lethal incoming hit. All Resists terminology is 全部抗性 (resists.all)."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0125",
+      "neutral_id": "RFR-0125",
+      "sha256": "6f33802b4308ae5e4b061b1c31c3ed86752b8ba3034f17a55937071130a0a861",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Burning Phosphorous=燃烧的磷. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_BURNING_PHOSPHOROUS: on_timeout deals fire damage each turn; on_merge immediately deals initdam fire and refreshes duration to 3 turns; callbackOnAct removes the effect when eff.src.dead; panic check only if life/max_life < 0.25 and enoughEnergy, then %d%% flee (resistable via mental save / fear immunity). Apply path <DLC_ROOT>/orcs/tome-orcs/data/damage_types.lua PHOSPHOROUS projector if attacker knows Incendiary Powder. fire=火焰."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0126",
+      "neutral_id": "RFR-0126",
+      "sha256": "a8d1f62625c3e6572cb691b81a2fc0da5894495f3911ac38116f41921f05bcf8",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Death From Above=死亡天降; Rocket Barrage=火箭弹幕. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_DEATH_FROM_ABOVE: activate grants evasion, projectile_evasion, movement_speed, levitation, avoid_pressure_traps, and learns Rocket Barrage; no on_timeout auto-fire. callbackOnTalentPost removes the effect unless the used talent has rocket_barrage. Rocket Barrage in <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/artillery.lua fires only when used and has rocket_barrage. Seeker Warhead apply fires once then sets the effect for 3 turns."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0127",
+      "neutral_id": "RFR-0127",
+      "sha256": "8807dd7f57eb6a43124bd931eeb7b598c986254b43ce3349ce68371507c686fb",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Direct Control=直接控制. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/other.lua EFF_MECHARACHNID_PILOTING_BUFF: activate adds inc_damage all and resists.all; decrease=0; on_timeout removes the buff if EFF_MECHARACHNID_PILOTING is gone, then extra -1 on each talents_cd entry whose talent is not fixed_cooldown unless no_talents_cooldown. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/mecharachnid.lua Direct Control sets both effects; talent info says talents cooldown twice as fast. resists.all=全部抗性."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0128",
+      "neutral_id": "RFR-0128",
+      "sha256": "44e143799e0a0364fb2db734bb65bb415f934ce0522f883647573051ca2f6047",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Fiery Salve=烈火药剂; Frost Salve uses 寒霜光环 and 亲和. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_FIERY_SALVE activate adds damage_affinity for FIRE, LIGHT, LIGHTNING. English long_desc still says frost aura (copy-paste). Item apply <DLC_ROOT>/orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua grants a fiery aura and sets EFF_FIERY_SALVE. lightning=闪电."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0129",
+      "neutral_id": "RFR-0129",
+      "sha256": "5226e50d4559e3d8e29fceeee6660591b9840f86b3e89065c839b7ad66cb2522",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Water Salve=静水药剂; Frost Salve uses 寒霜光环 and 亲和; Fiery Salve now uses 烈火光环 and 亲和. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_WATER_SALVE activate adds damage_affinity for BLIGHT, MIND, ACID. English long_desc still says frost aura (copy-paste). Item apply <DLC_ROOT>/orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua grants a water aura and sets EFF_WATER_SALVE."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0130",
+      "neutral_id": "RFR-0130",
+      "sha256": "5621442805f2219e3299c3805699bc8937fcfa6eeae294f3b57cf840db20c19e",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Itching Powder=痒痒粉. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_ITCHING_POWDER activate only adds talent_fail_chance from eff.chance. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/other.lua Itching Powder sets chance=failChance (15%-40%) and talent info says fail talents. English status key still says actions; Chinese should follow talent_fail_chance, not all actions."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0132",
+      "neutral_id": "RFR-0132",
+      "sha256": "fde9c5348a7841f08064ccd94b17f288febf3e736f7d5aede3a1da04a6370808",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Explosive Saw=爆炸飞锯. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_EXPLOSIVE_WOUND: on_timeout physical damage; deactivate specials only if eff.dur < 0 and eff.src exists, is not dead, and has coordinates; pull requires canBe knockback. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/automated-butchery.lua Explosive Saw for 4 turns. Early removal does not explode. physical=物理; fire=火焰."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0133",
+      "neutral_id": "RFR-0133",
+      "sha256": "5ae52cb7fbd409745004ca0a2903d0e2ead918c80d3293accbb1de4fb84dfaa0",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Moss Tread=苔藓之踏; talent info uses 缠绕苔藓. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_MOSS_TREAD callbackOnMove only when moved, not force, and coordinates change; then callTalent T_TINKER_MOSS_TREAD trigger. <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/other.lua trigger places GRASPING_MOSS with nature dam, slow, pin. nature=自然."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0135",
+      "neutral_id": "RFR-0135",
+      "sha256": "840b7e32b0647021c5a38dc35e90a1f1c0555867b87cc9b40e44b7252b474c1d",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Static Shield=静电力场. T_STATIC_SHOCK (talents/steam/magnetism.lua) after successful Block applies EFF_STATIC_SHIELD for 4 turns to the caster and to act.turret minions with src=self (the caster). EFF_STATIC_SHIELD.callbackOnHit (timed_effects/physical.lua) uses src=eff.src, src:hasShield(), then src:attackTargetWith(attacker, shield_combat, DamageType.LIGHTNING, eff.dam); skips if attacker.turn_procs.static_shock. So turret bearers still retaliate with the original caster's shield, once per attacker per turn. resists.all terminology is All Resists=全部抗性."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0136",
+      "neutral_id": "RFR-0136",
+      "sha256": "a5f5b9d12a50683ddb5d3291cf669a9406d4de2baac1a5c3d9997617e0c8ff6f",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Molten Iron Blood=铁水血液. EFF_MOLTEN_IRON_BLOOD.activate (timed_effects/physical.lua) sets on_melee_hit FIRE=eff.dam, resists.all=eff.resists, reduce_detrimental_status_effects_time=eff.reduction. T_MOLTEN_IRON_BLOOD info (talents/steam/thoughts-of-iron.lua): all creatures that hit you in melee take fire damage. resists.all terminology is All Resists=全部抗性. fire=火焰."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0138",
+      "neutral_id": "RFR-0138",
+      "sha256": "edd2c4f4e8152e97096cc7b314d27eafe6fe202d83887b9986e6f9cc5c1cf890",
+      "text": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Healing Mist=治愈之雾. EFF_HEALING_MIST.activate (timed_effects/physical.lua) only addTemporaryValue('reduce_detrimental_status_effects_time', eff.power). Medic turret on_act applies this to allies. Same-file talent tooltip already uses 新施加的负面效果持续时间缩短 %d%%."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0140",
+      "neutral_id": "RFR-0140",
+      "sha256": "1a2229d0b3f207c132fb9c0e95bcdac839ad11087cc214dda2ba873fa5f2ae75",
+      "text": "source_tag=logSeen; unique runtime key in tome-orcs.lua. Nearby: Startling Shot=惊艳射击; talent info already 故意朝目标射出偏离的子弹. Public source <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/gunslinging.lua Startling Shot action: logSeen(target, \"%s misses %s shot.\", srcname, string.his_her(self)) then always setEffect EFF_STARTLING_SHOT; knockback is a later save. First %s=shooter name or Something; second=his/her. Deliberate miss, not dodge."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0141",
+      "neutral_id": "RFR-0141",
+      "sha256": "cbb0d37f33f6e9745f256bab0c362bae2a381ad213846877910746944c61ae64",
+      "text": "source_tag=logPlayer; unique runtime key in tome-orcs.lua. Nearby: Mecharachnid Chassis=机械蜘蛛底盘; separate logs already say player vs mecharachnid must not be in combat to change chassis. Public source <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/mecharachnid.lua Mecharachnid Chassis on_pre_use rejects if self.in_combat or mecharachnid.in_combat or not adjacent/missing, then this shared logPlayer. Distance>1 is adjacency."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0142",
+      "neutral_id": "RFR-0142",
+      "sha256": "bc5f6c90b862d5074c191a5572c46357cd437df9e17b08398803bb97b3b6296c",
+      "text": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0143",
+      "neutral_id": "RFR-0143",
+      "sha256": "bc5f6c90b862d5074c191a5572c46357cd437df9e17b08398803bb97b3b6296c",
+      "text": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0144",
+      "neutral_id": "RFR-0144",
+      "sha256": "a7e3b49b74b4a2739316ec85c9f6ae179ae5a07a4bf6bdf61c503c99f884328b",
+      "text": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=chat_gates-of-morning-welcome; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0145",
+      "neutral_id": "RFR-0145",
+      "sha256": "bc5f6c90b862d5074c191a5572c46357cd437df9e17b08398803bb97b3b6296c",
+      "text": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0146",
+      "neutral_id": "RFR-0146",
+      "sha256": "bc5f6c90b862d5074c191a5572c46357cd437df9e17b08398803bb97b3b6296c",
+      "text": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0147",
+      "neutral_id": "RFR-0147",
+      "sha256": "bc5f6c90b862d5074c191a5572c46357cd437df9e17b08398803bb97b3b6296c",
+      "text": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0148",
+      "neutral_id": "RFR-0148",
+      "sha256": "bc5f6c90b862d5074c191a5572c46357cd437df9e17b08398803bb97b3b6296c",
+      "text": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0149",
+      "neutral_id": "RFR-0149",
+      "sha256": "bc5f6c90b862d5074c191a5572c46357cd437df9e17b08398803bb97b3b6296c",
+      "text": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0150",
+      "neutral_id": "RFR-0150",
+      "sha256": "bc5f6c90b862d5074c191a5572c46357cd437df9e17b08398803bb97b3b6296c",
+      "text": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0151",
+      "neutral_id": "RFR-0151",
+      "sha256": "bc5f6c90b862d5074c191a5572c46357cd437df9e17b08398803bb97b3b6296c",
+      "text": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0152",
+      "neutral_id": "RFR-0152",
+      "sha256": "87f5b3d2fda772a5742550960103283aaf4b99f96869dbde2e93274d0242b129",
+      "text": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0153",
+      "neutral_id": "RFR-0153",
+      "sha256": "87f5b3d2fda772a5742550960103283aaf4b99f96869dbde2e93274d0242b129",
+      "text": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0154",
+      "neutral_id": "RFR-0154",
+      "sha256": "87f5b3d2fda772a5742550960103283aaf4b99f96869dbde2e93274d0242b129",
+      "text": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "evidence_id": "EVIDENCE-RFR-0155",
+      "neutral_id": "RFR-0155",
+      "sha256": "87f5b3d2fda772a5742550960103283aaf4b99f96869dbde2e93274d0242b129",
+      "text": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    }
+  ]
+}
