@@ -1,6 +1,6 @@
 # Prospective residual audit v3 candidate set
 
-Status: complete. The 40-item public holdout, generic reviewer prompt, exact schema, sealed atom matcher and scorer were frozen before inference. The initial and retry preflights both reported GO. `HARNESS-ERRATA-1.json` preserves the failed no-response launches and the successful Claude/Gemini envelopes; only the frozen Codex attempt 2 and GLM attempt 3 retries were executed. `SCORES.json` and `RESULT.json` contain the final layered result.
+Status: complete. The 40-item public holdout, generic reviewer prompt, exact schema, sealed atom matcher and scorer were frozen before inference. The initial and retry preflights both reported GO. `HARNESS-ERRATA-1.json` preserves the failed no-response launches and the successful Claude/Gemini envelopes; only the frozen Codex attempt 2 and GLM attempt 3 retries were executed. `SCORES.json` and `RESULT.json` contain the frozen layered result. At the user's later explicit direction, `REFERENCE-SCORE-NONISOLATED.json` additively scores the response content in the mixed-model Claude envelope while retaining the original route-invalid decision.
 
 This directory supersedes `prospective-residual-audit-v2`. The v2 selection was invalidated before source adjudication or model inference because some historical Paseo `translation_snapshot` entries were intermediate review snippets rather than the complete translation revision present at the frozen production commit. The v2 artifacts remain preserved as an audit trail.
 
@@ -46,7 +46,7 @@ The only confirmed atom was R033: a literal line feed splits the Chinese word åŒ
 - Pi Z.ai CN GLM 5.3 Flash high is the only scored primary route: 0/1 atom, 3 false positives, unweighted confusion `TP=0, FN=1, FP=3, TN=36`.
 - Codex gpt-5.6-sol high is reference-only/unverified: 0/1 atom and 3 false positives.
 - Gemini 3.7 Flash high is reference-only/unverified: 0/1 atom and 1 false positive.
-- Claude Opus 5 has no score because its successful envelope reported internal Haiku model usage in addition to Opus, violating the frozen route-purity rule. It was not resampled.
+- The frozen Claude Opus 5 route still has no primary score because its successful envelope reported internal Haiku model usage in addition to Opus. It was not resampled. A later post-hoc, non-isolated reference score for the mixed-model envelope is 0/1 atom, 2 false positives and unweighted confusion `TP=0, FN=1, FP=2, TN=37`; this must not be labeled an Opus-only score or enter the primary ranking.
 
 These outcomes do not support a model ranking: there is only one positive atom, every scored route missed it, and the Codex/Gemini transports are a different evidence tier. The most useful result is the shared failure mode: source/target-only LLM review missed a visible hard-line-break defect while proposing context-dependent terminology/runtime candidates that fixed-source adjudication refuted.
 
@@ -76,6 +76,7 @@ node evidence/quality/model-probes/prospective-residual-audit-v3/score.mjs \
   --opus-attempt 1 --opus-candidate CANDIDATE-PARSER-FIX-1.json \
   --glm-attempt 3 \
   --gemini-attempt 1
+node evidence/quality/model-probes/prospective-residual-audit-v3/score-nonisolated-reference.mjs
 ```
 
 The verifier creates and removes its own detached temporary worktree, regenerates the canonical inventory, checks the production input digest and all historical terminal-input fingerprints, regenerates every derived JSON, validates selection probabilities and confirms that inference remains disabled.

@@ -1,0 +1,162 @@
+{
+  "schema_version": "prospective-residual-posthoc-reference-score-v1",
+  "experiment": "prospective-residual-audit-v3",
+  "status": "SCORED_POSTHOC_REFERENCE_ONLY_NONISOLATED",
+  "authorized_at_utc": "2026-08-28",
+  "scoring_subject": "the response content in a mixed-model Claude envelope",
+  "route_label_prohibited": true,
+  "primary_ranking_eligible": false,
+  "reason": "The user explicitly requested a reference score even without an isolation/purity guarantee. This additive score does not alter the frozen primary route result.",
+  "limitations": [
+    "The envelope reports both claude-haiku-4-5-20251001 and claude-opus-5 usage, so this is not an Opus-only score.",
+    "The original frozen route remains INVALID_NO_SCORE for primary-route accounting.",
+    "This post-hoc reference score is descriptive and cannot enter a cross-tier model ranking."
+  ],
+  "source_bindings": {
+    "candidate": {
+      "logical_path": "attempts/claude-opus-5-medium-no-advisor/attempt-001/CANDIDATE-PARSER-FIX-1.json",
+      "sha256": "89bd1609931140e85f295d2cecd2e2caeff37e2ba630e23329616638817c1af4"
+    },
+    "response_sha256": "ee1b938d4ece984678b622609d8b7304cb5eb1002de25239f46c171680de0a61",
+    "public_holdout_sha256": "912ac6a90161a2e2bd55b356196a6be9163640f830e816939f6793b8f5fe6c5d",
+    "sealed_reference_sha256": "133f7f64a2f04c6dcfc4123cfc8ed2e305b4353353e4f79f382c6fb46c4c4d59",
+    "sealed_atom_map_sha256": "c8bd037e8a86f207fa782c46d2f2f6264b180c76716d069ec664181fb7409cd9"
+  },
+  "reported_models": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-5"
+  ],
+  "score_status": "SCORED_POSTHOC_REFERENCE_ONLY_NONISOLATED",
+  "metrics": {
+    "primary_atom_detection": {
+      "atoms_total": 1,
+      "atoms_detected": 0,
+      "recall": {
+        "numerator": "0",
+        "denominator": "1",
+        "fraction": "0/1",
+        "decimal": 0
+      },
+      "matches": [
+        {
+          "atom_id": "A001",
+          "audit_id": "R033",
+          "matched": false
+        }
+      ],
+      "off_target_positive_item_ids": []
+    },
+    "candidates": {
+      "item_count": 2,
+      "item_ids": [
+        "R017",
+        "R039"
+      ],
+      "false_positive_item_count": 2,
+      "false_positive_item_ids": [
+        "R017",
+        "R039"
+      ],
+      "atom_match_efficiency_unweighted": {
+        "numerator": "0",
+        "denominator": "1",
+        "fraction": "0/1",
+        "decimal": 0
+      },
+      "atom_match_efficiency_weighted": {
+        "numerator": "0",
+        "denominator": "1",
+        "fraction": "0/1",
+        "decimal": 0
+      }
+    },
+    "binary_nomination_unweighted": {
+      "TP": 0,
+      "FN": 1,
+      "FP": 2,
+      "TN": 37
+    },
+    "binary_nomination_weighted": {
+      "confusion": {
+        "TP": {
+          "numerator": "0",
+          "denominator": "1",
+          "fraction": "0/1",
+          "decimal": 0
+        },
+        "FN": {
+          "numerator": "16",
+          "denominator": "5",
+          "fraction": "16/5",
+          "decimal": 3.2
+        },
+        "FP": {
+          "numerator": "52",
+          "denominator": "1",
+          "fraction": "52/1",
+          "decimal": 52
+        },
+        "TN": {
+          "numerator": "6704",
+          "denominator": "5",
+          "fraction": "6704/5",
+          "decimal": 1340.8
+        }
+      },
+      "recall": {
+        "numerator": "0",
+        "denominator": "1",
+        "fraction": "0/1",
+        "decimal": 0
+      },
+      "specificity": {
+        "numerator": "1676",
+        "denominator": "1741",
+        "fraction": "1676/1741",
+        "decimal": 0.9626651349798966
+      },
+      "precision": {
+        "numerator": "0",
+        "denominator": "1",
+        "fraction": "0/1",
+        "decimal": 0
+      },
+      "f1": {
+        "numerator": "0",
+        "denominator": "1",
+        "fraction": "0/1",
+        "decimal": 0
+      },
+      "balanced_accuracy": {
+        "numerator": "838",
+        "denominator": "1741",
+        "fraction": "838/1741",
+        "decimal": 0.4813325674899483
+      },
+      "candidate_mass": {
+        "numerator": "52",
+        "denominator": "1",
+        "fraction": "52/1",
+        "decimal": 52
+      },
+      "candidate_mass_rate": {
+        "numerator": "13",
+        "denominator": "349",
+        "fraction": "13/349",
+        "decimal": 0.03724928366762178
+      },
+      "false_positive_mass": {
+        "numerator": "52",
+        "denominator": "1",
+        "fraction": "52/1",
+        "decimal": 52
+      },
+      "false_positive_mass_rate": {
+        "numerator": "13",
+        "denominator": "349",
+        "fraction": "13/349",
+        "decimal": 0.03724928366762178
+      }
+    }
+  }
+}

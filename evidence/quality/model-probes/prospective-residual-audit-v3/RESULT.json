@@ -93,6 +93,24 @@
       "resampled": false
     }
   ],
+  "posthoc_nonisolated_reference_result": {
+    "scoring_subject": "the response content in the mixed-model Claude envelope",
+    "reported_models": ["claude-haiku-4-5-20251001", "claude-opus-5"],
+    "score_status": "SCORED_POSTHOC_REFERENCE_ONLY_NONISOLATED",
+    "primary_ranking_eligible": false,
+    "route_label_prohibited": true,
+    "atom_detection": {"detected": 0, "total": 1, "recall": 0},
+    "candidates": {"count": 2, "item_ids": ["R017", "R039"]},
+    "false_positives": {"count": 2, "item_ids": ["R017", "R039"]},
+    "unweighted_confusion": {"TP": 0, "FN": 1, "FP": 2, "TN": 37},
+    "weighted_specificity": 0.9626651349798966,
+    "weighted_balanced_accuracy": 0.4813325674899483,
+    "limitations": [
+      "This is an additive score of response content, not an Opus-only score.",
+      "The original frozen primary route remains INVALID_NO_SCORE because the envelope reported mixed model usage.",
+      "The score cannot enter a cross-tier model ranking."
+    ]
+  },
   "measured_common_outcome": {
     "all_scored_routes_missed_R033": true,
     "all_scored_routes_atom_recall": 0,
@@ -127,7 +145,8 @@
     "codex_candidate": {"logical_path": "attempts/codex-gpt-5.6-sol-high/attempt-002/CANDIDATE.json", "sha256": "6217775aae3a212feb9aa2115041dcc2e006231b7c33766f5aea3c9f97a35f20"},
     "glm_candidate": {"logical_path": "attempts/pi-zai-cn-glm-5.3-flash-high/attempt-003/CANDIDATE.json", "sha256": "6037421be2d7051bb3a3dc7f5abf68407af5d64dbe889eb7204c7c318a5827a9"},
     "gemini_candidate": {"logical_path": "attempts/agy-gemini-3.7-flash-high/attempt-001/CANDIDATE.json", "sha256": "48d82f2b13a7896156d6ab77a205ffd26bbbb81a0aa78fee55cfaafd665d131c"},
-    "claude_reparsed_candidate": {"logical_path": "attempts/claude-opus-5-medium-no-advisor/attempt-001/CANDIDATE-PARSER-FIX-1.json", "sha256": "89bd1609931140e85f295d2cecd2e2caeff37e2ba630e23329616638817c1af4"}
+    "claude_reparsed_candidate": {"logical_path": "attempts/claude-opus-5-medium-no-advisor/attempt-001/CANDIDATE-PARSER-FIX-1.json", "sha256": "89bd1609931140e85f295d2cecd2e2caeff37e2ba630e23329616638817c1af4"},
+    "posthoc_nonisolated_reference_score": {"logical_path": "REFERENCE-SCORE-NONISOLATED.json", "sha256": "a3ade4e433a43e71fffa149400ae9e56ab14464f2cd3d2c6ac7a5fe7e9de5f7f"}
   },
   "post_run_validation": {
     "independent_audit": "PASS: selected attempts, candidate/CALL/RAW lineage, evidence tiers and every exact weighted metric were independently recomputed; no cross-tier ranking, union, consensus or pooled score was present.",
@@ -135,6 +154,7 @@
     "node_syntax": "PASS",
     "scorer_fixture": "PASS_28_OF_28",
     "runner_fixture": "PASS_27_OF_27",
+    "posthoc_nonisolated_reference_recomputation": "PASS",
     "git_diff_check": "PASS",
     "frozen_hashes": "PASS",
     "selected_candidate_call_raw_lineage": "PASS_4_OF_4",
