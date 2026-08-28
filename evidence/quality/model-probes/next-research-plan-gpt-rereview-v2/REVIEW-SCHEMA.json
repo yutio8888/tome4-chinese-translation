@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "overall_verdict",
+    "overall_assessment",
+    "fatal_issues",
+    "major_issues",
+    "minor_issues",
+    "resolved_strengths",
+    "phase_assessments",
+    "cross_phase_issues",
+    "gate_audit",
+    "minimum_required_revisions",
+    "recommended_next_action",
+    "uncertainties"
+  ],
+  "properties": {
+    "overall_verdict": {
+      "type": "string",
+      "enum": ["READY_TO_FREEZE_PHASE_1", "REVISE_BEFORE_PHASE_1_FREEZE", "NO_GO"]
+    },
+    "overall_assessment": {"type": "string"},
+    "fatal_issues": {"type": "array", "items": {"$ref": "#/$defs/issue"}},
+    "major_issues": {"type": "array", "items": {"$ref": "#/$defs/issue"}},
+    "minor_issues": {"type": "array", "items": {"type": "string"}},
+    "resolved_strengths": {"type": "array", "items": {"type": "string"}},
+    "phase_assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["phase", "verdict", "analysis", "required_changes"],
+        "properties": {
+          "phase": {"type": "string"},
+          "verdict": {"type": "string", "enum": ["PASS", "REVISE", "NO_GO"]},
+          "analysis": {"type": "string"},
+          "required_changes": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "cross_phase_issues": {"type": "array", "items": {"$ref": "#/$defs/issue"}},
+    "gate_audit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["gate", "verdict", "analysis", "required_change"],
+        "properties": {
+          "gate": {"type": "string"},
+          "verdict": {"type": "string", "enum": ["OPERABLE", "AMBIGUOUS", "INVALID"]},
+          "analysis": {"type": "string"},
+          "required_change": {"type": "string"}
+        }
+      }
+    },
+    "minimum_required_revisions": {"type": "array", "items": {"type": "string"}},
+    "recommended_next_action": {"type": "string"},
+    "uncertainties": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["phase", "issue", "evidence", "consequence", "required_fix"],
+      "properties": {
+        "phase": {"type": "string"},
+        "issue": {"type": "string"},
+        "evidence": {"type": "string"},
+        "consequence": {"type": "string"},
+        "required_fix": {"type": "string"}
+      }
+    }
+  }
+}

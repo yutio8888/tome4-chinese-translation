@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "scope": "one fresh holdout-style GPT-5.6 Sol high methodological re-review of the sanitized revised research plan, followed by independent local adjudication",
+  "frozen_at": "2026-08-27",
+  "base_commit": "b77d337d0c88888ee5531f557d8a64a02957631c",
+  "authorization": {
+    "service": "OpenAI through the Codex built-in subagent mechanism",
+    "basis": "The user requested another review after explicitly selecting the built-in subagent mechanism, and has permanently authorized sanitized project experiment records to OpenAI.",
+    "data_scope": "sanitized revised methodology only; no credentials, sealed references, adjudication conclusions, defect IDs, item-level samples, historical model outputs, local absolute paths or project history"
+  },
+  "frozen_inputs": {
+    "plan": {
+      "path": "PLAN-UNDER-REVIEW.md",
+      "sha256": "d82c44e0b735f457586621f72440bae94cdfea1bb9a6e3fea124f384d92bba3f"
+    },
+    "review_prompt": {
+      "path": "REVIEW-PROMPT.md",
+      "sha256": "050b12c8f4a87131f50ca0fca8069c8521b3af587d2b40243ea9786be5921a53"
+    },
+    "review_schema": {
+      "path": "REVIEW-SCHEMA.json",
+      "sha256": "68c6099b7b61030c8353fe776a45c7408a156571432165a98ef0e675e98ec951"
+    },
+    "subagent_task": {
+      "path": "SUBAGENT-TASK.md",
+      "sha256": "fbd07c1b9d6ef48363b386fa50baf49196c43174c6082b587fe8658f8af2a2c6"
+    }
+  },
+  "route": {
+    "mechanism": "collaboration.spawn_agent",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "high",
+    "fork_turns": "none",
+    "filesystem_instruction": "read only",
+    "network_instruction": "disabled by task contract"
+  },
+  "independence": {
+    "prior_raw_review_provided": false,
+    "prior_synthesis_provided": false,
+    "prior_result_provided": false,
+    "repository_history_provided": false,
+    "item_level_records_provided": false,
+    "local_post_review_adjudication_visible": false
+  },
+  "output": {
+    "raw": "RAW-subagent-gpt-5.6-sol-high.json",
+    "adjudication": "ADJUDICATION.json",
+    "result": "RESULT.json",
+    "schema_enforced": true
+  },
+  "stopping_rule": "Exactly one valid subagent review. Harness or schema failures do not count; repair only the transport or parser without changing frozen substantive inputs."
+}
