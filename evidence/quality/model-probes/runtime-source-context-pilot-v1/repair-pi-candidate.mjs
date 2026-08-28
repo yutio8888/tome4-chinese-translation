@@ -10,7 +10,7 @@ const backupName = candidateName.replace(/\.json$/, "-unparsed-attempt1.json");
 const backupPath = path.join(here, backupName);
 const sourcePath = fs.existsSync(candidatePath) ? candidatePath : backupPath;
 const original = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
-if (original.valid || original.response) throw new Error("candidate does not need parser repair");
+if (original.valid) throw new Error("candidate does not need parser repair");
 const raw = fs.readFileSync(path.join(here, original.raw_artifact), "utf8");
 const events = raw.split(/\r?\n/).filter(Boolean).map(line => JSON.parse(line));
 const ends = events.filter(event => event.type === "message_end" && event.message?.role === "assistant");
