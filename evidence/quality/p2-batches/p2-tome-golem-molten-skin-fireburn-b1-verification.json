@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-golem-molten-skin-fireburn-b1-001",
+  "kind": "golem_molten_skin_fireburn_bounded_translation_verification",
+  "frozen_workset": {
+    "path": "evidence/quality/p2-batches/p2-tome-golem-molten-skin-fireburn-b1-workset.json",
+    "sha256": "a1590b6ac866a950ff7727cb9a430d4782f0ce993f812f95ffaa05bf82c02217",
+    "immutable": true
+  },
+  "inventory_origin": {
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "reference_ids": [
+      "fireburn-ref-034"
+    ]
+  },
+  "translation_file": {
+    "path": "mod-tome.lua",
+    "baseline_head": "582542012278cee4224c6f40dee6fbf42f8ec9ff",
+    "baseline_sha256": "4649d2514b2dbad86c449f743f1f198be0e0d766afc8d299c27840824a764bab",
+    "current_sha256": "ad22bc98aeffa11075e7a0b265a51074b1c6e32b1b72f81cb76c23291218ce9d",
+    "production_targets_changed": 1
+  },
+  "translation_revisions": [
+    {
+      "revision_key": "tome-golem-molten-skin-info",
+      "reference_id": "fireburn-ref-034",
+      "entry_id": "c89def38fba0d91aa19843e7d730b85d71efdbf326c3de5c7e05dc46d7e4b67d",
+      "decision": "repaired",
+      "before": {
+        "source": "Turns the golem's skin into molten rock. The heat generated sets ablaze everything inside a radius of 3, doing %0.2f fire damage in 3 turns for %d turns.\n\t\tBurning is cumulative; the longer they stay within range, they higher the fire damage they take.\n\t\tIn addition the golem gains %d%% fire resistance.\n\t\tMolten Skin damage will not affect friendly creatures.\n\t\tThe damage and resistance will increase with your Spellpower.",
+        "target": "使傀儡的皮肤化为熔岩。产生的高温会点燃半径 3 格内的一切，使其在 3 回合内受到 %0.2f 点火焰伤害；炽热皮肤持续 %d 回合。\n\t\t灼烧可以叠加；目标处于范围内越久，受到的火焰伤害越高。\n\t\t此外，傀儡获得 %d%% 火焰抗性。\n\t\t炽热皮肤造成的伤害不会影响友方生物。\n\t\t伤害和抗性随你的法术强度提高。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": [
+          "%0.2f",
+          "%d",
+          "%d%%"
+        ],
+        "newline_count": 4,
+        "continuation_prefix": "\t\t",
+        "continuation_count": 4,
+        "markup_tokens": []
+      },
+      "after": {
+        "source": "Turns the golem's skin into molten rock. The heat generated sets ablaze everything inside a radius of 3, doing %0.2f fire damage in 3 turns for %d turns.\n\t\tBurning is cumulative; the longer they stay within range, they higher the fire damage they take.\n\t\tIn addition the golem gains %d%% fire resistance.\n\t\tMolten Skin damage will not affect friendly creatures.\n\t\tThe damage and resistance will increase with your Spellpower.",
+        "target": "使傀儡的皮肤化为熔岩。产生的高温会点燃半径 3 格内的一切，使其在 3 回合内受到 %0.2f 点火焰伤害；炽热皮肤持续 %d 回合。\n\t\t灼烧可以叠加；目标处于范围内越久，受到的火焰伤害越高。\n\t\t此外，傀儡获得 %d%% 火焰抗性。\n\t\t召唤者存活时，炽热皮肤只会伤害召唤者的敌人。\n\t\t伤害和抗性随你的法术强度提高。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": [
+          "%0.2f",
+          "%d",
+          "%d%%"
+        ],
+        "newline_count": 4,
+        "continuation_prefix": "\t\t",
+        "continuation_count": 4,
+        "markup_tokens": []
+      },
+      "before_after_target_byte_identical": false,
+      "placeholder_bindings": [
+        {
+          "placeholder_index": 1,
+          "token": "%0.2f",
+          "quantity_kind": "uncritted_fire_adjusted_per_application_complete_event_total",
+          "source_expression": "damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 12, 120))",
+          "runtime_origin": "the same base combatTalentSpellDamage scalar is projected once per active MapEffect full turn before shared-state implicit critical handling",
+          "source_explicitness": "one fire-damage amount in three turns",
+          "target_explicitness_before": "one fire-damage amount within three turns",
+          "target_explicitness_after": "one fire-damage amount within three turns",
+          "target_more_explicit_than_source": false,
+          "explicitness_justification_required": false,
+          "explicitness_justification": null
+        },
+        {
+          "placeholder_index": 2,
+          "token": "%d",
+          "quantity_kind": "outer_map_effect_and_resistance_duration",
+          "source_expression": "5 + self:getTalentLevel(t)",
+          "runtime_origin": "the same duration is passed to Map.addEffect and EFF_MOLTEN_SKIN",
+          "source_explicitness": "outer Molten Skin duration",
+          "target_explicitness_before": "outer Molten Skin duration",
+          "target_explicitness_after": "outer Molten Skin duration",
+          "target_more_explicit_than_source": false,
+          "explicitness_justification_required": false,
+          "explicitness_justification": null
+        },
+        {
+          "placeholder_index": 3,
+          "token": "%d%%",
+          "quantity_kind": "golem_fire_resistance_percent",
+          "source_expression": "30 + self:combatTalentSpellDamage(t, 12, 60)",
+          "runtime_origin": "EFF_MOLTEN_SKIN power adds a temporary FIRE resistance value",
+          "source_explicitness": "golem fire resistance percentage",
+          "target_explicitness_before": "golem fire resistance percentage",
+          "target_explicitness_after": "golem fire resistance percentage",
+          "target_more_explicit_than_source": false,
+          "explicitness_justification_required": false,
+          "explicitness_justification": null
+        }
+      ]
+    }
+  ],
+  "fixed_source": {
+    "component": "tome",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_pinned": true,
+    "source_files": [
+      {
+        "path": "game/modules/tome/data/talents/spells/golem.lua",
+        "sha256": "26e2741d1f21ca1a890d103fccc09d8fdf963255a127bf5941e8d2e06ab12824",
+        "relevant_lines": [
+          389,
+          390,
+          397,
+          399,
+          402,
+          403,
+          404,
+          406,
+          407,
+          408,
+          409,
+          411,
+          412,
+          413,
+          414,
+          415,
+          417,
+          419,
+          423,
+          424,
+          425,
+          426,
+          427,
+          428
+        ]
+      },
+      {
+        "path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+        "relevant_lines": [
+          1187,
+          1189,
+          1190,
+          1191,
+          1192,
+          1193,
+          1194,
+          1195,
+          1196,
+          1197,
+          1200,
+          1201,
+          1203,
+          1231,
+          1233,
+          1234,
+          1235,
+          1237,
+          1238,
+          1239,
+          1241
+        ]
+      },
+      {
+        "path": "game/modules/tome/data/timed_effects/physical.lua",
+        "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+        "relevant_lines": [
+          417,
+          420,
+          425,
+          428,
+          430,
+          431,
+          432,
+          433,
+          434,
+          435,
+          437,
+          438
+        ]
+      },
+      {
+        "path": "game/engines/default/engine/Map.lua",
+        "sha256": "6fdf0294ab835d06cf1186a47a2222b266bd71bfc53b3ba3a423cbb3e41ba315",
+        "relevant_lines": [
+          1110,
+          1111,
+          1112,
+          1124,
+          1125,
+          1131,
+          1133,
+          1136,
+          1172,
+          1258,
+          1262,
+          1263,
+          1266,
+          1267,
+          1270,
+          1271,
+          1272,
+          1277,
+          1280,
+          1282,
+          1283,
+          1285
+        ]
+      },
+      {
+        "path": "game/modules/tome/class/Game.lua",
+        "sha256": "dcd6dc85d9b2cf74741e82ac9156128b782193d23a459d53f7cda324b099092a",
+        "relevant_lines": [
+          1800,
+          1801,
+          1806,
+          1807,
+          1809,
+          1810
+        ]
+      },
+      {
+        "path": "game/modules/tome/data/timed_effects/magical.lua",
+        "sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+        "relevant_lines": [
+          198,
+          199,
+          201,
+          205,
+          208,
+          209,
+          210,
+          212,
+          213,
+          214
+        ]
+      }
+    ]
+  },
+  "directional_value_flow": {
+    "outer_duration_and_resistance": {
+      "origin": "duration = 5 + self:getTalentLevel(t)",
+      "map_effect": "Map.addEffect receives duration and decrements it once per full effect turn.",
+      "resistance": "self:setEffect(EFF_MOLTEN_SKIN, duration, {power=30 + combatTalentSpellDamage(...)}) grants FIRE resistance for the same duration.",
+      "tooltip": "tformat argument 2 binds the same duration to %d; argument 3 binds resistance power to %d%%."
+    },
+    "map_effect_pulses_and_movement": {
+      "scheduler": "Game.onTurn calls map:processEffects(self.turn % 10 ~= 0).",
+      "full_turn": "When update_shape_only is false and duration > 0, Map.processEffects projects e.dam once across the current grids and decrements duration.",
+      "movement_update": "The update callback assigns e.x/e.y from e.src.x/e.src.y and Map.processEffects rebuilds circle_grids; shape-only calls update movement without projecting damage."
+    },
+    "recipient_filter": {
+      "self_exclusion": "GOLEM_FIREBURN requires target ~= src.",
+      "normal_living_summoner": "With a present living summoner, reactionToward(target) < 0 admits only that summoner's enemies.",
+      "missing_or_dead_summoner_boundary": "With no summoner or a dead summoner, the guard is skipped and every actor other than the golem itself is admitted.",
+      "translation_relation": "The repaired Chinese limits its enemy-only statement to the living-summoner condition and does not describe the exceptional branch's internal behavior."
+    },
+    "implicit_critical_state": {
+      "flow": "MapEffect invokes GOLEM_FIREBURN without an explicit state; GOLEM_FIREBURN initializes state, calls useImplicitCrit, and passes that same state into FIREBURN, whose useImplicitCrit sees the shared projection state.",
+      "qualification": "This is one shared implicit-critical projection state, not two independent critical rolls.",
+      "tooltip": "%0.2f remains the uncritted FIRE-adjusted display value."
+    },
+    "scalar_fireburn": {
+      "incoming_total": "D = the per-active-turn scalar dam delegated by GOLEM_FIREBURN",
+      "defaults": "scalar input selects dur=3 and initial percent=50",
+      "immediate": "D/2 is projected immediately as FIRE",
+      "burning": "the remaining D/2 is installed as EFF_BURNING with power (D/2)/3",
+      "complete_total": "D is the complete event total, not each timeout amount."
+    },
+    "burning_merge": {
+      "old_remaining": "old_eff.power * old_eff.dur",
+      "incoming_remaining": "new_eff.power * new_eff.dur",
+      "merged_duration": "ceil((old_eff.dur + new_eff.dur) / 2)",
+      "merged_power": "(old remaining + incoming remaining) / merged duration",
+      "qualification": "Repeated applications pool remaining totals; they do not retain independent isolated schedules."
+    }
+  },
+  "translation_semantics": {
+    "source_claim": "Each active aura pulse supplies one complete %0.2f fire-damage amount delivered within three turns; the aura itself lasts %d turns.",
+    "target_claim": "使其在 3 回合内受到 %0.2f 点火焰伤害；炽热皮肤持续 %d 回合 separates the complete three-turn event amount from the outer aura lifetime; 召唤者存活时，炽热皮肤只会伤害召唤者的敌人 limits the recipient claim to the source-confirmed living-summoner condition.",
+    "per_turn_numeric_wording_absent": true,
+    "complete_total_preserved": true,
+    "outer_duration_separate": true,
+    "decision": "repaired"
+  },
+  "orchestrator_adjudication": {
+    "confirmed": [
+      {
+        "subject": "outer duration, pulses, and movement",
+        "finding": "The map effect and resistance last 5 + talent level; the effect pulses once per active full turn and follows the golem."
+      },
+      {
+        "subject": "recipient and critical handling",
+        "finding": "GOLEM_FIREBURN excludes self, normally filters by living-summoner hostility, preserves the dead/missing-summoner exception, and shares one implicit-critical projection state with FIREBURN."
+      },
+      {
+        "subject": "complete event and cumulative pool",
+        "finding": "Scalar FIREBURN splits one complete total half immediate and half over three turns; BURNING merges remaining pools."
+      },
+      {
+        "subject": "translation accuracy",
+        "finding": "The Chinese distinguishes the three-turn complete amount from outer duration and makes no per-turn numeric claim."
+      },
+      {
+        "finding_id": "CTX-MOLTEN-R0-001",
+        "subject": "unqualified friendly-target statement",
+        "status": "confirmed",
+        "disposition": "applied",
+        "dispatch_id": "executor-repair-c1-01",
+        "finding": "At fixed commit 624a67329fe2ad440c5b344785a9c73fcf22ae63, GOLEM_FIREBURN filters by the living summoner's hostility only when that summoner exists and is alive; when the summoner is missing or dead, it admits every actor except the golem itself. The former Chinese sentence was therefore an incorrect unconditional claim."
+      }
+    ],
+    "applied_repairs": [
+      {
+        "finding_id": "CTX-MOLTEN-R0-001",
+        "revision_key": "tome-golem-molten-skin-info",
+        "before": "炽热皮肤造成的伤害不会影响友方生物。",
+        "after": "召唤者存活时，炽热皮肤只会伤害召唤者的敌人。",
+        "scope": "Minimal repair states only the normal living-summoner behavior and does not expand the missing/dead-summoner branch implementation into the player-facing target."
+      }
+    ],
+    "production_edit_authorized": true,
+    "mod_tome_changed": true
+  },
+  "scope_accounting": {
+    "selected_reference_count": 1,
+    "selected_revision_count": 1,
+    "production_target_change_count": 1,
+    "changed_revision_keys": [
+      "tome-golem-molten-skin-info"
+    ],
+    "all_adjacent_targets_byte_unchanged": true,
+    "full_section_selected_count": 31,
+    "full_section_available_count": 31,
+    "full_section_lexical_t_call_count": 31,
+    "full_section_content_sha256": "c0f839f76a2c23793238c9f445e21ec59ef11bc7466c088fb7ae4fac4b691353",
+    "current_context": {
+      "limit": 500,
+      "selected_count": 31,
+      "available_count": 31,
+      "context_id": "a5f6520f717ad7038ef3cc676fd6c17fb74f132f43784f11973d4382a96f4c8c",
+      "content_sha256": "e0cb1991f583b4653e17e5a7095bb7c31ebab26b8a287346ae3ddf1c56e94c6a",
+      "canonical_sha256": "ad22bc98aeffa11075e7a0b265a51074b1c6e32b1b72f81cb76c23291218ce9d"
+    },
+    "baseline_and_current_translation_file_sha256_equal": false,
+    "neighbor_normalization_performed": false
+  },
+  "invariant_checks": {
+    "exact_reference_ids": [
+      "fireburn-ref-034"
+    ],
+    "ordered_revision_keys": [
+      "tome-golem-molten-skin-info"
+    ],
+    "context_limit_is_500": true,
+    "context_selected_equals_available_equals_lexical_t_calls": true,
+    "context_count": 31,
+    "frozen_context_id_matches_workset": true,
+    "frozen_content_sha256_matches_workset": true,
+    "current_context_differs_only_for_authorized_target_repair": true,
+    "current_canonical_sha256_equals_current_mod_tome_sha256": true,
+    "source_unchanged": true,
+    "target_before_after_byte_identical": false,
+    "exactly_one_target_changed": true,
+    "changed_target_count": 1,
+    "all_other_targets_byte_unchanged": true,
+    "source_tag_remains_tformat": true,
+    "args_order_remains_null": true,
+    "special_remains_null": true,
+    "placeholder_sequence_remains_percent_0_2f_then_percent_d_then_percent_d_percent": true,
+    "newline_count_remains_four": true,
+    "four_two_tab_continuations_preserved": true,
+    "inventory_hash_bound": true,
+    "translation_baseline_head_and_hash_bound": true,
+    "source_hashes_match_fixed_commit": true,
+    "workset_hash_bound": true,
+    "closure_update_bounded": true,
+    "result": "pass"
+  },
+  "campaign_index_lineage": {
+    "closure_index_path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-closure.json",
+    "closure_baseline_sha256": "0553b6492d835bcc100ba3c58b4c0e0ce3ffe273a954395476287181e9e64692",
+    "preceding_fire_breath_batch": {
+      "task_id": "p2-tome-fire-breath-fireburn-b1-001",
+      "reference_ids": [
+        "fireburn-ref-024"
+      ],
+      "status": "closed",
+      "commit": "582542012278cee4224c6f40dee6fbf42f8ec9ff"
+    },
+    "this_batch": {
+      "task_id": "p2-tome-golem-molten-skin-fireburn-b1-001",
+      "reference_ids": [
+        "fireburn-ref-034"
+      ],
+      "status": "review_pending",
+      "independent_review_and_done_claimed": false,
+      "qualification": "CTX-MOLTEN-R0-001 is confirmed and applied in one production target; this batch remains review_pending until independent final review and DONE verification."
+    }
+  },
+  "focused_verification": {
+    "checks": [
+      {
+        "command": "focused invariant script: exact ref/revision and immutable inventory; baseline HEAD/mod/closure hashes; frozen context 31/31/31 at --limit 500 with exact IDs/hashes and all 31 full entries; selected source/changed target/tag/null metadata/placeholders/layout; fixed git-object source hashes and line anchors; directional duration/resistance/pulse/movement/recipient/shared-crit/FIREBURN/merge claims; exactly one production target change; bounded closure transitions",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n context --component tome --section mod-tome/data/talents/spells/golem.lua --limit 500 --json; assert current selected=31, available=31, context_id/content SHA and canonical mod-tome.lua SHA",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -m json.tool on workset, verification, and closure",
+        "result": "PASS"
+      },
+      {
+        "command": "fixed source hash checks at commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 for golem.lua, damage_types.lua, timed_effects/physical.lua, Map.lua, Game.lua, and timed_effects/magical.lua",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n doctor",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "PASS"
+      },
+      {
+        "command": "git diff --check",
+        "result": "PASS"
+      }
+    ]
+  }
+}

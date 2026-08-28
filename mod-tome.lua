@@ -29000,7 +29000,7 @@ t([[Turns the golem's skin into molten rock. The heat generated sets ablaze ever
 		The damage and resistance will increase with your Spellpower.]], [[使傀儡的皮肤化为熔岩。产生的高温会点燃半径 3 格内的一切，使其在 3 回合内受到 %0.2f 点火焰伤害；炽热皮肤持续 %d 回合。
 		灼烧可以叠加；目标处于范围内越久，受到的火焰伤害越高。
 		此外，傀儡获得 %d%% 火焰抗性。
-		炽热皮肤造成的伤害不会影响友方生物。
+		召唤者存活时，炽热皮肤只会伤害召唤者的敌人。
 		伤害和抗性随你的法术强度提高。]], "tformat")
 t("Self-destruction", "自爆", "talent name")
 t([[The golem self-destructs, destroying itself and generating a blast of fire in a radius of %d, doing %0.2f fire damage.
