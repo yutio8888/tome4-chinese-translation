@@ -1,6 +1,6 @@
 # Prospective residual audit v3 candidate set
 
-Status: 40 production-resolved task/revision units selected; source audit, minimal sealed reference and exact estimator contract frozen; reviewer inference remains prohibited pending prompt, schema, scorer, route and isolation preflight.
+Status: the 40-item public holdout, generic reviewer prompt, exact schema, sealed atom matcher, scorer, four preregistered routes and fail-closed runner are frozen; no v3 reviewer inference has been made. A committed-package preflight must report GO before either executable route is invoked.
 
 This directory supersedes `prospective-residual-audit-v2`. The v2 selection was invalidated before source adjudication or model inference because some historical Paseo `translation_snapshot` entries were intermediate review snippets rather than the complete translation revision present at the frozen production commit. The v2 artifacts remain preserved as an audit trail.
 
@@ -33,7 +33,9 @@ No v3 reviewer-route model call has been made. `SOURCE-AUDIT-PROTOCOL.json` froz
 
 Both the 40/40 determinate gate and the 38/40 provenance-classifiable gate pass. The translation-origin pilot budget-priority gate fails because only one confirmed item from one task was found, below the frozen four-items/four-tasks requirement; that pilot is deferred, not scientifically disproved. The later independent reviewer audit may still proceed after its own contract is frozen, but it cannot support a stable model ranking with one positive item.
 
-The later reviewer context remains Arm A, source and target only. `HOLDOUT-DRAFT.json` is deliberately not inference-ready. The next gate is to freeze the public holdout, prompt, output schema, reviewer-hidden atom matcher, scorer, actual model routes and fail-closed isolated-run preflight. Reviewer inference remains prohibited until all of those artifacts pass verification.
+The later reviewer context remains Arm A, source and target only. `HOLDOUT-DRAFT.json` is deliberately not inference-ready. `PUBLIC-HOLDOUT.json`, `PROMPT.md`, `REVIEWER-SCHEMA.json`, `SEALED-ATOM-MAP.json`, `score-lib.mjs` and `REVIEW-CONTRACT.json` now define the frozen review package. The prompt checklist is mechanically derived from the pre-audit scope in `SOURCE-AUDIT-PROTOCOL.json`, not from the sealed positive finding.
+
+All four historical routes remain registered. Claude Opus 5 medium/no-advisor and Pi Z.ai CN GLM 5.3 Flash high are the primary verified routes. At the user's explicit direction, Codex CLI 0.150.1 and agy 1.1.22 are also run and scored as `REFERENCE_ONLY_UNVERIFIED`: Codex cannot mechanically prove that every file tool is absent and lacks server runtime-model attestation; agy cannot disable all tools and does not report runtime identity. Their scores are auxiliary references and cannot enter the primary ranking. Every attempt gets an exclusive directory with immutable raw stdout/stderr; parsing is a separate step.
 
 ## Rebuild and verify
 
@@ -52,6 +54,9 @@ node evidence/quality/model-probes/prospective-residual-audit-v3/build-source-au
 node evidence/quality/model-probes/prospective-residual-audit-v3/verify-source-audit.mjs
 node evidence/quality/model-probes/prospective-residual-audit-v3/build-reference.mjs
 node evidence/quality/model-probes/prospective-residual-audit-v3/verify-reference.mjs
+node evidence/quality/model-probes/prospective-residual-audit-v3/test-scorer.mjs
+node evidence/quality/model-probes/prospective-residual-audit-v3/test-runner.mjs
+node evidence/quality/model-probes/prospective-residual-audit-v3/preflight.mjs --route-check --write
 ```
 
 The verifier creates and removes its own detached temporary worktree, regenerates the canonical inventory, checks the production input digest and all historical terminal-input fingerprints, regenerates every derived JSON, validates selection probabilities and confirms that inference remains disabled.

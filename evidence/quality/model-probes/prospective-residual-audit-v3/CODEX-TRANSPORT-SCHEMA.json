@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["revisions"],
+  "properties": {
+    "revisions": {
+      "type": "array",
+      "minItems": 40,
+      "maxItems": 40,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["revision_id", "verdict", "observation", "evidence"],
+        "properties": {
+          "revision_id": {
+            "type": "string",
+            "enum": ["R001", "R002", "R003", "R004", "R005", "R006", "R007", "R008", "R009", "R010", "R011", "R012", "R013", "R014", "R015", "R016", "R017", "R018", "R019", "R020", "R021", "R022", "R023", "R024", "R025", "R026", "R027", "R028", "R029", "R030", "R031", "R032", "R033", "R034", "R035", "R036", "R037", "R038", "R039", "R040"]
+          },
+          "verdict": {"type": "string", "enum": ["NO_DEFECT", "DEFECT"]},
+          "observation": {"type": "string", "minLength": 1},
+          "evidence": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

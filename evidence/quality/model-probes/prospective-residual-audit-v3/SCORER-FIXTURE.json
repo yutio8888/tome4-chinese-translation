@@ -1,0 +1,150 @@
+{
+  "schema_version": "prospective-residual-scorer-fixture-v3",
+  "base_response": "All 40 items are emitted in holdout order as NO_DEFECT; observation is exactly NO_DEFECT and evidence is nonempty.",
+  "cases": [
+    {
+      "case_id": "exact-lf-atom-detection",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "包裹一词被硬换行拆开。", "evidence": "target 原文片段为“包\n裹”。"}],
+      "expected": {"valid": true, "atoms_detected": 1, "candidates": 1, "off_target": 0, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39, "weighted_TP": "16/5", "weighted_TN": "6964/5", "candidate_mass_rate": "4/1745"}
+    },
+    {
+      "case_id": "escaped-lf-atom-detection",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "“包”和“裹”之间存在不应有的换行。", "evidence": "target 含精确片段 包\\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 1, "candidates": 1, "off_target": 0, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39, "weighted_TP": "16/5", "weighted_TN": "6964/5", "candidate_mass_rate": "4/1745"}
+    },
+    {
+      "case_id": "long-next-line-atom-detection",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "包字之后插入硬换行，下一行由裹字开头。", "evidence": "target 原样片段是 包\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 1, "candidates": 1, "off_target": 0, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "previous-next-line-atom-detection",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "前一行以包结尾，后一行以裹开头，拆开了同一个词。", "evidence": "target 原样片段是 包\\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 1, "candidates": 1, "off_target": 0, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "generic-chinese-word-atom-detection",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "一个中文词被换行拆开。", "evidence": "target 原样片段是 包\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 1, "candidates": 1, "off_target": 0, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "package-two-lines-atom-detection",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "package 的中文译文从中间分成了两行。", "evidence": "target 原样片段是 包\\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 1, "candidates": 1, "off_target": 0, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "cross-field-splicing-rejected",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "这里存在硬换行。", "evidence": "包\n裹一词被拆开。"}],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 1, "off_target": 1, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "descriptive-evidence-atom-detection",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "包裹一词被换行拆开。", "evidence": "target 把包和裹分到两行。"}],
+      "expected": {"valid": true, "atoms_detected": 1, "candidates": 1, "off_target": 0, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "atom-word-scope-hard-linebreak-detection",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "目标文本的“包裹”出现了不恰当的硬换行。", "evidence": "target 含精确片段 包\\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 1, "candidates": 1, "off_target": 0, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "atom-word-scope-forced-linebreak-detection",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "“包裹”在目标文本中被强制换行。", "evidence": "target 含精确片段 包\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 1, "candidates": 1, "off_target": 0, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "atom-word-scope-descriptive-evidence-detection",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "译文在“包裹”处插入了换行。", "evidence": "target 把包和裹分到两行。"}],
+      "expected": {"valid": true, "atoms_detected": 1, "candidates": 1, "off_target": 0, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "wording-split-without-line-format-rejected",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "包裹应该拆开书写为两个词。", "evidence": "target 含精确片段 包\\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 1, "off_target": 1, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "descriptive-evidence-negation-rejected",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "包裹一词被换行拆开。", "evidence": "target 中包和裹没有被换行拆开。"}],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 1, "off_target": 1, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "evidence-without-atom-anchors-rejected",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "包裹一词被换行拆开。", "evidence": "target 只有普通段落排版，没有引用或描述相关字符之间的断裂。"}],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 1, "off_target": 1, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "negated-observation-rejected",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "包裹一词的换行不是问题。", "evidence": "target 含 包\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 1, "off_target": 1, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "negated-prefix-observation-rejected",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "包裹一词并不存在被换行拆开的问题。", "evidence": "target 含 包\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 1, "off_target": 1, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "unrelated-translation-and-linebreak-rejected",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "包裹应译为套装；另外句尾存在换行。", "evidence": "target 含 包\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 1, "off_target": 1, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "not-linebreak-but-wording-rejected",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "包裹一词错误之处不是换行，而是措辞。", "evidence": "target 含 包\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 1, "off_target": 1, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "not-caused-by-linebreak-rejected",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "包裹一词有错，但不是由换行导致。", "evidence": "target 含 包\\n裹。"}],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 1, "off_target": 1, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "off-target-positive-nomination",
+      "mutations": [{"revision_id": "R033", "verdict": "DEFECT", "observation": "报告应该改成消息。", "evidence": "source 使用 message。"}],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 1, "off_target": 1, "false_positives": 0, "TP": 1, "FN": 0, "FP": 0, "TN": 39}
+    },
+    {
+      "case_id": "negative-item-candidate",
+      "mutations": [{"revision_id": "R001", "verdict": "DEFECT", "observation": "存在一个测试候选。", "evidence": "synthetic fixture evidence"}],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 1, "off_target": 0, "false_positives": 1, "TP": 0, "FN": 1, "FP": 1, "TN": 38, "weighted_FN": "16/5", "weighted_FP": "37/1"}
+    },
+    {
+      "case_id": "all-negative",
+      "mutations": [],
+      "expected": {"valid": true, "atoms_detected": 0, "candidates": 0, "off_target": 0, "false_positives": 0, "TP": 0, "FN": 1, "FP": 0, "TN": 39, "weighted_FN": "16/5", "weighted_TN": "6964/5"}
+    },
+    {
+      "case_id": "no-defect-observation-not-exact-invalid",
+      "mutations": [{"revision_id": "R001", "observation": "未发现问题"}],
+      "expected": {"valid": false}
+    },
+    {
+      "case_id": "defect-observation-no-defect-invalid",
+      "mutations": [{"revision_id": "R001", "verdict": "DEFECT", "observation": "NO_DEFECT"}],
+      "expected": {"valid": false}
+    },
+    {
+      "case_id": "wrong-order-invalid",
+      "mutations": [],
+      "structure_mutation": "swap-first-two",
+      "expected": {"valid": false}
+    },
+    {
+      "case_id": "zero-weight-hidden-contract-rejected",
+      "mutations": [],
+      "contract_mutation": "ZERO_FIRST_REFERENCE_WEIGHT",
+      "expected": {"throws": true}
+    },
+    {
+      "case_id": "atom-to-negative-hidden-contract-rejected",
+      "mutations": [],
+      "contract_mutation": "ATOM_POINTS_TO_R001",
+      "expected": {"throws": true}
+    },
+    {
+      "case_id": "atom-coverage-hidden-contract-rejected",
+      "mutations": [],
+      "contract_mutation": "DROP_ALL_ATOMS",
+      "expected": {"throws": true}
+    }
+  ]
+}

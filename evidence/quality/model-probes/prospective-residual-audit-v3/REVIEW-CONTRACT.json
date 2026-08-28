@@ -1,0 +1,110 @@
+{
+  "schema_version": "prospective-residual-review-contract-v3",
+  "experiment": "prospective-residual-audit-v3",
+  "status": "FROZEN_PRE_INFERENCE",
+  "frozen_at_date": "2026-08-27",
+  "model_calls_made_at_freeze": 0,
+  "context_policy": "A_SOURCE_AND_TARGET_ONLY",
+  "public_request": {
+    "holdout": {"logical_path": "PUBLIC-HOLDOUT.json", "sha256": "912ac6a90161a2e2bd55b356196a6be9163640f830e816939f6793b8f5fe6c5d"},
+    "prompt": {"logical_path": "PROMPT.md", "sha256": "056691a183a3200453211e1ddaacf79459fca762cf15d77dfb27bffa29cb6e1d"},
+    "schema": {"logical_path": "REVIEWER-SCHEMA.json", "sha256": "e1850c53d183c606781dd6505fcffbc5fd4ecd6fc1069ebc3cb59c137439de1b"},
+    "codex_transport_schema": {"logical_path": "CODEX-TRANSPORT-SCHEMA.json", "sha256": "ef1ccf4f12a38a59f3d709a70d5bff74777323b18f23e433ab6f2928ce3a418c", "derivation": "Mechanical removal of item-level allOf only for Codex structured-output compatibility; canonical validateResponse still enforces the full REVIEWER-SCHEMA semantics."},
+    "scope_lineage": {"source": "SOURCE-AUDIT-PROTOCOL.json scope.included", "source_sha256": "95d290e728956c0ac9efeeaa05164ba53d37e3d2a78790c7e3cf82b1b078c35b", "derivation": "The generic reviewer checklist mechanically restates the pre-audit categories, including placeholder, markup, format and argument-role defects; it does not name the observed positive defect."},
+    "bundle_policy": "A fresh private temporary directory contains exactly the four public byte-identical ordinary files bound above: holdout, prompt, canonical schema and Codex transport schema. Bubblewrap 0.11.1 mounts it read-only at the generic /mnt cwd, mounts the host filesystem read-only, hides /home/yun/research with an empty tmpfs, and provides private /dev, /proc and writable /tmp mounts. The host bundle is removed after the call.",
+    "request_construction": "UTF-8 PROMPT.md bytes, one newline, the literal header 输入 JSON：, one newline, then compact UTF-8 PUBLIC-HOLDOUT.json JSON.",
+    "outbound_scan": "Every user-request and response-schema byte buffer passed to an executable route must pass the frozen fail-closed leak scanner before spawn."
+  },
+  "sealed_inputs": {
+    "reference": {"logical_path": "SEALED-REFERENCE.json", "sha256": "133f7f64a2f04c6dcfc4123cfc8ed2e305b4353353e4f79f382c6fb46c4c4d59"},
+    "atom_map": {"logical_path": "SEALED-ATOM-MAP.json", "sha256": "c8bd037e8a86f207fa782c46d2f2f6264b180c76716d069ec664181fb7409cd9"},
+    "estimator_contract": {"logical_path": "ESTIMATOR-CONTRACT.json", "sha256": "e638b3fbacc214f5141d65ba28a9974bd95fb2de404e6393fb7e857b61dc5d94"},
+    "source_audit": {"logical_path": "SOURCE-AUDIT.json", "sha256": "622b0b523c6da3fe95040cc9440a1322aa5dc9e47752eca653c83769776cb092"}
+  },
+  "scoring": {
+    "library": {"logical_path": "score-lib.mjs", "sha256": "b59c22fe649ecab1ea57176bb0a3bd9add72ad74af126b2e56106aeebd31aaf8"},
+    "fixture": {"logical_path": "SCORER-FIXTURE.json", "sha256": "55a7240754db9de68079e280f94bec91372e792b13392ecd630a08eb769c791c"},
+    "fixture_test": {"logical_path": "test-scorer.mjs", "sha256": "704f0f039d123a45b35d6a0c3c1617a152ad2d1a60834bc6326697ce6cd621d4"},
+    "invalid_route_policy": "A failed transport, parser, schema, order, explicit tool-use, explicit identity mismatch, fallback, advisor or subagent check is INVALID_NO_SCORE and is never coerced to NO_DEFECT. One invalid route does not erase other valid route scores.",
+    "tier_policy": "PRIMARY_VERIFIED and REFERENCE_ONLY_UNVERIFIED are reported separately. No cross-tier ranking, winner, union, consensus or pooled score is permitted."
+  },
+  "harness": {
+    "public_builder": {"logical_path": "build-public-holdout.mjs", "sha256": "f28de8e1081007aac42e5b5dec0ce1f6cc9d79b88a05f68ec97495a083bad6a1"},
+    "runner_library": {"logical_path": "runner-lib.mjs", "sha256": "73268e7a34d44fba01a7b0904e088c1408d95e80ac04dc1fbe7149de950a1329"},
+    "runner_fixture": {"logical_path": "RUNNER-FIXTURE.json", "sha256": "c1b8b707d7aefccf9dbe9a72a498f8abd2dd1f654085f5686c385f5e78a4fb60"},
+    "runner_test": {"logical_path": "test-runner.mjs", "sha256": "d7d18bf835f5765ac3f1cc17e49b98e57e6027203ecfeee18c8d1e604b7cb982"},
+    "preflight": {"logical_path": "preflight.mjs", "sha256": "de469451d66de026cd83c0bc9aa9e5220adf5b5650eff978514b40b3f765dd34"},
+    "run": {"logical_path": "run.mjs", "sha256": "bc3e6a3962a54a4e4aa503e0efc67035f8d5385db46747e58859dda17281f116"},
+    "parse": {"logical_path": "parse.mjs", "sha256": "17fe001d2c3d4ae943763a63b42a88376aac0d7acb5a6368521bb799b385426d"},
+    "score": {"logical_path": "score.mjs", "sha256": "44837eb8c2dfe48a9f9d5c1110e849ae7a537562e5ca8567834e2a81f2fd5b60"}
+  },
+  "routes": [
+    {
+      "key": "codex",
+      "slug": "codex-gpt-5.6-sol-high",
+      "provider": "OpenAI",
+      "cli": "codex",
+      "cli_version": "codex-cli 0.150.1",
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "transport_decision": "REFERENCE_ONLY_UNVERIFIED",
+      "evidence_tier": "REFERENCE_ONLY_UNVERIFIED",
+      "required_flags": ["best-effort feature disables including shell_tool and unified_exec", "-a", "never", "exec", "--ephemeral", "--ignore-user-config", "--ignore-rules", "-s", "read-only", "--json", "--output-schema", "CODEX-TRANSPORT-SCHEMA.json"],
+      "reason": "At the user's explicit direction this route receives an auxiliary reference score despite incomplete file-tool isolation and no server-attested runtime identity. Any observed command/file/Web/MCP/subagent item or explicit identity mismatch makes the candidate invalid."
+    },
+    {
+      "key": "opus",
+      "slug": "claude-opus-5-medium-no-advisor",
+      "provider": "Anthropic",
+      "cli": "claude",
+      "cli_version": "2.1.247 (Claude Code)",
+      "requested_model": "claude-opus-5",
+      "requested_effort": "medium",
+      "transport_decision": "GO",
+      "evidence_tier": "PRIMARY_VERIFIED",
+      "required_flags": ["--safe-mode", "--tools", "", "--strict-mcp-config", "--mcp-config", "{\"mcpServers\":{}}", "--no-session-persistence", "--disable-slash-commands", "--prompt-suggestions", "false"],
+      "acceptance": "Exactly one init event; only StructuredOutput is exposed or invoked; no MCP server, fallback, non-Opus model usage, advisor signal, parent tool-use/subagent event or server web use; initialized and assistant model are exactly claude-opus-5."
+    },
+    {
+      "key": "glm",
+      "slug": "pi-zai-cn-glm-5.3-flash-high",
+      "provider": "Z.ai CN",
+      "cli": "pi",
+      "cli_version": "0.84.3",
+      "requested_provider": "zai-standard-cn",
+      "requested_model": "glm-5.3-flash",
+      "requested_effort": "high",
+      "transport_decision": "GO",
+      "evidence_tier": "PRIMARY_VERIFIED",
+      "required_flags": ["--no-tools", "--no-session", "--no-extensions", "--no-skills", "--no-prompt-templates", "--no-themes", "--no-context-files", "--no-approve"],
+      "acceptance": "Exactly one assistant message_end; actual provider/model exactly zai-standard-cn/glm-5.3-flash; no tool-call or tool-result event/block."
+    },
+    {
+      "key": "gemini",
+      "slug": "agy-gemini-3.7-flash-high",
+      "provider": "Google Gemini",
+      "cli": "agy",
+      "cli_version": "1.1.22",
+      "requested_model": "gemini-3.7-flash-high",
+      "requested_effort": "high",
+      "transport_decision": "REFERENCE_ONLY_UNVERIFIED",
+      "evidence_tier": "REFERENCE_ONLY_UNVERIFIED",
+      "required_flags": ["--disable-slash-commands", "--mode", "plan", "--sandbox", "--json-schema", "REVIEWER-SCHEMA.json"],
+      "reason": "At the user's explicit direction this route receives an auxiliary reference score although the CLI cannot disable every tool and its runtime envelope does not attest model identity. Explicit tool/fallback/agent signals or an explicit identity mismatch make the candidate invalid."
+    }
+  ],
+  "execution": {
+    "attempts": "Each invocation requires an explicit positive attempt number and atomically creates attempts/<route-slug>/attempt-NNN. Existing attempt or candidate artifacts are never overwritten.",
+    "raw_preservation": "stdout and stderr are saved byte-for-byte for every spawned attempt regardless of exit status.",
+    "parse_separation": "run.mjs never produces a candidate; parse.mjs reads preserved raw output and produces a non-overwriting CANDIDATE.json.",
+    "environment": "An explicit minimal environment-variable allowlist is used. Authentication may be obtained from inherited read-only home/config or provider credential variables, but values and host home paths are never written to artifacts or the user request. All routes run at the generic /mnt cwd inside the frozen OS sandbox; primary routes disable tools mechanically, while reference-only routes retain their declared isolation limitation.",
+    "retry": "Only harness/transport/parse failures may receive a new explicit attempt. A successful raw envelope is reparsed rather than resampled when only parser compatibility changes.",
+    "parallelism": "All four routes are independent and may run in parallel after the preflight package is committed and preflight reports GO. The two evidence tiers remain separate after scoring.",
+    "reference_only_user_direction": "On 2026-08-27 the user explicitly requested auxiliary reference scores even without a fully verified isolation mode. This changes reporting eligibility only; it does not relax outbound sanitization, sealed-reference withholding or invalid-candidate rules."
+  },
+  "authorization": {
+    "scope": "Sanitized project experiment records only",
+    "authorized_providers": ["OpenAI", "Anthropic", "Z.ai CN/GLM", "Google Gemini"],
+    "exclusions": ["credentials", "sealed reference", "adjudication conclusions", "defect IDs", "model provenance", "local absolute paths", "other unsanitized content"]
+  }
+}
