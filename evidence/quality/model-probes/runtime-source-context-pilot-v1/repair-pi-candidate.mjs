@@ -19,11 +19,12 @@ const body = (ends[0].message.content ?? []).filter(block => block.type === "tex
 const fenced = body.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/i);
 if (!fenced) throw new Error("expected one outer JSON code fence");
 const parsed = JSON.parse(fenced[1]);
-const response = Array.isArray(parsed)
-  ? {revisions: parsed}
-  : parsed && !parsed.revisions && Array.isArray(parsed.items) && parsed.items.every(item => item && typeof item === "object" && "result" in item && !("verdict" in item))
-    ? {revisions: parsed.items.map(({result, ...item}) => ({...item, verdict: result}))}
-    : parsed;
+const revisions = Array.isArray(parsed) ? parsed : parsed?.revisions ?? parsed?.items;
+const response = Array.isArray(revisions) ? {revisions: revisions.map(item => {
+  const normalized = item && typeof item === "object" && "result" in item && !("verdict" in item) ? (({result, ...rest}) => ({...rest, verdict: result}))(item) : {...item};
+  if (normalized.description === "placeholder") delete normalized.description;
+  return normalized;
+})} : parsed;
 const input = JSON.parse(fs.readFileSync(path.join(here, `HOLDOUT-${original.arm}.json`), "utf8"));
 const orderedIds = input.items.map(item => item.revision_id);
 const errors = [];
