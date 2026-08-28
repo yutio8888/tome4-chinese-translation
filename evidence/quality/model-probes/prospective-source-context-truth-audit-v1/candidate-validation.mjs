@@ -70,14 +70,21 @@ export function verifyContextCandidate({contextQueue, candidateBytes, expectedCo
   if (JSON.stringify(uniqueOrderedIds(candidate.items, "context candidate")) !== JSON.stringify(uniqueOrderedIds(contextQueue.items, "context queue"))) throw new Error("context candidate audit_ids/order mismatch");
   const axes = {
     CONTEXT_DEPENDENT_DEFECT: [false, true], SURFACE_VISIBLE_DEFECT: [true, false],
-    MIXED_DEFECT: [true, true], CLEAN: [false, false], UNRESOLVED: [null, null]
+    MIXED_DEFECT: [true, true], CLEAN: [false, false]
   };
   candidate.items.forEach((item, index) => {
     exactKeys(item, ["audit_id", "label", "surface_material_defect", "context_material_contribution", "packet_sufficient", "reason", "evidence_sha256s"], `context candidate item ${index}`);
     const expected = axes[item.label];
-    if (!expected || item.surface_material_defect !== expected[0] || item.context_material_contribution !== expected[1] || typeof item.packet_sufficient !== "boolean" || typeof item.reason !== "string" || !item.reason || !Array.isArray(item.evidence_sha256s) || item.evidence_sha256s.some(hash => !shaRe.test(hash))) throw new Error(`context candidate item ${index}: label/axis contract`);
+    const unresolvedAxes = item.label === "UNRESOLVED"
+      && (item.surface_material_defect === null || item.context_material_contribution === null);
+    const determinateAxes = expected
+      && item.surface_material_defect === expected[0]
+      && item.context_material_contribution === expected[1];
+    if ((!unresolvedAxes && !determinateAxes) || typeof item.packet_sufficient !== "boolean" || typeof item.reason !== "string" || !item.reason || !Array.isArray(item.evidence_sha256s) || item.evidence_sha256s.some(hash => !shaRe.test(hash))) throw new Error(`context candidate item ${index}: label/axis contract`);
     if (!item.packet_sufficient && item.label !== "UNRESOLVED") throw new Error(`context candidate item ${index}: insufficient packet must be UNRESOLVED`);
     if (["CONTEXT_DEPENDENT_DEFECT", "MIXED_DEFECT"].includes(item.label) && (!item.packet_sufficient || item.evidence_sha256s.length === 0)) throw new Error(`context candidate item ${index}: context evidence required`);
+    const allowedEvidence = new Set((contextQueue.items[index]?.source_evidence?.occurrences ?? []).map(occurrence => occurrence.visible_context_sha256));
+    if (item.evidence_sha256s.some(hash => !allowedEvidence.has(hash))) throw new Error(`context candidate item ${index}: evidence hash is not in the frozen packet`);
   });
   return candidate;
 }
@@ -122,6 +129,7 @@ export function verifyFinalAdjudication({auditQueueBytes, surfaceQueueBytes, con
     for (const field of ["task_id", "original_revision_key", "category"]) if (item[field] !== queueItem[field]) throw new Error(`${item.audit_id}: adjudication ${field} mismatch`);
     const surface = surfaceById.get(item.audit_id); const context = contextById.get(item.audit_id);
     if (item.surface_candidate.label !== surface.label || item.surface_candidate.reason !== surface.reason || item.context_candidate.label !== context.label || item.context_candidate.reason !== context.reason) throw new Error(`${item.audit_id}: candidate decision mismatch`);
+    if (context.surface_material_defect !== surface.surface_material_defect) throw new Error(`${item.audit_id}: context candidate changed the frozen surface axis`);
   });
   return adjudication;
 }

@@ -162,6 +162,21 @@ for (let shard = 1; shard <= 3; shard += 1) {
   };
   const contextBytes = jsonBytes(contextCandidate);
   assert.deepEqual(verifyContextCandidate({contextQueue, candidateBytes: contextBytes, expectedCount: 2}), contextCandidate);
+  if (shard === 1) {
+    const unresolved = clone(contextCandidate);
+    unresolved.items[0] = {
+      ...unresolved.items[0],
+      label: "UNRESOLVED",
+      surface_material_defect: null,
+      context_material_contribution: true,
+      reason: "synthetic surface axis unresolved while context axis is determinate",
+      evidence_sha256s: [contextQueue.items[0].source_evidence.occurrences[0].visible_context_sha256]
+    };
+    assert.deepEqual(verifyContextCandidate({contextQueue, candidateBytes: jsonBytes(unresolved), expectedCount: 2}), unresolved);
+    const unknownEvidence = clone(unresolved);
+    unknownEvidence.items[0].evidence_sha256s = ["0".repeat(64)];
+    assert.throws(() => verifyContextCandidate({contextQueue, candidateBytes: jsonBytes(unknownEvidence), expectedCount: 2}), /evidence hash is not in the frozen packet/u);
+  }
   surfaceQueues.push(jsonBytes(surfaceQueue)); contextQueues.push(jsonBytes(contextQueue)); surfaceCandidates.push(surfaceBytes); contextCandidates.push(contextBytes);
 }
 
