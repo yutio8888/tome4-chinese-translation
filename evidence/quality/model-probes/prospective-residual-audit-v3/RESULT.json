@@ -1,0 +1,144 @@
+{
+  "schema_version": "prospective-residual-audit-result-v3",
+  "experiment": "prospective-residual-audit-v3",
+  "status": "COMPLETE_WITH_ONE_PRIMARY_TWO_REFERENCE_ONLY_AND_ONE_INVALID_ROUTE",
+  "completed_at_utc": "2026-08-28T06:54:01Z",
+  "frozen_inputs": {
+    "public_holdout_sha256": "912ac6a90161a2e2bd55b356196a6be9163640f830e816939f6793b8f5fe6c5d",
+    "prompt_sha256": "056691a183a3200453211e1ddaacf79459fca762cf15d77dfb27bffa29cb6e1d",
+    "reviewer_schema_sha256": "e1850c53d183c606781dd6505fcffbc5fd4ecd6fc1069ebc3cb59c137439de1b",
+    "sealed_reference_sha256": "133f7f64a2f04c6dcfc4123cfc8ed2e305b4353353e4f79f382c6fb46c4c4d59",
+    "sealed_atom_map_sha256": "c8bd037e8a86f207fa782c46d2f2f6264b180c76716d069ec664181fb7409cd9",
+    "initial_preflight_commit": "ae1cf61303f48372c0d0a17c04892e1e15375ebb",
+    "retry_preflight_commit": "9bfa5e9aba683d07c9242609600f80e652306307",
+    "retry_preflight_sha256": "e57b57532464db5103e36556655ce580e05ee5cea15d96a3d177c7df9fe2768d",
+    "harness_errata_sha256": "a4faf033a3d2d2ad7be19efee118e81f236820f9ace5ba8e5837dedb93c5e553"
+  },
+  "measured_source_audit": {
+    "eligible_frame_revisions": 1396,
+    "selected_items": 40,
+    "unique_tasks": 40,
+    "confirmed": 1,
+    "refuted": 39,
+    "indeterminate": 0,
+    "unreachable": 0,
+    "confirmed_item_id": "R033",
+    "confirmed_atom_id": "A001",
+    "confirmed_defect": "A literal hard line feed splits the Chinese word 包裹 between its two characters.",
+    "design_weighted_prevalence": {
+      "fraction": "4/1745",
+      "decimal": 0.002292263610315186,
+      "percent": 0.2292263610315186
+    },
+    "sample_only_unweighted_rate": {
+      "fraction": "1/40",
+      "decimal": 0.025,
+      "percent": 2.5,
+      "not_a_frame_estimate": true
+    },
+    "confidence_interval_reported": false
+  },
+  "measured_route_results": [
+    {
+      "route": "pi-zai-cn-glm-5.3-flash-high",
+      "evidence_tier": "PRIMARY_VERIFIED",
+      "selected_attempt": 3,
+      "score_status": "SCORED_PRIMARY",
+      "atom_detection": {"detected": 0, "total": 1, "recall": 0},
+      "candidates": {"count": 3, "item_ids": ["R010", "R015", "R017"]},
+      "false_positives": {"count": 3, "item_ids": ["R010", "R015", "R017"]},
+      "unweighted_confusion": {"TP": 0, "FN": 1, "FP": 3, "TN": 36},
+      "weighted_specificity": 0.9560597357840321,
+      "weighted_balanced_accuracy": 0.47802986789201607
+    },
+    {
+      "route": "codex-gpt-5.6-sol-high",
+      "evidence_tier": "REFERENCE_ONLY_UNVERIFIED",
+      "selected_attempt": 2,
+      "score_status": "SCORED_REFERENCE_ONLY",
+      "atom_detection": {"detected": 0, "total": 1, "recall": 0},
+      "candidates": {"count": 3, "item_ids": ["R010", "R017", "R039"]},
+      "false_positives": {"count": 3, "item_ids": ["R010", "R017", "R039"]},
+      "unweighted_confusion": {"TP": 0, "FN": 1, "FP": 3, "TN": 36},
+      "weighted_specificity": 0.9603676048248133,
+      "weighted_balanced_accuracy": 0.48018380241240666,
+      "limitations": [
+        "Complete file-tool isolation is not mechanically verified.",
+        "Runtime model identity is not independently attested by the transport."
+      ]
+    },
+    {
+      "route": "agy-gemini-3.7-flash-high",
+      "evidence_tier": "REFERENCE_ONLY_UNVERIFIED",
+      "selected_attempt": 1,
+      "score_status": "SCORED_REFERENCE_ONLY",
+      "atom_detection": {"detected": 0, "total": 1, "recall": 0},
+      "candidates": {"count": 1, "item_ids": ["R039"]},
+      "false_positives": {"count": 1, "item_ids": ["R039"]},
+      "unweighted_confusion": {"TP": 0, "FN": 1, "FP": 1, "TN": 38},
+      "weighted_specificity": 0.974152785755313,
+      "weighted_balanced_accuracy": 0.4870763928776565,
+      "limitations": [
+        "Complete file-tool isolation is not mechanically verified.",
+        "Runtime model identity is not independently attested by the transport."
+      ]
+    },
+    {
+      "route": "claude-opus-5-medium-no-advisor",
+      "evidence_tier": "PRIMARY_VERIFIED",
+      "selected_attempt": 1,
+      "selected_candidate": "CANDIDATE-PARSER-FIX-1.json",
+      "score_status": "INVALID_NO_SCORE",
+      "reason": "The successful envelope reported modelUsage for claude-haiku-4-5-20251001 as well as claude-opus-5, violating the frozen Opus-only route-purity rule.",
+      "resampled": false
+    }
+  ],
+  "measured_common_outcome": {
+    "all_scored_routes_missed_R033": true,
+    "all_scored_routes_atom_recall": 0,
+    "R033_route_verdicts": {
+      "pi-zai-cn-glm-5.3-flash-high": "NO_DEFECT",
+      "codex-gpt-5.6-sol-high": "NO_DEFECT",
+      "agy-gemini-3.7-flash-high": "NO_DEFECT"
+    },
+    "cross_tier_ranking_permitted": false,
+    "stable_model_ranking_supported": false,
+    "reason_no_stable_ranking": "The sealed reference contains only one positive atom, and two scored routes are auxiliary unverified transports."
+  },
+  "measured_false_positive_adjudication": {
+    "R010": "Runtime action immediately accepts/spawns the chest, so the performative Chinese completion is correct in context.",
+    "R015": "The Master is a frozen entity name translated as 领主 in this project.",
+    "R017": "Assassin Lord is a frozen entity name translated as 盗贼领主 in this project.",
+    "R039": "伊莫克斯 is the frozen contextual rendering of Zemekkys and the item/action relation is correct."
+  },
+  "derived_interpretation": [
+    "The source/target-only review setting did not reliably surface a small local hard-line-break defect inside a long target; every scored route instead marked R033 as semantically complete.",
+    "Most false positives required runtime context or project terminology to refute. This is direct evidence that source/target-only review has a low ceiling for context-dependent judgments in this sample.",
+    "The lower false-positive count of the Gemini reference route does not constitute better defect detection because it also missed the only confirmed atom.",
+    "The result is evidence about this frozen 40-item set and this one positive atom, not a general ordering of the models."
+  ],
+  "human_recommendations_not_measured_results": [
+    "Use deterministic lint for hard line feeds inside Chinese words and for suspicious extra paragraph breaks; this defect class should not rely only on an LLM reviewer.",
+    "For the next independent experiment, compare source/target-only review with review that also receives fixed source-code/runtime and terminology evidence.",
+    "Stratify future results into visible formatting defects, runtime-context defects and terminology-contract defects, and collect more than one positive atom before comparing models."
+  ],
+  "artifact_bindings": {
+    "scores": {"logical_path": "SCORES.json", "sha256": "8bdd27810fec6c63526d4920cfc294002bdf868a7e2e1517441a9120a365c333"},
+    "codex_candidate": {"logical_path": "attempts/codex-gpt-5.6-sol-high/attempt-002/CANDIDATE.json", "sha256": "6217775aae3a212feb9aa2115041dcc2e006231b7c33766f5aea3c9f97a35f20"},
+    "glm_candidate": {"logical_path": "attempts/pi-zai-cn-glm-5.3-flash-high/attempt-003/CANDIDATE.json", "sha256": "6037421be2d7051bb3a3dc7f5abf68407af5d64dbe889eb7204c7c318a5827a9"},
+    "gemini_candidate": {"logical_path": "attempts/agy-gemini-3.7-flash-high/attempt-001/CANDIDATE.json", "sha256": "48d82f2b13a7896156d6ab77a205ffd26bbbb81a0aa78fee55cfaafd665d131c"},
+    "claude_reparsed_candidate": {"logical_path": "attempts/claude-opus-5-medium-no-advisor/attempt-001/CANDIDATE-PARSER-FIX-1.json", "sha256": "89bd1609931140e85f295d2cecd2e2caeff37e2ba630e23329616638817c1af4"}
+  },
+  "post_run_validation": {
+    "independent_audit": "PASS: selected attempts, candidate/CALL/RAW lineage, evidence tiers and every exact weighted metric were independently recomputed; no cross-tier ranking, union, consensus or pooled score was present.",
+    "json_parse": "PASS",
+    "node_syntax": "PASS",
+    "scorer_fixture": "PASS_28_OF_28",
+    "runner_fixture": "PASS_27_OF_27",
+    "git_diff_check": "PASS",
+    "frozen_hashes": "PASS",
+    "selected_candidate_call_raw_lineage": "PASS_4_OF_4",
+    "credential_pattern_scan": "PASS",
+    "executor_fixture_baseline": "PASS_82e25a395c1c9ff16c5b487ff465bc4bc7824e7cc61bebe4e8e716c24469b4c7"
+  }
+}

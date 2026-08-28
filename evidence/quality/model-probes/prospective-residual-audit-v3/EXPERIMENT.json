@@ -2,9 +2,9 @@
   "schema_version": "prospective-residual-audit-experiment-v3",
   "experiment": "prospective-residual-audit-v3",
   "supersedes": "prospective-residual-audit-v2",
-  "status": "RETRY_1_PACKAGE_FROZEN_TWO_TERMINAL_ENVELOPES_PRESERVED",
-  "model_calls_made": 2,
-  "transport_attempts_recorded": 5,
+  "status": "COMPLETE_WITH_ONE_PRIMARY_TWO_REFERENCE_ONLY_AND_ONE_INVALID_ROUTE",
+  "model_calls_made": 4,
+  "transport_attempts_recorded": 7,
   "primary_estimand": "Design-weighted confirmed residual translation-defect rate in the frozen, uniquely production-resolved eligible P2 revision frame.",
   "inference_scope": "The canonical production-commit frame defined by this snapshot, item-level prior-experiment exclusions and three provenance strata only.",
   "selected_units": 40,
@@ -20,6 +20,6 @@
       "sha256": "c0a8a52f2a2a99afe00881132d224ad14e2f82c91e77f61c735cb23be669313a"
     }
   },
-  "next_gate": "Commit HARNESS-ERRATA-1 and the retry harness, run preflight-retry, then invoke only Codex attempt 2 and Pi GLM attempt 3. Reuse the preserved Claude and Gemini envelopes without resampling.",
+  "next_gate": "Complete post-run JSON, diff, frozen-hash and executor-baseline validation, then commit SCORES.json, RESULT.json and all retry artifacts without changing the frozen source/reference interpretation.",
   "stopping_rule": "No reviewer inference until the committed package reports preflight GO. Invalid transport, parser, explicit tool-use or schema outcomes receive no score and are never converted to negative predictions. Reference-only scores must never be merged into the primary verified route ranking."
 }
