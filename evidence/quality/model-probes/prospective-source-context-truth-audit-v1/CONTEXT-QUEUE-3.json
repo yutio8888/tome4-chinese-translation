@@ -1,0 +1,1669 @@
+{
+  "schema_version": "prospective-source-context-context-queue-v1",
+  "status": "FROZEN_CONTEXT_INPUT_AFTER_SURFACE_CANDIDATE",
+  "phase": "CONTEXT",
+  "shard_id": 3,
+  "shard_count": 3,
+  "target_bound_presentation_sha256": "bfa97e9724776e9d522aa01def6baf684653eb3493715437237df5e235bd4081",
+  "surface_queue_sha256": "ceeead0a0a8f124ab2e17229ff09dc213069b408c188b27c4b216362cfb1c3d3",
+  "surface_candidate_sha256": "27d59b322422fef39e338308a3db5eea21c71e504122b46427d787c4eef723ec",
+  "surface_candidate_size_bytes": 9245,
+  "item_count": 40,
+  "items": [
+    {
+      "audit_id": "V1-003",
+      "source": "#LIGHT_GREEN#You take a look at the ranking boards before entering.\n%s",
+      "target": "#LIGHT_GREEN#进入竞技场前，你查看了一下排名榜。\n%s",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b7-001",
+        "original_revision_key": "arena-b7-03-arena-start",
+        "component": "tome",
+        "section": "mod-tome/data/chats/arena-start.lua",
+        "source_sha256": "533f8e11d1f4dfbeab66e479d6a80429a60e0769d867e414ced29d6b98e75ae1",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/arena-start.lua",
+          "source_artifact_sha256": "7529ec532c641e34d664a98c64dc273fa7c0ae6fab744a1a0cb27326bf5485ba",
+          "source_artifact_size_bytes": 6720
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 184,
+            "line_end": 184,
+            "column_start": 11,
+            "matched_span_sha256": "9525c59f189971f4fcdc57fb2fcc5f88e4cc47f36425d7fd976bf18983e6468a",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 390,
+            "after_utf8_bytes": 455,
+            "visible_context_utf8_bytes": 863,
+            "visible_context_sha256": "50f6fd54047df05f09603421df645f9e6a50175eae8a2f3a1e81c477a82527d6",
+            "visible_context": "\t\tworld.arena.scores = {[1] = emptyScore}\n\tend\n\tlocal o = game.zone:makeEntityByName(game.level, \"object\", \"ARENA_SCORING\")\n\tif o then game.zone:addEntity(game.level, o, \"object\", 7, 3) end\n\n\tlocal arenashop = game:getStore(\"ARENA_SHOP\")\n\tarenashop:loadup(game.level, game.zone)\n\tarenashop:interact(game.player, _t\"Gladiator's wares\")\n\tarenashop = nil\nend\n\nnewChat{ id=\"welcome\",\n\ttext = (\"[[SOURCE_MATCH_1]]\"):tformat(text),\n\tanswers = {\n\t\t--{\"Enter the arena for 3 rounds[DEBUG]\", action=arena_3, jump=\"perks\"},\n\t\t{_t\"Enter the arena (60 waves)\", action=arena_60},\n\t\t{_t\"Enter the arena (shorter mode, 30 rounds)\", action=arena_30},\n\t\t--{\"Enter the arena for as long as you can last\", action=arena_inf, jump=\"perks\"},\n\t\t{_t\"#LIGHT_RED#[Reset all arena save data]\", action=save_clear},\n\t}\n}\n\nnewChat{ id=\"welcome2\",\n\ttext = \"What will you do now?\",\n\tanswers = {\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 863,
+        "supplemental_json_utf8_bytes": 2052
+      }
+    },
+    {
+      "audit_id": "V1-006",
+      "source": "[Alter the appearance of %s]",
+      "target": "[改变%s的外观]",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b27-001",
+        "original_revision_key": "b27-20-shimmer",
+        "component": "tome",
+        "section": "mod-tome/data/chats/shertul-fortress-shimmer.lua",
+        "source_sha256": "12e14e437c6ba0639cd9d0cf58a0949d30e6f877acbe18622a9b363adac4c11c",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/shertul-fortress-shimmer.lua",
+          "source_artifact_sha256": "8af014f0aaf91bd8ece5b5671485e09a2aa0b3abbfd6430b4bc52d3de0e897f0",
+          "source_artifact_size_bytes": 3766
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 64,
+            "line_end": 64,
+            "column_start": 29,
+            "matched_span_sha256": "12e14e437c6ba0639cd9d0cf58a0949d30e6f877acbe18622a9b363adac4c11c",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 390,
+            "after_utf8_bytes": 744,
+            "visible_context_utf8_bytes": 1152,
+            "visible_context_sha256": "710ae6ef505695b0f76ed0ae3e3fe5258aa32f1061863ddaf84a7a9f6dfc51af",
+            "visible_context": "\t\tpackage.loaded['mod.dialogs.shimmer.ShimmerOutfits'] = nil\n\t\tlocal d = require(\"mod.dialogs.shimmer.ShimmerOutfits\").new(player)\n\t\tgame:registerDialog(d)\n\tend\nend\n\nlocal answers = {}\n\nfor slot, inven in pairs(player.inven) do\n\tif player.inven_def[slot].infos and player.inven_def[slot].infos.shimmerable and inven[1] then\n\t\tlocal o = inven[1]\n\t\tif o.slot then\n\t\t\tanswers[#answers+1] = {(\"[[SOURCE_MATCH_1]]\"):tformat(o:getName{do_color=true, no_add_name=true}), action=shimmer(player, slot), jump=\"welcome\"}\n\t\tend\n\tend\nend\nif world.unlocked_shimmers and world.unlocked_shimmers.SHIMMER_DOLL then\n\tanswers[#answers+1] = {_t\"[Alter the appearance of your body]\", action=shimmer_other(player, \"SHIMMER_DOLL\"), jump=\"welcome\"}\nend\nif world.unlocked_shimmers and world.unlocked_shimmers.SHIMMER_FACIAL then\n\tanswers[#answers+1] = {_t\"[Alter the appearance of your facial features]\", action=shimmer_other(player, \"SHIMMER_FACIAL\"), jump=\"welcome\"}\nend\nif world.unlocked_shimmers and world.unlocked_shimmers.SHIMMER_HAIR then\n\tanswers[#answers+1] = {_t\"[Alter the appearance of your hair]\", action=shimmer_other(player, \"SHIMMER_HAIR\"), jump=\"welcome\"}\nend\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1152,
+        "supplemental_json_utf8_bytes": 2348
+      }
+    },
+    {
+      "audit_id": "V1-009",
+      "source": "[%s (at mastery %0.2f)]",
+      "target": "[%s（技能树系数%0.2f）]",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b33-001",
+        "original_revision_key": "b33-15-worldly-knowledge",
+        "component": "tome",
+        "section": "mod-tome/data/chats/worldly-knowledge.lua",
+        "source_sha256": "8be69b8ea9d068d36d1de9cfcd67d37e49e4e6fd252db94fc6137d7e91fc2f39",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/worldly-knowledge.lua",
+          "source_artifact_sha256": "a0e230b88395048f2ae5bd909e52574849ce1fbfc96a230fe6a49803c27b4a34",
+          "source_artifact_size_bytes": 2171
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 35,
+            "line_end": 35,
+            "column_start": 29,
+            "matched_span_sha256": "8be69b8ea9d068d36d1de9cfcd67d37e49e4e6fd252db94fc6137d7e91fc2f39",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 713,
+            "after_utf8_bytes": 430,
+            "visible_context_utf8_bytes": 1161,
+            "visible_context_sha256": "cc501157ff9a7c0ddd93118520e462c11be7e38e759901d66800ff1fb44931ff",
+            "visible_context": "\tlocal what = rewards.all\n\tif not game.player:attr(\"has_arcane_knowledge\") then what = table.merge(what, rewards.antimagic) end\n\tif not game.player:attr(\"forbid_arcane\") then what = table.merge(what, rewards.normal) end\n\tlocal rewards_s = table.keys(what) table.sort(rewards_s)\n\tif rewards_s then\n\t\tfor _, tt in ipairs(rewards_s) do if game.player:knowTalentType(tt) == nil or game.player:knowTalentType(tt) == false then\n\t\t\tlocal tt_def = game.player:getTalentTypeFrom(tt)\n\t\t\tlocal cat = tt_def.type:gsub(\"/.*\", \"\")\n\t\t\tlocal doit = function(npc, player)\n\t\t\t\tif player:knowTalentType(tt) == nil then player:setTalentTypeMastery(tt, 1.0) end\n\t\t\t\tplayer:learnTalentType(tt, true)\n\t\t\tend\n\t\t\tanswers[#answers+1] = {(\"[[SOURCE_MATCH_1]]\"):tformat(_t(cat, \"talent category\"):capitalize()..\" / \"..tt_def.name:capitalize(), 1.0),\n\t\t\t\taction=doit,\n\t\t\t\ton_select=function(npc, player)\n\t\t\t\t\tgame.tooltip_x, game.tooltip_y = 1, 1\n\t\t\t\t\tgame:tooltipDisplayAtMap(game.w, game.h, (\"#GOLD#%s / %s#LAST#\\n%s\"):tformat(_t(cat, \"talent category\"):capitalize(), tt_def.name:capitalize(), tt_def.description))\n\t\t\t\tend,\n\t\t\t}\n\t\tend end\n\tend\n\treturn answers\nend\n\nnewChat{ id=\"welcome\",\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1161,
+        "supplemental_json_utf8_bytes": 2388
+      }
+    },
+    {
+      "audit_id": "V1-012",
+      "source": "The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you.",
+      "target": "商人花了大量时间，向你讲解引导能量流经灵晶的精妙细节。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b34-001",
+        "original_revision_key": "b34-39-zigur-mindstar-store",
+        "component": "tome",
+        "section": "mod-tome/data/chats/zigur-mindstar-store.lua",
+        "source_sha256": "9456bccc6f69639fbe19b62fbe52c5e7d56de8bcb62ae94a046b25344ee1582e",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/zigur-mindstar-store.lua",
+          "source_artifact_sha256": "6c0fbad65192ac9e144c9551374591c7f0f548248e23cbd3711511d869d622f4",
+          "source_artifact_size_bytes": 4407
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 50,
+            "line_end": 50,
+            "column_start": 28,
+            "matched_span_sha256": "9456bccc6f69639fbe19b62fbe52c5e7d56de8bcb62ae94a046b25344ee1582e",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 775,
+            "after_utf8_bytes": 752,
+            "visible_context_utf8_bytes": 1545,
+            "visible_context_sha256": "bc39f3b0f28ad3f1ffb266cf9330cafef4ce550db343af3eaad495dff91a6a30",
+            "visible_context": "\t\t\tplayer:learnTalentType(\"wild-gift/mindstar-mastery\", false)\n\t\t\tif player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\") < 1 then\n\t\t\t\tplayer:setTalentTypeMastery(\"wild-gift/mindstar-mastery\", math.min(1.1, player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\", true) + 0.3))\n\t\t\t\tgame.logPlayer(player, \"He is impressed with your affinity for natural forces.\")\n\t\t\tend\n\t\t\tplayer.changed = true\n\t\tend, cond=function(npc, player)\n\t\t\tif player.money < 100 then return end\n\t\t\tif player:knowTalentType(\"wild-gift/mindstar-mastery\") or player:knowTalentType(\"wild-gift/mindstar-mastery\") == false then return end\n\t\t\treturn true\n\t\tend},\n\t\t{_t\"Please teach me what I need to know (unlocks talent category) - 500 gold.\", action=function(npc, player)\n\t\t\tgame.logPlayer(player, \"[[SOURCE_MATCH_1]]\")\n\t\t\tplayer:incMoney(-500)\n\t\t\tplayer:learnTalentType(\"wild-gift/mindstar-mastery\", true)\n\t\t\tif player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\") < 1 then -- Special case for previously locked category (escort)\n\t\t\t\tplayer:setTalentTypeMastery(\"wild-gift/mindstar-mastery\", math.max(1.0, player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\", true) + 0.3))\n\t\t\tend\n\t\t\tif player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\") > 1 then\n\t\t\t\tgame.logPlayer(player, \"He is impressed with your mastery and shows you a few tricks to handle stronger energy flows.\")\n\t\t\tend\n\t\t\tplayer.changed = true\n\t\tend, cond=function(npc, player)\n\t\t\tif player.money < 500 then return end\n\t\t\tif player:knowTalentType(\"wild-gift/mindstar-mastery\") then return end\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1545,
+        "supplemental_json_utf8_bytes": 2808
+      }
+    },
+    {
+      "audit_id": "V1-015",
+      "source": "asked the Eidolon to let %s die in peace",
+      "target": "请求艾德隆让 %s 安息。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b14-001",
+        "original_revision_key": "b14-16-eidolon-plane",
+        "component": "tome",
+        "section": "mod-tome/data/chats/eidolon-plane.lua",
+        "source_sha256": "199cd7cf213f4eef828b352d1a0139167963f2df9e3f9ce26aefa85bce48b444",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/eidolon-plane.lua",
+          "source_artifact_sha256": "0220ec13745c19ad492ce99a9e93a2d6b0edabad92a41128e37ec4e9851fc19c",
+          "source_artifact_size_bytes": 3934
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 81,
+            "line_end": 81,
+            "column_start": 63,
+            "matched_span_sha256": "199cd7cf213f4eef828b352d1a0139167963f2df9e3f9ce26aefa85bce48b444",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 507,
+            "after_utf8_bytes": 271,
+            "visible_context_utf8_bytes": 796,
+            "visible_context_sha256": "6e5308bbc005746a14962973eab9b9a028c2c92d9a01771fc63acf86ed43c995",
+            "visible_context": "\tanswers = {\n\t\t{_t(\"Thanks.\", \"chat_eidolon-plane\"), action=function(npc, player) game:changeLevel(1, \"wilderness\") end},\n\t}\n}\n\nnewChat{ id=\"die\",\n\ttext = _t[[#LIGHT_GREEN#*It seems to stare at you in weird way.*#WHITE#\nI...had plans for you, but I cannot go against your free will. Know that you had a destiny waiting for you.\nAre you sure?]],\n\tanswers = {\n\t\t{_t\"Just let me go please.\", action=function(npc, player)\n\t\t\tlocal src = game.player\n\t\t\tgame:getPlayer(true):die(game.player, {special_death_msg=(\"[[SOURCE_MATCH_1]]\"):tformat(game.player.female and _t\"her\" or _t\"him\")})\n\t\t\twhile game.party:findSuitablePlayer() do\n\t\t\t\tgame.player:die(src, {special_death_msg=_t\"brought down by Eidolon\"})\n\t\t\tend\n\t\tend},\n\t\t{_t\"No actually, perhaps life is still worth it!\"},\n\t}\n}\n\nend\n\nreturn \"welcome\"\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 796,
+        "supplemental_json_utf8_bytes": 1979
+      }
+    },
+    {
+      "audit_id": "V1-018",
+      "source": "The smith spends some time with you, teaching you the basics of bows and slings.",
+      "target": "铁匠花了一些时间，教你弓和投石索的基础使用方法。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b20-001",
+        "original_revision_key": "b20-09-last-hope-weapon-store",
+        "component": "tome",
+        "section": "mod-tome/data/chats/last-hope-weapon-store.lua",
+        "source_sha256": "ef382165925a9e14c6930811d06222f60907f845b75d8e8b73c00dcad3888e84",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/last-hope-weapon-store.lua",
+          "source_artifact_sha256": "bed03e2b8a71940d177353e47ef9aaed37cf7a215d0083807694de97f03ef042",
+          "source_artifact_size_bytes": 2370
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 46,
+            "line_end": 46,
+            "column_start": 28,
+            "matched_span_sha256": "ef382165925a9e14c6930811d06222f60907f845b75d8e8b73c00dcad3888e84",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 620,
+            "after_utf8_bytes": 297,
+            "visible_context_utf8_bytes": 935,
+            "visible_context_sha256": "08bec069cec8f4e77c93ebf602b068b56d601ba56846dbeb7695e1c3f7aea5dc",
+            "visible_context": "\tanswers = {\n\t\t{_t\"Please train me in generic weapons and armour usage.\", action=function(npc, player)\n\t\t\tgame.logPlayer(player, \"The smith spends some time with you, teaching you the basics of armour and weapon usage.\")\n\t\t\tplayer:incMoney(-50)\n\t\t\tplayer:learnTalentType(\"technique/combat-training\", true)\n\t\t\tplayer.changed = true\n\t\tend, cond=function(npc, player)\n\t\t\tif player.money < 50 then return end\n\t\t\tif player:knowTalentType(\"technique/combat-training\") then return end\n\t\t\treturn true\n\t\tend},\n\t\t{_t\"Please train me in the basic usage of bows and slings.\", action=function(npc, player)\n\t\t\tgame.logPlayer(player, \"[[SOURCE_MATCH_1]]\")\n\t\t\tplayer:incMoney(-8)\n\t\t\tplayer:learnTalent(player.T_SHOOT, true, nil, {no_unlearn=true})\n\t\t\tplayer.changed = true\n\t\tend, cond=function(npc, player)\n\t\t\tif player.money < 8 then return end\n\t\t\tif player:knowTalent(player.T_SHOOT) then return end\n\t\t\treturn true\n\t\tend},\n\t\t{_t\"No thanks.\"},\n\t}\n}\n\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 935,
+        "supplemental_json_utf8_bytes": 2167
+      }
+    },
+    {
+      "audit_id": "V1-021",
+      "source": "Of Steamwork and Pain",
+      "target": "蒸汽机械与痛苦",
+      "source_evidence": {
+        "task_id": "p2-orcs-dialogue-b3-001",
+        "original_revision_key": "orcs-b3-steamwork-title",
+        "component": "orcs",
+        "section": "tome-orcs/data/quests/start-orc.lua",
+        "source_sha256": "b1da1d212cbb5afcd6d666c430370661af5a2eb61984d6a3cd3a76f17d9bab6d",
+        "source_binding": {
+          "kind": "dlc_file_sha256",
+          "component": "orcs",
+          "repository_alias": "tome-orcs",
+          "commit": null,
+          "relative_path": "data/quests/start-orc.lua",
+          "source_artifact_sha256": "0ade131f8e712303a5648c5c3dbecd32bbd1ddd5336848a8330c753571d4172d",
+          "source_artifact_size_bytes": 1820
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 20,
+            "line_end": 20,
+            "column_start": 11,
+            "matched_span_sha256": "b1da1d212cbb5afcd6d666c430370661af5a2eb61984d6a3cd3a76f17d9bab6d",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 457,
+            "after_utf8_bytes": 720,
+            "visible_context_utf8_bytes": 1195,
+            "visible_context_sha256": "2d3295b6caba781d20d23f9f0e9c0f4ad8dc88fbd2ba64dba06fe73728f8dd53",
+            "visible_context": "--\n-- This program is distributed in the hope that it will be useful,\n-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nname = _t\"[[SOURCE_MATCH_1]]\"\ndesc = function(self, who)\n\tlocal desc = {}\n\tdesc[#desc+1] = _t\"To win the war you must help the Pride by striking a blow to the giant's morale and supply lines.\\n\"\n\tif self:isCompleted(\"vaporous-emporium\") then\n\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#* You have assaulted the Vaporous Emporium, crushing the morale of the Atmos tribe.#WHITE#\"\n\telse\n\t\tdesc[#desc+1] = _t\"#SLATE#* You must assault the Vaporous Emporium to crush the morale of the Atmos tribe!#WHITE#\"\n\tend\n\tif self:isCompleted(\"yeti-cave\") then\n\t\tdesc[#desc+1] = _t\"#LIGHT_GREEN#* You have explored the yeti cave and vanquished the Yeti Patriarch.#WHITE#\"\n\telse\n\t\tdesc[#desc+1] = _t\"#SLATE#* You must explore the Yeti Cave and destroy the patriarch!#WHITE#\"\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1195,
+        "supplemental_json_utf8_bytes": 2308
+      }
+    },
+    {
+      "audit_id": "V1-024",
+      "source": "Excellent! You truly prove that no mage-wrought flame or storm can stand against blade and arrow! Come, learn our ways. You are ready.\n#LIGHT_GREEN#*he gives you a potion.*#WHITE#\nDrink this. We extract it from a very rare kind of drake. It will grant you powers to fight and cancel magic, but never again will you be able to use magic.%s",
+      "target": "干得漂亮！你切实证明了，任何法师造就的烈焰或风暴都敌不过刀剑与利箭！来吧，领会我们的道路。你已经做好了准备。\n#LIGHT_GREEN#*他递给你一瓶药剂。*#WHITE#\n喝下它。这是我们从一种极为罕见的龙类身上提取而成的。它将赋予你对抗并消除魔法的力量，但自此之后你将再也无法使用魔法。%s",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b9-001",
+        "original_revision_key": "b9-28-antimagic-end",
+        "component": "tome",
+        "section": "mod-tome/data/chats/antimagic-end.lua",
+        "source_sha256": "4a7bde8e36328cfda40a9b6c7905da68ee37a3c61d9fa7f72b4c4bfe22c481b4",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/antimagic-end.lua",
+          "source_artifact_sha256": "55f3de70baddebf1f380f5cb56da8f09262137085ff30fba4553fd42455876d2",
+          "source_artifact_size_bytes": 1818
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 26,
+            "line_end": 28,
+            "column_start": 12,
+            "matched_span_sha256": "4a7bde8e36328cfda40a9b6c7905da68ee37a3c61d9fa7f72b4c4bfe22c481b4",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 7,
+            "before_utf8_bytes": 660,
+            "after_utf8_bytes": 239,
+            "visible_context_utf8_bytes": 917,
+            "visible_context_sha256": "45f80744a1dadc2a0871429e1c021bae82af8a8e71722764777a6c1d305f240f",
+            "visible_context": "-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nlocal ogretext = \"\"\nif player.descriptor and player.descriptor.subrace == \"Ogre\" then\n\togretext = _t\"\\n\\n#{italic}##LIGHT_GREEN#*As you drink the potion, your runes start to burn as they fade away, and a terrible agony seems to sink through your skin to your bones, muscles, and heart.  You black out from the pain, and come to a bit later, the runes gone forever.  You feel very ill, and yet...  cleansed.*#{normal}##WHITE#\"\nend\n\nnewChat{ id=\"welcome\",\n\ttext = ([[[[SOURCE_MATCH_1]]]]):tformat(ogretext),\n\tanswers = {\n\t\t{_t\"Thank you. I shall not let magic triumph! #LIGHT_GREEN#[you drink the potion]\", action=function(npc, player) player:setQuestStatus(\"antimagic\", engine.Quest.COMPLETED) end},\n\t}\n}\n\nreturn \"welcome\"\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 917,
+        "supplemental_json_utf8_bytes": 2065
+      }
+    },
+    {
+      "audit_id": "V1-027",
+      "source": "#{italic}#As you open the door you stare in amazement at what is beyond. A creature stands before you, with long tentacle-like appendages and a squat bump in place of a head. An intense aura of power radiates from this being unlike anything you've ever felt before. It can only be a Sher'Tul. A living Sher'Tul!\n\nBut your wonder is cut short as the Sher'Tul notices you, and you feel its intense concentration bear down on you like an unstoppable force. A voice in your head booms, #{normal}#%s#{italic}#\n\nA wave of mental and magical power blasts into you with the might of a falling star. You are lifted into the air, and intense pressure bears down on every inch of your skin, threatening to crush you into nothingness. You try to resist for a moment, until--#{normal}#",
+      "target": "#{italic}#打开门后，你惊讶地凝视着门后的景象。一个生物站在你面前，长着触手般的细长附肢，头部位置只有一个低矮的隆起。它身上散发出极其强烈的力量气息，是你前所未感受过的。它只能是一个夏·图尔。一个活生生的夏·图尔！\n\n然而，你的惊叹很快被打断：那个夏·图尔注意到了你，你感到它高度集中的意念如不可阻挡的力量般压向你。一个声音在你脑海中轰然响起：#{normal}#%s#{italic}#\n\n一股精神与魔法力量如坠星般猛烈轰入你的身体。你被抬到空中，巨大的压力挤压着每一寸肌肤，仿佛要将你碾得荡然无存。你试着抵抗了片刻，直到——#{normal}#",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b27-001",
+        "original_revision_key": "b27-03-caldizar",
+        "component": "tome",
+        "section": "mod-tome/data/chats/shertul-fortress-caldizar.lua",
+        "source_sha256": "ec43e6cce7556539c3be2a9b4349fef043d559f88bd34aaeb9de750b815a8d0d",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/shertul-fortress-caldizar.lua",
+          "source_artifact_sha256": "0f45a29609689bba4b74052ca4ef5aa99a3b6560ac0f25ad2464f2602a2614b3",
+          "source_artifact_size_bytes": 3106
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 34,
+            "line_end": 38,
+            "column_start": 12,
+            "matched_span_sha256": "ec43e6cce7556539c3be2a9b4349fef043d559f88bd34aaeb9de750b815a8d0d",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 576,
+            "after_utf8_bytes": 425,
+            "visible_context_utf8_bytes": 1019,
+            "visible_context_sha256": "3bd848ad6c4d224226e8ab47084b89a1c93f40638c5205a276aa702531c0c981",
+            "visible_context": "if o then has_staff = true end\nlocal carry, o, item, inven_id = game.party:findInAllInventoriesBy(\"define_as\", \"STAFF_ABSORPTION_AWAKENED\")\nif o then has_staff = true end\n\nlocal speak\nif has_staff then\n\tspeak = _t[[\"You should not be here. How di-\"#{normal}# It stops abruptly, and its attention seems to turn to the staff in your hands. #{italic}#\"How did you get that?! You fool, you do not know what forces you play with! Get it away from here - BEGONE!\"]]\nelse\n\tspeak = _t[[\"You should not be here. How did you get here?! BEGONE!\"]]\nend\n\nnewChat{ id=\"welcome\",\n\ttext = ([[[[SOURCE_MATCH_1]]]]):tformat(speak),\n\tanswers = {\n\t\t{_t\"[continue]\", jump=\"next\", action=function(npc, player)\n\t\t\tgame:changeLevel(1, \"shertul-fortress\", {direct_switch=true})\n\t\t\tlocal spot = game.level:pickSpot{type=\"spawn\", subtype=\"farportal\"} or {x=39, y=29}\n\t\t\tgame.player:move(spot.x, spot.y, true)\n\t\t\tworld:gainAchievement(\"CALDIZAR\", game.player)\n\t\t\tgame.party:learnLore(\"shertul-fortress-caldizar\")\n\t\tend},\n\t}\n}\n\nnewChat{ id=\"next\",\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1019,
+        "supplemental_json_utf8_bytes": 2225
+      }
+    },
+    {
+      "audit_id": "V1-030",
+      "source": "Nature [%d]",
+      "target": "自然 [%d]",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b33-001",
+        "original_revision_key": "b33-10-ward",
+        "component": "tome",
+        "section": "mod-tome/data/chats/ward.lua",
+        "source_sha256": "15fada80ef2a33940172bcbcb404c27485d1b3ab6232ae54e908e2ca8d4c2b1d",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/ward.lua",
+          "source_artifact_sha256": "9520ccda277a7f0d8c1b106418510b28d810f6802a1b724870b4a3bcf6d0251d",
+          "source_artifact_size_bytes": 4013
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 69,
+            "line_end": 69,
+            "column_start": 6,
+            "matched_span_sha256": "15fada80ef2a33940172bcbcb404c27485d1b3ab6232ae54e908e2ca8d4c2b1d",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 725,
+            "after_utf8_bytes": 724,
+            "visible_context_utf8_bytes": 1467,
+            "visible_context_sha256": "5501e3f7e11422fe2e611495eb2b6d6c5eeb1317378e59f89b683405cc45b040",
+            "visible_context": "\t\t{(\"Darkness [%d]\"):tformat(src.wards[DamageType.DARKNESS] or 0), \n\t\t\tcond = function() return has_ward(DamageType.DARKNESS) end,\n\t\t\taction = function() return set_ward(DamageType.DARKNESS, (src.wards[DamageType.DARKNESS] or 0)) end,\n\t\t},\n\t\t{(\"Temporal [%d]\"):tformat(src.wards[DamageType.TEMPORAL] or 0), \n\t\t\tcond = function() return has_ward(DamageType.TEMPORAL) end,\n\t\t\taction = function() return set_ward(DamageType.TEMPORAL, (src.wards[DamageType.TEMPORAL] or 0)) end,\n\t\t},\n\t\t{(\"Physical [%d]\"):tformat(src.wards[DamageType.PHYSICAL] or 0), \n\t\t\tcond = function() return has_ward(DamageType.PHYSICAL) end,\n\t\t\taction = function() return set_ward(DamageType.PHYSICAL, (src.wards[DamageType.PHYSICAL] or 0)) end,\n\t\t},\n\t\t{(\"[[SOURCE_MATCH_1]]\"):tformat(src.wards[DamageType.NATURE] or 0), \n\t\t\tcond = function() return has_ward(DamageType.NATURE) end,\n\t\t\taction = function() return set_ward(DamageType.NATURE, (src.wards[DamageType.NATURE] or 0)) end,\n\t\t},\n\t\t{(\"Blight [%d]\"):tformat(src.wards[DamageType.BLIGHT] or 0), \n\t\t\tcond = function() return has_ward(DamageType.BLIGHT) end,\n\t\t\taction = function() return set_ward(DamageType.BLIGHT, (src.wards[DamageType.BLIGHT] or 0)) end,\n\t\t},\n\t\t{(\"Acid [%d]\"):tformat(src.wards[DamageType.ACID] or 0), \n\t\t\tcond = function() return has_ward(DamageType.ACID) end,\n\t\t\taction = function() return set_ward(DamageType.ACID, (src.wards[DamageType.ACID] or 0)) end,\n\t\t},\n\t\t{(\"Mind [%d]\"):tformat(src.wards[DamageType.MIND] or 0), \n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1467,
+        "supplemental_json_utf8_bytes": 2650
+      }
+    },
+    {
+      "audit_id": "V1-033",
+      "source": "Let's see what have you got here...\n%s\n\nThat is very nice, @playername@!",
+      "target": "让我看看你找到了什么好东西……\n%s\n\n真是不错，@playername@！",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b14-001",
+        "original_revision_key": "b14-32-elisa-shop",
+        "component": "tome",
+        "section": "mod-tome/data/chats/elisa-shop.lua",
+        "source_sha256": "cae8f298cad45b0a93943531f7a9421c729ea5ca1c66e87e1d52d73efd3c0726",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/elisa-shop.lua",
+          "source_artifact_sha256": "22b346fea3c73eb1fa7c0bc81a10ebd421f22402aac35246ed8e537fae4fdb1b",
+          "source_artifact_size_bytes": 2847
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 43,
+            "line_end": 46,
+            "column_start": 13,
+            "matched_span_sha256": "cae8f298cad45b0a93943531f7a9421c729ea5ca1c66e87e1d52d73efd3c0726",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 278,
+            "after_utf8_bytes": 258,
+            "visible_context_utf8_bytes": 554,
+            "visible_context_sha256": "2eef4421a944704af5d91eeac74b37694f2e953817eedd27101fbfeeeb2bcc66",
+            "visible_context": "\tlocal do_quest = false\n\tfor inven_id, inven in pairs(player.inven) do\n\t\tfor item, o in ipairs(inven) do\n\t\t\tif not o:isIdentified() then\n\t\t\t\to:identify(true)\n\t\t\t\tlist[#list+1] = o:getName{do_color=true}\n\t\t\tend\n\t\tend\n\tend\n\n\t-- Create the chat\n\tnewChat{ id=\"id_list\",\n\t\ttext = ([[[[SOURCE_MATCH_1]]]]):tformat(table.concat(list, \"\\n\")),\n\t\tanswers = {\n\t\t\t{_t\"Thank you, Elisa!\", jump=do_quest and \"quest\" or nil},\n\t\t}\n\t}\n\n\t-- Switch to that chat\n\treturn \"id_list\"\nend\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[Hello friend, what can I do for you?]],\n\tanswers = {\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 554,
+        "supplemental_json_utf8_bytes": 1728
+      }
+    },
+    {
+      "audit_id": "V1-036",
+      "source": "The smith spends some time with you, teaching you the basics of armour and weapon usage.",
+      "target": "铁匠花了一些时间，教你武器和护甲的基础使用方法。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b20-001",
+        "original_revision_key": "b20-07-last-hope-weapon-store",
+        "component": "tome",
+        "section": "mod-tome/data/chats/last-hope-weapon-store.lua",
+        "source_sha256": "0501305951223f7c5233b355d9106c8e0ac79fc6e7aece996f69526ea030edcd",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/last-hope-weapon-store.lua",
+          "source_artifact_sha256": "bed03e2b8a71940d177353e47ef9aaed37cf7a215d0083807694de97f03ef042",
+          "source_artifact_size_bytes": 2370
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 36,
+            "line_end": 36,
+            "column_start": 28,
+            "matched_span_sha256": "0501305951223f7c5233b355d9106c8e0ac79fc6e7aece996f69526ea030edcd",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 566,
+            "after_utf8_bytes": 576,
+            "visible_context_utf8_bytes": 1160,
+            "visible_context_sha256": "264e96689affca2e385874ecc773f8d0b30541ab3dd77ba2e57ee9cee8b45441",
+            "visible_context": "\t\t\tnpc.store:loadup(game.level, game.zone)\n\t\t\tnpc.store:interact(player)\n\t\tend},\n\t\t{_t\"I am looking for martial training.\", jump=\"training\"},\n\t\t{_t(\"Sorry, I have to go!\", \"chat_last-hope-weapon-store\")},\n\t}\n}\n\nnewChat{ id=\"training\",\n\ttext = _t[[I can indeed offer some martial training (talent category Technique/Combat-training) for a fee of 50 gold pieces; or the basic usage of bows and slings (Shoot talent) for 8 gold pieces.]],\n\tanswers = {\n\t\t{_t\"Please train me in generic weapons and armour usage.\", action=function(npc, player)\n\t\t\tgame.logPlayer(player, \"[[SOURCE_MATCH_1]]\")\n\t\t\tplayer:incMoney(-50)\n\t\t\tplayer:learnTalentType(\"technique/combat-training\", true)\n\t\t\tplayer.changed = true\n\t\tend, cond=function(npc, player)\n\t\t\tif player.money < 50 then return end\n\t\t\tif player:knowTalentType(\"technique/combat-training\") then return end\n\t\t\treturn true\n\t\tend},\n\t\t{_t\"Please train me in the basic usage of bows and slings.\", action=function(npc, player)\n\t\t\tgame.logPlayer(player, \"The smith spends some time with you, teaching you the basics of bows and slings.\")\n\t\t\tplayer:incMoney(-8)\n\t\t\tplayer:learnTalent(player.T_SHOOT, true, nil, {no_unlearn=true})\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1160,
+        "supplemental_json_utf8_bytes": 2397
+      }
+    },
+    {
+      "audit_id": "V1-039",
+      "source": "You cannot use your %s anymore; it is tainted by magic.",
+      "target": "你不能再使用 %s ，它已被魔法所污染。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b35-001",
+        "original_revision_key": "b35-05-zigur-trainer",
+        "component": "tome",
+        "section": "mod-tome/data/chats/zigur-trainer.lua",
+        "source_sha256": "5dfa0bcbf5357aa517f0ff13b605fd7043a3046e3fde8f139895d40a6a9a2816",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/zigur-trainer.lua",
+          "source_artifact_sha256": "28f22b69466a59728d6e916f1325ebab2eb171dfc1f29ed950617a037519f84d",
+          "source_artifact_size_bytes": 5078
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 43,
+            "line_end": 43,
+            "column_start": 29,
+            "matched_span_sha256": "5dfa0bcbf5357aa517f0ff13b605fd7043a3046e3fde8f139895d40a6a9a2816",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 409,
+            "after_utf8_bytes": 282,
+            "visible_context_utf8_bytes": 709,
+            "visible_context_sha256": "da841f3781ee222ecf773af5cc2608de17defbbdff0b25f351013fc79ba4e7e1",
+            "visible_context": "\nlocal remove_magic = function(npc, player)\n\tfor tid, _ in pairs(player.sustain_talents) do\n\t\tlocal t = player:getTalentFromId(tid)\n\t\tif t.is_spell then player:forceUseTalent(tid, {ignore_energy=true}) end\n\tend\n\n\t-- Remove equipment\n\tfor inven_id, inven in pairs(player.inven) do\n\t\tfor i = #inven, 1, -1 do\n\t\t\tlocal o = inven[i]\n\t\t\tif o.power_source and o.power_source.arcane then\n\t\t\t\tgame.logPlayer(player, \"[[SOURCE_MATCH_1]]\", o:getName{do_color=true})\n\t\t\t\tlocal o = player:removeObject(inven, i, true)\n\t\t\t\tplayer:addObject(player.INVEN_INVEN, o)\n\t\t\t\tplayer:sortInven()\n\t\t\tend\n\t\tend\n\tend\n\tplayer:attr(\"forbid_arcane\", 1)\n\tplayer:attr(\"zigur_follower\", 1)\n\tplayer.changed = true\nend\n\nnewChat{ id=\"welcome\",\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 709,
+        "supplemental_json_utf8_bytes": 1891
+      }
+    },
+    {
+      "audit_id": "V1-042",
+      "source": "Name",
+      "target": "名称",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b8-001",
+        "original_revision_key": "alchemist-b8-76-alchemist-golem",
+        "component": "tome",
+        "section": "mod-tome/data/chats/alchemist-golem.lua",
+        "source_sha256": "dcd1d5223f73b3a965c07e3ff5dbee3eedcfedb806686a05b9b3868a2c3d6d50",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/alchemist-golem.lua",
+          "source_artifact_sha256": "d4ca7d0e32316904cc92c626358bf98c80e50cd4ab4d9b962b29c26eeaba69ed",
+          "source_artifact_size_bytes": 4232
+        },
+        "source_occurrences": 2,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 51,
+            "line_end": 51,
+            "column_start": 83,
+            "matched_span_sha256": "dcd1d5223f73b3a965c07e3ff5dbee3eedcfedb806686a05b9b3868a2c3d6d50",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 306,
+            "after_utf8_bytes": 352,
+            "visible_context_utf8_bytes": 676,
+            "visible_context_sha256": "23f284e3ef7900cc4fbe6ffa6e4b8661c110b17025857076a3f1328c5446b540",
+            "visible_context": "\tgame:registerDialog(ds)\nend\n\nlocal change_tactics = function(npc, player)\n\tgame.party:giveOrders(npc)\nend\n\nlocal change_control = function(npc, player)\n\tgame.party:select(npc)\nend\n\nlocal change_name = function(npc, player)\n\tlocal d = require(\"engine.dialogs.GetText\").new(_t\"Change your golem's name\", _t\"[[SOURCE_MATCH_1]]\", 2, 25, function(name)\n\t\tif name then\n\t\t\tnpc.name = (\"%s (servant of %s)\"):tformat(name, player.name)\n\t\t\tnpc.changed = true\n\t\tend\n\tend)\n\tgame:registerDialog(d)\nend\n\nlocal change_appearance = function(npc, player)\n\trequire(\"mod.dialogs.Birther\"):showCosmeticCustomizer(npc, \"Golem Cosmetic Options\", function()\n\t\tnpc.golem_appearance_set = true\n\tend)\n"
+          },
+          {
+            "occurrence_ordinal": 2,
+            "line_start": 71,
+            "line_end": 71,
+            "column_start": 229,
+            "matched_span_sha256": "dcd1d5223f73b3a965c07e3ff5dbee3eedcfedb806686a05b9b3868a2c3d6d50",
+            "marker": "[[SOURCE_MATCH_2]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 681,
+            "after_utf8_bytes": 1009,
+            "visible_context_utf8_bytes": 1708,
+            "visible_context_sha256": "35af12c21185c34f746bd0c39511c1c74b902e742b60fd25dbb36270e87cbd1d",
+            "visible_context": "\nlocal change_appearance = function(npc, player)\n\trequire(\"mod.dialogs.Birther\"):showCosmeticCustomizer(npc, \"Golem Cosmetic Options\", function()\n\t\tnpc.golem_appearance_set = true\n\tend)\nend\n\nlocal ans = {\n\t{_t\"I want to change your equipment.\", action=change_inven},\n\t{_t\"I want to change your talents.\", action=change_talents},\n\t{_t\"I want to change your tactics.\", action=change_tactics},\n\t{_t\"I want to take direct control.\", action=change_control},\n\t{_t\"I want to change your name.\", cond = function() return golem.sentient_telos == 1 end, jump=\"name\", action=function(npc, player) npc.name = (\"Telos the Great and Powerful (reluctant follower of %s)\"):tformat(npc.summoner:get[[SOURCE_MATCH_2]]()) game.log(\"#ROYAL_BLUE#The golem decides to change it's name to #{bold}#%s#{normal}#.\", npc.name) end},\n\t{_t\"I want to change your name.\", cond = function() return not golem.sentient_telos end, action=change_name},\n\t{_t\"How is it that you speak?\", cond = function() return golem.sentient_telos == 1 end, jump=\"how_speak\"},\n\t{_t\"I want to change your appearance (one-time only).\", cond = function(npc, player) return profile:isDonator() and not npc.golem_appearance_set end, action=change_appearance},\n\t{_t\"Nothing, let's go.\"},\n}\n\nnewChat{ id=\"how_speak\",\n\ttext = _t[[What's the good of immortality if you can't even speak? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. And, by the way, your energy manipulation techniques are on the same level as those of my average pair of shoes. Though I guess you are making up for it with your golem crafting skills.]],\n\tanswers = ans\n}\n\nnewChat{ id=\"name\",\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 2384,
+        "supplemental_json_utf8_bytes": 4061
+      }
+    },
+    {
+      "audit_id": "V1-045",
+      "source": "The shopkeeper spends some time with you, teaching you the basics of channeling energy through mindstars.",
+      "target": "商人花了一些时间，教授你引导能量流经灵晶的基础方法。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b34-001",
+        "original_revision_key": "b34-36-zigur-mindstar-store",
+        "component": "tome",
+        "section": "mod-tome/data/chats/zigur-mindstar-store.lua",
+        "source_sha256": "68da7dba767ac2c41672902766fc272743e57fcb67cfa853410bce56d402c5e7",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/zigur-mindstar-store.lua",
+          "source_artifact_sha256": "6c0fbad65192ac9e144c9551374591c7f0f548248e23cbd3711511d869d622f4",
+          "source_artifact_size_bytes": 4407
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 36,
+            "line_end": 36,
+            "column_start": 28,
+            "matched_span_sha256": "68da7dba767ac2c41672902766fc272743e57fcb67cfa853410bce56d402c5e7",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 680,
+            "after_utf8_bytes": 665,
+            "visible_context_utf8_bytes": 1363,
+            "visible_context_sha256": "de01ccbccb382748124b988dc21d17b05b6a4c9a4756891e2e1e8dea4d33d61b",
+            "visible_context": "\t\t\tnpc.store:loadup(game.level, game.zone)\n\t\t\tnpc.store:interact(player)\n\t\tend},\n\t\t{_t\"I am looking for mindstar training.\", jump=\"training\"},\n\t\t{_t(\"Sorry, I have to go!\", \"chat_zigur-mindstar-store\")},\n\t}\n}\n\nnewChat{ id=\"training\",\n\ttext = _t[[I can teach you mindstar mastery (talent category Wild-gift/Mindstar mastery).  Learning the basics costs 100 gold, while more intensive training to gain proficiency costs 500 gold.  Once you're proficient, I can teach you some additional skills for 750 gold.]],\n\tanswers = {\n\t\t{_t\"Just give me the basics (reveals locked talent category) - 100 gold.\", action=function(npc, player) -- Normal basic training\n\t\t\tgame.logPlayer(player, \"[[SOURCE_MATCH_1]]\")\n\t\t\tplayer:incMoney(-100)\n\t\t\tplayer:learnTalentType(\"wild-gift/mindstar-mastery\", false)\n\t\t\tif player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\") < 1 then\n\t\t\t\tplayer:setTalentTypeMastery(\"wild-gift/mindstar-mastery\", math.min(1.1, player:getTalentTypeMastery(\"wild-gift/mindstar-mastery\", true) + 0.3))\n\t\t\t\tgame.logPlayer(player, \"He is impressed with your affinity for natural forces.\")\n\t\t\tend\n\t\t\tplayer.changed = true\n\t\tend, cond=function(npc, player)\n\t\t\tif player.money < 100 then return end\n\t\t\tif player:knowTalentType(\"wild-gift/mindstar-mastery\") or player:knowTalentType(\"wild-gift/mindstar-mastery\") == false then return end\n\t\t\treturn true\n\t\tend},\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1363,
+        "supplemental_json_utf8_bytes": 2603
+      }
+    },
+    {
+      "audit_id": "V1-048",
+      "source": "%s[%s: %s]#LAST#",
+      "target": "%s[%s：%s]#LAST#",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b31-001",
+        "original_revision_key": "b31-29-trap-priming",
+        "component": "tome",
+        "section": "mod-tome/data/chats/trap-priming.lua",
+        "source_sha256": "f02d0a91a563c646116491717952ccb828a63ac6b6a88a5bc307563d2e5ae5d7",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/trap-priming.lua",
+          "source_artifact_sha256": "41abb6aab5c7da98e189a6f982c2f1076d2dbb6a1b65582df0b26420420841bf",
+          "source_artifact_size_bytes": 2988
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 49,
+            "line_end": 49,
+            "column_start": 21,
+            "matched_span_sha256": "f02d0a91a563c646116491717952ccb828a63ac6b6a88a5bc307563d2e5ae5d7",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 589,
+            "after_utf8_bytes": 520,
+            "visible_context_utf8_bytes": 1127,
+            "visible_context_sha256": "0179298d4981389b34893489763501eda27b730fd5f32e2e99f4bf1f07405920",
+            "visible_context": "\t\t\t\t\t\tnew_trap_primed = nil\n\t\t\t\t\telse\n\t\t\t\t\t\tif not canlearn then game.logPlayer(player, \"#LIGHT_BLUE#You cannot prepare this trap: %s.\", unlearnable) return end\n\t\t\t\t\t\tnew_trap_primed = tid\n\t\t\t\t\tend\n\t\t\t\t\tplayer:talentDialogReturn(new_trap_primed, old_trap_primed)\n\t\t\t\tend\n\t\t\t\tlocal text, color = \"#WHITE#\", _t\"Not Prepared\"\n\t\t\t\tif player.trap_primed == tid then color, text = \"#LIGHT_BLUE#\", _t\"Primed Trigger\"\n\t\t\t\telseif unlearnable then color, text = \"#GREY#\", _t\"Not Usable\"\n\t\t\t\telseif player:knowTalent(tid) then color, text = \"#SALMON#\", _t\"Normal Trigger\"\n\t\t\t\tend\n\t\t\t\tlocal label = (\"[[SOURCE_MATCH_1]]\"):tformat(color, text, t.name)\n\n\t\t\t\tanswers[#answers+1] = {label,\n\t\t\t\t\ttier = tier,\n\t\t\t\t\tunlearnable = unlearnable,\n\t\t\t\t\taction=toggle_project,\n\t\t\t\t\ton_select=function(npc, player)\n\t\t\t\t\t\tlocal mastery = nil\n\t\t\t\t\t\tgame.tooltip_x, game.tooltip_y = 1, 1\n\t\t\t\t\t\tplayer.turn_procs.trap_mastery_tid = chat_talent.id\n\t\t\t\t\t\tgame:tooltipDisplayAtMap(game.w, game.h, (\"#GOLD#%s#LAST#\\n%s\"):tformat(t.name, tostring(player:getTalentFullDescription(t, 1, {force_level=1}))))\n\t\t\t\t\t\tplayer.turn_procs.trap_mastery_tid = nil\n\t\t\t\t\tend,\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1127,
+        "supplemental_json_utf8_bytes": 2402
+      }
+    },
+    {
+      "audit_id": "V1-051",
+      "source": "%s (servant of %s)",
+      "target": "%s (%s的仆人)",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b8-001",
+        "original_revision_key": "alchemist-b8-77-alchemist-golem",
+        "component": "tome",
+        "section": "mod-tome/data/chats/alchemist-golem.lua",
+        "source_sha256": "a448d69ad5360374df6a284d0403f8cbe8e5e5251f7106fa0af30f82a228e24d",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/alchemist-golem.lua",
+          "source_artifact_sha256": "d4ca7d0e32316904cc92c626358bf98c80e50cd4ab4d9b962b29c26eeaba69ed",
+          "source_artifact_size_bytes": 4232
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 53,
+            "line_end": 53,
+            "column_start": 17,
+            "matched_span_sha256": "a448d69ad5360374df6a284d0403f8cbe8e5e5251f7106fa0af30f82a228e24d",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 337,
+            "after_utf8_bytes": 283,
+            "visible_context_utf8_bytes": 638,
+            "visible_context_sha256": "cf7d6914842995cb81d0e6f53205c46938093cb7bdcd2cf1f2d73bd9b3dbc9a2",
+            "visible_context": "\nlocal change_tactics = function(npc, player)\n\tgame.party:giveOrders(npc)\nend\n\nlocal change_control = function(npc, player)\n\tgame.party:select(npc)\nend\n\nlocal change_name = function(npc, player)\n\tlocal d = require(\"engine.dialogs.GetText\").new(_t\"Change your golem's name\", _t\"Name\", 2, 25, function(name)\n\t\tif name then\n\t\t\tnpc.name = (\"[[SOURCE_MATCH_1]]\"):tformat(name, player.name)\n\t\t\tnpc.changed = true\n\t\tend\n\tend)\n\tgame:registerDialog(d)\nend\n\nlocal change_appearance = function(npc, player)\n\trequire(\"mod.dialogs.Birther\"):showCosmeticCustomizer(npc, \"Golem Cosmetic Options\", function()\n\t\tnpc.golem_appearance_set = true\n\tend)\nend\n\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 638,
+        "supplemental_json_utf8_bytes": 1816
+      }
+    },
+    {
+      "audit_id": "V1-054",
+      "source": "The staff carver spends some time with you, teaching you the basics of staff combat.",
+      "target": "制杖师花了一些时间指导你，向你传授法杖格斗的基础技巧。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b9-001",
+        "original_revision_key": "b9-18-angolwen-staves-store",
+        "component": "tome",
+        "section": "mod-tome/data/chats/angolwen-staves-store.lua",
+        "source_sha256": "c24e3395b429407b2674cce2d3fd36fdd930399db19c22ee9807c8c391a5a619",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/angolwen-staves-store.lua",
+          "source_artifact_sha256": "febf624946bcf55f01c15a89f698448f138e488a7f79cb3d4fb8623f90617a1e",
+          "source_artifact_size_bytes": 4191
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 36,
+            "line_end": 36,
+            "column_start": 28,
+            "matched_span_sha256": "c24e3395b429407b2674cce2d3fd36fdd930399db19c22ee9807c8c391a5a619",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 681,
+            "after_utf8_bytes": 630,
+            "visible_context_utf8_bytes": 1329,
+            "visible_context_sha256": "f98c656d1b5473a437031dca1c24e04ebe31ca2d34e6a94366804e7cc74d9330",
+            "visible_context": "\t\t\tnpc.store:loadup(game.level, game.zone)\n\t\t\tnpc.store:interact(player)\n\t\tend},\n\t\t{_t\"I am looking for staff training.\", jump=\"training\"},\n\t\t{_t(\"Sorry, I have to go!\", \"chat_angolwen-staves-store\")},\n\t}\n}\n\nnewChat{ id=\"training\",\n\ttext = _t[[I can teach you staff combat (talent category Spell/Staff combat).  Learning the basics costs 100 gold, while more intensive tutelage to gain proficiency costs 500 gold.  Once you're proficient, I can teach you more refined techniques for an additional 750 gold.]],\n\tanswers = {\n\t\t{_t\"Just give me the basics (reveals locked talent category) - 100 gold.\", action=function(npc, player) -- Normal basic training\n\t\t\tgame.logPlayer(player, \"[[SOURCE_MATCH_1]]\")\n\t\t\tplayer:incMoney(-100)\n\t\t\tplayer:learnTalentType(\"spell/staff-combat\", false)\n\t\t\tif player:getTalentTypeMastery(\"spell/staff-combat\") < 1 then\n\t\t\t\tplayer:setTalentTypeMastery(\"spell/staff-combat\", math.min(1.1, player:getTalentTypeMastery(\"spell/staff-combat\", true) + 0.3))\n\t\t\t\tgame.logPlayer(player, \"He is surprised at how quickly you are able to follow his tutelage.\")\n\t\t\tend\n\t\t\tplayer.changed = true\n\t\tend, cond=function(npc, player)\n\t\t\tif player.money < 100 then return end\n\t\t\tif player:knowTalentType(\"spell/staff-combat\") or player:knowTalentType(\"spell/staff-combat\") == false then return end\n\t\t\treturn true\n\t\tend},\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1329,
+        "supplemental_json_utf8_bytes": 2570
+      }
+    },
+    {
+      "audit_id": "V1-057",
+      "source": "Physical [%d]",
+      "target": "物理 [%d]",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b33-001",
+        "original_revision_key": "b33-09-ward",
+        "component": "tome",
+        "section": "mod-tome/data/chats/ward.lua",
+        "source_sha256": "8a8a414efbc22f4147cc2959261bb7c3f5f3a642e0edff727e8ac4d1e988fe83",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/ward.lua",
+          "source_artifact_sha256": "9520ccda277a7f0d8c1b106418510b28d810f6802a1b724870b4a3bcf6d0251d",
+          "source_artifact_size_bytes": 4013
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 65,
+            "line_end": 65,
+            "column_start": 6,
+            "matched_span_sha256": "8a8a414efbc22f4147cc2959261bb7c3f5f3a642e0edff727e8ac4d1e988fe83",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 710,
+            "after_utf8_bytes": 742,
+            "visible_context_utf8_bytes": 1470,
+            "visible_context_sha256": "07921e636aab8dd981ee33dca7e5ba4ca342fe23bee6cf20a1b3df7b47ec2773",
+            "visible_context": "\t\t{(\"Light [%d]\"):tformat(src.wards[DamageType.LIGHT] or 0), \n\t\t\tcond = function() return has_ward(DamageType.LIGHT) end,\n\t\t\taction = function() return set_ward(DamageType.LIGHT, (src.wards[DamageType.LIGHT] or 0)) end,\n\t\t},\n\t\t{(\"Darkness [%d]\"):tformat(src.wards[DamageType.DARKNESS] or 0), \n\t\t\tcond = function() return has_ward(DamageType.DARKNESS) end,\n\t\t\taction = function() return set_ward(DamageType.DARKNESS, (src.wards[DamageType.DARKNESS] or 0)) end,\n\t\t},\n\t\t{(\"Temporal [%d]\"):tformat(src.wards[DamageType.TEMPORAL] or 0), \n\t\t\tcond = function() return has_ward(DamageType.TEMPORAL) end,\n\t\t\taction = function() return set_ward(DamageType.TEMPORAL, (src.wards[DamageType.TEMPORAL] or 0)) end,\n\t\t},\n\t\t{(\"[[SOURCE_MATCH_1]]\"):tformat(src.wards[DamageType.PHYSICAL] or 0), \n\t\t\tcond = function() return has_ward(DamageType.PHYSICAL) end,\n\t\t\taction = function() return set_ward(DamageType.PHYSICAL, (src.wards[DamageType.PHYSICAL] or 0)) end,\n\t\t},\n\t\t{(\"Nature [%d]\"):tformat(src.wards[DamageType.NATURE] or 0), \n\t\t\tcond = function() return has_ward(DamageType.NATURE) end,\n\t\t\taction = function() return set_ward(DamageType.NATURE, (src.wards[DamageType.NATURE] or 0)) end,\n\t\t},\n\t\t{(\"Blight [%d]\"):tformat(src.wards[DamageType.BLIGHT] or 0), \n\t\t\tcond = function() return has_ward(DamageType.BLIGHT) end,\n\t\t\taction = function() return set_ward(DamageType.BLIGHT, (src.wards[DamageType.BLIGHT] or 0)) end,\n\t\t},\n\t\t{(\"Acid [%d]\"):tformat(src.wards[DamageType.ACID] or 0), \n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1470,
+        "supplemental_json_utf8_bytes": 2653
+      }
+    },
+    {
+      "audit_id": "V1-060",
+      "source": "#GOLD#%s / %s#LAST#\n%s",
+      "target": "#GOLD#%s/%s#LAST#\n%s",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b33-001",
+        "original_revision_key": "b33-16-worldly-knowledge",
+        "component": "tome",
+        "section": "mod-tome/data/chats/worldly-knowledge.lua",
+        "source_sha256": "00e1bb48413cfa94f0f46422c306a347e0ca0f5583b683e515653ba0e4f562fc",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/worldly-knowledge.lua",
+          "source_artifact_sha256": "a0e230b88395048f2ae5bd909e52574849ce1fbfc96a230fe6a49803c27b4a34",
+          "source_artifact_size_bytes": 2171
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 39,
+            "line_end": 39,
+            "column_start": 49,
+            "matched_span_sha256": "3c11790e3c497be2e8199131fca5b172dc7664d842ab4f2617d915a5e026faa5",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 693,
+            "after_utf8_bytes": 243,
+            "visible_context_utf8_bytes": 954,
+            "visible_context_sha256": "7510fbe130aac4e047cadf5204249adfe1546073d20f33f8180618ced283b2cd",
+            "visible_context": "\tif rewards_s then\n\t\tfor _, tt in ipairs(rewards_s) do if game.player:knowTalentType(tt) == nil or game.player:knowTalentType(tt) == false then\n\t\t\tlocal tt_def = game.player:getTalentTypeFrom(tt)\n\t\t\tlocal cat = tt_def.type:gsub(\"/.*\", \"\")\n\t\t\tlocal doit = function(npc, player)\n\t\t\t\tif player:knowTalentType(tt) == nil then player:setTalentTypeMastery(tt, 1.0) end\n\t\t\t\tplayer:learnTalentType(tt, true)\n\t\t\tend\n\t\t\tanswers[#answers+1] = {(\"[%s (at mastery %0.2f)]\"):tformat(_t(cat, \"talent category\"):capitalize()..\" / \"..tt_def.name:capitalize(), 1.0),\n\t\t\t\taction=doit,\n\t\t\t\ton_select=function(npc, player)\n\t\t\t\t\tgame.tooltip_x, game.tooltip_y = 1, 1\n\t\t\t\t\tgame:tooltipDisplayAtMap(game.w, game.h, (\"[[SOURCE_MATCH_1]]\"):tformat(_t(cat, \"talent category\"):capitalize(), tt_def.name:capitalize(), tt_def.description))\n\t\t\t\tend,\n\t\t\t}\n\t\tend end\n\tend\n\treturn answers\nend\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[Learn which category?]],\n\tanswers = generate_rewards(),\n}\n\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 954,
+        "supplemental_json_utf8_bytes": 2172
+      }
+    },
+    {
+      "audit_id": "V1-063",
+      "source": "#LIGHT_GREEN#*Before you stands... you. You seem to be slightly older, and by the look of it you have been through hell.*#WHITE#\nNO! YOU CAN'T! NO GOING THERE! YOU... I... YOU MUST NOT GO THERE!\nTHIS CANNOT BE AVOIDED! I MUST STOP IT! PLEASE DON'T!\nI MUST KILL MYSELF TO PROTECT MYSELF!\n#LIGHT_GREEN#*Before you can react, you... I... yourself vanishes into a rift hanging in midair.*#WHITE#\n",
+      "target": "#LIGHT_GREEN#*你面前站着……你自己。这个你看上去年长了一些，仿佛在地狱中走过一遭。*#WHITE#\n不！你不能！不能去那儿！你……我……你不许去那儿！\n这无法避免！我必须阻止它！请不要这样！\n我必须杀死我自己来保护自己！\n#LIGHT_GREEN#*在你来得及做出反应之前，你……我……你自己消失在悬于半空的裂缝中。*#WHITE#\n",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b24-001",
+        "original_revision_key": "b24-23-paradoxology",
+        "component": "tome",
+        "section": "mod-tome/data/chats/paradoxology.lua",
+        "source_sha256": "70464a6f8c9ab65c666d6d05943ac2d1623b4ca276f1a6b83b56c1b65379cbe1",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/paradoxology.lua",
+          "source_artifact_sha256": "f3c33009987a4c4caf263596594f0e652d614b8569a4355fe0cd432c82970529",
+          "source_artifact_size_bytes": 1264
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 21,
+            "line_end": 25,
+            "column_start": 13,
+            "matched_span_sha256": "19af7f7d936675b31381842d2a9881eacc50b8aef7b2531803ca534a2f830640",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 8,
+            "before_utf8_bytes": 479,
+            "after_utf8_bytes": 62,
+            "visible_context_utf8_bytes": 559,
+            "visible_context_sha256": "4b4725a9fd5b8601836151263181f0e262622581a1de6828731d6b07a8352b87",
+            "visible_context": "-- This program is distributed in the hope that it will be useful,\n-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[[[SOURCE_MATCH_1]]\n]],\n\tanswers = {\n\t\t{_t\"What the...\"},\n\t}\n}\n\nreturn \"welcome\"\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 559,
+        "supplemental_json_utf8_bytes": 1695
+      }
+    },
+    {
+      "audit_id": "V1-066",
+      "source": "#{italic}#You wake up suddenly next to your farportal with a pounding headache. Your cheeks feel wet, and touching them you see your fingers stained red - you have been crying tears of blood. A dark and terrible memory lurks at the back of your mind, but the more you try to remember it the harder it becomes, and slowly it fades completely, like a dream.#{normal}#",
+      "target": "#{italic}#你突然在远古传送门旁醒来，头痛欲裂。你的双颊湿漉漉的；伸手一摸，指尖竟染成了红色——你流下了血泪。一段黑暗而可怕的记忆潜伏在脑海深处，但你越想回忆，就越难抓住它；它慢慢彻底消散，仿佛一场梦。#{normal}#",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b27-001",
+        "original_revision_key": "b27-05-caldizar",
+        "component": "tome",
+        "section": "mod-tome/data/chats/shertul-fortress-caldizar.lua",
+        "source_sha256": "76e452d91a730bac3b0549e8ec1621c64cb88451c29db6363887a33d37a12cea",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/shertul-fortress-caldizar.lua",
+          "source_artifact_sha256": "0f45a29609689bba4b74052ca4ef5aa99a3b6560ac0f25ad2464f2602a2614b3",
+          "source_artifact_size_bytes": 3106
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 51,
+            "line_end": 51,
+            "column_start": 13,
+            "matched_span_sha256": "76e452d91a730bac3b0549e8ec1621c64cb88451c29db6363887a33d37a12cea",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 7,
+            "before_utf8_bytes": 417,
+            "after_utf8_bytes": 56,
+            "visible_context_utf8_bytes": 491,
+            "visible_context_sha256": "164a4943f7277fb77e89e42384dd1740f7c1376106f95fd93470e97b046ca1f4",
+            "visible_context": "\tanswers = {\n\t\t{_t\"[continue]\", jump=\"next\", action=function(npc, player)\n\t\t\tgame:changeLevel(1, \"shertul-fortress\", {direct_switch=true})\n\t\t\tlocal spot = game.level:pickSpot{type=\"spawn\", subtype=\"farportal\"} or {x=39, y=29}\n\t\t\tgame.player:move(spot.x, spot.y, true)\n\t\t\tworld:gainAchievement(\"CALDIZAR\", game.player)\n\t\t\tgame.party:learnLore(\"shertul-fortress-caldizar\")\n\t\tend},\n\t}\n}\n\nnewChat{ id=\"next\",\n\ttext = _t[[[[SOURCE_MATCH_1]]]],\n\tanswers = {\n\t\t{_t\"[done]\"},\n\t}\n}\n\nreturn \"welcome\"\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 491,
+        "supplemental_json_utf8_bytes": 1681
+      }
+    },
+    {
+      "audit_id": "V1-069",
+      "source": "Yes, Elisa, could you have a look at these objects please? [show her the items the orb could not identify]",
+      "target": "是的，埃莉萨，能否请你帮我看看这些物品？[向她展示水晶球无法鉴定的物品]",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b14-001",
+        "original_revision_key": "b14-27-elisa-orb-scrying",
+        "component": "tome",
+        "section": "mod-tome/data/chats/elisa-orb-scrying.lua",
+        "source_sha256": "a9920a8c4a21a8e9f5b9f49cccdceeac1d0b45b6f34d3542baf80137363728b9",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/elisa-orb-scrying.lua",
+          "source_artifact_sha256": "691d3fa4dd2c43e99dec0f0e6f545088e7f302b332dae1e5ac9f866c949c0a30",
+          "source_artifact_size_bytes": 3389
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 95,
+            "line_end": 95,
+            "column_start": 7,
+            "matched_span_sha256": "a9920a8c4a21a8e9f5b9f49cccdceeac1d0b45b6f34d3542baf80137363728b9",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 305,
+            "after_utf8_bytes": 441,
+            "visible_context_utf8_bytes": 764,
+            "visible_context_sha256": "50cebb134787089f185d85745bf2c1493ca137347de359fe275593977d78df34",
+            "visible_context": "\t}\n}\nreturn \"welcome\"\n\n----------------------------------------------------------------------\n-- Elisa version\n----------------------------------------------------------------------\nelse\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[Oh, hi @playername@, have you got something new to show me?]],\n\tanswers = {\n\t\t{_t\"[[SOURCE_MATCH_1]]\", cond=can_auto_id,\n\t\t\taction=auto_id(\"Let's see what have you got here...\\n\", \"\\n\\nThat is very nice, @playername@!\", \"Thank you, Elisa!\")\n\t\t},\n\t\t{_t\"Err, no... sorry, I just wanted to hear a friendly voice.\", jump=\"friend\"},\n\t\t{_t\"Not yet sorry!\"},\n\t}\n}\n\nnewChat{ id=\"friend\",\n\ttext = _t[[#LIGHT_GREEN#*You hear something akin to a muffled giggle*#WHITE#\nOh, you are #{bold}#SOOOO#{normal}# cute!]],\n\tanswers = {\n\t\t{_t\"Goodbye, Elisa!\"},\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 764,
+        "supplemental_json_utf8_bytes": 1952
+      }
+    },
+    {
+      "audit_id": "V1-072",
+      "source": "#{italic}#From the notes of Darwood Oakton, explorer:\n#{bold}#CHAPTER THREE: DISASTER!\n\n#{normal}#Does my title not tell you enough? Disaster, and again disaster! True enough, these Sher'Tul ruins exist... several hundred feet at the bottom of a mighty lake! The lake of Nur, one of the largest in the old forest, has swallowed up the ruins in its murky depths. I am hardly a strong swimmer, gentle reader, but even if I could swim like a naga-spawned beast I could not hope to explore the ruin's sunken expanses before drowning. I fear I must abandon my present expedition... the trees are paying closer attention to me, and I do not believe it is of the pleasant sort...",
+      "target": "#{italic}#摘自探险家达沃德·欧卡顿的笔记：\n#{bold}#第三章：灾难！\n\n#{normal}#标题说得还不够明白吗？灾难，彻头彻尾的灾难！夏·图尔废墟的确存在……却沉在一座大湖湖底，距水面足有数百英尺！纳尔湖是古老森林最大的湖泊之一，废墟已被吞没在幽暗浑浊的深处。亲爱的读者，我的水性着实算不上好；可即使我游得像娜迦所生的野兽，也不可能在溺死之前探索完那片广阔的水下遗迹。恐怕我必须放弃眼下这次探险了……树木正越来越密切地注视着我，而我看那绝不是什么友善的注视……",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b42-001",
+        "original_revision_key": "b42-18-old-forest",
+        "component": "tome",
+        "section": "mod-tome/data/lore/old-forest.lua",
+        "source_sha256": "a42ac274a7605c8315903612d73eaf668ee75c07ad44a2faa2e765cc4a1de91e",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/lore/old-forest.lua",
+          "source_artifact_sha256": "ea3410a1edcd3c0c43d54f48a1564df7637938757823746972bd9a4c2e6965de",
+          "source_artifact_size_bytes": 6436
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 52,
+            "line_end": 55,
+            "column_start": 13,
+            "matched_span_sha256": "a42ac274a7605c8315903612d73eaf668ee75c07ad44a2faa2e765cc4a1de91e",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 882,
+            "after_utf8_bytes": 962,
+            "visible_context_utf8_bytes": 1862,
+            "visible_context_sha256": "95b5dabdcc46db83b1c208def247812e3fa4f671c3cb327e2de4d71da0d2e19c",
+            "visible_context": "\tcategory = \"old forest\",\n\tname = _t\"journal entry (old forest)\",\n\tlore = _t[[#{italic}#From the notes of Darwood Oakton, explorer:\n#{bold}#CHAPTER TWO: ANCIENT RUINS\n\n#{normal}#My inquiries have paid off! It took much searching, and even more arm-twisting and cajoling once I had found my man, but a local lumberjack who plies his trade in the old forest has divulged to me an amazing secret! He speaks of ruins within the forest, a location where the living trees seem to congregate in larger numbers. He would not speak much of the place, and seemed to believe it cursed, but I did manage to squeeze out of him the appearance of the ruins, submerged in the middle of the great lake. There is no longer any doubt in my mind now: They belonged to the Sher'Tul!]],\n}\n\nnewLore{\n\tid = \"old-forest-note-3\",\n\tcategory = \"old forest\",\n\tname = _t\"journal entry (old forest)\",\n\tlore = _t[[[[SOURCE_MATCH_1]]]],\n}\n\nnewLore{\n\tid = \"old-forest-note-4\",\n\tcategory = \"old forest\",\n\tname = _t\"journal entry (old forest)\",\n\tlore = _t[[#{italic}#From the notes of Darwood Oakton, explorer:\n#{bold}#CHAPTER FOUR: NEEDS MUST...\n\n#{normal}#Before I continue, I must make one thing clear: I am no great friend to the mages. Some powers simply were not meant for mortal hands or minds. As history has taught us time and again, from the sudden disappearance of the Sher'Tul to the Spellblaze and the plagues it brought in its wake, magic is wont to cause more harm than good. But I fear it is a necessity for my current task. During my stay in Derth a fellow traveller and I have become fast friends, often drinking together in the local tavern. I can't put my finger on it, but I believe him to be a mage; he has an unexplainable feeling of power surrounding him, not to mention a rather ostentatious hat. I wonder what his thoughts would be on the art of water-breathing...?]],\n}\n\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1862,
+        "supplemental_json_utf8_bytes": 3013
+      }
+    },
+    {
+      "audit_id": "V1-075",
+      "source": "[Relate to him the story of the staff and the Orb of Many Ways and the portals.]",
+      "target": "[告诉他关于法杖、多元水晶球和传送门的事。]",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b30-001",
+        "original_revision_key": "b30-05-tannen",
+        "component": "tome",
+        "section": "mod-tome/data/chats/tannen.lua",
+        "source_sha256": "1700309191f4fb34b7fa617cafd6ef84eb1868a52faa6d3a667f0085975a272e",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/tannen.lua",
+          "source_artifact_sha256": "94c4a7d33b028df11e4ed781e1aba510207747482e4b3d0a5a3350c87e58c18c",
+          "source_artifact_size_bytes": 9555
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 58,
+            "line_end": 58,
+            "column_start": 7,
+            "matched_span_sha256": "1700309191f4fb34b7fa617cafd6ef84eb1868a52faa6d3a667f0085975a272e",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 438,
+            "after_utf8_bytes": 1077,
+            "visible_context_utf8_bytes": 1533,
+            "visible_context_sha256": "4a4d46a92b486214e07adca32c74fe4be3d253170a0e92aed920505882bda18a",
+            "visible_context": "}\nelseif game.player:hasQuest(\"east-portal\") and game.player:hasQuest(\"east-portal\").wait_turn and game.player:hasQuest(\"east-portal\").wait_turn > game.turn then\nnewChat{ id=\"welcome\",\n\ttext = _t[[#LIGHT_GREEN#*Nobody answers. Tannen is probably still busy studying the orb.*#WHITE#]],\n\tanswers = {\n\t\t{_t\"[leave]\"},\n\t}\n}\nelse\nnewChat{ id=\"welcome\",\n\ttext = _t[[How may I be of service, good @playerdescriptor.race@?]],\n\tanswers = {\n\t\t{_t\"[[SOURCE_MATCH_1]]\", jump=\"east_portal1\", cond=function(npc, player) local q = player:hasQuest(\"east-portal\"); return q and q:isCompleted(\"talked-elder\") and not q:isCompleted(\"gotoreknor\") end},\n\t\t{_t\"I have the diamond and the athame. [Hand over the Athame and Diamond]\", jump=\"has_material_gave_orb\", cond=check_materials_gave_orb},\n\t\t{_t\"I have the diamond and the athame. [Hand over the Athame and Diamond]\", jump=\"has_material_withheld_orb\", cond=check_materials_withheld_orb},\n\t\t{_t\"Thieving, murderous wretch. Prepare to die!\", jump=\"fake_orb_end\", cond=function(npc, player) local q = player:hasQuest(\"east-portal\"); return q and q:isCompleted(\"tricked-demon\") end},\n\t\t{_t\"How fares your research? Are we ready to create the portal?\", jump=\"wait_end\", cond=function(npc, player) local q = player:hasQuest(\"east-portal\"); return q and q:isCompleted(\"open-telmur\") end},\n\t\t{_t\"Nothing, excuse me. Bye!\"},\n\t}\n}\nend\n\n---------------------------------------------------------------\n-- Explain the situation and get quest going\n---------------------------------------------------------------\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1533,
+        "supplemental_json_utf8_bytes": 2715
+      }
+    },
+    {
+      "audit_id": "V1-078",
+      "source": "@playername@, this message is of utmost importance.\n\nThe staff you left at Last Hope is gone. A raid of orcs ambushed the guards that were transporting it to a secret vault.\nOur troops managed to capture one of the orcs and made him talk.\nHe did not know much, but he did speak about \"masters\" in the Far East.\nHe spoke about Golbug -- this seems to be a warmaster in Reknor -- leading a raid to send a \"package\" through a portal.\n\nThis calls for urgency; should you find this Golbug or the portal, please investigate.\n\n               #GOLD#-- Tolak, King of the Allied Kingdoms",
+      "target": "@playername@，这份报告极其重要。\n\n你留在最后的希望的法杖不见了。一群兽人伏击了正将它押送往秘密金库的守卫。\n我们的部队设法俘虏了其中一个兽人，并让他开了口。\n他知道的不多，但他提到了远东大陆的“主人”。\n他提到了高尔布格，貌似是瑞库纳的一位战争领主，带领一场袭击，以便将一个“包裹”送过传送门。\n\n事情非常紧急；如果你找到这个高尔布格或那个传送门，请务必调查。\n\t\t\t   \n\t\t\t   #GOLD#-- 托拉克，联合王国国王。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b5-001",
+        "original_revision_key": "tome-text-message-last-hope-1",
+        "component": "tome",
+        "section": "mod-tome/data/texts/message-last-hope.lua",
+        "source_sha256": "36a25da94d26a08f2c158888d1458b1c95307abec2c343619787899c82eabdb3",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/texts/message-last-hope.lua",
+          "source_artifact_sha256": "1f6de45076db0c1cf4e8e02ea17a9cf63fa36e3232324f8ee741cf871af64980",
+          "source_artifact_size_bytes": 2331
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 23,
+            "line_end": 32,
+            "column_start": 12,
+            "matched_span_sha256": "36a25da94d26a08f2c158888d1458b1c95307abec2c343619787899c82eabdb3",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 475,
+            "after_utf8_bytes": 660,
+            "visible_context_utf8_bytes": 1153,
+            "visible_context_sha256": "3a685a959bb78dcc3a488b83cfa672f5b3ca6140690ca27ce0d27a6feedb5903",
+            "visible_context": "-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nlocal delivered_staff = game.player:resolveSource():isQuestStatus(\"staff-absorption\", engine.Quest.COMPLETED, \"survived-ukruk\")\n\nif delivered_staff then\nreturn _t[[[[SOURCE_MATCH_1]]]]\n\nelse\n\nreturn _t[[@playername@, this message is of utmost importance.\n\nOur elders searched the old texts looking for clues about the staff of which you spoke.\nIt turns out to be a powerful object indeed, able to absorb the power of places, and beings.\nThis must not fall in the wrong hands, which certainly include orcish hands.\nWhile you were gone, one of our patrols met a group of orcs led by Ukruk. We could not stop them, but we managed to capture one of them.\nHe did not know much, but he did speak about \"masters\" in the Far East.\nHe spoke about meeting with Golbug -- this seems to be a warmaster in Reknor -- to send a \"package\" through a portal.\n\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1153,
+        "supplemental_json_utf8_bytes": 2314
+      }
+    },
+    {
+      "audit_id": "V1-081",
+      "source": "The dragon was lying, I can feel it. I have decided to embrace your cause.",
+      "target": "那头巨龙在说谎，我能看出来。我决定支持你的事业。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b28-001",
+        "original_revision_key": "b28-16-slasul",
+        "component": "tome",
+        "section": "mod-tome/data/chats/slasul.lua",
+        "source_sha256": "4c733613f47c9cead8b4739a4360201bbf48cd4fafc7a2d1c5cdff78510ec8a6",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/slasul.lua",
+          "source_artifact_sha256": "bd38b75cbbf665c8468440e1b41bc3064fe659c4b58ddd3f2ce57280b2b407ee",
+          "source_artifact_size_bytes": 5224
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 80,
+            "line_end": 80,
+            "column_start": 7,
+            "matched_span_sha256": "4c733613f47c9cead8b4739a4360201bbf48cd4fafc7a2d1c5cdff78510ec8a6",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 279,
+            "after_utf8_bytes": 688,
+            "visible_context_utf8_bytes": 985,
+            "visible_context_sha256": "d19870663782abd732c4ae070c9cad7589f960074ea595a644cca7c6f067def2",
+            "visible_context": "\t\t\tend\n\t\tend},\n\t}\n}\n\n-----------------------------------------------------------------------\n-- Coming back later\n-----------------------------------------------------------------------\nelse\nnewChat{ id=\"welcome\",\n\ttext = _t[[Thank you for listening to me.]],\n\tanswers = {\n\t\t{_t\"[[SOURCE_MATCH_1]]\", jump=\"cause\", cond=function(npc, player) return player:knowTalent(player.T_LEGACY_OF_THE_NALOREN) and not player:isQuestStatus(\"temple-of-creation\", engine.Quest.COMPLETED, \"legacy-naloren\") end},\n\t\t{_t\"Farewell, Slasul.\"},\n\t\t{_t\"[attack]\", action=attack(_t\"So be it... Die now!\")},\n\t}\n}\n\nnewChat{ id=\"cause\",\n\ttext = _t[[I secretly hoped you would.\nThen let us seal this alliance. Share your lifeforce with me! So long you should live I shall not be killed!\nIn return let me offer you this powerful trident.]],\n\tanswers = {\n\t\t{_t\"I shall accept your offer, my liege.\", action=function(npc, player)\n\t\t\tlocal o = game.zone:makeEntityByName(game.level, \"object\", \"LEGACY_NALOREN\", true)\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 985,
+        "supplemental_json_utf8_bytes": 2142
+      }
+    },
+    {
+      "audit_id": "V1-084",
+      "source": "#YELLOW#BUSY, YOU SAY? I CAN FIX THAT, LIKE ANY GOOD FRIEND WOULD.",
+      "target": "#YELLOW#你说你在忙？我可以帮你搞定，就像任何好朋友会做的那样。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b11-001",
+        "original_revision_key": "b11-11-avatar-distant-sun-unlock",
+        "component": "tome",
+        "section": "mod-tome/data/chats/avatar-distant-sun-unlock.chat",
+        "source_sha256": "dd4d5cd1d885a6597838ba8a2b7c703b84d1098ddb501598cc747f8b9c3f51ed",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/avatar-distant-sun-unlock.chat",
+          "source_artifact_sha256": "f066dd827d78c558b5a1ae698fe63de55e4db19ea1c34e2d678a1dc254f0eff0",
+          "source_artifact_size_bytes": 7463
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 204,
+            "line_end": 204,
+            "column_start": 22,
+            "matched_span_sha256": "dd4d5cd1d885a6597838ba8a2b7c703b84d1098ddb501598cc747f8b9c3f51ed",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 240,
+            "after_utf8_bytes": 353,
+            "visible_context_utf8_bytes": 611,
+            "visible_context_sha256": "1557b40edf1755ff9f2cc5701c6723e349b1e91d94ef98d547f5246003cf9123",
+            "visible_context": "                    }\n                ]\n            }\n        },\n        \"pos_x\": 1431,\n        \"pos_y\": 388\n    },\n    \"31\": {\n        \"id\": 31,\n        \"name\": \"chat\",\n        \"data\": {\n            \"chatid\": \"chat5\",\n            \"chat\": \"[[SOURCE_MATCH_1]]\",\n            \"answer1\": \"Uhh, okay. Sure. Mind showing me?\"\n        },\n        \"class\": \"chat\",\n        \"html\": \"chat1\",\n        \"typenode\": true,\n        \"inputs\": {\n            \"input_1\": {\n                \"connections\": [\n                    {\n                        \"node\": \"29\",\n                        \"input\": \"output_2\"\n                    }\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 611,
+        "supplemental_json_utf8_bytes": 1834
+      }
+    },
+    {
+      "audit_id": "V1-087",
+      "source": "#{bold}#AN EDICT TO ALL CITIZENS OF THE IRON THRONE. LONG MAY OUR EMPIRE ENDURE.#{normal}#\n\nThe rumours you have heard are true. It is with a heavy heart that I confirm one of our mines, Reknor, has been overtaken and inhabited by a large and organised orcish force. How there could be such a decisive and total failure on our part to stop this threat remains a mystery - the source of the orcish invasion remains unknown. A battalion of soldiers will form a defensive perimeter around Reknor until a force to retake the mine and exterminate the orcs can be mustered. All civilians residing within the surrounding halls are to be evacuated.\n\nThis is a grave and unprecedented issue, so I decree an oath of silence to be laid upon all citizens of the Iron Throne, regardless of class and station: NO NEWS OF THIS INVASION MUST REACH FOREIGN EARS. We must maintain an image of stability and strength with the Allied Kingdom, as any signs of weakness or internal strife would be catastrophic to our alliance and future trade agreements. Any citizen found divulging this information to any outside party will be punished with exile. Rest assured, I will personally send messages to those outside the Throne who can be trusted with this information, and I trust this orcish intrusion shall be dealt with swiftly and decisively. So speaks the ruler of the Iron Throne, long may our empire endure.",
+      "target": "#{bold}#致钢铁王座全体市民的布告。愿帝国长存。#{normal}#\n\n你们听到的传言属实。我怀着沉痛之心确认，我们的一处矿井瑞库纳已被一支规模庞大、组织严密的兽人部队占领。我们为何会如此彻底地未能阻止这场威胁，至今仍是个谜——兽人入侵的源头尚不明确。在集结起足以夺回矿井、消灭兽人的部队之前，一个营的士兵将在瑞库纳周围建立防线。所有居住在周边大厅的平民均须撤离。\n\n这是一起严重且前所未有的事件，因此我下令钢铁王座全体市民，无论阶级与地位，皆须立下缄默誓言：绝不能让外国人听到任何入侵消息。我们必须在联合王国面前维持稳定强盛的形象，因为任何软弱或内乱的迹象，都会给我们的联盟和未来贸易协定带来灾难。\n\n任何向外界泄露这一消息的市民都将被放逐。请放心，我会亲自向王座之外可信任的人传递消息；我相信这次兽人入侵会得到迅速而果断的处置。钢铁王座的统治者如是说：愿帝国长存。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b39-001",
+        "original_revision_key": "b39-32-iron-throne",
+        "component": "tome",
+        "section": "mod-tome/data/lore/iron-throne.lua",
+        "source_sha256": "b53ed90f5e393b7e0ab5e744ea80ff7ea0a1eae3e7b76cfc39ca42184020f595",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/lore/iron-throne.lua",
+          "source_artifact_sha256": "3d8c6145a22091dc751a37641c550837a91e2af5cecf7abbaed96d8cec2e3f35",
+          "source_artifact_size_bytes": 12139
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 75,
+            "line_end": 79,
+            "column_start": 13,
+            "matched_span_sha256": "b53ed90f5e393b7e0ab5e744ea80ff7ea0a1eae3e7b76cfc39ca42184020f595",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 1139,
+            "after_utf8_bytes": 357,
+            "visible_context_utf8_bytes": 1514,
+            "visible_context_sha256": "c21807177f811461350be86ab2f755a1069ca753d8f62f88e1028f89a41b66b6",
+            "visible_context": "\tid = \"iron-throne-profits-4\",\n\tcategory = \"iron throne\",\n\tname = _t\"Iron Throne Profits History: Age of Ascendancy\",\n\tlore = _t[[#{bold}#28: #{normal}#Mutual defence treaty signed with newly formed Allied Kingdom, and further trade routes opened. Highest ever recorded profit in final quarter of this year.\n#{bold}#115: #{normal}#Noted a return of an orcish presence in the collapsed caverns beneath the Iron Throne. Also increased reports of horrors and demons affecting mining operations. Key strategic decision taken: these must be kept hidden from the other races. Uncertainty will only destabilise the markets. Increase stockpiles of weapons and armour, especially voratun and stralite materials, in case of new war trade.\n#{bold}#120: #{normal}#Orcish raid has stolen many of our stockpiled weapons. Pressures on mining operations have increased, cutting off key stralite veins. Resource protection measures need increasing, whilst threat must be contained beneath us. Profits are stable, but under heavy threat.]],\n}\n\nnewLore{\n\tid = \"iron-throne-reknor-edict\",\n\tcategory = \"iron throne\",\n\tname = _t\"Iron Throne Edict\",\n\tlore = _t[[[[SOURCE_MATCH_1]]]]\n}\n\nnewLore{\n\tid = \"iron-throne-trade-ledger\",\n\tcategory = \"iron throne\",\n\tname = _t\"Iron Throne trade ledger\",\n\tlore = _t[[#{bold}#IRON THRONE TRADE LEDGER - Allied Kingdom#{normal}#\n#{italic}#Age of Ascendancy, 121#{normal}#\n\n#{bold}#Last Hope - Exports#{normal}#\n      Steel Plate Armour (Human) - 500pcs.\n      Steel Plate Armour (Halfling) - 460pcs.\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1514,
+        "supplemental_json_utf8_bytes": 2673
+      }
+    },
+    {
+      "audit_id": "V1-090",
+      "source": "I am sorry. #LIGHT_GREEN#[Help him]#LAST#",
+      "target": "对不起。 #LIGHT_GREEN#[帮助他]#LAST#",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b17-001",
+        "original_revision_key": "b17-11-keepsake-caravan-destroyed",
+        "component": "tome",
+        "section": "mod-tome/data/chats/keepsake-caravan-destroyed.lua",
+        "source_sha256": "6f344485ad9f3a6960a986fe21c9515d96cf869bf7d69930cc08919c45cd299f",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/keepsake-caravan-destroyed.lua",
+          "source_artifact_sha256": "52754a51f0fe740f429deb3cf46c293e775622f12389c8e5496e76d5bf1589d7",
+          "source_artifact_size_bytes": 1712
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 32,
+            "line_end": 32,
+            "column_start": 7,
+            "matched_span_sha256": "6f344485ad9f3a6960a986fe21c9515d96cf869bf7d69930cc08919c45cd299f",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 484,
+            "after_utf8_bytes": 260,
+            "visible_context_utf8_bytes": 762,
+            "visible_context_sha256": "ab94adabed841368d2c8e1e981f1e1fc6250c8eb3be7b79f12f46e89b49da2bf",
+            "visible_context": "newChat{ id=\"caravan\",\n\ttext = _t[[#VIOLET#*As the last member of the caravan lies dying, you look at him and see the hate that fills his eyes.*#LAST#\nWe should have finished you off that day. You deserved no mercy!]],\n\tanswers = {\n\t\t{\n\t\t\t_t\"And I will show you no mercy. #LIGHT_GREEN#[Kill him]#LAST#\",\n\t\t\taction=function(npc, player)\n\t\t\t\tplayer:hasQuest(\"keepsake\"):on_evil_choice(player)\n\t\t\t\tplayer:hasQuest(\"keepsake\"):on_caravan_destroyed_chat_over(player)\n\t\t\tend\n\t\t},\n\t\t{\n\t\t\t_t\"[[SOURCE_MATCH_1]]\",\n\t\t\taction=function(npc, player)\n\t\t\t\tplayer:hasQuest(\"keepsake\"):on_good_choice(player)\n\t\t\tend,\n\t\t\tjump=\"apology\"\n\t\t},\n\t}\n}\n\nnewChat{ id=\"apology\",\n\ttext = _t[[#VIOLET#*Before you can help him, he collapses to the ground and dies.*#LAST#]],\n\tanswers = {\n\t\t{\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 762,
+        "supplemental_json_utf8_bytes": 1997
+      }
+    },
+    {
+      "audit_id": "V1-093",
+      "source": "Magic has a purpose. Those men are wrong, but you seem much worse.",
+      "target": "魔法自有其用途。那些人固然错了，但你看起来要恶劣得多。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b13-001",
+        "original_revision_key": "b13-18-corruptor-quest",
+        "component": "tome",
+        "section": "mod-tome/data/chats/corruptor-quest.lua",
+        "source_sha256": "2c39c8dea95517801f6d043ab539368d665e7f3315acd0962c0e41da90b8b95f",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/corruptor-quest.lua",
+          "source_artifact_sha256": "845aec9423ce7ea7552ad1f63c6d929c064afd15e32244f80395cfd06a20547c",
+          "source_artifact_size_bytes": 3147
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 50,
+            "line_end": 50,
+            "column_start": 7,
+            "matched_span_sha256": "2c39c8dea95517801f6d043ab539368d665e7f3315acd0962c0e41da90b8b95f",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 724,
+            "after_utf8_bytes": 536,
+            "visible_context_utf8_bytes": 1278,
+            "visible_context_sha256": "dbbc5be57769b28b68f00ce183d048e0a379b35eea39da1de5396179ada925d9",
+            "visible_context": "}\n\nnewChat{ id=\"quest2\",\n\ttext = _t[[Let us end this meaningless fight. Have you ever heard of a group of people called the Ziguranth?\nThese rambling madmen think magic should not be permitted to exist! They fear us; they fear our powers.\nLet us join forces and crush the fools!]],\n\tanswers = {\n\t\t{_t\"Magic shall triumph!\", jump=\"quest3\", action=function(npc, player)\n\t\t\tif npc:isTalentActive(npc.T_DEMON_PLANE) then npc:forceUseTalent(npc.T_DEMON_PLANE, {ignore_energy=true}) end\n\t\t\tif player:isTalentActive(player.T_DEMON_PLANE) then player:forceUseTalent(player.T_DEMON_PLANE, {ignore_energy=true}) end\n\t\t\tif player:hasEffect(player.EFF_DREAMSCAPE) then player:removeEffect(player.EFF_DREAMSCAPE, true) end\n\t\tend},\n\t\t{_t\"[[SOURCE_MATCH_1]]\", quick_reply=_t\"Then you must leave... THIS WORLD! DIE!\"},\n\t}\n}\n\nnewChat{ id=\"quest3\",\n\ttext = _t[[Good. Before your... untimely arrival we were preparing an attack on the Ziguranth main training camp, on the southern beach of the sea of Sash.\nCome with us; let's destroy them!\nI will open a portal to Zigur and the massacre shall begin!]],\n\tanswers = {\n\t\t{_t\"I am ready!\", action=function(npc, player)\n\t\t\tif game.zone.short_name ~= \"mark-spellblaze\" then return \"quest3\" end\n\t\t\tnpc:disappear()\n\t\t\tplayer:grantQuest(\"anti-antimagic\")\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1278,
+        "supplemental_json_utf8_bytes": 2469
+      }
+    },
+    {
+      "audit_id": "V1-096",
+      "source": "I do not know yet, my father won't let me out until I'm fully healed. I've always wanted to do so many things.\nThat is why I got stuck in that crypt, I want to see the world.\nMy father gave me some funds so that I can take my future into my own hands. I have some friends in Derth, maybe I will open my own little shop there. ",
+      "target": "我现在还不知道，在我完全康复之前我父亲都不准我出门。我一直想做很多事情。\n这也是为什么我会被困在那个地穴里，我想去看看外面的世界。\n我父亲给了我一笔钱，让我能够自己把握未来。我在德斯镇有几个朋友，也许我会在那里开一家属于自己的小店。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b19-001",
+        "original_revision_key": "b19-25-last-hope-melinda-father",
+        "component": "tome",
+        "section": "mod-tome/data/chats/last-hope-melinda-father.lua",
+        "source_sha256": "6ea53beeb8a8c5987fbf09d72597170bb45f991850a56cd4a7b3281a83c56af4",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/last-hope-melinda-father.lua",
+          "source_artifact_sha256": "0fad4d21805c32e1de2a9c7662d21297a4b366eaee2404afa750fec2978b1c5c",
+          "source_artifact_size_bytes": 9668
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 118,
+            "line_end": 120,
+            "column_start": 13,
+            "matched_span_sha256": "f11ebed5b76d50390e3def6abc06a8628840f8e0f4e979939fef26e230a7a412",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 593,
+            "after_utf8_bytes": 1230,
+            "visible_context_utf8_bytes": 1841,
+            "visible_context_sha256": "c367865938919dfe179e7e5910ad09c64b1bdeb91bbdd0bd51649ed3212b9128",
+            "visible_context": "\ttext = _t[[#LIGHT_GREEN#*Melinda appears at the door and kisses you*#WHITE#\nHi my dear, I'm so happy to see you!]],\n\tanswers = {\n\t\t{_t\"I am still looking out for an explanation of what happened at the beach.\"},\n\t\t{_t\"About what happened on the beach, I think I have found something.\", jump=\"home1\", cond=function() return ql:isStatus(engine.Quest.COMPLETED, \"can_come_fortress\") end},\n\t}\n}\n\nlocal p = game:getPlayer(true)\nlocal is_am = p:attr(\"forbid_arcane\")\nlocal is_mage = (p.faction == \"angolwen\") or p:isQuestStatus(\"mage-apprentice\", engine.Quest.DONE)\nnewChat{ id=\"plans\",\n\ttext = _t[[[[SOURCE_MATCH_1]] ]]..(\nis_am and\n\t_t[[I have seen how you fought those corruptors, the way you destroyed their magic. I want to learn to do the same, so that such horrors never happen again. To anyone.]]\nor (is_mage and\n\t_t[[Or maybe, well I suppose I can trust you with this, I've always secretly dreamed of learning magic. Real magic I mean not alchemist tricks!\nI've learnt about a secret place, Angolwen, where I could learn it.]]\nor [[]])),\n\tanswers = (not is_am and not is_mage) and {\n\t\t{_t\"Derth has its up and downs but I think they could do with a smart girl yes.\", action=function() ql.wants_to = \"derth\" end, quick_reply=_t\"Thanks!\"},\n\t} or {\n\t\t{_t\"Derth has its up and downs but I think they could do with a smart girl yes.\", action=function() ql.wants_to = \"derth\" end, quick_reply=_t\"Thanks!\"},\n\t\t{_t\"You wish to join our noble crusade against magic? Wonderful! I will talk to them for you.\", action=function() ql.wants_to = \"antimagic\" end, cond=function() return is_am end, quick_reply=_t\"That would be very nice!\"},\n\t\t{_t\"I happen to be welcome among the people of Angolwen, I could say a word for you.\", action=function() ql.wants_to = \"magic\" end, cond=function() return is_mage end, quick_reply=_t\"That would be very nice!\"},\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1841,
+        "supplemental_json_utf8_bytes": 3072
+      }
+    },
+    {
+      "audit_id": "V1-099",
+      "source": "I cannot aid you at this time.",
+      "target": "我现在没空帮你。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b8-001",
+        "original_revision_key": "alchemist-b8-14-alchemist-derth",
+        "component": "tome",
+        "section": "mod-tome/data/chats/alchemist-derth.lua",
+        "source_sha256": "7f953e4738a085aa51ba8f351366c63d87ad0d15846a12a6dcda57f965e9e6a0",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/alchemist-derth.lua",
+          "source_artifact_sha256": "c5165a2eb8eec5078adb663a0aa908af23a75ef35cb35044fc69e50516b394f4",
+          "source_artifact_size_bytes": 23778
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 156,
+            "line_end": 156,
+            "column_start": 7,
+            "matched_span_sha256": "7f953e4738a085aa51ba8f351366c63d87ad0d15846a12a6dcda57f965e9e6a0",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 1416,
+            "after_utf8_bytes": 977,
+            "visible_context_utf8_bytes": 2411,
+            "visible_context_sha256": "06f2a6303e602c8635e461c0e08c354a694bf693bf92b1443374446923eb9df0",
+            "visible_context": "\nnewChat{ id=\"help\",\n\ttext = _t[[I require ingredients for three potent mixtures. Obviously, since I seek your aid, none of them is to be found by simply strolling to the local herbalist's. No, they will need to be forcibly parted from their owners who will, just as obviously, put up a fight. I've yet to encounter a naga who would be persuaded to hand over his tongue! Ha! Oh, I am droll at times.]],\n\tanswers = {\n\t\t{_t\"I specialize in separating vital body parts from monsters. What do you offer in return?\", jump=\"competition\"},\n\t}\n}\n\nnewChat{ id=\"competition\",\n\ttext = _t[[Why, I will let you share in the fruits of my labors! Each of the three mixtures I shall produce in a quantity sufficient to create three doses: one for me, one for the Brotherhood and their confounded trial... and one for you. I must tell you that time is of the essence. I am not the only one who the Brotherhood invited this year, yet they will accept only one applicant-- the first to complete their trials. I know of at least three others laboring furiously to take my rightful place. Should your aid see me through, then I will reward you beyond even the remarkable elixirs. I've an ancient Lifebinding Emerald that grants great powers of health and healing when used properly. What say you?]],\n\tanswers = {\n\t\t{_t\"I accept.\", jump=\"choice\", action = function(npc, player) player:grantQuest(\"brotherhood-of-alchemists\") end,},\n\t\t{_t\"[[SOURCE_MATCH_1]]\"},\n\t}\n}\n\nnewChat{ id=\"choice\",\n\ttext = _t[[Excellent. Now then, I've three elixirs I'm working on. I'll burden you with only one at a time, since I've learned the hard way about the hazards of overloading an adventurer's brain. Here are your options: the elixir of the fox, which makes you as nimble and cunning as a fox; the elixir of avoidance, which sharpens your natural inclinations to get out of the way of incoming harm; or the elixir of precision, which grants intuitive understanding of an enemy's most sensitive spots. Which would you like to aid me with?]],\n\tanswers = {\n\t\t{(\"The %s.\"):tformat(_t(e[1].name)), jump=\"list\",\n\t\t\tcond = function(npc, player) return not game.player:hasQuest(\"brotherhood-of-alchemists\"):isCompleted(e[1].full) end,\n\t\t\taction = function(npc, player)\n\t\t\t\tplayer:setQuestStatus(\"brotherhood-of-alchemists\", engine.Quest.COMPLETED, e[1].start)\n\t\t\t\tgame.player:hasQuest(\"brotherhood-of-alchemists\"):update_needed_ingredients(player)\n\t\t\tend,\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 2411,
+        "supplemental_json_utf8_bytes": 3624
+      }
+    },
+    {
+      "audit_id": "V1-102",
+      "source": "Hold on! You... You're that apprentice mage I met in the wilds!",
+      "target": "打住！你……你不就是那个荒野之中的法师学徒么？",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b31-001",
+        "original_revision_key": "b31-03-tarelion",
+        "component": "tome",
+        "section": "mod-tome/data/chats/tarelion.lua",
+        "source_sha256": "afb4bf31dbed546a6c4c234660d479386bf75cd5fbecb86c7bf12e601d8623fb",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/tarelion.lua",
+          "source_artifact_sha256": "d5c4a08a7af269927cfc8412d57e2196633d7a78915a97b91f17648c91718557",
+          "source_artifact_size_bytes": 1953
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 25,
+            "line_end": 25,
+            "column_start": 7,
+            "matched_span_sha256": "afb4bf31dbed546a6c4c234660d479386bf75cd5fbecb86c7bf12e601d8623fb",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 705,
+            "after_utf8_bytes": 607,
+            "visible_context_utf8_bytes": 1330,
+            "visible_context_sha256": "7b65c6f22c20009d8e594e59f44cc7eece881a687950aea8b36f3f5566d3c03d",
+            "visible_context": "--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[I say, you there. Yes, you, young one!\nYou seem like the adventuring fare, up to all sorts of doo-daddle in the outside world, I imagine. Well, don't forget to pay patronage to our good library here in the city. The riches of the world are all well and good, but where would we be without the gift of knowledge? And all proceeds go towards the funding of further research. No greater cause, yes?]],\n\tanswers = {\n\t\t{_t\"Uh, yes, of course... I'll be moving on now.\"},\n\t\t{_t\"[[SOURCE_MATCH_1]]\", cond=function(npc, player) return player:isQuestStatus(\"mage-apprentice\", engine.Quest.DONE) and player:getCun() >= 35 end, jump=\"apprentice\"},\n\t}\n}\n\nnewChat{ id=\"apprentice\",\n\ttext = _t[[Why, well-spotted, whippersnapper! Indeed, when the mood takes me I sometimes travel under the guise of an apprentice. It permits me to traverse the land unnoticed in my research, and if I meet any I deem worthy and sympathetic to Angolwen's cause, then so much the better. And it does provide the odd chortle, I tell you!]],\n\tanswers = {\n\t\t{_t\"Uh, yes, of course... I'll be moving on now.\"},\n\t}\n}\n\nreturn \"welcome\"\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1330,
+        "supplemental_json_utf8_bytes": 2478
+      }
+    },
+    {
+      "audit_id": "V1-105",
+      "source": "I heard some cries, and your men... they were in my way. What's going on here?",
+      "target": "我听到了呼喊声，而你的人……挡了我的路。这里发生了什么事？",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b10-001",
+        "original_revision_key": "b10-18-assassin-lord",
+        "component": "tome",
+        "section": "mod-tome/data/chats/assassin-lord.lua",
+        "source_sha256": "720492da808a3b11f24b378b19464b01eaeb9351be5902d14d8aa2ebc8d72268",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/assassin-lord.lua",
+          "source_artifact_sha256": "921909aa7e5498180ced64ff006760d24282e8029d3bfb1f46f9f556d722b676",
+          "source_artifact_size_bytes": 4198
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 56,
+            "line_end": 56,
+            "column_start": 7,
+            "matched_span_sha256": "720492da808a3b11f24b378b19464b01eaeb9351be5902d14d8aa2ebc8d72268",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 471,
+            "after_utf8_bytes": 431,
+            "visible_context_utf8_bytes": 920,
+            "visible_context_sha256": "13fd89b30954dc46531c3af7ab75825a243ef4129cd90ab1de7dee38295e4599",
+            "visible_context": "\tgame.log(\"As you depart the assassin lord says: 'And do not forget, I own you now.'\")\nend\n\nlocal function do_attack(npc, player)\n\tengine.Faction:setFactionReaction(player.faction, npc.faction, -100, true)\n\tif npc.on_takehit then npc:on_takehit() end\nend\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[#LIGHT_GREEN#*Before you stands a menacing man clothed in black.*#WHITE#\nAhh, the intruder at last... And what shall we do with you? Why did you kill my men?]],\n\tanswers = {\n\t\t{_t\"[[SOURCE_MATCH_1]]\", jump=\"what\"},\n\t\t{_t\"I thought there might be some treasure to be had around here.\", jump=\"greed\"},\n\t\t{_t(\"Sorry, I have to go!\", \"chat_assassin-lord\"), jump=\"hostile\"},\n\t}\n}\n\nnewChat{ id=\"hostile\",\n\ttext = _t[[Oh, you are not going anywhere, I'm afraid! KILL!]],\n\tanswers = {\n\t\t{_t\"[attack]\", action=do_attack},\n\t\t{_t\"Wait! Maybe we could work out some kind of arrangement; you seem to be a practical man.\", jump=\"offer\"},\n\t}\n}\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 920,
+        "supplemental_json_utf8_bytes": 2097
+      }
+    },
+    {
+      "audit_id": "V1-108",
+      "source": "#LIGHT_GREEN#[Pretend to help but when it is time you will use a technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#\nLead on; I will protect you.",
+      "target": "#LIGHT_GREEN#[假装提供帮助，但等到时机成熟，你将使用技巧让传送门失效。@npcname@ 将被送往伊格得到“妥善”处置。]#WHITE#\n带路吧，我会保护你的。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b15-001",
+        "original_revision_key": "b15-05-escort-quest-start",
+        "component": "tome",
+        "section": "mod-tome/data/chats/escort-quest-start.lua",
+        "source_sha256": "8cdb6453ba71cd69461681f963347b76ada11494b0ebbb621bf6038ed735d1ca",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/escort-quest-start.lua",
+          "source_artifact_sha256": "a30c280a5e491a583654a6f7483b18f56ef4e60029bde39314a84a7cdd6b0bdc",
+          "source_artifact_size_bytes": 3513
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 64,
+            "line_end": 64,
+            "column_start": 7,
+            "matched_span_sha256": "912c17aa68c155148694196f19f5fdda0001a5f5512b17bee6f9adfd3417ad4d",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 295,
+            "after_utf8_bytes": 408,
+            "visible_context_utf8_bytes": 721,
+            "visible_context_sha256": "83953ad78952431676a42085440f4a4bf11c9de41097a9aa766c919603822c8e",
+            "visible_context": "\ttext = text,\n\tanswers =\n\t{\n\t\t{_t\"Lead on; I will protect you.\", action=function(npc, player)\n\t\t\tnpc.ai_state.tactic_leash = 100\n\t\t\tgame.party:addMember(npc, {\n\t\t\t\tcontrol=\"order\",\n\t\t\t\ttype=\"escort\",\n\t\t\t\ttitle=_t\"Escort\",\n\t\t\t\torders = {escort_portal=true, escort_rest=true},\n\t\t\t})\n\t\tend},\n\t\t{_t\"[[SOURCE_MATCH_1]]\", action=function(npc, player)\n\t\t\tplayer:hasQuest(npc.quest_id).to_zigur = true\n\t\t\tnpc.ai_state.tactic_leash = 100\n\t\t\tgame.party:addMember(npc, {\n\t\t\t\tcontrol=\"order\",\n\t\t\t\ttype=\"escort\",\n\t\t\t\ttitle=_t\"Escort\",\n\t\t\t\torders = {escort_portal=true, escort_rest=true},\n\t\t\t})\n\t\tend},\n\t\t{_t\"Go away; I do not care for the weak.\", action=function(npc, player)\n\t\t\tgame.player:registerEscorts(\"lost\")\n\t\t\tnpc:disappear()\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 721,
+        "supplemental_json_utf8_bytes": 1960
+      }
+    },
+    {
+      "audit_id": "V1-111",
+      "source": "The Way is enlightenment, peace and protection. I am a Yeek. I came through this tunnel to explore this part of the world that was closed to us for centuries.",
+      "target": "维网是启迪、和平和守护，我是一个夺心魔。我穿过隧道，希望探索这个已经与我们隔绝了数个世纪的地方。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b33-001",
+        "original_revision_key": "b33-23-yeek-wayist",
+        "component": "tome",
+        "section": "mod-tome/data/chats/yeek-wayist.lua",
+        "source_sha256": "b5dfd4bfec253fc2962928e4ce768c4cc8035d36baef4914fbf9b4ab4ef145f4",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/yeek-wayist.lua",
+          "source_artifact_sha256": "a692af699b26f2e6587bbbad4ffe7becb6be6dbaec4cb2e4c589090beb412e3d",
+          "source_artifact_size_bytes": 3639
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 43,
+            "line_end": 43,
+            "column_start": 13,
+            "matched_span_sha256": "b5dfd4bfec253fc2962928e4ce768c4cc8035d36baef4914fbf9b4ab4ef145f4",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 287,
+            "after_utf8_bytes": 529,
+            "visible_context_utf8_bytes": 834,
+            "visible_context_sha256": "13242e8ce73699087bfe9b3ccb9f737129de2e30890dcc82ee51ba96222c2ee4",
+            "visible_context": "\t}\n}\n\nnewChat{ id=\"kindness\",\n\ttext = _t[[#LIGHT_GREEN#*The greatsword floats to a less aggressive stance. He seems surprised.*#WHITE#\nThen, on behalf of the Way, I thank you.]],\n\tanswers = {\n\t\t{_t\"What is the Way, and what are you?\", jump=\"what\"},\n\t}\n}\n\nnewChat{ id=\"what\",\n\ttext = _t[[[[SOURCE_MATCH_1]]]],\n\tanswers = {\n\t\t{_t\"Can you tell me more about the Way?\", jump=\"way\", action=function(npc, player)\n\t\t\tgame.party:reward(_t\"Select the party member to receive the mental shield:\", function(player)\n\t\t\t\tplayer.combat_mentalresist = player.combat_mentalresist + 15\n\t\t\t\tplayer:attr(\"confusion_immune\", 0.10)\n\t\t\tend)\n\t\t\tgame.logPlayer(player, \"The contact with the Wayist mind has improved your mental shields. (+15 mental save, +10%% confusion resistance)\")\n\t\tend},\n--\t\t{_t\"So you will wander the land alone?\", jump=\"done\"},\n\t}\n}\n\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 834,
+        "supplemental_json_utf8_bytes": 2015
+      }
+    },
+    {
+      "audit_id": "V1-114",
+      "source": "Please get me out of here!",
+      "target": "请带我离开这儿！",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b22-001",
+        "original_revision_key": "b22-03-lost-merchant",
+        "component": "tome",
+        "section": "mod-tome/data/chats/lost-merchant.lua",
+        "source_sha256": "b18fe5557596cf04365e214f7f369d791fb765ffcbd0d2fc0abf5774254a0406",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/lost-merchant.lua",
+          "source_artifact_sha256": "69c0afc04ff5e4c7f4d241086ac0c320b19f549f22afa546559f4ce39ce6b58a",
+          "source_artifact_size_bytes": 1413
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 29,
+            "line_end": 29,
+            "column_start": 13,
+            "matched_span_sha256": "b18fe5557596cf04365e214f7f369d791fb765ffcbd0d2fc0abf5774254a0406",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 11,
+            "before_utf8_bytes": 370,
+            "after_utf8_bytes": 291,
+            "visible_context_utf8_bytes": 679,
+            "visible_context_sha256": "306efdba3ebce3090947de6b68fdede1257c3045b4bf22b847365c3191e313f3",
+            "visible_context": "-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[Please save me! I will make it worth your whi..\n*#LIGHT_GREEN#The assassin lord hits him in the face.#WHITE#*Shut up!]],\n\tanswers = {\n\t\t{_t(\"Sorry, I have to go!\", \"chat_lost-merchant\"), action = function(npc, player) npc.can_talk = nil end},\n\t}\n}\n\nnewChat{ id=\"welcome2\",\n\ttext = _t[[[[SOURCE_MATCH_1]]]],\n\tanswers = {\n\t\t{_t\"Come, there is a way out!\", action = function(npc, player) npc.can_talk = nil npc.cant_be_moved = nil end},\n\t}\n}\n\nif game.player:hasQuest(\"lost-merchant\") and game.player:hasQuest(\"lost-merchant\"):is_assassin_alive() then\n\treturn \"welcome\"\nelse\n\treturn \"welcome2\"\nend\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 679,
+        "supplemental_json_utf8_bytes": 1842
+      }
+    },
+    {
+      "audit_id": "V1-117",
+      "source": "\n\n#{italic}##LIGHT_GREEN#*As you drink the potion, your runes start to burn as they fade away, and a terrible agony seems to sink through your skin to your bones, muscles, and heart.  You black out from the pain, and come to a bit later, the runes gone forever.  You feel very ill, and yet...  cleansed.*#{normal}##WHITE#",
+      "target": "\n\n#{italic}##LIGHT_GREEN#*当你饮下药剂，身上的符文在逐渐消逝时灼烧起来，一股可怕的剧痛仿佛穿透你的肌肤，深嵌进骨骼、肌肉与心脏。你在剧痛中昏厥过去，稍后苏醒时，符文已永远消失。你感到极度虚弱不适，然而……却又感到被洗涤净化。*#{normal}##WHITE#",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b9-001",
+        "original_revision_key": "b9-27-antimagic-end",
+        "component": "tome",
+        "section": "mod-tome/data/chats/antimagic-end.lua",
+        "source_sha256": "017d0745964f0302f909e64a74420bb107bcb77fc3dc6a4b1443af84a622b49b",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/antimagic-end.lua",
+          "source_artifact_sha256": "55f3de70baddebf1f380f5cb56da8f09262137085ff30fba4553fd42455876d2",
+          "source_artifact_size_bytes": 1818
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 22,
+            "line_end": 22,
+            "column_start": 20,
+            "matched_span_sha256": "12b4874f2fde2537b0571b0db2b24e11723ae3abcb26bfa69c5421a911ef8426",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 482,
+            "after_utf8_bytes": 618,
+            "visible_context_utf8_bytes": 1118,
+            "visible_context_sha256": "5eaa644bfa422b7f190b79d7f6806fdad964c3c4c9d16cea4f780297b41e393f",
+            "visible_context": "-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nlocal ogretext = \"\"\nif player.descriptor and player.descriptor.subrace == \"Ogre\" then\n\togretext = _t\"\\n\\n[[SOURCE_MATCH_1]]\"\nend\n\nnewChat{ id=\"welcome\",\n\ttext = ([[Excellent! You truly prove that no mage-wrought flame or storm can stand against blade and arrow! Come, learn our ways. You are ready.\n#LIGHT_GREEN#*he gives you a potion.*#WHITE#\nDrink this. We extract it from a very rare kind of drake. It will grant you powers to fight and cancel magic, but never again will you be able to use magic.%s]]):tformat(ogretext),\n\tanswers = {\n\t\t{_t\"Thank you. I shall not let magic triumph! #LIGHT_GREEN#[you drink the potion]\", action=function(npc, player) player:setQuestStatus(\"antimagic\", engine.Quest.COMPLETED) end},\n\t}\n}\n\nreturn \"welcome\"\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1118,
+        "supplemental_json_utf8_bytes": 2275
+      }
+    },
+    {
+      "audit_id": "V1-120",
+      "source": "It was my pleasure. But may I ask a favor myself? I am not from these lands. I used a farportal guarded by orcs deep below the Iron Throne and was brought here.",
+      "target": "我的荣幸，不过我有个请求。我其实不是这个大陆的人，使用了钢铁王座地下深处，被兽人保护的远古传送门，然后就到了这里。",
+      "source_evidence": {
+        "task_id": "p2-tome-texts-b32-001",
+        "original_revision_key": "b32-44-unremarkable-cave-fillarel",
+        "component": "tome",
+        "section": "mod-tome/data/chats/unremarkable-cave-fillarel.lua",
+        "source_sha256": "10f4f73349e51e5d1c93c707c9bd80d8bb958ef906b95e84ebb2fbd7688fe8ec",
+        "source_binding": {
+          "kind": "git_commit_blob",
+          "component": "tome",
+          "repository_alias": "t-engine4",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "relative_path": "game/modules/tome/data/chats/unremarkable-cave-fillarel.lua",
+          "source_artifact_sha256": "17d5b312a53170f1d0e47d1cd4617f2b7e8c5f58b0644ce0738889e27eefb062",
+          "source_artifact_size_bytes": 2720
+        },
+        "source_occurrences": 1,
+        "occurrences": [
+          {
+            "occurrence_ordinal": 1,
+            "line_start": 32,
+            "line_end": 32,
+            "column_start": 7,
+            "matched_span_sha256": "10f4f73349e51e5d1c93c707c9bd80d8bb958ef906b95e84ebb2fbd7688fe8ec",
+            "marker": "[[SOURCE_MATCH_1]]",
+            "lines_before": 12,
+            "lines_after": 12,
+            "before_utf8_bytes": 800,
+            "after_utf8_bytes": 653,
+            "visible_context_utf8_bytes": 1471,
+            "visible_context_sha256": "ceb27c1ce17014cff2287df4fc8bc4902c31de3ec79b988267d3fb863f2c61a2",
+            "visible_context": "newChat{ id=\"welcome\",\n\ttext = _t[[Thank you, @playername@. I hate to admit it, but you saved my life.]],\n\tanswers = {\n\t\t{_t\"At your service. But may I ask what you were doing in this dark place?\", jump=\"what\", cond=function(npc, player) return not player:hasQuest(\"start-sunwall\") end},\n\t\t{_t\"At your service. I have been gone for months, but I can feel it, at last this is my homeland!\", jump=\"back\", cond=function(npc, player) return player:hasQuest(\"start-sunwall\") end},\n\t}\n}\n\nnewChat{ id=\"what\",\n\ttext = _t[[I am an Anorithil, a mage of the Sun and Moons; we fight all that is evil. I was with a group of Sun Paladins; we came from the Gates of Morning to the east.\nMy companions were... were slaughtered by orcs, and I nearly died as well. Thank you again for your help.]],\n\tanswers = {\n\t\t{_t\"[[SOURCE_MATCH_1]]\", action=function(npc, player) game:setAllowedBuild(\"divine\") game:setAllowedBuild(\"divine_anorithil\", true) end, jump=\"sunwall\"},\n\t}\n}\n\nnewChat{ id=\"sunwall\",\n\ttext = _t[[Yes, I noticed you were not from here. Your only hope is the Gates of Morning, the last bastion of freedom in this orc territory. When you leave the caves, head southeast; you cannot miss it.\nTell High Sun Paladin Aeryn that you met me. I'll send word to let you pass.]],\n\tanswers = {\n\t\t{_t\"Thank you, I will talk with Aeryn.\", action=function(npc, player) game.player:setQuestStatus(\"strange-new-world\", engine.Quest.COMPLETED, \"helped-fillarel\") end},\n\t}\n}\n\nnewChat{ id=\"back\",\n"
+          }
+        ],
+        "combined_visible_context_utf8_bytes": 1471,
+        "supplemental_json_utf8_bytes": 2695
+      }
+    }
+  ]
+}
