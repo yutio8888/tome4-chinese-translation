@@ -1,0 +1,361 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-fireburn-scalar-default-b1-001",
+  "kind": "fireburn_scalar_default_bounded_translation_verification",
+  "frozen_workset": {
+    "path": "evidence/quality/p2-batches/p2-tome-fireburn-scalar-default-b1-workset.json",
+    "sha256": "a40cfcc721acd37433d9573481e6963d6412250e9d29161b85bf0abd1263bb73",
+    "immutable": true
+  },
+  "inventory_binding": {
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "commit": "a68cbede82a5f0ab112451a4ccc41fadc05948cd",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "reference_ids": [
+      "fireburn-ref-027",
+      "fireburn-ref-029",
+      "fireburn-ref-031",
+      "fireburn-ref-032",
+      "fireburn-ref-033"
+    ],
+    "risk_class": "appears_consistent"
+  },
+  "translation_baseline": {
+    "head": "abf719c4586ea9116f9e15abaed4266559ec65eb",
+    "path": "mod-tome.lua",
+    "baseline_sha256": "ced263664a489558878dd0716768d6dfdaee7a51d98b4b845bf8edd65d88e9ae",
+    "current_sha256": "df873495893589a414ff6bf48d676b9232a85a702bed61bc03d733c86531f2b4",
+    "byte_identical_to_baseline": false,
+    "production_targets_changed": 1
+  },
+  "section_freeze_bindings": [
+    {
+      "section": "mod-tome/data/talents/misc/npcs.lua",
+      "context_id": "0213c85933fed897a1d451daa0826979b5a7dd89435950f079a52aaf4eadf3cf",
+      "content_sha256": "526cc631b9048c7f0dd049d8b65cc0bad8d5f1eabf79852a6effef9fc036e11c",
+      "selected": 291,
+      "available": 291,
+      "complete": true
+    },
+    {
+      "section": "mod-tome/data/talents/psionic/projection.lua",
+      "context_id": "8b6c98a6f2c7417afd879921154db1b6a2867c8ca4c859fd0519b455508f3487",
+      "content_sha256": "b5ed810f6a03681d2a8932688c5c22b0272da7511c2050ec604710ad78cfe4c8",
+      "selected": 10,
+      "available": 10,
+      "complete": true
+    },
+    {
+      "section": "mod-tome/data/talents/spells/fire.lua",
+      "context_id": "f35967172a2bdcd984aed06a9df2993507b21b6cbea16c38f6d1648fc5fdeb6b",
+      "content_sha256": "ff0f4f325b0b6d28202dd6781c39602338a286c37167eab7f3f61aa19d85ca3d",
+      "selected": 8,
+      "available": 8,
+      "complete": true
+    }
+  ],
+  "translation_revisions": [
+    {
+      "revision_key": "flame-bolt-info",
+      "reference_ids": ["fireburn-ref-027"],
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/misc/npcs.lua",
+      "baseline_line": 26313,
+      "entry_id": "f6a81596498f2f6c2e7cd736183f7a7e7019be278ead14f31efa61e847943af1",
+      "decision": "adequate_no_change",
+      "before": {
+        "source": "Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.\n\t\tThe damage will increase with your Spellpower.",
+        "target": "召唤一枚火焰箭，点燃目标，并在 3 回合内造成 %0.2f 火焰伤害。\n\t\t伤害受法术强度加成。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.2f"],
+        "newline_count": 1
+      },
+      "after": {
+        "source": "Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.\n\t\tThe damage will increase with your Spellpower.",
+        "target": "召唤一枚火焰箭，点燃目标，并在 3 回合内造成 %0.2f 火焰伤害。\n\t\t伤害受法术强度加成。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.2f"],
+        "newline_count": 1
+      },
+      "adjudication": "The target presents %0.2f as the total fire damage occurring within three turns and does not describe it as damage per turn."
+    },
+    {
+      "revision_key": "thermal-aura-info",
+      "reference_ids": ["fireburn-ref-029"],
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/psionic/projection.lua",
+      "baseline_line": 27693,
+      "entry_id": "57e494e8b4c56ee2b6b21b62d805813892bc60d6fd0ef6cdb5667c78c72e3b77",
+      "decision": "repaired",
+      "before": {
+        "source": "Fills the air around you with reactive currents of furnace-like heat.\n\t\tIf you have a gem or mindstar in your psionically wielded slot, this will do %0.1f Fire damage to all adjacent enemies, costing %0.1f energy per creature. \n\t\tIf you have a conventional weapon in your psionically wielded slot, this will add %0.1f Fire damage to all your weapon hits, costing %0.1f energy per hit.\n\t\tWhen deactivated, if you have at least %d energy, a massive spike of thermal energy is released as a conical blast (radius %d) of superheated air. Anybody caught in it will suffer up to %d fire damage over several turns.\n\t\t#{bold}#Activating the aura takes no time but de-activating it does.#{normal}#\n\t\tTo turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.\n\t\tYou can only have two of these auras active at once.",
+        "target": "将你周围的空气充满火炉般的热量。\n\t\t如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有接近的目标造成 %0.1f 的火焰伤害，每个生物消耗 %0.1f 能量。\n\t\t如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的火焰伤害，每次攻击消耗 %0.1f 能量。\n\t\t当关闭该技能时，如果你拥有最少 %d 点能量，巨大的热能会释放为一个范围为 %d 的锥形冲击。范围内的任意目标在数轮中受到高达 %d 的火焰伤害。\n\t\t#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#\n\t\t如果要关闭光环且不发射射线，关闭它并选择你自己为目标。伤害随着精神强度而增长。\n\t\t你同时只能激活两种此类光环。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.1f", "%0.1f", "%0.1f", "%0.1f", "%d", "%d", "%d"],
+        "newline_count": 6
+      },
+      "after": {
+        "source": "Fills the air around you with reactive currents of furnace-like heat.\n\t\tIf you have a gem or mindstar in your psionically wielded slot, this will do %0.1f Fire damage to all adjacent enemies, costing %0.1f energy per creature. \n\t\tIf you have a conventional weapon in your psionically wielded slot, this will add %0.1f Fire damage to all your weapon hits, costing %0.1f energy per hit.\n\t\tWhen deactivated, if you have at least %d energy, a massive spike of thermal energy is released as a conical blast (radius %d) of superheated air. Anybody caught in it will suffer up to %d fire damage over several turns.\n\t\t#{bold}#Activating the aura takes no time but de-activating it does.#{normal}#\n\t\tTo turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.\n\t\tYou can only have two of these auras active at once.",
+        "target": "将你周围的空气充满火炉般的热量。\n\t\t如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有相邻的敌人造成 %0.1f 的火焰伤害，每个生物消耗 %0.1f 能量。\n\t\t如果你的灵能武器槽佩戴的是武器，每次武器命中时附加 %0.1f 的火焰伤害，每次命中消耗 %0.1f 能量。\n\t\t当关闭该技能时，如果你拥有最少 %d 点能量，巨大的热能会释放为一个半径为 %d 的锥形冲击。范围内的任意目标在数轮中受到高达 %d 的火焰伤害。\n\t\t#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#\n\t\t若要关闭光环而不释放热能冲击，请在关闭时以自己为目标。伤害随着精神强度而增长。\n\t\t你同时只能激活两种此类光环。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.1f", "%0.1f", "%0.1f", "%0.1f", "%d", "%d", "%d"],
+        "newline_count": 6
+      },
+      "adjudication": "Repaired CTX-R0-001, CTX-R0-002, CTX-R1-001, CTX-R2-001, and CTX-R2-002: the target explicitly limits the normal aura effect to adjacent enemies, describes self-targeted deactivation as suppressing the thermal-energy spike, binds the added fire damage and energy cost to each successful weapon hit, and identifies %d as the cone radius. CTX-R1-002 remains advisory/no-change: the Chinese retains the English surface wording '最少 %d 点能量'. The upper-bound total-over-several-turns wording remains unchanged."
+    },
+    {
+      "revision_key": "flame-info",
+      "reference_ids": ["fireburn-ref-031", "fireburn-ref-032", "fireburn-ref-033"],
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/spells/fire.lua",
+      "baseline_line": 28866,
+      "entry_id": "cc291fec199624f6e6e808cc0acc5536c76b6885d2f704b40ee4639faa9d8ec5",
+      "decision": "adequate_no_change",
+      "before": {
+        "source": "Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.\n\t\tAt level 5, it will create a beam of flames.\n\t\tThe damage will increase with your Spellpower.",
+        "target": "制造一个火球，使目标进入灼烧状态并在 3 回合内造成 %0.2f 火焰伤害。\n\t\t在等级 5 时，火焰会有穿透效果。\n\t\t伤害受法术强度加成。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.2f"],
+        "newline_count": 2
+      },
+      "after": {
+        "source": "Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.\n\t\tAt level 5, it will create a beam of flames.\n\t\tThe damage will increase with your Spellpower.",
+        "target": "制造一个火球，使目标进入灼烧状态并在 3 回合内造成 %0.2f 火焰伤害。\n\t\t在等级 5 时，火焰会有穿透效果。\n\t\t伤害受法术强度加成。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.2f"],
+        "newline_count": 2
+      },
+      "adjudication": "The target presents %0.2f as total damage within three turns and accurately exposes the level-5 change from a stopping bolt to a penetrating beam."
+    }
+  ],
+  "fixed_source": {
+    "component": "tome",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_pinned": true,
+    "files": [
+      {
+        "path": "game/modules/tome/data/talents/misc/npcs.lua",
+        "sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+        "symbol": "Flame Bolt",
+        "runtime_line": 608,
+        "runtime_scalar_expression": "self:spellCrit(t.getDamage(self, t))",
+        "runtime_expression": "self:projectile(tg, x, y, DamageType.FIREBURN, self:spellCrit(t.getDamage(self, t)), callback)",
+        "tooltip_expression": "damDesc(self, DamageType.FIRE, t.getDamage(self, t))"
+      },
+      {
+        "path": "game/modules/tome/data/talents/psionic/projection.lua",
+        "sha256": "cad1b014a59af12f9ee250b02417cf27b2a67368601d2042a0eedcd3997587c3",
+        "symbol": "Thermal Aura",
+        "runtime_line": 359,
+        "runtime_scalar_expression": "self:mindCrit(rng.avg(0.8*dam, dam))",
+        "runtime_expression": "self:project(tg, x, y, DamageType.FIREBURN, self:mindCrit(rng.avg(0.8*dam, dam)))",
+        "tooltip_expression": "damDesc(self, DamageType.FIRE, t.getAuraSpikeStrength(self, t))",
+        "target_expression": "{type=\"cone\", range=0, radius=6, selffire=false, talent=t}",
+        "spike_cost_semantics": {
+          "sustain_psi": 10,
+          "cost_expression": "t.sustain_psi * 2 / 3",
+          "exact_cost": "10 * 2 / 3 = 6.6667 (rounded to four decimal places)",
+          "tooltip_surface": "The %d placeholder displays the numeric argument as 6.",
+          "runtime_guard": "if self:getPsi() <= cost then return true without producing a spike",
+          "runtime_consequence": "A spike requires psi > 6.6667 approximately, despite the tooltip surface displaying 6."
+        }
+      },
+      {
+        "path": "game/modules/tome/data/talents/spells/fire.lua",
+        "sha256": "40b304f5a45613ca57ad840730b2086bb7c72016e3149ab56291ac0db69beeff",
+        "symbol": "Flame",
+        "runtime_lines": [49, 51, 56, 63],
+        "runtime_scalar_expression": "thaumaturgyBeamDamage(self, self:spellCrit(t.getDamage(self, t)))",
+        "runtime_expression": "dam = thaumaturgyBeamDamage(self, self:spellCrit(t.getDamage(self, t))); each of the widebeam, sub-level-5 bolt, and level-5 beam branches passes dam to DamageType.FIREBURN",
+        "tooltip_expression": "damDesc(self, DamageType.FIRE, t.getDamage(self, t))",
+        "level_5_target_expression": "if self:getTalentLevel(t) >= 5 then tg.type = \"beam\" end"
+      },
+      {
+        "path": "game/modules/tome/data/talents/spells/spells.lua",
+        "sha256": "714c6bb79c10b1e0dfb59e6ee7bcccd18704c5a26b19737a917673ed194c5b58",
+        "symbol": "thaumaturgyBeamDamage",
+        "relevant_lines": [131, 134],
+        "expression": "archmage_beam_dam_mult absent -> dam; otherwise dam * (1 + archmage_beam_dam_mult / 100)"
+      },
+      {
+        "path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+        "symbol": "DamageType.FIREBURN",
+        "relevant_lines": [1187, 1205]
+      },
+      {
+        "path": "game/modules/tome/data/timed_effects/physical.lua",
+        "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+        "symbol": "EFF_BURNING",
+        "relevant_lines": [417, 440]
+      }
+    ]
+  },
+  "runtime_value_flow": [
+    {
+      "reference_ids": ["fireburn-ref-027"],
+      "tooltip_quantity": "Uncritical t.getDamage base after FIRE damDesc display conversion.",
+      "action_quantity": "self:spellCrit(t.getDamage(self, t)) supplies the complete FIREBURN event scalar.",
+      "relationship": "A runtime spell critical can change the applied scalar relative to the displayed base under normal tooltip/action conventions."
+    },
+    {
+      "reference_ids": ["fireburn-ref-029"],
+      "tooltip_quantity": "The displayed final %d is the uncritical upper bound t.getAuraSpikeStrength(self, t), after FIRE damDesc display conversion.",
+      "action_quantity": "self:mindCrit(rng.avg(0.8*dam, dam)) supplies a random value from 80% through 100% of dam, then applies the runtime mind-critical adjustment, as the complete FIREBURN event scalar.",
+      "relationship": "The translation's '高达' matches the pre-critical random upper-bound display; runtime RNG and a mind critical may change the actually applied scalar."
+    },
+    {
+      "reference_ids": ["fireburn-ref-031", "fireburn-ref-032", "fireburn-ref-033"],
+      "tooltip_quantity": "Uncritical t.getDamage base after FIRE damDesc display conversion.",
+      "action_quantity": "thaumaturgyBeamDamage(self, self:spellCrit(t.getDamage(self, t))) supplies the complete FIREBURN event scalar to every branch.",
+      "relationship": "A runtime spell critical and, when present, archmage_beam_dam_mult can change the applied scalar relative to the displayed base; the thaumaturgy multiplier is identity when that attribute is absent."
+    }
+  ],
+  "damage_type_semantics": {
+    "scalar_defaults": {
+      "duration_turns": 3,
+      "initial_percent": 50,
+      "incoming_scalar": "dam",
+      "immediate_fire": "init_dam = dam * 50 / 100",
+      "remaining_burn": "dam - init_dam = dam * 50 / 100",
+      "burning_power": "(dam - init_dam) / 3 = dam / 6 per timeout",
+      "unmerged_nominal_total": "50% immediate FIRE plus three nominal EFF_BURNING timeouts at dam/6 sum to the incoming scalar dam before downstream mitigation; the scalar is not a per-turn amount."
+    },
+    "critical_state_note": "FIREBURN initializes projection state and calls useImplicitCrit, while these sampled actions already supply their explicit action-time spellCrit or mindCrit values. This record binds the observed tooltip-to-action expressions without claiming a second independent critical roll.",
+    "burning_merge_qualification": {
+      "old_remaining": "old_eff.power * old_eff.dur",
+      "incoming_total": "new_eff.power * new_eff.dur",
+      "merged_duration": "ceil((old_eff.dur + new_eff.dur) / 2)",
+      "merged_power": "(old_remaining + incoming_total) / merged_duration",
+      "conservation": "The old remaining damage and incoming remaining burn damage are combined before downstream mitigation.",
+      "wording_consequence": "The translations describe each newly applied total over its nominal duration; they do not promise an isolated tick value or an unchanged standalone three-turn schedule after an existing burn merges."
+    }
+  },
+  "adjudication": {
+    "decision": "repair_thermal_aura_only",
+    "material_translation_defect_confirmed": true,
+    "flame_bolt": "adequate",
+    "thermal_aura": "repaired for CTX-R0-001, CTX-R0-002, CTX-R1-001, CTX-R2-001, and CTX-R2-002; CTX-R1-002 remains advisory/no-change; scalar and upper-bound wording remain adequate",
+    "flame": "adequate, including level-5 penetration wording",
+    "mod_tome_lua_changed": true,
+    "independent_review_and_done_claimed": false,
+    "status": "review_pending"
+  },
+  "finding_lineage": [
+    {
+      "id": "CTX-R0-001",
+      "origin": "cycle-0 contextual review",
+      "adjudication": "confirmed",
+      "disposition": "applied_cycle_1",
+      "revision_key": "thermal-aura-info"
+    },
+    {
+      "id": "CTX-R0-002",
+      "origin": "cycle-0 contextual review",
+      "adjudication": "confirmed",
+      "disposition": "applied_cycle_1",
+      "revision_key": "thermal-aura-info"
+    },
+    {
+      "id": "CTX-R1-001",
+      "origin": "cycle-1 contextual re-review and senior scope audit",
+      "adjudication": "confirmed",
+      "disposition": "applied_cycle_2",
+      "revision_key": "thermal-aura-info",
+      "evidence": "Cycle 2 bound the added damage to weapon attacks with 每次武器攻击附加 while leaving 每次攻击消耗 unchanged; CTX-R2-001 subsequently refined both phrases in Cycle 3 to state the successful-hit relationship explicitly."
+    },
+    {
+      "id": "CTX-R1-002",
+      "origin": "cycle-1 contextual re-review, narrowed by senior scope audit",
+      "adjudication": "advisory",
+      "disposition": "no_change",
+      "revision_key": "thermal-aura-info",
+      "evidence": "At fixed projection.lua, sustain_psi=10 and cost=10*2/3=6.6667; %d displays 6, and psi <= cost produces no spike. The Chinese 最少 %d 点能量 faithfully mirrors the English surface, while the translation layer cannot accurately express the hidden fractional threshold."
+    },
+    {
+      "id": "CTX-R2-001",
+      "origin": "cycle-2 contextual re-review",
+      "adjudication": "confirmed",
+      "disposition": "applied_cycle_3",
+      "revision_key": "thermal-aura-info",
+      "evidence": "Fixed projection.lua invokes the aura combat effect only after attackTargetWith reports a successful conventional-weapon hit; the target now explicitly says 每次武器命中时 and binds the energy cost to 每次命中."
+    },
+    {
+      "id": "CTX-R2-002",
+      "origin": "cycle-2 contextual re-review",
+      "adjudication": "confirmed",
+      "disposition": "applied_cycle_3",
+      "revision_key": "thermal-aura-info",
+      "evidence": "The fixed source declares a cone target with radius=6 and the English tooltip labels the %d extent as radius; the target now says 半径为 %d while preserving the placeholder position."
+    }
+  ],
+  "out_of_scope_follow_up_observations": [
+    {
+      "subject": "Kinetic Aura and Charged Aura weapon-hit wording",
+      "status": "observation_only_no_task_created",
+      "statement": "The sibling Kinetic Aura and Charged Aura targets use the same generalized 每次攻击附加 wording for English all your weapon hits. They are outside the frozen workset and were not modified."
+    }
+  ],
+  "invariant_checks": {
+    "three_revisions_and_five_refs_bound": true,
+    "before_equals_after_all_three": false,
+    "source_unchanged_all_three": true,
+    "target_unchanged_all_three": false,
+    "exactly_one_target_changed": true,
+    "changed_revision_keys": ["thermal-aura-info"],
+    "accepted_finding_ids_applied": ["CTX-R0-001", "CTX-R0-002", "CTX-R1-001", "CTX-R2-001", "CTX-R2-002"],
+    "advisory_no_change_finding_ids": ["CTX-R1-002"],
+    "thermal_aura_weapon_hit_scope_repaired": true,
+    "thermal_aura_successful_hit_relationship_explicit": true,
+    "thermal_aura_cone_extent_identified_as_radius": true,
+    "thermal_aura_energy_threshold_target_unchanged": true,
+    "kinetic_aura_unchanged": true,
+    "charged_aura_unchanged": true,
+    "source_tag_unchanged_all_three": true,
+    "args_order_remains_null_all_three": true,
+    "special_remains_null_all_three": true,
+    "placeholder_sequence_unchanged_all_three": true,
+    "newline_count_unchanged_all_three": true,
+    "mod_tome_byte_identical_to_baseline": false,
+    "workset_unchanged": true,
+    "inventory_unchanged": true,
+    "terminology_unchanged": true,
+    "result": "pass"
+  },
+  "focused_verification": {
+    "checks": [
+      {
+        "command": "focused exact-entry, exactly-one-target diff, metadata, source/source_tag/args_order/special/placeholder/markup/newline, CTX-R0-001/002, CTX-R1-001, and CTX-R2-001/002 applied lineage, CTX-R1-002 no-change advisory, successful-hit and cone-radius wording, sibling-aura exclusion, five-ref mapping, fixed-source anchor/hash, scalar decomposition, merge qualification, workset/inventory/baseline binding, and bounded repair scope invariants",
+        "result": "PASS"
+      },
+      {
+        "command": "JSON parse and frozen workset SHA-256 binding",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n doctor",
+        "result": "PASS (manifest, LuaJIT 2.1, LPeg 0.10.2-1, engine and addon repositories, and protected-source modes OK; repository worktree scan warning reported because engine contains a protected source)"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "PASS (30308 translations, 0 errors, 0 warnings)"
+      },
+      {
+        "command": "git diff --check",
+        "result": "PASS"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4052 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-fireburn-scalar-default-b1-001",
+  "kind": "frozen_fireburn_scalar_default_sampling_workset",
+  "frozen_at": "2026-08-28T11:41:22Z",
+  "inventory_origin": {
+    "commit": "a68cbede82a5f0ab112451a4ccc41fadc05948cd",
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "reference_ids": [
+      "fireburn-ref-027",
+      "fireburn-ref-029",
+      "fireburn-ref-031",
+      "fireburn-ref-032",
+      "fireburn-ref-033"
+    ],
+    "risk_class": "appears_consistent",
+    "records": [
+      {
+        "reference_id": "fireburn-ref-027",
+        "component": "tome",
+        "path": "game/modules/tome/data/talents/misc/npcs.lua",
+        "line": 608,
+        "matched_line": "\t\t\tself:projectile(tg, x, y, DamageType.FIREBURN, self:spellCrit(t.getDamage(self, t)), function(self, tg, x, y, grids)",
+        "source_file_sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+        "source_pinned": true,
+        "classification": "direct_projection",
+        "enclosing_symbol": "Flame Bolt",
+        "effective_input_shape": "scalar spellCrit(getDamage)",
+        "duration_turns": 3,
+        "initial_percent": 50,
+        "mechanism_group_id": "scalar-default-projection",
+        "translation_entry_ids": [
+          "tome-misc-npcs-flame-bolt-info"
+        ],
+        "risk_class": "appears_consistent"
+      },
+      {
+        "reference_id": "fireburn-ref-029",
+        "component": "tome",
+        "path": "game/modules/tome/data/talents/psionic/projection.lua",
+        "line": 359,
+        "matched_line": "\t\tself:project(tg, x, y, DamageType.FIREBURN, self:mindCrit(rng.avg(0.8*dam, dam)))",
+        "source_file_sha256": "cad1b014a59af12f9ee250b02417cf27b2a67368601d2042a0eedcd3997587c3",
+        "source_pinned": true,
+        "classification": "direct_projection",
+        "enclosing_symbol": "Thermal Aura deactivation spike",
+        "effective_input_shape": "scalar mindCrit(randomized dam)",
+        "duration_turns": 3,
+        "initial_percent": 50,
+        "mechanism_group_id": "scalar-default-projection",
+        "translation_entry_ids": [
+          "tome-psionic-projection-thermal-aura-info"
+        ],
+        "risk_class": "appears_consistent"
+      },
+      {
+        "reference_id": "fireburn-ref-031",
+        "component": "tome",
+        "path": "game/modules/tome/data/talents/spells/fire.lua",
+        "line": 51,
+        "matched_line": "\t\t\tgrids = self:project(tg, x, y, DamageType.FIREBURN, dam)",
+        "source_file_sha256": "40b304f5a45613ca57ad840730b2086bb7c72016e3149ab56291ac0db69beeff",
+        "source_pinned": true,
+        "classification": "direct_projection",
+        "enclosing_symbol": "Flame beam branch",
+        "effective_input_shape": "scalar dam",
+        "duration_turns": 3,
+        "initial_percent": 50,
+        "mechanism_group_id": "scalar-default-projection",
+        "translation_entry_ids": [
+          "tome-fire-flame-info"
+        ],
+        "risk_class": "appears_consistent"
+      },
+      {
+        "reference_id": "fireburn-ref-032",
+        "component": "tome",
+        "path": "game/modules/tome/data/talents/spells/fire.lua",
+        "line": 56,
+        "matched_line": "\t\t\t\tself:projectile(tg, x, y, DamageType.FIREBURN, dam, function(self, tg, x, y, grids)",
+        "source_file_sha256": "40b304f5a45613ca57ad840730b2086bb7c72016e3149ab56291ac0db69beeff",
+        "source_pinned": true,
+        "classification": "direct_projection",
+        "enclosing_symbol": "Flame bolt branch",
+        "effective_input_shape": "scalar dam",
+        "duration_turns": 3,
+        "initial_percent": 50,
+        "mechanism_group_id": "scalar-default-projection",
+        "translation_entry_ids": [
+          "tome-fire-flame-info"
+        ],
+        "risk_class": "appears_consistent"
+      },
+      {
+        "reference_id": "fireburn-ref-033",
+        "component": "tome",
+        "path": "game/modules/tome/data/talents/spells/fire.lua",
+        "line": 63,
+        "matched_line": "\t\t\t\tgrids = self:project(tg, x, y, DamageType.FIREBURN, dam)",
+        "source_file_sha256": "40b304f5a45613ca57ad840730b2086bb7c72016e3149ab56291ac0db69beeff",
+        "source_pinned": true,
+        "classification": "direct_projection",
+        "enclosing_symbol": "Flame fallback branch",
+        "effective_input_shape": "scalar dam",
+        "duration_turns": 3,
+        "initial_percent": 50,
+        "mechanism_group_id": "scalar-default-projection",
+        "translation_entry_ids": [
+          "tome-fire-flame-info"
+        ],
+        "risk_class": "appears_consistent"
+      }
+    ]
+  },
+  "translation_baseline": {
+    "head": "abf719c4586ea9116f9e15abaed4266559ec65eb",
+    "file": "mod-tome.lua",
+    "file_sha256": "ced263664a489558878dd0716768d6dfdaee7a51d98b4b845bf8edd65d88e9ae",
+    "component": "tome",
+    "version": "tome-1.7.6"
+  },
+  "section_freezes": [
+    {
+      "component": "tome",
+      "section": "mod-tome/data/talents/misc/npcs.lua",
+      "resolver_contract": "tome4-context-v2",
+      "tool_version": "0.5.0",
+      "limit": 500,
+      "selected": 291,
+      "available": 291,
+      "lexical_t_call_count": 292,
+      "ignored_empty_t_calls": 1,
+      "nonempty_lexical_t_call_count": 291,
+      "context_id": "0213c85933fed897a1d451daa0826979b5a7dd89435950f079a52aaf4eadf3cf",
+      "content_sha256": "526cc631b9048c7f0dd049d8b65cc0bad8d5f1eabf79852a6effef9fc036e11c",
+      "canonical_sha256": "ced263664a489558878dd0716768d6dfdaee7a51d98b4b845bf8edd65d88e9ae",
+      "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+      "terminology_sha256": "96783486cf8790762fcab2e2379dfc0b3e13a50ca055410960395bcab1f9065c",
+      "terminology": [
+        {
+          "category": "T.RUNTIME.LOG",
+          "matched_entry_ids": [
+            "0be624de89a2b77240081bda9219b21e080fe72b4a9aa0cddd58bcf2012784e7"
+          ],
+          "notes": "震慑抵抗日志（11 处）；与 %s resists! 通用抵抗日志并列",
+          "scope": "global",
+          "source": "%s resists the stun!",
+          "source_tag": "logSeen",
+          "status": "preferred",
+          "target": "%s抵抗了震慑！"
+        },
+        {
+          "category": "T.RUNTIME.LOG",
+          "matched_entry_ids": [
+            "579c096e4a65ce9c17bd976b2736cd61b2480ef628ab1c31cab6c5285daea62b"
+          ],
+          "notes": "通用抵抗日志（18 处）",
+          "scope": "global",
+          "source": "%s resists!",
+          "source_tag": "logSeen",
+          "status": "preferred",
+          "target": "%s抵抗了效果！"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "3c3189f9bfaec5940eef0fe614bf74546a620fe8fb10742bce3cc6aeef4db98c"
+          ],
+          "notes": "生物攀附到目标身上并以酸液覆盖目标的技能；与 Poisonous Crawl 成对，不作“酸爪”",
+          "scope": "core",
+          "source": "Acidic Crawl",
+          "source_tag": "talent name",
+          "status": "preferred",
+          "target": "酸蚀攀附"
+        },
+        {
+          "category": "T.GAME.STAT",
+          "matched_entry_ids": [
+            "58dd86e3cd56ff4b1cb4f111bc1057cf8a01a459def19cbf19a515cef16e860d"
+          ],
+          "notes": "角色面板 Speeds/Attack Speed 行；与 Global speed 全局速度区分",
+          "scope": "core",
+          "source": "Attack speed",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "攻击速度"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "bede97ea19907a21d945689431d61405cd3b627aed1a747598dbda8dca49c3a1"
+          ],
+          "notes": "技能会以极快速度瞬移至目标身边并攻击；按机制译作“闪电突袭”，不按普通动词字面译作“偷袭”",
+          "scope": "core",
+          "source": "Blindside",
+          "source_tag": "talent name",
+          "status": "preferred",
+          "target": "闪电突袭"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "7a5c5ef520d7f8ea1e53ed33e68873178ac6dcafee5c3b2eb5778d261c8da270"
+          ],
+          "notes": "",
+          "scope": "global",
+          "source": "Call of Amakthel",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "阿马克泰尔的呼唤"
+        },
+        {
+          "category": "T.GAME.TALENT_CATEGORY",
+          "matched_entry_ids": [
+            "094a1619beb44c1b13d907650d839b7f3d012eade8aba5a6d83dec5a9feccb87"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "chronomancy",
+          "source_tag": "talent category",
+          "status": "existing",
+          "target": "时空"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "b92e7a400452acf4616e45e8b6d717bab0b8a84699a8ea0e3a549f36a56a0f55"
+          ],
+          "notes": "1.8beta 在技能名、状态和战斗日志中统一使用",
+          "scope": "core",
+          "source": "Constrict",
+          "source_tag": "talent name",
+          "status": "preferred",
+          "target": "缠绕"
+        },
+        {
+          "category": "T.GAME.TALENT_CATEGORY",
+          "matched_entry_ids": [
+            "22ed766bfd1d0de23386dc7aae2a8d9d77077e0fd181e941d93c89f703e57790"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "corruption",
+          "source_tag": "talent category",
+          "status": "existing",
+          "target": "堕落"
+        },
+        {
+          "category": "T.GAME.STAT",
+          "matched_entry_ids": [
+            "57f2e36b2a2ee61a66254c15c7cee8f00910d9952590861f6b46f8501e5911bf"
+          ],
+          "notes": "角色面板 Crit 显示与装备词条；暴击伤害用“暴击伤害”",
+          "scope": "core",
+          "source": "Crit chance",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "暴击率"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "ae65952f50b595ae449b26ced1c448231bb13e851e78eeec6c659ffd9139fe20"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "Crush",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "压碎"
+        },
+        {
+          "category": "T.GAME.TALENT_CATEGORY",
+          "matched_entry_ids": [
+            "19736508aef4b3418d45695187e975472e66002a2a4f7faffc6afd68e0cc3ae6"
+          ],
+          "notes": "",
+          "scope": "global",
+          "source": "cursed",
+          "source_tag": "talent category",
+          "status": "existing",
+          "target": "诅咒"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "43360d244fbacc3a3b2e5f6d4e028265cddbcb9830a09c87f2635698f0ef9ec3"
+          ],
+          "notes": "空手闪避近战攻击后将目标摔倒的防御性投掷；统一技能名、战斗日志与状态说明，不与 Counterstrike“反击”混用",
+          "scope": "core",
+          "source": "Defensive Throw",
+          "source_tag": "talent name",
+          "status": "preferred",
+          "target": "闪身投掷"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "1afd64c3694133954b62f9fd30fc0e30b1bd6a26cd17412165ad93a25d5898ad"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "Fade",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "消隐"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "47c25c5ed2d10635441f2991771e7debd9fe54b2f7279fd790fd34d06f7032fd"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "Flame",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "火球术"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "73f8fa074e63193464c3c14ccc50802b01878f9fc7f29138e1bd87e33806de0f"
+          ],
+          "notes": "",
+          "scope": "global",
+          "source": "Frenzy",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "狂热"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "421c2567e94a60111c27a4d67b9518d61fffd4f8f36b6916156080a7858147b9"
+          ],
+          "notes": "",
+          "scope": "global",
+          "source": "Frost Grab",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "冰霜飞爪"
+        },
+        {
+          "category": "T.GAME.STAT",
+          "matched_entry_ids": [
+            "57f2e36b2a2ee61a66254c15c7cee8f00910d9952590861f6b46f8501e5911bf",
+            "c65a19b85a3697b50243fdc4931a0570853034615013dc69d8bc848032444d21"
+          ],
+          "notes": "格式化状态说明中的句首机制名；与小写 global speed 统一",
+          "scope": "core",
+          "source": "Global speed",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "全局速度"
+        },
+        {
+          "category": "T.GAME.STAT",
+          "matched_entry_ids": [
+            "57f2e36b2a2ee61a66254c15c7cee8f00910d9952590861f6b46f8501e5911bf",
+            "c65a19b85a3697b50243fdc4931a0570853034615013dc69d8bc848032444d21"
+          ],
+          "notes": "技能与状态说明中的全局行动速度机制；不写作“整体速度”或“全体速度”",
+          "scope": "core",
+          "source": "global speed",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "全局速度"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "8fdbf7ea4d1e63ff44b07691ca74411357ea9657b7a2a4b1314891ec0f810eb8"
+          ],
+          "notes": "",
+          "scope": "global",
+          "source": "Kick",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "踢"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "1fdf285a9b1f6732423fb6ee6de586b6836c7dd98b0cc3af6db3797e5a19ede6"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "Lightning",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "闪电术"
+        },
+        {
+          "category": "T.GAME.STAT",
+          "matched_entry_ids": [
+            "db43d3e2fe6be64f111cb95d1a792bcfd709543a9ec47007786b16d808b9a4e2",
+            "1084a59d206442b92f9fd11629fc389be84b810580fe5f29015a51af2a4c26b4",
+            "39d9de67371f587213587d4bbadc720b07076cb011360cb92b56631705b5a0c9",
+            "b2e39d349d843c9dd4097e9a0b82a171fdd464cb5d19c2ca4a179c96453783a5",
+            "1b932703881ddb4b95a8fd1c772c3866a2efdf69f26bd076f2afef2886612d7d",
+            "92d24815ed7cabf451de83ba32a03ce69e7656956ce4f31058ccefa3dace8718",
+            "72aa7c3c6ae068d677c6bd56aed5adfddb9c7694be959bdbdc85ac3f13c8cdf9",
+            "f9bdd017d55d99d7237342c4edf0341435b969aac324f43134ee68418d48df47"
+          ],
+          "notes": "技能与物品机制说明中的精神强度属性；与 Willpower“意志”区分",
+          "scope": "multi",
+          "source": "Mindpower",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "精神强度"
+        },
+        {
+          "category": "T.GAME.TALENT_CATEGORY",
+          "matched_entry_ids": [
+            "6428281856958883d1b1587ed1f834d7b2e39e7d2b7a438934f583cc3d19e0a8"
+          ],
+          "notes": "",
+          "scope": "global",
+          "source": "other",
+          "source_tag": "talent category",
+          "status": "existing",
+          "target": "其他"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "b5d2254568210cf2a206ab0449d17f488cfa4be5e7d929b789eb59b48af0c1a6"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "Phase Door",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "相位之门"
+        },
+        {
+          "category": "T.GAME.STAT",
+          "matched_entry_ids": [
+            "4166f5d30874f57d210e4a67d785bcf5c2ca5b89a2fb440a27a5314196fda06f",
+            "5a00cd5575aac07b70f69af8034aa3df2420123d4074fd5b58c1bf67cc544796",
+            "5e3dfbb26c7691e029040c779c4ee354d3cea324030590bb948613b021dbe904",
+            "b2b37ff778e85c7c29677af1b15b684d349e9c5cd1a093fe0a0116c9b622b25f",
+            "d0440c0a8ae0b1bbd2ec67f730e0f5952bffeffd9f6abd5d079931f2c70511a8",
+            "1a6cabe2d61d4b6b8605f1a5c395354b1c5fb220b00385b7f97ef6d5b5c2dbf5",
+            "b38e416480230cc52ee1a19b3b7836a5e8cdacee7879949ff1cc722254d0b2ad",
+            "9a357651366ea7638cc73743f871916542839ce036c1a96c92f492ea9fefa6bc",
+            "4040d2357cc87feba12850c75311b0d0476f59081e26059a97cb2e1442e6fef1",
+            "ae2075b16a50460a26df65770c5792c7362a82fe031c1cbefbb5b5e2d74378cc",
+            "c65a19b85a3697b50243fdc4931a0570853034615013dc69d8bc848032444d21",
+            "cab6593aeb2d7f31c6bcf5650db8f4b37a23e477ad06a6d27a3dac2c9bc62dd3",
+            "5bb176b6885e8c2969e2aa16b7654accc9130435a340184aa7abd2047fb43ffe",
+            "66ff26ecf7382e14fc0178a06f1a89181ecb3e311c62e45f43d8ef459b12838d"
+          ],
+          "notes": "角色面板物理强度；力量属性描述与技能效果统一用此译名",
+          "scope": "core",
+          "source": "Physical Power",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "物理强度"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "e5db9f76d3e5693c45727b3e1d6bbd7d1b847a5ac3a47f3dc28a739c5e545824"
+          ],
+          "notes": "生物攀附到目标身上并以毒液覆盖目标的技能；crawl 指攀附动作，不作“爪”",
+          "scope": "core",
+          "source": "Poisonous Crawl",
+          "source_tag": "talent name",
+          "status": "preferred",
+          "target": "剧毒攀附"
+        },
+        {
+          "category": "T.GAME.TALENT_CATEGORY",
+          "matched_entry_ids": [
+            "754b2f36c966c0bbfa9a53300d0c6deb3d8258e3abab97cca965b0ba3c206629"
+          ],
+          "notes": "",
+          "scope": "global",
+          "source": "psionic",
+          "source_tag": "talent category",
+          "status": "existing",
+          "target": "灵能"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "4e61fcef1b5009c54f2c29449ce5f288055281a2ca989d4165d2ac3af5b79366"
+          ],
+          "notes": "",
+          "scope": "global",
+          "source": "Silence",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "沉默"
+        },
+        {
+          "category": "T.GAME.TALENT_CATEGORY",
+          "matched_entry_ids": [
+            "8791c75dbb77d2dd7a18d79b162f042332d940f190d7410912818932a89f3fea"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "spell",
+          "source_tag": "talent category",
+          "status": "existing",
+          "target": "法术"
+        },
+        {
+          "category": "T.GAME.TALENT_CATEGORY",
+          "matched_entry_ids": [
+            "e525c5a47ab726286dab485c4e8c1a046f4ecd365a3c07c7c2cb29cbe5036089"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "technique",
+          "source_tag": "talent category",
+          "status": "existing",
+          "target": "格斗"
+        },
+        {
+          "category": "T.GAME.TALENT_CATEGORY",
+          "matched_entry_ids": [
+            "bc8ca89714df3a998e88bc3863096da4e6690a9f9501ffad2d4489fa429c7f17"
+          ],
+          "notes": "",
+          "scope": "global",
+          "source": "undead",
+          "source_tag": "talent category",
+          "status": "existing",
+          "target": "亡灵"
+        },
+        {
+          "category": "T.GAME.TALENT_CATEGORY",
+          "matched_entry_ids": [
+            "8c0cf412539a7526b469663276031ccf8124d4454428aebcd2f997fdcdb6a36e"
+          ],
+          "notes": "",
+          "scope": "global",
+          "source": "wild-gift",
+          "source_tag": "talent category",
+          "status": "existing",
+          "target": "自然"
+        }
+      ],
+      "items": [
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "e525c5a47ab726286dab485c4e8c1a046f4ecd365a3c07c7c2cb29cbe5036089",
+          "line": 26244,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "technique",
+          "source_tag": "talent category",
+          "special": null,
+          "target": "格斗"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ae586f7d0cfe4a23817e820e00c1b0343bfa1f8cd816c93dff9503f6b3c001a0",
+          "line": 26245,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "other",
+          "source_tag": "talent type",
+          "special": null,
+          "target": "其他"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "2307a6ff3ff52451b672fae2052ac4d888cee6c62f0deaeadb58011acd441e2d",
+          "line": 26246,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Talents of the various entities of the world.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "世界上各种怪物的能力。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "094a1619beb44c1b13d907650d839b7f3d012eade8aba5a6d83dec5a9feccb87",
+          "line": 26247,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "chronomancy",
+          "source_tag": "talent category",
+          "special": null,
+          "target": "时空"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8791c75dbb77d2dd7a18d79b162f042332d940f190d7410912818932a89f3fea",
+          "line": 26248,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "spell",
+          "source_tag": "talent category",
+          "special": null,
+          "target": "法术"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "22ed766bfd1d0de23386dc7aae2a8d9d77077e0fd181e941d93c89f703e57790",
+          "line": 26249,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "corruption",
+          "source_tag": "talent category",
+          "special": null,
+          "target": "堕落"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8c0cf412539a7526b469663276031ccf8124d4454428aebcd2f997fdcdb6a36e",
+          "line": 26250,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "wild-gift",
+          "source_tag": "talent category",
+          "special": null,
+          "target": "自然"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "754b2f36c966c0bbfa9a53300d0c6deb3d8258e3abab97cca965b0ba3c206629",
+          "line": 26251,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "psionic",
+          "source_tag": "talent category",
+          "special": null,
+          "target": "灵能"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "6428281856958883d1b1587ed1f834d7b2e39e7d2b7a438934f583cc3d19e0a8",
+          "line": 26252,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "other",
+          "source_tag": "talent category",
+          "special": null,
+          "target": "其他"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "bc8ca89714df3a998e88bc3863096da4e6690a9f9501ffad2d4489fa429c7f17",
+          "line": 26253,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "undead",
+          "source_tag": "talent category",
+          "special": null,
+          "target": "亡灵"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1db0b3b5468cee64de823a74b738389e33eefad26d6b87d085bb1a9cc43a81c3",
+          "line": 26254,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "keepsake shadow",
+          "source_tag": "talent type",
+          "special": null,
+          "target": "往昔信物阴影"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "01e9b7f8a4ae6f8d9fb207083b3a8d1df52d68d17abb19a0f01d3b6f64d70a37",
+          "line": 26255,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Keepsake shadows's innate abilities.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "往昔信物阴影的内在能力。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "19736508aef4b3418d45695187e975472e66002a2a4f7faffc6afd68e0cc3ae6",
+          "line": 26256,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "cursed",
+          "source_tag": "talent category",
+          "special": null,
+          "target": "诅咒"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "f000ad53181d2c8ec4d2d13c6b33f8fef5db07d8b4aae9755fe698c5ed3a9ac8",
+          "line": 26257,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "misc",
+          "source_tag": "talent type",
+          "special": null,
+          "target": "杂项"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1b7a89479830c78eb8f7fa8e96c20be526f10f7588fe5334df23ac333435f8e0",
+          "line": 26258,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Multiply",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "繁殖"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "fa251efa6655946f8f66eb65268449e1ccd23e73049896df2ac654faef0f59c6",
+          "line": 26259,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You can not multiply anymore.",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你不能再复制了。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "c94fc2e2536cdf5aa76765ed8a3bca4c345c62e5eb4eec4d1741a7c550bfd4f1",
+          "line": 26260,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Multiply yourself! (up to %d times)",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "复制你自身！ (最多 %d 次)"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "e5db9f76d3e5693c45727b3e1d6bbd7d1b847a5ac3a47f3dc28a739c5e545824",
+          "line": 26261,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Poisonous Crawl",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "剧毒攀附"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5ca51303d89e0b5bb9c386ec74fa896c0af6b4411e644cb521516c1edf18f75c",
+          "line": 26262,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ envelops @target@ with poison.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@用毒素覆盖@target@。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "287e8f5334d5cd72f6ebc94dafa017f9d3231be1e3c00f158d6a7f4e8074dcd0",
+          "line": 26263,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Crawl onto the target, doing %d%% damage and covering it in poison.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "攀附到目标身上，造成 %d%% 伤害并使其覆满毒液。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3c3189f9bfaec5940eef0fe614bf74546a620fe8fb10742bce3cc6aeef4db98c",
+          "line": 26264,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Acidic Crawl",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "酸蚀攀附"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a1a8fbaea9771faea05699aa2376cd4a00761af58c2688003e6570a7240df529",
+          "line": 26265,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ envelops @target@ with acid.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@用酸液覆盖@target@。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "53943097a135e84407e3c50cb2f754a59a7098b69b8c12dc22e1a7efda693a85",
+          "line": 26266,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Crawl onto the target, covering it in acid.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "攀附到目标身上，使其覆满酸液。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5df65fe484301b43edbe595f138e7e1b1cf7a1d41177c02d0a4db22a5f4e834a",
+          "line": 26267,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Blinding Spores",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "致盲孢子"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "6a9b5fad5504be290ee39e500953cc8c9470d51abc79f4838fb80b1cfed35460",
+          "line": 26268,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ releases blinding spores at @target@.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@向@target@喷射致盲孢子。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a1c973a157209a7cee4ff572682f46afc972267519aec7506c75a47c6f68004b",
+          "line": 26269,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists the blinding!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了致盲！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "9022f7bd9f1903731737a855720bf1e399573a1f09a95fd6651492a14735f198",
+          "line": 26270,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Releases stinging spores at the target, blinding it for %d turns.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "向目标喷射孢子，使目标致盲 %d 回合。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ada546a9e75de8f2eeaa58c9c0e4e2849eec8737bb1869dbf69d60d02f9cd035",
+          "line": 26271,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Poisonous Spores",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "毒性孢子"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "76674a330f6639948865b3466a792e1c50aaf41f19c50aecfa727730277414fe",
+          "line": 26272,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ releases poisonous spores at @target@.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@朝@target@释放毒素孢子。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "e7db1709d0847fe260cb805d810dff14b29c4b8457f9f6c9a43d2144983d08bb",
+          "line": 26273,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Releases poisonous spores at the target, doing %d%% damage and poisoning it.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "向目标喷射毒性孢子，造成 %d%% 伤害并使其中毒。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "bac017c142508cd358d82cf34c81bca0dbe11eaa6943276b3808b85b4e09d4b2",
+          "line": 26274,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Stun",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "震慑"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "18c57dcd07783476dccd9145fb7c4293002487e504ed46ed2743fe9405a16428",
+          "line": 26275,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists the stunning blow!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了震慑打击。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "4166f5d30874f57d210e4a67d785bcf5c2ca5b89a2fb440a27a5314196fda06f",
+          "line": 26276,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hits the target doing %d%% damage. If the attack hits, the target is stunned for %d turns.\n\t\tThe chance to stun improves with your Physical Power.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "攻击目标造成 %d%% 伤害。如果攻击命中则可震慑目标 %d 回合。\n\t\t震慑几率受物理强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "c7bee88718a3936e5e3d32bbab34b5b9b9be2a0eaee485b9c35bbb14567119ac",
+          "line": 26279,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Disarm",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "缴械"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "57078110b6614691334800270362fa43c281e75feea362fa92e41f88af13fd0d",
+          "line": 26280,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists the blow!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了攻击！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5a00cd5575aac07b70f69af8034aa3df2420123d4074fd5b58c1bf67cc544796",
+          "line": 26281,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hits the target doing %d%% damage and trying to disarm the target for %d turns. The chance improves with your Physical Power.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "攻击目标造成 %d%% 伤害，并试图缴械目标 %d 回合。缴械成功率随物理强度提高。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "b92e7a400452acf4616e45e8b6d717bab0b8a84699a8ea0e3a549f36a56a0f55",
+          "line": 26282,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Constrict",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "缠绕"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5ef2db5b41b6a320c4bf99e56d24dedafc30234501a3ec64cc4f6a19fc660f65",
+          "line": 26283,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists the constriction!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了缠绕！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5e3dfbb26c7691e029040c779c4ee354d3cea324030590bb948613b021dbe904",
+          "line": 26284,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hits the target doing %d%% damage. If the attack hits, the target is constricted for %d turns.\n\t\tThe constriction power improves with your Physical Power.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "攻击目标造成 %d%% 伤害，如果攻击命中则可令目标进入缠绕状态 %d 回合。\n\t\t缠绕强度受物理强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3adf4c4225a3c280d2c4a2973ac8b04cf1099060a2fdc9dc0f23c7ae4ec4fbc7",
+          "line": 26287,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Knockback",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "击退"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "df8534cae3f2bba468f56afdc25dbeda6576ac03b2f1a3ce9d2e02838ff898e7",
+          "line": 26288,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists the knockback!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了击退！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "b2b37ff778e85c7c29677af1b15b684d349e9c5cd1a093fe0a0116c9b622b25f",
+          "line": 26289,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hits the target with your weapon doing %d%% damage. If the attack hits, the target is knocked back up to 4 grids.  The chance improves with your Physical Power.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "使用武器打击目标造成 %d%% 伤害，如果攻击命中则可击退目标至多 4 格。击退几率受物理强度加成"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "2c959577032712448b86b425a2d52899e4b51c0788ebbfa6a4d30457b22ee2ac",
+          "line": 26290,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Poisonous Bite",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "毒性撕咬"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "c003e9cdb60059a20d9b29808888842d784f0e1cc197cbe93ea99b79c29defb4",
+          "line": 26291,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ bites poison into @target@.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@撕咬@target@使其中毒。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "2ca87529220bb5b3d90d1b25a4eccda3ffaae9075587091c46dabb7be4627654",
+          "line": 26292,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Bites the target (an unarmed attack), doing %d%% damage and injecting it with poison.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "撕咬目标，造成 %d%% 徒手伤害并使其中毒。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "30532884d78ca861096c59d485822d587f665a6403959fd77a54299b32ae4ae5",
+          "line": 26293,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Summon",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "召唤"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5d632c580da0f50a283631bb14a5f0d08a0309d105c52f6a0ffd9e98c37921dd",
+          "line": 26294,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You cannot summon; you are suppressed!",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你不能召唤，你被压制了！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "7c0855846f016885904bf2ff70a6fb497bf391fdba07f88b8b712a44490f0d90",
+          "line": 26295,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Not enough space to summon!",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "没有足够的空间召唤。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "b45d4cb07b3fc04679b34c31c77517bfec728786b7a4dfcfe4d1f467cf4ce518",
+          "line": 26296,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "#Source# summons #Target#!",
+          "source_tag": "logCombat",
+          "special": null,
+          "target": "#Source#召唤了#Target#!"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8da97fce8fd4e497b37daca89d9c8abe7319cec83f09dfd6ffbcc38fd1d3bbbe",
+          "line": 26297,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Summon allies.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "召唤盟友。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8f5a17f6bed7cb6d1845786ce362724fddee2ea3a99150ac7e3355c894e71347",
+          "line": 26298,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Rotting Disease",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "腐烂疫病"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "c343d8f6458c51be3077e357d814d5c2e31a8b6f0e17451cb464f658a707fc9a",
+          "line": 26299,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ performs a diseased attack against @target@.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@向@target@发动了一次疫病攻击。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "e05992ef13054af72e48e2bfb616e44de38c2f41bad5f892bed52a1bfe6e7ac7",
+          "line": 26300,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists the disease!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了疫病！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "d0440c0a8ae0b1bbd2ec67f730e0f5952bffeffd9f6abd5d079931f2c70511a8",
+          "line": 26301,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hits the target doing %d%% damage. If the attack hits, the target is afflicted with a disease, inflicting %0.2f blight damage per turn for %d turns and reducing constitution by 10%% + 4.  The disease damage increases with your Strength, and the chance to apply it increases with your Physical Power.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "打击目标造成 %d%% 伤害，如果攻击命中可使目标感染疾病，造成每回合 %0.2f 枯萎伤害持续 %d 回合并降低其体质 10%%+4 。疾病伤害受力量加成，附加几率受物理强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "fdf8e2a481b395810fb338993347c597bca27c6e8efdb61238ac6f0a3284cca1",
+          "line": 26302,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Decrepitude Disease",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "衰老疫病"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1a6cabe2d61d4b6b8605f1a5c395354b1c5fb220b00385b7f97ef6d5b5c2dbf5",
+          "line": 26303,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hits the target doing %d%% damage. If the attack hits, the target is afflicted with a disease, inflicting %0.2f blight damage per turn for %d turns and reducing dexterity by 10%% + 4.  The disease damage increases with your Strength, and the chance to apply it increases with your Physical Power.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "打击目标造成 %d%% 伤害，如果攻击命中可使目标感染疾病，造成每回合 %0.2f 枯萎伤害持续 %d 回合并降低其敏捷 10%%+4 。疾病伤害受力量加成，附加几率受物理强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "fc990f370e2d4737c5e16fca8d452671ed0dc1393e5446e816ba7ac4d8e3828b",
+          "line": 26304,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Weakness Disease",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "衰弱疫病"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "b38e416480230cc52ee1a19b3b7836a5e8cdacee7879949ff1cc722254d0b2ad",
+          "line": 26305,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hits the target doing %d%% damage. If the attack hits, the target is afflicted with a disease, inflicting %0.2f blight damage per turn for %d turns and reducing strength by 10%% + 4.  The disease damage increases with your Strength, and the chance to apply it increases with your Physical Power.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "打击目标造成 %d%% 伤害，如果攻击命中可使目标感染疾病，造成每回合 %0.2f 枯萎伤害持续 %d 回合并降低其力量 10%%+4 。疾病伤害受力量加成，附加几率受物理强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "da07b4dd9ab34401167029ca6ca2800f6e3b2318fb6e36c1a182c4c76c4c7d9a",
+          "line": 26306,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Mind Disruption",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "精神干扰"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "005062bad3168e303890025997bd9fe86228e4bb1b4671b9e3a2227130412531",
+          "line": 26307,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Try to confuse the target's mind for %d (power %d%%) turns.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "试图使目标混乱 %d 回合 (强度 %d%%)。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "0e98cfe8b9a07ef1535df13efe39ad7d38c8b0da85338b9f76b17454235a5865",
+          "line": 26308,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Water Bolt",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "水弹"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "316ca40da26ac7e78331adc0cc947fddd7788dcd72b16a3b6c96ad0c3b37c15d",
+          "line": 26309,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Condenses ambient water on a target, inflicting %0.1f cold damage.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "浓缩周围的水份形成水弹攻击目标造成 %0.1f 冰冻伤害。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "47c25c5ed2d10635441f2991771e7debd9fe54b2f7279fd790fd34d06f7032fd",
+          "line": 26312,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Flame Bolt",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "火焰箭"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "f6a81596498f2f6c2e7cd736183f7a7e7019be278ead14f31efa61e847943af1",
+          "line": 26313,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "召唤一枚火焰箭，点燃目标，并在 3 回合内造成 %0.2f 火焰伤害。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "f236dd1a5dad14612c8f34502be49596856b85164ec77c88b004e2846a9bd1d6",
+          "line": 26316,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Ice Bolt",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "寒冰箭"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "fb36e29ae422a5f16472c28f0e00e5df002fe43b2a61d3c2e9473f34930888fb",
+          "line": 26317,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hurl ice shard at the target dealing %0.2f ice damage.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "释放寒冰箭，对目标造成 %0.2f 点冰冻伤害。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "efa161364be6d79834da8d9f60b03e9c82684fe2089e08ba5a3e82f4262c80f0",
+          "line": 26320,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Blight Bolt",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "枯萎箭"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "db17ac1af95f052fd39b69e1a376cef2d879b2310be27b9f96c96454eafb8f59",
+          "line": 26321,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Projects a bolt of pure blight, doing %0.2f blight damage.\n\t\tThis spell has an improved critical strike chance of +%0.2f%%.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "向目标发射一枚纯粹的枯萎弹，造成 %0.2f 枯萎伤害。\n\t\t此技能的暴击率增加 +%0.2f%%。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ca38a73619e1805661d3d6cf5c9d3fa8c2da235292b6a8193281bcd0e3a41c6f",
+          "line": 26326,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Water Jet",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "水之喷射"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "0acb957ee03b420a27975494803ed17a780318274f7bb144de4cd838ca4a23a3",
+          "line": 26327,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Condenses ambient water on a target, inflicting %0.1f cold damage and stunning it for 4 turns.\n\t\tThe damage will increase with your Spellpower",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "浓缩周围的水份喷射目标造成 %0.1f 冰冻伤害并震慑目标 4 回合。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "539befdc40fe2fbf807952286da53e6f02c5a25dcb40e09c6cb041b3402d3082",
+          "line": 26330,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Void Blast",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "虚空爆炸"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "32337467475cf1a00c826093f8957355b4f1288ce2bd434926dac4e4fd6ede5f",
+          "line": 26331,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Fires a blast of void energies that slowly travel to their target, dealing %0.2f arcane damage on impact.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "发射一团缓慢飞向目标的虚空能量，命中时造成 %0.2f 奥术伤害。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "cb59063f42976924d96f2bc0e07da07310671b68875b22172111bc8bf4638da7",
+          "line": 26334,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Restoration",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "自然治愈"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "b4dcae392752480193185555c483bc2d6881b3aca1b54b3205c0ab154a2226c5",
+          "line": 26335,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Call upon the forces of nature to cure your body of %d poisons and diseases.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "召唤自然的力量治愈你的身体，移除 %d 个毒素和疫病不良效果。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "6edc50781d347835a17cd3c209ad06aa37983fa0348903c0ed98c3120ee7b3d3",
+          "line": 26336,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Regeneration",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "再生"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "c908bda1a6c3b391d7ac7ca3fc7f5d72a3b611378562065e628cb21291d3ce24",
+          "line": 26337,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Call upon the forces of nature to regenerate your body for %d life every turn for 10 turns.\n\t\tThe life healed increases with Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "召唤自然的力量治愈你的身体，每回合回复 %d 生命值持续 10 回合。\n\t\t治疗量受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "96176ddb108228dd1fb6cebefde7a6e501e0ea896cef6886fae76e24e4c766be",
+          "line": 26340,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Grab",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "抓取"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8fd0937ede720168394fd91e664921b4959cff9a22fd688c15c5c216862a7fc9",
+          "line": 26341,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists the grab!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了抓取！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "9a357651366ea7638cc73743f871916542839ce036c1a96c92f492ea9fefa6bc",
+          "line": 26342,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hits the target doing %d%% damage; if the attack hits, the target is pinned to the ground for %d turns.  The chance to pin improves with Physical Power.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "攻击目标造成 %d%% 伤害，如果攻击命中可定身目标 %d 回合，定身几率受物理强度影响。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "47b3158d598cdba43cca1e436a29517812acbc39a4fa086feb42e19d39206c1a",
+          "line": 26343,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Blinding Ink",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "致盲墨汁"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1be5fc9f12d28e1450196038fc8ea38b773a4e5cd6f0dda5b90832c6750bb877",
+          "line": 26344,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ projects ink!",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@喷出墨汁！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "4040d2357cc87feba12850c75311b0d0476f59081e26059a97cb2e1442e6fef1",
+          "line": 26345,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You project thick black ink, blinding targets in a radius %d cone for %d turns.  The chance to blind improves with Physical Power.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "向前方喷出浓厚的黑色墨汁，在半径 %d 的锥形范围内致盲目标 %d 回合。致盲几率受物理强度影响。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "531a269b9fd6b9a6f0c62b2ac74ce66fddbd19b45719311e210edd62689fa8fd",
+          "line": 26346,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Spit Poison",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "毒性喷吐"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "e25060918693ec9bd9aa9a38861703df78b31cfaf5b1d57a58711a76f2a3fdeb",
+          "line": 26347,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Spit poison at your target, doing %0.2f poison damage over six turns.\n\t\tThe damage will increase with your Strength or Dexterity (whichever is higher).",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "向目标喷射毒液造成共计 %0.2f 毒素伤害，持续 6 回合。\n\t\t伤害受力量或敏捷（取较高值）加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "7de3b6eb00cf5fdd578bf797712ce69fea5777f50c18d24d1dfea1da019b5c2a",
+          "line": 26350,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Poison Strike",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "毒性打击"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "db43d3e2fe6be64f111cb95d1a792bcfd709543a9ec47007786b16d808b9a4e2",
+          "line": 26351,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Strike your target with poison, doing %0.2f poison damage over six turns.\n\t\tThe damage will increase with your mindpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "用毒素攻击目标，在六回合内造成 %0.2f 毒素伤害。\n\t\t伤害受精神强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "4e03188f7386aa320f272e70a70f393ff69f96257a4aec99c467d642580674ed",
+          "line": 26354,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Spit Blight",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "枯萎喷吐"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "cc7dd8386049a428d5539404c7d7a09524a7238dd0a0ecd682f5da4a8ba30aa3",
+          "line": 26355,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Spit blight at your target doing %0.2f blight damage.\n\t\tThe damage will increase with your Magic.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "喷吐目标造成 %0.2f 枯萎伤害。\n\t\t伤害受魔力值加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "51ebc319626b1522b8a6a86258cfd9b53e6e3f307918b5a9056251b7989ca1b7",
+          "line": 26358,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Rushing Claws",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "冲锋抓击"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1685a51112dd483b3991cb517034230fee84e75258778d706a017c5acb9158a8",
+          "line": 26359,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ rushes out, claws sharp and ready!",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@冲了出去，用尖利的爪子攻击!"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "527c05d8c1f4b00ceee7f9bd53b0f8c0d06e209355c3a1dabbfc8c65674b1942",
+          "line": 26360,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You cannot do that currently.",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你现在不能使用该技能。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "eea605609bc4bdb05902cd54a6f00ea2804bda42d3f6ca8cc2678c774f8837ee",
+          "line": 26361,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Rushes toward your target with incredible speed. If the target is reached, you use your claws to pin it to the ground for 5 turns.\n\t\tYou must rush from at least 2 tiles away.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "快速向目标冲锋，并使用爪子将目标定身 5 回合。\n\t\t至少距离目标 2 码以外才能施放。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3970ebf485972a4e6ea2e57df6a00693f01292cb5a420d483ee21987ed98d770",
+          "line": 26364,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Throw Bones",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "投掷白骨"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "fe45ef0a4e671c9cf9f315c87552bf58ca34a67e6b9c2ac4f93bffb88b9108d5",
+          "line": 26365,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Throws a pack of bones at your target doing %0.2f physical damage as bleeding within radius %d.\n\t\tThe damage will increase with the Strength stat",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "向目标投掷一堆白骨，造成 %0.2f 物理流血伤害，影响半径 %d 范围内的目标。\n\t\t伤害受力量值加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "86ddbf11809d952ee35760e3617cc2c2e2db6dad1724b62bf3b446f7ab19a65b",
+          "line": 26368,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Lay Web",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "撒网"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a9eb555c1011386fcc38292ddda014f50a74536b1a2752aa608bfadf25a16950",
+          "line": 26369,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ seems to search the ground...",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@好像在地上寻找着什么…"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "50028a2b05d315fbf4528b43cdd246d897484536bb5900c3c28ed1bfe1cfaf90",
+          "line": 26370,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "sticky web",
+          "source_tag": "_t",
+          "special": null,
+          "target": "粘粘的网"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "7de5044ade89cc4b35adbea301612aee68fbb36d30a530b7597ee662fcfc9c25",
+          "line": 26371,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Target@ is caught in a web!",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Target@陷入网中！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ac625e9ba20bb398b7e98968d6bead350293ae62bb5a38d38069d8b98d8a7229",
+          "line": 26372,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Pins non spiderkin for %d turns. Decays over time.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "定身所有非蜘蛛族 %d 回合。会随时间消失"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "579c096e4a65ce9c17bd976b2736cd61b2480ef628ab1c31cab6c5285daea62b",
+          "line": 26373,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了效果！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "cbaa6f44dcaa831005d2aa091ca8b8ee88d660dacd6614b87bbeb1841595df57",
+          "line": 26374,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Lay a concealed web (%d detect 'power', %d disarm 'power') under yourself that lasts %d turns and pins all non-spiderkin that pass through it for %d turns.  The web weakens over time.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "在脚下布置一张隐蔽蛛网（侦测强度 %d，解除强度 %d），持续 %d 回合；所有经过的非蜘蛛族生物会被定身 %d 回合。蛛网会随时间逐渐减弱。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "bcbdfae9af82390b78b283f60689eb08debb661f8e2f3f212dbd2b2dab7cafe3",
+          "line": 26375,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Darkness",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "黑暗"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a3e8e565673a5b881108760f8882c045a96cdebe8550bd4f50e8345be336a5fc",
+          "line": 26376,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Weave darkness (power %d) in a radius of %d, blocking all light but the most powerful and teleporting you a short range.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "织就强度为 %d、半径为 %d 格的黑暗，遮蔽除最强光线之外的所有光线，并将你短距离传送。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "abd1a0002193e101c243b27cf685ac688f5fa44141cf0cde09c398b6e18fa29c",
+          "line": 26377,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Throw Boulder",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "投掷巨石"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3d29925e1e021e61d2eb6398813ae9ea5f78e6f2b33f1c7660d5fb42b8452049",
+          "line": 26378,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "something",
+          "source_tag": "_t",
+          "special": null,
+          "target": "某物"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "6e369b495cecc0a0e19a9825d89a714e67d23ba0e44b9d33ec91518e8f4aac87",
+          "line": 26379,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "#Source# hurls a huge boulder at #target#!",
+          "source_tag": "logCombat",
+          "special": null,
+          "target": "#Source#朝#target#投掷巨石!"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "fc007842005e20679890207495e0f199d687db5394345415c0c98d7a2068a7d7",
+          "line": 26380,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Throw a huge boulder, dealing %0.2f physical damage and knocking targets back %d tiles within radius %d.\n\t\tThe damage will increase with your Strength.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "向目标投掷一块巨石，造成 %0.2f 物理伤害并将其击退 %d 格；作用半径为 %d 格。\n\t\t伤害受力量加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "be0387eaa717ecd2a0dd524140f8e59971e7475b0e74676efb418dd7c51cb35c",
+          "line": 26383,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Howl",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "嚎叫"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "52afdd086af5823883bdc412c37207fef7511261882bbb36d0e8b1f0864a7dab",
+          "line": 26384,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ howls",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@发出嚎叫。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1536c5007fcccda318f494cdcd095fe8c30c91d4efd87499a4aedb37a2dbaf8d",
+          "line": 26385,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Howl (radius %d) to call your hunting pack.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "呼唤同伴回援（范围 %d 码）。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1a3be3aedae1bb155320b31fe9eeb0e6b4d7d4daa1b3fe755b661ac7cd8f692e",
+          "line": 26386,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Shriek",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "尖啸"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "55f11e3fd93d7acf8c6a922a1bd95417f757302185aecf8611368172c4ed8301",
+          "line": 26387,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ shrieks.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@发出尖啸。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "c77533b3652b9f488b67c15814f609d3386d616cd226faf541ba7d214e82b6bc",
+          "line": 26388,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Shriek (radius %d) to call your allies.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "呼唤同伴（范围 %d 码）。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ae65952f50b595ae449b26ced1c448231bb13e851e78eeec6c659ffd9139fe20",
+          "line": 26389,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Crush",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "压碎"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5c517a0f45e40a41b744ffb575858c28d4198d41b5f269c794f800484e9a9ccb",
+          "line": 26390,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You cannot use Crush without a two-handed weapon!",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你必须使用双手武器才能释放压碎！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "01512f9bd23b23f57abcfc702cba7f1aaa106427909a74af4935c3991f372674",
+          "line": 26391,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists the crushing!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了压碎"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "741550f3726ad7dd1b7738d2a1d21e77a9666062592997cd50d73e002ed6b03e",
+          "line": 26392,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hits the target with a mighty blow to the legs doing %d%% weapon damage. If the attack hits, the target is unable to move for %d turns.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "对目标的腿部进行重击，造成 %d%% 武器伤害，如果攻击命中，则目标无法移动，持续 %d 回合。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "4e61fcef1b5009c54f2c29449ce5f288055281a2ca989d4165d2ac3af5b79366",
+          "line": 26393,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Silence",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "沉默"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1084a59d206442b92f9fd11629fc389be84b810580fe5f29015a51af2a4c26b4",
+          "line": 26394,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Sends a telepathic attack, silencing the target for %d turns.  The chance to silence improves with Mindpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "发动一次心灵攻击，使目标沉默 %d 回合。沉默几率受精神强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3e20d844f91e71a30fff6e82c21218c9dfc0c5b28cf8a3aa56c517f9ad6b473e",
+          "line": 26395,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Telekinetic Blast",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "念力爆炸"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "39d9de67371f587213587d4bbadc720b07076cb011360cb92b56631705b5a0c9",
+          "line": 26396,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Sends a telekinetic attack, knocking back the target up to 3 grids and doing %0.2f physical damage.\n\t\tThe damage will increase with Mindpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "施放灵能攻击击退目标至多 3 格并造成 %0.2f 物理伤害。\n\t\t伤害受精神强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "f1602844e1764628585ff14ddb7f6a52d2264470ae14d109b3075d89dbcaa937",
+          "line": 26399,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Blightzone",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "枯萎区域"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "aade768395aa8e0f8e83680e8802960471b71fce0b25b187b9d68b650eb904a0",
+          "line": 26400,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Corrupted vapour rises at the target location (radius 4) doing %0.2f blight damage every turn for %d turns.\n\t\tThe damage increases with Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "蒸腾目标区域（4码范围）造成每回合 %0.2f 枯萎伤害持续 %d 回合。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "08af7e46b5d8fdb3edefc68f0f6b965ef921ee6c13e2afd1cff4ace501d98ffd",
+          "line": 26403,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Invoke Tentacle",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "召唤触须"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a8f7e080e225e2f63414d4b68af87220ef27430ac10398d1c5c7e10e06ec8440",
+          "line": 26404,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Not enough space to invoke!",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "没有足够的空间召唤！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ed9b91127605d18712c1d65e3f8a54f28be1a2dceb717ac4f267add8c479f06f",
+          "line": 26405,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s spawns one of its tentacles!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s 产生了一只触手！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "beb7121a01ac90cb80f6cacce0d955d4d8ea5fe3bce5a7ed7691a5f19fb103e8",
+          "line": 26406,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s's summoned tentacle",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "%s的召唤触手"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "14595946f0cdc4e5468ed5216a59a86721d798cd57fa5dd5cbf429a47bc4c540",
+          "line": 26407,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Ewwww..",
+          "source_tag": "_t",
+          "special": null,
+          "target": "额……"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "7f51c5986c6fb1defd1c16a08d3b4af80ca85c00f8ef4840ba91e265c24792a3",
+          "line": 26408,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s spawns a tentacle!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s 产生了一只触手！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ea00c20153604f2910cb0c470cdc886fd88fabd5ec5c17618f2035478f82dfc5",
+          "line": 26409,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Invoke a tentacle to assault your foes.  If the tentacle is killed, you will lose life equal to 2/3 of it's maximum life.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "召唤一条触手来攻击敌人。如果触手被杀死了，你会失去相当于其2/3最大生命值的生命值。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "aefe7c821904bcd6234f47a9edf541e04a1b65d274747b22577242e62b74b0d1",
+          "line": 26410,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Explode",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "爆炸"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "11cbf6ec7826af307b65c96217e78e6fc648990c74e04a7796b47f95d07fa996",
+          "line": 26411,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ explodes! @target@ is enveloped in searing light.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@爆炸了! @target@ 被灼热的光线覆盖了。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8e6283dd168c4de4fecd6571a960fc4a3502932878471120723a28eeffa69c7d",
+          "line": 26412,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Causes the user to explode (killing it) in a blinding flash for %0.2f light damage.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "使使用者在致盲闪光中爆炸（并死亡），造成 %0.2f 光系伤害。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "4e6761aae40a53ac23b6b187b35db4dddce79ceac0dc3c25d15c9568a67e3880",
+          "line": 26413,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Will o' the Wisp Explode",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "鬼火自爆"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "7800a0b2c4382353b16b246d268fdd2b7ed68ab1f0bdfcef79cc485db5e41817",
+          "line": 26414,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ explodes! @target@ is enveloped in frost.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@爆炸了! @target@被冰霜覆盖了."
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "25f10bf5d882adacf8157eff6f9a317b3e2ccf28012b0a8b0718e68ea91ead76",
+          "line": 26415,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Explode against one target for %0.2f cold damage.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "自爆对单个目标造成 %0.2f 寒冷伤害。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "db3aa45f945042c7392b589902c36c6778a4e1c0d3a3ddba3a9095423ab00dbd",
+          "line": 26416,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Elemental Bolt",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "元素弹"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ac23c60704f78e60008ab277cc0a61d46876387cff2a7e8ecca128c5fdc7eeac",
+          "line": 26417,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ casts Elemental Bolt!",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@释放了元素弹!"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "cd45578cc19e76b43e668fd9743eb2f5f1c52c43a1e2e79949d712a054625646",
+          "line": 26418,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Fire a slow bolt of a random element for %d damage. Damage increases with the magic stat.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "发射一枚随机元素属性的魔法飞弹缓慢飞行攻击目标造成 %d 伤害，伤害受魔力值加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "2be3112198e96bc98d363a25d3129c0df4637a22044053c3000280da9465f94b",
+          "line": 26419,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Volcano",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "火山爆发"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "65d10c29c9069c2d5da352f2a866763202d35a24314c8e54677e32b6bc419ed6",
+          "line": 26420,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "A volcano erupts!",
+          "source_tag": "_t",
+          "special": null,
+          "target": "一座火山开始喷发！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5d173cc7ead51a3b9e0af780dbb993190879bbc64fe85aba0c232a24c334b3a5",
+          "line": 26421,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "raging volcano",
+          "source_tag": "_t",
+          "special": null,
+          "target": "喷发中的火山"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "66e0356e916a15c1465cf99b9fb6b3c7a6c42e24a43268d741b117280d0876e4",
+          "line": 26422,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Summons a small raging volcano for %d turns. Every turn, it will fire a molten boulder towards up to %d of your foes, dealing %0.2f fire and %0.2f physical damage.\n\t\tThe damage will scale with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "召唤一座小型喷发火山，持续 %d 回合。每回合，它都会向至多 %d 个敌人发射一块熔岩巨石，造成 %0.2f 火焰伤害和 %0.2f 物理伤害。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "058157c35f25ddbc53b35e9a42aaa3e60383cdf5904982a3f137f994143cbe91",
+          "line": 26425,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Speed Sap",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "减速"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ac83235b633399d199158434831c0301138c9a3bfe2ae6f14e0c5e06ee872922",
+          "line": 26426,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Saps 30%% of the target's speed (increasing yours by the same amount) and inflicts %0.2f temporal damage for three turns.\n\t\t",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "降低目标 30%% 速度，增加你等量的速度，并在 3 回合内造成 %0.2f 时空伤害。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "73f8fa074e63193464c3c14ccc50802b01878f9fc7f29138e1bd87e33806de0f",
+          "line": 26428,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Dredge Frenzy",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "挖掘魔狂乱"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "57f2e36b2a2ee61a66254c15c7cee8f00910d9952590861f6b46f8501e5911bf",
+          "line": 26429,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Sends Dredges in a radius of %d into a frenzy for %d turns.\n\t\tThe frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "使半径 %d 格内的挖掘魔陷入狂乱，持续 %d 回合。\n\t\t狂乱使其全局速度提高 %d%%、物理暴击率提高 %d%%，并使其在生命值降至 -%d%% 前不会死亡。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "116f2cd3d55ee1eff25cb490a0953dfc0cb3069e9dd2bd9bc65538f898ecb4e7",
+          "line": 26432,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Sever Lifeline",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "生命离断"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "0cb8d0bd9f2b1ee62b69fc38e3fe91cd4c6717b72fb4cc96e863fbc348fc3cc4",
+          "line": 26433,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Start to sever the lifeline of the target. After 4 turns, if the target is still in line of sight of you, its existance will be ended (%d temporal damage).",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "引导法术离断目标的生命线，如果 4 回合之后目标仍然在视线内则会立即死亡( %d 时空伤害 )。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "7a5c5ef520d7f8ea1e53ed33e68873178ac6dcafee5c3b2eb5778d261c8da270",
+          "line": 26434,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Call of Amakthel",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "阿马克泰尔的呼唤"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "39172eee2dd89eaed980837edcc1bb6713f609e65514eb54b0324c75d42cc09d",
+          "line": 26435,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s is pulled in!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s 被拉了进去！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8aee446e00e362766a69944339c36c921f83cff53c7481136bce0d151e7374a9",
+          "line": 26436,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Pull all foes within radius 10 1 grid towards you.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "将 10 格内所有敌人往身边拉 1 格。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "9591dcc1ec55f8d8f1ebd3bcf6cea03a23450a1baf12baf1bc55a4ea20f1c6ad",
+          "line": 26437,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Gift of Amakthel",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "阿马克泰尔的礼物"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "73a98fe96ec3bb2f7a0d061ff8fe58a3c73f2070c34ca7df797817af0251942f",
+          "line": 26438,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s spawns a slimy crawler!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s 产出了一只黏糊糊的爬虫！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "c2e90b749e33f65760245078cb6342d34ffcd0e63a15c81ec6a4f1891f99d37f",
+          "line": 26439,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Invoke a slimy crawler for 10 turns.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "召唤一只黏糊糊的爬虫 10 回合。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "477042c5552d3cede33c7d68fbd93fc6a0b99a67a93c1afb186aefb3684f7a97",
+          "line": 26440,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Strike",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "打击"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "91f05a28b642588ba14196dd71dd55e7e299d0a23c6a589149cc79db9fde8ce7",
+          "line": 26441,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Conjures up a fist of stone, doing %0.2f physical damage and knocking the target back 3 grids.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "制造一个石拳造成 %0.2f 物理伤害并击退目标 3 格。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "d567e1a512bbf3d06e661dc4cf3caf0bdb59386881b08e43d4cc52470f9d8f00",
+          "line": 26444,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Corrosive Vapour",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "腐蚀酸雾"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "fba1d42f3ac23f04700c9da27e5f16abca2b0b29602ca5815f88dc04fd4b0644",
+          "line": 26445,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Corrosive fumes rise from the ground doing %0.2f acid damage in a radius of 3 each turn for %d turns.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "腐蚀性酸雾从地面升起，在半径 3 格内每回合造成 %0.2f 点酸性伤害，持续 %d 回合。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ad46ff35321c52fbc3364953e881797453159c8600a9ac2896b2f257f87baa86",
+          "line": 26448,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Manaflow",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "法力涌动"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "2099c89cd7b2889a864420b10fd85265bb6a06a8df84363f6ab0f048e78c97af",
+          "line": 26449,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Engulf yourself in a surge of mana, quickly restoring %d mana every turn for 10 turns.\n\t\tThe mana restored will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "将自己包围在法力的河水中，每回合回复 %d 点法力值，持续 10 回合。\n\t\t法力回复受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "29d52190d886249f43d95052021a76ea4affda4450fb8018349b283ff4b07028",
+          "line": 26452,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Infernal Breath",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "地狱吐息"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "fe31bf163660dbc6897933759cb1b8e63b9de38c6c1a52fd119bf6bbd006ccd9",
+          "line": 26453,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Exhale a wave of dark fire with radius %d. Any non demon caught in the area will take %0.2f fire damage, and flames will be left dealing a further %0.2f each turn. Demons will be healed for the same amount.\n\t\tThe damage will increase with your Strength Stat.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "对 %d 码范围吐出黑暗之火。所有非恶魔生物受到 %0.2f 火焰伤害，并在接下来继续造成每回合 %0.2f 的持续火焰伤害。恶魔则会治疗同等数值的生命值。\n\t\t伤害受力量值加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "482074f14af2eb34cacac3e1fc00a98da9b8417f739de8d9eefe63555dff16c1",
+          "line": 26456,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Frost Hands",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "霜冻之手"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "9175ed9f1337d994b424d6ffb95d5b568ac197a53407e03ee9dccd384ae83ac8",
+          "line": 26457,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Engulfs your hands (and weapons) in a sheath of frost, dealing %0.2f cold damage per melee attack and increasing all cold damage by %d%%.\n\t\tThe effects will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "将你的双手笼罩在寒冰之中每次近战攻击造成 %0.2f 冰冷伤害，并提高 %d%% 冰冷伤害。\n\t\t效果受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "fb2b808d1750564c36c25ae20bf85577f11a0c1947a49ab96980172081b21af4",
+          "line": 26460,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Meteor Rain",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "流星雨"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "422e14970e16c962eff2c12cbba739afd609e2a4e620edb413df5bb01680351c",
+          "line": 26461,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Use arcane forces to summon %d meteors that fall to the ground within range 2 of the target.\n\t\tEach meteor smashes everything within radius 2, dealing %0.2f fire and %0.2f physical damage to creatures other than yourself, while liquefying some of the terrain into lava for 8 turns.\n\t\tThe damage increases with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "使用奥术力量召唤 %d 颗陨石，陨石会落在距目标 2 格以内的地面上。\n\t\t每颗陨石会轰击半径 2 格内的一切，对除你之外的生物造成 %0.2f 点火焰伤害和 %0.2f 点物理伤害，并使部分地面熔化成熔岩，持续 8 回合。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "d65cb4f7935ab9e459c69e1d1759fd84d464da68b8eadce3c0e584ed157544b5",
+          "line": 26466,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Heal",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "自然治愈"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "b2e39d349d843c9dd4097e9a0b82a171fdd464cb5d19c2ca4a179c96453783a5",
+          "line": 26467,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Imbues your body with natural energies, healing for %d life.\n\t\tThe life healed will increase with your Mindpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "使身体吸收自然能量，治疗 %d 生命值。\n\t\t治疗量受精神强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1fdf285a9b1f6732423fb6ee6de586b6836c7dd98b0cc3af6db3797e5a19ede6",
+          "line": 26470,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Call Lightning",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "召唤闪电"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "6f72f9c56f433e9189f575375f1c597cf143dea947b630bf07f7e3d4dede738f",
+          "line": 26471,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ hurls lightning at @target@!",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@向@target@掷出闪电！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1b932703881ddb4b95a8fd1c772c3866a2efdf69f26bd076f2afef2886612d7d",
+          "line": 26472,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Calls forth a powerful beam of lightning doing %0.2f to %0.2f lightning damage (%0.2f average).\n\t\tThe damage will increase with your Mindpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "召唤一股强烈的闪电束造成 %0.2f 至 %0.2f 伤害（平均 %0.2f ）。\n\t\t伤害受精神强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1afd64c3694133954b62f9fd30fc0e30b1bd6a26cd17412165ad93a25d5898ad",
+          "line": 26475,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Fade",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "消隐"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "f1a4adf14c7f6de532dee91f457177afe08d91976545106042215d31f03e6fb5",
+          "line": 26476,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You fade from sight, making you invulnerable until the beginning of your next turn.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你从视线中消失并无敌，直到下一回合开始。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "b5d2254568210cf2a206ab0449d17f488cfa4be5e7d929b789eb59b48af0c1a6",
+          "line": 26477,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Phase Door",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "相位之门"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "4ddf925406aa75eea93342cc729ff4b1c2b5419ca8c569a1101f27fd3c3da1f3",
+          "line": 26478,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Teleports you randomly within range 10.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "在 10 码范围内随机传送你。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "bede97ea19907a21d945689431d61405cd3b627aed1a747598dbda8dca49c3a1",
+          "line": 26479,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Blindside",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "闪电突袭"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "cbf0d830bfaea7b407c36979af8af5e20db0a4ab65d1f55cf95b906dd7510add",
+          "line": 26480,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "With blinding speed you suddenly appear next to a target up to %d spaces away and attack for %d%% damage.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你以难以置信的速度闪现至附近 %d 码的一个目标身边并造成 %d%% 伤害。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "10eed7b917249a490dd1a942ceca9e832c3e8d2d67523ec406205c5bac8b7d3b",
+          "line": 26481,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Suspended",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "停滞"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "2c3c4bb3c5d859e2db7383c85151314ae06f34ad184b85d353cebafffaa973d1",
+          "line": 26482,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "The target will not react until attacked.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "除非受到攻击，否则目标不会行动。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "421c2567e94a60111c27a4d67b9518d61fffd4f8f36b6916156080a7858147b9",
+          "line": 26483,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Frost Grab",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "冰霜飞爪"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "cf845530922cea5752f931916864aebce15644d2511032f8c9b76c67ea9a5320",
+          "line": 26484,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Grab a target and pull it next to you, covering it with frost while reducing its movement speed by 50%% for %d turns.\n\t\tThe ice will also deal %0.2f cold damage.\n\t\tThe damage and chance to slow will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "抓住一个目标并将其拉到你身边，以寒霜覆盖它，使其移动速度降低 50%%，持续 %d 回合。\n\t\t寒冰还会造成 %0.2f 点寒冷伤害。\n\t\t伤害和减速几率受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a0dd0d234c766b04f31c8f43a71e4db2aa75fdaf88f94af28d6f1bdabf8f7f68",
+          "line": 26489,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Body Shot",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "崩拳"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a662ebdda629641e5940c88acda7e668fedbf6c708fecfb7f97487a603bcd420",
+          "line": 26490,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ throws a body shot.",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@打出崩拳。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ddfdbaa04ec17912280ed157174175e615c9fcf00b2366e7b14c44b2df96fc74",
+          "line": 26491,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists the body shot!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了崩拳！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ae2075b16a50460a26df65770c5792c7362a82fe031c1cbefbb5b5e2d74378cc",
+          "line": 26492,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "A punch to the body that deals %d%% damage, drains %d of the target's stamina per combo point, and dazes the target for %d to %d turns, depending on the amount of combo points you've accumulated.\n\t\tThe daze chance will increase with your Physical Power.\n\t\tUsing this talent removes your combo points.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "对目标的身体发出强烈的一击，造成 %d%% 伤害，每点连击点消耗 %d 目标体力并眩晕目标 %d 到 %d 回合（由你的连击点数决定）。\n\t\t眩晕概率受物理强度加成 \n\t\t使用此技能会消耗当前所有连击点。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "419abac32f8289bcb68b7178a39b791d11bd4b8e337a33fb6e11821f2ee20c49",
+          "line": 26497,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Combo String",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "强化连击"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3c4a757b5bb0e92ef5618a9cd94749de974ff68812a0cf47f353b01f5fb1cc90",
+          "line": 26498,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "When gaining a combo point, you have a %d%% chance to gain an extra combo point.  Additionally, your combo points will last %d turns longer before expiring.\n\t\tThe chance of building a second combo point will improve with your Cunning.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "当获得 1 个连击点时有 %d%% 概率 \n\t\t额外获得 1 个连击点。\n\t\t此外你的连击点持续时间会延长 %d 回合。\n\t\t额外连击点获得概率受灵巧加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5f20307a7ab9b89dab9ce80ed4599f6023b2b8a1e4c6dc23fe625a0aeb0e2b65",
+          "line": 26503,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Steady Mind",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "冷静思维"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3fdbb365bfd6f0da0b376bad9cb1675cfd24059319c0fcda505eba28f919627b",
+          "line": 26504,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Superior cunning and training allows you to outthink and outwit your opponents' physical and mental assaults.  Increases Defense by %d and Mental Save by %d.\n\t\tThe Defense bonus will scale with your Dexterity, and the save bonus with your Cunning.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "大量的训练使你能保持清醒的头脑，增加 %d 近身闪避和 %d 精神豁免。\n\t\t受敏捷影响，闪避按比例加成； \n\t\t受灵巧影响，精神豁免按比例加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "afd5643b32f988edf96ba77bc26e5f7a8631839271f0e711a41fba800af400e3",
+          "line": 26508,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Maim",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "伤残"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "c65a19b85a3697b50243fdc4931a0570853034615013dc69d8bc848032444d21",
+          "line": 26509,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Grapples the target and inflicts %0.2f physical damage. If the target is already grappled, the target will be maimed as well, reducing damage by %d and global speed by 30%% for %d turns.\n\t\tThe grapple effects will be based off your grapple talent, if you have it, and the damage will scale with your Physical Power.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "抓取目标并给予其 %0.2f 物理伤害。\n\t\t如果目标已被抓取，则目标会被致残，减少 %d 伤害和 30%% 全局速度持续 %d 回合。\n\t\t抓取效果受你已有的抓取技能影响。\n\t\t受物理强度影响，伤害按比例加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3c6b72ca9d6adc2f48254759270a024a0f1857a2a97f65a656b7e0dcab754638",
+          "line": 26514,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Bloodrage",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "血怒"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "37e7ec2a22a0f2bad5608cb54471676f4d9c9953c38fb51c8592aee2a0fb7ea6",
+          "line": 26515,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Each time one of your foes bites the dust, you feel a surge of power, increasing your strength by 2 (stacking up to a maximum of %d) for %d turns.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "每当你让一个敌人扑街，你会漏出一股汹涌的霸气，增加你 2 点力量，上限 %d ，持续 %d 回合。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8ba4d7135840fae10fae5c59caac025b795db84f83d43283030b749e5c1ffd3f",
+          "line": 26516,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Martyrdom",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "殉难"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "06985dd5e64bb7b51dbe5127345aa83aff967c55917131bbf52fced0c4990049",
+          "line": 26517,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Designate a target as a martyr for 10 turns. When the martyr deals damage, it also damages itself for %d%% of the damage dealt.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "将目标设置为殉难的目标，持续10回合。当殉难的目标造成伤害的时候，会对自己返还伤害值的%d%%。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "2b8604100f68f9cf24de6031034a7ddb88b8f8c7078c49ce33206d49cd494c6c",
+          "line": 26518,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Overpower",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "压制"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "7127b715ff3643de55e3ef4fc223951dcc02b0e016e75cf64cbc73730d25c565",
+          "line": 26519,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You require a weapon and a shield to use this talent.",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你需要一把武器一个盾牌来施展这个技能。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "e9352173b990a391e5ff4f846274856b53c649fdb12ba2a09c5dbf8c09941094",
+          "line": 26520,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You cannot use Overpower without a shield!",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "必须装备一面盾牌施展该技能！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "d565b6f17b9c947a9c9060184b3ded2ecc1225891550a79e8a1bcc1afc4655d9",
+          "line": 26521,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hits the target with your weapon doing %d%% damage and two shield strikes doing %d%% damage each, trying to overpower your target.\n\t\tIf the last attack hits, the target is knocked back 4 grids. The chance for knockback increases with your Accuracy.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "用武器攻击目标，造成 %d%% 武器伤害，再用盾牌攻击两次，每次造成 %d%% 伤害，试图压制目标。\n\t\t若最后一次攻击命中，目标会被击退 4 格。击退概率受命中加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "bed1d62e6706c5cb7fec88b05c2111ebaa54532f689dc4b78495a6ae6eff1433",
+          "line": 26524,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Perfect Control",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "完美控制"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "9a12097be87e574b58d229776bbd1f6e2198049f2b3286f83dd6a776475765a0",
+          "line": 26525,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Encase your body in a sheath of thought-quick forces, allowing you to control your body's movements directly without the inefficiency of dealing with crude mechanisms like nerves and muscles.\n\t\tIncreases Accuracy by %d and critical strike chance by %0.1f%% for %d turns.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "用灵能围绕你的身体，通过思想高效控制身体，允许你不使用肌肉和神经操纵身体。\n\t\t增加 %d 点命中和 %0.1f%% 暴击概率，持续 %d 回合。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "e35e8b5d3e54b60cabfc2994faddeee74e7c670a7717c8117b40c59514fa9d0e",
+          "line": 26528,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Shattering Charge",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "毁灭冲锋"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "2e1a4a07c057d178de5207a60bf561870859308b2387ec68e49b8178713ee59a",
+          "line": 26529,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You can't move there.",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "你不能移动至那里。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a663ca138ea6e328298216f59b1b4c3386eab15861cc7c4bd16dbbf861648c5f",
+          "line": 26530,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You expend massive amounts of energy to launch yourself across %d squares at incredible speed. All enemies in your path will be knocked flying and dealt between %d and %d Physical damage.\n\t\tAt talent level 5, you can batter through solid walls.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "冲锋 %d 码。\n\t\t路径上的敌人会被击退并受到 %d 至 %d 点物理伤害。\n\t\t技能等级 5 时你能冲过墙壁。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5af87cff344566210dbd1b81702fea6cdf0b73bf13e9f61ae1f159519ad47972",
+          "line": 26534,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Telekinetic Throw",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "动能投掷"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "0be624de89a2b77240081bda9219b21e080fe72b4a9aa0cddd58bcf2012784e7",
+          "line": 26535,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists the stun!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了震慑！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3f0fe111f2e631f0856ef4d40c9dc908216dc681d8841f92be187da0d0392d29",
+          "line": 26536,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "#YELLOW##Source# resists #Target#'s throw!",
+          "source_tag": "logCombat",
+          "special": null,
+          "target": "#YELLOW##Source#抵抗了#Target#的投掷！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "92d24815ed7cabf451de83ba32a03ce69e7656956ce4f31058ccefa3dace8718",
+          "line": 26537,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Use your telekinetic power to enhance your strength, allowing you to pick up an adjacent enemy and hurl it anywhere within radius %d.\n\t\tUpon landing, your target takes %0.1f Physical damage and is stunned for 4 turns.  All other creatures within radius 2 of the landing point take %0.1f Physical damage and are knocked away from you.\n\t\tThis talent ignores %d%% of the knockback resistance of the thrown target, which takes half damage if it resists being thrown.\n\t\tThe damage improves with your Mindpower and the range increases with both Mindpower and Strength.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "运用念动力强化你的力量，抓起一名相邻敌人，将其投掷到半径 %d 内的任意位置。\n\t\t落地时，目标受到 %0.1f 点物理伤害并被震慑 4 回合。落点半径 2 格内的其他生物受到 %0.1f 点物理伤害，并被击退至远离你的方向。\n\t\t该技能忽略被投掷目标 %d%% 的击退抵抗；如果目标抵抗了投掷，则只受到一半伤害。\n\t\t伤害受精神强度加成，投掷范围受精神强度和力量加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "47f0205ce1eaa85736100790d7be886dc01f7c0425703b6d62cecc789c00d910",
+          "line": 26544,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Reach",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "意念扩展"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "57dc119cf38856515e5eb3b98abfa6f6c0a76601b55c28f5730bf18d6801ac0f",
+          "line": 26545,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Reload",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "装填弹药"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "44e70fbbc5bbba6200710e0e1c7dc318dd9ba7cf38280f39b2787abdf22563fd",
+          "line": 26546,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You must have a quiver or pouch equipped.",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你必须装备弹药。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "4ba0cab44057c9e735d5cae7286a3c5bc3292b1a10ca741703ced285b40d132f",
+          "line": 26547,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Quickly reload your ammo by %d (depends on masteries and object bonuses).\n\t\tDoing so requires no turn but you are considered disarmed for 2 turns.\n\n\t\tReloading does not break stealth.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "立刻装填 %d 弹药。之后缴械 2 回合。\n\t\t装填弹药不会打破潜行。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "dbffce9f6a3d169da2fb8077d8a82ee49ae5f06039065205b459bcab62bba28b",
+          "line": 26552,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Sweep",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "拔刀斩"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5b8afb215a9a513e79cffb91370c2bef87f16bf9a758205c0e18a0cda1be4666",
+          "line": 26553,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You require two weapons to use this talent.",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你只有在双持状态下才能使用这个技能。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1721e42bdc439d460739c62d2fdf38bc794445e1ccd0547b3c8b9028f2d8ee08",
+          "line": 26554,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You cannot use Sweep without dual wielding!",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你只有在双持状态下才能使用这个技能。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "c7f12614500c3ce9e4e61ccc8d20825b3ac944fcedb3fd1d97f4f9b5d7eb0e66",
+          "line": 26555,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Attack your foes in a frontal arc, doing %d%% weapon damage and making your targets bleed for %d each turn for %d turns.\n\t\tThe bleed damage increases with your main hand weapon damage and Dexterity.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "对你正前方锥形范围的敌人造成 %d%% 武器伤害并使目标进入流血状态，每回合造成 %d 点伤害，持续 %d 回合。\n\t\t流血伤害受主手武器伤害和敏捷加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "623b6f2db536432a2952189213ce2edb81b23458efa7ff76b4ad93695b47c3d0",
+          "line": 26558,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Empower Poisons",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "强化毒素"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "0ae2050a33b57210c3323ba9288c0379425e950c1609581c81fa4a65f8319789",
+          "line": 26559,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Reduces the duration of all poisons on the target by 50%%, but increases their damage by %d%%.\n\t\tThe effect increases with your Cunning.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "将目标身上所有毒素的持续时间缩短 50%%，但使其伤害提高 %d%%。\n\t\t效果受你的灵巧值加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "040a4f93f6335a0dfe3ce385e37e0ec1953a4171bcfd8d876e29885a176d652d",
+          "line": 26562,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Willful Combat",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "战斗意志"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "cab6593aeb2d7f31c6bcf5650db8f4b37a23e477ad06a6d27a3dac2c9bc62dd3",
+          "line": 26563,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "For %d turns, you put all your will into your blows, adding %d physical power to each strike.\n\t\tThe effect will improve with your Cunning and Willpower stats.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "在 %d 回合内，你将全部意志用来强化你的打击，在打击时额外获得 %d 物理强度。\n\t\t效果受你的灵巧值和意志值加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "457f760697b684c9c29388c0cac96844c0c2ae32383bc8401ecefcaaf0a0ee36",
+          "line": 26566,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Deadly Strikes",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "致命打击"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "33210821d4f17cb97cc8f458d0001205dfccd1823671ffdbd5c3b1bb53a14631",
+          "line": 26567,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You hit your target, doing %d%% damage. If your attack hits, you gain %d armor penetration (APR) for %d turns.\n\t\tThe APR will increase with your Cunning.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你打击目标，造成 %d%% 伤害。如果你击中了目标，你获得 %d 护甲穿透，持续 %d 回合。\n\t\t护甲穿透受你的灵巧值加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "b055343468d8a774e956f0a8314aec91102ddd39f50cd003833a58f736598f35",
+          "line": 26570,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Sticky Smoke",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "粘性烟雾"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "d915bb10b94c349d892674f33bf47a14a2a44b399cd8ea4aa4fb4350615d22c6",
+          "line": 26571,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Throws a vial of sticky smoke that explodes in radius %d on your foes, reducing their vision range by %d for 5 turns.\n\t\tCreatures affected by smoke bomb can never prevent you from stealthing, even if their proximity would normally forbid it.\n\t\tUse of this will not break stealth.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "向你的敌人投掷一小瓶在半径 %d 码范围内爆炸的粘性烟雾，使他们的视野范围减少 %d ，持续5回合。\n\t\t受烟雾弹影响的生物永远不会阻止你潜行，即使通常情况下接近它们会导致无法潜行。\n\t\t使用这个技能不会打破潜行。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "197907af620c9ae62115d03b04ce99aea2d075f84c09fc07eb9e34eb943bf6b7",
+          "line": 26576,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Switch Place",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "换位"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1d0072088ff0ab3bc9ffb999848e6a234829fa2d2bf867ca2e80521046dbcdb7",
+          "line": 26577,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Terrain prevents #Source# from switching places with #Target#.",
+          "source_tag": "logCombat",
+          "special": null,
+          "target": "地形阻止了#Source#与#Target#的换位."
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "764ff8d4be52d13830e8216ba7652b74d90c11ad21b30d0f15eac5bd74a04368",
+          "line": 26578,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Using a series of tricks and maneuvers, you switch places with your target.\n\t\tSwitching places will confuse your foes, granting you Evasion (50%%) for %d turns.\n\t\tWhile switching places, your weapon(s) will connect with the target; this will not do weapon damage, but on hit effects of the weapons can trigger.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "通过一系列的技巧和动作，你可以和你的目标交换位置。\n\t\t这个换位动作会迷惑你的敌人，让你获得持续 %d 回合的 50%% 概率躲闪效果。\n\t\t切换位置时，你的武器将会与目标连接；这不会造成武器伤害，但武器的命中效果会触发。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "adf5e769e1ada3ae04b33fe0ed7f3e285ebb6e8eb656eccc81410b9b4dfddd3f",
+          "line": 26583,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Cripple",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "致残"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "f781f7635a048d599fc2f1d6b6fa01aebdc9a154f199cd5b144c3a57bf620aec",
+          "line": 26584,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You hit your target, doing %d%% damage. If your attack connects, the target is crippled for %d turns, losing %d%% melee, spellcasting and mind speed.\n\t\tThe chance to land the status improves with Accuracy, and the status power improves with Cunning.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你打击你的目标，造成 %d%% 伤害。如果你击中了目标，目标会被残废 %d 回合，降低 %d%% 战斗，法术和精神速度。\n\t\t附加异常状态的几率受命中值提升，异常状态效果受灵巧值提升。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "d84b6da5271ea39c81a59bba8e7aed6b0c33f8fd69ccad83a3adfd6cecc73ae7",
+          "line": 26587,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Nimble Movements",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "灵巧移动"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ff0b304bd58ba4bfaaab106940035790b7f12710d9a2c44147f3afd060908351",
+          "line": 26588,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "@Source@ dashes quickly!",
+          "source_tag": "_t",
+          "special": null,
+          "target": "@Source@快速移动!"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3f3f3a9d748be3b2624ed52e6a35424b37a302e34dd796c98f4dee8543eaa79d",
+          "line": 26589,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You can not do that currently.",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "目前你不能这样做。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "97d92694924ffd7da1dda2850c1faf3865f44982df6e5b82b216510d70ff4030",
+          "line": 26590,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You cannot dash through that!",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你不能穿过去！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1f92e0995fda83a34fffc6d7f1315cb271549a6e29ea8effff1ac5a3b2a7251c",
+          "line": 26591,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Quickly and quietly dash your way to the target square, if it is not blocked by enemies or obstacles. This talent will not break Stealth.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "如果没有敌人或障碍物的阻挡，你可以快速而安静地冲向目标位置。这个技能不会打破潜行。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3f463eae1101d178ed29ca8c7e0360d217bbf2caf4b32d40f3c7ede8ca1df2ec",
+          "line": 26592,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hide in Plain Sight",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "强制潜行"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8c03a953886f5ddb1b1a84a9290beffbc223f3c788fbb81920450f6d0517c3e3",
+          "line": 26593,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You cannot be stealthy with such heavy armour on!",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你不能在身着重甲的情况下潜行！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "671f50d17ef333b275a17c538cad860b5fa10a84359130f1b0f7ac7252d2ffe0",
+          "line": 26594,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You have learned how to be stealthy even when in plain sight of your foes.  You may attempt to enter stealth regardless of how close you are to your enemies, but success is more likely against fewer opponents that are farther away.\n\t\tYour chance to succeed is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection of all enemies (reduced by 10%% per tile distance) that have a clear line of sight to you.\n\t\tYou always succeed if you are not directly observed.\n\t\tThis resets the cooldown of your Stealth talent, and, if successful, all creatures currently following you will lose track of your position.\n\t\tYou estimate your current chance to hide as %0.1f%%.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "即使在你的敌人面前，你也学会了如何隐身。不管你与敌人有多近，你都可以尝试潜行，但敌人越少，距离越远成功率越高。\n\t\t你的成功率取决于你潜行强度的%0.2f倍（当前值 %d ），以及所有视线能及你的敌人的侦测潜行能力（离你距离每有一格则下降10%%）。\n\t\t如果没有生物能看到你，你一定会潜行成功。\n\t\t这一技能会重置潜行技能的冷却时间。如果使用成功的话，所有敌人都会失去对你位置的感知。\n\t\t你估计你目前使用这一技能的成功率为%0.1f%%。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "4a7667f7e8479bec512ddc04e926e151153bad8d1444b17fed0047fea56c163f",
+          "line": 26603,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Unseen Actions",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "行动如风"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "f3a17adb95c5bfe98d24d44cde24446938c20e8a179a82d9353e6d180da6bdd8",
+          "line": 26604,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You are able to perform usually unstealthy actions (attacking, using objects, ...) without breaking stealth.\t When you perform such an action while stealthed, you have a chance to stay hidden.\n\t\tSuccess is more likely against fewer opponents and is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection (reduced by 10%% per tile distance) of all enemies that have a clear line of sight to you.\n\t\tYour base chance of success is 100%% if you are not directly observed, and good or bad luck may also affect it.\n\t\tYou estimate your current chance to maintain stealth as %0.1f%%.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你学会在潜行状态下使用一些通常会打破潜行的技能（如攻击，使用物品……）当你在隐身状态下这么做的时候，你有一定概率不会打破潜行状态。\n\t\t你的成功率取决于你潜行强度的%0.2f倍（当前值 %d ），以及所有视线能及你的敌人的侦测潜行能力（离你距离每有一格则下降10%%）。\n\t\t当你不在敌人的视野内时，基础成功率为 100%%，这一几率还受你的运气影响。\n\t\t你估计当前成功率为 %0.1f%%。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "891055de4a9af0167ba6dd3145cadd6389df3a1467b59502ca734be98fcce279",
+          "line": 26611,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Hack'n'Back",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "燕回斩"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "2aada88c66d0433a8672b29432b3d414f372c86fb5318ed65c11b06eb2bc9fc4",
+          "line": 26612,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You hit your target, doing %d%% damage, distracting it while you jump back %d squares away.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你打击目标造成 %d%% 伤害，分散它的注意力并往回跳 %d 码。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "65b1efda80de8c56331242e02776630a7cde9fe7c4f88f7047e45457eba4c762",
+          "line": 26613,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Mobile Defence",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "轻装防御"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "bc6a93bfad93f352239f9058534c577744033ad48f01c8f700eae2f2ab96b997",
+          "line": 26614,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Whilst wearing leather or lighter armour, you gain %d%% Defense and %d%% Armour hardiness.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "当你装备皮甲或轻甲时，你会增加 %d%% 近身闪避和 %d%% 护甲强度。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "2e069bf53f1966b613eb14a9cf556c30b1ff0df019012ff2ad3ffbffa3b2ad30",
+          "line": 26615,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Light of Foot",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "踏雪无痕"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "4e7203f4d0bd3f35065e4ee4c99c940195b20b2cdadf580f4aea9d9fa3f30a79",
+          "line": 26616,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You are light on your feet, handling your armour better. Each step you take regenerates %0.2f stamina, and your fatigue is permanently reduced by %0.1f%%.\n\t\tAt level 3 you are able to walk so lightly that you never trigger traps that require pressure.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你的步伐很轻快，使你能更好的适应盔甲的重量。每移动一步你可以回复 %0.2f 体力，并且你的疲劳值永久减少 %0.1f%%。\n\t\t在等级3时你的脚步非常轻快，以至于你不会触发压力式陷阱。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "44cc614797a53fb9e69c9a250ce18ef2906f97a1aa4cf49244e562ca3713ab49",
+          "line": 26619,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Strider",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "凌波微步"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "dffd2801948855a5947882ba135ce0428f3c3c38d3085e7c8d4aade16720df85",
+          "line": 26620,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You literally dance around your foes, increasing your movement speed by %d%% and reducing the cooldown of Hack'n'Back, Rush, Disengage and Evasion by %d turns.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你在敌人周围跳起华丽的舞蹈，增加 %d%% 移动速度并减少燕回斩、冲锋、逃脱和回避技能 %d 回合。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "e90ffe93bee1f97de9a4f7a2adda1d09c161fff6f806de9af5889fa3b327700c",
+          "line": 26621,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Charm Mastery",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "饰品掌握"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "23cc9c1f5caf31ddc108ddea12e3b4201a65e190ba5ce8d767f1d1068004e331",
+          "line": 26622,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Your cunning manipulations allow you to use charms (wands, totems and torques) more efficiently, reducing their cooldowns by %d%%.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你灵活的头脑，使你可以更加有效的使用饰品（魔杖、图腾和项圈），减少 %d%% 饰品的冷却时间。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "123ebd358f78558bc13b89ffbecf601090eb0c74b1e4e990b4d9c939d428d13b",
+          "line": 26623,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Piercing Sight",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "洞察视界"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a3c3a64f8b85378da97674368965c78839932e60f5e02b5787ec869d1d760b90",
+          "line": 26624,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You look at your surroundings with more intensity than most people, allowing you to see stealthed or invisible creatures.\n\t\tIncreases stealth detection by %d and invisibility detection by %d.\n\t\tThe detection power increases with your Cunning.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你比大多数人都更加注意仔细观察周围的动静，使你能发觉隐形和潜行的生物。\n\t\t提升侦测潜行等级 %d 并提升侦测隐形等级 %d。\n\t\t你的侦查强度受灵巧加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "c049d45fb360795765af6d72f8742221555442fc1cfeb13780e1c9a9e14fa79c",
+          "line": 26629,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Precision",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "弱点打击"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "19a6e8a062d9d8957d9a9df4f2186d6b63de2a271dd88051dd4f738fbf7958e8",
+          "line": 26630,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You cannot use Precision without dual wielding!",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你只有在双持状态下才能使用这个技能。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "697e1240b51267d822954eb629ee1243735ecdcc54033c29a9a81a459d662109",
+          "line": 26631,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You have learned to hit the right spot, increasing your armor penetration by %d when dual wielding.\n\t\tThe Armour penetration bonus will increase with your Dexterity.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你已经学会打击弱点位置，双持时增加你 %d 点护甲穿透。\n\t\t护甲穿透受敏捷值加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "568efa825796a3d98d6bd281959d22f3866f3f7e43937c7efb74d462cf316557",
+          "line": 26634,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Momentum",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "急速切割"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "668395a81c2622f1c8f1e5e3804b558a5efa5f1081a3400b0f5a0eff71cdd15b",
+          "line": 26635,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You require two melee weapons to use this talent.",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你需要双持武器才能使用这个技能"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "cb9c3fa40fcfd4037c59fb3d5ecd8ac157d45040a9acff41035d4500dd0ee897",
+          "line": 26636,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You cannot use Momentum without dual wielding melee weapons!",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "你只有双持武器的时候才可以使用急速切割！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "58dd86e3cd56ff4b1cb4f111bc1057cf8a01a459def19cbf19a515cef16e860d",
+          "line": 26637,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "When dual wielding, increases attack speed by %d%%, but drains stamina quickly (-6 stamina/turn).",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "当你双持武器时，增加 %d%% 攻击速度，快速消耗体力（-6体力/回合）。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "43360d244fbacc3a3b2e5f6d4e028265cddbcb9830a09c87f2635698f0ef9ec3",
+          "line": 26638,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Defensive Throw",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "闪身投掷"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "25f02c3358b0b22227933780e0dd2f6b9ea7098411e1d68cc08109e7bc785d02",
+          "line": 26639,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "#Source# slams #Target# into the ground!",
+          "source_tag": "logCombat",
+          "special": null,
+          "target": "#Source#将#Target#掀翻在地！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1a0ceb74addfd56cd19e44c1e8a3ce00880f6e292483d3a5e145e59295cd2ab0",
+          "line": 26640,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "#Source# throws #Target# to the ground!",
+          "source_tag": "logCombat",
+          "special": null,
+          "target": "#Source#将#Target#扔到地上！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "9c92fece42a71d7ecb9e430f1dc04f0316124095068c4b547b1f2543cc1393c8",
+          "line": 26641,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "#Source# misses a defensive throw against #Target#!",
+          "source_tag": "logCombat",
+          "special": null,
+          "target": "#Source#对#Target#发动的闪身投掷没有命中！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "5bb176b6885e8c2969e2aa16b7654accc9130435a340184aa7abd2047fb43ffe",
+          "line": 26642,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "When you avoid a melee blow while unarmed, you have a %d%% chance to throw the target to the ground.  If the throw lands, the target will take %0.2f damage and be dazed for 2 turns, or %0.2f damage and be stunned for 2 turns if the target is grappled.  You may attempt up to %0.1f throws per turn.\n\t\tThe chance of throwing increases with your Accuracy, the damage scales with your Physical Power, and the number of attempts with your Strength and Dexterity.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "当你空手闪避一次近战攻击时，有 %d%% 概率将目标摔倒。若投掷成功，未被抓取的目标受到 %0.2f 伤害并眩晕 2 回合；被抓取的目标则受到 %0.2f 伤害并震慑 2 回合。每回合最多尝试 %0.1f 次投掷。\n\t\t投掷概率随命中提高，伤害随物理强度提高，尝试次数随力量和敏捷提高。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8fdbf7ea4d1e63ff44b07691ca74411357ea9657b7a2a4b1314891ec0f810eb8",
+          "line": 26645,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Roundhouse Kick",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "回旋踢"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "66ff26ecf7382e14fc0178a06f1a89181ecb3e311c62e45f43d8ef459b12838d",
+          "line": 26646,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Attack your foes in a frontal arc with a roundhouse kick, which deals %0.2f physical damage and knocks your foes back 4 grids. This will break any grapples you're maintaining\n\t\tThe damage improves with your Physical Power.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "施展回旋踢攻击前方敌人，造成 %0.2f 物理伤害并击退目标4格。这项攻击会取消你的抓取效果。\n\t\t伤害受物理强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "be4016997879bde903db966510d0c9d27f0f611af7e1345922626f7573a9ae53",
+          "line": 26649,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Bone Nova",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "白骨新星"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "b46a3f8cdd0f94752727b6d0343159865a9e87166af4ad08697082b4e88cbd59",
+          "line": 26650,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Fire bone spears in all directions, hitting all foes within radius %d for %0.2f physical damage, and inflicting bleeding for another %0.2f damage over 5 turns.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "向所有方向射出骨矛，对 %d 码范围内所有敌人造成 %0.2f 物理伤害,同时在 5 回合内造成 %0.2f 流血伤害。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "99a1eb59aa102e9c075bbcb37c4a9593250897dace2187817d3c69239cfcd16d",
+          "line": 26653,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Shadow Ambush",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "暗影伏击"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a6a0b0eaf839bcb2bd8884f78144970f81c1a0386ef7742e69a99e503df518d8",
+          "line": 26654,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "%s resists the shadow!",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "%s抵抗了阴影！"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "cb4bbb1e6c8878cb5347aeea4bb18f63f1b5023b3d138b91c410d55580af9bef",
+          "line": 26655,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You reach out with shadowy vines toward your target, pulling it to you and silencing it for %d turns and dazing it for 2 turns.\n\t\tThe chance to hit improves with your Accuracy.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你向目标伸出暗影藤蔓，将其拉到身边，沉默 %d 回合并眩晕 2 回合。\n\t\t命中概率随命中提高。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "6600768d1a1bce285765be869aa97e0b993eba2098f8e0fc726b0c4055fce631",
+          "line": 26658,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Ambuscade",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "影分身"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a0ce9d05cc0a82319c6c1be136db791c7848baf434bb850891d1f4aaef36dc60",
+          "line": 26659,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Not enough space to invoke your shadow!",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "没有足够的空间召唤阴影。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ad4d5d9ebe45155e1a0eae202e6a6209dcba7ca8b1c4613800647bc71a0dda7e",
+          "line": 26660,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Shadow of %s",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "%s的影子"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "15e76741a96cff7275557c17b4c509214d7628d6da30455daf4fa9a2a117cc09",
+          "line": 26661,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "A dark shadowy form in the shape of %s.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "一团黑暗的形体模仿了%s的形态。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "95264996307bed5b6cbf17f8986afdfba68738895ea5ecf2b081ed4756c2f957",
+          "line": 26662,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You take full control of your own shadow for %d turns.\n\t\tYour shadow possesses your talents and stats, has %d%% life and deals %d%% damage, -30%% all resistances, -100%% light resistance and +100%% darkness resistance.\n\t\tYour shadow is permanently stealthed (%d power), and all melee damage it deals is converted to darkness damage.\n\t\tThe shadow cannot teleport.\n\t\tIf you release control early or if it leaves your sight for too long, your shadow will dissipate.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你在 %d 回合内完全控制自己的影子。\n\t\t影子拥有你的技能和属性，具有你 %d%% 的生命值，造成你 %d%% 的伤害；其全体抗性 -30%%、光系抗性 -100%%、暗影抗性 +100%%。\n\t\t影子永久处于潜行状态（强度 %d），其造成的所有近战伤害均转化为暗影伤害。\n\t\t影子无法传送。\n\t\t若你提前解除控制，或影子离开你的视野太久，它便会消散。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a05326d3bcea21892d938b8902b64c024e28b3f477e74dcc49a0123179777b11",
+          "line": 26671,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Shadow Leash",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "暗影束缚"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "0768368494f3d7b063c7723503ad34754b0851571ec670d915def39aa94f1352",
+          "line": 26672,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "For an instant, your weapons turn into a shadow leash that tries to grab the target's weapon, disarming it for %d turns.\n\t\tThe chance to hit improves with your Accuracy.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "使你的武器立刻转化为暗影之缚形态，夺取目标武器，缴械目标 %d 回合。\n\t\t技能命中率受命中加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "dcf7efae39e8bd5e24b2e11b6b0561518dc0f2ca9d9d9118b4a3196808dd67f8",
+          "line": 26675,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Dismay",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "黑暗痛苦"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "72aa7c3c6ae068d677c6bd56aed5adfddb9c7694be959bdbdc85ac3f13c8cdf9",
+          "line": 26676,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Each turn, those caught in your gloom must save against your Mindpower or have an %0.1f%% chance of becoming dismayed for %d turns. When dismayed, the first melee attack against the foe will result in a critical hit.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %0.1f%% 概率受到黑暗痛苦持续 %d 回合，你对受黑暗痛苦折磨的目标进行的首次近战攻击必定暴击。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "ec48ad398c0b2dfb9fc9317ebf04346a405a45295f7d13be060b3ab198c1eea8",
+          "line": 26677,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Shadow Empathy",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "阴影链接"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "f9bdd017d55d99d7237342c4edf0341435b969aac324f43134ee68418d48df47",
+          "line": 26678,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "You are linked to your shadows for %d turns, diverting %d%% of all damage you take to a random shadow.\n\t\tEffect increases with Mindpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你与自己的影子相连 %d 回合，将你受到的所有伤害的 %d%% 转移给一个随机影子。\n\t\t效果随精神强度提高。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "26df4e76fce75d2c1e9afd66a130c1f369300e9d15556f9835766ed1dcf025f5",
+          "line": 26681,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Circle of Blazing Light",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "炽焰之阵"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "77779d3a232a506078e8aa31f48da62f7f3a4668348efc541bad4becebabb861",
+          "line": 26682,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Creates a circle of radius %d at your feet; the circle lights up affected tiles, increases your positive energy by %d each turn and deals %0.2f light damage and %0.2f fire damage per turn to everyone else within its radius.  The circle lasts %d turns.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "在你的脚下制造一个 %d 码半径的法阵，它会照亮范围区域，每回合增加 %d 正能量并造成 %0.2f 光系伤害和 %0.2f 火焰伤害。\n\t\t阵法持续 %d 回合。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "f5fd6be9615e48717a468b47e09d003c651badf4a95b63bfb505f1e75406c474",
+          "line": 26686,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Blur Sight",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "模糊视觉"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "cfd4550bdbb94a859a739ee3a3f0495ed019e48de9fca6788c3f3de60bc557d6",
+          "line": 26687,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "The caster's image blurs, granting a %d bonus to Defense.\n\t\tThe bonus will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "施法者的身影变得模糊，闪避提高 %d。\n\t\t该加成随法术强度提高。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "3ac55254cb5a696a9bd70030cb5eb3f0f6161b39438ee5fa624ab7a33832edc2",
+          "line": 26690,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Cold Flames",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "骨灵冷火"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "479297fd81ca4ad2f95e574c04428abd201b39bad5bcc67463fa1f5c88c4c5cf",
+          "line": 26691,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "cold flames",
+          "source_tag": "_t",
+          "special": null,
+          "target": "冷火"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8bf14ce1d21aa71e2a6ee6caed58e5ecac21547fda689ed4aa32caf601eb45a4",
+          "line": 26692,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Cold Flames slowly spread from %d spots in a radius of %d around the targeted location. The flames deal %0.2f cold damage, and have a chance of freezing.\n\t\tDamage improves with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "冰冷的火焰从目标点向 %d 个方向扩散，有效范围 %d 码半径。火焰会造成 %0.2f 冰冷伤害并有几率冰冻目标。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "25237d00297f075e622504f9592236d58528e888d617e2521c088d9ba918d211",
+          "line": 26695,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Quicken Spells",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "快速施法"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "dd9778cf62d64f6adf92a25c54387f7112435448df70cd47870e4afcf9fbce3b",
+          "line": 26696,
+          "section": "mod-tome/data/talents/misc/npcs.lua",
+          "source": "Reduces the cooldown of all spells by %d%%.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "减少 %d%% 所有法术冷却时间。"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "section": "mod-tome/data/talents/psionic/projection.lua",
+      "resolver_contract": "tome4-context-v2",
+      "tool_version": "0.5.0",
+      "limit": 500,
+      "selected": 10,
+      "available": 10,
+      "lexical_t_call_count": 10,
+      "ignored_empty_t_calls": 0,
+      "nonempty_lexical_t_call_count": 10,
+      "context_id": "8b6c98a6f2c7417afd879921154db1b6a2867c8ca4c859fd0519b455508f3487",
+      "content_sha256": "b5ed810f6a03681d2a8932688c5c22b0272da7511c2050ec604710ad78cfe4c8",
+      "canonical_sha256": "ced263664a489558878dd0716768d6dfdaee7a51d98b4b845bf8edd65d88e9ae",
+      "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+      "terminology_sha256": "96783486cf8790762fcab2e2379dfc0b3e13a50ca055410960395bcab1f9065c",
+      "terminology": [
+        {
+          "category": "T.GAME.STAT",
+          "matched_entry_ids": [
+            "502c9652ec25d22b23924677f23551f49b6acef7d8fa5740ac626c111f683af0",
+            "57e494e8b4c56ee2b6b21b62d805813892bc60d6fd0ef6cdb5667c78c72e3b77",
+            "270eb0acdb77ae9660c8271607f6397f7812fed32d17406cdf1ea29de5996de4",
+            "f50683e68a7a80b9c479d5b1f0a9eb836556bf646fc5d9a1caecfa79af15c571"
+          ],
+          "notes": "技能与物品机制说明中的精神强度属性；与 Willpower“意志”区分",
+          "scope": "multi",
+          "source": "Mindpower",
+          "source_tag": "tformat",
+          "status": "preferred",
+          "target": "精神强度"
+        }
+      ],
+      "items": [
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "a8a958d7e8dce6c95df0821cf77f3d99d305ae2bd96cb46cd0a51790da804e95",
+          "line": 27676,
+          "section": "mod-tome/data/talents/psionic/projection.lua",
+          "source": "Kinetic Aura",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "动能光环"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "f869c7eaccc5eb18e641ae0ca29e8f262112a70a473bca527b0d3d442cccd8df",
+          "line": 27677,
+          "section": "mod-tome/data/talents/psionic/projection.lua",
+          "source": "You may only sustain two auras at once. Aura activation cancelled.",
+          "source_tag": "logSeen",
+          "special": null,
+          "target": "你只能同时保持两种光环效果，激活光环被取消。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "6b05ecf562f954b7f063e1782ba5b5b2ca171e971ed4f7eb62ca6a0ae418b8ea",
+          "line": 27678,
+          "section": "mod-tome/data/talents/psionic/projection.lua",
+          "source": "The aura dissipates without producing a spike.",
+          "source_tag": "logPlayer",
+          "special": null,
+          "target": "光环消散了，没有产生能量爆发。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "502c9652ec25d22b23924677f23551f49b6acef7d8fa5740ac626c111f683af0",
+          "line": 27679,
+          "section": "mod-tome/data/talents/psionic/projection.lua",
+          "source": "Fills the air around you with reactive currents of force.\n\t\tIf you have a gem or mindstar in your psionically wielded slot, this will do %0.1f Physical damage to all adjacent enemies, costing %0.1f energy per creature. \n\t\tIf you have a conventional weapon in your psionically wielded slot, this will add %0.1f Physical damage to all your weapon hits, costing %0.1f energy per hit.\n\t\tWhen deactivated, if you have at least %d energy, a massive spike of kinetic energy is released as a range %d beam, smashing targets for up to %d physical damage and sending them flying.\n\t\t#{bold}#Activating the aura takes no time but de-activating it does.#{normal}#\n\t\tTo turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.\n\t\tYou can only have two of these auras active at once.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "将你周围的空气充满能量力场。\n\t\t如果你的灵能武器槽佩戴的是宝石或者灵晶，会对所有接近的目标造成 %0.1f 的物理伤害，每个生物消耗 %0.1f 能量。\n\t\t如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的物理伤害，每次攻击消耗 %0.1f 能量。\n\t\t当关闭该技能时，如果你拥有最少 %d 点能量，巨大的动能会释放为一个射程为 %d 的射线，击打目标，造成高达 %d 的物理伤害，并击飞他们。\n\t\t#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#\n\t\t如果要关闭光环且不发射射线，关闭它并选择你自己为目标。伤害随着精神强度而增长。\n\t\t你同时只能激活两种此类光环。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1034e8d36ab245f76b9646f35c58565c492b3205873ce5d836a307ad9c495ef8",
+          "line": 27692,
+          "section": "mod-tome/data/talents/psionic/projection.lua",
+          "source": "Thermal Aura",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "热能光环"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "57e494e8b4c56ee2b6b21b62d805813892bc60d6fd0ef6cdb5667c78c72e3b77",
+          "line": 27693,
+          "section": "mod-tome/data/talents/psionic/projection.lua",
+          "source": "Fills the air around you with reactive currents of furnace-like heat.\n\t\tIf you have a gem or mindstar in your psionically wielded slot, this will do %0.1f Fire damage to all adjacent enemies, costing %0.1f energy per creature. \n\t\tIf you have a conventional weapon in your psionically wielded slot, this will add %0.1f Fire damage to all your weapon hits, costing %0.1f energy per hit.\n\t\tWhen deactivated, if you have at least %d energy, a massive spike of thermal energy is released as a conical blast (radius %d) of superheated air. Anybody caught in it will suffer up to %d fire damage over several turns.\n\t\t#{bold}#Activating the aura takes no time but de-activating it does.#{normal}#\n\t\tTo turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.\n\t\tYou can only have two of these auras active at once.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "将你周围的空气充满火炉般的热量。\n\t\t如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有接近的目标造成 %0.1f 的火焰伤害，每个生物消耗 %0.1f 能量。\n\t\t如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的火焰伤害，每次攻击消耗 %0.1f 能量。\n\t\t当关闭该技能时，如果你拥有最少 %d 点能量，巨大的热能会释放为一个范围为 %d 的锥形冲击。范围内的任意目标在数轮中受到高达 %d 的火焰伤害。\n\t\t#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#\n\t\t如果要关闭光环且不发射射线，关闭它并选择你自己为目标。伤害随着精神强度而增长。\n\t\t你同时只能激活两种此类光环。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "1ebd68b10b164979b4766f36f552b2421b48b218d229490781cf755c55676edc",
+          "line": 27706,
+          "section": "mod-tome/data/talents/psionic/projection.lua",
+          "source": "Charged Aura",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "充能光环"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "270eb0acdb77ae9660c8271607f6397f7812fed32d17406cdf1ea29de5996de4",
+          "line": 27707,
+          "section": "mod-tome/data/talents/psionic/projection.lua",
+          "source": "Fills the air around you with crackling energy.\n\t\tIf you have a gem or mindstar in your psionically wielded slot, this will do %0.1f Lightning damage to all adjacent enemies, costing %0.1f energy per creature. \n\t\tIf you have a conventional weapon in your psionically wielded slot, this will add %0.1f Lightning damage to all your weapon hits, costing %0.1f energy per hit.\n\t\tWhen deactivated, if you have at least %d energy, a massive spike of electrical energy jumps between up to %d nearby targets, doing up to %0.1f Lightning damage to each with a 50%% chance of dazing them.\n\t\t#{bold}#Activating the aura takes no time but de-activating it does.#{normal}#\n\t\tTo turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.\n\t\tYou can only have two of these auras active at once.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "将你周围的空气充满噼啪响的电能。\n\t\t如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有接近的目标造成 %0.1f 的闪电伤害，每个生物消耗 %0.1f 能量。\n\t\t如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的闪电伤害，每次攻击消耗 %0.1f 能量。\n\t\t当关闭该技能时，如果你拥有最少 %d 点能量，巨大的电能会释放为在最多 %d 个邻近目标间跳跃的闪电，对每个目标造成 %0.1f 的闪电伤害，且 50%% 的概率令他们眩晕。\n\t\t#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#\n\t\t如果要关闭光环且不发射射线，关闭它并选择你自己为目标。伤害随着精神强度而增长。\n\t\t你同时只能激活两种此类光环。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "573ccb34533c8e20a958a93a81d020b9daaf6a61c1f06865ae654d5efa582746",
+          "line": 27720,
+          "section": "mod-tome/data/talents/psionic/projection.lua",
+          "source": "Frenzied Focus",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "灵能狂热"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "f50683e68a7a80b9c479d5b1f0a9eb836556bf646fc5d9a1caecfa79af15c571",
+          "line": 27721,
+          "section": "mod-tome/data/talents/psionic/projection.lua",
+          "source": "Overcharge your psionic focus with energy for %d turns, producing a different effect depending on what it is.\n\t\tA telekinetically wielded melee weapon enters a frenzy, striking up to %d enemies per turn, also increases the radius by %d.\n\t\tA mindstar will attempt to pull in all enemies within its normal range.\n\t\tA gem will fire an energy bolt at a random enemy in range 6, each turn for %0.1f damage. The type is determined by the colour of the gem. Damage scales with Mindpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "超载你的心灵聚焦 %d 轮，造成特殊效果。\n\t\t念动近战武器进入狂乱，每回合最多攻击 %d 个敌人，攻击半径同时增加 %d 格。\n\t\t灵晶会尝试将其正常范围内的所有敌人拉到身边。\n\t\t宝石每回合向 6 格内的一个随机敌人发射能量球，造成 %0.1f 伤害。伤害类型取决于宝石的颜色，伤害随精神强度提高。"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "section": "mod-tome/data/talents/spells/fire.lua",
+      "resolver_contract": "tome4-context-v2",
+      "tool_version": "0.5.0",
+      "limit": 500,
+      "selected": 8,
+      "available": 8,
+      "lexical_t_call_count": 8,
+      "ignored_empty_t_calls": 0,
+      "nonempty_lexical_t_call_count": 8,
+      "context_id": "f35967172a2bdcd984aed06a9df2993507b21b6cbea16c38f6d1648fc5fdeb6b",
+      "content_sha256": "ff0f4f325b0b6d28202dd6781c39602338a286c37167eab7f3f61aa19d85ca3d",
+      "canonical_sha256": "ced263664a489558878dd0716768d6dfdaee7a51d98b4b845bf8edd65d88e9ae",
+      "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+      "terminology_sha256": "96783486cf8790762fcab2e2379dfc0b3e13a50ca055410960395bcab1f9065c",
+      "terminology": [
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "e47239d8f79b2087d1b7acb951469f1643a08a91ccb363049d110e235eaa8313"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "Fireflash",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "爆裂火球"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "413572a673b0d150171b470c4ab4fdaa2cdfeca1336ff39d64f6b96756a570dc"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "Flame",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "火球术"
+        },
+        {
+          "category": "T.GAME.TALENT",
+          "matched_entry_ids": [
+            "8f1c518163369038cd5ae49fb9bef1cf1342714fb1bb7911a34a32a4fa53db04"
+          ],
+          "notes": "",
+          "scope": "core",
+          "source": "Flameshock",
+          "source_tag": "talent name",
+          "status": "existing",
+          "target": "火焰冲击"
+        }
+      ],
+      "items": [
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "413572a673b0d150171b470c4ab4fdaa2cdfeca1336ff39d64f6b96756a570dc",
+          "line": 28865,
+          "section": "mod-tome/data/talents/spells/fire.lua",
+          "source": "Flame",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "火球术"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "cc291fec199624f6e6e808cc0acc5536c76b6885d2f704b40ee4639faa9d8ec5",
+          "line": 28866,
+          "section": "mod-tome/data/talents/spells/fire.lua",
+          "source": "Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.\n\t\tAt level 5, it will create a beam of flames.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "制造一个火球，使目标进入灼烧状态并在 3 回合内造成 %0.2f 火焰伤害。\n\t\t在等级 5 时，火焰会有穿透效果。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "8f1c518163369038cd5ae49fb9bef1cf1342714fb1bb7911a34a32a4fa53db04",
+          "line": 28871,
+          "section": "mod-tome/data/talents/spells/fire.lua",
+          "source": "Flameshock",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "火焰冲击"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "779e7c3bf13378bcaf56e66577f6cb9b9fed0287025c66159428a76528dcc1da",
+          "line": 28872,
+          "section": "mod-tome/data/talents/spells/fire.lua",
+          "source": "Conjures up a cone of flame with radius %d. Any targets caught in the area will suffer Burning Shock, stunning them and dealing %0.2f fire damage over %d turns.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "在你前方制造一片 %d 码半径锥形范围的火焰。\n\t\t任何在此范围的目标会被燃烧的火焰冲击震慑，共受到 %0.2f 点火焰伤害，持续 %d 回合。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "e47239d8f79b2087d1b7acb951469f1643a08a91ccb363049d110e235eaa8313",
+          "line": 28876,
+          "section": "mod-tome/data/talents/spells/fire.lua",
+          "source": "Fireflash",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "爆裂火球"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "e018db9ba9ba47c3e1257dcfc9262283b282d0b9284d5f0f5d10ed5fd30b189b",
+          "line": 28877,
+          "section": "mod-tome/data/talents/spells/fire.lua",
+          "source": "Conjures up a bolt of fire that moves toward the target and explodes into a flash of fire, doing %0.2f fire damage in a radius of %d.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "向你的目标发射一枚爆裂火球，造成 %0.2f 火焰伤害，有效范围 %d 码。\n\t\t伤害受法术强度加成。"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "6d592cacc4fba67ab4504f6c14c1578a17acc5bf6f08f9b225d48785b8cf6054",
+          "line": 28880,
+          "section": "mod-tome/data/talents/spells/fire.lua",
+          "source": "Inferno",
+          "source_tag": "talent name",
+          "special": null,
+          "target": "地狱火"
+        },
+        {
+          "args_order": null,
+          "component": "tome",
+          "entry_id": "236da69dd81f109beda9386d29a33da93e200c24ed6aa254e068accfb7753d62",
+          "line": 28881,
+          "section": "mod-tome/data/talents/spells/fire.lua",
+          "source": "Raging flames burn foes and allies alike, doing %0.2f fire damage in a radius of %d each turn for %d turns.\n\t\tThe damage will increase with your Spellpower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "向地上释放一片火焰，每回合可对敌我双方造成 %0.2f 火焰伤害，半径 %d 码，持续 %d 回合。\n\t\t受法术强度影响，伤害有额外加成。"
+        }
+      ]
+    }
+  ],
+  "freeze_assertions": {
+    "all_sections_complete": true,
+    "selected_equals_available": true,
+    "nonempty_lexical_counts_match_items": true,
+    "raw_empty_control_recorded": true,
+    "reference_ids_bound": true,
+    "note": "npcs.lua contains one empty t(\"\", \"\", \"log\") control excluded by the context resolver; all 291 non-empty calls are frozen."
+  }
+}

@@ -27697,11 +27697,11 @@ t([[Fills the air around you with reactive currents of furnace-like heat.
 		#{bold}#Activating the aura takes no time but de-activating it does.#{normal}#
 		To turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.
 		You can only have two of these auras active at once.]], [[将你周围的空气充满火炉般的热量。
-		如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有接近的目标造成 %0.1f 的火焰伤害，每个生物消耗 %0.1f 能量。
-		如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的火焰伤害，每次攻击消耗 %0.1f 能量。
-		当关闭该技能时，如果你拥有最少 %d 点能量，巨大的热能会释放为一个范围为 %d 的锥形冲击。范围内的任意目标在数轮中受到高达 %d 的火焰伤害。
+		如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有相邻的敌人造成 %0.1f 的火焰伤害，每个生物消耗 %0.1f 能量。
+		如果你的灵能武器槽佩戴的是武器，每次武器命中时附加 %0.1f 的火焰伤害，每次命中消耗 %0.1f 能量。
+		当关闭该技能时，如果你拥有最少 %d 点能量，巨大的热能会释放为一个半径为 %d 的锥形冲击。范围内的任意目标在数轮中受到高达 %d 的火焰伤害。
 		#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#
-		如果要关闭光环且不发射射线，关闭它并选择你自己为目标。伤害随着精神强度而增长。
+		若要关闭光环而不释放热能冲击，请在关闭时以自己为目标。伤害随着精神强度而增长。
 		你同时只能激活两种此类光环。]], "tformat")
 t("Charged Aura", "充能光环", "talent name")
 t([[Fills the air around you with crackling energy.
