@@ -1,0 +1,57 @@
+Reading additional input from stdin...
+2026-08-28T03:31:19.489914Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit
+OpenAI Codex v0.150.1
+--------
+workdir: /tmp
+model: gpt-5.6-sol
+provider: openai
+approval: on-request
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 01a0466c-0542-73a0-83d1-3b82c76c74a8
+--------
+user
+# 机制翻译独立审核
+
+你将收到 36 条按固定顺序排列的英文 `source` 与中文 `target`。部分输入还含有 `source_context`；它是从固定公开源码机械截取的原始 Lua 代码。
+
+逐条判断中文是否对客观语义或运行时机制做出了错误陈述。只审核可由当前输入直接支持的客观问题；不要报告文风、措辞偏好、标点或术语风格。源码与英文描述冲突时，以可执行源码为准。没有 `source_context` 时，不要仅因中文包含英文未写出的额外细节就判错；缺少证据本身不是错误，也不要凭外部知识猜测。
+
+每条只能给出一个最重要结论：
+
+- `OK`：当前输入不能支持客观错误主张，`claim` 必须为 `null`。
+- `FINDING`：当前输入直接证明存在客观错误。
+- `UNCERTAIN`：当前输入给出了具体、可定位的冲突迹象，但不足以确定；不得把泛泛怀疑写成 `UNCERTAIN`。
+
+非 `OK` 时，`claim` 必须包含：
+
+- `target_span`：从该条 `target` 原样复制的、最小且连续的错误片段；必须是精确子串。
+- `claim_type`：只能是 `VALUE`、`DIRECTION`、`CONDITION`、`SUBJECT`、`TIMING`、`SCOPE`、`ACTION`、`STATE`、`ORDER` 或 `OTHER`。
+- `correction`：说明该片段应表达的客观事实，简洁明确。
+- `evidence`：从该条 `source` 或 `source_context` 原样复制的一段直接证据；必须是精确子串，不得引用别条。
+
+`observation` 用一句简短中文概括判断。不要提及实验、分组、变异、标签、reference、历史记录、模型来源、文件路径或你看不到的资料。不得使用工具或外部知识。严格覆盖全部 36 条，保持输入顺序与 ID，不得增删、合并或改序。只输出符合给定 schema 的 JSON。
+
+输入 JSON：
+{"schema_version":"runtime-source-context-holdout-v1","instructions":"Review every item independently in the given order. Historical provenance, evidence class, source-verification and mutation records are withheld.","items":[{"revision_id":"P001","source":"You have %d%% chances to encase your foes in iceblocks.","target":"你造成伤害时有 %d%% 几率将敌人封入冰块 3 回合；效果持续期间，冰块吸收的伤害降低 50%。"},{"revision_id":"P002","source":"[%sEquip %s%s#LAST#]","target":"[%s卸下 %s%s#LAST#]"},{"revision_id":"P003","source":"Direct control by the pilot increases damage by %d%% and resistances by %d%%.","target":"机械蜘蛛被驾驶员直接控制，增加全部伤害 %d%%，增加全部抗性 %d%%；每回合使包括固定冷却在内的所有技能额外减少 1 回合冷却。"},{"revision_id":"P004","source":"Master which tool?","target":"分解哪件工具？"},{"revision_id":"P005","source":"Infected by a psionic worm, doing %0.2f mind damage per turn. Damage doubled on stunned or feared foes, can spread to nearby creatures.","target":"目标被灵能蠕虫感染，每回合受到 %0.2f 点精神伤害。对震慑或恐惧的敌人伤害加倍，可传播给半径 3 内尚未感染且与宿主同阵营的单位；宿主死亡时必然传播，否则每回合有 25% 几率传播。"},{"revision_id":"P006","source":"#LIGHT_BLUE#You are given: %s","target":"#LIGHT_BLUE#你失去了：%s"},{"revision_id":"P007","source":"The target is surrounded by a charged shield, absorbing %d/%d damage before it crumbles. While this holds, they will project a bolt of lightning against a random enemy within range 7 each turn for %0.2f lightning damage.","target":"目标被充能护盾覆盖，在破碎前可以吸收 %d/%d 伤害。当护盾存在时，他们每回合会朝 6 码范围内的随机敌人发射闪电弹，造成 %0.2f 闪电伤害。"},{"revision_id":"P008","source":"The target is very itchy, causing their actions to fail.","target":"太痒了，技能有几率施放失败。"},{"revision_id":"P009","source":"You lay moss where you walk.","target":"成功自行移动到新位置后，会在该处铺设缠绕苔藓；站在其上的敌人会受到自然伤害、移动减速，并可能被定身。"},{"revision_id":"P010","source":"All damages except physical reduced by %d as long as %s is alive.","target":"只要%s还存活，受到的所有非物理伤害降低 %d 点。"},{"revision_id":"P011","source":"Provides a frost aura, giving you +%d%% blight, mind and acid affinity.","target":"提供静水光环，使你获得 +%d%% 枯萎、精神和酸性的亲和。"},{"revision_id":"P012","source":"The target has %d increased saves and defense, and %d%% increased critical chance.","target":"目标豁免和闪避增加 %d（从 1 层起即如数增加），暴击率增加 %d%%（始终增加）。"},{"revision_id":"P013","source":"Reduces all damage taken by %d%%.","target":"减少 %d%%所有受到的伤害。"},{"revision_id":"P014","source":"#CADET_BLUE#Equipping %s with %s (level %d).","target":"#CADET_BLUE#将 %s 装备至 %s（等级 %d）。"},{"revision_id":"P015","source":"Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.","target":"进入自动修复模式，无法行动，但生命恢复速率增加 %d ，生命值回满时立即结束该模式，全部抗性提升 %d%%，死亡生命下限为 -%d 。"},{"revision_id":"P016","source":"The target is overwhelmed by voices from the void, giving them a 20%% higher chance to spawn hallucinations from Dark Whispers and causing them to take an additional %d%% temporal damage from Dark Whispers and Hideous Visions.","target":"目标被虚空之声淹没 , 让他们从黑暗低语中产生幻觉的几率增加 20%%，并使他们从黑暗低语和失智冲击中受到额外 %d%% 时空伤害。"},{"revision_id":"P017","source":"Deals %0.2f occult damage per turn and each time a talent is used, the caster regens one turn of a random cooldown.","target":"每回合施加者沿至多10格的链接射线，对射线上的生物造成 %0.2f 玄机伤害；施加者不存在或距离超过10格时效果结束且不造成伤害；目标使用非固有技能时，施加者优先随机缩短一个冷却中的法术1回合，没有则随机缩短一个冷却中的科技法术1回合。"},{"revision_id":"P018","source":"Continuously drain blood, dealing %0.2f physical damage per turn and healing the caster for half of it.","target":"持续汲取目标的鲜血，每回合造成 %0.2f 点物理伤害；若施加者距离过远、死亡或不在场，链接立即断开且本回合不造成伤害；造成伤害后，施加者获得相当于该伤害一半的治疗，同回合多个目标的治疗量不会递减。"},{"revision_id":"P019","source":"Target is being assailed by an automated saw blade that cuts its flesh for %0.2f physical damage each turn%s. When the effect expires, the saw will explode for %0.2f fire damage and fly back to its source, pulling the target with it (up to %d tiles).","target":"你被飞锯击伤，每回合受到 %0.2f 物理伤害 %s。仅当持续时间自然结束且施加者仍在场时，飞锯才会爆炸，造成 %0.2f 火焰伤害并飞回其来源；即使无法被击退，也会被拉向施加者（最多 %d 格）。"},{"revision_id":"P020","source":"[Equip %s]","target":"[装备 %s]"},{"revision_id":"P021","source":"The target is engulfed in entropy, reducing the duration of new beneficial effects and increasing the duration of new negative effects by %d%%.\nThis effect will fade in 2 turns if the source is not in line of sight.","target":"目标被熵覆盖，仅缩短新施加的非“其他”类有益状态并延长新施加的非“其他”类负面状态 %d%% 持续时间（不影响“其他”类效果）。\n若效果来源不在视野内，则该效果会在 2 回合后消失。"},{"revision_id":"P022","source":"The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.","target":"目标将自身的命运和另一个人相连，当它死亡时，选择的目标将代替它死亡。 此时，自身的幸运层数和所选目标身上的不幸层数会被消耗；按自身的幸运层数与所选目标的不幸层数之和治疗，每层恢复 %d 点生命。"},{"revision_id":"P023","source":"Reduces all damage taken by %d%% and remove all detrimental effects on application.","target":"降低所有受到的伤害 %d%%。施加该效果的时候会解除所有负面效果"},{"revision_id":"P024","source":"%s[%s -- mastery: %s]#LAST#","target":"%s[%s -- 强化：%s]#LAST#"},{"revision_id":"P025","source":"All resistances increased by %d%%, randomly attacks two foes each turn at random.","target":"全部抗性提高 %d%%，两把蒸汽枪每回合各自随机选择一名敌人攻击（不会攻击同一目标），持有者被缴械。"},{"revision_id":"P026","source":"The target has been impregnated with %d developing ritch larvae which are feeding on it%s.  After a %d turn gestation period, each will burst out violently, dealing %0.2f physical and %0.2f fire damage to its host.","target":"目标被 %d 个里奇幼虫寄生%s。在%d回合的发育期结束后，每个幼虫都会从寄主体内猛烈破体而出，对宿主造成 %0.2f 物理和 %0.2f 火焰伤害；效果提前解除时，幼虫不会破体而出。"},{"revision_id":"P027","source":"[Cancel]","target":"[取消]"},{"revision_id":"P028","source":"Cancel","target":"取消"},{"revision_id":"P029","source":"%d pustules increasing resistance by %d%%.","target":"%d 脓包，增加 %d%% 仅物理抗性。"},{"revision_id":"P030","source":"#CADET_BLUE#%s already equipped at level %d.","target":"#CADET_BLUE#%s 尚未装备，等级 %d。"},{"revision_id":"P031","source":"#CADET_BLUE#%s already mastered.","target":"#CADET_BLUE#%s 尚未强化。"},{"revision_id":"P032","source":"Equip which tool for #YELLOW#%s#LAST#?","target":"为 #YELLOW#%s#LAST# 拆解哪件工具？"},{"revision_id":"P033","source":"Bringing about the darkest days of the Spellblaze you hasten the death of your foes.\n\t\tWhen you deal damage to a creature in radius %d or less around you and it dips below 33%% life you automatically unleash the fury of the Spellblaze.\n\t\tAffected foes will start taking %0.2f darkness damage each turn until it dies as long as it remains in radius %d of you.\n\t\tThe damage increases with spellpower.","target":"通过引发魔法大爆炸最黑暗的时候的场景，你加速了敌人的死亡。\n\t\t每次你对半径 %d 内的生物造成伤害后（实际触发范围会随该数值变化），如果它生命值低于 33%%，将会承受魔法大爆炸的力量。\n\t\t受影响的敌人每回合将受到 %0.2f 暗影伤害，直到死亡或者离开你范围 %d 码范围。\n\t\t伤害受法术强度加成。"},{"revision_id":"P034","source":"#LIGHT_BLUE# You enhance your preparation of %s.","target":"#LIGHT_BLUE# 你强化了对 %s 的准备。"},{"revision_id":"P035","source":"%d%% chance to stun any foes hit.","target":"%d%% 几率震慑被击中的敌人；每次符合条件的命中都按该几率判定，且同一目标每回合最多被震慑一次。"},{"revision_id":"P036","source":"The target is doomed to treason. Each turn they have a %d%% chance to attack an adjacent creature.  If no creatures are adjacent they will attack themself.","target":"目标被诅咒进入背叛状态。每回合有 %d%% 几率立即触发背叛；若目标抵抗，该回合的累积速率减半（而非完全阻止）。当累积进度达到阈值时，目标会攻击一个相邻生物；若无相邻生物则攻击自身，触发后进度减少 100（而非清零），超出阈值的部分会保留并继续累积。"}]}
+ERROR: {
+  "type": "error",
+  "error": {
+    "type": "invalid_request_error",
+    "code": "invalid_json_schema",
+    "message": "Invalid schema for response_format 'codex_output_schema': In context=('properties', 'revisions', 'items', 'properties', 'claim'), 'oneOf' is not permitted.",
+    "param": "text.format.schema"
+  },
+  "status": 400
+}
+ERROR: {
+  "type": "error",
+  "error": {
+    "type": "invalid_request_error",
+    "code": "invalid_json_schema",
+    "message": "Invalid schema for response_format 'codex_output_schema': In context=('properties', 'revisions', 'items', 'properties', 'claim'), 'oneOf' is not permitted.",
+    "param": "text.format.schema"
+  },
+  "status": 400
+}

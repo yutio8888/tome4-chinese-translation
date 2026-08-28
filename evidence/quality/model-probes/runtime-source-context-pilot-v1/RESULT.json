@@ -1,0 +1,617 @@
+{
+  "schema_version": "runtime-source-context-result-v1",
+  "experiment": "runtime-source-context-pilot-v1",
+  "status": "COMPLETE",
+  "completed_at": "2026-08-27",
+  "measured": {
+    "calls": 16,
+    "harness_failures_and_retries": [
+      "FAILURE-A-run1-codex-gpt-5.6-sol-high-attempt1.json",
+      "FAILURE-A-run1-codex-gpt-5.6-sol-high-attempt2.json"
+    ],
+    "runtime_mutants": 12,
+    "runtime_controls": 12,
+    "surface_mutants": 6,
+    "surface_controls": 6,
+    "run_scores": [
+      {
+        "run": 1,
+        "runtime_recall": {
+          "A_hits": 1,
+          "B_hits": 32,
+          "denominator": 48,
+          "A_rate": 0.020833333333333332,
+          "B_rate": 0.6666666666666666,
+          "net_hits": 31,
+          "delta": 0.6458333333333334
+        },
+        "route_direction": {
+          "positive_routes": 4,
+          "required": 3
+        },
+        "runtime_control_candidates": {
+          "A": 10,
+          "B": 6,
+          "denominator": 48,
+          "net": -4,
+          "max_new_B_in_any_route": 2
+        },
+        "control_contamination_count": 1,
+        "gates": {
+          "runtime_recall_net_at_least_10": true,
+          "at_least_three_positive_routes": true,
+          "runtime_control_net_at_most_2": true,
+          "per_route_new_controls_at_most_1": false,
+          "zero_control_contamination": false
+        },
+        "pass": false,
+        "route_scores": [
+          {
+            "route": "codex-gpt-5.6-sol-high",
+            "runtime_mutants": {
+              "A_hits": 1,
+              "B_hits": 8,
+              "net": 7,
+              "A_ids": [
+                "P017"
+              ],
+              "B_ids": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P035"
+              ],
+              "A_finding_only": [
+                "P017"
+              ],
+              "B_finding_only": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P035"
+              ]
+            },
+            "runtime_controls": {
+              "A_candidates": 3,
+              "B_candidates": 4,
+              "net": 1,
+              "A_ids": [
+                "P007",
+                "P011",
+                "P021"
+              ],
+              "B_ids": [
+                "P010",
+                "P011",
+                "P016",
+                "P021"
+              ],
+              "new_B_ids": [
+                "P010",
+                "P016"
+              ]
+            },
+            "surface_negative_control": {
+              "A_mutation_hits": [
+                "P002",
+                "P004",
+                "P006",
+                "P032"
+              ],
+              "B_mutation_hits": [
+                "P002",
+                "P004",
+                "P006",
+                "P032"
+              ],
+              "A_control_non_ok": [
+                "P014"
+              ],
+              "B_control_non_ok": []
+            }
+          },
+          {
+            "route": "claude-opus-5-medium-no-advisor",
+            "runtime_mutants": {
+              "A_hits": 0,
+              "B_hits": 9,
+              "net": 9,
+              "A_ids": [],
+              "B_ids": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P033",
+                "P035"
+              ],
+              "A_finding_only": [],
+              "B_finding_only": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P033",
+                "P035"
+              ]
+            },
+            "runtime_controls": {
+              "A_candidates": 3,
+              "B_candidates": 0,
+              "net": -3,
+              "A_ids": [
+                "P007",
+                "P011",
+                "P016"
+              ],
+              "B_ids": [],
+              "new_B_ids": []
+            },
+            "surface_negative_control": {
+              "A_mutation_hits": [
+                "P002",
+                "P004",
+                "P006",
+                "P032"
+              ],
+              "B_mutation_hits": [
+                "P002",
+                "P004",
+                "P006",
+                "P032"
+              ],
+              "A_control_non_ok": [
+                "P014"
+              ],
+              "B_control_non_ok": []
+            }
+          },
+          {
+            "route": "pi-zai-cn-glm-5.3-flash-high",
+            "runtime_mutants": {
+              "A_hits": 0,
+              "B_hits": 7,
+              "net": 7,
+              "A_ids": [],
+              "B_ids": [
+                "P003",
+                "P017",
+                "P019",
+                "P025",
+                "P029",
+                "P033",
+                "P035"
+              ],
+              "A_finding_only": [],
+              "B_finding_only": [
+                "P003",
+                "P017",
+                "P019",
+                "P025",
+                "P029",
+                "P033",
+                "P035"
+              ]
+            },
+            "runtime_controls": {
+              "A_candidates": 3,
+              "B_candidates": 2,
+              "net": -1,
+              "A_ids": [
+                "P007",
+                "P008",
+                "P011"
+              ],
+              "B_ids": [
+                "P005",
+                "P011"
+              ],
+              "new_B_ids": [
+                "P005"
+              ]
+            },
+            "surface_negative_control": {
+              "A_mutation_hits": [
+                "P002",
+                "P004",
+                "P032"
+              ],
+              "B_mutation_hits": [
+                "P002",
+                "P004",
+                "P006",
+                "P032"
+              ],
+              "A_control_non_ok": [
+                "P014"
+              ],
+              "B_control_non_ok": []
+            }
+          },
+          {
+            "route": "agy-gemini-3.7-flash-high",
+            "runtime_mutants": {
+              "A_hits": 0,
+              "B_hits": 8,
+              "net": 8,
+              "A_ids": [],
+              "B_ids": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P035"
+              ],
+              "A_finding_only": [],
+              "B_finding_only": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P035"
+              ]
+            },
+            "runtime_controls": {
+              "A_candidates": 1,
+              "B_candidates": 0,
+              "net": -1,
+              "A_ids": [
+                "P007"
+              ],
+              "B_ids": [],
+              "new_B_ids": []
+            },
+            "surface_negative_control": {
+              "A_mutation_hits": [
+                "P002",
+                "P004",
+                "P006",
+                "P032"
+              ],
+              "B_mutation_hits": [
+                "P002",
+                "P004",
+                "P032"
+              ],
+              "A_control_non_ok": [],
+              "B_control_non_ok": []
+            }
+          }
+        ]
+      },
+      {
+        "run": 2,
+        "runtime_recall": {
+          "A_hits": 0,
+          "B_hits": 35,
+          "denominator": 48,
+          "A_rate": 0,
+          "B_rate": 0.7291666666666666,
+          "net_hits": 35,
+          "delta": 0.7291666666666666
+        },
+        "route_direction": {
+          "positive_routes": 4,
+          "required": 3
+        },
+        "runtime_control_candidates": {
+          "A": 11,
+          "B": 3,
+          "denominator": 48,
+          "net": -8,
+          "max_new_B_in_any_route": 1
+        },
+        "control_contamination_count": 1,
+        "gates": {
+          "runtime_recall_net_at_least_10": true,
+          "at_least_three_positive_routes": true,
+          "runtime_control_net_at_most_2": true,
+          "per_route_new_controls_at_most_1": true,
+          "zero_control_contamination": false
+        },
+        "pass": false,
+        "route_scores": [
+          {
+            "route": "codex-gpt-5.6-sol-high",
+            "runtime_mutants": {
+              "A_hits": 0,
+              "B_hits": 9,
+              "net": 9,
+              "A_ids": [],
+              "B_ids": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P033",
+                "P035"
+              ],
+              "A_finding_only": [],
+              "B_finding_only": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P033",
+                "P035"
+              ]
+            },
+            "runtime_controls": {
+              "A_candidates": 5,
+              "B_candidates": 2,
+              "net": -3,
+              "A_ids": [
+                "P007",
+                "P008",
+                "P011",
+                "P016",
+                "P021"
+              ],
+              "B_ids": [
+                "P005",
+                "P016"
+              ],
+              "new_B_ids": [
+                "P005"
+              ]
+            },
+            "surface_negative_control": {
+              "A_mutation_hits": [
+                "P002",
+                "P004",
+                "P006",
+                "P032"
+              ],
+              "B_mutation_hits": [
+                "P002",
+                "P004",
+                "P006",
+                "P032"
+              ],
+              "A_control_non_ok": [
+                "P014"
+              ],
+              "B_control_non_ok": []
+            }
+          },
+          {
+            "route": "claude-opus-5-medium-no-advisor",
+            "runtime_mutants": {
+              "A_hits": 0,
+              "B_hits": 9,
+              "net": 9,
+              "A_ids": [],
+              "B_ids": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P033",
+                "P035"
+              ],
+              "A_finding_only": [],
+              "B_finding_only": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P033",
+                "P035"
+              ]
+            },
+            "runtime_controls": {
+              "A_candidates": 3,
+              "B_candidates": 0,
+              "net": -3,
+              "A_ids": [
+                "P007",
+                "P011",
+                "P016"
+              ],
+              "B_ids": [],
+              "new_B_ids": []
+            },
+            "surface_negative_control": {
+              "A_mutation_hits": [
+                "P002",
+                "P004",
+                "P006",
+                "P032"
+              ],
+              "B_mutation_hits": [
+                "P002",
+                "P004",
+                "P006",
+                "P032"
+              ],
+              "A_control_non_ok": [
+                "P014"
+              ],
+              "B_control_non_ok": []
+            }
+          },
+          {
+            "route": "pi-zai-cn-glm-5.3-flash-high",
+            "runtime_mutants": {
+              "A_hits": 0,
+              "B_hits": 9,
+              "net": 9,
+              "A_ids": [],
+              "B_ids": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P033",
+                "P035"
+              ],
+              "A_finding_only": [],
+              "B_finding_only": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P033",
+                "P035"
+              ]
+            },
+            "runtime_controls": {
+              "A_candidates": 2,
+              "B_candidates": 0,
+              "net": -2,
+              "A_ids": [
+                "P007",
+                "P011"
+              ],
+              "B_ids": [],
+              "new_B_ids": []
+            },
+            "surface_negative_control": {
+              "A_mutation_hits": [
+                "P002",
+                "P004",
+                "P032"
+              ],
+              "B_mutation_hits": [
+                "P002",
+                "P032"
+              ],
+              "A_control_non_ok": [
+                "P014"
+              ],
+              "B_control_non_ok": []
+            }
+          },
+          {
+            "route": "agy-gemini-3.7-flash-high",
+            "runtime_mutants": {
+              "A_hits": 0,
+              "B_hits": 8,
+              "net": 8,
+              "A_ids": [],
+              "B_ids": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P035"
+              ],
+              "A_finding_only": [],
+              "B_finding_only": [
+                "P003",
+                "P012",
+                "P017",
+                "P019",
+                "P025",
+                "P026",
+                "P029",
+                "P035"
+              ]
+            },
+            "runtime_controls": {
+              "A_candidates": 1,
+              "B_candidates": 1,
+              "net": 0,
+              "A_ids": [
+                "P007"
+              ],
+              "B_ids": [
+                "P021"
+              ],
+              "new_B_ids": [
+                "P021"
+              ]
+            },
+            "surface_negative_control": {
+              "A_mutation_hits": [
+                "P002",
+                "P004",
+                "P006",
+                "P032"
+              ],
+              "B_mutation_hits": [
+                "P002",
+                "P004",
+                "P032"
+              ],
+              "A_control_non_ok": [],
+              "B_control_non_ok": []
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "decision": {
+    "adopt_B_as_default_for_later_phases": false,
+    "rule": "Both runs must independently pass every registered gate; no pooling and no third run."
+  },
+  "artifacts": {
+    "scores": "SCORES.json",
+    "scores_sha256": "2a0aedab79c06ab65359a889c111f2d8ede2c883f9b812cbce3b39089a205bfb",
+    "adjudication": "ADJUDICATION.json",
+    "adjudication_sha256": "167cdfc20ac616799c6832ee1ae43565f8ee8d5d275b2fddb0a02515400da6c3",
+    "frozen_hashes": "FROZEN-HASHES.json",
+    "frozen_hashes_sha256": "3a0d036efc8733c36fcf14531f1130f6b2898b5e457669fcdc8e8e023df99a5f",
+    "harness_amendment": "HARNESS-AMENDMENT.json",
+    "harness_amendment_sha256": "f1c3ec344b02247e7af4011c409d52300bbb798450331e4da6f84d1a27585bcd",
+    "post_run_verification": "POST-RUN-VERIFICATION.json",
+    "post_run_verification_sha256": "fe094e6dab81f61abafc792d00ad79d62d1e00c12c7607a18e8a39c1fc73db8e"
+  },
+  "interpretation": [
+    "The source-context arm produced a large, repeated primary recall increase: +31/48 route-item detections in Run 1 and +35/48 in Run 2. All four routes had strictly positive deltas in both runs.",
+    "Aggregate runtime-control candidate counts decreased from A to B (10 to 6 in Run 1; 11 to 3 in Run 2), so added source did not create a general increase in candidate volume.",
+    "The registered adoption decision nevertheless fails. In Run 1, Codex produced two new objective B-arm control candidates (P010 and P016), exceeding the per-route maximum of one.",
+    "Post-run source adjudication also confirmed one frozen control contamination: P005 says spread requires same-faction membership, while the code accepts any target with positive reaction. The preregistered zero-contamination gate therefore fails both runs and forbids adopting B as the default.",
+    "The appropriate conclusion is evidence that bounded Lua context materially improves detection on this finite mutant benchmark, not approval of the current B protocol for later phases. No item was replaced, repaired or rescored after outcomes, and no third run was made."
+  ],
+  "limitations": [
+    "The estimand is limited to this frozen 12-item runtime-mutant benchmark.",
+    "Surface items are negative controls and runtime controls are guardrails, not additional primary recall units.",
+    "Route and run observations are repeated measurements, not independent draws from a defined model superpopulation.",
+    "The pre-inference CLEAN audit missed P005's friendly-reaction versus same-faction distinction; this demonstrates that clean-control verification, not only reviewer behavior, limits the current experiment.",
+    "Codex required two pre-inference response-format compatibility attempts, and GLM envelopes required reversible parser normalization. Both are preserved and excluded from model scoring as documented in HARNESS-AMENDMENT.json."
+  ],
+  "next_step": "Do not treat this as a third-run invitation. If source context is tested again, create runtime-source-context-pilot-v2 with a newly frozen control audit that checks faction/reaction semantics, positional format metadata and direct-callee coverage before any model call; later phases should inherit context_policy=A unless separately frozen otherwise."
+}

@@ -1,0 +1,192 @@
+{
+  "schema_version": "runtime-source-context-adjudication-v1",
+  "status": "FINAL",
+  "control_candidates": [
+    {
+      "candidate_key": "A|1|codex-gpt-5.6-sol-high|P007",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The English long description is stale at range 7; executable callbackOnActBase enumerates circle_grids(..., 6, true) and uses a projectile with range=6, so the clean target's 6 is correct.",
+      "source_evidence": "local grids = core.fov.circle_grids(self.x, self.y, 6, true); local tg = {type=\"ball\", radius=0, range=6, talent=t, friendlyfire=false}"
+    },
+    {
+      "candidate_key": "A|1|codex-gpt-5.6-sol-high|P011",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The stale prose says frost, but the effect is WATER_SALVE with water subtype and grants the three listed affinities. The clean target follows the executable effect identity and mechanics.",
+      "source_evidence": "name = \"WATER_SALVE\"; subtype = { water=true }; damage_affinity = BLIGHT/MIND/ACID"
+    },
+    {
+      "candidate_key": "A|1|codex-gpt-5.6-sol-high|P021",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The visible effect installs global modifier attributes, but the component Actor hook that consumes them explicitly requires e.type ~= \"other\" for both detrimental and beneficial effects. The clean exception is correct.",
+      "source_evidence": "if e.status == \"detrimental\" and e.type ~= \"other\" ...; if e.status == \"beneficial\" and e.type ~= \"other\" ..."
+    },
+    {
+      "candidate_key": "A|1|claude-opus-5-medium-no-advisor|P007",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The English long description is stale at range 7; executable callbackOnActBase enumerates circle_grids(..., 6, true) and uses a projectile with range=6, so the clean target's 6 is correct.",
+      "source_evidence": "local grids = core.fov.circle_grids(self.x, self.y, 6, true); local tg = {type=\"ball\", radius=0, range=6, talent=t, friendlyfire=false}"
+    },
+    {
+      "candidate_key": "A|1|claude-opus-5-medium-no-advisor|P011",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The stale prose says frost, but the effect is WATER_SALVE with water subtype and grants the three listed affinities. The clean target follows the executable effect identity and mechanics.",
+      "source_evidence": "name = \"WATER_SALVE\"; subtype = { water=true }; damage_affinity = BLIGHT/MIND/ACID"
+    },
+    {
+      "candidate_key": "A|1|claude-opus-5-medium-no-advisor|P016",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "Although the stale long description names Hideous Visions, the temporal bonus on hallucination death is projected from T_SANITY_WARP; the frozen Chinese talent mapping for Sanity Warp is 失智冲击. The clean target follows the executable damage path.",
+      "source_evidence": "local t = self.summoner:getTalentFromId(self.summoner.T_SANITY_WARP); ... if target:hasEffect(target.EFF_CACOPHONY) then ... DamageType.TEMPORAL"
+    },
+    {
+      "candidate_key": "A|1|pi-zai-cn-glm-5.3-flash-high|P007",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The English long description is stale at range 7; executable callbackOnActBase enumerates circle_grids(..., 6, true) and uses a projectile with range=6, so the clean target's 6 is correct.",
+      "source_evidence": "local grids = core.fov.circle_grids(self.x, self.y, 6, true); local tg = {type=\"ball\", radius=0, range=6, talent=t, friendlyfire=false}"
+    },
+    {
+      "candidate_key": "A|1|pi-zai-cn-glm-5.3-flash-high|P008",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The executable effect installs talent_fail_chance, so limiting the statement to skill/talent failure is runtime-accurate; the broad English word actions is stale.",
+      "source_evidence": "eff.tmpid = self:addTemporaryValue(\"talent_fail_chance\", eff.chance)"
+    },
+    {
+      "candidate_key": "A|1|pi-zai-cn-glm-5.3-flash-high|P011",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The stale prose says frost, but the effect is WATER_SALVE with water subtype and grants the three listed affinities. The clean target follows the executable effect identity and mechanics.",
+      "source_evidence": "name = \"WATER_SALVE\"; subtype = { water=true }; damage_affinity = BLIGHT/MIND/ACID"
+    },
+    {
+      "candidate_key": "A|1|agy-gemini-3.7-flash-high|P007",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The English long description is stale at range 7; executable callbackOnActBase enumerates circle_grids(..., 6, true) and uses a projectile with range=6, so the clean target's 6 is correct.",
+      "source_evidence": "local grids = core.fov.circle_grids(self.x, self.y, 6, true); local tg = {type=\"ball\", radius=0, range=6, talent=t, friendlyfire=false}"
+    },
+    {
+      "candidate_key": "A|2|codex-gpt-5.6-sol-high|P007",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The English long description is stale at range 7; executable callbackOnActBase enumerates circle_grids(..., 6, true) and uses a projectile with range=6, so the clean target's 6 is correct.",
+      "source_evidence": "local grids = core.fov.circle_grids(self.x, self.y, 6, true); local tg = {type=\"ball\", radius=0, range=6, talent=t, friendlyfire=false}"
+    },
+    {
+      "candidate_key": "A|2|codex-gpt-5.6-sol-high|P008",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The executable effect installs talent_fail_chance, so limiting the statement to skill/talent failure is runtime-accurate; the broad English word actions is stale.",
+      "source_evidence": "eff.tmpid = self:addTemporaryValue(\"talent_fail_chance\", eff.chance)"
+    },
+    {
+      "candidate_key": "A|2|codex-gpt-5.6-sol-high|P011",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The stale prose says frost, but the effect is WATER_SALVE with water subtype and grants the three listed affinities. The clean target follows the executable effect identity and mechanics.",
+      "source_evidence": "name = \"WATER_SALVE\"; subtype = { water=true }; damage_affinity = BLIGHT/MIND/ACID"
+    },
+    {
+      "candidate_key": "A|2|codex-gpt-5.6-sol-high|P016",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "Although the stale long description names Hideous Visions, the temporal bonus on hallucination death is projected from T_SANITY_WARP; the frozen Chinese talent mapping for Sanity Warp is 失智冲击. The clean target follows the executable damage path.",
+      "source_evidence": "local t = self.summoner:getTalentFromId(self.summoner.T_SANITY_WARP); ... if target:hasEffect(target.EFF_CACOPHONY) then ... DamageType.TEMPORAL"
+    },
+    {
+      "candidate_key": "A|2|codex-gpt-5.6-sol-high|P021",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The visible effect installs global modifier attributes, but the component Actor hook that consumes them explicitly requires e.type ~= \"other\" for both detrimental and beneficial effects. The clean exception is correct.",
+      "source_evidence": "if e.status == \"detrimental\" and e.type ~= \"other\" ...; if e.status == \"beneficial\" and e.type ~= \"other\" ..."
+    },
+    {
+      "candidate_key": "A|2|claude-opus-5-medium-no-advisor|P007",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The English long description is stale at range 7; executable callbackOnActBase enumerates circle_grids(..., 6, true) and uses a projectile with range=6, so the clean target's 6 is correct.",
+      "source_evidence": "local grids = core.fov.circle_grids(self.x, self.y, 6, true); local tg = {type=\"ball\", radius=0, range=6, talent=t, friendlyfire=false}"
+    },
+    {
+      "candidate_key": "A|2|claude-opus-5-medium-no-advisor|P011",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The stale prose says frost, but the effect is WATER_SALVE with water subtype and grants the three listed affinities. The clean target follows the executable effect identity and mechanics.",
+      "source_evidence": "name = \"WATER_SALVE\"; subtype = { water=true }; damage_affinity = BLIGHT/MIND/ACID"
+    },
+    {
+      "candidate_key": "A|2|claude-opus-5-medium-no-advisor|P016",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "Although the stale long description names Hideous Visions, the temporal bonus on hallucination death is projected from T_SANITY_WARP; the frozen Chinese talent mapping for Sanity Warp is 失智冲击. The clean target follows the executable damage path.",
+      "source_evidence": "local t = self.summoner:getTalentFromId(self.summoner.T_SANITY_WARP); ... if target:hasEffect(target.EFF_CACOPHONY) then ... DamageType.TEMPORAL"
+    },
+    {
+      "candidate_key": "A|2|pi-zai-cn-glm-5.3-flash-high|P007",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The English long description is stale at range 7; executable callbackOnActBase enumerates circle_grids(..., 6, true) and uses a projectile with range=6, so the clean target's 6 is correct.",
+      "source_evidence": "local grids = core.fov.circle_grids(self.x, self.y, 6, true); local tg = {type=\"ball\", radius=0, range=6, talent=t, friendlyfire=false}"
+    },
+    {
+      "candidate_key": "A|2|pi-zai-cn-glm-5.3-flash-high|P011",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The stale prose says frost, but the effect is WATER_SALVE with water subtype and grants the three listed affinities. The clean target follows the executable effect identity and mechanics.",
+      "source_evidence": "name = \"WATER_SALVE\"; subtype = { water=true }; damage_affinity = BLIGHT/MIND/ACID"
+    },
+    {
+      "candidate_key": "A|2|agy-gemini-3.7-flash-high|P007",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The English long description is stale at range 7; executable callbackOnActBase enumerates circle_grids(..., 6, true) and uses a projectile with range=6, so the clean target's 6 is correct.",
+      "source_evidence": "local grids = core.fov.circle_grids(self.x, self.y, 6, true); local tg = {type=\"ball\", radius=0, range=6, talent=t, friendlyfire=false}"
+    },
+    {
+      "candidate_key": "B|1|codex-gpt-5.6-sol-high|P010",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The tracked translation entry explicitly supplies the positional remap {2,1}, so moving %s before %d is intentional and runtime-safe. The candidate ignored the frozen translation metadata.",
+      "source_evidence": "t(English, Chinese, \"tformat\", {2,1})"
+    },
+    {
+      "candidate_key": "B|1|codex-gpt-5.6-sol-high|P011",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The stale prose says frost, but the effect is WATER_SALVE with water subtype and grants the three listed affinities. The clean target follows the executable effect identity and mechanics.",
+      "source_evidence": "name = \"WATER_SALVE\"; subtype = { water=true }; damage_affinity = BLIGHT/MIND/ACID"
+    },
+    {
+      "candidate_key": "B|1|codex-gpt-5.6-sol-high|P016",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "Although the stale long description names Hideous Visions, the temporal bonus on hallucination death is projected from T_SANITY_WARP; the frozen Chinese talent mapping for Sanity Warp is 失智冲击. The clean target follows the executable damage path.",
+      "source_evidence": "local t = self.summoner:getTalentFromId(self.summoner.T_SANITY_WARP); ... if target:hasEffect(target.EFF_CACOPHONY) then ... DamageType.TEMPORAL"
+    },
+    {
+      "candidate_key": "B|1|codex-gpt-5.6-sol-high|P021",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The visible effect installs global modifier attributes, but the component Actor hook that consumes them explicitly requires e.type ~= \"other\" for both detrimental and beneficial effects. The clean exception is correct.",
+      "source_evidence": "if e.status == \"detrimental\" and e.type ~= \"other\" ...; if e.status == \"beneficial\" and e.type ~= \"other\" ..."
+    },
+    {
+      "candidate_key": "B|1|pi-zai-cn-glm-5.3-flash-high|P005",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "This candidate says the spread target must be hostile, but the guard returns for reactionToward <= 0; only positive-reaction targets pass. The candidate reverses the executable condition.",
+      "source_evidence": "if not target or self:reactionToward(target) <= 0 or target:hasEffect(target.EFF_PSY_WORM) then return end"
+    },
+    {
+      "candidate_key": "B|1|pi-zai-cn-glm-5.3-flash-high|P011",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The stale prose says frost, but the effect is WATER_SALVE with water subtype and grants the three listed affinities. The clean target follows the executable effect identity and mechanics.",
+      "source_evidence": "name = \"WATER_SALVE\"; subtype = { water=true }; damage_affinity = BLIGHT/MIND/ACID"
+    },
+    {
+      "candidate_key": "B|2|codex-gpt-5.6-sol-high|P005",
+      "classification": "CONTROL_CONTAMINATION",
+      "rationale": "Confirmed baseline scope defect: executable spread accepts any target with positive reaction, whereas the Chinese target requires same-faction membership. Positive diplomatic reaction is not identical to faction equality.",
+      "source_evidence": "if not target or self:reactionToward(target) <= 0 or target:hasEffect(target.EFF_PSY_WORM) then return end"
+    },
+    {
+      "candidate_key": "B|2|codex-gpt-5.6-sol-high|P016",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "Although the stale long description names Hideous Visions, the temporal bonus on hallucination death is projected from T_SANITY_WARP; the frozen Chinese talent mapping for Sanity Warp is 失智冲击. The clean target follows the executable damage path.",
+      "source_evidence": "local t = self.summoner:getTalentFromId(self.summoner.T_SANITY_WARP); ... if target:hasEffect(target.EFF_CACOPHONY) then ... DamageType.TEMPORAL"
+    },
+    {
+      "candidate_key": "B|2|agy-gemini-3.7-flash-high|P021",
+      "classification": "SOURCE_REFUTED",
+      "rationale": "The visible effect installs global modifier attributes, but the component Actor hook that consumes them explicitly requires e.type ~= \"other\" for both detrimental and beneficial effects. The clean exception is correct.",
+      "source_evidence": "if e.status == \"detrimental\" and e.type ~= \"other\" ...; if e.status == \"beneficial\" and e.type ~= \"other\" ..."
+    }
+  ],
+  "notes": [
+    "Adjudication was performed against the frozen public Lua source after all 16 registered calls and before final gate computation.",
+    "P005 is a genuine clean-control contamination missed during pre-inference verification. It remains in this version; no item is repaired, removed or replaced after outcomes. P010 is source-refuted by the tracked {2,1} positional remap.",
+    "All other valid non-OK runtime-control candidates are objective but source-refuted; none was downgraded to NON_OBJECTIVE.",
+    "The GLM P005 candidate claims the opposite relation direction from the code and is source-refuted, while the Codex P005 candidate correctly identifies positive reaction versus same-faction scope and is contamination."
+  ]
+}

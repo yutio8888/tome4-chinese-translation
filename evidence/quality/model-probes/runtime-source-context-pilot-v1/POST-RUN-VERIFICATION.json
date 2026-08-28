@@ -1,0 +1,132 @@
+{
+  "schema_version": "runtime-source-context-preflight-report-v1",
+  "status": "GO",
+  "require_hashes": true,
+  "contract_errors": [],
+  "fixtures": [
+    {
+      "id": "success_contract",
+      "expected_pass": true,
+      "actual_pass": true,
+      "ok": true,
+      "observed_errors": []
+    },
+    {
+      "id": "missing_context",
+      "expected_pass": false,
+      "actual_pass": false,
+      "ok": true,
+      "observed_errors": [
+        "CONTEXT_MISSING P001",
+        "context hash P001"
+      ]
+    },
+    {
+      "id": "duplicate_item",
+      "expected_pass": false,
+      "actual_pass": false,
+      "ok": true,
+      "observed_errors": [
+        "A item order/IDs",
+        "duplicate holdout item",
+        "arm drift P001"
+      ]
+    },
+    {
+      "id": "arm_drift",
+      "expected_pass": false,
+      "actual_pass": false,
+      "ok": true,
+      "observed_errors": [
+        "arm drift P001"
+      ]
+    },
+    {
+      "id": "reference_leak",
+      "expected_pass": false,
+      "actual_pass": false,
+      "ok": true,
+      "observed_errors": [
+        "leaked expected claim P002"
+      ]
+    },
+    {
+      "id": "reserve_out_of_bounds",
+      "expected_pass": false,
+      "actual_pass": false,
+      "ok": true,
+      "observed_errors": [
+        "runtime frame coverage",
+        "runtime control selection count"
+      ]
+    },
+    {
+      "id": "hash_drift",
+      "expected_pass": false,
+      "actual_pass": false,
+      "ok": true,
+      "observed_errors": [
+        "frozen hash drift ADJUDICATION-SCHEMA.json",
+        "frozen hash drift CONTEXTS.json",
+        "frozen hash drift DESIGN-SPECS.json"
+      ]
+    },
+    {
+      "id": "gate_equal_boundaries",
+      "expected_pass": true,
+      "actual_pass": true,
+      "ok": true
+    },
+    {
+      "id": "gate_recall_below",
+      "expected_pass": false,
+      "actual_pass": false,
+      "ok": true
+    },
+    {
+      "id": "gate_control_above",
+      "expected_pass": false,
+      "actual_pass": false,
+      "ok": true
+    }
+  ],
+  "scorer_fixtures": [
+    {
+      "id": "finding_exact_atom",
+      "detection": 1,
+      "finding_detection": 1,
+      "ok": true
+    },
+    {
+      "id": "uncertain_overlap",
+      "detection": 1,
+      "finding_detection": 0,
+      "ok": true
+    },
+    {
+      "id": "wrong_claim_type",
+      "detection": 0,
+      "finding_detection": 0,
+      "ok": true
+    },
+    {
+      "id": "non_overlapping_span",
+      "detection": 0,
+      "finding_detection": 0,
+      "ok": true
+    },
+    {
+      "id": "invalid_exact_quote",
+      "detection": 0,
+      "finding_detection": 0,
+      "ok": true
+    },
+    {
+      "id": "ok_never_detects",
+      "detection": 0,
+      "finding_detection": 0,
+      "ok": true
+    }
+  ],
+  "executor_fixture_sha256": "82e25a395c1c9ff16c5b487ff465bc4bc7824e7cc61bebe4e8e716c24469b4c7"
+}
