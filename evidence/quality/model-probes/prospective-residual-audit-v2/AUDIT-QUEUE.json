@@ -1,0 +1,1154 @@
+{
+  "schema_version": "prospective-residual-audit-queue-v2",
+  "status": "SOURCE_AUDIT_PENDING",
+  "reviewer_inference_allowed": false,
+  "context_policy_for_later_model_review": "A_SOURCE_AND_TARGET_ONLY",
+  "source_audit_policy": "Before any reviewer output, audit all 40 items at equal depth against fixed public source and classify confirmed, refuted, indeterminate or unreachable. Do not replace an item after selection.",
+  "counts": {
+    "items": 40,
+    "tasks": 40,
+    "by_stratum": {
+      "same_family_only": 30,
+      "cross_or_mixed_family": 8,
+      "unknown_provenance": 2
+    }
+  },
+  "items": [
+    {
+      "audit_id": "R001",
+      "stratum": "same_family_only",
+      "task_id": "p2-orcs-dialogue-b1-001",
+      "original_revision_key": "orcs-b1-get-someone-on-that",
+      "source": "Get someone on that, post-haste!",
+      "target": "快叫人来处理，马上！",
+      "fixed_context": "'Get someone on that' = assign someone to fix the tea-maker, not 'send someone upstairs'",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.1,
+      "revision_inclusion_probability": 0.1,
+      "design_weight": 10,
+      "revision_rank": "241757661d6d6960a52b3900e04ea07d0f087ea5ed7b54bddc8a2f4090cd861e",
+      "presentation_rank": "01e0fc22e2cae025ac669bb52e927c30017bc9529380c382c9f847c7ee352e87",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "p2o-dialogue-b1-ctx-1",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-orcs-dialogue-b1-001/CONTEXTUAL-ENVELOPE-p2o-dialogue-b1-ctx-1.json",
+          "size_bytes": 5227,
+          "sha256": "064dc15198d112bb05092cd62406f0dbf43ed391612a9085ebdbfe8a4f4390f5",
+          "candidate_identity": "af68591e567a7e256ce712f89a22ea8365538f777b947cfb342db0aa3f743af3"
+        }
+      ],
+      "item_sha256": "3e13bceadf4c776741f9f8ff4f838922df0183e48d94d0460fbf34f9fc76c688"
+    },
+    {
+      "audit_id": "R002",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b33-001",
+      "original_revision_key": "b33-08-ward",
+      "source": "Temporal [%d]",
+      "target": "时空 [%d]",
+      "fixed_context": "section=mod-tome/data/chats/ward.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=tformat; UI picker for calling forth a damage ward. Each label is built by tformat from an engine DamageType constant (DamageType.FIRE, .LIGHTNING, .COLD, .ARCANE, .LIGHT, .DARKNESS, .TEMPORAL, .PHYSICAL, .NATURE, .BLIGHT, .ACID, .MIND) with %d holding the remaining charge count. These are damage-type labels, not prose: the T.GAME.DAMAGE terminology rows govern (火焰/闪电/寒冷/奥术/光系/暗影/时空/物理/自然/枯萎/酸性/精神). Note 酸液 belongs to talent names such as Acid Spray, not to the acid damage type.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.02702702702702703,
+      "revision_inclusion_probability": 0.02702702702702703,
+      "design_weight": 37,
+      "revision_rank": "048be909a12bc79f1bf7c8b0dea73082dcbbfe2914ae1f974fc4e0baa2a2263f",
+      "presentation_rank": "23ae07ab5b16e0d7bb039ee6005d7ad904354a274088102fbd00744cca283108",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b33-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 25903,
+          "sha256": "a891c738973521208e748231b11eb3782bf9a45563f4f8ed1d7b7b8a8a78d4c0",
+          "candidate_identity": "7c564bb1e128ec0e0633716ac1926b07e6cd6cd9854d4a9e3b8c27184977a699"
+        }
+      ],
+      "item_sha256": "bc5bbc0d8ff1692a99099086b899b140096e8864b28eb3101287984880d8fcf1"
+    },
+    {
+      "audit_id": "R003",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b25-001",
+      "original_revision_key": "b25-17-rob-orb",
+      "source": "Bring it on!",
+      "target": "尽管来吧！",
+      "fixed_context": "section=mod-tome/data/chats/ring-of-blood-orb.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; the orb of command used to take control of a pawn during the arena fight; preserve which creature each option selects and the mechanism of taking control.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.02702702702702703,
+      "revision_inclusion_probability": 0.02702702702702703,
+      "design_weight": 37,
+      "revision_rank": "12f5d76511bb5f0600ddc2503894b29fa1988db735d3766971ca68dae616a10f",
+      "presentation_rank": "27aaec67f068709c7083935012b9e4cbfb7f22a30033fb9f0723c46453b638a8",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b25-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 23502,
+          "sha256": "58168e1591f308b6e9e840f230c162cfc6b7b2b8361ebe6cfac27663c92de834",
+          "candidate_identity": "0cbb7c5812386d801a669d4d75a27aab510ab9316ae2b21724c7af9b482f3419"
+        }
+      ],
+      "item_sha256": "2b902f2d4f63ffc891b468757c283c2849d23a634d167b44583968bdebbebc48"
+    },
+    {
+      "audit_id": "R004",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b2-001",
+      "original_revision_key": "tome-unlock-divine_anorithil-body",
+      "source": "In the uttermost east, on the continent known only as the Far East, dwell the last remnants of Elves and Humans, fighting the Orc Pride and the many perils of the Far East.\n\nAnorithil are mages who are trained in special magic to focus the powers of the Sun and Moons.\nThey have learned to harness the energy of both shadows and light in their battle against the Pride.\nTheir motto is: \"We stand betwixt the Sun and Moons, where light and darkness meet. In the grey twilight we seek our destiny.\"\n\nYou have helped one of them and can now create new characters with the #LIGHT_GREEN#Anorithil class#WHITE#.\n\nAnorithil are pure spellcasters that rely on positive and negative energies.\nClass features:#YELLOW#\n- Burn your foes from afar with the light and fire of the Sun\n- Head into battle enhanced by your powerful Sun Chants and Moon Hymns\n- Engulf your foes in the shadows\n- Set glyphs of power to confuse and control your foes#WHITE#\n\nAnorithil use \"positive and negative energy\" to use their special abilities.\nThese are filled by some of their spells and depleted by others, making them alternate their talents.\n",
+      "target": "在遥远的东方，称为远东大陆的地方，居住着幸存下来的精灵和人类，与兽人部落和远东大陆的种种危险战斗。\n\n星月术士是接受过聚集太阳与月亮神力的特殊魔法训练的法师。\n他们在与兽人部落的战斗中学会了如何同时掌控光与影的能量方法。\n他们的座右铭是：“我们站在太阳与月亮之间，光明与黑暗交汇的地方，在灰色的暮光中寻找我们的命运。”\n\n你帮助了他们中的一位，现在你可以在创建人物时选择新的职业： #LIGHT_GREEN#星月术士#WHITE#。\n\n星月术士是依靠正能量和负能量的纯粹施法者。\n职业特点： #YELLOW#\n- 用太阳的光与火灼烧远处的敌人\n- 使用太阳赞歌和月亮圣诗在战斗中强化你的力量\n- 用阴影吞噬你的敌人\n- 放置强力圣印来混乱和控制你的敌人#WHITE#\n\n星月术士使用正能量和负能量来施展他们的特殊能力。\n其中一些法术会填充这些能量，另一些则会消耗它们，因此他们需要交替使用技能。\n",
+      "fixed_context": "section mod-tome/data/texts/unlock-divine_anorithil.lua; source_tag=_t; unlock screen (body) shown when the player unlocks a class/race/campaign/difficulty/cosmetic; pinned engine source game/modules/tome/data/texts/unlock-divine_anorithil.lua at commit 624a673 (English key verbatim). Class/race names must match the terminology table and the in-file birth descriptor names. Terminology in force: Adventurer(class)=冒险家; Cursed=被诅咒者; Doomed=末日使者; Afflicted=痛苦系; Defiler=堕落系; Corruptor=腐化者; Reaver=收割者; Chronomancer=时空系; Paradox Mage=时空法师; Temporal Warden=时空守卫; Celestial=天空系; Anorithil=星月术士; Sun Paladin=太阳骑士; Archmage=元素法师; Necromancer=死灵法师; Arcane Blade=奥术之刃; Alchemist=炼金术师; Spellhunt=魔法狩猎(preferred); Angolwen=安格利文; Maj'Eyal=马基埃亚尔; Zigur=伊格; Ziguranth=伊格兰斯; Iron Council=钢铁议会; Gates of Morning=晨曦之门; Orc Pride=兽人部落; Fearscape=恶魔空间(in-file ×27); Master of the Arena=竞技场主宰(intro-arena); Paradox=紊乱值; vim=活力值; hate=仇恨值; Sher'tul=夏·图尔.",
+      "task_inclusion_probability": 0.625,
+      "item_probability_given_task": 0.5,
+      "revision_inclusion_probability": 0.3125,
+      "design_weight": 3.2,
+      "revision_rank": "3611ef3f50ea1ce8244632ecfd80c9e2975b6b0159bbd64db73c18ce66930e3d",
+      "presentation_rank": "2880ef1ad4b01df6429e18319c0178a7ff4e2319f9912654550e2e8d0ce380fe",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-04",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b2-001/CONTEXTUAL-ENVELOPE-ctx-04.json",
+          "size_bytes": 8284,
+          "sha256": "90601ee85f0e27462644583b818f93607a914f10237a4904bc01154a45f641ed",
+          "candidate_identity": "b8f37f550505f8f106ad579dc65fa3bda2d43818037c421def909b1faeee8255"
+        }
+      ],
+      "item_sha256": "65ed06b62052f567208b9858377f8c7801baa9fc0cc81a39f185f536cef2b1de"
+    },
+    {
+      "audit_id": "R005",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b35-001",
+      "original_revision_key": "b35-03-zigur-trainer",
+      "source": "Sister",
+      "target": "姐妹",
+      "fixed_context": "section=mod-tome/data/chats/zigur-trainer.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; The Ziguranth trainer at Zigur offering the antimagic trial. A grim Fighter in mail challenges the player; magic-tainted equipment becomes unusable, unclean runes are replaced with newly grown infusions, granted infusions are reinforced, and before the trial all magical help is stripped. There is a character-level gate (the trainer says the candidate seems too young) and a line addressed specifically to Ogres about their runes. The player is then thrown into a pit where opponents arrive in succession. Zigur=伊格, Ziguranth=伊格兰斯, antimagic=反魔法, Ogre=食人魔. The %s in the tainted-item line is the item name.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.043478260869565216,
+      "revision_inclusion_probability": 0.043478260869565216,
+      "design_weight": 23,
+      "revision_rank": "0009c3f64cbe28a4887a65a7563ad57c5abd5c028c886244c3dbe3aacfefde49",
+      "presentation_rank": "396c0e19f223e4f7c35381dd32f52163b07977723a4477259f1d4207cf4b4f69",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b35-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 24813,
+          "sha256": "cbf91d59b6dedfe213a201ebad56a6b35997ba431bca7cdae1da98916f0a6a97",
+          "candidate_identity": "89598ec11346346bd1ce97c697c99c52256fc5e1e34b3d2aedfed2ffdfa726fa"
+        }
+      ],
+      "item_sha256": "3536b3ee5512aaf60bd2e07d2193778edaa0c3fa172bdc7ac6020a79baa052c1"
+    },
+    {
+      "audit_id": "R006",
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b8-001",
+      "original_revision_key": "alchemist-b8-18-alchemist-derth",
+      "source": "I'll be off.",
+      "target": "我走了。",
+      "fixed_context": "section=mod-tome/data/chats/alchemist-derth.lua; source_tag=_t; fixed_source=game/modules/tome/data/chats/alchemist-derth.lua@624a67329fe2ad440c5b344785a9c73fcf22ae63; adjacent dialogue belongs to the Brotherhood of Alchemists quest and the Alchemist golem interaction.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.010752688172043012,
+      "revision_inclusion_probability": 0.010752688172043012,
+      "design_weight": 92.99999999999999,
+      "revision_rank": "00d0973cdb3389372f49343a6a23e4c30ee416bef923edfd2a533993d3af4dad",
+      "presentation_rank": "3d6043d46860e91d41aaaba487cfb6658bd3eb7d134c8a8b52106c01cfbeded4",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-03",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b8-001/CONTEXTUAL-ENVELOPE-ctx-03.json",
+          "size_bytes": 68505,
+          "sha256": "dbce061748b8c0a5b7ebf450f4742aedd7b8da3accdf0eb64f416eab8bb0c095",
+          "candidate_identity": "5b7771e4899dece0ccd046d66e01428a32dcef9bc9601d167c8d65f44862a298"
+        }
+      ],
+      "item_sha256": "a30a7b4918a83acd1a482b2c936d7c78b490bf575d760d500643b8f809dd8178"
+    },
+    {
+      "audit_id": "R007",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b23-001",
+      "original_revision_key": "b23-08-magic-store",
+      "source": "I want to recharge some of my equipment.",
+      "target": "我想给一些装备充能。",
+      "fixed_context": "section=mod-tome/data/chats/magic-store.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; Last Hope magic store service menu; item recharging; preserve @playername@, the %d gold amounts and the shop/recharge menu labels.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.025,
+      "revision_inclusion_probability": 0.025,
+      "design_weight": 40,
+      "revision_rank": "02c19ee2733deb2775e9f73efb4308654893564640180c99a93bf7179d983ee7",
+      "presentation_rank": "46c4ca711fffc92ff1a6d07d72c46482e9c406a47eb8d404b5a4da8fff635052",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-02",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b23-001/CONTEXTUAL-ENVELOPE-ctx-02.json",
+          "size_bytes": 26410,
+          "sha256": "87ab264371a8e4338b844ec4473838fff5bd05b4467e2ac3ed05ea5fede88200",
+          "candidate_identity": "09224ef4e4da06cdfb27c4d6127d4e19c3d3946f57326e7ca3940eb2937cfaee"
+        }
+      ],
+      "item_sha256": "ba34498aa867f9cdbd91ed137ba32490d6d988e4a37c4e1873b77c07b461c433"
+    },
+    {
+      "audit_id": "R008",
+      "stratum": "same_family_only",
+      "task_id": "p2-cults-dialogue-b5-001",
+      "original_revision_key": "cults-b5-slimy-tentacles-pull",
+      "source": "Project slimy tentacles to pull your foes to you",
+      "target": "伸出黏滑的触手，将敌人拉向你",
+      "fixed_context": "'Project slimy tentacles to pull your foes to you' - dropped 'slimy' and changed 'pull to you' into a directionless 'grab'",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.09090909090909091,
+      "revision_inclusion_probability": 0.09090909090909091,
+      "design_weight": 11,
+      "revision_rank": "0272616ca9ac21e642fee97fd7d803424ad5f786862b3285b848d402764f924e",
+      "presentation_rank": "47238a6b8f1722573b4a5bef08ad59f0250990e2ac42583624de4369db51ac7c",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "p2c-dialogue-b5-ctx-1",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-cults-dialogue-b5-001/CONTEXTUAL-ENVELOPE-p2c-dialogue-b5-ctx-1.json",
+          "size_bytes": 5538,
+          "sha256": "1e83747e9db2af1f96c54fa0504af5ee38cbd1a368c5d674156a9ca98c20e272",
+          "candidate_identity": "679e3ef03f96cc05398a35368f9ab9dd99dd9bb9af3d9fd8c53ea67b49a9c124"
+        }
+      ],
+      "item_sha256": "6228bb139cb03e41d29b200589651e11cef1b47fdf946c64f18003304d6a9488"
+    },
+    {
+      "audit_id": "R009",
+      "stratum": "same_family_only",
+      "task_id": "p2-orcs-dialogue-b3-001",
+      "original_revision_key": "orcs-b3-plan-the-raid",
+      "source": "So maybe take some time to plan the raid.",
+      "target": "所以也许你该花点时间计划一下这次袭击。",
+      "fixed_context": "'take some time to plan the raid' - old dropped 'raid' and invented 'if you want to kill him'",
+      "task_inclusion_probability": 0.9375,
+      "item_probability_given_task": 0.3333333333333333,
+      "revision_inclusion_probability": 0.3125,
+      "design_weight": 3.2,
+      "revision_rank": "2f66a8c40045c34ad4f6cccdaed8331b62e74715c17cf9b759adfbcd40518e61",
+      "presentation_rank": "4c28fe2161c7b46ce296ae6035af0b4c1ccfd15b1ecf630b41280496d4da8308",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "p2o-dialogue-b3-ctx-1",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-orcs-dialogue-b3-001/CONTEXTUAL-ENVELOPE-p2o-dialogue-b3-ctx-1.json",
+          "size_bytes": 2213,
+          "sha256": "988888a119931cc849eda5c8fc61f7f1854fe9a846de6363cee313dae507a9b8",
+          "candidate_identity": "5d8cc435028ef515f3a72f6b718ac8471f2d40e8258a00e69541d77810a4602e"
+        }
+      ],
+      "item_sha256": "ee8b6859ae660fdd4d4921be9d2b5fac8666ce539c2e027dddf601eaca926fe0"
+    },
+    {
+      "audit_id": "R010",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b43-001",
+      "original_revision_key": "b43-11-spellhunt",
+      "source": "age of dusk",
+      "target": "黄昏纪",
+      "fixed_context": "section=mod-tome/data/lore/spellhunt.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=newLore category; Varil's witness account contrasts with three intentionally paranoid Spellhunt pamphlets; four Sunwall notes share Verutir's comic, self-important voice. Preserve attributed claims, violence, mechanics-adjacent conditions and travel chronology.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.020833333333333332,
+      "revision_inclusion_probability": 0.020833333333333332,
+      "design_weight": 48,
+      "revision_rank": "0350b6b3bb4e01031b945264a2c3e908efde1a43417d20fcc03afc4f1172ee2e",
+      "presentation_rank": "4c9091f9c95a6440030f36d0c113b7492d89d022b317f266231fbc0a952c8fc7",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "cycle27-a",
+          "cycle": 27,
+          "logical_path": ".ai/task/p2-tome-texts-b43-001/CONTEXTUAL-ENVELOPE-cycle27-a.json",
+          "size_bytes": 18140,
+          "sha256": "fe453e049c5bf838737afcaf6a601c41461d134d1aa6d092ca677a3499e1fd5d",
+          "candidate_identity": "60c3c1eb74214d031d1c70ffafe422cc538eefa19e202631bd8af026357ad8cf"
+        },
+        {
+          "dispatch_id": "cycle27-b",
+          "cycle": 27,
+          "logical_path": ".ai/task/p2-tome-texts-b43-001/CONTEXTUAL-ENVELOPE-cycle27-b.json",
+          "size_bytes": 29563,
+          "sha256": "d538ae35530610ca8c8fd47b2b5dea16c28bbded01a9418109509e07ec35e159",
+          "candidate_identity": "a424d5a13a9695e72ea9fa6041e9daa5471aeecf72f6e2f8e5861ce0ee754431"
+        },
+        {
+          "dispatch_id": "cycle27-c",
+          "cycle": 27,
+          "logical_path": ".ai/task/p2-tome-texts-b43-001/CONTEXTUAL-ENVELOPE-cycle27-c.json",
+          "size_bytes": 28745,
+          "sha256": "2eb02d945a8642d98a411a67bdb4374c5a9c9f9d3d8f266f045834e85de34a04",
+          "candidate_identity": "bb2ae8d8abfdcbb81bcc393dafec42fd28dead0566a0c7fab234338cbea7cc60"
+        },
+        {
+          "dispatch_id": "cycle27-d",
+          "cycle": 27,
+          "logical_path": ".ai/task/p2-tome-texts-b43-001/CONTEXTUAL-ENVELOPE-cycle27-d.json",
+          "size_bytes": 26142,
+          "sha256": "4e06c919c438346f8091fc602e066c7895d3093f642f550d115a57d33659dce7",
+          "candidate_identity": "d3ae36bf6b1b9fa61ed9e329ca453893e04805b479b0b61f15c6c7bd25df401a"
+        }
+      ],
+      "item_sha256": "6fb3b31c33358bb38980df6729950e8e1c6848939c9e2ba270f653ecf05c67e7"
+    },
+    {
+      "audit_id": "R011",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b37-001",
+      "original_revision_key": "b37-22-derth",
+      "source": "Beam Trap",
+      "target": "射线陷阱",
+      "fixed_context": "section=mod-tome/data/lore/derth.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; Lore of Derth=德斯镇. Angolwen=安格利文 per the 2026-08-25 ruling.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.02127659574468085,
+      "revision_inclusion_probability": 0.02127659574468085,
+      "design_weight": 47,
+      "revision_rank": "002751a1251e7510d54cec1c57d787b8d9718b88a9ca349deb02495f8ee82971",
+      "presentation_rank": "555248d432e81dbed8722c80c23a788ca446a4514274df06b5421e646eaa1730",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b37-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 64131,
+          "sha256": "d4c97795082b26dd1d76b8d68679d4e4d99d7e239353c902b211de745d689c49",
+          "candidate_identity": "aa61fcad103182087d9862c19499c79a0683d86f238f297ffb33ac9ee9d1feec"
+        }
+      ],
+      "item_sha256": "21627918d5859a44d733342b354a799b73bb85432f21fc8c2f5fd54172629fbd"
+    },
+    {
+      "audit_id": "R012",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b32-001",
+      "original_revision_key": "b32-37-undead-start-kill",
+      "source": "Thanks for the information. Now you may die. [kill him]",
+      "target": "谢谢你的帮忙，现在你可以死了。[杀了他]",
+      "fixed_context": "section=mod-tome/data/chats/undead-start-kill.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; The necromancer, beaten to his knees, begs for his life and bargains: he offers a cloak that conceals the player's undead nature so people will not attack on sight. The player may take the information and kill him anyway. Preserve what the cloak actually does and who offers what.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.02,
+      "revision_inclusion_probability": 0.02,
+      "design_weight": 50,
+      "revision_rank": "00e06b4ce81d227c0cc786a75c16baf3626f31b0171353d3207cfa86ab400536",
+      "presentation_rank": "6566532feb1bc2d46a02cd399cebb4d12c0ce3aa3da2120568f114db43efb3d0",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b32-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 43330,
+          "sha256": "c4de0fb1dd1714c51879d46ec11f8a441a6a9f49b91574686c98c6ac897363d4",
+          "candidate_identity": "233d6c59d39caa6af029898cea07eb05bc205bb5fd008b87fc4d07b542fc8d5f"
+        }
+      ],
+      "item_sha256": "440bbaceab665048fb6100c6d883442875ecbe49fe940be7f1c3ed3b4967b429"
+    },
+    {
+      "audit_id": "R013",
+      "stratum": "same_family_only",
+      "task_id": "p2-cults-dialogue-b3-001",
+      "original_revision_key": "cults-b3-sparing-you-was-mistake",
+      "source": "sparing you was my mistake",
+      "target": "放过我是我的错误",
+      "fixed_context": "'sparing you was my mistake' - not 'forgiving you was my mistake'",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.045454545454545456,
+      "revision_inclusion_probability": 0.045454545454545456,
+      "design_weight": 22,
+      "revision_rank": "069420fbefcfd70c06fd9080341b98fbc638e2cc3a8399b6cbf407d4b9c1ebee",
+      "presentation_rank": "6e7cff45b74685f5cc84eddd5ffd49c8f17187f597ba1e2feaaa0002ce8847f3",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "p2c-dialogue-b3-ctx-1",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-cults-dialogue-b3-001/CONTEXTUAL-ENVELOPE-p2c-dialogue-b3-ctx-1.json",
+          "size_bytes": 10108,
+          "sha256": "54578615ea17a27a48029c79db3572ddb4d4ae673d65226dc9e6945fcb77827f",
+          "candidate_identity": "dc310200cc1d52bf0771d1151ed2d458dc372a11ff113b26b04e17273fa38550"
+        }
+      ],
+      "item_sha256": "1e98185d9735130b0b03b1ba96d15321d8216f0121a25579b7bf6db8c7d34104"
+    },
+    {
+      "audit_id": "R014",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b41-001",
+      "original_revision_key": "b41-47-last-hope",
+      "source": "#{bold}#\nBarbrim the Cursed\n#{normal}#92 - 119#{italic}#\nBetrayed by those he trusted\n#{normal}#",
+      "target": "#{bold}#\n被诅咒者巴巴瑞\n#{normal}#92 - 119#{italic}#\n被他所信任的人背叛\n#{normal}#",
+      "fixed_context": "section=mod-tome/data/lore/last-hope.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; Last Hope graveyard and first epitaph group; preserve names, dates, wordplay, irony and concise memorial style.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.014084507042253521,
+      "revision_inclusion_probability": 0.014084507042253521,
+      "design_weight": 71,
+      "revision_rank": "013e0f80dafe517a52796ea19b43b8761f325efbf5e153c597e6ebd06fee60e5",
+      "presentation_rank": "6fa04afe43eacfe242dbfe6d36ee69fa1a217ac4d72944430c35e83049d92141",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "cycle8-a",
+          "cycle": 8,
+          "logical_path": ".ai/task/p2-tome-texts-b41-001/CONTEXTUAL-ENVELOPE-cycle8-a.json",
+          "size_bytes": 16900,
+          "sha256": "c08afd6c83136308663c1231c8cb7b0c74949780041e7325ec2f13d5a277986e",
+          "candidate_identity": "877d4d7a464226bf0899c7baec4d40dcc6f1b7ef49e56d9db462172f4826706a"
+        },
+        {
+          "dispatch_id": "cycle8-b",
+          "cycle": 8,
+          "logical_path": ".ai/task/p2-tome-texts-b41-001/CONTEXTUAL-ENVELOPE-cycle8-b.json",
+          "size_bytes": 41671,
+          "sha256": "e807b3bd61e4075cc9d65d8a958f3da723c188cbd7d07cbbac65c175a7b71b6e",
+          "candidate_identity": "c98421e438fb8e82a84a42edfeaee25d3edc3d141f4c16d8992ace4df17e3cfa"
+        },
+        {
+          "dispatch_id": "cycle8-c",
+          "cycle": 8,
+          "logical_path": ".ai/task/p2-tome-texts-b41-001/CONTEXTUAL-ENVELOPE-cycle8-c.json",
+          "size_bytes": 14257,
+          "sha256": "0e80fdc8561e83694f0bfd6e79b8d28e187b0cac98c851a6a66f0951bd6cc13c",
+          "candidate_identity": "c4c7202dcd2208b66d7c1b1f6fbb8dfbbef30ea3dbd9a835bc3b757a6f8d1e5e"
+        },
+        {
+          "dispatch_id": "cycle8-d",
+          "cycle": 8,
+          "logical_path": ".ai/task/p2-tome-texts-b41-001/CONTEXTUAL-ENVELOPE-cycle8-d.json",
+          "size_bytes": 13514,
+          "sha256": "2d4d35d6cf7405b0f03847aa17182c01faf81db47fa0342a4e988f4d0e0cc7a2",
+          "candidate_identity": "87c4ca5025f2a301718cf7cc82bce2e90f68e5f6c63b36a70a32548b8521f21a"
+        }
+      ],
+      "item_sha256": "99c796800222699a42498510f5961046bb34d13fe4bb9e9a8662749a80363583"
+    },
+    {
+      "audit_id": "R015",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b24-001",
+      "original_revision_key": "b24-18-orc-breeding-pits",
+      "source": "What should I do?",
+      "target": "我该怎么做？",
+      "fixed_context": "section=mod-tome/data/chats/orc-breeding-pits.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; the player finds the orc breeding pits Aeryn sent them to locate and chooses between reporting to Aeryn, destroying the pits personally, or refusing; preserve which branch each answer takes and the moral weight of the refusal. Aeryn=高阶太阳骑士艾琳.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.025,
+      "revision_inclusion_probability": 0.025,
+      "design_weight": 40,
+      "revision_rank": "0186d737a9fb8baef3ff11ff776729bee9110c7714980f7bcf2131df3be2508e",
+      "presentation_rank": "773d149cabeb2b945d69e74a71e7f87a660397d503b22834d23730de6eb4a4eb",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b24-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 31499,
+          "sha256": "54d3e17ccda55e3e1e488327a2b3704360ae486c03adda19e2b09decd8be6be1",
+          "candidate_identity": "ad8bc967a26415a334ebd5e52084d6d3ba1eaa740b2f9485134c504cd12627a1"
+        }
+      ],
+      "item_sha256": "d80c14bbfacd99fd743117d6142797d90012dfbf47e46ffea47733c1a73d1dbf"
+    },
+    {
+      "audit_id": "R016",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b28-001",
+      "original_revision_key": "b28-15-slasul",
+      "source": "Thank you for listening to me.",
+      "target": "谢谢你听我说完。",
+      "fixed_context": "section=mod-tome/data/chats/slasul.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; Slasul, a naga in the Temple of Creation, confronts the player who was sent by the dragon Ukllmswwik. Each accuses the other of madness, and the player may side with either, spare or attack; the branches decide who lives. Preserve which accusation belongs to whom, which answer takes which branch, and the account of the Nalore and the sinking of their land. Slasul=萨拉苏尔, Ukllmswwik=乌克勒姆斯维奇, Nalore=纳鲁(精灵), Sher'Tul=夏·图尔.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.047619047619047616,
+      "revision_inclusion_probability": 0.047619047619047616,
+      "design_weight": 21,
+      "revision_rank": "0305e340bb912366e8d51542a5404e25051aca3910df147afd0f86a58df05885",
+      "presentation_rank": "77ec1729775ed21561813b7bd68f4b7dcc18d73b723e2fc51b946462d084caed",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-02",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b28-001/CONTEXTUAL-ENVELOPE-ctx-02.json",
+          "size_bytes": 19603,
+          "sha256": "a4b33e48e3d30d7225d08d60cb41c90539bdd22a76edfa4e5276022aca4f8462",
+          "candidate_identity": "dbcef30476b2027863fa8458ea386c8737463262fd76df2a259e7e8846232f65"
+        }
+      ],
+      "item_sha256": "79c9ec13282662114957681b7a58a45e470cdbb03bbb4900ad74905ee217a0e1"
+    },
+    {
+      "audit_id": "R017",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b27-001",
+      "original_revision_key": "b27-35-training-orb",
+      "source": "[Create one target dummy]",
+      "target": "[制造一个训练假人]",
+      "fixed_context": "section=mod-tome/data/chats/shertul-fortress-training-orb.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; the training-room orb creating target dummies and setting their armour and resistances; the bare strings are UI labels and numeric ranges. Preserve the counts (one/two/three/five/ten), the 0-100 and 0-1000 ranges, and the Armour vs Armour Hardiness distinction.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.023255813953488372,
+      "revision_inclusion_probability": 0.023255813953488372,
+      "design_weight": 43,
+      "revision_rank": "025cc9f9beca5577f3fe0edd09acda65f4c4d6dba035368bc664e3a1d4e79c89",
+      "presentation_rank": "7b152c6558e07341cd85a2feb2f4a5e401206ec6b5fedbeb84813abea15b7608",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b27-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 29948,
+          "sha256": "16f8568fc63fb926e8e4647997c2d56f358213f4ebfdd609d71e657d29f78807",
+          "candidate_identity": "d3125aba01a26200b05a604bebcbb468dd91b27a1974ae8258f7d3bdaf33bc64"
+        }
+      ],
+      "item_sha256": "9ec605663fa10acdffbfccc92e557c6c4d86faf16bbba92bc019aa46fa2bb6ee"
+    },
+    {
+      "audit_id": "R018",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b31-001",
+      "original_revision_key": "b31-07-tarelion-start-archmage",
+      "source": "Yes @playername@, I have heard you plan on going into the wild world, looking for some adventures of your own.\nThis is good, more of us should get out of here once in a while and actually help people out there.\nSay, maybe you might want to get an adventure and help Angolwen?",
+      "target": "是的，@playername@，我听说你计划到野外，去寻求冒险。\n这样很好，我们中应该有更多人偶尔走出这里，真正帮助外面的人们。\n这么说，也许你会想进行一场冒险，来帮助安格利文？",
+      "fixed_context": "section=mod-tome/data/chats/tarelion-start-archmage.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; Tarelion recruits the player to the Temporal Rift torn loose by the Spellblaze, then teleports them. Tarelion=大法师泰尔兰 (the honorific 大法师, NOT the class name 元素法师), Spellblaze=魔法大爆炸, Temporal Rift=时空裂隙.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.02702702702702703,
+      "revision_inclusion_probability": 0.02702702702702703,
+      "design_weight": 37,
+      "revision_rank": "0020a81a7247c580ae097e91d662b87ab26b7836ca07b28e920df4a17d206d57",
+      "presentation_rank": "8347420f0c99bc9e4213363286bf918c5a1f2e80b1fd6d593345b70591ef8af6",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b31-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 26917,
+          "sha256": "20cf665568b40df4a830739ae65c301976050aa4fd32c7dee5955fbdf68ef7b9",
+          "candidate_identity": "7d444e18770ca8a4e905017ae6a3853fc38b4806518dacd4c56256efa1005525"
+        }
+      ],
+      "item_sha256": "4350756c1f1506c69f7cd713f1b084409ca6d0a863d97be84d6df847dfab4cf7"
+    },
+    {
+      "audit_id": "R019",
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b17-001",
+      "original_revision_key": "b17-05-keepsake-berethh-encounter",
+      "source": "I need your help. I want to overcome my curse.",
+      "target": "我需要你的帮助。我想要摆脱我的诅咒。",
+      "fixed_context": "section=mod-tome/data/chats/keepsake-berethh-encounter.lua; source_tag=_t; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; Keepsake encounter branches; preserve dialogue choices, combat actions, markup and relationship semantics.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.07692307692307693,
+      "revision_inclusion_probability": 0.07692307692307693,
+      "design_weight": 13,
+      "revision_rank": "047dc642e967d1cabbc045ead7c0e6781ea28bdda0758b084a6d6b793796afce",
+      "presentation_rank": "874092fa0910a4eb8b6937319c39e7f069a4c380c64dd99f88aed682d744c7bb",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-02",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b17-001/CONTEXTUAL-ENVELOPE-ctx-02.json",
+          "size_bytes": 8777,
+          "sha256": "b4e6efd37829c049f35f4d5b6ac635c24d7cf9a19ea31bb717efbd59b0e08251",
+          "candidate_identity": "46e04a39cde53b2ebaa921c065f95c7d8f863f1679cf066c924a1ce586686692"
+        }
+      ],
+      "item_sha256": "0f25de7acb5b3acf80e4a33e742acd12c6b90e479f0e99b4cadaf9017edeb201"
+    },
+    {
+      "audit_id": "R020",
+      "stratum": "same_family_only",
+      "task_id": "p2-cults-dialogue-b4-001",
+      "original_revision_key": "cults-b4-drem-between-races",
+      "source": "They possess no cultural identity or history to fall back on and sit on the precipice between the civilised races of Eyal's surface and the horrors of Eyal's underground.",
+      "target": "他们没有文化认同，也没有可供依凭的历史，处在埃亚尔地表的文明种族与地下的恐魔之间。",
+      "fixed_context": "'sit on the precipice between the civilised races of Eyal's surface and the horrors of Eyal's underground' - the Drem's own existential/categorical position, not their 'civilization's fate hanging' on a cliff",
+      "task_inclusion_probability": 0.3125,
+      "item_probability_given_task": 1,
+      "revision_inclusion_probability": 0.3125,
+      "design_weight": 3.2,
+      "revision_rank": "205f6ae9e29fff17b7129e99de313db48f80fff436e0a34cdb2bb83b0207f859",
+      "presentation_rank": "8eda26f70a2a91dc2e1ba5ce1416e33291d620ddda3d0b81c88e2759125fbd61",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "p2c-dialogue-b4-ctx-1",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-cults-dialogue-b4-001/CONTEXTUAL-ENVELOPE-p2c-dialogue-b4-ctx-1.json",
+          "size_bytes": 1381,
+          "sha256": "9500724f357d33a915826bbee090b9411c988fd77a28fdf0e87f37528edee487",
+          "candidate_identity": "7e8ed160de51f2b1cdadbdfda324f711f7a47eb82f644805eb9187ccc60a688f"
+        }
+      ],
+      "item_sha256": "7fcab1a2c447ff7bd731710a38eb23e8df9c8ea3b78dda5ee5a7925bc4f27672"
+    },
+    {
+      "audit_id": "R021",
+      "stratum": "same_family_only",
+      "task_id": "p2-orcs-dialogue-b2-001",
+      "original_revision_key": "orcs-b2-until-defeat",
+      "source": "so their prejudices were a moot point until his defeat",
+      "target": "所以在他战败前，他们对我们的偏见还有所收敛",
+      "fixed_context": "'so their prejudices were a moot point until his defeat' = until Garkul's defeat, not until he died",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.038461538461538464,
+      "revision_inclusion_probability": 0.038461538461538464,
+      "design_weight": 26,
+      "revision_rank": "0541ba84d1b2f21a469f7828f8ad43de1e2940fac2e603482a57c66cd871aaf0",
+      "presentation_rank": "983495e91726a39871de404e99e7a451f2018cd06593f6cbac6c7c94ccb603a1",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "p2o-dialogue-b2-ctx-1",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-orcs-dialogue-b2-001/CONTEXTUAL-ENVELOPE-p2o-dialogue-b2-ctx-1.json",
+          "size_bytes": 12489,
+          "sha256": "24b5865a316b376185b08c3393650ca41a8ea9b511007ba170e6f6f08e9b1871",
+          "candidate_identity": "5f15f156aa834d9d432442c115e0fccef9c5f625deb4a0fbb01620fdaabd72d7"
+        }
+      ],
+      "item_sha256": "f4e0c456204632fb40f1a769ce976aca75b0da005b924223947f024a12e1a429"
+    },
+    {
+      "audit_id": "R022",
+      "stratum": "unknown_provenance",
+      "task_id": "p2-tome-texts-b40-001",
+      "original_revision_key": "b40-36-kor-pul",
+      "source": "journal page (kor'pul)",
+      "target": "日记页（卡·普尔）",
+      "fixed_context": "section=mod-tome/data/lore/kor-pul.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; Comic adventurer journal; preserve self-deception, gear and enemy progression, ancestry clue, place identity and chronology.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.024390243902439025,
+      "revision_inclusion_probability": 0.024390243902439025,
+      "design_weight": 41,
+      "revision_rank": "027069e71c4f8a6e288f356c5e174eba1710a8a773d215bd84dacc1f84ed4ac5",
+      "presentation_rank": "9c495200fce155f7fff0b7872312beebcbf29992f4c35f99da814b60c1a6a70f",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "r15-a",
+          "cycle": 15,
+          "logical_path": ".ai/task/p2-tome-texts-b40-001/CONTEXTUAL-ENVELOPE-r15-a.json",
+          "size_bytes": 11187,
+          "sha256": "07b34307ccbe92243b3f8edc12bd89245eae1db927664630efb455d013311184",
+          "candidate_identity": "9d45ba14c92958b49532f5b1b6f3ad6b24e743e18a0e7801c0533067fc571122"
+        },
+        {
+          "dispatch_id": "r15-b",
+          "cycle": 15,
+          "logical_path": ".ai/task/p2-tome-texts-b40-001/CONTEXTUAL-ENVELOPE-r15-b.json",
+          "size_bytes": 10723,
+          "sha256": "dd3251c42303567251400da98a5f170f9af79bfa674eaeb902fbe6f1e2f6fb06",
+          "candidate_identity": "6087d610118cc371673c8e679250e97e88a8e1fba3f3bd600c0ef77bed5f8bc3"
+        },
+        {
+          "dispatch_id": "r15-c",
+          "cycle": 15,
+          "logical_path": ".ai/task/p2-tome-texts-b40-001/CONTEXTUAL-ENVELOPE-r15-c.json",
+          "size_bytes": 16311,
+          "sha256": "b4cdcc578fd407526b604df734edc3f9a9812f80f9bccf5fcb5f95bc3b13953b",
+          "candidate_identity": "8e3f8bf2399bafb33f8c305bad6163d88d95f6e30b70ed2fcc93033f3ec2982f"
+        },
+        {
+          "dispatch_id": "r15-d",
+          "cycle": 15,
+          "logical_path": ".ai/task/p2-tome-texts-b40-001/CONTEXTUAL-ENVELOPE-r15-d.json",
+          "size_bytes": 10009,
+          "sha256": "24e68142d871e5e3c10a936f3cba1e6e491a6056c7c38780e26aabbf576d0315",
+          "candidate_identity": "600cef3a9308d28da96992341336cb27bd984ffc1f63010a904239f0087583f7"
+        }
+      ],
+      "item_sha256": "87707bdfba1dc81f722b82b432ded35793fbc844e3723bdcd5bb3df22bbb5667"
+    },
+    {
+      "audit_id": "R023",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b42-001",
+      "original_revision_key": "b42-42-scintillating-caves",
+      "source": "I have definitely seen crystals move of their own volition here, and some even seem capable of producing magical effects in self-defence. They are no threat to me whatsoever - my arcane powers are far beyond whatever latent magic seems to possess these things.\n\nPossession... is what it almost seems like. These crystals are not natural. I have broken some down and studied them, and the very structure of the material seems vastly distinct from any other I have seen. I have even studied Sher'Tul relics in the Academy and this is most certainly something different. Truly fascinating!\n",
+      "target": "我确实亲眼看到这里的水晶自行移动，有些甚至能产生魔法效应自卫。不过它们根本威胁不到我——我的奥术力量远远胜过那股似乎占据着它们的潜藏魔力。\n\n占据……看上去几乎就是这么回事。这些水晶并非天然产物。我敲碎了一些加以研究，发现这种材质本身的结构，与我见过的任何材质都截然不同。我甚至在学院研究过夏·图尔遗物，而这绝对是截然不同的东西。实在迷人！\n",
+      "fixed_context": "section=mod-tome/data/lore/scintillating-caves.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; Scintillating Caves research logs; preserve scientific progression, dates, elemental mechanics, blight/vim causality and the second investigator's deductions.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.02,
+      "revision_inclusion_probability": 0.02,
+      "design_weight": 50,
+      "revision_rank": "04008b69ac20db3068c2dba90a34ee0a85ffe0983522101013a5ddd8a7d79a79",
+      "presentation_rank": "9e8d4cce2e4ad3093e33aa1b29773b88966be24cd653f9b58882fba915038a8e",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "cycle3-a",
+          "cycle": 3,
+          "logical_path": ".ai/task/p2-tome-texts-b42-001/CONTEXTUAL-ENVELOPE-cycle3-a.json",
+          "size_bytes": 19811,
+          "sha256": "bb465f11ee7c096bef6a2a1cbac99003d8c5577548a2df56ec264bdf0015b191",
+          "candidate_identity": "b237abce46e733d0aa72c12b6a6c31061afb806b3d91a403141e4946f31f9045"
+        },
+        {
+          "dispatch_id": "cycle3-b",
+          "cycle": 3,
+          "logical_path": ".ai/task/p2-tome-texts-b42-001/CONTEXTUAL-ENVELOPE-cycle3-b.json",
+          "size_bytes": 14068,
+          "sha256": "92aaabf61600b78881279e7491b96799a4296ef6b1fd7a12bf3f6cb40af7a55b",
+          "candidate_identity": "c05db03cdc9d9089ba261aaa5c7dc4fd9025b3a7bed89c483067d7503c11d8b6"
+        },
+        {
+          "dispatch_id": "cycle3-c",
+          "cycle": 3,
+          "logical_path": ".ai/task/p2-tome-texts-b42-001/CONTEXTUAL-ENVELOPE-cycle3-c.json",
+          "size_bytes": 19219,
+          "sha256": "f9ae0fdfde2a07eeb2c697c211d9f1f01ec6a6c0371b608299041d5485095b24",
+          "candidate_identity": "087f48a333363564cb26a2a58044e22944ff90e88ba4c24b200672560ee6e569"
+        },
+        {
+          "dispatch_id": "cycle3-d",
+          "cycle": 3,
+          "logical_path": ".ai/task/p2-tome-texts-b42-001/CONTEXTUAL-ENVELOPE-cycle3-d.json",
+          "size_bytes": 18675,
+          "sha256": "98db62038974e7d2bdf188f542987e4986b37945a9bf28a1d20632029a2b6fa8",
+          "candidate_identity": "b7a27577eae78d8c22b755569e8169f45c11ba0c1abea182a737f628aa764fd0"
+        }
+      ],
+      "item_sha256": "9027058a0ca08ec1b82551576e137d711be02b45a6cb98dbc59f7b22f90cdbf5"
+    },
+    {
+      "audit_id": "R024",
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b15-001",
+      "original_revision_key": "b15-13-fallen-aeryn",
+      "source": "What are you talking about? Why did you attack me?",
+      "target": "你在说什么？你为什么要攻击我？",
+      "fixed_context": "section=mod-tome/data/chats/fallen-aeryn.lua; source_tag=_t; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; 堕落的艾琳因灼烧之痕失守而指责玩家；玩家可询问、饶恕或杀死她，保留已有人为保护玩家死亡的伤亡因果。",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.058823529411764705,
+      "revision_inclusion_probability": 0.058823529411764705,
+      "design_weight": 17,
+      "revision_rank": "006833d24bd483ae5107acca1cd48fdffccd9c5e3c96df692c7f94ea379ff3a1",
+      "presentation_rank": "a6a3edb96f0e6b6e8a4d907f124ebe24b25873b574e8f1ab1853588ed7f032f2",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-02",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b15-001/CONTEXTUAL-ENVELOPE-ctx-02.json",
+          "size_bytes": 10595,
+          "sha256": "6e06bae65e232f1293802336ce11fd67f94ecb58b88092cadc7f3a83a07b10fb",
+          "candidate_identity": "8b28f878afc6ab893dfa30a50c7afef1e9fd4625e681681d2b31786a810a9821"
+        }
+      ],
+      "item_sha256": "dfb1fc48839ab5c0ce08c4885ef98c157e13aca42876b8f291cac9a94a5c45e3"
+    },
+    {
+      "audit_id": "R025",
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b20-001",
+      "original_revision_key": "b20-05-last-hope-weapon-store",
+      "source": "I can indeed offer some martial training (talent category Technique/Combat-training) for a fee of 50 gold pieces; or the basic usage of bows and slings (Shoot talent) for 8 gold pieces.",
+      "target": "我的确可以为你提供战斗训练（技巧/战斗训练系），你需要花费50金币，或者可以学习使用弓和投石索（射击天赋），花费8金币。",
+      "fixed_context": "section=mod-tome/data/chats/last-hope-weapon-store.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; weapon-store service menu; preserve @playername@, source tags, talent identifiers, costs, and item categories.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.1,
+      "revision_inclusion_probability": 0.1,
+      "design_weight": 10,
+      "revision_rank": "2270c5fb9e02dd35f83215f70376070181dd21a9adde2cdf9e00302eeeddfd60",
+      "presentation_rank": "aa4df63dae6f533aad960050794bebe11902c6ec67e788da990eff3f39fce42f",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b20-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 5606,
+          "sha256": "2153091a11a75d16937512b9fb8f9da81b20931d78dc063f0237f08290d76049",
+          "candidate_identity": "660d64018b6cd24732efa26e35bfdf71fb3e263638936e246855ff204d4f2798"
+        }
+      ],
+      "item_sha256": "6dbe816162354704991203b83af4d8c51e404c60760a60be24083fd546769d53"
+    },
+    {
+      "audit_id": "R026",
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b14-001",
+      "original_revision_key": "b14-34-elisa-shop",
+      "source": "Hello friend, what can I do for you?",
+      "target": "你好，朋友，有什么我能为你效劳的吗？",
+      "fixed_context": "section=mod-tome/data/chats/elisa-shop.lua; source_tag=_t; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; 固定源码 game/modules/tome/data/chats/elisa-shop.lua（commit:624a67329fe2ad440c5b344785a9c73fcf22ae63）。埃莉萨商店／委托交谈：她为未鉴定物品提供识别，赠予可全球通话的占卜水晶球；随身携带时水晶球自动鉴定普通物品。",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.02631578947368421,
+      "revision_inclusion_probability": 0.02631578947368421,
+      "design_weight": 38,
+      "revision_rank": "039c786f035cb5faf29acd9adcabf5319b41b329b270579788d6e3788db970e1",
+      "presentation_rank": "ac096490aad79614c9cf080824380c44468c8f371550795317348be5e5d6d722",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b14-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 31040,
+          "sha256": "e7c2a420a2f702ffd81ce63ac14b4fd5f6a5ef1ee7c92c7861b842ea36e6edd3",
+          "candidate_identity": "787754387a4d3226649c7e076c15ebf56557083ce4b2604c4de110396b8f1258"
+        }
+      ],
+      "item_sha256": "d0e4be3376d5d316bc0844c3320e7b716fef60536e23683e0b17aff6eb73e384"
+    },
+    {
+      "audit_id": "R027",
+      "stratum": "same_family_only",
+      "task_id": "p2-cults-dialogue-b2-001",
+      "original_revision_key": "cults-b2-manasurge-rune-name",
+      "source": "I soon learned the tablets I had been given were called manasurge runes",
+      "target": "我很快就知道，我得到的平板被称为法力涌动符文",
+      "fixed_context": "'manasurge runes' - terminology/items.tsv preferred entity name is 法力涌动符文, matching terminology/talents.tsv Rune: Manasurge = 符文：法力涌动; old used a different rendering 法力风暴符文",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.2,
+      "revision_inclusion_probability": 0.2,
+      "design_weight": 5,
+      "revision_rank": "1532135089018cf407302af49441f91cc220d024b9adb99f118b62af03f4e8df",
+      "presentation_rank": "aff9b31402d64f7c6f60e9fe4250eecf56b3bf227aff90156fe0c02cb3630964",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "p2c-dialogue-b2-ctx-1",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-cults-dialogue-b2-001/CONTEXTUAL-ENVELOPE-p2c-dialogue-b2-ctx-1.json",
+          "size_bytes": 3556,
+          "sha256": "717da5c2a0719e52482e4fd0d96d79a5c42d3f6b73fdf930df9f43a6714698bf",
+          "candidate_identity": "0be45479f9eb25681d6312bef3d0b2d3a03f7695f46f9dbd9b9da9ee2c629337"
+        }
+      ],
+      "item_sha256": "fef772fa3c56d8dc00d772b04a97d0659e4f78e34dfc151ddac887a1c1e02b04"
+    },
+    {
+      "audit_id": "R028",
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b12-001",
+      "original_revision_key": "b12-10-chronomancy-threads",
+      "source": "The second.",
+      "target": "第二条。",
+      "fixed_context": "section=mod-tome/data/chats/chronomancy-see-threads.lua; source_tag=_t; fixed_source=game/modules/tome/data/chats/chronomancy-see-threads.lua@624a67329fe2ad440c5b344785a9c73fcf22ae63; parallel timelines, paradox and selection mechanism.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.024390243902439025,
+      "revision_inclusion_probability": 0.024390243902439025,
+      "design_weight": 41,
+      "revision_rank": "10bd85890938e7b7d7e95b7597620d73cefbe20fad3ea18a704388eb2d73da5f",
+      "presentation_rank": "b8e94af87ec81dbe36415dc47920bcb6fdcbd3c1b033ec311b09a1d6eccc563e",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-05",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b12-001/CONTEXTUAL-ENVELOPE-ctx-05.json",
+          "size_bytes": 23021,
+          "sha256": "a5f5ed1686da26d19ff8fa63066a15aef84fa8af15c319f85a55aa4a8418365e",
+          "candidate_identity": "52efe107180e79a9605a766d548008efc87aa59943ad1ffe33564fed561e9459"
+        }
+      ],
+      "item_sha256": "8b37dc3a10d208ee111050fe37739d5559fbdc2b574e556c9a7668eebb4d8b5b"
+    },
+    {
+      "audit_id": "R029",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b4-001",
+      "original_revision_key": "tome-unlock-wilder_oozemancer-body",
+      "source": "The long Nature's hatred of all arcane forces has managed to create Oozemancers as the ultimate answer to archmagi.\nYou have met and destroyed a corrupted one and can now create new characters with the #LIGHT_GREEN#Oozemancer class#WHITE#.\n\nOozemancer are Wilders, who are at home in the wilds and draw their power from their connection with nature.\nClass features:#YELLOW#\n- Offensive long range nature and acidic attacks\n- Inherently antimagic\n- Summon various kinds of oozes to your side for a short while\n- Use oozes, slimes, mucus and moss against Nature's foes#WHITE#\n\nAll Wilder classes use Equilibrium for their powers. It represents their connection to nature. \nThe higher it gets the more off-balance they are with it. A high Equilibrium makes for a chance to fail to use a power and lose a turn.\n",
+      "target": "自然长期对一切奥术能量的憎恨最终成功地制造出软泥使这一职业，作为对抗元素法师的最终答案。\n你已经遇到并且摧毁了一名堕落的软泥使，现在可以创建能学习 #LIGHT_GREEN#软泥使#WHITE# 职业的新角色。\n\n软泥使属于野性系，以野外为家，与自然的联系是他们的力量来源。\n职业特点： #YELLOW#\n- 远距离的自然与酸性攻击\n- 天生反魔\n- 短暂召唤各种软泥怪到你身边\n- 使用软泥、史莱姆、粘液和苔藓来对抗自然的敌人#WHITE#\n\n所有野性系职业使用自然失衡值作为其能量，它与自然之间的联系密切相关。\n失衡值越高，他们与自然越不平衡。失衡值过高可能导致能力使用失败并损失一个回合。\n",
+      "fixed_context": "section mod-tome/data/texts/unlock-wilder_oozemancer.lua; source_tag=_t; unlock screen (body); pinned engine source game/modules/tome/data/texts/unlock-wilder_oozemancer.lua at commit 624a673 (English key verbatim). Class/race/talent names must match the in-file birth-descriptor and talent-name t() entries. Terminology in force: Necromancer=死灵法师; Lich=巫妖; Archmage=元素法师; Wildfire=焱系 (talent category) / 野火燎原 (talent); Storm=风暴系; Tempest=无尽风暴; High Thaumaturgist=高阶奇术师; Sun Paladin=太阳骑士; Avatar of a Distant Sun=日耀神使; Fallen=堕落者; Gloom=黑暗光环; Radiance=光辉; Dark Sun=无光之阳; Crimson Templar=赤红守卫; Mindslayer=心灵杀手; Solipsist=织梦者; Psionic=灵能系; Ogre=食人魔; Elvala=埃尔瓦拉; Conclave=孔克雷夫; Allure Wars=厄流战争; Spellhunt=魔法狩猎; Inscriptions=刻印; Marauder=掠夺者; Skirmisher=散兵; Rogue=盗贼系; Ghoul=食尸鬼; Skeleton=骷髅; Ghoulish Leap=食尸鬼跳跃; Gnaw=啃噬; Retch=腐秽呕吐; Bone Armour=骨质盔甲; Resilient Bones=弹力骨骼; Re-assemble=重组; Wanderer=流浪者; Brawler=格斗家; Oozemancer=软泥使; Stone Warden=岩石守卫; Summoner=召唤师; Wyrmic=龙战士; Wilder=野性系; Equilibrium=自然失衡值; Yeek=夺心魔; The Way=维网; Wayist=维网信徒; Rel=瑞尔; Nargol=纳格尔; prodigies=觉醒技.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.2,
+      "revision_inclusion_probability": 0.2,
+      "design_weight": 5,
+      "revision_rank": "1fbf55e020247c6835bc4776295f705bfa8c368534ad76da2711947a137b401d",
+      "presentation_rank": "bdadcedf3b4900510e2c17f7338bc239e199bc0f34181dc07ecaf91f7ee1a3f8",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-03",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b4-001/CONTEXTUAL-ENVELOPE-ctx-03.json",
+          "size_bytes": 19146,
+          "sha256": "005ea4347749021fd949bb036694f2b92cc6618b5f49c758cbde52ef41825789",
+          "candidate_identity": "d6c29a03286cf2c007eecd0c72a2f5b298c05014f1b7e214c94cc0b95b54b6ec"
+        }
+      ],
+      "item_sha256": "e44ba9c3faf6713ac44e72a6cd29ee314bd2f84f44c1f185edfea6165e36e777"
+    },
+    {
+      "audit_id": "R030",
+      "stratum": "same_family_only",
+      "task_id": "p2-cults-dialogue-b1-001",
+      "original_revision_key": "cults-b1-capable-only-of-violence",
+      "source": "We were once mindless creatures roaming the underground, capable only of violence and acting on instinct.",
+      "target": "我们曾经是在地下游荡的无意识生物，只会施暴并凭本能行动。",
+      "fixed_context": "'capable only of violence and acting on instinct' has an exclusivity ('only') not conveyed by '依靠' (relying on)",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.14285714285714285,
+      "revision_inclusion_probability": 0.14285714285714285,
+      "design_weight": 7,
+      "revision_rank": "3f152b14f8a45c4d10e96c045e5df36f52db767e2a945fe72b2391659fc99625",
+      "presentation_rank": "c817e7334051b3a68f1611ce642fd037901b2efc12c9a5a269360c8ebab92ad5",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "p2c-dialogue-b1-ctx-1",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-cults-dialogue-b1-001/CONTEXTUAL-ENVELOPE-p2c-dialogue-b1-ctx-1.json",
+          "size_bytes": 3751,
+          "sha256": "123e7e7c97622ab3d751e0fdc0c2fc6363c9e595a3433e5a5b61d9f7d0385a9c",
+          "candidate_identity": "e254181259cb84369d2b92acf1d8e36b3d8fbae72c686b6036663717306e022e"
+        }
+      ],
+      "item_sha256": "1de8223e201d59777208eccc32af28f87ad49eef4ef1b739eb48db374a9dbb15"
+    },
+    {
+      "audit_id": "R031",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b36-001",
+      "original_revision_key": "b36-36-ardhungol",
+      "source": "#{bold}#Journal Entry I#{normal}#\n\nIt's been some time since High Sun Paladin Aeryn sent me out on an assignment. According to recent intelligence, it would seem that a cavern has mysteriously emerged near our outpost, the Gates of Morning. They have bestowed the name \"Ardhungol\" on the newly discovered cavern. The elder warriors seem anxious in regards to the origin of this new subterranean area; they're likely concerned that the orcs are using Ardhungol as a staging point for further aggression against the Gates of Morning. I'll have to make sure I'm well equipped for this journey; the fate of us all could hang in the balance.\n\n#{bold}#Journal Entry II#{normal}#\n\nI spoke with the border patrols tonight. There seem to have been several sightings of orcs and other wild beasts roaming throughout the wilderness, yet strangely enough, none seem to have been anywhere near Ardhungol. Perhaps the subterranean cavern was simply a natural phenomenon with unfortunate timing. It's either that, or an unknown force powerful enough to alter the very foundation of the land upon its arrival. I shudder at the latter thought, but for now this is all merely speculation. If all goes well, I'll be ready to depart by dawn.\n",
+      "target": "#{bold}#第一篇#{normal}#\n\n高阶太阳骑士艾琳派我外出执行任务已有一段时间。根据最近的情报，我们的前哨晨曦之门附近似乎神秘地出现了一座洞穴。人们将这座新发现的洞穴命名为“阿尔德胡格”。资深战士们似乎对这片新地下区域的来源忧心忡忡；他们可能担心兽人正把阿尔德胡格当作进一步侵犯晨曦之门的前进基地。我必须确保自己为此行配备齐全；我们所有人的命运都可能取决于此。\n\n#{bold}#第二篇#{normal}#\n\n今晚我与边境巡逻队交谈过。荒野中似乎数次有人目击兽人与其他野兽四处游荡，但奇怪的是，它们似乎都没有靠近阿尔德胡格。也许这座地下洞穴只是出现得不是时候的自然现象。要么如此，要么有一股未知力量到来，而它强大得足以改变大地的根基。想到后一种可能，我不寒而栗，但目前这一切都只是推测。如果一切顺利，到黎明时我就能做好出发准备。\n",
+      "fixed_context": "section=mod-tome/data/lore/ardhungol.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; Lore of Ardhungol, the spider lair. ardhungol=阿尔德胡格.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.023255813953488372,
+      "revision_inclusion_probability": 0.023255813953488372,
+      "design_weight": 43,
+      "revision_rank": "0117145397917820c481212c743ea41ffbae15010793ece42c9e9843f7b6ba5b",
+      "presentation_rank": "c901acb0b98583c1d104c86509860b8a59860a45028ef20281a2d0af83c20fc2",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b36-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 101445,
+          "sha256": "d524e523e3ca998f7e1cddd944ab053192ef2ce844b69fde6c8877b4d95d202d",
+          "candidate_identity": "04c7ad087786dfcf60bef9bdfcca8efd7873a9228c3bbbc9addf077a2adce0b0"
+        }
+      ],
+      "item_sha256": "f7367aa3e5d423693665a503ad4ae3c226c0924e8affea70e6ef92ed65411b03"
+    },
+    {
+      "audit_id": "R032",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b22-001",
+      "original_revision_key": "b22-16-mage-apprentice",
+      "source": "Sorry I have to go!",
+      "target": "抱歉，我必须得走了。",
+      "fixed_context": "section=mod-tome/data/chats/mage-apprentice-quest.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; novice mage on the world map; Angolwen unlock quest; the apprentice trades an arcane-infused artefact for the Angolwen map marker, portal and a ring; preserve Angolwen=安格利文, Spellhunt=魔法狩猎, Linaniil=莱娜尼尔 and the interrupted words (Angolw...err, keepers of ar...).",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.030303030303030304,
+      "revision_inclusion_probability": 0.030303030303030304,
+      "design_weight": 33,
+      "revision_rank": "084cf03f4d7a5b587d3bcf4a9d134a55e2a8c4921110c60db3c8840fefd1ea6d",
+      "presentation_rank": "ceb7045f66a3ce69ba04390c90a5d0698fa6ca758db147087f00eaa0ff7e53c5",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-02",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b22-001/CONTEXTUAL-ENVELOPE-ctx-02.json",
+          "size_bytes": 25006,
+          "sha256": "48761d96fff3594b36cbc5a8dc920bf1ae23095eb5a0f54bc9ce16064cc0360d",
+          "candidate_identity": "f2b42ddcb6e1f54191b4181436e3aa1488bc25ad485cf0abbfe192eb64e6f61f"
+        }
+      ],
+      "item_sha256": "f63a7d4c41088246103f60559041e1a81bd1733d16b2d3a237784d625638660b"
+    },
+    {
+      "audit_id": "R033",
+      "stratum": "unknown_provenance",
+      "task_id": "p2-tome-texts-b19-001",
+      "original_revision_key": "b19-19-last-hope-melinda-father",
+      "source": "Hi @playername@! I am feeling better now, even starting to grow restless...",
+      "target": "你好，@playername@！我感觉好多了，甚至开始有点闲不住了……",
+      "fixed_context": "section=mod-tome/data/chats/last-hope-melinda-father.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; preserve markup, placeholders, choices, quest state, and dialogue relationships.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.018867924528301886,
+      "revision_inclusion_probability": 0.018867924528301886,
+      "design_weight": 53,
+      "revision_rank": "06b0e6325c7925496eba9aa843d46a35e6a55872738eb70628b24cc8bfd165ff",
+      "presentation_rank": "d37fb81dc1976621b03f902c520d87afbe90a56ef9d990c2e1e446bea2da8486",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-06",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b19-001/CONTEXTUAL-ENVELOPE-ctx-06.json",
+          "size_bytes": 33735,
+          "sha256": "acb71c58afd4703930662cd5813cdf481c8b937e8e1c2311f50b3abde6e29aad",
+          "candidate_identity": "157753107fc9108f5082c7ace23ebe8ad9252afcf60307794814f3eea6e03a62"
+        }
+      ],
+      "item_sha256": "c99a353cc0ddb0d3dc4171bc00f857e4a792f5492b0bb9438d9d8032a5fdb47b"
+    },
+    {
+      "audit_id": "R034",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b39-001",
+      "original_revision_key": "b39-37-iron-throne",
+      "source": "Deep Bellow excavation report 1",
+      "target": "无尽深渊挖掘报告 1",
+      "fixed_context": "section=mod-tome/data/lore/iron-throne.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; Profit histories, edict, trade ledger, expedition and Deep Bellow reports; preserve dates, fiscal causality and progressively corrupted voice.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.023809523809523808,
+      "revision_inclusion_probability": 0.023809523809523808,
+      "design_weight": 42,
+      "revision_rank": "03af91e6256ae1cf6ba2aaca51ac9ca2c2940d4286b4a9e8d0ba06f99388d5a8",
+      "presentation_rank": "de0fe313655ce34004aa11ee0480d3885990107d06b37b0249970e50658dbc6a",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-02",
+          "cycle": 1,
+          "logical_path": ".ai/task/p2-tome-texts-b39-001/CONTEXTUAL-ENVELOPE-ctx-02.json",
+          "size_bytes": 57250,
+          "sha256": "ff859ed0e0b825f4a73d19b73e2fcfad473e76bb77c75c2f79dd7c201485cf6e",
+          "candidate_identity": "4103f26e306692f46b45876e0cb5495aa8c7dd13f74ac81a687bd484a33cd022"
+        }
+      ],
+      "item_sha256": "d6de60551aab0a3587e33e81e90bc00826cdb8d203e5c461cb10725ee1b2492d"
+    },
+    {
+      "audit_id": "R035",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b30-001",
+      "original_revision_key": "b30-21-tannen",
+      "source": "Thank you. I will treat it with the utmost care.",
+      "target": "谢谢，我一定会极其小心地保管它。",
+      "fixed_context": "section=mod-tome/data/chats/tannen.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; Tannen, the Last Hope mage and portal researcher, studies the Orb of Many Ways and builds a portal to the Far East. The player relates the story of the staff and the orb, shows him Zemekkys's notes, hands over the Blood-Runed Athame and the diamond, and later may discover he swapped the orb for a fake and attack him. Preserve which items change hands, what the portal and the key he gives actually do, and who deceives whom. Tannen=泰恩, Zemekkys=伊莫克斯, Orb of Many Ways=多元水晶球, Athame=仪式匕首, Blood-Runed Athame=血符仪式匕首, Linaniil=莱娜尼尔, Reknor=瑞库纳, Telmur=泰尔玛.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.02564102564102564,
+      "revision_inclusion_probability": 0.02564102564102564,
+      "design_weight": 39,
+      "revision_rank": "00900a68142bcdacda69f564ec1b95e4f1f56d03ef73916ff043ab2df5d256fd",
+      "presentation_rank": "df9be27b457224905163467bb85ee7cf06560796d1a4ab68c07ac04c9fe90c27",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b30-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 41968,
+          "sha256": "ac0864c75f8f43560e45f759030b9ef50b764bcd2f290c35ce4edbeb4cbf9e55",
+          "candidate_identity": "5d098630ccb8dc9c353d183c0addfe6b914c2fd911143afe3e53109de529d126"
+        }
+      ],
+      "item_sha256": "a70f684339c2a9c1f75e0b961164114547a0d3f4f9b209c1ef8113f4844d5d72"
+    },
+    {
+      "audit_id": "R036",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b5-001",
+      "original_revision_key": "tome-text-message-last-hope-2",
+      "source": "@playername@, this message is of utmost importance.\n\nOur elders searched the old texts looking for clues about the staff of which you spoke.\nIt turns out to be a powerful object indeed, able to absorb the power of places, and beings.\nThis must not fall in the wrong hands, which certainly include orcish hands.\nWhile you were gone, one of our patrols met a group of orcs led by Ukruk. We could not stop them, but we managed to capture one of them.\nHe did not know much, but he did speak about \"masters\" in the Far East.\nHe spoke about meeting with Golbug -- this seems to be a warmaster in Reknor -- to send a \"package\" through a portal.\n\nThis calls for urgency; should you find this Golbug or the portal, please investigate.\n\n               #GOLD#-- Tolak, King of the Allied Kingdoms",
+      "target": "@playername@，这份报告极其重要。\n\n我们的长老从古老文献中查找你提到的那个法杖的线索。\n它的确是一件非常强大的物品，可以吸收地点和生物的力量。\n所以它绝对不能落入坏人的手中，很显然包括兽人。\n你不在的时候，我们的一个巡逻队遭遇了乌克鲁克带领的一群兽人，\n我们没法阻止他们，不过我们抓了他们中的一个。\n\n他知道的不多，但他提到了远东大陆的“主人”。\n他提到了与高尔布格会面——貌似是瑞库纳的一位战争领主——以便将一个“包\n裹”送过传送门。\n\n事情非常紧急；如果你找到这个高尔布格或那个传送门，请务必调查。\n\t\t\t   \n\t\t\t   #GOLD#-- 托拉克，联合王国国王。",
+      "fixed_context": "section mod-tome/data/texts/message-last-hope.lua, line 32398; source_tag=_t; tutorial/help dialog shown to a new player (stat names, UI names, key names, numbers and cause→effect must be exact); pinned engine source game/modules/tome/data/texts/message-last-hope.lua at commit 624a673 (English key verbatim). Terminology in force: Accuracy=命中; Defense=闪避; Armour=护甲值; Armour Penetration=护甲穿透; Physical power=物理强度; Spellpower=法术强度; Mindpower=精神强度; Physical save=物理豁免; Spell save=法术豁免; Mental save=精神豁免; combat stats=战斗属性; Strength=力量; Dexterity=敏捷; Magic=魔力; Willpower=意志; Cunning=灵巧; Constitution=体质; Character Sheet=角色信息面板 (UI); Inventory=物品栏; Off Set=副装备 (UI); backpack=背包; infusion=纹身; rune=符文; inscription=刻印; Last Hope=最后的希望; Allied Kingdoms=联合王国; Reknor=瑞库纳; Golbug=高尔布格; Ukruk=乌克鲁克; Tolak=托拉克; Far East=远东大陆; Dungeon of Adventurer Enlightenment=冒险者启蒙地下城; Lone Wolf=孤狼; Archmage=元素法师; Berserker=狂战士; Rogue=盗贼; Dual Strike=双持打击; Flameshock=火焰冲击; stun=震慑.",
+      "task_inclusion_probability": 0.625,
+      "item_probability_given_task": 0.5,
+      "revision_inclusion_probability": 0.3125,
+      "design_weight": 3.2,
+      "revision_rank": "9ade93e29eb12bd696f3e7ad838f7906b2dd323794f265345973de6b4aff61f8",
+      "presentation_rank": "e25c3922b21e908ccc51635755639520107a373c95863eafd5133fce9d85dfe7",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-03",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b5-001/CONTEXTUAL-ENVELOPE-ctx-03.json",
+          "size_bytes": 7166,
+          "sha256": "316f72ca505a4d851b9fb3ce35a3c4b55ff03ae4574896a86bdbecdf639ea2a5",
+          "candidate_identity": "b175840fa4106077f4c4faac5da3dbd98f81d82d92a311ea8b1ecdf0546b1570"
+        }
+      ],
+      "item_sha256": "4080d25404a6c6e63a2b2dc8a5e9a43862f46d7fcd4bbd2ccc97065794b94e7a"
+    },
+    {
+      "audit_id": "R037",
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b7-001",
+      "original_revision_key": "arena-b7-22-arena-unlock",
+      "source": "#LIGHT_GREEN#*The man quietly walks away, after making you a gesture to follow him*",
+      "target": "#LIGHT_GREEN#*男人示意你跟上，随后默默走开*",
+      "fixed_context": "section=mod-tome/data/chats/arena-unlock.lua; source_tag=_t; fixed_source=game/modules/tome/data/chats/arena-unlock.lua@624a67329fe2ad440c5b344785a9c73fcf22ae63; adjacent dialogue is part of the Arena start/unlock/challenge arc.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.015384615384615385,
+      "revision_inclusion_probability": 0.015384615384615385,
+      "design_weight": 65,
+      "revision_rank": "052054f8bfdbd8eed5b06a2cd9f63f5c420f87e5ecb0f68b7b4cb29d5f318408",
+      "presentation_rank": "e4221ebd0b7034d174437fd6b461a16d2975f06bc1bf8c23b12c996f13e81962",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-03",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b7-001/CONTEXTUAL-ENVELOPE-ctx-02.json",
+          "size_bytes": 48329,
+          "sha256": "fd3576ba153e345718bf371d5265885acb5bbfe1dca151438e19fccf6e8b5264",
+          "candidate_identity": "57ee3ac8e8e036cc9071e8c50fd86951b1f5cc14907e450c23d3a5a57829868c"
+        }
+      ],
+      "item_sha256": "cd0e0202bcf2f233e969e11480e4b5986ee2f23cd6f7d185b103e3a7cbb65a7f"
+    },
+    {
+      "audit_id": "R038",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b34-001",
+      "original_revision_key": "b34-07-zemekkys",
+      "source": "I got here from Maj'Eyal, didn't I? I have this magic Orb I looted from a dead orc, see, and...",
+      "target": "我来自马基·埃亚尔，不是么，我有一个从一个兽人尸体上找到的魔法水晶球，看……",
+      "fixed_context": "section=mod-tome/data/chats/zemekkys.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; The paranoid chronomancer Zemekkys behind his door in the Far East. The player, sent by Paladin Aeryn, needs passage to Maj'Eyal; Zemekkys demands the Blood-Runed Athame, a Resonating Diamond and 100 gold, and explains that resonating diamonds form between the scales of Briagh, the Great Sand Wyrm, whose lair he marks on the map well south of the Sunwall. Zemekkys=伊莫克斯, Briagh=布莱亚 (matching the entity name 巨型沙虫布莱亚), Sunwall=太阳堡垒, Aeryn=艾琳, Orb of Many Ways=多元水晶球, Blood-Runed Athame=血符仪式匕首, Resonating Diamond=共鸣钻石.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.022727272727272728,
+      "revision_inclusion_probability": 0.022727272727272728,
+      "design_weight": 44,
+      "revision_rank": "1a37050cc50570413a600fcaa6414e0990bba912f2a3fafc158d82700e71e7cf",
+      "presentation_rank": "f44295e2ca66aee67ca11ad32aa5c49885f217072040292392ea568c360d6430",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-01",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b34-001/CONTEXTUAL-ENVELOPE-ctx-01.json",
+          "size_bytes": 42426,
+          "sha256": "40ee4d16ce0d6c6c41f680897329d2b36ebb48628505bdf2629b694c20c8f103",
+          "candidate_identity": "3db98e34bebf349ea6a22da32f120bf0f0140667b1646c0033bcdd7ece7b8eb3"
+        }
+      ],
+      "item_sha256": "af6779286cc838f119c95f014c0150156a9eb86d2756e25885070a1b51963838"
+    },
+    {
+      "audit_id": "R039",
+      "stratum": "cross_or_mixed_family",
+      "task_id": "p2-tome-texts-b38-001",
+      "original_revision_key": "b38-38-fun",
+      "source": "Rogues do it from behind",
+      "target": "盗贼总爱从背后来",
+      "fixed_context": "section=mod-tome/data/lore/fun.lua; fixed_source=commit:624a67329fe2ad440c5b344785a9c73fcf22ae63; source_tag=_t; Deliberately comic lore: doggerel, parody, mock instruction and bawdy humour. Faithfulness includes voice, timing, wordplay and cadence where practical.",
+      "task_inclusion_probability": 1,
+      "item_probability_given_task": 0.019230769230769232,
+      "revision_inclusion_probability": 0.019230769230769232,
+      "design_weight": 52,
+      "revision_rank": "00ca0e4978294a3142733d158c66393771c3a0c3351ddc1a558538915577d47b",
+      "presentation_rank": "f8f0a73dc24f71024b72c07975cac47cc0a3f3790d23d2bafd498a8435e592f2",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-08",
+          "cycle": 4,
+          "logical_path": ".ai/task/p2-tome-texts-b38-001/CONTEXTUAL-ENVELOPE-ctx-08.json",
+          "size_bytes": 244244,
+          "sha256": "391bdf68aca91158b5d5374c61f168c91f8d91983ffee69d4cbb959c4cbf6ffc",
+          "candidate_identity": "7ab06ea943967184adba67a7d5ebea1f30ce677966328c0e9de589d9a784b89d"
+        }
+      ],
+      "item_sha256": "e576627973d87901ef6cfd263beefa42496a256cfaccddf80407d1c792e09309"
+    },
+    {
+      "audit_id": "R040",
+      "stratum": "same_family_only",
+      "task_id": "p2-tome-texts-b1-001",
+      "original_revision_key": "tome-intro-sunwall",
+      "source": "Welcome #LIGHT_GREEN#@name@#WHITE#.\nYou are a citizen of the Sunwall, and like many of your age you have been trained in combat and magic. It can be a harsh life, and though you dream at times of venturing to distant lands you know your duty is to help defend the outpost against the vicious onslaught from the Orc Prides. But now High Sun Paladin Aeryn has advised you of a new threat.\n\nNagas have been sighted in the Slazish Fens on the other side of the Sunwall Mountains. Their objective is unclear, but an assault from both sides would be truly devastating at such a pivotal time for your people. Though there are few forces to spare on the front line against the Prides, you have volunteered to investigate the naga threat and stop them if need be.\n\nBy the power of the Sun and the blessings of the Moons you step forth to find your fate.\n",
+      "target": "欢迎你 #LIGHT_GREEN#@name@#WHITE#！\n你是太阳堡垒的成员，和许多同龄人一样，你受过战斗与魔法训练。\n这是一段残酷的生活，你有时梦想去遥远的土地冒险，但你也知道你的使命是帮助抵御兽人部落凶猛的攻势、保卫前哨站。但现在，高阶太阳骑士艾琳告诉了你一个新的威胁。\n\n在太阳堡垒群山的另一边斯拉伊什沼泽发现了娜迦的踪迹。他们的目的还未查明，但在这个对你的人民至关重要的时刻，如果同时受到两边夹击，后果将是毁灭性的。\n但是已经很难从前线对付兽人部落的部队里抽调人员了，你自愿前去调查娜迦的威胁，如有必要就阻止他们。\n\n在太阳之力和月亮的祝福下，你迈步向前寻找你的宿命。\n",
+      "fixed_context": "section mod-tome/data/texts/intro-sunwall.lua; source_tag=_t; player-facing new-game intro screen; pinned engine source game/modules/tome/data/texts/intro-sunwall.lua at commit 624a673 (English key is verbatim from that file); @name@ is the character name, #COLOR# tags are markup. Terminology in force: Angolwen=安格利文, Spellblaze=魔法大爆炸, Spellhunt=魔法狩猎(preferred), Maj'Eyal=马基埃亚尔, Shalore=永恒精灵, Thalore=自然精灵, Yeek=夺心魔, The Way=维网, Wayist=维网信徒 (in-file), Iron Council=钢铁议会, Sunwall=太阳堡垒, Orc Pride=兽人部落, High Sun Paladin=高阶太阳骑士 (in-file), Zemekkys=伊莫克斯 (in-file), Grand Keeper of Reality=现实至高守护者 (in-file), Point Zero=零点圣域, vermin=害虫 (in-file), Trollmire=巨魔沼泽, Kor'Pul=卡·普尔, Scintillating Caves=闪光洞穴, Rhaloren=罗兰精灵, Elvala=埃尔瓦拉, Derth=德斯.",
+      "task_inclusion_probability": 0.625,
+      "item_probability_given_task": 0.5,
+      "revision_inclusion_probability": 0.3125,
+      "design_weight": 3.2,
+      "revision_rank": "3b128835aabf62e06c09142d9be9cd6c7323679edb238ae70a79c5b348eceac5",
+      "presentation_rank": "fdeab75e4f3106d67d25886e1f06cb13b065fb7e52342464dbc3dba09aee7540",
+      "terminal_inputs": [
+        {
+          "dispatch_id": "ctx-03",
+          "cycle": null,
+          "logical_path": ".ai/task/p2-tome-texts-b1-001/CONTEXTUAL-ENVELOPE-ctx-03.json",
+          "size_bytes": 7085,
+          "sha256": "0c527a76a5595d9e78572e69219b28800c4c1b8e1594620dfc6f93d8fd6094d4",
+          "candidate_identity": "16780da9f473e36a93bce71e0f652abc182ccda3de0c1c86dcf99f02a93f672e"
+        }
+      ],
+      "item_sha256": "7735c9145be9bc406bbd0882bc6032fc8e97dd0aee6ae880866affc3490dfe4d"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "confirmed-translation-issue-v1",
+  "status": "CONFIRMED_OPEN",
+  "recorded_on": "2026-08-27",
+  "scope": "A genuine translation defect discovered while adjudicating a contaminated experimental control. This record does not modify the production translation or repair the frozen experiment.",
+  "experiment_origin": {
+    "experiment": "runtime-source-context-pilot-v1",
+    "revision_id": "P005",
+    "task_id": "p2-orcs-status-b3-001",
+    "original_revision_key": "orcs-status-b3-001",
+    "adjudication_classification": "CONTROL_CONTAMINATION"
+  },
+  "translation_record": {
+    "relative_path": "tome-orcs.lua",
+    "line_hint": 6192,
+    "file_sha256": "7dd9c3e29bde2b5444354aa582b1f9c3afdcbb370a18f5264df9a4103b527fa9",
+    "source_tag": "tformat",
+    "source": "Infected by a psionic worm, doing %0.2f mind damage per turn. Damage doubled on stunned or feared foes, can spread to nearby creatures.",
+    "target": "目标被灵能蠕虫感染，每回合受到 %0.2f 点精神伤害。对震慑或恐惧的敌人伤害加倍，可传播给半径 3 内尚未感染且与宿主同阵营的单位；宿主死亡时必然传播，否则每回合有 25% 几率传播。"
+  },
+  "finding": {
+    "status": "confirmed",
+    "claim_type": "SCOPE",
+    "target_span": "与宿主同阵营的单位",
+    "problem": "The translation requires identical faction membership, but the executable condition accepts any uninfected target whose reaction with the host is positive. Positive reaction can exist between different factions and can also be modified for particular actors.",
+    "correction": "Express the target condition as a unit friendly toward the host, not necessarily a member of the same faction.",
+    "proposed_target": "目标被灵能蠕虫感染，每回合受到 %0.2f 点精神伤害。对震慑或恐惧的敌人伤害加倍，可传播给半径 3 内尚未感染且与宿主关系友好的单位；宿主死亡时必然传播，否则每回合有 25% 几率传播。"
+  },
+  "source_evidence": [
+    {
+      "component": "orcs",
+      "relative_path": "data/timed_effects/mental.lua",
+      "source_commit": null,
+      "source_commit_status": "UNFIXED_PUBLIC_DLC_SNAPSHOT",
+      "file_sha256": "518309d26c58a23c42944841c340b96f4b5263f32a79fdddb52f2ac66d773b87",
+      "evidence": "if not target or self:reactionToward(target) <= 0 or target:hasEffect(target.EFF_PSY_WORM) then return end",
+      "interpretation": "Both death spread and periodic spread reject non-positive reactions, so only positive-reaction, uninfected targets pass. The DLC source snapshot has no fixed Git commit and is therefore identified by its tracked file hash."
+    },
+    {
+      "component": "engine",
+      "relative_path": "game/engines/default/engine/Faction.lua",
+      "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "c17727139cd63e325c8797a0d6d074f239644aa54e33d506af39611b0b9db64c",
+      "evidence": "0 is neutral, <0 is aggressive, >0 is friendly.",
+      "interpretation": "The sign is a relationship classification. Same-faction actors always receive 100, but different factions may also have a positive configured or saved reaction."
+    },
+    {
+      "component": "engine",
+      "relative_path": "game/modules/tome/class/Actor.lua",
+      "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "evidence": "if rsrc.reaction_actor and rsrc.reaction_actor[rtarget.unique or rtarget.name] then v = v + rsrc.reaction_actor[rtarget.unique or rtarget.name] end",
+      "interpretation": "Actor-specific reaction adjustments further show that positive reaction is not identical to faction equality."
+    }
+  ],
+  "adjudication": {
+    "basis": "Tracked translation plus public DLC and fixed engine source",
+    "prior_pre_inference_status": "CLEAN",
+    "prior_status_corrected": true,
+    "model_output_is_not_ground_truth": true
+  },
+  "remediation": {
+    "production_change_applied": false,
+    "status": "OPEN_FOR_FORMAL_TRANSLATION_WORKFLOW",
+    "required_before_closure": "Apply the correction in the production translation repository and run the repository translation gates on the new revision."
+  },
+  "research_disposition": {
+    "retain_in_frozen_experiment": true,
+    "replace_or_rescore_v1": false,
+    "exclude_task_from_future_fresh_holdouts": true
+  }
+}

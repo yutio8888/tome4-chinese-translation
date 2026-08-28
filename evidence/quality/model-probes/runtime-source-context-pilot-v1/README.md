@@ -23,5 +23,6 @@ Both runs must pass every gate, so `RESULT.json` records `adopt_B_as_default_for
 - `RAW-*`, `CANDIDATE-*`, `FAILURE-*`: complete route envelopes and harness failures.
 - `SCORES-PRELIM.json`, `ADJUDICATION.json`, `SCORES.json`, `RESULT.json`: measured scores, control rulings and final decision.
 - `POST-RUN-VERIFICATION.json`: frozen-hash, fixture, route-version and executor-baseline verification.
+- `CONFIRMED-TRANSLATION-ISSUE-P005.json`: the open, source-confirmed Psy Worm scope defect discovered through control adjudication. It records the proposed correction but does not alter the frozen experiment or production translation.
 
 To test source context again, create a new version with a fresh freeze and stronger clean-control verification; do not append another run to this experiment.
