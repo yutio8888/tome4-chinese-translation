@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-fire-breath-fireburn-b1-001",
+  "kind": "fire_breath_fireburn_bounded_translation_verification",
+  "frozen_workset": {
+    "path": "evidence/quality/p2-batches/p2-tome-fire-breath-fireburn-b1-workset.json",
+    "sha256": "e50e8d1ffd665baa8eb7ed11bd9597e8a3093a13ab17dd15489db32e26f36ed4",
+    "immutable": true
+  },
+  "inventory_origin": {
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "reference_ids": [
+      "fireburn-ref-024"
+    ]
+  },
+  "translation_file": {
+    "path": "mod-tome.lua",
+    "baseline_head": "ab063f96f2e7838932c2fd9b67c3ee4655eceffb",
+    "baseline_sha256": "4649d2514b2dbad86c449f743f1f198be0e0d766afc8d299c27840824a764bab",
+    "current_sha256": "4649d2514b2dbad86c449f743f1f198be0e0d766afc8d299c27840824a764bab",
+    "production_targets_changed": 0
+  },
+  "translation_revisions": [
+    {
+      "revision_key": "tome-fire-drake-fire-breath-info",
+      "reference_id": "fireburn-ref-024",
+      "entry_id": "4250048e11246c36926eb68e509c642de1ed298c7c48ee5db6c2863cebd3eb3a",
+      "decision": "no-change",
+      "before": {
+        "source": "You breathe fire in a frontal cone of radius %d. Any target caught in the area will take %0.2f fire damage over 3 turns.\n\t\tThe damage will increase with your Strength and the critical chance is based on your Mental crit rate.\n\t\tEach point in fire drake talents also increases your fire resistance by 1%%.",
+        "target": "你在前方 %d 码锥形范围内喷出火焰。此范围内的目标会在 3 回合内受到 %0.2f 火焰伤害。\n\t\t伤害受力量值加成，暴击几率基于你的精神暴击率。\n\t\t每点火龙系的技能可以使你增加火焰抗性 1%%。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": [
+          "%d",
+          "%0.2f",
+          "1%%"
+        ],
+        "newline_count": 2,
+        "continuation_prefix": "\t\t",
+        "continuation_count": 2,
+        "markup_tokens": []
+      },
+      "after": {
+        "source": "You breathe fire in a frontal cone of radius %d. Any target caught in the area will take %0.2f fire damage over 3 turns.\n\t\tThe damage will increase with your Strength and the critical chance is based on your Mental crit rate.\n\t\tEach point in fire drake talents also increases your fire resistance by 1%%.",
+        "target": "你在前方 %d 码锥形范围内喷出火焰。此范围内的目标会在 3 回合内受到 %0.2f 火焰伤害。\n\t\t伤害受力量值加成，暴击几率基于你的精神暴击率。\n\t\t每点火龙系的技能可以使你增加火焰抗性 1%%。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": [
+          "%d",
+          "%0.2f",
+          "1%%"
+        ],
+        "newline_count": 2,
+        "continuation_prefix": "\t\t",
+        "continuation_count": 2,
+        "markup_tokens": []
+      },
+      "before_after_target_byte_identical": true,
+      "placeholder_bindings": [
+        {
+          "placeholder_index": 1,
+          "token": "%d",
+          "quantity_kind": "cone_radius",
+          "source_expression": "self:getTalentRadius(t)",
+          "runtime_origin": "T_FIRE_BREATH.radius -> target radius and info tformat argument 1",
+          "source_explicitness": "frontal cone radius",
+          "target_explicitness_before": "前方锥形范围的码数",
+          "target_explicitness_after": "前方锥形范围的码数",
+          "target_more_explicit_than_source": false,
+          "explicitness_justification_required": false,
+          "explicitness_justification": null
+        },
+        {
+          "placeholder_index": 2,
+          "token": "%0.2f",
+          "quantity_kind": "uncritted_tooltip_complete_fireburn_event_total",
+          "source_expression": "damDesc(self, DamageType.FIRE, t.getDamage(self, t))",
+          "runtime_origin": "t.getDamage(self,t) -> damDesc(FIRE) without mindCrit -> info tformat argument 2",
+          "source_explicitness": "one complete fire-damage amount over 3 turns",
+          "target_explicitness_before": "one complete fire-damage amount within 3 turns",
+          "target_explicitness_after": "one complete fire-damage amount within 3 turns",
+          "target_more_explicit_than_source": false,
+          "explicitness_justification_required": false,
+          "explicitness_justification": null
+        },
+        {
+          "placeholder_index": null,
+          "token": "1%%",
+          "quantity_kind": "literal_percent_escape",
+          "source_expression": "literal 1%% in the tformat template",
+          "runtime_origin": "tformat renders the escaped percent sign after literal 1",
+          "source_explicitness": "one percent fire resistance per talent point",
+          "target_explicitness_before": "one percent fire resistance per talent point",
+          "target_explicitness_after": "one percent fire resistance per talent point",
+          "target_more_explicit_than_source": false,
+          "explicitness_justification_required": false,
+          "explicitness_justification": null
+        }
+      ]
+    }
+  ],
+  "fixed_source": {
+    "component": "tome",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_pinned": true,
+    "source_files": [
+      {
+        "path": "game/modules/tome/data/talents/gifts/fire-drake.lua",
+        "sha256": "41115da033196dc5b613039f566e1d6ab7827d1116107bf2f68434fa7c1417d5",
+        "relevant_lines": [191, 192, 197, 198, 200, 202, 204, 208, 218, 221]
+      },
+      {
+        "path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+        "relevant_lines": [1187, 1194, 1195, 1196, 1200, 1201, 1204]
+      },
+      {
+        "path": "game/modules/tome/data/timed_effects/physical.lua",
+        "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+        "relevant_lines": [428, 430, 431, 432, 434, 435, 437, 439]
+      },
+      {
+        "path": "game/modules/tome/data/talents.lua",
+        "sha256": "60600da06f633d8feed19bed0c59da3ae73c7ae805071e0fe044abc880b9333f",
+        "relevant_lines": [100, 118, 121, 130, 137, 141]
+      },
+      {
+        "path": "game/modules/tome/class/interface/Combat.lua",
+        "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+        "relevant_lines": [1894, 1901, 1904, 2060, 2065, 2073, 2076, 2089, 2164, 2168, 2173]
+      }
+    ]
+  },
+  "directional_value_flow": {
+    "radius": {
+      "origin": "T_FIRE_BREATH.radius computes the talent radius with combatTalentScale and a cap of 13.",
+      "action_target": "target returns frontal cone geometry whose radius is self:getTalentRadius(t).",
+      "tooltip": "info passes self:getTalentRadius(t) as tformat argument 1.",
+      "placeholder": "%d receives that same cone radius.",
+      "translation_relation": "前方 %d 码锥形范围 preserves the frontal cone and radius quantity."
+    },
+    "damage": {
+      "origin": "t.getDamage(self,t) always computes Strength-based combatTalentStatDamage and adds Willpower-based combatTalentStatDamage only when Chromatic Fury is known.",
+      "tooltip": "info sends the uncritted getDamage scalar through damDesc(self, DamageType.FIRE, ...) and binds the result to %0.2f.",
+      "action_crit": "action sends getDamage through self:mindCrit, whose chance comes from combatMindCrit, before constructing the FIREBURN table.",
+      "action_projection": "the frontal cone project call receives DamageType.FIREBURN and {dam=mindCrit(getDamage), dur=3}.",
+      "displayed_quantity": "the uncritted tooltip FIRE-adjusted complete FIREBURN event amount, not a per-turn amount",
+      "runtime_quantity": "the potentially Mental-critical complete FIREBURN event amount before downstream mitigation",
+      "conditional_willpower_qualification": "Chromatic Fury Willpower scaling is an upstream conditional included in getDamage but absent from the frozen English; no unconditional Willpower wording is added to Chinese."
+    }
+  },
+  "damage_type_semantics": {
+    "explicit_table_fireburn": {
+      "incoming_total": "D = action table dam after mindCrit(getDamage)",
+      "duration_turns": 3,
+      "initial_percent": 50,
+      "immediate_damage": "D * 50 / 100 = D/2 projected immediately as FIRE",
+      "remaining_damage": "D - D/2 = D/2",
+      "burning_effect": "EFF_BURNING",
+      "burning_power": "(D/2) / 3 = D/6 per timeout for an isolated, unmerged application before downstream mitigation",
+      "isolated_nominal_total": "D/2 immediate plus the isolated three-turn BURNING remainder D/2 equals D",
+      "complete_total_interpretation": "D is the complete event total supplied to FIREBURN; it is not the amount of each BURNING timeout."
+    },
+    "burning_merge_qualification": {
+      "condition": "the target already has EFF_BURNING and on_merge runs",
+      "old_remaining": "old_eff.power * old_eff.dur",
+      "incoming_remaining": "new_eff.power * new_eff.dur",
+      "merged_duration": "ceil((old_eff.dur + new_eff.dur) / 2)",
+      "merged_power": "(old remaining + incoming remaining) / merged duration",
+      "qualification": "The incoming remaining total is pooled with the existing remaining total and redistributed; no unconditional isolated three-timeout schedule is claimed after merge."
+    }
+  },
+  "translation_semantics": {
+    "source_claim": "Any target caught in the area will take one %0.2f fire-damage amount over 3 turns.",
+    "target_claim": "此范围内的目标会在 3 回合内受到 %0.2f 火焰伤害 states one %0.2f amount over the three-turn interval.",
+    "per_turn_wording_absent": true,
+    "complete_total_preserved": true,
+    "tooltip_action_crit_distinction_preserved": true,
+    "strength_wording_preserved": true,
+    "conditional_willpower_wording_added": false,
+    "decision": "no-change"
+  },
+  "orchestrator_adjudication": {
+    "confirmed": [
+      {
+        "subject": "cone and action flow",
+        "finding": "Fire Breath uses its talent radius for a frontal cone and projects mindCrit(getDamage) through FIREBURN with dur=3."
+      },
+      {
+        "subject": "complete event total",
+        "finding": "FIREBURN default initial 50 applies half immediately as FIRE and places the other half into a three-turn BURNING effect; BURNING merge pools remaining totals."
+      },
+      {
+        "subject": "tooltip and action quantities",
+        "finding": "%d is the cone radius; %0.2f is uncritted damDesc(FIRE,getDamage); runtime action uses Mental critical chance; getDamage includes Strength and conditional Chromatic Fury Willpower."
+      }
+    ],
+    "no_change": [
+      {
+        "revision_key": "tome-fire-drake-fire-breath-info",
+        "reason": "此范围内的目标会在 3 回合内受到 %0.2f 火焰伤害 expresses one complete total over the duration rather than per-turn damage and accurately preserves the frozen English."
+      }
+    ],
+    "production_edit_authorized": false,
+    "mod_tome_changed": false,
+    "conditional_willpower_wording_added": false
+  },
+  "scope_accounting": {
+    "selected_reference_count": 1,
+    "selected_revision_count": 1,
+    "production_target_change_count": 0,
+    "changed_revision_keys": [],
+    "all_adjacent_targets_byte_unchanged": true,
+    "full_section_selected_count": 10,
+    "full_section_available_count": 10,
+    "full_section_lexical_t_call_count": 10,
+    "full_section_content_sha256": "3ca7a4844bc270784a83d73680cdf1e09815b6765d2e6a9696963faeb8cdfd29",
+    "baseline_and_current_translation_file_sha256_equal": true,
+    "neighbor_normalization_performed": false
+  },
+  "invariant_checks": {
+    "exact_reference_ids": [
+      "fireburn-ref-024"
+    ],
+    "ordered_revision_keys": [
+      "tome-fire-drake-fire-breath-info"
+    ],
+    "context_limit_is_500": true,
+    "context_selected_equals_available_equals_lexical_t_calls": true,
+    "context_count": 10,
+    "fixed_english_key_accepts_raw_or_escaped_form": true,
+    "source_unchanged": true,
+    "target_before_after_byte_identical": true,
+    "exactly_zero_targets_changed": true,
+    "changed_target_count": 0,
+    "all_other_targets_byte_unchanged": true,
+    "source_tag_remains_tformat": true,
+    "args_order_remains_null": true,
+    "special_remains_null": true,
+    "placeholder_sequence_remains_percent_d_then_percent_0_2f_then_literal_1_percent": true,
+    "newline_count_remains_two": true,
+    "two_two_tab_continuations_preserved": true,
+    "inventory_hash_bound": true,
+    "translation_baseline_head_and_hash_bound": true,
+    "source_hashes_match_fixed_commit": true,
+    "workset_hash_bound": true,
+    "closure_update_bounded": true,
+    "result": "pass"
+  },
+  "campaign_index_lineage": {
+    "closure_index_path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-closure.json",
+    "closure_baseline_sha256": "5b0b5669ba462bee9090e1c37fb201c6cf30a4bd36fc2a5de486d85677e3c918",
+    "preceding_shadow_flames_batch": {
+      "task_id": "p2-tome-shadow-flames-fireburn-b1-001",
+      "status": "closed",
+      "commit": "ab063f96f2e7838932c2fd9b67c3ee4655eceffb"
+    },
+    "this_batch": {
+      "task_id": "p2-tome-fire-breath-fireburn-b1-001",
+      "reference_ids": [
+        "fireburn-ref-024"
+      ],
+      "status": "review_pending",
+      "independent_review_and_done_claimed": false,
+      "qualification": "No-change EXECUTOR evidence exists, but this batch remains review_pending until independent review and DONE verification."
+    }
+  },
+  "focused_verification": {
+    "checks": [
+      {
+        "command": "focused invariant script: exact ref/revision identity; baseline inventory/mod/closure hashes; context 10/10/10 at --limit 500; exact full-section source/target/tag/null args/null special freeze; selected source/target/tag/null args/null special/%d then %0.2f then literal 1%%/two-newline/two-two-tab invariants; fixed-source commit/path/hash/line anchors; directional radius/damage/crit/stat/FIREBURN/merge claims; zero production target changes; all adjacent targets unchanged; bounded closure lineage",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -m json.tool on workset, verification, and closure",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n doctor",
+        "result": "PASS (manifest tome-1.7.6; LuaJIT 2.1/Lua 5.1; LPeg 0.10.2-1; configured repositories available; protected-source engine worktree scan warning only)"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "PASS (30308 translations, 0 errors, 0 warnings)"
+      },
+      {
+        "command": "git diff --check",
+        "result": "PASS"
+      }
+    ]
+  }
+}
