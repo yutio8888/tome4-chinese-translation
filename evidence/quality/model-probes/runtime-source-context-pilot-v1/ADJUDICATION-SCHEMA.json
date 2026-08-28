@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "control_candidates", "notes"],
+  "properties": {
+    "schema_version": {"const": "runtime-source-context-adjudication-v1"},
+    "status": {"const": "FINAL"},
+    "control_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate_key", "classification", "rationale", "source_evidence"],
+        "properties": {
+          "candidate_key": {"type": "string", "minLength": 1},
+          "classification": {"enum": ["SOURCE_REFUTED", "CONTROL_CONTAMINATION", "NON_OBJECTIVE"]},
+          "rationale": {"type": "string", "minLength": 1},
+          "source_evidence": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "notes": {"type": "array", "items": {"type": "string"}}
+  }
+}

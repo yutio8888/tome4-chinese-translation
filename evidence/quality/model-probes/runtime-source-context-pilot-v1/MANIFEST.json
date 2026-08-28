@@ -1,0 +1,97 @@
+{
+  "schema_version": "runtime-source-context-manifest-v1",
+  "status": "PREFLIGHT_READY",
+  "finite_population": {
+    "unit": "source_item",
+    "runtime_mutants": 12,
+    "runtime_controls": 12,
+    "surface_mutants": 6,
+    "surface_controls": 6,
+    "total": 36
+  },
+  "arms": {
+    "A": {
+      "fields": [
+        "revision_id",
+        "source",
+        "target"
+      ]
+    },
+    "B": {
+      "fields": [
+        "revision_id",
+        "source",
+        "target",
+        "source_context"
+      ],
+      "unique_difference": "source_context"
+    }
+  },
+  "routes": [
+    "codex-gpt-5.6-sol-high",
+    "claude-opus-5-medium-no-advisor",
+    "pi-zai-cn-glm-5.3-flash-high",
+    "agy-gemini-3.7-flash-high"
+  ],
+  "runs": {
+    "per_arm": 2,
+    "request_identity": "payload, item order, prompt, model parameters and schema are identical within each arm"
+  },
+  "missingness": {
+    "CONTEXT_MISSING_allowed": false,
+    "action": "no-go before inference; preserve failed version"
+  },
+  "scoring": {
+    "unit": "item",
+    "detection": "non-OK, exact target_span overlap with sealed atom_target_span, exact claim_type",
+    "finding_only": "same atom match with FINDING",
+    "control_candidate": "any schema-valid non-OK item claim on a frozen clean control",
+    "extra_claims": "do not cancel a correct detection; report separately"
+  },
+  "gates": {
+    "runtime_recall": {
+      "denominator_per_run": 48,
+      "pass_net_gain_minimum": 10,
+      "displayed_materiality_threshold": 0.2
+    },
+    "route_direction": {
+      "routes_positive_minimum": 3,
+      "route_delta_strictly_positive": true
+    },
+    "runtime_control_candidate_delta": {
+      "denominator_per_run": 48,
+      "pass_net_gain_maximum": 2,
+      "displayed_guardrail": 0.05
+    },
+    "per_route_new_control_candidates": {
+      "maximum": 1
+    },
+    "control_contamination": {
+      "maximum": 0,
+      "consequence": "no adopt-B inference for this version"
+    },
+    "run_policy": "both runs must independently pass every gate; no pooling and no third run"
+  },
+  "frozen_artifacts_required": [
+    "EXPERIMENT.json",
+    "ROUTE-PREFLIGHT.json",
+    "HOLDOUT-A.json",
+    "HOLDOUT-B.json",
+    "REFERENCE.json",
+    "SOURCE-CONTROLS.json",
+    "SOURCE-VERIFICATION.json",
+    "CONTEXTS.json",
+    "SAMPLING.json",
+    "PROMPT.md",
+    "REVIEWER-SCHEMA.json",
+    "MANIFEST-SCHEMA.json",
+    "ADJUDICATION-SCHEMA.json",
+    "PREFLIGHT-FIXTURES.json",
+    "SCORER-FIXTURES.json",
+    "build.mjs",
+    "preflight.mjs",
+    "freeze.mjs",
+    "score.mjs",
+    "run.mjs"
+  ]
+}

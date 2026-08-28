@@ -1,0 +1,426 @@
+{
+  "schema_version": "runtime-source-context-verification-v1",
+  "status": "FINAL_PRE_INFERENCE",
+  "verified_at": "2026-08-27",
+  "method": "Main-agent item-by-item verification against the frozen public Lua source before any reviewer inference. CLEAN applies to the unmutated baseline target; presented mutants are scored only after inference.",
+  "excluded_before_freeze": [
+    {
+      "task_id": "p2-cults-status-b9-001",
+      "original_revision_key": "cults-status-b9-001",
+      "reason": "The baseline said all talent cooldowns, but the source hook exempts fixed-cooldown talents. It was excluded rather than repaired or scored as a clean control."
+    }
+  ],
+  "items": [
+    {
+      "task_id": "p2-orcs-status-b17-001",
+      "original_revision_key": "orcs-status-b17-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "00a0efdf997c3fc95bab5a22074b7d0a7b4e2fb4b8a029d94f2711b5bd9c0579",
+      "visible_context_sha256": "e6be946c994ef323db69a3b5b34ec71dc0c5dcb8b8b618ad740f521edf0f57fa",
+      "source_file_sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "evidence": [
+        "The effect callback rolls rng.percent(eff.power), applies EFF_FROZEN for 3 turns, and activates iceblock_pierce=50; this supports the clean target's chance, duration and 50% reduced iceblock absorption."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-10-artifice",
+      "status": "CLEAN",
+      "clean_target_sha256": "d0675c67d7a9f8ae7492f0f4a0259d20e38d12e33527ea1bf5c54d1f780a169f",
+      "visible_context_sha256": "ba1a84c0e6387614b3a54e1b4f632a2c95c7b458ccf3ef89c85c8ab2a8c11f57",
+      "source_file_sha256": "ba1a84c0e6387614b3a54e1b4f632a2c95c7b458ccf3ef89c85c8ab2a8c11f57",
+      "evidence": [
+        "Independent bilingual check: source \"[%sEquip %s%s#LAST#]\" maps to the clean target \"[%s装备 %s%s#LAST#]\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b26-001",
+      "original_revision_key": "orcs-status-b26-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "cc805e1555f1a1a4feb09e6798796d3f09f7e5226345c13fa7584753c7240f7e",
+      "visible_context_sha256": "d1eace113f4f966850ab9768cedfcffb3f52a1ac65bd79d31d9256e88fc3f3cb",
+      "source_file_sha256": "78dd56833a21a4e633506394ce3042f794a6818244259066d192e5246ed33c8c",
+      "evidence": [
+        "activate adds all resistance and all damage from eff.resist/eff.damage; on_timeout iterates talents_cd and decrements only talents for which t.fixed_cooldown is false."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-06-artifice-mastery",
+      "status": "CLEAN",
+      "clean_target_sha256": "7e5c4cdfacb4140147b7e76fdef84dbc405d439b5e00ccaf5016ad43a6b99393",
+      "visible_context_sha256": "54043e3c150d64f2c230dc26293203b3c1ed20160e086d20dda5d899561003da",
+      "source_file_sha256": "dd0165b59cdbcf4cbb58e6a5d24742ecbbc6d1714553234f0cf57b1f22d53568",
+      "evidence": [
+        "Independent bilingual check: source \"Master which tool?\" maps to the clean target \"强化哪件工具？\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b3-001",
+      "original_revision_key": "orcs-status-b3-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "1d194c4003e5f476e49e95dfdfa4275243350e5a7db71ec05c25cf2b8606dcd1",
+      "visible_context_sha256": "78e5d661d87460f4548c7498b7a6c53b561f4dbc93584b01352a723264e9a87b",
+      "source_file_sha256": "518309d26c58a23c42944841c340b96f4b5263f32a79fdddb52f2ac66d773b87",
+      "evidence": [
+        "on_timeout doubles damage under stun or fear and otherwise uses a 25% spread roll; both spread paths use radius=3, require positive reaction and reject an existing PSY_WORM."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-01-artifact-maker",
+      "status": "CLEAN",
+      "clean_target_sha256": "930c706c93832151bca8d989c40c817b7b391850b59f187b52116421531d036a",
+      "visible_context_sha256": "ddcf584cbc752d4f8db43ed481687548314d549ea8b55e976904d83aa780804e",
+      "source_file_sha256": "ceb6f640c6d086560af1248b1371c8d8ffd1e22ab87973a44f78c8229cca6879",
+      "evidence": [
+        "Independent bilingual check: source \"#LIGHT_BLUE#You are given: %s\" maps to the clean target \"#LIGHT_BLUE#你获得了：%s\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b9-001",
+      "original_revision_key": "orcs-status-b9-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "e18d0200ab0d8e7fcd9f63a4079ee3fb75035537395a86d1ec2fed6b5fe664e6",
+      "visible_context_sha256": "bffe3dd979d9845a9bd840c5e44d3b14b94832c12266674e5b7626b2e60ee04b",
+      "source_file_sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "evidence": [
+        "callbackOnActBase enumerates circle_grids at radius 6 and uses a range=6 projectile, while callbackOnHit consumes the static shield; the clean target correctly follows runtime range 6."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b29-001",
+      "original_revision_key": "orcs-status-b29-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "a1297c7ae1af69e673af43f5d4d95e0968cad8f50ec6462bba5ee4c33e6e6c18",
+      "visible_context_sha256": "a44b65c7aa9c6694ce1797a5c019c8dc97b050b8dec7db49a24b6f5484f871b6",
+      "source_file_sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "evidence": [
+        "activate installs talent_fail_chance=eff.chance and deactivate removes it, matching the clean target's skill-use failure mechanic."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b32-001",
+      "original_revision_key": "orcs-status-b32-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "86a8629cd7e9930d01d224ed5bbcfe3fa071dde4fce24478a9d72b28d51b07c9",
+      "visible_context_sha256": "632049e72a159fe98d1bca79827969f3384d555d994ec3ffddc086e14878f640",
+      "source_file_sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "evidence": [
+        "callbackOnMove rejects failed, forced or zero-displacement movement and then calls T_TINKER_MOSS_TREAD at the new coordinates; the called talent installs GRASPING_MOSS with nature damage, slow and pin parameters."
+      ],
+      "additional_sources": [
+        {
+          "component": "orcs",
+          "relative_path": "data/talents/steam/other.lua",
+          "sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970"
+        }
+      ]
+    },
+    {
+      "task_id": "p2-cults-status-b15-001",
+      "original_revision_key": "cults-status-b15-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "2cc992587afd0fc1d28c23e575ca1af40a6e579afdcd3f60b3143182763de44c",
+      "visible_context_sha256": "9883e2dad71acc3564c536f8d729962847c33505377956a5f3a6ebc43e3bd3e6",
+      "source_file_sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "evidence": [
+        "activate gives flat_damage_armor for all damage and subtracts the same amount for PHYSICAL; on_timeout ends the effect when eff.src is missing, absent from the level or dead."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b28-001",
+      "original_revision_key": "orcs-status-b28-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "f2a96edfb549f15e1de507ce9c1d55ecc9cf42f7b77741c1a7647857016fa9af",
+      "visible_context_sha256": "4e36973f6d5b6754a01a8ba1c0404e6495e717431a4057099e092d0f40a81daa",
+      "source_file_sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "evidence": [
+        "activate grants damage_affinity only for BLIGHT, MIND and ACID, each at eff.power; this supports the clean target's three affinities."
+      ]
+    },
+    {
+      "task_id": "p2-cults-status-b20-001",
+      "original_revision_key": "cults-status-b20-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "fa278b0aca1be1a97c3cf4f35053d1d121715244808359caaa1266be096d9777",
+      "visible_context_sha256": "55f462a8b54c80de53737db73daf155ae17bcfb97314649f2e02d88668fd1ae7",
+      "source_file_sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "evidence": [
+        "Initial activate applies negative eff.power*stacks to defense and saves but positive critical chance; on_merge removes those values and reapplies positive values using stackCount, supporting the clean first-stack exception."
+      ]
+    },
+    {
+      "task_id": "p2-cults-status-b7-001",
+      "original_revision_key": "cults-status-b7-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "6a2227443f91dd0066a06faa6149fdb5cf73b7464ab0e4c90e7f06b8900888e3",
+      "visible_context_sha256": "4ad950ada961fd57b51ee1ced537134baa428c90a5d461ee4cb7c9ccff2d8867",
+      "source_file_sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "evidence": [
+        "activate applies resists={all=eff.power}, exactly supporting reduction of all incoming damage."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-09-artifice",
+      "status": "CLEAN",
+      "clean_target_sha256": "b8e0b143f21f201d5f13c8669a5345bdad753a18379b7f7b35c202fd92e71ffe",
+      "visible_context_sha256": "ba1a84c0e6387614b3a54e1b4f632a2c95c7b458ccf3ef89c85c8ab2a8c11f57",
+      "source_file_sha256": "ba1a84c0e6387614b3a54e1b4f632a2c95c7b458ccf3ef89c85c8ab2a8c11f57",
+      "evidence": [
+        "Independent bilingual check: source \"#CADET_BLUE#Equipping %s with %s (level %d).\" maps to the clean target \"#CADET_BLUE#将 %s 装备至 %s（等级 %d）。\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b22-001",
+      "original_revision_key": "orcs-status-b22-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "bdc6b218fdea8e5abd243851b1b015b48eb8443b8cecd34951212350319bcc86",
+      "visible_context_sha256": "6284763f4e6863b811d707895dd36f2a85c6b20a6cd8507403d844e4b846e5f2",
+      "source_file_sha256": "78dd56833a21a4e633506394ce3042f794a6818244259066d192e5246ed33c8c",
+      "evidence": [
+        "activate sets life_regen, all resistance, die_at and never_act; on_timeout removes the effect exactly when self.life == self.max_life."
+      ]
+    },
+    {
+      "task_id": "p2-cults-status-b17-001",
+      "original_revision_key": "cults-status-b17-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "1ad9d8b9844087accf54e9fb381b53874bc7dd71bae56ccf4eef1c77f9ce865d",
+      "visible_context_sha256": "eb94e92b9df5d58481bde606f1b2dde23088847f2a2698d1f6428b68edd5586f",
+      "source_file_sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "evidence": [
+        "The frozen Lua long_desc explicitly specifies +20% hallucination chance from Dark Whispers and additional temporal damage from both Dark Whispers and Hideous Visions, matching the clean target."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b16-001",
+      "original_revision_key": "orcs-status-b16-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "b46a75797fcf1ab44bbd606cb0ac8a591205145c1ac15384727961a9508c574d",
+      "visible_context_sha256": "f518aa22dd2ff431b71e7e3a79a93201b879d7641983fefb530514a26a8d8eba",
+      "source_file_sha256": "6b62a43d6712f6fb221bef24db8ee339a249824f4670540ace77fc439a7bb081",
+      "evidence": [
+        "callbackOnTalentPost first filters is_technomancy cooldowns and only if none were changed filters is_spell; range checks return before damage and on_timeout projects an OCCULT beam."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b18-001",
+      "original_revision_key": "orcs-status-b18-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "4c0e6b337f0662e282c2524cc713443cf1a308b998a7a16be9489f18beb2213c",
+      "visible_context_sha256": "8f66c82e113db833b1269a584981938f3ec05b2feeea5ddf11b18cca950e9be4",
+      "source_file_sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "evidence": [
+        "on_timeout severs before damage when the source is too far, dead or absent; successful damage heals by realdam * 0.5^nb_done and increments the same-turn counter."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b30-001",
+      "original_revision_key": "orcs-status-b30-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "4ec8f18678eb5b1b1261ef81c38c483d90b4f57656951b7b7b920ebe012ee282",
+      "visible_context_sha256": "095faab933982e9a58c93c7c1557445f0e2b47d5a8f9be2236c115dd8e6bb992",
+      "source_file_sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "evidence": [
+        "deactivate returns early unless duration expired naturally and the source remains valid; after fire damage, pull is guarded by self:canBe(\"knockback\")."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-11-artifice",
+      "status": "CLEAN",
+      "clean_target_sha256": "28ff3885a4cd335d5f3a6be48de4d44d31c5b891d1be9ce9bdb82b9dd8c56e4e",
+      "visible_context_sha256": "ba1a84c0e6387614b3a54e1b4f632a2c95c7b458ccf3ef89c85c8ab2a8c11f57",
+      "source_file_sha256": "ba1a84c0e6387614b3a54e1b4f632a2c95c7b458ccf3ef89c85c8ab2a8c11f57",
+      "evidence": [
+        "Independent bilingual check: source \"[Equip %s]\" maps to the clean target \"[装备 %s]\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-cults-status-b24-001",
+      "original_revision_key": "cults-status-b24-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "dd5779da807499b4ead5cff70ec175ea1b4bb1b2ef455920525fde7a2e09414c",
+      "visible_context_sha256": "abd902797417e09ca402dffe92cf0cc934d3c12662e9de7ef7f2b9741891db9d",
+      "source_file_sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "evidence": [
+        "NIHIL installs the two duration modifiers and resets eff.fading whenever line of sight returns; the component Actor hook applies both modifiers only when e.type ~= \"other\"."
+      ],
+      "additional_sources": [
+        {
+          "component": "cults",
+          "relative_path": "superload/mod/class/Actor.lua",
+          "sha256": "36dbca08111b6a7e111ff3c5f9ebceebf8d3931c73258e953cdd6c9c670cb64f"
+        }
+      ]
+    },
+    {
+      "task_id": "p2-cults-status-b19-001",
+      "original_revision_key": "cults-status-b19-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "9eaf7c431bb89008fc37b36dcb620d50de552f05a734a11a706d408a682c4d31",
+      "visible_context_sha256": "a5e7d9976369833fd88eece96537bb496b3019df1a40257ca46c821db83b0238",
+      "source_file_sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "evidence": [
+        "callbackOnHit first computes Fortune healing, then overwrites it with target Jinx healing when Jinx is present; both effects are consumed before healing."
+      ]
+    },
+    {
+      "task_id": "p2-cults-status-b7-001",
+      "original_revision_key": "cults-status-b7-002",
+      "status": "CLEAN",
+      "clean_target_sha256": "7f080c11a51fed01c2cd22266ed176087b944f9ceed1129ccf274fa1558cf4b7",
+      "visible_context_sha256": "ffbd2e2e0bd4bcbc40a8f7646372d740b979870d252590d66ee32f0f68d5569b",
+      "source_file_sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "evidence": [
+        "activate applies resists={all=eff.power} and calls removeEffectsFilter with status=\"detrimental\" and a high limit, supporting both clean clauses."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-05-artifice-mastery",
+      "status": "CLEAN",
+      "clean_target_sha256": "be90f7e0731d1cb1f753a79ba8a75105683d942e101fef136ce2e8753593a610",
+      "visible_context_sha256": "dd0165b59cdbcf4cbb58e6a5d24742ecbbc6d1714553234f0cf57b1f22d53568",
+      "source_file_sha256": "dd0165b59cdbcf4cbb58e6a5d24742ecbbc6d1714553234f0cf57b1f22d53568",
+      "evidence": [
+        "Independent bilingual check: source \"%s[%s -- mastery: %s]#LAST#\" maps to the clean target \"%s[%s -- 强化：%s]#LAST#\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b13-001",
+      "original_revision_key": "orcs-status-b13-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "8c56b0c4d8c363bf90c25018c5ec873ed4d458adec3a69260013bffb293fc578",
+      "visible_context_sha256": "de9c8b1ae00416759dff3c2f5a500b7bd9969e2392bca7c6cb4733de0e6ee116",
+      "source_file_sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "evidence": [
+        "callbackOnActBase runs independent target selection once for each steamgun, may select the same target, and activate applies all resistance plus disarmed."
+      ]
+    },
+    {
+      "task_id": "p2-orcs-status-b14-001",
+      "original_revision_key": "orcs-status-b14-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "b6bbf9f920b4eab566deb5e13c8a540c319e7d73541328961d91879b1dfa76bb",
+      "visible_context_sha256": "d8d28f5beed78fdf6342a082fbc9f7a3eb8dc61d5c6c5bbd5371b23cec726dbe",
+      "source_file_sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "evidence": [
+        "deactivate gives premature removal a nonzero hatch chance and reduced strength, then independently rolls each larva and applies burst damage/spawn on success."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-07-artifice",
+      "status": "CLEAN",
+      "clean_target_sha256": "38b8121243c5960e1d434b7ceab10c51e7d1283fa434b0b0a296384c027ae5af",
+      "visible_context_sha256": "ba1a84c0e6387614b3a54e1b4f632a2c95c7b458ccf3ef89c85c8ab2a8c11f57",
+      "source_file_sha256": "ba1a84c0e6387614b3a54e1b4f632a2c95c7b458ccf3ef89c85c8ab2a8c11f57",
+      "evidence": [
+        "Independent bilingual check: source \"[Cancel]\" maps to the clean target \"[取消]\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-02-artifice-mastery",
+      "status": "CLEAN",
+      "clean_target_sha256": "2cd0f3be8738a86cede1a1452f874f31d569864bbb00cacd4130990f4610cb5c",
+      "visible_context_sha256": "dd0165b59cdbcf4cbb58e6a5d24742ecbbc6d1714553234f0cf57b1f22d53568",
+      "source_file_sha256": "dd0165b59cdbcf4cbb58e6a5d24742ecbbc6d1714553234f0cf57b1f22d53568",
+      "evidence": [
+        "Independent bilingual check: source \"Cancel\" maps to the clean target \"取消\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-cults-status-b6-001",
+      "original_revision_key": "cults-status-b6-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "57dfb67aa1270ee1c65cd2995505bf575f125c8fc01b76289aa316119f5fe0ec",
+      "visible_context_sha256": "fc59923bf7ce298b33c95c29fcfe283cc6657ee9bd5580ed70b938feeba1706e",
+      "source_file_sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "evidence": [
+        "updateEffect installs resists={all=new_eff.stacks * new_eff.power}, confirming that each pustule increases all resistance rather than one damage type."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-08-artifice",
+      "status": "CLEAN",
+      "clean_target_sha256": "20cf1b5d8e7e557ebdac757d3fa27a35460ebecbf428a69cccc02f38c2128461",
+      "visible_context_sha256": "ba1a84c0e6387614b3a54e1b4f632a2c95c7b458ccf3ef89c85c8ab2a8c11f57",
+      "source_file_sha256": "ba1a84c0e6387614b3a54e1b4f632a2c95c7b458ccf3ef89c85c8ab2a8c11f57",
+      "evidence": [
+        "Independent bilingual check: source \"#CADET_BLUE#%s already equipped at level %d.\" maps to the clean target \"#CADET_BLUE#%s 已经装备，等级 %d。\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-03-artifice-mastery",
+      "status": "CLEAN",
+      "clean_target_sha256": "99b4bd1d2c065c9bcf10bd758b06a09eb48324c6beeec3a3dd965f07e579db7e",
+      "visible_context_sha256": "dd0165b59cdbcf4cbb58e6a5d24742ecbbc6d1714553234f0cf57b1f22d53568",
+      "source_file_sha256": "dd0165b59cdbcf4cbb58e6a5d24742ecbbc6d1714553234f0cf57b1f22d53568",
+      "evidence": [
+        "Independent bilingual check: source \"#CADET_BLUE#%s already mastered.\" maps to the clean target \"#CADET_BLUE#%s 已经强化过了。\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-12-artifice",
+      "status": "CLEAN",
+      "clean_target_sha256": "4493f9f0bb9a0847c005dd6ae79a0cb95d00cfe14e18e7e71f8747d45fbee5f7",
+      "visible_context_sha256": "19e3bd35ee3c3cf6fa195592d7b332291d1fb594200be3cf9a7c97a9b597a9ac",
+      "source_file_sha256": "ba1a84c0e6387614b3a54e1b4f632a2c95c7b458ccf3ef89c85c8ab2a8c11f57",
+      "evidence": [
+        "Independent bilingual check: source \"Equip which tool for #YELLOW#%s#LAST#?\" maps to the clean target \"为 #YELLOW#%s#LAST# 装备哪件工具？\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-ashes-status-b4-001",
+      "original_revision_key": "ashes-status-b4-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "5d8451613f1bd1722ec67fb8efe93825fa5c190226eef99e0479eb9a2aa3d6c7",
+      "visible_context_sha256": "ef4a47b77d0bf2602b3e0d2a8b6a7a4a52d18fde85c4802defe8774232041525",
+      "source_file_sha256": "7121480755bd462ee8d5b57b26f762a2d5db0098bd42be4c7ed348ba69b59d3b",
+      "evidence": [
+        "The display radius is computed by getTalentRadius, but callbackOnDealDamage uses the literal distance cutoff > 4; the clean target records this fixed trigger radius."
+      ]
+    },
+    {
+      "task_id": "p2-tome-texts-b10-001",
+      "original_revision_key": "b10-04-artifice-mastery",
+      "status": "CLEAN",
+      "clean_target_sha256": "6f0cb7882b730a8a00c777eeaca29ead3ecde6adb2634e86ffe1b07ecccc6a3f",
+      "visible_context_sha256": "dd0165b59cdbcf4cbb58e6a5d24742ecbbc6d1714553234f0cf57b1f22d53568",
+      "source_file_sha256": "dd0165b59cdbcf4cbb58e6a5d24742ecbbc6d1714553234f0cf57b1f22d53568",
+      "evidence": [
+        "Independent bilingual check: source \"#LIGHT_BLUE# You enhance your preparation of %s.\" maps to the clean target \"#LIGHT_BLUE# 你强化了对 %s 的准备。\" with action/state polarity and placeholders preserved."
+      ]
+    },
+    {
+      "task_id": "p2-cults-status-b21-001",
+      "original_revision_key": "cults-status-b21-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "bc82941a8a92fc669aca5ca06764f756353be421da6fad3f593f5ab64a2eb59b",
+      "visible_context_sha256": "c6cc3dd80c38681c5c42f58cb2212f162ef51dd7777bd2c28056a1e96cda9f9c",
+      "source_file_sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "evidence": [
+        "The probability check is conditional on self.turn_procs.krog_wrath already existing, so the first eligible hit bypasses it; the per-target uid table then limits repeat stuns."
+      ]
+    },
+    {
+      "task_id": "p2-cults-status-b25-001",
+      "original_revision_key": "cults-status-b25-001",
+      "status": "CLEAN",
+      "clean_target_sha256": "10f3fcde6229e7792b2e78e720e6400a23c13e4c3e58bd69e4fffb417bb69eec",
+      "visible_context_sha256": "4756b22d9e06f908ddf4ea505ed193b9fd0203322cc8822a7d95e83159c09530",
+      "source_file_sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "evidence": [
+        "callbackOnAct accumulates eff.timer by eff.power (or half on resistance), triggers above 100, subtracts 100 rather than clearing, then attacks an adjacent actor or self."
+      ]
+    }
+  ]
+}
+

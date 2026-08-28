@@ -1,0 +1,309 @@
+{
+  "schema_version": "runtime-source-context-sampling-v1",
+  "seed": "runtime-source-context-pilot-v1|2026-08-27",
+  "finite_benchmark_only": true,
+  "population_extrapolation_allowed": false,
+  "runtime_candidate_frame": {
+    "rule": "DONE P2 ashes/cults/orcs status or mechanics terminal contextual revisions, excluding all prior pilot, controlled-mutation-v1 and UI/log replication items",
+    "eligible": 26,
+    "mutations": [
+      [
+        "p2-ashes-status-b4-001",
+        "ashes-status-b4-001"
+      ],
+      [
+        "p2-cults-status-b6-001",
+        "cults-status-b6-001"
+      ],
+      [
+        "p2-cults-status-b19-001",
+        "cults-status-b19-001"
+      ],
+      [
+        "p2-cults-status-b20-001",
+        "cults-status-b20-001"
+      ],
+      [
+        "p2-cults-status-b21-001",
+        "cults-status-b21-001"
+      ],
+      [
+        "p2-orcs-status-b26-001",
+        "orcs-status-b26-001"
+      ],
+      [
+        "p2-cults-status-b25-001",
+        "cults-status-b25-001"
+      ],
+      [
+        "p2-orcs-status-b13-001",
+        "orcs-status-b13-001"
+      ],
+      [
+        "p2-orcs-status-b14-001",
+        "orcs-status-b14-001"
+      ],
+      [
+        "p2-orcs-status-b16-001",
+        "orcs-status-b16-001"
+      ],
+      [
+        "p2-orcs-status-b18-001",
+        "orcs-status-b18-001"
+      ],
+      [
+        "p2-orcs-status-b30-001",
+        "orcs-status-b30-001"
+      ]
+    ],
+    "controls": [
+      [
+        "p2-orcs-status-b28-001",
+        "orcs-status-b28-001"
+      ],
+      [
+        "p2-cults-status-b24-001",
+        "cults-status-b24-001"
+      ],
+      [
+        "p2-cults-status-b15-001",
+        "cults-status-b15-001"
+      ],
+      [
+        "p2-orcs-status-b9-001",
+        "orcs-status-b9-001"
+      ],
+      [
+        "p2-cults-status-b7-001",
+        "cults-status-b7-001"
+      ],
+      [
+        "p2-cults-status-b7-001",
+        "cults-status-b7-002"
+      ],
+      [
+        "p2-orcs-status-b3-001",
+        "orcs-status-b3-001"
+      ],
+      [
+        "p2-orcs-status-b22-001",
+        "orcs-status-b22-001"
+      ],
+      [
+        "p2-orcs-status-b32-001",
+        "orcs-status-b32-001"
+      ],
+      [
+        "p2-orcs-status-b17-001",
+        "orcs-status-b17-001"
+      ],
+      [
+        "p2-cults-status-b17-001",
+        "cults-status-b17-001"
+      ],
+      [
+        "p2-orcs-status-b29-001",
+        "orcs-status-b29-001"
+      ]
+    ],
+    "ordered_reserves_not_used": [
+      [
+        "p2-orcs-status-b24-001",
+        "orcs-status-b24-001"
+      ]
+    ],
+    "baseline_exclusions": [
+      {
+        "task_id": "p2-cults-status-b9-001",
+        "original_revision_key": "cults-status-b9-001",
+        "reason": "Pre-inference full-source verification found that fixed-cooldown talents are exempt, while the frozen baseline target says all talents; the candidate is not a clean control and is excluded rather than repaired in place."
+      }
+    ],
+    "mutation_screen": "Before any reviewer output, require each injected runtime atom to be absent or ambiguous in source alone and directly decidable from the mechanically visible B-arm Lua block.",
+    "pre_inference_mutation_replacements": [
+      {
+        "removed": [
+          "p2-cults-status-b17-001",
+          "cults-status-b17-001"
+        ],
+        "promoted": [
+          "p2-cults-status-b6-001",
+          "cults-status-b6-001"
+        ],
+        "reason": "The original two-source atom was already explicit in the English source, so it could not identify source-context gain."
+      },
+      {
+        "removed": [
+          "p2-cults-status-b24-001",
+          "cults-status-b24-001"
+        ],
+        "promoted": [
+          "p2-orcs-status-b26-001",
+          "orcs-status-b26-001"
+        ],
+        "reason": "The original other-effect exception depended on engine behavior outside the mechanically visible B-arm block."
+      }
+    ],
+    "control_selection": "After pre-inference source verification excludes any contaminated baseline, sort remaining non-mutation candidates by SHA-256(seed + NUL + 'control' + NUL + task_id + NUL + original_revision_key); first 12 controls and any remainder is an ordered reserve.",
+    "control_ranks": [
+      {
+        "task_id": "p2-orcs-status-b28-001",
+        "original_revision_key": "orcs-status-b28-001",
+        "sha256_rank": "067ee6d18c83f771940dd6c9e7630eee98b767da1d7f1a25c5fef1c6c57f93db",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-cults-status-b24-001",
+        "original_revision_key": "cults-status-b24-001",
+        "sha256_rank": "2dfed519fd24b2fe55f66fcd4a1170ff37039ca52f2713a30ee8c49cc4cd98ed",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-cults-status-b15-001",
+        "original_revision_key": "cults-status-b15-001",
+        "sha256_rank": "33dcb358cec75617b28ef5cc16428b7d4c5c5452efac1fafc6e8ebc28e5ed28b",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-orcs-status-b9-001",
+        "original_revision_key": "orcs-status-b9-001",
+        "sha256_rank": "45d81a42309521542608a74e87f748dcb85236fe74bb6112d84dec8ef1313dec",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-cults-status-b7-001",
+        "original_revision_key": "cults-status-b7-001",
+        "sha256_rank": "4baf0d876441c3d1e3e9d06ff7214d3f538ab1a97eda4732bdb0d051325cef64",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-cults-status-b7-001",
+        "original_revision_key": "cults-status-b7-002",
+        "sha256_rank": "5bfa9c7156c2d6a1a53e2894440dc438502a8daa3e42300d382edc8bb84c5666",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-orcs-status-b3-001",
+        "original_revision_key": "orcs-status-b3-001",
+        "sha256_rank": "601aa503821964bc3f7d83900e4fbfe24625bd516d128e15b7f153c18c824fd6",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-orcs-status-b22-001",
+        "original_revision_key": "orcs-status-b22-001",
+        "sha256_rank": "7bbf5180cf2491e0a5d2cd4c5249ef8de6e8ff976365e240e114dc5708dcd74b",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-orcs-status-b32-001",
+        "original_revision_key": "orcs-status-b32-001",
+        "sha256_rank": "a27c56a6123116f4205120359817c787f7b9e28d9c5d15bde5e1397722002e28",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-orcs-status-b17-001",
+        "original_revision_key": "orcs-status-b17-001",
+        "sha256_rank": "b2568d3d4c8383c5bbe308a0e18aa71f6fdb70f05194c82408af08b08f030f63",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-cults-status-b17-001",
+        "original_revision_key": "cults-status-b17-001",
+        "sha256_rank": "b61276ce547d3998af20287ab53980e49e8aab4a573e90491f8ae5f1ac986dab",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-orcs-status-b29-001",
+        "original_revision_key": "orcs-status-b29-001",
+        "sha256_rank": "bec81d036f553ea35569741105738f58e001f2ad5a8eabe7b5b125d8bdec47ce",
+        "disposition": "CONTROL"
+      },
+      {
+        "task_id": "p2-orcs-status-b24-001",
+        "original_revision_key": "orcs-status-b24-001",
+        "sha256_rank": "e2d9787e626394c7015a3e70b60231b5cb9c6eeb0ec9d1dbcbcd1c5994ea285d",
+        "disposition": "ORDERED_RESERVE"
+      }
+    ]
+  },
+  "surface_candidate_frame": {
+    "rule": "first twelve frozen terminal revisions of p2-tome-texts-b10-001",
+    "selected": [
+      [
+        "p2-tome-texts-b10-001",
+        "b10-01-artifact-maker",
+        "SURFACE_MUTATION"
+      ],
+      [
+        "p2-tome-texts-b10-001",
+        "b10-02-artifice-mastery",
+        "SURFACE_CONTROL"
+      ],
+      [
+        "p2-tome-texts-b10-001",
+        "b10-03-artifice-mastery",
+        "SURFACE_MUTATION"
+      ],
+      [
+        "p2-tome-texts-b10-001",
+        "b10-04-artifice-mastery",
+        "SURFACE_CONTROL"
+      ],
+      [
+        "p2-tome-texts-b10-001",
+        "b10-05-artifice-mastery",
+        "SURFACE_CONTROL"
+      ],
+      [
+        "p2-tome-texts-b10-001",
+        "b10-06-artifice-mastery",
+        "SURFACE_MUTATION"
+      ],
+      [
+        "p2-tome-texts-b10-001",
+        "b10-07-artifice",
+        "SURFACE_CONTROL"
+      ],
+      [
+        "p2-tome-texts-b10-001",
+        "b10-08-artifice",
+        "SURFACE_MUTATION"
+      ],
+      [
+        "p2-tome-texts-b10-001",
+        "b10-09-artifice",
+        "SURFACE_CONTROL"
+      ],
+      [
+        "p2-tome-texts-b10-001",
+        "b10-10-artifice",
+        "SURFACE_MUTATION"
+      ],
+      [
+        "p2-tome-texts-b10-001",
+        "b10-11-artifice",
+        "SURFACE_CONTROL"
+      ],
+      [
+        "p2-tome-texts-b10-001",
+        "b10-12-artifice",
+        "SURFACE_MUTATION"
+      ]
+    ]
+  },
+  "presentation": "independent SHA-256 order over all 36 selected source items",
+  "exclusions": [
+    {
+      "path": "../paseo-residual-audit-pilot-v1/PROVENANCE-KEY.json",
+      "sha256": "e0f43d3a9a977ee52a180e4ac00fdfdb00aadbf3cae6bac1b04405153b9a74e9"
+    },
+    {
+      "path": "../controlled-mutation-reviewer-v1/SOURCE-CONTROLS.json",
+      "sha256": "beece1236a6cd78e975387571b03aff97bea12ae16f9000e0353e0f35583d16c"
+    },
+    {
+      "path": "../controlled-mutation-ui-log-replication-v2/SOURCE-CONTROLS.json",
+      "sha256": "2bd638c45dc876a209805940d57e5496634050421004fd8bf3970fdaa2330764"
+    }
+  ]
+}

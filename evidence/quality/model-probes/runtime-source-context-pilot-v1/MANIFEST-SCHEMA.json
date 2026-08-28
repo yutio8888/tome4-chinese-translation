@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "finite_population", "arms", "routes", "runs", "missingness", "scoring", "gates", "frozen_artifacts_required"],
+  "properties": {
+    "schema_version": {"const": "runtime-source-context-manifest-v1"},
+    "status": {"enum": ["PREFLIGHT_READY", "FROZEN_FOR_INFERENCE"]},
+    "finite_population": {"type": "object"},
+    "arms": {"type": "object"},
+    "routes": {"type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true},
+    "runs": {"type": "object"},
+    "missingness": {"type": "object"},
+    "scoring": {"type": "object"},
+    "gates": {"type": "object"},
+    "frozen_artifacts_required": {"type": "array", "minItems": 12, "uniqueItems": true}
+  }
+}

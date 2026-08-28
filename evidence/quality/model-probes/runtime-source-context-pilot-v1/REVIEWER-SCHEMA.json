@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["revisions"],
+  "properties": {
+    "revisions": {
+      "type": "array",
+      "minItems": 36,
+      "maxItems": 36,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["revision_id", "verdict", "claim", "observation"],
+        "properties": {
+          "revision_id": {"type": "string", "pattern": "^P[0-9]{3}$"},
+          "verdict": {"type": "string", "enum": ["OK", "FINDING", "UNCERTAIN"]},
+          "claim": {
+            "oneOf": [
+              {"type": "null"},
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["target_span", "claim_type", "correction", "evidence"],
+                "properties": {
+                  "target_span": {"type": "string", "minLength": 1},
+                  "claim_type": {"type": "string", "enum": ["VALUE", "DIRECTION", "CONDITION", "SUBJECT", "TIMING", "SCOPE", "ACTION", "STATE", "ORDER", "OTHER"]},
+                  "correction": {"type": "string", "minLength": 1},
+                  "evidence": {"type": "string", "minLength": 1}
+                }
+              }
+            ]
+          },
+          "observation": {"type": "string", "minLength": 1}
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"verdict": {"const": "OK"}}, "required": ["verdict"]},
+            "then": {"properties": {"claim": {"type": "null"}}},
+            "else": {"properties": {"claim": {"type": "object"}}}
+          }
+        ]
+      }
+    }
+  }
+}

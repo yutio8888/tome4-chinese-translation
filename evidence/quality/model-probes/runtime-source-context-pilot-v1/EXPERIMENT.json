@@ -1,0 +1,26 @@
+{
+  "schema_version": "runtime-source-context-experiment-v1",
+  "experiment": "runtime-source-context-pilot-v1",
+  "status": "PREFLIGHT_READY",
+  "date": "2026-08-27",
+  "estimand": "For this frozen finite benchmark only, the per-run change in objective runtime-mutant item detection when the mechanically extracted public Lua block is added to otherwise identical source/target review input.",
+  "units": {
+    "sampling": "source_item",
+    "analysis": "route_item within run",
+    "candidate": "one primary claim per item",
+    "arms": ["A", "B"],
+    "runs": [1, 2]
+  },
+  "calls": {"routes": 4, "arms": 2, "runs_per_arm": 2, "planned_total": 16, "third_run_allowed": false},
+  "routes_file": "ROUTE-PREFLIGHT.json",
+  "outbound_policy": {
+    "authorization": "Permanent project authorization covers sanitized experimental records sent to OpenAI, Anthropic, Z.ai CN/GLM and Google Gemini.",
+    "allowed": ["opaque revision_id", "English source", "Chinese target", "raw sanitized public Lua source_context", "review instructions", "output schema"],
+    "forbidden": ["credentials", "sealed reference", "adjudication conclusions", "defect IDs", "model provenance", "local absolute paths", "unsanitized records"],
+    "new_services_allowed": false
+  },
+  "missingness": {"context_missing": "pre-inference no-go", "route_failure": "harness failure, not model score; retry identical frozen request only"},
+  "stopping": "Both registered runs are executed exactly once per arm and route. No third run, item replacement, prompt change or outcome-dependent resampling.",
+  "historical_reuse": false,
+  "result_policy": "Preserve every raw envelope, parsed candidate, deterministic score, control-candidate adjudication and final RESULT.json. Separate measured data, derived gates and human interpretation."
+}

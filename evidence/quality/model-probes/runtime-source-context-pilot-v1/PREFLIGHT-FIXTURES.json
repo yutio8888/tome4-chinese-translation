@@ -1,0 +1,15 @@
+{
+  "schema_version": "runtime-source-context-preflight-fixtures-v1",
+  "cases": [
+    {"id": "success_contract", "mutation": "NONE", "expected_pass": true},
+    {"id": "missing_context", "mutation": "DELETE_FIRST_B_CONTEXT", "expected_pass": false},
+    {"id": "duplicate_item", "mutation": "DUPLICATE_SECOND_ID", "expected_pass": false},
+    {"id": "arm_drift", "mutation": "CHANGE_FIRST_B_TARGET", "expected_pass": false},
+    {"id": "reference_leak", "mutation": "LEAK_EXPECTED_CLAIM_TO_PROMPT", "expected_pass": false},
+    {"id": "reserve_out_of_bounds", "mutation": "PROMOTE_RESERVE_WITHOUT_REMOVAL", "expected_pass": false},
+    {"id": "hash_drift", "mutation": "CORRUPT_EXPECTED_PROMPT_HASH", "expected_pass": false},
+    {"id": "gate_equal_boundaries", "mutation": "GATE_10_3_2_1_0", "expected_pass": true},
+    {"id": "gate_recall_below", "mutation": "GATE_9_3_2_1_0", "expected_pass": false},
+    {"id": "gate_control_above", "mutation": "GATE_10_3_3_1_0", "expected_pass": false}
+  ]
+}

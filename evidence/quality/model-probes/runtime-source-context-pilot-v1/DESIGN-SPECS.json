@@ -1,0 +1,258 @@
+{
+  "schema_version": "runtime-source-context-design-v1",
+  "seed": "runtime-source-context-pilot-v1|2026-08-27",
+  "source_snapshot": {
+    "path": "../paseo-provenance-snapshot-v1/SNAPSHOT.json",
+    "sha256": "b754183a9d1e0efa15cb1d3c16fa06a7f96f388e75707c7ba0e79f4a680f2eab",
+    "source_repo_head": "1666481409f4c0d63d66e84659f6b6145d8d25d0"
+  },
+  "exclusions": [
+    {
+      "path": "../paseo-residual-audit-pilot-v1/PROVENANCE-KEY.json",
+      "sha256": "e0f43d3a9a977ee52a180e4ac00fdfdb00aadbf3cae6bac1b04405153b9a74e9"
+    },
+    {
+      "path": "../controlled-mutation-reviewer-v1/SOURCE-CONTROLS.json",
+      "sha256": "beece1236a6cd78e975387571b03aff97bea12ae16f9000e0353e0f35583d16c"
+    },
+    {
+      "path": "../controlled-mutation-ui-log-replication-v2/SOURCE-CONTROLS.json",
+      "sha256": "2bd638c45dc876a209805940d57e5496634050421004fd8bf3970fdaa2330764"
+    }
+  ],
+  "context_contract": {
+    "runtime_locator": "within the task component's pinned public source, find the unique non-locale Lua file containing the whitespace-normalized English source string",
+    "surface_locator": "parse the fixed_source relative path from the frozen bounded-context metadata, then find the unique whitespace-normalized English source occurrence in that file",
+    "block": "nearest enclosing Lua newEffect, newTalent, newChat or newEntity brace-balanced block; deterministic centered file window only when no supported constructor exists",
+    "direct_callees": 0,
+    "max_chars": 8000,
+    "head_chars_when_truncated": 5200,
+    "tail_chars_when_truncated": 2700,
+    "missing_policy": "any missing or non-unique source file or enclosing block is CONTEXT_MISSING and fails preflight before inference; multiple literal occurrences are allowed only when every occurrence resolves to the same block",
+    "visible_content": "raw sanitized Lua code only; no paths, symbol labels, expected claims, mutation metadata or human conclusions"
+  },
+  "runtime_mutations": [
+    {
+      "task_id": "p2-ashes-status-b4-001",
+      "original_revision_key": "ashes-status-b4-001",
+      "mutation_id": "RC01_FIXED_RADIUS_TO_SCALED",
+      "claim_type": "VALUE",
+      "before": "实际触发范围固定为 4 格，不随该数值变化",
+      "after": "实际触发范围会随该数值变化",
+      "expected_claim": "The application trigger uses a fixed radius of 4 rather than the displayed scaling radius."
+    },
+    {
+      "task_id": "p2-cults-status-b6-001",
+      "original_revision_key": "cults-status-b6-001",
+      "mutation_id": "RC02_ALL_RESISTANCE_TO_PHYSICAL_ONLY",
+      "claim_type": "SCOPE",
+      "before": "全部抗性",
+      "after": "仅物理抗性",
+      "expected_claim": "Each pustule increases all resistances, not physical resistance only."
+    },
+    {
+      "task_id": "p2-cults-status-b19-001",
+      "original_revision_key": "cults-status-b19-001",
+      "mutation_id": "RC03_JINX_PRECEDENCE_TO_ADDITION",
+      "claim_type": "STATE",
+      "before": "若所选目标有不幸，则按其层数治疗，否则按自身的幸运层数治疗",
+      "after": "按自身的幸运层数与所选目标的不幸层数之和治疗",
+      "expected_claim": "Selected-target Jinx stacks replace, rather than add to, holder Fortune stacks for healing when Jinx is present."
+    },
+    {
+      "task_id": "p2-cults-status-b20-001",
+      "original_revision_key": "cults-status-b20-001",
+      "mutation_id": "RC04_FIRST_STACK_SIGN_FLIPPED",
+      "claim_type": "DIRECTION",
+      "before": "仅 1 层时实际降低，2 层起才如数增加",
+      "after": "从 1 层起即如数增加",
+      "expected_claim": "At one Fortune stack, saves and defense are reduced because the initial sign is negative; they do not increase normally from the first stack."
+    },
+    {
+      "task_id": "p2-cults-status-b21-001",
+      "original_revision_key": "cults-status-b21-001",
+      "mutation_id": "RC05_FIRST_HIT_GUARANTEE_REMOVED",
+      "claim_type": "CONDITION",
+      "before": "每回合第一次符合条件的命中必定触发震慑，不受该几率限制；之后的命中按该几率判定",
+      "after": "每次符合条件的命中都按该几率判定",
+      "expected_claim": "The first eligible hit each turn bypasses the probability check and is guaranteed; only later hits roll the stated chance."
+    },
+    {
+      "task_id": "p2-orcs-status-b26-001",
+      "original_revision_key": "orcs-status-b26-001",
+      "mutation_id": "RC06_NON_FIXED_TO_ALL_COOLDOWNS",
+      "claim_type": "SCOPE",
+      "before": "使非固定冷却技能额外减少 1 回合冷却",
+      "after": "使包括固定冷却在内的所有技能额外减少 1 回合冷却",
+      "expected_claim": "The extra cooldown reduction skips fixed-cooldown talents rather than applying to every talent."
+    },
+    {
+      "task_id": "p2-cults-status-b25-001",
+      "original_revision_key": "cults-status-b25-001",
+      "mutation_id": "RC07_ACCUMULATOR_TO_RANDOM_PROC",
+      "claim_type": "STATE",
+      "before": "每回合按 %d%% 的速率累积背叛进度",
+      "after": "每回合有 %d%% 几率立即触发背叛",
+      "expected_claim": "Treason uses an accumulating periodic timer rather than an independent per-turn random proc."
+    },
+    {
+      "task_id": "p2-orcs-status-b13-001",
+      "original_revision_key": "orcs-status-b13-001",
+      "mutation_id": "RC08_INDEPENDENT_TARGETS_TO_DISTINCT",
+      "claim_type": "CONDITION",
+      "before": "可能攻击同一目标",
+      "after": "不会攻击同一目标",
+      "expected_claim": "The two steamguns choose targets independently and may select the same target."
+    },
+    {
+      "task_id": "p2-orcs-status-b14-001",
+      "original_revision_key": "orcs-status-b14-001",
+      "mutation_id": "RC09_EARLY_REMOVAL_BURST_NEGATED",
+      "claim_type": "CONDITION",
+      "before": "即使效果提前解除，幼虫仍可能以较低强度破体而出并生成幼虫",
+      "after": "效果提前解除时，幼虫不会破体而出",
+      "expected_claim": "Early effect removal can still produce reduced-power burst damage and larvae."
+    },
+    {
+      "task_id": "p2-orcs-status-b16-001",
+      "original_revision_key": "orcs-status-b16-001",
+      "mutation_id": "RC10_COOLDOWN_PRIORITY_REVERSED",
+      "claim_type": "ORDER",
+      "before": "优先随机缩短一个冷却中的科技法术1回合，没有则随机缩短一个冷却中的法术1回合",
+      "after": "优先随机缩短一个冷却中的法术1回合，没有则随机缩短一个冷却中的科技法术1回合",
+      "expected_claim": "Technomancy cooldowns are selected before ordinary spell cooldowns, not after them."
+    },
+    {
+      "task_id": "p2-orcs-status-b18-001",
+      "original_revision_key": "orcs-status-b18-001",
+      "mutation_id": "RC11_MULTI_TARGET_HEAL_DECAY_REMOVED",
+      "claim_type": "STATE",
+      "before": "同回合每多一个目标，治疗量在前一目标基础上再减半",
+      "after": "同回合多个目标的治疗量不会递减",
+      "expected_claim": "Bloodstar healing is halved again for each additional target in the same turn."
+    },
+    {
+      "task_id": "p2-orcs-status-b30-001",
+      "original_revision_key": "orcs-status-b30-001",
+      "mutation_id": "RC12_KNOCKBACK_IMMUNITY_IGNORED",
+      "claim_type": "CONDITION",
+      "before": "仅当你可被击退时，才会被拉向施加者",
+      "after": "即使无法被击退，也会被拉向施加者",
+      "expected_claim": "The pull occurs only when the target can be knocked back; knockback-immune targets are not pulled."
+    }
+  ],
+  "runtime_controls": [
+    ["p2-orcs-status-b28-001", "orcs-status-b28-001"],
+    ["p2-cults-status-b24-001", "cults-status-b24-001"],
+    ["p2-cults-status-b15-001", "cults-status-b15-001"],
+    ["p2-orcs-status-b9-001", "orcs-status-b9-001"],
+    ["p2-cults-status-b7-001", "cults-status-b7-001"],
+    ["p2-cults-status-b7-001", "cults-status-b7-002"],
+    ["p2-orcs-status-b3-001", "orcs-status-b3-001"],
+    ["p2-orcs-status-b22-001", "orcs-status-b22-001"],
+    ["p2-orcs-status-b32-001", "orcs-status-b32-001"],
+    ["p2-orcs-status-b17-001", "orcs-status-b17-001"],
+    ["p2-cults-status-b17-001", "cults-status-b17-001"],
+    ["p2-orcs-status-b29-001", "orcs-status-b29-001"]
+  ],
+  "runtime_reserves": [
+    ["p2-orcs-status-b24-001", "orcs-status-b24-001"]
+  ],
+  "runtime_baseline_exclusions": [
+    {
+      "task_id": "p2-cults-status-b9-001",
+      "original_revision_key": "cults-status-b9-001",
+      "reason": "Pre-inference full-source verification found that fixed-cooldown talents are exempt, while the frozen baseline target says all talents; the candidate is not a clean control and is excluded rather than repaired in place."
+    }
+  ],
+  "runtime_selection_notes": {
+    "mutation_screen": "Before any reviewer output, require each injected runtime atom to be absent or ambiguous in source alone and directly decidable from the mechanically visible B-arm Lua block.",
+    "replacements": [
+      {
+        "removed": ["p2-cults-status-b17-001", "cults-status-b17-001"],
+        "promoted": ["p2-cults-status-b6-001", "cults-status-b6-001"],
+        "reason": "The original two-source atom was already explicit in the English source, so it could not identify source-context gain."
+      },
+      {
+        "removed": ["p2-cults-status-b24-001", "cults-status-b24-001"],
+        "promoted": ["p2-orcs-status-b26-001", "orcs-status-b26-001"],
+        "reason": "The original other-effect exception depended on engine behavior outside the mechanically visible B-arm block."
+      }
+    ],
+    "control_rank": "After pre-inference source verification excludes any contaminated baseline, sort remaining non-mutation candidates by SHA-256(seed + NUL + 'control' + NUL + task_id + NUL + original_revision_key); first 12 controls and any remainder is an ordered reserve."
+  },
+  "surface_task": "p2-tome-texts-b10-001",
+  "surface_items": [
+    {
+      "original_revision_key": "b10-01-artifact-maker",
+      "assignment": "SURFACE_MUTATION",
+      "mutation_id": "SC01_GIVEN_TO_LOST",
+      "claim_type": "DIRECTION",
+      "before": "你获得了",
+      "after": "你失去了",
+      "expected_claim": "The source says the player is given the item, not that it is lost."
+    },
+    {"original_revision_key": "b10-02-artifice-mastery", "assignment": "SURFACE_CONTROL"},
+    {
+      "original_revision_key": "b10-03-artifice-mastery",
+      "assignment": "SURFACE_MUTATION",
+      "mutation_id": "SC02_ALREADY_TO_NOT_YET",
+      "claim_type": "DIRECTION",
+      "before": "已经强化过了",
+      "after": "尚未强化",
+      "expected_claim": "The source says the tool is already mastered, not that it is not yet mastered."
+    },
+    {"original_revision_key": "b10-04-artifice-mastery", "assignment": "SURFACE_CONTROL"},
+    {"original_revision_key": "b10-05-artifice-mastery", "assignment": "SURFACE_CONTROL"},
+    {
+      "original_revision_key": "b10-06-artifice-mastery",
+      "assignment": "SURFACE_MUTATION",
+      "mutation_id": "SC03_MASTER_TO_DISMANTLE",
+      "claim_type": "ACTION",
+      "before": "强化哪件工具",
+      "after": "分解哪件工具",
+      "expected_claim": "The prompt asks which tool to master, not which tool to dismantle."
+    },
+    {"original_revision_key": "b10-07-artifice", "assignment": "SURFACE_CONTROL"},
+    {
+      "original_revision_key": "b10-08-artifice",
+      "assignment": "SURFACE_MUTATION",
+      "mutation_id": "SC04_EQUIPPED_TO_NOT_EQUIPPED",
+      "claim_type": "DIRECTION",
+      "before": "已经装备",
+      "after": "尚未装备",
+      "expected_claim": "The source says the tool is already equipped, not that it is not equipped."
+    },
+    {"original_revision_key": "b10-09-artifice", "assignment": "SURFACE_CONTROL"},
+    {
+      "original_revision_key": "b10-10-artifice",
+      "assignment": "SURFACE_MUTATION",
+      "mutation_id": "SC05_EQUIP_TO_UNEQUIP",
+      "claim_type": "ACTION",
+      "before": "装备",
+      "after": "卸下",
+      "expected_claim": "The action is Equip, not Unequip."
+    },
+    {"original_revision_key": "b10-11-artifice", "assignment": "SURFACE_CONTROL"},
+    {
+      "original_revision_key": "b10-12-artifice",
+      "assignment": "SURFACE_MUTATION",
+      "mutation_id": "SC06_EQUIP_TO_DISMANTLE",
+      "claim_type": "ACTION",
+      "before": "装备哪件工具",
+      "after": "拆解哪件工具",
+      "expected_claim": "The prompt asks which tool to equip, not which tool to dismantle."
+    }
+  ],
+  "counts": {
+    "runtime_mutations": 12,
+    "runtime_controls": 12,
+    "surface_mutations": 6,
+    "surface_controls": 6,
+    "items": 36,
+    "routes": 4,
+    "arms": 2,
+    "runs_per_arm": 2,
+    "reviewer_calls": 16
+  }
+}

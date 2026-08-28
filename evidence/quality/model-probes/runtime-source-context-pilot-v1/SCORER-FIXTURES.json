@@ -1,0 +1,14 @@
+{
+  "schema_version": "runtime-source-context-scorer-fixtures-v1",
+  "target": "前句；实际触发范围会随该数值变化；后句",
+  "atom_target_span": "实际触发范围会随该数值变化",
+  "claim_type": "VALUE",
+  "cases": [
+    {"id": "finding_exact_atom", "verdict": "FINDING", "valid_claim": true, "target_span": "实际触发范围会随该数值变化", "reported_claim_type": "VALUE", "expected_detection": 1, "expected_finding_detection": 1},
+    {"id": "uncertain_overlap", "verdict": "UNCERTAIN", "valid_claim": true, "target_span": "触发范围会随该数值变化", "reported_claim_type": "VALUE", "expected_detection": 1, "expected_finding_detection": 0},
+    {"id": "wrong_claim_type", "verdict": "FINDING", "valid_claim": true, "target_span": "实际触发范围会随该数值变化", "reported_claim_type": "SCOPE", "expected_detection": 0, "expected_finding_detection": 0},
+    {"id": "non_overlapping_span", "verdict": "FINDING", "valid_claim": true, "target_span": "前句", "reported_claim_type": "VALUE", "expected_detection": 0, "expected_finding_detection": 0},
+    {"id": "invalid_exact_quote", "verdict": "FINDING", "valid_claim": false, "target_span": "实际触发范围会随该数值变化", "reported_claim_type": "VALUE", "expected_detection": 0, "expected_finding_detection": 0},
+    {"id": "ok_never_detects", "verdict": "OK", "valid_claim": true, "target_span": null, "reported_claim_type": null, "expected_detection": 0, "expected_finding_detection": 0}
+  ]
+}
