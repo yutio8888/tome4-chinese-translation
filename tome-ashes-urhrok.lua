@@ -1353,10 +1353,10 @@ t([[The power of the Fearscape infuses your weapon: Your melee attacks will deal
 		Additionally, every time you attack, there is a %d%% chance of releasing a burst of powerful fire that will deal %0.2f fire damage to all enemies in radius %d over %d turns.
 		If this talent is not on cooldown, the burst of fire will instead be radius %d, and stun all targets in addition to burning them.
 		For the purposes of applying the stun, you have %d bonus spellpower.
-		The damage will increase with your Spellpower.]], [[恶魔空间的力量注入你的武器：你的近战攻击在 3 回合内造成 %0.2f 点火焰伤害。
-	另外，每次攻击时有 %d%% 几率造成 %0.2f 火焰燃烧伤害， %d 码内的所有敌人都会受到此伤害，燃烧持续 %d 回合。
-	若该技能冷却完毕，则火焰爆发将聚集在 %d 码范围内，并产生火焰震慑效果。
-	进行震慑判定时，额外增加 %d 点法术强度。
+		The damage will increase with your Spellpower.]], [[恶魔空间的力量注入你的武器：你的近战攻击会在 3 回合内造成总计 %0.2f 点火焰燃烧伤害。
+	另外，每次攻击时有 %d%% 几率释放强力火焰爆发，造成总计 %0.2f 点火焰燃烧伤害；半径 %d 内的所有敌人都会受到此伤害，持续 %d 回合。
+	若该技能不在冷却中，火焰爆发将改为半径 %d，并使范围内所有敌对目标同时燃烧和震慑。
+	进行震慑判定时，你获得 %d 点额外法术强度。
 	伤害受法术强度加成。]], "tformat")
 t("Abduction", "锁魂之链", "talent name")
 t("You require a two handed weapon to use this talent.", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
