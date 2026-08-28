@@ -1,0 +1,528 @@
+{
+  "schema_version": "route-familiarity-reference-evidence-correction-v3",
+  "status": "COMPLETE_CORRECTION_OF_INCOMPLETE_HISTORICAL_RECORD",
+  "counts": {
+    "planned_frozen_cells": 20,
+    "process_invocations": 22,
+    "exact_frozen_route_process_invocations": 16,
+    "attempted_exact_frozen_cells": 9,
+    "attempted_exact_frozen_cells_without_canonical_valid_candidate": 6,
+    "response_bearing_events": 9,
+    "excluded_cli_generated_error_payloads": 2,
+    "confirmed_model_identity_events": 8,
+    "confirmed_provider_model_identity_events": 6,
+    "canonical_valid_candidates": 3,
+    "out_of_protocol_process_invocations": 6,
+    "out_of_protocol_distinct_cells": 5,
+    "unverifiable_historical_transport_preimages": 16,
+    "schema_not_model_facing_attempts": 6,
+    "uncalled_exact_frozen_cells": 11
+  },
+  "terminology": {
+    "process_invocation": "A CLI child process was started; this does not imply a provider/model call.",
+    "response_bearing_event": "The preserved RAW envelope contains at least one non-synthetic model-response payload. CLI-generated assistant errors marked model=<synthetic> or is_api_error_message=true are excluded.",
+    "confirmed_model_identity_event": "The preserved RAW envelope directly identifies a runtime model; a requested model alone is not confirmation.",
+    "confirmed_provider_model_identity_event": "The preserved RAW envelope directly identifies both runtime provider and runtime model."
+  },
+  "route_identity_comparison": {
+    "lane-01": {
+      "requested_frozen_identity": {
+        "lane_id": "lane-01",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      },
+      "confirmed_runtime_identity": {
+        "provider": null,
+        "model": null,
+        "effort": null,
+        "status": "NO_CONFIRMED_RUNTIME_IDENTITY",
+        "evidence_strength": "NONE",
+        "confirmed_attempt_count": 0,
+        "evidence_attempts": []
+      },
+      "classification": "REQUESTED_FROZEN_IDENTITY_RUNTIME_UNVERIFIED"
+    },
+    "lane-02": {
+      "requested_frozen_identity": {
+        "lane_id": "lane-02",
+        "provider": "Anthropic",
+        "model": "claude-opus-5",
+        "effort": "high"
+      },
+      "confirmed_runtime_identity": {
+        "provider": null,
+        "model": "claude-opus-5",
+        "effort": null,
+        "status": "MODEL_ONLY_VERIFIED",
+        "evidence_strength": "MODEL_ONLY_RAW_INIT",
+        "confirmed_attempt_count": 2,
+        "evidence_attempts": [
+          "attempts/claude-opus-5-high-exploratory/SHARD-02/attempt-001",
+          "attempts/claude-opus-5-high-exploratory/SHARD-02/attempt-002"
+        ]
+      },
+      "classification": "REQUESTED_FROZEN_IDENTITY_WITH_MODEL_ONLY_RUNTIME_EVIDENCE"
+    },
+    "lane-03": {
+      "requested_frozen_identity": {
+        "lane_id": "lane-03",
+        "provider": "Google",
+        "model": "gemini-3.7-flash-high",
+        "effort": "high"
+      },
+      "confirmed_runtime_identity": {
+        "provider": null,
+        "model": null,
+        "effort": null,
+        "status": "NO_CONFIRMED_RUNTIME_IDENTITY",
+        "evidence_strength": "NONE",
+        "confirmed_attempt_count": 0,
+        "evidence_attempts": []
+      },
+      "classification": "REQUESTED_FROZEN_IDENTITY_RUNTIME_UNVERIFIED"
+    },
+    "lane-04": {
+      "requested_frozen_identity": {
+        "lane_id": "lane-04",
+        "provider": "Z.ai/GLM",
+        "model": "opencode-go/glm-5.3",
+        "effort": "high"
+      },
+      "confirmed_runtime_identity": {
+        "provider": "zai-standard-cn",
+        "model": "glm-5.3-flash",
+        "effort": null,
+        "status": "PROVIDER_AND_MODEL_VERIFIED",
+        "evidence_strength": "PROVIDER_AND_MODEL_RAW_ASSISTANT_MESSAGE",
+        "confirmed_attempt_count": 6,
+        "evidence_attempts": [
+          "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-01/attempt-001",
+          "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-02/attempt-001",
+          "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-03/attempt-001",
+          "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-03/attempt-002",
+          "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-04/attempt-001",
+          "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-05/attempt-001"
+        ]
+      },
+      "classification": "OUT_OF_PROTOCOL_EXPLORATORY_ROUTE_MISMATCH"
+    }
+  },
+  "frozen_cells": [
+    {
+      "cell_id": "lane-01-01",
+      "lane_id": "lane-01",
+      "route_key": "codex",
+      "shard_id": "SHARD-01",
+      "frozen_identity": {
+        "lane_id": "lane-01",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      },
+      "status": "ATTEMPTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 2,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-01-02",
+      "lane_id": "lane-01",
+      "route_key": "codex",
+      "shard_id": "SHARD-02",
+      "frozen_identity": {
+        "lane_id": "lane-01",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      },
+      "status": "ATTEMPTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 2,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-01-03",
+      "lane_id": "lane-01",
+      "route_key": "codex",
+      "shard_id": "SHARD-03",
+      "frozen_identity": {
+        "lane_id": "lane-01",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      },
+      "status": "ATTEMPTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 2,
+      "canonical_valid_candidates": 1,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-01-04",
+      "lane_id": "lane-01",
+      "route_key": "codex",
+      "shard_id": "SHARD-04",
+      "frozen_identity": {
+        "lane_id": "lane-01",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      },
+      "status": "ATTEMPTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 1,
+      "canonical_valid_candidates": 1,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-01-05",
+      "lane_id": "lane-01",
+      "route_key": "codex",
+      "shard_id": "SHARD-05",
+      "frozen_identity": {
+        "lane_id": "lane-01",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      },
+      "status": "ATTEMPTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 1,
+      "canonical_valid_candidates": 1,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-02-01",
+      "lane_id": "lane-02",
+      "route_key": "claude",
+      "shard_id": "SHARD-01",
+      "frozen_identity": {
+        "lane_id": "lane-02",
+        "provider": "Anthropic",
+        "model": "claude-opus-5",
+        "effort": "high"
+      },
+      "status": "ATTEMPTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 2,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-02-02",
+      "lane_id": "lane-02",
+      "route_key": "claude",
+      "shard_id": "SHARD-02",
+      "frozen_identity": {
+        "lane_id": "lane-02",
+        "provider": "Anthropic",
+        "model": "claude-opus-5",
+        "effort": "high"
+      },
+      "status": "ATTEMPTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 2,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-02-03",
+      "lane_id": "lane-02",
+      "route_key": "claude",
+      "shard_id": "SHARD-03",
+      "frozen_identity": {
+        "lane_id": "lane-02",
+        "provider": "Anthropic",
+        "model": "claude-opus-5",
+        "effort": "high"
+      },
+      "status": "UNCALLED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 0,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-02-04",
+      "lane_id": "lane-02",
+      "route_key": "claude",
+      "shard_id": "SHARD-04",
+      "frozen_identity": {
+        "lane_id": "lane-02",
+        "provider": "Anthropic",
+        "model": "claude-opus-5",
+        "effort": "high"
+      },
+      "status": "UNCALLED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 0,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-02-05",
+      "lane_id": "lane-02",
+      "route_key": "claude",
+      "shard_id": "SHARD-05",
+      "frozen_identity": {
+        "lane_id": "lane-02",
+        "provider": "Anthropic",
+        "model": "claude-opus-5",
+        "effort": "high"
+      },
+      "status": "UNCALLED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 0,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-03-01",
+      "lane_id": "lane-03",
+      "route_key": "gemini",
+      "shard_id": "SHARD-01",
+      "frozen_identity": {
+        "lane_id": "lane-03",
+        "provider": "Google",
+        "model": "gemini-3.7-flash-high",
+        "effort": "high"
+      },
+      "status": "ATTEMPTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 2,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-03-02",
+      "lane_id": "lane-03",
+      "route_key": "gemini",
+      "shard_id": "SHARD-02",
+      "frozen_identity": {
+        "lane_id": "lane-03",
+        "provider": "Google",
+        "model": "gemini-3.7-flash-high",
+        "effort": "high"
+      },
+      "status": "ATTEMPTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 2,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-03-03",
+      "lane_id": "lane-03",
+      "route_key": "gemini",
+      "shard_id": "SHARD-03",
+      "frozen_identity": {
+        "lane_id": "lane-03",
+        "provider": "Google",
+        "model": "gemini-3.7-flash-high",
+        "effort": "high"
+      },
+      "status": "UNCALLED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 0,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-03-04",
+      "lane_id": "lane-03",
+      "route_key": "gemini",
+      "shard_id": "SHARD-04",
+      "frozen_identity": {
+        "lane_id": "lane-03",
+        "provider": "Google",
+        "model": "gemini-3.7-flash-high",
+        "effort": "high"
+      },
+      "status": "UNCALLED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 0,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-03-05",
+      "lane_id": "lane-03",
+      "route_key": "gemini",
+      "shard_id": "SHARD-05",
+      "frozen_identity": {
+        "lane_id": "lane-03",
+        "provider": "Google",
+        "model": "gemini-3.7-flash-high",
+        "effort": "high"
+      },
+      "status": "UNCALLED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 0,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": []
+    },
+    {
+      "cell_id": "lane-04-01",
+      "lane_id": "lane-04",
+      "route_key": "glm",
+      "shard_id": "SHARD-01",
+      "frozen_identity": {
+        "lane_id": "lane-04",
+        "provider": "Z.ai/GLM",
+        "model": "opencode-go/glm-5.3",
+        "effort": "high"
+      },
+      "status": "UNEXECUTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 0,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": [
+        "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-01/attempt-001"
+      ]
+    },
+    {
+      "cell_id": "lane-04-02",
+      "lane_id": "lane-04",
+      "route_key": "glm",
+      "shard_id": "SHARD-02",
+      "frozen_identity": {
+        "lane_id": "lane-04",
+        "provider": "Z.ai/GLM",
+        "model": "opencode-go/glm-5.3",
+        "effort": "high"
+      },
+      "status": "UNEXECUTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 0,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": [
+        "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-02/attempt-001"
+      ]
+    },
+    {
+      "cell_id": "lane-04-03",
+      "lane_id": "lane-04",
+      "route_key": "glm",
+      "shard_id": "SHARD-03",
+      "frozen_identity": {
+        "lane_id": "lane-04",
+        "provider": "Z.ai/GLM",
+        "model": "opencode-go/glm-5.3",
+        "effort": "high"
+      },
+      "status": "UNEXECUTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 0,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": [
+        "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-03/attempt-001",
+        "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-03/attempt-002"
+      ]
+    },
+    {
+      "cell_id": "lane-04-04",
+      "lane_id": "lane-04",
+      "route_key": "glm",
+      "shard_id": "SHARD-04",
+      "frozen_identity": {
+        "lane_id": "lane-04",
+        "provider": "Z.ai/GLM",
+        "model": "opencode-go/glm-5.3",
+        "effort": "high"
+      },
+      "status": "UNEXECUTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 0,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": [
+        "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-04/attempt-001"
+      ]
+    },
+    {
+      "cell_id": "lane-04-05",
+      "lane_id": "lane-04",
+      "route_key": "glm",
+      "shard_id": "SHARD-05",
+      "frozen_identity": {
+        "lane_id": "lane-04",
+        "provider": "Z.ai/GLM",
+        "model": "opencode-go/glm-5.3",
+        "effort": "high"
+      },
+      "status": "UNEXECUTED_EXACT_FROZEN_ROUTE",
+      "exact_route_process_invocations": 0,
+      "canonical_valid_candidates": 0,
+      "related_out_of_protocol_process_invocations": [
+        "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-05/attempt-001"
+      ]
+    }
+  ],
+  "pi_calls": [
+    {
+      "attempt_path": "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-01/attempt-001",
+      "classification": "OUT_OF_PROTOCOL_EXPLORATORY_ROUTE_MISMATCH",
+      "transport_schema_status": "SCHEMA_NOT_MODEL_FACING",
+      "response_bearing_event": true,
+      "confirmed_model_identity_event": true,
+      "confirmed_provider_model_identity_event": true,
+      "answer_quality_attribution": false,
+      "downstream_eligible": false
+    },
+    {
+      "attempt_path": "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-02/attempt-001",
+      "classification": "OUT_OF_PROTOCOL_EXPLORATORY_ROUTE_MISMATCH",
+      "transport_schema_status": "SCHEMA_NOT_MODEL_FACING",
+      "response_bearing_event": true,
+      "confirmed_model_identity_event": true,
+      "confirmed_provider_model_identity_event": true,
+      "answer_quality_attribution": false,
+      "downstream_eligible": false
+    },
+    {
+      "attempt_path": "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-03/attempt-001",
+      "classification": "OUT_OF_PROTOCOL_EXPLORATORY_ROUTE_MISMATCH",
+      "transport_schema_status": "SCHEMA_NOT_MODEL_FACING",
+      "response_bearing_event": true,
+      "confirmed_model_identity_event": true,
+      "confirmed_provider_model_identity_event": true,
+      "answer_quality_attribution": false,
+      "downstream_eligible": false
+    },
+    {
+      "attempt_path": "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-03/attempt-002",
+      "classification": "OUT_OF_PROTOCOL_EXPLORATORY_ROUTE_MISMATCH",
+      "transport_schema_status": "SCHEMA_NOT_MODEL_FACING",
+      "response_bearing_event": true,
+      "confirmed_model_identity_event": true,
+      "confirmed_provider_model_identity_event": true,
+      "answer_quality_attribution": false,
+      "downstream_eligible": false
+    },
+    {
+      "attempt_path": "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-04/attempt-001",
+      "classification": "OUT_OF_PROTOCOL_EXPLORATORY_ROUTE_MISMATCH",
+      "transport_schema_status": "SCHEMA_NOT_MODEL_FACING",
+      "response_bearing_event": true,
+      "confirmed_model_identity_event": true,
+      "confirmed_provider_model_identity_event": true,
+      "answer_quality_attribution": false,
+      "downstream_eligible": false
+    },
+    {
+      "attempt_path": "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-05/attempt-001",
+      "classification": "OUT_OF_PROTOCOL_EXPLORATORY_ROUTE_MISMATCH",
+      "transport_schema_status": "SCHEMA_NOT_MODEL_FACING",
+      "response_bearing_event": true,
+      "confirmed_model_identity_event": true,
+      "confirmed_provider_model_identity_event": true,
+      "answer_quality_attribution": false,
+      "downstream_eligible": false
+    }
+  ],
+  "downstream_derivation": {
+    "mechanically_blocked": true,
+    "four_route_consensus_eligible": false,
+    "reference_derivation_eligible": false,
+    "scoring_eligible": false,
+    "adjudication_eligible": false,
+    "formal_comparison_eligible": false
+  },
+  "attempt_lineage": {
+    "file": "ATTEMPT-LINEAGE.json",
+    "sha256": "153ec23b506bc0ccfdbfd6a8322f0b6b06fe35d75351fb5cfb8ec42cd5c10560"
+  },
+  "harness_lineage": {
+    "file": "HARNESS-LINEAGE.json",
+    "sha256": "d46d8188146e685029bfa3f17199748c8b618fc3287ccd070dc99fb0cf5bf314"
+  },
+  "unresolved_provenance": [
+    "Most historical transport-schema preimages are unavailable.",
+    "Historical parser-producing runner-lib revisions are unavailable.",
+    "The frozen run-contract hashes do not bind the current runner-lib.mjs, run.mjs, finalize.mjs, test-runner.mjs, or verify.mjs.",
+    "The contracted historical test-runner.mjs revision is hash-bound by RUN-CONTRACT.json, but its historical preimage bytes are unavailable and unverifiable in this persistent package; exact preimage reconstruction is not claimed."
+  ]
+}

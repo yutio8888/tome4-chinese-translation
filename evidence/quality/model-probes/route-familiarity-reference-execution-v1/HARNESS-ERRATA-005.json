@@ -1,0 +1,15 @@
+{
+  "schema_version": "route-familiarity-reference-harness-errata-v1",
+  "status": "FROZEN_BEFORE_REMAINING_CELL_INFERENCE",
+  "run_contract_sha256": "9e5bcfeef1e81ffdfe31931fb4f247d46567e5db0a90fd3e1f948f743aabcfe9",
+  "shard_01_attempt_002_outcomes": {
+    "codex": "PROVIDER_REJECTED_CANONICAL_SCHEMA_ALLOF_BEFORE_INFERENCE",
+    "claude": "CLI_REJECTED_CANONICAL_SCHEMA_PREFIXITEMS_BEFORE_INFERENCE",
+    "gemini": "SECOND_ZERO_TOKEN_OPAQUE_ERROR; CANONICAL_DIALECT REMAINS THE ONLY OBSERVED COMMON CAUSE"
+  },
+  "max_attempts_exhausted_cells": ["lane-01-01", "lane-02-01", "lane-03-01"],
+  "remaining_cell_transport_view": "Remove schema annotations, response-label allOf, and replace per-position prefixItems with the same referenceItem schema; keep all required keys, const metadata, item count, response fields and label enum. Every candidate is still validated against the byte-exact canonical Draft 2020-12 schema and exact ID/hash order.",
+  "canonical_schema_files_and_hashes_unchanged": true,
+  "request_bytes_unchanged": true,
+  "plan_deviation": "CLI transport schema is a mechanically weakened compatibility view, not byte-identical to the canonical schema. This is necessary because the frozen canonical schema is rejected before inference by Codex and Claude; it is disclosed rather than treated as equivalent-byte transport."
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "route-familiarity-reference-harness-errata-v1",
+  "status": "FROZEN_BEFORE_SHARDS_03_TO_05",
+  "run_contract_sha256": "9e5bcfeef1e81ffdfe31931fb4f247d46567e5db0a90fd3e1f948f743aabcfe9",
+  "route_unavailable_after_bounded_retry": {
+    "claude": "Private-runtime OAuth expired and could not refresh on both shard-02 attempts after exact claude-opus-5 init telemetry",
+    "gemini": "Both shard-02 attempts consumed tokens but returned CANCELED with an empty response; shard-01 also exhausted two pre-generation schema errors"
+  },
+  "codex_shard_02_attempt_002": "Derived schema reached provider, which rejected const-only nodes without explicit type before inference",
+  "codex_remaining_repair": "Mechanically infer and add JSON Schema type beside every const/enum in the compatibility view; canonical schema and request hashes remain unchanged",
+  "glm_shards_01_02": "Both calls verified zai-standard-cn/glm-5.3-flash and completed transport, but returned the same flattened, canonical-schema-invalid answer shape; no retry allowed",
+  "remaining_calls": ["codex shards 03-05", "glm shards 03-05"],
+  "missing_without_call_due_route_unavailability": ["claude shards 03-05", "gemini shards 03-05"]
+}

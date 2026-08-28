@@ -1,0 +1,16 @@
+{
+  "schema_version": "route-familiarity-reference-diagnosis-withdrawal-v1",
+  "status": "WITHDRAWN_AND_CORRECTED",
+  "withdrawn_diagnosis": "HARNESS_ORCHESTRATION_RESULT_LOST_BEFORE_RAW_PERSISTENCE",
+  "affected_attempts": [
+    "attempts/codex-gpt-5.6-sol-high/SHARD-03/attempt-002",
+    "attempts/pi-zai-cn-glm-5.3-flash-high/SHARD-03/attempt-001"
+  ],
+  "corrected_facts": {
+    "codex_acquisition_sha256": "d70e41d4e32796f8548375ee034b64ad461a0dedb7b7d4fa8cc0c6632001716d",
+    "codex_raw_stdout_sha256": "b1af8d94d1ff1593978aee96159a50e380e19725d56438733ff4d5b2d3607485",
+    "glm_acquisition_sha256": "0b123f6cbaba1b8dc13e96b79c4dba8f4030956c9536c3fb2fb68c9dff9f0a6b",
+    "glm_raw_stdout_sha256": "3799a95c9221b36fd5385af830f76f82a446fba00cbdc56ba6f0eb779e6386b9"
+  },
+  "counting_rule": "The complete original attempt artifacts are authoritative. Temporary loss of orchestration output is not an invocation, failure, or retry. A later GLM invocation started solely because of the false diagnosis is identified separately, counted as an actual outbound invocation, and excluded from candidate selection rather than attributed to the original attempt."
+}

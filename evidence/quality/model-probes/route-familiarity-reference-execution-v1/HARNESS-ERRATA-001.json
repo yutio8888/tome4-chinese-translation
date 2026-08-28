@@ -1,0 +1,11 @@
+{
+  "schema_version": "route-familiarity-reference-harness-errata-v1",
+  "status": "FROZEN_BEFORE_PREFLIGHT_RETRY",
+  "failure_class": "OFFLINE_PREFLIGHT_OS_SANDBOX_MOUNT_TARGET",
+  "model_calls_made": 0,
+  "affected_routes": ["codex", "claude", "gemini", "glm"],
+  "observed_failure": "bubblewrap could not bind the private runtime because /runtime did not yet exist in the read-only namespace",
+  "repair": "Create the empty /runtime namespace directory with bubblewrap --dir before binding the private runtime",
+  "retry_reason": "Bounded non-model harness retry; route versions and model availability were not observed in attempt 001",
+  "preflight_attempt_001": "PREFLIGHT-ATTEMPT-001.json"
+}

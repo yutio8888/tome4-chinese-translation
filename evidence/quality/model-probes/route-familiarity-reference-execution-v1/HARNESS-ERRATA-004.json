@@ -1,0 +1,26 @@
+{
+  "schema_version": "route-familiarity-reference-harness-errata-v1",
+  "status": "FROZEN_BEFORE_ATTEMPT_002_INFERENCE",
+  "run_contract_sha256": "9e5bcfeef1e81ffdfe31931fb4f247d46567e5db0a90fd3e1f948f743aabcfe9",
+  "contract_runner_lib_sha256": "81decb55676d38f261c14e4f0cabef3687c79d62af33fb21a45921b643dca57c",
+  "replacement_runner_lib_sha256": "c65ff55a422d8eda8f2fc2ce8642ebeb28fad4321d04fbc326c00ac3545cb24d",
+  "attempt_001_outcomes": {
+    "codex": "CLI_ARGUMENT_ERROR_BEFORE_MODEL_CALL",
+    "claude": "CLI_SCHEMA_DIALECT_ERROR_BEFORE_MODEL_CALL",
+    "gemini": "ZERO_TOKEN_OPAQUE_AGENT_EXECUTION_ERROR",
+    "glm": "TRANSPORT_AND_IDENTITY_SUCCESS_BUT_MODEL_CANDIDATE_SCHEMA_INVALID_NO_RETRY"
+  },
+  "repairs": {
+    "codex": "Move global approval/tool-feature flags before the exec subcommand; keep exact request and canonical schema bytes",
+    "claude": "Use a mechanical schema transport view that removes only the unsupported $schema annotation; validate output against the unchanged canonical schema",
+    "gemini": "Use the same mechanical schema transport view after the zero-token opaque schema-path failure; validate output against the unchanged canonical schema"
+  },
+  "preserved_attempt_001_acquisition_sha256s": {
+    "codex": "cc3c2a26f859a875968b8f4158a39f29a0e0724bbbceda37997d55c29b604cc7",
+    "claude": "7c1ec239a53d2db08acd75fb3d3ab8bb1135ea29896d53261a58f6921e30b813",
+    "gemini": "6ef65e980e6deda74ea4fb070517e4df3384ff0f085f228c0ffdb86db4717e1a",
+    "glm": "15b90274077f44b9a977a3720a094ebbf639dc4be5948cab41a6d0860118f7c7"
+  },
+  "retry_authorization": ["codex/lane-01-01", "claude/lane-02-01", "gemini/lane-03-01"],
+  "model_answer_quality_retry_prohibited": ["glm/lane-04-01"]
+}
