@@ -1,0 +1,1202 @@
+{
+  "schema_version": "neutral-context-presentation-v1",
+  "status": "FROZEN_ZERO_INFERENCE_MODEL_FACING",
+  "counts": {
+    "items": 145,
+    "tasks": 66,
+    "profiles": {
+      "dialogue": {
+        "tasks": 7,
+        "rows": 61
+      },
+      "mechanics": {
+        "tasks": 51,
+        "rows": 63
+      },
+      "ui-log": {
+        "tasks": 7,
+        "rows": 7
+      },
+      "unknown-text": {
+        "tasks": 1,
+        "rows": 14
+      }
+    },
+    "categories": {
+      "Dialogue": {
+        "tasks": 7,
+        "rows": 61
+      },
+      "Runtime-focused": {
+        "tasks": 58,
+        "rows": 70
+      },
+      "Unknown-text": {
+        "tasks": 1,
+        "rows": 14
+      }
+    }
+  },
+  "items": [
+    {
+      "neutral_id": "RFR-0001",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "- will only auto use when no saturation effect exists",
+      "target": "- 只会在没有饱和效果时自动使用。",
+      "bounded_fixed_context": "section=mod-tome/data/talents/misc/inscriptions.lua; source_tag=_t; fixed source evidence: inscriptions.lua:36-40 assigns the same auto_use_warning to inscriptions/infusions, inscriptions/runes, and inscriptions/taints; auto_use_check tests the corresponding EFF_INFUSION_COOLDOWN, EFF_RUNE_COOLDOWN, or EFF_TAINT_COOLDOWN saturation effect before automatic use"
+    },
+    {
+      "neutral_id": "RFR-0002",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "#CRIMSON#%s twitches, alerting %s that a hidden trap is nearby.",
+      "target": "#CRIMSON#%s扭动着，警告%s旁边有隐藏的陷阱。",
+      "bounded_fixed_context": "section=mod-tome/data/general/objects/boss-artifacts-maj-eyal.lua; source_tag=logSeen; fixed source evidence: boss-artifacts-maj-eyal.lua:1619-1633 logs when the worn Lucky Foot detects a hidden nearby trap; first %s is self:getName(), second %s is actor:getName():capitalize()"
+    },
+    {
+      "neutral_id": "RFR-0003",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "#LIGHT_GREEN#No high scores. This should not happen.",
+      "target": "#LIGHT_GREEN#没有最高分。这不应该发生。",
+      "bounded_fixed_context": "section=mod-tome/dialogs/ArenaFinish.lua; source_tag=_t; fixed source evidence: ArenaFinish.lua:31-35 returns this coloured player-visible fallback when scores[1].name is absent"
+    },
+    {
+      "neutral_id": "RFR-0004",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "After the Spellblaze came the Spellhunt, when the normal people rose against the arrogance of the mages and hunted them down like wolves. Some survived and went into hiding, but many innocents were killed.",
+      "target": "魔法大爆炸之后，猎魔行动随之而来。普通民众奋起反抗法师的傲慢，像猎狼一样追杀他们。一些法师幸存下来并躲藏起来，但也有许多无辜者遇害。",
+      "bounded_fixed_context": "section=mod-tome/init.lua; source_tag=init.lua load_tips; fixed source evidence: init.lua:125 is a loading-screen lore tip describing the Spellhunt after the Spellblaze, ordinary people rising against mages' arrogance, hunting them like wolves, surviving mages hiding, and many innocent deaths"
+    },
+    {
+      "neutral_id": "RFR-0005",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Extends the duration of the selected chronomancy spell by %d%%.\n\t\tEach spell can only be spellbound in one way at a time.\n\t\t\n\t\tCurrent Extended Spell: %s",
+      "target": "将选定时空法术的持续时间延长 %d%%。\n\t\t每个法术同时只能通过一种方式获得时空增效。\n\n\t\t当前延展法术：%s",
+      "bounded_fixed_context": "section=mod-tome/data/talents/chronomancy/spellbinding.lua; source_tag=tformat; fixed source evidence: spellbinding.lua:86-95 binds duration percentage first and selected spell name second; each spell can be spellbound only one way"
+    },
+    {
+      "neutral_id": "RFR-0006",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Your melee and ranged attacks have a %d%% chance to shred enemies inflicting an additional 100%% of the damage dealt as a bleed over 4 turns.",
+      "target": "你的近战和远程攻击有 %d%% 的几率撕裂敌人，使其在 4 回合内受到相当于本次伤害 100%% 的额外流血伤害。",
+      "bounded_fixed_context": "section=mod-tome/data/talents/cunning/scoundrel.lua; source_tag=tformat; fixed source evidence: scoundrel.lua:32-52 applies EFF_CUT for 4 turns with power dam/4, totaling the triggering damage; %d is proc chance"
+    },
+    {
+      "neutral_id": "RFR-0007",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Calling upon nature, you cause the ground to erupt in an radius %d acidic explosion, dealing %0.1f acid damage to all creatures and creating mucus in the area.\n\t\tAny Mucus Oozes you have active will, if in line of sight, instantly spit slime (at reduced power) at one of the targets hit by the splash.\n\t\tThe damage increases with your Mindpower.",
+      "target": "你召唤大自然的力量，引发半径 %d 格的酸液爆炸，对所有目标造成 %0.1f 酸性伤害，并在区域内制造粘液。\n\t\t你现有的粘液软泥怪若在视线内，会立即以较低威力向一个被酸液飞溅命中的目标喷吐粘液。\n\t\t伤害受精神强度加成。",
+      "bounded_fixed_context": "section=mod-tome/data/talents/gifts/mucus.lua; source_tag=tformat; fixed source evidence: mucus.lua:110-151 binds radius then acid damage; active Mucus Oozes if in line of sight spit at one splash-hit target at reduced power"
+    },
+    {
+      "neutral_id": "RFR-0008",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Turn into a wraith, passing through walls (but not natural obstacles), granting %d defense and %d armour.",
+      "target": "进入鬼魂形态，可以穿墙（但不能穿过天然障碍），并获得 %d 闪避和 %d 护甲值。",
+      "bounded_fixed_context": "section=mod-tome/data/timed_effects/magical.lua; source_tag=tformat; fixed source evidence: magical.lua:1314-1325 binds defense then armour and grants can_pass pass_wall=20 while excluding natural obstacles"
+    },
+    {
+      "neutral_id": "RFR-0009",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Improves/gives the ability to see invisible and stealthed creatures (power %d).",
+      "target": "提升或获得侦测隐形和潜行生物的能力（侦测强度 %d）。",
+      "bounded_fixed_context": "section=mod-tome/data/timed_effects/magical.lua; source_tag=tformat; fixed source evidence: magical.lua:485-496 binds eff.power and adds it to both see_invisible and see_stealth"
+    },
+    {
+      "neutral_id": "RFR-0010",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target glows in the light, reducing its stealth and invisibility power by %d, defense by %d and looses all evasion bonus from being unseen.",
+      "target": "目标在光明中显形，潜行与隐形强度降低 %d，闪避值降低 %d，并失去因不可见而获得的躲闪优势。",
+      "bounded_fixed_context": "section=mod-tome/data/timed_effects/magical.lua; source_tag=tformat; fixed source evidence: magical.lua:3338-3352 binds stealth/invisibility power then combat defense; blind_fighted bypasses the separate unseen 1-in-3 hit check in class/interface/Combat.lua:510"
+    },
+    {
+      "neutral_id": "RFR-0011",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "His once-shining armour now dull and bloodstained, this Sun Paladin has given in to despair.",
+      "target": "他曾经光亮的盔甲如今已黯淡无光、沾满血迹；这名太阳骑士已经陷入绝望。",
+      "bounded_fixed_context": "section=mod-tome/data/zones/trollmire/npcs.lua; source_tag=_t; fixed source evidence: trollmire/npcs.lua:222-229 is Aluin the Fallen NPC description; dull describes lost shine and bloodstained describes the armour"
+    },
+    {
+      "neutral_id": "RFR-0012",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "This talent allows you to prepare up to %d different trap(s) of tier %d or less for later deployment. (Use this ability to select which to prepare.)\n\t\tDesigns known:\n%s\n\n\t\tTraps prepared this way are difficult to detect (%d detection 'power') and disarm (%d disarm 'power') based on your Cunning.  They gain %+d%% effectiveness, and can be deployed without breaking stealth %d%% of the time.\n\t\tYou are immune to the damage and negative effects of your traps, and traps may critically strike based on your physical crit chance.\n\t\tMost traps last %d turns if not triggered, and refund 80%% of their stamina cost on expiration.\n\t\tMore designs may be discovered via disarming or learned from special instructors in the world.",
+      "target": "该技能允许你最多准备 %d 个不同的陷阱，最高等级为 %d。（使用该技能选择需要准备的陷阱。）\n\t\t已知陷阱：\n%s\n\n\t\t准备好的陷阱更难被发现和解除（侦测强度 %d，解除强度 %d，基于灵巧）。它们的效果提高 %+d%%，且有 %d%% 几率在布设时不打破潜行。\n\t\t你免疫自己陷阱的伤害和负面效果；陷阱可按你的物理暴击率造成暴击。\n\t\t大多数陷阱未触发时持续 %d 回合；到期时返还 80%% 的体力消耗。\n\t\t解除陷阱或向世界各地的特殊导师学习，可以发现更多设计。",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/talents/cunning/traps.lua; source_tag=tformat; fixed source evidence: traps.lua:556-667 binds prepared count, maximum talent tier, design list, detection power, disarm power, effectiveness, stealth deployment chance and duration"
+    },
+    {
+      "neutral_id": "RFR-0013",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "You empathy with your shadows causes the line between you and your shadows to blur.\n\t\tYou lose %d%% light resistance, but gain %d%% darkness resistance and affinity. You also gain %0.2f%% all resistance for each shadow in your party.",
+      "target": "你与阴影之间的共鸣，使彼此的界限逐渐模糊。\n\t\t你的光系伤害抗性变化 %d%%，并获得 %d%% 暗影伤害抗性和伤害吸收。你的队伍里每有一个阴影，就获得 %0.2f%% 所有伤害抗性。",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/talents/cursed/one-with-shadows.lua; source_tag=tformat; fixed source evidence: one-with-shadows.lua:37-92 applies darkness resistance through resists and equal-valued darkness affinity through damage_affinity; each shadow scales all resistance"
+    },
+    {
+      "neutral_id": "RFR-0014",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "You have accumulated an electric charge. Your next melee hit does %d extra lightning damage.",
+      "target": "你积累了静电荷；下一次近战命中将额外造成 %d 点闪电伤害。",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/timed_effects/mental.lua; source_tag=tformat; fixed source evidence: mental.lua:2801-2811 stores eff.power as STATIC_CHARGE; damage_types.lua:3937-3946 accumulates it and Combat.lua:966-973 discharges it on the next successful melee hit"
+    },
+    {
+      "neutral_id": "RFR-0015",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Carved with runes of power, this staff seems to have been made long ago, yet it bears no signs of tarnish.\nLight around it seems to dim and you can feel its tremendous power simply by touching it.\nThe Sorcerers seem to have awakened its power.\n#{italic}#\"And lo they came to Amakthel himself, and thousands were killed in the assault on his throne, and three of the Godslayers were broken beneath his feet. But Falion with his dying breath pierced the great god on his knee with the icy sword Arkil, and seeing his opportunity Caldizar, leader of the Godslayers, advanced with the Staff of Absorption and struck a terrifying blow against Amakthel. So fell the greatest of the gods by the hands of his own children, and his face was forced into the dust.\"#{normal}#",
+      "target": "杖身铭刻着强大的符文。这根法杖似乎铸造于久远年代，却毫无锈蚀的痕迹。\n它周围的光线仿佛也随之暗淡；仅仅触摸它，你就能感受到其中蕴藏的惊人力量。\n巫师们似乎已经唤醒了它的力量。\n#{italic}#“于是，他们来到阿马克泰尔本人面前。数千人在进攻他的王座时丧生，三名弑神者被碾碎在他脚下。然而，法利恩在临终之际用冰剑阿奇尔刺中了伟大神祇的膝盖。弑神者首领凯尔帝勒抓住机会，手持吸能法杖上前，对阿马克泰尔发动了骇人的一击。众神中最强大的存在就这样倒在自己的儿女手中，脸也被压进尘土。”#{normal}#",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/zones/high-peak/objects.lua; source_tag=_t; fixed source evidence: data/zones/high-peak/objects.lua:58-75 defines the Awakened Staff of Absorption description as three prose lines followed by one complete quotation inside paired #{italic}#/#{normal}#; the quote names Amakthel, Falion, Arkil, Caldizar, the Godslayers and the Staff of Absorption"
+    },
+    {
+      "neutral_id": "RFR-0016",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Unleash raw, chaotic elemental damage upon your enemy.\n\t\tYou strike your enemy for %d%% weapon damage in one of blinding sand, disarming acid, freezing and slowing ice, dazing lightning or stunning flames, with equal odds.\n\t\tAdditionally, you will cause a burst that deals %0.2f of that damage to creatures in radius %d, regardless of if you hit with the blow.\n\t\tLevels in Prismatic Slash increase your Physical and Mental attack speeds by %d%%.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+      "target": "向你的敌人释放原始的混乱元素攻击。\n\t\t你会等概率地从致盲之沙、缴械酸雾、可冻结并减速的寒冰、眩晕闪电或震慑之焰中选择一种攻击敌人，造成 %d%% 对应伤害类型的武器伤害。\n\t\t此外，无论你的元素攻击是否命中敌人你都会对 %d 码半径范围内的生物造成 %0.2f 伤害。\n\t\t五灵挥击还会使你的物理和精神攻击速度提升 %d%%。\n\t\t如果你装备了盾牌，这一技能也会用你的盾牌攻击。",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; section=mod-tome/data/talents/gifts/higher-draconic.lua; source_tag=tformat; fixed source evidence: data/talents/gifts/higher-draconic.lua:34-103 uses rng.table over five equal entries; cold branch performs a DamageType.ICE weapon/shield hit and a radius DamageType.ICE_SLOW burst; target args_order={1,3,2,4}"
+    },
+    {
+      "neutral_id": "RFR-0017",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "On using Ghost Walk - Return, you create a portal that summons %d spirits around you for %d turns. The spirits do very little damage, but taunt all enemies in radius 3 into attacking them.",
+      "target": "使用游魂行走——返回时，你会创建一个传送门，并在身边召唤鬼魂；鬼魂会存在 %d 回合，共 %d 个。鬼魂造成的伤害很低，但会嘲讽半径 3 码内的所有敌人，迫使它们攻击鬼魂。",
+      "bounded_fixed_context": "public_source_root=<MAIN_GAME_ROOT>/game/modules/tome; data/talents/spells/spectre.lua:98-147 creates no persistent portal entity and assigns getDuration to each summoned actor's summon_time; info formats spirit count then duration; target args_order={2,1}"
+    },
+    {
+      "neutral_id": "RFR-0018",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Waves of terrible magic burst forth from the portals, which it's now clear were never intended to help us. They were a deadly trap, a ticking time bomb that would go off when the Sher'Tul wanted it to - and it went off with incredible force. Most of the worlds we had once visited were obliterated completely. Ours was not, but I can barely say we were \"spared\"; our Father's jungles turned to a cursed pyre instantly, burning with flame that could never be extinguished, and our planet cracked apart, whole continents flying into the void. What little land was left obviously couldn't be used for farming. Most of us died instantly, the survivors being those close enough to a skilled mage who could create enough oxygen to breathe, and convert ambient magic into caloric energy for our bodies. Life for the survivors was - is - endless torment, the burning ground constantly searing our feet, and all the beauty we once knew destroyed.\n\nFortunately, this woke our Father up. We confessed our treachery, but did not beg forgiveness, as we knew what we had done was unforgivable; he disagreed, and to this day is using nearly every shred of his power to keep the shattered fragments of our planet together. We were not satisfied with this fate, our Father suffering and exhausting himself for the sake of our mistakes. We begged him to give us a command, something we could do to help his situation, or at least make him happier about it.\n\nHis command: End the Sher'Tul. End their creations. Never let anything be hurt by Eyal again.\n\nWe have taken his words to heart. Our mages have devised new magic from old inspiration, alteration spells to make us warlike and brutal once more - but with our ascended minds and honed bodies, we shall be a force of destruction far greater than the dust-storms ever were. Our green bretheren underwent a process to make their skin drip with acid; not to be outdone, our onyx brethren grew faster and stronger, with a birth-rate high enough to overwhelm whatever Sher'Tul or Sher'Tul-made monsters lay on Eyal. The red ones proclaimed they now existed only to destroy, and fused bits of the burnt earth to their hands, leaving them unable to do anything but sear Eyal with its own fires. The finished results of these alterations have taken up residence on our largest drifting continent, the one drawing ever closer to Eyal.\n\nOnce this continent arrives, we shall take revenge on Eyal. Not just for our own sakes, our planet ravaged by their treachery, with a pristine one waiting as our prize. Not just for our Father's sake, condemned to an eternity of suffering for trusting his children too much. But for *everyone's* sake, the untold trillions of souls on planets less fortunate than ours, torn apart in a fiery instant. The Sher'Tul shall never hurt anyone again; we shall make sure of it by cleansing Eyal in blighted fire, and any survivors will be taken back to our planet and chained to the burning earth, kept alive so they can forever feel the flames they created consuming their flesh. Their eternal torture will still not be justice, as they shall feel only a tiny portion of the suffering they inflicted... but it's a start.\n",
+      "target": "很显然，夏·图尔人从来没有真心想要过帮助我们。在那一天，一股可怕的破坏性魔法能量从所有的传送门中放射出来。这一切都是他们设置的死亡陷阱，这些传送门都是具有强大力量的定时炸弹，只要夏·图尔人想要就会随时爆炸。大部分我们曾经访问过的世界几乎被瞬间湮灭。我们的世界仍然残存，但是被强大的爆炸力量炸了个粉碎：我们父亲创造的丛林被魔法能量的诅咒下瞬间变成了冲天的永恒火柱，燃烧的火焰永远无法被任何方法扑灭，我们的星球被炸裂开来，大部分的大陆都被消失在无尽的虚空之中。即使是残留下来的少许土地，也永远无法用于耕种。我们中的大部分人当场死亡。幸存者只是那些离强大法师足够近的人——他们用魔法创造出可供呼吸的氧气，并将周围涌动的魔法能量转化成身体所需的能量。对于这些幸存者来说，生命宛如无尽的折磨，燃烧的大地在我们的脚下灼烧，我们曾见过的一切美好事物都被焚毁殆尽。\n\n幸运的是，这场天灾地变惊醒了我们的父亲。我们为我们背叛的行为深深忏悔，然而我们不是为了乞求原谅，因为我们所做的一切永远没法被原谅。他并不同意，使用了他全部的力量将我们破碎的星球重新维持在了一起。我们对这样不公命运感到十分痛心，我们的父亲因为我们的错误而不得不受尽磨难，却仍然决意为我们付出。我们向他祈求，希望他向我们下达命令。我们愿意做任何我们能做的来帮助他，至少能够让他感到喜悦。\n\n他的命令是：终结夏·图尔人。终结他们的造物。让埃亚尔的住民再也无法危害人间。\n\n我们将他的话铭记在心。我们的法师从过去被我们废弃的法术中获取灵感，创造了新的法术，让我们再一次变得好战和残忍——然而，我们的意志早已变得更加坚定，我们的身体早已锻炼得更加强韧，我们将会成为毁灭一切的力量——比那些过去的尘土风暴更加可怕。我们绿翡翠色的同胞让他们的皮肤上滴落酸液，缟玛瑙之子成长得更快、更强，生育率高到足以压倒埃亚尔上的夏·图尔人和他们创造的一切怪物。红宝石之子更是声称他们唯一存在的意义就是为了毁灭一切，他们将我们星球上永久灼烧的土壤与双手熔接在一起，毕生的精力都将用于以他们的烈火将埃亚尔的一切燃烧殆尽。最终，这些变化了自身的同胞在我们星球飘离在外的最大碎片上定居，而那块碎片正不断漂近埃亚尔。\n\n当这块大陆的碎片降临埃亚尔，我们将开始我们真正的复仇。那不仅仅是为了我们自己的原因：我们的星球被他们的背信弃义所蹂躏，只有将它们的自己完好无损的星球作为战利品才能补偿我们的损失。那不仅仅是为了我们父亲的原因：因为太过信任自己的孩子，他遭受了这样永恒的磨难和苦痛。那是为了世界上的所有人：那些在无数星球上受苦受难的亿万生灵，他们没有像我们那样的幸运，在灾难中瞬间被烈火吞噬。夏·图尔人再也不能这样为害人间，我们将用枯萎之火净化整个埃亚尔。任何残存的生还者将会被带到我们的星球，绑在无尽灼烧的土地上经受永恒的折磨，让他们体会自己所造下的罪孽和折磨降临到自己身上的感觉。即使这样也不足以弥补它们所做的恶行，他们所将经历的只是他们所造成的邪恶的一小部分……但是这将是一个开始。\n",
+      "bounded_fixed_context": "source_tag=_t; unique lore key in tome-ashes-urhrok.lua. Nearby title: history of Mal'Rok (3)=玛·洛克的历史（3）; 缟玛瑙之子. Public source <DLC_ROOT>/ashes-urhrok/tome-ashes-urhrok/data/lore/demon.lua history of Mal'Rok (3): our onyx brethren grew faster and stronger, with a birth-rate high enough to overwhelm whatever Sher'Tul or Sher'Tul-made monsters lay on Eyal. Green brethren acid-drip and red ones fused burnt earth are separate clauses."
+    },
+    {
+      "neutral_id": "RFR-0020",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is on fire, taking %0.2f fire damage per turn. On death, the flame will explode.",
+      "target": "目标着火，每回合受到 %0.2f 火焰伤害。死亡时火焰会以更弱的强度传播到附近目标身上。",
+      "bounded_fixed_context": "EFF_BURNING_PLAGUE.callbackOnDeath in tome-ashes-urhrok/data/timed_effects.lua: on the burning target's death, if eff.explosion is set, it projects over a ball radius eff.range and for each target found (excluding eff.src and any target where eff.hasspread >= eff.spreadcount) calls target:setEffect(target.EFF_BURNING_PLAGUE, eff.spreadlength, {power=eff.power*eff.explosion, hasspread=eff.hasspread+1, ...}) -- applying a NEW burning DoT at explosion-scaled power (0.75x in the world-artifacts.lua usage), capped by a propagation-depth counter (spreadcount=2 hops in that usage). There is no instant damage projector call in this callback, only a particle emitter (visual) and the new DoT application. So 'explode' is spreading a weaker fire DoT, not an instant burst hit."
+    },
+    {
+      "neutral_id": "RFR-0022",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "Open a gateway to the Fearscape, stepping through it to a nearby location. As you step out, a burst of fire will leave with you, dealing %0.2f demonfire damage to everyone within %d spaces and leaving flames which will deal an additional %0.2f demonfire damage over 4 turns.\n\t\tAdditionally, shifting through reality enhances your awareness, allowing you to see all enemies within %d spaces for the next 3 turns.\n\t\tThe damage will scale with your Spellpower and the range will increase with the talent level.",
+      "target": "开启通往恶魔空间的炼狱之门，踏入并传送到附近位置。 \n\t当你踏出炼狱之门时，炼狱之火随之喷发，造成 %0.2f 恶魔之火伤害，伤害 %d 码内所有生物。地上的余烬会造成持续 4 回合的额外 %0.2f 恶魔之火伤害。\n\n\t穿越空间增强了你的直觉，让你能够在 4 回合内觉察到 %d 码内的所有敌对生物。\n \n\t伤害受法术强度加成，范围随技能等级增大。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-ashes-urhrok.lua. Nearby: Fearscape Shift=炼狱之门; ground flames already 持续 4 回合. Public source <DLC_ROOT>/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/fearfire.lua Fearscape Shift action: addEffect(..., 4, DEMONFIRE, dam/4) then setEffect(self.EFF_SENSE, 4, {range=rad, actor=1}). English talent info says sense lasts the next 3 turns."
+    },
+    {
+      "neutral_id": "RFR-0023",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "Select the source:",
+      "target": "选择源生物:",
+      "bounded_fixed_context": "source_tag=logPlayer; unique runtime key in tome-ashes-urhrok.lua. Nearby: Link of Pain=苦痛链接; Select the victim:=选择受害者:; talent info uses 源生物 and 牺牲生物. Public source <DLC_ROOT>/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua Link of Pain action: first logPlayer Select the source: then getTarget stored as target; second Select the victim: stored as victim (must differ). target:setEffect(EFF_LINK_OF_PAIN, ..., {victim=victim, src=self}). timed_effects.lua EFF_LINK_OF_PAIN.callbackOnHit: when that target is hit, eff.victim:takeHit(linked_damage, src)."
+    },
+    {
+      "neutral_id": "RFR-0024",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "collecting wood from fallen and dead trees while planting and cultivating new trees to grow",
+      "target": "从倒下的树木和枯死的树上采集木材",
+      "bounded_fixed_context": "'fallen and dead trees' - old '倒栽树' is a garbled non-word, not a translation of 'fallen'"
+    },
+    {
+      "neutral_id": "RFR-0025",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "I soon learned the tablets I had been given were called manasurge runes",
+      "target": "我很快就知道，我得到的平板被称为法力涌动符文",
+      "bounded_fixed_context": "'manasurge runes' - terminology/items.tsv preferred entity name is 法力涌动符文, matching terminology/talents.tsv Rune: Manasurge = 符文：法力涌动; old used a different rendering 法力风暴符文"
+    },
+    {
+      "neutral_id": "RFR-0026",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "and that they enabled the restoration of mana lines within a person",
+      "target": "它们可以恢复人体内的法力通路",
+      "bounded_fixed_context": "'enabled the restoration of mana lines within a person' = mana lines/pathways, not a numeric 'mana value'"
+    },
+    {
+      "neutral_id": "RFR-0027",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "In their hubris they burned down the building with the arcane powers found within the items therein.",
+      "target": "因为他们的狂妄，他们借助其中物品蕴含的奥术力量烧毁了这座建筑。",
+      "bounded_fixed_context": "'they burned down the building WITH the arcane powers found within the items' - the items' power was the means of arson, not a separate fact discovered afterward"
+    },
+    {
+      "neutral_id": "RFR-0028",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "They publicly executed those who they believed to be the culprits and planted their heads on stakes within the walls of the city.",
+      "target": "他们公开处决了那些他们认为是罪魁祸首的人，并把他们的头插在城墙内的木桩上。",
+      "bounded_fixed_context": "'planted their heads on stakes' = impaled/displayed on stakes, not buried; a nearly identical sentence elsewhere in this file (line 790-792) already correctly uses 插 (impale/insert), confirming consistency"
+    },
+    {
+      "neutral_id": "RFR-0029",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "another ogre continued,",
+      "target": "另一个食人魔很快说道",
+      "bounded_fixed_context": "'another ogre continued' - not 'another commander'"
+    },
+    {
+      "neutral_id": "RFR-0030",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "shaking their hands while making odd gestures with them",
+      "target": "一边挥动双手，一边做着奇怪的手势",
+      "bounded_fixed_context": "'shaking their hands while making odd gestures' during a group war-roar - a personal gesture (waving hands), not mutual handshaking between ogres"
+    },
+    {
+      "neutral_id": "RFR-0031",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "he gave the order to advance and we quickly began to forge ahead",
+      "target": "他下令前进",
+      "bounded_fixed_context": "'gave the order to advance' - advance, not a vague 'trigger'"
+    },
+    {
+      "neutral_id": "RFR-0032",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "We only wanted to help the ogres, you know, and they seem more willing to cooperate now",
+      "target": "我们只是想帮助食人魔",
+      "bounded_fixed_context": "'We only wanted to help the ogres' - not 'the ogre you know'"
+    },
+    {
+      "neutral_id": "RFR-0033",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "though this should have made me strongly fear for my own safety",
+      "target": "尽管这本应让我强烈担心自身安危",
+      "bounded_fixed_context": "fear for one's own safety, not 'strong fear for one's happiness'"
+    },
+    {
+      "neutral_id": "RFR-0034",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "I felt a strange sensation that coursed through every fiber of my being as the dwarf died by my own hand",
+      "target": "我感到一种奇怪的感觉，这种感觉随着矮人死于这一击而贯穿我的每一根纤维",
+      "bounded_fixed_context": "old invented a 'wail passing through my body' not in source; corrected to the feeling of the dwarf's death passing through her"
+    },
+    {
+      "neutral_id": "RFR-0035",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "sparing you was my mistake",
+      "target": "放过我是我的错误",
+      "bounded_fixed_context": "'sparing you was my mistake' - not 'forgiving you was my mistake'"
+    },
+    {
+      "neutral_id": "RFR-0036",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "I struck the halfling in the back",
+      "target": "我立刻击中了半身人的后背",
+      "bounded_fixed_context": "struck the halfling's back, not a vague 'counterattacked'"
+    },
+    {
+      "neutral_id": "RFR-0037",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "the ogre turning the spit",
+      "target": "负责转动烤肉叉的食人魔",
+      "bounded_fixed_context": "the ogre was turning the roasting spit, not spitting"
+    },
+    {
+      "neutral_id": "RFR-0038",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "a cellar that had not been touched since the original shaloren residents had lived here",
+      "target": "自原先的永恒精灵居民居住于此以来一直未被触动",
+      "bounded_fixed_context": "the cellar had been untouched since the original shaloren residents lived there"
+    },
+    {
+      "neutral_id": "RFR-0039",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "foolhardy witch",
+      "target": "鲁莽的女巫",
+      "bounded_fixed_context": "'foolhardy' = reckless, not 'brave'"
+    },
+    {
+      "neutral_id": "RFR-0040",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "also the worst conversationalist I have ever met",
+      "target": "也是我见过的最不会聊天的人",
+      "bounded_fixed_context": "worst at conversation, a negative quality, not 'worst talker' misread as brave/positive"
+    },
+    {
+      "neutral_id": "RFR-0041",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "of the questions she posed to me",
+      "target": "在她提出的这些问题中",
+      "bounded_fixed_context": "the questions were asked by the young mage (her), not the narrator (me)"
+    },
+    {
+      "neutral_id": "RFR-0042",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "I see you are doing alright, you're certainly quite tough thalore",
+      "target": "我看你恢复得不错，你确实很坚强",
+      "bounded_fixed_context": "'I see you are doing alright' is about physical recovery from injury, not general conduct"
+    },
+    {
+      "neutral_id": "RFR-0043",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "which only annoyed me, wishing she was further away",
+      "target": "希望她离我更远些",
+      "bounded_fixed_context": "'wished she was further away' - distance, not 'walk a bit more'"
+    },
+    {
+      "neutral_id": "RFR-0044",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "but you don't seem to have much combat experience",
+      "target": "而且你看起来也没什么战斗经验",
+      "bounded_fixed_context": "the source only states Fay lacks combat experience, with no comparison to the witch"
+    },
+    {
+      "neutral_id": "RFR-0045",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "The words burst from my mouth before I could stop them",
+      "target": "这句话很快就从我口中脱口而出",
+      "bounded_fixed_context": "the words burst out of her mouth, not 'vanished from her mind'"
+    },
+    {
+      "neutral_id": "RFR-0046",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "we perhaps led you to your own [imprisonment]",
+      "target": "我们获准解除监禁时，却可能把你带进了属于你的监禁之中",
+      "bounded_fixed_context": "source (with a grammatical typo in the original) means the ogres, once freed, may have inadvertently led Fay into her own confinement (consistent with her being bedridden for months) - not 'bring you to your own place'"
+    },
+    {
+      "neutral_id": "RFR-0047",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "two officials of Elvala and a cadre of guards",
+      "target": "两名埃尔瓦拉的官员和一队卫兵",
+      "bounded_fixed_context": "'a cadre of guards' is plural, not 'a guard'"
+    },
+    {
+      "neutral_id": "RFR-0048",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "one of the bone giants stepped forward attempting to knock me down",
+      "target": "其中一个骨巨人走上前来，试图把我打倒",
+      "bounded_fixed_context": "source subject is singular ('one of the bone giants'), old made it plural giants trampling"
+    },
+    {
+      "neutral_id": "RFR-0049",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "as I attacked it, this bone giant would also rearrange its bones",
+      "target": "在我攻击它的时候，这个骨巨人也会移动它的骨骼来强化自己",
+      "bounded_fixed_context": "the bone giant is an undead construct, referred to as 'it', not 'she'"
+    },
+    {
+      "neutral_id": "RFR-0050",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "I slowly leaned in, kissing him again",
+      "target": "我慢慢俯身，再次亲吻他",
+      "bounded_fixed_context": "leaning in to kiss, not crouching down"
+    },
+    {
+      "neutral_id": "RFR-0051",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "They possess no cultural identity or history to fall back on and sit on the precipice between the civilised races of Eyal's surface and the horrors of Eyal's underground.",
+      "target": "他们没有文化认同，也没有可供依凭的历史，处在埃亚尔地表的文明种族与地下的恐魔之间。",
+      "bounded_fixed_context": "'sit on the precipice between the civilised races of Eyal's surface and the horrors of Eyal's underground' - the Drem's own existential/categorical position, not their 'civilization's fate hanging' on a cliff"
+    },
+    {
+      "neutral_id": "RFR-0052",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "make there way towards the worms brain cluster and destroy it",
+      "target": "将某一个人传送到蠕虫的大脑里，然后摧毁它的脑簇",
+      "bounded_fixed_context": "'destroy it' refers to the worm's brain cluster specifically"
+    },
+    {
+      "neutral_id": "RFR-0053",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Entropy is a chaotic force that seeks to spread more chaos throughout the universe.",
+      "target": "熵是混乱的能量，它总是在宇宙间不断制造更多的混乱。",
+      "bounded_fixed_context": "'Entropy' as an energy is singular ('it'), not plural"
+    },
+    {
+      "neutral_id": "RFR-0054",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "You have read a tome depicting the first teachings of entropy magic",
+      "target": "你阅读了一本描述了熵魔法最初教诲的古书",
+      "bounded_fixed_context": "'the first teachings of entropy magic' = teachings, not 'source'"
+    },
+    {
+      "neutral_id": "RFR-0055",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Insanity is a measure of their own dementia and makes them more and more chaotic.",
+      "target": "疯狂值衡量着他们自身的痴狂程度，并使他们变得越来越混沌。",
+      "bounded_fixed_context": "'a measure of their own dementia' - specifically dementia, not vague 'psychological changes'"
+    },
+    {
+      "neutral_id": "RFR-0056",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Long ago the mysterious machines that seem to be the source of dwarves malfunctioned",
+      "target": "那些似乎是矮人源头的神秘机器失灵了",
+      "bounded_fixed_context": "'the mysterious machines' is plural"
+    },
+    {
+      "neutral_id": "RFR-0057",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Their wrath is so terrible they can stun their foes with any attacks",
+      "target": "他们的愤怒如此恐怖，任何攻击都能够震慑对手。",
+      "bounded_fixed_context": "'stun their foes with any attacks' = attacks, not 'any damage'"
+    },
+    {
+      "neutral_id": "RFR-0058",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "You have encountered the horror that came out of Kroltar, the mightiest wyrm, and vanquished it.",
+      "target": "你遇到了从最强大的巨龙库洛塔身上产生的恐魔，并击败了它。",
+      "bounded_fixed_context": "'the mightiest wyrm' = mightiest/strongest, not 'most terrifying'"
+    },
+    {
+      "neutral_id": "RFR-0059",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Project slimy tentacles to pull your foes to you",
+      "target": "伸出黏滑的触手，将敌人拉向你",
+      "bounded_fixed_context": "'Project slimy tentacles to pull your foes to you' - dropped 'slimy' and changed 'pull to you' into a directionless 'grab'"
+    },
+    {
+      "neutral_id": "RFR-0060",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Will crumble to dust when read!",
+      "target": "这本书会在阅读后化为尘土！",
+      "bounded_fixed_context": "'Will crumble to dust' = dust, not 'pieces/fragments'"
+    },
+    {
+      "neutral_id": "RFR-0061",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "causing it to spread to nearby enemies",
+      "target": "令其传播至附近的敌人",
+      "bounded_fixed_context": "'causing it to spread to nearby enemies' - clarifies the spread target is enemies"
+    },
+    {
+      "neutral_id": "RFR-0062",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "causing it to apply instantly when you cast another prophecy",
+      "target": "令选中的预言在你施放另一个预言时立即生效",
+      "bounded_fixed_context": "old invented a 'primary target' mechanic detail not present in source; this is a talent mechanic description read by players"
+    },
+    {
+      "neutral_id": "RFR-0063",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Your skin grows small spikes coated in dark blight.\n\t\tWhen you are hit in melee the attacker starts bleeding black blood for 5 turns that deals %0.2f darkness damage each turn. This effect may only happen once per turn.\n\t\tYou are empowered by the sight of the black blood, for each bleeding creature in radius 2 you gain 5%% all resistances, limited to %d creatures.\n\t\tThe damage will scale with your Magic stat.",
+      "target": " 你的皮肤生长出被黑暗和枯萎力量覆盖的尖刺。\n\t\t当你被近战攻击命中时，攻击者开始流出黑血，持续 5 回合，每回合造成 %0.2f 暗影伤害。该效果每回合只能触发一次。\n\t\t同时，目睹黑血会使你受到强化：2 格范围内每个可见的流着黑血的生物，都使你获得 5%% 全部抗性，最多计 %d 个生物。\n\t\t伤害随魔法属性提升。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/talents/misc/races.lua. Fixed source Spikeskin callbackOnMeleeHit applies EFF_SPIKESKIN_BLACK_BLOOD. callbackOnActBase counts visible actors with that effect at distance <= 2, caps at talent level, and sets EFF_SPIKESKIN power=5 per actor; SPIKESKIN applies resists={all=eff.power}."
+    },
+    {
+      "neutral_id": "RFR-0064",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Can walk through walls and quake every turn, %d%% more damage and %d%% more resistances.",
+      "target": "能走过墙体并且每回合引发地震。增加 %d%% 伤害并增加 %d%% 全部抗性。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source CULTS_OVERGROWTH applies inc_damage={all=eff.dam} and resists={all=eff.resist}, in addition to pass-wall movement and quakes on movement."
+    },
+    {
+      "neutral_id": "RFR-0065",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "When this target is damaged %d%% of the damage will also be done to the source of this effect.",
+      "target": "当目标受到伤害时，效果来源也受到目标所受伤害的 %d%%。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed source MARK_OF_TREASON.callbackOnHit calculates linked_damage = cb.value * eff.power / 100, then calls eff.source:takeHit(linked_damage, src). The source therefore receives the configured percentage of damage received by the target."
+    },
+    {
+      "neutral_id": "RFR-0066",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "All cooldowns increased by %d%%.",
+      "target": "所有技能冷却时间增加 %d%%。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed source DECAYING_GROUND.long_desc emits this visible status text. All applies to cooldowns without any category exception."
+    },
+    {
+      "neutral_id": "RFR-0067",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Covered in defiled blood, healing the source for %d%% of all damage done.",
+      "target": "被污血覆盖的目标对效果来源造成伤害时，效果来源恢复该伤害的 %d%%。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. Fixed talent Defiled Blood callbackOnTakeDamage runs on the talent owner: if damage source src has EFF_DEFILED_BLOOD, self:heal(dam * getHeal / 100, src). The marked target therefore damages the effect source, which heals for the configured percentage of that damage."
+    },
+    {
+      "neutral_id": "RFR-0068",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "True power is revealed!\n\nAll debuffs removed and all talent cooldowns reset on application.\n\nEach turn a radius 2 explosion will occur in a random space dealing %0.2f darkness and temporal damage and destroying any diggable walls.",
+      "target": "真正的力量正被揭示！\n\n施加该效果时，移除所有负面效果（“其他”类效果除外）并重置所有技能冷却时间。\n\n每回合，一个半径 2 码的爆炸会在一个随机空间爆发，造成 %0.2f 暗影和时空伤害，并摧毁所有可挖掘的墙。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. HYPOSTASIS_AWAKEN.activate removes detrimental effects except type other and clears talents_cd when applied. on_timeout then creates a radius-2 random explosion each turn with darkness and temporal damage and digs diggable walls."
+    },
+    {
+      "neutral_id": "RFR-0069",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Your body can not function properly here, it is slowly wasting away. Each turn you take %0.2f void damage and any new debuff on you lasts %d%% longer. Each turn those penalties increase until the effect is removed.",
+      "target": "你的身体无法正常运转，被逐渐损耗。每回合你受到 %0.2f 虚空伤害，任何新施加的负面效果（“其他”类效果除外）持续时间延长 %d%%。每回合这些惩罚都会增长，直到效果结束。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. TOTAL_COLLAPSE ticks VOID damage, then increases both damage and debuff duration penalty. callbackOnTemporaryEffect only extends a newly applied effect when status is detrimental and type is not other."
+    },
+    {
+      "neutral_id": "RFR-0070",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "All damages except physical reduced by %d as long as %s is alive.",
+      "target": "只要%s还存活，受到的所有非物理伤害降低 %d 点。",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=tformat. HORRIFIC_FORTRESS.activate sets flat_damage_armor={all=eff.power,[DamageType.PHYSICAL]=-eff.power}, so the holder receives a fixed reduction to every non-physical damage type while eff.src is alive."
+    },
+    {
+      "neutral_id": "RFR-0071",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is overwhelmed by voices from the void, giving them a 20%% higher chance to spawn hallucinations from Dark Whispers and causing them to take an additional %d%% temporal damage from Dark Whispers and Hideous Visions.",
+      "target": "目标被虚空之声淹没 , 让他们从黑暗低语中产生幻觉的几率增加 20%%，并使他们从黑暗低语和失智冲击中受到额外 %d%% 时空伤害。",
+      "bounded_fixed_context": "Cacophony applies to targets already under Dark Whispers. EFF_DARK_WHISPERS.on_timeout adds temporal damage when EFF_CACOPHONY is present. On a Hideous Visions hallucination death, the SANITY_WARP branch also adds temporal damage when EFF_CACOPHONY is present. EFF_HIDEOUS_VISIONS itself only reduces damage dealt. In both paths cdam is ceff.power multiplied by the underlying damage."
+    },
+    {
+      "neutral_id": "RFR-0072",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is removed from the normal time stream, unable to act but unable to take any damage. Each turn, negative effects and cooldowns will decrease in duration.",
+      "target": "目标从常规时间流中移除，无法行动，免疫伤害。暂停结束时，非“其他”类且不会在无时间状态下自行衰减的负面效果，以及技能冷却时间会缩短。",
+      "bounded_fixed_context": "EFF_SUSPEND_BEN.deactivate iterates effects only when not tick_on_timeless, status is detrimental, and type is not other; it subtracts eff.power from their durations. It separately subtracts eff.power from every active talent cooldown. The shortening occurs when Suspend deactivates."
+    },
+    {
+      "neutral_id": "RFR-0073",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.",
+      "target": "目标将自身的命运和另一个人相连，当它死亡时，选择的目标将代替它死亡。 此时，自身的幸运层数和所选目标身上的不幸层数会被消耗；若所选目标有不幸，则按其层数治疗，否则按自身的幸运层数治疗，每层恢复 %d 点生命。",
+      "bounded_fixed_context": "Fatebreaker is applied to the caster and stores the selected target. On fatal damage it consumes the holder EFF_FORTUNE and selected target EFF_JINX. Healing is assigned from holder Fortune first, then overwritten by selected-target Jinx if present; both effects are removed when present."
+    },
+    {
+      "neutral_id": "RFR-0074",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target has %d increased saves and defense, and %d%% increased critical chance.",
+      "target": "目标豁免和闪避增加 %d（仅 1 层时实际降低，2 层起才如数增加），暴击率增加 %d%%（始终增加）。",
+      "bounded_fixed_context": "EFF_FORTUNE in tome-cults/data/timed_effects.lua: activate() sets combat_def/combat_mentalresist/combat_spellresist/combat_physresist to -eff.power*eff.stacks (negative) on first application; combat_physcrit/combat_spellcrit/combat_mindcrit stay positive (eff.crit*eff.stacks) in activate. on_merge() (2nd+ stack) sets all six stats positive using stackCount. Sibling EFF_JINX activate()/on_merge() both consistently use negative sign for the same six stats, confirming FORTUNE activate is an isolated asymmetry, not a deliberate two-branch design. Net effect: while the target holds exactly 1 Fortune stack, saves/defense are reduced by the displayed %d even though crit is genuinely increased by %d%%; from 2 stacks onward saves/defense also become a real increase."
+    },
+    {
+      "neutral_id": "RFR-0075",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "%d%% chance to stun any foes hit.",
+      "target": "%d%% 几率震慑被击中的敌人；每回合第一次符合条件的命中必定触发震慑，不受该几率限制；之后的命中按该几率判定，且同一目标每回合最多被震慑一次。",
+      "bounded_fixed_context": "EFF_KROG_WRATH.callbackOnDealDamage in tome-cults/data/timed_effects.lua: if not target:canBe(\"stun\") return; if self.turn_procs.krog_wrath and not rng.percent(eff.power) then return end — this rng check only runs once turn_procs.krog_wrath is already truthy, i.e. only for the 2nd+ qualifying hit this turn; the first qualifying hit each turn skips the roll and always proceeds. self.turn_procs.krog_wrath[target.uid] additionally blocks a second stun on the same target within the same turn regardless of roll. T_KROG_WRATH.info in data/talents/misc/races.lua already states this in the talent tooltip: \"%d%% chance (100%% for the first creature hit each turn) to stun them for 3 turns. This effect can only stun a creature once per turn.\" The EFF_KROG_WRATH status long_desc (the buff-icon tooltip shown while the effect is active, separate string from the talent info) omits both the guaranteed-first-hit and once-per-target-per-turn facts."
+    },
+    {
+      "neutral_id": "RFR-0079",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Linked to their horror ally gaining %d%% all damage resistance.",
+      "target": "和恐魔建立链接，获得 %d%% 全部抗性。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source WTW_SHARED_INSANITY applies resists={all=eff.resist}; terminology/combat.tsv maps resists.all / All Resists to 全部抗性."
+    },
+    {
+      "neutral_id": "RFR-0080",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Empowered by the sight of black blood, granting %d%% all resistances.",
+      "target": "目睹黑血时受到强化，获得 %d%% 全部抗性。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source SPIKESKIN applies resists={all=eff.power}; terminology/combat.tsv maps resists.all / All Resists to 全部抗性."
+    },
+    {
+      "neutral_id": "RFR-0081",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "%d stacks, +%d%% to all damage dealt.",
+      "target": "%d 层, +%d%% 所有造成的伤害。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source CHAOS_ORBS is beneficial and applies inc_damage={all=eff.stacks*3}."
+    },
+    {
+      "neutral_id": "RFR-0082",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "%d pustules increasing resistance by %d%%.",
+      "target": "%d 脓包，增加 %d%% 全部抗性。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. Fixed source PUTRESCENT_PUSTULE updates temporary resists with {all=new_eff.stacks * new_eff.power}."
+    },
+    {
+      "neutral_id": "RFR-0083",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Reduces all damage taken by %d%%.",
+      "target": "减少 %d%%所有受到的伤害。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. WARBORN applies resists={all=eff.power}."
+    },
+    {
+      "neutral_id": "RFR-0084",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Reduces all damage taken by %d%% and remove all detrimental effects on application.",
+      "target": "降低所有受到的伤害 %d%%。施加该效果的时候会解除所有负面效果",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. GASTRIC_WAVE_BUFF applies resists={all=eff.power} and removes detrimental effects on application."
+    },
+    {
+      "neutral_id": "RFR-0085",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Reduces all damage done by %d%% and increase all detrimental effects durations by 6 turns on application.",
+      "target": "降低所有造成的伤害 %d%%。施加该效果的时候会将所有负面效果持续时间延长6回合。",
+      "bounded_fixed_context": "translation: tome-cults.lua; source_tag=tformat; section=tome-cults/data/timed_effects.lua. GASTRIC_WAVE_DEBUFF applies inc_damage={all=-eff.power} and extends detrimental-effect durations on application."
+    },
+    {
+      "neutral_id": "RFR-0086",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "%s talent '%s%s' is energized by the revelation!",
+      "target": "启示使%s技能'%s%s'的冷却时间缩短了！",
+      "bounded_fixed_context": "translation: tome-cults.lua; section=tome-cults/data/timed_effects.lua; source_tag=logSeen. Fixed source PROPHECY_OF_MADNESS.callbackOnTalentPost selects a non-fixed-cooldown talent from eff.src.talents_cd, calls eff.src:alterTalentCoolingdown(tid, -eff.cd), then emits this log. The log therefore names a selected talent whose cooldown is shortened by revelation."
+    },
+    {
+      "neutral_id": "RFR-0087",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "%s rends the essence of %s, restoring %d void shards!",
+      "target": "%s撕裂了%s的精华，恢复%d个虚空之星!",
+      "bounded_fixed_context": "source_tag=logSeen; unique runtime key in tome-cults.lua. Nearby: Void Stars=虚空之星; Essence Reave talent info already 获得 %d 虚空之星. Core ToME Void Shards is a different summon (虚空碎片). Public source <DLC_ROOT>/cults/tome-cults/data/talents/demented/void.lua Essence Reave: if T_VOID_STARS active, p.nb = min(nb, 4-p.nb)+p.nb then this log. English says void shards; code restores Void Stars stacks."
+    },
+    {
+      "neutral_id": "RFR-0088",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and papers.  You feel the guardian of this place grow in power.",
+      "target": "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。你感受到这个地方的守护者的移动速度增加了。",
+      "bounded_fixed_context": "source_tag=say; unique runtime key in tome-cults.lua. Nearby: book of binding=绑定之书; shriek-only #YELLOW# line unchanged. Public source <DLC_ROOT>/cults/tome-cults/data/zones/ft-horrors/grids.lua BOOK_OF_BINDING on_move: after last invulnerable layer removed, bignews:say this line then m.movement_speed = m.movement_speed + 0.5. English grow in power; code is movement speed."
+    },
+    {
+      "neutral_id": "RFR-0089",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "You require a mutated hand!",
+      "target": "你需要异变之手！",
+      "bounded_fixed_context": "source_tag=logPlayer; unique runtime key in tome-cults.lua. Nearby: Constrict=缠绕; Mutated Hand=异变之手; separate empty-offhand log 你需要副手空手才能使用触手. Public source <DLC_ROOT>/cults/tome-cults/data/talents/demented/tentacles.lua Mutated Hand mode=passive; Constrict logs You require a mutated hand! when getTentacleCombat is nil. 开启 implied activating a talent."
+    },
+    {
+      "neutral_id": "RFR-0090",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "victorious over Sun Paladins and Atmos alike",
+      "target": "战胜了太阳骑士和气之部族",
+      "bounded_fixed_context": "victorious over Sun Paladins and Atmos alike -> terminology/society.tsv Atmos Tribe=气之部族 (was 蒸汽巨人, wrong faction name)"
+    },
+    {
+      "neutral_id": "RFR-0091",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Get someone on that, post-haste!",
+      "target": "快叫人来处理，马上！",
+      "bounded_fixed_context": "'Get someone on that' = assign someone to fix the tea-maker, not 'send someone upstairs'"
+    },
+    {
+      "neutral_id": "RFR-0092",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "This could only be the Eye of Amakthel Himself!",
+      "target": "这只能是阿马克泰尔本人的眼睛！",
+      "bounded_fixed_context": "'This could only be the Eye of Amakthel Himself!' - the object IS Amakthel's own eye, not 'the power of the Eye's main body'"
+    },
+    {
+      "neutral_id": "RFR-0093",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "A BETTER NEW MIND.",
+      "target": "一个更美好的全新心智。",
+      "bounded_fixed_context": "'A BETTER NEW MIND' = mind, not soul"
+    },
+    {
+      "neutral_id": "RFR-0094",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "the power that shall now lead me to my rightful place over the Giants, the Orcs, and Nature itself!",
+      "target": "这种力量，将会带领我们登上凌驾于巨人、兽人乃至自然本身之上的应有位置！",
+      "bounded_fixed_context": "'rightful place over the Giants, the Orcs, and Nature itself' = dominance above them, not winning a place back FROM them"
+    },
+    {
+      "neutral_id": "RFR-0095",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "i can't keep stalling the conquest",
+      "target": "我不能继续拖延征服大业",
+      "bounded_fixed_context": "'i can't keep stalling the conquest' (panicked inner monologue) = can't keep delaying, not 'can't give up the expedition plan'"
+    },
+    {
+      "neutral_id": "RFR-0096",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "The cracks on Mal'Rok and the other Spellblaze-blasted planets in other systems are still slowly fading",
+      "target": "玛·洛克以及其他星系里被魔法大爆炸轰击的行星上的裂缝，仍在慢慢消散。",
+      "bounded_fixed_context": "'The cracks on Mal'Rok and the other Spellblaze-blasted planets' = cracks ON the planets, not cracks surrounding them"
+    },
+    {
+      "neutral_id": "RFR-0097",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "No charge from me - if you accept it, it'll pay for itself.",
+      "target": "我不收你的钱——只要你愿意用，这笔投入很快就能回本。",
+      "bounded_fixed_context": "'if you accept it, it'll pay for itself' = the item/deal pays for its own cost, not 'it benefits me a lot'"
+    },
+    {
+      "neutral_id": "RFR-0098",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "we're still losing a few letters going through the mailing system",
+      "target": "我们的邮递系统仍然会丢失几封信",
+      "bounded_fixed_context": "'we're still losing a few letters' = a few, not 'large amounts of mail'"
+    },
+    {
+      "neutral_id": "RFR-0099",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "a rotting human hand in a black leather glove, severed at the wrist",
+      "target": "一只被黑色皮手套包裹的腐烂的人手，手腕被切断了",
+      "bounded_fixed_context": "'a rotting human hand' = one hand (severed at the wrist, singular), not 'a pair of hands'"
+    },
+    {
+      "neutral_id": "RFR-0100",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "It also committed its lot of atrocities and destructions.",
+      "target": "你的种族也曾犯下许多暴行，造成无数破坏。",
+      "bounded_fixed_context": "'It also committed its lot of atrocities and destructions' - old invented '复仇' (revenge), not in source"
+    },
+    {
+      "neutral_id": "RFR-0101",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "All their strongholds in Var'Eyal have been destroyed either by the Sunwall or the one you name the Scourge of the West.",
+      "target": "你们在瓦·埃亚尔所有的据点不是被太阳堡垒摧毁，就是被你们称作西方灾星的那个人摧毁。",
+      "bounded_fixed_context": "'destroyed either by the Sunwall or the one you name the Scourge of the West' - old changed either/or to 'and', invented 'almost', dropped 'the one you name'"
+    },
+    {
+      "neutral_id": "RFR-0102",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "the peninsula itself is home to an advanced race of aggressive giants who mastered steam technology",
+      "target": "半岛本身则居住着一个掌握先进蒸汽科技、充满侵略性的巨人种族",
+      "bounded_fixed_context": "'an advanced race of aggressive giants who mastered steam technology' - old invented '智慧' (wise/intelligent), not a separate quality in source"
+    },
+    {
+      "neutral_id": "RFR-0103",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "the giants have dug a tunnel through the mountains right into Kruk, pouring out of it to end the Pride once and for all while the bulk of Kruk forces are away",
+      "target": "巨人从山脉中挖出了一条直通克鲁克的隧道，正从中涌出，要在克鲁克的大部分军队离开时一劳永逸地终结这个部落。",
+      "bounded_fixed_context": "'pouring out of it to end the Pride... while the bulk of Kruk forces are away' - restores the giants pouring out of the tunnel imagery"
+    },
+    {
+      "neutral_id": "RFR-0104",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "They must be stopped at any cost, if Kruk falls the Orc race dies with it.",
+      "target": "必须不惜一切代价阻止他们；如果克鲁克沦陷，兽人种族也将随之灭亡。",
+      "bounded_fixed_context": "'They must be stopped' = stopped/repelled, not '终结' (eliminated/ended)"
+    },
+    {
+      "neutral_id": "RFR-0105",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "highly evolved bipedal animals they still lack true sentience",
+      "target": "他们仍然缺乏真正的意识",
+      "bounded_fixed_context": "'lack true sentience' = sentience/consciousness, not '智力' (intelligence)"
+    },
+    {
+      "neutral_id": "RFR-0106",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "transferring their own mind into them to increase the Pride's fighting power",
+      "target": "将他们自己的意识转移进去来强化部落的战斗力",
+      "bounded_fixed_context": "'transferring their own mind into them' = mind, not '灵魂' (soul)"
+    },
+    {
+      "neutral_id": "RFR-0107",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Psionics without a living mind was never thought possible.",
+      "target": "没有生命心智的灵能从未被认为可能存在。",
+      "bounded_fixed_context": "'Psionics without a living mind was never thought possible' - old completely changed the subject to 'machine-triggered psionics'"
+    },
+    {
+      "neutral_id": "RFR-0108",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "You have found extremely old machines powered by advanced psionics and technology.",
+      "target": "你找到了一些由先进灵能与科技驱动的极其古老的机器。",
+      "bounded_fixed_context": "'extremely old machines' is plural and 'advanced', old said a single plain old machine"
+    },
+    {
+      "neutral_id": "RFR-0109",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "Enter a psionic gestalt with your steam generators, boosting them",
+      "target": "与你的蒸汽发生器进入灵能格式塔，从而强化它们。",
+      "bounded_fixed_context": "'Enter a psionic gestalt with your steam generators, boosting them' - 'them' = the generators, not the character"
+    },
+    {
+      "neutral_id": "RFR-0110",
+      "category": "Dialogue",
+      "profile": "dialogue",
+      "source": "At this point, it should go without saying that reckless use of magic is a dire threat to...  everything, more or less.",
+      "target": "说到这里，鲁莽地使用魔法是对……世间一切的可怕威胁，这一点本应不言自明。",
+      "bounded_fixed_context": "'reckless use of magic is a dire threat to... everything, this should go without saying' - old inverted this into 'we must ABANDON the view that magic is dangerous', contradicting the rest of the passage which argues magic IS dangerous"
+    },
+    {
+      "neutral_id": "RFR-0111",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Affected by toxic chemicals. Has %d%% talent failure, %d%% reduced healing, and takes %0.2f additional acid damage from melee and ranged attacks.",
+      "target": "被有毒化学物质影响。 %d%% 技能失败率，降低 %d%% 治疗效果，每回合第一次被带有武器类型的近战或远程攻击命中时，受到额外 %0.2f 酸性伤害。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Miasma=瘴气. The cloud string on the previous key is a different entry and was not changed. EFF_MIASMA.callbackOnHit (timed_effects/physical.lua) returns unless src.turn_procs.weapon_type and not self.turn_procs.miasma, then sets self.turn_procs.miasma and projects acid. T_MIASMA_ENGINE info says the first time each turn a melee or ranged attack hits."
+    },
+    {
+      "neutral_id": "RFR-0112",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "%d corrosive flechettes are embedded in the target. Each melee and ranged attack against them will cause a flechette to burst for %0.2f acid damage",
+      "target": "目标体内嵌有 %d 枚腐蚀性毒镖。敌方单位的近战或远程攻击命中目标时，其中一枚毒镖会爆裂，造成 %0.2f 点酸性伤害。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Corrosive Flechette=腐蚀性毒镖. EFF_CORROSIVE_FLECHETTE.callbackOnMeleeHit/callbackOnArcheryHit (timed_effects/physical.lua) burst one flechette and skip if src==self, src dead, self:reactionToward(src)>=0, or src is not an actor. Automated Defenses boltgun (talents/steam/heavy-weapons.lua) applies the effect only when the shield attack hit is true."
+    },
+    {
+      "neutral_id": "RFR-0114",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "All resistances increased by %d%%, randomly attacks two foes each turn at random.",
+      "target": "全部抗性提高 %d%%，两把蒸汽枪每回合各自随机选择一名敌人攻击（可能攻击同一目标），持有者被缴械。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Awesome Toss=致命翻转. EFF_AWESOME_TOSS.activate (timed_effects/physical.lua) sets resists.all and disarmed. callbackOnActBase independently rng.table-picks a hostile for main steamgun and offhand steamgun, so both shots may hit the same actor. T_AWESOME_TOSS info says you are disarmed and cannot attack. All Resists terminology is 全部抗性 (resists.all), not 全体抗性."
+    },
+    {
+      "neutral_id": "RFR-0115",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target has been impregnated with %d developing ritch larvae which are feeding on it%s.  After a %d turn gestation period, each will burst out violently, dealing %0.2f physical and %0.2f fire damage to its host.",
+      "target": "目标被 %d 个里奇幼虫寄生%s。在%d回合的发育期结束后，每个幼虫都会从寄主体内猛烈破体而出，对宿主造成 %0.2f 物理和 %0.2f 火焰伤害；即使效果提前解除，幼虫仍可能以较低强度破体而出并生成幼虫。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Larvae Infestation=里奇幼虫寄生; developing =正在生长的; A %s BURSTS OUT of %s%s. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_RITCH_LARVA_EGGS.deactivate: if prematurely removed (eff.dur>=0) hatch chance is below 100% and strength is reduced; each larva still rng.percent(chance) may deal moltenrock damage and spawn a ritch larva NPC in an adjacent tile. NPC apply path <DLC_ROOT>/orcs/tome-orcs/data/talents/misc/npcs.lua Ritch Larva Infect sets the effect on a living target after a melee hit."
+    },
+    {
+      "neutral_id": "RFR-0116",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Increases steamsaw damage multiplier by %d%%.",
+      "target": "当前使蒸汽链锯伤害增加 %d%%；每回合首次近战命中指定目标时提高此加成，命中其他敌人则效果结束。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Continuous Butchery=无尽屠戮. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_CONTINUOUS_BUTCHERY: activate immediately applies current steamsaw_dam_mult from eff.power; callbackOnMeleeAttack miss does nothing, a hit on a different actor removes the effect, and the first successful melee hit each turn on the designated target increases eff.power by power_inc. Combat path <DLC_ROOT>/orcs/tome-orcs/superload/mod/class/interface/Combat.lua adds steamsaw_dam_mult/100 only for steamsaw weapons. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/automated-butchery.lua Continuous Butchery sets designated target plus initial/increment for 5 turns."
+    },
+    {
+      "neutral_id": "RFR-0117",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Deals %0.2f occult damage per turn and each time a talent is used, the caster regens one turn of a random cooldown.",
+      "target": "每回合施加者沿至多10格的链接射线，对射线上的生物造成 %0.2f 玄机伤害；施加者不存在或距离超过10格时效果结束且不造成伤害；目标使用非固有技能时，施加者优先随机缩短一个冷却中的科技法术1回合，没有则随机缩短一个冷却中的法术1回合。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Ethereal Steam=虚幻蒸汽; technomancy=科技法术. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/magical.lua EFF_ETHEREAL_STEAM: callbackOnTalentPost ignores innate talents then randomly reduces one cooling-down is_technomancy talent by 1, else falls back to is_spell; on_timeout removes the effect with no damage if caster missing or distance>10, otherwise projects a range-10 occult beam to the host. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/spells/occult-technomancy.lua Ethereal Steam on hostiles with Congeal Time. Random pick among matching cooldowns is talentCooldownFilter in <MAIN_GAME_ROOT>/game/modules/tome/class/Actor.lua."
+    },
+    {
+      "neutral_id": "RFR-0118",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "You have %d%% chances to encase your foes in iceblocks.",
+      "target": "你造成伤害时有 %d%% 几率将敌人封入冰块 3 回合；效果持续期间，冰块吸收的伤害降低 50%。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Algid Rage=寒冰之怒. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_ALGID_RAGE: callbackOnDealDamage skips already-dead targets then rng.percent(eff.power) applies EFF_FROZEN for 3 turns; activate sets iceblock_pierce to 50. Core combat <MAIN_GAME_ROOT>/game/modules/tome/class/Actor.lua reduces iceblock absorb by iceblock_pierce percent, so 50 means iceblocks absorb 50% less from this actor. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/misc/races.lua Algid Rage for 5 turns."
+    },
+    {
+      "neutral_id": "RFR-0119",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Continuously drain blood, dealing %0.2f physical damage per turn and healing the caster for half of it.",
+      "target": "持续汲取目标的鲜血，每回合造成 %0.2f 点物理伤害；若施加者距离过远、死亡或不在场，链接立即断开且本回合不造成伤害；造成伤害后，施加者获得相当于该伤害一半的治疗，同回合每多一个目标，治疗量在前一目标基础上再减半。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Bloodstar=血液灵晶. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_BLOODSTAR.on_timeout: if distance to caster >= eff.free, or caster is dead or not on the map, the effect is removed and this turn deals no damage; otherwise physical damage is dealt and caster heals realdam * 0.5^n with n starting at 1 this turn, so first victim heals half and each additional same-turn victim is halved again. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/mechstar.lua Bloodstar.applyOn via Metalstar; eff.free is twice Metalstar radius."
+    },
+    {
+      "neutral_id": "RFR-0120",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Storing damage to unleash as a powerful lightning bolt (%d/%d).",
+      "target": "已格挡伤害可累积至上限，准备放出强力闪电（%d/%d）。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Capacitor Discharge=电力放出; lightning=闪电. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/other.lua EFF_CAPACITOR_DISCHARGE: long_desc shows current power over max_power; on_merge adds successive power and caps at max_power. Apply path <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/magnetism.lua Capacitor Discharge callbackOnBlock sets power to the actual blocked amount. Damage type is LIGHTNING."
+    },
+    {
+      "neutral_id": "RFR-0121",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "All stats increased by %d.",
+      "target": "除力量外的所有属性增加 %d。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Pain Enhancement System=痛苦强化系统; #Target# revels in the pain.=#Target# 在苦痛中狂欢。 EFF_PAIN_ENHANCEMENT_SYSTEM.activate (tome-orcs/data/timed_effects/physical.lua) sets inc_stats only for STAT_DEX/MAG/WIL/CUN/CON; STAT_STR is absent. Granting talent T_PAIN_ENHANCEMENT_SYSTEM info (talents/uber/str.lua) says: increasing all your primary stats except Strength by 50% of your Strength for 6 turns. English key occurs once in pinned Orcs source (this long_desc)."
+    },
+    {
+      "neutral_id": "RFR-0122",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is surrounded by a magical steam shield, absorbing %d/%d damage and burning attackers for %d fire damage before it crumbles.",
+      "target": "目标被魔法蒸汽护盾包围，吸收 %d/%d 伤害，并在攻击者近战命中时对其造成 %d 点火焰反击伤害。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Steam Shield=蒸汽护盾. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/magical.lua EFF_STEAM_SHIELD.activate registers on_melee_hit fire damage of eff.retaliate; ranged hits do not trigger. Item apply <DLC_ROOT>/orcs/tome-orcs/data/general/objects/world-artifacts.lua personal steam barrier."
+    },
+    {
+      "neutral_id": "RFR-0123",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "If life is brought below 0, cancels the attack, heals for %d and deals %0.2f lightning damage in radius %d as well as dazing for 2 turns.",
+      "target": "若生命值降至 0 以下，则取消此次攻击、恢复 %d 点生命值，并在 %d 格范围内造成 %0.2f 点闪电伤害，同时使目标眩晕 3 回合。",
+      "bounded_fixed_context": "source_tag=tformat with reorder {1,3,2} so Chinese placeholders are life, radius, damage. Unique runtime key in tome-orcs.lua. Nearby: AED=电击除颤器. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_AED.callbackOnHit projects DamageType.LIGHTNING_DAZE with {dam=eff.damage, daze=100}; daze=100 is a 100% chance, no daze_duration is passed. Core <MAIN_GAME_ROOT>/game/modules/tome/data/damage_types.lua LIGHTNING_DAZE applies EFF_DAZED for (dam.daze_duration or 3). Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/gadgets.lua AED info already says 3 turns. The English status key still says 2 turns; Chinese follows the effect code, not the English key wording."
+    },
+    {
+      "neutral_id": "RFR-0124",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.",
+      "target": "进入自动修复模式，无法行动，但生命恢复速率增加 %d ，生命值回满时立即结束该模式，全部抗性提升 %d%%，死亡生命下限为 -%d 。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Automated Repair System=自动修复系统. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/other.lua EFF_AUTOMATED_REPAIR_SYSTEM: activate sets never_act, life_regen, resists.all, and a negative die_at; on_timeout removes the effect when self.life == self.max_life. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/mecharachnid.lua Automated Repair System on lethal incoming hit. All Resists terminology is 全部抗性 (resists.all)."
+    },
+    {
+      "neutral_id": "RFR-0125",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is covered in burning chemicals, taking %0.2f fire damage each turn. Subsequent shots deal %0.2f fire damage, and if they fall below 25%% life they have a %d%% chance to panic.",
+      "target": "目标被燃烧的化学物质所覆盖，每回合受到 %0.2f 火焰伤害。之后的射击会立即造成 %0.2f 火焰伤害；施加者死亡后，该效果会在目标下次行动时结束。若目标生命值低于 25%% 且能够行动，则有 %d%% 的几率慌乱逃跑。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Burning Phosphorous=燃烧的磷. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_BURNING_PHOSPHOROUS: on_timeout deals fire damage each turn; on_merge immediately deals initdam fire and refreshes duration to 3 turns; callbackOnAct removes the effect when eff.src.dead; panic check only if life/max_life < 0.25 and enoughEnergy, then %d%% flee (resistable via mental save / fear immunity). Apply path <DLC_ROOT>/orcs/tome-orcs/data/damage_types.lua PHOSPHOROUS projector if attacker knows Incendiary Powder. fire=火焰."
+    },
+    {
+      "neutral_id": "RFR-0126",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Hovering in place, gaining %d%% evasion, %d%% movement speed and launching a powerful rocket barrage each turn.",
+      "target": "目标悬浮在空中，获得 %d%% 躲闪概率， %d%% 移动速度；可手动使用火箭弹幕再次发射，使用其他任何技能会立即结束该效果。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Death From Above=死亡天降; Rocket Barrage=火箭弹幕. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_DEATH_FROM_ABOVE: activate grants evasion, projectile_evasion, movement_speed, levitation, avoid_pressure_traps, and learns Rocket Barrage; no on_timeout auto-fire. callbackOnTalentPost removes the effect unless the used talent has rocket_barrage. Rocket Barrage in <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/artillery.lua fires only when used and has rocket_barrage. Seeker Warhead apply fires once then sets the effect for 3 turns."
+    },
+    {
+      "neutral_id": "RFR-0127",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Direct control by the pilot increases damage by %d%% and resistances by %d%%.",
+      "target": "机械蜘蛛被驾驶员直接控制，增加全部伤害 %d%%，增加全部抗性 %d%%；每回合使非固定冷却技能额外减少 1 回合冷却。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Direct Control=直接控制. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/other.lua EFF_MECHARACHNID_PILOTING_BUFF: activate adds inc_damage all and resists.all; decrease=0; on_timeout removes the buff if EFF_MECHARACHNID_PILOTING is gone, then extra -1 on each talents_cd entry whose talent is not fixed_cooldown unless no_talents_cooldown. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/mecharachnid.lua Direct Control sets both effects; talent info says talents cooldown twice as fast. resists.all=全部抗性."
+    },
+    {
+      "neutral_id": "RFR-0128",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Provides a frost aura, giving you +%d%% fire, light, and lightning affinity.",
+      "target": "提供烈火光环，使你获得 +%d%% 火焰、光系和闪电亲和。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Fiery Salve=烈火药剂; Frost Salve uses 寒霜光环 and 亲和. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_FIERY_SALVE activate adds damage_affinity for FIRE, LIGHT, LIGHTNING. English long_desc still says frost aura (copy-paste). Item apply <DLC_ROOT>/orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua grants a fiery aura and sets EFF_FIERY_SALVE. lightning=闪电."
+    },
+    {
+      "neutral_id": "RFR-0129",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Provides a frost aura, giving you +%d%% blight, mind and acid affinity.",
+      "target": "提供静水光环，使你获得 +%d%% 枯萎、精神和酸性的亲和。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Water Salve=静水药剂; Frost Salve uses 寒霜光环 and 亲和; Fiery Salve now uses 烈火光环 and 亲和. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_WATER_SALVE activate adds damage_affinity for BLIGHT, MIND, ACID. English long_desc still says frost aura (copy-paste). Item apply <DLC_ROOT>/orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua grants a water aura and sets EFF_WATER_SALVE."
+    },
+    {
+      "neutral_id": "RFR-0130",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is very itchy, causing their actions to fail.",
+      "target": "太痒了，技能有几率施放失败。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Itching Powder=痒痒粉. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_ITCHING_POWDER activate only adds talent_fail_chance from eff.chance. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/other.lua Itching Powder sets chance=failChance (15%-40%) and talent info says fail talents. English status key still says actions; Chinese should follow talent_fail_chance, not all actions."
+    },
+    {
+      "neutral_id": "RFR-0132",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Target is being assailed by an automated saw blade that cuts its flesh for %0.2f physical damage each turn%s. When the effect expires, the saw will explode for %0.2f fire damage and fly back to its source, pulling the target with it (up to %d tiles).",
+      "target": "你被飞锯击伤，每回合受到 %0.2f 物理伤害 %s。仅当持续时间自然结束且施加者仍在场时，飞锯才会爆炸，造成 %0.2f 火焰伤害并飞回其来源；仅当你可被击退时，才会被拉向施加者（最多 %d 格）。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Explosive Saw=爆炸飞锯. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_EXPLOSIVE_WOUND: on_timeout physical damage; deactivate specials only if eff.dur < 0 and eff.src exists, is not dead, and has coordinates; pull requires canBe knockback. Talent apply <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/automated-butchery.lua Explosive Saw for 4 turns. Early removal does not explode. physical=物理; fire=火焰."
+    },
+    {
+      "neutral_id": "RFR-0133",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "You lay moss where you walk.",
+      "target": "成功自行移动到新位置后，会在该处铺设缠绕苔藓；站在其上的敌人会受到自然伤害、移动减速，并可能被定身。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Moss Tread=苔藓之踏; talent info uses 缠绕苔藓. Public source <DLC_ROOT>/orcs/tome-orcs/data/timed_effects/physical.lua EFF_MOSS_TREAD callbackOnMove only when moved, not force, and coordinates change; then callTalent T_TINKER_MOSS_TREAD trigger. <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/other.lua trigger places GRASPING_MOSS with nature dam, slow, pin. nature=自然."
+    },
+    {
+      "neutral_id": "RFR-0135",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "The target is surrounded by a static shield, increasing all resistances by %d%% and causing attacks against them to trigger a shield attack for %d%% damage as lightning.",
+      "target": "目标被静电力场包围，增加全部抗性 %d%%；受到攻击时，将使用原施放者的盾牌造成 %d%% 伤害的闪电反击，且同一攻击者每回合最多触发一次。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Static Shield=静电力场. T_STATIC_SHOCK (talents/steam/magnetism.lua) after successful Block applies EFF_STATIC_SHIELD for 4 turns to the caster and to act.turret minions with src=self (the caster). EFF_STATIC_SHIELD.callbackOnHit (timed_effects/physical.lua) uses src=eff.src, src:hasShield(), then src:attackTargetWith(attacker, shield_combat, DamageType.LIGHTNING, eff.dam); skips if attacker.turn_procs.static_shock. So turret bearers still retaliate with the original caster's shield, once per attacker per turn. resists.all terminology is All Resists=全部抗性."
+    },
+    {
+      "neutral_id": "RFR-0136",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "All resistances increased by %d%%, all new detrimental effects reduced by %d%%, %0.2f fire splash damage.",
+      "target": "全部抗性提高 %d%%，新施加的负面效果持续时间缩短 %d%%，近战命中持有者的生物受到 %0.2f 点火焰伤害。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Molten Iron Blood=铁水血液. EFF_MOLTEN_IRON_BLOOD.activate (timed_effects/physical.lua) sets on_melee_hit FIRE=eff.dam, resists.all=eff.resists, reduce_detrimental_status_effects_time=eff.reduction. T_MOLTEN_IRON_BLOOD info (talents/steam/thoughts-of-iron.lua): all creatures that hit you in melee take fire damage. resists.all terminology is All Resists=全部抗性. fire=火焰."
+    },
+    {
+      "neutral_id": "RFR-0138",
+      "category": "Runtime-focused",
+      "profile": "mechanics",
+      "source": "Newly applied status effects durations are reduced by %d%%.",
+      "target": "新施加的负面效果持续时间缩短 %d%%。",
+      "bounded_fixed_context": "source_tag=tformat; unique runtime key in tome-orcs.lua. Nearby: Healing Mist=治愈之雾. EFF_HEALING_MIST.activate (timed_effects/physical.lua) only addTemporaryValue('reduce_detrimental_status_effects_time', eff.power). Medic turret on_act applies this to allies. Same-file talent tooltip already uses 新施加的负面效果持续时间缩短 %d%%."
+    },
+    {
+      "neutral_id": "RFR-0140",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "%s misses %s shot.",
+      "target": "%s的%s射击打偏了",
+      "bounded_fixed_context": "source_tag=logSeen; unique runtime key in tome-orcs.lua. Nearby: Startling Shot=惊艳射击; talent info already 故意朝目标射出偏离的子弹. Public source <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/gunslinging.lua Startling Shot action: logSeen(target, \"%s misses %s shot.\", srcname, string.his_her(self)) then always setEffect EFF_STARTLING_SHOT; knockback is a later save. First %s=shooter name or Something; second=his/her. Deliberate miss, not dodge."
+    },
+    {
+      "neutral_id": "RFR-0141",
+      "category": "Runtime-focused",
+      "profile": "ui-log",
+      "source": "You require your mecharachnid to be adjacent, and must be out of combat.",
+      "target": "你需要你的机械蜘蛛与你相邻，并且你和机械蜘蛛都必须处于非战斗状态。",
+      "bounded_fixed_context": "source_tag=logPlayer; unique runtime key in tome-orcs.lua. Nearby: Mecharachnid Chassis=机械蜘蛛底盘; separate logs already say player vs mecharachnid must not be in combat to change chassis. Public source <DLC_ROOT>/orcs/tome-orcs/data/talents/steam/mecharachnid.lua Mecharachnid Chassis on_pre_use rejects if self.in_combat or mecharachnid.in_combat or not adjacent/missing, then this shared logPlayer. Distance>1 is adjacency."
+    },
+    {
+      "neutral_id": "RFR-0142",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "#LIGHT_GREEN#*Before you stands a beautiful woman clad in shining golden armour*#WHITE#\nStop! You are clearly a stranger! Where do you come from? The Gates of Morning are the last bastion of freedom in these lands, so who are you? A spy?",
+      "target": "#LIGHT_GREEN#*在你面前站着一位身披闪耀金色铠甲的美丽女士。*#WHITE#\n站住！你显然是个陌生人！你是从哪里来的？晨曦之门是这片土地上最后的自由堡垒，你到底是谁？是间谍吗？",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0143",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "My lady, I am indeed a stranger in these lands. I come from the west, from Maj'Eyal.",
+      "target": "女士，在这片土地上我确实是个陌生人。我来自西方，来自马基埃亚尔。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0144",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "Sorry, I have to go!",
+      "target": "抱歉，我要走了！",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=chat_gates-of-morning-welcome; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0145",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "Maj'Eyal! For many years have we tried to contact your people. We always failed.\nIn any event, what is your purpose here?",
+      "target": "马基埃亚尔！多年来我们一直尝试与你们的人民取得联系，但都失败了。\n不管怎样，你来这里有何目的？",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0146",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "It seems that I am stranded in these unfamiliar lands. #LIGHT_GREEN#*Tell her about your hunt for orcs and your encounter with Fillarel.*#WHITE#",
+      "target": "我似乎被困在了这片陌生的土地上。#LIGHT_GREEN#*向她讲述你追杀兽人并遭遇菲拉瑞尔的经历。*#WHITE#",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0147",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "Sun Paladins? What do you mean? We know of no such thing where I come from.",
+      "target": "太阳骑士？你是什么意思？在我来的地方，我们从没听说过这种存在。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0148",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "We are the mighty warriors of the Sunwall, channeling the power of the Sun and merging it with martial training.\nFor hundreds of years, we stood between the Orc Pride and the free people. Our numbers are diminishing, but we will stand firm until our last breath.",
+      "target": "我们是太阳堡垒的强大战士，引导太阳之力并将其融入武技训练之中。\n数百年来，我们始终屹立在兽人部落与自由人民之间。我们的人数正在不断减少，但我们将坚守到底，直至咽下最后一口气。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0149",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "You have a noble spirit, my lady.",
+      "target": "女士，您的精神令人钦佩。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0150",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "Orcs! Ah! Well then this is your lucky day. This whole continent is swarming with Orcs. They have united as the Orc Pride and, according to rumour, their masters are powerful.\nThey roam the lands freely, ever assaulting us.\n@playername@, you have helped one of ours. I grant you access to the Gates of Morning and name you friend of the Sunwall.",
+      "target": "兽人！啊！那今天可真是你的幸运日。整片大陆到处都是兽人。他们联合组成了兽人部落，据传言，他们背后的主人十分强大。\n他们在这片土地上肆意游荡，不断袭击我们。\n@playername@，你帮助了我们的一位同胞。我准许你进入晨曦之门，并封你为太阳堡垒之友。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0151",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "Thank you, my lady.",
+      "target": "谢谢您，女士。",
+      "bounded_fixed_context": "section=mod-tome/data/chats/gates-of-morning-welcome.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0152",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "#VIOLET#*As you open the door you notice a huge orc in the distance, covered in both flames and ice.*#LAST#\n@playerdescriptor.race@! You should never have come! Your doom awaits!\nThe Orc Pride will never yield to anybody! They have their precious and there is nothing you can do.",
+      "target": "#VIOLET#*当你打开门，你注意到远处一个巨大的兽人，周身同时被烈焰与寒冰笼罩。*#LAST#\n@playerdescriptor.race@！你根本不该来这里！你的死期到了！\n兽人部落绝不会向任何人屈服！他们已经拿到了至宝，你什么也做不了！",
+      "bounded_fixed_context": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0153",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "The Orc Pride obeys a master? I see... 'pride' indeed!",
+      "target": "兽人部落会听命于主人？我明白了……还真是“骄傲”啊！",
+      "bounded_fixed_context": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0154",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "#LIGHT_GREEN#[Attack]",
+      "target": "#LIGHT_GREEN#[攻击]",
+      "bounded_fixed_context": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    },
+    {
+      "neutral_id": "RFR-0155",
+      "category": "Unknown-text",
+      "profile": "unknown-text",
+      "source": "The Pride chooses its allies. It has no master! ATTACK!",
+      "target": "部落自己选择盟友。部落没有主人！攻击！",
+      "bounded_fixed_context": "section=mod-tome/data/chats/golbug-explains.lua; source_tag=_t; fixed_source=commit:<FIXED_SOURCE_COMMIT>; preserve markup/placeholders/relationship semantics. Shared exact runtime key Thank you, my lady. is synchronized in gates-of-morning-main.lua and welcome.lua."
+    }
+  ]
+}
