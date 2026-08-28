@@ -28,6 +28,12 @@ const parseModelJson = text => {
   const fenced = trimmed.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/i);
   return JSON.parse(fenced ? fenced[1] : trimmed);
 };
+const normalizePiResponse = response => {
+  if (response && !response.revisions && Array.isArray(response.items) && response.items.every(item => item && typeof item === "object" && "result" in item && !("verdict" in item))) {
+    return {revisions: response.items.map(({result, ...item}) => ({...item, verdict: result}))};
+  }
+  return response;
+};
 
 const frozenPath = path.join(here, "FROZEN-HASHES.json");
 if (!fs.existsSync(frozenPath)) throw new Error("FROZEN-HASHES.json missing; inference is not frozen");
@@ -190,7 +196,7 @@ if (route.kind === "codex") {
     if (!message) parseError = `expected one assistant message_end, got ${ends.length}`;
     else {
       const body = (message.content ?? []).filter(block => block.type === "text").map(block => block.text).join("");
-      try { response = parseModelJson(body); } catch (error) { parseError = String(error); }
+      try { response = normalizePiResponse(parseModelJson(body)); } catch (error) { parseError = String(error); }
       routeMetadata = {harness: `Pi ${expectedVersion}`, requested_provider: "zai-standard-cn", requested_model: "glm-5.3-flash", requested_effort: "high", actual_provider: message.provider ?? null, actual_model: message.model ?? null, usage: message.usage ?? null, stop_reason: message.stopReason ?? null};
     }
   }
