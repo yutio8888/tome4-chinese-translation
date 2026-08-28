@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "experiment": "next-research-plan-gpt-rereview-v2",
+  "status": "COMPLETE",
+  "completed_at": "2026-08-27",
+  "frozen_commit": "5e7e565acead998bb72b2615d781ef4c88c5fdec",
+  "execution": {
+    "mechanism": "collaboration.spawn_agent",
+    "task": "/root/independent_plan_rereview_v2",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "high",
+    "fork_turns": "none",
+    "valid_reviews": 1
+  },
+  "raw": "RAW-subagent-gpt-5.6-sol-high.json",
+  "raw_sha256": "e2a65562f6c3d1d3f8bccc7492be8151d72dcda16ef8f27c0d858101d6692cfb",
+  "review": {
+    "verdict": "REVISE_BEFORE_PHASE_1_FREEZE",
+    "fatal_issues": 0,
+    "major_issues": 8,
+    "minor_issues": 5,
+    "cross_phase_issues": 2,
+    "summary": "The research order and restricted estimands are coherent, but Phase 1 is not yet an executable preregistration because its finite population, scorer, missing-context behavior and exact gates are not mechanically frozen."
+  },
+  "adjudication": "ADJUDICATION.json",
+  "adjudication_sha256": "92acc8ac41efaa87ceef71feab0b6d26bae0054f2e4d0cf71eabb70652334753",
+  "local_verdict": "ROADMAP_ACCEPTED_PHASE_1_CONTRACT_REQUIRED",
+  "dispositions": {
+    "accepted": 6,
+    "modified": 4,
+    "rejected": 0
+  },
+  "binding_amendments": "PLAN-AMENDMENTS.md",
+  "binding_amendments_sha256": "75373e9458fd63ba295aaeba99e1dc6f2c974167255b643e650e87b442928867",
+  "current_state": "READY_FOR_PHASE_1_CONTRACT_AUTHORING",
+  "next_action": "Create and test the runtime-source-context-pilot-v1 manifest schema, deterministic atom scorer, context extractor contract, exact gate fixtures and fail-closed preflight verifier; do not launch inference yet.",
+  "interpretation": "The second review validates the repaired causal scope and sequence but exposes the boundary between a research roadmap and an executable freeze. The required changes are local contract definitions, not a new research direction.",
+  "limitations": [
+    "This is one fresh independent re-review and not an inter-reviewer consensus process.",
+    "The reviewer saw only the sanitized plan, prompt and schema, so existing unprovided implementation code was correctly treated as not frozen.",
+    "No source items, sealed references or Phase 1 implementation artifacts were reviewed."
+  ]
+}

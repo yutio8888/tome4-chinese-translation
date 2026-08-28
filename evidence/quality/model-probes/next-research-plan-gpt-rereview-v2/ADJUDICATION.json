@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "adjudicated_at": "2026-08-27",
+  "raw_review": "RAW-subagent-gpt-5.6-sol-high.json",
+  "raw_sha256": "e2a65562f6c3d1d3f8bccc7492be8151d72dcda16ef8f27c0d858101d6692cfb",
+  "review_verdict": "REVISE_BEFORE_PHASE_1_FREEZE",
+  "local_verdict": "ROADMAP_ACCEPTED_PHASE_1_CONTRACT_REQUIRED",
+  "scope_correction": "The reviewed document is a research roadmap, not a completed Phase 1 preregistration package. The review correctly blocks Phase 1 inference, but its contract-level omissions do not invalidate the roadmap or require changing the phase order.",
+  "review_counts": {
+    "fatal_issues": 0,
+    "major_issues": 8,
+    "minor_issues": 5,
+    "cross_phase_issues": 2,
+    "ambiguous_gates": 4,
+    "operable_gates": 2
+  },
+  "decisions": [
+    {
+      "id": "A01",
+      "topic": "Phase 0 mechanical contract",
+      "disposition": "MODIFIED",
+      "reviewer_claim": "The preregistration list is not yet a schema-backed, mechanically verified execution contract.",
+      "local_reasoning": "Correct as a readiness finding, but the roadmap was not represented as the completed Phase 1 package. This is the next zero-call implementation task rather than a defect requiring another research-order rewrite.",
+      "binding_effect": "Phase 1 inference is blocked until a manifest schema, scorer, boundary fixtures and fail-closed preflight verifier are frozen."
+    },
+    {
+      "id": "A02",
+      "topic": "Phase 1 estimand population",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "The 36-item selection mechanism and the scope of inference are not explicit.",
+      "local_reasoning": "A controlled context pilot does not need a probability sample if it makes a finite-benchmark claim and preserves selection history.",
+      "binding_effect": "The primary estimand is limited to the 12 frozen runtime-mutant items; candidate frame, ordered selection and exclusions must be recorded, with no population extrapolation."
+    },
+    {
+      "id": "A03",
+      "topic": "Phase 1 atomic scorer",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "Detection and control-candidate rates cannot be uniquely recomputed without atom matching and item-folding rules.",
+      "local_reasoning": "These quantities directly determine the adopt-B gate and therefore cannot remain natural-language judgments.",
+      "binding_effect": "The addendum defines item-level D, F and C indicators; the Phase 1 freeze must include a sealed atom map, deterministic scorer and test fixture."
+    },
+    {
+      "id": "A04",
+      "topic": "CONTEXT_MISSING handling",
+      "disposition": "MODIFIED",
+      "reviewer_claim": "Freeze whether missing context remains in the denominator, changes the B arm or triggers no-go.",
+      "local_reasoning": "Keeping a missing-marker B arm would test a mixture of context availability and context utility. For this deliberately constructed benchmark, full context availability is a cleaner precondition.",
+      "binding_effect": "Any CONTEXT_MISSING among the final 36 items fails preflight and prevents all model calls; repair or sample change requires a new preserved version."
+    },
+    {
+      "id": "A05",
+      "topic": "Phase 2 PPS reconstruction",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "PPS design details, inclusion probabilities and variance method are underdefined.",
+      "local_reasoning": "A seed and size measure alone do not uniquely define a probability design or its weights.",
+      "binding_effect": "Before Phase 2, freeze the complete frame, strata allocation, PPS algorithm/version, replacement and uniqueness rules, random draws, inclusion probabilities and design-matched uncertainty method."
+    },
+    {
+      "id": "A06",
+      "topic": "Phase 2 point estimate under unresolved audits",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "A 90% determinate threshold does not make missing audit outcomes ignorable or uniquely define a population point estimate.",
+      "local_reasoning": "The original threshold was a feasibility gate, not a missingness assumption; using it to license a single population estimate would overstate identification.",
+      "binding_effect": "Always report weighted lower and upper bounds; any determinate-only value is explicitly a conditional rate, and any additional point estimate requires a separately frozen missingness assumption."
+    },
+    {
+      "id": "A07",
+      "topic": "Phase 3 primary estimator and LOO",
+      "disposition": "MODIFIED",
+      "reviewer_claim": "The adjusted risk difference, non-GPT pooling, clustering and leave-one-item-out rule are not unique.",
+      "local_reasoning": "With 12 complete blocks, a simple design-balanced item contrast is more reproducible than selecting a small-sample regression specification. Clustering is not needed to define the gate itself.",
+      "binding_effect": "Use an equal-origin, item-level direct risk difference per reviewer run; balance design factors, define LOO sign including zero, and make any unestimable state no-go."
+    },
+    {
+      "id": "A08",
+      "topic": "Phase 3 control guardrail",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "The reviewer set, origin weights and run aggregation for the own-origin control guardrail are ambiguous.",
+      "local_reasoning": "The only primary interaction is for the GPT reviewer, so the confirmatory guardrail should use the same reviewer and remain run-specific.",
+      "binding_effect": "Each GPT-reviewer run separately compares GPT-origin controls with three equally weighted non-GPT origins; other reviewers are descriptive."
+    },
+    {
+      "id": "A09",
+      "topic": "A/B policy propagation",
+      "disposition": "MODIFIED",
+      "reviewer_claim": "Later phases do not specify how a Phase 1 adopt-A or adopt-B decision enters their inputs.",
+      "local_reasoning": "The decision should set a default, not automatically claim applicability across natural revisions and generated-output tasks with different source mappings.",
+      "binding_effect": "Every later manifest must explicitly inherit A, inherit B, or preregister context as inapplicable, together with extractor and missingness rules."
+    },
+    {
+      "id": "A10",
+      "topic": "Terminology, integer boundaries and reproducibility",
+      "disposition": "ACCEPTED",
+      "reviewer_claim": "Clarify request identity, integer-equivalent gates, unique sampled units, mutation-template scope and event terminology.",
+      "local_reasoning": "These are low-cost clarifications that close real implementation ambiguity.",
+      "binding_effect": "The addendum supplies exact Phase 1 integer gates and a shared event-level vocabulary; Phase 2/3 contracts must encode the remaining details."
+    }
+  ],
+  "disposition_counts": {
+    "ACCEPTED": 6,
+    "MODIFIED": 4,
+    "REJECTED": 0
+  },
+  "binding_amendments": "PLAN-AMENDMENTS.md",
+  "binding_amendments_sha256": "75373e9458fd63ba295aaeba99e1dc6f2c974167255b643e650e87b442928867",
+  "current_state": "READY_FOR_PHASE_1_CONTRACT_AUTHORING",
+  "not_authorized_by_this_result": [
+    "Phase 1 model inference",
+    "a Run D on the completed eight-item design",
+    "population extrapolation from the fixed Phase 1 benchmark",
+    "causal same-family-bias language"
+  ]
+}

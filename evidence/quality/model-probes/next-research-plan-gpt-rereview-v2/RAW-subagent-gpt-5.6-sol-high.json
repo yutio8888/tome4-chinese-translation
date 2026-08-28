@@ -1,0 +1,199 @@
+{
+  "overall_verdict": "REVISE_BEFORE_PHASE_1_FREEZE",
+  "overall_assessment": "方案已明确区分独立 source item、重复 run、预算门槛和科学推断，也修正了第三阶段 estimand 的过度解释。当前没有不可修复的致命设计缺陷，但 Phase 0 尚未把若干关键概念落实为可执行字段和确定性计算规则；Phase 1 的有限总体、缺失上下文处理、原子主张匹配及 control candidate-rate 仍不足以机械复算。因此不应直接冻结 Phase 1。完成少量、局部的合同化修订后可以进入冻结，不需要重写研究顺序。",
+  "fatal_issues": [],
+  "major_issues": [
+    {
+      "phase": "Phase 0",
+      "issue": "统一预注册仍是字段清单，而不是完整的机械冻结合同。",
+      "evidence": "方案要求冻结 estimand、总体、纳入概率、missingness、reserve、门槛和 verifier 输入，但没有规定这些内容的规范化字段、允许值、计算公式、交叉字段一致性检查及 verifier 失败条件。",
+      "consequence": "不同实施者仍可在运行后以不同方式解释分母、缺失、reserve 使用或 gate，冻结哈希只能证明文件未变，不能证明合同完整且内部一致。",
+      "required_fix": "在 Phase 1 推理前冻结一个带 schema 的 manifest 和一个只读 preflight verifier；至少机械检查 item 唯一性、类别数量、arm 差异、顺序、上下文状态、reference 隔离、分母、计分映射、gate 公式、reserve 顺序及全部输入哈希，任何失败均阻止运行。"
+    },
+    {
+      "phase": "Phase 1",
+      "issue": "36 个 item 的目标总体和选择机制未定义，导致主要 estimand 的适用范围不清。",
+      "evidence": "方案只说冻结 36 个互不重复的 source items，并给出四类配额；没有说明候选框、选择顺序、随机或确定性抽取规则、排除原因，也没有明确主要 contrast 仅针对这 12 个固定 runtime mutants 的有限总体。",
+      "consequence": "结果可能被事后外推到未定义总体；如果选择过程包含人工难度判断，也可能影响 context 增益的表观大小。",
+      "required_fix": "二选一并冻结：要么把主要 estimand 明确限定为冻结的 12 个 runtime-mutant items，并禁止总体外推；要么定义候选框、分层抽样和纳入概率。对 controls 和 surface 负对照也记录确定性选择或抽样流程及全部排除。"
+    },
+    {
+      "phase": "Phase 1",
+      "issue": "主要 detection 和 false-positive guardrail 缺少确定性的 item-level 计分规则。",
+      "evidence": "方案规定“正确原子主张”的 FINDING 或 UNCERTAIN 算 detection，但没有定义原子主张匹配、部分匹配、多主张输出、重复主张和错误理由的处理；“source-refuted control candidate rate”也未说明 FINDING 与 UNCERTAIN 是否都算候选、按 item 还是按主张计数，以及一个 item 多候选如何折叠。",
+      "consequence": "主要 recall、control guardrail 和 go/no-go 均可能因计分器选择而改变，且无法由冻结 reference 唯一复算。",
+      "required_fix": "冻结 sealed atom map 和确定性 scorer：规定标签集合、atom 匹配、部分正确、额外错误主张、重复项、每 item 折叠方式及分母；分别给出 detection、FINDING-only、control candidate 和 source-refuted candidate 的公式及最小测试 fixture。"
+    },
+    {
+      "phase": "Phase 1",
+      "issue": "CONTEXT_MISSING 的主要分析与 gate 处理没有在阶段设计中落实。",
+      "evidence": "提取失败会统一输出 CONTEXT_MISSING，Phase 0 又要求冻结 missingness 规则，但 Phase 1 没有说明这些 item 是否保留在 B 臂主要分母、如何与 A 配对、是否触发 no-go，或是否允许继续使用只含缺失标记的 B 输入。",
+      "consequence": "上下文可获得性可能在运行后改变样本或分母；若缺失与缺陷类别相关，排除或保留会产生不同 estimand。",
+      "required_fix": "在提取前冻结一个规则，例如主要分析按固定 item 集合保留所有 CONTEXT_MISSING 并另报可用率，同时设定 extractor 可行性 no-go 门槛；禁止逐条排除或替换。明确缺失标记是否是 B 相对 A 唯一允许的差异。"
+    },
+    {
+      "phase": "Phase 2",
+      "issue": "PPS 两阶段抽样尚不足以重建纳入概率和权重。",
+      "evidence": "方案规定按 eligible revision 数对 task 做 PPS，再在 task 内等概率选一个 revision，但没有说明 task 抽样是有放回还是无放回、固定样本如何分配到 strata、PPS 算法、重复 task 处理、边界 task 处理及最终 revision inclusion probability 公式。",
+      "consequence": "仅凭 seed 和 size measure 未必能复现同一样本，也无法保证层权重、总体估计和区间使用正确的一阶或联合纳入概率。",
+      "required_fix": "冻结完整 frame snapshot、stratum 样本配额、PPS 算法及实现版本、放回规则、唯一性规则、所有随机数和 ordered reserve，并为每个入选与未入选单位保存可复算的一阶纳入概率；若要给设计型区间，还需冻结相应方差或重采样方法。"
+    },
+    {
+      "phase": "Phase 2",
+      "issue": "总体率报告中的“下界、上界和单一点估计”没有唯一数学定义。",
+      "evidence": "方案说明 confirmed 为下界、indeterminate 加 unreachable 全算缺陷为上界，并在 determinate 至少 90% 时附加单一点估计，但没有规定加权比率公式、单一点对未裁决项作何假设、区间类型和层合并方式。",
+      "consequence": "90% determinate 本身不能识别未裁决项的缺陷率；不同缺失假设会产生不同单一点估计，容易被误读为总体残余率。",
+      "required_fix": "冻结 Horvitz-Thompson 或其他明确的加权 estimand、上下界公式和不确定区间方法。单一点估计必须明确是 determinate 子集条件率、把未裁决视为非缺陷的下界估计，或基于额外已声明假设的估计；不得仅凭 90% 门槛隐含可忽略缺失。"
+    },
+    {
+      "phase": "Phase 3",
+      "issue": "主要 risk difference 的估计器、调整方式和 leave-one-item-out gate 未完全定义。",
+      "evidence": "方案要求 pooled non-GPT-origin risk difference、以 source item 聚类并控制 mutation 类别、位置和 generation assignment，但没有指定 pooled origins 的权重、点估计是标准化均值还是回归系数、聚类用于何种不确定性计算，以及 leave-one-item-out 对哪个 run、哪个调整后估计执行和“反向”的边界定义。",
+      "consequence": "在只有 12 个完整块时，不同回归或标准化实现可能给出不同 contrast，模型不收敛或删一项后协变量失衡也没有预定处理。",
+      "required_fix": "冻结一个可直接计算的主要估计器和异常处理：明确三个 non-GPT origins 的权重、协变量编码、run 分开计算方式、聚类用途、零差是否算反向、每个 run 的 12 次 leave-one-item-out 规则，以及模型不可估计时自动 no-go。"
+    },
+    {
+      "phase": "Phase 3",
+      "issue": "control guardrail 的比较对象和聚合层级含糊。",
+      "evidence": "方案使用“own-origin 与 non-own-origin 的 control candidate-rate 绝对差”，但主要 estimand 只针对 GPT reviewer；没有说明 guardrail 是仅对 GPT reviewer、对四个 reviewer 分别检查，还是汇总完整矩阵，也没有说明两个 reviewer runs 和三个 non-own origins 如何聚合。",
+      "consequence": "同一输出矩阵可产生多个不同 guardrail 结论，进而改变第三阶段 gate。",
+      "required_fix": "冻结 guardrail 的 reviewer 集合、origin 权重、run 规则、item-level candidate 定义和分母；若逐 reviewer、逐 run 检查，应明确是全部必须通过还是仅将非主要 reviewer 作为描述。"
+    }
+  ],
+  "minor_issues": [
+    "“byte-identical runs”应明确指请求 payload、顺序和参数完全相同，而不是期望模型响应字节相同。",
+    "Phase 1 应预先给出离散门槛的整数等价表示或边界测试，避免浮点比较使 0.20 和 0.05 的等号处理不一致。",
+    "Phase 2 将 40 个单位称为“独立”不够严谨；固定样本量 PPS 无放回抽样下单位可能具有设计依赖，宜改为 40 个互不重复的 task/revision 单元。",
+    "Phase 3 的“同一 mutation template 对全部输出可适用”与“mutation 类型、位置跨 item/origin 平衡”需要说明：template 属性应在 item 内固定，平衡通常发生在 items 之间。",
+    "各阶段应统一术语，区分真实 control contamination、reviewer 提出的 refuted candidate 和 extractor failure，避免三者都被笼统称为 control 问题。"
+  ],
+  "resolved_strengths": [
+    "明确禁止给既有八条设计追加 Run D，并为每个新实验规定冻结样本数和停止点。",
+    "明确把 item 作为独立推断或聚类单位，把 route、arm、run 和 generation observation 视为重复测量或固定比较维度，避免明显伪重复。",
+    "Phase 1 的 extractor 在 mutation assignment 和 sealed reference 揭示前冻结，且限制为机械源码片段、确定性截断和拒绝式泄漏检查。",
+    "Phase 1 已将数值门槛定位为输入契约和预算 materiality rules，而非功效或显著性结论，并规定 mixed 或边界结果不追第三次运行。",
+    "Phase 2 要求先锁定全部源码审计证据，再揭示 reviewer 输出，并保留 unknown provenance、indeterminate 和 unreachable，而不是事后替换困难样本。",
+    "Phase 2 明确将四个 confirmed residuals 的门槛仅用于预算优先级，不把它写成 origin interaction 的科学可识别性前提。",
+    "Phase 3 将结论限制为匿名 generator outputs 上的操作性交互，使用完整 clean blocks，并明确通过 gate 也只能产生需要 fresh holdout 的信号。",
+    "Phase 3 不把两个 generation outputs 当作两个独立的同方向 gate，且禁止不足完整块时动态补生成或修文。"
+  ],
+  "phase_assessments": [
+    {
+      "phase": "Phase 0",
+      "verdict": "REVISE",
+      "analysis": "覆盖面充分，但目前主要是预注册内容清单。缺少规范化 schema、公式、交叉字段验证和失败即停止的可执行 verifier，因此还不能证明冻结合同机械完整。",
+      "required_changes": [
+        "冻结 manifest schema、字段词典、公式和枚举值。",
+        "实现无模型调用的 preflight verifier，并用 fixture 验证成功和失败路径。",
+        "明确每个阶段的 estimand、有限或超总体范围、分母和 missingness 处理。",
+        "把 reserve 使用、排除、替换禁止和所有 gate 的等号边界写成机器规则。"
+      ]
+    },
+    {
+      "phase": "Phase 1",
+      "verdict": "REVISE",
+      "analysis": "A/B 对照、独立 item 数量、route-equal 汇总和停止规则总体一致，没有明显伪重复。阻止立即冻结的是样本适用范围、CONTEXT_MISSING 和两类主要指标仍不能由唯一 scorer 机械复算。",
+      "required_changes": [
+        "限定为冻结有限总体或补全候选框与抽样机制。",
+        "冻结原子主张匹配及 item-level 计分器。",
+        "冻结 CONTEXT_MISSING 的分母和 no-go 规则。",
+        "为 recall、逐路线正增量和 control guardrail 写出整数或有理数公式与边界测试。",
+        "明确 control contamination 的发现如何使整次实验失效或仅影响相应 item。"
+      ]
+    },
+    {
+      "phase": "Phase 2",
+      "verdict": "REVISE",
+      "analysis": "先裁决后 reviewer、拒绝事后替换以及上下界思路是合理的可行性 pilot 框架，但 PPS 实现和总体率估计尚不能重建，尤其单一点估计隐含的 missingness 假设不明。",
+      "required_changes": [
+        "冻结完整抽样框、PPS 算法、层配额、放回规则和纳入概率公式。",
+        "冻结 provenance 分类规则及无法分类的处理。",
+        "定义加权上下界、区间和任何单一点估计的数学含义。",
+        "把统一审计模板失效和抽样权重不可重建转化为可检验条件。"
+      ]
+    },
+    {
+      "phase": "Phase 3",
+      "verdict": "REVISE",
+      "analysis": "complete-block selection、随机 mutant/control assignment 和受限 estimand 可以支持操作性交互研究；剩余问题集中在主要估计器、协变量调整、leave-one-out 和 control guardrail 的精确定义，而不是根本不可识别。",
+      "required_changes": [
+        "冻结主要 risk-difference 估计器、origin 权重和协变量编码。",
+        "冻结 reviewer run 分开 gate、leave-one-item-out 和不可估计处理。",
+        "明确 own-origin control guardrail 的 reviewer、run 和聚合层级。",
+        "机械验证每个完整块的 4 origins × 2 generations、平衡表和匿名映射。",
+        "把 complete-block estimand 的条件性写入最终结果 schema。"
+      ]
+    }
+  ],
+  "cross_phase_issues": [
+    {
+      "phase": "Cross-phase",
+      "issue": "Phase 1 通过后“后续实验统一采用 B”的传播规则没有说明如何嵌入 Phase 2 和 Phase 3。",
+      "evidence": "Phase 1 gate 决定后续默认输入为 A 或 B，但 Phase 2 和 Phase 3 的输入清单没有明确 source_context 字段、提取失败处理或匿名化后是否完全复用同一 extractor。",
+      "consequence": "后续阶段可能在运行时临时决定是否提供上下文，使其 prompt、estimand 和缺失机制偏离冻结合同。",
+      "required_fix": "在每个后续阶段 manifest 中显式继承 A/B 决策，定义 source item 到 extractor 输入的映射、CONTEXT_MISSING 规则和唯一允许的 arm 字段差异；若某阶段不适用 B，必须在推理前说明并冻结。"
+    },
+    {
+      "phase": "Cross-phase",
+      "issue": "各阶段对 candidate、detection、confirmed 和 contamination 的计分对象尚未统一。",
+      "evidence": "Phase 1 同时使用正确原子主张、FINDING、UNCERTAIN、source-refuted candidate 和 control contamination；Phase 2 使用 item verdict；Phase 3 又使用 control candidate-rate，但没有共享字段词典。",
+      "consequence": "跨阶段结果表面同名但分子单位不同，可能导致错误比较或 gate 复用。",
+      "required_fix": "冻结跨阶段术语和事件层级字典，明确 claim-level、item-level、variant-level 和 task-level 指标；每个指标在结果 schema 中绑定唯一分子、分母和折叠规则。"
+    }
+  ],
+  "gate_audit": [
+    {
+      "gate": "Phase 0 completeness no-go",
+      "verdict": "AMBIGUOUS",
+      "analysis": "“主要 estimand、分母、上下文规则或缺失处理不明确则 no-go”方向正确，但“明确”的机器判据尚未定义。",
+      "required_change": "由 schema completeness、交叉字段约束和 preflight verifier 的零错误结果决定是否可运行，不允许人工宣告完整。"
+    },
+    {
+      "gate": "Phase 1 adopt-B gate",
+      "verdict": "AMBIGUOUS",
+      "analysis": "0.20、3/4 routes、0.05、每路线最多一个新增候选以及污染条件在概念上可执行，mixed 结果也有默认动作；但 candidate-rate、CONTEXT_MISSING、浮点边界和 contamination 的作用域未定义。",
+      "required_change": "冻结 item-level 指标、精确分母、整数或有理数比较、缺失处理和污染触发范围后，该 gate 可变为 OPERABLE。"
+    },
+    {
+      "gate": "Phase 2 population-inference gate",
+      "verdict": "AMBIGUOUS",
+      "analysis": "不可重建权重或事后替换即停止总体推断是合理原则，但抽样重建测试、模板失效条件和单一点估计公式缺失。",
+      "required_change": "定义可自动复跑的抽样审计、权重校验、模板合规测试及上下界和点估计公式。"
+    },
+    {
+      "gate": "Phase 2 origin-pilot budget-priority gate",
+      "verdict": "OPERABLE",
+      "analysis": "至少 4 个 confirmed residuals、分布于至少 4 个独立 task，并同时通过 90% determinate 和 90% provenance 门槛，数值和作用均清楚；它被明确限制为预算优先级而非科学前提。",
+      "required_change": "在 manifest 中固定百分比的加权或未加权分母、等号边界，并确认 confirmed task 去重规则。"
+    },
+    {
+      "gate": "Phase 3 interaction-signal gate",
+      "verdict": "AMBIGUOUS",
+      "analysis": "两次 reviewer run 同方向且各自绝对差至少 0.15、不追第三次 run 的结构清楚，但主要估计器、leave-one-item-out 和 control guardrail 的聚合方法不唯一。",
+      "required_change": "冻结 risk-difference 公式、run-specific gate、LOO 边界、不可估计处理及 control guardrail 的 reviewer/origin/run 权重。"
+    },
+    {
+      "gate": "Unified stopping and no-chasing rules",
+      "verdict": "OPERABLE",
+      "analysis": "固定 item 数、run 数、reserve、harness 错误处理、成功 envelope 复用以及禁止因接近门槛追样或换指标均有明确方向。",
+      "required_change": "把 harness failure 分类、成功 envelope 身份和 reserve 消耗记录纳入 verifier，确保停止规则不仅依赖人工记录。"
+    }
+  ],
+  "minimum_required_revisions": [
+    "为 Phase 0 增加规范化 manifest schema、公式字段和无模型调用的 preflight verifier。",
+    "把 Phase 1 estimand 明确限定于冻结有限 item 集，或补充可重建的候选框与抽样机制。",
+    "冻结 Phase 1 原子主张 scorer、item-level 折叠、control candidate-rate、CONTEXT_MISSING 和 contamination 规则。",
+    "将 Phase 1 全部数值 gate 写成精确可执行公式并加入边界 fixture。",
+    "在 Phase 2 启动前冻结完整 PPS 算法、纳入概率、权重、区间及上下界和单一点估计公式。",
+    "在 Phase 3 启动前冻结主要 risk-difference 估计器、LOO 规则和 control guardrail 聚合。",
+    "显式规定 Phase 1 的 A/B 选择如何传播到 Phase 2 和 Phase 3 的输入合同。"
+  ],
+  "recommended_next_action": "先做一次不调用模型的最小合同修订：只补 Phase 0 schema/verifier 和 Phase 1 的有限总体、scorer、missingness、control 与 gate 公式；用冻结 fixture 运行 preflight，确认 36 个 item、arm 差异、reference 隔离、哈希和所有边界测试均通过后，再冻结 Phase 1。Phase 2 和 Phase 3 的上述修订可以在各自预注册前完成，不需要阻止 Phase 1 修订后的启动。",
+  "uncertainties": [
+    "仅凭方案无法判断 36 个 Phase 1 items 是有意构造的固定 benchmark，还是希望代表更广的源码总体；这决定是否必须提供纳入概率。",
+    "没有 scorer 规范，无法判断现有实现是否已经解决原子主张匹配和多候选折叠；本复审只能把它视为未冻结。",
+    "没有 PPS 实现细节，无法判断计划采用何种无放回算法以及是否能计算设计型方差。",
+    "没有说明 Phase 3 的四个 reviewer 是否逐一对应四个 generator origins；因此 own-origin guardrail 的自然比较集合仍不确定。",
+    "当前没有独立母语人工审核者，因而结论只能覆盖固定源码可裁决的客观机制，不能扩展到主观语言质量。"
+  ]
+}

@@ -59,9 +59,26 @@ const adjudication = json(experiment.output.adjudication);
 const result = json(experiment.output.result);
 check(adjudication.status === "COMPLETE", "adjudication is incomplete");
 check(adjudication.raw_sha256 === sha256(experiment.output.raw), "adjudication raw hash mismatch");
+check(adjudication.review_counts.fatal_issues === raw.fatal_issues.length, "adjudication fatal count mismatch");
+check(adjudication.review_counts.major_issues === raw.major_issues.length, "adjudication major count mismatch");
+check(adjudication.review_counts.minor_issues === raw.minor_issues.length, "adjudication minor count mismatch");
+const dispositions = adjudication.decisions.reduce((counts, decision) => {
+  check(["ACCEPTED", "MODIFIED", "REJECTED"].includes(decision.disposition), `invalid disposition ${decision.disposition}`);
+  counts[decision.disposition] += 1;
+  return counts;
+}, {ACCEPTED: 0, MODIFIED: 0, REJECTED: 0});
+check(JSON.stringify(dispositions) === JSON.stringify(adjudication.disposition_counts), "adjudication disposition counts mismatch");
+check(adjudication.binding_amendments_sha256 === sha256(adjudication.binding_amendments), "adjudication amendments hash mismatch");
 check(result.status === "COMPLETE", "result is incomplete");
 check(result.raw_sha256 === sha256(experiment.output.raw), "result raw hash mismatch");
 check(result.adjudication_sha256 === sha256(experiment.output.adjudication), "result adjudication hash mismatch");
-if (result.final_plan) check(result.final_plan_sha256 === sha256(result.final_plan), "result final-plan hash mismatch");
+check(result.binding_amendments_sha256 === sha256(result.binding_amendments), "result amendments hash mismatch");
+check(result.review.verdict === raw.overall_verdict, "result review verdict mismatch");
+check(result.review.fatal_issues === raw.fatal_issues.length, "result fatal count mismatch");
+check(result.review.major_issues === raw.major_issues.length, "result major count mismatch");
+check(result.review.minor_issues === raw.minor_issues.length, "result minor count mismatch");
+check(result.dispositions.accepted === dispositions.ACCEPTED, "result accepted count mismatch");
+check(result.dispositions.modified === dispositions.MODIFIED, "result modified count mismatch");
+check(result.dispositions.rejected === dispositions.REJECTED, "result rejected count mismatch");
 
 process.stdout.write("verified frozen v2 inputs, subagent review, local adjudication and result hashes\n");
