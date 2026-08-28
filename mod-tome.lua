@@ -28807,7 +28807,7 @@ t([[Imbue an alchemist gem with an explosive charge of mana and throw it.
 		The gem will explode for %0.1f %s damage.
 		Each kind of gem will also provide a specific effect.
 		The damage will improve with better gems and with your Spellpower.]], [[向一块炼金宝石内灌输爆炸能量并扔出它。
-		宝石将会爆炸并造成 %0.1f 的 %s 伤害。
+		宝石爆炸时会造成 %0.1f 点%s伤害。
 		每个种类的宝石都会提供一个特殊的效果。
 		伤害受宝石品质和法术强度加成。]], "tformat")
 t("Alchemist Protection", "炼金保护", "talent name")
