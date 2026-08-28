@@ -1,0 +1,33 @@
+{
+  "schema_version": "claude-opus-route-exploratory-use-policy-v1",
+  "status": "EXPLORATORY_REFERENCE_ALLOWED",
+  "date_recorded": "2026-08-28",
+  "formal_route_qualification": "ROUTE_NOT_QUALIFIED",
+  "formal_result": "RESULT.json",
+  "basis": {
+    "supporting_telemetry": [
+      "initialized model was claude-opus-5",
+      "all assistant messages identified claude-opus-5",
+      "modelUsage contained only claude-opus-5 with firstParty provider",
+      "no fallback, subagent, MCP, server-search or non-StructuredOutput tool activity was observed"
+    ],
+    "unmet_frozen_conditions": [
+      "a rate-limit event occurred between the StructuredOutput receipt and terminal result",
+      "usage.iterations was present but empty"
+    ]
+  },
+  "permitted_use": "After a truth set, prompt, schema and exact A/B inputs are frozen, the same strict Claude route may run as a separately identified exploratory comparator.",
+  "required_handling": [
+    "preserve every RAW envelope and route metadata",
+    "use the same item order, prompt, schema and arm definitions as the formal pilot wherever mechanically possible",
+    "report exploratory Claude metrics in a separate section",
+    "retain the ROUTE_NOT_QUALIFIED label on every exploratory result"
+  ],
+  "prohibited_handling": [
+    "do not include Claude results in the formal estimand or GLM GO/NO-GO decision",
+    "do not count the route as an independently qualified model family",
+    "do not use Claude output as truth, adjudication or a vote",
+    "do not retroactively relabel the qualification attempt as PASS"
+  ],
+  "model_calls_made_by_this_policy": 0
+}
