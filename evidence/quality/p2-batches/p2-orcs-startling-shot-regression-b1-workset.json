@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-orcs-startling-shot-regression-b1-001",
+  "kind": "frozen_startling_shot_placeholder_composition_workset",
+  "frozen_at": "2026-08-28T04:14:45Z",
+  "translation_baseline": {
+    "head": "c355e2bf61ac9d2e7c818b3bf9825362bf00c6f4",
+    "orcs_file": "tome-orcs.lua",
+    "orcs_file_sha256": "7dd9c3e29bde2b5444354aa582b1f9c3afdcbb370a18f5264df9a4103b527fa9",
+    "engine_locale_file": "engine.lua",
+    "engine_locale_file_sha256": "76c7711549d01c6f3b2e25da8e2e6e529001c745573dafa99d8c4c46c52f9883",
+    "orcs_fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+    "engine_fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63"
+  },
+  "section_freeze": {
+    "component": "orcs",
+    "section": "tome-orcs/data/talents/steam/gunslinging.lua",
+    "selected": 13,
+    "available": 13,
+    "limit": 500,
+    "content_sha256": "522ccebc949afcd1e957eb13f8fd2c591635f2208f0f317f1f77ea463940a717"
+  },
+  "samples": [
+    {
+      "sample_id": "something",
+      "args_order": null,
+      "component": "orcs",
+      "entry_id": "9d9685d97611b9b10af2a8968980e4bb56ebe438d3b3786ae663d3b0c7dd5019",
+      "line": 5104,
+      "section": "tome-orcs/data/talents/steam/gunslinging.lua",
+      "source": "Something",
+      "source_tag": "_t",
+      "special": null,
+      "target": "某物"
+    },
+    {
+      "sample_id": "startling_shot_log",
+      "args_order": null,
+      "component": "orcs",
+      "entry_id": "de611031bccbca3dc62a404399ff0dd556199c9c3b03b837bbcd65f53319e3f8",
+      "line": 5105,
+      "section": "tome-orcs/data/talents/steam/gunslinging.lua",
+      "source": "%s misses %s shot.",
+      "source_tag": "logSeen",
+      "special": null,
+      "target": "%s的%s射击打偏了"
+    },
+    {
+      "sample_id": "startling_shot_info",
+      "args_order": null,
+      "component": "orcs",
+      "entry_id": "f839d818332f2d250800f50131948fc1e83785703727a309371d827a3ed792c0",
+      "line": 5106,
+      "section": "tome-orcs/data/talents/steam/gunslinging.lua",
+      "source": "You deliberately fire a missing shot at a target, startling it for 3 turns.\n\t\tIf the target fails a mental save it instinctively recoils two steps back.\n\t\tThe next shot that hits the startled creature will deal %d%% more damage.",
+      "source_tag": "tformat",
+      "special": null,
+      "target": "你故意朝目标射出偏离的子弹，令其惊讶 3 回合。\n\t\t若目标未通过精神豁免检定，将后退 2 步。\n\t\t下一发命中惊讶状态目标的射击将造成额外 %d%% 伤害。"
+    }
+  ],
+  "runtime_source_anchors": [
+    {
+      "component": "orcs",
+      "revision": null,
+      "source_pinned": false,
+      "path": "tome-orcs/data/talents/steam/gunslinging.lua",
+      "sha256": "eaff2729974d971d8affd69162efcbbc1d93acfcc5175eb8ebc9cc5460ba2824",
+      "symbol": "T_STARTLING_SHOT.action/info",
+      "facts": [
+        "The log arguments are srcname followed by string.his_her(self).",
+        "The log is emitted before EFF_STARTLING_SHOT is always applied.",
+        "Talent info says the missing shot is deliberately fired.",
+        "srcname is the capitalized shooter name when visible, otherwise localized Something."
+      ]
+    },
+    {
+      "component": "tome-engine",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/engines/default/engine/utils.lua",
+      "sha256": "871f7ae2d26266751811d9249e4525b5b0f9d8c88b35272755d7a617885c2bbf",
+      "symbol": "string.his_her",
+      "facts": [
+        "female returns localized her, neuter returns localized its, otherwise localized his."
+      ]
+    },
+    {
+      "component": "translation-runtime-surfaces",
+      "revision": "c355e2bf61ac9d2e7c818b3bf9825362bf00c6f4",
+      "source_pinned": true,
+      "path": "engine.lua",
+      "sha256": "76c7711549d01c6f3b2e25da8e2e6e529001c745573dafa99d8c4c46c52f9883",
+      "symbol": "_t pronoun mappings",
+      "facts": [
+        "her maps to 她.",
+        "its maps to 它的.",
+        "his maps to 他的."
+      ]
+    }
+  ],
+  "runtime_surface_matrix": [
+    {
+      "case": "visible_male",
+      "shooter": "格鲁什",
+      "possessive": "他的",
+      "current_rendering": "格鲁什的他的射击打偏了",
+      "research_fixture_rendering": "格鲁什故意打偏了他的的射击。"
+    },
+    {
+      "case": "visible_female",
+      "shooter": "米娅",
+      "possessive": "她",
+      "current_rendering": "米娅的她射击打偏了",
+      "research_fixture_rendering": "米娅故意打偏了她的射击。"
+    },
+    {
+      "case": "visible_neuter",
+      "shooter": "机械体",
+      "possessive": "它的",
+      "current_rendering": "机械体的它的射击打偏了",
+      "research_fixture_rendering": "机械体故意打偏了它的的射击。"
+    },
+    {
+      "case": "unseen_male",
+      "shooter": "某物",
+      "possessive": "他的",
+      "current_rendering": "某物的他的射击打偏了",
+      "research_fixture_rendering": "某物故意打偏了他的的射击。"
+    },
+    {
+      "case": "unseen_female",
+      "shooter": "某物",
+      "possessive": "她",
+      "current_rendering": "某物的她射击打偏了",
+      "research_fixture_rendering": "某物故意打偏了她的射击。"
+    },
+    {
+      "case": "unseen_neuter",
+      "shooter": "某物",
+      "possessive": "它的",
+      "current_rendering": "某物的它的射击打偏了",
+      "research_fixture_rendering": "某物故意打偏了它的的射击。"
+    }
+  ],
+  "review_origin": {
+    "discovery_record": ".ai/task/p2-orcs-ui-logs-b1-discovery-001/STATE.json",
+    "discovery_finding": "Startling Shot deliberate-miss log was independently source-verified and deferred.",
+    "previous_task_id": "p2-orcs-ui-logs-b2-001",
+    "previous_spec": ".ai/task/p2-orcs-ui-logs-b2-001/SPEC.md",
+    "delivery_commit": "bfe613ae45aaef49caa1342bf3d056ddf38ce4c0",
+    "target_before_delivery": "%s躲开了%s攻击",
+    "delivered_and_current_target": "%s的%s射击打偏了",
+    "previous_review_false_negative": "The delivered composition was marked OK without rendering the localized second-placeholder surfaces."
+  },
+  "research_fixture": {
+    "record_commit": "09aaaab9182b1894e720f348c8e83e3257cdf36f",
+    "record_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/SOURCE-VERIFICATION.json",
+    "fixture_only_target": "%s故意打偏了%s的射击。",
+    "production_was_not_edited": true,
+    "limitation": "The fixture assumes a bare possessive before 的; actual male/neuter values already end in 的 and render 他的的/它的的."
+  },
+  "provenance_note": "The Orcs extraction snapshot is manifest-fixed, but the inspected public Orcs source repository/commit/version is not fixed by the manifest; its file hash is an observation. The engine source commit is fixed."
+}
