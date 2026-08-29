@@ -18713,67 +18713,67 @@ t("orc prides", "兽人部落", "newLore category")
 t("Grushnak's Note", "格鲁希纳克的笔记", "_t")
 t([[Treachery! During a patrol around the outskirts of the High Peak I witnessed two orcs - the envoys from our supposed "master" - talking in secret. Remaining to watch them, I beheld as their orcish features sloughed from their bodies, revealing a pair of human wizards! Humans! To think that our great pride has been deceived in such a manner! I should have crushed their skulls there and then. However, mages can be crafty, so I left them to their scheming.
 
-Even now the blood runs hot! What would Garkul, our mighty berserker king, think if he saw our great race bending before humans?! Many times I have entertained the idea of taking a group of my finest warriors and ending this folly, but... loathsome as it is, I must use tact. A rebellion would leave my pride weakened, easy prey. That bone-picker Rak'Shor and his unnatural creations have dreamed of my death (and subsequent dominion) for years, I know this to be true. This conundrum frustrates and confuses! ... At least we are agreed on one matter - the total destruction of those sun-worshipping dogs of the Gates of Morning...]], [[阴谋！在巅峰周围例行巡逻时，我看到了那两个“兽人”——从我们所谓的“领主”那过来的使者正在秘密的交谈。在我观察他们的过程中，他们竟然脱下了身上的兽皮——原来是两个人类法师！人类！想想看，我们伟大的兽族竟然就这样被玷污！我应该当场打爆他们的脑袋。不过，法师们一般都非常难缠，所以我留了他们的狗命。
+Even now the blood runs hot! What would Garkul, our mighty berserker king, think if he saw our great race bending before humans?! Many times I have entertained the idea of taking a group of my finest warriors and ending this folly, but... loathsome as it is, I must use tact. A rebellion would leave my pride weakened, easy prey. That bone-picker Rak'Shor and his unnatural creations have dreamed of my death (and subsequent dominion) for years, I know this to be true. This conundrum frustrates and confuses! ... At least we are agreed on one matter - the total destruction of those sun-worshipping dogs of the Gates of Morning...]], [[背叛！在巅峰外围巡逻时，我目睹了两名兽人——来自我们所谓“主人”的使者——正在秘密交谈。我继续暗中观察，竟眼睁睁看着他们的兽人面貌从身上层层剥落，露出了两个人类法师！人类！想想看，我们伟大的部落竟然受到了这般蒙骗！我本该当场砸碎他们的头骨。然而法师往往诡计多端，所以我暂时任由他们继续阴谋。
 
-直到现在，我还兽血沸腾着！如果我们强大的狂战士祖先加库尔看到伟大兽族臣服于人类，他会怎么想？！许多次，我曾想带着我族的精英战士去直接结束这场闹剧，但是——虽然阴谋诡计令我作呕，我不得不用。一次小小的背叛，就可以令我万劫不复。说实话，拾骨者拉克·肖和他的不死军团已经觊觎我的位置很多年了。这个问题长久以来一直困扰着我！至少我们在一件事上达成了一致，只要消灭掉那些晨曦之门的太阳教走狗们……]], "_t")
+直到此刻我的热血仍在沸腾！如果我们强大的狂战士之王加库尔看到我们伟大的种族在人类面前卑躬屈膝，他会怎么想？！许多次我都动过念头，想带上一队最精锐的战士去终结这场闹剧，但是……尽管令人作呕，我必须讲究策略。起兵反抗会让我的部落元气大伤，沦为易于下手的猎物。那个拾骨者拉克·肖和他那些违背自然的造物多年来一直梦想着我死，然后顺势夺权；我很清楚这是事实。这道难题令人焦躁又困惑！……至少我们在某一件事上达成了一致——彻底毁灭晨曦之门那些崇拜太阳的走狗们……]], "_t")
 t("Rak'Shor's Note", "拉克·肖的笔记", "_t")
 t([[The eyes of the dead bring interesting news to me. Our masters are not what they appear; they are human, simply masquerading as orcs in our presence. I might have suspected this... it is difficult to disguise the basic weakness and frailty of a human soul, even with complex spells. Their goals elude me, yet I sense strange energies in the vicinity of the High Peak - the voices of spirits long departed from this world... some not from this world at all.
 
-But this is foolishness compared to my current trials. Gorbat remains as obstinate as ever, the dragon-loving, scale-shining buffoon. He thinks that dragons are special, different, not suitable for my craft. I care not for his prattling, I desire the corpses of dragons! Mountains of them! How can his heart not beat a little faster at the prospect of a dracozombie?! The mere thought of it is enough to send delightful shivers down my spine...]], [[死亡之眼给我带了一些有趣的消息。我们所谓的领主并不是兽人，他们只不过是伪装成兽人的人类。我居然没对他们起疑——因为即便再复杂的魔法也无法掩饰人类脆弱的灵魂。他们的目的令人费解，不过我还是发现了一些蛛丝马迹：在巅峰周围我感受到了奇异的能量波动——灵魂长辞于世的波动……有些灵魂，似乎根本不属于这个世界。
+But this is foolishness compared to my current trials. Gorbat remains as obstinate as ever, the dragon-loving, scale-shining buffoon. He thinks that dragons are special, different, not suitable for my craft. I care not for his prattling, I desire the corpses of dragons! Mountains of them! How can his heart not beat a little faster at the prospect of a dracozombie?! The mere thought of it is enough to send delightful shivers down my spine...]], [[死者之眼为我带来了有趣的消息。我们的主人并非表面那样；他们是人类，只不过在我们面前伪装成兽人罢了。我早该有所怀疑……即便用上复杂的法术，也难以掩饰人类灵魂根本上的软弱与脆弱。他们的目标让我捉摸不透，但我能感受到巅峰附近奇异的能量——那是久已离开这个世界的亡魂之声……有些甚至根本不属于这个世界。
 
-但是，这和我的实验一比就显得愚蠢而可笑。加伯特还是像往常一样固执，这个恋龙癖。他认为龙类是特殊的，与众不同的生物，不适合我的实验。我不在意他的絮絮叨叨，我只渴望龙的尸体！堆成山的龙尸！他难道能在骨龙的面前镇定自若？！仅仅只是想象下就令我兴奋的颤抖不已……]], "_t")
+但与我眼下的困境相比，这不过是些无足轻重的小事。加伯特依旧顽固不化，那个爱龙成痴、披鳞炫耀的小丑。他以为巨龙有多么特殊、与众不同，不适合用作我的秘术原料。我才不管他的唠叨，我渴望的是巨龙的尸体！堆积如山的龙尸！想到将能创造出尸龙，他的心跳怎能不加快几分？！仅仅是想象一下，就足以让我感到一阵愉悦的战栗……]], "_t")
 t("Gorbat's Note", "加伯特的笔记", "_t")
 t([[My dragons bring news. They witnessed humans upon the High Peak, speaking of their mastery over our prides. They did not heed my dragons, unwitting of their ability to communicate with me. Now I possess this information, I must think deeply on how to proceed regarding our "masters". Many of my finest wyrmics wish to rise up against our deceivers, see them consumed in wyrmfire. Even some of my dragons have divulged this wish to me. Sadly, this must wait.
 
-Vor's insolence will be tolerated no longer! His claims that his pride's mastery over the elements surpasses that of the dragons is insult enough, but this...! Some of my finest dragons, my glorious multi-hued wyrms, have been captured and held within their armouries in the hopes that they can further their twisted mockeries of fire and ice! This will not stand! I must ignore the plots of our human deceivers for the moment, for Vor requires my full attention.]], [[我的龙宝贝们带来了一些消息。他们看到了人类前往巅峰，对我们兽族下达了一系列的管理政策。他们并没注意到我的龙，无意间我已经获知了他们的谈话内容。得到这些消息后，我必须慎重考虑如何“尊重”我们的“领主”。我的许多精英龙战士都想飞上天际去对付那些骗子，看着他们在龙炎中挣扎。甚至我的一些龙也向我表达了这个想法。悲哀的是，他们必须等待。
+Vor's insolence will be tolerated no longer! His claims that his pride's mastery over the elements surpasses that of the dragons is insult enough, but this...! Some of my finest dragons, my glorious multi-hued wyrms, have been captured and held within their armouries in the hopes that they can further their twisted mockeries of fire and ice! This will not stand! I must ignore the plots of our human deceivers for the moment, for Vor requires my full attention.]], [[我的巨龙带来了消息。它们在巅峰上目睹了人类，正谈论着对我们各个兽人部落的统治。他们没有防备我的巨龙，根本不知道它们能与我沟通。如今掌握了这情报，我必须深思该如何应对我们那些“主人”。我手下许多最精锐的龙战士都渴望起事反抗那些骗子，亲眼看着他们被龙火吞噬。甚至连我的一些巨龙也向我吐露过这一愿望。遗憾的是，这必须暂缓。
 
-沃尔蛮横无理的行为将不再被容忍！他声称他对元素的掌握已经超越了龙族，龙族已经没必要存在于世了，但是……！我的一些精英龙战士和许多七彩龙族都被关在了他们的兵工厂里，他们希望通过研究龙族，能进一步完成扭曲冰火元素的可笑实验！我忍无可忍了！必须暂时放弃那些人类骗子，我要全力以赴对付沃尔。]], "_t")
+沃尔的傲慢无礼绝不能再容忍了！他声称自己的部落对元素的掌控超越了巨龙，这已是奇耻大辱，但现在竟然……！我的一些最顶尖的巨龙，那些光辉灿烂的七彩巨龙，竟被他们捕获并关押在军械库中，妄图借此推进他们对冰火之力的扭曲亵渎！这绝不能容忍！我必须暂时将人类骗子的阴谋放到一边，因为沃尔需要我全力应对。]], "_t")
 t("Vor's Note", "沃尔的笔记", "_t")
 t([[Strange lights play atop the High Peak. Torches? Nay. The fire of dragons? Not so. A volcanic eruption, perchance? Alas, no. It is unmistakably the fire of the arcane, the fire of mages, and seeing as every pyromancer within our pride is under my dominion, I can only assume that these lights come from one not affiliated with us. The lights are fascinating, I wish to study them; they put me in mind of the fires of the Spellblaze, burning so very long ago...
 
-Sadly, such desires are denied to me at this moment. Plans are in motion, and we are scant weeks away from finally crushing the accursed sun paladins and their tin-plated harlot ruler. Even once the Sunwall lies in ruins I must be careful - the horde of sub-orc savages Grushnak calls a pride are ever at my door, claiming we do not follow Garkul's "true path". He is a fool, but dangerous, and I must be vigilant.]], [[巅峰周围出现了许多奇怪的火光。火把？不是。龙炎？也不是。偶然的火山喷发？也不是。这显然是奥术之焰，法师之焰，我非常确定这是来自其他阵营的人释放的法术，因为我族所有的烈焰术士都在我的麾下。这些火光是多么迷人，我想学会这些法术，很多年前我心底燃烧的魔法大爆炸之火，被再次点燃……
+Sadly, such desires are denied to me at this moment. Plans are in motion, and we are scant weeks away from finally crushing the accursed sun paladins and their tin-plated harlot ruler. Even once the Sunwall lies in ruins I must be careful - the horde of sub-orc savages Grushnak calls a pride are ever at my door, claiming we do not follow Garkul's "true path". He is a fool, but dangerous, and I must be vigilant.]], [[巅峰顶上闪烁着奇异的光芒。是火把？不是。是巨龙的烈焰？也不是。难道是火山喷发？唉，都不是。这无疑是奥术之火，是法师的烈焰；既然我们部落里的所有烈焰术士都在我的掌控之下，我只能推断这些光芒来自与我们无关之人。那些光芒令人着迷，我很想加以研究；它们让我想起了很久以前燃烧的魔法大爆炸烈焰……
 
-悲哀的是，此时此刻我必须克制这个冲动。计划正在有条不紊的进行中，很快我们就可以给那些太阳骑士和他们荒淫无道的统治者带来毁灭。一旦太阳堡垒毁灭了我就要小心了，格鲁希纳克所领导的那群自称兽族分支部落的未开化的野蛮人，正驻扎在我的门前，警告我们不遵循领袖加库尔的“真理”。他虽然很蠢，但也很危险，我必须保持警惕。]], "_t")
+遗憾的是，我眼下却无暇满足这般渴望。计划正在推进，只需区区数周，我们就能彻底粉碎那些该死的太阳骑士和他们披着铁皮的荡妇统治者。即便太阳堡垒化为废墟，我也必须小心谨慎——格鲁希纳克口中称为部落的那群劣等兽人野蛮狂徒一直堵在我的门口，声称我们没有遵循加库尔的“真正道路”。他是个蠢货，却很危险，我必须保持警惕。]], "_t")
 t("Records of Lorekeeper Hadak part one", "博学者哈达克的记录，第一部分", "_t")
 t([[Our history is a history of battles, a history of wars. We orcs have always been under attack from the other races, always having to defend ourselves against their ruthless advances. The other races paint us as evil, they think of us as purely beasts. Not so! If we are cruel, it is because they made us cruel. If we are heartless, it is because they ripped our beating hearts from our chests and stamped them beneath their feet!
 
 It was the halflings we first did war with, in the Age of Allure. We were weak then, and disorganised, and in their arrogance they sought to enslave us. But we fought back! And we have been fighting back ever since. They used magic on us, though we had never come in touch with the arts before. They used whips and chains and tried to beat us down. They used us for labour, butchering any young that were not strong enough for them, burning any constructions we tried to make for ourselves.
 
-At first we escaped and fled, and hid in dark caves. Our numbers grew, though we had to endure squalor and hardship. After many years we could hide no longer, as starvation and disease threatened to kill us all. And so seeing our enemy weak we rose upon them in wrath. We were not organised, but we were determined. The elves and the humans and the dwarves tried to oppose us too, but we would not allow ourselves to be beaten! They tried to use their magics against us, but we overcame them with numbers, five of us dying for every mage we managed to kill. With blood we paid and finally we had lands for our own!]], [[我们的历史是一部战乱史。在岁月的长河中，我们经常受到其他种族的侵略，面对其他种族无情的进犯，我们不得不奋起反抗。其他种族把我们当做恶魔，他们潜意识里认为，我们就是纯粹的野兽。胡说八道！说我们残忍，其实是他们一手造成。说我们无情，也是因为他们曾从我们的胸膛中掏出仍在跳动的心脏，再踩在脚下！
+At first we escaped and fled, and hid in dark caves. Our numbers grew, though we had to endure squalor and hardship. After many years we could hide no longer, as starvation and disease threatened to kill us all. And so seeing our enemy weak we rose upon them in wrath. We were not organised, but we were determined. The elves and the humans and the dwarves tried to oppose us too, but we would not allow ourselves to be beaten! They tried to use their magics against us, but we overcame them with numbers, five of us dying for every mage we managed to kill. With blood we paid and finally we had lands for our own!]], [[我们的历史是一部征战史，一部战争史。我们兽人一直遭受其他种族的攻击，不得不时刻抵御他们无情的进犯。其他种族将我们描绘为邪恶，认为我们纯粹是野兽。事实绝非如此！若说我们残忍，那是因为他们逼我们残忍。若说我们无情，那是因为他们从我们的胸膛中掏出跳动的心脏，踩在他们的脚下！
 
-第一次战争发生在厄流纪，在我们和半身人之间展开。我们当时很弱小，并且缺乏头脑，他们傲慢的认为，我们天生就要被他人奴役。但是我们反击了！而且我们一直抵抗至今。他们向我们释放魔法，并认为我们永远不会领略魔法的魅力。他们还使用鞭子和镣铐，试图使我们屈服。他们把我们当做苦工，任何不够健壮的青年兽人都会被无情的杀害，甚至我们为自己所造的小屋也全部被焚毁。
+我们最初交战的对手是半身人，那是在厄流纪。当时我们弱小而散乱无序，而他们傲慢地妄图奴役我们。但我们奋起反抗！自那时起我们便从未停止过抵抗。他们对我们施展魔法，尽管此前我们从未接触过魔法技艺。他们用皮鞭和锁链试图将我们打垮。他们把我们当作苦力，屠杀任何不够强壮的幼年兽人，烧毁我们试图为自己建造的任何居所。
 
-刚开始，我们试图逃跑并躲藏在黑暗的洞穴中。虽然我们不得不面对艰难困苦，但是我们的族群却可以缓慢的成长。许多年后，我们再也躲不下去了，饥饿和瘟疫会把我们全部杀死。所以，看到敌人虚弱，我们便带着满腔怒火奋起反抗。我们并没有明确的组织，但我们义无反顾。精灵和人类也试图攻击我们，但是我们无路可退！虽然他们试图用魔法消灭我们，但我们最终以五倍的伤亡歼灭了他们。挥洒的热血，最终为我们换来了自己的土地！]], "_t")
+起初我们四处逃亡，躲藏在黑暗的洞穴中。尽管不得不忍受肮脏与苦难，我们的数量依然在增长。许多年后我们再也无法躲藏，因为饥饿与疾病威胁着我们所有人的性命。于是，看准敌人的虚弱，我们满怀怒火向他们发起了反击。我们缺乏严密的组织，但我们意志坚定。精灵、人类和矮人也都试图阻击我们，但我们决不允许自己被击垮！他们试图用魔法对抗我们，但我们用数量压倒了他们——每杀死一名法师，我们就有五人阵亡。我们付出了血的代价，终于拥有了自己的土地！]], "_t")
 t("Records of Lorekeeper Hadak part two", "博学者哈达克的记录，第二部分", "_t")
 t([[After fighting back the other races we began to build and prosper. Finally we had our own towns and cities, and we began to advance our own abilities. Though battles were still ongoing at our borders we were free to thrive and prosper.
 
 But then the accursed Shaloren mages began experimenting with Sher'Tul ruins. Oh what a dark and terrible a day it was for our race! The Spellblaze massacred our people. Earthquakes tore up our new-built towns, fires raged over old and young alike, and the whole world was turned to turmoil. Afterwards disease and blight ravaged our people, utterly ruining all the progress we had made.
 
-Only the strongest of us lived through the dark times that followed. We fled east, back to our dark and hidden places, but our people swore terrible oaths of vengeance on the races that had brought such bloody ruin upon us.]], [[击退敌人之后，我们开始重建家园。随着我族的繁荣昌盛和城市的不断发展，我们开始提高自身的能力。虽然战争仍在继续，但我们可以蓬勃的发展。
+Only the strongest of us lived through the dark times that followed. We fled east, back to our dark and hidden places, but our people swore terrible oaths of vengeance on the races that had brought such bloody ruin upon us.]], [[在击退其他种族之后，我们开始建设家园、繁衍昌盛。我们终于拥有了自己的城镇与城市，并开始提升自身的能力。尽管边境上依然战事不断，我们仍得以自由地繁荣兴盛。
 
-但是好景不长，该死的精灵法师开始了夏·图尔废墟的实验。多么可怕和黑暗的一天！魔法大爆炸殃及了我们的人民。地震摧毁了我们新建的城镇，大火吞噬了男女老幼，整个世界都混乱了。后来，疾病和瘟疫开始蔓延，我们前进的脚步被彻底打断。
+然而，那些该死的永恒精灵法师开始拿夏·图尔废墟进行实验。哦，对我族而言那是多么黑暗而可怕的一天！魔法大爆炸屠杀了我们的人民。地震撕裂了我们新建的城镇，烈火吞噬了老幼妇孺，整个世界都陷入了混乱。随后，疾病与枯萎疫病肆虐我族，将我们取得的一切成果彻底摧毁。
 
-只有最强壮的兽人挺过了那段紧跟而来的黑暗时期。我们一直向东迁徙，回到我们黑暗的藏身之所，所有族人都发誓，一定要让这带来可怕灾难之人付出代价。]], "_t")
+随后到来的黑暗时期里，唯有我们当中最强壮者才得以幸存。我们向东逃亡，回到了黑暗隐秘的避难所，但我们的族人发下了残酷的复仇誓言，誓要让那些将如此血腥毁灭降临于我们的种族血债血偿。]], "_t")
 t("Records of Lorekeeper Hadak part three", "博学者哈达克的记录，第三部分", "_t")
 t([[During the Age of Dusk we lay hidden, nursing our wounds and plotting our revenge. But this turned against us, as centuries after the Spellblaze had torn our race apart, the Cataclysm would bring ruin upon us again. We were finally recovering our numbers when earthquakes tore through all of our settlements. Falling rocks crushed and smothered us, thousands of us were left trapped to die beneath the ground. What few of us were left came out to a changed world.
 
 The effects of magic left a grave impression on us then, and we knew we must learn its secrets in order to compete. For centuries we studied the effects of the Spellblaze, and captured enemy mages to experiment on them. Finally we were able to master the arts of magic and use them for ourselves. We built up our capabilities in secret, waiting for the right moment to strike a decisive vengeance. Garkul the Devourer, the greatest of our race, brought the plans to fruition. Under his awe-inspiring leadership we marched out upon the halfling kingdoms and burnt all before us. What glorious retribution we had! Whole cities were felled beneath our wrath. Everywhere we went we piled the bodies of our victims high and lit them in blazing pyres, as a symbol of our indomitable strength.
 
-The Age of Pyre was our age, the time when we showed ourselves the strongest of the races, standing alone and unbeatable.]], [[在黄昏纪，我们东躲西藏来恢复元气，同时商定复仇计划。但是命运再一次愚弄了我们，魔法大爆炸将我们的种族切割的支离破碎,大灾变再次给我们带来了毁灭。当族群数量终于开始恢复时，地震席卷了我们所有的聚居地。落石将我们砸碎、掩埋，数千族人被困在地下等死。最终只有寥寥无几的幸存者走出来，面对一个已经改变的世界。
+The Age of Pyre was our age, the time when we showed ourselves the strongest of the races, standing alone and unbeatable.]], [[在黄昏纪，我们潜伏隐匿，舔舐伤口并谋划复仇。但这却反而害了我们——在魔法大爆炸将我族撕裂数个世纪之后，大灾变再次降临，给我们带来了毁灭。当我们的族人数量终于开始恢复时，地震席卷了我们所有的定居点。滚落的巨石砸碎并掩埋了我们，数以千计的族人被困在地底等死。所剩无几的幸存者走出来时，面对的是一个面目全非的世界。
 
-那时，魔法给我们带来了非常严重的影响，而我们也知道了，必须为生存而学会它。几个世纪以来，我们一直在研究魔法大爆炸的影响，同时我们也俘虏了一些敌方的法师来做实验。最终我们还是解开了魔法的奥秘，并学会了它。我们秘密建设了自己的基地，等待着合适的时机来发动毁灭性的复仇。吞噬者加库尔，是我族中最优秀的战士，他使我们的计划更加完美。在他的领导下，我们气势如虹，半身人王国终于在我们脚下毁灭。 多么完美的复仇！所有的城池在我们愤怒的军队面前都不堪一击！我们无论走到哪里，都把殉难者的尸体堆积起来付之一炬，冲天的火焰，象征着我们不屈不挠的意志。
+当时魔法的威力给我们留下了极其深刻的印象，我们明白必须掌握它的奥秘才能与敌人抗衡。几个世纪以来，我们一直在研究魔法大爆炸的影响，并俘虏敌方法师进行实验。最终我们成功掌握了魔法技艺，并将其化为己用。我们秘密积蓄实力，等待着发动决定性复仇的最佳时机。吞噬者加库尔，我族最伟大的领袖，让这些计划开花结果。在他令人肃然起敬的统领下，我们向半身人诸王国大军进发，将眼前的一切付之一炬。那是多么辉煌的复仇！一座座城市在我们的怒火下倾覆坍塌。无论走到哪里，我们都将受害者的尸体高高堆起，点燃成熊熊火葬柴堆，作为我们不可战胜之力量的象征。
 
-烈火纪是我们的年代，那时候我们是最强的种族，打遍天下无敌手。]], "_t")
+烈火纪属于我们，那是我们向世人展现自己乃是最强种族、傲立世间无可匹敌的时代。]], "_t")
 t("Records of Lorekeeper Hadak part four", "博学者哈达克的记录，第四部分", "_t")
 t([[How greatly our race advanced during the Age of Pyre! Truly none of the weaker races can compare. For it was vengeance that drove us, and so fervently we pursued our goals at the thought of our just retribution on the races that had punished us and beaten us for so long before.
 
 During the Age of Pyre we discovered the farportal, deep beneath the dwarven cities. We were more cautious than the foolish elves before us, and managed to harness the portal's power to open a gateway to the lost east. We sent military forces over, and easily beat back the puny elves and humans that were hoveling there already. We established the Prides there - training camps for our soldiers where they could hone their battle skills before returning to fight the wars in the west.
 
-But all in the west did not go well. We conquered many lands, and came close to wiping out many races, but we became spread thin. As the other races began to fight back our Age of Pyre was to dwindle.]], [[烈火纪期间，我族取得了多么巨大的进步！那些弱小的种族确实无一能与我们相比。正是复仇驱使着我们；想到终于能向那些长期惩罚、击败我们的种族施以正当报复，我们便无比狂热地追求目标。
-	
-在烈火纪，我们发现了远程传送门，在矮人城堡的深处。我们比之前那些愚蠢的精灵要谨慎的多，利用传送门的力量，我们打开了通往失落远东的道路。我们的军队，轻易的击退了已经到那的精灵和人类。我们在那建立了普莱德训练营——我们的战士可以在那磨练自己的技能，为西部地区的战事做准备。
+But all in the west did not go well. We conquered many lands, and came close to wiping out many races, but we became spread thin. As the other races began to fight back our Age of Pyre was to dwindle.]], [[在烈火纪期间，我族取得了多么巨大的飞跃！那些弱小的种族确实无一能与我们相比。因为驱使着我们的是复仇之火；只要想到能对那些长久以来惩戒和殴打我们的种族施加正义的报复，我们便无比狂热地追逐目标。
 
-但是西部的战事并不顺利。我们征服了许多国家，灭掉了许多种族，但是随着战斗的分散，我们的力量日渐薄弱。当其他种族开始反击时，我们的黄金时代走向了尾声。]], "_t")
+在烈火纪期间，我们在矮人城市的深处发现了远古传送门。我们比此前愚蠢的精灵更加谨慎，成功驾驭了传送门的力量，打开了通往失落远东的通道。我们派出了军队，轻易击退了早已缩在简陋棚屋里的弱小精灵和人类。我们在那里建立了各个兽人部落——作为我们战士的训练营，让他们在返回西部参加战争之前在那里磨练战斗技巧。
+
+但西部的一切并非一帆风顺。我们征服了许多土地，几乎将许多种族赶尽杀绝，但我们的兵力也分散薄弱了。随着其他种族开始反击，我们的烈火纪也逐渐走向衰亡。]], "_t")
 t("Records of Lorekeeper Hadak part five", "博学者哈达克的记录，第五部分", "_t")
 t([[The humans and the halflings made an alliance to defend their kingdoms, and soon the elves and the dwarves joined too, and we were pushed back. Our tactics became increasingly defensive as they made greater advances into our territory.
 
@@ -18783,15 +18783,15 @@ What forces we could muster we sent east, leaving behind token troops who bravel
 
 But what was left of our people in the east was a broken picture. Gone were the majority of our women and children, gone were our centres of culture, gone was all softness that ever lived in us. Our military forces were all that were left, consolidated in the Prides. By arcane experimentation we found ways to breed again, but we are left a hollow people. Until we are free from the threats of the other races we can focus on only one thing - revenge.
 
-We still have a secret presence in the west, in our rightful lands across which we have spilled rivers of our own blood. We are building up our military force at an accelerating rate, and when the time comes we shall sweep across Maj'Eyal with a vengeance that cannot be held back. The other races will suffer as they have made us suffer, and all that they have built will be brought to ruin.]], [[人类和半身人已经达成盟约，联合保卫他们的王国，很快精灵和矮人也加入了盟军，我们被击退了。我们的战术很快变为防守，因为他们很快就要攻入我们的领土。
+We still have a secret presence in the west, in our rightful lands across which we have spilled rivers of our own blood. We are building up our military force at an accelerating rate, and when the time comes we shall sweep across Maj'Eyal with a vengeance that cannot be held back. The other races will suffer as they have made us suffer, and all that they have built will be brought to ruin.]], [[人类与半身人结成了同盟来保卫他们的王国，不久精灵和矮人也加入了进来，我们被迫节节败退。随着他们向我们的领土不断推进，我们的战术变得越来越偏向防守。
 
-我们尽全力战斗，但是我们没想到他们会采取如此卑鄙的战争策略。他们不去攻打我们的军事基地，而是直接攻击我们的城镇和城市，杀死了我们所有的平民。甚至连母亲手中刚出生的婴儿都被残忍杀害，他们没放过任何一个女人或孩子。这是彻头彻尾的种族灭绝。
+我们浴血奋战，但万万没有预料到他们会使出如此卑劣可怖的手段。他们没有进攻我们的军事基地，而是直扑我们的城镇和城市，屠杀了我们所有的平民。婴儿在母亲的怀抱中被屠戮，每一个妇孺都被搜捕并残杀。这是最彻底的种族灭绝。
 
-我们集合残余族人，把他们送到远东，由敢死队掩护他们的撤退，误导他们相信种族屠杀已经完成了。
+我们集结了所能调集的所有兵力送往远东，只留下象征性的部队在敌人的攻势前英勇牺牲，好让他们确信种族灭绝已经彻底完成。
 
-但是远东残存的族人已经支离破碎。大多数妇女儿童不复存在，文化中心不复存在，我们曾有过的一切温情也不复存在。仅有军队留存下来，集中在各个普莱德。通过奥术实验，我们找到了再次繁衍的方法，但我们已经成为一个内里空洞的民族。在摆脱其他种族的威胁之前，我们只能专注于一件事——复仇。
+但在远东剩下的族人却是一幅支离破碎的景象。绝大多数妇孺已不复存在，我们的文化中心不复存在，我们身上曾有过的一切温情也荡然无存。所幸存的唯有军队，集结在各个兽人部落之中。通过奥术实验，我们找到了重新繁衍的方法，但我们已沦为一个内心空洞的民族。在彻底摆脱其他种族的威胁之前，我们只能专注于一件事——复仇。
 
-我们在西方仍有一个秘密基地，位于我们抛洒热血土地的另一端。我们正在加速建设军事力量，那时我们将展开激烈的复仇，纵横整个马基·埃亚尔。我们将对其他种族以牙还牙，他们所建立的任何政权都将毁灭。]], "_t")
+我们在西方依然保有一股秘密势力，活动在那片我们曾洒下如河鲜血、理应属于我们的土地上。我们正以更快的速度积聚军事力量，待到时机成熟，我们必将带着势不可挡的复仇怒火横扫马基·埃亚尔。其他种族必将承受我们曾承受过的痛苦，而他们所建立的一切都将被化为废墟。]], "_t")
 t("The Legend of Garkul", "加库尔的传说", "_t")
 t([[#{bold}#Chapter One: A Young Warrior#{normal}#
 
@@ -18814,24 +18814,24 @@ Garkul turned to the amazed Verikor and bowed. "You have bested me - I had to us
 
 Verikor kept Garkul as his guest for many months, and though Garkul had no inkling for the Art he learnt many things about how to resist and avoid the effects of magic. Verikor never ceased to be impressed by the young orc's talents, and it became clear to him that here was one who was destined to lead their race to great things.]], [[#{bold}#第一章：年轻的战士#{normal}#
 
-#{italic}#"吃得苦中苦，方为人上人。只有感到痛楚，你才能真正学会它。我族经历了无数的战火和瘟疫，每次灾难都使我们成长。只有克服困难，才能使我们变的更加强大。"
-- 吞噬者加库尔#{normal}#
+#{italic}#"没有艰难困苦，便不会拥有力量。唯有历经痛苦，我们才能真正领悟。我族历经战争、烈火与瘟疫的淬炼，每一次磨难都让我们更加强大。我们克服的每一次考验，都赋予我们更强大的力量。"
+- 吞噬者加库尔语录#{normal}#
 
-加库尔是我族有史以来最伟大的战士，他在世的年代也是我族最强大的年代。他统一了整个部落，率领我们取得多次胜利，威震八方，数不清的尸体倒在他的脚下。
+加库尔是有史以来最伟大的兽人，他一生的故事便是我族最伟大时代的篇章。他统一了我们的部族，击退了敌对种族，征服了西方与东方，死时脚下横陈着上万具敌尸。
 
-他出生在一个动乱的年代，那时我族一直过着藏头掩面的生活，只能从黑暗的洞穴中偷袭对方。他来自一个不起眼的支脉，但是在很小的时候他就表现出了优秀的战斗天赋和杰出的战术头脑。注意，包括其他种族在内都没有像加库尔一样杰出的人物。他们娇惯自己的贵族，使其变得软弱；而那些真正经受艰辛磨难的种族，却注定要过一辈子的奴役生活。我们兽族生来平等，每个人都展示出优越的战斗能力。成王败寇，适者生存。
+他出生在一个动荡的年代，那时我们过着东躲西藏的生活，只能从黑暗的洞穴中对其他种族发起偷袭。他出自一个血统并不显赫的小家族，但自幼便在街头证明了自己是一名凶狠而聪明的战士。值得注意的是，其他种族中绝不可能出现像加库尔这样的人物。他们娇惯自己的贵族并使之衰弱，而那些真正经受苦难的人却注定终生为奴。我们兽人生来平等，每一个人都享有战斗并展现超越他人勇武的机会。唯有强者方能统治，唯有智者方能掌权。
 
-加库尔组建了自己的街头团伙，见识过他力量的人迅速投身于他。很快，他便强大到足以接管整个部落。但有一天，他被选中承担更伟大的命运。创法者威瑞克走访各个部落，为自己的魔法实验招募志愿者。当他来到加库尔的部落时，这名年轻兽人嘲笑了他，并夸口说埃亚尔所有的法术都比不上他左臂的肌肉。威瑞克对这少年意气的夸口颇为欣赏，更在年轻人身上看到了别的特质，便邀请加库尔用蛮力挑战新一代最强的法师。加库尔答应了，两人一同前往威瑞克的大厅。
+加库尔组建了自己的街头帮派，见识到他力量的人迅速归附于他。很快，他便强大到足以接管整个部族。然而有一天，他被相中去迎接更伟大的命运。铸法者威瑞克当时正在巡访各个部族，为他的魔法实验招募志愿者。当他来到加库尔的部族时，这名年轻兽人嘲笑了他，说埃亚尔所有的法术都比不上自己左臂的肌肉。威瑞克被这少年展现出的傲气所打动，而且在青年身上看到了别样的潜质，便邀请加库尔用蛮力去挑战新一代中最强的法师。加库尔欣然接受，两人一同前往威瑞克的殿堂。
 
-加库尔在这看到了令其惊讶的事情——上千个兽人在这大厅里训练魔法。高度的组织性，严谨的课程安排和严格的等级制度使他们能够熟练运用魔法艺术。威瑞克解释了他为什么要花费一生的精力来学习魔法大爆炸的影响，还有为什么要研究被绑架的他族法师，这是他的终身理想。集结各部落的年轻兽人，他可以组织起一队足以打败他族的法师团。加库尔显然被他打动了。
+在这里加库尔大吃一惊，因为殿堂下方的洞穴中隐藏着数以千计正在修习魔法的兽人。他们组织极其严密，按能力学派和不断晋升的位阶划分，更有大师悉心教导他们如何将魔法技艺运用于战斗。威瑞克解释说，他毕生都在研究魔法大爆炸的影响，并拿绑架来的异族法师做实验，而眼前正是他毕生研究的心血结晶。只要汇聚来自所有部族的年轻兽人，他就能打造出一支法师大军，帮助整个种族奋起反抗敌人。加库尔显然被这一前景深深触动。
 
-考验的时刻到了，因为加库尔曾打赌，仅凭左臂便能抵挡最强的法师。因此威瑞克叫来三名最出色的学生，一人修习火焰，一人修习寒冰，一人修习鲜血；挑战是看双方谁能先击倒对方。加库尔笑着接受了挑战，面对三名法师时把右臂背到了身后。
+随后迎来了考验的时刻，因为加库尔曾打赌单凭左臂就能击退最顶尖的法师。于是威瑞克唤来了自己最优秀的三名学徒，分别修习火焰、寒冰与鲜血，挑战规则是看谁能先击倒对方。加库尔咧嘴一笑接受了挑战，把右臂背在身后，直面三位法师。
 
-烈焰术士用了火焰之环作为起手，但是被加库尔灵巧的躲开了，并且他在法师能对他释放下一个法术前，快速冲到了烈焰术士面前，以一记上勾拳把他打断了。同时，冰霜术士对他释放了一阵冰风暴，但是加库尔抓住了烈焰术士的长袍，以烈焰术士作为盾牌，跑出了冰风暴的范围。当他快速靠近第二个施法者时，他将身前冻僵的身体扔到一边，并嘭的一声打趴了冰霜术士。两名法师倒下后，加库尔转向最后一位惊慌失措的堕落法师。他大笑着向法师冲过去，但是当他靠近时，血法师对他释放了一记诅咒，他感觉自己的手臂突然变的麻木僵硬。虽然诅咒加身，但是加库尔还是冲到了血法师的面前，以一记头槌撞晕了血法师，诅咒也随之消除。
+烈焰术士率先向这位斗士射出一道烈焰环，但加库尔以极快的速度闪身避开，在法师来不及施展下一个法术之前，加库尔已猛扑而至，一记凶狠的上勾拳砸中施法者的下颌，将其下颌打碎并瞬间击昏。随后寒冰术士倾泻出一阵冰雹，但加库尔抓起昏厥的烈焰术士长袍充当盾牌，顶着冰暴疾奔，冲到第二名施法者面前，甩开瘫软的躯体，一记凶猛的勾拳结结实实击中了寒冰术士的太阳穴。短短数秒内放倒两名法师后，他转向了惊慌后退的堕落者。加库尔大笑着步步逼近，但当他靠近时，血法师施展了一道咒术，战士感到自己的手臂突然萎缩干瘪、无法动弹。伴随着一声怒骂，他一头槌砸向最后一名施法者，后者应声倒地，咒术随即破除。
 
-加库尔转向吃惊的威瑞克鞠躬致谢：“其实你赢了——我被逼无奈，只能用头槌去攻击最后一名法师。”但是威瑞克仍震惊于加库尔的战斗技巧——风一般的速度，令人惊叹的力量以及闻所未闻的反应能力。两人交谈了许久，加库尔对法师的团体作战提出了许多建议，这些建议足以使法师团在面对敌人时成为一股压倒性的力量。他对魔法的认知已经达到了新的高度，而这些知识使他能够优化我们的作战方式，并将其在战争中发扬光大。
+加库尔转向惊愕不已的威瑞克，躬身行礼：“你胜过我了——对付最后一个，我不得不真的‘用头’。”但威瑞克对这位斗士的技巧深感敬畏——他惊人的速度、令人赞叹的力量以及在战斗中敏捷的机变，皆远远超出了自己以往所见的一切。两人长谈许久，加库尔提出了诸多构想，探讨法师大军如何与各部族的战士及野性系成员协同作战，从而缔造出一支无坚不摧的雄师。如今他对魔法的潜力大开眼界，脑海中构想出全新的战术与策略，以将其运用到战场之上。
 
-威瑞克邀请加库尔做客了数月，虽然加库尔对魔法还是毫无兴趣，但他还是学到了许多如何抵抗和免疫魔法的知识。威瑞克从未见过如此才华横溢的年轻人，他意识到，面前的年轻人将带领他的种族走向辉煌。]], "_t")
+威瑞克将加库尔留作贵客招待了数月之久，尽管加库尔对魔法技艺毫无天赋，却学到了许多如何抵御和规避魔法效果的知识。威瑞克对这名年轻兽人的才能始终赞叹不已，在他看来显而易见：眼前之人注定要引领他们的种族成就伟业。]], "_t")
 t([[#{bold}#Chapter Two: Rise of the Devourer#{normal}#
 
 #{italic}#"There are no such things as obstacles, no such things as impossibilities. When a problem presents itself you use your head and your fists, and you remove the problem. If you cannot punch you kick, and if you cannot kick you bite, and you do not unclench your jaws until the thing that was a problem is a problem no more."
@@ -18861,32 +18861,32 @@ He dropped the twitching body on the ground, bent over it and pummelled his fist
 
 So ended the name Garkul One-Eye, for a new name was born: Garkul the Devourer. The teeth of Wargon he collected and made into a necklace, and he added more teeth to it as he dealt with dissent amongst the tribes, until all followed him without question.]], [[#{bold}#第二章：吞噬者的崛起#{normal}#
 
-#{italic}#"障碍和困难是不存在的，没有我们做不到的事。当问题放在你面前时，你要用头脑和拳头去解决它。如果你不能用手，就用脚踢；不能用脚，就用牙咬。直到你把问题彻底解决前，你都不能松开手脚。"
-- 吞噬者加库尔#{normal}#
+#{italic}#"世上本无障碍，亦无不可逾越之事。当难题摆在面前，便用你的头脑与拳头去消灭难题。挥不了拳就用脚踢，踢不了就用牙咬；若不将难题彻底咬碎根除，便决不松口。"
+- 吞噬者加库尔语录#{normal}#
 
-第二年的春天，威瑞克带着加库尔去参加部落理事会——一个部落首领的交流会。由长老沃根主持会议，听取来自各部落的报告。
+次年春天，威瑞克带着加库尔参加了各部族首领齐聚的部族议会。长老沃根主持了会议，听取来自各个部族的情况汇报。
 
-加库尔耐心地听着，直到西部的一个部落汇报他们受到了半身人的攻击，当他听见战士们都倒在了艾德瑞尔的投掷手和法师面前时，他怒了，但威瑞克吩咐他不要轻举妄动。其他的部族领袖在底下窃窃私语，但令加库尔感到惊讶的是，居然没有人提到复仇。
+加库尔耐心地倾听，直到西部的一个部族汇报了半身人袭击其据点的情况；听到己方战士倒在艾德瑞尔投石手和法师手下时，他怒火中烧，但威瑞克示意他保持镇静。其他一些部族领袖也在窃窃私语，但令加库尔震惊的是，竟然无人要求发起复仇打击。
 
-沃根始终沉默着，若有所思。当议论声逐渐平息时，他开口了：“这些事情确实可怕，但我们也无能为力。反击只会使我们暴露，引来进一步的毁灭。我们必须保持沉默，也许……”
+沃根始终保持沉默与沉思，待私语声渐歇，他才提高声音：“这些固然是惨痛的变故，但我们能做的事微乎其微。发起反击只会引火烧身，招致更彻底的毁灭。我们必须保持隐忍，也许——”
 
-“懦夫！”加库尔忍不住站了起来，“没牙的老狗！我们应该狠狠的反击，让他们知道触犯我们的代价！”
+“没牙的蠢狗！”加库尔再也按捺不住，猛地站起身来大吼道，“你连牙齿都没了！我们应当奋起反击，叫他们为胆敢进犯我们的部族付出血的代价！”
 
-沃根因受辱而怒火中烧，示意几名卫兵砍倒这名年轻战士。加库尔看见他们伸手去拿武器，立刻绷紧身体，准备在必要时独战全场，但威瑞克迅速起身介入。“长老，请原谅这个男孩——他年轻而又渴望战斗。带他来是我的错，我愿意承担全部责任。”
+沃根因这番侮辱而怒不可遏，示意几名卫兵去砍倒这名年轻战士。加库尔看到卫兵伸手拔刀，浑身肌肉紧绷，做好了在必要时力敌全场的准备；但威瑞克迅速起身阻拦：“长老，请饶恕这个年轻人；他少不更事、求战心切。带他来是我的过失，我愿承担全责。”
 
-沃根眯缝着眼睛看着创法者说：“你愿意替这孩子受过？”威瑞克郑重的点了点头。长老的嘴角泛起一丝微笑，长久以来，他一直怀疑创法者在建立秘密的法师部队，现在，他可以名正言顺的铲除这股潜在力量。他命令最近的卫兵前去撕裂创法者的喉咙。
+沃根眯起眼睛看着这位铸法者：“你想替这小子抵罪？”威瑞克神色凝重地点头，长老嘴角泛起一丝冷笑。长久以来他一直怀疑这名法师在暗中积蓄秘密势力，如今他看到了除掉潜在对手的良机。他向最近的卫兵示意，卫兵走上前去，割开了毫无反抗的法师的喉咙。
 
-加库尔一动不动地站着，死死盯着长老。沃根眯起眼睛与他对视片刻，却被这目光弄得心神不宁。他转向一个守卫说：“我不喜欢这家伙的眼神。弄瞎他的右眼，然后放他走。”守卫用刀割开他的右眼时，加库尔毫不退缩，左眼仍死死盯着沃根，鲜血顺着自己的脸流了下来。
+加库尔一动不动，死死盯着长老。沃根眯起的眼睛在他身上停留了片刻，但加库尔的目光令他感到不安。他转向一名卫兵说：“我不喜欢这家伙眼神里的杀气。剜出他的右眼，然后放他走。”卫兵持刀刺向加库尔的面门时，加库尔连眼皮都没眨一下；当右眼被生生割开、鲜血淌满面孔时，他的左眼依然死死盯在沃根身上。
 
-他回到部落后，虽然伤口已经愈合，但他坚决不戴眼罩，于是独眼龙加库尔的外号被叫开了。人们问他：“你现在只有一只眼睛，如何领导我们部落？”但是加库尔回应道：“我现在可以比其他人看到更多的东西，我将带领着我们部落走的更远。”
+他回到部族处理了伤口，却拒绝佩戴任何眼罩遮掩，众人便唤他“独眼加库尔”。有人问：“你如今只剩下一半视力，还打算如何争夺部族的领袖之位？”加库尔回答：“我看得比所有人都更远，我不仅要统领这个部族，还要统领更多部族。”
 
-加库尔一直在等待复仇的时机。在下一次理事会上，他带领了二十多位随从。当他被禁止入场时，他用拳头打趴了所有的守卫。他的战士包围会场后，他走向了沃根。“现在，懦夫，你有勇气和我决斗吗？”他咆哮道。
+他静待复仇时机成熟。在下一次部族议会上，他带着二十名追随者赫然现身。当被卫兵阻拦入内时，他挥拳一扫便将守卫拍飞一旁。他径直走向沃根，麾下战士则将各部族领袖团团包围。“怎么，没牙的老狼，”他低沉地吼道，“现在你敢与我一战了吗？”
 
-沃根咬紧了牙关，不甘示弱的掏出了他的匕首。但是加库尔快速抓住了他的胳膊，迅速的扭断了它们。然后，加库尔用力抓住长老惨叫的头部，并使他面朝自己。他狠狠的朝长老的右眼咬去，生生的将眼珠给咬下来并吞了下去。接着，他又转向长老的另一只眼睛，并做了同样的事情，鲜血不断的从他咀嚼着的嘴角流下。
+沃根咬紧牙关，不甘示弱地拔出匕首朝挑战者扑去。但加库尔一把钳住他的双臂，动作迅猛地将双臂生生从关节窝中撕扯了下来。随后他按住哀嚎不已的长老头颅，指甲深陷血肉之中，将长老的脸扯近自己。他张开大口猛地咬向沃根的右眼，咔嚓一声将眼球从眼眶中硬生生咬下，随后一仰脖将眼球吞入腹中。接着他又转向另一只眼睛如法炮制，在咀嚼黏湿血肉的同时，黑血顺着他的下巴流淌而下。
 
-他把沃根抽搐的身体扔到了地上，并对着严重受创的头颅补了一记重拳，沃根的头骨和牙齿被砸的粉碎。然后，他转身朝着其他首领，大叫道：“看到了吗？他抢走我一只眼睛，我抢走他两只！跟随我，我要双倍偿还那些杀死我们族人的半身人！我不会再让我们的族人哭泣和躲藏——我们将奋起反抗并将怒火洒向大地！”面对加库尔的勇猛，各部落的首领都毫不犹豫地跟随他。
+他将抽搐的残躯扔在地上，俯身挥拳猛砸向那颗重创的头颅，砸碎了沃根的头骨，打飞了他所有的牙齿。随后他转向其他领袖厉声高呼：“看到了吗？！谁敢夺我一只眼，我便夺他两只！追随我，他们每杀我们一人，我便杀两个半身人偿命！我们再也不用抽泣哀鸣、鬼祟躲藏——我们将奋起反击，让复仇的烈火席卷大地！”面对加库尔滔天的力量与四周重重围困的战士，部族领袖们毫不犹豫地齐声臣服。
 
-就这样，独眼龙加库尔的外号结束了，新的外号诞生了——吞噬者加库尔。他收集了沃根残留的牙齿并做成了一条项链，每当其他部落中出现反对他的声音时，他会在这项链上加上更多的牙齿，直到再也没出现反对的声音。]], "_t")
+“独眼加库尔”的名号就此终结，一个全新的名号横空出世：吞噬者加库尔。他将沃根的牙齿收集起来串成项链；每当平定各部族中的异议，他便在项链上增添更多牙齿，直至全族上下对他唯命是从。]], "_t")
 t([[#{bold}#Chapter Three: Bringer of Pyre#{normal}#
 
 #{italic}#"Fire is a symbol all races understand. To burn is to destroy utterly. When I conquer I leave behind fire - every house, every field, every corpse, burnt to a cinder. This is a sign of our dominance, and the word of it spreads amongst our enemies. To them I become a living, unquenchable flame, and the sight of my army fills them with the dread of incineration."
@@ -18904,24 +18904,24 @@ The pyre could be seen for miles around, and the other races sent out scouts to 
 
 These early victories came easy, but as they advanced they met more resistance, as the races had more forewarning of their attacks. But Garkul was always master of any situation, and his strategy and tactics overcame all defences. And after each victory was always the great pyre, and our armies would chant songs of victory as the flames reached into the cold night sky. The battles would become known as the Pyre Wars, and the flames of conquest would spread across all of Maj'Eyal.
 
-Within three months the Eldoral kingdom was broken, and refugees flooded south to the halfling kingdom of Nargol, desperate to escape the deadly pyres. Garkul then consolidated his forces, building new bases in the conquered lands, before advancing out against the other races. None would escape the wrath of the people that had suffered so long from the attacks of the other races. Centuries of oppression had hardened us, and now the flames of vengeance that rose in our hearts could not be quenched.]], [[#{bold}#第三章：烈火纪的领导者#{normal}#
+Within three months the Eldoral kingdom was broken, and refugees flooded south to the halfling kingdom of Nargol, desperate to escape the deadly pyres. Garkul then consolidated his forces, building new bases in the conquered lands, before advancing out against the other races. None would escape the wrath of the people that had suffered so long from the attacks of the other races. Centuries of oppression had hardened us, and now the flames of vengeance that rose in our hearts could not be quenched.]], [[#{bold}#第三章：烈火降临者#{normal}#
 
-#{italic}#“火是一个所有种族都能理解的符号，燃烧即毁灭。每当我征服一个城池，我都会留下一场大火——每栋房子、每片农田、每具尸体都化作乌有。这是我们意志的象征，并且火焰会将这股意志传达给我们的敌人。对于他们来说，我就是一团熊熊大火，而我的部队则会带来无尽烈焰般的恐惧。”
-- 吞噬者加库尔#{normal}#
+#{italic}#"烈火是所有种族皆能理解的象征。焚烧即是彻底的毁灭。凡我征服之地，皆尽化为焦土——每一座房屋、每一片田野、每一具尸骸，尽数化为灰烬。这是我们统治威严的昭示，其赫赫威名在敌人之间传扬。在他们眼中，我已化身一团永不熄灭的烈焰，而目睹我的军队，便令他们深陷化为飞灰的恐惧。"
+- 吞噬者加库尔语录#{normal}#
 
-加库尔迅速而高效的统一了整个部落。他将战士们重新编制，所有的战士和龙战士们被编入他自己的部队，在那里，他鼓励战士们互相竞争。在看到法师们的强大后，他把法师们分为2个团，一支专精元素魔法，一支专精诅咒和亡灵魔法，同时，他也鼓励他们互相竞争互相促进。他说，只有兽族才能与兽族对抗，其他种族都无法和我们比拟。只有战胜自己，才能发挥出我们真正的力量。
+加库尔迅速而高效地统一了各个部族。他重整军伍，将所有战士与龙战士整编进各自的战团，鼓励他们相互竞争以激发勇武。见识到魔法的力量后，他又将法师分为两支军团——一支修习元素秘法，一支研习堕落与死亡秘术，同样鼓励他们彼此竞逐。他说唯有兽人才能与兽人一较高下，因为其他种族根本无法与我们相提并论；唯有通过同族之间的竞逐，我们才能激发真正的力量。
 
-他组织兽人巡逻队保护周边领地，任何来自其他种族的攻击很快就被扑灭了。当半身人看到我们的组织日益严密时，他们也开始扩大侦察队并加强巡逻。加库尔看出这种局面不能再持续下去，全面实施计划的时机已经成熟。他开始策划进攻波顿——这一地区最大的艾德瑞尔城市。
+他在兽人领地周围设立了防卫战队，任何异族的侵犯都会被迅速扑灭。然而半身人察觉到了我们日益严密的组织，开始扩大侦察队伍并加强巡逻。加库尔看出这种对峙不能再拖延下去，让全盘计划开花结果的时机已经成熟。他开始策划进攻波斯顿——该地区最大的艾德瑞尔城市。
 
-这次袭击是在夜深人静的时候。黑暗的阴影笼罩着我们的部队向城门靠近，直到我们到达城门下，他们才发现我们。当守卫们发出敌袭的警报并试图关闭城门时，兽族法师们释放了一连串魔法瓦解了他们的防御。波顿的守卫军终于到来，准备在城门口和我族部队展开反击战。但加库尔命令法师们将成团的爆裂火球扔进敌方阵营，快速的打乱了对方的部署，如此一来，我方的战士们就可以轻易的歼灭对方的前锋部队。与此同时，我方的弓箭手们也对着后方被火焰所困的敌人射出了一波波箭雨。烈焰术士们不停的向城内释放烈焰，当半身人们试图逃离燃烧的城市时，新的混乱爆发了。在早些时候，加库尔命令许多由奥术力量伪装的死灵法师提前进入了下水道，现在他们开始召唤不死大军。半身人们惊恐的发现，死去的亲人突然变为幽灵或食尸鬼来攻击他们。半身人们乱成一团，因为加库尔又派了一批刺客从背后屠戮他们。当抵抗力量逐渐崩溃时，加库尔命令战士们穿过街道，消灭最后的有生力量。几小时后，半身人无一幸存，城里的每条鹅卵石道路都浸满了深红色的鲜血。加库尔赢得了完胜，因为兽族部队无一伤亡。
+袭击在夜深人静之时发起。大军在夜色的掩护下逼近城墙，直到几乎兵临城下才被察觉。守军发出惊呼警报并试图关闭城门时，兽人法师倾泻出一连串法术风暴，将防御彻底撕裂。波斯顿守军终于集结完毕，如潮水般涌出城门迎击进攻者；加库尔却下令向敌阵正中发射烈焰火球，将敌军阵型直接炸裂，使麾下斗士得以轻松斩杀少数冲出城门的残兵，同时弓箭手将受阻于火海之后的敌人悉数射杀。烈焰术士继续向城墙上方倾泻滔天火海，当城内的半身人试图逃离燃烧的家园时，新的混乱骤然爆发——原来加库尔早已命死灵法师借助奥术幻象伪装、穿过下水道潜入城中，此刻他们开始唤起死去的半身人充当不死仆从。当人们看到死去的亲人突然化作厉鬼与尸妖扑向自己时，尖叫声响彻全城。守军之中群龙无首，因为加库尔潜伏入城的刺客已在发起进攻的瞬间将敌军将领刺杀殆尽。随着一切抵抗土崩瓦解，这位伟大的领袖放手让麾下的狂战士与野性系成员杀入城中，席卷街道，屠戮了最后一名抵抗者。短短数小时内，全城无一半身人幸免，城中每一块鹅卵石都被猩红的鲜血浸透。加库尔取得了一场真正无与伦比的完胜，整场战役中无一兽人伤亡。
 
-当他的军队问他接下来该做什么时，他眺望着城市南部的一座山并安静的沉思了会儿。他转身说：“把附近森林的木头砍下来，放到那座山顶上去。然后搜集这个城市的所有尸体——无论男女老幼——我们要在这山上点燃巨大的火炬。”他的部队很快执行了他的命令，因为加库尔在他们心目中已经超越了一切。火堆超过了80英尺高，上面堆满了数千具尸体。当黎明到来，炽烈的鲜红从地平线冉冉升起时，他们点燃了火堆，巨大的火焰吞噬了每一具尸体，也象征了一个城市的毁灭。
+当部下询问下一步行动时，他凝视着城南的一座山丘，沉默了片刻。随后他说道：“砍下附近森林中的树木，运到那座山顶上去。然后收集城中所有的尸体——无论男女老幼，将每一具残骸尽数运去——在山顶构筑一座巨大的火葬柴堆。”大军依令而行，动作迅捷无比，因为在他们的心中加库尔的号令如今高过一切。柴堆筑成时高达八十余英尺，塞满了数以千计受害者的尸体。当黎明的红光开始在东方地平线泛起时，他们点燃了柴堆，烈焰冲天而起化作一座巨大的焚尸熔炉，将倒下的残躯尽数化为灰烬。
 
-山顶上的熊熊火焰方圆百里可见，各族的探子被派出查清真相。加库尔命令军队不要阻止他们，让他们把屠城的消息带回给其他各族的首领。开始，一些首领完全不相信探子所说的话，但紧接着同样的事情再次发生在艾德瑞尔王国不远的城市，接下来的好几个晚上整片地区都被火焰给烧焦了。加库尔的军队用火焰展示了无坚不摧的力量，而其他种族则感到，宁静的生活不复存在。
+柴堆的烈火方圆数英里内皆清晰可见，其他种族纷纷派出斥候探查究竟。加库尔下令军队不得阻拦，斥候带回给各族领袖的报告描述了一场超乎一切想象的惨烈屠杀。起初有些领袖几乎不敢相信斥候的汇报，但在次日夜里，另一座艾德瑞尔城市也遭遇了同样的厄运；再过一夜，该地区的数座城镇尽数被焚为焦土。加库尔的大军带着滔天的怒火横扫四方，其他种族安宁的世界骤然分崩离析。
 
-这些早期的胜利来得相当容易，但随着战争深入，他们遭遇了更加激烈的抵抗，因为其他种族对他们的袭击有了更多预警。不过加库尔总能掌控局势，他的战略和战术攻破了一切防御。每次胜利后，总会燃起巨大的火堆，我们的军队则随着直冲寒冷夜空的火焰高唱凯歌。这些战斗后来被称为烈火战争，而征服之火也蔓延到了整个马基·埃亚尔。
+这些初期的胜利来得十分轻易，但随着大军继续推进，他们遭遇了更顽强的抵抗，因为各族对袭击有了更多防备。但加库尔始终能掌控任何战局，他的战略与战术攻破了一切防线。而在每一次胜利之后，总会有熊熊燃烧的巨大柴堆，当烈焰直插冰冷的夜空时，我们的军队便高唱胜利的战歌。这些战役后来被称为“烈火战争”，而征服的烈火也席卷了整个马基·埃亚尔。
 
-只用了三个月，艾德瑞尔王国便陨落了，难民们拼命的逃离致命的火炬，全部涌向了南部的纳格尔王国。在进一步攻打其他种族前，加库尔巩固了他的军队，在掠夺的土地上建立了新的基地。没有人能承受被他族侵略了如此长时间的种族怒火。几个世纪的压迫使我们变得坚强，复仇的火焰在我们心中升起，永不熄灭。]], "_t")
+短短三个月内，艾德瑞尔王国便告覆灭，难民们为了逃脱致命的火葬柴堆，如潮水般向南涌入半身人的纳格尔王国。加库尔随后在征服的土地上修建新据点、整固军力，而后才向其他种族发起进军。面对长久以来饱受异族进犯之苦的民族所爆发出的滔天怒火，无人能够幸免。数百年的压迫已将我们锤炼得坚不可摧，如今在我们心中燃起的复仇烈焰再也无法被扑灭。]], "_t")
 t([[#{bold}#Chapter Four: Conqueror of West and East#{normal}#
 
 #{italic}#"Our strength must come through our pride, and our pride must rise from our strength. Many are our powers and abilities, and we are unified in our pride of them. Be proud in our great race and revel in the glories we can achieve together."
@@ -18937,22 +18937,22 @@ Then beneath the dwarven city of Reknor our scouts discovered an amazing thing -
 
 But while Garkul was busy establishing the Prides the Nargol king was planning a strategy of defence. He knew that the orcish armies would come for his kingdom soon, and he drew on the powers of his greatest strategists to prepare a force that could not be overcome. He summoned the mightiest alchemists from all the lands and together they laid plans for a creation that could not be beaten: the giant golem Atamathon.
 
-When Garkul next returned from the east he heard from his spies of great operations afoot in the Nargol kingdom, and he knew that he must face down the halflings. He did not know that it would be his last battle.]], [[#{bold}#第四章：东成西就#{normal}#
+When Garkul next returned from the east he heard from his spies of great operations afoot in the Nargol kingdom, and he knew that he must face down the halflings. He did not know that it would be his last battle.]], [[#{bold}#第四章：东西方的征服者#{normal}#
 
-#{italic}#"力量成就荣耀，荣耀升华力量。虽然我们拥有强大的力量，但我们必须将它和荣耀相统一。为我们伟大的种族感到骄傲并享受这份荣耀可以使我们团结一致。"
-- 吞噬者加库尔#{normal}#
+#{italic}#"我们的力量必须源于自豪，而我们的自豪必须崛起于力量。我们的力量与本领多不胜数，而为之自豪让我们团结一心。为我们伟大的种族感到自豪吧，尽情沉醉于我们携手铸就的辉煌之中。"
+- 吞噬者加库尔语录#{normal}#
 
-许多年来，伟大的征服势不可挡。加库尔率军横扫大陆，不容任何抵抗。艾德瑞尔王国已经崩溃，他们逃往南方投靠自己的半身人近亲纳格尔人。人类分裂成许多王国，加库尔开始将它们逐个击破，只留下西部和南部几个孤立的王国。自然精灵被强大的兽人军队困在黑暗森林中。永恒精灵试图反击，以强大魔法给兽人部队造成了严重阻碍，但仍逐渐败退，被迫撤回西南方的首都。矮人在东方顽强保卫自己的厅堂，加库尔无法攻破他们的石城，于是制定计划，要从下方的洞穴攻入。
+多年来，伟大的征伐势不可挡。加库尔率军踏遍大地，绝不容忍任何抵抗。艾德瑞尔人被击溃，逃往南方投奔他们的半身人同族纳格尔人。人类分裂成许多王国，加库尔开始将他们逐一歼灭，只在西方和南方留下少数孤立的残部。自然精灵躲入黑暗的森林之中，被强大的兽人大军团团困住。永恒精灵试图抵抗，凭借强大的魔法给兽人部队造成了沉重的阻击，但依然节节败退，被迫退守西南方的首都。矮人在东方死守大厅，加库尔无法攻破他们的石城，但他已布下计划，准备从下方的洞穴杀入。
 
-马基·埃亚尔中部的所有领土——从北方荒原到南方湖泊，从岱卡拉山脉到西方海洋——全都处于加库尔的统治之下。兽人巡逻队遍布每座山谷和每片田野，任何被发现的敌人都会遭到消灭。加库尔获得了绝对坚定的支持，因为每个兽人都为在他领导下取得的惊人成就生出了新的自豪。
+整个马基·埃亚尔的中部尽在加库尔的掌控之下——从北方荒原到南方湖泊，从岱卡拉山脉到西方海洋。兽人巡逻队遍布每座山谷与田野，发现的任何敌人都被彻底铲除。加库尔得到了绝对坚定不移的拥戴，因为在加库尔的领导下取得的辉煌成就，让每一名兽人都萌生了全新的自豪。
 
-但是离完全胜利还相去甚远，许多抵抗势力的政治和文化中心尚存，纳格尔王国始终是南方的一大威胁。加库尔始终注意着不把战线拉的过长，在完全胜利前他不会分散力量。他知道，他必须等待时机并且尽可能的修养他的部队，使他的部队能够最大化发挥他们的力量。
+然而胜利尚未彻底完成，因为仍有许多权力与抵抗中心尚存，而南方的纳格尔人依然是一大严重威胁。加库尔行事谨慎，在确保胜利之前绝不盲目冒进、分散兵力。他明白自己必须等待时机，将麾下大军积蓄至最强战力。
 
-然而，在矮人堡垒瑞库纳的下面我们的探子发现了一件令人惊奇的事情——一扇夏·图尔传送门。血法师们研究了它一段时间，然后他们终于成功的激活了它并发现了一个新世界。那是失落的远东大陆，在一场大灾难后和整个马基·埃亚尔分开了。加库尔认为这是上天赐予的机遇，他组织了数千名年轻战士和法师传送了过去。他们在那里建立了训练场——一个可以训练部队战斗技巧，以备西部战争的地方。加库尔给他们命名为普莱德，因为这是他们种族得以兴盛的基础，并且这里将会是我们的骄傲。
+就在此时，在矮人城市瑞库纳的深处，我们的斥候发现了一件令人惊叹之物——一座夏·图尔远古传送门。血法师们对此展开研究，一段时间后成功将其激活，并发现了一片全新的陆地。那是失落的远东，在大灾变之后与马基·埃亚尔隔绝分离。加库尔在此看到了巨大的契机，下令将数以千计的年轻战士与法师送往远东。他们在那里建立了训练营地，军队可以在返回西方参战之前在那里操练以精通战技。加库尔将其命名为各个兽人部落（Prides），因为他说我族的力量将寄托于此，而这也将是我们最引以为傲之所在。
 
-但是当加库尔忙着普莱德的建设时，纳格尔的国王也在筹划着防御战略。他知道兽族的部队很快就会来攻打他的王国，所以他准备了一个绝对力量的战略。他召集了大陆上所有的精英炼金术师，并且研发出了一只空前绝后的战争机器：巨型傀儡阿塔玛森。
+然而当加库尔忙于建立各个部落之时，纳格尔国王正筹划着防御策略。他知道兽人大军很快就会攻打自己的王国，便动用了最顶尖谋士的力量，准备打造一支无法战胜的武装。他召集了全大陆最强大的炼金术士，一同谋划制造一件不可战胜的造物：巨型傀儡阿塔玛森。
 
-当加库尔从远东回来时，他从间谍口中获悉了纳格尔王国正在进行战争机器的研究，他知道，他必须对半身人发动攻击了。但他并不知道，这会是他的最后一次战争。]], "_t")
+当加库尔下一次从远东返回时，他从斥候口中获悉了纳格尔王国正在紧锣密鼓展开的大动作，他知道自己必须正面迎击半身人。但他未曾料到，这将是他此生最后一战。]], "_t")
 t([[#{bold}#Chapter Five: Fall of the Mighty#{normal}#
 
 #{italic}#"A true warrior never dies. His fall may come on the battlefield, but it is a fall to inspire all others who follow him. He lives on in their every thrust, every parry, every swipe. Whilst blood still spills in his name a warrior is immortal."
@@ -18980,34 +18980,34 @@ Then the alchemists threw their bombs at him, scorching his flesh. And the arche
 
 But the fight could not carry on forever. A stab from a sword crippled his leg, and a blast from a bomb blinded his eye, and though he continued to battle, wading through the corpses around him, blood now seeped through cuts all over his body. The blades of the axes he wielded became cracked and dented, and he was left wielding the shafts as clubs. He swung them through the troops before him, until his movements slowed to a stop, and the alchemists rained down bomb after bomb until his charred corpse moved no more. So died Garkul the Devourer, though his body stayed upright even in death, clutching his weapons above his head, and standing atop a field of over ten thousand bodies. For when the halflings counted their numbers after, only a few hundred remained.
 
-Our forces never full recovered from the loss of our great leader. The wars continued, but without his strategies failure became more frequent. Eventually the other races began to fight back, and we were driven from our homeland. But the spirit of Garkul remains with us all, and his lessons stay in our hearts and minds. One day we will return to the place of his birth, and the glory he began shall be completed - Maj'Eyal will be ours.]], [[#{bold}#第五章：巨人陨落#{normal}#
+Our forces never full recovered from the loss of our great leader. The wars continued, but without his strategies failure became more frequent. Eventually the other races began to fight back, and we were driven from our homeland. But the spirit of Garkul remains with us all, and his lessons stay in our hearts and minds. One day we will return to the place of his birth, and the glory he began shall be completed - Maj'Eyal will be ours.]], [[#{bold}#第五章：强者的陨落#{normal}#
 
-#{italic}#"真正的战士永垂不朽。也许他在战场上阵亡了，但他的牺牲将会激励其他人追随他的脚步。他存活于其他人的一举一动中。虽然他的鲜血染红了大地，但他的名字永垂不朽。"
-- 吞噬者加库尔#{normal}#
+#{italic}#"真正的战士永不消亡。他或许会倒在沙场之上，但他的陨落将激励所有追随者奋起继任。他活在追随者的每一次刺击、每一次招架、每一次横扫之中。只要仍有鲜血以他之名流淌，战士便永生不灭。"
+- 吞噬者加库尔语录#{normal}#
 
-加库尔组织了一股部队来对付纳格尔王国——南部的中心政权。这股部队并没有他所期盼的那么强大，因为大部分部队被派到了远东去建设普莱德，但他知道他们必须尽早消灭半身人，否则就迟了。
+加库尔集结了一支大军向纳格尔王国进发，直插他们位于南方的权力中枢。这支部队并没有他所期盼的那样庞大，因为许多兵力已被派往远东建立各个兽人部落；但他明白必须在半身人的抵抗势力彻底壮大之前将其扑灭。
 
-他谨慎地向南方城市进军，沿途只发生了几场小规模冲突。接近首都时，他看到半身人大军严阵以待，超过一万名士兵编成部队，准备保卫王国。加库尔只带了五千人，但他知道自己的战士强大得多，凭借他的战术定能轻易取胜。尽管如此，他心中仍有一丝不安，于是谨慎地推进部队。
+他率军谨慎地向南方城市进发，一路上只发生过几场小规模冲突。逼近首都时，他看到半身人大军早已严阵以待，超过一万名士兵整编成军团以保卫他们的王国。加库尔麾下仅有五千人，但他清楚自己的战士要强大得多，凭借他的战术定能轻易取胜。尽管如此，他心中依然紧张不安，于是谨慎地指挥大军向前推进。
 
-兽人来到一片耕地，半身人军队就在另一边等待。加库尔怀疑地打量着地面，但半身人投掷手开始向他们射击，他知道自己必须行动，于是下令进攻。战士们迅速冲向敌军，法师紧随其后；可当他们逼近敌人时，大地突然剧烈震动。地面撕裂，一只巨手伸出，接着露出巨大的头颅，战士们被震得向后倒退。一个体型无与伦比的怪物缓缓破土而出——巨型傀儡阿塔玛森。半身人炼金术师长期秘密打造着它，以大理石塑造身躯，以沃瑞钽制作关节，每只眼睛嵌入一千颗红宝石，并赋予它无与伦比的力量。战略家们精心布下陷阱，以时机精准的小规模冲突把加库尔的军队引到这里，等待恰当时刻亮出这件令人敬畏的武器。
+兽人大军来到了一片耕地前，半身人大军正在对侧列阵以待。加库尔狐疑地打量着地面，但随着半身人投石手开始向他们射击，他知道自己必须采取行动——于是下达了进攻的命令。战士们如旋风般冲向敌人，法师紧随其后；然而当他们逼近敌人时，大地突然剧烈震颤。地面被撕裂开来，一只巨手伸了出来，接着是一颗硕大无朋的头颅，战士们在震惊中被震得连连后退。只见一个前所未见的庞然巨怪缓缓从地底升起——那正是巨型傀儡阿塔玛森。半身人炼金术士多年来一直在暗中打造它，以大理石铸造身躯，以沃瑞钽制成关节，双眼各镶嵌着一千颗红宝石，并被赋予了无可匹敌的力量。谋士们精心设下了陷阱，用时机精确的小规模交火将加库尔的大军引诱至此，只为等待最合适的时机亮出这件令人生畏的终极兵器。
 
-兽人部队疯狂的攻击这具傀儡，无数的武器朝着巨人的脚上砸去，可是毫无作用。法师向巨人的胸膛投射冰火法术，但同样没有任何效果。半身人的炼金师们走上前并激活了傀儡，炙热的火焰从傀儡眼中喷发而出，烧死了许多兽人。傀儡继续向前，每步都能踩死许多战士，同时它的束状火焰对后方的法师团也造成了巨大的伤害。接着，炼金师们也开始投掷炸弹，投掷手们也一发接着一发，一场屠杀开始了。
+兽人士兵狂怒地扑向傀儡，用手中兵刃猛击其坚固的双足，却毫无成效。法师们向其胸膛倾泻冰火法术，却被尽数弹开、不伤分毫。随后半身人炼金术士挺身向前，通过傀儡引导能量，红宝石巨眼随之亮起，喷涌出一道烈焰光束席卷兽人大军。傀儡大步向前推进，每迈出一步便将数十名战士踩碎于足下，而眼中射出的烈焰光束则横扫法师阵列。紧接着炼金术士们也加入进来投掷炸弹，投石手一轮接一轮地齐射，一场惨烈的大屠杀就此爆发。
 
-加库尔看到他的部队一片混乱，他也知道，硬撼这个战争机器他们毫无胜算。于是，他跑向他的战狼坐骑——一只长达十英尺的凶猛座狼，骑着它冲进了战场。他骑着座狼笔直的冲向巨型傀儡，并驾驭它跳上了傀儡的胸膛。突然，傀儡的一只拳头横扫过来，将座狼打的四分五裂，千钧一发之际，加库尔跳了起来并抓住了傀儡的头部，接着，他拔出了战斧，用尽全力砍碎了傀儡的一只眼睛。
+加库尔看到自己的军队溃不成军，明白面对这件新兵器，全军正面交锋绝无胜算。他奔向狼骑兵，夺过其中最雄壮的坐骑——一只体长逾十英尺的凶猛座狼，翻身上鞍冲入战团。他驾驭着座狼径直冲向巨型傀儡，催动坐骑纵身跃向怪物高耸的胸膛。傀儡挥下一记巨拳将座狼砸得粉碎，加库尔却在最后一刻纵身跃出抓住了傀儡的头颅，拔出战斧倾尽全力狠狠劈入其中一只红宝石巨眼，将其彻底砸碎。
 
-然而，傀儡伸出双手抓住加库尔的双臂，他的战斧也掉在了地上。阿塔玛森以大理石般的巨力紧握这位伟大兽人的肢体，试图将其撕下。但加库尔鼓起全身肌肉，抵抗傀儡的力量，慢慢将傀儡的拳头扭向前方，使自己靠近怪物的头颅。当他足够接近那大理石额头时，便猛地用头撞了上去，钢盔撞击坚石的巨响划破长空。傀儡颤抖了一下，加库尔再次头槌，钢盔也从头顶裂开。他又一次向前猛撞，自己的太阳穴被撞出一道深口，傀儡厚重的大理石头颅也被撞凹。又一记头槌，接着再来两次，傀儡的头骨开始碎裂，双腿也在身下垮塌。加库尔满头鲜血地仰天怒吼，随后发出最后致命的一撞。他的额头砸上厚重大理石，傀儡的头颅在巨力下彻底粉碎。傀儡倒塌下来，加库尔也随之坠落。巨型傀儡阿塔玛森就此倒下，世间再未出现过同类。
+随后傀儡伸出双臂一把攥住了加库尔的臂膀，他的战斧跌落到了下方的地面上。阿塔玛森以大理石般的巨力死死扣住这位伟大兽人的肢体，试图将它们生生撕扯下来。但加库尔咬紧牙关鼓起全身肌肉抗衡傀儡的巨力，一点点强行将傀儡的巨拳向前掰动，使自己得以贴近怪物的头颅。当贴近那大理石额头的一瞬，他猛地甩头向前撞去，钢盔撞击坚石的清脆巨响撕裂了空气。傀儡微微颤抖了一下，加库尔再度一记头槌砸下，钢盔也被震得从他头上飞落。他再一次猛力撞向前去，剧烈的撞击在他的太阳穴上撕开了一道深可见骨的创口，但傀儡厚重的大理石头颅也被撞出了凹坑。又是一记头槌，接着又是两记，傀儡的头骨开始崩裂，双腿在身下颓然垮塌。加库尔满头鲜血仰天狂吼，随后发出了最后那致命一击的头槌猛撞。他的前额重重砸上厚重的大理石，在滔天巨力之下，傀儡的头颅彻底四分五裂。傀儡轰然倒塌，加库尔也一同坠地。巨型傀儡阿塔玛森就此被击溃，世间再未出现过同类。
 
-半身人们惊慌失措，虽然兽人部队即将被消灭，但是他们的伟大武器也毁灭了。接着他们走向废墟查看傀儡的状况，没想到，吞噬者加库尔居然还活着。他的头部严重受创，满脸鲜血，胳膊也满是淤青，但他找到了他的战斧，咧着嘴站在他们面前。
+见此情景，半身人陷入了极大的恐慌，因为尽管兽人大军近乎全军覆没，他们最强大的兵器也已被摧毁。他们走向残骸，却见废墟之中有物耸动——吞噬者加库尔竟再次挺身站起。他头部重创、鲜血淋漓，双臂严重瘀伤，但他拾回了自己的战斧，咧开嘴冲着眼前的敌人露出了笑容。
 
-他知道，他现在是光杆司令了，在他和傀儡战斗的同时，他的部队被消灭殆尽。虽然他们英勇杀敌，但在他的面前仍有上万敌军。但他哈哈大笑，因为他是一个真正的战士，没有比击败战场上“不可战胜”的对手更令他快乐的了。他发起了冲锋。
+他看到如今只剩下自己孤身一人，因为在与傀儡鏖战之时残存的大军已被围剿殆尽；尽管将士们浴血奋战，眼前依然伫立着上万敌军。但他咧嘴大笑，因为他是天生的斗士，一生中最畅快之事莫过于在沙场之上直面不可逾越的强敌。他发起了冲锋。
 
-他勇猛的穿过半身人的部队，成片的尸体倒在他的身后。他格挡开所有的箭矢，将一柄战斧使用的淋漓尽致。他切开对方的头颅，将他们的血肉连同盔甲一起撕裂。当对方试图抓住他的武器时，他或用拳头打趴他们，或用牙齿咬断他们的喉咙。他在人群中来去如风，鲜血不断的洒在他的脸上。在杀死了上百人后，他的斧头终于开裂了，但他依然紧握着斧柄，挥舞着它继续与敌人战斗。
+随着他在半身人军阵中肆意劈杀，身后很快堆起了一道道尸山血海。他无视身上的创击，挥舞战斧横扫当面之敌。他劈开头骨，斩断盔甲、血肉与白骨。当敌人试图夺走他的武器时，他挥拳将他们击飞，或是生生咬断他们的喉管。他大笑着在敌群中穿梭如风，敌人伤口喷涌的鲜血如雨点般淋满他的面庞。数百人倒在他的利刃之下后战斧终于开裂折断，但他依然紧握斧柄，疯狂地刺击、痛击、横扫。
 
-然而，炼金术师们向他投掷了炸弹，灼热的火焰烧焦了他的肌肉。弓箭手和投掷手们也向他瞄准，他们的箭矢撕裂了他的身体。但是加库尔发出了震天的怒吼，箭矢在空中被震的粉碎，脚下的大地也被震得支离破碎。他就近夺取了两柄战斧并冲向他的敌人，对他们展开了死亡之舞。虽然四面环敌，但他依然不屈不挠的战斗着。
+随后炼金术士向他投掷炸弹，灼热的烈火烧焦了他的皮肉。弓箭手与投石手瞄准他疯狂齐射，箭矢刺穿他的皮肤，弹丸砸伤他的躯体。但加库尔爆发出震天动地的战吼，漫天飞射的箭矢弹丸在半空中被当场震碎，面前的大地也随之崩裂。他从身旁倒下的尸体上抓起两把战斧扑向袭击者，双手挥斧如暴雨般倾泻而下。半身人将他重重围困，攻击从四面八方席卷而来，但他依然疯狂鏖战。
 
-可是战斗不可能一直持续下去。他的腿被一剑砍伤了，他的眼睛被炸弹炸瞎了，虽然他仍坚持战斗，但伤口已布满了他的全身。战斧已经被用的刃口开裂，他只剩下2个斧柄做木棒用。他一往无前，不停的挥舞着手中的武器，直到他精疲力竭，炼金术师不断的向他投掷炸弹直到他烧焦的尸体一动不动。虽然吞噬者加库尔已死亡，但是他的身体依然直立着，武器似乎仍在头顶上挥舞，上万的尸体倒在了他的脚下。那年，当半身人清点他们的损失时，只有数百人幸存下来。
+然而战斗不可能无休止地持续下去。利剑的一记刺击废掉了他的腿脚，炸弹的爆炸炸瞎了他的一只眼睛；尽管他踏着四周层层叠叠的尸体继续浴血奋战，鲜血已从他全身各处的伤口中汩汩渗出。他手中的战斧斧刃开裂卷刃，只剩下握着斧柄当作战棍挥舞。他挥舞木柄在眼前的敌军中拼杀，直到动作越来越慢直至停滞，炼金术士们倾泻下一枚又一枚炸弹，直到他焦黑的残躯再也不动分毫。吞噬者加库尔就这样战死了，但即便死去他的身躯依然屹立不倒，高举武器过顶，傲立在万具尸骸堆积的战场之巅。半身人事后清点人数时，幸存者仅剩寥寥数百人。
 
-自从我们的伟大领袖逝世后，我们的力量再也没达到巅峰。战争仍在继续，但是失去了他的领导后，我们接二连三的吃了许多败仗。最终其他种族展开联合反击，我们被赶出了故土。加库尔一直与我们同在，因为他的意志一直存在于我们心中。总有一天，我们要回到他出生的地方，完成他开创的荣耀——马基·埃亚尔将属于我们。]], "_t")
+失去伟大领袖后，我军再也未能完全从沉重打击中恢复元气。战争仍在继续，但失去了他的谋略，失败变得愈发频繁。最终其他种族展开了反扑，我们将士被逐出了故土。但加库尔的意志永远与我们同在，他的教诲永驻我们的心头与脑海。终有一天，我们将重返他的诞生之地，将他开创的辉煌彻底完成——马基·埃亚尔终将属于我们。]], "_t")
 t("Clinician Korbek's experimental notes part one", "巫医库贝克的实验报告，第一部分", "_t")
 t([[#{bold}#Clinician Korbek's experimental notes part one#{normal}#
 
@@ -19017,11 +19017,11 @@ And those drastic measures come down to me. I am the sole orc left with any adva
 
 I have taken this cavern up as a secret base, far away from the main encampment. I must do dark deeds here, and I wish them to remain hidden...]], [[#{bold}#巫医库贝克的实验报告：一#{normal}#
 
-复兴我们的种族——我接到的是多么可怕而悲惨的任务。那些卑贱的人类和半身人已经摧毁了我们的整个社会，只剩下残暴的军方统治我们的人民。我们仅余寥寥几名女性，如果不采取激进措施，很快就会灭绝。
+复兴我们的种族——我接下的是多么可怕而悲惨的使命。那群猪猡般的人类与半身人彻底摧毁了我们的整个社会，只剩下军方的粗鄙武夫来统治我们的人民。我们仅剩下寥寥几名女性，若不采取极端手段，我们很快便将灭绝。
 
-而这些激进措施落到了我的肩上。我是兽人中唯一还掌握高深医学知识的人，因为我们的聚居地被摧毁前，我已经撤往远东。我必须设法延长剩余女性的寿命，并让她们以快得多的速度繁衍。为此，我将动用一切可用的自然与魔法手段。
+而这些极端手段全系于我一身。在我们的聚居地被彻底抹杀之前，我便已撤退至远东，因此我是现存唯一掌握高深医术的兽人。我必须寻得一种方法来延长残存雌性的寿命，并让她们以极快的速度繁衍后代。我将动用我所能支配的一切自然与魔法手段。
 
-我已经在远离主基地的洞穴建立了一个秘密营地。我必须在此进行黑暗的试验，我希望它们保持隐蔽……]], "_t")
+我将这处远离主营地的洞穴辟为秘密据点。我必须在此行见不得光的黑暗之举，而我希望这一切永远不为人知……]], "_t")
 t("Clinician Korbek's experimental notes part two", "巫医库贝克的实验报告，第二部分", "_t")
 t([[#{bold}#Clinician Korbek's experimental notes part two#{normal}#
 
@@ -19031,11 +19031,11 @@ Initial results have mostly been immensely successful. Body mass has grown signi
 
 Some females have died during the procedures. I can only presume these were the weaker subjects, but it is a tragic loss regardless.]], [[#{bold}#巫医库贝克的实验报告：二#{normal}#
 
-我已经对几位女性进行了实验。她们在实验的过程中始终处于昏迷——那样会更有利于实验。起初我把她们放置在拥有自然催化和奥术回复的领域里，同时对她们胃部注入高蛋白营养。在时间加速的领域里堕落的血液被灌输进她们的卵巢中加速循环。普莱德训练营的每位领袖都为这个实验贡献了自己的种子。
+我已经对几名雌性展开了实验。在实验期间她们一直处于昏迷状态——那样会好得多。起初我让她们承受了极高剂量的野性纹身与奥术再生力场，同时直接向她们的胃中注入高蛋白营养。在笼罩她们的时间加速力场下，堕落之血被泵入她们的卵巢。各个兽人部落的领袖都献出了自己的种子用于实验。
 
-初步结果表明，实验是非常成功的。她们的体重有了明显的提高，尤其是在腹部区域。有一个甚至长出了额外的卵巢和性器官。我努力提高她们的生育能力，只需8周的时间，她们就能孕育新的兽人。新生的兽人们在速度和力量上明显比普通兽人高出一截，特别是肌肉的增长更是超出想象。
+初步结果大多取得了极其巨大的成功。受试体的体重显著增加，尤其是腹部区域。其中一人甚至开始发育出额外的卵巢与生殖器官。我成功大幅提升了她们的生育能力，受刺激的胎儿生长速度意味着新兽人从受孕到出生只需短短八周。幼体的发育速度也快得出奇，尤其是肌肉发育格外迅速。
 
-在整个实验进程中一些女性去世了。我只能认为她们是较为脆弱的几个实验品，不管怎样，这都是令人悲哀的消息。]], "_t")
+在实验过程中有几名雌性死亡。我只能推断她们是体质较弱的受试体，但无论如何这都是惨痛的损失。]], "_t")
 t("Clinician Korbek's experimental notes part three", "巫医库贝克的实验报告，第三部分", "_t")
 t([[#{bold}#Clinician Korbek's experimental notes part three#{normal}#
 
@@ -19045,11 +19045,11 @@ Though the wombs operate at an advanced rate, we are keeping their vital organs 
 
 Pumping nutrients directly into their stomach is proving a difficulty with the increased activity in the abdominal region. I am currently investigating ways to condense nutrients into the atmosphere so that the subjects can be passively fed through breathing. Initial tests show a slimy build-up on the skin but no other negative side-effects.]], [[#{bold}#巫医库贝克的实验报告：三#{normal}#
 
-我的实验继续取得了巨大成功。由于堕落血液灌注配合奥术再生力场迅速修复腐化组织，所有实验体如今都有多个能够运作的子宫。随着胎儿生长加速技术进一步发展，现在每隔几天就会有新的兽人出生！我相信还能把速度提升得更高。
+我的研究仍在继续，并取得了巨大的成功。得益于注入堕落之血并配合奥术再生力场迅速修复被腐化的组织，如今所有受试体都拥有了多个能够正常运作的子宫。随着胎儿生长阶段加速技术的进一步突破，我们现在每隔几天就能迎来新兽人的降生！我相信这一进程还能被推向更高的极限。
 
-虽然这些子宫以极快的速度运作，我们仍在抑制她们的重要器官，以延长她们的寿命。也许她们可以活上数百年，甚至数千年。
+尽管子宫在以极高的速率运转，我们仍抑制着她们的重要器官以延长其寿命。也许她们可以活上数百年，甚至数千年。
 
-随着实验体的腹部一天天增大，如何将高蛋白营养注入她们的胃部逐渐变的困难。我正在研究如何将营养散播到空气中，这样实验体直接靠呼吸就可以吸收。初步结果显示，这样会导致皮肤上出现黏液沉积，除此之外没有任何其他副作用。]], "_t")
+随着腹部活动的加剧，直接向她们胃中输送养分变得愈发困难。我目前正在研究将养分浓缩至空气中的方法，以便受试体能通过呼吸被动摄取养分。初步测试显示皮肤上会出现黏液堆积，但暂未发现其他负面副作用。]], "_t")
 t("Clinician Korbek's experimental notes part four", "巫医库贝克的实验报告，第四部分", "_t")
 t([[#{bold}#Clinician Korbek's experimental notes part four#{normal}#
 
@@ -19060,14 +19060,14 @@ I have so long been concentrating on my objectives that I never stopped to think
 She wanted to die. I know she wanted to die, I could see her accusing eyes on me begging to let her die. But I cannot, I cannot... This is too terrible. I should burn this cave to the ground, and erase my horrible actions from existence! But where would that leave our people...
 
 My mind is in torment. I cannot live like this any longer... I cannot live...]], [[#{bold}#巫医库贝克的实验报告：四#{normal}#
-	
-哦，上帝啊……我造了多大的孽啊！我究竟做了些什么？这是多大的罪恶啊？！
 
-我长久以来一直专注于目标，从未停下来想过自己正在对这些女人施行何等可怕的暴行。但昨晚我决定让其中一人脱离昏迷，看看她会有什么反应。还能有什么反应！她的第一个动作便是痛苦呻吟——浮肿的肺使她无法以其他方式交流。但随后她睁开眼睛，看见了自己，也看见了周围的其他人；她眼中的恐慌与厌恶刺入了我的灵魂深处。
+可怕……可怕至极的梦魇啊！我都做了些什么？我究竟犯下了何等卑劣而黑暗的罪孽？！
 
-她想死。我知道她想死，我能看见她责备的目光在乞求我让她死去。但我不能，我不能……这太糟糕了。我应该将整个洞穴烧成灰烬，让自己犯下的可怕罪行彻底消失！但是那样做，我们的人民又将何去何从……
+长久以来我一直全神贯注于自己的目标，竟从未停下来想过自己正在对这些女性施加何等惨无人道的暴行。但昨晚我决定唤醒其中一人，看看她会有什么反应。呵，究竟是什么样的反应啊！她的第一个举动便是痛苦地呻吟——肿胀的肺部剥夺了她一切其他交流的方式。但随后她睁开双眼，看到了自己，又看到了身旁的其他人，那双眼中充斥的恐慌与厌恶直刺我的灵魂深处。
 
-我的头脑混乱了。我没有脸面再活下去了……我无法活下去了……]], "_t")
+她想死。我知道她一心求死，我能看到她投向我的谴责目光，乞求我赐她一死。但我不能，我不能……这太可怕了。我应该将这处洞穴彻底付之一炬，将我犯下的可怕暴行从世间抹去！但若如此，我们的人民又将何去何从……
+
+我的心灵饱受折磨。我再也无法这样活下去了……我活不下去了……]], "_t")
 t("Captain Gumlarat's report", "纲勒瑞特队长的报告", "_t")
 t([[#{bold}#Captain Gumlarat's report#{normal}#
 
@@ -19079,11 +19079,11 @@ I see his notes also suggest the mothers may be in pain. I will allow a doping i
 
 ]], [[#{bold}#纲勒瑞特队长的报告#{normal}#
 
-我在书房发现了巫医库贝克的尸体。似乎他切开了自己的喉咙。这似乎可以解释这些天实验报告的缺失。
+我在书房里发现了巫医库贝克的尸体。看来是他割开了自己的喉咙。这便解释了为何过去几天没有任何报告呈交。
 
-他自杀的原因令人费解。他的研究取得了巨大的成功。我们的种族复兴指日可待！我看过了他的报告，在他的研究报告上我发现了如何使我们种族快速繁衍的方式。普莱德的领袖们一定很高兴听到这个消息。
+他自杀的原因令人无法理解。他的研究取得了极其巨大的成功。我族如今终于能够重振雄风！我已经读完了他的笔记，并将根据他的研究成果扩大这些工序的施行规模，以实现更快的繁育速率。各个兽人部落的领袖们定会大为欣喜。
 
-我在他的报告中也看到了，母亲们也许会在此过程中承受痛苦。我会在实验中使用输液方式来避免这种痛苦。我们不希望母亲们受罪……
+我注意到他的笔记中还提及母体可能会感到痛苦。我将批准使用麻醉药剂来缓解这一痛苦。我们可不希望自己的女性受苦……
 
 ]], "_t")
 t("Ukruk's log", "乌克鲁克的日志", "_t")
@@ -19107,29 +19107,29 @@ The thief and his cursed allies have entered an old ruined tower called Dreadfel
 
 Word is finally back from command - hold position and wait for the staff to emerge. If it doesn't happen soon then they will send their own agents in time.
 
-In time! Bah! This will be my ruin if it comes to that. If there is any appearance of the staff I must snatch it and get back East as soon as possible...]], [[夏·图尔废墟和命令中的描述完全相符。尽管调查已经开始，速度仍旧缓慢无比，似乎很久以前它就坠毁在地面，难以寻找也难以接近。目标物品似乎是一根法杖，我不理解，法杖有什么重要的，显然最好的武器是剑或者斧头，就像伟大的加库尔的武器那样。
+In time! Bah! This will be my ruin if it comes to that. If there is any appearance of the staff I must snatch it and get back East as soon as possible...]], [[夏·图尔废墟与最高统帅部的描述完全一致。调查已经展开，但进展缓慢。看起来它在很久以前就坠毁到了地面上——许多区域都难以进入。统帅部将目标物品描述为一根法杖。不知道为何一根法杖会如此重要。最强的终极兵器难道不该是剑或战斧吗，就像伟大的加库尔所挥舞的那样？
 
-最近听到了很多违背最高命令的流言——奇怪的流言，相当奇怪。或许完成任务后，我应该寻找一下真相……
+最近听到了许多针对最高统帅部的流言——确实是些古怪的流言。或许通过完成这次任务，我能更接近他们，从而探寻真相……
 
-……
+...
 
-诅咒！灾星！那些杂种盗贼居然劫掠了废墟！还有一个，该死的小不点半身人！我真的生气了！
 
-……
+该死！诅咒降临！不知哪个天杀的烈焰杂种盗贼洗劫了废墟！而且竟然是个半身人，一条该死的半身人杂种狗！我真是怒火中烧！
 
-他似乎是在黄昏时进去的，爬进了那个狭窄的通道，那个我们都进不去的通道。他从废墟里偷出了法杖，然后从我的兽人士兵附近悄悄溜走！那个肮脏的骗子已经跑掉了，带着我寻找已久的东西！我已经派出去不少小队来追踪，但是他藏身的本领倒是不小。不过，我绝不会让他跑掉！绝不原谅！
+不知怎的，他趁着黄昏潜入了进去，爬过了一条连我的劳工都进不去的狭窄地道。他从废墟里夺走了一根法杖，竟然从我的兽人身边偷偷溜了出去！这个肮脏阴险的潜行者逃之夭夭了，我的前程也随之搭了进去！我已派斥候追踪他，但这厮极其狡猾。但我决不能让他逃脱！这绝对不可饶恕！
 
-……
+...
 
-我们追在那个混蛋后面，发现他和德斯镇的一个矮人与一个人类会和，然后前往东南方。跟着三个人比跟着一个人简单多了，但我们还是要小心隐藏，因为命令要求我们不得暴露，同时尽量避免战斗。我已经训练好了一小队弓箭手和战士，教授他们如何藏身于树林中。
 
-那个盗贼和他该死的同伴已经进入了一座古老的废弃高塔“恐惧王座”中。那是一个很古老的地方，在迷宫里充满了不死亡灵，如果我们闯进去，一定会掀起风浪，在东边不远处最大的人类城池就会被惊动……我不确定做什么好，于是向上层发送消息，询问如何是好。现在我们先在树林里等着，仔细盯着入口，看有什么变化。不管是谁带着法杖从塔里出来，都要迎接我的怒火！
+我们循着那个无赖的踪迹一路追踪。看来他在一个叫德斯镇的地方与一名矮人和一名人类会合，随后一同向东南进发。跟踪他们三个人比跟踪单独一个潜行者容易得多，但我们仍必须格外谨慎以保持隐蔽。最高统帅部的指令严禁我们暴露行踪，且必须尽可能避免战斗。我随身带领着一支训练有素的弓箭手与战士小队，他们懂得如何在林中隐匿。
 
-……
+那个盗贼和他该死的同党已经进入了一座名为恐惧王座的古老废弃高塔。那是一处古老的地方，地牢中素以塞满不死亡灵而著称。如果我们强行闯入必将引起骚动，况且此处离东面的人类大城镇又是如此之近……我拿不准该如何行事，已向统帅部发信请示指令。眼下我们潜伏在林中，密切注视着入口处的动静。若是有人带着那根法杖从塔里出来，定要承受我的滔天怒火！
 
-命令最终返回了——坚守原本的位置，等待法杖出现。如果近期之内没有出现，他们就会及时派出他们自己的人来。
+...
 
-及时！哈！真到了那地步我就完了。一旦法杖出现，我一定会抓住它，然后马上返回远东……]], "_t")
+统帅部终于传回了回信——坚守阵地，等待法杖现身。若是近期内仍未出现，他们届时会派出自己的密探。
+
+届时！呸！真到了那个地步我就彻底完了。一旦那根法杖露面，我必须一把抢下它，以最快的速度返回远东……]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/rhaloren.lua"
