@@ -61,6 +61,206 @@ class StateCheckerFixtureTests(unittest.TestCase):
         self._write(state_path, state)
         return state_path, state, record
 
+    def _copy_v2_fixture(self) -> tuple[Path, dict[str, object], Path, Path]:
+        self.copy_index += 1
+        workspace = self.work / f"v2-workspace-{self.copy_index}"
+        shutil.copytree(FIXTURES / "contextual_v2", workspace)
+        state_path = workspace / "STATE.json"
+        return state_path, self._read(state_path), workspace, workspace
+
+    def _check_v2(self, mutate=None) -> ai_state_check.CheckResult:
+        state_path, state, directory, workspace = self._copy_v2_fixture()
+        if mutate:
+            mutate(state, directory)
+        self._write(state_path, state)
+        return ai_state_check.check_state(state_path, workspace_root=workspace)
+
+    def test_contextual_v2_fixture_and_fail_closed_state_matrix(self) -> None:
+        self.assertEqual(self._check_v2().outcome, "DONE_VERIFIED")
+
+        def schema4(state, _): state["schema_version"] = 4
+        def mixed_contracts(state, _):
+            state["review_contracts"].append("translation_contextual_v1")
+            state["completed_review_contracts"].append("translation_contextual_v1")
+        def singular_pointer(state, _): state["contextual_reviewer"] = state.pop("contextual_reviewers")[0]
+        def missing_lane(state, _):
+            state["review_records"].pop(0)
+            state["child_dispatches"].pop(0)
+        def duplicate_agent(state, _): state["child_dispatches"][1]["agent_id"] = "agent-lane-1"
+        def missing_parent_agent_id(state, _): state["child_dispatches"][0].pop("parent_agent_id")
+        def missing_workspace_id(state, _): state["child_dispatches"][0].pop("workspace_id")
+        def raw_hash_drift(_state, directory):
+            raw = directory / ".ai/reviews/fixture-contextual-v2/raw-lane-1.txt"
+            raw.write_bytes(raw.read_bytes() + b"drift")
+        def raw_path_drift(_state, directory):
+            record = self._read(directory / "review-lane-1.json")
+            record["raw_output_path"] = ".ai/reviews/fixture-contextual-v2/raw-foreign.txt"
+            self._write(directory / "review-lane-1.json", record)
+        def mixed_stage(_state, directory):
+            record = self._read(directory / "review-lane-2.json")
+            record["review_kind"] = "full"; record.pop("lane")
+            self._write(directory / "review-lane-2.json", record)
+        def coordinate_conflict(_state, directory):
+            record = self._read(directory / "review-lane-2.json")
+            record["lane"]["index"] = 1
+            self._write(directory / "review-lane-2.json", record)
+        def final_review_lane(_state, directory):
+            record = self._read(directory / "review-lane-1.json")
+            record["review_phase"] = "FINAL_REVIEW"
+            self._write(directory / "review-lane-1.json", record)
+        def wrong_closure_parent(_state, directory):
+            record = self._read(directory / "review-final-full.json")
+            record.update({
+                "review_phase": "RE_REVIEW", "review_kind": "closure",
+                "parent_review_kind": "lane_group", "parent_coverage_identity": "0" * 64,
+                "inclusion": [{"revision_key": key, "reasons": ["changed_target"]} for key in ("r1", "r2", "r3", "r4")],
+            })
+            self._write(directory / "review-final-full.json", record)
+
+        for mutation in (
+            schema4, mixed_contracts, singular_pointer, missing_lane, duplicate_agent,
+            missing_parent_agent_id, missing_workspace_id,
+            raw_hash_drift, raw_path_drift, mixed_stage, coordinate_conflict,
+            final_review_lane, wrong_closure_parent,
+        ):
+            with self.subTest(mutation=mutation.__name__):
+                self.assertNotEqual(self._check_v2(mutation).exit_code, 0)
+
+    def test_contextual_v2_dispatch_prompt_is_gated_for_all_records(self) -> None:
+        with patch.object(
+            ai_state_check.contextual_lane_manifest,
+            "render_dispatch_prompt",
+            wraps=ai_state_check.contextual_lane_manifest.render_dispatch_prompt,
+        ) as render:
+            self.assertEqual(self._check_v2().outcome, "DONE_VERIFIED")
+        identities = [call.args[0] for call in render.call_args_list]
+        state_path, state, directory, _ = self._copy_v2_fixture()
+        final_record = self._read(directory / "review-final-full.json")
+        self.assertIn(final_record["candidate_identity"], identities)
+
+    def test_contextual_v2_nested_shadow_artifacts_cannot_override_workspace_root(self) -> None:
+        state_path, state, directory, workspace = self._copy_v2_fixture()
+        shadow = workspace / "nested-shadow"
+        shadow.mkdir()
+        shutil.copytree(workspace / ".ai", shadow / ".ai")
+        for record_name in (
+            "review-lane-1.json", "review-lane-2.json", "review-lane-3.json",
+            "review-lane-4.json", "review-final-full.json",
+        ):
+            shutil.copy2(workspace / record_name, shadow / record_name)
+        state["review_records"] = [
+            f"nested-shadow/{Path(path).name}" for path in state["review_records"]
+        ]
+        shadow_raw = shadow / ".ai/reviews/fixture-contextual-v2/raw-lane-1.txt"
+        shadow_raw.write_bytes(shadow_raw.read_bytes() + b"shadow drift")
+        self._write(state_path, state)
+
+        result = ai_state_check.check_state(state_path, workspace_root=workspace)
+        self.assertEqual(result.outcome, "DONE_VERIFIED")
+
+    def test_contextual_v2_public_cli_uses_explicit_workspace_root(self) -> None:
+        state_path, _state, _directory, workspace = self._copy_v2_fixture()
+        run = subprocess.run(
+            [
+                sys.executable, "-B", str(TOOLS / "ai_state_check.py"),
+                "STATE.json", "--workspace-root", str(workspace),
+            ],
+            cwd=ROOT, text=True, capture_output=True, check=False,
+        )
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assertIn("DONE_VERIFIED:", run.stdout)
+
+    def test_contextual_v2_complete_lane_stage_cannot_be_latest(self) -> None:
+        def complete_lane_latest(state, _directory):
+            state["review_records"].pop()
+            state["child_dispatches"].pop()
+            state["contextual_reviewers"] = [
+                {
+                    "role": "REVIEWER",
+                    "purpose": "translation_contextual_v2",
+                    "candidate_identity": dispatch["candidate_identity"],
+                    "dispatch_id": dispatch["dispatch_id"],
+                    "input_path": dispatch["input_path"],
+                    "agent_id": dispatch["agent_id"],
+                    "lane_group_identity": dispatch["lane_group_identity"],
+                    "lane_index": dispatch["lane_index"],
+                }
+                for dispatch in state["child_dispatches"]
+            ]
+            state["cycle"] = 0
+
+        result = self._check_v2(complete_lane_latest)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("latest v2 stage must be a successful FINAL_REVIEW/full", result.detail)
+
+    def test_contextual_v2_well_formed_closure_with_wrong_parent_is_rejected(self) -> None:
+        def wrong_parent(state, directory):
+            record = self._read(directory / "review-final-full.json")
+            record.update({
+                "review_phase": "RE_REVIEW",
+                "review_kind": "closure",
+                "parent_review_kind": "lane_group",
+                "parent_coverage_identity": "0" * 64,
+                "inclusion": [
+                    {"revision_key": key, "reasons": ["changed_target"]}
+                    for key in ("r1", "r2", "r3", "r4")
+                ],
+            })
+            self._write(directory / "review-final-full.json", record)
+
+        result = self._check_v2(wrong_parent)
+        self.assertEqual(result.exit_code, 1)
+        self.assertIn("closure parent coverage binding mismatch", result.detail)
+
+    def test_contextual_v2_rejects_each_group_identifier_reused_across_stages(self) -> None:
+        first = ("group-a", "1" * 64, ".ai/task/t/CONTEXTUAL-LANE-GROUP-group-a.json")
+        for index, label in enumerate(("group_id", "group_identity", "group_manifest_path")):
+            with self.subTest(label=label):
+                used_ids: set[str] = set()
+                used_identities: set[str] = set()
+                used_paths: set[str] = set()
+                self.assertTrue(ai_state_check._claim_lane_group_identifiers(
+                    *first,
+                    used_group_ids=used_ids,
+                    used_group_identities=used_identities,
+                    used_group_manifest_paths=used_paths,
+                )[0])
+                second = ["group-b", "2" * 64, ".ai/task/t/CONTEXTUAL-LANE-GROUP-group-b.json"]
+                second[index] = first[index]
+                valid, detail = ai_state_check._claim_lane_group_identifiers(
+                    *second,
+                    used_group_ids=used_ids,
+                    used_group_identities=used_identities,
+                    used_group_manifest_paths=used_paths,
+                )
+                self.assertFalse(valid)
+                self.assertIn(label, detail)
+
+    def test_v1_canonical_payload_acceptance_is_unchanged(self) -> None:
+        base = {
+            "contract": "translation_contextual_v1",
+            "ordered_revision_keys": [],
+            "translation_snapshot": [],
+            "fixed_source_identity": "commit:" + "1" * 40,
+            "terminology_snapshot": "",
+            "bounded_context": [],
+            "rendered_briefing": "",
+        }
+        ai_state_check._canonical_payload_bytes(base)
+        duplicate = json.loads(json.dumps(base))
+        duplicate.update({
+            "ordered_revision_keys": ["r1", "r1"],
+            "translation_snapshot": [
+                {"revision_key": "r1", "source": "", "target": ""},
+                {"revision_key": "r1", "source": "", "target": ""},
+            ],
+            "bounded_context": [
+                {"revision_key": "r1", "context": ""},
+                {"revision_key": "r1", "context": ""},
+            ],
+        })
+        ai_state_check._canonical_payload_bytes(duplicate)
+
     def _check_code(self, mutate=None, *, target: str | None = None) -> ai_state_check.CheckResult:
         state_path, state, record = self._copy_fixture("code")
         if mutate:
@@ -1508,6 +1708,15 @@ class AdoptionBoundaryTests(unittest.TestCase):
         ):
             with self.subTest(payload=payload):
                 self.assertEqual(ai_state_check.check_state(state, manifest_path=self._manifest(payload)).exit_code, 1)
+
+
+def load_tests(loader, tests, pattern):
+    """Keep the v2 validator modules in the established contract-suite entry."""
+    from tests.i18n import test_contextual_lane_manifest, test_contextual_result_check
+
+    tests.addTests(loader.loadTestsFromModule(test_contextual_result_check))
+    tests.addTests(loader.loadTestsFromModule(test_contextual_lane_manifest))
+    return tests
 
 
 if __name__ == "__main__":

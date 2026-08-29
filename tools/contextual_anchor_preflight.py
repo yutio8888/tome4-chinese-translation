@@ -414,9 +414,9 @@ def _require_string(value: Any, label: str, *, nonempty: bool = True) -> str:
 
 def _validate_payload(payload: dict[str, Any]) -> list[str]:
     if set(payload) != PAYLOAD_KEYS:
-        raise InputError("payload must have exactly the seven translation_contextual_v1 keys")
-    if payload["contract"] != "translation_contextual_v1":
-        raise InputError("payload contract must be translation_contextual_v1")
+        raise InputError("payload must have exactly the seven contextual keys")
+    if payload["contract"] not in {"translation_contextual_v1", "translation_contextual_v2"}:
+        raise InputError("payload contract must be translation_contextual_v1 or translation_contextual_v2")
     for key in ("contract", "fixed_source_identity", "terminology_snapshot", "rendered_briefing"):
         _require_string(payload[key], f"payload.{key}", nonempty=False)
     revision_keys = payload["ordered_revision_keys"]

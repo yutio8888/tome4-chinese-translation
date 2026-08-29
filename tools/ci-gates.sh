@@ -106,6 +106,7 @@ check_out \
     --strict
 
 step 5 "contract suite unit tests"
+# test_ai_state_check.py loads both contextual v2 validator test modules.
 check \
     "05-contract-suite-unit-tests" \
     "contract suite unittest" \

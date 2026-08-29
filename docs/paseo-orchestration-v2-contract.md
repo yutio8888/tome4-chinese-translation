@@ -173,8 +173,11 @@ Paseo 在任务明确采用本流程并建立 task ID 时激活，到 `DONE`／`
   测试／文档 diff。
 - `translation_contextual_v1`：`role=reviewer`、`purpose=translation_contextual_v1`，
   接收独立契约规定的有界译文语境 bundle。
+- `translation_contextual_v2`：仅供 `schema_version >= 5` 的新 task 使用，固定
+  `role=reviewer`、`purpose=translation_contextual_v2`；接收独立 v2 契约规定的 full、
+  closure 或四成员 compact lane stage。同一 task 不得与 v1 混用。
 
-`purpose` 是同一 REVIEWER 角色的行为分支，不是运行时选择。两种审核都必须使用当前
+`purpose` 是同一 REVIEWER 角色的行为分支，不是运行时选择。各类审核都必须使用当前
 workspace、独立的冻结输入和对应输出 schema。
 
 SPEC 还必须声明 `change_class: standard|translation_workflow|infrastructure`。
@@ -234,6 +237,9 @@ pending/completed、不产生 finding，也不参与 `candidate_ref` 冻结。
 4-lane 译文审核显式设置 `max_cycles=10` 与 literal `max_cycles_user_authorized=true`；
 2–3 lane 保持默认 3。其他上限高于 3 的任务也必须有该 literal。schema 3 及更早任务和
 `review_only` 不采用该新机械语义。门禁失败与 reviewer finding 共用对应上限。
+这里的旧式 `4-lane/max_cycles=10` 规则与 `translation_contextual_v2` 无关：v2 的四个
+contextual lane member 共同组成一个 `(cycle, attempt)` stage，不各自占用 cycle，也不因此
+提高默认 `max_cycles=3`。
 当 `cycle >= 2` 时，客观验证失败可直接触发 FIX；普通 review finding 触发的后续 FIX
 必须先走当轮 `SENIOR_REVIEW`。旧 scope audit 不得用于新一轮 findings。
 
@@ -254,9 +260,11 @@ pending/completed、不产生 finding，也不参与 `candidate_ref` 冻结。
 .ai/task/<task_id>/CODE_DIFF-<phase>-<cycle>-<attempt>.patch
 .ai/task/<task_id>/SCOPE.json
 .ai/task/<task_id>/CONTEXTUAL-ENVELOPE-<dispatch_id>.json
+.ai/task/<task_id>/CONTEXTUAL-LANE-GROUP-<group_id>.json  # v2 lane stage only
 .ai/task/<task_id>/EVIDENCE-RECONCILIATION.json  # required for schema 3 review_only infrastructure/translation_workflow; may be empty
 .ai/task/<task_id>/STATE.json
 .ai/reviews/<task_id>/review-NN.json
+.ai/reviews/<task_id>/raw-<dispatch_id>.txt               # every accepted v2 record
 ```
 
 仅在任务需要时创建 BASELINE、baseline、SCOPE 和 contextual envelope。已有 legacy flat 文件保持
@@ -321,6 +329,35 @@ SPEC 必须写明任务模式、范围、允许修改文件、禁止扩展项和
 `contextual_reviewer` 和 `scout` 是条件字段：只有任务实际选择相应角色／purpose 时
 才写入。语境派发后，`candidate_identity`、`dispatch_id`、`input_path` 和
 `agent_id` 必须非空并与当前冻结候选一致；SCOUT 不产生审核记录。
+schema-5 v2 禁止 `contextual_reviewer`，改用非空 `contextual_reviewers` 数组。full/closure
+当前 stage 恰含一个不带 lane 字段的 pointer；lane 创建时可暂存同组有序前缀 1..k，但派发和
+发布时必须恰含四个 pointer，并各自固定 `lane_group_identity` 与 `lane_index`。每个接受的 v2
+dispatch 还必须显式保存 `workspace_id == STATE.workspace_id` 和
+`parent_agent_id == STATE.orchestrator_agent_id`；字段缺失即失败。
+
+v2 最小替换片段为：
+
+```json
+{
+  "schema_version": 5,
+  "review_contracts": ["translation_contextual_v2"],
+  "workspace_id": "...",
+  "orchestrator_agent_id": "...",
+  "contextual_reviewers": [
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v2",
+      "candidate_identity": "...",
+      "dispatch_id": "...",
+      "input_path": "...",
+      "agent_id": "..."
+    }
+  ]
+}
+```
+
+lane pointer 在这六键上另且仅增加 `lane_group_identity` 与 `lane_index`；v2 STATE 不出现单数
+pointer。
 
 STATE 在阶段变化、contract 完成、agent ID 变化、出现错误或 child 生命周期字段变化时
 更新；每次 `archive_attempts_started` 递增必须在外部归档调用前立即持久化。
@@ -388,6 +425,15 @@ payload、candidate identity 或结果 schema。每份 code review
 记录还保存派发时的 `candidate_ref` 和恰含 `spec_path`／`diff_path` 的
 `candidate_locator`；candidate_ref 精确为 `SHA256(SPEC 原始字节 + 一个 NUL 字节 +
 diff 原始字节)`。派发、返回和 contract 完成前的引用必须一致。
+
+schema-5 v2 record 使用 `review_kind=full|closure|lane`。每条记录必须保存由 task/dispatch
+精确推导的 `raw_output_path` 和 exact returned bytes 的 `raw_output_sha256`；DONE 对记录绑定的
+同一 envelope/raw bytes 重跑 strict validator，不允许 fixture、换行或路径特例。lane record
+另含 exact seven-key lane object，并与 manifest、dispatch 和创建 labels 四方一致；四条有效
+lane record 只能整组发布。closure 使用 `parent_review_kind`／`parent_coverage_identity`，禁止
+v1 的 `parent_candidate_identity`。full、closure、lane（包括 FINAL_REVIEW/full）每次派发前都
+必须对其实际 identity/path 渲染固定 dispatch prompt，并验证模板与实例均不超过 800 UTF-8
+bytes；七键 payload 的 `rendered_briefing` 不受该 prompt byte budget 限制。
 
 记录只保存 finding、证据、裁决和结果，不要求复制完整 prompt、运行时选择或构造 lineage
 manifest；review record 明确禁止 `runtime_observation`。已完成的历史记录不重写。
@@ -660,6 +706,11 @@ CLI 和 MCP 是等价传输，不改变角色、purpose、workspace、lineage、
    历史以及其他旧 dispatch 全部排除；即使 Paseo 列表仍显示它们，也不得制造多个匹配或
    被恢复。
 
+v2 恢复在上述顺序内额外重验 exact manifest/envelope/raw bytes、raw hash、每个 dispatch 的
+workspace/direct parent、创建 labels 和完整 stage。partial lane group 不形成 completion stage；
+任一 member 无效或基础设施失败时只保留 child/raw 诊断，归档整组后以更高 attempt 创建 fresh
+四成员 group。不得续跑、补写或跨 stage 复用任一 group ID、group identity 或 manifest path。
+
 所有需要基数判断的查询都遵守过滤先于基数判定；截断或不完整列表不得当作零匹配。
 
 创建或恢复后必须核验：
@@ -804,6 +855,7 @@ stage data、裁决或建议修复。
 conspicuous translationese 缺陷 reopen；preference churn 只作 advisory，不能扩张 closure。
 
 Before freezing or hashing a translation_contextual_v1 payload, ORCHESTRATOR must run the deterministic offline contextual-anchor preflight with the task-scoped `.ai/task/<task_id>/SCOPE.json` and the exact seven-key draft payload.
+The identical preflight is mandatory before freezing or hashing a translation_contextual_v2 full-workset draft; an unknown contextual contract still fails closed.
 The preflight also accepts the whole-section form for sections without actual chapter-title t(...) calls.
 The task-scoped SCOPE.json must declare only workspace-relative ordinary allowed files plus file, section_path, and ordered actual chapter-title anchors; unsafe, duplicate, missing, or ambiguous declarations fail closed.
 An anchor scope may instead declare ordered_titles: [] only when its section contains no actual chapter-title t(...) calls; a titled section with [] fails closed and must declare explicit anchors.
@@ -890,8 +942,8 @@ max_cycles；唯一最早记录必须是 cycle 0 的 `REVIEW/full`，intervening
    一致性，不依赖固定运行时身份；
 2. EXECUTOR 唯一性、reviewer／SCOUT 只读守卫、candidate_ref 和语境
    candidate_identity 规则仍完整；
-3. `translation_contextual_v1` 仍是译文审核唯一活跃路由，结果 schema 和冻结 envelope
-   规则不变；
+3. `translation_contextual_v1` 仍保持原结果 schema 和冻结 envelope，现有 task 不迁移；
+   `translation_contextual_v2` 是仅供 schema 5 新 task 使用的 compact lane 路由；
 4. CLI／MCP 只作为等价传输；运行时选择只可按第 19 条形成非规范性审计观测；
 5. 历史 task、review artifact、archive 和质量 evaluator 预注册不被重写；
 6. 文档之间的 role／purpose／lineage 语义一致，Markdown 和 `git diff --check` 通过。
@@ -919,3 +971,24 @@ max_cycles；唯一最早记录必须是 cycle 0 的 `REVIEW/full`，intervening
 | `2.22-draft` | 上一版草案 | 把最新 full completion 扩展到两个 STATE review 数组和全部合法 review phase；apply 强制实际 `PASEO_AGENT_ID`；wave evidence 强制 fresh 专用 EXECUTOR 与 path/prospective identity；从固定 manifest 及 lane 冻结输入机械重建 integration source/context/terminology/briefing provenance。 |
 | `2.23-draft` | 上一版草案 | 为 schema 4 translation implement 增加 v1 七键 full／closure／final-full 收敛、三轮默认上限、accepted revision reopening 门槛、分层门禁和最新 terminal full DONE 闭合；schema 3 与 review-only 保持兼容。收紧 bounded EXECUTOR：拒绝 `.git`／`.ai`／`.artifacts` 目标 namespace、非规范 POSIX 路径别名和祖先／后代目标重叠，以 preparation identity 和严格 artifact tree 恢复首个 journal 前崩溃，支持精确保持 `0o000`／`0o200` 等 owner-unreadable mode 的 hash 复验与回滚，保证恢复期 `applied_paths` 始终按目标顺序持久化，并避免读取异常被重复关闭 descriptor 掩盖。 |
 | `2.24-draft` | 当前草案 | active role prompt 改为稳定 clause ID 加角色本地触发语；新增 child dispatch 的 exact-schema `runtime_observation`，原样区分 present/null/missing，且明确排除路由、候选、review 与离线完成谓词。 |
+
+## `P2-TRANSLATION-CONTEXT-V2`
+
+`translation_contextual_v2` 只用于 `schema_version >= 5` 的新 task，不能和 v1 混用；v1 历史
+schema、fixture、hash 与收敛规则不迁移。v2 七键 payload 由固定 expected contract 的 validator
+以 canonical UTF-8 JSON 绑定 candidate identity；不可信 payload 不能自选 validator。
+
+总 revision 不少于四条时可冻结恰好四个 contiguous balanced lane 及权威
+`CONTEXTUAL-LANE-GROUP-<group_id>.json`。manifest 绑定 task、phase、cycle、attempt、完整 workset、
+四条 dispatch/path/hash；四个不同 direct-child REVIEWER 使用 `contextual_reviewers` 数组及
+dispatch/labels 的 group/index immutable binding。四 lane 是一个 stage，不消耗四个 cycle，
+也不适用同候选配对 code review 的 model-diversity 规则。partial group 不发布；retry 全组使用
+更高 attempt。
+
+每个接受的 v2 record 绑定 `.ai/reviews/<task_id>/raw-<dispatch_id>.txt` exact bytes 及 SHA-256；
+DONE checker 重新严格解析，拒绝 duplicate keys、BOM、非法 UTF-8、非标准常量和附加字节。
+terminal 使用 `(cycle,attempt,member_ordinal)`，lane stage 恰含 1..4，full/closure 恰含 0。
+closure 以 `parent_review_kind` 和 `parent_coverage_identity` 绑定最新更早 full coverage。
+`FINAL_REVIEW` 只允许 whole-workset full，负责跨条术语、专名和关系一致性；lane 永不关闭任务。
+prompt 模板和实例 UTF-8 bytes 均不得超过 800。完整 payload/result/raw/manifest/recovery/外发规则
+以 `docs/paseo-translation-context-review-v2-contract.md` 为准。

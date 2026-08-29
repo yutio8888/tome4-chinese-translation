@@ -19,6 +19,7 @@ ROLE_FILES = (
 CONTRACT_FILES = (
     "docs/paseo-orchestration-v2-contract.md",
     "docs/paseo-translation-context-review-v1-contract.md",
+    "docs/paseo-translation-context-review-v2-contract.md",
 )
 ACTIVE_FILES = ("AGENTS.md", *ROLE_FILES, *CONTRACT_FILES)
 
@@ -69,6 +70,7 @@ ROLE_CLAUSE_REFERENCES = {
         "P2-MODEL-DIVERSITY", "P2-HARVEST-ARCHIVE", "P2-FRESH-RETRY",
         "P2-RECOVERY", "P2-STOP-CLOSED",
         "P2-TRANSLATION-CONVERGENCE",
+        "P2-TRANSLATION-CONTEXT-V2",
     ),
     ".ai/roles/reviewer.md": (
         "P2-READ-ONLY", "P2-CANDIDATE-FREEZE", "P2-REVIEW-INDEPENDENCE",
@@ -175,12 +177,14 @@ REQUIRED_MARKERS = {
         *TRANSLATION_CONVERGENCE_MARKERS,
         *ROLE_CLAUSE_REFERENCES[".ai/roles/orchestrator.md"],
     ),
-    ".ai/roles/reviewer.md": ("role=reviewer", "purpose", ROLE_CONTRACT_PATH, *ROLE_OUTPUT_MARKERS[".ai/roles/reviewer.md"], *ROLE_CLAUSE_REFERENCES[".ai/roles/reviewer.md"]),
+    ".ai/roles/reviewer.md": ("role=reviewer", "purpose", "translation_contextual_v2", ROLE_CONTRACT_PATH, *ROLE_OUTPUT_MARKERS[".ai/roles/reviewer.md"], *ROLE_CLAUSE_REFERENCES[".ai/roles/reviewer.md"]),
     ".ai/roles/scout.md": ("role=scout", ROLE_CONTRACT_PATH, *ROLE_OUTPUT_MARKERS[".ai/roles/scout.md"], *ROLE_CLAUSE_REFERENCES[".ai/roles/scout.md"]),
     ".ai/roles/senior-reviewer.md": ("role=senior-reviewer", "purpose", ROLE_CONTRACT_PATH, *ROLE_OUTPUT_MARKERS[".ai/roles/senior-reviewer.md"], *ROLE_CLAUSE_REFERENCES[".ai/roles/senior-reviewer.md"]),
     "docs/paseo-orchestration-v2-contract.md": (
         "purpose=normal_review",
         "purpose=translation_contextual_v1",
+        "translation_contextual_v2",
+        "P2-TRANSLATION-CONTEXT-V2",
         "candidate_ref",
         "orchestration_transport",
         "child_dispatches",
@@ -224,6 +228,16 @@ REQUIRED_MARKERS = {
         "purpose=translation_contextual_v1",
         "candidate_identity",
         "dispatch_id",
+    ),
+    "docs/paseo-translation-context-review-v2-contract.md": (
+        "translation-contextual/2.0",
+        "role=reviewer",
+        "purpose=translation_contextual_v2",
+        "fb95fa08bd65b4f626bb1b5f0f5a2035a72ef359d584cb088c30609f3fa94067",
+        "raw_output_sha256",
+        "lane_count=4",
+        "parent_coverage_identity",
+        "FINAL_REVIEW/full",
     ),
 }
 

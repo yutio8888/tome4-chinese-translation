@@ -34,7 +34,22 @@ AGENTS.md 与 `docs/paseo-orchestration-v2-contract.md` 是规范源；下列稳
 schema 3 及更早任务保持 compatibility，不追溯套用 schema 4 收敛分支。稳定条款触发：
 `P2-TRANSLATION-CONVERGENCE`。
 
+新建的 `translation_contextual_v2` task 使用 schema 5 和
+`P2-TRANSLATION-CONTEXT-V2`。先对 whole-workset 七键 draft 做 anchor preflight；少于四条时
+使用 full，否则按规范冻结四个 contiguous balanced lane envelope 及权威 manifest。创建
+`contextual_reviewers` 有序前缀时，每条 dispatch/labels 固定 group identity 和 lane index；
+四条 direct-child REVIEWER 的 workspace、lineage、identity、path 全部核验后才可并发 dispatch。
+解析前原样持久化每条 `raw-<dispatch_id>.txt` 并计算 SHA-256；只有四条均通过 strict result、
+manifest 和 dispatch 验证后才整组发布 records。任一 lane 失败须归档全组并以更高 attempt
+fresh retry，不补写旧 stage。lane/closure 后必须执行 whole-workset `FINAL_REVIEW/full`；它负责
+跨条一致性并且是唯一可关闭任务的 contextual stage。模板和实例 prompt 都执行 `<=800`
+UTF-8 bytes 硬门禁；该门禁逐条适用于 full、closure、lane 和 FINAL_REVIEW/full，不限制 payload
+`rendered_briefing`。每个 v2 dispatch 必须显式保存并核验 workspace_id 与 parent_agent_id，
+不得把字段缺失当作可接受。四个 contextual lane member 合为一个 stage/cycle，与旧式
+`4-lane/max_cycles=10` 规则无关。
+
 Before freezing or hashing a translation_contextual_v1 payload, ORCHESTRATOR must run the deterministic offline contextual-anchor preflight with the task-scoped `.ai/task/<task_id>/SCOPE.json` and the exact seven-key draft payload.
+The identical preflight is mandatory before freezing or hashing a translation_contextual_v2 full-workset draft; an unknown contextual contract still fails closed.
 The task-scoped SCOPE.json must declare only workspace-relative ordinary allowed files plus file, section_path, and ordered actual chapter-title anchors; unsafe, duplicate, missing, or ambiguous declarations fail closed.
 Each declared anchor window begins at its actual chapter-title t(...) call and ends at the earliest later actual chapter title, later section marker, or EOF, so undeclared titles still bound the window.
 ORCHESTRATOR may freeze the payload only after every translation_snapshot source is proven to be the decoded first argument of a real t(...) call inside a declared anchor window; the preflight adds nothing to the payload, candidate_identity, review JSON, or STATE closure identity.
@@ -91,7 +106,8 @@ The preflight requires each translation_snapshot entry whose matching in-window 
 `P2-AUTHOR-PROVENANCE`（作者 provider live lookup）、`P2-MODEL-DIVERSITY`（精确模型差异）、
 `P2-HARVEST-ARCHIVE`（收获后归档）、`P2-FRESH-RETRY`（fresh replacement）、
 `P2-RECOVERY`（三段 fail-closed 恢复）、`P2-STOP-CLOSED`（WAIT_USER/DONE/STOP 闭合）、
-`P2-TRANSLATION-CONVERGENCE`（schema 4 译文三阶段收敛）。
+`P2-TRANSLATION-CONVERGENCE`（schema 4 译文三阶段收敛）、
+`P2-TRANSLATION-CONTEXT-V2`（schema 5 compact lane/full 收敛）。
 
 任何唯一性、lineage、候选绑定、只读、live identity、归档状态或范围无法核验，均停止消费该
 输出并按主契约进入 `WAIT_USER`；不得用 memory、profile/title、旧 STATE 或启发式补事实。
