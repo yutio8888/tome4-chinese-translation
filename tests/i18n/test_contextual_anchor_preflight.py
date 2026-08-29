@@ -44,6 +44,17 @@ class ContextualAnchorPreflightTests(unittest.TestCase):
         self.assertEqual(result.status, "PREFLIGHT_VERIFIED")
         self.assertEqual(result.exit_code, 0)
 
+    def test_v2_payload_uses_the_same_anchor_semantics(self) -> None:
+        temporary, root, scope, payload = self._workspace()
+        with temporary:
+            self._write_valid_pair(scope, payload)
+            value = json.loads(payload.read_text(encoding="utf-8"))
+            value["contract"] = "translation_contextual_v2"
+            self._write(payload, value)
+            result = preflight.run_preflight(scope, payload, workspace_root=root)
+            self.assertEqual(result.status, "PREFLIGHT_VERIFIED")
+            self.assertEqual(result.exit_code, 0)
+
     def test_cults_b3_undeclared_later_chapter_fails(self) -> None:
         result = self._run_fixture("envelope_bad_undeclared_later_chapter.json")
         self.assertEqual(result.status, "PREFLIGHT_FAILED")

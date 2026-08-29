@@ -1,11 +1,11 @@
-# P2 Tome Texts — active handoff at the b43 boundary (2026-08-27)
+# P2 Tome Texts — active handoff at the b44 boundary (2026-08-27)
 
 Consolidated pickup document. Supersedes
 [`p2-tome-texts-handoff-2026-08-23.md`](p2-tome-texts-handoff-2026-08-23.md) as the entry point;
 that file remains the per-batch log and is still the place to read *why* a specific batch decided
 what it did.
 
-**Status: ACTIVE.** b40 through b42 completed with all gates passing. The next bounded slice is b43
+**Status: ACTIVE.** b40 through b43 completed with all gates passing. The next bounded slice is b44
 and does not require separate approval.
 
 b42 reaches `DONE_VERIFIED` in its completion commit. Every completed batch below passed
@@ -17,16 +17,25 @@ b42 reaches `DONE_VERIFIED` in its completion commit. Every completed batch belo
 |---|---|---|---|
 | `data/texts/` | 132 | 176 | Complete |
 | `data/chats/` | 100 | 1260 | Complete (b6–b35) |
-| `data/lore/` | 34 | 582 | 24 done (b36–b42); **10 sections / 236 pairs left** |
+| `data/lore/` | 34 | 582 | 31 done (b36–b43); **3 sections / 188 pairs left** |
 | `data/quests/` | 52 | 514 | **Zero coverage — and never scoped into P2** |
 
 ### Remaining `data/lore/` sections
 
-`misc`(110), `orc-prides`(37),
-`shertul`(41), `slazish`(7), `spellblaze`(3), `spellhunt`(9), `sunwall`(6), `tannen`(9),
-`trollmire`(5), `zigur`(9)
+`misc`(110), `orc-prides`(37), `shertul`(41)
 
-`misc.lua` (110) still needs its own batch; the other 126 pairs can be grouped into bounded slices.
+`misc.lua` (110) still needs its own batch; `orc-prides` and `shertul` remain suitable bounded slices.
+
+### b43 completion
+
+`slazish`, `spellblaze`, `spellhunt`, `sunwall`, `tannen`, `trollmire`, `zigur` — 48 pairs;
+28 targets changed (3/2/7/4/4/4/4 by section). Four-lane full contextual review converged at
+cycle 27 after fidelity-backed corrections to faction documents, portal experiments, anti-magic
+propaganda and survivor testimony, plus natural-Chinese polishing. The final review passed lanes
+A/C/D without findings; lane B repeated only the declined range-out Sunwall title observation.
+The maintainer-selected `黑者布罗伦` and shared `罪恶之源` anchor were retained. Durable records:
+`p2-tome-texts-b43-lore-small-tail.json` and `p2-tome-texts-b43-adjudication.json`. Five-step gates,
+465 toolchain tests, full CI 12/12 and `DONE_VERIFIED` passed. Completion commit: `807716e`.
 
 ### b42 completion
 

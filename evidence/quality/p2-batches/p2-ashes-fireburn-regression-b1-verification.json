@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-ashes-fireburn-regression-b1-001",
+  "workset_path": "evidence/quality/p2-batches/p2-ashes-fireburn-regression-b1-workset.json",
+  "workset_sha256": "71c1582b0432229ade8cfb228d4352a1efcb8a67d22c3b2335bc47d3a2d17632",
+  "source_provenance": {
+    "engine": {
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true
+    },
+    "ashes-urhrok": {
+      "revision": null,
+      "source_pinned": false,
+      "status": "manifest_unpinned_revision",
+      "snapshot_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+      "note": "The manifest fixes the extracted Ashes snapshot identity, but does not fix the public Ashes source repository, commit, version, or revision. The cited file hashes are frozen observations, not a pinned DLC revision."
+    }
+  },
+  "runtime_conclusion": {
+    "summary": "FIREBURN treats its dam input as the total damage of the complete event, not damage per turn.",
+    "engine_anchor": {
+      "component": "tome-engine",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/damage_types.lua",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "symbol": "DamageType.FIREBURN",
+      "evidence": "The projector defaults dur to 3 and initial to 50, applies init_dam = dam * perc / 100 immediately, then assigns the remainder to EFF_BURNING with power = remaining dam / dur."
+    },
+    "burning_anchor": {
+      "component": "tome-engine",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/timed_effects/physical.lua",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "symbol": "EFF_BURNING",
+      "evidence": "The effect projects eff.power each timeout; on_merge preserves remaining-plus-new damage before recomputing per-turn power."
+    }
+  },
+  "samples": [
+    {
+      "sample_id": "ashes_fiery_aegis_status",
+      "component": "ashes-urhrok",
+      "section": "tome-ashes-urhrok/data/timed_effects.lua",
+      "entry_id": "0569222a3e30d6d75d2401723b618a49762253ae451b342129bcbcfafc740cd0",
+      "source": "The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.",
+      "frozen_target": "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾结束时（无论吸收耗尽还是自然到期），引燃持续 3 回合、每回合造成 %d 伤害且范围为半径 %d 的灼烧。",
+      "verified_target": "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾结束时（无论吸收耗尽还是自然到期），引燃持续 3 回合、总计造成 %d 伤害且范围为半径 %d 的灼烧。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "same_total_vs_per_turn_defect": true,
+      "classification": "corrected_defect",
+      "answer": "Yes in the frozen target: the third %d was described as damage each turn. The verified target makes it the total damage of the full three-turn FIREBURN event.",
+      "source_anchors": [
+        {
+          "component": "ashes-urhrok",
+          "revision": null,
+          "source_pinned": false,
+          "provenance": "manifest_unpinned_revision",
+          "path": "tome-ashes-urhrok/data/timed_effects.lua",
+          "sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+          "symbol": "EFF_FIRE_SHIELD.long_desc/deactivate",
+          "evidence": "long_desc binds the third %d to eff.power; deactivate always projects FIREBURN with dur=3 and dam=spellCrit(eff.power). Shield exhaustion removes the effect, while normal expiry also reaches deactivate."
+        },
+        {
+          "component": "tome-engine",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/damage_types.lua",
+          "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+          "symbol": "DamageType.FIREBURN"
+        }
+      ]
+    },
+    {
+      "sample_id": "ashes_fiery_aegis_info",
+      "component": "ashes-urhrok",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+      "entry_id": "eb367b35d6741189e674d51bb09b99661026c37bbde876ac3abff4f8e77b838a",
+      "source": "Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.\n\t\tWhen the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.",
+      "frozen_target": "吸取燃烧中的烈焰，将自己包裹其中。\n\t\t除去半径 5 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 轮的 %d 强度的护盾，每吸收一层燃烧效果护盾强度增加 15%%。\n\t\t当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧周围生物 3 回合，造成等于护盾初始值的伤害。",
+      "verified_target": "吸取燃烧中的烈焰，将自己包裹其中。\n\t\t除去半径 5 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 轮的 %d 强度的护盾，每吸收一层燃烧效果护盾强度增加 15%%。\n\t\t当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧周围生物 3 回合，造成等于护盾初始值的伤害。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "same_total_vs_per_turn_defect": false,
+      "classification": "control_no_same_defect",
+      "answer": "No. It states that the three-turn burn deals damage equal to the shield's initial power and does not characterize that amount as damage each turn.",
+      "source_anchors": [
+        {
+          "component": "ashes-urhrok",
+          "revision": null,
+          "source_pinned": false,
+          "provenance": "manifest_unpinned_revision",
+          "path": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+          "sha256": "9169ec6910a96af6ce469ef88c4b257165955f96ce7828c8508e2d36372a92b5",
+          "symbol": "T_FIERY_AEGIS.info/action",
+          "evidence": "info describes a three-turn burn whose damage equals initial shield power; action creates EFF_FIRE_SHIELD with that power and radius."
+        },
+        {
+          "component": "ashes-urhrok",
+          "revision": null,
+          "source_pinned": false,
+          "provenance": "manifest_unpinned_revision",
+          "path": "tome-ashes-urhrok/data/timed_effects.lua",
+          "sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+          "symbol": "EFF_FIRE_SHIELD.deactivate"
+        }
+      ]
+    },
+    {
+      "sample_id": "ashes_incinerating_blows_info",
+      "component": "ashes-urhrok",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/torture.lua",
+      "entry_id": "94587a20a95b5cbb47a4a19e5d5da1b92947219e896fbbb7d857d9bee028a8db",
+      "source": "The power of the Fearscape infuses your weapon: Your melee attacks will deal %0.2f fire damage, spread over 3 turns.\n\t\tAdditionally, every time you attack, there is a %d%% chance of releasing a burst of powerful fire that will deal %0.2f fire damage to all enemies in radius %d over %d turns.\n\t\tIf this talent is not on cooldown, the burst of fire will instead be radius %d, and stun all targets in addition to burning them.\n\t\tFor the purposes of applying the stun, you have %d bonus spellpower.\n\t\tThe damage will increase with your Spellpower.",
+      "frozen_target": "恶魔空间的力量注入你的武器：你的近战攻击在 3 回合内造成 %0.2f 点火焰伤害。\n\t另外，每次攻击时有 %d%% 几率造成 %0.2f 火焰燃烧伤害， %d 码内的所有敌人都会受到此伤害，燃烧持续 %d 回合。\n\t若该技能冷却完毕，则火焰爆发将聚集在 %d 码范围内，并产生火焰震慑效果。\n\t进行震慑判定时，额外增加 %d 点法术强度。\n\t伤害受法术强度加成。",
+      "verified_target": "恶魔空间的力量注入你的武器：你的近战攻击在 3 回合内造成 %0.2f 点火焰伤害。\n\t另外，每次攻击时有 %d%% 几率造成 %0.2f 火焰燃烧伤害， %d 码内的所有敌人都会受到此伤害，燃烧持续 %d 回合。\n\t若该技能冷却完毕，则火焰爆发将聚集在 %d 码范围内，并产生火焰震慑效果。\n\t进行震慑判定时，额外增加 %d 点法术强度。\n\t伤害受法术强度加成。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "same_total_vs_per_turn_defect": false,
+      "classification": "control_no_same_defect",
+      "answer": "No. The displayed melee and burst damage values are described as damage spread over their durations, not as the amount dealt on every turn.",
+      "source_anchors": [
+        {
+          "component": "ashes-urhrok",
+          "revision": null,
+          "source_pinned": false,
+          "provenance": "manifest_unpinned_revision",
+          "path": "tome-ashes-urhrok/data/talents/corruptions/torture.lua",
+          "sha256": "c9845ad5482c45ab0c2c5832950e9868bea5b9af7d4f0d1f3b31b4f03179bb66",
+          "symbol": "T_INCINERATING_BLOWS.callbackOnMeleeAttack/info",
+          "evidence": "The melee proc passes its displayed dam to FIREBURN; the burst passes its displayed dam with an explicit duration, and info describes both displayed values as spread over those durations."
+        },
+        {
+          "component": "tome-engine",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/damage_types.lua",
+          "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+          "symbol": "DamageType.FIREBURN"
+        }
+      ]
+    },
+    {
+      "sample_id": "core_flame_info",
+      "component": "tome",
+      "section": "mod-tome/data/talents/spells/fire.lua",
+      "entry_id": "cc291fec199624f6e6e808cc0acc5536c76b6885d2f704b40ee4639faa9d8ec5",
+      "source": "Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.\n\t\tAt level 5, it will create a beam of flames.\n\t\tThe damage will increase with your Spellpower.",
+      "frozen_target": "制造一个火球，使目标进入灼烧状态并在 3 回合内造成 %0.2f 火焰伤害。\n\t\t在等级 5 时，火焰会有穿透效果。\n\t\t伤害受法术强度加成。",
+      "verified_target": "制造一个火球，使目标进入灼烧状态并在 3 回合内造成 %0.2f 火焰伤害。\n\t\t在等级 5 时，火焰会有穿透效果。\n\t\t伤害受法术强度加成。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "same_total_vs_per_turn_defect": false,
+      "classification": "control_no_same_defect",
+      "answer": "No. The target explicitly says the displayed value is dealt over three turns, matching the FIREBURN total-damage input.",
+      "source_anchors": [
+        {
+          "component": "tome-engine",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/talents/spells/fire.lua",
+          "sha256": "40b304f5a45613ca57ad840730b2086bb7c72016e3149ab56291ac0db69beeff",
+          "symbol": "T_FLAME.action/info",
+          "evidence": "action projects the computed damage through FIREBURN; info displays that damage as occurring over three turns."
+        },
+        {
+          "component": "tome-engine",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/damage_types.lua",
+          "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+          "symbol": "DamageType.FIREBURN"
+        }
+      ]
+    }
+  ],
+  "history": {
+    "record_commit": "fba77932645dac7b9eadcb6ce4e88859e0308eee",
+    "record_path": "evidence/quality/model-probes/controlled-mutation-reviewer-v1/ADJUDICATION.json",
+    "record_item": "C008",
+    "recorded_adjudication": "confirmed_natural_defect",
+    "previous_task_id": "p2-ashes-status-b2-001",
+    "delivery_commit": "12626757a7636e544e2ffecf7d2ca7818e7f5ae9",
+    "original_target_before_delivery": "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾破碎时造成 %d 伤害（半径 %d）。",
+    "original_target_had_same_total_vs_per_turn_defect": false,
+    "assessment": "The pre-12626757 target did not say that the displayed total was dealt each turn, so it did not have the same total-vs-per-turn defect. Its separate problems were that it described only a shield-breaking trigger and characterized the outcome as one damage event, omitting natural expiry and the three-turn burn."
+  }
+}

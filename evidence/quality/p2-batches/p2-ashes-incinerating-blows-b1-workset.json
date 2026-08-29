@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-ashes-incinerating-blows-b1-001",
+  "kind": "frozen_incinerating_blows_semantics_workset",
+  "frozen_at": "2026-08-28T06:21:08Z",
+  "translation_baseline": {
+    "head": "bc1f1ae18fa823b51591101056688ac905db3f8e",
+    "file": "tome-ashes-urhrok.lua",
+    "file_sha256": "bc958e47e29b27ca87d021183df4ab2d1cc9e710e46c1c1fc8cc50fddbbd3c84",
+    "fixed_source_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+    "engine_fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63"
+  },
+  "section_freeze": {
+    "component": "ashes-urhrok",
+    "section": "tome-ashes-urhrok/data/talents/corruptions/torture.lua",
+    "selected": 9,
+    "available": 9,
+    "limit": 500,
+    "content_sha256": "173c25eb7adef384132db47c3e43fe2ad5548f6dbfe94622e27a1b6e5c7a695d",
+    "context_id": "c539fb07bc3412279d9d9cceaae76db667375b9dde2280e045c8bdb8b04151c9"
+  },
+  "sample": {
+    "sample_id": "incinerating_blows_talent_info",
+    "args_order": null,
+    "component": "ashes-urhrok",
+    "entry_id": "94587a20a95b5cbb47a4a19e5d5da1b92947219e896fbbb7d857d9bee028a8db",
+    "line": 1352,
+    "section": "tome-ashes-urhrok/data/talents/corruptions/torture.lua",
+    "source": "The power of the Fearscape infuses your weapon: Your melee attacks will deal %0.2f fire damage, spread over 3 turns.\n\t\tAdditionally, every time you attack, there is a %d%% chance of releasing a burst of powerful fire that will deal %0.2f fire damage to all enemies in radius %d over %d turns.\n\t\tIf this talent is not on cooldown, the burst of fire will instead be radius %d, and stun all targets in addition to burning them.\n\t\tFor the purposes of applying the stun, you have %d bonus spellpower.\n\t\tThe damage will increase with your Spellpower.",
+    "source_tag": "tformat",
+    "special": null,
+    "target": "恶魔空间的力量注入你的武器：你的近战攻击在 3 回合内造成 %0.2f 点火焰伤害。\n\t另外，每次攻击时有 %d%% 几率造成 %0.2f 火焰燃烧伤害， %d 码内的所有敌人都会受到此伤害，燃烧持续 %d 回合。\n\t若该技能冷却完毕，则火焰爆发将聚集在 %d 码范围内，并产生火焰震慑效果。\n\t进行震慑判定时，额外增加 %d 点法术强度。\n\t伤害受法术强度加成。"
+  },
+  "prior_review_origin": {
+    "task_id": "p2-ashes-fireburn-regression-b1-001",
+    "verification": "evidence/quality/p2-batches/p2-ashes-fireburn-regression-b1-verification.json",
+    "finding": "The first sentence does not identify the three-turn FIREBURN damage consistently, and the empowered burst clause omits that all affected targets are burned and stunned.",
+    "disposition": "confirmed pre-existing advisory queued for this separate bounded batch"
+  },
+  "known_source_anchors": [
+    {
+      "component": "ashes-urhrok",
+      "revision": null,
+      "source_pinned": false,
+      "path": "tome-ashes-urhrok/data/talents/corruptions/torture.lua",
+      "sha256": "c9845ad5482c45ab0c2c5832950e9868bea5b9af7d4f0d1f3b31b4f03179bb66",
+      "symbol": "T_INCINERATING_BLOWS.callbackOnMeleeAttack/info",
+      "facts": [
+        "The ordinary melee proc and ordinary burst pass their displayed damage values through FIREBURN.",
+        "The inspected public Ashes source repository, commit and version are not fixed by the manifest."
+      ]
+    },
+    {
+      "component": "tome-engine",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/damage_types.lua",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "symbol": "DamageType.FIREBURN",
+      "facts": [
+        "FIREBURN consumes its damage argument as the total event damage and distributes its burning portion over the supplied duration."
+      ]
+    }
+  ],
+  "scout_questions": [
+    "Which damage type and duration does the melee-hit proc use?",
+    "Which damage type, duration, radius and recipient filter does the ordinary burst use?",
+    "When the talent is off cooldown, which damage type is projected and do all affected hostile targets receive both burning and stun?",
+    "Does the info placeholder order remain damage, chance, burst damage, ordinary radius, duration, empowered radius and bonus spellpower?"
+  ]
+}

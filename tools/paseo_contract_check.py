@@ -19,6 +19,7 @@ ROLE_FILES = (
 CONTRACT_FILES = (
     "docs/paseo-orchestration-v2-contract.md",
     "docs/paseo-translation-context-review-v1-contract.md",
+    "docs/paseo-translation-context-review-v2-contract.md",
 )
 ACTIVE_FILES = ("AGENTS.md", *ROLE_FILES, *CONTRACT_FILES)
 
@@ -43,6 +44,77 @@ ROUTING_PROVENANCE_MARKERS = (
     "When paired reviewer exact model identities collide, archive the second child before creating a fresh retry child, preserving the role, purpose, workspace, lineage, and candidate binding.",
     "If either exact model identity remains unavailable after one retry, enter `WAIT_USER` and do not infer identity from provider, profile, title, memory, or enum.",
     "If a second reviewer exists or was unambiguously adopted but either `model_diversity_verified` proof is missing or partial, re-resolve both exact model identities once; persist literal `true` on both entries when they differ, archive the second child and fresh-retry on collision, and enter `WAIT_USER` if either identity remains unavailable.",
+)
+
+RUNTIME_OBSERVATION_MARKERS = (
+    "每个新 child dispatch 在身份／lineage 已无歧义且首次取得可核验 live agent metadata 后",
+    "禁止从 profile、title、memory、其他字段或其他 dispatch 推断",
+    "完成谓词、wave 判定或 model diversity proof",
+    "顶层 STATE 与任何 review record 禁止 `runtime_observation`。",
+    "`capture_status` 精确为 `captured`",
+    "present 形式必须",
+    "missing 形式必须",
+    "与 missing 保持可区分",
+    "旧 STATE 可以没有该字段；有效观测不改变 DONE／STOP、wave、candidate",
+    "并允许第 19 条 exact-schema `runtime_observation` 审计例外",
+)
+
+ROLE_CLAUSE_REFERENCES = {
+    ".ai/roles/executor.md": (
+        "P2-SINGLE-WRITER", "P2-DIRECT-LINEAGE", "P2-FRESH-RETRY", "P2-STOP-CLOSED",
+    ),
+    ".ai/roles/orchestrator.md": (
+        "P2-SINGLE-WRITER", "P2-DIRECT-LINEAGE", "P2-LIVE-ROUTING",
+        "P2-RUNTIME-OBSERVATION", "P2-CANDIDATE-FREEZE",
+        "P2-REVIEW-INDEPENDENCE", "P2-AUTHOR-PROVENANCE",
+        "P2-MODEL-DIVERSITY", "P2-HARVEST-ARCHIVE", "P2-FRESH-RETRY",
+        "P2-RECOVERY", "P2-STOP-CLOSED",
+        "P2-TRANSLATION-CONVERGENCE",
+        "P2-TRANSLATION-CONTEXT-V2",
+    ),
+    ".ai/roles/reviewer.md": (
+        "P2-READ-ONLY", "P2-CANDIDATE-FREEZE", "P2-REVIEW-INDEPENDENCE",
+        "P2-STOP-CLOSED",
+    ),
+    ".ai/roles/scout.md": (
+        "P2-READ-ONLY", "P2-DIRECT-LINEAGE", "P2-HARVEST-ARCHIVE",
+    ),
+    ".ai/roles/senior-reviewer.md": (
+        "P2-READ-ONLY", "P2-CANDIDATE-FREEZE", "P2-REVIEW-INDEPENDENCE",
+        "P2-STOP-CLOSED",
+    ),
+}
+
+ROLE_CONTRACT_PATH = "docs/paseo-orchestration-v2-contract.md"
+
+ROLE_OUTPUT_MARKERS = {
+    ".ai/roles/reviewer.md": (
+        "Severity: blocker | high | medium | low",
+        "缺字段、额外字段或 enum 外取值均使输出无效。",
+    ),
+    ".ai/roles/scout.md": (
+        "`context`（非空字符串）",
+        "`files_retrieved`、`risks`、`open_questions` 必须是字符串数组",
+        "`key_code`、`architecture`、`start_here` 必须是字符串。",
+        "七字段不得缺失或新增，类型不符即输出无效。",
+    ),
+    ".ai/roles/senior-reviewer.md": (
+        "Severity: blocker | high | medium | low",
+        "Assessment: keep | narrow | downgrade | reject | defer_to_user",
+        "任一分支缺字段、额外字段或 enum 外取值均使输出无效。",
+    ),
+}
+
+TRANSLATION_CONVERGENCE_MARKERS = (
+    '`"schema_version": 4`',
+    '`"max_cycles": 3`',
+    "max_cycles_user_authorized=true",
+    "REVIEW/full",
+    "RE_REVIEW/full",
+    "RE_REVIEW/closure",
+    "FINAL_REVIEW/full",
+    "correctness backstop",
+    "schema 3 及更早任务保持 compatibility",
 )
 
 STOP_ARCHIVE_MARKERS = (
@@ -75,7 +147,7 @@ REQUIRED_MARKERS = {
         "archive_confirmed=true",
         "WAIT_USER",
     ),
-    ".ai/roles/executor.md": ("role=executor",),
+    ".ai/roles/executor.md": ("role=executor", ROLE_CONTRACT_PATH, *ROLE_CLAUSE_REFERENCES[".ai/roles/executor.md"]),
     ".ai/roles/orchestrator.md": (
         "ORCHESTRATOR",
         "PASEO_AGENT_ID",
@@ -88,9 +160,9 @@ REQUIRED_MARKERS = {
         "lifecycle",
         "NUL",
         "每次 child 调度前，ORCHESTRATOR 必须读取实时 `list_profiles`",
-        "同一 provider 的另一个 profile 只能是复杂度升级，不能在该 provider 已不可用时充当 availability fallback",
+        "同一 provider 的另一个 profile 只能是复杂度升级，不能在该 provider 已不可用时充当 availability fallback。",
         "reviewer 尽量避开候选作者的 provider",
-        "候选作者属于主要订阅 provider 且 `author_provider_resolution=verified` 时，预算例外才允许同 provider 审核",
+        "候选作者属于主要订阅 provider 且 `author_provider_resolution=verified` 时，预算例外才允许同 provider 审核。",
         "精确 model identity",
         "candidate binding",
         "fresh child",
@@ -99,23 +171,20 @@ REQUIRED_MARKERS = {
         "candidate_author_agent_id",
         "author_provider_resolution",
         "model_diversity_verified=true",
-        "not_applicable",
-        "archived agent",
-        "unavailable",
-        "derived operational provenance",
-        "明确删除的复杂度",
-        ".ai/task/<task_id>/STATE.json",
-        *ROUTING_PROVENANCE_MARKERS,
-        *STOP_ARCHIVE_MARKERS,
-        *CONTEXTUAL_ANCHOR_PREFLIGHT_MARKERS,
         "ParentAgentId",
+        ROLE_CONTRACT_PATH,
+        *CONTEXTUAL_ANCHOR_PREFLIGHT_MARKERS,
+        *TRANSLATION_CONVERGENCE_MARKERS,
+        *ROLE_CLAUSE_REFERENCES[".ai/roles/orchestrator.md"],
     ),
-    ".ai/roles/reviewer.md": ("role=reviewer", "purpose"),
-    ".ai/roles/scout.md": ("role=scout",),
-    ".ai/roles/senior-reviewer.md": ("role=senior-reviewer", "purpose"),
+    ".ai/roles/reviewer.md": ("role=reviewer", "purpose", "translation_contextual_v2", ROLE_CONTRACT_PATH, *ROLE_OUTPUT_MARKERS[".ai/roles/reviewer.md"], *ROLE_CLAUSE_REFERENCES[".ai/roles/reviewer.md"]),
+    ".ai/roles/scout.md": ("role=scout", ROLE_CONTRACT_PATH, *ROLE_OUTPUT_MARKERS[".ai/roles/scout.md"], *ROLE_CLAUSE_REFERENCES[".ai/roles/scout.md"]),
+    ".ai/roles/senior-reviewer.md": ("role=senior-reviewer", "purpose", ROLE_CONTRACT_PATH, *ROLE_OUTPUT_MARKERS[".ai/roles/senior-reviewer.md"], *ROLE_CLAUSE_REFERENCES[".ai/roles/senior-reviewer.md"]),
     "docs/paseo-orchestration-v2-contract.md": (
         "purpose=normal_review",
         "purpose=translation_contextual_v1",
+        "translation_contextual_v2",
+        "P2-TRANSLATION-CONTEXT-V2",
         "candidate_ref",
         "orchestration_transport",
         "child_dispatches",
@@ -147,12 +216,28 @@ REQUIRED_MARKERS = {
         *ROUTING_PROVENANCE_MARKERS,
         *STOP_ARCHIVE_MARKERS,
         *CONTEXTUAL_ANCHOR_PREFLIGHT_MARKERS,
+        *RUNTIME_OBSERVATION_MARKERS,
+        *tuple(dict.fromkeys(
+            clause
+            for clauses in ROLE_CLAUSE_REFERENCES.values()
+            for clause in clauses
+        )),
     ),
     "docs/paseo-translation-context-review-v1-contract.md": (
         "role=reviewer",
         "purpose=translation_contextual_v1",
         "candidate_identity",
         "dispatch_id",
+    ),
+    "docs/paseo-translation-context-review-v2-contract.md": (
+        "translation-contextual/2.0",
+        "role=reviewer",
+        "purpose=translation_contextual_v2",
+        "fb95fa08bd65b4f626bb1b5f0f5a2035a72ef359d584cb088c30609f3fa94067",
+        "raw_output_sha256",
+        "lane_count=4",
+        "parent_coverage_identity",
+        "FINAL_REVIEW/full",
     ),
 }
 
@@ -182,10 +267,44 @@ def main() -> int:
         texts[relative] = path.read_text(encoding="utf-8")
 
     for relative, markers in REQUIRED_MARKERS.items():
-        text = texts.get(relative, "")
+        text = "".join(texts.get(relative, "").split())
         for marker in markers:
-            if marker not in text:
+            normalized_marker = "".join(marker.split())
+            if normalized_marker not in text:
                 errors.append(f"{relative}: missing required marker {marker!r}")
+
+    # Keep the bounded EXECUTOR contract clauses load-bearing without adding a
+    # second marker family to REQUIRED_MARKERS' migration-owner index.
+    relative = "docs/paseo-orchestration-v2-contract.md"
+    text = "".join(texts.get(relative, "").split())
+    for marker in (
+        "禁止 `git reset --hard`、`git checkout` 或任何整树清理",
+        "允许非目标路径存在未提交的 dirty changes",
+        "对目标路径必须使用 `allowed_paths` 声明的 required preimage state/hash/mode 进行 fail-closed 检查",
+        "实现 shadow output 与持久化事务日志",
+        "必须写入已忽略的 `.artifacts/paseo-bounded/<workspace_id>/<dispatch_id>/`",
+        "任何既非明确 pre 也非明确 post 的第三种状态必须记录冲突且不得覆盖目标",
+        "不得声称多文件 OS 原子，只保证基于日志的可恢复事务",
+        "拆分 candidate_id 与 envelope_hash",
+        "同 dispatch 不同 hash 硬失败",
+        "`bounded_apply_v1`",
+        "`bounded_apply_journal_v1`",
+        "author 必须是精确的 `{role, dispatch_id}` object，其中 `role` 必须是精确字符串 `ORCHESTRATOR` 或 `EXECUTOR`，`dispatch_id` 必须是 ASCII identifier",
+        "host 注入、精确绑定 task/workspace/prior dispatch/candidate 的可信 `archive_receipts`",
+        "`gates` 只进入 envelope identity，runner 不执行 gate",
+        "APPLYING 恢复时实际 post 但未记入 `applied_paths` 的目标必须补入",
+        "ROLLING_BACK 恢复时实际 pre 但仍在列表中的目标必须移除",
+        "replace 或 unlink 后必须 `fsync` 目标父目录",
+        "首路径组件为 `.git`、`.ai` 或 `.artifacts` 的 privileged namespace",
+        "`allowed_paths` 与恢复 journal 的 `ordered_paths` 使用同一原始 POSIX 路径集合校验",
+        "任一路径为另一条路径严格祖先的祖先／后代重叠（与声明顺序无关）",
+        "任何 journal 写入都必须先拒绝未知或重复的 applied path，再将 `applied_paths` 按 `ordered_paths` 唯一重排为 ordered subset",
+        "读取异常不得被重复 close 的 `EBADF` 掩盖",
+        "首个 PREPARED journal 尚未持久化时",
+        "file mode `0o000`、`0o200` 等 owner-unreadable 值仍是有效声明",
+    ):
+        if "".join(marker.split()) not in text:
+            errors.append(f"{relative}: missing required marker {marker!r}")
 
     for relative, text in texts.items():
         for marker in FORBIDDEN_RUNTIME_MARKERS:

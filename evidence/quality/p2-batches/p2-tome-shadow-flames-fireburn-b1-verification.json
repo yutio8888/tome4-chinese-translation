@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-shadow-flames-fireburn-b1-001",
+  "kind": "shadow_flames_fireburn_bounded_translation_verification",
+  "frozen_workset": {
+    "path": "evidence/quality/p2-batches/p2-tome-shadow-flames-fireburn-b1-workset.json",
+    "sha256": "aa2e9f0bbee0840ba0e72ded75313d7bdc494d2738c36cda159d010fe395f76e",
+    "immutable": true
+  },
+  "inventory_origin": {
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "reference_ids": [
+      "fireburn-ref-023"
+    ]
+  },
+  "translation_file": {
+    "path": "mod-tome.lua",
+    "baseline_head": "ae42e7bc65ed061462c737920ba796cfded5aaad",
+    "baseline_sha256": "4649d2514b2dbad86c449f743f1f198be0e0d766afc8d299c27840824a764bab",
+    "current_sha256": "4649d2514b2dbad86c449f743f1f198be0e0d766afc8d299c27840824a764bab",
+    "production_targets_changed": 0
+  },
+  "translation_revisions": [
+    {
+      "revision_key": "tome-shadow-flames-info",
+      "reference_id": "fireburn-ref-023",
+      "entry_id": "b574652b6ebcd0020bc4eeb5dd66f0114515765725e20e2b8a379438ba821e13",
+      "decision": "no-change",
+      "before": {
+        "source": "Bathes the target in flames doing %0.2f damage\n\t\tThe damage will increase with the Magic stat",
+        "target": "用火焰灼烧你的目标造成 %0.2f 伤害。\n\t\t伤害受魔力值加成。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": [
+          "%0.2f"
+        ],
+        "newline_count": 1,
+        "continuation_prefix": "\t\t",
+        "markup_tokens": []
+      },
+      "after": {
+        "source": "Bathes the target in flames doing %0.2f damage\n\t\tThe damage will increase with the Magic stat",
+        "target": "用火焰灼烧你的目标造成 %0.2f 伤害。\n\t\t伤害受魔力值加成。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": [
+          "%0.2f"
+        ],
+        "newline_count": 1,
+        "continuation_prefix": "\t\t",
+        "markup_tokens": []
+      },
+      "before_after_target_byte_identical": true,
+      "placeholder_bindings": [
+        {
+          "placeholder_index": 1,
+          "token": "%0.2f",
+          "quantity_kind": "uncritted_tooltip_damage_scalar",
+          "source_expression": "damDesc(self, DamageType.FIREBURN, t.getDamage(self, t))",
+          "runtime_origin": "combatTalentSpellDamage(t, 20, 140) -> uncritted damage -> damDesc(FIREBURN) -> %0.2f",
+          "source_explicitness": "one flame-damage amount with Magic scaling",
+          "target_explicitness_before": "one flame-damage amount with Magic scaling",
+          "target_explicitness_after": "one flame-damage amount with Magic scaling",
+          "target_more_explicit_than_source": false,
+          "explicitness_justification_required": false,
+          "explicitness_justification": null
+        }
+      ]
+    }
+  ],
+  "fixed_source": {
+    "component": "tome",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_pinned": true,
+    "source_files": [
+      {
+        "path": "game/modules/tome/data/talents/cursed/shadows.lua",
+        "sha256": "afba9045c77c2fd6c8873ba0b48d49ccf697df0bf405f25994a43843fed9fed5",
+        "relevant_lines": [138, 148, 153, 154, 159, 163, 165]
+      },
+      {
+        "path": "game/modules/tome/data/talents.lua",
+        "sha256": "60600da06f633d8feed19bed0c59da3ae73c7ae805071e0fe044abc880b9333f",
+        "relevant_lines": [100, 119, 121, 130, 137, 142]
+      },
+      {
+        "path": "game/modules/tome/class/interface/Combat.lua",
+        "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+        "relevant_lines": [1779, 1805, 1815, 1818, 1822, 1826, 2012, 2028, 2362, 2365, 2386]
+      },
+      {
+        "path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+        "relevant_lines": [788, 808, 812, 1187, 1189, 1192, 1196, 1201, 1205]
+      }
+    ]
+  },
+  "directional_numeric_value_flow": {
+    "origin": "t.getDamage(self, t) returns combatTalentSpellDamage(t, 20, 140); Combat.lua computes the scalar from talent level and spellpower, with Magic contributing through spellpower.",
+    "action_crit": "action passes t.getDamage(self, t) to spellCrit, which may multiply that scalar by critical power.",
+    "action_projection": "action projects the resulting scalar once through a hit target descriptor as DamageType.FIRE to the selected target.",
+    "action_temporal_shape": "No DamageType.FIREBURN projector or EFF_BURNING application occurs in the action; this is immediate FIRE damage with no duration, per-turn split, or DoT.",
+    "tooltip": "info obtains t.getDamage without spellCrit and passes it to damDesc(self, DamageType.FIREBURN, damage).",
+    "placeholder": "The single returned damDesc scalar binds the single %0.2f placeholder; no other numeric or temporal placeholder exists.",
+    "displayed_quantity": "an uncritted tooltip damage scalar, not a three-turn total and not per-turn damage"
+  },
+  "damdesc_fireburn_semantics": {
+    "type_lookup": "damDesc resolves the FIREBURN damage-type record only to inspect damdesc_split.",
+    "no_split": "DamageType.FIREBURN defines no damdesc_split field at the fixed commit, so damDesc leaves the type as FIREBURN and never calls the FIREBURN projector.",
+    "scalar_handling": "damDesc applies its status-based display modifiers and, when inc_damage exists, combatGetDamageIncrease(FIREBURN); it returns one scalar.",
+    "no_three_turn_conversion": "The FIREBURN projector's default duration 3 and initial 50 are projector behavior only. damDesc does not execute that projector, does not subtract an initial portion, and does not divide a remainder by three.",
+    "translation_consequence": "The FIREBURN damDesc argument therefore does not make either language's flame-damage sentence a DoT, duration, total-over-time, or per-turn claim."
+  },
+  "upstream_display_inconsistency": {
+    "status": "confirmed_upstream_source_code_tooltip_display_inconsistency",
+    "action_type": "DamageType.FIRE",
+    "tooltip_type": "DamageType.FIREBURN",
+    "crit_difference": "The action calls spellCrit; info does not.",
+    "damage_increase_difference": "Because FIREBURN has no damdesc_split, damDesc queries FIREBURN-keyed damage increase rather than FIRE-keyed damage increase and may omit the FIRE-specific increase relevant to the action.",
+    "scope_decision": "This discrepancy belongs to upstream action/info display code. The frozen English and Chinese bind the same one scalar and make the same non-temporal claim, so it is not a translation correctness defect and mod-tome.lua remains unchanged."
+  },
+  "orchestrator_adjudication": {
+    "confirmed": [
+      {
+        "subject": "action semantics",
+        "finding": "spellCrit(getDamage) is projected as immediate DamageType.FIRE to one hit target; there is no BURNING or DoT."
+      },
+      {
+        "subject": "tooltip semantics",
+        "finding": "info formats uncritted getDamage through damDesc(FIREBURN); this creates neither duration nor per-turn semantics and may omit FIRE-specific damage increase compared with the action."
+      }
+    ],
+    "no_change": [
+      {
+        "revision_key": "tome-shadow-flames-info",
+        "reason": "English and Chinese each bind one %0.2f and claim only flame damage plus Magic scaling; neither claims duration, total-over-time, or per-turn damage."
+      }
+    ],
+    "production_edit_authorized": false,
+    "mod_tome_changed": false
+  },
+  "scope_accounting": {
+    "selected_reference_count": 1,
+    "selected_revision_count": 1,
+    "production_target_change_count": 0,
+    "changed_revision_keys": [],
+    "all_adjacent_targets_byte_unchanged": true,
+    "full_section_selected_count": 26,
+    "full_section_available_count": 26,
+    "full_section_lexical_t_call_count": 26,
+    "full_section_content_sha256": "d8a51d018b0cebc697d7426af47a7c20d5d082bbd811b75b28e1ea2efb5fc953",
+    "baseline_and_current_translation_file_sha256_equal": true,
+    "neighbor_normalization_performed": false
+  },
+  "invariant_checks": {
+    "exact_reference_ids": [
+      "fireburn-ref-023"
+    ],
+    "ordered_revision_keys": [
+      "tome-shadow-flames-info"
+    ],
+    "context_limit_is_500": true,
+    "context_selected_equals_available_equals_lexical_t_calls": true,
+    "context_count": 26,
+    "fixed_english_key_accepts_raw_or_escaped_form": true,
+    "source_unchanged": true,
+    "target_before_after_byte_identical": true,
+    "exactly_zero_targets_changed": true,
+    "changed_target_count": 0,
+    "all_other_targets_byte_unchanged": true,
+    "source_tag_unchanged": true,
+    "args_order_remains_null": true,
+    "special_remains_null": true,
+    "placeholder_sequence_unchanged": true,
+    "newline_count_remains_one": true,
+    "continuation_prefix_remains_two_tabs": true,
+    "inventory_hash_bound": true,
+    "translation_baseline_head_and_hash_bound": true,
+    "source_hashes_match_fixed_commit": true,
+    "workset_hash_bound": true,
+    "closure_update_bounded": true,
+    "result": "pass"
+  },
+  "campaign_index_lineage": {
+    "closure_index_path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-closure.json",
+    "preceding_explosion_trap_batch": {
+      "task_id": "p2-tome-explosion-trap-fireburn-b1-001",
+      "status": "closed",
+      "commit": "ae42e7bc65ed061462c737920ba796cfded5aaad"
+    },
+    "this_batch": {
+      "task_id": "p2-tome-shadow-flames-fireburn-b1-001",
+      "reference_ids": [
+        "fireburn-ref-023"
+      ],
+      "status": "review_pending",
+      "independent_review_and_done_claimed": false,
+      "qualification": "No-change EXECUTOR evidence exists, but this batch remains review_pending until independent review and DONE verification."
+    }
+  },
+  "focused_verification": {
+    "checks": [
+      {
+        "command": "focused invariant script: exact ref/revision identity; baseline inventory/mod/closure hashes; context 26/26/26 at --limit 500; source/target/tag/null args/null special/%0.2f/newline/two-tab invariants; fixed-source commit/path/hash/line anchors; zero production target changes; all adjacent targets unchanged; bounded closure lineage",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -m json.tool on workset, verification, and closure",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n doctor",
+        "result": "PASS (manifest tome-1.7.6; LuaJIT 2.1/Lua 5.1; LPeg 0.10.2-1; configured repositories available; protected-source engine worktree scan warning only)"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "PASS (30308 translations, 0 errors, 0 warnings)"
+      },
+      {
+        "command": "git diff --check",
+        "result": "PASS"
+      }
+    ]
+  }
+}

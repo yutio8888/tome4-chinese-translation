@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-fireburn-explicit-duration-b1-001",
+  "kind": "tome_fireburn_explicit_duration_sampling_verification",
+  "frozen_workset": {
+    "path": "evidence/quality/p2-batches/p2-tome-fireburn-explicit-duration-b1-workset.json",
+    "sha256": "694d15c9872de7f5eb63eac2fc1249dc5d257e523fa2c79d6e1610c1bd5c6050",
+    "immutable": true
+  },
+  "inventory_origin": {
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "commit": "a68cbede82a5f0ab112451a4ccc41fadc05948cd",
+    "reference_ids": [
+      "fireburn-ref-026",
+      "fireburn-ref-028",
+      "fireburn-ref-035"
+    ],
+    "inventory_risk_class": "appears_consistent"
+  },
+  "cycle_2_resolution_lineage": [
+    {
+      "finding_id": "C1-NR-001",
+      "source_review": ".ai/reviews/p2-tome-fireburn-explicit-duration-b1-001/review-code-rereview-c1-01.json",
+      "review_cycle": 1,
+      "host_status": "confirmed",
+      "fixed_cycle": 2,
+      "resolution": "Added the pinned inscriptions.lua line 1302 removeEffectsFilter call as the bounded source anchor for the preserved/repaired random detrimental physical-effect sentence."
+    },
+    {
+      "finding_id": "C1-NR-002",
+      "source_review": ".ai/reviews/p2-tome-fireburn-explicit-duration-b1-001/review-code-rereview-c1-01.json",
+      "review_cycle": 1,
+      "host_status": "confirmed",
+      "fixed_cycle": 2,
+      "resolution": "Corrected the Pyrokinesis and Heat decision labels to match their actual baseline-to-candidate dispositions."
+    },
+    {
+      "finding_id": "CTX-R1-001",
+      "source_review": ".ai/reviews/p2-tome-fireburn-explicit-duration-b1-001/review-context-rereview-c1-01.json",
+      "review_cycle": 1,
+      "host_status": "confirmed_by_user_adjudication",
+      "user_decision": "accept_and_repair",
+      "fixed_cycle": 2,
+      "resolution": "Restored Heat Beam's heat-beam wording and explicit random-removal semantics while preserving its source, metadata, placeholder and newline structure."
+    }
+  ],
+  "translation_revisions": [
+    {
+      "revision_key": "heat-beam-info",
+      "reference_id": "fireburn-ref-026",
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "baseline_line": 26108,
+      "entry_id": "8e6fc42b79c0f34c466986ea987619c3f510f3ab63c62ab551ff9d79c232d00f",
+      "editable": true,
+      "decision": "repair_explicit_total_wording_and_heat_random_fidelity",
+      "before": {
+        "source": "Activate the rune to fire a beam of heat, doing %0.2f fire damage over 5 turns\n\t\tThe intensity of the heat will also remove one random detrimental physical effect from you.",
+        "target": "激活这个符文发射一束射线，造成 %0.2f 火焰伤害持续 5 回合。\n\t\t高温同时会解除你受到的一个负面物理状态。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.2f"],
+        "newline_count": 1
+      },
+      "after": {
+        "source": "Activate the rune to fire a beam of heat, doing %0.2f fire damage over 5 turns\n\t\tThe intensity of the heat will also remove one random detrimental physical effect from you.",
+        "target": "激活这个符文发射一束热能射线，在 5 回合内总计造成 %0.2f 火焰伤害。\n\t\t高温同时会随机解除你受到的一个负面物理状态。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.2f"],
+        "newline_count": 1
+      }
+    },
+    {
+      "revision_key": "heat-beam-short-control",
+      "reference_id": "fireburn-ref-026",
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "baseline_line": 26111,
+      "entry_id": "a8705fc6d9990fe97aa253af11910bab5aafa7c4b23f66e7643d52c9db4e7e96",
+      "editable": false,
+      "decision": "preserve_total_only_non_duration_control",
+      "before": {
+        "source": "%d fire damage",
+        "target": "%d 火焰伤害",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%d"],
+        "newline_count": 0
+      },
+      "after": {
+        "source": "%d fire damage",
+        "target": "%d 火焰伤害",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%d"],
+        "newline_count": 0
+      }
+    },
+    {
+      "revision_key": "pyrokinesis-info",
+      "reference_id": "fireburn-ref-028",
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/psionic/focus.lua",
+      "baseline_line": 27441,
+      "entry_id": "932be4b4423c7130666faf4f4bda3eb5ae297ca9ccef4aa29c14a29acf9940ca",
+      "editable": true,
+      "decision": "preserve_adequate_total_over_duration_wording",
+      "before": {
+        "source": "Telekinetically energize the matter of all foes within %d squares at the molecular level, setting them ablaze. This does %0.1f fire damage over six turns.",
+        "target": "对 %d 范围内的所有敌人，用意念使组成其身体的分子活化并引燃他们，在 6 回合内造成 %0.1f 火焰伤害。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%d", "%0.1f"],
+        "newline_count": 0
+      },
+      "after": {
+        "source": "Telekinetically energize the matter of all foes within %d squares at the molecular level, setting them ablaze. This does %0.1f fire damage over six turns.",
+        "target": "对 %d 范围内的所有敌人，用意念使组成其身体的分子活化并引燃他们，在 6 回合内造成 %0.1f 火焰伤害。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%d", "%0.1f"],
+        "newline_count": 0
+      }
+    },
+    {
+      "revision_key": "heat-info",
+      "reference_id": "fireburn-ref-035",
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/spells/war-alchemy.lua",
+      "baseline_line": 29838,
+      "entry_id": "cac04085a7ace80deb8676209ad117d891d4871a7d1fe29a73ed68ee7b53ea8d",
+      "editable": true,
+      "decision": "repair_part_rest_fidelity_and_explicit_total_wording",
+      "before": {
+        "source": "Turn part of your target into fire, burning the rest for %0.2f fire damage over 8 turns.\n\t\tThe damage will increase with your Spellpower.",
+        "target": "将你的敌人化为火焰，在8回合内造成 %0.2f 火焰伤害。\n\t\t伤害受法术强度加成。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.2f"],
+        "newline_count": 1
+      },
+      "after": {
+        "source": "Turn part of your target into fire, burning the rest for %0.2f fire damage over 8 turns.\n\t\tThe damage will increase with your Spellpower.",
+        "target": "将目标的一部分化为火焰，令其余部分燃烧，并在 8 回合内总计造成 %0.2f 火焰伤害。\n\t\t伤害受法术强度加成。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.2f"],
+        "newline_count": 1
+      }
+    }
+  ],
+  "source_provenance": {
+    "component": "tome",
+    "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_pinned": true,
+    "anchors": [
+      {
+        "path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+        "sha256": "9c90062320a8661c73529bf90271369a897e5eb8b1393aae460d6a10677281c2",
+        "symbol": "Rune: Heat Beam",
+        "line": 1299,
+        "call": "self:project(tg, x, y, DamageType.FIREBURN, {dur=5, initial=0, dam=data.power + data.inc_stat})"
+      },
+      {
+        "path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+        "sha256": "9c90062320a8661c73529bf90271369a897e5eb8b1393aae460d6a10677281c2",
+        "symbol": "Rune: Heat Beam",
+        "line": 1302,
+        "call": "self:removeEffectsFilter(self, {status=\"detrimental\", type=\"physical\", ignore_crosstier=true}, 1)",
+        "bounded_interpretation": "Anchors the English statement that one random detrimental physical effect is removed; no stronger selection or ordering behavior is claimed."
+      },
+      {
+        "path": "game/modules/tome/data/talents/psionic/focus.lua",
+        "sha256": "324b35ec3ea43f54144e2e552f20cf65c86006c8d1a70d00d112d4507b4aef77",
+        "symbol": "Pyrokinesis",
+        "line": 91,
+        "call": "self:project(tg, self.x, self.y, DamageType.FIREBURN, {dur=6, initial=0, dam=dam})"
+      },
+      {
+        "path": "game/modules/tome/data/talents/spells/war-alchemy.lua",
+        "sha256": "be4027adfbfa06849423e1d5cfd2619271b3c7e968fc7d3e1b8e45a6eb38a4a1",
+        "symbol": "Heat",
+        "line": 39,
+        "call": "self:project(tg, x, y, DamageType.FIREBURN, {dur=8, initial=0, dam=t.getDamage(self, t)}, {type=\"flame\"})"
+      },
+      {
+        "path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+        "symbols": ["DamageType.FIREBURN", "DamageType.FLAMESHOCK"],
+        "relevant_lines": [1187, 1203, 1337, 1355]
+      },
+      {
+        "path": "game/modules/tome/data/timed_effects/physical.lua",
+        "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+        "symbols": ["EFF_BURNING"],
+        "relevant_lines": [417, 438]
+      },
+      {
+        "path": "game/modules/tome/data/timed_effects/physical.lua",
+        "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+        "symbols": ["EFF_BURNING_SHOCK"],
+        "relevant_lines": [442, 477],
+        "tick_lines": [469, 470]
+      }
+    ]
+  },
+  "directional_numeric_value_flow": [
+    {
+      "reference_id": "fireburn-ref-026",
+      "tooltip_scalar": "data.power + data.inc_stat",
+      "flow": [
+        "data.power + data.inc_stat -> Heat Beam info damDesc(FIRE, scalar) -> %0.2f",
+        "data.power + data.inc_stat -> FIREBURN dam with dur=5 and initial=0",
+        "FIREBURN immediate = dam * 0 / 100 = 0",
+        "FIREBURN remainder = dam; EFF_BURNING power = dam / 5"
+      ],
+      "displayed_quantity": "incoming total fire damage over five turns"
+    },
+    {
+      "reference_id": "fireburn-ref-028",
+      "tooltip_scalar": "t.getDamage(self, t)",
+      "action_scalar": "mindCrit(t.getDamage(self, t))",
+      "flow": [
+        "t.getDamage(self, t) -> Pyrokinesis info damDesc(FIRE, scalar) -> %0.1f",
+        "mindCrit(t.getDamage(self, t)) -> dam",
+        "normal branch: dam -> FIREBURN dam with dur=6 and initial=0 -> EFF_BURNING power = dam / 6",
+        "Transcendent Pyrokinesis branch: same dam -> FLAMESHOCK dam with dur=6; only when target:canBe(\"stun\") passes is EFF_BURNING_SHOCK created with power = dam / 6, otherwise no burning-shock damage is applied"
+      ],
+      "displayed_quantity": "base incoming total fire damage over six turns; runtime critical adjustment may affect the applied scalar under normal tooltip/action conventions"
+    },
+    {
+      "reference_id": "fireburn-ref-035",
+      "tooltip_scalar": "t.getDamage(self, t)",
+      "flow": [
+        "t.getDamage(self, t) -> Heat info damDesc(FIRE, scalar) -> %0.2f",
+        "t.getDamage(self, t) -> FIREBURN dam with dur=8 and initial=0",
+        "FIREBURN immediate = dam * 0 / 100 = 0",
+        "FIREBURN remainder = dam; EFF_BURNING power = dam / 8"
+      ],
+      "displayed_quantity": "incoming total fire damage over eight turns"
+    }
+  ],
+  "damage_type_semantics": {
+    "fireburn": {
+      "explicit_table_inputs": "Each sampled call supplies a complete scalar as dam, an explicit dur, and initial=0.",
+      "zero_immediate_fraction": 0,
+      "immediate_damage": "dam * initial / 100 = 0",
+      "remaining_damage": "dam - immediate_damage = dam",
+      "burning_power": "remaining_damage / dur = dam / dur",
+      "unmerged_nominal_total": "dur timeouts at dam/dur sum to the incoming dam scalar"
+    },
+    "pyrokinesis_flameshock_branch": {
+      "condition": "self:hasEffect(self.EFF_TRANSCENDENT_PYROKINESIS)",
+      "projector": "DamageType.FLAMESHOCK",
+      "input": "{dur=6, dam=dam, apply_power=self:combatMindpower()}",
+      "target_gate": "target:canBe(\"stun\")",
+      "effect": "EFF_BURNING_SHOCK",
+      "effect_power": "dam / 6",
+      "duration_turns": 6,
+      "total_interpretation": "Only when target:canBe(\"stun\") passes and EFF_BURNING_SHOCK is created is the same incoming dam scalar distributed as dam/6 across six turns; otherwise no such burning-shock damage is applied."
+    },
+    "burning_merge_qualification": {
+      "effect": "EFF_BURNING",
+      "old_remaining": "old_eff.power * old_eff.dur",
+      "incoming_total": "new_eff.power * new_eff.dur",
+      "merged_duration": "ceil((old_eff.dur + new_eff.dur) / 2)",
+      "merged_power": "(old_remaining + incoming_total) / merged_duration",
+      "conservation": "old remaining damage plus incoming total damage is conserved before downstream mitigation",
+      "wording_consequence": "The tooltip describes the newly applied incoming total over its named duration. It does not promise an isolated per-turn tick amount or an unchanged standalone schedule after merging."
+    }
+  },
+  "invariant_checks": {
+    "source_unchanged_all_four": true,
+    "source_tag_unchanged_all_four": true,
+    "args_order_remains_null_all_four": true,
+    "special_remains_null_all_four": true,
+    "placeholder_sequence_unchanged_all_four": true,
+    "newline_count_unchanged_all_four": true,
+    "heat_beam_second_sentence_intentionally_repaired_for_random_semantics": true,
+    "pyrokinesis_target_byte_identical": true,
+    "heat_second_sentence_byte_identical": true,
+    "heat_beam_short_control_byte_identical": true,
+    "exactly_two_translation_targets_changed": true,
+    "changed_translation_targets": ["heat-beam-info", "heat-info"],
+    "heat_target_remains_accepted_exactly": true,
+    "workset_unchanged": true,
+    "inventory_unchanged": true,
+    "terminology_unchanged": true,
+    "result": "pass"
+  },
+  "campaign_index_lineage": {
+    "closure_index_path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-closure.json",
+    "inventory_remains_frozen": true,
+    "sampled_refs_status": "review_pending",
+    "unreviewed_appears_consistent_distinction": "Inventory classification is not contextual review; entries outside the recorded closed batches and this sample remain contextually unreviewed by the closure index.",
+    "next_scalar_default_sample": [
+      "fireburn-ref-027",
+      "fireburn-ref-029",
+      "fireburn-ref-031",
+      "fireburn-ref-032",
+      "fireburn-ref-033"
+    ],
+    "data_binding_batch": "conditional"
+  },
+  "focused_verification": {
+    "checks": [
+      {
+        "command": "focused exact-entry, four-revision metadata, placeholder and newline invariants; byte-identical Pyrokinesis and Heat Beam short control; intentional Heat Beam random-semantics repair; accepted exact Heat target; exactly two baseline-different targets (Heat Beam and Heat); unchanged workset, inventory and terminology; bound workset/inventory/fixed-source hashes and anchors",
+        "result": "PASS"
+      },
+      {
+        "command": "JSON parse and bound SHA-256 checks",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "PASS (30308 translations, 0 errors, 0 warnings)"
+      },
+      {
+        "command": "git diff --check",
+        "result": "PASS"
+      }
+    ]
+  }
+}

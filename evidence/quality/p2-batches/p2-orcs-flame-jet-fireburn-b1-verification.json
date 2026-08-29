@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "kind": "p2_bounded_translation_verification",
+  "task_id": "p2-orcs-flame-jet-fireburn-b1-001",
+  "role": "executor",
+  "purpose": "bounded_translation_repair",
+  "dispatch": "executor-repair-c1-01",
+  "status": "executor_complete_review_pending",
+  "baseline": {
+    "head": "a63a6b75fc995132c90a2097844bcc3c9613836b",
+    "dirty_preserved": [
+      ".claude/"
+    ],
+    "canonical_path": "tome-orcs.lua",
+    "before_sha256": "e47608009bd59ca13158f032b720e4ec0244d8e80064b4c21aa8157829352fd3",
+    "after_sha256": "9f5ede073f406fc9355163cd9930d301c4912e42731cec87321d6bb860e8bfc0",
+    "byte_identical": false
+  },
+  "workset": {
+    "path": "evidence/quality/p2-batches/p2-orcs-flame-jet-fireburn-b1-workset.json",
+    "sha256": "c0dd6cf15ae636f606fe3c9b37e4da4bcd41c7ee7c0bafc2ee373ce519dc9cae",
+    "context_id": "d7956cb82649fa6c4f8ec5e8463dc8fffe306d65a070bee0e75b419da9d43ff3",
+    "content_sha256": "05f17cb474be7989b2002a7a815dc276ffd2727dc13ea91339bfdaa8a18a70ec",
+    "selected": 32,
+    "available": 32,
+    "item_count": 32,
+    "unique_entry_id_count": 32
+  },
+  "inventory": {
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "reference_ids": [
+      "fireburn-ref-009"
+    ],
+    "source_pinned": false,
+    "qualification": "The public Orcs source is revision-unpinned. Its file SHA-256 binds the inspected source; the manifest extraction snapshot is used only for translation-candidate identity and is not treated as a public-source commit pin."
+  },
+  "candidate": {
+    "revision_key": "orcs-heavy-weapons-flame-jet-info",
+    "entry_id": "caf220ef5b10d314eb547d616e8bc37adf3407302f6784d64c0365b324b11908",
+    "source": "Fire a jet of flame, dealing %d%% weapon damage as fire over 3 turns.",
+    "target_before": "发射一团火焰，在 3 回合内造成 %d%% 火焰武器伤害。",
+    "target_after": "发射一团火焰，在 3 回合内造成相当于 %d%% 武器伤害的火焰伤害。",
+    "source_tag": "tformat",
+    "args_order_before": null,
+    "args_order_after": null,
+    "special_before": null,
+    "special_after": null,
+    "placeholders_before": [
+      "%d%%"
+    ],
+    "placeholders_after": [
+      "%d%%"
+    ],
+    "placeholder_count_before": 1,
+    "placeholder_count_after": 1,
+    "changed": true
+  },
+  "source_provenance": [
+    {
+      "component": "orcs",
+      "revision": "public_revision_unpinned",
+      "path": "game/dlcs/tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "anchors": {
+        "get_damage": 168,
+        "hostile_preselection": 201,
+        "archery_shoot": 220,
+        "tooltip_value": [
+          242,
+          244
+        ]
+      }
+    },
+    {
+      "component": "engine",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/class/interface/Archery.lua",
+      "sha256": "09fdce1e839d74e1a5bd65a1432f044a3811ecc5618dbecc828e33738963c0fe",
+      "anchors": {
+        "multiplier_input": 309,
+        "apr_input": 319,
+        "armor_application": 340,
+        "multiplier_application": 380,
+        "scalar_projection": 441
+      }
+    },
+    {
+      "component": "engine",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/damage_types.lua",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "anchors": {
+        "fireburn_definition": 1187,
+        "default_duration": 1192,
+        "default_initial_percent": 1193,
+        "immediate_fire": 1196,
+        "burning_effect": 1201
+      }
+    },
+    {
+      "component": "engine",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/timed_effects/physical.lua",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "anchors": {
+        "burning_definition": 417,
+        "merge_remaining_totals": [
+          428,
+          434
+        ],
+        "timeout_damage": 438
+      }
+    }
+  ],
+  "verified_mechanism": {
+    "tooltip_value_flow": "t.getDamage(self,t)*100 supplies the displayed percentage, while the same underlying fractional t.getDamage(self,t) is passed as params.mult to archeryShoot.",
+    "weapon_damage_flow": "Archery calculates weapon damage, applies apr=1000 in the armor calculation, multiplies the calculated damage by mult, and projects one scalar to DamageType.FIREBURN.",
+    "fireburn_flow": "Scalar FIREBURN defaults to dur=3 and initial=50: 50% is projected immediately as FIRE and the remaining 50% is stored as EFF_BURNING power=(dam-init_dam)/3 for three timeouts.",
+    "merge_semantics": "EFF_BURNING merge computes each effect's remaining total as power*dur, adds those totals, chooses the merged duration, and divides the pooled total by that duration.",
+    "recipient_selection": "Flame Jet builds the recipient list before archery shooting and includes only actors for which reactionToward(target) < 0.",
+    "interpretation": "The displayed %d%% is one complete calculated weapon-damage event total spread across the immediate hit and three burning timeouts; it is not %d%% per turn."
+  },
+  "adjudication": {
+    "result": "repaired",
+    "translation_defect_confirmed": true,
+    "rationale": "The former “%d%% 火焰武器伤害” attached 火焰 to 武器 and did not clearly express that the complete %d%% weapon-damage amount is dealt as fire. The repair states fire damage equal to %d%% weapon damage while preserving the correct total-over-three-turns relation and without exposing the internal FIREBURN identifier.",
+    "independent_review_and_done_claimed": false,
+    "next_state": "review_pending"
+  },
+  "finding_resolution": {
+    "finding_id": "CTX-FLAMEJET-R0-001",
+    "revision_key": "orcs-heavy-weapons-flame-jet-info",
+    "host_adjudication": "confirmed",
+    "disposition": "applied",
+    "dispatch_id": "executor-repair-c1-01",
+    "before": "发射一团火焰，在 3 回合内造成 %d%% 火焰武器伤害。",
+    "after": "发射一团火焰，在 3 回合内造成相当于 %d%% 武器伤害的火焰伤害。",
+    "scope": "Only the frozen target was repaired; source, source_tag, null args/special metadata, placeholder multiplicity, line shape, adjacent targets, mechanism claims, and review_pending closure state are preserved."
+  },
+  "scope_accounting": {
+    "frozen_section_entries": 32,
+    "selected_candidates": 1,
+    "translation_entries_changed": 1,
+    "production_target_change_count": 1,
+    "canonical_files_changed": 1,
+    "evidence_files_created": 2,
+    "closure_objects_appended": 1,
+    "adjacent_targets_changed": 0,
+    "out_of_scope_changes": 0
+  },
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n context --component orcs --section tome-orcs/data/talents/steam/heavy-weapons.lua --limit 500 --json",
+      "result": "pass",
+      "evidence": "selected=32, available=32, item_count=32, context_id and content_sha256 match the frozen SPEC"
+    },
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "result": "pass",
+      "evidence": "manifest tome-1.7.6; Lua 5.1/LuaJIT; LPeg 0.10.2-1; required repositories OK; protected-source scan warning only"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "result": "pass",
+      "evidence": "30308 translations checked; 0 errors; 0 warnings"
+    },
+    {
+      "command": "python3 focused JSON invariant probe",
+      "result": "pass",
+      "evidence": "workset/verification/closure parse; exactly one Lua target changed relative baseline HEAD; 32 exact frozen items and unique IDs; source/source_tag/null metadata/placeholders and adjacent targets preserved; workset SHA-256 unchanged; canonical before/after hashes and candidate before/after exact; public-unpinned and fixed-engine provenance plus mechanism claims preserved; production/scope counts accurate; CTX-FLAMEJET-R0-001 applied; closure remains review_pending and does not claim DONE"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass",
+      "evidence": "no whitespace errors"
+    }
+  ],
+  "pending_executor_checks": []
+}

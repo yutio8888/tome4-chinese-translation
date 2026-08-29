@@ -22,7 +22,7 @@ ORCHESTRATOR／EXECUTOR／REVIEWER／SENIOR_REVIEWER／SCOUT 角色完成。门�
 
 ## Paseo 轻量编排（大型任务）
 
-当前已核验的 Paseo 0.4.0（CLI 或等价注入的 agent-scoped Paseo MCP 操作）用于需要多步实现和独立复审的大型任务；小型修改由主代理直接完成。任务级 orchestration_transport 在 STATE 中只允许 cli|mcp，两种传输必须保持相同的 role、purpose、workspace、lineage、歧义恢复和 reviewer 只读语义。用户明确要求 Paseo 时必须使用；否则 Paseo 不可用时，只有尚未创建 child 或全部 child 已确认归档才可回退主代理执行并说明，仍有未确认归档 child 则进入 WAIT_USER。角色 prompt 见 .ai/roles/，轻量设计说明见 docs/paseo-orchestration-v2-contract.md；translation_contextual_v1 的候选身份、envelope 冻结与派发契约另见独立的 docs/paseo-translation-context-review-v1-contract.md（`tools/paseo_contract_check.py` 同时校验这两份契约文件）。活跃角色或契约修改后运行 `python3 -B tools/paseo_contract_check.py`，只检查角色/purpose 约束和固定运行时身份回流。
+当前已核验的 Paseo 0.4.0（CLI 或等价注入的 agent-scoped Paseo MCP 操作）用于需要多步实现和独立复审的大型任务；小型修改由主代理直接完成。任务级 orchestration_transport 在 STATE 中只允许 cli|mcp，两种传输必须保持相同的 role、purpose、workspace、lineage、歧义恢复和 reviewer 只读语义。用户明确要求 Paseo 时必须使用；否则 Paseo 不可用时，只有尚未创建 child 或全部 child 已确认归档才可回退主代理执行并说明，仍有未确认归档 child 则进入 WAIT_USER。角色 prompt 见 .ai/roles/，轻量设计说明见 docs/paseo-orchestration-v2-contract.md；活跃的 translation_contextual_v1 与 translation_contextual_v2 候选身份、envelope 冻结与派发契约分别见 docs/paseo-translation-context-review-v1-contract.md 和 docs/paseo-translation-context-review-v2-contract.md（`tools/paseo_contract_check.py` 同时校验这三份契约文件）。现有 v1 task 不迁移；v2 只供 schema 5 及以上的新 task 使用。活跃角色或契约修改后运行 `python3 -B tools/paseo_contract_check.py`，只检查角色/purpose 约束和固定运行时身份回流。
 
 Paseo 角色行为、最小规则、任务记录格式和外发边界的完整定义见 `docs/paseo-orchestration-v2-contract.md`；本文件只保留启用条件与不变量。
 

@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-fire-breath-fireburn-b1-001",
+  "kind": "frozen_fire_breath_fireburn_workset",
+  "frozen_at": "2026-08-28T15:55:54Z",
+  "inventory_origin": {
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "commit": "a68cbede82a5f0ab112451a4ccc41fadc05948cd",
+    "immutable": true,
+    "reference_ids": [
+      "fireburn-ref-024"
+    ],
+    "record": {
+      "reference_id": "fireburn-ref-024",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/gifts/fire-drake.lua",
+      "line": 208,
+      "matched_line": "\t\tself:project(tg, x, y, DamageType.FIREBURN, {dam=self:mindCrit(t.getDamage(self, t)), dur=3})",
+      "source_file_sha256": "41115da033196dc5b613039f566e1d6ab7827d1116107bf2f68434fa7c1417d5",
+      "source_pinned": true,
+      "classification": "direct_projection",
+      "enclosing_symbol": "Fire Breath",
+      "effective_input_shape": "table {dam=mindCrit(getDamage),dur=3}",
+      "duration_turns": 3,
+      "initial_percent": 50,
+      "mechanism_group_id": "explicit-table-projection",
+      "translation_entry_ids": [
+        "tome-fire-drake-fire-breath-info"
+      ],
+      "risk_class": "appears_consistent"
+    },
+    "translation_entry": {
+      "revision_key": "tome-fire-drake-fire-breath-info",
+      "identity": {
+        "component": "tome",
+        "section": "mod-tome/data/talents/gifts/fire-drake.lua",
+        "source_tag": "tformat"
+      },
+      "source": "You breathe fire in a frontal cone of radius %d. Any target caught in the area will take %0.2f fire damage over 3 turns.\n\t\tThe damage will increase with your Strength and the critical chance is based on your Mental crit rate.\n\t\tEach point in fire drake talents also increases your fire resistance by 1%%.",
+      "target": "你在前方 %d 码锥形范围内喷出火焰。此范围内的目标会在 3 回合内受到 %0.2f 火焰伤害。\n\t\t伤害受力量值加成，暴击几率基于你的精神暴击率。\n\t\t每点火龙系的技能可以使你增加火焰抗性 1%%。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_sequence": [
+        "%d",
+        "%0.2f",
+        "1%%"
+      ],
+      "inventory_placeholder_order": [
+        1,
+        2
+      ],
+      "translation_file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/gifts/fire-drake.lua"
+    }
+  },
+  "translation_baseline": {
+    "head": "ab063f96f2e7838932c2fd9b67c3ee4655eceffb",
+    "file": "mod-tome.lua",
+    "file_sha256": "4649d2514b2dbad86c449f743f1f198be0e0d766afc8d299c27840824a764bab",
+    "closure_file": "evidence/quality/semantic-claim-fireburn-backsweep-v1-closure.json",
+    "closure_sha256": "5b0b5669ba462bee9090e1c37fb201c6cf30a4bd36fc2a5de486d85677e3c918",
+    "component": "tome",
+    "version": "tome-1.7.6"
+  },
+  "section_freeze": {
+    "component": "tome",
+    "section": "mod-tome/data/talents/gifts/fire-drake.lua",
+    "resolver_contract": "tome4-context-v2",
+    "tool_version": "0.5.0",
+    "command": "python3 -B tools/i18n context --component tome --section mod-tome/data/talents/gifts/fire-drake.lua --limit 500 --json",
+    "limit": 500,
+    "selected": 10,
+    "available": 10,
+    "lexical_t_call_count": 10,
+    "count_assertion": "selected == available == lexical_t_call_count",
+    "context_id": "2a404ef42d2c238e98de7073d240a4e5e3243cadced715a710ec9e069cdddb80",
+    "content_sha256": "3ca7a4844bc270784a83d73680cdf1e09815b6765d2e6a9696963faeb8cdfd29",
+    "canonical_sha256": "4649d2514b2dbad86c449f743f1f198be0e0d766afc8d299c27840824a764bab",
+    "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+    "terminology_sha256": "96783486cf8790762fcab2e2379dfc0b3e13a50ca055410960395bcab1f9065c",
+    "fixed_english_key_check": {
+      "accepted_forms": [
+        "decoded raw source",
+        "Lua-source escaped form for newline, tab, and backslash"
+      ],
+      "info_key_matched": true
+    },
+    "entries": [
+      {
+        "entry_id": "cc616d87776b7e65dde6740c2e42d6b2c4a5f20404f463029535cfc96834bd09",
+        "line": 24933,
+        "source": "Wing Buffet",
+        "target": "龙翼飓风",
+        "source_tag": "talent name",
+        "args_order": null,
+        "special": null
+      },
+      {
+        "entry_id": "b8119665d77055ba4006033c235b9e63a5ddbc4d3dd0165a14c53ace4d633510",
+        "line": 24934,
+        "source": "You summon a powerful gust of wind, knocking back your foes within a radius of %d up to 3 tiles away and hitting them for %d%% weapon damage.\n\t\tEvery level in Wing Buffet additionally raises your Physical Power and Accuracy by 2, passively.\n\t\tEach point in fire drake talents also increases your fire resistance by 1%%.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+        "target": "你召唤一阵强风，击退半径 %d 码内的敌人至多 3 格，并造成 %d%% 武器伤害。\n\t\t同时，每个技能等级增加你的物理强度和命中 2 点。\n\t\t每点火龙系的技能可以使你增加火焰抗性 1%%。\n\t\t如果你装备了盾牌，这一技能也会用你的盾牌攻击。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null
+      },
+      {
+        "entry_id": "dc7b2ffcc506ff8353c54802b0f177ae629b195ed02949b51179b1611f3077e2",
+        "line": 24942,
+        "source": "Bellowing Roar",
+        "target": "怒意咆哮",
+        "source_tag": "talent name",
+        "args_order": null,
+        "special": null
+      },
+      {
+        "entry_id": "47abe7ed19ae104bd8dad0c0308a603f5e91bad83edee81d1a4e150e5d824ccc",
+        "line": 24943,
+        "source": "@Source@ roars!",
+        "target": "@Source@发出咆哮!",
+        "source_tag": "_t",
+        "args_order": null,
+        "special": null
+      },
+      {
+        "entry_id": "7e4231607966a5e14b4166593741ab5808ad50e109384ef1622e86048b296027",
+        "line": 24944,
+        "source": "You let out a powerful roar that sends your foes in radius %d into utter confusion (power: %d%%) for 3 turns.\n\t\tThe sound wave is so strong, your foes also take %0.2f physical damage.\n\t\tThe damage improves with your Strength.\n\t\tEach point in fire drake talents also increases your fire resistance by 1%%.",
+        "target": "你发出一声咆哮使 %d 码半径范围内的敌人陷入彻底的混乱（强度 %d%% ），持续 3 回合。\n\t\t如此强烈的咆哮使你的敌人受到 %0.2f 物理伤害。\n\t\t伤害受力量值加成。\n\t\t每点火龙系的技能可以使你增加火焰抗性 1%%。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null
+      },
+      {
+        "entry_id": "d1f1b636c4ff81293124bd5685b3ba624cf3652afe5305d8747604e59b5ce0be",
+        "line": 24951,
+        "source": "Devouring Flame",
+        "target": "火焰吞噬",
+        "source_tag": "talent name",
+        "args_order": null,
+        "special": null
+      },
+      {
+        "entry_id": "ec0693be08d41397c07097739f55a9227e8a8c3eec9b15ce145c735fc1054cff",
+        "line": 24952,
+        "source": "Spit a cloud of flames, doing %0.2f fire damage in a radius of %d each turn for %d turns.\n\t\tThe flames will ignore the caster, and will drain 10%% of the damage dealt as the flames consume enemies life force and transfer it to the user.\n\t\tThe damage will increase with your Mindpower, and can critical.\n\t\tEach point in fire drake talents also increases your fire resistance by 1%%.",
+        "target": "你喷出一片火焰，范围内的目标每回合会受到 %0.2f 火焰伤害（影响半径 %d ），持续 %d 回合。\n\t\t火焰会无视使用者，并吸收 10%% 伤害治疗自身。\n\t\t伤害受精神强度加成。技能可暴击。\n\t\t每点火龙系的技能可以使你增加火焰抗性 1%%。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null
+      },
+      {
+        "entry_id": "e1426850ad8bf730f7f0b9625b12026e97df434e7991f39b0de18ddf07c4edd6",
+        "line": 24959,
+        "source": "Fire Breath",
+        "target": "火焰吐息",
+        "source_tag": "talent name",
+        "args_order": null,
+        "special": null
+      },
+      {
+        "entry_id": "f2040ddf1787f7185ce4736f18091ce0a8c1f38ede121b5ea5fdbf6cf4988f4f",
+        "line": 24960,
+        "source": "@Source@ breathes fire!",
+        "target": "@Source@喷出火焰!",
+        "source_tag": "_t",
+        "args_order": null,
+        "special": null
+      },
+      {
+        "entry_id": "4250048e11246c36926eb68e509c642de1ed298c7c48ee5db6c2863cebd3eb3a",
+        "line": 24961,
+        "revision_key": "tome-fire-drake-fire-breath-info",
+        "reference_id": "fireburn-ref-024",
+        "source": "You breathe fire in a frontal cone of radius %d. Any target caught in the area will take %0.2f fire damage over 3 turns.\n\t\tThe damage will increase with your Strength and the critical chance is based on your Mental crit rate.\n\t\tEach point in fire drake talents also increases your fire resistance by 1%%.",
+        "target": "你在前方 %d 码锥形范围内喷出火焰。此范围内的目标会在 3 回合内受到 %0.2f 火焰伤害。\n\t\t伤害受力量值加成，暴击几率基于你的精神暴击率。\n\t\t每点火龙系的技能可以使你增加火焰抗性 1%%。",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": [
+          "%d",
+          "%0.2f",
+          "1%%"
+        ],
+        "newline_count": 2,
+        "continuation_prefix": "\t\t",
+        "continuation_count": 2
+      }
+    ]
+  },
+  "source_anchors": [
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/talents/gifts/fire-drake.lua",
+      "sha256": "41115da033196dc5b613039f566e1d6ab7827d1116107bf2f68434fa7c1417d5",
+      "symbols": [
+        "T_FIRE_BREATH.target",
+        "T_FIRE_BREATH.getDamage",
+        "T_FIRE_BREATH.action",
+        "T_FIRE_BREATH.info"
+      ],
+      "relevant_lines": [191, 192, 197, 198, 200, 202, 204, 208, 218, 221]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/damage_types.lua",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "symbols": [
+        "DamageType.FIREBURN"
+      ],
+      "relevant_lines": [1187, 1194, 1195, 1196, 1200, 1201, 1204]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/timed_effects/physical.lua",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "symbols": [
+        "EFF_BURNING.on_merge",
+        "EFF_BURNING.on_timeout"
+      ],
+      "relevant_lines": [428, 430, 431, 432, 434, 435, 437, 439]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/talents.lua",
+      "sha256": "60600da06f633d8feed19bed0c59da3ae73c7ae805071e0fe044abc880b9333f",
+      "symbols": [
+        "damDesc"
+      ],
+      "relevant_lines": [100, 118, 121, 130, 137, 141]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "symbols": [
+        "combatMindCrit",
+        "mindCrit",
+        "combatTalentStatDamage"
+      ],
+      "relevant_lines": [1894, 1901, 1904, 2060, 2065, 2073, 2076, 2089, 2164, 2168, 2173]
+    }
+  ],
+  "claims_to_verify": [
+    "getTalentRadius supplies %d in info and the same talent radius supplies the frontal cone target geometry used by action.",
+    "getDamage always includes Strength scaling and conditionally adds Willpower scaling only when Chromatic Fury is known.",
+    "info passes uncritted getDamage through damDesc(FIRE) into %0.2f, while action passes getDamage through mindCrit and projects the resulting table dam through FIREBURN with dur=3.",
+    "FIREBURN treats the incoming dam as the complete event total: default initial 50 gives half immediate FIRE and divides the remaining half by three into EFF_BURNING power.",
+    "When EFF_BURNING merges, old and incoming remaining totals are pooled and redistributed over a merged duration, so the incoming contribution is not guaranteed an isolated three-timeout schedule.",
+    "The Chinese phrase 此范围内的目标会在 3 回合内受到 %0.2f 火焰伤害 expresses one complete amount over the duration rather than a per-turn amount and preserves the frozen English.",
+    "Conditional Chromatic Fury Willpower scaling is upstream behavior absent from the frozen English and must not be added to the Chinese target.",
+    "The exact source, target, tformat tag, null args/special, placeholder order %d then %0.2f then literal 1%%, two newlines, two two-tab continuations, and all nine adjacent targets remain byte-identical because the adjudicated decision is no-change."
+  ],
+  "exclusions": [
+    "No reference outside fireburn-ref-024.",
+    "No translation revision outside tome-fire-drake-fire-breath-info.",
+    "No mod-tome.lua production target change.",
+    "No conditional Willpower wording added to the frozen Chinese target.",
+    "No adjacent fire-drake cleanup, terminology, tooling, manifest, inventory, prior evidence beyond the bounded closure transition, public-source, .claude, or .ai change."
+  ]
+}

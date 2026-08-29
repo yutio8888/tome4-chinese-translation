@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-orcs-startling-shot-regression-b1-001",
+  "kind": "startling_shot_placeholder_composition_verification",
+  "verified_at": "2026-08-27",
+  "entry": {
+    "component": "orcs",
+    "section": "tome-orcs/data/talents/steam/gunslinging.lua",
+    "translation_file": "tome-orcs.lua",
+    "source": "%s misses %s shot.",
+    "source_tag": "logSeen",
+    "args_order": null,
+    "special": null,
+    "previous_target": "%s的%s射击打偏了",
+    "corrected_target": "%s故意射偏了，%s那一枪没有命中目标。",
+    "shape": {
+      "source_placeholder_count": 2,
+      "target_placeholder_count": 2,
+      "placeholder_order_preserved": true,
+      "single_line": true,
+      "has_markup": false
+    }
+  },
+  "previous_review_lineage": {
+    "origin": "previous Review lineage",
+    "discovery_record": ".ai/task/p2-orcs-ui-logs-b1-discovery-001/STATE.json",
+    "discovery_finding": "Startling Shot was independently source-verified as a deliberate-miss candidate and deferred to the next bounded batch.",
+    "prior_task_id": "p2-orcs-ui-logs-b2-001",
+    "prior_spec": ".ai/task/p2-orcs-ui-logs-b2-001/SPEC.md",
+    "delivery_commit": "bfe613ae45aaef49caa1342bf3d056ddf38ce4c0",
+    "pre_delivery_target": "%s躲开了%s攻击",
+    "delivered_target": "%s的%s射击打偏了",
+    "previous_review_result": "The contextual review marked the delivered target OK without rendering the localized second-placeholder surfaces.",
+    "current_regression": "Runtime composition exposes the false negative because placeholder 2 is already localized as 他的, 她, or 它的."
+  },
+  "defect_distinctions": {
+    "pre_bfe613a_role_reversal": {
+      "target": "%s躲开了%s攻击",
+      "assessment": "Placeholder 1 is the shooter, but this target makes that shooter dodge an attack attributed to placeholder 2, reversing the runtime roles and losing the deliberate miss."
+    },
+    "current_placeholder_composition_defect": {
+      "target": "%s的%s射击打偏了",
+      "assessment": "The bfe613a target restores the shot/miss direction, but prefixes the already-possessive second surface with shooter+的, producing malformed combinations such as 格鲁什的他的 and obscuring the intended binding."
+    },
+    "research_fixture_localized_surface_defect": {
+      "record_commit": "09aaaab9182b1894e720f348c8e83e3257cdf36f",
+      "record_path": "evidence/quality/model-probes/controlled-mutation-ui-log-replication-v2/SOURCE-VERIFICATION.json",
+      "fixture_only_target": "%s故意打偏了%s的射击。",
+      "production_was_not_edited": true,
+      "assessment": "The fixture correctly researches the deliberate-miss role, but assumes placeholder 2 is a bare pronoun. Actual male and neuter values already end in 的, so they render 他的的/它的的; the female value happens to compose, but the fixture still fails the complete localized-surface matrix."
+    }
+  },
+  "runtime_inputs": {
+    "placeholder_1": "Capitalized visible shooter name, or localized Something (某物) when unseen.",
+    "placeholder_2": "The already-localized result of string.his_her(self): male 他的, female 她, or neuter 它的."
+  },
+  "renderings": [
+    {
+      "case": "visible_male",
+      "shooter": "格鲁什",
+      "possessive": "他的",
+      "current": "格鲁什的他的射击打偏了",
+      "corrected": "格鲁什故意射偏了，他的那一枪没有命中目标。"
+    },
+    {
+      "case": "visible_female",
+      "shooter": "米娅",
+      "possessive": "她",
+      "current": "米娅的她射击打偏了",
+      "corrected": "米娅故意射偏了，她那一枪没有命中目标。"
+    },
+    {
+      "case": "visible_neuter",
+      "shooter": "机械体",
+      "possessive": "它的",
+      "current": "机械体的它的射击打偏了",
+      "corrected": "机械体故意射偏了，它的那一枪没有命中目标。"
+    },
+    {
+      "case": "unseen_male",
+      "shooter": "某物",
+      "possessive": "他的",
+      "current": "某物的他的射击打偏了",
+      "corrected": "某物故意射偏了，他的那一枪没有命中目标。"
+    },
+    {
+      "case": "unseen_female",
+      "shooter": "某物",
+      "possessive": "她",
+      "current": "某物的她射击打偏了",
+      "corrected": "某物故意射偏了，她那一枪没有命中目标。"
+    },
+    {
+      "case": "unseen_neuter",
+      "shooter": "某物",
+      "possessive": "它的",
+      "current": "某物的它的射击打偏了",
+      "corrected": "某物故意射偏了，它的那一枪没有命中目标。"
+    }
+  ],
+  "assertions": {
+    "all_six_cases_present": true,
+    "shooter_role": "In every corrected rendering, placeholder 1 is the actor who deliberately fires wide.",
+    "possessive_binding": "In every corrected rendering, placeholder 2 directly modifies 那一枪 and refers to that shooter's shot.",
+    "deliberate_miss": "Every corrected rendering explicitly says 故意射偏 and that the shot did not hit its target, matching Startling Shot info.",
+    "grammar": "All six corrected visible/unseen and male/female/neuter renderings are grammatical Chinese.",
+    "no_duplicated_de": true,
+    "forbidden_substrings_absent": [
+      "的的",
+      "的他的"
+    ]
+  },
+  "source_provenance": [
+    {
+      "component": "tome-engine",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/engines/default/engine/utils.lua",
+      "sha256": "871f7ae2d26266751811d9249e4525b5b0f9d8c88b35272755d7a617885c2bbf",
+      "symbol": "string.his_her",
+      "evidence": "At the fixed engine commit, female returns localized her, neuter returns localized its, and otherwise the function returns localized his."
+    },
+    {
+      "component": "orcs",
+      "revision": null,
+      "source_pinned": false,
+      "provenance": "public_GPLv3_source_revision_unpinned_by_manifest",
+      "path": "tome-orcs/data/talents/steam/gunslinging.lua",
+      "sha256": "eaff2729974d971d8affd69162efcbbc1d93acfcc5175eb8ebc9cc5460ba2824",
+      "symbol": "T_STARTLING_SHOT.action/info",
+      "evidence": "Observed public Orcs source passes srcname followed by string.his_her(self), emits the log for Startling Shot, and describes the missing shot as deliberately fired. Repository commit and 1.7.4 source revision are not fixed by the manifest; this path/hash is an observed frozen anchor, not a pinned revision."
+    },
+    {
+      "component": "translation-runtime-surfaces",
+      "revision": "c355e2bf61ac9d2e7c818b3bf9825362bf00c6f4",
+      "source_pinned": true,
+      "path": "engine.lua",
+      "sha256": "76c7711549d01c6f3b2e25da8e2e6e529001c745573dafa99d8c4c46c52f9883",
+      "symbol": "_t pronoun mappings",
+      "evidence": "The frozen translation surfaces map his to 他的, her to 她, and its to 它的."
+    }
+  ]
+}

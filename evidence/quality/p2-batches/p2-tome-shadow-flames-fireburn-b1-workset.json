@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-shadow-flames-fireburn-b1-001",
+  "kind": "frozen_shadow_flames_fireburn_workset",
+  "frozen_at": "2026-08-28T15:25:59Z",
+  "inventory_origin": {
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "commit": "a68cbede82a5f0ab112451a4ccc41fadc05948cd",
+    "immutable": true,
+    "reference_ids": [
+      "fireburn-ref-023"
+    ],
+    "record": {
+      "reference_id": "fireburn-ref-023",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/cursed/shadows.lua",
+      "line": 163,
+      "matched_line": "\t\ttformat(damDesc(self, DamageType.FIREBURN, damage))",
+      "source_file_sha256": "afba9045c77c2fd6c8873ba0b48d49ccf697df0bf405f25994a43843fed9fed5",
+      "source_pinned": true,
+      "classification": "description_only_use",
+      "enclosing_symbol": "Shadow Flames info",
+      "effective_input_shape": "damDesc formatting only; action uses immediate FIRE",
+      "duration_turns": null,
+      "initial_percent": null,
+      "mechanism_group_id": "description-only-damdesc",
+      "translation_entry_ids": [
+        "tome-shadow-flames-info"
+      ],
+      "risk_class": "appears_consistent"
+    }
+  },
+  "translation_baseline": {
+    "head": "ae42e7bc65ed061462c737920ba796cfded5aaad",
+    "file": "mod-tome.lua",
+    "file_sha256": "4649d2514b2dbad86c449f743f1f198be0e0d766afc8d299c27840824a764bab",
+    "closure_file": "evidence/quality/semantic-claim-fireburn-backsweep-v1-closure.json",
+    "closure_sha256": "fab146e088d5ec9fe925b78063b836f8a0e7f783d02f099e18aa8697284ebefa",
+    "component": "tome",
+    "version": "tome-1.7.6"
+  },
+  "section_freeze": {
+    "component": "tome",
+    "section": "mod-tome/data/talents/cursed/shadows.lua",
+    "resolver_contract": "tome4-context-v2",
+    "tool_version": "0.5.0",
+    "command": "python3 -B tools/i18n context --component tome --section mod-tome/data/talents/cursed/shadows.lua --limit 500 --json",
+    "limit": 500,
+    "selected": 26,
+    "available": 26,
+    "lexical_t_call_count": 26,
+    "count_assertion": "selected == available == lexical_t_call_count",
+    "context_id": "273104731f168d3318ee3b517657d0a8393690e66d8b8ef0a6a861e333434772",
+    "content_sha256": "d8a51d018b0cebc697d7426af47a7c20d5d082bbd811b75b28e1ea2efb5fc953",
+    "canonical_sha256": "4649d2514b2dbad86c449f743f1f198be0e0d766afc8d299c27840824a764bab",
+    "manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+    "terminology_sha256": "96783486cf8790762fcab2e2379dfc0b3e13a50ca055410960395bcab1f9065c",
+    "fixed_english_key_check": {
+      "accepted_forms": [
+        "decoded raw source",
+        "Lua-source escaped form for newline, tab, and backslash"
+      ],
+      "info_key_matched": true
+    }
+  },
+  "translation_revisions": [
+    {
+      "revision_key": "tome-shadow-flames-info",
+      "reference_id": "fireburn-ref-023",
+      "entry_id": "b574652b6ebcd0020bc4eeb5dd66f0114515765725e20e2b8a379438ba821e13",
+      "line": 24517,
+      "source": "Bathes the target in flames doing %0.2f damage\n\t\tThe damage will increase with the Magic stat",
+      "target": "用火焰灼烧你的目标造成 %0.2f 伤害。\n\t\t伤害受魔力值加成。",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "placeholder_sequence": [
+        "%0.2f"
+      ],
+      "newline_count": 1,
+      "continuation_prefix": "\t\t"
+    }
+  ],
+  "source_anchors": [
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/talents/cursed/shadows.lua",
+      "sha256": "afba9045c77c2fd6c8873ba0b48d49ccf697df0bf405f25994a43843fed9fed5",
+      "symbols": [
+        "T_SHADOW_FLAMES.getDamage",
+        "T_SHADOW_FLAMES.action",
+        "T_SHADOW_FLAMES.info"
+      ],
+      "relevant_lines": [138, 148, 153, 154, 159, 163, 165]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/talents.lua",
+      "sha256": "60600da06f633d8feed19bed0c59da3ae73c7ae805071e0fe044abc880b9333f",
+      "symbols": [
+        "damDesc"
+      ],
+      "relevant_lines": [100, 119, 121, 130, 137, 142]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "symbols": [
+        "combatTalentSpellDamage",
+        "spellCrit",
+        "combatGetDamageIncrease"
+      ],
+      "relevant_lines": [1779, 1805, 1815, 1818, 1822, 1826, 2012, 2028, 2362, 2365, 2386]
+    },
+    {
+      "component": "tome",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "path": "game/modules/tome/data/damage_types.lua",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "symbols": [
+        "DamageType.FIRE",
+        "DamageType.FIREBURN"
+      ],
+      "relevant_lines": [788, 808, 812, 1187, 1189, 1192, 1196, 1201, 1205]
+    }
+  ],
+  "claims_to_verify": [
+    "getDamage returns combatTalentSpellDamage(t, 20, 140), whose value scales with spellpower and talent level and therefore with Magic-derived spellpower.",
+    "The action passes getDamage through spellCrit and projects the resulting scalar once to one hit target as DamageType.FIRE; it does not invoke FIREBURN or create BURNING duration or per-turn damage.",
+    "The info path passes the uncritted getDamage scalar through damDesc(self, DamageType.FIREBURN, damage) into the one %0.2f placeholder.",
+    "FIREBURN has no damdesc_split field, so damDesc does not invoke its projector, split the scalar, divide it across three turns, or establish any DoT semantics.",
+    "Because damDesc queries combatGetDamageIncrease for FIREBURN rather than FIRE, the displayed scalar may omit FIRE-specific damage increase that applies to the action; this is an upstream tooltip/display inconsistency, not a translation defect.",
+    "The English and Chinese each claim only flame damage plus Magic scaling and contain no duration, total-over-time, per-turn, or burning-effect claim.",
+    "The exact source, target, tformat tag, null args/special, one %0.2f, one newline, and two-tab continuation remain byte-identical because the adjudicated decision is no-change."
+  ],
+  "exclusions": [
+    "No reference outside fireburn-ref-023.",
+    "No translation revision outside tome-shadow-flames-info.",
+    "No mod-tome.lua production target change.",
+    "No adjacent shadow cleanup, terminology, tooling, manifest, inventory, prior evidence, public-source, .claude, or .ai change."
+  ]
+}

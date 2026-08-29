@@ -5102,7 +5102,7 @@ t([[You have learned to fire while moving.
 		扫射结束后，你立刻获得 %d 到 %d 弹药（取决于扫射期间你消耗的弹药与你的弹药容量）。]], "tformat")
 t("Startling Shot", "惊艳射击", "talent name")
 t("Something", "某物", "_t")
-t("%s misses %s shot.", "%s的%s射击打偏了", "logSeen")
+t("%s misses %s shot.", "%s故意射偏了，%s那一枪没有命中目标。", "logSeen")
 t([[You deliberately fire a missing shot at a target, startling it for 3 turns.
 		If the target fails a mental save it instinctively recoils two steps back.
 		The next shot that hits the startled creature will deal %d%% more damage.]], [[你故意朝目标射出偏离的子弹，令其惊讶 3 回合。
@@ -5159,7 +5159,7 @@ t([[You replace your steamgun and attack with an incendiary device that projects
 t("Flame Jet", "火焰喷射", "talent name")
 t("You are disarmed.", "你被缴械了。", "logPlayer")
 t("You require heavy ammunition to fire your flamethrower.", "你需要重装武器弹药才能使用火焰喷射器。", "logPlayer")
-t("Fire a jet of flame, dealing %d%% weapon damage as fire over 3 turns.", "发射一团火焰，在 3 回合内造成 %d%% 火焰武器伤害。", "tformat")
+t("Fire a jet of flame, dealing %d%% weapon damage as fire over 3 turns.", "发射一团火焰，在 3 回合内造成相当于 %d%% 武器伤害的火焰伤害。", "tformat")
 t("Shockstaff", "电击棒", "talent name")
 t("You require heavy ammunition to power your shockstaff.", "你需要重装武器弹药才能使用电击棒。", "logPlayer")
 t([[You replace your steamgun and attack with a lightning-charged staff to engage in close combat.

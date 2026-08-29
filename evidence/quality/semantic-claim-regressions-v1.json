@@ -1,0 +1,450 @@
+{
+  "schema_version": 1,
+  "registry_id": "tome4-semantic-claim-regressions-v1",
+  "numeric_claims": [
+    {
+      "claim_id": "tome-flame-fireburn-total-v1",
+      "status": "confirmed",
+      "string_key": "tome:data/talents/spells/fire.lua:Flame.info:1",
+      "source_text": "Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.\n\t\tAt level 5, it will create a beam of flames.\n\t\tThe damage will increase with your Spellpower.",
+      "target_text": "制造一个火球，使目标进入灼烧状态并在 3 回合内造成 %0.2f 火焰伤害。\n\t\t在等级 5 时，火焰会有穿透效果。\n\t\t伤害受法术强度加成。",
+      "placeholder_index": 1,
+      "placeholder_token": "%0.2f",
+      "args_order": null,
+      "quantity_kind": "damage",
+      "source_explicitness": "explicit_scope",
+      "target_explicitness": "explicit_scope",
+      "scope": "total_over_effect",
+      "explicitation_justified": false,
+      "anchors": [
+        {
+          "component": "tome",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/talents/spells/fire.lua",
+          "symbol": "newTalent Flame.info",
+          "line_hint": 85,
+          "placeholder_expression": "damDesc(self, DamageType.FIRE, damage)",
+          "binding_reason": "Flame.info passes this expression as placeholder 1 of the recorded source string.",
+          "required": true
+        },
+        {
+          "component": "tome",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/talents/spells/fire.lua",
+          "symbol": "newTalent Flame.action",
+          "line_hint": 49,
+          "placeholder_expression": "thaumaturgyBeamDamage(self, self:spellCrit(t.getDamage(self, t)))",
+          "binding_reason": "The action derives the FIREBURN input from the same t.getDamage value used by Flame.info before runtime critical and thaumaturgy transforms.",
+          "required": true
+        },
+        {
+          "component": "tome",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/damage_types.lua",
+          "symbol": "DamageType.FIREBURN.projector",
+          "line_hint": 1189,
+          "placeholder_expression": "dam",
+          "binding_reason": "Flame.action supplies its derived damage as FIREBURN dam, which this projector consumes and decomposes.",
+          "required": true
+        },
+        {
+          "component": "tome",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/timed_effects/physical.lua",
+          "symbol": "EFF_BURNING.on_timeout",
+          "line_hint": 438,
+          "placeholder_expression": "eff.power",
+          "binding_reason": "The periodic timeout consumes eff.power once per remaining effect turn as fire damage.",
+          "required": true
+        },
+        {
+          "component": "tome",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/timed_effects/physical.lua",
+          "symbol": "EFF_BURNING.on_merge",
+          "line_hint": 434,
+          "placeholder_expression": "old_eff.power = (olddam + newdam) / dur",
+          "binding_reason": "Reapplication merges remaining and new damage, recomputing duration and per-tick power; the fixed three-tick split therefore applies only when the effect is absent.",
+          "required": true
+        }
+      ],
+      "decomposition": {
+        "kind": "fixed_fraction",
+        "applicability": "effect_absent",
+        "duration_turns": 3,
+        "tick_count": 3,
+        "components": [
+          {
+            "phase": "on_apply",
+            "fraction_of_input": {
+              "numerator": 1,
+              "denominator": 2
+            },
+            "count": 1
+          },
+          {
+            "phase": "periodic_tick",
+            "fraction_of_input": {
+              "numerator": 1,
+              "denominator": 6
+            },
+            "count": 3
+          }
+        ],
+        "total_fraction_of_input": {
+          "numerator": 1,
+          "denominator": 1
+        }
+      },
+      "target_assertions": {
+        "required": [
+          "3 回合内造成 %0.2f 火焰伤害"
+        ],
+        "forbidden": [
+          "每回合造成 %0.2f 火焰伤害",
+          "每回合 %0.2f 火焰伤害"
+        ]
+      }
+    }
+  ],
+  "reviewer_briefings": [
+    {
+      "briefing_id": "tome-flame-fireburn-anchors-only-v1",
+      "string_key": "tome:data/talents/spells/fire.lua:Flame.info:1",
+      "source_text": "Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.\n\t\tAt level 5, it will create a beam of flames.\n\t\tThe damage will increase with your Spellpower.",
+      "candidate_target": "制造一个火球，使目标进入灼烧状态并在 3 回合内造成 %0.2f 火焰伤害。\n\t\t在等级 5 时，火焰会有穿透效果。\n\t\t伤害受法术强度加成。",
+      "placeholder_index": 1,
+      "placeholder_token": "%0.2f",
+      "args_order": null,
+      "anchors": [
+        {
+          "component": "tome",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/talents/spells/fire.lua",
+          "symbol": "newTalent Flame.info",
+          "line_hint": 85,
+          "placeholder_expression": "damDesc(self, DamageType.FIRE, damage)",
+          "binding_reason": "This expression supplies placeholder 1 of the reviewed string.",
+          "required": true
+        },
+        {
+          "component": "tome",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/talents/spells/fire.lua",
+          "symbol": "newTalent Flame.action",
+          "line_hint": 49,
+          "placeholder_expression": "thaumaturgyBeamDamage(self, self:spellCrit(t.getDamage(self, t)))",
+          "binding_reason": "This action passes a value derived from the same talent damage function to FIREBURN.",
+          "required": true
+        },
+        {
+          "component": "tome",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/damage_types.lua",
+          "symbol": "DamageType.FIREBURN.projector",
+          "line_hint": 1189,
+          "placeholder_expression": "dam",
+          "binding_reason": "This projector consumes the damage value supplied by the talent action.",
+          "required": true
+        },
+        {
+          "component": "tome",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/timed_effects/physical.lua",
+          "symbol": "EFF_BURNING.on_timeout",
+          "line_hint": 438,
+          "placeholder_expression": "eff.power",
+          "binding_reason": "This timeout consumes the stored periodic power as fire damage.",
+          "required": true
+        },
+        {
+          "component": "tome",
+          "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinned": true,
+          "path": "game/modules/tome/data/timed_effects/physical.lua",
+          "symbol": "EFF_BURNING.on_merge",
+          "line_hint": 434,
+          "placeholder_expression": "old_eff.power = (olddam + newdam) / dur",
+          "binding_reason": "This merge recomputes duration and periodic power when BURNING already exists.",
+          "required": true
+        }
+      ],
+      "read_budget": {
+        "max_lines_per_anchor": 80,
+        "max_dependency_hops": 1
+      }
+    }
+  ],
+  "runtime_compositions": [
+    {
+      "case_id": "orcs-startling-shot-log-composition-v1",
+      "status": "pending",
+      "string_key": "orcs:data/talents/steam/gunslinging.lua:Startling Shot.action:logSeen",
+      "source_template": "%s misses %s shot.",
+      "target_template": "%s未能命中目标；这一枪记在%s名下。",
+      "args_order": null,
+      "placeholders": [
+        {
+          "index": 1,
+          "runtime_source": "srcname",
+          "variants": [
+            {
+              "variant_id": "visible-name",
+              "surface_shape": "bare_noun",
+              "sample_value": "格鲁什",
+              "anchors": [
+                {
+                  "component": "orcs",
+                  "revision": "unfixed:observed-public-dlc-source",
+                  "source_pinned": false,
+                  "path": "tome-orcs/data/talents/steam/gunslinging.lua",
+                  "symbol": "newTalent Startling Shot.action",
+                  "line_hint": 114,
+                  "placeholder_expression": "self:getName():capitalize()",
+                  "binding_reason": "The observed public DLC visible-name branch derives srcname from the actor name.",
+                  "required": true
+                },
+                {
+                  "component": "orcs",
+                  "revision": "unfixed:observed-public-dlc-source",
+                  "source_pinned": false,
+                  "path": "tome-orcs/data/talents/steam/gunslinging.lua",
+                  "symbol": "newTalent Startling Shot.action",
+                  "line_hint": 115,
+                  "placeholder_expression": "srcname",
+                  "binding_reason": "The observed public DLC call site supplies srcname as runtime placeholder 1.",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "variant_id": "unseen-something",
+              "surface_shape": "bare_noun",
+              "sample_value": "某物",
+              "anchors": [
+                {
+                  "component": "orcs",
+                  "revision": "unfixed:observed-public-dlc-source",
+                  "source_pinned": false,
+                  "path": "tome-orcs/data/talents/steam/gunslinging.lua",
+                  "symbol": "newTalent Startling Shot.action",
+                  "line_hint": 114,
+                  "placeholder_expression": "_t\"Something\"",
+                  "binding_reason": "The observed public DLC unseen-name branch derives srcname from the localized Something token.",
+                  "required": true
+                },
+                {
+                  "component": "orcs",
+                  "revision": "unfixed:observed-public-dlc-source",
+                  "source_pinned": false,
+                  "path": "tome-orcs/data/talents/steam/gunslinging.lua",
+                  "symbol": "newTalent Startling Shot.action",
+                  "line_hint": 115,
+                  "placeholder_expression": "srcname",
+                  "binding_reason": "The observed public DLC call site supplies srcname as runtime placeholder 1.",
+                  "required": true
+                },
+                {
+                  "component": "orcs-locale",
+                  "revision": "8c9b065601c4545d9f19e6983bb2c5088561be10",
+                  "source_pinned": true,
+                  "path": "tome-orcs.lua",
+                  "symbol": "locale mapping Something",
+                  "line_hint": 5104,
+                  "placeholder_expression": "t(\"Something\", \"某物\", \"_t\")",
+                  "binding_reason": "The current translation HEAD maps the unseen runtime token Something to 某物.",
+                  "required": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "runtime_source": "string.his_her(self)",
+          "variants": [
+            {
+              "variant_id": "masculine-his",
+              "surface_shape": "possessive_phrase",
+              "sample_value": "他的",
+              "anchors": [
+                {
+                  "component": "orcs",
+                  "revision": "unfixed:observed-public-dlc-source",
+                  "source_pinned": false,
+                  "path": "tome-orcs/data/talents/steam/gunslinging.lua",
+                  "symbol": "newTalent Startling Shot.action",
+                  "line_hint": 115,
+                  "placeholder_expression": "string.his_her(self)",
+                  "binding_reason": "The observed public DLC call site supplies string.his_her(self) as runtime placeholder 2.",
+                  "required": true
+                },
+                {
+                  "component": "engine",
+                  "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+                  "source_pinned": true,
+                  "path": "game/engines/default/engine/utils.lua",
+                  "symbol": "string.his_her",
+                  "line_hint": 942,
+                  "placeholder_expression": "return _t\"his\"",
+                  "binding_reason": "The fixed helper masculine branch returns the localized token his.",
+                  "required": true
+                },
+                {
+                  "component": "engine-locale",
+                  "revision": "8c9b065601c4545d9f19e6983bb2c5088561be10",
+                  "source_pinned": true,
+                  "path": "engine.lua",
+                  "symbol": "locale mapping his",
+                  "line_hint": 1409,
+                  "placeholder_expression": "t(\"his\", \"他的\", \"_t\")",
+                  "binding_reason": "The current translation HEAD maps the engine locale token his to 他的.",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "variant_id": "feminine-her",
+              "surface_shape": "pronoun",
+              "sample_value": "她",
+              "anchors": [
+                {
+                  "component": "orcs",
+                  "revision": "unfixed:observed-public-dlc-source",
+                  "source_pinned": false,
+                  "path": "tome-orcs/data/talents/steam/gunslinging.lua",
+                  "symbol": "newTalent Startling Shot.action",
+                  "line_hint": 115,
+                  "placeholder_expression": "string.his_her(self)",
+                  "binding_reason": "The observed public DLC call site supplies string.his_her(self) as runtime placeholder 2.",
+                  "required": true
+                },
+                {
+                  "component": "engine",
+                  "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+                  "source_pinned": true,
+                  "path": "game/engines/default/engine/utils.lua",
+                  "symbol": "string.his_her",
+                  "line_hint": 940,
+                  "placeholder_expression": "return _t\"her\"",
+                  "binding_reason": "The fixed helper feminine branch returns the localized token her.",
+                  "required": true
+                },
+                {
+                  "component": "engine-locale",
+                  "revision": "8c9b065601c4545d9f19e6983bb2c5088561be10",
+                  "source_pinned": true,
+                  "path": "engine.lua",
+                  "symbol": "locale mapping her",
+                  "line_hint": 1407,
+                  "placeholder_expression": "t(\"her\", \"她\", \"_t\")",
+                  "binding_reason": "The current translation HEAD maps the engine locale token her to the bare pronoun 她.",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "variant_id": "neuter-its",
+              "surface_shape": "possessive_phrase",
+              "sample_value": "它的",
+              "anchors": [
+                {
+                  "component": "orcs",
+                  "revision": "unfixed:observed-public-dlc-source",
+                  "source_pinned": false,
+                  "path": "tome-orcs/data/talents/steam/gunslinging.lua",
+                  "symbol": "newTalent Startling Shot.action",
+                  "line_hint": 115,
+                  "placeholder_expression": "string.his_her(self)",
+                  "binding_reason": "The observed public DLC call site supplies string.his_her(self) as runtime placeholder 2.",
+                  "required": true
+                },
+                {
+                  "component": "engine",
+                  "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+                  "source_pinned": true,
+                  "path": "game/engines/default/engine/utils.lua",
+                  "symbol": "string.his_her",
+                  "line_hint": 941,
+                  "placeholder_expression": "return _t\"its\"",
+                  "binding_reason": "The fixed helper neuter branch returns the localized token its.",
+                  "required": true
+                },
+                {
+                  "component": "engine-locale",
+                  "revision": "8c9b065601c4545d9f19e6983bb2c5088561be10",
+                  "source_pinned": true,
+                  "path": "engine.lua",
+                  "symbol": "locale mapping its",
+                  "line_hint": 1408,
+                  "placeholder_expression": "t(\"its\", \"它的\", \"_t\")",
+                  "binding_reason": "The current translation HEAD maps the engine locale token its to 它的.",
+                  "required": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "renderings": [
+        {
+          "variant_ids": ["visible-name", "masculine-his"],
+          "rendered_sentence": "格鲁什未能命中目标；这一枪记在他的名下。",
+          "assertions": {
+            "required": ["格鲁什未能命中目标；这一枪记在他的名下。"],
+            "forbidden": ["他的射击打偏了", "她射击打偏了", "它的射击打偏了", "的他的", "的她的", "的它的"]
+          }
+        },
+        {
+          "variant_ids": ["visible-name", "feminine-her"],
+          "rendered_sentence": "格鲁什未能命中目标；这一枪记在她名下。",
+          "assertions": {
+            "required": ["格鲁什未能命中目标；这一枪记在她名下。"],
+            "forbidden": ["他的射击打偏了", "她射击打偏了", "它的射击打偏了", "的他的", "的她的", "的它的"]
+          }
+        },
+        {
+          "variant_ids": ["visible-name", "neuter-its"],
+          "rendered_sentence": "格鲁什未能命中目标；这一枪记在它的名下。",
+          "assertions": {
+            "required": ["格鲁什未能命中目标；这一枪记在它的名下。"],
+            "forbidden": ["他的射击打偏了", "她射击打偏了", "它的射击打偏了", "的他的", "的她的", "的它的"]
+          }
+        },
+        {
+          "variant_ids": ["unseen-something", "masculine-his"],
+          "rendered_sentence": "某物未能命中目标；这一枪记在他的名下。",
+          "assertions": {
+            "required": ["某物未能命中目标；这一枪记在他的名下。"],
+            "forbidden": ["他的射击打偏了", "她射击打偏了", "它的射击打偏了", "的他的", "的她的", "的它的"]
+          }
+        },
+        {
+          "variant_ids": ["unseen-something", "feminine-her"],
+          "rendered_sentence": "某物未能命中目标；这一枪记在她名下。",
+          "assertions": {
+            "required": ["某物未能命中目标；这一枪记在她名下。"],
+            "forbidden": ["他的射击打偏了", "她射击打偏了", "它的射击打偏了", "的他的", "的她的", "的它的"]
+          }
+        },
+        {
+          "variant_ids": ["unseen-something", "neuter-its"],
+          "rendered_sentence": "某物未能命中目标；这一枪记在它的名下。",
+          "assertions": {
+            "required": ["某物未能命中目标；这一枪记在它的名下。"],
+            "forbidden": ["他的射击打偏了", "她射击打偏了", "它的射击打偏了", "的他的", "的她的", "的它的"]
+          }
+        }
+      ]
+    }
+  ]
+}

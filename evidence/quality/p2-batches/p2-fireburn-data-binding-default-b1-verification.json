@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-fireburn-data-binding-default-b1-001",
+  "kind": "fireburn_data_binding_default_verification",
+  "frozen_workset": {
+    "path": "evidence/quality/p2-batches/p2-fireburn-data-binding-default-b1-workset.json",
+    "sha256": "d5fb0e266386b2bc1f856d8d285f9986b85bc79a50fa07c7720697709a4a99e1",
+    "immutable": true
+  },
+  "inventory_origin": {
+    "path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-inventory.json",
+    "sha256": "74aaacd74ea99e3af675059da2b220bc531408fa2b1ee95543fa029321ba395b",
+    "commit": "a68cbede82a5f0ab112451a4ccc41fadc05948cd",
+    "reference_ids": [
+      "fireburn-ref-008",
+      "fireburn-ref-020",
+      "fireburn-ref-021"
+    ],
+    "inventory_risk_class": "appears_consistent"
+  },
+  "translation_revisions": [
+    {
+      "revision_key": "overheat-saws-info",
+      "reference_id": "fireburn-ref-008",
+      "file": "tome-orcs.lua",
+      "section": "tome-orcs/data/talents/steam/butchery.lua",
+      "baseline_line": 4791,
+      "entry_id": "orcs-butchery-overheat-saws-info",
+      "decision": "preserve_source_confirmed_target_byte_for_byte",
+      "before": {
+        "source": "Channel hot steam around your saws, burning foes you strike in melee for %0.2f fire damage over 3 turns (which can stack)!\n\t\t#{italic}#Hot, steamy maiming!#{normal}#",
+        "target": "用蒸汽包裹链锯，对近战攻击命中的目标在 3 回合内造成 %0.2f 点火焰伤害（可以叠加）。\n\t\t#{italic}#滚烫的蒸汽，死吧！#{normal}#",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.2f"],
+        "newline_count": 1
+      },
+      "after": {
+        "source": "Channel hot steam around your saws, burning foes you strike in melee for %0.2f fire damage over 3 turns (which can stack)!\n\t\t#{italic}#Hot, steamy maiming!#{normal}#",
+        "target": "用蒸汽包裹链锯，对近战攻击命中的目标在 3 回合内造成 %0.2f 点火焰伤害（可以叠加）。\n\t\t#{italic}#滚烫的蒸汽，死吧！#{normal}#",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%0.2f"],
+        "newline_count": 1
+      }
+    },
+    {
+      "revision_key": "elemental-trap-damage",
+      "reference_id": "fireburn-ref-020",
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/general/traps/elemental.lua",
+      "baseline_line": 13455,
+      "entry_id": "tome-elemental-trap-damage",
+      "decision": "preserve_generic_polymorphic_target_byte_for_byte",
+      "before": {
+        "source": "Deals %s%d#LAST# %s damage",
+        "target": "造成%s%d#LAST#%s伤害",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%s", "%d", "%s"],
+        "newline_count": 0
+      },
+      "after": {
+        "source": "Deals %s%d#LAST# %s damage",
+        "target": "造成%s%d#LAST#%s伤害",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%s", "%d", "%s"],
+        "newline_count": 0
+      }
+    },
+    {
+      "revision_key": "elemental-trap-radius-damage",
+      "reference_id": "fireburn-ref-021",
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/general/traps/elemental.lua",
+      "baseline_line": 13456,
+      "entry_id": "tome-elemental-trap-radius-damage",
+      "decision": "repair_explicit_radius_wording_cycle_1",
+      "before": {
+        "source": "Deals %s%d#LAST# %s damage (radius %d)",
+        "target": "造成%s%d#LAST# %s伤害(范围 %d)",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%s", "%d", "%s", "%d"],
+        "newline_count": 0
+      },
+      "after": {
+        "source": "Deals %s%d#LAST# %s damage (radius %d)",
+        "target": "造成%s%d#LAST# %s伤害(半径 %d)",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "placeholder_sequence": ["%s", "%d", "%s", "%d"],
+        "newline_count": 0
+      }
+    }
+  ],
+  "source_provenance": {
+    "core": {
+      "component": "tome",
+      "version": "tome-1.7.6",
+      "revision": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinned": true,
+      "anchors": [
+        {
+          "path": "game/modules/tome/class/interface/Combat.lua",
+          "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+          "symbol": "melee_project successful-hit application",
+          "relevant_lines": [761, 765]
+        },
+        {
+          "path": "game/modules/tome/data/general/traps/elemental.lua",
+          "sha256": "1e0bfda7a837b41364fe34c79306d52dcc85783760b90e3d7f370d90cf9796ec",
+          "symbols": ["TRAP_ELEMENTAL", "TRAP_ELEMENTAL_BLAST", "fire trap", "fire blast trap"],
+          "relevant_lines": [24, 30, 35, 41, 70, 72, 137, 139]
+        },
+        {
+          "path": "game/modules/tome/data/damage_types.lua",
+          "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+          "symbol": "DamageType.FIREBURN",
+          "relevant_lines": [1187, 1205]
+        },
+        {
+          "path": "game/modules/tome/data/timed_effects/physical.lua",
+          "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+          "symbol": "EFF_BURNING",
+          "relevant_lines": [417, 438]
+        }
+      ]
+    },
+    "orcs": {
+      "component": "orcs",
+      "revision": null,
+      "source_pinned": false,
+      "path": "game/dlcs/tome-orcs/data/talents/steam/butchery.lua",
+      "sha256": "bfa25b61b72b50db05c1488b8c62b8d9c4a3222a2b822a97dd1e964e6a8ea603",
+      "qualification": "The inspected GPL public-source file is hash-matched to the frozen inventory, but the manifest does not pin an Orcs DLC source commit; no commit-pinned Orcs provenance is claimed."
+    }
+  },
+  "directional_numeric_value_flow": [
+    {
+      "reference_id": "fireburn-ref-008",
+      "tooltip_scalar": "t.getDamage(self, t)",
+      "runtime_scalar": "t.getDamage(self, t)",
+      "flow": [
+        "t.getDamage(self, t) -> Overheat Saws info damDesc(FIRE, scalar) -> %0.2f",
+        "t.getDamage(self, t) -> temporary self.melee_project[DamageType.FIREBURN]",
+        "successful melee hit and living target and positive scalar -> FIREBURN projector",
+        "scalar FIREBURN -> complete incoming event total with default dur=3 and initial=50"
+      ],
+      "displayed_quantity": "complete incoming FIREBURN event amount over the named three turns, before downstream mitigation"
+    },
+    {
+      "reference_id": "fireburn-ref-020",
+      "tooltip_scalar": "self.dam resolved from resolvers.clscale(90, 30, 25, 0.75, 0) for the fire instance",
+      "runtime_scalar": "self.dam",
+      "flow": [
+        "resolver-scaled fire-trap dam -> self.dam",
+        "self.dam -> generic TRAP_ELEMENTAL description argument 2 -> %d",
+        "self.dam -> hit projection using instance damtype DamageType.FIREBURN",
+        "scalar FIREBURN -> complete incoming event total with default dur=3 and initial=50"
+      ],
+      "displayed_quantity": "generic trap scalar; for the fire instance it is the complete incoming FIREBURN event amount"
+    },
+    {
+      "reference_id": "fireburn-ref-021",
+      "tooltip_scalar": "self.dam resolved from resolvers.clscale(200, 50, 50, 0.75, 80) for the fire blast instance",
+      "runtime_scalar": "self.dam",
+      "runtime_radius": "self.radius=2",
+      "flow": [
+        "resolver-scaled fire-blast dam -> self.dam",
+        "self.dam -> generic TRAP_ELEMENTAL_BLAST description argument 2 -> %d",
+        "self.radius=2 -> ball projection radius and description argument 4 -> final %d",
+        "self.dam -> ball projection using instance damtype DamageType.FIREBURN",
+        "scalar FIREBURN -> complete incoming event total with default dur=3 and initial=50"
+      ],
+      "displayed_quantity": "generic blast scalar and runtime radius; for the fire instance the scalar is the complete incoming FIREBURN event amount and radius is 2"
+    }
+  ],
+  "damage_type_semantics": {
+    "scalar_fireburn": {
+      "incoming_total": "D",
+      "duration_turns": 3,
+      "initial_percent": 50,
+      "immediate_damage": "D * 50 / 100 = D/2",
+      "remaining_damage": "D - D/2 = D/2",
+      "burning_power": "(D/2) / 3 = D/6 per timeout before downstream mitigation",
+      "unmerged_nominal_total": "D/2 immediate plus three D/6 timeouts equals incoming D"
+    },
+    "successful_hit_relation": {
+      "condition": "hitted and not target.dead",
+      "binding": "Only then does Combat.lua iterate self.melee_project and invoke the FIREBURN projector for positive Overheat Saws damage.",
+      "wording_consequence": "The existing 对近战攻击命中的目标 wording is source- and runtime-faithful."
+    },
+    "burning_merge_qualification": {
+      "condition": "an EFF_BURNING effect already exists and on_merge runs",
+      "old_remaining": "old_eff.power * old_eff.dur",
+      "incoming_remaining": "new_eff.power * new_eff.dur",
+      "merged_duration": "ceil((old_eff.dur + new_eff.dur) / 2)",
+      "merged_power": "(old remaining + incoming remaining) / merged duration",
+      "conservation": "old remaining damage plus the new remaining contribution is pooled before downstream mitigation",
+      "wording_consequence": "可以叠加 is supported, but the newly applied contribution is not guaranteed to retain an isolated three-tick schedule after merge."
+    }
+  },
+  "generic_trap_runtime": {
+    "shared_template_variants": ["acid", "fire", "ice", "lightning", "poison"],
+    "scalar_template": {
+      "source": "Deals %s%d#LAST# %s damage",
+      "arguments": [
+        {"index": 1, "value": "dtype.text_color or #WHITE#", "role": "damage-type color"},
+        {"index": 2, "value": "self.dam", "role": "scalar damage"},
+        {"index": 3, "value": "dtype.name", "role": "localized dynamic damage-type name"}
+      ],
+      "args_order": [1, 2, 3]
+    },
+    "radius_template": {
+      "source": "Deals %s%d#LAST# %s damage (radius %d)",
+      "arguments": [
+        {"index": 1, "value": "dtype.text_color or #WHITE#", "role": "damage-type color"},
+        {"index": 2, "value": "self.dam", "role": "scalar damage"},
+        {"index": 3, "value": "dtype.name", "role": "localized dynamic damage-type name"},
+        {"index": 4, "value": "self.radius or 2", "role": "runtime radius"}
+      ],
+      "args_order": [1, 2, 3, 4],
+      "fire_blast_relation": "The fire blast instance binds self.radius=2; the trigger and description also share the fallback value 2."
+    },
+    "fire_instance_dynamic_name": {
+      "source_damage_type_name": "fire burn",
+      "existing_localized_name": "火焰燃烧",
+      "binding": "dtype.name fills the third formatter placeholder, so the generic fire-trap surface carries 火焰燃烧 without hardcoding FIREBURN-only duration wording."
+    },
+    "shared_template_limitation": "The same two locale templates render non-FIREBURN damage types; adding a three-turn FIREBURN duration would make those generic surfaces false."
+  },
+  "root_no_change_adjudication": {
+    "production_lua_defect_confirmed": true,
+    "changed_translation_targets": ["elemental-trap-radius-damage"],
+    "decisions": [
+      {
+        "revision_key": "overheat-saws-info",
+        "status": "no_change",
+        "reason": "The target already binds the total to melee-hit targets and three turns; BURNING merge supports 可以叠加."
+      },
+      {
+        "revision_key": "elemental-trap-damage",
+        "status": "no_change",
+        "reason": "The template is polymorphic and its dynamic localized damage-type argument already supplies 火焰燃烧 for the fire instance; no FIREBURN-only duration may be hardcoded."
+      },
+      {
+        "revision_key": "elemental-trap-radius-damage",
+        "status": "repaired_cycle_1",
+        "reason": "CTX-TYPED-R0-001 was resolved by the user in favor of explicit radius wording. At the pinned core commit, the fourth placeholder is bound to self.radius or 2 in the description and the same value controls the ball projection radius, so 半径 %d states the typed runtime quantity explicitly."
+      }
+    ]
+  },
+  "finding_lineage": [
+    {
+      "id": "CTX-TYPED-R0-001",
+      "origin": "cycle-0 contextual typed finding",
+      "adjudication": "confirmed_by_user",
+      "disposition": "applied_cycle_1",
+      "revision_key": "elemental-trap-radius-damage",
+      "accepted_resolution": "Use explicit radius wording for the frozen generic elemental-trap radius target.",
+      "source_evidence": "At core commit 624a67329fe2ad440c5b344785a9c73fcf22ae63, TRAP_ELEMENTAL_BLAST uses self.radius or 2 both as the ball projection radius and as formatter argument 4 for the final %d."
+    }
+  ],
+  "cycle_1_result": {
+    "dispatch_id": "executor-c1-01",
+    "finding_id": "CTX-TYPED-R0-001",
+    "status": "accepted_repair_applied",
+    "changed_revision_keys": ["elemental-trap-radius-damage"],
+    "changed_files": [
+      "mod-tome.lua",
+      "evidence/quality/p2-batches/p2-fireburn-data-binding-default-b1-verification.json"
+    ],
+    "before_target": "造成%s%d#LAST# %s伤害(范围 %d)",
+    "after_target": "造成%s%d#LAST# %s伤害(半径 %d)",
+    "independent_review_and_done_claimed": false,
+    "status_after_executor": "review_pending"
+  },
+  "invariant_checks": {
+    "exactly_three_references": true,
+    "exactly_three_revisions": true,
+    "before_equals_after_all_three": false,
+    "source_unchanged_all_three": true,
+    "target_unchanged_all_three": false,
+    "exactly_one_target_changed": true,
+    "changed_revision_keys": ["elemental-trap-radius-damage"],
+    "accepted_finding_ids_applied": ["CTX-TYPED-R0-001"],
+    "explicit_radius_wording_applied": true,
+    "other_two_revision_targets_unchanged": true,
+    "source_tag_unchanged_all_three": true,
+    "args_order_remains_null_all_three": true,
+    "special_remains_null_all_three": true,
+    "placeholder_sequence_unchanged_all_three": true,
+    "newline_count_unchanged_all_three": true,
+    "lua_target_diff_count": 1,
+    "workset_hash_bound": true,
+    "section_hashes_match_spec": true,
+    "inventory_hash_and_records_bound": true,
+    "translation_baseline_head_and_file_hashes_bound": true,
+    "core_anchors_fixed_to_manifest_commit": true,
+    "orcs_anchor_unpinned_and_hash_matched": true,
+    "closure_update_bounded": true,
+    "result": "pass"
+  },
+  "campaign_index_lineage": {
+    "closure_index_path": "evidence/quality/semantic-claim-fireburn-backsweep-v1-closure.json",
+    "preceding_scalar_default_sample": {
+      "task_id": "p2-tome-fireburn-scalar-default-b1-001",
+      "status": "closed",
+      "commit": "502a37361fe6664514f57862c8b51acd408723be"
+    },
+    "this_data_binding_batch_status": "review_pending",
+    "qualification": "Implementation evidence exists for refs 008/020/021, but independent final review and DONE verification are not yet claimed."
+  },
+  "focused_verification": {
+    "checks": [
+      {
+        "command": "focused invariant script: exact refs/revisions; frozen radius before and cycle-1 after; exactly one Lua target diff; CTX-TYPED-R0-001 applied lineage; source/source_tag/args_order/special/placeholders/#LAST#/newlines unchanged; self.radius or 2 pinned-source binding; workset and out-of-scope files unchanged; JSON parsing",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n doctor",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "PASS (30308 translations, 0 errors, 0 warnings)"
+      },
+      {
+        "command": "git diff --check",
+        "result": "PASS"
+      }
+    ]
+  }
+}

@@ -11,11 +11,14 @@ import argparse
 from dataclasses import dataclass
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 from typing import Any
 
 import review_evidence
+import contextual_lane_manifest
+import contextual_result_check
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,10 +36,12 @@ ROLE_ALIASES = {
 KNOWN_REVIEW_CONTRACTS = {
     "code_legacy_v1": frozenset({"normal_review", "cross_review"}),
     "translation_contextual_v1": frozenset({"translation_contextual_v1"}),
+    "translation_contextual_v2": frozenset({"translation_contextual_v2"}),
 }
 PURPOSE_ROLES = {
     "normal_review": "REVIEWER",
     "translation_contextual_v1": "REVIEWER",
+    "translation_contextual_v2": "REVIEWER",
     "cross_review": "senior-reviewer",
     "scope_audit": "senior-reviewer",
 }
@@ -128,7 +133,97 @@ def _archived(dispatch: dict[str, Any]) -> bool:
     return _lifecycle(dispatch) == "archived" and dispatch.get("archive_confirmed") is True
 
 
+def _is_json_value(value: object) -> bool:
+    if value is None or isinstance(value, (str, bool)):
+        return True
+    if type(value) is int:
+        return True
+    if type(value) is float:
+        return math.isfinite(value)
+    if isinstance(value, list):
+        return all(_is_json_value(item) for item in value)
+    if isinstance(value, dict):
+        return all(
+            isinstance(key, str) and _is_json_value(item)
+            for key, item in value.items()
+        )
+    return False
+
+
+def _runtime_observation_valid(value: object) -> tuple[bool, str]:
+    fields = {"provider", "model", "mode", "thinking"}
+    expected = {
+        "schema_version", "source", "captured_at", "capture_status", *fields,
+    }
+    if not isinstance(value, dict) or set(value) != expected:
+        return False, "must be an exact runtime_observation object"
+    if type(value["schema_version"]) is not int or value["schema_version"] != 1:
+        return False, "schema_version must be integer 1"
+    if value["source"] != "live_agent_metadata":
+        return False, "source must be live_agent_metadata"
+    if not isinstance(value["captured_at"], str) or not value["captured_at"]:
+        return False, "captured_at must be a non-empty string"
+    if value["capture_status"] != "captured":
+        return False, "capture_status must be captured"
+    for field in fields:
+        observation = value[field]
+        if not isinstance(observation, dict):
+            return False, f"{field} must be a FieldObservation object"
+        presence = observation.get("presence")
+        if presence == "missing" and set(observation) == {"presence"}:
+            continue
+        if (
+            presence == "present"
+            and set(observation) == {"presence", "value"}
+            and _is_json_value(observation["value"])
+        ):
+            continue
+        return False, f"{field} must be exact present/value or missing form"
+    return True, "ok"
+
+
+def _runtime_observation_placement_valid(value: object) -> tuple[bool, str]:
+    """Allow observations only on direct dispatches and ignore their raw-value subtrees."""
+    def walk(node: object, path: tuple[object, ...]) -> tuple[bool, str]:
+        if isinstance(node, dict):
+            for key, item in node.items():
+                if key == "runtime_observation":
+                    direct_dispatch = (
+                        len(path) == 2
+                        and path[0] == "child_dispatches"
+                        and type(path[1]) is int
+                    )
+                    if not direct_dispatch:
+                        return False, f"runtime_observation is forbidden at STATE path {path!r}"
+                    valid, detail = _runtime_observation_valid(item)
+                    if not valid:
+                        return False, f"runtime_observation {detail}"
+                    continue
+                valid, detail = walk(item, (*path, key))
+                if not valid:
+                    return valid, detail
+        elif isinstance(node, list):
+            for index, item in enumerate(node):
+                valid, detail = walk(item, (*path, index))
+                if not valid:
+                    return valid, detail
+        return True, "ok"
+
+    return walk(value, ())
+
+
+def _contains_key(value: object, needle: str) -> bool:
+    if isinstance(value, dict):
+        return needle in value or any(_contains_key(item, needle) for item in value.values())
+    if isinstance(value, list):
+        return any(_contains_key(item, needle) for item in value)
+    return False
+
+
 def _schema_valid(state: dict[str, Any]) -> tuple[bool, str]:
+    placement = _runtime_observation_placement_valid(state)
+    if not placement[0]:
+        return placement
     children = state.get("child_dispatches")
     if children is not None and not isinstance(children, list):
         return False, "child_dispatches must be a list or null"
@@ -199,8 +294,42 @@ def _load_records(
         record = _read_json(path, f"review record {path.relative_to(root)}")
         if not isinstance(record, dict):
             raise ContractError(f"review record {path.relative_to(root)} must be an object")
+        if _contains_key(record, "runtime_observation"):
+            raise ContractError(
+                f"review record {path.relative_to(root)} forbids runtime_observation at any depth"
+            )
         loaded.append((record, path))
     return loaded
+
+
+def _stop_records_forbid_runtime_observation(
+    state: dict[str, Any], *, root: Path = ROOT
+) -> tuple[bool, str]:
+    """Best-effort STOP audit without making review records a STOP prerequisite."""
+    for field in ("review_records", "senior_review_records"):
+        locators = state.get(field, [])
+        if isinstance(locators, dict):
+            locators = list(locators.values())
+        if not isinstance(locators, list):
+            continue
+        for index, locator in enumerate(locators):
+            try:
+                path = _ordinary_workspace_file(
+                    locator, f"{field}[{index}]", root=root
+                )
+                record = _read_json(
+                    path, f"review record {path.relative_to(root)}"
+                )
+            except (ContractError, InputError, OSError, ValueError):
+                continue
+            if isinstance(record, dict) and _contains_key(
+                record, "runtime_observation"
+            ):
+                return False, (
+                    f"review record {path.relative_to(root)} forbids "
+                    "runtime_observation at any depth"
+                )
+    return True, "ok"
 
 
 def _dispatches(state: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -261,6 +390,12 @@ def _review_contracts_closed(state: dict[str, Any]) -> tuple[bool, str]:
         return False, "review_contracts must be a non-empty array of strings"
     if len(contracts) != len(set(contracts)):
         return False, "review_contracts must be unique"
+    if {"translation_contextual_v1", "translation_contextual_v2"} <= set(contracts):
+        return False, "translation_contextual_v1 and translation_contextual_v2 cannot be mixed"
+    if "translation_contextual_v2" in contracts and (
+        type(state.get("schema_version")) is not int or state["schema_version"] < 5
+    ):
+        return False, "translation_contextual_v2 requires schema_version >= 5"
     unknown = [contract for contract in contracts if contract not in KNOWN_REVIEW_CONTRACTS]
     if unknown:
         return False, f"unknown review_contract {unknown[0]!r}"
@@ -301,12 +436,12 @@ def _read_candidate_bytes(path: Path, label: str) -> bytes:
         raise InputError(f"cannot read {label}: {error}") from error
 
 
-def _canonical_payload_bytes(payload: object) -> bytes:
+def _canonical_contextual_payload_bytes(payload: object, *, expected_contract: str) -> bytes:
     if not isinstance(payload, dict) or frozenset(payload) != CONTEXTUAL_PAYLOAD_KEYS:
         raise ContractError("contextual envelope payload must have exactly the seven canonical keys")
     required_strings = ("fixed_source_identity", "terminology_snapshot", "rendered_briefing")
     if (
-        payload.get("contract") != "translation_contextual_v1"
+        payload.get("contract") != expected_contract
         or any(not isinstance(payload.get(key), str) for key in required_strings)
         or not isinstance(payload.get("ordered_revision_keys"), list)
         or any(not isinstance(item, str) for item in payload["ordered_revision_keys"])
@@ -321,18 +456,38 @@ def _canonical_payload_bytes(payload: object) -> bytes:
     keys = payload["ordered_revision_keys"]
     translations = payload["translation_snapshot"]
     contexts = payload["bounded_context"]
+    if expected_contract == "translation_contextual_v2" and (
+        not keys or len(keys) != len(set(keys)) or any(not item for item in keys)
+    ):
+        raise ContractError("contextual v2 envelope revision keys must be non-empty and unique")
     for item in translations:
         if not isinstance(item, dict) or set(item) != {"revision_key", "source", "target"} or any(not isinstance(item.get(key), str) for key in item):
             raise ContractError("contextual envelope translation_snapshot must be an exact string-object array")
+        if expected_contract == "translation_contextual_v2" and not item["source"]:
+            raise ContractError("contextual v2 envelope sources must be non-empty")
     for item in contexts:
         if not isinstance(item, dict) or set(item) != {"revision_key", "context"} or any(not isinstance(item.get(key), str) for key in item):
             raise ContractError("contextual envelope bounded_context must be an exact string-object array")
     if [item["revision_key"] for item in translations] != keys or [item["revision_key"] for item in contexts] != keys:
         raise ContractError("contextual envelope revision-key arrays must match ordered_revision_keys")
     try:
-        return json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        options = {
+            "ensure_ascii": False,
+            "sort_keys": True,
+            "separators": (",", ":"),
+        }
+        if expected_contract == "translation_contextual_v2":
+            options["allow_nan"] = False
+        return json.dumps(payload, **options).encode("utf-8")
     except (TypeError, ValueError) as error:
         raise ContractError(f"contextual envelope payload is not canonicalizable: {error}") from error
+
+
+def _canonical_payload_bytes(payload: object) -> bytes:
+    """Backward-compatible v1 wrapper; untrusted payloads cannot select a contract."""
+    return _canonical_contextual_payload_bytes(
+        payload, expected_contract="translation_contextual_v1"
+    )
 
 
 def _has_completion_indicator(record: dict[str, Any]) -> bool:
@@ -544,6 +699,300 @@ def _translation_convergence_valid(
     return True, "ok"
 
 
+def _v2_enabled(state: dict[str, Any]) -> bool:
+    return (
+        type(state.get("schema_version")) is int
+        and state["schema_version"] >= 5
+        and isinstance(state.get("review_contracts"), list)
+        and "translation_contextual_v2" in state["review_contracts"]
+    )
+
+
+def _v2_pointer_valid(
+    state: dict[str, Any], contextual: list[tuple[dict[str, Any], dict[str, Any], Path]],
+) -> tuple[bool, str]:
+    if "contextual_reviewer" in state:
+        return False, "v2 forbids singular contextual_reviewer"
+    pointers = state.get("contextual_reviewers")
+    if not isinstance(pointers, list) or not pointers:
+        return False, "v2 contextual_reviewers must be a non-empty array"
+    terminal = sorted(
+        contextual,
+        key=lambda item: (
+            item[0].get("cycle", -1), item[0].get("attempt", -1),
+            item[0].get("lane", {}).get("index", 0)
+            if isinstance(item[0].get("lane"), dict) else 0,
+        ),
+    )
+    latest_record, latest_dispatch, _ = terminal[-1]
+    if latest_record.get("review_kind") == "lane":
+        stage = [
+            item for item in terminal
+            if (item[0].get("cycle"), item[0].get("attempt"))
+            == (latest_record.get("cycle"), latest_record.get("attempt"))
+        ]
+    else:
+        stage = [(latest_record, latest_dispatch, terminal[-1][2])]
+    if len(pointers) != len(stage):
+        return False, "contextual_reviewers must point to every member of the current stage"
+    expected_common = {"role", "purpose", "candidate_identity", "dispatch_id", "input_path", "agent_id"}
+    for index, (pointer, (record, dispatch, _)) in enumerate(zip(pointers, stage)):
+        if not isinstance(pointer, dict):
+            return False, f"contextual_reviewers[{index}] must be an object"
+        lane = record.get("lane")
+        expected_keys = expected_common | ({"lane_group_identity", "lane_index"} if isinstance(lane, dict) else set())
+        if set(pointer) != expected_keys:
+            return False, f"contextual_reviewers[{index}] has an invalid exact shape"
+        expected = {
+            "role": "REVIEWER", "purpose": "translation_contextual_v2",
+            "candidate_identity": record.get("candidate_identity"),
+            "dispatch_id": record.get("dispatch_id"), "input_path": record.get("input_path"),
+            "agent_id": record.get("agent_id"),
+        }
+        if isinstance(lane, dict):
+            expected.update({"lane_group_identity": lane.get("group_identity"), "lane_index": lane.get("index")})
+        if pointer != expected or dispatch.get("agent_id") != pointer.get("agent_id"):
+            return False, f"contextual_reviewers[{index}] does not bind the current dispatch"
+    return True, "ok"
+
+
+def _claim_lane_group_identifiers(
+    group_id: str,
+    group_identity: str,
+    group_manifest_path: str,
+    *,
+    used_group_ids: set[str],
+    used_group_identities: set[str],
+    used_group_manifest_paths: set[str],
+) -> tuple[bool, str]:
+    for value, used, label in (
+        (group_id, used_group_ids, "group_id"),
+        (group_identity, used_group_identities, "group_identity"),
+        (group_manifest_path, used_group_manifest_paths, "group_manifest_path"),
+    ):
+        if value in used:
+            return False, f"lane {label} must not be reused across stages"
+    used_group_ids.add(group_id)
+    used_group_identities.add(group_identity)
+    used_group_manifest_paths.add(group_manifest_path)
+    return True, "ok"
+
+
+def _translation_v2_convergence_valid(
+    state: dict[str, Any], loaded: list[tuple[dict[str, Any], Path]],
+    bound_records: list[tuple[dict[str, Any], dict[str, Any], Path]], *, root: Path = ROOT,
+) -> tuple[bool, str]:
+    if not _v2_enabled(state):
+        return True, "ok"
+    contextual_loaded = [
+        (record, path) for record, path in loaded
+        if record.get("review_contract") == "translation_contextual_v2"
+        and record.get("purpose") == "translation_contextual_v2"
+        and _has_completion_indicator(record)
+    ]
+    contextual = [
+        item for item in bound_records
+        if item[0].get("review_contract") == "translation_contextual_v2"
+        and item[0].get("purpose") == "translation_contextual_v2"
+    ]
+    if not contextual_loaded or len(contextual_loaded) != len(contextual):
+        return False, "every v2 terminal record must be dispatch-bound"
+    pointer = _v2_pointer_valid(state, contextual)
+    if not pointer[0]:
+        return pointer
+    if state.get("mode") == "review_only":
+        if len(contextual) != 1:
+            return False, "review-only v2 requires exactly one full record"
+        record = contextual[0][0]
+        if record.get("review_kind") != "full" or "lane" in record:
+            return False, "review-only v2 permits only a single full review"
+        return True, "ok"
+    if state.get("mode") != "implement":
+        return False, "v2 mode must be implement or review_only"
+    cycle = state.get("cycle")
+    max_cycles = state.get("max_cycles", 3)
+    if type(cycle) is not int or cycle < 0 or type(max_cycles) is not int or max_cycles < 1:
+        return False, "cycle/max_cycles have invalid values"
+    if max_cycles > 3 and state.get("max_cycles_user_authorized") is not True:
+        return False, "max_cycles greater than 3 requires literal max_cycles_user_authorized=true"
+    if cycle > max_cycles:
+        return False, "cycle must not exceed max_cycles"
+
+    enriched: list[tuple[dict[str, Any], dict[str, Any], Path, tuple[int, int, int], dict[str, Any]]] = []
+    for record, dispatch, path in contextual:
+        relative = path.relative_to(root)
+        phase, kind = record.get("review_phase"), record.get("review_kind")
+        record_cycle, attempt = record.get("cycle"), record.get("attempt")
+        if phase not in {"REVIEW", "RE_REVIEW", "FINAL_REVIEW"} or kind not in {"full", "closure", "lane"}:
+            return False, f"{relative} has an invalid v2 phase/review_kind"
+        if type(record_cycle) is not int or record_cycle < 0 or type(attempt) is not int or attempt < 1:
+            return False, f"{relative} cycle/attempt have invalid values"
+        if record_cycle > cycle or record_cycle > max_cycles:
+            return False, f"{relative} cycle exceeds STATE bounds"
+        member = 0
+        if kind == "lane":
+            lane = record.get("lane")
+            if not isinstance(lane, dict) or set(lane) != {
+                "group_id", "group_identity", "group_manifest_path", "index",
+                "count", "offset", "length",
+            }:
+                return False, f"{relative} lane has an invalid exact shape"
+            member = lane.get("index")
+            if type(member) is not int:
+                return False, f"{relative} lane index must be an integer"
+        elif "lane" in record:
+            return False, f"{relative} non-lane record must not contain lane"
+        payload = _contextual_payload(record, root=root)
+        enriched.append((record, dispatch, path, (record_cycle, attempt, member), payload))
+
+    coordinates = [item[3] for item in enriched]
+    if len(coordinates) != len(set(coordinates)):
+        return False, "v2 terminal three-dimensional coordinates must be unique"
+    stages: dict[tuple[int, int], list[tuple[dict[str, Any], dict[str, Any], Path, tuple[int, int, int], dict[str, Any]]]] = {}
+    for item in enriched:
+        stages.setdefault(item[3][:2], []).append(item)
+    used_group_ids: set[str] = set()
+    used_group_identities: set[str] = set()
+    used_group_manifest_paths: set[str] = set()
+    stage_info: list[tuple[tuple[int, int], str, str, list[str], list[str], str, str]] = []
+    # stage tuple, coverage kind, identity, keys, sources, phase, fixed source identity
+    for stage_key in sorted(stages):
+        members = sorted(stages[stage_key], key=lambda item: item[3][2])
+        kinds = {item[0]["review_kind"] for item in members}
+        phases = {item[0]["review_phase"] for item in members}
+        if len(kinds) != 1 or len(phases) != 1:
+            return False, "v2 stage must not mix review kinds or phases"
+        kind, phase = next(iter(kinds)), next(iter(phases))
+        if kind != "lane":
+            if len(members) != 1 or members[0][3][2] != 0:
+                return False, "full/closure stage must contain one member ordinal 0"
+            payload = members[0][4]
+            identity = members[0][0].get("candidate_identity")
+            coverage_kind = "full" if kind == "full" else "closure"
+            stage_info.append((stage_key, coverage_kind, str(identity), payload["ordered_revision_keys"], [x["source"] for x in payload["translation_snapshot"]], phase, payload["fixed_source_identity"]))
+            continue
+        if phase == "FINAL_REVIEW":
+            return False, "FINAL_REVIEW forbids lane review"
+        if len(members) != 4 or [item[3][2] for item in members] != [1, 2, 3, 4]:
+            return False, "lane stage must contain exactly members 1..4"
+        agents = [item[0].get("agent_id") for item in members]
+        dispatch_ids = [item[0].get("dispatch_id") for item in members]
+        if len(set(agents)) != 4 or len(set(dispatch_ids)) != 4:
+            return False, "lane stage requires four distinct agents and dispatches"
+        first_lane = members[0][0]["lane"]
+        group_tuple = (first_lane["group_id"], first_lane["group_identity"], first_lane["group_manifest_path"])
+        claimed = _claim_lane_group_identifiers(
+            *group_tuple,
+            used_group_ids=used_group_ids,
+            used_group_identities=used_group_identities,
+            used_group_manifest_paths=used_group_manifest_paths,
+        )
+        if not claimed[0]:
+            return claimed
+        manifest_path = _ordinary_workspace_file(
+            first_lane["group_manifest_path"], "group_manifest_path", root=root
+        )
+        manifest_bytes = manifest_path.read_bytes()
+        manifest = contextual_result_check.strict_json_bytes(
+            manifest_bytes, label="lane manifest"
+        )
+        if manifest_bytes != contextual_lane_manifest.canonical_bytes(manifest):
+            return False, "lane manifest bytes are not canonical compact JSON"
+        contextual_lane_manifest.validate_manifest(
+            manifest, root=root, manifest_path=first_lane["group_manifest_path"]
+        )
+        manifest_payload = manifest["payload"]
+        if (
+            manifest.get("group_identity") != first_lane["group_identity"]
+            or manifest_payload.get("task_id") != state.get("task_id")
+            or manifest_payload.get("group_id") != first_lane["group_id"]
+            or manifest_payload.get("review_phase") != phase
+            or (manifest_payload.get("cycle"), manifest_payload.get("attempt")) != stage_key
+        ):
+            return False, "lane manifest does not bind its stage"
+        boundaries = manifest_payload["lane_boundaries"]
+        manifest_lanes = manifest_payload["lanes"]
+        for index, (item, boundary, manifest_lane) in enumerate(zip(members, boundaries, manifest_lanes), 1):
+            record, dispatch = item[0], item[1]
+            lane = record["lane"]
+            if (
+                (lane["group_id"], lane["group_identity"], lane["group_manifest_path"])
+                != group_tuple or lane["count"] != 4
+                or (lane["index"], lane["offset"], lane["length"])
+                != (boundary["index"], boundary["offset"], boundary["length"])
+                or record.get("dispatch_id") != manifest_lane["dispatch_id"]
+                or record.get("input_path") != manifest_lane["input_path"]
+                or record.get("candidate_identity") != manifest_lane["candidate_identity"]
+                or dispatch.get("lane_group_identity") != lane["group_identity"]
+                or dispatch.get("lane_index") != index
+            ):
+                return False, f"lane {index} record/dispatch/manifest binding mismatch"
+            labels = dispatch.get("labels")
+            if not isinstance(labels, dict) or labels.get("lane_group_identity") != lane["group_identity"] or labels.get("lane_index") != index:
+                return False, f"lane {index} creation labels do not bind group/index"
+        workset = manifest_payload["workset"]
+        stage_info.append((stage_key, "lane_group", manifest["group_identity"], workset["ordered_revision_keys"], [x["source"] for x in workset["translation_snapshot"]], phase, workset["fixed_source_identity"]))
+
+    stage_info.sort(key=lambda item: item[0])
+    origin = stage_info[0]
+    if origin[0][0] != 0 or origin[5] != "REVIEW" or origin[1] not in {"full", "lane_group"}:
+        return False, "earliest v2 stage must be cycle-0 REVIEW/full or REVIEW/lane_group"
+    origin_keys, origin_sources, origin_source_identity = origin[3], origin[4], origin[6]
+    if len(origin_keys) < 4 and origin[1] == "lane_group":
+        return False, "worksets smaller than four revisions must use full"
+    for stage in stage_info:
+        if stage[1] in {"full", "lane_group"} and (
+            stage[3] != origin_keys or stage[4] != origin_sources
+            or stage[6] != origin_source_identity
+        ):
+            return False, "full-coverage stage drifts from origin keys/source"
+    for index, stage in enumerate(stage_info[1:-1], 1):
+        record_stage = stages[stage[0]]
+        if stage[5] == "RE_REVIEW" and stage[1] in {"full", "closure", "lane_group"}:
+            continue
+        if stage[5] == "FINAL_REVIEW" and stage[1] == "full" and not _has_successful_completion(record_stage[0][0]):
+            if any(later[5] == "RE_REVIEW" and later[0][0] > stage[0][0] for later in stage_info[index + 1:-1]):
+                continue
+        return False, "invalid intervening v2 stage"
+    for stage in stage_info:
+        if stage[1] != "closure":
+            continue
+        record = stages[stage[0]][0][0]
+        if stage[5] != "RE_REVIEW":
+            return False, "v2 closure is only valid in RE_REVIEW"
+        if "parent_candidate_identity" in record:
+            return False, "v2 closure forbids parent_candidate_identity"
+        inclusion = record.get("inclusion")
+        if not isinstance(inclusion, list) or not inclusion:
+            return False, "v2 closure inclusion must be non-empty"
+        inclusion_keys: list[str] = []
+        for entry in inclusion:
+            if not isinstance(entry, dict) or set(entry) != {"revision_key", "reasons"}:
+                return False, "v2 closure inclusion has an invalid shape"
+            reasons = entry.get("reasons")
+            if not isinstance(entry.get("revision_key"), str) or not entry["revision_key"] or not isinstance(reasons, list) or not reasons or len(reasons) != len(set(reasons)) or any(reason not in CLOSURE_REASONS for reason in reasons):
+                return False, "v2 closure inclusion has invalid reasons"
+            inclusion_keys.append(entry.get("revision_key"))
+        if inclusion_keys != stage[3] or [key for key in origin_keys if key in set(inclusion_keys)] != inclusion_keys:
+            return False, "v2 closure is not an ordered origin subset"
+        expected_sources = [source for key, source in zip(origin_keys, origin_sources) if key in set(inclusion_keys)]
+        if stage[4] != expected_sources:
+            return False, "v2 closure source drift"
+        earlier = [candidate for candidate in stage_info if candidate[0] < stage[0] and candidate[1] in {"full", "lane_group"}]
+        if not earlier:
+            return False, "v2 closure has no earlier full-coverage stage"
+        parent = max(earlier, key=lambda item: item[0])
+        if record.get("parent_review_kind") != parent[1] or record.get("parent_coverage_identity") != parent[2]:
+            return False, "v2 closure parent coverage binding mismatch"
+    latest = stage_info[-1]
+    latest_record = stages[latest[0]][0][0]
+    if latest[5] != "FINAL_REVIEW" or latest[1] != "full" or not _has_successful_completion(latest_record):
+        return False, "latest v2 stage must be a successful FINAL_REVIEW/full"
+    if latest[0][0] != cycle:
+        return False, "latest v2 FINAL_REVIEW/full cycle must equal STATE.cycle"
+    return True, "ok"
+
+
 def _candidate_bindings_valid(
     state: dict[str, Any], records: list[tuple[dict[str, Any], dict[str, Any], Path]],
     *, root: Path = ROOT,
@@ -569,7 +1018,7 @@ def _candidate_bindings_valid(
             or type(record_attempt) is not int
         ):
             return False, f"{relative} phase/cycle/attempt have invalid types"
-        if record.get("purpose") == "translation_contextual_v1":
+        if record.get("purpose") in {"translation_contextual_v1", "translation_contextual_v2"}:
             identity, input_path = record.get("candidate_identity"), record.get("input_path")
             if not isinstance(identity, str) or not SHA256.fullmatch(identity) or not isinstance(input_path, str):
                 return False, f"{relative} lacks a valid contextual identity or input_path"
@@ -581,8 +1030,55 @@ def _candidate_bindings_valid(
             )
             if not isinstance(envelope, dict) or envelope.get("candidate_identity") != identity or "payload" not in envelope:
                 return False, f"{relative} contextual envelope does not match candidate_identity"
-            if hashlib.sha256(_canonical_payload_bytes(envelope["payload"])).hexdigest() != identity:
+            contract = record["purpose"]
+            if hashlib.sha256(_canonical_contextual_payload_bytes(
+                envelope["payload"], expected_contract=contract
+            )).hexdigest() != identity:
                 return False, f"{relative} contextual candidate_identity does not match payload"
+            if contract == "translation_contextual_v2":
+                dispatch_id = record["dispatch_id"]
+                labels = dispatch.get("labels")
+                if (
+                    dispatch.get("lineage_verified") is not True
+                    or not isinstance(state.get("orchestrator_agent_id"), str)
+                    or not state["orchestrator_agent_id"]
+                    or dispatch.get("parent_agent_id") != state["orchestrator_agent_id"]
+                    or not isinstance(state.get("workspace_id"), str)
+                    or not state["workspace_id"]
+                    or dispatch.get("workspace_id") != state["workspace_id"]
+                    or not isinstance(labels, dict)
+                    or labels.get("task_id") != state.get("task_id")
+                    or labels.get("role") != "reviewer"
+                    or labels.get("purpose") != "translation_contextual_v2"
+                    or labels.get("candidate_identity") != identity
+                    or labels.get("dispatch_id") != dispatch_id
+                ):
+                    return False, f"{relative} v2 dispatch lacks exact workspace/direct-lineage labels"
+                try:
+                    contextual_lane_manifest.render_dispatch_prompt(identity, input_path)
+                except contextual_result_check.ContractError as error:
+                    return False, f"{relative} v2 dispatch prompt is invalid: {error}"
+                expected_raw = f".ai/reviews/{state['task_id']}/raw-{dispatch_id}.txt"
+                raw_path = record.get("raw_output_path")
+                raw_hash = record.get("raw_output_sha256")
+                if raw_path != expected_raw or not isinstance(raw_hash, str) or not SHA256.fullmatch(raw_hash):
+                    return False, f"{relative} raw output path/hash does not bind task/dispatch"
+                raw_file = _ordinary_workspace_file(raw_path, "raw_output_path", root=root)
+                raw_bytes = raw_file.read_bytes()
+                if hashlib.sha256(raw_bytes).hexdigest() != raw_hash:
+                    return False, f"{relative} raw output hash drift"
+                try:
+                    envelope_bytes = _ordinary_workspace_file(
+                        input_path, "contextual input_path", root=root
+                    ).read_bytes()
+                    contextual_result_check.validate_result_bytes(
+                        envelope_bytes,
+                        raw_bytes,
+                    )
+                except contextual_result_check.InputError as error:
+                    raise InputError(str(error)) from error
+                except contextual_result_check.ContractError as error:
+                    return False, f"{relative} raw output is invalid: {error}"
             continue
         locator = record.get("candidate_locator")
         if not isinstance(locator, dict) or set(locator) != {"spec_path", "diff_path"}:
@@ -917,6 +1413,22 @@ def _done(state: dict[str, Any], *, root: Path = ROOT) -> CheckResult:
         )
     if not convergence[0]:
         return _result("NEW_CONTRACT_FAILED", f"translation_convergence: {convergence[1]}", 1)
+    try:
+        v2_convergence = _translation_v2_convergence_valid(
+            state, loaded, completed, root=root
+        )
+    except contextual_result_check.ContractError as error:
+        return _result("NEW_CONTRACT_FAILED", f"translation_v2_convergence: {error}", 1)
+    except contextual_result_check.InputError as error:
+        return _result("INPUT_ERROR", str(error), 2)
+    except ContractError as error:
+        return _result("NEW_CONTRACT_FAILED", f"translation_v2_convergence: {error}", 1)
+    except InputError as error:
+        return _result("INPUT_ERROR", str(error), 2)
+    except (TypeError, ValueError, KeyError, AttributeError) as error:
+        return _result("NEW_CONTRACT_FAILED", f"translation_v2_convergence: malformed JSON value ({error})", 1)
+    if not v2_convergence[0]:
+        return _result("NEW_CONTRACT_FAILED", f"translation_v2_convergence: {v2_convergence[1]}", 1)
     identity = _reviewer_identity_valid(state, completed, root=root)
     if not identity[0]:
         return _result("NEW_CONTRACT_FAILED", f"reviewer_identity: {identity[1]}", 1)
@@ -992,6 +1504,15 @@ def check_state(
             return _result("INPUT_ERROR", "non-terminal STATE requires --target DONE or STOP", 2)
         target = state_name
     if target == "STOP":
+        review_observations = _stop_records_forbid_runtime_observation(
+            state, root=root
+        )
+        if not review_observations[0]:
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                f"review_records: {review_observations[1]}",
+                1,
+            )
         children = state.get("child_dispatches")
         if children == [] or (
             isinstance(children, list)
@@ -1131,13 +1652,19 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("state", help="path to STATE.json")
     parser.add_argument("--target", choices=("DONE", "STOP"))
     parser.add_argument("--manifest", default=str(DEFAULT_MANIFEST))
+    parser.add_argument("--workspace-root")
     try:
         args = parser.parse_args(argv)
     except InputError as error:
         result = _result("INPUT_ERROR", str(error), 2)
         print(f"{result.outcome}: {result.detail}")
         return result.exit_code
-    result = check_state(args.state, target=args.target, manifest_path=args.manifest)
+    result = check_state(
+        args.state,
+        target=args.target,
+        manifest_path=args.manifest,
+        workspace_root=args.workspace_root,
+    )
     print(f"{result.outcome}: {result.detail}")
     return result.exit_code
 

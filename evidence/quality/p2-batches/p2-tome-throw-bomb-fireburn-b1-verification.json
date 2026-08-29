@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "task_id": "p2-tome-throw-bomb-fireburn-b1-001",
+  "kind": "throw_bomb_fireburn_bounded_translation_verification",
+  "frozen_workset": {
+    "path": "evidence/quality/p2-batches/p2-tome-throw-bomb-fireburn-b1-workset.json",
+    "sha256": "8ca09220547fde4c54f2bba3053f6474cb6c224e4559c89aeff8e18efb82efb1",
+    "immutable": true
+  },
+  "translation_file": {
+    "path": "mod-tome.lua",
+    "baseline_sha256": "1032c5245a35ea5bee1e483fe2f8ac002d5e03b3230f744922bf8e6d1be03e2d",
+    "current_sha256": "aa94c47ed533ebcadf7637a90984c8cde1a59a5e85596daef9c6e3164d3bc197",
+    "production_targets_changed": 1
+  },
+  "translation_entry": {
+    "entry_id": "0d88eddb6bd4072af54251e2a9ede88e31e64c8e77bc8656ccc35c09a489e601",
+    "source": "Imbue an alchemist gem with an explosive charge of mana and throw it.\n\t\tThe gem will explode for %0.1f %s damage.\n\t\tEach kind of gem will also provide a specific effect.\n\t\tThe damage will improve with better gems and with your Spellpower.",
+    "source_tag": "tformat",
+    "args_order": null,
+    "special": null,
+    "target_before": "向一块炼金宝石内灌输爆炸能量并扔出它。\n\t\t宝石将会爆炸并造成 %0.1f 的 %s 伤害。\n\t\t每个种类的宝石都会提供一个特殊的效果。\n\t\t伤害受宝石品质和法术强度加成。",
+    "target_after": "向一块炼金宝石内灌输爆炸能量并扔出它。\n\t\t宝石爆炸时会造成 %0.1f 点%s伤害。\n\t\t每个种类的宝石都会提供一个特殊的效果。\n\t\t伤害受宝石品质和法术强度加成。",
+    "placeholder_bindings": [
+      {
+        "position": 1,
+        "token": "%0.1f",
+        "meaning": "dynamic scalar returned by computeDamage and adjusted for tooltip display by damDesc"
+      },
+      {
+        "position": 2,
+        "token": "%s",
+        "meaning": "localized DamageType:get(damtype).name"
+      }
+    ],
+    "source_placeholder_order": [
+      "%0.1f",
+      "%s"
+    ],
+    "target_placeholder_order_before": [
+      "%0.1f",
+      "%s"
+    ],
+    "target_placeholder_order_after": [
+      "%0.1f",
+      "%s"
+    ],
+    "newline_structure": {
+      "source_newlines": 3,
+      "target_before_newlines": 3,
+      "target_after_newlines": 3,
+      "continuation_prefix_escaped": "\\t\\t",
+      "paragraphs": 4,
+      "unchanged": true
+    },
+    "invariants": {
+      "source_exact": true,
+      "source_bytes_unchanged": true,
+      "target_before_exactly_matches_workset": true,
+      "target_after_exactly_matches_mod_tome": true,
+      "source_tag_unchanged": true,
+      "args_order_unchanged": true,
+      "special_unchanged": true,
+      "placeholder_count": 2,
+      "placeholder_order_unchanged": true,
+      "newline_and_tab_shape_unchanged": true,
+      "four_paragraph_structure_preserved": true
+    },
+    "exact_renderings_at_scalar_100": [
+      {
+        "damage_type": "physical",
+        "localized_name": "物理",
+        "rendered_sentence": "宝石爆炸时会造成 100.0 点物理伤害。"
+      },
+      {
+        "damage_type": "acid blind",
+        "localized_name": "酸性致盲",
+        "rendered_sentence": "宝石爆炸时会造成 100.0 点酸性致盲伤害。"
+      },
+      {
+        "damage_type": "dazing lightning",
+        "localized_name": "闪电眩晕",
+        "rendered_sentence": "宝石爆炸时会造成 100.0 点闪电眩晕伤害。"
+      },
+      {
+        "damage_type": "ice",
+        "localized_name": "寒冰",
+        "rendered_sentence": "宝石爆炸时会造成 100.0 点寒冰伤害。"
+      },
+      {
+        "damage_type": "fire burn",
+        "localized_name": "火焰燃烧",
+        "rendered_sentence": "宝石爆炸时会造成 100.0 点火焰燃烧伤害。"
+      }
+    ]
+  },
+  "fixed_source": {
+    "component": "tome",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "source_pinned": true,
+    "source_files": [
+      {
+        "path": "game/modules/tome/data/talents/spells/explosives.lua",
+        "sha256": "66ce5364f625978b3d4554f94612ea1119e3c0bfd3d1725746fe655bbcf96efa"
+      },
+      {
+        "path": "game/modules/tome/data/talents/spells/fire-alchemy.lua",
+        "sha256": "960cd7fd46c1344be4e56277d23eed1f3950e8975f860de5ba4c3990eac36f07"
+      },
+      {
+        "path": "game/modules/tome/data/talents.lua",
+        "sha256": "60600da06f633d8feed19bed0c59da3ae73c7ae805071e0fe044abc880b9333f"
+      },
+      {
+        "path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479"
+      },
+      {
+        "path": "game/modules/tome/data/timed_effects/physical.lua",
+        "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e"
+      }
+    ]
+  },
+  "runtime_value_flow": {
+    "compute_damage": {
+      "base_scalar": "combatTalentSpellDamage using the average of gem alchemist_power and combatSpellpower, multiplied by the gem alchemist_bomb.power increase",
+      "damage_type_selection_priority": [
+        "ACID_BLIND while Acid Infusion is active",
+        "LIGHTNING_DAZE while Lightning Infusion is active",
+        "ICE while Frost Infusion is active",
+        "FIREBURN while Flame Infusion is active",
+        "PHYSICAL otherwise"
+      ],
+      "return_values": [
+        "one scalar dam",
+        "selected damtype",
+        "selected particle"
+      ],
+      "flame_infusion_fact": "FIREBURN is selected only when T_FIRE_INFUSION is the active infusion branch reached by computeDamage"
+    },
+    "action_time_adjustments": {
+      "order": [
+        "computeDamage returns dam and damtype",
+        "spellCrit adjusts dam",
+        "Explosion Expert optionally applies confinement minmax adjustment to dam",
+        "each affected grid starts with d = dam",
+        "Alchemist Protection scales d for self, golem, or reaction-nonnegative friendly actor",
+        "DamageType:get(damtype).projector receives d for that grid"
+      ],
+      "protection_factor": "1 - (raw Alchemist Protection talent level * 0.2)",
+      "unprotected_grid": "d remains the post-critical, post-confinement scalar dam"
+    },
+    "fireburn_accounting": {
+      "input": "the per-grid scalar d is the complete FIREBURN event amount",
+      "scalar_defaults": {
+        "duration_turns": 3,
+        "immediate_percent": 50
+      },
+      "immediate_application": "init_dam = d * 50 / 100 is projected immediately as FIRE",
+      "remainder": "d - init_dam, equal to the remaining 50 percent for a scalar input",
+      "burning_effect": "EFF_BURNING",
+      "effect_power": "remainder / 3",
+      "tick_application": "EFF_BURNING.on_timeout projects one eff.power FIRE damage tick on each timeout",
+      "total_interpretation": "50 percent immediate plus the remaining 50 percent divided across three turns; the displayed scalar is not a per-turn amount"
+    },
+    "tooltip_binding": {
+      "scalar": "info passes computeDamage's damtype and dam through damDesc before binding the result to %0.1f",
+      "damage_type_name": "DamageType:get(damtype).name binds dynamically to %s",
+      "localized_fireburn_name": {
+        "source": "fire burn",
+        "target": "火焰燃烧",
+        "source_tag": "damage type"
+      },
+      "flame_infusion_dependency_target": "投掷炼金炸弹时，为其注入会持续灼烧数回合的火焰。\n\t\t此外，你造成的所有火焰伤害提高 %d%%。\n\t\t同一时间只能激活一种炼金充能持续技能。"
+    }
+  },
+  "adjudication": {
+    "decision": "targeted_natural_syntax_repair",
+    "fireburn_total_vs_per_turn": "The prior target did not state that the FIREBURN scalar was per-turn damage and therefore had no Fiery Aegis-style total-as-per-turn error.",
+    "confirmed_dynamic_composition_defect": "The prior '造成 %0.1f 的 %s 伤害' word order renders combinations such as '100.0 的 火焰燃烧 伤害' unnaturally. The repair changes only that sentence to '宝石爆炸时会造成 %0.1f 点%s伤害。'.",
+    "generic_tooltip_preserved": true,
+    "flame_infusion_not_hard_coded": true,
+    "every_bomb_burns_claim_added": false,
+    "scout_correction": {
+      "rejected_claim": "damDesc includes Flame Infusion's FIRE-keyed damage increase when the selected type is FIREBURN",
+      "scoped_source_caveat": "The fixed source stores Flame Infusion's inc_damage entry under DamageType.FIRE, while Throw Bomb passes DamageType.FIREBURN to damDesc. FIREBURN has no visible damdesc_split in its definition, so the scoped source does not establish that the displayed scalar includes the FIRE-keyed increase.",
+      "impact": "This caveat does not change the total-versus-per-turn adjudication or the bounded syntax repair."
+    }
+  },
+  "allowed_scope": {
+    "allowed_task_content_files": [
+      "mod-tome.lua: only the frozen Throw Bomb tformat target",
+      "evidence/quality/p2-batches/p2-tome-throw-bomb-fireburn-b1-verification.json"
+    ],
+    "changed_translation_targets": 1,
+    "changed_target": "Throw Bomb talent-info tformat entry beginning Imbue an alchemist gem with an explosive charge of mana and throw it.",
+    "workset_changed": false,
+    "english_source_changed": false,
+    "source_tag_args_special_changed": false,
+    "flame_infusion_target_changed": false,
+    "other_lua_changed": false,
+    "terminology_changed": false,
+    "tools_docs_manifest_ai_or_claude_changed_by_executor": false,
+    "staged_committed_or_pushed": false,
+    "preexisting_untracked_not_owned_by_executor": [
+      ".claude/",
+      "evidence/quality/p2-batches/p2-tome-throw-bomb-fireburn-b1-workset.json"
+    ]
+  },
+  "focused_verification": {
+    "checks": [
+      {
+        "command": "focused exact-entry, metadata, placeholder, newline, five-rendering, workset-hash, source-hash, and scope invariants",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n doctor",
+        "result": "PASS"
+      },
+      {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "PASS (30308 translations, 0 errors, 0 warnings)"
+      },
+      {
+        "command": "JSON parse",
+        "result": "PASS"
+      },
+      {
+        "command": "git diff --check",
+        "result": "PASS"
+      }
+    ]
+  }
+}
