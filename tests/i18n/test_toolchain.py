@@ -19615,11 +19615,11 @@ class PaseoRuntimeNeutralContractTests(unittest.TestCase):
         contextual = (
             ROOT / "docs" / "paseo-translation-context-review-v1-contract.md"
         ).read_text(encoding="utf-8")
-        self.assertIn("paseo-orchestration/2.24-draft", orchestration)
+        self.assertIn("paseo-orchestration/2.25-draft", orchestration)
         self.assertIn("translation-contextual/1.6", contextual)
         self.assertNotIn("paseo-orchestration/2.11-draft", orchestration)
-        self.assertIn("| `2.24-draft` | 当前草案", orchestration)
-        self.assertIn("| `2.23-draft` | 上一版草案", orchestration)
+        self.assertIn("| `2.25-draft` | 当前草案", orchestration)
+        self.assertIn("| `2.24-draft` | 上一版草案", orchestration)
         self.assertNotIn("translation-contextual/1.4", contextual)
 
     def test_quality_and_archive_surfaces_are_not_moved(self) -> None:

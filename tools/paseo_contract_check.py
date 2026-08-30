@@ -20,6 +20,7 @@ CONTRACT_FILES = (
     "docs/paseo-orchestration-v2-contract.md",
     "docs/paseo-translation-context-review-v1-contract.md",
     "docs/paseo-translation-context-review-v2-contract.md",
+    "docs/paseo-translation-surface-screen-v1-contract.md",
 )
 ACTIVE_FILES = ("AGENTS.md", *ROLE_FILES, *CONTRACT_FILES)
 
@@ -71,6 +72,7 @@ ROLE_CLAUSE_REFERENCES = {
         "P2-RECOVERY", "P2-STOP-CLOSED",
         "P2-TRANSLATION-CONVERGENCE",
         "P2-TRANSLATION-CONTEXT-V2",
+        "P2-TRANSLATION-SURFACE-V1",
     ),
     ".ai/roles/reviewer.md": (
         "P2-READ-ONLY", "P2-CANDIDATE-FREEZE", "P2-REVIEW-INDEPENDENCE",
@@ -91,6 +93,8 @@ ROLE_OUTPUT_MARKERS = {
     ".ai/roles/reviewer.md": (
         "Severity: blocker | high | medium | low",
         "缺字段、额外字段或 enum 外取值均使输出无效。",
+        "canonical sorted compact bytes",
+        "surface 结果只是 `OK|ISSUE` observation，不得升级为",
     ),
     ".ai/roles/scout.md": (
         "`context`（非空字符串）",
@@ -184,7 +188,15 @@ REQUIRED_MARKERS = {
         "purpose=normal_review",
         "purpose=translation_contextual_v1",
         "translation_contextual_v2",
+        "translation_surface_screen_v1",
         "P2-TRANSLATION-CONTEXT-V2",
+        "P2-TRANSLATION-SURFACE-V1",
+        "SURFACE-SCREEN-GROUP-<group_id>.json",
+        "SURFACE-SCREEN-ZERO.json",
+        "SURFACE-SCREEN-CARRY-OVER.json",
+        "proves_no_surface_dispatch=true",
+        "paseo-orchestration/2.25-draft",
+        "append-only",
         "candidate_ref",
         "orchestration_transport",
         "child_dispatches",
@@ -238,6 +250,30 @@ REQUIRED_MARKERS = {
         "lane_count=4",
         "parent_coverage_identity",
         "FINAL_REVIEW/full",
+    ),
+    "docs/paseo-translation-surface-screen-v1-contract.md": (
+        "translation-surface-screen/1.0",
+        "role=reviewer",
+        "purpose=translation_surface_screen_v1",
+        "translation_surface_screen_v1_lane_group",
+        "logical_entry_identity = SHA-256",
+        "entry_revision_identity = SHA-256",
+        "call_locator",
+        "normalized_path",
+        "n=0",
+        "carry-over",
+        "split_carry_over",
+        "SURFACE-SCREEN-ZERO.json",
+        "SURFACE-SCREEN-CARRY-OVER.json",
+        "proves_no_surface_dispatch=true",
+        "surface-carry-over/1",
+        "lane_count=4",
+        "raw_output_sha256",
+        "REVIEW/full",
+        "OK|ISSUE",
+        "不得升级为 adjudicated finding 或修复指令",
+        "reason_code",
+        "docs/paseo-translation-surface-screen-v1-contract.md 第六节",
     ),
 }
 

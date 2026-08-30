@@ -19,6 +19,8 @@ from typing import Any
 import review_evidence
 import contextual_lane_manifest
 import contextual_result_check
+import surface_screen_manifest
+import surface_screen_result_check
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,11 +39,13 @@ KNOWN_REVIEW_CONTRACTS = {
     "code_legacy_v1": frozenset({"normal_review", "cross_review"}),
     "translation_contextual_v1": frozenset({"translation_contextual_v1"}),
     "translation_contextual_v2": frozenset({"translation_contextual_v2"}),
+    "translation_surface_screen_v1": frozenset({"translation_surface_screen_v1"}),
 }
 PURPOSE_ROLES = {
     "normal_review": "REVIEWER",
     "translation_contextual_v1": "REVIEWER",
     "translation_contextual_v2": "REVIEWER",
+    "translation_surface_screen_v1": "REVIEWER",
     "cross_review": "senior-reviewer",
     "scope_audit": "senior-reviewer",
 }
@@ -392,10 +396,16 @@ def _review_contracts_closed(state: dict[str, Any]) -> tuple[bool, str]:
         return False, "review_contracts must be unique"
     if {"translation_contextual_v1", "translation_contextual_v2"} <= set(contracts):
         return False, "translation_contextual_v1 and translation_contextual_v2 cannot be mixed"
+    if "translation_surface_screen_v1" in contracts and {"translation_contextual_v1", "translation_contextual_v2"} & set(contracts):
+        return False, "translation_surface_screen_v1 cannot be mixed with contextual review contracts"
     if "translation_contextual_v2" in contracts and (
         type(state.get("schema_version")) is not int or state["schema_version"] < 5
     ):
         return False, "translation_contextual_v2 requires schema_version >= 5"
+    if "translation_surface_screen_v1" in contracts and (
+        type(state.get("schema_version")) is not int or state["schema_version"] < 5
+    ):
+        return False, "translation_surface_screen_v1 requires schema_version >= 5"
     unknown = [contract for contract in contracts if contract not in KNOWN_REVIEW_CONTRACTS]
     if unknown:
         return False, f"unknown review_contract {unknown[0]!r}"
@@ -415,8 +425,18 @@ def _completion_records_bound(
     state: dict[str, Any], records: list[tuple[dict[str, Any], dict[str, Any], Path]]
 ) -> tuple[bool, str]:
     covered = {record.get("review_contract") for record, _, _ in records}
+    # The surface zero/no-dispatch artifact is the honest n=0 terminal: the
+    # contract is closed by the bound artifact exactly when it has no records.
+    zero_terminal = (
+        isinstance(state.get("surface_zero_path"), str)
+        and "translation_surface_screen_v1" in state.get("review_contracts", [])
+        and not any(
+            record.get("review_contract") == "translation_surface_screen_v1"
+            for record, _, _ in records
+        )
+    )
     for contract in state["review_contracts"]:
-        if contract not in covered:
+        if contract not in covered and not (contract == "translation_surface_screen_v1" and zero_terminal):
             return False, f"no bound completion record for contract {contract!r}"
     for _, dispatch, _ in records:
         if not _archived(dispatch):
@@ -526,6 +546,27 @@ def _contextual_payload(
     if not isinstance(envelope, dict) or not isinstance(envelope.get("payload"), dict):
         raise ContractError("contextual envelope payload must be an object")
     return envelope["payload"]
+
+
+def _surface_payload(
+    record: dict[str, Any], *, root: Path
+) -> dict[str, Any]:
+    envelope = _read_json(
+        _ordinary_workspace_file(
+            record.get("input_path"), "surface input_path", root=root
+        ),
+        "surface envelope",
+    )
+    if not isinstance(envelope, dict) or not isinstance(envelope.get("payload"), dict):
+        raise ContractError("surface envelope payload must be an object")
+    return envelope["payload"]
+
+
+def _surface_entry_keys(entries: list[dict[str, Any]]) -> list[str]:
+    keys = [entry.get("entry_revision_identity") for entry in entries]
+    if any(not isinstance(key, str) or not key for key in keys):
+        raise ContractError("surface entries must carry entry_revision_identity strings")
+    return keys  # type: ignore[return-value]
 
 
 def _translation_convergence_valid(
@@ -993,6 +1034,854 @@ def _translation_v2_convergence_valid(
     return True, "ok"
 
 
+def _surface_enabled(state: dict[str, Any]) -> bool:
+    return (
+        type(state.get("schema_version")) is int
+        and state["schema_version"] >= 5
+        and isinstance(state.get("review_contracts"), list)
+        and "translation_surface_screen_v1" in state["review_contracts"]
+    )
+
+
+def _load_records_for_stop(
+    state: dict[str, Any], *, root: Path = ROOT,
+) -> list[tuple[dict[str, Any], Path]]:
+    """Tolerant record load for STOP (C4-03, C5-03).
+
+    STOP historically ignores unavailable, malformed, or non-object review
+    records (they can close nothing), so this loader skips them instead of
+    failing; well-formed records still participate in the all-source surface
+    activity predicate so persisted surface records cannot be closed by STOP
+    even when child_dispatches were relabeled or deleted.  C5-03: every path
+    is handled independently — one unavailable, malformed, or non-object
+    locator must not discard the other records (an empty load could hide
+    persisted surface activity from the STOP predicate), so each locator is
+    resolved and parsed on its own and every valid record is retained."""
+    loaded: list[tuple[dict[str, Any], Path]] = []
+    for field in ("review_records", "senior_review_records"):
+        locators = state.get(field, [])
+        if isinstance(locators, dict):  # Reader-only legacy mapping.
+            locators = list(locators.values())
+        if not isinstance(locators, list):
+            continue
+        for index, locator in enumerate(locators):
+            try:
+                path = _ordinary_workspace_file(
+                    locator, f"{field}[{index}]", root=root
+                )
+                record = _read_json(
+                    path, f"review record {path.relative_to(root)}"
+                )
+            except (ContractError, InputError, OSError, TypeError, ValueError):
+                continue
+            if isinstance(record, dict):
+                loaded.append((record, path))
+    return loaded
+
+
+def _surface_activity_present(
+    state: dict[str, Any], loaded: list[tuple[dict[str, Any], Path]],
+) -> bool:
+    """Detect surface activity from persisted facts, never from the STATE
+    contract list alone: any surface-purpose child dispatch, any surface
+    completion record, or any surface terminal binding activates the
+    fail-closed surface checks even when the contract was removed from
+    ``review_contracts`` or the schema_version was downgraded (C3-01)."""
+    markers = (
+        "surface_zero_path", "surface_carry_over_path",
+        "surface_screen_input_path", "surface_evidence_binding",
+    )
+    if any(state.get(marker) is not None for marker in markers):
+        return True
+    children = state.get("child_dispatches")
+    if isinstance(children, list) and any(
+        isinstance(item, dict)
+        and item.get("purpose") == "translation_surface_screen_v1"
+        for item in children
+    ):
+        return True
+    return any(
+        record.get("purpose") == "translation_surface_screen_v1"
+        or record.get("review_contract") == "translation_surface_screen_v1"
+        for record, _ in loaded
+    )
+
+
+SURFACE_SAFE_ID = re.compile(r"^[0-9a-z][0-9a-z-]{0,31}$")
+SURFACE_SAFE_TASK_ID = re.compile(r"^[0-9a-z][0-9a-z-]{0,127}$")
+# Surface evidence reconciliation is independent of the code/contextual
+# sidecar terminals: DONE rederives an immutable binding over the exact
+# terminal artifact bytes (zero artifact, or the stage envelopes and raw
+# outputs) and fails closed on any drift.
+SURFACE_EVIDENCE_BINDING_ALGORITHM = "surface-evidence-binding/1"
+SURFACE_EVIDENCE_BINDING_KEYS = frozenset({
+    "algorithm", "task_id", "terminal", "artifact_sha256",
+})
+
+
+def _surface_safe(value: object, label: str, pattern: re.Pattern[str]) -> str:
+    if not isinstance(value, str) or not pattern.fullmatch(value):
+        raise ContractError(f"{label} is not dispatch-safe")
+    return value
+
+
+def _surface_envelope_path(task_id: str, dispatch_id: str) -> str:
+    return f".ai/task/{task_id}/SURFACE-SCREEN-ENVELOPE-{dispatch_id}.json"
+
+
+def _surface_stage_info(
+    state: dict[str, Any],
+    surface: list[tuple[dict[str, Any], dict[str, Any], Path]],
+    *,
+    root: Path = ROOT,
+) -> tuple[bool, str]:
+    """Build the ordered whole-screen stage list from dispatch-bound records."""
+    global _SURFACE_LAST_STAGE_PAYLOAD
+    _SURFACE_LAST_STAGE_PAYLOAD = None
+    enriched: list[
+        tuple[dict[str, Any], dict[str, Any], Path, tuple[int, int, int], list[str], list[str], dict[str, Any]]
+    ] = []
+    task_id = state.get("task_id")
+    for record, dispatch, path in surface:
+        relative = path.relative_to(root)
+        phase, kind = record.get("review_phase"), record.get("review_kind")
+        record_cycle, attempt = record.get("cycle"), record.get("attempt")
+        if phase not in {"REVIEW"} or kind not in {"full", "lane"}:
+            return False, f"{relative} has an invalid surface phase/review_kind"
+        if type(record_cycle) is not int or record_cycle < 0 or type(attempt) is not int or attempt < 1:
+            return False, f"{relative} cycle/attempt have invalid values"
+        # Records themselves carry the identity binding fields and must agree
+        # with STATE and their dispatch exactly (P2-DIRECT-LINEAGE surface form).
+        if (
+            record.get("workspace_id") != state.get("workspace_id")
+            or record.get("parent_agent_id") != state.get("orchestrator_agent_id")
+            or record.get("lineage_verified") is not True
+            or dispatch.get("workspace_id") != state.get("workspace_id")
+            or dispatch.get("parent_agent_id") != state.get("orchestrator_agent_id")
+            or dispatch.get("lineage_verified") is not True
+        ):
+            return False, f"{relative} record/dispatch lineage does not equal STATE"
+        record_dispatch_id = record.get("dispatch_id")
+        try:
+            _surface_safe(task_id, "task_id", SURFACE_SAFE_TASK_ID)
+            _surface_safe(record_dispatch_id, "surface dispatch_id", SURFACE_SAFE_ID)
+        except ContractError as error:
+            return False, f"{relative} {error}"
+        expected_input = _surface_envelope_path(task_id, record_dispatch_id)
+        if record.get("input_path") != expected_input:
+            return False, f"{relative} input_path does not equal the task/dispatch-derived envelope path"
+        if not _has_successful_completion(record):
+            return False, f"{relative} surface terminal record must be a successful completion"
+        member = 0
+        if kind == "lane":
+            lane = record.get("lane")
+            if not isinstance(lane, dict) or set(lane) != {
+                "group_id", "group_identity", "group_manifest_path", "index",
+                "count", "offset", "length",
+            }:
+                return False, f"{relative} lane has an invalid exact shape"
+            member = lane.get("index")
+            if type(member) is not int:
+                return False, f"{relative} lane index must be an integer"
+        elif "lane" in record:
+            return False, f"{relative} non-lane record must not contain lane"
+        payload = _surface_payload(record, root=root)
+        entries = payload.get("entries")
+        if not isinstance(entries, list) or not entries:
+            return False, f"{relative} surface payload must contain frozen entries"
+        enriched.append(
+            (record, dispatch, path, (record_cycle, attempt, member),
+             _surface_entry_keys(entries), [entry.get("source") for entry in entries],
+             payload)
+        )
+
+    coordinates = [item[3] for item in enriched]
+    if len(coordinates) != len(set(coordinates)):
+        return False, "surface terminal three-dimensional coordinates must be unique"
+    stages: dict[tuple[int, int], list[tuple[dict[str, Any], dict[str, Any], Path, tuple[int, int, int], list[str], list[str], dict[str, Any]]]] = {}
+    for item in enriched:
+        stages.setdefault(item[3][:2], []).append(item)
+    used_group_ids: set[str] = set()
+    used_group_identities: set[str] = set()
+    used_group_manifest_paths: set[str] = set()
+    stage_info: list[tuple[tuple[int, int], str, str, list[str], list[str], str]] = []
+    stage_payloads: dict[tuple[int, int], dict[str, Any]] = {}
+    for stage_key in sorted(stages):
+        members = sorted(stages[stage_key], key=lambda item: item[3][2])
+        kinds = {item[0]["review_kind"] for item in members}
+        phases = {item[0]["review_phase"] for item in members}
+        if len(kinds) != 1 or len(phases) != 1:
+            return False, "surface stage must not mix review kinds or phases"
+        kind, phase = next(iter(kinds)), next(iter(phases))
+        if kind != "lane":
+            if len(members) != 1 or members[0][3][2] != 0:
+                return False, "full surface stage must contain one member ordinal 0"
+            if not 1 <= len(members[0][4]) <= 3:
+                return False, "full surface stage must cover between 1 and 3 entries"
+            record = members[0][0]
+            stage_info.append(
+                (stage_key, "full", str(record.get("candidate_identity")), members[0][4], members[0][5], phase)
+            )
+            # C4-01: keep the complete canonical envelope payload for the
+            # terminal draft comparison.
+            stage_payloads[stage_key] = members[0][6]
+            continue
+        if len(members) != 4 or [item[3][2] for item in members] != [1, 2, 3, 4]:
+            return False, "surface lane stage must contain exactly members 1..4"
+        agents = [item[0].get("agent_id") for item in members]
+        dispatch_ids = [item[0].get("dispatch_id") for item in members]
+        if len(set(agents)) != 4 or len(set(dispatch_ids)) != 4:
+            return False, "surface lane stage requires four distinct agents and dispatches"
+        first_lane = members[0][0]["lane"]
+        group_tuple = (first_lane["group_id"], first_lane["group_identity"], first_lane["group_manifest_path"])
+        for value, used, label in (
+            (group_tuple[0], used_group_ids, "group_id"),
+            (group_tuple[1], used_group_identities, "group_identity"),
+            (group_tuple[2], used_group_manifest_paths, "group_manifest_path"),
+        ):
+            if value in used:
+                return False, f"surface lane {label} must not be reused across stages"
+            used.add(value)
+        manifest_path = _ordinary_workspace_file(
+            first_lane["group_manifest_path"], "group_manifest_path", root=root
+        )
+        manifest_bytes = manifest_path.read_bytes()
+        try:
+            manifest = surface_screen_result_check.strict_json_bytes(
+                manifest_bytes, label="surface lane manifest"
+            )
+            if manifest_bytes != surface_screen_result_check.canonical_bytes(manifest):
+                raise surface_screen_result_check.ContractError(
+                    "surface lane manifest bytes are not canonical compact JSON"
+                )
+            surface_screen_manifest.validate_group_manifest(
+                manifest, root=root, manifest_path=first_lane["group_manifest_path"]
+            )
+        except surface_screen_result_check.InputError as error:
+            raise InputError(str(error)) from error
+        except surface_screen_result_check.ContractError as error:
+            return False, f"surface lane manifest is invalid: {error}"
+        manifest_payload = manifest["payload"]
+        if (
+            manifest.get("group_identity") != first_lane["group_identity"]
+            or manifest_payload.get("task_id") != state.get("task_id")
+            or manifest_payload.get("group_id") != first_lane["group_id"]
+            or manifest_payload.get("review_phase") != phase
+            or (manifest_payload.get("cycle"), manifest_payload.get("attempt")) != stage_key
+        ):
+            return False, "surface lane manifest does not bind its stage"
+        boundaries = manifest_payload["lane_boundaries"]
+        manifest_lanes = manifest_payload["lanes"]
+        for index, (item, boundary, manifest_lane) in enumerate(zip(members, boundaries, manifest_lanes), 1):
+            record, dispatch = item[0], item[1]
+            lane = record["lane"]
+            if (
+                (lane["group_id"], lane["group_identity"], lane["group_manifest_path"]) != group_tuple
+                or lane["count"] != 4
+                or (lane["index"], lane["offset"], lane["length"])
+                != (boundary["index"], boundary["offset"], boundary["length"])
+                or record.get("dispatch_id") != manifest_lane["dispatch_id"]
+                or record.get("input_path") != manifest_lane["input_path"]
+                or record.get("candidate_identity") != manifest_lane["candidate_identity"]
+                or dispatch.get("lane_group_identity") != lane["group_identity"]
+                or dispatch.get("lane_index") != index
+            ):
+                return False, f"surface lane {index} record/dispatch/manifest binding mismatch"
+            labels = dispatch.get("labels")
+            if (
+                not isinstance(labels, dict)
+                or labels.get("lane_group_identity") != lane["group_identity"]
+                or labels.get("lane_index") != index
+            ):
+                return False, f"surface lane {index} creation labels do not bind group/index"
+        workset = manifest_payload["workset"]
+        stage_info.append(
+            (stage_key, "lane_group", manifest["group_identity"],
+             _surface_entry_keys(workset["entries"]),
+             [entry.get("source") for entry in workset["entries"]], phase)
+        )
+        # C4-01: keep the lane group manifest's whole workset for the
+        # terminal draft comparison.
+        stage_payloads[stage_key] = workset
+    stage_info.sort(key=lambda item: item[0])
+    if stage_info:
+        _SURFACE_LAST_STAGE_PAYLOAD = stage_payloads[stage_info[-1][0]]
+    return True, "ok" if not stage_info else _surface_stage_info_packed(stage_info)
+
+
+def _surface_stage_info_packed(
+    stage_info: list[tuple[tuple[int, int], str, str, list[str], list[str], str]],
+) -> str:
+    # Publish the ordered stage list through the module-global side channel;
+    # the tuple-returning contract of _surface_stage_info stays (bool, str).
+    global _SURFACE_LAST_STAGE_INFO
+    _SURFACE_LAST_STAGE_INFO = stage_info
+    return "ok"
+
+
+_SURFACE_LAST_STAGE_INFO: list[tuple[tuple[int, int], str, str, list[str], list[str], str]] | None = None
+# C4-01 side channel: the complete canonical payload semantics of the last
+# validated surface stage — the full envelope payload, or the lane group
+# manifest's whole workset — so the terminal predicate can compare the bound
+# frozen input draft against everything the screen was actually built from,
+# not only entry identity keys.
+_SURFACE_LAST_STAGE_PAYLOAD: dict[str, Any] | None = None
+
+
+def _surface_input_draft(
+    state: dict[str, Any], *, root: Path,
+) -> tuple[dict[str, Any] | None, str]:
+    """Reread and strictly validate the unified actual frozen input draft
+    bound by ``surface_screen_input_path`` (C3-02).
+
+    Every surface terminal — zero, full, and lane — must bind exactly one
+    immutable canonical draft path and bytes/hash; this helper rederives the
+    validated draft (entries in canonical identity order) so the terminal
+    predicate can compare real coverage against the real input instead of a
+    recomputable constant."""
+    locator = state.get("surface_screen_input_path")
+    if not isinstance(locator, str) or not locator:
+        return None, (
+            "every surface terminal must bind surface_screen_input_path to "
+            "its actual frozen input draft"
+        )
+    try:
+        draft_file = _ordinary_workspace_file(
+            locator, "surface_screen_input_path", root=root
+        )
+    except (ContractError, InputError) as error:
+        return None, f"surface_screen_input_path: {error}"
+    draft_bytes = draft_file.read_bytes()
+    try:
+        draft = surface_screen_manifest.load_draft_bytes(draft_bytes)
+        if draft_bytes != surface_screen_result_check.canonical_bytes(draft):
+            raise surface_screen_result_check.ContractError(
+                "frozen input draft bytes are not canonical compact JSON"
+            )
+    except surface_screen_result_check.ContractError as error:
+        return None, f"surface input draft is invalid: {error}"
+    except surface_screen_result_check.InputError as error:
+        raise InputError(str(error)) from error
+    return draft, ""
+
+
+def _surface_evidence_binding_valid(
+    state: dict[str, Any],
+    surface_records: list[tuple[dict[str, Any], dict[str, Any], Path]],
+    *,
+    terminal: str,
+    task_id: str,
+    root: Path = ROOT,
+) -> tuple[bool, str]:
+    """Verify the immutable surface-specific evidence reconciliation binding.
+
+    The binding is an exact map from terminal artifact locators to their
+    SHA-256; DONE rederives it from the current bytes so any drift — and any
+    omission or extra artifact — fails closed.  It never borrows the
+    code/contextual sidecar reconciliation terminals.
+    """
+    binding = state.get("surface_evidence_binding")
+    if not isinstance(binding, dict) or frozenset(binding) != SURFACE_EVIDENCE_BINDING_KEYS:
+        return False, "surface tasks must bind an exact surface_evidence_binding object"
+    if binding["algorithm"] != SURFACE_EVIDENCE_BINDING_ALGORITHM:
+        return False, "surface_evidence_binding algorithm is not supported"
+    if binding["task_id"] != task_id:
+        return False, "surface_evidence_binding task_id does not match STATE"
+    if binding["terminal"] != terminal:
+        return False, "surface_evidence_binding terminal does not match the surface outcome"
+    locators: list[str] = []
+    # C3-02: every terminal also binds its actual frozen input draft by real
+    # bytes; a constant empty identity is never accepted as evidence.
+    draft_locator = state.get("surface_screen_input_path")
+    if not isinstance(draft_locator, str) or not draft_locator:
+        return False, (
+            "surface_evidence_binding requires the unified "
+            "surface_screen_input_path binding the actual frozen input draft"
+        )
+    locators.append(draft_locator)
+    if terminal == "zero":
+        zero_locator = state.get("surface_zero_path")
+        if not isinstance(zero_locator, str):
+            return False, "surface_evidence_binding requires a bound surface_zero_path"
+        locators.append(zero_locator)
+    else:
+        for record, _, _ in surface_records:
+            for key in ("input_path", "raw_output_path"):
+                locator = record.get(key)
+                if not isinstance(locator, str) or not locator:
+                    return False, f"surface_evidence_binding requires a record {key}"
+                locators.append(locator)
+        carry_locator = state.get("surface_carry_over_path")
+        if carry_locator is not None:
+            if not isinstance(carry_locator, str):
+                return False, "surface_carry_over_path must be a workspace-relative string"
+            locators.append(carry_locator)
+    recomputed: dict[str, str] = {}
+    for locator in locators:
+        try:
+            artifact = _ordinary_workspace_file(
+                locator, "surface evidence artifact", root=root
+            )
+        except (ContractError, InputError) as error:
+            return False, f"surface evidence artifact: {error}"
+        recomputed[locator] = hashlib.sha256(artifact.read_bytes()).hexdigest()
+    if binding["artifact_sha256"] != recomputed:
+        return False, "surface_evidence_binding does not match the current terminal artifact bytes"
+    return True, "ok"
+
+
+def _surface_orphan_group_manifest(
+    state: dict[str, Any], group_identity: object, *, root: Path,
+) -> tuple[dict[str, Any], str] | None:
+    """Locate a failed lane attempt's group manifest by its immutable
+    group_identity (C4-02).
+
+    Orphan failed surface children publish no completion record, so the
+    group manifest — always written before dispatch — is the only persisted
+    source of their group id/path and attempt.  Malformed candidate manifests
+    fail closed; a missing manifest means the attempt's group artifacts were
+    destroyed or its manifest path was reused, both of which fail closed."""
+    if not isinstance(group_identity, str) or not SHA256.fullmatch(group_identity):
+        return None
+    task_id = state.get("task_id")
+    if not isinstance(task_id, str) or not SURFACE_SAFE_TASK_ID.fullmatch(task_id):
+        return None
+    directory = root / ".ai" / "task" / task_id
+    if not directory.is_dir():
+        return None
+    for candidate in sorted(directory.glob("SURFACE-SCREEN-GROUP-*.json")):
+        relative = candidate.relative_to(root).as_posix()
+        raw = _ordinary_workspace_file(
+            relative, "orphan surface group manifest", root=root
+        ).read_bytes()
+        try:
+            manifest = surface_screen_result_check.strict_json_bytes(
+                raw, label="surface group manifest"
+            )
+            if raw != surface_screen_result_check.canonical_bytes(manifest):
+                raise surface_screen_result_check.ContractError(
+                    "surface group manifest bytes are not canonical compact JSON"
+                )
+            surface_screen_manifest.validate_group_manifest(
+                manifest, root=root, manifest_path=relative
+            )
+        except surface_screen_result_check.InputError as error:
+            raise InputError(str(error)) from error
+        except surface_screen_result_check.ContractError as error:
+            raise ContractError(
+                f"surface group manifest {relative} is invalid: {error}"
+            ) from error
+        if manifest.get("group_identity") == group_identity:
+            return manifest, relative
+    return None
+
+
+def _surface_retry_history_valid(
+    state: dict[str, Any],
+    surface: list[tuple[dict[str, Any], dict[str, Any], Path]],
+    successful: list[tuple[dict[str, Any], dict[str, Any], Path]],
+    *,
+    root: Path = ROOT,
+) -> tuple[bool, str]:
+    """Validate the complete surface retry history (C3-05, C4-02, C5-01, C5-02).
+
+    Failed attempts — including orphan failed surface children that were
+    dispatched but never published a completion record — followed by a
+    successful stage must have monotonically increasing attempts, and every
+    failed child identity — dispatch_id, agent_id, and lane
+    group_id/group_identity/group manifest path — must stay fresh: no failed
+    identity may be reused by the successful stage or by a later failed
+    attempt (C5-01: the four members of one failed lane stage share one
+    group tuple, but any of the three group identifiers reused between two
+    distinct failed stages, or between a failed and the successful stage,
+    fails closed).  SR-01: orphan and record-bound members of one failed
+    stage claim their shared group tuple in one per-stage map keyed by
+    (cycle, attempt), so a partially orphaned failed stage stays legal.
+    Orphan lane children recover their group/attempt state
+    from the group manifest bound by their persisted lane_group_identity;
+    orphan full children carry no persisted attempt and are enforced for
+    identity freshness only.  C5-02: orphan reconstruction also recognizes
+    the persisted surface signals already on the dispatch — its
+    lane_group_identity, or the canonical task/dispatch-derived
+    SURFACE-SCREEN envelope input path — even when purpose was deleted or
+    relabeled; this inference stays strictly bounded to surface retry
+    reconstruction and never becomes a generalized purpose heuristic."""
+    failed = [item for item in surface if not _has_successful_completion(item[0])]
+    # C4-02, C5-02: reconstruct orphan failed children from child_dispatches
+    # — any surface child without a bound surface completion record is a
+    # failed attempt and joins the retry history.  Besides the surface
+    # purpose, only signals already persisted on the dispatch itself qualify:
+    # the lane_group_identity of a failed lane attempt, or the canonical
+    # task-derived SURFACE-SCREEN envelope input path, so purpose deletion or
+    # relabeling cannot hide a dispatched surface child from this history.
+    children = state.get("child_dispatches")
+    bound_ids = {item[0].get("dispatch_id") for item in surface}
+    task_id = state.get("task_id")
+
+    def is_surface_orphan(dispatch: dict[str, Any]) -> bool:
+        if dispatch.get("purpose") == "translation_surface_screen_v1":
+            return True
+        group_identity = dispatch.get("lane_group_identity")
+        if isinstance(group_identity, str) and group_identity:
+            return True
+        dispatch_id, input_path = dispatch.get("dispatch_id"), dispatch.get("input_path")
+        return (
+            isinstance(task_id, str)
+            and SURFACE_SAFE_TASK_ID.fullmatch(task_id) is not None
+            and isinstance(dispatch_id, str) and bool(dispatch_id)
+            and isinstance(input_path, str)
+            and input_path == _surface_envelope_path(task_id, dispatch_id)
+        )
+
+    orphans = [
+        dispatch for dispatch in (children if isinstance(children, list) else [])
+        if isinstance(dispatch, dict)
+        and is_surface_orphan(dispatch)
+        and dispatch.get("dispatch_id") not in bound_ids
+    ]
+    if not failed and not orphans:
+        return True, "ok"
+    if not successful:
+        return False, (
+            "surface retry history records failed attempts without a successful "
+            "terminal stage"
+        )
+
+    def stage_key(item: tuple[dict[str, Any], dict[str, Any], Path]) -> tuple[int, int]:
+        record = item[0]
+        return (record["cycle"], record["attempt"])
+
+    def group_markers(record: dict[str, Any]) -> set[str]:
+        lane = record.get("lane")
+        if not isinstance(lane, dict):
+            return set()
+        return {
+            f"{key}={lane[key]}"
+            for key in ("group_id", "group_identity", "group_manifest_path")
+            if lane.get(key) is not None
+        }
+
+    used_dispatches: set[str] = set()
+    used_agents: set[str] = set()
+    used_groups: set[str] = set()
+    orphan_attempts: set[tuple[int, int]] = set()
+    # C5-01/SR-01: one shared per-stage claim map keyed by (cycle, attempt)
+    # for both reconstructed orphan members and record-bound failed members;
+    # members of one failed stage share one group tuple across the
+    # orphan/record boundary, while distinct failed stages never do.
+    failed_stage_groups: dict[tuple[int, int], set[str]] = {}
+    for dispatch in orphans:
+        dispatch_id = dispatch.get("dispatch_id")
+        agent_id = dispatch.get("agent_id")
+        if not isinstance(dispatch_id, str) or not dispatch_id or \
+                not isinstance(agent_id, str) or not agent_id:
+            return False, (
+                "orphan failed surface children must carry dispatch/agent identities"
+            )
+        if dispatch_id in used_dispatches or agent_id in used_agents:
+            return False, "orphan failed surface children must use fresh dispatch/agent identities"
+        used_dispatches.add(dispatch_id)
+        used_agents.add(agent_id)
+        group_identity = dispatch.get("lane_group_identity")
+        if group_identity is None:
+            continue
+        located = _surface_orphan_group_manifest(state, group_identity, root=root)
+        if located is None:
+            return False, (
+                "an orphan failed surface lane child's group manifest cannot be "
+                "located by its bound lane_group_identity; destroyed or reused "
+                "group artifacts fail closed"
+            )
+        manifest, manifest_path = located
+        payload = manifest["payload"]
+        attempt_key = (payload["cycle"], payload["attempt"])
+        orphan_attempts.add(attempt_key)
+        markers = {
+            f"group_id={payload['group_id']}",
+            f"group_identity={group_identity}",
+            f"group_manifest_path={manifest_path}",
+        }
+        claimed = failed_stage_groups.setdefault(attempt_key, set())
+        overlap = markers & (used_groups - claimed)
+        if overlap:
+            return False, (
+                "an orphan failed surface stage must not reuse an earlier failed "
+                f"attempt's lane group identity/path: {sorted(overlap)[0]}"
+            )
+        claimed |= markers
+        used_groups |= markers
+
+    attempts = {stage_key(item) for item in surface} | orphan_attempts
+    previous_attempt: int | None = None
+    for _, attempt in sorted(attempts):
+        if previous_attempt is not None and attempt <= previous_attempt:
+            return False, "surface retry attempts must increase monotonically across attempts"
+        previous_attempt = attempt
+    failed_keys = {stage_key(item) for item in failed} | orphan_attempts
+    if failed_keys and max(failed_keys) >= min(stage_key(item) for item in successful):
+        return False, "every failed surface attempt must precede the successful stage"
+
+    for record, _, _ in failed:
+        if record["dispatch_id"] in used_dispatches or record["agent_id"] in used_agents:
+            return False, "failed surface retry attempts must use fresh dispatch/agent identities"
+        used_dispatches.add(record["dispatch_id"])  # type: ignore[arg-type]
+        used_agents.add(record["agent_id"])  # type: ignore[arg-type]
+        markers = group_markers(record)
+        claimed = failed_stage_groups.setdefault(
+            (record["cycle"], record["attempt"]), set()
+        )
+        # C5-01: the four members of one failed lane stage may share one
+        # group tuple, but group_id, group_identity, and group_manifest_path
+        # must never be reused between two distinct failed stages (reuse
+        # against the successful stage is enforced below).
+        overlap = markers & (used_groups - claimed)
+        if overlap:
+            return False, (
+                "a failed surface stage must not reuse an earlier failed "
+                f"attempt's lane group identity/path: {sorted(overlap)[0]}"
+            )
+        claimed |= markers
+        used_groups |= markers
+    for record, _, _ in successful:
+        if record["dispatch_id"] in used_dispatches or record["agent_id"] in used_agents:
+            return False, (
+                "the successful surface stage must not reuse a failed attempt's "
+                "dispatch/agent identity"
+            )
+        overlap = group_markers(record) & used_groups
+        if overlap:
+            return False, (
+                "the successful surface stage must not reuse a failed attempt's "
+                f"lane group identity/path: {sorted(overlap)[0]}"
+            )
+    return True, "ok"
+
+
+def _translation_surface_convergence_valid(
+    state: dict[str, Any], loaded: list[tuple[dict[str, Any], Path]],
+    bound_records: list[tuple[dict[str, Any], dict[str, Any], Path]], *, root: Path = ROOT,
+) -> tuple[bool, str]:
+    """Validate translation_surface_screen_v1 terminals honestly.
+
+    Surface is review_only with its own independent whole-screen terminal: it
+    never borrows the implement RE_REVIEW/FINAL_REVIEW convergence of the
+    contextual contracts.  The terminal predicate records surface completion
+    only: the complete frozen screen set ran under this contract with an
+    OK|ISSUE result and evidence binding per entry; it never claims deep
+    review or repair completion.
+    """
+    global _SURFACE_LAST_STAGE_INFO
+    global _SURFACE_LAST_STAGE_PAYLOAD
+    _SURFACE_LAST_STAGE_INFO = None
+    _SURFACE_LAST_STAGE_PAYLOAD = None
+    if not _surface_enabled(state):
+        # C3-01: surface checks activate from any persisted surface activity,
+        # not only from review_contracts — removing the contract or
+        # downgrading the schema can never silently bypass them.
+        if _surface_activity_present(state, loaded):
+            return False, (
+                "translation_surface_screen_v1 activity exists (surface dispatch, "
+                "completion record, or terminal binding) but the contract was "
+                "removed or the schema downgraded; DONE fails closed"
+            )
+        return True, "ok"
+    mode = state.get("mode")
+    if mode != "review_only":
+        return False, "translation_surface_screen_v1 is review_only; implement repair is a separate task"
+    if state.get("change_class") != "translation_workflow":
+        return False, "surface review_only tasks must use change_class=translation_workflow"
+    task_id = state.get("task_id")
+    if not isinstance(task_id, str) or not SURFACE_SAFE_TASK_ID.fullmatch(task_id):
+        return False, "surface task_id must be dispatch-safe for artifact paths"
+
+    surface_loaded = [
+        (record, path) for record, path in loaded
+        if record.get("review_contract") == "translation_surface_screen_v1"
+        and record.get("purpose") == "translation_surface_screen_v1"
+        and _has_completion_indicator(record)
+    ]
+    surface = [
+        item for item in bound_records
+        if item[0].get("review_contract") == "translation_surface_screen_v1"
+        and item[0].get("purpose") == "translation_surface_screen_v1"
+    ]
+
+    # Identity-bound zero/no-dispatch artifact: proves n=0 without any surface
+    # dispatch.  When present, no dispatch-bound surface record may exist.
+    zero_locator = state.get("surface_zero_path")
+    if zero_locator is not None:
+        if surface_loaded or surface:
+            return False, "a zero/no-dispatch surface terminal must not carry dispatch-bound surface records"
+        children = state.get("child_dispatches")
+        if isinstance(children, list) and any(
+            isinstance(item, dict)
+            and item.get("purpose") == "translation_surface_screen_v1"
+            for item in children
+        ):
+            return False, "a zero/no-dispatch surface terminal must not coexist with surface dispatches"
+        if not isinstance(zero_locator, str):
+            return False, "surface_zero_path must be a workspace-relative string"
+        try:
+            zero_file = _ordinary_workspace_file(zero_locator, "surface_zero_path", root=root)
+        except (ContractError, InputError) as error:
+            return False, f"surface_zero_path: {error}"
+        expected_zero = surface_screen_manifest.zero_artifact_path(task_id)
+        if zero_locator != expected_zero:
+            return False, "surface_zero_path must equal the task-derived zero artifact path"
+        zero_bytes = zero_file.read_bytes()
+        try:
+            zero_value = surface_screen_result_check.strict_json_bytes(
+                zero_bytes, label="surface zero artifact"
+            )
+            if zero_bytes != surface_screen_result_check.canonical_bytes(zero_value):
+                raise surface_screen_result_check.ContractError(
+                    "zero artifact bytes are not canonical compact JSON"
+                )
+            surface_screen_manifest.validate_zero_payload(zero_value)
+            # Rederive the canonical empty workset/input snapshot identity.
+            if zero_value.get("workset_identity") != surface_screen_manifest.build_zero_workset_identity():
+                return False, "surface zero artifact does not bind the canonical empty workset identity"
+        except surface_screen_result_check.ContractError as error:
+            return False, f"surface zero artifact is invalid: {error}"
+        if state.get("surface_carry_over_path") is not None:
+            return False, "a zero/no-dispatch surface terminal must not bind a carry-over artifact"
+        # C3-02: reread the actual frozen input draft.  A zero terminal must
+        # bind a really empty draft by real bytes, never a constant empty
+        # identity.
+        draft, draft_detail = _surface_input_draft(state, root=root)
+        if draft is None:
+            return False, draft_detail
+        if draft["entries"]:
+            return False, (
+                "a zero/no-dispatch surface terminal must bind an actually "
+                "empty frozen input draft"
+            )
+        binding = _surface_evidence_binding_valid(
+            state, surface, terminal="zero", task_id=task_id, root=root,
+        )
+        if not binding[0]:
+            return False, binding[1]
+        return True, "ok"
+
+    if not surface_loaded or len(surface_loaded) != len(surface):
+        return False, "every surface terminal record must be dispatch-bound"
+
+    # C3-05: validate the complete retry history before the terminal stage.
+    successful = [item for item in surface if _has_successful_completion(item[0])]
+    retry_ok = _surface_retry_history_valid(state, surface, successful, root=root)
+    if not retry_ok[0]:
+        return False, retry_ok[1]
+    stages_ok = _surface_stage_info(state, successful, root=root)
+    if not stages_ok[0]:
+        return False, stages_ok[1]
+    stage_info = _SURFACE_LAST_STAGE_INFO or []
+    if len(stage_info) != 1:
+        return False, "review-only surface permits exactly one whole-screen stage"
+    origin = stage_info[0]
+    if origin[0][0] != 0 or origin[5] != "REVIEW" or origin[1] not in {"full", "lane_group"}:
+        return False, "the surface stage must be a cycle-0 REVIEW full or lane_group covering the whole screen set"
+
+    # C3-02: reread the unified actual frozen input draft for every
+    # whole-screen terminal.  Coverage is compared against the real draft:
+    # exact equality for n<=80, and first-80 plus a mandatory validated
+    # carry-over artifact for n>80, so deleting the carry binding can never
+    # reclassify an n=85 workset as a whole n=80 screen.
+    draft, draft_detail = _surface_input_draft(state, root=root)
+    if draft is None:
+        return False, draft_detail
+    draft_keys = _surface_entry_keys(draft["entries"])
+    carry_locator = state.get("surface_carry_over_path")
+    if len(draft_keys) > surface_screen_manifest.SCREEN_LIMIT:
+        if carry_locator is None:
+            return False, (
+                "the frozen input draft exceeds the 80-entry screen limit; a bound "
+                "validated carry-over artifact is mandatory, and deleting the carry "
+                "binding can never reclassify it as a whole screen"
+            )
+        if not isinstance(carry_locator, str):
+            return False, "surface_carry_over_path must be a workspace-relative string"
+        try:
+            carry_file = _ordinary_workspace_file(carry_locator, "surface_carry_over_path", root=root)
+        except (ContractError, InputError) as error:
+            return False, f"surface_carry_over_path: {error}"
+        expected_carry = surface_screen_manifest.carry_over_artifact_path(task_id)
+        if carry_locator != expected_carry:
+            return False, "surface_carry_over_path must equal the task-derived carry-over artifact path"
+        carry_bytes = carry_file.read_bytes()
+        try:
+            carry_value = surface_screen_result_check.strict_json_bytes(
+                carry_bytes, label="surface carry-over artifact"
+            )
+            if carry_bytes != surface_screen_result_check.canonical_bytes(carry_value):
+                raise surface_screen_result_check.ContractError(
+                    "carry-over artifact bytes are not canonical compact JSON"
+                )
+            # Strict carry-over validation: algorithm version, counts,
+            # disjointness and path binding are rechecked here; the complete
+            # original ordered frozen identity set is bound below.
+            surface_screen_manifest.validate_carry_over_payload(carry_value)
+        except surface_screen_result_check.ContractError as error:
+            return False, f"surface carry-over artifact is invalid: {error}"
+        if carry_value.get("task_id") != task_id:
+            return False, "carry-over artifact task_id does not bind STATE.task_id"
+        # Omissions/extras: the ordered concatenation of the screen and
+        # carry-over identity arrays must equal the complete validated frozen
+        # input draft exactly.
+        try:
+            surface_screen_manifest.validate_carry_over_payload(
+                carry_value, entries=draft["entries"]
+            )
+        except surface_screen_result_check.ContractError as error:
+            return False, f"carry-over artifact does not bind the original frozen workset: {error}"
+        if origin[3] != carry_value.get("ordered_screen_entry_revision_identities"):
+            return False, "the screen stage does not cover exactly the recorded first-80 screen set"
+    else:
+        if carry_locator is not None:
+            return False, (
+                "a carry-over artifact is bound but the frozen input draft does "
+                "not exceed the screen limit"
+            )
+        if origin[3] != draft_keys:
+            return False, "the screen stage does not cover exactly the frozen input draft workset"
+    # C4-01: the terminal must bind complete canonical payload semantics, not
+    # only entry identity keys: a full stage's envelope payload equals the
+    # whole frozen draft; a lane stage's manifest whole workset equals the
+    # exact draft (or first-80) projection including all shared scalars and
+    # the unbound rendered_briefing.
+    if origin[1] == "full":
+        if _SURFACE_LAST_STAGE_PAYLOAD != draft:
+            return False, (
+                "the full surface envelope payload does not equal the frozen "
+                "input draft (all shared scalars, briefing, and entries)"
+            )
+    else:
+        workset = _SURFACE_LAST_STAGE_PAYLOAD
+        screen_entries = (
+            draft["entries"][:surface_screen_manifest.SCREEN_LIMIT]
+            if len(draft_keys) > surface_screen_manifest.SCREEN_LIMIT
+            else draft["entries"]
+        )
+        if (
+            not isinstance(workset, dict)
+            or workset.get("entries") != screen_entries
+            or any(
+                workset.get(key) != draft[key]
+                for key in ("fixed_source_identity", "terminology_snapshot",
+                            "rules_version", "rendered_briefing")
+            )
+        ):
+            return False, (
+                "the lane group whole workset does not equal the frozen input "
+                "draft projection (all shared scalars, briefing, and entries)"
+            )
+    binding = _surface_evidence_binding_valid(
+        state, surface, terminal="whole_screen", task_id=task_id, root=root,
+    )
+    if not binding[0]:
+        return False, binding[1]
+    return True, "ok"
+
+
 def _candidate_bindings_valid(
     state: dict[str, Any], records: list[tuple[dict[str, Any], dict[str, Any], Path]],
     *, root: Path = ROOT,
@@ -1079,6 +1968,82 @@ def _candidate_bindings_valid(
                     raise InputError(str(error)) from error
                 except contextual_result_check.ContractError as error:
                     return False, f"{relative} raw output is invalid: {error}"
+            continue
+        if record.get("purpose") == "translation_surface_screen_v1":
+            identity, input_path = record.get("candidate_identity"), record.get("input_path")
+            if not isinstance(identity, str) or not SHA256.fullmatch(identity) or not isinstance(input_path, str):
+                return False, f"{relative} lacks a valid surface identity or input_path"
+            if identity != dispatch.get("candidate_identity") or input_path != dispatch.get("input_path"):
+                return False, f"{relative} surface binding does not match its dispatch"
+            envelope_file = _ordinary_workspace_file(input_path, "surface input_path", root=root)
+            envelope_bytes = envelope_file.read_bytes()
+            envelope = _read_json(envelope_file, "surface envelope")
+            if (
+                not isinstance(envelope, dict)
+                or frozenset(envelope) != {"candidate_identity", "payload"}
+                or envelope.get("candidate_identity") != identity
+            ):
+                return False, f"{relative} surface envelope does not match candidate_identity"
+            try:
+                surface_screen_result_check.canonical_payload_bytes(envelope.get("payload"))
+            except surface_screen_result_check.ContractError as error:
+                return False, f"{relative} surface payload is invalid: {error}"
+            if envelope_bytes != surface_screen_result_check.canonical_bytes(envelope):
+                return False, f"{relative} surface envelope bytes are not canonical compact JSON"
+            dispatch_id = record["dispatch_id"]
+            labels = dispatch.get("labels")
+            if (
+                dispatch.get("lineage_verified") is not True
+                or not isinstance(state.get("orchestrator_agent_id"), str)
+                or not state["orchestrator_agent_id"]
+                or dispatch.get("parent_agent_id") != state["orchestrator_agent_id"]
+                or not isinstance(state.get("workspace_id"), str)
+                or not state["workspace_id"]
+                or dispatch.get("workspace_id") != state["workspace_id"]
+                or not isinstance(labels, dict)
+                or labels.get("task_id") != state.get("task_id")
+                or labels.get("role") != "reviewer"
+                or labels.get("purpose") != "translation_surface_screen_v1"
+                or labels.get("candidate_identity") != identity
+                or labels.get("dispatch_id") != dispatch_id
+            ):
+                return False, f"{relative} surface dispatch lacks exact workspace/direct-lineage labels"
+            # The record itself persists the same workspace/direct-parent
+            # lineage binding as STATE and its dispatch.
+            if (
+                record.get("workspace_id") != state.get("workspace_id")
+                or record.get("parent_agent_id") != state.get("orchestrator_agent_id")
+                or record.get("lineage_verified") is not True
+            ):
+                return False, f"{relative} surface record lacks STATE-equal workspace/parent/lineage fields"
+            # Safe identifiers and the exact task/dispatch-derived envelope path.
+            if (
+                not isinstance(state.get("task_id"), str)
+                or not SURFACE_SAFE_TASK_ID.fullmatch(state["task_id"])
+                or not isinstance(dispatch_id, str)
+                or not SURFACE_SAFE_ID.fullmatch(dispatch_id)
+                or input_path != _surface_envelope_path(state["task_id"], dispatch_id)
+            ):
+                return False, f"{relative} surface identity/path is not exactly task/dispatch-derived"
+            try:
+                surface_screen_result_check.render_dispatch_prompt(identity, input_path)
+            except surface_screen_result_check.ContractError as error:
+                return False, f"{relative} surface dispatch prompt is invalid: {error}"
+            expected_raw = f".ai/reviews/{state['task_id']}/raw-{dispatch_id}.txt"
+            raw_path = record.get("raw_output_path")
+            raw_hash = record.get("raw_output_sha256")
+            if raw_path != expected_raw or not isinstance(raw_hash, str) or not SHA256.fullmatch(raw_hash):
+                return False, f"{relative} surface raw output path/hash does not bind task/dispatch"
+            raw_file = _ordinary_workspace_file(raw_path, "raw_output_path", root=root)
+            raw_bytes = raw_file.read_bytes()
+            if hashlib.sha256(raw_bytes).hexdigest() != raw_hash:
+                return False, f"{relative} surface raw output hash drift"
+            try:
+                surface_screen_result_check.validate_result_bytes(envelope_bytes, raw_bytes)
+            except surface_screen_result_check.InputError as error:
+                raise InputError(str(error)) from error
+            except surface_screen_result_check.ContractError as error:
+                return False, f"{relative} surface raw output is invalid: {error}"
             continue
         locator = record.get("candidate_locator")
         if not isinstance(locator, dict) or set(locator) != {"spec_path", "diff_path"}:
@@ -1312,12 +2277,30 @@ def _evidence_checks(
     ):
         return False, "change_class must be one of standard, translation_workflow, infrastructure"
 
+    # translation_workflow review-only work divides into two honest shapes:
+    # code-contextual review (needs the sidecar discipline above) and the
+    # schema-5 surface screen, whose reviewers never read source review
+    # records, so a code-contextual completion terminal cannot exist there.
+    # A surface task under translation_workflow reconciles by its own strict
+    # immutable terminal binding instead (checked in the surface convergence
+    # predicate) — but real code records are never waived: when any code
+    # record exists, the sidecar discipline applies exactly as usual.
+    surface_contract_active = (
+        isinstance(state.get("review_contracts"), list)
+        and "translation_surface_screen_v1" in state["review_contracts"]
+    )
+    surface_waives_empty_code_records = (
+        surface_contract_active
+        and state.get("change_class") == "translation_workflow"
+        and not code_records
+    )
     if (
         type(schema_version) is int
         and schema_version >= 3
         and state.get("mode") == "review_only"
         and state.get("change_class") in {"infrastructure", "translation_workflow"}
         and (not code_records or len(frozen) != len(code_records))
+        and not surface_waives_empty_code_records
     ):
         return False, "evidence_reconciliation_required"
 
@@ -1369,9 +2352,25 @@ def _reviewer_identity_valid(
     return True, "ok"
 
 
-def _children_archived(state: dict[str, Any]) -> tuple[bool, str]:
+def _children_archived(state: dict[str, Any], *, root: Path = ROOT) -> tuple[bool, str]:
     children = state.get("child_dispatches")
     if not isinstance(children, list) or not children:
+        # The surface zero/no-dispatch terminal is the one honest n=0 closure
+        # with no children; verify its bound artifact before accepting that.
+        if children == [] and isinstance(state.get("surface_zero_path"), str) \
+                and isinstance(state.get("review_contracts"), list) \
+                and "translation_surface_screen_v1" in state["review_contracts"]:
+            try:
+                zero_file = _ordinary_workspace_file(
+                    state["surface_zero_path"], "surface_zero_path", root=root
+                )
+            except (ContractError, InputError):
+                return False, "children_archived: an empty surface task must bind a verifiable zero artifact"
+            zero_value = _read_json(zero_file, "surface zero artifact")
+            if not isinstance(zero_value, dict) or zero_value.get("proves_no_surface_dispatch") is not True \
+                    or zero_value.get("screen_count") != 0:
+                return False, "children_archived: the bound zero artifact does not prove a no-dispatch terminal"
+            return True, "ok"
         return False, "child_dispatches cannot be null, absent, or empty with review contracts"
     if any(not isinstance(dispatch, dict) or not _archived(dispatch) for dispatch in children):
         return False, "every child dispatch must be archived and confirmed"
@@ -1429,6 +2428,26 @@ def _done(state: dict[str, Any], *, root: Path = ROOT) -> CheckResult:
         return _result("NEW_CONTRACT_FAILED", f"translation_v2_convergence: malformed JSON value ({error})", 1)
     if not v2_convergence[0]:
         return _result("NEW_CONTRACT_FAILED", f"translation_v2_convergence: {v2_convergence[1]}", 1)
+    try:
+        surface_convergence = _translation_surface_convergence_valid(
+            state, loaded, completed, root=root
+        )
+    except surface_screen_result_check.ContractError as error:
+        return _result("NEW_CONTRACT_FAILED", f"translation_surface_convergence: {error}", 1)
+    except surface_screen_result_check.InputError as error:
+        return _result("INPUT_ERROR", str(error), 2)
+    except ContractError as error:
+        return _result("NEW_CONTRACT_FAILED", f"translation_surface_convergence: {error}", 1)
+    except InputError as error:
+        return _result("INPUT_ERROR", str(error), 2)
+    except (TypeError, ValueError, KeyError, AttributeError) as error:
+        return _result(
+            "NEW_CONTRACT_FAILED",
+            f"translation_surface_convergence: malformed JSON value ({error})",
+            1,
+        )
+    if not surface_convergence[0]:
+        return _result("NEW_CONTRACT_FAILED", f"translation_surface_convergence: {surface_convergence[1]}", 1)
     identity = _reviewer_identity_valid(state, completed, root=root)
     if not identity[0]:
         return _result("NEW_CONTRACT_FAILED", f"reviewer_identity: {identity[1]}", 1)
@@ -1453,7 +2472,7 @@ def _done(state: dict[str, Any], *, root: Path = ROOT) -> CheckResult:
         return _result("NEW_CONTRACT_FAILED", f"evidence_reconciliation: malformed JSON value ({error})", 1)
     if not evidence[0]:
         return _result("NEW_CONTRACT_FAILED", f"evidence_reconciliation: {evidence[1]}", 1)
-    archived = _children_archived(state)
+    archived = _children_archived(state, root=root)
     if not archived[0]:
         return _result("NEW_CONTRACT_FAILED", f"children_archived: {archived[1]}", 1)
     return _result("DONE_VERIFIED", "DONE predicate verified", 0)
@@ -1511,6 +2530,25 @@ def check_state(
             return _result(
                 "NEW_CONTRACT_FAILED",
                 f"review_records: {review_observations[1]}",
+                1,
+            )
+        # C4-03: STOP must apply the same persisted all-source surface
+        # activity predicate as DONE, so deleting or relabeling
+        # child_dispatches can never close partial surface records, terminal
+        # bindings, or artifacts.  The review-only surface funnel has exactly
+        # two terminals — the whole-screen stage or the zero/no-dispatch
+        # artifact — and any persisted surface activity belongs in DONE (or
+        # WAIT_USER when abandoned), not STOP.  Record loading stays tolerant
+        # of unavailable or malformed records, matching STOP's established
+        # narrow semantics for everything that is not surface activity.
+        if _surface_activity_present(state, _load_records_for_stop(state, root=root)):
+            return _result(
+                "NEW_CONTRACT_FAILED",
+                "STOP cannot close a dispatched surface screen: persisted "
+                "surface activity (surface dispatch, completion record, or "
+                "terminal binding) requires the surface terminal predicate; "
+                "finish the whole-screen stage, record the zero/no-dispatch "
+                "artifact, or wait in WAIT_USER",
                 1,
             )
         children = state.get("child_dispatches")

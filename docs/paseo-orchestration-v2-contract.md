@@ -2,7 +2,7 @@
 
 > 状态：设计草案，运行时解耦版。
 >
-> 契约版本：`paseo-orchestration/2.24-draft`（取代 `paseo-orchestration/2.23-draft`；更早的
+> 契约版本：`paseo-orchestration/2.25-draft`（取代 `paseo-orchestration/2.24-draft`；更早的
 > `paseo-orchestration/2.15-draft` 已归档）。
 >
 > 上位规则：[`AGENTS.md`](../AGENTS.md)。本文约束角色行为、任务边界和候选一致性，
@@ -176,6 +176,11 @@ Paseo 在任务明确采用本流程并建立 task ID 时激活，到 `DONE`／`
 - `translation_contextual_v2`：仅供 `schema_version >= 5` 的新 task 使用，固定
   `role=reviewer`、`purpose=translation_contextual_v2`；接收独立 v2 契约规定的 full、
   closure 或四成员 compact lane stage。同一 task 不得与 v1 混用。
+- `translation_surface_screen_v1`：仅供 `schema_version >= 5` 的新 task 使用，固定
+  `role=reviewer`、`purpose=translation_surface_screen_v1`；接收独立
+  `docs/paseo-translation-surface-screen-v1-contract.md` 规定的 full 或四成员 q/r lane
+  stage，按 `P2-TRANSLATION-SURFACE-V1` 执行 batching 与 carry-over。同一 task 不得与任一
+  语境审核契约混用；其结果只是 `OK|ISSUE` observation，不是 adjudicated finding。
 
 `purpose` 是同一 REVIEWER 角色的行为分支，不是运行时选择。各类审核都必须使用当前
 workspace、独立的冻结输入和对应输出 schema。
@@ -261,6 +266,9 @@ contextual lane member 共同组成一个 `(cycle, attempt)` stage，不各自�
 .ai/task/<task_id>/SCOPE.json
 .ai/task/<task_id>/CONTEXTUAL-ENVELOPE-<dispatch_id>.json
 .ai/task/<task_id>/CONTEXTUAL-LANE-GROUP-<group_id>.json  # v2 lane stage only
+.ai/task/<task_id>/SURFACE-SCREEN-ENVELOPE-<dispatch_id>.json  # surface screen v1 envelope
+.ai/task/<task_id>/SURFACE-SCREEN-GROUP-<group_id>.json  # surface screen v1 lane group only
+.ai/task/<task_id>/TRANSLATION-REVIEW-LEDGER.jsonl  # optional append-only review ledger
 .ai/task/<task_id>/EVIDENCE-RECONCILIATION.json  # required for schema 3 review_only infrastructure/translation_workflow; may be empty
 .ai/task/<task_id>/STATE.json
 .ai/reviews/<task_id>/review-NN.json
@@ -944,6 +952,8 @@ max_cycles；唯一最早记录必须是 cycle 0 的 `REVIEW/full`，intervening
    candidate_identity 规则仍完整；
 3. `translation_contextual_v1` 仍保持原结果 schema 和冻结 envelope，现有 task 不迁移；
    `translation_contextual_v2` 是仅供 schema 5 新 task 使用的 compact lane 路由；
+   `translation_surface_screen_v1` 是仅供 schema 5 新 task 使用的表层筛查路由，结果只是
+   `OK|ISSUE` observation，不改变任何既有译文审核语义；
 4. CLI／MCP 只作为等价传输；运行时选择只可按第 19 条形成非规范性审计观测；
 5. 历史 task、review artifact、archive 和质量 evaluator 预注册不被重写；
 6. 文档之间的 role／purpose／lineage 语义一致，Markdown 和 `git diff --check` 通过。
@@ -970,7 +980,8 @@ max_cycles；唯一最早记录必须是 cycle 0 的 `REVIEW/full`，intervening
 | `2.21-draft` | 上一版草案 | 收紧 Phase 1 no-change 全文件字节闭合、空 content-diff、最新唯一 full completion、apply 前 integration 身份／授权／EXECUTOR provenance，以及 child agent 与 orchestrator 身份分离。 |
 | `2.22-draft` | 上一版草案 | 把最新 full completion 扩展到两个 STATE review 数组和全部合法 review phase；apply 强制实际 `PASEO_AGENT_ID`；wave evidence 强制 fresh 专用 EXECUTOR 与 path/prospective identity；从固定 manifest 及 lane 冻结输入机械重建 integration source/context/terminology/briefing provenance。 |
 | `2.23-draft` | 上一版草案 | 为 schema 4 translation implement 增加 v1 七键 full／closure／final-full 收敛、三轮默认上限、accepted revision reopening 门槛、分层门禁和最新 terminal full DONE 闭合；schema 3 与 review-only 保持兼容。收紧 bounded EXECUTOR：拒绝 `.git`／`.ai`／`.artifacts` 目标 namespace、非规范 POSIX 路径别名和祖先／后代目标重叠，以 preparation identity 和严格 artifact tree 恢复首个 journal 前崩溃，支持精确保持 `0o000`／`0o200` 等 owner-unreadable mode 的 hash 复验与回滚，保证恢复期 `applied_paths` 始终按目标顺序持久化，并避免读取异常被重复关闭 descriptor 掩盖。 |
-| `2.24-draft` | 当前草案 | active role prompt 改为稳定 clause ID 加角色本地触发语；新增 child dispatch 的 exact-schema `runtime_observation`，原样区分 present/null/missing，且明确排除路由、候选、review 与离线完成谓词。 |
+| `2.24-draft` | 上一版草案 | active role prompt 改为稳定 clause ID 加角色本地触发语；新增 child dispatch 的 exact-schema `runtime_observation`，原样区分 present/null/missing，且明确排除路由、候选、review 与离线完成谓词。 |
+| `2.25-draft` | 当前草案 | 追加 `translation_surface_screen_v1`（`P2-TRANSLATION-SURFACE-V1`）：schema 5 review-only surface screen 筛查契约，双层 entry 身份、q/r 四 lane batching、canonical 零项与 pre-manifest carry-over artifact、整组发布、raw bytes 绑定与封闭机器 reason_code 的 append-only ledger；surface 结果只是 `OK|ISSUE` observation，不宣称 deep review 或 repair 完成，也不借用 contextual 的 implement 收敛。 |
 
 ## `P2-TRANSLATION-CONTEXT-V2`
 
@@ -992,3 +1003,53 @@ closure 以 `parent_review_kind` 和 `parent_coverage_identity` 绑定最新更�
 `FINAL_REVIEW` 只允许 whole-workset full，负责跨条术语、专名和关系一致性；lane 永不关闭任务。
 prompt 模板和实例 UTF-8 bytes 均不得超过 800。完整 payload/result/raw/manifest/recovery/外发规则
 以 `docs/paseo-translation-context-review-v2-contract.md` 为准。
+
+## `P2-TRANSLATION-SURFACE-V1`
+
+`translation_surface_screen_v1` 只用于 `schema_version >= 5` 的 review-only 新 task，不能与
+`translation_contextual_v1`/`v2` 或其他译文契约混用；完整规则以
+`docs/paseo-translation-surface-screen-v1-contract.md` 为准。它实现生产收敛 SPEC 中
+surface-screen 任务的最小 pilot：双层 entry 身份
+（`logical_entry_identity` 跨版本稳定主键 + `entry_revision_identity` 版本化 revision）、
+canonical bytes、仓库相对 POSIX 路径与 extractor-stable 非行号 `call_locator`（拒绝嵌入的
+file:line 形式）都由 strict validator 重算，不匹配即 fail closed。
+
+batching 是全定义算法：`n=0` 不 dispatch，改以 canonical 零项 artifact
+`SURFACE-SCREEN-ZERO.json`（恰含 contract、task_id、`screen_count=0`、
+`proves_no_surface_dispatch=true`、`reason="zero/no-dispatch"`、`algorithm` 与可重算的
+empty-workset/input snapshot `workset_identity`，且不得声明任何 dispatch 输入）证明未发生
+任何 surface dispatch；`1..3` 用单一 full 成员；`4..80` 冻结四个 contiguous q/r lane
+（`q=floor(n/4)`，前 `r=n mod 4` 条多一项，无空 lane，ordered union 精确等于 screen 集合）
+及权威 `SURFACE-SCREEN-GROUP-<group_id>.json`；`n>80` fail closed，必须先用
+`split_carry_over` 在 manifest 构造前形成并落盘 canonical pre-manifest carry-over artifact
+`SURFACE-SCREEN-CARRY-OVER.json`（绑定原始有序 workset、first-80 screen 集、剩余有序
+carry-over、计数与 `surface-carry-over/1` 算法版本），carry-over 绝不得记为完成；DONE 必须
+用 strict validator 重检该 artifact，并要求 STATE 绑定指向原始冻结 workset 的输入路径，
+使 screen+carry 有序拼接逐项等于原始冻结身份集，任何 omit/extra/overlap/计数篡改 fail
+closed。四条 lane record 只能整组发布；任一失败归档全组并以更高 attempt fresh retry（fresh
+IDs，surface manifest/group 只允许 `REVIEW` phase，从不出 RE_REVIEW）。每个接受的 record 绑定
+task/dispatch 推导的 raw bytes 与 `raw_output_sha256`，并持久化与 STATE/dispatch 相等的
+`workspace_id`、`parent_agent_id` 和 literal `lineage_verified=true`；DONE checker 重算并重新
+严格解析；dispatch/labels/record/envelope 四方 identity/path/index 逐字相等，
+`candidate_identity` 冻结后不可变。surface 的独立 whole-screen terminal 是恰一个覆盖
+1..3 项（full）或至多 80 项（lane_group）的成功 `REVIEW/full` 或 `REVIEW/lane_group`
+stage（或零项 artifact），不借用 contextual 的 implement RE_REVIEW/FINAL_REVIEW 收敛；已
+dispatch 的 surface 不能用 STOP 关闭——该拒绝绑定在 dispatch 自身的 purpose 字段上，篡改
+review_contracts 或 schema_version 也不能恢复 STOP。surface 任务必须使用
+`change_class=translation_workflow`，并在 STATE 携带独立的不可变 surface evidence
+reconciliation binding（算法版本 + terminal 类别 + 终端 artifact 路径→SHA-256 精确映射），
+DONE 从当前字节重算该绑定，漂移、缺失或 terminal 不符 fail closed；该绑定独立于
+code/contextual sidecar terminal，但存在真实 code record 时 sidecar reconciliation 绝不豁免。
+
+surface 结果逐项只是 `OK|ISSUE` observation：`ISSUE` 必须经 ORCHESTRATOR 按固定源码裁决才
+能成为 finding，`OK` 不得写成 `deep_reviewed` 或 `closed`；surface terminal 只记录 surface
+completion，不宣称 deep review 或 repair 完成。长期 entry-revision 状态由 append-only
+ledger 工具按生产 SPEC 的命名状态机独立校验：每条迁移携带封闭集机器 `reason_code` 与不可
+变 snapshot/handoff `provenance`（kind+SHA-256），且每个具名 `(from_state,to_state)` 迁移
+绑定其允许的 provenance kind 集合；invalidation 只接受身份变化原因（含逻辑迁移原因
+`call_locator_changed`／`source_tag_changed`），逻辑迁移的后续新逻辑身份 revision 必须紧随
+其 invalidation 记录并携带指回它的显式 migration edge，closed revision 只能因身份变化进入
+新 revision 或因新的 fidelity/completeness/grammar/terminology/runtime/translationese 证据
+reopen，偏好不得 reopen；ledger 只追加不重写，任意位置重复不可变事件与跨逻辑身份的
+revision 复用 fail closed（仅 exact last line 幂等），且禁止从 provider/model 名称推导任何
+覆盖、稳定性或完成度。
