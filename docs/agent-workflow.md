@@ -22,7 +22,7 @@ python3 -B tools/i18n doctor
 
 主代理独立把 finding 标为 `confirmed`、`pending` 或 `advisory` 并定级；只有 `confirmed` 自动进入修复。只有用户要求修复时才修改：先冻结 finding 清单，按依赖顺序处理 accepted 项，给修复 agent 明确 finding、允许文件、最小测试和完成条件，并复核其输出与测试结果。
 
-每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
+每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。若待检文件是 untracked，先以 `git add -N -- <path>` 让其以 intent-to-add 形式进入工作树 diff，再运行 `git diff --check`，检查后用 `git reset -- <path>` 恢复 index；最终不得留下 staged 内容。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
 
 ### 机制 claim 与运行时组合
 
@@ -64,24 +64,33 @@ ORCHESTRATOR 核验源码、裁决 finding 并写编排／review record。requir
 源码仍不能支持唯一结论、达到 `max_cycles`，或需要跨批次策略时进入 `WAIT_USER`。普通 accepted
 finding 清零且门禁通过后方可收束。
 
-### 子 agent 状态取证（宣布挂起或取消之前）
+### 子 agent 通知、终态与取消顺序
 
-委托给子 agent 时，传输状态面的字段可能过期，单一 `status` 不足以判定终态。宣布挂起、
-调用 stop／cancel 或写下任何故障归因之前，按顺序取证：
+传输状态面可能过期，单一 `status` 不足以判定终态。`create_agent` 的
+`notifyOnFinish` 只向 host 异步通知「可收割」；通知只影响 host 等待，不是结果、成功或取消
+信号。不得用 tight polling 或 `sleep` 等待；收到通知或需要判断时，重新读取 `status`、
+`attentionReason`、`attentionTimestamp`、`activeTurn`，并检查 `git status --short` 与
+`git diff --stat`（activeTurn 为空表示没有进行中的运行）。
 
-```bash
-# 1) 重新查询一次实时状态：除 status 外读 attentionReason／attentionTimestamp 与 activeTurn
-#    activeTurn 为空 = 没有进行中的运行 = 已结束，不是挂起
-# 2) 检查工作树：未产出改动的 EXECUTOR 留下空 diff
-git status --short
-git diff --stat
-```
+生命周期必须严格按以下顺序：
 
-只有重新查询后仍确认有进行中的运行且无进展，才按挂起处理。字段长时间未更新本身不是挂起
-证据。跳过工作树检查而得出的故障结论无效，必须撤回并更正记录。
+1. **运行中要求 stop/cancel**：先重新查询上述实时字段和工作树；只有复查仍显示 active
+   turn 正在运行且无进展，才调用 stop/cancel；调用后再次复查并记录结果。若两轮非紧密
+   live requery 的有界预算耗尽仍不确定，进入 `WAIT_USER`，不得直接 stop，也不得写故障
+   结论；不得使用固定分钟阈值。
+2. **自然终态**：先 harvest 输出和报告，验证状态、identity/lineage、原始 bytes、工作树
+   diff、结果/schema 与 archive 前置条件；无成果（无 diff、无报告，或只有计划/进度）时
+   该 dispatch 无效，仍须先归档再创建同 purpose/workspace/lineage 的 fresh retry，不能
+   给已结束 child 发 follow-up。
+3. **精确运行时清理（若适用）**：仅对该 child 所拥有且可由 agent identity 精确匹配的
+   runtime process 做 kill/reap；清理不是 stop/cancel，不替代 harvest、验证或 archive。
+4. **archive**：上述验证（以及适用的清理）完成后才 archive，并核对归档 identity、lineage
+   和记录。完成后的 kill/reap/archive 必须与中途取消分开记录和说明。
 
-EXECUTOR 结束却没有工作成果（无 diff、无报告，或只回了计划／进度说明）时，该次 dispatch
-输出无效：先归档，再创建 fresh retry；不得向已结束的 child 发送 follow-up 续跑。
+文档/分析 child 可能长时间规划后一次性写入；空 diff、activity 暂停或字段陈旧单独都不是
+挂起证据。除明确 provider/权限错误外，只有重复取得 live status、activity、activeTurn 和
+工作树证据仍证明 active turn 无进展，才可按第 1 步处理。跳过工作树检查的故障结论无效，
+必须撤回并更正记录。
 
 ### 连续批次循环
 
