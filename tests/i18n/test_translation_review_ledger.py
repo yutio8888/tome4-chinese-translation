@@ -81,6 +81,7 @@ HAPPY_PATH = [
 
 class TranslationReviewLedgerTests(unittest.TestCase):
     def setUp(self) -> None:
+        (ROOT / ".artifacts" / "i18n").mkdir(parents=True, exist_ok=True)
         self.temp = tempfile.TemporaryDirectory(dir=ROOT / ".artifacts" / "i18n")
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
@@ -559,6 +560,187 @@ class TranslationReviewLedgerTests(unittest.TestCase):
         ]
         with self.assertRaises(ledger.LedgerError):
             ledger.replay(json.loads(json.dumps(records)))
+
+    def test_formal_catalog_consumer_rejects_shadow_provenance(self) -> None:
+        shadow = {
+            "schema_version": 1,
+            "kind": "production_catalog_shadow_v1",
+            "markers": {"authoritative": False, "dispatchable": False, "promotable": False},
+            "catalog_id": "1" * 64,
+        }
+        shadow_raw = check.canonical_bytes(shadow)
+        harvested = record(
+            "queued",
+            provenance_sha256=__import__("hashlib").sha256(shadow_raw).hexdigest(),
+        )
+        # The exact eleven-key row remains structurally legal in isolation,
+        # but the formal catalog/provenance consumer rejects its shadow parent.
+        ledger.validate_record(harvested)
+        with self.assertRaisesRegex(ledger.LedgerError, "WP2 exact authoritative validator"):
+            ledger.replay_with_catalog([harvested], shadow_raw)
+
+        # Rebranding and flipping markers cannot manufacture the missing WP2
+        # schema/ID/domain/body/lineage validator.
+        rebranded = {
+            "schema_version": 1, "kind": "production_catalog_v1",
+            "markers": {"authoritative": True, "dispatchable": True, "promotable": True},
+            "catalog_id": "2" * 64,
+        }
+        rebranded_raw = check.canonical_bytes(rebranded)
+        accepted = record("queued", provenance_sha256=__import__("hashlib").sha256(rebranded_raw).hexdigest())
+        with self.assertRaisesRegex(ledger.LedgerError, "WP2 exact authoritative validator"):
+            ledger.replay_with_catalog([accepted], rebranded_raw)
+
+    def test_cli_formal_consumer_rejects_shadow_catalog(self) -> None:
+        shadow = {
+            "schema_version": 1,
+            "kind": "production_catalog_shadow_v1",
+            "markers": {"authoritative": False, "dispatchable": False, "promotable": False},
+            "catalog_id": "1" * 64,
+        }
+        shadow_raw = check.canonical_bytes(shadow)
+        path = self._write([record(
+            "queued", provenance_sha256=__import__("hashlib").sha256(shadow_raw).hexdigest()
+        )])
+        catalog = self.root / "catalog.json"
+        catalog.write_bytes(shadow_raw)
+        completed = subprocess.run([
+            sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
+            "check", path.name, "--root", str(self.root),
+            "--catalog-manifest", catalog.name,
+        ], capture_output=True, text=True)
+        self.assertEqual(completed.returncode, 1)
+        self.assertIn("WP2 exact authoritative validator", completed.stdout)
+        self.assertNotIn("Traceback", completed.stdout + completed.stderr)
+
+    def test_cli_repository_shadow_barrier_survives_root_redirection(self) -> None:
+        repository_catalog = next((ROOT / "evidence/production-review/catalogs").glob("*/manifest.json"))
+        digest = __import__("hashlib").sha256(repository_catalog.read_bytes()).hexdigest()
+        forbidden_record = record("queued", provenance_sha256=digest)
+        ledger_path = self._write([forbidden_record])
+        record_path = self.root / "record.json"
+        record_path.write_bytes(check.canonical_bytes(forbidden_record))
+        empty_path = self.root / "empty.jsonl"
+        empty_path.write_bytes(b"")
+        for command, arguments in (
+            ("check", [ledger_path.name]),
+            ("summary", [ledger_path.name]),
+            ("append", [empty_path.name, str(record_path)]),
+        ):
+            with self.subTest(command=command):
+                completed = subprocess.run([
+                    sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
+                    command, *arguments, "--root", str(self.root),
+                ], capture_output=True, text=True)
+                self.assertEqual(completed.returncode, 1)
+                self.assertIn("forbidden tracked WP1 shadow", completed.stdout)
+                self.assertNotIn("Traceback", completed.stdout + completed.stderr)
+
+    def test_shadow_catalog_children_fail_closed_when_malformed(self) -> None:
+        catalogs = self.root / "evidence/production-review/catalogs"
+        catalogs.mkdir(parents=True)
+        cases = ("file-child", "missing-manifest", "malformed-manifest")
+        for case in cases:
+            with self.subTest(case=case):
+                child = catalogs / case
+                if case == "file-child":
+                    child.write_bytes(b"not a directory")
+                else:
+                    child.mkdir()
+                    if case == "malformed-manifest":
+                        (child / "manifest.json").write_bytes(b'{}')
+                with self.assertRaises(ledger.LedgerError):
+                    ledger.forbidden_shadow_provenance(self.root)
+                if child.is_dir():
+                    for path in child.iterdir():
+                        path.unlink()
+                    child.rmdir()
+                else:
+                    child.unlink()
+
+    def test_relabelled_shadow_catalog_fails_closed_for_default_cli(self) -> None:
+        repository_catalog = next(
+            (ROOT / "evidence/production-review/catalogs").glob("*/manifest.json")
+        )
+        original = check.strict_json_bytes(
+            repository_catalog.read_bytes(), label="repository shadow catalog")
+        original["recorded_by"] = "temporary exact-shape baseline"
+        original["catalog_id"] = ledger._shadow_catalog_id(original)
+        original_raw = check.canonical_bytes(original)
+        original_digest = __import__("hashlib").sha256(original_raw).hexdigest()
+        mutations = [
+            ("kind", "production_catalog_v1"),
+            ("authoritative", True),
+            ("dispatchable", True),
+            ("promotable", True),
+        ]
+        for field, replacement in mutations:
+            with self.subTest(field=field):
+                catalogs = self.root / "evidence/production-review/catalogs"
+                child = catalogs / original["catalog_id"]
+                child.mkdir(parents=True, exist_ok=True)
+                relabelled = json.loads(json.dumps(original))
+                if field == "kind":
+                    relabelled["kind"] = replacement
+                else:
+                    relabelled["markers"][field] = replacement
+                (child / "manifest.json").write_bytes(check.canonical_bytes(relabelled))
+                records = [record("queued", provenance_sha256=original_digest)]
+                ledger_path = self._write(records)
+                record_path = self.root / "record.json"
+                record_path.write_bytes(check.canonical_bytes(records[0]))
+                empty_path = self.root / "empty.jsonl"
+                empty_path.write_bytes(b"")
+                for command, arguments in (
+                    ("check", [ledger_path.name]),
+                    ("summary", [ledger_path.name]),
+                    ("append", [empty_path.name, str(record_path)]),
+                ):
+                    completed = subprocess.run([
+                        sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
+                        command, *arguments, "--root", str(self.root),
+                    ], capture_output=True, text=True)
+                    self.assertEqual(completed.returncode, 1, completed.stdout)
+                    self.assertIn("shadow catalog manifest", completed.stdout)
+                    self.assertNotIn("Traceback", completed.stdout + completed.stderr)
+                for path in child.iterdir():
+                    path.unlink()
+                child.rmdir()
+
+    def test_default_cli_and_library_barrier_harvest_tracked_shadow(self) -> None:
+        repository_catalog = next(
+            (ROOT / "evidence/production-review/catalogs").glob("*/manifest.json")
+        )
+        shadow = check.strict_json_bytes(
+            repository_catalog.read_bytes(), label="repository shadow catalog")
+        shadow["recorded_by"] = "temporary exact-shape baseline"
+        shadow["catalog_id"] = ledger._shadow_catalog_id(shadow)
+        catalog_dir = (self.root / "evidence/production-review/catalogs"
+                       / shadow["catalog_id"])
+        catalog_dir.mkdir(parents=True)
+        raw = check.canonical_bytes(shadow)
+        (catalog_dir / "manifest.json").write_bytes(raw)
+        digest = __import__("hashlib").sha256(raw).hexdigest()
+        records = [record("queued", provenance_sha256=digest)]
+        path = self._write(records)
+        forbidden = ledger.forbidden_shadow_provenance(self.root)
+        with self.assertRaisesRegex(ledger.LedgerError, "forbidden tracked WP1 shadow"):
+            ledger.replay_production(records, forbidden_provenance=forbidden)
+        completed = subprocess.run([
+            sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
+            "check", path.name, "--root", str(self.root),
+        ], capture_output=True, text=True)
+        self.assertEqual(completed.returncode, 1)
+        self.assertIn("forbidden tracked WP1 shadow", completed.stdout)
+        record_file = self.root / "record.json"
+        record_file.write_bytes(check.canonical_bytes(records[0]))
+        empty = self.root / "empty.jsonl"; empty.write_bytes(b"")
+        appended = subprocess.run([
+            sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
+            "append", empty.name, str(record_file), "--root", str(self.root),
+        ], capture_output=True, text=True)
+        self.assertEqual(appended.returncode, 1)
+        self.assertNotIn("Traceback", completed.stdout + completed.stderr + appended.stdout + appended.stderr)
 
     def test_exact_record_shape_and_forbidden_provenance(self) -> None:
         with self.assertRaises(ledger.LedgerError):

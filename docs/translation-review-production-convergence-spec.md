@@ -129,7 +129,9 @@ batch-selected revision 数：
 每阶段记录实际数、理由、漏斗版本、输入 identity 和 queue carry-over；“约 2.6 万”、80、
 16–32 均不得写成完成数量或覆盖率事实。
 
-### 2.1 backlog catalog、snapshot 与持久队列（待实施）
+### 2.1 backlog catalog、snapshot 与持久队列（WP1 shadow 已实现；正式 writer 待实施）
+
+WP1 shadow calibration 的 locator、catalog、shadow policy、一次性 queued journal、replay、shadow batch 与 reconciliation 已按 [`translation-production-catalog-queue-v1-plan.md`](translation-production-catalog-queue-v1-plan.md) 实现。它覆盖全部 11 个 manifest translation 组件，但 marker 固定为非权威／不可派发／不可提升；只允许一次 `None → queued` bootstrap，不提供 append、ownership、formal epoch 或译文 writer。下文的正式 transition journal、owner 和 epoch 仍是待实施设计。WP2 必须从届时输入生成全新 ID 链，不得提升或复用 shadow ID，且任何 WP1 locator/catalog/policy/journal/batch 都不得成为正式链父节点。WP1 的 source locator 是校准配方而非已批准的长期迁移键；正式 source locator recipe、旧→新 identity 唯一映射与未映射 fail-closed 报告是 WP2 必做。WP2 publication 当前完全不可用；必须先实现新的单锁 generation transaction，在锁内精确验证并完成 WP1 retirement、父目录 fsync、五 family 与总预算预检及五 family 全部 publication/恢复，不能用布尔 retirement 或 WP1 per-family publisher 代替。generic ledger library replay 只验证 legacy 状态机；默认 ledger CLI 合并仓库 ROOT 与所选 `--root` 的 forbidden set 拒绝 exact tracked shadow bytes，而 `--catalog-manifest` formal consumer 在 WP2 exact authoritative schema/ID/domain/body/lineage validator 实现前拒绝所有 catalog，未来 validator 也必须应用该 forbidden set，改标不能绕过。
 
 生产入口不是目录扫描所得的临时列表，而是一个可重算的 **backlog catalog**。每个 catalog
 snapshot 必须绑定 extractor/manifest identity、组件集合、原始输入快照、canonicalization
@@ -204,6 +206,8 @@ policy；无需分布式锁、worker daemon、租约服务或企业调度器。
 
 `logical_entry_identity` 是跨版本稳定主键：canonical 编码包含规范化来源组件/路径、稳定调用定位或 revision key、`source_tag` 和必要组件字段；用明确版本的 hash（例如 SHA-256）对 length-prefixed、UTF-8 canonical bytes 计算。recipe 必须固定 domain separator、字段顺序、编码和长度单位；缺字段、canonical 失败或 hash 碰撞均 fail closed，不能猜测或以行号替代。一次性旧 ledger 映射必须输出映射表与未映射清单。
 
+WP1 shadow logical/revision identity 只验证当前冻结输入内的可重算性，不取得跨代 authority，也不能作为 WP2 parent。WP2 必须先批准稳定 source locator 的迁移语义，再建立正式 logical identity；不能把 shadow call locator 改 marker 后视为已完成迁移。
+
 `entry_revision_identity` 是逻辑 identity 的版本化 revision：由 logical identity、原始
 source/target snapshot hash、`source_tag`、固定源码/public commit 或 protected snapshot、
 术语/规则版本组成。logical identity 不变而 target 修复产生新 candidate/revision，保留
@@ -246,7 +250,7 @@ record，现行 ledger provenance record 仍严格为 `{kind, sha256}`；`H` 纳
 守恒 `S = H ⊎ R`。原 batch 关闭时 reservation 必须原子 release 回 queue并保留
 provenance，禁止悬挂 owner。
 
-首个 production epoch 是冷启动校准：先对所有强制 deep 项和一个覆盖组件、文本类型、长度、
+WP1 shadow 不是 production epoch，也不产生 deep 样本或校准结论。首个正式 production epoch 仍是冷启动校准：先对所有强制 deep 项和一个覆盖组件、文本类型、长度、
 历史变更与风险层的冻结分层样本做 deep，不用这一批同时训练再改选这一批。记录 surface
 issue 的确认率，以及抽检中发现但 surface 未报的实质 issue（操作性 false negative）；没有
 独立 deep 样本、样本为零或分母不足时只报告“不可估”，不得报告零漏报。epoch 结束后才可根据
@@ -459,8 +463,7 @@ revision 掩盖新积压。预算触顶只触发 backpressure/人工决策，不
 
 上线按 policy epoch 渐进推进，所有阈值在 epoch 开始前写入准入记录，不在运行中追着结果改。准入记录还必须固定 batch cadence、每 batch 的 80-item surface horizon、catalog scope（`full_catalog` 或 `risk_prioritized_subset`）以及 subset 的 stopping rule（达到 80、队列耗尽或明确风险覆盖条件，含实际停止证明）；未写明这些字段不得宣称全 catalog 收敛：
 
-1. **shadow/dry-run**：只生成 catalog、replay queue、风险/抽样决策和 batch manifests，不 dispatch；
-   要求重复生成 bytes 一致、集合守恒、旧 surface/v1/v2 fixture 与现行门禁不变。
+1. **shadow/dry-run（WP1 已实现）**：只生成非权威 locator/catalog、一次性 `None→queued` journal、固定 shadow policy 和 batch manifest，不 dispatch、不提升、不取得 ownership；真实 surface envelope/batch consumer 机械拒绝 shadow kind/false marker/shadow policy 或 batch，默认 ledger CLI 以仓库 ROOT 与所选 `--root` 的 forbidden set 并集机械拒绝 tracked WP1 shadow provenance，即使收割记录仍是合法 11-key shape；generic library replay 仅保留 legacy 结构验证，formal catalog flag 在 WP2 exact validator 完成前拒绝所有 catalog，未来 validator 仍应用 forbidden set。要求 content ID/bytes 幂等、集合守恒、旧 surface/v1/v2 fixture 与现行门禁不变。drift/reconciliation 报告只写 `.artifacts`。WP2 必须重新 harvest 并建立全新正式 ID 链、完成 source locator migration；publication 在新的单锁 generation transaction 落地前完全不可用。
 2. **pilot**：选择一个预先冻结的小 catalog slice，采用最低并发，完整走 surface→deep→repair
    和恢复演练；要求 handoff/preflight、zero/carry-over、invalidation、fresh retry、指标分母和
    `DONE_VERIFIED` 均可重算，且无静默丢条。
@@ -483,12 +486,12 @@ revision 掩盖新积压。预算触顶只触发 backpressure/人工决策，不
 | 工作包 | 当前状态 | 仍待实施 |
 |---|---|---|
 | 1. 身份/surface ledger | surface v1 已实现双 identity 重算、canonical SHA-256、append-only 迁移验证、失效/reopen 规则和状态门禁 | 生产旧 ledger 迁移、碰撞处置报告与长期指标审计 |
-| 2. catalog/queue | 无生产 backlog catalog、权威 snapshot、全局 transition journal 或可重建 queue view | 冻结受跟踪 schema/path、生成/replay/reconciliation validator、稳定选批与恢复探针 |
+| 2. catalog/queue | WP1 shadow 已实现受跟踪 locator/catalog/policy/一次性 bootstrap journal/batch、严格 replay/reconciliation 和真实 30,308 occurrence baseline；全部 marker 非权威／不可派发／不可提升，surface consumer 与默认 ledger CLI 已拒绝 shadow；formal catalog consumer 待 WP2 exact validator | WP2 从届时输入建立全新 authoritative ID 链；批准 source locator migration；实现 append writer、ownership、formal epoch、迁移和恢复探针；正式链不得以 shadow 为 parent；先实现单锁 generation transaction 后才可启用 publication |
 | 3. 确定性筛查 | 现行 surface manifest 已实现稳定排序、q/r 四 lane、zero/full 与 legacy surface carry-over 的无静默丢条验证；这不是本文 coordinator queue `C` | 全量生产规则、风险 feature、真实 catalog/batch draft freeze 及 coordinator `C` 的 schema/journal/validator |
 | 4. 风险/抽检/容量 | 本文仅定义 policy epoch、强制 deep、稳定分层抽样和单维护者 WIP/backpressure | policy artifact/离线 replay、冷启动 pilot、feedback/backsweep、容量与队列健康门禁 |
 | 5. surface/deep 编排 | `translation_surface_screen_v1` review-only pilot、整组发布、fresh retry、provenance 和 surface 范围的 `DONE_VERIFIED` 已实现 | 16–32 deep segment、按需 context、SCOUT 压缩和 deep handoff/terminal |
 | 6. 筛查—裁决—修复 | surface observation 已明确不能直接关闭 finding 或宣称 deep-reviewed；现行 ledger provenance 是含 legacy `repair_handoff`、不含 plan/result 的九项闭集，并已实现 `adjudication → fixed` | batch coordinator、完整三任务 DAG；新增 `repair_plan_handoff`/`repair_result_handoff` schema、validator、marker 与相关 writer version gate，legacy `repair_handoff` 只读兼容；另增 `T` deterministic-observation provenance/migration/writer gate；repair closure/reopen/final full 与原子发布 |
-| 7. 指标/门禁/上线 | surface/ledger 工具、契约检查、回归测试和 `ai_state_check.py` 接口已实现 | 诚实覆盖与成本/质量/队列报告、三任务级 `DONE_VERIFIED`、shadow→pilot→扩容→常态及回滚演练 |
+| 7. 指标/门禁/上线 | surface/ledger 工具、WP1 production shadow suite、契约检查、回归测试和 `ai_state_check.py` 接口已实现；shadow reconciliation 仅报告集合守恒 | 诚实覆盖与成本/质量/队列报告、三任务级 `DONE_VERIFIED`、正式 pilot→扩容→常态及回滚演练 |
 
 已实施的 surface pilot 必须继续证明旧 v1/v2 fixture 不变、完整输入无静默丢条、
 identity/快照可重算、screen 不直接关闭 finding、live-profile 可路由，并通过契约检查、

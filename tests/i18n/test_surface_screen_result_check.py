@@ -215,6 +215,23 @@ class SurfacePayloadTests(unittest.TestCase):
         self.assertEqual(identity, self.identity)
         self.assertEqual(validated, self.payload)
 
+    def test_real_payload_and_envelope_consumers_reject_production_shadows(self) -> None:
+        shadow_batch = {
+            "schema_version": 1,
+            "kind": "shadow_batch_draft_v1",
+            "markers": {"authoritative": False, "dispatchable": False, "promotable": False},
+            "shadow_batch_id": "a" * 64,
+            "shadow_policy_id": "b" * 64,
+        }
+        with self.assertRaisesRegex(check.ContractError, "non-dispatchable"):
+            check.validate_payload(shadow_batch)
+        with self.assertRaisesRegex(check.ContractError, "non-dispatchable"):
+            check.validate_envelope({"candidate_identity": "c" * 64, "payload": shadow_batch})
+        shadow_policy = dict(shadow_batch, kind="shadow_queue_policy_v1")
+        shadow_policy.pop("shadow_batch_id")
+        with self.assertRaisesRegex(check.ContractError, "non-dispatchable"):
+            check.validate_envelope(shadow_policy)
+
     def test_payload_negative_matrix(self) -> None:
         def fails(mutate) -> None:
             value = json.loads(json.dumps(self.payload))
@@ -346,6 +363,28 @@ class SurfaceResultCliTests(unittest.TestCase):
             self.assertEqual(
                 subprocess.run(command[:-1] + [str(directory / "missing")], capture_output=True).returncode, 2
             )
+
+    def test_cli_real_consumer_rejects_shadow_envelope(self) -> None:
+        shadow = {
+            "schema_version": 1,
+            "kind": "shadow_batch_draft_v1",
+            "markers": {"authoritative": False, "dispatchable": False, "promotable": False},
+            "shadow_batch_id": "a" * 64,
+            "shadow_policy_id": "b" * 64,
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            envelope = directory / "envelope.json"
+            raw = directory / "raw.txt"
+            envelope.write_bytes(check.canonical_bytes(shadow))
+            raw.write_bytes(b"{}")
+            completed = subprocess.run(
+                [sys.executable, "-B", str(TOOLS / "surface_screen_result_check.py"),
+                 str(envelope), str(raw)], capture_output=True, text=True,
+            )
+            self.assertEqual(completed.returncode, 1)
+            self.assertIn("non-dispatchable production shadow", completed.stdout)
+            self.assertNotIn("Traceback", completed.stdout + completed.stderr)
 
     def test_cli_rejects_duplicate_json_keys_without_traceback(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

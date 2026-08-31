@@ -124,6 +124,14 @@ check \
     tests/i18n/test_ai_state_check.py \
     tests/i18n/test_contextual_anchor_preflight.py \
     tests/i18n/test_review_evidence.py
+check_out \
+    "05-production-shadow-surface-ledger-tests" \
+    "production shadow/surface/ledger unittest" \
+    python3 -m unittest -q \
+    tests/i18n/test_production_review.py \
+    tests/i18n/test_surface_screen_manifest.py \
+    tests/i18n/test_surface_screen_result_check.py \
+    tests/i18n/test_translation_review_ledger.py
 
 step 6 "cross-component same-tag collision scan"
 check \

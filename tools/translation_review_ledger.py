@@ -21,6 +21,7 @@ alone can never reopen anything.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import os
 from pathlib import Path
 import sys
@@ -54,6 +55,15 @@ PROVENANCE_KINDS = frozenset({
     "repair_handoff", "adjudication_record", "revalidation_record",
     "revision_freeze_record", "reopen_evidence_record", "identity_snapshot",
 })
+SHADOW_CATALOG_KEYS = frozenset({
+    "schema_version", "catalog_id", "kind", "markers", "locator_snapshot_id",
+    "locator_manifest_sha256", "terminology_snapshot_id", "source_identities",
+    "eligible_component_ordinals", "rules_version", "recorded_at", "recorded_by",
+    "entry_count", "exclusion_count", "entries_sha256", "exclusions_sha256",
+})
+SHADOW_CATALOG_MARKERS = {
+    "authoritative": False, "dispatchable": False, "promotable": False,
+}
 # Identity-change causes are the only legal route into ``invalidated``; a
 # closed revision may also be identity-invalidated into a new revision, while
 # preference alone can never reopen or invalidate anything.  A logical
@@ -210,6 +220,107 @@ def _reason_allowed(from_state: str | None, to_state: str, reason_code: str) -> 
 
 def _canonical_line(record: dict[str, Any]) -> bytes:
     return check.canonical_bytes(record)
+
+
+def validate_authoritative_catalog(
+    catalog_manifest_raw: bytes, *, expected_sha256: str | None = None,
+) -> dict[str, Any]:
+    """Fail closed until WP2 defines the authoritative catalog contract.
+
+    WP1 has no authoritative schema/ID/domain/body/lineage validator.  Merely
+    changing a shadow kind or capability markers must never create one.
+    """
+    del catalog_manifest_raw, expected_sha256
+    raise LedgerError("formal catalog consumer is unavailable until the WP2 exact authoritative validator is implemented")
+
+
+def _shadow_catalog_id(value: dict[str, Any]) -> str:
+    core = dict(value)
+    core.pop("catalog_id", None)
+    raw = check.canonical_bytes(core)
+    domain = b"tome4-production-catalog-v1\0"
+    return hashlib.sha256(domain + len(raw).to_bytes(8, "big") + raw).hexdigest()
+
+
+def forbidden_shadow_provenance(root: Path) -> frozenset[str]:
+    """Harvest exact WP1 shadow manifest hashes, failing closed on malformed children."""
+    base = root / "evidence" / "production-review" / "catalogs"
+    if base.is_symlink():
+        raise LedgerError(f"production shadow catalog root is not an ordinary directory: {base}")
+    if not base.exists():
+        return frozenset()
+    if not base.is_dir():
+        raise LedgerError(f"production shadow catalog root is not an ordinary directory: {base}")
+    forbidden: set[str] = set()
+    try:
+        children = sorted(base.iterdir())
+    except OSError as error:
+        raise LedgerError(f"cannot enumerate production shadow catalog root {base}: {error}") from error
+    for child in children:
+        if not child.is_dir() or child.is_symlink():
+            raise LedgerError(f"production shadow catalog child is not an ordinary directory: {child}")
+        path = child / "manifest.json"
+        if not path.is_file() or path.is_symlink():
+            raise LedgerError(f"production shadow catalog manifest is not an ordinary file: {path}")
+        try:
+            raw = path.read_bytes()
+            value = check.strict_json_bytes(raw, label=str(path))
+            canonical = check.canonical_bytes(value)
+        except (OSError, check.ContractError, check.InputError) as error:
+            raise LedgerError(f"cannot strictly parse production shadow catalog manifest {path}: {error}") from error
+        if canonical != raw:
+            raise LedgerError(f"production shadow catalog manifest is not canonical: {path}")
+        if (not isinstance(value, dict) or frozenset(value) != SHADOW_CATALOG_KEYS
+                or type(value["schema_version"]) is not int or value["schema_version"] != 1
+                or value["kind"] != "production_catalog_shadow_v1"
+                or value["markers"] != SHADOW_CATALOG_MARKERS
+                or any(type(value["markers"].get(key)) is not bool
+                       for key in SHADOW_CATALOG_MARKERS)
+                or not isinstance(value["catalog_id"], str)
+                or not check.SHA256.fullmatch(value["catalog_id"])
+                or value["catalog_id"] != _shadow_catalog_id(value)
+                or child.name != value["catalog_id"]
+                or any(not isinstance(value[key], str) or not check.SHA256.fullmatch(value[key])
+                       for key in ("locator_snapshot_id", "locator_manifest_sha256",
+                                   "terminology_snapshot_id", "entries_sha256",
+                                   "exclusions_sha256"))
+                or any(type(value[key]) is not int or value[key] < 0
+                       for key in ("entry_count", "exclusion_count"))
+                or not isinstance(value["source_identities"], dict)
+                or not isinstance(value["eligible_component_ordinals"], list)
+                or value["rules_version"] != "production-shadow-rules-v1"
+                or not isinstance(value["recorded_at"], str) or not value["recorded_at"]
+                or not isinstance(value["recorded_by"], str) or not value["recorded_by"]):
+            raise LedgerError(
+                f"production shadow catalog manifest does not have the exact expected WP1 shape: {path}"
+            )
+        forbidden.add(hashlib.sha256(raw).hexdigest())
+    return frozenset(forbidden)
+
+
+def replay_production(records: list[dict[str, Any]], *, forbidden_provenance: frozenset[str]) -> dict[str, dict[str, Any]]:
+    """Replay the legacy machine after applying the production shadow barrier."""
+    for index, record in enumerate(records, 1):
+        validate_record(record)
+        if record["provenance"]["sha256"] in forbidden_provenance:
+            raise LedgerError(f"ledger line {index}: provenance cites a forbidden tracked WP1 shadow catalog")
+    return replay(records)
+
+
+def replay_with_catalog(
+    records: list[dict[str, Any]], catalog_manifest_raw: bytes,
+) -> dict[str, dict[str, Any]]:
+    digest = hashlib.sha256(catalog_manifest_raw).hexdigest()
+    validate_authoritative_catalog(catalog_manifest_raw, expected_sha256=digest)
+    for index, record in enumerate(records, 1):
+        validate_record(record)
+        if record["from_state"] is None and record["to_state"] == "queued":
+            if record["provenance"] != {"kind": "revision_freeze_record", "sha256": digest}:
+                raise LedgerError(
+                    f"ledger line {index}: initial revision provenance does not bind "
+                    "the authoritative catalog's exact bytes"
+                )
+    return replay(records)
 
 
 def replay(records: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
@@ -432,16 +543,26 @@ def load_ledger(path: Path) -> list[dict[str, Any]]:
     return parse_ledger_bytes(path.read_bytes())
 
 
-def append_record(path: Path, record: dict[str, Any]) -> str:
-    """Validate and append one transition record; idempotent for the last line."""
+def append_record(path: Path, record: dict[str, Any], *,
+                  catalog_manifest_raw: bytes | None = None,
+                  forbidden_provenance: frozenset[str] | None = None) -> str:
+    """Validate and append one transition record; idempotent for the last line.
+
+    Supplying ``catalog_manifest_raw`` selects the formal provenance consumer,
+    which requires an authoritative catalog and exact raw-byte SHA binding.
+    """
     validate_record(record)
     line = _canonical_line(record)
     records = load_ledger(path) if path.is_file() else []
     if records:
-        # The existing history must replay cleanly BEFORE the idempotent
-        # return: malformed existing history can never report success, not
-        # even as ALREADY_PRESENT.
-        replay(records)
+        # The existing history (including catalog authority when selected)
+        # must validate BEFORE the idempotent return.
+        if catalog_manifest_raw is not None:
+            replay_with_catalog(records, catalog_manifest_raw)
+        elif forbidden_provenance is not None:
+            replay_production(records, forbidden_provenance=forbidden_provenance)
+        else:
+            replay(records)
         if _canonical_line(records[-1]) == line:
             return "ALREADY_PRESENT"
         # An exact duplicate of any earlier immutable event is rejected even
@@ -455,7 +576,13 @@ def append_record(path: Path, record: dict[str, Any]) -> str:
     # The proposed event must replay as a legal next event of the prospective
     # history — including the very first record of an empty ledger, whose
     # revision start must satisfy the same named machine as any later one.
-    replay([*records, record])
+    prospective = [*records, record]
+    if catalog_manifest_raw is not None:
+        replay_with_catalog(prospective, catalog_manifest_raw)
+    elif forbidden_provenance is not None:
+        replay_production(prospective, forbidden_provenance=forbidden_provenance)
+    else:
+        replay(prospective)
     with open(path, "ab") as handle:
         handle.write(line + b"\n")
         handle.flush()
@@ -510,23 +637,42 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("ledger")
     parser.add_argument("record", nargs="?")
     parser.add_argument("--root", default=str(ROOT))
+    parser.add_argument(
+        "--catalog-manifest",
+        help="select the formal consumer and bind initial records to an authoritative catalog",
+    )
     args = parser.parse_args(argv)
     try:
+        root = Path(args.root).resolve()
         path = _resolve(args.root, args.ledger)
+        # --root redirects ledger/path resolution; it cannot remove the
+        # repository's tracked WP1 shadow provenance barrier.
+        forbidden = forbidden_shadow_provenance(ROOT) | forbidden_shadow_provenance(root)
+        catalog_raw = None
+        if args.catalog_manifest:
+            catalog_path = _resolve(args.root, args.catalog_manifest)
+            if not catalog_path.is_file() or catalog_path.is_symlink():
+                raise check.InputError(f"catalog manifest is not an ordinary file: {args.catalog_manifest}")
+            catalog_raw = catalog_path.read_bytes()
         if args.command == "check":
             records = load_ledger(path)
-            replay(records)
+            replay_with_catalog(records, catalog_raw) if catalog_raw is not None else replay_production(records, forbidden_provenance=forbidden)
             print(f"LEDGER_VERIFIED records={len(records)}")
             return 0
         if args.command == "summary":
             records = load_ledger(path)
+            if catalog_raw is not None:
+                replay_with_catalog(records, catalog_raw)
+            else:
+                replay_production(records, forbidden_provenance=forbidden)
             print(f"SUMMARY {check.canonical_bytes(summarize(records)).decode('utf-8')}")
             return 0
         if not args.record:
             raise LedgerError("append requires a record JSON file ('-' for stdin)")
         raw = sys.stdin.buffer.read() if args.record == "-" else Path(args.record).read_bytes()
         record = check.strict_json_bytes(raw, label="record")
-        outcome = append_record(path, record)
+        outcome = append_record(path, record, catalog_manifest_raw=catalog_raw,
+                                forbidden_provenance=forbidden)
         print(f"LEDGER_{outcome}")
         return 0
     except OSError as error:

@@ -238,6 +238,12 @@ identity 不一致时进入 `WAIT_USER`。
 integration 的全部 `translation_fix_paths` 也必须逐文件字节等于 `base_commit`，且
 `integration-content-diff/1.changed_paths` 与 `entries` 必须同时严格为空。
 
+### Production-review shadow 校准
+
+WP1 只用于校准枚举、identity、预算和守恒，不进入连续生产批次。统一用 `python3 -B tools/i18n production` 的 locator/catalog/shadow-policy/shadow-journal/replay/batch-draft/reconciliation 子命令；完整链与参数见 [`translation-production-catalog-queue-v1-plan.md`](translation-production-catalog-queue-v1-plan.md)。shadow marker 必须始终为非权威／不可派发／不可提升；不得 append、取得 ownership、建立 formal epoch 或写译文。受跟踪 immutable snapshot 在 `evidence/production-review/`，schema/policy 在 `i18n/quality/production-review/`，drift/reconciliation report 只在 `.artifacts/i18n/production-review/`。
+
+收束至少运行 production、surface manifest、surface result、translation ledger 四套 focused tests，逐件运行 check/replay/reconciliation，并执行 Paseo contract check 与 `git diff --check`。WP2 必须重新 harvest、完成正式 source locator migration 并建立全新正式 ID 链；不能把 WP1 baseline 改 marker 后复用，也不能引用它作为 parent。正式 ledger CLI 默认以工具仓库 ROOT 和所选 `--root` 的 forbidden set 并集机械拒绝 tracked WP1 shadow provenance；generic library replay 仅保留 legacy 状态机结构验证，`--catalog-manifest` 在 WP2 exact authoritative validator 完成前拒绝所有 catalog，未来 validator 仍须同时应用该 forbidden set。WP2 publication 当前完全不可用；启用前必须实现新的单锁 generation transaction，在同一锁内精确验证并完成 WP1 retirement、父目录 fsync、各 family 与 128 MiB 总预算预检，以及五 family 全部 publication 或恢复。不得用布尔值表示 retirement，也不得把 WP1 per-family publisher 当作该 transaction。
+
 ## 批次门禁
 
 译文每批按以下顺序运行，任何失败都必须先修复，不得用管道吞掉退出码：

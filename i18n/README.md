@@ -32,6 +32,7 @@ tools/i18n claims check --registry evidence/quality/semantic-claim-regressions-v
 tools/i18n review --scope code
 tools/i18n review --scope translations
 tools/i18n review --scope code --scope translations
+tools/i18n production --help
 ```
 
 ## 运行时配置
@@ -170,6 +171,7 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   C0 或 DEL；数值机制证据留在 numeric claim／decomposition，数值 runtime
   composition 需由未来的版本化 renderer 支持。详细字段、保守默认与复用边界见
   [`docs/semantic-claim-runtime-composition-v1.md`](../docs/semantic-claim-runtime-composition-v1.md)。
+- `production` 实现 WP1 production-review shadow calibration：按 manifest 的 11 个 translation 组件和 `LocaleDocument.translations` emission order 枚举 locator，生成只读 catalog、固定 shadow policy、一次性 `None→queued` journal、replay、`batch-draft --shadow` 和 reconciliation。所有 marker 固定为非权威／不可派发／不可提升；真实 surface 与正式 ledger catalog consumer 会拒绝 shadow；没有 append、ownership、formal epoch、provider dispatch 或译文写入。受跟踪内容寻址 artifact 位于 `evidence/production-review/`，schema/policy 位于 `i18n/quality/production-review/`，drift report 只写 `.artifacts/i18n/production-review/`；`locator check` 仅执行 frozen self-contained structural check（`live_bound=false`），旧 snapshot 可独立重验。WP1 publication 的 per-family 全局锁覆盖当前 family 的总占用预检、rename 与 fsync，并报告实际 bytes；WP1 locator/catalog 各只允许一个 baseline。默认正式 ledger CLI 会按工具仓库 ROOT 与所选 `--root` 的 forbidden set 并集拒绝 tracked shadow provenance，generic library replay 仍只是 legacy 状态机校验；`--catalog-manifest` 在 WP2 exact authoritative validator 实现前拒绝所有 catalog，未来 exact formal validator 也必须同时应用同一 forbidden set。WP2 publication 当前完全不可用：必须先实现新的单锁 generation transaction，在同一锁内精确验证并完成 WP1 retirement、父目录 fsync、各 family 与 128 MiB 总预算预检、五 family 全部 publication 或恢复；不得以布尔值声称 retirement，也不得复用 WP1 per-family publisher 伪装该事务。详见 [`docs/translation-production-catalog-queue-v1-plan.md`](../docs/translation-production-catalog-queue-v1-plan.md)。
 - `review` 只生成离线审核 bundle／index／diff artifact（全部写入
   `.artifacts/i18n/`），不调用 provider、不构成审核结论。必须用 `--scope code`
   或 `--scope translations` 显式选择范围，重复参数才会同时选择两者。翻译使用

@@ -220,8 +220,31 @@ def _validate_entry(entry: object, *, scalars: dict[str, str]) -> dict[str, str]
     return entry  # type: ignore[return-value]
 
 
+def reject_non_dispatchable_artifact(value: object, *, label: str) -> None:
+    """Fail closed when a production shadow is offered to a real consumer.
+
+    This check is called by the payload and envelope entry points used by the
+    surface manifest/result tools; it is not a standalone advisory helper.
+    """
+    if not isinstance(value, dict):
+        return
+    kind = value.get("kind")
+    markers = value.get("markers")
+    shadow_kind = isinstance(kind, str) and (
+        "shadow" in kind or kind in {"shadow_queue_policy_v1", "shadow_batch_draft_v1"}
+    )
+    false_marker = isinstance(markers, dict) and any(
+        markers.get(key) is False
+        for key in ("authoritative", "dispatchable", "promotable")
+    )
+    shadow_reference = "shadow_policy_id" in value or "shadow_batch_id" in value
+    if shadow_kind or false_marker or shadow_reference:
+        raise ContractError(f"{label} is a non-dispatchable production shadow artifact")
+
+
 def validate_payload(payload: object) -> dict[str, Any]:
     """Validate one translation_surface_screen_v1 workset payload exactly."""
+    reject_non_dispatchable_artifact(payload, label="surface payload")
     if not isinstance(payload, dict) or frozenset(payload) != PAYLOAD_KEYS:
         raise ContractError("surface payload must have exactly the six canonical keys")
     if payload["contract"] != CONTRACT:
@@ -262,6 +285,9 @@ def canonical_payload_bytes(payload: object) -> bytes:
 
 
 def validate_envelope(envelope: object) -> tuple[dict[str, Any], str]:
+    reject_non_dispatchable_artifact(envelope, label="surface envelope")
+    if isinstance(envelope, dict) and "payload" in envelope:
+        reject_non_dispatchable_artifact(envelope["payload"], label="surface envelope payload")
     if not isinstance(envelope, dict) or frozenset(envelope) != {
         "candidate_identity", "payload"
     }:
