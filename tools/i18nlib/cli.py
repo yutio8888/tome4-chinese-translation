@@ -39,6 +39,10 @@ from .merge import run_merge
 from .proposal import validate_proposal
 from .publish import publish_addon
 from . import production_review
+from . import production_review_v2_lite
+from . import production_review_v2_lite_queue
+from . import production_review_v2_lite_batch
+from . import production_review_v2_lite_migration
 from .pi_quality import _register_campaign_stability_report
 from .quality import (
     create_quality_run_directory,
@@ -692,6 +696,71 @@ def _parser() -> argparse.ArgumentParser:
         "production", help="non-authoritative production-review shadow calibration",
     )
     production_sub = production.add_subparsers(dest="production_command", required=True)
+    authoritative = production_sub.add_parser("authoritative-catalog", help="formal WP2-Lite catalog candidate")
+    authoritative_sub = authoritative.add_subparsers(dest="production_action", required=True)
+    authoritative_build = authoritative_sub.add_parser("build")
+    _add_common_arguments(authoritative_build)
+    authoritative_build.add_argument("--output", required=True, type=Path)
+    authoritative_build.add_argument("--recorded-at")
+    authoritative_build.add_argument("--recorded-by", default="WP2L-1 EXECUTOR")
+    authoritative_check = authoritative_sub.add_parser("check")
+    _add_common_arguments(authoritative_check)
+    authoritative_check.add_argument("--candidate-catalog", required=True, type=Path)
+    retirement = production_sub.add_parser("wp1-retirement", help="read-only exact WP1 retirement preflight")
+    retirement_sub = retirement.add_subparsers(dest="production_action", required=True)
+    retirement_preflight = retirement_sub.add_parser("preflight")
+    _add_common_arguments(retirement_preflight)
+    retirement_preflight.add_argument("--candidate-catalog", required=True, type=Path)
+    queue = production_sub.add_parser("queue", help="rebuildable WP2-Lite SQLite projection")
+    queue_sub = queue.add_subparsers(dest="production_action", required=True)
+    queue_sub.add_parser("init")
+    queue_rebuild = queue_sub.add_parser("rebuild")
+    queue_rebuild.add_argument("--treeish", default="HEAD")
+    queue_sub.add_parser("check")
+    queue_status = queue_sub.add_parser("status")
+    queue_status.add_argument("--json", action="store_true")
+    batch = production_sub.add_parser("batch", help="single WP2-Lite active batch")
+    batch_sub = batch.add_subparsers(dest="production_action", required=True)
+    batch_start = batch_sub.add_parser("start")
+    batch_start.add_argument("--limit", type=int, default=80)
+    batch_start.add_argument("--retry-blocked", action="store_true")
+    batch_sub.add_parser("show")
+    batch_abandon = batch_sub.add_parser("abandon")
+    batch_abandon.add_argument("--discard-uncommitted-results", action="store_true")
+    batch_abandon.add_argument("--restore-evidence", action="store_true")
+    recover = batch_sub.add_parser("recover")
+    recover.add_argument("--from-head", action="store_true")
+    batch_sub.add_parser("surface-export")
+    batch_import = batch_sub.add_parser("surface-import")
+    batch_import.add_argument("--input", required=True, type=Path)
+    batch_sub.add_parser("contextual-export")
+    contextual_import = batch_sub.add_parser("contextual-import")
+    contextual_import.add_argument("--input", required=True, type=Path)
+    adjudicate = batch_sub.add_parser("adjudicate")
+    adjudicate.add_argument("--input", required=True, type=Path)
+    batch_sub.add_parser("prepare-evidence")
+    finalize = batch_sub.add_parser("finalize")
+    finalize.add_argument("--commit", required=True)
+    batch_sub.add_parser("recover-from-head")
+    migration = production_sub.add_parser("migration", help="quiescent catalog migration")
+    migration_sub = migration.add_subparsers(dest="production_action", required=True)
+    migration_plan = migration_sub.add_parser("plan")
+    migration_plan.add_argument("--candidate-catalog", required=True, type=Path)
+    migration_plan.add_argument("--output", type=Path)
+    migration_plan.add_argument("--recorded-at")
+    migration_plan.add_argument("--recorded-by", default="WP2L-5 EXECUTOR")
+    migration_check = migration_sub.add_parser("check")
+    migration_check.add_argument("--input", required=True, type=Path)
+    migration_check.add_argument("--candidate-catalog", required=True, type=Path)
+    migration_apply = migration_sub.add_parser("apply")
+    migration_apply.add_argument("--input", required=True, type=Path)
+    migration_apply.add_argument("--candidate-catalog", required=True, type=Path)
+    repair = production_sub.add_parser("repair", help="committed repair preflight")
+    repair_sub = repair.add_subparsers(dest="production_action", required=True)
+    repair_preflight = repair_sub.add_parser("preflight")
+    _add_common_arguments(repair_preflight)
+    repair_preflight.add_argument("--batch-id", required=True)
+    repair_preflight.add_argument("--output", type=Path)
     locator = production_sub.add_parser("locator", help="production locator snapshot")
     locator_sub = locator.add_subparsers(dest="production_action", required=True)
     locator_bootstrap = locator_sub.add_parser("bootstrap")
@@ -3632,7 +3701,12 @@ def _production_read(path: Path, label: str = "artifact") -> Any:
 
 
 def _production(arguments: argparse.Namespace) -> int:
-    root = Path(__file__).resolve().parents[2]
+    configured_root = os.environ.get("I18N_REPOSITORY_ROOT")
+    root = (Path(configured_root).resolve() if configured_root else
+            Path(__file__).resolve().parents[2])
+    if not root.is_dir():
+        raise production_review.ProductionReviewError(
+            f"repository root is not an ordinary directory: {root}")
     evidence = root / "evidence" / "production-review"
     quality = root / "i18n" / "quality" / "production-review"
     command, action = arguments.production_command, getattr(arguments, "production_action", None)
@@ -3682,7 +3756,88 @@ def _production(arguments: argparse.Namespace) -> int:
             locator_manifest=locator, entries=entries, exclusions=exclusions, policy=policy)
         return group, raw, checkpoint, replayed
 
-    if command == "locator" and action == "bootstrap":
+    if command == "authoritative-catalog" and action == "build":
+        manifest = _manifest(arguments)
+        files = production_review_v2_lite.build_catalog(
+            manifest, recorded_at=arguments.recorded_at or production_review_v2_lite.utc_now(),
+            recorded_by=arguments.recorded_by)
+        production_review_v2_lite.write_candidate(files, arguments.output, repository_root=root)
+        value = production_review_v2_lite.check_catalog_tree(arguments.output, manifest)
+        report = {"catalog_id": value["catalog_id"], "occurrences": value["occurrence_count"],
+                  "entries": value["entry_count"], "exclusions": value["exclusion_count"],
+                  "directory": str(arguments.output), "bytes": sum(map(len, files.values()))}
+    elif command == "authoritative-catalog" and action == "check":
+        value = production_review_v2_lite.check_catalog_tree(arguments.candidate_catalog, _manifest(arguments))
+        report = {"catalog_id": value["catalog_id"], "occurrences": value["occurrence_count"],
+                  "entries": value["entry_count"], "exclusions": value["exclusion_count"], "ok": True}
+    elif command == "wp1-retirement" and action == "preflight":
+        report = production_review_v2_lite.retirement_preflight(
+            root, arguments.candidate_catalog, _manifest(arguments))
+    elif command == "queue":
+        if action == "init":
+            report = production_review_v2_lite_queue.init(root)
+        elif action == "rebuild":
+            report = production_review_v2_lite_queue.rebuild(root, treeish=arguments.treeish)
+        elif action == "check":
+            report = production_review_v2_lite_queue.check(root)
+        elif action == "status":
+            report = production_review_v2_lite_queue.status(root)
+        else:
+            raise AssertionError(f"unhandled queue action: {action}")
+    elif command == "batch":
+        if action == "start":
+            report = production_review_v2_lite_batch.start(root, limit=arguments.limit, retry_blocked=arguments.retry_blocked)
+        elif action == "show":
+            report = production_review_v2_lite_batch.show(root)
+        elif action == "abandon":
+            report = production_review_v2_lite_batch.abandon(root, discard_uncommitted_results=arguments.discard_uncommitted_results, restore_evidence=arguments.restore_evidence)
+        elif action == "recover":
+            report = (production_review_v2_lite_batch.recover_from_head(root)
+                      if arguments.from_head else production_review_v2_lite_batch.recover(root))
+        elif action == "surface-export":
+            report = production_review_v2_lite_batch.surface_export(root)
+        elif action == "surface-import":
+            try:
+                values = json.loads(arguments.input.read_text(encoding="utf-8"))
+                if not isinstance(values, dict):
+                    raise ValueError("surface import index must be an object")
+                outputs = {key: (Path(value).read_bytes() if isinstance(value, str) and Path(value).is_file() else value) for key, value in values.items()}
+            except (OSError, UnicodeError, ValueError, TypeError) as error:
+                raise production_review.ProductionReviewError(f"invalid surface import input: {error}") from error
+            report = production_review_v2_lite_batch.surface_import(root, outputs)
+        elif action == "contextual-export":
+            report = production_review_v2_lite_batch.contextual_export(root)
+        elif action == "contextual-import":
+            try:
+                values = json.loads(arguments.input.read_text(encoding="utf-8"))
+                outputs = {key: (Path(value).read_bytes() if isinstance(value, str) and Path(value).is_file() else value) for key, value in values.items()}
+            except (OSError, UnicodeError, ValueError, TypeError) as error:
+                raise production_review.ProductionReviewError(f"invalid contextual import input: {error}") from error
+            report = production_review_v2_lite_batch.contextual_import(root, outputs)
+        elif action == "adjudicate":
+            report = production_review_v2_lite_batch.adjudicate(root, arguments.input)
+        elif action == "prepare-evidence":
+            report = production_review_v2_lite_batch.prepare_evidence(root)
+        elif action == "finalize":
+            report = production_review_v2_lite_batch.finalize(root, arguments.commit)
+        elif action == "recover-from-head":
+            report = production_review_v2_lite_batch.recover_from_head(root)
+        else:
+            raise AssertionError(f"unhandled batch action: {action}")
+    elif command == "migration" and action == "plan":
+        report = production_review_v2_lite_migration.plan(
+            root, arguments.candidate_catalog, recorded_at=arguments.recorded_at,
+            recorded_by=arguments.recorded_by, output=arguments.output)
+    elif command == "migration" and action == "check":
+        report = production_review_v2_lite_migration.check(
+            root, arguments.input, candidate_catalog=arguments.candidate_catalog)
+    elif command == "migration" and action == "apply":
+        report = production_review_v2_lite_migration.apply(
+            root, arguments.input, candidate_catalog=arguments.candidate_catalog)
+    elif command == "repair" and action == "preflight":
+        report = production_review_v2_lite_migration.repair_preflight(
+            root, arguments.batch_id, output=arguments.output, manifest=_manifest(arguments))
+    elif command == "locator" and action == "bootstrap":
         manifest = _manifest(arguments)
         value, occurrences, locators = production_review.build_locator_snapshot(
             manifest, recorded_at=arguments.recorded_at, recorded_by=arguments.recorded_by)
@@ -3832,7 +3987,22 @@ def _production(arguments: argparse.Namespace) -> int:
         if not report["ok"]: raise production_review.ProductionReviewError("shadow reconciliation conservation failed")
     else:
         raise AssertionError(f"unhandled production command: {command}/{action}")
-    _print_json(report)
+    if command in {"migration", "repair"}:
+        sys.stdout.buffer.write(production_review.canonical_bytes(report))
+        return 0 if report.get("ok", True) else 1
+    if command == "queue" and action == "status":
+        if arguments.json:
+            sys.stdout.buffer.write(production_review.canonical_bytes(report))
+        else:
+            print(f"catalog {report['catalog_id']}")
+            print(f"evidence HEAD {report['evidence_head']}")
+            states = ", ".join(f"{key}={value}" for key, value in report["explicit_overrides"].items()) or "none"
+            print(f"overrides {states}; queued={report['implicit_queued']}; reconciliation={report['reconciliation_count']}")
+            print(f"active writer {'yes' if report['active_writer'] else 'no'}")
+    else:
+        _print_json(report)
+    if command == "queue" and action == "check" and not report["ok"]:
+        return 1
     return 0
 
 
@@ -3959,6 +4129,6 @@ def main(argv: list[str] | None = None) -> int:
     except I18nToolError as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return error.exit_code
-    except production_review.ProductionReviewError as error:
+    except (production_review.ProductionReviewError, production_review.ledger.LedgerError) as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 1

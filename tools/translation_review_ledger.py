@@ -22,8 +22,10 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+from datetime import datetime
 import os
 from pathlib import Path
+import re
 import sys
 from typing import Any
 
@@ -64,6 +66,17 @@ SHADOW_CATALOG_KEYS = frozenset({
 SHADOW_CATALOG_MARKERS = {
     "authoritative": False, "dispatchable": False, "promotable": False,
 }
+FORMAL_CATALOG_KEYS = frozenset({
+    "schema_version", "kind", "catalog_id", "rules_version", "recorded_at",
+    "recorded_by", "manifest_sha256", "loader_contract_path",
+    "loader_contract_sha256", "lua_runtime", "manifest_component_ordinals",
+    "component_counts", "occurrence_count", "entry_count", "exclusion_count",
+    "entries_sha256", "exclusions_sha256", "terminology_snapshot_sha256",
+    "source_identities", "policy_sha256",
+})
+FORMAL_CATALOG_KIND = "production_review_v2_lite_catalog_v1"
+FORMAL_RULES_VERSION = "production-review-v2-lite-rules-v1"
+UTC_SECONDS = re.compile(r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z")
 # Identity-change causes are the only legal route into ``invalidated``; a
 # closed revision may also be identity-invalidated into a new revision, while
 # preference alone can never reopen or invalidate anything.  A logical
@@ -225,13 +238,80 @@ def _canonical_line(record: dict[str, Any]) -> bytes:
 def validate_authoritative_catalog(
     catalog_manifest_raw: bytes, *, expected_sha256: str | None = None,
 ) -> dict[str, Any]:
-    """Fail closed until WP2 defines the authoritative catalog contract.
-
-    WP1 has no authoritative schema/ID/domain/body/lineage validator.  Merely
-    changing a shadow kind or capability markers must never create one.
-    """
-    del catalog_manifest_raw, expected_sha256
-    raise LedgerError("formal catalog consumer is unavailable until the WP2 exact authoritative validator is implemented")
+    """Validate only the exact canonical WP2-Lite manifest and its self-ID."""
+    try:
+        value = check.strict_json_bytes(catalog_manifest_raw, label="formal catalog manifest")
+        canonical = check.canonical_bytes(value)
+    except (check.ContractError, check.InputError) as error:
+        raise LedgerError(f"invalid formal catalog manifest: {error}") from error
+    if canonical != catalog_manifest_raw:
+        raise LedgerError("formal catalog manifest must be canonical compact UTF-8 JSON")
+    if not isinstance(value, dict) or frozenset(value) != FORMAL_CATALOG_KEYS:
+        raise LedgerError("formal catalog manifest exact schema mismatch")
+    if type(value["schema_version"]) is not int or value["schema_version"] != 1:
+        raise LedgerError("formal catalog schema_version must be integer 1")
+    if value["kind"] != FORMAL_CATALOG_KIND or value["rules_version"] != FORMAL_RULES_VERSION:
+        raise LedgerError("formal catalog kind/rules mismatch")
+    for key in ("catalog_id", "manifest_sha256", "loader_contract_sha256",
+                "entries_sha256", "exclusions_sha256",
+                "terminology_snapshot_sha256", "policy_sha256"):
+        _identity(value[key], f"formal catalog {key}")
+    for key in ("recorded_at", "recorded_by", "loader_contract_path", "lua_runtime"):
+        _nonempty(value[key], f"formal catalog {key}")
+    if not UTC_SECONDS.fullmatch(value["recorded_at"]):
+        raise LedgerError("formal catalog recorded_at must be strict UTC seconds")
+    try:
+        datetime.strptime(value["recorded_at"], "%Y-%m-%dT%H:%M:%SZ")
+    except ValueError as error:
+        raise LedgerError("formal catalog recorded_at must be strict UTC seconds") from error
+    if value["loader_contract_path"] != "tools/i18nlib/locale_model.py":
+        raise LedgerError("formal catalog loader contract path mismatch")
+    for key in ("occurrence_count", "entry_count", "exclusion_count"):
+        if type(value[key]) is not int or value[key] < 0:
+            raise LedgerError(f"formal catalog {key} must be a non-negative integer")
+    if value["occurrence_count"] != value["entry_count"] + value["exclusion_count"]:
+        raise LedgerError("formal catalog occurrence conservation mismatch")
+    counts = value["component_counts"]
+    if (not isinstance(counts, dict) or not counts
+            or any(not isinstance(k, str) or not k or type(v) is not int or v < 0
+                   for k, v in counts.items())
+            or sum(counts.values()) != value["occurrence_count"]):
+        raise LedgerError("formal catalog component counts mismatch")
+    ordinals = value["manifest_component_ordinals"]
+    if not isinstance(ordinals, list) or not ordinals:
+        raise LedgerError("formal catalog component ordinals must be a non-empty list")
+    ordinal_components = []
+    for index, row in enumerate(ordinals):
+        if (not isinstance(row, dict) or frozenset(row) != {"component", "ordinal"}
+                or not isinstance(row["component"], str) or not row["component"]
+                or type(row["ordinal"]) is not int or row["ordinal"] != index):
+            raise LedgerError("formal catalog component ordinal binding mismatch")
+        ordinal_components.append(row["component"])
+    if len(set(ordinal_components)) != len(ordinal_components) or set(counts) != set(ordinal_components):
+        raise LedgerError("formal catalog component set mismatch")
+    sources = value["source_identities"]
+    required_sources = {"engine", "boot", "tome", "ashes-urhrok", "cults", "orcs"}
+    if (not isinstance(sources, dict)
+            or not required_sources.issubset(sources)
+            or not set(sources).issubset(ordinal_components)
+            or any(
+            not isinstance(k, str) or not isinstance(v, str)
+            or not (v.startswith("commit:") and len(v) == 47
+                    and len(v[7:]) == 40 and all(c in "0123456789abcdef" for c in v[7:])
+                    or v.startswith("snapshot:") and check.SHA256.fullmatch(v[9:]))
+            for k, v in sources.items())):
+        raise LedgerError("formal catalog source identities mismatch")
+    core = dict(value)
+    for key in ("catalog_id", "recorded_at", "recorded_by"):
+        core.pop(key)
+    if value["catalog_id"] != hashlib.sha256(check.canonical_bytes(core)).hexdigest():
+        raise LedgerError("formal catalog self-ID mismatch")
+    digest = hashlib.sha256(catalog_manifest_raw).hexdigest()
+    if expected_sha256 is not None:
+        _identity(expected_sha256, "expected formal catalog SHA-256")
+        if digest != expected_sha256:
+            raise LedgerError("formal catalog provenance SHA-256 mismatch")
+    return value
 
 
 def _shadow_catalog_id(value: dict[str, Any]) -> str:

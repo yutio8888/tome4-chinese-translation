@@ -576,7 +576,7 @@ class TranslationReviewLedgerTests(unittest.TestCase):
         # The exact eleven-key row remains structurally legal in isolation,
         # but the formal catalog/provenance consumer rejects its shadow parent.
         ledger.validate_record(harvested)
-        with self.assertRaisesRegex(ledger.LedgerError, "WP2 exact authoritative validator"):
+        with self.assertRaisesRegex(ledger.LedgerError, "formal catalog manifest"):
             ledger.replay_with_catalog([harvested], shadow_raw)
 
         # Rebranding and flipping markers cannot manufacture the missing WP2
@@ -588,7 +588,7 @@ class TranslationReviewLedgerTests(unittest.TestCase):
         }
         rebranded_raw = check.canonical_bytes(rebranded)
         accepted = record("queued", provenance_sha256=__import__("hashlib").sha256(rebranded_raw).hexdigest())
-        with self.assertRaisesRegex(ledger.LedgerError, "WP2 exact authoritative validator"):
+        with self.assertRaisesRegex(ledger.LedgerError, "formal catalog manifest"):
             ledger.replay_with_catalog([accepted], rebranded_raw)
 
     def test_cli_formal_consumer_rejects_shadow_catalog(self) -> None:
@@ -610,7 +610,7 @@ class TranslationReviewLedgerTests(unittest.TestCase):
             "--catalog-manifest", catalog.name,
         ], capture_output=True, text=True)
         self.assertEqual(completed.returncode, 1)
-        self.assertIn("WP2 exact authoritative validator", completed.stdout)
+        self.assertIn("formal catalog manifest", completed.stdout)
         self.assertNotIn("Traceback", completed.stdout + completed.stderr)
 
     def test_cli_repository_shadow_barrier_survives_root_redirection(self) -> None:

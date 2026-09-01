@@ -129,6 +129,11 @@ check_out \
     "production shadow/surface/ledger unittest" \
     python3 -m unittest -q \
     tests/i18n/test_production_review.py \
+    tests/i18n/test_production_review_v2_lite.py \
+    tests/i18n/test_production_review_v2_lite_migration.py \
+    tests/i18n/test_production_review_v2_lite_queue.py \
+    tests/i18n/test_production_review_v2_lite_batch.py \
+    tests/i18n/test_production_review_v2_lite_evidence.py \
     tests/i18n/test_surface_screen_manifest.py \
     tests/i18n/test_surface_screen_result_check.py \
     tests/i18n/test_translation_review_ledger.py
