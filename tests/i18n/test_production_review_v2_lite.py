@@ -259,14 +259,13 @@ class ProductionReviewV2LiteTests(unittest.TestCase):
             with self.assertRaisesRegex(wp1.ProductionReviewError, "128 MiB"):
                 v2.prospective_occupancy({}, candidate)
 
-    def test_wp1_literal_preimage_is_still_exact(self):
-        v2.verify_wp1_preimage(ROOT)
+    def test_wp1_preimage_is_absent_after_publication(self):
         self.assertEqual(len(v2.WP1_RETIREMENT_ROOTS), 6)
         self.assertEqual(len(v2.WP1_FILES), 12)
-        for path, digest in v2.WP1_FILES.items():
-            self.assertTrue(any(path == root or path.startswith(root + "/")
-                                for root in v2.WP1_RETIREMENT_ROOTS))
-            self.assertEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(), digest)
+        for path in v2.WP1_FILES:
+            self.assertFalse((ROOT / path).exists(), path)
+        with self.assertRaises(wp1.ProductionReviewError):
+            v2.verify_wp1_preimage(ROOT)
 
     def test_real_cli_vector_preflight_and_controlled_failure(self):
         output = self.root / "real-candidate"
@@ -279,8 +278,9 @@ class ProductionReviewV2LiteTests(unittest.TestCase):
         preflight = subprocess.run([sys.executable, "-B", str(ROOT / "tools/i18n"), "production",
             "wp1-retirement", "preflight", "--candidate-catalog", str(output)],
             capture_output=True, text=True, timeout=300)
-        self.assertEqual(preflight.returncode, 0, preflight.stderr)
-        self.assertLessEqual(json.loads(preflight.stdout)["prospective_tracked_bytes"], v2.TRACKED_LIMIT)
+        self.assertNotEqual(preflight.returncode, 0)
+        self.assertIn("WP1", preflight.stderr)
+        self.assertTrue(all(not (ROOT / path).exists() for path in v2.WP1_FILES))
         manifest_path = output / v2.CATALOG_PREFIX / "manifest.json"
         manifest_path.write_bytes(b'{"kind":"production_review_v2_lite_catalog_v1","kind":"duplicate"}')
         failed = subprocess.run([sys.executable, "-B", str(ROOT / "tools/i18n"), "production",

@@ -1,11 +1,15 @@
 from __future__ import annotations
 
+import contextlib
+import io
 import json
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -28,6 +32,11 @@ OTHER_LOGICAL_REVISION = identity("e")
 MIGRATED_LOGICAL = identity("f")
 MIGRATED_REVISION = identity("0")
 THIRD_LOGICAL = identity("9")
+WP1_BASELINE_HEAD = "a287652c344a3e37199fe0af2d8a6b4cdf25f0b2"
+WP1_CATALOG_MANIFEST = (
+    "evidence/production-review/catalogs/"
+    "1001066b5d575524a5c2966d462e03b3a06b38c3232c098eaa459de1e0a29567/manifest.json"
+)
 
 
 def record(
@@ -92,6 +101,23 @@ class TranslationReviewLedgerTests(unittest.TestCase):
             check.canonical_bytes(item) + b"\n" for item in records
         ))
         return path
+
+    def _frozen_shadow_manifest(self) -> bytes:
+        return subprocess.check_output(
+            ["git", "show", f"{WP1_BASELINE_HEAD}:{WP1_CATALOG_MANIFEST}"],
+            cwd=ROOT,
+        )
+
+    def _run_cli(self, *arguments: str, repository_root: Path | None = None) -> SimpleNamespace:
+        stdout = io.StringIO()
+        stderr = io.StringIO()
+        isolated_root = repository_root or (self.root / "repository")
+        with mock.patch.object(ledger, "ROOT", isolated_root), \
+                contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+            returncode = ledger.main([*arguments, "--root", str(self.root)])
+        return SimpleNamespace(
+            returncode=returncode, stdout=stdout.getvalue(), stderr=stderr.getvalue()
+        )
 
     def test_happy_path_and_named_states(self) -> None:
         path = self._write(HAPPY_PATH)
@@ -604,18 +630,24 @@ class TranslationReviewLedgerTests(unittest.TestCase):
         )])
         catalog = self.root / "catalog.json"
         catalog.write_bytes(shadow_raw)
-        completed = subprocess.run([
-            sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
-            "check", path.name, "--root", str(self.root),
-            "--catalog-manifest", catalog.name,
-        ], capture_output=True, text=True)
+        completed = self._run_cli(
+            "check", path.name, "--catalog-manifest", catalog.name
+        )
         self.assertEqual(completed.returncode, 1)
         self.assertIn("formal catalog manifest", completed.stdout)
         self.assertNotIn("Traceback", completed.stdout + completed.stderr)
 
-    def test_cli_repository_shadow_barrier_survives_root_redirection(self) -> None:
-        repository_catalog = next((ROOT / "evidence/production-review/catalogs").glob("*/manifest.json"))
-        digest = __import__("hashlib").sha256(repository_catalog.read_bytes()).hexdigest()
+    def test_cli_frozen_shadow_barrier_survives_root_redirection(self) -> None:
+        raw = self._frozen_shadow_manifest()
+        value = check.strict_json_bytes(raw, label="frozen baseline shadow catalog")
+        repository_root = self.root / "repository"
+        repository_catalog = (
+            repository_root / "evidence/production-review/catalogs"
+            / value["catalog_id"] / "manifest.json"
+        )
+        repository_catalog.parent.mkdir(parents=True)
+        repository_catalog.write_bytes(raw)
+        digest = __import__("hashlib").sha256(raw).hexdigest()
         forbidden_record = record("queued", provenance_sha256=digest)
         ledger_path = self._write([forbidden_record])
         record_path = self.root / "record.json"
@@ -628,10 +660,9 @@ class TranslationReviewLedgerTests(unittest.TestCase):
             ("append", [empty_path.name, str(record_path)]),
         ):
             with self.subTest(command=command):
-                completed = subprocess.run([
-                    sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
-                    command, *arguments, "--root", str(self.root),
-                ], capture_output=True, text=True)
+                completed = self._run_cli(
+                    command, *arguments, repository_root=repository_root
+                )
                 self.assertEqual(completed.returncode, 1)
                 self.assertIn("forbidden tracked WP1 shadow", completed.stdout)
                 self.assertNotIn("Traceback", completed.stdout + completed.stderr)
@@ -658,12 +689,9 @@ class TranslationReviewLedgerTests(unittest.TestCase):
                 else:
                     child.unlink()
 
-    def test_relabelled_shadow_catalog_fails_closed_for_default_cli(self) -> None:
-        repository_catalog = next(
-            (ROOT / "evidence/production-review/catalogs").glob("*/manifest.json")
-        )
+    def test_relabelled_frozen_shadow_catalog_fails_closed_for_default_cli(self) -> None:
         original = check.strict_json_bytes(
-            repository_catalog.read_bytes(), label="repository shadow catalog")
+            self._frozen_shadow_manifest(), label="frozen baseline shadow catalog")
         original["recorded_by"] = "temporary exact-shape baseline"
         original["catalog_id"] = ledger._shadow_catalog_id(original)
         original_raw = check.canonical_bytes(original)
@@ -676,7 +704,8 @@ class TranslationReviewLedgerTests(unittest.TestCase):
         ]
         for field, replacement in mutations:
             with self.subTest(field=field):
-                catalogs = self.root / "evidence/production-review/catalogs"
+                repository_root = self.root / "repository"
+                catalogs = repository_root / "evidence/production-review/catalogs"
                 child = catalogs / original["catalog_id"]
                 child.mkdir(parents=True, exist_ok=True)
                 relabelled = json.loads(json.dumps(original))
@@ -696,10 +725,9 @@ class TranslationReviewLedgerTests(unittest.TestCase):
                     ("summary", [ledger_path.name]),
                     ("append", [empty_path.name, str(record_path)]),
                 ):
-                    completed = subprocess.run([
-                        sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
-                        command, *arguments, "--root", str(self.root),
-                    ], capture_output=True, text=True)
+                    completed = self._run_cli(
+                        command, *arguments, repository_root=repository_root
+                    )
                     self.assertEqual(completed.returncode, 1, completed.stdout)
                     self.assertIn("shadow catalog manifest", completed.stdout)
                     self.assertNotIn("Traceback", completed.stdout + completed.stderr)
@@ -707,12 +735,9 @@ class TranslationReviewLedgerTests(unittest.TestCase):
                     path.unlink()
                 child.rmdir()
 
-    def test_default_cli_and_library_barrier_harvest_tracked_shadow(self) -> None:
-        repository_catalog = next(
-            (ROOT / "evidence/production-review/catalogs").glob("*/manifest.json")
-        )
+    def test_default_cli_and_library_barrier_harvest_frozen_shadow(self) -> None:
         shadow = check.strict_json_bytes(
-            repository_catalog.read_bytes(), label="repository shadow catalog")
+            self._frozen_shadow_manifest(), label="frozen baseline shadow catalog")
         shadow["recorded_by"] = "temporary exact-shape baseline"
         shadow["catalog_id"] = ledger._shadow_catalog_id(shadow)
         catalog_dir = (self.root / "evidence/production-review/catalogs"
@@ -726,19 +751,13 @@ class TranslationReviewLedgerTests(unittest.TestCase):
         forbidden = ledger.forbidden_shadow_provenance(self.root)
         with self.assertRaisesRegex(ledger.LedgerError, "forbidden tracked WP1 shadow"):
             ledger.replay_production(records, forbidden_provenance=forbidden)
-        completed = subprocess.run([
-            sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
-            "check", path.name, "--root", str(self.root),
-        ], capture_output=True, text=True)
+        completed = self._run_cli("check", path.name)
         self.assertEqual(completed.returncode, 1)
         self.assertIn("forbidden tracked WP1 shadow", completed.stdout)
         record_file = self.root / "record.json"
         record_file.write_bytes(check.canonical_bytes(records[0]))
         empty = self.root / "empty.jsonl"; empty.write_bytes(b"")
-        appended = subprocess.run([
-            sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
-            "append", empty.name, str(record_file), "--root", str(self.root),
-        ], capture_output=True, text=True)
+        appended = self._run_cli("append", empty.name, str(record_file))
         self.assertEqual(appended.returncode, 1)
         self.assertNotIn("Traceback", completed.stdout + completed.stderr + appended.stdout + appended.stderr)
 
@@ -903,10 +922,7 @@ class TranslationReviewLedgerTests(unittest.TestCase):
 
     def test_cli_exit_codes(self) -> None:
         path = self._write(HAPPY_PATH)
-        verified = subprocess.run([
-            sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
-            "check", "TRANSLATION-REVIEW-LEDGER.jsonl", "--root", str(self.root),
-        ], capture_output=True, text=True)
+        verified = self._run_cli("check", "TRANSLATION-REVIEW-LEDGER.jsonl")
         self.assertEqual(verified.returncode, 0)
         self.assertIn("LEDGER_VERIFIED records=7", verified.stdout)
         record_file = self.root / "record.json"
@@ -914,23 +930,15 @@ class TranslationReviewLedgerTests(unittest.TestCase):
             record("deep_queued", from_state="sampling_queued",
                    reason_code="deferred_sampled")
         ))
-        appended = subprocess.run([
-            sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
-            "append", "TRANSLATION-REVIEW-LEDGER.jsonl", str(record_file),
-            "--root", str(self.root),
-        ], capture_output=True, text=True)
+        appended = self._run_cli(
+            "append", "TRANSLATION-REVIEW-LEDGER.jsonl", str(record_file)
+        )
         self.assertEqual(appended.returncode, 1)
         self.assertIn("LEDGER_FAILED:", appended.stdout)
-        summary = subprocess.run([
-            sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
-            "summary", "TRANSLATION-REVIEW-LEDGER.jsonl", "--root", str(self.root),
-        ], capture_output=True, text=True)
+        summary = self._run_cli("summary", "TRANSLATION-REVIEW-LEDGER.jsonl")
         self.assertEqual(summary.returncode, 0)
         self.assertIn('"deferred_is_not_deep_reviewed":true', summary.stdout)
-        escaped = subprocess.run([
-            sys.executable, "-B", str(TOOLS / "translation_review_ledger.py"),
-            "check", "../escape.jsonl", "--root", str(self.root),
-        ], capture_output=True, text=True)
+        escaped = self._run_cli("check", "../escape.jsonl")
         self.assertEqual(escaped.returncode, 2)
         self.assertIn("INPUT_ERROR:", escaped.stdout)
         self.assertNotIn(

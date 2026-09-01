@@ -18,6 +18,13 @@ ROOT = Path(__file__).resolve().parents[2]
 MANIFEST_COMPONENTS = ["engine", "boot", "tome", "example", "example-realtime", "addon-dev",
                        "ashes-urhrok", "cults", "items-vault", "orcs", "possessors"]
 SOURCES = {component: "commit:" + "4" * 40 for component in p.IN_SCOPE_COMPONENTS}
+WP1_BASELINE_HEAD = "a287652c344a3e37199fe0af2d8a6b4cdf25f0b2"
+
+
+def frozen_baseline_blob(path):
+    return subprocess.check_output(
+        ["git", "show", f"{WP1_BASELINE_HEAD}:{path}"], cwd=ROOT
+    )
 
 
 def occurrence(component="tome", source="Source", target="甲", ordinal=0):
@@ -461,25 +468,52 @@ class ProductionReviewUnitTests(unittest.TestCase):
             self.assertNotEqual((rebuilt,rebuilt_entries,rebuilt_exclusions),(data["cm"],data["eb"],data["xb"]))
 
     def test_reconciliation_cli_uses_frozen_chain_when_live_manifest_is_missing(self):
-        locator_dir = next((ROOT / "evidence/production-review/locator-snapshots").iterdir())
-        catalog_dir = next((ROOT / "evidence/production-review/catalogs").iterdir())
-        journal_dir = next((ROOT / "evidence/production-review/shadow-journals").iterdir())
-        batch_dir = next((ROOT / "evidence/production-review/batches").iterdir())
-        policy_dir = next((ROOT / "i18n/quality/production-review/shadow-policies").iterdir())
-        missing = ROOT / ".artifacts/i18n/definitely-missing-production-manifest.json"
-        completed = subprocess.run([sys.executable, "-B", str(ROOT / "tools/i18n"),
-            "production", "reconciliation", "report", "--manifest", str(missing),
-            "--locator-snapshot", str(locator_dir / "manifest.json"),
-            "--occurrences", str(locator_dir / "occurrences.jsonl"),
-            "--locators", str(locator_dir / "locators.jsonl"),
-            "--catalog", str(catalog_dir / "manifest.json"),
-            "--entries", str(catalog_dir / "entries.jsonl"),
-            "--exclusions", str(catalog_dir / "exclusions.jsonl"),
-            "--policy", str(policy_dir / "policy.json"),
-            "--group", str(journal_dir / "group.json"),
-            "--events", str(journal_dir / "events.jsonl"),
-            "--checkpoint", str(journal_dir / "checkpoint.json"),
-            "--batch", str(batch_dir / "manifest.json")], capture_output=True, text=True)
+        data = chain()
+        artifact_root = ROOT / ".artifacts/i18n"
+        artifact_root.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=artifact_root) as temporary:
+            root = Path(temporary)
+            locator_dir = root / "locator"
+            catalog_dir = root / "catalog"
+            journal_dir = root / "journal"
+            batch_dir = root / "batch"
+            policy_path = root / "policy.json"
+            files = {
+                locator_dir / "manifest.json": p.canonical_bytes(data["lm"]),
+                locator_dir / "occurrences.jsonl": data["ob"],
+                locator_dir / "locators.jsonl": data["lb"],
+                catalog_dir / "manifest.json": p.canonical_bytes(data["cm"]),
+                catalog_dir / "entries.jsonl": data["eb"],
+                catalog_dir / "exclusions.jsonl": data["xb"],
+                policy_path: p.canonical_bytes(data["policy"]),
+                journal_dir / "group.json": p.canonical_bytes(data["group"]),
+                journal_dir / "events.jsonl": p._jsonl(data["events"]),
+                journal_dir / "checkpoint.json": p.canonical_bytes(data["checkpoint"]),
+                batch_dir / "manifest.json": p.canonical_bytes(
+                    p.build_shadow_batch(
+                        data["entries"], data["cm"], data["policy"], data["group"],
+                        p._jsonl(data["events"]), data["checkpoint"], data["exclusions"],
+                        catalog_manifest_raw=data["cm_raw"], locator_manifest=data["lm"],
+                    )
+                ),
+            }
+            for path, raw in files.items():
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(raw)
+            missing = root / "definitely-missing-production-manifest.json"
+            completed = subprocess.run([sys.executable, "-B", str(ROOT / "tools/i18n"),
+                "production", "reconciliation", "report", "--manifest", str(missing),
+                "--locator-snapshot", str(locator_dir / "manifest.json"),
+                "--occurrences", str(locator_dir / "occurrences.jsonl"),
+                "--locators", str(locator_dir / "locators.jsonl"),
+                "--catalog", str(catalog_dir / "manifest.json"),
+                "--entries", str(catalog_dir / "entries.jsonl"),
+                "--exclusions", str(catalog_dir / "exclusions.jsonl"),
+                "--policy", str(policy_path),
+                "--group", str(journal_dir / "group.json"),
+                "--events", str(journal_dir / "events.jsonl"),
+                "--checkpoint", str(journal_dir / "checkpoint.json"),
+                "--batch", str(batch_dir / "manifest.json")], capture_output=True, text=True)
         self.assertEqual(completed.returncode, 0, completed.stderr)
         report = p.parse_canonical_object(
             (ROOT / ".artifacts/i18n/production-review/reconciliation.json").read_bytes(), "report")
@@ -682,9 +716,9 @@ class ProductionReviewUnitTests(unittest.TestCase):
                                             "duplicate_index.*integer zero"):
                     p._validate_locator_row(locator)
 
-    def test_tracked_schema_declares_wp1_duplicate_index_literal_zero(self):
-        schema = json.loads(
-            (ROOT / "i18n/quality/production-review/schemas-v1.json").read_text())
+    def test_frozen_wp1_schema_declares_duplicate_index_literal_zero(self):
+        schema = json.loads(frozen_baseline_blob(
+            "i18n/quality/production-review/schemas-v1.json"))
         shapes = schema["exact_shapes"]
         self.assertEqual(shapes["allocation"]["duplicate_index"], "integer:0")
         self.assertEqual(shapes["locator_row"]["duplicate_index"], "integer:0")
