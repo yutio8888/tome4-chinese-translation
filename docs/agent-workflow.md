@@ -20,7 +20,7 @@ python3 -B tools/i18n doctor
 
 先完成一轮只读检查再集中裁决；仅审核任务不得自行进入修复。译文检查源码机制、语境、术语、占位符／markup、运行键和中文表达；代码／工具检查输入、失败语义、下游消费者和实际复杂度；文档／配置核对真实实现与命令。finding 必须有源码或上下文证据并说明可触发行为或调用链；纯风格偏好、理论风险和无证据的性能猜测不算确认问题。
 
-主代理独立把 finding 标为 `confirmed`、`pending` 或 `advisory` 并定级；只有 `confirmed` 自动进入修复。只有用户要求修复时才修改：先冻结 finding 清单，按依赖顺序处理 accepted 项，给修复 agent 明确 finding、允许文件、最小测试和完成条件，并复核其输出与测试结果。
+主代理独立把 finding 标为 `confirmed`、`pending` 或 `advisory` 并定级；只有 `confirmed` 自动进入修复。只有用户要求修复时才修改：先冻结 finding 清单，把同一轮的全部 accepted 项合并为一次修复 dispatch 并按依赖顺序处理，给修复 agent 明确 finding、允许文件、最小测试和完成条件，并复核其输出与测试结果。
 
 每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。若待检文件是 untracked，先以 `git add -N -- <path>` 让其以 intent-to-add 形式进入工作树 diff，再运行 `git diff --check`，检查后用 `git reset -- <path>` 恢复 index；最终不得留下 staged 内容。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
 
@@ -105,7 +105,8 @@ finding 清零且门禁通过后方可收束。
 3. 写 `.ai/task/<task>/SPEC.md|PLAN.md|SCOPE.json|STATE.json`；复用上一批的 envelope builder
    时先改 revision key 前缀。
 4. 派发 EXECUTOR → 机械核验 diff 范围与键漂移 → 归档 → 冻结候选 → preflight → 派发独立复审。
-5. 按固定源码裁决 observation；`confirmed` 进 fresh EXECUTOR 修复。schema 4 的
+5. 按固定源码裁决 observation；一个 cycle 的全部 `confirmed` finding 合并为**一次** fresh
+EXECUTOR 修复 dispatch，在同一次运行内按依赖顺序处理，不逐条派发。schema 4 的
    translation implement 任务按下节执行中间 closure 或不确定时的 `RE_REVIEW/full`，收敛后做
    一次最终全量复审。
 6. 最终全量复审收敛后运行五步门禁 + 适用的完整门禁 → `ai_state_check.py`
@@ -135,13 +136,39 @@ correctness backstop，不能由 closure 记录替代。
 
 新 STATE 的 `max_cycles` 默认 3，且 `cycle <= max_cycles`。只有用户明确授权时才可把上限设为
 3 以上，并逐字保存 `max_cycles_user_authorized=true`；该轻量字段不记录授权文本或另建审批
-artifact。维护者已为 4-lane 译文审核给出 standing authorization：此类任务创建时显式设置
-`max_cycles=10` 和该 literal；2–3 lane 仍保持默认 3。schema 3 及更早任务和 `review_only`
-保持原行为。
+artifact。
 
-已被某个 revision 接受的译文只有在 fidelity、completeness、grammar、terminology、runtime
-或 conspicuous translationese 缺陷有源码／语境证据时才可 reopen。纯偏好变化只记 advisory，
-不得进入 accepted finding，也不得扩大 closure。
+译文 contextual 复审默认 **2 个并行独立 lane**，`max_cycles` 保持默认 3。4-lane 是升级路径，
+不是默认值，只在下列客观条件之一成立时启用，并在 STATE 记录启用理由：两个 lane 对同一
+revision 的**一级**缺陷给出实质冲突结论；或批次内容承载可影响玩法的机制描述（数值、时序、
+触发条件、目标选择）。维护者对 4-lane 译文审核的 standing authorization 仍然有效：启用
+4-lane 时显式设置 `max_cycles=10` 与该 literal。schema 3 及更早任务和 `review_only` 保持原行为。
+
+新建的译文 `implement` 任务一律使用 `schema_version >= 4`，使三阶段收敛复审生效；schema 3
+会让每个 cycle 重复全量复审，不得用于新批次。
+
+已被某个 revision 接受的译文只有在缺陷有源码／语境证据时才可 reopen，并按两级收敛阈值分档：
+
+- **一级（阻断级，任何 cycle 均可 reopen）**：fidelity、completeness、terminology、runtime，
+  以及 placeholder／markup／newline 不变量。这些都能对固定源码或不变量检查做客观判定，
+  两名独立 reviewer 面对同一固定源码应当收敛到同一结论。
+- **二级（有界级，只在 `cycle <= 2` 可 reopen）**：grammar、conspicuous translationese。这类
+  判断依赖读者语感而非固定源码，多个独立 lane 会持续产出互不相同且互不等价的改写建议，
+  不存在收敛点。从 `cycle >= 3` 起，二级缺陷一律只记 advisory，不得进入 accepted finding，
+  也不得扩大 closure。
+
+纯偏好变化在任何 cycle 都只记 advisory。二级缺陷若同时构成一级缺陷（例如语法错误已经改变
+机制含义），按一级处理，但裁决记录必须写明触发的是哪一条一级依据。
+
+**收敛下限**：某个 cycle 的裁决结果不含任何一级 confirmed finding 时，该批次即视为收敛，
+直接进入 `FINAL_REVIEW/full`，不再开新的修复轮。二级 advisory 不阻断收敛。批次靠
+`max_cycles` 耗尽而结束属异常路径，必须在批次简报写明未收敛原因。
+
+**已裁定 out-of-scope 的 revision**：ORCHESTRATOR 在 STATE 维护 `declined_scope`，记录被永久
+裁定为超出 SPEC 允许编辑面的 revision key 及其客观依据（SPEC 条款或固定源码事实）。该清单
+只以「SPEC 边界事实」形式进入 briefing——说明哪些 revision 不在本任务可编辑范围内——不携带
+severity、既往 verdict、finding 计数或期待结论，因此不破坏 anchors-only 独立性。对已列入
+`declined_scope` 的 revision key 再次提出同类 observation 时直接记 advisory，不重新裁决。
 
 每个 cycle 在 contextual 派发前运行 preflight；修复后运行 strict lint、范围与
 source／source_tag／args_order／special／markup／placeholder／newline 不变量检查，以及

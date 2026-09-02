@@ -63,16 +63,32 @@ follow-up 续跑——一次运行结束就不是可继续的会话。
 - 门禁失败且一次有界诊断无法归因。
 - 子 agent 生命周期无法确认：归档预算耗尽后仍无法确认归档状态、歧义创建无法 reconciliation，
   或复审所需的 model 身份在重试后仍无法确定。
-- 修复轮次达到 `max_cycles` 仍未收敛。
+- 修复轮次达到 `max_cycles` 仍未收敛（异常路径；正常批次应由下述收敛下限收束）。
 - 连续两个 EXECUTOR dispatch 都没有产出工作成果。
 - 需要 push、开 PR、发布，或触及任何 P3 事项。
 - 批次边界或范围存在实质歧义，不同解读会导致实质不同的工作。
 
 ### 自行处理，不必停下
 
-常规修复轮（不超过 `max_cycles`）；单次无效 dispatch 的归档与 fresh retry；按既定顺序选择
-下一个切片与批次边界；批内专名一致性对齐（不改术语库）；提交译文批次、evidence、交接与
-记忆；复审无异议的宿主 advisory。这些都在批次简报中说明，不需要事先批准。
+常规修复轮（不超过 `max_cycles`）；按收敛下限收束批次；单次无效 dispatch 的归档与 fresh
+retry；按既定顺序选择下一个切片与批次边界；批内专名一致性对齐（不改术语库）；提交译文
+批次、evidence、交接与记忆；复审无异议的宿主 advisory。这些都在批次简报中说明，不需要
+事先批准。
+
+### 复审收敛下限
+
+译文 contextual 复审默认 **2 个并行独立 lane**，`max_cycles` 默认 3；4-lane 是升级路径，只在
+一级缺陷出现实质冲突或批次承载机制描述时启用。已接受译文的 reopen 按缺陷分档：
+
+- **一级**：fidelity、completeness、terminology、runtime，以及 placeholder／markup／newline
+  不变量。可对固定源码客观判定，任何 cycle 均可 reopen。
+- **二级**：grammar、conspicuous translationese。依赖语感、无固定源码判据，只在 `cycle <= 2`
+  可 reopen；`cycle >= 3` 起一律只记 advisory。
+
+某个 cycle 不产生一级 confirmed finding 即视为收敛，直接进入最终全量复审，不再开新修复轮。
+一个 cycle 的全部 confirmed finding 合并为一次 EXECUTOR 修复 dispatch。新建译文 `implement`
+任务一律 `schema_version >= 4`。分档细则、4-lane 升级条件与 `declined_scope` 记法见
+[`docs/agent-workflow.md`](docs/agent-workflow.md)。
 
 ## 汉化工具入口
 
@@ -114,3 +130,4 @@ follow-up 续跑——一次运行结束就不是可继续的会话。
 - 保留现有 `t(...)` 第三个参数作为 `source_tag`，并为术语填写 `T.*` `category`；不能只按英文原文做全局替换。
 - 同一个英文词在不同 section 或 `source_tag` 下可以有不同译法，必须在 `notes` 中说明语境。
 - 修改术语后，用 Lua 5.1/LuaJIT 加载现有翻译文件检查 `source`、`target` 和 `source_tag` 是否仍然有效。
+- 术语快照自 `production-review-v2-lite-rules-v2` 起不再进入 entry revision identity：纯术语行变更不会使无关条目的既有复审状态失效，只需按实际改动的 target 建立有界 workset。术语快照仍作为 catalog／envelope／evidence provenance 保留。是否改动术语库仍是必须交回用户的跨批次决定——identity-v2 改变的是代价，不是授权。
