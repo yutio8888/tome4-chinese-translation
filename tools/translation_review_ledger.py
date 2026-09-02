@@ -75,7 +75,12 @@ FORMAL_CATALOG_KEYS = frozenset({
     "source_identities", "policy_sha256",
 })
 FORMAL_CATALOG_KIND = "production_review_v2_lite_catalog_v1"
-FORMAL_RULES_VERSION = "production-review-v2-lite-rules-v1"
+FORMAL_RULES_VERSION_V1 = "production-review-v2-lite-rules-v1"
+FORMAL_RULES_VERSION_V2 = "production-review-v2-lite-rules-v2"
+FORMAL_RULES_VERSIONS = frozenset({
+    FORMAL_RULES_VERSION_V1,
+    FORMAL_RULES_VERSION_V2,
+})
 UTC_SECONDS = re.compile(r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z")
 # Identity-change causes are the only legal route into ``invalidated``; a
 # closed revision may also be identity-invalidated into a new revision, while
@@ -250,7 +255,8 @@ def validate_authoritative_catalog(
         raise LedgerError("formal catalog manifest exact schema mismatch")
     if type(value["schema_version"]) is not int or value["schema_version"] != 1:
         raise LedgerError("formal catalog schema_version must be integer 1")
-    if value["kind"] != FORMAL_CATALOG_KIND or value["rules_version"] != FORMAL_RULES_VERSION:
+    if (value["kind"] != FORMAL_CATALOG_KIND
+            or value["rules_version"] not in FORMAL_RULES_VERSIONS):
         raise LedgerError("formal catalog kind/rules mismatch")
     for key in ("catalog_id", "manifest_sha256", "loader_contract_sha256",
                 "entries_sha256", "exclusions_sha256",

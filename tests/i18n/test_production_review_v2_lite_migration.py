@@ -77,6 +77,7 @@ class MigrationFixture(unittest.TestCase):
         entries_raw = wp1._jsonl(rows)
         exclusions_raw = b""
         rules = rules or (rows[0]["rules_version"] if rows else catalog.RULES_VERSION)
+        policy_raw = catalog.POLICY_RAW_BY_RULES[rules]
         terminology = terminology or (rows[0]["terminology_snapshot_sha256"] if rows else "b" * 64)
         fixed = fixed or (rows[0]["fixed_source_identity"] if rows else "commit:" + "a" * 40)
         manifest = {"schema_version": 1, "kind": catalog.CATALOG_KIND, "catalog_id": "",
@@ -94,11 +95,11 @@ class MigrationFixture(unittest.TestCase):
                     "terminology_snapshot_sha256": terminology,
                     "source_identities": {name: (fixed if name == "tome" else "commit:" + "a" * 40)
                                           for name in ["engine", "boot", "tome", "ashes-urhrok", "cults", "orcs"]},
-                    "policy_sha256": hashlib.sha256(catalog.POLICY_RAW).hexdigest()}
+                    "policy_sha256": hashlib.sha256(policy_raw).hexdigest()}
         manifest["catalog_id"] = catalog.catalog_id(manifest)
         if destination == self.root:
             self.catalog_id = manifest["catalog_id"]
-        files = {catalog.SCHEMA_PATH: catalog.SCHEMA_RAW, catalog.POLICY_PATH: catalog.POLICY_RAW,
+        files = {catalog.SCHEMA_PATH: catalog.SCHEMA_RAW, catalog.POLICY_PATH: policy_raw,
                  f"{catalog.CATALOG_PREFIX}/manifest.json": wp1.canonical_bytes(manifest),
                  f"{catalog.CATALOG_PREFIX}/entries.jsonl": entries_raw,
                  f"{catalog.CATALOG_PREFIX}/exclusions.jsonl": exclusions_raw}
@@ -143,31 +144,22 @@ class MigrationFixture(unittest.TestCase):
 
 
 class MigrationTests(MigrationFixture):
-    def test_future_rules_boundary_uses_exact_prospective_policy_validation(self):
-        future_rules = "production-review-v2-lite-rules-v2"
-        future_rows = [self.replace(row, rules_version=future_rules) for row in self.entries]
-        candidate = self.candidate(future_rows, rules=future_rules)
-        policy_path = candidate / catalog.POLICY_PATH
-        policy = wp1.parse_canonical_object(policy_path.read_bytes(), "future policy")
-        policy["rules_version"] = future_rules
-        policy_raw = wp1.canonical_bytes(policy)
-        policy_path.write_bytes(policy_raw)
-        manifest_path = candidate / f"{catalog.CATALOG_PREFIX}/manifest.json"
-        manifest = wp1.parse_canonical_object(manifest_path.read_bytes(), "future manifest")
-        manifest["policy_sha256"] = hashlib.sha256(policy_raw).hexdigest()
-        manifest["catalog_id"] = catalog.catalog_id(manifest)
-        manifest_path.write_bytes(wp1.canonical_bytes(manifest))
-        artifact = self.root / ".artifacts" / "future-rules.json"
+    def test_current_rules_boundary_uses_exact_policy_in_ordinary_and_migration_validation(self):
+        candidate = self.candidate(self.entries)
+        artifact = self.root / ".artifacts" / "current-rules.json"
         report = migration.plan(self.root, candidate, output=artifact)
-        self.assertEqual(report["dispositions"], {"revision_changed": 3})
+        self.assertEqual(report["dispositions"], {"unchanged": 3})
         migration.check(self.root, artifact, candidate_catalog=candidate)
+        catalog.validate_catalog_files(catalog.ordinary_tree(candidate))
         applied = migration.apply(self.root, artifact, candidate_catalog=candidate)
         self.assertTrue(applied["applied"])
         self.assertEqual(queue.business_rows(queue.database_path(self.root))[2][2], report["new_catalog_id"])
-        # The ordinary current catalog consumer remains pinned to current
-        # rules; only migration's exact policy-bound validator accepts this
-        # prospective boundary.
-        with self.assertRaises(wp1.ProductionReviewError):
+
+        policy_path = candidate / catalog.POLICY_PATH
+        policy = wp1.parse_canonical_object(policy_path.read_bytes(), "unsupported policy")
+        policy["rules_version"] = "production-review-v2-lite-rules-v3"
+        policy_path.write_bytes(wp1.canonical_bytes(policy))
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "supported exact policy|policy bytes"):
             catalog.validate_catalog_files(catalog.ordinary_tree(candidate))
 
     def test_check_and_apply_require_the_exact_candidate_catalog_api(self):
@@ -188,8 +180,8 @@ class MigrationTests(MigrationFixture):
             (self.replace(old, source="new source"), "logical_moved", "source_changed"),
             (self.replace(old, source_tag="new-tag"), "logical_moved", "source_tag_changed"),
             (self.replace(old, fixed_source_identity="commit:" + "e" * 40), "revision_changed", "fixed_source_changed"),
-            (self.replace(old, terminology_snapshot_sha256="f" * 64), "revision_changed", "terminology_changed"),
-            (self.replace(old, rules_version="future-rules-v2"), "revision_changed", "rules_changed"),
+            (self.replace(old, terminology_snapshot_sha256="f" * 64), "unchanged", "unchanged"),
+            (self.replace(old, rules_version=catalog.FROZEN_RULES_VERSION), "revision_changed", "rules_changed"),
         ]
         # A single-row move has no exact local neighbour and is therefore
         # fail-closed; the full move proof is exercised below with neighbours.
@@ -412,7 +404,8 @@ class MigrationTests(MigrationFixture):
                 "output_sha256": deep_output_hash, "candidate_identity": deep_identity})
         batch_manifest = {"schema_version": 1, "kind": "production_review_v2_lite_batch_v1",
                           "catalog_id": self.catalog_id,
-                          "policy_sha256": hashlib.sha256(catalog.POLICY_RAW).hexdigest(),
+                          "policy_sha256": hashlib.sha256(
+                              (self.root / catalog.POLICY_PATH).read_bytes()).hexdigest(),
                           "base_commit": base, "batch_id": batch_id, "attempt": 1,
                           "ordered_revisions": [revision],
                           "ordered_revisions_sha256": hashlib.sha256(wp1.canonical_bytes([revision])).hexdigest(),
@@ -431,12 +424,74 @@ class MigrationTests(MigrationFixture):
         queue.rebuild(self.root)
         return publication
 
+    def test_v1_to_v2_boundary_revalidates_once_without_inheriting_durable_state(self):
+        def publish_candidate(candidate: Path, artifact: Path, report: dict, message: str) -> str:
+            candidate_files = catalog.ordinary_tree(candidate)
+            shutil.rmtree(candidate)
+            for relative, raw in candidate_files.items():
+                path = self.root / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(raw)
+            migration_path = self.root / report["target_path"]
+            migration_path.parent.mkdir(parents=True, exist_ok=True)
+            migration_path.write_bytes(artifact.read_bytes())
+            return self.commit(message)
+
+        # Establish exact historical v1 as the current catalog, then commit a
+        # durable result against it before crossing the one-time rules boundary.
+        v1_entries = [self.replace(row, rules_version=catalog.FROZEN_RULES_VERSION)
+                      for row in self.entries]
+        v1_candidate = self.candidate(v1_entries, rules=catalog.FROZEN_RULES_VERSION)
+        v1_artifact = self.root / ".artifacts" / "to-v1.json"
+        v1_report = migration.plan(self.root, v1_candidate, output=v1_artifact)
+        migration.apply(self.root, v1_artifact, candidate_catalog=v1_candidate)
+        publish_candidate(v1_candidate, v1_artifact, v1_report, "historical v1 boundary")
+        self.entries = v1_entries
+        self.catalog_id = v1_report["new_catalog_id"]
+        queue.rebuild(self.root)
+        self._publish_surface_batch(repair=False, entry_index=0, batch_name="v1-done")
+        durable_revision = self.entries[0]["entry_revision_identity"]
+        self.assertEqual(queue.business_rows(queue.database_path(self.root))[0][0][2], "done")
+
+        v2_entries = [self.replace(row, rules_version=catalog.RULES_VERSION)
+                      for row in self.entries]
+        v2_candidate = self.candidate(v2_entries, rules=catalog.RULES_VERSION)
+        v2_artifact = self.root / ".artifacts" / "v1-to-v2.json"
+        report = migration.plan(self.root, v2_candidate, output=v2_artifact)
+        self.assertEqual(report["dispositions"], {"revision_changed": len(self.entries)})
+        planned = wp1.parse_canonical_object(v2_artifact.read_bytes(), "v1-to-v2 migration")
+        self.assertTrue(all(
+            row["disposition"] == "revision_changed" and row["reason"] == "rules_changed"
+            for row in planned["rows"]
+        ))
+        migration.apply(self.root, v2_artifact, candidate_catalog=v2_candidate)
+        self.assertEqual(queue.business_rows(queue.database_path(self.root))[0], [])
+        publication = publish_candidate(
+            v2_candidate, v2_artifact, report, "one-time v1 to v2 revalidation")
+
+        queue.rebuild(self.root)
+        self.assertEqual(queue.business_rows(queue.database_path(self.root))[0], [])
+        queue.database_path(self.root).unlink()
+        queue.rebuild(self.root)
+        self.assertEqual(queue.business_rows(queue.database_path(self.root))[0], [])
+
+        subprocess.run(["git", "revert", "--no-edit", publication], cwd=self.root, check=True,
+                       stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        queue.rebuild(self.root)
+        reverted, _reconciliation, _meta = queue.business_rows(queue.database_path(self.root))
+        self.assertEqual({row[0]: row[2] for row in reverted}, {durable_revision: "done"})
+
     def test_rebuild_retains_unchanged_done_repair_blocked_across_boundary_delete_revert(self):
         self._publish_surface_batch(repair=False, entry_index=0, batch_name="done-state")
         self._publish_surface_batch(repair=True, entry_index=1, batch_name="repair-state")
         self._publish_surface_batch(repair=False, blocked=True, entry_index=2, batch_name="blocked-state")
-        candidate = self.candidate([*self.entries, self.entry("new")])
-        artifact = self.root / ".artifacts" / "unchanged-states.json"
+        terminology = "f" * 64
+        term_only_entries = [self.replace(row, terminology_snapshot_sha256=terminology)
+                             for row in self.entries]
+        self.assertEqual([row["entry_revision_identity"] for row in term_only_entries],
+                         [row["entry_revision_identity"] for row in self.entries])
+        candidate = self.candidate(term_only_entries, terminology=terminology)
+        artifact = self.root / ".artifacts" / "terminology-only-states.json"
         report = migration.plan(self.root, candidate, output=artifact)
         migration.apply(self.root, artifact, candidate_catalog=candidate)
         candidate_files = catalog.ordinary_tree(candidate)
@@ -448,7 +503,7 @@ class MigrationTests(MigrationFixture):
         migration_path = self.root / report["target_path"]
         migration_path.parent.mkdir(parents=True, exist_ok=True)
         migration_path.write_bytes(artifact.read_bytes())
-        publication = self.commit("unchanged states catalog boundary")
+        publication = self.commit("terminology-only states catalog boundary")
         queue.rebuild(self.root)
         expected_states = {
             self.entries[0]["entry_revision_identity"]: "done",

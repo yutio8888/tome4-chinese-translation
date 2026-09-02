@@ -31,15 +31,21 @@ canonical JSON bytes 使用 UTF-8、`ensure_ascii=false`、递归 key 排序、�
 
 ~~~text
 logical_entry_identity = SHA-256(canonical({schema_version:1, component, normalized_path, call_locator, source_tag}))
+rules-v1/其他既有规则：
 entry_revision_identity = SHA-256(canonical({schema_version:1, logical_entry_identity, source_sha256, target_sha256, fixed_source_identity, terminology_snapshot_sha256, rules_version}))
+production-review-v2-lite-rules-v2：
+entry_revision_identity = SHA-256(canonical({schema_version:1, logical_entry_identity, source_sha256, target_sha256, fixed_source_identity, rules_version}))
 ~~~
 
 其中 `source_sha256`／`target_sha256` 是 source/target 冻结字符串 UTF-8 bytes 的 SHA-256，
 `terminology_snapshot_sha256` 是 payload `terminology_snapshot` 字符串 UTF-8 bytes 的
-SHA-256。任何 locator／`source_tag` 变化都会产生新的 logical_entry_identity，必须以显式
+SHA-256。identity recipe 只由 exact `rules_version` 确定；`production-review-v2-lite-rules-v2`
+仅从 revision recipe 排除全局术语 snapshot，payload/envelope 仍必须记录并按 exact 当前值验证
+该 snapshot provenance。其他既有 rules 字符串保持历史配方，因而 v1 live/history bytes 可按
+原式重验。任何 locator／`source_tag` 变化都会产生新的 logical_entry_identity，必须以显式
 migration edge（ledger 记录 `migration_from_logical_entry_identity`）进入新逻辑身份；
-source、target、固定源码 identity、术语 snapshot 或 rules_version 变化在
-logical_entry_identity 不变的前提下产生新 revision；`source_tag` 属于逻辑身份。
+source、target、固定源码 identity 或 rules_version 变化在 logical_entry_identity 不变的前提下
+产生新 revision；术语 snapshot 变化只在历史配方下改变 revision；`source_tag` 属于逻辑身份。
 
 约束：
 

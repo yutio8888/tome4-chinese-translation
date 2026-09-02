@@ -67,6 +67,40 @@ def ordered_payload(count: int) -> dict[str, object]:
 
 
 class SurfaceIdentityTests(unittest.TestCase):
+    def test_rules_v1_recipe_is_frozen_and_rules_v2_omits_only_terminology(self):
+        common = dict(logical_entry_identity="a" * 64, source="source", target="target",
+                      fixed_source_identity="commit:" + "b" * 40)
+        v1 = check.entry_revision_identity(
+            **common, terminology_snapshot="terms-one",
+            rules_version="production-review-v2-lite-rules-v1")
+        historical = hashlib.sha256(check.canonical_bytes({
+            "schema_version": 1, "logical_entry_identity": "a" * 64,
+            "source_sha256": hashlib.sha256(b"source").hexdigest(),
+            "target_sha256": hashlib.sha256(b"target").hexdigest(),
+            "fixed_source_identity": "commit:" + "b" * 40,
+            "terminology_snapshot_sha256": hashlib.sha256(b"terms-one").hexdigest(),
+            "rules_version": "production-review-v2-lite-rules-v1",
+        })).hexdigest()
+        self.assertEqual(v1, historical)
+        v2_one = check.entry_revision_identity(
+            **common, terminology_snapshot="terms-one",
+            rules_version=check.IDENTITY_RULES_V2)
+        v2_two = check.entry_revision_identity(
+            **common, terminology_snapshot="terms-two",
+            rules_version=check.IDENTITY_RULES_V2)
+        self.assertEqual(v2_one, v2_two)
+        self.assertNotEqual(v1, v2_one)
+        for field, value in (("source", "changed source"), ("target", "changed target"),
+                             ("fixed_source_identity", "commit:" + "c" * 40),
+                             ("logical_entry_identity", "d" * 64)):
+            changed = dict(common); changed[field] = value
+            self.assertNotEqual(v2_one, check.entry_revision_identity(
+                **changed, terminology_snapshot="terms-two",
+                rules_version=check.IDENTITY_RULES_V2))
+        self.assertNotEqual(v2_one, check.entry_revision_identity(
+            **common, terminology_snapshot="terms-two",
+            rules_version="production-review-v2-lite-rules-v3"))
+
     def test_identity_recipe_vectors(self) -> None:
         logical = check.logical_entry_identity(
             component="tome", normalized_path="mod.lua",
@@ -214,6 +248,21 @@ class SurfacePayloadTests(unittest.TestCase):
         validated, identity = check.validate_envelope(envelope)
         self.assertEqual(identity, self.identity)
         self.assertEqual(validated, self.payload)
+
+    def test_rules_v2_payload_retains_exact_terminology_provenance(self) -> None:
+        scalars = dict(self.scalars, rules_version=check.IDENTITY_RULES_V2)
+        original = payload([complete(entry(1), scalars)])
+        original.update(scalars)
+        changed_scalars = dict(scalars, terminology_snapshot="其他术语")
+        changed = payload([complete(entry(1), changed_scalars)])
+        changed.update(changed_scalars)
+        self.assertEqual(original["entries"][0]["entry_revision_identity"],
+                         changed["entries"][0]["entry_revision_identity"])
+        self.assertNotEqual(check.canonical_payload_bytes(original),
+                            check.canonical_payload_bytes(changed))
+        for value in (original, changed):
+            identity = hashlib.sha256(check.canonical_payload_bytes(value)).hexdigest()
+            check.validate_envelope({"candidate_identity": identity, "payload": value})
 
     def test_real_payload_and_envelope_consumers_reject_production_shadows(self) -> None:
         shadow_batch = {

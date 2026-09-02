@@ -132,7 +132,7 @@ def _summary(manifest: dict[str, Any], files: dict[str, bytes]) -> dict[str, Any
 
 def _validate_bundle(files: dict[str, bytes], label: str) -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, Any]]:
     try:
-        manifest, entries, _exclusions = catalog.validate_catalog_files(files, allow_rules_version=True)
+        manifest, entries, _exclusions = catalog.validate_catalog_files(files)
     except (wp1.ProductionReviewError, KeyError, TypeError, ValueError) as error:
         raise _error(f"{label} catalog is not an exact validated catalog: {error}") from error
     for path, raw in files.items():
@@ -816,7 +816,8 @@ def _validate_live_repair_preimage(root: Path, expected_manifest: dict[str, Any]
             raise _error("repair preflight live Lua runtime identity drift")
         occurrences = wp1.load_occurrences(manifest)
         live_entries, live_exclusions = catalog.formal_rows(
-            occurrences, terminology=terminology, sources=sources)
+            occurrences, terminology=terminology, sources=sources,
+            rules_version=expected_manifest["rules_version"])
     except wp1.ProductionReviewError:
         raise
     except Exception as error:

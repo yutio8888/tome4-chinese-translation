@@ -33,6 +33,7 @@ strict_json_bytes = strict.strict_json_bytes
 
 CONTRACT = "translation_surface_screen_v1"
 LANE_GROUP_CONTRACT = "translation_surface_screen_v1_lane_group"
+IDENTITY_RULES_V2 = "production-review-v2-lite-rules-v2"
 PAYLOAD_KEYS = frozenset({
     "contract", "fixed_source_identity", "terminology_snapshot",
     "rules_version", "rendered_briefing", "entries",
@@ -178,11 +179,15 @@ def entry_revision_identity(
         "source_sha256": hashlib.sha256(source.encode("utf-8")).hexdigest(),
         "target_sha256": hashlib.sha256(target.encode("utf-8")).hexdigest(),
         "fixed_source_identity": fixed_source_identity,
-        "terminology_snapshot_sha256": hashlib.sha256(
-            terminology_snapshot.encode("utf-8")
-        ).hexdigest(),
         "rules_version": rules_version,
     }
+    # Rules-v2 changes only the revision recipe.  Every envelope still binds
+    # the exact terminology snapshot as required provenance; all other rules
+    # strings retain the historical contract recipe byte-for-byte.
+    if rules_version != IDENTITY_RULES_V2:
+        payload["terminology_snapshot_sha256"] = hashlib.sha256(
+            terminology_snapshot.encode("utf-8")
+        ).hexdigest()
     return hashlib.sha256(canonical_bytes(payload)).hexdigest()
 
 

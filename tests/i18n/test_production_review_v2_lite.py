@@ -61,6 +61,28 @@ class ProductionReviewV2LiteTests(unittest.TestCase):
         v2.write_candidate(files, output, repository_root=ROOT)
         return output, files
 
+    def historical_v1_files(self):
+        files = v2.build_catalog(self.manifest, recorded_at=STAMP, recorded_by="tester",
+                                 require_current_vector=False)
+        entries, exclusions = v2.formal_rows(
+            occurrences(), terminology="3" * 64, sources=SOURCES,
+            rules_version=v2.FROZEN_RULES_VERSION)
+        entries_raw, exclusions_raw = wp1._jsonl(entries), wp1._jsonl(exclusions)
+        path = f"{v2.CATALOG_PREFIX}/manifest.json"
+        manifest = wp1.parse_canonical_object(files[path], "manifest")
+        manifest.update({
+            "rules_version": v2.FROZEN_RULES_VERSION,
+            "entries_sha256": hashlib.sha256(entries_raw).hexdigest(),
+            "exclusions_sha256": hashlib.sha256(exclusions_raw).hexdigest(),
+            "policy_sha256": hashlib.sha256(v2.FROZEN_POLICY_RAW).hexdigest(),
+        })
+        manifest["catalog_id"] = v2.catalog_id(manifest)
+        files[v2.POLICY_PATH] = v2.FROZEN_POLICY_RAW
+        files[path] = wp1.canonical_bytes(manifest)
+        files[f"{v2.CATALOG_PREFIX}/entries.jsonl"] = entries_raw
+        files[f"{v2.CATALOG_PREFIX}/exclusions.jsonl"] = exclusions_raw
+        return files
+
     def test_exact_formal_catalog_reconstructs_and_uses_fresh_identity(self):
         output, files = self.candidate()
         value = v2.check_catalog_tree(output, self.manifest, require_current_vector=False)
@@ -98,10 +120,13 @@ class ProductionReviewV2LiteTests(unittest.TestCase):
                 v2.check_catalog_tree(output, self.manifest, require_current_vector=False)
 
     def test_formal_ledger_consumer_accepts_only_exact_manifest_and_provenance(self):
-        _, files = self.candidate(); raw = files[f"{v2.CATALOG_PREFIX}/manifest.json"]
+        _, files = self.candidate()
+        v2.validate_catalog_files(files)
+        raw = files[f"{v2.CATALOG_PREFIX}/manifest.json"]
         digest = hashlib.sha256(raw).hexdigest()
         value = ledger.validate_authoritative_catalog(raw, expected_sha256=digest)
         self.assertEqual(value["kind"], v2.CATALOG_KIND)
+        self.assertEqual(value["rules_version"], v2.RULES_VERSION)
         ledger.replay_with_catalog([ledger_record(digest)], raw)
         with self.assertRaisesRegex(ledger.LedgerError, "does not bind"):
             ledger.replay_with_catalog([ledger_record("0" * 64)], raw)
@@ -116,6 +141,54 @@ class ProductionReviewV2LiteTests(unittest.TestCase):
         non_padded["catalog_id"] = v2.catalog_id(non_padded)
         with self.assertRaisesRegex(ledger.LedgerError, "strict UTC seconds"):
             ledger.validate_authoritative_catalog(wp1.canonical_bytes(non_padded))
+
+    def test_current_v2_and_historical_v1_catalogs_validate_exactly(self):
+        _, current = self.candidate()
+        historical = self.historical_v1_files()
+        for label, files, rules in (
+            ("current", current, v2.RULES_VERSION),
+            ("historical", historical, v2.FROZEN_RULES_VERSION),
+        ):
+            with self.subTest(label=label):
+                manifest, entries, _ = v2.validate_catalog_files(files)
+                raw = files[f"{v2.CATALOG_PREFIX}/manifest.json"]
+                digest = hashlib.sha256(raw).hexdigest()
+                self.assertEqual(manifest["rules_version"], rules)
+                self.assertTrue(all(row["rules_version"] == rules for row in entries))
+                ledger.validate_authoritative_catalog(raw, expected_sha256=digest)
+                ledger.replay_with_catalog([ledger_record(digest)], raw)
+
+                ledger_path = self.root / f"{label}-ledger.jsonl"
+                ledger_path.write_bytes(wp1.canonical_bytes(ledger_record(digest)) + b"\n")
+                catalog_path = self.root / f"{label}-manifest.json"
+                catalog_path.write_bytes(raw)
+                with mock.patch.object(ledger, "ROOT", self.root):
+                    self.assertEqual(ledger.main([
+                        "check", ledger_path.name, "--catalog-manifest", catalog_path.name,
+                        "--root", str(self.root),
+                    ]), 0)
+
+    def test_unknown_and_mixed_formal_rules_are_rejected(self):
+        _, current = self.candidate()
+        manifest_path = f"{v2.CATALOG_PREFIX}/manifest.json"
+        unknown_manifest = wp1.parse_canonical_object(current[manifest_path], "manifest")
+        unknown_manifest["rules_version"] = "production-review-v2-lite-rules-v3"
+        unknown_manifest["catalog_id"] = v2.catalog_id(unknown_manifest)
+        with self.assertRaisesRegex(ledger.LedgerError, "kind/rules mismatch"):
+            ledger.validate_authoritative_catalog(wp1.canonical_bytes(unknown_manifest))
+
+        mixed = dict(current)
+        rows = wp1.parse_jsonl(mixed[f"{v2.CATALOG_PREFIX}/entries.jsonl"], "entries")
+        rows[0]["rules_version"] = v2.FROZEN_RULES_VERSION
+        mixed[f"{v2.CATALOG_PREFIX}/entries.jsonl"] = wp1._jsonl(rows)
+        manifest = wp1.parse_canonical_object(mixed[manifest_path], "manifest")
+        manifest["entries_sha256"] = hashlib.sha256(
+            mixed[f"{v2.CATALOG_PREFIX}/entries.jsonl"]
+        ).hexdigest()
+        manifest["catalog_id"] = v2.catalog_id(manifest)
+        mixed[manifest_path] = wp1.canonical_bytes(manifest)
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "rules mismatch"):
+            v2.validate_catalog_files(mixed)
 
     def test_formal_catalog_schema_versions_reject_json_true(self):
         _, original = self.candidate()

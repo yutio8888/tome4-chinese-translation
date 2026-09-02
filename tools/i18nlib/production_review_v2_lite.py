@@ -16,7 +16,9 @@ from . import production_review as wp1
 from .config import Manifest
 from .runtime import LuaRuntime
 
-RULES_VERSION = "production-review-v2-lite-rules-v1"
+FROZEN_RULES_VERSION = wp1.ledger.FORMAL_RULES_VERSION_V1
+RULES_VERSION = wp1.ledger.FORMAL_RULES_VERSION_V2
+SUPPORTED_RULES_VERSIONS = wp1.ledger.FORMAL_RULES_VERSIONS
 CATALOG_KIND = "production_review_v2_lite_catalog_v1"
 CALL_LOCATOR_KIND = "production_review_v2_lite_call_locator_v1"
 OCCURRENCE_KIND = "production_review_v2_lite_occurrence_v1"
@@ -45,13 +47,23 @@ SCHEMA_VALUE = {"schema_version": 1, "kind": "production_review_v2_lite_catalog_
     "entry_order": "entry_revision_identity_lowercase_ascii_strict",
     "exclusion_order": "occurrence_identity_lowercase_ascii_strict",
     "canonical_json": "utf8_sorted_keys_compact_no_nan", "jsonl_final_lf": True}
-POLICY_VALUE = {"schema_version": 1, "kind": "production_review_v2_lite_policy_v1",
-    "rules_version": RULES_VERSION, "call_locator_kind": CALL_LOCATOR_KIND,
-    "occurrence_kind": OCCURRENCE_KIND, "eligible_components": sorted(wp1.IN_SCOPE_COMPONENTS),
-    "exclusion_priority": list(EXCLUSION_PRIORITY), "current_version_vector": {
-        "occurrence_count": CURRENT_VECTOR[0], "entry_count": CURRENT_VECTOR[1],
-        "exclusion_count": CURRENT_VECTOR[2]}}
-SCHEMA_RAW, POLICY_RAW = wp1.canonical_bytes(SCHEMA_VALUE), wp1.canonical_bytes(POLICY_VALUE)
+def _policy_value(rules_version: str) -> dict[str, Any]:
+    return {"schema_version": 1, "kind": "production_review_v2_lite_policy_v1",
+        "rules_version": rules_version, "call_locator_kind": CALL_LOCATOR_KIND,
+        "occurrence_kind": OCCURRENCE_KIND, "eligible_components": sorted(wp1.IN_SCOPE_COMPONENTS),
+        "exclusion_priority": list(EXCLUSION_PRIORITY), "current_version_vector": {
+            "occurrence_count": CURRENT_VECTOR[0], "entry_count": CURRENT_VECTOR[1],
+            "exclusion_count": CURRENT_VECTOR[2]}}
+
+FROZEN_POLICY_VALUE = _policy_value(FROZEN_RULES_VERSION)
+POLICY_VALUE = _policy_value(RULES_VERSION)
+SCHEMA_RAW = wp1.canonical_bytes(SCHEMA_VALUE)
+FROZEN_POLICY_RAW = wp1.canonical_bytes(FROZEN_POLICY_VALUE)
+POLICY_RAW = wp1.canonical_bytes(POLICY_VALUE)
+POLICY_RAW_BY_RULES = {
+    FROZEN_RULES_VERSION: FROZEN_POLICY_RAW,
+    RULES_VERSION: POLICY_RAW,
+}
 WP1_RETIREMENT_ROOTS = frozenset({
     "evidence/production-review/batches/35eee018cacf0048ebcad2c5de01423dce900777a92d52a7b4c89e0085862306",
     "evidence/production-review/catalogs/1001066b5d575524a5c2966d462e03b3a06b38c3232c098eaa459de1e0a29567",
@@ -176,7 +188,10 @@ def _reason(row: dict[str, Any]) -> str | None:
 
 
 def formal_rows(occurrences: Iterable[dict[str, Any]], *, terminology: str,
-                sources: dict[str, str]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+                sources: dict[str, str], rules_version: str = RULES_VERSION,
+                ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    if rules_version not in SUPPORTED_RULES_VERSIONS:
+        raise wp1.ProductionReviewError("unsupported formal catalog rules version")
     rows = [wp1.validate_occurrence(row) for row in occurrences]
     grouped = Counter((r["component"], r["source"], r["source_tag"] or "") for r in rows)
     seen: Counter[tuple[str, str, str]] = Counter(); entries=[]; exclusions=[]; locators=set()
@@ -199,14 +214,14 @@ def formal_rows(occurrences: Iterable[dict[str, Any]], *, terminology: str,
         logical=wp1.surface.logical_entry_identity(component=row["component"],normalized_path=normalized,
                                                     call_locator=locator,source_tag=tag)
         revision=wp1.surface.entry_revision_identity(logical_entry_identity=logical,source=row["source"],
-            target=row["target"],fixed_source_identity=fixed,terminology_snapshot=terminology,rules_version=RULES_VERSION)
+            target=row["target"],fixed_source_identity=fixed,terminology_snapshot=terminology,rules_version=rules_version)
         group=(row["component"],row["source"],tag); seen[group]+=1
         entries.append({"schema_version":1,"component":row["component"],"normalized_path":normalized,
             "section":row["section"],"call_locator":locator,"logical_entry_identity":logical,
             "entry_revision_identity":revision,"source":row["source"],"target":row["target"],"source_tag":tag,
             "source_sha256":hashlib.sha256(row["source"].encode()).hexdigest(),
             "target_sha256":hashlib.sha256(row["target"].encode()).hexdigest(),"fixed_source_identity":fixed,
-            "terminology_snapshot_sha256":terminology,"rules_version":RULES_VERSION,
+            "terminology_snapshot_sha256":terminology,"rules_version":rules_version,
             "risk":{"has_args_order":row["args_order"] is not None,"has_special":row["special"] is not None,
                 "source_utf8_bytes":len(row["source"].encode()),"target_utf8_bytes":len(row["target"].encode()),
                 "component_group_size":grouped[group],"component_group_last":seen[group]==grouped[group]}})
@@ -241,20 +256,17 @@ def build_catalog(manifest: Manifest, *, recorded_at: str, recorded_by: str,
         "terminology_snapshot_sha256":terminology,"source_identities":dict(sorted(sources.items())),
         "policy_sha256":hashlib.sha256(POLICY_RAW).hexdigest()}
     value["catalog_id"]=catalog_id(value); manifest_raw=wp1.canonical_bytes(value)
-    wp1.ledger.validate_authoritative_catalog(manifest_raw,expected_sha256=hashlib.sha256(manifest_raw).hexdigest())
+    _validate_formal_manifest(manifest_raw)
+    _validate_migration_manifest(value, POLICY_RAW)
     return {SCHEMA_PATH:SCHEMA_RAW,POLICY_PATH:POLICY_RAW,f"{CATALOG_PREFIX}/manifest.json":manifest_raw,
             f"{CATALOG_PREFIX}/entries.jsonl":entries_raw,f"{CATALOG_PREFIX}/exclusions.jsonl":exclusions_raw}
 
 
 def _validate_migration_policy(raw: bytes) -> dict[str, Any]:
-    """Validate the policy bytes used only by prospective migration input.
-
-    The current catalog consumer intentionally remains pinned to ``POLICY_RAW``.
-    Migration is allowed to inspect a future rules version, but only when the
-    policy is the exact current policy shape with its rules version changed;
-    the manifest then binds the complete policy bytes by SHA-256.
-    """
+    """Validate exact frozen-v1 or current-v2 policy bytes."""
     value = wp1.parse_canonical_object(raw, "prospective migration policy")
+    if raw not in POLICY_RAW_BY_RULES.values():
+        raise wp1.ProductionReviewError("prospective migration policy bytes are not a supported exact policy")
     if set(value) != set(POLICY_VALUE):
         raise wp1.ProductionReviewError("prospective migration policy exact keys mismatch")
     if type(value.get("schema_version")) is not int or value["schema_version"] != 1:
@@ -262,13 +274,22 @@ def _validate_migration_policy(raw: bytes) -> dict[str, Any]:
     for key, expected in POLICY_VALUE.items():
         if key != "rules_version" and value[key] != expected:
             raise wp1.ProductionReviewError(f"prospective migration policy {key} drift")
-    if not isinstance(value["rules_version"], str) or not value["rules_version"]:
-        raise wp1.ProductionReviewError("prospective migration policy rules_version must be non-empty")
+    if value["rules_version"] not in SUPPORTED_RULES_VERSIONS:
+        raise wp1.ProductionReviewError("prospective migration policy rules_version is unsupported")
     return value
 
 
+def _validate_formal_manifest(raw: bytes) -> dict[str, Any]:
+    """Run the existing formal ledger catalog consumer on exact manifest bytes."""
+    try:
+        return wp1.ledger.validate_authoritative_catalog(
+            raw, expected_sha256=hashlib.sha256(raw).hexdigest())
+    except wp1.ledger.LedgerError as error:
+        raise wp1.ProductionReviewError(f"invalid formal catalog manifest: {error}") from error
+
+
 def _validate_migration_manifest(value: object, policy_raw: bytes) -> dict[str, Any]:
-    """Validate a formal manifest without applying the live current-rules gate."""
+    """Validate the exact policy binding shared by ordinary and migration paths."""
     if not isinstance(value, dict) or set(value) != set(MANIFEST_KEYS):
         raise wp1.ProductionReviewError("prospective migration manifest exact keys mismatch")
     row = value
@@ -330,13 +351,8 @@ def _validate_migration_manifest(value: object, policy_raw: bytes) -> dict[str, 
     return row
 
 
-def validate_catalog_files(files: dict[str, bytes], *, allow_rules_version: bool = False) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
-    """Validate exact formal-catalog bytes without consulting the live loader.
-
-    ``allow_rules_version`` is deliberately a migration-only prospective
-    validator.  Ordinary catalog consumers still require the current policy
-    bytes and current rules through the formal ledger validator.
-    """
+def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
+    """Validate exact frozen-v1 or current-v2 catalog bytes."""
     def exact(value: object, keys: frozenset[str], label: str) -> dict[str, Any]:
         if not isinstance(value, dict) or set(value) != keys:
             raise wp1.ProductionReviewError(f"{label} exact keys mismatch")
@@ -358,18 +374,11 @@ def validate_catalog_files(files: dict[str, bytes], *, allow_rules_version: bool
                 f"extra={sorted(set(files)-CANDIDATE_FILES)})")
         if files[SCHEMA_PATH] != SCHEMA_RAW:
             raise wp1.ProductionReviewError("formal catalog schema bytes mismatch")
-        if not allow_rules_version and files[POLICY_PATH] != POLICY_RAW:
+        if files[POLICY_PATH] not in POLICY_RAW_BY_RULES.values():
             raise wp1.ProductionReviewError("formal catalog policy bytes mismatch")
         manifest_raw = files[f"{CATALOG_PREFIX}/manifest.json"]
-        manifest = wp1.parse_canonical_object(manifest_raw, "formal catalog manifest")
-        if allow_rules_version:
-            _validate_migration_manifest(manifest, files[POLICY_PATH])
-        else:
-            try:
-                wp1.ledger.validate_authoritative_catalog(
-                    manifest_raw, expected_sha256=hashlib.sha256(manifest_raw).hexdigest())
-            except wp1.ledger.LedgerError as error:
-                raise wp1.ProductionReviewError(f"invalid formal catalog manifest: {error}") from error
+        manifest = _validate_formal_manifest(manifest_raw)
+        _validate_migration_manifest(manifest, files[POLICY_PATH])
         entries_raw = files[f"{CATALOG_PREFIX}/entries.jsonl"]
         exclusions_raw = files[f"{CATALOG_PREFIX}/exclusions.jsonl"]
         entries = wp1.parse_jsonl(entries_raw, "formal catalog entries")
@@ -381,8 +390,7 @@ def validate_catalog_files(files: dict[str, bytes], *, allow_rules_version: bool
             row = exact(item, ENTRY_KEYS, f"formal catalog entry {index}")
             risk = exact(row["risk"], wp1.RISK_KEYS, f"formal catalog entry {index} risk")
             schema_one(row["schema_version"], f"formal catalog entry {index}")
-            if (not isinstance(row["rules_version"], str) or not row["rules_version"] or
-                    (not allow_rules_version and row["rules_version"] != RULES_VERSION)):
+            if row["rules_version"] not in SUPPORTED_RULES_VERSIONS or row["rules_version"] != manifest["rules_version"]:
                 raise wp1.ProductionReviewError(f"formal catalog entry {index} rules mismatch")
             for key in ("component", "normalized_path", "section", "call_locator", "logical_entry_identity",
                         "entry_revision_identity", "source", "target", "source_tag", "source_sha256",
@@ -451,10 +459,10 @@ def validate_catalog_files(files: dict[str, bytes], *, allow_rules_version: bool
         if len(entries) != manifest["entry_count"] or len(exclusions) != manifest["exclusion_count"] or \
                 manifest["occurrence_count"] != len(entries) + len(exclusions):
             raise wp1.ProductionReviewError("formal catalog conservation mismatch")
-        expected_policy_sha = hashlib.sha256(files[POLICY_PATH] if allow_rules_version else POLICY_RAW).hexdigest()
+        expected_policy_sha = hashlib.sha256(files[POLICY_PATH]).hexdigest()
         if manifest["policy_sha256"] != expected_policy_sha:
             raise wp1.ProductionReviewError("formal catalog policy identity mismatch")
-        if allow_rules_version and manifest["rules_version"] != _validate_migration_policy(files[POLICY_PATH])["rules_version"]:
+        if manifest["rules_version"] != _validate_migration_policy(files[POLICY_PATH])["rules_version"]:
             raise wp1.ProductionReviewError("formal catalog prospective rules identity mismatch")
         return manifest, entries, exclusions
     except wp1.ProductionReviewError:

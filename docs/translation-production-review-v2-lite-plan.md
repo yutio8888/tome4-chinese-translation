@@ -106,7 +106,7 @@ evidence/production-review-v2-lite/
 
 路径是规范化仓库相对 POSIX 路径；null tag 规范为 `""`。`call_locator = SHA-256(UTF-8 canonical({"kind":"production_review_v2_lite_call_locator_v1","locator":core}))`。禁止裸行号。若未来同 core 出现重复，build fail closed；WP2-Lite 不自行扩展 duplicate 语义。
 
-为兼容现有 `translation_surface_screen_v1`，每条 entry 继续按该契约的双层 identity 配方计算 `logical_entry_identity` 与 `entry_revision_identity`；正式 `call_locator`、当前 `fixed_source_identity`、terminology snapshot bytes/hash 与 rules version 作为精确输入。WP1 的同名 identity 即使碰巧相等也不构成继承关系，formal validator 仍机械拒绝 tracked shadow provenance。
+为兼容现有 `translation_surface_screen_v1`，每条 entry 继续按该契约的双层 identity 配方计算 `logical_entry_identity` 与 `entry_revision_identity`。identity recipe 由 exact `rules_version` 确定且不增加 schema/store/contract family：历史 `production-review-v2-lite-rules-v1` 配方继续绑定全局 terminology snapshot；新 build 固定使用 `production-review-v2-lite-rules-v2`，revision 配方绑定 logical identity、source、target、当前 `fixed_source_identity` 与 rules version，但不绑定全局 terminology snapshot。v1→v2 允许一次 identity 变化。两版的 manifest、每条 catalog entry、surface/contextual envelope 与 batch evidence 仍记录并验证 exact 当前 terminology snapshot provenance；普通 catalog validator 同时接受 exact v1 history 与 exact v2 current policy/catalog bytes，未知或混配规则 fail closed。WP1 的同名 identity 即使碰巧相等也不构成继承关系，formal validator 仍机械拒绝 tracked shadow provenance。
 
 ### 3.2 catalog 文件 schema
 
@@ -120,7 +120,7 @@ exclusion_count, entries_sha256, exclusions_sha256, terminology_snapshot_sha256,
 source_identities, policy_sha256
 ```
 
-`catalog_id` 是上述除 `catalog_id/recorded_at/recorded_by` 外字段的 canonical SHA-256；它只标识当前 catalog，不建立 ancestry。
+`catalog_id` 是上述除 `catalog_id/recorded_at/recorded_by` 外字段的 canonical SHA-256；它只标识当前 catalog，不建立 ancestry。rules-v2 的 terminology-only catalog boundary 会改变 catalog/provenance bytes，但 entry revision identity 不变；migration 将这些 rows 分类为 `unchanged`，从而在 apply、Git-tree rebuild、SQLite 删除后重建与 revert 中保留 durable `done|repair_required|blocked` overrides。target/source/fixed-source/logical/rules 变化仍产生新 revision 或 logical identity 并要求重新验证。
 
 `entries.jsonl` 每行恰含：
 
