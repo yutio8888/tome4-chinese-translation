@@ -980,10 +980,19 @@ raise SystemExit(cli._production(argparse.Namespace(
             queue.check(self.root)
 
     def test_missing_real_catalog_is_controlled_cli_failure(self):
-        result = subprocess.run([sys.executable, "-B", str(ROOT / "tools/i18n"),
-                                 "production", "queue", "status"], cwd=ROOT,
-                                capture_output=True, text=True)
-        self.assertNotEqual(result.returncode, 0)
+        command = [sys.executable, "-B", str(ROOT / "tools/i18n"),
+                   "production", "queue", "status"]
+        env = os.environ.copy()
+        env["I18N_REPOSITORY_ROOT"] = str(self.root)
+        queue.init(self.root)
+        result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertNotIn("Traceback", result.stdout + result.stderr)
+
+        shutil.rmtree(self.root / catalog.CATALOG_PREFIX)
+        self._commit("missing formal catalog")
+        result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertNotIn("Traceback", result.stdout + result.stderr)
 
 
