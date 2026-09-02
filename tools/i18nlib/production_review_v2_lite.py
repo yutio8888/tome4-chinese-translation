@@ -39,14 +39,24 @@ ENTRY_KEYS = frozenset({"schema_version", "component", "normalized_path", "secti
     "logical_entry_identity", "entry_revision_identity", "source", "target", "source_tag",
     "source_sha256", "target_sha256", "fixed_source_identity", "terminology_snapshot_sha256",
     "rules_version", "risk"})
+# Catalog rows retain one outer shape.  The risk object selects its exact
+# rules-versioned representation, so historical v1 bytes remain unchanged.
+RISK_KEYS_V1 = frozenset(wp1.RISK_KEYS)
+RISK_KEYS_V2 = RISK_KEYS_V1 | {"args_order"}
+RISK_KEYS = RISK_KEYS_V1
 EXCLUSION_PRIORITY = ("outside_initial_six_component_scope", "empty_source", "empty_target")
-SCHEMA_VALUE = {"schema_version": 1, "kind": "production_review_v2_lite_catalog_schema_v1",
-    "catalog_kind": CATALOG_KIND, "manifest_keys": sorted(MANIFEST_KEYS),
-    "entry_keys": sorted(ENTRY_KEYS), "exclusion_keys": sorted(wp1.EXCLUSION_KEYS),
-    "risk_keys": sorted(wp1.RISK_KEYS),
-    "entry_order": "entry_revision_identity_lowercase_ascii_strict",
-    "exclusion_order": "occurrence_identity_lowercase_ascii_strict",
-    "canonical_json": "utf8_sorted_keys_compact_no_nan", "jsonl_final_lf": True}
+
+def _schema_value(rules_version: str) -> dict[str, Any]:
+    if rules_version not in SUPPORTED_RULES_VERSIONS:
+        raise wp1.ProductionReviewError("unsupported formal catalog schema rules version")
+    return {"schema_version": 1, "kind": "production_review_v2_lite_catalog_schema_v1",
+        "catalog_kind": CATALOG_KIND, "manifest_keys": sorted(MANIFEST_KEYS),
+        "entry_keys": sorted(ENTRY_KEYS), "exclusion_keys": sorted(wp1.EXCLUSION_KEYS),
+        "risk_keys": sorted(RISK_KEYS_V2 if rules_version == RULES_VERSION else RISK_KEYS_V1),
+        "entry_order": "entry_revision_identity_lowercase_ascii_strict",
+        "exclusion_order": "occurrence_identity_lowercase_ascii_strict",
+        "canonical_json": "utf8_sorted_keys_compact_no_nan", "jsonl_final_lf": True}
+
 def _policy_value(rules_version: str) -> dict[str, Any]:
     return {"schema_version": 1, "kind": "production_review_v2_lite_policy_v1",
         "rules_version": rules_version, "call_locator_kind": CALL_LOCATOR_KIND,
@@ -55,11 +65,22 @@ def _policy_value(rules_version: str) -> dict[str, Any]:
             "occurrence_count": CURRENT_VECTOR[0], "entry_count": CURRENT_VECTOR[1],
             "exclusion_count": CURRENT_VECTOR[2]}}
 
+FROZEN_SCHEMA_VALUE = _schema_value(FROZEN_RULES_VERSION)
+SCHEMA_VALUE = _schema_value(RULES_VERSION)
 FROZEN_POLICY_VALUE = _policy_value(FROZEN_RULES_VERSION)
 POLICY_VALUE = _policy_value(RULES_VERSION)
+FROZEN_SCHEMA_RAW = wp1.canonical_bytes(FROZEN_SCHEMA_VALUE)
 SCHEMA_RAW = wp1.canonical_bytes(SCHEMA_VALUE)
 FROZEN_POLICY_RAW = wp1.canonical_bytes(FROZEN_POLICY_VALUE)
 POLICY_RAW = wp1.canonical_bytes(POLICY_VALUE)
+SCHEMA_VALUE_BY_RULES = {
+    FROZEN_RULES_VERSION: FROZEN_SCHEMA_VALUE,
+    RULES_VERSION: SCHEMA_VALUE,
+}
+SCHEMA_RAW_BY_RULES = {
+    FROZEN_RULES_VERSION: FROZEN_SCHEMA_RAW,
+    RULES_VERSION: SCHEMA_RAW,
+}
 POLICY_RAW_BY_RULES = {
     FROZEN_RULES_VERSION: FROZEN_POLICY_RAW,
     RULES_VERSION: POLICY_RAW,
@@ -213,18 +234,29 @@ def formal_rows(occurrences: Iterable[dict[str, Any]], *, terminology: str,
         if normalized != row["translation_path"]: raise wp1.ProductionReviewError("translation_path is not normalized")
         logical=wp1.surface.logical_entry_identity(component=row["component"],normalized_path=normalized,
                                                     call_locator=locator,source_tag=tag)
+        if rules_version == RULES_VERSION:
+            try:
+                args_order = wp1.surface.validate_args_order(
+                    row["args_order"], source=row["source"], label="catalog risk.args_order")
+            except wp1.surface.ContractError as error:
+                raise wp1.ProductionReviewError(str(error)) from error
+        else:
+            args_order = None
         revision=wp1.surface.entry_revision_identity(logical_entry_identity=logical,source=row["source"],
-            target=row["target"],fixed_source_identity=fixed,terminology_snapshot=terminology,rules_version=rules_version)
+            target=row["target"],fixed_source_identity=fixed,terminology_snapshot=terminology,
+            rules_version=rules_version, args_order=args_order)
         group=(row["component"],row["source"],tag); seen[group]+=1
+        risk={"has_args_order":row["args_order"] is not None,"has_special":row["special"] is not None,
+              "source_utf8_bytes":len(row["source"].encode()),"target_utf8_bytes":len(row["target"].encode()),
+              "component_group_size":grouped[group],"component_group_last":seen[group]==grouped[group]}
+        if rules_version == RULES_VERSION:
+            risk["args_order"] = args_order
         entries.append({"schema_version":1,"component":row["component"],"normalized_path":normalized,
             "section":row["section"],"call_locator":locator,"logical_entry_identity":logical,
             "entry_revision_identity":revision,"source":row["source"],"target":row["target"],"source_tag":tag,
             "source_sha256":hashlib.sha256(row["source"].encode()).hexdigest(),
             "target_sha256":hashlib.sha256(row["target"].encode()).hexdigest(),"fixed_source_identity":fixed,
-            "terminology_snapshot_sha256":terminology,"rules_version":rules_version,
-            "risk":{"has_args_order":row["args_order"] is not None,"has_special":row["special"] is not None,
-                "source_utf8_bytes":len(row["source"].encode()),"target_utf8_bytes":len(row["target"].encode()),
-                "component_group_size":grouped[group],"component_group_last":seen[group]==grouped[group]}})
+            "terminology_snapshot_sha256":terminology,"rules_version":rules_version,"risk":risk})
     entries.sort(key=lambda r:r["entry_revision_identity"].encode("ascii"))
     exclusions.sort(key=lambda r:r["occurrence_identity"].encode("ascii"))
     for key in ("entry_revision_identity","logical_entry_identity"):
@@ -372,13 +404,14 @@ def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], lis
             raise wp1.ProductionReviewError(
                 f"formal catalog exact file set mismatch (missing={sorted(CANDIDATE_FILES-set(files))}, "
                 f"extra={sorted(set(files)-CANDIDATE_FILES)})")
-        if files[SCHEMA_PATH] != SCHEMA_RAW:
-            raise wp1.ProductionReviewError("formal catalog schema bytes mismatch")
         if files[POLICY_PATH] not in POLICY_RAW_BY_RULES.values():
             raise wp1.ProductionReviewError("formal catalog policy bytes mismatch")
         manifest_raw = files[f"{CATALOG_PREFIX}/manifest.json"]
         manifest = _validate_formal_manifest(manifest_raw)
         _validate_migration_manifest(manifest, files[POLICY_PATH])
+        expected_schema = SCHEMA_RAW_BY_RULES.get(manifest["rules_version"])
+        if expected_schema is None or files[SCHEMA_PATH] != expected_schema:
+            raise wp1.ProductionReviewError("formal catalog schema/rules bytes mismatch")
         entries_raw = files[f"{CATALOG_PREFIX}/entries.jsonl"]
         exclusions_raw = files[f"{CATALOG_PREFIX}/exclusions.jsonl"]
         entries = wp1.parse_jsonl(entries_raw, "formal catalog entries")
@@ -388,10 +421,11 @@ def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], lis
         seen_logical: set[str] = set()
         for index, item in enumerate(entries):
             row = exact(item, ENTRY_KEYS, f"formal catalog entry {index}")
-            risk = exact(row["risk"], wp1.RISK_KEYS, f"formal catalog entry {index} risk")
             schema_one(row["schema_version"], f"formal catalog entry {index}")
             if row["rules_version"] not in SUPPORTED_RULES_VERSIONS or row["rules_version"] != manifest["rules_version"]:
                 raise wp1.ProductionReviewError(f"formal catalog entry {index} rules mismatch")
+            risk_keys = RISK_KEYS_V2 if row["rules_version"] == RULES_VERSION else RISK_KEYS_V1
+            risk = exact(row["risk"], risk_keys, f"formal catalog entry {index} risk")
             for key in ("component", "normalized_path", "section", "call_locator", "logical_entry_identity",
                         "entry_revision_identity", "source", "target", "source_tag", "source_sha256",
                         "target_sha256", "fixed_source_identity", "terminology_snapshot_sha256", "rules_version"):
@@ -412,6 +446,13 @@ def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], lis
             seen_logical.add(logical)
             if not all(isinstance(risk[key], bool) for key in ("has_args_order", "has_special", "component_group_last")):
                 raise wp1.ProductionReviewError("formal catalog risk boolean mismatch")
+            args_order = None
+            if row["rules_version"] == RULES_VERSION:
+                args_order = wp1.surface.validate_args_order(
+                    risk["args_order"], source=row["source"],
+                    label=f"formal catalog entry {index} risk.args_order")
+                if risk["has_args_order"] != (args_order is not None):
+                    raise wp1.ProductionReviewError("formal catalog risk args_order flag mismatch")
             for key in ("source_utf8_bytes", "target_utf8_bytes", "component_group_size"):
                 if not isinstance(risk[key], int) or isinstance(risk[key], bool) or risk[key] < 0:
                     raise wp1.ProductionReviewError("formal catalog risk integer mismatch")
@@ -435,7 +476,7 @@ def validate_catalog_files(files: dict[str, bytes]) -> tuple[dict[str, Any], lis
             expected_revision = wp1.surface.entry_revision_identity(
                 logical_entry_identity=expected_logical, source=row["source"], target=row["target"],
                 fixed_source_identity=fixed, terminology_snapshot=manifest["terminology_snapshot_sha256"],
-                rules_version=row["rules_version"])
+                rules_version=row["rules_version"], args_order=args_order)
             if expected_logical != logical or expected_revision != revision:
                 raise wp1.ProductionReviewError("formal catalog logical/revision identity mismatch")
         exclusion_previous = ""

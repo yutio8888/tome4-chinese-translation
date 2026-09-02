@@ -29,7 +29,7 @@ class MigrationFixture(unittest.TestCase):
         (self.root / ".gitignore").write_text("/.artifacts/\n", encoding="utf-8")
         self.entries = [self.entry(str(index)) for index in range(3)]
         self.write_catalog(self.entries)
-        (self.root / catalog.SCHEMA_PATH).write_bytes(catalog.SCHEMA_RAW)
+        (self.root / catalog.SCHEMA_PATH).write_bytes(catalog.SCHEMA_RAW_BY_RULES[catalog.RULES_VERSION])
         (self.root / catalog.POLICY_PATH).write_bytes(catalog.POLICY_RAW)
         self.commit("old catalog")
         queue.init(self.root)
@@ -37,7 +37,7 @@ class MigrationFixture(unittest.TestCase):
     def entry(self, suffix: str, *, source: str | None = None, target: str | None = None,
               source_tag: str = "", section: str = "fixture", fixed: str | None = None,
               terminology: str = "b" * 64, rules: str = catalog.RULES_VERSION,
-              path: str = "tome.lua") -> dict:
+              path: str = "tome.lua", args_order: object = None) -> dict:
         source = source or "source " + suffix
         target = target or "target " + suffix
         fixed = fixed or "commit:" + "a" * 40
@@ -49,7 +49,8 @@ class MigrationFixture(unittest.TestCase):
                                                       call_locator=locator, source_tag=source_tag)
         revision = wp1.surface.entry_revision_identity(logical_entry_identity=logical,
             source=source, target=target, fixed_source_identity=fixed,
-            terminology_snapshot=terminology, rules_version=rules)
+            terminology_snapshot=terminology, rules_version=rules,
+            args_order=args_order if rules == catalog.RULES_VERSION else None)
         return {"schema_version": 1, "component": "tome", "normalized_path": path,
                 "section": section, "call_locator": locator,
                 "logical_entry_identity": logical, "entry_revision_identity": revision,
@@ -58,10 +59,11 @@ class MigrationFixture(unittest.TestCase):
                 "target_sha256": hashlib.sha256(target.encode()).hexdigest(),
                 "fixed_source_identity": fixed,
                 "terminology_snapshot_sha256": terminology, "rules_version": rules,
-                "risk": {"has_args_order": False, "has_special": False,
+                "risk": {"has_args_order": args_order is not None, "has_special": False,
                          "source_utf8_bytes": len(source.encode()),
                          "target_utf8_bytes": len(target.encode()),
-                         "component_group_size": 3, "component_group_last": False}}
+                         "component_group_size": 3, "component_group_last": False,
+                         **({"args_order": args_order} if rules == catalog.RULES_VERSION else {})}}
 
     def commit(self, message: str) -> str:
         subprocess.run(["git", "add", "."], cwd=self.root, check=True)
@@ -99,7 +101,7 @@ class MigrationFixture(unittest.TestCase):
         manifest["catalog_id"] = catalog.catalog_id(manifest)
         if destination == self.root:
             self.catalog_id = manifest["catalog_id"]
-        files = {catalog.SCHEMA_PATH: catalog.SCHEMA_RAW, catalog.POLICY_PATH: policy_raw,
+        files = {catalog.SCHEMA_PATH: catalog.SCHEMA_RAW_BY_RULES[rules], catalog.POLICY_PATH: policy_raw,
                  f"{catalog.CATALOG_PREFIX}/manifest.json": wp1.canonical_bytes(manifest),
                  f"{catalog.CATALOG_PREFIX}/entries.jsonl": entries_raw,
                  f"{catalog.CATALOG_PREFIX}/exclusions.jsonl": exclusions_raw}
@@ -119,6 +121,12 @@ class MigrationFixture(unittest.TestCase):
     def replace(self, row: dict, **changes) -> dict:
         result = copy.deepcopy(row)
         result.update(changes)
+        if "args_order" in changes:
+            result["risk"]["args_order"] = changes["args_order"]
+        if result["rules_version"] == catalog.RULES_VERSION:
+            result["risk"].setdefault("args_order", None)
+        else:
+            result["risk"].pop("args_order", None)
         source = result["source"]
         target = result["target"]
         path = result["normalized_path"]
@@ -135,7 +143,8 @@ class MigrationFixture(unittest.TestCase):
             logical_entry_identity=result["logical_entry_identity"], source=source,
             target=target, fixed_source_identity=result["fixed_source_identity"],
             terminology_snapshot=result["terminology_snapshot_sha256"],
-            rules_version=result["rules_version"])
+            rules_version=result["rules_version"],
+            args_order=result["risk"].get("args_order"))
         result["source_sha256"] = hashlib.sha256(source.encode()).hexdigest()
         result["target_sha256"] = hashlib.sha256(target.encode()).hexdigest()
         result["risk"]["source_utf8_bytes"] = len(source.encode())
@@ -190,6 +199,30 @@ class MigrationTests(MigrationFixture):
             self.assertEqual((rows[0]["disposition"], rows[0]["reason"]), (disposition, reason))
         rows = migration.reconcile([old], [])
         self.assertEqual((rows[0]["disposition"], rows[0]["reason"]), ("removed", "removed"))
+
+    def test_args_order_reason_is_validated_and_not_masked_by_terminology(self):
+        old = self.entry("args", source="%s has %d", target="%s belongs to %d", args_order=[1, 2])
+        changed = self.replace(old, args_order=[2, 1], terminology="f" * 64)
+        rows = migration.reconcile([old], [changed])
+        self.assertEqual((rows[0]["disposition"], rows[0]["reason"]),
+                         ("revision_changed", "args_order_changed"))
+
+        def summary(entries, catalog_id):
+            entries_raw = wp1._jsonl(entries)
+            return {"catalog_id": catalog_id, "manifest_sha256": "c" * 64,
+                    "entries_sha256": hashlib.sha256(entries_raw).hexdigest(),
+                    "exclusions_sha256": "d" * 64,
+                    "counts": {"occurrence_count": len(entries),
+                               "entry_count": len(entries), "exclusion_count": 0}}
+
+        value = migration._build_migration(
+            "a" * 40, "b" * 40, summary([old], "a" * 64), [old],
+            summary([changed], "b" * 64), [changed],
+            recorded_at="2026-09-02T01:02:03Z", recorded_by="fixture")
+        self.assertEqual(value["rows"], rows)
+        validated = migration.validate_migration(
+            value, expected_old_entries=[old], expected_new_entries=[changed])
+        self.assertEqual(validated["rows"], rows)
 
     def test_unique_move_requires_exact_local_adjacency_and_ambiguous_unmapped(self):
         old = self.entries
@@ -309,11 +342,14 @@ class MigrationTests(MigrationFixture):
         entry = self.entries[entry_index]
         revision = entry["entry_revision_identity"]
         batch_id = batch_name or ("repair" if repair else "done")
+        surface_entry = {key: entry[key] for key in wp1.surface.ENTRY_KEYS}
+        if entry["rules_version"] == wp1.surface.IDENTITY_RULES_V2:
+            surface_entry["args_order"] = entry["risk"]["args_order"]
         payload = {"contract": wp1.surface.CONTRACT,
                    "fixed_source_identity": entry["fixed_source_identity"],
                    "terminology_snapshot": entry["terminology_snapshot_sha256"],
                    "rules_version": entry["rules_version"], "rendered_briefing": "fixture",
-                   "entries": [{key: entry[key] for key in wp1.surface.ENTRY_KEYS}]}
+                   "entries": [surface_entry]}
         candidate_identity = hashlib.sha256(wp1.surface.canonical_bytes(payload)).hexdigest()
         input_raw = wp1.surface.canonical_bytes({"candidate_identity": candidate_identity, "payload": payload})
         verdict = "ISSUE" if repair or blocked else "OK"

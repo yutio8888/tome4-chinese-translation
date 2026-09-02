@@ -106,7 +106,7 @@ evidence/production-review-v2-lite/
 
 路径是规范化仓库相对 POSIX 路径；null tag 规范为 `""`。`call_locator = SHA-256(UTF-8 canonical({"kind":"production_review_v2_lite_call_locator_v1","locator":core}))`。禁止裸行号。若未来同 core 出现重复，build fail closed；WP2-Lite 不自行扩展 duplicate 语义。
 
-为兼容现有 `translation_surface_screen_v1`，每条 entry 继续按该契约的双层 identity 配方计算 `logical_entry_identity` 与 `entry_revision_identity`。identity recipe 由 exact `rules_version` 确定且不增加 schema/store/contract family：历史 `production-review-v2-lite-rules-v1` 配方继续绑定全局 terminology snapshot；新 build 固定使用 `production-review-v2-lite-rules-v2`，revision 配方绑定 logical identity、source、target、当前 `fixed_source_identity` 与 rules version，但不绑定全局 terminology snapshot。v1→v2 允许一次 identity 变化。两版的 manifest、每条 catalog entry、surface/contextual envelope 与 batch evidence 仍记录并验证 exact 当前 terminology snapshot provenance；普通 catalog validator 同时接受 exact v1 history 与 exact v2 current policy/catalog bytes，未知或混配规则 fail closed。WP1 的同名 identity 即使碰巧相等也不构成继承关系，formal validator 仍机械拒绝 tracked shadow provenance。
+为兼容现有 `translation_surface_screen_v1`，每条 entry 继续按该契约的双层 identity 配方计算 `logical_entry_identity` 与 `entry_revision_identity`。identity recipe 由 exact `rules_version` 确定且不增加 schema/store/contract family：历史 `production-review-v2-lite-rules-v1` 配方继续绑定全局 terminology snapshot；新 build 固定使用 `production-review-v2-lite-rules-v2`，revision 配方绑定 logical identity、source、target、当前 `fixed_source_identity`、rules version 与 exact `args_order`，但不绑定全局 terminology snapshot。v1→v2 允许一次 identity 变化。两版的 manifest、每条 catalog entry、surface/contextual envelope 与 batch evidence 仍记录并验证 exact 当前 terminology snapshot provenance；普通 catalog validator 同时接受 exact v1 history 与 exact v2 current policy/catalog bytes，未知或混配规则 fail closed。WP1 的同名 identity 即使碰巧相等也不构成继承关系，formal validator 仍机械拒绝 tracked shadow provenance。
 
 ### 3.2 catalog 文件 schema
 
@@ -120,7 +120,7 @@ exclusion_count, entries_sha256, exclusions_sha256, terminology_snapshot_sha256,
 source_identities, policy_sha256
 ```
 
-`catalog_id` 是上述除 `catalog_id/recorded_at/recorded_by` 外字段的 canonical SHA-256；它只标识当前 catalog，不建立 ancestry。rules-v2 的 terminology-only catalog boundary 会改变 catalog/provenance bytes，但 entry revision identity 不变；migration 将这些 rows 分类为 `unchanged`，从而在 apply、Git-tree rebuild、SQLite 删除后重建与 revert 中保留 durable `done|repair_required|blocked` overrides。target/source/fixed-source/logical/rules 变化仍产生新 revision 或 logical identity 并要求重新验证。
+`catalog_id` 是上述除 `catalog_id/recorded_at/recorded_by` 外字段的 canonical SHA-256；它只标识当前 catalog，不建立 ancestry。rules-v2 的 terminology-only catalog boundary 会改变 catalog/provenance bytes，但 entry revision identity 不变；migration 将这些 rows 分类为 `unchanged`，从而在 apply、Git-tree rebuild、SQLite 删除后重建与 revert 中保留 durable `done|repair_required|blocked` overrides。target/source/fixed-source/logical/rules/args_order 变化仍产生新 revision 或 logical identity 并要求重新验证。
 
 `entries.jsonl` 每行恰含：
 
@@ -131,7 +131,7 @@ source_sha256, target_sha256, fixed_source_identity,
 terminology_snapshot_sha256, rules_version, risk
 ```
 
-`risk` 复用 WP1 的 `has_args_order/has_special/source_utf8_bytes/target_utf8_bytes/component_group_size/component_group_last`。entries 按 `entry_revision_identity` lowercase ASCII bytes 严格递增且唯一。
+`risk` 在 rules-v1 复用 WP1 的 `has_args_order/has_special/source_utf8_bytes/target_utf8_bytes/component_group_size/component_group_last`；rules-v2 在同一 risk 对象中另保存 exact `args_order`（`null` 或非空的 `1..n` integer permutation），并要求 `has_args_order` 与其是否为 null 一致。entries 按 `entry_revision_identity` lowercase ASCII bytes 严格递增且唯一。
 
 `exclusions.jsonl` 每行恰含 `schema_version,occurrence_identity,component,reason_code`；reason 优先级与 WP1 相同。exclusions 按 occurrence identity 严格递增。validator 必须证明：
 
@@ -182,7 +182,7 @@ reconciliation(
   reason TEXT NOT NULL CHECK(reason IN
     ('unchanged','target_changed','source_changed','source_tag_changed',
      'call_locator_changed','fixed_source_changed','terminology_changed',
-     'rules_changed','removed','ambiguous','unmapped')),
+     'rules_changed','args_order_changed','removed','ambiguous','unmapped')),
   migration_id TEXT NOT NULL,
   PRIMARY KEY(migration_id,old_entry_revision_identity)
 );
@@ -263,9 +263,9 @@ gates, last_safe_boundary
 ### 6.2 生命周期
 
 1. **writer preflight／开始前**：每次持锁打开任一 writer 都先运行 reservation/checkpoint reconciliation，而不只在 `batch start` 运行。要求 catalog/queue strict-check、tracked worktree 无未说明改动。若 SQLite 有某 `batch_id` 的 orphan `reserved` 而 checkpoint 不存在，则从当前 treeish 的 committed evidence winner 逐项重建其预留前当前有效状态：先前隐式 queued 删除 override，先前 committed blocked 恢复 blocked，禁止无条件清为 queued；若存在 schema/hash 均有效的 checkpoint 而 reservation 缺失或与 `selected` 不同，则在尚无任何已接受 result 时按 checkpoint 的 selected 与冻结 prior state 精确恢复 reservation，已有已接受 result 时按下述 import recovery 处理或 fail closed。preflight 后若有效 checkpoint 仍存在或已恢复，writer 必须恢复并在其上操作；`batch start` 必须停止，不得选择新批。只有 preflight 后没有 checkpoint 才可按 `selection_mode` 选择最多 80 条。SQLite transaction 与 checkpoint 原子写仍各自独立，崩溃留下的单边状态由下一次持锁打开收敛，不声称二者共同 rollback。
-2. **surface freeze/dispatch**：一个 active batch 可以混有不同 `fixed_source_identity`；adapter 按 `(fixed_source_identity,terminology_snapshot_sha256,rules_version)` 精确值分组。每个同质 run 的 membership 是 parent selected 中对应 entries 的有序子序列；run 按其最小 parent index 排序，`run_id` 是该顺序的 ordinal 加完整 tuple canonical SHA-256，因而 membership/run_id 均从 parent selected 顺序导出。每个 surface run 保留 identity→parent index 的显式映射，但发给现有 `translation_surface_screen_v1` consumer 的 entries 必须按 lowercase `entry_revision_identity` bytes 严格递增；分别构建 exact 六键 payload、envelope/lane group，并逐 run 使用该契约的 n=1..3 full、n=4..80 四 lane 和 strict result schema。validator 必须证明各 run 不相交，每条 parent identity 恰出现一次，并用 parent-index mapping 将 validated union 重排后逐项精确等于 selected；每个 payload 的全部 payload-level identity scalar 都同质。不改变 STATE/Paseo schema。
+2. **surface freeze/dispatch**：一个 active batch 可以混有不同 `fixed_source_identity`；adapter 按 `(fixed_source_identity,terminology_snapshot_sha256,rules_version)` 精确值分组。每个同质 run 的 membership 是 parent selected 中对应 entries 的有序子序列；run 按其最小 parent index 排序，`run_id` 是该顺序的 ordinal 加完整 tuple canonical SHA-256，因而 membership/run_id 均从 parent selected 顺序导出。每个 surface run 保留 identity→parent index 的显式映射，但发给现有 `translation_surface_screen_v1` consumer 的 entries 必须按 lowercase `entry_revision_identity` bytes 严格递增；分别构建 exact 六键 payload、envelope/lane group，并逐 run 使用该契约的 n=1..3 full、n=4..80 四 lane 和 strict result schema。validator 必须证明各 run 不相交，每条 parent identity 恰出现一次，并用 parent-index mapping 将 validated union 重排后逐项精确等于 selected；每个 payload 的全部 payload-level identity scalar 都同质，entry shape 按 `rules_version` 选择，rules-v2 必须从 catalog risk 投影 exact `args_order`。不改变 STATE/Paseo schema。
 3. **结果汇总／导入**：回到 `before_result_import`，重验所有 raw bytes、candidate identity、路径、workspace/lineage、每个完整 run 及 validated run union。所有 surface/contextual result import 冻结为单向写序，并以现有 checkpoint 为恢复权威：只有全部适用 run 有效后，先把 validator 接受的 raw refs 和确定性 intended state updates 写入同一个 checkpoint，执行 atomic replace、文件 fsync 与目录 fsync；随后在一个 SQLite transaction 中应用这些更新。下一次 writer preflight 必须重验 checkpoint/raw，并幂等补齐 SQLite 中缺失或不一致但兼容的更新；若 SQLite 已含不兼容状态则 fail closed。不得为此增加日志、第二 checkpoint 或 kill matrix。`ISSUE` 至少进入 `deep_required`；`OK` 是否 surface-only done 或 deep 抽检由冻结 policy 决定。
-4. **contextual**：只对 `deep_required` 构造现有 `translation_contextual_v2` exact 七键 payload；按该契约 payload-level identity scalars 的精确值确定性分区，entries 严格使用该契约冻结的 key order，不套用 surface 的 revision-identity 排序；仍保存 parent-index mapping，并将 validated run union 重排证明等于 parent deep set。保守冻结为该契约的 review-only 单一 `REVIEW/full` 路径（`n<4` 必须 full，`n>=4` 也不选择可选四 lane），因此不会把四 lane group 当 terminal，也不需要 lane-plus-closing-full 序列。每个 run 只有对应 Paseo task 的 current DONE checker 已得到 `DONE_VERIFIED` 后才可 import；仍使用既有 raw evidence、源码身份和 compact result validator，不创建新的生产 contract。
+4. **contextual**：只对 `deep_required` 构造现有 `translation_contextual_v2` exact 七键 payload；按该契约 payload-level identity scalars 的精确值确定性分区，entries 严格使用该契约冻结的 key order，不套用 surface 的 revision-identity 排序；rules-v2 的非空 `args_order` 必须在既有 `bounded_context.context` 中追加规范 `args_order={i,j,...}` token，未携带第四参数的 null 形式保持无该 token，rules-v1 bytes 保持不变。仍保存 parent-index mapping，并将 validated run union 重排证明等于 parent deep set。保守冻结为该契约的 review-only 单一 `REVIEW/full` 路径（`n<4` 必须 full，`n>=4` 也不选择可选四 lane），因此不会把四 lane group 当 terminal，也不需要 lane-plus-closing-full 序列。每个 run 只有对应 Paseo task 的 current DONE checker 已得到 `DONE_VERIFIED` 后才可 import；仍使用既有 raw evidence、源码身份和 compact result validator，不创建新的生产 contract。
 5. **裁决**：ORCHESTRATOR 逐 observation 以固定源码/语境证据标记；只有 confirmed 可进入 `repair_required`。pending 进入 `blocked`，advisory/refuted 按 policy 可 `done`。
 6. **commit 前**：生成受跟踪 batch evidence 候选，运行全部门禁，设置 `before_commit/commit_ready`。工具不得 commit。
 7. **提交后 finalize**：维护者提供包含完整 batch evidence 的 commit。工具重验 commit/tree/hash 后更新 SQLite，移除 checkpoint 并 fsync 目录。只有这一步后结果是长期 durable。
@@ -284,7 +284,7 @@ gates, last_safe_boundary
 
 ### 7.1 不改现有 consumer
 
-surface 输入必须逐字满足 `translation_surface_screen_v1` 的六键 payload及其 entry identity；contextual 输入必须逐字满足 `translation_contextual_v2` 的七键 payload。WP2-Lite adapter 只做：
+surface 输入必须逐字满足 `translation_surface_screen_v1` 的六键 payload 及按 `rules_version` 选择的 entry identity/shape（rules-v2 含 exact `args_order`）；contextual 输入必须逐字满足 `translation_contextual_v2` 的七键 payload（rules-v2 的非空 mapping 通过既有 `bounded_context.context` token 披露）。WP2-Lite adapter 只做：
 
 ```text
 catalog/checkpoint projection -> existing envelope bytes -> existing validator
@@ -531,9 +531,9 @@ verdict 开头先列本任务适用的个人项目原则。blocking finding 只�
 - retirement：12 个 baseline 文件 exact hash、缺/多/变更拒绝、prospective 128 MiB、Git restore/revert 演练；
 - queue：隐式 queued、七状态闭集、事务回滚、单锁互斥、数据库删除后 deterministic rebuild、所选 treeish 只重放当前 ordinary files 且 revert 忽略 absent/deleted path；
 - batch：0 不 start、1/3/4/79/80 边界、稳定排序、selection mode 与 prior effective state 冻结、blocked abandon 精确恢复、重复 start拒绝、每次 writer open 的 reservation/checkpoint reconciliation、有效 checkpoint 阻止新选择、orphan reserved 依 committed winner 恢复、三个安全边界的中断恢复、安全放弃；
-- adapters：现有 surface/contextual fixture hashes、mixed identity 的确定性同质 run 与 union、surface emitted entries 按 lowercase revision identity bytes 严格排序并以 parent-index mapping 回排、contextual 冻结 key order、surface full/lane、contextual review-only single-full/DONE_VERIFIED、result import 的 checkpoint-first fsync/SQLite 单事务/幂等补齐/不兼容 fail-closed、raw bytes、wrong identity/path/hash/partial group拒绝；
+- adapters：现有 surface/contextual fixture hashes、mixed identity 的确定性同质 run 与 union、surface emitted entries 按 lowercase revision identity bytes 严格排序并以 parent-index mapping 回排、rules-v2 pilot `args_order` 投影与 revision 变更、contextual 冻结 key order、surface full/lane、contextual review-only single-full/DONE_VERIFIED、result import 的 checkpoint-first fsync/SQLite 单事务/幂等补齐/不兼容 fail-closed、raw bytes、wrong identity/path/hash/partial group拒绝；
 - evidence：当前 commit tree 重放、bounded raw exact-copy/hash、同 revision 的 ancestry/order/path winner、durable 状态闭集、缺文件/extra row/hash 漂移/夸大 completion level拒绝；
-- migration：target/source/tag/locator/fixed source/terminology/rules/removed，及 ambiguous/unmapped fail closed；
+- migration：target/source/tag/locator/fixed source/terminology/rules/args_order/removed，及 ambiguous/unmapped fail closed；
 - repair：active batch 中拒绝、preimage drift拒绝、successor queued、parent done不继承、revalidation必需。
 
 ### 13.2 每批五步门禁

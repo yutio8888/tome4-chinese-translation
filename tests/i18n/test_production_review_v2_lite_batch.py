@@ -3,10 +3,11 @@ import unittest
 from tools.i18nlib import production_review as wp1
 from tools.i18nlib import production_review_v2_lite_batch as batch
 import surface_screen_manifest as surface_manifest
+import surface_screen_result_check as surface
 
 
 def row(identity, fixed="commit:" + "a" * 40, size=1, last=True):
-    return {"entry_revision_identity": identity, "logical_entry_identity": "l" * 64,
+    return {"entry_revision_identity": identity, "logical_entry_identity": "a" * 64,
             "fixed_source_identity": fixed, "terminology_snapshot_sha256": "t" * 64,
             "rules_version": "rules", "component": "tome", "source": "s", "target": "t",
             "source_tag": "", "normalized_path": "tome.lua", "call_locator": "c" * 64,
@@ -36,6 +37,74 @@ class BatchBoundaryTests(unittest.TestCase):
         for run in runs:
             self.assertEqual(run["entries"], sorted(run["entries"], key=lambda item: item["entry_revision_identity"]))
             self.assertEqual(len({(e["entry_revision_identity"]) for e in run["entries"]}), len(run["entries"]))
+
+    def test_v2_surface_projection_preserves_pilot_runtime_argument_order(self):
+        value = row("f" * 64)
+        value["rules_version"] = surface.IDENTITY_RULES_V2
+        value["source"] = "%s has %d"
+        value["target"] = "%d belongs to %s"
+        value["risk"] = dict(value["risk"], has_args_order=True, args_order=[2, 1])
+        value["logical_entry_identity"] = surface.logical_entry_identity(
+            component=value["component"], normalized_path=value["normalized_path"],
+            call_locator=value["call_locator"], source_tag=value["source_tag"])
+        value["entry_revision_identity"] = surface.entry_revision_identity(
+            logical_entry_identity=value["logical_entry_identity"], source=value["source"],
+            target=value["target"], fixed_source_identity=value["fixed_source_identity"],
+            terminology_snapshot=value["terminology_snapshot_sha256"],
+            rules_version=value["rules_version"], args_order=[2, 1])
+        projected = batch._surface_entry(value)
+        self.assertEqual(projected["args_order"], [2, 1])
+        payload = batch._payload({"identity": (value["fixed_source_identity"],
+                                                   value["terminology_snapshot_sha256"],
+                                                   value["rules_version"]),
+                                 "entries": [projected]})
+        surface.validate_payload(payload)
+        runtime_values = ["ability", 7]
+        self.assertEqual([runtime_values[index - 1] for index in projected["args_order"]], [7, "ability"])
+        missing = dict(value)
+        missing["risk"] = dict(missing["risk"])
+        missing["risk"].pop("args_order")
+        with self.assertRaises(wp1.ProductionReviewError):
+            batch._surface_entry(missing)
+
+    def test_v2_contextual_projection_discloses_args_order_and_binds_candidate_bytes(self):
+        def contextual_row(args_order):
+            value = row("f" * 64)
+            value["rules_version"] = surface.IDENTITY_RULES_V2
+            value["section"] = "fixture"
+            value["source"] = "%s has %d"
+            value["target"] = "%d belongs to %s"
+            value["risk"] = dict(value["risk"], has_args_order=True, args_order=args_order)
+            value["logical_entry_identity"] = surface.logical_entry_identity(
+                component=value["component"], normalized_path=value["normalized_path"],
+                call_locator=value["call_locator"], source_tag=value["source_tag"])
+            value["entry_revision_identity"] = surface.entry_revision_identity(
+                logical_entry_identity=value["logical_entry_identity"], source=value["source"],
+                target=value["target"], fixed_source_identity=value["fixed_source_identity"],
+                terminology_snapshot=value["terminology_snapshot_sha256"],
+                rules_version=value["rules_version"], args_order=args_order)
+            return value
+
+        reordered = contextual_row([2, 1])
+        run = {"identity": (reordered["fixed_source_identity"],
+                             reordered["terminology_snapshot_sha256"],
+                             reordered["rules_version"]),
+               "entries": [reordered]}
+        payload = batch._contextual_payload(run)
+        self.assertEqual(
+            payload["bounded_context"][0]["context"], "fixture args_order={2,1}")
+        first_bytes = contextual_row([1, 2])
+        first_payload = batch._contextual_payload({**run, "entries": [first_bytes]})
+        self.assertNotEqual(surface.canonical_bytes(payload), surface.canonical_bytes(first_payload))
+
+        historical = row("e" * 64)
+        historical["section"] = "fixture"
+        historical_payload = batch._contextual_payload({
+            "identity": (historical["fixed_source_identity"],
+                         historical["terminology_snapshot_sha256"],
+                         historical["rules_version"]),
+            "entries": [historical]})
+        self.assertEqual(historical_payload["bounded_context"][0]["context"], "fixture")
 
     def test_surface_manifest_boundary_builders_use_real_consumer_forms(self):
         def surface_rows(count):

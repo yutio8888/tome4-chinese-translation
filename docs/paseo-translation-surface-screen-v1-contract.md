@@ -34,15 +34,16 @@ logical_entry_identity = SHA-256(canonical({schema_version:1, component, normali
 rules-v1/其他既有规则：
 entry_revision_identity = SHA-256(canonical({schema_version:1, logical_entry_identity, source_sha256, target_sha256, fixed_source_identity, terminology_snapshot_sha256, rules_version}))
 production-review-v2-lite-rules-v2：
-entry_revision_identity = SHA-256(canonical({schema_version:1, logical_entry_identity, source_sha256, target_sha256, fixed_source_identity, rules_version}))
+entry_revision_identity = SHA-256(canonical({schema_version:1, logical_entry_identity, source_sha256, target_sha256, fixed_source_identity, rules_version, args_order}))
 ~~~
 
 其中 `source_sha256`／`target_sha256` 是 source/target 冻结字符串 UTF-8 bytes 的 SHA-256，
 `terminology_snapshot_sha256` 是 payload `terminology_snapshot` 字符串 UTF-8 bytes 的
 SHA-256。identity recipe 只由 exact `rules_version` 确定；`production-review-v2-lite-rules-v2`
 仅从 revision recipe 排除全局术语 snapshot，payload/envelope 仍必须记录并按 exact 当前值验证
-该 snapshot provenance。其他既有 rules 字符串保持历史配方，因而 v1 live/history bytes 可按
-原式重验。任何 locator／`source_tag` 变化都会产生新的 logical_entry_identity，必须以显式
+该 snapshot provenance。rules-v2 的 `args_order` 是 `null` 或非空的整数 permutation（恰为
+`1..n` 的一次排列），并同时作为 catalog risk 数据和 revision identity 输入；只改该值也必须
+重新审核。其他既有 rules 字符串保持历史配方，因而 v1 live/history bytes 可按原式重验。任何 locator／`source_tag` 变化都会产生新的 logical_entry_identity，必须以显式
 migration edge（ledger 记录 `migration_from_logical_entry_identity`）进入新逻辑身份；
 source、target、固定源码 identity 或 rules_version 变化在 logical_entry_identity 不变的前提下
 产生新 revision；术语 snapshot 变化只在历史配方下改变 revision；`source_tag` 属于逻辑身份。
@@ -58,8 +59,9 @@ source、target、固定源码 identity 或 rules_version 变化在 logical_entr
 - `fixed_source_identity` 仅为 `commit:<40 lowercase hex>` 或 `snapshot:<64 lowercase hex>`，
   form 由来源机制决定，与语境契约相同；
 - `rules_version` 为非空字符串；`source`／`target` 非空；`source_tag` 可为空字符串；
-- entry 的 canonical 表示恰含 `logical_entry_identity`、`entry_revision_identity` 与六个
-  语义字段；两个 identity 都必须能由语义字段按上式重算，否则拒绝。
+- rules-v1 entry 的 canonical 表示恰含 `logical_entry_identity`、`entry_revision_identity` 与六个
+  语义字段；rules-v2 另恰含 `args_order`，共七个语义字段。两个 identity 都必须能由对应
+  rules-version 的语义字段按上式重算，否则拒绝。
 
 payload 恰含六键：`contract`（精确 `translation_surface_screen_v1`）、`entries`、
 `fixed_source_identity`、`terminology_snapshot`、`rules_version`、`rendered_briefing`。

@@ -19,6 +19,7 @@ import sys
 from typing import Any
 
 import contextual_result_check as strict
+from i18nlib.lint import extract_format_tokens
 
 
 # Surface reuses the shared strict JSON decoder and error taxonomy so that
@@ -38,10 +39,14 @@ PAYLOAD_KEYS = frozenset({
     "contract", "fixed_source_identity", "terminology_snapshot",
     "rules_version", "rendered_briefing", "entries",
 })
-ENTRY_KEYS = frozenset({
+ENTRY_KEYS_V1 = frozenset({
     "component", "normalized_path", "call_locator", "source_tag", "source",
     "target", "logical_entry_identity", "entry_revision_identity",
 })
+# The public contract remains one contract.  Rules-v2 selects the extended
+# entry shape; retaining the v1 alias keeps historical callers byte-for-byte.
+ENTRY_KEYS_V2 = ENTRY_KEYS_V1 | {"args_order"}
+ENTRY_KEYS = ENTRY_KEYS_V1
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 # Containment form: any embedded 64-hex identity inside free-form strings.
 HEX64_CONTAINS = re.compile(r"[0-9a-f]{64}")
@@ -164,9 +169,34 @@ def logical_entry_identity(
     return hashlib.sha256(canonical_bytes(payload)).hexdigest()
 
 
+def entry_keys_for_rules(rules_version: object) -> frozenset[str]:
+    """Return the exact surface entry shape selected by the rules version."""
+    return ENTRY_KEYS_V2 if rules_version == IDENTITY_RULES_V2 else ENTRY_KEYS_V1
+
+
+def validate_args_order(
+    value: object, *, source: str | None = None, label: str = "args_order"
+) -> list[int] | None:
+    """Validate a canonical permutation and, when available, source arity."""
+    if value is None:
+        return None
+    if (not isinstance(value, list) or not value or
+            any(type(item) is not int or isinstance(item, bool) for item in value) or
+            sorted(value) != list(range(1, len(value) + 1))):
+        raise ContractError(f"{label} must be null or a non-empty integer permutation")
+    if source is not None:
+        if not isinstance(source, str):
+            raise ContractError("source must be a string when validating args_order")
+        arity = len(extract_format_tokens(source))
+        if sorted(value) != list(range(1, arity + 1)):
+            raise ContractError(f"{label} must be a complete permutation of the {arity} source placeholders")
+    return list(value)
+
+
 def entry_revision_identity(
     *, logical_entry_identity: str, source: str, target: str,
     fixed_source_identity: str, terminology_snapshot: str, rules_version: str,
+    args_order: object = None,
 ) -> str:
     """Versioned revision identity under a stable logical entry identity."""
     if not isinstance(logical_entry_identity, str) or not SHA256.fullmatch(
@@ -184,7 +214,9 @@ def entry_revision_identity(
     # Rules-v2 changes only the revision recipe.  Every envelope still binds
     # the exact terminology snapshot as required provenance; all other rules
     # strings retain the historical contract recipe byte-for-byte.
-    if rules_version != IDENTITY_RULES_V2:
+    if rules_version == IDENTITY_RULES_V2:
+        payload["args_order"] = validate_args_order(args_order, source=source)
+    else:
         payload["terminology_snapshot_sha256"] = hashlib.sha256(
             terminology_snapshot.encode("utf-8")
         ).hexdigest()
@@ -192,8 +224,10 @@ def entry_revision_identity(
 
 
 def _validate_entry(entry: object, *, scalars: dict[str, str]) -> dict[str, str]:
-    if not isinstance(entry, dict) or frozenset(entry) != ENTRY_KEYS:
-        raise ContractError("surface entry must have exactly the eight canonical keys")
+    entry_keys = entry_keys_for_rules(scalars["rules_version"])
+    if not isinstance(entry, dict) or frozenset(entry) != entry_keys:
+        expected = "nine" if entry_keys == ENTRY_KEYS_V2 else "eight"
+        raise ContractError(f"surface entry must have exactly the {expected} canonical keys")
     for key in ("component", "call_locator", "source", "target"):
         _nonempty_string(entry[key], f"entry {key}")
     normalize_relative_path(entry["normalized_path"])
@@ -201,9 +235,13 @@ def _validate_entry(entry: object, *, scalars: dict[str, str]) -> dict[str, str]
     reject_path_line_locator(entry["normalized_path"], entry["call_locator"])
     if not isinstance(entry["source_tag"], str):
         raise ContractError("entry source_tag must be a string")
-    for key in ENTRY_KEYS:
+    for key in ENTRY_KEYS_V1:
         if not isinstance(entry[key], str):
             raise ContractError(f"entry {key} must be a string")
+    args_order = None
+    if scalars["rules_version"] == IDENTITY_RULES_V2:
+        args_order = validate_args_order(
+            entry["args_order"], source=entry["source"], label="entry args_order")
     logical = logical_entry_identity(
         component=entry["component"],
         normalized_path=entry["normalized_path"],
@@ -219,6 +257,7 @@ def _validate_entry(entry: object, *, scalars: dict[str, str]) -> dict[str, str]
         fixed_source_identity=scalars["fixed_source_identity"],
         terminology_snapshot=scalars["terminology_snapshot"],
         rules_version=scalars["rules_version"],
+        args_order=args_order,
     )
     if revision != entry["entry_revision_identity"]:
         raise ContractError("entry entry_revision_identity does not match the identity recipe")

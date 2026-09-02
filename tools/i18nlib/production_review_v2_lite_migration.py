@@ -39,7 +39,7 @@ DISPOSITIONS = frozenset({"unchanged", "revision_changed", "logical_moved", "rem
 REASONS = frozenset({
     "unchanged", "target_changed", "source_changed", "source_tag_changed",
     "call_locator_changed", "fixed_source_changed", "terminology_changed",
-    "rules_changed", "removed", "ambiguous", "unmapped",
+    "args_order_changed", "rules_changed", "removed", "ambiguous", "unmapped",
 })
 CATALOG_COUNT_KEYS = frozenset({"occurrence_count", "entry_count", "exclusion_count"})
 MAPPING_KEYS = frozenset({
@@ -229,10 +229,21 @@ def _reason_changed(old: dict[str, Any], new: dict[str, Any]) -> str:
         ("target", "target_changed"), ("source", "source_changed"),
         ("source_tag", "source_tag_changed"), ("call_locator", "call_locator_changed"),
         ("fixed_source_identity", "fixed_source_changed"),
-        ("terminology_snapshot_sha256", "terminology_changed"),
-        ("rules_version", "rules_changed"),
     )
     for field, reason in fields:
+        if old.get(field) != new.get(field):
+            return reason
+    # In rules-v2 terminology is provenance only, while args_order is part of
+    # the revision identity.  Give the identity input its own reason whenever
+    # both rows are v2 so a provenance refresh cannot mask this change.
+    old_args = old.get("risk", {}).get("args_order")
+    new_args = new.get("risk", {}).get("args_order")
+    if (old.get("rules_version") == catalog.RULES_VERSION and
+            new.get("rules_version") == catalog.RULES_VERSION and
+            old_args != new_args):
+        return "args_order_changed"
+    for field, reason in (("terminology_snapshot_sha256", "terminology_changed"),
+                          ("rules_version", "rules_changed")):
         if old.get(field) != new.get(field):
             return reason
     raise _error("revision identity changed without an identity input change")
@@ -271,11 +282,12 @@ def reconcile(old_entries: list[dict[str, Any]], new_entries: list[dict[str, Any
     """Classify every old row using only exact identity and structure inputs."""
     new_by_logical = {row["logical_entry_identity"]: row for row in new_entries}
     new_by_revision = {row["entry_revision_identity"]: row for row in new_entries}
-    # The formal v2-lite entry schema intentionally has no loader-order field.
-    # Revision identities are content hashes, so their byte order is not
-    # evidence of source adjacency.  Until exact loader-order data is part of
-    # a catalog boundary, changed logical identities are conservatively
-    # unmapped rather than guessed from hash order.
+    # The formal v2-lite entry schema has no loader-order field (args_order is
+    # semantic formatting metadata, not call adjacency). Revision identities
+    # are content hashes, so their byte order is not evidence of source
+    # adjacency. Until exact loader-order data is part of a catalog boundary,
+    # changed logical identities are conservatively unmapped rather than
+    # guessed from hash order.
     used_new: set[str] = set()
     result: list[dict[str, Any]] = []
     exact_rows: dict[str, dict[str, Any]] = {}
@@ -438,7 +450,8 @@ def validate_migration(value: object, *, target_path: str | None = None,
                 raise _error("unchanged migration row is not exact")
         elif disposition == "revision_changed":
             if new_logical != old_logical or new_revision == old_revision or reason not in {
-                    "target_changed", "source_changed", "fixed_source_changed", "terminology_changed", "rules_changed"}:
+                    "target_changed", "source_changed", "fixed_source_changed", "terminology_changed",
+                    "args_order_changed", "rules_changed"}:
                 raise _error("revision_changed migration row is not exact")
         elif disposition == "logical_moved":
             if new_logical == old_logical or reason not in {"source_changed", "source_tag_changed", "call_locator_changed"}:

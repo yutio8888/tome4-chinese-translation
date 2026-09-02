@@ -49,7 +49,8 @@ class QueueFixture(unittest.TestCase):
         logical = wp1.surface.logical_entry_identity(component="tome", normalized_path="tome.lua",
                                                       call_locator=locator, source_tag="")
         revision = wp1.surface.entry_revision_identity(logical_entry_identity=logical, source=source, target=target,
-            fixed_source_identity=fixed, terminology_snapshot=terminology, rules_version=catalog.RULES_VERSION)
+            fixed_source_identity=fixed, terminology_snapshot=terminology, rules_version=catalog.RULES_VERSION,
+            args_order=None)
         return {"schema_version": 1, "component": "tome", "normalized_path": "tome.lua",
                 "section": "fixture", "call_locator": locator, "logical_entry_identity": logical,
                 "entry_revision_identity": revision, "source": source, "target": target, "source_tag": "",
@@ -57,7 +58,8 @@ class QueueFixture(unittest.TestCase):
                 "target_sha256": hashlib.sha256(target.encode()).hexdigest(), "fixed_source_identity": fixed,
                 "terminology_snapshot_sha256": terminology, "rules_version": catalog.RULES_VERSION,
                 "risk": {"has_args_order": False, "has_special": False, "source_utf8_bytes": len(source.encode()),
-                         "target_utf8_bytes": len(target.encode()), "component_group_size": 1, "component_group_last": True}}
+                         "target_utf8_bytes": len(target.encode()), "component_group_size": 1, "component_group_last": True,
+                         "args_order": None}}
 
     def _write_catalog(self):
         entries_raw = wp1._jsonl(sorted(self.entries, key=lambda row: row["entry_revision_identity"]))
@@ -148,9 +150,8 @@ class QueueFixture(unittest.TestCase):
         adapter_revision = adapter_entry["entry_revision_identity"]
         if contract == "surface":
             contract_name = "translation_surface_screen_v1"
-            surface_entry = {key: adapter_entry[key] for key in (
-                "component", "normalized_path", "call_locator", "source_tag", "source", "target",
-                "logical_entry_identity", "entry_revision_identity")}
+            surface_entry = {key: adapter_entry[key] for key in wp1.surface.ENTRY_KEYS}
+            surface_entry["args_order"] = adapter_entry["risk"]["args_order"]
             payload = {"contract": contract_name, "fixed_source_identity": adapter_entry["fixed_source_identity"],
                        "terminology_snapshot": adapter_entry["terminology_snapshot_sha256"],
                        "rules_version": adapter_entry["rules_version"], "rendered_briefing": "fixture",
@@ -218,9 +219,8 @@ class QueueFixture(unittest.TestCase):
         revision = entry["entry_revision_identity"]
         if contract == "surface":
             contract_name = "translation_surface_screen_v1"
-            surface_entry = {key: entry[key] for key in (
-                "component", "normalized_path", "call_locator", "source_tag", "source", "target",
-                "logical_entry_identity", "entry_revision_identity")}
+            surface_entry = {key: entry[key] for key in wp1.surface.ENTRY_KEYS}
+            surface_entry["args_order"] = entry["risk"]["args_order"]
             payload = {"contract": contract_name, "fixed_source_identity": entry["fixed_source_identity"],
                        "terminology_snapshot": entry["terminology_snapshot_sha256"],
                        "rules_version": entry["rules_version"], "rendered_briefing": "fixture",
@@ -659,7 +659,8 @@ class QueueTests(QueueFixture):
                     row["entry_revision_identity"] = wp1.surface.entry_revision_identity(
                         logical_entry_identity=row["logical_entry_identity"], source=row["source"], target=row["target"],
                         fixed_source_identity=row["fixed_source_identity"],
-                        terminology_snapshot=row["terminology_snapshot_sha256"], rules_version=row["rules_version"])
+                        terminology_snapshot=row["terminology_snapshot_sha256"], rules_version=row["rules_version"],
+                        args_order=row["risk"].get("args_order"))
                     self._rewrite_catalog(rows)
                 elif label == "duplicate-logical":
                     first, row = rows
@@ -669,7 +670,8 @@ class QueueTests(QueueFixture):
                     row["entry_revision_identity"] = wp1.surface.entry_revision_identity(
                         logical_entry_identity=row["logical_entry_identity"], source=row["source"], target=row["target"],
                         fixed_source_identity=row["fixed_source_identity"],
-                        terminology_snapshot=row["terminology_snapshot_sha256"], rules_version=row["rules_version"])
+                        terminology_snapshot=row["terminology_snapshot_sha256"], rules_version=row["rules_version"],
+                        args_order=row["risk"].get("args_order"))
                     self._rewrite_catalog(rows)
                 elif label == "extra-file":
                     extra = self.root / catalog.CATALOG_PREFIX / "extra.json"
@@ -1086,7 +1088,8 @@ class PublicApiFlowTests(QueueTests):
                 component=component, normalized_path="tome.lua", call_locator=entry["call_locator"], source_tag="")
             entry["entry_revision_identity"] = wp1.surface.entry_revision_identity(
                 logical_entry_identity=entry["logical_entry_identity"], source=entry["source"], target=entry["target"],
-                fixed_source_identity=fixed, terminology_snapshot=terminology, rules_version=catalog.RULES_VERSION)
+                fixed_source_identity=fixed, terminology_snapshot=terminology, rules_version=catalog.RULES_VERSION,
+                args_order=entry["risk"].get("args_order"))
             variants.append(entry)
         return variants
 

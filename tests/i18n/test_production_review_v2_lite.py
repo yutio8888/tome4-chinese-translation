@@ -77,11 +77,50 @@ class ProductionReviewV2LiteTests(unittest.TestCase):
             "policy_sha256": hashlib.sha256(v2.FROZEN_POLICY_RAW).hexdigest(),
         })
         manifest["catalog_id"] = v2.catalog_id(manifest)
+        files[v2.SCHEMA_PATH] = v2.FROZEN_SCHEMA_RAW
         files[v2.POLICY_PATH] = v2.FROZEN_POLICY_RAW
         files[path] = wp1.canonical_bytes(manifest)
         files[f"{v2.CATALOG_PREFIX}/entries.jsonl"] = entries_raw
         files[f"{v2.CATALOG_PREFIX}/exclusions.jsonl"] = exclusions_raw
         return files
+
+    def test_v2_catalog_records_args_order_and_binds_it_into_revision_identity(self):
+        pilot = wp1.make_occurrence("tome", "tome.lua", 0, {
+            "function_name": "t", "section": "pilot", "source": "%s has %d",
+            "target": "%d 属于 %s", "source_tag": "format", "args_order": [2, 1],
+            "special": None,
+        })
+        entries, exclusions = v2.formal_rows(
+            [pilot], terminology="3" * 64, sources=SOURCES,
+            rules_version=v2.RULES_VERSION)
+        self.assertEqual(exclusions, [])
+        self.assertEqual(entries[0]["risk"]["args_order"], [2, 1])
+        self.assertTrue(entries[0]["risk"]["has_args_order"])
+        changed = wp1.make_occurrence("tome", "tome.lua", 0, {
+            "function_name": "t", "section": "pilot", "source": "%s has %d",
+            "target": "%d 属于 %s", "source_tag": "format", "args_order": [1, 2],
+            "special": None,
+        })
+        changed_entries, _ = v2.formal_rows(
+            [changed], terminology="3" * 64, sources=SOURCES,
+            rules_version=v2.RULES_VERSION)
+        self.assertNotEqual(entries[0]["entry_revision_identity"],
+                            changed_entries[0]["entry_revision_identity"])
+
+    def test_v2_catalog_rejects_noncanonical_args_order_risk(self):
+        _, original = self.candidate()
+        files = dict(original)
+        entries_path = f"{v2.CATALOG_PREFIX}/entries.jsonl"
+        manifest_path = f"{v2.CATALOG_PREFIX}/manifest.json"
+        rows = wp1.parse_jsonl(files[entries_path], "entries")
+        rows[0]["risk"]["args_order"] = []
+        files[entries_path] = wp1._jsonl(rows)
+        manifest = wp1.parse_canonical_object(files[manifest_path], "manifest")
+        manifest["entries_sha256"] = hashlib.sha256(files[entries_path]).hexdigest()
+        manifest["catalog_id"] = v2.catalog_id(manifest)
+        files[manifest_path] = wp1.canonical_bytes(manifest)
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "args_order"):
+            v2.validate_catalog_files(files)
 
     def test_exact_formal_catalog_reconstructs_and_uses_fresh_identity(self):
         output, files = self.candidate()
@@ -145,6 +184,10 @@ class ProductionReviewV2LiteTests(unittest.TestCase):
     def test_current_v2_and_historical_v1_catalogs_validate_exactly(self):
         _, current = self.candidate()
         historical = self.historical_v1_files()
+        self.assertEqual(
+            hashlib.sha256(v2.FROZEN_SCHEMA_RAW).hexdigest(),
+            "4868cf79e87be8e844a630f5ef4976c42baf21157374b1525f52ddb1a2f58758",
+        )
         for label, files, rules in (
             ("current", current, v2.RULES_VERSION),
             ("historical", historical, v2.FROZEN_RULES_VERSION),
@@ -154,7 +197,12 @@ class ProductionReviewV2LiteTests(unittest.TestCase):
                 raw = files[f"{v2.CATALOG_PREFIX}/manifest.json"]
                 digest = hashlib.sha256(raw).hexdigest()
                 self.assertEqual(manifest["rules_version"], rules)
+                self.assertEqual(files[v2.SCHEMA_PATH], v2.SCHEMA_RAW_BY_RULES[rules])
+                self.assertEqual(files[v2.POLICY_PATH], v2.POLICY_RAW_BY_RULES[rules])
                 self.assertTrue(all(row["rules_version"] == rules for row in entries))
+                expected_risk = v2.RISK_KEYS_V2 if rules == v2.RULES_VERSION else v2.RISK_KEYS_V1
+                self.assertEqual(set(v2.SCHEMA_VALUE_BY_RULES[rules]["risk_keys"]), expected_risk)
+                self.assertTrue(all(set(row["risk"]) == expected_risk for row in entries))
                 ledger.validate_authoritative_catalog(raw, expected_sha256=digest)
                 ledger.replay_with_catalog([ledger_record(digest)], raw)
 
@@ -171,6 +219,15 @@ class ProductionReviewV2LiteTests(unittest.TestCase):
     def test_unknown_and_mixed_formal_rules_are_rejected(self):
         _, current = self.candidate()
         manifest_path = f"{v2.CATALOG_PREFIX}/manifest.json"
+        historical = self.historical_v1_files()
+        wrong_schema_for_v2 = dict(current)
+        wrong_schema_for_v2[v2.SCHEMA_PATH] = v2.FROZEN_SCHEMA_RAW
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "schema/rules"):
+            v2.validate_catalog_files(wrong_schema_for_v2)
+        wrong_schema_for_v1 = dict(historical)
+        wrong_schema_for_v1[v2.SCHEMA_PATH] = v2.SCHEMA_RAW
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "schema/rules"):
+            v2.validate_catalog_files(wrong_schema_for_v1)
         unknown_manifest = wp1.parse_canonical_object(current[manifest_path], "manifest")
         unknown_manifest["rules_version"] = "production-review-v2-lite-rules-v3"
         unknown_manifest["catalog_id"] = v2.catalog_id(unknown_manifest)
@@ -189,6 +246,14 @@ class ProductionReviewV2LiteTests(unittest.TestCase):
         mixed[manifest_path] = wp1.canonical_bytes(manifest)
         with self.assertRaisesRegex(wp1.ProductionReviewError, "rules mismatch"):
             v2.validate_catalog_files(mixed)
+
+    def test_args_order_must_match_source_placeholder_arity(self):
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "complete permutation"):
+            v2.formal_rows([wp1.make_occurrence("tome", "tome.lua", 0, {
+                "function_name": "t", "section": "pilot", "source": "%s has %d",
+                "target": "%d belongs to %s", "source_tag": "format", "args_order": [1],
+                "special": None,
+            })], terminology="3" * 64, sources=SOURCES, rules_version=v2.RULES_VERSION)
 
     def test_formal_catalog_schema_versions_reject_json_true(self):
         _, original = self.candidate()

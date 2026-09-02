@@ -16,7 +16,7 @@ if str(TOOLS) not in sys.path:
 import surface_screen_result_check as check
 
 
-def entry(index: int = 1, *, component: str = "tome", path: str = "mod.lua") -> dict[str, str]:
+def entry(index: int = 1, *, component: str = "tome", path: str = "mod.lua") -> dict[str, object]:
     return {
         "component": component,
         "normalized_path": path,
@@ -39,8 +39,10 @@ def payload(entries: list[dict[str, str]] | None = None) -> dict[str, object]:
     }
 
 
-def complete(entry_value: dict[str, str], scalars: dict[str, str]) -> dict[str, str]:
+def complete(entry_value: dict[str, object], scalars: dict[str, str]) -> dict[str, object]:
     value = dict(entry_value)
+    if scalars["rules_version"] == check.IDENTITY_RULES_V2:
+        value.setdefault("args_order", None)
     value["logical_entry_identity"] = check.logical_entry_identity(
         component=value["component"], normalized_path=value["normalized_path"],
         call_locator=value["call_locator"], source_tag=value["source_tag"],
@@ -51,6 +53,7 @@ def complete(entry_value: dict[str, str], scalars: dict[str, str]) -> dict[str, 
         fixed_source_identity=scalars["fixed_source_identity"],
         terminology_snapshot=scalars["terminology_snapshot"],
         rules_version=scalars["rules_version"],
+        args_order=value.get("args_order"),
     )
     return value
 
@@ -67,16 +70,16 @@ def ordered_payload(count: int) -> dict[str, object]:
 
 
 class SurfaceIdentityTests(unittest.TestCase):
-    def test_rules_v1_recipe_is_frozen_and_rules_v2_omits_only_terminology(self):
-        common = dict(logical_entry_identity="a" * 64, source="source", target="target",
+    def test_rules_v1_recipe_is_frozen_and_rules_v2_binds_args_order_not_terminology(self):
+        common = dict(logical_entry_identity="a" * 64, source="%s has %d", target="%s target %d",
                       fixed_source_identity="commit:" + "b" * 40)
         v1 = check.entry_revision_identity(
             **common, terminology_snapshot="terms-one",
             rules_version="production-review-v2-lite-rules-v1")
         historical = hashlib.sha256(check.canonical_bytes({
             "schema_version": 1, "logical_entry_identity": "a" * 64,
-            "source_sha256": hashlib.sha256(b"source").hexdigest(),
-            "target_sha256": hashlib.sha256(b"target").hexdigest(),
+            "source_sha256": hashlib.sha256(b"%s has %d").hexdigest(),
+            "target_sha256": hashlib.sha256(b"%s target %d").hexdigest(),
             "fixed_source_identity": "commit:" + "b" * 40,
             "terminology_snapshot_sha256": hashlib.sha256(b"terms-one").hexdigest(),
             "rules_version": "production-review-v2-lite-rules-v1",
@@ -89,6 +92,9 @@ class SurfaceIdentityTests(unittest.TestCase):
             **common, terminology_snapshot="terms-two",
             rules_version=check.IDENTITY_RULES_V2)
         self.assertEqual(v2_one, v2_two)
+        self.assertNotEqual(v2_one, check.entry_revision_identity(
+            **common, terminology_snapshot="terms-one", rules_version=check.IDENTITY_RULES_V2,
+            args_order=[2, 1]))
         self.assertNotEqual(v1, v2_one)
         for field, value in (("source", "changed source"), ("target", "changed target"),
                              ("fixed_source_identity", "commit:" + "c" * 40),
@@ -263,6 +269,30 @@ class SurfacePayloadTests(unittest.TestCase):
         for value in (original, changed):
             identity = hashlib.sha256(check.canonical_payload_bytes(value)).hexdigest()
             check.validate_envelope({"candidate_identity": identity, "payload": value})
+
+    def test_rules_v2_entry_shape_and_args_order_validation(self):
+        scalars = dict(self.scalars, rules_version=check.IDENTITY_RULES_V2)
+        value = complete(dict(entry(1), source="%s has %d", target="%d belongs to %s"), scalars)
+        check.validate_payload(payload([value]) | scalars)
+        reordered = dict(value, args_order=[2, 1])
+        reordered["entry_revision_identity"] = check.entry_revision_identity(
+            logical_entry_identity=reordered["logical_entry_identity"], source=reordered["source"],
+            target=reordered["target"], fixed_source_identity=scalars["fixed_source_identity"],
+            terminology_snapshot=scalars["terminology_snapshot"], rules_version=scalars["rules_version"],
+            args_order=reordered["args_order"])
+        check.validate_payload(payload([reordered]) | scalars)
+        for malformed in ([], [1, 1], [1, 3], [True, 1], (2, 1)):
+            with self.subTest(args_order=malformed):
+                broken = dict(reordered, args_order=malformed)
+                with self.assertRaises(check.ContractError):
+                    check.validate_payload(payload([broken]) | scalars)
+        missing = dict(reordered)
+        missing.pop("args_order")
+        with self.assertRaises(check.ContractError):
+            check.validate_payload(payload([missing]) | scalars)
+        extra = dict(value, extra="x")
+        with self.assertRaises(check.ContractError):
+            check.validate_payload(payload([extra]) | scalars)
 
     def test_real_payload_and_envelope_consumers_reject_production_shadows(self) -> None:
         shadow_batch = {

@@ -57,7 +57,7 @@ RECONCILIATION_SQL = """CREATE TABLE reconciliation(
   reason TEXT NOT NULL CHECK(reason IN
     ('unchanged','target_changed','source_changed','source_tag_changed',
      'call_locator_changed','fixed_source_changed','terminology_changed',
-     'rules_changed','removed','ambiguous','unmapped')),
+     'rules_changed','args_order_changed','removed','ambiguous','unmapped')),
   migration_id TEXT NOT NULL,
   PRIMARY KEY(migration_id,old_entry_revision_identity)
 )"""

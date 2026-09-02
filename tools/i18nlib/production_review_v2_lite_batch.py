@@ -203,7 +203,19 @@ def stable_selection(rows, overrides, *, retry_blocked=False, limit=MAX_BATCH):
     candidates = [r for r in rows if overrides.get(r["entry_revision_identity"]) == "blocked"] if retry_blocked else [r for r in rows if r["entry_revision_identity"] not in overrides]
     return sorted(candidates, key=_risk)[:limit]
 
-def _surface_entry(row): return {key: row[key] for key in surface.ENTRY_KEYS}
+def _surface_entry(row):
+    """Project one catalog row into the version-selected surface entry shape."""
+    rules_version = row["rules_version"]
+    keys = surface.entry_keys_for_rules(rules_version)
+    entry = {key: row[key] for key in surface.ENTRY_KEYS}
+    if rules_version == surface.IDENTITY_RULES_V2:
+        risk = row.get("risk")
+        if not isinstance(risk, dict) or "args_order" not in risk:
+            raise _err("rules-v2 catalog row lacks its exact risk.args_order")
+        entry["args_order"] = risk["args_order"]
+    if set(entry) != keys:
+        raise _err("surface entry projection does not match its rules-versioned shape")
+    return entry
 
 def _validate_surface_ref(ref, index):
     if not isinstance(ref, dict) or set(ref) != SURFACE_REF_KEYS:
@@ -494,6 +506,29 @@ def _deep_rows(checkpoint):
                for ref in checkpoint["surface"]))]
 
 
+def _contextual_bound_context(row):
+    """Keep v1 context bytes unchanged and disclose v2 remapping metadata."""
+    context = row["section"]
+    if row["rules_version"] != catalog.RULES_VERSION:
+        return context
+    risk = row.get("risk")
+    if not isinstance(risk, dict) or "args_order" not in risk:
+        raise _err("rules-v2 catalog row lacks its exact risk.args_order")
+    try:
+        args_order = surface.validate_args_order(
+            risk["args_order"], source=row["source"], label="contextual risk.args_order")
+    except surface.ContractError as error:
+        raise _err(str(error)) from error
+    if risk.get("has_args_order") != (args_order is not None):
+        raise _err("contextual risk args_order flag mismatch")
+    # The absence of a fourth t(...) argument is the historical null form;
+    # only a runtime remapping needs an args_order= disclosure token.  This is
+    # also the exact token consumed by the existing contextual preflight.
+    if args_order is None:
+        return context
+    return f"{context} args_order={{{','.join(str(index) for index in args_order)}}}"
+
+
 def _contextual_payload(run):
     entries = run["entries"]
     keys = [row["entry_revision_identity"] for row in entries]
@@ -501,7 +536,7 @@ def _contextual_payload(run):
                "translation_snapshot": [{"revision_key": row["entry_revision_identity"], "source": row["source"], "target": row["target"]} for row in entries],
                "fixed_source_identity": run["identity"][0],
                "terminology_snapshot": run["identity"][1],
-               "bounded_context": [{"revision_key": row["entry_revision_identity"], "context": row["section"]} for row in entries],
+               "bounded_context": [{"revision_key": row["entry_revision_identity"], "context": _contextual_bound_context(row)} for row in entries],
                "rendered_briefing": "WP2-Lite contextual review; review only"}
     contextual.canonical_payload_bytes(payload)
     return payload
