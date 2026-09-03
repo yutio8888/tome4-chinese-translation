@@ -23819,7 +23819,7 @@ t([[Lay a simple yet effective trap that explodes in a radius 2 on contact, sett
 t("Catapult Trap", "弹射陷阱", "talent name")
 t("You have learned how to create Catapult traps!", "你学会了如何制作弹射陷阱！", "_t")
 t("catapult trap", "弹射陷阱", "_t")
-t("Target knocked back up to %d grids%s and dazed.", "目标被击退到%s最多 %d 格，并眩晕。", "tformat", {2,1})
+t("Target knocked back up to %d grids%s and dazed.", "目标被击退最多 %d 格%s，并眩晕。", "tformat")
 t("%s knocks %s back!", "%s 将 %s 击退!", "logSeen")
 t("%s fails to knock %s back!", "%s 未能将 %s 击退!", "logSeen")
 t("#LIGHT_BLUE#Aim the catapult", "#LIGHT_BLUE#请瞄准弹射陷阱", "logPlayer")

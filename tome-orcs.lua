@@ -4865,7 +4865,7 @@ t([[You mount a grenade launcher on your steamgun that launches high explosive r
 		This talent also reinforces the armor of you and your minions to give you immunity to your own grenades.
 		You can only fire a single grenade once every 9 turns.]], [[你在蒸汽枪上安装一个发射高爆弹的榴弹发射器。每当你用蒸汽枪进行普通攻击或使用重装武器攻击时，都会向目标发射一枚榴弹，造成 %d%% 蒸汽枪伤害，作用半径 %d 码。
 		此技能还会强化你和随从的护甲，使你与随从免疫你自己发射的榴弹。
-		每 9 回合只能发射一枚榴弹。]], "tformat", {2,1})
+		每 9 回合只能发射一枚榴弹。]], "tformat")
 t("Reactive Armor", "反应式装甲", "talent name")
 t([[You line your armor with explosive plating that detonates when struck. On taking a melee or ranged hit that deals more than 8%% of your maximum life a plate detonates, reducing the damage taken by %d%% and triggering a basic grenade attack in a radius %d cone projected at the target dealing %d%% of its usual damage.
 		This cannot trigger more than once per turn.
