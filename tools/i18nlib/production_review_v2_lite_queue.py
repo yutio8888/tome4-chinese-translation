@@ -991,7 +991,9 @@ def _validated_migration_edges(root: Path, tree: dict[str, tuple[str, str, str]]
         relative = path[len(MIGRATION_PREFIX):]
         if not relative or "/" in relative:
             raise _error("migration evidence path is not a direct canonical file")
-        value = migration.validate_migration_bytes(_ordinary_blob(root, tree, path), target_path=path)
+        raw = _ordinary_blob(root, tree, path)
+        value = migration._validate_migration_record(
+            wp1.parse_canonical_object(raw, "migration"), target_path=path)
         old_manifest, old_entries, old_files = _catalog_from_tree(root, value["base_commit"])
         if _tree_id(root, value["base_commit"]) != value["base_tree"]:
             raise _error("migration base tree no longer names its base commit")
@@ -1014,14 +1016,14 @@ def _validated_migration_edges(root: Path, tree: dict[str, tuple[str, str, str]]
             raise _error("migration publication catalog entries hash drift")
         if new_manifest["exclusions_sha256"] != value["new_exclusions_sha256"]:
             raise _error("migration publication catalog exclusions hash drift")
-        migration.validate_migration(value, expected_old_entries=old_entries,
-                                     expected_new_entries=new_entries)
-        edges.append({"value": value, "path": path,
+        normalized = migration.validate_migration(
+            value, expected_old_entries=old_entries, expected_new_entries=new_entries)
+        edges.append({"value": normalized, "path": path,
                       "publication_commit": publication_commit,
                       "old_manifest": old_manifest, "old_entries": old_entries,
                       "new_manifest": new_manifest, "new_entries": new_entries,
                       "rows_by_old": {row["old_entry_revision_identity"]: row
-                                      for row in value["rows"]}})
+                                      for row in normalized["rows"]}})
     return edges
 
 

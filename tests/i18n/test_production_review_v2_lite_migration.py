@@ -153,6 +153,78 @@ class MigrationFixture(unittest.TestCase):
 
 
 class MigrationTests(MigrationFixture):
+    def _summary_for_rows(self, entries, catalog_id):
+        entries_raw = wp1._jsonl(entries)
+        return {"catalog_id": catalog_id, "manifest_sha256": "c" * 64,
+                "entries_sha256": hashlib.sha256(entries_raw).hexdigest(),
+                "exclusions_sha256": "d" * 64,
+                "counts": {"occurrence_count": len(entries),
+                           "entry_count": len(entries), "exclusion_count": 0}}
+
+    def _rehash_migration(self, value):
+        value["rows_sha256"] = hashlib.sha256(wp1.canonical_bytes(value["rows"])).hexdigest()
+        value["migration_id"] = migration._migration_id(value)
+        value["target_path"] = f"{migration.MIGRATION_PREFIX}{value['migration_id']}.json"
+        return value
+
+    def test_v2_sparse_representation_and_catalog_bound_expansion(self):
+        changed = [self.replace(self.entries[0], target="new target"), *self.entries[1:]]
+        value = migration._build_migration(
+            "a" * 40, "b" * 40,
+            self._summary_for_rows(self.entries, "a" * 64), self.entries,
+            self._summary_for_rows(changed, "b" * 64), changed,
+            recorded_at="2026-09-02T01:02:03Z", recorded_by="fixture")
+        self.assertEqual(value["schema_version"], 2)
+        self.assertNotIn("old_rows", value)
+        self.assertNotIn("new_rows", value)
+        self.assertEqual(len(value["rows"]), 1)
+        self.assertEqual(value["rows"][0]["disposition"], "revision_changed")
+        normalized = migration.validate_migration(
+            value, expected_old_entries=self.entries, expected_new_entries=changed)
+        self.assertEqual(len(normalized["rows"]), len(self.entries))
+        self.assertEqual(sum(row["disposition"] == "unchanged" for row in normalized["rows"]), 2)
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "catalog-bound"):
+            migration.validate_migration(value)
+        with self.assertRaises(wp1.ProductionReviewError):
+            migration.validate_migration(
+                value, expected_old_entries=changed, expected_new_entries=changed)
+
+    def test_v2_sparse_rows_fail_closed_on_omission_extra_unchanged_and_misclassification(self):
+        changed = [self.replace(self.entries[0], target="new target"), *self.entries[1:]]
+        original = migration._build_migration(
+            "a" * 40, "b" * 40,
+            self._summary_for_rows(self.entries, "a" * 64), self.entries,
+            self._summary_for_rows(changed, "b" * 64), changed,
+            recorded_at="2026-09-02T01:02:03Z", recorded_by="fixture")
+        unchanged = migration.reconcile(self.entries, changed)[1]
+        mutations = []
+        omitted = copy.deepcopy(original); omitted["rows"] = []; mutations.append(omitted)
+        extra = copy.deepcopy(original); extra["rows"].append(copy.deepcopy(unchanged)); mutations.append(extra)
+        misclassified = copy.deepcopy(original); misclassified["rows"][0]["reason"] = "fixed_source_changed"; mutations.append(misclassified)
+        duplicated = copy.deepcopy(original); duplicated["rows"].append(copy.deepcopy(duplicated["rows"][0])); mutations.append(duplicated)
+        reordered = copy.deepcopy(original); reordered["rows"] = list(reversed([copy.deepcopy(unchanged), *reordered["rows"]])); mutations.append(reordered)
+        for value in mutations:
+            with self.subTest(rows=value["rows"]):
+                self._rehash_migration(value)
+                with self.assertRaises(wp1.ProductionReviewError):
+                    migration.validate_migration(
+                        value, expected_old_entries=self.entries, expected_new_entries=changed)
+
+    def test_v1_full_record_stays_exact_and_truncation_is_not_sparse(self):
+        value = migration._build_migration(
+            "a" * 40, "b" * 40,
+            self._summary_for_rows(self.entries, "a" * 64), self.entries,
+            self._summary_for_rows(self.entries, "b" * 64), self.entries,
+            recorded_at="2026-09-02T01:02:03Z", recorded_by="fixture", schema_version=1)
+        self.assertEqual(value["schema_version"], 1)
+        self.assertIn("old_rows", value)
+        self.assertIn("new_rows", value)
+        self.assertEqual(migration.validate_migration(value), value)
+        truncated = copy.deepcopy(value)
+        truncated.pop("old_rows")
+        with self.assertRaisesRegex(wp1.ProductionReviewError, "exact keys"):
+            migration.validate_migration(truncated)
+
     def test_current_rules_boundary_uses_exact_policy_in_ordinary_and_migration_validation(self):
         candidate = self.candidate(self.entries)
         artifact = self.root / ".artifacts" / "current-rules.json"
@@ -563,11 +635,27 @@ class MigrationTests(MigrationFixture):
         self._publish_surface_batch(repair=True, entry_index=1, batch_name="history-repair")
         self._publish_surface_batch(repair=False, blocked=True, entry_index=2, batch_name="history-blocked")
 
-        def publish_boundary(extra_suffix: str, message: str) -> tuple[dict, str]:
+        def publish_boundary(extra_suffix: str, message: str, *, schema_version: int = 2) -> tuple[dict, str]:
             rows = [*self.entries, self.entry(extra_suffix, section=extra_suffix)]
             candidate = self.candidate(rows)
             artifact = self.root / ".artifacts" / f"{extra_suffix}-migration.json"
             report = migration.plan(self.root, candidate, output=artifact)
+            if schema_version == 1:
+                stored = wp1.parse_canonical_object(artifact.read_bytes(), "planned sparse migration")
+                old_summary = {"catalog_id": stored["old_catalog_id"],
+                    "manifest_sha256": stored["old_manifest_sha256"],
+                    "entries_sha256": stored["old_entries_sha256"],
+                    "exclusions_sha256": stored["old_exclusions_sha256"], "counts": stored["old_counts"]}
+                new_summary = {"catalog_id": stored["new_catalog_id"],
+                    "manifest_sha256": stored["new_manifest_sha256"],
+                    "entries_sha256": stored["new_entries_sha256"],
+                    "exclusions_sha256": stored["new_exclusions_sha256"], "counts": stored["new_counts"]}
+                stored = migration._build_migration(
+                    stored["base_commit"], stored["base_tree"], old_summary, self.entries,
+                    new_summary, rows, recorded_at=stored["recorded_at"],
+                    recorded_by=stored["recorded_by"], schema_version=1)
+                artifact.write_bytes(wp1.canonical_bytes(stored))
+                report = migration._report(stored, path=artifact)
             migration.apply(self.root, artifact, candidate_catalog=candidate)
             candidate_files = catalog.ordinary_tree(candidate)
             shutil.rmtree(candidate)
@@ -582,7 +670,8 @@ class MigrationTests(MigrationFixture):
             self.catalog_id = report["new_catalog_id"]
             return report, publication
 
-        first, _first_publication = publish_boundary("first-generation", "first unchanged boundary")
+        first, _first_publication = publish_boundary(
+            "first-generation", "first historical-full unchanged boundary", schema_version=1)
         queue.rebuild(self.root)
         with mock.patch.object(migration, "_validate_live_repair_preimage"):
             repair = migration.repair_preflight(self.root, "history-repair")

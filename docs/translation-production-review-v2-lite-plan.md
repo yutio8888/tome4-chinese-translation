@@ -96,7 +96,7 @@ evidence/production-review-v2-lite/
 
 ### 3.1 新身份与输入绑定
 
-正式 build 必须从届时 live input 重新 harvest，不读取 WP1 ID 作为 seed 或 parent。所有正式对象使用 `schema_version=1`、`kind=production_review_v2_lite_*`，从而与 shadow kind 明确分离。
+正式 build 必须从届时 live input 重新 harvest，不读取 WP1 ID 作为 seed 或 parent。除 migration record 外，所有正式对象使用 `schema_version=1`；migration record 的 exact-version 分派与兼容规则见第 8.1 节。所有正式对象使用 `kind=production_review_v2_lite_*`，从而与 shadow kind 明确分离。
 
 `call_locator` 的 core 恰含：
 
@@ -319,7 +319,9 @@ SQLite commit、checkpoint phase、child terminal 或未提交 evidence 都不�
 
 ### 8.1 Quiescent reconciliation
 
-catalog rebuild 只允许：无 active checkpoint、无 reserved/screened row、tracked worktree clean、持仓库锁。工具比较旧/新 occurrence 并生成一个 `migrations/<migration_id>.json`，其 rows 与 SQLite `reconciliation` schema 同义，另含 old/new catalog hashes、counts 和 row hash。
+catalog rebuild 只允许：无 active checkpoint、无 reserved/screened row、tracked worktree clean、持仓库锁。工具比较旧/新 occurrence 并生成一个 `migrations/<migration_id>.json`，其 rows 与 SQLite `reconciliation` schema 同义，另含 old/new catalog hashes、counts 和 row hash。migration kind 保持 `production_review_v2_lite_migration_v1`；representation 由 exact `schema_version` 分派：历史 `schema_version=1` 是 self-contained full record，必须保留完整 `old_rows`、`new_rows` 和覆盖每条旧 entry 的 mapping rows，继续按原 exact schema 读取且不重写；新 plan 固定生成 `schema_version=2` sparse record，保留相同的 catalog／commit／tree／hash／count／metadata bindings，但省略 `old_rows`、`new_rows`，`rows` 恰好只保存完整 reconciliation 中 disposition 非 `unchanged` 的有序 exception。v1 缺少 snapshot 等 full key 时不得按 v2 解释，v2 出现 snapshot、`unchanged` row 或额外 key 同样拒绝。
+
+所有 v2 consumer 共用一个 catalog-bound normalization／expansion 路径：从 migration 绑定的 old Git catalog 与 publication／candidate new catalog 重新执行完整 `reconcile(old,new)`，要求 artifact sparse rows 与重算结果的非 `unchanged` 子序列逐字精确相等，再把重算的 full mapping 交给 check/report、apply、migration-chain traversal 和 SQLite reconciliation projection。没有同时取得并核验 exact old/new catalog bindings 时，缺失 row 绝不默认视为 `unchanged`。omitted、extra、reordered、duplicated、显式 unchanged 或 misclassified exception 一律 fail closed；added revision 仍因没有旧 row 而隐式 queued，removed、ambiguous、unmapped 以及 target/source/fixed-source/rules/args-order 等变化继续作为显式 exception。
 
 确定映射规则按顺序：
 

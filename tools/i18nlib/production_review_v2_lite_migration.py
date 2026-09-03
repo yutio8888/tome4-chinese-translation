@@ -50,13 +50,15 @@ MAPPING_KEYS = frozenset({
 ROW_SNAPSHOT_KEYS = frozenset({
     "logical_entry_identity", "entry_revision_identity", "row_sha256",
 })
-MIGRATION_KEYS = frozenset({
+MIGRATION_COMMON_KEYS = frozenset({
     "schema_version", "kind", "migration_id", "base_commit", "base_tree",
     "target_path", "old_catalog_id", "old_manifest_sha256", "old_entries_sha256",
     "old_exclusions_sha256", "old_counts", "new_catalog_id", "new_manifest_sha256",
-    "new_entries_sha256", "new_exclusions_sha256", "new_counts", "old_rows",
-    "new_rows", "rows", "rows_sha256", "recorded_at", "recorded_by",
+    "new_entries_sha256", "new_exclusions_sha256", "new_counts", "rows",
+    "rows_sha256", "recorded_at", "recorded_by",
 })
+MIGRATION_KEYS_V1 = MIGRATION_COMMON_KEYS | {"old_rows", "new_rows"}
+MIGRATION_KEYS_V2 = MIGRATION_COMMON_KEYS
 
 
 def _error(message: str) -> wp1.ProductionReviewError:
@@ -336,7 +338,8 @@ def reconcile(old_entries: list[dict[str, Any]], new_entries: list[dict[str, Any
 
 
 def _identity_core(value: dict[str, Any]) -> dict[str, Any]:
-    return {key: value[key] for key in sorted(MIGRATION_KEYS - {"migration_id", "target_path", "recorded_at", "recorded_by"})}
+    excluded = {"migration_id", "target_path", "recorded_at", "recorded_by"}
+    return {key: value[key] for key in sorted(set(value) - excluded)}
 
 
 def _migration_id(value: dict[str, Any]) -> str:
@@ -345,12 +348,16 @@ def _migration_id(value: dict[str, Any]) -> str:
 
 def _build_migration(base_commit: str, base_tree: str, old_summary: dict[str, Any], old_entries: list[dict[str, Any]],
                      new_summary: dict[str, Any], new_entries: list[dict[str, Any]], *, recorded_at: str,
-                     recorded_by: str) -> dict[str, Any]:
+                     recorded_by: str, schema_version: int = 2) -> dict[str, Any]:
     wp1.strict_utc_seconds(recorded_at)
     _nonempty(recorded_by, "recorded_by")
-    rows = reconcile(old_entries, new_entries)
+    if type(schema_version) is not int or schema_version not in {1, 2}:
+        raise _error("migration schema_version is unsupported")
+    full_rows = reconcile(old_entries, new_entries)
+    rows = full_rows if schema_version == 1 else [
+        row for row in full_rows if row["disposition"] != "unchanged"]
     value: dict[str, Any] = {
-        "schema_version": 1,
+        "schema_version": schema_version,
         "kind": MIGRATION_KIND,
         "migration_id": "",
         "base_commit": base_commit,
@@ -366,22 +373,23 @@ def _build_migration(base_commit: str, base_tree: str, old_summary: dict[str, An
         "new_entries_sha256": new_summary["entries_sha256"],
         "new_exclusions_sha256": new_summary["exclusions_sha256"],
         "new_counts": new_summary["counts"],
-        "old_rows": _snapshots(old_entries),
-        "new_rows": _snapshots(new_entries),
         "rows": rows,
         "rows_sha256": _raw_sha(wp1.canonical_bytes(rows)),
         "recorded_at": recorded_at,
         "recorded_by": recorded_by,
     }
+    if schema_version == 1:
+        value["old_rows"] = _snapshots(old_entries)
+        value["new_rows"] = _snapshots(new_entries)
     value["migration_id"] = _migration_id(value)
     value["target_path"] = f"{MIGRATION_PREFIX}{value['migration_id']}{MIGRATION_SUFFIX}"
     return value
 
 
-def validate_migration(value: object, *, target_path: str | None = None,
-                       expected_new_entries: list[dict[str, Any]] | None = None,
-                       expected_old_entries: list[dict[str, Any]] | None = None) -> dict[str, Any]:
-    row = _exact(value, MIGRATION_KEYS, "migration")
+def _validate_v1_migration(value: object, *, target_path: str | None = None,
+                           expected_new_entries: list[dict[str, Any]] | None = None,
+                           expected_old_entries: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    row = _exact(value, MIGRATION_KEYS_V1, "migration schema_version=1")
     if type(row["schema_version"]) is not int or row["schema_version"] != 1 or row["kind"] != MIGRATION_KIND:
         raise _error("migration schema or kind mismatch")
     migration_id = _sha(row["migration_id"], "migration_id")
@@ -478,13 +486,125 @@ def validate_migration(value: object, *, target_path: str | None = None,
     return row
 
 
+def _validate_v2_record(value: object, *, target_path: str | None = None) -> dict[str, Any]:
+    """Validate sparse bytes without inventing the omitted catalog rows."""
+    row = _exact(value, MIGRATION_KEYS_V2, "migration schema_version=2")
+    if type(row["schema_version"]) is not int or row["schema_version"] != 2 or row["kind"] != MIGRATION_KIND:
+        raise _error("migration schema or kind mismatch")
+    migration_id = _sha(row["migration_id"], "migration_id")
+    _commit(row["base_commit"], "base_commit")
+    if (not isinstance(row["base_tree"], str) or len(row["base_tree"]) != 40
+            or any(c not in "0123456789abcdef" for c in row["base_tree"] or "")):
+        raise _error("base_tree must be a lowercase Git tree")
+    expected_target = f"{MIGRATION_PREFIX}{migration_id}{MIGRATION_SUFFIX}"
+    if row["target_path"] != expected_target or (target_path is not None and row["target_path"] != target_path):
+        raise _error("migration target path is not canonical")
+    for key in ("old_catalog_id", "old_manifest_sha256", "old_entries_sha256", "old_exclusions_sha256",
+                "new_catalog_id", "new_manifest_sha256", "new_entries_sha256", "new_exclusions_sha256"):
+        _sha(row[key], key)
+    old_counts = _counts(row["old_counts"], "old_counts")
+    _counts(row["new_counts"], "new_counts")
+    rows = row["rows"]
+    if not isinstance(rows, list) or len(rows) > old_counts["entry_count"]:
+        raise _error("sparse migration rows must be an array bounded by the old catalog")
+    previous = ""
+    seen_new: set[str] = set()
+    for index, item in enumerate(rows):
+        mapping = _exact(item, MAPPING_KEYS, f"sparse migration mapping row {index}")
+        old_revision = _sha(mapping["old_entry_revision_identity"], "mapping old revision")
+        _sha(mapping["old_logical_entry_identity"], "mapping old logical")
+        _sha(mapping["old_row_sha256"], "mapping old row hash")
+        if old_revision <= previous:
+            raise _error("sparse migration mapping rows are not strictly ordered and unique")
+        previous = old_revision
+        disposition, reason = mapping["disposition"], mapping["reason"]
+        if disposition == "unchanged":
+            raise _error("sparse migration must not contain unchanged rows")
+        if disposition not in DISPOSITIONS or reason not in REASONS:
+            raise _error("migration disposition/reason is invalid")
+        new_revision = mapping["new_entry_revision_identity"]
+        new_logical = mapping["new_logical_entry_identity"]
+        new_hash = mapping["new_row_sha256"]
+        if disposition in {"removed", "ambiguous", "unmapped"}:
+            if (new_revision is not None or new_logical is not None or new_hash is not None or
+                    reason != disposition):
+                raise _error(f"{disposition} migration row has an unexpected target")
+        else:
+            new_revision = _sha(new_revision, "mapping new revision")
+            _sha(new_logical, "mapping new logical")
+            _sha(new_hash, "mapping new row hash")
+            if new_revision in seen_new:
+                raise _error("migration maps more than one old row to a new revision")
+            seen_new.add(new_revision)
+            if disposition == "revision_changed" and reason not in {
+                    "target_changed", "source_changed", "fixed_source_changed", "terminology_changed",
+                    "args_order_changed", "rules_changed"}:
+                raise _error("revision_changed migration row is not exact")
+            if disposition == "logical_moved" and reason not in {
+                    "source_changed", "source_tag_changed", "call_locator_changed"}:
+                raise _error("logical_moved migration row is not exact")
+    if _raw_sha(wp1.canonical_bytes(rows)) != _sha(row["rows_sha256"], "rows_sha256"):
+        raise _error("migration rows hash drift")
+    if _migration_id(row) != migration_id:
+        raise _error("migration_id does not bind migration inputs")
+    wp1.strict_utc_seconds(row["recorded_at"])
+    _nonempty(row["recorded_by"], "recorded_by")
+    return row
+
+
+def validate_migration(value: object, *, target_path: str | None = None,
+                       expected_new_entries: list[dict[str, Any]] | None = None,
+                       expected_old_entries: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    """Validate and return the one expanded mapping representation.
+
+    Schema 1 carries its historical full snapshots and remains self-contained.
+    Schema 2 can only be expanded against both exact catalog entry sets.
+    """
+    if not isinstance(value, dict):
+        raise _error("migration must be an object")
+    schema_version = value.get("schema_version")
+    if type(schema_version) is not int:
+        raise _error("migration schema_version must be an integer")
+    if schema_version == 1:
+        return _validate_v1_migration(
+            value, target_path=target_path, expected_new_entries=expected_new_entries,
+            expected_old_entries=expected_old_entries)
+    if schema_version != 2:
+        raise _error("migration schema_version is unsupported")
+    row = _validate_v2_record(value, target_path=target_path)
+    if expected_old_entries is None or expected_new_entries is None:
+        raise _error("schema_version=2 migration validation requires catalog-bound old and new entries")
+    if (len(expected_old_entries) != row["old_counts"]["entry_count"] or
+            len(expected_new_entries) != row["new_counts"]["entry_count"]):
+        raise _error("sparse migration catalog row/count mismatch")
+    expanded_rows = reconcile(expected_old_entries, expected_new_entries)
+    sparse_rows = [item for item in expanded_rows if item["disposition"] != "unchanged"]
+    if row["rows"] != sparse_rows:
+        raise _error("sparse migration rows do not exactly match catalog-bound reconciliation exceptions")
+    normalized = dict(row)
+    normalized["rows"] = expanded_rows
+    return normalized
+
+
+def _validate_migration_record(value: object, *, target_path: str | None = None) -> dict[str, Any]:
+    """Validate stored representation; v2 remains unusable until bound catalogs expand it."""
+    if not isinstance(value, dict):
+        raise _error("migration must be an object")
+    schema_version = value.get("schema_version")
+    if schema_version == 1 and type(schema_version) is int:
+        return _validate_v1_migration(value, target_path=target_path)
+    if schema_version == 2 and type(schema_version) is int:
+        return _validate_v2_record(value, target_path=target_path)
+    raise _error("migration schema_version is unsupported")
+
+
 def validate_migration_bytes(raw: bytes, *, target_path: str | None = None,
-                             expected_new_entries: list[dict[str, Any]] | None = None) -> dict[str, Any]:
-    try:
-        value = wp1.parse_canonical_object(raw, "migration")
-    except wp1.ProductionReviewError:
-        raise
-    return validate_migration(value, target_path=target_path, expected_new_entries=expected_new_entries)
+                             expected_new_entries: list[dict[str, Any]] | None = None,
+                             expected_old_entries: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    value = wp1.parse_canonical_object(raw, "migration")
+    return validate_migration(value, target_path=target_path,
+                              expected_new_entries=expected_new_entries,
+                              expected_old_entries=expected_old_entries)
 
 
 def _status_scope_clean(root: Path) -> None:
@@ -602,12 +722,13 @@ def plan(root: Path, candidate_catalog: Path, *, treeish: str = "HEAD", recorded
         _new_manifest, new_entries, _new_files, new_summary = _candidate_bundle(root, candidate_catalog)
         value = _build_migration(commit, tree, old_summary, old_entries, new_summary, new_entries,
                                  recorded_at=recorded_at or catalog.utc_now(), recorded_by=recorded_by)
-        validate_migration(value, target_path=value["target_path"],
-                           expected_old_entries=old_entries, expected_new_entries=new_entries)
+        normalized = validate_migration(value, target_path=value["target_path"],
+                                        expected_old_entries=old_entries,
+                                        expected_new_entries=new_entries)
         raw = wp1.canonical_bytes(value)
         destination = output or root / ".artifacts/i18n/production-review-v2-lite" / f"migration-{value['migration_id']}.json"
         path = _write_output(root, destination, raw)
-        return _report(value, path=path)
+        return _report(normalized, path=path)
 
 
 def _load_input(root: Path, input_path: Path) -> dict[str, Any]:
@@ -620,7 +741,7 @@ def _load_input(root: Path, input_path: Path) -> dict[str, Any]:
         if isinstance(error, wp1.ProductionReviewError):
             raise
         raise _error(f"cannot read migration input: {error}") from error
-    return validate_migration(value)
+    return _validate_migration_record(value)
 
 
 def _assert_old(value: dict[str, Any], root: Path) -> tuple[str, dict[str, Any], list[dict[str, Any]], dict[str, Any]]:
@@ -632,13 +753,13 @@ def _assert_old(value: dict[str, Any], root: Path) -> tuple[str, dict[str, Any],
         "entries_sha256": value["old_entries_sha256"], "exclusions_sha256": value["old_exclusions_sha256"],
         "counts": value["old_counts"],
     }, summary, "old catalog")
-    if _snapshots(entries) != value["old_rows"]:
+    if value["schema_version"] == 1 and _snapshots(entries) != value["old_rows"]:
         raise _error("migration old catalog rows no longer match the planned boundary")
     return commit, manifest, entries, summary
 
 
 def _assert_new(root: Path, value: dict[str, Any], candidate_catalog: Path,
-                old_entries: list[dict[str, Any]], *, label: str = "new catalog") -> list[dict[str, Any]]:
+                old_entries: list[dict[str, Any]], *, label: str = "new catalog") -> tuple[list[dict[str, Any]], dict[str, Any]]:
     """Re-read and validate the exact prospective boundary at the call site."""
     _manifest, entries, _files, summary = _candidate_bundle(root, candidate_catalog)
     _summary_matches({
@@ -646,11 +767,11 @@ def _assert_new(root: Path, value: dict[str, Any], candidate_catalog: Path,
         "entries_sha256": value["new_entries_sha256"], "exclusions_sha256": value["new_exclusions_sha256"],
         "counts": value["new_counts"],
     }, summary, label)
-    if _snapshots(entries) != value["new_rows"]:
+    if value["schema_version"] == 1 and _snapshots(entries) != value["new_rows"]:
         raise _error(f"{label} rows no longer match the planned boundary")
-    if reconcile(old_entries, entries) != value["rows"]:
-        raise _error(f"migration classifications no longer match the planned boundary")
-    return entries
+    normalized = validate_migration(
+        value, expected_old_entries=old_entries, expected_new_entries=entries)
+    return entries, normalized
 
 
 def check(root: Path, input_path: Path, *, candidate_catalog: Path | None = None) -> dict[str, Any]:
@@ -663,8 +784,8 @@ def check(root: Path, input_path: Path, *, candidate_catalog: Path | None = None
         _commit, _manifest_old, old_entries, _summary_old = _assert_old(value, root)
         if queue.database_path(root).exists():
             queue.strict_check(root)
-        _assert_new(root, value, candidate_catalog, old_entries)
-        return _report(value, path=input_path)
+        _new_entries, normalized = _assert_new(root, value, candidate_catalog, old_entries)
+        return _report(normalized, path=input_path)
 
 
 def _migration_rows(value: dict[str, Any]) -> list[tuple[Any, ...]]:
@@ -680,11 +801,11 @@ def apply(root: Path, input_path: Path, *, candidate_catalog: Path | None = None
         raise _error("migration apply requires the exact candidate catalog")
     with queue.writer_lock(root):
         _quiescent(root, require_database=True)
-        value = _load_input(root, input_path)
+        stored = _load_input(root, input_path)
+        _commit_id, _manifest, old_entries, old_summary = _assert_old(stored, root)
+        _new_entries, value = _assert_new(root, stored, candidate_catalog, old_entries)
         if any(row["disposition"] in {"ambiguous", "unmapped"} for row in value["rows"]):
             raise _error("migration contains ambiguous/unmapped rows; apply requires user adjudication")
-        _commit_id, _manifest, old_entries, old_summary = _assert_old(value, root)
-        _assert_new(root, value, candidate_catalog, old_entries)
         queue.strict_check(root)
         database = queue.database_path(root)
         connection: sqlite3.Connection | None = None
@@ -705,8 +826,9 @@ def apply(root: Path, input_path: Path, *, candidate_catalog: Path | None = None
             # The candidate is a prospective boundary and is not protected by
             # the repository lock.  Re-read it immediately before BEGIN so the
             # one transaction can never apply a boundary validated earlier.
-            _assert_new(root, value, candidate_catalog, old_entries,
-                        label="new catalog immediately before transaction")
+            _new_entries, value = _assert_new(
+                root, stored, candidate_catalog, old_entries,
+                label="new catalog immediately before transaction")
             connection.execute("BEGIN IMMEDIATE")
             connection.execute("DELETE FROM state_override")
             connection.execute("DELETE FROM reconciliation")
@@ -995,7 +1117,8 @@ def reconciliation_rows_for_tree(root: Path, tree: dict[str, tuple[str, str, str
         if not relative or "/" in relative:
             raise _error("migration evidence path is not a direct canonical file")
         raw = queue._ordinary_blob(root, tree, path)
-        value = validate_migration_bytes(raw, target_path=path)
+        value = _validate_migration_record(
+            wp1.parse_canonical_object(raw, "migration"), target_path=path)
         candidates.append(value)
     matching = [value for value in candidates if value["new_catalog_id"] == manifest["catalog_id"]]
     if len(matching) > 1:
@@ -1012,5 +1135,6 @@ def reconciliation_rows_for_tree(root: Path, tree: dict[str, tuple[str, str, str
             old_manifest["entries_sha256"] != value["old_entries_sha256"] or
             old_manifest["exclusions_sha256"] != value["old_exclusions_sha256"]):
         raise _error("migration base catalog no longer matches its Git boundary")
-    validate_migration(value, expected_old_entries=old_entries, expected_new_entries=entries)
-    return _migration_rows(value)
+    normalized = validate_migration(
+        value, expected_old_entries=old_entries, expected_new_entries=entries)
+    return _migration_rows(normalized)
