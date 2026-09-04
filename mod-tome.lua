@@ -2821,7 +2821,7 @@ t("Anti-Antimagic!", "摧毁反魔法！", "achievement name")
 t("Destroyed the Ziguranth camp with your Rhaloren allies.", "和罗兰精灵的同盟队伍一起，摧毁伊格兰斯训练营。", "_t")
 t("There and back again", "穿越回来", "achievement name")
 t("Opened a portal to Maj'Eyal from the Far East.", "从远东打开回到马基·埃亚尔的传送门。", "_t")
-t("Back and there again", "去而复返", "achievement name")
+t("Back and there again", "归而复往", "achievement name")
 t("Opened a portal to the Far East from Maj'Eyal.", "从马基·埃亚尔打开去远东的传送门。", "_t")
 t("Arachnophobia", "蜘蛛杀手", "achievement name")
 t("Destroyed the spydric menace.", "清除蜘蛛威胁。", "_t")
@@ -20213,7 +20213,7 @@ t("Perhaps you should explore it and find the truth, and the treasures, for your
 ------------------------------------------------
 section "mod-tome/data/quests/east-portal.lua"
 
-t("Back and there again", "去而复返", "_t")
+t("Back and there again", "归而复往", "_t")
 t("You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back.", " 你创造了一个回到马基·埃亚尔的传送门，你应该试试找最后的希望的某个人谈谈关于这件事。", "_t")
 t("You talked to the Elder in Last Hope who in turn told you to talk to Tannen, who lives in the north of the city.", " 你和最后的希望的长者交谈，得知要去找城市北边的泰恩 ", "_t")
 t("You gave the Orb of Many Ways to Tannen to study while you look for the athame and diamond in Reknor.", "你把多元水晶球交给泰恩研究，自己则去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
@@ -38300,7 +38300,7 @@ section "mod-tome/data/zones/demon-plane/grids.lua"
 
 t("Demonic Portal", "恶魔传送门", "entity name")
 t("This portal seems to be connected with Maj'Eyal; you could probably use it to go back.", "这个传送门似乎与马基·埃亚尔相连，你也许能通过它回去。", "_t")
-t("Back and there again", "去而复返", "_t")
+t("Back and there again", "归而复往", "_t")
 t("Enter the portal back to Maj'Eyal? (Warning loot Draebor first)", "进入传送门回到马基·埃亚尔？（记得先捡走德瑞宝的掉落）", "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you are back to Maj'Eyal, near the Daikara.", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经回到了马基·埃亚尔的岱卡拉附近！", "logPlayer")
 t("Stay", "呆在这里", "_t")
@@ -38313,7 +38313,7 @@ t("demon", "恶魔", "entity type")
 t("minor", "小恶魔", "entity subtype")
 t("Draebor, the Imp", "小恶魔德瑞宝", "entity name")
 t("An intensely irritating git of a monster.", "一只令人极其讨厌的小怪物。", "_t")
-t("Back and there again", "去而复返", "_t")
+t("Back and there again", "归而复往", "_t")
 t("As the annoying imp falls a portal appears under its corpse.", "当这只讨厌的小恶魔被击败后，一个传送门从它的尸体下露了出来。", "_t")
 
 ------------------------------------------------
@@ -39412,7 +39412,7 @@ t("demon", "恶魔", "entity type")
 t("major", "大恶魔", "entity subtype")
 t("Lithfengel", "里斯丰格", "entity name")
 t("A terrible demon of decay and atrophy, drawn to the energy of the farportal. A beast of blight!", "一只缠绕着枯萎和衰竭的可怕恶魔，他被传送门的能量吸引而来。这只瘟神！", "_t")
-t("Back and there again", "去而复返", "_t")
+t("Back and there again", "归而复往", "_t")
 t("A careful examination of the demon's body turns up a Blood-Runed Athame and a Resonating Diamond, both covered in soot and gore but otherwise in good condition.", "仔细检查恶魔的尸体，你发现了一把血符仪式匕首和一块共鸣钻石。两者都沾满烟尘和血污，但除此之外仍完好无损。", "_t")
 
 ------------------------------------------------
@@ -40009,7 +40009,7 @@ section "mod-tome/data/zones/tannen-tower/grids.lua"
 
 t("Portal to Last Hope", "通往最后的希望的传送门", "entity name")
 t("This portal seems to be connected with Last Hope; you could probably use it to go back.", "这道传送门似乎通向最后的希望，你也许能通过它回去。", "_t")
-t("Back and there again", "去而复返", "_t")
+t("Back and there again", "归而复往", "_t")
 t("Enter the portal back to Last Hope?", "进入传送门，回到最后的希望？", "_t")
 t("Stay", "呆在这里", "_t")
 t("Enter", "进入", "_t")
@@ -40064,7 +40064,7 @@ t("ghost", "幽灵", "entity subtype")
 t("The Shade of Telos", "泰勒斯之影", "entity name")
 t("Everybody thought Telos dead and his spirit destroyed, but it seems he still lingers in his old place of power.", "所有人都认为泰勒已经形神俱灭了，但现在看起来他似乎仍徘徊在他的能量之源。", "_t")
 t("and was savagely mutilated, a show of his rage towards all living things", "并被残忍肢解，作为他对所有生物的无尽怒火的体现", "_t")
-t("Back and there again", "去而复返", "_t")
+t("Back and there again", "归而复往", "_t")
 t("As the shade dissipates, you see no sign of the text entitled \"Inverted and Reverted Probabilistic Fields\". You should go back to Tannen.", "当阴影消退，你没有找到任何《反转与复原概率场》标题的文本。你必须回到泰恩那。", "_t")
 
 ------------------------------------------------
