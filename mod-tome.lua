@@ -10729,7 +10729,7 @@ t("g. warding", "超级守护", "entity keyword")
 t(" of invocation", "祈祷之", "entity name")
 t("invocation", "祈祷", "entity keyword")
 t("conjure elemental energy in a radius %d cone, dealing %0.2f to %0.2f %s damage", "在半径 %d 的锥形范围内召唤元素能量，造成 %0.2f 到 %0.2f %s 伤害。", "tformat")
-t("%s channels a cone of %s%s#LAST# energy through %s %s!", "%s从%s%s中传导出一股%s%s#LAST# 能量!", "logSeen", {1,4,5,2,3})
+t("%s channels a cone of %s%s#LAST# energy through %s %s!", "%s从%s%s中传导出一股呈锥形的%s%s#LAST# 能量!", "logSeen", {1,4,5,2,3})
 t(" of protection", "保护之", "entity name")
 t("protection", "保护", "entity keyword")
 t(" of wizardry", "巫术之", "entity name")
@@ -13190,7 +13190,7 @@ t("Exiler", "放逐", "entity name")
 t([[The chronomancer known as Solith was renowned across all of Eyal. He always seemed to catch his enemies alone.
 In the case of opponents who weren't alone, he had to improvise.]], "时空法师索利斯在马基·埃亚尔的世界中十分有名。他总是抓住了他的敌人落单之时。即使对手不是独自一人,他也能临场发挥。", "_t")
 t("insignia ring", "荣誉之戒", "_t")
-t("attempt to inflict %0.2f temporal damage (based on Spellpower and Paradox, if any) on foes in a radius %d ball out to range %d (chance depends on rank, summons are always affected), removing any that survive from time for up to %d turn(s)", "尝试对半径 %d 内的所有目标造成 %0.2f 时空伤害（射程 %d，基于法术强度和紊乱，若有的话；成功率取决于等级，召唤物必定受影响），存活者将被移出时间线最多 %d 回合。", "tformat", {2,1,3,4})
+t("attempt to inflict %0.2f temporal damage (based on Spellpower and Paradox, if any) on foes in a radius %d ball out to range %d (chance depends on rank, summons are always affected), removing any that survive from time for up to %d turn(s)", "尝试对半径 %d 内的所有敌人造成 %0.2f 时空伤害（射程 %d，基于法术强度和紊乱，若有的话；成功率取决于等级，召唤物必定受影响），存活者将被移出时间线最多 %d 回合。", "tformat", {2,1,3,4})
 t("%s focuses time flows through %s %s!", "%s将时间线集中在%s%s!", "logSeen")
 t("Piercing Gaze", "锐利目光", "entity name")
 t("stone-eyed shield", "刻有岩石眼的盾牌", "_t")
@@ -22501,9 +22501,9 @@ t([[You now have a %d%% chance to Fold Fate, Gravity, or Warp into your Weapon F
 		Fold Gravity: Deals %0.2f physical damage to enemies in a radius of %d.  Affected targets will be slowed (%d%%) for %d turns.
 		
 		Each Fold has an eight turn cooldown.  If an effect would be triggered while on cooldown it will reduce the cooldown of the other two Folds by one turn.]], [[你现在有 %d%% 几率将命运、重力或扭曲之力折叠进武器折叠伤害中。
-		命运：对半径 %d 内的敌人造成 %0.2f 点时空伤害，并可能使其物理和时空抗性降低 %d%%，持续 %d 回合。
-		扭曲：对半径 %d 内的敌人造成 %0.2f 点物理伤害和 %0.2f 点时空伤害，并可能使其震慑、致盲、混乱或定身 %d 回合。
-		重力：对半径 %d 内的敌人造成 %0.2f 点物理伤害，并使其减速 %d%%，持续 %d 回合。
+		命运折叠：对半径 %d 内的敌人造成 %0.2f 点时空伤害，并可能使其物理和时空抗性降低 %d%%，持续 %d 回合。
+		扭曲折叠：对半径 %d 内的敌人造成 %0.2f 点物理伤害和 %0.2f 点时空伤害，并可能使其震慑、致盲、混乱或定身 %d 回合。
+		重力折叠：对半径 %d 内的敌人造成 %0.2f 点物理伤害，并使其减速 %d%%，持续 %d 回合。
 		每项效果有 8 回合冷却时间。
 		当处于冷却中的效果被触发时，将减少另外两个效果的冷却 1 回合。]], "tformat", {1,3,2,4,5,8,6,7,9,11,10,12,13})
 t("Breach", "破防", "talent name")
@@ -22973,7 +22973,7 @@ t("You cannot use Acid Strike without two weapons!", "你需要两把武器来�
 t([[Strike with each of your weapons, doing %d%% acid weapon damage with each hit.
 		If at least one of the strikes hits, an acid splash is generated, doing %0.2f acid damage to all enemies in radius %d around the foe you struck.
 		The splash damage will increase with your Spellpower.]], [[用每把武器打击目标，每次攻击造成 %d%% 酸性武器伤害。
-		如果有至少一次攻击命中目标，则会产生酸系溅射，对 %d 范围内的所有敌人造成 %0.2f 酸性伤害。
+		如果有至少一次攻击命中目标，则会产生酸系溅射，以被你击中的敌人为中心，对半径 %d 格范围内的所有敌人造成 %0.2f 酸性伤害。
 		溅射伤害受法术强度加成。]], "tformat", {1,3,2})
 t("Corrupting Strike", "腐化打击", "talent name")
 t("You cannot use Corrupting Strike without two weapons!", "你需要两把武器才能使用腐化打击！", "logPlayer")
@@ -23819,7 +23819,7 @@ t([[Lay a simple yet effective trap that explodes in a radius 2 on contact, sett
 t("Catapult Trap", "弹射陷阱", "talent name")
 t("You have learned how to create Catapult traps!", "你学会了如何制作弹射陷阱！", "_t")
 t("catapult trap", "弹射陷阱", "_t")
-t("Target knocked back up to %d grids%s and dazed.", "目标被击退到%s最多 %d 格，并眩晕。", "tformat", {2,1})
+t("Target knocked back up to %d grids%s and dazed.", "目标被击退最多 %d 格%s，并眩晕。", "tformat")
 t("%s knocks %s back!", "%s 将 %s 击退!", "logSeen")
 t("%s fails to knock %s back!", "%s 未能将 %s 击退!", "logSeen")
 t("#LIGHT_BLUE#Aim the catapult", "#LIGHT_BLUE#请瞄准弹射陷阱", "logPlayer")
@@ -25319,8 +25319,8 @@ t([[You randomly merge with an adjacent bloated ooze, granting you 40%% all dama
 		This talent allows you to restore %0.1f Equilibrium per turn while Mitosis is active.
 		The damage, duration and Equilibrium restoration increase with your Mindpower.]], [[你随机吸收一个紧靠你的浮肿软泥怪，获得 40%% 对全部伤害的抗性，持续 %d 个回合。
 		同时你会释放一股反魔能量，在 %d 半径内造成 %0.1f 点法力燃烧伤害。
-		如果有丝分裂技能开启，每回合你将回复 %0.1f 点失衡值。
-		伤害、持续时间和失衡值回复受精神强度加成。]], "tformat", {1,3,2,4})
+		如果有丝分裂技能开启，每回合你将减少 %0.1f 点失衡值。
+		伤害、持续时间和失衡值减少量受精神强度加成。]], "tformat", {1,3,2,4})
 t("Call of the Ooze", "软泥召唤", "talent name")
 t([[Instantly call all of your bloated oozes to your aid.
 		If you have less than the maximum number of oozes allowed by the Mitosis talent, up to %d will be created with %d life (%d%% of the maximum life allowed by Mitosis).
@@ -26904,7 +26904,7 @@ t([[Call upon the luck and cunning of the Little Folk to increase your critical 
 t("Duck and Dodge", "闪避", "talent name")
 t([[Halfling's incredible luck always kicks in at just the right moment to save their skin.
 		Whenever you take %d%% or more of your life from a single attack, you gain %d%% Evasion and %d additional defense for the next %d turns. The defense increases based on your luck and other defensive stats.]], [[半身人强大的人品在关键时刻总能保他们一命。
-		每当你受到超过 %d%% 生命值的单次伤害时，你在接下来的 %d 回合内获得 %d%% 躲闪概率和 %d 点闪避值（基于幸运和其他闪避相关数值）。]], "tformat", {1,4,2,3})
+		每当你受到相当于生命值 %d%% 或更多的单次伤害时，你在接下来的 %d 回合内获得 %d%% 躲闪概率和 %d 点闪避值（其中闪避值加成基于幸运和其他闪避相关数值）。]], "tformat", {1,4,2,3})
 t("Militant Mind", "好斗精神", "talent name")
 t([[Halflings have always been a very organised and methodical race; the more foes they face, the more organised they are.
 		If two or more foes are in sight your Physical Power, Physical Save, Spellpower, Spell Save, Mental Save, and Mindpower are increased by %0.1f per foe (up to 5 foes).]], [[半身人曾是一个有组织纪律的种族，敌人越多他们越团结。

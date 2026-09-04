@@ -20,9 +20,9 @@ python3 -B tools/i18n doctor
 
 先完成一轮只读检查再集中裁决；仅审核任务不得自行进入修复。译文检查源码机制、语境、术语、占位符／markup、运行键和中文表达；代码／工具检查输入、失败语义、下游消费者和实际复杂度；文档／配置核对真实实现与命令。finding 必须有源码或上下文证据并说明可触发行为或调用链；纯风格偏好、理论风险和无证据的性能猜测不算确认问题。
 
-主代理独立把 finding 标为 `confirmed`、`pending` 或 `advisory` 并定级；只有 `confirmed` 自动进入修复。只有用户要求修复时才修改：先冻结 finding 清单，按依赖顺序处理 accepted 项，给修复 agent 明确 finding、允许文件、最小测试和完成条件，并复核其输出与测试结果。
+主代理独立把 finding 标为 `confirmed`、`pending` 或 `advisory` 并定级；只有 `confirmed` 自动进入修复。只有用户要求修复时才修改：先冻结 finding 清单，把同一轮的全部 accepted 项合并为一次修复 dispatch 并按依赖顺序处理，给修复 agent 明确 finding、允许文件、最小测试和完成条件，并复核其输出与测试结果。
 
-每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
+每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。若待检文件是 untracked，先以 `git add -N -- <path>` 让其以 intent-to-add 形式进入工作树 diff，再运行 `git diff --check`，检查后用 `git reset -- <path>` 恢复 index；最终不得留下 staged 内容。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
 
 ### 机制 claim 与运行时组合
 
@@ -64,24 +64,33 @@ ORCHESTRATOR 核验源码、裁决 finding 并写编排／review record。requir
 源码仍不能支持唯一结论、达到 `max_cycles`，或需要跨批次策略时进入 `WAIT_USER`。普通 accepted
 finding 清零且门禁通过后方可收束。
 
-### 子 agent 状态取证（宣布挂起或取消之前）
+### 子 agent 通知、终态与取消顺序
 
-委托给子 agent 时，传输状态面的字段可能过期，单一 `status` 不足以判定终态。宣布挂起、
-调用 stop／cancel 或写下任何故障归因之前，按顺序取证：
+传输状态面可能过期，单一 `status` 不足以判定终态。`create_agent` 的
+`notifyOnFinish` 只向 host 异步通知「可收割」；通知只影响 host 等待，不是结果、成功或取消
+信号。不得用 tight polling 或 `sleep` 等待；收到通知或需要判断时，重新读取 `status`、
+`attentionReason`、`attentionTimestamp`、`activeTurn`，并检查 `git status --short` 与
+`git diff --stat`（activeTurn 为空表示没有进行中的运行）。
 
-```bash
-# 1) 重新查询一次实时状态：除 status 外读 attentionReason／attentionTimestamp 与 activeTurn
-#    activeTurn 为空 = 没有进行中的运行 = 已结束，不是挂起
-# 2) 检查工作树：未产出改动的 EXECUTOR 留下空 diff
-git status --short
-git diff --stat
-```
+生命周期必须严格按以下顺序：
 
-只有重新查询后仍确认有进行中的运行且无进展，才按挂起处理。字段长时间未更新本身不是挂起
-证据。跳过工作树检查而得出的故障结论无效，必须撤回并更正记录。
+1. **运行中要求 stop/cancel**：先重新查询上述实时字段和工作树；只有复查仍显示 active
+   turn 正在运行且无进展，才调用 stop/cancel；调用后再次复查并记录结果。若两轮非紧密
+   live requery 的有界预算耗尽仍不确定，进入 `WAIT_USER`，不得直接 stop，也不得写故障
+   结论；不得使用固定分钟阈值。
+2. **自然终态**：先 harvest 输出和报告，验证状态、identity/lineage、原始 bytes、工作树
+   diff、结果/schema 与 archive 前置条件；无成果（无 diff、无报告，或只有计划/进度）时
+   该 dispatch 无效，仍须先归档再创建同 purpose/workspace/lineage 的 fresh retry，不能
+   给已结束 child 发 follow-up。
+3. **精确运行时清理（若适用）**：仅对该 child 所拥有且可由 agent identity 精确匹配的
+   runtime process 做 kill/reap；清理不是 stop/cancel，不替代 harvest、验证或 archive。
+4. **archive**：上述验证（以及适用的清理）完成后才 archive，并核对归档 identity、lineage
+   和记录。完成后的 kill/reap/archive 必须与中途取消分开记录和说明。
 
-EXECUTOR 结束却没有工作成果（无 diff、无报告，或只回了计划／进度说明）时，该次 dispatch
-输出无效：先归档，再创建 fresh retry；不得向已结束的 child 发送 follow-up 续跑。
+文档/分析 child 可能长时间规划后一次性写入；空 diff、activity 暂停或字段陈旧单独都不是
+挂起证据。除明确 provider/权限错误外，只有重复取得 live status、activity、activeTurn 和
+工作树证据仍证明 active turn 无进展，才可按第 1 步处理。跳过工作树检查的故障结论无效，
+必须撤回并更正记录。
 
 ### 连续批次循环
 
@@ -96,7 +105,8 @@ EXECUTOR 结束却没有工作成果（无 diff、无报告，或只回了计划
 3. 写 `.ai/task/<task>/SPEC.md|PLAN.md|SCOPE.json|STATE.json`；复用上一批的 envelope builder
    时先改 revision key 前缀。
 4. 派发 EXECUTOR → 机械核验 diff 范围与键漂移 → 归档 → 冻结候选 → preflight → 派发独立复审。
-5. 按固定源码裁决 observation；`confirmed` 进 fresh EXECUTOR 修复。schema 4 的
+5. 按固定源码裁决 observation；一个 cycle 的全部 `confirmed` finding 合并为**一次** fresh
+EXECUTOR 修复 dispatch，在同一次运行内按依赖顺序处理，不逐条派发。schema 4 的
    translation implement 任务按下节执行中间 closure 或不确定时的 `RE_REVIEW/full`，收敛后做
    一次最终全量复审。
 6. 最终全量复审收敛后运行五步门禁 + 适用的完整门禁 → `ai_state_check.py`
@@ -126,13 +136,39 @@ correctness backstop，不能由 closure 记录替代。
 
 新 STATE 的 `max_cycles` 默认 3，且 `cycle <= max_cycles`。只有用户明确授权时才可把上限设为
 3 以上，并逐字保存 `max_cycles_user_authorized=true`；该轻量字段不记录授权文本或另建审批
-artifact。维护者已为 4-lane 译文审核给出 standing authorization：此类任务创建时显式设置
-`max_cycles=10` 和该 literal；2–3 lane 仍保持默认 3。schema 3 及更早任务和 `review_only`
-保持原行为。
+artifact。
 
-已被某个 revision 接受的译文只有在 fidelity、completeness、grammar、terminology、runtime
-或 conspicuous translationese 缺陷有源码／语境证据时才可 reopen。纯偏好变化只记 advisory，
-不得进入 accepted finding，也不得扩大 closure。
+译文 contextual 复审默认 **2 个并行独立 lane**，`max_cycles` 保持默认 3。4-lane 是升级路径，
+不是默认值，只在下列客观条件之一成立时启用，并在 STATE 记录启用理由：两个 lane 对同一
+revision 的**一级**缺陷给出实质冲突结论；或批次内容承载可影响玩法的机制描述（数值、时序、
+触发条件、目标选择）。维护者对 4-lane 译文审核的 standing authorization 仍然有效：启用
+4-lane 时显式设置 `max_cycles=10` 与该 literal。schema 3 及更早任务和 `review_only` 保持原行为。
+
+新建的译文 `implement` 任务一律使用 `schema_version >= 4`，使三阶段收敛复审生效；schema 3
+会让每个 cycle 重复全量复审，不得用于新批次。
+
+已被某个 revision 接受的译文只有在缺陷有源码／语境证据时才可 reopen，并按两级收敛阈值分档：
+
+- **一级（阻断级，任何 cycle 均可 reopen）**：fidelity、completeness、terminology、runtime，
+  以及 placeholder／markup／newline 不变量。这些都能对固定源码或不变量检查做客观判定，
+  两名独立 reviewer 面对同一固定源码应当收敛到同一结论。
+- **二级（有界级，只在 `cycle <= 2` 可 reopen）**：grammar、conspicuous translationese。这类
+  判断依赖读者语感而非固定源码，多个独立 lane 会持续产出互不相同且互不等价的改写建议，
+  不存在收敛点。从 `cycle >= 3` 起，二级缺陷一律只记 advisory，不得进入 accepted finding，
+  也不得扩大 closure。
+
+纯偏好变化在任何 cycle 都只记 advisory。二级缺陷若同时构成一级缺陷（例如语法错误已经改变
+机制含义），按一级处理，但裁决记录必须写明触发的是哪一条一级依据。
+
+**收敛下限**：某个 cycle 的裁决结果不含任何一级 confirmed finding 时，该批次即视为收敛，
+直接进入 `FINAL_REVIEW/full`，不再开新的修复轮。二级 advisory 不阻断收敛。批次靠
+`max_cycles` 耗尽而结束属异常路径，必须在批次简报写明未收敛原因。
+
+**已裁定 out-of-scope 的 revision**：ORCHESTRATOR 在 STATE 维护 `declined_scope`，记录被永久
+裁定为超出 SPEC 允许编辑面的 revision key 及其客观依据（SPEC 条款或固定源码事实）。该清单
+只以「SPEC 边界事实」形式进入 briefing——说明哪些 revision 不在本任务可编辑范围内——不携带
+severity、既往 verdict、finding 计数或期待结论，因此不破坏 anchors-only 独立性。对已列入
+`declined_scope` 的 revision key 再次提出同类 observation 时直接记 advisory，不重新裁决。
 
 每个 cycle 在 contextual 派发前运行 preflight；修复后运行 strict lint、范围与
 source／source_tag／args_order／special／markup／placeholder／newline 不变量检查，以及
@@ -228,6 +264,12 @@ prospective 就不重算，已有 evidence 就先核验引用再发布，已发�
 identity 不一致时进入 `WAIT_USER`。
 integration 的全部 `translation_fix_paths` 也必须逐文件字节等于 `base_commit`，且
 `integration-content-diff/1.changed_paths` 与 `entries` 必须同时严格为空。
+
+### Production-review shadow 校准
+
+WP1 只用于校准枚举、identity、预算和守恒，不进入连续生产批次。统一用 `python3 -B tools/i18n production` 的 locator/catalog/shadow-policy/shadow-journal/replay/batch-draft/reconciliation 子命令；完整链与参数见 [`translation-production-catalog-queue-v1-plan.md`](translation-production-catalog-queue-v1-plan.md)。shadow marker 必须始终为非权威／不可派发／不可提升；不得 append、取得 ownership、建立 formal epoch 或写译文。受跟踪 immutable snapshot 在 `evidence/production-review/`，schema/policy 在 `i18n/quality/production-review/`，drift/reconciliation report 只在 `.artifacts/i18n/production-review/`。
+
+收束至少运行 production、surface manifest、surface result、translation ledger 四套 focused tests，逐件运行 check/replay/reconciliation，并执行 Paseo contract check 与 `git diff --check`。WP2 必须重新 harvest、完成正式 source locator migration 并建立全新正式 ID 链；不能把 WP1 baseline 改 marker 后复用，也不能引用它作为 parent。正式 ledger CLI 默认以工具仓库 ROOT 和所选 `--root` 的 forbidden set 并集机械拒绝 tracked WP1 shadow provenance；generic library replay 仅保留 legacy 状态机结构验证，`--catalog-manifest` 在 WP2 exact authoritative validator 完成前拒绝所有 catalog，未来 validator 仍须同时应用该 forbidden set。WP2 publication 当前完全不可用；启用前必须实现新的单锁 generation transaction，在同一锁内精确验证并完成 WP1 retirement、父目录 fsync、各 family 与 128 MiB 总预算预检，以及五 family 全部 publication 或恢复。不得用布尔值表示 retirement，也不得把 WP1 per-family publisher 当作该 transaction。
 
 ## 批次门禁
 

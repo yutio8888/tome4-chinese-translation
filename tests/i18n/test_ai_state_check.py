@@ -19,6 +19,8 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 import ai_state_check
+import surface_screen_manifest
+import surface_screen_result_check
 
 
 class StateCheckerFixtureTests(unittest.TestCase):
@@ -566,6 +568,49 @@ class StateCheckerFixtureTests(unittest.TestCase):
     def test_evidence_e2_required_for_v3_review_only_infrastructure(self) -> None:
         state_path, state, record, directory = self._evidence_code()
         state.update({"schema_version": 3, "mode": "review_only", "change_class": "infrastructure"})
+        self._write(state_path, state)
+        result = self._check_evidence_state(state_path)
+        self.assertEqual((result.outcome, result.exit_code), ("NEW_CONTRACT_FAILED", 1))
+        self.assertIn("evidence_reconciliation_required", result.detail)
+
+    def test_evidence_surface_colisting_never_waives_code_records(self) -> None:
+        # C2-05: when a surface task is co-listed with a real code record,
+        # the surface terminal never waives the code sidecar reconciliation.
+        state_path, state, record, directory = self._evidence_code()
+        task_id = str(state["task_id"])
+        state.update({
+            "schema_version": 5,
+            "mode": "review_only",
+            "change_class": "translation_workflow",
+            "review_contracts": ["code_legacy_v1", "translation_surface_screen_v1"],
+            "completed_review_contracts": ["code_legacy_v1", "translation_surface_screen_v1"],
+        })
+        zero = surface_screen_manifest.build_zero_payload(task_id=task_id)
+        zero_path = surface_screen_manifest.zero_artifact_path(task_id)
+        zero_file = self.work / zero_path
+        zero_file.parent.mkdir(parents=True, exist_ok=True)
+        zero_file.write_bytes(surface_screen_result_check.canonical_bytes(zero))
+        state["surface_zero_path"] = zero_path
+        draft_path = f".ai/task/{task_id}/SURFACE-SCREEN-INPUT-DRAFT.json"
+        (self.work / draft_path).parent.mkdir(parents=True, exist_ok=True)
+        (self.work / draft_path).write_bytes(surface_screen_result_check.canonical_bytes({
+            "contract": "translation_surface_screen_v1",
+            "fixed_source_identity": "commit:" + "3" * 40,
+            "terminology_snapshot": "surface terms",
+            "rules_version": "surface-rules/1",
+            "rendered_briefing": "lane neutral",
+            "entries": [],
+        }))
+        state["surface_screen_input_path"] = draft_path
+        state["surface_evidence_binding"] = {
+            "algorithm": "surface-evidence-binding/1",
+            "task_id": task_id,
+            "terminal": "zero",
+            "artifact_sha256": {
+                locator: hashlib.sha256((self.work / locator).read_bytes()).hexdigest()
+                for locator in (zero_path, draft_path)
+            },
+        }
         self._write(state_path, state)
         result = self._check_evidence_state(state_path)
         self.assertEqual((result.outcome, result.exit_code), ("NEW_CONTRACT_FAILED", 1))
@@ -1708,6 +1753,1872 @@ class AdoptionBoundaryTests(unittest.TestCase):
         ):
             with self.subTest(payload=payload):
                 self.assertEqual(ai_state_check.check_state(state, manifest_path=self._manifest(payload)).exit_code, 1)
+
+
+SURFACE_TASK = "fixture-surface-screen"
+SURFACE_SCALARS = {
+    "fixed_source_identity": "commit:" + "3" * 40,
+    "terminology_snapshot": "surface terms",
+    "rules_version": "surface-rules/1",
+}
+
+
+def _surface_entry(index: int) -> dict[str, str]:
+    logical = surface_screen_result_check.logical_entry_identity(
+        component="tome", normalized_path="lua/mod.lua",
+        call_locator=f"section/call-{index:04d}", source_tag=f"tag-{index}",
+    )
+    return {
+        "component": "tome", "normalized_path": "lua/mod.lua",
+        "call_locator": f"section/call-{index:04d}", "source_tag": f"tag-{index}",
+        "source": f"Source {index}", "target": f"Target {index}",
+        "logical_entry_identity": logical,
+        "entry_revision_identity": surface_screen_result_check.entry_revision_identity(
+            logical_entry_identity=logical, source=f"Source {index}",
+            target=f"Target {index}", **SURFACE_SCALARS,
+        ),
+    }
+
+
+def _surface_payload(count: int) -> dict[str, object]:
+    entries = sorted(
+        (_surface_entry(i) for i in range(1, count + 1)),
+        key=lambda entry: entry["entry_revision_identity"],
+    )
+    return {
+        "contract": "translation_surface_screen_v1", **SURFACE_SCALARS,
+        "rendered_briefing": "lane neutral", "entries": entries,
+    }
+
+
+def _surface_zero_draft() -> dict[str, object]:
+    """The actual frozen n=0 input draft a zero terminal must bind."""
+    return {
+        "contract": "translation_surface_screen_v1", **SURFACE_SCALARS,
+        "rendered_briefing": "lane neutral", "entries": [],
+    }
+
+
+SURFACE_DRAFT_PATH = f".ai/task/{SURFACE_TASK}/SURFACE-SCREEN-INPUT-DRAFT.json"
+
+
+class SurfaceScreenContractTests(unittest.TestCase):
+    """File-backed coverage for the translation_surface_screen_v1 integration."""
+
+    def setUp(self) -> None:
+        artifacts = ROOT / ".artifacts" / "i18n"
+        artifacts.mkdir(parents=True, exist_ok=True)
+        self.temporary = tempfile.TemporaryDirectory(prefix="surface-check-", dir=artifacts)
+        self.addCleanup(self.temporary.cleanup)
+        self.counter = 0
+
+    def _write(self, path: Path, value: object) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(surface_screen_result_check.canonical_bytes(value))
+
+    def _workspace(self) -> tuple[Path, dict[str, object], Path]:
+        self.counter += 1
+        workspace = Path(self.temporary.name) / f"surface-{self.counter}"
+        workspace.mkdir(parents=True)
+        state: dict[str, object] = {
+            "schema_version": 5,
+            "task_id": SURFACE_TASK,
+            "mode": "review_only",
+            "change_class": "translation_workflow",
+            "state": "DONE",
+            "cycle": 0,
+            "max_cycles": 3,
+            "workspace_id": "surface-workspace",
+            "orchestrator_agent_id": "agent-orchestrator",
+            "review_contracts": ["translation_surface_screen_v1"],
+            "pending_review_contracts": [],
+            "completed_review_contracts": ["translation_surface_screen_v1"],
+            "open_accepted_findings": [],
+            "deferred_findings": [],
+            "child_dispatches": [],
+            "review_records": [],
+            "senior_review_records": [],
+        }
+        return workspace, state, workspace / "STATE.json"
+
+    def _bind_whole_screen(
+        self, workspace: Path, state: dict[str, object],
+        records: list[dict[str, object]],
+    ) -> None:
+        binding = state.get("surface_evidence_binding")
+        if not isinstance(binding, dict):
+            binding = {
+                "algorithm": "surface-evidence-binding/1",
+                "task_id": SURFACE_TASK,
+                "terminal": "whole_screen",
+                "artifact_sha256": {},
+            }
+            state["surface_evidence_binding"] = binding
+        locators: list[str] = []
+        for record in records:
+            locators.extend((record["input_path"], record["raw_output_path"]))  # type: ignore[arg-type]
+        for key in ("surface_screen_input_path", "surface_carry_over_path"):
+            locator = state.get(key)
+            if isinstance(locator, str):
+                locators.append(locator)
+        hashes = binding["artifact_sha256"]  # type: ignore[index]
+        for locator in locators:
+            hashes[locator] = hashlib.sha256(  # type: ignore[index]
+                (workspace / str(locator)).read_bytes()
+            ).hexdigest()
+
+    def _bind_zero(self, workspace: Path, state: dict[str, object]) -> None:
+        locators = [surface_screen_manifest.zero_artifact_path(SURFACE_TASK)]
+        draft_locator = state.get("surface_screen_input_path")
+        if isinstance(draft_locator, str):
+            locators.append(draft_locator)
+        state["surface_evidence_binding"] = {
+            "algorithm": "surface-evidence-binding/1",
+            "task_id": SURFACE_TASK,
+            "terminal": "zero",
+            "artifact_sha256": {
+                locator: hashlib.sha256((workspace / locator).read_bytes()).hexdigest()
+                for locator in locators
+            },
+        }
+
+    def _install_zero_terminal(self, workspace: Path, state: dict[str, object]) -> str:
+        """Write the zero artifact plus its actual empty frozen input draft,
+        bind both paths, and record the unified draft binding (C3-02)."""
+        zero = surface_screen_manifest.build_zero_payload(task_id=SURFACE_TASK)
+        zero_path = surface_screen_manifest.zero_artifact_path(SURFACE_TASK)
+        self._write(workspace / zero_path, zero)
+        state["surface_zero_path"] = zero_path
+        self._write(workspace / SURFACE_DRAFT_PATH, _surface_zero_draft())
+        state["surface_screen_input_path"] = SURFACE_DRAFT_PATH
+        self._bind_zero(workspace, state)
+        return zero_path
+
+    def _add_surface_stage(
+        self,
+        workspace: Path,
+        state: dict[str, object],
+        *,
+        phase: str,
+        cycle: int,
+        attempt: int,
+        count: int,
+        result: str = "PASS",
+    ) -> list[dict[str, object]]:
+        payload = _surface_payload(count)
+        stage = f"{phase.lower().replace('_', '-')}-{cycle}-{attempt}"
+        # C3-02: every whole-screen terminal binds one unified actual frozen
+        # input draft; the stage coverage is later compared against it.
+        if state.get("surface_screen_input_path") is None:
+            self._write(workspace / SURFACE_DRAFT_PATH, payload)
+            state["surface_screen_input_path"] = SURFACE_DRAFT_PATH
+        records: list[dict[str, object]] = []
+        if count <= 3:
+            envelope, path, _ = surface_screen_manifest.build_full(
+                payload, task_id=SURFACE_TASK, dispatch_id=stage,
+            )
+            members = [(stage, envelope, path, None)]
+        else:
+            group, group_path, envelopes = surface_screen_manifest.build_group(
+                payload, task_id=SURFACE_TASK, group_id=f"group-{cycle}-{attempt}",
+                review_phase=phase, cycle=cycle, attempt=attempt,
+                dispatch_ids=[f"lane-{cycle}-{attempt}-{index}" for index in range(1, 5)],
+            )
+            self._write(workspace / group_path, group)
+            boundaries = group["payload"]["lane_boundaries"]
+            members = [
+                (
+                    lane["dispatch_id"], envelope, lane["input_path"],
+                    {
+                        "group_id": group["payload"]["group_id"],
+                        "group_identity": group["group_identity"],
+                        "group_manifest_path": group_path,
+                        "index": boundary["index"], "count": 4,
+                        "offset": boundary["offset"], "length": boundary["length"],
+                    },
+                )
+                for lane, boundary, (_, envelope) in zip(
+                    group["payload"]["lanes"], boundaries, envelopes
+                )
+            ]
+        for dispatch_id, envelope, input_path, lane in members:
+            self._write(workspace / input_path, envelope)
+            lane_entries = envelope["payload"]["entries"]
+            raw = {
+                "contract": "translation_surface_screen_v1",
+                "candidate_identity": envelope["candidate_identity"],
+                "results": [
+                    {"entry_revision_identity": entry["entry_revision_identity"], "verdict": "OK"}
+                    for entry in lane_entries
+                ],
+            }
+            raw_path = f".ai/reviews/{SURFACE_TASK}/raw-{dispatch_id}.txt"
+            self._write(workspace / raw_path, raw)
+            record: dict[str, object] = {
+                "task_id": SURFACE_TASK,
+                "review_contract": "translation_surface_screen_v1",
+                "review_phase": phase,
+                "cycle": cycle,
+                "attempt": attempt,
+                "reviewer_role": "REVIEWER",
+                "purpose": "translation_surface_screen_v1",
+                "dispatch_id": dispatch_id,
+                "agent_id": f"agent-{dispatch_id}",
+                "workspace_id": "surface-workspace",
+                "parent_agent_id": "agent-orchestrator",
+                "lineage_verified": True,
+                "result": result,
+                "review_kind": "lane" if lane else "full",
+                "candidate_identity": envelope["candidate_identity"],
+                "input_path": input_path,
+                "raw_output_path": raw_path,
+                "raw_output_sha256": hashlib.sha256(
+                    surface_screen_result_check.canonical_bytes(raw)
+                ).hexdigest(),
+            }
+            dispatch: dict[str, object] = {
+                "dispatch_id": dispatch_id,
+                "role": "REVIEWER",
+                "purpose": "translation_surface_screen_v1",
+                "agent_id": f"agent-{dispatch_id}",
+                "parent_agent_id": "agent-orchestrator",
+                "workspace_id": "surface-workspace",
+                "lineage_verified": True,
+                "lifecycle": "archived",
+                "archive_confirmed": True,
+                "candidate_identity": envelope["candidate_identity"],
+                "input_path": input_path,
+                "labels": {
+                    "task_id": SURFACE_TASK,
+                    "role": "reviewer",
+                    "purpose": "translation_surface_screen_v1",
+                    "candidate_identity": envelope["candidate_identity"],
+                    "dispatch_id": dispatch_id,
+                },
+            }
+            if lane is not None:
+                record["lane"] = lane
+                dispatch["lane_group_identity"] = lane["group_identity"]
+                dispatch["lane_index"] = lane["index"]
+                dispatch["labels"]["lane_group_identity"] = lane["group_identity"]
+                dispatch["labels"]["lane_index"] = lane["index"]
+            record_file = workspace / f"{dispatch_id}.json"
+            self._write(record_file, record)
+            state["review_records"].append(str(record_file.relative_to(workspace)))  # type: ignore[union-attr]
+            state["child_dispatches"].append(dispatch)  # type: ignore[union-attr]
+            records.append(record)
+        self._bind_whole_screen(workspace, state, records)
+        return records
+
+    def _verify(self, workspace: Path, state: dict[str, object], mutate=None) -> ai_state_check.CheckResult:
+        state_path = workspace / "STATE.json"
+        if mutate:
+            mutate(workspace, state)
+        self._write(state_path, state)
+        return ai_state_check.check_state(state_path, workspace_root=workspace)
+
+    def test_review_only_single_full_is_done_verified(self) -> None:
+        workspace, state, state_path = self._workspace()
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "DONE_VERIFIED")
+
+    def test_review_only_complete_lane_group_is_done_verified(self) -> None:
+        workspace, state, _ = self._workspace()
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=5)
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "DONE_VERIFIED")
+
+    def test_review_only_translation_workflow_surface_is_done_verified_without_code_terminal(self) -> None:
+        # CF-13: surface is translation_workflow under the active definition;
+        # evidence reconciliation adapts honestly via the surface-specific
+        # binding instead of requiring or fabricating a code/contextual
+        # completion terminal.
+        workspace, state, _ = self._workspace()
+        self.assertEqual(state["change_class"], "translation_workflow")
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "DONE_VERIFIED")
+
+    def test_review_only_rejects_partial_lane_publication(self) -> None:
+        workspace, state, _ = self._workspace()
+        records = self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=5)
+        dropped = records[3]
+        state["review_records"].remove(f"{dropped['dispatch_id']}.json")  # type: ignore[attr-defined]
+        state["child_dispatches"] = [
+            dispatch for dispatch in state["child_dispatches"]  # type: ignore[union-attr]
+            if dispatch["dispatch_id"] != dropped["dispatch_id"]
+        ]
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("surface lane stage must contain exactly members 1..4", result.detail)
+
+    def test_surface_rejects_borrowed_implement_convergence(self) -> None:
+        # CF-03: surface is review_only; the contextual implement convergence
+        # (RE_REVIEW/FINAL_REVIEW escalation) is not part of this contract.
+        workspace, state, _ = self._workspace()
+        state["mode"] = "implement"
+        state["final_validation_passed"] = True
+        state["cycle"] = 1
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("review_only", result.detail)
+
+    def test_review_only_rejects_second_stage(self) -> None:
+        workspace, state, _ = self._workspace()
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=2, count=2)
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("exactly one whole-screen stage", result.detail)
+
+    def test_zero_no_dispatch_artifact_is_done_verified(self) -> None:
+        workspace, state, _ = self._workspace()
+        self._install_zero_terminal(workspace, state)
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "DONE_VERIFIED")
+
+    def test_zero_artifact_negative_matrix(self) -> None:
+        def zero_with_dispatch(workspace, state):
+            self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+
+        def drifted_zero(workspace, state):
+            path = workspace / surface_screen_manifest.zero_artifact_path(SURFACE_TASK)
+            value = json.loads(path.read_text(encoding="utf-8"))
+            value["proves_no_surface_dispatch"] = False
+            self._write(path, value)
+
+        def wrong_path(workspace, state):
+            state["surface_zero_path"] = f".ai/task/{SURFACE_TASK}/SURFACE-SCREEN-ZERO-copy.json"
+            self._write(
+                workspace / str(state["surface_zero_path"]),
+                surface_screen_manifest.build_zero_payload(task_id=SURFACE_TASK),
+            )
+
+        def nonzero_zero(workspace, state):
+            path = workspace / surface_screen_manifest.zero_artifact_path(SURFACE_TASK)
+            value = json.loads(path.read_text(encoding="utf-8"))
+            value["screen_count"] = 3
+            self._write(path, value)
+
+        def missing_artifact(workspace, state):
+            state["surface_zero_path"] = surface_screen_manifest.zero_artifact_path(SURFACE_TASK)
+            (workspace / state["surface_zero_path"]).unlink()
+
+        def dispatch_without_terminal(workspace, state):
+            # A declared zero terminal must not coexist with dispatches.
+            state["child_dispatches"] = [{
+                "dispatch_id": "ghost-1", "role": "REVIEWER",
+                "purpose": "translation_surface_screen_v1",
+                "agent_id": "agent-ghost-1", "parent_agent_id": "agent-orchestrator",
+                "workspace_id": "surface-workspace", "lineage_verified": True,
+                "lifecycle": "archived", "archive_confirmed": True,
+            }]
+
+        for mutate in (
+            zero_with_dispatch, drifted_zero, wrong_path, nonzero_zero,
+            missing_artifact, dispatch_without_terminal,
+        ):
+            with self.subTest(mutate=mutate.__name__):
+                workspace, state, _ = self._workspace()
+                self._install_zero_terminal(workspace, state)
+                result = self._verify(workspace, state, mutate=mutate)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+
+    def test_zero_artifact_binds_recomputable_empty_workset_identity(self) -> None:
+        # C2-03: the zero artifact must bind the canonical recomputable
+        # empty workset/input snapshot identity and algorithm version, and
+        # DONE must rederive it.
+        zero = surface_screen_manifest.build_zero_payload(task_id=SURFACE_TASK)
+        surface_screen_manifest.validate_zero_payload(zero)
+        self.assertEqual(zero["algorithm"], "surface-zero-workset/1")
+        self.assertEqual(
+            zero["workset_identity"],
+            surface_screen_manifest.build_zero_workset_identity(),
+        )
+
+        def tampered_workset_identity(workspace, state):
+            path = workspace / surface_screen_manifest.zero_artifact_path(SURFACE_TASK)
+            value = json.loads(path.read_text(encoding="utf-8"))
+            value["workset_identity"] = "0" * 64
+            self._write(path, value)
+
+        def wrong_algorithm(workspace, state):
+            path = workspace / surface_screen_manifest.zero_artifact_path(SURFACE_TASK)
+            value = json.loads(path.read_text(encoding="utf-8"))
+            value["algorithm"] = "surface-zero-workset/2"
+            self._write(path, value)
+
+        def dropped_workset_identity(workspace, state):
+            path = workspace / surface_screen_manifest.zero_artifact_path(SURFACE_TASK)
+            value = json.loads(path.read_text(encoding="utf-8"))
+            del value["workset_identity"]
+            self._write(path, value)
+
+        def bound_carry_over(workspace, state):
+            state["surface_carry_over_path"] = surface_screen_manifest.carry_over_artifact_path(SURFACE_TASK)
+
+        for mutate in (
+            tampered_workset_identity, wrong_algorithm,
+            dropped_workset_identity, bound_carry_over,
+        ):
+            with self.subTest(mutate=mutate.__name__):
+                workspace, state, _ = self._workspace()
+                self._install_zero_terminal(workspace, state)
+                result = self._verify(workspace, state, mutate=mutate)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+
+    def test_surface_n_zero_build_rejects_dispatch_inputs(self) -> None:
+        # C2-03: the n=0 CLI must require no dispatch/group/cycle/attempt
+        # inputs at all.
+        draft = self.temporary.name + "/zero-draft.json"
+        Path(draft).write_bytes(surface_screen_result_check.canonical_bytes({
+            "contract": "translation_surface_screen_v1",
+            "fixed_source_identity": "commit:" + "3" * 40,
+            "terminology_snapshot": "surface terms",
+            "rules_version": "surface-rules/1",
+            "rendered_briefing": "lane neutral",
+            "entries": [],
+        }))
+        for extra in (
+            [], ["--dispatch-id", "full-0"], ["--group-id", "group-0"],
+            ["--cycle", "0"], ["--attempt", "1"], ["--review-phase", "REVIEW", "--cycle", "0"],
+        ):
+            with self.subTest(extra=extra):
+                completed = subprocess.run(
+                    [sys.executable, "-B", str(TOOLS / "surface_screen_manifest.py"),
+                     "build", draft, "--task-id", SURFACE_TASK, *extra,
+                     "--root", self.temporary.name],
+                    capture_output=True, text=True,
+                )
+                if extra:
+                    self.assertNotEqual(completed.returncode, 0)
+                    self.assertIn("MANIFEST_FAILED", completed.stdout + completed.stderr)
+                else:
+                    self.assertEqual(completed.returncode, 0, completed.stderr)
+                    self.assertIn("ZERO_RECORDED", completed.stdout)
+
+    def _carry_over_fixture(
+        self, workspace: Path, state: dict[str, object],
+    ) -> tuple[dict[str, object], dict[str, object]]:
+        """Build an n>80 carry-over artifact, bind its original frozen workset
+        draft via surface_screen_input_path, and add a lane stage covering
+        exactly the first-80 screen set with the evidence binding."""
+        payload = _surface_payload(85)
+        carry = surface_screen_manifest.build_carry_over_payload(payload, task_id=SURFACE_TASK)
+        carry_path = surface_screen_manifest.carry_over_artifact_path(SURFACE_TASK)
+        self._write(workspace / carry_path, carry)
+        draft_path = f".ai/task/{SURFACE_TASK}/SURFACE-SCREEN-DRAFT.json"
+        self._write(workspace / draft_path, payload)
+        state["surface_carry_over_path"] = carry_path
+        state["surface_screen_input_path"] = draft_path
+        screen_payload = dict(payload)
+        screen_payload["entries"] = payload["entries"][:80]
+        group, group_path, envelopes = surface_screen_manifest.build_group(
+            screen_payload, task_id=SURFACE_TASK, group_id="group-carry",
+            review_phase="REVIEW", cycle=0, attempt=1,
+            dispatch_ids=[f"carry-lane-{index}" for index in range(1, 5)],
+        )
+        self._write(workspace / group_path, group)
+        records: list[dict[str, object]] = []
+        boundaries = group["payload"]["lane_boundaries"]
+        for lane, boundary, (_, envelope) in zip(
+            group["payload"]["lanes"], boundaries, envelopes
+        ):
+            input_path = lane["input_path"]
+            self._write(workspace / input_path, envelope)
+            lane_entries = envelope["payload"]["entries"]
+            raw = {
+                "contract": "translation_surface_screen_v1",
+                "candidate_identity": envelope["candidate_identity"],
+                "results": [
+                    {"entry_revision_identity": entry["entry_revision_identity"], "verdict": "OK"}
+                    for entry in lane_entries
+                ],
+            }
+            raw_path = f".ai/reviews/{SURFACE_TASK}/raw-{lane['dispatch_id']}.txt"
+            self._write(workspace / raw_path, raw)
+            record: dict[str, object] = {
+                "task_id": SURFACE_TASK,
+                "review_contract": "translation_surface_screen_v1",
+                "review_phase": "REVIEW", "cycle": 0, "attempt": 1,
+                "reviewer_role": "REVIEWER",
+                "purpose": "translation_surface_screen_v1",
+                "dispatch_id": lane["dispatch_id"],
+                "agent_id": f"agent-{lane['dispatch_id']}",
+                "workspace_id": "surface-workspace",
+                "parent_agent_id": "agent-orchestrator",
+                "lineage_verified": True,
+                "result": "PASS", "review_kind": "lane",
+                "candidate_identity": envelope["candidate_identity"],
+                "input_path": input_path,
+                "raw_output_path": raw_path,
+                "raw_output_sha256": hashlib.sha256(
+                    surface_screen_result_check.canonical_bytes(raw)
+                ).hexdigest(),
+                "lane": {
+                    "group_id": group["payload"]["group_id"],
+                    "group_identity": group["group_identity"],
+                    "group_manifest_path": group_path,
+                    "index": boundary["index"], "count": 4,
+                    "offset": boundary["offset"], "length": boundary["length"],
+                },
+            }
+            dispatch: dict[str, object] = {
+                "dispatch_id": lane["dispatch_id"], "role": "REVIEWER",
+                "purpose": "translation_surface_screen_v1",
+                "agent_id": f"agent-{lane['dispatch_id']}",
+                "parent_agent_id": "agent-orchestrator",
+                "workspace_id": "surface-workspace", "lineage_verified": True,
+                "lifecycle": "archived", "archive_confirmed": True,
+                "candidate_identity": envelope["candidate_identity"],
+                "input_path": input_path,
+                "lane_group_identity": group["group_identity"],
+                "lane_index": boundary["index"],
+                "labels": {
+                    "task_id": SURFACE_TASK, "role": "reviewer",
+                    "purpose": "translation_surface_screen_v1",
+                    "candidate_identity": envelope["candidate_identity"],
+                    "dispatch_id": lane["dispatch_id"],
+                    "lane_group_identity": group["group_identity"],
+                    "lane_index": boundary["index"],
+                },
+            }
+            record_file = workspace / f"{lane['dispatch_id']}.json"
+            self._write(record_file, record)
+            state["review_records"].append(str(record_file.relative_to(workspace)))  # type: ignore[union-attr]
+            state["child_dispatches"].append(dispatch)  # type: ignore[union-attr]
+            records.append(record)
+        self._bind_whole_screen(workspace, state, records)
+        return payload, carry
+
+    def test_carry_over_binding_covers_first_eighty_only(self) -> None:
+        workspace, state, _ = self._workspace()
+        payload, carry = self._carry_over_fixture(workspace, state)
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "DONE_VERIFIED")
+
+    def test_carry_over_artifact_binds_complete_original_workset(self) -> None:
+        # C2-02: malformed counts, overlap, omissions and extras — plus a
+        # missing original-workset binding — must all fail closed.
+        def omitted_carry_entry(workspace, state, carry):
+            carry["ordered_carry_over_entry_revision_identities"] = \
+                carry["ordered_carry_over_entry_revision_identities"][:-1]
+            carry["carry_over_count"] = len(carry["ordered_carry_over_entry_revision_identities"])
+            carry["original_count"] = 80 + carry["carry_over_count"]
+
+        def extra_carry_entry(workspace, state, carry):
+            carry["ordered_carry_over_entry_revision_identities"].append(
+                carry["ordered_screen_entry_revision_identities"][0]
+            )
+            carry["carry_over_count"] = len(carry["ordered_carry_over_entry_revision_identities"])
+            carry["original_count"] = 80 + carry["carry_over_count"]
+
+        def overlapping_sets(workspace, state, carry):
+            carry["ordered_carry_over_entry_revision_identities"][0] = \
+                carry["ordered_screen_entry_revision_identities"][0]
+
+        def wrong_counts(workspace, state, carry):
+            carry["original_count"] = 84
+
+        def wrong_task_id(workspace, state, carry):
+            carry["task_id"] = "other-task"
+
+        def missing_draft_binding(workspace, state, carry):
+            del state["surface_screen_input_path"]  # type: ignore[arg-type]
+
+        def draft_drift(workspace, state, carry):
+            draft_path = workspace / str(state["surface_screen_input_path"])  # type: ignore[arg-type]
+            draft = json.loads(draft_path.read_text(encoding="utf-8"))
+            draft["entries"] = draft["entries"][:-1]
+            draft_path.write_bytes(surface_screen_result_check.canonical_bytes(draft))
+
+        def deleted_carry_binding(workspace, state, carry):
+            # C3-02: deleting the carry binding must never reclassify the
+            # n=85 workset as a whole n=80 screen.
+            del state["surface_carry_over_path"]  # type: ignore[arg-type]
+            binding = state["surface_evidence_binding"]  # type: ignore[index]
+            del binding["artifact_sha256"][
+                surface_screen_manifest.carry_over_artifact_path(SURFACE_TASK)
+            ]
+
+        for mutate in (
+            omitted_carry_entry, extra_carry_entry, overlapping_sets,
+            wrong_counts, wrong_task_id, missing_draft_binding, draft_drift,
+            deleted_carry_binding,
+        ):
+            with self.subTest(mutate=mutate.__name__):
+                workspace, state, _ = self._workspace()
+                payload, carry = self._carry_over_fixture(workspace, state)
+                mutate(workspace, state, carry)
+                if mutate.__name__ not in {"missing_draft_binding", "deleted_carry_binding"}:
+                    carry_path = surface_screen_manifest.carry_over_artifact_path(SURFACE_TASK)
+                    self._write(workspace / carry_path, carry)
+                result = self._verify(workspace, state)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+
+    def test_carry_over_drift_is_rejected(self) -> None:
+        workspace, state, _ = self._workspace()
+        # Screen a set that is NOT the recorded first-80 slice.
+        payload = _surface_payload(85)
+        carry = surface_screen_manifest.build_carry_over_payload(payload, task_id=SURFACE_TASK)
+        carry_path = surface_screen_manifest.carry_over_artifact_path(SURFACE_TASK)
+        self._write(workspace / carry_path, carry)
+        draft_path = f".ai/task/{SURFACE_TASK}/SURFACE-SCREEN-DRAFT.json"
+        self._write(workspace / draft_path, payload)
+        state["surface_carry_over_path"] = carry_path
+        state["surface_screen_input_path"] = draft_path
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=5)
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("does not cover exactly the recorded first-80 screen set", result.detail)
+
+    def test_surface_manifest_binding_and_terminal_matrix(self) -> None:
+        def stale_candidate(workspace, state):
+            envelope_path = workspace / ".ai/task" / SURFACE_TASK / "SURFACE-SCREEN-ENVELOPE-review-0-1.json"
+            envelope = json.loads(envelope_path.read_text(encoding="utf-8"))
+            envelope["payload"]["terminology_snapshot"] = "drifted"
+            envelope_path.write_bytes(surface_screen_result_check.canonical_bytes(envelope))
+
+        def raw_truncation(workspace, state):
+            raw_path = workspace / ".ai/reviews" / SURFACE_TASK / "raw-review-0-1.txt"
+            raw = json.loads(raw_path.read_text(encoding="utf-8"))
+            raw["results"] = raw["results"][:1]
+            raw_path.write_bytes(surface_screen_result_check.canonical_bytes(raw))
+
+        def raw_hash_drift(workspace, state):
+            dispatch = state["child_dispatches"][0]  # type: ignore[index]
+            record_path = workspace / f"{dispatch['dispatch_id']}.json"
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            record["raw_output_sha256"] = "0" * 64
+            record_path.write_bytes(surface_screen_result_check.canonical_bytes(record))
+
+        def label_drift(workspace, state):
+            dispatch = state["child_dispatches"][0]  # type: ignore[index]
+            dispatch["labels"]["candidate_identity"] = "0" * 64
+
+        def parent_drift(workspace, state):
+            dispatch = state["child_dispatches"][0]  # type: ignore[index]
+            dispatch["parent_agent_id"] = "agent-other"
+
+        def record_parent_drift(workspace, state):
+            dispatch = state["child_dispatches"][0]  # type: ignore[index]
+            record_path = workspace / f"{dispatch['dispatch_id']}.json"
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            record["parent_agent_id"] = "agent-other"
+            record_path.write_bytes(surface_screen_result_check.canonical_bytes(record))
+
+        def record_workspace_drift(workspace, state):
+            dispatch = state["child_dispatches"][0]  # type: ignore[index]
+            record_path = workspace / f"{dispatch['dispatch_id']}.json"
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            record["workspace_id"] = "other-workspace"
+            record_path.write_bytes(surface_screen_result_check.canonical_bytes(record))
+
+        def record_lineage_missing(workspace, state):
+            dispatch = state["child_dispatches"][0]  # type: ignore[index]
+            record_path = workspace / f"{dispatch['dispatch_id']}.json"
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            del record["lineage_verified"]
+            record_path.write_bytes(surface_screen_result_check.canonical_bytes(record))
+
+        def unsafe_dispatch_id(workspace, state):
+            dispatch = state["child_dispatches"][0]  # type: ignore[index]
+            record_path = workspace / f"{dispatch['dispatch_id']}.json"
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            record["dispatch_id"] = "../ESCAPED"
+            record_path.write_bytes(surface_screen_result_check.canonical_bytes(record))
+
+        def failed_completion(workspace, state):
+            dispatch = state["child_dispatches"][0]  # type: ignore[index]
+            record_path = workspace / f"{dispatch['dispatch_id']}.json"
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            record["result"] = "CHANGES_REQUIRED"
+            record_path.write_bytes(surface_screen_result_check.canonical_bytes(record))
+
+        for mutate in (
+            stale_candidate, raw_truncation, raw_hash_drift, label_drift,
+            parent_drift, record_parent_drift, record_workspace_drift,
+            record_lineage_missing, unsafe_dispatch_id, failed_completion,
+        ):
+            with self.subTest(mutate=mutate.__name__):
+                workspace, state, _ = self._workspace()
+                self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+                result = self._verify(workspace, state, mutate=mutate)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+
+    def test_change_class_matrix_for_review_only_surface(self) -> None:
+        # C2-05: surface review_only tasks must use
+        # change_class=translation_workflow; standard and infrastructure fail.
+        for change_class, expected in (
+            ("translation_workflow", "DONE_VERIFIED"),
+            ("standard", "NEW_CONTRACT_FAILED"),
+            ("infrastructure", "NEW_CONTRACT_FAILED"),
+            (None, "NEW_CONTRACT_FAILED"),
+        ):
+            with self.subTest(change_class=change_class):
+                workspace, state, _ = self._workspace()
+                state["change_class"] = change_class
+                self._add_surface_stage(
+                    workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2,
+                )
+                result = self._verify(workspace, state)
+                self.assertEqual(result.outcome, expected)
+
+    def test_surface_stop_rejects_dispatched_screen(self) -> None:
+        workspace, state, state_path = self._workspace()
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+        state["state"] = "STOP"
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("STOP cannot close a dispatched surface screen", result.detail)
+        # STOP remains available for a surface task that never dispatched.
+        fresh_workspace, fresh_state, fresh_path = self._workspace()
+        fresh_state["state"] = "STOP"
+        result = self._verify(fresh_workspace, fresh_state)
+        self.assertEqual(result.outcome, "STOP_VERIFIED")
+
+    def test_surface_stop_uses_the_all_source_activity_predicate(self) -> None:
+        # C4-03: STOP must apply the same persisted all-source surface
+        # activity predicate as DONE: relabeling or deleting child_dispatches
+        # cannot close persisted surface records, terminal bindings, or
+        # artifacts.
+        def relabel_children(workspace: Path, state: dict[str, object]) -> None:
+            for dispatch in state["child_dispatches"]:  # type: ignore[type-var, union-attr]
+                dispatch["purpose"] = "translation_contextual_v1"  # type: ignore[index]
+                dispatch["labels"]["purpose"] = "translation_contextual_v1"  # type: ignore[index]
+
+        def delete_children(workspace: Path, state: dict[str, object]) -> None:
+            state["child_dispatches"] = []
+
+        for mutate in (relabel_children, delete_children):
+            with self.subTest(mutate=mutate.__name__):
+                workspace, state, _ = self._workspace()
+                self._add_surface_stage(
+                    workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2,
+                )
+                state["state"] = "STOP"
+                result = self._verify(workspace, state, mutate=mutate)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+                self.assertIn("STOP cannot close a dispatched surface screen", result.detail)
+        # A bound zero terminal is also persisted surface activity: STOP
+        # cannot close it; DONE remains its terminal.
+        workspace, state, _ = self._workspace()
+        self._install_zero_terminal(workspace, state)
+        state["state"] = "STOP"
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("STOP cannot close a dispatched surface screen", result.detail)
+
+    def test_surface_cannot_mix_with_contextual_contracts_or_low_schema(self) -> None:
+        def mixed_contracts(workspace, state):
+            state["review_contracts"] = ["translation_surface_screen_v1", "translation_contextual_v2"]
+
+        def low_schema(workspace, state):
+            state["schema_version"] = 4
+
+        for mutate in (mixed_contracts, low_schema):
+            with self.subTest(mutate=mutate.__name__):
+                workspace, state, _ = self._workspace()
+                self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+                result = self._verify(workspace, state, mutate=mutate)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+
+    def test_surface_requires_a_bound_completion_record(self) -> None:
+        workspace, state, _ = self._workspace()
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("no bound completion record for contract 'translation_surface_screen_v1'", result.detail)
+
+    def _add_forged_full_stage(
+        self, workspace: Path, state: dict[str, object], *, count: int,
+    ) -> None:
+        """Hand-forge an internally valid full stage envelope bypassing the
+        builder cardinality check (the malicious C2-01 probe)."""
+        payload = _surface_payload(count)
+        identity = hashlib.sha256(
+            surface_screen_result_check.canonical_payload_bytes(payload)
+        ).hexdigest()
+        envelope = {"candidate_identity": identity, "payload": payload}
+        stage = "review-0-1"
+        input_path = surface_screen_manifest._envelope_path(SURFACE_TASK, stage)
+        self._write(workspace / input_path, envelope)
+        raw = {
+            "contract": "translation_surface_screen_v1",
+            "candidate_identity": identity,
+            "results": [
+                {"entry_revision_identity": entry["entry_revision_identity"], "verdict": "OK"}
+                for entry in payload["entries"]
+            ],
+        }
+        raw_path = f".ai/reviews/{SURFACE_TASK}/raw-{stage}.txt"
+        self._write(workspace / raw_path, raw)
+        record: dict[str, object] = {
+            "task_id": SURFACE_TASK,
+            "review_contract": "translation_surface_screen_v1",
+            "review_phase": "REVIEW", "cycle": 0, "attempt": 1,
+            "reviewer_role": "REVIEWER",
+            "purpose": "translation_surface_screen_v1",
+            "dispatch_id": stage, "agent_id": f"agent-{stage}",
+            "workspace_id": "surface-workspace",
+            "parent_agent_id": "agent-orchestrator",
+            "lineage_verified": True, "result": "PASS",
+            "review_kind": "full", "candidate_identity": identity,
+            "input_path": input_path, "raw_output_path": raw_path,
+            "raw_output_sha256": hashlib.sha256(
+                surface_screen_result_check.canonical_bytes(raw)
+            ).hexdigest(),
+        }
+        dispatch: dict[str, object] = {
+            "dispatch_id": stage, "role": "REVIEWER",
+            "purpose": "translation_surface_screen_v1",
+            "agent_id": f"agent-{stage}",
+            "parent_agent_id": "agent-orchestrator",
+            "workspace_id": "surface-workspace", "lineage_verified": True,
+            "lifecycle": "archived", "archive_confirmed": True,
+            "candidate_identity": identity, "input_path": input_path,
+            "labels": {
+                "task_id": SURFACE_TASK, "role": "reviewer",
+                "purpose": "translation_surface_screen_v1",
+                "candidate_identity": identity, "dispatch_id": stage,
+            },
+        }
+        self._write(workspace / f"{stage}.json", record)
+        state["review_records"].append(f"{stage}.json")  # type: ignore[union-attr]
+        state["child_dispatches"].append(dispatch)  # type: ignore[union-attr]
+        self._write(workspace / SURFACE_DRAFT_PATH, payload)
+        state["surface_screen_input_path"] = SURFACE_DRAFT_PATH
+        self._bind_whole_screen(workspace, state, [record])
+
+    def test_surface_full_stage_cardinality_is_enforced(self) -> None:
+        # C2-01: a forged full stage outside n=1..3 (here 40 and 200 entries)
+        # must fail closed even when its envelope bytes are internally valid.
+        for count in (40, 200):
+            with self.subTest(count=count):
+                workspace, state, _ = self._workspace()
+                self._add_forged_full_stage(workspace, state, count=count)
+                result = self._verify(workspace, state)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+                self.assertIn(
+                    "full surface stage must cover between 1 and 3 entries",
+                    result.detail,
+                )
+
+    def test_surface_lane_manifest_rejects_whole_stage_over_screen_limit(self) -> None:
+        # C2-01: any whole stage over SCREEN_LIMIT (80) fails closed at the
+        # manifest validator, even with hand-made balanced-looking boundaries.
+        payload = _surface_payload(200)
+        workset = {
+            "entries": payload["entries"],
+            "fixed_source_identity": payload["fixed_source_identity"],
+            "terminology_snapshot": payload["terminology_snapshot"],
+            "rules_version": payload["rules_version"],
+            "rendered_briefing": payload["rendered_briefing"],
+        }
+        boundaries = [
+            {"index": index, "offset": (index - 1) * 50, "length": 50}
+            for index in range(1, 5)
+        ]
+        group_payload = {
+            "contract": surface_screen_result_check.LANE_GROUP_CONTRACT,
+            "task_id": SURFACE_TASK, "group_id": "group-over",
+            "review_phase": "REVIEW", "cycle": 0, "attempt": 1,
+            "lane_count": 4, "workset": workset,
+            "lane_boundaries": boundaries, "lanes": [],
+        }
+        manifest = {
+            "group_identity": hashlib.sha256(
+                surface_screen_result_check.canonical_bytes(group_payload)
+            ).hexdigest(),
+            "payload": group_payload,
+        }
+        with self.assertRaises(surface_screen_result_check.ContractError):
+            surface_screen_manifest.validate_group_manifest(manifest)
+
+    def test_surface_evidence_binding_is_required_and_recomputed(self) -> None:
+        # C2-05: the immutable surface evidence reconciliation binding is
+        # mandatory, terminal-bound, and rederived from current bytes.
+        def no_binding(workspace, state):
+            del state["surface_evidence_binding"]  # type: ignore[arg-type]
+
+        def wrong_algorithm(workspace, state):
+            state["surface_evidence_binding"]["algorithm"] = "surface-evidence-binding/2"  # type: ignore[index]
+
+        def wrong_terminal(workspace, state):
+            state["surface_evidence_binding"]["terminal"] = "zero"  # type: ignore[index]
+
+        def wrong_task_id(workspace, state):
+            state["surface_evidence_binding"]["task_id"] = "other-task"  # type: ignore[index]
+
+        def extra_artifact(workspace, state):
+            state["surface_evidence_binding"]["artifact_sha256"][".ai/reviews/extra.txt"] = "0" * 64  # type: ignore[index]
+
+        def omitted_artifact(workspace, state):
+            binding = state["surface_evidence_binding"]  # type: ignore[index]
+            first_locator = next(iter(binding["artifact_sha256"]))
+            del binding["artifact_sha256"][first_locator]
+
+        for mutate in (
+            no_binding, wrong_algorithm, wrong_terminal, wrong_task_id,
+            extra_artifact, omitted_artifact,
+        ):
+            with self.subTest(mutate=mutate.__name__):
+                workspace, state, _ = self._workspace()
+                self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+                result = self._verify(workspace, state, mutate=mutate)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+
+    def test_surface_evidence_binding_drift_fails_closed(self) -> None:
+        # C2-05: any drift of the bound terminal artifact bytes fails.
+        def envelope_drift(workspace, state):
+            path = workspace / ".ai/task" / SURFACE_TASK / "SURFACE-SCREEN-ENVELOPE-review-0-1.json"
+            envelope = json.loads(path.read_text(encoding="utf-8"))
+            envelope["payload"]["rendered_briefing"] = "drifted briefing"
+            path.write_bytes(surface_screen_result_check.canonical_bytes(envelope))
+
+        def raw_drift(workspace, state):
+            path = workspace / ".ai/reviews" / SURFACE_TASK / "raw-review-0-1.txt"
+            raw = json.loads(path.read_text(encoding="utf-8"))
+            raw["results"][0]["verdict"] = "ISSUE"
+            path.write_bytes(surface_screen_result_check.canonical_bytes(raw))
+
+        for mutate in (envelope_drift, raw_drift):
+            with self.subTest(mutate=mutate.__name__):
+                workspace, state, _ = self._workspace()
+                self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+                result = self._verify(workspace, state, mutate=mutate)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+
+    def test_surface_stop_rejects_dispatched_screen_despite_tampering(self) -> None:
+        # C2-08: STOP must reject whenever any child dispatch carries the
+        # surface purpose, regardless of review_contracts removal or a
+        # schema_version downgrade.
+        for mutate in (
+            lambda state: state.update({
+                "schema_version": 4,
+                "review_contracts": ["translation_contextual_v2"],
+                "completed_review_contracts": ["translation_contextual_v2"],
+            }),
+            lambda state: state.update({
+                "review_contracts": ["code_legacy_v1"],
+                "completed_review_contracts": ["code_legacy_v1"],
+            }),
+        ):
+            with self.subTest():
+                workspace, state, _ = self._workspace()
+                self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+                mutate(state)  # type: ignore[arg-type]
+                state["state"] = "STOP"
+                result = self._verify(workspace, state)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+                self.assertIn("STOP cannot close a dispatched surface screen", result.detail)
+
+    def test_surface_group_phase_only_allows_review(self) -> None:
+        # C2-07: surface manifest/group artifacts allow only REVIEW; a fresh
+        # retry increases attempt with fresh IDs and never emits RE_REVIEW.
+        self.assertEqual(surface_screen_manifest.PHASES, frozenset({"REVIEW"}))
+        workspace, state, _ = self._workspace()
+        payload = _surface_payload(5)
+        with self.assertRaises(surface_screen_result_check.ContractError):
+            surface_screen_manifest.build_group(
+                payload, task_id=SURFACE_TASK, group_id="group-re-review",
+                review_phase="RE_REVIEW", cycle=0, attempt=1,
+                dispatch_ids=[f"re-lane-{index}" for index in range(1, 5)],
+            )
+        completed = subprocess.run(
+            [sys.executable, "-B", str(TOOLS / "surface_screen_manifest.py"),
+             "build", "--help"], capture_output=True, text=True,
+        )
+        self.assertNotIn("RE_REVIEW", completed.stdout)
+
+    def test_surface_convergence_fails_closed_without_contract_activation(self) -> None:
+        # C3-01: the surface predicate must activate from any persisted
+        # surface activity — a surface dispatch, completion record, or
+        # terminal binding — even when review_contracts no longer lists the
+        # surface contract or schema_version was downgraded.
+        workspace, state, _ = self._workspace()
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+        loaded = ai_state_check._load_records(state, root=workspace)
+        completed = ai_state_check._completion_records(state, loaded)
+        self.assertTrue(ai_state_check._translation_surface_convergence_valid(
+            state, loaded, completed, root=workspace)[0])
+        for mutate in (
+            lambda s: s.update({"review_contracts": ["code_legacy_v1"]}),
+            lambda s: s.update({"schema_version": 4}),
+        ):
+            with self.subTest(mutate=mutate.__name__ if hasattr(mutate, "__name__") else "mutate"):
+                mutated = json.loads(json.dumps(state))
+                mutate(mutated)
+                outcome = ai_state_check._translation_surface_convergence_valid(
+                    mutated, loaded, completed, root=workspace)
+                self.assertFalse(outcome[0])
+                self.assertIn("DONE fails closed", outcome[1])
+        # A surface dispatch alone (no completion records) also activates
+        # the fail-closed guard.
+        dispatch_only = json.loads(json.dumps(state))
+        dispatch_only["review_contracts"] = ["code_legacy_v1"]
+        dispatch_only["review_records"] = []
+        dispatch_only["child_dispatches"] = state["child_dispatches"]
+        outcome = ai_state_check._translation_surface_convergence_valid(
+            dispatch_only, [], [], root=workspace)
+        self.assertFalse(outcome[0])
+        self.assertIn("DONE fails closed", outcome[1])
+
+    def test_zero_terminal_requires_actual_empty_input_draft(self) -> None:
+        # C3-02: the zero terminal binds its actual frozen input draft by
+        # real bytes; a missing binding or a non-empty draft fails closed.
+        def no_draft_binding(workspace, state):
+            del state["surface_screen_input_path"]  # type: ignore[arg-type]
+            binding = state["surface_evidence_binding"]  # type: ignore[index]
+            del binding["artifact_sha256"][SURFACE_DRAFT_PATH]  # type: ignore[index]
+
+        def nonempty_draft(workspace, state):
+            self._write(workspace / SURFACE_DRAFT_PATH, _surface_payload(2))
+            binding = state["surface_evidence_binding"]  # type: ignore[index]
+            binding["artifact_sha256"][SURFACE_DRAFT_PATH] = hashlib.sha256(  # type: ignore[index]
+                (workspace / SURFACE_DRAFT_PATH).read_bytes()
+            ).hexdigest()
+
+        def draft_bytes_drift(workspace, state):
+            # Tampering with the bound draft bytes drifts the evidence
+            # binding even when the artifact set is otherwise intact.
+            path = workspace / SURFACE_DRAFT_PATH
+            draft = json.loads(path.read_text(encoding="utf-8"))
+            draft["rendered_briefing"] = "drifted"
+            path.write_bytes(surface_screen_result_check.canonical_bytes(draft))
+
+        for mutate in (no_draft_binding, nonempty_draft, draft_bytes_drift):
+            with self.subTest(mutate=mutate.__name__):
+                workspace, state, _ = self._workspace()
+                self._install_zero_terminal(workspace, state)
+                result = self._verify(workspace, state, mutate=mutate)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+
+    def test_whole_screen_terminal_must_cover_the_bound_draft_exactly(self) -> None:
+        # C3-02: for n<=80 the stage coverage must equal the unified frozen
+        # input draft exactly; rebinding to a different draft fails closed.
+        def rebound_draft(workspace, state):
+            self._write(workspace / SURFACE_DRAFT_PATH, _surface_payload(2))
+            binding = state["surface_evidence_binding"]  # type: ignore[index]
+            binding["artifact_sha256"][SURFACE_DRAFT_PATH] = hashlib.sha256(  # type: ignore[index]
+                (workspace / SURFACE_DRAFT_PATH).read_bytes()
+            ).hexdigest()
+
+        workspace, state, _ = self._workspace()
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=3)
+        result = self._verify(workspace, state, mutate=rebound_draft)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("does not cover exactly the frozen input draft workset", result.detail)
+
+    def _drift_draft_briefing(self, workspace: Path, state: dict[str, object]) -> None:
+        # C4-01 mutation: drift the only shared scalar that is not bound into
+        # entry_revision_identity (rendered_briefing), then rebind the
+        # evidence hash so only the payload-semantics comparison can catch it.
+        draft = json.loads((workspace / SURFACE_DRAFT_PATH).read_text(encoding="utf-8"))
+        draft["rendered_briefing"] = "drifted briefing"
+        self._write(workspace / SURFACE_DRAFT_PATH, draft)
+        binding = state["surface_evidence_binding"]  # type: ignore[index]
+        binding["artifact_sha256"][SURFACE_DRAFT_PATH] = hashlib.sha256(  # type: ignore[index]
+            (workspace / SURFACE_DRAFT_PATH).read_bytes()
+        ).hexdigest()
+
+    def test_full_terminal_binds_complete_draft_payload_semantics(self) -> None:
+        # C4-01: a full stage's envelope payload must equal the whole frozen
+        # input draft, not only its entry identity keys.
+        workspace, state, _ = self._workspace()
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2)
+        result = self._verify(workspace, state, mutate=self._drift_draft_briefing)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn(
+            "full surface envelope payload does not equal the frozen input draft",
+            result.detail,
+        )
+
+    def test_lane_terminal_binds_whole_workset_draft_projection(self) -> None:
+        # C4-01: a lane stage's manifest whole workset must equal the frozen
+        # input draft, including all shared scalars and the briefing.
+        workspace, state, _ = self._workspace()
+        self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=5)
+        result = self._verify(workspace, state, mutate=self._drift_draft_briefing)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn(
+            "lane group whole workset does not equal the frozen input draft",
+            result.detail,
+        )
+
+    def test_carry_terminal_binds_first80_projection_payload_semantics(self) -> None:
+        # C4-01: an n>80 stage must equal the exact canonical first-80
+        # projection of the frozen draft, including scalars and briefing.
+        workspace, state, _ = self._workspace()
+        full = _surface_payload(85)
+        screen, _ = surface_screen_manifest.split_carry_over(full["entries"])
+        stage_payload = {
+            "contract": "translation_surface_screen_v1", **SURFACE_SCALARS,
+            "rendered_briefing": "lane neutral", "entries": screen,
+        }
+        group, group_path, envelopes = surface_screen_manifest.build_group(
+            stage_payload, task_id=SURFACE_TASK, group_id="group-0-1",
+            review_phase="REVIEW", cycle=0, attempt=1,
+            dispatch_ids=[f"lane-0-1-{index}" for index in range(1, 5)],
+        )
+        self._write(workspace / group_path, group)
+        binding: dict[str, object] = {
+            "algorithm": "surface-evidence-binding/1",
+            "task_id": SURFACE_TASK,
+            "terminal": "whole_screen",
+            "artifact_sha256": {},
+        }
+        state["surface_evidence_binding"] = binding
+        locators: list[str] = []
+        for lane, boundary, (_, envelope) in zip(
+            group["payload"]["lanes"], group["payload"]["lane_boundaries"], envelopes,
+        ):
+            self._write(workspace / lane["input_path"], envelope)
+            raw = {
+                "contract": "translation_surface_screen_v1",
+                "candidate_identity": envelope["candidate_identity"],
+                "results": [
+                    {"entry_revision_identity": entry["entry_revision_identity"], "verdict": "OK"}
+                    for entry in envelope["payload"]["entries"]
+                ],
+            }
+            raw_path = f".ai/reviews/{SURFACE_TASK}/raw-{lane['dispatch_id']}.txt"
+            self._write(workspace / raw_path, raw)
+            lane_obj = {
+                "group_id": group["payload"]["group_id"],
+                "group_identity": group["group_identity"],
+                "group_manifest_path": group_path,
+                "index": boundary["index"], "count": 4,
+                "offset": boundary["offset"], "length": boundary["length"],
+            }
+            record: dict[str, object] = {
+                "task_id": SURFACE_TASK,
+                "review_contract": "translation_surface_screen_v1",
+                "review_phase": "REVIEW", "cycle": 0, "attempt": 1,
+                "reviewer_role": "REVIEWER",
+                "purpose": "translation_surface_screen_v1",
+                "dispatch_id": lane["dispatch_id"],
+                "agent_id": f"agent-{lane['dispatch_id']}",
+                "workspace_id": "surface-workspace",
+                "parent_agent_id": "agent-orchestrator",
+                "lineage_verified": True,
+                "result": "PASS", "review_kind": "lane",
+                "candidate_identity": envelope["candidate_identity"],
+                "input_path": lane["input_path"], "raw_output_path": raw_path,
+                "raw_output_sha256": hashlib.sha256(
+                    surface_screen_result_check.canonical_bytes(raw)
+                ).hexdigest(),
+                "lane": lane_obj,
+            }
+            dispatch: dict[str, object] = {
+                "dispatch_id": lane["dispatch_id"], "role": "REVIEWER",
+                "purpose": "translation_surface_screen_v1",
+                "agent_id": f"agent-{lane['dispatch_id']}",
+                "parent_agent_id": "agent-orchestrator",
+                "workspace_id": "surface-workspace", "lineage_verified": True,
+                "lifecycle": "archived", "archive_confirmed": True,
+                "candidate_identity": envelope["candidate_identity"],
+                "input_path": lane["input_path"],
+                "lane_group_identity": lane_obj["group_identity"],
+                "lane_index": lane_obj["index"],
+                "labels": {
+                    "task_id": SURFACE_TASK, "role": "reviewer",
+                    "purpose": "translation_surface_screen_v1",
+                    "candidate_identity": envelope["candidate_identity"],
+                    "dispatch_id": lane["dispatch_id"],
+                    "lane_group_identity": lane_obj["group_identity"],
+                    "lane_index": lane_obj["index"],
+                },
+            }
+            self._write(workspace / f"{lane['dispatch_id']}.json", record)
+            state["review_records"].append(f"{lane['dispatch_id']}.json")  # type: ignore[union-attr]
+            state["child_dispatches"].append(dispatch)  # type: ignore[union-attr]
+            locators.extend((lane["input_path"], raw_path))
+        self._write(workspace / SURFACE_DRAFT_PATH, full)
+        state["surface_screen_input_path"] = SURFACE_DRAFT_PATH
+        carry = surface_screen_manifest.build_carry_over_payload(
+            full, task_id=SURFACE_TASK)
+        carry_path = surface_screen_manifest.carry_over_artifact_path(SURFACE_TASK)
+        self._write(workspace / carry_path, carry)
+        state["surface_carry_over_path"] = carry_path
+        locators.extend((SURFACE_DRAFT_PATH, carry_path))
+        hashes = binding["artifact_sha256"]  # type: ignore[index]
+        for locator in locators:
+            hashes[locator] = hashlib.sha256(  # type: ignore[index]
+                (workspace / locator).read_bytes()
+            ).hexdigest()
+        result = self._verify(workspace, state, mutate=self._drift_draft_briefing)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn(
+            "lane group whole workset does not equal the frozen input draft",
+            result.detail,
+        )
+
+    def test_surface_retry_history_failed_then_success_is_done_verified(self) -> None:
+        # C3-05: a failed attempt followed by a fresh, higher-attempt
+        # successful stage is an honest terminal.
+        workspace, state, _ = self._workspace()
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2,
+            result="FINDINGS",
+        )
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=2, count=2,
+            result="PASS",
+        )
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "DONE_VERIFIED")
+
+    def test_surface_retry_attempts_must_be_monotonic_and_precede_success(self) -> None:
+        # C3-05: attempts must increase monotonically across the retry
+        # history, and every failed attempt must precede the successful
+        # stage.  Same attempt number at a higher cycle is not a fresh retry.
+        workspace, state, _ = self._workspace()
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2,
+            result="FINDINGS",
+        )
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=1, attempt=1, count=2,
+            result="PASS",
+        )
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("monotonically", result.detail)
+
+        workspace, state, _ = self._workspace()
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=2, count=2,
+            result="FINDINGS",
+        )
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2,
+            result="PASS",
+        )
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("must precede the successful stage", result.detail)
+
+    def _add_orphan_lane_group(
+        self,
+        workspace: Path,
+        state: dict[str, object],
+        *,
+        cycle: int,
+        attempt: int,
+        group_id: str,
+    ) -> tuple[str, str]:
+        """Persist one failed lane attempt as orphan children: the group
+        manifest and lane envelopes exist, the four children are archived
+        surface dispatches, but no completion record was ever published and
+        nothing enters the terminal evidence binding (C4-02)."""
+        group, group_path, envelopes = surface_screen_manifest.build_group(
+            _surface_payload(5), task_id=SURFACE_TASK, group_id=group_id,
+            review_phase="REVIEW", cycle=cycle, attempt=attempt,
+            dispatch_ids=[f"lane-{cycle}-{attempt}-{index}" for index in range(1, 5)],
+        )
+        self._write(workspace / group_path, group)
+        for lane, (_, envelope) in zip(group["payload"]["lanes"], envelopes):
+            self._write(workspace / lane["input_path"], envelope)
+            dispatch: dict[str, object] = {
+                "dispatch_id": lane["dispatch_id"], "role": "REVIEWER",
+                "purpose": "translation_surface_screen_v1",
+                "agent_id": f"agent-{lane['dispatch_id']}",
+                "parent_agent_id": "agent-orchestrator",
+                "workspace_id": "surface-workspace", "lineage_verified": True,
+                "lifecycle": "archived", "archive_confirmed": True,
+                "candidate_identity": envelope["candidate_identity"],
+                "input_path": lane["input_path"],
+                "lane_group_identity": group["group_identity"],
+                "lane_index": lane["index"],
+                "labels": {
+                    "task_id": SURFACE_TASK, "role": "reviewer",
+                    "purpose": "translation_surface_screen_v1",
+                    "candidate_identity": envelope["candidate_identity"],
+                    "dispatch_id": lane["dispatch_id"],
+                    "lane_group_identity": group["group_identity"],
+                    "lane_index": lane["index"],
+                },
+            }
+            state["child_dispatches"].append(dispatch)  # type: ignore[union-attr]
+        return group["group_identity"], group_path
+
+    def test_surface_orphan_failed_children_join_retry_history(self) -> None:
+        # C4-02: orphan failed surface children (dispatched, archived, no
+        # completion record) are part of the retry history.  A legal fresh
+        # retry after an orphaned attempt still verifies.
+        workspace, state, _ = self._workspace()
+        self._add_orphan_lane_group(
+            workspace, state, cycle=0, attempt=1, group_id="group-0-1",
+        )
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=2, count=5,
+        )
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "DONE_VERIFIED")
+
+    def test_surface_orphan_identity_reuse_fails_closed(self) -> None:
+        # C4-02: the successful stage must not reuse an orphan failed
+        # child's agent identity.
+        workspace, state, _ = self._workspace()
+        self._add_orphan_lane_group(
+            workspace, state, cycle=0, attempt=1, group_id="group-0-1",
+        )
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=2, count=2,
+        )
+        record_path = workspace / "review-0-2.json"
+        record = json.loads(record_path.read_text(encoding="utf-8"))
+        orphan_agent = "agent-lane-0-1-1"
+        record["agent_id"] = orphan_agent
+        self._write(record_path, record)
+        dispatch = state["child_dispatches"][-1]  # type: ignore[index]
+        dispatch["agent_id"] = orphan_agent
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn(
+            "must not reuse a failed attempt's dispatch/agent identity",
+            result.detail,
+        )
+
+    def test_surface_orphan_group_manifest_path_reuse_fails_closed(self) -> None:
+        # C4-02: reusing an orphan attempt's group_id (hence its group
+        # manifest path) destroys the manifest bound by the orphan's
+        # lane_group_identity and must fail closed.
+        workspace, state, _ = self._workspace()
+        group_identity, group_path = self._add_orphan_lane_group(
+            workspace, state, cycle=0, attempt=1, group_id="group-0-1",
+        )
+        payload = _surface_payload(5)
+        rewritten, rewritten_path, envelopes = surface_screen_manifest.build_group(
+            payload, task_id=SURFACE_TASK, group_id="group-0-1",
+            review_phase="REVIEW", cycle=0, attempt=2,
+            dispatch_ids=[f"lane-0-2-{index}" for index in range(1, 5)],
+        )
+        self.assertEqual(rewritten_path, group_path)
+        self.assertNotEqual(rewritten["group_identity"], group_identity)
+        self._write(workspace / rewritten_path, rewritten)
+        self._write(workspace / SURFACE_DRAFT_PATH, payload)
+        state["surface_screen_input_path"] = SURFACE_DRAFT_PATH
+        state["surface_evidence_binding"] = {
+            "algorithm": "surface-evidence-binding/1",
+            "task_id": SURFACE_TASK,
+            "terminal": "whole_screen",
+            "artifact_sha256": {
+                SURFACE_DRAFT_PATH: hashlib.sha256(
+                    (workspace / SURFACE_DRAFT_PATH).read_bytes()
+                ).hexdigest(),
+            },
+        }
+        for lane, boundary, (_, envelope) in zip(
+            rewritten["payload"]["lanes"], rewritten["payload"]["lane_boundaries"], envelopes,
+        ):
+            self._write(workspace / lane["input_path"], envelope)
+            raw = {
+                "contract": "translation_surface_screen_v1",
+                "candidate_identity": envelope["candidate_identity"],
+                "results": [
+                    {"entry_revision_identity": entry["entry_revision_identity"], "verdict": "OK"}
+                    for entry in envelope["payload"]["entries"]
+                ],
+            }
+            raw_path = f".ai/reviews/{SURFACE_TASK}/raw-{lane['dispatch_id']}.txt"
+            self._write(workspace / raw_path, raw)
+            lane_obj = {
+                "group_id": rewritten["payload"]["group_id"],
+                "group_identity": rewritten["group_identity"],
+                "group_manifest_path": rewritten_path,
+                "index": boundary["index"], "count": 4,
+                "offset": boundary["offset"], "length": boundary["length"],
+            }
+            record: dict[str, object] = {
+                "task_id": SURFACE_TASK,
+                "review_contract": "translation_surface_screen_v1",
+                "review_phase": "REVIEW", "cycle": 0, "attempt": 2,
+                "reviewer_role": "REVIEWER",
+                "purpose": "translation_surface_screen_v1",
+                "dispatch_id": lane["dispatch_id"],
+                "agent_id": f"agent-{lane['dispatch_id']}",
+                "workspace_id": "surface-workspace",
+                "parent_agent_id": "agent-orchestrator",
+                "lineage_verified": True,
+                "result": "PASS", "review_kind": "lane",
+                "candidate_identity": envelope["candidate_identity"],
+                "input_path": lane["input_path"], "raw_output_path": raw_path,
+                "raw_output_sha256": hashlib.sha256(
+                    surface_screen_result_check.canonical_bytes(raw)
+                ).hexdigest(),
+                "lane": lane_obj,
+            }
+            dispatch: dict[str, object] = {
+                "dispatch_id": lane["dispatch_id"], "role": "REVIEWER",
+                "purpose": "translation_surface_screen_v1",
+                "agent_id": f"agent-{lane['dispatch_id']}",
+                "parent_agent_id": "agent-orchestrator",
+                "workspace_id": "surface-workspace", "lineage_verified": True,
+                "lifecycle": "archived", "archive_confirmed": True,
+                "candidate_identity": envelope["candidate_identity"],
+                "input_path": lane["input_path"],
+                "lane_group_identity": lane_obj["group_identity"],
+                "lane_index": lane_obj["index"],
+                "labels": {
+                    "task_id": SURFACE_TASK, "role": "reviewer",
+                    "purpose": "translation_surface_screen_v1",
+                    "candidate_identity": envelope["candidate_identity"],
+                    "dispatch_id": lane["dispatch_id"],
+                    "lane_group_identity": lane_obj["group_identity"],
+                    "lane_index": lane_obj["index"],
+                },
+            }
+            self._write(workspace / f"{lane['dispatch_id']}.json", record)
+            state["review_records"].append(f"{lane['dispatch_id']}.json")  # type: ignore[union-attr]
+            state["child_dispatches"].append(dispatch)  # type: ignore[union-attr]
+            state["surface_evidence_binding"]["artifact_sha256"][lane["input_path"]] = hashlib.sha256(  # type: ignore[index]
+                (workspace / str(lane["input_path"])).read_bytes()
+            ).hexdigest()
+            state["surface_evidence_binding"]["artifact_sha256"][raw_path] = hashlib.sha256(  # type: ignore[index]
+                (workspace / raw_path).read_bytes()
+            ).hexdigest()
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("cannot be located by its bound lane_group_identity", result.detail)
+
+    def test_surface_orphan_attempt_must_precede_success(self) -> None:
+        # C4-02: an orphan attempt numbered above the successful stage is a
+        # non-monotonic retry history and fails closed.
+        workspace, state, _ = self._workspace()
+        self._add_orphan_lane_group(
+            workspace, state, cycle=0, attempt=2, group_id="group-0-2",
+        )
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=1, count=5,
+        )
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("must precede the successful stage", result.detail)
+
+    def test_surface_retry_all_failed_history_cannot_close(self) -> None:
+        workspace, state, _ = self._workspace()
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2,
+            result="FINDINGS",
+        )
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn("without a successful terminal stage", result.detail)
+
+    def test_surface_retry_identity_freshness_predicate(self) -> None:
+        # C3-05: unit probe of the retry-history predicate — no failed child
+        # identity (dispatch, agent, group) may be reused.
+        def retry_record(result, attempt, dispatch, agent, lane=None):
+            record = {
+                "result": result, "cycle": 0, "attempt": attempt,
+                "dispatch_id": dispatch, "agent_id": agent,
+            }
+            if lane is not None:
+                record["lane"] = lane
+            return record
+
+        def bind(items):
+            return [(record, {}, Path("record.json")) for record in items]
+
+        lane_failed = {
+            "group_id": "group-a", "group_identity": "identity-a",
+            "group_manifest_path": ".ai/task/t/SURFACE-SCREEN-GROUP-group-a.json",
+            "index": 1, "count": 4, "offset": 0, "length": 1,
+        }
+        lane_success_same_group = {
+            **lane_failed, "group_identity": "identity-b",
+            "group_manifest_path": ".ai/task/t/SURFACE-SCREEN-GROUP-group-b.json",
+        }
+        failed = [retry_record("CHANGES_REQUIRED", 1, "dispatch-1", "agent-1")]
+        success = [retry_record("PASS", 2, "dispatch-2", "agent-2")]
+        ok = ai_state_check._surface_retry_history_valid(
+            {}, bind(failed), bind(success))
+        self.assertTrue(ok[0])
+        reused_dispatch = [retry_record("PASS", 2, "dispatch-1", "agent-2")]
+        outcome = ai_state_check._surface_retry_history_valid(
+            {}, bind(failed), bind(reused_dispatch))
+        self.assertIn("must not reuse a failed attempt's", outcome[1])
+        reused_agent = [retry_record("PASS", 2, "dispatch-2", "agent-1")]
+        outcome = ai_state_check._surface_retry_history_valid(
+            {}, bind(failed), bind(reused_agent))
+        self.assertIn("must not reuse a failed attempt's", outcome[1])
+        failed_lane = [retry_record("CHANGES_REQUIRED", 1, "dispatch-1", "agent-1", lane=lane_failed)]
+        success_lane = [retry_record("PASS", 2, "dispatch-2", "agent-2", lane=lane_success_same_group)]
+        outcome = ai_state_check._surface_retry_history_valid(
+            {}, bind(failed_lane), bind(success_lane))
+        self.assertIn("must not reuse a failed attempt's lane group", outcome[1])
+        duplicate_failed = [
+            retry_record("CHANGES_REQUIRED", 1, "dispatch-1", "agent-1"),
+            retry_record("FINDINGS", 2, "dispatch-2", "agent-1"),
+        ]
+        fresh_success = [retry_record("PASS", 3, "dispatch-3", "agent-3")]
+        outcome = ai_state_check._surface_retry_history_valid(
+            {}, bind(duplicate_failed), bind(fresh_success))
+        self.assertIn("fresh dispatch/agent identities", outcome[1])
+        failed_after_success = [retry_record("CHANGES_REQUIRED", 3, "dispatch-3", "agent-3")]
+        outcome = ai_state_check._surface_retry_history_valid(
+            {}, bind(success + failed_after_success), bind(success))
+        self.assertIn("must precede the successful stage", outcome[1])
+
+    def test_surface_retry_failed_lane_stage_members_share_one_group_tuple(self):
+        # C5-01 (positive half): the four members of one failed lane stage
+        # may share one group tuple; a fresh successful stage still closes.
+        def retry_record(result, attempt, dispatch, agent, lane=None):
+            record = {
+                "result": result, "cycle": 0, "attempt": attempt,
+                "dispatch_id": dispatch, "agent_id": agent,
+            }
+            if lane is not None:
+                record["lane"] = lane
+            return record
+
+        def bind(items):
+            return [(record, {}, Path("record.json")) for record in items]
+
+        group_tuple = {
+            "group_id": "group-a", "group_identity": "identity-a",
+            "group_manifest_path": ".ai/task/t/SURFACE-SCREEN-GROUP-group-a.json",
+        }
+        failed_stage = [
+            retry_record("FINDINGS", 1, f"dispatch-1-{index}", f"agent-1-{index}",
+                         lane={**group_tuple, "index": index, "count": 4,
+                              "offset": index - 1, "length": 1})
+            for index in range(1, 5)
+        ]
+        success = [retry_record("PASS", 2, "dispatch-2", "agent-2")]
+        ok = ai_state_check._surface_retry_history_valid(
+            {}, bind(failed_stage), bind(success))
+        self.assertTrue(ok[0])
+
+    def test_surface_retry_failed_stage_group_reuse_is_rejected(self):
+        # C5-01 (negative half): group_id, group_identity, and
+        # group_manifest_path must each stay fresh between two distinct
+        # failed stages; reusing any one of them fails closed.
+        def retry_record(result, attempt, dispatch, agent, lane=None):
+            record = {
+                "result": result, "cycle": 0, "attempt": attempt,
+                "dispatch_id": dispatch, "agent_id": agent,
+            }
+            if lane is not None:
+                record["lane"] = lane
+            return record
+
+        def bind(items):
+            return [(record, {}, Path("record.json")) for record in items]
+
+        stage_one_tuple = {
+            "group_id": "group-a", "group_identity": "identity-a",
+            "group_manifest_path": ".ai/task/t/SURFACE-SCREEN-GROUP-group-a.json",
+        }
+        stage_one = [
+            retry_record("FINDINGS", 1, f"dispatch-1-{index}", f"agent-1-{index}",
+                         lane={**stage_one_tuple, "index": index, "count": 4,
+                               "offset": index - 1, "length": 1})
+            for index in range(1, 5)
+        ]
+        success = [retry_record("PASS", 3, "dispatch-3", "agent-3")]
+        for reused_key in ("group_id", "group_identity", "group_manifest_path"):
+            stage_two_tuple = {
+                "group_id": "group-b", "group_identity": "identity-b",
+                "group_manifest_path": ".ai/task/t/SURFACE-SCREEN-GROUP-group-b.json",
+            }
+            stage_two_tuple[reused_key] = stage_one_tuple[reused_key]
+            stage_two = [
+                retry_record("CHANGES_REQUIRED", 2, f"dispatch-2-{index}",
+                             f"agent-2-{index}",
+                             lane={**stage_two_tuple, "index": index, "count": 4,
+                                   "offset": index - 1, "length": 1})
+                for index in range(1, 5)
+            ]
+            with self.subTest(reused_key=reused_key):
+                outcome = ai_state_check._surface_retry_history_valid(
+                    {}, bind(stage_one + stage_two), bind(success))
+                self.assertFalse(outcome[0])
+                self.assertIn(
+                    "must not reuse an earlier failed attempt's lane group",
+                    outcome[1],
+                )
+
+    def test_surface_failed_stage_group_reuse_fails_closed(self):
+        # C5-01 (file-backed): two distinct failed lane stages reusing one
+        # group tuple fail closed even though a fresh successful stage
+        # follows; sharing within one failed stage stays legal.
+        workspace, state, _ = self._workspace()
+        first = self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=1, count=5,
+            result="FINDINGS",
+        )
+        second = self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=2, count=5,
+            result="FINDINGS",
+        )
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=3, count=5,
+            result="PASS",
+        )
+        first_lane = first[0]["lane"]
+        assert isinstance(first_lane, dict)
+        for record in second:
+            lane = record["lane"]
+            assert isinstance(lane, dict)
+            lane["group_id"] = first_lane["group_id"]
+            lane["group_identity"] = first_lane["group_identity"]
+            lane["group_manifest_path"] = first_lane["group_manifest_path"]
+            self._write(workspace / f"{record['dispatch_id']}.json", record)
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn(
+            "must not reuse an earlier failed attempt's lane group", result.detail,
+        )
+
+    def test_surface_failed_stage_reusing_orphan_group_fails_closed(self):
+        # C5-01: a failed record stage must not reuse an orphan failed
+        # attempt's group_id/group_identity/group manifest path either.
+        workspace, state, _ = self._workspace()
+        group_identity, group_path = self._add_orphan_lane_group(
+            workspace, state, cycle=0, attempt=1, group_id="group-0-1",
+        )
+        second = self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=2, count=5,
+            result="FINDINGS",
+        )
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=3, count=5,
+            result="PASS",
+        )
+        for record in second:
+            lane = record["lane"]
+            assert isinstance(lane, dict)
+            lane["group_id"] = "group-0-1"
+            lane["group_identity"] = group_identity
+            lane["group_manifest_path"] = group_path
+            self._write(workspace / f"{record['dispatch_id']}.json", record)
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+        self.assertIn(
+            "must not reuse an earlier failed attempt's lane group", result.detail,
+        )
+
+    def test_surface_partially_orphaned_failed_stage_then_success(self):
+        # SR-01 regression: one legal failed stage (cycle 0, attempt 1) whose
+        # four members share one group tuple but split across the
+        # orphan/record boundary — three FINDINGS records plus one orphan
+        # lane child — followed by a fresh successful stage must verify.
+        # The orphan and record-bound members claim their shared group tuple
+        # in one per-stage map; treating them as two distinct stages (and so
+        # rejecting the legal stage as cross-stage group reuse) fails closed
+        # is the bug this test pins.
+        workspace, state, _ = self._workspace()
+        group_identity, group_path = self._add_orphan_lane_group(
+            workspace, state, cycle=0, attempt=1, group_id="group-0-1",
+        )
+        manifest = json.loads((workspace / group_path).read_text(encoding="utf-8"))
+        boundaries = manifest["payload"]["lane_boundaries"]
+        failed_records: list[dict[str, object]] = []
+        for lane in manifest["payload"]["lanes"][:3]:
+            envelope = json.loads(
+                (workspace / str(lane["input_path"])).read_text(encoding="utf-8")
+            )
+            boundary = next(b for b in boundaries if b["index"] == lane["index"])
+            lane_obj = {
+                "group_id": manifest["payload"]["group_id"],
+                "group_identity": group_identity,
+                "group_manifest_path": group_path,
+                "index": boundary["index"], "count": 4,
+                "offset": boundary["offset"], "length": boundary["length"],
+            }
+            raw = {
+                "contract": "translation_surface_screen_v1",
+                "candidate_identity": envelope["candidate_identity"],
+                "results": [
+                    {"entry_revision_identity": entry["entry_revision_identity"], "verdict": "OK"}
+                    for entry in envelope["payload"]["entries"]
+                ],
+            }
+            raw_path = f".ai/reviews/{SURFACE_TASK}/raw-{lane['dispatch_id']}.txt"
+            self._write(workspace / raw_path, raw)
+            record: dict[str, object] = {
+                "task_id": SURFACE_TASK,
+                "review_contract": "translation_surface_screen_v1",
+                "review_phase": "REVIEW", "cycle": 0, "attempt": 1,
+                "reviewer_role": "REVIEWER",
+                "purpose": "translation_surface_screen_v1",
+                "dispatch_id": lane["dispatch_id"],
+                "agent_id": f"agent-{lane['dispatch_id']}",
+                "workspace_id": "surface-workspace",
+                "parent_agent_id": "agent-orchestrator",
+                "lineage_verified": True,
+                "result": "FINDINGS", "review_kind": "lane",
+                "candidate_identity": envelope["candidate_identity"],
+                "input_path": lane["input_path"], "raw_output_path": raw_path,
+                "raw_output_sha256": hashlib.sha256(
+                    surface_screen_result_check.canonical_bytes(raw)
+                ).hexdigest(),
+                "lane": lane_obj,
+            }
+            record_file = workspace / f"{lane['dispatch_id']}.json"
+            self._write(record_file, record)
+            state["review_records"].append(  # type: ignore[union-attr]
+                str(record_file.relative_to(workspace))
+            )
+            failed_records.append(record)
+        # The exact whole-screen evidence map covers every dispatch-bound
+        # record (failed and successful); the orphan member has no record and
+        # stays out of the binding.
+        self._bind_whole_screen(workspace, state, failed_records)
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=2, count=5,
+        )
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "DONE_VERIFIED")
+
+    def test_surface_purpose_relabeling_cannot_hide_orphan_children(self):
+        # C5-02: deleting or relabeling an orphan surface child's purpose
+        # cannot remove it from the retry history: the persisted
+        # lane_group_identity, or the canonical task-derived SURFACE-SCREEN
+        # input path, still identifies it, so identity reuse fails closed.
+        def relabel_children(workspace: Path, state: dict[str, object]) -> None:
+            for dispatch in state["child_dispatches"]:  # type: ignore[type-var, union-attr]
+                if str(dispatch["dispatch_id"]).startswith("lane-0-1-"):
+                    dispatch["purpose"] = "translation_contextual_v1"  # type: ignore[index]
+
+        def strip_children(workspace: Path, state: dict[str, object]) -> None:
+            for dispatch in state["child_dispatches"]:  # type: ignore[type-var, union-attr]
+                if str(dispatch["dispatch_id"]).startswith("lane-0-1-"):
+                    dispatch.pop("purpose", None)
+                    dispatch.pop("lane_group_identity", None)
+                    labels = dispatch["labels"]
+                    assert isinstance(labels, dict)
+                    labels.pop("purpose", None)
+                    labels.pop("lane_group_identity", None)
+                    labels.pop("lane_index", None)
+
+        for mutate in (relabel_children, strip_children):
+            with self.subTest(mutate=mutate.__name__):
+                workspace, state, _ = self._workspace()
+                self._add_orphan_lane_group(
+                    workspace, state, cycle=0, attempt=1, group_id="group-0-1",
+                )
+                self._add_surface_stage(
+                    workspace, state, phase="REVIEW", cycle=0, attempt=2, count=5,
+                )
+                mutate(workspace, state)
+                orphan_agent = "agent-lane-0-1-1"
+                record_path = workspace / "lane-0-2-1.json"
+                record = json.loads(record_path.read_text(encoding="utf-8"))
+                record["agent_id"] = orphan_agent
+                self._write(record_path, record)
+                dispatch = next(
+                    item for item in state["child_dispatches"]  # type: ignore[union-attr]
+                    if item["dispatch_id"] == "lane-0-2-1"  # type: ignore[index]
+                )
+                dispatch["agent_id"] = orphan_agent
+                result = self._verify(workspace, state)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+                self.assertIn(
+                    "must not reuse a failed attempt's dispatch/agent identity",
+                    result.detail,
+                )
+
+    def test_surface_orphan_inference_stays_bounded(self):
+        # C5-02: the orphan inference never becomes a generalized heuristic —
+        # a purpose-less child with a non-canonical input path and no
+        # persisted lane_group_identity is not a surface orphan.
+        workspace, state, _ = self._workspace()
+        self._add_surface_stage(
+            workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2,
+        )
+        state["child_dispatches"].append({  # type: ignore[union-attr]
+            "dispatch_id": "unrelated-1", "role": "REVIEWER",
+            "agent_id": "agent-unrelated-1",
+            "parent_agent_id": "agent-orchestrator",
+            "workspace_id": "surface-workspace", "lineage_verified": True,
+            "lifecycle": "archived", "archive_confirmed": True,
+            "input_path": ".ai/task/other-task/SURFACE-SCREEN-ENVELOPE-unrelated-1.json",
+        })
+        result = self._verify(workspace, state)
+        self.assertEqual(result.outcome, "DONE_VERIFIED")
+
+    def test_stop_record_loader_handles_each_path_independently(self):
+        # C5-03: unit probe of the tolerant STOP loader — one unavailable,
+        # malformed, or non-object locator must not discard the other
+        # records; every valid record is retained.
+        workspace, state, _ = self._workspace()
+        good = workspace / "good.json"
+        self._write(good, {"purpose": "translation_surface_screen_v1"})
+        broken = workspace / "broken.json"
+        broken.write_text("{", encoding="utf-8")
+        non_object = workspace / "non-object.json"
+        self._write(non_object, [{"ordinary": "value"}])
+        state["review_records"] = [
+            "missing.json",
+            str(broken.relative_to(workspace)),
+            str(good.relative_to(workspace)),
+            str(non_object.relative_to(workspace)),
+        ]
+        state["senior_review_records"] = ["also-missing.json"]
+        loaded = ai_state_check._load_records_for_stop(state, root=workspace)
+        self.assertEqual(
+            [record.get("purpose") for record, _ in loaded],
+            ["translation_surface_screen_v1"],
+        )
+
+    def test_stop_bad_record_path_cannot_hide_surface_records(self):
+        # C5-03 (file-backed): with every non-record surface signal removed
+        # (relabeled children, no terminal bindings), the persisted surface
+        # completion records are the only surface activity left — a broken
+        # unrelated record path before them must not let STOP close.
+        def broken_paths_first(workspace: Path, state: dict[str, object]) -> None:
+            broken = Path("broken-records")
+            (workspace / broken).mkdir(exist_ok=True)
+            (workspace / broken / "invalid.json").write_text("{", encoding="utf-8")
+            (workspace / broken / "non-object.json").write_bytes(
+                surface_screen_result_check.canonical_bytes(["list"])
+            )
+            records = state["review_records"]
+            assert isinstance(records, list)
+            state["review_records"] = [
+                str(broken / "missing.json"),
+                str(broken / "invalid.json"),
+                str(broken / "non-object.json"),
+                *records,
+            ]
+
+        def broken_paths_last(workspace: Path, state: dict[str, object]) -> None:
+            broken = Path("broken-records")
+            (workspace / broken).mkdir(exist_ok=True)
+            (workspace / broken / "invalid.json").write_text("{", encoding="utf-8")
+            records = state["review_records"]
+            assert isinstance(records, list)
+            state["review_records"] = [
+                *records,
+                str(broken / "missing.json"),
+                str(broken / "invalid.json"),
+            ]
+
+        for mutate in (broken_paths_first, broken_paths_last):
+            with self.subTest(mutate=mutate.__name__):
+                workspace, state, _ = self._workspace()
+                self._add_surface_stage(
+                    workspace, state, phase="REVIEW", cycle=0, attempt=1, count=2,
+                )
+                state["state"] = "STOP"
+                for dispatch in state["child_dispatches"]:  # type: ignore[type-var, union-attr]
+                    dispatch["purpose"] = "translation_contextual_v1"  # type: ignore[index]
+                    labels = dispatch["labels"]
+                    assert isinstance(labels, dict)
+                    labels["purpose"] = "translation_contextual_v1"
+                state.pop("surface_screen_input_path")
+                state.pop("surface_evidence_binding")
+                mutate(workspace, state)
+                result = self._verify(workspace, state)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED")
+                self.assertIn(
+                    "STOP cannot close a dispatched surface screen", result.detail,
+                )
 
 
 def load_tests(loader, tests, pattern):

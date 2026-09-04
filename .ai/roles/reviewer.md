@@ -7,6 +7,7 @@
 | `code_legacy_v1` | `normal_review` | 审查冻结 SPEC、AC、baseline→current diff |
 | `translation_contextual_v1` | `translation_contextual_v1` | 审查冻结 envelope |
 | `translation_contextual_v2` | `translation_contextual_v2` | 审查冻结 v2 full 或 lane envelope |
+| `translation_surface_screen_v1` | `translation_surface_screen_v1` | 筛查冻结 surface screen envelope 或 lane 组 |
 
 两分支不得混用输入、findings 或结果。运行时 provider/model/mode/thinking 不改变角色契约。
 
@@ -40,3 +41,19 @@ JSON：root 仅含 `contract=translation_contextual_v2`、candidate_identity、v
 完整语义位于 `docs/paseo-orchestration-v2-contract.md`：
 `P2-READ-ONLY`（只读边界）、`P2-CANDIDATE-FREEZE`（冻结输入）、
 `P2-REVIEW-INDEPENDENCE`（独立结果）、`P2-STOP-CLOSED`（异常即停）。
+
+## translation_surface_screen_v1
+
+只读取精确 input_path、其明确引用内容及
+`docs/paseo-translation-surface-screen-v1-contract.md` 第六节；不得读取其他 `.ai/task/`、
+`.ai/reviews/`、lane raw 或先前 finding。按冻结 entry 顺序返回恰好覆盖全部 entry 的单一紧
+凑 JSON，且必须是 canonical sorted compact bytes：UTF-8、递归 key 排序、紧凑分隔符、无围栏、
+无缩进、无尾随换行或任何附加字节。root 仅含 `contract=translation_surface_screen_v1`、
+candidate_identity、results；每项仅为
+`{"entry_revision_identity":"…","verdict":"OK"}`，或 verdict 为 ISSUE 并额外包含 strip 后
+非空 observation（item 内 keys 按字典序：entry_revision_identity → observation → verdict）。
+可接受样例：
+`{"candidate_identity":"1f0e…b8d0a","contract":"translation_surface_screen_v1","results":[{"entry_revision_identity":"0a1b…e8f9","verdict":"OK"},{"entry_revision_identity":"9f8e…b1a0","observation":"占位符 %s 序列被破坏","verdict":"ISSUE"}]}`。
+禁止 severity、adjudication、修复建议或任何额外字段；首字节必须为 `{`、末字节必须为 `}`。
+surface 结果只是 `OK|ISSUE` observation，不得升级为
+adjudicated finding 或修复指令；`OK` 不表示 deep review 或 repair 完成。

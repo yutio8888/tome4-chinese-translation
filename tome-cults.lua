@@ -2962,7 +2962,7 @@ t([[Each time an enemy takes damage from Dark Whispers, there is a %d%% chance f
 		A target cannot have more than one hallucination at a time.]], [[每次敌人受到黑暗低语的伤害时，有 %d%% 几率在相邻格子中产生持续 %d 回合的幻象。幻象不能行动，但被影响的敌人在幻象被击杀前造成的伤害降低 %d%%。
 		同一敌人同时只能产生一个幻象。]], "tformat")
 t("Sanity Warp", "失智冲击", "talent name")
-t("When a hallucination from Hideous Visions is slain, it unleashes a psychic shriek dealing %0.2f darkness damage to enemies in radius %d.", "每当幻象被消灭时，它将释放心灵冲击，对 %d 格内的敌人造成 %0.2f 暗影伤害。", "tformat", {2,1})
+t("When a hallucination from Hideous Visions is slain, it unleashes a psychic shriek dealing %0.2f darkness damage to enemies in radius %d.", "每当“惊骇幻象”产生的幻象被消灭时，它将释放心灵冲击，对 %d 格内的敌人造成 %0.2f 暗影伤害。", "tformat", {2,1})
 t("Cacophony", "心灵尖啸", "talent name")
 t("Raise your Dark Whispers in radius %d to a deafening crescendo for %d turns, applying another stack and drowning out all thought. \n\t\t\tTargets afflicted by Dark Whispers will have 20%% higher chance to spawn hallucinations, and each time they take damage from your Dark Whispers or Sanity Warp they will take an additional %d%% damage as temporal damage.\n\t\tThe damage will improve with your Spellpower.", [[ 使 %d 格内的黑暗低语音量提升 %d 回合，达到震耳欲聋的地步，额外施加一层低语效果，同时干扰一切思考能力。
 		被黑暗低语影响的目标产生幻象的几率增加 20%%，每次受到黑暗低语或失智冲击的伤害时，会受到额外 %d%% 时空伤害。
@@ -3095,7 +3095,7 @@ t("You must target a void rift.", "你必须瞄准虚空裂隙。", "logPlayer")
 t("%s's space-time folding fizzles!", "%s的时空折叠失败了！", "logSeen")
 t("%s emerges from a space-time rift!", "%s从时空裂隙中出现！", "logSeen")
 t([[You briefly open a tunnel through spacetime, teleporting to a void rift in range %d. This destroys the rift, granting you a shield for %d turns absorbing %d damage.
-		The damage absorbed will scale with your Spellpower]], [[你短暂地在时空中打开一个通道 , 传送到范围 %d 内的一个虚空裂隙。这将摧毁那个虚空裂隙，使你获得一个护盾，吸收 %d 点伤害，持续 %d 回合。
+		The damage absorbed will scale with your Spellpower]], [[你短暂地在时空中打开一个通道，传送到范围 %d 内的一个虚空裂隙。这将摧毁那个虚空裂隙，使你获得一个护盾，吸收 %d 点伤害，持续 %d 回合。
 		护盾吸收的伤害随法术强度提高而提高。]], "tformat", {1,3,2})
 t("Pierce the Veil", "刺破境界", "talent name")
 t("nether breach", "彼世裂隙", "_t")
@@ -3369,7 +3369,7 @@ section "tome-cults/data/talents/misc/misc.lua"
 
 t("glass golem", "玻璃傀儡", "_t")
 t("Self-destruction", "自爆", "talent name")
-t("Self destruct in a glorious explosion of gore dealing %0.2f blight damage to all enemies in %d radius.  Your summoner must be dead to use this talent.", "自爆成一团光荣的血肉，对周围 %d 码半径内所有敌人造成 %0.2f 枯萎伤害。这个技能只有主人死亡时能够使用。", "tformat", {2,1})
+t("Self destruct in a glorious explosion of gore dealing %0.2f blight damage to all enemies in %d radius.  Your summoner must be dead to use this talent.", "自爆成一团光荣的血肉，对半径 %d 格范围内的所有敌人造成 %0.2f 枯萎伤害。这个技能只有主人死亡时能够使用。", "tformat", {2,1})
 t("Teleport: Kroshkkur", "传送: 克诺什库尔", "talent name")
 t("#CRIMSON#Kroshkkur is destroyed, there is nothing to teleport to.", "#CRIMSON#克诺什库尔被摧毁了，无法传送到那里。", "logPlayer")
 t("The spell fizzles...", "法术失败了...", "logPlayer")
@@ -3494,11 +3494,12 @@ t([[Since ziguranth removed those filthy magic runes from your body you have nee
 
 		Changing your aspect requires combat experience, you may only do so after slaying 100 enemies (current %d).
 
-		When you learn this talent you become so strong you can wield any type of one handed weapon in your offhand.]], [[ 伊格除去了你身体内部肮脏的魔法符文，并改用龙血提供能量维持你的身体。
+		When you learn this talent you become so strong you can wield any type of one handed weapon in your offhand.]], [[伊格兰斯除去了你身体内部肮脏的魔法符文，此后你需要另一种力量来维持你的身体。多亏了龙血，你找到了这种力量。
 		龙血强化了你，使你获得 %d%% 震慑抗性， %d%% %s 伤害抗性， %d %s 近战附加伤害。
-		你可以主动开启该技能来改变龙力类型，进而改变相应元素。
+		你可以主动开启该技能来改变龙血类型，进而改变相应元素。
 		抗性和附加伤害受意志值加成。
-		改变类型需要战斗经验，你必须杀死 100 生物后才能使用（当前 %d ）。
+
+		改变龙血类型需要战斗经验，你必须杀死 100 个敌人后才能使用（当前 %d ）。
 
 		当你学会该技能时，你变得如此强大，以至于能双持任何单手武器。]], "tformat", {1,3,2,4,5,6})
 t("Fuel Pain", "升华痛苦", "talent name")

@@ -48,6 +48,28 @@ UTF-8 bytes 硬门禁；该门禁逐条适用于 full、closure、lane 和 FINAL
 不得把字段缺失当作可接受。四个 contextual lane member 合为一个 stage/cycle，与旧式
 `4-lane/max_cycles=10` 规则无关。
 
+新建的 `translation_surface_screen_v1` task 是 review_only，使用 schema 5 和
+`P2-TRANSLATION-SURFACE-V1`，
+契约见 `docs/paseo-translation-surface-screen-v1-contract.md`。冻结并按 canonical
+entry_revision_identity 排序后执行 batching：n=0 不 dispatch，改落盘 canonical 零项 artifact
+`SURFACE-SCREEN-ZERO.json` 证明未发生任何 surface dispatch；1..3 用单一
+full envelope；4..80 冻结四个 contiguous q/r lane 及权威
+`SURFACE-SCREEN-GROUP-<group_id>.json`；n>80 fail closed，必须先用
+`split_carry_over` 在 manifest 构造前形成并落盘 canonical pre-manifest carry-over artifact
+`SURFACE-SCREEN-CARRY-OVER.json`（绑定原始有序 workset、first-80 screen 集、剩余有序
+carry-over、计数与算法版本），且 carry-over 绝不得记为
+完成。四条 lane record 只能整组发布，partial publication 不得当作完成；任一失败归档全组
+并以更高 attempt fresh retry。每个接受的 record 都持久化 exact raw bytes 与
+`raw_output_sha256`，并显式保存与 STATE/dispatch 相等的 workspace_id、parent_agent_id 和
+literal `lineage_verified=true`，由 strict validator 重算双层 entry identity。surface 结果只产
+`OK|ISSUE` observation：ORCHESTRATOR 裁决前它不是 finding，`OK` 不是 deep review 或
+repair 完成；长期 entry-revision 状态由 append-only ledger 工具独立校验——每条迁移携带封闭
+机器 reason_code 与不可变 snapshot/handoff provenance，invalidation 只接受身份变化原因，
+偏好不得 reopen——禁止从
+provider/model 推断覆盖。surface terminal 只记录 surface completion：恰一个成功
+`REVIEW/full` 或 `REVIEW/lane_group` stage（或零项 artifact）即终止，不借用 contextual 的
+implement 收敛；已 dispatch 的 surface 不能用 STOP 关闭。
+
 Before freezing or hashing a translation_contextual_v1 payload, ORCHESTRATOR must run the deterministic offline contextual-anchor preflight with the task-scoped `.ai/task/<task_id>/SCOPE.json` and the exact seven-key draft payload.
 The identical preflight is mandatory before freezing or hashing a translation_contextual_v2 full-workset draft; an unknown contextual contract still fails closed.
 The task-scoped SCOPE.json must declare only workspace-relative ordinary allowed files plus file, section_path, and ordered actual chapter-title anchors; unsafe, duplicate, missing, or ambiguous declarations fail closed.
@@ -107,7 +129,8 @@ The preflight requires each translation_snapshot entry whose matching in-window 
 `P2-HARVEST-ARCHIVE`（收获后归档）、`P2-FRESH-RETRY`（fresh replacement）、
 `P2-RECOVERY`（三段 fail-closed 恢复）、`P2-STOP-CLOSED`（WAIT_USER/DONE/STOP 闭合）、
 `P2-TRANSLATION-CONVERGENCE`（schema 4 译文三阶段收敛）、
-`P2-TRANSLATION-CONTEXT-V2`（schema 5 compact lane/full 收敛）。
+`P2-TRANSLATION-CONTEXT-V2`（schema 5 compact lane/full 收敛）、
+`P2-TRANSLATION-SURFACE-V1`（schema 5 surface screen 筛查与 ledger）。
 
 任何唯一性、lineage、候选绑定、只读、live identity、归档状态或范围无法核验，均停止消费该
 输出并按主契约进入 `WAIT_USER`；不得用 memory、profile/title、旧 STATE 或启发式补事实。
