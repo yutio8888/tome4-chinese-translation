@@ -84,6 +84,7 @@ ITEM_SOURCES = {
     "Brilliant Auto-loading Orc Expeller",
     "voratun", "iron", "steel", "open door", "trap",
     "power",  # 物品词缀语境（of power 能量之）与 orcs entity subtype
+    "cleansing ", "cleansing", "cleanse",  # 核心装备 ego 名称与 short_key
 }
 # 生物类 source
 CREATURE_SOURCES = {

@@ -1102,6 +1102,9 @@ class DomainAnnotationTests(unittest.TestCase):
             "steel": "items",
             "open door": "items",
             "trap": "items",
+            "cleansing ": "items",
+            "cleansing": "items",
+            "cleanse": "items",
             "corrupted": "creatures",
             "steamtech": "creatures",
             "multi-hued": "creatures",
@@ -1122,7 +1125,7 @@ class DomainAnnotationTests(unittest.TestCase):
         self.assertEqual(actual, expected)
         self.assertEqual(report["unmapped_count"], 0)
         self.assertEqual(report["declared_domain_mismatch_count"], 0)
-        self.assertEqual(sum(report["counts"].values()), 12)
+        self.assertEqual(sum(report["counts"].values()), 15)
         self.assertIs(report["ok"], True)
         self.assertEqual(stderr, "")
         self.assertEqual(alarm_calls, [call(60), call(0)])
@@ -1231,8 +1234,8 @@ class DomainAnnotationTests(unittest.TestCase):
         )
         report = json.loads(report_path.read_text(encoding="utf-8"))
         self.assertEqual(len(report["domains"]), 11)
-        self.assertEqual(len(report["rows"]), 713)
-        self.assertEqual(sum(report["counts"].values()), 713)
+        self.assertEqual(len(report["rows"]), 716)
+        self.assertEqual(sum(report["counts"].values()), 716)
         self.assertEqual(report["unmapped_count"], 0)
         self.assertEqual(report["declared_domain_mismatch_count"], 6)
         self.assertIs(report["ok"], True)
