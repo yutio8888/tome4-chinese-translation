@@ -8094,7 +8094,7 @@ t("immovable", "静态类", "entity type")
 t("crystal", "水晶", "entity subtype")
 t("A shining crystal formation charged with magical energies.", "一个由闪光水晶构成的生物，它通体围绕着魔法光芒。", "_t")
 t("wisp", "鬼火", "entity name")
-t("elemental", "元素", "entity type")
+t("elemental", "元素生物", "entity type")
 t("light", "轻甲", "entity subtype")
 t("A floating orb of magical energy. It shines with a radiant light. They explode upon contact.", "一个充满魔法能量的球体，散发着耀眼的光芒，接触其他物体时会爆炸。", "_t")
 t("red crystal", "红色水晶体", "entity name")
@@ -8144,7 +8144,7 @@ t("elven elite warrior", "精英精灵战士", "entity name")
 ------------------------------------------------
 section "mod-tome/data/general/npcs/faeros.lua"
 
-t("elemental", "元素", "entity type")
+t("elemental", "元素生物", "entity type")
 t("fire", "火焰", "entity subtype")
 t("faeros", "法罗", "entity name")
 t("Faeros are highly intelligent fire elementals, rarely seen outside volcanoes. They are probably not native to this world.", "法罗是高智力的火元素，在火山以外的地方很少看到它们。也许，它们根本不属于这个世界。", "_t")
@@ -8208,7 +8208,7 @@ t("A body raised through dark magic.", "一具通过黑暗魔法复生的尸体�
 ------------------------------------------------
 section "mod-tome/data/general/npcs/gwelgoroth.lua"
 
-t("elemental", "元素", "entity type")
+t("elemental", "元素生物", "entity type")
 t("air", "大气", "entity subtype")
 t("gwelgoroth", "格维格罗斯", "entity name")
 t("Gwelgoroth are mighty air elementals, a pure incarnation of lightning and thunder.", "格维格罗斯是强大的气系元素，它们是电闪雷鸣的化身。", "_t")
@@ -8415,7 +8415,7 @@ t("The seething, pumping, disembodied blood of a horrendously powerful necromanc
 ------------------------------------------------
 section "mod-tome/data/general/npcs/losgoroth.lua"
 
-t("elemental", "元素", "entity type")
+t("elemental", "元素生物", "entity type")
 t("void", "虚空", "entity subtype")
 t("Losgoroth are mighty void elementals, native to the void between the stars. They are rarely seen on a planet's surface.", "洛斯格罗斯是强大的虚空生物，居住于群星之间的星空中。在星球表面几乎看不到这种生物。", "_t")
 t("losgoroth", "洛斯格罗斯", "entity name")
@@ -8717,7 +8717,7 @@ t("sher'tul", "夏·图尔", "entity subtype")
 ------------------------------------------------
 section "mod-tome/data/general/npcs/shivgoroth.lua"
 
-t("elemental", "元素", "entity type")
+t("elemental", "元素生物", "entity type")
 t("ice", "寒冰", "entity subtype")
 t("shivgoroth", "西弗格罗斯", "entity name")
 t("Shivgoroth are mighty ice elementals, torn away from their home world by a powerful magic.", "西弗格罗斯是强大的寒冰元素，它们被一股强大的魔法从老家里赶出来", "_t")
@@ -8859,7 +8859,7 @@ section "mod-tome/data/general/npcs/telugoroth.lua"
 t("Reality has shifted.", "现实世界发生了变化。", "logSeen")
 t("The spell fizzles!", "法术失败了!", "logSeen")
 t("%s resists the swap!", "%s抵抗了时空交换！", "logSeen")
-t("elemental", "元素", "entity type")
+t("elemental", "元素生物", "entity type")
 t("temporal", "时空", "entity subtype")
 t("and lost outside time", "并在时间之外迷失", "_t")
 t("telugoroth", "泰鲁戈洛斯", "entity name")
@@ -9015,7 +9015,7 @@ t("A shifting, writhing, snake-like dragon, blinking in and out of existence, ju
 ------------------------------------------------
 section "mod-tome/data/general/npcs/xorn.lua"
 
-t("elemental", "元素", "entity type")
+t("elemental", "元素生物", "entity type")
 t("xorn", "索尔石怪", "entity subtype")
 t("umber hulk", "褐色巨兽", "entity name")
 t("This bizarre creature has glaring eyes and large mandibles capable of slicing through rock.", "这只怪异的生物长着怒目圆睁的眼睛和几只能咬穿岩石的巨大口器。", "_t")
@@ -13450,7 +13450,7 @@ t("Cold flames slowly spread from %d spots within radius %d, The flames deal %d 
 ------------------------------------------------
 section "mod-tome/data/general/traps/elemental.lua"
 
-t("elemental", "元素", "entity type")
+t("elemental", "元素生物", "entity type")
 t("trap", "陷阱", "_t")
 t("Deals %s%d#LAST# %s damage", "造成%s%d#LAST#%s伤害", "tformat")
 t("Deals %s%d#LAST# %s damage (radius %d)", "造成%s%d#LAST# %s伤害(半径 %d)", "tformat")
@@ -39335,7 +39335,7 @@ t("The rift leads... somewhere.", "裂缝通向…某个地方", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/paradox-plane/npcs.lua"
 
-t("elemental", "元素", "entity type")
+t("elemental", "元素生物", "entity type")
 t("temporal", "时空", "entity subtype")
 t("Epoch", "亚伯契", "entity name")
 t("A huge being composed of sparking blue and yellow energy stands before you.  It shifts and flows as it moves, at once erratic and graceful.", "在你面前的是一只黄蓝双色能量线的混合体。它快速的闪现和移动，看起来优雅又飘逸。", "_t")
@@ -40584,7 +40584,7 @@ t("human", "人类", "entity subtype")
 t("Catch @himher@!", "抓住@himher@!", "_t")
 t("guardian of reality", "现实守卫", "entity name")
 t("A stern-looking guardian, ever vigilant against the threats of the paradox.", "一名神情严肃的守卫，时刻警惕着悖论的威胁。", "_t")
-t("elemental", "元素", "entity type")
+t("elemental", "元素生物", "entity type")
 t("void", "虚空", "entity subtype")
 t("Losgoroth are mighty void elementals, native to the void between the stars; they are rarely seen on the planet's surface.", "洛斯格罗斯是强大的虚空生物，居住于群星之间的星空中。在星球表面几乎看不到这种生物。", "_t")
 t("monstrous losgoroth", "大型洛斯格罗斯", "entity name")

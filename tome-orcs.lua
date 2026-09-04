@@ -837,7 +837,7 @@ t("This yeti's claws are coated in sharply carved iron. It glares at you with a 
 ------------------------------------------------
 section "tome-orcs/data/general/npcs/hethugoroth.lua"
 
-t("elemental", "元素", "entity type")
+t("elemental", "元素生物", "entity type")
 t("vapour", "蒸汽", "entity subtype")
 t("hethugoroth", "赫斯格鲁斯", "entity name")
 t("A swirling mass of hot vapour animated into a semblance of life.", "一个看似有生命的灼热蒸汽漩涡。", "_t")
