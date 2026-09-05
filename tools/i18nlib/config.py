@@ -37,6 +37,54 @@ def _relative_path(value: Any, label: str) -> str:
     return value
 
 
+def scan_paths(value: Any, label: str) -> tuple[str, ...]:
+    """Validate literal POSIX scan paths; '.' is the sole whole-root sentinel."""
+    if not isinstance(value, (list, tuple)):
+        raise ConfigurationError(f"{label} must be a path array")
+    result = []
+    for item in value:
+        if item == ".":
+            normalized = "."
+        else:
+            normalized = _relative_path(item, label)
+            if any(part in ("", ".", "..") for part in normalized.split("/")):
+                raise ConfigurationError(f"{label} must contain normalized paths")
+        if normalized in result:
+            raise ConfigurationError(f"{label} contains duplicate paths")
+        result.append(normalized)
+    if "." in result and len(result) != 1:
+        raise ConfigurationError(f"{label}: root sentinel must stand alone")
+    return tuple(result)
+
+
+def _source_attributes(data: dict[str, Any], label: str, *, broker: bool = False) -> dict[str, Any]:
+    defaults = {
+        "visibility": "protected" if broker else "public",
+        "extraction_mode": "lua-extractor-only" if broker else "full-tree",
+        "source_pinning": "unpinned" if broker else "pinned",
+    }
+    choices = {
+        "visibility": ("public", "protected"),
+        "extraction_mode": ("full-tree", "lua-extractor-only"),
+        "source_pinning": ("pinned", "unpinned"),
+    }
+    result: dict[str, Any] = {}
+    for key, default in defaults.items():
+        value = data.get(key, default)
+        if not isinstance(value, str) or value not in choices[key]:
+            raise ConfigurationError(f"{label}.{key} must be one of {choices[key]}")
+        result[key] = value
+    if broker and (result["extraction_mode"] != "lua-extractor-only" or result["source_pinning"] != "unpinned"):
+        raise ConfigurationError(f"{label}: broker mappings require lua-extractor-only and unpinned source")
+    value = data.get("scan_allowlist", [] if broker else ["."])
+    if not isinstance(value, list):
+        raise ConfigurationError(f"{label}.scan_allowlist must be a path array")
+    result["scan_allowlist"] = scan_paths(value, f"{label}.scan_allowlist")
+    if broker and result["scan_allowlist"]:
+        raise ConfigurationError(f"{label}: broker inputs do not support worktree scans")
+    return result
+
+
 @dataclass(frozen=True)
 class RepositorySpec:
     name: str
@@ -44,6 +92,10 @@ class RepositorySpec:
     default: str
     commit: str
     required: bool
+    visibility: str = "public"
+    extraction_mode: str = "full-tree"
+    source_pinning: str = "pinned"
+    scan_allowlist: tuple[str, ...] = (".",)
 
     def resolve(self, root: Path) -> Path:
         configured = os.environ.get(self.env)
@@ -86,6 +138,10 @@ class ProtectedSource:
     path_env: str
     directory_candidates: tuple[str, ...]
     mount: str
+    visibility: str = "protected"
+    extraction_mode: str = "lua-extractor-only"
+    source_pinning: str = "unpinned"
+    scan_allowlist: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -285,6 +341,7 @@ def load_manifest(
                 f"repositories.{name}.commit",
             ),
             required=_boolean(value, "required", f"repositories.{name}"),
+            **_source_attributes(value, f"repositories.{name}"),
         )
 
     runtime_data = _required_mapping(data, "runtime", "manifest")
@@ -439,6 +496,7 @@ def load_manifest(
                 )
             protected_source = ProtectedSource(
                 root=protected_root,
+                **_source_attributes(protected_source_data, f"{label}.protected_source", broker=True),
                 path_env=_required_string(
                     protected_source_data, "path_env", f"{label}.protected_source"
                 ),

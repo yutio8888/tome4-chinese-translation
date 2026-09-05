@@ -23,6 +23,16 @@ def dispatch(arguments: argparse.Namespace) -> int:
     raise AssertionError(f"unhandled command: {arguments.command}")
 
 
+def _attributes(spec: Any) -> dict[str, Any]:
+    return {"visibility": spec.visibility, "extraction_mode": spec.extraction_mode,
+            "source_pinning": spec.source_pinning, "scan_allowlist": list(spec.scan_allowlist)}
+
+
+def _attribute_text(report: dict[str, Any]) -> str:
+    return (f"visibility={report['visibility']} extraction_mode={report['extraction_mode']} "
+            f"source_pinning={report['source_pinning']} scan_allowlist={report['scan_allowlist']!r}")
+
+
 def _doctor(arguments: argparse.Namespace) -> int:
     manifest = _manifest(arguments)
     required_files = [
@@ -70,20 +80,16 @@ def _doctor(arguments: argparse.Namespace) -> int:
         path = spec.resolve(manifest.root)
         if not path.exists() and not spec.required:
             warnings.append(f"optional repository is absent: {name}: {path}")
-            repositories[name] = {"path": str(path), "available": False}
+            repositories[name] = {"path": str(path), "available": False, **_attributes(spec)}
             continue
         repository = GitRepository(path)
-        check_worktree = name not in manifest.protected_repositories
         report = repository.validate(
-            spec.commit, check_worktree=check_worktree
+            spec.commit, scan_allowlist=spec.scan_allowlist
         )
+        report.update(_attributes(spec))
         report["available"] = True
         if report["clean"] is False:
             warnings.append(f"repository has worktree changes: {name}: {path}")
-        if not check_worktree:
-            warnings.append(
-                f"repository worktree scan skipped because it contains a protected source: {name}"
-            )
         repositories[name] = report
 
     extractor_repository = GitRepository(
@@ -101,10 +107,15 @@ def _doctor(arguments: argparse.Namespace) -> int:
         protected_sources[component.id] = {
             "available": available,
             "access": "lua-extractor-only",
+            **_attributes(component.protected_source),
         }
+        warnings.append(
+            f"source-unpinned: {component.id}: source repository/commit unknown; "
+            "extraction snapshot is not a source pin"
+        )
         if not available:
             warnings.append(
-                f"declared protected source is unavailable: {component.id}"
+                f"declared source is unavailable: {component.id}"
             )
 
     report = {
@@ -133,12 +144,12 @@ def _doctor(arguments: argparse.Namespace) -> int:
         for name, repository in repositories.items():
             availability = "OK" if repository.get("available") else "SKIP"
             detail = repository.get("path")
-            print(f"{availability:<5}repository      {name}: {detail}")
+            print(f"{availability:<5}repository      {name}: {detail}; {_attribute_text(repository)}")
         for component, protected in protected_sources.items():
             availability = "OK" if protected["available"] else "SKIP"
             print(
-                f"{availability:<5}protected source {component}: "
-                f"{protected['access']}"
+                f"{availability:<5}source          {component}: "
+                f"{_attribute_text(protected)}"
             )
         for warning in warnings:
             print(f"WARN              {warning}")

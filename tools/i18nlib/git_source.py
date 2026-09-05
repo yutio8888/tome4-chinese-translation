@@ -9,6 +9,9 @@ import subprocess
 import tarfile
 from pathlib import Path, PurePosixPath
 
+from .config import scan_paths
+from collections.abc import Sequence
+
 from .errors import ConfigurationError, ContractError, ExtractionError
 
 
@@ -87,8 +90,11 @@ class GitRepository:
             raise ConfigurationError(f"cannot execute git: {error}") from error
 
     def validate(
-        self, commit: str, *, check_worktree: bool = True
+        self, commit: str, *, check_worktree: bool = True,
+        scan_allowlist: Sequence[str] | None = None
     ) -> dict[str, object]:
+        paths = None if scan_allowlist is None else scan_paths(scan_allowlist, "scan_allowlist")
+        check_worktree = check_worktree and paths != ()
         if not self.path.is_dir():
             raise ConfigurationError(f"repository directory not found: {self.path}")
         top = self._run(["rev-parse", "--show-toplevel"], text=True)
@@ -111,9 +117,10 @@ class GitRepository:
         head = self._run(["rev-parse", "--verify", "HEAD"], text=True)
         clean: bool | None = None
         if check_worktree:
-            status = self._run(
-                ["status", "--porcelain", "--untracked-files=all"], text=True
-            )
+            arguments = ["status", "--porcelain", "--untracked-files=all"]
+            if paths is not None:
+                arguments.extend(["--", *("." if path == "." else f":(top,literal){path}" for path in paths)])
+            status = self._run(arguments, text=True)
             if status.returncode != 0:
                 detail = status.stderr.strip()
                 if not detail:

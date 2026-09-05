@@ -37,6 +37,39 @@ tools/i18n production --help
 
 `i18n/versions/tome-1.7.6.json` 是版本、组件映射、engine／addon／extractor commit、LuaJIT 语义和基线的权威 manifest；其中 DLC 基线仅记录提取快照哈希与条目数，不固定 DLC 源码仓库、源码 commit 或 1.7.4 源码版本。运行时由 `TOME_LUAJIT` 指向 manifest 兼容的 LuaJIT 可执行文件，项目 LuaRocks 树由 `TOME_LUAROCKS_ROOT` 指定；不要把本机绝对路径写入命令、报告或文档。
 
+### 来源属性与 doctor 扫描
+
+manifest schema 1 增量支持四项独立属性。字段写在 `repositories.<name>` 与每个组件的
+`protected_source` 中；后者及 `protected_source_roots`、doctor JSON 的 `protected_sources`
+是保留兼容的 broker 接口名称，不表示其中的官方 DLC 是私有源码。
+
+| 字段 | 语义 | 旧 repository 配置默认 | 旧 broker 配置默认 |
+| --- | --- | --- | --- |
+| `visibility` | `public` / `protected`，源码公开性 | `public` | `protected` |
+| `extraction_mode` | `full-tree` / `lua-extractor-only`，提取访问方式 | `full-tree` | `lua-extractor-only` |
+| `source_pinning` | `pinned` / `unpinned`，源码身份是否固定 | `pinned` | `unpinned` |
+| `scan_allowlist` | doctor 允许扫描的字面路径数组 | `["."]` | `[]` |
+
+这四项不相互推断，也不按公开性切换提取路由。当前 repository 的 `commit` 仍为必填完整
+Git OID，doctor 独立验证其可用性；`source_pinning` 不关闭 commit 验证。broker 映射没有
+源码仓库/commit 字段，只支持 `lua-extractor-only`、`unpinned` 和空扫描列表，矛盾配置报错。
+公开的 ashes-urhrok、cults、orcs 均显式为 `public` + `lua-extractor-only` + `unpinned` + `[]`；
+父 engine 的 commit 和 DLC 提取快照哈希都不是 DLC 源码 pin。doctor 为每个 DLC（包括不可用
+输入）输出 `source-unpinned` 警告，指出源码仓库/commit 未知、提取快照不等于源码固定。
+
+repository 扫描路径相对仓库根，broker 路径语义相对所选组件源码根，但当前不支持 broker
+工作树扫描，必须为空。`[]` 明确表示不运行 `git status`（`clean=null`、`worktree_checked=false`）。
+唯一根哨兵 `.` 必须单独出现，表示显式全仓库扫描；其他路径必须为规范 POSIX 相对路径，
+拒绝绝对路径、盘符、父级/点段、空段、尾斜线、反斜线、NUL 和重复项。通配符、方括号及
+冒号仍为文件名字符，传给 Git 时使用 `:(top,literal)`，不能扩大扫描范围。
+
+当前 engine 只扫描六个公开组件挂载目录和 `i18n_tools`，不扫描 `game/dlcs` 或其他兄弟目录。
+完整列表以 manifest 为准，新增组件时应一并复核扫描列表。扫描检查当前工作树；提取器目录
+可以只存在于固定 extractor commit，提取仍读取该 Git 对象。addon 显式使用 `["."]`。
+普通 `GitRepository.validate()` 调用未传 allowlist 时仍检查整个工作树；`check_worktree=False`
+仍关闭检查。脏工作树和缺失的可选仓库保持警告/退出 0，实际 Git status 失败仍为错误。
+doctor 的文本与 JSON 均展示四项属性，包括缺失的可选仓库与不可用的 DLC。
+
 Tome4 与旧版汉化工具按 Lua 5.1 语义运行，一律使用 manifest 指定的 LuaJIT；不要退回系统 `lua`、`lua5.4` 或 `lua5.5`。工具会在同一次 LuaJIT 子进程调用中配置 `LUA_PATH` 和 `LUA_CPATH`。直接运行 Lua 脚本、单行命令或依赖检查时也必须在同一条命令中配置，不要拆开环境设置与 LuaJIT 调用：
 
 ```bash
@@ -74,7 +107,8 @@ luarocks --lua-version=5.1 --lua-dir="$(cd "$(dirname "$TOME_LUAJIT")/.." && pwd
 
 - `doctor` 检查 LuaJIT 5.1、项目 LuaRocks 树、LPeg 0.10.2、manifest 固定的 engine／addon／extractor commit
   和所有规范译文文件。对于 DLC 它只让 Lua 代理探测清单中预声明的组件，
-  不遍历或列出 DLC 目录；包含 DLC 的 engine 工作树也不执行 Git 状态扫描。
+  不遍历或列出 DLC 目录；Git 状态按 repository 的 `scan_allowlist` 进行字面路径扫描，
+  engine 不扫描 `game/dlcs` 或整棵工作树。
 - `extract` 默认提取 engine、boot 和 tome。可用 `--component boot` 缩小范围，
   用 `--component ashes-urhrok` 显式提取单个 DLC，或用 `--all` 尝试所有公开与
   受保护映射。受保护组件不可用时会失败关闭，不会自动搜索未知目录名。

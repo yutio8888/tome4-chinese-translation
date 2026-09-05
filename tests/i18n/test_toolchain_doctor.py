@@ -158,5 +158,44 @@ class DoctorTests(unittest.TestCase):
         )
 
 
+    def test_attributes_scans_and_all_dlc_availability_combinations(self):
+        import itertools
+        for availability in itertools.product((False, True), repeat=3):
+            for as_json in (False, True):
+                with self.subTest(availability=availability, json=as_json), tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    components = tuple(replace(self.base_manifest.component(name), translation="canonical.lua", copy_fragment=None) for name in ("ashes-urhrok", "cults", "orcs"))
+                    repositories = {name: replace(spec, env="P6_UNUSED_FIXTURE_" + name, default=str(root / name)) for name, spec in self.base_manifest.repositories.items()}
+                    (root / "engine").mkdir()
+                    manifest = replace(self._manifest(root, "unused"), components=components, repositories=repositories)
+                    self._write_files(root, "canonical.lua", "terminology.tsv", "manual.lua", "policy.json")
+                    stdout = io.StringIO()
+                    with patch("i18nlib.cli_doctor._manifest", return_value=manifest), patch("i18nlib.cli_doctor.LuaRuntime") as runtime, patch("i18nlib.cli_doctor.GitRepository") as repository, patch("i18nlib.cli_doctor.probe_protected_component", side_effect=availability), contextlib.redirect_stdout(stdout):
+                        runtime.return_value.doctor.return_value = dict(lua_version="Lua 5.1", luajit_version="fixture", lpeg_rock_version="0.10.2-1", lpeg_runtime_version="0.10")
+                        repository.return_value.validate.side_effect = lambda *args, **kwargs: dict(path="fixture", clean=False)
+                        self.assertEqual(cli_main(["doctor"] + (["--json"] if as_json else [])), 0)
+                    from unittest.mock import call
+                    self.assertEqual(repository.return_value.validate.call_args_list, [call(repositories["engine"].commit, scan_allowlist=repositories["engine"].scan_allowlist), call(manifest.extractor.commit, check_worktree=False)])
+                    output = stdout.getvalue()
+                    self.assertNotIn("contains a protected source", output)
+                    self.assertNotIn("declared protected source", output)
+                    self.assertIn("repository has worktree changes", output)
+                    self.assertIn("optional repository is absent", output)
+                    for name in ("ashes-urhrok", "cults", "orcs"):
+                        self.assertIn("source-unpinned: " + name, output)
+                    if as_json:
+                        report = json.loads(output)
+                        for name, spec in repositories.items():
+                            row = report["repositories"][name]
+                            self.assertEqual(row["available"], name == "engine")
+                            self.assertEqual([row[k] for k in ("visibility", "extraction_mode", "source_pinning", "scan_allowlist")], [spec.visibility, spec.extraction_mode, spec.source_pinning, list(spec.scan_allowlist)])
+                        for component, available in zip(components, availability):
+                            row = report["protected_sources"][component.id]
+                            self.assertEqual(row, dict(available=available, access="lua-extractor-only", visibility="public", extraction_mode="lua-extractor-only", source_pinning="unpinned", scan_allowlist=[]))
+                    else:
+                        self.assertIn("visibility=public extraction_mode=full-tree source_pinning=pinned", output)
+                        self.assertEqual(output.count("visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]"), 3)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -360,5 +360,100 @@ class ManifestTests(unittest.TestCase):
         self.assertTrue(data.startswith(b'locale "zh_hans"'))
 
 
+class ScopedGitTests(unittest.TestCase):
+    def test_real_scans_are_literal_scoped_and_optional(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            def git(*args):
+                return subprocess.check_output(["git", "-C", temporary, *args], stderr=subprocess.PIPE).decode().strip()
+            git("init")
+            for directory in ("public", "outside", "wild*", "wild-other", ":(glob)**", "bracket[ab]", "bracketa"):
+                (root / directory).mkdir()
+                (root / directory / "file").write_text("base")
+            git("add", ".")
+            git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid", "commit", "-m", "base")
+            commit = git("rev-parse", "HEAD")
+            repo = GitRepository(root)
+            self.assertTrue(repo.validate(commit, scan_allowlist=["public"])["clean"])
+            (root / "outside/file").write_text("dirty")
+            (root / "outside/new").write_text("new")
+            self.assertTrue(repo.validate(commit, scan_allowlist=["public"])["clean"])
+            self.assertFalse(repo.validate(commit)["clean"])
+            self.assertFalse(repo.validate(commit, scan_allowlist=["."])["clean"])
+            with patch.object(repo, "_run", wraps=repo._run) as run:
+                empty = repo.validate(commit, scan_allowlist=[])
+                self.assertIsNone(empty["clean"])
+                self.assertFalse(empty["worktree_checked"])
+                self.assertFalse(any(c.args[0][0] == "status" for c in run.call_args_list))
+            for directory, sibling in (("wild*", "wild-other"), ("bracket[ab]", "bracketa"), (":(glob)**", "outside")):
+                (root / sibling / "file").write_text("dirty")
+                self.assertTrue(repo.validate(commit, scan_allowlist=[directory])["clean"])
+                (root / directory / "new").write_text("new")
+                self.assertFalse(repo.validate(commit, scan_allowlist=[directory])["clean"])
+            (root / "public/new").write_text("new")
+            self.assertFalse(repo.validate(commit, scan_allowlist=["public"])["clean"])
+            (root / "public/new").unlink()
+            (root / "public/file").write_text("dirty")
+            self.assertFalse(repo.validate(commit, scan_allowlist=["public"])["clean"])
+            git("add", "public/file")
+            self.assertFalse(repo.validate(commit, scan_allowlist=["public"])["clean"])
+            original = repo._run
+            def fail_status(args, **kwargs):
+                if args[0] == "status":
+                    return subprocess.CompletedProcess(args, 1, "", "status failure")
+                return original(args, **kwargs)
+            with patch.object(repo, "_run", side_effect=fail_status):
+                with self.assertRaisesRegex(ConfigurationError, "status failure"):
+                    repo.validate(commit, scan_allowlist=["public"])
+            with self.assertRaises(ConfigurationError):
+                repo.validate("f" * 40, scan_allowlist=[])
+
+
+class SourceAttributesTests(unittest.TestCase):
+    _manifest_data = staticmethod(ManifestTests._manifest_data)
+    _load_isolated_manifest = staticmethod(ManifestTests._load_isolated_manifest)
+    _component_data = staticmethod(ManifestTests._component_data)
+    def test_independent_real_attributes_and_legacy_defaults(self):
+        manifest = load_manifest()
+        for name, spec in manifest.repositories.items():
+            self.assertEqual((spec.visibility, spec.extraction_mode, spec.source_pinning), ("public", "full-tree", "pinned"))
+        self.assertEqual(manifest.repositories["addon"].scan_allowlist, (".",))
+        expected = sorted({m.git_path for c in manifest.components if c.source_repository == "engine" for m in c.sources} | {manifest.extractor.git_path})
+        self.assertEqual(list(manifest.repositories["engine"].scan_allowlist), expected)
+        data = self._manifest_data()
+        for component in data["components"]:
+            if "protected_source" in component:
+                source = manifest.component(component["id"]).protected_source
+                self.assertEqual((source.visibility, source.extraction_mode, source.source_pinning, source.scan_allowlist), ("public", "lua-extractor-only", "unpinned", ()))
+                for key in ("visibility", "extraction_mode", "source_pinning", "scan_allowlist"):
+                    del component["protected_source"][key]
+        for spec in data["repositories"].values():
+            for key in ("visibility", "extraction_mode", "source_pinning", "scan_allowlist"):
+                del spec[key]
+        legacy = self._load_isolated_manifest(data)
+        self.assertEqual(legacy.repositories["engine"].scan_allowlist, (".",))
+        self.assertEqual(legacy.component("orcs").protected_source.visibility, "protected")
+        self.assertEqual(legacy.component("orcs").protected_source.source_pinning, "unpinned")
+
+    def test_invalid_attributes_and_paths(self):
+        cases = [(key, bad) for key in ("visibility", "extraction_mode", "source_pinning") for bad in (None, True, [], {}, "invalid")]
+        cases += [("scan_allowlist", bad) for bad in (None, "public", True, [None], [""], ["/public"], ["../public"], ["public/../x"], ["./public"], ["public//x"], ["public/"], ["public/./x"], ["C:/x"], ["x\\y"], ["x\0y"], [".", "public"], ["public", "public"])]
+        for key, bad in cases:
+            for broker in (False, True):
+                with self.subTest(key=key, bad=bad, broker=broker):
+                    data = self._manifest_data()
+                    spec = self._component_data(data, "orcs")["protected_source"] if broker else data["repositories"]["engine"]
+                    spec[key] = bad
+                    with self.assertRaises(ConfigurationError):
+                        self._load_isolated_manifest(data)
+        from i18nlib.config import scan_paths
+        self.assertEqual(scan_paths(["wild*", ":(glob)**", "bracket[ab]"], "paths"), ("wild*", ":(glob)**", "bracket[ab]"))
+        for key, value in (("source_pinning", "pinned"), ("extraction_mode", "full-tree"), ("scan_allowlist", ["."])):
+            data = self._manifest_data()
+            self._component_data(data, "orcs")["protected_source"][key] = value
+            with self.assertRaises(ConfigurationError):
+                self._load_isolated_manifest(data)
+
+
 if __name__ == "__main__":
     unittest.main()

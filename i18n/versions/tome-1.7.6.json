@@ -7,13 +7,31 @@
       "env": "TOME_ENGINE_ROOT",
       "default": "../t-engine4",
       "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
-      "required": true
+      "required": true,
+      "visibility": "public",
+      "extraction_mode": "full-tree",
+      "source_pinning": "pinned",
+      "scan_allowlist": [
+        "game/engines/default/data",
+        "game/engines/default/engine",
+        "game/engines/default/modules/boot",
+        "game/modules/example",
+        "game/modules/example_realtime",
+        "game/modules/tome",
+        "i18n_tools"
+      ]
     },
     "addon": {
       "env": "TOME_ADDON_ROOT",
       "default": "../tome-chn-mod",
       "commit": "439d13496ea37de7aa1742d9407852502ac3d6af",
-      "required": false
+      "required": false,
+      "visibility": "public",
+      "extraction_mode": "full-tree",
+      "source_pinning": "pinned",
+      "scan_allowlist": [
+        "."
+      ]
     }
   },
   "protected_source_roots": {
@@ -209,7 +227,11 @@
           "tome-ashes-urhrok",
           "ashes"
         ],
-        "mount": "tome-ashes-urhrok"
+        "mount": "tome-ashes-urhrok",
+        "visibility": "public",
+        "extraction_mode": "lua-extractor-only",
+        "source_pinning": "unpinned",
+        "scan_allowlist": []
       },
       "source_baseline": {
         "kind": "protected-extraction-snapshot",
@@ -236,7 +258,11 @@
           "cults-of-entropy",
           "tome-cults-of-entropy"
         ],
-        "mount": "tome-cults"
+        "mount": "tome-cults",
+        "visibility": "public",
+        "extraction_mode": "lua-extractor-only",
+        "source_pinning": "unpinned",
+        "scan_allowlist": []
       },
       "source_baseline": {
         "kind": "protected-extraction-snapshot",
@@ -273,7 +299,11 @@
           "embers-of-rage",
           "tome-embers-of-rage"
         ],
-        "mount": "tome-orcs"
+        "mount": "tome-orcs",
+        "visibility": "public",
+        "extraction_mode": "lua-extractor-only",
+        "source_pinning": "unpinned",
+        "scan_allowlist": []
       },
       "source_baseline": {
         "kind": "protected-extraction-snapshot",
