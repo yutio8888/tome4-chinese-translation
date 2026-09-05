@@ -136,3 +136,15 @@ I 97，其中尚无当前审核 2；隐式 queued 28,319。21 个批次共 1,610
 下一连续源码身份切片为 48 条 Orcs（`batch-40c65c6934a3b76978ee`），重新按当前队列排序
 确认与预选一致；48 条英文键已在实际公开源码中逐条核验，源码 repository／commit 未固定。
 本会话恢复后新增 170 条 surface_only；不把这些结果提升为 deep_reviewed。
+
+## Orcs 批次完成
+
+`batch-40c65c6934a3b76978ee` 的 48 条 Orcs 表层审核全部 OK，已提交为
+`7fa8170187329f95e5b61916c4299f7738c1cfc3` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前队列校验通过：S／done 1,557（surface_only 1,510；deep_reviewed 47），D 47、R 0、
+I 97，其中尚无当前审核 2；隐式 queued 28,271。22 个批次共 1,658 条历史结果。
+
+恢复后四批新增 218 条 surface_only。下一批为 `batch-d0aae8bccea8e7c67418`，按现行排序
+取前 80 条 engine／boot／Tome，均共享固定引擎源码身份。65 个字面量和 15 个由提取器
+生成的关键词、类别及外观分类键已核验；生成键同时记录固定 extractor commit 与转换规则。
