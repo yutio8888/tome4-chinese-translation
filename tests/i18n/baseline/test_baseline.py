@@ -364,7 +364,7 @@ class FreezeProvenanceTests(unittest.TestCase):
     def setUp(self) -> None:
         from types import SimpleNamespace
 
-        from i18nlib.cli import _verify_freeze_provenance  # noqa: F401
+        from i18nlib.cli_identity import _verify_freeze_provenance
 
         self.temporary, self.repository, self.head = _make_git_repo()
         self.manifest = SimpleNamespace(root=self.repository)
@@ -373,14 +373,14 @@ class FreezeProvenanceTests(unittest.TestCase):
         self.temporary.cleanup()
 
     def test_head_commit_accepted(self) -> None:
-        from i18nlib.cli import _verify_freeze_provenance
+        from i18nlib.cli_identity import _verify_freeze_provenance
 
         self.assertEqual(
             _verify_freeze_provenance(self.manifest, self.head), self.head
         )
 
     def test_short_sha_canonicalized_to_head(self) -> None:
-        from i18nlib.cli import _verify_freeze_provenance
+        from i18nlib.cli_identity import _verify_freeze_provenance
 
         self.assertEqual(
             _verify_freeze_provenance(self.manifest, self.head[:12]), self.head
@@ -389,7 +389,7 @@ class FreezeProvenanceTests(unittest.TestCase):
     def test_non_head_commit_rejected(self) -> None:
         from i18nlib.errors import ContractError
 
-        from i18nlib.cli import _verify_freeze_provenance
+        from i18nlib.cli_identity import _verify_freeze_provenance
 
         # Create a second commit so the parent is no longer HEAD.
         (self.repository / "f.txt").write_text("v2\n")
@@ -402,7 +402,7 @@ class FreezeProvenanceTests(unittest.TestCase):
     def test_dirty_worktree_rejected(self) -> None:
         from i18nlib.errors import ContractError
 
-        from i18nlib.cli import _verify_freeze_provenance
+        from i18nlib.cli_identity import _verify_freeze_provenance
 
         (self.repository / "f.txt").write_text("dirty\n")
         with self.assertRaises(ContractError):
@@ -411,7 +411,7 @@ class FreezeProvenanceTests(unittest.TestCase):
     def test_unresolvable_commit_rejected(self) -> None:
         from i18nlib.errors import ContractError
 
-        from i18nlib.cli import _verify_freeze_provenance
+        from i18nlib.cli_identity import _verify_freeze_provenance
 
         with self.assertRaises(ContractError):
             _verify_freeze_provenance(self.manifest, "no-such-commit")
@@ -448,7 +448,7 @@ class RequiredBaselinesLoaderTests(unittest.TestCase):
         return SimpleNamespace(id=component_id)
 
     def test_indexed_component_loaded(self) -> None:
-        from i18nlib.cli import _load_required_baselines
+        from i18nlib.cli_identity import _load_required_baselines
 
         baselines, skipped = _load_required_baselines(
             self.manifest,
@@ -460,7 +460,7 @@ class RequiredBaselinesLoaderTests(unittest.TestCase):
         self.assertEqual(skipped, [])
 
     def test_non_indexed_component_allowed_as_skipped(self) -> None:
-        from i18nlib.cli import _load_required_baselines
+        from i18nlib.cli_identity import _load_required_baselines
 
         baselines, skipped = _load_required_baselines(
             self.manifest,
@@ -472,7 +472,7 @@ class RequiredBaselinesLoaderTests(unittest.TestCase):
         self.assertEqual([item["component"] for item in skipped], ["noroot"])
 
     def test_empty_required_set_rejected(self) -> None:
-        from i18nlib.cli import _load_required_baselines
+        from i18nlib.cli_identity import _load_required_baselines
 
         with self.assertRaises(ValidationError):
             _load_required_baselines(
@@ -483,7 +483,7 @@ class RequiredBaselinesLoaderTests(unittest.TestCase):
             )
 
     def test_indexed_but_missing_baseline_fail_closed(self) -> None:
-        from i18nlib.cli import _load_required_baselines
+        from i18nlib.cli_identity import _load_required_baselines
 
         with self.assertRaises(ValidationError):
             _load_required_baselines(
@@ -494,7 +494,7 @@ class RequiredBaselinesLoaderTests(unittest.TestCase):
             )
 
     def test_indexed_but_corrupt_baseline_fail_closed(self) -> None:
-        from i18nlib.cli import _load_required_baselines
+        from i18nlib.cli_identity import _load_required_baselines
 
         (self.root / "i18n" / "baselines" / "tome-c1.jsonl").unlink()
         with self.assertRaises(ValidationError):

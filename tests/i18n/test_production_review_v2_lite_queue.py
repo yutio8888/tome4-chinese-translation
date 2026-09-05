@@ -960,13 +960,13 @@ class QueueTests(QueueFixture):
         self._commit("review for CLI")
         command = """import argparse, sys
 from pathlib import Path
-from tools.i18nlib import cli
+from tools.i18nlib import cli_production
 from tools.i18nlib import production_review_v2_lite_queue as queue
 fixture, action = Path(sys.argv[1]), sys.argv[2]
 operation = getattr(queue, action)
-setattr(cli.production_review_v2_lite_queue, action,
+setattr(cli_production.production_review_v2_lite_queue, action,
         lambda _root, **kwargs: operation(fixture, **kwargs))
-raise SystemExit(cli._production(argparse.Namespace(
+raise SystemExit(cli_production._production(argparse.Namespace(
     production_command='queue', production_action=action, treeish='HEAD', json=sys.argv[3]=='json')))
 """
         for action, form in (("init", "json"), ("rebuild", "json"), ("check", "json"),
@@ -1052,12 +1052,12 @@ raise SystemExit(cli._production(argparse.Namespace(
         lock = queue.repository_lock_path(self.root)
         command = """import argparse, sys
 from pathlib import Path
-from tools.i18nlib import cli
+from tools.i18nlib import cli_production
 from tools.i18nlib import production_review_v2_lite_queue as queue
 fixture = Path(sys.argv[1])
 check = queue.check
-cli.production_review_v2_lite_queue.check = lambda _root: check(fixture)
-raise SystemExit(cli._production(argparse.Namespace(
+cli_production.production_review_v2_lite_queue.check = lambda _root: check(fixture)
+raise SystemExit(cli_production._production(argparse.Namespace(
     production_command='queue', production_action='check')))
 """
         with lock.open("a+b") as handle:

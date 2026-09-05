@@ -1,10 +1,8 @@
 # ToME4 汉化工具
 
-当前工具以 `tome4-chinese-translation` 为唯一译文源。manifest 固定的 engine、addon
-和 extractor Git 对象用于公开源码与官方 locale；三个 GPL v3 官方 DLC 虽可公开读取，
-manifest 只固定其提取器 commit 和快照基线，不固定 DLC 源码仓库、源码 commit 或源码版本。
-提取流程仍统一通过受审计的 Lua 代理和固定快照基线。默认命令不会提取 DLC，所有报告写入
-`.artifacts/i18n/`。
+当前工具以 `tome4-chinese-translation` 为唯一译文源。版本与 DLC 基线边界见[运行时配置](#运行时配置)，
+公开源码许可见下方许可证说明；提取统一通过受审计的 Lua 代理和固定快照基线。
+默认命令不会提取 DLC，所有报告写入 `.artifacts/i18n/`。
 
 最新已推送 addon 版本、条目数和待发布事项见
 [`docs/release-plan.md`](../docs/release-plan.md)。manifest 中的 `repositories.addon.commit`
@@ -71,15 +69,8 @@ luarocks --lua-version=5.1 --lua-dir="$(cd "$(dirname "$TOME_LUAJIT")/.." && pwd
   --tree="$TOME_LUAROCKS_ROOT" install lrexlib-pcre
 ```
 
-`tools/i18n review` 与 `tools/review_diff.py` 只生成离线 bundle／index／diff
-artifact，不调用 provider、不构成审核结论；译文审核由 Paseo REVIEWER 的
-`translation_contextual_v1` 路由承担（见
-`docs/paseo-translation-context-review-v1-contract.md`），代码审核由 Paseo 常规
-REVIEWER 承担；实际 role、purpose 和运行时 profile 由当前 Paseo 编排决定，外发内容与授权边界见
-`docs/paseo-orchestration-v2-contract.md`「外发与兼容」（§十一）。旧项目 Skill
-`$tome4-pi-review` 已归档（见 `archive/`），不再作为审核入口；`tools/pi-review`
-是当前仓库 tombstone，任何调用都非零退出并输出退役指引，不读取 bundle、不启动
-provider。
+审核命令的离线 artifact 和退役入口行为见下方 `review`／`tools/pi-review` 条目；
+活跃 role、purpose 与外发授权统一见[编排契约](../docs/paseo-orchestration-v2-contract.md#十一外发与兼容)。
 
 - `doctor` 检查 LuaJIT 5.1、项目 LuaRocks 树、LPeg 0.10.2、manifest 固定的 engine／addon／extractor commit
   和所有规范译文文件。对于 DLC 它只让 Lua 代理探测清单中预声明的组件，

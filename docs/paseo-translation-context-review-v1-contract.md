@@ -292,9 +292,8 @@ REVIEWER 只读取短 prompt 指定的精确 input_path、该文件明确引用�
 身份变化或 lineage／workspace／role／purpose 不匹配，都使输出无效并按基础设施错误处理。
 不对整个干净仓库或整个 ignored 树做全量哈希。
 
-创建、传输和查询错误按一般基础设施规则重试一次。若需要新会话，必须保持相同 role、
-purpose、workspace、lineage 和 candidate identity，并为新创建尝试分配新 dispatch_id；
-不得混用旧会话的部分输出。
+基础设施重试与归档按[编排契约第六至八节](paseo-orchestration-v2-contract.md#六paseo-cli-与-mcp-等价语义)执行；
+v1 新会话另按第二节分配新 dispatch_id，不得混用旧会话的部分输出。
 
 ## 八、分离与指标
 

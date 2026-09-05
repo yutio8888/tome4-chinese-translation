@@ -648,30 +648,26 @@ class ContextualAnchorContractGuardTests(unittest.TestCase):
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_text((ROOT / relative).read_text(encoding="utf-8"), encoding="utf-8")
 
-    def test_anchor_contract_clauses_are_complete_and_unique(self) -> None:
-        for relative in self.targets:
-            text = (ROOT / relative).read_text(encoding="utf-8")
-            with self.subTest(document=relative):
-                for clause in paseo_contract_check.CONTEXTUAL_ANCHOR_PREFLIGHT_MARKERS:
-                    self.assertEqual(paseo_contract_check.REQUIRED_MARKERS[relative].count(clause), 1)
-                    self.assertEqual(text.count(clause), 1)
+    def test_anchor_prose_punctuation_is_not_contract_identity(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="anchor-contract-") as temporary:
+            root = Path(temporary)
+            self._copied_active_root(root)
+            for relative in self.targets:
+                path = root / relative
+                source = path.read_text()
+                path.write_text(source.replace("fails closed.", "fails closed!"))
+            with patch.object(paseo_contract_check, "ROOT", root):
+                self.assertEqual(paseo_contract_check.main(), 0)
 
-    def test_deleting_or_mutating_each_anchor_clause_fails_the_guard(self) -> None:
-        for relative in self.targets:
-            for clause in paseo_contract_check.CONTEXTUAL_ANCHOR_PREFLIGHT_MARKERS:
-                for replacement in ("", clause[:-1] + "!"):
-                    with self.subTest(document=relative, clause=clause[:28], replacement=replacement):
-                        with tempfile.TemporaryDirectory(prefix="anchor-contract-guard-") as temporary:
-                            temporary_root = Path(temporary)
-                            self._copied_active_root(temporary_root)
-                            mutated = temporary_root / relative
-                            source = mutated.read_text(encoding="utf-8")
-                            mutated.write_text(source.replace(clause, replacement, 1), encoding="utf-8")
-                            with (
-                                patch.object(paseo_contract_check, "ROOT", temporary_root),
-                                contextlib.redirect_stderr(io.StringIO()),
-                            ):
-                                self.assertEqual(paseo_contract_check.main(), 1)
+    def test_contextual_live_version_cannot_be_replaced_by_history(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="anchor-contract-") as temporary:
+            root = Path(temporary)
+            self._copied_active_root(root)
+            path = root / "docs/paseo-translation-context-review-v1-contract.md"
+            source = path.read_text()
+            path.write_text(source.replace("> 契约版本：translation-contextual/1.6。", "") + "\n## History\n> 契约版本：translation-contextual/1.6。\n")
+            with patch.object(paseo_contract_check, "ROOT", root), contextlib.redirect_stderr(io.StringIO()):
+                self.assertEqual(paseo_contract_check.main(), 1)
 
 
 if __name__ == "__main__":

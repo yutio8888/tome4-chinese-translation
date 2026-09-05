@@ -111,4 +111,4 @@ witness、index、revision_count、severity、adjudication、suggested fix、rev
 
 REVIEWER 只可读其精确 input_path、其中明确引用的内容和第六节；不得读其他 `.ai/task/`、
 `.ai/reviews/` 或先前 finding。机制结论必须绑定公开源码/固定 commit 或明确标记证据不足。
-全部 reviewer 只读；输出由 ORCHESTRATOR 原样持久化、验证、裁决并在 child 终态后归档。
+输出按本契约第五节原样持久化；通用只读、裁决及终态归档按[编排契约第七、八、十一节](paseo-orchestration-v2-contract.md#七托管-child-生命周期与即时归档)执行。

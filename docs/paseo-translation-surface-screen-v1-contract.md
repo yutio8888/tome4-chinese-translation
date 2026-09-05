@@ -200,7 +200,7 @@ REVIEWER 只读取精确 input_path、其中明确引用的内容和本契约第
 
 ## 七、外发与边界
 
-REVIEWER 只可读其精确 input_path、其中明确引用的内容和第六节。ORCHESTRATOR 负责裁决：
+读取范围按本契约第五节；通用只读与裁决责任见[编排契约第八、十一节](paseo-orchestration-v2-contract.md#八角色执行与恢复)：
 `ISSUE` observation 只是候选信号，必须经固定源码核验与裁决才能成为 finding；`OK` 只表示
 表层筛查未命中，R-low 条目留在 ledger 待抽检，不得伪称深审完成。本契约不修改生产译文、
 术语库、evidence 批次或既有 v1/v2 fixture；禁止在仓库行为中硬编码任何 provider/model。

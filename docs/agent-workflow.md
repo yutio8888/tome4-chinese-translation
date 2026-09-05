@@ -22,7 +22,7 @@ python3 -B tools/i18n doctor
 
 主代理独立把 finding 标为 `confirmed`、`pending` 或 `advisory` 并定级；只有 `confirmed` 自动进入修复。只有用户要求修复时才修改：先冻结 finding 清单，把同一轮的全部 accepted 项合并为一次修复 dispatch 并按依赖顺序处理，给修复 agent 明确 finding、允许文件、最小测试和完成条件，并复核其输出与测试结果。
 
-每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。若待检文件是 untracked，先以 `git add -N -- <path>` 让其以 intent-to-add 形式进入工作树 diff，再运行 `git diff --check`，检查后用 `git reset -- <path>` 恢复 index；最终不得留下 staged 内容。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
+每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。若待检文件是 untracked，运行 `git diff --no-index --check -- /dev/null <path>` 检查其空白；该命令无需改动 index，可供只读审核使用；`--no-index` 无诊断且退出 1 仅表示文件有差异，空白诊断或读取错误仍须处理。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
 
 ### 机制 claim 与运行时组合
 
@@ -78,31 +78,9 @@ finding 清零且门禁通过后方可收束。
 
 ### 子 agent 通知、终态与取消顺序
 
-传输状态面可能过期，单一 `status` 不足以判定终态。`create_agent` 的
-`notifyOnFinish` 只向 host 异步通知「可收割」；通知只影响 host 等待，不是结果、成功或取消
-信号。不得用 tight polling 或 `sleep` 等待；收到通知或需要判断时，重新读取 `status`、
-`attentionReason`、`attentionTimestamp`、`activeTurn`，并检查 `git status --short` 与
-`git diff --stat`（activeTurn 为空表示没有进行中的运行）。
-
-生命周期必须严格按以下顺序：
-
-1. **运行中要求 stop/cancel**：先重新查询上述实时字段和工作树；只有复查仍显示 active
-   turn 正在运行且无进展，才调用 stop/cancel；调用后再次复查并记录结果。若两轮非紧密
-   live requery 的有界预算耗尽仍不确定，进入 `WAIT_USER`，不得直接 stop，也不得写故障
-   结论；不得使用固定分钟阈值。
-2. **自然终态**：先 harvest 输出和报告，验证状态、identity/lineage、原始 bytes、工作树
-   diff、结果/schema 与 archive 前置条件；无成果（无 diff、无报告，或只有计划/进度）时
-   该 dispatch 无效，仍须先归档再创建同 purpose/workspace/lineage 的 fresh retry，不能
-   给已结束 child 发 follow-up。
-3. **精确运行时清理（若适用）**：仅对该 child 所拥有且可由 agent identity 精确匹配的
-   runtime process 做 kill/reap；清理不是 stop/cancel，不替代 harvest、验证或 archive。
-4. **archive**：上述验证（以及适用的清理）完成后才 archive，并核对归档 identity、lineage
-   和记录。完成后的 kill/reap/archive 必须与中途取消分开记录和说明。
-
-文档/分析 child 可能长时间规划后一次性写入；空 diff、activity 暂停或字段陈旧单独都不是
-挂起证据。除明确 provider/权限错误外，只有重复取得 live status、activity、activeTurn 和
-工作树证据仍证明 active turn 无进展，才可按第 1 步处理。跳过工作树检查的故障结论无效，
-必须撤回并更正记录。
+收到 `notifyOnFinish` 或需判断 child 状态时，读取实时元数据并运行
+`git status --short`、`git diff --stat`，按[生命周期契约](paseo-orchestration-v2-contract.md#七托管-child-生命周期与即时归档)
+完成取证、harvest、适用的精确清理及归档；通知本身不代表成功。
 
 ### 连续批次循环
 
@@ -131,24 +109,10 @@ EXECUTOR 修复 dispatch，在同一次运行内按依赖顺序处理，不逐�
 
 ### 译文三阶段收敛复审（schema 4 implement）
 
-仅当 `schema_version >= 4`、`mode=implement` 且含 `translation_contextual_v1` 时启用：首轮
-`REVIEW/full` 冻结完整有序工作集；中间修复轮只复审 changed target、open finding、共享
-runtime key、叙事／术语 claim 和额外触及 target 的确定性依赖闭包；收敛后以
-`FINAL_REVIEW/full` 对最新候选完整复审一次。闭包或 parent 不确定时直接使用
-`RE_REVIEW/full`，不得猜测子集。
-
-changed+dependency closure 由 ORCHESTRATOR 根据任务 diff、finding 与批内依赖确定，不新增
-dependency graph、closure manifest 或其他 artifact。`ai_state_check.py` 只验证 review 记录与
-七键 envelope 的 cycle／phase、parent、顺序、source 和 inclusion 自洽，不能替代 closure
-完整性的编排判断；任何歧义都必须回退 full。强制 `FINAL_REVIEW/full` 是该轻量优化的
-correctness backstop，不能由 closure 记录替代。
-若一次 `FINAL_REVIEW/full` 失败，可在更高 cycle 完成 `RE_REVIEW/full|closure` 修复序列后再次
-执行 final full；历史失败记录保留在顺序中，最新 terminal 仍必须是 STATE.cycle 的成功
-`FINAL_REVIEW/full`。
-
-新 STATE 的 `max_cycles` 默认 3，且 `cycle <= max_cycles`。只有用户明确授权时才可把上限设为
-3 以上，并逐字保存 `max_cycles_user_authorized=true`；该轻量字段不记录授权文本或另建审批
-artifact。
+按 [v1 full／closure 记录契约](paseo-translation-context-review-v1-contract.md#schema-4-implement-的记录层-fullclosure-语义)
+选择 `REVIEW/full` → `RE_REVIEW/full|closure` → `FINAL_REVIEW/full`；无法确定闭包时选择 full。
+cycle／授权上限见[编排契约第一节](paseo-orchestration-v2-contract.md#一设计取舍)，
+新建任务与默认收敛规则见 [AGENTS.md](../AGENTS.md#复审收敛下限)。
 
 译文 contextual 复审默认 **2 个并行独立 lane**，`max_cycles` 保持默认 3。4-lane 是升级路径，
 不是默认值，只在下列客观条件之一成立时启用，并在 STATE 记录启用理由：两个 lane 对同一
@@ -191,70 +155,21 @@ source／source_tag／args_order／special／markup／placeholder／newline 不�
 
 ### 受管 Phase 1 wave
 
-并行只在 [`paseo-orchestration-v2-contract.md`](paseo-orchestration-v2-contract.md) 的受管 wave
-契约已经启用时执行。一个 wave ORCHESTRATOR 必须直接拥有 2–4 条 lane（默认 2 条）及 integration 的全部
-child；每条 lane 使用不同 workspace，child dispatch 的 `workspace_id` 等于所属 task STATE，
-并同时持久化与 WAVE／STATE 一致的 `task_id`、`parent_agent_id` 和非空 `purpose`，不得只信
-`lineage_verified=true`，每个 child 的 `agent_id` 还必须不同于 wave ORCHESTRATOR，且不得创建 lane-orchestrator。ORCHESTRATOR 只写 ignored 编排记录；lane／integration 任务内容和
-唯一 wave evidence 只能由各自 lineage 核验的 EXECUTOR 写入，只读角色不得改变 workspace。
-
-派发前以 `WAVE.json` 为唯一入口运行：
+按[受管 Phase 1 wave 契约](paseo-orchestration-v2-contract.md#受管-phase-1-wave)准备 WAVE 与各 task。
+该节唯一规定拓扑、单写权限、root map、canonical schema、集合重算、no-change dry-run、
+apply caller、final completion 选择、prospective/evidence/publication 与恢复顺序。
+`<workspace-root-args>` 对 WAVE 当前每个 workspace ID 各传一个
+`--workspace-root WORKSPACE_ID=/absolute/git/worktree/root`。依次执行：
 
 ```bash
 python3 -B tools/wave_review.py preflight .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
 ```
-
-`<workspace-root-args>` 必须对 WAVE 当前引用的每个 workspace ID 各包含一个
-`--workspace-root WORKSPACE_ID=/absolute/git/worktree/root`。工具要求键集合 1:1、不同 ID 指向
-不同真实 worktree、全部 root 共享同一 Git common-dir，并在 lane／integration 所属 root 内独立
-做 escape／symlink 检查；root workspace 的同名影子文件不参与核验。
-
-preflight 必须重算 pinned-manifest primary、workset／SCOPE／collateral 的等值关系、
-`ordinary_non_collateral_paths=[]`、授权 remainder、三类集合 identity 与 pairwise intersection。
-每条 lane SPEC 必须含独占一行的 `phase1_collateral: forbidden`。任何声明为空而重算非空、path
-escape／symlink、identity 漂移或集合冲突都不得 DISPATCHED。
-workset 必须非空；调用须由固定 manifest 与仓库 LuaJIT loader 在 `base_commit^{tree}` 和所属
-lane 当前译文逐条唯一解析。runtime keys 从 `(source, source_tag)` 重建；本 dry-run 的
-term/narrative 集合从每个 ordered revision key 重建为明确的 `narrative_closure` 依赖键，不能
-自报空集合。
-
-lane 外部 `DONE_VERIFIED` 后按冻结 queue 导出和验证 patch：
 
 ```bash
 python3 -B tools/wave_review.py export-target-patch .ai/waves/<wave-id>/WAVE.json --lane-id <lane-id> <workspace-root-args>
 python3 -B tools/wave_review.py verify-target-patch .ai/waves/<wave-id>/WAVE.json --lane-id <lane-id> <workspace-root-args>
 python3 -B tools/wave_review.py apply-target-patch .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
 ```
-
-当前 Phase 1 实现只支持 no-change dry-run 的 `changes=[]`：首次 apply 仍要求 HEAD commit 等于
-`base_commit`，index tree 与 tracked worktree tree 等于 `base_commit^{tree}`，且无任务内容
-dirty／untracked；verify/apply 只接受合法 `INTEGRATING` WAVE，并要求每条 lane 的实际 STATE
-持久化为 `DONE`、`ai_state_check` 返回 `DONE_VERIFIED`、唯一 final full completion record 与
-dispatch/envelope 绑定且全部 child 已归档。工具按完整 merge queue 核验空 patch；每个 candidate
-target 必须等于固定 base target 和 lane 当前 target，不能因 `changes=[]` 丢弃变化。非空 patch 一律 fail closed，不能把此
-结果报告为生产 apply。
-
-此外，每条 lane 的全部 `translation_fix_paths` 必须逐文件字节等于 `base_commit`，因此 workset
-之外的 call／target 或其他文件字节漂移也会失败。apply 在处理 lane patch 前先核验 integration
-task-derived STATE／SPEC／SCOPE、task／workspace／共同 orchestrator、唯一 translation+evidence
-allowed-files union，以及恰好一个 lineage／`purpose=integration_apply` 绑定的 integration
-EXECUTOR dispatch；实际调用进程还必须提供与该唯一记录 `agent_id` 相同的非空
-`PASEO_AGENT_ID`，缺失、不等或由 `integration_fix` 冒充均失败关闭。
-
-integration 的 final full envelope 必须按 MERGE-QUEUE 顺序精确合并每条 lane 的完整 workset 与
-最终 envelope：ordered keys、source、target、context 全部逐项 1:1，并由 integration 当前译文
-重新解析 target。`fixed_source_identity` 必须从 `base_commit` 固定字节的 manifest 按 public
-commit／protected snapshot 机制重建；integration 的 terminology snapshot 与 briefing 按编排契约
-规定的 canonical JSON recipe 从 queue 顺序、lane 冻结输入和 integration 实际 snapshot
-确定性重渲染。空值或任意重算 payload identity 不能替代这些 provenance。lane 与 integration 的
-final full review 还必须跨 `review_records`／`senior_review_records` 的合法 review phase 唯一指向
-最大 `(cycle, attempt)` full completion；更新的 `CHANGES_REQUIRED` 也参与最大值并阻断 closure，
-最大 tuple 平局、歧义或指向旧 completion 都失败关闭。
-
-integration 完整复审和门禁通过后，先冻结 prospective DONE WAVE，再由唯一 fresh、归档确认的
-`purpose=wave_evidence` integration EXECUTOR 写 evidence；该 dispatch 必须绑定唯一 evidence path
-和 prospective identity，且不得复用 apply／fix agent ID。随后原子发布完全相同的 WAVE bytes，
-最后运行：
 
 ```bash
 python3 -B tools/wave_review.py verify-content-diff .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
@@ -264,18 +179,9 @@ python3 -B tools/wave_review.py publish .ai/waves/<wave-id>/WAVE.json <workspace
 python3 -B tools/wave_review.py done .ai/waves/<wave-id>/WAVE.json <workspace-root-args>
 ```
 
-`prepare-publication` 在 GATED 状态冻结或复用 prospective；`publish` 在发布前重验 prospective、
-evidence identity 与 translation hashes，并原子发布完全相同 bytes。prospective 缺失时只可从
-唯一 GATED 绑定确定性重建；evidence 缺失时停下等待 integration EXECUTOR；已发布时重复
-`publish` 幂等；identity／bytes 不一致一律失败关闭。`done` 只做发布后 closure，并复用
-`ai_state_check` 验证每个 lane／integration STATE，追加 task workspace、共同
-orchestrator、禁止 lane-orchestrator、child agent 不跨 task 复用、prospective／publication
-字节全等、evidence binding、translation-only hash 未漂移及唯一 allowed-files 的最终 diff
-closure。其 `DONE_VERIFIED` 只作为外部结果，不写回 WAVE。恢复时只续做缺失步骤：已有
-prospective 就不重算，已有 evidence 就先核验引用再发布，已发布 WAVE 就只重跑 closure；字节或
-identity 不一致时进入 `WAIT_USER`。
-integration 的全部 `translation_fix_paths` 也必须逐文件字节等于 `base_commit`，且
-`integration-content-diff/1.changed_paths` 与 `entries` 必须同时严格为空。
+先完成各 lane 的外部 `DONE_VERIFIED` 再导出／验证 patch；integration 完整复审和门禁通过后
+准备 prospective，由唯一 fresh integration evidence EXECUTOR 写绑定 evidence，再发布并执行 done。
+当前工具仅支持 `changes=[]`，不得将 dry-run 报为生产 apply；失败按契约恢复，不修补哈希。
 
 ### Production-review shadow 校准
 
@@ -292,7 +198,7 @@ WP1 只用于校准枚举、identity、预算和守恒，不进入连续生产�
 python3 -B tools/i18n lint --strict
 
 # 2) 单元测试
-python3 -m unittest -q tests/i18n/test_toolchain.py
+python3 -B tools/test_groups.py --group toolchain
 
 # 3) 跨组件同键多译扫描
 python3 -B tools/scan_runtime_collisions.py

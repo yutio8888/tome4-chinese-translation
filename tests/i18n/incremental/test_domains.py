@@ -263,7 +263,7 @@ class _DomainTestCase(unittest.TestCase):
 
         captured: list[dict] = []
         with mock.patch(
-            "i18nlib.cli._print_json",
+            "i18nlib.cli_lint._print_json",
             side_effect=lambda value: captured.append(value),
         ):
             function(*args)
@@ -301,7 +301,7 @@ class TranslationDomainTests(_DomainTestCase):
     frozen fallback TU."""
 
     def _run(self, base: str, head: str, *, index: str = "minimal") -> dict:
-        from i18nlib.cli import _lint_incremental_translation
+        from i18nlib.cli_lint import _lint_incremental_translation
 
         component = _component(
             id="test-component",
@@ -941,7 +941,7 @@ class TranslationDomainTests(_DomainTestCase):
         self.assertEqual(report["findings"]["recomputed"], 0)
 
     def _run_with_index(self, base: str, head: str, index_obj) -> dict:
-        from i18nlib.cli import _lint_incremental_translation
+        from i18nlib.cli_lint import _lint_incremental_translation
 
         component = _component(
             id="test-component",
@@ -1055,7 +1055,7 @@ class RuleDomainTests(_DomainTestCase):
     def _run(
         self, base: str, head: str, *, self_check: bool = False, index: str = "minimal"
     ) -> dict:
-        from i18nlib.cli import _lint_incremental_rule
+        from i18nlib.cli_lint import _lint_incremental_rule
 
         component = _component(
             id="test-component",
@@ -1480,7 +1480,7 @@ class SourceCIGateTests(_DomainTestCase):
 
         from unittest import mock
 
-        from i18nlib.cli import _lint_identity_mode
+        from i18nlib.cli_lint import _lint_identity_mode
 
         # Both commits resolve against the pinned engine repository; the
         # mocked flow never runs real extraction.
@@ -1530,7 +1530,7 @@ class SourceCIGateTests(_DomainTestCase):
 
         from unittest import mock
 
-        from i18nlib.cli import _lint_identity_mode
+        from i18nlib.cli_lint import _lint_identity_mode
         from i18nlib.config import load_manifest
 
         pinned = load_manifest().repositories["engine"].commit
@@ -1548,7 +1548,7 @@ class SourceCIGateTests(_DomainTestCase):
         )
         captured: list[dict] = []
         with mock.patch(
-            "i18nlib.cli._print_json",
+            "i18nlib.cli_lint._print_json",
             side_effect=lambda value: captured.append(value),
         ), mock.patch(
             "i18nlib.incremental.incremental_source_flow",
@@ -1637,7 +1637,7 @@ class BaselineEntityOwnershipTests(_DomainTestCase):
             read_baseline,
             write_baseline,
         )
-        from i18nlib.cli import _records_by_component
+        from i18nlib.cli_identity import _records_by_component
         from i18nlib.findings import FindingContext, build_finding_records
         from i18nlib.fingerprint import RuleRegistry
         from i18nlib.identity import (
@@ -1867,7 +1867,7 @@ class HeadCommitSemanticsTests(_DomainTestCase):
     head."""
 
     def test_translation_domain_ignores_corrupt_worktree(self) -> None:
-        from i18nlib.cli import _lint_incremental_translation
+        from i18nlib.cli_lint import _lint_incremental_translation
 
         self._write_doc("mod-test.lua", [("mod-test/data/talents.lua", "Flame", "火焰")])
         self._write_doc("mod-test-copy.lua", [("mod-test/data/effects.lua", "Burning", "")])
@@ -1901,7 +1901,7 @@ class HeadCommitSemanticsTests(_DomainTestCase):
         )
 
     def test_rule_domain_ignores_corrupt_worktree(self) -> None:
-        from i18nlib.cli import _lint_incremental_rule
+        from i18nlib.cli_lint import _lint_incremental_rule
 
         (self.root / "i18n/quality/rules-registry-v1.json").write_bytes(
             self._registry_bytes()
@@ -1940,7 +1940,7 @@ class HeadCommitSemanticsTests(_DomainTestCase):
     def test_translation_domain_corrupt_base_doc_fails_closed(self) -> None:
         """V2/V4: a corrupt base document is a loader error, never treated as
         a missing (head-only) file."""
-        from i18nlib.cli import _lint_incremental_translation
+        from i18nlib.cli_lint import _lint_incremental_translation
         from i18nlib.errors import ValidationError
 
         (self.root / "mod-test.lua").write_text("not valid lua !!!", encoding="utf-8")
@@ -1968,7 +1968,7 @@ class HeadCommitSemanticsTests(_DomainTestCase):
     def test_current_indexes_for_uses_fail_closed_scan(self) -> None:
         """V10: cli._current_indexes_for shares the fail-closed trio scan with
         the extract path (identity show/audit cannot read partial trios)."""
-        from i18nlib.cli import _current_indexes_for
+        from i18nlib.cli_identity import _current_indexes_for
         from i18nlib.errors import ValidationError
         from i18nlib.identity import write_index_files
 

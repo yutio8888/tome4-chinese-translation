@@ -18,7 +18,7 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from i18nlib.config import load_manifest
-from i18nlib.cli import _quality_stability_v2, _quality_stability_v3
+from i18nlib.cli_quality import _quality_stability_v2, _quality_stability_v3
 from i18nlib.errors import AgentError, ConfigurationError, ValidationError
 from i18nlib.pi_quality import (
     _cache_key, _cache_key_v2, _cache_key_v3,
