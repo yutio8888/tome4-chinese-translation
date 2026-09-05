@@ -199,3 +199,16 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 `batch-7e79a3c546be1764cef2`；已按当前队列重新确定边界，全部英文键在实际公开源码中
 逐条核验并冻结文件哈希和行号。源码 repository／commit 未固定，提取 snapshot 不作为
 源码 commit。继续采用四个分片 lane、最多三名同时运行的 child，完成后按排序继续。
+
+## 第九批完成
+
+`batch-7e79a3c546be1764cef2` 的 18 条 Orcs 表层审核全部 OK，已提交为
+`5051d63315503d97195bd8e550760b7dfc82da7b` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前 S／done 1,674（surface_only 1,627；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 28,154。27 个批次共 1,775 条历史结果。
+
+恢复后九批新增 335 条 surface_only。下一批为 `batch-7fc4cb3bff79339b7a8c`，
+按现行排序取前 80 条 engine／boot／Tome，共享固定引擎源码身份；finalize 后重新选择
+与预核验工作集完全一致。61 个字面量和 19 个提取器生成键均已核验，生成键记录了
+固定 extractor commit、转换规则与对应源码行号。继续按完整四分片审核及门禁流程推进。
