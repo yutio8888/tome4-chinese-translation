@@ -160,3 +160,16 @@ I 97，其中尚无当前审核 2；隐式 queued 28,191。23 个批次共 1,738
 恢复后五批新增 298 条 surface_only。下一连续源码身份切片为 8 条 Tome，
 `batch-d960f8e6ecea55faff81`；随后才进入 Ashes snapshot。8 条固定源码依据已核验，
 其中 `spell` 是 newTalentType 的 type 字段经固定提取器去除斜线后缀生成的类别键。
+
+## 第六批完成
+
+`batch-d960f8e6ecea55faff81` 的 8 条 Tome 表层审核全部 OK，已提交为
+`76cce397caa81d66e85710a2e6e0d35017b578e3` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前队列校验通过：S／done 1,645（surface_only 1,598；deep_reviewed 47），D 47、R 0、
+I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746 条历史结果。
+
+恢复后六批新增 306 条 surface_only。下一连续源码身份切片为两条 Ashes，
+`batch-7aa51896d7e8e541699e`；两条均已核验实际公开源码，源码 repository／commit 未固定。
+按 n<=3 的既有 surface 契约采用单个 full reviewer；仍须完成原始结果校验、归档、
+`DONE_VERIFIED`、导入／裁决、完整门禁、本地提交和 finalize，之后按排序继续 Cults 切片。
