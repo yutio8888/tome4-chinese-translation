@@ -79,25 +79,21 @@ check "01-doctor" "doctor" python3 -B tools/i18n doctor
 step 2 "strict lint"
 check "02-strict-lint" "lint --strict" python3 -B tools/i18n lint --strict
 
+check_out "03-test-group-registration" "test group registration" \
+    python3 -B tools/test_groups.py --check
+
 step 3 "toolchain unit tests"
-check "03-toolchain-unit-tests" "unittest" python3 -m unittest -q tests/i18n/test_toolchain.py
+check "03-toolchain-unit-tests" "unittest" python3 -B tools/test_groups.py --group toolchain
 
 step 4 "quality and Facts unit tests"
 check \
     "04-quality-facts-unit-tests" \
     "quality/Facts unittest" \
-    python3 -m unittest -q \
-    tests/i18n/test_quality_contracts.py \
-    tests/i18n/test_quality_claims.py \
-    tests/i18n/test_dataset_registry.py \
-    tests/i18n/test_quality_v2.py \
-    tests/i18n/test_quality_v3.py \
-    tests/i18n/test_facts_study.py \
-    tests/i18n/test_facts_curation.py
+    python3 -B tools/test_groups.py --group quality-facts
 check_out \
     "04-semantic-claim-unit-tests" \
     "semantic claim unittest" \
-    python3 -m unittest -q tests/i18n/test_semantic_claims.py
+    python3 -B tools/test_groups.py --group semantic-claim
 check_out \
     "04-semantic-claims-strict-registry" \
     "semantic claims strict registry" \
@@ -106,37 +102,14 @@ check_out \
     --strict
 
 step 5 "contract suite unit tests"
-# test_ai_state_check.py loads both contextual v2 validator test modules.
 check \
     "05-contract-suite-unit-tests" \
     "contract suite unittest" \
-    python3 -m unittest -q \
-    tests/i18n/identity/test_identity.py \
-    tests/i18n/identity/test_stability.py \
-    tests/i18n/identity/test_conflicts.py \
-    tests/i18n/fingerprint/test_fingerprint.py \
-    tests/i18n/fingerprint/test_findings.py \
-    tests/i18n/baseline/test_baseline.py \
-    tests/i18n/incremental/test_incremental.py \
-    tests/i18n/incremental/test_domains.py \
-    tests/i18n/qa/test_injected_defects.py \
-    tests/i18n/test_terminology_inventory.py \
-    tests/i18n/test_ai_state_check.py \
-    tests/i18n/test_contextual_anchor_preflight.py \
-    tests/i18n/test_review_evidence.py
+    python3 -B tools/test_groups.py --group contract-suite
 check_out \
     "05-production-shadow-surface-ledger-tests" \
     "production shadow/surface/ledger unittest" \
-    python3 -m unittest -q \
-    tests/i18n/test_production_review.py \
-    tests/i18n/test_production_review_v2_lite.py \
-    tests/i18n/test_production_review_v2_lite_migration.py \
-    tests/i18n/test_production_review_v2_lite_queue.py \
-    tests/i18n/test_production_review_v2_lite_batch.py \
-    tests/i18n/test_production_review_v2_lite_evidence.py \
-    tests/i18n/test_surface_screen_manifest.py \
-    tests/i18n/test_surface_screen_result_check.py \
-    tests/i18n/test_translation_review_ledger.py
+    python3 -B tools/test_groups.py --group production-shadow-surface-ledger
 
 step 6 "cross-component same-tag collision scan"
 check \

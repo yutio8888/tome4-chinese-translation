@@ -18603,31 +18603,13 @@ exit 0
             "01-doctor.log": "-B tools/i18n doctor\n",
             "02-strict-lint.log": "-B tools/i18n lint --strict\n",
             "03-toolchain-unit-tests.log": (
-                "-m unittest -q tests/i18n/test_toolchain.py\n"
+                "-B tools/test_groups.py --group toolchain\n"
             ),
             "04-quality-facts-unit-tests.log": (
-                "-m unittest -q tests/i18n/test_quality_contracts.py "
-                "tests/i18n/test_quality_claims.py "
-                "tests/i18n/test_dataset_registry.py "
-                "tests/i18n/test_quality_v2.py "
-                "tests/i18n/test_quality_v3.py "
-                "tests/i18n/test_facts_study.py "
-                "tests/i18n/test_facts_curation.py\n"
+                "-B tools/test_groups.py --group quality-facts\n"
             ),
             "05-contract-suite-unit-tests.log": (
-                "-m unittest -q tests/i18n/identity/test_identity.py "
-                "tests/i18n/identity/test_stability.py "
-                "tests/i18n/identity/test_conflicts.py "
-                "tests/i18n/fingerprint/test_fingerprint.py "
-                "tests/i18n/fingerprint/test_findings.py "
-                "tests/i18n/baseline/test_baseline.py "
-                "tests/i18n/incremental/test_incremental.py "
-                "tests/i18n/incremental/test_domains.py "
-                "tests/i18n/qa/test_injected_defects.py "
-                "tests/i18n/test_terminology_inventory.py "
-                "tests/i18n/test_ai_state_check.py "
-                "tests/i18n/test_contextual_anchor_preflight.py "
-                "tests/i18n/test_review_evidence.py\n"
+                "-B tools/test_groups.py --group contract-suite\n"
             ),
             "06-runtime-collision-scan.log": (
                 "-B tools/scan_runtime_collisions.py\n"
@@ -18645,6 +18627,25 @@ exit 0
             for path in skip_log_dir.glob("*.log")
         }
         self.assertEqual(actual_logs, expected_logs)
+        expected_outputs = {
+            "03-test-group-registration.out": "-B tools/test_groups.py --check\n",
+            "04-semantic-claim-unit-tests.out": (
+                "-B tools/test_groups.py --group semantic-claim\n"
+            ),
+            "04-semantic-claims-strict-registry.out": (
+                "-B tools/i18n claims check "
+                "--registry evidence/quality/semantic-claim-regressions-v1.json --strict\n"
+            ),
+            "05-production-shadow-surface-ledger-tests.out": (
+                "-B tools/test_groups.py --group production-shadow-surface-ledger\n"
+            ),
+        }
+        self.assertEqual(
+            {p.name: p.read_text(encoding="utf-8") for p in skip_log_dir.glob("*.out")},
+            expected_outputs,
+        )
+        for name in expected_outputs:
+            self.assertIn(f"(output: {skip_log_dir / name})", skip_build.stdout)
         failure_paths = [
             skip_log_dir / log_name
             for log_name in expected_logs

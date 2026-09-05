@@ -1,0 +1,60 @@
+{
+  "groups": {
+    "toolchain": [
+      "tests/i18n/test_toolchain.py",
+      "tests/i18n/test_test_groups.py"
+    ],
+    "quality-facts": [
+      "tests/i18n/test_quality_contracts.py",
+      "tests/i18n/test_quality_claims.py",
+      "tests/i18n/test_dataset_registry.py",
+      "tests/i18n/test_quality_v2.py",
+      "tests/i18n/test_quality_v3.py",
+      "tests/i18n/test_facts_study.py",
+      "tests/i18n/test_facts_curation.py"
+    ],
+    "semantic-claim": [
+      "tests/i18n/test_semantic_claims.py"
+    ],
+    "contract-suite": [
+      "tests/i18n/identity/test_identity.py",
+      "tests/i18n/identity/test_stability.py",
+      "tests/i18n/identity/test_conflicts.py",
+      "tests/i18n/fingerprint/test_fingerprint.py",
+      "tests/i18n/fingerprint/test_findings.py",
+      "tests/i18n/baseline/test_baseline.py",
+      "tests/i18n/incremental/test_incremental.py",
+      "tests/i18n/incremental/test_domains.py",
+      "tests/i18n/qa/test_injected_defects.py",
+      "tests/i18n/test_terminology_inventory.py",
+      "tests/i18n/test_ai_state_check.py",
+      "tests/i18n/test_contextual_anchor_preflight.py",
+      "tests/i18n/test_review_evidence.py",
+      "tests/i18n/test_wave_review.py",
+      "tests/test_executor_runner.py",
+      "tests/i18n/test_check_allowed_files.py"
+    ],
+    "production-shadow-surface-ledger": [
+      "tests/i18n/test_production_review.py",
+      "tests/i18n/test_production_review_v2_lite.py",
+      "tests/i18n/test_production_review_v2_lite_migration.py",
+      "tests/i18n/test_production_review_v2_lite_queue.py",
+      "tests/i18n/test_production_review_v2_lite_batch.py",
+      "tests/i18n/test_production_review_v2_lite_evidence.py",
+      "tests/i18n/test_surface_screen_manifest.py",
+      "tests/i18n/test_surface_screen_result_check.py",
+      "tests/i18n/test_translation_review_ledger.py"
+    ]
+  },
+  "indirect": {
+    "tests/i18n/test_contextual_lane_manifest.py": {
+      "via": "tests/i18n/test_ai_state_check.py",
+      "reason": "load_tests adds this module to the contract suite."
+    },
+    "tests/i18n/test_contextual_result_check.py": {
+      "via": "tests/i18n/test_ai_state_check.py",
+      "reason": "load_tests adds this module to the contract suite."
+    }
+  },
+  "excluded": {}
+}
