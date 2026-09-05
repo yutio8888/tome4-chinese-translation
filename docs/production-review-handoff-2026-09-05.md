@@ -300,3 +300,16 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 `batch-1e8f1c8248c513298f78`；finalize 后重新选择与预核验工作集完全一致。
 69 个直接字面量及 11 个提取器生成键已核验；生成键同时记录固定源码字段行号、
 固定 extractor commit 和对应转换规则。生产 selection 保留策略顺序。
+
+## 第十七批完成
+
+`batch-1e8f1c8248c513298f78` 的 80 条 engine／boot／Tome 表层审核全部 OK，已提交为
+`7c18ecf8ea8ddd424da252f86f645ff2ab05d856` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前 S／done 2,105（surface_only 2,058；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 27,723。35 个批次共 2,206 条历史结果。
+
+恢复后十七批新增 766 条 surface_only。下一批为 80 条 Tome，
+`batch-40e8c319bd43e1e92b24`；finalize 后重新选择与预核验工作集完全一致。
+64 个直接字面量及 16 个提取器生成键已核验，生成键包含实体关键词、效果子类型和
+技能分类；固定源码字段行号、extractor commit 与转换规则均已记录。
