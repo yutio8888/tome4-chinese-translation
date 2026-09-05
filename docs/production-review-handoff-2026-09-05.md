@@ -186,3 +186,16 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 `batch-ba4a4d4e67a706e96fe2`；已按当前队列重新确定边界，全部英文键在实际公开源码中
 逐条核验并冻结文件哈希和行号。源码 repository／commit 未固定，提取 snapshot 不作为
 源码 commit。按既有契约派发四个分片 lane，最多同时运行三名 child；完成后继续排序队列。
+
+## 第八批完成
+
+`batch-ba4a4d4e67a706e96fe2` 的 9 条 Cults 表层审核全部 OK，已提交为
+`5a5249c3180678ba3cf6281fba5c3e7d96f53e57` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前 S／done 1,656（surface_only 1,609；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 28,172。26 个批次共 1,757 条历史结果。
+
+恢复后八批新增 317 条 surface_only。下一连续源码身份切片为 18 条 Orcs，
+`batch-7e79a3c546be1764cef2`；已按当前队列重新确定边界，全部英文键在实际公开源码中
+逐条核验并冻结文件哈希和行号。源码 repository／commit 未固定，提取 snapshot 不作为
+源码 commit。继续采用四个分片 lane、最多三名同时运行的 child，完成后按排序继续。
