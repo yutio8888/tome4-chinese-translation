@@ -11,6 +11,49 @@
 分析时运行了 doctor、Paseo 契约检查以及 84 项相关测试，全部通过；未运行完整构建门禁，
 未启动新的译文审核，工作树未改动。
 
+## 0.1 执行完成状态（2026-09-05 回填）
+
+**P1–P6 已按用户批准后的范围全部完成**，各阶段均完成独立复审、适用的完整门禁
+（含严格 addon 构建）及 `DONE_VERIFIED`，独立提交并推送至 `origin/develop`。
+下表记录阶段交付；后文保留最初分析和方案，涉及范围或验收口径时以本节裁决为准。
+各结果报告中 EXECUTOR 的“待宿主复审／提交”是当时的交接状态，不表示当前仍未完成。
+
+| 阶段 | 状态与交付 | 提交 | 执行记录 |
+| --- | --- | --- | --- |
+| P1 | 完成：单一测试注册表、遗漏测试纳入及未注册检查 | `2f70501` | [P1 结果](review-pipeline-and-tooling-optimization-p1-results.md) |
+| P2 | 完成：统一门禁只执行一次、结构化结果及绑定校验 | `e949fa8` | [P2 结果](review-pipeline-and-tooling-optimization-p2-results.md) |
+| P3 | 按批准范围完成：单次 projection 的 blob/tree 原始字节缓存；log 缓存与阶段 B 暂缓 | `563382e` | [P3 结果](review-pipeline-and-tooling-optimization-p3-results.md) |
+| P4 | 完成：独立覆盖／待修复／历史失效指标与交叉分类 | `0913d0b` | [P4 结果](review-pipeline-and-tooling-optimization-p4-results.md) |
+| P5 | 按批准范围完成：七族 CLI、20 个测试模块、条款身份检查与文档去重；保留人工流程核验 | `3d67e87` | [P5 结果](review-pipeline-and-tooling-optimization-p5-results.md) |
+| P6 | 完成：四项来源属性、doctor 字面路径白名单扫描及公开 DLC 未固定来源提示 | `c9a785e` | [P6 结果](review-pipeline-and-tooling-optimization-p6-results.md) |
+
+## 0.2 已批准裁决与保留边界
+
+- **P3 范围调整**：以完整 40 位哈希缓存 blob 与递归 tree 读取的原始 bytes，作用域仅限
+  单次 projection；保留全部校验和现有路径历史查询，不做持久缓存。原计划的 log 缓存
+  不实施：实测 536 条路径查询互不重复，不能获得缓存命中。`cat-file --batch` 等阶段 B
+  暂缓，后续需重新测量收益再决定。三次实测中位数由 45.620 秒降至 39.980 秒，Git 调用
+  由 1733 降至 1359；这是观测结果，不是性能保证。此裁决已获用户批准，不列为本轮欠项。
+- **P4 指标口径**：四项为可重叠指标，不能直接相加作为完成总数；以 16 个互斥布尔交叉
+  分类核对，各格之和等于 eligible。阶段实测共同分母 29,828，S=1,339、D=47、R=0、
+  I=97；I 中已有当前复审 91、尚无当前复审 6。历史失效与当前待重新审核分别报告。
+- **P5 测试边界**：用户批准以真实 validator 正反测试覆盖 11 条可执行／部分可执行条款，
+  对 live routing、author provenance、model diversity、recovery、read-only 五项宿主流程
+  明确披露自动化缺口，保留人工核验，不新增编排引擎；不再要求每条宿主流程都有虚构的
+  自动化行为测试。36 项正文镜像测试的替换均已列明，规范正文修改仍由独立复审判断。
+  具体 selector、断言及人工余项见[条款覆盖表](paseo-clause-test-coverage.md)。
+  旧模块均有实际消费者，归档集合为空；不是遗漏归档。复审发现的 wave 前置条件文档
+  遗漏已补回契约并通过最终复审。
+- **P6 来源与一致性边界**：三个官方 DLC 为 public，但仍经现有 Lua broker 提取，源码
+  仓库／commit 未固定；提取快照和父 engine commit 不能充当 DLC 源码 pin。旧实现并无
+  明确的 source-unpinned 警告，本轮新增该提示，未声称原文措辞被原样保留。新配置使
+  catalog 的 manifest provenance hash／catalog ID 改变，29,828 条 entries/revisions
+  与 addon 输出字节不变。README 遗留整树 skip 说明已修正并通过最终复审。
+
+整个实施过程未改写历史 evidence（P3–P6 核验的 700 个文件路径和哈希不变），未修改译文
+或术语。第 3.4 节的抽样深审比例、高风险直接深审，以及第 5 节事项仍不在本次实施范围内；
+这些策略没有随工具优化启用。P3 暂缓优化及 P5 人工核验边界不应被描述为已经自动实现。
+
 ## 1. 现状结论
 
 ### 1.1 保留的骨架
