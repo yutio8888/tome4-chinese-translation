@@ -313,3 +313,16 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 `batch-40e8c319bd43e1e92b24`；finalize 后重新选择与预核验工作集完全一致。
 64 个直接字面量及 16 个提取器生成键已核验，生成键包含实体关键词、效果子类型和
 技能分类；固定源码字段行号、extractor commit 与转换规则均已记录。
+
+## 第十八批完成
+
+`batch-40e8c319bd43e1e92b24` 的 80 条 Tome 表层审核全部 OK，已提交为
+`87e2a1f6acad7d3e4e3b2b2f8ffb30a2b0a50bdc` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前 S／done 2,185（surface_only 2,138；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 27,643。36 个批次共 2,286 条历史结果。
+
+恢复后十八批新增 846 条 surface_only。下一连续源码身份切片为 38 条 Tome，
+`batch-6af04961d493ae262eda`；finalize 后重新选择与预核验工作集完全一致。
+30 个直接字面量及 8 个提取器生成键已核验，固定源码字段行号、extractor commit
+与转换规则均已记录。
