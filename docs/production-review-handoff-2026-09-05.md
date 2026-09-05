@@ -108,3 +108,19 @@ D 为 47、R 为 0、I 为 97；I 中已有当前审核 95、尚无当前审核 
 下一批保留现行 policy 排序，截取前 78 条 Tome，在固定源码身份转为 Cults snapshot 之前
 收束；78 条已逐项核验固定源码（71 个字面量、7 个 entity keyword AST 字段）。
 Cults 保持后续顺序；其公开源码可读，但源码 commit 未固定，不能把提取快照当作源码 pin。
+
+## 第二批完成与 Cults 边界
+
+`batch-5ebe7845a46cb43dfd78` 的 78 条 Tome 表层审核全部 OK，无 observation／修复项，
+已提交为 `85f7d163bac4683a9e3b1b8e843ad37128eba2e7` 并 finalize。四路原始结果通过校验，
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+第二路活动摘要出现展示层分隔线，已从对应原生会话的唯一 `final_answer` 取得纯 JSON，
+确认与摘要 JSON 后缀逐字相同；正式 raw 不含展示分隔符。
+
+当前队列校验通过：S／done 1,497（surface_only 1,450；deep_reviewed 47），D 47、R 0、
+I 97，其中尚无当前审核 2；隐式 queued 28,331。20 个批次共 1,598 条历史结果。
+
+前一次 80 条预览只显示末尾两条 Cults，并非 Cults 切片总量。第二批结束后重新按实际队列
+展开，下一连续源码身份切片是 **12 条 Cults**，之后才是 Orcs。两条预览没有形成预约、
+task 或完成证据。12 条英文键已在实际公开源码中逐条核验；源码 repository／commit
+未固定，文件哈希及行号记录在对应 source workset，提取 snapshot 不作源码 pin。
