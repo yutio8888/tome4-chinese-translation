@@ -212,3 +212,16 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 按现行排序取前 80 条 engine／boot／Tome，共享固定引擎源码身份；finalize 后重新选择
 与预核验工作集完全一致。61 个字面量和 19 个提取器生成键均已核验，生成键记录了
 固定 extractor commit、转换规则与对应源码行号。继续按完整四分片审核及门禁流程推进。
+
+## 第十批完成
+
+`batch-7fc4cb3bff79339b7a8c` 的 80 条 engine／boot／Tome 表层审核全部 OK，已提交为
+`025fba9531ae483c8763ef32686fc40c37698db8` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前 S／done 1,754（surface_only 1,707；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 28,074。28 个批次共 1,855 条历史结果。
+
+恢复后十批新增 415 条 surface_only。下一批为 `batch-96f2172d3697a5ede8ef`，
+按现行排序取前 80 条 Tome；finalize 后重新选择与预核验工作集完全一致。68 个字面量和
+12 个提取器生成键已核验，生成键同时记录固定 extractor commit 与转换规则。
+生产 selection 始终保留策略顺序；surface envelope 才单独按 entry identity 排序。
