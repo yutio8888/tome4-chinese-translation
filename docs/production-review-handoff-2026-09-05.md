@@ -124,3 +124,15 @@ I 97，其中尚无当前审核 2；隐式 queued 28,331。20 个批次共 1,598
 展开，下一连续源码身份切片是 **12 条 Cults**，之后才是 Orcs。两条预览没有形成预约、
 task 或完成证据。12 条英文键已在实际公开源码中逐条核验；源码 repository／commit
 未固定，文件哈希及行号记录在对应 source workset，提取 snapshot 不作源码 pin。
+
+## Cults 批次完成
+
+`batch-5a2b64013f85006dd92c` 的 12 条 Cults 表层审核全部 OK，已提交为
+`cbc176b61e6bf0b6a2b5171e9a93c045caa4baf1` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前队列校验通过：S／done 1,509（surface_only 1,462；deep_reviewed 47），D 47、R 0、
+I 97，其中尚无当前审核 2；隐式 queued 28,319。21 个批次共 1,610 条历史结果。
+
+下一连续源码身份切片为 48 条 Orcs（`batch-40c65c6934a3b76978ee`），重新按当前队列排序
+确认与预选一致；48 条英文键已在实际公开源码中逐条核验，源码 repository／commit 未固定。
+本会话恢复后新增 170 条 surface_only；不把这些结果提升为 deep_reviewed。
