@@ -173,3 +173,16 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 `batch-7aa51896d7e8e541699e`；两条均已核验实际公开源码，源码 repository／commit 未固定。
 按 n<=3 的既有 surface 契约采用单个 full reviewer；仍须完成原始结果校验、归档、
 `DONE_VERIFIED`、导入／裁决、完整门禁、本地提交和 finalize，之后按排序继续 Cults 切片。
+
+## 第七批完成
+
+`batch-7aa51896d7e8e541699e` 的两条 Ashes 表层审核全部 OK，已提交为
+`44e8918f8c6d80bee64ceda6bc4b69bce1c8cff6` 并 finalize。无 observation／修复项；
+单个 full reviewer 已确认归档，审核记录 `DONE_VERIFIED`；17 项完整门禁及严格 addon build
+全部通过。当前 S／done 1,647（surface_only 1,600；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 28,181。25 个批次共 1,748 条历史结果。
+
+恢复后七批新增 308 条 surface_only。下一连续源码身份切片为 9 条 Cults，
+`batch-ba4a4d4e67a706e96fe2`；已按当前队列重新确定边界，全部英文键在实际公开源码中
+逐条核验并冻结文件哈希和行号。源码 repository／commit 未固定，提取 snapshot 不作为
+源码 commit。按既有契约派发四个分片 lane，最多同时运行三名 child；完成后继续排序队列。
