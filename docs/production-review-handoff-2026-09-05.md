@@ -275,3 +275,15 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 恢复后十四批新增 605 条 surface_only。下一连续源码身份切片为 27 条 Cults，
 `batch-a287c35e5d6dea4320a4`；finalize 后重新选择与预核验工作集完全一致。
 27 条均已再次核验实际公开源码字面量，源码 repository／commit 未固定；文件哈希和行号已冻结。
+
+## 第十五批完成
+
+`batch-a287c35e5d6dea4320a4` 的 27 条 Cults 表层审核全部 OK，已提交为
+`78ad311b6f1dbf3e41fa96a68dcc563366c3841f` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前 S／done 1,971（surface_only 1,924；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 27,857。33 个批次共 2,072 条历史结果。
+
+恢复后十五批新增 632 条 surface_only。下一连续源码身份切片为 54 条 Orcs，
+`batch-f164b5b90f78169216c4`；finalize 后重新选择与预核验工作集完全一致。
+54 条均已再次核验实际公开源码字面量，源码 repository／commit 未固定；文件哈希和行号已冻结。
