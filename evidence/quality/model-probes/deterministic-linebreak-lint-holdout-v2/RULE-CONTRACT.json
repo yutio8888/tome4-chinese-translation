@@ -1,0 +1,56 @@
+{
+  "schema_version": "deterministic-linebreak-rule-contract-v2",
+  "experiment": "deterministic-linebreak-lint-holdout-v2",
+  "status": "V1_SEMANTICS_UNCHANGED_HOLDOUT_QUALIFICATION",
+  "provenance": {
+    "source_experiment": "deterministic-linebreak-lint-v1",
+    "source_rule_contract_sha256": "fef9fb556adcd4b083a05213b40d483d528ef87185f6eda41e58d93f8d565b4d",
+    "source_scanner_lib_sha256": "1fe7e5dbe8ddd41de9dae63614ee40198095d683b6cd486fc42653b773d1279c",
+    "source_scan_sha256": "ea944f267fc7a312227f346bd6fda38513fb3725fdad33926a2cf545fa1b16b7",
+    "source_fixtures_sha256": "b00d56a8573efaf204e260bee055b24daa704fd38277e9562f1724ed33b25356",
+    "source_candidates_sha256": "d048499955350a07988ee49f7e4c1a8aa26fb6ba3b115c774f09d25e45432aab",
+    "semantic_change": "None. Only the frozen snapshot bindings, explicit v1 exclusions, and no-go reporting layer are new.",
+    "runtime_equivalence_gate": "verify.mjs loads the baseline v1 scanner and requires deep equality of v1 and v2 raw scan outputs before exclusions."
+  },
+  "frozen_inputs": {
+    "baseline_commit": "31cb74af595567cd803a010e6fe5fceea4a29db6",
+    "inventory_rows": 30308,
+    "inventory_raw_sha256": "1fb97b26457ebda2b6c03be40e3fe6121639fe58046004acee62aa3dc8f6af61",
+    "inventory_canonical_sha256": "6064eba32bc43d3bf7dff40bd83b8d2183e73a5298bf5b0dcc28fb39c6b1d18a",
+    "inventory_schema_sha256": "483b4bc93b8c3816dc6b29c58e5e68dd931521c93dbcb25423c08ac99233a0ac",
+    "translation_inputs_sha256": "165a9ab3064d983bccb79364332a3a63b37762ad8b79ba5774ef51f96c835d5d",
+    "inventory_manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+    "inventory_policy_sha256": "45f0c5aee14c652aa0f48116577a21a3eee81fbfb8db785f604bf4e5bb311880",
+    "inventory_taxonomy_sha256": "8f32ee89d7baaa0adba23d9b4a41534f274d5ce2492b5539725b4e8a7db34078",
+    "inventory_terminology_sha256": "96783486cf8790762fcab2e2379dfc0b3e13a50ca055410960395bcab1f9065c"
+  },
+  "lexicon": {
+    "corpus": "Every maximal Unicode Script=Han run in every target in the frozen canonical inventory.",
+    "han_character_count": 723333,
+    "bigram": "Overlapping adjacent Han pairs within the same run; a newline is never treated as adjacency.",
+    "pmi_formula": "log2(freq(ab) * han_character_count / (freq(a) * freq(b)))"
+  },
+  "candidate_rule": {
+    "base_boundary": "A Han character is the last character before LF and another Han character is the first character after optional horizontal indentation.",
+    "required": [
+      "horizontal indentation length is zero",
+      "target newline count is greater than source newline count",
+      "at least one adjacent line contains 20 Han characters",
+      "the cross-boundary bigram occurs contiguously at least twice elsewhere in the target corpus",
+      "cross-boundary PMI is at least 4"
+    ],
+    "tiers": {
+      "Q_QUOTED_TWO_HAN_TOKEN": "The boundary is exactly inside a two-Han token enclosed by paired Chinese quotation marks.",
+      "A_FREQUENT_BIGRAM": "Not Q; contiguous corpus frequency is at least 5.",
+      "B_LOW_SUPPORT_BIGRAM": "Not Q/A; contiguous corpus frequency is 2 to 4."
+    },
+    "list_policy": "Do not blanket-exclude a long wrapped line merely because its paragraph contains list items; a split inside a list item's Chinese word is still a candidate.",
+    "output_semantics": "Every raw hit remains CANDIDATE_NOT_GROUND_TRUTH. Registered v1 development identities are removed from the independent holdout before any audit or scoring."
+  },
+  "qualification_rule": "Exactly five raw candidates must be covered one-to-one by EXCLUSIONS.json and exactly zero independent candidates must remain. Any other observation fails closed; the contract must not be weakened.",
+  "known_limitations": [
+    "The PMI threshold misses common functional bigrams such as 不会 and is not a complete word segmenter.",
+    "The five current emissions were exposed during v1 development and cannot be scored as independent holdout units.",
+    "Zero post-exclusion candidates cannot estimate precision, recall, false-alarm behavior, or cross-component performance."
+  ]
+}

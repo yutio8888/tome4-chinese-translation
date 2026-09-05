@@ -1,0 +1,89 @@
+{
+  "schema_version": "gemini-context-v5-execution-design-v4",
+  "status": "FROZEN_ZERO_INFERENCE_NO_GO",
+  "sample": {
+    "total": 64,
+    "items_per_cohort_profile": 16,
+    "reselection": false,
+    "reserve_replacement": false
+  },
+  "roles": {
+    "global": {
+      "CONTEXT_MUTANT": 24,
+      "SURFACE_MUTANT": 16,
+      "CLEAN_CONTROL": 24
+    },
+    "each_cohort_profile": {
+      "CONTEXT_MUTANT": 6,
+      "SURFACE_MUTANT": 4,
+      "CLEAN_CONTROL": 6
+    }
+  },
+  "protocols": {
+    "A": {
+      "prompt": "model-facing/prompts/GENERIC.md",
+      "context": false
+    },
+    "B": {
+      "prompt": "model-facing/prompts/ENHANCED.md",
+      "context": false
+    },
+    "C": {
+      "prompt": "model-facing/prompts/GENERIC.md",
+      "context": true
+    },
+    "D": {
+      "prompt": "model-facing/prompts/ENHANCED.md",
+      "context": true
+    }
+  },
+  "execution": {
+    "runs": 2,
+    "items_per_shard": 16,
+    "shards_per_cohort": 2,
+    "discovery_protocols": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "confirmation_protocols": [
+      "A",
+      "DISCOVERY_WINNER"
+    ],
+    "all_possible_confirmation_request_bytes_frozen_before_execution": true,
+    "frozen_request_count": 32,
+    "discovery_execution_cells": 16,
+    "selected_confirmation_execution_cells": 8
+  },
+  "winner": {
+    "eligible": [
+      "B",
+      "C",
+      "D"
+    ],
+    "requires_all_discovery_runs_and_shards_valid": true,
+    "per_run_thresholds": {
+      "context_atom_hit_gain_vs_A_min": 3,
+      "surface_atom_hits_vs_A": "GREATER_OR_EQUAL",
+      "clean_items_with_finding_vs_A": "LESS_OR_EQUAL"
+    },
+    "ranking": [
+      "sum_context_atom_gain_desc",
+      "sum_clean_items_with_finding_asc",
+      "fixed_protocol_order_D_C_B"
+    ],
+    "latency_used": false,
+    "no_eligible_protocol": "STOP_NO_WINNER"
+  },
+  "stopping": {
+    "one_initial_attempt_per_shard": true,
+    "one_recovery_only_after_preclassified_transport_or_harness_failure": true,
+    "successful_envelope_parser_only_reuse": true,
+    "raw_overwrite": false,
+    "invalid_cell": "STOP_NOT_SCORE",
+    "qualification_evidence_scored": false
+  },
+  "context_render_schema": "runtime-context-text-v2",
+  "source_construct_policy": "COMPLETE_NEVER_RENDERER_TRUNCATED_EXACT_SOURCE_PRESENT"
+}

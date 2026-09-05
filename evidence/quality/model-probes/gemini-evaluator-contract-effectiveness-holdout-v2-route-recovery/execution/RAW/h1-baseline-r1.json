@@ -1,0 +1,259 @@
+{
+  "schema_version": "gemini-evaluator-contract-effectiveness-raw-v2",
+  "cell": "h1-baseline-r1",
+  "condition": "baseline",
+  "dataset": "H1",
+  "repetition": 1,
+  "request_sha256": "0fedc926098936821e6803987b3432c905eb58f7d21991e07374fcbce19f72c4",
+  "schema_sha256": "be1f93283848ee6cbb3512b802076046730a35b82693b37185fc9c71ba26aa0c",
+  "authoritative_channel": "structured_output",
+  "response_provenance": {
+    "authoritative_channel": "structured_output",
+    "response_present": true,
+    "response_type": "string",
+    "response_utf8_bytes": 15108,
+    "response_sha256": "5217b9cbb5865090ae6d2488c8010b4cc1af5749685913a03ca03399283e7a8d"
+  },
+  "normalized_output": {
+    "items": [
+      {
+        "item_id": "H1-I001",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "POLARITY",
+            "target_span": "对不死族有效",
+            "correction": "对不死族无效",
+            "evidence": "The source states that the heal does not work on undead ('this heal does not work on undead'), but the target translates it as '对不死族有效' (effective on undead), which directly reverses the polarity."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I002",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ACTION",
+            "target_span": "封锁",
+            "correction": "烧焦",
+            "evidence": "The source uses the verb 'fry' ('fry your enemies brain'), which means to burn or scorch, but the translation incorrectly renders it as '封锁' (block/lock)."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I003",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "你的",
+            "correction": "目标的",
+            "evidence": "The source specifies 'one of the target's sustained talents will be deactivated', but the translation uses '你的' (your), incorrectly applying the deactivation to the player's sustained talents instead of the target's."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I004",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "敏捷和力量",
+            "correction": "力量和敏捷",
+            "evidence": "The source states 'Increases Strength and Dexterity by %d%% of your Willpower and Cunning, respectively', mapping Willpower to Strength and Cunning to Dexterity. The translation reverses the target attributes as '敏捷和力量' (Dexterity and Strength), erroneously pairing Willpower with Dexterity and Cunning with Strength."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I005",
+        "candidates": []
+      },
+      {
+        "item_id": "H1-I006",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "FORMAT",
+            "target_span": "%d%% 酸性伤害",
+            "correction": "%d 点酸性伤害",
+            "evidence": "The source specifies flat damage ('dealing %d acid damage'), but the translation adds an extraneous percent sign ('%d%% 酸性伤害'), converting flat damage into percentage damage."
+          },
+          {
+            "verdict": "FINDING",
+            "claim_type": "OMISSION",
+            "target_span": "减少 %d 酸性和枯萎抗性",
+            "correction": "减少 %d%% 酸性和枯萎抗性",
+            "evidence": "The source specifies resistance reduction as a percentage ('by %d%%'), but the translation omits the percent sign, stating '减少 %d'."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I007",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "靠近你的方向",
+            "correction": "远离你的方向",
+            "evidence": "The source states that creatures 'are knocked away from you', but the translation states '并被击退至靠近你的方向' (knocked towards you), reversing the direction of the knockback."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I008",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "SCOPE",
+            "target_span": "所有敌人",
+            "correction": "敌人",
+            "evidence": "The source specifies a single target ('your foe'), but the translation uses '所有敌人' (all enemies), erroneously broadening the target scope from a single enemy to all enemies."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I009",
+        "candidates": []
+      },
+      {
+        "item_id": "H1-I010",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "CONDITION",
+            "target_span": "当你伤害一个近身的敌对生物时",
+            "correction": "当近身范围内的敌人伤害你时",
+            "evidence": "The source states 'Whenever an enemy damages you within melee range' (the enemy damages the player), but the translation says '当你伤害一个近身的敌对生物时' (when you damage a nearby hostile creature), reversing who damages whom."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I011",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "你可以喷吐火焰（如果你原本就会喷火，则吐息会得到强化）并使你免疫火焰伤害。",
+            "correction": "你可以喷吐火焰（如果你原本就会喷火，则吐息会得到强化）。",
+            "evidence": "The source does not mention granting fire damage immunity, which was erroneously added in the translation ('并使你免疫火焰伤害')."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I012",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "OTHER",
+            "target_span": "5%%",
+            "correction": "50%%",
+            "evidence": "The source specifies that damage is reduced by '50%%', but the translation states '5%%', which is off by a factor of 10."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I013",
+        "candidates": []
+      },
+      {
+        "item_id": "H1-I014",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "OMISSION",
+            "target_span": "被烟雾影响的生物不能阻止你潜行。",
+            "correction": "被烟雾影响的生物不能阻止你潜行，即使它们的接近通常会阻止你潜行。",
+            "evidence": "The source specifies that 'creatures affected by the smokes can never prevent you from activating stealth, even if their proximity would normally forbid it', but the translation completely omits the conditional clause 'even if their proximity would normally forbid it'."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I015",
+        "candidates": []
+      },
+      {
+        "item_id": "H1-I016",
+        "candidates": []
+      },
+      {
+        "item_id": "H1-I017",
+        "candidates": []
+      },
+      {
+        "item_id": "H1-I018",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "FORMAT",
+            "target_span": "发射长度 %0.2f 的锥形火焰，造成 %d 火焰伤害",
+            "correction": "发射半径 %d 的锥形火焰，造成 %0.2f 点火焰伤害",
+            "evidence": "The source specifies radius as '%d' and fire damage as '%0.2f' ('(radius %d) for %0.2f fire damage'), but the translation swaps the placeholders, assigning '%0.2f' to length and '%d' to fire damage."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I019",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "指定的方向",
+            "correction": "大致方向",
+            "evidence": "The source states 'randomly teleporting you in a general direction', meaning an approximate direction, but the translation renders this as '指定的方向' (specified/designated direction), mistranslating a general direction as a specific/designated direction."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I020",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "POLARITY",
+            "target_span": "如果攻击造成的是物理伤害",
+            "correction": "如果攻击造成的不是物理伤害",
+            "evidence": "The source states 'If the attack is not physical', but the translation omits the negation and states '如果攻击造成的是物理伤害' (if the attack causes physical damage), directly reversing the trigger condition."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I021",
+        "candidates": []
+      },
+      {
+        "item_id": "H1-I022",
+        "candidates": []
+      },
+      {
+        "item_id": "H1-I023",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "OMISSION",
+            "target_span": "增强你的隐形侦测能力 +%d 以及潜行侦测能力 +%d。  此外，每回合你有 %d%% 的几率从一个负面状态中回复。",
+            "correction": "增强你的隐形侦测能力 +%d 以及潜行侦测能力 +%d。  此外，每回合你有 %d%% 的几率从一个负面状态中回复。\\n\\t\\t侦测能力受魔法属性加成。",
+            "evidence": "The source includes the sentence 'Sense abilities will scale with your Magic stat.', which was entirely omitted from the Chinese translation."
+          }
+        ]
+      },
+      {
+        "item_id": "H1-I024",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "EVENT",
+            "target_span": "品尝火焰之怒吧！",
+            "correction": "火焰之怒听凭你的差遣！",
+            "evidence": "The source says 'All the fury of fire at your disposal!' (indicating the player commands the fury of fire), but the translation changes it to '品尝火焰之怒吧！' (Taste the fury of fire!), completely changing the meaning."
+          },
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "巨震引擎的最后一次爆发输出撕裂地面，引出岩浆，形成一座火山",
+            "correction": "巨震引擎在最后一次脉冲时剧烈震动，升起一座火山",
+            "evidence": "The source states 'shakes violently, raising a volcano', but the translation adds unmentioned actions: '撕裂地面，引出岩浆' (tearing the ground, drawing forth magma)."
+          }
+        ]
+      }
+    ]
+  }
+}

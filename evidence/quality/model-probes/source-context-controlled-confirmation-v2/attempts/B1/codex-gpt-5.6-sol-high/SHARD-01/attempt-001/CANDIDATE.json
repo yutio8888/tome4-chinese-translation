@@ -1,0 +1,231 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "B1",
+  "arm": "B",
+  "run": 1,
+  "shard": "01",
+  "route_key": "codex",
+  "route": "codex-gpt-5.6-sol-high",
+  "attempt": 1,
+  "request_sha256": "68093fecf07ce119422b222fd43e69dad0f9b2d3e6f39a9a1a6798f66a4234a6",
+  "input_sha256": "4aa3d739455058120ea0cd8e0dd67b44c4abc74d1b9aba0ad1ff654e94ac425f",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "dbbc5b1fb77c3aa9b92d2737a63f2501eb24b56f66c7f11f2195201d2a6beac3",
+  "raw_stderr_sha256": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+  "route_metadata": {
+    "requested_model": "gpt-5.6-sol",
+    "runtime_identity_verified": false,
+    "reported_models": [],
+    "usage": {
+      "input_tokens": 20872,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4343,
+      "reasoning_output_tokens": 3106
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "neutral_id": "Q001",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ACTION",
+            "target_span": "在莎西·凯希成长到尽可能强大之后",
+            "correction": "在让莎西·凯希成长到尽可能强大之后",
+            "evidence": "after letting her grow as powerful as possible"
+          }
+        ],
+        "observation": "译文遗漏了主动允许她成长的含义，仅表达成长后的时间关系。"
+      },
+      {
+        "neutral_id": "Q002",
+        "candidates": [],
+        "observation": "未发现可由可见文本确定的实质性翻译缺陷。"
+      },
+      {
+        "neutral_id": "Q003",
+        "candidates": [],
+        "observation": "译文完整传达了斗篷的伪装效果和请求语气。"
+      },
+      {
+        "neutral_id": "Q004",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "七章",
+            "correction": "八章",
+            "evidence": "Learned the eight chapters of the Spellblaze Chronicles."
+          }
+        ],
+        "observation": "译文所加章节数与源码上下文明确给出的八章不符。"
+      },
+      {
+        "neutral_id": "Q005",
+        "candidates": [],
+        "observation": "译文与源码及上下文所示的八章内容一致。"
+      },
+      {
+        "neutral_id": "Q006",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "SCOPE",
+            "target_span": "主线任务",
+            "correction": "任务",
+            "evidence": "[Quest.FAILED] = _t\"[[SOURCE_MATCH_1]]\""
+          }
+        ],
+        "observation": "该文本用于通用的任务失败状态，译文将范围无依据地缩窄为主线任务。"
+      },
+      {
+        "neutral_id": "Q007",
+        "candidates": [],
+        "observation": "“装备”在此处能够对应物品必须处于穿戴状态的要求。"
+      },
+      {
+        "neutral_id": "Q008",
+        "candidates": [],
+        "observation": "“点击复制”虽未明说剪贴板，但未造成可确定的实质性功能误译。"
+      },
+      {
+        "neutral_id": "Q009",
+        "candidates": [],
+        "observation": "上下文明确面对两名术士，译文使用复数“你们”与可见语境相符。"
+      },
+      {
+        "neutral_id": "Q010",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "隐藏鼠标手势轨迹",
+            "correction": "显示鼠标手势轨迹",
+            "evidence": "Display mouse gesture trails"
+          }
+        ],
+        "observation": "译文将“显示”反译为“隐藏”，功能方向相反。"
+      },
+      {
+        "neutral_id": "Q011",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "STATE",
+            "target_span": "这不是维网",
+            "correction": "这就是维网",
+            "evidence": "This is the Way."
+          }
+        ],
+        "observation": "译文无依据地加入否定，颠倒了原句判断。"
+      },
+      {
+        "neutral_id": "Q012",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "我的用户信息",
+            "correction": "该用户的个人资料",
+            "evidence": "local data = profile.chat:getUserInfo(citem.login)"
+          }
+        ],
+        "observation": "上下文表明打开的是当前所选聊天用户的资料，而非说话者自己的资料。"
+      },
+      {
+        "neutral_id": "Q013",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "CONDITION",
+            "target_span": "即使你懂夏·图尔语也无法理解的文字",
+            "correction": "你无法理解的文字",
+            "evidence": "not game.player:attr(\"speaks_shertul\")"
+          }
+        ],
+        "observation": "源码仅在角色不会该语言时显示此句，译文却声称即使会该语言也无法理解。"
+      },
+      {
+        "neutral_id": "Q014",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "STATE",
+            "target_span": "达到白银捐赠等级",
+            "correction": "达到黄金捐赠等级",
+            "evidence": "name = \"Gold Donator\""
+          }
+        ],
+        "observation": "源码上下文明确将该成就定义为黄金捐赠者，译文误作白银等级。"
+      },
+      {
+        "neutral_id": "Q015",
+        "candidates": [],
+        "observation": "“获得称号”准确表达了在竞技场取得相应等级。"
+      },
+      {
+        "neutral_id": "Q016",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ACTION",
+            "target_span": "锁定阵营",
+            "correction": "修改阵营",
+            "evidence": "Alter Faction"
+          }
+        ],
+        "observation": "“Alter”表示修改或变更，译文“锁定”变成了不同操作。"
+      },
+      {
+        "neutral_id": "Q017",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "TIMING",
+            "target_span": "永远无法理解",
+            "correction": "无法理解",
+            "evidence": "which you do not understand:"
+          }
+        ],
+        "observation": "源码只陈述当前不理解，译文增加了永久性的“永远”。"
+      },
+      {
+        "neutral_id": "Q018",
+        "candidates": [],
+        "observation": "等级数值、达成对象和状态均与源码一致。"
+      },
+      {
+        "neutral_id": "Q019",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "CONDITION",
+            "target_span": "即使我不会提取宝石，也可以",
+            "correction": "可以",
+            "evidence": "player:knowTalent(player.T_EXTRACT_GEMS)"
+          }
+        ],
+        "observation": "源码上下文要求角色已经会提取宝石，译文新增的“即使不会”与该条件相反。"
+      },
+      {
+        "neutral_id": "Q020",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "八章",
+            "correction": "五章",
+            "evidence": "Learned the five chapters of the Legend of Garkul."
+          }
+        ],
+        "observation": "译文所加章节数与源码上下文明确给出的五章不符。"
+      }
+    ]
+  }
+}

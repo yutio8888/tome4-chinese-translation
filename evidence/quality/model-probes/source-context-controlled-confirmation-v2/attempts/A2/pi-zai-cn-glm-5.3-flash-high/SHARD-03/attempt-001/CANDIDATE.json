@@ -1,0 +1,230 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "A2",
+  "arm": "A",
+  "run": 2,
+  "shard": "03",
+  "route_key": "glm",
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "attempt": 1,
+  "request_sha256": "70b4121e02667e85854d137ab301460fca25468093d0fadfce40d43a73454f94",
+  "input_sha256": "6969332bb569204e2a93a3e9653ede6e33e7fc5f814a814995d078b901788f66",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "8329017b92a7827e23f5f49a81ed39a7c9994a1dd11a8f4d641edbe9c29d8a48",
+  "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "route_metadata": {
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 3078,
+      "output": 7720,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 5801,
+      "totalTokens": 10798,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "neutral_id": "Q041",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "ADDITION",
+            "target_span": "法术选择",
+            "correction": "确认这些选择",
+            "evidence": "Accept these selections"
+          }
+        ],
+        "observation": "target 将 “these selections” 译为“法术选择”，引入了 source 中不存在的“法术”限定并省略了指示词 “these”；由于缺少上下文，无法确认该限定是否正确。"
+      },
+      {
+        "neutral_id": "Q042",
+        "candidates": [],
+        "observation": "数值（第10层）与对象（无尽地下城）均与 source 一致，无客观缺陷。"
+      },
+      {
+        "neutral_id": "Q043",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "REFERENT",
+            "target_span": "我这个隐士",
+            "correction": "这可不太像隐士该有的态度",
+            "evidence": "THAT'S NOT A VERY HERMIT-LIKE ATTITUDE."
+          }
+        ],
+        "observation": "source 只说“那不太像隐士该有的态度”，未指明隐士或态度的归属者；target 明确断言说话者本人就是隐士（“我这个隐士”），这一指称限定无法由 source 直接证实。"
+      },
+      {
+        "neutral_id": "Q044",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "200 面墙",
+            "correction": "100 面墙",
+            "evidence": "Have 100 walls on the sludgenest"
+          }
+        ],
+        "observation": "source 明确为 100 面墙，target 写成 200 面墙，数值错误。"
+      },
+      {
+        "neutral_id": "Q045",
+        "candidates": [],
+        "observation": "source 为被打断的残句，target 以省略号呈现，语义对应无实质缺陷。"
+      },
+      {
+        "neutral_id": "Q046",
+        "candidates": [],
+        "observation": "“Bringer of Doom”作为称号译为“厄运行者”，语义相近，无可由可见证据判定的缺陷。"
+      },
+      {
+        "neutral_id": "Q047",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "CONDITION",
+            "target_span": "移民计划的下一步是清理本地的“太阳骑士”巢穴并建立",
+            "correction": "移民计划的下一步应当是清理本地的“太阳骑士”巢穴并建立",
+            "evidence": "next step of emigration program should be cleaning of local 'sun paladin' nest and establishment of..."
+          }
+        ],
+        "observation": "source 中 “should be” 表达的是建议/应有之义；target 去掉情态，将其表述为既定事实，改变了句子的模态。"
+      },
+      {
+        "neutral_id": "Q048",
+        "candidates": [],
+        "observation": "标题各部分（Lorekeeper、Hadak、part three）均对应一致。"
+      },
+      {
+        "neutral_id": "Q049",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "始终会显示",
+            "correction": "会显示",
+            "evidence": "When you do a mouse gesture (right click + drag) a color coded trail is displayed"
+          }
+        ],
+        "observation": "source 描述的是条件性结果（做手势时会显示轨迹），target 加入“始终”，将条件性行为改述为无条件行为。"
+      },
+      {
+        "neutral_id": "Q050",
+        "candidates": [],
+        "observation": "喷泉描述与各段铭文语义对应一致；target 中“位于德斯镇”为 source 未见的具体地点信息，但可见证据无法判定其错误，不作为缺陷报告。"
+      },
+      {
+        "neutral_id": "Q051",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "一枚项链",
+            "correction": "一枚戒指",
+            "evidence": "If you bring me a gem and a ring"
+          }
+        ],
+        "observation": "source 明确要求“a gem and a ring”（宝石和戒指），且后文均在谈戒指（the ring / the level of the ring）；target 把 ring 译成“项链”，与上下文自相矛盾。"
+      },
+      {
+        "neutral_id": "Q052",
+        "candidates": [],
+        "observation": "句意（既然赢了，他们现在在哪里）得到保留；target 补出“兽人”指明 “they” 的所指，可见证据无法判定其错误，不作为缺陷报告。"
+      },
+      {
+        "neutral_id": "Q053",
+        "candidates": [],
+        "observation": "钥匙、废墟、封印者、文献标题及生存几率提升等信息均一致。"
+      },
+      {
+        "neutral_id": "Q054",
+        "candidates": [],
+        "observation": "成就名称与自嘲语气均对应，无实质缺陷。"
+      },
+      {
+        "neutral_id": "Q055",
+        "candidates": [],
+        "observation": "target 将标题具体化为“放走鲜血大师”，source 未提供该细节，但可见证据无法判定其错误，不作为缺陷报告。"
+      },
+      {
+        "neutral_id": "Q056",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "STATE",
+            "target_span": "同样手持巨大战斧",
+            "correction": "手持一把同样巨大的战斧",
+            "evidence": "a massive battle armor with an equally massive battle axe"
+          }
+        ],
+        "observation": "source 中 “equally massive” 修饰战斧（战斧与战甲同样巨大），target 的“同样手持巨大战斧”中“同样”的位置使其更像修饰“手持”，比较关系被弱化或转移。"
+      },
+      {
+        "neutral_id": "Q057",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "地图和角色",
+            "correction": "区域和层级",
+            "evidence": "Reload/regenerate Zone and level"
+          }
+        ],
+        "observation": "source 的两个对象是 Zone 和 level（区域与层级/关卡层），target 将 level 译为“角色”，所指对象错误。"
+      },
+      {
+        "neutral_id": "Q058",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "即使此处没有抛射物，也",
+            "correction": "可在 Lua 中查看 [抛射物]",
+            "evidence": "Lua inspect [Projectile]"
+          }
+        ],
+        "observation": "source 仅为功能标签“用 Lua 查看 [抛射物]”；target 添加了“即使此处没有抛射物，也”这一 source 中不存在的条件和让步表述，改变了字符串内容。"
+      },
+      {
+        "neutral_id": "Q059",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "必须单次使用裂解清除敌人身上的89个增益效果",
+            "correction": "通过裂解清除了敌人身上的89个增益效果",
+            "evidence": "Removed 89 beneficial effects from enemies via Disintegration."
+          }
+        ],
+        "observation": "source 是对已发生事件的陈述（已通过裂解移除89个增益效果）；target 改写为带“必须单次”的要求性表述，添加了 source 不存在的条件和指令语气。"
+      },
+      {
+        "neutral_id": "Q060",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "杀死敌人",
+            "correction": "杀死自己（自杀）",
+            "evidence": "Killed oneself as a halfling."
+          }
+        ],
+        "observation": "source 明确是“Killed oneself”（以半身人身份杀死自己），target 写成“杀死敌人”，行为方向完全相反。"
+      }
+    ]
+  }
+}

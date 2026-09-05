@@ -1,0 +1,37 @@
+{
+  "schema_version": "gemini-evaluator-contract-effectiveness-ledger-v1",
+  "path": "execution/LEDGER.jsonl",
+  "event_order": "Exactly START then FINISH per attempted cell, in registered order.",
+  "start_keys": [
+    "schema_version",
+    "event",
+    "cell",
+    "attempt",
+    "sequence",
+    "agy_processes_spawned",
+    "inference_calls_made"
+  ],
+  "finish_keys": [
+    "schema_version",
+    "event",
+    "cell",
+    "attempt",
+    "sequence",
+    "exit_code",
+    "stdout_sha256",
+    "stderr_sha256",
+    "process_success",
+    "payload_strict_valid",
+    "raw_path"
+  ],
+  "budgets": {
+    "agy_processes": 12,
+    "inference_calls": 12,
+    "max_attempts_per_cell": 1,
+    "retries": 0
+  },
+  "counting": "START atomically consumes one process and one inference call before spawn; an unfinished START is terminal.",
+  "stop": "Any unsuccessful process or strict-invalid payload FINISH is terminal and bars later START events.",
+  "prestart_terminal": "A route/plan failure after gates but before START writes append-exclusive execution/TERMINAL.json with 0/0 calls and bars all later cells.",
+  "collision": "Ledger, captures, and RAW files are append-exclusive and never overwritten."
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "gemini-context-v5-execution-pilot-result-v1",
+  "task_id": "research-gemini-context-counterexample-reviewer-v5-execution-v3",
+  "experiment_id": "gemini-context-counterexample-reviewer-v5-execution-v3",
+  "decision": "NO_GO_HARNESS_CLI_DRIFT",
+  "terminal": true,
+  "measured_facts": {
+    "qualification_attempt": {
+      "attempt": 1,
+      "cell": "qualification-models-list",
+      "frozen_argv": [
+        "agy",
+        "models",
+        "list",
+        "--json"
+      ],
+      "started_at": "2026-09-02T23:31:43.804Z",
+      "finished_at": "2026-09-02T23:31:44.380Z",
+      "exit": 1,
+      "stderr": {
+        "path": "qualification/captures/qualification-models-list-attempt-1.stderr.bin",
+        "sha256": "0e0d8747e5ffe053dd7c5b330c9e67c9ef85a5740de515724f8b04b9e10398b2",
+        "size_bytes": 43,
+        "text": "Error: unexpected arguments: [list --json]"
+      },
+      "stdout": {
+        "path": "qualification/captures/qualification-models-list-attempt-1.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "agy_processes_spawned": 1,
+      "inference_calls_made": 0
+    },
+    "budget": {
+      "authorized_process_budget": 4,
+      "processes_used": 1,
+      "processes_remaining": 3,
+      "additional_processes_required_for_corrected_listing_synthetic_A_C": 4,
+      "budget_exceeded_by_if_retried": 1,
+      "further_process_authorized_in_this_task": false
+    },
+    "model_evidence": {
+      "status": "NONE",
+      "qualification_complete": false,
+      "pilot_complete": false,
+      "model_score_counted": false,
+      "absent": [
+        "EVIDENCE-DRAFT",
+        "synthetic inference response/capture",
+        "discovery A response/capture",
+        "discovery C response/capture",
+        "SCORES.json",
+        "experimental evidence"
+      ],
+      "fixture_note": "qualification/SYNTHETIC-REQUEST.txt exists as a frozen request fixture only; no synthetic inference was made."
+    },
+    "ledger_view": {
+      "execution_state": "PARTIAL_OR_COMPLETE",
+      "ledger_rows": 2,
+      "agy_processes_spawned_derived_from_ledger": 1,
+      "inference_calls_made_derived_from_ledger": 0
+    }
+  },
+  "bindings": {
+    "candidate_manifest": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v3/MANIFEST.json",
+      "sha256": "fd282a90df800677d1c0ccc2932d2f73f8346b587997eff98ef722aa334488a2"
+    },
+    "package_review_gate": {
+      "path": ".ai/task/research-gemini-context-counterexample-reviewer-v5-execution-v3/PACKAGE-REVIEW-GATE.json",
+      "sha256": "329fb2057e6ebfdaca712d35e61b1505f512aaf846a6fc2d28a34fbfd3d3895d"
+    },
+    "execution_ledger": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v3/execution/LEDGER.jsonl",
+      "sha256": "c06c291d94f3da07a4b2195a813f65c665f59a339fe5d0b898f365eef0b7b18b"
+    },
+    "qualification_stdout": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v3/qualification/captures/qualification-models-list-attempt-1.stdout.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "qualification_stderr": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v3/qualification/captures/qualification-models-list-attempt-1.stderr.bin",
+      "sha256": "0e0d8747e5ffe053dd7c5b330c9e67c9ef85a5740de515724f8b04b9e10398b2"
+    },
+    "frozen_request_manifest": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v3/frozen/REQUEST-MANIFEST.json",
+      "sha256": "89747774b54d4263873b0419e22caba2840fc79f64b7033689ae26a27b8b30bc"
+    }
+  },
+  "recommendation": {
+    "status": "SUCCESSOR_TASK_RECOMMENDED",
+    "next_task_requirements": [
+      "First freeze the current CLI-compatible model-list command using offline installation evidence or a separately authorized qualification probe.",
+      "Do not claim a replacement command until that command is proved.",
+      "Then grant a new four-process pilot authorization."
+    ],
+    "scope_note": "This recommendation is not a measured model result and does not identify the correct replacement command."
+  }
+}

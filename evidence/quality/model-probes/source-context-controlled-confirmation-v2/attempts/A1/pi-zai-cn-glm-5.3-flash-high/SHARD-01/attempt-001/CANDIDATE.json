@@ -1,0 +1,197 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "A1",
+  "arm": "A",
+  "run": 1,
+  "shard": "01",
+  "route_key": "glm",
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "attempt": 1,
+  "request_sha256": "c537832517d62073f60b457d3594f4e28e1003305067ce45099412be9843b800",
+  "input_sha256": "ba3fd57463fe33e17d95daacce9e668329802003058a47e93559524f72e1e5b2",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "2c1a8cef33affccefb4f79cd014631d5a706575ca2f9377f88b9cb3132d9ce4c",
+  "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "route_metadata": {
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 2410,
+      "output": 9392,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 7745,
+      "totalTokens": 11802,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "neutral_id": "Q001",
+        "candidates": [],
+        "observation": "“after letting her grow as powerful as possible”译为“成长到尽可能强大之后”，时间顺序与语义一致，未见客观缺陷。"
+      },
+      {
+        "neutral_id": "Q002",
+        "candidates": [],
+        "observation": "逐句核对：自称斥候、从德斯镇酒馆看清最后的希望城酒馆招牌的方向、左臂受伤、怀疑苏达罗斯特、领上山送死以翻口袋、瑞丽不听劝等信息均与原文相符。"
+      },
+      {
+        "neutral_id": "Q003",
+        "candidates": [],
+        "observation": "“隐藏真实本质”“看到的只是普通人类”“可自由行事”“求求你”均与原文对应，未见缺陷。"
+      },
+      {
+        "neutral_id": "Q004",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "魔法大爆炸的七章故事",
+            "correction": "魔法大爆炸的故事",
+            "evidence": "Tales of the Spellblaze"
+          }
+        ],
+        "observation": "原文为“Tales of the Spellblaze”，无任何章节数信息；译文凭空加入“七章”。与本请求中可见的 Q005 原文 “Learned the eight chapters of the Spellblaze Chronicles.”（魔法大爆炸文献为八章）相矛盾，该新增章节数可由可见证据判错。"
+      },
+      {
+        "neutral_id": "Q005",
+        "candidates": [],
+        "observation": "“Learned the eight chapters of the Spellblaze Chronicles”译为“阅读了……8章文献”，章数一致；“阅读”与“learned”虽侧重略异，但不构成可由可见证据确定的客观缺陷。"
+      },
+      {
+        "neutral_id": "Q006",
+        "candidates": [],
+        "observation": "“Quest”译为“主线任务”略有收窄，但可见文本无法判明该任务为主线或支线，按规则不报告。"
+      },
+      {
+        "neutral_id": "Q007",
+        "candidates": [],
+        "observation": "“必须装备（wear）这件物品才能使用”与原文一致。"
+      },
+      {
+        "neutral_id": "Q008",
+        "candidates": [],
+        "observation": "“点击复制”“分享流浪者随机种子”“同一套技能组合游玩”均与原文相容；“they”译为“你们”未改变核心含义。"
+      },
+      {
+        "neutral_id": "Q009",
+        "candidates": [],
+        "observation": "“Spare me the small talk. I am here to stop you!”译为“我不是来和你们聊天的，我是来阻止你们的”，语义对应。"
+      },
+      {
+        "neutral_id": "Q010",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "隐藏鼠标手势轨迹",
+            "correction": "显示鼠标手势轨迹",
+            "evidence": "Display mouse gesture trails"
+          }
+        ],
+        "observation": "原文“Display”（显示）被译为“隐藏”，含义完全相反。"
+      },
+      {
+        "neutral_id": "Q011",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "这不是维网",
+            "correction": "这就是道",
+            "evidence": "This is the Way."
+          },
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "REFERENT",
+            "target_span": "维网",
+            "correction": "道（the Way）",
+            "evidence": "This is the Way."
+          }
+        ],
+        "observation": "原文“This is the Way.”为肯定句，译文加入否定词“不”，句意被反转，属确定性缺陷；另外原文指称对象为“the Way”，译文作“维网”，若该术语并非既定译名则指称有误，此处证据不足以完全排除既定译名的可能，列为存疑。"
+      },
+      {
+        "neutral_id": "Q012",
+        "candidates": [],
+        "observation": "“打开我的用户信息（在浏览器里打开）”与“Open profile(in browser)”对应。"
+      },
+      {
+        "neutral_id": "Q013",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "即使你懂夏·图尔语也无法理解的文字",
+            "correction": "你无法理解的文字",
+            "evidence": "which you do not understand"
+          }
+        ],
+        "observation": "原文仅说这是“你不理解的”文字，译文新增“即使你懂夏·图尔语也无法理解”这一假设条件，强化并改变了原句的断言，属于可见证据之外的具体新增信息且与原句的自然读解（因不懂该语言而不理解）相抵触。"
+      },
+      {
+        "neutral_id": "Q014",
+        "candidates": [],
+        "observation": "“捐赠至少 16 欧元”与原文一致；“达到白银捐赠等级”为新增信息，可见文本无法判错，按规则不报告。"
+      },
+      {
+        "neutral_id": "Q015",
+        "candidates": [],
+        "observation": "“在竞技场中获得‘毁灭者’称号”与“Earned the rank of Destroyer in the arena”一致。"
+      },
+      {
+        "neutral_id": "Q016",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ACTION",
+            "target_span": "锁定阵营",
+            "correction": "更改阵营",
+            "evidence": "DEBUG -- Alter Faction"
+          }
+        ],
+        "observation": "原文“Alter Faction”表示修改/变更阵营，译文“锁定阵营”表达的却是固定、锁死阵营，动作含义不同。"
+      },
+      {
+        "neutral_id": "Q017",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "STATE",
+            "target_span": "你永远无法理解的文字",
+            "correction": "你无法理解的文字",
+            "evidence": "which you do not understand"
+          }
+        ],
+        "observation": "原文仅陈述“你不理解”，译文新增“永远”，把当前的不理解变为永久不可能理解，改变了断言强度。"
+      },
+      {
+        "neutral_id": "Q018",
+        "candidates": [],
+        "observation": "“角色达到50级”与“Got a character to level 50.”一致。"
+      },
+      {
+        "neutral_id": "Q019",
+        "candidates": [],
+        "observation": "核心问题“是否可让转化之盒自动提取宝石”已保留；“即使我不会提取宝石”为新增信息，可见文本无法判错，按规则不报告。"
+      },
+      {
+        "neutral_id": "Q020",
+        "candidates": [],
+        "observation": "原文“The Legend of Garkul”无章节数信息，译文“八章传说”中的“八章”为新增，但本请求中无任何可见证据可判定其有误，按规则不报告。"
+      }
+    ]
+  }
+}

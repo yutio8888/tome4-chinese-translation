@@ -1,0 +1,30 @@
+{
+  "schema_version": "gemini-context-v4-replacement-ledger-v1",
+  "status": "OPEN_UNTIL_DOWNSTREAM_FREEZE",
+  "initial_state": "ZERO_REPLACEMENTS",
+  "rejected_base_input_sha256": "73b91fb3d2345208e28f365c02cbd37855f027ea331a9fd2ddcdfe5ff936fda5",
+  "previous_rejected_base_input_sha256": null,
+  "initial_narrative_reserve_rows": 78,
+  "initial_consumed_narrative_replacements": 0,
+  "globally_banned_reserve_rows": 0,
+  "globally_banned_narrative_reserve_rows": 0,
+  "consumed_narrative_replacements": 0,
+  "remaining_narrative_rejection_tolerance": 78,
+  "tolerance_definition": "Additional same-profile narrative reserve rows available; skipped incompatible candidates are not consumed. The initial >=50 gate is not reapplied after replacements.",
+  "contract": {
+    "globally_ban_rejected_revision": true,
+    "order": "first unused same-profile ranked row reserve preserving row uniqueness and active caps",
+    "active_caps": {
+      "profile_file_total": 3,
+      "profile_file_cohort": 2
+    },
+    "reason_classes": [
+      "DIRECT_AUDIT_REJECTION",
+      "OUT_OF_SCOPE_NON_PROSE"
+    ],
+    "aggregation": "Only PASS_SURFACE enters context audit; OUT_OF_SCOPE_NON_PROSE is excluded without translation-defect attribution.",
+    "skipped_incompatible_reserves_recorded": true,
+    "exhaustion": "FAIL_CLOSED_EXACT_PROFILE_COHORT"
+  },
+  "items": []
+}

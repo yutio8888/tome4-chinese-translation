@@ -86,3 +86,23 @@ tests, and ordinary verification there.
 Do not run `run.mjs` or `preflight.mjs` in this closed historical package. An
 exact execution of the frozen lane-04 route requires a newly frozen experiment
 directory and fresh authorization under the applicable workflow.
+
+## Non-blocking advisory disposition
+
+On 2026-08-28, the project lead directed that the remaining verifier-hardening
+findings `RFR-C5-001`, `SR-001`, and `SR-002` be retained as non-blocking
+advisories and not repaired in this closed historical package. This is a scope
+decision, not a claim that the suggested defensive checks were implemented.
+
+The published report flags and counts were checked against the preserved
+record and are currently correct. A read-only replay of all 22 preserved RAW
+attempts reproduced the recorded runtime identities, candidate validity, and
+validation errors without mismatch. The remaining gaps concern additional
+resistance to coordinated future edits of reports, counts, candidate metadata,
+or their dependent hashes; they do not identify a mismatch in the present
+evidence or change the experiment conclusion.
+
+Accordingly, no repair was dispatched for these advisories. Formal cross-model
+comparison, consensus, reference derivation, adjudication, and scoring remain
+blocked for the substantive reason that only three of the twenty planned cells
+produced canonical-valid candidates.

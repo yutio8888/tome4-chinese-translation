@@ -1,0 +1,169 @@
+{
+  "schema_version": "source-context-controlled-confirmation-manipulation-check-candidate-v2",
+  "pass": "B_CONTEXT",
+  "shard": 2,
+  "queue_sha256": "f1362f27d976df2dd992a8222fe68749428cafe70fd30e17753527b63d53437d",
+  "items": [
+    {
+      "proposal_id": "P014",
+      "verdict": "NO_OBJECTIVE_DEFECT_VISIBLE",
+      "findings": [],
+      "evidence": "目标完整保留了数日后返回、钥匙开启泰尔玛废墟、寻找并交还文献以及提高传送门尝试存活率等信息；上下文也显示交谈结束后调用 open_telmur。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P015",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "只有在你交还那份文献后才可以打开泰尔玛废墟",
+          "claim": "目标凭空增加了交还文献后钥匙才可开启废墟的前置条件；上下文显示当前对话结束时即调用 open_telmur，而寻找并交还文献是进入废墟后的后续事项。"
+        }
+      ],
+      "evidence": "源码称钥匙直接开启废墟；匹配对话的回答动作立即执行 player:hasQuest(\"east-portal\"):open_telmur(player)，没有交还文献条件。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P016",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ROLE_OR_REFERENT",
+          "severity": "major",
+          "target_span": "我这个隐士",
+          "claim": "目标把说话者本人称为隐士；上下文表明这句话是玩家对隐士角色长篇发言的回答，原文只是评价对方的态度不像隐士。"
+        }
+      ],
+      "evidence": "SOURCE_MATCH_1 位于 newChat id=\"help\" 的 answers 中，因而是玩家答语；上下文中的隐士式发言来自 NPC。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P017",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "即使此处没有抛射物，也可",
+          "claim": "目标声称没有抛射物时仍可执行检查，但上下文明确要求 p 存在才添加该菜单项。"
+        }
+      ],
+      "evidence": "对应代码为 if p and config.settings.cheat then list[...] = {name=\"Lua inspect [Projectile]\", ... actor=p} end。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P018",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "即使我不会提取宝石",
+          "claim": "目标加入了不会提取宝石也能提出该请求的条件，恰与上下文要求玩家已掌握提取宝石技能相反。"
+        }
+      ],
+      "evidence": "该答语的 cond 明确包含 player:knowTalent(player.T_EXTRACT_GEMS)。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P019",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ROLE_OR_REFERENT",
+          "severity": "minor",
+          "target_span": "给你们一件斗篷",
+          "claim": "目标把斗篷的受领者改成复数“你们”，但源码及上下文均是 NPC 对单一玩家角色提出给“一件斗篷”的方案。"
+        }
+      ],
+      "evidence": "SOURCE_MATCH_1 是 newChat id=\"what\" 的 NPC text，其前一节点由单一 player 交互；原文连续使用单数/不定数 you，并只提供 a cloak，目标后文也回到单数“你的”“你”。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P020",
+      "verdict": "NO_OBJECTIVE_DEFECT_VISIBLE",
+      "findings": [],
+      "evidence": "目标准确保留造物主、悲痛、击碎屏障并重塑世界、法杖抽取能量、开启虚空传送门和召唤造物主等内容；SOURCE_MATCH_1 所在分支与给定 source 一致。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P021",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ROLE_OR_REFERENT",
+          "severity": "major",
+          "target_span": "兽人",
+          "claim": "目标把代词 they 的所指改成兽人；上下文明确表明讨论对象是 Sher'Tuls。"
+        }
+      ],
+      "evidence": "紧邻上文的问答为 “Those are Sher'Tuls? They fought the gods?!” 和 “They ... won.”，所以 SOURCE_MATCH_1 中的 they 延续指 Sher'Tuls。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P022",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ACCURACY",
+          "severity": "major",
+          "target_span": "七章",
+          "claim": "目标把该系列限定为七章，但上下文明确说明成就需要八章，并逐项检查第 1 至第 8 章。"
+        }
+      ],
+      "evidence": "成就描述为 “Learned the eight chapters of the Spellblaze Chronicles.”，can_gain 连续检查 spellblaze-chronicles-1 至 spellblaze-chronicles-8。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P023",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ACCURACY",
+          "severity": "major",
+          "target_span": "七章",
+          "claim": "目标把该系列限定为七章，但上下文明确说明成就覆盖八章。"
+        }
+      ],
+      "evidence": "成就描述明确写有 eight chapters，获取条件也检查编号 1 至 8 的全部八篇 lore。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P024",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "永远无法理解",
+          "claim": "目标把当前不理解扩大为永远无法理解；上下文显示是否理解取决于 speaks_shertul 属性，具备该属性时会显示可理解的译文。"
+        }
+      ],
+      "evidence": "源码使用 not game.player:attr(\"speaks_shertul\") 的条件分支：不懂时显示 SOURCE_MATCH_1，否则显示对应的可理解文本。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P025",
+      "verdict": "NO_OBJECTIVE_DEFECT_VISIBLE",
+      "findings": [],
+      "evidence": "目标准确表达在竞技场获得 Destroyer 等级；上下文将该描述置于名称为 “XXX the Destroyer” 的成就中，并与 Grand Master 等竞技场等级并列。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P026",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ACCURACY",
+          "severity": "minor",
+          "target_span": "这个发现",
+          "claim": "目标凭空把感叹对象限定为一个“发现”，但上下文表明这是击杀至高大法师 Linaniil 的成就标题，并非发现事件。"
+        }
+      ],
+      "evidence": "SOURCE_MATCH_1 是 id=\"LINANIIL_DEAD\" 的成就名称，其 desc 为 “Killed Linaniil, the Supreme Archmage of Angolwen.”。",
+      "limitations": null
+    }
+  ]
+}

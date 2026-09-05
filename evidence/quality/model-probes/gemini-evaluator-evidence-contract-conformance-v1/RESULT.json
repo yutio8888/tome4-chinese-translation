@@ -1,0 +1,176 @@
+{
+  "schema_version": "evidence-contract-terminal-result-v1",
+  "experiment_id": "gemini-evaluator-evidence-contract-conformance-v1",
+  "task_id": "research-gemini-evaluator-evidence-contract-conformance-v1",
+  "decision": "NO_GO_NETWORK_CELL4",
+  "classification": "NETWORK_FAILURE_NOT_MODEL_RESULT",
+  "terminal_for_this_task": true,
+  "effectiveness_evidence": false,
+  "model_score_counted_for_cell4": false,
+  "single_call_cells": true,
+  "universal_caveat": "The completed cells are single unreplicated samples under unpinned decoding. Their mechanical serialization rates are descriptive and provide no translation-review effectiveness, model-quality, correctness, causal, or generalization evidence.",
+  "execution_counts": {
+    "registered_cells": 5,
+    "cells_started": 4,
+    "cells_finished": 4,
+    "agy_processes_spawned": 4,
+    "inference_calls_made": 4,
+    "retries": 0
+  },
+  "cells": [
+    {
+      "cell": "baseline-p0-s0-a",
+      "outcome": "PROCESS_AND_ENVELOPE_VALID",
+      "candidate_count": 16,
+      "mechanical_rates": {
+        "evidence_membership_rate": 1,
+        "source_target_only_evidence_membership_rate": 1,
+        "target_span_membership_rate": 1,
+        "registered_field_name_rate": 1
+      }
+    },
+    {
+      "cell": "schema-p0-s2-a",
+      "outcome": "PROCESS_AND_ENVELOPE_VALID",
+      "candidate_count": 16,
+      "mechanical_rates": {
+        "evidence_membership_rate": 1,
+        "source_target_only_evidence_membership_rate": 1,
+        "target_span_membership_rate": 1,
+        "registered_field_name_rate": 1
+      }
+    },
+    {
+      "cell": "prompt-p1-s0-a",
+      "outcome": "PROCESS_AND_ENVELOPE_VALID",
+      "candidate_count": 16,
+      "mechanical_rates": {
+        "evidence_membership_rate": 1,
+        "source_target_only_evidence_membership_rate": 1,
+        "target_span_membership_rate": 1,
+        "registered_field_name_rate": 1
+      }
+    },
+    {
+      "cell": "combined-p1-s2-a",
+      "outcome": "NETWORK_FAILURE",
+      "underlying_exit_code": 1,
+      "agy_envelope_status": "ERROR",
+      "agy_envelope_error": "There was a network issue connecting to the server, please try again.",
+      "raw_created": false,
+      "metrics": null,
+      "model_score_counted": false
+    },
+    {
+      "cell": "context-p0-s0-c",
+      "outcome": "NOT_INVOKED_PRIOR_CELL_STOP",
+      "metrics": null
+    }
+  ],
+  "descriptive_interpretations": [],
+  "post_run_read_only": {
+    "decision": "PILOT_STOPPED_OR_INCOMPLETE",
+    "exit_code": 3,
+    "errors": [],
+    "agy_processes_spawned": 4,
+    "inference_calls_made": 4
+  },
+  "recovery_authorization": {
+    "belongs_to_successor_task_only": true,
+    "authorized_request": "identical frozen combined-p1-s2-a request",
+    "agy_process_budget": 1,
+    "inference_call_budget": 1,
+    "context_cell_authorized": false,
+    "used_by_this_terminalization": false
+  },
+  "terminalization_calls": {
+    "agy_processes": 0,
+    "model_calls": 0,
+    "network_calls": 0,
+    "task_or_review_calls": 0,
+    "git_calls": 0
+  },
+  "integrity": {
+    "manifest": {
+      "path": "MANIFEST.json",
+      "sha256": "1fed56f1af430443babc36d5aa8026ac8ae79a2e4d9f07619191232495df3f74"
+    },
+    "route_contract": {
+      "path": "ROUTE-CONTRACT.json",
+      "sha256": "94d159e331c271eea9f162f9db64900860b7a1a06d4510682ed0dcdf3ff2ae2c"
+    },
+    "request_manifest": {
+      "path": "frozen/REQUEST-MANIFEST.json",
+      "sha256": "13f64b3df5853fe6b187b47b8daefb9b3597de87ecdbc803d69bda13a02a0450"
+    },
+    "package_review_gate": {
+      "path": ".ai/task/research-gemini-evaluator-evidence-contract-conformance-v1/PACKAGE_REVIEW.json",
+      "sha256": "8a06ba1b2b6c4253a06871208a2c1dca65d80e3b0462b56edfbabb6fd4237b1a"
+    },
+    "execution_authorization_gate": {
+      "path": ".ai/task/research-gemini-evaluator-evidence-contract-conformance-v1/EXECUTION_AUTHORIZATION.json",
+      "sha256": "425ad259f957dbdc423eb3ad24d9ddf8467859f7e8b2495d1c46488f1dc9721f"
+    },
+    "ledger": {
+      "path": "execution/LEDGER.jsonl",
+      "sha256": "a3bb026b976c69bc853effd9c484777d515b0cb94c191030245b2830db6d26ce"
+    },
+    "raw": [
+      {
+        "path": "execution/RAW/baseline-p0-s0-a.json",
+        "sha256": "e77e8331cc80d0aa48684e94792a214ca0ab85dd83f5695e8c7f2f09752a9dd1"
+      },
+      {
+        "path": "execution/RAW/schema-p0-s2-a.json",
+        "sha256": "95b85351f8837ff79645fe7f88e8fdb8ff851e12c459dad26bf6d2edce64bb5a"
+      },
+      {
+        "path": "execution/RAW/prompt-p1-s0-a.json",
+        "sha256": "ae2658b281c9dc27ec1e3038af1dad3b326024de8f77b2c07f710f8ee5c7f435"
+      }
+    ],
+    "captures": [
+      {
+        "path": "execution/captures/baseline-p0-s0-a.stdout.bin",
+        "sha256": "d5c1644b842185bd021d40e40541d29e49ebe716810d36d4d82acb4c2077c899"
+      },
+      {
+        "path": "execution/captures/baseline-p0-s0-a.stderr.bin",
+        "sha256": "3a7f8550106d86abb322e8ed0fb30a0296c0e97c6be03d5a8033b99d16737459"
+      },
+      {
+        "path": "execution/captures/schema-p0-s2-a.stdout.bin",
+        "sha256": "f75e6649706e5aa00132c2c689cef3b277e9eaf3937a8c7ff1895778e8e417dc"
+      },
+      {
+        "path": "execution/captures/schema-p0-s2-a.stderr.bin",
+        "sha256": "3a7f8550106d86abb322e8ed0fb30a0296c0e97c6be03d5a8033b99d16737459"
+      },
+      {
+        "path": "execution/captures/prompt-p1-s0-a.stdout.bin",
+        "sha256": "2af84f76bc601ce7b5330d0bab1dd203d68818143def76d6f60727d679dae24f"
+      },
+      {
+        "path": "execution/captures/prompt-p1-s0-a.stderr.bin",
+        "sha256": "3a7f8550106d86abb322e8ed0fb30a0296c0e97c6be03d5a8033b99d16737459"
+      },
+      {
+        "path": "execution/captures/combined-p1-s2-a.stdout.bin",
+        "sha256": "076aae3b8b5eca879bb29f355b30ee00bdbee9995074f637cb24156ca94eedb2"
+      },
+      {
+        "path": "execution/captures/combined-p1-s2-a.stderr.bin",
+        "sha256": "3a7f8550106d86abb322e8ed0fb30a0296c0e97c6be03d5a8033b99d16737459"
+      }
+    ],
+    "pinned_binary": {
+      "configured_path": "/home/yun/.local/lib/agy-pinned/f3575050ae826d1944913f595b32f827a4674ec42e59ff0476450e2bac5fa39e/agy",
+      "sha256": "f3575050ae826d1944913f595b32f827a4674ec42e59ff0476450e2bac5fa39e"
+    },
+    "immutable_predecessor": {
+      "root": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v5",
+      "file_count": 80,
+      "tree_sha256": "55dfb7bda36d2e06083c349bbb79e6b1de35e2019c1055c989633d6ef523877a"
+    }
+  }
+}

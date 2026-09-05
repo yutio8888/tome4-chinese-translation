@@ -1,0 +1,183 @@
+{
+  "schema_version": "source-context-controlled-confirmation-manipulation-check-candidate-v2",
+  "pass": "B_CONTEXT",
+  "shard": 1,
+  "queue_sha256": "336e7982c4fc215064f8ba325e82760fa870aabd50233a51ef2c6a4f386b953f",
+  "items": [
+    {
+      "proposal_id": "P001",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ROLE_OR_REFERENT",
+          "severity": "major",
+          "target_span": "弗莉吉亚的弟弟",
+          "claim": "上下文在瓦尔弗伦倒下后让弗莉吉亚称其为“Father”，因此把战甲中的人说成她的弟弟指认错误。"
+        }
+      ],
+      "evidence": "source_context 的 valfren-defeat 段落写明“Valfren collapses”，随后弗莉吉亚出现并说“Father...”。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P002",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "始终会显示",
+          "claim": "轨迹显示受可切换设置控制，并非始终显示。"
+        }
+      ],
+      "evidence": "source_context 显示该选项会切换 config.settings.hide_gestures，状态也可为 enabled 或 disabled。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P003",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "唯一物品",
+          "claim": "数量对话框用于非 unique 物品；译文却将对象限定成唯一物品，范围相反。"
+        }
+      ],
+      "evidence": "source_context 中 item.unique 分支直接创建一个物品，只有随后的 else 非唯一分支才调用以该字符串为标题的 GetQuantity。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P004",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ROLE_OR_REFERENT",
+          "severity": "major",
+          "target_span": "我的不良行为",
+          "claim": "该操作举报当前选中用户的不良行为，而不是举报操作者自己的不良行为。"
+        }
+      ],
+      "evidence": "source_context 在 citem.login 对应用户的操作列表中提供 report 项。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P005",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ROLE_OR_REFERENT",
+          "severity": "major",
+          "target_span": "我的用户信息",
+          "claim": "该操作打开当前选中用户的 profile，而不是操作者自己的用户信息。"
+        }
+      ],
+      "evidence": "source_context 从 citem.login 获取 data，并在 ui=\"profile\" 时打开 data.profile。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P006",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "TERMINOLOGY",
+          "severity": "major",
+          "target_span": "角色信息",
+          "claim": "该项打开用户 profile，不是角色信息页；角色表在上下文中是另一个独立的 charsheet 操作。"
+        }
+      ],
+      "evidence": "source_context 中 ui=\"profile\" 打开 data.profile，而 Open charsheet(in browser) 使用独立的 ui=\"charsheet\" 并打开 data.char_link。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P007",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "丢弃到哪里",
+          "claim": "提示询问物品的放置去向，选项不限于丢弃；译文错误地把动作限定为丢弃。"
+        }
+      ],
+      "evidence": "source_context 的弹窗同时提供角色物品栏、当前位置丢弃和 NPC Inventory 等去向。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P008",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "哪个物品栏",
+          "claim": "提示询问物品放在哪里，并非只在多个物品栏之间选择。"
+        }
+      ],
+      "evidence": "source_context 的选项除角色物品栏和 NPC Inventory 外，还包括在坐标处直接丢弃。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P009",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "无条件",
+          "claim": "确认操作受最大陷阱数量条件限制，并非无条件确认。"
+        }
+      ],
+      "evidence": "source_context 仅在 self.num_sel <= self.max_traps 时返回选择并关闭对话框，否则记录不能准备更多陷阱。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P010",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "TERMINOLOGY",
+          "severity": "major",
+          "target_span": "法术选择",
+          "claim": "该界面确认的是陷阱选择，不是法术选择。"
+        }
+      ],
+      "evidence": "source_context 使用 traps_selected、max_traps、trap_tids，并在超限时提示不能准备更多 traps。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P011",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ROLE_OR_REFERENT",
+          "severity": "major",
+          "target_span": "凝视着他",
+          "claim": "译文凭空引入第三人称“他”，与紧接着被直接称作“你”的玩家指代不一致。"
+        }
+      ],
+      "evidence": "source 写的是一双狂乱的眼睛从洞中向外窥视，下一句直接询问“你想要什么”；source_context 将其置于与玩家交谈的 welcome 对话。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P012",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "主线任务",
+          "claim": "原文和上下文均指通用 Quest 失败状态，没有将其限定为主线任务。"
+        }
+      ],
+      "evidence": "source_context 在通用 statuses 表中把该字符串映射到 Quest.FAILED，并由传入的 quest 和 status 初始化弹窗。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P013",
+      "verdict": "NO_OBJECTIVE_DEFECT_VISIBLE",
+      "findings": [],
+      "evidence": "“我不是来和你聊天的”传达了拒绝寒暄，“我是来阻止你的”准确保留目的；上下文也表明这是玩家面对两名法师时的直接回应。",
+      "limitations": null
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "note": "Hand-written scorer fixture for checklist item C07. reference x raw_items -> expected.",
+  "span_containment_rule": "A candidate hits an atom iff verdict is FINDING, the candidate claim_type is listed on the atom, and the REPORTED target_span CONTAINS a frozen atom span. The reverse containment is not a hit.",
+  "reference": {
+    "schema_version": "gemini-context-v5-sealed-reference-v5",
+    "mutations_authored": true,
+    "sample_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "items": [
+      {
+        "item_id": "F-I001",
+        "cohort": "discovery",
+        "profile": "dialogue",
+        "role": "CONTEXT_MUTANT",
+        "atoms": [
+          {
+            "atom_id": "F-I001-A1",
+            "claim_types": [
+              "SUBJECT"
+            ],
+            "target_spans": [
+              "alpha beta"
+            ]
+          }
+        ],
+        "row_sha256": "8ff3e5ef02c3da940b7e9bf9c0b321052452ab1801829143ba07bb994db6e6b0"
+      },
+      {
+        "item_id": "F-I002",
+        "cohort": "discovery",
+        "profile": "dialogue",
+        "role": "CONTEXT_MUTANT",
+        "atoms": [
+          {
+            "atom_id": "F-I002-A1",
+            "claim_types": [
+              "EVENT"
+            ],
+            "target_spans": [
+              "gamma delta"
+            ]
+          }
+        ],
+        "row_sha256": "d7a040d9ab30320d5e9cfe72a49b85b6c0e17019db67301e865c9279958e5dba"
+      },
+      {
+        "item_id": "F-I003",
+        "cohort": "discovery",
+        "profile": "narrative",
+        "role": "SURFACE_MUTANT",
+        "atoms": [
+          {
+            "atom_id": "F-I003-A1",
+            "claim_types": [
+              "FORMAT"
+            ],
+            "target_spans": [
+              "epsilon"
+            ]
+          }
+        ],
+        "row_sha256": "1246cf3cfd4318e30c4f3416ec9d9bf7f9b7dca598931225546bfd044c93900d"
+      },
+      {
+        "item_id": "F-I004",
+        "cohort": "discovery",
+        "profile": "narrative",
+        "role": "SURFACE_MUTANT",
+        "atoms": [
+          {
+            "atom_id": "F-I004-A1",
+            "claim_types": [
+              "POLARITY"
+            ],
+            "target_spans": [
+              "zeta"
+            ]
+          }
+        ],
+        "row_sha256": "679c11abb04b508e54277298df13a39791390093acf639f2c44c84cf2f8637b6"
+      },
+      {
+        "item_id": "F-I005",
+        "cohort": "discovery",
+        "profile": "dialogue",
+        "role": "CLEAN_CONTROL",
+        "atoms": [],
+        "row_sha256": "fb817e56e6faf8a73245ac6fb0f1c42e86bdf906df07469e5685db48c1be309b"
+      },
+      {
+        "item_id": "F-I006",
+        "cohort": "discovery",
+        "profile": "narrative",
+        "role": "CLEAN_CONTROL",
+        "atoms": [],
+        "row_sha256": "6f1724bd5cde3d9a6dce0e9c638d7f9da16a5b54e38f066016cfc3dfcf18ede6"
+      }
+    ]
+  },
+  "raw_items": [
+    {
+      "item_id": "F-I001",
+      "candidates": [
+        {
+          "verdict": "FINDING",
+          "claim_type": "SUBJECT",
+          "target_span": "xx alpha beta yy",
+          "correction": "c",
+          "evidence": "e"
+        },
+        {
+          "verdict": "FINDING",
+          "claim_type": "SUBJECT",
+          "target_span": "xx alpha beta yy",
+          "correction": "c",
+          "evidence": "e"
+        },
+        {
+          "verdict": "FINDING",
+          "claim_type": "SUBJECT",
+          "target_span": "alpha beta",
+          "correction": " other correction",
+          "evidence": "e"
+        }
+      ]
+    },
+    {
+      "item_id": "F-I002",
+      "candidates": [
+        {
+          "verdict": "FINDING",
+          "claim_type": "EVENT",
+          "target_span": "gamma",
+          "correction": "c",
+          "evidence": "e"
+        }
+      ]
+    },
+    {
+      "item_id": "F-I003",
+      "candidates": [
+        {
+          "verdict": "FINDING",
+          "claim_type": "FORMAT",
+          "target_span": "epsilon",
+          "correction": "c",
+          "evidence": "e"
+        }
+      ]
+    },
+    {
+      "item_id": "F-I004",
+      "candidates": [
+        {
+          "verdict": "FINDING",
+          "claim_type": "SUBJECT",
+          "target_span": "zeta",
+          "correction": "c",
+          "evidence": "e"
+        }
+      ]
+    },
+    {
+      "item_id": "F-I005",
+      "candidates": [
+        {
+          "verdict": "FINDING",
+          "claim_type": "OTHER",
+          "target_span": "anything",
+          "correction": "c",
+          "evidence": "e"
+        }
+      ]
+    },
+    {
+      "item_id": "F-I006",
+      "candidates": [
+        {
+          "verdict": "UNCERTAIN",
+          "claim_type": "OTHER",
+          "target_span": "anything",
+          "correction": "c",
+          "evidence": "e"
+        }
+      ]
+    }
+  ],
+  "expected": {
+    "items": 6,
+    "unique_findings": 6,
+    "context_atoms_total": 2,
+    "context_hits": 1,
+    "surface_atoms_total": 2,
+    "surface_hits": 1,
+    "clean_items_total": 2,
+    "clean_with_findings": 1
+  }
+}

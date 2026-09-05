@@ -1,0 +1,145 @@
+{
+  "schema_version": "deterministic-linebreak-lint-holdout-result-v2",
+  "experiment": "deterministic-linebreak-lint-holdout-v2",
+  "status": "NO_GO_INSUFFICIENT_INDEPENDENT_CANDIDATES",
+  "model_calls_made": 0,
+  "network_calls_made": 0,
+  "frozen_input": {
+    "baseline_commit": "31cb74af595567cd803a010e6fe5fceea4a29db6",
+    "inventory_rows": 30308,
+    "inventory_raw_sha256": "1fb97b26457ebda2b6c03be40e3fe6121639fe58046004acee62aa3dc8f6af61",
+    "inventory_canonical_sha256": "6064eba32bc43d3bf7dff40bd83b8d2183e73a5298bf5b0dcc28fb39c6b1d18a",
+    "inventory_schema_sha256": "483b4bc93b8c3816dc6b29c58e5e68dd931521c93dbcb25423c08ac99233a0ac",
+    "translation_inputs_sha256": "165a9ab3064d983bccb79364332a3a63b37762ad8b79ba5774ef51f96c835d5d",
+    "inventory_manifest_sha256": "192e95636a17f4de4e591ae0ad9c4b7de455f01c8383ebdc1bda02d4b1b2eace",
+    "inventory_policy_sha256": "45f0c5aee14c652aa0f48116577a21a3eee81fbfb8db785f604bf4e5bb311880",
+    "inventory_taxonomy_sha256": "8f32ee89d7baaa0adba23d9b4a41534f274d5ce2492b5539725b4e8a7db34078",
+    "inventory_terminology_sha256": "96783486cf8790762fcab2e2379dfc0b3e13a50ca055410960395bcab1f9065c"
+  },
+  "measured_scan": {
+    "raw_han_lf_han_boundaries": 246,
+    "raw_revisions": 89,
+    "pre_exclusion_candidates": 5,
+    "exactly_excluded_v1_development_candidates": 5,
+    "post_exclusion_independent_candidates": 0
+  },
+  "independent_evaluation": {
+    "audited_candidates": 0,
+    "precision_denominator": 0,
+    "precision": null,
+    "recall": null,
+    "status": "NOT_ESTIMABLE_FROM_ZERO_INDEPENDENT_EMISSIONS"
+  },
+  "cross_component_coverage": {
+    "addon-dev": {
+      "inventory_rows": 101,
+      "pre_exclusion_candidates": 0,
+      "excluded_development_candidates": 0,
+      "independent_candidates": 0
+    },
+    "ashes-urhrok": {
+      "inventory_rows": 849,
+      "pre_exclusion_candidates": 0,
+      "excluded_development_candidates": 0,
+      "independent_candidates": 0
+    },
+    "boot": {
+      "inventory_rows": 283,
+      "pre_exclusion_candidates": 0,
+      "excluded_development_candidates": 0,
+      "independent_candidates": 0
+    },
+    "cults": {
+      "inventory_rows": 2043,
+      "pre_exclusion_candidates": 0,
+      "excluded_development_candidates": 0,
+      "independent_candidates": 0
+    },
+    "engine": {
+      "inventory_rows": 1061,
+      "pre_exclusion_candidates": 0,
+      "excluded_development_candidates": 0,
+      "independent_candidates": 0
+    },
+    "example": {
+      "inventory_rows": 26,
+      "pre_exclusion_candidates": 0,
+      "excluded_development_candidates": 0,
+      "independent_candidates": 0
+    },
+    "example-realtime": {
+      "inventory_rows": 26,
+      "pre_exclusion_candidates": 0,
+      "excluded_development_candidates": 0,
+      "independent_candidates": 0
+    },
+    "items-vault": {
+      "inventory_rows": 69,
+      "pre_exclusion_candidates": 0,
+      "excluded_development_candidates": 0,
+      "independent_candidates": 0
+    },
+    "orcs": {
+      "inventory_rows": 3904,
+      "pre_exclusion_candidates": 0,
+      "excluded_development_candidates": 0,
+      "independent_candidates": 0
+    },
+    "possessors": {
+      "inventory_rows": 258,
+      "pre_exclusion_candidates": 0,
+      "excluded_development_candidates": 0,
+      "independent_candidates": 0
+    },
+    "tome": {
+      "inventory_rows": 21688,
+      "pre_exclusion_candidates": 5,
+      "excluded_development_candidates": 5,
+      "independent_candidates": 0
+    }
+  },
+  "cross_component_shortfall": "All five pre-exclusion emissions are exposed Tome development candidates. Every component has zero independent emissions; cross-component performance is not evaluated.",
+  "prohibited_claims": [
+    "independent precision/recall claims",
+    "zero-false-alarm claims",
+    "pooled-v1 performance claims",
+    "cross-component performance claims",
+    "deployment or production lint integration claims"
+  ],
+  "decision": "Do not authorize deployment. A future warning-only gate requires a separately versioned preregistration on an unseen future snapshot.",
+  "future_threshold": null,
+  "artifact_bindings": {
+    "experiment": {
+      "logical_path": "EXPERIMENT.json",
+      "sha256": "fe38044d2d3cd271327d5aa09f40ad646212d75fa8f3928ff0153e3c9209c6c9"
+    },
+    "rule_contract": {
+      "logical_path": "RULE-CONTRACT.json",
+      "sha256": "982aa40dd405a523f44170fcae557a5bd8066a36f83fa8fde4b2a8a6067a814e"
+    },
+    "exclusions": {
+      "logical_path": "EXCLUSIONS.json",
+      "sha256": "ae2e9466c0191f5798330f234649a54bedea907a0c455404d6782ac33a71ef2a"
+    },
+    "scanner_fixtures": {
+      "logical_path": "SCANNER-FIXTURES.json",
+      "sha256": "295783273bfd047a4cb8192d44c42181021c618bf9c617bcf37437d5a986b0bd"
+    },
+    "scanner_library": {
+      "logical_path": "scanner-lib.mjs",
+      "sha256": "0759b5a66847dedcae89e50721c57e2acf2b095415594e5ea49721cab3f48a73"
+    },
+    "scanner_entrypoint": {
+      "logical_path": "scan.mjs",
+      "sha256": "74ab596748d7ecf3f9bb24420bd8cf1fc3759c8c176fb8f223a050a665dd4c17"
+    },
+    "candidates": {
+      "logical_path": "CANDIDATES.json",
+      "sha256": "c9047960f9cd056813e6fb6af58df1e6ff366d2ad4f153f8244b0508348b73dc"
+    },
+    "source_audit": {
+      "logical_path": "SOURCE-AUDIT.json",
+      "sha256": "5d5ab1643e31ded27a75d3862bd4c9609176f2355649f95ceceee25cc680751d"
+    }
+  }
+}

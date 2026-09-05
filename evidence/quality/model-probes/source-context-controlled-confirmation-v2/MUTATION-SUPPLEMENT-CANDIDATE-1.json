@@ -1,0 +1,182 @@
+{
+  "schema_version": "source-context-controlled-confirmation-mutation-author-candidate-v2",
+  "shard": 1,
+  "queue_sha256": "70196bbf3aa388098e8a1192053c81af005fb3fdf55fa316707f46efbfb0bae7",
+  "items": [
+    {
+      "base_ordinal": 1,
+      "audit_id": "A031",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 2,
+      "audit_id": "A003",
+      "context_option": {
+        "mutated_target": "当你用右键拖动画出鼠标手势时，始终会显示彩色的轨迹提示。#WHITE#",
+        "edit_span_original": "会显示",
+        "edit_span_mutated": "始终会显示",
+        "claim_type": "CONDITION_OR_SCOPE",
+        "severity": "minor",
+        "atom": "错误地把鼠标手势轨迹的显示描述为不受设置影响、始终发生。",
+        "minimality": "仅在原显示谓语中加入“始终”，其余文字与标记保持不变。",
+        "family": "event_branch_condition_or_scope",
+        "surface_underdetermined": "源文只描述执行鼠标手势时轨迹会显示，没有说明该行为是否可由设置关闭，因此仅凭源文和变异目标无法判定“始终”错误。",
+        "context_refutation": "上下文显示该功能由 hide_gestures 设置控制，状态可在 enabled 与 disabled 之间切换；禁用时轨迹不会显示，直接否定“始终会显示”。"
+      },
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 3,
+      "audit_id": "A033",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 4,
+      "audit_id": "A056",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 5,
+      "audit_id": "A048",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 6,
+      "audit_id": "A040",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 7,
+      "audit_id": "A047",
+      "context_option": {
+        "mutated_target": "举报我的不良行为",
+        "edit_span_original": "不良行为",
+        "edit_span_mutated": "我的不良行为",
+        "claim_type": "ROLE_OR_REFERENT",
+        "severity": "major",
+        "atom": "错误地把被举报行为的所有者改为当前说话者或操作玩家本人。",
+        "minimality": "仅给“不良行为”增加所有者“我的”，未改变举报动作或其他内容。",
+        "family": "speaker_addressee_or_agent_patient",
+        "surface_underdetermined": "源文“Report for bad behavior”没有明示行为属于谁，仅凭该短语与变异目标无法确定举报对象。",
+        "context_refutation": "该菜单由选中的 citem.login 用户生成，report 动作也是该用户条目上的操作，因此被举报的是所选用户，而不是操作玩家本人的行为。"
+      },
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 8,
+      "audit_id": "A021",
+      "context_option": {
+        "mutated_target": "打开我的用户信息（在浏览器里打开）",
+        "edit_span_original": "用户信息",
+        "edit_span_mutated": "我的用户信息",
+        "claim_type": "ROLE_OR_REFERENT",
+        "severity": "major",
+        "atom": "错误地把浏览器中打开的资料所有者改为操作玩家本人。",
+        "minimality": "仅在资料对象前加入所有者“我的”，浏览器打开方式保持不变。",
+        "family": "direction_polarity_or_ownership",
+        "surface_underdetermined": "源文“Open profile”没有显式所有格，单看源文和变异目标无法确定打开的是谁的资料。",
+        "context_refutation": "上下文先以 citem.login 获取所选用户的 data，随后 profile 分支打开 data.profile；资料明确属于所选用户，而非操作玩家本人。"
+      },
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 9,
+      "audit_id": "A016",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 10,
+      "audit_id": "A006",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 31,
+      "audit_id": "A088",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 32,
+      "audit_id": "A099",
+      "context_option": {
+        "mutated_target": "魔法大爆炸的七章故事",
+        "edit_span_original": "故事",
+        "edit_span_mutated": "七章故事",
+        "claim_type": "CONDITION_OR_SCOPE",
+        "severity": "major",
+        "atom": "错误地把该系列故事的章节范围限定为七章。",
+        "minimality": "仅在“故事”前加入章节数“七章”，未改变标题的其他成分。",
+        "family": "event_branch_condition_or_scope",
+        "surface_underdetermined": "源文标题“Tales of the Spellblaze”没有给出章节数量，因此仅凭标题与变异目标无法判断七章还是其他数量。",
+        "context_refutation": "上下文的成就说明明确写有 eight chapters，且获取条件逐一检查 spellblaze-chronicles-1 至 spellblaze-chronicles-8，唯一确定为八章而非七章。"
+      },
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 33,
+      "audit_id": "A110",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 34,
+      "audit_id": "R085",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 35,
+      "audit_id": "R103",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 36,
+      "audit_id": "A081",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 37,
+      "audit_id": "R099",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 38,
+      "audit_id": "A071",
+      "context_option": {
+        "mutated_target": "你永远无法理解的文字：#{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#",
+        "edit_span_original": "不明意义的文字",
+        "edit_span_mutated": "你永远无法理解的文字",
+        "claim_type": "CONDITION_OR_SCOPE",
+        "severity": "major",
+        "atom": "错误地把当前无法理解文字的状态扩大为永久无法理解。",
+        "minimality": "仅将当前的不理解表述替换为带“永远”的永久性表述，原文串与格式标记均保持不变。",
+        "family": "event_branch_condition_or_scope",
+        "surface_underdetermined": "源文“which you do not understand”只陈述当前不理解，没有说明这种状态是否永久，因此源文与变异目标本身不足以判定永久性。",
+        "context_refutation": "上下文以 speaks_shertul 属性分支：不具备该属性时显示陌生文字，具备时则显示可理解的译文；理解状态取决于条件，明确不是永远无法理解。"
+      },
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 39,
+      "audit_id": "R084",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 40,
+      "audit_id": "A107",
+      "context_option": null,
+      "surface_option": null
+    }
+  ]
+}

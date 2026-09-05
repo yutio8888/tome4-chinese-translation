@@ -1,0 +1,137 @@
+{
+  "schema_version": "gemini-context-v5-execution-pilot-result-v1",
+  "task_id": "research-gemini-context-counterexample-reviewer-v5-execution-v5",
+  "experiment_id": "gemini-context-counterexample-reviewer-v5-execution-v5",
+  "decision": "NO_GO_A_PARSE_INVALID",
+  "terminal": true,
+  "classification": "MODEL_OUTPUT_VALIDATION_FAILURE_PATH_PILOT_NOT_EFFECTIVENESS_RESULT",
+  "terminalization_calls_authorized": 0,
+  "measured_facts": {
+    "qualification": {
+      "status": "PASS_NON_SCORED",
+      "agy_processes_spawned": 2,
+      "inference_calls_made": 1,
+      "scored": false
+    },
+    "budget": {
+      "authorized_process_budget": 4,
+      "authorized_inference_call_budget": 3,
+      "agy_processes_spawned_derived_from_ledger": 3,
+      "inference_calls_made_derived_from_ledger": 2,
+      "retries_used": 0,
+      "further_process_authorized_in_this_terminal_task": false
+    },
+    "prior_dispatch": {
+      "dispatch_id": "discovery-A-007",
+      "status": "NOT_INVOKED_HARNESS_CWD",
+      "agy_processes_consumed": 0,
+      "inference_calls_consumed": 0,
+      "budget_impact": 0
+    },
+    "discovery_A": {
+      "cell": "discovery-A-run-1-shard-1",
+      "attempt": 1,
+      "process_exit": 0,
+      "ledger_state": "FINISHED_SUCCESS",
+      "envelope_extracted": true,
+      "parse_valid": false,
+      "parser_error_count": 3,
+      "parser_errors": [
+        "CANDIDATE:4:0:EVIDENCE_MEMBERSHIP",
+        "CANDIDATE:11:0:EVIDENCE_MEMBERSHIP",
+        "CANDIDATE:15:0:EVIDENCE_MEMBERSHIP"
+      ]
+    },
+    "discovery_C": {
+      "cell": "discovery-C-run-1-shard-1",
+      "status": "NOT_INVOKED",
+      "reason": "A_BEFORE_C_PARSE_REQUIRED"
+    },
+    "scoring": {
+      "scores_file_created": false,
+      "pilot_complete": false,
+      "effectiveness_result": false,
+      "effectiveness_claim_supported": false
+    },
+    "post_run_check": {
+      "mode": "READ_ONLY",
+      "decision": "INVALID_ARTIFACTS",
+      "exit": 3,
+      "expected_for_terminal_state": true,
+      "reason": "RAW_PARSE",
+      "errors": [
+        "RAW_PARSE:discovery-A-run-1-shard-1:CANDIDATE:4:0:EVIDENCE_MEMBERSHIP,CANDIDATE:11:0:EVIDENCE_MEMBERSHIP,CANDIDATE:15:0:EVIDENCE_MEMBERSHIP"
+      ],
+      "interpretation": "MODEL_OUTPUT_PARSE_VALIDATION_FAILURE_NOT_INFRASTRUCTURE_CORRUPTION_AND_NOT_A_SCORE"
+    }
+  },
+  "bindings": {
+    "candidate_manifest": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v5/MANIFEST.json",
+      "sha256": "6aca47be505c59da9030e73580458fdf11ae979fa13ef85dbe6718f7db732cb2"
+    },
+    "route_contract": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v5/ROUTE-CONTRACT.json",
+      "sha256": "520b37b21e71b1494d1569cc3552f21a6142327506069a7e0676dfded88e56e3"
+    },
+    "frozen_request_manifest": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v5/frozen/REQUEST-MANIFEST.json",
+      "sha256": "eeef0a9ddfc332384c9f97485c11873842bf0b48b5ec008ce94df0b4846788bd"
+    },
+    "execution_ledger": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v5/execution/LEDGER.jsonl",
+      "sha256": "24c19cba02389f64a04039e26917479db4348eaf3c973ea7d47596d1eb14aecc"
+    },
+    "qualification_evidence": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v5/qualification/EVIDENCE.json",
+      "sha256": "019260915d2ce743172daa915baa6a276cd8fc5212576c881130e9aa6ce78682"
+    },
+    "qualification_raw": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v5/qualification/RAW-SYNTHETIC.json",
+      "sha256": "245b732cf66a1efc2b664b5866676a774b55340e52ee2299aaed11a49ec919b3"
+    },
+    "package_review_gate": {
+      "path": ".ai/task/research-gemini-context-counterexample-reviewer-v5-execution-v5/PACKAGE-REVIEW-GATE.json",
+      "sha256": "0723ca18488b9662742cdb23651ebdc182bdd8db855a22e79d886a5c116f7405"
+    },
+    "qualification_gate": {
+      "path": ".ai/task/research-gemini-context-counterexample-reviewer-v5-execution-v5/QUALIFICATION-GATE.json",
+      "sha256": "4d65ad883d433831a48cff469de62f0d7464cc789652b4f0640523149b779ecc"
+    },
+    "execution_authorization": {
+      "path": ".ai/task/research-gemini-context-counterexample-reviewer-v5-execution-v5/EXECUTION-AUTHORIZATION.json",
+      "sha256": "907fed1504fbbc711b7df451c550e24c360c0e34b5ed1a646427ca564151ac0a"
+    },
+    "qualification_capture_receipt": {
+      "path": ".ai/task/research-gemini-context-counterexample-reviewer-v5-execution-v5/QUALIFICATION-CAPTURE-RECEIPT.json",
+      "sha256": "901ddffcb037afa9d64c764def3d3585762bc48bd8953b30fa8b5201239fbba1"
+    },
+    "discovery_A_raw": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v5/execution/RAW/discovery-A-run-1-shard-1-attempt-1.json",
+      "sha256": "2ef447bbf1743335bd34fb6c480f29acee68f49a09cd950097e8ee6e3ad5c390"
+    },
+    "discovery_A_stdout_capture": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v5/execution/captures/discovery-A-run-1-shard-1-attempt-1.stdout.bin",
+      "sha256": "d0b3ba402a3d8c8fa695fb8d276b702f225b3a8518edd7120ef04ab30a698c5c"
+    },
+    "discovery_A_stderr_capture": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v5/execution/captures/discovery-A-run-1-shard-1-attempt-1.stderr.bin",
+      "sha256": "3a7f8550106d86abb322e8ed0fb30a0296c0e97c6be03d5a8033b99d16737459"
+    },
+    "pinned_binary": {
+      "path": "/home/yun/.local/lib/agy-pinned/f3575050ae826d1944913f595b32f827a4674ec42e59ff0476450e2bac5fa39e/agy",
+      "sha256": "f3575050ae826d1944913f595b32f827a4674ec42e59ff0476450e2bac5fa39e"
+    }
+  },
+  "claims_excluded": [
+    "A/C protocol effectiveness",
+    "model quality",
+    "model capability",
+    "generalization",
+    "any score derived from this path pilot"
+  ],
+  "recommendation": {
+    "status": "STOP_NO_RETRY",
+    "reason": "A output failed frozen evidence-membership validation; the A-before-C gate permanently prevents C in this task."
+  }
+}

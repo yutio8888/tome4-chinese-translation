@@ -1,0 +1,253 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "B1",
+  "arm": "B",
+  "run": 1,
+  "shard": "03",
+  "route_key": "glm",
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "attempt": 1,
+  "request_sha256": "f23cfefc9e8396cb38305657edfac81d78cc7d092a404f5e80bb911a5e402863",
+  "input_sha256": "7d9cb2d261afeaf2505fcd0f79b832dfafdaf3c394aba890a0f4397f02fe1ba9",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "9718819efd54305b029e4cb0c1effadfa83d17d44bc366a5d9af0fe65c2ec468",
+  "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "route_metadata": {
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 10810,
+      "output": 9427,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 7044,
+      "totalTokens": 20237,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "neutral_id": "Q041",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "SUBJECT",
+            "target_span": "法术选择",
+            "correction": "确认这些（陷阱）选择",
+            "evidence": "self.traps_selected[tid] = not self.traps_selected[tid]"
+          }
+        ],
+        "observation": "source_context 显示该选项用于确认已选中的陷阱（traps_selected、max_traps、\"Preparing trap\"），target 将其译为“法术选择”，把 traps 误作 spells，主体对象错误。"
+      },
+      {
+        "neutral_id": "Q042",
+        "candidates": [],
+        "observation": "“Got to level 10 of the infinite dungeon.” 与“到达无尽地下城第10层。”数值、地点与动作一致，未发现客观缺陷。"
+      },
+      {
+        "neutral_id": "Q043",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "我这个隐士",
+            "correction": "这可不太像隐士该有的态度。",
+            "evidence": "{_t\"[[SOURCE_MATCH_1]]\", jump=\"competition\"}"
+          }
+        ],
+        "observation": "source 是玩家对隐士 NPC 的回答选项（\"THAT'S...\" 指向对方的行事态度），target 用第一人称“我这个隐士”把隐士身份指到说话者自己身上，指称对象被改变。"
+      },
+      {
+        "neutral_id": "Q044",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "200 面墙",
+            "correction": "100 面墙",
+            "evidence": "Have 100 walls on the sludgenest turn into hostile creatures."
+          }
+        ],
+        "observation": "source 明确为 100 面墙，target 译为 200 面墙，数值错误。"
+      },
+      {
+        "neutral_id": "Q045",
+        "candidates": [],
+        "observation": "截断语句“But what is all th...”与“但是这一切到底是……”语义相符，未发现客观缺陷。"
+      },
+      {
+        "neutral_id": "Q046",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "VALUE",
+            "target_span": "厄运行者",
+            "correction": "带来厄运者／降厄者",
+            "evidence": "Killed a Bringer of Doom."
+          }
+        ],
+        "observation": "“Bringer of Doom”中的 Bringer（带来者）在“厄运行者”中未体现，且“行者”（行走者）为新增含义；因属专有名词译法，存在一定裁量空间，故列为 UNCERTAIN。"
+      },
+      {
+        "neutral_id": "Q047",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "那个人类",
+            "correction": "携带纸片的那个生物",
+            "evidence": "ruined from your fight with the creature carrying it"
+          }
+        ],
+        "observation": "source 只说“the creature carrying it”（携带纸片的生物），未指明为人类；source_context 全篇围绕蜘蛛（arachnids、\"that spider is the matriarch here\"），target 译为“那个人类”与可见证据相悖。"
+      },
+      {
+        "neutral_id": "Q048",
+        "candidates": [],
+        "observation": "“Records of Lorekeeper Hadak part three”与“博学者哈达克的记录，第三部分”对应一致，未发现客观缺陷。"
+      },
+      {
+        "neutral_id": "Q049",
+        "candidates": [],
+        "observation": "“始终”紧跟“当你……画出鼠标手势时”，可解读为“每次做手势时都会显示”，与 source 的条件句相容；无法由可见证据判定为缺陷。"
+      },
+      {
+        "neutral_id": "Q050",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "位于德斯镇",
+            "correction": "删除“位于德斯镇”（或改为与安格列文相符的表述）",
+            "evidence": "name = _t\"Angolwen Fountain\","
+          }
+        ],
+        "observation": "source 原文未提及喷泉所在城镇，target 新增“位于德斯镇”；source_context 显示该 lore 为 \"angolwen-fountain\" / \"Angolwen Fountain\"，新增信息与可见证据相矛盾。"
+      },
+      {
+        "neutral_id": "Q051",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "一枚项链",
+            "correction": "一枚戒指",
+            "evidence": "If you bring me a gem and a ring, I can create a new ring imbued with the properties of the gem."
+          }
+        ],
+        "observation": "source 明确要求带来“a gem and a ring”（宝石和戒指），target 将第一个 ring 误译为“项链”，与同句后文的“戒指”自相矛盾。"
+      },
+      {
+        "neutral_id": "Q052",
+        "candidates": [],
+        "observation": "target 新增的“兽人”是对 they 的具体化；可见文本（Sher'Tuls）既无法证实也无法证伪该指称，依据规则不构成可报告缺陷。"
+      },
+      {
+        "neutral_id": "Q053",
+        "candidates": [],
+        "observation": "“Return in a few days, and I'll have everything prepared”与“几天后你回来，我肯定把一切都准备好了”在中文语境下可作将来完成解读，其余信息均对应，未发现客观缺陷。"
+      },
+      {
+        "neutral_id": "Q054",
+        "candidates": [],
+        "observation": "“I cleared the room of death and all I got was this lousy achievement!”与译文语义一致，未发现客观缺陷。"
+      },
+      {
+        "neutral_id": "Q055",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "放走鲜血大师",
+            "correction": "除掉鲜血大师才是正确的选择",
+            "evidence": "Did the righteous thing in the ring of blood and disposed of the Blood Master."
+          }
+        ],
+        "observation": "source_context 显示该成就（RING_BLOOD_KILL）因“disposed of the Blood Master”（除掉鲜血大师）而获得，target 译为“放走鲜血大师”，动作方向完全相反。"
+      },
+      {
+        "neutral_id": "Q056",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "弗莉吉亚的弟弟",
+            "correction": "一个人类（战甲中其实是弗莉吉亚的父亲）",
+            "evidence": "Father... #LIGHT_GREEN#*She stands silent for a few seconds*#WHITE# You win, @playerdescriptor.race@."
+          }
+        ],
+        "observation": "source 原文仅说“it's actually a human inside that hulking, worn armor”；target 具体化为“弗莉吉亚的弟弟”，而 source_context 中弗莉吉亚在 Valfren 被击败后称其为“Father”，可见证据指向父亲而非弟弟。"
+      },
+      {
+        "neutral_id": "Q057",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "地图和角色",
+            "correction": "区域和层级",
+            "evidence": "Reload/regenerate Zone and level"
+          }
+        ],
+        "observation": "source 为“Zone and level”（区域与关卡层级），target 将 level 误译为“角色”，指称对象错误。"
+      },
+      {
+        "neutral_id": "Q058",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "即使此处没有抛射物，也可在 Lua 中查看",
+            "correction": "Lua 查看 [抛射物]",
+            "evidence": "if p and config.settings.cheat then"
+          }
+        ],
+        "observation": "source 仅为调试菜单项“Lua inspect [Projectile]”；source_context 显示该菜单项仅在存在抛射物（if p ...）时加入列表，target 新增的“即使此处没有抛射物”与可见证据相矛盾。"
+      },
+      {
+        "neutral_id": "Q059",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "单次",
+            "correction": "删除“单次”：使用裂解从敌人身上清除了89个增益效果",
+            "evidence": "if self.nb >= 89 then return true end"
+          },
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "ACTION",
+            "target_span": "必须单次使用裂解清除",
+            "correction": "已通过裂解从敌人身上移除了89个增益效果",
+            "evidence": "Removed 89 beneficial effects from enemies via Disintegration."
+          }
+        ],
+        "observation": "source_context 的 can_gain 以累计计数器（self.nb 逐次 +1，达到 89 即达成，并显示“/ 89”）判定，说明并非要求单次完成，“单次”为与证据相悖的新增条件；另外 source 为陈述已达成事实的完成时描述，target 改写为“必须……”的要求式表述，方向有偏但属常见改写，列为 UNCERTAIN。"
+      },
+      {
+        "neutral_id": "Q060",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "杀死敌人",
+            "correction": "杀死自己（以半身人身份自杀）",
+            "evidence": "Killed oneself as a halfling."
+          }
+        ],
+        "observation": "source 描述半身人杀死自己（成就 id 为 HALFLING_SUICIDE），target 译为“杀死敌人”，动作对象方向完全相反。"
+      }
+    ]
+  }
+}

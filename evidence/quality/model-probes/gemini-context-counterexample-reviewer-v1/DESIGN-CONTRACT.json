@@ -1,0 +1,110 @@
+{
+  "schema_version": "gemini-context-counterexample-design-v2",
+  "status": "FROZEN_ZERO_INFERENCE_NO_GO",
+  "scope": {
+    "profile_labels": [
+      "dialogue",
+      "narrative"
+    ],
+    "required_semantic_paths": [
+      "game/modules/tome/data/chats/*.lua",
+      "game/modules/tome/data/lore/*.lua"
+    ],
+    "claims_excluded": [
+      "runtime",
+      "mechanics",
+      "ui",
+      "logs",
+      "args_order",
+      "general_repository_review"
+    ]
+  },
+  "cohorts": {
+    "discovery": {
+      "items": 32,
+      "context_mutants": 12,
+      "surface_mutants": 8,
+      "clean_controls": 12
+    },
+    "confirmation": {
+      "items": 32,
+      "context_mutants": 12,
+      "surface_mutants": 8,
+      "clean_controls": 12
+    },
+    "disjoint": [
+      "base_revision",
+      "normalized_source",
+      "normalized_context",
+      "public_source_file"
+    ],
+    "caps": {
+      "items_per_public_source_file": 2,
+      "items_per_historical_task": 4
+    }
+  },
+  "protocols": {
+    "A": {
+      "prompt": "prompts/GENERIC.md",
+      "context": false
+    },
+    "B": {
+      "prompt": "prompts/ENHANCED.md",
+      "context": false
+    },
+    "C": {
+      "prompt": "prompts/GENERIC.md",
+      "context": true
+    },
+    "D": {
+      "prompt": "prompts/ENHANCED.md",
+      "context": true
+    }
+  },
+  "transport": {
+    "runs": 2,
+    "shards_per_cell": 2,
+    "items_per_shard": 16,
+    "contiguous": true,
+    "global_ids": true
+  },
+  "gates_each_run": {
+    "context_distinct_net_min": 3,
+    "surface_lost_atom_set_must_be_empty": true,
+    "protocol_only_objective_clean_candidate_set_must_be_empty": true,
+    "total_objective_clean_candidate_delta_max": 0,
+    "paired_items_required": 32,
+    "complete_shards_required": 2,
+    "integrity_failures_max": 0
+  },
+  "selection": {
+    "requires_both_runs": true,
+    "order": [
+      "sum_context_net_desc",
+      "objective_clean_candidates_asc",
+      "critical_path_latency_asc",
+      "D_C_B"
+    ]
+  },
+  "authorization": {
+    "canonical_task_owned_path": ".ai/task/research-gemini-context-counterexample-reviewer-v1/EXECUTION-AUTHORIZATION.json",
+    "outside_reviewed_dag": true,
+    "bindings": [
+      "review_candidate_ref",
+      "candidate_root_sha256",
+      "hash_manifest_sha256",
+      "release_state_sha256",
+      "phase"
+    ],
+    "currently_released": false
+  },
+  "model_facing_prohibitions": [
+    "sealed reference",
+    "adjudication",
+    "defect id",
+    "provenance",
+    "local path",
+    "credential",
+    "chain of thought"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "gemini-context-frozen-input-manifest-v1",
+  "baseline_commit": "31cb74af595567cd803a010e6fe5fceea4a29db6",
+  "tracked_dependency": {"commit":"31cb74af595567cd803a010e6fe5fceea4a29db6","pathspec":"evidence/quality/model-probes","extensions":[".json",".jsonl",".txt",".md"],"record_count":594,"policy":"Read blobs only from this explicit commit; fail if commit, count, or blob access drifts."},
+  "archives": [
+    {"logical_path":"frozen-inputs/preserved-dirty.json.gz.b64","sha256":"f537ba491a90ff73c2c6e5025b66f89067be934e8b4f2e80bc9f107b915ce232","record_count":156,"tier":"preserved_dirty"}
+  ],
+  "cycle_1_extracted": [
+    {"logical_path":"frozen-inputs/cycle-1-extracted/LOCAL-BINDINGS.json","sha256":"13f1ee0dcc49a27d56a88bc0118e0c76ef4aaf1f0bd996efce9fb453c7f31f47"},
+    {"logical_path":"frozen-inputs/cycle-1-extracted/SOURCE-FRAME.json","sha256":"14fd10d764044c0511ec1ba75fa0af14561fd1417aaecfe6695335e1090855ef"},
+    {"logical_path":"frozen-inputs/cycle-1-extracted/SOURCE-PACKETS.json","sha256":"a459d3fb8a0c5865ed07c9bcc051d5978d1c1cc9a566895dcfbaed1e41a15bb2"},
+    {"logical_path":"frozen-inputs/cycle-1-extracted/TARGET-BINDINGS.json","sha256":"5aef6a5dffa57f4153bf593e32fdfcf301ef6e9fea6bd8f206f1369adacc7bc9"}
+  ],
+  "drift_policy": "Every rebuild verifies the explicit baseline commit dependency, tracked record count, each reviewed archive, extracted stream, decoded record count, decoded record hash, and decoded record length before use; any mismatch is fatal."
+}

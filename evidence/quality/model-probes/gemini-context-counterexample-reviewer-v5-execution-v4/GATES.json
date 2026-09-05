@@ -1,0 +1,42 @@
+{
+  "schema_version": "gemini-context-v5-execution-gates-v1",
+  "status": "NO_RUN_NO_GATE_SATISFIED",
+  "authoritative_gate_logic": "gates.mjs. Exactly three blocking gates, each a task-owned file that this package reads and never writes.",
+  "gate_count": 3,
+  "gate_order": [
+    "PACKAGE_REVIEW",
+    "QUALIFICATION",
+    "EXECUTION_AUTHORIZATION"
+  ],
+  "gates": {
+    "PACKAGE_REVIEW": {
+      "path": ".ai/task/research-gemini-context-counterexample-reviewer-v5-execution-v4/PACKAGE-REVIEW-GATE.json",
+      "satisfied": false,
+      "meaning": "frozen checklist C01-C14 all PASS against this MANIFEST.json"
+    },
+    "QUALIFICATION": {
+      "path": ".ai/task/research-gemini-context-counterexample-reviewer-v5-execution-v4/QUALIFICATION-GATE.json",
+      "satisfied": false,
+      "meaning": "archived two-stage route qualification evidence, reported model gemini-3.7-flash-high"
+    },
+    "EXECUTION_AUTHORIZATION": {
+      "path": ".ai/task/research-gemini-context-counterexample-reviewer-v5-execution-v4/EXECUTION-AUTHORIZATION.json",
+      "satisfied": false,
+      "meaning": "exact authorized cells, route contract hash, request manifest hash and process budget"
+    }
+  },
+  "identity_binding": "manifest_sha256 only; gates 2 and 3 additionally bind the byte hash of their direct predecessor gate",
+  "removed_in_predecessor": [
+    "CANDIDATE-IDENTITY",
+    "HASH-DAG",
+    "dual-review predicates",
+    "mutation gate",
+    "freeze gate",
+    "discovery completion receipt",
+    "confirmation authorization"
+  ],
+  "agy_processes_spawned": 0,
+  "inference_calls_made": 0,
+  "network_calls_made": 0,
+  "qualification_is_scored": false
+}

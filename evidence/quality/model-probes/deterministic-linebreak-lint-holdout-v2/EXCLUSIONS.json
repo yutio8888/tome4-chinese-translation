@@ -1,0 +1,60 @@
+{
+  "schema_version": "deterministic-linebreak-holdout-exclusions-v2",
+  "experiment": "deterministic-linebreak-lint-holdout-v2",
+  "status": "FROZEN_ALL_V1_DEVELOPMENT_CANDIDATES_EXCLUDED",
+  "source": {
+    "logical_path": "deterministic-linebreak-lint-v1/CANDIDATES.json",
+    "sha256": "d048499955350a07988ee49f7e4c1a8aa26fb6ba3b115c774f09d25e45432aab",
+    "development_candidate_count": 5
+  },
+  "identity_contract": "An exclusion matches only when revision ID, revision UID, tier, line ordinal, bigram, rendered boundary, source hash, and target hash all match exactly.",
+  "exclusions": [
+    {
+      "v1_candidate_id": "LB001",
+      "revision_id": "2bcc427d50b01aadbb1229339812de295cf389975dca23cb16950d6a9e998ba2",
+      "revision_uid": "4afdbee636368ee689137675bde47df7c56cc00bd97e1bfe929466e4f81c275e",
+      "tier": "Q_QUOTED_TWO_HAN_TOKEN",
+      "boundary": {"line_ordinal_zero_based": 9, "bigram": "包裹", "rendered": "包\\n裹"},
+      "source_sha256": "0a8e23f98f346244dc716884c2863142eb30bedb4e152104384df143bc2c4b5e",
+      "target_sha256": "9a46f97ed9d2c99d57f95764e571757d6b6deccda95e4ad3cdd2c39c68282f5b"
+    },
+    {
+      "v1_candidate_id": "LB002",
+      "revision_id": "4a90a04256cf29abc4701e8c09df9a9387dab5bd0b8f435dd03f7bb8777338d5",
+      "revision_uid": "9d22e37e31e2f7960d822794f267589029b68db6fb3ebe1c0e9cfabdb6224986",
+      "tier": "A_FREQUENT_BIGRAM",
+      "boundary": {"line_ordinal_zero_based": 9, "bigram": "存在", "rendered": "存\\n在"},
+      "source_sha256": "8e00c4d765974e39ce5e10fcca1cb33eb6e35c85bee3001a9bcec6412352eef1",
+      "target_sha256": "dea82deb32b4682de454df3a4d246c841862510a72079be40c26ff5e74cd1a52"
+    },
+    {
+      "v1_candidate_id": "LB003",
+      "revision_id": "bdd093fa6e7f6624c94406dfc2bc16b4ae96e09b258213401ca59be710d7019a",
+      "revision_uid": "cef85c5bf566d47bf669791fd47bf2bbe0899287aac1d571efd367b517eb47d0",
+      "tier": "A_FREQUENT_BIGRAM",
+      "boundary": {"line_ordinal_zero_based": 4, "bigram": "获得", "rendered": "获\\n得"},
+      "source_sha256": "acfe2db1a51ce4c989453808d5528b0a9b22ff89739ef5d921aff772fcea4c1f",
+      "target_sha256": "ab8280d4d140e8a0644c8b488c62ab70fed86ba457900a08cc41ed544887088c"
+    },
+    {
+      "v1_candidate_id": "LB004",
+      "revision_id": "f7ed4ddd9c0d6f0e72ac90fe6f89721b0e952d5fc6b5219fda3a854a8247375d",
+      "revision_uid": "e3528551bac0953fb582aebab09475e9aa0ffd01c14a4aa3711ed1ce0116ba58",
+      "tier": "A_FREQUENT_BIGRAM",
+      "boundary": {"line_ordinal_zero_based": 5, "bigram": "使用", "rendered": "使\\n用"},
+      "source_sha256": "4ff481c7bed158b48535a94c6b43b7da43c568f28df816a3f323e831dc51743a",
+      "target_sha256": "1d0dbeb979993e1b330145d38cca6bace51814646af5cc5c27f428e90ab76485"
+    },
+    {
+      "v1_candidate_id": "LB005",
+      "revision_id": "01675a8633eaaa3dbfd0f2466f31bebfb41acf4348c24c2acc6eac955a64eead",
+      "revision_uid": "efad4c057773f1c4463aa63564646a78dc060124ca05e07b09b01b24f3bc6286",
+      "tier": "B_LOW_SUPPORT_BIGRAM",
+      "boundary": {"line_ordinal_zero_based": 6, "bigram": "误解", "rendered": "误\\n解"},
+      "source_sha256": "30749cbd4e22d595a236859c308bcd82275e038c3826f002cc59a571773f2228",
+      "target_sha256": "33d0f81958e44688a57739f598f3e63e16280d81676cd3d12df7f28f9f956836"
+    }
+  ],
+  "model_calls_made": 0,
+  "network_calls_made": 0
+}

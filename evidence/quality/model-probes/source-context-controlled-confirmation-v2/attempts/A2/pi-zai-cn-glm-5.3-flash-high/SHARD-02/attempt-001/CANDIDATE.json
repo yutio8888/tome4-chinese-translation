@@ -1,0 +1,222 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "A2",
+  "arm": "A",
+  "run": 2,
+  "shard": "02",
+  "route_key": "glm",
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "attempt": 1,
+  "request_sha256": "07a7303cd7f5f99040c2b108a55b4431eeae8713dd7b2b9bab30f01709c7f83c",
+  "input_sha256": "1dfffe28a49949034092ab751600ef4c7717cb8ad7141ecd7bd1cd70379f49f8",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "e3c30028e1a76e62a8ede6d84251e1e06c0665d8eadc03bc985186b38c2e7312",
+  "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "route_metadata": {
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 2420,
+      "output": 5629,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 3933,
+      "totalTokens": 8049,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "neutral_id": "Q021",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "CONDITION",
+            "target_span": "即使你懂得这种语言，也无法理解",
+            "correction": "这是你无法理解的语言：",
+            "evidence": "which you do not understand:"
+          }
+        ],
+        "observation": "源文为定语从句\"which you do not understand\"，陈述\"你不懂这种语言\"；译文改为\"即使你懂得这种语言，也无法理解\"，把源文的否定前提改成了让步条件，含义相反。"
+      },
+      {
+        "neutral_id": "Q022",
+        "candidates": [],
+        "observation": "各句语义、语气与感叹号均与源文对应，未发现客观缺陷。"
+      },
+      {
+        "neutral_id": "Q023",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "凝视着他",
+            "correction": "一双狂乱的眼睛向外张望",
+            "evidence": "a pair of wild eyes peer out"
+          }
+        ],
+        "observation": "源文\"peer out\"只表示眼睛从门缝向外看，未指明注视对象；译文\"凝视着他\"引入了第三人称指代对象，且与下文用\"你\"称呼玩家不一致。"
+      },
+      {
+        "neutral_id": "Q024",
+        "candidates": [],
+        "observation": "短句问候，译文语义一致，无客观缺陷。"
+      },
+      {
+        "neutral_id": "Q025",
+        "candidates": [],
+        "observation": "\"orbs of command\"译为\"指令水晶球\"中\"水晶\"为新增细节，但与orb（球状物）相容且无法由可见证据判错；主要请求内容忠实，无可报告问题。"
+      },
+      {
+        "neutral_id": "Q026",
+        "candidates": [],
+        "observation": "界面短语文义对应，无缺陷。"
+      },
+      {
+        "neutral_id": "Q027",
+        "candidates": [],
+        "observation": "地点、封印者、文献标题及存活几率提升的表述均与源文相符，新增的\"肯定\"等语气词不构成实质缺陷。"
+      },
+      {
+        "neutral_id": "Q028",
+        "candidates": [],
+        "observation": "召唤、地点与任务指令均对应；\"这一切的\"为与\"the source\"相容的轻微增译，无可判错的客观缺陷。"
+      },
+      {
+        "neutral_id": "Q029",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "到目前为止从未遇上幼龙",
+            "correction": "到目前为止只遇到过幼龙",
+            "evidence": "Nothing but hatchlings so far."
+          }
+        ],
+        "observation": "\"Nothing but hatchlings\"意为\"除了幼龙什么都没遇到\"（只遇到幼龙），译文\"从未遇上幼龙\"把范围完全反转。"
+      },
+      {
+        "neutral_id": "Q030",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "ADDITION",
+            "target_span": "举报我的不良行为",
+            "correction": "举报不良行为",
+            "evidence": "Report for bad behavior"
+          }
+        ],
+        "observation": "源文无任何物主代词，译文新增\"我的\"，使举报对象变成自己的行为；可见文本无法确定举报对象语境，故列为存疑。"
+      },
+      {
+        "neutral_id": "Q031",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ACTION",
+            "target_span": "将物品丢弃到哪里？",
+            "correction": "将物品放置到哪里？",
+            "evidence": "Place the object where?"
+          }
+        ],
+        "observation": "源文动词为\"Place\"（放置），译文用\"丢弃\"（丢弃/扔掉），动作性质不同。"
+      },
+      {
+        "neutral_id": "Q032",
+        "candidates": [],
+        "observation": "核心数值\"3000金币\"一致；成就名称的增译属于常见本地化格式，无法由可见证据判错。"
+      },
+      {
+        "neutral_id": "Q033",
+        "candidates": [],
+        "observation": "模式与成就结果对应，无缺陷。"
+      },
+      {
+        "neutral_id": "Q034",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "我一定会让你失望的！",
+            "correction": "我一定不会让你失望的！",
+            "evidence": "I will not let you down!"
+          }
+        ],
+        "observation": "源文为\"不会让你失望\"的承诺，译文漏掉否定后意思完全相反，变成\"一定会让你失望\"。"
+      },
+      {
+        "neutral_id": "Q035",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "竞技场生存至第20轮",
+            "correction": "竞技场生存至第50轮",
+            "evidence": "Got to wave 50 in the arena."
+          }
+        ],
+        "observation": "源文波数为50，译文写作20，数值错误。"
+      },
+      {
+        "neutral_id": "Q036",
+        "candidates": [],
+        "observation": "感叹语气与\"令人印象深刻\"对应；\"这个发现\"为具体化增译，与\"this\"相容且无法由可见证据判错。"
+      },
+      {
+        "neutral_id": "Q037",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "OMISSION",
+            "target_span": "成就你的野心并获得永恒的生命",
+            "correction": "成就你对力量与永恒生命的狂野梦想",
+            "evidence": "Achieved your wild dreams of power and eternal life"
+          }
+        ],
+        "observation": "源文中\"of power\"（力量）这一内容词在译文中没有对应成分，\"野心\"不能覆盖\"力量\"的明确含义。"
+      },
+      {
+        "neutral_id": "Q038",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "现代风格",
+            "correction": "老派怀旧风格",
+            "evidence": "Kickin' it old-school"
+          }
+        ],
+        "observation": "源文\"old-school\"指老式、复古，译文\"现代风格\"含义相反。"
+      },
+      {
+        "neutral_id": "Q039",
+        "candidates": [],
+        "observation": "\"在已死亡的状态下杀死一个BOSS\"与源文条件及动作完全对应，无缺陷。"
+      },
+      {
+        "neutral_id": "Q040",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "使其稳定在地面上",
+            "correction": "使其稳定在轨道上",
+            "evidence": "to maintain it in orbit"
+          }
+        ],
+        "observation": "源文明确为\"维持其在轨道上\"（in orbit），译文改为\"稳定在地面上\"，位置状态相反。"
+      }
+    ]
+  }
+}

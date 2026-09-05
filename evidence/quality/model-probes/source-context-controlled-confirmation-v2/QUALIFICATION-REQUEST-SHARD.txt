@@ -1,0 +1,43 @@
+这是非研究路线资格夹具。逐条检查给定英中短句；没有客观缺陷时 candidates 为空。保持顺序与 ID，严格按 schema 输出。
+输出 JSON Schema（逐字遵守）：
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["neutral_id", "candidates", "observation"],
+        "properties": {
+          "neutral_id": {"type": "string", "pattern": "^Q[0-9]{3}$"},
+          "candidates": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["verdict", "claim_type", "target_span", "correction", "evidence"],
+              "properties": {
+                "verdict": {"enum": ["FINDING", "UNCERTAIN"]},
+                "claim_type": {"enum": ["VALUE", "DIRECTION", "CONDITION", "SUBJECT", "REFERENT", "TIMING", "SCOPE", "ACTION", "STATE", "ORDER", "OMISSION", "ADDITION", "OTHER"]},
+                "target_span": {"type": "string", "minLength": 1},
+                "correction": {"type": "string", "minLength": 1},
+                "evidence": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "observation": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}
+
+输入 JSON：
+{"schema_version":"source-context-route-qualification-fixture-v2-sharded","items":[{"neutral_id":"Q001","source":"Open door 1.","target":"打开第 1 扇门。"},{"neutral_id":"Q002","source":"Open door 2.","target":"打开第 2 扇门。"},{"neutral_id":"Q003","source":"Open door 3.","target":"打开第 3 扇门。"},{"neutral_id":"Q004","source":"Open door 4.","target":"打开第 4 扇门。"},{"neutral_id":"Q005","source":"Open door 5.","target":"打开第 5 扇门。"},{"neutral_id":"Q006","source":"Open door 6.","target":"打开第 6 扇门。"},{"neutral_id":"Q007","source":"Open door 7.","target":"打开第 7 扇门。"},{"neutral_id":"Q008","source":"Open door 8.","target":"打开第 8 扇门。"},{"neutral_id":"Q009","source":"Open door 9.","target":"打开第 9 扇门。"},{"neutral_id":"Q010","source":"Open door 10.","target":"打开第 10 扇门。"},{"neutral_id":"Q011","source":"Open door 11.","target":"打开第 11 扇门。"},{"neutral_id":"Q012","source":"Open door 12.","target":"打开第 12 扇门。"},{"neutral_id":"Q013","source":"Open door 13.","target":"打开第 13 扇门。"},{"neutral_id":"Q014","source":"Open door 14.","target":"打开第 14 扇门。"},{"neutral_id":"Q015","source":"Open door 15.","target":"打开第 15 扇门。"},{"neutral_id":"Q016","source":"Open door 16.","target":"打开第 16 扇门。"},{"neutral_id":"Q017","source":"Open door 17.","target":"打开第 17 扇门。"},{"neutral_id":"Q018","source":"Open door 18.","target":"打开第 18 扇门。"},{"neutral_id":"Q019","source":"Open door 19.","target":"打开第 19 扇门。"},{"neutral_id":"Q020","source":"Open door 20.","target":"打开第 20 扇门。"}]}

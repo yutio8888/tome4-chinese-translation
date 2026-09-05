@@ -1,0 +1,38 @@
+{
+  "schema_version": "gemini-evaluator-contract-effectiveness-metrics-v1",
+  "candidate_positive": "verdict exactly FINDING; UNCERTAIN is counted separately and is not a positive",
+  "mechanical": [
+    "strict_schema",
+    "exact_evidence_membership",
+    "exact_target_span_membership",
+    "candidate_count",
+    "zero_candidate_run",
+    "explanation_prose_proxy",
+    "per_run_variance"
+  ],
+  "matching": {
+    "eligibility": "A FINDING candidate is eligible for a reference defect iff claim_type is accepted and its exact target_span code-point interval overlaps any registered localization-anchor occurrence.",
+    "assignment": "Per item, choose maximum-cardinality one-to-one candidate/reference matching; ties use lexicographically smallest candidate-index/reference-id pair sequence.",
+    "multiple_defects": "Each sealed natural defect is a separate reference denominator and one candidate can match at most one defect.",
+    "correction_acceptability": "For a matched candidate, replace each exact occurrence of target_span in turn; acceptable iff any resulting full target exactly equals a preregistered acceptable_full_targets string.",
+    "localization_acceptability": "Numerator: FINDING candidates on defective items eligible under the overlap rule. Denominator: all FINDING candidates on defective items only. Clean-item false positives affect precision/specificity but are not double-penalized here."
+  },
+  "per_dataset_effectiveness": [
+    "defect_level_recall",
+    "clean_item_specificity",
+    "precision",
+    "balanced_accuracy",
+    "defect_class_recall",
+    "H1_controlled_mutation_sensitivity",
+    "localization_acceptability",
+    "correction_acceptability"
+  ],
+  "balanced_accuracy": "mean(defective-item sensitivity, clean-item specificity); defective item sensitivity counts an item detected when at least one reference defect is matched",
+  "union": "For each dataset/condition, union all FINDING candidates from the three runs, deduplicated by canonical candidate tuple, then score once; descriptive derived result.",
+  "consensus": "For each dataset/condition, retain canonical candidate tuples appearing in at least two of three runs, then score once; descriptive derived result.",
+  "null_rule": "Any zero denominator is null, never zero. Zero candidates remain a valid effectiveness outcome.",
+  "headline_rule": "Never pool H1 and H2. Report all three measured runs before descriptive union/consensus.",
+  "structural_not_measured": {
+    "registered_evidence_field": "Exact evidence vs evidence_quote conformance is enforced by strict schema/parser acceptance and is not reported as a candidate-level metric."
+  }
+}

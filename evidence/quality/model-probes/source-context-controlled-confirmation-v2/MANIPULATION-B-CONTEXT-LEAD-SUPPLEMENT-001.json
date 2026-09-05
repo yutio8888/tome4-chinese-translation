@@ -1,0 +1,22 @@
+{
+  "schema_version": "source-context-controlled-confirmation-manipulation-check-queue-v2",
+  "status": "FROZEN_B_CONTEXT_AFTER_A_ONLY_LOCK",
+  "pass": "B_CONTEXT",
+  "shard": 1,
+  "a_only_candidate_sha256": "a9b2d62f1e5ae489c916cda38dde4c4bfabb625716502725cc2bafe7d6f5fda6",
+  "instructions": [
+    "Judge the supplied source and mutated target using only the supplied mechanical source_context.",
+    "Do not inspect other files, A-only output or expected atoms.",
+    "Report exactly one objective defect only when the packet uniquely refutes one material atom."
+  ],
+  "items": [
+    {
+      "proposal_id": "P038",
+      "profile": "narrative",
+      "source": "Amassed 3000 gold pieces.",
+      "target": "在“龙之贪婪”成就中积累3000金币。",
+      "source_context": "\timage = \"object/money_large.png\",\n\tshow = \"name\",\n\tdesc = _t[[Amassed 1000 gold pieces.]],\n\tcan_gain = function(self, who)\n\t\treturn who.money >= 1000\n\tend,\n}\n\nnewAchievement{\n\tname = \"Treasure Hoarder\",\n\timage = \"object/money_large.png\",\n\tshow = \"name\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n\tcan_gain = function(self, who)\n\t\treturn who.money >= 3000\n\tend,\n}\n\nnewAchievement{ id = \"DRAGON_GREED\",\n\tname = \"Dragon's Greed\",\n\timage = \"object/money_large.png\",\n\tshow = \"name\", huge=true,\n\tdesc = _t[[Amassed 8000 gold pieces.]],\n\tcan_gain = function(self, who)\n\t\treturn who.money >= 8000",
+      "response": null
+    }
+  ]
+}

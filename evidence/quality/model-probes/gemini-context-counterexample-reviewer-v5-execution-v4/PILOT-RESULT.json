@@ -1,0 +1,159 @@
+{
+  "schema_version": "gemini-context-v5-execution-pilot-result-v1",
+  "task_id": "research-gemini-context-counterexample-reviewer-v5-execution-v4",
+  "experiment_id": "gemini-context-counterexample-reviewer-v5-execution-v4",
+  "decision": "NO_GO_ROUTE_BINARY_DISAPPEARED",
+  "terminal": true,
+  "classification": "HARNESS_INFRASTRUCTURE_ROUTE_FAILURE_NOT_MODEL_FAILURE",
+  "measured_facts": {
+    "qualification": {
+      "status": "PASS_NON_SCORED_UNDER_OLD_BINARY",
+      "qualified_executable_sha256": "d492241f19f90ea06cb9f85f7788c371dbce3386206d734ddc2c7ec84fa3ddca",
+      "calls": [
+        {
+          "cell": "qualification-models-list",
+          "attempt": 1,
+          "process_exit": 0,
+          "inference": false,
+          "stdout_sha256": "b1cc011310435afa07b1e132a5b7f3e22297aa21427177461c858bcbd6a58794",
+          "stderr_sha256": "53f588bc9a928f4a66908deacaca57dddc7e7ce177a0cc3586b5a501be26e1e8"
+        },
+        {
+          "cell": "qualification-synthetic",
+          "attempt": 1,
+          "process_exit": 0,
+          "inference": true,
+          "stdout_sha256": "d06ea853a5ed9fafa6a71a859e4afe62a39efdaeb9f622b0e0207024184e11b4",
+          "stderr_sha256": "3a7f8550106d86abb322e8ed0fb30a0296c0e97c6be03d5a8033b99d16737459"
+        }
+      ]
+    },
+    "route_terminalization": {
+      "original_qualified_path": "/home/yun/.local/bin/agy",
+      "relocation_candidate_path": "/home/yun/.local/bin/agy.1788410029995956792.old",
+      "qualified_executable_sha256": "d492241f19f90ea06cb9f85f7788c371dbce3386206d734ddc2c7ec84fa3ddca",
+      "relocation_candidate_disappeared_before_closure_review": true,
+      "qualified_hash_found_elsewhere_on_host_by_closure_review": false,
+      "installed_path": "/home/yun/.local/bin/agy",
+      "installed_executable_sha256": "f3575050ae826d1944913f595b32f827a4674ec42e59ff0476450e2bac5fa39e",
+      "installed_binary_qualified_for_v4": false,
+      "a_or_c_process_spawned_after_route_drift": false,
+      "blocking_review": {
+        "path": ".ai/reviews/research-gemini-context-counterexample-reviewer-v5-execution-v4/review-05.json",
+        "verdict": "FAIL",
+        "failed_items": [
+          "R1",
+          "R5"
+        ],
+        "classification": "HOST_BINARY_BACKUP_DISAPPEARED"
+      }
+    },
+    "budget": {
+      "authorized_process_budget": 4,
+      "authorized_inference_call_budget": 3,
+      "processes_used": 2,
+      "inference_calls_used": 1,
+      "unused_original_process_capacity": 2,
+      "retries_used": 0,
+      "further_process_authorized_in_this_terminal_task": false
+    },
+    "model_evidence": {
+      "status": "NONE_FOR_A_OR_C",
+      "pilot_complete": false,
+      "model_failure_observed": false,
+      "model_effectiveness_claim_supported": false,
+      "absent": [
+        "discovery-A process invocation",
+        "discovery-C process invocation",
+        "discovery-A RAW",
+        "discovery-C RAW",
+        "SCORES.json",
+        "A/C model-effectiveness evidence"
+      ],
+      "qualification_note": "The one synthetic inference was a non-scored route qualification call and is not A/C model-effectiveness evidence."
+    },
+    "ledger_view": {
+      "ledger_rows": 4,
+      "agy_processes_spawned_derived_from_ledger": 2,
+      "inference_calls_made_derived_from_ledger": 1,
+      "execution_cells_present": []
+    },
+    "post_run_check": {
+      "decision": "INVALID_ARTIFACTS",
+      "expected_for_terminal_state": true,
+      "reason": "The generic successful-pilot post-run path rejects the stale manifest-bound gates and qualification bindings after the unclosed relocation candidate; this does not convert the terminal route failure into a model failure.",
+      "errors": [
+        "gates:PACKAGE_REVIEW:MANIFEST_BINDING",
+        "gates:QUALIFICATION:MANIFEST_BINDING",
+        "gates:EXECUTION_AUTHORIZATION:MANIFEST_BINDING",
+        "gates:EXECUTION_AUTHORIZATION:ROUTE_CONTRACT",
+        "gates:EXECUTION_AUTHORIZATION:REQUEST_MANIFEST",
+        "qualification:EVIDENCE_IDENTITY",
+        "qualification:QUALIFICATION_BINDING"
+      ]
+    }
+  },
+  "bindings": {
+    "candidate_manifest": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v4/MANIFEST.json",
+      "sha256": "9f6837efd705459e1df55dc2c2be3603f6474610b778de070ed73ee453539b53"
+    },
+    "route_contract": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v4/ROUTE-CONTRACT.json",
+      "sha256": "f82ac7fd532e47d670be4839dc5d7301ceee143c5d50861445088e7fe79f3a4d"
+    },
+    "route_relocation_contract": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v4/ROUTE-RELOCATION-CONTRACT.json",
+      "sha256": "854aa9e8b93005b05187613a7cd0b8313a34c55862b3e6d00a50855167e91bde"
+    },
+    "execution_ledger": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v4/execution/LEDGER.jsonl",
+      "sha256": "d2dd5f069536c3d394bcbac3abc9320c4ff080bd907b7f532fc3452fac6508ef"
+    },
+    "qualification_evidence": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v4/qualification/EVIDENCE.json",
+      "sha256": "49394c89810be42e11848754591da23cfec3334fd9a7fe6a79dd6a8ed5b93e2e"
+    },
+    "qualification_raw": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v4/qualification/RAW-SYNTHETIC.json",
+      "sha256": "b847fa9451befdb928c78f0f61617e69a8351fd245d34374ea3917e4100c1748"
+    },
+    "model_list_reuse_contract": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v4/qualification/REUSE-CONTRACT.json",
+      "sha256": "0c958f3315cded885a4273cf8c57f03ed35c9230a2b7451d4b8e2a3eb18d9e95"
+    },
+    "synthetic_reuse_contract": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v4/qualification/SYNTHETIC-REUSE-CONTRACT.json",
+      "sha256": "9e2947bcd12d884ac027704601f59fe1c73c4f63eed88796450543ce1bf9a1e4"
+    },
+    "frozen_request_manifest": {
+      "path": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v4/frozen/REQUEST-MANIFEST.json",
+      "sha256": "170e24a1eca62dea974e703de9391f5be486401cb41e0e0ce19098dd6f18c3b8"
+    },
+    "package_review_gate": {
+      "path": ".ai/task/research-gemini-context-counterexample-reviewer-v5-execution-v4/PACKAGE-REVIEW-GATE.json",
+      "sha256": "a1e3144ef9f6a13be2e41ac5fb0a8028d29d817353e636ef691d3da2416a11a8"
+    },
+    "qualification_gate": {
+      "path": ".ai/task/research-gemini-context-counterexample-reviewer-v5-execution-v4/QUALIFICATION-GATE.json",
+      "sha256": "1a6c3f28aa7c8729aac388805287a43c0dc41468b1fcd19ef03e397969685b76"
+    },
+    "execution_authorization": {
+      "path": ".ai/task/research-gemini-context-counterexample-reviewer-v5-execution-v4/EXECUTION-AUTHORIZATION.json",
+      "sha256": "07a7ecf3871c023c4880c0c8df9adee568014416c8554e521528953e0d358f0b"
+    },
+    "predecessor_execution_v3_tree": {
+      "root": "evidence/quality/model-probes/gemini-context-counterexample-reviewer-v5-execution-v3",
+      "file_count": 74,
+      "tree_sha256": "83201688dfa55420330766ef8b1c75954058cd4103ed10f4fee418979d5867c6"
+    }
+  },
+  "recommendation": {
+    "status": "SUCCESSOR_TASK_REQUIRES_FRESH_AUTHORIZATION",
+    "next_task_requirements": [
+      "Pin and qualify the current binary at a stable non-updater path.",
+      "Use a fresh process budget; v4's unused capacity is not transferable.",
+      "Do not treat v4 qualification output as A/C effectiveness evidence."
+    ]
+  }
+}

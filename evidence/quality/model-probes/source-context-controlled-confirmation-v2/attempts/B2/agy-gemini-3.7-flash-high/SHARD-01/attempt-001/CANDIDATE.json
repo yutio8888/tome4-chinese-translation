@@ -1,0 +1,222 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "B2",
+  "arm": "B",
+  "run": 2,
+  "shard": "01",
+  "route_key": "gemini",
+  "route": "agy-gemini-3.7-flash-high",
+  "attempt": 1,
+  "request_sha256": "68093fecf07ce119422b222fd43e69dad0f9b2d3e6f39a9a1a6798f66a4234a6",
+  "input_sha256": "4aa3d739455058120ea0cd8e0dd67b44c4abc74d1b9aba0ad1ff654e94ac425f",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "168cc089b2f41c6c48d4179a53545c104bc3e04c54d590d17fef8c961111e048",
+  "raw_stderr_sha256": "3a7f8550106d86abb322e8ed0fb30a0296c0e97c6be03d5a8033b99d16737459",
+  "route_metadata": {
+    "reported_model": null,
+    "runtime_identity_verified": false,
+    "usage": {
+      "input_tokens": 26675,
+      "output_tokens": 17972,
+      "thinking_tokens": 16439,
+      "cache_read_tokens": 0,
+      "total_tokens": 44647
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "candidates": [],
+        "neutral_id": "Q001",
+        "observation": "翻译准确无误，准确传达了在让目标成长到尽可能强大后将其击杀的成就描述。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q002",
+        "observation": "翻译忠实流畅，准确表达了原文的所有细节与语气。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q003",
+        "observation": "翻译准确无误，语义与原句完全对应。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "VALUE",
+            "correction": "八章（或八章故事）",
+            "evidence": "eight chapters",
+            "target_span": "七章",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q004",
+        "observation": "成就名称被错误翻译为“七章故事”，而上下文明确记载该成就包含八章（eight chapters，对应 spellblaze-chronicles-1 至 8），数值错误。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q005",
+        "observation": "翻译准确传达了阅读/了解魔法大爆炸八章文献的要求，数字与实体均正确。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "SCOPE",
+            "correction": "任务 #CIMSON#失败了！",
+            "evidence": "Quest #CIMSON#Failed!",
+            "target_span": "主线任务",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q006",
+        "observation": "原文“Quest”指通用的任务，上下文中包含各类任务（如护送任务等），target 错误地添加了“主线”限定（翻译为“主线任务”），缩小了适用范围。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q007",
+        "observation": "翻译准确传达了必须装备该物品方能使用的提示信息。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q008",
+        "observation": "翻译准确完整，清晰传达了复制与分享种子的功能与说明。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q009",
+        "observation": "翻译准确传达了对话语气与语义，无客观缺陷。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "ACTION",
+            "correction": "显示",
+            "evidence": "Display",
+            "target_span": "隐藏",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q010",
+        "observation": "原文为“Display”（显示），target 错误地翻译成了相反动作“隐藏”。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "STATE",
+            "correction": "这就是维网。",
+            "evidence": "This is the Way.",
+            "target_span": "这不是维网。",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q011",
+        "observation": "原文为肯定句“This is the Way.”（这就是维网），target 错译成了否定句“这不是维网”。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "REFERENT",
+            "correction": "打开用户信息（在浏览器里打开）",
+            "evidence": "Open profile(in browser)",
+            "target_span": "我的",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q012",
+        "observation": "上下文显示该菜单为针对其他聊天用户（citem.login）的操作菜单，原文为“Open profile(in browser)”，target 错误添加了“我的”，误将查看他人个人资料理解为查看自己的资料。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "CONDITION",
+            "correction": "你无法理解的文字：",
+            "evidence": "not game.player:attr(\"speaks_shertul\")",
+            "target_span": "即使你懂夏·图尔语",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q013",
+        "observation": "源码条件明确为 not game.player:attr(\"speaks_shertul\")（即玩家不懂夏·图尔语时才显示此未翻译文本，懂时会显示翻译文本），target 却错误翻译为“即使你懂夏·图尔语也无法理解”，条件完全相反。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "REFERENT",
+            "correction": "黄金",
+            "evidence": "Gold Donator",
+            "target_span": "白银",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q014",
+        "observation": "source_context 显示该成就是 Gold Donator（黄金捐赠者，至少16欧元），而 target 错误地写成了“白银捐赠等级”（白银为 Silver Donator，6欧元）。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q015",
+        "observation": "翻译准确，语义与成就描述完全一致。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "ACTION",
+            "correction": "修改",
+            "evidence": "Alter",
+            "target_span": "锁定",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q016",
+        "observation": "原文“Alter”意为修改/变更阵营，target 错误地翻译为“锁定”（Lock）。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "TIMING",
+            "correction": "你无法理解的文字：",
+            "evidence": "which you do not understand:",
+            "target_span": "永远",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q017",
+        "observation": "原文为“which you do not understand”（你看不懂/无法理解的），上下文中当玩家获得 speaks_shertul 属性后即可解读，并非“永远无法理解”，target 错误添加了“永远”。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q018",
+        "observation": "翻译准确无误。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "CONDITION",
+            "correction": "可以让我的转化之盒自动提取宝石吗？",
+            "evidence": "player:knowTalent(player.T_EXTRACT_GEMS)",
+            "target_span": "即使我不会提取宝石",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q019",
+        "observation": "source_context 明确规定触发条件为玩家已学会提取宝石技能（player:knowTalent(player.T_EXTRACT_GEMS)），且 source 中无此假设条件，target 错误添加了与条件完全相悖的“即使我不会提取宝石”。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "VALUE",
+            "correction": "五章（或加库尔传说）",
+            "evidence": "five chapters",
+            "target_span": "八章",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q020",
+        "observation": "成就名称被翻译为“八章传说”，但上下文中明确显示该传说只有五章（Learned the five chapters of the Legend of Garkul，对应 garkul-history-1 至 5），数值错误。"
+      }
+    ]
+  }
+}

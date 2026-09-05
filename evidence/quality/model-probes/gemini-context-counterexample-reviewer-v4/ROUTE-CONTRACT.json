@@ -1,0 +1,110 @@
+{
+  "schema_version": "gemini-context-route-v4",
+  "status": "UNQUALIFIED_EXECUTION_UNAUTHORIZED",
+  "requested": {
+    "cli": "agy",
+    "model": "gemini-3.7-flash-high",
+    "effort": "high",
+    "mode": "plan",
+    "sandbox": true,
+    "disable_slash_commands": true,
+    "output_format": "json",
+    "json_schema": "schemas/REVIEWER-SCHEMA.json"
+  },
+  "bwrap": {
+    "argv_prefix": [
+      "bwrap",
+      "--die-with-parent",
+      "--new-session",
+      "--cap-drop",
+      "ALL",
+      "--ro-bind",
+      "/",
+      "/",
+      "--dev",
+      "/dev",
+      "--proc",
+      "/proc",
+      "--tmpfs",
+      "[HOST_HOME]",
+      "--ro-bind",
+      "[BUNDLE]",
+      "/mnt",
+      "--tmpfs",
+      "/tmp",
+      "--dir",
+      "/tmp/route-runtime",
+      "--bind",
+      "[RUNTIME]",
+      "/tmp/route-runtime",
+      "--ro-bind",
+      "[REAL_AGY]",
+      "/tmp/route-runtime/bin/agy",
+      "--chdir",
+      "/mnt",
+      "--",
+      "agy"
+    ],
+    "bundle_read_only": true,
+    "ephemeral_minimal_route_token": true
+  },
+  "agy_argv": [
+    "-p",
+    "[REQUEST_BYTES]",
+    "--model",
+    "gemini-3.7-flash-high",
+    "--effort",
+    "high",
+    "--disable-slash-commands",
+    "--output-format",
+    "json",
+    "--print-timeout",
+    "25m",
+    "--mode",
+    "plan",
+    "--sandbox",
+    "--json-schema",
+    "/mnt/REVIEWER-SCHEMA.json"
+  ],
+  "environment_allowlist": [
+    "PATH",
+    "LANG",
+    "LC_ALL",
+    "LC_CTYPE",
+    "TZ",
+    "TERM",
+    "SSL_CERT_FILE",
+    "SSL_CERT_DIR",
+    "HTTPS_PROXY",
+    "HTTP_PROXY",
+    "ALL_PROXY",
+    "NO_PROXY"
+  ],
+  "environment_overrides": {
+    "HOME": "/tmp/route-runtime/home",
+    "TMPDIR": "/tmp/route-runtime/tmp",
+    "XDG_CONFIG_HOME": "/tmp/route-runtime/home/.config",
+    "XDG_CACHE_HOME": "/tmp/route-runtime/home/.cache",
+    "NO_COLOR": "1"
+  },
+  "qualification": {
+    "version_argv": [
+      "agy",
+      "--version"
+    ],
+    "models_argv": [
+      "agy",
+      "models"
+    ],
+    "synthetic_fixture": "fixtures/ROUTE-QUALIFICATION.json",
+    "expected_assertions_required": true,
+    "freshness_max_seconds": 3600,
+    "cli_snapshot_required_immediately_before_release": true
+  },
+  "identity": {
+    "result_tier": "REQUESTED_ROUTE_ONLY_UNVERIFIED",
+    "rule": "Neither request echo nor requested-model metadata attests runtime identity. A distinct runtime.model_attestation equal to the requested model is required for promotion."
+  },
+  "tool_policy": "Reject recursively scalar or structured tool/function/command/web/browser/MCP/subagent keys in camelCase, snake_case, kebab-case, or typed events.",
+  "authorized": false
+}

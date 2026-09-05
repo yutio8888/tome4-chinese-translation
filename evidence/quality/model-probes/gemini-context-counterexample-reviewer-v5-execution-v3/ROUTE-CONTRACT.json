@@ -1,0 +1,124 @@
+{
+  "schema_version": "gemini-context-v5-execution-route-v3",
+  "status": "UNQUALIFIED_EXECUTION_UNAUTHORIZED",
+  "host_specific": "contains a verified local absolute agy path; this is not a portable release artifact",
+  "cli_contract": {
+    "executable": "/home/yun/.local/bin/agy",
+    "model": "gemini-3.7-flash-high",
+    "effort": "high",
+    "mode": "plan",
+    "sandbox": true,
+    "disable_slash_commands": true,
+    "output_format": "json",
+    "schema": "model-facing/schemas/REVIEWER-SCHEMA.json",
+    "timeout_ms": 1620000,
+    "argv_template": [
+      "-p",
+      "[REQUEST_BYTES]",
+      "--model",
+      "gemini-3.7-flash-high",
+      "--effort",
+      "high",
+      "--disable-slash-commands",
+      "--output-format",
+      "json",
+      "--print-timeout",
+      "25m",
+      "--mode",
+      "plan",
+      "--sandbox",
+      "--json-schema",
+      "[BUNDLE_SCHEMA]"
+    ]
+  },
+  "environment": {
+    "allowlist": [
+      "PATH",
+      "LANG",
+      "LC_ALL",
+      "LC_CTYPE",
+      "TZ",
+      "TERM",
+      "SSL_CERT_FILE",
+      "SSL_CERT_DIR",
+      "HTTPS_PROXY",
+      "HTTP_PROXY",
+      "ALL_PROXY",
+      "NO_PROXY",
+      "HOME",
+      "XDG_CONFIG_HOME",
+      "XDG_CACHE_HOME",
+      "XDG_DATA_HOME",
+      "TMPDIR",
+      "GEMINI_API_KEY",
+      "GOOGLE_API_KEY",
+      "GOOGLE_APPLICATION_CREDENTIALS",
+      "GOOGLE_CLOUD_PROJECT",
+      "AGY_ADC_AUTH"
+    ],
+    "allowlist_rationale": "spawnSync replaces the environment wholesale, so anything absent from this list is absent from the agy process. HOME/XDG_*/TMPDIR are where agy resolves its own config, cache and credential store; the five credential names are read by the binary (each occurs in `strings /home/yun/.local/bin/agy`). Without them call 1 exits non-zero and spends an authorized process.",
+    "credential_names_verified_in_binary": [
+      "GEMINI_API_KEY",
+      "GOOGLE_API_KEY",
+      "GOOGLE_APPLICATION_CREDENTIALS",
+      "GOOGLE_CLOUD_PROJECT",
+      "AGY_ADC_AUTH"
+    ],
+    "credentials_in_request_forbidden": true,
+    "credentials_never_substituted_into_argv": true,
+    "credential_values_never_recorded_in_artifacts": true,
+    "credential_location_not_frozen": true
+  },
+  "qualification": {
+    "separate_non_scored_gate": true,
+    "currently_authorized": false,
+    "journaled_in_execution_ledger": true,
+    "cells": [
+      "qualification-models-list",
+      "qualification-synthetic"
+    ],
+    "non_inference_cells": [
+      "qualification-models-list"
+    ],
+    "process_count_source": "DERIVED_FROM_LEDGER_START_ROWS_NEVER_A_CONSTANT",
+    "version_process_not_run": true,
+    "capture_agent_purpose": "route_qualification_capture",
+    "model_list_argv": [
+      "models",
+      "list",
+      "--json"
+    ],
+    "synthetic_argv": [
+      "-p",
+      "[SYNTHETIC_REQUEST_BYTES]",
+      "--model",
+      "gemini-3.7-flash-high",
+      "--effort",
+      "high",
+      "--disable-slash-commands",
+      "--output-format",
+      "json",
+      "--print-timeout",
+      "25m",
+      "--mode",
+      "plan",
+      "--sandbox",
+      "--json-schema",
+      "[BUNDLE_SCHEMA]"
+    ],
+    "route_identity_evidence": [
+      "models_list_capture",
+      "argv_model_binding"
+    ],
+    "runtime_self_report_is_not_identity_evidence": true,
+    "runtime_self_report_absent_is_not_a_mismatch": true,
+    "runtime_self_report_present_and_different_is_stop_route": true,
+    "trusted_identity_tier": "QUALIFIED_ROUTE_BOUND"
+  },
+  "runner_may_execute_only_after": [
+    "PACKAGE_REVIEW",
+    "QUALIFICATION",
+    "EXECUTION_AUTHORIZATION"
+  ],
+  "invoked_during_freeze": false
+}

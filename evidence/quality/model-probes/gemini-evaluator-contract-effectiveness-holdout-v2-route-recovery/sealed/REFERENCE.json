@@ -1,0 +1,1388 @@
+{
+  "schema_version": "gemini-evaluator-contract-effectiveness-reference-v1",
+  "sealed": true,
+  "matching_contract": "DETERMINISTIC_BIPARTITE_V1",
+  "datasets": {
+    "H1": {
+      "item_count": 24,
+      "controlled_mutation_count": 12,
+      "clean_control_count": 12,
+      "items": [
+        {
+          "item_id": "H1-I001",
+          "truth": "defective",
+          "origin_revision_id": "5c1dcd70ed993afbcf9c3cdb29c3525b2b72187fe4e2efcf66057362fb0d4828",
+          "references": [
+            {
+              "reference_id": "H1-P04-D1",
+              "defect_class": "CONDITION_POLARITY",
+              "accepted_claim_types": [
+                "CONDITION",
+                "POLARITY"
+              ],
+              "localization_anchors": [
+                "有效"
+              ],
+              "acceptable_full_targets": [
+                "对你自己或某个目标注入大自然的能量，治疗 %d 点生命值（对不死族无效）。\n\t\t治疗量受精神强度加成。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/gifts/call.lua",
+            "source_file_sha256": "b2df31016f55fb32b4e989d1fcb6e094f9c39e3d2cb9431e87be77f5f476e6b9",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "dff07bdeaaf77bc861cd9ad78a8ed87d59189e62077b5de62c8d5643c3a0a351"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b2-condition-controlled.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b2-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I002",
+          "truth": "clean",
+          "origin_revision_id": "0c154ab66317d27a686e453cf753f627d5c279f74a9dc3fce104d50ac09106f7",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/general/objects/world-artifacts.lua",
+            "source_file_sha256": "4527278a2be405cdb1d273f8ef4dcda308763dd0ea27263a4e8efec1888aa3ce",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "b1a0889a7e37bf7ebeb9b82d24fab48254fb3a10f6e23b0426dcd529451699b6"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I003",
+          "truth": "defective",
+          "origin_revision_id": "24c205476682ecff5fe73600e331bef5c748ec06b1ef24e402483f0d6c549ab5",
+          "references": [
+            {
+              "reference_id": "H1-P01-D1",
+              "defect_class": "SUBJECT_REFERENT",
+              "accepted_claim_types": [
+                "SUBJECT",
+                "REFERENT"
+              ],
+              "localization_anchors": [
+                "你的"
+              ],
+              "acceptable_full_targets": [
+                "接下来 %d 回合中，每回合解除目标的随机一个持续性技能。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/chronomancy/energy.lua",
+            "source_file_sha256": "f76808dba0874313c244b2766942279acb9e3e9b7d9fd16927c88f4bbb73fff4",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "f85143362b28041a580f2cb2f4d1cef7f62a92b3c46ee542cd3c50c6e1bb0d0d"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I004",
+          "truth": "defective",
+          "origin_revision_id": "5670434565b0595ad444203240a4042a197a73eb94060bd6ac238dab55708520",
+          "references": [
+            {
+              "reference_id": "H1-P06-D1",
+              "defect_class": "REFERENT_DIRECTION",
+              "accepted_claim_types": [
+                "REFERENT",
+                "DIRECTION"
+              ],
+              "localization_anchors": [
+                "敏捷和力量"
+              ],
+              "acceptable_full_targets": [
+                "当开启时，你为了你的血肉之躯精准地灌布精神之力。分别增加意志和灵巧的 %d%% 至力量和敏捷。\n\t\t力量增加 %d 点\n\t\t敏捷增加 %d 点"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/psionic/psi-fighting.lua",
+            "source_file_sha256": "d3ccd0f303b95b3c0deaeaa88c4604d87a210b1fd3af2c36eaff58edfec11f95",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "3bf189fbbf0e8f9324501b284a6b55ff835f9e8b6d98b42145548fc89b9a50e1"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b2-condition-controlled.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b2-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I005",
+          "truth": "clean",
+          "origin_revision_id": "1668a1dcefd12f0fa3b575297eb1a44f572474ad875446e843acf7fbba566d23",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/misc/npcs.lua",
+            "source_file_sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "57c136cc83160d34da5096420edcb0018e81f967944f8fe6049242c598376099"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I006",
+          "truth": "defective",
+          "origin_revision_id": "1e8538510e8e37fb379dc644635f5967b063286d7237852dcca5651707a0c160",
+          "references": [
+            {
+              "reference_id": "H1-P09-D1",
+              "defect_class": "FORMAT_NUMBER_UNIT",
+              "accepted_claim_types": [
+                "FORMAT"
+              ],
+              "localization_anchors": [
+                "%d 酸性和枯萎抗性",
+                "%d%% 酸性伤害"
+              ],
+              "acceptable_full_targets": [
+                "目标被腐蚀蠕虫感染，减少 %d%% 酸性和枯萎抗性，效果结束后，蠕虫团将爆炸，在半径 4 范围内造成 %d 酸性伤害。在该效果下受到伤害的 %d%% 将被加成至爆炸伤害中。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/timed_effects/magical.lua",
+            "source_file_sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "aa7edc6644fb7b498c6be10c455b81589241994eb4af14e2a7650d6b7a0033b2"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I007",
+          "truth": "defective",
+          "origin_revision_id": "87813ba8a716a13a103c989418daba5243c3eafd2dfa5f1e65698a375cd07a43",
+          "references": [
+            {
+              "reference_id": "H1-P08-D1",
+              "defect_class": "DIRECTION_POLARITY",
+              "accepted_claim_types": [
+                "DIRECTION",
+                "POLARITY"
+              ],
+              "localization_anchors": [
+                "靠近你的方向"
+              ],
+              "acceptable_full_targets": [
+                "运用念动力强化你的力量，抓起一名相邻敌人，将其投掷到半径 %d 内的任意位置。\n\t\t落地时，目标受到 %0.1f 点物理伤害并被震慑 4 回合。落点半径 2 格内的其他生物受到 %0.1f 点物理伤害，并被击退至远离你的方向。\n\t\t该技能忽略被投掷目标 %d%% 的击退抵抗；如果目标抵抗了投掷，则只受到一半伤害。\n\t\t伤害受精神强度加成，投掷范围受精神强度和力量加成。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/misc/npcs.lua",
+            "source_file_sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "66afb4afff5d7109b4de3b0dd5b16ce4031bd414fa9fa267edea3fd9198adc28"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I008",
+          "truth": "defective",
+          "origin_revision_id": "b032150f4bbf3cbce12e4cfd579feb9284995ede9e13ca88a27896e3550df10f",
+          "references": [
+            {
+              "reference_id": "H1-P05-D1",
+              "defect_class": "SCOPE_ADDITION",
+              "accepted_claim_types": [
+                "SCOPE",
+                "ADDITION"
+              ],
+              "localization_anchors": [
+                "所有敌人"
+              ],
+              "acceptable_full_targets": [
+                "向单体敌人喷吐闪电造成 %d 到 %d 伤害。\n\t\t伤害受意志加成。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/gifts/summon-distance.lua",
+            "source_file_sha256": "647fa41f0891735435261fb1b75a9f3ab2e9be16288e14ed3ed5c5562eec59f0",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "10d54255146a656005836a4d8a6132d8d990e69c71c0a31677534256e00ae7d6"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I009",
+          "truth": "clean",
+          "origin_revision_id": "198dac5c12780c1e1bb73283cc40f772211384157101717c25d9dca95099ff85",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/celestial/celestial.lua",
+            "source_file_sha256": "30693c396eac3dae22b95590313190bf10f58fddf646dad6f855e2ab63b4bdcf",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "4104956e95862f93a7ace2084bda3486f21f8875aba0b5e77eb52e43fb87a22e"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b2-condition-controlled.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b2-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I010",
+          "truth": "defective",
+          "origin_revision_id": "7d89b51d96396b3af0d0475e7c243f9df8ae557f6bd2f904b2eeb3bacc32e19a",
+          "references": [
+            {
+              "reference_id": "H1-P02-D1",
+              "defect_class": "SUBJECT_ACTION",
+              "accepted_claim_types": [
+                "SUBJECT",
+                "ACTION"
+              ],
+              "localization_anchors": [
+                "你伤害一个近身的敌对生物"
+              ],
+              "acceptable_full_targets": [
+                "你沉迷于战争的狂热。当一个近身的敌对生物伤害你时，有 %d%% 几率自动反击，造成 %d%% 武器伤害。\n\t此效果每回合对同一目标触发一次。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+            "source_path": "dlcs/tome-ashes-urhrok/data/talents/corruptions/brutality.lua",
+            "source_file_sha256": "98445e8d729b25a81d276add49387ac07a1ce10b7cc8c5feae4a62e645c2552d",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "2216efdd28d3e901012e51b247dd52ee9d809860ab101be044f2b3092db127a8"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-ashes-b1-player-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-ashes-b1-host-verification.json",
+            "status": "clean"
+          }
+        },
+        {
+          "item_id": "H1-I011",
+          "truth": "defective",
+          "origin_revision_id": "b006a99d226fc63d00daf5ba11ea0f4b9085fe1191a24fc98bc40f6fe623ab41",
+          "references": [
+            {
+              "reference_id": "H1-P11-D1",
+              "defect_class": "ADDITION",
+              "accepted_claim_types": [
+                "ADDITION"
+              ],
+              "localization_anchors": [
+                "并使你免疫火焰伤害"
+              ],
+              "acceptable_full_targets": [
+                "你流淌着龙的血液。你可以喷吐火焰（如果你原本就会喷火，则吐息会得到强化）。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/timed_effects/physical.lua",
+            "source_file_sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "dfeb064c7fd1affd340f05fe0a909a1532dd098557ae07df2cb8f34f95f8d4ff"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b2-condition-controlled.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b2-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I012",
+          "truth": "defective",
+          "origin_revision_id": "c0cbfcc17c66a03f422d86c6b3aa1faf004d640b3d912d51ab8f59d0765e982b",
+          "references": [
+            {
+              "reference_id": "H1-P07-D1",
+              "defect_class": "NUMBER",
+              "accepted_claim_types": [
+                "FORMAT",
+                "OTHER"
+              ],
+              "localization_anchors": [
+                "减少 5%%"
+              ],
+              "acceptable_full_targets": [
+                "你进入冥想，与大自然进行沟通。\n\t\t冥想时，你的失衡值每回合降低 %0.2f，精神豁免提高 %d，治疗系数提高 %d%%。\n\t\t深度冥想使你无法正常造成伤害，你和召唤物造成的伤害减少 50%%。\n\t\t另外，你在休息时（即使未维持冥想）会自动进入浅度冥想状态，使失衡值每回合降低 %0.2f。\n\t\t激活时效果受精神强度加成。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/gifts/call.lua",
+            "source_file_sha256": "b2df31016f55fb32b4e989d1fcb6e094f9c39e3d2cb9431e87be77f5f476e6b9",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "e9ce5e76e9042dc06edd8f6421ade9728b9a789b09c73a34bf902c4c5f2677de"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I013",
+          "truth": "clean",
+          "origin_revision_id": "0561d574535f701252e61edae30acca6ff713d03526de78b3e6890214c954ec7",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/techniques/techniques.lua",
+            "source_file_sha256": "02cecfa4b919747aa8d1f4220a9a9280b2fbf0a537bc476e31f3d085a606c9ce",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "464764f9539a0f61d454c346d1fd4bdddfed4da80899287af0a2c7f197defbc2"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b2-condition-controlled.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b2-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I014",
+          "truth": "clean",
+          "origin_revision_id": "d8c7ec4b8554629a74a876c476a2d62fa1191f53b3e4a23571e6a7cc0faef45f",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/cunning/artifice.lua",
+            "source_file_sha256": "8a1d55511ff0273bfc9f4193b98de2269372475ffafc5c8185257d59bb7ad4d3",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "4fc73c69c3fe72fcd55b535ab60c7d193d0a44ccf0448f27af672a8c27d5d9e1"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b5-format-binding.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b5-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I015",
+          "truth": "clean",
+          "origin_revision_id": "e379bfe25543e5298d911ff042001f48319e1783188dbefc3970ad84c897d37f",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/spells/earth.lua",
+            "source_file_sha256": "ad08453419b9012d3fdc4dae388c1fc42c9087ed6ecd731f2363a7246c377095",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "993434d6800683e9f8ba84d25fed88536cc42fb104d6c175660187a00c2f0132"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b5-format-binding.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b5-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I016",
+          "truth": "clean",
+          "origin_revision_id": "453cb256422e7a1b2a839862792cd51d30227ec526163c0f3e2ffe04dca1dafd",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+            "source_path": "dlcs/tome-ashes-urhrok/data/talents/corruptions/corruptions.lua",
+            "source_file_sha256": "4257ab1552e9252b763e865291b86582706d2a7ef79d974cd602c9168b22527a",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "01d9199df2ff8185d6841cdc42651daa052fadafb58e881698fc8b226eb224c9"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-ashes-b1-player-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-ashes-b1-host-verification.json",
+            "status": "clean"
+          }
+        },
+        {
+          "item_id": "H1-I017",
+          "truth": "clean",
+          "origin_revision_id": "119219357234cbdb7806c67a4b235f4a143132bf3b5003b1e5b4193b17ff16c1",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+            "source_path": "dlcs/tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+            "source_file_sha256": "555c11932fb3f3849788f8d0313ade0e6d50cb86a41bac23696993f448eb266a",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "2e1260cebf980e38f66499292a47eb98a154906b8a77a547ebfc8c594ec1ed85"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-ashes-b1-player-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-ashes-b1-host-verification.json",
+            "status": "clean"
+          }
+        },
+        {
+          "item_id": "H1-I018",
+          "truth": "defective",
+          "origin_revision_id": "3c855b28d23aee5fa2d9c5549e0da7d6b3f9d7e760be8431bd6230c40337b0a1",
+          "references": [
+            {
+              "reference_id": "H1-P10-D1",
+              "defect_class": "ARGS_ORDER_FORMAT",
+              "accepted_claim_types": [
+                "FORMAT"
+              ],
+              "localization_anchors": [
+                "长度 %0.2f",
+                "造成 %d"
+              ],
+              "acceptable_full_targets": [
+                "发射长度 %d 的锥形火焰，造成 %0.2f 火焰伤害（基于魔法）。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/general/objects/world-artifacts-maj-eyal.lua",
+            "source_file_sha256": "53adf36d7d2819930227f9dbb9fd7aa7b13905dcaf45496bf164f15bcf737cfa",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "17e734854f78dab76f2ee04248f9723831d88936026a2f3a00776ecc4df19ef9"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b5-format-binding.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b5-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I019",
+          "truth": "clean",
+          "origin_revision_id": "6adf35e7f314c5a301b321635bd1a6c710e12382951ccbc64cb8f57f9ee3c589",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+            "source_path": "dlcs/cults/data/talents/demented/beyond-sanity.lua",
+            "source_file_sha256": "413bd311b854a8c4b13b67dc6cb9a4433acb768ab6f865f14a75d2d904a19e97",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "fcfc71d4f27d2bafd98dc601c53b979de795568e9f62746b910263a398d4bd50"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-cults-b1-player-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-cults-b1-host-verification.json",
+            "status": "no_issue"
+          }
+        },
+        {
+          "item_id": "H1-I020",
+          "truth": "defective",
+          "origin_revision_id": "f9ca87b9fbe85aea94eb276a46a3b92e10bbbd7ddf38cd7d6a1d73c960207285",
+          "references": [
+            {
+              "reference_id": "H1-P03-D1",
+              "defect_class": "CONDITION_POLARITY",
+              "accepted_claim_types": [
+                "CONDITION",
+                "POLARITY"
+              ],
+              "localization_anchors": [
+                "是物理伤害"
+              ],
+              "acceptable_full_targets": [
+                "你的眼前会闪烁未来的景象，让你能够预知对你的攻击。\n\t\t如果攻击造成的不是物理伤害，你会创造一道临时护盾，使此类伤害降低 %d%%，持续 5 回合。\n\t\t此效果每隔 5 回合只能触发一次，且在承受伤害前被激活。\n\t\t效果受法术强度加成。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/spells/divination.lua",
+            "source_file_sha256": "f72685aca51901e204b23fc738a87ccfa3752f9b1c4c01918029bcc643a8b8af",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "3ba28e0b694c696162b519bf26c466c5123aa25292eb7e6149d0fcc294f97aab"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I021",
+          "truth": "clean",
+          "origin_revision_id": "f36b0b915db177a02a2e4f8c138f3339943f8612f00a5b1171548c95c271438b",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+            "source_path": "dlcs/cults/data/talents/misc/races.lua",
+            "source_file_sha256": "58791c4f01ed335b327fb900432f6cfe8f34d7f36eff375d189b5479109ec47e",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "76ff55feb838ee582d628c93c12695735c1a59addd03ed3e43f4ad1196a19c92"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-cults-b1-player-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-cults-b1-host-verification.json",
+            "status": "no_issue"
+          }
+        },
+        {
+          "item_id": "H1-I022",
+          "truth": "clean",
+          "origin_revision_id": "bfef07276e1337bfdf9e47a9d3c8e5a32859ad8b47131449a82243b6cfcf3203",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+            "source_path": "dlcs/tome-orcs/data/talents/steam/other.lua",
+            "source_file_sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "0c40efa6131bf9a56ab850668bcd6ae3ae7285309ec4b18c636531e8df9d3ddf"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-orcs-b1-steam-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-orcs-b1-host-verification.json",
+            "status": "no_issue"
+          }
+        },
+        {
+          "item_id": "H1-I023",
+          "truth": "defective",
+          "origin_revision_id": "2b61c85676ddf5f503377b04158ebd4669fa9f0e5f312ab7dadcf78187f38bad",
+          "references": [
+            {
+              "reference_id": "H1-P12-D1",
+              "defect_class": "OMISSION",
+              "accepted_claim_types": [
+                "OMISSION"
+              ],
+              "localization_anchors": [
+                "从一个负面状态中回复。"
+              ],
+              "acceptable_full_targets": [
+                "增强你的隐形侦测能力 +%d 以及潜行侦测能力 +%d。  此外，每回合你有 %d%% 的几率从一个负面状态中回复。\n\t\t受魔法属性影响，侦测能力按比例增加。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/chronomancy/guardian.lua",
+            "source_file_sha256": "076b3c31b0483f86935e293c1fa230df959b11fc3fa444c01e011578c7370ed2",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "808efce901922037a7243336565a9840bb685cf8dc849467d7985d5f94db8284"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H1-I024",
+          "truth": "clean",
+          "origin_revision_id": "237178776b68382cb3367444c75bf75b379568dbd77019361326d235d6a75f69",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+            "source_path": "dlcs/tome-orcs/data/talents/steam/battle-machinery.lua",
+            "source_file_sha256": "c213a3c5b3d968fd0d6fe23b7427d1aeba965157923639faa04a377e1e9d465b",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "58e3af164786ae0d3c92c1a6bc5b0027bd3f52adcb13e0be26bc6da931a36fc1"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-orcs-b1-steam-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-orcs-b1-host-verification.json",
+            "status": "no_issue"
+          }
+        }
+      ]
+    },
+    "H2": {
+      "item_count": 24,
+      "defective_items": 12,
+      "clean_items": 12,
+      "items": [
+        {
+          "item_id": "H2-I001",
+          "truth": "clean",
+          "origin_identity": "4c6cd1bcd6ee75f610d6b7c85d12636c2807b3270ba58005e41f63b939004a94",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+            "source_path": "dlcs/tome-orcs/data/talents/steam/other.lua",
+            "source_file_sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "7081f0241fb75a5c32edd2bff131731ff711c544ced71c152d3b353126d47994"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-orcs-b1-steam-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-orcs-b1-host-verification.json",
+            "status": "no_issue"
+          }
+        },
+        {
+          "item_id": "H2-I002",
+          "truth": "clean",
+          "origin_identity": "2649a46ce64d884258bb28c42daff758c24646374ac9ceb161d0a4038554da00",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+            "source_path": "dlcs/cults/data/timed_effects.lua",
+            "source_file_sha256": "b938e180bf6b207a532ac86995af04f2a4f5804ba53eee096f9e76590452e1d8",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "649859183ca20735f7e8e2bff51a8c8506597f7f3cc62247df1144971b6cbe02"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-cults-b1-player-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-cults-b1-host-verification.json",
+            "status": "no_issue"
+          }
+        },
+        {
+          "item_id": "H2-I003",
+          "truth": "defective",
+          "origin_identity": "bc3315cb46f4d0d486b8214c74a81c53259e75fe00a8256798de949410a58973",
+          "references": [
+            {
+              "reference_id": "H2-bc3315cb-D1",
+              "defect_class": "SUBJECT_ACTION_REFERENT",
+              "accepted_claim_types": [
+                "SUBJECT",
+                "ACTION",
+                "REFERENT"
+              ],
+              "localization_anchors": [
+                "你的%s%s使用%s"
+              ],
+              "acceptable_full_targets": [
+                "你%s%s以激活%s。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/class/Actor.lua",
+            "source_file_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "5acaab32461609d50fc7d493a861d692b481903a7dbcef75d1a96b222ceab8af"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "mod-tome.lua",
+            "section": "mod-tome/class/Actor.lua",
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63"
+          }
+        },
+        {
+          "item_id": "H2-I004",
+          "truth": "clean",
+          "origin_identity": "85589e79e600c60634b3105f27c11410894d23c38af5c64db72f323c223743f3",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+            "source_path": "dlcs/tome-orcs/data/talents/steam/furnace.lua",
+            "source_file_sha256": "66df49a75a14a56ea59ee37babb5a41886e714e508cdb65016238841695e6450",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "2d73dded13a94a9e686207576f844bc3f753a1bcd0b574a8fe9ce44155cd69d7"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-orcs-b1-steam-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-orcs-b1-host-verification.json",
+            "status": "no_issue"
+          }
+        },
+        {
+          "item_id": "H2-I005",
+          "truth": "defective",
+          "origin_identity": "c58818587b1b18b0bd344e26f83e1ae5276098c2e0331ccf838ec7599892fe0b",
+          "references": [
+            {
+              "reference_id": "H2-c5881858-D1",
+              "defect_class": "ARGS_ORDER",
+              "accepted_claim_types": [
+                "FORMAT"
+              ],
+              "localization_anchors": [
+                "你回收了%s，获得了%0.2f金币"
+              ],
+              "acceptable_full_targets": [
+                "你从%s的熔化中获得了%0.2f金币。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+            "source_path": "dlcs/tome-orcs/superload/mod/class/Actor.lua",
+            "source_file_sha256": "2b332d29bf6015e3cb786f2990071437e560b551a53db470deb3ff997f4c5717",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "1ad97ceb41934013eea40b1ac563cf551ebc02c4d8f46e50472af2c8fa52ba86"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "tome-orcs.lua",
+            "section": "tome-orcs/superload/mod/class/Actor.lua",
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484"
+          }
+        },
+        {
+          "item_id": "H2-I006",
+          "truth": "defective",
+          "origin_identity": "4fa12920892abfc73ce459ca2bd47afab9fb8553079aa72b42509f720df7c210",
+          "references": [
+            {
+              "reference_id": "H2-4fa12920-D1",
+              "defect_class": "ARGS_ORDER_NUMBER",
+              "accepted_claim_types": [
+                "FORMAT"
+              ],
+              "localization_anchors": [
+                "在 %d 格范围内造成 %0.2f"
+              ],
+              "acceptable_full_targets": [
+                "若生命值降至 0 以下，则取消此次攻击、恢复 %d 点生命值，并造成 %0.2f 点闪电伤害，范围为半径 %d 格，同时使目标眩晕 3 回合。"
+              ]
+            },
+            {
+              "reference_id": "H2-4fa12920-D2",
+              "defect_class": "TIMING_NUMBER",
+              "accepted_claim_types": [
+                "TIMING",
+                "OTHER"
+              ],
+              "localization_anchors": [
+                "3 回合"
+              ],
+              "acceptable_full_targets": [
+                "若生命值降至 0 以下，则取消此次攻击、恢复 %d 点生命值，并在 %d 格范围内造成 %0.2f 点闪电伤害，同时使目标眩晕 2 回合。"
+              ]
+            },
+            {
+              "reference_id": "H2-4fa12920-D3",
+              "defect_class": "TERMINOLOGY_STATE",
+              "accepted_claim_types": [
+                "STATE",
+                "OTHER"
+              ],
+              "localization_anchors": [
+                "眩晕"
+              ],
+              "acceptable_full_targets": [
+                "若生命值降至 0 以下，则取消此次攻击、恢复 %d 点生命值，并在 %d 格范围内造成 %0.2f 点闪电伤害，同时使目标震慑 3 回合。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+            "source_path": "dlcs/tome-orcs/data/timed_effects/physical.lua",
+            "source_file_sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "db16ef2a525932a9844735425593114a5e881a256e1ac32be7d67b161ed4db87"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "tome-orcs.lua",
+            "section": "tome-orcs/data/timed_effects/physical.lua",
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484"
+          }
+        },
+        {
+          "item_id": "H2-I007",
+          "truth": "defective",
+          "origin_identity": "58aa4101cffc97be047fb00ddecb2ff9f4ab65381aebaac8bc9fadc9177f3713",
+          "references": [
+            {
+              "reference_id": "H2-58aa4101-D1",
+              "defect_class": "ARGS_ORDER_DATE_FORMAT",
+              "accepted_claim_types": [
+                "FORMAT",
+                "REFERENT"
+              ],
+              "localization_anchors": [
+                "卓越纪%s年，%s%s"
+              ],
+              "acceptable_full_targets": [
+                "今天是马基·埃亚尔卓越纪第%s日，%s月，%s年。\n当前时间 %02d:%02d。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/class/Game.lua",
+            "source_file_sha256": "dcd6dc85d9b2cf74741e82ac9156128b782193d23a459d53f7cda324b099092a",
+            "first_line_exact_occurrences": 4,
+            "source_first_line_sha256": "d2f0719755050958071ed5d93f621086ce74dd473445b46e8aacb524b2070a39"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "engine.lua",
+            "section": ".always_merge",
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63"
+          }
+        },
+        {
+          "item_id": "H2-I008",
+          "truth": "defective",
+          "origin_identity": "1992276d027f5e8f3c11a1c237e562d5d89ae90a10fc7901c6c094d625a8fdf1",
+          "references": [
+            {
+              "reference_id": "H2-1992276d-D1",
+              "defect_class": "ARGS_ORDER",
+              "accepted_claim_types": [
+                "FORMAT"
+              ],
+              "localization_anchors": [
+                "对周围 %d 码半径内所有敌人造成 %0.2f"
+              ],
+              "acceptable_full_targets": [
+                "自爆成一团光荣的血肉，造成 %0.2f 枯萎伤害，范围为周围半径 %d 格内的所有敌人。这个技能只有主人死亡时能够使用。"
+              ]
+            },
+            {
+              "reference_id": "H2-1992276d-D2",
+              "defect_class": "FORMAT_UNIT",
+              "accepted_claim_types": [
+                "FORMAT"
+              ],
+              "localization_anchors": [
+                "码半径"
+              ],
+              "acceptable_full_targets": [
+                "自爆成一团光荣的血肉，对周围 %d 格半径内所有敌人造成 %0.2f 枯萎伤害。这个技能只有主人死亡时能够使用。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+            "source_path": "dlcs/cults/data/talents/misc/misc.lua",
+            "source_file_sha256": "3b37fe925ecba44b1931c740c085a00425eeeeaae2ff47c0b646cf7fe4d1976b",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "ec0447bc85654c718a25a09601a861179868478eb69a210b9f50e0b6bb6e7109"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "tome-cults.lua",
+            "section": "tome-cults/data/talents/misc/misc.lua",
+            "fixed_source_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747"
+          }
+        },
+        {
+          "item_id": "H2-I009",
+          "truth": "clean",
+          "origin_identity": "be032814a89313f94eefeb6aa88ec802288680b04ed2a8a492848b6cb91a2e3e",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/timed_effects/magical.lua",
+            "source_file_sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "dd52d1faef90e6388f8f41852eea5ff335f12ce8222730572c1f47f44ddb4a8a"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H2-I010",
+          "truth": "defective",
+          "origin_identity": "d6cea39b172de98e2ed152c3ba3edab1e25957b33918c9ad1f5cc3881854fc0a",
+          "references": [
+            {
+              "reference_id": "H2-d6cea39b-D1",
+              "defect_class": "ARGS_ORDER",
+              "accepted_claim_types": [
+                "FORMAT"
+              ],
+              "localization_anchors": [
+                "对 %d 格内的敌人造成 %0.2f"
+              ],
+              "acceptable_full_targets": [
+                "每当幻象被消灭时，它将释放心灵冲击，造成 %0.2f 暗影伤害，范围为半径 %d 格内的敌人。"
+              ]
+            },
+            {
+              "reference_id": "H2-d6cea39b-D2",
+              "defect_class": "OMISSION_SCOPE",
+              "accepted_claim_types": [
+                "OMISSION",
+                "SCOPE"
+              ],
+              "localization_anchors": [
+                "每当幻象被消灭时"
+              ],
+              "acceptable_full_targets": [
+                "每当丑恶幻象产生的幻象被消灭时，它将释放心灵冲击，对 %d 格内的敌人造成 %0.2f 暗影伤害。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+            "source_path": "dlcs/cults/data/talents/demented/madness.lua",
+            "source_file_sha256": "903a8b04bd9df5d403e538733d70bbf02d2531220d3578d971a471916d906cd4",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "f1de82b4e7dab2e8d3615014ae320950b109e4e004b9e8d6531cf638a16a042d"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "tome-cults.lua",
+            "section": "tome-cults/data/talents/demented/madness.lua",
+            "fixed_source_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747"
+          }
+        },
+        {
+          "item_id": "H2-I011",
+          "truth": "clean",
+          "origin_identity": "a0a130299c20640c23278b7ed289ac28d2d7c73b04b4d79ae1ea626db5da826f",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/cursed/gloom.lua",
+            "source_file_sha256": "10c08a0250ecf5034db9efba72630cc6e67ad79f28b452c3386ba2956bfaaeb8",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "56b3728110500e162ffcd0fbd47cc1d1cad1fe77cb7eabd8e658850761d4f435"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H2-I012",
+          "truth": "defective",
+          "origin_identity": "c4071e02916b540a1d6b6fde7a93d56b6d251324f378ac57b37162d24838cc45",
+          "references": [
+            {
+              "reference_id": "H2-c4071e02-D1",
+              "defect_class": "ARGS_ORDER_REFERENT",
+              "accepted_claim_types": [
+                "REFERENT",
+                "FORMAT"
+              ],
+              "localization_anchors": [
+                "你从%s中提炼了%s"
+              ],
+              "acceptable_full_targets": [
+                "你提炼了%s，来源是%s。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/spells/stone-alchemy.lua",
+            "source_file_sha256": "a11363e3eeedd88555a1a7f927b8a4b722fd9937e4f57e915432650b5640d389",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "cfb8e154eca0160e85e3f28955ffe1902865e2286b3eeb54b38d65029095c439"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "mod-tome.lua",
+            "section": "mod-tome/data/talents/spells/stone-alchemy.lua",
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63"
+          }
+        },
+        {
+          "item_id": "H2-I013",
+          "truth": "clean",
+          "origin_identity": "3dfdafb49d3f2f3a639f483f01ca903da52d4cea8421aeb4971ba9100f77a2c9",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/general/objects/world-artifacts-far-east.lua",
+            "source_file_sha256": "cd0dbfe594c6c6fb274c222f75f7bbb2f734dd5ce15136dc0a5ebfeceafbe8ac",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "cfa5ce1a18559886cb0039567f671d3f10516f0fd8f08b166166a20a5b000c26"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p1-batches/p1-b1-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p1-batches/p1-b1-s2-verification.json",
+            "status": "correct"
+          }
+        },
+        {
+          "item_id": "H2-I014",
+          "truth": "clean",
+          "origin_identity": "54210205ad1af056b6ce7e5336da200e8af6ebaaf37d1d8ce55d839cb8482342",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+            "source_path": "dlcs/cults/data/talents/demented/rift.lua",
+            "source_file_sha256": "90b908fd56d26e163434a3208d0d7730a7bdca9219d41b0c85b28215a533e235",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "278862db02c1ae67dbd740b3cdcc7f074776c4ca82351cfe8401c94d47b86825"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-cults-b1-player-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-cults-b1-host-verification.json",
+            "status": "no_issue"
+          }
+        },
+        {
+          "item_id": "H2-I015",
+          "truth": "clean",
+          "origin_identity": "ac6ef61d2c8ef2487ca52eb27818dda874510556ecef7f1936ecadd38b317f76",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+            "source_path": "dlcs/cults/data/timed_effects.lua",
+            "source_file_sha256": "b938e180bf6b207a532ac86995af04f2a4f5804ba53eee096f9e76590452e1d8",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "a1c37923b2c9b4bd586d5664c6c5141330c3d229f356fc0d581fb786be4cdb64"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-cults-b1-player-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-cults-b1-host-verification.json",
+            "status": "no_issue"
+          }
+        },
+        {
+          "item_id": "H2-I016",
+          "truth": "defective",
+          "origin_identity": "d702568f2cc884aa7ab656ac9c5720ca671b30ee997fe87982df455cf10f09c6",
+          "references": [
+            {
+              "reference_id": "H2-d702568f-D1",
+              "defect_class": "ARGS_ORDER_NUMBER_DIRECTION",
+              "accepted_claim_types": [
+                "FORMAT",
+                "REFERENT"
+              ],
+              "localization_anchors": [
+                "对 %d 码内的一个目标，每层充能造成 %0.2f"
+              ],
+              "acceptable_full_targets": [
+                "每次你行走、移动时，你获得一次枯萎充能。你最多能积累 %d 次充能。\n\t\t当你取消该技能时，你会消耗这些充能，选择造成以下效果之一\n\t\t- 每层充能恢复 %0.2f 活力值\n\t\t- 每层充能造成 %0.2f 枯萎伤害，目标须在 %d 码射程内。\n\t\t- 制造护盾，每层充能吸收 %d 伤害，并将一半的伤害返还给攻击者。\n\t\t伤害受法术强度加成。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+            "source_path": "dlcs/tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+            "source_file_sha256": "555c11932fb3f3849788f8d0313ade0e6d50cb86a41bac23696993f448eb266a",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "9aa2b4990ce1a97215ef2d76e3cbe06a7ad38e4e9d6028e6615b614dd0f8eb70"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "tome-ashes-urhrok.lua",
+            "section": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+            "fixed_source_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2"
+          }
+        },
+        {
+          "item_id": "H2-I017",
+          "truth": "defective",
+          "origin_identity": "bf53a64af9a458e6d4f2ee76bee9bebafde3195aeee2237004c575f089dc912a",
+          "references": [
+            {
+              "reference_id": "H2-bf53a64a-D1",
+              "defect_class": "ARGS_ORDER_FORMAT",
+              "accepted_claim_types": [
+                "FORMAT"
+              ],
+              "localization_anchors": [
+                "%d%% 震慑抗性， %d%% %s 伤害抗性"
+              ],
+              "acceptable_full_targets": [
+                " 伊格除去了你身体内部肮脏的魔法符文，并改用龙血提供能量维持你的身体。\n\t\t龙血强化了你，使你获得 %d%% 震慑抗性、%s 抗性 %d%%，并使近战攻击附加 %d %s 伤害。\n\t\t你可以主动开启该技能来改变龙力类型，进而改变相应元素。\n\t\t抗性和附加伤害受意志值加成。\n\t\t改变类型需要战斗经验，你必须杀死 100 生物后才能使用（当前 %d ）。\n\n\t\t当你学会该技能时，你变得如此强大，以至于能双持任何单手武器。"
+              ]
+            },
+            {
+              "reference_id": "H2-bf53a64a-D2",
+              "defect_class": "SUBJECT_ACTION_REFERENT",
+              "accepted_claim_types": [
+                "SUBJECT",
+                "ACTION"
+              ],
+              "localization_anchors": [
+                "伊格除去了你身体内部肮脏的魔法符文，并改用龙血"
+              ],
+              "acceptable_full_targets": [
+                "伊格移除了你身上的肮脏魔法符文；此后你需要另一种力量维持身体，而龙血提供了这种力量。\n\t\t龙血强化了你，使你获得 %d%% 震慑抗性， %d%% %s 伤害抗性， %d %s 近战附加伤害。\n\t\t你可以主动开启该技能来改变龙力类型，进而改变相应元素。\n\t\t抗性和附加伤害受意志值加成。\n\t\t改变类型需要战斗经验，你必须杀死 100 生物后才能使用（当前 %d ）。\n\n\t\t当你学会该技能时，你变得如此强大，以至于能双持任何单手武器。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747",
+            "source_path": "dlcs/cults/data/talents/misc/races.lua",
+            "source_file_sha256": "58791c4f01ed335b327fb900432f6cfe8f34d7f36eff375d189b5479109ec47e",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "2b8b3fd747ca4cdc5776f1c341a65b1090b8cdcd4eda37a53e06c79d14b1d9d7"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "tome-cults.lua",
+            "section": "tome-cults/data/talents/misc/races.lua",
+            "fixed_source_identity": "snapshot:ed0b1126c2636738204f2cafa3259812092fe47f5393ba3b81d696fb56865747"
+          }
+        },
+        {
+          "item_id": "H2-I018",
+          "truth": "defective",
+          "origin_identity": "de318d198dc60e364e7ab56941eeec5ab7822e60d5d00058e8536ffc90a10f6b",
+          "references": [
+            {
+              "reference_id": "H2-de318d19-D1",
+              "defect_class": "ARGS_ORDER",
+              "accepted_claim_types": [
+                "FORMAT"
+              ],
+              "localization_anchors": [
+                "在%d回合内造成%d额外自然伤害"
+              ],
+              "acceptable_full_targets": [
+                "朝%d码外的敌人发射毒液，造成%d自然伤害，并导致目标被致残毒素(%d%% 行动失败几率)，造成%d额外自然伤害，持续%d回合（伤害受灵巧值加成）"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+            "source_path": "dlcs/tome-orcs/data/general/objects/world-artifacts.lua",
+            "source_file_sha256": "4d1225a3e95750fde970a5c6610d5e8a24b690c329f86c866e8a2074de70248c",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "1adcf1c09cbadcb0d43d5e8f80d9b13916c01292152c4fc54c668b977a84cd28"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "tome-orcs.lua",
+            "section": "tome-orcs/data/general/objects/world-artifacts.lua",
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484"
+          }
+        },
+        {
+          "item_id": "H2-I019",
+          "truth": "clean",
+          "origin_identity": "3de811d386872a7b0c064aa59984d4808890574b5d6bc84a15e7435c6e302210",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+            "source_path": "dlcs/tome-ashes-urhrok/data/talents/corruptions/brutality.lua",
+            "source_file_sha256": "98445e8d729b25a81d276add49387ac07a1ce10b7cc8c5feae4a62e645c2552d",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "58358ab577c13ba2e69df38ce53f76da2cfeffe44984993dcc11388d72a22a46"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-ashes-b1-player-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-ashes-b1-host-verification.json",
+            "status": "clean"
+          }
+        },
+        {
+          "item_id": "H2-I020",
+          "truth": "clean",
+          "origin_identity": "71acde9d9c7bc402699045756c10c79caa081d78cefff2b2dfe16ad26096ca3e",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+            "source_path": "dlcs/tome-ashes-urhrok/data/timed_effects.lua",
+            "source_file_sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "f2ba6118b1462b0358b8ca85fad2bace77e3b28c95065bec265aff2fc2db247c"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-ashes-b1-player-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-ashes-b1-host-verification.json",
+            "status": "clean"
+          }
+        },
+        {
+          "item_id": "H2-I021",
+          "truth": "clean",
+          "origin_identity": "175951fda3f21bca46fca01e9ee6146bf5f32d9032292e6dbdaab80ed0717b41",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+            "source_path": "dlcs/tome-orcs/data/talents/steam/automation.lua",
+            "source_file_sha256": "a6a503ad9f3f8fd9a72539d8dbfa39d015002d678d54f7497a3911af1258b441",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "a22708ed263856fef0a628c746642283ed4e3bdfa4fc648f485ebbeee0fa37af"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-orcs-b1-steam-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-orcs-b1-host-verification.json",
+            "status": "no_issue"
+          }
+        },
+        {
+          "item_id": "H2-I022",
+          "truth": "defective",
+          "origin_identity": "033a2ee8d3bceb7906e474d77307f8113135be064eb9d3d1b5c6311fb65eb513",
+          "references": [
+            {
+              "reference_id": "H2-033a2ee8-D1",
+              "defect_class": "ARGS_ORDER_NUMBER",
+              "accepted_claim_types": [
+                "FORMAT",
+                "REFERENT"
+              ],
+              "localization_anchors": [
+                "半径 %d 格内的 %d 个随机敌人"
+              ],
+              "acceptable_full_targets": [
+                "向 %d 个随机敌人释放一簇阳光射线，射线范围为半径 %d 格，对所有命中的敌人造成 %d 点伤害，并使你的光系伤害加成提高，数值相当于暗影伤害加成的 %d%%，持续 %d 回合。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63",
+            "source_path": "modules/tome/data/talents/celestial/sunlight.lua",
+            "source_file_sha256": "41215a37c807d42e22106d4a41b47075cc90237b409411cc44b2dd12e1cad221",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "f5196955da7d6809528a9e137e36f0051c52cd2f20ce272d1927f25c607d6de6"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "mod-tome.lua",
+            "section": "mod-tome/data/talents/celestial/sunlight.lua",
+            "fixed_source_identity": "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63"
+          }
+        },
+        {
+          "item_id": "H2-I023",
+          "truth": "defective",
+          "origin_identity": "4f84650b68997d21f088b9644d916e5c9c2ed214615d67390adc52ceb4851719",
+          "references": [
+            {
+              "reference_id": "H2-4f84650b-D1",
+              "defect_class": "ARGS_ORDER",
+              "accepted_claim_types": [
+                "FORMAT"
+              ],
+              "localization_anchors": [
+                "在 %d 码范围的扇形区域内造成 %d%%"
+              ],
+              "acceptable_full_targets": [
+                "你消耗所有瘴气引擎的叠加效果，并用你的蒸汽枪发射出毁灭性的腐蚀爆炸，造成 %d%% 酸性武器伤害，范围为半径 %d 格的扇形区域，并有 %d%% 的几率移除一个随机物理或精神效果。你瘴气引擎叠加的层数每超过一层，则增加 50%% 伤害，并有 %d%% 几率额外移除一个效果。\n\t\t这一攻击无视敌人护甲，你至少需要有一层瘴气引擎效果才能使用这个技能。"
+              ]
+            },
+            {
+              "reference_id": "H2-4f84650b-D2",
+              "defect_class": "OMISSION_SCOPE",
+              "accepted_claim_types": [
+                "OMISSION",
+                "SCOPE"
+              ],
+              "localization_anchors": [
+                "随机物理或精神效果"
+              ],
+              "acceptable_full_targets": [
+                "你消耗所有瘴气引擎的叠加效果，并用你的蒸汽枪发射出毁灭性的腐蚀爆炸，在 %d 码范围的扇形区域内造成 %d%% 酸性武器伤害，并有 %d%% 的几率移除一个随机有益物理或精神效果。你瘴气引擎叠加的层数每超过一层，则增加 50%% 伤害，并有 %d%% 几率额外移除一个效果。\n\t\t这一攻击无视敌人护甲，你至少需要有一层瘴气引擎效果才能使用这个技能。"
+              ]
+            }
+          ],
+          "anchor": {
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484",
+            "source_path": "dlcs/tome-orcs/data/talents/steam/chemical-warfare.lua",
+            "source_file_sha256": "f03404a27dfa0fd5e0f7a8cbf0d6ab93234f69d23e4d4a09abfec09c34c50af0",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "7342ac98dcee9ade6e796933565e91243b0c92c634ab9d78e5697799b01bb056"
+          },
+          "historical_binding": {
+            "translation_baseline_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+            "catalog_entry_verified": true,
+            "batch_result_verified": true,
+            "adjudication_verified": true,
+            "normalized_path": "tome-orcs.lua",
+            "section": "tome-orcs/data/talents/steam/chemical-warfare.lua",
+            "fixed_source_identity": "snapshot:c49975dd444a5402e37267005027ab2c54e23745a37836d31fd27fd808ee7484"
+          }
+        },
+        {
+          "item_id": "H2-I024",
+          "truth": "clean",
+          "origin_identity": "726ca491004707c40d1f953d163c795e269ebbc8fef613996e9954ab5e746df0",
+          "references": [],
+          "anchor": {
+            "fixed_source_identity": "snapshot:104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2",
+            "source_path": "dlcs/tome-ashes-urhrok/data/timed_effects.lua",
+            "source_file_sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+            "first_line_exact_occurrences": 1,
+            "source_first_line_sha256": "323b3ee0930a09f706a5a1263be3406db6d6cea87550bf9fdc007827f24a6914"
+          },
+          "tracked_verification": {
+            "batch_path": "evidence/quality/p2-batches/p2-ashes-b1-player-mechanics-numeric.json",
+            "verification_path": "evidence/quality/p2-batches/p2-ashes-b1-host-verification.json",
+            "status": "clean"
+          }
+        }
+      ]
+    }
+  },
+  "reconstruction": {
+    "proposal_status": "ACCEPTED_AFTER_INDEPENDENT_RECONSTRUCTION",
+    "substitutions": [],
+    "proposal_path_corrections": [
+      {
+        "proposed_prefix": "evidence/quality/p2-",
+        "verified_prefix": "evidence/quality/p2-batches/p2-",
+        "effect": "path-only correction; no item substitution"
+      }
+    ],
+    "identity_checks": {
+      "H1_quality_revision_ids": 12,
+      "H2_quality_revision_ids": 12,
+      "H2_production_entry_revision_ids": 12
+    },
+    "fixed_source_anchor_checks": 48,
+    "historical_H2_translation_commit": "d77becdaf5f9860cae396741a4f1f319bb4ef5d5",
+    "development_exact_source_overlap": 0,
+    "development_exact_source_target_overlap": 0
+  }
+}

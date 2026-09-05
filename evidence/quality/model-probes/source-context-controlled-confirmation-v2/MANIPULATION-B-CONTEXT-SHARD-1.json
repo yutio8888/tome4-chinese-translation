@@ -1,0 +1,120 @@
+{
+  "schema_version": "source-context-controlled-confirmation-manipulation-check-queue-v2",
+  "status": "FROZEN_B_CONTEXT_AFTER_A_ONLY_LOCK",
+  "pass": "B_CONTEXT",
+  "shard": 1,
+  "a_only_candidate_sha256": "bce727e8bb9c59370eac569ac1b74a67fbc4e19e8ec45aeccee0e7b8cc880590",
+  "instructions": [
+    "Judge the supplied source and mutated target using only the supplied mechanical source_context. Do not inspect other files or expected atoms.",
+    "NO_OBJECTIVE_DEFECT_VISIBLE means the packet does not objectively refute the target.",
+    "EXACTLY_ONE_OBJECTIVE_DEFECT means the packet uniquely supports one material defect; report the exact target span and claim.",
+    "MULTIPLE_OR_STRUCTURALLY_INVALID means two or more material defects or a broken structure are supported.",
+    "UNRESOLVED means the packet is insufficient for a material decision; explain the missing evidence."
+  ],
+  "items": [
+    {
+      "proposal_id": "P001",
+      "profile": "dialogue",
+      "source": "#LIGHT_GREEN#*You suddenly realize everything has turned dark.\n#LIGHT_GREEN#You look around searching for your rival. And then you notice it. Standing\n#LIGHT_GREEN#right before you, a massive battle armor with an equally massive battle axe.\n#LIGHT_GREEN#It wasn't there just a second ago. You step back and examine him better,\n#LIGHT_GREEN#realizing it's actually a human inside that hulking, worn armor. You can't see\n#LIGHT_GREEN#his eyes, but you know he's piercing your soul with his stare*\nf...t...ma....ll...\n#LIGHT_GREEN#*You hear a devilish voice, coming from everywhere at once!! But...you are\n#LIGHT_GREEN#unable to understand anything! It doesn't seem like any language used in\n#LIGHT_GREEN#Maj'Eyal!\n#LIGHT_GREEN#And then...a piercing, demonic roar...you are overwhelmed by extreme\n#LIGHT_GREEN#emotions invading your very soul!!*\n",
+      "target": "#LIGHT_GREEN#*你突然发现四周陷入了黑暗。\n#LIGHT_GREEN#你环顾四周，寻找自己的对手。随即，你注意到了它：\n#LIGHT_GREEN#一副同样手持巨大战斧的巨型战甲，就站在你面前。\n#LIGHT_GREEN#一瞬之前那里还空无一物。你后退一步，仔细端详，\n#LIGHT_GREEN#才发现那副庞大而破旧的战甲里其实装着弗莉吉亚的弟弟。\n#LIGHT_GREEN#你看不见他的双眼，却知道他的目光正刺穿你的灵魂*\n弗……特……玛……尔……\n#LIGHT_GREEN#*一个魔鬼般的声音突然从四面八方同时传来！！但……\n#LIGHT_GREEN#你完全听不懂！这不像\n#LIGHT_GREEN#马基·埃亚尔使用的任何一种语言！\n#LIGHT_GREEN#紧接着……一声刺耳的恶魔咆哮……\n#LIGHT_GREEN#极端的情绪侵入灵魂，将你彻底淹没！！*\n",
+      "source_context": "#LIGHT_GREEN#*She bows politely*\nFryjia was right about you: you seem to be a champion in the works!\nOh, and please forgive her behavior. You will understand when you meet her father.\nAnd, if you keep fighting like this, it will be really soon.\nSo, it's been my pleasure, @playername@. #LIGHT_GREEN#*She vanishes in a spiral of flame*]],\n\tanswers = {\n\t\t{_t\"I am pumped up! What's next?\", action=entershop},\n\t\t{_t\"Am I the only person with a name that can die here?\", action=entershop}\n\t}\n}\n\nnewChat{ id=\"valfren-entry\",\ntext = _t[[[[SOURCE_MATCH_1]]]],\n\tanswers = {\n\t\t{_t\"#LIGHT_GREEN#*You valiantly stand against the darkness*\"},\n\t}\n}\n\nnewChat{ id=\"valfren-defeat\",\ntext = _t[[#LIGHT_GREEN#*You valiantly deliver the finishing blow!*\n#LIGHT_GREEN#*Valfren collapses as the light returns to this world.\n#LIGHT_GREEN#You close your eyes for a brief instant. Fryjia is there when you open them*\nFather... #LIGHT_GREEN#*She stands silent for a few seconds*#WHITE# You win, @playerdescriptor.race@.\nYou have done well. Prepare for your final battle... if you win, we will be at your service.",
+      "response": null
+    },
+    {
+      "proposal_id": "P002",
+      "profile": "dialogue",
+      "source": "When you do a mouse gesture (right click + drag) a color coded trail is displayed.#WHITE#",
+      "target": "当你用右键拖动画出鼠标手势时，始终会显示彩色的轨迹提示。#WHITE#",
+      "source_context": "\t\tself.c_list:drawItem(item)\n\tend,}\n\n\tlocal zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=(_t\"Always display combat properties of shields even if you don't know shield attack talents.#WHITE#\"):toTString()}\n\tlist[#list+1] = { zone=zone, name=(_t\"#GOLD##{bold}#Always show shield combat properties#WHITE##{normal}#\"):toTString(), status=function(item)\n\t\treturn tostring(config.settings.tome.display_shield_stats and _t\"enabled\" or _t\"disabled\")\n\tend, fct=function(item)\n\t\tconfig.settings.tome.display_shield_stats = not config.settings.tome.display_shield_stats\n\t\tgame:saveSettings(\"tome.display_shield_stats\", (\"tome.display_shield_stats = %s\\n\"):format(tostring(config.settings.tome.display_shield_stats)))\n\t\tself.c_list:drawItem(item)\n\tend,}\n\n\tlocal zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=(_t\"[[SOURCE_MATCH_1]]\"):toTString()}\n\tlist[#list+1] = { zone=zone, name=(_t\"#GOLD##{bold}#Display mouse gesture trails#WHITE##{normal}#\"):toTString(), status=function(item)\n\t\treturn tostring(config.settings.hide_gestures and _t\"disabled\" or _t\"enabled\")\n\tend, fct=function(item)\n\t\tconfig.settings.hide_gestures = not config.settings.hide_gestures\n\t\tgame:saveSettings(\"hide_gestures\", (\"hide_gestures = %s\\n\"):format(tostring(config.settings.hide_gestures)))\n\t\tself.c_list:drawItem(item)\n\tend,}\n\n\tlocal zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=(_t\"If enabled new quests and quests updates will display a big popup, if not a simple line of text will fly on the screen.#WHITE#\"):toTString()}\n\tlist[#list+1] = { zone=zone, name=(_t\"#GOLD##{bold}#Big Quest Popups#WHITE##{normal}#\"):toTString(), status=function(item)\n\t\treturn tostring(config.settings.tome.quest_popup and _t\"enabled\" or _t\"disabled\")\n\tend, fct=function(item)",
+      "response": null
+    },
+    {
+      "proposal_id": "P003",
+      "profile": "dialogue",
+      "source": "Number of items to make",
+      "target": "制作的唯一物品数量",
+      "source_context": "\tif not item then return end\n\n\tif item.action then\n\t\titem:action()\n\telseif item.unique then\n\t\tlocal n = not item.error and item.obj or game.zone:finishEntity(game.level, \"object\", item.e)\n\t\tif n then\n\t\t\tn:identify(true)\n\t\t\tself:acceptObject(n)\n\t\tend\n\telse\n\t\tlocal example = item.obj and not item.error\n\t\tgame:registerDialog(GetQuantity.new(_t\"[[SOURCE_MATCH_1]]\", (\"Enter 1-100%s\"):tformat(example and _t\", or 0 for the example item\" or \"\"), 20, 100, function(qty)\n\t\t\tif qty == 0 and item.obj and not item.error then\n\t\t\t\tself:acceptObject(item.obj)\n\t\t\telse\n\t\t\t\tgame.log(\"#LIGHT_BLUE# Creating %d items:\", qty)\n\t\t\t\tDialog:yesnoPopup(_t\"Ego\", _t\"Add an ego enhancement if possible?\", function(ret)\n\t\t\t\t\tif not ret then\n\t\t\t\t\t\tfor i = 1, qty do\n\t\t\t\t\t\t\tlocal n = game.zone:finishEntity(game.level, \"object\", item.e, {ego_chance=-1000})\n\t\t\t\t\t\t\tn:identify(true)\n\t\t\t\t\t\t\tgame.zone:addEntity(game.level, n, \"object\", self.actor.x, self.actor.y)\n\t\t\t\t\t\t\tgame.log(\"#LIGHT_BLUE#Created %s\", n:getName({do_color=true}))\n\t\t\t\t\t\tend",
+      "response": null
+    },
+    {
+      "proposal_id": "P004",
+      "profile": "dialogue",
+      "source": "Report for bad behavior",
+      "target": "举报我的不良行为",
+      "source_context": "\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\n\t\t\tif citem and citem.login then\n\t\t\t\tlocal data = profile.chat:getUserInfo(citem.login)\n\t\t\t\tif data then\n\t\t\t\t\tlocal list = {\n\t\t\t\t\t\t{name=_t\"Show infos\", ui=\"show\"},\n\t\t\t\t\t\t{name=_t\"Whisper\", ui=\"whisper\"},\n\t\t\t\t\t\t{name=_t\"Ignore\", ui=\"ignore\"},\n\t\t\t\t\t\t{name=_t\"Open profile(in browser)\", ui=\"profile\"},\n\t\t\t\t\t\t{name=_t\"[[SOURCE_MATCH_1]]\", ui=\"report\"}\n\t\t\t\t\t}\n\t\t\t\t\tif data.char_link then table.insert(list, 3, {name=_t\"Open charsheet(in browser)\", ui=\"charsheet\"}) end\n\t\t\t\t\tDialog:listPopup((\"User: \"):tformat(citem.login), _t\"Action\", list, 300, 200, function(sel)\n\t\t\t\t\t\tif not sel or not sel.ui then return end\n\t\t\t\t\t\tif sel.ui == \"show\" then\n\t\t\t\t\t\t\tlocal UserInfo = require \"engine.dialogs.UserInfo\"\n\t\t\t\t\t\t\tgame:registerDialog(UserInfo.new(data))\n\t\t\t\t\t\telseif sel.ui == \"profile\" then\n\t\t\t\t\t\t\tutil.browserOpenUrl(data.profile, {is_external=true})\n\t\t\t\t\t\telseif sel.ui == \"charsheet\" then\n\t\t\t\t\t\t\tutil.browserOpenUrl(data.char_link, {is_external=true})\n\t\t\t\t\t\telseif sel.ui == \"whisper\" then",
+      "response": null
+    },
+    {
+      "proposal_id": "P005",
+      "profile": "dialogue",
+      "source": "Open profile(in browser)",
+      "target": "打开我的用户信息（在浏览器里打开）",
+      "source_context": "\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\n\t\t\tif citem and citem.login then\n\t\t\t\tlocal data = profile.chat:getUserInfo(citem.login)\n\t\t\t\tif data then\n\t\t\t\t\tlocal list = {\n\t\t\t\t\t\t{name=_t\"Show infos\", ui=\"show\"},\n\t\t\t\t\t\t{name=_t\"Whisper\", ui=\"whisper\"},\n\t\t\t\t\t\t{name=_t\"Ignore\", ui=\"ignore\"},\n\t\t\t\t\t\t{name=_t\"[[SOURCE_MATCH_1]]\", ui=\"profile\"},\n\t\t\t\t\t\t{name=_t\"Report for bad behavior\", ui=\"report\"}\n\t\t\t\t\t}\n\t\t\t\t\tif data.char_link then table.insert(list, 3, {name=_t\"Open charsheet(in browser)\", ui=\"charsheet\"}) end\n\t\t\t\t\tDialog:listPopup((\"User: \"):tformat(citem.login), _t\"Action\", list, 300, 200, function(sel)\n\t\t\t\t\t\tif not sel or not sel.ui then return end\n\t\t\t\t\t\tif sel.ui == \"show\" then\n\t\t\t\t\t\t\tlocal UserInfo = require \"engine.dialogs.UserInfo\"\n\t\t\t\t\t\t\tgame:registerDialog(UserInfo.new(data))\n\t\t\t\t\t\telseif sel.ui == \"profile\" then\n\t\t\t\t\t\t\tutil.browserOpenUrl(data.profile, {is_external=true})\n\t\t\t\t\t\telseif sel.ui == \"charsheet\" then\n\t\t\t\t\t\t\tutil.browserOpenUrl(data.char_link, {is_external=true})",
+      "response": null
+    },
+    {
+      "proposal_id": "P006",
+      "profile": "dialogue",
+      "source": "Open profile(in browser)",
+      "target": "打开角色信息（在浏览器里打开）",
+      "source_context": "\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\n\t\t\tif citem and citem.login then\n\t\t\t\tlocal data = profile.chat:getUserInfo(citem.login)\n\t\t\t\tif data then\n\t\t\t\t\tlocal list = {\n\t\t\t\t\t\t{name=_t\"Show infos\", ui=\"show\"},\n\t\t\t\t\t\t{name=_t\"Whisper\", ui=\"whisper\"},\n\t\t\t\t\t\t{name=_t\"Ignore\", ui=\"ignore\"},\n\t\t\t\t\t\t{name=_t\"[[SOURCE_MATCH_1]]\", ui=\"profile\"},\n\t\t\t\t\t\t{name=_t\"Report for bad behavior\", ui=\"report\"}\n\t\t\t\t\t}\n\t\t\t\t\tif data.char_link then table.insert(list, 3, {name=_t\"Open charsheet(in browser)\", ui=\"charsheet\"}) end\n\t\t\t\t\tDialog:listPopup((\"User: \"):tformat(citem.login), _t\"Action\", list, 300, 200, function(sel)\n\t\t\t\t\t\tif not sel or not sel.ui then return end\n\t\t\t\t\t\tif sel.ui == \"show\" then\n\t\t\t\t\t\t\tlocal UserInfo = require \"engine.dialogs.UserInfo\"\n\t\t\t\t\t\t\tgame:registerDialog(UserInfo.new(data))\n\t\t\t\t\t\telseif sel.ui == \"profile\" then\n\t\t\t\t\t\t\tutil.browserOpenUrl(data.profile, {is_external=true})\n\t\t\t\t\t\telseif sel.ui == \"charsheet\" then\n\t\t\t\t\t\t\tutil.browserOpenUrl(data.char_link, {is_external=true})",
+      "response": null
+    },
+    {
+      "proposal_id": "P007",
+      "profile": "dialogue",
+      "source": "Place the object where?",
+      "target": "将物品丢弃到哪里？",
+      "source_context": "\t\tgame:registerDialog(self)\n\tend)\n\tcoroutine.resume(co)\nend\n\n--- Create the object, either dropping it or adding it to the player or npc's inventory\nfunction _M:acceptObject(obj, actor)\n\tif not obj then game.log(\"#LIGHT_BLUE#No object to create\")\n\telse\n\t\tobj = obj:cloneFull()\n\t\tactor = actor or self.actor or game.player\n\t\t-- choose where to put object (default is current actor's inventory)\n\t\tlocal d = Dialog:multiButtonPopup(_t\"Place Object\", _t\"[[SOURCE_MATCH_1]]\",\n\t\t\t{{name=(\"Inventory of %s%s\"):tformat( actor:getName(), actor.player and _t\" #LIGHT_GREEN#(player)#LAST#\" or \"\"), choice=\"player\", fct=function(sel)\n\t\t\t\t-- if not obj.quest and not obj.plot then obj.__transmo = true end\n\t\t\t\tactor:addObject(actor.INVEN_INVEN, obj)\n\t\t\t\tgame.zone:addEntity(game.level, obj, \"object\")\n\t\t\t\t_M.findObject(self, obj, actor)\n\t\t\tend},\n\t\t\t{name=(\"Drop @ (%s, %s)%s\"):tformat(actor.x, actor.y, actor.player and _t\" #LIGHT_GREEN#(player)#LAST#\" or \"\"), choice=\"drop\", fct=function(sel)\n\t\t\t\tgame.zone:addEntity(game.level, obj, \"object\", actor.x, actor.y)\n\t\t\t\tgame.log(\"#LIGHT_BLUE#Dropped %s at (%d, %d)\", obj:getName({do_color=true}), actor.x, actor.y)\n\t\t\tend},\n\t\t\t{name=(\"NPC Inventory\"):tformat(), choice=\"npc\", fct=function(sel)\n\t\t\t\tlocal x, y, act = _M.objectToTarget(self, obj)",
+      "response": null
+    },
+    {
+      "proposal_id": "P008",
+      "profile": "dialogue",
+      "source": "Place the object where?",
+      "target": "将物品放置到哪个物品栏？",
+      "source_context": "\t\tgame:registerDialog(self)\n\tend)\n\tcoroutine.resume(co)\nend\n\n--- Create the object, either dropping it or adding it to the player or npc's inventory\nfunction _M:acceptObject(obj, actor)\n\tif not obj then game.log(\"#LIGHT_BLUE#No object to create\")\n\telse\n\t\tobj = obj:cloneFull()\n\t\tactor = actor or self.actor or game.player\n\t\t-- choose where to put object (default is current actor's inventory)\n\t\tlocal d = Dialog:multiButtonPopup(_t\"Place Object\", _t\"[[SOURCE_MATCH_1]]\",\n\t\t\t{{name=(\"Inventory of %s%s\"):tformat( actor:getName(), actor.player and _t\" #LIGHT_GREEN#(player)#LAST#\" or \"\"), choice=\"player\", fct=function(sel)\n\t\t\t\t-- if not obj.quest and not obj.plot then obj.__transmo = true end\n\t\t\t\tactor:addObject(actor.INVEN_INVEN, obj)\n\t\t\t\tgame.zone:addEntity(game.level, obj, \"object\")\n\t\t\t\t_M.findObject(self, obj, actor)\n\t\t\tend},\n\t\t\t{name=(\"Drop @ (%s, %s)%s\"):tformat(actor.x, actor.y, actor.player and _t\" #LIGHT_GREEN#(player)#LAST#\" or \"\"), choice=\"drop\", fct=function(sel)\n\t\t\t\tgame.zone:addEntity(game.level, obj, \"object\", actor.x, actor.y)\n\t\t\t\tgame.log(\"#LIGHT_BLUE#Dropped %s at (%d, %d)\", obj:getName({do_color=true}), actor.x, actor.y)\n\t\t\tend},\n\t\t\t{name=(\"NPC Inventory\"):tformat(), choice=\"npc\", fct=function(sel)\n\t\t\t\tlocal x, y, act = _M.objectToTarget(self, obj)",
+      "response": null
+    },
+    {
+      "proposal_id": "P009",
+      "profile": "dialogue",
+      "source": "Accept these selections",
+      "target": "无条件确认选择",
+      "source_context": "\t\t\t\tgame.logPlayer(self.actor, \"#LIGHT_BLUE#Preparing trap with normal trigger.\")\n\t\t\tend\n\t\t\tself.traps_selected[tid] = not self.traps_selected[tid]\n\t\t\tself.num_sel = self.num_sel + (self.traps_selected[tid] and 1 or -1)\n\t\t\titem.color = self.traps_selected[tid] and colors_simple.LIGHT_GREEN or colors_simple.LIGHT_RED\n\t\t\tself:formatItem(item)\n\t\t\tself.c_list:drawItem(item)\n\t\tend\n\tend\nend\n\nfunction _M:generateList()\n\tlocal list = {{label=_t\"[[SOURCE_MATCH_1]]\", tier=0, color = colors_simple.GOLD,\n\t\taction=function()\n\t\t\tif self.num_sel <= self.max_traps then\n\t\t\t\tself.actor:talentDialogReturn(self.traps_selected, self.starting_traps)\n\t\t\t\tgame:unregisterDialog(self)\n\t\t\telse\n\t\t\t\tgame.logPlayer(self.actor, \"#LIGHT_BLUE#You cannot prepare more than %d traps.\", self.max_traps)\n\t\t\tend\n\t\tend}}\n\tfor tid, tier in pairs(self.trap_tids) do\n\t\tlocal t = self.actor:getTalentFromId(tid)\n\t\tlocal canlearn, unlearnable = self.actor:canLearnTalent(t)\n\t\tlist[#list+1] = {talent=t, tid=tid, tier=tier, unlearnable=unlearnable}",
+      "response": null
+    },
+    {
+      "proposal_id": "P010",
+      "profile": "dialogue",
+      "source": "Accept these selections",
+      "target": "确认法术选择",
+      "source_context": "\t\t\t\tgame.logPlayer(self.actor, \"#LIGHT_BLUE#Preparing trap with normal trigger.\")\n\t\t\tend\n\t\t\tself.traps_selected[tid] = not self.traps_selected[tid]\n\t\t\tself.num_sel = self.num_sel + (self.traps_selected[tid] and 1 or -1)\n\t\t\titem.color = self.traps_selected[tid] and colors_simple.LIGHT_GREEN or colors_simple.LIGHT_RED\n\t\t\tself:formatItem(item)\n\t\t\tself.c_list:drawItem(item)\n\t\tend\n\tend\nend\n\nfunction _M:generateList()\n\tlocal list = {{label=_t\"[[SOURCE_MATCH_1]]\", tier=0, color = colors_simple.GOLD,\n\t\taction=function()\n\t\t\tif self.num_sel <= self.max_traps then\n\t\t\t\tself.actor:talentDialogReturn(self.traps_selected, self.starting_traps)\n\t\t\t\tgame:unregisterDialog(self)\n\t\t\telse\n\t\t\t\tgame.logPlayer(self.actor, \"#LIGHT_BLUE#You cannot prepare more than %d traps.\", self.max_traps)\n\t\t\tend\n\t\tend}}\n\tfor tid, tier in pairs(self.trap_tids) do\n\t\tlocal t = self.actor:getTalentFromId(tid)\n\t\tlocal canlearn, unlearnable = self.actor:canLearnTalent(t)\n\t\tlist[#list+1] = {talent=t, tid=tid, tier=tier, unlearnable=unlearnable}",
+      "response": null
+    },
+    {
+      "proposal_id": "P011",
+      "profile": "dialogue",
+      "source": "#LIGHT_GREEN#*A slot in the door opens and a pair of wild eyes peer out.*#WHITE#\nWhat do you want, @playerdescriptor.race@?",
+      "target": "#LIGHT_GREEN#*门上开了一个小洞，一副狂乱的眼睛凝视着他。*#WHITE#\n你想干什么，@playerdescriptor.race@？",
+      "source_context": "\nlocal function check_materials(npc, player)\n\tlocal gem_o, gem_item, gem_inven_id = player:findInAllInventories(\"Resonating Diamond\", {raw_name=true})\n\tlocal athame_o, athame_item, athame_inven_id = player:findInAllInventories(\"Blood-Runed Athame\", {raw_name=true})\n\treturn gem_o and athame_o and player.money >= 100\nend\n\n-----------------------------------------------------------------\n-- Main dialog\n-----------------------------------------------------------------\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[[[SOURCE_MATCH_1]]]],\n\tanswers = {\n\t\t{_t\"Paladin Aeryn told me that you could help me. I need to get to Maj'Eyal.\", jump=\"help\", cond=function(npc, player) return game.state:isAdvanced() and not player:hasQuest(\"west-portal\") end},\n\t\t{_t\"I found the Blood-Runed Athame, but there was no Resonating Diamond.\", jump=\"athame\", cond=function(npc, player) return player:hasQuest(\"west-portal\") and player:hasQuest(\"west-portal\"):isCompleted(\"athame\") and not player:hasQuest(\"west-portal\"):isCompleted(\"gem\") end},\n\t\t{_t\"I have a Resonating Diamond.\", jump=\"complete\", cond=function(npc, player) return player:hasQuest(\"west-portal\") and player:hasQuest(\"west-portal\"):isCompleted(\"gem\") end},\n\t\t{_t(\"Sorry, I have to go!\", \"chat_zemekkys\")},\n\t}\n}\n\n-----------------------------------------------------------------\n-- Give quest\n-----------------------------------------------------------------\nnewChat{ id=\"help\",",
+      "response": null
+    },
+    {
+      "proposal_id": "P012",
+      "profile": "dialogue",
+      "source": "Quest #CIMSON#Failed!",
+      "target": "主线任务 #CIMSON#失败了！",
+      "source_context": "local Dialog = require \"engine.ui.Dialog\"\nlocal Textzone = require \"engine.ui.Textzone\"\nlocal FontPackage = require \"engine.FontPackage\"\nlocal Quest = require \"engine.Quest\"\n\nmodule(..., package.seeall, class.inherit(Dialog))\n\nlocal statuses = {\n\t[-1] = _t\"#LIGHT_GREEN#New#LAST# Quest!\",\n\t[Quest.PENDING] = _t\"Quest #AQUAMARINE#Updated!\",\n\t[Quest.COMPLETED] = _t\"Quest #LIGHT_GREEN#Completed!\",\n\t[Quest.DONE] = _t\"Quest #LIGHT_GREEN#Done!\",\n\t[Quest.FAILED] = _t\"[[SOURCE_MATCH_1]]\",\n}\n\nfunction _M:init(quest, status)\n\tlocal use_ui = \"quest\"\n\tif quest.use_ui then use_ui = quest.use_ui end\n\tif status == Quest.FAILED then use_ui = \"quest-fail\" end\n\t\n\tif status == Quest.DONE then\n\t\tif use_ui == \"quest-escort\" then\n\t\t\tif quest.to_zigur then self.dialog_h_middles_alter = {b8 = \"ui/antimagic_complete_dialogframe_8_middle.png\"}\n\t\t\telse self.dialog_h_middles_alter = {b8 = \"ui/normal_complete_dialogframe_8_middle.png\"} end\n\t\telseif use_ui == \"quest-idchallenge\" then self.dialog_h_middles_alter = {b8 = \"ui/complete_dialogframe_8_middle.png\"}",
+      "response": null
+    },
+    {
+      "proposal_id": "P013",
+      "profile": "dialogue",
+      "source": "Spare me the small talk. I am here to stop you!",
+      "target": "我不是来和你聊天的，我是来阻止你的！",
+      "source_context": "\t\tfor uid, e in pairs(game.level.entities) do\n\t\t\tif e.define_as and (e.define_as == \"ELANDAR\" or e.define_as == \"ARGONIEL\") then\n\t\t\t\te:setTarget(aeryn)\n\t\t\tend\n\t\tend\n\tend\nend\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[#LIGHT_GREEN#*The two Sorcerers stands before you, shining like the Sun.*#WHITE#\nAh! Our guest is finally here. I take it you found the peak entertaining?]],\n\tanswers = {\n\t\t{_t\"[[SOURCE_MATCH_1]]\", jump=\"explain\"},\n\t\t{_t\"Why are you doing all that? You were supposed to help people!\", jump=\"explain\"},\n\t}\n}\n\nnewChat{ id=\"explain\",\n\ttext = _t[[Oh, but all we want is to help people. We have come to the self-evident conclusion that common people are just unfit to govern themselves, always bickering, arguing...\nSince the last invasion of the orcs there has been no threat to unite them!]],\n\tanswers = {\n\t\t{_t\"So you have decided to become the threat yourselves?\", jump=\"explain2\"},\n\t}\n}\n",
+      "response": null
+    }
+  ]
+}

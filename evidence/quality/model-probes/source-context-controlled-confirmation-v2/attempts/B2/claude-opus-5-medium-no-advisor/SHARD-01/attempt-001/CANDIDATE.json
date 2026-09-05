@@ -1,0 +1,241 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "B2",
+  "arm": "B",
+  "run": 2,
+  "shard": "01",
+  "route_key": "opus",
+  "route": "claude-opus-5-medium-no-advisor",
+  "attempt": 1,
+  "request_sha256": "68093fecf07ce119422b222fd43e69dad0f9b2d3e6f39a9a1a6798f66a4234a6",
+  "input_sha256": "4aa3d739455058120ea0cd8e0dd67b44c4abc74d1b9aba0ad1ff654e94ac425f",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "c49e48c5e52dab95c597c11450c9d195985a3d649a97eadb5a949660c4ba71d3",
+  "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "route_metadata": {
+    "initialized_model": "claude-opus-5",
+    "assistant_models": [
+      "claude-opus-5"
+    ],
+    "model_usage": [
+      "claude-opus-5"
+    ],
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 18169,
+      "cache_read_input_tokens": 3051,
+      "output_tokens": 3798,
+      "output_tokens_details": {
+        "thinking_tokens": 1435
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 18169,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [],
+      "speed": "standard"
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "neutral_id": "Q001",
+        "candidates": [],
+        "observation": "人名、条件（成长到尽可能强大后再击杀）均忠实还原，无实质缺陷。"
+      },
+      {
+        "neutral_id": "Q002",
+        "candidates": [],
+        "observation": "人物、方向（从德斯镇酒馆看最后的希望城招牌）、伤情与心理描写均与源文一致。"
+      },
+      {
+        "neutral_id": "Q003",
+        "candidates": [],
+        "observation": "斗篷隐藏本质、被视为普通人类、可自由行动三层意思均完整传达。"
+      },
+      {
+        "neutral_id": "Q004",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "魔法大爆炸的七章故事",
+            "correction": "改为“魔法大爆炸的传说/故事”，不要添加章数；若添加也应为“八章”（见 desc 的 eight chapters）",
+            "evidence": "Tales of the Spellblaze"
+          }
+        ],
+        "observation": "标题被添加了源文没有的“七章”，且与上下文 desc “Learned the eight chapters” 的数量相矛盾。"
+      },
+      {
+        "neutral_id": "Q005",
+        "candidates": [],
+        "observation": "“eight chapters”译为“8章”，数量与对象均正确。"
+      },
+      {
+        "neutral_id": "Q006",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "主线任务",
+            "correction": "改为“任务”，源文仅为 Quest，未限定为主线",
+            "evidence": "Quest #CIMSON#Failed!"
+          }
+        ],
+        "observation": "该字符串为通用任务状态提示（与 Updated/Completed/Done 并列），译文擅自限定为“主线任务”。"
+      },
+      {
+        "neutral_id": "Q007",
+        "candidates": [],
+        "observation": "“必须装备才能使用”与代码中 wornInven/not wielded 的判断一致，无缺陷。"
+      },
+      {
+        "neutral_id": "Q008",
+        "candidates": [],
+        "observation": "“点击复制”省略了“到剪贴板”，但代码 setClipboard 佐证语义未变；分享种子共用同套技能的说明完整。"
+      },
+      {
+        "neutral_id": "Q009",
+        "candidates": [],
+        "observation": "拒绝寒暄、前来阻止的语义与语气均对应，无实质偏差。"
+      },
+      {
+        "neutral_id": "Q010",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "隐藏鼠标手势轨迹",
+            "correction": "改为“显示鼠标手势轨迹”",
+            "evidence": "#GOLD##{bold}#Display mouse gesture trails#WHITE##{normal}#"
+          }
+        ],
+        "observation": "选项名称的语义被反转为“隐藏”，与源文 Display 相反。"
+      },
+      {
+        "neutral_id": "Q011",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "这不是维网。",
+            "correction": "改为肯定句，如“这就是维网/这便是‘道’。”",
+            "evidence": "This is the Way."
+          }
+        ],
+        "observation": "结尾句被译成否定，与源文肯定陈述相反（上下文亦有 I have the Way 作正面呼应）。"
+      },
+      {
+        "neutral_id": "Q012",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "打开我的用户信息",
+            "correction": "改为“打开用户资料/打开其个人主页”，指的是所选用户而非自己",
+            "evidence": "Open profile(in browser)"
+          }
+        ],
+        "observation": "上下文为对聊天列表中他人（citem.login/data.profile）的操作菜单，译文的“我的”误指为玩家自己。"
+      },
+      {
+        "neutral_id": "Q013",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "CONDITION",
+            "target_span": "即使你懂夏·图尔语也无法理解的文字",
+            "correction": "改为“你看不懂的文字：”",
+            "evidence": "which you do not understand"
+          }
+        ],
+        "observation": "该分支仅在 not speaks_shertul 时显示，译文添加的“即使你懂夏·图尔语”与触发条件相矛盾。"
+      },
+      {
+        "neutral_id": "Q014",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "，达到白银捐赠等级",
+            "correction": "删除该增补；此条对应 Gold Donator（黄金捐赠者），非白银",
+            "evidence": "Donated at least 16 euros to Tales of Maj'Eyal."
+          }
+        ],
+        "observation": "源文只有捐赠金额，译文增补了等级说明，且与上下文 id=GOLD_DONATOR（白银为 6 欧元档）冲突。"
+      },
+      {
+        "neutral_id": "Q015",
+        "candidates": [],
+        "observation": "竞技场中获得“毁灭者”称号的表述与源文一致。"
+      },
+      {
+        "neutral_id": "Q016",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ACTION",
+            "target_span": "锁定阵营",
+            "correction": "改为“修改阵营”",
+            "evidence": "DEBUG -- Alter Faction"
+          }
+        ],
+        "observation": "Alter（修改）被译作“锁定”，动作语义错误。"
+      },
+      {
+        "neutral_id": "Q017",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "ADDITION",
+            "target_span": "你永远无法理解的文字",
+            "correction": "改为“你看不懂的文字”，去掉源文没有的“永远”",
+            "evidence": "which you do not understand"
+          }
+        ],
+        "observation": "整体正确，但“永远”是源文所无的强化限定（该文本随 speaks_shertul 变化，并非永久不可解）。"
+      },
+      {
+        "neutral_id": "Q018",
+        "candidates": [],
+        "observation": "“角色达到50级”与源文一致。"
+      },
+      {
+        "neutral_id": "Q019",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "CONDITION",
+            "target_span": "即使我不会提取宝石，",
+            "correction": "删除该增补，直译为“能让我的转化之盒自动提取宝石吗？”",
+            "evidence": "Would it be possible for my Transmogrification Chest to automatically extract gems?"
+          }
+        ],
+        "observation": "源文无此让步条件，且该对话选项的 cond 要求 player:knowTalent(player.T_EXTRACT_GEMS)，译文与显示条件直接矛盾。"
+      },
+      {
+        "neutral_id": "Q020",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "加库尔的八章传说",
+            "correction": "改为“加库尔的传说”；若保留章数应为“五章”",
+            "evidence": "The Legend of Garkul"
+          }
+        ],
+        "observation": "标题被添加章数“八章”，而上下文 desc 为 Learned the five chapters of the Legend of Garkul，数值错误。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source-context-controlled-confirmation-clean-audit-response-v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "pass", "shard", "queue_sha256", "items"],
+  "properties": {
+    "schema_version": {"const": "source-context-controlled-confirmation-clean-audit-candidate-v2"},
+    "pass": {"enum": ["SURFACE", "CONTEXT"]},
+    "shard": {"type": "integer", "minimum": 1, "maximum": 3},
+    "queue_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "items": {
+      "type": "array",
+      "minItems": 40,
+      "maxItems": 40,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["audit_id", "verdict", "findings", "evidence", "limitations"],
+        "properties": {
+          "audit_id": {"type": "string", "pattern": "^A[0-9]{3}$"},
+          "verdict": {"enum": ["CLEAN", "OBJECTIVE_DEFECT", "UNRESOLVED"]},
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["claim_type", "severity", "target_span", "claim"],
+              "properties": {
+                "claim_type": {"enum": ["ACCURACY", "ROLE_OR_REFERENT", "CONDITION_OR_SCOPE", "DIRECTION_OR_POLARITY", "FORMAT_OR_MARKUP", "TERMINOLOGY", "OTHER_OBJECTIVE"]},
+                "severity": {"enum": ["major", "minor"]},
+                "target_span": {"type": "string", "minLength": 1},
+                "claim": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "evidence": {"type": "string", "minLength": 1},
+          "limitations": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

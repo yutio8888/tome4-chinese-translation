@@ -1,0 +1,24 @@
+{
+  "schema_version": "gemini-original-items-matrix-metrics-v1",
+  "reference_free": true,
+  "primary": "exact unnormalized evidence membership in the item's source or target",
+  "per_run": [
+    "candidate_count",
+    "evidence_membership_count",
+    "evidence_membership_rate",
+    "source_target_only_evidence_membership_rate",
+    "target_span_membership_rate",
+    "registered_field_name_rate",
+    "UTF-16 evidence mean length",
+    "explanatory-prose proxy counts split by membership validity"
+  ],
+  "zero_candidate_rule": "All candidate-denominator rates and mean length are null; the run is uninformative, null is never coerced to zero, and any zero-candidate run makes the primary interpretation INCOMPLETE_MATRIX.",
+  "condition_aggregation": "Report three runs, informative-run count, micro evidence membership, unweighted informative-run mean membership, fully-conformant informative-run count, candidate count, and informative-run rate range.",
+  "contrasts": "P within S0/S2, S within P0/P1, and difference-in-differences use unweighted condition run means and are null unless all four conditions and all 12 runs are present and informative and the matrix is structurally complete.",
+  "paired_gain": "Each p1-s2/p0-s0 repetition pair must contain finite non-null rates before the greater-than predicate can pass.",
+  "no_observed_difference": "Requires all four conditions, exactly three registered repetitions per condition, and all 12 runs informative; equality among a partial set is insufficient.",
+  "membership": "JavaScript String.prototype.includes; no normalization.",
+  "character_length": "JavaScript string .length (UTF-16 code units).",
+  "registered_field_alias": "S0 registers evidence and S2 registers evidence_quote. Exactly the registered field is structurally required; normalized RAW records evidence plus emitted and registered field names.",
+  "significance_tests": false
+}

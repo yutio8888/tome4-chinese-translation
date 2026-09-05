@@ -1,0 +1,69 @@
+{
+  "schema_version": "gemini-evaluator-contract-effectiveness-design-v1",
+  "objective": "Descriptively compare baseline P0+S0 against hardened P1+S2 under mandatory authoritative structured_output on two independently referenced holdouts.",
+  "datasets": {
+    "H1": {
+      "items": 24,
+      "controlled_mutations": 12,
+      "independent_clean_controls": 12,
+      "unique_model_facing_sources": 24,
+      "unique_origin_revisions": 24,
+      "kind": "translation-origin controlled mutations plus independent clean controls from other origins"
+    },
+    "H2": {
+      "items": 24,
+      "clean": 12,
+      "defective": 12,
+      "kind": "natural production"
+    }
+  },
+  "conditions": {
+    "baseline": {
+      "prompt": "P0",
+      "schema": "S0",
+      "evidence_field": "evidence"
+    },
+    "hardened": {
+      "prompt": "P1",
+      "schema": "S2",
+      "evidence_field": "evidence_quote"
+    }
+  },
+  "registered_order": [
+    "h1-baseline-r1",
+    "h2-hardened-r1",
+    "h2-baseline-r1",
+    "h1-hardened-r1",
+    "h2-baseline-r2",
+    "h1-baseline-r2",
+    "h1-hardened-r2",
+    "h2-hardened-r2",
+    "h1-hardened-r3",
+    "h2-baseline-r3",
+    "h2-hardened-r3",
+    "h1-baseline-r3"
+  ],
+  "repetitions_per_dataset_condition": 3,
+  "agy_process_budget": 12,
+  "inference_call_budget": 12,
+  "max_attempts_per_cell": 1,
+  "retries": 0,
+  "authoritative_channel": "structured_output",
+  "response_rule": "Presence, JSON type, and for strings UTF-8 byte length/hash only; never parse, normalize, compare, project, score, or use as fallback.",
+  "continue_rule": "Continue after a strict payload with zero candidates or any quote/span membership failure.",
+  "stop_rule": "Stop later calls after route/process/network/eligibility failure, malformed or duplicate-key outer JSON, missing/invalid structured_output, strict payload failure, ledger inconsistency, artifact collision, static drift, or sealing/private-cwd violation.",
+  "adoption_gate": {
+    "mechanical": "Every hardened candidate-bearing run has 100% exact quote and target-span membership.",
+    "effectiveness": "For each dataset, in at least two of three repetition pairs, hardened has at most one additional missed reference defect and at most one additional clean-item false positive versus baseline.",
+    "natural_required": true,
+    "exceptions_and_zero_runs_reported": true,
+    "no_significance_claim": true
+  },
+  "headline_rule": "H1 and H2 are reported separately; no pooled headline metric. Union and consensus are descriptive derived summaries, not measured single runs.",
+  "uniform_rendering_contract": {
+    "input_json": "compact JSON.stringify",
+    "schema_json": "compact JSON.stringify",
+    "request_trailing_newline": false,
+    "predecessor_deviations": "Pretty-printing and terminal LF are deliberately not retained. Compact serialization and no trailing LF apply identically to every condition, removing them as between-condition confounds."
+  }
+}

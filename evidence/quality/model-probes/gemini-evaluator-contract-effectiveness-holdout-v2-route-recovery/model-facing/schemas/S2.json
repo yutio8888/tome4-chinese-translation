@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "items"
+  ],
+  "properties": {
+    "items": {
+      "type": "array",
+      "minItems": 24,
+      "maxItems": 24,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "item_id",
+          "candidates"
+        ],
+        "properties": {
+          "item_id": {
+            "type": "string",
+            "pattern": "^H[12]-I[0-9]{3}$"
+          },
+          "candidates": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "verdict",
+                "claim_type",
+                "target_span",
+                "correction",
+                "evidence_quote"
+              ],
+              "properties": {
+                "verdict": {
+                  "enum": [
+                    "FINDING",
+                    "UNCERTAIN"
+                  ]
+                },
+                "claim_type": {
+                  "enum": [
+                    "SUBJECT",
+                    "REFERENT",
+                    "EVENT",
+                    "CONDITION",
+                    "SCOPE",
+                    "DIRECTION",
+                    "POLARITY",
+                    "OWNERSHIP",
+                    "ACTION",
+                    "STATE",
+                    "TIMING",
+                    "OMISSION",
+                    "ADDITION",
+                    "FORMAT",
+                    "OTHER"
+                  ]
+                },
+                "target_span": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500,
+                  "description": "Copy a contiguous substring of this item's target, character for character."
+                },
+                "correction": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500,
+                  "description": "Authored replacement text for target_span; this field is not copied."
+                },
+                "evidence_quote": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500,
+                  "description": "Copy a contiguous substring of this item's source, target, or source_context when present, character for character; it is a quotation, never explanation, translation, summary, or reasoning."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

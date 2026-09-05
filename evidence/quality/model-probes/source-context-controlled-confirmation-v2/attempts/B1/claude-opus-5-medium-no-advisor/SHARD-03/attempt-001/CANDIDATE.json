@@ -1,0 +1,272 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "B1",
+  "arm": "B",
+  "run": 1,
+  "shard": "03",
+  "route_key": "opus",
+  "route": "claude-opus-5-medium-no-advisor",
+  "attempt": 1,
+  "request_sha256": "f23cfefc9e8396cb38305657edfac81d78cc7d092a404f5e80bb911a5e402863",
+  "input_sha256": "7d9cb2d261afeaf2505fcd0f79b832dfafdaf3c394aba890a0f4397f02fe1ba9",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "b748b88fea06414ba531791b4caa739b6436a80ef0f1a6583419796bbd706dac",
+  "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "route_metadata": {
+    "initialized_model": "claude-opus-5",
+    "assistant_models": [
+      "claude-opus-5"
+    ],
+    "model_usage": [
+      "claude-opus-5"
+    ],
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 18910,
+      "cache_read_input_tokens": 3051,
+      "output_tokens": 3734,
+      "output_tokens_details": {
+        "thinking_tokens": 1386
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 18910,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [],
+      "speed": "standard"
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "neutral_id": "Q041",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "确认法术选择",
+            "correction": "确认这些选择（上下文为陷阱选择，非法术）",
+            "evidence": "Accept these selections"
+          }
+        ],
+        "observation": "上下文为陷阱（traps_selected/max_traps）选择对话框，译文引入“法术”这一源文无据的对象。"
+      },
+      {
+        "neutral_id": "Q042",
+        "candidates": [],
+        "observation": "数值与含义与源文一致。"
+      },
+      {
+        "neutral_id": "Q043",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "SUBJECT",
+            "target_span": "我这个隐士",
+            "correction": "删除“我这个”，改为“这可不像隐士该有的态度。”（说话者是玩家，评论对方）",
+            "evidence": "THAT'S NOT A VERY HERMIT-LIKE ATTITUDE."
+          }
+        ],
+        "observation": "该句为 answers 中玩家的回答，源文无第一人称限定；译文把隐士身份归到说话者自己。"
+      },
+      {
+        "neutral_id": "Q044",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "200 面墙",
+            "correction": "100 面墙",
+            "evidence": "Have 100 walls on the sludgenest turn into hostile creatures."
+          }
+        ],
+        "observation": "数值错误，且 200 对应上下文中另一条 SLUDGENEST200 成就。"
+      },
+      {
+        "neutral_id": "Q045",
+        "candidates": [],
+        "observation": "半截句翻译与源文一致。"
+      },
+      {
+        "neutral_id": "Q046",
+        "candidates": [],
+        "observation": "与源文一致。"
+      },
+      {
+        "neutral_id": "Q047",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "那个人类",
+            "correction": "那个生物/携带它的生物",
+            "evidence": "ruined from your fight with the creature carrying it"
+          }
+        ],
+        "observation": "源文为 creature，译文具体化为“人类”，与可见证据不符；其余内容基本对应。"
+      },
+      {
+        "neutral_id": "Q048",
+        "candidates": [],
+        "observation": "标题翻译与源文一致。"
+      },
+      {
+        "neutral_id": "Q049",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "始终会显示",
+            "correction": "会显示（源文无“always”）",
+            "evidence": "a color coded trail is displayed"
+          }
+        ],
+        "observation": "源文无 always 限定（相邻另一项才含 Always display），译文增加“始终”。"
+      },
+      {
+        "neutral_id": "Q050",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "位于德斯镇、",
+            "correction": "删除该地点限定",
+            "evidence": "(You see here a large, elaborate fountain."
+          }
+        ],
+        "observation": "译文凭空增加地点“德斯镇”，而上下文表明该喷泉位于安格文（Angolwen Fountain）。"
+      },
+      {
+        "neutral_id": "Q051",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "OTHER",
+            "target_span": "一枚项链",
+            "correction": "一枚戒指",
+            "evidence": "If you bring me a gem and a ring"
+          }
+        ],
+        "observation": "ring 被误译为“项链”，与后文“戒指”自相矛盾。"
+      },
+      {
+        "neutral_id": "Q052",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "兽人是胜利了",
+            "correction": "他们是胜利了（指谢尔图/Sher'Tul，非兽人）",
+            "evidence": "But then where are they now if they won?"
+          }
+        ],
+        "observation": "上下文对话对象为 Sher'Tul，译文将主语改为“兽人”。"
+      },
+      {
+        "neutral_id": "Q053",
+        "candidates": [],
+        "observation": "内容、条件与数量均与源文对应。"
+      },
+      {
+        "neutral_id": "Q054",
+        "candidates": [],
+        "observation": "与源文一致。"
+      },
+      {
+        "neutral_id": "Q055",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ACTION",
+            "target_span": "放走鲜血大师",
+            "correction": "处决/干掉鲜血大师",
+            "evidence": "disposed of the Blood Master"
+          }
+        ],
+        "observation": "成就描述表明是除掉鲜血大师，译文改为“放走”，动作相反。"
+      },
+      {
+        "neutral_id": "Q056",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "弗莉吉亚的弟弟",
+            "correction": "一个人类",
+            "evidence": "realizing it's actually a human inside that hulking, worn armor"
+          },
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "ADDITION",
+            "target_span": "弗莉吉亚的弟弟",
+            "correction": "若需具体化，上下文指向“她的父亲”而非弟弟",
+            "evidence": "You will understand when you meet her father."
+          }
+        ],
+        "observation": "源文只说盔甲里是“一个人类”，译文具体化为“弗莉吉亚的弟弟”，且与上下文提到的“父亲”冲突。"
+      },
+      {
+        "neutral_id": "Q057",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "OTHER",
+            "target_span": "重新生成地图和角色",
+            "correction": "重新生成区域和关卡（Zone and level）",
+            "evidence": "Reload/regenerate Zone and level"
+          }
+        ],
+        "observation": "level 被误译为“角色”，调试菜单项对应 ReloadZone。"
+      },
+      {
+        "neutral_id": "Q058",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "即使此处没有抛射物，也可在 Lua 中查看",
+            "correction": "Lua 查看 [抛射物]",
+            "evidence": "Lua inspect [Projectile]"
+          }
+        ],
+        "observation": "译文增加源文没有的条件说明，且与代码中 `if p and ...` 的条件相反。"
+      },
+      {
+        "neutral_id": "Q059",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "必须单次使用",
+            "correction": "删除“单次”，改为“通过裂解清除了敌人身上的89个增益效果”",
+            "evidence": "Removed 89 beneficial effects from enemies via Disintegration."
+          }
+        ],
+        "observation": "源文为累计描述（can_gain 逐次累加至 89），译文增加“单次使用”这一不存在的限定。"
+      },
+      {
+        "neutral_id": "Q060",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ACTION",
+            "target_span": "杀死敌人",
+            "correction": "自杀（杀死自己）",
+            "evidence": "Killed oneself as a halfling."
+          }
+        ],
+        "observation": "源文为“自杀”，译文改为“杀死敌人”，动作对象错误。"
+      }
+    ]
+  }
+}

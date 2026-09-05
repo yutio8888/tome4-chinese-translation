@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["neutral_id", "candidates", "observation"],
+        "properties": {
+          "neutral_id": {"type": "string", "pattern": "^Q[0-9]{3}$"},
+          "candidates": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["verdict", "claim_type", "target_span", "correction", "evidence"],
+              "properties": {
+                "verdict": {"enum": ["FINDING", "UNCERTAIN"]},
+                "claim_type": {"enum": ["VALUE", "DIRECTION", "CONDITION", "SUBJECT", "REFERENT", "TIMING", "SCOPE", "ACTION", "STATE", "ORDER", "OMISSION", "ADDITION", "OTHER"]},
+                "target_span": {"type": "string", "minLength": 1},
+                "correction": {"type": "string", "minLength": 1},
+                "evidence": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "observation": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

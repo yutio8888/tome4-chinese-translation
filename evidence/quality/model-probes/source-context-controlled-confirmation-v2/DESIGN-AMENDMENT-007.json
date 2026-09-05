@@ -1,0 +1,10 @@
+{
+  "schema_version": "source-context-controlled-confirmation-design-amendment-v2",
+  "amendment_id": "DESIGN-AMENDMENT-007",
+  "status": "FROZEN_BEFORE_EXPERIMENTAL_INFERENCE",
+  "trigger": "The non-research route qualification exposed that a 60-item structured request can complete transport while failing to return a structured envelope; the formal B request was also 828956 bytes, creating avoidable context-window and output-serialization confounding.",
+  "change": "Mechanically partition the already frozen neutral order into three contiguous 20-item shards. Every route receives the same shard bytes. For each shard, A1=A2 and B1=B2 byte-for-byte. All three shards together cover the same 60 items exactly once per arm/run/route.",
+  "unchanged": ["final sample", "neutral order and IDs", "item roles", "sealed atoms", "four routes", "two runs", "wave order", "gates and denominators", "no third run"],
+  "qualification_policy": "Repeat the non-research qualification with the 20-item schema. Preserve the failed 60-item qualification as pre-inference harness evidence.",
+  "inference_calls_after_change": 48
+}

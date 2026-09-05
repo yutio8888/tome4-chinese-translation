@@ -1,0 +1,183 @@
+{
+  "schema_version": "source-context-controlled-confirmation-design-v2",
+  "status": "FROZEN_PHASE_0_DESIGN_NO_INFERENCE",
+  "experiment_id": "source-context-controlled-confirmation-v2",
+  "objective": "Estimate whether adding one mechanically bound fixed public-source context packet improves controlled context-required defect detection on clean project-corpus-novel ToME dialogue/narrative revisions without harming surface-defect detection or adding objective clean-control candidates.",
+  "production_translation_commit": "1666481409f4c0d63d66e84659f6b6145d8d25d0",
+  "fixed_tome_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "inference": {
+    "allowed": false,
+    "unlock_requires": [
+      "frozen source-only screen and target binding",
+      "completed surface-first/context-second clean adjudication",
+      "completed mutation manipulation check",
+      "final 60-item manifest and sealed atom reference",
+      "four qualified CLI routes and frozen runtime evidence policy",
+      "byte-exact A/B requests, model-facing schema, scorer and preflight",
+      "all registered fixtures and leakage checks passing"
+    ]
+  },
+  "estimand": {
+    "kind": "finite-set operational paired-arm contrast",
+    "unit": "base revision item",
+    "fixed_comparison_dimensions": ["CLI route intervention", "registered repeated run"],
+    "primary_items": 24,
+    "primary_contrast": "For each run, equal-weight mean across the four frozen CLI routes and 24 context-mutant items of D[B,r,t,i]-D[A,r,t,i].",
+    "detection": "At least one FINDING or UNCERTAIN candidate matches the exact sealed objective atom under the frozen matcher; duplicate matching claims collapse to one item detection.",
+    "not_claimed": [
+      "repository-wide or profile-wide prevalence",
+      "mechanics, UI, runtime-log or DLC generalization",
+      "independent route-item observations",
+      "pure underlying-model comparison",
+      "proof of absence from pretraining or provider-side logs",
+      "causal separation of semantic evidence from packet length or attention"
+    ]
+  },
+  "frame": {
+    "component": "tome",
+    "profiles": ["dialogue", "narrative"],
+    "novelty_term": "project-corpus-novel",
+    "novelty_rule": "Before target-informed selection, exclude every canonical revision_id and normalized source found in the frozen tracked model-probe exposure manifest or registered historical terminal contextual membership.",
+    "source_rules": {
+      "unicode_codepoints_min": 20,
+      "unicode_codepoints_max": 1000,
+      "inventory_occurrences": 1,
+      "fixed_source_normalized_occurrences": 1,
+      "profile_confidence": "high",
+      "context_lines_each_side_max": 12,
+      "context_utf8_bytes_each_side_max": 2000,
+      "context_total_utf8_bytes_max": 8192,
+      "require_nonempty_before_and_after": true,
+      "manual_context_repair_allowed": false
+    },
+    "source_screen_target_count": 240,
+    "source_screen_profile_counts": {"dialogue": 120, "narrative": 120},
+    "source_screen_file_cap": 12,
+    "source_screen_selection": "seeded source-only rank after all eligibility and exposure exclusions",
+    "source_screen_seed": "source-context-controlled-confirmation-v2/source-screen/2026-08-28"
+  },
+  "clean_audit": {
+    "target_bound_after_source_screen_freeze": true,
+    "order": ["surface-only candidate audit", "mechanical context release", "lead fixed-source adjudication"],
+    "required_final_base_verdict": "CLEAN_NO_MATERIAL_DEFECT",
+    "historical reviewer output_is_clean_proof": false,
+    "mutation_assignment_before_clean_lock": false,
+    "post_freeze_item_replacement": false
+  },
+  "sample": {
+    "total_items": 60,
+    "context_required_mutants": 24,
+    "matched_clean_controls": 24,
+    "surface_visible_mutants": 12,
+    "distinct_revision_ids": true,
+    "distinct_normalized_sources": true,
+    "distinct_context_blocks": true,
+    "max_items_per_source_file": 2,
+    "max_items_per_historical_task_when_applicable": 4,
+    "mutation_and_control_near_duplicate_sources_forbidden": true,
+    "context_mutation_families": {
+      "speaker_addressee_or_agent_patient": 6,
+      "referent_or_entity_identity": 6,
+      "event_branch_condition_or_scope": 6,
+      "direction_polarity_or_ownership": 6
+    },
+    "profile_balance": {
+      "context_required_mutants": {"dialogue": 12, "narrative": 12},
+      "matched_clean_controls": {"dialogue": 12, "narrative": 12},
+      "surface_visible_mutants": {"dialogue": 6, "narrative": 6}
+    },
+    "assignment_seed": "source-context-controlled-confirmation-v2/final-assignment/2026-08-28",
+    "ordered_reserve_required": true
+  },
+  "mutation_integrity": {
+    "base_must_be_clean": true,
+    "exactly_one_material_objective_atom": true,
+    "minimal_unique_target_edit_span": true,
+    "context_mutant_surface_view": "The source plus mutated target contains no objectively decidable bilingual contradiction or structural defect; the registered atom is underdetermined without context.",
+    "context_mutant_context_view": "The mechanically frozen source packet uniquely and sufficiently refutes the mutated atom.",
+    "surface_mutant_surface_view": "The registered atom is objectively detectable from source and target without context.",
+    "manipulation_check_order": ["A-only locked decision", "B-context decision"],
+    "manipulation_check_failure": "NO_GO_BEFORE_INFERENCE"
+  },
+  "arms": {
+    "A": ["item_id", "source", "target"],
+    "B": ["item_id", "source", "target", "source_context"],
+    "unique_difference": "source_context",
+    "context_projection": "The ordered visible_context strings mechanically joined from the frozen source-evidence packet; no hand editing, expected claim or mutation metadata.",
+    "byte_identity": "A1 and A2 requests are byte-identical; B1 and B2 requests are byte-identical. Responses need not be identical."
+  },
+  "routes": {
+    "planned_count": 4,
+    "comparison_label": "CLI route intervention",
+    "must_freeze_before_inference": [
+      "CLI version",
+      "requested provider/model/effort",
+      "actual command template",
+      "canonical schema delivery",
+      "native schema enforcement when available",
+      "runtime provider/model evidence policy",
+      "runtime effort evidence status",
+      "tool-isolation evidence tier",
+      "parser and retry classifier"
+    ],
+    "qualification_uses_research_items": false,
+    "minimum_qualified_routes": 4,
+    "route_set_change_after_inference": false,
+    "effort_wording": "requested effort unless runtime telemetry directly attests it"
+  },
+  "runs": {
+    "count": 2,
+    "wave_order": ["A1", "B1", "B2", "A2"],
+    "routes_parallel_within_wave": true,
+    "fresh_ephemeral_session_each_cell": true,
+    "third_run_allowed": false
+  },
+  "scoring": {
+    "context_route_items_per_run": 96,
+    "surface_route_items_per_run": 48,
+    "clean_route_items_per_run": 96,
+    "clean_candidate": "At least one objective translation FINDING or UNCERTAIN supportable or refutable by the frozen source evidence; subjective style-only advice is reported separately.",
+    "wrong_atom_does_not_cancel_correct_detection": true,
+    "duplicate_claims_fold_to_item": true,
+    "finding_only_secondary": true,
+    "runs_scored_separately_for_decision": true
+  },
+  "gates_each_run": {
+    "context_net_hits_min": 20,
+    "context_net_hits_denominator": 96,
+    "routes_with_strictly_positive_context_delta_min": 3,
+    "routes_with_negative_context_delta_max": 0,
+    "surface_aggregate_net_hits_min": 0,
+    "surface_per_route_net_hits_min": 0,
+    "clean_aggregate_candidate_net_max": 0,
+    "clean_per_route_candidate_net_max": 0,
+    "clean_B_only_new_candidates_max": 0,
+    "base_contamination_max": 0,
+    "control_contamination_max": 0,
+    "mutation_integrity_failures_max": 0
+  },
+  "missingness": {
+    "paired_cell_required": true,
+    "any_missing_or_ineligible_paired_cell": "ADOPTION_NO_GO",
+    "imputation": false,
+    "transport_retry": "At most one byte-identical fresh retry only when no non-synthetic assistant response payload exists.",
+    "response_schema_invalid_is_transport_failure": false,
+    "route_identity_mismatch_is_resampled": false,
+    "successful_raw_reparsed_without_resampling": true,
+    "parser_repair_output": "new immutable CANDIDATE-PARSER-FIX-N artifact bound to RAW and parser hashes"
+  },
+  "invalidators": [
+    "sealed reference or adjudication leakage",
+    "A/B drift beyond source_context",
+    "source/context/target/hash drift",
+    "post-inference item replacement or atom change",
+    "wrong frozen route or disallowed fallback/mixed-model execution",
+    "mutation or clean-control truth failure discovered after inference"
+  ],
+  "stop_rules": [
+    "Stop after two registered runs per arm.",
+    "Do not add a third run, expand the sample, change an atom or relax a gate because a result is near a boundary.",
+    "Preserve harness/network/schema/parser failures separately from model outcomes under the frozen retry policy.",
+    "A failed adoption decision does not erase descriptive route/item results."
+  ]
+}

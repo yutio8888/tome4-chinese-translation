@@ -1,0 +1,238 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "B1",
+  "arm": "B",
+  "run": 1,
+  "shard": "03",
+  "route_key": "gemini",
+  "route": "agy-gemini-3.7-flash-high",
+  "attempt": 1,
+  "request_sha256": "f23cfefc9e8396cb38305657edfac81d78cc7d092a404f5e80bb911a5e402863",
+  "input_sha256": "7d9cb2d261afeaf2505fcd0f79b832dfafdaf3c394aba890a0f4397f02fe1ba9",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "5e499e5d7d39c813c05e18081a40b61b6180b78943b83cf1d946e89d0c65fdfb",
+  "raw_stderr_sha256": "3a7f8550106d86abb322e8ed0fb30a0296c0e97c6be03d5a8033b99d16737459",
+  "route_metadata": {
+    "reported_model": null,
+    "runtime_identity_verified": false,
+    "usage": {
+      "input_tokens": 26515,
+      "output_tokens": 19785,
+      "thinking_tokens": 18281,
+      "cache_read_tokens": 0,
+      "total_tokens": 46300
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "candidates": [
+          {
+            "claim_type": "REFERENT",
+            "correction": "陷阱（该界面用于选择陷阱而非法术）",
+            "evidence": "self.traps_selected",
+            "target_span": "法术",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q041",
+        "observation": "源码上下文显示此界面用于选择陷阱（traps），target 将其误译为“法术选择”。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q042",
+        "observation": "翻译准确，无缺陷。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "SUBJECT",
+            "correction": "隐士（原句是玩家对隐士 NPC 发言的评价，并非玩家自称隐士）",
+            "evidence": "THAT'S NOT A VERY HERMIT-LIKE ATTITUDE.",
+            "target_span": "我这个隐士",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q043",
+        "observation": "原句为玩家对 NPC 态度的回应，target 误将隐士身份施加于玩家自身（“我这个隐士”）。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "VALUE",
+            "correction": "100",
+            "evidence": "100",
+            "target_span": "200",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q044",
+        "observation": "source 中数量为 100，target 误译为 200。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q045",
+        "observation": "翻译准确，无缺陷。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q046",
+        "observation": "翻译准确，无缺陷。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "REFERENT",
+            "correction": "携带它的生物",
+            "evidence": "the creature carrying it",
+            "target_span": "那个人类",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q047",
+        "observation": "source 原文为 the creature carrying it，target 误译为“那个人类”。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q048",
+        "observation": "翻译准确，无缺陷。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q049",
+        "observation": "翻译符合原文含义，无实质性缺陷。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "ADDITION",
+            "correction": "删除“位于德斯镇、”（该喷泉位于安格利文 Angolwen，并非德斯镇）",
+            "evidence": "Angolwen Fountain",
+            "target_span": "位于德斯镇、",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q050",
+        "observation": "target 凭空添加了错误的地点“位于德斯镇”，上下文明确表明该喷泉位于安格利文（Angolwen Fountain）。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "REFERENT",
+            "correction": "一枚戒指",
+            "evidence": "a ring",
+            "target_span": "一枚项链",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q051",
+        "observation": "source 原文为 a gem and a ring，target 误将 ring 翻译为“项链”。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "REFERENT",
+            "correction": "修特尔人（或他们）",
+            "evidence": "Those are Sher'Tuls?",
+            "target_span": "兽人",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q052",
+        "observation": "source_context 对话的主体为 Sher'Tuls，target 错误指代为“兽人”。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q053",
+        "observation": "翻译准确，无缺陷。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q054",
+        "observation": "翻译准确，无缺陷。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "ACTION",
+            "correction": "消灭",
+            "evidence": "disposed of the Blood Master",
+            "target_span": "放走",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q055",
+        "observation": "source_context 描述为 disposed of the Blood Master（消灭鲜血大师），target 误译为“放走”。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "REFERENT",
+            "correction": "一个人类",
+            "evidence": "a human",
+            "target_span": "弗莉吉亚的弟弟",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q056",
+        "observation": "source 原文为 a human，且上下文表明装甲内为弗莉吉亚的父亲而非弟弟，target 误译为“弗莉吉亚的弟弟”。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "REFERENT",
+            "correction": "层级",
+            "evidence": "level",
+            "target_span": "角色",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q057",
+        "observation": "source 中的 level 与 Zone（区域/地图）并列指代地图关卡层级，target 误译为“角色”。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "CONDITION",
+            "correction": "删除“即使此处没有抛射物，也可”（源码逻辑为存在抛射物 p 时才显示该选项）",
+            "evidence": "if p and config.settings.cheat then",
+            "target_span": "即使此处没有抛射物，也可",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q058",
+        "observation": "source_context 显示该菜单项仅在存在抛射物实体（if p）时显示，target 错误添加了“即使此处没有抛射物”的矛盾条件。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "CONDITION",
+            "correction": "累计（删除“必须单次”）",
+            "evidence": "self.nb = (self.nb or 0) + 1",
+            "target_span": "必须单次",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q059",
+        "observation": "source_context 表明该成就通过累加计数追踪（self.nb = (self.nb or 0) + 1），target 错误添加了“必须单次”的限制条件。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "REFERENT",
+            "correction": "自杀（或杀死自己）",
+            "evidence": "Killed oneself",
+            "target_span": "杀死敌人",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q060",
+        "observation": "source 原文为 Killed oneself as a halfling，指半身人自杀，target 误将 oneself 译为“敌人”。"
+      }
+    ]
+  }
+}

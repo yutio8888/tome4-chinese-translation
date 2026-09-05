@@ -1,0 +1,384 @@
+{
+  "schema_version": "source-context-controlled-confirmation-mutation-author-candidate-v2",
+  "shard": 2,
+  "queue_sha256": "7de91964dfad5d68bd12e57a4a01059c9d87a23f08c8dec51753d1730c8a289c",
+  "items": [
+    {
+      "base_ordinal": 11,
+      "audit_id": "A023",
+      "context_option": {
+        "mutated_target": "将物品丢弃到哪里？",
+        "edit_span_original": "放置",
+        "edit_span_mutated": "丢弃",
+        "claim_type": "CONDITION_OR_SCOPE",
+        "severity": "major",
+        "atom": "界面只询问物品的丢弃位置，而非涵盖多种放置方式。",
+        "minimality": "仅将“放置”替换为“丢弃”，其余文字和问句结构不变。",
+        "family": "event_branch_condition_or_scope",
+        "surface_underdetermined": "孤立的“Place the object where?”没有列出可用放置方式，place 在一般语境中可指把物品丢到某处。",
+        "context_refutation": "菜单同时提供放入当前角色物品栏、丢在坐标处和放入 NPC 物品栏三类分支，因此将整个操作收窄为“丢弃”是错误的。"
+      },
+      "surface_option": {
+        "mutated_target": "将角色放置到哪里？",
+        "edit_span_original": "物品",
+        "edit_span_mutated": "角色",
+        "claim_type": "ROLE_OR_REFERENT",
+        "severity": "major",
+        "atom": "被放置的是角色而不是物品。",
+        "minimality": "仅替换宾语“物品”，保留其他措辞和标点。",
+        "surface_refutation": "源文明确以 the object 作为被放置对象，不能译为“角色”。"
+      }
+    },
+    {
+      "base_ordinal": 12,
+      "audit_id": "A008",
+      "context_option": {
+        "mutated_target": "确认法术选择",
+        "edit_span_original": "选择",
+        "edit_span_mutated": "法术选择",
+        "claim_type": "ROLE_OR_REFERENT",
+        "severity": "major",
+        "atom": "待确认的项目是法术。",
+        "minimality": "仅在“选择”前加入类别限定“法术”，不改动确认动作。",
+        "family": "referent_or_entity_identity",
+        "surface_underdetermined": "源文只说 these selections，没有说明所选项目属于哪一类别。",
+        "context_refutation": "上下文操作的是 traps_selected、trap_tids 和可准备陷阱数量，唯一可确认的项目类别是陷阱而非法术。"
+      },
+      "surface_option": {
+        "mutated_target": "取消选择",
+        "edit_span_original": "确认",
+        "edit_span_mutated": "取消",
+        "claim_type": "DIRECTION_OR_POLARITY",
+        "severity": "major",
+        "atom": "该操作取消而不是接受当前选择。",
+        "minimality": "仅替换动作词“确认”，宾语保持不变。",
+        "surface_refutation": "Accept 表示接受或确认选择，与“取消”方向相反。"
+      }
+    },
+    {
+      "base_ordinal": 13,
+      "audit_id": "A030",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "#LIGHT_GREEN#*门上开了一个小洞，一副狂乱的眼睛凝视着你。*#WHITE#\n我想干什么，@playerdescriptor.race@？",
+        "edit_span_original": "你想干什么",
+        "edit_span_mutated": "我想干什么",
+        "claim_type": "ROLE_OR_REFERENT",
+        "severity": "major",
+        "atom": "说话者询问自己的意图，而不是 مخاط مخاط مخاط مخاط",
+        "minimality": "仅将问句主语“你”替换为“我”，保留占位符、换行和其余文本。",
+        "surface_refutation": "What do you want 明确询问被称呼者“你”想要什么，不能改成说话者询问“我”。"
+      }
+    },
+    {
+      "base_ordinal": 14,
+      "audit_id": "A027",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "不行，不过我可以让你看一下。\n#LIGHT_GREEN#*他靠向你，你的脑海里突然充满了平静和幸福。*#WHITE#\n这不是维网。",
+        "edit_span_original": "就是",
+        "edit_span_mutated": "不是",
+        "claim_type": "DIRECTION_OR_POLARITY",
+        "severity": "major",
+        "atom": "眼前体验并非维网。",
+        "minimality": "仅替换判断词“就是”，保留三行结构、色彩标记和其余叙述。",
+        "surface_refutation": "This is the Way 是肯定判断，译成“不是维网”反转了极性。"
+      }
+    },
+    {
+      "base_ordinal": 15,
+      "audit_id": "A057",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "任务 #CIMSON#完成了！",
+        "edit_span_original": "失败了",
+        "edit_span_mutated": "完成了",
+        "claim_type": "DIRECTION_OR_POLARITY",
+        "severity": "major",
+        "atom": "任务状态是完成而不是失败。",
+        "minimality": "仅替换状态词，原有颜色标记、空格和标点均保留。",
+        "surface_refutation": "Failed 明确表示失败，与“完成了”状态相反。"
+      }
+    },
+    {
+      "base_ordinal": 16,
+      "audit_id": "A022",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "调试模式 -- 锁定阵营",
+        "edit_span_original": "切换",
+        "edit_span_mutated": "锁定",
+        "claim_type": "DIRECTION_OR_POLARITY",
+        "severity": "major",
+        "atom": "该调试操作锁定阵营而不是变更阵营。",
+        "minimality": "仅替换操作动词，保留标题格式和阵营宾语。",
+        "surface_refutation": "Alter Faction 表示改变阵营，不能译为阻止改变的“锁定阵营”。"
+      }
+    },
+    {
+      "base_ordinal": 17,
+      "audit_id": "A053",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "#GOLD##{bold}#隐藏鼠标手势轨迹#WHITE##{normal}#",
+        "edit_span_original": "显示",
+        "edit_span_mutated": "隐藏",
+        "claim_type": "DIRECTION_OR_POLARITY",
+        "severity": "major",
+        "atom": "选项要求隐藏而不是显示手势轨迹。",
+        "minimality": "仅替换首个动作词，完整保留所有样式标记。",
+        "surface_refutation": "Display 明确表示显示，与“隐藏”极性相反。"
+      }
+    },
+    {
+      "base_ordinal": 18,
+      "audit_id": "A060",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "别害怕，几天后你回来，我肯定把一切都准备好了。哦，带上这个。 #LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以封闭泰尔玛废墟，那是多年前肖尔塔人封印的地方。要是你在废墟之中找到一份标题是《反转与复原概率场》的文献，请帮我带回来，这能大大提高你通过传送门时存活的几率。",
+        "edit_span_original": "打开",
+        "edit_span_mutated": "封闭",
+        "claim_type": "DIRECTION_OR_POLARITY",
+        "severity": "major",
+        "atom": "钥匙用于封闭废墟而不是开启废墟。",
+        "minimality": "仅替换钥匙作用的动词，保留长段落中所有其他信息和标记。",
+        "surface_refutation": "It opens the ruins 明确说明钥匙用于打开废墟，与“封闭”相反。"
+      }
+    },
+    {
+      "base_ordinal": 19,
+      "audit_id": "A055",
+      "context_option": {
+        "mutated_target": "我不是来和你聊天的，我是来阻止你的！",
+        "edit_span_original": "我不是来和你们聊天的，我是来阻止你们的！",
+        "edit_span_mutated": "我不是来和你聊天的，我是来阻止你的！",
+        "claim_type": "ROLE_OR_REFERENT",
+        "severity": "minor",
+        "atom": "玩家只对一名对手说话。",
+        "minimality": "对两处相同的复数代词作同一最小数范畴替换，句中其他成分不变。",
+        "family": "speaker_addressee_or_agent_patient",
+        "surface_underdetermined": "英语 you 本身不区分单复数，孤立源句无法确定被 مخاط者是一人还是多人。",
+        "context_refutation": "对话开场明确写着 The two Sorcerers，并给出两名巫师同时站在玩家面前，因此两处 you 的共同受 مخاط者是复数。"
+      },
+      "surface_option": {
+        "mutated_target": "我不是来和你们聊天的，我是来协助你们的！",
+        "edit_span_original": "阻止",
+        "edit_span_mutated": "协助",
+        "claim_type": "DIRECTION_OR_POLARITY",
+        "severity": "major",
+        "atom": "说话者来协助对方而不是制止对方。",
+        "minimality": "仅替换目的动作词，保留说话双方和句式。",
+        "surface_refutation": "stop you 表示阻止对方，与“协助你们”意图相反。"
+      }
+    },
+    {
+      "base_ordinal": 20,
+      "audit_id": "A009",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "但是那个人到底是……",
+        "edit_span_original": "这一切",
+        "edit_span_mutated": "那个人",
+        "claim_type": "ROLE_OR_REFERENT",
+        "severity": "major",
+        "atom": "未说完的问题询问某个人，而不是眼前发生的一切。",
+        "minimality": "仅替换被询问对象，保留转折词、语气和省略号。",
+        "surface_refutation": "all this 指一系列事态或眼前这一切，不能改成单一人物“那个人”。"
+      }
+    },
+    {
+      "base_ordinal": 41,
+      "audit_id": "A114",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "竞技场生存至第20轮。",
+        "edit_span_original": "50",
+        "edit_span_mutated": "20",
+        "claim_type": "ACCURACY",
+        "severity": "major",
+        "atom": "要求到达的是第20轮而不是第50轮。",
+        "minimality": "仅替换轮次数值，保留竞技场和生存表述。",
+        "surface_refutation": "源文明示 wave 50，译为第20轮数值错误。"
+      }
+    },
+    {
+      "base_ordinal": 42,
+      "audit_id": "R101",
+      "context_option": {
+        "mutated_target": "在竞技场中获得“毁灭者”段位。",
+        "edit_span_original": "称号",
+        "edit_span_mutated": "段位",
+        "claim_type": "TERMINOLOGY",
+        "severity": "minor",
+        "atom": "Destroyer 是竞技场等级段位，而不是附于人物名后的称号。",
+        "minimality": "仅替换 rank 的类别名，保留竞技场、获得动作和专名。",
+        "family": "referent_or_entity_identity",
+        "surface_underdetermined": "rank 在孤立文本中既可指等级段位，也可指获授的头衔。",
+        "context_refutation": "成就名称采用“XXX the Destroyer”的人物名加后置称号结构，而相邻 Grand Master 另列为独立成就，机械结构将 Destroyer 标识为人物称号。"
+      },
+      "surface_option": {
+        "mutated_target": "在竞技场中获得“宗师”称号。",
+        "edit_span_original": "毁灭者",
+        "edit_span_mutated": "宗师",
+        "claim_type": "TERMINOLOGY",
+        "severity": "major",
+        "atom": "获得的称号是宗师而不是毁灭者。",
+        "minimality": "仅替换引号内称号，保留其余句子。",
+        "surface_refutation": "源文明确指定 Destroyer，不能译为另一个称号“宗师”。"
+      }
+    },
+    {
+      "base_ordinal": 43,
+      "audit_id": "R109",
+      "context_option": {
+        "mutated_target": "这个发现可真是令人印象深刻！",
+        "edit_span_original": "这",
+        "edit_span_mutated": "这个发现",
+        "claim_type": "ROLE_OR_REFERENT",
+        "severity": "major",
+        "atom": "标题中的 this 特指一项发现。",
+        "minimality": "仅把未明示类别的指示词扩展为“这个发现”，其余评价措辞不变。",
+        "family": "referent_or_entity_identity",
+        "surface_underdetermined": "孤立标题中的 this 没有给出所指事件类别，可能指发现、胜利或其他成就。",
+        "context_refutation": "该成就的 desc 明确记录的是杀死安格利文至高大法师 Linaniil，而不是发现某物。"
+      },
+      "surface_option": {
+        "mutated_target": "这可真是毫不起眼！",
+        "edit_span_original": "令人印象深刻",
+        "edit_span_mutated": "毫不起眼",
+        "claim_type": "DIRECTION_OR_POLARITY",
+        "severity": "major",
+        "atom": "评价认为此事毫不起眼而不是令人赞叹。",
+        "minimality": "仅替换评价短语，保留感叹句结构。",
+        "surface_refutation": "impressive 是正面的显著评价，与“毫不起眼”语义相反。"
+      }
+    },
+    {
+      "base_ordinal": 44,
+      "audit_id": "A103",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "在60波模式中成为新的竞技场主宰。",
+        "edit_span_original": "30",
+        "edit_span_mutated": "60",
+        "claim_type": "ACCURACY",
+        "severity": "major",
+        "atom": "成为主宰的模式是60波而不是30波。",
+        "minimality": "仅替换模式波次数值，保留其余叙述。",
+        "surface_refutation": "源文明示 30-wave mode，译为60波模式数值错误。"
+      }
+    },
+    {
+      "base_ordinal": 45,
+      "audit_id": "A068",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "在莎西·凯希成长到尽可能强大之前杀死她。",
+        "edit_span_original": "之后",
+        "edit_span_mutated": "之前",
+        "claim_type": "CONDITION_OR_SCOPE",
+        "severity": "major",
+        "atom": "击杀发生在她成长至最强之前。",
+        "minimality": "仅替换时间关系词，人物、成长程度和击杀动作均不变。",
+        "surface_refutation": "after 明确要求在其成长完成之后击杀，译为“之前”反转了时间条件。"
+      }
+    },
+    {
+      "base_ordinal": 46,
+      "audit_id": "R088",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "救下一名厄运行者。",
+        "edit_span_original": "杀死",
+        "edit_span_mutated": "救下",
+        "claim_type": "DIRECTION_OR_POLARITY",
+        "severity": "major",
+        "atom": "玩家救下而不是杀死厄运行者。",
+        "minimality": "仅替换作用于同一对象的动作词。",
+        "surface_refutation": "Killed 明确表示杀死，与“救下”行为方向相反。"
+      }
+    },
+    {
+      "base_ordinal": 47,
+      "audit_id": "R110",
+      "context_option": {
+        "mutated_target": "加库尔的八章传说",
+        "edit_span_original": "传说",
+        "edit_span_mutated": "八章传说",
+        "claim_type": "CONDITION_OR_SCOPE",
+        "severity": "major",
+        "atom": "加库尔传说由八章组成。",
+        "minimality": "仅在标题核心名词前加入章节数量，人物名和标题关系不变。",
+        "family": "event_branch_condition_or_scope",
+        "surface_underdetermined": "源标题 The Legend of Garkul 本身没有陈述章节数量，孤立表面无法判定是五章还是八章。",
+        "context_refutation": "成就说明明确写 five chapters，且 can_gain 只逐项检查 garkul-history-1 至 garkul-history-5，因此八章断言被唯一机械证据否定。"
+      },
+      "surface_option": {
+        "mutated_target": "加库尔的预言",
+        "edit_span_original": "传说",
+        "edit_span_mutated": "预言",
+        "claim_type": "TERMINOLOGY",
+        "severity": "major",
+        "atom": "作品性质是预言而不是传说。",
+        "minimality": "仅替换标题中的作品类别词。",
+        "surface_refutation": "Legend 表示传说，不能无依据改成具有预示未来含义的“预言”。"
+      }
+    },
+    {
+      "base_ordinal": 48,
+      "audit_id": "A112",
+      "context_option": {
+        "mutated_target": "不明意义的兽人文字：#{italic}#'Sho ch'zun Eyal mor donuth, ik ranaheli donoth trun ze.'#{normal}#",
+        "edit_span_original": "不明意义的文字",
+        "edit_span_mutated": "不明意义的兽人文字",
+        "claim_type": "ROLE_OR_REFERENT",
+        "severity": "major",
+        "atom": "无法理解的文字属于兽人语言。",
+        "minimality": "仅给“文字”加入语言身份限定，原文串和全部格式标记不变。",
+        "family": "referent_or_entity_identity",
+        "surface_underdetermined": "孤立源文只说明读者不理解该文字，没有命名其语言或族群归属。",
+        "context_refutation": "该分支由 not game.player:attr(\"speaks_shertul\") 控制，且 lore 类别与文件段落均标记 Sher'Tul，因此文字属于 Sher'Tul 而非兽人语言。"
+      },
+      "surface_option": {
+        "mutated_target": "意义明确的文字：#{italic}#'Sho ch'zun Eyal mor donuth, ik ranaheli donoth trun ze.'#{normal}#",
+        "edit_span_original": "不明意义",
+        "edit_span_mutated": "意义明确",
+        "claim_type": "DIRECTION_OR_POLARITY",
+        "severity": "major",
+        "atom": "读者明确理解文字含义。",
+        "minimality": "仅替换理解状态短语，完整保留引文和格式标记。",
+        "surface_refutation": "which you do not understand 明确表示不理解，不能译为“意义明确”。"
+      }
+    },
+    {
+      "base_ordinal": 49,
+      "audit_id": "A111",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "阅读了有关魔法大爆炸的5章文献。",
+        "edit_span_original": "8",
+        "edit_span_mutated": "5",
+        "claim_type": "ACCURACY",
+        "severity": "major",
+        "atom": "学到的文献共有5章而不是8章。",
+        "minimality": "仅替换章节数值，保留主题和动作表述。",
+        "surface_refutation": "源文明示 eight chapters，译为5章数值错误。"
+      }
+    },
+    {
+      "base_ordinal": 50,
+      "audit_id": "A064",
+      "context_option": null,
+      "surface_option": {
+        "mutated_target": "#{bold}#探险队队长，科纳克人战士瑞丽#{normal}#\n到目前为止从未遇上幼龙。老实说，照这样下去，我们得到的龙皮连一条龙都盖不住，更别说弥补损失了。这次我也确实不惜血本：高岚是我认识的最优秀的巡林客之一；至于苏达罗斯特……他的要价高得离谱，不过钢铁王座那群贪财的矮人还能是什么样？我得承认，自己并不了解希安。当地人说这一带没有比她更出色的龙战士，而她在战斗中确实不同凡响。现在只盼她能把操控龙族力量的本事用来找出几条龙！",
+        "edit_span_original": "只遇上了幼龙",
+        "edit_span_mutated": "从未遇上幼龙",
+        "claim_type": "DIRECTION_OR_POLARITY",
+        "severity": "major",
+        "atom": "探险队此前没有遇到任何幼龙。",
+        "minimality": "仅替换首句的遭遇量化短语，保留整篇日志的其他文字、换行和标记。",
+        "surface_refutation": "Nothing but hatchlings 表示遇到的全是幼龙，并非一只幼龙也没遇到。"
+      }
+    }
+  ]
+}

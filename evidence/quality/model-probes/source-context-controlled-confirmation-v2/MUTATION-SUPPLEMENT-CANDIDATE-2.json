@@ -1,0 +1,193 @@
+{
+  "schema_version": "source-context-controlled-confirmation-mutation-author-candidate-v2",
+  "shard": 2,
+  "queue_sha256": "7de91964dfad5d68bd12e57a4a01059c9d87a23f08c8dec51753d1730c8a289c",
+  "items": [
+    {
+      "base_ordinal": 11,
+      "audit_id": "A023",
+      "context_option": {
+        "mutated_target": "将物品放置到哪个物品栏？",
+        "edit_span_original": "哪里",
+        "edit_span_mutated": "哪个物品栏",
+        "claim_type": "CONDITION_OR_SCOPE",
+        "severity": "minor",
+        "atom": "可选放置位置被限定为物品栏。",
+        "minimality": "仅将泛指位置的疑问词替换为限定物品栏的疑问短语。",
+        "family": "event_branch_condition_or_scope",
+        "surface_underdetermined": "源文只询问放置位置；脱离界面上下文，无法判断实际候选位置是否全是物品栏。",
+        "context_refutation": "菜单除角色物品栏和 NPC 物品栏外还明确提供 Drop 选项，可将物品放在角色坐标处，因此位置范围并不限于物品栏。"
+      },
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 12,
+      "audit_id": "A008",
+      "context_option": {
+        "mutated_target": "无条件确认选择",
+        "edit_span_original": "确认选择",
+        "edit_span_mutated": "无条件确认选择",
+        "claim_type": "CONDITION_OR_SCOPE",
+        "severity": "minor",
+        "atom": "确认操作被表述为不受条件限制。",
+        "minimality": "仅在原按钮文字前加入“无条件”这一条件修饰。",
+        "family": "event_branch_condition_or_scope",
+        "surface_underdetermined": "源文按钮标签本身未说明确认是否受选择数量限制。",
+        "context_refutation": "action 仅在 self.num_sel <= self.max_traps 时返回选择并关闭对话框；超限时只显示错误消息，故确认并非无条件执行。"
+      },
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 13,
+      "audit_id": "A030",
+      "context_option": {
+        "mutated_target": "#LIGHT_GREEN#*门上开了一个小洞，一副狂乱的眼睛凝视着他。*#WHITE#\n你想干什么，@playerdescriptor.race@？",
+        "edit_span_original": "凝视着你",
+        "edit_span_mutated": "凝视着他",
+        "claim_type": "ROLE_OR_REFERENT",
+        "severity": "minor",
+        "atom": "从门洞向外凝视的对象被改为场景中的第三人。",
+        "minimality": "仅替换动作宾语代词，保留其余叙述与格式。",
+        "family": "speaker_addressee_or_agent_patient",
+        "surface_underdetermined": "源文 peer out 未明说凝视动作的宾语，单看源文与变异译文不能排除第三人在场。",
+        "context_refutation": "该文本是 welcome 对话中 NPC 对玩家的开场白，紧接着直接以 @playerdescriptor.race@ 称呼并询问玩家来意，机械上下文将门外受注视者确定为当前玩家而非第三人。"
+      },
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 14,
+      "audit_id": "A027",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 15,
+      "audit_id": "A057",
+      "context_option": {
+        "mutated_target": "主线任务 #CIMSON#失败了！",
+        "edit_span_original": "任务",
+        "edit_span_mutated": "主线任务",
+        "claim_type": "CONDITION_OR_SCOPE",
+        "severity": "minor",
+        "atom": "失败提示的适用范围被限定为主线任务。",
+        "minimality": "仅给“任务”增加“主线”范围修饰，保留状态和颜色标记。",
+        "family": "event_branch_condition_or_scope",
+        "surface_underdetermined": "源文未说明触发失败提示的任务类别，孤立文本可能用于主线任务。",
+        "context_refutation": "该字符串位于通用 statuses 映射的 Quest.FAILED 项中，初始化函数接收任意 quest 与 status，代码没有主线任务条件，因此提示不只适用于主线任务。"
+      },
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 16,
+      "audit_id": "A022",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 17,
+      "audit_id": "A053",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 18,
+      "audit_id": "A060",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 19,
+      "audit_id": "A055",
+      "context_option": {
+        "mutated_target": "我不是来和你聊天的，我是来阻止你的！",
+        "edit_span_original": "我不是来和你们聊天的，我是来阻止你们的！",
+        "edit_span_mutated": "我不是来和你聊天的，我是来阻止你的！",
+        "claim_type": "ROLE_OR_REFERENT",
+        "severity": "minor",
+        "atom": "玩家的警告被改为只指向一个对话对象。",
+        "minimality": "仅将两处复数第二人称同步替换为单数第二人称。",
+        "family": "speaker_addressee_or_agent_patient",
+        "surface_underdetermined": "英语 you 不标记单复数，孤立源文无法确定玩家是在对一人还是多人说话。",
+        "context_refutation": "welcome 文本明确写着 The two Sorcerers stands before you，且该句是玩家对这两名巫师共同作出的回答，因此受话者为复数。"
+      },
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 20,
+      "audit_id": "A009",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 41,
+      "audit_id": "A114",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 42,
+      "audit_id": "R101",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 43,
+      "audit_id": "R109",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 44,
+      "audit_id": "A103",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 45,
+      "audit_id": "A068",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 46,
+      "audit_id": "R088",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 47,
+      "audit_id": "R110",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 48,
+      "audit_id": "A112",
+      "context_option": {
+        "mutated_target": "即使你懂得这种语言，也无法理解：#{italic}#'Sho ch'zun Eyal mor donuth, ik ranaheli donoth trun ze.'#{normal}#",
+        "edit_span_original": "不明意义的文字",
+        "edit_span_mutated": "即使你懂得这种语言，也无法理解",
+        "claim_type": "CONDITION_OR_SCOPE",
+        "severity": "major",
+        "atom": "无法理解文字被表述为即使掌握其语言仍然成立。",
+        "minimality": "仅替换无法理解的条件描述，完整保留引文、标记及其他内容。",
+        "family": "event_branch_condition_or_scope",
+        "surface_underdetermined": "源文只陈述当前不理解，没有说明角色是否掌握该语言，因此单看表面不能判定“即使懂得语言”是否成立。",
+        "context_refutation": "该文本只在 not game.player:attr(\"speaks_shertul\") 分支显示；玩家具备 speaks_shertul 属性时会改为可理解的译文，故掌握这种语言后并非仍无法理解。"
+      },
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 49,
+      "audit_id": "A111",
+      "context_option": null,
+      "surface_option": null
+    },
+    {
+      "base_ordinal": 50,
+      "audit_id": "A064",
+      "context_option": null,
+      "surface_option": null
+    }
+  ]
+}

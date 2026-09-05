@@ -1,0 +1,67 @@
+{
+  "schema_version": "evidence-contract-design-v1",
+  "experiment_id": "gemini-evaluator-evidence-contract-conformance-v1",
+  "reference_free": true,
+  "effectiveness_measurement": false,
+  "max_attempts": 1,
+  "agy_process_ceiling": 5,
+  "inference_call_ceiling": 5,
+  "registered_order": [
+    "baseline-p0-s0-a",
+    "schema-p0-s2-a",
+    "prompt-p1-s0-a",
+    "combined-p1-s2-a",
+    "context-p0-s0-c"
+  ],
+  "cells": {
+    "baseline-p0-s0-a": {
+      "prompt": "model-facing/prompts/P0-GENERIC.md",
+      "schema": "model-facing/schemas/S0.json",
+      "context": false
+    },
+    "schema-p0-s2-a": {
+      "prompt": "model-facing/prompts/P0-GENERIC.md",
+      "schema": "model-facing/schemas/S2.json",
+      "context": false
+    },
+    "prompt-p1-s0-a": {
+      "prompt": "model-facing/prompts/P1-FIELD-RULES.md",
+      "schema": "model-facing/schemas/S0.json",
+      "context": false
+    },
+    "combined-p1-s2-a": {
+      "prompt": "model-facing/prompts/P1-FIELD-RULES.md",
+      "schema": "model-facing/schemas/S2.json",
+      "context": false,
+      "prompt_field_name_substitution": "evidence to evidence_quote"
+    },
+    "context-p0-s0-c": {
+      "prompt": "model-facing/prompts/P0-GENERIC.md",
+      "schema": "model-facing/schemas/S0.json",
+      "context": true
+    }
+  },
+  "request_utf8_bounds": {
+    "a_min": 4096,
+    "a_max": 12288,
+    "c_min": 25600,
+    "c_max": 40960
+  },
+  "interpretation_definitions": {
+    "pass": "non-null evidence_membership_rate exactly 1",
+    "fail": "non-null evidence_membership_rate less than 1",
+    "materially_worse": "context source_target_only_evidence_membership_rate at least 0.10 below baseline; both rates must be non-null",
+    "null_rule": "A null rate is neither pass nor failure and cannot satisfy or trigger any interpretation predicate.",
+    "reporting_caveat": "Every interpretation includes supporting candidate counts/rates and states that all cells are single unreplicated samples under unpinned decoding."
+  },
+  "interpretations": [
+    "baseline fails while schema and prompt cells pass: unstated constraint/affordance dominates",
+    "only schema passes: schema naming/description dominates",
+    "only prompt passes: prose instruction dominates",
+    "combined passes while one or both single-factor cells fail: prompt/schema interaction matters",
+    "combined fails: the recommended joint configuration is not yet conformant and must not be promoted",
+    "baseline passes: original behavior may be stochastic; no prompt change justified without a separately frozen replication",
+    "context materially worse than baseline on source/target-only evidence membership: context complexity is a separate contributor",
+    "otherwise: inconclusive"
+  ]
+}

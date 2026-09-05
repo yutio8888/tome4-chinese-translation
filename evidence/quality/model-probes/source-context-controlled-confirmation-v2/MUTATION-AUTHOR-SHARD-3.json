@@ -1,0 +1,194 @@
+{
+  "schema_version": "source-context-controlled-confirmation-mutation-author-queue-v2",
+  "status": "FROZEN_PROPOSAL_INPUT_NOT_REFERENCE",
+  "shard": 3,
+  "instructions": [
+    "For each clean base, propose at most one context-required mutation and at most one surface-visible mutation; use null when no honest minimal single-atom proposal exists.",
+    "A context proposal must remain objectively underdetermined from source plus mutated target alone, while the supplied mechanical source_context uniquely refutes exactly one material atom.",
+    "A surface proposal must be objectively refutable from source plus mutated target without source_context.",
+    "Preserve all unrelated meaning, placeholders, markup and formatting. Replace one minimal exact target span; do not rewrite the sentence or invent a second defect.",
+    "Do not assign experimental roles, optimize for a desired effect, inspect other files or mention expected model behavior."
+  ],
+  "items": [
+    {
+      "base_ordinal": 21,
+      "audit_id": "A046",
+      "profile": "dialogue",
+      "source": "Excellent. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields,\" return with it and your odds of surviving our portal attempt will go up drastically.",
+      "target": "很好，几天后你回来，我肯定把一切都准备好了。哦，带上这个。#LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖尔塔人封印的地方。要是你在废墟之中找到一份标题是《反转与复原概率场》的文献，请帮我带回来，这能大大提高你通过传送门时存活的几率。",
+      "source_context": "\nnewChat{ id=\"withheld_orb\",\n\ttext = _t[[Very well. There is no hurry. But I will need to spend a number of days studying it before we can create your portal.]],\n\tanswers = {\n\t\t{_t\"I understand. I'll return with the Athame and Diamond.\", action=function(npc, player) player:hasQuest(\"east-portal\"):setStatus(engine.Quest.COMPLETED, \"gotoreknor\") end},\n\t}\n}\n\n---------------------------------------------------------------\n-- back with materials\n---------------------------------------------------------------\nnewChat{ id=\"has_material_gave_orb\",\n\ttext = _t[[[[SOURCE_MATCH_1]]]],\n\tanswers = {\n\t\t{_t\"Thank you, and farewell.\", action=function(npc, player) player:hasQuest(\"east-portal\"):open_telmur(player) end},\n\t}\n}\n\nnewChat{ id=\"has_material_withheld_orb\",\n\ttext = _t[[Excellent. Are you yet willing to leave the Orb in my care for a time?]],\n\tanswers = {\n\t\t{_t\"I dare not let it out of my sight. I'm sorry.\", jump=\"no_orb_loan\"},\n\t\t{_t\"Here it is. Guard it carefully. I must return to the Far East soon.\", jump=\"orb_loan\"},\n\t}\n}",
+      "response": null
+    },
+    {
+      "base_ordinal": 22,
+      "audit_id": "A037",
+      "profile": "dialogue",
+      "source": "THAT'S NOT A VERY HERMIT-LIKE ATTITUDE.",
+      "target": "这可不像一个隐士的态度。",
+      "source_context": "}\n\nnewChat{ id=\"proposal\",\n\ttext = _t[[STILL CAN'T HEAR YOU, BUT LISTEN UP. THE BROTHERHOOD OF ALCHEMISTS IS ACCEPTING THE FIRST NEW APPLICANT TO DEMONSTRATE, AMONG OTHER THINGS, THREE VERY COMPLICATED ELIXIRS. I WOULDN'T BOTHER TRYING TO JOIN SUCH A BUNCH OF ADDLE-BRAINED DEGENERATES, BUT IT SO HAPPENS THAT THE BROTHERHOOD OF ALCHEMISTS HOLDS THE SECRET CURE FOR THE COMMON BLOWN-OFF ASS, WHICH IT SO HAPPENS IS OF SOME INTEREST TO ME.]],\n\tanswers = {\n\t\t{_t\"HOW CAN I HELP?\", jump=\"help\"},\n\t}\n}\n\nnewChat{ id=\"help\",\n\ttext = _t[[THE BROTHERHOOD KNOWS DAMNED WELL WHAT ADVANCES IN THE FIELD OF ALCHEMY WOULD DO FOR EVERY CIVILIZATION IN EXISTENCE, BUT THEY HOARD THEIR FEW WORTHWHILE SECRETS LIKE A GREAT BROWN WYRM SITTING ON ITS PILE OF CRAP. YOU KNOW WHAT? I DON'T EVEN WANT THE ASS-CURE FOR ME. I'M GOING TO STEAL EVERY SECRET THEY'VE GOT, WRITE THEM DOWN, MAKE A HUNDRED COPIES, AND NAIL ONE TO A TREE IN EVERY VILLAGE IN MAJ'EYAL.]],\n\tanswers = {\n\t\t{_t\"[[SOURCE_MATCH_1]]\", jump=\"competition\"},\n\t}\n}\n\nnewChat{ id=\"competition\",\n\ttext = _t[[AND THEN WHAT WILL THEY DO? ONCE THEIR PRECIOUS SECRETS-- WHICH, IN ALL PROBABILITY, EITHER DON'T EXIST OR ARE THINGS LIKE RECIPES FOR ELIXIRS OF WHO-GIVES-A-FLYING-DUCK-- ARE OUT IN THE OPEN, THE BROTHERHOOD OF ASSWIPES WILL HAVE NOTHING TO HOLD IT TOGETHER BUT ELIXIRS OF THEIR TEARS AND WIDESPREAD DISDAIN FROM THE REST OF THE WORLD. SPEAK UP, THEN. ARE YOU IN OR OUT?]],\n\tanswers = {\n\t\t{_t\"I'M IN.\", jump=\"choice\", action = function(npc, player) player:grantQuest(\"brotherhood-of-alchemists\") end,},\n\t\t{_t\"I CANNOT AID YOU AT THIS TIME.\"},\n\t}\n}\n\nnewChat{ id=\"choice\",",
+      "response": null
+    },
+    {
+      "base_ordinal": 23,
+      "audit_id": "A058",
+      "profile": "dialogue",
+      "source": "Aeryn, are you well?",
+      "target": "艾琳，你还好么？",
+      "source_context": "\t\tend},\n\t}\n}\n\n----------- If the void portal is still closed\nelse\nnewChat{ id=\"welcome\",\n\ttext = _t[[#LIGHT_GREEN#*The two Sorcerers lie dead before you.*#WHITE#\n#LIGHT_GREEN#*Their bodies vanish in some immaterial mist.*#WHITE#\nYou have won the game!\nBoth Maj'Eyal and the Far East are safe from the dark schemes of the Sorcerers and their God.]],\n\tanswers = {\n\t\t{_t\"[[SOURCE_MATCH_1]]\", jump=\"aeryn-ok\", switch_npc=aeryn_alive(), cond=aeryn_alive},\n\t\t{_t\"[leave]\", action=function(npc, player) player:hasQuest(\"high-peak\"):win(\"full\") end},\n\t}\n}\n\nnewChat{ id=\"aeryn-ok\",\n\ttext = _t[[I cannot believe we succeeded. I was prepared to die and yet I live.\nI might have underestimated you. You did more than we could have hoped for!]],\n\tanswers = {\n\t\t{_t\"We both did.\", action=function(npc, player) player:hasQuest(\"high-peak\"):win(\"full\") end},\n\t}\n}\nend",
+      "response": null
+    },
+    {
+      "base_ordinal": 24,
+      "audit_id": "A005",
+      "profile": "dialogue",
+      "source": "Lua inspect [Projectile]",
+      "target": "在 Lua 中查看 [抛射物]",
+      "source_context": "\n\t-- Generic actions\n\tif g and g.change_level and self.on_player then list[#list+1] = {name=_t\"Change level\", action=\"change_level\", color=colors.simple(colors.VIOLET)} end\n\tif o and self.on_player then list[#list+1] = {name=_t\"Pickup item\", action=\"pickup\", color=colors.simple(colors.ANTIQUE_WHITE)} end\n\tif g and not self.on_player then list[#list+1] = {name=_t\"Move to\", action=\"move_to\", color=colors.simple(colors.ANTIQUE_WHITE)} end\n\tif a and not self.on_player and game.party:canControl(a, false) then list[#list+1] = {name=_t\"Control\", action=\"control\", color=colors.simple(colors.TEAL), actor=a} end\n\tif a and not self.on_player and game.party:canOrder(a, false) then list[#list+1] = {name=_t\"Give order\", action=\"order\", color=colors.simple(colors.TEAL), actor=a} end\n\n\tif a and not self.on_player and config.settings.cheat then list[#list+1] = {name=_t\"Target player\", action=\"target-player\", color=colors.simple(colors.RED), actor=a} end\n\tif a and config.settings.cheat then list[#list+1] = {name=_t\"Lua inspect [Actor]\", action=\"debug-inspect\", color=colors.simple(colors.LIGHT_BLUE), actor=a} end\n\tif g and config.settings.cheat then list[#list+1] = {name=_t\"Lua inspect [Terrain]\", action=\"debug-inspect\", color=colors.simple(colors.LIGHT_BLUE), actor=g} end\n\tif t and config.settings.cheat then list[#list+1] = {name=_t\"Lua inspect [Trap]\", action=\"debug-inspect\", color=colors.simple(colors.LIGHT_BLUE), actor=t} end\n\tif p and config.settings.cheat then list[#list+1] = {name=_t\"[[SOURCE_MATCH_1]]\", action=\"debug-inspect\", color=colors.simple(colors.LIGHT_BLUE), actor=p} end\n\tif a and config.settings.cheat then list[#list+1] = {name=_t\"Show inventory\", action=\"debug-inventory\", color=colors.simple(colors.YELLOW), actor=a} end\n\n\tif self.on_player then list[#list+1] = {name=_t\"Rest a while\", action=\"rest\", color=colors.simple(colors.ANTIQUE_WHITE)} end\n\tif self.on_player then list[#list+1] = {name=_t\"Auto-explore\", action=\"autoexplore\", color=colors.simple(colors.ANTIQUE_WHITE)} end\n\tif self.on_player then list[#list+1] = {name=_t\"Inventory\", action=\"inventory\", color=colors.simple(colors.ANTIQUE_WHITE)} end\n\tif self.on_player then list[#list+1] = {name=_t\"Quest Log\", action=\"quests\", color=colors.simple(colors.ANTIQUE_WHITE)} end\n\tif a and game.player:canSee(a) then list[#list+1] = {name=_t\"Inspect Creature\", action=\"character_sheet\", color=colors.simple(colors.ANTIQUE_WHITE), actor=a} end\n\t\t-- can add extended inspection commands here by including the start tab with the dialog\n\t-- space separating inspect from active actions\n\tlist[#list+1] = {name=_t\" \", action=nil, color=colors.simple(colors.ANTIQUE_WHITE)}\n\tif not self.on_player and a and game.player:canSee(a) and profile.auth and profile.hash_valid then list[#list+1] = {name=_t\"Link creature in chat\", action=\"chat-link\"} end\n\tif self.on_player and (player.unused_stats > 0 or player.unused_talents > 0 or player.unused_generics > 0 or player.unused_talents_types > 0) then list[#list+1] = {name=_t\"Levelup!\", action=\"levelup\", color=colors.simple(colors.YELLOW)} end",
+      "response": null
+    },
+    {
+      "base_ordinal": 25,
+      "audit_id": "A044",
+      "profile": "dialogue",
+      "source": "Would it be possible for my Transmogrification Chest to automatically extract gems?",
+      "target": "可以让我的转化之盒自动提取宝石吗？",
+      "source_context": "\t\t{_t\"What are you, and what is this place?\", jump=\"what\", cond=isNotSet\"what\", action=set\"what\"},\n\t\t{_t\"Master? I am not your mas...\", jump=\"master\", cond=isNotSet\"master\", action=set\"master\"},\n\t\t{_t\"Why do I understand you? The texts are unreadable to me.\", jump=\"understand\", cond=isNotSet\"understand\", action=set\"understand\"},\n\t\t{_t\"What can I do here?\", jump=\"storage\", cond=isNotSet\"storage\", action=set\"storage\"},\n\t\t{_t\"What else can this place do?\", jump=\"energy\", cond=isNotSet\"energy\", action=set\"energy\"},\n\t\t{_t\"Would it be possible to improve my Cloak of Deception so I do not need to wear it to pass as a living being?\", jump=\"permanent-cloak\", \n\t\t\tcond=function(npc, player)\n\t\t\t\tlocal cloak = player:findInAllInventoriesBy(\"define_as\", \"CLOAK_DECEPTION\")\n\t\t\t\treturn not q:isCompleted(\"permanent-cloak\") and q:isCompleted(\"transmo-chest\") and cloak\n\t\tend},\n\t\t{_t\"You asked me to come, about a farportal?\", jump=\"farportal\", cond=function() return q:isCompleted(\"farportal\") and not q:isCompleted(\"farportal-spawn\") end},\n\t\t{_t\"You asked me to come, about the rod of recall?\", jump=\"recall\", cond=function() return q:isCompleted(\"recall\") and not q:isCompleted(\"recall-done\") end},\n\t\t{_t\"[[SOURCE_MATCH_1]]\", jump=\"transmo-gems\", cond=function(npc, player) return not q:isCompleted(\"transmo-chest-extract-gems\") and q:isCompleted(\"transmo-chest\") and player:knowTalent(player.T_EXTRACT_GEMS) end},\n\t\t{_t\"Are there any training facilities?\", jump=\"training\", cond=function() return not q:isCompleted(\"training\") end},\n\t\t{_t\"Can you use your magic to alter the appearance of my gear?\", jump=\"shimmer\", cond=function() return not q:isCompleted(\"shimmer\") end},\n\t\t{_t\"I find your appearance unsettling. Any way you can change it?\", jump=\"changetile\", cond=function() return q:isCompleted(\"recall-done\") end},\n\t\t{_t\"I have come upon a strange thing indeed. #LIGHT_GREEN#[tell him about Melinda]\", jump=\"cure-melinda\", cond=function() return ql and ql:isStatus(engine.Quest.COMPLETED, \"saved-beach\") and not ql:isStatus(engine.Quest.FAILED) and not ql:isStatus(engine.Quest.COMPLETED, \"can_come_fortress\") end},\n\t\t{_t\"[leave]\"},\n\t}\n}\n\nnewChat{ id=\"master\",\n\ttext = _t[[*#LIGHT_GREEN#The creature glares at you.#WHITE#*\nYou possess a control rod. You are the master.]],\n\tanswers = {",
+      "response": null
+    },
+    {
+      "base_ordinal": 26,
+      "audit_id": "A018",
+      "profile": "dialogue",
+      "source": "I can give you a cloak that will conceal your true nature!\nWith it all people will see when they look at you is a normal average Human. You can go about your business.\nPlease!",
+      "target": "我可以给你一件斗篷，它能隐藏你的真实本质！\n穿上它，任何人看到的都只会是一个普通人类，你便可以自由行事。\n求求你！",
+      "source_context": "You are strong but you cannot resist them all!]],\n\tanswers = {\n\t\t{_t\"So what do you propose?\", jump=\"what\"},\n\t\t{_t\"[kill him]\", action=function(npc, player)\n\t\t\tnpc.die = nil\n\t\t\tnpc:doEmote(_t\"ARRGGggg... You are alone! You will be destroyed!\", 60)\n\t\t\tnpc:die(player)\n\t\tend},\n\t}\n}\n\nnewChat{ id=\"what\",\n\ttext = _t[[[[SOURCE_MATCH_1]]]],\n\tanswers = {\n\t\t{_t\"Thanks for the information. Now you may die. [kill him]\", action=function(npc, player)\n\t\t\tnpc.die = nil\n\t\t\tnpc:doEmote(_t\"ARRGGggg... You are alone! You will be destroyed!\", 60)\n\t\t\tnpc:die(player)\n\t\tend},\n\t}\n}\n\nreturn \"welcome\"\n",
+      "response": null
+    },
+    {
+      "base_ordinal": 27,
+      "audit_id": "A032",
+      "profile": "dialogue",
+      "source": "Reload/regenerate Zone and level",
+      "target": "重新加载/重新生成地图和楼层",
+      "source_context": "\tlist[#list+1] = {name=_t\"Alter Faction\", dialog=\"AlterFaction\"}\n\tlist[#list+1] = {name=_t\"Summon a Creature\", dialog=\"SummonCreature\"}\n\tlist[#list+1] = {name=_t\"Create Items\", dialog=\"CreateItem\"}\n\tlist[#list+1] = {name=_t\"Create a Trap\", dialog=\"CreateTrap\"}\n\tlist[#list+1] = {name=_t\"Grant/Alter Quests\", dialog=\"GrantQuest\"}\n\tlist[#list+1] = {name=_t\"Advance Player\", dialog=\"AdvanceActor\"}\n\tlist[#list+1] = {name=_t\"Remove or Kill all creatures\", action=\"remove-all\"}\n\tlist[#list+1] = {name=_t\"Give Sher'tul fortress energy\", action=\"shertul-energy\"}\n\tlist[#list+1] = {name=_t\"Give all ingredients\", action=\"all-ingredients\"}\n\tlist[#list+1] = {name=_t\"Weakdamage\", action=\"weakdamage\"}\n\tlist[#list+1] = {name=_t\"Spawn Event\", dialog=\"SpawnEvent\"}\n\tlist[#list+1] = {name=_t\"Endgamify\", class=\"Endgamify\"}\n\tlist[#list+1] = {name=_t\"[[SOURCE_MATCH_1]]\", class=\"ReloadZone\"}\n\tlist[#list+1] = {name=_t\"Automatically Clear Zones\", class=\"AdvanceZones\"}\n\tself:triggerHook{\"DebugMain:generate\", menu=list}\n\n\tlocal chars = {}\n\tfor i, v in ipairs(list) do\n\t\tv.name = self:makeKeyChar(i)..\") \"..v.name\n\t\tchars[self:makeKeyChar(i)] = i\n\tend\n\tlist.chars = chars\n\n\tself.list = list\nend",
+      "response": null
+    },
+    {
+      "base_ordinal": 28,
+      "audit_id": "A002",
+      "profile": "dialogue",
+      "source": "Thanks, my lady. I have not been able to find all of the orbs of command in my travels; could you have some of your men search for me?",
+      "target": "谢谢，我的女士。我没能找到所有的指令水晶球；请问你可以让你们的人来帮我寻找一下吗？",
+      "source_context": "\t\t{_t\"Maybe I'll visit him. Thank you.\", jump=\"welcome\"},\n\t},\n}\n\nnewChat{ id=\"prides-dead\",\n\ttext = _t[[The news has indeed reached me. I could scarce believe it, so long have we been at war with the Pride.\nNow they are dead? At the hands of just one @playerdescriptor.race@? Truly I am amazed by your power.\nWhile you were busy bringing an end to the orcs, we managed to discover some parts of the truth from a captive orc.\nHe talked about the shield protecting the High Peak. It seems to be controlled by \"orbs of command\" which the masters of the Prides had in their possession.\nHe also said the only way to enter the peak and de-activate the shield is through the \"slime tunnels\", located somewhere in one of the Prides, probably Grushnak.\n]],\n\tanswers = {\n\t\t{_t\"[[SOURCE_MATCH_1]]\",\n\t\tjump=\"prides-dead-orbs-missing\",\n\t\tcond=function(npc, player) return not (game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DRAGON\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DESTRUCTION\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_UNDEATH\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_ELEMENTS\")) end\n\t\t},\n\t\t{_t\"Thanks, my lady. I will look for the tunnel and venture inside the Peak.\", \n\t\tcond=function(npc, player) return (game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DRAGON\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DESTRUCTION\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_UNDEATH\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_ELEMENTS\")) end,\n\t\taction=function(npc, player)\n\t\t\tplayer:setQuestStatus(\"orc-pride\", engine.Quest.DONE)\n\t\t\tplayer:grantQuest(\"high-peak\")\n\t\tend},\n\t},\n}\n",
+      "response": null
+    },
+    {
+      "base_ordinal": 29,
+      "audit_id": "A007",
+      "profile": "dialogue",
+      "source": "The Creator. The God who made this world, He who watched silently as the races fought and burnt the land.\nHe who felt great sorrow for this world. He who shall now shatter the barriers of this world to remake it, only better!\nThe staff will allow us to drain enough energy from this world to open the portal to the Void and summon Him through!\nYou cannot stop us now!",
+      "target": "造物主，创造这个世界的神。他默默注视着各个种族争战不休，将大地付之一炬。\n他为这个世界深感悲痛。如今他将击碎这个世界的屏障，将它重塑得更加美好！\n这根法杖将让我们得以从这个世界抽取足够的能量，打开通往虚空的传送门并召唤他降临！\n你现在已经无法阻止我们了！",
+      "source_context": "newChat{ id=\"explain3\",\n\ttext = _t[[The Creator. The God who made this world, He who watched silently as the races fought and burnt the land.\nHe who felt great sorrow for this world. He who shall now shatter the barriers of this world to remake it, only better!\nThe staff has allowed us to drain enough energy from this world to open the portal to the Void and summon Him through!\nIt is already too late. He is coming through as we speak -- it is only a matter of hours!]],\n\tanswers = {\n\t\t{_t\"I *WILL* stop you! The world will not end today!\", jump=\"aeryn\", switch_npc={name=_t\"High Sun Paladin Aeryn\", image=\"npc/humanoid_human_high_sun_paladin_aeryn.png\"}, action=aeryn_comes, cond=aeryn_alive},\n\t\t{_t\"I *WILL* stop you! The world will not end today!\", cond=aeryn_dead},\n\t}\n}\nelse\nnewChat{ id=\"explain3\",\n\ttext = _t[[[[SOURCE_MATCH_1]]]],\n\tanswers = {\n\t\t{_t\"I *WILL* stop you! The world will not end today!\", jump=\"aeryn\", switch_npc={name=_t\"High Sun Paladin Aeryn\", image=\"npc/humanoid_human_high_sun_paladin_aeryn.png\"}, action=aeryn_comes, cond=aeryn_alive},\n\t\t{_t\"I *WILL* stop you! The world will not end today!\", cond=aeryn_dead},\n\t}\n}\nend\n\nnewChat{ id=\"aeryn\",\n\ttext = _t[[#LIGHT_GREEN#*The air whirls at your side and suddenly High Sun Paladin Aeryn appears!*#WHITE#\nThen you shall not fight alone! Together we shall stop them, or die trying!]],\n\tanswers = {\n\t\t{_t\"I am glad to have you at my side, my Lady. Let's hunt some wizards!\"},",
+      "response": null
+    },
+    {
+      "base_ordinal": 30,
+      "audit_id": "A015",
+      "profile": "dialogue",
+      "source": "But then where are they now if they won?",
+      "target": "他们是胜利了，但是现在他们又在哪里呢？",
+      "source_context": "\nYou shake your head as the vision dissipates, and your normal sight comes back slowly.\n#WHITE#*\n]],\n\tanswers = {\n\t\t{_t\"Those are Sher'Tuls? They fought the gods?!\", jump=\"godslayers\"},\n\t}\n}\n\nnewChat{ id=\"godslayers\",\n\ttext = _t[[They had to. They forged terrible weapons of war. They won.]],\n\tanswers = {\n\t\t{_t\"[[SOURCE_MATCH_1]]\", jump=\"where\"},\n\t}\n}\n\nnewChat{ id=\"where\",\n\ttext = _t[[They are gone now. I cannot tell you more.]],\n\tanswers = {\n\t\t{_t\"But I am the master!\", jump=\"where\"},\n\t\t{_t\"Fine.\", jump=\"welcome\"},\n\t}\n}\n\nnewChat{ id=\"storage\",",
+      "response": null
+    },
+    {
+      "base_ordinal": 51,
+      "audit_id": "R096",
+      "profile": "narrative",
+      "source": "I cleared the room of death and all I got was this lousy achievement!",
+      "target": "我清完“死亡之屋”后发现我只得到了这个无聊的成就！",
+      "source_context": "\ttrack = function(self) return tstring{tostring(self.nb or 0),\" / 20\"} end,\n}\n\nnewAchievement{\n\tname = \"Are you out of your mind?!\", id = \"UBER_WYRMS_OPEN\",\n\timage = \"npc/dragon_multihued_multi_hued_drake.png\",\n\tshow = \"name\", huge=true,\n\tdesc = _t[[Caught the attention of overpowered greater multi-hued wyrms in Vor Armoury. Perhaps fleeing is in order.]],\n\tmode = \"player\",\n}\n\nnewAchievement{\n\tname = \"[[SOURCE_MATCH_1]]\", id = \"UBER_WYRMS\",\n\timage = \"npc/dragon_multihued_multi_hued_drake.png\",\n\tshow = \"name\", huge=true,\n\tdesc = _t[[Killed the seven overpowered wyrms in the \"Room of Death\" in Vor Armoury.]],\n\tmode = \"player\",\n\tcan_gain = function(self, who)\n\t\tself.nb = (self.nb or 0) + 1\n\t\tif self.nb >= 7 then return true end\n\tend,\n}\n\nnewAchievement{\n\tname = \"I'm a cool hero\", id = \"NO_DERTH_DEATH\",",
+      "response": null
+    },
+    {
+      "base_ordinal": 52,
+      "audit_id": "R100",
+      "profile": "narrative",
+      "source": "The Right thing to do",
+      "target": "正确的选择",
+      "source_context": "\tdesc = _t[[Killed the weaver queen and the temporal defiler.]],\n}\nnewAchievement{\n\tname = \"Matrix style!\", id = \"ABASHED_EXPANSE_NO_BLAST\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Finished the whole Abashed Expanse zone without being hit by a single void blast or manaworm. Dodging's fun!]],\n\tcan_gain = function(self, who, zone)\n\t\tif not who:isQuestStatus(\"start-archmage\", engine.Quest.DONE) then return false end\n\t\tif zone.void_blast_hits and zone.void_blast_hits == 0 then return true end\n\tend,\n}\nnewAchievement{\n\tname = \"[[SOURCE_MATCH_1]]\", id = \"RING_BLOOD_KILL\",\n\tshow = \"name\",\n\tdesc = _t[[Did the righteous thing in the ring of blood and disposed of the Blood Master.]],\n}\nnewAchievement{\n\tname = \"Thralless\", id = \"RING_BLOOD_FREED\",\n\tshow = \"full\",\n\tmode = \"player\",\n\tdesc = _t[[Freed at least 30 enthralled slaves in the slavers' compound.]],\n\tcan_gain = function(self)\n\t\tself.nb = (self.nb or 0) + 1\n\t\tif self.nb >= 30 then return true end\n\tend,",
+      "response": null
+    },
+    {
+      "base_ordinal": 53,
+      "audit_id": "A063",
+      "profile": "narrative",
+      "source": "Achieved your wild dreams of power and eternal life: you turned into a Lich!",
+      "target": "成就你的野心并获得永恒的生命，你终于成为了巫妖！",
+      "source_context": "\tname = \"Cryomancer\",\n\tdesc = _t[[Unlocked Archmage class and did over one million cold damage (with any item/talent/class).]],\n\tshow = \"full\",\n\tmode = \"world\",\n\tcan_gain = function(self, who, dam)\n\t\tself.nb = (self.nb or 0) + dam\n\t\treturn self.nb > 1000000 and profile.mod.allow_build.mage\n\tend,\n\ttrack = function(self) return tstring{tostring(math.floor(self.nb or 0)),\" / 1000000\"} end,\n}\nnewAchievement{\n\tname = \"Lichform\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n\tshow = \"name\",\n}\nnewAchievement{\n\tname = \"Best album ever!\", id = \"THE_CURE\",\n\tdesc = _t[[Removed 89 beneficial effects from enemies via Disintegration.]],\n\tshow = \"full\", \tmode = \"player\",\n\tcan_gain = function(self, who)\n\t\tself.nb = (self.nb or 0) + 1\n\t\tif self.nb >= 89 then return true end\n\tend,\n\ttrack = function(self) return tstring{tostring(self.nb or 0),\" / 89\"} end,\n}",
+      "response": null
+    },
+    {
+      "base_ordinal": 54,
+      "audit_id": "A082",
+      "profile": "narrative",
+      "source": "Donated at least 16 euros to Tales of Maj'Eyal.",
+      "target": "为马基·埃亚尔的传说捐赠至少 16 欧元。",
+      "source_context": "newAchievement{\n\tname = \"Bronze Donator\", id = \"BRONZE_DONATOR\",\n\tdesc = _t[[Donated up to 5 euros to Tales of Maj'Eyal.]],\n\tno_difficulty_duplicate = true, no_chat_broadcast = true,\n}\nnewAchievement{\n\tname = \"Silver Donator\", id = \"SILVER_DONATOR\",\n\tdesc = _t[[Donated at least 6 euros to Tales of Maj'Eyal.]],\n\tno_difficulty_duplicate = true, no_chat_broadcast = true,\n}\nnewAchievement{\n\tname = \"Gold Donator\", id = \"GOLD_DONATOR\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n\tno_difficulty_duplicate = true, no_chat_broadcast = true,\n}\nnewAchievement{\n\tname = \"Stralite Donator\", id = \"STRALITE_DONATOR\",\n\tdesc = _t[[Donated at least 31 euros to Tales of Maj'Eyal.]],\n\tno_difficulty_duplicate = true, no_chat_broadcast = true,\n}\nnewAchievement{\n\tname = \"Voratun Donator\", id = \"VORATUN_DONATOR\",\n\tdesc = _t[[Donated more than 60 euros to Tales of Maj'Eyal.]],\n\tno_difficulty_duplicate = true, no_chat_broadcast = true,\n}",
+      "response": null
+    },
+    {
+      "base_ordinal": 55,
+      "audit_id": "A074",
+      "profile": "narrative",
+      "source": "#{italic}#A few tattered scraps of paper lie on the ground, ruined from your fight with the creature carrying it.  It's almost completely illegible, but you can piece some of it together to read:#{normal}#\n\"...pheromone signals effective on much Eyalite wildlife ineffective on species 'sun paladin.'  at current planetary core cooling rates, passive study would lead to great loss - next step of emigration program should be cleaning of local 'sun paladin' nest and establishment of...\"",
+      "target": "#{italic}#地上有一些破烂的纸片，看来在你刚才和那个生物搏斗的时候被打碎了。纸片上的文字几乎完全无法辨认，你只能依稀拼凑出一些文字：#{normal}#\n“…对大部分埃亚尔野生生命体有效的信息素在‘太阳骑士’这种物种的身上被证明无效。在当前的行星核心冷却速率下，被动的研究会导致巨大的损失——移民计划的下一步是清理本地的“太阳骑士”巢穴并建立…”",
+      "source_context": "\nI have slain dozens of these arachnids, each one seemingly more difficult than the last. I am unsure if this is a result of my weariness, or if they are also adapting to my movements and battle techniques. I don't see how that could be possible however, a mere spider couldn't possibly adapt to the battle techniques of a veteran Sun Paladin, it's simply not feasible. Furthermore, the origin of these spiders worries me. So far I have not found any other entrances to this cavern, meaning they were transported here via other means. Those arcane rifts I found earlier are starting to worry me, and I fear for us all when I think of what may be waiting for us beyond them. I must put these thoughts out of my mind; distractions will only serve to weaken my resolve.\n\n#{bold}#Journal Entry VIII#{normal}#\n\nIncredible, the size of that arachnid is unimaginable; there is no doubt about it, that spider is the matriarch here. I am heavily wounded, but there is no turning back now; I must finish what I started for the sake of all those awaiting my return. If I don't make it back, whoever is now reading this journal, please make High Sun Paladin Aeryn at the Gates of Morning aware of the grave situation... and tell Melnela that I'm sorry.]]\n}\n\nnewLore{\n\tid = \"ardhungol-4\",\n\tcategory = \"ardhungol\",\n\tname = _t\"scrap of paper\",\n\tlore = function() return game and game.state and game.state.spydre_mantra and _t[[[[SOURCE_MATCH_1]]]]\n\tor\n\t_t[[#{italic}#This pile of tattered paper could theoretically be assembled into something legible, but without more text to draw back on, it'd still be in a language you could never interpret.  If only you had more Spydric text to help translate this...#{normal}#]]\n\tend,\n}\n",
+      "response": null
+    },
+    {
+      "base_ordinal": 56,
+      "audit_id": "R067",
+      "profile": "narrative",
+      "source": "which you do not understand: #{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"'#{normal}#",
+      "target": "不明意义的文字：#{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"'#{normal}#",
+      "source_context": "\timage = \"shertul_fortress_lore2.png\",\n\tlore = function() return _t[[In this picture a huge god with glowing eyes towers above the land, and in his right hand he holds high the sun. The other gods are running from him, wincing from the light.\nThere is some text underneath ]]..(not game.player:attr(\"speaks_shertul\") and _t[[which you do not understand: #{italic}#'Fa AMAKTHEL tabak, ik koru bazan tro yu, ik ranaheli tobol don schek ruun. Ik blana dem Soli as banafel ik goriz uf Eyal ik blod, \"Tro fasa goru domus asam, ik goru domit tro Eyal.\"'#{normal}#]] or _t[[#{italic}#'But AMAKTHEL came, and his might surpassed all else, and the petty gods fled before his glory. And he made the Sun from his breath and held it above the world and said, \"All that this light touches shall be mine, and this light shall touch all the world.'#{normal}#]])\n\tend,\n}\n\nnewLore{\n\tid = \"shertul-fortress-3\",\n\tcategory = \"sher'tul\",\n\tname = _t\"third mural painting\", always_pop = true,\n\timage = \"shertul_fortress_lore3.png\",\n\tlore = function() return _t[[This picture shows the huge god holding some smaller figures in his hands and pointing out at the lands beyond. You imagine these figures must be the Sher'Tul.\nThere is some text beneath ]]..(not game.player:attr(\"speaks_shertul\") and _t[[[[SOURCE_MATCH_1]]]] or _t[[#{italic}#'And AMAKTHEL made the SHER'TUL, and gave unto us the powers to achieve all that we set our will to, and said to us \"Go forth to where the light touches and take all for your own.\"'#{normal}#]])\n\tend,\n}\n\nnewLore{\n\tid = \"shertul-fortress-4\",\n\tcategory = \"sher'tul\",\n\tname = _t\"fourth mural painting\", always_pop = true,\n\timage = \"shertul_fortress_lore4.png\",\n\tlore = function() return _t[[You see a mural showing a huge metropolis made of crystal, with small islands of stone floating in the air behind it. In the foreground is sitting a Sher'Tul, with a hand stretched up to the sky.\nThere is some text beneath ]]..(not game.player:attr(\"speaks_shertul\") and _t[[which you do not understand: #{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#]] or _t[[#{italic}#'We conquered the world, and built for ourselves towering cities of crystal and fortresses that travelled the skies. But some were not content...'#{normal}#]])\n\tend,\n}",
+      "response": null
+    },
+    {
+      "base_ordinal": 57,
+      "audit_id": "A079",
+      "profile": "narrative",
+      "source": "Removed 89 beneficial effects from enemies via Disintegration.",
+      "target": "使用裂解清除敌人身上的89个增益效果",
+      "source_context": "\t\tself.nb = (self.nb or 0) + dam\n\t\treturn self.nb > 1000000 and profile.mod.allow_build.mage\n\tend,\n\ttrack = function(self) return tstring{tostring(math.floor(self.nb or 0)),\" / 1000000\"} end,\n}\nnewAchievement{\n\tname = \"Lichform\",\n\tdesc = _t[[Achieved your wild dreams of power and eternal life: you turned into a Lich!]],\n\tshow = \"name\",\n}\nnewAchievement{\n\tname = \"Best album ever!\", id = \"THE_CURE\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n\tshow = \"full\", \tmode = \"player\",\n\tcan_gain = function(self, who)\n\t\tself.nb = (self.nb or 0) + 1\n\t\tif self.nb >= 89 then return true end\n\tend,\n\ttrack = function(self) return tstring{tostring(self.nb or 0),\" / 89\"} end,\n}",
+      "response": null
+    },
+    {
+      "base_ordinal": 58,
+      "audit_id": "A076",
+      "profile": "narrative",
+      "source": "#{italic}#(You see here a large, elaborate fountain.  A statue of Linaniil stands in the center, her arms outstretched to welcome all; around the outside of the fountain stand statues of a dwarf manipulating earthen runes, a human with a simple healer's crosier, an elf with a tall, elaborate staff, and a halfling with a scepter in one hand and a fireball hovering over the other.  The runes and the fireball are not connected to anything, and float in a fixed position in the air.  You see a carving repeating along the border of the fountain, in small print.)#{normal}#\n\nALL ARE WELCOME WHO LEARN FROM THE MISTAKES OF THE PAST\n\nLET THE ARCANE ONCE MORE BE A BOON AND NOT A BANE TO MAJ'EYAL\n\nALL ARE WELCOME WHO EASE THE SUFFERING OF THE PRESENT\n\nMAY WE HAVE THE WISDOM TO ONE DAY REUNITE THE WORLD IN SAFETY AND ENLIGHTENMENT\n\nALL ARE WELCOME WHO PREVENT THE THREATS OF THE FUTURE\n\nGATHER HERE IN PEACE TO DISCOVER AND PERFECT THE KNOWLEDGE OF HOW, AND WHEN, TO WEAVE THE WORLD'S FABRIC",
+      "target": "#{italic}#（你在此看到一座庞大而精致的喷泉。莱娜尼尔的雕像站在中央，她伸展双臂，欢迎所有人；喷泉外缘周围站着几座雕像：一名操纵大地符文的矮人，一名持简朴治疗师权杖的人类，一名持高大精巧法杖的精灵，以及一名一手握着权杖、另一手上方悬浮火球的半身人。那些符文与火球未与任何东西相连，却保持在空中的固定位置。你看见喷泉边缘反复雕着一行细小字样。）#{normal}#\n\n欢迎所有从过去的错误中吸取教训之人\n\n愿奥术再度成为马基·埃亚尔的助益，而非灾祸\n\n欢迎所有缓解当下苦难之人\n\n愿我们拥有智慧，终有一日在安全与启蒙中使世界重新团结\n\n欢迎所有阻止未来威胁之人\n\n在此和平相聚，探索并完善何时、如何编织世界织物的知识",
+      "source_context": "Another day dawns on Angolwen. I hesitate to write this, but it almost feels as if peace is once again returning to Eyal. Saying this, I almost expect war and destruction to erupt immediately - fate is anything if not spiteful. Regardless, my sleep grows less disturbed by my memories of the Spellhunt day by day, and I can now devote myself wholly to the betterment of our cloistered community here in the mountains.\n\nThis is not to say that life has been without conflict at all. An agent of the Ziguranth infiltrated Angolwen under the guise of a travelling alchemist a few days ago; an unhappy first, I'm afraid. Having used choking powder to incapacitate the guards and rob the surrounding mages of their voices, things may have turned ugly if Linaniil hadn't been passing by on one of her walks. Little was left of that man... or the tree he hid behind... or many of the surrounding buildings, to be honest.\n\nIn a way, the incident lit a fire under me to pursue my studies and develop my powers, but I must admit that my interest in staff practice has waned as of late. My fencing, on the other hand, improves by the day. Hmm... I wonder if I can get some of the enchanters to help me \"augment\" my old sword. After all, what is a blade but a sharpened metal staff?]],\n}\n\nnewLore{\n\tid = \"angolwen-fountain\",\n\tcategory = \"angolwen\",\n\tname = _t\"Angolwen Fountain\",\n\talways_pop = true,\n\tlore = _t[[[[SOURCE_MATCH_1]]]],\n}\n",
+      "response": null
+    },
+    {
+      "base_ordinal": 59,
+      "audit_id": "A095",
+      "profile": "narrative",
+      "source": "Got a character to level 50.",
+      "target": "角色达到50级。",
+      "source_context": "\tname = \"Level 30\",\n\tshow = \"full\",\n\tdesc = _t[[Got a character to level 30.]],\n}\nnewAchievement{\n\tname = \"Level 40\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Got a character to level 40.]],\n}\nnewAchievement{\n\tname = \"Level 50\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\n\nnewAchievement{\n\tname = \"Unstoppable\",\n\tshow = \"full\",\n\tdesc = _t[[Returned from the dead.]],\n}\n\nnewAchievement{\n\tname = \"Utterly Destroyed\", id = \"EIDOLON_DEATH\",\n\tshow = \"name\",\n\tdesc = _t[[Died on the Eidolon Plane.]],",
+      "response": null
+    },
+    {
+      "base_ordinal": 60,
+      "audit_id": "A080",
+      "profile": "narrative",
+      "source": "#{bold}#Gorran, Cornac Archer#{normal}#\nThat snake. That addlepated beardling. That coin-hounding, blackhearted, stump-kneed dwarf! A scout he calls himself! The finest eyes of the Iron Throne, able to read the sign of the tavern in Last Hope from the tavern in Derth! Surely someone with such grandiose praise for his own eyesight would have spotted that cold drake waiting in ambush for us! Damnable thing, I'll be lucky if I can ever use my left arm again. I can't use my bow now ... I'm effectively dead wood to the team. I'm beginning to think that Sodelost has ulterior motives... I wouldn't put it past a dwarf to lead us up this forsaken mountain to die just so he could rifle through our pockets! I keep telling Relle, but she won't listen. The fool...",
+      "target": "#{bold}#科纳克人弓箭手，高岚#{normal}#\n那个毒蛇。那个没脑子的毛脸小子。那个追着钱跑、心肠漆黑、短腿跛脚的矮人！还自称斥候！还说自己是钢铁王座眼力最好的家伙，坐在德斯镇的酒馆里就能看清最后的希望城酒馆的招牌！如此夸耀自己视力的人，理应发现那条等着伏击我们的寒冰飞龙才对！该死的东西，我这辈子还能用左臂就算走运了。现在我拉不了弓……对队伍而言简直成了废物。我开始怀疑苏达罗斯特另有所图……矮人为了翻我们的口袋，故意把我们领上这座鬼山送死，也不是做不出来！我一再提醒瑞丽，她却听不进去。这个蠢货……",
+      "source_context": "newLore{\n\tid = \"daikara-note-2\",\n\tcategory = \"daikara\",\n\tname = _t\"expedition journal entry (daikara)\",\n\tlore = _t[[#{bold}#Sodelost, Dwarf Rogue#{normal}#\nCan't believe I agreed to this expedition. I suppose it's because I've known Relle for a while. We've crossed paths many times at Derth's trading post. I even gave her a special rate for my services. Sentimental fool! All it's got me is boots filled with snow and a light coinpurse. I still don't understand why these Kingdom types are so enamoured with drakeskin... makes superior armour they say. Pah! If you can't handle metal armour, what business do you have even wearing armour? Leather has about as much use as a halfling tied to a... noises up ahead, must stop writing.]],\n}\n\nnewLore{\n\tid = \"daikara-note-3\",\n\tcategory = \"daikara\",\n\tname = _t\"expedition journal entry (daikara)\",\n\tlore = _t[[[[SOURCE_MATCH_1]]]],\n}\n\nnewLore{\n\tid = \"daikara-note-4\",\n\tcategory = \"daikara\",\n\tname = _t\"expedition journal entry (daikara)\",\n\tlore = _t[[#{bold}#Relle, Cornac Fighter & Expedition Captain#{normal}#\nSodelost is dead, and so is Gorran. The former by Gorran's hand, the latter by my hand. Even in these wastes I cannot abide such an act of mutiny. I was aware of Gorran's anger ever since the drake attack, but I never dreamed he would turn on Sodelost like he did. He had taken my longsword as I slept the previous night, strode up to Sodelost, unheeding of I and Xann watching him, ran him through and laughed. Simply laughed. There was nothing for it; I wrenched my sword from his hand and brought it down on his neck. The commotion seems to have stirred up a nearby drake's nest, and now I fear we don't have the strength to repel a concentrated attack. We may have to abandon this expedition.]],\n}\n\nnewLore{\n\tid = \"daikara-note-5\",",
+      "response": null
+    }
+  ]
+}

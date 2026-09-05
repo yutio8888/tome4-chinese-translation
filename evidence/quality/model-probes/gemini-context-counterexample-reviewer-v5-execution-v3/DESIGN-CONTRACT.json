@@ -1,0 +1,65 @@
+{
+  "schema_version": "gemini-context-v5-execution-design-v5",
+  "status": "FROZEN_NO_RUN",
+  "sample": {
+    "total": 64,
+    "items_per_cohort_profile": 16,
+    "reselection": false,
+    "reserve_replacement": false
+  },
+  "mutations": {
+    "authored": false,
+    "in_scope_for_this_task": false,
+    "consequence": "every sealed reference row is a CLEAN_CONTROL with zero atoms, so only clean_with_findings is exercised by a real call; context_hits and surface_hits are exercised by the scorer fixture"
+  },
+  "protocols": {
+    "A": {
+      "prompt": "model-facing/prompts/GENERIC.md",
+      "context": false
+    },
+    "B": {
+      "prompt": "model-facing/prompts/ENHANCED.md",
+      "context": false
+    },
+    "C": {
+      "prompt": "model-facing/prompts/GENERIC.md",
+      "context": true
+    },
+    "D": {
+      "prompt": "model-facing/prompts/ENHANCED.md",
+      "context": true
+    }
+  },
+  "execution": {
+    "runs": 2,
+    "items_per_shard": 16,
+    "shards_per_cohort": 2,
+    "cohorts": [
+      "discovery",
+      "confirmation"
+    ],
+    "frozen_request_count": 32,
+    "cell_id": "<cohort>-<protocol>-run-<run>-shard-<shard>",
+    "cells_runnable": "only the ids listed in the task-owned EXECUTION-AUTHORIZATION"
+  },
+  "scoring": {
+    "scorer": "scorer.mjs",
+    "span_containment": "one direction: the reported target_span must contain the frozen atom span",
+    "counts": [
+      "context_hits",
+      "surface_hits",
+      "clean_with_findings"
+    ],
+    "winner_selection": "NOT_IN_THIS_TASK"
+  },
+  "stopping": {
+    "attempts_per_cell_max": 2,
+    "second_attempt_requires_finished_retryable_first_attempt": true,
+    "started_without_finished_blocks_replay": true,
+    "exit_zero_with_unextractable_envelope_is_finished_retryable": true,
+    "raw_derived_from_captured_stdout_only": true,
+    "raw_overwrite": false
+  },
+  "context_render_schema": "runtime-context-text-v2",
+  "source_construct_policy": "COMPLETE_NEVER_RENDERER_TRUNCATED_EXACT_SOURCE_PRESENT"
+}

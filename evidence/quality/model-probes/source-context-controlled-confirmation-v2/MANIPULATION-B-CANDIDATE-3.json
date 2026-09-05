@@ -1,0 +1,162 @@
+{
+  "schema_version": "source-context-controlled-confirmation-manipulation-check-candidate-v2",
+  "pass": "B_CONTEXT",
+  "shard": 3,
+  "queue_sha256": "548e654b286efa2626f7cfbb3088b034fbfcc04efcbc7e6c581ce26001470e5c",
+  "items": [
+    {
+      "proposal_id": "P027",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ACCURACY",
+          "severity": "major",
+          "target_span": "八章",
+          "claim": "上下文明确该成就要求学习加库尔传说的五个章节，目标却将其称为八章传说。"
+        }
+      ],
+      "evidence": "SOURCE_MATCH_1 所在成就的描述为“Learned the five chapters of the Legend of Garkul.”，且条件只检查 garkul-history-1 至 garkul-history-5。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P028",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ROLE_OR_REFERENT",
+          "severity": "major",
+          "target_span": "兽人文字",
+          "claim": "目标把这段文字无依据地认定为兽人文字；上下文将其与是否会说夏·图尔语直接关联。"
+        }
+      ],
+      "evidence": "该文本位于 not game.player:attr(\"speaks_shertul\") 分支；会说 Sher'Tul 时，同一位置显示可理解的译文。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P029",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "即使你懂得这种语言，也无法理解",
+          "claim": "目标声称即使懂得该语言也无法理解，但上下文表明不理解只发生在不会说夏·图尔语时。"
+        }
+      ],
+      "evidence": "SOURCE_MATCH_1 位于 not speaks_shertul 分支；对应的 or 分支在角色会说 Sher'Tul 时直接给出可理解译文。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P030",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "DIRECTION_OR_POLARITY",
+          "severity": "major",
+          "target_span": "放走鲜血大师",
+          "claim": "目标把正确行为说成放走鲜血大师，而上下文明确该成就对应处置、杀死鲜血大师。"
+        }
+      ],
+      "evidence": "SOURCE_MATCH_1 的成就 ID 是 RING_BLOOD_KILL，描述为“disposed of the Blood Master”。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P031",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ROLE_OR_REFERENT",
+          "severity": "major",
+          "target_span": "解放奴隶",
+          "claim": "目标错误地把该标题关联到解放奴隶；上下文显示它属于处置鲜血大师的成就，解放奴隶是另一个独立成就。"
+        }
+      ],
+      "evidence": "SOURCE_MATCH_1 位于 RING_BLOOD_KILL，描述为处置 Blood Master；紧随其后的 Thralless/RING_BLOOD_FREED 才描述解放至少 30 名奴隶。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P032",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "TERMINOLOGY",
+          "severity": "major",
+          "target_span": "白银捐赠等级",
+          "claim": "目标将至少 16 欧元对应为白银等级，但上下文明确该条属于黄金捐赠者。"
+        }
+      ],
+      "evidence": "SOURCE_MATCH_1 位于 name = \"Gold Donator\", id = \"GOLD_DONATOR\" 的成就中；Silver Donator 的门槛另列为至少 6 欧元。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P033",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ROLE_OR_REFERENT",
+          "severity": "major",
+          "target_span": "那个人类",
+          "claim": "目标将携带纸片并与玩家战斗的生物改成了人类，而上下文支持其为蜘蛛类生物。"
+        }
+      ],
+      "evidence": "紧邻该 lore 的叙事反复称敌人为 arachnid、spider，并说明巨型蜘蛛是此处的 matriarch；原文自身仅称其为 creature。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P034",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "总能依稀拼凑出一些文字",
+          "claim": "目标把拼凑文字描述为无条件总能做到，但上下文表明只有满足翻译状态时才显示该文本。"
+        }
+      ],
+      "evidence": "SOURCE_MATCH_1 仅在 game.state.spydre_mantra 为真时返回；否则分支明确说缺少更多 Spydric 文本便无法解读。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P035",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "即使你懂夏·图尔语也无法理解",
+          "claim": "目标声称懂夏·图尔语仍无法理解，直接违背上下文中的语言能力分支。"
+        }
+      ],
+      "evidence": "SOURCE_MATCH_1 位于 not game.player:attr(\"speaks_shertul\") 分支；会说 Sher'Tul 时，or 分支显示该铭文的可理解英文译文。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P036",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "CONDITION_OR_SCOPE",
+          "severity": "major",
+          "target_span": "必须单次使用裂解清除",
+          "claim": "目标新增了必须单次完成的限制，但上下文使用累计计数，并不要求一次裂解清除 89 个增益。"
+        }
+      ],
+      "evidence": "can_gain 每次调用执行 self.nb = (self.nb or 0) + 1，并在累计值达到 89 时获得成就；track 也显示累计进度。",
+      "limitations": null
+    },
+    {
+      "proposal_id": "P037",
+      "verdict": "EXACTLY_ONE_OBJECTIVE_DEFECT",
+      "findings": [
+        {
+          "claim_type": "ACCURACY",
+          "severity": "major",
+          "target_span": "位于德斯镇",
+          "claim": "目标把喷泉的位置写成德斯镇，而上下文明确这是安格利文喷泉。"
+        }
+      ],
+      "evidence": "该 lore 的 id 为 angolwen-fountain、名称为“Angolwen Fountain”，前置叙事也持续描述 Angolwen。",
+      "limitations": null
+    }
+  ]
+}

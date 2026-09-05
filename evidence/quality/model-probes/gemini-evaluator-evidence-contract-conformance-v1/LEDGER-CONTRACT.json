@@ -1,0 +1,36 @@
+{
+  "schema_version": "evidence-contract-ledger-v1",
+  "path": "execution/LEDGER.jsonl",
+  "append_only": true,
+  "max_attempts": 1,
+  "cell_order": [
+    "baseline-p0-s0-a",
+    "schema-p0-s2-a",
+    "prompt-p1-s0-a",
+    "combined-p1-s2-a",
+    "context-p0-s0-c"
+  ],
+  "start_keys": [
+    "event",
+    "cell",
+    "attempt",
+    "started_at"
+  ],
+  "finish_keys": [
+    "event",
+    "cell",
+    "attempt",
+    "started_at",
+    "finished_at",
+    "exit_code",
+    "stdout_sha256",
+    "stderr_sha256",
+    "process_success",
+    "envelope_schema_valid",
+    "raw_path"
+  ],
+  "key_enforcement": "START and FINISH rows must have exactly their registered key sets; extra or missing keys invalidate the ledger.",
+  "counting": "Every START row counts as one agy process and one inference call, regardless of exit.",
+  "finish_guarantee": "After START and every spawn attempt, FINISH is appended in a finally path even when invocation capture, capture persistence, envelope parsing, or RAW persistence fails. Available stdout and stderr are preserved best-effort and no retry is permitted.",
+  "continuation": "Only FINISH rows with process_success and envelope_schema_valid true permit the next registered cell. Membership outcomes and zero candidates do not block."
+}

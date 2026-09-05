@@ -1,0 +1,29 @@
+{
+  "schema_version": "gemini-original-items-matrix-ledger-v1",
+  "max_attempts_per_cell": 1,
+  "agy_process_budget": 12,
+  "inference_call_budget": 12,
+  "retries": 0,
+  "start_keys": [
+    "event",
+    "cell",
+    "attempt",
+    "started_at"
+  ],
+  "finish_keys": [
+    "event",
+    "cell",
+    "attempt",
+    "started_at",
+    "finished_at",
+    "exit_code",
+    "stdout_sha256",
+    "stderr_sha256",
+    "process_success",
+    "envelope_schema_valid",
+    "raw_path"
+  ],
+  "counting_rule": "Every START consumes one process, one inference call, and the cell's only attempt.",
+  "binding_rule": "FINISH hashes captured stdout/stderr; valid stdout must reparse to byte-identical canonical RAW.",
+  "finish_guarantee": "Every spawned attempt appends FINISH, including process, parse, capture, or post-spawn exceptions."
+}

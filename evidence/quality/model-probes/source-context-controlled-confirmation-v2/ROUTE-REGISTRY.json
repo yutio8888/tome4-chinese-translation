@@ -1,0 +1,88 @@
+{
+  "schema_version": "source-context-controlled-confirmation-route-registry-v2",
+  "status": "QUALIFIED_PRE_INFERENCE",
+  "qualified_count": 4,
+  "route_set_kind": "CLI route intervention; not a pure underlying-model comparison",
+  "bwrap_version": "bubblewrap 0.11.1",
+  "timeout_ms": 1800000,
+  "max_buffer_bytes": 134217728,
+  "retry_policy": {
+    "max_attempts": 2,
+    "allowed_only_when": "no non-synthetic assistant response payload exists",
+    "schema_invalid_or_route_mismatch_retryable": false
+  },
+  "routes": [
+    {
+      "route_key": "codex",
+      "slug": "codex-gpt-5.6-sol-high",
+      "kind": "codex",
+      "cli_version": "codex-cli 0.150.1",
+      "requested_provider": null,
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "evidence_tier": "REQUESTED_ROUTE_ONLY_UNVERIFIED",
+      "runtime_identity_policy": "requested CLI route only; no positive runtime model attestation",
+      "qualification": {
+        "selected_attempt": 2,
+        "result_sha256": "41529a76280e34fbebfeb4ec38cc22ff659c02a8d0401f79b91e26837aaeddcb",
+        "raw_stdout_sha256": "44eeb416fa1708d2a6895f0ff73ea2c449d25e435fee6164b62fdfe81486802f",
+        "failed_unsharded_attempt_preserved": true,
+        "failed_result_sha256": "568ce3cebc76da95c3caa378a73457abb30cb842d29f74c727f3a17726e9e8f3"
+      }
+    },
+    {
+      "route_key": "opus",
+      "slug": "claude-opus-5-medium-no-advisor",
+      "kind": "claude",
+      "cli_version": "2.1.251 (Claude Code)",
+      "requested_provider": null,
+      "requested_model": "claude-opus-5",
+      "requested_effort": "medium",
+      "evidence_tier": "STRICT_STREAM_IDENTITY_REQUIRED",
+      "runtime_identity_policy": "single init/assistant/modelUsage model must all be claude-opus-5; no advisor/fallback/subagent/server-tool",
+      "qualification": {
+        "selected_attempt": 2,
+        "result_sha256": "30df20086fb881fcfac567682ee0556027cfcd27be2278c40ca49082861b7161",
+        "raw_stdout_sha256": "58d33b12a5c31788b9c8631ca412e18db76a11d99058efc4c34624f55f477acf",
+        "failed_unsharded_attempt_preserved": true,
+        "failed_result_sha256": "f3996136a0e19761d049a1255d09199f6463fc2230220cbfc3a511ace13fadc0"
+      }
+    },
+    {
+      "route_key": "glm",
+      "slug": "pi-zai-cn-glm-5.3-flash-high",
+      "kind": "pi",
+      "cli_version": "0.84.3",
+      "requested_provider": "zai-standard-cn",
+      "requested_model": "glm-5.3-flash",
+      "requested_effort": "high",
+      "evidence_tier": "PROVIDER_AND_MODEL_REQUIRED",
+      "runtime_identity_policy": "terminal provider and model must exactly match",
+      "qualification": {
+        "selected_attempt": 2,
+        "result_sha256": "abb47b7acb695b7fd09fe9af0b382e82b7745e2cbfae8cf5a7ec09e07272e1e6",
+        "raw_stdout_sha256": "a15dc85aed3d6fd3c7f06e090c46dfcb8f362bd3450c31c69b11df76f568c3ce",
+        "failed_unsharded_attempt_preserved": true,
+        "failed_result_sha256": "a90b288a155c7b76d4ec2e3a78a8f49d302e36dc62652dcb1fa32608ba4ac766"
+      }
+    },
+    {
+      "route_key": "gemini",
+      "slug": "agy-gemini-3.7-flash-high",
+      "kind": "agy",
+      "cli_version": "1.1.22",
+      "requested_provider": null,
+      "requested_model": "gemini-3.7-flash-high",
+      "requested_effort": "high",
+      "evidence_tier": "REQUESTED_ROUTE_ONLY_UNVERIFIED",
+      "runtime_identity_policy": "reported model may be null; requested CLI route only when null",
+      "qualification": {
+        "selected_attempt": 2,
+        "result_sha256": "32cbd21697fda52adb3ca1ce0c11ccc9e8a11ed94cafc864bbe24eb13b4c04f0",
+        "raw_stdout_sha256": "118abf26f19edf54d45b401da42a09736212345e528c3ad6fd7b3a9afe08c215",
+        "failed_unsharded_attempt_preserved": true,
+        "failed_result_sha256": "cbf84575840f0bf5309a9fa6e040d52674341bfd40dfa467109cdbd09ada2af5"
+      }
+    }
+  ]
+}

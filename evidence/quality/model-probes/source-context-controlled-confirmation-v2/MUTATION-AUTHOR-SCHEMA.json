@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source-context-controlled-confirmation-mutation-author-candidate-v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "shard", "queue_sha256", "items"],
+  "properties": {
+    "schema_version": {"const": "source-context-controlled-confirmation-mutation-author-candidate-v2"},
+    "shard": {"type": "integer", "minimum": 1, "maximum": 3},
+    "queue_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "items": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["base_ordinal", "audit_id", "context_option", "surface_option"],
+        "properties": {
+          "base_ordinal": {"type": "integer", "minimum": 1, "maximum": 60},
+          "audit_id": {"type": "string"},
+          "context_option": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/contextProposal"}]},
+          "surface_option": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/surfaceProposal"}]}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "baseProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mutated_target", "edit_span_original", "edit_span_mutated", "claim_type", "severity", "atom", "minimality"],
+      "properties": {
+        "mutated_target": {"type": "string", "minLength": 1},
+        "edit_span_original": {"type": "string", "minLength": 1},
+        "edit_span_mutated": {"type": "string", "minLength": 1},
+        "claim_type": {"enum": ["ACCURACY", "ROLE_OR_REFERENT", "CONDITION_OR_SCOPE", "DIRECTION_OR_POLARITY", "TERMINOLOGY", "OTHER_OBJECTIVE"]},
+        "severity": {"enum": ["major", "minor"]},
+        "atom": {"type": "string", "minLength": 1},
+        "minimality": {"type": "string", "minLength": 1}
+      }
+    },
+    "contextProposal": {
+      "allOf": [
+        {"$ref": "#/$defs/baseProposal"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mutated_target", "edit_span_original", "edit_span_mutated", "claim_type", "severity", "atom", "minimality", "family", "surface_underdetermined", "context_refutation"],
+          "properties": {
+            "mutated_target": {"type": "string", "minLength": 1},
+            "edit_span_original": {"type": "string", "minLength": 1},
+            "edit_span_mutated": {"type": "string", "minLength": 1},
+            "claim_type": {"enum": ["ACCURACY", "ROLE_OR_REFERENT", "CONDITION_OR_SCOPE", "DIRECTION_OR_POLARITY", "TERMINOLOGY", "OTHER_OBJECTIVE"]},
+            "severity": {"enum": ["major", "minor"]},
+            "atom": {"type": "string", "minLength": 1},
+            "minimality": {"type": "string", "minLength": 1},
+            "family": {"enum": ["speaker_addressee_or_agent_patient", "referent_or_entity_identity", "event_branch_condition_or_scope", "direction_polarity_or_ownership"]},
+            "surface_underdetermined": {"type": "string", "minLength": 1},
+            "context_refutation": {"type": "string", "minLength": 1}
+          }
+        }
+      ]
+    },
+    "surfaceProposal": {
+      "allOf": [
+        {"$ref": "#/$defs/baseProposal"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mutated_target", "edit_span_original", "edit_span_mutated", "claim_type", "severity", "atom", "minimality", "surface_refutation"],
+          "properties": {
+            "mutated_target": {"type": "string", "minLength": 1},
+            "edit_span_original": {"type": "string", "minLength": 1},
+            "edit_span_mutated": {"type": "string", "minLength": 1},
+            "claim_type": {"enum": ["ACCURACY", "ROLE_OR_REFERENT", "CONDITION_OR_SCOPE", "DIRECTION_OR_POLARITY", "TERMINOLOGY", "OTHER_OBJECTIVE"]},
+            "severity": {"enum": ["major", "minor"]},
+            "atom": {"type": "string", "minLength": 1},
+            "minimality": {"type": "string", "minLength": 1},
+            "surface_refutation": {"type": "string", "minLength": 1}
+          }
+        }
+      ]
+    }
+  }
+}

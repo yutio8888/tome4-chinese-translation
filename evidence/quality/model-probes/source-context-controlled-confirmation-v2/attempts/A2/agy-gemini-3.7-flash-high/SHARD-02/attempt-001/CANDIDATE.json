@@ -1,0 +1,206 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "A2",
+  "arm": "A",
+  "run": 2,
+  "shard": "02",
+  "route_key": "gemini",
+  "route": "agy-gemini-3.7-flash-high",
+  "attempt": 1,
+  "request_sha256": "07a7303cd7f5f99040c2b108a55b4431eeae8713dd7b2b9bab30f01709c7f83c",
+  "input_sha256": "1dfffe28a49949034092ab751600ef4c7717cb8ad7141ecd7bd1cd70379f49f8",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "586c6c7c43ec055478066f1df78d8e269c0f7769f7926ef2ce347802ca9f3ff9",
+  "raw_stderr_sha256": "3a7f8550106d86abb322e8ed0fb30a0296c0e97c6be03d5a8033b99d16737459",
+  "route_metadata": {
+    "reported_model": null,
+    "runtime_identity_verified": false,
+    "usage": {
+      "input_tokens": 32928,
+      "output_tokens": 16351,
+      "thinking_tokens": 13829,
+      "cache_read_tokens": 16323,
+      "total_tokens": 49279
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "candidates": [
+          {
+            "claim_type": "CONDITION",
+            "correction": "你无法理解：",
+            "evidence": "which you do not understand",
+            "target_span": "即使你懂得这种语言，",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q021",
+        "observation": "source 仅表示“你不理解/听不懂的内容（which you do not understand）”，target 错误添加了“即使你懂得这种语言”这一假设条件，改变了原文语义。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q022",
+        "observation": "译文准确完整，与原文语义完全一致，无翻译缺陷。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "ACTION",
+            "correction": "向外张望",
+            "evidence": "peer out",
+            "target_span": "凝视着他",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q023",
+        "observation": "source 中“peer out”表示“向外看/向外窥视”，target 翻译为“凝视着他”，改变了动作且错误添加了第三人称宾语“他”。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q024",
+        "observation": "译文准确，无翻译缺陷。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q025",
+        "observation": "译文准确传达了原文语义，无翻译缺陷。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q026",
+        "observation": "译文准确，无翻译缺陷。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q027",
+        "observation": "译文完整准确传达了原文意思，无实质性翻译缺陷。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q028",
+        "observation": "译文准确通顺，无翻译缺陷。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "DIRECTION",
+            "correction": "全都是幼龙",
+            "evidence": "Nothing but hatchlings",
+            "target_span": "从未遇上幼龙",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q029",
+        "observation": "source 中“Nothing but hatchlings so far”表示“到目前为止遇到的全都是幼龙”，target 译为“从未遇上幼龙”，语义完全相反。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "REFERENT",
+            "correction": "举报不良行为",
+            "evidence": "Report for bad behavior",
+            "target_span": "举报我的不良行为",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q030",
+        "observation": "source 中的“Report for bad behavior”是指“举报不良行为”，target 错误添加了“我的”，将举报对象误指为自己。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "ACTION",
+            "correction": "放置",
+            "evidence": "Place",
+            "target_span": "丢弃",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q031",
+        "observation": "source 中的动词“Place”意为“放置/摆放”，target 错误翻译为“丢弃”，改变了动作含义。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q032",
+        "observation": "target 添加了“在‘龙之贪婪’成就中”，但该信息与可见证据相容且无法由可见证据判错，符合规则3，不构成缺陷。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q033",
+        "observation": "译文准确传达了原文语义，无翻译缺陷。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "DIRECTION",
+            "correction": "绝不会让你失望",
+            "evidence": "will not let you down",
+            "target_span": "一定会让你失望",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q034",
+        "observation": "source“I will not let you down!”表示“我不会让你失望的！”，target 遗漏否定并反向译为“我一定会让你失望”，极性完全反转。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "VALUE",
+            "correction": "50",
+            "evidence": "50",
+            "target_span": "20",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q035",
+        "observation": "source 中的数字是“50”，target 误译为“20”，存在数值翻译错误。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q036",
+        "observation": "target 将“this”具体化为“这个发现”，与可见证据相容且无法被判错，不构成缺陷。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q037",
+        "observation": "译文准确传达了原文的核心语义，无客观翻译缺陷。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "DIRECTION",
+            "correction": "老派风格",
+            "evidence": "old-school",
+            "target_span": "现代风格",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q038",
+        "observation": "source 中的“old-school”意为“老派/复古”，target 误译为反义的“现代风格”，语义相反。"
+      },
+      {
+        "candidates": [],
+        "neutral_id": "Q039",
+        "observation": "译文准确，无翻译缺陷。"
+      },
+      {
+        "candidates": [
+          {
+            "claim_type": "DIRECTION",
+            "correction": "在轨道上",
+            "evidence": "in orbit",
+            "target_span": "在地面上",
+            "verdict": "FINDING"
+          }
+        ],
+        "neutral_id": "Q040",
+        "observation": "source 中的“in orbit”表示“在轨道上”，target 错误翻译为“在地面上”，位置状态完全相反。"
+      }
+    ]
+  }
+}

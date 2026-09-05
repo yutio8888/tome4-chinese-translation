@@ -1,0 +1,19 @@
+{
+  "schema_version": "gemini-context-assignment-contract-v3",
+  "status": "FROZEN_BLOCKED_INPUT_SHORTFALL",
+  "implementation": "assignment-lib.mjs via assign.mjs",
+  "seed": "gemini-context-counterexample-reviewer-v1/assignment/v1",
+  "search_node_budget": 500000,
+  "eligible_input": {"total":64,"CONTEXT_MUTANT":24,"SURFACE_MUTANT":16,"CLEAN_CONTROL":24,"direct_source_verified":true,"manipulations_pass":true,"historical_task_id_required":true},
+  "quota_each": {"CONTEXT_MUTANT":12,"SURFACE_MUTANT":8,"CLEAN_CONTROL":12},
+  "algorithm": [
+    "Before assignment, reject every authored mutation presentation matching the frozen exposure registry manipulation/all-presentation corpus under the shared normalized equality/containment policy; then validate clean-audit source/context hashes and exact mutation clean-target, unique-edit, manipulation-check bindings.",
+    "Sort bases by sha256(seed + NUL + base_id + NUL + discovery), then base_id; group by public source file and sort equal groups by file path.",
+    "Depth-first assign each whole-file group to discovery before confirmation, prune impossible quotas, and fail after 500000 visited nodes.",
+    "Require exact quotas, at most two items per source file, at most four per historical task in each cohort, and file/source/context/base disjointness.",
+    "Order each cohort by sha256(seed + NUL + phase + NUL + base_id), then base_id; assign global IDs and contiguous 16-item shards."
+  ],
+  "path_policy": "All package sibling inputs and outputs resolve relative to the script directory, independent of cwd.",
+  "failure": "Emit INSUFFICIENT_ASSIGNMENT or ASSIGNMENT_SEARCH_BUDGET_EXCEEDED; never pad, replace, reuse, or relax.",
+  "reference_policy": "Separate phase references released only after an exact phase RAW manifest is immutable and hash-bound by release state."
+}

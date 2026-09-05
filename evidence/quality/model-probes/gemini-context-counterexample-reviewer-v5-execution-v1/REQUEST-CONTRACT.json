@@ -1,0 +1,98 @@
+{
+  "schema_version": "gemini-context-v5-execution-request-contract-v4",
+  "status": "FROZEN_ZERO_INFERENCE_NO_GO",
+  "request_count": 32,
+  "cell_axes": {
+    "cohorts": [
+      "discovery",
+      "confirmation"
+    ],
+    "protocols": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "runs": [
+      1,
+      2
+    ],
+    "shards": [
+      1,
+      2
+    ]
+  },
+  "items_per_request": 16,
+  "manifest": "frozen/REQUEST-MANIFEST.json",
+  "context_render": {
+    "schema": "runtime-context-text-v2",
+    "segment_order": [
+      "BEFORE",
+      "SOURCE_CONSTRUCT",
+      "AFTER"
+    ],
+    "segment_max_utf8_bytes": 8192,
+    "request_max_utf8_bytes": 120000,
+    "coordinates": [
+      "line_start",
+      "line_end",
+      "byte_start",
+      "byte_end_exclusive"
+    ],
+    "source_and_renderer_truncation_are_separate": true,
+    "deterministic_sentinels_required": true,
+    "source_construct_never_renderer_truncated": true,
+    "exact_item_source_required": true
+  },
+  "model_facing_item_keys": {
+    "A_B": [
+      "item_id",
+      "source",
+      "target"
+    ],
+    "C_D": [
+      "item_id",
+      "source",
+      "target",
+      "source_context"
+    ]
+  },
+  "leakage_policy": {
+    "structured_key_scan": true,
+    "explicit_marker_and_path_scan": true,
+    "ordinary_words_in_natural_text_are_not_blanket_banned": [
+      "reference",
+      "sealed",
+      "defect"
+    ],
+    "internal_identifiers_forbidden": [
+      "proposal_sha256",
+      "row_sha256",
+      "base_item_id",
+      "planned_role",
+      "public_source_file",
+      "revision_uid",
+      "normalized_context_sha256"
+    ]
+  },
+  "parser": {
+    "exact_outer_and_inner_schemas": true,
+    "duplicate_keys_rejected_at_all_json_layers": true,
+    "exact_item_order_and_count": true,
+    "candidate_cap_per_item": 4,
+    "evidence_and_target_membership_required": true,
+    "runtime_model_self_report_not_trusted": true,
+    "scorable_identity_tier": "QUALIFIED_ROUTE_BOUND"
+  },
+  "recovery": {
+    "attempts_max": 2,
+    "second_attempt_requires_preclassified_transport_or_harness_failure": true,
+    "raw_exclusive_create": true,
+    "valid_success_reused": true,
+    "ledger": "execution/RECOVERY-LEDGER.json",
+    "started_journal_exclusive_before_call": true,
+    "raw_stdout_stderr_preserved_before_parse": true,
+    "ambiguous_started_blocks_replay": true,
+    "ledger_raw_journal_bijection": true
+  }
+}

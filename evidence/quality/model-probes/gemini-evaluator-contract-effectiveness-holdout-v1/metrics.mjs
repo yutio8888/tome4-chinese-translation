@@ -1,0 +1,9 @@
+const prose=/[.!?。！？]|because|since|therefore|means|indicates|shows|the translation|the source|the target|因为|所以|说明|表示|译文|原文/iu;
+const rate=(n,d)=>d?n/d:null;
+export function mechanicalMetrics(normalized,input){
+ const by=new Map(input.items.map(x=>[x.item_id,x])),candidates=[];
+ for(const row of normalized.items)for(const c of row.candidates){const item=by.get(row.item_id),domains=[item.source,item.target,...(typeof item.source_context==='string'?[item.source_context]:[])],evidenceMember=domains.some(x=>x.includes(c.evidence)),targetMember=item.target.includes(c.target_span);candidates.push({...c,item_id:row.item_id,evidence_member:evidenceMember,target_span_member:targetMember,explanation_prose_proxy:prose.test(c.evidence)});}
+ const n=candidates.length,ev=candidates.filter(x=>x.evidence_member).length,ts=candidates.filter(x=>x.target_span_member).length;
+ return{strict_schema:true,registered_evidence_field_conformance:'STRUCTURAL_PRECONDITION',status:n?'CANDIDATE_BEARING':'ZERO_CANDIDATES_VALID',candidate_count:n,zero_candidate_run:n===0,evidence_membership_count:ev,evidence_membership_rate:rate(ev,n),target_span_membership_count:ts,target_span_membership_rate:rate(ts,n),quote_and_span_valid_count:candidates.filter(x=>x.evidence_member&&x.target_span_member).length,quote_and_span_valid_rate:rate(candidates.filter(x=>x.evidence_member&&x.target_span_member).length,n),finding_count:candidates.filter(x=>x.verdict==='FINDING').length,uncertain_count:candidates.filter(x=>x.verdict==='UNCERTAIN').length,explanation_prose_proxy_count:candidates.filter(x=>x.explanation_prose_proxy).length,candidates};
+}
+export function variance(values){if(!values.length)return null;const mean=values.reduce((a,b)=>a+b,0)/values.length;return{n:values.length,mean,min:Math.min(...values),max:Math.max(...values),range:Math.max(...values)-Math.min(...values),sample_variance:values.length>1?values.reduce((s,x)=>s+(x-mean)**2,0)/(values.length-1):null};}

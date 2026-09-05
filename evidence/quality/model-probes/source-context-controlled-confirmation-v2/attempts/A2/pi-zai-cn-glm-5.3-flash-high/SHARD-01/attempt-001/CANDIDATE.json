@@ -1,0 +1,216 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "A2",
+  "arm": "A",
+  "run": 2,
+  "shard": "01",
+  "route_key": "glm",
+  "route": "pi-zai-cn-glm-5.3-flash-high",
+  "attempt": 1,
+  "request_sha256": "c537832517d62073f60b457d3594f4e28e1003305067ce45099412be9843b800",
+  "input_sha256": "ba3fd57463fe33e17d95daacce9e668329802003058a47e93559524f72e1e5b2",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "8d3c9a0d3165683107a68a0fa61f464205e04b2af460a6c88bd5ae5d9b41c91f",
+  "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "route_metadata": {
+    "actual_provider": "zai-standard-cn",
+    "actual_model": "glm-5.3-flash",
+    "usage": {
+      "input": 2410,
+      "output": 5845,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 4588,
+      "totalTokens": 8255,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    }
+  },
+  "valid": false,
+  "validation_errors": [
+    "top-level keys"
+  ],
+  "response": {
+    "schema_version": "source-context-controlled-confirmation-request-a-v2",
+    "items": [
+      {
+        "neutral_id": "Q001",
+        "candidates": [],
+        "observation": "译文与原文语义一致，“after letting her grow as powerful as possible”准确译出。"
+      },
+      {
+        "neutral_id": "Q002",
+        "candidates": [],
+        "observation": "长段独白的核心信息（身份嘲讽、视力夸张例证、寒冰飞龙伏击、左臂受伤、对矮人动机的怀疑、告知瑞丽未被理会）均完整对应，无实质性缺陷。"
+      },
+      {
+        "neutral_id": "Q003",
+        "candidates": [],
+        "observation": "斗篷隐藏真实本质、他人只见普通人类、可自由行事的语义均对应。"
+      },
+      {
+        "neutral_id": "Q004",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "七章",
+            "correction": "魔法大爆炸的故事（删除无据的“七章”；本请求中相关证据显示魔法大爆炸编年史为八章）",
+            "evidence": "Tales of the Spellblaze"
+          }
+        ],
+        "observation": "原文标题未包含任何章节数，“七章”为无据新增；且与同请求中“Learned the eight chapters of the Spellblaze Chronicles.”所示章节数相冲突。"
+      },
+      {
+        "neutral_id": "Q005",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "ACTION",
+            "target_span": "阅读了",
+            "correction": "学会了／习得了",
+            "evidence": "Learned the eight chapters"
+          }
+        ],
+        "observation": "原文强调“学会/习得”八章内容，译文“阅读了”仅表达阅读行为，程度略有减弱，但作为成就描述通常可接受，故列为 UNCERTAIN。"
+      },
+      {
+        "neutral_id": "Q006",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "SCOPE",
+            "target_span": "主线任务",
+            "correction": "任务",
+            "evidence": "Quest #CIMSON#Failed!"
+          }
+        ],
+        "observation": "原文 Quest 为泛指，译文限定为“主线任务”，缩小了适用范围；若该字符串也用于支线任务则会出错，但仅凭可见文本无法确证，故列为 UNCERTAIN。"
+      },
+      {
+        "neutral_id": "Q007",
+        "candidates": [],
+        "observation": "“必须装备才能使用”与原文语义一致。"
+      },
+      {
+        "neutral_id": "Q008",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "OMISSION",
+            "target_span": "点击复制。",
+            "correction": "点击复制到剪贴板。",
+            "evidence": "Click to copy to clipboard."
+          },
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "SUBJECT",
+            "target_span": "这样你们可以用同一套技能组合进行游玩",
+            "correction": "这样他们就可以用同一套技能组合进行游玩",
+            "evidence": "this way they can play with the same set of talents"
+          }
+        ],
+        "observation": "“复制”后省略了目的地“剪贴板”；“they can play”（朋友可以游玩）被译为“你们可以”，主语指向由朋友变为包含说话者的双方，属可议的指称偏移。"
+      },
+      {
+        "neutral_id": "Q009",
+        "candidates": [],
+        "observation": "“别废话/我是来阻止你的”以否定+肯定句式再现原文语气，语义一致。"
+      },
+      {
+        "neutral_id": "Q010",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "隐藏鼠标手势轨迹",
+            "correction": "显示鼠标手势轨迹",
+            "evidence": "Display mouse gesture trails"
+          }
+        ],
+        "observation": "原文为“Display（显示）”，译文写作“隐藏”，动作方向完全相反。"
+      },
+      {
+        "neutral_id": "Q011",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "这不是维网",
+            "correction": "这就是维网",
+            "evidence": "This is the Way."
+          }
+        ],
+        "observation": "原文为肯定句 “This is the Way.”，译文加入否定词“不”，变成“这不是维网”，语义相反，属明确缺陷。"
+      },
+      {
+        "neutral_id": "Q012",
+        "candidates": [],
+        "observation": "“打开用户信息（在浏览器里打开）”与原文对应，新增“我的”与语境相容。"
+      },
+      {
+        "neutral_id": "Q013",
+        "candidates": [],
+        "observation": "原文仅为“which you do not understand”，译文扩展为“即使你懂夏·图尔语也无法理解”，属新增但与原文相容、且无法由可见证据判错的演绎，按规则不构成缺陷。"
+      },
+      {
+        "neutral_id": "Q014",
+        "candidates": [],
+        "observation": "“捐赠至少 16 欧元”准确；新增“达到白银捐赠等级”与可见证据相容且无法据此判错，按规则不报告。"
+      },
+      {
+        "neutral_id": "Q015",
+        "candidates": [],
+        "observation": "“获得‘毁灭者’称号”与原文一致。"
+      },
+      {
+        "neutral_id": "Q016",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ACTION",
+            "target_span": "锁定阵营",
+            "correction": "更改阵营",
+            "evidence": "DEBUG -- Alter Faction"
+          }
+        ],
+        "observation": "原文动词为 Alter（更改），译文写作“锁定”，动作含义被改变，属实质性偏差。"
+      },
+      {
+        "neutral_id": "Q017",
+        "candidates": [],
+        "observation": "译文新增“永远”，属与原文“你无法理解”相容且无法由可见证据判错的强化表达，按规则不报告。"
+      },
+      {
+        "neutral_id": "Q018",
+        "candidates": [],
+        "observation": "“角色达到50级”与原文一致。"
+      },
+      {
+        "neutral_id": "Q019",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "VALUE",
+            "target_span": "转化之盒",
+            "correction": "转化之箱",
+            "evidence": "Transmogrification Chest"
+          }
+        ],
+        "observation": "Chest 通常指箱/柜，译作“盒”存在物体类别偏差；新增“即使我不会提取宝石”与原文相容且无法判错，按规则不报告。"
+      },
+      {
+        "neutral_id": "Q020",
+        "candidates": [],
+        "observation": "原文未提及章节数，译文新增“八章”；本请求中仅可见魔法大爆炸编年史为八章，无法据此判定《加库尔的传说》章节数有误，按规则不构成缺陷。"
+      }
+    ]
+  }
+}

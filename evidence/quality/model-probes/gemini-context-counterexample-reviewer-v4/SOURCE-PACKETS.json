@@ -1,0 +1,1098 @@
+{
+  "schema_version": "gemini-context-v4-source-packets-v1",
+  "fixed_source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "bounds": {
+    "line_radius": 12,
+    "marker": "[[SOURCE_MATCH_1]]"
+  },
+  "items": [
+    {
+      "neutral_id": "V4-D-D01",
+      "source_sha256": "7e5db818fdbb37a933f2adda1646c6f006c1b1d75327b268a4f4c5dc59776064",
+      "source_artifact_sha256": "94c88969060abd9920538ed55c9aa0c984e4c52348a59dc17f4aa6948926e884",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/shertul-fortress-butler.lua",
+        "line": 90,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5932,
+        "inventory_ordinal": 3479
+      },
+      "source_context": "{_t\"Those are Sher'Tuls? They fought the gods?!\", jump=\"godslayers\"}, } } newChat{ id=\"godslayers\", text = _t[[They had to. They forged terrible weapons of war. They won.]], answers = { {_t\"But then where are they now if they won?\", jump=\"where\"}, } } newChat{ id=\"where\", text = [[SOURCE_MATCH_1]]_t[[They are gone now. I cannot tell you more.]], answers = { {_t\"But I am the master!\", jump=\"where\"}, {_t\"Fine.\", jump=\"welcome\"}, } } newChat{ id=\"storage\", text = _t[[*#LIGHT_GREEN#The creature glares at you.#WHITE#* You are the master. You can use this place as you desire. However, most of the energies are depleted and only some rooms are usable. To the south you will find the storage room.]], answers = { {_t(\"Thanks.\", \"chat_shertul-fortress-butler\"), jump=\"welcome\"},",
+      "context_sha256": "247060d18ac21a23fe9e7a19b493e47fd87d7b7ead2a4e29de5ec9df6475f820",
+      "normalized_context_sha256": "247060d18ac21a23fe9e7a19b493e47fd87d7b7ead2a4e29de5ec9df6475f820",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D01",
+      "source_sha256": "83a70bf7b50c85957045c96308744c3b479c9cb19766c12dc792d443a4a16838",
+      "source_artifact_sha256": "6b30ad5ece6d0dd98ff0db9d8881d0d8ad449a233459696af1f3b9b5e8023e85",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/sage-kitty.lua",
+        "line": 31,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5859,
+        "inventory_ordinal": 3442
+      },
+      "source_context": "newChat{ id=\"welcome\", text = _t[[#LIGHT_GREEN#*Before you stands a cute little orange cat. It looks hungry and looks at you.*#WHITE# Meowww? ]], answers = { {_t\"Oh kitty kitty!\", jump=\"kitty\"}, {_t\"No time for cats!\"}, } } newChat{ id=\"kitty\", text = [[SOURCE_MATCH_1]]_t[[#LIGHT_GREEN#*It rubs up against your leg and purrs.*#WHITE# Rrrrrrrrrrrr. ]], answers = { {_t\"Hey maybe you would like some of this delicious lookin troll intestines? #LIGHT_GREEN#[Feed him the intestines]#WHITE#\", jump=\"pet\", cond=function(npc, player) return game.party:hasIngredient(\"TROLL_INTESTINE\") end}, {_t\"Sorry little fellow, I can't help you.\"}, } } newChat{ id=\"pet\", text = _t[[#LIGHT_GREEN#*It eats it all and looks happy. After a while it strolls away. Somehow you feel you have not seen the last of it.*#WHITE#]], answers = { {_t\"#LIGHT_GREEN#[Leave]\", action=function(npc, player)",
+      "context_sha256": "430422cadf711d1d5d590e911ede13544312a8ab6661f03f684271446036a6ec",
+      "normalized_context_sha256": "430422cadf711d1d5d590e911ede13544312a8ab6661f03f684271446036a6ec",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D02",
+      "source_sha256": "8c80f5032318f109b662873e5e7bf3edef7788c59bbb7457a42f4b3892152222",
+      "source_artifact_sha256": "22b346fea3c73eb1fa7c0bc81a10ebd421f22402aac35246ed8e537fae4fdb1b",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/elisa-shop.lua",
+        "line": 65,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 4994,
+        "inventory_ordinal": 3049
+      },
+      "source_context": "return \"id_list\" end newChat{ id=\"welcome\", text = _t[[Hello friend, what can I do for you?]], answers = { {_t\"Could you have a look at these objects, please? [show her your unidentified items]\", cond=can_auto_id, action=auto_id}, {_t\"Nothing, goodbye.\"}, } } newChat{ id=\"quest\", text = [[SOURCE_MATCH_1]]_t[[Wait, @playername@, you seem to be quite the adventurer. Maybe we can help one another. You see, I #{bold}#LOOOVVVEEEE#{normal}# learning new lore and finding old artifacts of power, but I am not exactly an adventurer and I would surely get killed out there. So take this orb (#LIGHT_GREEN#*she gives you an orb of scrying*#WHITE#). You can use it to talk to me from anywhere in the world! This way you can show me your new shiny findings! I get to see many interesting things, and you get to know what your items do. We both win! Isn't it sweet? Oh yes, the orb will also identify mundane items for you, as long as you carry it.]], answers = { {_t\"Woah, thanks, Elisa. This is really nice!\", action=function(npc, player) player:setQuestStatus(\"first-artifact\", engine.Quest.COMPLETED) local orb = game.zone:makeEntityByName(game.level, \"object\", \"ORB_SCRYING\") if orb then player:addObject(player:getInven(\"INVEN\"), orb) orb:added() orb:identify(true) end end}, }",
+      "context_sha256": "eafb05072dfa550bd0238989b3ea875a065a63e42b265ef3048ad82021de7d61",
+      "normalized_context_sha256": "eafb05072dfa550bd0238989b3ea875a065a63e42b265ef3048ad82021de7d61",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D02",
+      "source_sha256": "074e93cacf866349d0974b099a7d379de6f497b200cdd57dd17276e5a139e863",
+      "source_artifact_sha256": "4f8069850d9a29ca064ee09541e7f511fe2b9e71dd56a16c2a9dcc9f9283aa04",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/gates-of-morning-welcome.lua",
+        "line": 34,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5165,
+        "inventory_ordinal": 3118
+      },
+      "source_context": "Stop! You are clearly a stranger! Where do you come from? The Gates of Morning are the last bastion of freedom in these lands, so who are you? A spy?]], answers = { {_t\"My lady, I am indeed a stranger in these lands. I come from the west, from Maj'Eyal.\", jump=\"from\", cond=function(npc, player) return player:hasQuest(\"strange-new-world\") and player:hasQuest(\"strange-new-world\"):isCompleted(\"helped-fillarel\") end}, {_t(\"Sorry, I have to go!\", \"chat_gates-of-morning-welcome\")}, } } newChat{ id=\"from\", text = _t[[Maj'Eyal! For many years have we tried to contact your people. We always failed. In any event, what is your purpose here?]], answers = { {[[SOURCE_MATCH_1]]_t\"It seems that I am stranded in these unfamiliar lands. #LIGHT_GREEN#*Tell her about your hunt for orcs and your encounter with Fillarel.*#WHITE#\", jump=\"orcs\"}, {_t\"Sun Paladins? What do you mean? We know of no such thing where I come from.\", jump=\"sun-paladins\", cond=function() return profile.mod.allow_build.divine_sun_paladin end}, } } newChat{ id=\"sun-paladins\", text = _t[[We are the mighty warriors of the Sunwall, channeling the power of the Sun and merging it with martial training. For hundreds of years, we stood between the Orc Pride and the free people. Our numbers are diminishing, but we will stand firm until our last breath.]], answers = { {_t\"You have a noble spirit, my lady.\", jump=\"from\"}, } }",
+      "context_sha256": "96e3533680ef88c30b043fa0fea934400b61dbec8ca6eb40f1e139427c8c358f",
+      "normalized_context_sha256": "96e3533680ef88c30b043fa0fea934400b61dbec8ca6eb40f1e139427c8c358f",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D03",
+      "source_sha256": "d652f13e9a0a81cf89d2ca2bbcbab703475b4d497e3b1a80ba31cd11d4479772",
+      "source_artifact_sha256": "94c88969060abd9920538ed55c9aa0c984e4c52348a59dc17f4aa6948926e884",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/shertul-fortress-butler.lua",
+        "line": 31,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5890,
+        "inventory_ordinal": 3459
+      },
+      "source_context": "local has_rod = function(npc, player) return player:findInAllInventoriesBy(\"define_as\", \"ROD_OF_RECALL\") end local q = game.player:hasQuest(\"shertul-fortress\") local ql = game.player:hasQuest(\"love-melinda\") local set = function(what) return function(npc, player) q:setStatus(q.COMPLETED, \"chat-\"..what) end end local isNotSet = function(what) return function(npc, player) return not q:isCompleted(\"chat-\"..what) end end newChat{ id=\"welcome\", text = _t[[*#LIGHT_GREEN#The creature slowly turns to you. You hear its terrible voice directly in your head.#WHITE#* Welcome, master.]], answers = { {_t\"What are you, and what is this place?\", jump=\"what\", cond=isNotSet\"what\", action=set\"what\"}, {[[SOURCE_MATCH_1]]_t\"Master? I am not your mas...\", jump=\"master\", cond=isNotSet\"master\", action=set\"master\"}, {_t\"Why do I understand you? The texts are unreadable to me.\", jump=\"understand\", cond=isNotSet\"understand\", action=set\"understand\"}, {_t\"What can I do here?\", jump=\"storage\", cond=isNotSet\"storage\", action=set\"storage\"}, {_t\"What else can this place do?\", jump=\"energy\", cond=isNotSet\"energy\", action=set\"energy\"}, {_t\"Would it be possible to improve my Cloak of Deception so I do not need to wear it to pass as a living being?\", jump=\"permanent-cloak\", cond=function(npc, player) local cloak = player:findInAllInventoriesBy(\"define_as\", \"CLOAK_DECEPTION\") return not q:isCompleted(\"permanent-cloak\") and q:isCompleted(\"transmo-chest\") and cloak end}, {_t\"You asked me to come, about a farportal?\", jump=\"farportal\", cond=function() return q:isCompleted(\"farportal\") and not q:isCompleted(\"farportal-spawn\") end}, {_t\"You asked me to come, about the rod of recall?\", jump=\"recall\", cond=function() return q:isCompleted(\"recall\") and not q:isCompleted(\"recall-done\") end}, {_t\"Would it be possible for my Transmogrification Chest to automatically extract gems?\", jump=\"transmo-gems\", cond=function(npc, player) return not q:isCompleted(\"transmo-chest-extract-gems\") and q:isCompleted(\"transmo-chest\") and player:knowTalent(player.T_EXTRACT_GEMS) end}, {_t\"Are there any training facilities?\", jump=\"training\", cond=function() return not q:isCompleted(\"training\") end},",
+      "context_sha256": "581670086e963bd2ec062a171d31e2c90877362086285d4c2930708a64ad826d",
+      "normalized_context_sha256": "581670086e963bd2ec062a171d31e2c90877362086285d4c2930708a64ad826d",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D03",
+      "source_sha256": "f8deb95dc56526a03f368b7fa9fead40ac748857d4b05d90b6d32856f78b5d51",
+      "source_artifact_sha256": "94c88969060abd9920538ed55c9aa0c984e4c52348a59dc17f4aa6948926e884",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/shertul-fortress-butler.lua",
+        "line": 175,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5985,
+        "inventory_ordinal": 3502
+      },
+      "source_context": "newChat{ id=\"transmo-gems\", text = _t[[Ah yes, you seem to master the simple art of alchemy. I can change the chest to automatically use your power to extract a gem if the transmogrification of the gem would reward more energy. However, I will need to use 25 energy to do this.]], answers = { {_t\"Maybe sometime later.\"}, {_t\"That could be quite useful. Yes, please do it.\", cond=function() return q.shertul_energy >= 25 end, action=function() q:upgrade_transmo_gems() end}, } } newChat{ id=\"changetile\", text = _t[[I can alter the Fortress holographic projection matrix to accomodate your racial tastes. This will require 60 energy, however.]], answers = { {[[SOURCE_MATCH_1]]_t\"Can you try for a human female appearance please?\", cond=function() return q.shertul_energy >= 60 end, action=function(npc, player) q.shertul_energy = q.shertul_energy - 60 npc.replace_display = mod.class.Actor.new{ add_mos={{image = \"npc/humanoid_female_sluttymaid.png\", display_y=-1, display_h=2}}, -- shader = \"shadow_simulacrum\", -- shader_args = { color = {0.2, 0.1, 0.8}, base = 0.5, time_factor = 500 }, } npc:removeAllMOs() game.level.map:updateMap(npc.x, npc.y) game.level.map:particleEmitter(npc.x, npc.y, 1, \"demon_teleport\") end}, {_t\"Can you try for a human male appearance please?\", cond=function() return q.shertul_energy >= 60 end, action=function(npc, player) q.shertul_energy = q.shertul_energy - 60",
+      "context_sha256": "9c99524d06fa84910d2f6cedc9a36613793aeacd37cbd213aff90869822fe346",
+      "normalized_context_sha256": "9c99524d06fa84910d2f6cedc9a36613793aeacd37cbd213aff90869822fe346",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D04",
+      "source_sha256": "e440bc58a02413d76094b92a645b19db9160a9acca68e8944a2e4ad400e1a8c8",
+      "source_artifact_sha256": "d88e819d4cc83c81aa52554245c47f0068d3b99dbc9aec516ac540db015b2e26",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/alchemist-elvala.lua",
+        "line": 229,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 4003,
+        "inventory_ordinal": 2654
+      },
+      "source_context": "text = _t[[#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#]], answers = { {_t\"[Leave]\"}, } } else -- Here's the dialog that pops up if the player *has* worked with this alchemist before (either done quests or is in the middle of one): local other_alch, other_elixir, player_loses, alch_picked, e_picked = q:competition(player, other_alchemist_nums) newChat{ id=\"welcome\", text = [[SOURCE_MATCH_1]]_t[[#LIGHT_GREEN#*The shabby elf opens his door.*#WHITE# Do I know you?]], answers = { -- If not the final elixir: {(\"I've returned with the ingredients for the %s.\"):tformat(_t(e[1].name)), jump=\"complete\", cond = function(npc, player) return turn_in(npc, player, 1) end, action = function(npc, player) q:on_turnin(player, alch_picked, e_picked, false) end, }, {(\"I've returned with the ingredients for the %s.\"):tformat(_t(e[2].name)), jump=\"complete\", cond = function(npc, player) return turn_in(npc, player, 2) end, action = function(npc, player)",
+      "context_sha256": "b201feb02acfc0c6a76ea4d2b77b4c791230af7f9db18fee2771a59fc1035837",
+      "normalized_context_sha256": "b201feb02acfc0c6a76ea4d2b77b4c791230af7f9db18fee2771a59fc1035837",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D04",
+      "source_sha256": "db4f270402f888a4296cb949f7688c566e3460aa09fda76ff240922543cf0856",
+      "source_artifact_sha256": "8234c62f21d20729daeef8860f88db5b802eed4016a87bd5970aa61ae372c346",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/gates-of-morning-main.lua",
+        "line": 223,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5143,
+        "inventory_ordinal": 3108
+      },
+      "source_context": "text = _t[[I have heard about that; good men lost their lives for this. I hope it was worth it.]], answers = { {_t\"Yes, my lady, they delayed the orcs so that I could get to the heart of the volcano. *#LIGHT_GREEN#Tell her what happened#WHITE#*\", jump=\"charred-scar-success\", cond=function(npc, player) return player:isQuestStatus(\"charred-scar\", engine.Quest.COMPLETED, \"stopped\") end, }, {_t\"I am afraid I was too late, but I still have some valuable information. *#LIGHT_GREEN#Tell her what happened#WHITE#*\", jump=\"charred-scar-fail\", cond=function(npc, player) return player:isQuestStatus(\"charred-scar\", engine.Quest.COMPLETED, \"not-stopped\") end, }, }, } newChat{ id=\"charred-scar-success\", text = [[SOURCE_MATCH_1]]_t[[Sorcerers? I have never heard of them. There were rumours about a new master of the Pride, but it seems they have two. Thank you for everything. You must continue your hunt now that you know what to look for.]], answers = { {_t\"I will avenge your men.\", action=function(npc, player) player:setQuestStatus(\"charred-scar\", engine.Quest.DONE) game:unlockBackground(\"aeryn\", \"High Sun Paladin Aeryn\") end} }, } newChat{ id=\"charred-scar-fail\", text = _t[[Sorcerers? I have never heard of them. There were rumours about a new master of the Pride, but it seems they have two. I am afraid with the power they gained today they will be even harder to stop, but we do not have a choice.]],",
+      "context_sha256": "77753e81d963889b95b5cdaa8ee8a93686b6188210d50e00d379c522048de3df",
+      "normalized_context_sha256": "77753e81d963889b95b5cdaa8ee8a93686b6188210d50e00d379c522048de3df",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D05",
+      "source_sha256": "5fa4a748806cbe630e7a6915764a7bd808dae86d8bff9b1d5e5ea0d63715789d",
+      "source_artifact_sha256": "e3df586054faf9767b3ff4d4259d4ede8b2c43248ec21baa1e7a59ed3f65ae0d",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/alchemist-last-hope.lua",
+        "line": 493,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 4162,
+        "inventory_ordinal": 2761
+      },
+      "source_context": "local o = art_list[e[3].id] o:identify(true) game.tooltip_x, game.tooltip_y = 1, 1 game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc())) end, }, {_t\"[leave]\"}, } } if npc.errand_given then newChat{ id=\"list\", text = [[SOURCE_MATCH_1]]_t[[Here's a list of the creature bits I need. Good luck with the murdering!]], answers = { {_t\"I'll be off.\"}, } } else newChat{ id=\"list\", text = _t[[Here's a list of the creature bits I need. Good luck with the murdering! Oh, and one other last thing... if you have the time for another errand, though I've got no reward on this one.]], answers = { {_t\"Well, I'll see if I can help.\", jump=\"errand\", action=function(npc, player) npc.errand_given = true end}, {_t\"I'm here for profit, not errands - I have the list and will work on it; sort your own sidejobs out.\", action=function(npc, player) npc.errand_given = true end},",
+      "context_sha256": "65c4982ee2d6f8804be435641ebe0a23afdf0008d76497664e0aa49ebf9ac4f5",
+      "normalized_context_sha256": "65c4982ee2d6f8804be435641ebe0a23afdf0008d76497664e0aa49ebf9ac4f5",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D05",
+      "source_sha256": "1a2c94f830ce6f30fa889dd4401bfd2d21048dfb27972ccee0799b8bd7de89e2",
+      "source_artifact_sha256": "8234c62f21d20729daeef8860f88db5b802eed4016a87bd5970aa61ae372c346",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/gates-of-morning-main.lua",
+        "line": 24,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5055,
+        "inventory_ordinal": 3070
+      },
+      "source_context": "-- GNU General Public License for more details. -- -- You should have received a copy of the GNU General Public License -- along with this program. If not, see <http://www.gnu.org/licenses/>. -- -- Nicolas Casalini \"DarkGod\" -- darkgod@te4.org newChat{ id=\"welcome\", text = _t[[What may I do for you?]], answers = { {_t\"Lady Aeryn, at last I am back home! [tell her your story]\", jump=\"return\", cond=function(npc, player) return player:hasQuest(\"start-sunwall\") and player:isQuestStatus(\"start-sunwall\", engine.Quest.COMPLETED, \"slazish\") and not player:isQuestStatus(\"start-sunwall\", engine.Quest.COMPLETED, \"return\") end, action=function(npc, player) player:setQuestStatus(\"start-sunwall\", engine.Quest.COMPLETED, \"return\") end}, {[[SOURCE_MATCH_1]]_t\"Tell me more about the Gates of Morning.\", jump=\"explain-gates\", cond=function(npc, player) return player.faction ~= \"sunwall\" end}, {_t\"Before I came here, I happened upon members of the Sunwall in Maj'Eyal. Do you know of this?.\", jump=\"sunwall_west\", cond=function(npc, player) return game.state.found_sunwall_west and not npc.been_asked_sunwall_west end, action=function(npc, player) npc.been_asked_sunwall_west = true end}, {_t\"I need help in my hunt for clues about the staff.\", jump=\"clues\", cond=function(npc, player) return game.state:isAdvanced() and not player:hasQuest(\"orc-pride\") end}, {_t\"I have destroyed the leaders of all the Orc Prides.\", jump=\"prides-dead\", cond=function(npc, player) return player:isQuestStatus(\"orc-pride\", engine.Quest.COMPLETED) end}, {_t\"I am back from the Charred Scar, where the orcs took the staff.\", jump=\"charred-scar\", cond=function(npc, player) return player:hasQuest(\"charred-scar\") and player:hasQuest(\"charred-scar\"):isCompleted() end}, {_t\"A dying paladin gave me this map; something about orc breeding pits. [tell her the story]\", jump=\"orc-breeding-pits\", cond=function(npc, player) return player:hasQuest(\"orc-breeding-pits\") and player:isQuestStatus(\"orc-breeding-pits\", engine.Quest.COMPLETED, \"wuss-out\") and not player:isQuestStatus(\"orc-breeding-pits\", engine.Quest.COMPLETED, \"wuss-out-done\") end}, {_t(\"Sorry, I have to go!\", \"chat_gates-of-morning-main\")}, } } newChat{ id=\"return\", text = _t[[@playername@! We thought you had died in the portal explosion. I am glad we were wrong. You saved the Sunwall. The news about the staff is troubling. Ah well, please at least take time to rest for a while.]],",
+      "context_sha256": "068ab88d881ec1d85e23a75379e7e09854a4e27cd0293e845581be0d56f99d1b",
+      "normalized_context_sha256": "068ab88d881ec1d85e23a75379e7e09854a4e27cd0293e845581be0d56f99d1b",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D06",
+      "source_sha256": "c3fd15f710b26d926f5e627df343fb15605436a6a5cc78e98dc0f6f086c1ba0d",
+      "source_artifact_sha256": "0fad4d21805c32e1de2a9c7662d21297a4b366eaee2404afa750fec2978b1c5c",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/last-hope-melinda-father.lua",
+        "line": 124,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5416,
+        "inventory_ordinal": 3267
+      },
+      "source_context": "} local p = game:getPlayer(true) local is_am = p:attr(\"forbid_arcane\") local is_mage = (p.faction == \"angolwen\") or p:isQuestStatus(\"mage-apprentice\", engine.Quest.DONE) newChat{ id=\"plans\", text = _t[[I do not know yet, my father won't let me out until I'm fully healed. I've always wanted to do so many things. That is why I got stuck in that crypt, I want to see the world. My father gave me some funds so that I can take my future into my own hands. I have some friends in Derth, maybe I will open my own little shop there. ]]..( is_am and _t[[I have seen how you fought those corruptors, the way you destroyed their magic. I want to learn to do the same, so that such horrors never happen again. To anyone.]] or (is_mage and [[SOURCE_MATCH_1]]_t[[Or maybe, well I suppose I can trust you with this, I've always secretly dreamed of learning magic. Real magic I mean not alchemist tricks! I've learnt about a secret place, Angolwen, where I could learn it.]] or [[]])), answers = (not is_am and not is_mage) and { {_t\"Derth has its up and downs but I think they could do with a smart girl yes.\", action=function() ql.wants_to = \"derth\" end, quick_reply=_t\"Thanks!\"}, } or { {_t\"Derth has its up and downs but I think they could do with a smart girl yes.\", action=function() ql.wants_to = \"derth\" end, quick_reply=_t\"Thanks!\"}, {_t\"You wish to join our noble crusade against magic? Wonderful! I will talk to them for you.\", action=function() ql.wants_to = \"antimagic\" end, cond=function() return is_am end, quick_reply=_t\"That would be very nice!\"}, {_t\"I happen to be welcome among the people of Angolwen, I could say a word for you.\", action=function() ql.wants_to = \"magic\" end, cond=function() return is_mage end, quick_reply=_t\"That would be very nice!\"}, } } newChat{ id=\"hiton\",",
+      "context_sha256": "de7da5214d27b9cdb866e0c786ebcddd48a34b75fc2ac7a5076697b1cc2e08be",
+      "normalized_context_sha256": "de7da5214d27b9cdb866e0c786ebcddd48a34b75fc2ac7a5076697b1cc2e08be",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D06",
+      "source_sha256": "538dea07f338959bd25cde822412e0344aaa1e390cf62ee69ceb141f4aa6f4c3",
+      "source_artifact_sha256": "e3df586054faf9767b3ff4d4259d4ede8b2c43248ec21baa1e7a59ed3f65ae0d",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/alchemist-last-hope.lua",
+        "line": 544,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 4170,
+        "inventory_ordinal": 2765
+      },
+      "source_context": "action = function(npc, player) q:remove_ingredients(player, e[3].short_name, 3) player:setQuestStatus(\"brotherhood-of-alchemists\", engine.Quest.COMPLETED, e[3].almost) q:update_needed_ingredients(player) end, }, } } end newChat{ id=\"errand\", text = [[SOURCE_MATCH_1]]_t[[Well, it's like this, one of my wife's friends has gone missing. A young alchemist in training, called Celia. Thing is, her husband died recently, and the grief done drove her mad. She used to go out to his grave every day, until one day she didn't come back. Personally I don't think she was able to live without him; the two were inseparable. If you get a chance on your travels, could you pass by the mausoleum to the east and check... well, you get the idea. It's strange what death can do to people, how it can take over their minds. Sometimes they forget it's the living that matter... See she gets a proper burial - treated respectfully, eh?]], answers = { {_t\"I'll do what I can.\", action=function(npc, player) game:onLevelLoad(\"wilderness-1\", function(zone, level) local g = game.zone:makeEntityByName(level, \"terrain\", \"LAST_HOPE_GRAVEYARD\") local spot = level:pickSpot{type=\"zone-pop\", subtype=\"last-hope-graveyard\"} game.zone:addEntity(level, g, \"terrain\", spot.x, spot.y) game.nicer_tiles:updateAround(game.level, spot.x, spot.y) game.state:locationRevealAround(spot.x, spot.y) end) game.log(\"He points out the location of the graveyard on your map.\")",
+      "context_sha256": "58d1bb1cd8cf6e4d5fb8dd06dc3a9c91496470593104b4266ab950c6badb8c0d",
+      "normalized_context_sha256": "58d1bb1cd8cf6e4d5fb8dd06dc3a9c91496470593104b4266ab950c6badb8c0d",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D07",
+      "source_sha256": "85b4b7e7a61467a0af8b450d37b33edaf23ec715be7bfc863c7555899cc9118d",
+      "source_artifact_sha256": "c85b00ec53460532b187bfc49b92c19cb4ffc3a1d904a4feb5d80a975b80b548",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/jewelry-store.lua",
+        "line": 141,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5214,
+        "inventory_ordinal": 3149
+      },
+      "source_context": "end) end newChat{ id=\"welcome\", text = _t[[Welcome, @playername@, to my shop.]], answers = { {_t\"Let me see your wares.\", action=function(npc, player) npc.store:loadup(game.level, game.zone) npc.store:interact(player) end, cond=function(npc, player) return npc.store and true or false end}, {_t\"I am looking for special jewelry.\", jump=\"jewelry\"}, {_t\"So you can infuse amulets in this place?\", jump=\"artifact_jewelry\", cond=function(npc, player) return npc.can_craft and player:hasQuest(\"master-jeweler\") and player:isQuestStatus(\"master-jeweler\", engine.Quest.COMPLETED, \"limmir-survived\") end}, {[[SOURCE_MATCH_1]]_t\"I have found this tome; it looked important.\", jump=\"quest\", cond=function(npc, player) return npc.can_quest and player:hasQuest(\"master-jeweler\") and player:hasQuest(\"master-jeweler\"):has_tome(player) end}, {_t\"Sorry I have to go!\"}, } } newChat{ id=\"jewelry\", text = _t[[Then you are at the right place, for I am an expert jeweler. If you bring me a gem and a ring, I can create a new ring imbued with the properties of the gem. The original traits of the ring will be lost in the process but new ones of similar quality will be generated. There is a small fee dependent on the level of the ring, and you need a quality ring to use a quality gem.]], answers = { {_t\"I need your services.\", action=imbue_ring}, {_t\"Not now, thanks.\"}, }",
+      "context_sha256": "dc9b3afcbfb92c720bce023d72a6ae7f872e5bcae54e2e27c14ca86e50398739",
+      "normalized_context_sha256": "dc9b3afcbfb92c720bce023d72a6ae7f872e5bcae54e2e27c14ca86e50398739",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D07",
+      "source_sha256": "3b8dbbf7c401d98222cbf67408ba140194631e7db1c252eef3558031c3ba370b",
+      "source_artifact_sha256": "0fad4d21805c32e1de2a9c7662d21297a4b366eaee2404afa750fec2978b1c5c",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/last-hope-melinda-father.lua",
+        "line": 139,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5426,
+        "inventory_ordinal": 3275
+      },
+      "source_context": "answers = (not is_am and not is_mage) and { {_t\"Derth has its up and downs but I think they could do with a smart girl yes.\", action=function() ql.wants_to = \"derth\" end, quick_reply=_t\"Thanks!\"}, } or { {_t\"Derth has its up and downs but I think they could do with a smart girl yes.\", action=function() ql.wants_to = \"derth\" end, quick_reply=_t\"Thanks!\"}, {_t\"You wish to join our noble crusade against magic? Wonderful! I will talk to them for you.\", action=function() ql.wants_to = \"antimagic\" end, cond=function() return is_am end, quick_reply=_t\"That would be very nice!\"}, {_t\"I happen to be welcome among the people of Angolwen, I could say a word for you.\", action=function() ql.wants_to = \"magic\" end, cond=function() return is_mage end, quick_reply=_t\"That would be very nice!\"}, } } newChat{ id=\"hiton\", text = _t[[What?!? Just because you rescued me from a moderately-to-extremely gruesome death, you think that entitles you to take liberties?!]], answers = { {(\"WHY AREN'T WOMEN ATTRACTED TO ME I'M A NICE %s.\"):tformat((p.female and [[SOURCE_MATCH_1]]_t\"GIRL\" or _t\"GUY\")), quick_reply=_t\"Uhh, sorry I hear my father calling, see you.\", action=function() ql.nolove = true end}, {_t\"Just a minute, I was just...\", jump=\"reassurance\"}, } } newChat{ id=\"reassurance\", text = _t[[#LIGHT_GREEN#*She looks at you cheerfully.*#WHITE# Just kidding. I would love that!]], answers = { {_t\"#LIGHT_GREEN#[walk away with her]#WHITE#What about a little trip to the south, from the coastline we can see the Charred Scar Volcano, it is a wonderous sight.\", action=function() ql.inlove = true ql:toBeach() end}, {_t\"Joke's on you really, goodbye!\", quick_reply=_t\"But... ok goodbye.\", action=function() ql.nolove = true end}, } }",
+      "context_sha256": "ba99ae387bc8b2b7cb2983bb9ba11929cba531c26c82b0bb7e5d67ca274cb953",
+      "normalized_context_sha256": "ba99ae387bc8b2b7cb2983bb9ba11929cba531c26c82b0bb7e5d67ca274cb953",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D08",
+      "source_sha256": "3e27b88b96c524cc5e645d974bc098058ebc61eea611cb24005a1cc3d57a7172",
+      "source_artifact_sha256": "a692af699b26f2e6587bbbad4ffe7becb6be6dbaec4cb2e4c589090beb412e3d",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/yeek-wayist.lua",
+        "line": 87,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 6635,
+        "inventory_ordinal": 3780
+      },
+      "source_context": "----------------------------------------------------------- -- Yeek version ----------------------------------------------------------- newChat{ id=\"yeek-welcome\", text = _t[[Thank the Way. This... thing... would have killed me.]], answers = { {_t\"The Way sent me to explore this side of the tunnel.\", jump=\"explore\"}, } } newChat{ id=\"explore\", text = [[SOURCE_MATCH_1]]_t[[Yes, me too. We should split up to cover more ground.]], answers = { {_t\"Farewell. We are the Way, always.\", action=function() game:setAllowedBuild(\"psionic\") game:setAllowedBuild(\"psionic_mindslayer\", true) end}, } } return (game.party:findMember{main=true}.descriptor.race == \"Yeek\") and \"yeek-welcome\" or \"welcome\"",
+      "context_sha256": "3811d12c20ad9aa5b6543053a029f2102cec068051d961b3ff08b1a6beb16984",
+      "normalized_context_sha256": "3811d12c20ad9aa5b6543053a029f2102cec068051d961b3ff08b1a6beb16984",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D08",
+      "source_sha256": "bb39e53e024265853788b300b5a8cb4fbb5dfdf593169a353cb4e81ff775aa08",
+      "source_artifact_sha256": "d88e819d4cc83c81aa52554245c47f0068d3b99dbc9aec516ac540db015b2e26",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/alchemist-elvala.lua",
+        "line": 489,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 4026,
+        "inventory_ordinal": 2669
+      },
+      "source_context": "} } newChat{ id=\"list\", text = _t[[Here's a list of the ingredients I'm missing. Please follow the directions carefully, or the resulting elixir could be more fatal than either of us would hope.]], answers = { {_t\"I'll be off.\"}, } } -- If the elixir got made while you were out: newChat{ id=\"poached\", text = [[SOURCE_MATCH_1]]_t[[Already made it. Best pick up the pace next time, adventurer.]], answers = { {_t\"Hrmph.\", cond = function(npc, player) return empty_handed(npc, player, 1) end, action = function(npc, player) q:remove_ingredients(player, e[1].short_name, 1) player:setQuestStatus(\"brotherhood-of-alchemists\", engine.Quest.COMPLETED, e[1].almost) q:update_needed_ingredients(player) end, }, {_t\"Hrmph.\", cond = function(npc, player) return empty_handed(npc, player, 2) end, action = function(npc, player)",
+      "context_sha256": "4f3c982a5a8a1e5465f475f226bb2239148bf5c23ccdedd642acdf2a3ba90d63",
+      "normalized_context_sha256": "4f3c982a5a8a1e5465f475f226bb2239148bf5c23ccdedd642acdf2a3ba90d63",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D09",
+      "source_sha256": "6597addfee4b239c0ee80d973e010bd6b4b42dd7df9a6f9f3c9f4beb8f42f1d9",
+      "source_artifact_sha256": "e0194b46e754122fb8f93b6510af44bd5cc9bb793e10ad3e5290a57c0225f059",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/last-hope-lost-merchant.lua",
+        "line": 34,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5326,
+        "inventory_ordinal": 3204
+      },
+      "source_context": "npc.chat_display_entity = engine.Entity.new{name=_t\"Urthol's Wondrous Emporium\", image=\"portrait/shop_urthol_s_wondrous_emporium.png\"} local p = game:getPlayer(true) local trap = p:knowTalentType(\"cunning/trapping\") and not game.state:unlockTalentCheck(player.T_AMBUSH_TRAP, player) local poison = p:getTalentFromId(p.T_STONING_POISON) local poison = poison and p:knowTalentType(\"cunning/poisons\") and not p:knowTalent(poison) and p:canLearnTalent(poison) newChat{ id=\"welcome\", text = _t[[Ah, my #{italic}#good#{normal}# friend @playername@! Thanks to you I made it safely to this great city! I am planning to open my most excellent boutique soon, but since I am in your debt, perhaps I could open early for you if you are in need of rare goods.]] ..((trap or poison) and (_t\" By the way, \"..((trap and _t\"during our escape I found the plans for an #YELLOW#Ambush Trap#LAST#\" or \"\") ..(poison and (trap and _t\" and while\" or _t\"while\").. _t\" organizing my inventory, I came across some #YELLOW#Smelly Toxin#LAST# that a colleague claimed could actually turn creatures to stone. Truly exotic!\" or _t\".\")).._t\" You would not happen to be interested, by any chance?\") or \"\") ..((game.state:isAdvanced() and _t\" Oh my friend, good news! As I told you I can now request a truly #{italic}#unique#{normal}# object to be crafted just for you. For a truly unique price...\" or [[SOURCE_MATCH_1]]_t\" I eventually plan to arrange a truly unique service for the most discerning of customers. If you come back later when I'm fully set up I shall be able to order for you something quite marvellous. For a perfectly #{italic}#suitable#{normal}# price, of course.\")), answers = { {_t\"Yes please, let me see your wares.\", action=function(npc, player) npc.store:loadup(game.level, game.zone) npc.store:interact(player) end}, {_t\"What about the unique object?\", cond=function(npc, player) return game.state:isAdvanced() end, jump=\"unique1\"}, {_t\"Ambush Trap? Sounds useful.\", cond=function(npc, player) return trap end, jump=\"trap\"}, {_t\"Smelly Toxin? What kind of smell?\", cond=function(npc, player) return poison end, jump=\"poison\"}, {_t(\"Sorry, I have to go!\", \"chat_last-hope-lost-merchant\")}, } }",
+      "context_sha256": "e1ca89f2533e9780d227f02421c2475f66ebbd4aba6dadd68d8f01e4f99a1f63",
+      "normalized_context_sha256": "e1ca89f2533e9780d227f02421c2475f66ebbd4aba6dadd68d8f01e4f99a1f63",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D09",
+      "source_sha256": "bcfa094892932bb74893ae69923158b795f64e28a2556a20d9ac36cb4860639a",
+      "source_artifact_sha256": "6e81e213ac6c3940ea6bc71cca69a0aaf51c5c75ef69f82a73901b64b8e0781b",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/pre-charred-scar.lua",
+        "line": 30,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5795,
+        "inventory_ordinal": 3418
+      },
+      "source_context": "-- darkgod@te4.org newChat{ id=\"welcome\", text = _t[[*#LIGHT_GREEN#Suddenly a voice appears in your head.#WHITE#* @playername@, this is High Sun Paladin Aeryn of the Sunwall. I am communicating with you by the power of the Anorithil. I have some urgent information for you: the staff you were looking for has been located.]], answers = { {_t\"Where?!\", jump=\"where\"}, } } newChat{ id=\"where\", text = [[SOURCE_MATCH_1]]_t[[One of our patrols noticed some strange orc movements around the southern part of the continent, in the desert of Erúan. A group of orcs were guarding something that looked like the staff you asked about. You should go there to investigate. This might be your only chance.]], answers = { {_t\"I will, right now!\"}, } } return \"welcome\"",
+      "context_sha256": "691041f8c8fed52ec8cba52df106c3e27f9d2768ebf106c81f614a7f54885ded",
+      "normalized_context_sha256": "691041f8c8fed52ec8cba52df106c3e27f9d2768ebf106c81f614a7f54885ded",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D10",
+      "source_sha256": "bb74f631dff38203f932598b3583eee47caeb7dd5efbcf53a876a876f379e855",
+      "source_artifact_sha256": "bd38b75cbbf665c8468440e1b41bc3064fe659c4b58ddd3f2ce57280b2b407ee",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/slasul.lua",
+        "line": 62,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 6112,
+        "inventory_ordinal": 3565
+      },
+      "source_context": "Do not be so hasty to assume YOU are in a position to offer mercy to ME! Yet I shall tell you my story. You surface dwellers do not know much about nagas, but let me tell you this: our current condition was not our choice. When Nalore sank, many of us died, so we resorted to using the magic of this temple. It worked, it saved us, and yet we are cursed. Cursed in this form by the terrible magic. If you do not believe anything else of what I say, please believe at least this: the Sher'Tul are hiding, not gone, and they are not benevolent entities. Recently, that water dragon that sent you here started sending \"agents\" to secure the temple. I can only imagine his goals, but they are clearly not peaceful.]], answers = { {_t\"You do not sound mad to me... could Ukllmswwik have lied?\", jump=\"portal_back\", action=function(npc, player) player:setQuestStatus(\"temple-of-creation\", engine.Quest.COMPLETED, \"slasul-story\") end}, {_t\"I will not be deceived by your lies! I will make your pay for your victims!\", action=attack(_t\"As you wish. It did not have to come to this...\")}, } } newChat{ id=\"portal_back\", text = [[SOURCE_MATCH_1]]_t[[Use this portal. It will bring you back to his cave; ask him the truth.]], answers = { {_t\"I will make him pay for his treachery.\", action=function(npc, player) player:hasQuest(\"temple-of-creation\"):portal_back() for uid, e in pairs(game.level.entities) do if e.faction == \"enemies\" then e.faction = \"temple-of-creation\" end end end}, } } ----------------------------------------------------------------------- -- Coming back later",
+      "context_sha256": "60baf27a9fad57f0dbcbfb279472d032927c53801f6ef74cdfe6aac90dfdc078",
+      "normalized_context_sha256": "60baf27a9fad57f0dbcbfb279472d032927c53801f6ef74cdfe6aac90dfdc078",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D10",
+      "source_sha256": "17cc01901e76b4f680f87678ada0165fc4498928724c6edf0a2472182e23b1a9",
+      "source_artifact_sha256": "0fad4d21805c32e1de2a9c7662d21297a4b366eaee2404afa750fec2978b1c5c",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/last-hope-melinda-father.lua",
+        "line": 77,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5393,
+        "inventory_ordinal": 3252
+      },
+      "source_context": "ro:identify(true) game.logPlayer(player, \"Melinda's father gives you: %s\", ro:getName{do_color=true}) game.zone:addEntity(game.level, ro, \"object\") player:addObject(player:getInven(\"INVEN\"), ro) game:chronoCancel(_t\"#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.\") end player:grantQuest(\"love-melinda\") ql = player:hasQuest(\"love-melinda\") end}, } } newChat{ id=\"melinda\", text = [[SOURCE_MATCH_1]]_t[[@playername@! #LIGHT_GREEN#*She jumps for joy and hugs you while her father returns to his shop.*#WHITE#]], answers = { {_t\"I am glad to see you are fine. It seems your scars are healing quite well.\", jump=\"scars\", cond=function(npc, player) if player:attr(\"undead\") then return false end return true end,}, {_t\"I am glad to see you well. Take care.\"}, } } ------------------------------------------------------------------ -- Flirting ------------------------------------------------------------------",
+      "context_sha256": "ab6cdfb94c296464f64f152b658b60ef289b530f2e0bd367fd79669d59792704",
+      "normalized_context_sha256": "ab6cdfb94c296464f64f152b658b60ef289b530f2e0bd367fd79669d59792704",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D11",
+      "source_sha256": "8ef7e0bdb7bc1a13d0645ececd7537d6de5b6cde24ec1a981f03fcefc3da2e60",
+      "source_artifact_sha256": "7bf4d7cdeca28f23e1c48fda898e2e8e37c4e39af2863b7463377074ed7827d6",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/golbug-explains.lua",
+        "line": 21,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5181,
+        "inventory_ordinal": 3124
+      },
+      "source_context": "-- This program is distributed in the hope that it will be useful, -- but WITHOUT ANY WARRANTY; without even the implied warranty of -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the -- GNU General Public License for more details. -- -- You should have received a copy of the GNU General Public License -- along with this program. If not, see <http://www.gnu.org/licenses/>. -- -- Nicolas Casalini \"DarkGod\" -- darkgod@te4.org newChat{ id=\"welcome\", text = [[SOURCE_MATCH_1]]_t[[#VIOLET#*As you open the door you notice a huge orc in the distance, covered in both flames and ice.*#LAST# @playerdescriptor.race@! You should never have come! Your doom awaits! The Orc Pride will never yield to anybody! They have their precious and there is nothing you can do.]], answers = { {_t\"The Orc Pride obeys a master? I see... 'pride' indeed!\", jump=\"mock\"}, {_t\"#LIGHT_GREEN#[Attack]\"}, } } newChat{ id=\"mock\", text = _t[[The Pride chooses its allies. It has no master! ATTACK!]], answers = { {_t\"#LIGHT_GREEN#[Attack]\"},",
+      "context_sha256": "8ad92903e43c8164ef065e0887ff2fcafcfa5efdb42f83bc7f257ca8defcfba0",
+      "normalized_context_sha256": "8ad92903e43c8164ef065e0887ff2fcafcfa5efdb42f83bc7f257ca8defcfba0",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D11",
+      "source_sha256": "31dbeb2a04ff93fd43c882376ef7a4c6cf394ddf7f69995000df9ff70889b653",
+      "source_artifact_sha256": "e0194b46e754122fb8f93b6510af44bd5cc9bb793e10ad3e5290a57c0225f059",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/last-hope-lost-merchant.lua",
+        "line": 42,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5332,
+        "inventory_ordinal": 3208
+      },
+      "source_context": "text = _t[[Ah, my #{italic}#good#{normal}# friend @playername@! Thanks to you I made it safely to this great city! I am planning to open my most excellent boutique soon, but since I am in your debt, perhaps I could open early for you if you are in need of rare goods.]] ..((trap or poison) and (_t\" By the way, \"..((trap and _t\"during our escape I found the plans for an #YELLOW#Ambush Trap#LAST#\" or \"\") ..(poison and (trap and _t\" and while\" or _t\"while\").. _t\" organizing my inventory, I came across some #YELLOW#Smelly Toxin#LAST# that a colleague claimed could actually turn creatures to stone. Truly exotic!\" or _t\".\")).._t\" You would not happen to be interested, by any chance?\") or \"\") ..((game.state:isAdvanced() and _t\" Oh my friend, good news! As I told you I can now request a truly #{italic}#unique#{normal}# object to be crafted just for you. For a truly unique price...\" or _t\" I eventually plan to arrange a truly unique service for the most discerning of customers. If you come back later when I'm fully set up I shall be able to order for you something quite marvellous. For a perfectly #{italic}#suitable#{normal}# price, of course.\")), answers = { {_t\"Yes please, let me see your wares.\", action=function(npc, player) npc.store:loadup(game.level, game.zone) npc.store:interact(player) end}, {_t\"What about the unique object?\", cond=function(npc, player) return game.state:isAdvanced() end, jump=\"unique1\"}, {_t\"Ambush Trap? Sounds useful.\", cond=function(npc, player) return trap end, jump=\"trap\"}, {[[SOURCE_MATCH_1]]_t\"Smelly Toxin? What kind of smell?\", cond=function(npc, player) return poison end, jump=\"poison\"}, {_t(\"Sorry, I have to go!\", \"chat_last-hope-lost-merchant\")}, } } newChat{ id=\"trap\", text = _t[[You know, I have asked here and there and it happens to be a very rare thing this contraption... But since you have saved me, I'm willing to part from it for only 3000 gold pieces, a real bargain!]], answers = { {_t\"Expensive, but I will take it.\", cond=function(npc, player) return player.money >= 3000 end, jump=\"traplearn\"}, {_t\"...\"}, } }",
+      "context_sha256": "bb098617aa7899869b567ef170a679abce460c28a938fe7cc63b06795546d450",
+      "normalized_context_sha256": "bb098617aa7899869b567ef170a679abce460c28a938fe7cc63b06795546d450",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D12",
+      "source_sha256": "3ae539d86b9ede283aa3eb40f169fef5a7d7384e0d93e337c3774419c714efc5",
+      "source_artifact_sha256": "8234c62f21d20729daeef8860f88db5b802eed4016a87bd5970aa61ae372c346",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/gates-of-morning-main.lua",
+        "line": 72,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5087,
+        "inventory_ordinal": 3086
+      },
+      "source_context": "newChat{ id=\"sunwall_west2\", text = _t[[The people you saw are likely the volunteers of Zemekkys' early experiments regarding the farportals. He is a mage who resides here in the Sunwall, eccentric but skilled, who believes that creation of a new farportal to Maj'Eyal is possible. Aside from a few early attempts with questionable results, he hasn't had much luck. Still, it's gladdening to hear that the volunteers for his experiments live, regardless of their location. We are all still under the same Sun, after all. Actually... maybe it would benefit you if you meet Zemekkys. He would surely be intrigued by that Orb of Many Ways you possess. He lives in a small house just to the north.]], answers = { {_t\"Maybe I'll visit him. Thank you.\", jump=\"welcome\"}, }, } newChat{ id=\"prides-dead\", text = [[SOURCE_MATCH_1]]_t[[The news has indeed reached me. I could scarce believe it, so long have we been at war with the Pride. Now they are dead? At the hands of just one @playerdescriptor.race@? Truly I am amazed by your power. While you were busy bringing an end to the orcs, we managed to discover some parts of the truth from a captive orc. He talked about the shield protecting the High Peak. It seems to be controlled by \"orbs of command\" which the masters of the Prides had in their possession. He also said the only way to enter the peak and de-activate the shield is through the \"slime tunnels\", located somewhere in one of the Prides, probably Grushnak. ]], answers = { {_t\"Thanks, my lady. I have not been able to find all of the orbs of command in my travels; could you have some of your men search for me?\", jump=\"prides-dead-orbs-missing\", cond=function(npc, player) return not (game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DRAGON\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DESTRUCTION\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_UNDEATH\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_ELEMENTS\")) end }, {_t\"Thanks, my lady. I will look for the tunnel and venture inside the Peak.\", cond=function(npc, player) return (game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DRAGON\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_DESTRUCTION\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_UNDEATH\") and game.party:findInAllPartyInventoriesBy(\"define_as\", \"ORB_ELEMENTS\")) end,",
+      "context_sha256": "d04f8abc95cc1d86b435095cfd0e04d7e51e7da1961ee843b57df62425886e6f",
+      "normalized_context_sha256": "d04f8abc95cc1d86b435095cfd0e04d7e51e7da1961ee843b57df62425886e6f",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D12",
+      "source_sha256": "cabcb7dd73e6eafa20453346867927aac28a3c28ddfbf736783cda770d06c946",
+      "source_artifact_sha256": "7529ec532c641e34d664a98c64dc273fa7c0ae6fab744a1a0cb27326bf5485ba",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/arena-start.lua",
+        "line": 190,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 4282,
+        "inventory_ordinal": 2819
+      },
+      "source_context": "arenashop:loadup(game.level, game.zone) arenashop:interact(game.player, _t\"Gladiator's wares\") arenashop = nil end newChat{ id=\"welcome\", text = (\"#LIGHT_GREEN#You take a look at the ranking boards before entering. %s\"):tformat(text), answers = { --{\"Enter the arena for 3 rounds[DEBUG]\", action=arena_3, jump=\"perks\"}, {_t\"Enter the arena (60 waves)\", action=arena_60}, {_t\"Enter the arena (shorter mode, 30 rounds)\", action=arena_30}, --{\"Enter the arena for as long as you can last\", action=arena_inf, jump=\"perks\"}, {[[SOURCE_MATCH_1]]_t\"#LIGHT_RED#[Reset all arena save data]\", action=save_clear}, } } newChat{ id=\"welcome2\", text = \"What will you do now?\", answers = { {_t\"Enter the arena for 60 rounds\", action=arena_60}, {_t\"Enter the arena for 30 rounds\", action=arena_30}, --{\"Enter the arena for as long as you can last\", action=arena_inf, jump=\"perks\"}, } }",
+      "context_sha256": "86b82aa77c14fbea05039e20afb268bca31f63d9691359d3bf4fdc561cf25b2d",
+      "normalized_context_sha256": "86b82aa77c14fbea05039e20afb268bca31f63d9691359d3bf4fdc561cf25b2d",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D13",
+      "source_sha256": "0a2eeae496ee94294f32e12e82238bf4ca4d62a446562e3a3da22df0ea60f702",
+      "source_artifact_sha256": "28f22b69466a59728d6e916f1325ebab2eb171dfc1f29ed950617a037519f84d",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/zigur-trainer.lua",
+        "line": 80,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 6750,
+        "inventory_ordinal": 3839
+      },
+      "source_context": "} newChat{ id=\"ko\", text = _t[[Very well. I will say that this is disappointing, but it is your choice. Farewell.]], answers = { {_t\"Farewell.\"}, } } newChat{ id=\"testko\", text = _t[[Ah, you seem eager, but maybe still too young. Come back when you have grown a bit.]], answers = { {[[SOURCE_MATCH_1]]_t\"I shall.\"}, } } local ogretext = \"\" if player.descriptor and player.descriptor.subrace == \"Ogre\" then ogretext = _t\" Worry not, though, Ogre - we can replace your unclean runes with a newly-discovered mixture of infusions, eliminating your dependence on them. The process will feel... unpleasant, and will dramatically shorten your lifespan, but you will finally be free from the addictive grip of the arcane! \" if player.descriptor.subclass == \"Oozemancer\" then ogretext = ogretext.._t\"We'll also reinforce the infusions you've been granted to replace your runes - the newest mixture should give you about five years of your life that the initial mixture took from you. \" end end newChat{ id=\"testok\",",
+      "context_sha256": "926ce2e66d29f18ddaa4acf898d3a77ea9d9856db61cd24c354a9d7c40e274e0",
+      "normalized_context_sha256": "926ce2e66d29f18ddaa4acf898d3a77ea9d9856db61cd24c354a9d7c40e274e0",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D13",
+      "source_sha256": "bb91eefcecbab3e63303b05fe3f73ab126178e87a956a3de6e7d4654462c00bf",
+      "source_artifact_sha256": "691d3fa4dd2c43e99dec0f0e6f545088e7f302b332dae1e5ac9f866c949c0a30",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/elisa-orb-scrying.lua",
+        "line": 66,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 4968,
+        "inventory_ordinal": 3035
+      },
+      "source_context": "---------------------------------------------------------------------- -- Yeek version ---------------------------------------------------------------------- if version == \"yeek\" then newChat{ id=\"welcome\", text = _t[[You immerse your mind in the Way and let knowledge flow in.]], answers = { {_t\"[Images and knowledge flow in.]\", cond=can_auto_id, action=auto_id(\"\", \"\", \"[You mentally thank the Way.]\") }, {[[SOURCE_MATCH_1]]_t\"[You do not gain any knowledge.]\", cond=can_not_auto_id}, } } return \"welcome\" ---------------------------------------------------------------------- -- Undead version ---------------------------------------------------------------------- elseif version == \"undead\" then newChat{ id=\"welcome\", text = _t[[You pause and recall past memories.]], answers = {",
+      "context_sha256": "3146e8ff7d252a587f573879ad7abbd81deafbdd09d56e4575d61aa4897cc4c8",
+      "normalized_context_sha256": "3146e8ff7d252a587f573879ad7abbd81deafbdd09d56e4575d61aa4897cc4c8",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D14",
+      "source_sha256": "7469e3b57713052c29c436657b9e105c13771312badc1ee73644f30387228a65",
+      "source_artifact_sha256": "df5cbf6359829fcfc644b706ffb3ae20ccd548869c9dbf71704356a575b0caf6",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/shertul-fortress-training-orb.lua",
+        "line": 85,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 6075,
+        "inventory_ordinal": 3548
+      },
+      "source_context": "end end, 1)) end, 1)) end newChat{ id=\"welcome\", text = _t[[*#LIGHT_GREEN#This orb is used to control the training facilities.#WHITE#*]], answers = { {_t\"[Create one target dummy]\", action=dummies(1)}, {_t\"[Create two target dummy]\", action=dummies(2)}, {_t\"[Create three target dummy]\", action=dummies(3)}, {_t\"[Create five target dummy]\", action=dummies(5)}, {[[SOURCE_MATCH_1]]_t\"[Create ten target dummy]\", action=dummies(10)}, {_t\"[Change dummies armour]\", action=armor_dummies}, {_t\"[Change dummies resistances]\", action=resist_dummies}, {_t\"[Reset]\", action=remove_dummies}, {_t\"[Leave the orb alone]\"}, } } return \"welcome\"",
+      "context_sha256": "70c9f7fc2e8176e461677ebff86fe9f0196f16f665eeff5c3259f2e5015431c8",
+      "normalized_context_sha256": "70c9f7fc2e8176e461677ebff86fe9f0196f16f665eeff5c3259f2e5015431c8",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D14",
+      "source_sha256": "cfabcc8db1929fdfd457d965cfaa75c3faae3d8f7ac8d9d748627b2e043a6008",
+      "source_artifact_sha256": "74dce929139471e09769525b162884b24c9882c48951befb45561ac878c75b0e",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/conclave-vault-greeting.lua",
+        "line": 33,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 4822,
+        "inventory_ordinal": 2981
+      },
+      "source_context": "template = _t[[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately snap to attention. The one on the right speaks:*#WHITE# YOU! Name, rank, and identification. NOW. ]], answers = { {_t\"My what?\"}, {_t\"[attack]\"}, } } newChat{ id=\"nargol-scum\", template = _t[[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately draw their weapons.]], answers = { {_t\"[attack]\", action=function(npc, player) npc:doEmote([[SOURCE_MATCH_1]]_t\"#CRIMSON#NARGOL SCUM! WE'RE UNDER ATTACK!\", 120) end}, } } newChat{ id=\"conclave\", template = _t[[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately snap to attention. The one on the right speaks:*#WHITE# Ah! Reinforcements! I don't know how long it's been, but I'll get Astelrid up here to-- wait a minute, where are the rest of them? #LIGHT_GREEN#*He frowns.*#WHITE# What's your identification number? ]], answers = { {_t\"Wait! The war's over! It's been thousands of years, the Conclave doesn't exist anymore!\", jump=\"angry-conclave\"}, {_t\"[attack]\"}, } }",
+      "context_sha256": "bdf77ef8f61543c99f13b2cc25775123748a7a0f0aacfd280574cbdf9fca4b91",
+      "normalized_context_sha256": "bdf77ef8f61543c99f13b2cc25775123748a7a0f0aacfd280574cbdf9fca4b91",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D15",
+      "source_sha256": "9619551a218cd51603cb5063d3ccd6cf861606109426548c21794db31cc2137f",
+      "source_artifact_sha256": "c32c742688a5ab85471c1d773b0b517196e3c34c6aeeb66d2ab10a3710d10c13",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/orc-breeding-pits.lua",
+        "line": 37,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5719,
+        "inventory_ordinal": 3399
+      },
+      "source_context": "{_t\"What should I do?\", jump=\"next1\"}, } } newChat{ id=\"next1\", text = _t[[I found it... the abomination Aeryn sent me to seek out. The breeding pits of the orcs... It is more vile than you can imagine... They have it hidden away from their encampments, out of sight of all their people. Their mothers, their young, all there - all vulnerable! #LIGHT_GREEN#*She pulls out a sketched map, and with some effort puts it in your palm.*#WHITE# This could be the final solution, the end to the war... forever. We must strike soon, before reinforcements... #LIGHT_GREEN#*She looks hard at you, exerting all her effort into a final pleading stare.*#WHITE#]], answers = { {[[SOURCE_MATCH_1]]_t\"I cannot do this myself... I will tell Aeryn about it, it is in her hands.\", action=function(npc, player) player:grantQuest(\"orc-breeding-pits\") player:setQuestStatus(\"orc-breeding-pits\", engine.Quest.COMPLETED, \"wuss-out\") end}, {_t\"I will go myself and ensure this is thoroughly dealt with.\", action=function(npc, player) player:grantQuest(\"orc-breeding-pits\") local q = player:hasQuest(\"orc-breeding-pits\") q:reveal() end}, {_t\"You want me to kill mothers and children? This is barbaric, I'll have nothing to do with it!\"}, } }",
+      "context_sha256": "beba67c22c1bbe76b9dff88cbf24c5a42ebbb71857c91a71548b7b3dd9d48590",
+      "normalized_context_sha256": "beba67c22c1bbe76b9dff88cbf24c5a42ebbb71857c91a71548b7b3dd9d48590",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D15",
+      "source_sha256": "b6fb1c286b88b03c6656d36f3f05fa32dd889a5da6249c3350e1ddc030c710ad",
+      "source_artifact_sha256": "97cae2dbea37cde3b5c5d511c887700b967cd38bc4a86f79db3b0af1a5abfcdf",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/ukllmswwik.lua",
+        "line": 58,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 6476,
+        "inventory_ordinal": 3707
+      },
+      "source_context": "I cannot leave this sanctuary, but perhaps you could help me? After all, it would be an act of mercy to end his madness.]], answers = { {_t\"I would still rather kill you and take your treasure!\", action=attack(_t\"DIE!\")}, {_t\"I shall do as you say, but how do I find him?\", jump=\"givequest\"}, {_t\"That seems... unwise. My apologies, but I must refuse.\", action=function(npc, player) player:grantQuest(\"temple-of-creation\") player:setQuestStatus(\"temple-of-creation\", engine.Quest.COMPLETED, \"drake-story\") player:setQuestStatus(\"temple-of-creation\", engine.Quest.FAILED) end}, } } newChat{ id=\"givequest\", text = _t[[I can open a portal to his lair, far away in the western sea, but be warned: this is one-way only. I cannot bring you back. You will have to find your own way.]], answers = { {[[SOURCE_MATCH_1]]_t\"I will.\", action=function(npc, player) player:grantQuest(\"temple-of-creation\") player:setQuestStatus(\"temple-of-creation\", engine.Quest.COMPLETED, \"drake-story\") end}, {_t\"This is a death trap! Goodbye.\", action=function(npc, player) player:grantQuest(\"temple-of-creation\") player:setQuestStatus(\"temple-of-creation\", engine.Quest.COMPLETED, \"drake-story\") player:setQuestStatus(\"temple-of-creation\", engine.Quest.FAILED) end}, } } ----------------------------------------------------------------------- -- Coming back later ----------------------------------------------------------------------- else newChat{ id=\"welcome\", text = _t[[Yes?]], answers = {",
+      "context_sha256": "0f338f084b6f9e1e97ad4b6f80c47dea764a57a062de182b3066f74ae9dfb47f",
+      "normalized_context_sha256": "0f338f084b6f9e1e97ad4b6f80c47dea764a57a062de182b3066f74ae9dfb47f",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-D16",
+      "source_sha256": "2c9f00810a0f92f117d47c2199820f1c4e26898fd9b9f8e1074d14462cb98fe3",
+      "source_artifact_sha256": "a7cf014477641960ed60d4fcb33617c0cf3c0091bd5d2a1858759eee90036fc2",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/zemekkys.lua",
+        "line": 73,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 6674,
+        "inventory_ordinal": 3797
+      },
+      "source_context": "{_t\"I got here from Maj'Eyal, didn't I? I have this magic Orb I looted from a dead orc, see, and...\", jump=\"offer\"}, } } newChat{ id=\"offer\", text = _t[[#LIGHT_GREEN#*Slot opens.*#WHITE# Orb, you say? That you used to travel here from Maj'Eyal? Surely you don't possess the Orb of Many Ways! It's been lost for ages!]], answers = { {_t\"[Hold up the orb]\", jump=\"offer2\"}, } } newChat{ id=\"offer2\", text = [[SOURCE_MATCH_1]]_t[[#LIGHT_GREEN#*His eyes widen.*#WHITE# Great Socks of Aeryn! It IS the Orb! Maybe we can get you home after all. Or maybe we can get you embedded in magma a thousand leagues straight down.]], answers = { {_t\"May I come in?\", jump=\"offer3\"}, } } newChat{ id=\"offer3\", text = _t[[You think I'm letting some filthy @playerdescriptor.race@ in my house with the Orb of Many Ways? I blow myself up quite enough already without that thing in the house, thank you. Besides, I still can't help you unless you have a Blood-Runed Athame to etch a portal. Err, and that portal must be etched on a piece of prepared Resonating Marble. The Gates of the Morning has a slab of Marble that once could have served, but a number of, um, incidents have taken their toll.",
+      "context_sha256": "8bf19f40888f72507b431049cb076677bb6763010a0838b9fac0f0cca53f132b",
+      "normalized_context_sha256": "8bf19f40888f72507b431049cb076677bb6763010a0838b9fac0f0cca53f132b",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-D16",
+      "source_sha256": "e626aa8fff26b4cfb795e3380df44cccb97480487a4315bf71292e1fa8bf644c",
+      "source_artifact_sha256": "830553ac832ce0b9037bc2431609039c2bb9b4338d6796339ae4126b2b4e9726",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/chats/melinda-beach.lua",
+        "line": 38,
+        "construct": "_t_SHORT_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 5617,
+        "inventory_ordinal": 3365
+      },
+      "source_context": "I have had a wonderful time with you today. #LIGHT_GREEN#*She looks longingly into your eyes.*#WHITE#]], answers = { {_t\"#LIGHT_GREEN#[Lean closer and kiss her]#WHITE#\", action=function() game.zone.start_yaech() end, jump=\"firstbase\"}, } } newChat{ id=\"firstbase\", text = _t[[Just before your lips touch, you sense that something is very wrong. ]], answers = { {[[SOURCE_MATCH_1]]_t\"#LIGHT_GREEN#[Continue...]#WHITE#\"}, } } return \"welcome\"",
+      "context_sha256": "ecb51bdd1b297d5bfb403080bcd676cbca178e9d9a2ca853f8e512a454fc69d9",
+      "normalized_context_sha256": "ecb51bdd1b297d5bfb403080bcd676cbca178e9d9a2ca853f8e512a454fc69d9",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N01",
+      "source_sha256": "0b1bd58cb2589e6c8f39d86e232298c076d33e69f4748518b29ae592c9509c78",
+      "source_artifact_sha256": "f5508a609ab3c656731b21b17d8b8b8230c799c23c38c117a935ceaf02ccf18b",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/dreadfell.lua",
+        "line": 56,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 14507,
+        "inventory_ordinal": 9770
+      },
+      "source_context": "id = \"dreadfell-note-3\", category = \"dreadfell\", name = _t\"note from the Master\", lore = _t[[MINIONS: Perhaps you are minor dens of foulness because you have nothing to aspire to? Perhaps you could be greater if you had a worse example before you? Consider Me! I began my long unlife as a foolish pipsqueak such as yourself. Why, there was a time before I had conquered even a pit let alone a level or a dungeon. Now, behold all that is Mine. You must have aspirations. I am not content with just the rule of Dreadfell. No, soon I shall have more. Much more. My boots shall tread the surface of the earth! I shall explore and destroy the most beautiful mountains. All shall be mine once I can walk in the sun once more. Where will you be? Do you wish to be more than the wight I stepped on yesterday? I shall need great leaders to guide my armies across the land.]], } newLore{ id = \"dreadfell-note-4\", category = \"dreadfell\", name = _t\"note from the Master\", lore = [[SOURCE_MATCH_1]]_t[[MINIONS: You are foolish sods. Have you heard of the great Kor'Pul? Perhaps not, because you know very little and he died long before you were so stupid as to be born. However, he was great and had the chance to be greater still. He let himself be cooped into a small hellhole and was destroyed when the right hero invaded it and destroyed his plaything. Now he is but a mere shade of his former glory. I shall not make this mistake. Be ready, for soon we shall march out upon the lands. Soon we shall conquer as even he could not. Pity the fool who thinks he can keep me stuck in even the grandest of pits, Dreadfell.]], } newLore{ id = \"dreadfell-note-5\", category = \"dreadfell\", name = _t\"note from the Master\", lore = _t[[MINIONS: To my newest vampire: burn, foolish adventurer, burn! I bet you are sorry for that flame spell now, aren't you? Suffer as I revisit it upon you. To the rest of you, there will be punishment. An adventurer got down to my bedroom and surprised me. I, Myself, was hurt and almost had to use My special power. All is well now and I am as dangerous as ever, but you shall suffer for letting him get so low. The next minion I see shall be toasted with my marshmallows. Where then were the special pits of doom I organized? Where were the poisons of my wights or the diseases of my ghouls? Indeed, I should slaughter all of you, and I would, but those who were most foully remiss were already slaughtered by the adventurer. The rest of you? Beware My wrath.]], }",
+      "context_sha256": "5faca0724f43809ca686ec7437d8a2a41b50655172cab2e4758a566bd41e1c37",
+      "normalized_context_sha256": "5faca0724f43809ca686ec7437d8a2a41b50655172cab2e4758a566bd41e1c37",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N01",
+      "source_sha256": "0ef01c1cea08c92ab678935e79667e2b1f0bbab6fd52e07cf14412555588acd7",
+      "source_artifact_sha256": "55642ffec3e1a17b3375a43444691fdd148a73d47f7fdd6a159a69c8c521e198",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/misc.lua",
+        "line": 54,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 17587,
+        "inventory_ordinal": 10007
+      },
+      "source_context": "For the years following the cataclysm, chaos reigned. Their culture, their way of life, it was as broken and fractured as the land itself. Nalorë civilisation was reduced to a few isolated and feeble settlements, scratching out meagre existences as land, mind and body was warped in both shape and spirit. Faced with the idea of their great race failing – another victim of the Spellblaze, a footnote in the annals of history – impassioned pleas were sent to their elven brothers: The Shalorën, the Thalorën. Aid was even requested from human and halfling, embroiled in their own petty squabbles as they were. The Nalorën received no answer.]], } newLore{ id = \"temple-creation-note-3\", category = \"temple of creation\", name = _t\"tract of acceptance\", lore = [[SOURCE_MATCH_1]]_t[[#{bold}#Tract of Acceptance#{normal}# Betrayed by the Shalorën, wilful and destructive, and the Thalorën, aloof and suspicious, a long, seething silence fell over the remaining Nalorën people. It was during this period of grim introspection that salvation was suddenly and unexpectedly granted. The ancient Sher'Tul magicks, long pondered over by the land's mystics, would bear fruit at last. The same force that destroyed the Nalorën would save them. Through the Sher'Tul's magic, the Nalorën became able to breathe water as if it was air. Their bodies became adapted for existence under the waves, their legs becoming long, snake-like tails. Such drastic metamorphosis would naturally cause horror, you may expect. However, the Nalorën saw the possibilities their new forms provided: Their sunken lands were their own once again. Their homes would be rebuilt, their civilisation reborn. Nalorën no more, the denizens of the sunken kingdom would come to be known as 'nagas'...]], } newLore{ id = \"temple-creation-note-4\", category = \"temple of creation\", name = _t\"personal note (Slasul)\", lore = _t[[At long last, the temple finally reveals its secrets to me, and my plans can be set in motion. Lithe in form, faultless in combat, unmatched in speed both above the waves and beneath... nature couldn't have hoped to create such a race as nagas. With the Temple of Creation now open to me however, we may become so much more. With my guidance, my careful shaping of the Sher'Tul's magicks, under my expert hand our great race shall soon reach its zenith. A new tract shall soon be written: The Tract of the Devourer. ]],",
+      "context_sha256": "66dc78f1453899b7af6ccd891fdc5216d4870c32c95e9efe0c919869f9e67a62",
+      "normalized_context_sha256": "66dc78f1453899b7af6ccd891fdc5216d4870c32c95e9efe0c919869f9e67a62",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N02",
+      "source_sha256": "5aa6a2011a754d736a0093f981111e2155cc9b4a40a275d4d220a14c3f9ad33b",
+      "source_artifact_sha256": "3fb4a034c94d70602269e8c1eeee1d8778ddd5996dbed9a126d8fbfb467e2e4b",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/age-allure.lua",
+        "line": 237,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 14014,
+        "inventory_ordinal": 9717
+      },
+      "source_context": "The Overseers have been working with us personally to make psychological changes as well; with the blank slate provided by the amnesia spell, we've managed to give them a mindset that will serve them well both during the war and for our glorious reign that shall follow. Extraordinarily dutiful, helpful and striving for excellence in their daily lives without lusting for power or personal glory, wise about their place in the world, and slow to anger... but utterly ferocious when needed. Just as the Higher were created to be scholars and policy-makers, and have proven successful in this role beyond the Conclave's wildest dreams, these new \"Ogres\" (as the staff has taken to nicknaming them) shall be our laborers and soldiers, a solid foundation of hard work and dutiful enforcement on which our society shall be built. There will still be a place for the unaltered races, of course; their natural adaptability will make them perfect to fill in the gaps, as the glue that holds everything else together. These Ogres are integrating into our military very well! The rank-and-file soldiers know better than to attract attention from the Overseers by asking too many questions about where their new, giant allies came from, and thus acceptance came rather swiftly once they saw these creations in action. We received one report that an Ogre sergeant was seen eating a particularly insolent halfling alive, after he feigned surrender and attempted to cast a lightning spell; this spectacle was both highly motivating to our troops and demoralized the remnants of that halfling's squad into surrendering, so I shall be enhancing their digestive capabilities as well. For the most part, though, our research work is done. All that's left to do is get a response from the Overseers as to whether to increase their birth rate or not (currently set very low as a precaution against future overpopulation), and improve the training we give freshly-created Ogres for runic magic, given that regular maintenance of their runes is necessary to keep them alive. This is not to say we have idle staff, however! Some of us have made a project for after the war ends - a modification to our experimental growth-tanks, rendering them capable of holding a person of Ogric biology indefinitely in a \"sleeping\" state where they do not age or starve. We can install tanks filled with these \"sleeping\" Ogres stationed near bridges that may need regular maintenance, stashed in reserve armories, or any other place where you'd need a batch of dependable workers or guards, without having to incur all the other costs associated with keeping extra citizens around. ]] } newLore{ id = \"conclave-vault-4\", category = \"age of allure\", name = _t\"healer Astelrid log 4\", lore = [[SOURCE_MATCH_1]]_t[[Announcement to All Staff: I'm sure you've all heard the rumors about what our scryers saw, and why we've been on lockdown the past few days; it is with a heavy heart that I must confirm that they are true. The Nargol have taken the land above our facility, and are combing the area with golems to find the entrances. We've already lost one entrance to the failsafe explosive-rune traps set in place to collapse it, and now they'll be looking to defuse those as well. In short, we have no means of escape, and if allowed the time, they will find the way in, kill us, and steal our precious work for themselves. The Empire has been enough of a problem without Ogres; we CANNOT take the risk of them finding us and tipping the balance in their favor. We are doomed, no matter what happens. My orders from the Overseers in such a situation would be to destroy our findings, then put an alchemical vial they gave me in the ventilation system, painlessly suffocating us. I have no intention of throwing away our rightfully-earned place in the history books by doing this. Instead, I have prematurely detonated all the remaining explosive traps, thoroughly sealing the way in. We are very, very deep underground, and without any tunnels to follow, it could be decades before a Nargol excavation team reached us. In other words, we are completely sealed off from the Nargol... and the rest of the Conclave. We have a small supply of emergency rations, but it would last us a couple of months at the longest, and we cannot assume the Conclave will reclaim this territory in that time. We could try to repurpose the infusion herb-garden for making edible crops, but that would only buy us a month after that before the grow-lights lost their magic. Without drastic steps, we will surely die of starvation; fortunately, we have drastic steps available to us. This is my last order: I have prepared our surgical golems to apply the Ogric inscriptions to us, and updated all of our records to reflect our best current knowledge of their effects and effectiveness. I have also had the golems upgrade all of our growth vats (ones in use included) to our newest \"stasis tank\" design, and furthermore freed up enough space for each of us to use one by... disposing of some of the test subjects who had low chances of survival (an action I am already beginning to regret). By the time you find this note, I will have already undergone this process myself, and will be hibernating in a tank I've had moved to my office. If you do not wish to die, you should acquire a weapon from the armory, then follow my lead. When we are dormant, we will be immune to the ravages of time, and prepared to greet whoever finally digs their way down and finds us. Hopefully, it will be Conclave reinforcements, in which case we will stand down, give them our notes, and await further orders. And if it isn't the Conclave... make them regret it. Send a message stronger than any NO TRESPASSING sign ever could, then resume your slumber. It has been an honor working with such talented individuals, and an honor doing everything I can for a noble cause. Perhaps we still had some progress to make, but overall I'm proud of what we've accomplished, and the contributions the Ogre race will make to all of Maj'Eyal. Long live the Conclave!",
+      "context_sha256": "9d269c7a15637266f369fc676cdbfa1129b0fb516afff1d2ac62921a74014198",
+      "normalized_context_sha256": "9d269c7a15637266f369fc676cdbfa1129b0fb516afff1d2ac62921a74014198",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N02",
+      "source_sha256": "13eed6ad96db117c1396db0bd33aebb94793a5de0318cdc2316c70aa8fc16c79",
+      "source_artifact_sha256": "9fee9b5c64625aa10692c77691bf1207a64e7a048589b44bed3788069f33a145",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/last-hope.lua",
+        "line": 37,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 16736,
+        "inventory_ordinal": 9927
+      },
+      "source_context": "category = \"last hope\", name = _t\"The Diaries of King Toknor the Brave\", lore = _t[[#{italic}#68th of Dusk, Year of Pyre 710#{normal}# The orcish tribe have routed us. We have retreated to some Mardrop ruins and secured ourselves amongst the fortifications. I have just shy of 2,000 men under my banner, some of the best warriors I have ever served with, but we are simply no match for the numbers we face. Counting them is difficult, but I would put a minimum estimate at 10,000. The tribe has camped a league away - they seem to be waiting for reinforcements. This does not bode well... I have sent messenger crows to all the kingdoms. I can but hope they send aid in time.]], } newLore{ id = \"last-hope-foundation-note-2\", category = \"last hope\", name = _t\"The Diaries of King Toknor the Brave\", lore = [[SOURCE_MATCH_1]]_t[[#{italic}#25th of Haze, Year of Pyre 710#{normal}# Five men tried deserting last night. Today I had them flogged in front of all the others. I have given warning that any future deserters shall be hanged. These are measures I do not like to take, but harsh times call for harsher discipline. Our supplies are holding steady for now, but I fear they may not last. I've received word that it will take at least fifty days to muster a force that can save us. Alas, food may well be the least of our worries, for the orcs have begun to attack our strongholds. Thankfully we have had time to reinforce the existing structures. Indeed, little work was needed, for the foundations of this place are strong. My loremaster tells me it was abandoned following the Crimson Pox, but was once the capital of Mardrop. The men have taken a fondness to the place, and have named it \"Last Hope\". Though I normally discourage such romantic notions I cannot help but feel the same. These stone walls give strength to my heart - I feel we can fight through this. Their attack has begun again. They seem to have mages now. Ah, it will be a long night...]], } newLore{ id = \"last-hope-foundation-note-3\", category = \"last hope\", name = _t\"The Diaries of King Toknor the Brave\", lore = _t[[#{italic}#47th of Haze, Year of Pyre 710#{normal}#",
+      "context_sha256": "57332d8bdab1216940fe95e02aec06c2b7493e456f52e08669196c36857f493d",
+      "normalized_context_sha256": "57332d8bdab1216940fe95e02aec06c2b7493e456f52e08669196c36857f493d",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N03",
+      "source_sha256": "576c216169facb382ffa324246e64766444368a148d45ab99f8d4cb11bfe7dc6",
+      "source_artifact_sha256": "9fee9b5c64625aa10692c77691bf1207a64e7a048589b44bed3788069f33a145",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/last-hope.lua",
+        "line": 508,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 17398,
+        "inventory_ordinal": 9986
+      },
+      "source_context": "i=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = _t[[#{bold}# Grave of the Unknown Mason #{normal}#??? - ???#{italic}# In dedication to all those lost building the dungeons of Maj'Eyal #{normal}#]]} i=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = _t[[#{bold}# Here lies Albert Deathproof #{normal}#75 - ???#{italic}# Buried alive #{normal}#]]} i=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = [[SOURCE_MATCH_1]]_t[[#{bold}# RIP Legless Jack #{normal}#26 - 98#{italic}# His life's dream was to dance But even dreams must die #{normal}#]]} i=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = _t[[#{bold}# The Blightbringer #{normal}#14 - 46#{italic}# Do not disturb #{normal}#]]}",
+      "context_sha256": "60476e1d0ca53a78e06c051cc3417cfaeb6905ee7ca5357d5c58d30e06677b33",
+      "normalized_context_sha256": "60476e1d0ca53a78e06c051cc3417cfaeb6905ee7ca5357d5c58d30e06677b33",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N03",
+      "source_sha256": "631e6e72780b26125e93e39d84f2b8f335c3b7a178918d918ee407a5d0124842",
+      "source_artifact_sha256": "28508f9c984c1c8a299a410232b376d7cdb89133213d28f30ee71a5383e115df",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/orc-prides.lua",
+        "line": 67,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 18738,
+        "inventory_ordinal": 10138
+      },
+      "source_context": "Sadly, such desires are denied to me at this moment. Plans are in motion, and we are scant weeks away from finally crushing the accursed sun paladins and their tin-plated harlot ruler. Even once the Sunwall lies in ruins I must be careful - the horde of sub-orc savages Grushnak calls a pride are ever at my door, claiming we do not follow Garkul's \"true path\". He is a fool, but dangerous, and I must be vigilant.]], } -------------------------------------------------------------------------- -- History of the orc race -------------------------------------------------------------------------- newLore{ id = \"orc-history-1\", category = \"orc prides\", name = _t\"Records of Lorekeeper Hadak part one\", lore = [[SOURCE_MATCH_1]]_t[[Our history is a history of battles, a history of wars. We orcs have always been under attack from the other races, always having to defend ourselves against their ruthless advances. The other races paint us as evil, they think of us as purely beasts. Not so! If we are cruel, it is because they made us cruel. If we are heartless, it is because they ripped our beating hearts from our chests and stamped them beneath their feet! It was the halflings we first did war with, in the Age of Allure. We were weak then, and disorganised, and in their arrogance they sought to enslave us. But we fought back! And we have been fighting back ever since. They used magic on us, though we had never come in touch with the arts before. They used whips and chains and tried to beat us down. They used us for labour, butchering any young that were not strong enough for them, burning any constructions we tried to make for ourselves. At first we escaped and fled, and hid in dark caves. Our numbers grew, though we had to endure squalor and hardship. After many years we could hide no longer, as starvation and disease threatened to kill us all. And so seeing our enemy weak we rose upon them in wrath. We were not organised, but we were determined. The elves and the humans and the dwarves tried to oppose us too, but we would not allow ourselves to be beaten! They tried to use their magics against us, but we overcame them with numbers, five of us dying for every mage we managed to kill. With blood we paid and finally we had lands for our own!]], on_learn = function(who) world:gainAchievement(\"ORC_LORE\") end, } newLore{ id = \"orc-history-2\", category = \"orc prides\", name = _t\"Records of Lorekeeper Hadak part two\", lore = _t[[After fighting back the other races we began to build and prosper. Finally we had our own towns and cities, and we began to advance our own abilities. Though battles were still ongoing at our borders we were free to thrive and prosper.",
+      "context_sha256": "c37097dd7805005ce3a99de7692d044a51167ebcb77dd0373e874589d544ca29",
+      "normalized_context_sha256": "c37097dd7805005ce3a99de7692d044a51167ebcb77dd0373e874589d544ca29",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N04",
+      "source_sha256": "e7e55ce3df8748e9d711e350555d4ee8c37af581b037027f6f40dae2b1665095",
+      "source_artifact_sha256": "b977debae1ae9f4a4810463c75288439191200469ea565cb7c51c6edda7b67bd",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/zigur.lua",
+        "line": 72,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 19833,
+        "inventory_ordinal": 10277
+      },
+      "source_context": "But we are not clear of danger yet. Magic still exists, though oft it lies secret and hidden. Memories of the dark days have waned, and one can even see alchemists and enchanters walking openly in the streets, unheeding of the pain their ilk have brought to our world. But worse exists... Secret societies hide themselves in unknown places, plotting and scheming to bring further destruction on Maj'Eyal. Dark cults exist in quiet isolation, kidnapping innocents and performing vile ceremonies. We try our best to hunt these monsters down, to root them out from their fell dens and bring an end to their depraved plans. Yet we must try harder, for our world is in mortal peril if these fiends are allowed to act unhindered. We must never forget the terrors of the Great Evil, and the suffering brought upon us by those who choose to corrupt nature with arcane powers. Be wary in your travels, and be thorough in your duties. Our fight is difficult, but it is just and true, and not until all Maj'Eyal is cleansed of the impurities of magic can we ever know peace. We are the protectors of the world, and by our strength and our union with nature we shall be its saviours. -- Protector Myssil]], } newLore{ id = \"zigur-potion\", category = \"zigur\", name = _t\"The story of my salvation\", lore = [[SOURCE_MATCH_1]]_t[[I used to be a potion merchant in Derth. I brewed alchemical tonics and elixirs for locals and travellers. My trade was good, and I lived very happily from the gold I earned. For a young woman to have such a business I was very proud. One day however several people in the town fell ill from a mystery disease. Rumours spread that my potions were to blame, and people stopped coming to my shop. My business was in ruins, and I soon ran the risk of becoming destitute. Then one of the elders died, and though he had been ill for some time, I was blamed for his death. People said I had laid a hex on him, and murmurs arose of witchcraft. I still remember how peaceful the evening had seemed when the townsfolk came for me. I was looking up at the brightness of the stars and the clear crescent Summertide moon, thinking of how I should restart my business, when I heard shouts from the distance. I saw the crowd appear from round the corner, advancing with their torches. I screamed for help, but they broke through my door, smashed through my windows and grabbed me. They dragged me outside and set their torches to my house. I was stripped to my skin and beaten heavily whilst they cursed and jeered, and even the man who had been my fiancé spat on my face and cursed me. They pulled me over grass and stone to the town square, and though half-blinded by the tears and my swollen flesh I could still make out the wooden stake they were erecting. I tried to cry out, I tried to beg for mercy, but their response was to hold me down by my throat and pull out my tongue with the blacksmith's tongs. As I coughed up blood they put me against the wooden pole and used barbed cords to tie my wrists to it above my head. The pain was unbearable and I passed out, and did not wake until I could feel the burning at my feet. The crowd were cheering as the smoke began to wrap around me, and they cheered louder with every pained scream I released from my lungs. I was choking from the smoke, barely able to breathe, and I could no longer feel my legs. Just when I felt my consciousness slipping away again I heard a commotion and a woman's voice shouted out, \"She is no witch!\" Then I saw some people coming towards me, and at the front was a halfling woman in dark armour. She rushed towards me, unheeding of the flames, and with a swift flick from her long sword she cut my bonds. She caught me as I fell and pulled me away from the fire, laying me down on the ground. I saw her soft face above mine as she whispered to me, \"Tell me child, do you reject magic in all its forms?\" I nodded my head - I could not say no to those bright eyes. She wiped the tears streaming down my face and kissed my forehead. \"Then you will be safe - rest now.\" At once I passed out. When I awoke I was in another village in a soft bed. There were wrappings round my legs and bandages covering the cuts and bruises over the rest of my body. Healers tended to me, using natural remedies and herbal balms. The halfling woman would come and see me every day to check up on me. I longed for her every visit. She would speak to me sometimes. She explained how the townsfolk weren't to blame for their actions. It was all the mages' fault. They were corrupting the world, spreading chaos, and turning people against each other. I realised I was wrong for ever brewing potions - they were infested with arcane energies and could only bring harm to the world. She explained how she and her friends were helping to save the world, to rid our lands of all magic. And she has saved me. Not just from a terrible death, but also from the evil influences of the arcane. Even if I still had a tongue I could not find words to express my thanks to her, and my joy at the new life I lead, free from the abominations of magic. Thanks to her help I can now walk again with the aid of a crutch, and I can find true happiness in my rightful place in nature.",
+      "context_sha256": "a9af4173175038736e3b6d5178f1f39ae9d9d8bf6fd07afd6e8aa037f9803e07",
+      "normalized_context_sha256": "a9af4173175038736e3b6d5178f1f39ae9d9d8bf6fd07afd6e8aa037f9803e07",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N04",
+      "source_sha256": "5b4169cc1ec03c6e0b25dde1d5427f079ebeab6d34f171fbabf9a2a4a3109528",
+      "source_artifact_sha256": "9fee9b5c64625aa10692c77691bf1207a64e7a048589b44bed3788069f33a145",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/last-hope.lua",
+        "line": 458,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 17322,
+        "inventory_ordinal": 9978
+      },
+      "source_context": "i=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = _t[[#{bold}# Here rests Raymond Gaustadnes #{normal}#84 - 120#{italic}# The Pixels finally got him... #{normal}#]]} i=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = _t[[#{bold}# Here lies Crokar #{normal}#86 - 113#{italic}# His love of trolls proved too dangerous a hobby #{normal}#]]} i=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = [[SOURCE_MATCH_1]]_t[[#{bold}# Lyrissa the Wyrmfriend #{normal}#93 - 116#{italic}# Eaten by dragons #{normal}#]]} i=i+1 newLore{ id = \"last-hope-graveyard-\"..i, category = \"last hope graveyard\", name = _t\"gravestone\", text_color = {r=255,g=255,b=255}, special_ui = \"tombstone\", always_pop = true, lore = _t[[#{bold}# Here rests Weldeth the Deserter #{normal}#86 - 103#{italic}# Fled from battle Bereft of pride On a comrade's sword He quickly died",
+      "context_sha256": "c9eb8b66b95388295eee44d2d83bf1f0d745288b6911129377fe05f4a1ce10fe",
+      "normalized_context_sha256": "c9eb8b66b95388295eee44d2d83bf1f0d745288b6911129377fe05f4a1ce10fe",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N05",
+      "source_sha256": "49f20a24f2f3968ba227fffe4c6fd1ad60cae28f8e3b9be809da66399e9a824f",
+      "source_artifact_sha256": "28508f9c984c1c8a299a410232b376d7cdb89133213d28f30ee71a5383e115df",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/orc-prides.lua",
+        "line": 310,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 19040,
+        "inventory_ordinal": 10158
+      },
+      "source_context": "I have begun work on several of the females. They are being kept in a coma for the duration of the experiments - it's far better that way. Initially I have subjected them to very high levels of wild infusion and arcane regeneration fields, whilst also keeping a direct feed into their stomachs high in protein. Corrupted blood is being pumped into their ovaries with a temporal acceleration field surrounding them. The leaders of each Pride have donated their seed for use in the experiments. Initial results have mostly been immensely successful. Body mass has grown significantly, especially in the abdominal region. One has even begun developing extra ovaries and sexual organs. I have managed to increase their fertility immensely, and the stimulated foetal growth rate means that new orcs take only eight weeks from conception to birth. The young also seem to be progressing in their development at a very advanced pace, with particularly accelerated muscle development. Some females have died during the procedures. I can only presume these were the weaker subjects, but it is a tragic loss regardless.]] } newLore{ id = \"orc-breeding-3\", category = \"orc prides\", name = _t\"Clinician Korbek's experimental notes part three\", lore = [[SOURCE_MATCH_1]]_t[[#{bold}#Clinician Korbek's experimental notes part three#{normal}# My work is continuing with tremendous success. All subjects now have multiple operational wombs, thanks to the corrupted blood infusions coupled with arcane regeneration fields to quickly repair the corrupted tissues. With greater advances in accelerating the foetal growth stage we are now seeing new orcs every few days! I believe this can be pushed even further. Though the wombs operate at an advanced rate, we are keeping their vital organs suppressed to extend their lifespans. Perhaps they can live for hundreds, if not thousands of years. Pumping nutrients directly into their stomach is proving a difficulty with the increased activity in the abdominal region. I am currently investigating ways to condense nutrients into the atmosphere so that the subjects can be passively fed through breathing. Initial tests show a slimy build-up on the skin but no other negative side-effects.]] } newLore{ id = \"orc-breeding-4\", category = \"orc prides\", name = _t\"Clinician Korbek's experimental notes part four\",",
+      "context_sha256": "5d052b2be40a5c730023074fb8cccd42fa4321c9ee5a5ce475a1f0b912d87139",
+      "normalized_context_sha256": "5d052b2be40a5c730023074fb8cccd42fa4321c9ee5a5ce475a1f0b912d87139",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N05",
+      "source_sha256": "83e64a2fc62e70d65fe48407d4b829f0c232a34e1cca42391fbae4f9261854c7",
+      "source_artifact_sha256": "55642ffec3e1a17b3375a43444691fdd148a73d47f7fdd6a159a69c8c521e198",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/misc.lua",
+        "line": 721,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 18450,
+        "inventory_ordinal": 10102
+      },
+      "source_context": "What does reach us then, are not people, but objects. Artifacts of great power, legacy of the past. Surely, any drunkard might like to tell tales after a pint or two, but a magical sword is a proof of its own and it keeps quiet of what it has seen. So, a great hero is usually easy to recognize, being practically a walking history book. Clad in half the age of important events which he probably has no idea about. It is important to remember, that every artifact has a meaning, beings of great power and importance behind them. Stories, that now slowly wane into nothing. This is why it is not artifacts that make an adventurer. It is his great deeds, the will to dare where nobody did before. It is not important if you get known in the process or not, after all, if you were truly great, maybe you will leave behind a legacy of your own. -#{italic}#Kestin Highfin#{normal}#]] } newLore{ id = \"galsame-orientation-notes\", category = \"point zero\", name = _t\"Warden-Master Galsamae's Orientation Notes\", lore = [[SOURCE_MATCH_1]]_t[[Congratulations, sir and/or madam. Whether by invitation, discovering it on your own, or simply being enough of a thorn in our side to recruit rather than dispose of, you have gained the secrets of chronomancy. The ultimate power of time - the ability to reset and try again if you fail, the ability to save time by seeing the results of investigations before they happen. Though our powers are bound to post-Spellblaze Eyal, they are those of nigh-omnipotence with enough patience. But trust me - \"enough patience\" is one nasty limiting reagent. You're going to be running out of that fast when you've spent the last week trying to dismantle an Age of Dusk-era house-of-cards system of causally interdependent tyrannies without causing dwarven extinction, and a plague just broke out right when you had things almost perfect, for the sixth time-- Look. The point is, there's a reason the person who writes the invitations and the mission statements isn't someone out in the field - and you're lucky enough to be working for someone who understands that you need more flexibility than idealism allows. Our squad knows that to stay sane, we have to know when \"time flows forward at a rate of one second per second\" isn't the only rule we have to break. That it's generally okay to skip the trial and just deal with a temporally hazardous jackass as you see fit, if you've foreseen a guilty verdict - as long as your investigations are solid when you actually conduct them (and you do have to do the work once in a while, or you'll only be capable of seeing yourself procrastinating). And if you just need to not be watched, you should know that there are a few decades in the Age of Dusk we and a few other squads recognize as \"fair game\" - whatever experiments you've wondered about or horrors you want to inflict, just keep it to the time period of infinite forgotten evils and it doesn't hurt anything in the grand scheme. Trust me, we've checked - nothing in that time period matters unless you've got another Spellblaze to set off. But most importantly, you should know: Zemekkys is even lazier than I am, but he has status to maintain. If you continually violate his will, there will come a point at which you will be informed that you have been caught and should stop resisting. Accept whatever fate he doles out for you. If you do not stop, there will come a point where he will be forced to make an example of you so severe that the entire cosmos will notice your non-existence. Obviously we can't be sure how many of us he's done this to (if any) or how it works, but we're pretty sure that the result looks like something starting with a W. Everyone here wants the same thing - keep spacetime stable, have fun with your powers, cheat at a few lotteries - but we've got cover to maintain and, in theory, an actual job to do if something ever cracks that Sher'Tul shield or the Greigu find a way to bypass a portal-filter. Scratch backs when yours gets scratched, don't make so much noise that the system comes crashing down on your head, and you'll enjoy your stay in eternity. Welcome to Point Zero, agent. Enclosed are timespace coordinates to what is, quite literally, the best roast-yeti restaurant that could possibly exist - I'll have the squad meet you there and then. Thank me later. [i]-Galsamae[/i]",
+      "context_sha256": "b03d690d9cec0f480c989fb3f7c5374932c15cb6c16e7ae8e85a44e91794f0fc",
+      "normalized_context_sha256": "b03d690d9cec0f480c989fb3f7c5374932c15cb6c16e7ae8e85a44e91794f0fc",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N06",
+      "source_sha256": "1d4401b0646bdd38a5ce674af22dfbca278832e1267b696a99b0d45255e43419",
+      "source_artifact_sha256": "f5508a609ab3c656731b21b17d8b8b8230c799c23c38c117a935ceaf02ccf18b",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/dreadfell.lua",
+        "line": 74,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 14518,
+        "inventory_ordinal": 9773
+      },
+      "source_context": "id = \"dreadfell-note-5\", category = \"dreadfell\", name = _t\"note from the Master\", lore = _t[[MINIONS: To my newest vampire: burn, foolish adventurer, burn! I bet you are sorry for that flame spell now, aren't you? Suffer as I revisit it upon you. To the rest of you, there will be punishment. An adventurer got down to my bedroom and surprised me. I, Myself, was hurt and almost had to use My special power. All is well now and I am as dangerous as ever, but you shall suffer for letting him get so low. The next minion I see shall be toasted with my marshmallows. Where then were the special pits of doom I organized? Where were the poisons of my wights or the diseases of my ghouls? Indeed, I should slaughter all of you, and I would, but those who were most foully remiss were already slaughtered by the adventurer. The rest of you? Beware My wrath.]], } newLore{ id = \"dreadfell-poem-level-2\", category = \"dreadfell\", name = _t\"A smudged poem chalked on a dark piece of slate\", lore = [[SOURCE_MATCH_1]]_t[[Master of life, Master of death, All fall to a word From his dreaded breath! Master of staff, Master of steel, None can withstand His ruthless zeal! Master of magic, Master of fire, Pity the fool That stirs his great ire! Master of strength, Master of will,",
+      "context_sha256": "18e6ced8740e526e5c0d81eb28d63fbbf56f4c5599cfe2251121ba591629b3dc",
+      "normalized_context_sha256": "18e6ced8740e526e5c0d81eb28d63fbbf56f4c5599cfe2251121ba591629b3dc",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N06",
+      "source_sha256": "7dedd40f75a56d27482b1949ea5404fd1f6ed905a9172569396c5ebd613bc2ae",
+      "source_artifact_sha256": "55fb8d2bb8a162fac6f5570520ca206577e2e63e16d8a0866a4a2c5ca0a2bf0e",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/kor-pul.lua",
+        "line": 64,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 16709,
+        "inventory_ordinal": 9922
+      },
+      "source_context": "lore = _t[[This place is infested! I've found a lot of skeletons now, and unfortunately most of them have borne a full set of limbs. However, my holy quest cannot be denied! Plus I got a really great sword off one of the blighters, I can chop anything up easily now! The skeletal mages have been a night-born nuisance, but I've found a new weapon to use against them - a phase door rune! As soon as I catch sight of one of the robed wretches I activate my rune and foom, I'm away! It's not fleeing, it's just tactical repositioning... ]], } newLore{ id = \"kor-pul-note-4\", category = \"kor'pul\", name = _t\"journal page (kor'pul)\", lore = [[SOURCE_MATCH_1]]_t[[Kor'Pul, Kor'Pul... When the farmer told me what this place was called it reminded me of something, and I think it's coming back to me now. My mother used to tell me a story about our ancestors, how they fled by ship to escape the grasp of an evil sorcerer who dominated the lands. The sorcerer was a vile necromancer who took advantage of the destruction from the Spellblaze and the Cataclysm to create huge armies of undead. The people fought against him time and time again, but though he would be defeated he would still come back, sometimes after hundreds of years. And that sorcerer's name was.... Kor'Pul. Probably just a coincidence.]], } newLore{ id = \"kor-pul-note-5\", category = \"kor'pul\", name = _t\"journal page (kor'pul)\", lore = _t[[It's quiet down here. And dark... very dark. I suppose I should have brought a lantern. Our motto is to bring light into dark places, but I guess I should have thought about that in practical terms. I've cleared out pretty much all of this area, and there's not much left to explore beyond this last room. This adventuring stuff is quite lonely, I must say. I guess keeping this journal helps a bit. I miss home a lot now. I miss... I miss Falia. Maybe I should have said something to her about how I feel... but I guess running away on an adventure seemed easier. Pah, how brave of me...",
+      "context_sha256": "5f8f35108920aac5b33b1628d11a4ae8d8c078919e36dfb14c3fe146374518f7",
+      "normalized_context_sha256": "5f8f35108920aac5b33b1628d11a4ae8d8c078919e36dfb14c3fe146374518f7",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N07",
+      "source_sha256": "fa056659caf7eeae47a93a11ed231a1ce91be908a03b281f87678cca793034fc",
+      "source_artifact_sha256": "04a4941cf9eec50918e09ddb4e22496dce72d7728cfa93309a0baa993769e595",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/spellhunt.lua",
+        "line": 87,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 19616,
+        "inventory_ordinal": 10250
+      },
+      "source_context": "Necromancers and fell conjurers can present a great threat when they summon their dark minions to overwhelm you. Oft it is best to take out the wizard first, though it presents risk. You must raise your will and suppress all pain until you come right upon him, and then strike him down quickly before retreating to a safer area. Stunning or dazing the caster before they have a chance to summon aid can also help immensely. Hexes and curses can wreak terror upon you, and you would do well to have an infusion that removes these and other blighted magic effects when facing dread occultists. Infusions to augment your natural healing are also a must for difficult battles. Remember to show no mercy, for they will give you none.]], } newLore{ id = \"spellhunt-note-4\", category = \"age of dusk\", name = _t\"Spellhunter's Guide part 3: How to Kill a Magic-User\", lore = [[SOURCE_MATCH_1]]_t[[When a magic-user is captured, they must be slain, and slain fast. Captivity is too great a risk. Preferably they should be killed in a way that utterly removes any means for the body to recover through arcane force. Remember that coming back from the dead is no alien feat to these abominations. Beheading is simple and effective, especially in a hurry, but ideally their other limbs should be removed too and sealed in separate metal cases wrapped in willow-bark. Devouring by animals is sometimes used, but is not advised, as it can at the very least can cause severe diarrhoea in the animals, and at the worst can leave you facing a pack of fire-breathing hell hounds corrupted by the mana-wielder's aura. Freezing is ineffective, and no magic-user can ever be frozen to death, in spite of what rumours you may have heard. Anyone you have heard of that was frozen to death was either not a mage or was pretending. Burning is popular amongst the less educated towns, but typically no witch or wizard of power would ever allow themselves to be caught, bound and put to stake without finding means of escape. Simply putting together the necessary firewood takes too long, even if stocked in advance. Usually those executed in this manner are magic-sympathisers rather than true magic users. Whilst strictly speaking this does not carry the penalty of death it does well to set an example for others and to warn arcane users to stay well away from the community. The best method, if time and situation allows, is to very slowly slice the caster to death. One should have them securely bound in a sealed room, with willow-bark or beech-wood around their wrists and cranium. One should start by slowly slicing off the toes, fingers and other extremities, before slicing through all the limbs and finally the torso. Do not cut open the skull, in case resident demons escape. The head should be put into a metal box and incinerated for 24 hours with the rest of the remains. Extremely sharp instruments are needed for the job, and do not be surprised if they need re-sharpening several times during the process, as it is a typical warlock's trick to harden their bones before the procedure as a final act of spite. ]],",
+      "context_sha256": "3ac254a832ebf63e49c60d5c5c00bfbdd123c30ea1438528a30eb38d6e922045",
+      "normalized_context_sha256": "3ac254a832ebf63e49c60d5c5c00bfbdd123c30ea1438528a30eb38d6e922045",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N07",
+      "source_sha256": "b9148db42c52323de518f1cfbdbc13d26b5652055952d33470cdb905c76c8367",
+      "source_artifact_sha256": "3d8c6145a22091dc751a37641c550837a91e2af5cecf7abbaed96d8cec2e3f35",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/iron-throne.lua",
+        "line": 86,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 16281,
+        "inventory_ordinal": 9874
+      },
+      "source_context": "name = _t\"Iron Throne Edict\", lore = _t[[#{bold}#AN EDICT TO ALL CITIZENS OF THE IRON THRONE. LONG MAY OUR EMPIRE ENDURE.#{normal}# The rumours you have heard are true. It is with a heavy heart that I confirm one of our mines, Reknor, has been overtaken and inhabited by a large and organised orcish force. How there could be such a decisive and total failure on our part to stop this threat remains a mystery - the source of the orcish invasion remains unknown. A battalion of soldiers will form a defensive perimeter around Reknor until a force to retake the mine and exterminate the orcs can be mustered. All civilians residing within the surrounding halls are to be evacuated. This is a grave and unprecedented issue, so I decree an oath of silence to be laid upon all citizens of the Iron Throne, regardless of class and station: NO NEWS OF THIS INVASION MUST REACH FOREIGN EARS. We must maintain an image of stability and strength with the Allied Kingdom, as any signs of weakness or internal strife would be catastrophic to our alliance and future trade agreements. Any citizen found divulging this information to any outside party will be punished with exile. Rest assured, I will personally send messages to those outside the Throne who can be trusted with this information, and I trust this orcish intrusion shall be dealt with swiftly and decisively. So speaks the ruler of the Iron Throne, long may our empire endure.]] } newLore{ id = \"iron-throne-trade-ledger\", category = \"iron throne\", name = _t\"Iron Throne trade ledger\", lore = [[SOURCE_MATCH_1]]_t[[#{bold}#IRON THRONE TRADE LEDGER - Allied Kingdom#{normal}# #{italic}#Age of Ascendancy, 121#{normal}# #{bold}#Last Hope - Exports#{normal}# Steel Plate Armour (Human) - 500pcs. Steel Plate Armour (Halfling) - 460pcs. Steel Armaments - * Longswords - 170pcs. * Spears - 200pcs. * Maces - 150pcs. Crafts, Sundries - 2,200pcs. #{bold}#Derth - Exports#{normal}#",
+      "context_sha256": "cfd921d63b203826999ddcbeab54a0e078a86a37e4cddff0fc78bc3b7670c84d",
+      "normalized_context_sha256": "cfd921d63b203826999ddcbeab54a0e078a86a37e4cddff0fc78bc3b7670c84d",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N08",
+      "source_sha256": "1f3a7d8bbd0ab66b68b2c98b4d47b1269f18a4f465835af400b69f85160b8d70",
+      "source_artifact_sha256": "55fb8d2bb8a162fac6f5570520ca206577e2e63e16d8a0866a4a2c5ca0a2bf0e",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/kor-pul.lua",
+        "line": 41,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 16688,
+        "inventory_ordinal": 9920
+      },
+      "source_context": "Oh yeah, because I was broke. Bah... I think I might have considered things differently had I known I'd be transported without my clothes though! Imagine my embarrassment turning up in a foreign land, with my... my unmentionables on display... Thankfully I managed to borrow a robe from a friendly farmer, and did some work for him to earn gold enough for a bit of food, a journal, and a rusty old sword. When I heard there were ruins filled with undead nearby I knew my calling had come! So here I am, mighty Sun Paladin Telthar, to prove my strength in these foreign lands of the west! But all I've found so far is rats. I hate rats...]], } newLore{ id = \"kor-pul-note-2\", category = \"kor'pul\", name = _t\"journal page (kor'pul)\", lore = [[SOURCE_MATCH_1]]_t[[Aha, I have found the accursed undead that plague this nefarious dungeon! The skeletal fool was thankfully no match for me! I suppose it helped that he had no arms... I've found myself an old shield that in spite of a few dents seems serviceable enough. Some of these rats are BIG, and giving them a strong bash with the shield helps to stop their poisonous bites before I get my sword to their necks. I also found a few gems - I may have to hunt round for more. Not out of any personal greed of course, but my noble quest requires that I gather resources to defeat the great evils in this land and back home! Diamonds are my favourite, so sparkly.]], } newLore{ id = \"kor-pul-note-3\", category = \"kor'pul\", name = _t\"journal page (kor'pul)\", lore = _t[[This place is infested! I've found a lot of skeletons now, and unfortunately most of them have borne a full set of limbs. However, my holy quest cannot be denied! Plus I got a really great sword off one of the blighters, I can chop anything up easily now!",
+      "context_sha256": "7a2a7fa0641aa878a42dc56cecaaf89345be787bdb2110be8aa5bd268b68587c",
+      "normalized_context_sha256": "7a2a7fa0641aa878a42dc56cecaaf89345be787bdb2110be8aa5bd268b68587c",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N08",
+      "source_sha256": "87e286b74d8724d5343ddef8b2fdf8b2c597e4fb98de3bf78f5ef5530b6c5afc",
+      "source_artifact_sha256": "3fb4a034c94d70602269e8c1eeee1d8778ddd5996dbed9a126d8fbfb467e2e4b",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/age-allure.lua",
+        "line": 206,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 13976,
+        "inventory_ordinal": 9713
+      },
+      "source_context": "And three, that the war will soon be over, and with it we shall no longer have to bear the maiming of our proud soldiers and the impudence of the Nargol. We have made impressive gains in territory in the last few days, thwarting numerous ambushes and keeping our momentum as we expand further into Nargol lands. Granted, one cannot be sure of how much of what we're hearing has been \"cleaned up\" by the Overseers, but one recent statement from the Nargol leads me to believe it is the truth: \"This is your last chance to back down. A great tragedy will ensue if you continue to push further, and do not accept our previously-stated terms of peaceful resolution. Do not force us to do this.\" After waging a war of trickery and deceit, those halflings think they can bluff us! Once their military is broken, we can bring their citizens into our fold and enlighten them, and then the true healing can begin.]] } newLore{ id = \"conclave-vault-2\", category = \"age of allure\", name = _t\"healer Astelrid log 2\", lore = [[SOURCE_MATCH_1]]_t[[The Nargol were not bluffing, and what they did was worse than anything we could've imagined. The details coming from the survivors - of which there are both far too many and far too few - are conflicting at times, but from what I can tell... As our forces began their final push, the ground began to rumble and give way behind them, and the bones of the war's fallen (halflings and Conclave alike) began to rise up, then draw their once-discarded weapons and rush at our soldiers in a frenzy. There were so many... those who were on higher ground when it happened said it was like a sea of bones and rotting flesh. Outnumbered, our forces broke ranks and tried to retreat, but with the halflings in front of them and the abominations behind them, we took tremendous losses... and our humble medical center is overflowing with the gravely wounded. Many come to us with a terrible sickness passed on by the Nargol's ghouls; there is no cure for this, and I have already had to \"mercifully\" end the lives of over a dozen men and women to save them from a long, drawn-out death, ending in their transfiguration into one of those horrid creatures... including-- [The end of the preceding paragraph, several lines' worth of text, has been furiously scribbled out.] No... the real horrid creatures here are the halflings. We've seen necromancy before, but mostly as a parlor trick by deranged cults; we never dreamed that any large organization would tolerate it, let alone hide necromantic charms on every one of its ranking officers. They've been planning to do this since the start of the war, and only sprung the trap now... Any misgivings I had about the aggression associated with our new treatment are gone forever; we cannot be ferocious enough in purging these fiends from Maj'Eyal. I have requested an audience with the Overseers to broaden the scope of our experiments, setting our sights higher so we may crush this evil empire as swiftly as possible. May the Conclave prevail, and may the Empire's fate serve as a warning to all who would defy our wisdom.]] } newLore{ id = \"conclave-vault-3\",",
+      "context_sha256": "bb1dca30f5ddff2ec2a1a510c88627df036446fcbee76a0e556ddfedae09c026",
+      "normalized_context_sha256": "bb1dca30f5ddff2ec2a1a510c88627df036446fcbee76a0e556ddfedae09c026",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N09",
+      "source_sha256": "51e8a1d9b9f1e3a118ad40f58bbb29d0df37d9cec9de9091441954e9cd4793b4",
+      "source_artifact_sha256": "3e254536a6b8d0509c7e1b340595b024ff9c4f27f345b2b502d804717b5a7981",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/keepsake.lua",
+        "line": 24,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 16385,
+        "inventory_ordinal": 9885
+      },
+      "source_context": "-- GNU General Public License for more details. -- -- You should have received a copy of the GNU General Public License -- along with this program. If not, see <http://www.gnu.org/licenses/>. -- -- Nicolas Casalini \"DarkGod\" -- darkgod@te4.org newLore{ id = \"keepsake-meadow\", category = \"keepsake\", name = _t\"A Tranquil Meadow\", lore = [[SOURCE_MATCH_1]]_t[[You've entered a tranquil meadow. Something about this place seems familiar but you're not quite sure. The only thing that you are sure of is that it has offered you a moment of rest from the long suffering of your cursed life. You feel the hate inside you melt away. You feel as if the curse has subsided for a moment. This place makes you wonder if there is a way to end the curse. And if you can't overcome it you might be able to master it and take back a part of your life. Either way, you feel the time has come to do something more about this curse. ]], } newLore{ id = \"keepsake-dream\", category = \"keepsake\",",
+      "context_sha256": "b6996bf54dd2037227f2e9a4f97a6010560e8e8cc8e15d91245cba059f1d2d8d",
+      "normalized_context_sha256": "b6996bf54dd2037227f2e9a4f97a6010560e8e8cc8e15d91245cba059f1d2d8d",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N09",
+      "source_sha256": "326f9b615702416632d143d6f7b742bc750d465bd6e56df7de378caa0425503e",
+      "source_artifact_sha256": "b977debae1ae9f4a4810463c75288439191200469ea565cb7c51c6edda7b67bd",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/zigur.lua",
+        "line": 47,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 19795,
+        "inventory_ordinal": 10275
+      },
+      "source_context": "8. You will report to the elders all activity you deem suspicious, especially evidence of cults or secret societies. These are the rules we live by, these are the rules by which we will save our world. All who fail in these rules will be purged with flame.]], on_learn = function(who) game:setAllowedBuild(\"birth_zigur_sacrifice\", true) end, } newLore{ id = \"zigur-history\", category = \"zigur\", name = _t\"The Great Evil\", lore = [[SOURCE_MATCH_1]]_t[[We live in a world of wonders. All around us are natural energies and wild powers that are a marvel to see and experience. Soaring birds, mighty bears and ice-breathing dragons all abound in towering mountains, deep oceans and luscious forests. And we are part of this glorious environment, with our thoughts and strengths and all our wondrous capabilities. Truly we live in a fantastic world, and we should be glad to have a place amongst the wonders of Maj'Eyal. But some are not content. Some seek to pervert the wonders of the world with unnatural powers. With arcane forces they rip the threads of nature apart and sew it back however they see fit, uncaring of the damage they cause. Sometimes it is out of curiosity or a misplaced desire to do good, but normally it is out of greed and malice and a perverse obsession with power. Even those who enter into the banes of magic with good intentions inevitably end up doing harm and becoming themselves corrupted by the gross forces they tamper in. History teaches us well the dangers of these forces. First were the Sher'Tul, of which we know little, but we do know that they manipulated magic to strengths beyond the dreams of current mages. And they led themselves to their own utter destruction. Alas that the lesson was not learnt by the younger races. The first recorded war in our history is between the humans and halflings for control of Sher'Tul ruins. Magic was used in those wars and the battles only stopped after two thousand years of slaughter left both sides too crippled to carry on fighting. It was in this time that our order was formed, and we tried to stop the insanity and the bloodshed. Alas that we failed. The weakening of our peoples by the magic-fuelled fighting left us then open to attacks by the orcs, whose surging numbers nearly overwhelmed us. But instead of relying on our own strengths and our natural defences, the foolish elves decided that only the arcane forces could save us. How very wrong they were... Their insidious mages tapped the vile powers of the Sher'Tul ruins and unleashed catastrophic waves of energy that burned half the world to a cinder. Mountains crumbled, lakes were boiled, and raging fires stripped the land of all life. The devastation can truly never be fully stated. But it is unforgettable and utterly unforgiveable. The Shaloren try to deny responsibility, but the blood of millions is on their hands. The suffering that followed the unfortunate survivors lasted centuries, as the unnatural forces created black plagues that wiped out kingdoms and made huge swathes of land uninhabitable. Dread warlocks and necromancers took advantage of the chaos to raise armies and gain power. Kor'Pul was the deadliest of these, and our order fought long and hard to kill him time and time again. We fought viciously to protect the people of Maj'Eyal from all the terrible pains of this time. But our efforts could not prevent the ultimate tragedy that followed. The plagues were mere echoes of the Spellblaze as its horrible effects rebounded across the land. One dark and terrible day those echoes rose in resonance, and a cataclysmic force tore through the heart of our world. The land was rent in two, earthquakes spouted forth magma from the ground, and the eastern edge of our land was torn away and sunk into the deepest oceans. It was a tragedy beyond comparison. As our civilisations slowly recovered the orcs began to increase in numbers, and it became clear then that they too had learned the dark arts. For centuries we suffered their attacks, and only by a unification of the races did we manage to finally contain them and wipe them out. Our order was vital in suppressing their pyromancers and blood mages, and many of our people bravely gave up their lives to protect the western armies and towns from destruction.",
+      "context_sha256": "91c9e7b8d00305f5f4bdebd9fd68fcaf8a260d712739026d9c20a43d429fd0a3",
+      "normalized_context_sha256": "91c9e7b8d00305f5f4bdebd9fd68fcaf8a260d712739026d9c20a43d429fd0a3",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N10",
+      "source_sha256": "8c9ce3982c17463ac051a42b91ce9cc84ebb287a7a8987d26daf3c1b45d52ba5",
+      "source_artifact_sha256": "28508f9c984c1c8a299a410232b376d7cdb89133213d28f30ee71a5383e115df",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/orc-prides.lua",
+        "line": 338,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 19072,
+        "inventory_ordinal": 10162
+      },
+      "source_context": "I have so long been concentrating on my objectives that I never stopped to think of the monstrous acts I was performing on these women. But last night I decided to take one out of her coma to see what reactions there might be. What reaction indeed! Her first action was to moan in pain - her swollen lungs have deprived her of any other form of communication. But then she opened her eyes and saw herself, and saw the others around her, and the panic and disgust that filled those eyes reached into my very soul. She wanted to die. I know she wanted to die, I could see her accusing eyes on me begging to let her die. But I cannot, I cannot... This is too terrible. I should burn this cave to the ground, and erase my horrible actions from existence! But where would that leave our people... My mind is in torment. I cannot live like this any longer... I cannot live...]] } newLore{ id = \"orc-breeding-5\", category = \"orc prides\", name = _t\"Captain Gumlarat's report\", lore = [[SOURCE_MATCH_1]]_t[[#{bold}#Captain Gumlarat's report#{normal}# I have found clinician Korbek's body in his study. It seems he slit his own throat. This would explain the lack of reports in the last few days. The reason for suicide is beyond understanding. His research has been immensely successful. Our race can now return to strength! I have read through his notes and based on his findings I will increase the procedures being used to allow for even faster birth rates. The Pride leaders will be pleased. I see his notes also suggest the mothers may be in pain. I will allow a doping infusion to be administered to alleviate this. We would not wish our women to suffer... ]] } -------------------------------------------------------------------------- -- Misc Orc lore",
+      "context_sha256": "85bb4f40402d9b00fa9eedae7de661b2f5096da1d06ed9abf931103f822c8659",
+      "normalized_context_sha256": "85bb4f40402d9b00fa9eedae7de661b2f5096da1d06ed9abf931103f822c8659",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N10",
+      "source_sha256": "507bc925cee3949a48e06a0f27a22ea7ade2a65d005e401bde9302c59a62aecf",
+      "source_artifact_sha256": "edde14f1c356924e45227faa96a1b4959676f5ca3607569f7d9202048380a4fb",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/noxious-caldera.lua",
+        "line": 47,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 18586,
+        "inventory_ordinal": 10115
+      },
+      "source_context": "category = \"dogroth caldera\", name = _t\"tattered paper scrap\", lore = _t[[I fell into a trance, I know not how. Were it the rich blossoms or the oppressive heat? I swooned into the grass and the mists swirled over my face, playing out fantastic shapes before my eyes. Dancing ladies strode across the skies, and a row of dwarves stood laughing as their beards flew into the wind. Then I felt a Shadow near, and the ladies scattered and the dwarves in terror screamed, their mouths yowling and spilling black petals. I tried to move, but I couldn't, and frozen in fear I saw the Shadow above me, looking down upon my countenance. It grunted and lurched away. I passed out then, and have just recovered. I am not sure what to make of this. I wish to leave, but I do not know the way. Only by escaping this mist shall I have a clear view of the land. Yet each path seems to wind unexpected, each step takes me closer to the centre, not further. I must make haste from this place. ]], } newLore{ id = \"noxious-caldera-note-3\", category = \"dogroth caldera\", name = _t\"tattered paper scrap\", lore = [[SOURCE_MATCH_1]]_t[[I have found a body, a fellow Thaloren by the looks of things. Her face was contorted in horror, her limbs twisted into painful shapes. Yet there was no blood, and I see not how she were felled. Was it the Shadow? I have buried her as best I could. There are strange things in this land, and I am afeared. I saw a large ant earlier, and when I tried to stomp it underfoot it screamed at me, and called me names. I crushed it, and its eyes went red and burst, and it let out a shrill death cry that still echoes round my skull, scattering my thoughts. My head aches, and with each pounding the earth visibly shakes beneath my feet. Is this a fever? I must get out of here!]], } newLore{ id = \"noxious-caldera-note-4\", category = \"dogroth caldera\", name = _t\"tattered paper scrap\", lore = _t[[Another body, if one could call it that. Mangled remains strewn about a rocky outcrop, of whom I know not. Only the armour and weapon give tell that it were once an intelligent race. The breastplate still polished and undented, the axe still clean and un-notched, yet the flesh ripped apart like shredded paper. What could do this?!",
+      "context_sha256": "b850b3ddeecbacd4de54804272fc7175d9430b6d2e16a8905e65d655e9fe9450",
+      "normalized_context_sha256": "b850b3ddeecbacd4de54804272fc7175d9430b6d2e16a8905e65d655e9fe9450",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N11",
+      "source_sha256": "a42ac274a7605c8315903612d73eaf668ee75c07ad44a2faa2e765cc4a1de91e",
+      "source_artifact_sha256": "ea3410a1edcd3c0c43d54f48a1564df7637938757823746972bd9a4c2e6965de",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/old-forest.lua",
+        "line": 52,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 18651,
+        "inventory_ordinal": 10122
+      },
+      "source_context": "category = \"old forest\", name = _t\"journal entry (old forest)\", lore = _t[[#{italic}#From the notes of Darwood Oakton, explorer: #{bold}#CHAPTER TWO: ANCIENT RUINS #{normal}#My inquiries have paid off! It took much searching, and even more arm-twisting and cajoling once I had found my man, but a local lumberjack who plies his trade in the old forest has divulged to me an amazing secret! He speaks of ruins within the forest, a location where the living trees seem to congregate in larger numbers. He would not speak much of the place, and seemed to believe it cursed, but I did manage to squeeze out of him the appearance of the ruins, submerged in the middle of the great lake. There is no longer any doubt in my mind now: They belonged to the Sher'Tul!]], } newLore{ id = \"old-forest-note-3\", category = \"old forest\", name = _t\"journal entry (old forest)\", lore = [[SOURCE_MATCH_1]]_t[[#{italic}#From the notes of Darwood Oakton, explorer: #{bold}#CHAPTER THREE: DISASTER! #{normal}#Does my title not tell you enough? Disaster, and again disaster! True enough, these Sher'Tul ruins exist... several hundred feet at the bottom of a mighty lake! The lake of Nur, one of the largest in the old forest, has swallowed up the ruins in its murky depths. I am hardly a strong swimmer, gentle reader, but even if I could swim like a naga-spawned beast I could not hope to explore the ruin's sunken expanses before drowning. I fear I must abandon my present expedition... the trees are paying closer attention to me, and I do not believe it is of the pleasant sort...]], } newLore{ id = \"old-forest-note-4\", category = \"old forest\", name = _t\"journal entry (old forest)\", lore = _t[[#{italic}#From the notes of Darwood Oakton, explorer: #{bold}#CHAPTER FOUR: NEEDS MUST...",
+      "context_sha256": "2307cc8093c0b613ddcdd5c346169a7495e92c3cd5ce3bfcdcfa26d100c1b163",
+      "normalized_context_sha256": "2307cc8093c0b613ddcdd5c346169a7495e92c3cd5ce3bfcdcfa26d100c1b163",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N11",
+      "source_sha256": "82d178884805e6a4390f1c41ca1911dd3c8855e793f403a4693c1e986f6264e0",
+      "source_artifact_sha256": "3d8c6145a22091dc751a37641c550837a91e2af5cecf7abbaed96d8cec2e3f35",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/iron-throne.lua",
+        "line": 28,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 16223,
+        "inventory_ordinal": 9864
+      },
+      "source_context": "-- -- Nicolas Casalini \"DarkGod\" -- darkgod@te4.org -------------------------------------------------------------------------- -- Iron Throne -------------------------------------------------------------------------- newLore{ id = \"iron-throne-profits-1\", category = \"iron throne\", name = _t\"Iron Throne Profits History: Age of Allure\", lore = [[SOURCE_MATCH_1]]_t[[#{bold}#3800: #{normal}#Gold accepted as standard unit of currency amongst all races after heavy lobbying. This is greatly to our favour, as our vein resources are high and the material otherwise has no practical usage. Must continue to stockpile more. #{bold}#4200: #{normal}#New smelting techniques developed allow more stralite to be recovered from existing veins. Techniques must be kept hidden from other races. #{bold}#4362: #{normal}#Grand Smith Dakhtun has discovered new methods of infusing magical effects in weapons and armour. Potential for profit growth in this area very high. #{bold}#4550: #{normal}#First special meeting of Iron Throne Profits Committee. War with humans and halflings worrying, as it is reducing potential market size. Threat of complete market elimination forces us to drastic action - all weapons trade must cease. Increase stockpiles of construction materials in hope of eventual reconciliation. #{bold}#5967: #{normal}#Shaloren involvement in war is becoming too grave a risk - legends of Sher'Tul destruction are a pertinent reminder of the dangers of high magic. Increasing investment in new Ziguranth order in hopes of opposing this problem. #{bold}#6550: #{normal}#War ended. Opportunity presents itself - now reopening trade, with high prices on all construction items. Profits forecast is very high. #{bold}#6827: #{normal}#Killed Kroltar the Crimson Wyrm and recovered his hoard. Value of hoard: 20 million gold. Resources lost in recovery effort: 7 million gold (estimation based on standard assessment of 350 gold per capita lost). Net profit: 13 million gold. Profit margin is 186%! #{bold}#6980: #{normal}#Resources based on dragon hoards are dwindling. Must reduce cull targets to allow recovery of numbers. #{bold}#7420: #{normal}#Major orc attacks are ruining trade arrangements. Cutting off all contracts until markets settle. #{bold}#7494: #{normal}#Disastrous use of magic by Shaloren elves has had an unprecedented impact on profitability of our operations. Increasing protectionist measures to prevent economic ruin.]], } newLore{",
+      "context_sha256": "9e105c6d08f6ba110188a81bb877bccae100c0c3c98fec65ba6cf535477a3017",
+      "normalized_context_sha256": "9e105c6d08f6ba110188a81bb877bccae100c0c3c98fec65ba6cf535477a3017",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N12",
+      "source_sha256": "bd1add4d9c1c1eea71339818cef6770e3501513efd4bab2800df3b2063fd1dd4",
+      "source_artifact_sha256": "55642ffec3e1a17b3375a43444691fdd148a73d47f7fdd6a159a69c8c521e198",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/misc.lua",
+        "line": 647,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 18361,
+        "inventory_ordinal": 10089
+      },
+      "source_context": "name = _t\"Mocking Note\", lore = _t[[Dear graverobber, Try to be a little faster next time. Love, #{italic}#Eden#{normal}#]] } newLore{ id = \"bandit-vault-guard\", category = \"vault\", name = _t\"Guard's Journal\", lore = [[SOURCE_MATCH_1]]_t[[Sixth time this week stuck guarding at the stash. And for what? Just a little fun! Almost miss being at the farm sometimes. At least there I wasn't able to screw anything up. Wonder if they would take me back knowing what I've been doing with my life...]] } newLore{ id = \"bandit-vault-boss\", category = \"vault\", name = _t\"Boss's Journal\", lore = _t[[The best haul we ever got, gone. We could have been set for life, the most legendary outlaws in all the lands! Villages would tremble at the thought of us roaming the woods. Only a matter of time until that nobleman catches wind and comes after us. We were about to get more gold than we could count for his lassie back, and that dirt farmer set her on fire. Of all the skullbrained things to do for fun!",
+      "context_sha256": "ce8a91cbdf3f94fe3bdcdb415bd856a03fe888d55d4bd4397bda2e5b63ff5aa7",
+      "normalized_context_sha256": "ce8a91cbdf3f94fe3bdcdb415bd856a03fe888d55d4bd4397bda2e5b63ff5aa7",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N12",
+      "source_sha256": "d27870ae680c8726ee4b7cf825ead4f9be41adf432fc42142a5456e088df823d",
+      "source_artifact_sha256": "d766ff990174ad9ac3a5a7ac1d4633159a868e48cdbbda8d1fe609d98a14b1a3",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/fun.lua",
+        "line": 217,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 15880,
+        "inventory_ordinal": 9829
+      },
+      "source_context": "Far too potent to dispel The rogue is unknown to this day Though rumours persist still Rogues aren't known by name or deed But by the names they kill]] } newLore{ id = \"dust-to-dust\", category = \"misc\", name = _t\"Dust to Dust\", lore = [[SOURCE_MATCH_1]]_t[[#{italic}#An undead hunter's guide, by Aslabor Borys#{normal}# So, apparently I'm a legend now. Hah, knock a vampire's head off with a greatmaul and suddenly you're up there with Toknor and Mirvenia apparently. More and more often these days I get novice adventurers coming up to me, asking me for advice when it comes to battling the undead. My first instinct was to tell them to get back home and become bakers or gardeners or something. If they need crib notes for combat they obviously aren't cut out for it. But then I was thinking, these are good kids. Heck, I'd buy every man and woman in the world who's bumped off a ghoul a free drink if I could. If they want help when it comes to putting down necromancer slime and their chilling creations, I would be more than happy to oblige. Not much of a writer, but let's see. First... #{bold}#1. Ghouls#{normal}# Every once in a while, people come to me and say \"Are all necromancers truly evil?\" \"Surely necromancy could be used for good!\" \"Isn't it wrong to discriminate against others simply because of the magicks they practice?\" To these people, the first thing I usually say - shortly after giving them a black eye - is to take a look at a ghoul. Take a good, long look. Take in the diseased, putrescent flesh. Take in the oozing, exposed organs. Take in its features, slowly rotting to mulch. It used to be a person. It used to have a family, people who loved it. Now it's a walking corpse, its only desire being death and the mad, all-encompassing consumption of living flesh. Are all necromancers truly evil? A thousand times, yes. Even this most basic of undead minions can strike terror into the unprepared. The multitude of diseases that a normal ghoul carries are contagious in a manner many adventurers do not truly appreciate until they see the sores and necrosis visibly spreading up their arm from where a ghoul bit them. Such maladies must be dealt with promptly: if bitten by a ghoul, immediately plunge the afflicted area in scalding hot water, then wrap it quickly in clean cloth lined with mugwort and quartz powder. The wound must remain dressed for three weeks, with new dressings applied every four days, and make sure to burn the old ones! Failing the above, a wild infusion also works splendidly. * * *",
+      "context_sha256": "4b866d8cc6ab64b5fb5ea67191296c204d12e8d653a509ced2511597fceb91d1",
+      "normalized_context_sha256": "4b866d8cc6ab64b5fb5ea67191296c204d12e8d653a509ced2511597fceb91d1",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N13",
+      "source_sha256": "1f96c8e61dbe33f5377c52704522786f2571306541f1f3dd72e2fefa9217af12",
+      "source_artifact_sha256": "065eb40a7f85eebc9f524577d1c090d0400cda33b9261647ddfb30c53f5e5cb1",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/blighted-ruins.lua",
+        "line": 48,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 14425,
+        "inventory_ordinal": 9750
+      },
+      "source_context": "newLore{ id = \"blighted-ruins-note-3\", category = \"blighted ruins\", name = _t\"note from the Necromancer\", lore = function() return ([[Fate smiles upon me. What did I come across today but the body of an unfortunate %s? Unfortunate indeed, but rather fortunate for me. The body displays next to no decomposition... it shall be perfect! With this new minion and the cloak of deception, the completion of my project is all but assured. I must prepare for the ritual... my dark menagerie shall soon have a new member.]]):tformat(_t(game:getPlayer(true).descriptor.subclass, \"birth descriptor name\")) end, } newLore{ id = \"blighted-ruins-note-4\", category = \"blighted ruins\", name = _t\"note from the Necromancer\", lore = [[SOURCE_MATCH_1]]_t[[My masterpiece walks! It is glorious, beautiful. While it remains unfinished, it is finished enough to serve in its purpose of protecting my lair. No would-be hero will be able to defeat it, and once it is complete it will be nigh invulnerable! Now all that remains is to animate my newest minion and bend it to my will... then they'll see. They'll ALL see. What can possibly stop me now, I ask? What?!]], }",
+      "context_sha256": "b49a03f8caaa7db96f73d251df5185b84e7620b4958644296afe1fd03017574d",
+      "normalized_context_sha256": "b49a03f8caaa7db96f73d251df5185b84e7620b4958644296afe1fd03017574d",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N13",
+      "source_sha256": "ecd791a6707676e984691ddbe6a1b5909c615be6640065108fd83957525bd8e9",
+      "source_artifact_sha256": "3f3f496915d531006c77c29282b8ba6c60d5df6956ddebbc4cf85d20caa4442f",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/daikara.lua",
+        "line": 70,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 14452,
+        "inventory_ordinal": 9759
+      },
+      "source_context": "category = \"daikara\", name = _t\"expedition journal entry (daikara)\", lore = _t[[#{bold}#Xann, Shaloren Wyrmic#{normal}# (This entry was scrawled by an unsteady hand) #{italic}#impudent fools treading upon dragon's ground. slaying my dear kin just for their skin they will pay they will pay. i called the drake, told it to be cunning, avoid the dwarf's gaze. i laughed as it bit into that ranger's arm ahaahaa. they're killing each other now, simple creatures, simple soft skinned creatures. not like dragons, so perfect, symbols of power, perfection... their captain still lives, but not for long. i will bring her to you to feast. rantha i will see you soon#{normal}#]], } newLore{ id = \"daikara-dragonsfire-trap\", category = \"daikara\", name = _t\"Dragonsfire Trap\", lore = [[SOURCE_MATCH_1]]_t[[#{bold}#Relle, Cornac Fighter and Expedition Leader#{normal}# It knows we're here. Xann's gone, and I have to assume the worst. Too late to run. One option left, a contraption Sodelost ensured us he'd be able to use to get the kill... shame he didn't leave instructions behind with it, it's unclear how to arm it, and I don't want to add \"being charred to a crisp\" to my list of troubles today. I might not know a great deal about artifice, but I know how wild animals work, and for all the praise they get, dragons are no better. I don't need to know how to rig this device so it goes off when the beast steps on it - I just need to put it inside something it'll eat whole... #{italic}#Judging from this note's intact state and delicate placement next to a sack covered in assorted animal viscera, the dragon not only avoided setting off the trap, but has kept it as a trophy. Inside the sack is a disarmed trap featuring a few recognizable alchemical flasks, and a means of mixing them in the right proportion when a pressure plate is triggered to produce a blast of dragonsfire. Figuring out how to arm it is almost as easy as figuring out how to make more traps like it.#{normal}#]], on_learn = function(who, relearning) if relearning then return end local p = game.party:findMember{main=true} if p:knowTalentType(\"cunning/trapping\") then game.state:unlockTalent(p.T_DRAGONSFIRE_TRAP, p) end end, }",
+      "context_sha256": "9abcf671aeaffaeb2c2d7998fecdf60cad282e64137cb33c3ec470b901b3b66d",
+      "normalized_context_sha256": "9abcf671aeaffaeb2c2d7998fecdf60cad282e64137cb33c3ec470b901b3b66d",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N14",
+      "source_sha256": "9ba5de8d8eee7dabe74b64b85ac12918d3aa2ead698c76e1fdd333e5f5e5b674",
+      "source_artifact_sha256": "8c1e6100de0d85eb540f81cce66c759f23dd084d3de3047de6c44b9ce2c608c2",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/infinite-dungeon.lua",
+        "line": 53,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 16147,
+        "inventory_ordinal": 9846
+      },
+      "source_context": "newLore{ id = \"infinite-dungeon-3\", category = \"ruined dungeon\", name = _t\"clue (ruined dungeon)\", always_pop = true, lore = _t[[There is an inscription here: #{italic}#...The eldritch force burns all that lives.#{normal}#]], } newLore{ id = \"alt1-infinite-dungeon-1\", category = \"ruined dungeon\", name = _t\"clue (ruined dungeon)\", always_pop = true, lore = [[SOURCE_MATCH_1]]_t[[There is an inscription here: #{italic}#Darkness beyond twilight. Crimson from the blood that flows...#{normal}#]], } newLore{ id = \"alt1-infinite-dungeon-2\", category = \"ruined dungeon\", name = _t\"clue (ruined dungeon)\", always_pop = true, lore = _t[[There is an inscription here: #{italic}#...Buried in the flow of time. Colder than the coldest ice...#{normal}#]], }",
+      "context_sha256": "c37fdd90d101fb4adddf51edb8cda7d34e84a93d6a9aa426a806d04b8aed7d67",
+      "normalized_context_sha256": "c37fdd90d101fb4adddf51edb8cda7d34e84a93d6a9aa426a806d04b8aed7d67",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N14",
+      "source_sha256": "8f88626897ca2a4ebbeb9b21aa41c203dd3050b972497cf7692299b3aea0aeaa",
+      "source_artifact_sha256": "ea3410a1edcd3c0c43d54f48a1564df7637938757823746972bd9a4c2e6965de",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/old-forest.lua",
+        "line": 62,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 18658,
+        "inventory_ordinal": 10123
+      },
+      "source_context": "category = \"old forest\", name = _t\"journal entry (old forest)\", lore = _t[[#{italic}#From the notes of Darwood Oakton, explorer: #{bold}#CHAPTER THREE: DISASTER! #{normal}#Does my title not tell you enough? Disaster, and again disaster! True enough, these Sher'Tul ruins exist... several hundred feet at the bottom of a mighty lake! The lake of Nur, one of the largest in the old forest, has swallowed up the ruins in its murky depths. I am hardly a strong swimmer, gentle reader, but even if I could swim like a naga-spawned beast I could not hope to explore the ruin's sunken expanses before drowning. I fear I must abandon my present expedition... the trees are paying closer attention to me, and I do not believe it is of the pleasant sort...]], } newLore{ id = \"old-forest-note-4\", category = \"old forest\", name = _t\"journal entry (old forest)\", lore = [[SOURCE_MATCH_1]]_t[[#{italic}#From the notes of Darwood Oakton, explorer: #{bold}#CHAPTER FOUR: NEEDS MUST... #{normal}#Before I continue, I must make one thing clear: I am no great friend to the mages. Some powers simply were not meant for mortal hands or minds. As history has taught us time and again, from the sudden disappearance of the Sher'Tul to the Spellblaze and the plagues it brought in its wake, magic is wont to cause more harm than good. But I fear it is a necessity for my current task. During my stay in Derth a fellow traveller and I have become fast friends, often drinking together in the local tavern. I can't put my finger on it, but I believe him to be a mage; he has an unexplainable feeling of power surrounding him, not to mention a rather ostentatious hat. I wonder what his thoughts would be on the art of water-breathing...?]], } newLore{ id = \"old-forest-note-5\", category = \"old forest\", name = _t\"journal entry (old forest)\", bloodstains = 12, lore = _t[[#{italic}#From the notes of Darwood Oakton, explorer: #{bold}#CHAPTER FIVE: HORR...",
+      "context_sha256": "f5c7ba8fa95746a72243a10d8f58cb5a60c107f740af9ef01954503ca9e7f116",
+      "normalized_context_sha256": "f5c7ba8fa95746a72243a10d8f58cb5a60c107f740af9ef01954503ca9e7f116",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N15",
+      "source_sha256": "f989bfa5f1819390a52add10ccb61006f078d4daaa58b87f78c1a6a9a7e70205",
+      "source_artifact_sha256": "d6952082123aac86f90ea14ea72ab2e73fed05151f74dbc6d4b19743ee358aea",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/texts/intro-yeek.lua",
+        "line": 20,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 32356,
+        "inventory_ordinal": 15478
+      },
+      "source_context": "-- -- This program is distributed in the hope that it will be useful, -- but WITHOUT ANY WARRANTY; without even the implied warranty of -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the -- GNU General Public License for more details. -- -- You should have received a copy of the GNU General Public License -- along with this program. If not, see <http://www.gnu.org/licenses/>. -- -- Nicolas Casalini \"DarkGod\" -- darkgod@te4.org return [[SOURCE_MATCH_1]]_t[[Welcome #LIGHT_GREEN#@name@#WHITE#. You are a Yeek Wayist of Irkkk. All Yeeks follow the Way, which is both a global psionic link that unifies the whole Yeek race, and a way of life. Your whole life is dedicated to serving the Yeek race. You feel compelled by the Way to protect your race at all costs - even your own life. You have been tasked to vanquish Murgol, an abomination from the deeps, and to clear the ritch tunnels before their blight spreads to the whole island. ]]",
+      "context_sha256": "1c13cc05823edd6e97e843b87001b669ddc03eb00006269794744641b3f917e8",
+      "normalized_context_sha256": "1c13cc05823edd6e97e843b87001b669ddc03eb00006269794744641b3f917e8",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N15",
+      "source_sha256": "cdb1bac150c48abacc769cf5b6b65b14bba10cfe056a4f045fbec54c0ac3fc9d",
+      "source_artifact_sha256": "523f16355a51e3d794940311b6a032ee7ae022235db4423ea1a1250cc26f8f75",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/angolwen.lua",
+        "line": 86,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 14279,
+        "inventory_ordinal": 9731
+      },
+      "source_context": "Another day dawns on Angolwen. I hesitate to write this, but it almost feels as if peace is once again returning to Eyal. Saying this, I almost expect war and destruction to erupt immediately - fate is anything if not spiteful. Regardless, my sleep grows less disturbed by my memories of the Spellhunt day by day, and I can now devote myself wholly to the betterment of our cloistered community here in the mountains. This is not to say that life has been without conflict at all. An agent of the Ziguranth infiltrated Angolwen under the guise of a travelling alchemist a few days ago; an unhappy first, I'm afraid. Having used choking powder to incapacitate the guards and rob the surrounding mages of their voices, things may have turned ugly if Linaniil hadn't been passing by on one of her walks. Little was left of that man... or the tree he hid behind... or many of the surrounding buildings, to be honest. In a way, the incident lit a fire under me to pursue my studies and develop my powers, but I must admit that my interest in staff practice has waned as of late. My fencing, on the other hand, improves by the day. Hmm... I wonder if I can get some of the enchanters to help me \"augment\" my old sword. After all, what is a blade but a sharpened metal staff?]], } newLore{ id = \"angolwen-fountain\", category = \"angolwen\", name = _t\"Angolwen Fountain\", always_pop = true, lore = [[SOURCE_MATCH_1]]_t[[#{italic}#(You see here a large, elaborate fountain. A statue of Linaniil stands in the center, her arms outstretched to welcome all; around the outside of the fountain stand statues of a dwarf manipulating earthen runes, a human with a simple healer's crosier, an elf with a tall, elaborate staff, and a halfling with a scepter in one hand and a fireball hovering over the other. The runes and the fireball are not connected to anything, and float in a fixed position in the air. You see a carving repeating along the border of the fountain, in small print.)#{normal}# ALL ARE WELCOME WHO LEARN FROM THE MISTAKES OF THE PAST LET THE ARCANE ONCE MORE BE A BOON AND NOT A BANE TO MAJ'EYAL ALL ARE WELCOME WHO EASE THE SUFFERING OF THE PRESENT MAY WE HAVE THE WISDOM TO ONE DAY REUNITE THE WORLD IN SAFETY AND ENLIGHTENMENT ALL ARE WELCOME WHO PREVENT THE THREATS OF THE FUTURE GATHER HERE IN PEACE TO DISCOVER AND PERFECT THE KNOWLEDGE OF HOW, AND WHEN, TO WEAVE THE WORLD'S FABRIC]],",
+      "context_sha256": "c25ef4f6968244b7eae8c00d35dc0a6b460a7763c7c743858e65a2f46d2c8f59",
+      "normalized_context_sha256": "c25ef4f6968244b7eae8c00d35dc0a6b460a7763c7c743858e65a2f46d2c8f59",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-D-N16",
+      "source_sha256": "27e8fdbb10f013c1ea0ecb195bac5072dcbc83344b5318d7bcc321109cf58253",
+      "source_artifact_sha256": "3d8c6145a22091dc751a37641c550837a91e2af5cecf7abbaed96d8cec2e3f35",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/iron-throne.lua",
+        "line": 159,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 16366,
+        "inventory_ordinal": 9882
+      },
+      "source_context": "But must stay focussed, much work to be done. Miners are rowdy, hrm! One of the drem fools went mad and killed himself with a pickaxe - messy business. Must restore order, yes yes! More Sher'Tul artifacts found, possibly even remains of weapons. Imagine the profit! Will keep them hidden yes, the dreams say yes, in the darkness, secret, waiting waiting, for the right time... Hmm, that fellow's blood was so red, spilling on the cavernous floor. I wonder where they buried him? My mouth... it wants to taste, yes yes... -- Foreman Tamoth]] } newLore{ id = \"deep-bellow-3\", category = \"iron throne\", name = _t\"Deep Bellow excavation report 3\", bloodstains = 12, lore = [[SOURCE_MATCH_1]]_t[[Hah, my mouth, it tastes, it feels, hmm hmm. It grows, yes yes! The others are changing, flying, screaming, squelching, warping. Bad for profit, hmm hmm. My teeth, they grow, they hunger, yes. They want to escape! I can feel in my dreams, the dark depths. Bound, buried, forgotten. My mouth wants to open, to scream, to destroy! Hmm hmm, deep below, yes... Want to get out! Must stay down here to be close to the dreams, yes yes. Must plant my mouth in the soil and watch it grow! It will devour me, and grow and grow, hmm hmm. It will call from the dark place, and bring back Him from the deepest below, oh yes. -- Ta...moth... The mouth... yes yes!]] }",
+      "context_sha256": "c264653ddfc67ba1137a5256af8969dfc48fb94a8791f89cb74d9220ac44bb6a",
+      "normalized_context_sha256": "c264653ddfc67ba1137a5256af8969dfc48fb94a8791f89cb74d9220ac44bb6a",
+      "source_match_count": 1
+    },
+    {
+      "neutral_id": "V4-C-N16",
+      "source_sha256": "ac79ba7724395ecb9aa7c71d106a7ba1b1317c21b6b2173a2debb374f427e2ce",
+      "source_artifact_sha256": "c007fa087605a32b63715b91a3baee7198a32d55c9c3edc00342527d6728669a",
+      "occurrence": {
+        "public_source_file": "game/modules/tome/data/lore/elvala.lua",
+        "line": 338,
+        "construct": "_t_LONG_STRING",
+        "inventory_logical_path": "mod-tome.lua",
+        "inventory_line": 15172,
+        "inventory_ordinal": 9801
+      },
+      "source_context": "I began to cast what healing spells I could on Linaniil, but I could tell it was not enough, and my weakened powers could not hope to save her. I began to cry openly, thinking of all I had lost this day, all that had gone so terribly wrong. Hope had turned to crisis, and the cruelty of fate was far too much for me to bear. Cradling my dying love’s head in my lap I turned my face to the sky and screamed. Torment was in my cracked voice, and I raged against all the injustice of life and the futility of war, surrounded on all sides by blood and bones and ashes. They had once been souls and lives with hopes and dreams, now all cast away like dust in the wind, and I lamented their deaths and my despair. But mine was just one voice, one torment, a single note in the great cacophony that spread across the continent. Millions of lives lost and shattered, millions of voices raised in anguish and torture and suffering, as the devastation continued over all Maj’Eyal from the ultimate force of destruction, the Spellblaze.]], on_learn = function(who) world:gainAchievement(\"SPELLBLAZE_LORE\") end, } newLore{ id = \"spellblaze-chronicles-6\", category = \"spellblaze\", name = _t\"The Spellblaze Chronicles(6): A Changed Eyal\", lore = [[SOURCE_MATCH_1]]_t[[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}# #{bold}#Chapter Six: A Changed Eyal#{normal}# Perhaps what happened will never be truly understood. What Sher’Tul ruins survived the Spellblaze have been little touched since - the burned hand learns its lesson. But we know that Ephinias and his mages lost control somehow, whatever delicacy and balance they wrought with coming untangled. At the moment they tried to connect to the other farportals the imbalance was reverberated, resonated, magnified beyond control. The farportal in the Crystal Tower imploded in a fraction of a second, killing all within and crushing the land about. The energies in the Sher’Tul relics then erupted in a blaze of white light, turning the air to fire and the ground to ruin. The blaze swept eastwards, rolling over our battle with an unstoppable destructive force, and then carrying on towards the Thaloren lands. Most of the ancient forests of Shatur were ripped from their roots, and the lands lain cursed ever since. Meanwhile the other farportals all over Maj’Eyal erupted, white stone cracking and vast swathes of energy spilling forth. All of the Cornac lands to the west were turned to desert, the dwarven halls of Korhek crumpled, the midvale plains were risen up as mountains and Lake Nur formed in their wake. In the south the ancient tower of Darafel was collapsed, and the forests beside it morphed into an ever-broiling scar of lava and blackened earth. Far in the east the Naloren farportal, the largest of all in Maj’Eyal, disappeared in a vast earthquake that swallowed everything for miles around, and boiling water spewed up to fill its cavernous depths. And whilst this destruction was wrought the incredible energies disrupted all of the mana flow around Eyal. Streams of energy that followed set, slowly changing courses, now were flooded and droughted, warped and split. The threads of the elements were in vast disarray, and any attuned to magic suddenly found themselves far away from their accustomed power sources. Even the Heavens were changed. The wandering star of Vor disappeared, the constellations were tilted off their normal course, and the seasons rent harsher since. Some say the moons dimmed and the sun went whiter after that day. I do not know. The whole world has seemed darker to me. The numbers killed are beyond count. The initial destruction took at least five million lives, and the terror that followed claimed far more. For though it had been a day of tragedy and immeasurable woe, it was to be followed by a bloody age of darkness and torment.",
+      "context_sha256": "b50bda16c8dfcc69922777e98a3136b38b09f8b855e03a99862582c24c8172d2",
+      "normalized_context_sha256": "b50bda16c8dfcc69922777e98a3136b38b09f8b855e03a99862582c24c8172d2",
+      "source_match_count": 1
+    }
+  ]
+}

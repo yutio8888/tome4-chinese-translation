@@ -1,0 +1,6 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","oneOf":[
+    {"type":"object","additionalProperties":false,"required":["neutral_id","stage","verdict","surface_evidence","target_sha256"],"properties":{"neutral_id":{"pattern":"^V4-[DC]-[DN][0-9]{2}$"},"stage":{"const":"SURFACE_FIRST"},"verdict":{"enum":["PASS_SURFACE","NOT_CLEAN","OUT_OF_SCOPE_NON_PROSE"]},"surface_evidence":{"type":"string","minLength":1},"target_sha256":{"pattern":"^[0-9a-f]{64}$"}}},
+    {"type":"object","additionalProperties":false,"required":["neutral_id","stage","verdict","direct_source_verified","source_artifact_sha256","context_sha256","context_evidence"],"properties":{"neutral_id":{"pattern":"^V4-[DC]-[DN][0-9]{2}$"},"stage":{"const":"CONTEXT_SECOND"},"verdict":{"enum":["CLEAN_NO_MATERIAL_DEFECT","NOT_CLEAN"]},"direct_source_verified":{"const":true},"source_artifact_sha256":{"pattern":"^[0-9a-f]{64}$"},"context_sha256":{"pattern":"^[0-9a-f]{64}$"},"context_evidence":{"type":"string","minLength":1}}}
+  ]
+}

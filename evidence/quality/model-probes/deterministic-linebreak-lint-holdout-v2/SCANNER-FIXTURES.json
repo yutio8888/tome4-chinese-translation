@@ -1,0 +1,25 @@
+{
+  "schema_version": "deterministic-linebreak-scanner-fixtures-v2",
+  "semantic_provenance": {
+    "source": "deterministic-linebreak-lint-v1/SCANNER-FIXTURES.json",
+    "source_sha256": "b00d56a8573efaf204e260bee055b24daa704fd38277e9562f1724ed33b25356",
+    "change": "Schema and provenance metadata only; all statistics, cases, inputs, and expected tiers are byte-for-value unchanged."
+  },
+  "statistics": {
+    "han_characters": 1000,
+    "character_frequency": {"包": 10, "裹": 10, "使": 10, "用": 10, "误": 10, "解": 10, "低": 100, "凝": 100},
+    "bigram_frequency": {"包裹": 2, "使用": 5, "误解": 2, "低凝": 5}
+  },
+  "cases": [
+    {"id": "quoted-q", "source": "plain", "target": "这是用于形成足够长左侧文本的连续中文内容“包\n裹”以及右侧文本", "expected_tier": "Q_QUOTED_TWO_HAN_TOKEN"},
+    {"id": "frequent-a", "source": "plain", "target": "这是用于形成足够长左侧文本的连续中文内容以及使\n用右侧文本", "expected_tier": "A_FREQUENT_BIGRAM"},
+    {"id": "low-support-b", "source": "plain", "target": "这是用于形成足够长左侧文本的连续中文内容以及误\n解右侧文本", "expected_tier": "B_LOW_SUPPORT_BIGRAM"},
+    {"id": "indented", "source": "plain", "target": "这是用于形成足够长左侧文本的连续中文内容以及使\n  用右侧文本", "expected_tier": null},
+    {"id": "mirrored-count", "source": "left\nright", "target": "这是用于形成足够长左侧文本的连续中文内容以及使\n用右侧文本", "expected_tier": null},
+    {"id": "short-verse", "source": "plain", "target": "短句使\n用短句", "expected_tier": null},
+    {"id": "frequency-one", "source": "plain", "target": "这是用于形成足够长左侧文本的连续中文内容以及单\n例右侧文本", "expected_tier": null},
+    {"id": "low-pmi", "source": "plain", "target": "这是用于形成足够长左侧文本的连续中文内容以及低\n凝右侧文本", "expected_tier": null},
+    {"id": "english-boundary", "source": "plain", "target": "这是用于形成足够长左侧文本的连续中文内容以及A\nB右侧文本", "expected_tier": null},
+    {"id": "markup-adjacent", "source": "plain", "target": "这是用于形成足够长左侧文本的连续中文内容以及使#TAG#\n用右侧文本", "expected_tier": null}
+  ]
+}

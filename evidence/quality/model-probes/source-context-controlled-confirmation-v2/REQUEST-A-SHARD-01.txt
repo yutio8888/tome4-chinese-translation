@@ -1,0 +1,56 @@
+你是双语翻译审核员。逐条比较英文 source 与中文 target，判断是否存在客观、实质性的翻译缺陷。
+
+规则：
+
+1. 只报告可由本请求中可见文本直接支持的客观问题；不要依赖外部知识、仓库记忆、猜测或风格偏好。
+2. 若条目包含 source_context，可把它作为与 source 同等有效的源码证据；若没有，则只能使用 source 与 target。
+3. 新增但与可见证据相容、且无法由可见证据判错的具体信息，不构成缺陷。
+4. FINDING 表示证据足以确定存在缺陷；UNCERTAIN 仅用于证据指向问题但仍有真实歧义；没有可报告的客观问题时 candidates 为空数组。
+5. 一个条目可报告多个相互独立的候选。不要因为发现一个问题而停止检查，也不要让错误候选抵消正确候选。
+6. 每个候选的 target_span 必须逐字出现在 target 中；evidence 必须逐字出现在 source，或在该条目存在时逐字出现在 source_context 中。
+7. 保持输入顺序和 neutral_id 完全不变。严格输出符合给定 schema 的 JSON，不要输出 Markdown 或额外说明。
+
+缺陷类型：VALUE、DIRECTION、CONDITION、SUBJECT、REFERENT、TIMING、SCOPE、ACTION、STATE、ORDER、OMISSION、ADDITION、OTHER。
+
+输出 JSON Schema（逐字遵守）：
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["neutral_id", "candidates", "observation"],
+        "properties": {
+          "neutral_id": {"type": "string", "pattern": "^Q[0-9]{3}$"},
+          "candidates": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["verdict", "claim_type", "target_span", "correction", "evidence"],
+              "properties": {
+                "verdict": {"enum": ["FINDING", "UNCERTAIN"]},
+                "claim_type": {"enum": ["VALUE", "DIRECTION", "CONDITION", "SUBJECT", "REFERENT", "TIMING", "SCOPE", "ACTION", "STATE", "ORDER", "OMISSION", "ADDITION", "OTHER"]},
+                "target_span": {"type": "string", "minLength": 1},
+                "correction": {"type": "string", "minLength": 1},
+                "evidence": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "observation": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}
+
+输入 JSON：
+{"schema_version":"source-context-controlled-confirmation-request-a-v2","items":[{"neutral_id":"Q001","source":"Killed Shasshhiy'Kaish after letting her grow as powerful as possible.","target":"在莎西·凯希成长到尽可能强大之后杀死她。"},{"neutral_id":"Q002","source":"#{bold}#Gorran, Cornac Archer#{normal}#\nThat snake. That addlepated beardling. That coin-hounding, blackhearted, stump-kneed dwarf! A scout he calls himself! The finest eyes of the Iron Throne, able to read the sign of the tavern in Last Hope from the tavern in Derth! Surely someone with such grandiose praise for his own eyesight would have spotted that cold drake waiting in ambush for us! Damnable thing, I'll be lucky if I can ever use my left arm again. I can't use my bow now ... I'm effectively dead wood to the team. I'm beginning to think that Sodelost has ulterior motives... I wouldn't put it past a dwarf to lead us up this forsaken mountain to die just so he could rifle through our pockets! I keep telling Relle, but she won't listen. The fool...","target":"#{bold}#科纳克人弓箭手，高岚#{normal}#\n那个毒蛇。那个没脑子的毛脸小子。那个追着钱跑、心肠漆黑、短腿跛脚的矮人！还自称斥候！还说自己是钢铁王座眼力最好的家伙，坐在德斯镇的酒馆里就能看清最后的希望城酒馆的招牌！如此夸耀自己视力的人，理应发现那条等着伏击我们的寒冰飞龙才对！该死的东西，我这辈子还能用左臂就算走运了。现在我拉不了弓……对队伍而言简直成了废物。我开始怀疑苏达罗斯特另有所图……矮人为了翻我们的口袋，故意把我们领上这座鬼山送死，也不是做不出来！我一再提醒瑞丽，她却听不进去。这个蠢货……"},{"neutral_id":"Q003","source":"I can give you a cloak that will conceal your true nature!\nWith it all people will see when they look at you is a normal average Human. You can go about your business.\nPlease!","target":"我可以给你一件斗篷，它能隐藏你的真实本质！\n穿上它，任何人看到的都只会是一个普通人类，你便可以自由行事。\n求求你！"},{"neutral_id":"Q004","source":"Tales of the Spellblaze","target":"魔法大爆炸的七章故事"},{"neutral_id":"Q005","source":"Learned the eight chapters of the Spellblaze Chronicles.","target":"阅读了有关魔法大爆炸的8章文献。"},{"neutral_id":"Q006","source":"Quest #CIMSON#Failed!","target":"主线任务 #CIMSON#失败了！"},{"neutral_id":"Q007","source":"You must wear this object to use it!","target":"你必须装备这件物品才能使用它！"},{"neutral_id":"Q008","source":"Click to copy to clipboard. You can share the wanderer seed with your friends, this way they can play with the same set of talents.","target":"点击复制。你可以将流浪者随机种子分享给朋友，这样你们可以用同一套技能组合进行游玩。"},{"neutral_id":"Q009","source":"Spare me the small talk. I am here to stop you!","target":"我不是来和你们聊天的，我是来阻止你们的！"},{"neutral_id":"Q010","source":"#GOLD##{bold}#Display mouse gesture trails#WHITE##{normal}#","target":"#GOLD##{bold}#隐藏鼠标手势轨迹#WHITE##{normal}#"},{"neutral_id":"Q011","source":"I cannot, but I may show you a glimpse.\n#LIGHT_GREEN#*He leans toward you. Your mind is suddenly filled with feelings of peace and happiness.*#WHITE#\nThis is the Way.","target":"不行，不过我可以让你看一下。\n#LIGHT_GREEN#*他靠向你，你的脑海里突然充满了平静和幸福。*#WHITE#\n这不是维网。"},{"neutral_id":"Q012","source":"Open profile(in browser)","target":"打开我的用户信息（在浏览器里打开）"},{"neutral_id":"Q013","source":"which you do not understand: #{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"'#{normal}#","target":"即使你懂夏·图尔语也无法理解的文字：#{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"'#{normal}#"},{"neutral_id":"Q014","source":"Donated at least 16 euros to Tales of Maj'Eyal.","target":"为马基·埃亚尔的传说捐赠至少 16 欧元，达到白银捐赠等级。"},{"neutral_id":"Q015","source":"Earned the rank of Destroyer in the arena.","target":"在竞技场中获得“毁灭者”称号。"},{"neutral_id":"Q016","source":"DEBUG -- Alter Faction","target":"调试模式 -- 锁定阵营"},{"neutral_id":"Q017","source":"which you do not understand: #{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#","target":"你永远无法理解的文字：#{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#"},{"neutral_id":"Q018","source":"Got a character to level 50.","target":"角色达到50级。"},{"neutral_id":"Q019","source":"Would it be possible for my Transmogrification Chest to automatically extract gems?","target":"即使我不会提取宝石，也可以让我的转化之盒自动提取宝石吗？"},{"neutral_id":"Q020","source":"The Legend of Garkul","target":"加库尔的八章传说"}]}

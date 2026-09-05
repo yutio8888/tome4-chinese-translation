@@ -1,0 +1,144 @@
+{
+  "schema_version": "gemini-context-v5-execution-v5-qualification-draft-v1",
+  "task_id": "research-gemini-context-counterexample-reviewer-v5-execution-v5",
+  "manifest_sha256": "6aca47be505c59da9030e73580458fdf11ae979fa13ef85dbe6718f7db732cb2",
+  "route_contract_sha256": "520b37b21e71b1494d1569cc3552f21a6142327506069a7e0676dfded88e56e3",
+  "input": {
+    "items": [
+      {
+        "item_id": "D-I001",
+        "source": "synthetic source 1",
+        "target": "synthetic target 1"
+      },
+      {
+        "item_id": "D-I002",
+        "source": "synthetic source 2",
+        "target": "synthetic target 2"
+      },
+      {
+        "item_id": "D-I003",
+        "source": "synthetic source 3",
+        "target": "synthetic target 3"
+      },
+      {
+        "item_id": "D-I004",
+        "source": "synthetic source 4",
+        "target": "synthetic target 4"
+      },
+      {
+        "item_id": "D-I005",
+        "source": "synthetic source 5",
+        "target": "synthetic target 5"
+      },
+      {
+        "item_id": "D-I006",
+        "source": "synthetic source 6",
+        "target": "synthetic target 6"
+      },
+      {
+        "item_id": "D-I007",
+        "source": "synthetic source 7",
+        "target": "synthetic target 7"
+      },
+      {
+        "item_id": "D-I008",
+        "source": "synthetic source 8",
+        "target": "synthetic target 8"
+      },
+      {
+        "item_id": "D-I009",
+        "source": "synthetic source 9",
+        "target": "synthetic target 9"
+      },
+      {
+        "item_id": "D-I010",
+        "source": "synthetic source 10",
+        "target": "synthetic target 10"
+      },
+      {
+        "item_id": "D-I011",
+        "source": "synthetic source 11",
+        "target": "synthetic target 11"
+      },
+      {
+        "item_id": "D-I012",
+        "source": "synthetic source 12",
+        "target": "synthetic target 12"
+      },
+      {
+        "item_id": "D-I013",
+        "source": "synthetic source 13",
+        "target": "synthetic target 13"
+      },
+      {
+        "item_id": "D-I014",
+        "source": "synthetic source 14",
+        "target": "synthetic target 14"
+      },
+      {
+        "item_id": "D-I015",
+        "source": "synthetic source 15",
+        "target": "synthetic target 15"
+      },
+      {
+        "item_id": "D-I016",
+        "source": "synthetic source 16",
+        "target": "synthetic target 16"
+      }
+    ]
+  },
+  "model_list": {
+    "cell": "qualification-models-list",
+    "attempt": 1,
+    "command": "/home/yun/.local/lib/agy-pinned/f3575050ae826d1944913f595b32f827a4674ec42e59ff0476450e2bac5fa39e/agy",
+    "argv": [
+      "models"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "timed_out": false,
+    "stdout_path": "qualification/captures/qualification-models-list-attempt-1.stdout.bin",
+    "stdout_sha256": "b1cc011310435afa07b1e132a5b7f3e22297aa21427177461c858bcbd6a58794",
+    "stderr_path": "qualification/captures/qualification-models-list-attempt-1.stderr.bin",
+    "stderr_sha256": "53f588bc9a928f4a66908deacaca57dddc7e7ce177a0cc3586b5a501be26e1e8",
+    "parsed": {
+      "model_count": 14,
+      "qualified_model": "gemini-3.7-flash-high"
+    }
+  },
+  "synthetic": {
+    "cell": "qualification-synthetic",
+    "attempt": 1,
+    "command": "/home/yun/.local/lib/agy-pinned/f3575050ae826d1944913f595b32f827a4674ec42e59ff0476450e2bac5fa39e/agy",
+    "argv": [
+      "-p",
+      "Return one JSON instance matching OUTPUT SCHEMA. Do not return the schema itself.\n\nINPUT JSON:\n{\"items\":[{\"item_id\":\"D-I001\",\"source\":\"synthetic source 1\",\"target\":\"synthetic target 1\"},{\"item_id\":\"D-I002\",\"source\":\"synthetic source 2\",\"target\":\"synthetic target 2\"},{\"item_id\":\"D-I003\",\"source\":\"synthetic source 3\",\"target\":\"synthetic target 3\"},{\"item_id\":\"D-I004\",\"source\":\"synthetic source 4\",\"target\":\"synthetic target 4\"},{\"item_id\":\"D-I005\",\"source\":\"synthetic source 5\",\"target\":\"synthetic target 5\"},{\"item_id\":\"D-I006\",\"source\":\"synthetic source 6\",\"target\":\"synthetic target 6\"},{\"item_id\":\"D-I007\",\"source\":\"synthetic source 7\",\"target\":\"synthetic target 7\"},{\"item_id\":\"D-I008\",\"source\":\"synthetic source 8\",\"target\":\"synthetic target 8\"},{\"item_id\":\"D-I009\",\"source\":\"synthetic source 9\",\"target\":\"synthetic target 9\"},{\"item_id\":\"D-I010\",\"source\":\"synthetic source 10\",\"target\":\"synthetic target 10\"},{\"item_id\":\"D-I011\",\"source\":\"synthetic source 11\",\"target\":\"synthetic target 11\"},{\"item_id\":\"D-I012\",\"source\":\"synthetic source 12\",\"target\":\"synthetic target 12\"},{\"item_id\":\"D-I013\",\"source\":\"synthetic source 13\",\"target\":\"synthetic target 13\"},{\"item_id\":\"D-I014\",\"source\":\"synthetic source 14\",\"target\":\"synthetic target 14\"},{\"item_id\":\"D-I015\",\"source\":\"synthetic source 15\",\"target\":\"synthetic target 15\"},{\"item_id\":\"D-I016\",\"source\":\"synthetic source 16\",\"target\":\"synthetic target 16\"}]}\n\nOUTPUT SCHEMA:\n{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"items\"],\"properties\":{\"items\":{\"type\":\"array\",\"minItems\":16,\"maxItems\":16,\"items\":{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"item_id\",\"candidates\"],\"properties\":{\"item_id\":{\"type\":\"string\",\"pattern\":\"^[DC]-I[0-9]{3}$\"},\"candidates\":{\"type\":\"array\",\"maxItems\":4,\"items\":{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"verdict\",\"claim_type\",\"target_span\",\"correction\",\"evidence\"],\"properties\":{\"verdict\":{\"enum\":[\"FINDING\",\"UNCERTAIN\"]},\"claim_type\":{\"enum\":[\"SUBJECT\",\"REFERENT\",\"EVENT\",\"CONDITION\",\"SCOPE\",\"DIRECTION\",\"POLARITY\",\"OWNERSHIP\",\"ACTION\",\"STATE\",\"TIMING\",\"OMISSION\",\"ADDITION\",\"FORMAT\",\"OTHER\"]},\"target_span\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":500},\"correction\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":500},\"evidence\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":500}}}}}}}}}\n",
+      "--model",
+      "gemini-3.7-flash-high",
+      "--effort",
+      "high",
+      "--disable-slash-commands",
+      "--output-format",
+      "json",
+      "--print-timeout",
+      "25m",
+      "--mode",
+      "plan",
+      "--sandbox",
+      "--json-schema",
+      "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"type\": \"object\",\n  \"additionalProperties\": false,\n  \"required\": [\n    \"items\"\n  ],\n  \"properties\": {\n    \"items\": {\n      \"type\": \"array\",\n      \"minItems\": 16,\n      \"maxItems\": 16,\n      \"items\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"required\": [\n          \"item_id\",\n          \"candidates\"\n        ],\n        \"properties\": {\n          \"item_id\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[DC]-I[0-9]{3}$\"\n          },\n          \"candidates\": {\n            \"type\": \"array\",\n            \"maxItems\": 4,\n            \"items\": {\n              \"type\": \"object\",\n              \"additionalProperties\": false,\n              \"required\": [\n                \"verdict\",\n                \"claim_type\",\n                \"target_span\",\n                \"correction\",\n                \"evidence\"\n              ],\n              \"properties\": {\n                \"verdict\": {\n                  \"enum\": [\n                    \"FINDING\",\n                    \"UNCERTAIN\"\n                  ]\n                },\n                \"claim_type\": {\n                  \"enum\": [\n                    \"SUBJECT\",\n                    \"REFERENT\",\n                    \"EVENT\",\n                    \"CONDITION\",\n                    \"SCOPE\",\n                    \"DIRECTION\",\n                    \"POLARITY\",\n                    \"OWNERSHIP\",\n                    \"ACTION\",\n                    \"STATE\",\n                    \"TIMING\",\n                    \"OMISSION\",\n                    \"ADDITION\",\n                    \"FORMAT\",\n                    \"OTHER\"\n                  ]\n                },\n                \"target_span\": {\n                  \"type\": \"string\",\n                  \"minLength\": 1,\n                  \"maxLength\": 500\n                },\n                \"correction\": {\n                  \"type\": \"string\",\n                  \"minLength\": 1,\n                  \"maxLength\": 500\n                },\n                \"evidence\": {\n                  \"type\": \"string\",\n                  \"minLength\": 1,\n                  \"maxLength\": 500\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "timed_out": false,
+    "stdout_path": "qualification/captures/qualification-synthetic-attempt-1.stdout.bin",
+    "stdout_sha256": "7236f9213ca95537756a6bca773c9773174b3c8a2eb0e89e84ff8fee9060ccf3",
+    "stderr_path": "qualification/captures/qualification-synthetic-attempt-1.stderr.bin",
+    "stderr_sha256": "3a7f8550106d86abb322e8ed0fb30a0296c0e97c6be03d5a8033b99d16737459",
+    "parsed": {
+      "channel": "structured_output_authoritative_response_items_equal",
+      "output_sha256": "0f30f74b72334d2c16c48db911164ea8e7b0512471d68c71f18ee9ab9caf03b3",
+      "reported_model": null
+    }
+  }
+}

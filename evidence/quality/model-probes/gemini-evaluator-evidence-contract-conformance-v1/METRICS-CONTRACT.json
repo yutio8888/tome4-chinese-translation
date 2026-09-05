@@ -1,0 +1,27 @@
+{
+  "schema_version": "evidence-contract-metrics-v1",
+  "reference_free": true,
+  "primary": "evidence_membership_rate = membership-valid candidate evidence strings / all emitted candidates",
+  "secondary": [
+    "candidate_count",
+    "target_span_membership_rate",
+    "registered_field_name_rate",
+    "evidence_mean_character_length",
+    "source_target_only_evidence_membership_rate",
+    "explanatory_prose_proxy_membership_valid_count",
+    "explanatory_prose_proxy_membership_invalid_count"
+  ],
+  "zero_candidate_rule": "All candidate-denominator rates are null; status is UNINFORMATIVE_ZERO_CANDIDATES. Null is neither pass nor failure and cannot trigger any interpretation predicate.",
+  "evidence_alias_rule": "Every candidate must emit exactly one of evidence or evidence_quote. Both and neither are schema-invalid. The accepted value is normalized to evidence without changing exact membership checks; registered_field_name_rate measures matches to the cell schema name.",
+  "membership": "JavaScript String.prototype.includes over source, target, and source_context when present; no normalization",
+  "source_target_only_membership": "JavaScript String.prototype.includes over source and target only; no normalization. This restricted rate is used for context-versus-baseline interpretation.",
+  "character_length": "Array.from(evidence).length",
+  "explanatory_prose_heuristic": {
+    "version": "evidence-prose-proxy-v1",
+    "count_if": "evidence contains sentence punctuation [.!?。！？] or a frozen marker (because, since, therefore, means, indicates, shows, the translation, the source, the target, 因为, 所以, 说明, 表示, 译文, 原文), case-insensitive where applicable",
+    "pattern": "[.!?。！？]|because|since|therefore|means|indicates|shows|the translation|the source|the target|因为|所以|说明|表示|译文|原文",
+    "reporting": "Report proxy counts separately for membership-valid and membership-invalid evidence.",
+    "upper_bound_caveat": "Because a valid quoted substring may contain sentence-final punctuation, the unsplit proxy total is only an upper bound on explanatory prose and is never a correctness judgment."
+  },
+  "interpretation_reporting": "Every interpretation records supporting candidate counts and rates plus the fixed caveat that all cells are single unreplicated samples under unpinned decoding."
+}

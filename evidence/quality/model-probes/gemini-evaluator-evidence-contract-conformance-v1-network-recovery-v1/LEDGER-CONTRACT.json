@@ -1,0 +1,30 @@
+{
+  "schema_version": "evidence-contract-recovery-ledger-v1",
+  "cell_order": [
+    "combined-p1-s2-a-network-retry-1"
+  ],
+  "max_attempts_per_cell": 1,
+  "agy_process_budget": 1,
+  "inference_call_budget": 1,
+  "retries": 0,
+  "start_keys": [
+    "event",
+    "cell",
+    "attempt",
+    "started_at"
+  ],
+  "finish_keys": [
+    "event",
+    "cell",
+    "attempt",
+    "started_at",
+    "finished_at",
+    "exit_code",
+    "stdout_sha256",
+    "stderr_sha256",
+    "process_success",
+    "envelope_schema_valid",
+    "raw_path"
+  ],
+  "counting_rule": "Every START is one agy process and one inference call. A START exhausts the only attempt regardless of outcome."
+}

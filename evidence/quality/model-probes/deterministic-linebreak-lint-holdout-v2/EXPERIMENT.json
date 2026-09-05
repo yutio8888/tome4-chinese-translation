@@ -1,0 +1,23 @@
+{
+  "schema_version": "deterministic-linebreak-lint-holdout-experiment-v2",
+  "experiment": "deterministic-linebreak-lint-holdout-v2",
+  "status": "FROZEN_ZERO_INFERENCE_PREFLIGHT",
+  "baseline_commit": "31cb74af595567cd803a010e6fe5fceea4a29db6",
+  "purpose": "Qualify an independent holdout for the unchanged v1 Chinese hard-linebreak warning without scoring any v1 development candidate.",
+  "design_disclosure": "Design qualification observed five pre-exclusion candidates and zero independent post-exclusion candidates before this executable package was implemented.",
+  "model_calls_made": 0,
+  "network_calls_made": 0,
+  "estimands": {
+    "independent_precision": null,
+    "population_recall": null
+  },
+  "stopping_rule": "Exclude every registered v1 development identity and boundary. If any exclusion is missing, any input hash drifts, the pre-exclusion count is not five, or the post-exclusion count is not zero, fail closed. With zero independent candidates, publish NO_GO_INSUFFICIENT_INDEPENDENT_CANDIDATES.",
+  "prohibited_claims": [
+    "independent precision/recall claims",
+    "zero-false-alarm claims",
+    "pooled-v1 performance claims",
+    "cross-component performance claims",
+    "deployment or production lint integration claims"
+  ],
+  "future_work_boundary": "A future warning-only gate requires a separately versioned preregistration on an unseen future snapshot. This experiment defines no future candidate minimum or deployment threshold."
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "gemini-evaluator-contract-effectiveness-terminal-correction-v1",
+  "status": "TERMINAL_CORRECTION_AUTHORITATIVE",
+  "decision": "NO_GO_ROUTE_BINARY_DRIFT_AND_HARNESS_TERMINAL_LEDGER_DEFECT",
+  "effectiveness_revealed": false,
+  "effectiveness_evidence": false,
+  "reason": {
+    "route_failure": "Before cell h2-baseline-r1 START/spawn, the executable at the pinned path no longer matched the frozen SHA-256.",
+    "expected_executable_sha256": "f3575050ae826d1944913f595b32f827a4674ec42e59ff0476450e2bac5fa39e",
+    "observed_executable_sha256_after_stop": "c05ce64fa27211121aff092e307e3281cdd9de2021d735a56ea556b8c7927fe8",
+    "harness_defect": "prestartTerminal incorrectly records zero counts after prior successful cells, and ledger.derive sets terminal_failure before replaying existing START/FINISH events, causing valid prior events to be rejected as START/FINISH errors."
+  },
+  "authoritative_counts_from_append_only_ledger": {
+    "agy_processes_spawned": 2,
+    "inference_calls_made": 2,
+    "successful_strict_payloads": 2,
+    "prestart_failed_cells": 1,
+    "uninvoked_cells": 9
+  },
+  "attempts": [
+    {
+      "cell": "h1-baseline-r1",
+      "ledger_sequences": [1, 2],
+      "process_success": true,
+      "payload_strict_valid": true,
+      "candidate_count": 12,
+      "quote_and_span_valid_rate": 1
+    },
+    {
+      "cell": "h2-hardened-r1",
+      "ledger_sequences": [3, 4],
+      "process_success": true,
+      "payload_strict_valid": true,
+      "candidate_count": 1,
+      "quote_and_span_valid_rate": 1
+    },
+    {
+      "cell": "h2-baseline-r1",
+      "ledger_sequences": [],
+      "process_spawned": false,
+      "inference_call_made": false,
+      "failure": "STOP_ROUTE_EXECUTABLE"
+    }
+  ],
+  "artifact_bindings": {
+    "non_authoritative_generated_RESULT_sha256": "a816221df5eadcea09ff6912ea2808452db4e906e9022e9b77d39c50155b9416",
+    "ledger_sha256": "50cf112fbc18720bab91145fa504305619590098093309220391cc890e09c9c5",
+    "prestart_terminal_sha256": "04d7492ffdf35af92b2143c44cb8a3acafc4348dc46e718c15f320d38ee51fcb",
+    "h1_baseline_r1_raw_sha256": "53223934c8d87e6f13d2dd92f423e2084824d7a41bb5a1e812ecfa5c5a21ff51",
+    "h2_hardened_r1_raw_sha256": "c4793454b5cce8baa8dfddea931c386b76397670bcfd46d76701665ca308a1d0"
+  },
+  "invalidated_claims": [
+    "RESULT.json counts 0/0",
+    "RESULT.json marks the first two cells unattempted",
+    "ledger.derive START/FINISH errors caused solely by terminal replay order"
+  ],
+  "preservation": "All ledger, capture, RAW, terminal and generated RESULT bytes remain immutable. No retry was made and no sealed effectiveness scoring was run."
+}

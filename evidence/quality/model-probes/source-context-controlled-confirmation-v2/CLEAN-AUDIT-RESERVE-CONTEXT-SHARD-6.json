@@ -1,0 +1,176 @@
+{
+  "schema_version": "source-context-controlled-confirmation-clean-audit-context-shard-v2",
+  "status": "FROZEN_CONTEXT_RELEASE_AFTER_RESERVE_SURFACE_LOCK",
+  "pass": "CONTEXT",
+  "shard": 6,
+  "surface_candidate_sha256": "b66f0c151c26c35bfc11d1562bd9152a39f613526b547c3e0e245c6f7dff1cc7",
+  "instructions": [
+    "Review all 20 source/target pairs using the supplied mechanically bound fixed public-source context.",
+    "CLEAN means the current target has no objective material defect after considering the packet.",
+    "OBJECTIVE_DEFECT requires an exact target span and a claim directly supported by the packet.",
+    "UNRESOLVED means the packet is insufficient for a material decision; explain the missing evidence.",
+    "Do not make style-only findings, inspect other files, infer from model identity, or omit an item."
+  ],
+  "items": [
+    {
+      "audit_id": "R101",
+      "profile": "narrative",
+      "source": "Earned the rank of Destroyer in the arena.",
+      "target": "在竞技场中获得“毁灭者”称号。",
+      "source_context": "\tdesc = _t[[Became the new master of the arena in 30-wave mode.]],\n}\n\nnewAchievement{\n\tname = \"Master of Arena\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Became the new master of the arena in 60-wave mode.]],\n}\n\nnewAchievement{\n\tname = \"XXX the Destroyer\",\n\tshow = \"full\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\n\nnewAchievement{\n\tname = \"Grand Master\",\n\tshow = \"full\",\n\tdesc = _t[[Earned the rank of Grand Master in the arena.]],\n}\n\nnewAchievement{\n\tname = \"Ten at one blow\",\n\tshow = \"full\",\n\tdesc = _t[[Killed 10 or more enemies in one single attack in the arena.]],",
+      "response": null
+    },
+    {
+      "audit_id": "R102",
+      "profile": "narrative",
+      "source": "Died on the Eidolon Plane.",
+      "target": "在死神幻象位面死亡。",
+      "source_context": "\tdesc = _t[[Got a character to level 50.]],\n}\n\nnewAchievement{\n\tname = \"Unstoppable\",\n\tshow = \"full\",\n\tdesc = _t[[Returned from the dead.]],\n}\n\nnewAchievement{\n\tname = \"Utterly Destroyed\", id = \"EIDOLON_DEATH\",\n\tshow = \"name\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\n\nnewAchievement{\n\tname = \"Fool of a Took!\", id = \"HALFLING_SUICIDE\",\n\tshow = \"name\",\n\tdesc = _t[[Killed oneself as a halfling.]],\n\tcan_gain = function(self, who)\n\t\tif who.descriptor and who.descriptor.race == \"Halfling\" then return true end\n\tend\n}\n\nnewAchievement{",
+      "response": null
+    },
+    {
+      "audit_id": "R103",
+      "profile": "narrative",
+      "source": "Have 100 walls on the sludgenest turn into hostile creatures.",
+      "target": "让淤泥巢穴中的 100 面墙变成敌对生物。",
+      "source_context": "\tdesc = _t[[Killed a Bringer of Doom.]],\n}\n\nnewAchievement{\n\tname = \"A living one!\", id = \"CALDIZAR\",\n\tshow = \"name\", huge=true,\n\tdesc = _t[[Was teleported into Caldizar's Fortress, far into the void between the stars.]],\n}\n\nnewAchievement{\n\tname = \"Slimefest\", id = \"SLUDGENEST100\",\n\tshow = \"full\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\n\nnewAchievement{\n\tname = \"Slime killer party\", id = \"SLUDGENEST200\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Have 200 walls on the sludgenest turn into hostile creatures.]],\n}\n\nnewAchievement{\n\tname = \"Mad slime dash\", id = \"SLUDGENEST300\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Have 300 walls on the sludgenest turn into hostile creatures.]],",
+      "response": null
+    },
+    {
+      "audit_id": "R104",
+      "profile": "narrative",
+      "source": "Look at me, I'm playing a roguelike!",
+      "target": "看！我正在玩Roguelike！",
+      "source_context": "\tshow = \"full\", huge=true,\n\tdesc = _t[[Killed a boss while already dead.]],\n\tmode = \"player\",\n\tcan_gain = function(self, who, target)\n\t\tlocal p = game.party:findMember{main=true}\n\t\tif target.rank >= 3.5 and p.dead then\n\t\t\treturn true\n\t\tend\n\tend,\n}\n\nnewAchievement{\n\tname = \"[[SOURCE_MATCH_1]]\", id = \"SELF_CENTERED\",\n\tshow = \"name\",\n\tdesc = _t[[Linked yourself in the in-game chat.]],\n}\n\nnewAchievement{\n\tname = \"Fear me not!\", id = \"FEARSCAPE\",\n\tshow = \"full\",\n\tdesc = _t[[Survived the Fearscape!]],\n}\n",
+      "response": null
+    },
+    {
+      "audit_id": "R105",
+      "profile": "narrative",
+      "source": "How greatly our race advanced during the Age of Pyre! Truly none of the weaker races can compare. For it was vengeance that drove us, and so fervently we pursued our goals at the thought of our just retribution on the races that had punished us and beaten us for so long before.\n\nDuring the Age of Pyre we discovered the farportal, deep beneath the dwarven cities. We were more cautious than the foolish elves before us, and managed to harness the portal's power to open a gateway to the lost east. We sent military forces over, and easily beat back the puny elves and humans that were hoveling there already. We established the Prides there - training camps for our soldiers where they could hone their battle skills before returning to fight the wars in the west.\n\nBut all in the west did not go well. We conquered many lands, and came close to wiping out many races, but we became spread thin. As the other races began to fight back our Age of Pyre was to dwindle.",
+      "target": "烈火纪期间，我族取得了多么巨大的进步！那些弱小的种族确实无一能与我们相比。正是复仇驱使着我们；想到终于能向那些长期惩罚、击败我们的种族施以正当报复，我们便无比狂热地追求目标。\n\t\n在烈火纪，我们发现了远程传送门，在矮人城堡的深处。我们比之前那些愚蠢的精灵要谨慎的多，利用传送门的力量，我们打开了通往失落远东的道路。我们的军队，轻易的击退了已经到那的精灵和人类。我们在那建立了普莱德训练营——我们的战士可以在那磨练自己的技能，为西部地区的战事做准备。\n\n但是西部的战事并不顺利。我们征服了许多国家，灭掉了许多种族，但是随着战斗的分散，我们的力量日渐薄弱。当其他种族开始反击时，我们的黄金时代走向了尾声。",
+      "source_context": "\tlore = _t[[During the Age of Dusk we lay hidden, nursing our wounds and plotting our revenge. But this turned against us, as centuries after the Spellblaze had torn our race apart, the Cataclysm would bring ruin upon us again. We were finally recovering our numbers when earthquakes tore through all of our settlements. Falling rocks crushed and smothered us, thousands of us were left trapped to die beneath the ground. What few of us were left came out to a changed world.\n\nThe effects of magic left a grave impression on us then, and we knew we must learn its secrets in order to compete. For centuries we studied the effects of the Spellblaze, and captured enemy mages to experiment on them. Finally we were able to master the arts of magic and use them for ourselves. We built up our capabilities in secret, waiting for the right moment to strike a decisive vengeance. Garkul the Devourer, the greatest of our race, brought the plans to fruition. Under his awe-inspiring leadership we marched out upon the halfling kingdoms and burnt all before us. What glorious retribution we had! Whole cities were felled beneath our wrath. Everywhere we went we piled the bodies of our victims high and lit them in blazing pyres, as a symbol of our indomitable strength.\n\nThe Age of Pyre was our age, the time when we showed ourselves the strongest of the races, standing alone and unbeatable.]],\n\ton_learn = function(who) world:gainAchievement(\"ORC_LORE\") end,\n}\n\nnewLore{\n\tid = \"orc-history-4\",\n\tcategory = \"orc prides\",\n\tname = _t\"Records of Lorekeeper Hadak part four\",\n\tlore = _t[[[[SOURCE_MATCH_1]]]],\n\ton_learn = function(who) world:gainAchievement(\"ORC_LORE\") end,\n}\n\nnewLore{\n\tid = \"orc-history-5\",\n\tcategory = \"orc prides\",\n\tname = _t\"Records of Lorekeeper Hadak part five\",\n\tlore = _t[[The humans and the halflings made an alliance to defend their kingdoms, and soon the elves and the dwarves joined too, and we were pushed back. Our tactics became increasingly defensive as they made greater advances into our territory.\n\nWe fought well and hard, but we were not prepared for the terrible tactics they would use. Instead of attacking our military bases they went for our towns and cities, killing all of our civilians. Babes were slaughtered in their mother's arms, and every last woman and child was hunted down and murdered. It was genocide of the highest order.\n\nWhat forces we could muster we sent east, leaving behind token troops who bravely sacrificed themselves against the enemy attacks, convincing them that their genocide had been complete.",
+      "response": null
+    },
+    {
+      "audit_id": "R106",
+      "profile": "narrative",
+      "source": "Was teleported into Caldizar's Fortress, far into the void between the stars.",
+      "target": "传送进凯尔帝勒的堡垒，群星中的虚空地带。",
+      "source_context": "\tdesc = _t[[Killed Shasshhiy'Kaish after letting her grow as powerful as possible.]],\n}\n\nnewAchievement{\n\tname = \"Bringer of Doom\", id = \"EVENT_PEDESTALS\",\n\tshow = \"name\",\n\tdesc = _t[[Killed a Bringer of Doom.]],\n}\n\nnewAchievement{\n\tname = \"A living one!\", id = \"CALDIZAR\",\n\tshow = \"name\", huge=true,\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\n\nnewAchievement{\n\tname = \"Slimefest\", id = \"SLUDGENEST100\",\n\tshow = \"full\",\n\tdesc = _t[[Have 100 walls on the sludgenest turn into hostile creatures.]],\n}\n\nnewAchievement{\n\tname = \"Slime killer party\", id = \"SLUDGENEST200\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Have 200 walls on the sludgenest turn into hostile creatures.]],",
+      "response": null
+    },
+    {
+      "audit_id": "R107",
+      "profile": "narrative",
+      "source": "Killed the weaver queen and the temporal defiler.",
+      "target": "杀死编织者女皇和时空污秽魔。",
+      "source_context": "\tname = \"Explorer\", id = \"EXPLORER\",\n\tshow = \"name\",\n\tdesc = _t[[Used the Sher'Tul fortress exploratory farportal at least 7 times with the same character.]],\n}\nnewAchievement{\n\tname = \"Orbituary\", id = \"ABASHED_EXPANSE\",\n\tshow = \"name\",\n\tdesc = _t[[Stabilized the Abashed Expanse to maintain it in orbit.]],\n}\nnewAchievement{\n\tname = \"Wibbly Wobbly Timey Wimey Stuff\", id = \"UNHALLOWED_MORASS\",\n\tshow = \"name\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\nnewAchievement{\n\tname = \"Matrix style!\", id = \"ABASHED_EXPANSE_NO_BLAST\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Finished the whole Abashed Expanse zone without being hit by a single void blast or manaworm. Dodging's fun!]],\n\tcan_gain = function(self, who, zone)\n\t\tif not who:isQuestStatus(\"start-archmage\", engine.Quest.DONE) then return false end\n\t\tif zone.void_blast_hits and zone.void_blast_hits == 0 then return true end\n\tend,\n}\nnewAchievement{\n\tname = \"The Right thing to do\", id = \"RING_BLOOD_KILL\",",
+      "response": null
+    },
+    {
+      "audit_id": "R108",
+      "profile": "narrative",
+      "source": "In the company of slimes",
+      "target": "史莱姆大军",
+      "source_context": "\tname = \"Mad slime dash\", id = \"SLUDGENEST300\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Have 300 walls on the sludgenest turn into hostile creatures.]],\n}\n\nnewAchievement{\n\tname = \"Don't mind the slimy smell\", id = \"SLUDGENEST400\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Have 400 walls on the sludgenest turn into hostile creatures.]],\n}\n\nnewAchievement{\n\tname = \"[[SOURCE_MATCH_1]]\", id = \"SLUDGENEST500\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Have 500 walls on the sludgenest turn into hostile creatures.]],\n}\n",
+      "response": null
+    },
+    {
+      "audit_id": "R109",
+      "profile": "narrative",
+      "source": "Now, this is impressive!",
+      "target": "这可真是令人印象深刻！",
+      "source_context": "\tmode = \"player\",\n}\n\nnewAchievement{\n\tname = \"You know who's to blame (reprise)\", id = \"FIRST_BOSS_MYSSIL\",\n\timage = \"npc/humanoid_halfling_protector_myssil.png\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Killed Myssil, causing her to drop the Rod of Recall.]],\n\tmode = \"player\",\n}\n\nnewAchievement{\n\tname = \"[[SOURCE_MATCH_1]]\", id = \"LINANIIL_DEAD\",\n\timage = \"npc/humanoid_human_linaniil_supreme_archmage.png\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Killed Linaniil, the Supreme Archmage of Angolwen.]],\n\tmode = \"player\",\n}\n\nnewAchievement{\n\tname = \"Fear of Fours\", id = \"SLIME_TUNNEL_BOSSES\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Killed all four bosses of the Slime Tunnels.]],\n\tmode = \"player\",\n\tcan_gain = function(self, who, target)",
+      "response": null
+    },
+    {
+      "audit_id": "R110",
+      "profile": "narrative",
+      "source": "The Legend of Garkul",
+      "target": "加库尔的传说",
+      "source_context": "\t\tif not game.party:knownLore(\"spellblaze-chronicles-2\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-3\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-4\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-5\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-6\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-7\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-8\") then return false end\n\t\treturn true\n\tend\n}\n\nnewAchievement{\n\tname = \"[[SOURCE_MATCH_1]]\", id = \"GARKUL_LORE\",\n\tdesc = _t[[Learned the five chapters of the Legend of Garkul.]],\n\tshow = \"full\",\n\tmode = \"player\",\n\tcan_gain = function(self, who, obj)\n\t\tif not game.party:knownLore(\"garkul-history-1\") then return false end\n\t\tif not game.party:knownLore(\"garkul-history-2\") then return false end\n\t\tif not game.party:knownLore(\"garkul-history-3\") then return false end\n\t\tif not game.party:knownLore(\"garkul-history-4\") then return false end\n\t\tif not game.party:knownLore(\"garkul-history-5\") then return false end\n\t\treturn true\n\tend,\n\ton_gain = function()",
+      "response": null
+    },
+    {
+      "audit_id": "R111",
+      "profile": "narrative",
+      "source": "Got a character to level 30.",
+      "target": "角色达到30级。",
+      "source_context": "\tname = \"Level 10\",\n\tshow = \"full\",\n\tdesc = _t[[Got a character to level 10.]],\n}\nnewAchievement{\n\tname = \"Level 20\",\n\tshow = \"full\",\n\tdesc = _t[[Got a character to level 20.]],\n}\nnewAchievement{\n\tname = \"Level 30\",\n\tshow = \"full\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\nnewAchievement{\n\tname = \"Level 40\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Got a character to level 40.]],\n}\nnewAchievement{\n\tname = \"Level 50\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Got a character to level 50.]],\n}\n",
+      "response": null
+    },
+    {
+      "audit_id": "R112",
+      "profile": "narrative",
+      "source": "Killed the terrible Rat Lich.",
+      "target": "杀死可怕的巫妖鼠。",
+      "source_context": "\tdesc = _t[[Stopped a naga invasion by closing their portal.]],\n}\n\nnewAchievement{\n\tname = \"The Restless Dead\", id = \"EVENT_OLDBATTLEFIELD\",\n\tshow = \"name\",\n\tdesc = _t[[Disturbed an old battlefield and survived the consequences.]],\n}\n\nnewAchievement{\n\tname = \"The Rat Lich\", id = \"EVENT_RATLICH\",\n\tshow = \"name\", huge=true,\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\n\nnewAchievement{\n\tname = \"Shasshhiy'Kaish\", id = \"EVENT_CULTISTS\",\n\tshow = \"name\",\n\tdesc = _t[[Killed Shasshhiy'Kaish after letting her grow as powerful as possible.]],\n}\n\nnewAchievement{\n\tname = \"Bringer of Doom\", id = \"EVENT_PEDESTALS\",\n\tshow = \"name\",\n\tdesc = _t[[Killed a Bringer of Doom.]],",
+      "response": null
+    },
+    {
+      "audit_id": "R113",
+      "profile": "narrative",
+      "source": "Killed the Grand Corruptor, causing him to drop the Rod of Recall.",
+      "target": "杀死大腐化者，使他掉落回归之杖。",
+      "source_context": "newAchievement{\n\tname = \"Leave the big boys alone\", id = \"FIRST_BOSS_MASTER\",\n\timage = \"npc/the_master.png\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Killed The Master, causing him to drop the Rod of Recall.]],\n\tmode = \"player\",\n}\n\nnewAchievement{\n\tname = \"You know who's to blame\", id = \"FIRST_BOSS_GRAND_CORRUPTOR\",\n\timage = \"npc/humanoid_shalore_grand_corruptor.png\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n\tmode = \"player\",\n}\n\nnewAchievement{\n\tname = \"You know who's to blame (reprise)\", id = \"FIRST_BOSS_MYSSIL\",\n\timage = \"npc/humanoid_halfling_protector_myssil.png\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Killed Myssil, causing her to drop the Rod of Recall.]],\n\tmode = \"player\",\n}\n\nnewAchievement{",
+      "response": null
+    },
+    {
+      "audit_id": "R114",
+      "profile": "narrative",
+      "source": "You somehow got teleported to an other Sher'Tul Fortress, in a very alien location. There you saw a living Sher'Tul.",
+      "target": "不管怎样，你传送到了另一个异次元的夏·图尔要塞。在那里，你看到了一位活着的夏·图尔人。",
+      "source_context": "\tid = \"shertul-fortress-takeoff\",\n\tcategory = \"sher'tul\",\n\tname = _t\"Yiilkgur raising toward the sky\", always_pop = true,\n\timage = \"fortress_takeoff.png\",\n\tlore = _t[[Yiilkgur, the Sher'Tul Fortress is re-activated and raises from the depths of Nur toward the sky.]],\n}\n\nnewLore{\n\tid = \"shertul-fortress-caldizar\",\n\tcategory = \"sher'tul\",\n\tname = _t\"a living Sher'Tul?!\", always_pop = true,\n\timage = \"inside_caldizar_fortress.png\",\n\tlore = _t[[[[SOURCE_MATCH_1]]]],\n}\n\nnewLore{\n\tid = \"first-farportal\",\n\tcategory = \"sher'tul\",\n\tname = _t\"lost farportal\", always_pop = true,\n\timage = \"farportal_entering.png\",\n\tlore = function() return ([[%s boldly entering a Sher'Tul farportal.]]):tformat(game.player.name) end,\n}\n",
+      "response": null
+    },
+    {
+      "audit_id": "R115",
+      "profile": "narrative",
+      "source": "This final mural has been ruined, with deep scores and scratches etched across its surface. All you can see of the original appears to be flames.",
+      "target": "最后的这块壁画似乎损坏的很严重，上面有深深的划痕和腐蚀的痕迹。你所能看到的似乎是火焰的画面。",
+      "source_context": "\tname = _t\"eighth mural painting\", always_pop = true,\n\timage = \"shertul_fortress_lore8.png\",\n\tlore = function() return _t[[The large mural shows the great god spread on the ground, with the dark staff held against his chest. Sher'Tul surround him, some hacking off his limbs, cutting out his tongue, and binding him with chains. A burst of light flares up from where a tall Sher'Tul warrior is gouging his eye with a black-bladed halberd. In the background a Sher'Tul mage beckons to a huge chasm in the ground.\nThe text beneath says simply ]]..(not game.player:attr(\"speaks_shertul\") and _t[[#{italic}#'Meas Abar.'#{normal}#]] or _t[[#{italic}#'The Great Sin.'#{normal}#]])\n\tend,\n}\n\nnewLore{\n\tid = \"shertul-fortress-9\",\n\tcategory = \"sher'tul\",\n\tname = _t\"ninth mural painting\", always_pop = true,\n\timage = \"shertul_fortress_lore9.png\",\n\tlore = function() return _t[[[[SOURCE_MATCH_1]]]] end,\n}\n\nnewLore{\n\tid = \"shertul-fortress-takeoff\",\n\tcategory = \"sher'tul\",\n\tname = _t\"Yiilkgur raising toward the sky\", always_pop = true,\n\timage = \"fortress_takeoff.png\",\n\tlore = _t[[Yiilkgur, the Sher'Tul Fortress is re-activated and raises from the depths of Nur toward the sky.]],\n}\n\nnewLore{\n\tid = \"shertul-fortress-caldizar\",",
+      "response": null
+    },
+    {
+      "audit_id": "R116",
+      "profile": "narrative",
+      "source": "Death is nearing. I can feel her chilling breath down the back of my neck. So many of us firstborn have passed on already. I cannot allow it... I will not let myself rot into dirt like the others. I am the mightiest of the Shaloren - I have a right to life!\n",
+      "target": "死亡正在逼近。我能感到她在我脖子后面冰冷的呼吸。我们许多人已经过世了。我不能容忍……我不会让自己像其他人一样化为尘土。我是最强大的永恒精灵——我有权活下去！",
+      "source_context": "Aye, and Gerlyk did say, \"Let no man walk abroad this night, lest Darkness catch him and take him forever.\"\nAye, and Gerlyk did walk abroad that night, into Darkness beyond, and has ne'er since been seen.]],\n}\n\n--------------------------------------------------------------------------\n-- Ancient Elven Ruins\n--------------------------------------------------------------------------\n\nnewLore{\n\tid = \"ancient-elven-ruins-note-1\",\n\tcategory = \"ancient elven ruins\",\n\tname = _t\"ancient papyrus scroll\",\n\tlore = _t[[[[SOURCE_MATCH_1]]]],\n}\nnewLore{\n\tid = \"ancient-elven-ruins-note-2\",\n\tcategory = \"ancient elven ruins\",\n\tname = _t\"ancient papyrus scroll\",\n\tlore = _t[[Death mocks my experiments. I can preserve the flesh of my servants, tightly wrapped and salted, treated with the correct chemicals. I can animate them, make them shuffle about the empty halls of my mausoleum. But they are but empty shells, devoid of any soul. Is this how my majesty is to end? I demand a greater fate...\n\nMy days are numbered. Each night that passes saps strength from me. I must find the way to preserve my soul within my flesh. My greatness cannot be allowed to fade.]],\n}\nnewLore{\n\tid = \"ancient-elven-ruins-note-3\",",
+      "response": null
+    },
+    {
+      "audit_id": "R117",
+      "profile": "narrative",
+      "source": "Strange lights play atop the High Peak. Torches? Nay. The fire of dragons? Not so. A volcanic eruption, perchance? Alas, no. It is unmistakably the fire of the arcane, the fire of mages, and seeing as every pyromancer within our pride is under my dominion, I can only assume that these lights come from one not affiliated with us. The lights are fascinating, I wish to study them; they put me in mind of the fires of the Spellblaze, burning so very long ago...\n\nSadly, such desires are denied to me at this moment. Plans are in motion, and we are scant weeks away from finally crushing the accursed sun paladins and their tin-plated harlot ruler. Even once the Sunwall lies in ruins I must be careful - the horde of sub-orc savages Grushnak calls a pride are ever at my door, claiming we do not follow Garkul's \"true path\". He is a fool, but dangerous, and I must be vigilant.",
+      "target": "巅峰周围出现了许多奇怪的火光。火把？不是。龙炎？也不是。偶然的火山喷发？也不是。这显然是奥术之焰，法师之焰，我非常确定这是来自其他阵营的人释放的法术，因为我族所有的烈焰术士都在我的麾下。这些火光是多么迷人，我想学会这些法术，很多年前我心底燃烧的魔法大爆炸之火，被再次点燃……\n\n悲哀的是，此时此刻我必须克制这个冲动。计划正在有条不紊的进行中，很快我们就可以给那些太阳骑士和他们荒淫无道的统治者带来毁灭。一旦太阳堡垒毁灭了我就要小心了，格鲁希纳克所领导的那群自称兽族分支部落的未开化的野蛮人，正驻扎在我的门前，警告我们不遵循领袖加库尔的“真理”。他虽然很蠢，但也很危险，我必须保持警惕。",
+      "source_context": "\tid = \"gorbat-pride-note\",\n\tcategory = \"orc prides\",\n\tname = _t\"Gorbat's Note\",\n\tlore = _t[[My dragons bring news. They witnessed humans upon the High Peak, speaking of their mastery over our prides. They did not heed my dragons, unwitting of their ability to communicate with me. Now I possess this information, I must think deeply on how to proceed regarding our \"masters\". Many of my finest wyrmics wish to rise up against our deceivers, see them consumed in wyrmfire. Even some of my dragons have divulged this wish to me. Sadly, this must wait.\n\nVor's insolence will be tolerated no longer! His claims that his pride's mastery over the elements surpasses that of the dragons is insult enough, but this...! Some of my finest dragons, my glorious multi-hued wyrms, have been captured and held within their armouries in the hopes that they can further their twisted mockeries of fire and ice! This will not stand! I must ignore the plots of our human deceivers for the moment, for Vor requires my full attention.]],\n}\n\nnewLore{\n\tid = \"vor-pride-note\",\n\tcategory = \"orc prides\",\n\tname = _t\"Vor's Note\",\n\tlore = _t[[[[SOURCE_MATCH_1]]]],\n}\n\n--------------------------------------------------------------------------\n-- History of the orc race\n--------------------------------------------------------------------------\n\nnewLore{\n\tid = \"orc-history-1\",\n\tcategory = \"orc prides\",\n\tname = _t\"Records of Lorekeeper Hadak part one\",\n\tlore = _t[[Our history is a history of battles, a history of wars. We orcs have always been under attack from the other races, always having to defend ourselves against their ruthless advances. The other races paint us as evil, they think of us as purely beasts. Not so! If we are cruel, it is because they made us cruel. If we are heartless, it is because they ripped our beating hearts from our chests and stamped them beneath their feet!\n",
+      "response": null
+    },
+    {
+      "audit_id": "R118",
+      "profile": "narrative",
+      "source": "Killed 6 escorted adventurers while you were supposed to save them.",
+      "target": "杀死6名本该由你拯救的护送冒险者。",
+      "source_context": "\tend,\n\ttrack = function(self) return tstring{tostring(self.nb or 0),\" / 1000\"} end,\n\ton_gain = function(_, src, personal)\n\t\tgame:setAllowedBuild(\"corrupter\")\n\t\tgame:setAllowedBuild(\"corrupter_reaver\", true)\n\tend,\n}\n\nnewAchievement{\n\tname = \"Backstabbing Traitor\", id = \"ESCORT_KILL\",\n\timage = \"object/knife_stralite.png\",\n\tshow = \"full\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n\tmode = \"player\",\n\tcan_gain = function(self, who, target)\n\t\tself.nb = (self.nb or 0) + 1\n\t\tif self.nb >= 6 then return true end\n\tend,\n\ttrack = function(self) return tstring{tostring(self.nb or 0),\" / 6\"} end,\n}\n\nnewAchievement{\n\tname = \"Bad Driver\", id = \"ESCORT_LOST\",\n\tshow = \"full\",\n\tdesc = _t[[Failed to save any escorted adventurers.]],",
+      "response": null
+    },
+    {
+      "audit_id": "R119",
+      "profile": "narrative",
+      "source": "Got to level 150 of the infinite dungeon.",
+      "target": "到达无尽地下城第150层。",
+      "source_context": "\tname = \"Infinite x90\",\n\tshow = \"full\",\n\tdesc = _t[[Got to level 90 of the infinite dungeon.]],\n}\nnewAchievement{\n\tname = \"Infinite x100\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Got to level 100 of the infinite dungeon.]],\n}\nnewAchievement{\n\tname = \"Infinite x150\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\nnewAchievement{\n\tname = \"Infinite x200\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Got to level 200 of the infinite dungeon.]],\n}\nnewAchievement{\n\tname = \"Infinite x300\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Got to level 300 of the infinite dungeon.]],\n}\nnewAchievement{",
+      "response": null
+    },
+    {
+      "audit_id": "R120",
+      "profile": "narrative",
+      "source": "Records of Lorekeeper Hadak part five",
+      "target": "博学者哈达克的记录，第五部分",
+      "source_context": "\tname = _t\"Records of Lorekeeper Hadak part four\",\n\tlore = _t[[How greatly our race advanced during the Age of Pyre! Truly none of the weaker races can compare. For it was vengeance that drove us, and so fervently we pursued our goals at the thought of our just retribution on the races that had punished us and beaten us for so long before.\n\nDuring the Age of Pyre we discovered the farportal, deep beneath the dwarven cities. We were more cautious than the foolish elves before us, and managed to harness the portal's power to open a gateway to the lost east. We sent military forces over, and easily beat back the puny elves and humans that were hoveling there already. We established the Prides there - training camps for our soldiers where they could hone their battle skills before returning to fight the wars in the west.\n\nBut all in the west did not go well. We conquered many lands, and came close to wiping out many races, but we became spread thin. As the other races began to fight back our Age of Pyre was to dwindle.]],\n\ton_learn = function(who) world:gainAchievement(\"ORC_LORE\") end,\n}\n\nnewLore{\n\tid = \"orc-history-5\",\n\tcategory = \"orc prides\",\n\tname = _t\"[[SOURCE_MATCH_1]]\",\n\tlore = _t[[The humans and the halflings made an alliance to defend their kingdoms, and soon the elves and the dwarves joined too, and we were pushed back. Our tactics became increasingly defensive as they made greater advances into our territory.\n\nWe fought well and hard, but we were not prepared for the terrible tactics they would use. Instead of attacking our military bases they went for our towns and cities, killing all of our civilians. Babes were slaughtered in their mother's arms, and every last woman and child was hunted down and murdered. It was genocide of the highest order.\n\nWhat forces we could muster we sent east, leaving behind token troops who bravely sacrificed themselves against the enemy attacks, convincing them that their genocide had been complete.\n\nBut what was left of our people in the east was a broken picture. Gone were the majority of our women and children, gone were our centres of culture, gone was all softness that ever lived in us. Our military forces were all that were left, consolidated in the Prides. By arcane experimentation we found ways to breed again, but we are left a hollow people. Until we are free from the threats of the other races we can focus on only one thing - revenge.\n\nWe still have a secret presence in the west, in our rightful lands across which we have spilled rivers of our own blood. We are building up our military force at an accelerating rate, and when the time comes we shall sweep across Maj'Eyal with a vengeance that cannot be held back. The other races will suffer as they have made us suffer, and all that they have built will be brought to ruin.]],\n\ton_learn = function(who) world:gainAchievement(\"ORC_LORE\") end,\n}\n",
+      "response": null
+    }
+  ]
+}

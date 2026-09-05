@@ -1,0 +1,12 @@
+{
+  "schema_version":"gemini-context-counterexample-design-v4",
+  "status":"FROZEN_ZERO_INFERENCE_SELECTION_COMPLETE_AUDITS_PENDING",
+  "scope":{"dialogue":"top-level mod-tome/data/chats/*.lua","narrative":"exact lore body plus top-level non-tutorial intro-* and message-*","excluded":["unlock-*","tutorials","lore names and UI labels","unresolved lore fields","metadata","mechanics","logs","achievements","arbitrary strings"]},
+  "selection":{"seed":"gemini-context-counterexample-reviewer-v4/canonical-selection/v1","id_pattern":"V4-{D|C}-{D|N}NN","inventory_raw_sha256":"1fb97b26457ebda2b6c03be40e3fe6121639fe58046004acee62aa3dc8f6af61","rank":"sha256(seed + NUL + profile + NUL + revision_id)","capped_universe_max_rows_per_profile_file":3,"selected_max_rows_per_profile_file_total":3,"selected_max_rows_per_profile_file_cohort":2,"alternating_cohorts":true,"cohorts":{"discovery":{"dialogue":16,"narrative":16},"confirmation":{"dialogue":16,"narrative":16}},"narrative_reserve_target_rows":50,"file_uniqueness_required":false,"global_row_uniqueness":["revision_id","revision_uid/base identity","normalized source","normalized bound context"]},
+  "replacement":{"globally_ban_rejected_revision":true,"order":"first unused same-profile ranked reserve preserving row uniqueness and active caps","record_skipped_incompatible":true,"exhaustion":"fail closed with exact profile/cohort","out_of_scope_non_prose":"excluded and not counted as translation defect"},
+  "audit_order":"new V4 surface audit before new V4 context audit",
+  "downstream_state":"not released",
+  "exposure_policy":"ALLOWED_NOT_EVALUATED",
+  "runtime_identity_policy":"REQUESTED_ROUTE_ONLY_UNVERIFIED",
+  "inference_allowed":false
+}

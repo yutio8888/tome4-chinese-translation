@@ -1,0 +1,53 @@
+{
+  "schema_version": "gemini-evaluator-contract-effectiveness-experiment-v2",
+  "task_id": "research-gemini-evaluator-contract-effectiveness-holdout-v2-route-recovery",
+  "phase": "FROZEN_ZERO_CALL_ROUTE_RECOVERY_PACKAGE",
+  "purpose": "Fresh route-recovery holdout testing whether hardened P1+S2 improves mechanical validity without materially harming translation-review effectiveness versus baseline P0+S0; no v1 dynamic state is imported.",
+  "datasets": {
+    "H1": {
+      "items": 24,
+      "controlled_mutations": 12,
+      "independent_clean_controls": 12,
+      "unique_sources_and_origins": 24
+    },
+    "H2": {
+      "items": 24,
+      "defective": 12,
+      "clean": 12
+    }
+  },
+  "conditions": [
+    "baseline",
+    "hardened"
+  ],
+  "repetitions": 3,
+  "cells": 12,
+  "calls_authorized_by_design": {
+    "agy_processes": 12,
+    "inference_calls": 12,
+    "max_attempts_per_cell": 1,
+    "retries": 0
+  },
+  "calls_made_at_freeze": {
+    "agy_processes": 0,
+    "inference_calls": 0
+  },
+  "execution_requires": [
+    "blocking review gate",
+    "model-diverse advisory review gate",
+    "execution authorization gate"
+  ],
+  "sealing": "Requests were frozen before any call; only scorer.mjs/post-run.mjs may load sealed/REFERENCE.json.",
+  "route": {
+    "requested_model": "gemini-3.7-flash-high",
+    "effort": "high",
+    "mode": "plan",
+    "structured_output": "mandatory authoritative"
+  },
+  "limitations": [
+    "n=3 per condition and dataset; descriptive only",
+    "decoding is unpinned",
+    "provider caching and shared infrastructure may make repetitions non-independent",
+    "route attestation is local-only"
+  ]
+}

@@ -1,0 +1,1 @@
+Review each Chinese translation against its English source. Report only objective meaning or structural problems. Context, when present, is fixed public-source evidence. Return exactly the registered JSON schema, preserve item order and IDs, and provide no free text or reasoning. If no objective candidate exists, return an empty candidates array.

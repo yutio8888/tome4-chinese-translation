@@ -1,0 +1,12 @@
+{
+  "schema_version": "source-context-controlled-confirmation-scorer-io-errata-v2",
+  "errata_id": "SCORER-IO-ERRATA-001",
+  "status": "FROZEN_AFTER_RAW_BEFORE_SCORING",
+  "reason": "The frozen scorer expected the post-response final clean adjudication to overwrite the generated queue path. Preserving the queue required a distinct FINAL artifact name.",
+  "change": "Only replace CLEAN-CANDIDATE-ADJUDICATION.json with CLEAN-CANDIDATE-ADJUDICATION-FINAL.json in the scorer's read path and recorded adjudication hash path.",
+  "unchanged": ["all RAW and CANDIDATE artifacts", "matcher", "scoring functions", "gates", "denominators", "truth classification", "route eligibility", "retry policy"],
+  "frozen_score_mjs_sha256": "75041032f28e9acfa5393e750166e3faf989b499fbbd35902505d3a5872fc459",
+  "corrected_score_mjs_sha256": "6b0da446d156851f3b22bb984e6dc19b2dbcfbec2d2dcf48ad29d1fd70c4bbc4",
+  "queue_artifact": "CLEAN-CANDIDATE-ADJUDICATION.json",
+  "final_artifact": "CLEAN-CANDIDATE-ADJUDICATION-FINAL.json"
+}

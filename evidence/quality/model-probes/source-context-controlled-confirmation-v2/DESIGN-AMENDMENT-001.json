@@ -1,0 +1,21 @@
+{
+  "schema_version": "source-context-controlled-confirmation-design-amendment-v2",
+  "status": "PRE_TARGET_PRE_INFERENCE_MECHANICAL_FEASIBILITY_AMENDMENT",
+  "amendment_id": "DESIGN-AMENDMENT-001",
+  "predecessor_failure": "SCREEN-PREFLIGHT-FAILURE-001.json",
+  "changes": {
+    "source_screen_file_cap": {"before": 2, "after": 8},
+    "final_sample_file_rule": {"before": "all source files distinct", "after": "at most two items per source file and all context blocks distinct"}
+  },
+  "unchanged": [
+    "objective and estimand",
+    "dialogue/narrative profile scope",
+    "120+120 source-screen profile counts",
+    "24 context mutants, 24 clean controls and 12 surface mutants",
+    "final profile balance",
+    "all mutation, clean, route, scoring and stopping gates",
+    "zero model and network calls"
+  ],
+  "rationale": "After all frozen exposure and locator exclusions, 282 eligible narrative revisions occupy only 17 public source files. A cap of two can select 31, not the 120-row source screen. The revised screen cap preserves broad source-only candidate coverage; the final two-per-file cap still permits the registered 30 narrative items and prevents one file from dominating the scored set.",
+  "post_outcome_change": false
+}

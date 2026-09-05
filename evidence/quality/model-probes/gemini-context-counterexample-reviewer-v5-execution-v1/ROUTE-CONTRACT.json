@@ -1,0 +1,92 @@
+{
+  "schema_version": "gemini-context-v5-execution-route-v2",
+  "status": "UNQUALIFIED_EXECUTION_UNAUTHORIZED",
+  "cli_contract": {
+    "executable": "/home/yun/.local/bin/agy",
+    "model": "gemini-3.7-flash-high",
+    "effort": "high",
+    "mode": "plan",
+    "sandbox": true,
+    "disable_slash_commands": true,
+    "output_format": "json",
+    "schema": "model-facing/schemas/REVIEWER-SCHEMA.json",
+    "timeout_ms": 1500000,
+    "argv_template": [
+      "-p",
+      "[REQUEST_BYTES]",
+      "--model",
+      "gemini-3.7-flash-high",
+      "--effort",
+      "high",
+      "--disable-slash-commands",
+      "--output-format",
+      "json",
+      "--print-timeout",
+      "25m",
+      "--mode",
+      "plan",
+      "--sandbox",
+      "--json-schema",
+      "[BUNDLE_SCHEMA]"
+    ]
+  },
+  "environment": {
+    "allowlist": [
+      "PATH",
+      "LANG",
+      "LC_ALL",
+      "LC_CTYPE",
+      "TZ",
+      "TERM",
+      "SSL_CERT_FILE",
+      "SSL_CERT_DIR",
+      "HTTPS_PROXY",
+      "HTTP_PROXY",
+      "ALL_PROXY",
+      "NO_PROXY"
+    ],
+    "credentials_in_request_forbidden": true,
+    "credential_location_not_frozen": true
+  },
+  "qualification": {
+    "separate_non_scored_gate": true,
+    "currently_authorized": false,
+    "capture_agent_purpose": "route_qualification_capture",
+    "version_argv": [
+      "--version"
+    ],
+    "model_list_argv": [
+      "models",
+      "list",
+      "--json"
+    ],
+    "synthetic_argv": [
+      "-p",
+      "[SYNTHETIC_REQUEST_BYTES]",
+      "--model",
+      "gemini-3.7-flash-high",
+      "--effort",
+      "high",
+      "--disable-slash-commands",
+      "--output-format",
+      "json",
+      "--print-timeout",
+      "25m",
+      "--mode",
+      "plan",
+      "--sandbox",
+      "--json-schema",
+      "[BUNDLE_SCHEMA]"
+    ],
+    "runtime_self_report_is_not_identity_evidence": true,
+    "trusted_identity_tier": "QUALIFIED_ROUTE_BOUND"
+  },
+  "runner_may_execute_only_after": [
+    "IMPLEMENTATION_DUAL_REVIEW_GATE",
+    "MUTATION_AUTHORING_VALIDATION_GATE",
+    "FREEZE_GATE",
+    "QUALIFICATION_GATE",
+    "EXECUTION_AUTHORIZATION"
+  ],
+  "invoked_during_freeze": false
+}

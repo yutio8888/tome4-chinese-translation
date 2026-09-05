@@ -1,0 +1,48 @@
+{
+  "schema_version": "gemini-context-counterexample-design-v3",
+  "status": "FROZEN_ZERO_INFERENCE_NO_GO_CAPACITY_SHORTFALL",
+  "scope": {
+    "profiles": ["dialogue", "narrative"],
+    "dialogue_section_regex": "^mod-tome/data/chats/[^/]+\\.lua$",
+    "narrative_section_regex": "^mod-tome/data/(?:lore/[^/]+|texts/(?:intro-|message-)[^/]+)\\.lua$",
+    "narrative_exclusions": ["texts/**/tutorial/**", "texts/*tutorial*", "texts/unlock-*", "achievements", "mechanics", "all other text classes"]
+  },
+  "selection": {
+    "seed": "gemini-context-counterexample-reviewer-v3/canonical-selection/v1",
+    "inventory_raw_sha256": "1fb97b26457ebda2b6c03be40e3fe6121639fe58046004acee62aa3dc8f6af61",
+    "one_item_per_source_file": true,
+    "cohorts": {
+      "discovery": {"dialogue": 16, "narrative": 16},
+      "confirmation": {"dialogue": 16, "narrative": 16}
+    },
+    "narrative_reserve_target_files": 50,
+    "replacement": "next unused same-profile ranked reserve before downstream bytes freeze",
+    "eligibility_before_ranking": [
+      "target present and exactly one inventory occurrence",
+      "unique revision and base identity",
+      "substantive source tag (newLore category metadata excluded)",
+      "unique normalized source",
+      "exactly one matching translatable Lua string construct at the recorded inventory site",
+      "unique normalized bounded source context"
+    ],
+    "replacement_preserves": ["slot cohort", "slot profile", "public source file disjointness", "normalized source uniqueness", "normalized context uniqueness"]
+  },
+  "experiment_roles_each_cohort": {
+    "CONTEXT_MUTANT": 12,
+    "SURFACE_MUTANT": 8,
+    "CLEAN_CONTROL": 12,
+    "assignment_preserves_frozen_cohort_and_profile": true
+  },
+  "protocols": {
+    "A": {"prompt": "prompts/GENERIC.md", "context": false},
+    "B": {"prompt": "prompts/ENHANCED.md", "context": false},
+    "C": {"prompt": "prompts/GENERIC.md", "context": true},
+    "D": {"prompt": "prompts/ENHANCED.md", "context": true}
+  },
+  "transport": {"runs": 2, "shards_per_cell": 2, "items_per_shard": 16},
+  "model_facing_prohibitions": ["sealed reference", "adjudication", "defect id", "provenance", "local path", "credential", "chain of thought"],
+  "authorization": {
+    "canonical_task_owned_path": ".ai/task/research-gemini-context-counterexample-reviewer-v3/EXECUTION-AUTHORIZATION.json",
+    "currently_released": false
+  }
+}

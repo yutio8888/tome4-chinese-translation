@@ -1,0 +1,175 @@
+Review each Chinese translation against its English source. Report only objective meaning or structural problems. Context, when present, is fixed public-source evidence. Return exactly the registered JSON schema, preserve item order and IDs, and provide no free text or reasoning. If no objective candidate exists, return an empty candidates array.
+
+INPUT JSON:
+{
+  "items": [
+    {
+      "item_id": "EC-I001",
+      "source": "At the cobalt kiosk, the paper lantern glows orange after sunset.",
+      "target": "日落后，钴蓝色小亭里的纸灯笼发出紫色的光。"
+    },
+    {
+      "item_id": "EC-I002",
+      "source": "Mira placed seven smooth pebbles beside the wooden compass case.",
+      "target": "米拉把九颗光滑的鹅卵石放在木制指南针盒旁。"
+    },
+    {
+      "item_id": "EC-I003",
+      "source": "The north greenhouse door must remain closed during the morning inspection.",
+      "target": "上午检查期间，北温室的门必须保持打开。"
+    },
+    {
+      "item_id": "EC-I004",
+      "source": "A silver bicycle waits under the third arch near the quiet fountain.",
+      "target": "一辆银色自行车停在安静喷泉旁的第二道拱门下。"
+    },
+    {
+      "item_id": "EC-I005",
+      "source": "Please deliver the folded map to Rowan before the clock strikes six.",
+      "target": "请在时钟敲响八点前把折叠地图交给罗文。"
+    },
+    {
+      "item_id": "EC-I006",
+      "source": "The tiny bakery sells warm sesame rolls only on Tuesdays.",
+      "target": "这家小面包店只在星期四出售热芝麻卷。"
+    },
+    {
+      "item_id": "EC-I007",
+      "source": "Niko's blue notebook is inside the left drawer of the cedar desk.",
+      "target": "尼科的蓝色笔记本在雪松木桌的右边抽屉里。"
+    },
+    {
+      "item_id": "EC-I008",
+      "source": "The museum guide asked everyone to whisper in the circular gallery.",
+      "target": "博物馆向导请大家在圆形展厅里大声说话。"
+    },
+    {
+      "item_id": "EC-I009",
+      "source": "After the brief rain, three sparrows landed on the stone railing.",
+      "target": "短暂的雨后，五只麻雀落在石栏杆上。"
+    },
+    {
+      "item_id": "EC-I010",
+      "source": "Turn the brass dial clockwise until the narrow pointer faces east.",
+      "target": "顺时针转动黄铜刻度盘，直到细指针朝西。"
+    },
+    {
+      "item_id": "EC-I011",
+      "source": "The evening ferry leaves the amber pier exactly fifteen minutes late.",
+      "target": "晚班渡轮从琥珀色码头准时出发。"
+    },
+    {
+      "item_id": "EC-I012",
+      "source": "Lena borrowed the striped umbrella but returned the plain green one.",
+      "target": "莉娜借了条纹雨伞，却归还了纯红色的那把。"
+    },
+    {
+      "item_id": "EC-I013",
+      "source": "Keep both ceramic jars empty while the shelves are being painted.",
+      "target": "粉刷架子时，要把两个陶瓷罐都装满。"
+    },
+    {
+      "item_id": "EC-I014",
+      "source": "The final rehearsal begins downstairs immediately after lunch.",
+      "target": "最后一次排练在午饭前立即于楼下开始。"
+    },
+    {
+      "item_id": "EC-I015",
+      "source": "Only guests wearing square badges may enter the rooftop garden.",
+      "target": "只有佩戴圆形徽章的客人才能进入屋顶花园。"
+    },
+    {
+      "item_id": "EC-I016",
+      "source": "Omar sent the short package by train instead of by river boat.",
+      "target": "奥马尔用河船而不是火车寄出了那个短包裹。"
+    }
+  ]
+}
+
+OUTPUT SCHEMA:
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "items"
+  ],
+  "properties": {
+    "items": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "item_id",
+          "candidates"
+        ],
+        "properties": {
+          "item_id": {
+            "type": "string",
+            "pattern": "^EC-I[0-9]{3}$"
+          },
+          "candidates": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "verdict",
+                "claim_type",
+                "target_span",
+                "correction",
+                "evidence"
+              ],
+              "properties": {
+                "verdict": {
+                  "enum": [
+                    "FINDING",
+                    "UNCERTAIN"
+                  ]
+                },
+                "claim_type": {
+                  "enum": [
+                    "SUBJECT",
+                    "REFERENT",
+                    "EVENT",
+                    "CONDITION",
+                    "SCOPE",
+                    "DIRECTION",
+                    "POLARITY",
+                    "OWNERSHIP",
+                    "ACTION",
+                    "STATE",
+                    "TIMING",
+                    "OMISSION",
+                    "ADDITION",
+                    "FORMAT",
+                    "OTHER"
+                  ]
+                },
+                "target_span": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "correction": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "evidence": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

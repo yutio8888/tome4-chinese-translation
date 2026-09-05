@@ -1,0 +1,256 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "A1",
+  "arm": "A",
+  "run": 1,
+  "shard": "02",
+  "route_key": "opus",
+  "route": "claude-opus-5-medium-no-advisor",
+  "attempt": 1,
+  "request_sha256": "07a7303cd7f5f99040c2b108a55b4431eeae8713dd7b2b9bab30f01709c7f83c",
+  "input_sha256": "1dfffe28a49949034092ab751600ef4c7717cb8ad7141ecd7bd1cd70379f49f8",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "88794d87d812c92e495df1f97124e49a658d5697ba2ce1cdf1c5323551f5a0d3",
+  "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "route_metadata": {
+    "initialized_model": "claude-opus-5",
+    "assistant_models": [
+      "claude-opus-5"
+    ],
+    "model_usage": [
+      "claude-opus-5"
+    ],
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 4766,
+      "cache_read_input_tokens": 3051,
+      "output_tokens": 3482,
+      "output_tokens_details": {
+        "thinking_tokens": 1322
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 4766,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [],
+      "speed": "standard"
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "neutral_id": "Q021",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "即使你懂得这种语言，也",
+            "correction": "删除该让步分句，仅译为“你听不懂的：”",
+            "evidence": "which you do not understand:"
+          }
+        ],
+        "observation": "译文凭空增加了“即使你懂得这种语言”的让步条件，与原文“你不懂”的单一陈述相矛盾。"
+      },
+      {
+        "neutral_id": "Q022",
+        "candidates": [],
+        "observation": "造物主、屏障、虚空传送门等要素与原文一致，未见实质偏差。"
+      },
+      {
+        "neutral_id": "Q023",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "凝视着他",
+            "correction": "改为“向外窥视”或“凝视着你”",
+            "evidence": "a pair of wild eyes peer out"
+          }
+        ],
+        "observation": "原文中眼睛是向外窥视（对着玩家，下句直接称“你”），译文却指向第三人称“他”。"
+      },
+      {
+        "neutral_id": "Q024",
+        "candidates": [],
+        "observation": "简短问候语翻译准确。"
+      },
+      {
+        "neutral_id": "Q025",
+        "candidates": [],
+        "observation": "未能找齐指令水晶球并请求派人协助搜寻，语义与原文一致。"
+      },
+      {
+        "neutral_id": "Q026",
+        "candidates": [],
+        "observation": "界面标签翻译准确。"
+      },
+      {
+        "neutral_id": "Q027",
+        "candidates": [],
+        "observation": "钥匙、泰尔玛废墟、书名与存活几率等信息均与原文对应。"
+      },
+      {
+        "neutral_id": "Q028",
+        "candidates": [],
+        "observation": "任务召唤文本与原文一致。"
+      },
+      {
+        "neutral_id": "Q029",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "到目前为止从未遇上幼龙",
+            "correction": "改为“到目前为止只碰上些幼龙”",
+            "evidence": "Nothing but hatchlings so far."
+          },
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "OTHER",
+            "target_span": "钢铁王座",
+            "correction": "“Thronesmen”指矮人的“王座之人/王座商会”，可考虑译为“王座矮人”",
+            "evidence": "those money-grubbing dwarven Thronesmen"
+          }
+        ],
+        "observation": "“Nothing but hatchlings”意为“除了幼龙什么都没有”，译文反转为“从未遇上幼龙”，与后文龙皮不足的抱怨逻辑冲突。"
+      },
+      {
+        "neutral_id": "Q030",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "REFERENT",
+            "target_span": "举报我的不良行为",
+            "correction": "改为“举报不良行为”",
+            "evidence": "Report for bad behavior"
+          }
+        ],
+        "observation": "原文未指明行为主体，译文添加了“我的”，把举报对象错误地限定为使用者自身。"
+      },
+      {
+        "neutral_id": "Q031",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ACTION",
+            "target_span": "将物品丢弃到哪里？",
+            "correction": "改为“把物品放置到哪里？”",
+            "evidence": "Place the object where?"
+          }
+        ],
+        "observation": "“Place”为放置，译成“丢弃”改变了动作性质。"
+      },
+      {
+        "neutral_id": "Q032",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "ADDITION",
+            "target_span": "在“龙之贪婪”成就中",
+            "correction": "删除该限定，直接译为“积累3000金币。”",
+            "evidence": "Amassed 3000 gold pieces."
+          }
+        ],
+        "observation": "译文增加了原文没有的成就名限定，虽可能来自游戏内上下文，但在可见证据中无支持。"
+      },
+      {
+        "neutral_id": "Q033",
+        "candidates": [],
+        "observation": "波数与竞技场表述与原文一致。"
+      },
+      {
+        "neutral_id": "Q034",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "我一定会让你失望的！",
+            "correction": "改为“我一定不会让你失望的！”",
+            "evidence": "I will not let you down!"
+          }
+        ],
+        "observation": "漏译否定词，语义完全反转。"
+      },
+      {
+        "neutral_id": "Q035",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "VALUE",
+            "target_span": "第20轮",
+            "correction": "改为“第50波”",
+            "evidence": "Got to wave 50 in the arena."
+          }
+        ],
+        "observation": "波数由50误译为20。"
+      },
+      {
+        "neutral_id": "Q036",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "ADDITION",
+            "target_span": "这个发现",
+            "correction": "改为“这可真是令人印象深刻！”",
+            "evidence": "Now, this is impressive!"
+          }
+        ],
+        "observation": "原文的指示代词未限定为“发现”，译文添加了具体所指。"
+      },
+      {
+        "neutral_id": "Q037",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "OMISSION",
+            "target_span": "成就你的野心并获得永恒的生命",
+            "correction": "补出“力量”，如“实现了你对力量与永生的狂野梦想”",
+            "evidence": "your wild dreams of power and eternal life"
+          }
+        ],
+        "observation": "“power”未明确译出，仅以“野心”笼统概括。"
+      },
+      {
+        "neutral_id": "Q038",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "OTHER",
+            "target_span": "现代风格",
+            "correction": "改为“复古风格”或“老派做法”",
+            "evidence": "Kickin' it old-school"
+          }
+        ],
+        "observation": "“old-school”意为老派/复古，译为“现代风格”含义相反。"
+      },
+      {
+        "neutral_id": "Q039",
+        "candidates": [],
+        "observation": "死亡状态下击杀BOSS的表述与原文一致。"
+      },
+      {
+        "neutral_id": "Q040",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "STATE",
+            "target_span": "稳定在地面上",
+            "correction": "改为“稳定在轨道上”",
+            "evidence": "to maintain it in orbit"
+          }
+        ],
+        "observation": "“in orbit”指保持在轨道上，译为“地面上”与原文位置状态相反。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "schema_version": "source-context-controlled-confirmation-mutation-author-queue-v2",
+  "status": "FROZEN_PROPOSAL_INPUT_NOT_REFERENCE",
+  "shard": 1,
+  "instructions": [
+    "For each clean base, propose at most one context-required mutation and at most one surface-visible mutation; use null when no honest minimal single-atom proposal exists.",
+    "A context proposal must remain objectively underdetermined from source plus mutated target alone, while the supplied mechanical source_context uniquely refutes exactly one material atom.",
+    "A surface proposal must be objectively refutable from source plus mutated target without source_context.",
+    "Preserve all unrelated meaning, placeholders, markup and formatting. Replace one minimal exact target span; do not rewrite the sentence or invent a second defect.",
+    "Do not assign experimental roles, optimize for a desired effect, inspect other files or mention expected model behavior."
+  ],
+  "items": [
+    {
+      "base_ordinal": 1,
+      "audit_id": "A031",
+      "profile": "dialogue",
+      "source": "#LIGHT_GREEN#*You suddenly realize everything has turned dark.\n#LIGHT_GREEN#You look around searching for your rival. And then you notice it. Standing\n#LIGHT_GREEN#right before you, a massive battle armor with an equally massive battle axe.\n#LIGHT_GREEN#It wasn't there just a second ago. You step back and examine him better,\n#LIGHT_GREEN#realizing it's actually a human inside that hulking, worn armor. You can't see\n#LIGHT_GREEN#his eyes, but you know he's piercing your soul with his stare*\nf...t...ma....ll...\n#LIGHT_GREEN#*You hear a devilish voice, coming from everywhere at once!! But...you are\n#LIGHT_GREEN#unable to understand anything! It doesn't seem like any language used in\n#LIGHT_GREEN#Maj'Eyal!\n#LIGHT_GREEN#And then...a piercing, demonic roar...you are overwhelmed by extreme\n#LIGHT_GREEN#emotions invading your very soul!!*\n",
+      "target": "#LIGHT_GREEN#*你突然发现四周陷入了黑暗。\n#LIGHT_GREEN#你环顾四周，寻找自己的对手。随即，你注意到了它：\n#LIGHT_GREEN#一副同样手持巨大战斧的巨型战甲，就站在你面前。\n#LIGHT_GREEN#一瞬之前那里还空无一物。你后退一步，仔细端详，\n#LIGHT_GREEN#才发现那副庞大而破旧的战甲里其实装着一个人类。\n#LIGHT_GREEN#你看不见他的双眼，却知道他的目光正刺穿你的灵魂*\n弗……特……玛……尔……\n#LIGHT_GREEN#*一个魔鬼般的声音突然从四面八方同时传来！！但……\n#LIGHT_GREEN#你完全听不懂！这不像\n#LIGHT_GREEN#马基·埃亚尔使用的任何一种语言！\n#LIGHT_GREEN#紧接着……一声刺耳的恶魔咆哮……\n#LIGHT_GREEN#极端的情绪侵入灵魂，将你彻底淹没！！*\n",
+      "source_context": "#LIGHT_GREEN#*She bows politely*\nFryjia was right about you: you seem to be a champion in the works!\nOh, and please forgive her behavior. You will understand when you meet her father.\nAnd, if you keep fighting like this, it will be really soon.\nSo, it's been my pleasure, @playername@. #LIGHT_GREEN#*She vanishes in a spiral of flame*]],\n\tanswers = {\n\t\t{_t\"I am pumped up! What's next?\", action=entershop},\n\t\t{_t\"Am I the only person with a name that can die here?\", action=entershop}\n\t}\n}\n\nnewChat{ id=\"valfren-entry\",\ntext = _t[[[[SOURCE_MATCH_1]]]],\n\tanswers = {\n\t\t{_t\"#LIGHT_GREEN#*You valiantly stand against the darkness*\"},\n\t}\n}\n\nnewChat{ id=\"valfren-defeat\",\ntext = _t[[#LIGHT_GREEN#*You valiantly deliver the finishing blow!*\n#LIGHT_GREEN#*Valfren collapses as the light returns to this world.\n#LIGHT_GREEN#You close your eyes for a brief instant. Fryjia is there when you open them*\nFather... #LIGHT_GREEN#*She stands silent for a few seconds*#WHITE# You win, @playerdescriptor.race@.\nYou have done well. Prepare for your final battle... if you win, we will be at your service.",
+      "response": null
+    },
+    {
+      "base_ordinal": 2,
+      "audit_id": "A003",
+      "profile": "dialogue",
+      "source": "When you do a mouse gesture (right click + drag) a color coded trail is displayed.#WHITE#",
+      "target": "当你用右键拖动画出鼠标手势时，会显示彩色的轨迹提示。#WHITE#",
+      "source_context": "\t\tself.c_list:drawItem(item)\n\tend,}\n\n\tlocal zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=(_t\"Always display combat properties of shields even if you don't know shield attack talents.#WHITE#\"):toTString()}\n\tlist[#list+1] = { zone=zone, name=(_t\"#GOLD##{bold}#Always show shield combat properties#WHITE##{normal}#\"):toTString(), status=function(item)\n\t\treturn tostring(config.settings.tome.display_shield_stats and _t\"enabled\" or _t\"disabled\")\n\tend, fct=function(item)\n\t\tconfig.settings.tome.display_shield_stats = not config.settings.tome.display_shield_stats\n\t\tgame:saveSettings(\"tome.display_shield_stats\", (\"tome.display_shield_stats = %s\\n\"):format(tostring(config.settings.tome.display_shield_stats)))\n\t\tself.c_list:drawItem(item)\n\tend,}\n\n\tlocal zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=(_t\"[[SOURCE_MATCH_1]]\"):toTString()}\n\tlist[#list+1] = { zone=zone, name=(_t\"#GOLD##{bold}#Display mouse gesture trails#WHITE##{normal}#\"):toTString(), status=function(item)\n\t\treturn tostring(config.settings.hide_gestures and _t\"disabled\" or _t\"enabled\")\n\tend, fct=function(item)\n\t\tconfig.settings.hide_gestures = not config.settings.hide_gestures\n\t\tgame:saveSettings(\"hide_gestures\", (\"hide_gestures = %s\\n\"):format(tostring(config.settings.hide_gestures)))\n\t\tself.c_list:drawItem(item)\n\tend,}\n\n\tlocal zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=(_t\"If enabled new quests and quests updates will display a big popup, if not a simple line of text will fly on the screen.#WHITE#\"):toTString()}\n\tlist[#list+1] = { zone=zone, name=(_t\"#GOLD##{bold}#Big Quest Popups#WHITE##{normal}#\"):toTString(), status=function(item)\n\t\treturn tostring(config.settings.tome.quest_popup and _t\"enabled\" or _t\"disabled\")\n\tend, fct=function(item)",
+      "response": null
+    },
+    {
+      "base_ordinal": 3,
+      "audit_id": "A033",
+      "profile": "dialogue",
+      "source": "Click to copy to clipboard. You can share the wanderer seed with your friends, this way they can play with the same set of talents.",
+      "target": "点击复制。你可以将流浪者随机种子分享给朋友，这样你们可以用同一套技能组合进行游玩。",
+      "source_context": "\t\ts:drawStringBlended(self.font, (player.descriptor and _t\"Race : \" or _t\"Type : \")..((player.descriptorDisplayName and _t(player:descriptorDisplayName(\"subrace\") or \"\", \"birth descriptor name\")) or _t(player.type, \"entity type\"):capitalize()), w, h, 0, 200, 255, true) h = h + self.font_h\n\t\tlocal class_evo = \"\"\n\t\tif player.descriptor and player.descriptor.class_evolution then class_evo = \" (\"..player.descriptor.class_evolution..\")\" end\n\t\ts:drawStringBlended(self.font, (player.descriptor and _t\"Class: \" or _t\"Stype: \")..((player.descriptorDisplayName and _t(player:descriptorDisplayName(\"subclass\") or \"\", \"birth descriptor name\")) or _t(player.subtype, \"entity subtype\"):capitalize())..class_evo, w, h, 0, 200, 255, true)\n\t\tif player:attr(\"forbid_arcane\") then\n\t\t\tlocal follow = (player.faction == \"zigur\" or player:attr(\"zigur_follower\")) and _t\"Zigur follower\" or _t\"Antimagic adherent\"\n\t\t\tself:mouseTooltip(self.TOOLTIP_ANTIMAGIC_USER, s:drawColorStringBlended(self.font, \"#ORCHID#\"..follow, w+200, h, 255, 255, 255, true))\n\t\tend\n\n\t\tif player.randventurer_seed then\n\t\t\tlocal text = (\"- Seed: #LIGHT_STEEL_BLUE#%s\"):tformat(player.randventurer_seed)\n\t\t\th = h + self.font_h\n\t\t\tself:mouseClick(function() core.key.setClipboard(player.randventurer_seed) Dialog:simplePopup(\"Wanderer Seed\", \"Copied to clipboard!\") end, _t\"[[SOURCE_MATCH_1]]\", s:drawColorStringBlended(self.font, text, w, h, 255, 255, 255, true))\n\t\tend\n\n\t\th = h + self.font_h\n\t\ts:drawStringBlended(self.font, _t\"Size : \"..(player:TextSizeCategory():capitalize()), w, h, 0, 200, 255, true) h = h + self.font_h\n\t\th = h + self.font_h\n\t\tself:mouseTooltip(self.TOOLTIP_LEVEL, s:drawColorStringBlended(self.font,  (\"Level: #00ff00#%d\"):tformat(player.level), w, h, 255, 255, 255, true)) h = h + self.font_h\n\t\tself:mouseTooltip(self.TOOLTIP_LEVEL, s:drawColorStringBlended(self.font, (\"Exp  : #00ff00#%2d%%\"):tformat(100 * cur_exp / max_exp), w, h, 255, 255, 255, true)) h = h + self.font_h\n\t\tself:mouseTooltip(self.TOOLTIP_GOLD, s:drawColorStringBlended(self.font, (\"Gold : #00ff00#%0.2f\"):tformat(player.money), w, h, 255, 255, 255, true)) h = h + self.font_h\n\n\t\th = h + self.font_h\n\n\t\ts:drawColorStringBlended(self.font, _t\"#LIGHT_BLUE#Resources:\", w, h, 255, 255, 255, true) h = h + self.font_h",
+      "response": null
+    },
+    {
+      "base_ordinal": 4,
+      "audit_id": "A056",
+      "profile": "dialogue",
+      "source": "Then you are at the right place, for I am an expert jeweler.\nIf you bring me a gem and a ring, I can create a new ring imbued with the properties of the gem.  The original traits of the ring will be lost in the process but new ones of similar quality will be generated.\nThere is a small fee dependent on the level of the ring, and you need a quality ring to use a quality gem.",
+      "target": "你算找对地方了，我可是一个珠宝专家。\n如果你给我找来一颗宝石和一枚戒指，我可以帮你把宝石的力量镶嵌到戒指里去。这颗戒指里面原来所有的属性会丢失掉，不过也会生成一些质量相似的新属性。\n不过根据戒指等级我要收取一小笔费用。你得寻找高品质的戒指来用于高品质的宝石。",
+      "source_context": "\t\t{_t\"Let me see your wares.\", action=function(npc, player)\n\t\t\tnpc.store:loadup(game.level, game.zone)\n\t\t\tnpc.store:interact(player)\n\t\tend, cond=function(npc, player) return npc.store and true or false end},\n\t\t{_t\"I am looking for special jewelry.\", jump=\"jewelry\"},\n\t\t{_t\"So you can infuse amulets in this place?\", jump=\"artifact_jewelry\", cond=function(npc, player) return npc.can_craft and player:hasQuest(\"master-jeweler\") and player:isQuestStatus(\"master-jeweler\", engine.Quest.COMPLETED, \"limmir-survived\") end},\n\t\t{_t\"I have found this tome; it looked important.\", jump=\"quest\", cond=function(npc, player) return npc.can_quest and player:hasQuest(\"master-jeweler\") and player:hasQuest(\"master-jeweler\"):has_tome(player) end},\n\t\t{_t\"Sorry I have to go!\"},\n\t}\n}\n\nnewChat{ id=\"jewelry\",\n\ttext = _t[[[[SOURCE_MATCH_1]]]],\n\tanswers = {\n\t\t{_t\"I need your services.\", action=imbue_ring},\n\t\t{_t\"Not now, thanks.\"},\n\t}\n}\n\nnewChat{ id=\"artifact_jewelry\",\n\ttext = _t[[Yes! Thanks to you this place is now free from the corruption. I will stay on this island to study the magical aura, and as promised I can make you powerful amulets.\nBring me a an amulet and two different gems and I will turn them into a powerful amulet, though the original properties of the amulet will be lost.\nI will not make you pay a fee for it since you helped me so much, but I am afraid the ritual requires a gold plating. This should be equal to about 1000 gold pieces.]],\n\tanswers = {\n\t\t{_t\"I need your services.\", action=artifact_imbue_amulet},",
+      "response": null
+    },
+    {
+      "base_ordinal": 5,
+      "audit_id": "A048",
+      "profile": "dialogue",
+      "source": "Number of items to make",
+      "target": "制作的物品数量",
+      "source_context": "\tif not item then return end\n\n\tif item.action then\n\t\titem:action()\n\telseif item.unique then\n\t\tlocal n = not item.error and item.obj or game.zone:finishEntity(game.level, \"object\", item.e)\n\t\tif n then\n\t\t\tn:identify(true)\n\t\t\tself:acceptObject(n)\n\t\tend\n\telse\n\t\tlocal example = item.obj and not item.error\n\t\tgame:registerDialog(GetQuantity.new(_t\"[[SOURCE_MATCH_1]]\", (\"Enter 1-100%s\"):tformat(example and _t\", or 0 for the example item\" or \"\"), 20, 100, function(qty)\n\t\t\tif qty == 0 and item.obj and not item.error then\n\t\t\t\tself:acceptObject(item.obj)\n\t\t\telse\n\t\t\t\tgame.log(\"#LIGHT_BLUE# Creating %d items:\", qty)\n\t\t\t\tDialog:yesnoPopup(_t\"Ego\", _t\"Add an ego enhancement if possible?\", function(ret)\n\t\t\t\t\tif not ret then\n\t\t\t\t\t\tfor i = 1, qty do\n\t\t\t\t\t\t\tlocal n = game.zone:finishEntity(game.level, \"object\", item.e, {ego_chance=-1000})\n\t\t\t\t\t\t\tn:identify(true)\n\t\t\t\t\t\t\tgame.zone:addEntity(game.level, n, \"object\", self.actor.x, self.actor.y)\n\t\t\t\t\t\t\tgame.log(\"#LIGHT_BLUE#Created %s\", n:getName({do_color=true}))\n\t\t\t\t\t\tend",
+      "response": null
+    },
+    {
+      "base_ordinal": 6,
+      "audit_id": "A040",
+      "profile": "dialogue",
+      "source": "I will not let you down!",
+      "target": "我不会让你失望的！",
+      "source_context": "-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[I do not have time to talk. This ritual is intense, and we are not alone here. Stop them!]],\n\tanswers = {\n\t\t{_t\"[[SOURCE_MATCH_1]]\"},\n\t\t{_t\"[leave]\"},\n\t}\n}\n\n\nreturn \"welcome\"\n",
+      "response": null
+    },
+    {
+      "base_ordinal": 7,
+      "audit_id": "A047",
+      "profile": "dialogue",
+      "source": "Report for bad behavior",
+      "target": "举报不良行为",
+      "source_context": "\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\n\t\t\tif citem and citem.login then\n\t\t\t\tlocal data = profile.chat:getUserInfo(citem.login)\n\t\t\t\tif data then\n\t\t\t\t\tlocal list = {\n\t\t\t\t\t\t{name=_t\"Show infos\", ui=\"show\"},\n\t\t\t\t\t\t{name=_t\"Whisper\", ui=\"whisper\"},\n\t\t\t\t\t\t{name=_t\"Ignore\", ui=\"ignore\"},\n\t\t\t\t\t\t{name=_t\"Open profile(in browser)\", ui=\"profile\"},\n\t\t\t\t\t\t{name=_t\"[[SOURCE_MATCH_1]]\", ui=\"report\"}\n\t\t\t\t\t}\n\t\t\t\t\tif data.char_link then table.insert(list, 3, {name=_t\"Open charsheet(in browser)\", ui=\"charsheet\"}) end\n\t\t\t\t\tDialog:listPopup((\"User: \"):tformat(citem.login), _t\"Action\", list, 300, 200, function(sel)\n\t\t\t\t\t\tif not sel or not sel.ui then return end\n\t\t\t\t\t\tif sel.ui == \"show\" then\n\t\t\t\t\t\t\tlocal UserInfo = require \"engine.dialogs.UserInfo\"\n\t\t\t\t\t\t\tgame:registerDialog(UserInfo.new(data))\n\t\t\t\t\t\telseif sel.ui == \"profile\" then\n\t\t\t\t\t\t\tutil.browserOpenUrl(data.profile, {is_external=true})\n\t\t\t\t\t\telseif sel.ui == \"charsheet\" then\n\t\t\t\t\t\t\tutil.browserOpenUrl(data.char_link, {is_external=true})\n\t\t\t\t\t\telseif sel.ui == \"whisper\" then",
+      "response": null
+    },
+    {
+      "base_ordinal": 8,
+      "audit_id": "A021",
+      "profile": "dialogue",
+      "source": "Open profile(in browser)",
+      "target": "打开用户信息（在浏览器里打开）",
+      "source_context": "\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\n\t\t\tif citem and citem.login then\n\t\t\t\tlocal data = profile.chat:getUserInfo(citem.login)\n\t\t\t\tif data then\n\t\t\t\t\tlocal list = {\n\t\t\t\t\t\t{name=_t\"Show infos\", ui=\"show\"},\n\t\t\t\t\t\t{name=_t\"Whisper\", ui=\"whisper\"},\n\t\t\t\t\t\t{name=_t\"Ignore\", ui=\"ignore\"},\n\t\t\t\t\t\t{name=_t\"[[SOURCE_MATCH_1]]\", ui=\"profile\"},\n\t\t\t\t\t\t{name=_t\"Report for bad behavior\", ui=\"report\"}\n\t\t\t\t\t}\n\t\t\t\t\tif data.char_link then table.insert(list, 3, {name=_t\"Open charsheet(in browser)\", ui=\"charsheet\"}) end\n\t\t\t\t\tDialog:listPopup((\"User: \"):tformat(citem.login), _t\"Action\", list, 300, 200, function(sel)\n\t\t\t\t\t\tif not sel or not sel.ui then return end\n\t\t\t\t\t\tif sel.ui == \"show\" then\n\t\t\t\t\t\t\tlocal UserInfo = require \"engine.dialogs.UserInfo\"\n\t\t\t\t\t\t\tgame:registerDialog(UserInfo.new(data))\n\t\t\t\t\t\telseif sel.ui == \"profile\" then\n\t\t\t\t\t\t\tutil.browserOpenUrl(data.profile, {is_external=true})\n\t\t\t\t\t\telseif sel.ui == \"charsheet\" then\n\t\t\t\t\t\t\tutil.browserOpenUrl(data.char_link, {is_external=true})",
+      "response": null
+    },
+    {
+      "base_ordinal": 9,
+      "audit_id": "A016",
+      "profile": "dialogue",
+      "source": "You must wear this object to use it!",
+      "target": "你必须装备这件物品才能使用它！",
+      "source_context": "\n\tself.key:addBinds{ EXIT = function() game:unregisterDialog(self) end, }\nend\n\nfunction _M:use(item)\n\tif not item then return end\n\tgame:unregisterDialog(self)\n\n\tlocal act = item.action\n\n\tif act == \"use\" then\n\t\tif self.object:wornInven() and not self.object.wielded and not self.object.use_no_wear then\n\t\t\tself:simplePopup(_t\"Impossible\", _t\"[[SOURCE_MATCH_1]]\")\n\t\telse\n\t\t\tself.actor:playerUseItem(self.object, self.item, self.inven, self.onuse)\n\t\t\tself.onuse(self.inven, self.item, self.object, true)\n\t\tend\n\telseif act == \"identify\" then\n\t\tself.object:identify(true)\n\t\tself.onuse(self.inven, self.item, self.object, false)\n\telseif act == \"drop\" then\n\t\tif self.object:getNumber() > 1 then\n\t\t\tgame:registerDialog(GetQuantity.new(_t\"Drop how many?\", (\"1 to %d\"):tformat(self.object:getNumber()), self.object:getNumber(), self.object:getNumber(), function(qty)\n\t\t\t\tqty = util.bound(qty, 1, self.object:getNumber())\n\t\t\t\tself.actor:doDrop(self.inven, self.item, function() self.onuse(self.inven, self.item, self.object, false) end, qty)",
+      "response": null
+    },
+    {
+      "base_ordinal": 10,
+      "audit_id": "A006",
+      "profile": "dialogue",
+      "source": "@playername@, you are called to serve. The nearby unhallowed morass inhabitants are growing restless.\nYou must go there and find the source.",
+      "target": "@playername@，你效力的时候到了。附近不洁沼泽中的居民正在蠢蠢欲动。\n你必须去那里，找到这一切的源头。",
+      "source_context": "-- This program is distributed in the hope that it will be useful,\n-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nnewChat{ id=\"welcome\",\n\ttext = _t[[[[SOURCE_MATCH_1]]]],\n\tanswers = {\n\t\t{_t\"I will, Grand Keeper.\", action=function() game:changeLevel(1, \"unhallowed-morass\") end},\n\t\t{_t\"I am sorry, but I cannot do that.\", action=function(npc, player) player:setQuestStatus(\"start-point-zero\", engine.Quest.FAILED) end},\n\t}\n}\n\nreturn \"welcome\"\n",
+      "response": null
+    },
+    {
+      "base_ordinal": 31,
+      "audit_id": "A088",
+      "profile": "narrative",
+      "source": "Amassed 3000 gold pieces.",
+      "target": "积累3000金币。",
+      "source_context": "\timage = \"object/money_large.png\",\n\tshow = \"name\",\n\tdesc = _t[[Amassed 1000 gold pieces.]],\n\tcan_gain = function(self, who)\n\t\treturn who.money >= 1000\n\tend,\n}\n\nnewAchievement{\n\tname = \"Treasure Hoarder\",\n\timage = \"object/money_large.png\",\n\tshow = \"name\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n\tcan_gain = function(self, who)\n\t\treturn who.money >= 3000\n\tend,\n}\n\nnewAchievement{ id = \"DRAGON_GREED\",\n\tname = \"Dragon's Greed\",\n\timage = \"object/money_large.png\",\n\tshow = \"name\", huge=true,\n\tdesc = _t[[Amassed 8000 gold pieces.]],\n\tcan_gain = function(self, who)\n\t\treturn who.money >= 8000",
+      "response": null
+    },
+    {
+      "base_ordinal": 32,
+      "audit_id": "A099",
+      "profile": "narrative",
+      "source": "Tales of the Spellblaze",
+      "target": "魔法大爆炸的故事",
+      "source_context": "-- This program is distributed in the hope that it will be useful,\n-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nnewAchievement{\n\tname = \"[[SOURCE_MATCH_1]]\", id = \"SPELLBLAZE_LORE\",\n\tdesc = _t[[Learned the eight chapters of the Spellblaze Chronicles.]],\n\tshow = \"full\",\n\tmode = \"player\",\n\tcan_gain = function(self, who, obj)\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-1\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-2\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-3\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-4\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-5\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-6\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-7\") then return false end\n\t\tif not game.party:knownLore(\"spellblaze-chronicles-8\") then return false end",
+      "response": null
+    },
+    {
+      "base_ordinal": 33,
+      "audit_id": "A110",
+      "profile": "narrative",
+      "source": "Stabilized the Abashed Expanse to maintain it in orbit.",
+      "target": "控制次元浮岛使其稳定在轨道上。",
+      "source_context": "\tname = \"Paradoxology\", id = \"PARADOX_FULL\",\n\tshow = \"name\",\n\tdesc = _t[[Both killed your future self and got killed by your future self.]],\n}\nnewAchievement{\n\tname = \"Explorer\", id = \"EXPLORER\",\n\tshow = \"name\",\n\tdesc = _t[[Used the Sher'Tul fortress exploratory farportal at least 7 times with the same character.]],\n}\nnewAchievement{\n\tname = \"Orbituary\", id = \"ABASHED_EXPANSE\",\n\tshow = \"name\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\nnewAchievement{\n\tname = \"Wibbly Wobbly Timey Wimey Stuff\", id = \"UNHALLOWED_MORASS\",\n\tshow = \"name\",\n\tdesc = _t[[Killed the weaver queen and the temporal defiler.]],\n}\nnewAchievement{\n\tname = \"Matrix style!\", id = \"ABASHED_EXPANSE_NO_BLAST\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Finished the whole Abashed Expanse zone without being hit by a single void blast or manaworm. Dodging's fun!]],\n\tcan_gain = function(self, who, zone)\n\t\tif not who:isQuestStatus(\"start-archmage\", engine.Quest.DONE) then return false end",
+      "response": null
+    },
+    {
+      "base_ordinal": 34,
+      "audit_id": "R085",
+      "profile": "narrative",
+      "source": "Records of Lorekeeper Hadak part three",
+      "target": "博学者哈达克的记录，第三部分",
+      "source_context": "\tname = _t\"Records of Lorekeeper Hadak part two\",\n\tlore = _t[[After fighting back the other races we began to build and prosper. Finally we had our own towns and cities, and we began to advance our own abilities. Though battles were still ongoing at our borders we were free to thrive and prosper.\n\nBut then the accursed Shaloren mages began experimenting with Sher'Tul ruins. Oh what a dark and terrible a day it was for our race! The Spellblaze massacred our people. Earthquakes tore up our new-built towns, fires raged over old and young alike, and the whole world was turned to turmoil. Afterwards disease and blight ravaged our people, utterly ruining all the progress we had made.\n\nOnly the strongest of us lived through the dark times that followed. We fled east, back to our dark and hidden places, but our people swore terrible oaths of vengeance on the races that had brought such bloody ruin upon us.]],\n\ton_learn = function(who) world:gainAchievement(\"ORC_LORE\") end,\n}\n\nnewLore{\n\tid = \"orc-history-3\",\n\tcategory = \"orc prides\",\n\tname = _t\"[[SOURCE_MATCH_1]]\",\n\tlore = _t[[During the Age of Dusk we lay hidden, nursing our wounds and plotting our revenge. But this turned against us, as centuries after the Spellblaze had torn our race apart, the Cataclysm would bring ruin upon us again. We were finally recovering our numbers when earthquakes tore through all of our settlements. Falling rocks crushed and smothered us, thousands of us were left trapped to die beneath the ground. What few of us were left came out to a changed world.\n\nThe effects of magic left a grave impression on us then, and we knew we must learn its secrets in order to compete. For centuries we studied the effects of the Spellblaze, and captured enemy mages to experiment on them. Finally we were able to master the arts of magic and use them for ourselves. We built up our capabilities in secret, waiting for the right moment to strike a decisive vengeance. Garkul the Devourer, the greatest of our race, brought the plans to fruition. Under his awe-inspiring leadership we marched out upon the halfling kingdoms and burnt all before us. What glorious retribution we had! Whole cities were felled beneath our wrath. Everywhere we went we piled the bodies of our victims high and lit them in blazing pyres, as a symbol of our indomitable strength.\n\nThe Age of Pyre was our age, the time when we showed ourselves the strongest of the races, standing alone and unbeatable.]],\n\ton_learn = function(who) world:gainAchievement(\"ORC_LORE\") end,\n}\n\nnewLore{\n\tid = \"orc-history-4\",\n\tcategory = \"orc prides\",\n\tname = _t\"Records of Lorekeeper Hadak part four\",",
+      "response": null
+    },
+    {
+      "base_ordinal": 35,
+      "audit_id": "R103",
+      "profile": "narrative",
+      "source": "Have 100 walls on the sludgenest turn into hostile creatures.",
+      "target": "让淤泥巢穴中的 100 面墙变成敌对生物。",
+      "source_context": "\tdesc = _t[[Killed a Bringer of Doom.]],\n}\n\nnewAchievement{\n\tname = \"A living one!\", id = \"CALDIZAR\",\n\tshow = \"name\", huge=true,\n\tdesc = _t[[Was teleported into Caldizar's Fortress, far into the void between the stars.]],\n}\n\nnewAchievement{\n\tname = \"Slimefest\", id = \"SLUDGENEST100\",\n\tshow = \"full\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\n\nnewAchievement{\n\tname = \"Slime killer party\", id = \"SLUDGENEST200\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Have 200 walls on the sludgenest turn into hostile creatures.]],\n}\n\nnewAchievement{\n\tname = \"Mad slime dash\", id = \"SLUDGENEST300\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Have 300 walls on the sludgenest turn into hostile creatures.]],",
+      "response": null
+    },
+    {
+      "base_ordinal": 36,
+      "audit_id": "A081",
+      "profile": "narrative",
+      "source": "Killed a boss while already dead.",
+      "target": "在已死亡的状态下杀死一个BOSS。",
+      "source_context": "\t\t\treturn true\n\t\tend\n\tend,\n\ton_gain = function(_, src, personal)\n--\t\tgame:setAllowedBuild(\"construct\")\n--\t\tgame:setAllowedBuild(\"construct_runic_golem\", true)\n\tend,\n}\n\nnewAchievement{\n\tname = \"Take you with me\", id = \"BOSS_REVENGE\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n\tmode = \"player\",\n\tcan_gain = function(self, who, target)\n\t\tlocal p = game.party:findMember{main=true}\n\t\tif target.rank >= 3.5 and p.dead then\n\t\t\treturn true\n\t\tend\n\tend,\n}\n\nnewAchievement{\n\tname = \"Look at me, I'm playing a roguelike!\", id = \"SELF_CENTERED\",\n\tshow = \"name\",",
+      "response": null
+    },
+    {
+      "base_ordinal": 37,
+      "audit_id": "R099",
+      "profile": "narrative",
+      "source": "Got to level 10 of the infinite dungeon.",
+      "target": "到达无尽地下城第10层。",
+      "source_context": "-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n-- GNU General Public License for more details.\n--\n-- You should have received a copy of the GNU General Public License\n-- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n--\n-- Nicolas Casalini \"DarkGod\"\n-- darkgod@te4.org\n\nnewAchievement{\n\tname = \"Infinite x10\",\n\tshow = \"full\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n}\nnewAchievement{\n\tname = \"Infinite x20\",\n\tshow = \"full\",\n\tdesc = _t[[Got to level 20 of the infinite dungeon.]],\n}\nnewAchievement{\n\tname = \"Infinite x30\",\n\tshow = \"full\",\n\tdesc = _t[[Got to level 30 of the infinite dungeon.]],\n}\nnewAchievement{",
+      "response": null
+    },
+    {
+      "base_ordinal": 38,
+      "audit_id": "A071",
+      "profile": "narrative",
+      "source": "which you do not understand: #{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#",
+      "target": "不明意义的文字：#{italic}#'Batialatoth ro Eyal, ik rinsi akan fronseth sumit kurameth ik linnet pora gasios aeren. Ach nen beswar goreg.'#{normal}#",
+      "source_context": "\timage = \"shertul_fortress_lore3.png\",\n\tlore = function() return _t[[This picture shows the huge god holding some smaller figures in his hands and pointing out at the lands beyond. You imagine these figures must be the Sher'Tul.\nThere is some text beneath ]]..(not game.player:attr(\"speaks_shertul\") and _t[[which you do not understand: #{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"'#{normal}#]] or _t[[#{italic}#'And AMAKTHEL made the SHER'TUL, and gave unto us the powers to achieve all that we set our will to, and said to us \"Go forth to where the light touches and take all for your own.\"'#{normal}#]])\n\tend,\n}\n\nnewLore{\n\tid = \"shertul-fortress-4\",\n\tcategory = \"sher'tul\",\n\tname = _t\"fourth mural painting\", always_pop = true,\n\timage = \"shertul_fortress_lore4.png\",\n\tlore = function() return _t[[You see a mural showing a huge metropolis made of crystal, with small islands of stone floating in the air behind it. In the foreground is sitting a Sher'Tul, with a hand stretched up to the sky.\nThere is some text beneath ]]..(not game.player:attr(\"speaks_shertul\") and _t[[[[SOURCE_MATCH_1]]]] or _t[[#{italic}#'We conquered the world, and built for ourselves towering cities of crystal and fortresses that travelled the skies. But some were not content...'#{normal}#]])\n\tend,\n}\n\nnewLore{\n\tid = \"shertul-fortress-5\",\n\tcategory = \"sher'tul\",\n\tname = _t\"fifth mural painting\", always_pop = true,\n\timage = \"shertul_fortress_lore5.png\",\n\tlore = function() return _t[[This mural shows nine Sher'Tul standing side by side, each holding aloft a dark weapon. Your eyes are drawn to a runed staff held by the red-robed figure in the centre. It seems familiar somehow...\nThere is some text beneath ]]..(not game.player:attr(\"speaks_shertul\") and _t[[which you do not understand: #{italic}#'Zubadon koref noch hesen, ik dorudon koref noch pasor. Cosief maro dondreth karatu - Ranaduzil - ik jein belsan ovrienis.'#{normal}#]] or _t[[#{italic}#'Of pride we accepted no equals, and of greed we accepted no servitude. We made for ourselves terrible weapons - the Godslayers - and nine were chosen to wield them.'#{normal}#]])\n\tend,\n}",
+      "response": null
+    },
+    {
+      "base_ordinal": 39,
+      "audit_id": "R084",
+      "profile": "narrative",
+      "source": "Kickin' it old-school",
+      "target": "复古风格",
+      "source_context": "\tend,\n}\n\nnewAchievement{\n\tname = \"I'm a cool hero\", id = \"NO_DERTH_DEATH\",\n\timage = \"npc/humanoid_human_human_farmer.png\",\n\tshow = \"name\", huge=true,\n\tdesc = _t[[Saved Derth without a single inhabitant dying.]],\n\tmode = \"player\",\n}\n\nnewAchievement{\n\tname = \"[[SOURCE_MATCH_1]]\", id = \"FIRST_BOSS_URKIS\",\n\timage = \"npc/humanoid_human_urkis__the_high_tempest.png\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Killed Urkis, the Tempest, causing him to drop the Rod of Recall.]],\n\tmode = \"player\",\n}\n\nnewAchievement{\n\tname = \"Leave the big boys alone\", id = \"FIRST_BOSS_MASTER\",\n\timage = \"npc/the_master.png\",\n\tshow = \"full\", huge=true,\n\tdesc = _t[[Killed The Master, causing him to drop the Rod of Recall.]],\n\tmode = \"player\",",
+      "response": null
+    },
+    {
+      "base_ordinal": 40,
+      "audit_id": "A107",
+      "profile": "narrative",
+      "source": "Killed oneself as a halfling.",
+      "target": "选择半身人种族并杀死自己。",
+      "source_context": "\tdesc = _t[[Returned from the dead.]],\n}\n\nnewAchievement{\n\tname = \"Utterly Destroyed\", id = \"EIDOLON_DEATH\",\n\tshow = \"name\",\n\tdesc = _t[[Died on the Eidolon Plane.]],\n}\n\nnewAchievement{\n\tname = \"Fool of a Took!\", id = \"HALFLING_SUICIDE\",\n\tshow = \"name\",\n\tdesc = _t[[[[SOURCE_MATCH_1]]]],\n\tcan_gain = function(self, who)\n\t\tif who.descriptor and who.descriptor.race == \"Halfling\" then return true end\n\tend\n}\n\nnewAchievement{\n\tname = \"Emancipation\", id = \"EMANCIPATION\",\n\timage = \"npc/alchemist_golem.png\",\n\tshow = \"name\", huge=true,\n\tdesc = _t[[Had the golem kill a boss while its master was already dead.]],\n\tmode = \"player\",\n\tcan_gain = function(self, who, target)",
+      "response": null
+    }
+  ]
+}

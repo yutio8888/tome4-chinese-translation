@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+import fs from'node:fs';import path from'node:path';import{fileURLToPath}from'node:url';import{readJson,shaFile,jsonBytes}from'./lib.mjs';import{expectedCells}from'./phase-verifier.mjs';
+const here=path.dirname(fileURLToPath(import.meta.url)),[kind,phase]=process.argv.slice(2);
+if(!['requests','raw'].includes(kind)||!['discovery','confirmation'].includes(phase))throw Error('usage: node seal-phase.mjs requests|raw discovery|confirmation');
+const release=readJson(path.join(here,'RELEASE-STATE.json')),cells=expectedCells(release,phase);if(!cells.length)throw Error('phase cells unavailable from release selection');
+if(kind==='requests'){
+  const entries=cells.map(c=>{const request_map=`REQUEST-MAP-${phase}-${c.protocol}-${c.run}.json`,p=path.join(here,request_map),m=readJson(p);if(m.lineage?.length!==2)throw Error(`${request_map}: shard count`);for(const x of m.lineage)if(!fs.existsSync(path.join(here,x.request))||shaFile(path.join(here,x.request))!==x.request_sha256)throw Error(`${x.request}: request hash`);return{...c,request_map,request_map_sha256:shaFile(p)}});
+  fs.writeFileSync(path.join(here,`REQUEST-MANIFEST-${phase}.json`),jsonBytes({schema_version:'gemini-context-request-manifest-v1',phase,cells:entries}),{flag:'wx'});
+}else{
+  const request_manifest=`REQUEST-MANIFEST-${phase}.json`,request_manifest_sha256=shaFile(path.join(here,request_manifest)),manifest=readJson(path.join(here,request_manifest));
+  const shards=cells.flatMap(c=>{
+    const request_map=`REQUEST-MAP-${phase}-${c.protocol}-${c.run}.json`,request_map_sha256=shaFile(path.join(here,request_map)),map=readJson(path.join(here,request_map)),member=manifest.cells.find(x=>x.phase===phase&&x.protocol===c.protocol&&x.run===c.run);
+    if(!member||member.request_map!==request_map||member.request_map_sha256!==request_map_sha256)throw Error(`request manifest membership: ${request_map}`);
+    return[1,2].map(shard=>{const lineage=map.lineage.find(x=>x.shard===shard),cell_shard=`${phase}-${c.protocol}-${c.run}-SHARD-${shard}`,raw=`RAW-${cell_shard}.json`,candidate=`CANDIDATE-${cell_shard}.json`,request=`REQUEST-${cell_shard}.txt`;for(const n of[raw,candidate,request])if(!fs.existsSync(path.join(here,n)))throw Error(`missing ${n}`);if(!lineage||lineage.request!==request||lineage.request_sha256!==shaFile(path.join(here,request)))throw Error(`request map membership: ${request}`);const parsedCandidate=readJson(path.join(here,candidate)),execution_cli_snapshot=`EXECUTION-CLI-${cell_shard}.json`;if(parsedCandidate.execution_cli_snapshot!==execution_cli_snapshot||!fs.existsSync(path.join(here,execution_cli_snapshot))||parsedCandidate.execution_cli_snapshot_sha256!==shaFile(path.join(here,execution_cli_snapshot)))throw Error(`execution CLI snapshot lineage: ${cell_shard}`);return{cell_shard,phase,protocol:c.protocol,run:c.run,shard,raw,raw_sha256:shaFile(path.join(here,raw)),candidate,candidate_sha256:shaFile(path.join(here,candidate)),execution_cli_snapshot,execution_cli_snapshot_sha256:parsedCandidate.execution_cli_snapshot_sha256,invocation_started_at_utc:parsedCandidate.invocation_started_at_utc,request,request_sha256:lineage.request_sha256,request_map,request_map_sha256,request_manifest,request_manifest_sha256}});
+  });
+  fs.writeFileSync(path.join(here,`RAW-MANIFEST-${phase}.json`),jsonBytes({schema_version:'gemini-context-raw-manifest-v3',phase,request_manifest,request_manifest_sha256,shards}),{flag:'wx'});
+}

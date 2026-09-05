@@ -1,0 +1,32 @@
+{
+  "schema_version": "gemini-original-a-repeat-metrics-v1",
+  "reference_free": true,
+  "membership_comparison": "Exact JavaScript String.includes with no normalization.",
+  "length_semantics": "JavaScript UTF-16 String.length, matching the frozen v5 parser contract.",
+  "membership_failure_policy": "Membership is descriptive and does not invalidate a structurally valid response.",
+  "per_run_metrics": [
+    "candidate_count",
+    "evidence_membership_count",
+    "evidence_membership_rate",
+    "target_span_membership_count",
+    "target_span_membership_rate",
+    "evidence_mean_character_length",
+    "explanatory_prose_proxy_membership_valid_count",
+    "explanatory_prose_proxy_membership_invalid_count"
+  ],
+  "zero_candidate_policy": "Rates and mean length are null; the run is uninformative.",
+  "interpretation_rules": [
+    "If all three runs are informative and evidence_membership_rate equals 1 in each, classify NOT_REPRODUCED_STOCHASTICITY_PLAUSIBLE.",
+    "If all three runs are informative and evidence_membership_rate is below 1 in each, classify CONSISTENTLY_REPRODUCED.",
+    "If all three runs are informative and rates mix 1 and below 1, classify RUN_TO_RUN_VARIABILITY.",
+    "If any run is zero-candidate or infrastructure/schema-invalid, report it separately and classify INCOMPLETE_FOR_THREE_RUN_RULE."
+  ],
+  "claims_forbidden": [
+    "correctness",
+    "precision",
+    "recall",
+    "effectiveness",
+    "model quality",
+    "generalization"
+  ]
+}

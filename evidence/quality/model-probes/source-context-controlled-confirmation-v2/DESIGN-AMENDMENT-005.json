@@ -1,0 +1,28 @@
+{
+  "schema_version": "source-context-controlled-confirmation-design-amendment-v2",
+  "amendment_id": "DESIGN-AMENDMENT-005",
+  "status": "FROZEN_BEFORE_CLEAN_LOCK_MUTATION_ASSIGNMENT_OR_INFERENCE",
+  "date": "2026-08-28",
+  "supersedes": {
+    "path": "DESIGN-CONTRACT.json#/sample/max_items_per_source_file",
+    "old_value": 2,
+    "new_value": 3
+  },
+  "trigger": "After the registered primary and all 60 ordered narrative reserves completed surface-first/context-second audit, candidates clean in both passes covered 15 narrative source files. The old cap therefore had capacity 28, below the frozen 30-item narrative requirement.",
+  "alternatives_rejected": [
+    "Do not admit two known-defective bases from the sixteenth file.",
+    "Do not change the 30/30 profile balance after seeing target quality.",
+    "Do not extend the already frozen 240-item source screen or select unregistered items.",
+    "Do not replace audited items after clean lock."
+  ],
+  "implementation": {
+    "registered_max_items_per_source_file": 3,
+    "selection_rule": "Apply the deterministic final-selection rank to items adjudicated clean in both independent passes, accepting an item unless its source file has already supplied three selected items.",
+    "expected_actual_dialogue_max": 2,
+    "expected_actual_narrative_max": 3
+  },
+  "interpretation_effect": "The final narrative sample has less source-file dispersion than originally planned. Report source-file clustering descriptively and do not treat route-item cells as independent.",
+  "model_call_occurred": false,
+  "mutation_assignment_occurred": false,
+  "sealed_reference_exists": false
+}

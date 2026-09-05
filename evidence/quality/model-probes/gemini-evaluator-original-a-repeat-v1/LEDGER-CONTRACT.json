@@ -1,0 +1,35 @@
+{
+  "schema_version": "gemini-original-a-repeat-ledger-v1",
+  "cell_order": [
+    "original-a-repeat-1",
+    "original-a-repeat-2",
+    "original-a-repeat-3"
+  ],
+  "max_attempts_per_cell": 1,
+  "agy_process_budget": 3,
+  "inference_call_budget": 3,
+  "retries": 0,
+  "start_keys": [
+    "event",
+    "cell",
+    "attempt",
+    "started_at"
+  ],
+  "finish_keys": [
+    "event",
+    "cell",
+    "attempt",
+    "started_at",
+    "finished_at",
+    "exit_code",
+    "stdout_sha256",
+    "stderr_sha256",
+    "process_success",
+    "envelope_schema_valid",
+    "raw_path"
+  ],
+  "counting_rule": "Every START consumes one agy process, one inference call, and the cell's only attempt; no separate network-call count is claimed.",
+  "artifact_binding_rule": "Every FINISH capture hash must equal the captured stdout/stderr bytes. For a valid envelope, normalized RAW is deterministically rederived from captured stdout with the package parser and must equal the canonical RAW bytes exactly.",
+  "stop_rule": "Stop all later cells after route drift, ledger error, process/network failure, malformed envelope, or schema-invalid output.",
+  "continue_rule": "Continue after structurally valid membership failure or structurally valid zero candidates."
+}

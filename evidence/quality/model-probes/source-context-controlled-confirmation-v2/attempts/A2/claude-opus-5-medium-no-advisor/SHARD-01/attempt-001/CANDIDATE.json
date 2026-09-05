@@ -1,0 +1,241 @@
+{
+  "schema_version": "source-context-controlled-confirmation-candidate-v2",
+  "experiment": "source-context-controlled-confirmation-v2",
+  "wave": "A2",
+  "arm": "A",
+  "run": 2,
+  "shard": "01",
+  "route_key": "opus",
+  "route": "claude-opus-5-medium-no-advisor",
+  "attempt": 1,
+  "request_sha256": "c537832517d62073f60b457d3594f4e28e1003305067ce45099412be9843b800",
+  "input_sha256": "ba3fd57463fe33e17d95daacce9e668329802003058a47e93559524f72e1e5b2",
+  "prompt_sha256": "d1261da88fe7be11e5451df9ebc60b5b8983e07cb24fb5b21d695a228e6390d6",
+  "schema_sha256": "acf8cfc82652cac91700e63ef04dd3942021017d108aa346d187c1785e3c499c",
+  "raw_stdout_sha256": "ff49d9eb2f6580e31f7e8d355b56f808062b957f30c076eeb18ec8f122991ad2",
+  "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "route_metadata": {
+    "initialized_model": "claude-opus-5",
+    "assistant_models": [
+      "claude-opus-5"
+    ],
+    "model_usage": [
+      "claude-opus-5"
+    ],
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 4787,
+      "cache_read_input_tokens": 3051,
+      "output_tokens": 3017,
+      "output_tokens_details": {
+        "thinking_tokens": 1226
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 4787,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [],
+      "speed": "standard"
+    }
+  },
+  "valid": true,
+  "validation_errors": [],
+  "response": {
+    "items": [
+      {
+        "neutral_id": "Q001",
+        "candidates": [],
+        "observation": "条件与动作与源文一致，无实质缺陷。"
+      },
+      {
+        "neutral_id": "Q002",
+        "candidates": [],
+        "observation": "长段落信息基本对应；望远方向（从德斯镇看最后的希望城）与源文一致，未发现客观错误。"
+      },
+      {
+        "neutral_id": "Q003",
+        "candidates": [],
+        "observation": "三句均对应，无缺陷。"
+      },
+      {
+        "neutral_id": "Q004",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "七章",
+            "correction": "删除“七章”，译为“魔法大爆炸的故事”",
+            "evidence": "Tales of the Spellblaze"
+          }
+        ],
+        "observation": "标题被添加了源文没有的数量限定“七章”。"
+      },
+      {
+        "neutral_id": "Q005",
+        "candidates": [],
+        "observation": "eight chapters 对应“8章”，正确。"
+      },
+      {
+        "neutral_id": "Q006",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "主线任务",
+            "correction": "译为“任务”",
+            "evidence": "Quest #CIMSON#Failed!"
+          }
+        ],
+        "observation": "源文只说 Quest，译文增加了“主线”限定。"
+      },
+      {
+        "neutral_id": "Q007",
+        "candidates": [],
+        "observation": "wear 译为“装备”，语义可接受。"
+      },
+      {
+        "neutral_id": "Q008",
+        "candidates": [],
+        "observation": "“点击复制”省略了 clipboard，但语义等价；其余信息完整。"
+      },
+      {
+        "neutral_id": "Q009",
+        "candidates": [],
+        "observation": "意译但保留了“不聊天/来阻止你”的核心信息。"
+      },
+      {
+        "neutral_id": "Q010",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "隐藏鼠标手势轨迹",
+            "correction": "显示鼠标手势轨迹",
+            "evidence": "Display mouse gesture trails"
+          }
+        ],
+        "observation": "Display 被译成相反的“隐藏”。"
+      },
+      {
+        "neutral_id": "Q011",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "DIRECTION",
+            "target_span": "这不是维网。",
+            "correction": "这就是道（正途）。",
+            "evidence": "This is the Way."
+          }
+        ],
+        "observation": "末句既被加上否定，又把 the Way 误译为“维网”。"
+      },
+      {
+        "neutral_id": "Q012",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "ADDITION",
+            "target_span": "我的用户信息",
+            "correction": "用户信息 / 个人档案",
+            "evidence": "Open profile(in browser)"
+          }
+        ],
+        "observation": "源文未限定所属者，译文添加了“我的”。"
+      },
+      {
+        "neutral_id": "Q013",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "即使你懂夏·图尔语也",
+            "correction": "你无法理解的文字",
+            "evidence": "which you do not understand"
+          }
+        ],
+        "observation": "译文添加了源文没有的“懂夏·图尔语”让步条件。"
+      },
+      {
+        "neutral_id": "Q014",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "，达到白银捐赠等级",
+            "correction": "删除该分句",
+            "evidence": "Donated at least 16 euros to Tales of Maj'Eyal."
+          }
+        ],
+        "observation": "译文增加了源文没有的捐赠等级信息。"
+      },
+      {
+        "neutral_id": "Q015",
+        "candidates": [],
+        "observation": "称号与地点均对应，无缺陷。"
+      },
+      {
+        "neutral_id": "Q016",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ACTION",
+            "target_span": "锁定阵营",
+            "correction": "更改阵营",
+            "evidence": "DEBUG -- Alter Faction"
+          }
+        ],
+        "observation": "Alter（更改）被译为“锁定”，动作含义不同。"
+      },
+      {
+        "neutral_id": "Q017",
+        "candidates": [
+          {
+            "verdict": "UNCERTAIN",
+            "claim_type": "ADDITION",
+            "target_span": "永远",
+            "correction": "你无法理解的文字",
+            "evidence": "which you do not understand"
+          }
+        ],
+        "observation": "译文添加了源文没有的时间性强调“永远”。"
+      },
+      {
+        "neutral_id": "Q018",
+        "candidates": [],
+        "observation": "等级数值一致，无缺陷。"
+      },
+      {
+        "neutral_id": "Q019",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "即使我不会提取宝石，",
+            "correction": "删除该让步分句，直接译为“能让我的转化之盒自动提取宝石吗？”",
+            "evidence": "Would it be possible for my Transmogrification Chest to automatically extract gems?"
+          }
+        ],
+        "observation": "译文凭空增加了“我不会提取宝石”的条件。"
+      },
+      {
+        "neutral_id": "Q020",
+        "candidates": [
+          {
+            "verdict": "FINDING",
+            "claim_type": "ADDITION",
+            "target_span": "八章",
+            "correction": "加库尔的传说",
+            "evidence": "The Legend of Garkul"
+          }
+        ],
+        "observation": "标题被添加了源文没有的“八章”。"
+      }
+    ]
+  }
+}

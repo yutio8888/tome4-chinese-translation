@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "items"
+  ],
+  "properties": {
+    "items": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "item_id",
+          "candidates"
+        ],
+        "properties": {
+          "item_id": {
+            "type": "string",
+            "pattern": "^EC-I[0-9]{3}$"
+          },
+          "candidates": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "verdict",
+                "claim_type",
+                "target_span",
+                "correction",
+                "evidence"
+              ],
+              "properties": {
+                "verdict": {
+                  "enum": [
+                    "FINDING",
+                    "UNCERTAIN"
+                  ]
+                },
+                "claim_type": {
+                  "enum": [
+                    "SUBJECT",
+                    "REFERENT",
+                    "EVENT",
+                    "CONDITION",
+                    "SCOPE",
+                    "DIRECTION",
+                    "POLARITY",
+                    "OWNERSHIP",
+                    "ACTION",
+                    "STATE",
+                    "TIMING",
+                    "OMISSION",
+                    "ADDITION",
+                    "FORMAT",
+                    "OTHER"
+                  ]
+                },
+                "target_span": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "correction": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "evidence": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "gemini-context-v2-direct-audit-result-v1",
+  "status": "FINAL_NO_GO_SURFACE_SHORTFALL_ZERO_INFERENCE",
+  "selector_command": "V2_OUTPUT_DIR=<isolated-temp-output> V2_REJECTED_BASES_PATH=<isolated-temp-rejections.json> node select-and-freeze.mjs",
+  "selector_exit_code": 1,
+  "selector_stderr": "Error: exact shortfall: narrative/confirmation 1/16 (same-profile reserve exhausted)\n",
+  "rejected_count": 5,
+  "rejected_ids": [
+    "V2-D-N02",
+    "V2-D-N09",
+    "V2-C-N02",
+    "V2-C-N07",
+    "V2-C-N08"
+  ],
+  "rejection_profile_counts": {
+    "dialogue": 0,
+    "narrative": 5
+  },
+  "replacement_capacity": {
+    "profile": "narrative",
+    "available_reserve_bases": 2,
+    "required_replacements": 5,
+    "replacements_possible": 2
+  },
+  "exact_shortfall": {
+    "profile": "narrative",
+    "required_bases": 5,
+    "replacement_capacity": 2,
+    "shortfall_bases": 3
+  },
+  "live_frozen_package_preserved": true,
+  "inference_allowed": false,
+  "model_calls_made": 0,
+  "network_calls_made": 0,
+  "exact_error": "exact shortfall: narrative/confirmation 1/16 (same-profile reserve exhausted)",
+  "node_version": "v22.22.1"
+}
