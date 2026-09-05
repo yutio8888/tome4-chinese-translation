@@ -424,7 +424,7 @@ t("wall", "墙壁", "entity type")
 t("godfeaster wall", "噬神者墙", "entity name")
 t("godfeaster door", "噬神者门", "entity name")
 t("open godfeaster door", "打开的噬神者门", "entity name")
-t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封印了，你觉得你可以打开它。", "_t")
+t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封住了，你觉得你可以打开它。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/general/grids/maggot.lua"
@@ -440,7 +440,7 @@ t("wall", "墙壁", "entity type")
 t("maggot wall", "蛆虫墙", "entity name")
 t("maggot door", "蛆虫门", "entity name")
 t("open maggot door", "打开的蛆虫门", "entity name")
-t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封印了，你觉得你可以打开它。", "_t")
+t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封住了，你觉得你可以打开它。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/general/grids/scourge.lua"
@@ -472,7 +472,7 @@ t("wall", "墙壁", "entity type")
 t("slimy_godfeaster wall", "史莱姆噬神者墙", "entity name")
 t("slimy_godfeaster door", "史莱姆噬神者门", "entity name")
 t("open slimy_godfeaster door", "打开的史莱姆噬神者门", "entity name")
-t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封印了，你觉得你可以打开它。", "_t")
+t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封住了，你觉得你可以打开它。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/general/grids/spacedwarf-creep.lua"

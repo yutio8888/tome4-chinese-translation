@@ -754,7 +754,7 @@ t("wall", "墙壁", "entity type")
 t("mech wall", "机械墙", "entity name")
 t("mech door", "机械门", "entity name")
 t("open mech door", "打开的机械门", "entity name")
-t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封印了，你觉得你可以打开它。", "_t")
+t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封住了，你觉得你可以打开它。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/general/grids/mechwall.lua"
@@ -770,7 +770,7 @@ t("wall", "墙壁", "entity type")
 t("mech wall", "机械墙", "entity name")
 t("mech door", "机械门", "entity name")
 t("open mech door", "打开的机械门", "entity name")
-t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封印了，你觉得你可以打开它。", "_t")
+t("This door seems to have been sealed off. You think you can open it.", "这扇门似乎被封住了，你觉得你可以打开它。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/general/grids/primal_trunk.lua"
@@ -5189,7 +5189,7 @@ t("%s resists the disarm!", "%s抵抗了缴械!", "logSeen")
 t("Fire two chemical flechettes, dealing %d%% weapon damage as acid and generating %d steam per hit.", "发射两枚化学毒弹，造成 %d%% 酸性武器伤害，每次击中恢复 %d 蒸汽。", "tformat")
 t("Heavy Weapon Expertise", "重装武器精通", "talent name")
 t("You require heavy ammunition and a heavy weapon to use this talent.", "你需要重装武器弹药和重装武器才能使用这一技能。", "logPlayer")
-t("%s resists the stunning blow!", "%s抵抗了震慑打击。", "logSeen")
+t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
 t("%s resists the stunning shock!", "%s抵抗了震慑打击!", "logSeen")
 t([[Your advanced training unlocks specialised techniques, triggering an effect based on your current heavy weapon at the cost of 1 heavy weapon ammunition.
 #AQUAMARINE#Flamethrower#LAST#: Sweep your flamethrower across the ground, dealing %d%% steamgun damage as fire and raising a length 7 wall of fire for 5 turns. Those inside the wall take %0.2f fire damage and have their fire resistance reduced by %d%% for 2 turns.
