@@ -239,3 +239,15 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 字面量、11 个提取器生成键，以及 1 个经显式加载共享对话提供的字面量均已核验。
 `No thanks.` 来自同一固定 commit 的 `artifact-maker.lua:80`，标注商人对话的
 `loadChatFile` 和 `maker_list` 调用关系、双方文件哈希已一并冻结。
+
+## 第十二批完成
+
+`batch-56f5ca2f4dc46845ac7e` 的 80 条 Tome 表层审核全部 OK，已提交为
+`1ca6bc19fca93629addb6cb5d335841cb9424f42` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前 S／done 1,914（surface_only 1,867；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 27,914。30 个批次共 2,015 条历史结果。
+
+恢复后十二批新增 575 条 surface_only。下一连续源码身份切片为 24 条 Tome，
+`batch-2f69451d7f72bea741e7`；finalize 后重新选择与预核验工作集完全一致。
+19 个直接字面量及 5 个提取器生成键已逐条核验，仍按完整四分片审核与门禁流程推进。
