@@ -80,3 +80,15 @@ pin，也不证明源码版本为 1.7.4。机制核验必须记录实际公开�
 - 旧交接披露的五个 chats section 缺受跟踪锚点，以及 quests 的旧范围问题，仍是
   历史审计边界。本次不补造审核证据；现行六组件正式 policy 的逐项覆盖由队列计算。
 - 正式质量研究、Gold／Silver TM 与发布事项不随本次恢复自动启动。
+
+## 恢复过程中发现并关闭的派发兼容问题
+
+交接修复已提交为 `5bf4471`。随后领取的 `batch-41de87485e4b4b8e8bb5` 共 80 条，
+全部固定源码核验通过；其[源码工作集](../evidence/quality/production-batches/batch-41de87485e4b4b8e8bb5-source-workset.json)
+只证明来源，**没有审核完成含义**。首次创建因 MCP labels 仅接受 string 而拒绝 numeric
+`lane_index`，未创建任何 child、未得到任何审核结果；标准 `batch abandon` 已撤销预约。
+
+接口兼容修复 `51ad055` 已完成独立普通／交叉及最终复审、17 项完整门禁和
+`DONE_VERIFIED`，详见[完成记录](paseo-lane-label-compat-20260905.md)。仅创建 label 兼容
+精确 `"1"`..`"4"`；历史整数 labels 保留，结构性 lane index 仍为数值，审核身份与策略未变。
+之后从新 HEAD 重建并领取 fresh batch；原未派发 draft 保留诊断，不复用为完成证据。

@@ -1,5 +1,10 @@
 # Paseo lane label compatibility repair（2026-09-05）
 
+完成回填：普通与跨模型 REVIEW、fresh FINAL_REVIEW 均 PASS，所有 child 已确认归档；
+17 项完整门禁（含严格 addon 构建）及 `DONE_VERIFIED` 通过，修复提交为 `51ad055`。
+门禁机器回执：`.artifacts/i18n/ci-gates/run.v4qaps5r/results.json`。下文为执行者当时的交接，
+其中“由宿主执行”的事项现已完成。
+
 本次仅修复 contextual-v2 与 surface-v1 的创建 `labels.lane_index` 比较。两处共用
 `_creation_lane_label_matches`，接受 JSON 整数 1..4 或精确 ASCII 字符串 `"1"`..`"4"`，
 并匹配原有 numeric lane index；显式拒绝 bool、float、null、缺失、错 lane 及非精确字符串。
