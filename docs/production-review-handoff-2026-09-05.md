@@ -287,3 +287,16 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 恢复后十五批新增 632 条 surface_only。下一连续源码身份切片为 54 条 Orcs，
 `batch-f164b5b90f78169216c4`；finalize 后重新选择与预核验工作集完全一致。
 54 条均已再次核验实际公开源码字面量，源码 repository／commit 未固定；文件哈希和行号已冻结。
+
+## 第十六批完成
+
+`batch-f164b5b90f78169216c4` 的 54 条 Orcs 表层审核全部 OK，已提交为
+`183430263503ea0b471f98de61869c2d2e246204` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前 S／done 2,025（surface_only 1,978；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 27,803。34 个批次共 2,126 条历史结果。
+
+恢复后十六批新增 686 条 surface_only。下一批为 80 条 engine／boot／Tome，
+`batch-1e8f1c8248c513298f78`；finalize 后重新选择与预核验工作集完全一致。
+69 个直接字面量及 11 个提取器生成键已核验；生成键同时记录固定源码字段行号、
+固定 extractor commit 和对应转换规则。生产 selection 保留策略顺序。
