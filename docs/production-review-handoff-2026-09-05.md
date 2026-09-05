@@ -251,3 +251,15 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 恢复后十二批新增 575 条 surface_only。下一连续源码身份切片为 24 条 Tome，
 `batch-2f69451d7f72bea741e7`；finalize 后重新选择与预核验工作集完全一致。
 19 个直接字面量及 5 个提取器生成键已逐条核验，仍按完整四分片审核与门禁流程推进。
+
+## 第十三批完成
+
+`batch-2f69451d7f72bea741e7` 的 24 条 Tome 表层审核全部 OK，已提交为
+`b33cfd400a4210dba94a576c358c091000c0d8da` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前 S／done 1,938（surface_only 1,891；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 27,890。31 个批次共 2,039 条历史结果。
+
+恢复后十三批新增 599 条 surface_only。下一连续源码身份切片为 6 条 Ashes，
+`batch-046aa45bbc4c7b6a3ed9`；finalize 后重新选择与预核验工作集完全一致。
+6 条均已核验实际公开源码字面量，源码 repository／commit 未固定；文件哈希和行号已冻结。
