@@ -1,5 +1,14 @@
 # 正式审核当前交接（2026-09-05）
 
+## 当前状态：PAUSED
+
+用户最新指令为“这批完成后提交、推送并暂停”，覆盖下文历史连续运行安排。
+最后一批 `batch-e07e805f62a7d14ca174` 已完成并 finalize；没有活动批次或待归档 child，
+未选择或派发下一批。本轮收尾提交后按授权推送 `develop`，随后暂停；恢复须等待用户指示。
+
+暂停时当前 S／done 为 2,226（surface_only 2,179；deep_reviewed 47），待修复 0，
+隐式 queued 27,602。恢复后共完成 20 批，新增 887 条 surface_only。以下各节保留历史快照。
+
 本文是当前执行入口，记录恢复基线及连续审核授权；不修改审核契约。后续批次结果以
 Git 中 `evidence/production-review-v2-lite/batches/` 和当前队列重放为准，本文数字是
 恢复时快照。旧 P2 handoff 保留历史原文，不再作为“下一批”的指令。
@@ -339,3 +348,14 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 `batch-e07e805f62a7d14ca174`；finalize 后重新选择与预核验工作集完全一致。
 3 条均已再次核验实际公开源码字面量，源码 repository／commit 未固定；文件哈希和行号已冻结。
 按 surface 契约 n<=3 使用单个全量 reviewer。
+
+## 第二十批完成并暂停
+
+`batch-e07e805f62a7d14ca174` 的 3 条 Ashes 表层审核全部 OK，已提交为
+`a390144e4352ffcfbc25a8a43ed683c06ed62067` 并 finalize。无 observation／修复项；
+任务为 `DONE_VERIFIED`，唯一全量 reviewer 已确认归档。17 项完整门禁及严格 addon build
+全部通过，门禁日志为 `.artifacts/i18n/ci-gates/run.4lgzzoog`，正式回执随批次证据提交。
+
+当前 S／done 2,226（surface_only 2,179；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 27,602。恢复后二十批新增 887 条 surface_only。
+本批是用户指定的最后一批；不继续选择下一切片，完成提交与推送后暂停。
