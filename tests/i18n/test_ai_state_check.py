@@ -23,6 +23,12 @@ import surface_screen_manifest
 import surface_screen_result_check
 
 
+INVALID_CREATION_LANE_LABELS = (
+    "01", " 1", "1 ", "1\n", "+1", "-1", "１", "١", "one", "1.0", "",
+    "0", "5", 0, 5, -1, None, True, False, 1.0, 2.0, 3.0, 4.0, [], {},
+)
+
+
 class StateCheckerFixtureTests(unittest.TestCase):
     """File-backed coverage; tests never scan ignored .ai/task records."""
 
@@ -127,6 +133,81 @@ class StateCheckerFixtureTests(unittest.TestCase):
         ):
             with self.subTest(mutation=mutation.__name__):
                 self.assertNotEqual(self._check_v2(mutation).exit_code, 0)
+
+    def test_contextual_v2_creation_lane_labels_accept_exact_strings_and_integer_history(self) -> None:
+        for representation in (int, str):
+            with self.subTest(representation=representation.__name__):
+                state_path, state, workspace, _ = self._copy_v2_fixture()
+                for dispatch in state["child_dispatches"]:
+                    if "lane_index" in dispatch:
+                        dispatch["labels"]["lane_index"] = representation(dispatch["lane_index"])
+                self._write(state_path, state)
+                result = ai_state_check.check_state(state_path, workspace_root=workspace)
+                self.assertEqual(result.outcome, "DONE_VERIFIED", result.detail)
+                # Checking must leave the actual persisted creation labels untouched.
+                persisted = json.loads((workspace / "STATE.json").read_text())
+                self.assertEqual(persisted["child_dispatches"], state["child_dispatches"])
+
+    def test_contextual_v2_creation_lane_labels_fail_closed(self) -> None:
+        for value in (*INVALID_CREATION_LANE_LABELS, 2, "2", "missing"):
+            with self.subTest(value=value):
+                state_path, state, workspace, _ = self._copy_v2_fixture()
+                labels = state["child_dispatches"][0]["labels"]
+                if value == "missing":
+                    labels.pop("lane_index")
+                else:
+                    labels["lane_index"] = value
+                self._write(state_path, state)
+                result = ai_state_check.check_state(state_path, workspace_root=workspace)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED", result.detail)
+                self.assertIn("creation labels do not bind group/index", result.detail)
+
+    def test_contextual_v2_structural_lane_indices_reject_strings(self) -> None:
+        for field in ("dispatch", "record", "manifest_lane", "manifest_boundary"):
+            with self.subTest(field=field):
+                state_path, state, workspace, _ = self._copy_v2_fixture()
+                dispatch = state["child_dispatches"][0]
+                dispatch["labels"]["lane_index"] = "1"
+                record_path = workspace / state["review_records"][0]
+                record = json.loads(record_path.read_text())
+                if field == "dispatch":
+                    dispatch["lane_index"] = "1"
+                elif field == "record":
+                    record["lane"]["index"] = "1"
+                    self._write(record_path, record)
+                else:
+                    path = workspace / record["lane"]["group_manifest_path"]
+                    manifest = json.loads(path.read_text())
+                    key = "lanes" if field == "manifest_lane" else "lane_boundaries"
+                    manifest["payload"][key][0]["index"] = "1"
+                    # Keep canonical bytes and hash valid to exercise schema validation.
+                    manifest["group_identity"] = hashlib.sha256(
+                        surface_screen_result_check.canonical_bytes(manifest["payload"])
+                    ).hexdigest()
+                    path.write_bytes(surface_screen_result_check.canonical_bytes(manifest))
+                self._write(state_path, state)
+                result = ai_state_check.check_state(state_path, workspace_root=workspace)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED", result.detail)
+
+    def test_contextual_v2_pointer_lane_index_remains_numeric(self) -> None:
+        _, state, workspace, _ = self._copy_v2_fixture()
+        members = []
+        pointers = []
+        for dispatch, record_name in zip(state["child_dispatches"][:4], state["review_records"][:4]):
+            record_path = workspace / record_name
+            record = self._read(record_path)
+            dispatch["labels"]["lane_index"] = str(dispatch["lane_index"])
+            members.append((record, dispatch, record_path))
+            pointers.append({key: dispatch[key] for key in (
+                "role", "purpose", "candidate_identity", "dispatch_id", "input_path",
+                "agent_id", "lane_group_identity", "lane_index",
+            )})
+        state["contextual_reviewers"] = pointers
+        self.assertTrue(ai_state_check._v2_pointer_valid(state, members)[0])
+        pointers[0]["lane_index"] = "1"
+        valid, detail = ai_state_check._v2_pointer_valid(state, members)
+        self.assertFalse(valid)
+        self.assertIn("does not bind the current dispatch", detail)
 
     def test_contextual_v2_dispatch_prompt_is_gated_for_all_records(self) -> None:
         with patch.object(
@@ -2028,6 +2109,61 @@ class SurfaceScreenContractTests(unittest.TestCase):
         self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=5)
         result = self._verify(workspace, state)
         self.assertEqual(result.outcome, "DONE_VERIFIED")
+
+    def test_surface_creation_lane_labels_accept_exact_strings_and_integer_history(self) -> None:
+        for representation in (int, str):
+            with self.subTest(representation=representation.__name__):
+                workspace, state, _ = self._workspace()
+                self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=5)
+                for dispatch in state["child_dispatches"]:
+                    if "lane_index" in dispatch:
+                        dispatch["labels"]["lane_index"] = representation(dispatch["lane_index"])
+                result = self._verify(workspace, state)
+                self.assertEqual(result.outcome, "DONE_VERIFIED", result.detail)
+                # Checking must leave the actual persisted creation labels untouched.
+                persisted = json.loads((workspace / "STATE.json").read_text())
+                self.assertEqual(persisted["child_dispatches"], state["child_dispatches"])
+
+    def test_surface_creation_lane_labels_fail_closed(self) -> None:
+        for value in (*INVALID_CREATION_LANE_LABELS, 2, "2", "missing"):
+            with self.subTest(value=value):
+                workspace, state, _ = self._workspace()
+                self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=5)
+                labels = state["child_dispatches"][0]["labels"]
+                if value == "missing":
+                    labels.pop("lane_index")
+                else:
+                    labels["lane_index"] = value
+                result = self._verify(workspace, state)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED", result.detail)
+                self.assertIn("creation labels do not bind group/index", result.detail)
+
+    def test_surface_structural_lane_indices_reject_strings(self) -> None:
+        for field in ("dispatch", "record", "manifest_lane", "manifest_boundary"):
+            with self.subTest(field=field):
+                workspace, state, _ = self._workspace()
+                self._add_surface_stage(workspace, state, phase="REVIEW", cycle=0, attempt=1, count=5)
+                dispatch = state["child_dispatches"][0]
+                dispatch["labels"]["lane_index"] = "1"
+                record_path = workspace / state["review_records"][0]
+                record = json.loads(record_path.read_text())
+                if field == "dispatch":
+                    dispatch["lane_index"] = "1"
+                elif field == "record":
+                    record["lane"]["index"] = "1"
+                    self._write(record_path, record)
+                else:
+                    path = workspace / record["lane"]["group_manifest_path"]
+                    manifest = json.loads(path.read_text())
+                    key = "lanes" if field == "manifest_lane" else "lane_boundaries"
+                    manifest["payload"][key][0]["index"] = "1"
+                    # Keep canonical bytes and hash valid to exercise schema validation.
+                    manifest["group_identity"] = hashlib.sha256(
+                        surface_screen_result_check.canonical_bytes(manifest["payload"])
+                    ).hexdigest()
+                    path.write_bytes(surface_screen_result_check.canonical_bytes(manifest))
+                result = self._verify(workspace, state)
+                self.assertEqual(result.outcome, "NEW_CONTRACT_FAILED", result.detail)
 
     def test_review_only_translation_workflow_surface_is_done_verified_without_code_terminal(self) -> None:
         # CF-13: surface is translation_workflow under the active definition;

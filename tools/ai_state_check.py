@@ -797,6 +797,13 @@ def _v2_pointer_valid(
     return True, "ok"
 
 
+def _creation_lane_label_matches(value: object, index: int) -> bool:
+    """Accept only exact transport strings or historical JSON integer labels."""
+    if type(value) is int:
+        return 1 <= value <= 4 and value == index
+    return type(value) is str and value in ("1", "2", "3", "4") and value == str(index)
+
+
 def _claim_lane_group_identifiers(
     group_id: str,
     group_identity: str,
@@ -969,7 +976,11 @@ def _translation_v2_convergence_valid(
             ):
                 return False, f"lane {index} record/dispatch/manifest binding mismatch"
             labels = dispatch.get("labels")
-            if not isinstance(labels, dict) or labels.get("lane_group_identity") != lane["group_identity"] or labels.get("lane_index") != index:
+            if (
+                not isinstance(labels, dict)
+                or labels.get("lane_group_identity") != lane["group_identity"]
+                or not _creation_lane_label_matches(labels.get("lane_index"), index)
+            ):
                 return False, f"lane {index} creation labels do not bind group/index"
         workset = manifest_payload["workset"]
         stage_info.append((stage_key, "lane_group", manifest["group_identity"], workset["ordered_revision_keys"], [x["source"] for x in workset["translation_snapshot"]], phase, workset["fixed_source_identity"]))
@@ -1291,7 +1302,7 @@ def _surface_stage_info(
             if (
                 not isinstance(labels, dict)
                 or labels.get("lane_group_identity") != lane["group_identity"]
-                or labels.get("lane_index") != index
+                or not _creation_lane_label_matches(labels.get("lane_index"), index)
             ):
                 return False, f"surface lane {index} creation labels do not bind group/index"
         workset = manifest_payload["workset"]

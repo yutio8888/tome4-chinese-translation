@@ -104,6 +104,13 @@ payload 恰含 `contract`（精确 `translation_surface_screen_v1_lane_group`）
 正长度、q/r 平衡、无 gap/overlap、尾端等于 n，以及四个 envelope 切片的 ordered union
 精确等于 workset；manifest、envelope、dispatch、record 四方 identity/path/index 必须相等。
 
+创建 `labels.lane_index` 兼容历史 JSON 整数 1..4 与传输返回的精确 ASCII 字符串
+`"1"`..`"4"`，且必须对应同一 numeric lane index；拒绝 bool、float、null、缺失、
+前导零、空白、符号、非 ASCII 数字、越界与错 lane。按实际返回值保存 labels，不规范化或
+重写 STATE／历史记录。此兼容只适用于创建 label；dispatch／pointer 的 `lane_index`、
+record 的 `lane.index` 与 manifest indices 仍为数值。candidate／envelope／group identity
+公式及 terminal、分组、重试、provenance、独立性与源码范围均不变。
+
 ## 四、STATE、raw evidence 与 terminal predicate
 
 解析前把 exact returned bytes 保存为 `.ai/reviews/<task_id>/raw-<dispatch_id>.txt`。每个

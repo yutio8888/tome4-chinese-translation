@@ -45,6 +45,13 @@ lane record 的 `review_kind=lane`，`lane` object 恰含 `group_id`、`group_id
 `lane_group_identity` 和 `lane_index`。四个 dispatch/agent 必须不同，均为 ORCHESTRATOR 的
 direct child；reviewer 彼此不得读取其他 lane raw/findings。四 lane 不要求模型多样性。
 
+创建 `labels.lane_index` 兼容历史 JSON 整数 1..4 与传输返回的精确 ASCII 字符串
+`"1"`..`"4"`，且必须对应同一 numeric lane index；拒绝 bool、float、null、缺失、
+前导零、空白、符号、非 ASCII 数字、越界与错 lane。按实际返回值保存 labels，不规范化或
+重写 STATE／历史记录。此兼容只适用于创建 label；dispatch／pointer 的 `lane_index`、
+record 的 `lane.index` 与 manifest indices 仍为数值。candidate／envelope／group identity
+公式及 terminal、分组、重试、provenance、独立性与源码范围均不变。
+
 ## 四、STATE、stage 与恢复
 
 v2 禁止单数 `contextual_reviewer`，使用 `contextual_reviewers`。lane 创建时仅允许同组有序
