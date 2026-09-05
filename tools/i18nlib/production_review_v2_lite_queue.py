@@ -18,6 +18,7 @@ from . import production_review as wp1
 from . import production_review_v2_lite as catalog
 from . import production_review_v2_lite_evidence as evidence
 from . import git_evidence_reader
+from .production_review_v2_lite_progress import Progress
 import contextual_result_check as contextual_check
 
 RUNTIME_RELATIVE = Path(".artifacts/i18n/production-review-v2-lite")
@@ -627,12 +628,14 @@ def _batch_rows(root: Path, treeish: str, manifest_path: str, catalog_manifest: 
     return commit, output
 
 
-def _projection(root: Path, treeish: str) -> tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]]:
+def _projection(root: Path, treeish: str, *, progress: dict[str, Any] | None = None) -> tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]]:
     with git_evidence_reader.projection_scope(root):
-        return _projection_contents(root, treeish)
+        if progress is None:
+            return _projection_contents(root, treeish)
+        return _projection_contents(root, treeish, progress=progress)
 
 
-def _projection_contents(root: Path, treeish: str) -> tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]]:
+def _projection_contents(root: Path, treeish: str, *, progress: dict[str, Any] | None = None) -> tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]]:
     evidence_head = _head(root, treeish)
     manifest, entries, _files = _catalog_from_tree(root, evidence_head)
     tree = _tree(root, evidence_head)
@@ -695,6 +698,7 @@ def _projection_contents(root: Path, treeish: str) -> tuple[str, dict[str, Any],
     order = {commit: index for index, commit in enumerate(topo)}
     candidates: list[tuple[int, bytes, str, tuple[Any, ...]]] = []
     by_revision = {row["entry_revision_identity"]: row for row in entries}
+    progress_collector = Progress(entries) if progress is not None else None
     for path, batch_manifest, source_manifest, source_entries in batch_records:
         source_by_revision = {row["entry_revision_identity"]: row for row in source_entries}
         commit, source_rows = _batch_rows(root, evidence_head, path, source_manifest, source_by_revision)
@@ -704,6 +708,12 @@ def _projection_contents(root: Path, treeish: str) -> tuple[str, dict[str, Any],
         # the chain.  Its current successor remains implicit queued; no
         # durable state is guessed from an old revision.
         rows = _unchanged_rows_through_chain(source_rows, chain, set(by_revision))
+        if progress_collector is not None:
+            # These exact bytes were validated by _batch_rows in this replay;
+            # the scoped reader reuses the blob, without a second projection.
+            results = wp1.parse_jsonl(_ordinary_blob(
+                root, tree, path.rsplit("/", 1)[0] + "/results.jsonl"), "batch results")
+            progress_collector.observe(source_rows, rows, results, chain)
         for row in rows:
             if row[0] not in by_revision:
                 raise _error("historical durable result mapped outside the current catalog")
@@ -717,6 +727,8 @@ def _projection_contents(root: Path, treeish: str) -> tuple[str, dict[str, Any],
             raise _error("incompatible duplicate durable conclusions")
         winners[revision] = candidate
     overrides = [item[3] for item in sorted(winners.values(), key=lambda item: item[3][0])]
+    if progress_collector is not None:
+        progress.update(progress_collector.report(overrides))
     return evidence_head, manifest, entries, overrides, reconciliation
 
 
@@ -901,15 +913,23 @@ def init(root: Path) -> dict[str, Any]:
         if database_path(root).exists() or database_path(root).is_symlink():
             raise _error("queue database already exists; use queue rebuild")
         _no_checkpoint(root); _clean_evidence(root)
-        projection = _projection(root, "HEAD")
-        return _replace(root, projection)
+        progress: dict[str, Any] = {}
+        projection = _projection(root, "HEAD", progress=progress)
+        report = _replace(root, projection)
+        report["progress"] = progress
+        report["override_basis"] = "sqlite_state_codes"
+        return report
 
 
 def rebuild(root: Path, *, treeish: str = "HEAD") -> dict[str, Any]:
     with writer_lock(root):
         _no_checkpoint(root); _clean_evidence(root)
-        projection = _projection(root, treeish)
-        return _replace(root, projection)
+        progress: dict[str, Any] = {}
+        projection = _projection(root, treeish, progress=progress)
+        report = _replace(root, projection)
+        report["progress"] = progress
+        report["override_basis"] = "sqlite_state_codes"
+        return report
 
 
 def strict_check(root: Path, *, treeish: str = "HEAD") -> dict[str, Any]:
@@ -927,25 +947,35 @@ def strict_check(root: Path, *, treeish: str = "HEAD") -> dict[str, Any]:
 def check(root: Path, *, treeish: str = "HEAD") -> dict[str, Any]:
     active = writer_active(root)
     _clean_evidence(root)
-    projection = _projection(root, treeish)
+    progress: dict[str, Any] = {}
+    projection = _projection(root, treeish, progress=progress)
     try:
-        return _check_projection(root, treeish, projection, active_writer=active)
+        report = _check_projection(root, treeish, projection, active_writer=active)
+        report["override_basis"] = "sqlite_state_codes"
     except wp1.ProductionReviewError:
         if not active:
             raise
-        return _fallback_report(root, projection, active_writer=True)
+        report = _fallback_report(root, projection, active_writer=True)
+        report["override_basis"] = "committed_evidence_state_codes"
+    report["progress"] = progress
+    return report
 
 
 def status(root: Path, *, treeish: str = "HEAD", allow_missing: bool = False) -> dict[str, Any]:
     active = writer_active(root)
     _clean_evidence(root)
-    projection = _projection(root, treeish)
+    progress: dict[str, Any] = {}
+    projection = _projection(root, treeish, progress=progress)
     try:
-        return _check_projection(root, treeish, projection, active_writer=active)
+        report = _check_projection(root, treeish, projection, active_writer=active)
+        report["override_basis"] = "sqlite_state_codes"
     except wp1.ProductionReviewError:
         if not (allow_missing or active):
             raise
-        return _fallback_report(root, projection, active_writer=active)
+        report = _fallback_report(root, projection, active_writer=active)
+        report["override_basis"] = "committed_evidence_state_codes"
+    report["progress"] = progress
+    return report
 
 
 def _tree_id(root: Path, commit: str) -> str:

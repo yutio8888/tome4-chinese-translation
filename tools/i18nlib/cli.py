@@ -3997,7 +3997,14 @@ def _production(arguments: argparse.Namespace) -> int:
             print(f"catalog {report['catalog_id']}")
             print(f"evidence HEAD {report['evidence_head']}")
             states = ", ".join(f"{key}={value}" for key, value in report["explicit_overrides"].items()) or "none"
-            print(f"overrides {states}; queued={report['implicit_queued']}; reconciliation={report['reconciliation_count']}")
+            print(f"raw state codes ({report['override_basis']}) {states}; queued={report['implicit_queued']}; reconciliation={report['reconciliation_count']}")
+            progress = report["progress"]
+            print(f"committed evidence progress; eligible={progress['eligible']}; independent metrics (overlap allowed)")
+            for name, metric in progress["metrics"].items():
+                print(f"{name}={metric['count']}/{metric['denominator']}")
+            levels = progress["committed_done_by_completion_level"]
+            print(f"committed done state levels: surface_only={levels['surface_only']}; deep_reviewed={levels['deep_reviewed']}")
+            print(f"invalidated_without_current_review={progress['invalidated_without_current_review']}")
             print(f"active writer {'yes' if report['active_writer'] else 'no'}")
     else:
         _print_json(report)

@@ -589,6 +589,41 @@ class MigrationTests(MigrationFixture):
         reverted, _reconciliation, _meta = queue.business_rows(queue.database_path(self.root))
         self.assertEqual({row[0]: row[2] for row in reverted}, {durable_revision: "done"})
 
+    def test_progress_changed_reverted_successor_requires_actual_new_review(self):
+        self._publish_surface_batch(repair=False, entry_index=0, batch_name="original-review")
+        original = copy.deepcopy(self.entries)
+        changed = [self.replace(original[0], target="changed target"), *original[1:]]
+        # Returning the entry target while changing provenance keeps catalog
+        # identities distinct: this is a migration chain, not git revert.
+        reverted = [self.replace(row, terminology_snapshot_sha256="f" * 64) for row in original]
+        for index, entries in enumerate((changed, reverted)):
+            candidate = self.candidate(entries)
+            artifact = self.root / ".artifacts" / f"progress-{index}.json"
+            planned = migration.plan(self.root, candidate, output=artifact)
+            migration.apply(self.root, artifact, candidate_catalog=candidate)
+            files = catalog.ordinary_tree(candidate)
+            shutil.rmtree(candidate)
+            for relative, raw in files.items():
+                path = self.root / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(raw)
+            path = self.root / planned["target_path"]
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(artifact.read_bytes())
+            self.commit(f"progress boundary {index}")
+            self.entries = entries
+            self.catalog_id = queue._catalog_from_tree(self.root, "HEAD")[0]["catalog_id"]
+            progress = queue.rebuild(self.root)["progress"]
+            self.assertEqual(progress["metrics"]["surface_covered"]["count"], 0)
+            self.assertEqual(progress["metrics"]["historical_revision_invalidated"]["count"], 1)
+            self.assertEqual(progress["invalidated_without_current_review"], 1)
+        self.assertEqual(self.entries[0]["entry_revision_identity"], original[0]["entry_revision_identity"])
+        self._publish_surface_batch(repair=False, entry_index=0, batch_name="new-review")
+        progress = queue.rebuild(self.root)["progress"]
+        self.assertEqual(progress["metrics"]["surface_covered"]["count"], 1)
+        self.assertEqual(progress["metrics"]["historical_revision_invalidated"]["count"], 1)
+        self.assertEqual(progress["invalidated_without_current_review"], 0)
+
     def test_rebuild_retains_unchanged_done_repair_blocked_across_boundary_delete_revert(self):
         self._publish_surface_batch(repair=False, entry_index=0, batch_name="done-state")
         self._publish_surface_batch(repair=True, entry_index=1, batch_name="repair-state")

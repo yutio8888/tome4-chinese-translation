@@ -955,6 +955,83 @@ class QueueTests(QueueFixture):
         queue.rebuild(self.root)
         self.assertEqual(queue.status(self.root)["explicit_overrides"], {"done": 1})
 
+    def test_progress_cli_all_public_queue_reports(self):
+        self._batch()
+        self._commit("review for CLI")
+        command = """import argparse, sys
+from pathlib import Path
+from tools.i18nlib import cli
+from tools.i18nlib import production_review_v2_lite_queue as queue
+fixture, action = Path(sys.argv[1]), sys.argv[2]
+operation = getattr(queue, action)
+setattr(cli.production_review_v2_lite_queue, action,
+        lambda _root, **kwargs: operation(fixture, **kwargs))
+raise SystemExit(cli._production(argparse.Namespace(
+    production_command='queue', production_action=action, treeish='HEAD', json=sys.argv[3]=='json')))
+"""
+        for action, form in (("init", "json"), ("rebuild", "json"), ("check", "json"),
+                             ("status", "json"), ("status", "text")):
+            with self.subTest(action=action, form=form):
+                completed = subprocess.run([sys.executable, "-B", "-c", command,
+                                            str(self.root), action, form], cwd=ROOT,
+                                           capture_output=True, text=True, timeout=20)
+                self.assertEqual(completed.returncode, 0, completed.stderr)
+                if form == "json":
+                    report = json.loads(completed.stdout)
+                    self.assertEqual(report["override_basis"], "sqlite_state_codes")
+                    self.assertEqual(report["progress"]["committed_done_by_completion_level"],
+                                     {"surface_only": 1, "deep_reviewed": 0})
+                else:
+                    self.assertIn("raw state codes", completed.stdout)
+                    self.assertIn("committed evidence progress; eligible=2", completed.stdout)
+                    self.assertIn("surface_covered=1/2", completed.stdout)
+                    self.assertIn("deep_reviewed=0/2", completed.stdout)
+                    self.assertIn("surface_only=1; deep_reviewed=0", completed.stdout)
+
+    def test_progress_committed_basis_single_replay_and_active_transient(self):
+        self._batch(batch="first")
+        self._commit("first accepted result")
+        self._batch(batch="second")
+        self._commit("duplicate review")
+        with mock.patch.object(queue, "_projection_contents", wraps=queue._projection_contents) as replay:
+            initialized = queue.init(self.root)
+        self.assertEqual(replay.call_count, 1)
+        with mock.patch.object(queue, "_projection_contents", wraps=queue._projection_contents) as replay:
+            rebuilt = queue.rebuild(self.root)
+        self.assertEqual(replay.call_count, 1)
+        self.assertEqual(initialized["progress"], rebuilt["progress"])
+        self.assertEqual(initialized["override_basis"], "sqlite_state_codes")
+        with mock.patch.object(queue, "_projection_contents", wraps=queue._projection_contents) as replay:
+            report = queue.status(self.root)
+        self.assertEqual(replay.call_count, 1)
+        progress = report["progress"]
+        self.assertEqual(progress, initialized["progress"])
+        self.assertEqual(progress["metrics"]["surface_covered"]["count"], 1)
+        self.assertEqual(progress["metrics"]["deep_reviewed"]["count"], 0)
+        self.assertEqual(progress["committed_done_by_completion_level"],
+                         {"surface_only": 1, "deep_reviewed": 0})
+        self.assertEqual(progress["eligible"], 2)
+        # Active SQLite can temporarily claim another done row; durable coverage stays 1.
+        with closing(queue._connect(queue.database_path(self.root))) as connection:
+            connection.execute("INSERT INTO state_override VALUES (?,?,?,?,?,?,?)",
+                               (self.entries[1]["entry_revision_identity"],
+                                self.entries[1]["logical_entry_identity"], "done", "active", 1, "f" * 64, STAMP))
+            connection.commit()
+        queue.checkpoint_path(self.root).write_text("{}")
+        with mock.patch.object(queue, "writer_active", return_value=True):
+            active = queue.status(self.root)
+            self.assertEqual(active["explicit_overrides"], {"done": 2})
+            self.assertEqual(active["override_basis"], "sqlite_state_codes")
+            self.assertEqual(active["progress"], progress)
+            queue.database_path(self.root).unlink()
+            fallback = queue.check(self.root)
+            self.assertFalse(fallback["ok"])
+            self.assertEqual(fallback["override_basis"], "committed_evidence_state_codes")
+            self.assertEqual(fallback["progress"], progress)
+        missing = queue.status(self.root, allow_missing=True)
+        self.assertFalse(missing["active_writer"])
+        self.assertEqual(missing["progress"], progress)
+
     def test_lock_is_nonblocking_and_readers_report_writer(self):
         lock = queue.repository_lock_path(self.root)
         lock.parent.mkdir(parents=True, exist_ok=True)
