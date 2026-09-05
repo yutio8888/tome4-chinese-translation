@@ -326,3 +326,16 @@ I 97，其中尚无当前审核 2；隐式 queued 28,183。24 个批次共 1,746
 `batch-6af04961d493ae262eda`；finalize 后重新选择与预核验工作集完全一致。
 30 个直接字面量及 8 个提取器生成键已核验，固定源码字段行号、extractor commit
 与转换规则均已记录。
+
+## 第十九批完成
+
+`batch-6af04961d493ae262eda` 的 38 条 Tome 表层审核全部 OK，已提交为
+`de55d3e6b524a1185496b1c8273445470953dbb3` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前 S／done 2,223（surface_only 2,176；deep_reviewed 47），D 47、R 0、I 97，
+其中尚无当前审核 2；隐式 queued 27,605。37 个批次共 2,324 条历史结果。
+
+恢复后十九批新增 884 条 surface_only。下一连续源码身份切片为 3 条 Ashes，
+`batch-e07e805f62a7d14ca174`；finalize 后重新选择与预核验工作集完全一致。
+3 条均已再次核验实际公开源码字面量，源码 repository／commit 未固定；文件哈希和行号已冻结。
+按 surface 契约 n<=3 使用单个全量 reviewer。
