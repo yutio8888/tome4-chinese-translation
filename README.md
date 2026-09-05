@@ -9,16 +9,19 @@
 ## 当前基线
 
 - 目标游戏版本：ToME4 1.7.6。
-- 官方 DLC 源码基线：Ashes of Urh'Rok、Cults of Entropy、Embers of Rage 1.7.4。
+- 官方 DLC：Ashes of Urh'Rok、Cults of Entropy、Embers of Rage 使用已冻结提取快照；
+  源码仓库／commit 未固定，不能据快照认定源码版本为 1.7.4。
 - 规范译文：30,308 条；最近一次累计严格 lint、运行键扫描和核心 addon 构建均通过。
 - 发布 addon：`tome-chn-mod` 0.2.7，发布提交 `9cdbd30`；主 locale 共 8,949 条，
   其中核心覆盖 3,488 条、DLC 覆盖 5,461 条（Nullpack 464 条由独立文件加载）。
 - Facts 因果研究：正式结论为 `do-not-promote-facts-channel`，不授予 holdout
   准入；详见 [`docs/translation-quality-facts-study-report-v1.md`](docs/translation-quality-facts-study-report-v1.md)。
-- 当前执行路线：P1 与三个官方 DLC 的 P2 第 1–3 层已完成，P3 累计门禁、构建和
-  发布仓库同步也已执行；下一步由维护者决定是否启动辅助 addon／example 范围、创建
-  `develop → master` PR 或正式 release。阶段边界见
-  [`docs/project-roadmap.md`](docs/project-roadmap.md)。
+- 当前执行路线（2026-09-05）：正式 WP2-Lite 审核已提交 18 批；本轮六项工具优化
+  已完成。维护者已授权重建队列、修复交接后继续主持有界审核。当前版本表层覆盖
+  1,339／29,828，深审覆盖 47／29,828，二者重叠；早期 P1／P2 成果不直接折算为
+  正式队列覆盖。最新恢复基线、操作顺序和发布边界见
+  [`当前审核交接`](docs/production-review-handoff-2026-09-05.md)；历史阶段见
+  [`项目路线图`](docs/project-roadmap.md)。
 
 ## 仓库结构
 
