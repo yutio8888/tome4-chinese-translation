@@ -367,10 +367,17 @@ def surface_export(root):
         if checkpoint["phase"] not in {"reserved", "surface_ready"}:
             raise _err("surface export is only valid before result import")
         runs = partition_surface_entries(checkpoint["entry_snapshots"])
+        if checkpoint["phase"] == "surface_ready":
+            # preflight validated the stored projection; preserve frozen historical
+            # task paths and bytes instead of migrating an already exported batch.
+            return {"batch_id": checkpoint["batch_id"], "runs": len(runs), "selected": len(checkpoint["selected"]), "ok": True}
         refs = []
         runtime = queue.checkpoint_path(root).parent / "surface"
-        task_id = checkpoint["batch_id"].replace("_", "-")
+        batch_task_id = checkpoint["batch_id"].replace("_", "-")
         for run in runs:
+            # A review-only consumer task permits exactly one whole-screen stage.
+            task_id = (batch_task_id if len(runs) == 1 else
+                       f"{batch_task_id}-surface-{run['run_index']:03d}")
             payload = _payload(run)
             try:
                 if len(run["entries"]) <= 3:
