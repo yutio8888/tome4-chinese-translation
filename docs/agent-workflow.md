@@ -44,9 +44,21 @@ exact schema、directional anchor、结构化 decomposition、完整句重渲染
 [`semantic-claim-runtime-composition-v1.md`](semantic-claim-runtime-composition-v1.md)。关键词扫描
 只生成候选，不直接决定 finding 或阻断批次。
 
-`tools/ci-gates.sh` 的 semantic claim 两步使用 `*.out`，而非 `*.log`。这是因为既有
-`tests/i18n/test_toolchain.py` 会对门禁产生的 `*.log` 集合做精确相等断言，而该测试不在本任务
-allowlist；新增 gate 因而不受该 frozen exact-log contract 覆盖，不借此扩大修改范围。
+`tools/ci-gates.sh` 委托 `tools/ci_gates.py`，统一使用
+`tools/i18nlib/gate_results.py` 的检查定义。默认包含严格 addon build；`--skip-build`
+授权条件不变。每次在 `.artifacts/i18n/ci-gates/run.*/` 生成独立 `results.json` 与逐项
+`.log`，按稳定检查 ID、argv、退出码、输出 hash 和时间验证，扩展名不再承载覆盖语义。
+
+批次 `prepare_evidence` 只调用一次统一入口。原 16 项保留，增加 staged whitespace；
+doctor、lint、worktree whitespace 不再在外层重复。surface manifest/result 两个消费者
+映射到 production-shadow-surface-ledger 分组，contextual result 映射到 contract-suite 的
+`test_ai_state_check.load_tests`；coverage 是已有执行的覆盖关系，不是额外执行记录。
+
+新 `gates.json` 使用 schema 2（result、prospective_bytes、committed_bytes），历史 schema 1
+仍按原 exact validator 回放。result 绑定完整有序 revision 集合及 batch/catalog/base/policy、
+工具 commit/version、实际工作树与 index、配置和检查集。prepare 后半段复用前重新核对
+这些绑定及日志 hash；漂移或缺项失败关闭。忽略的 prospective 产物不参与工作树 hash。
+不提供跨命令缓存；恢复后的新 prepare 重新执行，不接受环境 marker 跳过检查。
 
 数值 claim 与 anchors-only briefing 都必须填写 `args_order=null` 或 source placeholder 的完整排列，
 并保持 target/candidate target 的完整 raw-token permutation；`placeholder_index` 始终按 source 顺序

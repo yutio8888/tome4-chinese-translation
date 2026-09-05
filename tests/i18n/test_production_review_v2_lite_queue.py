@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import fcntl
 import hashlib
+import copy
 import os
 import json
 from collections import Counter
@@ -19,6 +20,7 @@ from tools.i18nlib import production_review as wp1
 from tools.i18nlib import production_review_v2_lite as catalog
 from tools.i18nlib import production_review_v2_lite_queue as queue
 from tools.i18nlib import production_review_v2_lite_batch as batch
+from tools.i18nlib import gate_results
 import contextual_result_check
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -27,6 +29,17 @@ STAMP = "2026-09-02T01:02:03Z"
 
 class QueueFixture(unittest.TestCase):
     def setUp(self):
+        # Minimal repository fixture: inject execution in-process, never in production
+        # through an environment marker or a missing-file fallback.
+        self.real_actual_gates = batch._actual_gate_records
+        def fixture_gates(root, selected):
+            def execute(argv, cwd, log):
+                log.write_bytes(b"fixture gate execution\n")
+                return 0
+            return gate_results.run(root, selected, execute=execute)
+        patcher = mock.patch.object(batch, "_actual_gate_records", side_effect=fixture_gates)
+        self.gate_runner = patcher.start()
+        self.addCleanup(patcher.stop)
         (ROOT / ".artifacts/i18n").mkdir(parents=True, exist_ok=True)
         self.temp = tempfile.TemporaryDirectory(dir=ROOT / ".artifacts/i18n")
         self.addCleanup(self.temp.cleanup)
@@ -1058,7 +1071,12 @@ class PublicApiFlowTests(QueueTests):
                 empty = self.root / "empty-adjudication.json"
                 empty.write_bytes(wp1.canonical_bytes({"batch_id": checkpoint["batch_id"], "decisions": []}))
                 batch.adjudicate(self.root, empty)
+                self.gate_runner.reset_mock()
                 prepared = batch.prepare_evidence(self.root)
+                self.assertEqual(self.gate_runner.call_count, 1)
+                receipt = json.loads((Path(prepared["prospective"]) / "gates.json").read_bytes())
+                self.assertEqual(receipt["schema_version"], 2)
+                self.assertEqual(receipt["result"]["binding"]["candidate"]["ordered_revisions"], checkpoint["selected"])
                 if count == 80:
                     commit = self._publish_generated(Path(prepared["prospective"]))
                     batch.finalize(self.root, commit)
@@ -1429,6 +1447,117 @@ class C31PublicApiTests(PublicApiFlowTests):
             batch.adjudicate(self.root, input_path)
         batch.abandon(self.root, discard_uncommitted_results=True)
 
+    def test_p2_initial_gate_binding_wraps_git_failure(self):
+        selected = gate_results.candidate("batch-fixture", "catalog-fixture",
+                                           queue._head(self.root, "HEAD"), "a" * 64, ["b" * 64])
+        result = self.gate_runner(self.root, selected)
+        failure = subprocess.CalledProcessError(128, ["git", "rev-parse", "HEAD"])
+        with mock.patch.object(gate_results, "run", return_value=result) as runner, \
+             mock.patch.object(gate_results, "binding", side_effect=failure) as binding:
+            with self.assertRaisesRegex(wp1.ProductionReviewError, "applicable gate command failed") as caught:
+                self.real_actual_gates(self.root, selected)
+        self.assertIs(caught.exception.__cause__, failure)
+        runner.assert_called_once_with(self.root, selected)
+        binding.assert_called_once_with(self.root, selected)
+
+    def test_p2_post_prospective_binding_wraps_git_failure_and_can_resume(self):
+        ref, output = self._contextual_issue_ready()
+        self._install_and_import_contextual(ref, output)
+        adjudication = self.root / "adjudication.json"
+        adjudication.write_bytes(wp1.canonical_bytes({"batch_id": batch.show(self.root)["batch_id"],
+            "decisions": [self._legacy_decision(item) for item in
+                          batch._accepted_observations(batch.show(self.root))]}))
+        batch.adjudicate(self.root, adjudication)
+        runtime = batch._prospective_batch_path(self.root, batch.show(self.root)["batch_id"])
+        real_binding = gate_results.binding
+        failure = subprocess.CalledProcessError(128, ["git", "rev-parse", "HEAD"])
+        failures = []
+        def fail_after_prospective(*args, **kwargs):
+            if (runtime / "manifest.json").exists():
+                failures.append(failure)
+                raise failure
+            return real_binding(*args, **kwargs)
+        with mock.patch.object(gate_results, "binding", side_effect=fail_after_prospective):
+            with self.assertRaisesRegex(wp1.ProductionReviewError, "gate reuse rejected") as caught:
+                batch.prepare_evidence(self.root)
+        self.assertIs(caught.exception.__cause__, failure)
+        self.assertEqual(failures, [failure])
+        self.assertEqual(self.gate_runner.call_count, 1)
+        self.assertTrue((runtime / "gates.json").is_file())
+        self.assertEqual(batch.show(self.root)["phase"], "adjudicated")
+        batch.prepare_evidence(self.root)
+        self.assertEqual(self.gate_runner.call_count, 2)
+        self.assertEqual(batch.show(self.root)["phase"], "commit_ready")
+        batch.abandon(self.root, discard_uncommitted_results=True, restore_evidence=True)
+
+    def test_p2_prepare_reuse_rejects_live_worktree_drift_and_can_resume(self):
+        ref, output = self._contextual_issue_ready()
+        self._install_and_import_contextual(ref, output)
+        adjudication = self.root / "adjudication.json"
+        adjudication.write_bytes(wp1.canonical_bytes({"batch_id": batch.show(self.root)["batch_id"],
+            "decisions": [self._legacy_decision(item) for item in
+                          batch._accepted_observations(batch.show(self.root))]}))
+        batch.adjudicate(self.root, adjudication)
+        real_write = batch._write_fsynced
+        changed = self.root / "drift"
+        def drift(path, raw):
+            real_write(path, raw)
+            changed.write_bytes(b"unexpected worktree change")
+        with mock.patch.object(batch, "_write_fsynced", side_effect=drift):
+            with self.assertRaisesRegex(wp1.ProductionReviewError, "gate reuse rejected"):
+                batch.prepare_evidence(self.root)
+        self.assertEqual(self.gate_runner.call_count, 1)
+        self.assertEqual(batch.show(self.root)["phase"], "adjudicated")
+        changed.unlink()
+        batch.prepare_evidence(self.root)
+        self.assertEqual(self.gate_runner.call_count, 2)  # Fresh command, fresh execution.
+        self.assertEqual(batch.show(self.root)["phase"], "commit_ready")
+        batch.abandon(self.root, discard_uncommitted_results=True, restore_evidence=True)
+
+    def test_p2_queue_v2_rechecks_batch_binding_and_exact_receipt(self):
+        root = self._batch(batch="p2-receipt")
+        manifest_path = root / "manifest.json"
+        manifest = json.loads(manifest_path.read_bytes())
+        selected = gate_results.candidate(manifest["batch_id"], manifest["catalog_id"],
+            manifest["base_commit"], manifest["policy_sha256"], manifest["ordered_revisions"])
+        receipt = self.gate_runner(self.root, selected)
+        value = {"schema_version": 2, "result": receipt, "prospective_bytes": 0, "committed_bytes": 0}
+        original_head = queue._head(self.root, "HEAD")
+        variants = []
+        bad = copy.deepcopy(value); bad["result"]["checks"].pop(); variants.append(bad)
+        bad = copy.deepcopy(value); bad["result"]["checks"][0]["exit_code"] = 1; variants.append(bad)
+        bad = copy.deepcopy(value)
+        bad["result"]["binding"]["candidate"]["batch_id"] = "different"
+        bad["result"]["binding"]["candidate_sha256"] = gate_results.digest(bad["result"]["binding"]["candidate"])
+        variants.append(bad)
+        bad = copy.deepcopy(value); bad["result"]["binding"]["config_sha256"] = None; variants.append(bad)
+        bad = copy.deepcopy(value); bad["result"]["binding"]["tool_commit"] = "0" * 40; variants.append(bad)
+        bad = copy.deepcopy(value); bad["result"]["binding"]["skip_build"] = True; variants.append(bad)
+        bad = copy.deepcopy(value); bad["extra"] = 1; variants.append(bad)
+        bad = copy.deepcopy(value); bad["schema_version"] = 3; variants.append(bad)
+        for variant in [*variants, value]:
+            # Publish each candidate from the same parent; immutable-publication
+            # checks still run, so failures reach the receipt validator itself.
+            subprocess.run(["git", "reset", "--soft", original_head], cwd=self.root, check=True)
+            raw = wp1.canonical_bytes(variant)
+            (root / "gates.json").write_bytes(raw)
+            manifest["gates_sha256"] = hashlib.sha256(raw).hexdigest()
+            manifest_path.write_bytes(wp1.canonical_bytes(manifest))
+            self._commit("P2 receipt fixture")
+            if variant is value:
+                queue.rebuild(self.root)
+                self.assertTrue(queue.check(self.root)["ok"])
+                with mock.patch.object(gate_results, "CHECKS", gate_results.CHECKS[:-1]), \
+                     mock.patch.object(gate_results, "COVERAGE", {"new.py": "01-doctor"}), \
+                     mock.patch.object(gate_results, "VERSION", "ci-gates-v3"):
+                    queue.rebuild(self.root)
+                    self.assertTrue(queue.check(self.root)["ok"])
+                    with self.assertRaises(gate_results.GateError):
+                        gate_results.validate(receipt, selected=selected)
+            else:
+                with self.assertRaisesRegex(wp1.ProductionReviewError, "gates"):
+                    queue.rebuild(self.root)
+
     def test_c31_checkpoint_first_postimage_mismatch_keeps_checkpoint_then_restores(self):
         ref, output = self._contextual_issue_ready()
         self._install_and_import_contextual(ref, output)
@@ -1618,13 +1747,21 @@ class C31PublicApiTests(PublicApiFlowTests):
         script.parent.mkdir(parents=True, exist_ok=True)
         script.write_text("#!/bin/sh\nexit 9\n", encoding="utf-8")
         script.chmod(0o755)
-        with mock.patch.dict(os.environ, {"I18N_CI_GATES_FROM_PRODUCTION": "1"}):
-            prepared = batch.prepare_evidence(self.root)
+        prepared = batch.prepare_evidence(self.root)
+        self.assertEqual(self.gate_runner.call_count, 1)
         self.assertFalse((core.with_name("." + core.name + ".tmp")).exists())
         self.assertFalse((raw.with_name("." + raw.name + ".tmp")).exists())
         self.assertFalse((output.with_name("." + output.name + ".tmp")).exists())
-        self.assertFalse(any("tools/ci-gates.sh" in command
-                             for command in batch.show(self.root)["gates"]["commands"]))
+        self.assertEqual(
+            [record["id"] for record in batch.show(self.root)["gates"]["commands"]],
+            ["01-doctor", "02-strict-lint", "03-test-group-registration",
+             "03-toolchain-unit-tests", "04-quality-facts-unit-tests",
+             "04-semantic-claim-unit-tests", "04-semantic-claims-strict-registry",
+             "05-contract-suite-unit-tests", "05-production-shadow-surface-ledger-tests",
+             "06-runtime-collision-scan", "07-runtime-key-classification",
+             "08-terminology-static-audit", "09-terminology-dynamic-audit",
+             "10-domain-annotation", "11-worktree-whitespace", "11-staged-whitespace",
+             "12-core-addon-build"])
         manifest = wp1.parse_canonical_object(
             (Path(prepared["prospective"]) / "manifest.json").read_bytes(), "manifest")
         self.assertEqual(manifest["adapter_refs"][0]["input_path"].split("/")[-1],
@@ -1650,42 +1787,21 @@ class C31PublicApiTests(PublicApiFlowTests):
         self.assertFalse(Path(prepared["prospective"]).exists())
 
     def test_c47_gate_records_include_current_consumers_full_ci_and_failures(self):
-        script = self.root / "tools/ci-gates.sh"
-        script.parent.mkdir(parents=True, exist_ok=True)
-        script.write_text("#!/bin/sh\nprintf 'build gate\\n'\n", encoding="utf-8")
-        script.chmod(0o755)
-        for name in ("test_surface_screen_manifest.py",
-                     "test_surface_screen_result_check.py",
-                     "test_contextual_result_check.py"):
-            (self.root / "tests/i18n" / name).parent.mkdir(parents=True, exist_ok=True)
-            (self.root / "tests/i18n" / name).write_text(
-                "import unittest\nclass TestConsumer(unittest.TestCase):\n"
-                "    def test_placeholder(self):\n        pass\n",
-                encoding="utf-8")
-        # The fake outer call must be tested with the recursion marker absent,
-        # even when the real full gate invokes this test with the marker set.
-        with mock.patch.dict(os.environ):
-            os.environ.pop("I18N_CI_GATES_FROM_PRODUCTION", None)
-            records = batch._actual_gate_records(self.root)
-            commands = [record["command"] for record in records]
-            consumer_command = next(command for command in commands
-                                    if "test_surface_screen_manifest.py" in command)
-            self.assertIn("test_contextual_result_check.py", consumer_command)
-            self.assertTrue(any("tools/ci-gates.sh" in command for command in commands))
-            script.write_text("#!/bin/sh\nexit 7\n", encoding="utf-8")
-            with self.assertRaisesRegex(wp1.ProductionReviewError, "gate command failed"):
-                batch._actual_gate_records(self.root)
-
-        # A nested prepare/full-gate context omits only the recursive full CI;
-        # current-consumer checks remain applicable and are still recorded.
-        script.write_text("#!/bin/sh\nprintf 'nested full gate must not run\\n'\n", encoding="utf-8")
+        # The production runner must try every required command even in a minimal
+        # repository, regardless of the old environment marker. No fake wrapper
+        # or missing tests can turn that into a successful full gate.
+        selected = gate_results.candidate("batch-fixture", "catalog-fixture",
+                                           queue._head(self.root, "HEAD"), "a" * 64, ["b" * 64])
         with mock.patch.dict(os.environ, {"I18N_CI_GATES_FROM_PRODUCTION": "1"}):
-            nested = batch._actual_gate_records(self.root)
-        nested_commands = [record["command"] for record in nested]
-        nested_consumer = next(command for command in nested_commands
-                               if "test_surface_screen_manifest.py" in command)
-        self.assertIn("test_contextual_result_check.py", nested_consumer)
-        self.assertFalse(any("tools/ci-gates.sh" in command for command in nested_commands))
+            with self.assertRaisesRegex(wp1.ProductionReviewError, "gate command failed"):
+                self.real_actual_gates(self.root, selected)
+        results = list((self.root / ".artifacts/i18n/ci-gates").glob("run.*/results.json"))
+        self.assertEqual(len(results), 1)
+        result = json.loads(results[0].read_bytes())
+        self.assertFalse(result["success"])
+        self.assertEqual([r["id"] for r in result["checks"]], [i for i, _ in gate_results.CHECKS])
+        self.assertEqual(result["coverage"], gate_results.COVERAGE)
+        self.assertNotEqual(result["checks"][-1]["exit_code"], 0)
 
     def test_c48_public_cli_recovery_aliases_rebuild_temp_sqlite_idempotently(self):
         self._batch(batch="c48-cli")

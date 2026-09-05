@@ -568,46 +568,60 @@ def _batch_rows(root: Path, treeish: str, manifest_path: str, catalog_manifest: 
     if observed != revisions:
         raise _error("batch result order does not match ordered revisions")
     gates = wp1.parse_canonical_object(raws[f"{batch_root}/gates.json"], "batch gates")
-    if not isinstance(gates, dict) or set(gates) not in ({"schema_version", "commands"}, {"schema_version", "commands", "prospective_bytes", "committed_bytes"}):
-        raise _error("batch gates exact schema mismatch")
-    _schema_one(gates["schema_version"], "batch gates")
-    commands = gates["commands"]
-    if not isinstance(commands, list):
-        raise _error("batch gates commands must be an array")
-    gate_keys = {"command", "version", "exit_code", "output_sha256"}
-    if any(not isinstance(item, dict) or set(item) != gate_keys or
-           not isinstance(item["command"], str) or not item["command"] or
-           not isinstance(item["version"], str) or not item["version"] or
-           type(item["exit_code"]) is not int or item["exit_code"] != 0 or
-           not isinstance(item["output_sha256"], str) or
-           not wp1.SHA256_RE.fullmatch(item["output_sha256"])
-           for item in commands):
-        raise _error("batch gates must contain successful recorded commands")
-    # Older committed fixtures had no gate records and no occupancy fields;
-    # retain that narrow replay compatibility.  Active producer output always
-    # has at least one actual command and the budget fields.
-    if "prospective_bytes" in gates and not commands:
-        raise _error("active batch gates must record actual applicable commands")
-    if "prospective_bytes" in gates:
-        if (type(gates["prospective_bytes"]) is not int or
-                type(gates["committed_bytes"]) is not int or
-                gates["prospective_bytes"] < 0 or gates["committed_bytes"] < 0 or
-                gates["prospective_bytes"] > catalog.TRACKED_LIMIT or
-                gates["committed_bytes"] > catalog.TRACKED_LIMIT):
+    if isinstance(gates, dict) and type(gates.get("schema_version")) is int and gates["schema_version"] == 2:
+        from . import gate_results
+        if set(gates) != {"schema_version", "result", "prospective_bytes", "committed_bytes"}:
+            raise _error("batch gates v2 exact schema mismatch")
+        try:
+            gate_results.validate_historical(gates["result"], selected=gate_results.candidate(
+                manifest["batch_id"], manifest["catalog_id"], manifest["base_commit"],
+                manifest["policy_sha256"], revisions))
+        except ValueError as error:
+            raise _error(f"batch gates v2 invalid: {error}") from error
+        if any(type(gates[key]) is not int or not 0 <= gates[key] <= catalog.TRACKED_LIMIT
+               for key in ("prospective_bytes", "committed_bytes")):
             raise _error("batch gates exceed the combined 128 MiB production budget")
-        if "tools/ci-gates.sh" in tree:
-            command_names = {item["command"] for item in commands}
-            if not any("tools/ci-gates.sh" in command for command in command_names):
-                raise _error("active batch gates must record the full tools/ci-gates.sh gate")
-            if all(path in tree for path in (
-                    "tests/i18n/test_surface_screen_manifest.py",
-                    "tests/i18n/test_surface_screen_result_check.py",
-                    "tests/i18n/test_contextual_result_check.py")):
-                if not any("test_surface_screen_manifest.py" in command and
-                           "test_surface_screen_result_check.py" in command and
-                           "test_contextual_result_check.py" in command
-                           for command in command_names):
-                    raise _error("active batch gates must record current-consumer checks")
+    else:
+        if not isinstance(gates, dict) or set(gates) not in ({"schema_version", "commands"}, {"schema_version", "commands", "prospective_bytes", "committed_bytes"}):
+            raise _error("batch gates exact schema mismatch")
+        _schema_one(gates["schema_version"], "batch gates")
+        commands = gates["commands"]
+        if not isinstance(commands, list):
+            raise _error("batch gates commands must be an array")
+        gate_keys = {"command", "version", "exit_code", "output_sha256"}
+        if any(not isinstance(item, dict) or set(item) != gate_keys or
+               not isinstance(item["command"], str) or not item["command"] or
+               not isinstance(item["version"], str) or not item["version"] or
+               type(item["exit_code"]) is not int or item["exit_code"] != 0 or
+               not isinstance(item["output_sha256"], str) or
+               not wp1.SHA256_RE.fullmatch(item["output_sha256"])
+               for item in commands):
+            raise _error("batch gates must contain successful recorded commands")
+        # Older committed fixtures had no gate records and no occupancy fields;
+        # retain that narrow replay compatibility.  Active producer output always
+        # has at least one actual command and the budget fields.
+        if "prospective_bytes" in gates and not commands:
+            raise _error("active batch gates must record actual applicable commands")
+        if "prospective_bytes" in gates:
+            if (type(gates["prospective_bytes"]) is not int or
+                    type(gates["committed_bytes"]) is not int or
+                    gates["prospective_bytes"] < 0 or gates["committed_bytes"] < 0 or
+                    gates["prospective_bytes"] > catalog.TRACKED_LIMIT or
+                    gates["committed_bytes"] > catalog.TRACKED_LIMIT):
+                raise _error("batch gates exceed the combined 128 MiB production budget")
+            if "tools/ci-gates.sh" in tree:
+                command_names = {item["command"] for item in commands}
+                if not any("tools/ci-gates.sh" in command for command in command_names):
+                    raise _error("active batch gates must record the full tools/ci-gates.sh gate")
+                if all(path in tree for path in (
+                        "tests/i18n/test_surface_screen_manifest.py",
+                        "tests/i18n/test_surface_screen_result_check.py",
+                        "tests/i18n/test_contextual_result_check.py")):
+                    if not any("test_surface_screen_manifest.py" in command and
+                               "test_surface_screen_result_check.py" in command and
+                               "test_contextual_result_check.py" in command
+                               for command in command_names):
+                        raise _error("active batch gates must record current-consumer checks")
     return commit, output
 
 

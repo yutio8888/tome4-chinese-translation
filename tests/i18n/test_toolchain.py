@@ -18521,211 +18521,26 @@ class PiPanePreviewTests(unittest.TestCase):
 
 
 class CiGatesScriptTests(unittest.TestCase):
-    script = TOOLS / "ci-gates.sh"
-
-    @staticmethod
-    def _fake_environment(directory: Path) -> dict[str, str]:
-        fake_python = directory / "python3"
-        fake_python.write_text(
-            """#!/bin/sh
-if [ -n "${CI_GATES_TEST_SENTINEL:-}" ]; then
-    printf 'python3 %s\n' "$*" >> "$CI_GATES_TEST_SENTINEL"
-fi
-printf '%s\n' "$*"
-exit 17
-""",
-            encoding="utf-8",
-        )
-        fake_python.chmod(0o755)
-
-        fake_git = directory / "git"
-        fake_git.write_text(
-            """#!/bin/sh
-if [ -n "${CI_GATES_TEST_SENTINEL:-}" ]; then
-    printf 'git %s\n' "$*" >> "$CI_GATES_TEST_SENTINEL"
-fi
-printf '%s\n' "$*"
-exit 0
-""",
-            encoding="utf-8",
-        )
-        fake_git.chmod(0o755)
-
-        environment = os.environ.copy()
-        environment["PATH"] = f"{directory}{os.pathsep}{environment['PATH']}"
-        return environment
-
-    def _run(
-        self, environment: dict[str, str], *arguments: str
-    ) -> subprocess.CompletedProcess[str]:
-        return subprocess.run(
-            [str(self.script), *arguments],
-            cwd=ROOT,
-            env=environment,
-            check=False,
-            capture_output=True,
-            text=True,
-            timeout=30,
-        )
-
-    def _log_directory(self, stdout: str) -> Path:
-        prefix = "CI gate log directory: "
-        matches = [
-            line[len(prefix) :]
-            for line in stdout.splitlines()
-            if line.startswith(prefix)
-        ]
-        self.assertEqual(len(matches), 1, msg=stdout)
-        return Path(matches[0])
-
-    def test_gate_logs_are_per_step_and_sequential_runs_are_isolated(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="ci-gates-fakes-") as temporary:
-            environment = self._fake_environment(Path(temporary))
-            skip_build = self._run(environment, "--skip-build")
-            with_build = self._run(environment)
-
-        for completed in (skip_build, with_build):
-            self.assertEqual(
-                completed.returncode,
-                1,
-                msg=f"stdout:\n{completed.stdout}\nstderr:\n{completed.stderr}",
-            )
-            self.assertEqual(completed.stderr, "")
-
-        skip_log_dir = self._log_directory(skip_build.stdout)
-        build_log_dir = self._log_directory(with_build.stdout)
-        self.assertNotEqual(skip_log_dir, build_log_dir)
-        expected_parent = ROOT / ".artifacts" / "i18n" / "ci-gates"
-        self.assertEqual(skip_log_dir.parent, expected_parent)
-        self.assertEqual(build_log_dir.parent, expected_parent)
-
-        expected_logs = {
-            "01-doctor.log": "-B tools/i18n doctor\n",
-            "02-strict-lint.log": "-B tools/i18n lint --strict\n",
-            "03-toolchain-unit-tests.log": (
-                "-B tools/test_groups.py --group toolchain\n"
-            ),
-            "04-quality-facts-unit-tests.log": (
-                "-B tools/test_groups.py --group quality-facts\n"
-            ),
-            "05-contract-suite-unit-tests.log": (
-                "-B tools/test_groups.py --group contract-suite\n"
-            ),
-            "06-runtime-collision-scan.log": (
-                "-B tools/scan_runtime_collisions.py\n"
-            ),
-            "07-runtime-key-classification.log": (
-                "-B tools/classify_runtime_keys.py\n"
-            ),
-            "08-terminology-static-audit.log": "-B tools/audit_static.py\n",
-            "09-terminology-dynamic-audit.log": "-B tools/audit_dynamic.py\n",
-            "10-domain-annotation.log": "-B tools/annotate_domains.py\n",
-            "11-worktree-whitespace.log": "diff --check\n",
-        }
-        actual_logs = {
-            path.name: path.read_text(encoding="utf-8")
-            for path in skip_log_dir.glob("*.log")
-        }
-        self.assertEqual(actual_logs, expected_logs)
-        expected_outputs = {
-            "03-test-group-registration.out": "-B tools/test_groups.py --check\n",
-            "04-semantic-claim-unit-tests.out": (
-                "-B tools/test_groups.py --group semantic-claim\n"
-            ),
-            "04-semantic-claims-strict-registry.out": (
-                "-B tools/i18n claims check "
-                "--registry evidence/quality/semantic-claim-regressions-v1.json --strict\n"
-            ),
-            "05-production-shadow-surface-ledger-tests.out": (
-                "-B tools/test_groups.py --group production-shadow-surface-ledger\n"
-            ),
-        }
-        self.assertEqual(
-            {p.name: p.read_text(encoding="utf-8") for p in skip_log_dir.glob("*.out")},
-            expected_outputs,
-        )
-        for name in expected_outputs:
-            self.assertIn(f"(output: {skip_log_dir / name})", skip_build.stdout)
-        failure_paths = [
-            skip_log_dir / log_name
-            for log_name in expected_logs
-            if log_name != "11-worktree-whitespace.log"
-        ]
-        self.assertEqual(len(failure_paths), len(set(failure_paths)))
-        for failure_path in failure_paths:
-            self.assertIn(
-                f"(log: {failure_path})", skip_build.stdout
-            )
-
-        build_log = build_log_dir / "12-core-addon-build.log"
-        self.assertEqual(
-            build_log.read_text(encoding="utf-8"),
-            "-B tools/i18n build --profile addon --component tome "
-            "--require-complete\n",
-        )
-        self.assertIn(f"(log: {build_log})", with_build.stdout)
-
-    def test_concurrent_runs_use_different_log_directories(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="ci-gates-fakes-") as temporary:
-            environment = self._fake_environment(Path(temporary))
-            processes = [
-                subprocess.Popen(
-                    [str(self.script), "--skip-build"],
-                    cwd=ROOT,
-                    env=environment,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    text=True,
-                )
-                for _ in range(2)
-            ]
-            results: list[tuple[int, str, str]] = []
-            try:
-                for process in processes:
-                    stdout, stderr = process.communicate(timeout=30)
-                    results.append((process.returncode, stdout, stderr))
-            finally:
-                for process in processes:
-                    if process.poll() is None:
-                        process.kill()
-                        process.wait()
-
-        for returncode, stdout, stderr in results:
-            self.assertEqual(returncode, 1, msg=f"stdout:\n{stdout}\nstderr:\n{stderr}")
-            self.assertEqual(stderr, "")
-        log_directories = [
-            self._log_directory(stdout) for _, stdout, _ in results
-        ]
-        self.assertEqual(len(set(log_directories)), 2)
-        self.assertTrue(
-            set(log_directories[0].glob("*.log")).isdisjoint(
-                set(log_directories[1].glob("*.log"))
-            )
-        )
-
-    def test_invalid_arguments_fail_before_any_gate_runs(self) -> None:
-        cases = (
-            (("--unknown",), "unknown argument: --unknown"),
-            (
-                ("--skip-build", "extra"),
-                "expected no arguments or exactly --skip-build",
-            ),
-        )
-        with tempfile.TemporaryDirectory(prefix="ci-gates-fakes-") as temporary:
-            directory = Path(temporary)
-            environment = self._fake_environment(directory)
-            for index, (arguments, expected_error) in enumerate(cases):
-                with self.subTest(arguments=arguments):
-                    sentinel = directory / f"gate-executed-{index}"
-                    case_environment = environment.copy()
-                    case_environment["CI_GATES_TEST_SENTINEL"] = str(sentinel)
-                    completed = self._run(case_environment, *arguments)
-
-                    self.assertEqual(completed.returncode, 2)
-                    self.assertEqual(completed.stdout, "")
-                    self.assertIn(expected_error, completed.stderr)
-                    self.assertIn("Usage:", completed.stderr)
-                    self.assertFalse(sentinel.exists())
+    def test_public_shell_delegates_and_propagates_failure(self):
+        # Only intercept the shell's interpreter launch. Runner behavior and
+        # command/log coverage are tested through its Python execution seam.
+        with tempfile.TemporaryDirectory() as directory:
+            fake = Path(directory) / "python3"
+            fake.write_text('#!/bin/sh\nprintf "%s\\n" "$@"\nexit 17\n')
+            fake.chmod(0o755)
+            env = dict(os.environ, PATH=directory + os.pathsep + os.environ["PATH"])
+            for arguments in ([], ["--skip-build"]):
+                result = subprocess.run([str(TOOLS / "ci-gates.sh"), *arguments],
+                                        env=env, capture_output=True, text=True)
+                self.assertEqual(result.returncode, 17)
+                self.assertEqual(result.stdout.splitlines(),
+                                 ["-B", str(TOOLS / "ci_gates.py"), *arguments])
+            for arguments in (["--unknown"], ["--skip-build", "extra"]):
+                result = subprocess.run([str(TOOLS / "ci-gates.sh"), *arguments],
+                                        env=env, capture_output=True, text=True)
+                self.assertEqual(result.returncode, 2)
+                self.assertEqual(result.stdout, "")
+                self.assertIn("Usage:", result.stderr)
 
 
 class ProjectSubagentDefinitionTests(unittest.TestCase):

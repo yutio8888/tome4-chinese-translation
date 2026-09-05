@@ -9,6 +9,7 @@ import tempfile
 import unittest
 
 from tools import test_groups
+from tools.i18nlib import gate_results
 
 
 class TestGroupsTests(unittest.TestCase):
@@ -122,9 +123,13 @@ class TestGroupsTests(unittest.TestCase):
         config = test_groups.validate_registry(test_groups.ROOT, json.loads(
             test_groups.DEFAULT_CONFIG.read_text(encoding="utf-8")))
         script = (test_groups.ROOT / "tools/ci-gates.sh").read_text(encoding="utf-8")
-        consumed = re.findall(r"tools/test_groups\.py --group ([\w-]+)", script)
+        consumed = [argv[-1] for _, argv in gate_results.CHECKS if "--group" in argv]
         self.assertCountEqual(consumed, config["groups"])
         self.assertNotIn("-m unittest", script)
+        groups_by_id = {check_id: argv[-1] for check_id, argv in gate_results.CHECKS if "--group" in argv}
+        for path, check_id in gate_results.COVERAGE.items():
+            owner = config["indirect"].get(path, {}).get("via", path)
+            self.assertIn(owner, config["groups"][groups_by_id[check_id]])
         # Load without running the expensive suite: verify actual hook output and unique IDs.
         with redirect_stdout(io.StringIO()):
             suite = test_groups.load_group(config, "contract-suite")

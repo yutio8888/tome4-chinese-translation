@@ -9,6 +9,7 @@ from . import production_review as wp1
 from . import production_review_v2_lite as catalog
 from . import production_review_v2_lite_queue as queue
 from . import production_review_v2_lite_evidence as evidence
+from . import gate_results
 import surface_screen_result_check as surface
 import surface_screen_manifest as surface_manifest
 import contextual_result_check as contextual
@@ -1397,74 +1398,20 @@ def _evidence_rows(checkpoint):
     return [final[r] for r in checkpoint["selected"]]
 
 
-def _actual_gate_records(root):
-    """Run and record applicable consumer and repository gates.
-
-    ``tools/ci-gates.sh`` is the full gate, including the build.  It is run
-    with one explicit environment marker because the script itself runs the
-    production batch tests, some of which call this function.  The marker
-    suppresses only a nested CI process; the outer invocation remains full.
-    """
-    commands = [["git", "diff", "--check"],
-                ["git", "diff", "--cached", "--check"]]
-    tool = root / "tools" / "i18n"
-    consumer_tests = (
-        root / "tests/i18n/test_surface_screen_manifest.py",
-        root / "tests/i18n/test_surface_screen_result_check.py",
-        root / "tests/i18n/test_contextual_result_check.py",
-    )
-    if tool.is_file() and not tool.is_symlink():
-        commands.extend([
-            ["python3", "-B", "tools/i18n", "doctor"],
-            ["python3", "-B", "tools/i18n", "lint", "--strict"],
-        ])
-    if all(path.is_file() and not path.is_symlink() for path in consumer_tests):
-        commands.append(["python3", "-m", "unittest", "-q", *[
-            path.relative_to(root).as_posix() for path in consumer_tests]])
-    ci_gate = root / "tools/ci-gates.sh"
-    # The outer prepare records a complete CI run.  Its test suite may call
-    # prepare_evidence again; the marker prevents only that nested invocation
-    # from starting another CI process.
-    if (ci_gate.is_file() and not ci_gate.is_symlink() and
-            os.environ.get("I18N_CI_GATES_FROM_PRODUCTION") != "1"):
-        commands.append(["bash", "tools/ci-gates.sh"])
-    records = []
-    for command in commands:
-        environment = None
-        if command == ["bash", "tools/ci-gates.sh"]:
-            environment = os.environ.copy()
-            environment["I18N_CI_GATES_FROM_PRODUCTION"] = "1"
-        try:
-            result = subprocess.run(command, cwd=root, check=False,
-                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                    env=environment)
-            if command[:2] == ["git", "diff"]:
-                version_command = ["git", "--version"]
-            elif command == ["bash", "tools/ci-gates.sh"]:
-                version_command = ["bash", "--version"]
-            elif command[:2] == ["python3", "-m"]:
-                version_command = ["python3", "--version"]
-            else:
-                version_command = ["python3", "-B", "tools/i18n", "--tool-version"]
-            version = subprocess.run(version_command, cwd=root, check=True,
-                                     stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        except (OSError, subprocess.CalledProcessError) as error:
-            raise _err(f"gate command could not be recorded: {error}") from error
-        rendered = " ".join(command)
-        if command == ["bash", "tools/ci-gates.sh"]:
-            rendered = "I18N_CI_GATES_FROM_PRODUCTION=1 " + rendered
-        records.append({"command": rendered,
-                        "version": version.stdout.decode("utf-8", "replace").strip(),
-                        "exit_code": result.returncode,
-                        "output_sha256": _sha(result.stdout)})
-    if any(item["exit_code"] != 0 for item in records):
-        raise _err("applicable gate command failed")
-    return records
+def _gate_candidate(checkpoint):
+    return gate_results.candidate(checkpoint["batch_id"], checkpoint["catalog_id"],
+                                  checkpoint["base_commit"], checkpoint["policy_sha256"],
+                                  checkpoint["selected"])
 
 
-def _actual_gate_record(root):
-    """Compatibility wrapper for callers that expect one gate record."""
-    return _actual_gate_records(root)[0]
+def _actual_gate_records(root, selected):
+    result = gate_results.run(root, selected)
+    try:
+        gate_results.validate(result, selected=selected,
+                              expected_binding=gate_results.binding(root, selected), root=root)
+    except (ValueError, OSError, subprocess.SubprocessError) as error:
+        raise _err(f"applicable gate command failed: {error}") from error
+    return result
 
 
 def _prospective_declared_paths(checkpoint):
@@ -1583,7 +1530,9 @@ def prepare_evidence(root):
         rows = _evidence_rows(checkpoint)
         # Record real checks before changing the checkpoint.  A clean status
         # listing is intentionally not a gate.
-        gate_records = _actual_gate_records(root)
+        selected = _gate_candidate(checkpoint)
+        gate_result = _actual_gate_records(root, selected)
+        gate_records = gate_result["checks"]
         destination = root / Path(_batch_relative(checkpoint["batch_id"]))
         # The prospective tree is scratch, but the destination collision is a
         # real repository concern (including an untracked directory).
@@ -1622,7 +1571,7 @@ def prepare_evidence(root):
             refs.append(ref)
         def jsonl(values): return b"".join(wp1.canonical_bytes(v) + b"\n" for v in values)
         adjud_raw = jsonl(checkpoint.get("adjudications") or [])
-        gates_raw = wp1.canonical_bytes({"schema_version": 1, "commands": gate_records, "prospective_bytes": 0, "committed_bytes": 0})
+        gates_raw = wp1.canonical_bytes({"schema_version": 2, "result": gate_result, "prospective_bytes": 0, "committed_bytes": 0})
         # Bind every durable result to the generated raw bytes before the
         # prospective tree is published; the checkpoint paths are absolute
         # scratch paths while the manifest refs are repository-relative.
@@ -1664,8 +1613,13 @@ def prepare_evidence(root):
         # The gates section also records the exact prospective occupancy.  Its
         # decimal value changes the gate file's own size, so converge the
         # small self-referential measurement before freezing postimages.
-        final_gate_records = _actual_gate_records(root)
-        gates_value = {"schema_version": 1, "commands": final_gate_records,
+        # Reuse only this call's receipt after re-reading the checkpoint and live inputs.
+        try:
+            gate_results.validate(gate_result, selected=_gate_candidate(show(root)),
+                                  expected_binding=gate_results.binding(root, selected), root=root)
+        except (ValueError, OSError, subprocess.SubprocessError) as error:
+            raise _err(f"gate reuse rejected: {error}") from error
+        gates_value = {"schema_version": 2, "result": gate_result,
                        "prospective_bytes": prospective_total,
                        "committed_bytes": prospective_total}
         for _ in range(4):
@@ -1694,7 +1648,7 @@ def prepare_evidence(root):
         if evidence.prospective_tracked_bytes(root, batch_root) != prospective_total:
             raise _err("prospective occupancy changed after final postimage")
         prospective_files = {_batch_relative(checkpoint["batch_id"], *item.relative_to(batch_root).parts): _sha(item.read_bytes()) for item in sorted(p for p in batch_root.rglob("*") if p.is_file())}
-        checkpoint["gates"] = {"commands": gates_value["commands"], "prospective": prospective_files, "preimage_absent": sorted(prospective_files), "prospective_bytes": prospective_total, "committed_bytes": prospective_total}
+        checkpoint["gates"] = {"commands": gate_result["checks"], "prospective": prospective_files, "preimage_absent": sorted(prospective_files), "prospective_bytes": prospective_total, "committed_bytes": prospective_total}
         checkpoint["phase"] = "commit_ready"; checkpoint["last_safe_boundary"] = "before_commit"; _atomic(queue.checkpoint_path(root), _checkpoint_bytes(checkpoint))
         return {"batch_id": checkpoint["batch_id"], "prospective": str(batch_root), "results": len(rows), "ok": True}
 
