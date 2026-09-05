@@ -17,6 +17,7 @@ from typing import Any, Iterator
 from . import production_review as wp1
 from . import production_review_v2_lite as catalog
 from . import production_review_v2_lite_evidence as evidence
+from . import git_evidence_reader
 import contextual_result_check as contextual_check
 
 RUNTIME_RELATIVE = Path(".artifacts/i18n/production-review-v2-lite")
@@ -110,7 +111,8 @@ def _head(root: Path, treeish: str) -> str:
 
 
 def _tree(root: Path, treeish: str) -> dict[str, tuple[str, str, str]]:
-    raw = _git(root, "ls-tree", "-rz", "--full-tree", "-r", treeish)
+    raw = git_evidence_reader.read(root, "tree", treeish, _git,
+                                   "ls-tree", "-rz", "--full-tree", "-r")
     result: dict[str, tuple[str, str, str]] = {}
     try:
         records = raw.split(b"\0")
@@ -130,7 +132,7 @@ def _tree(root: Path, treeish: str) -> dict[str, tuple[str, str, str]]:
 
 def _blob(root: Path, object_id: str, label: str) -> bytes:
     try:
-        return _git(root, "cat-file", "blob", object_id)
+        return git_evidence_reader.read(root, "blob", object_id, _git, "cat-file", "blob")
     except wp1.ProductionReviewError as error:
         raise _error(f"cannot read {label}: {error}") from error
 
@@ -626,6 +628,11 @@ def _batch_rows(root: Path, treeish: str, manifest_path: str, catalog_manifest: 
 
 
 def _projection(root: Path, treeish: str) -> tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]]:
+    with git_evidence_reader.projection_scope(root):
+        return _projection_contents(root, treeish)
+
+
+def _projection_contents(root: Path, treeish: str) -> tuple[str, dict[str, Any], list[dict[str, Any]], list[tuple[Any, ...]], list[tuple[Any, ...]]]:
     evidence_head = _head(root, treeish)
     manifest, entries, _files = _catalog_from_tree(root, evidence_head)
     tree = _tree(root, evidence_head)

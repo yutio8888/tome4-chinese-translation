@@ -12,7 +12,7 @@ import sys
 import tempfile
 import unittest
 import shutil
-from contextlib import closing
+from contextlib import closing, nullcontext
 from pathlib import Path
 from unittest import mock
 
@@ -296,6 +296,30 @@ class QueueFixture(unittest.TestCase):
         manifest["catalog_id"] = catalog.catalog_id(manifest)
         manifest_path.write_bytes(wp1.canonical_bytes(manifest))
         self.catalog_id = manifest["catalog_id"]
+
+
+class ProjectionCacheTests(QueueFixture):
+    def test_actual_projection_repeated_blobs_read_once_per_invocation(self):
+        self._batch()
+        self._commit("batch")
+        with mock.patch.object(queue.git_evidence_reader, "projection_scope",
+                               side_effect=lambda root: nullcontext()):
+            with mock.patch.object(queue, "_git", wraps=queue._git) as git:
+                uncached = queue._projection(self.root, "HEAD")
+            uncached_calls = Counter(call.args[1:] for call in git.call_args_list
+                                     if call.args[1:3] == ("cat-file", "blob"))
+            self.assertGreater(max(uncached_calls.values()), 1)
+        projections = []
+        for _ in range(2):
+            with mock.patch.object(queue, "_git", wraps=queue._git) as git:
+                projections.append(queue._projection(self.root, "HEAD"))
+            calls = Counter(call.args[1:] for call in git.call_args_list
+                            if call.args[1:3] == ("cat-file", "blob"))
+            self.assertTrue(calls)
+            self.assertEqual(set(calls.values()), {1})
+            self.assertEqual(set(calls), set(uncached_calls))
+        self.assertEqual(projections[0], uncached)
+        self.assertEqual(projections[0], projections[1])
 
 
 class QueueTests(QueueFixture):
