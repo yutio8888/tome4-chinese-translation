@@ -148,3 +148,15 @@ I 97，其中尚无当前审核 2；隐式 queued 28,271。22 个批次共 1,658
 恢复后四批新增 218 条 surface_only。下一批为 `batch-d0aae8bccea8e7c67418`，按现行排序
 取前 80 条 engine／boot／Tome，均共享固定引擎源码身份。65 个字面量和 15 个由提取器
 生成的关键词、类别及外观分类键已核验；生成键同时记录固定 extractor commit 与转换规则。
+
+## 第五批完成
+
+`batch-d0aae8bccea8e7c67418` 的 80 条 engine／boot／Tome 表层审核全部 OK，已提交为
+`a5784784d17811ff39bfff8b5b59d4e75db08595` 并 finalize。无 observation／修复项；
+整组 `DONE_VERIFIED`，四名 child 已确认归档；17 项完整门禁及严格 addon build 全部通过。
+当前队列校验通过：S／done 1,637（surface_only 1,590；deep_reviewed 47），D 47、R 0、
+I 97，其中尚无当前审核 2；隐式 queued 28,191。23 个批次共 1,738 条历史结果。
+
+恢复后五批新增 298 条 surface_only。下一连续源码身份切片为 8 条 Tome，
+`batch-d960f8e6ecea55faff81`；随后才进入 Ashes snapshot。8 条固定源码依据已核验，
+其中 `spell` 是 newTalentType 的 type 字段经固定提取器去除斜线后缀生成的类别键。
