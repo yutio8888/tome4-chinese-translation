@@ -8,7 +8,7 @@ Git 中 `evidence/production-review-v2-lite/batches/` 和当前队列重放为�
 
 恢复起点为 `4bcdd257c9dee7ec54158ce5f57163c8faa08187`，工作树干净。六项工具优化已全部
 按批准范围完成，详见[完成记录](review-pipeline-and-tooling-optimization-plan.md)。
-本次仅修复派生队列与进度文档，不修改译文、术语、工具行为或旧审核证据。
+初始恢复修复派生队列与进度文档；后续派发兼容修复与审核续跑见文末。译文、术语及旧审核证据未改。
 
 正式 catalog ID 为 `113687afa1f6fe8f9d890979a6ef08c342e5e3256a58b0eddc5282615022adc5`。
 共 30,308 occurrences，29,828 eligible、480 exclusions。现行 policy 的审核范围为
@@ -91,4 +91,20 @@ pin，也不证明源码版本为 1.7.4。机制核验必须记录实际公开�
 接口兼容修复 `51ad055` 已完成独立普通／交叉及最终复审、17 项完整门禁和
 `DONE_VERIFIED`，详见[完成记录](paseo-lane-label-compat-20260905.md)。仅创建 label 兼容
 精确 `"1"`..`"4"`；历史整数 labels 保留，结构性 lane index 仍为数值，审核身份与策略未变。
-之后从新 HEAD 重建并领取 fresh batch；原未派发 draft 保留诊断，不复用为完成证据。
+之后从新 HEAD 重建并重新预约同一工作集，工具按工作集生成的 batch ID 保持不变；
+原未派发 STATE 单独保留诊断，新的审核绑定新基线，不复用任何 child 或完成记录。
+
+## 恢复后的首批完成
+
+`batch-41de87485e4b4b8e8bb5` 已提交为 `b1a3318d0e1199d0d053900a8611dc0e020d754d`
+并成功 finalize。四路独立 surface screen 共 80 条全部 OK，无 observation、无修复项；
+整组 `DONE_VERIFIED`，四名 child 均已确认归档。17 项完整门禁全部通过，含严格 addon build。
+正式证据见[批次 manifest](../evidence/production-review-v2-lite/batches/batch-41de87485e4b4b8e8bb5/manifest.json)。
+
+该提交的队列状态校验通过：当前 S／done 为 1,419（surface_only 1,372；deep_reviewed 47），
+D 为 47、R 为 0、I 为 97；I 中已有当前审核 95、尚无当前审核 2；隐式 queued 为 28,409。
+19 个已提交批次合计 1,520 条历史结果。表层 OK 不构成深度语境复审。
+
+下一批保留现行 policy 排序，截取前 78 条 Tome，在固定源码身份转为 Cults snapshot 之前
+收束；78 条已逐项核验固定源码（71 个字面量、7 个 entity keyword AST 字段）。
+Cults 保持后续顺序；其公开源码可读，但源码 commit 未固定，不能把提取快照当作源码 pin。
