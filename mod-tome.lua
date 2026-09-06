@@ -9760,7 +9760,7 @@ t("enlight", "启迪", "entity keyword")
 t(" of command", "命令之", "entity name")
 t("command", "命令", "entity keyword")
 t(" of delving", "探测之", "entity name")
-t("delving", "探测", "entity keyword")
+t("delving", "挖掘", "entity keyword")
 t(" of the deep", "深渊之", "entity name")
 t("deep", "深渊", "entity keyword")
 t(" of thunder", "闪电之", "entity name")
@@ -10009,7 +10009,7 @@ t("backstab", "暗算", "entity keyword")
 section "mod-tome/data/general/objects/egos/digger.lua"
 
 t(" of delving", "探测之", "entity name")
-t("delving", "探测", "entity keyword")
+t("delving", "挖掘", "entity keyword")
 t(" of endurance", "耐久之", "entity name")
 t("endurance", "耐久", "entity keyword")
 t("miner's ", "矿工的", "entity name")
@@ -28718,7 +28718,7 @@ t([[While Lightning Infusion is active, your bombs energize your golem.
 		All talents on cooldown on your golem have %d%% chance to be reduced by %d.]], [[ 当闪电充能开启时，你的炸弹会给傀儡充能。
 		你的傀儡的所有冷却中技能有 %d%% 概率减少 %d 回合冷却时间。]], "tformat")
 t("Thunderclap", "闪电霹雳", "talent name")
-t("You need to ready alchemist gems in your quiver.", "需要装备炼金宝石。", "logPlayer")
+t("You need to ready alchemist gems in your quiver.", "你需要在箭袋中装填炼金宝石。", "logPlayer")
 t([[By crushing an alchemist gem you generate a thunderclap in a cone of radius %d dealing %0.2f physical damage and %0.2f lightning damage.
 		All creatures caught inside are knocked back and disarmed for %d turns.
 		The duration and damage will increase with your Spellpower.]], [[ 粉碎一颗炼金宝石，制造一次闪电霹雳，在半径 %d 的锥形区域内造成 %0.2f 点物理伤害和 %0.2f 点闪电伤害。
@@ -28802,7 +28802,7 @@ t([[Surround yourself with Frostdusk, increasing all your darkness and cold dama
 section "mod-tome/data/talents/spells/explosives.lua"
 
 t("Throw Bomb", "炸弹投掷", "talent name")
-t("You need to ready alchemist gems in your quiver.", "需要装备炼金宝石。", "logPlayer")
+t("You need to ready alchemist gems in your quiver.", "你需要在箭袋中装填炼金宝石。", "logPlayer")
 t([[Imbue an alchemist gem with an explosive charge of mana and throw it.
 		The gem will explode for %0.1f %s damage.
 		Each kind of gem will also provide a specific effect.
@@ -38786,7 +38786,7 @@ t("Renegade mages from Angolwen, the Sorcerers have set up in the Far East, slow
 t("human", "人类", "entity subtype")
 t("Argoniel", "艾格尼尔", "entity name")
 t("Fallen Sun Paladin Aeryn", "堕落太阳骑士艾琳", "entity name")
-t("A beautiful woman, clad in shining plate armour. Power radiates from her.", "一位身披板甲的美女。力量从她身上散发出来。", "_t")
+t("A beautiful woman, clad in shining plate armour. Power radiates from her.", "一位身披闪亮板甲的美女。力量从她身上散发出来。", "_t")
 t("High Sun Paladin Aeryn", "高阶太阳骑士艾琳", "entity name")
 t("Caldizar", "凯尔帝勒", "entity name")
 t("A creature stands before you, with long tentacle-like appendages and a squat bump in place of a head. An intense aura of power radiates from this being unlike anything you've ever felt before. It can only be a Sher'Tul. A living Sher'Tul!", "四肢是触须，头部由某种突起代替的奇怪生物。一种强烈的能量在他周围流动，这股能量不同于你之前认识的任何一种。他只能是夏·图尔人。一名活生生的夏·图尔人！", "_t")
@@ -40370,7 +40370,7 @@ section "mod-tome/data/zones/town-gates-of-morning/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("High Sun Paladin Aeryn", "高阶太阳骑士艾琳", "entity name")
-t("A beautiful woman, clad in shining plate armour. Power radiates from her.", "一位身披板甲的美女。力量从她身上散发出来。", "_t")
+t("A beautiful woman, clad in shining plate armour. Power radiates from her.", "一位身披闪亮板甲的美女。力量从她身上散发出来。", "_t")
 t("You find a note containing the location of the Orc Prides on Aeryn's body.", "你在艾琳的尸体上找到了一张纸条，上面写着兽人部落的位置。", "logPlayer")
 
 ------------------------------------------------
@@ -40755,7 +40755,7 @@ section "mod-tome/data/zones/tutorial/npcs.lua"
 t("skeleton mage", "骷髅法师", "entity name")
 t("half-dead forest troll", "半死的森林巨魔", "entity name")
 t([[Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.
-He looks hurt.]], "绿皮丑陋的生物，这只笨重的人形生物在盯着你并握紧了满是肉瘤的绿色拳头。他看起来受伤了。", "_t")
+He looks hurt.]], "绿皮丑陋，这只巨大的人形生物正盯着你，握紧了满是肉瘤的绿色拳头。\n他看起来受伤了。", "_t")
 t("Lone Wolf", "孤狼", "entity name")
 t("It is a large wolf with eyes full of cunning, only 3 times bigger than a normal wolf. It looks hungry. You look tasty!", "这是一只狡诈的狼，只有普通狼的3倍大。它看起来很饥渴，而你——很美味！", "_t")
 t("Tutorial: Finish", "教程：完成", "_t")
@@ -40840,7 +40840,7 @@ t("A pitchfork-wielding human with a welcoming smile.", "一名手持草叉、�
 t("skeleton mage", "骷髅法师", "entity name")
 t("half-dead forest troll", "半死的森林巨魔", "entity name")
 t([[Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.
-He looks hurt.]], "绿皮丑陋的生物，这只笨重的人形生物在盯着你并握紧了满是肉瘤的绿色拳头。他看起来受伤了。", "_t")
+He looks hurt.]], "绿皮丑陋，这只巨大的人形生物正盯着你，握紧了满是肉瘤的绿色拳头。\n他看起来受伤了。", "_t")
 t("Lone Wolf", "孤狼", "entity name")
 t("It is a large wolf with eyes full of cunning, only 3 times bigger than a normal wolf. It looks hungry. You look tasty!", "这是一只狡诈的狼，只有普通狼的3倍大。它看起来很饥渴，而你——很美味！", "_t")
 t("Orc", "兽人", "entity name")

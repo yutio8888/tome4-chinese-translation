@@ -6959,7 +6959,7 @@ section "tome-orcs/data/zones/gates-of-morning/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("High Sun Paladin Aeryn", "高阶太阳骑士艾琳", "entity name")
-t("A beautiful woman, clad in shining plate armour. Power radiates from her.", "一位身披板甲的美女。力量从她身上散发出来。", "_t")
+t("A beautiful woman, clad in shining plate armour. Power radiates from her.", "一位身披闪亮板甲的美女。力量从她身上散发出来。", "_t")
 t("#LIGHT_RED#%s concentrates and casts a powerful shield!", "#LIGHT_RED#%s集中力量，召唤出强力的护盾！", "_t")
 t("#GOLD#Before she falls, Aeryn manages to cast a powerful shield!", "#GOLD#在她倒下前，艾琳召唤出强力的护盾！", "saySimple")
 t("halfling pyremaster", "半身人火魔导师", "entity name")
