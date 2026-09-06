@@ -262,3 +262,55 @@ python3 -B tools/review_phase_timing.py summary --log .artifacts/i18n/timing/<BA
 1. repair preflight 需 live manifest/terminology == catalog 记录；漂移时先 `authoritative-catalog build` + `migration plan/check/apply`（quiescent：无 checkpoint、clean tree、queue 存在且 meta 匹配 old boundary）。
 2. worktree 流程：`git worktree add -b repair/<batch> /workspace/tome4-repair-<batch> <evidence commit>`；init+rebuild queue（worktree 无 queue）；改译文（同 runtime key 多处须同步一致，否则 strict lint runtime-collision error）；strict lint；`authoritative-catalog build` 新 candidate；`migration plan/check/apply`（revision_changed = 改动 entry 数，successor 隐式 queued 不继承 done）；替换 catalog/ 三文件 + migration 到 `evidence/.../migrations/`；完整 `bash tools/ci-gates.sh`（17 项含 addon build）；commit → 主分支 `git merge --no-ff`；主 worktree `queue rebuild`；`git worktree remove`。
 3. 术语/文档改动会改变 terminology_snapshot（TERMINOLOGY.md 计入 hash）——纯文档改动也会触发 catalog 漂移，注意 catalog 重建时 migration 会显示 29,828 全 unchanged（只 provenance 变）。
+
+## 12. 复核模型分工（2026-09-06 用户指示，自第 12 批起生效）
+
+- **常规 REVIEWER**（surface screen lane）：Paseo `claude/claude-opus-5`，`--thinking medium`。
+- **交叉复核**（ISSUE 条目的 `translation_contextual_v2` 语境复核）：Paseo
+  `codex/gpt-6-astra`，`--thinking low`。
+- 判定规则不变：surface 与交叉复核**两轮一致**才可 `confirmed` 进入修复；两轮分歧记
+  `advisory`，不修复，并在裁决 conclusion 中写明分歧与依据。
+- **派发必须显式传 `--mode`（`auto` 或 `bypassPermissions`）**。claude provider 默认
+  `default`（Always Ask）会让 child 在首次用工具时弹权限框并无限挂起，编排者只会看到
+  status 长期不变。第 12 批因此需要用户手动点掉一个弹窗。reviewer 的只读语义仍由 prompt
+  约束，并在 harvest 后用 `git status --short` 证明 child 未写入任何文件。
+
+### 本次踩到的两个 STATE schema 细节
+
+- surface INPUT-DRAFT 必须是**六键** canonical payload：`surface-export` 产出的
+  `payload.workset` 只有五键，落盘前须补 `contract="translation_surface_screen_v1"`。
+- `surface_evidence_binding` 恰含 `algorithm`／`task_id`／`terminal`／`artifact_sha256` 四键；
+  `contextual_reviewers[i]` 恰含 `agent_id`／`candidate_identity`／`dispatch_id`／
+  `input_path`／`purpose`／`role`（不含 `review_kind`）。
+- child 归档后 `mcp__paseo__get_agent_status` 仍可读到 provider/model/thinkingOptionId，
+  可据此补 `runtime_observation`；但仍应在归档前抓取。
+
+## 13. 第 12 批完成记录
+
+- 批次：`batch-a8b754e2b989f1feedf5`，base `9a707f3f`，1 run 4 lane，80 条 Tome pinned
+  （`commit:624a6732`）；源码工作集 80/80 直接字面量命中。
+- REVIEWER：4 lane，claude/claude-opus-5 medium，全部经 consumer validator 接受并归档；
+  交叉复核 1 个 full child，codex/gpt-6-astra low，同样验证并归档；两 task 均 `DONE_VERIFIED`。
+- 5 条 observation 裁决：**confirmed 2**（两轮一致）、**advisory 1**（两轮分歧）。
+  - confirmed：`ingredients.lua` troll intestine 描述丢失 "appears…in some time" 的推测语气与
+    时间限定；`egos/weapon.lua` entity keyword `blaze` 过译为“烈焰行者”。
+  - advisory：`#GOLD#Life per level:#LIGHT_BLUE#` 译文在颜色标记后插空格——该写法在
+    `mod-tome.lua` 出现数十次，属全库既定排版约定，标记与顺序完整保留；统一它属跨批次策略
+    决定，超出本批授权。
+- evidence commit `64769e9`；17 项门禁通过；finalize 成功。
+- **repair**（worktree `/workspace/tome4-repair-a8b7`，分支 `repair/a8b754e2-repair`）：
+  - troll intestine → “一截巨魔肠子。幸运的是，这只巨魔似乎已经有一段时间没吃东西了。”
+  - `blaze` → “炽焰”。选词依据：`Object.lua:637-645` 把 keyword 经 `_t(key,"entity keyword")`
+    译成短标签拼在已鉴定物品名后，故应为原词短对译；“烈焰”已被 `fiery` 占用，“炽焰”在
+    entity keyword 内无冲突。两个 runtime key 各 2 处副本已同步。
+  - catalog `a022bb9c`→`7794888d`；migration `0eccf0cb`：4 revision_changed、0 ambiguous、
+    0 unmapped。完整 17 项门禁通过；修复 commit `b664eb0` → merge `eb9324d`。
+- 队列：evidence head `eb9324d`，catalog `7794888d`，implicit queued 26,647。
+
+### 可复用脚本（本批新写，置于 /tmp，未纳入仓库）
+
+- `/tmp/freeze_ws.py <batch_id>`：从 active checkpoint 生成
+  `evidence/quality/production-batches/<batch>-source-workset.json`；已含 pinned/unpinned
+  路径映射、`\n`／`\t` 转义变体匹配与多行字面量回退，输出 `indent=1, sort_keys=True`。
+- `/tmp/stage_surface.py <batch_id>`：把 `surface-export` 产物落成 `.ai/task/<batch>/` 下的
+  GROUP／ENVELOPE／INPUT-DRAFT（canonical compact，无尾随换行）并写 `dispatch-plan.json`。
