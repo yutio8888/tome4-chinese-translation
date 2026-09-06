@@ -314,3 +314,83 @@ python3 -B tools/review_phase_timing.py summary --log .artifacts/i18n/timing/<BA
   路径映射、`\n`／`\t` 转义变体匹配与多行字面量回退，输出 `indent=1, sort_keys=True`。
 - `/tmp/stage_surface.py <batch_id>`：把 `surface-export` 产物落成 `.ai/task/<batch>/` 下的
   GROUP／ENVELOPE／INPUT-DRAFT（canonical compact，无尾随换行）并写 `dispatch-plan.json`。
+
+## 14. 第 13-19 批完成记录（2026-09-06）
+
+每批均为 80 条 Tome pinned（`commit:624a6732`）、1 run 4 lane、源码工作集 80/80 命中、
+17 项门禁通过。REVIEWER＝claude/claude-opus-5 medium，交叉复核＝codex/gpt-6-astra low。
+
+| 批次 | evidence | repair merge | 裁决 |
+| --- | --- | --- | --- |
+| 13 `batch-6fa5a191…` | `8e39e48`（合并 `0906133`） | `43049a1` | confirmed 6、refuted 1、advisory 1 |
+| 14 `batch-ab7bc44c…` | `6445a79` | `e95e559` | confirmed 2、pending 1、advisory 2 |
+| 15 `batch-1e1449f8…` | `61c1b5e` | `e9683cf` | confirmed 2、pending 1、advisory 2 |
+| 16 `batch-6998f500…` | `a5bf13c` | `db88296` | confirmed 2、refuted 1、advisory 1 |
+| 17 `batch-bcb2332d…` | `1af5bb4` | `68e6a98` | confirmed 2、pending 1、advisory 2 |
+| 18 `batch-fb66e92a…` | `8286eb2` | `d0db15f` | confirmed 5、refuted 1、pending 1 |
+| 19 `batch-ebd23cb4…` | `64653f4` | `1367b4a` | confirmed 4、pending 3、refuted 1 |
+
+### 已修复缺陷类型（供后续批次识别同型）
+
+- **entity keyword 过译**：keyword 应是原词短对译（`Object.lua:637-645` 把它拼在已鉴定
+  物品名后），不得把 ego 名的成分搬进来。已修 `blaze`→炽焰、`thought`→思维、
+  `daylight`→日光、`delving`→挖掘。选词前必须确认该译名在 entity keyword 内无冲突。
+- **severed / shining 一类修饰语整体漏译**：honey tree root、minotaur nose、
+  black mamba head、Aeryn desc 均属此类。
+- **专名被泛化或错指**：`wretchling eyeball`→"酸液树魔之眼"（全库孤立错名）、
+  black mamba→"这条蛇"。判定前先 grep 该专名在库内的既定译法。
+- **换行不变量破坏**：tutorial NPC desc 丢了 source 的 `\n`。target 内写 `\n` escape
+  即可（与库内 `"\n顺带一提，"` 等写法一致），catalog 解码后须与 source 换行对齐。
+- **别字**：`非生既死`→`非生即死`。
+
+### 不应判为缺陷的类型（已 refuted，避免重复报）
+
+- `arcane burst`→"奥术溅射伤害"：`combat.burst_on_hit` 经 `Object.lua:1161` 渲染为
+  "Damage (radius 1) on hit"，"溅射"准确描述机制；字面直译不能推翻机制正确的既有译名。
+- `yaech`→"夺魂魔"：与 yeek→"夺心魔" 配套的既定造词，库内 10 处一致。
+- `luminous horror dust`→"金色恐魔的粉尘"：沿用 8276 行既定实体名。
+- 无主语片段补出宿主物品名（hummerhorn wing→"翅膀"、storm wyrm claw→"这只爪子"、
+  bloated horror heart→"心脏"）：指称无歧义，属二级语感，记 advisory。
+- 中文句末半角标点：判据见 `translation-punctuation-convention-proposal-v1.md`，
+  该文明确"待维护者批准"，批准前不得判 confirmed。
+- `#GOLD#…： #LIGHT_BLUE#` 的空格：全库既定排版约定，标记与顺序完整保留。
+
+### 待维护者决定（已置 pending，对应 revision 进入 blocked）
+
+| 项 | 现译 | 问题 | workset 外影响 |
+| --- | --- | --- | --- |
+| `honey tree` | 蜜蜂树 | 字面是 bee tree | 实体名 8652 + 3 条目 |
+| `Warden's Focus` | 专注守卫 | 中心词颠倒（36805 行已正确作"守卫者专注的"） | talent name 22082 + 5 处 |
+| `farportal` | 远古传送门 | Far 被当作 ancient | 全仓库 83 处 |
+
+这三项每批都会被 reviewer 重新报出并重新裁决；授权后应另开有界 workset 一次性处理。
+
+## 15. 本轮新增的操作约束（务必遵守）
+
+1. **批次进行期间不得向 develop 提交任何东西**（含纯文档）。`batch start` 冻结
+   `base_commit`；HEAD 一旦不等于它，`surface-import`／`contextual-import`／`adjudicate`
+   甚至 `batch abandon` 全部报 `active batch catalog/base commit drift`，批次锁死。
+   已经提交了的补救：`git checkout --detach <base_commit>` 恢复批次 → 在该 base 上完成
+   evidence commit 与 finalize → `git checkout develop` 后 `git merge --no-ff <evidence commit>`。
+   **不要对已推送的 develop 做 force push。** 文档更新只在两批之间的窗口做。
+2. **修复前先全仓库 grep，不要只数 mod-tome.lua 内的副本**。同一 runtime key 可能同时存在于
+   `tome-cults.lua`／`tome-orcs.lua` 等组件；漏改会让 `06-runtime-collision-scan` 失败。
+   若已 `migration apply` 才发现，最干净的做法是 `git checkout -- evidence/.../catalog`、
+   删掉刚 copy 的 migration json、删 `queue.sqlite3` 重新 `queue init`，补齐后重跑一遍
+   catalog build + migration plan/check/apply，让整次修复只留一条 migration edge。
+3. **子 agent 派发必须显式传 `--mode`**（claude 用 `bypassPermissions`，codex 用
+   `full-access` 或 `auto-review`）。claude 默认的 `default`（Always Ask）会让 child 在
+   首次用工具时弹权限框并无限挂起，编排者只看到 status 长期不变。reviewer 只读语义仍由
+   prompt 约束，并在 harvest 后用 `git status --short` 证明 child 未写入任何文件。
+4. **无效输出按契约 fresh retry**。第 18 批交叉复核的 `verdicts[3]` revision_key 被截断为
+   50 hex，consumer validator 拒绝；归档该 child、以新 dispatch_id（`full-001`）重发，
+   两次 dispatch 都要记进 STATE（失败的一次 `output_valid:false` 并写 `last_error`）。
+
+## 16. 交叉复核检出率观察（截至第 19 批）
+
+交叉复核在 `low` 档对 surface 报出的 observation 独立复现率偏低：
+第 12 批 2/3、13 批 2/6、14 批 0/5、15 批 0/5、16 批 1/3、17 批 0/5、18 批 1/6、19 批 3/5。
+其中「非生既死」别字、black mamba 专名泛化、`daylight`／`delving` keyword 误译等
+客观可判条目都曾被判 OK。目前实际起决定作用的是主编排者按固定源码的逐条独立核验。
+交叉复核也确实抓到过 surface 漏掉的点（第 19 批娜迦 desc 的遮挡关系颠倒）。
+是否把交叉复核提到 `medium` 属用户设定，未经指示不自行更改；本文只记录观测值。
