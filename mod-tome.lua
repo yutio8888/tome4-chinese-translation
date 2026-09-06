@@ -21930,7 +21930,7 @@ t([[Choose an activatable spell that affects only you, does not require a target
 
 		当前选择技能： %s ]], "tformat")
 t("See the Threads", "命运螺旋", "talent name")
-t("The timeline is too fractured to do this now.", "目前的时间线过于破碎。", "logPlayer")
+t("The timeline is too fractured to do this now.", "目前的时间线过于破碎，你现在无法这么做。", "logPlayer")
 t("You've seen as much as you can here.", "你在这里已经看完了能看到的一切。", "logPlayer")
 t([[You peer into three possible futures, allowing you to explore each for %d turns.  When the effect expires, you'll choose which of the three futures becomes your present.
 		If you know Foresight you'll gain additional defense and chance to shrug off critical hits (equal to your Foresight values) while See the Threads is active.
@@ -22616,7 +22616,7 @@ t([[Your Rethread now braids the lifelines of all targets it hits for %d turns. 
 		受影响的生物将受到其他受影响生物受到的 %d%% 伤害.
 		伤害受法术强度加成。]], "tformat")
 t("Cease to Exist", "存在抹杀", "talent name")
-t("The timeline is too fractured to do this now.", "目前的时间线过于破碎。", "logPlayer")
+t("The timeline is too fractured to do this now.", "目前的时间线过于破碎，你现在无法这么做。", "logPlayer")
 t("#LIGHT_BLUE#%s never existed, this never happened!", "#LIGHT_BLUE#%s 不存在，也不会发生！", "logSeen")
 t("#LIGHT_STEEL_BLUE#%s tries to remove %sself from existance!", "#LIGHT_STEEL_BLUE#%s试图抹杀%s自己！", "logSeen")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
@@ -39188,7 +39188,7 @@ t("naga tidewarden", "娜迦潮汐守卫", "entity name")
 t("naga tidecaller", "娜迦潮汐呼唤者", "entity name")
 t("A slithering noise accompanies the movement of this strange creature, whose snake-like tail gives rise to the body of a beautiful elf-like woman. As she moves her delicate hands water rises from the ground, and you feel that here is no mere monster, but a creature of awe and power.", "这只奇怪的生物移动时发出滑行的声响，蛇一样的尾巴之上是美丽精灵般的躯体。当她移动纤细的双手时，水从地面升起，你感到面前的并非普通怪物，而是一个令人敬畏而强大的生物。", "_t")
 t("naga nereid", "娜迦海卫", "entity name")
-t("Green eyes stare out from behind strands of long, golden hair, which falls down in waves over smooth, pale skin. Your eyes are drawn to the bare flesh, but as they look further they see dark scales stretching out into a long serpent's tail. You look up as she moves, her hair parting to reveal a slim and beautiful face with high cheekbones and full lips. Yet for all the allure of this wondrous creature the terror of the serpentine tail sends shivers down your spine.", "绿色的眼睛后面是披落在白皙肩膀的金发。你的眼睛被裸露的肌肤所吸引，但是当你往下看时，你会发现黑色的长蛇尾巴。当她移动时你看向她的脸部，在金发之下是红润而美丽的脸庞，有着高颧骨和丰满的嘴唇。虽然从各方面看来，她都很完美，但是仍掩饰不住你眼皮底下的蛇尾巴带来的恐怖。", "_t")
+t("Green eyes stare out from behind strands of long, golden hair, which falls down in waves over smooth, pale skin. Your eyes are drawn to the bare flesh, but as they look further they see dark scales stretching out into a long serpent's tail. You look up as she moves, her hair parting to reveal a slim and beautiful face with high cheekbones and full lips. Yet for all the allure of this wondrous creature the terror of the serpentine tail sends shivers down your spine.", "一双绿色的眼睛从缕缕金色长发后凝视着你，那长发如波浪般垂落在光洁苍白的肌肤上。你的目光被裸露的肌肤吸引，但再往下看，就会见到黑色的鳞片一路延伸，化作长长的蛇尾。她一动，发丝分开，露出一张清瘦而美丽的脸庞，颧骨高耸，双唇丰润。然而，纵使这奇异生灵如此诱人，那蛇一般的尾巴带来的恐惧仍让你脊背发凉。", "_t")
 t("Lady Nashva the Streambender", "激流盘旋者纳纱瓦女士", "entity name")
 t("Water circles slowly on the ground around this naga's tail. Her dark tail is coiled tight, making her look short, but her calm and confident stare assure you that she will not be easily overcome. As the water begins to rise around her the air starts to shimmer, and you feel her dark eyes are penetrating into you deeper than is comfortable.", "水流缓慢的围绕着这位娜迦的尾巴旋转。她黑色的尾巴蜷缩起来，使她看起来较为矮小，但是她沉着而自信的眼神让你确信她不是轻易就能被击败的。当周围的水位开始上涨，空气开始闪烁微光，你感到她漆黑的目光洞穿了你，让你很不自在。", "_t")
 t("and brought back to Vargh for experimentations", "并被带去瓦尔弗成为实验对象", "_t")
@@ -39863,7 +39863,7 @@ t("Before you stands a tall figure, propped high by a serpent's tail in place of
 t("naga tidecaller", "娜迦潮汐呼唤者", "entity name")
 t("A slithering noise accompanies the movement of this strange creature, whose snake-like tail gives rise to the body of a beautiful Elf-like woman. As she moves her delicate hands, water rises from the ground, and you feel that here is no mere monster, but a creature of awe and power.", "这只奇怪的生物移动时发出滑行的声响，蛇一样的尾巴之上是美丽精灵般的躯体。当她移动纤细的双手时，水从地面升起，你感到面前的并非普通怪物，而是一个令人敬畏而强大的生物。", "_t")
 t("naga nereid", "娜迦海卫", "entity name")
-t("Green eyes stare out from behind strands of long, golden hair, which falls down in waves over smooth, pale skin. Your eyes are drawn to the bare flesh, but as they look further they see dark scales stretching out into a long serpent's tail. You look up as she moves, her hair parting to reveal a slim and beautiful face with high cheekbones and full lips. Yet for all the allure of this wondrous creature the terror of the serpentine tail sends shivers down your spine.", "绿色的眼睛后面是披落在白皙肩膀的金发。你的眼睛被裸露的肌肤所吸引，但是当你往下看时，你会发现黑色的长蛇尾巴。当她移动时你看向她的脸部，在金发之下是红润而美丽的脸庞，有着高颧骨和丰满的嘴唇。虽然从各方面看来，她都很完美，但是仍掩饰不住你眼皮底下的蛇尾巴带来的恐怖。", "_t")
+t("Green eyes stare out from behind strands of long, golden hair, which falls down in waves over smooth, pale skin. Your eyes are drawn to the bare flesh, but as they look further they see dark scales stretching out into a long serpent's tail. You look up as she moves, her hair parting to reveal a slim and beautiful face with high cheekbones and full lips. Yet for all the allure of this wondrous creature the terror of the serpentine tail sends shivers down your spine.", "一双绿色的眼睛从缕缕金色长发后凝视着你，那长发如波浪般垂落在光洁苍白的肌肤上。你的目光被裸露的肌肤吸引，但再往下看，就会见到黑色的鳞片一路延伸，化作长长的蛇尾。她一动，发丝分开，露出一张清瘦而美丽的脸庞，颧骨高耸，双唇丰润。然而，纵使这奇异生灵如此诱人，那蛇一般的尾巴带来的恐惧仍让你脊背发凉。", "_t")
 t("Lady Zoisla the Tidebringer", "潮汐使者佐西拉夫人", "entity name")
 t("Water circles slowly on the ground around this naga's tail, some droplets leaping up now and then as if they are impatient to do their mistress' bidding. Her dark tail is coiled tight, making her look short, but her calm and confident stare assure you that she will not be easily overcome. As the water begins to rise around her the air starts to shimmer, and you feel her dark eyes are penetrating into you deeper than is comfortable.", "水流缓慢地围绕着这位娜迦的尾巴旋转，有些水珠不时跃起，似乎迫不及待要执行主人的命令。她黑色的尾巴蜷缩起来，使她看起来较为矮小，但是她沉着而自信的眼神让你确信她不是轻易就能被击败的。当周围的水位开始上涨，空气开始闪烁微光，你感到她漆黑的目光洞穿了你，让你很不自在。", "_t")
 t("and brought back to Vargh for experimentation", "并被带去瓦尔弗成为实验对象", "_t")
