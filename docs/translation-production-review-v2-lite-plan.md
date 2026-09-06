@@ -548,7 +548,9 @@ verdict 开头先列本任务适用的个人项目原则。blocking finding 只�
 
 ### 13.2 每批五步门禁
 
-译文批次仍按 `docs/agent-workflow.md` 执行五步门禁，并追加：
+正式批次通过统一入口执行含构建的完整门禁，其中已覆盖五步及术语审计，不在外层再跑一遍。
+检查覆盖和去重以[工作流验证矩阵](agent-workflow.md#验证矩阵)为准；以下批次校验仍须完成，
+由现有消费者执行的项直接采用其有效结果，不以文档去重跳过验证或修改 receipt：
 
 1. `authoritative-catalog check`；
 2. `queue check`；

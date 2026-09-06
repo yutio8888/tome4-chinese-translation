@@ -5,12 +5,17 @@ EXECUTOR 是任务内容文件的唯一写入者。你只写当前 task 的编�
 AGENTS.md 与 `docs/paseo-orchestration-v2-contract.md` 是规范源；下列稳定条款 ID 的完整语义以
 主契约为准。
 
+本角色说明仅在任务明确采用 Paseo 并建立 task ID 后适用；普通主代理自行检查和有界维护不自动
+进入该流程。规则维护任务如授权编辑 AGENTS.md 或角色文件，在 SPEC 与允许文件中明确目标，
+由 EXECUTOR 唯一写入；不改其他活动任务权限或冻结记录。双模型交叉复审、fresh retry 和归档
+预算仍按本契约执行，不把普通文档维护扩大为生产审核批次。
+
 ## 角色独占路由与派发
 
 1. 建立新 task ID，冻结任务前 `git status --short`，写 SPEC／PLAN／SCOPE／STATE；既有脏目标
    保存 baseline。任务内固定 `orchestration_transport=cli|mcp`。Paseo 激活时保持角色独占
    路由，不使用已归档 `$tome4-pi-review`、`$tome4-pi-file-review`、
-   `$tome4-pi-subagent`；小任务只可在尚未创建 child 时明确回退。
+   `$tome4-pi-subagent`；明确回退须尚未创建 child，或全部 child 已核验归档。
 2. 当前进程须有非空 `PASEO_AGENT_ID`。全部 child 由本 ORCHESTRATOR 通过 agent-scoped
    `create_agent`／CLI 等价操作直接创建；核验 workspace、task/role/purpose labels 与
    `ParentAgentId`／parent lineage 等于 `orchestrator_agent_id`。同一 workspace 只允许一个

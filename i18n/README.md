@@ -2,7 +2,9 @@
 
 当前工具以 `tome4-chinese-translation` 为唯一译文源。版本与 DLC 基线边界见[运行时配置](#运行时配置)，
 公开源码许可见下方许可证说明；提取统一通过受审计的 Lua 代理和固定快照基线。
-默认命令不会提取 DLC，所有报告写入 `.artifacts/i18n/`。
+默认命令不会提取 DLC，可重生成的工具报告写入 `.artifacts/i18n/`；人工裁决与不可重生成核验锚点
+按所属契约保存在受跟踪的 `evidence/`。本文件按命令查询，不是每次修改前的必读清单；检查选择见
+[工作流验证矩阵](../docs/agent-workflow.md#验证矩阵)。
 
 最新已推送 addon 版本、条目数和待发布事项见
 [`docs/release-plan.md`](../docs/release-plan.md)。manifest 中的 `repositories.addon.commit`
@@ -238,10 +240,10 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   调用前的主代理流程门槛，不是工具能从 v1 JSON 独立证明的事实。translation v2
   assessment 是候选观察，不得直接进入 remediation。结构校验成功不等于事实确认。
 - 旧的 code/legacy v1 文件审核入口 `tools/pi-review-files` 已归档到
-  `archive/tools/`；code 审核统一由 Paseo 常规 REVIEWER 承担。translation v2
-  的源码核验必须绑定既有
-  observation，仅返回 `supported/refuted/insufficient`，不得开放式新增 finding；在该
-  claim-bound runner 实现前，主代理直接按固定源码版本核验。
+  `archive/tools/`；委托 code 审核由 Paseo 常规 REVIEWER 承担，主代理可直接进行范围内检查。
+  历史 translation v2 的 claim-bound 核验设计以既有 observation 为输入，只返回
+  `supported/refuted/insufficient`，不承担开放式发现；该设计不限制主代理主动登记具体疑点后
+  按固定源码核验。归档 Skill 不构成当前路由，现行 REVIEWER 只读其冻结输入契约允许的资料。
 - `tools/pi-subagent` 把不超过 50 条的已校验 workset 和 proposal 模板注入一个
   无工具、无会话、无项目上下文的翻译进程。原始输出先保存在 artifact，再自动通过
   `proposal --strict`；它没有读取仓库、运行 shell 或修改 Lua 的能力。

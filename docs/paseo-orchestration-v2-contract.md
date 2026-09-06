@@ -11,6 +11,11 @@
 本文面向个人翻译项目。目标是用 Paseo 获得“一个 agent 实现、另一个 agent 复审”的
 收益，同时保持失败后容易人工接管，不把短期运行时选择写成长期行为契约。
 
+本文仅约束明确采用 Paseo 并建立 task ID 的任务，不因主代理自行审查、查询源码或进行普通
+有界维护而自动激活。任务读取与验证范围按 [AGENTS.md](../AGENTS.md) 和[工作流矩阵](agent-workflow.md#验证矩阵)
+选择。双模型交叉复审、精确身份核验及归档预算在适用的受管任务内保持原要求，不能把这些要求
+泛化为所有本地修改的前置条件。
+
 ---
 
 ## 一、设计取舍
@@ -154,13 +159,14 @@
 不能只凭标题或会话文本推断。
 
 Paseo 在任务明确采用本流程并建立 task ID 时激活，到 `DONE`／`STOP` 或明确记录回退
-时结束。连续批次工作（如逐段译文复核）中，一个 task 进入 `DONE` 并提交后可以直接
+时结束。在用户已授权的连续批次范围内，一个 task 进入 `DONE` 并提交后可以直接
 建立下一个 task ID 并开始，不需要用户逐批确认；每个 task 仍是独立任务，各自完整执行本契约的
 冻结、复审、门禁与生命周期要求，不得跨 task 复用候选、review 记录或 child。批次间的连续推进
 不改变任何 `WAIT_USER` 条件：本契约要求进入 `WAIT_USER` 的情形仍必须停下并交回用户，不得
 因为「保持连续」而绕过。明确回退只允许在尚未创建 child，或所有 `child_dispatches` 都已
 `archive_confirmed=true` 时发生；否则先 reconciliation，无法确认则进入 `WAIT_USER`，
 不得退出 Paseo 后由主代理继续。已归档 Skill 产生的输出不得当作 Paseo contract 结果。
+到达当前任务指定的批数、切片边界或暂停点即交付，不从历史连续运行指令推导新的授权。
 
 ---
 
@@ -790,6 +796,11 @@ workspace、parent lineage 与候选绑定。已结束的运行不是可继续�
 EXECUTOR 只修改 SPEC 允许的文件，不 commit、不 stage、不删除或弱化失败测试。完成后
 ORCHESTRATOR 检查实际 diff、越权文件和 focused tests。
 
+规则维护任务已获授权、且 SPEC 与允许文件明确列出具体目标时，EXECUTOR 可以修改
+AGENTS.md 或 `.ai/roles/` 下的规则文件；REVIEWER 仍只读，ORCHESTRATOR 不接管任务内容写入。
+该授权不扩大其他活动任务权限或改写其冻结记录，也不放宽下节事务 helper 对 `.ai` namespace
+的拒绝；受授权的角色文件由 EXECUTOR 直接编辑并核对范围，不通过该 helper 写入。
+
 REVIEWER 按 `purpose` 选择输入和输出契约。普通 REVIEWER 只接收 code／tool／document
 diff；语境 REVIEWER 只读取独立契约指定的冻结 envelope 和其引用内容。两者不得互看
 另一 contract 的 findings。
@@ -877,14 +888,15 @@ sidecar 的每个复合引用，并把未列出的相关 review、缺失 disposi
 
 每轮实现后：
 
-- 运行与变更直接相关的 focused tests；
+- 按[验证矩阵](agent-workflow.md#验证矩阵)运行与变更直接相关的检查；纯文档修订核对文档／契约；
 - 涉及译文时运行 `python3 -B tools/i18n lint --strict`；
 - 按冻结 SPEC 和任务基线生成任务自身 diff；
 - 核对 EXECUTOR 越权文件、REVIEWER／SCOUT 工作树变化和候选引用。
 
 schema 4 translation implement 每个 cycle 还必须在 contextual 派发前重跑 preflight，并运行
 strict lint、scope/source/tag/args/special/markup/placeholder/newline 不变量与
-`git diff --check`。五步门禁及完整 `tools/ci-gates.sh` 只在最终 `FINAL_REVIEW/full` 收敛后运行。
+`git diff --check`。最终门禁在 `FINAL_REVIEW/full` 收敛后按工作流矩阵执行；完整入口已覆盖的
+五步和术语审计不另行重复。正式生产批次仍须提供消费者要求的 full receipt，不接受跨命令缓存。
 
 完成前：
 
@@ -893,6 +905,12 @@ strict lint、scope/source/tag/args/special/markup/placeholder/newline 不变量
 - 最终 AC 与适用门禁通过；
 - 旧用户改动、历史 task 和 archive 未被改写；
 - DONE、STOP 或明确回退前，未创建任何 child，或全部 `child_dispatches` 已确认归档。
+
+`review_only` 以裁决并交付 findings 为完成，不要求没有 finding；非阻断 pending／advisory
+不自动扩大范围。需要用户决定的 deferred finding 及本契约的停止条件仍须处理，不能以
+“只剩建议”为由报告 DONE。普通维护的交付不要求生成本文的 STATE 或取得 `DONE_VERIFIED`。
+提交、交接、记忆与临时产物按[工作流完成标准](agent-workflow.md#完成交付与整理)整理；
+不要求清空用户既有改动，也不因单纯汇报而重跑已有有效检查。正式 checkpoint／receipt 恢复要求不变。
 
 schema 4 translation implement 的 DONE 还跨 `review_records` 与 `senior_review_records` 扫描
 全部 contextual terminal 记录（包括失败）。每个记录 cycle 都不得超过 STATE.cycle 或
@@ -920,7 +938,8 @@ max_cycles；唯一最早记录必须是 cycle 0 的 `REVIEW/full`，intervening
 - 语境 REVIEWER：冻结的有界译文语境 bundle，以及其中明确引用的译文和公开源码。
 
 所有角色都必须遵守各自的只读、读取范围和输出 schema。改变外发内容范围、目的或
-读取边界仍需用户授权；运行时载体不再构成单独的授权轴。
+读取边界时先核对已有授权；超出授权才请求用户决定，不重复请求已经授予的许可。
+运行时载体不再构成单独的授权轴。
 
 质量 evaluator 的运行身份、预注册、campaign ledger 和历史 assessment 属于独立质量
 实验契约，不由本文迁移或重解释。已完成 task、review record、handoff 和 archive 保持

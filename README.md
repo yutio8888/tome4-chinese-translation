@@ -48,13 +48,15 @@ python3 -B tools/i18n build --profile addon --component tome --require-complete
 tools/ci-gates.sh
 ```
 
-更完整的命令、输入边界和构建语义见 [`i18n/README.md`](i18n/README.md)。参与
-译文维护前请先阅读 [`AGENTS.md`](AGENTS.md)、[`TERMINOLOGY.md`](TERMINOLOGY.md)
-和 [`docs/lessons-learned.md`](docs/lessons-learned.md)。
+上列命令展示工具入口，并非每次修改都要顺序执行。按 [`AGENTS.md`](AGENTS.md) 选择任务入口，
+检查范围以[工作流验证矩阵](docs/agent-workflow.md#验证矩阵)为准。首次做译文工作时读
+[`TERMINOLOGY.md`](TERMINOLOGY.md) 的使用规则，随后查询相关术语；工具命令和特殊操作按需查
+[`i18n/README.md`](i18n/README.md) 与 [`lessons-learned.md`](docs/lessons-learned.md) 对应章节。
 
-所有 inventory、候选、评审输出和构建结果均写入已忽略的 `.artifacts/i18n/`，
-不会自动覆盖规范 Lua。任何外部模型调用还必须遵守 `AGENTS.md` 的有界输入和明确
-授权要求。
+可重生成的 inventory、候选和构建结果写入已忽略的 `.artifacts/i18n/`，不会自动覆盖规范 Lua。
+人工裁决和不可重生成核验锚点写入受跟踪的 `evidence/`；正式审核要求保留的原始输入／输出
+按其契约随证据保存。外部模型调用遵守 `AGENTS.md` 的输入边界与既有授权。
+三个旧项目 Skill 仅保留于 [`archive/`](archive/README.md)，归档正文不构成当前路由。
 
 ## 许可与上游
 

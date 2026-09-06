@@ -1,28 +1,51 @@
 # 代理操作与门禁手册
 
-本文件只承载操作步骤和命令。仓库授权、不变量、外发边界、失败关闭顺序和门禁触发条件以上位文档 [`AGENTS.md`](../AGENTS.md) 为准；本文件不得放宽这些规则。工具与 Lua 的详细说明见 [`i18n/README.md`](../i18n/README.md)。
+本文件承载任务分流、操作步骤、验证矩阵和完成标准。仓库授权、不变量、外发边界和失败关闭顺序以上位文档 [`AGENTS.md`](../AGENTS.md) 为准；本文件不得放宽这些规则。工具与 Lua 的详细说明见 [`i18n/README.md`](../i18n/README.md)。按任务读取对应章节，无须通读全部操作流程。
 
 ## 开始前
 
-明确任务是仅审核还是审核并修复，冻结范围、关注维度和完成标准，然后记录：
+明确任务是仅审核、实现还是审核并修复，确定范围、关注维度和完成标准，然后检查工作树：
 
 ```bash
 git status --short
 git diff --name-status
-python3 -B tools/i18n doctor
 ```
 
-保留任务前改动；需要修改既有脏文件时，先按任务 SPEC 保存可恢复的 baseline。翻译、术语或工具行为变更的外发与审核路由仍须按 [`AGENTS.md`](../AGENTS.md) 执行。
+首次使用汉化工具环境、依赖或来源配置变化、相关运行失败时执行 `python3 -B tools/i18n doctor`；只读文档任务无需运行。正式流程和完整门禁自身要求的 doctor 仍由其入口执行。
 
-修改外部仓库或已有版本控制文件前，先阅读 [`docs/lessons-learned.md`](lessons-learned.md)；编辑后运行 `git diff --stat`，检查行尾或缩进噪音。不得因相邻样式、无关重构或额外质量工程扩大范围。
+保留任务前改动；需要修改既有脏文件时保存可恢复的 baseline，正式 Paseo 任务按 SPEC 记录。普通有界维护可在任务说明中记录范围和验收，不要求建立 SPEC／PLAN／SCOPE／STATE。
+
+涉及 CRLF、外部仓库或脚本整文件重写时，读取 [`lessons-learned.md`](lessons-learned.md) 的相关条目并检查目标行尾／格式；其他编辑保留现有格式，编辑后检查实际 diff。已读且未变化的资料不重复读取。不得因相邻样式、无关重构或额外质量工程扩大范围。
+
+### 任务分流
+
+| 任务 | 操作入口 |
+| --- | --- |
+| 只读审查、普通有界维护 | 主代理直接检查或修改，按验证矩阵验收；不自动派发 child |
+| 采用 Paseo 的实现或独立复审 | 读取编排契约及实际使用的角色；按任务建立记录 |
+| contextual v1／schema 4 implement | 使用下文旧 P2 实现步骤与三阶段收敛；历史任务不迁移 |
+| contextual v2 implement | 按 [v2 契约](paseo-translation-context-review-v2-contract.md) 准备与收束，不照搬 v1 的 lane 数和轮次升级规则 |
+| WP2-Lite 正式审核 | 按[当前交接](production-review-handoff-2026-09-05.md)和[正式方案](translation-production-review-v2-lite-plan.md)处理 checkpoint、队列、surface／deep、裁决及 evidence；active batch 内不修改译文 |
+| WP2-Lite repair | 审核证据已提交且 checkpoint 已移除后运行 `repair preflight`，另建唯一 EXECUTOR 的实现任务；提交译文、repair evidence、catalog 和 migration 后 rebuild queue，successor 等待重新审核 |
+
+有活动 checkpoint 时先按所属流程恢复；不能删除 checkpoint 或新开 writer 来套用另一条流程。
 
 ## 审核、修复与停止
 
 先完成一轮只读检查再集中裁决；仅审核任务不得自行进入修复。译文检查源码机制、语境、术语、占位符／markup、运行键和中文表达；代码／工具检查输入、失败语义、下游消费者和实际复杂度；文档／配置核对真实实现与命令。finding 必须有源码或上下文证据并说明可触发行为或调用链；纯风格偏好、理论风险和无证据的性能猜测不算确认问题。
 
-主代理独立把 finding 标为 `confirmed`、`pending` 或 `advisory` 并定级；只有 `confirmed` 自动进入修复。只有用户要求修复时才修改：先冻结 finding 清单，把同一轮的全部 accepted 项合并为一次修复 dispatch 并按依赖顺序处理，给修复 agent 明确 finding、允许文件、最小测试和完成条件，并复核其输出与测试结果。
+主代理独立把 finding 标为 `confirmed`、`pending` 或 `advisory` 并定级；只有 `confirmed` 可进入已授权修复。仅审核任务不修改；实现或审核并修复任务在已有授权内持续完成，不重复请求修复许可。普通维护由主代理按依赖顺序集中修复；Paseo 任务先冻结 finding 清单，把同一轮全部 accepted 项合并为一次 EXECUTOR 修复 dispatch，明确允许文件、最小测试和完成条件，并复核其输出。
 
-每个修复运行最接近的 lint／测试和 `git diff --check`；一批修复后运行组件级检查；收束时运行适用的完整门禁、构建和 smoke。若待检文件是 untracked，运行 `git diff --no-index --check -- /dev/null <path>` 检查其空白；该命令无需改动 index，可供只读审核使用；`--no-index` 无诊断且退出 1 仅表示文件有差异，空白诊断或读取错误仍须处理。审核并修复任务只有在 accepted finding 全部解决、门禁通过并完成新的独立复审后交付；只剩 pending/advisory 时说明并停止。
+对每轮实际修改按验证矩阵运行最接近的 lint／测试和 `git diff --check`；仅在新变化、失败或未解决的影响链要求时扩大、重跑检查，不对同一轮的每个 finding 逐条重复验证。若待检文件是 untracked，运行 `git diff --no-index --check -- /dev/null <path>` 检查其空白；该命令无需改动 index，可供只读审核使用；`--no-index` 无诊断且退出 1 仅表示文件有差异，空白诊断或读取错误仍须处理。是否需要独立复审取决于用户要求和已采用的任务契约；普通只读检查、小型维护不因此自动启动编排。
+
+### 完成交付与整理
+
+- 只读审查：交付问题位置、影响、证据状态和建议即完成，不要求 findings 清零。
+- 实现或审核并修复：范围内验收满足、accepted finding 全部解决、适用验证与复审通过后交付。非阻断 pending／advisory 说明影响即可，不自动扩大任务；影响验收或授权的未决项须给出证据和所需决定，不能报告完成。
+- 正式任务：仍须满足所属契约的 `DONE_VERIFIED`、证据、提交／finalize、队列重放及 child 生命周期要求；surface 完成不代表 deep review 或 repair 完成。
+- 提交：按任务授权提交范围内文件，核对暂存 diff 与空白；译文和对应证据保持该流程要求的提交边界。只有与本次验收相关的失败才阻断；基线问题不得静默忽略或顺带修复，若正式消费者因此拒绝则按该流程处理。
+- 交接与记忆：恢复入口、状态或后续操作变化时更新交接；只把可复用的新结论写入记忆。相关文档可随同一逻辑改动提交，不要求每批另作固定的交接／记忆提交。
+- 整理：只清理由本任务创建、已无恢复或核验用途的临时产物；可重生成报告留在忽略目录，人工裁决和不可重生成核验锚点进入受跟踪的 `evidence/`。不整树清理、不删除恢复 checkpoint，不要求用户既有改动或忽略目录清空。
 
 ### 机制 claim 与运行时组合
 
@@ -46,7 +69,7 @@ exact schema、directional anchor、结构化 decomposition、完整句重渲染
 
 `tools/ci-gates.sh` 委托 `tools/ci_gates.py`，统一使用
 `tools/i18nlib/gate_results.py` 的检查定义。默认包含严格 addon build；`--skip-build`
-授权条件不变。每次在 `.artifacts/i18n/ci-gates/run.*/` 生成独立 `results.json` 与逐项
+适用条件见验证矩阵。每次在 `.artifacts/i18n/ci-gates/run.*/` 生成独立 `results.json` 与逐项
 `.log`，按稳定检查 ID、argv、退出码、输出 hash 和时间验证，扩展名不再承载覆盖语义。
 
 批次 `prepare_evidence` 只调用一次统一入口。原 16 项保留，增加 staged whitespace；
@@ -73,7 +96,7 @@ anchors-only briefing 独立重建，不接收预填 scope、components、tick c
 ORCHESTRATOR 核验源码、裁决 finding 并写编排／review record。required anchor 未固定或数据流
 无法闭合时，自行降级为 `pending`，采用不比英文更明确的保守中文，不自动进入机制性改写，并在
 批次简报记录。首次同 revision 的高风险字段分歧进入正常 FIX／RE_REVIEW；重复实质分歧、固定
-源码仍不能支持唯一结论、达到 `max_cycles`，或需要跨批次策略时进入 `WAIT_USER`。普通 accepted
+源码仍不能支持唯一结论、达到 `max_cycles`，或需要尚未授权的跨批次策略时进入 `WAIT_USER`。普通 accepted
 finding 清零且门禁通过后方可收束。
 
 ### 子 agent 通知、终态与取消顺序
@@ -84,7 +107,10 @@ finding 清零且门禁通过后方可收束。
 
 ### 连续批次循环
 
-译文复核默认连续运行，不逐批等待批准。一批收束后按下述顺序直接开始下一批：
+仅在已授权的连续任务范围内，一批收束后直接开始下一批；到达指定批数、切片边界或暂停点即交付。
+WP2-Lite 按任务分流中的正式入口执行；其审核证据必须先提交并 finalize，修复另建任务。
+
+以下步骤只用于旧 P2 的 contextual v1 实现批次，不作为 WP2-Lite 的审核或修复模板：
 
 1. 选定下一个有界切片（按既定推进顺序，规模参照近期批次），并确认它与已完成批次不重叠。
 2. 冻结工作集到受跟踪的 `evidence/quality/p2-batches/`，逐条按固定 commit 字节核验英文键，
@@ -99,10 +125,9 @@ finding 清零且门禁通过后方可收束。
 EXECUTOR 修复 dispatch，在同一次运行内按依赖顺序处理，不逐条派发。schema 4 的
    translation implement 任务按下节执行中间 closure 或不确定时的 `RE_REVIEW/full`，收敛后做
    一次最终全量复审。
-6. 最终全量复审收敛后运行五步门禁 + 适用的完整门禁 → `ai_state_check.py`
-   `DONE_VERIFIED` → 单独提交译文批次与
-   evidence；交接与记忆随后单独提交。
-7. 给出批次简报，直接进入下一批。
+6. 最终全量复审收敛后按验证矩阵完成门禁覆盖（完整入口已覆盖五步时不重复）→ `ai_state_check.py`
+   `DONE_VERIFIED` → 提交译文批次与 evidence；按需更新交接与记忆。
+7. 给出批次简报，在已授权范围内进入下一批。
 
 停下条件、以及哪些情况自行处理不必停，见 [`AGENTS.md`](../AGENTS.md) 的「连续批次模式」。
 连续运行不豁免本文件的任何门禁或证据要求；批次之间不得为了赶进度合并、跳过或延后门禁。
@@ -148,7 +173,7 @@ severity、既往 verdict、finding 计数或期待结论，因此不破坏 anch
 
 每个 cycle 在 contextual 派发前运行 preflight；修复后运行 strict lint、范围与
 source／source_tag／args_order／special／markup／placeholder／newline 不变量检查，以及
-`git diff --check`。五步门禁和完整 `tools/ci-gates.sh` 只在最终 `FINAL_REVIEW/full` 收敛后运行；
+`git diff --check`。批次最终门禁只在 `FINAL_REVIEW/full` 收敛后按验证矩阵运行，完整入口已覆盖的五步检查不重复；
 任一 per-cycle 检查失败仍须先修复，不能延后到最终门禁。
 
 涉及 evidence-citing candidate 时，先用 `python3 -B tools/review_evidence.py inventory` 从 `.ai/reviews/` 源记录生成原始 finding 清单，再用 `check` 校验 proposer 的 `EVIDENCE-RECONCILIATION.json`；用 `render` 派生计数，不手填 counts。reviewer 仍须直接核对引用和未列出的相关记录。
@@ -189,9 +214,29 @@ WP1 只用于校准枚举、identity、预算和守恒，不进入连续生产�
 
 收束至少运行 production、surface manifest、surface result、translation ledger 四套 focused tests，逐件运行 check/replay/reconciliation，并执行 Paseo contract check 与 `git diff --check`。WP2 必须重新 harvest、完成正式 source locator migration 并建立全新正式 ID 链；不能把 WP1 baseline 改 marker 后复用，也不能引用它作为 parent。正式 ledger CLI 默认以工具仓库 ROOT 和所选 `--root` 的 forbidden set 并集机械拒绝 tracked WP1 shadow provenance；generic library replay 仅保留 legacy 状态机结构验证，`--catalog-manifest` 在 WP2 exact authoritative validator 完成前拒绝所有 catalog，未来 validator 仍须同时应用该 forbidden set。WP2 publication 当前完全不可用；启用前必须实现新的单锁 generation transaction，在同一锁内精确验证并完成 WP1 retirement、父目录 fsync、各 family 与 128 MiB 总预算预检，以及五 family 全部 publication 或恢复。不得用布尔值表示 retirement，也不得把 WP1 per-family publisher 当作该 transaction。
 
+## 验证矩阵
+
+任务开始时按下表确定验证范围；普通维护的依据写在交付说明即可，正式任务写入已有 SPEC。
+文档说明的修订与工具行为变更分开判断：纯规则文档修改运行相关契约检查并人工核对语义，不因文档谈及基础设施就运行所有工具测试。
+
+| 任务／实际影响 | 必要验证 |
+| --- | --- |
+| 只读审查、纯文档修订 | 核对相关事实、链接和命令；改动文件的空白检查；角色或契约修改追加 `python3 -B tools/paseo_contract_check.py` 及权限、流程语义核对 |
+| 有界译文修改 | 严格 lint、源码／语境核验、source／source_tag／args_order／special／placeholder／markup／newline 不变量、运行键扫描和分类、空白检查；按采用的契约复审；影响 addon 输出或加载时追加严格构建 |
+| 术语数据修改 | 上述适用译文检查，加下节三项术语审计及 LuaJIT 加载后的 source／target／source_tag 有效性核对；涉及全局策略先核对授权 |
+| 局部工具行为修改 | 直接相关测试及实际消费者检查；输出、打包或加载路径变化时追加严格构建；未触及的质量研究、队列等测试不自动全跑 |
+| 共享流程、身份、证据或发布链路的行为修改 | `tools/ci-gates.sh` 完整检查集，以及受影响的兼容、重放或恢复检查；符合下述条件时可跳过构建 |
+| 正式生产批次，包括只写审核 evidence 的批次 | 保留所属消费者要求的完整门禁、严格构建、catalog／queue／evidence 校验、适用复审、`DONE_VERIFIED` 和提交／finalize 后的重放 |
+
+需要独立执行严格核心 addon 构建时使用 `python3 -B tools/i18n build --profile addon --component tome --require-complete`；涉及其他组件或发布 profile 时同时验证实际受影响的产物，不能以核心构建代替。
+
+`tools/ci-gates.sh` 默认含构建。非正式生产批次的任务若可据实际改动证明不影响 addon 输出、打包或加载，可记录依据后使用 `--skip-build`；不用另行请求许可或专门创建 SPEC。正式批次当前要求 full receipt，不接受 `--skip-build`。
+
+同一最终候选的已完成检查不因汇报、交接或提交说明而重跑；输入或相关环境变化、检查失败、覆盖缺失时补充适用检查。正式 `prepare_evidence` 必须由现有统一入口生成并验证绑定结果；恢复后的新 prepare 仍重新执行，不提供跨命令缓存，不伪造或修补 receipt。
+
 ## 批次门禁
 
-译文每批按以下顺序运行，任何失败都必须先修复，不得用管道吞掉退出码：
+旧 P2 实现批次须覆盖以下五项；正式生产批次由统一门禁入口覆盖。下列是独立检查命令，完整入口已包含它们时，不在其前后再执行一轮。普通有界维护按上表选择检查。适用检查失败须处理，不得用管道吞掉退出码：
 
 ```bash
 # 1) 规范译文静态校验
@@ -206,16 +251,16 @@ python3 -B tools/scan_runtime_collisions.py
 # 4) 重复运行键分类
 python3 -B tools/classify_runtime_keys.py
 
-# 5) 工作树整洁度
+# 5) 改动的空白检查（不要求工作树为空）
 git diff --check
 ```
 
-术语批次在上述五步之后额外运行 `python3 -B tools/audit_static.py`、`python3 -B tools/audit_dynamic.py` 和 `python3 -B tools/annotate_domains.py`；报告写入 `.artifacts/i18n/terminology-audit/`。涉及译文审核时遵循 [`docs/runtime-key-collisions.md`](runtime-key-collisions.md)。审计与扫描只写入 `.artifacts/i18n/`，不直接改写规范 Lua。
+术语批次还须覆盖 `python3 -B tools/audit_static.py`、`python3 -B tools/audit_dynamic.py` 和 `python3 -B tools/annotate_domains.py`；完整门禁已含三项，不再追加执行。报告写入 `.artifacts/i18n/terminology-audit/`。涉及译文运行键时按需读取 [`runtime-key-collisions.md`](runtime-key-collisions.md)。审计与扫描只写入 `.artifacts/i18n/`，不直接改写规范 Lua。
 
-翻译、术语或工具行为变更收束时运行 `tools/ci-gates.sh`。只有任务 SPEC 证明不影响 addon 输出或构建时才可使用 `tools/ci-gates.sh --skip-build`；工作树未变化时不重复运行长门禁；纯文档任务只运行相关文档／契约检查和 `git diff --check`。
+完整门禁、构建与定向检查的选择以本文件验证矩阵为准。空白检查分别覆盖工作树和暂存区（`git diff --check`、`git diff --cached --check`）；任务新建文件按上文检查，不以无输出推断所有 untracked 文件已验证。
 
 ## 术语与源码判定
 
-开始翻译或审校前阅读 [`TERMINOLOGY.md`](../TERMINOLOGY.md) 和 [`terminology/`](../terminology/)。术语或专名疑点只能在审核 observation 产生后按 claim 核验；不得用术语库覆盖源码事实。新增或修改高复用术语时，先更新术语库，再修改 Lua；保留 `t(...)` 第三个参数的 `source_tag`，填写 `T.*` category，并在不同语境下于 `notes` 说明。修改术语后用 LuaJIT 加载翻译文件检查 `source`、`target` 和 `source_tag`。
+术语读取和疑点登记按 [`AGENTS.md` 的术语库工作流](../AGENTS.md#术语库工作流)执行：主代理首次读取 [`TERMINOLOGY.md`](../TERMINOLOGY.md) 使用规则，再查询 [`terminology/`](../terminology/) 的相关条目；reviewer 按冻结输入契约读取。确实新增或修改高复用术语时，先更新术语库再修改 Lua，不把普通译文修改变成术语库更新任务。保留 source_tag、category 和语境说明，按验证矩阵检查。
 
 翻译、术语或英文表面含义与机制冲突时，对 manifest 固定源版本或 commit 的组件，以该固定源码实际行为为准，并记录组件、公开源码路径、固定 commit 和关键调用或数据定义；对源码仓库、commit 或版本未固定的 DLC，不得声称存在固定源码或 commit，应记录实际获授权的公开源码证据并明确标注来源未固定；证据不足时，将来源或机制结论标为待确认。

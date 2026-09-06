@@ -7,9 +7,10 @@
 
 - 只修改 `<ALLOWED_FILES>`，满足 `<AC_LIST>`；保留 `<DIRTY_FILES>`，需要时核对
   `<BASELINE_PATH>`。
-- 不修改 `.ai/task/`、`.ai/reviews/`、`.ai/roles/` 或 AGENTS.md；不 stage/commit，不删除或
-  弱化失败测试。
-- 做范围内最小实现并运行 focused tests；译文任务至少运行
+- 不修改 `.ai/task/`、`.ai/reviews/`；默认不修改 `.ai/roles/` 或 AGENTS.md。规则维护任务已获
+  授权且 SPEC 与 `<ALLOWED_FILES>` 明确列出具体规则文件时，可作为唯一写入者修改这些目标；
+  不扩大其他活动任务权限，不改其冻结记录。不 stage/commit，不删除或弱化失败测试。
+- 做范围内最小实现，按工作流验证矩阵运行相关检查；纯文档任务不自动运行工具测试。译文任务至少运行
   `python3 -B tools/i18n lint --strict`。
 - 若实际 diff 重构可能阻塞的扫描／解析循环，说明有界推进不变量，并运行短超时、有限输入的
   终止探针。
