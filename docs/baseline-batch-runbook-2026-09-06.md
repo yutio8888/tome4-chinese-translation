@@ -1,9 +1,9 @@
 # 80 条基线批次审核运行手册（2026-09-06）
 
 > 供主编排者（ORCHESTRATOR）后续阅读并继续开展 80 条基线批次审核工作。
-> 本手册记录截至 2026-09-06 已完成的第 6、7 个 fill-80 基线批次
-> （`batch-cab1369cd860e4cef670`、`batch-1d8c83650b49f5b4b3ac`）的完整可复现操作链，以及
-> 下一批的推进规则。正式约束以
+> 本手册记录截至 2026-09-06 已完成的第 6、7、8 个 fill-80 基线批次
+> （`batch-cab1369cd860e4cef670`、`batch-1d8c83650b49f5b4b3ac`、`batch-762830cafd3ebe687678`）
+> 的完整可复现操作链，以及下一批的推进规则。正式约束以
 > [`AGENTS.md`](../AGENTS.md)、[工作流](agent-workflow.md)、
 > [WP2-Lite 正式方案](translation-production-review-v2-lite-plan.md) 与
 > [当前交接](production-review-handoff-2026-09-05.md) 为准；本文只是操作说明，不放宽任何契约。
@@ -30,8 +30,8 @@
   （无活动批次时不存在）
 - 每批开始前必须先重放：`python3 -B tools/i18n production queue check`；
   HEAD 变化后如需重建用 `queue rebuild`（仅在无活动 checkpoint 时）。
-- 当前（第 7 批 finalize 后）：S/done 2,786（surface_only 2,739；deep_reviewed 47），
-  D 47、R 0、I 97、隐式 queued 27,042。数字是快照，实际以 `queue status --json` 为准。
+- 当前（第 8 批 finalize 后）：S/done 2,866（surface_only 2,819；deep_reviewed 47），
+  D 47、R 0、I 97、隐式 queued 26,962。数字是快照，实际以 `queue status --json` 为准。
 
 ## 3. 每批操作步骤（可复现模板）
 
@@ -72,7 +72,7 @@ python3 -B tools/i18n production batch show   # 记录 batch_id/phase/selected/b
 | 组件 | translation section 前缀 | public 根 |
 | --- | --- | --- |
 | tome | `mod-tome/...` | `/workspace/t-engine4/game/modules/tome/` |
-| engine | `engine/...` | `/workspace/t-engine4/game/engines/default/engine/` |
+| engine | `engine/...`（含 `engine/modules/boot/...`） | `/workspace/t-engine4/game/engines/default/` |
 | boot | `mod-boot/...` | `/workspace/t-engine4/game/engines/default/modules/boot/` |
 | cults/orcs/ashes-urhrok | `tome-cults|tome-orcs|tome-ashes-urhrok/...` | `/workspace/tome4-dlcs/<dlc>/tome-<dlc>/` |
 
@@ -216,3 +216,14 @@ python3 -B tools/review_phase_timing.py summary --log .artifacts/i18n/timing/<BA
   本批 run 编号，无妨，但提交/导入前以 checkpoint `surface` refs 为准（见 §3.3/§3.6）。
 - 每批 finalize 后 HEAD 前进会使 queue meta evidence-head 漂移；下批 `batch start` 前需
   `queue rebuild`（无活动 checkpoint 时），随后 `queue check`。
+
+## 10. 第 8 批完成记录
+
+- 批次：`batch-762830cafd3ebe687678`，base `408c0df690cd68b2c079f7cdb5fe3271e924d1e1`，
+  2 run：surface-000 Orcs 16（snapshot unpinned）、surface-001 engine/boot/Tome 64
+  （pinned commit `624a6732`）。
+- 源码工作集 80/80 直接字面量命中（含 UI 对话框/注册表等 boot 文本）。
+- REVIEWER：8 个 lane（4+4），codex/gpt-6-astra，全部 OK、consumer validator 接受、已归档；
+  两 run `DONE_VERIFIED`。
+- surface-import 80/80；adjudicate 空裁决；prepare-evidence 17 项门禁通过；evidence commit
+  `56f8acee3e98a5772dd44de0683dd2f241e35d7b`；finalize 成功；无活动 checkpoint。
