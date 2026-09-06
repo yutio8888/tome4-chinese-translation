@@ -386,10 +386,69 @@ python3 -B tools/review_phase_timing.py summary --log .artifacts/i18n/timing/<BA
    50 hex，consumer validator 拒绝；归档该 child、以新 dispatch_id（`full-001`）重发，
    两次 dispatch 都要记进 STATE（失败的一次 `output_valid:false` 并写 `last_error`）。
 
-## 16. 交叉复核检出率观察（截至第 19 批）
+## 16. 第 20 批完成记录（首个混合来源批次）
+
+- 批次：`batch-7144a1b834f4da1448d5`，base `023a8d8`，evidence `dc28fc0`，修复合并 `4176b99`。
+- **来源分布**：cults 62 + tome 9 + ashes-urhrok 9 → **3 个 surface run**（各 4 lane，共 12）
+  与 **3 个 contextual run**。这是自第 6 批以来第一个非单一来源的批次。
+- 源码工作集 80/80：77 条直接字面量命中；3 条为**宿主生成键**
+  （`tome-cults/data/birth/krog.lua` 的 `Hairs`／`Facial features`／`Special`），
+  按 §3.2 的 `host_generated_key_verification` 记录：extractor
+  `i18n_tools/i18n_extractor.lua` 第 174-180 行，commit `bdc19d2`、sha256 已比对，
+  规则 `cosmetic_options` 表键名 `gsub("_"," "):capitalize()`。71 条 unpinned DLC、9 条 tome pinned。
+- 8 条 observation 裁决：**confirmed 4、refuted 2、pending 1、advisory 1**。
+
+### 已修复（migration `cecd063b`，8 revision_changed；catalog `bde1c056`→`62d269cb`）
+
+1. `mod-tome` `egos/digger.lua` entity name `" of delving"`→**"挖掘之"**。这正是第 18 批修
+   entity keyword `delving`→"挖掘" 时记为「不在 workset 内、待其自身 revision 入队」的那条，
+   本批入队后修复，keyword 与 entity name 恢复一致。**这条验证了「先修 keyword、把配对的
+   ego 名留给它自己的 revision」这一处理方式确实会闭合，不会永久留半修状态。**
+2. `tome-cults` `writhing-body.lua` 禁用提示片段：源片段经 tformat 填入
+   `"Your tentacle hand currently has those stats%s:"` 的 `%s` 位、其后紧跟冒号，故源刻意不带
+   句末标点；本库宿主串译文以全角「：」结尾，而原译在 `#WHITE#` 前多加句号，拼接后渲染为
+   「……该技能暂时被禁用。#WHITE#：」——句号紧接冒号，格式破损。→ 删去句号。
+3. `corrupted_blobs.lua`：`the rest of the organism`（生物体的其余部分）被误作「其他器官」（organs）。
+4. `corrupted_blobs.lua`：一条描述缺句末标点（同 section 其余 4 条均以句号收尾），
+   顺带把 `of the Maggot` 对齐既定专名「巨大蛆虫」。
+
+### refuted（新增两条「不应重复报」的类型）
+
+- `Walrog`→「乌尔罗格」：「乌」（wū）正是 W 起首的常规音译用字；`Urh'Rok` 的既定译名是
+  「乌鲁洛克」（全仓库 68 处），与「乌尔罗格」是不同字串，**不存在撞名**；本译名在
+  `tome-ashes-urhrok.lua` 10+ 处一致。
+- `The Maggot`→「巨大蛆虫」：带定冠词的专名，指 cults 中可进入其体内的巨型蛆虫生物，
+  与作为 entity subtype 的普通 `maggot`（蛆虫）本非同一所指，「巨大」正是用来区分二者；
+  库内 4 处一致。
+
+### 作废 dispatch（如实记录）
+
+首次派发时 staging 脚本假设单 run 且 `task_id == batch_id`，断言失败导致 `dispatch-plan.json`
+未生成，4 个 child 拿到缺失 `candidate_identity`／`input_path` 的残缺 prompt。已全部
+`paseo agent stop` 后 archive（其中 2 个仍在运行，需先 stop 才能归档），
+`git status --short` 确认无一写入工作树；修正脚本后重新派发 12 个有效 lane。
+本批 child 计数：作废 4 + 有效 12 surface + 3 contextual。
+
+## 17. 混合来源批次的额外要求（第 20 批新增）
+
+1. **不要假设单 run**。`surface-export` 的 `runs` 字段与 `.artifacts/.../surface/run-NNN-*`
+   决定 run 数；每个 run 是独立 task，任务名取自 `run-NNN-group.json` 的
+   `payload.task_id`（形如 `<batch>-surface-000`），**不要用 batch_id 拼**。
+   `contextual-export` 同样按 run 切分，需要建同样多个 `<batch>-contextual-NNN` 任务。
+   每个 run 各自建 STATE 并各自 `DONE_VERIFIED`。
+2. **派发前对每个 lane 硬断言**：`len(candidate_identity) == 64`、`input_path` 非空、
+   prompt UTF-8 ≤ 800 bytes。shell 变量取空值时 `paseo run` 不会报错，会把残缺 prompt
+   直接发出去——这类失败必须在派发前变成硬失败。
+3. **DLC `birth facial category` 条目是宿主生成键**，源文件里没有字面量，不要算作未命中；
+   按 §3.2 与本节 §16 的 `host_generated_key_verification` 格式记录 extractor 规则与行号。
+4. surface-import 的 index 顺序必须是 run0 lanes → run1 lanes → …（与 checkpoint
+   `surface` refs 顺序一致）；contextual-import 的 index 顺序同理按 run 序。
+
+## 18. 交叉复核检出率观察（截至第 20 批）
 
 交叉复核在 `low` 档对 surface 报出的 observation 独立复现率偏低：
-第 12 批 2/3、13 批 2/6、14 批 0/5、15 批 0/5、16 批 1/3、17 批 0/5、18 批 1/6、19 批 3/5。
+第 12 批 2/3、13 批 2/6、14 批 0/5、15 批 0/5、16 批 1/3、17 批 0/5、18 批 1/6、19 批 3/5、
+20 批 0/8。九批合计 46 条 observation 中独立复现 9 条。
 其中「非生既死」别字、black mamba 专名泛化、`daylight`／`delving` keyword 误译等
 客观可判条目都曾被判 OK。目前实际起决定作用的是主编排者按固定源码的逐条独立核验。
 交叉复核也确实抓到过 surface 漏掉的点（第 19 批娜迦 desc 的遮挡关系颠倒）。
