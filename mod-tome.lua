@@ -11075,7 +11075,7 @@ t("small, pointed tooth", "小而尖锐的牙齿", "_t")
 t("Tiny, dark grey, and wickedly sharp. It looks more like rock than bone.", "它小巧、暗灰且锋利得吓人。它看起来更像石头而不是骨头。", "_t")
 t("black mamba head", "黑曼巴头", "entity name")
 t("snake head", "蛇头", "_t")
-t("Unlike the rest of the black mamba, the severed head isn't moving.", "不像这条蛇的其他部分，这颗头一动不动。", "_t")
+t("Unlike the rest of the black mamba, the severed head isn't moving.", "不像黑曼巴的其余部分，这颗被斩下的头一动不动。", "_t")
 t("snow giant kidney", "雪巨人的肾脏", "entity name")
 t("kidney", "肾脏", "_t")
 t("As unpleasant-looking as any exposed organ.", "像其他解剖的器官一样，这个肾脏很难看。", "_t")
@@ -13666,7 +13666,7 @@ t("sandworm tooth", "沙虫之牙", "entity name")
 t("Tiny, dark grey, and wickedly sharp. It looks more like rock than bone.", "它小巧、暗灰且锋利得吓人。它看起来更像石头而不是骨头。", "_t")
 t("Yes, sandworms have teeth. They're just very small and well back from where you're ever likely to see them and live.", " 是的，沙虫也有牙齿。它们只是很小，藏得很好，如果你把头伸进去找它你就没法活着回来了。", "_t")
 t("black mamba head", "黑曼巴头", "entity name")
-t("Unlike the rest of the black mamba, the severed head isn't moving.", "不像这条蛇的其他部分，这颗头一动不动。", "_t")
+t("Unlike the rest of the black mamba, the severed head isn't moving.", "不像黑曼巴的其余部分，这颗被斩下的头一动不动。", "_t")
 t("If you get bitten, I can save your life if you still manage to bring back the head... and if it happens within about a minute from my door. Good luck.", "如果你被咬了，只要还能把头带回来，而且遇袭地点离我门口只有大约一分钟路程，我就能救你。祝你好运。", "_t")
 t("snow giant kidney", "雪巨人的肾脏", "entity name")
 t("As unpleasant-looking as any exposed organ.", "像其他解剖的器官一样，这个肾脏很难看。", "_t")
@@ -39904,7 +39904,7 @@ t("Entrance to the High Peak", "巅峰入口", "entity name")
 t("High Peak", "巅峰", "_t")
 t("The way forward is blocked. There must be some way around here to unlock those doors.", "向前的道路被阻挡了。这里一定有能打开这些大门的方法。", "_t")
 t([[As you stand on the stairs you can feel this is a "do or die" one way trip. If you enter there will be no coming back.
-Enter?]], [[当你站在楼梯上时，你能感觉到这是一次不能回头的战斗，非生既死，一旦进去就不能回来。
+Enter?]], [[当你站在楼梯上时，你能感觉到这是一次不能回头的战斗，非生即死，一旦进去就不能回来。
 现在进去么？]], "_t")
 
 ------------------------------------------------
@@ -39932,7 +39932,7 @@ t("sealed door", "被封印的门", "entity name")
 t("Entrance to the High Peak", "巅峰入口", "entity name")
 t("High Peak", "巅峰", "_t")
 t([[As you stand on the stairs you can feel this is a "do or die" one way trip. If you enter there will be no coming back.
-Enter?]], [[当你站在楼梯上时，你能感觉到这是一次不能回头的战斗，非生既死，一旦进去就不能回来。
+Enter?]], [[当你站在楼梯上时，你能感觉到这是一次不能回头的战斗，非生即死，一旦进去就不能回来。
 现在进去么？]], "_t")
 t("exit to Grushnak Pride", "离开前往格鲁希纳克部落", "entity name")
 
