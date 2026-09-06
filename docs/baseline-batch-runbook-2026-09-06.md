@@ -362,8 +362,11 @@ python3 -B tools/review_phase_timing.py summary --log .artifacts/i18n/timing/<BA
 | `honey tree` | 蜜蜂树 | 字面是 bee tree | 实体名 8652 + 3 条目 |
 | `Warden's Focus` | 专注守卫 | 中心词颠倒（36805 行已正确作"守卫者专注的"） | talent name 22082 + 5 处 |
 | `farportal` | 远古传送门 | Far 被当作 ancient | 全仓库 83 处 |
+| `Kryl-Feijan` | 卡洛·斐济 | 音节不符，「斐济」是 Fiji 固定译名 | 跨 ashes-urhrok 与 possessors 两组件 6+ 处 |
+| `delving` | 挖掘／挖掘之（现状） | 两个 ego 共用该 keyword，掘具与护甲机制不同，见 §19 | keyword 2 处 + entity name 2 处 |
 
-这三项每批都会被 reviewer 重新报出并重新裁决；授权后应另开有界 workset 一次性处理。
+前四项每批都会被 reviewer 重新报出并重新裁决；授权后应另开有界 workset 一次性处理。
+`delving` 一项的 revision 已因修复进入后继（非 `blocked`），只是译名取值待裁定，见 §19。
 
 ## 15. 本轮新增的操作约束（务必遵守）
 
@@ -476,10 +479,24 @@ confirmed 裁决 conclusion 写了「ego 只给 lite 与 STR/CON，无任何探�
 keyword 的 ego，而不是只看第一个命中的文件。正确做法是先
 `git grep -n "<keyword>" <commit> -- game/modules/tome | grep -v /locales/` 取全集。
 
-**当前状态。** 译文改动（keyword `探测`→`挖掘`、entity name `探测之`→`挖掘之`，
-提交 `ed5a402`／`3153b39`）**尚未回退**，等待维护者裁定；已提交的 evidence
-（`adjudications.jsonl`）按不可变原则不改写，本节即为对该记录的公开更正。
-选项与取舍见交接说明；在维护者裁定前，本条不得作为「同型缺陷」的先例引用。
+**维护者裁定（2026-09-06）：挂 pending，不改也不回退。** 现存译文维持为 keyword「挖掘」、
+entity name「挖掘之」（提交 `ed5a402`／`3153b39`），登记为待决事项，与 `farportal`／
+`Warden's Focus`／`honey tree`／`Kryl-Feijan` 一同在集中处理专名与术语时裁定。
+
+取舍备忘（供裁定时参考）：两个 ego 共用同一 keyword 与同一 ego 名，只能选一个词。
+
+| 候选 | 掘具 ego（挖掘） | 护甲 ego（Track 追踪） | 对应原词 delving |
+| --- | --- | --- | --- |
+| 「探测」（原译） | ✗ | ✓ | ✗ |
+| 「挖掘」（现状） | ✓ | ✗ | ✓ |
+| 「探掘」 | ✓ | 部分 | ✓ |
+
+已提交的 evidence（`adjudications.jsonl`）按不可变原则不改写，本节即为对该记录的公开更正。
+**在维护者裁定前，本条不得作为「同型缺陷」的先例引用**；`blaze`／`thought`／`daylight`
+三条 keyword 修复不受影响——它们各自只有单一 ego 引用，已逐一核验。
+
+注意：该 revision 在队列中已因修复而进入 `done` 的后继，**不是** `blocked` 状态；
+本条 pending 是文档层面的待决事项，与 §14 表中那些 `blocked` revision 的机制不同。
 
 **给后续批次的规则。** entity keyword／ego 名的裁决，必须先取该 keyword 的全部 ego 引用集，
 并逐个记录其 `wielder`／`charmt`／`combat` 效果；单一文件的证据不足以支撑「机制不符」的结论。
