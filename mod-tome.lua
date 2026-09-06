@@ -9759,7 +9759,7 @@ t("enlightening ", "启迪的", "entity name")
 t("enlight", "启迪", "entity keyword")
 t(" of command", "命令之", "entity name")
 t("command", "命令", "entity keyword")
-t(" of delving", "探测之", "entity name")
+t(" of delving", "挖掘之", "entity name")
 t("delving", "挖掘", "entity keyword")
 t(" of the deep", "深渊之", "entity name")
 t("deep", "深渊", "entity keyword")
@@ -10008,7 +10008,7 @@ t("backstab", "暗算", "entity keyword")
 ------------------------------------------------
 section "mod-tome/data/general/objects/egos/digger.lua"
 
-t(" of delving", "探测之", "entity name")
+t(" of delving", "挖掘之", "entity name")
 t("delving", "挖掘", "entity keyword")
 t(" of endurance", "耐久之", "entity name")
 t("endurance", "耐久", "entity keyword")
