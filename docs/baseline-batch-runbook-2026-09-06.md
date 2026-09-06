@@ -227,3 +227,38 @@ python3 -B tools/review_phase_timing.py summary --log .artifacts/i18n/timing/<BA
   两 run `DONE_VERIFIED`。
 - surface-import 80/80；adjudicate 空裁决；prepare-evidence 17 项门禁通过；evidence commit
   `56f8acee3e98a5772dd44de0683dd2f241e35d7b`；finalize 成功；无活动 checkpoint。
+
+## 11. 第 9-11 批完成记录（含 repair 与 catalog 重建）
+
+### 第 9 批 batch-1b83e5acd0f0a73b543a（evidence cf985f1）
+- 80 条 Tome pinned；1 run 4 lane；REVIEWER 全部 OK；源码 workset 80/80（含 1 条多行 tformat）。
+- **2 条 confirmed**（surface+contextual 一致）：Earthen Missiles 技能描述漏 "target individually"（独立指定目标）；"open sky" 误译"晴朗的天空"（加天气语义）。adjudicate 4 obs confirmed → 2 repair_required（deep_reviewed）。
+- 修复被 manifest/terminology 漂移阻断（catalog 建于 9-04，`c9a785e` 改 manifest 属性、`93aaf17` 改 TERMINOLOGY.md 说明文字 → snapshot hash 变）。
+- **catalog 重建**（worktree `/workspace/tome4-catalog-repair`，分支 `repair/catalog-rebuild-cf985f1`）：
+  - `authoritative-catalog build` 新 catalog `a885cdc6`；migration `07df0eca`：29,828 全 unchanged（仅 terminology_snapshot_sha256 provenance 字段变化，identity 不绑术语）→ commit 418b986 → merge bd59e9c。
+- **repair**（修复后 catalog `e22c0cbf`，migration `44a1eba`：4 revision_changed）：
+  - Earthen Missiles 描述 → "你可以为每个飞弹独立指定射程内的任意目标"（同键同步 dwarven-nature 副本）
+  - open sky → "开阔的天空"（同键同步 tannen-tower 副本）
+  - 修复 commit 667c320 → merge bd59e9c（同批）。完整门禁通过。
+
+### 第 10 批 batch-f77b569d591bbeca6860（evidence 02b0106）
+- 80 条 Tome pinned；1 run 4 lane；**1 条 confirmed**：xorn fragment 药材描述漏 "recently sentient"（曾具意识）→ 1 repair_required。
+- repair（worktree `/workspace/tome4-repair-f77`，分支 `repair/f77b569d-repair`）：
+  - 译文 → "它看起来和其他石头没什么两样，只不过这块不久前还具有意识，并且曾试图杀死你。"（同键同步 elixir-ingredients 副本）
+  - catalog `e22c0cbf`→`a022bb9c`；migration `36de8d9`：2 revision_changed；修复 commit e8e0aba → merge eaf3dfe。
+
+### 第 11 批 batch-4d81612fe16d8202457d（evidence 62590de）
+- 80 条 Tome pinned；1 run 4 lane；全部 OK 无 ISSUE；源码 workset 80/80（1 条含 `\n` 转义源按 lessons-learned 第 12 条 unescape 后匹配）。
+- surface-import 80/80 → 空裁决 → prepare-evidence → finalize 62590de。
+
+### 队列推进（每批 finalize 后需 queue rebuild）
+| 批次 | evidence commit | done | queued |
+| --- | --- | --- | --- |
+| 第 9 | cf985f1 | 2,944 | 26,884 |
+| 第 10 | 02b0106 | 3,023 | 26,805 |
+| 第 11 | 62590de | 3,103 | 26,725 |
+
+### repair/catalog 流程要点（含 worktree）
+1. repair preflight 需 live manifest/terminology == catalog 记录；漂移时先 `authoritative-catalog build` + `migration plan/check/apply`（quiescent：无 checkpoint、clean tree、queue 存在且 meta 匹配 old boundary）。
+2. worktree 流程：`git worktree add -b repair/<batch> /workspace/tome4-repair-<batch> <evidence commit>`；init+rebuild queue（worktree 无 queue）；改译文（同 runtime key 多处须同步一致，否则 strict lint runtime-collision error）；strict lint；`authoritative-catalog build` 新 candidate；`migration plan/check/apply`（revision_changed = 改动 entry 数，successor 隐式 queued 不继承 done）；替换 catalog/ 三文件 + migration 到 `evidence/.../migrations/`；完整 `bash tools/ci-gates.sh`（17 项含 addon build）；commit → 主分支 `git merge --no-ff`；主 worktree `queue rebuild`；`git worktree remove`。
+3. 术语/文档改动会改变 terminology_snapshot（TERMINOLOGY.md 计入 hash）——纯文档改动也会触发 catalog 漂移，注意 catalog 重建时 migration 会显示 29,828 全 unchanged（只 provenance 变）。
