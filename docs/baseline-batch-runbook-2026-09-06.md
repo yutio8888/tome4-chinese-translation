@@ -1,8 +1,9 @@
 # 80 条基线批次审核运行手册（2026-09-06）
 
 > 供主编排者（ORCHESTRATOR）后续阅读并继续开展 80 条基线批次审核工作。
-> 本手册记录截至 2026-09-06 已完成的第 6 个 fill-80 基线批次（`batch-cab1369cd860e4cef670`）
-> 的完整可复现操作链，以及下一批的推进规则。正式约束以
+> 本手册记录截至 2026-09-06 已完成的第 6、7 个 fill-80 基线批次
+> （`batch-cab1369cd860e4cef670`、`batch-1d8c83650b49f5b4b3ac`）的完整可复现操作链，以及
+> 下一批的推进规则。正式约束以
 > [`AGENTS.md`](../AGENTS.md)、[工作流](agent-workflow.md)、
 > [WP2-Lite 正式方案](translation-production-review-v2-lite-plan.md) 与
 > [当前交接](production-review-handoff-2026-09-05.md) 为准；本文只是操作说明，不放宽任何契约。
@@ -29,8 +30,8 @@
   （无活动批次时不存在）
 - 每批开始前必须先重放：`python3 -B tools/i18n production queue check`；
   HEAD 变化后如需重建用 `queue rebuild`（仅在无活动 checkpoint 时）。
-- 当前（第 6 批 finalize 后）：S/done 2,706（surface_only 2,659；deep_reviewed 47），
-  D 47、R 0、I 97、隐式 queued 27,122。数字是快照，实际以 `queue status --json` 为准。
+- 当前（第 7 批 finalize 后）：S/done 2,786（surface_only 2,739；deep_reviewed 47），
+  D 47、R 0、I 97、隐式 queued 27,042。数字是快照，实际以 `queue status --json` 为准。
 
 ## 3. 每批操作步骤（可复现模板）
 
@@ -198,3 +199,20 @@ python3 -B tools/review_phase_timing.py summary --log .artifacts/i18n/timing/<BA
   （含严格 addon build）；evidence commit `792f99cc5dd5c6026d0bf8e3cc3be5e8d21ea711`；
   finalize 成功；无活动 checkpoint。
 - 队列增量：done 2,706（surface_only +80），implicit queued 27,122。
+
+## 9. 第 7 批完成记录
+
+- 批次：`batch-1d8c83650b49f5b4b3ac`，base `ea6eef3b8ab94b6e4269d87d2cf93c9f4ae1f930`，
+  2 run：surface-000 Cults 22、surface-001 Orcs 58（全部 DLC snapshot unpinned）。
+- 源码工作集 80/80：76 直接字面量命中；4 个 `birth facial category` 生成键
+  （`Facial features`/`Special`，来自 `facial_features`/`special` 表键名）经
+  `host_generated_key_verification` 记录 extractor 规则确认（extractor commit
+  `bdc19d2`、行 [174,180]）。
+- REVIEWER：8 个 lane（4+4），codex/gpt-6-astra，全部 OK、consumer validator 接受、
+  已归档；两 run `DONE_VERIFIED`。
+- surface-import 80/80；adjudicate 空裁决；prepare-evidence 17 项门禁全部通过（严格
+  addon build）；evidence commit `f3c40cb94aab7ab443d75e6cdd006b9368e6e23a`；finalize 成功。
+- 注意：跨批推进时 `.artifacts/.../surface/` 会残留上一批 run 文件；surface-export 只覆盖
+  本批 run 编号，无妨，但提交/导入前以 checkpoint `surface` refs 为准（见 §3.3/§3.6）。
+- 每批 finalize 后 HEAD 前进会使 queue meta evidence-head 漂移；下批 `batch start` 前需
+  `queue rebuild`（无活动 checkpoint 时），随后 `queue check`。
