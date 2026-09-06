@@ -453,3 +453,33 @@ python3 -B tools/review_phase_timing.py summary --log .artifacts/i18n/timing/<BA
 客观可判条目都曾被判 OK。目前实际起决定作用的是主编排者按固定源码的逐条独立核验。
 交叉复核也确实抓到过 surface 漏掉的点（第 19 批娜迦 desc 的遮挡关系颠倒）。
 是否把交叉复核提到 `medium` 属用户设定，未经指示不自行更改；本文只记录观测值。
+
+## 19. 更正：`delving` 裁决依据有误（2026-09-06，用户指出）
+
+**被推翻的陈述。** 第 18 批（`batch-fb66e92acfe3fba2bd4b`）对 entity keyword `delving` 的
+confirmed 裁决 conclusion 写了「ego 只给 lite 与 STR/CON，无任何探测效果」。**该陈述错误**，
+据此推出的「词义与机制皆不符」也不再成立。
+
+**事实。** 固定源码 `commit:624a6732` 下 `keywords = {delving=true}` 由**两个** ego 共用：
+
+| ego | 路径 | 效果 |
+| --- | --- | --- |
+| 掘具 `" of delving"` | `data/general/objects/egos/digger.lua:24-40` | `lite = 1`、STR/CON 加成 |
+| **护甲 `" of delving"`** | `data/general/objects/egos/armor.lua:237-256` | **`resolvers.charmt(Talents.T_TRACK, 2, 30)`**、STR 加成、物理/黑暗抗性、`lite` |
+
+`T_TRACK`（`data/talents/cunning/survival.lua:78`，本库 23579 行译名「追踪」）的 info 为
+"Sense foes around you in a radius of %d for %d turns"，即感知周围敌人——属探测类效果。
+因此原译「探测」很可能正是依护甲 ego 的 Track 而来，**不是无据增译**；我当时只核验了
+`digger.lua` 就下了结论。
+
+**归因。** 违反了 §3.2 之外的一条隐含要求：entity keyword 的裁决必须枚举**全部**引用该
+keyword 的 ego，而不是只看第一个命中的文件。正确做法是先
+`git grep -n "<keyword>" <commit> -- game/modules/tome | grep -v /locales/` 取全集。
+
+**当前状态。** 译文改动（keyword `探测`→`挖掘`、entity name `探测之`→`挖掘之`，
+提交 `ed5a402`／`3153b39`）**尚未回退**，等待维护者裁定；已提交的 evidence
+（`adjudications.jsonl`）按不可变原则不改写，本节即为对该记录的公开更正。
+选项与取舍见交接说明；在维护者裁定前，本条不得作为「同型缺陷」的先例引用。
+
+**给后续批次的规则。** entity keyword／ego 名的裁决，必须先取该 keyword 的全部 ego 引用集，
+并逐个记录其 `wielder`／`charmt`／`combat` 效果；单一文件的证据不足以支撑「机制不符」的结论。
