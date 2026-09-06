@@ -20069,12 +20069,12 @@ t("Exploratory Farportal", "探索用远古传送门", "_t")
 ------------------------------------------------
 section "mod-tome/data/maps/zones/tannen-tower-1.lua"
 
-t("open sky", "晴朗的天空", "_t")
+t("open sky", "开阔的天空", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/maps/zones/tempest-peak-top.lua"
 
-t("open sky", "晴朗的天空", "_t")
+t("open sky", "开阔的天空", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/maps/zones/valley-moon.lua"
@@ -24782,7 +24782,7 @@ section "mod-tome/data/talents/gifts/dwarven-nature.lua"
 t("Earthen Missiles", "岩石飞弹", "talent name")
 t([[Conjures %d missile-shaped rocks that you target individually at any target or targets in range.  Each missile deals %0.2f physical damage, and an additional %0.2f bleeding damage every turn for 5 turns.
 		At talent level 5, you can conjure one additional missile.
-		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹射向任意射程内的目标。每个飞弹造成 %0.2f 物理伤害和每回合 %0.2f 流血伤害，持续 5 回合。
+		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害和每回合 %0.2f 流血伤害，持续 5 回合。
 		在等级 5 时，你可以额外释放一个飞弹。
 		伤害受法术强度加成。]], "tformat")
 t("Elemental Split", "元素分裂", "talent name")
@@ -29706,7 +29706,7 @@ section "mod-tome/data/talents/spells/stone.lua"
 t("Earthen Missiles", "岩石飞弹", "talent name")
 t([[Conjures %d missile-shaped rocks that you target individually at any target or targets in range.  Each missile deals %0.2f physical damage, and an additional %0.2f bleeding damage every turn for 5 turns.
 		At talent level 5, you can conjure one additional missile.
-		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹射向任意射程内的目标。每个飞弹造成 %0.2f 物理伤害和每回合 %0.2f 流血伤害，持续 5 回合。
+		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害和每回合 %0.2f 流血伤害，持续 5 回合。
 		在等级 5 时，你可以额外释放一个飞弹。
 		伤害受法术强度加成。]], "tformat")
 t("Body of Stone", "岩石身躯", "talent name")
