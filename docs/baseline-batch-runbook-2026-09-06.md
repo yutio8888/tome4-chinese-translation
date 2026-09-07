@@ -666,3 +666,49 @@ run 成员数 == 1 即 full 模式、== 4 即 lane 模式；并断言各 run ent
 - `#GOLD#…： #LIGHT_BLUE#` 的标记间空格：全库既定排版约定，本轮已出现 5 次。
 - 技能提示泛化（`You cannot do that currently.`、`Death Dance`→「这个技能」）：
   调用点语境明确，且家族内部一致。
+
+## 24. 第 30-33 批完成记录（2026-09-07，接手后第一轮）
+
+每批 80 条、全部 tome pinned（`commit:624a6732`）、单 run 4 lane、源码工作集 80/80
+直接字面量命中、17 项门禁通过。REVIEWER＝claude/claude-opus-5 medium；
+交叉复核＝codex/gpt-5.6-sol medium。四批合计 320 条，**零 confirmed、零修复**。
+
+| 批次 | evidence | 裁决 |
+| --- | --- | --- |
+| 30 `batch-2b114359…` | `32bd0e4` | refuted 1、advisory 2 |
+| 31 `batch-49d5203d…` | `23ed40b` | advisory 1 |
+| 32 `batch-f33d2bae…` | `6a6c4ea` | advisory 5（含交叉复核独立提出的 1 条） |
+| 33 `batch-28513bd9…` | `8ddd953` | advisory 1 |
+
+### 本段新增的形态与教训
+
+- **`contextual-import` 先要求 STATE `DONE_VERIFIED`**，`surface-import` 没有这道检查。
+  顺序必须是 harvest → archive → `write_states.py` → `ai_state_check.py --target DONE` →
+  `contextual-import`；顺序反了报 `contextual task is not current DONE_VERIFIED bound to
+  exact task/candidate/input/output`。已写进 `tools/orchestration/README.md` 的硬约束。
+- **交叉复核可以对同一 revision 提出与 surface 不同的第二条 observation**（第 32 批的
+  VIMSENSE_DETECT long_desc：surface 报缺句末标点、交叉复核报「看到」对 detection 精度不足）。
+  此时 `_accepted_observations` 会给出两条 observation，`adjudicate` 的 decisions 必须两条都写；
+  返回值里的 `adjudicated` 按 revision 计数（5 条 decision 对 4 个 revision → 显示 4），
+  以 checkpoint 的 `adjudications` 长度为准。
+- **两轮理由不同不算「两轮一致」**。第 32 批 ritch desc 的 `native` 重复译出
+  （「原产于……干旱地区」+「土著昆虫」）是真实冗余，但交叉复核判 OK，按规则记 advisory；
+  该 runtime key 另有 `mod-tome.lua:8661/39547` 与 `tome-orcs.lua:867` 三处副本，
+  将来若获授权修复必须三处同步。
+- **新增两个编排脚本**：`dispatch_contextual.py`／`harvest_contextual.py`，
+  把此前手写的交叉复核派发与收割固化下来（含 prompt ≤800 bytes 与 identity 硬断言、
+  归档前读回 provider/model/thinking）。脚本按 `AGENTS.md` 探测仓库根，可从任意位置运行。
+
+### 新增的 advisory 判例（可直接引用，勿重复深挖）
+
+| 报告内容 | 判定依据 |
+| --- | --- |
+| `Press 'm' to setup`→「按M键设置」大小写 | 引擎 `sym:=m` 有无 shift 分属 USE_TALENTS 与 SHOW_MESSAGE_LOG，大小写机制上有别；但库内大写（38477「请按P使用」）与原样（42091「按x键」）两种写法并存，统一属跨批次策略 |
+| `You receive: %s`→「你收到：%s 。」多出的空格与句号 | 同键两处一致，源自带句号的姊妹条同排版；标点判据文档待维护者批准 |
+| 无主语片段补出宿主物品名（`electric eel tail` 的 desc→「……的尾巴」） | 与 hummerhorn wing→「翅膀」同型，指称无歧义 |
+| `luminous horror dust`→「金色恐魔的粉尘」 | 源码 `horror.lua:409 color=colors.YELLOW`，库内既定实体名 5 处一致 → refuted |
+
+### 仍待用户裁定的 pending（沿用 §22，无新增）
+
+`Kryl-Feijan`／`Twilit Echoes`／`delving` 三项未变；本轮新增两项跨批次**排版/术语**议题
+（键位提示大小写、`detection`→「侦测」的用词统一），均记在 advisory 结论里，不阻塞推进。

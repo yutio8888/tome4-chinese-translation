@@ -13,6 +13,8 @@
 | `stage_surface.py <batch>` | 把 surface-export 产物落成 `.ai/task/<task>/` 布局并写 dispatch-plan |
 | `dispatch_reviewers.py <batch>` | 每 lane/full 成员派发一个 REVIEWER child |
 | `harvest_reviewers.py <batch>` | 收割输出，逐个过 consumer validator 后落盘 |
+| `dispatch_contextual.py <batch>` | 按 checkpoint 的 contextual refs 落成 `.ai/task` 布局并派发交叉复核 child |
+| `harvest_contextual.py <batch>` | 收割交叉复核输出，过 validator、读回 runtime metadata 后归档 child |
 | `write_states.py <batch> <base>` | 写 STATE 与 review record，使其满足 DONE 谓词 |
 
 ## 身份与路径：一律运行时发现，不得硬编码
@@ -38,7 +40,11 @@ python3 -B tools/orchestration/dispatch_reviewers.py $B
 python3 -B tools/orchestration/harvest_reviewers.py $B
 git status --short                                            # 证明 reviewer 未写入任何文件
 python3 -B tools/i18n production batch surface-import --input <index.json>
-# 有 ISSUE 才需要：contextual-export → 派发交叉复核 → contextual-import
+# 有 ISSUE 才需要（注意顺序：import 前必须先 write_states 拿到 DONE_VERIFIED）：
+python3 -B tools/i18n production batch contextual-export
+python3 -B tools/orchestration/dispatch_contextual.py $B
+# …等 child 结束…
+python3 -B tools/orchestration/harvest_contextual.py $B
 paseo archive <每个 child>
 python3 -B tools/orchestration/write_states.py $B <base_commit>
 python3 -B tools/ai_state_check.py .ai/task/<task>/STATE.json --target DONE   # 每个 task 都要 DONE_VERIFIED
@@ -50,7 +56,7 @@ git push origin develop
 # 有 confirmed 才需要：repair preflight → worktree → 改译文 → catalog build → migration → 门禁 → merge
 ```
 
-## 三条硬约束
+## 四条硬约束
 
 1. **批次进行期间不得向 develop 提交任何东西**（含纯文档）。`batch start` 冻结 `base_commit`，
    HEAD 一旦不等于它，import／adjudicate／甚至 abandon 全部报 drift，批次锁死。
@@ -58,5 +64,9 @@ git push origin develop
    与 finalize → `git checkout develop` 后 `git merge --no-ff <evidence commit>`。**不要 force push。**
 2. **修复前先全仓库 grep**。同一 runtime key 可能横跨 `mod-tome.lua`／`tome-cults.lua`／
    `tome-orcs.lua`／`engine.lua`／`mod-boot.lua`；漏改会让 `06-runtime-collision-scan` 失败。
-3. **派发必须显式传 `--mode`**。claude 默认 Always Ask 会让 child 卡在权限弹窗上，
+3. **`contextual-import` 要求对应 task 已 `DONE_VERIFIED`**（surface-import 没有这道检查）。
+   顺序必须是 harvest → archive → `write_states.py` → `ai_state_check.py --target DONE` →
+   `contextual-import`；顺序反了会报
+   `contextual task is not current DONE_VERIFIED bound to exact task/candidate/input/output`。
+4. **派发必须显式传 `--mode`**。claude 默认 Always Ask 会让 child 卡在权限弹窗上，
    编排者只看到 status 长期不变。
