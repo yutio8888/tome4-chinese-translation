@@ -2842,7 +2842,7 @@ t("Killed your future self.", "杀死未来的自己。", "_t")
 t("Paradoxology", "时空悖论", "achievement name")
 t("Both killed your future self and got killed by your future self.", "你和未来的自己同归于尽。", "_t")
 t("Explorer", "探索者", "achievement name")
-t("Used the Sher'Tul fortress exploratory farportal at least 7 times with the same character.", "同一角色至少使用 7 次夏·图尔堡垒的探索用远古传送门。", "_t")
+t("Used the Sher'Tul fortress exploratory farportal at least 7 times with the same character.", "同一角色至少使用 7 次夏·图尔堡垒的探索用远行传送门。", "_t")
 t("Orbituary", "轨道学者", "achievement name")
 t("Stabilized the Abashed Expanse to maintain it in orbit.", "控制次元浮岛使其稳定在轨道上。", "_t")
 t("Wibbly Wobbly Timey Wimey Stuff", "摇晃的不稳定法杖", "achievement name")
@@ -5078,8 +5078,8 @@ t([[The people you saw are likely the volunteers of Zemekkys' early experiments 
 He is a mage who resides here in the Sunwall, eccentric but skilled, who believes that creation of a new farportal to Maj'Eyal is possible.
 Aside from a few early attempts with questionable results, he hasn't had much luck. Still, it's gladdening to hear that the volunteers for his experiments live, regardless of their location. We are all still under the same Sun, after all.
 
-Actually... maybe it would benefit you if you meet Zemekkys. He would surely be intrigued by that Orb of Many Ways you possess. He lives in a small house just to the north.]], [[你看到的那些人很可能是伊莫克斯关于远古传送门实验的志愿者。
-他是居住在太阳堡垒的一个法师，脾气古怪但是很有能力，他坚信可以创造一个远古传送门达到马基·埃亚尔。
+Actually... maybe it would benefit you if you meet Zemekkys. He would surely be intrigued by that Orb of Many Ways you possess. He lives in a small house just to the north.]], [[你看到的那些人很可能是伊莫克斯关于远行传送门实验的志愿者。
+他是居住在太阳堡垒的一个法师，脾气古怪但是很有能力，他坚信可以创造一个远行传送门达到马基·埃亚尔。
 除了他早期的一些尝试获得了一点可疑的结论外，他并不算走运。不过还是很高兴听到他的实验对象还活着，无论他们身在何方。毕竟我们都生活在同一片阳光下。
 
 事实上……也许去见见伊莫克斯对你有好处。他一定会对你手上的多元水晶球感兴趣。他就住在北边的小屋里。]], "_t")
@@ -5892,7 +5892,7 @@ t("Why do I understand you? The texts are unreadable to me.", "为什么我能�
 t("What can I do here?", "我能在这里做什么？", "_t")
 t("What else can this place do?", "这里还能做什么？", "_t")
 t("Would it be possible to improve my Cloak of Deception so I do not need to wear it to pass as a living being?", "可以升级我的欺诈斗篷，让我不必穿戴它也能伪装成活物吗？", "_t")
-t("You asked me to come, about a farportal?", "你叫我来，是为了远古传送门？", "_t")
+t("You asked me to come, about a farportal?", "你叫我来，是为了远行传送门？", "_t")
 t("You asked me to come, about the rod of recall?", "你叫我来，是为了回归之杖？", "_t")
 t("Would it be possible for my Transmogrification Chest to automatically extract gems?", "可以让我的转化之盒自动提取宝石吗？", "_t")
 t("Are there any training facilities?", "这里是不是有一间训练室？", "_t")
@@ -5943,9 +5943,9 @@ It is also equiped with various facilities: exploratory farportal, emergency con
 However, the Fortress is badly damaged and has lain dormant for too long. Its energies are nearly depleted.
 Take this Transmogrification Chest. It is linked by a permanent farportal to the Fortress. Any item you put inside will be sent to the power core and dismantled for energy.
 There are, however, unwanted byproducts to this operation: the generation of a metal known as gold. It is of no use to the Fortress and thus will be sent back to you.]], [[这座堡垒被设计为弑神者的移动基地——它能够飞行。
-它还配备了各种设施：探索用远古传送门、紧急遏制力场、远程储藏……
+它还配备了各种设施：探索用远行传送门、紧急遏制力场、远程储藏……
 然而，堡垒损毁严重，又休眠了太久，能量已近乎耗尽。
-拿着这个转化之盒。它通过一座永久远古传送门与堡垒相连。你放入其中的任何物品都会被送往能量核心，拆解成能量。
+拿着这个转化之盒。它通过一座永久远行传送门与堡垒相连。你放入其中的任何物品都会被送往能量核心，拆解成能量。
 不过，这个过程会产生一种不需要的副产物：名为黄金的金属。堡垒用不上它，因此会将它送还给你。]], "_t")
 t("I will, thanks.", "我收下了，谢谢。", "_t")
 t("I have already found such a chest in my travel. Will it work?", "我在旅途中已经找到过一个这样的转化之盒。它能用吗？", "_t")
@@ -5956,10 +5956,10 @@ t("Thanks.", "多谢。", "_t")
 t([[Long ago the Sher'tuls used farportals not only for transportation to known locations, but also to explore new parts of the world, or even other worlds.
 This Fortress is equipped with an exploratory farportal, and now has enough energy to allow one teleportation. Each teleportation will take you to a random part of the universe and use 45 energy.
 Beware that the return portal may not be nearby your arrival point; you will need to find it. You can use the rod of recall to try to force an emergency recall, but it has high chances of breaking the exploratory farportal forever.
-You may use the farportal; however, beware - I sense a strange presence in the farportal room.]], [[很久以前，夏·图尔使用远古传送门不仅是为了前往已知地点，还会用它探索世界的未知区域，甚至其他世界。
-这座堡垒配备了一座探索用远古传送门，现在已有足够能量进行一次传送。每次传送都会把你送往宇宙中的随机区域，并消耗 45 点能量。
-注意，返回传送门可能不在抵达点附近，你需要自行寻找。紧急情况下，你可以用回归之杖强制返回，但这很可能会永久损坏探索用远古传送门。
-你现在可以使用这座远古传送门；不过要小心——我感觉传送门房间里有某种异常存在。]], "_t")
+You may use the farportal; however, beware - I sense a strange presence in the farportal room.]], [[很久以前，夏·图尔使用远行传送门不仅是为了前往已知地点，还会用它探索世界的未知区域，甚至其他世界。
+这座堡垒配备了一座探索用远行传送门，现在已有足够能量进行一次传送。每次传送都会把你送往宇宙中的随机区域，并消耗 45 点能量。
+注意，返回传送门可能不在抵达点附近，你需要自行寻找。紧急情况下，你可以用回归之杖强制返回，但这很可能会永久损坏探索用远行传送门。
+你现在可以使用这座远行传送门；不过要小心——我感觉传送门房间里有某种异常存在。]], "_t")
 t("I will check it out, thanks.", "我会去检查一下的，谢谢。", "_t")
 t([[The rod of recall you possess is not a Sher'tul artifact, but it is based on Sher'tul design.
 The Fortress now has enough energy to upgrade it. It can be changed to recall you to the Fortress.]], [[你所拥有的回归之杖并非夏·图尔造物，但它采用了夏·图尔的设计。
@@ -6010,7 +6010,7 @@ A wave of mental and magical power blasts into you with the might of a falling s
 
 一股精神与魔法力量如坠星般猛烈轰入你的身体。你被抬到空中，巨大的压力挤压着每一寸肌肤，仿佛要将你碾得荡然无存。你试着抵抗了片刻，直到——#{normal}#]], "tformat")
 t("[continue]", "[继续]", "_t")
-t("#{italic}#You wake up suddenly next to your farportal with a pounding headache. Your cheeks feel wet, and touching them you see your fingers stained red - you have been crying tears of blood. A dark and terrible memory lurks at the back of your mind, but the more you try to remember it the harder it becomes, and slowly it fades completely, like a dream.#{normal}#", "#{italic}#你突然在远古传送门旁醒来，头痛欲裂。你的双颊湿漉漉的；伸手一摸，指尖竟染成了红色——你流下了血泪。一段黑暗而可怕的记忆潜伏在脑海深处，但你越想回忆，就越难抓住它；它慢慢彻底消散，仿佛一场梦。#{normal}#", "_t")
+t("#{italic}#You wake up suddenly next to your farportal with a pounding headache. Your cheeks feel wet, and touching them you see your fingers stained red - you have been crying tears of blood. A dark and terrible memory lurks at the back of your mind, but the more you try to remember it the harder it becomes, and slowly it fades completely, like a dream.#{normal}#", "#{italic}#你突然在远行传送门旁醒来，头痛欲裂。你的双颊湿漉漉的；伸手一摸，指尖竟染成了红色——你流下了血泪。一段黑暗而可怕的记忆潜伏在脑海深处，但你越想回忆，就越难抓住它；它慢慢彻底消散，仿佛一场梦。#{normal}#", "_t")
 t("[done]", "[完成]", "_t")
 
 ------------------------------------------------
@@ -6183,8 +6183,8 @@ The Way will never forget you. Now go and make history!
 #LIGHT_GREEN#*他们的尸体化成了一缕青烟，很快消失了。*#WHITE#
 #LIGHT_GREEN#*你感觉到维网和你发生了联系，整个夺心魔族在和你对话。*#WHITE#
 你完成了令人难以置信的使命，%s！你也为夺心魔族创造了千载难逢的机会！
-这些远古传送门蕴含着难以想象的能量。我们可以利用它们让维网照遍整个埃亚尔，将维网强加给其他种族，使他们也获得我们在维网中感受到的和平与幸福。
-你必须穿过远古传送门，自愿在其中牺牲。你的心智将融入远古传送门网络，让维网传播到四面八方！
+这些远行传送门蕴含着难以想象的能量。我们可以利用它们让维网照遍整个埃亚尔，将维网强加给其他种族，使他们也获得我们在维网中感受到的和平与幸福。
+你必须穿过远行传送门，自愿在其中牺牲。你的心智将融入远行传送门网络，让维网传播到四面八方！
 即使你将死去，也会为整个世界和夺心魔带来最终的和平。
 维网永远不会忘记你，现在，去创造历史吧！
 ]], "tformat")
@@ -6559,7 +6559,7 @@ t("At your service. I have been gone for months, but I can feel it, at last this
 t([[I am an Anorithil, a mage of the Sun and Moons; we fight all that is evil. I was with a group of Sun Paladins; we came from the Gates of Morning to the east.
 My companions were... were slaughtered by orcs, and I nearly died as well. Thank you again for your help.]], [[我是借用太阳和月亮力量的星月术士，来自东面的晨曦之门，同太阳骑士一起对抗邪恶。
 我的伙伴们…都被兽人杀死了，我也差点丧命，再次感谢你的帮助。]], "_t")
-t("It was my pleasure. But may I ask a favor myself? I am not from these lands. I used a farportal guarded by orcs deep below the Iron Throne and was brought here.", "我的荣幸，不过我有个请求。我其实不是这个大陆的人，使用了钢铁王座地下深处，被兽人保护的远古传送门，然后就到了这里。", "_t")
+t("It was my pleasure. But may I ask a favor myself? I am not from these lands. I used a farportal guarded by orcs deep below the Iron Throne and was brought here.", "我的荣幸，不过我有个请求。我其实不是这个大陆的人，使用了钢铁王座地下深处，被兽人保护的远行传送门，然后就到了这里。", "_t")
 t([[Yes, I noticed you were not from here. Your only hope is the Gates of Morning, the last bastion of freedom in this orc territory. When you leave the caves, head southeast; you cannot miss it.
 Tell High Sun Paladin Aeryn that you met me. I'll send word to let you pass.]], [[是的，我也注意到了你不是这里的人。晨曦之门是兽人领地中仅存的自由堡垒，将是你的唯一希望。离开洞穴后往东南走；你绝不会错过它。
 告诉高阶太阳骑士艾琳你遇到了我，我会传信让他们放行。]], "_t")
@@ -8649,7 +8649,7 @@ t("treant", "树人", "entity name")
 t("A very strong near-sentient tree, which has become hostile to other living things.", "一棵极为强壮的半智慧树木，对其他生物充满了敌意。", "_t")
 t("poison ivy", "毒藤", "entity name")
 t("This harmless little plant makes you all itchy.", "这棵无害的小植物使你全身发痒。", "_t")
-t("honey tree", "蜜蜂树", "entity name")
+t("honey tree", "蜂蜜树", "entity name")
 t("As you approach it, you hear a high-pitched buzzing sound.", "当你靠近它时，你听到一阵刺耳的嗡嗡声。", "_t")
 
 ------------------------------------------------
@@ -11041,9 +11041,9 @@ t("Beautiful and nearly impregnable. Separating it from the dragon must have bee
 t("giant spider spinneret", "巨蛛的丝腺", "entity name")
 t("spinneret", "丝腺", "_t")
 t("An ugly, ripped-out chunk of giant spider. Bits of silk protrude from an orifice.", "从巨型蜘蛛身上扯下的一大块丑陋的器官，少量的丝线从某个洞中伸出。", "_t")
-t("honey tree root", "蜜蜂树的根", "entity name")
+t("honey tree root", "蜂蜜树的根", "entity name")
 t("dirty root", "脏兮兮的树根", "_t")
-t("The severed end of one of a honey tree's roots. It wriggles around occasionally, seemingly unwilling to admit that it's dead... and a *plant*.", "从蜜蜂树的一根树根上切下来的断端。它偶尔会蠕动下，似乎不承认它已经死了，而且还是个“植物”。", "_t")
+t("The severed end of one of a honey tree's roots. It wriggles around occasionally, seemingly unwilling to admit that it's dead... and a *plant*.", "从蜂蜜树的一根树根上切下来的断端。它偶尔会蠕动下，似乎不承认它已经死了，而且还是个“植物”。", "_t")
 t("bloated horror heart", "浮肿的恐魔心脏", "entity name")
 t("Diseased-looking and reeking. It seems to be decaying as you watch.", "病变且散发着恶臭的心脏，在你注视它时似乎仍在腐烂。", "_t")
 t("electric eel tail", "电鳗尾巴", "entity name")
@@ -11635,7 +11635,7 @@ t("recall the user to the worldmap after 40 turns", "传送至世界地图（等
 t("The rod emits a strange noise, glows briefly and returns to normal.", "法杖发出奇怪的响声，闪了下光又恢复了正常。", "logPlayer")
 t("Space around you starts to dissolve...", "你周围的空间开始消解...", "logPlayer")
 t("Force a recall", "强制使用回归之杖", "_t")
-t("The Fortress Shadow warned you that trying to force a recall without finding the portal back could break the exploratory farportal forever.", "堡垒之影警告你，如果尚未找到返回传送门便尝试强制返回，可能会永久损坏探索用远古传送门。", "_t")
+t("The Fortress Shadow warned you that trying to force a recall without finding the portal back could break the exploratory farportal forever.", "堡垒之影警告你，如果尚未找到返回传送门便尝试强制返回，可能会永久损坏探索用远行传送门。", "_t")
 t("Cancel", "取消", "_t")
 t("Recall", "启动回归之杖", "_t")
 t("Rod of Recall", "回归之杖", "_t")
@@ -13571,7 +13571,7 @@ t("minotaur nose", "米诺陶的鼻子", "ingredient name")
 t("vial of elder vampire blood", "一瓶长老吸血鬼的血液", "ingredient name")
 t("multi-hued wyrm scale", "多彩的龙鳞", "ingredient name")
 t("giant spider spinneret", "巨蛛的丝腺", "ingredient name")
-t("honey tree root", "蜜蜂树的根", "ingredient name")
+t("honey tree root", "蜂蜜树的根", "ingredient name")
 t("bloated horror heart", "浮肿的恐魔心脏", "ingredient name")
 t("electric eel tail", "电鳗尾巴", "ingredient name")
 t("vial of squid ink", "一瓶乌贼墨汁", "ingredient name")
@@ -13632,8 +13632,8 @@ t("If you think collecting one of these is hard, try liquefying one.", "如果�
 t("giant spider spinneret", "巨蛛的丝腺", "entity name")
 t("An ugly, ripped-out chunk of giant spider. Bits of silk protrude from an orifice.", "从巨型蜘蛛身上扯下的一大块丑陋的器官，少量的丝线从某个洞中伸出。", "_t")
 t("The spiders in your barn won't do. You'll know a giant spider when you see one, though they're rare in Maj'Eyal.", "你家仓库里的蜘蛛是不行的。当你看到一只时，你就会明白什么是巨型蜘蛛，尽管在马基·埃亚尔这种蜘蛛很稀少。", "_t")
-t("honey tree root", "蜜蜂树的根", "entity name")
-t("The severed end of one of a honey tree's roots. It wriggles around occasionally, seemingly unwilling to admit that it's dead... and a *plant*.", "从蜜蜂树的一根树根上切下来的断端。它偶尔会蠕动下，似乎不承认它已经死了，而且还是个“植物”。", "_t")
+t("honey tree root", "蜂蜜树的根", "entity name")
+t("The severed end of one of a honey tree's roots. It wriggles around occasionally, seemingly unwilling to admit that it's dead... and a *plant*.", "从蜂蜜树的一根树根上切下来的断端。它偶尔会蠕动下，似乎不承认它已经死了，而且还是个“植物”。", "_t")
 t("Keep a firm grip on it. These things will dig themselves right back into the ground if you drop them.", " 牢牢的抓住它，如果你不小心把它掉在地上，它会立刻挖地逃走。", "_t")
 t("bloated horror heart", "浮肿的恐魔心脏", "entity name")
 t("Diseased-looking and reeking. It seems to be decaying as you watch.", "病变且散发着恶臭的心脏，在你注视它时似乎仍在腐烂。", "_t")
@@ -13913,7 +13913,7 @@ The military are annoying me to no end. I told them to find me more test subject
 #{bold}#红帕兰的日志记录十#{normal}#
 #{italic}#厄流纪 4550年#{normal}#
 
-我开始怀疑试验品 Z 拥有潜在的魔法力量。我曾看见他以远超我对其种族预期的速度移动，还在没有任何明显修理手段的情况下修好损坏的物品。这些都是小事，但我相信传送门可能以某种方式增强了他的基础能力。还需要更多测试。不过他依然看起来相当愚蠢。他说上一次旅程花了 3 天，而明明只过了几秒。此后他便狼吞虎咽地吃了起来。我怀疑他只是贪吃。之前我看见他盯着远古传送门看了很久，但在他造成破坏之前，我就让助手把他拉开了。
+我开始怀疑试验品 Z 拥有潜在的魔法力量。我曾看见他以远超我对其种族预期的速度移动，还在没有任何明显修理手段的情况下修好损坏的物品。这些都是小事，但我相信传送门可能以某种方式增强了他的基础能力。还需要更多测试。不过他依然看起来相当愚蠢。他说上一次旅程花了 3 天，而明明只过了几秒。此后他便狼吞虎咽地吃了起来。我怀疑他只是贪吃。之前我看见他盯着远行传送门看了很久，但在他造成破坏之前，我就让助手把他拉开了。
 
 
 #{bold}#红帕兰的日志记录十一#{normal}#
@@ -14217,7 +14217,7 @@ Our mission is to help the world. Our penance is to act in secret. Old wounds re
 
 我对此无比了解，因为那时，身为一个年轻法师我就在现场。我听说了永恒精灵法师在夏·图尔遗迹上的实验。是的，我对他们将发掘出的力量感到无比的嫉妒。年少轻狂的我满脑子都是机遇和荣誉的诱惑，一点也不明白谨慎与小心的重要。看看吧，这样的想法带来了什么样的恶果……
 
-两千六百次太阳轮回已从我头顶流过，可我仍无法摆脱那一天天空化为火海、大地被撕成碎片的记忆。我感受到空气中的魔力，感受到远超任何人控制的奥术能量猛然释放。我瞬间明白，永恒精灵已解开远古传送门的力量，但那股力量远超他们的预期。短短几秒间，我看见燃烧的能量洪流撕裂头顶的天空，继而化作绯红的毁灭烟柱倾泻而下。我只来得及给自己罩上护盾，却仍被严重烧伤，疤痕至今尚存。我身边无人生还。我仍记得姐姐尼拉站在我身旁时那声截然而止的尖叫：可怕的能量剥去她的皮肤，火堆般的烈焰吞没她的身体，她的灰烬被大地的剧烈震动抛散。二十六个世纪过去了，我仍会被那声尖叫惊醒……
+两千六百次太阳轮回已从我头顶流过，可我仍无法摆脱那一天天空化为火海、大地被撕成碎片的记忆。我感受到空气中的魔力，感受到远超任何人控制的奥术能量猛然释放。我瞬间明白，永恒精灵已解开远行传送门的力量，但那股力量远超他们的预期。短短几秒间，我看见燃烧的能量洪流撕裂头顶的天空，继而化作绯红的毁灭烟柱倾泻而下。我只来得及给自己罩上护盾，却仍被严重烧伤，疤痕至今尚存。我身边无人生还。我仍记得姐姐尼拉站在我身旁时那声截然而止的尖叫：可怕的能量剥去她的皮肤，火堆般的烈焰吞没她的身体，她的灰烬被大地的剧烈震动抛散。二十六个世纪过去了，我仍会被那声尖叫惊醒……
 
 那天我失去了许多所爱之人，而且绝不只有我。无数人死于各地，更有无数人死于随后的混乱。之后魔法狩猎开始，民众奋起反抗法师的傲慢，毫不留情地屠杀我们。魔法大爆炸后，我们的能力陷入紊乱，法力通道也被切断。我们几乎毫无防卫能力，历尽艰辛才聚集众多法师，建立隐藏城市安格利文。随后的暴乱中，许多法师被杀，也有许多无辜者死去；当时猜忌遍地，嗜血欲望吞噬了一切。但不幸的是，苦难并未到此结束。
 
@@ -14814,7 +14814,7 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 面对面地，我和莱娜尼尔的身躯矗立在硝烟弥漫的战场上，随着战斗的肾上腺素退去，突如其来的疲惫令两个人气喘吁吁，呼出的气息在空气中凝成雾气。“抱歉”，我气喘吁吁地说道，“我有些忘了，到底是谁杀的更多了…”。她害羞地微笑着，汗水从泛红的面颊滴落。战场的烈火和利刃撕开了她美丽的长袍，展现着长袍下雪白的皮肤。肩上的细带不知何时已经悄然滑落，营地篝火昏黄的光线照耀着她的身躯。混乱的呼吸声中，她的胸脯轻轻摇动，深邃的眼神饱含着柔情。
 
 她大步走来，粗暴地揪住我的锁子甲，把我的双唇拉向她。这一吻火热而激烈；她咬住我的下唇，战斗中奔涌的热血顿时再度沸腾。我又吻住她，一把搂住她的身体，将她紧紧拉向自己，双唇始终交缠。她欲火中烧地撕扯我剩下的护甲，将其甩在地上；我也褪下她的丝绸衣裳，直到我们赤裸着站在群星之下。我们靠在一处岩壁上，紧贴着彼此，仍因刚才的战斗喘息流汗。炽烈的激情中，肌肤交融，我们火热的呻吟升入寒冷的夜空。]], "_t")
-t("The Spellblaze Chronicles(3): The Farportal", "魔法大爆炸纪事(3)：远古传送门", "_t")
+t("The Spellblaze Chronicles(3): The Farportal", "魔法大爆炸纪事(3)：远行传送门", "_t")
 t([[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#
 
 #{bold}#Chapter Three: The Farportal#{normal}#
@@ -14903,7 +14903,7 @@ I had no words to respond, and only nodded softly, still in awe of what I had se
  
 Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured with unease.]], [[#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#
 
-#{bold}#第三章：远古传送门#{normal}#
+#{bold}#第三章：远行传送门#{normal}#
 
 “为什么你不准备成为精灵们的领袖呢？”，莱娜尼尔悠闲地躺在我的床上，双手撑着头饶有兴致地问道。
 
@@ -14927,7 +14927,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 莱娜尼尔凝望着我，用调笑一般的语调柔声说道，“如果你成为了领袖，你可能会阻止这一切；但那样的话，或许我会一辈子恨你。”
 
-我露出了浅浅的微笑。“嘛，那还真是一件可怕而又危险的事情。”当我更衣完成时，莱娜尼尔仍然在床上休息，眉间若有所思。“我必须要前去检查关于远古传送门最后的准备工序了。如果你乐意的话，请务必和我一同前去。”
+我露出了浅浅的微笑。“嘛，那还真是一件可怕而又危险的事情。”当我更衣完成时，莱娜尼尔仍然在床上休息，眉间若有所思。“我必须要前去检查关于远行传送门最后的准备工序了。如果你乐意的话，请务必和我一同前去。”
 
 她有些倦怠地摇了摇头。“不，我想要再休息一下。还有，听取他们的报告只会让我嫉妒不已。请让我在这里呆一会儿吧——我稍后就会秘密离开。”
 
@@ -14937,7 +14937,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 “在想着什么人吗？”，她微笑地望着我，观察着刚刚表情细微的变化。
 
-“抱歉，我刚才正在思考一些问题，”我轻轻弯腰对她示意。“我正准备前去督导和远古传送门有关的工作事宜，如果您——”
+“抱歉，我刚才正在思考一些问题，”我轻轻弯腰对她示意。“我正准备前去督导和远行传送门有关的工作事宜，如果您——”
 
 “我想和您一同前去。”还没等我说完，她就爽快地回应道。我点了点头，领着她坐上我的马车。
 
@@ -14955,7 +14955,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 考古学家们从来没有发现过比埃尔瓦拉附近的夏·图尔遗迹更为壮观的存在。我们的人民花了几个世纪来悉心研究它，调动的工程量庞大无匹深入地下，却又如此小心地不曾损坏和扰乱任何遗迹中的古物。这个遗迹的核心被称为水晶塔。从地面上向下看，我们只能看到巨大的方块，在泥土被清理之后显露出来是比大理石更加光滑的白色石板。继续往下挖掘，白色石板似乎无穷无尽，其表面也没有任何能够给出说明的雕刻和标记，直到半英里后我们找到了它的底部，没有地基那样的设施。这简直就像着整座塔并不是立于地面之上，而是在天空中漂浮，直到某种力量让它从空中坠落，静静地在大地中沉眠了无数的岁月。
 
-若干年前，我们的魔法师找到了遗迹上不可见的符文，终于叩开了遗迹的大门。遗迹内，壮观的水晶大厅以庄严而又优美的几何图案有规律的排布着，就连墙壁似乎也呼吸着能量。许多甬道和通路都只能通过飞行才能到达，而其顶端是一个足以容纳整个埃尔瓦拉宫殿的巨大房间。在它的中央是远古传送门，一个直径四十英尺的高台，巨大能量如同星云般在周围盘旋，噼啪作响。那是何等美丽而可畏，迷人而恐怖的壮观景象。永恒精灵们根本无法理解它工作的真正原理。即使通过小心的实验我们有办法操纵它所具有的能量，我们也永远无法真正知悉到底是什么力量驱动着它。
+若干年前，我们的魔法师找到了遗迹上不可见的符文，终于叩开了遗迹的大门。遗迹内，壮观的水晶大厅以庄严而又优美的几何图案有规律的排布着，就连墙壁似乎也呼吸着能量。许多甬道和通路都只能通过飞行才能到达，而其顶端是一个足以容纳整个埃尔瓦拉宫殿的巨大房间。在它的中央是远行传送门，一个直径四十英尺的高台，巨大能量如同星云般在周围盘旋，噼啪作响。那是何等美丽而可畏，迷人而恐怖的壮观景象。永恒精灵们根本无法理解它工作的真正原理。即使通过小心的实验我们有办法操纵它所具有的能量，我们也永远无法真正知悉到底是什么力量驱动着它。
 
 我和尼耶拉下到塔底，四周笼罩在已发掘遗迹的冰冷阴影中。穿过白色方形入口时，我向卫兵微微点头，尼耶拉则惊奇地睁大了眼睛。这座闪光的大厅的确足够吸引眼球，但是里面空无一物的情景不禁令人感到孤单。我试着去构想许久之前，当这里仍然被夏·图尔人所充满的情景。“为什么夏·图尔人灭亡了呢？”漫步于水晶大厅，我轻声向尼耶拉问出了那个或许问过许多次的问题。
 
@@ -14963,7 +14963,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 “我也想知道。”我回答道。我们当然有自己的记录，只是不曾与较年轻的种族分享；但这些记录远不像历经岁月流传的诸多神话那样结论分明。
 
-我们到达了中央甬道。我们悬浮而起，缓缓上升，眼前一层层废弃的屋室从上方进入我们的视线，然后缓缓地在视野中消失。卧房、工坊、储藏室、还有很多房间就连我们的博学之人也没法猜测出是用来干什么的。在经过几分钟的上升后，我们到达了远古传送门所在的大厅，尼耶拉不禁因惊讶而倒吸一口冷气。她的眼睛很快看到了夏·图尔的远古传送门，闪耀、映照着几百英尺之上的天花板上的图案。在传送门的周围，一大群身穿高级丝绸长袍的永恒精灵法师正在紧张地工作中，而伊菲尼亚斯陛下正亲自指挥着他们。
+我们到达了中央甬道。我们悬浮而起，缓缓上升，眼前一层层废弃的屋室从上方进入我们的视线，然后缓缓地在视野中消失。卧房、工坊、储藏室、还有很多房间就连我们的博学之人也没法猜测出是用来干什么的。在经过几分钟的上升后，我们到达了远行传送门所在的大厅，尼耶拉不禁因惊讶而倒吸一口冷气。她的眼睛很快看到了夏·图尔的远行传送门，闪耀、映照着几百英尺之上的天花板上的图案。在传送门的周围，一大群身穿高级丝绸长袍的永恒精灵法师正在紧张地工作中，而伊菲尼亚斯陛下正亲自指挥着他们。
 
 当他看到我们的到来时，他先行从一旁围绕的皇家顾问身边脱开身来，怀着自信的笑容向我们走来。尽管他穿着魔法研究院的灰色长袍，他的手中仍然拿着那把金色的法杖，辉光杖，作为他国王身份的证明。
 
@@ -14977,15 +14977,15 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 国王微笑着点了点头，回身叫来了他的副官。“准备地形演示，使用锐火束。”他回身向我们说道。“我向你们展示的可不只是技巧和能力，而是从精微到庞大的一切细节。现在请你们稍等一下，我将会亲自完成这一切。”
 
-他与其他两名研究院高阶法师一起走到远古传送门面前，互相遥望，四周传来一阵阵和谐的低吟。随着法术的和声在大厅中飘扬，远古传送门周围的闪烁着星星点点的隐约红色。几分钟后，他们的低吟音调渐渐升高，变成了无比默契的轻声吟唱，然而始终保持在完美的协调之中。紧接着，他们高举手中的法杖，远古传送门中产了一束闪烁的橙色火焰。在它的悉心雕刻中，慢慢形成了一幅清晰的画卷，呈现出我和尼耶拉两人的图像。所有的特征都如此明晰，所有的动作都精巧符合，下至最小的细节都清晰可辨，简直如同站在一面巨大而澄澈的明镜之前。
+他与其他两名研究院高阶法师一起走到远行传送门面前，互相遥望，四周传来一阵阵和谐的低吟。随着法术的和声在大厅中飘扬，远行传送门周围的闪烁着星星点点的隐约红色。几分钟后，他们的低吟音调渐渐升高，变成了无比默契的轻声吟唱，然而始终保持在完美的协调之中。紧接着，他们高举手中的法杖，远行传送门中产了一束闪烁的橙色火焰。在它的悉心雕刻中，慢慢形成了一幅清晰的画卷，呈现出我和尼耶拉两人的图像。所有的特征都如此明晰，所有的动作都精巧符合，下至最小的细节都清晰可辨，简直如同站在一面巨大而澄澈的明镜之前。
 
-紧接着，随着吟唱的歌声越来越大，影像中的视野也愈发宽广，从中呈现出我们身边的远古传送门和周围围绕着的众多法师。视野飞腾而上，眼前所见的东西越来越小，最终化为宏伟大厅内的一个小点。紧接着，画面被一个白色的方形取代，周围是挖掘直入地底的痕迹，显然我们的视野正处于水晶塔的正上方。随着聚焦范围越来越大，大地奔腾而过，西部埃尔瓦拉市的房屋隐约可见。伴随着吟诵之声，我们看到了奔腾的大海，看到了西北的层峦叠嶂。我们看到了整片大陆的全景，北部寒风笼罩的高原被冰雪所覆盖，包围着的海洋似乎无穷无尽，大陆上闪烁着无数的白色小点，如同繁星一般。咏唱达到了高潮，我们从宇宙俯瞰到了埃亚尔星球的全景，在火焰的缭绕中悬浮于半空之中，慢慢转动。
+紧接着，随着吟唱的歌声越来越大，影像中的视野也愈发宽广，从中呈现出我们身边的远行传送门和周围围绕着的众多法师。视野飞腾而上，眼前所见的东西越来越小，最终化为宏伟大厅内的一个小点。紧接着，画面被一个白色的方形取代，周围是挖掘直入地底的痕迹，显然我们的视野正处于水晶塔的正上方。随着聚焦范围越来越大，大地奔腾而过，西部埃尔瓦拉市的房屋隐约可见。伴随着吟诵之声，我们看到了奔腾的大海，看到了西北的层峦叠嶂。我们看到了整片大陆的全景，北部寒风笼罩的高原被冰雪所覆盖，包围着的海洋似乎无穷无尽，大陆上闪烁着无数的白色小点，如同繁星一般。咏唱达到了高潮，我们从宇宙俯瞰到了埃亚尔星球的全景，在火焰的缭绕中悬浮于半空之中，慢慢转动。
 
 然后咏唱停止了，先前的图像瞬间消失地无影无踪。我似乎听到尼耶拉因为刚才令人窒息的壮观景象而喘不过气来。
 
-“你现在看到了吗？”伊菲尼亚斯陛下大笑着。“我们可以全方位操纵这个远古传送门的所有能量，无论是最小的细节还是最大的范围，一切尽在掌握之中。还有，你看到地图上所标注的那些白点吗？这是世界上其他的远古传送门，而我们的这个传送门可以与它们中的任何一个链接。经过精心的操纵和悉心的控制，我们可以协调他们全部的能量，并用来实现我们的愿望。我想，你的那把剑可干不了这种事情，艾伦尼恩先生。”
+“你现在看到了吗？”伊菲尼亚斯陛下大笑着。“我们可以全方位操纵这个远行传送门的所有能量，无论是最小的细节还是最大的范围，一切尽在掌握之中。还有，你看到地图上所标注的那些白点吗？这是世界上其他的远行传送门，而我们的这个传送门可以与它们中的任何一个链接。经过精心的操纵和悉心的控制，我们可以协调他们全部的能量，并用来实现我们的愿望。我想，你的那把剑可干不了这种事情，艾伦尼恩先生。”
 
-我仍然被我刚才所见到的奇景所震惊，无话可说，只能微微点头。尼耶拉似乎也产生了一样的想法，以和她的孪生姐妹一样的热切眼神望着这座远古传送门。是的，她的想法被改变了。
+我仍然被我刚才所见到的奇景所震惊，无话可说，只能微微点头。尼耶拉似乎也产生了一样的想法，以和她的孪生姐妹一样的热切眼神望着这座远行传送门。是的，她的想法被改变了。
 
 然而，我的手仍然环绕着斩月剑的剑柄，心头隐隐呢喃着不安之情。]], "_t")
 t("The Spellblaze Chronicles(4): Before the Dawn", "魔法大爆炸纪事(4)：黎明将至", "_t")
@@ -15238,9 +15238,9 @@ The Shroud of Elvala was begun, as our whole city was wreathed in cloud and smok
 
 #{bold}#第六章：被改变的埃亚尔#{normal}#
 
-或许，我们永远不会知道当天到底发生了什么。魔法大爆炸后幸存下来的夏·图尔遗迹，自此几乎无人敢碰——这一教训对人们来说已经足够深刻了。我们唯一知道的是，不管伊菲尼亚斯曾经拥有多么精妙和平衡的控制，在那一刻，他们失控了。在他们连接到其他传送门的一瞬间，微小的不平衡迅速被回响，共振，放大，瞬间失去了控制。在不到一秒钟的时间里，水晶塔中的远古传送门向内坍缩，杀死了其中所有人，并压垮四周的大地。随后，夏·图尔遗迹中的能量化作耀眼白光爆发，将空气化为火焰，将大地化为废墟。大火迅速向东袭来，用它势不可挡的毁灭力量将我们战场上的一切全部摧毁，然后直接席卷向自然精灵的领地。夏特尔的远古森林纷纷被连根拔起，从此，那片大地被永远诅咒。
+或许，我们永远不会知道当天到底发生了什么。魔法大爆炸后幸存下来的夏·图尔遗迹，自此几乎无人敢碰——这一教训对人们来说已经足够深刻了。我们唯一知道的是，不管伊菲尼亚斯曾经拥有多么精妙和平衡的控制，在那一刻，他们失控了。在他们连接到其他传送门的一瞬间，微小的不平衡迅速被回响，共振，放大，瞬间失去了控制。在不到一秒钟的时间里，水晶塔中的远行传送门向内坍缩，杀死了其中所有人，并压垮四周的大地。随后，夏·图尔遗迹中的能量化作耀眼白光爆发，将空气化为火焰，将大地化为废墟。大火迅速向东袭来，用它势不可挡的毁灭力量将我们战场上的一切全部摧毁，然后直接席卷向自然精灵的领地。夏特尔的远古森林纷纷被连根拔起，从此，那片大地被永远诅咒。
 
-同时，在马基·埃亚尔的其他远古传送门都纷纷爆发，磐石也被其撕裂，大量的能量向外涌出。西部科纳克人王国的土地迅速化为了沙漠，矮人大厅科尔赫克倒塌了，中部的平原隆起成为山脉，中间形成了纳尔湖。在南部，远古高塔德拉斐尔倒塌了，周围的森林化为被永远灼热的岩浆和黑石覆盖的焦土。在遥远的东方，纳鲁精灵所拥有的，整个马基·埃亚尔最大的传送门，被一场剧烈的地震所吞噬。剧烈的地震吞噬了周围数英里内的一切，沸水喷涌而出，填满了地震留下的巨大空腔。
+同时，在马基·埃亚尔的其他远行传送门都纷纷爆发，磐石也被其撕裂，大量的能量向外涌出。西部科纳克人王国的土地迅速化为了沙漠，矮人大厅科尔赫克倒塌了，中部的平原隆起成为山脉，中间形成了纳尔湖。在南部，远古高塔德拉斐尔倒塌了，周围的森林化为被永远灼热的岩浆和黑石覆盖的焦土。在遥远的东方，纳鲁精灵所拥有的，整个马基·埃亚尔最大的传送门，被一场剧烈的地震所吞噬。剧烈的地震吞噬了周围数英里内的一切，沸水喷涌而出，填满了地震留下的巨大空腔。
 
 当这场毁灭发生时，惊人的能量扰乱了环绕埃亚尔的所有法力流动。能量的流动曾经遵循相对固定、缓慢变化的路线，如今却忽而洪泛，忽而枯竭，被扭曲、被分裂。元素脉络陷入极度混乱，任何与魔法调谐的人都突然发现，自己已远离惯用的力量之源。
 
@@ -16082,7 +16082,7 @@ She is terrified of losing me, losing this world, losing #{italic}#herself#{norm
 
 她的举止……变了，却不是预想中的变化。假如我给她的是某位被夏·图尔击伤、放干鲜血作为战利品的神祇精华，或者某个浑身枯萎之力的恶魔精华，又或者任何会影响心智的东西，我本以为她会开始举止反常——变得更加残忍、更加傲慢、少几分#{italic}#人性#{normal}#。然而……她的表现就像知道世界即将毁灭，却不能告诉任何人。她不断喃喃，说必须利用那座遗迹里的东西——我们甚至还不能告诉安格利文这座遗迹#{italic}#存在#{normal}#——建立一种新的魔法统治秩序，就像泰恩所希望的那样，“趁一切还来得及”。有什么东西正啃噬着她，她害怕我会查明真相；可除此之外……她几乎#{italic}#理智得过了头#{normal}#。
 
-她害怕失去我，失去这个世界，失去#{italic}#她自己#{normal}#——可会被什么夺走，我毫无头绪。说到底，她脑中究竟有何念头并不重要；我会研究遗迹里的典籍，寻找召唤仪式、远古传送门图纸，或任何能替她完成计划的东西。她将亲眼见到一次这个“盖里克”——仅此一次；随后他的魔力会被吸收，一切便会结束。不管这个生物是什么，死后就不能再发号施令。]], "_t")
+她害怕失去我，失去这个世界，失去#{italic}#她自己#{normal}#——可会被什么夺走，我毫无头绪。说到底，她脑中究竟有何念头并不重要；我会研究遗迹里的典籍，寻找召唤仪式、远行传送门图纸，或任何能替她完成计划的东西。她将亲眼见到一次这个“盖里克”——仅此一次；随后他的魔力会被吸收，一切便会结束。不管这个生物是什么，死后就不能再发号施令。]], "_t")
 t("Argoniel's blood-runed athame", "艾格尼尔的血符仪式匕首", "_t")
 t([[#{italic}#On touching the blood-dripping knife, memories flood your mind - this time, with incredible intensity.  You drop the knife immediately, thankful you only touched the plain handle, and not the rune-lit blade or the red pool under it.  Moments later, your mind starts parsing and interpreting what it just absorbed:#{normal}#
 
@@ -16120,7 +16120,7 @@ t([[I awoke early this morning to see the love of my life altering the unique fa
 
 Argoniel, my love, you have brought me so much joy and given me much to live for.  I have sworn to hold your hand and walk beside you, no matter where you choose to go.  If that means joining you down the road to a second Spellblaze...  so be it.  
 
-Forgive me, Eyal.]], [[今晨我早早醒来，看见挚爱正在改动我们共同建造的那座独一无二的远古传送门。到那一刻为止，一切都按计划进行：吸能法杖已整合进传送门，会在盖里克被召唤的瞬间吸干他的力量；兽人忙着互相猜忌，根本无暇调查我们……然后我发现，她破坏了传送门。现在这扇门召来盖里克时反而会为他#{italic}#增#{normal}#力——他在虚空中漂泊了如此漫长的岁月，孤独必然已令他疯狂。无论如何，即便是一个神智清醒的神，也足以摧毁我们所熟悉的生命世界。
+Forgive me, Eyal.]], [[今晨我早早醒来，看见挚爱正在改动我们共同建造的那座独一无二的远行传送门。到那一刻为止，一切都按计划进行：吸能法杖已整合进传送门，会在盖里克被召唤的瞬间吸干他的力量；兽人忙着互相猜忌，根本无暇调查我们……然后我发现，她破坏了传送门。现在这扇门召来盖里克时反而会为他#{italic}#增#{normal}#力——他在虚空中漂泊了如此漫长的岁月，孤独必然已令他疯狂。无论如何，即便是一个神智清醒的神，也足以摧毁我们所熟悉的生命世界。
     
 ……我狠不下心阻止她。
 
@@ -16177,7 +16177,7 @@ t("infinite dungeon", "无尽地下城", "newLore category")
 t("The Hunter and the Hunted chapter 1", "猎人与猎物　第一章", "_t")
 t([[Branzir was the mightiest of the Sher'Tul hunters, and his fame was known at every Farportal. He could run for days without rest, cross terrain no others would dare to pass, and had senses more keen than all the wildest animals of Eyal. It was for this reason that Caldizar came to him at his forest keep and beseeched him to join in the Godhunt. At first Branzir refused, for he said he was not one to meddle in such mighty affairs, and he wanted but peace to hunt and fend for his family. But Caldizar convinced him that this life of peace was not possible whilst the schemes and machinations of the gods continued. And so reluctantly Branzir accepted, and took in his hands the great sword Madrath, and upon his shoulders was laid the title "Godslayer".
 
-In the great Godhunt that followed Branzir became the most fervent of the Godslayers, and would not sleep nor rest whilst a hunt was on. He it was that chased the troll-spawner Ugg'matho through the snow-capped mountains of Pertolias and broke his body on the highest peak. He it was that tracked the blight-weaver Xadoch through the howling vales of Anvion and trapped him and throttled him and cut him into seven pieces to be cast into the Glonglum lake. And he it was that was tasked with finding and killing Ralkur the Deceptor, god of charms and illusions, who had taken hiding amongst the lesser races.]], [[布兰伊尔是最强大的夏·图尔猎人，他的威名传遍每一座远古传送门。他可以连续奔行数日而不休息，越过无人敢于涉足的险地，其感官比埃亚尔最狂野的野兽还要敏锐。正因如此，凯尔帝勒来到他的森林要塞，恳请他加入猎神行动。布兰伊尔起初拒绝了；他说自己无意插手这等惊天大事，只愿安宁地狩猎、照料家人。但凯尔帝勒说服了他：只要众神仍在谋划算计，这样的安宁生活便不可能存在。于是布兰伊尔勉强应允，双手接过巨剑玛卓斯，肩负起“弑神者”的称号。
+In the great Godhunt that followed Branzir became the most fervent of the Godslayers, and would not sleep nor rest whilst a hunt was on. He it was that chased the troll-spawner Ugg'matho through the snow-capped mountains of Pertolias and broke his body on the highest peak. He it was that tracked the blight-weaver Xadoch through the howling vales of Anvion and trapped him and throttled him and cut him into seven pieces to be cast into the Glonglum lake. And he it was that was tasked with finding and killing Ralkur the Deceptor, god of charms and illusions, who had taken hiding amongst the lesser races.]], [[布兰伊尔是最强大的夏·图尔猎人，他的威名传遍每一座远行传送门。他可以连续奔行数日而不休息，越过无人敢于涉足的险地，其感官比埃亚尔最狂野的野兽还要敏锐。正因如此，凯尔帝勒来到他的森林要塞，恳请他加入猎神行动。布兰伊尔起初拒绝了；他说自己无意插手这等惊天大事，只愿安宁地狩猎、照料家人。但凯尔帝勒说服了他：只要众神仍在谋划算计，这样的安宁生活便不可能存在。于是布兰伊尔勉强应允，双手接过巨剑玛卓斯，肩负起“弑神者”的称号。
 
 在随后的伟大猎神行动中，布兰伊尔成了最为狂热的弑神者；只要狩猎尚未结束，他便不眠不休。正是他追逐巨魔繁衍者厄格莫斯，穿越普塔利亚斯白雪覆顶的群山，在最高峰上击碎其身躯。正是他穿过安维恩呼啸的谷地，追踪枯萎编织者亚多契，将其困住、扼死并斩成七段，投入古龙伦湖。也正是他奉命寻找并杀死欺诈者瑞尔克——这位掌管魅惑与幻象、藏身于弱小种族之中的神。]], "_t")
 t("The Hunter and the Hunted chapter 2", "猎人与猎物　第二章", "_t")
@@ -18771,7 +18771,7 @@ During the Age of Pyre we discovered the farportal, deep beneath the dwarven cit
 
 But all in the west did not go well. We conquered many lands, and came close to wiping out many races, but we became spread thin. As the other races began to fight back our Age of Pyre was to dwindle.]], [[在烈火纪期间，我族取得了多么巨大的飞跃！那些弱小的种族确实无一能与我们相比。因为驱使着我们的是复仇之火；只要想到能对那些长久以来惩戒和殴打我们的种族施加正义的报复，我们便无比狂热地追逐目标。
 
-在烈火纪期间，我们在矮人城市的深处发现了远古传送门。我们比此前愚蠢的精灵更加谨慎，成功驾驭了传送门的力量，打开了通往失落远东的通道。我们派出了军队，轻易击退了早已缩在简陋棚屋里的弱小精灵和人类。我们在那里建立了各个兽人部落——作为我们战士的训练营，让他们在返回西部参加战争之前在那里磨练战斗技巧。
+在烈火纪期间，我们在矮人城市的深处发现了远行传送门。我们比此前愚蠢的精灵更加谨慎，成功驾驭了传送门的力量，打开了通往失落远东的通道。我们派出了军队，轻易击退了早已缩在简陋棚屋里的弱小精灵和人类。我们在那里建立了各个兽人部落——作为我们战士的训练营，让他们在返回西部参加战争之前在那里磨练战斗技巧。
 
 但西部的一切并非一帆风顺。我们征服了许多土地，几乎将许多种族赶尽杀绝，但我们的兵力也分散薄弱了。随着其他种族开始反击，我们的烈火纪也逐渐走向衰亡。]], "_t")
 t("Records of Lorekeeper Hadak part five", "博学者哈达克的记录，第五部分", "_t")
@@ -18948,7 +18948,7 @@ When Garkul next returned from the east he heard from his spies of great operati
 
 然而胜利尚未彻底完成，因为仍有许多权力与抵抗中心尚存，而南方的纳格尔人依然是一大严重威胁。加库尔行事谨慎，在确保胜利之前绝不盲目冒进、分散兵力。他明白自己必须等待时机，将麾下大军积蓄至最强战力。
 
-就在此时，在矮人城市瑞库纳的深处，我们的斥候发现了一件令人惊叹之物——一座夏·图尔远古传送门。血法师们对此展开研究，一段时间后成功将其激活，并发现了一片全新的陆地。那是失落的远东，在大灾变之后与马基·埃亚尔隔绝分离。加库尔在此看到了巨大的契机，下令将数以千计的年轻战士与法师送往远东。他们在那里建立了训练营地，军队可以在返回西方参战之前在那里操练以精通战技。加库尔将其命名为各个兽人部落（Prides），因为他说我族的力量将寄托于此，而这也将是我们最引以为傲之所在。
+就在此时，在矮人城市瑞库纳的深处，我们的斥候发现了一件令人惊叹之物——一座夏·图尔远行传送门。血法师们对此展开研究，一段时间后成功将其激活，并发现了一片全新的陆地。那是失落的远东，在大灾变之后与马基·埃亚尔隔绝分离。加库尔在此看到了巨大的契机，下令将数以千计的年轻战士与法师送往远东。他们在那里建立了训练营地，军队可以在返回西方参战之前在那里操练以精通战技。加库尔将其命名为各个兽人部落（Prides），因为他说我族的力量将寄托于此，而这也将是我们最引以为傲之所在。
 
 然而当加库尔忙于建立各个部落之时，纳格尔国王正筹划着防御策略。他知道兽人大军很快就会攻打自己的王国，便动用了最顶尖谋士的力量，准备打造一支无法战胜的武装。他召集了全大陆最强大的炼金术士，一同谋划制造一件不可战胜的造物：巨型傀儡阿塔玛森。
 
@@ -19290,7 +19290,7 @@ Now the ancient ruins have become overgrown by crystals. Reports say that they g
 I must admit that stepping into the starting place of the Spellblaze fills me with immense trepidation. This was where the great destruction began, that tore through our world, wiping out cities, tearing the world apart. And yet look at the beauty here!
 ]], [[我获准探索东面的闪光洞穴。那里通常被严密封锁，不过有个身居长老会的父亲确实很有用——哪怕他平日只是个愚蠢的小丑……
 
-魔法大爆炸正是从这些洞穴开始的。一座夏·图尔时代遗留的远古传送门深埋于此，我们的祖先抽取其中的力量，最终招致自身毁灭。许多最伟大的永恒精灵法师都曾站在这里；超乎理解的能量失控爆发时，他们顷刻间尽数湮灭。这是我族惨痛的损失——那般学识与力量从此永远消逝！
+魔法大爆炸正是从这些洞穴开始的。一座夏·图尔时代遗留的远行传送门深埋于此，我们的祖先抽取其中的力量，最终招致自身毁灭。许多最伟大的永恒精灵法师都曾站在这里；超乎理解的能量失控爆发时，他们顷刻间尽数湮灭。这是我族惨痛的损失——那般学识与力量从此永远消逝！
 
 如今，水晶已经爬满了古老废墟。据报告，它们每年都在生长。它们会不会是活的……？
 
@@ -19467,7 +19467,7 @@ t([[#{italic}#Touching the conch makes it emit a sound. As you put it to your ea
 
 "踏浪者塔米尔报告。据点周边已确保安全，不过我已派出几名队员侦察附近地带。等我们绘制好这片陆地的地图，并具备维持一支更大规模队伍的条件，我才会更加安心。只要陆地居民不知道我们的存在，我们应该就绝对安全。即便他们胆敢来到这里，佐西拉的魔法也会让他们那微不足道的星辰崇拜相形见绌。
 
-"我担心队里有些人没有严肃对待我们的使命。难道他们不知道救世主赋予我们的责任吗？在这片遥远的土地上，我们就是他的手臂和尾巴；我们有责任守护那座远古传送门，它将为我们带来更强大的兵力。我们是他进攻那些很久以前毁掉我们种族之人血亲的先锋。凭借我们的努力，我们将带领种族开拓新的疆界，为伟大救世主替我们筹划的光明未来铺平道路。萨拉苏尔万岁！吞噬者的传说万岁！"]], "_t")
+"我担心队里有些人没有严肃对待我们的使命。难道他们不知道救世主赋予我们的责任吗？在这片遥远的土地上，我们就是他的手臂和尾巴；我们有责任守护那座远行传送门，它将为我们带来更强大的兵力。我们是他进攻那些很久以前毁掉我们种族之人血亲的先锋。凭借我们的努力，我们将带领种族开拓新的疆界，为伟大救世主替我们筹划的光明未来铺平道路。萨拉苏尔万岁！吞噬者的传说万岁！"]], "_t")
 t("conch (3)", "海螺 (3)", "_t")
 t([[#{italic}#Touching the conch makes it emit a sound. As you put it to your ear you hear a charismatic and commanding voice emanating from within:#{normal}#
 
@@ -19483,7 +19483,7 @@ t([[#{italic}#Touching the conch makes it emit a sound. As you put it to your ea
 
 "不要因为我们攻击的是这座前哨站而不是兽人就感到失望。我的谋略经过了周密筹划，太阳堡垒对我的大计威胁太大，绝不能再让它继续存在。兽人……短期内还有他们的用处。但请放心，等我们的时代来临，世上将再无人能与我们平起平坐。我们的伟业不会被压制，也不会被淹没！我们漫长的苦难史终将换来救赎！
 
-"朋友们，你们眼下的任务很明确。确保远古传送门正确架设并得到保护，但务必小心，所用的夏·图尔魔法仍处于试验阶段。然后侦察这一地区，着手巩固周边防御，同时必须秘密行事。等你们出色完成任务后，我——你们谦逊的领袖萨拉苏尔——将荣幸地前往前线与你们会合。在那之前，兄弟姐妹们，愿你们一路游得平安，也别忘记我们的荣耀。"
+"朋友们，你们眼下的任务很明确。确保远行传送门正确架设并得到保护，但务必小心，所用的夏·图尔魔法仍处于试验阶段。然后侦察这一地区，着手巩固周边防御，同时必须秘密行事。等你们出色完成任务后，我——你们谦逊的领袖萨拉苏尔——将荣幸地前往前线与你们会合。在那之前，兄弟姐妹们，愿你们一路游得平安，也别忘记我们的荣耀。"
 
 ]], "_t")
 
@@ -20064,7 +20064,7 @@ t("As you enter the tunnel you feel a strange compulsion to go backward.", "在�
 section "mod-tome/data/maps/zones/shertul-fortress-caldizar.lua"
 
 t("Control Room", "控制室", "_t")
-t("Exploratory Farportal", "探索用远古传送门", "_t")
+t("Exploratory Farportal", "探索用远行传送门", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/maps/zones/tannen-tower-1.lua"
@@ -20603,8 +20603,8 @@ t("#LIGHT_GREEN#* You have unlocked the training room.#WHITE#", "#LIGHT_GREEN#* 
 t("#LIGHT_GREEN#* You have unlocked the hall of reflections.#WHITE#", "#LIGHT_GREEN#* 你解锁了反射之镜的大厅。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have upgraded your rod of recall to transport you to the fortress.#WHITE#", "#LIGHT_GREEN#* 你升级了回归之杖，现在可以用它传送到堡垒。#WHITE#", "_t")
 t("#SLATE#* The fortress shadow has asked that you come back as soon as possible.#WHITE#", "#SLATE#* 堡垒之影希望你尽快回来。#WHITE#", "_t")
-t("#RED#* You have forced a recall while in an exploratory farportal zone. The farportal was rendered unusable in the process.#WHITE#", "#RED#* 你在探索用远古传送门区域内强制启动了回归之杖，导致这座远古传送门彻底无法使用。#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have entered the exploratory farportal room and defeated the horror lurking there. You can now use the farportal.#WHITE#", "#LIGHT_GREEN#* 你进入了探索用远古传送门所在的房间，并消灭了潜伏其中的恐魔。现在你可以使用这座远古传送门了。#WHITE#", "_t")
+t("#RED#* You have forced a recall while in an exploratory farportal zone. The farportal was rendered unusable in the process.#WHITE#", "#RED#* 你在探索用远行传送门区域内强制启动了回归之杖，导致这座远行传送门彻底无法使用。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have entered the exploratory farportal room and defeated the horror lurking there. You can now use the farportal.#WHITE#", "#LIGHT_GREEN#* 你进入了探索用远行传送门所在的房间，并消灭了潜伏其中的恐魔。现在你可以使用这座远行传送门了。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have re-enabled the fortress flight systems. You can now fly around in your fortress!#WHITE#", "#LIGHT_GREEN#* 你重新激活了堡垒的飞行系统。你可以操控你的堡垒飞行了！#WHITE#", "_t")
 t("#SLATE#* The fortress shadow has asked that you find an Ancient Storm Sapphire, along with at least 250 energy, to re-enable the fortress flight systems.#WHITE#", "#SLATE#* 堡垒之影需要你找到远古风暴蓝宝石，并准备至少 250 点能量，才能重启堡垒飞行系统。#WHITE#", "_t")
 t("\
@@ -20613,7 +20613,7 @@ The fortress's current energy level is: #LIGHT_GREEN#%d#WHITE#.", "\
 t("Fortress Shadow", "堡垒之影", "_t")
 t("Master, you have sent enough energy to improve your rod of recall. Please return to the fortress.", "主人，你已经收集了足够升级回归之杖的能量。请尽快回到堡垒来。", "_t")
 t([[Master, you have sent enough energy to activate the exploratory farportal.
-However, there seems to be a disturbance in that room. Please return as soon as possible.]], [[主人，你已经注入了足够启动探索用远古传送门的能量。
+However, there seems to be a disturbance in that room. Please return as soon as possible.]], [[主人，你已经注入了足够启动探索用远行传送门的能量。
 然而，那个房间里似乎有些异动。请尽快回来。]], "_t")
 t("The energy is too low. It needs to be at least 15.", "能量过低，至少需要15点能量。", "_t")
 t("#VIOLET#Your rod of recall glows brightly for a moment.", "#VIOLET#你的回归之杖短暂地闪耀起来。", "log")
@@ -20805,7 +20805,7 @@ t("#SLATE#* You must explore the Daikara and find out what lurks there and what 
 section "mod-tome/data/quests/strange-new-world.lua"
 
 t("Strange new world", "陌生的新世界", "_t")
-t("You arrived through the farportal in a cave, probably in the Far East.", " 你穿过了山洞的远古传送门，可能会到达远东大陆。", "_t")
+t("You arrived through the farportal in a cave, probably in the Far East.", " 你穿过了山洞的远行传送门，可能会到达远东大陆。", "_t")
 t("Upon arrival you met an Elf and an orc fighting.", " 你碰到了一个精灵在和一个兽人战斗。", "_t")
 t("You decided to side with the Elven lady.", "你决定帮助那位精灵女士。", "_t")
 t("You decided to side with the orc.", "你决定帮助那个兽人。", "_t")
@@ -22079,7 +22079,7 @@ t("#ORCHID#%s has recovered!#LAST#", "#ORCHID#%s恢复了!#LAST#", "logSeen")
 t([[Improves your capacity to see invisible foes by +%d and to see through stealth by +%d.  Additionally you have a %d%% chance to recover from a single negative status effect each turn.
 		Sense abilities will scale with your Magic stat.]], [[增强你的隐形侦测能力 +%d 以及潜行侦测能力 +%d。  此外，每回合你有 %d%% 的几率从一个负面状态中回复。
 		受魔法属性影响，侦测能力按比例增加。]], "tformat")
-t("Warden's Focus", "专注守卫", "talent name")
+t("Warden's Focus", "守卫者专注", "talent name")
 t("You require a weapon to use this talent.", "你需要武器来施展这个技能。", "logPlayer")
 t("You must pick a focus target.", "你必须选择一个集中目标", "logPlayer")
 t([[Attack the target with either your ranged or melee weapons for %d%% weapon damage.  For the next %d turns random targeting, such as from Blink Blade and Warden's Call, will focus on this target.
@@ -35627,10 +35627,10 @@ t("Each turn will fire an arrow at %s.", "每回合都会向 %s 射出一支箭�
 t("+Arrow Echoes", "+灵矢回声", "_t")
 t("-Arrow Echoes", "-灵矢回声", "_t")
 t("tactic", "战术", "effect subtype")
-t("Warden's Focus", "专注守卫", "_t")
+t("Warden's Focus", "守卫者专注", "_t")
 t("Focused on %s, +%d%% critical damage and +%d%% critical hit chance against this target.", "集中于 %s, 对其增加 %d%% 暴击伤害与 %d%% 暴击率。", "tformat")
-t("+Warden's Focus", "+专注守卫", "_t")
-t("-Warden's Focus", "-专注守卫", "_t")
+t("+Warden's Focus", "+守卫者专注", "_t")
+t("-Warden's Focus", "-守卫者专注", "_t")
 t("%s(%d focus)#LAST#", "%s(%d 专注)#LAST#", "tformat")
 t("Fateweaver", "命运编织", "_t")
 t("The target's accuracy and power have been increased by %d.", "目标的命中和强度增加 %d。", "tformat")
@@ -36804,8 +36804,8 @@ t("-Twist Fate", "-扭曲命运", "_t")
 t("tactic", "战术", "effect subtype")
 t("Warden's Focus Target", "守卫者专注的目标", "_t")
 t("%s is focusing on this target.", "%s被选为目标.", "tformat")
-t("+Warden's Focus", "+专注守卫", "_t")
-t("-Warden's Focus", "-专注守卫", "_t")
+t("+Warden's Focus", "+守卫者专注", "_t")
+t("-Warden's Focus", "-守卫者专注", "_t")
 t("mind", "精神", "effect subtype")
 t("Death in a Dream", "梦中死亡", "_t")
 t("The target had breathed in noxious sleep-induced fumes and is losing %d life per turn.", "目标吸入有毒的催眠气体，每回合损失 %d 生命。", "tformat")
@@ -38096,7 +38096,7 @@ section "mod-tome/data/zones/charred-scar/grids.lua"
 
 t("floor", "地板", "entity type")
 t("lava", "岩浆", "entity subtype")
-t("Farportal: the Far East", "远古传送门：至远东大陆", "entity name")
+t("Farportal: the Far East", "远行传送门：至远东大陆", "entity name")
 t("A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use.", "传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。", "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you are back to the far east.", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你回到了远东大陆。", "_t")
 
@@ -38748,17 +38748,17 @@ t("Heart of the Gloom", "黑暗之心", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/high-peak/grids.lua"
 
-t("Farportal: the Far East", "远古传送门：至远东大陆", "entity name")
+t("Farportal: the Far East", "远行传送门：至远东大陆", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to the Far East.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
  这道门似乎通向远东。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the Far East, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经回到了远东大陆，此间毫无传送门的痕迹……", "_t")
-t("Farportal: Iron Throne", "远古传送门：钢铁王座", "entity name")
+t("Farportal: Iron Throne", "远行传送门：钢铁王座", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to the Iron Throne in the West.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
  这道门似乎通向西方的钢铁王座。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the slopes of the Iron Throne, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，转瞬间便踏上钢铁王座的山坡，此间已不见传送门的踪迹……", "_t")
-t("Farportal: the Void", "远古传送门：虚空", "entity name")
+t("Farportal: the Void", "远行传送门：虚空", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to an unknown place, seemingly out of this world. You dare not use it.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
  这道门似乎通向未知之地，似乎为世外之地，你不太敢使用它。]], "_t")
@@ -39386,7 +39386,7 @@ t("Rak'shor Pride", "拉克·肖部落", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/reknor/grids.lua"
 
-t("Farportal: the Far East", "远古传送门：至远东大陆", "entity name")
+t("Farportal: the Far East", "远行传送门：至远东大陆", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to the Far East, a continent of which only rumours are known...]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
 这道门似乎通向远东大陆，一块传说中的大陆……]], "_t")
@@ -39744,20 +39744,20 @@ t("stair back to the lake of Nur", "返回纳尔湖的台阶", "entity name")
 t("teleportation circle to the surface", "通往地面的传送阵", "entity name")
 t("teleportation circle for Melinda", "为梅琳达准备的传送阵", "entity name")
 t("Sher'Tul Control Orb", "夏·图尔控制水晶球", "entity name")
-t("Exploratory Farportal", "探索用远古传送门", "entity name")
+t("Exploratory Farportal", "探索用远行传送门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race.
 This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
 It should automatically create a portal back, but it might not be near your arrival zone.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。
 这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。
 它应该会自动建立起返回的传送门，但可能该传送门不在你所传送的位置。]], "_t")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个熟悉的地方，在另一个远古传送门旁边...", "log")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个熟悉的地方，在另一个远行传送门旁边...", "log")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in strange empty space...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个陌生的空地…", "log")
-t("Exploratory Farportal", "探索用远古传送门", "_t")
-t("The farportal seems to be inactive", "这个远古传送门关闭着", "_t")
-t("The farportal is broken and will not be usable anymore.", "远古传送门损坏了，已经无法使用。", "_t")
-t("The fortress does not have enough energy to power a trip through the portal.", "堡垒能量不足，无法驱动远古传送门进行旅行。", "_t")
-t("Do you want to travel in the farportal? You cannot know where you will end up.", "你想穿过远古传送门么？你可不知道它会把你送到哪里。", "_t")
-t("Exploratory Farportal exit", "探索用远古传送门出口", "_t")
+t("Exploratory Farportal", "探索用远行传送门", "_t")
+t("The farportal seems to be inactive", "这个远行传送门关闭着", "_t")
+t("The farportal is broken and will not be usable anymore.", "远行传送门损坏了，已经无法使用。", "_t")
+t("The fortress does not have enough energy to power a trip through the portal.", "堡垒能量不足，无法驱动远行传送门进行旅行。", "_t")
+t("Do you want to travel in the farportal? You cannot know where you will end up.", "你想穿过远行传送门么？你可不知道它会把你送到哪里。", "_t")
+t("Exploratory Farportal exit", "探索用远行传送门出口", "_t")
 t("#VIOLET#As %s falls you notice a portal appearing.", "#VIOLET#当 %s 倒下时你注意到一个传送门出现了。", "logSeen")
 t("#VIOLET#Your rod of recall shakes, a portal appears beneath you.", "#VIOLET#你的回归之杖开始震动，一道传送门出现在你脚下。", "logSeen")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in an unfamiliar zone, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个陌生的地方，传送门不见了...", "log")
@@ -39817,14 +39817,14 @@ t("It seems the room has no more space to sort your %s.", "房间里似乎没有
 section "mod-tome/data/zones/shertul-fortress-caldizar/grids.lua"
 
 t("Sher'Tul Control Orb", "夏·图尔控制水晶球", "entity name")
-t("Exploratory Farportal", "探索用远古传送门", "entity name")
+t("Exploratory Farportal", "探索用远行传送门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race.
 This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
 It should automatically create a portal back, but it might not be near your arrival zone.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。
 这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。
 它应该会自动建立起返回的传送门，但可能该传送门不在你所传送的位置。]], "_t")
-t("Farportal", "远古传送门", "_t")
-t("The farportal seems to be inactive", "这个远古传送门关闭着", "_t")
+t("Farportal", "远行传送门", "_t")
+t("The farportal seems to be inactive", "这个远行传送门关闭着", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/shertul-fortress-caldizar/npcs.lua"
@@ -40354,9 +40354,9 @@ section "mod-tome/data/zones/town-gates-of-morning/grids.lua"
 t("floor", "地板", "entity type")
 t("floor", "地板", "entity subtype")
 t("old road", "古老的路", "entity name")
-t("Farportal: Last Hope", "远古传送门：最后的希望", "entity name")
+t("Farportal: Last Hope", "远行传送门：最后的希望", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go near the town of Last Hope in Maj'Eyal.]], [[远古传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你甚至不知道它是否能双向通行。
+This one seems to go near the town of Last Hope in Maj'Eyal.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你甚至不知道它是否能双向通行。
 这座传送门似乎通往马基·埃亚尔最后的希望城附近。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the outskirts of Last Hope, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你回到了最后的希望的郊外，传送的踪迹再不可寻……", "_t")
 t("rockwall", "岩石墙", "entity type")
@@ -40484,7 +40484,7 @@ section "mod-tome/data/zones/town-last-hope/grids.lua"
 t("floor", "地板", "entity type")
 t("floor", "地板", "entity subtype")
 t("old road", "古老的路", "entity name")
-t("Farportal: Gates of Morning", "远古传送门：晨曦之门", "entity name")
+t("Farportal: Gates of Morning", "远行传送门：晨曦之门", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go near the Gates of Morning in the Far East.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
 这扇门似乎通向远东的晨曦之门附近。]], "_t")

@@ -12,7 +12,7 @@ t("Cosmic Fauna", "太空生物", "nil")
 t("Dreadfell", "恐惧王座", "nil")
 t("Enemies", "敌人", "nil")
 t("Experimentation Room", "实验室", "nil")
-t("Exploratory Farportal", "探索用远古传送门", "nil")
+t("Exploratory Farportal", "探索用远行传送门", "nil")
 t("FINGER", "戒指", "nil")
 t("Fearscape", "恶魔空间", "nil")
 t("Hall of Reflection", "反射之间", "nil")
@@ -1807,7 +1807,7 @@ t([[#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#
 #LIGHT_UMBER#A ton#WHITE# of artifacts, lore, zones, events... 
 
 ]], [[#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#
-#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方灾星”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远古传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
+#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方灾星”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#全新战役：#WHITE# 这场战役在主游戏战役以后，决定兽人部落的最终命运。探索全新的远东大陆吧！

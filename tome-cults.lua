@@ -2217,7 +2217,7 @@ Their homeworld is described as a collection of fragmented continents held toget
 
 Despite the benevolent and gentle demeanour he has been attributed in his myths, demons have frequently declared their atrocities committed against Eyalites in his name. This contrast in his attitude toward Eyalites and his own creations does not suggest a benevolent disposition, but rather one similar to a father protecting his spoiled children. His existence proves that gods are not a phenomena which are isolated to simply Eyal, but may exist on countless other worlds too.]], [[乌鲁洛克被认为是玛·洛克世界的神，创造了我们称作恶魔的种族。所有关于乌鲁洛克的神话都将其描述为一个仁慈而体贴的神，与他的造物有着深厚的感情。恶魔们亲切地将他称作“父亲”，对他的形容只有无尽的赞歌。由于并没有很多其他来源的佐证，很难对乌鲁洛克的真实个性做出公正客观的评述。
 
-恶魔的家乡被描述为一片破碎的大陆，仅仅因为乌鲁洛克的意志才聚集在一起。据恶魔们说，这是一场从夏·图尔人的远古传送门中释放出的巨大灾难造成的结果。根据它们的记载，这场灾难发生的时间与魔法大爆炸大致吻合，提示魔法大爆炸的影响可能触及了众多的世界而远远超出我们的理解。
+恶魔的家乡被描述为一片破碎的大陆，仅仅因为乌鲁洛克的意志才聚集在一起。据恶魔们说，这是一场从夏·图尔人的远行传送门中释放出的巨大灾难造成的结果。根据它们的记载，这场灾难发生的时间与魔法大爆炸大致吻合，提示魔法大爆炸的影响可能触及了众多的世界而远远超出我们的理解。
 
 虽然乌鲁洛克在神话中的形象和蔼可亲，恶魔们却经常以他的名义来对埃亚尔的居民实施各种暴力。这种对埃亚尔居民和他自己的造物截然相反的态度表明他并非真的仁慈，而更像是一个保护着、溺爱着孩子的父亲。他的存在证明了神并非仅仅是埃亚尔独有的现象，还可能存在于其他无数的世界之上。]], "_t")
 t("Mightier than Gods: Preface", "比诸神更加强大：序言", "_t")
