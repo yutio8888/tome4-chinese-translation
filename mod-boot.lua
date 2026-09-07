@@ -306,6 +306,7 @@ If you disable this option you can always re-activate it in the Online category 
 - 游戏内新闻：主菜单将不再显示游戏更新信息。
 
 #{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已, 推荐你不要打开它, 这会让你失去很多好用的功能和一些游戏体验。#{normal}#
+
 关闭后，可以通过游戏设置菜单的在线选项卡打开。]], "_t")
 t("Cancel", "取消", "_t")
 t("#RED#Disable all!", "#RED#全部禁用！", "_t")
