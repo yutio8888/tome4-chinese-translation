@@ -1131,7 +1131,7 @@ Please go to https://te4.org/ to download it manually.]], [[无法启动游戏�
 t("Shimmer pack installed!", "时装包安装成功!", "_t")
 t([[Could not dynamically link addon to current character, maybe the installation weng wrong.
 You can fix that by manually downloading the addon from https://te4.org/ and placing it in game/addons/ folder.]], [[无法自动将插件链接至当前角色，可能安装失败了。
-你可以在 https://te4.org/ 手动下载时装插件并放置于 game/addons/ 目录下来解决这个问题。]], "_t")
+你可以在 https://te4.org/ 手动下载该插件并放置于 game/addons/ 目录下来解决这个问题。]], "_t")
 t("Downloading cosmetic pack: #LIGHT_GREEN#%s", "时装包下载中： #LIGHT_GREEN#%s", "tformat")
 t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: The pack should be downloading or even finished by now.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#：这个扩展包现在应该正在下载，甚至已经下载完成了。", "tformat")
 t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: You can now trigger it whenever you are ready.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#： 准备好的时候就可以触发它。", "tformat")
