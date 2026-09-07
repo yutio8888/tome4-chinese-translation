@@ -7160,7 +7160,7 @@ t("A simple leather armour of excellent facture that has been craftily enhanced 
 t("When you take a hit of more than 10% of your total life the suit's motors activate for the next turn, displacing you before any blow could hit you.", "当你受到超过总生命值 10% 的单次伤害后，引擎会在下一回合启动；每当攻击即将命中时，它都会让你自动移位以避开伤害。", "_t")
 t("Brilliant Auto-loading Orc Expeller", "精良的自动装填式兽人驱逐装置", "entity name")
 t("expensive gun", "昂贵的枪", "_t")
-t("A finely crafted gun, designed specifically to kill orcs. And giants somehow!", "精心打造的枪，专为杀兽人而设计。偶尔也杀杀巨人。", "_t")
+t("A finely crafted gun, designed specifically to kill orcs. And giants somehow!", "一把精心打造的枪，专为杀死兽人而设计。不知怎的，对巨人也一样管用！", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/kaltor-shop/zone.lua"
@@ -7419,7 +7419,7 @@ t("A simple leather armour of excellent facture that has been craftily enhanced 
 t("When you take a hit of more than 10% of your total life the suit's motors activate fo the next turn, displacing you before any blow could hit you.", "当你受到超过总生命值 10% 的单次伤害后，引擎会在下一回合启动；每当攻击即将命中时，它都会让你自动移位以避开伤害。", "_t")
 t("Brilliant Auto-loading Orc Expeller", "精良的自动装填式兽人驱逐装置", "entity name")
 t("expensive gun", "昂贵的枪", "_t")
-t("A finely crafted gun, designed specifically to kill orcs. And giants somehow!", "精心打造的枪，专为杀兽人而设计。偶尔也杀杀巨人。", "_t")
+t("A finely crafted gun, designed specifically to kill orcs. And giants somehow!", "一把精心打造的枪，专为杀死兽人而设计。不知怎的，对巨人也一样管用！", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/shertul-cave/zone.lua"

@@ -40299,7 +40299,7 @@ section "mod-tome/data/zones/town-derth/traps.lua"
 
 t("Armoury", "护甲店", "entity name")
 t("Tanner", "皮革店", "entity name")
-t("Swordsmith", "长剑铁匠铺", "entity name")
+t("Swordsmith", "铸剑铺", "entity name")
 t("Knives and daggers", "小刀与匕首", "entity name")
 t("Death from Afar", "远方之死", "entity name")
 t("Herbalist", "草药馆", "entity name")
@@ -40337,7 +40337,7 @@ section "mod-tome/data/zones/town-elvala/traps.lua"
 
 t("Tailor", "裁缝店", "entity name")
 t("Tanner", "皮革店", "entity name")
-t("Swordsmith", "长剑铁匠铺", "entity name")
+t("Swordsmith", "铸剑铺", "entity name")
 t("Staff carver", "法杖雕刻者", "entity name")
 t("Runemaster", "大师符文店", "entity name")
 t("Home of Marus the Alchemist", "炼金师马鲁斯的家", "entity name")
@@ -40427,7 +40427,7 @@ section "mod-tome/data/zones/town-irkkk/traps.lua"
 
 t("Tailor", "裁缝店", "entity name")
 t("Tanner", "皮革店", "entity name")
-t("Swordsmith", "长剑铁匠铺", "entity name")
+t("Swordsmith", "铸剑铺", "entity name")
 t("Staff carver", "法杖雕刻者", "entity name")
 t("Runemaster", "大师符文店", "entity name")
 t("Home of Marus the Alchemist", "炼金师马鲁斯的家", "entity name")
@@ -40610,7 +40610,7 @@ t("Tailor", "裁缝店", "entity name")
 t("Tanner", "皮革店", "entity name")
 t("Knives and daggers", "小刀与匕首", "entity name")
 t("Death from Afar", "远方之死", "entity name")
-t("Swordsmith", "长剑铁匠铺", "entity name")
+t("Swordsmith", "铸剑铺", "entity name")
 t("Staff carver", "法杖雕刻者", "entity name")
 t("Runemaster", "大师符文店", "entity name")
 t("Jewelry", "珠宝店", "entity name")
@@ -40642,11 +40642,11 @@ section "mod-tome/data/zones/town-shatur/traps.lua"
 
 t("Armoury", "护甲店", "entity name")
 t("Tanner", "皮革店", "entity name")
-t("Swordsmith", "长剑铁匠铺", "entity name")
+t("Swordsmith", "铸剑铺", "entity name")
 t("Nature's Punch", "自然的重击", "entity name")
 t("Silent Hunter", "沉默猎手", "entity name")
 t("Herbalist", "草药馆", "entity name")
-t("Night's Star", "暗夜繁星", "entity name")
+t("Night's Star", "暗夜之星", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-shatur/zone.lua"
