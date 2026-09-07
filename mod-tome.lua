@@ -2561,7 +2561,7 @@ t("Silver Donator", "白银捐赠者", "achievement name")
 t("Donated at least 6 euros to Tales of Maj'Eyal.", "为马基·埃亚尔的传说捐赠至少 6 欧元。", "_t")
 t("Gold Donator", "黄金捐赠者", "achievement name")
 t("Donated at least 16 euros to Tales of Maj'Eyal.", "为马基·埃亚尔的传说捐赠至少 16 欧元。", "_t")
-t("Stralite Donator", "蓝锆石捐赠者", "achievement name")
+t("Stralite Donator", "斯莱特捐赠者", "achievement name")
 t("Donated at least 31 euros to Tales of Maj'Eyal.", "为马基·埃亚尔的传说捐赠至少 31 欧元。", "_t")
 t("Voratun Donator", "沃瑞钽捐赠者", "achievement name")
 t("Donated more than 60 euros to Tales of Maj'Eyal.", "为马基·埃亚尔的传说捐赠超过 60 欧元。", "_t")
@@ -3914,7 +3914,7 @@ section "mod-tome/data/calendar_dwarf.lua"
 t("Iron", "黑铁月", "calendar dwarf")
 t("Steel", "精钢月", "calendar dwarf")
 t("Gold", "赤金月", "calendar dwarf")
-t("Stralite", "蓝锆月", "calendar dwarf")
+t("Stralite", "斯莱特月", "calendar dwarf")
 t("Voratun", "沃瑞钽月", "calendar dwarf")
 t("Acquisition", "采购祭", "calendar dwarf")
 t("Profit", "利润月", "calendar dwarf")
@@ -9070,8 +9070,8 @@ t("steel battleaxe", "钢化双手斧", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel battleaxe", "矮人钢双手斧", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite battleaxe", "蓝锆石双手斧", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite battleaxe", "斯莱特双手斧", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun battleaxe", "沃瑞钽双手斧", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -9088,8 +9088,8 @@ t("steel greatmaul", "钢巨锤", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel greatmaul", "矮人钢巨锤", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite greatmaul", "蓝锆石巨锤", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite greatmaul", "斯莱特巨锤", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun greatmaul", "沃瑞钽巨锤", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -9106,8 +9106,8 @@ t("steel greatsword", "钢化大剑", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel greatsword", "矮人钢大剑", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite greatsword", "蓝锆石大剑", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite greatsword", "斯莱特大剑", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun greatsword", "沃瑞钽大剑", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -9143,8 +9143,8 @@ t("steel waraxe", "钢斧", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel waraxe", "矮人钢斧", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite waraxe", "蓝锆石战斧", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite waraxe", "斯莱特战斧", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun waraxe", "沃瑞钽战斧", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -9342,7 +9342,7 @@ If you close your eyes a moment, you can almost imagine what dread sights they s
 t("Borfast's Cage", "波法斯特的牢笼", "entity name")
 t("a suit of pitted and pocked plate-mail", "一套满是凹痕的板甲", "_t")
 t([[Inch-thick stralite plates lock together with voratun joints. The whole suit looks impenetrable, but has clearly been subjected to terrible treatment - great dents and misshaping warps, and caustic fissures bored across the surface.
-Though clearly a powerful piece, it must once have been much greater.]], [[一英寸厚的蓝锆石板甲，关节部分由沃瑞钽组成。整套铠甲看起来异常坚固，但是显然它有过非常可怕的经历——巨大的凹痕、扭曲的关节以及腐蚀的表面。
+Though clearly a powerful piece, it must once have been much greater.]], [[一英寸厚的斯莱特板甲，关节部分由沃瑞钽组成。整套铠甲看起来异常坚固，但是显然它有过非常可怕的经历——巨大的凹痕、扭曲的关节以及腐蚀的表面。
 虽然这显然是一件强大的装备，但它曾经一定更为强大。]], "_t")
 t("Aletta's Diadem", "阿蕾塔的王冠", "entity name")
 t("jeweled diadem", "宝石王冠", "_t")
@@ -9860,7 +9860,7 @@ t("disengage", "脱离", "entity keyword")
 t("blood-soaked ", "浴血的", "entity name")
 t("blood", "血", "entity keyword")
 t("restorative ", "振奋的", "entity name")
-t("restorative", "振奋", "entity keyword")
+t("restorative", "疗愈", "entity keyword")
 t("invigorating ", "精力充沛的", "entity name")
 t("invigor.", "精力", "entity keyword")
 t("blightbringer's ", "瘟神的", "entity name")
@@ -9975,7 +9975,7 @@ t("enveloping", "遮盖", "entity keyword")
 t("regal ", "庄严的", "entity name")
 t("regal", "庄严", "entity keyword")
 t("restorative ", "振奋的", "entity name")
-t("restorative", "振奋", "entity keyword")
+t("restorative", "疗愈", "entity keyword")
 t("wyrmwaxed ", "龙蜡的", "entity name")
 t("wyrmwaxed", "龙蜡", "entity keyword")
 t("battlemaster's ", "战斗大师的", "entity name")
@@ -11275,8 +11275,8 @@ t("steel mail armour", "钢锁甲", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel mail armour", "矮人钢锁甲", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite mail armour", "蓝锆石锁甲", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite mail armour", "斯莱特锁甲", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun mail armour", "沃瑞钽锁甲", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -11323,9 +11323,9 @@ t("steel ring", "钢戒指", "_t")
 t("gold ring", "金戒指", "entity name")
 t("gold", "金质", "entity short_name")
 t("gold ring", "金戒指", "_t")
-t("stralite ring", "蓝锆石戒指", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
-t("stralite ring", "蓝锆石戒指", "_t")
+t("stralite ring", "斯莱特戒指", "entity name")
+t("stralite", "斯莱特", "entity short_name")
+t("stralite ring", "斯莱特戒指", "_t")
 t("voratun ring", "沃瑞钽戒指", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 t("voratun ring", "沃瑞钽戒指", "_t")
@@ -11335,8 +11335,8 @@ t("steel amulet", "钢项链", "entity name")
 t("steel amulet", "钢项链", "_t")
 t("gold amulet", "金项链", "entity name")
 t("gold amulet", "金项链", "_t")
-t("stralite amulet", "蓝锆石项链", "entity name")
-t("stralite amulet", "蓝锆石项链", "_t")
+t("stralite amulet", "斯莱特项链", "entity name")
+t("stralite amulet", "斯莱特项链", "_t")
 t("voratun amulet", "沃瑞钽项链", "entity name")
 t("voratun amulet", "沃瑞钽项链", "_t")
 
@@ -11353,8 +11353,8 @@ t("steel dagger", "钢匕首", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel dagger", "矮人钢匕首", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite dagger", "蓝锆石匕首", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite dagger", "斯莱特匕首", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun dagger", "沃瑞钽匕首", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -11500,8 +11500,8 @@ t("steel mace", "钢狼牙棒", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel mace", "矮人钢狼牙棒", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite mace", "蓝锆石狼牙棒", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite mace", "斯莱特狼牙棒", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun mace", "沃瑞钽狼牙棒", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -11517,8 +11517,8 @@ t("steel plate armour", "钢化板甲", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel plate armour", "矮人钢板甲", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite plate armour", "蓝锆石板甲", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite plate armour", "斯莱特板甲", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun plate armour", "沃瑞钽板甲", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -12103,8 +12103,8 @@ t("steel shield", "钢盾", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel shield", "矮人钢盾", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite shield", "蓝锆石盾", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite shield", "斯莱特盾", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun shield", "沃瑞钽盾", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -12134,8 +12134,8 @@ t("pouch of steel shots", "一袋钢制子弹", "entity name")
 t("steel", "钢", "entity short_name")
 t("pouch of dwarven-steel shots", "一袋矮人钢子弹", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("pouch of stralite shots", "一袋蓝锆石子弹", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("pouch of stralite shots", "一袋斯莱特子弹", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("pouch of voratun shots", "一袋沃瑞钽子弹", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -12179,8 +12179,8 @@ t("steel longsword", "钢剑", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel longsword", "矮人钢剑", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite longsword", "蓝锆石剑", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite longsword", "斯莱特剑", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun longsword", "沃瑞钽剑", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -12197,8 +12197,8 @@ t("steel torque", "钢质项圈", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel torque", "矮人钢项圈", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite torque", "蓝锆石项圈", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite torque", "斯莱特项圈", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun torque", "沃瑞钽项圈", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -12541,7 +12541,7 @@ t("This large shield was made using scales of many fire drakes from the lost lan
 t("30% chance that you'll breathe fire in a cone at the attacker (if within range 6).  This can only occur up to 4 times per turn.", "30% 几率向攻击者喷射锥形火焰（6格范围内）。该效果每回合最多触发4次。", "_t")
 t("Titanic", "泰坦尼克", "entity name")
 t("huge shield", "巨型盾牌", "_t")
-t("This shield made of the darkest stralite is huge, heavy and very solid.", "这面用最深邃的蓝锆石打造的盾牌巨大、沉重且相当坚固。", "_t")
+t("This shield made of the darkest stralite is huge, heavy and very solid.", "这面用最深邃的斯莱特打造的盾牌巨大、沉重且相当坚固。", "_t")
 t("Black Mesh", "黑暗之网", "entity name")
 t("pile of tendrils", "一堆卷须", "_t")
 t("Black, interwoven tendrils form this mesh that can be used as a shield. It reacts visibly to your touch, clinging to your arm and engulfing it in a warm, black mass.", "盾牌由许多黑色的触须交织而成。当你触摸它时，你可以感受它非常明显的反应，它缠绕住你的手臂并将其包裹在一团黑色而温暖的物质中。", "_t")
@@ -12861,7 +12861,7 @@ t("@Source@ taps the #SALMON#trapped soul#LAST# of %s, xmanifesting %s!", "@Sour
 t("%s's %s #SALMON#CONSUMES THE SOUL#LAST# of %s, gaining the power of %s!", "%s的%s #SALMON#吞噬了%s的灵魂#LAST#，获得了%s的能力！", "logSeen")
 t("Hydra's Bite", "三头龙之牙", "entity name")
 t("triple headed flail", "有三个头的连枷", "_t")
-t("This three-headed stralite flail strikes with the power of a hydra. With each attack it lashes out, hitting everyone around you.", "这把三头的蓝锆石连枷，使用的是一只三头龙的力量。它的攻击可以伤害到周围的所有敌人。", "_t")
+t("This three-headed stralite flail strikes with the power of a hydra. With each attack it lashes out, hitting everyone around you.", "这把三头的斯莱特连枷，使用的是一只三头龙的力量。它的攻击可以伤害到周围的所有敌人。", "_t")
 t("hit up to two adjacent enemies", "攻击目标相邻的2个单位", "_t")
 t("#Source#'s three headed flail lashes at #Target#%s!", "#Source#使用三头连枷打击#Target#%s!", "logCombat")
 t(" and %s", "和 %s", "tformat")
@@ -13124,7 +13124,7 @@ t("This impossibly cold chain of frost-coated metal radiates a strange and impos
 t("Gives all your cold damage a 20% chance to freeze the target.", "你造成寒冷伤害有20%几率冰冻目标。", "_t")
 t("Twilight's Edge", "晨昏之刃", "entity name")
 t("shining long sword", "发光的长剑", "_t")
-t("The blade of this sword seems to have been forged of a mixture of voratun and stralite, resulting in a blend of swirling light and darkness.", "这柄长剑似乎是用沃瑞钽和蓝锆石混合制成，光与暗在不断旋转交融。", "_t")
+t("The blade of this sword seems to have been forged of a mixture of voratun and stralite, resulting in a blend of swirling light and darkness.", "这柄长剑似乎是用沃瑞钽和斯莱特混合制成，光与暗在不断旋转交融。", "_t")
 t("release a burst of light and dark damage (scales with Magic)", "爆发光明和黑暗伤害(受魔法值加成)", "_t")
 t("Mnemonic", "记忆", "entity name")
 t("As long as you wear this ring, you will never forget who you are.", "只要你戴上这枚戒指，你就永远不会忘记自己是谁。", "_t")
@@ -13322,7 +13322,7 @@ t("cold mindstar", "寒冰的灵晶", "_t")
 t("This mindstar glows with a dim cool light, but seems somehow incomplete.", "这个灵晶散发着寒冷的微光,但似乎有点残缺.", "_t")
 t("Ruthless Grip", "无情之握", "entity name")
 t("sinister gauntlets", "邪恶的手套", "_t")
-t("Crafted for a warlord who wanted to keep his subjects under a stralite grip. Dark thoughts went into the making of these gauntlets, literally.", "一位军阀为将臣民牢牢掌控于蓝锆石之掌中而打造了这副手套。制作过程中确实注入了黑暗的思想。", "_t")
+t("Crafted for a warlord who wanted to keep his subjects under a stralite grip. Dark thoughts went into the making of these gauntlets, literally.", "一位军阀为将臣民牢牢掌控于斯莱特之掌中而打造了这副手套。制作过程中确实注入了黑暗的思想。", "_t")
 t("Icy Kill", "冰冷杀戮", "entity name")
 t("sharpened icicle", "锋利的冰柱", "_t")
 t([[As any scryer knows, the link between the murderer and the murdered is the murder weapon, and a scryer can follow that link from the murdered to the weapon to the murderer.
@@ -15357,7 +15357,7 @@ I took a deep breath and stepped forwards.]], [[#{italic}#来自 艾伦尼恩·�
 
 “我是来这里请求帮忙的，艾伦尼恩”，她用低沉的语音回答，似乎并不欢迎我的凝视。“我有一些想要寻求的东西，你必须帮我实现它。”我不明白这意味着什么，但我还是点头同意。“穿好衣服，准备出发吧。前面还有很长的一段路要走。”
 
-她走向窗台，再一次背对着我，直到我穿上蓝锆石锁甲，拿起我的剑。当她注意到我已经准备好了的时候，她向外飞去，而我也紧随其后。
+她走向窗台，再一次背对着我，直到我穿上斯莱特锁甲，拿起我的剑。当她注意到我已经准备好了的时候，她向外飞去，而我也紧随其后。
 
 我们在空中呼啸而过，以极快的速度向北飞行。望向我们脚下所飞过的大地的痕迹，随着我们向北方越走越远，气候越来越冷。在一片沉默中，时间缓缓流逝，我们飞越白雪皑皑的苔原。我们掠过了白色和灰色的平原，到达了一片低山丘陵。莱娜尼尔在这里减速并下降，我也紧随在她的身后。我们在山脚下的一个黑暗的洞口前停了下来。
 
@@ -16230,7 +16230,7 @@ t([[#{bold}#3800: #{normal}#Gold accepted as standard unit of currency amongst a
 #{bold}#6980: #{normal}#Resources based on dragon hoards are dwindling. Must reduce cull targets to allow recovery of numbers.
 #{bold}#7420: #{normal}#Major orc attacks are ruining trade arrangements. Cutting off all contracts until markets settle.
 #{bold}#7494: #{normal}#Disastrous use of magic by Shaloren elves has had an unprecedented impact on profitability of our operations. Increasing protectionist measures to prevent economic ruin.]], [[#{bold}#3800：#{normal}#经大力游说，黄金被所有种族接受为标准货币单位。这对我们极为有利，因为我们的金矿脉资源丰富，而这种材料除此之外并无实际用途。必须继续增加储备。
-#{bold}#4200：#{normal}#新开发的冶炼技术可以从现有矿脉中提取更多蓝锆石。必须对其他种族隐瞒这些技术。
+#{bold}#4200：#{normal}#新开发的冶炼技术可以从现有矿脉中提取更多斯莱特。必须对其他种族隐瞒这些技术。
 #{bold}#4362：#{normal}#大工匠达克顿发现了为武器和护甲注入魔法效果的新方法。该领域的利润增长潜力极高。
 #{bold}#4550：#{normal}#钢铁王座利润委员会首次召开特别会议。与人类和半身人的战争令人担忧，因为潜在市场规模正在缩小。市场可能彻底消失，迫使我们采取激烈行动——必须停止一切武器贸易。增加建筑材料储备，以待最终和解。
 #{bold}#5967：#{normal}#永恒精灵参战正成为过于严重的风险——夏·图尔造成毁灭的传说恰好提醒我们高等魔法有多么危险。加大对新兴伊格兰斯教团的投资，希望借此对抗这一问题。
@@ -16263,8 +16263,8 @@ t("Iron Throne Profits History: Age of Ascendancy", "钢铁王座的盈利历史
 t([[#{bold}#28: #{normal}#Mutual defence treaty signed with newly formed Allied Kingdom, and further trade routes opened. Highest ever recorded profit in final quarter of this year.
 #{bold}#115: #{normal}#Noted a return of an orcish presence in the collapsed caverns beneath the Iron Throne. Also increased reports of horrors and demons affecting mining operations. Key strategic decision taken: these must be kept hidden from the other races. Uncertainty will only destabilise the markets. Increase stockpiles of weapons and armour, especially voratun and stralite materials, in case of new war trade.
 #{bold}#120: #{normal}#Orcish raid has stolen many of our stockpiled weapons. Pressures on mining operations have increased, cutting off key stralite veins. Resource protection measures need increasing, whilst threat must be contained beneath us. Profits are stable, but under heavy threat.]], [[#{bold}#28：#{normal}#与新成立的联合王国签署共同防御条约，并开辟了更多贸易路线。本年最后一季度创下有记录以来的最高利润。
-#{bold}#115：#{normal}#注意到兽人重新出现在钢铁王座下方已经坍塌的洞穴中。另有越来越多的报告称，恐魔和恶魔正在影响采矿作业。已作出关键战略决定：必须向其他种族隐瞒这些情况。不确定性只会扰乱市场。增加武器和护甲库存，尤其是沃瑞钽和蓝锆石材料，以备新的战时贸易。
-#{bold}#120：#{normal}#兽人突袭夺走了我们库存中的许多武器。采矿作业压力加剧，切断了关键蓝锆石矿脉。需要加强资源保护措施，同时必须把威胁封锁在我们下方。利润保持稳定，但正受到严重威胁。]], "_t")
+#{bold}#115：#{normal}#注意到兽人重新出现在钢铁王座下方已经坍塌的洞穴中。另有越来越多的报告称，恐魔和恶魔正在影响采矿作业。已作出关键战略决定：必须向其他种族隐瞒这些情况。不确定性只会扰乱市场。增加武器和护甲库存，尤其是沃瑞钽和斯莱特材料，以备新的战时贸易。
+#{bold}#120：#{normal}#兽人突袭夺走了我们库存中的许多武器。采矿作业压力加剧，切断了关键斯莱特矿脉。需要加强资源保护措施，同时必须把威胁封锁在我们下方。利润保持稳定，但正受到严重威胁。]], "_t")
 t("Iron Throne Edict", "钢铁王座布告", "_t")
 t([[#{bold}#AN EDICT TO ALL CITIZENS OF THE IRON THRONE. LONG MAY OUR EMPIRE ENDURE.#{normal}#
 
@@ -16861,9 +16861,9 @@ By the time Drake left the Iron Council, the Dwarves had agreed to pay thirty ti
 
 你可能从未听说过南晶岛。
 
-为什么你从未听说过呢？因为这是一个穷乡僻壤的岛国，在厄流纪和黄昏纪时，它坐落于塔·埃亚尔的海岸边。人人都说，南晶岛是一个适宜居住的地方：温和的气候，与大陆上的人类王国保持着良好的贸易关系，最幸运的是，整个王国坐落的这个岛屿拥有丰富的蓝锆石矿脉。
+为什么你从未听说过呢？因为这是一个穷乡僻壤的岛国，在厄流纪和黄昏纪时，它坐落于塔·埃亚尔的海岸边。人人都说，南晶岛是一个适宜居住的地方：温和的气候，与大陆上的人类王国保持着良好的贸易关系，最幸运的是，整个王国坐落的这个岛屿拥有丰富的斯莱特矿脉。
 
-尽管拥有这样的好运，南晶岛仍注定平庸一生。为什么？一切都要归咎于它的统治者。据说，那是一个行事笨拙、年逾八旬且老糊涂的国王，他的名字早已被时间掩盖，他腐朽的统治几乎葬送了整个南晶岛。钢铁王座的矮人们，自从听说这岛屿下埋藏了很多蓝锆石矿，便利用这个国王去开采并将蓝锆石以一个极低的价格卖给他们。同时，尽管南晶岛只有微不足道的军事力量，老国王仍执意把能召集到的军队派去援助大陆上的人类王国，参与他们与半身人的多场战争；在此之前，半身人甚至几乎不知道南晶岛的存在。他们训练不足、装备落后的部队不但在半身人强大的军事力量下如害虫般被碾碎，这些莽撞的进攻还成功吸引了半身人对偏僻岛屿的注意。袭击几乎随即开始。
+尽管拥有这样的好运，南晶岛仍注定平庸一生。为什么？一切都要归咎于它的统治者。据说，那是一个行事笨拙、年逾八旬且老糊涂的国王，他的名字早已被时间掩盖，他腐朽的统治几乎葬送了整个南晶岛。钢铁王座的矮人们，自从听说这岛屿下埋藏了很多斯莱特矿，便利用这个国王去开采并将斯莱特以一个极低的价格卖给他们。同时，尽管南晶岛只有微不足道的军事力量，老国王仍执意把能召集到的军队派去援助大陆上的人类王国，参与他们与半身人的多场战争；在此之前，半身人甚至几乎不知道南晶岛的存在。他们训练不足、装备落后的部队不但在半身人强大的军事力量下如害虫般被碾碎，这些莽撞的进攻还成功吸引了半身人对偏僻岛屿的注意。袭击几乎随即开始。
 
 从现存的记录来看，国王对国家的衰落困惑不已，直到最后仍坚信自己的每一步都是正确的。在半身人开始袭击后不久，他便去世了。不管这是自杀、暗杀或者老死，都成了一个谜。老国王从未结婚，没有子女，他的家族剩下的只有他的远房表亲——一位叫德瑞克的少年人。
 
@@ -16871,19 +16871,19 @@ By the time Drake left the Iron Council, the Dwarves had agreed to pay thirty ti
 
 #{bold}#1、德瑞克和半身人部落。#{normal}#
 
-对于新加冕的德瑞克，最大也最明显的威胁来自半身人日益频繁的袭击和出击。为此，他下令彻底重建南晶岛的军队，将一群乌合之众般的民兵改造成规模虽小却极其高效的战争机器。德瑞克知道，己方对半身人唯一的优势就是熟悉岛上地形。因此，他命令部队隐秘行动，携带小巧而能破甲的蓝锆石匕首，不用长矛和刀剑，并且只在对己方有利的条件下与半身人交战。南晶岛新建的“游击军”取得了成功。半身人虽人数众多，德瑞克的军队一次次精准打击却沉重挫伤了他们的士气；最后，半身人恼怒地宣称南晶岛“不值得费事”，撤军而去。
+对于新加冕的德瑞克，最大也最明显的威胁来自半身人日益频繁的袭击和出击。为此，他下令彻底重建南晶岛的军队，将一群乌合之众般的民兵改造成规模虽小却极其高效的战争机器。德瑞克知道，己方对半身人唯一的优势就是熟悉岛上地形。因此，他命令部队隐秘行动，携带小巧而能破甲的斯莱特匕首，不用长矛和刀剑，并且只在对己方有利的条件下与半身人交战。南晶岛新建的“游击军”取得了成功。半身人虽人数众多，德瑞克的军队一次次精准打击却沉重挫伤了他们的士气；最后，半身人恼怒地宣称南晶岛“不值得费事”，撤军而去。
 
-南晶岛欢庆胜利和它新建的游击力量。但是对德瑞克来说，这番庆祝没有持续多久。他用于打造游击军匕首和护甲的蓝锆石没有落入矮人的口袋，他们为此十分不满。德瑞克已经拟定了一个计划——等计划完成，矮人们会更加恼火。
+南晶岛欢庆胜利和它新建的游击力量。但是对德瑞克来说，这番庆祝没有持续多久。他用于打造游击军匕首和护甲的斯莱特没有落入矮人的口袋，他们为此十分不满。德瑞克已经拟定了一个计划——等计划完成，矮人们会更加恼火。
 
-#{bold}#2、德瑞克和蓝锆石战略。#{normal}#
+#{bold}#2、德瑞克和斯莱特战略。#{normal}#
 
-矮人一直是个神秘的种族。即便如今，也只有极少数人知道他们的“钢铁议会”位于何处；而在南晶岛存在的年代，仍有人认为矮人不过是神话。然而，一位拥有大量蓝锆石的国王，就连最隐蔽的大门也能敲开……德瑞克请求钢铁议会接见。矮人们以为这次会面会是一场卑躬屈膝的道歉，并承诺按他们支付的价钱继续供应蓝锆石，于是爽快地答应了。
+矮人一直是个神秘的种族。即便如今，也只有极少数人知道他们的“钢铁议会”位于何处；而在南晶岛存在的年代，仍有人认为矮人不过是神话。然而，一位拥有大量斯莱特的国王，就连最隐蔽的大门也能敲开……德瑞克请求钢铁议会接见。矮人们以为这次会面会是一场卑躬屈膝的道歉，并承诺按他们支付的价钱继续供应斯莱特，于是爽快地答应了。
 
-但实际上，矮人们发现理想和现实有很大的差距。昏庸的老国王去世了，他们面对的是一位年轻、目光冷硬的人类——这位年轻人甚至要求矮人们把南晶岛蓝锆石的收购价提高到原来的二十倍。
+但实际上，矮人们发现理想和现实有很大的差距。昏庸的老国王去世了，他们面对的是一位年轻、目光冷硬的人类——这位年轻人甚至要求矮人们把南晶岛斯莱特的收购价提高到原来的二十倍。
 
-说矮人对此嗤之以鼻都算轻了；他们分明是在放声讥笑。尽管南晶岛不久前才击退半身人，钢铁王座的矮人仍认为以武力夺取岛上的蓝锆石毫无困难。德瑞克心里清楚他们确实做得到，正为威慑他们，他才把颈间的小口袋带到了议会。
+说矮人对此嗤之以鼻都算轻了；他们分明是在放声讥笑。尽管南晶岛不久前才击退半身人，钢铁王座的矮人仍认为以武力夺取岛上的斯莱特毫无困难。德瑞克心里清楚他们确实做得到，正为威慑他们，他才把颈间的小口袋带到了议会。
 
-德瑞克高举着这只龙皮口袋并打开了它，里面的物品掉落了一地：磨成粉并掺杂了杂质和其他金属的蓝锆石——这种蓝锆石无法使用且毫无价值。议会的矮人们震惊于这种恐怖的浪费，某个矮人（如果传闻是真的）甚至晕了过去。德瑞克继续说，如果不满足他的要求，整个南晶岛蕴藏的蓝锆石矿都会变成这样。
+德瑞克高举着这只龙皮口袋并打开了它，里面的物品掉落了一地：磨成粉并掺杂了杂质和其他金属的斯莱特——这种斯莱特无法使用且毫无价值。议会的矮人们震惊于这种恐怖的浪费，某个矮人（如果传闻是真的）甚至晕了过去。德瑞克继续说，如果不满足他的要求，整个南晶岛蕴藏的斯莱特矿都会变成这样。
 
 当德瑞克离开钢铁议会时，矮人们以30倍的价钱签订了协议。
 ]], "_t")
@@ -18036,7 +18036,7 @@ As well as the many merchant dwarves one may meet there are also a great deal of
 
 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在协会之间几乎没有贫富差距，各行业公会在统治委员会中拥有平等的代表权。矮人的信仰是不为外界所知的，再多的金钱也不能使他们吐露分毫信息。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。
 
-他们对金属的提炼也是举世闻名的。矮人钢被认为是制造业中最有价值的材料，并且矮人们同样善于使用蓝锆石和沃瑞钽，可以使其发挥出最大的价值。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派商人们到各个城市去售卖货物。
+他们对金属的提炼也是举世闻名的。矮人钢被认为是制造业中最有价值的材料，并且矮人们同样善于使用斯莱特和沃瑞钽，可以使其发挥出最大的价值。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派商人们到各个城市去售卖货物。
 
 在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们有冒险经费的支持，同时在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。从个人来讲，一些成年矮人则认为这是一种“市场调查策略”。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 4 - Shaloren", "博学者格雷诺特关于人种的调查——第四章——永恒精灵", "_t")
@@ -40385,7 +40385,7 @@ t("Orc Cutters", "刀具店：兽人砍杀者", "entity name")
 t("Mauling for Brutes", "锤店：专供粗暴者使用", "entity name")
 t("Bows and Slings", "弓与投石索", "entity name")
 t("Sook's Arcane Goodness", "苏克的奥术物资店", "entity name")
-t("Sarah's Herbal Infusions", "萨拉的草本纹身店", "entity name")
+t("Sarah's Herbal Infusions", "萨拉的草药浸剂店", "entity name")
 t("Sook's Runes and other Harmless Contraptions", "苏克符文道具店", "entity name")
 t("Zemekkys Home", "伊莫克斯的家", "entity name")
 
@@ -40533,7 +40533,7 @@ t("Yulek's Tools of the Night", "约勒克黑夜工具店", "entity name")
 t("Vortal's Trees Choppers", "沃塔尔刀斧店", "entity name")
 t("Raber's Blunt Paradise", "雷柏钝器天堂", "entity name")
 t("Dala's Far Reaching Implements", "达拉远及工具店", "entity name")
-t("Sarah's Herbal Infusions", "萨拉的草本纹身店", "entity name")
+t("Sarah's Herbal Infusions", "萨拉的草药浸剂店", "entity name")
 t("Sook's Runes and other Harmless Contraptions", "苏克符文道具店", "entity name")
 t("Library", "图书馆", "entity name")
 t("The Elder", "长老的寓所", "entity name")
@@ -43312,7 +43312,7 @@ t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk
 
  矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业协会、提炼协会、锻造协会等等，脱离协会的个人几乎从未听说过。不过，在协会之间几乎没有贫富差距，每一只协会都有公正委员会来控制。矮人的信仰是不为外界所知的，再多的金钱也不能使他们吐露分毫信息。当你提及这方面的问题时，他们暗示着过去的某个领袖几乎被他们看成了一种信仰般的存在。
 
- 他们对金属的提炼也是举世闻名的。矮人钢被认为是制造业中最有价值的材料，并且矮人们同样善于使用蓝锆石和沃瑞钽，可以使其发挥出最大的价值。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派商人们到各个城市去售卖货物。
+ 他们对金属的提炼也是举世闻名的。矮人钢被认为是制造业中最有价值的材料，并且矮人们同样善于使用斯莱特和沃瑞钽，可以使其发挥出最大的价值。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派商人们到各个城市去售卖货物。
 
  在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们有冒险经费的支持，同时在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。因为这是他们作为“世界之锤”的荣耀。从个人来讲，一些成年矮人则认为这是一种“市场调查策略”。]], "_t")
 t([[Quekorja was the god of time and possibilities. What stands out about Eyal's myths regarding Quekorja is how wildly inconsistent they are. In particular, tales after the Godhunt tend to have a far less favourable outlook of the god than pre-Godhunt myths. Speculation regarding this is due to Quekorja supposedly taking an interest in written history and appointing its own librarians to record its tales. Since there are no surviving records of this library existing, this theory is considered to be pure conjecture and has no concrete evidence to validate it. There have been some unusual records found too, supposedly written by the same authors on the same dates, but wildly varying in their tone and their description of the god itself. Given the god's ability to control time, it is thought these notes might be from alternate timelines, further obscuring the truth about the god itself.

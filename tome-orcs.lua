@@ -990,7 +990,7 @@ t("Wreathed in arcane flames you can feel the intense psionic forces ripping at 
 t("titan vile spewer", "泰坦呕吐魔", "entity name")
 t("The wretched titan's skin is of a sickly green, full of ever-oozing wounds, cracks and pustules. Worms and all kind of vile things crawl over it.", "这个恶心的泰坦的皮肤呈现一种粘乎乎的绿色，满是不停的流着粘液的伤口，裂缝，和脓疱。蠕虫和其他各种卑劣的东西在他身上爬来爬去。", "_t")
 t("titan dreadnought", "泰坦无畏勇士", "entity name")
-t("One of the biggest titans you have seen yet, it is fully clad in deep black stralite full plate, charging menacingly towards you at a terrible pace.", "这是你迄今见过的最大泰坦之一，它身披一整套深黑色蓝锆石板甲，正以骇人的速度向你猛冲而来。", "_t")
+t("One of the biggest titans you have seen yet, it is fully clad in deep black stralite full plate, charging menacingly towards you at a terrible pace.", "这是你迄今见过的最大泰坦之一，它身披一整套深黑色斯莱特板甲，正以骇人的速度向你猛冲而来。", "_t")
 t("sher'tan", "夏尔泰坦", "entity name")
 t("This abomination has the height of any other titan but its features definitively remind you of the few Sher'Tul images you have seen. Your very being rebels to the thought and sheer terror takes hold of your mind.", "这个孽物和其他泰坦差不多高，但是他的特征让你回想起了你见过的那些夏·图尔人图片。你竭尽全力的抗拒这些想法，你的心灵已被纯粹的恐惧所控制。", "_t")
 t("gargantuan sher'tan", "庞大的夏尔泰坦", "entity name")
@@ -1083,7 +1083,7 @@ t("crystallized drake heart", "晶化龙心", "_t")
 t("This cracked gemstone fell from the remains of the dead Ureslak. It appears to have been turned into a vibrant crystal in whatever process reanimated him.", "这块开裂的宝石来自死去的乌瑞斯拉克的遗骸。在使乌瑞斯拉克复生的某种过程中，它似乎被转化成了一块绚丽的水晶。", "_t")
 t("Starcaller", "召星者", "entity name")
 t("black staff", "黑色的法杖", "_t")
-t("A light staff covered in stralite and gems. It seems to reflect the light of the stars even in daylight.", "一把被蓝锆石和宝石覆盖的轻型法杖。即使在白天，似乎也在反射着星星的光芒。", "_t")
+t("A light staff covered in stralite and gems. It seems to reflect the light of the stars even in daylight.", "一把被斯莱特和宝石覆盖的轻型法杖。即使在白天，似乎也在反射着星星的光芒。", "_t")
 t("Liquid Metal Cloak", "液态金属披风", "entity name")
 t("shiny metallic cloak", "闪亮的金属披风", "_t")
 t("This strange sheet of metal flows with the wind just like a normal cloak. Whoever crafted it was a true master.", "这片奇特的金属如同普通的披风一样随风摆动。打造它的人无疑是一位大师。", "_t")
@@ -1200,8 +1200,8 @@ t("steel steamgun", "钢铁蒸汽枪", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel steamgun", "矮人钢蒸汽枪", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite steamgun", "蓝锆石蒸汽枪", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite steamgun", "斯莱特蒸汽枪", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun steamgun", "沃瑞钽蒸汽枪", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -1224,8 +1224,8 @@ t("steel steamsaw", "钢铁蒸汽链锯", "entity name")
 t("steel", "钢", "entity short_name")
 t("dwarven-steel steamsaw", "矮人钢蒸汽链锯", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("stralite steamsaw", "蓝锆石蒸汽链锯", "entity name")
-t("stralite", "蓝锆石", "entity short_name")
+t("stralite steamsaw", "斯莱特蒸汽链锯", "entity name")
+t("stralite", "斯莱特", "entity short_name")
 t("voratun steamsaw", "沃瑞钽蒸汽链锯", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
@@ -1295,7 +1295,7 @@ t("perfect", "完美", "_t")
 t("iron", "铁", "_t")
 t("steel", "钢", "_t")
 t("dwarven steel", "矮人钢", "_t")
-t("stralite", "蓝锆石", "_t")
+t("stralite", "斯莱特", "_t")
 t("voratun", "沃瑞钽", "_t")
 t("%s lightning coil", "%s 闪电线圈", "tformat")
 t("On critical strikes generates a 3 tiles lightning beam.", "暴击制造范围3的闪电射线。", "_t")
@@ -1375,7 +1375,7 @@ section "tome-orcs/data/general/objects/tinkers/mechanical.lua"
 t("iron", "铁", "_t")
 t("steel", "钢", "_t")
 t("dwarven steel", "矮人钢", "_t")
-t("stralite", "蓝锆石", "_t")
+t("stralite", "斯莱特", "_t")
 t("voratun", "沃瑞钽", "_t")
 t("FEET", "脚部", "entity on slot")
 t("%s rocket boots", "%s 火箭靴", "tformat")
@@ -1400,7 +1400,7 @@ section "tome-orcs/data/general/objects/tinkers/smith.lua"
 t("iron", "铁", "_t")
 t("steel", "钢", "_t")
 t("dwarven steel", "矮人钢", "_t")
-t("stralite", "蓝锆石", "_t")
+t("stralite", "斯莱特", "_t")
 t("voratun", "沃瑞钽", "_t")
 t("crude", "粗糙", "_t")
 t("good", "良好", "_t")
@@ -1829,7 +1829,7 @@ t("metal", "金属", "ingredient type")
 t("lump of iron", "铁块", "ingredient name")
 t("lump of steel", "钢块", "ingredient name")
 t("lump of dwarven steel", "矮人钢块", "ingredient name")
-t("lump of stralite", "蓝锆石块", "ingredient name")
+t("lump of stralite", "斯莱特块", "ingredient name")
 t("lump of voratun", "沃瑞钽块", "ingredient name")
 t("herbs", "草药", "ingredient type")
 t("stack of herbs (viperweed)", "一束植物 (蛇草)", "ingredient name")
@@ -1848,8 +1848,8 @@ t("lump of steel", "钢块", "entity name")
 t("A lump of steel.", "一块钢。", "_t")
 t("lump of dwarven steel", "矮人钢块", "entity name")
 t("A lump of dwarven steel.", "一块矮人钢。", "_t")
-t("lump of stralite", "蓝锆石块", "entity name")
-t("A lump of stralite.", "一块蓝锆石。", "_t")
+t("lump of stralite", "斯莱特块", "entity name")
+t("A lump of stralite.", "一块斯莱特。", "_t")
 t("lump of voratun", "沃瑞钽块", "entity name")
 t("A lump of voratun.", "一块沃瑞钽。", "_t")
 t("herbs", "草药", "entity type")
@@ -1983,7 +1983,7 @@ t([[OPERATIONS PERFORMED:
 
 -Crew disobedience and morale continues to be something of a problem, despite regular floggings, but we're still retaining enough of them and getting enough use out of them.  That said, feel free to keep sending sentenced criminals our way - they're surprisingly productive as long as we give them enough booze and cheerblossom.]], [[行动记录：
 
-- 根据“大晴天”提供的信息，我们趁一艘联合王国补给船短暂无人看守时夺取了它，而且没有人员伤亡。我们理论上破坏了约定（塔洛格格斯已经被妥当处罚了），但是因为船承载了比预期更多的有用材料，在我们运送了承诺的货物量到“汽化液之径”之前，我们获取了可观的，巨魔尺寸（或者接近）的补给物资，包括武器防具，以及木材、家具以及较为小型的，能够重铸成有用东西的蓝锆石装备。加上从“大晴天”收到的支付，我们获得了可观的利润并且加强了与“汽化液之径”的关系。（我们与“大晴天”的关系无足轻重；毕竟不太可能再与他们做生意了。）
+- 根据“大晴天”提供的信息，我们趁一艘联合王国补给船短暂无人看守时夺取了它，而且没有人员伤亡。我们理论上破坏了约定（塔洛格格斯已经被妥当处罚了），但是因为船承载了比预期更多的有用材料，在我们运送了承诺的货物量到“汽化液之径”之前，我们获取了可观的，巨魔尺寸（或者接近）的补给物资，包括武器防具，以及木材、家具以及较为小型的，能够重铸成有用东西的斯莱特装备。加上从“大晴天”收到的支付，我们获得了可观的利润并且加强了与“汽化液之径”的关系。（我们与“大晴天”的关系无足轻重；毕竟不太可能再与他们做生意了。）
 
 - 上一艘我送回家的货船，也就是那个载着无数小箱子的，接到命令没收全部货物，并扣押下来等待进一步指令的那艘。这艘船上面包括了一个满盛着“你懂的”的箱子，作为从钢铁王座的走私者那里以货物形式支付的报酬。这个箱子被标作“47-C”。其余箱子都处理掉，因为它们布满了[i]极其[/i]周密的陷阱。和“雪利酒收费站”的交易很幸运地没出岔子，货物看上去也很有用。头儿，如果这些功绩都不能让我升职，还有什么会？
 
@@ -3816,7 +3816,7 @@ t("Finally, place the eggs in a protected spot to hatch.  With luck, they will p
 t("#LIGHT_GREEN#* You have collected enough eggs.#WHITE#", "#LIGHT_GREEN#* 你收集了足够多的虫卵#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have tunnelled close enough to the Gates of Morning.#WHITE#", "#LIGHT_GREEN#* 你已经向北挖到晨曦之门的地方。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have placed the little surprise.#WHITE#", "#LIGHT_GREEN#* 你已经安放好了这个小小的“惊喜”。#WHITE#", "_t")
-t("Stralite Sand Shredder", "蓝锆石掘沙者", "_t")
+t("Stralite Sand Shredder", "斯莱特掘沙者", "_t")
 t("Automatically deploy a huge rotating drill when you hit a sandwall, carving out a big part of it quickly.", "当你碰到沙墙时，会自动部署一个巨大的旋转钻头，很快就钻出一个大洞。", "_t")
 t("You cannot bring yourself to drop the %s", "你无法丢弃 %s", "logPlayer")
 -- untranslated text
@@ -6599,9 +6599,9 @@ t("Heat is energy.  Using your knowledge of physics, chemistry, and blacksmithin
 t("Acid Groove", "酸液之槽", "_t")
 t("Allows your weapon to spray caustic acid on hit, reducing armor.", "让你的武器在击中时喷出腐蚀性的酸液，降低敌人护甲。", "_t")
 t("Brain Cap", "脑帽", "_t")
-t("By mounting a brain in a jar in a stralite frame this marvel will increases your mental resistances and allow you to emit a powerful magic disrupting wave.", "将装有大脑的罐子嵌入蓝锆石框架，这件奇妙装置便能提高你的精神抗性，并让你释放强力的魔法干扰波。", "_t")
+t("By mounting a brain in a jar in a stralite frame this marvel will increases your mental resistances and allow you to emit a powerful magic disrupting wave.", "将装有大脑的罐子嵌入斯莱特框架，这件奇妙装置便能提高你的精神抗性，并让你释放强力的魔法干扰波。", "_t")
 t("Brain Flare", "脑耀", "_t")
-t("By mounting a brain in a jar in a stralite frame this marvel will increases your mental resistances and to invade your foe's minds, taking control.", "将装有大脑的罐子嵌入蓝锆石框架，这件奇妙装置便能提高你的精神抗性，并让你侵入敌人的心灵、控制其行动。", "_t")
+t("By mounting a brain in a jar in a stralite frame this marvel will increases your mental resistances and to invade your foe's minds, taking control.", "将装有大脑的罐子嵌入斯莱特框架，这件奇妙装置便能提高你的精神抗性，并让你侵入敌人的心灵、控制其行动。", "_t")
 t("Waterproof Coating", "防水涂层", "_t")
 t("Old cloak not keeping you as dry as it used to? A waterproof coating it just what you need!", "旧的披风不能让你保持干爽？防水涂层，这就是你想要的！", "_t")
 t("Fireproof Coating", "防火涂层", "_t")
@@ -7003,7 +7003,7 @@ t("Orc Cutters", "刀具店：兽人砍杀者", "entity name")
 t("Mauling for Brutes", "锤店：专供粗暴者使用", "entity name")
 t("Bows and Slings", "弓与投石索", "entity name")
 t("Sook's Arcane Goodness", "苏克的奥术物资店", "entity name")
-t("Sarah's Herbal Infusions", "萨拉的草本纹身店", "entity name")
+t("Sarah's Herbal Infusions", "萨拉的草药浸剂店", "entity name")
 t("Sook's Runes and other Harmless Contraptions", "苏克符文道具店", "entity name")
 t("Zemekkys Home", "伊莫克斯的家", "entity name")
 
@@ -7029,7 +7029,7 @@ section "tome-orcs/data/zones/gem/npcs.lua"
 t("Haze Commander Parmor", "阴霾指挥官帕默", "entity name")
 t("The Commander of the G.E.M. this noble looking giant looks down upon you in contempt. She wields two huge rotating saws still covered in various horror entrails.", "G.E.M.的指挥官。这个高贵的巨人用藐视的眼神居高临下地看着你。她手里拿着两个巨大的旋转圆锯，上面还带有恐魔的内脏。", "_t")
 t("Half-Mechanized Yeti", "半机械化雪人", "entity name")
-t("Whoever tortured and tormented this yeti did an amazing job of pain and destruction. As you gaze upon its fur you notice several vital spots reinforced with stralite plating. One of its arms has been replaced with a steamsaw.", "虽然不知道是谁把这个雪人折磨成这样，它的确变成了一个恐怖的杀戮机器。当你凝视着它的皮毛，你注意到它身上的重要部分都被蓝锆石装甲所覆盖。他的一只手臂也被替换成了蒸汽链锯。", "_t")
+t("Whoever tortured and tormented this yeti did an amazing job of pain and destruction. As you gaze upon its fur you notice several vital spots reinforced with stralite plating. One of its arms has been replaced with a steamsaw.", "虽然不知道是谁把这个雪人折磨成这样，它的确变成了一个恐怖的杀戮机器。当你凝视着它的皮毛，你注意到它身上的重要部分都被斯莱特装甲所覆盖。他的一只手臂也被替换成了蒸汽链锯。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/gem/objects.lua"
@@ -7398,7 +7398,7 @@ But you have with you the power of technology! You have been given a #GOLD#Stral
 #{italic}#Simply walk into a wall with the shredder equipped and the sand will crumble before you!#{normal}#
 
 Beware to not draw too much attention to yourself, and do not forget to collect the eggs!]], [[你到达了一片由沙子形成的不断变化的通道构成的迷宫。
-但是这一次，你有了科技的力量！你得到了一套#GOLD#蓝锆石掘沙者#LAST#。若没有现成的通道，就用它为自己挖出一条路来。
+但是这一次，你有了科技的力量！你得到了一套#GOLD#斯莱特掘沙者#LAST#。若没有现成的通道，就用它为自己挖出一条路来。
 #{italic}#只需要装备着掘沙者走向沙墙，这面沙墙就会在你面前坍塌！#{normal}#
 
 小心不要引起太多注意，也不要忘了收集里奇虫卵！]], "_t")
