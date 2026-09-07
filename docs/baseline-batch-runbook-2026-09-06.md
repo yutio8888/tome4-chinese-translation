@@ -267,7 +267,9 @@ python3 -B tools/review_phase_timing.py summary --log .artifacts/i18n/timing/<BA
 
 - **常规 REVIEWER**（surface screen lane）：Paseo `claude/claude-opus-5`，`--thinking medium`。
 - **交叉复核**（ISSUE 条目的 `translation_contextual_v2` 语境复核）：Paseo
-  `codex/gpt-6-astra`，`--thinking low`。
+  `codex/gpt-5.6-sol`，`--thinking medium`（**自第 21 批起**，用户 2026-09-06 指示；
+  第 12-20 批为 `codex/gpt-6-astra` `low`）。注意 Sol 的默认 thinking 是 `low`，
+  `medium` 必须显式传；派发后应从 `get_agent_status` 的 `effectiveThinkingOptionId` 读回确认。
 - 判定规则不变：surface 与交叉复核**两轮一致**才可 `confirmed` 进入修复；两轮分歧记
   `advisory`，不修复，并在裁决 conclusion 中写明分歧与依据。
 - **派发必须显式传 `--mode`（`auto` 或 `bypassPermissions`）**。claude provider 默认
@@ -500,3 +502,38 @@ entity name「挖掘之」（提交 `ed5a402`／`3153b39`），登记为待决�
 
 **给后续批次的规则。** entity keyword／ego 名的裁决，必须先取该 keyword 的全部 ego 引用集，
 并逐个记录其 `wielder`／`charmt`／`combat` 效果；单一文件的证据不足以支撑「机制不符」的结论。
+
+## 20. 第 21 批完成记录（首个含 full 模式 run 的批次）
+
+- 批次：`batch-11ddff0f3efcdfe1230e`，base `6dd3333`，evidence `69737ad`，修复合并 `4770964`。
+- 来源：orcs 65 + cults 14 + **tome 1**。3 个 surface run：002/001 走 4-lane，
+  **000 因 n=1 走 `full` 单成员路径**；2 个 contextual run。
+- 交叉复核首次使用 `codex/gpt-5.6-sol medium`，独立复现 3/6，且给出 surface 未提供的机制反证
+  （见下 gun 一条）。对照前九批 Astra low 的 9/46，检出质量明显提升。
+- 裁决：confirmed 3 类（6 条）、pending 1、refuted 1、advisory 1。
+  已修复：`Night's Star`→「暗夜之星」（单数专名被改成复数集合）、`Swordsmith`→「铸剑铺」
+  （store 类别是 SWORD_WEAPON 整个剑类，「长剑」属无据收窄）、Orc Expeller desc
+  「偶尔也杀杀巨人」→「不知怎的，对巨人也一样管用！」。
+  pending：`stralite`→「蓝锆石」（金属档位名译成宝石名，跨 orcs+tome 8+ 处）。
+  refuted：`You have %d charges.`→「叠加次数」——源码实参是 `eff.stacks`，机制上就是层数。
+
+### full 模式（n≤3）的处理要点
+
+契约 §3：`1≤n≤3` 用一个 `full` 成员覆盖全部 n 项，**不产出 group manifest**，
+权威 artifact 是 `.ai/task/<task_id>/SURFACE-SCREEN-ENVELOPE-<dispatch_id>.json`。
+因此该 run：
+
+- staging 不能去读 `run-NNN-group.json`（不存在，且 scratch 里可能残留上一批的同名文件）；
+- STATE 的 review record 必须 `review_kind="full"`、**不得含 `lane` 字段**、
+  stage 成员 ordinal 为 0、entries 数在 1..3（`ai_state_check.py:1226-1237`）；
+- child dispatch 的 labels 不带 `lane_group_identity`，`dispatch` 对象也不带
+  `lane_group_identity`／`lane_index`；
+- `input_path` 必须精确等于 `_surface_envelope_path(task_id, dispatch_id)`。
+
+### staging 必须以 checkpoint refs 为权威（本批踩坑）
+
+`.artifacts/.../surface/` 会跨批残留（§9 已警告）。本批首次 staging 用 glob 取 run 列表，
+拿到的是**第 20 批残留的 `run-000-group.json`**，与本批 lane envelope 比对时断言失败。
+正确做法：从 `active-batch.json` 的 `surface[].input_path` 反解 run 与 member 序号，
+run 成员数 == 1 即 full 模式、== 4 即 lane 模式；并断言各 run entries 之和 == `len(selected)`。
+`surface-import` 的 index 键必须用该 ref 的下标，不能自行编号。
