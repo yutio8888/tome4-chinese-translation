@@ -1181,7 +1181,7 @@ Make sure you have #GOLD##{bold}#Allow online events#WHITE##{normal}# in the #GO
 如果你关闭了这一选项，或者正在游玩不支持这一功能的战役(如竞技场)，你将无法接收到事件。
 请确保在游戏设置的#GOLD##{bold}#在线#WHITE##{normal}#选项中将#GOLD##{bold}#允许在线事件#WHITE##{normal}# 设置为“全部”。在事件接收完成后，你可以重新关闭这一选项。
 ]], "_t")
-t("This pack is already installed and in use for your character.", "这个包已经安装，可以用于你的角色。", "_t")
+t("This pack is already installed and in use for your character.", "这个包已经安装，并且正在你的角色上使用中。", "_t")
 t("You are about to use a charge of this option. You currently have %d charges remaining.", "你准备使用这个选项，消耗一次使用次数。你还有 %d 次使用次数。", "tformat")
 t("Please wait while contacting the server...", "请稍候，正在与服务器进行通信", "_t")
 t("The option has been activated.", "选项已激活。", "_t")
@@ -1224,7 +1224,7 @@ t("%s attacks %s.", "%s攻击了%s.", "logSeen")
 ------------------------------------------------
 section "engine/engine/interface/ActorTalents.lua"
 
-t("%s is still on cooldown for %d turns.", "%s还有%d回合才能冷却。", "logPlayer")
+t("%s is still on cooldown for %d turns.", "%s仍在冷却中，还需%d回合。", "logPlayer")
 t("Talent Use Confirmation", "技能使用确认", "_t")
 t("Use %s?", "使用%s?", "tformat")
 t("Cancel", "取消", "_t")
