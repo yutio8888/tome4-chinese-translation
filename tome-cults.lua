@@ -4480,11 +4480,11 @@ section "tome-cults/data/zones/test/traps.lua"
 
 t("Armoury", "护甲店", "entity name")
 t("Tanner", "皮革店", "entity name")
-t("Swordsmith", "长剑铁匠铺", "entity name")
+t("Swordsmith", "铸剑铺", "entity name")
 t("Nature's Punch", "自然的重击", "entity name")
 t("Silent Hunter", "沉默猎手", "entity name")
 t("Herbalist", "草药馆", "entity name")
-t("Night's Star", "暗夜繁星", "entity name")
+t("Night's Star", "暗夜之星", "entity name")
 
 ------------------------------------------------
 section "tome-cults/data/zones/test/zone.lua"
@@ -4541,11 +4541,11 @@ section "tome-cults/data/zones/town-kroshkkur/traps.lua"
 
 t("Armoury", "护甲店", "entity name")
 t("Tanner", "皮革店", "entity name")
-t("Swordsmith", "长剑铁匠铺", "entity name")
+t("Swordsmith", "铸剑铺", "entity name")
 t("Nature's Punch", "自然的重击", "entity name")
 t("Silent Hunter", "沉默猎手", "entity name")
 t("Herbalist", "草药馆", "entity name")
-t("Night's Star", "暗夜繁星", "entity name")
+t("Night's Star", "暗夜之星", "entity name")
 
 ------------------------------------------------
 section "tome-cults/data/zones/town-kroshkkur/zone.lua"
