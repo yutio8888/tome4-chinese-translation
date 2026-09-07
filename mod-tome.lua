@@ -7441,7 +7441,7 @@ t("Crumbling stairs lead down to something.", "摇摇欲坠的楼梯向下通往
 t("collapsing hidden vault", "快要坍塌的隐藏宝库", "_t")
 t("collapsed hidden vault", "坍塌的隐藏宝库", "_t")
 t("A collapsed stairway, leading down", "向下的楼梯，已经坍塌了。", "_t")
-t("nearly collapsed hidden vault", "即将坍塌的隐藏宝库", "_t")
+t("nearly collapsed hidden vault", "近乎坍塌的隐藏宝库", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/events/thunderstorm.lua"
@@ -9888,7 +9888,7 @@ t("insulate", "隔热", "entity keyword")
 t("grounding ", "绝缘的", "entity name")
 t("grounding", "绝缘", "entity keyword")
 t("dreamer's ", "梦想家的", "entity name")
-t("dreamer", "梦想家", "entity keyword")
+t("dreamer", "梦者", "entity keyword")
 t(" of strife", "冲突之", "entity name")
 t("strife", "冲突", "entity keyword")
 
@@ -10551,7 +10551,7 @@ t("shimmering", "闪烁", "entity keyword")
 t(" of protection", "保护之", "entity name")
 t("prot", "保护", "entity keyword")
 t("dreamer's ", "梦想家的", "entity name")
-t("dreamer", "梦想家", "entity keyword")
+t("dreamer", "梦者", "entity keyword")
 t("dispeller's ", "破法者的", "entity name")
 t("dispeller", "破法者", "entity keyword")
 t(" of alchemy", "炼金之", "entity name")
@@ -20093,7 +20093,7 @@ t("collapsing hidden vault", "快要坍塌的隐藏宝库", "_t")
 t("collapsed hidden vault", "坍塌的隐藏宝库", "_t")
 t("It is fully collapsed, no way down.", "楼梯彻底倒塌了，再也没法下去了。", "_t")
 t("#VIOLET# The stairway is about to collapses completely, you may still go back but it will be the last time!", "#VIOLET# 楼梯很快就要坍塌了，你还可以回去一次，但是这将会是最后一次了！", "log")
-t("nearly collapsed hidden vault", "即将坍塌的隐藏宝库", "_t")
+t("nearly collapsed hidden vault", "近乎坍塌的隐藏宝库", "_t")
 t("#VIOLET# The decrepit stairs crumble some more as you climb them.", "#VIOLET# 当你爬上这些破旧的楼梯的时候，它摇摇欲坠，又更加破碎了一点。", "log")
 
 ------------------------------------------------
