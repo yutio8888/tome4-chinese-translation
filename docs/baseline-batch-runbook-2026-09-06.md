@@ -1,6 +1,8 @@
 # 80 条基线批次审核运行手册（2026-09-06）
 
 > 供主编排者（ORCHESTRATOR）后续阅读并继续开展 80 条基线批次审核工作。
+> **新接手的 agent 请先读 §22（交接：当前状态、模型分工、待决事项）与 §23（缺陷类型学），
+> 操作脚本见 [`tools/orchestration/`](../tools/orchestration/README.md)。**
 > 本手册记录截至 2026-09-06 已完成的第 6、7、8 个 fill-80 基线批次
 > （`batch-cab1369cd860e4cef670`、`batch-1d8c83650b49f5b4b3ac`、`batch-762830cafd3ebe687678`）
 > 的完整可复现操作链，以及下一批的推进规则。正式约束以
@@ -537,3 +539,130 @@ entity name「挖掘之」（提交 `ed5a402`／`3153b39`），登记为待决�
 正确做法：从 `active-batch.json` 的 `surface[].input_path` 反解 run 与 member 序号，
 run 成员数 == 1 即 full 模式、== 4 即 lane 模式；并断言各 run entries 之和 == `len(selected)`。
 `surface-import` 的 index 键必须用该 ref 的下标，不能自行编号。
+
+## 21. 第 22-29 批完成记录（2026-09-06/07）
+
+每批 80 条、源码工作集 80/80、17 项门禁通过。REVIEWER＝claude/claude-opus-5 medium；
+交叉复核自第 21 批起＝codex/gpt-5.6-sol medium。
+
+| 批次 | evidence | repair merge | 裁决 |
+| --- | --- | --- | --- |
+| 22 `batch-c939d69b…` | `15998df` | 无 | pending 1（Twilit Echoes） |
+| 23 `batch-41a874b4…` | `56da671` | `99b62d6` | confirmed 3、refuted 1、advisory 3 |
+| 24 `batch-b5eb9ca4…` | `730da8e` | 无 | refuted 1、advisory 2 |
+| 25 `batch-e4e04b52…` | `6956d17` | `132678d` | confirmed 1、refuted 1、advisory 1、pending 1 |
+| 26 `batch-21cf59e1…` | `d3b273c` | 无 | refuted 2、advisory 2 |
+| 27 `batch-16bef3fe…` | `20b3a0d` | 无 | advisory 1 |
+| 28 `batch-902676fa…` | `fdfca21` | `1b4cd48` | confirmed 2、advisory 1 |
+| 29 `batch-09fa8053…` | `a86506a` | 无 | **80 条全 OK，零 ISSUE** |
+
+期间另有两次授权术语修复：`db14760`（farportal／honey tree／Warden's Focus，75 revision）
+与 `1b4cd48` 内的 `stralite`→斯莱特（61 revision）。
+
+### 本段新增的形态与教训
+
+- **第三类源码归属：interface 混入**（第 25 批）。`"#LIGHT_GREEN#Quest '%s' completed!"` 的
+  section 记作 `mod-tome/class/Player.lua`，但字面量在 `class/interface/PlayerQuestPopup.lua:71`，
+  Player.lua 于 31/49 行 require 并混入该 interface。按 `interface_mixin_verification` 记录。
+- **零 ISSUE 批次没有 contextual run**（第 29 批），`write_states` 需容忍 ctx 文件不存在。
+- **单 run 批次的 `task_id` 就是 `batch_id`**（第 23 批），不带 `-surface-000` 后缀。
+- **`stralite` 的顾问讨论**（第 28 批后）：经 Paseo 交付 antigravity/gemini-3.8-flash 与
+  codex/gpt-5.6-sol 各一轮，查实候选「蓝钢」已被 `b.steel` 占用、现译撞游戏自身的
+  `zircon`→「锆石」。这类跨批次专名值得先做一轮多模型讨论再交用户裁定。
+
+## 22. 交接：给接手的新 ORCHESTRATOR（2026-09-07）
+
+### 当前状态
+
+| 项 | 值 |
+| --- | --- |
+| develop HEAD | `a86506a`（= origin/develop，无未推送提交） |
+| 最后完成批次 | 第 29 批 `batch-09fa8053df61f02226a5`（80 条全 OK，零 ISSUE） |
+| catalog | `d3e56077` |
+| 隐式 queued | 约 25,400 / 29,828 |
+| 活动批次 | 无 |
+| 未归档 child | 无 |
+
+本轮（第 12–29 批）共完成 **1,440 条**，修复 30 条译文缺陷 + 4 项授权术语重命名。
+每批的 evidence 与 repair 均已推送，17 项门禁逐批通过。
+
+### 从哪里开始
+
+读本文件 §3（可复现模板）、§15／§17／§18（操作约束）、§23（缺陷类型学），
+然后用 [`tools/orchestration/`](../tools/orchestration/README.md) 的脚本直接开下一批。
+脚本已通用化：身份取 `PASEO_AGENT_ID`、workspace 按 cwd 发现、源码根取 `TOME_ENGINE_ROOT`／
+`TOME_DLC_ROOT`，**不要硬编码前任 agent 的 id**。
+
+### 模型分工（用户指定，改前先确认）
+
+- 常规 REVIEWER：`claude/claude-opus-5` `--thinking medium`
+- 交叉复核：`codex/gpt-5.6-sol` `--thinking medium`（第 12–20 批曾用 gpt-6-astra low，
+  检出率 9/46 偏低，第 21 批起换 Sol medium 后明显改善）
+- 派发一律显式传 `--mode`（claude 用 `bypassPermissions`，codex 用 `full-access`）
+
+### 用户的常驻授权与偏好
+
+- **连续运行**：一批 finalize + repair + push 后直接开下一批，不问「要不要继续」。
+- **回合纪律**：每轮结束时要么有在跑的后台任务，要么说明在等什么。
+- 跨批次专名／术语记 pending 交回用户，但不阻塞推进。
+
+### 仍待用户裁定的 pending
+
+| 项 | 现译 | 问题 |
+| --- | --- | --- |
+| `Kryl-Feijan` | 卡洛·斐济 | 音节不符；「斐济」是 Fiji 固定译名。跨 ashes-urhrok 与 possessors 两组件 6+ 处 |
+| `Twilit Echoes` | 微光回响 | Twilit 指暮光／明暗交界；技能同时处理 Light 与 Dark 伤害。**术语库 preferred 条目** |
+| `delving` | 挖掘／挖掘之 | 两个 ego 共用该 keyword：掘具无探测效果，护甲却经 `charmt(T_TRACK)` 授予追踪。见 §19 |
+
+已解决：`farportal`→远行传送门、`honey tree`→蜂蜜树、`Warden's Focus`→守卫者专注、
+`stralite`→斯莱特（均为用户授权后执行）。
+
+### 已知但不在任何批次 workset 内的同类缺陷
+
+修复时发现、按证据纪律未动，待其各自 revision 入队时处理：
+
+- `mod-tome.lua:38525` `"A Human warrior, clad in shining plate armour…"` —— 同样漏译 shining
+- `tome-orcs/data/lore/primal-forest.lua` 的 lore 文本 —— `herbal infusions` 同样误作「草本纹身」
+- `dreamer's `→「梦想家的」（4 处）与复数 keyword `dreamers`→「梦想家」—— 同 `dreamer` 的语义问题
+- `" of daylight"`→「黎明之」 —— 同 `daylight` 的语义问题
+
+## 23. 缺陷类型学（第 12–29 批实证，供快速判定）
+
+### 应判 confirmed 的类型
+
+- **entity keyword 过译**：keyword 经 `Object.lua:637-645` 拼在已鉴定物品名后作短标签，
+  应是原词短对译，不得把 ego 名的成分搬进来。已修 `blaze`→炽焰、`thought`→思维、
+  `daylight`→日光、`delving`→挖掘、`restorative`→疗愈。
+  **判定前必须 `git grep` 取该 keyword 的全部 ego 引用集**（§19 的教训）。
+- **修饰语整体漏译**：severed／shining／slim 等。
+- **专名被泛化或错指**：`wretchling eyeball`→「酸液树魔之眼」（全库孤立错名）、
+  black mamba→「这条蛇」。判定前先 grep 该专名在库内的既定译法。
+- **换行不变量破坏**：target 内写 `\n` escape 即可，catalog 解码后须与 source 对齐。
+- **拼接后格式破损**：片段类 source 被 tformat 填入宿主串时，多加的句号会撞上宿主的冒号。
+- **别字**：`非生既死`→`非生即死`。
+- **店铺／商品性质被改变**：`Sarah's Herbal Infusions` 的 store 是 `GATES_POTION`，
+  译作「纹身店」会让玩家找错商店。
+
+### 应判 refuted 的类型（已反复出现，勿重复报）
+
+| 报告内容 | 为何不成立 |
+| --- | --- |
+| `X burst`→「X溅射伤害」是增译 | `burst_on_hit` 经 `Object.lua:1161` 渲染为 "Damage (radius 1) on hit"，溅射准确 |
+| `massive armour`→「板甲」是术语误译 | `massive`(entity subtype)→板甲 跨 orcs+tome 既定；「重甲」另对应 heavily armoured |
+| `travel speed`→「飞行速度」应作移动速度 | 这是**弹药** randart 词条，作用对象是投射物；改「移动」会与角色移速混淆 |
+| `#Target# loses sight!`→「失明了」误作致盲 | 该串正是 `BANE_BLINDED` 的 on_gain，配对短消息就是 `+Blind` |
+| `elemental ` 尾随空格丢失 | 中文无需分隔空格，整个 ego 名前缀家族一律不保留 |
+| `Running...`→「跑步中」意为"运行中" | 四个调用点全是角色连续移动的弹窗标题，与程序运行无关 |
+| `You have %d charges.`→「叠加次数」 | 源码实参是 `eff.stacks`，机制上就是层数 |
+| `yaech`→「夺魂魔」无对应 | 与 yeek→「夺心魔」配套的既定造词，库内 10 处一致 |
+| `The Maggot`→「巨大蛆虫」增译 | 带定冠词的专名，「巨大」用于区分独一无二的巨型生物与普通 maggot |
+| `luminous horror dust`→「金色恐魔的粉尘」 | 沿用既定实体名（8276 行） |
+
+### 应判 advisory 的类型
+
+- 无主语片段补出宿主物品名（hummerhorn wing→「翅膀」等）：指称无歧义，属二级语感。
+- 中文句末半角标点：判据见 `translation-punctuation-convention-proposal-v1.md`，
+  该文明确「待维护者批准」，批准前不得判 confirmed。
+- `#GOLD#…： #LIGHT_BLUE#` 的标记间空格：全库既定排版约定，本轮已出现 5 次。
+- 技能提示泛化（`You cannot do that currently.`、`Death Dance`→「这个技能」）：
+  调用点语境明确，且家族内部一致。
