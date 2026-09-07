@@ -2202,7 +2202,7 @@ t([[#{italic}#(You hear loud, mechanical rumbling; in the distance, you hear sou
 
 "Mayday, mayday, we are bailing out!  Tantalos is gone, and we are NOT going back for him!  Scrap the tunnel to the Palace of Fumes, scrap the entire damn council, we're getting as far away from here as we can--"  Loud hissing.  "MOTHER OF--!"  Grunts, squishing, slashing.  "Flooring it all the way to the damn Sunwall, we're taking the first farportal off this continent whether those tinies like it or not!  Guess this technically counts as treason, mutiny, whatever, but if the Council's hearing this, BLOW IT OUT YOUR STEAM-HOLES, WE'D RATHER LIVE!  Altitude rising, surface approaching, this is H.C. Parmor signing off--"]], [[#{italic}#(你听到了巨大的，机械的轰鸣声。在远处，你听到挣扎和殴打的声音，听到利刃刺破血肉，蒸汽枪的枪声，以及巨人和恐魔发出的痛苦怒吼。帕默的声音听起来惊慌失措。)#{normal}#
 
-“求救，求救，我们在撤离！坦塔洛斯完蛋了，我们绝对不会再回去救他的！去你妈的烟雾宫殿的隧道，去你妈的天杀的议会，我们必须赶紧跑，越远越好——”巨大的嘶嘶声。“狗娘——！”撞击声，挤压声，破碎声。“给我朝太阳堡垒前进，我们要使用这个大陆上的第一个远古传送门，不管你们这些家伙喜不喜欢！我可不管这是不是什么叛国、谋反，去他妈的，如果你们议会在听着的话，放你娘的蒸汽孔，老子只想活下去！海拔上升，准备接近地面，这里是 H.C. 帕默，播报完毕——”]], "_t")
+“求救，求救，我们在撤离！坦塔洛斯完蛋了，我们绝对不会再回去救他的！去你妈的烟雾宫殿的隧道，去你妈的天杀的议会，我们必须赶紧跑，越远越好——”巨大的嘶嘶声。“狗娘——！”撞击声，挤压声，破碎声。“给我朝太阳堡垒前进，我们要使用这个大陆上的第一个远行传送门，不管你们这些家伙喜不喜欢！我可不管这是不是什么叛国、谋反，去他妈的，如果你们议会在听着的话，放你娘的蒸汽孔，老子只想活下去！海拔上升，准备接近地面，这里是 H.C. 帕默，播报完毕——”]], "_t")
 t("erratic scribblings", "潦草的字迹", "_t")
 t("why is it down there why is it ANYWHERE", "它为什么会在下面？它为什么会出现在任何地方？", "_t")
 t("If anyone finds this, tell the Jarsovi brothers their father lov", "如果有人能找到这张纸，请告诉贾索维兄弟，他们的父亲爱…", "_t")
@@ -2273,7 +2273,7 @@ Administrator Quellop]], [[#{italic}#致：卫队队长加尔萨迈
 #{italic}#致：卫队队长加尔萨迈
 来自：管理员夸洛普#{normal}#
 
-很抱歉，但是我们实在买不起这些。我们能花在设施和非必需品上的预算，和往常一样，已经被压缩到了极限。请尽可能只需求必需品——尽管最后的希望的商人们用低廉的价格相互竞争，但考虑到远古传送门的严密安保，在这里要想买到东西仍然十分不便宜。
+很抱歉，但是我们实在买不起这些。我们能花在设施和非必需品上的预算，和往常一样，已经被压缩到了极限。请尽可能只需求必需品——尽管最后的希望的商人们用低廉的价格相互竞争，但考虑到远行传送门的严密安保，在这里要想买到东西仍然十分不便宜。
 
 充满抱歉，
 管理员夸洛普]], "_t")
@@ -2570,11 +2570,11 @@ My point is, when you're writing those letters, write them like King Tolak's loo
 
 -Korbek
 
-PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't understand subtlety, so I can't assume you'd understand a subtly-written letter.  Yes, I'm aware there's a chance this letter could end up in enemy hands.  No, the irony of that situation would not be lost on me.  Yes, I will hurt whoever thinks they're clever by bringing up any of the preceding.]], [[我们知道：远古传送门邮递系统并不完美这件事当然是我们的过错。我们还在努力修复那个让传送门无法传送任何非活物的临时配置——如果我们搞砸了的话，那么很快就会又有人被传送到墙里了。你能够这样穿过远古传送门，而不是裸体出现在另一边，包里的东西都完好无损，已经他妈的是一件奇迹了，好不好。
+PS: Yes, I'm breaking my own rules with this letter - you idiots clearly don't understand subtlety, so I can't assume you'd understand a subtly-written letter.  Yes, I'm aware there's a chance this letter could end up in enemy hands.  No, the irony of that situation would not be lost on me.  Yes, I will hurt whoever thinks they're clever by bringing up any of the preceding.]], [[我们知道：远行传送门邮递系统并不完美这件事当然是我们的过错。我们还在努力修复那个让传送门无法传送任何非活物的临时配置——如果我们搞砸了的话，那么很快就会又有人被传送到墙里了。你能够这样穿过远行传送门，而不是裸体出现在另一边，包里的东西都完好无损，已经他妈的是一件奇迹了，好不好。
 
 与此同时：我们的邮递系统仍然会丢失几封信，这些丢失的邮件可能会出现在任何地方。据我所知，可能会出现在传送门十英尺以内的地方，也有可能出现在某个联合王国好事者的手里，还有可能出现在乌鲁洛克的鼻子底下，都有可能。也就是说，你写的每一封信都有可能出现在你最不希望出现的地方，不管那是多么遥远的地方，明白吗。
 
-我想说的就是，当你写信的时候，请你想象一下，托拉克国王就在你左边看着，你奶奶站在你右边看着——或者，至少你得明白什么叫隐晦一点，好吗？别再抱怨“非法药剂”的价格了，你能说“大力药”吗？别再讨论使用“奴隶”的安全设施了，可以用“私人仆人”这词吗？还有，拜托，为了莱娜尼尔的爱，[i]别再把远古传送门叫做远古传送门了，好吗！[/i]联合王国甚至还不知道我们[i]有[/i]这个东西，可以不要再给他们侦查的线索了吗？随便你叫他什么，快递员，邮递傀儡，训练好的乌尔维拉斯，随你怎么说都行，拜托了。
+我想说的就是，当你写信的时候，请你想象一下，托拉克国王就在你左边看着，你奶奶站在你右边看着——或者，至少你得明白什么叫隐晦一点，好吗？别再抱怨“非法药剂”的价格了，你能说“大力药”吗？别再讨论使用“奴隶”的安全设施了，可以用“私人仆人”这词吗？还有，拜托，为了莱娜尼尔的爱，[i]别再把远行传送门叫做远行传送门了，好吗！[/i]联合王国甚至还不知道我们[i]有[/i]这个东西，可以不要再给他们侦查的线索了吗？随便你叫他什么，快递员，邮递傀儡，训练好的乌尔维拉斯，随你怎么说都行，拜托了。
 
 ——库贝克
 
@@ -2638,7 +2638,7 @@ The Steam Giants of the Atmos Tribe have hidden in the Clork mountains for ages;
 
 While this isolation has given them peace to let their society develop, it has also fostered a strain of sophistry and disconnection to reality, according to Kasyros, who has begun open trade with the Sunwall and Allied Kingdoms to grant his citizens some fresh perspective.  I could not hope to fully analyze this society during my brief stay; the only deeper insight worth noting I was able to see is that they value physical fitness almost exactly as much as intellectual pursuits, perhaps owing to the fact that steam-tech can be made more powerful through more efficient construction OR simply being able to force out more steam from one's vents.  Their government, accordingly, is chosen by an apparent compromise between democracy and bloodsport (aside from a brief period under King Traglamar, which Kasyros would only tell me "was deeply embarassing for all involved").  Although I cannot say how it reflects on the Atmos people in a greater sense, I feel I must make special note that they have learned how to make the best absinthe I have ever tasted.
 
-Alas, I was not able to study them for long enough to learn more than this.  Kasyros tells me he cannot accompany me any longer, for he has arranged a meeting with the Hero of Maj'Eyal - something about using an exploratory farportal for disposal purposes?  Whatever the case, although most of our contact with the Atmos is still done via constructs dropped from airships, we will soon gain the opportunity to meet more of them in person, and perhaps outsiders other than myself will soon be allowed to see their cities for themselves.  Their help in crushing the Kruk Rebellion and thwarting their leader's attempts to commandeer [b]IMMOLATUS, IMPUDENT RAVAGER OF THE HEAVENS[/b] has ensured that they will be enduring allies with us for an age to come.]], [[想想看吧，就在我们的眼皮底下，竟然藏着这样一个高度发达的文明！然而，我们之间这样的接近，并没有给我的研究提供什么方便——除非你是太阳堡垒的公民，托拉克国王本人的亲戚，或者是腰缠万贯的富商，能用足够的钱贿赂卫兵网开一面。否则，像我这样的平民，几乎没有任何使用远古传送门通往远东的机会。幸运的是，卡西罗斯议长本人曾经读过我的书，用以了解这个世界上他的族人所不熟悉的那些众多种族。现在，他邀请我亲自研究他的族人。
+Alas, I was not able to study them for long enough to learn more than this.  Kasyros tells me he cannot accompany me any longer, for he has arranged a meeting with the Hero of Maj'Eyal - something about using an exploratory farportal for disposal purposes?  Whatever the case, although most of our contact with the Atmos is still done via constructs dropped from airships, we will soon gain the opportunity to meet more of them in person, and perhaps outsiders other than myself will soon be allowed to see their cities for themselves.  Their help in crushing the Kruk Rebellion and thwarting their leader's attempts to commandeer [b]IMMOLATUS, IMPUDENT RAVAGER OF THE HEAVENS[/b] has ensured that they will be enduring allies with us for an age to come.]], [[想想看吧，就在我们的眼皮底下，竟然藏着这样一个高度发达的文明！然而，我们之间这样的接近，并没有给我的研究提供什么方便——除非你是太阳堡垒的公民，托拉克国王本人的亲戚，或者是腰缠万贯的富商，能用足够的钱贿赂卫兵网开一面。否则，像我这样的平民，几乎没有任何使用远行传送门通往远东的机会。幸运的是，卡西罗斯议长本人曾经读过我的书，用以了解这个世界上他的族人所不熟悉的那些众多种族。现在，他邀请我亲自研究他的族人。
 
 蒸汽巨人看起来与人类惊人地相似，他们身高8-10英尺，身材稍显矮胖，这与岱卡拉那些瘦高但出人意料地强壮的巨人形成了鲜明的对比。他们最具标志性的外貌特征是他们身上的蒸汽，这就是他们被命名为蒸汽巨人的原因——他们的皮肤上有许多毛孔和通风口，可以从中排出高压的蒸汽。他们可以对排气的行为进行有限的主动控制；在休息的时候，他们的排气行为通常是不可见的，只能依稀看到轻柔的薄雾，或者干脆什么也看不到。但是，他们也可以主动封闭或扩张排气口，放出一股气流或一团高压蒸汽，这样的场景看起来颇为令人不安。
 
@@ -2648,7 +2648,7 @@ Alas, I was not able to study them for long enough to learn more than this.  Kas
 
 按照卡西罗斯的说法，尽管和外界的隔绝给了他们社会发展所需要的和平空间，这同时也助长了他们社会中倡导诡辩，脱离现实的思想。因此，他最近开始了和太阳堡垒与联合王国之间的开放贸易，希望能给他的族人带来一些看待问题的全新视角。由于我只有短暂停留在这里的机会，并没有时间能够深入分析他们的社会。因此，我唯一能够注意到的，他们社会中的深层因素，就是他们将身体健壮看的和对智慧的追求同样重要。也许这是因为，他们的蒸汽科技的力量，不仅可以来源于精巧高效的设计，[b]也[/b]可以来自于能够从排气孔中喷出更多蒸汽的，强大的肉体力量。因此，他们的政府，是通过某种由民主体制和血腥竞技结合而成的制度选拔出来的（除了国王特拉格拉玛统治的短暂时期，卡西罗斯只告诉我，“这件事对所有相关人员来说都是相当尴尬的”）。尽管我不知道这是否反映了气之部族人的某种重要品质，我觉得我还有必要特别提一句，他们还掌握着酿造我所尝过的最好的苦艾酒的技术。
 
-唉，我没有机会研究他们足够长的时间，所以我的发现只有这些了。卡西罗斯告诉我，他不能再陪我了，因为他和马基·埃亚尔的英雄之间已经安排好了一场聚会——好像是有关使用探险远古传送门来进行垃圾清理？不管怎样，尽管我们大部分人和气之部族之间唯一的沟通的渠道，就是从飞艇上掉下来的装置，我们很快就会获得和更多他们面对面接触的机会。也许，未来还会有除了我之外的来访者，被许可亲自访问他们美丽的城市。他们在粉碎克鲁克叛乱，以及阻止他们的领袖强占[b]撼天动地，无耻的天空肆虐者[/b]中所作出的贡献，已经向我们证明，他们将会是我们未来一段时间中当之无愧的盟友。]], "_t")
+唉，我没有机会研究他们足够长的时间，所以我的发现只有这些了。卡西罗斯告诉我，他不能再陪我了，因为他和马基·埃亚尔的英雄之间已经安排好了一场聚会——好像是有关使用探险远行传送门来进行垃圾清理？不管怎样，尽管我们大部分人和气之部族之间唯一的沟通的渠道，就是从飞艇上掉下来的装置，我们很快就会获得和更多他们面对面接触的机会。也许，未来还会有除了我之外的来访者，被许可亲自访问他们美丽的城市。他们在粉碎克鲁克叛乱，以及阻止他们的领袖强占[b]撼天动地，无耻的天空肆虐者[/b]中所作出的贡献，已经向我们证明，他们将会是我们未来一段时间中当之无愧的盟友。]], "_t")
 t("Scholar Graynot's Assessment of the Species, Chapter 83: Wei...", "博学者格雷诺特关于人种的调查——第八十三章——Wei...", "_t")
 t("(This note had already caught fire when the paradox anomaly pulled it in from another timeline.  You only had time to read part of the title before it burned away completely.)", "(当时空异常从另一条世界线拉入这条纸条的时候，这张纸条突然着火了。你还没来得及看完标题，这张纸条已经被烧得一干二净。)", "_t")
 
@@ -3026,11 +3026,11 @@ None on Eyal would ever know of <?=Lore.pocket_time_winner.hisher?> sacrifice, o
 <? if Lore.pocket_time_winner.is_yeek then ?>[i]...Well, let's just assume that's how it went, anyway.  The alternative would make it quite difficult to tell the next story.[/i]<? end ?>
 ]], [[<? Lore.init_pocket_time_data() ?>从前，有一位名叫<?=Lore.pocket_time_winner.name?>的<?=Lore.pocket_time_winner.race?> <?=Lore.pocket_time_winner.class?>。<?=Lore.pocket_time_winner.HeShe?>出身卑微，开始只进行一些简单的冒险，例如疯狂的自然守护者诺尔格斯或者是卡·普尔的另一个化身。随着<?=Lore.pocket_time_winner.heshe?>继续周游各地的旅行，<?=Lore.pocket_time_winner.heshe?>变得越来越强大，越来越熟练，开始尝试挑战越来越强大的对手。<?=Lore.pocket_time_winner.HeShe?>清除了占据伊克格的恐魔，并占领了这个被遗忘已久的飞行堡垒，作为下一步攻入恐惧王座的据点。“领主”，一个有着强大的力量和虐待欲望的恐怖死灵法师，正带领着一支庞大的不死军队在那里等待着<?=Lore.pocket_time_winner.himher?>，手握一把具有强大力量的远古神器……但是<?=Lore.pocket_time_winner.name?>勇敢地向前前进，穿过成群的骷髅和食尸鬼，在许多人失败的地方获得了成功。最终，<?=Lore.pocket_time_winner.heshe?>光荣地站在那具吸血鬼的尸体之上，手中拿着从死灵大军手中夺回的吸能法杖，马基埃亚尔再次恢复了和平。
 
-然而，等待着<?=Lore.pocket_time_winner.himher?>的则是更加危险的挑战。兽人，一个认为已经被战胜已久的威胁，重新出现在了马基埃亚尔的土地上！尽管 <?=Lore.pocket_time_winner.name?>努力将法杖存在了安全的地方，兽人们还是设法偷走了它，<?=Lore.pocket_time_winner.name?>不得不追随着他们，穿过发达到让人难以置信的远古传送门，试图追回法杖。<?=Lore.pocket_time_winner.name?>手握着多元水晶球，深吸一口气，穿过劈啪作响的传送门漩涡，那一瞬间， <?=Lore.pocket_time_winner.heshe?>成为第一个从马基·埃亚尔到达瓦·埃亚尔的人，那是和马基·埃亚尔分割了几个世纪的远东大陆。
+然而，等待着<?=Lore.pocket_time_winner.himher?>的则是更加危险的挑战。兽人，一个认为已经被战胜已久的威胁，重新出现在了马基埃亚尔的土地上！尽管 <?=Lore.pocket_time_winner.name?>努力将法杖存在了安全的地方，兽人们还是设法偷走了它，<?=Lore.pocket_time_winner.name?>不得不追随着他们，穿过发达到让人难以置信的远行传送门，试图追回法杖。<?=Lore.pocket_time_winner.name?>手握着多元水晶球，深吸一口气，穿过劈啪作响的传送门漩涡，那一瞬间， <?=Lore.pocket_time_winner.heshe?>成为第一个从马基·埃亚尔到达瓦·埃亚尔的人，那是和马基·埃亚尔分割了几个世纪的远东大陆。
 
 在那里等待着<?=Lore.pocket_time_winner.himher?>的，有着失落已久的盟友，太阳堡垒的人们——也有四支庞大的兽人军队。又一次，世界的命运落在了<?=Lore.pocket_time_winner.hisher?>手中，而<?=Lore.pocket_time_winner.himher?>绝不愿朝困难屈服。在接受了高阶太阳骑士艾琳的祝福之后，<?=Lore.pocket_time_winner.heshe?>出发前去进攻兽人部落，夺回被夺走的吸能法杖。与大魔导师沃尔的战斗充满了火焰和冰霜的风暴，那是可以召唤来自天空的力量来试图毁灭对手的强大敌人，但是沃尔的陨石也无法阻挡<?=Lore.pocket_time_winner.himher?>的胜利。加伯特部落的驯龙师和高阶龙战士对自然力量的掌控无出其右，但这只是让<?=Lore.pocket_time_winner.name?>成为了世界上最伟大的屠龙者。随着拉克·肖部落高大的白骨堡垒轰然倒下，<?=Lore.pocket_time_winner.heshe?>让死者们终于得到了安息。最终，以兽人中最强大的力量著称的格鲁希纳克部落的精英部队也倒在了<?=Lore.pocket_time_winner.hisher?>面前。
 <? if not Lore.pocket_time_winner.sacrifice then ?>
-但是正当<?=Lore.pocket_time_winner.heshe?>攀爬高塔之前，<?=Lore.pocket_time_winner.heshe?>收到了来自高阶太阳骑士艾琳的紧急消息。<?=Lore.pocket_time_winner.HeShe?>急忙穿越了艾露安的废墟，到达了另一座远古传送门的面前。没有任何犹豫，<?=Lore.pocket_time_winner.name?>冲进了传送门中；<?=Lore.pocket_time_winner.heshe?>发现自己身处一片广阔的火焰与岩浆平原，狭长的土地通往远方。在<?=Lore.pocket_time_winner.himher?>身后，<?=Lore.pocket_time_winner.heshe?>听见了兵器的碰撞声：那是追随<?=Lore.pocket_time_winner.himher?>到达这里的兽人军队，太阳骑士们正严守防线，试图阻止敌军靠近。那些太阳骑士只告诉<?=Lore.pocket_time_winner.himher?>一件事：快跑！于是，<?=Lore.pocket_time_winner.heshe?>不顾一切地奋勇向前冲去，穿过和避开无数的红色巨龙，灼热的岩浆在危险的石桥两侧喷涌而出。最终，<?=Lore.pocket_time_winner.heshe?>的眼前终于又出现了吸能法杖的身影——然而，令人惊讶的是，真正的幕后黑手竟然是一个精灵和一个人类！那两位法师，在良好的意图，无尽的疯狂和悲剧性的爱的驱使之下，操纵兽人部落偷取法杖给他们——他们的目的到底是什么，<?=Lore.pocket_time_winner.heshe?>仍然尚不清楚。然而，他们所施展的法术被阻止了，<?=Lore.pocket_time_winner.heshe?>胜利回到了远东大陆，准备突袭这两位法师位于巅峰高塔的最终堡垒。
+但是正当<?=Lore.pocket_time_winner.heshe?>攀爬高塔之前，<?=Lore.pocket_time_winner.heshe?>收到了来自高阶太阳骑士艾琳的紧急消息。<?=Lore.pocket_time_winner.HeShe?>急忙穿越了艾露安的废墟，到达了另一座远行传送门的面前。没有任何犹豫，<?=Lore.pocket_time_winner.name?>冲进了传送门中；<?=Lore.pocket_time_winner.heshe?>发现自己身处一片广阔的火焰与岩浆平原，狭长的土地通往远方。在<?=Lore.pocket_time_winner.himher?>身后，<?=Lore.pocket_time_winner.heshe?>听见了兵器的碰撞声：那是追随<?=Lore.pocket_time_winner.himher?>到达这里的兽人军队，太阳骑士们正严守防线，试图阻止敌军靠近。那些太阳骑士只告诉<?=Lore.pocket_time_winner.himher?>一件事：快跑！于是，<?=Lore.pocket_time_winner.heshe?>不顾一切地奋勇向前冲去，穿过和避开无数的红色巨龙，灼热的岩浆在危险的石桥两侧喷涌而出。最终，<?=Lore.pocket_time_winner.heshe?>的眼前终于又出现了吸能法杖的身影——然而，令人惊讶的是，真正的幕后黑手竟然是一个精灵和一个人类！那两位法师，在良好的意图，无尽的疯狂和悲剧性的爱的驱使之下，操纵兽人部落偷取法杖给他们——他们的目的到底是什么，<?=Lore.pocket_time_winner.heshe?>仍然尚不清楚。然而，他们所施展的法术被阻止了，<?=Lore.pocket_time_winner.heshe?>胜利回到了远东大陆，准备突袭这两位法师位于巅峰高塔的最终堡垒。
 
 在那里等待着的，是远胜于<?=Lore.pocket_time_winner.heshe?>之前所见过的一切的恐怖挑战。高塔本身正在试图阻挡着<?=Lore.pocket_time_winner.himher?>，在每一层不断切换着环境，对<?=Lore.pocket_time_winner.hisher?>的防御做出挑战。在每一层，都有着一切可能出现的可怕怪物的严加守卫，但是<?=Lore.pocket_time_winner.heshe?>毫不畏惧，奋勇向前，击败了一切敌人，最终到达了顶层。在顶层，<?=Lore.pocket_time_winner.heshe?>终于见到了那两位法师，埃兰达和艾格尼尔。他们告诉了<?=Lore.pocket_time_winner.himher?>有关法杖的真正计划，这比征服世界还要可怕的多——不，他们将要召回只有消失已久的夏·图尔人才能应对的远古威胁。那是被世人遗忘，流浪在群星中的恐怖：盖里克，在长期的隔绝之中陷入了无尽的疯狂。他们的计划必须被阻止！
 
@@ -3042,7 +3042,7 @@ None on Eyal would ever know of <?=Lore.pocket_time_winner.hisher?> sacrifice, o
 
 在顶层，<?=Lore.pocket_time_winner.heshe?>终于见到了那两位法师，埃兰达和艾格尼尔。他们告诉了<?=Lore.pocket_time_winner.himher?>有关法杖的真正计划，这比征服世界还要可怕的多——不，他们将要召回只有消失已久的夏·图尔人才能应对的远古威胁。那是被世人遗忘，流浪在群星中的恐怖：盖里克，在长期的隔绝之中陷入了无尽的疯狂。他们的计划必须被阻止！
 
-这三个人将会为了埃亚尔的未来展开一场旷世之战。艾格尼尔恐怖的骨盾环绕在她的四周，埃兰达强大的法术在空中撕裂一切，四周的传送门不断召唤各种敌人加入战场……然而最终，正义终于得到了胜利。法师们被打败了，传送门也被永久封印了……但是，付出的代价是惨重的。<?=Lore.pocket_time_winner.name?>看到了远古传送门的景象——两位法师为它注入了太多的能量，光使用吸能法杖已经无法阻止它了。<?=Lore.pocket_time_winner.HeShe?>无私地做出了牺牲，使用<?=Lore.pocket_time_winner.hisher?>的生命作为代价，摧毁了传送门。
+这三个人将会为了埃亚尔的未来展开一场旷世之战。艾格尼尔恐怖的骨盾环绕在她的四周，埃兰达强大的法术在空中撕裂一切，四周的传送门不断召唤各种敌人加入战场……然而最终，正义终于得到了胜利。法师们被打败了，传送门也被永久封印了……但是，付出的代价是惨重的。<?=Lore.pocket_time_winner.name?>看到了远行传送门的景象——两位法师为它注入了太多的能量，光使用吸能法杖已经无法阻止它了。<?=Lore.pocket_time_winner.HeShe?>无私地做出了牺牲，使用<?=Lore.pocket_time_winner.hisher?>的生命作为代价，摧毁了传送门。
 
 在埃亚尔，没有人知道是<?=Lore.pocket_time_winner.hisher?>牺牲拯救了他们，甚至对他们曾经出于怎样的危机浑然不知……然而，正是因为这位英雄的努力，他们才能够和平幸福地生活了下去。
 <? end ?>
@@ -3059,7 +3059,7 @@ Of course, a character like that can't simply be thrown away.  The story may be 
 
 [b]<?=player.name?>[/b], you crave the thrill and tension of a close fight as much as <?=Lore.pocket_time_winner.heshe?> does.  I owe this opportunity to you in life, and the Scourge from the West in <?=Lore.pocket_time_winner.hisher?> legend; all I ask in return is that the two of you give me a battle that the people of Eyal will sing songs about.]], [[<? Lore.init_pocket_time_data() ?>从前，有一个叫做艾德隆的灵魂，比埃亚尔的一切都要古老。有人称之为救世主，是秩序和正义的使者；也有人称之为黑暗之神，传播恐怖以自娱自乐。这样的凡人分类，是无可救药地不足以描述一个几乎和时间一样古老的存在那不可思议的长远动机的……但是，如果你亲自问它的话，它会自称是一个讲故事的人。
 
-不管这个故事是只存在于它的脑海里，还是反映在整个珊德拉星系之中，没有人知道——但是，艾德隆的故事里需要英雄，一直都是这样。今天，他所需要的英雄是一位战斗的大师，一位从吞噬者加库尔的时代以来就未曾出现的大师。他会综合考虑各种各样的可能性，面对无数的困难，有些可能允许一部分的错误，但是最终只会选择一个。被它所选中的主角战胜了摆在<?=Lore.pocket_time_winner.himher?>面前的一切挑战，有时举重若轻，有时艰难取胜，也有的时候则透过运气勉强通过。但最终，<?=Lore.pocket_time_winner.himher?>站在了巅峰之上，<? if Lore.pocket_time_winner.sacrifice then ?>通过牺牲<?=Lore.pocket_time_winner.himher?>的生命来关闭了法师的远古传送门<? end ?>，从而把埃亚尔从其所面临的最大的威胁面前解救出来。
+不管这个故事是只存在于它的脑海里，还是反映在整个珊德拉星系之中，没有人知道——但是，艾德隆的故事里需要英雄，一直都是这样。今天，他所需要的英雄是一位战斗的大师，一位从吞噬者加库尔的时代以来就未曾出现的大师。他会综合考虑各种各样的可能性，面对无数的困难，有些可能允许一部分的错误，但是最终只会选择一个。被它所选中的主角战胜了摆在<?=Lore.pocket_time_winner.himher?>面前的一切挑战，有时举重若轻，有时艰难取胜，也有的时候则透过运气勉强通过。但最终，<?=Lore.pocket_time_winner.himher?>站在了巅峰之上，<? if Lore.pocket_time_winner.sacrifice then ?>通过牺牲<?=Lore.pocket_time_winner.himher?>的生命来关闭了法师的远行传送门<? end ?>，从而把埃亚尔从其所面临的最大的威胁面前解救出来。
 <? if not Lore.pocket_time_winner.sacrifice then ?>
 之后呢？在战斗胜利之后，这位为战斗而生的大师就无事可做了。<?=Lore.pocket_time_winner.HeShe?> 本可以找到更加强大的敌人，但<?=Lore.pocket_time_winner.heshe?>很快发现自己面对的东西要么毫无意义，要么只会对埃亚尔的世界有害，不会给故事增添任何内容。艾德隆也可以创造一个强大到足以击败<?=Lore.pocket_time_winner.himher?>的敌人，但这又是什么样的结局呢？最终，艾德隆决定遵循<?=Lore.pocket_time_winner.heshe?>的意愿，让这位英雄从此退休……无论<?=Lore.pocket_time_winner.heshe?>选择前往无尽地下城寻求无穷无尽的挑战，去挑战像阿塔玛森或是莱娜尼尔这样几乎不可能击败的恐怖敌人，还是就此在夏·图尔堡垒中度过余生。无论是哪一种，这个故事都结束了，<?=Lore.pocket_time_winner.name?>的故事就此走到了尽头。<? end ?>
 
@@ -3322,7 +3322,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 然而……
 
-仍有一群兽人存在。一个小小的兽人部落——其实更像一座小镇——躲过了救世主的怒火……如整洁花园边缘的一株杂草，又像威胁点燃整片大陆的一点余烬。托拉克国王试图树立比复仇心切的父亲更好榜样，志向固然高尚；可若他经历过我们所经历的一切，我怀疑他是否还会冒险去拯救兽人。联合王国不知道活在四大部落阴影下是什么滋味，不知道太阳堡垒随时可能被攻陷、我们的头颅被割下当作战利品的恐惧。他们有远古传送门可作屏障，无需担心家园和亲人遭遇我们一生都在抗争的同样恐怖。如果他们也要担这种心……只消说，在大陆真正安全之前，他们绝不会费心为幸存兽人搭起舒适营地。
+仍有一群兽人存在。一个小小的兽人部落——其实更像一座小镇——躲过了救世主的怒火……如整洁花园边缘的一株杂草，又像威胁点燃整片大陆的一点余烬。托拉克国王试图树立比复仇心切的父亲更好榜样，志向固然高尚；可若他经历过我们所经历的一切，我怀疑他是否还会冒险去拯救兽人。联合王国不知道活在四大部落阴影下是什么滋味，不知道太阳堡垒随时可能被攻陷、我们的头颅被割下当作战利品的恐惧。他们有远行传送门可作屏障，无需担心家园和亲人遭遇我们一生都在抗争的同样恐怖。如果他们也要担这种心……只消说，在大陆真正安全之前，他们绝不会费心为幸存兽人搭起舒适营地。
 
 以太阳之名……经历这一切之后，我们的至高太阳骑士为何还会同意这份条约？
 
@@ -3419,7 +3419,7 @@ I shall be waiting in the front line of this glorious alliance, sword in hand.  
 
 You want your revenge on my father's people, foul cur?  #{italic}#Come and get it.#{normal}#
 
-(You admit, it is rather tempting...  but the guaranteed safety of your people takes priority, and besides, you wouldn't put it past the Allied Kingdoms to have a team of archers and slingers waiting to snipe everyone who came through, one by one.  You destroy the portal, eliminating King Tolak's army as a threat, and ensuring Sun Paladin Aeryn won't be getting any reinforcements.  Time to take advantage of your newfound privacy, and finish off the Sunwall forces, once and for all...)]], [[（你走近远古传送门时，一名传令官从中现身，手持信封。他与其说是把信交给你，不如说是隔着一段安全距离将它扔了过来；随后敬礼，退回旋转的裂隙。信上盖着联合王国的皇家印章。）
+(You admit, it is rather tempting...  but the guaranteed safety of your people takes priority, and besides, you wouldn't put it past the Allied Kingdoms to have a team of archers and slingers waiting to snipe everyone who came through, one by one.  You destroy the portal, eliminating King Tolak's army as a threat, and ensuring Sun Paladin Aeryn won't be getting any reinforcements.  Time to take advantage of your newfound privacy, and finish off the Sunwall forces, once and for all...)]], [[（你走近远行传送门时，一名传令官从中现身，手持信封。他与其说是把信交给你，不如说是隔着一段安全距离将它扔了过来；随后敬礼，退回旋转的裂隙。信上盖着联合王国的皇家印章。）
 
 %s……我想，我开始明白你为何如此行事了。起初我……与其说惊讶，不如说失望。我原以为宽恕你的人民才是正确决定；原以为父亲只是被怒火蒙蔽；原以为只要给兽人机会，让你们看到若与我们合作，埃亚尔会变得多么美好，你们便真能成为更好的人。无论父亲、母亲和盟友怎样告诫我，我都相信兽人族内心深处也拥有和人类、半身人、精灵、矮人及食人魔一样的潜力，能够学习、成长，创造美好。
 
@@ -3445,11 +3445,11 @@ My apologies, but you're going to have to go back to King Tolak empty-handed - w
 
 Anyway, my advice is to request permission to send a few Shining Inquisitors to King Tolak to assist in the investigations on his end.  However they're evading detection here in the East, they either can't use it in the West or simply let their guard down once they're back home, judging from the rising arrest rates - we can help the Allied Kingdoms hit the weak link of this chain, and have the Inquisitors keep an eye on things in Maj'Eyal while they're at it.  Not that I don't trust that King Tolak intends to honor his commitment to keep those foul Ziguranth from ever pulling off anything like the Sunset Massacre again, but...  well, if a farportal altar made it onto the black market under the Allied Kingdoms' watch, possibly courtesy of a mad alchemist who lived practically next door to the King, I don't have too much faith in their ability to drag a bunch of clandestine fanatics into the light, out from the cover of that supposedly-benign Menders group.  I'm sure they're trying their hardest; all I'm suggesting is that we do the same.]], [[艾琳女士：
 
-抱歉，你只能空手回去见托拉克国王了——我们仍不知道走私者如何通过。现有最好证据是巨魔帝国港口附近沙漠传来震动（那里守卫仍太严密，在联合王国全面支援前无法正面进攻），似乎有人用地术开凿隧道；不过也可能只是马基·埃亚尔英雄未清剿干净的少数布莱亚后代在活动。探知法术也无济于事——某种反探知结界正发挥作用，却隐藏得极好，我们无法判断它来自大陆何处，也不知道影响了多少实体。唯一似乎可以确定的是，他们又拼凑出了一座远古传送门。我们知道的唯一一座就在晨曦之门正中央，而我愿意相信我们还没无能到让一队又一队奴隶贩子和私酒贩子从七成守军眼皮底下走过都察觉不到。若他们真在用那座门，那他们施展的就是我们有史以来见过的最佳隐形法术。
+抱歉，你只能空手回去见托拉克国王了——我们仍不知道走私者如何通过。现有最好证据是巨魔帝国港口附近沙漠传来震动（那里守卫仍太严密，在联合王国全面支援前无法正面进攻），似乎有人用地术开凿隧道；不过也可能只是马基·埃亚尔英雄未清剿干净的少数布莱亚后代在活动。探知法术也无济于事——某种反探知结界正发挥作用，却隐藏得极好，我们无法判断它来自大陆何处，也不知道影响了多少实体。唯一似乎可以确定的是，他们又拼凑出了一座远行传送门。我们知道的唯一一座就在晨曦之门正中央，而我愿意相信我们还没无能到让一队又一队奴隶贩子和私酒贩子从七成守军眼皮底下走过都察觉不到。若他们真在用那座门，那他们施展的就是我们有史以来见过的最佳隐形法术。
 
 ……从未见过？算了。
 
-总之，我建议申请许可，派几名日光裁判官前往托拉克国王处，协助他们那边的调查。从逮捕人数不断上升来看，无论走私者在东方如何避开侦测，他们到了西方要么无法再用同样手段，要么只是回家后放松了警惕。我们可以帮助联合王国打击这条链上的薄弱环节，也让裁判官顺便留意马基·埃亚尔的动向。倒不是说我不相信托拉克国王会履行承诺，绝不让那些邪恶的伊格兰斯再制造日落大屠杀那样的惨剧，但……唉，在联合王国眼皮底下，远古传送门祭坛都流入了黑市，幕后还可能是一个几乎就住在国王隔壁的疯狂炼金术师；要说他们能把一群秘密狂热分子从那个貌似无害的“修复者”组织掩护下拖到阳光中，我实在信心不足。我相信他们已经竭尽全力；我只是建议我们也这么做。]], "_t")
+总之，我建议申请许可，派几名日光裁判官前往托拉克国王处，协助他们那边的调查。从逮捕人数不断上升来看，无论走私者在东方如何避开侦测，他们到了西方要么无法再用同样手段，要么只是回家后放松了警惕。我们可以帮助联合王国打击这条链上的薄弱环节，也让裁判官顺便留意马基·埃亚尔的动向。倒不是说我不相信托拉克国王会履行承诺，绝不让那些邪恶的伊格兰斯再制造日落大屠杀那样的惨剧，但……唉，在联合王国眼皮底下，远行传送门祭坛都流入了黑市，幕后还可能是一个几乎就住在国王隔壁的疯狂炼金术师；要说他们能把一群秘密狂热分子从那个貌似无害的“修复者”组织掩护下拖到阳光中，我实在信心不足。我相信他们已经竭尽全力；我只是建议我们也这么做。]], "_t")
 t("journal of High Sun Paladin Aeryn", "至高太阳骑士艾琳的日记", "_t")
 t([[This is it...  the day I've dreaded for most of my life is here, and yet it still comes as a shock.  I expected it for almost every day of my life...  until last year.  The Scourge from the West defeated the Prides, raced down the Charred Scar, and stormed the tower of High Peak to fight by my side against a threat far greater than I dreamed possible.  We'd been reunited with a cooperative and nearly-unified Maj'Eyal, led by a king willing and able to help us in any way, armed with a plan to keep the orcs completely under control...  it's as if the Sun had begun to creep over the horizon to start the dawn of peace in Var'Eyal, right before going dark forever and taking the moons with it.  The love of my life is presumed dead; the candle in the night of the years before has been snuffed out. Nothing - no plan that hasn't been shattered, no inspiration that hasn't fallen, no hope that hasn't turned to despair - is left to guide me.
 
@@ -3637,7 +3637,7 @@ t("Orc Warrior", "兽人战士", "_t")
 t("Winner", "游戏胜利", "_t")
 t("#GOLD#Well done! You have won the Tales of Maj'Eyal: Embers of Rage!#WHITE#", "#GOLD#干得不错！你通关了马基·埃亚尔的传说：余烬怒火#WHITE#", "_t")
 t("You have thwarted the Steam Giants' genocidal plans, and avenged those killed in the attack on Kruk Pride.  Their desperate pact with the High Priest did nothing to stop you; the priest and his god lay dead at your feet, and you have ensured they will #{italic}#stay#{normal}# dead for the foreseeable future.", "你挫败了蒸汽巨人灭绝你们的邪恶计划，并为那些在他们残忍袭击中丧生的部落同胞复仇。他们绝望中与夏·图尔祭司订立的邪恶契约也未能阻止你，祭司和他的神倒在你的脚下，你已经确保他们在可预见的将来会#{italic}#一直#{normal}#长眠下去。", "_t")
-t("The humans, elves, and halflings will not be able to hurt your people again.  By destroying the farportal and denying King Tolak's army its glorious battle, you have ensured the safety of your people from the Allied Kingdoms, and by storming the Gates of Morning you have eliminated the last bearers of the West's hateful aggression in Var'Eyal.", "无论是人类、精灵还是半身人，都再也无法伤害你的族人。你摧毁了远古传送门，使托拉克国王的军队失去了这场光荣的战斗，从而确保族人免受联合王国侵害。你攻下晨曦之门，也消灭了西方在瓦·埃亚尔施行可恨侵略的最后一批爪牙。", "_t")
+t("The humans, elves, and halflings will not be able to hurt your people again.  By destroying the farportal and denying King Tolak's army its glorious battle, you have ensured the safety of your people from the Allied Kingdoms, and by storming the Gates of Morning you have eliminated the last bearers of the West's hateful aggression in Var'Eyal.", "无论是人类、精灵还是半身人，都再也无法伤害你的族人。你摧毁了远行传送门，使托拉克国王的军队失去了这场光荣的战斗，从而确保族人免受联合王国侵害。你攻下晨曦之门，也消灭了西方在瓦·埃亚尔施行可恨侵略的最后一批爪牙。", "_t")
 t("For now, peace reigns.  You know that this will not last forever.  You may have repelled its vanguard, but the Kar'Haïb Dominion bides its time waiting for a weakness it can exploit; the smugglers' portals from Maj'Eyal remain undiscovered, and while neither you nor King Tolak has any remaining desire to take the other's continent, the fear of invasion will linger in the backs of your minds.", "眼下，和平降临了。但你知道这不会永远持续下去。虽然你击退了卡尔·亥巴帝国的先锋，它却仍在等待可乘之机；走私者们从马基·埃亚尔通往这里的传送门依然没有被发现。即使你和托拉克国王都已无意夺取对方的大陆，对入侵的恐惧仍会萦绕在你们心底。", "_t")
 t("  The messages of the Lost City give you cause to remain ever vigilant for the threats they warned of, including their authors, and you wonder what your people will do now that their struggle to escape eradication, one that has defined them for their entire recorded history, has ceased to be a concern.", "  来自失落之城的消息让你充满警醒，无论是那些他们警告的恐怖威胁，还是他们本身。你想知道，当你的人民所极力摆脱的灭亡威胁：那个镌刻在你们整个历史中的威胁，现在已经不复存在的时候，你们的人民又将何去何从？", "_t")
 t("Regardless...  You just killed a god and gave your people the first chance to relax in thousands of years.  It's been a pretty good day.", "不管怎样…你杀死了一个神，而你的人民在数千年的征战中终于有了放松的机会。多么愉快的一天。", "_t")
@@ -3665,7 +3665,7 @@ t("The Deconstruction of Falling Stars", "群星的陨落", "_t")
 t([[The people of the sunwall have lingered on this land for too long and now they are spreading their control to all the mainland. This must not be allowed!
 With the help of their newfound allies in the west they keep a permanent guard over the farportal. The portal must be permanently destroyed to prevent reinforcements.
 The leader of the Sunwall, High Sun Paladin Aeryn must be punished for her crimes against the Prides.]], [[太阳堡垒的人已经盘踞在这片土地上太久，如今更把控制扩展到整个大陆。绝不能允许这种事发生！
-在他们来自西方的新盟友的帮助下，他们永久守护着远古传送门。摧毁远古传送门，防止援军前来！
+在他们来自西方的新盟友的帮助下，他们永久守护着远行传送门。摧毁远行传送门，防止援军前来！
 太阳堡垒的领袖，高阶太阳骑士艾琳，将会为她对部落犯下的恶行付出代价！]], "_t")
 t("#LIGHT_GREEN#* You have killed Aeryn, making sure no more troops will come from the west.#WHITE#", "#LIGHT_GREEN#* 你杀死了艾琳，西方的援军再也不会前来了。#WHITE#", "_t")
 
@@ -6944,9 +6944,9 @@ t("rockwall", "岩石墙", "entity type")
 t("grass", "草地", "entity subtype")
 t("Sunwall mountain", "太阳堡垒群山", "entity name")
 t("Way into the caves", "通往洞穴的道路", "entity name")
-t("Farportal: Last Hope", "远古传送门：最后的希望", "entity name")
+t("Farportal: Last Hope", "远行传送门：最后的希望", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go near the town of Last Hope in Maj'Eyal.]], [[远古传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你甚至不知道它是否能双向通行。
+This one seems to go near the town of Last Hope in Maj'Eyal.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你甚至不知道它是否能双向通行。
 这座传送门似乎通往马基·埃亚尔最后的希望城附近。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the outskirts of Last Hope, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你回到了最后的希望的郊外，传送的踪迹再不可寻……", "_t")
 t("wall", "墙壁", "entity type")
