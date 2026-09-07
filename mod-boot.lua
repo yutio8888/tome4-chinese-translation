@@ -178,7 +178,7 @@ section "mod-boot/data/general/npcs/skeleton.lua"
 
 t("undead", "亡灵", "entity type")
 t("skeleton", "骷髅", "entity subtype")
-t("degenerated skeleton warrior", "腐化骷髅战士", "entity name")
+t("degenerated skeleton warrior", "退化骷髅战士", "entity name")
 t("skeleton warrior", "骷髅战士", "entity name")
 t("skeleton mage", "骷髅法师", "entity name")
 t("armoured skeleton warrior", "装甲骷髅战士", "entity name")

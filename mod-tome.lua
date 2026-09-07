@@ -8729,7 +8729,7 @@ section "mod-tome/data/general/npcs/skeleton.lua"
 
 t("undead", "亡灵", "entity type")
 t("skeleton", "骷髅", "entity subtype")
-t("degenerated skeleton warrior", "腐化骷髅战士", "entity name")
+t("degenerated skeleton warrior", "退化骷髅战士", "entity name")
 t("A haphazard collection of crumbling bones, with jerky movements that remind you of a child playing with a marionette.  It only has one arm, but that's all it needs to hold a sword.", "这具仿佛是死灵法师随意收集而成的，摇摇欲坠的骨骸，生涩地从你的眼前走过，仿佛孩童手中玩弄的木偶。虽然它只有一条手臂，不过反正这对于拿一把剑也够了，对吧。", "_t")
 t("degenerated skeleton archer", "腐化骷髅弓箭手", "entity name")
 t("A frail skeleton; just about the only bones that aren't cracked are its arms.  It's missing a hand, but a notch has been carved into its wrist to let it pull back a bowstring regardless.", "这具破烂不堪的骨架只有一根骨头是好的：它手持长弓的手臂。尽管它缺少了一只手，不过残缺的骨骼上雕刻的凹槽刚好可以卡住弓弦拉弓上箭。", "_t")
