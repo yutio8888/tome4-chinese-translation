@@ -3,10 +3,14 @@
 
 用法：python3 -B tools/orchestration/freeze_workset.py <batch_id>
 前置：存在 active checkpoint；环境变量 TOME_ENGINE_ROOT、TOME_DLC_ROOT 已设置。
-覆盖三类源码归属形态，任一未命中即报 MISS 并须人工归因（不得放行）：
+覆盖四类源码归属形态，任一未命中即报 MISS 并须人工归因（不得放行）：
   1. 直接字面量（含 \n/\t 转义变体与多行回退）
   2. 宿主生成键 host_generated_key_verification（DLC birth facial category）
   3. interface 混入归属 interface_mixin_verification（extractor 把 interface 字面量记到引入方）
+  4. `.always_merge` 跨模块键 always_merge_locale_verification（上游 zh_hans locale 定义的
+     跨模块专名/术语；catalog 记 normalized_path=engine.lua、section=".always_merge"）
+另注：engine.lua 的 section 也可能是 DLC 路径（如 tome-cults/...），此时按 section 前缀
+解析到 DLC 根，而不是按 normalized_path。
 详见 docs/baseline-batch-runbook-2026-09-06.md。
 """
 import json, hashlib, os, re, subprocess, sys
@@ -41,9 +45,20 @@ def unescape_variants(s):
         out.append(simple)
     return out
 
+ALWAYS_MERGE_LOCALE = 'game/engines/default/data/locales/engine/zh_hans.lua'
+
 def resolve(snap):
     npath = snap['normalized_path']
     section = snap['section']
+    # `.always_merge` 是上游 zh_hans locale 定义的跨模块键集合，没有单一代码字面量归属
+    if section == '.always_merge':
+        return 'engine', ALWAYS_MERGE_LOCALE, ENGINE_ROOT / ALWAYS_MERGE_LOCALE, True
+    # section 可能跨组件（engine.lua 的 catalog 里出现 tome-cults/... 的 section）
+    for lua, (comp, dlc) in DLC_MAP.items():
+        prefix = f'tome-{dlc}/'
+        if section.startswith(prefix):
+            rel = section[len(prefix):]
+            return comp, section, DLC_ROOT / dlc / f'tome-{dlc}' / rel, False
     if npath in PINNED_MAP:
         comp, prefix, pubroot = PINNED_MAP[npath]
         assert section.startswith(prefix), (npath, section)
@@ -140,6 +155,21 @@ def main():
                             'status': 'confirmed',
                         }
                         break
+        always_merge = None
+        if snap['section'] == '.always_merge':
+            # 上游 locale 以 t("<source>", ...) 定义该键；命中行即其公开定义处
+            amlines = [i for i, ln in enumerate(lines, 1)
+                       if ln.startswith(f't("{src}",')]
+            if amlines:
+                always_merge = {
+                    'algorithm': 'always-merge-locale-attribution/1',
+                    'locale_public_source_path': ALWAYS_MERGE_LOCALE,
+                    'locale_section': '.always_merge',
+                    'rule': 'cross-module proper noun/term defined by the upstream zh_hans locale always_merge section',
+                    'source_lines': amlines,
+                    'status': 'confirmed',
+                }
+                hits = amlines
         row = {
             'args_order': snap.get('risk', {}).get('args_order'),
             'component': comp,
@@ -158,6 +188,9 @@ def main():
         if mixin is not None:
             row['interface_mixin_verification'] = mixin
             row['matching_literal_lines'] = None
+            row['verification_status'] = 'confirmed'
+        if always_merge is not None:
+            row['always_merge_locale_verification'] = always_merge
             row['verification_status'] = 'confirmed'
         if hostgen is not None:
             row['host_generated_key_verification'] = hostgen
