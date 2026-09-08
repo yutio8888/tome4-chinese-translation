@@ -1032,7 +1032,7 @@ t([[Your knowledge of demonic forces grows, allowing you to bind more seeds to y
 		技能等级 5 时你能将种子与护甲结合。
 		]], "tformat")
 t("Twisted Portal", "扭曲传送", "talent name")
-t("Select a teleport location...", "选择传送位置...", "logPlayer")
+t("Select a teleport location...", "选择传送位置…", "logPlayer")
 t("The targetted phase door fizzles and works randomly!", "指定的相位之门失效，改为随机传送！", "logPlayer")
 t([[Teleports you randomly within a small range of up to %d grids with %d precision.
 		In the spot you left you will summon a random demon from your seeds for %d turns.

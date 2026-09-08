@@ -407,7 +407,7 @@ section "tome-cults/data/general/grids/fortress-multiverse.lua"
 t("entropic breach", "熵之裂口", "entity name")
 t("Entropic Wormhole Control Orb", "熵虫洞控制球", "entity name")
 t("#CRIMSON#The entropic forces are already at work. FIGHT!", "#CRIMSON#熵已经在起作用了。战斗！", "say")
-t("#CRIMSON#The entropic control orb seems unresponsive...", "#CRIMSON#熵控制球看上去不对你起反应...", "say")
+t("#CRIMSON#The entropic control orb seems unresponsive...", "#CRIMSON#熵控制球看上去不对你起反应……", "say")
 t("#PURPLE#Make sure you are connected and joined the main Tales of Maj'Eyal chat channel.", "#PURPLE#确认你连接到了网络，并加入了马基·埃亚尔聊天频道。", "log")
 
 ------------------------------------------------
@@ -1260,7 +1260,7 @@ His words made me think for a moment, but I simply got up and left. I remember h
 
 在那一刻，我意识到这个信使比我最初想象的要复杂的多了。我想知道他是不是比我想象的还要危险一点。或许有一点鲁莽，我决定去了解这个男人到底知道多少，然后我轻声问道：“你对永恒精灵有什么想法？”那个信使的立场和姿态立马就变了，随后换了一种口吻继续说：“啊，要是能让把这群可悲的笨蛋彻底从埃亚尔扫除就好了。我想，你离开森林，恐怕就是因为知道他们才是罪魁祸首，准备让他们血债血偿。我们大多数人和你一样，他们终将会为在马基埃亚尔引发魔法大爆炸的行为付出代价。”
 
-我谨慎的尽可能地用愤怒的语气问道：“你们把那个叫做魔法大爆炸？“他快速的肯定了这一说法：“是的，别人都是这样告诉我的。”这个男人看起来很愿意聊天，我等着他吐露更多的消息。“我告诉你，或许你应该和我一起去参加那个小型的朋友聚会，一起讨论这个问题。我们已经有了一个计划，我们会尽快行动，确保大自然不会再遭受和魔法大爆炸一样糟糕的事情，我相信你这个自然精灵一定能够感受到大自然的痛苦不堪。你知道么，永恒精灵他们绝对要对那个事件负责，但是并非其他种族都不知道他们那个所谓的伟大的计划。或许除了矮人，每一个种族都对魔法大爆炸有一定了解。”
+我谨慎的尽可能地用愤怒的语气问道：“你们把那个叫做魔法大爆炸？”他快速的肯定了这一说法：“是的，别人都是这样告诉我的。”这个男人看起来很愿意聊天，我等着他吐露更多的消息。“我告诉你，或许你应该和我一起去参加那个小型的朋友聚会，一起讨论这个问题。我们已经有了一个计划，我们会尽快行动，确保大自然不会再遭受和魔法大爆炸一样糟糕的事情，我相信你这个自然精灵一定能够感受到大自然的痛苦不堪。你知道么，永恒精灵他们绝对要对那个事件负责，但是并非其他种族都不知道他们那个所谓的伟大的计划。或许除了矮人，每一个种族都对魔法大爆炸有一定了解。”
 
 很显然，这个信使很可能就是永恒精灵的将军所担心的那个组织的一员。我觉得那个信使一定参与了他们所说的那个计划，不管那个计划是什么。并且，从他与之前来过的穿斗篷的人的对话的反应来看，他们进行的计划还需要保密。我本来考虑去参加他的朋友聚会，但是我又对参与他们精心设计的计划不感兴趣，而且我能嗅到一丝危险的气息。“感谢你的邀请，但是我必须拒绝。”我最终说道。听到这个回答，信使挑了下眉，然后快速回答我：“说真的，像你这样的自然精灵，难道不想抓住任何机会，对玷污自然的人进行报复吗？”
 
@@ -1362,7 +1362,7 @@ I jostled around attempting to break free of the halfling’s hold, yet somehow 
 
 信使向前迈了一步，狠狠地踢了我一下肚子，我因为这股剧痛摔倒在地。他很快又踢了我一脚，脚踩在我的脸上，鲜血向下流出。信使弯下腰来，抓起我的头发，把我拉近他的脸，把唾沫吐在我的脸上，说道：“自从你杀了那个艾德瑞尔半身人，我就更想念你了。我想你可能是大自然的盟友，但事实并非如此，对吧？你到了那些永恒精灵那里，进入了他们为躲避我们而竖起的那堵魔法烟墙。你本可以对他们释放自然的愤怒，但你没有贯彻自然的愤怒，而是背弃了它，你站在了那些导致了魔法大爆炸的人一边！”
 
-我哭着，抽泣着，眼泪和从我脸上流出的血混在一起。我抽泣着说：“他们已经感觉到了足够的痛苦，没有必要对它们施加更多的痛苦了。”然后，我的头突然被信使砸在地上。他喊道：“菲，再多的痛苦也弥补不了他们所做的一切！永恒精灵中的每一个人都应该死。就像我们烧死的人一样，痛苦地死去——”使者继续咆哮，但听到我的名字，我停下来思考，忽略了他要说的其他话。他怎么知道我的名字？我从来没有告诉过他，也没有告诉过纳格尔王国的任何人，甚至没有告诉过永恒精灵中的任何人。”你怎么知道我的名字？”我对信使说。
+我哭着，抽泣着，眼泪和从我脸上流出的血混在一起。我抽泣着说：“他们已经感觉到了足够的痛苦，没有必要对它们施加更多的痛苦了。”然后，我的头突然被信使砸在地上。他喊道：“菲，再多的痛苦也弥补不了他们所做的一切！永恒精灵中的每一个人都应该死。就像我们烧死的人一样，痛苦地死去——”使者继续咆哮，但听到我的名字，我停下来思考，忽略了他要说的其他话。他怎么知道我的名字？我从来没有告诉过他，也没有告诉过纳格尔王国的任何人，甚至没有告诉过永恒精灵中的任何人。“你怎么知道我的名字？”我对信使说。
 
 信使低头看了我一眼，然后回答说：“你是什么意思，菲，你以前告诉过我你的名字，在，在——”信使突然停止说话，他的面部表情消失了，留下了一个面目全非的人形。我不知道发生了什么，但我知道这是个骗子。我能感觉到内心的愤怒，我用手抓住我刚才对话的人。他挣扎着抱住我，试图把我压下去，但由于离地较近，我设法把他拉了下来。我用另一只手往回拉，开始打他的头，直到他消失了。
 
@@ -1394,7 +1394,7 @@ With this the halfling turned to leave the tent. The anger within me had not sub
 
 在半身人还没有来得及回应之前，人类开始对半身人大吼道：“你不是真的想饶了她吗？她是和永恒精灵一伙的，是和魔法一伙的！”，人类的语气变得越来越情绪化，“你是否忘记了我们的使命，忘记了我们要做的事情。这个自然精灵已经背叛了大自然！她必须被…”人类突然停止了说话，只见半身人举起一只手示意停下，用比我对这么小个儿的人所期望的更深沉的语调，平静地回答说：“够了。”人类一下子退缩了，虽然他戴着面具，但我能感觉到他身体语言的不信任和沮丧。
 
-半身人放下手，最后做出解释，说：“我们的任务是铲除邪恶的奥术使用者，并确保不再因为魔法的失败引发悲剧。”半身人深吸一口气，然后继续说，“这个自然精灵不是施法者——”人类突然打断了半身人的说话，愤怒地喊道，“那又怎样！？她和永恒精灵有联系！那些引起魔法大——“半身人再一次举起手来，人类再一次停止说话。四周一片寂静，半身人放下了手，我慢慢感觉到了对我的压力稍稍放松了一些。在紧张的气氛中，人类终于厌恶地转过身去，然后走向帐篷的入口。
+半身人放下手，最后做出解释，说：“我们的任务是铲除邪恶的奥术使用者，并确保不再因为魔法的失败引发悲剧。”半身人深吸一口气，然后继续说，“这个自然精灵不是施法者——”人类突然打断了半身人的说话，愤怒地喊道，“那又怎样！？她和永恒精灵有联系！那些引起魔法大——”半身人再一次举起手来，人类再一次停止说话。四周一片寂静，半身人放下了手，我慢慢感觉到了对我的压力稍稍放松了一些。在紧张的气氛中，人类终于厌恶地转过身去，然后走向帐篷的入口。
 
 在人类离开后，我能感觉到半身人从我的身上起来，走开了。我慢慢地站起来，半身人转过头看着我的方向。在我站起来后，决定问：“你到底是谁？”半身人把身子完全转向我，似乎停了一会儿才回答我：“你真的想知道吗？”当被问到这个问题之后，我了停下来。这些狂热分子对我在外面看到的令人作呕的景象负有责任。而我在帐篷里的待遇也让我充满了愤怒，但这愤怒现在似乎驱使我寻找一个解释。最后我回答半身人说：“我想知道为什么。”
 
@@ -1406,7 +1406,7 @@ With this the halfling turned to leave the tent. The anger within me had not sub
 
 半身人摆出了一个不那么敌对的姿态，回答说：“如果你指的是我们名单上的那些人，你就知道，他们都是自然的亵渎者。药水酿造师，符文师，一个专门制作魔法工艺品的铁匠，还有十几个能够施法的法师。我们非常小心地识别出各种各样的魔法使用者，他们把自然扭曲成自己的突发奇想……”半身人拖着脚步喘口气，然后继续念最后一句话。“至于我们如何杀死他们，我们需要发出一个信息，让这个城市和其他地方的市民铭记在心。也许你对它没有胃口，如果是这样的话，我建议你回到你的小森林去，自然精灵。这将不会是你可能看到的最后一次展示。”
 
-我不知道是什么让我在那一点上更生气，是半身人冷酷无情的本性，还是他对我干脆回家的建议。我只知道我脸色发青。似乎半身人注意到了这一点，并试图调整自己的姿势。为了转移我的怒气，半身人很快地说：“当然，你看起来比其他人都要更加顽固。向南岸线走，然后向东拐。“你会找到一条通向我们基地的路。”我把这些话记在脑子里，想了一会儿，然后问，“我为什么要这么做？”半身人毫不迟疑地回答道：“你想知道为什么，不是吗？如果你真的想知道我们是谁，就去和我们的导师谈谈。”
+我不知道是什么让我在那一点上更生气，是半身人冷酷无情的本性，还是他对我干脆回家的建议。我只知道我脸色发青。似乎半身人注意到了这一点，并试图调整自己的姿势。为了转移我的怒气，半身人很快地说：“当然，你看起来比其他人都要更加顽固。向南岸线走，然后向东拐。你会找到一条通向我们基地的路。”我把这些话记在脑子里，想了一会儿，然后问，“我为什么要这么做？”半身人毫不迟疑地回答道：“你想知道为什么，不是吗？如果你真的想知道我们是谁，就去和我们的导师谈谈。”
 
 说完，半身人转身离开帐篷。我内心的愤怒并没有平息太多，但我没有进一步尝试去面对那个半身人。我遍体鳞伤，倒在地上休息了一会儿。我拿出一只市场上买的纹身，开始治疗伤口。当感觉到自己的身体状况好了一些时，我又站起来离开了帐篷。抬头一看，我看到了夜晚的天空，决定在纳格尔王国再住一晚。我回到旅店，在那里我直睡到第二天。当我离开时，我直奔城门出去。在那里，我考虑了一下下一步的目的地，最后决定向南走。]], "_t")
 t("Escapades of Fay Willows [Book 3, Chapter 1] - Blackened Shoreline", "菲·维莉欧斯的冒险 [第3卷，第1章] - 黑暗的海岸", "_t")
@@ -1442,7 +1442,7 @@ At this point tears began to stream down the ogres face. Continuing to speak bet
 
 “你和那些狂热份子不是一伙的，对吗？我为我们可能给你带来的任何痛苦表示歉意。”听到他们的话，我摇了摇头，然后问他们是谁，发生了什么事。“看来你以前从没见过食人魔？我们是，或者说我们曾经是一个游牧部落，作为小贩在这片土地上游荡。我们主要卖符文和纹身，但我们也卖其他各种小饰品。突然间，魔法从天而降，大地裂开，摧毁了一切，杀死了许多人。我们立即前去帮助附近一个人类城市的人们。”
 
-这时，泪水开始顺着食人魔的脸流下来。食人魔继续啜泣着说，“我不知道为什么，但是一只小队袭击了我们。”这时食人魔开始哭到说不出话来，另一个食人魔继续说，“我们被他们用铁链拷住，被带到了一个小定居点，就在这条路的另一边。在那里，他们在我们的身上进行了疯狂的实验，他们声称这是要“净化我们”。我们目睹了很多食人魔以怪异和可怕的方式死去。意识到我们会遇到类似的命运，我们挣脱了束缚，从笼子里逃了出来。“食人魔停了一会儿，看着我身后那片被毁坏的土地，然后说，“尽管，我们也不知道我们还能跑到哪里去。”]], "_t")
+这时，泪水开始顺着食人魔的脸流下来。食人魔继续啜泣着说，“我不知道为什么，但是一只小队袭击了我们。”这时食人魔开始哭到说不出话来，另一个食人魔继续说，“我们被他们用铁链拷住，被带到了一个小定居点，就在这条路的另一边。在那里，他们在我们的身上进行了疯狂的实验，他们声称这是要‘净化我们’。我们目睹了很多食人魔以怪异和可怕的方式死去。意识到我们会遇到类似的命运，我们挣脱了束缚，从笼子里逃了出来。”食人魔停了一会儿，看着我身后那片被毁坏的土地，然后说，“尽管，我们也不知道我们还能跑到哪里去。”]], "_t")
 t("Escapades of Fay Willows [Book 3, Chapter 2] - The Fleeing Ogres", "菲·维莉欧斯的冒险 [第3卷，第2章] - 逃跑的食人魔", "_t")
 t([[[i]There is so little that is known of the ogres, and seemingly they know little of themselves either. This may have to do with my seclusion from the outside world, but I wonder if this race only recently came to Maj'Eyal? Viewing the Shaloren archives there is little mention of the ogres, and I don't believe even among the Thaloren we know much of them either. I wonder where the ogres truly come from?[/i]
 
@@ -1722,7 +1722,7 @@ I can't say I remembered much of what happened either, I couldn't even remember 
 
 Eventually when I woke up, and after the healers had checked me over, I was told to wait as someone wished to visit me. After a period of time I was greeted by the enchantress once more. "I see you are doing alright, you’re certainly quite tough thalore. Don't worry about the ogres, Aranion has granted them the asylum here as requested." She spoke proudly though I could sense a hint of disappointment in her voice. "Now then, I realize you have only woken up, but Aranion wants me to get the story from you as to what transpired after you had left for the Nargol Kingdom to the point when you came back to Elvala. Perhaps as well you might shed some light on why exactly it took you so long to heal as well?"  ]], [[[i]鲁莽的女巫阿尔雷温·泰尔。也是我见过的最不会聊天的人，在我所认识的所有永恒精灵中，没有人比她更自负。不过，我尊重她的正义感以及她在奥术力量方面的天赋。如果我请求食人魔进入时她不在场，没有人知道他们的命运会怎样。[/i]
 
-一路上，年轻的法师向我提出了各种各样的问题，这些问题与我的旅行以及我所目睹或参与的事件有关。不过，在她提出的这些问题中，那些涉及对食人魔进行治疗的问题在我脑海中最为突出。”所以食人魔，我听说了一些关于他们的事。虽然他们从未真正到过埃尔瓦拉，但我听说过他们的利他主义和英雄事迹。但是，从你告诉我的那些疯狂的疯子看来，他们不直接杀死食人魔这一点似乎很奇怪。我的意思是，他们显然已经将自己的身体和奥术符文结合在一起了，没有什么理由阻止那些讨厌魔法的人在各处屠杀他们。你认为他们为什么会活着？”
+一路上，年轻的法师向我提出了各种各样的问题，这些问题与我的旅行以及我所目睹或参与的事件有关。不过，在她提出的这些问题中，那些涉及对食人魔进行治疗的问题在我脑海中最为突出。“所以食人魔，我听说了一些关于他们的事。虽然他们从未真正到过埃尔瓦拉，但我听说过他们的利他主义和英雄事迹。但是，从你告诉我的那些疯狂的疯子看来，他们不直接杀死食人魔这一点似乎很奇怪。我的意思是，他们显然已经将自己的身体和奥术符文结合在一起了，没有什么理由阻止那些讨厌魔法的人在各处屠杀他们。你认为他们为什么会活着？”
 
 我冷冷地回答这个问题，“我不知道原因，也不在乎。不管怎样，你想从他们疯狂的行为中辨别出什么意义？”年轻的永恒精灵笑着说：“也许你是对的，但这些‘邪教徒’在你面前表现如此疯狂，并不意味着他们漫无目的地追求自己的教义。他们在未来肯定是我们的敌人，但希望在真正遇到他们之前，我们至少能知道他们的动机。如果我们能够理解他们的行动方式，就能理解他们将采取什么行动，也就能够因此制定计划来对抗他们的计划。”
 
@@ -1762,7 +1762,7 @@ Eventually as I recovered enough to move around a bit I was finally released fro
 
 “所以，这基本上可以断定，艾伦尼恩派我来这里是为了什么，”她开始继续说，“然而，治疗师也希望我问你几个关于你身体的问题。我不确定他们是否告知了你这件事，但你已经在这张病床上躺了几个月了，尽管几周后你应该会痊愈。你可能没有知道这是为什么？”我很快就想，也许在那烧焦的战场上发生的事情，与我身体恢复缓慢有关，因为我终于开始意识到我当时有点不对劲。然而，我对于谈论那件事情实在并不那么感兴趣，也不想记得发生了什么。
 
-“我不知道为什么会这样。”我转过头去看那个女巫，回答说。尽管我看不见那个永恒精灵的脸，但我可以立刻看出她立刻看穿了我的想法。“看来，你一定知道些什么。”她高兴地回答。我注意到她眼里流露出满足的光芒，厌恶地瞥了她一眼，尽管我不知道她在满足于什么。“从你的反应来看，我也在猜测这可能与你最近的打斗经历有关，“我忍不住把眼睛移开，却意识到这只不过是在告诉她，她对我反应的解读是多么精确。她对此咯咯地笑，这只让我恼火，希望她离我更远些。
+“我不知道为什么会这样。”我转过头去看那个女巫，回答说。尽管我看不见那个永恒精灵的脸，但我可以立刻看出她立刻看穿了我的想法。“看来，你一定知道些什么。”她高兴地回答。我注意到她眼里流露出满足的光芒，厌恶地瞥了她一眼，尽管我不知道她在满足于什么。“从你的反应来看，我也在猜测这可能与你最近的打斗经历有关，”我忍不住把眼睛移开，却意识到这只不过是在告诉她，她对我反应的解读是多么精确。她对此咯咯地笑，这只让我恼火，希望她离我更远些。
 
 “我和那些食人魔聊了很久，谈到你是如何把他们带到埃尔瓦拉的，没有你的帮助，他们很可能无法在与追捕者的战斗中幸存下来。然而，我们说得越多，就越清楚出了问题。奇怪的是，没有一个食人魔谈论你在那场战斗是怎样战斗的，尽管你对于赢得那场战斗显然至关重要。据我所知，你身边也有很多食人魔。你怎么能在食人魔面前这么重要？我从游侠那里听说，你自己对付了几只狼，但武装的战士显然比一些饥饿的动物强大很多，而且你看起来也没什么战斗经验。”
 
@@ -2040,7 +2040,7 @@ Continuing around me to stand in front before circling around to my right, necro
 
 The necromancer continued to talk aloud for several moments as he circled around me again and again, which was fine by me. I could feel the arcane energy replenishing within my heat beam rune, and when I had the chance I would activate it and release myself from my icy imprisonment. Perhaps aware of my intent though the necromancer quickly glanced at my eyes before stating, "You are quite an oddity aren't you? However, you aren't much the conversationalist so there is little reason for me to keep you alive. I can easily study your corpse instead of leaving you alive you see." I could sense the magic beginning to accumulate in one of the necromancer's hands as he concluded by saying, "Farewell thalore." ]], [[[i]我遇到的死灵法师，除了完全邪恶之外，实在没有别的办法来形容。有人可能会认为我在早前的书中写的那些讨厌魔法的狂热分子是邪恶的，但即使是从他们身上，我也能感觉到他们试图带来一个更美好的世界，尽管他们的行为可能是过于扭曲的。不过，在这个不死之魔那里，我感觉不到任何善意，他所采取的行动似乎只是为了个人娱乐。从我能从魔法中感受到的情绪来看，我认为死灵法术只会被完全邪恶之人使用。[/i]
 
-当我击倒这个骨巨人时，我又听到了死灵法师的鼓掌声。”很好，做得很好，挺好看的。“你的骨头真的值得加在我的杖上，”死灵法师用阴险的语气说。我把头转向死灵法师，大胆地说：“要杀死我，你的骨巨人还远远不够。”死灵法师似乎陷入了对我的陈述的思考中，回答道：“嗯，骨巨人，这个名字很不错。是的，我想这个名字很不错。当然，你好像误解了什么。你所说的骨巨人还没完全死，”听到这些话，我还没来得及反应，就感觉到一记重击从侧面打中了我。
+当我击倒这个骨巨人时，我又听到了死灵法师的鼓掌声。“很好，做得很好，挺好看的。你的骨头真的值得加在我的杖上，”死灵法师用阴险的语气说。我把头转向死灵法师，大胆地说：“要杀死我，你的骨巨人还远远不够。”死灵法师似乎陷入了对我的陈述的思考中，回答道：“嗯，骨巨人，这个名字很不错。是的，我想这个名字很不错。当然，你好像误解了什么。你所说的骨巨人还没完全死，”听到这些话，我还没来得及反应，就感觉到一记重击从侧面打中了我。
 
 我猛地一眨眼睛，立刻意识到这个骨巨人并没有被打败，它走上前来站在我和死灵法师之间。更重要的是，它似乎已经重新组合成一个新的恐怖形态，准备好战斗。战斗又开始了，当骨巨人接近攻击我时，我可以听到背景中死灵法师的声音：“你所说的这些骨巨人是很了不起的，不是吗。我从纳格尔人那里得到灵感，这是他们在厄流战争中对抗孔克雷夫时使用的武器。你看，很少有人知道这一点，但纳格尔人实际上利用死灵法术最终赢得了与孔克雷夫的战斗。”
 
@@ -2985,7 +2985,7 @@ t([[Fire a beam of energy that rakes across the ground, dealing %0.2f darkness d
 		该法术会对你产生熵能反冲，在 8 回合内造成 %d 伤害。此伤害对熵之礼物而言视为熵。
 		伤害受法术强度加成。]], "tformat")
 t("Spatial Distortion", "空间扭曲", "talent name")
-t("Select a teleport location...", "选择传送位置...", "logPlayer")
+t("Select a teleport location...", "选择传送位置…", "logPlayer")
 t("The spell fizzles on %s!", "法术在 %s 上失败了！", "logSeen")
 t("#CRIMSON#%s is swallowed by a portal!", "#CRIMSON#%s被传送门吞噬！", "logSeen")
 t("%s resists the warp!", "%s抵抗了传送！", "logSeen")
@@ -3298,7 +3298,7 @@ t("void monolith", "虚无巨石", "_t")
 t("This bizarre oblong shape floats in the air, defying gravity. Its form seems to subtly shift, and you feel an intense desire to move towards it.", "这个奇异的长方体无视重力漂浮在空气中。它的形态似乎正在微妙地转换着，你感受到向着它走去的强烈愿望。", "_t")
 t("Summon", "召唤", "_t")
 t([[Consuming a void star, you use it to summon a void monolith at the targeted location for %d turns. The monolith is very durable, and while immobile it will attempt to daze enemies within radius %d for 2 turns every half a turn using your spellpower.
-			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合对 %d 码范围内敌人施加眩晕2回合 ( 基于本体法术强度 ).
+			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合对 %d 码范围内敌人施加眩晕2回合 ( 基于本体法术强度 )。
 			基于你的魔法属性，巨石获得 %d 生命成长和 %d%% 全体抗性。]], "tformat")
 t("Essence Reave", "精华收割", "talent name")
 t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空之星！", "logSeen")
@@ -3372,7 +3372,7 @@ t("Self-destruction", "自爆", "talent name")
 t("Self destruct in a glorious explosion of gore dealing %0.2f blight damage to all enemies in %d radius.  Your summoner must be dead to use this talent.", "自爆成一团光荣的血肉，对半径 %d 格范围内的所有敌人造成 %0.2f 枯萎伤害。这个技能只有主人死亡时能够使用。", "tformat", {2,1})
 t("Teleport: Kroshkkur", "传送：克诺什库尔", "talent name")
 t("#CRIMSON#Kroshkkur is destroyed, there is nothing to teleport to.", "#CRIMSON#克诺什库尔被摧毁了，无法传送到那里。", "logPlayer")
-t("The spell fizzles...", "法术失败了...", "logPlayer")
+t("The spell fizzles...", "法术失败了……", "logPlayer")
 t("There are creatures that could be watching you; you cannot take the risk.", "有生物可以看见你，你不能冒这个险。", "log")
 t([[Allows to teleport to Kroshkkur.
 	You have studied the forbidden secrets there and have been granted a special portal spell to teleport back.
@@ -4619,21 +4619,21 @@ Regardless of the subject or method of research, no rules exist to constrain any
 But today the sanctuary is threatened by a giant worm that is tunneling directly towards Kroshkkur. If nothing is done it will collide with and destroy what remains of the ancient fortress. One idea to dealing with the worm is for someone to teleport inside it and make there way towards the worms brain cluster and destroy it. Alternatively, you consider leaving before the worm arrives and finding your own purpose in the outside world.
 
 As with all things here, nothing restrains you in what path you #{bold}#ultimately choose#{normal}#. The question is whether you step into the #{bold}#portal to teleport into the worm#{normal}# or leave now while it is safe to do so and let #{bold}#Kroshkkur be destroyed#{normal}#.
-]], [[欢迎 #LIGHT_GREEN#@name@#WHITE#.
+]], [[欢迎 #LIGHT_GREEN#@name@#WHITE#。
 你是一群钻研那些丢失遗忘已久的知识的志同道合者之一。在这个对这些知识并不友好的世界，你们找到了一个避难所。在被遗忘的废弃堡垒克诺什库尔，你们基于自己的理由追寻禁忌的知识。有些人希望解开过去的阴影，了解到有关无比强大的古代生物在埃亚尔行走的混沌纪的过去，而有些人则孜孜探索自己和其他种族的起源。
 
 在这里，没有任何规则限制任何人，不管你研究的主题和方法是什么。这导致了对许多地表人视为疯狂且被禁止之事的实验，而你们的研究内容也被普通人的社会所禁止。如果克诺什库尔被发现，它一定会被摧毁。因此，在避难所的唯一规则就是必须对在里面学到的知识进行严格的保密和保护。
 
 然而今天，避难所却面临着一条直接冲向克诺什库尔的巨型蠕虫的威胁。如果再不迅速做出决断，它将会直接撞向并摧毁古代堡垒的残骸。有一个击败蠕虫的办法，那就是将某一个人传送到蠕虫体内，让他前往蠕虫的脑簇所在之处，将其摧毁。或者，你也可以考虑在蠕虫到来之前离开，在外面的世界找到你自己的目的。
 
-就像这里的一切一样，没有人会干涉#{bold}#你自己的选择#{normal}#. 你可以现在#{bold}#踏入通向巨型蠕虫体内的传送门#{normal}#或者就这样离开#{bold}#任由克诺什库尔被巨型蠕虫摧毁#{normal}#。
+就像这里的一切一样，没有人会干涉#{bold}#你自己的选择#{normal}#。你可以现在#{bold}#踏入通向巨型蠕虫体内的传送门#{normal}#或者就这样离开#{bold}#任由克诺什库尔被巨型蠕虫摧毁#{normal}#。
 ]], "_t")
 
 ------------------------------------------------
 section "tome-cults/overload/data/texts/intro-krog.lua"
 
 t("Welcome to Tales of Maj'Eyal - #CRIMSON#Forbidden Cults", "欢迎来到马基·埃亚尔的传说 - #CRIMSON#禁忌邪教", "_t")
-t("Welcome #LIGHT_GREEN#@name@#WHITE#.\n\nYou are a Krog, a former ogre stripped of its runes by the Ziguranth. Ogres cannot live without runes, yet you a Krog have been kept alive by the powers of nature coursing through your body. \n\nAll Krogs are infused with anti-magic forces as a result of the changes made to their bodies by the Ziguranth. While much of Maj'Eyal shuns the arcane, there is still those who practice it, and you would like nothing more then to eradicate them from the world.\n\nYou have come to an old ruin named Kor'Pul on a mission to eliminate the foulest of arcane creations: undeads.\n", [[欢迎 #LIGHT_GREEN#@name@#WHITE#.
+t("Welcome #LIGHT_GREEN#@name@#WHITE#.\n\nYou are a Krog, a former ogre stripped of its runes by the Ziguranth. Ogres cannot live without runes, yet you a Krog have been kept alive by the powers of nature coursing through your body. \n\nAll Krogs are infused with anti-magic forces as a result of the changes made to their bodies by the Ziguranth. While much of Maj'Eyal shuns the arcane, there is still those who practice it, and you would like nothing more then to eradicate them from the world.\n\nYou have come to an old ruin named Kor'Pul on a mission to eliminate the foulest of arcane creations: undeads.\n", [[欢迎 #LIGHT_GREEN#@name@#WHITE#。
 
 你是一个克罗格。你曾经是一个食人魔，然而你的符文被伊格兰斯取下了。食人魔失去了符文会无法存活，而你这样克罗格却可以通过你身体内的自然力量存活。
 作为上面条件的附加作用，克罗格的身体被伊格兰斯的反魔法力量所灌注。虽然大部分马基埃亚尔人都远离奥术魔法，但仍然有一些人在实践奥术魔法，而你的目标就是从世界上消灭他们。

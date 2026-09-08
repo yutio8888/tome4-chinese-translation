@@ -31,7 +31,7 @@ t("Radiant Horrorc", "光明克星", "achievement name")
 t("While fighting in a Sunwall zone, use a Fiery Salve to reach at least 66% affinity for Fire and Light. Pointing and laughing is optional.", "在晨曦之门的区域内战斗时，开启烈火药剂，并获得至少 66% 火焰和光明吸收。指指点点和嘲笑，随你便。", "_t")
 t("Blood on the Moon", "月上血痕", "achievement name")
 t("Kill all of the Star Gazers within 7 game turns.", "7个游戏回合内击杀所有观星者。", "_t")
-t("Once Upon A Time, In the West...", "很久很久以前，在西方...", "achievement name")
+t("Once Upon A Time, In the West...", "很久很久以前，在西方……", "achievement name")
 t("Hear the Eidolon's retelling of the Scourge from the West's journey.", "听艾德隆讲述西方天灾的旅程。", "_t")
 t("A Fistful of Gold", "一大堆金币", "achievement name")
 t("Buy an item from an AAA.", "从 AAA 买东西。", "_t")
@@ -304,7 +304,7 @@ t([[The machine gives you a small metallic box labelled as #{italic}#"Automated 
 It seems to be used to break down metallic items into lumps of metal and infusions into herbs which are used to craft tinkers.
 
 #{bold}#You will have to choose to use it or the Transmogrification Chest when you destroy items. You can choose the default one by using it with no items to destroy.#{normal}#
-]], [[机械交给你一个小金属盒，上面写着 #{italic}#"便携式自动提取仪"#{normal}#.
+]], [[机械交给你一个小金属盒，上面写着 #{italic}#"便携式自动提取仪"#{normal}#。
 它似乎能将金属物品转化为铁块，将纹身转化为植物。
 
 #{bold}#你可以选择使用它或者转化之盒。在里面没有物品时使用它则设置为默认使用。#{normal}#
@@ -317,7 +317,7 @@ section "tome-orcs/data/chats/destructicus-lead.lua"
 t([[#LIGHT_GREEN#*Several loyal Orcs are eagerly waiting outside the palace to meet you; one steps forward, handing you a set of keys.  The word 'DESTRUCTICUS' is etched into one.*#WHITE#
 Chief @playername@!  The Giants are fleeing, and we intercepted a scout carrying this!  We believe they can be used with...  well, you should see for yourself!  Please, come with us to the mountains just south of Kruk Pride!
 #LIGHT_GREEN#*This sounds important.  You should probably head there right away!*#WHITE#]], [[#LIGHT_GREEN#*数名忠诚的兽人在宫殿外焦急地等待着你；其中一名兽人走上前，交给你一串钥匙，上面写着'毁灭号'。*#WHITE#
-@playername@首领！巨人们在逃跑，我们抓住了一名侦查兵，他身上带着这个！我们认为它是用于... 算了，您应该亲自来看看！请跟我们来克鲁克部落南边的山脉！
+@playername@首领！巨人们在逃跑，我们抓住了一名侦查兵，他身上带着这个！我们认为它是用于……算了，您应该亲自来看看！请跟我们来克鲁克部落南边的山脉！
 #LIGHT_GREEN#*这听起来非常重要，你应该马上过去*#WHITE#]], "_t")
 t("Lead the way.", "带路吧。", "_t")
 
@@ -412,7 +412,7 @@ t([[#LIGHT_GREEN#*The malevolent energies around you condensate into the ring, a
 The ring is now much more powerful.*#WHITE#
 Aeryn... my love...]], [[#LIGHT_GREEN#*你周围的邪恶能量凝聚到戒指中，吸收了约翰的剩余力量。
 戒指变得更加强大了。*#WHITE#
-艾琳... 我的爱人...]], "_t")
+艾琳……我的爱人……]], "_t")
 t("#LIGHT_GREEN#[done]#WHITE#", "#LIGHT_GREEN#[完成]#WHITE#", "_t")
 t([[#LIGHT_GREEN#*The malevolent energies around you condense into the ring, binding John to it forever.
 The ring is now able to summon him for a few turns at will.*#WHITE#
@@ -461,7 +461,7 @@ t([[#LIGHT_GREEN#*A well-dressed giant stands in front of you, covered in expens
 Ah, welcome, @playername@! #LIGHT_GREEN#*he yells in a voice loud enough to catch the attention of all in the shop, as he lifts his head to look around.*#WHITE# Yes, you heard me right, @playername@! The very same one who's been running rampant through the Vaporous Emporium is coming to ME for armaments! I don't think I could've asked for a stronger endorsement! #LIGHT_GREEN#*He looks back down to you, leaning over the counter to point out a glass display case loaded with exotic weaponry and armor.*#WHITE#
 Well, I'm not one to turn down anyone with gold, and seeing as you've already made me rich, I'll even give you a discount, down to my pre-attack prices. #LIGHT_GREEN#*He leans in uncomfortably close, staring you in the eyes.* #WHITE#Or, if you came to do here what you did in the Emporium... #LIGHT_GREEN#*He directs his glare toward the multiple well-armed guards staring at you and standing still on the sides of the room.*#WHITE# I'm sure my #{italic}#emergency safety measures#{normal}# would just #{italic}#love#{normal}# an opportunity to try out their shiny new toys.]], [[#LIGHT_GREEN#*一名衣着讲究的巨人站在你面前，戴满昂贵的珠宝；从他松垮的项链扣上看，你猜测他是最近才拿到的。他微笑着从柜台往下看，注视着你。*#WHITE#
 哦，欢迎，@playername@! #LIGHT_GREEN#*他的声音大的让店里所有人都听见，同时他抬起头张望四周。*#WHITE# 是的，听见了么，@playername@！就是那个在蒸汽商场猖獗无比的家伙，他到我这来买装备了！我认为不会有比这更好的宣传了！#LIGHT_GREEN#*他转过头看你，指出一个玻璃展台，那上面装满异种武器和护甲。*#WHITE#
-好吧，我不会拒绝任何带着钱过来的人，同时你也已经让我富裕不少了。我甚至还能给你打个折，降到进攻前的价格。#LIGHT_GREEN#*他靠得过近，让你感觉不太舒服。他直视着你的眼睛。*#WHITE#或者，你也可以试试你在蒸汽商店里干的事情...
+好吧，我不会拒绝任何带着钱过来的人，同时你也已经让我富裕不少了。我甚至还能给你打个折，降到进攻前的价格。#LIGHT_GREEN#*他靠得过近，让你感觉不太舒服。他直视着你的眼睛。*#WHITE#或者，你也可以试试你在蒸汽商店里干的事情……
 #LIGHT_GREEN#*他指向周围和房间里那些装备良好的警卫。*#WHITE#
 我相信我的#{italic}#紧急安全保卫#{normal}#一定#{italic}#爱死了#{normal}#每一个尝试新玩具的机会。]], "_t")
 t([[Welcome back, @playername@!  You see this, customers?  This fearsome, savage master of battle was so impressed by my products that he came back for more!
@@ -473,7 +473,7 @@ So, what'll it be?]], [[欢迎回来，@playername@! 来看看这个，顾客们
 那么，你要做什么呢？]], "_t")
 t([[#LIGHT_GREEN#*Kaltor is busy packing some of his goods away in crates; he hands one to a worker, carrying it out the back door, before turning to you.*#WHITE#
 	Make it quick, @playername@. Not to be rude, but there's a private airship out there with my name on it, and I'd rather have a bird's-eye view of what you're about to do than a front-row seat.]], [[#LIGHT_GREEN#*卡托尔忙着打包货物；他将箱子递给一个工人带到后门，然后转过头和你说话。*#WHITE#
-	快点吧，@playername@. 不是我粗鲁，但现在有一艘我的飞船在外面，我更想站在上面鸟瞰你要做的事情，而不是坐在椅子上。]], "_t")
+	快点吧，@playername@。不是我粗鲁，但现在有一艘我的飞船在外面，我更想站在上面鸟瞰你要做的事情，而不是坐在椅子上。]], "_t")
 t([[#LIGHT_GREEN#*He frowns in mock disappointment, as he presses a button on his stylish coat; it hisses, and you hear motors whirring*#WHITE#
 Oh, what a pity.  Guards?  Ten thousand gold to whoever gets the killing blow.  Store credit, of course.]], [[#LIGHT_GREEN#*他假装失望地皱起眉头，按下外套上的按钮。它发出嘶嘶声，你听见引擎的轰鸣。*#WHITE#
 真遗憾。警卫？谁杀了他，就有一万金的赏钱。当然，记在商店账上。]], "_t")
@@ -505,7 +505,7 @@ t("Your clan is free Metash, the tyrant is no more.", "梅塔什，你的氏族�
 t("Not now.", "暂时不用。", "_t")
 t("Soft-foot of the Kruk, I come to give you a warning, an apology, and a plea for help.  An incredible magical force has awakened within one of our elders, Nektosh the One-Horned, and he has gone mad with its power.  Those who stood up against him were reduced to less than ashes by a beam from his horn, a beam that tunneled far up through the rock above him until we could see the sky.  He has convinced some of us that he can use this terrible force to conquer Eyal and terrified others into going along with him; he has announced that his first step will be to lead his followers in an attack on Kruk Pride.", "克鲁克部落的软蹄者，我来到这里，是为了给你警告和道歉，并请求你的帮助。我们的长老-独角者纳克托什，他的身上觉醒了一种强大的魔法力量，而他不能承受这股力量，逐渐疯狂。所有阻挡他的人，都在他的独角射线下化为灰烬。他的射线射程极长，能穿过岩石，直至天际。他让我们中某些人相信，他能用这股强大力量征服埃亚尔世界，同时他恐吓其他族人和他一起。他宣布，他的第一步行动将是带着追随者们攻击克鲁克部落。", "_t")
 t("[listen]", "[听他说话]", "_t")
-t("The rest of us have fled, hiding in caverns across the peninsula...  I cannot in good conscience ask you to face certain death before his magic for our sakes, but striking first may be the only way to save your people.  He appears to be stalling the invasion, buying you some time, but if you cannot catch him off-guard before he finally commits to it...  I've seen his power cut through a mountain like it was a leaf, soft-foot.  There can be no victory against that kind of magic.  Run, hide, and hope he falls victim to an accident or loses the remaining fragments of his sanity that keep him capable of casting spells.", "我们其他人都跑了，藏身在洞穴中... 凭良心说，我不应让你直面他的魔法，那一定会带来死亡。但只有抢先下手，才能拯救你的族民。他暂时不会进攻，为你赢得了一些时间。但如果你不能在他进攻前打他个措手不及...软蹄者，我曾经看着他的力量洞穿山脉，仿佛穿过一片树叶般轻松。算了，不可能战胜这种魔法的。跑吧，躲起来，希望他能意外身亡，或者进一步失去理智以至于不能施法吧。", "_t")
+t("The rest of us have fled, hiding in caverns across the peninsula...  I cannot in good conscience ask you to face certain death before his magic for our sakes, but striking first may be the only way to save your people.  He appears to be stalling the invasion, buying you some time, but if you cannot catch him off-guard before he finally commits to it...  I've seen his power cut through a mountain like it was a leaf, soft-foot.  There can be no victory against that kind of magic.  Run, hide, and hope he falls victim to an accident or loses the remaining fragments of his sanity that keep him capable of casting spells.", "我们其他人都跑了，藏身在洞穴中……凭良心说，我不应让你直面他的魔法，那一定会带来死亡。但只有抢先下手，才能拯救你的族民。他暂时不会进攻，为你赢得了一些时间。但如果你不能在他进攻前打他个措手不及……软蹄者，我曾经看着他的力量洞穿山脉，仿佛穿过一片树叶般轻松。算了，不可能战胜这种魔法的。跑吧，躲起来，希望他能意外身亡，或者进一步失去理智以至于不能施法吧。", "_t")
 t("I will check it out", "我要去看看", "_t")
 t("We of the Krimbul Clan have faced our near-certain deaths all too many times, even after our hearts stopped beating; this is the first time we have been shown the kindness of utter salvation by an outsider.  Those who were not enthralled by Nektosh and are not delusionally faithful to his \"cause\" will reclaim the Mana Caves in time; until then, we will join your Pride in your revolution.  You have liberated us, and we will not rest until you are freed of your oppressors as well.", "我们氏族曾无数次直面灭族危机，哪怕是在我们的心脏停止跳动之后；然而，这是第一次，我们被外人的友善所拯救。那些未被纳克托什蛊惑、也未执迷于他的“事业”的人，终将收复魔法洞穴。在此之前，我们将加入你的部落，参与你的革命。你解放了我们，在你们脱离压迫者之前，我们都不会停下脚步。", "_t")
 t("Thanks.", "多谢。", "_t")
@@ -514,7 +514,7 @@ t("Hail, @playername@!", "嘿，@playername@！", "_t")
 t("Our is free Metash, the tyrant is no more.", "我们自由了梅塔什，暴君被打败了。", "_t")
 t([[I came here to warn the Kruk Pride of the threat Nektosh poses and ask for their help, but they have some more immediate threats to deal with...  We should help them repel these Steam Giants.  They are the only people who have ever treated us with respect and dignity; if they are crushed by the Atmos Tribe or the Allied Kingdoms, we will surely be next.  Their success is our survival.
 
-Unfortunately, they cannot afford to spare the warriors to retake the Mana Caves from that tyrant, and I need to stay here to help them defend their land.  The task of freeing our clan is in your hands, when you feel ready for it.]], [[我来这里是为了警告克鲁克部落独角者纳克托什的危险，并请求他们的帮助。但他们有更迫切的威胁需要处理...我们应该帮他们抵抗蒸汽巨人。他们是唯一以尊重和尊严对待我们的人，如果他们被气之部族或者联合王国摧毁，下一个就是我们。他们的成功就是我们的生存希望。
+Unfortunately, they cannot afford to spare the warriors to retake the Mana Caves from that tyrant, and I need to stay here to help them defend their land.  The task of freeing our clan is in your hands, when you feel ready for it.]], [[我来这里是为了警告克鲁克部落独角者纳克托什的危险，并请求他们的帮助。但他们有更迫切的威胁需要处理……我们应该帮他们抵抗蒸汽巨人。他们是唯一以尊重和尊严对待我们的人，如果他们被气之部族或者联合王国摧毁，下一个就是我们。他们的成功就是我们的生存希望。
 
 不幸的是，他们现在没有空闲的战士来帮我们从暴君手中夺回魔法洞穴。我需要留在这保护他们。解放我们氏族的任务就交给你了，做好准备去吧。]], "_t")
 t("Nektosh claims he is the invincible, omnipotent descendant of a unicorn, but I don't believe that bull for a second.  While the great magical power that suddenly awakened within him is as fearsome as it is insanity-inducing,  he has yet to use it to make a shield or teleport himself, and even with his all-powerful beam, his aim isn't always perfect...  I think he has a weakness he's trying to hide.  Fight with courage, fellow Whitehoof, and the Krimbul Clan may be free once more!", "独角者纳克托什声称他是无可战胜无所不能的独角兽后裔。但他说的每一句话我都不信。尽管他体内突然觉醒的魔法力量既强大得可怕又令人疯狂，但他还从未用它制造过护盾或传送自己；即便使用他那全能的射线，他的准头也不总是完美……我想他有个想要隐藏的弱点。勇敢战斗吧，我的白蹄伙伴，克林布尔氏族也许就能重获自由！", "_t")
@@ -522,7 +522,7 @@ t("I will!", "我会的！", "_t")
 t("I will!", "我会的！", "chat_metash")
 t([[He...  he found a wand?  And he realized it was running dry, but only after taking over the tribe?  I pity him, but I cannot forgive him for being willing to sacrifice so many Whitehooves and Orcs to escape the consequences of his brief lapse into madness...  still, as a personal request I ask that you not tell others of his last thoughts.  The Nektosh we once knew saved our tribe from the corrupted magic deep under Eyal; he deserves to, at worst, be remembered as one who tragically succumbed to its influence.
 
-Ultimately, though, the choice is yours; it is more important that he is no longer a threat.  There are some who may still cling to the false hope he gave them, but we will retake the Mana Caves from them in time.  We owe you a great debt, and now that we have no more pressing concerns, we can aid Kruk Pride in their rebellion.  Good travels, @playername@.]], [[他...  他找到了一根魔棒？然后等到他掌控了我们氏族，才发现能量快用完了？我对此感到遗憾，但我不能原谅他。为了逃避自己陷入疯狂的责任，他准备牺牲这么多重要的白蹄族人和兽人……尽管如此，我请求你不要告诉别人他的想法。纳克托什是曾经将我们从埃亚尔深处的堕落魔法中拯救出来的英雄，他至少应该被铭记为一个悲剧性地屈服于那种影响的人。
+Ultimately, though, the choice is yours; it is more important that he is no longer a threat.  There are some who may still cling to the false hope he gave them, but we will retake the Mana Caves from them in time.  We owe you a great debt, and now that we have no more pressing concerns, we can aid Kruk Pride in their rebellion.  Good travels, @playername@.]], [[他……  他找到了一根魔棒？然后等到他掌控了我们氏族，才发现能量快用完了？我对此感到遗憾，但我不能原谅他。为了逃避自己陷入疯狂的责任，他准备牺牲这么多重要的白蹄族人和兽人……尽管如此，我请求你不要告诉别人他的想法。纳克托什是曾经将我们从埃亚尔深处的堕落魔法中拯救出来的英雄，他至少应该被铭记为一个悲剧性地屈服于那种影响的人。
 
 当然，选择权在你手中；重要的是他的威胁解除了。虽然仍有人沉醉于他给予的虚假希望中，但我们马上就能夺回魔法洞穴了。我们都欠你很多。现在，我们紧迫的危机已经解除了，该是帮助克鲁克部落的时候了。祝你好运，@playername@。]], "_t")
 t("To you too, Metash.", "也祝你好运，梅塔什。", "_t")
@@ -559,12 +559,12 @@ t("What do you need me for?", "你要我干啥？", "_t")
 t("I have muscle tissue for you.", "我有一些肌肉组织要给你。", "_t")
 t("[leave]", "[离开]", "_t")
 t("#LIGHT_GREEN#*You feel a powerful presence in your mind.*#WHITE#", "#LIGHT_GREEN#*你感觉到脑海中出现一股强大的存在。*#WHITE#", "_t")
-t("I see...", "我明白了...", "_t")
+t("I see...", "我明白了……", "_t")
 t("Yes. We predict you will be useful to us. If you are not, another will be.", "是的。我们预测你将对我们有所助益。当然，如果你不是，也会有其他人。", "_t")
 t([[We require recent yeti muscle tissue from powerful specimens. You will help us, or you will not. Either way they will come to us.
 If you do so we shall reward you with petty knowledge so that you may postpone your death.]], [[我们需要从强大的雪人个体身上取得新鲜的肌肉组织。你可以帮我们，也可以选择不帮；无论如何，它们都会到我们手上。
 如果你帮了我们，我们将传授你知识，可以延缓你的死亡。]], "_t")
-t("That is... generous of you.", "这真是... 慷慨。", "_t")
+t("That is... generous of you.", "这真是……慷慨。", "_t")
 t("Talent categories", "技能树", "_t")
 t("Talents", "技能", "_t")
 t("Improved core stats", "提升核心属性", "_t")
@@ -708,7 +708,7 @@ t("#OLIVE_DRAB#You carefully pickup the stack of herbs.", "#OLIVE_DRAB#你小心
 section "tome-orcs/data/general/events/merchant-stall.lua"
 
 t("market stall", "市场摊位", "_t")
-t("A market stall, it looks abandoned..", "一个市场摊位，看起来被遗弃了..", "_t")
+t("A market stall, it looks abandoned..", "一个市场摊位，看起来被遗弃了……", "_t")
 t("- #GOLD#%0.2f gold#LAST# worth of money", "- #GOLD#%0.2f 金币#LAST#", "tformat")
 t("Market Stall", "市场摊位", "_t")
 t([[You loot the stall and gain:
@@ -2643,7 +2643,7 @@ Alas, I was not able to study them for long enough to learn more than this.  Kas
 按照卡西罗斯的说法，尽管和外界的隔绝给了他们社会发展所需要的和平空间，这同时也助长了他们社会中倡导诡辩，脱离现实的思想。因此，他最近开始了和太阳堡垒与联合王国之间的开放贸易，希望能给他的族人带来一些看待问题的全新视角。由于我只有短暂停留在这里的机会，并没有时间能够深入分析他们的社会。因此，我唯一能够注意到的，他们社会中的深层因素，就是他们将身体健壮看的和对智慧的追求同样重要。也许这是因为，他们的蒸汽科技的力量，不仅可以来源于精巧高效的设计，[b]也[/b]可以来自于能够从排气孔中喷出更多蒸汽的，强大的肉体力量。因此，他们的政府，是通过某种由民主体制和血腥竞技结合而成的制度选拔出来的（除了国王特拉格拉玛统治的短暂时期，卡西罗斯只告诉我，“这件事对所有相关人员来说都是相当尴尬的”）。尽管我不知道这是否反映了气之部族人的某种重要品质，我觉得我还有必要特别提一句，他们还掌握着酿造我所尝过的最好的苦艾酒的技术。
 
 唉，我没有机会研究他们足够长的时间，所以我的发现只有这些了。卡西罗斯告诉我，他不能再陪我了，因为他和马基·埃亚尔的英雄之间已经安排好了一场聚会——好像是有关使用探险远行传送门来进行垃圾清理？不管怎样，尽管我们大部分人和气之部族之间唯一的沟通的渠道，就是从飞艇上掉下来的装置，我们很快就会获得和更多他们面对面接触的机会。也许，未来还会有除了我之外的来访者，被许可亲自访问他们美丽的城市。他们在粉碎克鲁克叛乱，以及阻止他们的领袖强占[b]撼天动地，无耻的天空肆虐者[/b]中所作出的贡献，已经向我们证明，他们将会是我们未来一段时间中当之无愧的盟友。]], "_t")
-t("Scholar Graynot's Assessment of the Species, Chapter 83: Wei...", "博学者格雷诺特关于人种的调查——第八十三章——Wei...", "_t")
+t("Scholar Graynot's Assessment of the Species, Chapter 83: Wei...", "博学者格雷诺特关于人种的调查——第八十三章——Wei……", "_t")
 t("(This note had already caught fire when the paradox anomaly pulled it in from another timeline.  You only had time to read part of the title before it burned away completely.)", "(当时空异常从另一条世界线拉入这条纸条的时候，这张纸条突然着火了。你还没来得及看完标题，这张纸条已经被烧得一干二净。)", "_t")
 
 ------------------------------------------------
@@ -2749,7 +2749,7 @@ I intend to trust the only advice our ancestors gave us in the Official Historie
 
 我们的祖先写下，这个生物给了他们再次与它联络的方式，但祖先们拒绝了写下这一联络方式是什么；我们仍然知道怎样与它联系的原因，在于在一条在烟雾宫殿前门留下的年度总结信息。在提到这以后，他们写道：
 
-“别相信这个‘忠诚者’。当我们抬头看他时，我们感觉到在自己内心深处，有一种比自己要古老的存在，告诉我们他是……[i]错误的[/i]。他对于‘眼’，一个有我们至今没有成功掌控的强大力量的古物，抱着意图，这不可能对任何人有好处。永远别给他‘眼’，而且要继续找到一种销毁‘眼’的方法。永远别接受他给出的其他交易。如果你们有一天也不幸地要见他，你们会立即明白为什么我们这么说。
+“别相信这个‘忠诚者’。当我们抬头看他时，我们感觉到在自己内心深处，有一种比自己要古老的存在，告诉我们他是……[i]错误的[/i]。他对于‘眼’，一个有我们至今没有成功掌控的强大力量的古物，抱着意图，这不可能对任何人有好处。永远别给他‘眼’，而且要继续找到一种销毁‘眼’的方法。永远别接受他给出的其他交易。如果你们有一天也不幸地要见他，你们会立即明白为什么我们这么说。”
 
 或许这几年，政治争端变得有些……令人头脑混乱了。今日的辩论中到处都是口角和中伤，让人很难相信，过去的议员们脑海里会考虑超越他们职业生涯以外的东西，那种激昂的感情表达也不仅仅是政治上的装腔作势。不过即使那些议员们像我们一样器量狭小而自私，他们也未曾影响过正史的记录，一次也没有。
 
@@ -2839,7 +2839,7 @@ PALAQUIE: "Additional options?"
 
 TANTALOS: "The meeting has been adjourned.  You should be training our necropsychs, Councilor."]], [[（墨水被洒在这个记录上————你只能读到一些段落。）
 
-？？？：“[...]怪我！那架飞船是你的机械师检查的，是在用你的设备修理它，也是因为你的错它才坠落！”
+？？？：“[……]怪我！那架飞船是你的机械师检查的，是在用你的设备修理它，也是因为你的错它才坠落！”
 
 纳沙尔：“是吗，我在听到那个消息时也告诉你了要取消攻击————忠诚者的魔杖作为火力支援工具太珍贵了，我们进攻的时候绝对离不了它。但不，帕拉奎非要坚持当即出发————”
 
@@ -3964,7 +3964,7 @@ section "tome-orcs/data/talents/celestial/energies.lua"
 t("Celestial Acceleration", "天体加速", "talent name")
 t("Increases your movement speed by %0.2f%% per percent of positive energy and your casting speed by %0.2f%% per percent of negative energy, up to a maximum of %0.2f%% at 80%%. Sustained energy still counts toward the maximum.", "每 1%% 的正能量增加 %0.2f%% 的移动速度，每 1%% 的负能量增加 %0.2f%% 施法速度，在 80%% 时达到最大值，为 %0.2f%%. 持续能量仍然算向最大值。", "tformat")
 t("Polarization", "偏振", "talent name")
-t("Whichever of your positive and negative energies is a higher percentage regenerates towards its max instead of its normal resting value (%d positive, %d negative). Your negative and positive regeneration/degeneration rates are increased to %0.2f.", "无论是你的正能量还是负能量都将用更高百分比的恢复替代正常的休息值 (%d 正能量，%d 负能量). 你的正能量和负能量恢复/ 消退速度增加至 %0.2f。", "tformat")
+t("Whichever of your positive and negative energies is a higher percentage regenerates towards its max instead of its normal resting value (%d positive, %d negative). Your negative and positive regeneration/degeneration rates are increased to %0.2f.", "无论是你的正能量还是负能量都将用更高百分比的恢复替代正常的休息值 (%d 正能量，%d 负能量)。你的正能量和负能量恢复/ 消退速度增加至 %0.2f。", "tformat")
 t("Magnetic Inversion", "磁反转", "talent name")
 t("Swap your current positive and negative energy levels. This spell takes no time to cast.", "交换当前正和负能量水平，这个法术是瞬发法术。", "_t")
 t("Plasma Bolt", "等离子球", "talent name")
@@ -4017,7 +4017,7 @@ Dark damage creates an effect at the tile for %d turns which deals %d%% of the d
 暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。]], "tformat")
 t("Starscape", "星界领域", "talent name")
 t("This spell cannot be cast here.", "该技能不能在这里使用。", "logPlayer")
-t("Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.", "在 %d 范围内召唤一片星界领域 . %d 回合内，这个区域存在于正常时间之外，且重力为零。除了零重力之外，抛射物和生物的活动比平时慢 3 倍。法术和攻击不能逃脱范围，直到效果结束。", "tformat")
+t("Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.", "在 %d 范围内召唤一片星界领域。%d 回合内，这个区域存在于正常时间之外，且重力为零。除了零重力之外，抛射物和生物的活动比平时慢 3 倍。法术和攻击不能逃脱范围，直到效果结束。", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/misc/npcs.lua"
@@ -4053,7 +4053,7 @@ t([[Sting the target with your ovipositor, injecting %d larvae into it to finish
 		在一个 5 回合的发育周期内，幼虫们会以受害者的血肉为食，每回合造成 %0.2f 到 %0.2f 的物理伤害（随着他们的成长增多）。
 		在发育期结束后，幼虫会从寄主体内钻出，每个幼虫造成 %0.2f 物理和 %0.2f 火焰伤害。
 		]], "tformat")
-t("Slumbering...", "沉睡中...", "talent name")
+t("Slumbering...", "沉睡中…", "talent name")
 t("@Source@ enters a deep slumber.", "@Source@进入深睡眠。", "_t")
 t("#STEEL_BLUE#%s slumbers...", "#STEEL_BLUE#%s睡着了……", "saySimple")
 t("#CRIMSON#%s awakens!", "#CRIMSON#%s醒来了！", "saySimple")
@@ -4062,8 +4062,8 @@ t("Tentacle Spawn", "衍生触手", "talent name")
 t("@Source@ spawns a tentacle near @target@.", "@Source@在@target@身旁召唤了触手。", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
-t("#ORCHID#%s summons a %s...", "#ORCHID#%s召唤了一个%s...", "logCombat")
-t("#ORCHID#%s summons a %s...", "#ORCHID#%s召唤了一个%s...", "saySimple")
+t("#ORCHID#%s summons a %s...", "#ORCHID#%s召唤了一个%s……", "logCombat")
+t("#ORCHID#%s summons a %s...", "#ORCHID#%s召唤了一个%s……", "saySimple")
 t("The Dead God wishes to tickle you...", "已死之神想要逗逗你……", "_t")
 t("Curse of Amakthel", "阿马克泰尔的诅咒", "talent name")
 t([[Create a circle of cursed ground (radius %d) for %d turns. Any foes inside will be cursed, all new negative effects on them will have their duration doubled.
@@ -5436,7 +5436,7 @@ t("Iron Grip", "铁腕", "talent name")
 t("%s resists the iron grip!", "%s抵抗了铁腕抓取！", "logSeen")
 t([[Activate the pistons to crush your target for %d turns and dealing %d%% unarmed melee damage.
 		While the target is held it can not move and its armour and defense are reduced by %d.
-		#{italic}#Crush their bones!#{normal}#]], [[激活活塞碾压你的目标 %d 回合，并造成 %d%% 的徒手伤害 .
+		#{italic}#Crush their bones!#{normal}#]], [[激活活塞碾压你的目标 %d 回合，并造成 %d%% 的徒手伤害。
 被碾压的目标会被定身，且其护甲和闪避减少 %d。
 #{italic}#压碎他们的骨头 !#{normal}#]], "tformat")
 t("Spring Grapple", "弹簧飞爪", "talent name")
@@ -5650,7 +5650,7 @@ t([[You fire a special toxic shot with your steamgun(s) at a target for 100%% we
 		The shot will release heavy metals into the target, inflicting %0.2f blight damage per turn and reducing their global speed by %d%% for %d turns.
 		This talent does not use ammo as it is the ammo.
 		Toxin strength scales with Steampower.]], [[你使用蒸汽枪发射特殊弹药打击目标造成 100%% 枯萎武器伤害。
-向目标释放重金属，造成每回合 %0.2f 枯萎伤害，并且降低整体速度 %d%% %d 回合 .
+向目标释放重金属，造成每回合 %0.2f 枯萎伤害，并且降低整体速度 %d%% %d 回合。
 这个技能不使用弹药。
 枯萎伤害受蒸汽强度加成。]], "tformat")
 t("Moss Tread", "苔藓之踏", "talent name")
@@ -5836,7 +5836,7 @@ t("#VIOLET#EUREKA!", "#VIOLET#我发现了！", "log")
 t("#VIOLET#EUREKA!#WHITE# Schematic learnt: #LIGHT_BLUE#%s", "#VIOLET#我发现了！#WHITE# 已学习配方：#LIGHT_BLUE#%s", "saySimple")
 t("This talent is required for the following tinkers (you still need to learn/find the schematics):", "该技能是制造下列附着物的必要条件（你仍然需要找到/学会相应配方）：", "_t")
 t(" #LIGHT_BLUE#(known)#LAST#", " #LIGHT_BLUE#(已学会)#LAST#", "_t")
-t("#{italic}#* ...perhaps more to discover...#{normal}#", "#{italic}#* ...可能还可以找到更多...#{normal}#", "_t")
+t("#{italic}#* ...perhaps more to discover...#{normal}#", "#{italic}#* ……可能还可以找到更多……#{normal}#", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/thoughts-of-iron.lua"
