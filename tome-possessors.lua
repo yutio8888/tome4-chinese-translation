@@ -34,7 +34,7 @@ t([[You imbue your offhand mindstar with wild psionic forces.
 		If you do not have a one handed weapon and a mindstar equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[向副手灵晶灌注狂暴的灵能力量。
 		生效时，灵晶的精神强度和精神暴击几率增加 %d%%。
 		每次近战攻击，都会给目标附加 1 层灵能瓦解效果。
-		每层效果持续 %d 回合造成 %0.2f 精神伤害 (最多 %d 层).
+		每层效果持续 %d 回合造成 %0.2f 精神伤害 (最多 %d 层)。
 		如果你没有装备单手武器和灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 t("Shockstar", "震撼之星", "talent name")
 t([[You make a first attack with your mainhand for %d%% weapon damage.
@@ -209,9 +209,9 @@ t([[You cast a psionic web at a target that lasts for %d turns. Each turn it dea
 		灵能仓库有位置时才能使用该技能。
 
 		你可以偷取以下阶级生物的身体 %s%s#LAST# 或者更低。
-		等级 3 时最多可偷取 %s%s#LAST#.
-		等级 5 时最多可偷取 %s%s#LAST#.
-		等级 7 时最多可偷取 %s%s#LAST#.
+		等级 3 时最多可偷取 %s%s#LAST#。
+		等级 5 时最多可偷取 %s%s#LAST#。
+		等级 7 时最多可偷取 %s%s#LAST#。
 
 		你可能只会偷走以下类型的生物的尸体 : #LIGHT_BLUE#%s#LAST#
 		当你尝试附身不同类型的生物时，你可以永久学习此类型，你还可以执行 %d 次。]], "tformat")

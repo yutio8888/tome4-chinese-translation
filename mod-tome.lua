@@ -258,7 +258,7 @@ t("#LIGHT_RED#You lose control and unleash an anomaly!", "#LIGHT_RED#你失去�
 t("#LIGHT_RED#You feel the edges of spacetime begin to ripple and bend!", "#LIGHT_RED#你感到时空的边际开始弯曲振荡！", "logPlayer")
 t("#LIGHT_BLUE#Spacetime feels more stable.", "#LIGHT_BLUE#时空变得更加稳定。", "logPlayer")
 t("#LIGHT_RED#Spacetime fights against your control!", "#LIGHT_RED#时空在抗拒你的控制！", "logPlayer")
-t("#LIGHT_BLUE#Spacetime has calmed...  somewhat.", "#LIGHT_BLUE#时空稍微稳定了些...", "logPlayer")
+t("#LIGHT_BLUE#Spacetime has calmed...  somewhat.", "#LIGHT_BLUE#时空稍微稳定了些……", "logPlayer")
 t("You already tried to use %s, an instant use talent, this turn and failed.", "你在本回合尝试使用瞬间技能%s失败，这回合无法再次使用。", "logPlayer")
 t("%s is too afraid to use %s.", "%s非常恐惧，无法使用%s。", "logSeen")
 t("%s is silenced and cannot use %s.", "%s被沉默，无法使用%s。", "logSeen")
@@ -537,7 +537,7 @@ t("quitting", "正在退出", "_t")
 t("Save and go back to main menu?", "保存并返回主菜单？", "_t")
 t("Save and exit game?", "保存并退出游戏？", "_t")
 t("saving", "正在保存", "_t")
-t("Saving game...", "保存游戏...", "log")
+t("Saving game...", "保存游戏…", "log")
 t("#ANTIQUE_WHITE#Splash screen unlocked: #GOLD#%s", "#ANTIQUE_WHITE#游戏启动画面已解锁：#GOLD#%s", "log")
 -- untranslated text
 --[==[
@@ -2883,7 +2883,7 @@ t("Wanderer", "流浪者", "birth descriptor name")
 t("Wanderers are adventurers who embrace the chaotic nature of the world. They start the game with the Combat Training talent tree, 3 random class trees and 1 random generic tree.", "流浪者是拥抱世界混乱本质的冒险家。进入游戏时，他们初始拥有战斗训练系，3个随机职业技能系以及1个随机通用技能系。", "_t")
 t("#{bold}##PURPLE#Every 5 levels they gain a new unlocked class tree, at random.#{normal}##LAST#", "#{bold}##PURPLE#每升5级，获得一系解锁的随机职业技能树。#{normal}##LAST#", "_t")
 t("#{bold}##PURPLE#Every 10 levels starting at level 2 they gain a new unlocked generic tree, at random.#{normal}##LAST#", "#{bold}##PURPLE#从2级开始，每升10级获得一系解锁的随机通用技能树。#{normal}##LAST#", "_t")
-t("#{bold}##GOLD#This is a bonus class for the chaotically inclined. It is by no means balanced, fun or winnable, it is most of all #{italic}#RANDOM#{bold}#.#WHITE##{normal}#", "#{bold}##GOLD#这是倾向混乱的奖励职业。显然，他并不平衡，也不保证有趣或者能通关。一切为了 #{italic}#随机#{bold}#.#WHITE##{normal}#", "_t")
+t("#{bold}##GOLD#This is a bonus class for the chaotically inclined. It is by no means balanced, fun or winnable, it is most of all #{italic}#RANDOM#{bold}#.#WHITE##{normal}#", "#{bold}##GOLD#这是倾向混乱的奖励职业。显然，他并不平衡，也不保证有趣或者能通关。一切为了 #{italic}#随机#{bold}#。#WHITE##{normal}#", "_t")
 t("Their most important stats depend on what they get to do.", "他们的随机技能决定了他们的主属性。", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD# 每等级生命加值：#LIGHT_BLUE# +2", "_t")
 t("#GOLD#As you level up you learn the talent tree: #LIGHT_BLUE#%s", "#GOLD#在你升级的同时，你学会了新的技能树：#LIGHT_BLUE#%s", "say")
@@ -7181,7 +7181,7 @@ t("hostile", "敌对", "entity type")
 t("Encounter", "遭遇", "_t")
 t("You find a hidden trap door, and hear cries for help from within...", "你发现了一个隐藏的活板门，并听到从里面传来呼救声……", "_t")
 t("#LIGHT_BLUE#You carefully get away without making a sound.", "#LIGHT_BLUE#你小心翼翼地悄悄离开了。", "logPlayer")
-t("#LIGHT_RED#You carefully open the trap door and enter the underground tunnels...", "#LIGHT_RED#你小心打开地板上的活门进入了地下通道...", "logPlayer")
+t("#LIGHT_RED#You carefully open the trap door and enter the underground tunnels...", "#LIGHT_RED#你小心打开地板上的活门进入了地下通道……", "logPlayer")
 t("#LIGHT_RED#As you enter you notice the trap door has no visible handle on the inside. You are stuck here!", "#LIGHT_RED#当你进入了地道你发现活门没有出去的开关，你被关在这里了！", "logPlayer")
 t("Enter the tunnels", "进入通道", "_t")
 t("Leave carefully", "悄悄离开", "_t")
@@ -7189,7 +7189,7 @@ t("Sect of Kryl-Faijan", "克里尔·费扬教派", "entity name")
 t([[You find an entrance to an old crypt. An aura of terrible evil emanates from this place. You feel threatened just standing there.
 You hear the muffled cries of a woman coming from inside.]], [[你发现了一个古老地窖的入口，里面笼罩着恐怖的邪恶气息，仅仅站在门口你就已经感受到了它的威胁。
 你听到了里面传来了陌生女人的哭声。]], "_t")
-t("#LIGHT_RED#You carefully open the door and enter the underground crypt...", "#LIGHT_RED#你打开了活门，小心翼翼地进入了地窖...", "logPlayer")
+t("#LIGHT_RED#You carefully open the door and enter the underground crypt...", "#LIGHT_RED#你打开了活门，小心翼翼地进入了地窖……", "logPlayer")
 t("#LIGHT_RED#As you enter you notice the door has no visible handle on the inside. You are stuck here!", "#LIGHT_RED#当你进入后，你发现这扇门的里侧没有门把，你被困在这了！", "logPlayer")
 t("Enter the crypt", "进入地窖", "_t")
 t("Lost kitten", "迷路的猫咪", "entity name")
@@ -7284,7 +7284,7 @@ t("#VIOLET#The portal is already broken!", "#VIOLET#传送门已经被破坏！"
 t("Fearscape Portal", "恶魔空间传送门", "_t")
 t("Do you wish to enter the portal, destroy it, or ignore it (press escape)?", "你想要进入传送门，摧毁它，还是无视它（按 Esc 键）？", "_t")
 t("Quit", "退出", "dialog_portal")
-t("#VIOLET#Ignoring the portal...", "#VIOLET#你忽略了传送门...", "log")
+t("#VIOLET#Ignoring the portal...", "#VIOLET#你忽略了传送门……", "log")
 t("Destroy", "摧毁", "_t")
 t("Enter", "进入", "_t")
 t("#VIOLET#A demon steps out of the %s!", "#VIOLET#一个恶魔走出了%s！", "logSeen")
@@ -7339,7 +7339,7 @@ t("#VIOLET#The portal is already broken!", "#VIOLET#传送门已经被破坏！"
 t("Coral Portal", "珊瑚传送门", "_t")
 t("Do you wish to enter the portal, destroy it, or ignore it (press escape)?", "你想要进入传送门，摧毁它，还是无视它（按 Esc 键）？", "_t")
 t("Quit", "退出", "dialog_portal")
-t("#VIOLET#Ignoring the portal...", "#VIOLET#你忽略了传送门...", "log")
+t("#VIOLET#Ignoring the portal...", "#VIOLET#你忽略了传送门……", "log")
 t("Destroy", "摧毁", "_t")
 t("Enter", "进入", "_t")
 t("#VIOLET#A naga steps out of the %s!", "#VIOLET#一只娜迦从%s里走出！", "logSeen")
@@ -8291,9 +8291,9 @@ t("#LIGHT_BLUE#The sleeper stirs...", "#LIGHT_BLUE#沉睡者骚动起来……",
 t("dream seed", "梦境之种", "entity name")
 t("A pinkish bubble floats here, reflecting the world not as it is, but as it would be in that surreal place that exists only in our dreams.", "一个粉红色的气泡漂浮在这里，反映的不是世界的本来面目，而是那个只存在于我们梦中的超现实。", "_t")
 t("maelstrom", "灵能漩涡", "entity name")
-t("This powerful vortex of ice and lightning somehow gives you the impression of claws, teeth and intense hunger...", "这个由冰和闪电组成的强大漩涡不知为何给你一种利齿尖牙和强烈饥饿的印象...", "_t")
+t("This powerful vortex of ice and lightning somehow gives you the impression of claws, teeth and intense hunger...", "这个由冰和闪电组成的强大漩涡不知为何给你一种利齿尖牙和强烈饥饿的印象……", "_t")
 t("parasitic horror", "寄生恐魔", "entity name")
-t("You don't want to think about what sort of creature this lamprey-like horror was feeding on to grow so large.  Its skin pulsates and writhes, like things are moving underneath...", "你不想知道这个像七鳃鳗一样的恐魔是吃什么才能长这么大的。它的皮肤不停的扭动，就像有东西在下面移动一样...", "_t")
+t("You don't want to think about what sort of creature this lamprey-like horror was feeding on to grow so large.  Its skin pulsates and writhes, like things are moving underneath...", "你不想知道这个像七鳃鳗一样的恐魔是吃什么才能长这么大的。它的皮肤不停的扭动，就像有东西在下面移动一样……", "_t")
 t("%s's severed flesh starts crawling!", "%s被切割的血肉开始爬行！", "logSeen")
 t("mass of parasitic leeches", "大团寄生水蛭", "entity name")
 t("Dozens - hundreds maybe? - of blood-gorged worms, of varying shapes and sizes, making a writhing, ichor-soaked sea of tooth-lined maws and sickly green skin, ready to latch onto you and drink until they burst or your veins run dry.", "几十个，也许几百个？各种形状和大小的、吸饱鲜血的蠕虫，由布满利齿的血盆大口和病态绿色皮肤组成的、翻腾的脓水海洋，随时准备缠住你并吸你的血，直到它们胀破或者你的静脉干涸。", "_t")
@@ -11626,7 +11626,7 @@ t([[This rod is made entirely of voratun, infused with raw magical energies that
 You have heard of such items before. They are very useful to adventurers, allowing faster travel.]], "这个法杖通体用沃瑞钽打造，充满了可以撕裂空间的奥术能量。你以前曾听说过此类物品。它们对于冒险者的快速旅行非常有帮助。", "_t")
 t("recall the user to the worldmap after 40 turns", "传送至世界地图（等待40回合）", "_t")
 t("The rod emits a strange noise, glows briefly and returns to normal.", "法杖发出奇怪的响声，闪了下光又恢复了正常。", "logPlayer")
-t("Space around you starts to dissolve...", "你周围的空间开始消解...", "logPlayer")
+t("Space around you starts to dissolve...", "你周围的空间开始消解……", "logPlayer")
 t("Force a recall", "强制使用回归之杖", "_t")
 t("The Fortress Shadow warned you that trying to force a recall without finding the portal back could break the exploratory farportal forever.", "堡垒之影警告你，如果尚未找到返回传送门便尝试强制返回，可能会永久损坏探索用远行传送门。", "_t")
 t("Cancel", "取消", "_t")
@@ -15510,7 +15510,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 “这太疯狂了！”我大喊出声。“你根本不知道这种力量是否安全。你不知道这种力量会给你带来什么！”
 
-她发出了神秘的笑声。“是的，你说得对。所以我把你带到了这里。”我迷惑地看着她，她又笑了起来。“看来你还是不知道你来这里的目的。你以为我带你来时需要你的保护？你觉得我没法亲自干掉这些恐魔吗？不，我带你来另有别的原因。当我吸收这个尸体的时候，当我夺取它的力量为我所用的时候，我不知道会发生什么。它可能会杀了我，或者可能会让我发疯，甚至可能让我变成某种可怕的东西。如果发生这种情况的话，艾伦尼恩，你是我知道的人中唯一有能力杀死我的人。“
+她发出了神秘的笑声。“是的，你说得对。所以我把你带到了这里。”我迷惑地看着她，她又笑了起来。“看来你还是不知道你来这里的目的。你以为我带你来时需要你的保护？你觉得我没法亲自干掉这些恐魔吗？不，我带你来另有别的原因。当我吸收这个尸体的时候，当我夺取它的力量为我所用的时候，我不知道会发生什么。它可能会杀了我，或者可能会让我发疯，甚至可能让我变成某种可怕的东西。如果发生这种情况的话，艾伦尼恩，你是我知道的人中唯一有能力杀死我的人。”
 
 这句话对我来说如同当头一棒。“杀了你？但我做不到……”
 
@@ -16056,13 +16056,13 @@ I have my theories, unsettling as they are, as to what's coming over me - what I
 
 腹部。肋骨断了？吸气——#FIREBRICK#果然断了#LAST#。浅浅呼吸。发生了什——对了。该死的兽人。没想到他们会出现在这片大陆，更没想到会出现在一处夏·图尔遗迹。就连这里会有夏·图尔遗迹都没想到……他们带着伊格兰斯的武器，让治疗魔法无法生效。于是现在有#{italic}#两伙#{normal}#早已过气的野蛮人联手焚毁文明。真好。
 
-[...]
+[……]
 
 埃兰达俯身看着我；因为我的胸廓，他没法拥抱我。他说我本该已经死了。他找到了一样他认为是传说中生命之血的东西，把它灌进我的喉咙、倒进我的伤口。他说我正在愈合，可是……如果他猜错了，我们就不能回到他们那里。不能回到#{italic}#她#{normal}#身边——上次那件事之后不行。无论他们分析瓶中剩余物时会发现什么，我都不能让他们把我从埃兰达身边夺走，尤其是在他为我做了这一切之后。
 
 疼痛正在一点点消退，肋骨分分秒秒愈合。我现在可以把气吸得稍深一些，才会#FIREBRICK#撞上#LAST#那堵突如其来的#FIREBRICK#剧痛#LAST#之墙。感觉……很健康，甚至充满力量。不管我的爱人找到了什么，他的馈赠无疑能够滋养生灵……但我也感到了别的东西。受困。迷失。孤独。躺在家中，却仍在思乡。
 
-[...]
+[……]
 
 我对侵袭我的东西已有猜测，尽管这些猜测令人不安——我怀疑它已经悄无声息地取代了我的潜意识；只要不集中精神，我就不断感觉有意识的思绪向它飘去；而我将注意力维持在其他任何事物上的能力，仿佛每分钟都在进一步衰退。自杀，或把自己送进安格利文的疯人院（如果他们肯这么仁慈），都不是选项——听来或许自负，但我知道，我给埃兰达悲惨人生带来的幸福，是支撑他活下去的唯一事物。我相信，我能善加利用这份联结，以及随之而来的那些#FIREBRICK#反常得令人痛苦#LAST#的冲动……既不让爱人心碎，也不留下一个更加糟糕的世界。我会幸福，埃兰达会幸福，#FIREBRICK#他#LAST#也会幸福。]], "_t")
 t("Elandar's journal (1)", "埃兰达的笔记 (1)", "_t")
@@ -17300,7 +17300,7 @@ The Pixels finally got him...
 #{normal}#]], [[#{bold}#
 雷蒙德·加斯塔德在这里长眠
 #{normal}#84 - 120#{italic}#
-像素们终于还是逮到他了...
+像素们终于还是逮到他了……
 #{normal}#]], "_t")
 t([[#{bold}#
 Here lies Crokar
@@ -19103,21 +19103,21 @@ In time! Bah! This will be my ruin if it comes to that. If there is any appearan
 
 最近听到了许多针对最高统帅部的流言——确实是些古怪的流言。或许通过完成这次任务，我能更接近他们，从而探寻真相……
 
-...
+……
 
 
 该死！诅咒降临！不知哪个天杀的烈焰杂种盗贼洗劫了废墟！而且竟然是个半身人，一条该死的半身人杂种狗！我真是怒火中烧！
 
 不知怎的，他趁着黄昏潜入了进去，爬过了一条连我的劳工都进不去的狭窄地道。他从废墟里夺走了一根法杖，竟然从我的兽人身边偷偷溜了出去！这个肮脏阴险的潜行者逃之夭夭了，我的前程也随之搭了进去！我已派斥候追踪他，但这厮极其狡猾。但我决不能让他逃脱！这绝对不可饶恕！
 
-...
+……
 
 
 我们循着那个无赖的踪迹一路追踪。看来他在一个叫德斯镇的地方与一名矮人和一名人类会合，随后一同向东南进发。跟踪他们三个人比跟踪单独一个潜行者容易得多，但我们仍必须格外谨慎以保持隐蔽。最高统帅部的指令严禁我们暴露行踪，且必须尽可能避免战斗。我随身带领着一支训练有素的弓箭手与战士小队，他们懂得如何在林中隐匿。
 
 那个盗贼和他该死的同党已经进入了一座名为恐惧王座的古老废弃高塔。那是一处古老的地方，地牢中素以塞满不死亡灵而著称。如果我们强行闯入必将引起骚动，况且此处离东面的人类大城镇又是如此之近……我拿不准该如何行事，已向统帅部发信请示指令。眼下我们潜伏在林中，密切注视着入口处的动静。若是有人带着那根法杖从塔里出来，定要承受我的滔天怒火！
 
-...
+……
 
 统帅部终于传回了回信——坚守阵地，等待法杖现身。若是近期内仍未出现，他们届时会派出自己的密探。
 
@@ -19385,7 +19385,7 @@ t("sixth mural painting", "第六幅壁画", "_t")
 t([[You see images of epic battles, with Sher'Tul warriors fighting and slaying god-like figures over ten times their size.
 There is some text underneath ]], [[你在这幅画上看到一场史诗战争——夏·图尔的战士们在和10倍大于他们的神祗战斗。
 下面有一行文字]], "_t")
-t("which you do not understand: #{italic}#'Ranaheli meth dondruil ik duzin, ik leisif konru as neremin. Eyal matath bre sun. Ach unu rana soriton...'#{normal}#", "不明意义的文字：#{italic}#'Ranaheli meth dondruil ik duzin, ik leisif konru as neremin. Eyal matath bre sun. Ach unu rana soriton...'#{normal}#", "_t")
+t("which you do not understand: #{italic}#'Ranaheli meth dondruil ik duzin, ik leisif konru as neremin. Eyal matath bre sun. Ach unu rana soriton...'#{normal}#", "不明意义的文字：#{italic}#'Ranaheli meth dondruil ik duzin, ik leisif konru as neremin. Eyal matath bre sun. Ach unu rana soriton……'#{normal}#", "_t")
 t("#{italic}#'The petty gods were hunted down and slain, and their spirits rent to nothing. The land became our own. But one god remained...'#{normal}#", "#{italic}#伪神们被逐一猎杀，他们的灵魂被撕成虚无。大地终于归我们所有。但是还有一位神存在……#{normal}#", "_t")
 t("seventh mural painting", "第七幅壁画", "_t")
 t([[You see the red-robed Sher'Tul striking the huge god with the dark, runed staff. Bodies litter the floor around them, and the golden throne behind is bathed in blood. The light in the god's eyes seems faded.
@@ -19526,13 +19526,13 @@ Other mages, those less forgiving and more given to action, would attack the rov
 Ones I saw were set upon by dozens, their conjured flames and bolts of energy failing against the maddened crowds... they would often literally rip the mage limb from limb. It was horrific.
 ...
 Angolwen, Linaniil calls it. I have known Linaniil for many years, and I know she has lost many loved ones to the Spellhunt, but she still holds true to her belief that one day we will be accepted once again. If this is the course of action she desires, I will follow her without question.]], [[从客观角度看，你或许会以为魔法狩猎徒劳无功，但事实并非如此。你无法想象那些猎杀法师的暴民有多么野蛮；凡是他们眼中的古怪之人，都会遭到凌辱和迫害，其中许多人与魔法根本毫无瓜葛。
-...
+……
 真正的法师有时会出于无私挺身发声，只为终止无辜者的苦难，可这只会让暴民更加愤怒……
-...
+……
 另一些法师没那么宽容，更倾向于付诸行动，会主动攻击四处游荡的暴民；但他们很快便明白，面对足够庞大的人群，魔法也并非无所不能……
-...
+……
 我亲眼见过一些法师遭到几十人围攻，他们召来的火焰与能量箭在疯狂人群面前毫无作用……暴民往往会活活撕下法师的四肢。太可怕了。
-...
+……
 安格利文——莱娜尼尔这样称呼它。我与莱娜尼尔相识多年，也知道她在魔法狩猎中失去了许多所爱之人，可她依然坚信，有朝一日世人会重新接纳我们。既然她选择了这条路，我便会不加质疑地追随她。]], "_t")
 t("Spellhunter's Guide part 1: How to Detect a Spellweaver", "魔法猎手指南第一部分：如何识别织法者", "_t")
 t([[Those who partake in the profane sorcery can oft be marked by their appearance, their mannerisms, their personal keeping and their effect on the environment around them. Keep close watch on all you meet, for they are deceptive creatures that can take on many guises. Even women, children and cripples may be clever disguises of demon-communers and necromancers.
@@ -19642,7 +19642,7 @@ With that said I shall be starting this project by investigating the Elves and t
 Unfortunately though, our local Elves are also unwilling to talk to me about their history, saying they do not have records of the earlier times. However, there is a fellow Thanchir who I hear would be happy to help. The only problem is that he lies on the other side of a huge encampment of orcs, so I will need an escort to help me. We will see how that goes. I have heard things about those adventurer escorts ...]], [[博学者温罗提在此。我受命撰写一部太阳堡垒官方史。这本笔记将记录我四处旅行、采访众人的过程。如果你正在读它，那你要么是我的资助人（再次感谢您，先生！），要么是个偷看者（滚出我的日记！），要么是发现我尸体的人。若是最后一种，请把它带给太阳堡垒城的弗洛萨斯领主领取酬谢，告诉我的妻子我是怎么死的，再告诉孩子们我爱他们。
 
 闲话到此，我将从调查精灵及其与太阳堡垒的联系开始这项工作。考虑到精灵的寿命和他们热衷于铭记自身历史的性情，他们应该是较容易采访的种族之一。当然，如今这里的精灵已经不像过去那么多了。
-...
+……
 然而不幸的是，当地精灵也不愿向我讲述他们的历史，说他们没有早期时代的记录。不过我听说，有位名叫桑切尔的人很乐意帮忙。唯一的问题是，他人在一座庞大兽人营地的另一边，所以我需要一名护卫协助。到时候再看吧。我可听说过有关那些冒险者护卫的传闻……]], "_t")
 t([[And boy were all the rumors about unreliable adventurers true. I'd heard that many, many escorted people die when their adventurer flees and protects himself. It is TRUE. Once I got an escort, I headed off in the right direction immediately. However, for some reason, he did not immediately follow, let alone lead. Didn't he know the way to go? Foolish man. Why am I offering my special trainings to someone who doesn't even know where the local portals are! Fortunately I survived, but no thanks to him. I won't even mention his snoring...
 This Thanchir guy really, really needs to find a more urban spot with accessible public transportation (no adventurers please!). However, once I could get him to talk, he did know quite a bit. Apparently, he claims some distant kinship to the first Elf in these parts. They arrived by boat from some legendary land called "Maj'Eyal". He says that it definitely exists, but could provide no real evidence. This should be investigated further]], [[好家伙，关于冒险者不可靠的传闻果然全都是真的。我听说许许多多被护送者都因冒险者丢下他们逃命自保而死。这事千真万确！找到护卫后，我立刻朝正确的方向出发。可不知为何，他没有马上跟来，更别说走在前面带路了。他难道不知道该往哪儿走吗？蠢货。一个连当地传送门在哪儿都不知道的人，我为什么还要把自己的特殊训练传授给他！幸好我活了下来，但可没有半点他的功劳。我甚至都不想提他打呼噜的事……
@@ -22204,7 +22204,7 @@ t([[You partially remove yourself from the timeline for 10 turns.
 t("Paradox Clone", "悖论分身", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("%s's Paradox Clone", "%s的悖论分身", "tformat")
-t("The real %s... or so %s says.", "真正的%s... 或者%s这样说。", "tformat")
+t("The real %s... or so %s says.", "真正的%s……或者%s这样说。", "tformat")
 t("Paradox Clone", "悖论分身", "_t")
 t([[You summon your future self to fight alongside you for %d turns.  At some point in the future, you'll be pulled into the past to fight alongside your past self after the initial effect ends.
 		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.]], [[你召唤未来的自己和你一起战斗，持续 %d 回合。当技能结束后，在未来的某个时间点，你会被拉回到过去，协助你自己战斗。
@@ -22592,7 +22592,7 @@ t([[Rethread the timeline, dealing %0.2f temporal damage to the target before mo
 		伤害受法术强度加成。]], "tformat")
 t("Temporal Fugue", "时间复制", "talent name")
 t("%s's Fugue Clone", "%s 的时间复制体", "tformat")
-t("The real %s... or so %s says.", "真正的%s... 或者%s这样说。", "tformat")
+t("The real %s... or so %s says.", "真正的%s……或者%s这样说。", "tformat")
 t("Fugue Clone", "时间复制", "_t")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t([[For the next %d turns two alternate versions of you enter your timeline.  While the effect is active all damage done by you or your copies is reduced by two thirds and all damage received is split between the three of you.
@@ -22641,7 +22641,7 @@ t([[Inflicts %0.2f temporal damage.  If your target survives, it may be removed 
 t("Temporal Reprieve", "时空避难所", "talent name")
 t("This talent cannot be used from within the reprieve.", "时空避难所内无法使用该技能。", "logPlayer")
 t("This talent cannot be used here.", "该技能不能在此处使用。", "logPlayer")
-t("The spell fizzles...", "法术失败了...", "logPlayer")
+t("The spell fizzles...", "法术失败了……", "logPlayer")
 t("#STEEL_BLUE#You time travel to a quiet place.", "#STEEL_BLUE#你时空旅行到了一个寂静的地方。", "logPlayer")
 t("What the... ugh.", "这什么鬼……额。", "_t")
 t("Some rookie paradox mage is about to find out that the standard-issue Temporal Reprieve takes you to a random safe-zone, not a fixed one, and left the contents of their pack strewn about the place. Nearly all of it is equipment that your transmutation chest won't process and is unusable by anything with less than twelve limbs, so you kick most of it into the void, but a crumpled note catches your eye...", "有些新手时空法师还不知道，通常的时空避难所把你带到的是一个随机的安全的地方，而不是一个固定的地方，结果他们就把自己背包里的东西散落在了这里。你发现这些装备都是些十二只脚的人才能用到的东西，并且你的转化之盒也处理不了，就一脚把它们踢进了虚空之中，然而，一张残破的笔记吸引了你的注意力…", "_t")
@@ -22995,7 +22995,7 @@ t([[Call upon the essence of the supreme demon overlord Urh'Rok to turn into a d
 t("Fearscape", "恶魔空间", "talent name")
 t("This spell cannot be used from within the Fearscape.", "该技能不能在恶魔空间使用。", "logPlayer")
 t("This spell cannot be cast here.", "该技能不能在这里使用。", "logPlayer")
-t("The spell fizzles...", "法术失败了...", "logPlayer")
+t("The spell fizzles...", "法术失败了……", "logPlayer")
 t("#LIGHT_RED#You are taken to the Fearscape!", "#LIGHT_RED#你被带到了恶魔空间！", "logPlayer")
 t("#LIGHT_RED#You are brought back from the Fearscape!", "#LIGHT_RED#你从恶魔空间返回了！", "logPlayer")
 t([[Summon a part of the Fearscape to intersect with the current level.
@@ -24368,7 +24368,7 @@ t([[Each turn for 4 turns you fire a bolt of arcane energy at your nearest enemy
 		The damage will increase with the Magic stat.]], [[连续4个回合向你最近目标发射奥术能量弹，造成 %d 伤害。
 		伤害受魔力值加成。]], "tformat")
 t("Displace", "位移", "talent name")
-t("Selects a displacement location...", "选择一个转移目标...", "logPlayer")
+t("Selects a displacement location...", "选择一个转移目标…", "logPlayer")
 t("Your attempt to displace fails!", "你尝试置换术但是失败了！", "logSeen")
 t("Instantaneously displace yourself within line of sight up to 3 squares away.", "瞬间将自己移动到视线内、最多 3 格远的位置。", "tformat")
 t("Primal Skin", "原始皮肤", "talent name")
@@ -26185,7 +26185,7 @@ t([[You are hunted!.
 		There is a %d%% chance each turn that all foes in a %d radius get a glimpse of your position for 30 turns.]], [[你被捕猎了！
 		每回合有 %d%% 的几率使半径 %d 格内的所有敌人察觉你的位置，持续 30 回合。]], "tformat")
 t("Teleport: Angolwen", "传送：安格利文", "talent name")
-t("The spell fizzles...", "法术失败了...", "logPlayer")
+t("The spell fizzles...", "法术失败了……", "logPlayer")
 t("There are creatures that could be watching you; you cannot take the risk.", "有生物可以看见你，你不能冒这个险。", "log")
 t([[Allows a mage to teleport to the secret town of Angolwen.
 	You have studied the magic arts there and have been granted a special portal spell to teleport there.
@@ -27117,7 +27117,7 @@ t("a summoned, transparent wall of ice", "被召唤来的一堵透明冰墙。",
 t([[Focus thermal energy and strike an enemy for %d%% weapon damage as cold.
 		A burst of cold will then engulf them, doing an extra %0.1f Cold damage and also freeze them for %d turns.
 		If the attack freezes a pinned creature a burst of ice is summoned, circling the caster and the creature with a wall of ice for 3 turns.
-		The cold burst damage will scale with your Mindpower.]], [[聚焦热能打击敌人造成 %d%% 寒冷武器伤害 .
+		The cold burst damage will scale with your Mindpower.]], [[聚焦热能打击敌人造成 %d%% 寒冷武器伤害。
 		之后，一股寒冰能量将爆发并吞噬他们，造成额外 %0.1f 寒冷伤害并冻结他们 %d 回合。
 		如果被冻结的目标已经被定身，则会在周围爆发寒冰能量，组成冰墙，持续 3 回合。
 		爆发的寒冷伤害受精神强度加成。]], "tformat")
@@ -27417,7 +27417,7 @@ t([[By carefully synchronizing your mind to the resonant frequencies of your psi
 		For mindstars, this increases the chance to pull enemies to you by +%d%%.
 		For gems, this increases the bonus stats by %d.]], [[通过小心的同步你的精神和灵能聚焦的共振频率，强化灵能聚焦的效果
 		对于武器，提升你的意志和灵巧来代替力量和敏捷的百分比，从 60%% 到 %d%%.
-		对于灵晶，提升 %d%% 将敌人抓取过来的几率 .
+		对于灵晶，提升 %d%% 将敌人抓取过来的几率。
 		对于宝石，提升 %d 额外全属性。]], "tformat")
 
 ------------------------------------------------
@@ -27890,7 +27890,7 @@ t("Dreamscape", "梦境空间", "talent name")
 t("You feel it unwise to travel to the dreamscape in such a fragile form.", "你感觉在梦境空间里使用如此脆弱的形态非常不明智。", "logPlayer")
 t("This talent cannot be used from within the Dreamscape.", "该技能不能在梦境空间中使用。", "logPlayer")
 t("This talent cannot be used here.", "该技能不能在此处使用。", "logPlayer")
-t("The spell fizzles...", "法术失败了...", "logPlayer")
+t("The spell fizzles...", "法术失败了……", "logPlayer")
 t("Your target must be sleeping in order to enter its dreamscape.", "要进入梦境空间，目标必须处于睡眠状态。", "logPlayer")
 t("You can't cast this on friendly targets.", "该技能不能对友军释放。", "logPlayer")
 t("#LIGHT_BLUE#You are taken to the Dreamscape!", "#LIGHT_BLUE#你进入了梦境空间！", "logPlayer")
@@ -28406,9 +28406,9 @@ t([[Surround yourself with arcane forces, disrupting any attempts to harm you by
 section "mod-tome/data/talents/spells/conveyance.lua"
 
 t("Phase Door", "相位之门", "talent name")
-t("Select a target to teleport...", "选择目标传送...", "logPlayer")
+t("Select a target to teleport...", "选择目标传送…", "logPlayer")
 t("The spell fizzles!", "法术失败了！", "logSeen")
-t("Select a teleport location...", "选择传送位置...", "logPlayer")
+t("Select a teleport location...", "选择传送位置…", "logPlayer")
 t("The targeted phase door fizzles and works randomly!", "相位之门定位失败了，变为随机传送！", "logPlayer")
 t([[Teleports you randomly within a small range of up to %d grids.
 		At level 4, it allows you to specify which creature to teleport.
@@ -30756,7 +30756,7 @@ t("Shoot Down", "强制击落", "talent name")
 t("#Source# shoots down '#Target#'!", "#Source#击落了'#Target#'！", "logCombat")
 t([[Your reflexes are lightning-fast, if you spot a projectile (arrow, shot, spell, ...) you can instantly shoot at it without taking a turn to take it down.
 		You can shoot down up to %d projectiles.
-		In addition, your heightened senses also reduce the speed of incoming projectiles by %d%%, and prevents your own projectiles from striking you.]], [[你的反射像闪电一样快，如果你发现一个抛射物 (箭矢，弹丸，法术，...) 你可以不消耗时间立刻射击之。
+		In addition, your heightened senses also reduce the speed of incoming projectiles by %d%%, and prevents your own projectiles from striking you.]], [[你的反射像闪电一样快，如果你发现一个抛射物 (箭矢，弹丸，法术，……) 你可以不消耗时间立刻射击之。
 		最多可同时击落 %d 个抛射物。
 		此外，射向你的抛射物飞行速度下降 %d%%，你的抛射物不再击中你自己。]], "tformat")
 t("Intuitive Shots", "直觉射击", "talent name")
@@ -31031,7 +31031,7 @@ t([[Equip a bandolier holding up to %d throwing knives, allowing you to attack f
 t("Fan of Knives", "刀扇", "talent name")
 t("Fan of Knives", "刀扇", "_t")
 t([[You keep a special stash of %d throwing knives in your bandolier, which you can throw all at once at enemies within a radius %d cone, for %d%% damage each.
-		Each target can be hit up to 5 times, if the number of knives exceeds the number of enemies.  Creatures block knives from hitting targets behind them.]], [[额外存储 %d 把飞刀，可以一次性扔出，每把飞刀对 %d 格锥形范围内的敌人造成 %d%% 伤害 .
+		Each target can be hit up to 5 times, if the number of knives exceeds the number of enemies.  Creatures block knives from hitting targets behind them.]], [[额外存储 %d 把飞刀，可以一次性扔出，每把飞刀对 %d 格锥形范围内的敌人造成 %d%% 伤害。
 		如果飞刀数量多于敌人，每个目标最多被同时击中 5 次。飞刀无法穿透生物。]], "tformat")
 t("Precise Aim", "精确瞄准", "talent name")
 t([[You are able to target your throwing knives with pinpoint accuracy, increasing their critical strike chance by %d%% and critical strike damage by %d%%. 
@@ -32025,7 +32025,7 @@ Point Zero keepers must constantly stay vigilant against the monstrous horrors o
 
 You have heard about temporal disruptions in Maj'Eyal and want to investigate.
 However, Grand Keeper of Reality Zemekkys has requested to see you.
-]], [[欢迎 #LIGHT_GREEN#@name@#WHITE#.
+]], [[欢迎 #LIGHT_GREEN#@name@#WHITE#。
 你是一名时空行者，也是一名现实守护者。
 现实守护者是一群自行承担起维护埃亚尔周围时间线这一任务的时空行者。
 
@@ -32177,7 +32177,7 @@ You have come to the north of the Shaloren capital city of Elvala, in search of 
 To the west lies another dangerous place: a camp of Rhaloren. They are renegade Shaloren who do not wish to restrict their magic usage. Stopping them would be good for the world in general, but especially for your Shaloren benefactors.
 
 After days of travel, you have found the caves and entered it. What will you find there...?
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#.
+]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#。
 
 你是一名食人魔，来自埃尔瓦拉。
 
@@ -32832,7 +32832,7 @@ But don't worry. It's usually easy to know what will get used for two reasons:
 #GOLD#1)#WHITE#  Defensive #GOLD#combat stats#WHITE# are used quite consistently; physical effects use #LIGHT_GREEN#Physical save#WHITE#, no matter their source. Magical effects use #LIGHT_GREEN#Spell save#WHITE#, no matter their source. Mental effects use #LIGHT_GREEN#Mental save#WHITE#, no matter their source.
 
 #GOLD#2)#WHITE#  For the most part, any given class uses a single offensive #GOLD#combat stat#WHITE#, so there's not much potential for confusion. A berserker will only be using #LIGHT_GREEN#Physical power#WHITE# to apply effects. Similarly, an archmage will only use #LIGHT_GREEN#Spellpower#WHITE#. 
-]], [[看上去似乎有很多种方式来匹配攻击性 #GOLD#战斗属性#WHITE#...
+]], [[看上去似乎有很多种方式来匹配攻击性 #GOLD#战斗属性#WHITE#……
 #LIGHT_GREEN#命中#WHITE#
 #LIGHT_GREEN#物理强度#WHITE#
 #LIGHT_GREEN#法术强度#WHITE#
@@ -33609,7 +33609,7 @@ You can now create new characters with the #LIGHT_GREEN#Adventurer class#WHITE#.
 Adventurers start the game with 7 talent category points and all possible class and generic trees in the game.
 They are a #{bold}#bonus#{normal}# class, in no way meant to be balanced or even working with all possible talent combos.
 Use at your own risk, and have fun.]], [[祝贺你，你通关了 !
-你现在可以使用新的职业—— #LIGHT_GREEN#冒险家#WHITE#.
+你现在可以使用新的职业—— #LIGHT_GREEN#冒险家#WHITE#。
 
 冒险家初始拥有 7 点技能树解锁点，并且可以解锁游戏中的任何职业技能树和通用技能树。
 他们是一种 #{bold}#奖励#{normal}#职业，完全不是为了平衡而设计，甚至不保证能与所有可能的技能组合配合使用。
@@ -34508,7 +34508,7 @@ They require energy to do so, which they recover naturally over time, and throug
 ]], [[织梦者是强大的灵能力者，他们相信世界是由思想和人们的梦境组成的。
 这种力量并非毫无代价，织梦者必须不断与自己的自我抗争，以保持对现实的清晰认识，以免陷入唯我论状态，认为世界和生活在其中的人们不过是自己心灵的幻象。
 
-你先前已经体验过梦境的力量了，现在你可以在创建人物时选择新的职业 #LIGHT_GREEN#织梦者#WHITE#.
+你先前已经体验过梦境的力量了，现在你可以在创建人物时选择新的职业 #LIGHT_GREEN#织梦者#WHITE#。
 
 织梦者利用思想和梦境的力量掌控身边的天地。
 职业特点：#YELLOW#
@@ -38677,7 +38677,7 @@ t([[As you approach you come upon an other Wayist and receive a very clear menta
 #{italic}##UMBER#RUN AWAY! I am done for but you can save yourself still!#{normal}#]], [[当你走向另一位维网信徒，你收到了一个清晰的灵能消息：
 #{italic}##UMBER#快跑！我已经完蛋了，但是你还可以得救！#{normal}#]], "_t")
 t("#GOLD#You hastily activate your Rod of Recall, vowing to come back later!", "#GOLD#你紧急启动了回归之杖，答应之后回来救他！", "say")
-t("Space around you starts to dissolve...", "你周围的空间开始消解...", "logPlayer")
+t("Space around you starts to dissolve...", "你周围的空间开始消解……", "logPlayer")
 t("Emergency recall", "紧急启动回归之杖", "_t")
 t("Stay and fight!", "留下继续战斗！", "_t")
 t("Halfling?! DIE!!!!!", "半身人？！去死吧！！！", "_t")
@@ -39738,7 +39738,7 @@ This farportal is not connected to any other portal. It is made for exploration;
 It should automatically create a portal back, but it might not be near your arrival zone.]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们是由强大的夏·图尔种族留下的。
 这道传送门并没有和其他传送门相连接。它只是用来探索异度空间的，你不知道它将会把你送到哪里。
 它应该会自动建立起返回的传送门，但可能该传送门不在你所传送的位置。]], "_t")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个熟悉的地方，在另一个远行传送门旁边...", "log")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个熟悉的地方，在另一个远行传送门旁边……", "log")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in strange empty space...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个陌生的空地…", "log")
 t("Exploratory Farportal", "探索用远行传送门", "_t")
 t("The farportal seems to be inactive", "这个远行传送门关闭着", "_t")
@@ -39748,7 +39748,7 @@ t("Do you want to travel in the farportal? You cannot know where you will end up
 t("Exploratory Farportal exit", "探索用远行传送门出口", "_t")
 t("#VIOLET#As %s falls you notice a portal appearing.", "#VIOLET#当 %s 倒下时你注意到一个传送门出现了。", "logSeen")
 t("#VIOLET#Your rod of recall shakes, a portal appears beneath you.", "#VIOLET#你的回归之杖开始震动，一道传送门出现在你脚下。", "logSeen")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in an unfamiliar zone, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个陌生的地方，传送门不见了...", "log")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in an unfamiliar zone, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个陌生的地方，传送门不见了……", "log")
 t("Library of Lost Mysteries", "失落秘密图书库", "entity name")
 t("Yiilkgur's Library of Lost Mysteries", "伊克格的失落秘密图书库", "_t")
 t("Receiving the lost knowledge of the universe...", "正在接受多元宇宙的失落知识…", "_t")
@@ -41258,7 +41258,7 @@ t("\
 #GOLD#本选项被锁定，完成特定的任务或条件可以永久解锁这个战役，种族，职业。", "_t")
 t("-- locked --", "-- 需解锁 --", "_t")
 t([[#CRIMSON#Playing this class with the race you selected does not make much sense lore-wise. You can still do it but might miss on some special quests/...#WHITE#
-]], [[#CRIMSON#使用这个种族来游玩这个职业不符合剧情。你仍然可以这么做，但可能会错过一些特殊任务/...#WHITE#
+]], [[#CRIMSON#使用这个种族来游玩这个职业不符合剧情。你仍然可以这么做，但可能会错过一些特殊任务/……#WHITE#
 ]], "_t")
 t("Characters Vault", "角色仓库", "_t")
 t(" Load ", " 读取 ", "_t")
@@ -41916,7 +41916,7 @@ Each tile must be correctly named according to the existing tilesets.]], [[你�
 所有材质的文件名必须和已存在的默认材质文件名相同。]], "_t")
 t("Folder: ", "文件夹：", "_t")
 t("Use moddable tiles (equipment showing on player)", "使用纸娃娃 (在玩家身上显示装备)", "_t")
-t("Use advanced tiles (transitions, wide tiles, ...)", "使用高级贴图 (渐变，大型贴图，...)", "_t")
+t("Use advanced tiles (transitions, wide tiles, ...)", "使用高级贴图 (渐变，大型贴图，……)", "_t")
 t("Use custom tileset", "使用自定义贴图", "_t")
 t("Cancel", "取消", "_t")
 t("Tile size", "图块大小", "_t")
@@ -42685,7 +42685,7 @@ Mouse over controls for an actor preview (which may be further adjusted when pla
 The #LIGHT_BLUE#Base Filter#LAST# is used to filter the actor randomly generated.]], [[根据给定的筛选器随机生成角色，或/并根据给定的数据表生成随机Boss。
 筛选器由game.zone:checkFilter处理。
 #ORANGE#Boss数据：#LAST#由 game.state:createRandomBoss, game.state:applyRandomClass, 和 Actor.levelupClass处理。
-生成过程在 _G 环境下进行 (也是Lua控制台使用的环境)，并使用当前地图的#LIGHT_GREEN#npc_list#LAST#.
+生成过程在 _G 环境下进行 (也是Lua控制台使用的环境)，并使用当前地图的#LIGHT_GREEN#npc_list#LAST#。
 请按#GOLD#'F1'#LAST#获得帮助。
 鼠标移动查看角色预览（可以在添加到游戏之前进行进一步的调整）
 (请按 #GOLD#'L'#LAST# 在Lua中检查，或按 #GOLD#'C'#LAST# 打开角色面板)
@@ -42802,11 +42802,11 @@ t("#LIGHT_BLUE# New random%s object: %s", "#LIGHT_BLUE# 新随机%s 物品：%s"
 t(" (resolver: %s)", " (解析器：%s)", "tformat")
 t("#LIGHT_BLUE#Could not generate a random object with filter: %s", "#LIGHT_BLUE#无法使用以下筛选器生成随机物品：%s", "log")
 t([[#LIGHT_BLUE#ERROR generating random object with filter [%s].
- Error: %s]], [[#LIGHT_BLUE#错误：使用该筛选器生成随机物品时发生错误[%s].
+ Error: %s]], [[#LIGHT_BLUE#错误：使用该筛选器生成随机物品时发生错误[%s]。
  错误：%s]], "log")
 t("#LIGHT_BLUE#Could not generate a base object with filter: %s", "#LIGHT_BLUE#无法使用该筛选器生成基础物品：%s", "log")
 t([[#LIGHT_BLUE#ERROR generating base object with filter [%s].
- Error:%s]], [[#LIGHT_BLUE#错误：使用该筛选器生成基础物品时发生错误 [%s].
+ Error:%s]], [[#LIGHT_BLUE#错误：使用该筛选器生成基础物品时发生错误 [%s]。
  错误：%s]], "log")
 t("#LIGHT_BLUE#Could not generate a Randart with data: %s", "#LIGHT_BLUE#无法使用数据生成随机神器：%s", "log")
 t([[#LIGHT_BLUE#ERROR generating Randart with data [%s].

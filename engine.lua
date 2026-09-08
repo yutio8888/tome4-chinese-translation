@@ -363,7 +363,7 @@ t("???", "???", "_t")
 --]==]
 
 -- old translated text
-t("following chain...", "追踪链接...", "log")
+t("following chain...", "追踪链接…", "log")
 
 ------------------------------------------------
 section "engine/engine/DebugConsole.lua"
@@ -543,7 +543,7 @@ Again, thank you, and enjoy Eyal!
 #{italic}#Your malevolent local god of darkness, #GOLD#DarkGod#{normal}#]], [[#{bold}#感谢#{normal}# 你的捐赠，你的支持对本游戏的持续运营意义重大。
 
 你的捐款总额为#LIGHT_GREEN#%0.2f 欧元#WHITE# 相当于 #ROYAL_BLUE#%d 个沃瑞钽币#WHITE#，可以在 te4.org 上消费。
-你的共享仓库有 #TEAL#%d 个槽位#WHITE#.
+你的共享仓库有 #TEAL#%d 个槽位#WHITE#。
 
 再次感谢你，祝你在埃亚尔玩的开心！
 
@@ -554,8 +554,8 @@ t("#{italic}#Left channel#{normal}#", "#{italic}#已退出频道#{normal}#", "_t
 t("#{italic}##FIREBRICK#has joined the channel#{normal}#", "#{italic}##FIREBRICK#已加入频道#{normal}#", "_t")
 t("#{italic}##FIREBRICK#has left the channel#{normal}#", "#{italic}##FIREBRICK#已退出频道#{normal}#", "_t")
 t("#CRIMSON#You are not subscribed to any channel, you can change that in the game options.#LAST#", "#CRIMSON#你没有关注任何频道，你可以在游戏设置中调节这一选项。#LAST#", "log")
-t("Requesting...", "正在请求...", "_t")
-t("Requesting user info...", "正在请求用户信息...", "_t")
+t("Requesting...", "正在请求…", "_t")
+t("Requesting user info...", "正在请求用户信息…", "_t")
 t("Error", "错误", "_t")
 t("The server does not know about this player.", "服务器里没有这个玩家。", "_t")
 
@@ -1036,7 +1036,7 @@ Note: This value will automatically revert after ten seconds if not confirmed by
 这个点表示窗口左上角所在的位置。
 这一选项用于在使用无边框窗口或者多显示器的场合。
 
-默认原点：(0,0).
+默认原点：(0,0)。
 
 注意：如果用户在十秒后不进行确认，这一数值将会自动恢复原值#WHITE#]], "_t")
 t("#GOLD##{bold}#Requested Window Position#WHITE##{normal}#", "#GOLD##{bold}#设置窗口位置#WHITE##{normal}#", "_t")
@@ -1108,7 +1108,7 @@ t([[For every donations you've ever made you have earned voratun coins. These ca
 #GOLD##{italic}#Thanks for your support, every little bit helps the game survive for years on!#{normal}#]], [[你历次所做的每一笔捐赠，都为你赚取了沃瑞钽硬币，可以用于购买扩展DLC或者在线商店的商品。这是你当前可用的硬币，如果购买价格在这以下，你可以立刻获得商品，否则你需要进行更多的捐赠。
 #GOLD##{italic}#感谢你的支持，每一分钱都让这游戏更加持久！#{normal}#]], "_t")
 t("%s #GOLD#Online Store#LAST#", "%s #GOLD#在线商店#LAST#", "tformat")
-t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器... --", "_t")
+t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器…--", "_t")
 t("Purchase", "购买", "_t")
 t("Name", "名称", "_t")
 t("Price", "价格", "_t")
@@ -1159,7 +1159,7 @@ t([[#{bold}##GOLD#Event#WHITE##{normal}#: Once you have purchased an event you w
 To activate it you will need to have your online events option set to "all" (which is the default value).]], [[#{bold}##GOLD#事件#WHITE##{normal}#：成功购买一次事件后，你可以在任何时间、任何角色上触发。
 你需要将在线事件选项设置为“全部”才能激活这个效果，注意，默认值即为“全部”。]], "_t")
 t("#{bold}##GOLD#Non Immediate#WHITE##{normal}#: This events adds new content that you have to find by exploration. If you die before finding it, there can be no refunds.", "#{bold}##GOLD#非即时#WHITE##{normal}#：该事件为你后续游戏进程增加了部分内容。即使你在接触到新增内容前就死去也无法退款。", "_t")
-t("#{bold}##GOLD#Once per Character#WHITE##{normal}#: This event can only be received #{bold}#once per character#{normal}#. Usualy because it adds a new zone or effect to the game that would not make sense to duplicate.", "#{bold}##GOLD#每角色限一次#WHITE##{normal}#：这个事件 #{bold}#每名角色只能接收一次#{normal}#. 通常是因为它添加了新地城或者其他游戏内不能重复添加的效果。", "_t")
+t("#{bold}##GOLD#Once per Character#WHITE##{normal}#: This event can only be received #{bold}#once per character#{normal}#. Usualy because it adds a new zone or effect to the game that would not make sense to duplicate.", "#{bold}##GOLD#每角色限一次#WHITE##{normal}#：这个事件 #{bold}#每名角色只能接收一次#{normal}#。通常是因为它添加了新地城或者其他游戏内不能重复添加的效果。", "_t")
 t([[#{bold}##GOLD#Shimmer Pack#WHITE##{normal}#: Once purchased the game will automatically install the shimmer pack to your game and enable it for your current character too (you will still need to use the Mirror of Reflection to switch them on).
 #LIGHT_GREEN#Bonus perk:#LAST# purchasing any shimmer pack will also give your characters a portable Mirror of Reflection to be able to change your appearance anywhere, anytime!]], [[#{bold}##GOLD#时装包#WHITE##{normal}#：购买后游戏会自动安装时装包，同时为当前角色自动开启。仍然需要使用反射之镜来切换。
 #LIGHT_GREEN#额外福利：#LAST# 购买任何时装包后，你的角色自动获得便携式反射之镜，可以随时随地切换时装！]], "_t")
@@ -1170,7 +1170,7 @@ t("#{bold}##GOLD#Vault Space#WHITE##{normal}#: Once purchased your vault space i
 section "engine/engine/dialogs/microtxn/UsePurchased.lua"
 
 t("%s #GOLD#Purchased Options#LAST#", "%s #GOLD#已购买的选项#LAST#", "tformat")
-t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器... --", "_t")
+t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器…--", "_t")
 t("Name", "名称", "_t")
 t("Available", "可用", "_t")
 t("Please use purchased options when not on the worldmap.", "请不要在世界地图上使用已购买的选项。", "_t")
@@ -1299,9 +1299,9 @@ section "engine/engine/interface/PlayerRest.lua"
 
 t("resting", "休息", "_t")
 t("rested", "休息了", "_t")
-t("%s...", "%s中...", "tformat")
+t("%s...", "%s中…", "tformat")
 t("You are %s, press Enter to stop.", "你正在%s，请按回车键停止。", "tformat")
-t("%s starts...", "%s开始了...", "log")
+t("%s starts...", "%s开始了…", "log")
 t("%s for %d turns (stop reason: %s).", "%s%d回合 (停止原因：%s)。", "log")
 t("%s for %d turns.", "%s%d回合。", "log")
 
@@ -1310,7 +1310,7 @@ section "engine/engine/interface/PlayerRun.lua"
 
 t("Running...", "跑步中……", "_t")
 t("You are running, press Enter to stop.", "你正在跑步中，请按回车键停止。", "_t")
-t("You don't see how to get there...", "你不知道怎么到达那里...", "logPlayer")
+t("You don't see how to get there...", "你不知道怎么到达那里…", "logPlayer")
 t("You are running, press any key to stop.", "你正在跑步中，请按任意键停止。", "_t")
 t("didn't move", "没有移动", "_t")
 t("trap spotted", "发现陷阱", "_t")
@@ -1929,7 +1929,7 @@ t("Steam User Account", "Steam用户账户", "_t")
 t([[Welcome to #GOLD#Tales of Maj'Eyal#LAST#.
 To enjoy all the features the game has to offer it is #{bold}#highly#{normal}# recommended that you register your steam account.
 Luckily this is very easy to do: you only require a profile name and optionally an email (we send very few email, maybe two a year at most).
-]], [[欢迎来到#GOLD#马基·埃亚尔的传说#LAST#.
+]], [[欢迎来到#GOLD#马基·埃亚尔的传说#LAST#。
 为了享受游戏的全部功能，我们#{bold}#强烈#{normal}#推荐你注册你的Steam账户。
 幸运的是，这非常容易：你只需要提供你的Steam用户名，也可以提供你的邮箱。（我们基本上不会给你发送邮件，每年最多发送一两份）
 ]], "_t")

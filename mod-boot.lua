@@ -514,7 +514,7 @@ t("Steam User Account", "Steam用户账户", "_t")
 t([[Welcome to #GOLD#Tales of Maj'Eyal#LAST#.
 To enjoy all the features the game has to offer it is #{bold}#highly#{normal}# recommended that you register your steam account.
 Luckily this is very easy to do: you only require a profile name and optionally an email (we send very few email, maybe two a year at most).
-]], [[欢迎来到#GOLD#马基·埃亚尔的传说#LAST#.
+]], [[欢迎来到#GOLD#马基·埃亚尔的传说#LAST#。
 为了享受游戏的全部功能，我们#{bold}#强烈#{normal}#推荐你注册你的Steam账户。
 幸运的是，这非常容易：你只需要提供你的Steam用户名，也可以提供你的邮箱。（我们基本上不会给你发送邮件，每年最多发送一两份）
 ]], "_t")
