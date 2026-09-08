@@ -435,7 +435,7 @@ t("There are currently %d people playing online", "现在有%d人正在在线游
 t("The character's vault has registered a total of #RED#%d#WHITE# character's deaths", "官网角色库中记录了#RED#%d#WHITE#个角色的死亡", "tformat")
 t("The character's vault has registered a total of #LIGHT_BLUE#%d#WHITE# winners for the current version", "官网角色库中共有#LIGHT_BLUE#%d#WHITE#个赢得当前版本的游戏的角色", "tformat")
 t("The latest donator is #LIGHT_GREEN#%s#WHITE#. Many thanks to all donators, you are keeping this game alive!", "最近的捐赠者是#LIGHT_GREEN#%s#WHITE#。感谢所有捐赠者，是你们延续了这个游戏的生命！", "tformat")
-t("#LIGHT_RED#Online profile disabled(switching to offline profile) due to %s.", "#LIGHT_RED#由于 %s，在线存档无法运行（切换至离线存档）", "log")
+t("#LIGHT_RED#Online profile disabled(switching to offline profile) due to %s.", "#LIGHT_RED#由于 %s，在线账户已禁用（切换至离线账户）。", "log")
 
 ------------------------------------------------
 section "engine/engine/Mouse.lua"
@@ -456,7 +456,7 @@ section "engine/engine/PlayerProfile.lua"
 
 t("#YELLOW#Connection to online server established.", "#YELLOW#已连接至在线服务器。", "log")
 t("#YELLOW#Connection to online server lost, trying to reconnect.", "#YELLOW#与在线服务器的连接丢失，尝试重新连接。", "log")
-t("no online profile active", "未开启在线存档", "_t")
+t("no online profile active", "未开启在线账户", "_t")
 t("cheat mode active", "已开启作弊模式", "_t")
 t("savefile tainted", "存档文件被修改", "_t")
 t("bad game version", "游戏版本错误", "_t")
@@ -1931,7 +1931,7 @@ To enjoy all the features the game has to offer it is #{bold}#highly#{normal}# r
 Luckily this is very easy to do: you only require a profile name and optionally an email (we send very few email, maybe two a year at most).
 ]], [[欢迎来到#GOLD#马基·埃亚尔的传说#LAST#。
 为了享受游戏的全部功能，我们#{bold}#强烈#{normal}#推荐你注册你的Steam账户。
-幸运的是，这非常容易：你只需要提供你的Steam用户名，也可以提供你的邮箱。（我们基本上不会给你发送邮件，每年最多发送一两份）
+幸运的是，这非常容易：你只需要提供你的用户名，也可以提供你的邮箱。（我们基本上不会给你发送邮件，每年最多发送一两份）
 ]], "_t")
 t("Username: ", "用户名：", "_t")
 t("Email: ", "邮箱：", "_t")

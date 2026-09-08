@@ -19,7 +19,7 @@ t("Their most important stats are: Willpower and Cunning", "他们最重要的�
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +2 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +2 力量 , +2 敏捷 , +0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +3 Willpower, +2 Cunning", "#LIGHT_BLUE# * +0 魔法 , +3 意志 , +2 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# -4", "#GOLD# 每等级生命加值：#LIGHT_BLUE# -4", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# -4", "#GOLD#每等级生命加值：#LIGHT_BLUE# -4", "_t")
 
 ------------------------------------------------
 section "tome-possessors/data/talents/psionic/battle-psionics.lua"
