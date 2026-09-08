@@ -2988,7 +2988,7 @@ Once upon a time, a great spirit put down its pen and closed its notebook, sighi
 
 从前————
 
-从前，有个大英雄，一个矮人岩石守卫名叫<?=Lore.pocket_time_winner.name?>，在开始她的旅程时发表了一番关于不公平的费解的话，然后耸肩继续前进。她与最亲近的同伴一道从瑞库纳逃离，使用了她的自然能力清除了无尽深渊与迷宫里的堕落之力，从嗜杀的实验体Z的魔掌中拯救了一个奇怪的叫做“夺心魔”的新生物，甚至在势不可挡地推进时，甩开了岱卡拉的巨人向她扔去的巨石，消灭了伤害了以往许多人的威胁。她发现了失落的孔克雷夫地下实验室，让最后几个最初被造出来的食人魔安息，从卡洛·斐济邪教徒的魔掌中救出了一个姑娘，最终站在了恐惧王座的塔门前，技艺百经锤炼，满载旅程中找到的各种珍奇装备。她一边往上爬，一边与一波波蹒跚的不死生物而战，她终于见到了吸血鬼领主迎面而来。这是，一个骷髅战士从后袭来。当她想用她仅有的那一个狂暴纹身时，它的战锤挥击震慑了她。当她因震慑而失去平衡，想要激活纹身的力量，一阵可怕的寒流涌遍了她的四肢，把她包裹在冰块之中时，她才清醒过来————
+从前，有个大英雄，一个矮人岩石守卫名叫<?=Lore.pocket_time_winner.name?>，在开始她的旅程时发表了一番关于不公平的费解的话，然后耸肩继续前进。她与最亲近的同伴一道从瑞库纳逃离，使用了她的自然能力清除了无尽深渊与迷宫里的堕落之力，从嗜杀的实验体Z的魔掌中拯救了一个奇怪的叫做“夺心魔”的新生物，甚至在势不可挡地推进时，甩开了岱卡拉的巨人向她扔去的巨石，消灭了伤害了以往许多人的威胁。她发现了失落的孔克雷夫地下实验室，让最后几个最初被造出来的食人魔安息，从克里尔·费扬邪教徒的魔掌中救出了一个姑娘，最终站在了恐惧王座的塔门前，技艺百经锤炼，满载旅程中找到的各种珍奇装备。她一边往上爬，一边与一波波蹒跚的不死生物而战，她终于见到了吸血鬼领主迎面而来。这是，一个骷髅战士从后袭来。当她想用她仅有的那一个狂暴纹身时，它的战锤挥击震慑了她。当她因震慑而失去平衡，想要激活纹身的力量，一阵可怕的寒流涌遍了她的四肢，把她包裹在冰块之中时，她才清醒过来————
 
 从前，有个自然精灵召唤师叫做<?=Lore.pocket_time_winner.name?>, 在一条蛇旁开始了旅程，这条蛇不自然地精通时间魔法————
 
@@ -3955,14 +3955,14 @@ t([[Expend all of your negative energy to create a massive burst of dark energy 
 ------------------------------------------------
 section "tome-orcs/data/talents/celestial/crepescula.lua"
 
-t("Twilit Echoes", "微光回响", "talent name")
+t("Twilit Echoes", "暮光回响", "talent name")
 t([[The target feels the echoes of all your light and dark damage for %d turns. 
 
 Light damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.
 Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到你造成的所有光系和暗影伤害的回响，持续 %d 回合。
 
 每造成 1 点光系伤害，目标便会减速 %0.2f%%，持续 %d 回合；减速上限为 %d%%，造成 %d 点伤害时达到上限。
-暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。在微光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。]], "tformat")
+暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/celestial/energies.lua"
@@ -4013,14 +4013,14 @@ t("Nebula Spear", "星云之矛", "talent name")
 t("Fire out a spear of cosmic energies. If it hits an enemy it deals %0.2f damage, otherwise it explodes in a thin cone of radius %d at the end of its range, blocked by enemies, which deals %0.2f to %0.2f damage depending on how much the enemies block.", "发射一支宇宙能量长矛。若击中敌人，造成 %0.2f 点伤害；否则会在射程终点爆炸，形成半径 %d 的狭窄锥形区域。该效果会被敌人阻挡，并根据阻挡程度造成 %0.2f 到 %0.2f 点伤害。", "tformat")
 t("Crescent Wave", "新月波动", "talent name")
 t("Fires out a projectile in a clockwise arc. If it hits an enemy it deals %0.2f damage and roots them for one turn. If another projectile damages them within %d turns, they take half that damage and are rooted again.", "沿顺时针弧线发射一个投射物。若击中敌人，造成 %0.2f 点伤害并将其定身 1 回合。若另一个投射物在 %d 回合内对其造成伤害，该敌人会受到该次伤害的一半并再次被定身。", "_t")
-t("Twilit Echoes", "微光回响", "talent name")
+t("Twilit Echoes", "暮光回响", "talent name")
 t([[The target feels the echoes of all your light and dark damage for %d turns. 
 
 Light damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.
 Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到你造成的所有光系和暗影伤害的回响，持续 %d 回合。
 
 每造成 1 点光系伤害，目标便会减速 %0.2f%%，持续 %d 回合；减速上限为 %d%%，造成 %d 点伤害时达到上限。
-暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。在微光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。]], "tformat")
+暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。]], "tformat")
 t("Starscape", "星界领域", "talent name")
 t("This spell cannot be cast here.", "该技能不能在这里使用。", "logPlayer")
 t("Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.", "在 %d 范围内召唤一片星界领域 . %d 回合内, 这个区域存在于正常时间之外, 且重力为零. 除了零重力之外, 抛射物和生物的活动比平时慢 3 倍. 法术和攻击不能逃脱范围, 直到效果结束.", "tformat")
@@ -6108,11 +6108,11 @@ t("The shield around #target# crumbles.", "#target#周围的护盾消失了。",
 t("-Shield", "-护盾", "_t")
 t("dark", "黑暗", "effect subtype")
 t("light", "光系", "effect subtype")
-t("Twilit Echoes", "微光回响", "_t")
+t("Twilit Echoes", "暮光回响", "_t")
 t("The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.", "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，在单次受到 %d 点伤害时达到上限。暗影伤害会在目标地格生成一个持续 %d 回合的效果，每回合造成相当于该次暗影伤害 %d%% 的伤害。只要目标继续受到该效果或其他来源的伤害，持续时间就会刷新。", "tformat")
 t("slow", "减速", "effect subtype")
 t("Echoed Light", "光明回响", "_t")
-t("The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.", "目标受到的光系伤害回响了，减速 %d%%。在微光回响期间受到更多伤害将会刷新持续时间并增加减速效果，最大叠加到 %d%%。", "tformat")
+t("The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.", "目标受到的光系伤害回响了，减速 %d%%。在暮光回响期间受到更多伤害将会刷新持续时间并增加减速效果，最大叠加到 %d%%。", "tformat")
 t("temporal", "时空", "effect subtype")
 t("Mirror Worlded", "镜像世界", "_t")
 t("This unit will flip spaces soon.", "该单位即将切换空间。", "_t")

@@ -4,7 +4,7 @@ section "tome-possessors/data/achievements/possessors.lua"
 t("Bill Kill!", "比尔杀死！", "achievement name")
 t("Kill your own Doomed Shade in the body of Bill.", "使用比尔的身体杀死你自己的被诅咒的影子", "_t")
 t("Unneshasshhary Kryl'ty", "相爱相杀", "achievement name")
-t("Kill Kryl'Feijan with the body of Shasshhiy'Kaish, or vice-versa.", "使用卡洛·斐济的身体杀死莎西·凯希，或者使用莎西·凯希的身体杀死卡洛·斐济。", "_t")
+t("Kill Kryl'Feijan with the body of Shasshhiy'Kaish, or vice-versa.", "使用克里尔·费扬的身体杀死莎西·凯希，或者使用莎西·凯希的身体杀死克里尔·费扬。", "_t")
 t("Unneshasshhary Kryl'ty (Redux)", "相爱相杀（重复）", "achievement name")
 t("Kill High Paladin Aeryn with the body of Sun Paladin John.", "使用太阳骑士约翰的身体杀死高阶太阳骑士艾琳", "_t")
 
@@ -373,7 +373,7 @@ t("You use the body of one of your fallen victims. You can not heal in this form
 t("#CRIMSON#While you assume a form you may not levelup. All exp gains are delayed and will be granted when you reintegrate your own body.", "#CRIMSON#当你附身一个身体的时候，你不能升级。所有获得的经验值都会被保存，在你回到自己的身体的时候获得。", "_t")
 t("#CRIMSON#Your body died! You quickly return to your normal one but the shock is terrible!", "#CRIMSON#你的身体死掉了！你快速回到了你原来的身体，但是这对你产生了极大的冲击！", "say")
 t("was killed by possession aftershock", "被附身的影响杀死", "_t")
-t("Kryl-Feijan", "卡洛·斐济", "_t")
+t("Kryl-Feijan", "克里尔·费扬", "_t")
 t("Your possessed body's eyelids briefly flutter, and a tear rolls down its cheek. You didn't tell it to do that.", "你控制的身躯眼睑微微颤动，眼泪顺着脸颊滚落。你没有让它这么做。", "_t")
 t("Shasshhiy'Kaish", "莎西·凯希", "_t")
 t("The flames surrounding Shasshhiy'Kaish slowly die as she falls to her knees.  \"Fiend...  and I thought #{italic}#I#{normal}# could cause suffering.  It's the one thing Eyalites always did best,\" she spits.  \"I heard what had happened to him, and my followers have given more than enough of their life to restore me after this.  All you've accomplished here - [cough] - is giving us a worthwhile new goal...  and target.  All will be repaid tenfold, Eyalite.\"  Her coughing grows weaker, until she abruptly bursts into flame; her ashes scatter into the wind.", "莎西·凯希跪倒在地，她周围的火焰慢慢熄灭。“你们才是真正的恶魔……我以为#{italic}#我#{normal}#是制造痛苦的大师。但现在看来，你们埃亚尔人才是最擅长带来折磨的人。”她啐了一口唾沫。“我听说了他所发生的事情，我的追随者给了我足够的生命，让我可以东山再起。你对我所做的一切——【咳嗽】——只是给了我一个新的目标……一个复仇的对象。你们所做的一切都将被十倍偿还，埃亚尔人。”她的咳嗽声越来越轻，直到最终迸发成一团火焰。她的灰烬散落在风中。", "_t")
