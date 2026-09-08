@@ -707,7 +707,7 @@ t("", "", "_t")
 section "engine/engine/dialogs/KeyBinder.lua"
 
 t("Key bindings", "键位绑定", "_t")
-t("      Press a key (escape to cancel, backspace to remove) for: %s", "      请按键（ESC键取消，退格键删除） 以绑定 %s 的键位", "tformat")
+t("      Press a key (escape to cancel, backspace to remove) for: %s", "      请按键（Esc 键取消，退格键删除）以绑定 %s 的键位", "tformat")
 t("Bind key", "绑定键位", "_t")
 t("Bind alternate key", "绑定替代键位", "_t")
 t("Make gesture (using right mouse button) or type it (or escape) for: %s", "请输入鼠标手势 (使用鼠标右键) 或者按键 (或按ESC取消) 以绑定 %s 的键位", "tformat")
@@ -1256,12 +1256,12 @@ t("%s", "%s", "logSeen")
 ------------------------------------------------
 section "engine/engine/interface/GameTargeting.lua"
 
-t("Tactical display disabled. Press shift+'t' to enable.", "战术视图关闭。请按Shift+'t'启用。", "_t")
+t("Tactical display disabled. Press shift+'t' to enable.", "战术视图关闭。请按 Shift+T 启用。", "_t")
 t("Target yourself?", "瞄准你自己？", "_t")
 t("Are you sure you want to target yourself?", "你确认要瞄准你自己吗？", "_t")
 t("No", "否", "_t")
 t("Yes", "是", "_t")
-t("Tactical display enabled. Press shift+'t' to disable.", "战术视图启用。请按Shift+'t'关闭。", "_t")
+t("Tactical display enabled. Press shift+'t' to disable.", "战术视图启用。请按 Shift+T 关闭。", "_t")
 
 ------------------------------------------------
 section "engine/engine/interface/ObjectActivable.lua"
@@ -1284,7 +1284,7 @@ t("the path is blocked", "路被挡住了", "_t")
 section "engine/engine/interface/PlayerHotkeys.lua"
 
 t("Hotkey not defined", "按键未定义", "_t")
-t("You may define a hotkey by pressing 'm' and following the instructions there.", "你可以按m键打开按键绑定窗口，遵循上面的指示绑定按键。", "_t")
+t("You may define a hotkey by pressing 'm' and following the instructions there.", "你可以按 M 键打开技能窗口，按其中的提示绑定快捷键。", "_t")
 t("Item not found", "找不到物品", "_t")
 t("You do not have any %s .", "你的物品栏里没有%s。", "tformat")
 
@@ -1424,7 +1424,7 @@ Remember that in most roguelikes death is usually permanent so be careful!
 
 Now go and have some fun!]], [[#GOLD#马基·埃亚尔的传说#WHITE# 是主游戏，你也可以在 https://te4.org/ 下载到更多游戏插件和游戏模组。
 
-在游戏模组内，你可以按ESC键打开菜单，改变按键绑定，游戏分辨率和其他和模组有关的设置。
+在游戏模组内，你可以按 Esc 键打开菜单，改变按键绑定，游戏分辨率和其他和模组有关的设置。
 
 请记住，在大部分Roguelike游戏里，角色的死亡都是永久的，请小心！
 

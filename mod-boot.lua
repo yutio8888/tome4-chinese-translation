@@ -10,7 +10,7 @@ Remember that in most roguelikes death is usually permanent so be careful!
 
 Now go and have some fun!]], [[#GOLD#马基·埃亚尔的传说#WHITE# 是主游戏，你也可以在 https://te4.org/ 下载到更多游戏插件和游戏模组。
 
-在游戏模组内，你可以按ESC键打开菜单，改变按键绑定，游戏分辨率和其他和模组有关的设置。
+在游戏模组内，你可以按 Esc 键打开菜单，改变按键绑定，游戏分辨率和其他和模组有关的设置。
 
 请记住，在大部分Roguelike游戏里，角色的死亡都是永久的，请小心！
 

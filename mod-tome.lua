@@ -234,8 +234,8 @@ Now go forward boldly and triumph!]], [[你达到了#LIGHT_GREEN#等级 50#WHITE
 现在，勇敢的向前并取得最终的胜利吧！]], "_t")
 t("LEVEL UP!", "升级了！", "_t")
 t("#00ffff#Welcome to level %d [%s].", "#00ffff#欢迎来到等级 %d [ %s ]", "log")
-t("Press p to use them.", "请按 p 使用它们。", "_t")
-t("Select %s in the party list and press G to use them.", "请选择队伍里的%s，按 G 使用它们。", "tformat")
+t("Press p to use them.", "请按 P 键使用它们。", "_t")
+t("Select %s in the party list and press G to use them.", "请选择队伍里的%s，按 G 键使用它们。", "tformat")
 t("%d stat point(s)", "%d 属性点", "tformat")
 t("%d class talent point(s)", "%d 职业技能点", "tformat")
 t("%d generic talent point(s)", "%d 通用技能点", "tformat")
@@ -452,7 +452,7 @@ t("The teleport fizzles!", "传送失败了！", "_t")
 ------------------------------------------------
 section "mod-tome/class/Game.lua"
 
-t("<Scroll mode, press direction keys to scroll, press again to exit>", "<地图滚动模式，按上下左右键滚动地图，再次按键退出>", "_t")
+t("<Scroll mode, press direction keys to scroll, press again to exit>", "<地图滚动模式，按方向键滚动地图，再次按键退出>", "_t")
 t("Main character", "主角色", "_t")
 t("Character Creation ( %s unlocked options)", "角色创建 ( %s 解锁选项)", "tformat")
 t("Welcome to #LIGHT_BLUE#Tales of Maj'Eyal", "欢迎来到#LIGHT_BLUE#马基·埃亚尔的传说", "_t")
@@ -533,10 +533,10 @@ t("Tales of Maj'Eyal Lore", "马基·埃亚尔的传说手札", "_t")
 t("Show ingredients", "显示材料", "_t")
 t("Character Sheet", "角色信息面板", "_t")
 t("Game Options", "游戏选项", "_t")
-t("Looking around... (direction keys to select interesting things, shift+direction keys to move freely)", "正在观察四周…（按方向键定位有趣的东西，按Shift+方向键自由移动）", "log")
+t("Looking around... (direction keys to select interesting things, shift+direction keys to move freely)", "正在观察四周…（按方向键定位有趣的东西，按 Shift+方向键自由移动）", "log")
 t("Movement Mode: #LIGHT_GREEN#Default#LAST#.", "移动模式：#LIGHT_GREEN#默认#LAST#.", "log")
 t("Movement Mode: #LIGHT_RED#Passive#LAST#.", "移动模式：#LIGHT_RED#被动#LAST#.", "log")
-t("#GOLD#CHEAT MOVE ACTOR %s: ctrl+shift+alt+right click on an empty map spot to move it", "#GOLD#CHEAT MOVE ACTOR %s: ctrl+shift+alt+right 点击地图上的空白位置来移动它", "log")
+t("#GOLD#CHEAT MOVE ACTOR %s: ctrl+shift+alt+right click on an empty map spot to move it", "#GOLD#CHEAT MOVE ACTOR %s: Ctrl+Shift+Alt+右键点击地图上的空白位置来移动它", "log")
 t("quitting", "正在退出", "_t")
 t("Save and go back to main menu?", "保存并返回主菜单？", "_t")
 t("Save and exit game?", "保存并退出游戏？", "_t")
@@ -752,7 +752,7 @@ t("Accuracy is based on willpower for this weapon.", "该武器的命中率受�
 t("Accuracy: ", "命中：", "_t")
 t("Armour Penetration: ", "护甲穿透：", "_t")
 t("Crit. chance: ", "暴击率：", "_t")
-t("Crit. power: ", "暴击伤害加成：", "_t")
+t("Crit. power: ", "暴击伤害：", "_t")
 t("Attack speed: ", "攻击速度：", "_t")
 t("Block value: ", "格挡值：", "_t")
 t("Dam. multiplier: ", "伤害倍率：", "_t")
@@ -827,7 +827,7 @@ t("Changes resistances cap: ", "抗性上限改变：", "_t")
 t("Reduce damage by fixed amount: ", "按固定数值减少全部伤害：", "_t")
 t("Maximum wards: ", "最大守护次数：", "_t")
 t("Changes resistances penetration: ", "抗性穿透改变：", "_t")
-t("Changes damage: ", "伤害加成：", "_t")
+t("Changes damage: ", "伤害变化：", "_t")
 t("Reduced damage from: ", "降低特定来源伤害：", "_t")
 t("Talent category bonus: ", "技能树加成：", "_t")
 t("Damage affinity(heal): ", "伤害吸收(治疗)：", "_t")
@@ -850,10 +850,10 @@ t("Reduces incoming crit damage: ", "降低暴击伤害：", "_t")
 t("Reduces opponents crit chance: ", "降低对方暴击率：", "_t")
 t("Trap disarming bonus: ", "拆除陷阱加成：", "_t")
 t("Stealth bonus: ", "潜行加成：", "_t")
-t("Maximum encumbrance: ", "负重上限加成：", "_t")
-t("Physical save: ", "物理豁免加成：", "_t")
-t("Spell save: ", "法术豁免加成：", "_t")
-t("Mental save: ", "精神豁免加成：", "_t")
+t("Maximum encumbrance: ", "负重上限：", "_t")
+t("Physical save: ", "物理豁免：", "_t")
+t("Spell save: ", "法术豁免：", "_t")
+t("Mental save: ", "精神豁免：", "_t")
 t("Blindness immunity: ", "致盲免疫：", "_t")
 t("Poison immunity: ", "毒素免疫：", "_t")
 t("Disease immunity: ", "疾病免疫：", "_t")
@@ -1033,7 +1033,7 @@ t([[Powered by #CRIMSON#unknown forces#LAST#
 ]], "_t")
 t("%0.2f Encumbrance.", "%0.2f 负重。", "tformat")
 t("This object's appearance was changed to %s", "这个物品的外观被改变为 %s 。", "tformat")
-t("Press <control> to compare", "按住 <Ctrl> 键比较", "_t")
+t("Press <control> to compare", "按住 Ctrl 键比较", "_t")
 -- untranslated text
 --[==[
 t("%s)", "%s)", "tformat")
@@ -1133,15 +1133,15 @@ t("", "", "log")
 --]==]
 
 -- old translated text
-t("#LIGHT_GREEN#Accepted quest '%s'!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#接受了任务“%s”！#WHITE#（按下“j”查看任务日志）", "logPlayer")
+t("#LIGHT_GREEN#Accepted quest '%s'!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#接受了任务“%s”！#WHITE#（按 J 键查看任务日志）", "logPlayer")
 t("#LIGHT_GREEN#Accepted quest '%s'!", "#LIGHT_GREEN#接受了任务“%s”!", "saySimple")
-t("#LIGHT_GREEN#Quest '%s' status updated!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”状态已经更新！#WHITE#（按下“j”查看任务日志）", "logPlayer")
+t("#LIGHT_GREEN#Quest '%s' status updated!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”状态已经更新！#WHITE#（按 J 键查看任务日志）", "logPlayer")
 t("#LIGHT_GREEN#Quest '%s' updated!", "#LIGHT_GREEN#任务“%s”已更新!", "saySimple")
-t("#LIGHT_GREEN#Quest '%s' completed!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按下“j”查看任务日志）", "logPlayer")
+t("#LIGHT_GREEN#Quest '%s' completed!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按 J 键查看任务日志）", "logPlayer")
 t("#LIGHT_GREEN#Quest '%s' completed!", "#LIGHT_GREEN#任务“%s”已完成!", "saySimple")
-t("#LIGHT_GREEN#Quest '%s' is done!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按下“j”查看任务日志）", "logPlayer")
+t("#LIGHT_GREEN#Quest '%s' is done!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按 J 键查看任务日志）", "logPlayer")
 t("#LIGHT_GREEN#Quest '%s' done!", "#LIGHT_GREEN#任务“%s”已完成!", "saySimple")
-t("#LIGHT_RED#Quest '%s' is failed!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_RED#任务“%s”失败！#WHITE#（按下“j”查看任务日志）", "logPlayer")
+t("#LIGHT_RED#Quest '%s' is failed!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_RED#任务“%s”失败！#WHITE#（按 J 键查看任务日志）", "logPlayer")
 t("#LIGHT_RED#Quest '%s' failed!", "#LIGHT_RED#任务“%s”失败了!", "saySimple")
 
 ------------------------------------------------
@@ -1437,7 +1437,7 @@ t("You collect a new ingredient: #LIGHT_GREEN#%s%s (%d)#WHITE#.", "你搜集了�
 section "mod-tome/class/interface/PartyLore.lua"
 
 t("Lore found: #0080FF#%s", "发现手札：#0080FF#%s", "logPlayer")
-t("You can read all your collected lore in the game menu, by pressing Escape.", "按下Esc键，进入游戏菜单你可以查看所有你已经收集的札记。", "logPlayer")
+t("You can read all your collected lore in the game menu, by pressing Escape.", "按 Esc 键，进入游戏菜单你可以查看所有你已经收集的札记。", "logPlayer")
 t("learnt lore", "发现手札", "_t")
 
 ------------------------------------------------
@@ -1456,15 +1456,15 @@ t("the path is blocked", "路被挡住了", "_t")
 ------------------------------------------------
 section "mod-tome/class/interface/PlayerQuestPopup.lua"
 
-t("#LIGHT_GREEN#Accepted quest '%s'! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#接受了任务“%s”！#WHITE#（按下“j”查看任务日志）", "logPlayer")
+t("#LIGHT_GREEN#Accepted quest '%s'! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#接受了任务“%s”！#WHITE#（按 J 键查看任务日志）", "logPlayer")
 t("#LIGHT_GREEN#Accepted quest '%s'!", "#LIGHT_GREEN#接受了任务“%s”!", "saySimple")
-t("#LIGHT_GREEN#Quest '%s' status updated! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”状态已经更新！#WHITE#（按下“j”查看任务日志）", "logPlayer")
+t("#LIGHT_GREEN#Quest '%s' status updated! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”状态已经更新！#WHITE#（按 J 键查看任务日志）", "logPlayer")
 t("#LIGHT_GREEN#Quest '%s' updated!", "#LIGHT_GREEN#任务“%s”已更新!", "saySimple")
-t("#LIGHT_GREEN#Quest '%s' completed! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按下“j”查看任务日志）", "logPlayer")
+t("#LIGHT_GREEN#Quest '%s' completed! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按 J 键查看任务日志）", "logPlayer")
 t("#LIGHT_GREEN#Quest '%s' completed!", "#LIGHT_GREEN#任务“%s”已完成!", "saySimple")
-t("#LIGHT_GREEN#Quest '%s' is done! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按下“j”查看任务日志）", "logPlayer")
+t("#LIGHT_GREEN#Quest '%s' is done! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按 J 键查看任务日志）", "logPlayer")
 t("#LIGHT_GREEN#Quest '%s' done!", "#LIGHT_GREEN#任务“%s”已完成!", "saySimple")
-t("#LIGHT_RED#Quest '%s' is failed! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_RED#任务“%s”失败！#WHITE#（按下“j”查看任务日志）", "logPlayer")
+t("#LIGHT_RED#Quest '%s' is failed! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_RED#任务“%s”失败！#WHITE#（按 J 键查看任务日志）", "logPlayer")
 t("#LIGHT_RED#Quest '%s' failed!", "#LIGHT_RED#任务“%s”失败了!", "saySimple")
 
 ------------------------------------------------
@@ -2317,7 +2317,7 @@ Toggle for default mode]], [[移动模式：#LIGHT_RED#被动#LAST# (#{bold}##GO
 t("Cosmetics & Events shop (#{bold}##GOLD#%s#LAST##{normal}#, #{bold}##GOLD#%s#LAST##{normal}#)", "时装和事件商店 (#{bold}##GOLD#%s#LAST##{normal}#, #{bold}##GOLD#%s#LAST##{normal}#)", "tformat")
 t("Left click to use", "左键点击使用", "_t")
 t("Right click to configure", "右键点击设定", "_t")
-t("Press 'm' to setup", "按M键设置", "_t")
+t("Press 'm' to setup", "按 M 键设置", "_t")
 t("Unbind %s", "解除绑定%s", "tformat")
 t("Remove this object from your hotkeys?", "从快捷栏去掉该物品？", "_t")
 t("Donator", "捐赠者", "_t")
@@ -2488,7 +2488,7 @@ Middle mouse to show full map]], [[左键点击移动
 中键点击显示大地图]], "_t")
 t("Left click to use", "左键点击使用", "_t")
 t("Right click to configure", "右键点击设定", "_t")
-t("Press 'm' to setup", "按M键设置", "_t")
+t("Press 'm' to setup", "按 M 键设置", "_t")
 t("Unbind %s", "解除绑定%s", "tformat")
 t("Remove this object from your hotkeys?", "从快捷栏去掉该物品？", "_t")
 t([[Left mouse to show inventory
@@ -6435,12 +6435,12 @@ Press #GOLD#Escape#WHITE#, then select #GOLD#Save and Exit#WHITE#, and create a 
 
 在教学过程中，一些怪物为了教学目的被相应地做过修改，不过在真实的埃亚尔世界中，怪物可不会这么简单！
 
-要是你想看看你的按键设置细节，你可以按下#GOLD#Esc键#WHITE#进入游戏菜单检查按键绑定，你可以更改设置直到你满意为止。
+要是你想看看你的按键设置细节，你可以按下#GOLD#Esc 键#WHITE#进入游戏菜单检查按键绑定，你可以更改设置直到你满意为止。
 
 如果你第一次接触这个游戏，你会发现可供选择的种族和职业很有限。别担心，随着你在冒险中不断解锁，更多种族和职业将可供选择。
 
 现在，勇敢的前进吧，并且记住：#GOLD#玩的开心！#WHITE#
-按下 #GOLD#Esc键#WHITE#，选择 #GOLD#保存并退出#WHITE#，然后创建一个新的角色吧！]], "_t")
+按下 #GOLD#Esc 键#WHITE#，选择 #GOLD#保存并退出#WHITE#，然后创建一个新的角色吧！]], "_t")
 t("Thank you.", "谢谢。", "_t")
 
 ------------------------------------------------
@@ -7289,7 +7289,7 @@ t("#VIOLET#The portal is broken!", "#VIOLET#传送门被破坏了!", "log")
 t("broken fearscape invasion portal", "被破坏的恶魔空间入侵传送门", "_t")
 t("#VIOLET#The portal is already broken!", "#VIOLET#传送门已经被破坏！", "log")
 t("Fearscape Portal", "恶魔空间传送门", "_t")
-t("Do you wish to enter the portal, destroy it, or ignore it (press escape)?", "你想要进入传送门，摧毁它，还是无视它（按ESC键）？", "_t")
+t("Do you wish to enter the portal, destroy it, or ignore it (press escape)?", "你想要进入传送门，摧毁它，还是无视它（按 Esc 键）？", "_t")
 t("Quit", "退出", "dialog_portal")
 t("#VIOLET#Ignoring the portal...", "#VIOLET#你忽略了传送门...", "log")
 t("Destroy", "摧毁", "_t")
@@ -7344,7 +7344,7 @@ t("#VIOLET#The portal is broken!", "#VIOLET#传送门被破坏了!", "log")
 t("broken naga invasion coral portal", "被破坏的娜迦入侵珊瑚传送门", "_t")
 t("#VIOLET#The portal is already broken!", "#VIOLET#传送门已经被破坏！", "log")
 t("Coral Portal", "珊瑚传送门", "_t")
-t("Do you wish to enter the portal, destroy it, or ignore it (press escape)?", "你想要进入传送门，摧毁它，还是无视它（按ESC键）？", "_t")
+t("Do you wish to enter the portal, destroy it, or ignore it (press escape)?", "你想要进入传送门，摧毁它，还是无视它（按 Esc 键）？", "_t")
 t("Quit", "退出", "dialog_portal")
 t("#VIOLET#Ignoring the portal...", "#VIOLET#你忽略了传送门...", "log")
 t("Destroy", "摧毁", "_t")
@@ -9482,7 +9482,7 @@ t("vial of maroon fluid", "一瓶栗色液体。", "_t")
 t("A vial of thick maroon fluid.", "一瓶粘稠的栗色液体。", "_t")
 t("grant you four additional stat points", "获得4点额外属性点数", "_t")
 t("#00FF00#The elixir has greatly expanded your capacity for improving your mind and body.", "#00FF00#药剂大大提升了你的智力和体能。", "logPlayer")
-t("You have %d stat point(s) to spend. Press G to use them.", "你有%d属性点。请按G使用。", "logPlayer")
+t("You have %d stat point(s) to spend. Press G to use them.", "你有%d属性点。请按 G 键使用。", "logPlayer")
 t("Elixir of Explosive Force", "爆炸药剂", "entity name")
 t("vial of orange fluid", "一瓶橙色液体。", "_t")
 t("A vial of churning orange fluid.", "一瓶浑浊的橙色液体。", "_t")
@@ -20158,7 +20158,7 @@ t("%s needs your help making an %s. He has given you some notes on the ingredien
 t("#SLATE#  * 'Needed: one %s. %s'#WHITE#", "#SLATE#  * '需要：一个%s。 %s'#WHITE#", "tformat")
 t("#LIGHT_GREEN#  * You've found the needed %s.#WHITE#", "#LIGHT_GREEN# * 你找到了所需要的%s。#WHITE#", "tformat")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
-t("#VIOLET#You can check the ingredients you possess by pressing Escape and selecting 'Show ingredients'.", "#VIOLET#你现在可以按ESC调出游戏菜单，选择“查看材料”检查自己所拥有的材料。", "log")
+t("#VIOLET#You can check the ingredients you possess by pressing Escape and selecting 'Show ingredients'.", "#VIOLET#你现在可以按 Esc 键调出游戏菜单，选择“查看材料”检查自己所拥有的材料。", "log")
 t("You receive: %s", "你收到：%s 。", "logPlayer")
 t("elixir of the fox", " 狡诈药剂 ", "_t")
 t("elixir of avoidance", " 闪避药剂 ", "_t")
@@ -32345,9 +32345,9 @@ Now press #LIGHT_BLUE#escape#LAST# or #LIGHT_BLUE#click outside#LAST# this dialo
 普通角色的生命数有限，一旦耗尽便会永久死亡（除非你找到或完成了能让你复活的事物）。
 
 在这个教程游戏过程中，你会碰到很多像这样的弹出对话框，来解释游戏的内容。
-对话框可以通过按 ESC 键或者点击框外其他地方或者单击对话框标题来关闭。
+对话框可以通过按 Esc 键或者点击框外其他地方或者单击对话框标题来关闭。
 
-现在按下#LIGHT_BLUE#ESC键#LAST#或者#LIGHT_BLUE#点击对话框外#LAST#即可关闭此对话框并继续。
+现在按下#LIGHT_BLUE#Esc 键#LAST#或者#LIGHT_BLUE#点击对话框外#LAST#即可关闭此对话框并继续。
 ]], "_t")
 
 ------------------------------------------------
@@ -32450,7 +32450,7 @@ Press Escape, save & exit and create a new character!
 在许多其他种族和职业，你会在游戏过程中解锁它们。
 
 现在，勇敢前进并记住： #GOLD#好好享受游戏的乐趣！#WHITE#
-请按下Esc键，保存并退出游戏，建立一个新的角色吧！
+请按下 Esc 键，保存并退出游戏，建立一个新的角色吧！
 ]], "_t")
 
 ------------------------------------------------
@@ -38474,7 +38474,7 @@ You forgot your wife! Find her!]], [[有毒的气息渗入你的全身，渐渐�
 t([[As you enter the dream portal you suddenly wake up.
 You feel good!]], [[当你进入了梦境传送门之时，你突然醒来。
 你感觉神清气爽！]], "_t")
-t("%s has %d stat point(s) to spend. Press p to use them.", "%s有%d可用属性点。请按P使用。", "log")
+t("%s has %d stat point(s) to spend. Press p to use them.", "%s有%d可用属性点。请按 P 键使用。", "log")
 t("Deep slumber...", "沉眠……", "_t")
 t([[As you die in a dream you suddenly wake up.
 Poisonous fumes take their toll on your body!]], [[当你在梦中死去时，你突然醒来。
@@ -39121,11 +39121,11 @@ t("pulsing organ", "跳动的器官", "_t")
 t("The heart of the Sandworm Queen, ripped from her dead body and corrupted in the mark of the spellblaze altar. You could ... consume it, should you feel mad enough.", "从沙虫女皇尸体上割下的心脏，被魔法大爆炸之痕的祭坛所腐化。如果你够疯的话，你大可以……吃掉它。", "_t")
 t("consume the heart", "吃下心脏", "_t")
 t("#00FFFF#You consume the heart and feel the corruption fill you!", "#00FFFF#你吃下了心脏，你感觉被腐化的力量充满！", "logPlayer")
-t("You have %d stat point(s) to spend. Press p to use them.", "你有 %d 属性点数，按下p来使用。", "logPlayer")
-t("You have %d class talent point(s) to spend. Press p to use them.", "你有 %d 职业技能点数，按下p来使用。", "logPlayer")
-t("You have %d generic talent point(s) to spend. Press p to use them.", "你有 %d 通用技能点数，按下p来使用。", "logPlayer")
+t("You have %d stat point(s) to spend. Press p to use them.", "你有 %d 属性点数，按 P 键使用。", "logPlayer")
+t("You have %d class talent point(s) to spend. Press p to use them.", "你有 %d 职业技能点数，按 P 键使用。", "logPlayer")
+t("You have %d generic talent point(s) to spend. Press p to use them.", "你有 %d 通用技能点数，按 P 键使用。", "logPlayer")
 t("You are transformed by the corrupted heart of the Queen!", "你被腐化的沙虫女皇之心所转化！", "logPlayer")
-t("#00FF00#You gain an affinity for blight. You can now learn new Vile Life talents (press p).", "#00FF00#你获得了与枯萎的紧密联系，现在你可以学习新的邪恶生命技能（按下p）", "logPlayer")
+t("#00FF00#You gain an affinity for blight. You can now learn new Vile Life talents (press p).", "#00FF00#你获得了与枯萎的紧密联系，现在你可以学习新的邪恶生命技能（按 P 键）", "logPlayer")
 
 ------------------------------------------------
 section "mod-tome/data/zones/mark-spellblaze/zone.lua"
@@ -39663,11 +39663,11 @@ You could ... consume it, should you feel mad enough or you could try to corrupt
 你可以……吃了它，如果你足够疯的话，你还可以在别的地方腐化它。]], "_t")
 t("consume the heart", "吃下心脏", "_t")
 t("#00FFFF#You consume the heart and feel the knowledge of this very old creature fill you!", "#00FFFF#你吃下了心脏，你感觉被这个古老生物的知识充满。", "logPlayer")
-t("You have %d stat point(s) to spend. Press p to use them.", "你有 %d 属性点数，按下p来使用。", "logPlayer")
-t("You have %d class talent point(s) to spend. Press p to use them.", "你有 %d 职业技能点数，按下p来使用。", "logPlayer")
-t("You have %d generic talent point(s) to spend. Press p to use them.", "你有 %d 通用技能点数，按下p来使用。", "logPlayer")
+t("You have %d stat point(s) to spend. Press p to use them.", "你有 %d 属性点数，按 P 键使用。", "logPlayer")
+t("You have %d class talent point(s) to spend. Press p to use them.", "你有 %d 职业技能点数，按 P 键使用。", "logPlayer")
+t("You have %d generic talent point(s) to spend. Press p to use them.", "你有 %d 通用技能点数，按 P 键使用。", "logPlayer")
 t("You are transformed by the heart of the Queen!", "你被沙虫女皇之心所转化！", "logPlayer")
-t("#00FF00#You gain an affinity for nature. You can now learn new Harmony talents (press p).", "#00FF00#你获得了与自然的紧密联系，现在你可以学习新的元素和谐技能（按下p）", "logPlayer")
+t("#00FF00#You gain an affinity for nature. You can now learn new Harmony talents (press p).", "#00FF00#你获得了与自然的紧密联系，现在你可以学习新的元素和谐技能（按 P 键）", "logPlayer")
 t("blood", "血", "entity subtype")
 t("Wyrm Bile", "巨龙胆汁", "entity name")
 t("putrescent potion", "腐烂的液体", "_t")
@@ -39675,7 +39675,7 @@ t("A vial of thick, lumpy fluid. Who knows what this will do to you if you drink
 t("drink the vile fluid", "喝下这瓶药剂", "_t")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
 t("#00FFFF#You drink the wyrm bile and feel forever transformed!", "#00FFFF#你喝下了巨龙胆汁，感觉身体发生了永久的变化！", "logPlayer")
-t("You have %d category point(s) to spend. Press p to use them.", "你有%d点技能树解锁点。请按P使用。", "log")
+t("You have %d category point(s) to spend. Press p to use them.", "你有%d点技能树解锁点。请按 P 键使用。", "log")
 t("#00FF00#Your stats have changed! (Str %s, Dex %s, Mag %s, Wil %s, Cun %s, Con %s)", "#00FF00#你的属性发生了变化！（力量 %s，敏捷 %s，魔法 %s，意志 %s，灵巧 %s，体质 %s）", "logPlayer")
 t("red", "红宝石", "entity subtype")
 t("Atamathon's Lost Ruby Eye", "阿塔玛森丢失的红宝石眼睛", "entity name")
@@ -41771,7 +41771,7 @@ t("When you do a mouse gesture (right click + drag) a color coded trail is displ
 t("#GOLD##{bold}#Display mouse gesture trails#WHITE##{normal}#", "#GOLD##{bold}#显示鼠标手势轨迹#WHITE##{normal}#", "_t")
 t("If enabled new quests and quests updates will display a big popup, if not a simple line of text will fly on the screen.#WHITE#", "如果开启，新任务和任务更新会以大弹窗显示；如果关闭，只会有一行文字在屏幕上飘过。#WHITE#", "_t")
 t("#GOLD##{bold}#Big Quest Popups#WHITE##{normal}#", "#GOLD##{bold}#大号任务提示#WHITE##{normal}#", "_t")
-t("Enable the WASD movement keys. Can be used to move diagonaly by pressing two directions at once.#WHITE#", "启用WASD键移动。当你同时按两个键的时候，可以实现对角线移动。#WHITE#", "_t")
+t("Enable the WASD movement keys. Can be used to move diagonaly by pressing two directions at once.#WHITE#", "启用 WASD 键移动。当你同时按两个键的时候，可以实现对角线移动。#WHITE#", "_t")
 t("#GOLD##{bold}#Enable WASD movement keys#WHITE##{normal}#", "#GOLD##{bold}#启用 WASD 键移动#WHITE##{normal}#", "_t")
 t("Sharpen Visuals, set to 0 to disable.#WHITE#", "锐化视觉，设为0关闭#WHITE#", "_t")
 t("#GOLD##{bold}#Sharpen Visuals#WHITE##{normal}#", "#GOLD##{bold}#锐化视觉#WHITE##{normal}#", "_t")
@@ -42054,16 +42054,16 @@ t("Generic points: %s", "通用点：%s", "tformat")
 t("Hide unlearnt categories", "隐藏没有学会的技能树", "_t")
 t("Current value: ", "当前值：", "_t")
 t("Base value: ", "基础值：", "_t")
-t("Stat gives:", "属性加成：", "_t")
+t("Stat gives:", "属性提供：", "_t")
 t("Max life: ", "最大生命：", "_t")
-t("Physical save: ", "物理豁免加成：", "_t")
+t("Physical save: ", "物理豁免：", "_t")
 t("Healing mod: ", "治疗系数：", "_t")
 t("Max mana: ", "最大法力值：", "_t")
 t("Max stamina: ", "最大体力值：", "_t")
 t("Max psi: ", "最大灵能值：", "_t")
 t("Mindpower: ", "精神强度：", "_t")
-t("Mental save: ", "精神豁免加成：", "_t")
-t("Spell save: ", "法术豁免加成：", "_t")
+t("Mental save: ", "精神豁免：", "_t")
+t("Spell save: ", "法术豁免：", "_t")
 t("Physical power: ", "物理强度：", "_t")
 t("Max encumbrance: ", "最大负重：", "_t")
 t("Crit. chance: ", "暴击率：", "_t")
@@ -42088,10 +42088,10 @@ t("This talent can alter the world in a permanent way; as such, you can never un
 t("This talent was recently learnt; you can still unlearn it if you are out of combat or in a quiet area like a #{bold}#town#{normal}#.", "你刚在此技能上加点，你还可以在战斗外或者#{bold}#城市#{normal}#这样安全的地方遗忘它。", "_t")
 t("Current talent level: ", "当前技能等级： ", "_t")
 t(" (%+0.1f bonus level)", " (%+0.1f 额外等级)", "tformat")
-t("<Press 'x' to swap to simple display>", "<按x键切换简单显示>", "_t")
+t("<Press 'x' to swap to simple display>", "<按 X 键切换简单显示>", "_t")
 t("First talent level: ", "第一级技能等级： ", "_t")
 t("Next talent level", "下一技能等级", "_t")
-t("<Press 'x' to swap to advanced display>", "<按x键切换进阶显示>", "_t")
+t("<Press 'x' to swap to advanced display>", "<按 X 键切换进阶显示>", "_t")
 
 ------------------------------------------------
 section "mod-tome/dialogs/LorePopup.lua"
@@ -43220,11 +43220,11 @@ t("Your readied ammo.", "你准备好的弹药", "_t")
 t("Socketed Gems", "镶嵌宝石", "_t")
 t("Gems worn in/on the body, providing their worn bonuses.", "装在身体内/外的宝石，提供宝石的装备属性。", "_t")
 t("Second weapon set: In main hand", "第二套武器：在主手", "_t")
-t("Weapon Set 2: Most weapons are wielded in the main hand. Press 'x' to switch weapon sets.", "第二套武器：大部分武器使用主手抓握。按x切换武器套。", "_t")
+t("Weapon Set 2: Most weapons are wielded in the main hand. Press 'x' to switch weapon sets.", "第二套武器：大部分武器使用主手抓握。按 X 键切换武器套。", "_t")
 t("Second weapon set: In off hand", "第二套武器：在副手", "_t")
-t("Weapon Set 2: You can use shields or a second weapon in your off-hand, if you have the talents for it. Press 'x' to switch weapon sets.", "第二套武器：如果你有对应的技能，你可以副手使用盾牌或第二把武器。按x切换武器套。", "_t")
+t("Weapon Set 2: You can use shields or a second weapon in your off-hand, if you have the talents for it. Press 'x' to switch weapon sets.", "第二套武器：如果你有对应的技能，你可以副手使用盾牌或第二把武器。按 X 键切换武器套。", "_t")
 t("Second weapon set: psionic focus", "第二套武器：灵能聚焦物", "_t")
-t("Weapon Set 2: Object held in your telekinetic grasp. It can be a weapon or some other item to provide a benefit to your psionic powers. Press 'x' to switch weapon sets.", "第二套武器：使用你的念动力抓取的物品。你可以抓取武器，或者抓取其他物品来为你的心灵力量提供增益。按x切换武器套。", "_t")
+t("Weapon Set 2: Object held in your telekinetic grasp. It can be a weapon or some other item to provide a benefit to your psionic powers. Press 'x' to switch weapon sets.", "第二套武器：使用你的念动力抓取的物品。你可以抓取武器，或者抓取其他物品来为你的心灵力量提供增益。按 X 键切换武器套。", "_t")
 t("Second weapon set: Quiver", "第二套武器：箭袋", "_t")
 t("Weapon Set 2: Your readied ammo.", "第二套武器：你准备好的弹药。", "_t")
 t("Swift Hands", "无影手", "_t")
