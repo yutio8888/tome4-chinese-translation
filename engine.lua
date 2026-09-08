@@ -556,7 +556,7 @@ t("#CRIMSON#You are not subscribed to any channel, you can change that in the ga
 t("Requesting...", "正在请求...", "_t")
 t("Requesting user info...", "正在请求用户信息...", "_t")
 t("Error", "错误", "_t")
-t("The server does not know about this player.", "服务器里没有这个玩家", "_t")
+t("The server does not know about this player.", "服务器里没有这个玩家。", "_t")
 
 ------------------------------------------------
 section "engine/engine/Zone.lua"
@@ -612,7 +612,7 @@ section "engine/engine/dialogs/ChatIgnores.lua"
 t("Chat ignore list", "聊天屏蔽列表", "_t")
 t("Stop ignoring", "停止屏蔽", "_t")
 t("Really stop ignoring: %s", "真的要停止屏蔽 %s 吗", "tformat")
-t("Click a user to stop ignoring her/his messages.", "点击一个用户以停止屏蔽他/她的消息", "_t")
+t("Click a user to stop ignoring her/his messages.", "点击一个用户以停止屏蔽他/她的消息。", "_t")
 
 ------------------------------------------------
 section "engine/engine/dialogs/DisplayResolution.lua"
@@ -679,7 +679,7 @@ t("Quantity", "数量", "_t")
 t("Accept", "接受", "_t")
 t("Cancel", "取消", "_t")
 t("Error", "错误", "_t")
-t("Enter a quantity.", "输入数量", "_t")
+t("Enter a quantity.", "输入数量。", "_t")
 
 ------------------------------------------------
 section "engine/engine/dialogs/GetQuantitySlider.lua"
@@ -688,7 +688,7 @@ t("Quantity", "数量", "_t")
 t("Accept", "接受", "_t")
 t("Cancel", "取消", "_t")
 t("Error", "错误", "_t")
-t("Enter a quantity.", "输入数量", "_t")
+t("Enter a quantity.", "输入数量。", "_t")
 
 ------------------------------------------------
 section "engine/engine/dialogs/GetText.lua"
@@ -696,7 +696,7 @@ section "engine/engine/dialogs/GetText.lua"
 t("Accept", "接受", "_t")
 t("Cancel", "取消", "_t")
 t("Error", "错误", "_t")
-t("Must be between %i and %i characters.", "必须介于 %i 和 %i 个字符之间", "tformat")
+t("Must be between %i and %i characters.", "必须介于 %i 和 %i 个字符之间。", "tformat")
 -- untranslated text
 --[==[
 t("", "", "_t")
@@ -779,8 +779,8 @@ t("", "", "_t")
 section "engine/engine/dialogs/ShowErrorStack.lua"
 
 t("Lua Error", "Lua脚本错误", "_t")
-t("If you already reported that error, you do not have to do it again (unless you feel the situation is different).", "如果你已经汇报过了这个错误，你不需要再次进行汇报。(除非你认为这一情况和之前有所不同)", "_t")
-t("You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different).", "你 #LIGHT_GREEN#已经汇报过了#WHITE# 这个错误，你不需要再次进行汇报。(除非你认为这一情况和之前有所不同)", "_t")
+t("If you already reported that error, you do not have to do it again (unless you feel the situation is different).", "如果你已经汇报过了这个错误，你不需要再次进行汇报。(除非你认为这一情况和之前有所不同)。", "_t")
+t("You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different).", "你 #LIGHT_GREEN#已经汇报过了#WHITE# 这个错误，你不需要再次进行汇报。(除非你认为这一情况和之前有所不同)。", "_t")
 t("You have already got this error but #LIGHT_RED#never reported#WHITE# it, please do.", "你以前遇到过这个错误，但你#LIGHT_RED#还没有汇报过#WHITE#这个错误，请汇报这个错误。", "_t")
 t("You have #LIGHT_RED#never seen#WHITE# that error, please report it.", "你之前#LIGHT_RED#从未遇到过#WHITE#这个错误，请汇报这个错误。", "_t")
 t([[#{bold}#Oh my! It seems there was an error!
@@ -798,7 +798,7 @@ t("Close", "关闭", "_t")
 t("Close All", "全部关闭", "_t")
 t("Log saved to file (click to copy to clipboard):#LIGHT_BLUE#%s", "游戏日志已保存到文件(点击复制到剪贴板):#LIGHT_BLUE#%s", "tformat")
 t("File location copied to clipboard.", "文件位置已复制到剪贴板。", "log")
-t("#YELLOW#Error report sent, thank you.", "#YELLOW#错误报告已发送，谢谢！", "log")
+t("#YELLOW#Error report sent, thank you.", "#YELLOW#错误报告已发送，谢谢。", "log")
 -- untranslated text
 --[==[
 t("", "", "_t")
@@ -904,7 +904,7 @@ t("Use Talents: ", "使用技能：", "tformat")
 t([[You can bind a talent to a hotkey be pressing the corresponding hotkey while selecting a talent.
 Check out the keybinding screen in the game menu to bind hotkeys to a key (default is 1-0 plus control or shift).
 ]], [[你可以把技能绑定到一个快捷键。方法是选择一个技能，然后按下对应的快捷键。
-请确认游戏菜单中的快捷键绑定界面，将快捷键绑定到键盘按键。(默认绑定位置是1-0+Ctrl/Shift键)
+请确认游戏菜单中的快捷键绑定界面，将快捷键绑定到键盘按键。(默认绑定位置是1-0+Ctrl/Shift键)。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("Status", "状态", "_t")
@@ -1172,7 +1172,7 @@ t("%s #GOLD#Purchased Options#LAST#", "%s #GOLD#已购买的选项#LAST#", "tfor
 t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器... --", "_t")
 t("Name", "名称", "_t")
 t("Available", "可用", "_t")
-t("Please use purchased options when not on the worldmap.", "请不要在世界地图上使用已购买的选项", "_t")
+t("Please use purchased options when not on the worldmap.", "请不要在世界地图上使用已购买的选项。", "_t")
 t("This option may only be used once per character to prevent wasting it.", "这一选项每个角色只能使用一次，以防止你浪费它。", "_t")
 t([[This option requires you to accept to receive events from the server.
 Either you have the option currently disabled or you are playing a campaign that can not support these kind of events (mainly the Arena).
@@ -1194,7 +1194,7 @@ t("You have not purchased any usable options yet. Would you like to see the stor
 ------------------------------------------------
 section "engine/engine/interface/ActorInventory.lua"
 
-t("%s picks up (%s.): %s%s.", "%s拾取了（%s）：%s%s", "logSeen")
+t("%s picks up (%s.): %s%s.", "%s拾取了（%s）：%s%s。", "logSeen")
 t("%s has no room for: %s.", "%s没有空间放置：%s。", "logSeen")
 t("There is nothing to pick up here.", "没什么可以拾取的东西。", "logSeen")
 t("There is nothing to drop.", "没东西可以丢弃。", "logSeen")
@@ -1209,9 +1209,9 @@ t("cannot use currently due to an other worn object", "由于目前穿戴的其�
 t("%s is not wearable.", "%s无法装备。", "logSeen")
 t("%s can not wear %s.", "%s不能装备%s。", "logSeen")
 t("%s can not wear (%s): %s (%s).", "%s无法装备（%s）：%s（%s）", "logSeen")
-t("%s wears: %s.", "%s 装备了： %s", "logSeen")
-t("%s wears (offslot): %s.", "%s副手装备了： %s", "logSeen")
-t("%s wears (replacing %s): %s.", "%s装备（替换%s）了： %s", "logSeen")
+t("%s wears: %s.", "%s 装备了： %s。", "logSeen")
+t("%s wears (offslot): %s.", "%s副手装备了： %s。", "logSeen")
+t("%s wears (replacing %s): %s.", "%s装备（替换%s）了： %s。", "logSeen")
 t("%s can not wear: %s.", "%s不能装备%s。", "logSeen")
 
 ------------------------------------------------
@@ -1277,7 +1277,7 @@ t("%s can not be used anymore.", "%s 无法再继续使用了。", "logPlayer")
 section "engine/engine/interface/PlayerExplore.lua"
 
 t("Running...", "跑步中……", "_t")
-t("You are exploring, press any key to stop.", "你正在自动探索，请按任意键停止", "_t")
+t("You are exploring, press any key to stop.", "你正在自动探索，请按任意键停止。", "_t")
 t("the path is blocked", "路被挡住了", "_t")
 
 ------------------------------------------------
@@ -1860,7 +1860,7 @@ t("Password", "密码", "_t")
 t("Your password is too short", "你的密码过短", "_t")
 t("Login...", "登录中…", "_t")
 t("Logging in your account, please wait...", "正在登录账户，请稍候…", "_t")
-t("Steam client not found.", "找不到Steam客户端", "_t")
+t("Steam client not found.", "找不到Steam客户端。", "_t")
 -- untranslated text
 --[==[
 t("#LIGHT_BLUE##{underline}#%s#LAST##{normal}#", "#LIGHT_BLUE##{underline}#%s#LAST##{normal}#", "tformat")
@@ -1907,7 +1907,7 @@ t("Login", "登录", "_t")
 t("Cancel", "取消", "_t")
 t("Password again: ", "重复密码：", "_t")
 t("Email: ", "邮箱：", "_t")
-t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)", "_t")
+t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)。", "_t")
 t("You at least 16 years old, or have parental authorization to play the game.", "游玩此游戏时你已年满16岁，或已得到了家长的许可。", "_t")
 t("Create", "创建", "_t")
 t("Privacy Policy (opens in browser)", "隐私政策(用浏览器打开)", "_t")
@@ -1934,7 +1934,7 @@ Luckily this is very easy to do: you only require a profile name and optionally 
 ]], "_t")
 t("Username: ", "用户名：", "_t")
 t("Email: ", "邮箱：", "_t")
-t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)", "_t")
+t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)。", "_t")
 t("You at least 16 years old, or have parental authorization to play the game.", "游玩此游戏时你已年满16岁，或已得到了家长的许可。", "_t")
 t("Register", "注册", "_t")
 t("Cancel", "取消", "_t")
@@ -1947,9 +1947,9 @@ t("Age Check", "年龄确认", "_t")
 t("You need to be 16 years old or more or to have parental authorization to play this game.", "你需要年满16岁以上，或者得到了家长的许可，才可以游玩本游戏。", "_t")
 t("Registering...", "正在注册…", "_t")
 t("Registering on https://te4.org/, please wait...", "正在 https://te4.org/ 上注册，请稍候…", "_t")
-t("Steam client not found.", "找不到Steam客户端", "_t")
+t("Steam client not found.", "找不到Steam客户端。", "_t")
 t("Error", "错误", "_t")
-t("Username or Email already taken, please select an other one.", "用户名或邮件地址已被使用，请选择其他用户名或邮件地址", "_t")
+t("Username or Email already taken, please select an other one.", "用户名或邮件地址已被使用，请选择其他用户名或邮件地址。", "_t")
 
 ------------------------------------------------
 section "engine/modules/boot/dialogs/UpdateAll.lua"

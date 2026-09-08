@@ -2,7 +2,7 @@
 section "tome-cults/data/achievements/all.lua"
 
 t("You were not supposed to see that!", "你不应该看这些！", "achievement name")
-t("Read a Forbidden Tome.", "读一本禁忌之书", "_t")
+t("Read a Forbidden Tome.", "读一本禁忌之书。", "_t")
 t("Bookception!", "书中之书！", "achievement name")
 t("Found the Forbidden Tome reward inside the Forbidden Tome: \"Of Knowledge And Horrors\".", "在禁忌之书《知识与恐怖》中，找到禁忌之书的奖励。", "_t")
 t("Recursive Home of Recursion", "递归之家", "achievement name")
@@ -190,8 +190,8 @@ t("[Offer her nothing.]", "[你什么也不给她。]", "_t")
 t("Oh this will sure come in handy! Thanks!", "哦，这个技能很有用！谢谢！", "_t")
 t("Take care!", "那就这样吧，再见！", "_t")
 t("I always did want to learn how to do these kind of things!", "太好了！我一直想要学这种东西！", "_t")
-t("Oh, I suddenly feel like I have potential to grow.", "哦，我觉得我的潜能增长了！", "_t")
-t("...Fine, be that way. Good luck out there, though.", "…好吧，就这样吧。祝你一路顺风！", "_t")
+t("Oh, I suddenly feel like I have potential to grow.", "哦，我觉得我的潜能增长了。", "_t")
+t("...Fine, be that way. Good luck out there, though.", "…好吧，就这样吧。祝你一路顺风。", "_t")
 t("You too!", "你也是！", "_t")
 
 ------------------------------------------------
@@ -344,7 +344,7 @@ t("floor", "地板", "_t")
 t("wall", "墙壁", "_t")
 t("strange metallic capsule", "诡异的金属舱", "_t")
 t("Strange metallic capsule", "诡异的金属舱", "_t")
-t("You have already scavenged what you could understand and use.", "你已经找遍了你能理解和使用的东西", "_t")
+t("You have already scavenged what you could understand and use.", "你已经找遍了你能理解和使用的东西。", "_t")
 t([[The thing in front of you appears to be a strange dome made from green glass. Judging by the crater around it, this dome must have crashed into the earth with tremendous force. Stranger still is the figure seated inside it. It appears to be wearing a suit made of an unknown material and a glass dome over its head. Looking inside the dome, you can plainly see that the figure is a dwarf! There is no mistaking that oversized nose. Judging by the smell, he has been dead for quite some time.
 
 You are fairly sure that the dwarves aren't capable of making something like this and they definitely don't dress like that. So, where did this odd dwarf come from? Taking a closer look, you find a strange device attached to the dwarf's arm. You remove it with no small amount of effort. It is completely unlike anything you have seen before and you're not really sure what to make of it. Perhaps if you hold onto it, you might be able to discern its functionality later.]], [[出现在你眼前的是一个被绿色玻璃遮罩的太空舱，根据附近的弹坑判断，这个太空舱曾以极快的速度撞击地面，里面仍坐着一个奇怪的生物，穿着不明材质的衣服，戴着绿色玻璃做成的头罩。透过绿色的玻璃看去，能看到矮人标志性的大鼻子，你清楚地发现这是一个矮人！从气味判断，他已经死了很久了。
@@ -673,10 +673,10 @@ t("assault the mind of a foe to utterly dominate it", "打击目标的精神，�
 t("%s resists the mental assault!", "%s抵抗了精神攻击！", "logSeen")
 t("Writhing Ring of the Hunter", "猎手的扭曲指环", "entity name")
 t("green slimy ring", "绿色粘乎乎的指环", "_t")
-t("A writhing mass of tentacles roughtly warped into the form of a ring. A dark malovelant power emanates from it.", "大量扭曲的触须弯曲成了指环的形状。一团黑暗的恶意力量从里面散发出来", "_t")
+t("A writhing mass of tentacles roughtly warped into the form of a ring. A dark malovelant power emanates from it.", "大量扭曲的触须弯曲成了指环的形状。一团黑暗的恶意力量从里面散发出来。", "_t")
 t("When first worn the ring attunes to you, letting you choose a prodigy it will forever grant while worn (can not be changed once chosen, re-wear it to select again if you refused to choose at first).", "当你第一次戴上戒指的时候，选择一个觉醒技能，你将在戴上这个戒指的时候获得这个觉醒技能（一旦选择就不能改变。如果你第一次没有选择，可以在重新装备的时候进行选择）", "_t")
-t("#DARK_SEA_GREEN#While the ring senses battle it grips your finger so hard you can not take it off.", "#DARK_SEA_GREEN#指环感知到了战斗，牢牢抓住了你的手指，你无法脱下", "logPlayer")
-t("#DARK_SEA_GREEN#As you put the %s on your finger, you feel more attuned to the horror within you.", "#DARK_SEA_GREEN#当你将%s戴在手上，你觉得你和体内的恐魔更加协调了", "logPlayer")
+t("#DARK_SEA_GREEN#While the ring senses battle it grips your finger so hard you can not take it off.", "#DARK_SEA_GREEN#指环感知到了战斗，牢牢抓住了你的手指，你无法脱下。", "logPlayer")
+t("#DARK_SEA_GREEN#As you put the %s on your finger, you feel more attuned to the horror within you.", "#DARK_SEA_GREEN#当你将%s戴在手上，你觉得你和体内的恐魔更加协调了。", "logPlayer")
 t("Staff of Bones", "白骨法杖", "entity name")
 t("bone staff", "骨杖", "_t")
 t("A staff made out of the bones of fallen foes. Disgustingly powerful.", "由被击败的敌人的白骨制成的法杖。令人厌恶而强大。", "_t")
@@ -797,7 +797,7 @@ This stake of wood appears to one of those used to prop up one of the executed h
 t("convince all non arcane users in radius 10 to turn on their spellcasting friends for 6 turns (chance increases with your Mindpower)", "使半径10码范围内的非奥术魔法使用者攻击奥术魔法使用者，持续6回合（几率随精神强度提升）", "tformat")
 t("Worm Nest", "虫穴", "entity name")
 t("disgusting robe", "恶心的长袍", "_t")
-t("This unusually thick robe constantly wriggles and squirms. Small worms sometimes pop out of it, dropping to the floor. The worms will cushion attacks against your person, but you somehow do not like the idea of having so many parasitic creatures so close to your vulnerable flesh.", "这件异常厚重的长袍不断蠕动。上面的小蠕虫有时会从上面跳出来，掉到地板上。这些蠕虫会缓冲敌人对你的攻击，但是让这么多寄生生物如此接近你脆弱的肉体……实在是太恶心了", "_t")
+t("This unusually thick robe constantly wriggles and squirms. Small worms sometimes pop out of it, dropping to the floor. The worms will cushion attacks against your person, but you somehow do not like the idea of having so many parasitic creatures so close to your vulnerable flesh.", "这件异常厚重的长袍不断蠕动。上面的小蠕虫有时会从上面跳出来，掉到地板上。这些蠕虫会缓冲敌人对你的攻击，但是让这么多寄生生物如此接近你脆弱的肉体……实在是太恶心了。", "_t")
 t("#GREEN#The worms embed themselves easily in your mutated skin.", "#GREEN#蠕虫很容易嵌入你的变异皮肤中。", "logPlayer")
 t("Light of Revelation", "揭示之光", "entity name")
 t("disturbing lantern", "令人不安的灯笼", "_t")
@@ -2384,7 +2384,7 @@ t([[Only one person escaped alive from the summoning of the Unspeakable Thing. S
 
 What became of The Teacher is unknown. Perhaps it didn't survive the encounter with the Unspeakable Thing, or perhaps it returned to its home somewhere far beyond Eyal.]], [[不可名状的恐怖降临之时，只有一个人幸存逃离。她坚信，尽管她的同学们失败地召唤出了她所看到的无法言说的恐怖，但导师的智慧教诲在魔法大爆炸后这个灾变后的世界仍然有着无法替代的价值。毕竟，比起那些恐怖本身，对恐怖的无知不是更加糟糕吗？她开始向其他人传授有关熵的力量的知识，而这一知识也就这样代代相传。那些掌握了这些禁忌知识的人，现在被称为熵教徒。
 
-没有人知道“导师”去了哪里。也许，他没能在不可名状的恐怖之下幸存；也许，他离开了埃亚尔，回到了自己遥远繁星中的家园]], "_t")
+没有人知道“导师”去了哪里。也许，他没能在不可名状的恐怖之下幸存；也许，他离开了埃亚尔，回到了自己遥远繁星中的家园。]], "_t")
 t("races", "种族", "newLore category")
 t("Loremaster Greynot's Analysis of the Races - Chapter 12 - Krogs", "博学者格雷诺特关于人种的调查——第十二章——克罗格", "_t")
 t([[The krog are perhaps the youngest of the intelligent races of Maj'Eyal, only coming into existence recently. They claim that they were formerly ogres that have had their runes removed, somehow surviving having their runes replaced by a combination of natural infusions and drakes blood. The removal of their runes was orchestrated by the Ziguranth, who apparently decided action needed to be taken to prevent all ogres from being horribly and brutally killed as a result of the Spellhunt, leading to the creation of the krog. The official reasons given by the Ziguranth for this action was that the ogres were unfortunate victims of magic rather then perpetrators of it, and the Ziguranth were just looking to help to free them from the taint of the arcane.
@@ -2866,7 +2866,7 @@ t("You empower your spells with dangerous levels of entropic energy, increasing 
 section "tome-cults/data/talents/demented/friend-of-the-worm.lua"
 
 t("Worm that Walks Link", "蠕虫合体链接", "talent name")
-t("Link to the summoner.", "链接到召唤者", "_t")
+t("Link to the summoner.", "链接到召唤者。", "_t")
 t([[A bulging rotten robe seems to tear at the seams, with masses of bloated worms spilling out all around the moving form.  Two arm-like appendages, each made up of overlapping mucus-drenched maggots, grasp tightly around the handles of bile-coated waraxes.
 Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], [[一件鼓鼓囊囊的长袍，长袍的缝隙里不断蠕动着浮肿的蠕虫。它有着两只臂膀一样的附属物，每只手都由重叠的蠕虫组成，各握着一柄覆有胆汁的斧子。
 每次挥舞武器的时，它都会溅出尸僵毒液，每滴毒液在落到地面前都在沸腾和翻滚着。]], "_t")
@@ -3090,7 +3090,7 @@ You may activate this talent to forcibly destabilize spacetime, spawning %d void
 
 你可以主动激活这个技能来强制使得时空不稳定，在你周围创造 %d 个虚空裂隙。]], "tformat")
 t("Quantum Tunnelling", "量子隧道", "talent name")
-t("You do not have line of sight.", "你没有视线", "logPlayer")
+t("You do not have line of sight.", "你没有视线。", "logPlayer")
 t("You must target a void rift.", "你必须瞄准虚空裂隙。", "logPlayer")
 t("%s's space-time folding fizzles!", "%s的时空折叠失败了！", "logSeen")
 t("%s emerges from a space-time rift!", "%s从时空裂隙中出现！", "logSeen")
@@ -3277,7 +3277,7 @@ While active, you form the frayed threads of their timeline into a temporal clon
 section "tome-cults/data/talents/demented/void.lua"
 
 t("Void Stars", "虚空之星", "talent name")
-t("You must be wearing light armor for this talent.", "你必须穿着轻甲才能使用这一技能", "logPlayer")
+t("You must be wearing light armor for this talent.", "你必须穿着轻甲才能使用这一技能。", "logPlayer")
 t("A void star appears around %s.", "一颗虚空之星在%s周围出现。", "logSeen")
 t("#FIREBRICK##Target#'s void star absorbs the damage from #Source#, converting it into entropy!#LAST#", "#FIREBRICK##Target#的虚空之星吸收了来自#Source#的伤害，将其转化为熵!#LAST#", "logCombat")
 t("%s(%d to entropy)", "%s（%d 熵）", "tformat")
@@ -3549,15 +3549,15 @@ t("#VIOLET#As the bone horror is destroyed you see the remaining bones reassembl
 section "tome-cults/data/timed_effects.lua"
 
 t("other", "其他", "effect subtype")
-t("Fight your foe! If anything wrong happens, the Fortress will pull you out.", "攻击敌人！如果出了什么问题，堡垒会把你送出去", "_t")
+t("Fight your foe! If anything wrong happens, the Fortress will pull you out.", "攻击敌人！如果出了什么问题，堡垒会把你送出去。", "_t")
 t("frenzy", "狂乱", "effect subtype")
 t("Frenzy", "狂热", "_t")
 t("Class talents have no cooldown the first time they are used.", "第一次使用的职业技能不进入冷却。", "_t")
 t("bleed", "流血", "effect subtype")
 t("Black Blood Bleeding", "黑血横流", "_t")
 t("Black blood sips from every pore, dealing %0.2f darkness damage per turn.", "黑血横流，每回合造成 %0.2f 暗影伤害。", "tformat")
-t("#Target# starts to bleed black blood.", "#Target#开始流出黑血", "_t")
-t("#Target# stops bleeding black blood.", "#Target#不再流出黑血", "_t")
+t("#Target# starts to bleed black blood.", "#Target#开始流出黑血。", "_t")
+t("#Target# stops bleeding black blood.", "#Target#不再流出黑血。", "_t")
 t("blood", "血", "effect subtype")
 t("Spikeskin", "尖刺皮肤", "_t")
 t("Empowered by the sight of black blood, granting %d%% all resistances.", "目睹黑血时受到强化，获得 %d%% 全部抗性。", "tformat")
@@ -3565,11 +3565,11 @@ t("slime", "史莱姆", "effect subtype")
 t("corrupted", "腐化", "effect subtype")
 t("Slimy Tendril", "黏稠触须", "_t")
 t("Caught in a slimy tendril, reducing all damage by %d%%.", "被触须抓住，造成的所有伤害降低 %d%%。", "tformat")
-t("#Target# is caught by a slimy tendril.", "#Target#被黏稠触须捕获", "_t")
-t("#Target# is free from the tendril.", "#Target#逃脱黏稠触须", "_t")
+t("#Target# is caught by a slimy tendril.", "#Target#被黏稠触须捕获。", "_t")
+t("#Target# is free from the tendril.", "#Target#逃脱黏稠触须。", "_t")
 t("Tentacle Constriction", "触手缠绕", "_t")
 t("Caught by a tentacle from %s that deals %d%% tentacle damage and pulls you 1 space towards them each turn.", "被 %s 的触手缠绕，每回合造成 %d%% 触手伤害并将你拉近一码。", "tformat")
-t("#Target# is constricted by a tentacle.", "#Target#被触手缠绕", "_t")
+t("#Target# is constricted by a tentacle.", "#Target#被触手缠绕。", "_t")
 t("#Target# is free from the tentacle constriction.", "#Target#逃脱了触手缠绕。", "_t")
 t("Carrion Feet", "蠕动之足", "_t")
 t("Caught disgusting worms, reducing all damage by %d%%.", "被恶心的蠕虫抓住，造成的伤害减少 %d%%。", "tformat")
@@ -3625,12 +3625,12 @@ t("tentacles", "触手", "effect subtype")
 t("leech", "吸血", "effect subtype")
 t("Inner Tentacles", "内部触手", "_t")
 t("Life leech %d%% chance, %d%% power.", "%d%% 吸血几率，%d%% 强度。", "tformat")
-t("#Target# is empowered by the pain of its victim.", "#Target#被牺牲者的痛苦强化", "_t")
+t("#Target# is empowered by the pain of its victim.", "#Target#被牺牲者的痛苦强化。", "_t")
 t("#Target# is less powerfull.", "#Target#的力量减弱了。", "_t")
 t("morph", "变形", "effect subtype")
 t("Horrific Display", "恐魔具现化", "_t")
 t("Appearance changed to an horror, everything is hostile to it.", "外貌变化为恐魔，令其他人和它敌对。", "tformat")
-t("#PURPLE##Target# turns into an horror.", "#PURPLE##Target#变成了恐魔", "_t")
+t("#PURPLE##Target# turns into an horror.", "#PURPLE##Target#变成了恐魔。", "_t")
 t("#Target# is back to normal.", "#Target#恢复了正常。", "_t")
 t("%s is pulled in!", "%s 被拉了进去！", "logSeen")
 t("darkness", "暗影", "effect subtype")
@@ -3799,7 +3799,7 @@ t("You are yanked out of this place!", "你“呼”的一下被带离了这个�
 t("Space restabilizes around you.", "你周围的空间稳定了下来。", "logPlayer")
 t("book", "书", "effect subtype")
 t("Forbidden Tome", "禁忌之书", "_t")
-t("Slowly transfered to a Forbidden Tome.", "正在被缓慢转移到禁忌之书", "_t")
+t("Slowly transfered to a Forbidden Tome.", "正在被缓慢转移到禁忌之书。", "_t")
 t("#Target# is entering a Forbidden Tome!", "#Target#正在进入禁忌之书！", "_t")
 t("#Target# enters a Forbidden Tome!", "#Target#进入了禁忌之书！", "_t")
 t("Inside Forbidden Tome: \"Home, Horrific Home\" for %d turns.", "进入禁忌之书中：\"家，可怕的家 \" %d 回合。", "tformat")
@@ -3829,7 +3829,7 @@ t("Save Kroshkkur", "拯救克诺什库尔", "_t")
 t("Kroshkkur is still under threat from %s.", "克诺什库尔仍处于 %s 威胁中。", "tformat")
 t("#CRIMSON#You waited too long, Kroshkkur has been destroyed by %s!", "#CRIMSON#你等得太久了，克诺什库尔被%s摧毁了！", "say")
 t("Covered in Gastric Fluids", "被胃液覆盖", "_t")
-t("Reduces all damage taken by %d%% and remove all detrimental effects on application.", "降低所有受到的伤害 %d%%。施加该效果的时候会解除所有负面效果", "tformat")
+t("Reduces all damage taken by %d%% and remove all detrimental effects on application.", "降低所有受到的伤害 %d%%。施加该效果的时候会解除所有负面效果。", "tformat")
 t("debilitate", "虚弱", "effect subtype")
 t("Reduces all damage done by %d%% and increase all detrimental effects durations by 6 turns on application.", "降低所有造成的伤害 %d%%。施加该效果的时候会将所有负面效果持续时间延长6回合。", "tformat")
 t("blind", "致盲", "effect subtype")
@@ -3926,7 +3926,7 @@ t("Strange Machine", "奇怪的机器", "_t")
 section "tome-cults/data/zones/entropic-void/grids.lua"
 
 t("Temporal Rift", "时空裂隙", "entity name")
-t("The rift leads... somewhere.", "裂缝通向…某个地方", "_t")
+t("The rift leads... somewhere.", "裂缝通向…某个地方。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/zones/entropic-void/npcs.lua"
@@ -3972,17 +3972,17 @@ t("A being from another world, or so it claims. Despite its wholly alien appeara
 t("training", "训练", "entity type")
 t("dummy", "傀儡", "entity subtype")
 t("Training Dummy", "训练用傀儡", "entity name")
-t("Training dummy. Use it to train.", "训练用傀儡。用它来训练吧！", "_t")
+t("Training dummy. Use it to train.", "训练用傀儡。用它来训练吧。", "_t")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("human student", "人类学徒", "entity name")
-t("A human student.", "一个人类学徒", "_t")
+t("A human student.", "一个人类学徒。", "_t")
 t("shalore", "永恒精灵", "entity subtype")
 t("shalore student", "永恒精灵学徒", "entity name")
-t("A shalore student.", "一个永恒精灵学徒", "_t")
+t("A shalore student.", "一个永恒精灵学徒。", "_t")
 t("halfling", "半身人", "entity subtype")
 t("halfling student", "半身人学徒", "entity name")
-t("A halfling student.", "一个半身人学徒", "_t")
+t("A halfling student.", "一个半身人学徒。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/zones/ft-cultist/objects.lua"
@@ -4023,7 +4023,7 @@ t("cave", "山洞", "entity subtype")
 t("dead creature", "死亡的生物", "entity name")
 t("book", "书", "entity type")
 t("book of binding", "绑定之书", "entity name")
-t("#YELLOW#You hear a terrible shriek.", "#YELLOW#你听到了一声可怕的尖叫！", "say")
+t("#YELLOW#You hear a terrible shriek.", "#YELLOW#你听到了一声可怕的尖叫。", "say")
 t("#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and papers.", "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。", "say")
 
 ------------------------------------------------
@@ -4094,7 +4094,7 @@ t("book of exit", "出口之书", "entity name")
 t("floor", "地板", "entity type")
 t("horror", "恐魔", "entity subtype")
 t("floor", "地板", "entity name")
-t("You can leave items here for safekeeping.", "你可以把物品安全地留在这里", "_t")
+t("You can leave items here for safekeeping.", "你可以把物品安全地留在这里。", "_t")
 t("wall", "墙壁", "entity type")
 t("wall", "墙壁", "entity name")
 t("torture tools", "酷刑工具", "entity name")
@@ -4138,7 +4138,7 @@ t("and written off the story", "并被从故事里移除了", "_t")
 ------------------------------------------------
 section "tome-cults/data/zones/ft-horrors/objects.lua"
 
-t("A page of the tome.", "书页", "_t")
+t("A page of the tome.", "书页。", "_t")
 t("Forbidden Tome: \"Home, Horrific Home\"", "禁忌之书：《家，可怕的家》", "entity name")
 t("A tome of lost knowledge. Touching it you feel both sick and yet strangely at peace.", "一本有关逝去的古老知识的书。触摸它让你同时感到不适和不知名的安心感。", "_t")
 t("Clarity found in safety.\nClarity found in comfort.\nThoughts and idle dreams drifting through space.\nNo one to harm.\nNo one to distract.\nJust thoughts.\nWork to great works.\nMeditate.\nPain is a lens.\nFocus through it.\nLet flesh be your canvas.\nLet flesh fuel dreams.\nThoughts are treasures.\nTreasure thoughts.\nThoughts treasured when they are alone. \n\n#RED#Reading this tome will slowly pull you in over 5 turns.", [[在安全中发现清晰。
@@ -4305,7 +4305,7 @@ t("underground", "地下", "entity subtype")
 t("exit to reality", "返回现实", "entity name")
 t("book", "书", "entity type")
 t("book of binding", "绑定之书", "entity name")
-t("#YELLOW#You hear a terrible shriek.", "#YELLOW#你听到了一声可怕的尖叫！", "say")
+t("#YELLOW#You hear a terrible shriek.", "#YELLOW#你听到了一声可怕的尖叫。", "say")
 t("#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and papers.", "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。", "say")
 
 ------------------------------------------------
@@ -4513,7 +4513,7 @@ t("horror", "恐魔", "entity type")
 t("eldritch", "骇异", "entity subtype")
 t("Destroy @himher@!", "摧毁@himher@！", "_t")
 t("drem cultist", "德瑞姆邪教徒", "entity name")
-t("A drem cultist.", "一位德瑞姆邪教徒", "_t")
+t("A drem cultist.", "一位德瑞姆邪教徒。", "_t")
 t("drem seeker of knowledge", "德瑞姆知识探求者", "entity name")
 t("A drem in long red robes, minding its own business.", "一位身穿红袍的德瑞姆，他正在思考自己的事情。", "_t")
 t("disfigured creature", "不成型的生物", "entity name")
