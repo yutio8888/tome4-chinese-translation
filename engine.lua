@@ -343,7 +343,7 @@ Mouse: #00FF00#Left click#FFFFFF# to accept; #00FF00#right click#FFFFFF# to go b
 t("Random", "随机", "_t")
 t("Quick Birth", "快速角色生成", "_t")
 t("Do you want to recreate the same character?", "你想要以同一角色重新生成吗？", "_t")
-t("Recreate", "重新生成角色？", "_t")
+t("Recreate", "重建同一角色", "_t")
 t("New character", "新角色", "_t")
 t("Randomly selected %s.", "随机选择%s。", "log")
 -- untranslated text
@@ -1267,7 +1267,7 @@ t("Tactical display enabled. Press shift+'t' to disable.", "战术视图启用�
 section "engine/engine/interface/ObjectActivable.lua"
 
 t("It can be used to %s, with %d charges out of %d.", "可以用于 %s，剩余 %d 次充能，共 %d 次。", "tformat")
-t("It can be used to %s, costing %d power out of %d/%d.", "可以用于 %s，消耗 %d 能量，共 %d/%d。", "tformat")
+t("It can be used to %s, costing %d power out of %d/%d.", "可以用于 %s，消耗 %d 点能量（当前 %d/%d）。", "tformat")
 t("It can be used to activate talent: %s (level %d).", "可以用于激活技能： %s (等级 %d)。", "tformat")
 t("It can be used to activate talent: %s (level %d), costing %d power out of %d/%d.", "可以用于激活技能：%s（等级 %d），消耗 %d 能量，共 %d/%d。", "tformat")
 t("%s is still recharging.", "%s 还在充能。", "logPlayer")
