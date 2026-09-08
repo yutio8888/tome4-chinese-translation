@@ -2834,7 +2834,7 @@ t("Escaped from Reknor alive with your squadmate Norgan.", "你和同伴诺尔�
 t("Genocide", "兽人末日", "achievement name")
 t("Killed the Orc Greatmother in the breeding pits, thus dealing a terrible blow to the orc race.", "在繁衍地穴中杀死兽族王后，这对兽族来说不啻于一场灾难。", "_t")
 t("Savior of the damsels in distress", "迷路少女拯救者", "achievement name")
-t("Saved Melinda from her terrible fate in the Crypt of Kryl-Feijan.", "从卡洛·斐济邪教手中把梅琳达从厄运中拯救出来。", "_t")
+t("Saved Melinda from her terrible fate in the Crypt of Kryl-Feijan.", "从克里尔·费扬邪教手中把梅琳达从厄运中拯救出来。", "_t")
 t("Impossible Death", "不可能的死亡", "achievement name")
 t("Got killed by your future self.", "被未来的自己杀死。", "_t")
 t("Self-killer", "自杀者", "achievement name")
@@ -7192,7 +7192,7 @@ t("#LIGHT_RED#You carefully open the trap door and enter the underground tunnels
 t("#LIGHT_RED#As you enter you notice the trap door has no visible handle on the inside. You are stuck here!", "#LIGHT_RED#当你进入了地道你发现活门没有出去的开关，你被关在这里了！", "logPlayer")
 t("Enter the tunnels", "进入通道", "_t")
 t("Leave carefully", "悄悄离开", "_t")
-t("Sect of Kryl-Faijan", "卡洛·斐济教派", "entity name")
+t("Sect of Kryl-Faijan", "克里尔·费扬教派", "entity name")
 t([[You find an entrance to an old crypt. An aura of terrible evil emanates from this place. You feel threatened just standing there.
 You hear the muffled cries of a woman coming from inside.]], [[你发现了一个古老地窖的入口，里面笼罩着恐怖的邪恶气息，仅仅站在门口你就已经感受到了它的威胁。
 你听到了里面传来了陌生女人的哭声。]], "_t")
@@ -15578,7 +15578,7 @@ Around her are several figures in dark robes.
 As they notice you one calls out 'Intruder! Protect the seed of Kryl-Feijan!']], [[你看见一名人类女子赤身裸体地昏倒在黑色祭坛上，扭曲的符印深深刻入她的肌肤。
 她身旁站着数名黑袍人。
 
-他们一发现你，其中一人便大喊：“入侵者！保护卡洛·斐济之种！”]], "_t")
+他们一发现你，其中一人便大喊：“入侵者！保护克里尔·费扬之种！”]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/fun.lua"
@@ -20358,8 +20358,8 @@ t("#VIOLET#Berethh lies dead.", "#VIOLET#贝里斯死了。", "logPlayer")
 ------------------------------------------------
 section "mod-tome/data/quests/kryl-feijan-escape.lua"
 
-t("The Sect of Kryl-Feijan", "卡洛·斐济教派", "_t")
-t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地穴中发现了一个崇拜名为卡洛·斐济的恶魔的教派。", "_t")
+t("The Sect of Kryl-Feijan", "克里尔·费扬教派", "_t")
+t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地穴中发现了一个崇拜名为克里尔·费扬的恶魔的教派。", "_t")
 t("They were trying to bring it back into the world using a human sacrifice.", "他们试图用献祭活人来召唤恶魔到这个世界上。", "_t")
 t("You defeated the acolytes and saved the woman. She told you she is the daughter of a rich merchant of Last Hope.", "你打败了那些侍僧并救下了这个女人。她告诉你，她是最后的希望城中一位富商的女儿。", "_t")
 t("You failed to protect her when escorting her out of the crypt.", "你没能成功地将她护送出这个地穴。", "_t")
@@ -20426,7 +20426,7 @@ t("#LIGHT_BLUE#The merchant thanks you for saving his life. He gives you 8 gold 
 section "mod-tome/data/quests/love-melinda.lua"
 
 t("Melinda, lucky girl", "幸运女孩梅琳达", "_t")
-t("After rescuing Melinda from Kryl-Feijan and the cultists you met her again in Last Hope.", " 在你从卡洛·斐济邪教手中解救了梅琳达之后，你在最后的希望又碰到了她。", "_t")
+t("After rescuing Melinda from Kryl-Feijan and the cultists you met her again in Last Hope.", " 在你从克里尔·费扬邪教手中解救了梅琳达之后，你在最后的希望又碰到了她。", "_t")
 t("Melinda was saved from the brink of death at the beach, by a strange wave of blight.", "在海滩上，一股奇异的枯萎能量将梅琳达从死亡边缘救了回来。", "_t")
 t("Melinda died to a Yaech raiding party at the beach.", "梅琳达被沙滩上的夺魂魔杀死了。", "_t")
 t("The Fortress Shadow said she could be cured.", " 堡垒之影说她会得到治疗。", "_t")
@@ -38185,14 +38185,14 @@ t("altar", "祭坛", "entity name")
 ------------------------------------------------
 section "mod-tome/data/zones/crypt-kryl-feijan/npcs.lua"
 
-t("Kryl-Feijan", "卡洛·斐济", "entity name")
+t("Kryl-Feijan", "克里尔·费扬", "entity name")
 t("This huge demon is covered in darkness. The ripped flesh of its \"mother\" still hangs from its sharp claws.", "这只巨大的恶魔被黑暗所包围。它的“母亲”的碎肉仍悬挂在它的利爪上。", "_t")
 t("and devoured as a demonic breakfast", "并被恶魔当作早餐吞噬", "_t")
 t("Melinda", "梅琳达", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("A female Human with twisted sigils scored into her naked flesh. Her wrists and ankles are sore and hurt by ropes and chains. You can discern great beauty beyond the stains of blood covering her skin.", "一位赤裸并且全身刻有扭曲符文的女人。她的四肢被镣铐绑在了祭台上。尽管她的皮肤上满是鲜血，你仍然能发现她的美丽。", "_t")
-t("Acolyte of the Sect of Kryl-Feijan", "卡洛·斐济的邪教徒", "entity name")
+t("Acolyte of the Sect of Kryl-Feijan", "克里尔·费扬的邪教徒", "entity name")
 t("elf", "精灵", "entity subtype")
 t("Black-robed Elves with a mad look in their eyes.", "穿着黑色长袍的精灵，他们的眼中满是疯狂。", "_t")
 t("Melinda", "梅琳达", "_t")
