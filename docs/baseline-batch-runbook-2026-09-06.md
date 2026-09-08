@@ -795,3 +795,72 @@ run 成员数 == 1 即 full 模式、== 4 即 lane 模式；并断言各 run ent
 `degenerated skeleton archer`（mod-tome.lua:8734）、`degenerated ogric mass`（38150）、
 shining plate armour（38525）、orcs primal-forest lore 的 herbal infusions、`dreamer's`、
 `" of daylight"`，以及上述第 4 项的 7 条。
+
+## 26. pending 清偿轮与 I/S 两次全库清理（2026-09-08）
+
+第 50 批后暂停期间，维护者逐项裁定了积压的 pending 并授权了两次全库清理。
+本节记录改动、判据与新踩到的坑。
+
+| merge | 内容 | 规模 |
+| --- | --- | --- |
+| `b374c55` | pending 1/2/3：P2 镜像语气、句末缺标点、双手武器技能名 | 366 条 |
+| `e0d9976` | pending 2/3/4/5/6/8/9：术语对齐与语义订正 | 16 条 |
+| `3a82568` | I 系列：中文正文内混入的半角标点 | 474 条 |
+| `1f849ff` | S 系列：全角标点与 ASCII 空格粘连 | 524 + 14 条 |
+
+维护者裁定「维持现状」的两项：`delving`→「挖掘之」；`tome-orcs.lua`
+岩石守卫 lore 的 `herbal infusions`→「草本纹身」（与萨拉店招那条 confirmed
+不同——店招上下文是 `resolvers.store("GATES_POTION", …)` 的药剂店，
+lore 上下文里 infusion 与 mindstar 并列，是 `terminology/talents.tsv:9`
+定义的游戏内「纹身」，原译成立）。
+
+### 规则与守卫（可直接复用）
+
+- **P2 镜像规则**（源文句末 `.`、译文却作「！」）：候选 63 条，实改 57。
+  三类守卫各排除 2 条：源文实为 `!.`／`?.`（多余尾点，译文语气本就对）、
+  源文以省略号结尾、译文把陈述句改写成疑问句（属语义问题，另行处理）。
+- **句末补「。」**：候选 315 条，实改 300。守卫为**源文单 token**——
+  `Enc.`／`implac.`／`invigor.`／`fortif.`／`serend.` 等 11 条缩写全部命中，
+  零漏零误。省略号源文另排除 4 条。
+- **I 系列**：I1 汉字紧邻的 `, : ; ! ? .` 全角化（603 处）；
+  I2 译文**末尾**、跟在 `#TAG#` 或半角括号之后的 `.`（58 处，如
+  `#Source#击杀了#Target#.`）——I1 的「汉字紧邻」条件抓不到这类，
+  上一轮 P1–P4 也漏了；I3 只折叠刚全角化的标点后的空格。
+  守卫：ASCII 省略号 87 处不按句末句点处理。
+- **S 系列**：S1 全角标点后的单空格（544 处）、S2 全角标点前的单空格（194 处）。
+  **守卫：只折叠单个半角空格，连续空格与制表符一律不动。**
+  角色面板用空格做列对齐，折叠会破坏排版：
+  `'#ANTIQUE_WHITE#弹药：      #ffffff#%d'`、`'所有伤害    ：#00ff00#%s'`、
+  `'#LIGHT_BLUE#属性值：       基础值/当前值'`、
+  `'#GOLD#杀死的总生物数：          #ANTIQUE_WHITE#%d'`，
+  以及 tooltip 的 `\t\t` 缩进。排除 14 条 / 64 处，降级率 2.6%。
+
+### 新踩到的坑
+
+- **全库清扫的文件集合是「六组件 + 全部 addon 组件 + example」，不是「目录内文件」。**
+  权威目录只覆盖 engine/boot/tome/ashes-urhrok/cults/orcs 六个，但
+  `06-runtime-collision-scan` 读的是 `production_review_v2_lite_batch.py:199`
+  列出的全部 11 个组件。S 系列首次运行漏了 `tome-possessors.lua`、
+  `tome-items-vault.lua`、`tome-addon-dev.lua`，`'#GOLD#Life per level:#LIGHT_BLUE# -4'`
+  在 cults/possessors/tome 三者间产生冲突而挂门禁。§25 记的
+  「`mod-example*.lua` 也要算」是这条规律的特例，不要只记特例。
+  addon 组件的改动只动 catalog 的 `exclusions.jsonl`（occurrence identity），
+  `entries.jsonl` 逐行不变，**因此 migration 不必重做**——提交前 diff 验证。
+- **`migration plan` 会在 HEAD 前进后报 `queue database meta/catalog/evidence-head drift`。**
+  上一轮 apply 把 meta 的 evidence_head 固定在当时的 HEAD，一旦 commit+merge，
+  下一轮就漂移。处理：`git stash` → `queue rebuild` → `git stash pop` → 重新 plan。
+  `queue rebuild` 要求 tracked evidence worktree 干净，所以必须先 stash。
+- **`authoritative-catalog build --output DIR` 产出的是完整仓库树**，
+  catalog 三件套在 `DIR/evidence/production-review-v2-lite/catalog/` 下，
+  不是 `DIR/catalog/`。
+- **`migration apply` 依赖 `.artifacts/` 下的 SQLite 队列，该目录不随 worktree 走。**
+  在 `git worktree add` 出来的独立工作树里跑会报
+  `migration apply requires the existing SQLite queue`。全库清理要在主工作树开分支做。
+- **`dreamer` 的收尾**：`08faeff` 修 keyword 时在提交信息里明确写了
+  「entity name `dreamer's `（4 处）与复数 keyword `dreamers`（1 处）不在本批
+  workset 内」。这类**自记的尾巴要能被后续检索到**——本轮靠
+  `git log -S` 找回。修一半时务必把另一半写进提交信息。
+
+### 待立项的残留（见 GitHub Issue）
+
+半角省略号规范化、行中半角句点（26 条真候选）、ASCII 引号（约 88 条）。
