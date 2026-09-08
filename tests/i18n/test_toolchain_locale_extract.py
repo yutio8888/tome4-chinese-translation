@@ -114,6 +114,9 @@ class LuaLocaleTests(unittest.TestCase):
             "line one\nline two",
             "\nleading newline",
             "contains ]] and ]=] delimiters\nwithout loss",
+            # 内容以 "]" 结尾时，0 级长括号会与闭合串拼出提前闭合点（value + "]]" -> "]]]"）。
+            "multi line ending in a bracket\n[b]poster[/b]",
+            "nested level ending in a bracket\ncontains ]=] and ends with ]",
         )
         for value in values:
             with self.subTest(value=value):

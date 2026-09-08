@@ -81,8 +81,8 @@ This is all optional, you are not forced to use this feature at all, but the dev
 马基·埃亚尔的传说是一个#{bold}#单人游戏#{normal}#，但也提供了丰富的在线功能，可以增强你的游戏体验，并让你和游戏社区建立联系：
 * 在多台电脑上游玩，而不需要复制游戏解锁和成就。
 * 与其他玩家在游戏内聊天，寻求建议，分享难忘的时刻…
-* 记录你的击杀数量，死亡次数，以及最喜欢的职业…
-* 统计你的游戏数据，来记录你的游戏风格
+* 记录你的击杀数量，死亡次数，以及玩得最多的职业…
+* 用有趣的统计数据帮你打磨自己的游戏风格
 * 在游戏里直接安装官方扩展包和第三方插件，免去手动安装的麻烦
 * 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/赞助者独享权益
 * 帮助游戏开发者调整游戏平衡，让这个游戏变得更好。
@@ -120,7 +120,7 @@ t("Acid-maniac", "狂酸使", "birth descriptor name")
 ------------------------------------------------
 section "mod-boot/data/damage_types.lua"
 
-t("Kill!", "击杀!", "_t")
+t("Kill!", "击杀！", "_t")
 
 ------------------------------------------------
 section "mod-boot/data/general/grids/basic.lua"
@@ -344,7 +344,7 @@ t("Really delete #{bold}##GOLD#%s#WHITE##{normal}#", "真的要删除#{bold}##GO
 t("Old game data", "旧版游戏数据", "_t")
 t("No data available for this game version.", "没有当前游戏版本的数据。", "_t")
 t("Downloading old game data: #LIGHT_GREEN#", "正在下载旧版游戏数据： #LIGHT_GREEN#", "_t")
-t("Old game data for %s correctly installed. You can now play.", " %s 的旧版游戏数据已经安装成功了。你可以现在游玩了。", "tformat")
+t("Old game data for %s correctly installed. You can now play.", "%s 的旧版游戏数据已经安装成功了。你可以现在游玩了。", "tformat")
 t("Failed to install.", "安装失败。", "_t")
 
 ------------------------------------------------
@@ -581,7 +581,7 @@ section "mod-boot/init.lua"
 
 t("Tales of Maj'Eyal Main Menu", "马基·埃亚尔的传说 主菜单", "init.lua long_name")
 t([[Bootmenu!
-]], [[启动菜单!
+]], [[启动菜单！
 ]], "init.lua description")
 
 ------------------------------------------------

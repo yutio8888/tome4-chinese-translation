@@ -204,7 +204,7 @@ t("[try to shout your way out]", "[试着喊救命]", "_t")
 t([[#DARK_SEA_GREEN##{italic}#As were starting to lose hope you hear some kind of cutting.#{normal}##LAST#
 There's someone else in here?]], [[#DARK_SEA_GREEN##{italic}#在你快要放弃希望的时候，你听到了切开东西的声音。#{normal}##LAST#
 有人在里面吗？]], "_t")
-t("Who..what.. YES!", "是谁…什么…对！我在里面!", "_t")
+t("Who..what.. YES!", "是谁…什么…对！我在里面！", "_t")
 t([[#DARK_SEA_GREEN##{italic}#As the sack gets cut and you regain your mobility you see your savior is some kind of adventurer, she was probably eaten by the Godfeaster too.#{normal}##LAST#
 This thing ate you too? Hey, at least you've got company. Name's Malyu, I've been stuck in here for a few days now and had to tough it out alone. I was about to go for this thing's brain when you showed up. What say we team up and get out of here together?
 ]], [[#DARK_SEA_GREEN##{italic}#当袋子被切破开来，你恢复了你的能力。你看到了救你的人是一个冒险家，她好像也被噬神者吞下了。#{normal}##LAST#
@@ -323,10 +323,10 @@ t("corrupted #base#", "腐化的 #base#", "_t")
 t("giant digestive sack", "巨大的消化袋", "_t")
 t("Giant Digestive Sack", "巨大的消化袋", "_t")
 t("Open the sack?", "打开袋子？", "_t")
-t("#DARK_SEA_GREEN#An object rolls from the sack!", "#DARK_SEA_GREEN#一个物品从消化袋里掉了出来!", "logSeen")
-t("#DARK_SEA_GREEN#A not yet digested foe burst out from the sack!", "#DARK_SEA_GREEN#一个没有被完全消化的敌人从消化袋里掉了出来!", "logSeen")
+t("#DARK_SEA_GREEN#An object rolls from the sack!", "#DARK_SEA_GREEN#一个物品从消化袋里掉了出来！", "logSeen")
+t("#DARK_SEA_GREEN#A not yet digested foe burst out from the sack!", "#DARK_SEA_GREEN#一个没有被完全消化的敌人从消化袋里掉了出来！", "logSeen")
 t("giant digestive sack (opened)", "打开的巨大消化袋", "_t")
-t("#DARK_SEA_GREEN#Sickening fumes emanates from the sack as it opens!", "#DARK_SEA_GREEN#袋子打开时散发出令人作呕的烟雾!", "logSeen")
+t("#DARK_SEA_GREEN#Sickening fumes emanates from the sack as it opens!", "#DARK_SEA_GREEN#袋子打开时散发出令人作呕的烟雾！", "logSeen")
 t("Open", "打开", "_t")
 t("Leave", "离开", "_t")
 
@@ -754,7 +754,7 @@ t("Cut Drem Arm", "被切下来的德瑞姆手臂", "entity name")
 t("bloody arm", "血淋淋的手臂", "_t")
 t("The arm appears desiccated, but you swear that you see something wriggling underneath its ashen skin.", "这条手臂看上去已经风干了，但你可以发誓，你看到有什么东西在它的皮肤下蠕动。", "_t")
 t("The arm can sometimes reach out to a foe in radius 5 and grab it to you with a tentacle pull. This action is not your own choice, it has a mind of its own.", "这条手臂有时可以伸向半径5范围内的一个敌人，用触手把他拉到你的身边。这个行为并不出自于你的选择，而是出于它自己的意志。", "_t")
-t("#DARK_SEA_GREEN#The %s reaches for %s with a tentacle!", "#DARK_SEA_GREEN#%s使用触手抓握%s!", "logSeen")
+t("#DARK_SEA_GREEN#The %s reaches for %s with a tentacle!", "#DARK_SEA_GREEN#%s使用触手抓握%s！", "logSeen")
 t("Monolith Armour", "巨石铠甲", "entity name")
 t("black stone armour", "黑色的石头铠甲", "_t")
 t("This 'armour' seems to mostly consist of chunks of a rune etched stone somehow fused with a highly flexible black mesh. The titanic pieces of stone would undoubtedly deflect any blow thrown at you, but you would need obscene strength just to move while wearing this. The glyphs and runes carved into the chunks sometimes light up of their own accord, letting out small bursts of magic.", "这块护甲似乎是由一整块符文巨石组成，它与某种高度灵活的黑色网状物融为一体。毋庸置疑，巨大的石块可以阻挡对你身上的任何打击，但你需要巨大的力量才能穿着它移动。刻在上面的符文有时候会自动点亮，放出小型的魔法爆炸。", "_t")
@@ -773,9 +773,9 @@ t([[It is said that the preferred weapons of the krog is a mace in one hand and 
 The sword symbolizes the krogs committment to their task of fighting against the forces of the arcane. With each slash the krog would endevor to continue, until at last their opponents would fall.]], [[人们说克罗格首选的武器是一手拿剑一手拿锤。用一只手传播伊格兰斯的讯息，而用另一只手来让自己能够坚持到把这一信息传达到最后。
 剑象征着克罗格坚守着他们对抗奥术力量的任务。直到最后一个敌人倒下之前，克罗格都会用这把剑坚持战斗。]], "_t")
 t("restore 7 stamina and equilibrium", "恢复7点体力值和失衡值。", "_t")
-t("#LIGHT_BLUE#As you wear the sword you feel it attuning to your Krog body, increasing in power!", "#LIGHT_BLUE#你感受到你的剑和克罗格的身躯共鸣，解放了强大的力量!", "logPlayer")
+t("#LIGHT_BLUE#As you wear the sword you feel it attuning to your Krog body, increasing in power!", "#LIGHT_BLUE#你感受到你的剑和克罗格的身躯共鸣，解放了强大的力量！", "logPlayer")
 t("It is said perseverance comes hand in hand with dedication.", "人们说毅力之剑与忠诚之锤配合。", "_t")
-t("#AQUAMARINE#As the twin weapons of the Krogs are reunited you can feel bursting with power!", "#AQUAMARINE#克罗格的两把武器集齐了，你感觉到力量暴涨!", "logSeen")
+t("#AQUAMARINE#As the twin weapons of the Krogs are reunited you can feel bursting with power!", "#AQUAMARINE#克罗格的两把武器集齐了，你感觉到力量暴涨！", "logSeen")
 t("#AQUAMARINE#The twin weapons of the Krogs de-power as you separate them.", "#AQUAMARINE#克罗格的武器分开了，力量消退了。", "logPlayer")
 t("Dedication", "忠诚", "entity name")
 t("always blunt mace", "永远钝的锤", "_t")
@@ -827,7 +827,7 @@ t("Rod of Entropy", "熵之魔杖", "entity name")
 t("light sucking rod", "吸收光的魔杖", "_t")
 t("This rod seems to make light die around it. You feel tired just looking at it.", "这根魔杖似乎能够熄灭周围的光。光是看着它你就觉得很累了。", "_t")
 t("temporarily causes the target to receive entropic backlash from any healing they receive for %d turns up to %d%% of the healing done. This effect scales with your Magic stat.", "暂时使目标从所受治疗中受到熵反冲，在 %d 回合内最多受到相当于治疗量 %d%% 的伤害。效果受魔力值加成。", "tformat")
-t("%s activates %s %s!", "%s激活了%s%s!", "logSeen")
+t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t("Seeds of the Black Tree", "黑色树之种", "entity name")
 t("corrupt stone", "被污染的石头", "_t")
 t("This writhing mass of tentacles appears to have infested a mindstar, creating some bizarre fusion between natural and unnatural. The once clear gem now seems more like a shard of black obsidian with tentacles striking out from it like whips. You do not want to think of the implications of this horror being able to fuse with Nature itself.", "这团扭曲的触手似乎寄生了一块灵晶，在自然和超自然之间形成了一种奇异的混合。曾经清晰的宝石现在看起来更像一块黑曜石碎片，触手在上面伸出，宛如鞭子一般。你无法想象，恐魔竟然能够和大自然混合。", "_t")
@@ -2699,7 +2699,7 @@ t("Call of Amakthel", "阿马克泰尔的呼唤", "talent name")
 t([[You attune your horrors to the dead god Amakthel, increasing your summoned horrors damage by %d%%.
 At talent level 3, your Decaying Devourers spell will summon 4 additional Devourers adjacent to random enemies nearby and your Bloated Horror will learn the Agony talent.
 At talent level 5, victims of your Horrific Display spell will pull enemies in radius 10 1 space towards them each turn.
-The damage increase is based on your Spellpower.]], [[ 你将你的恐魔和已死之神阿马克泰尔同化，增加恐魔 %d%% 伤害。
+The damage increase is based on your Spellpower.]], [[你将你的恐魔和已死之神阿马克泰尔同化，增加恐魔 %d%% 伤害。
 		技能等级 3 后，你的腐败的吞噬者法术将额外召唤四名吞噬者在随机敌人周围，你的浮肿恐魔将学会极度痛苦。
 		技能等级 5 后，恐怖展示的受害者每回合会把范围 10 码内的敌人拉近 1 码。
 伤害加成受法术强度加成。]], "tformat")
@@ -2759,7 +2759,7 @@ t("Talents of the various entities of the world.", "世界上各种怪物的能�
 section "tome-cults/data/talents/demented/disfigured-face.lua"
 
 t("Diseased Tongue", "疫病之舌", "talent name")
-t("Your tongue turns into a diseased tentacle that you use to #{italic}#lick#{normal}# enemies in a cone.\n\t\tLicked creatures take %d%% tentacle damage that ignores armor and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.\n\t\t\n\t\tIf at least one enemy is hit you gain %d insanity.\n\t\t\n\t\tDisease damage will increase with your Spellpower.", [[ 你的舌头化作疫病触手，让你能 #{italic}#舔舐#{normal}# 锥形范围内的敌人。
+t("Your tongue turns into a diseased tentacle that you use to #{italic}#lick#{normal}# enemies in a cone.\n\t\tLicked creatures take %d%% tentacle damage that ignores armor and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.\n\t\t\n\t\tIf at least one enemy is hit you gain %d insanity.\n\t\t\n\t\tDisease damage will increase with your Spellpower.", [[你的舌头化作疫病触手，让你能 #{italic}#舔舐#{normal}# 锥形范围内的敌人。
 		被舔舐的敌人受到无视护甲的 %d%% 触手伤害并获得一种持续 %d 回合的随机疾病，每回合造成 %0.2f 枯萎伤害并减少力量、敏捷或体质 %d 点。
 		如果你至少命中了一名敌人，你获得 %d 疯狂值。
 		疾病伤害受法术强度加成。]], "tformat")
@@ -2783,7 +2783,7 @@ t("Glimpse of True Horror", "恐怖无边", "talent name")
 t([[Whenever you use a disfigured face power you show a glimpse of what True Horror is.
 		If the affected targets fail a spell save they become frightened for 2 turns, giving them a %d%% chances to fail using talents.
 		When a target becomes afraid it bolsters you to see their anguish, increasing your darkness and blight damage penetration by %d%% for 2 turns.
-		The values will increase with your Spellpower.]], [[ 每次你使用该系技能时，你就能展现何为真正的恐怖。
+		The values will increase with your Spellpower.]], [[每次你使用该系技能时，你就能展现何为真正的恐怖。
 		如果目标未能通过法术豁免，将处于 2 回合恐惧状态，使用技能有 %d%% 几率失败。
 		同时，敌人的恐惧和痛苦能激励你的意志，在 2 回合内增加你 %d%% 暗影和枯萎伤害抗性穿透。
 		技能效果受法术强度加成。]], "tformat")
@@ -2840,7 +2840,7 @@ section "tome-cults/data/talents/demented/entropy.lua"
 
 t("Entropic Gift", "熵之礼物", "talent name")
 t("%s's black hole", "%s的黑洞", "tformat")
-t("#Source# pulls #Target# in!", "#Source#将#Target#拉了进来!", "logCombat")
+t("#Source# pulls #Target# in!", "#Source#将#Target#拉了进来！", "logCombat")
 t([[Your unnatural existence causes the fabric of reality to reject your presence. 25%% of all direct healing received damages you in the form of entropic backlash over 8 turns, which is irresistible and bypasses all shields, but cannot kill you.
 
 You may activate this talent to channel your entropy onto a nearby enemy, removing all entropic backlash to inflict darkness and temporal damage equal to %d%% of your entropy over 4 turns.
@@ -2859,7 +2859,7 @@ t([[On casting Entropic Gift, a radius 1 rift in spacetime will be opened undern
 		All caught within the rift are pulled towards the center and take %0.2f darkness and %0.2f temporal damage, plus %d%% of your total entropy each turn (currently %d).]], [[每次释放熵之礼物，会在目标处产生一个持续 %d 回合的一格小型黑洞，每回合半径增加 1 直到 %d 。
 		所有范围内的生物每回合将被拉向黑洞中心并受到 %0.2f 暗影、 %0.2f 时空伤害以及你当前熵的 %d%% 的伤害（当前 %d ）。]], "tformat")
 t("Power Overwhelming", "能量过载", "talent name")
-t("You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.", [[ 你用危险的熵能大幅强化你的法术，增加 %d%% 黑暗和时空伤害与 %d%% 抗性穿透。
+t("You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.", [[你用危险的熵能大幅强化你的法术，增加 %d%% 黑暗和时空伤害与 %d%% 抗性穿透。
 			作为代价，每个非瞬间法术会带来 %0.2f 熵能反冲。]], "tformat")
 
 ------------------------------------------------
@@ -2917,7 +2917,7 @@ t("You require your worm that walk to be alive and closeby.", "你需要有一�
 t([[While within range 3 of your Worm that Walks you can project an aura of terror.
 		At the sight of two maddening horrors fighting together all your foes in radius %d must make a physical save against your spellpower or be stunned for %d turns.
 
-		Additionally your Shared Insanity effect will cause enemies in radius 3 to lose %d spell save and %d defense for 3 turns.]], [[ 当你处于蠕虫合体 3 格范围内时，你可以制造恐怖光环。
+		Additionally your Shared Insanity effect will cause enemies in radius 3 to lose %d spell save and %d defense for 3 turns.]], [[当你处于蠕虫合体 3 格范围内时，你可以制造恐怖光环。
 		看到两个疯狂恐魔并肩作战将令周围 %d 格的敌人震慑 %d 回合，除非它们的物理豁免成功对抗了你的法术强度。
 		此外，你的共享疯狂效果将令 3 格内的敌人在 3 回合里失去 %d 法术豁免和 %d 闪避。]], "tformat")
 
@@ -2964,7 +2964,7 @@ t([[Each time an enemy takes damage from Dark Whispers, there is a %d%% chance f
 t("Sanity Warp", "失智冲击", "talent name")
 t("When a hallucination from Hideous Visions is slain, it unleashes a psychic shriek dealing %0.2f darkness damage to enemies in radius %d.", "每当“惊骇幻象”产生的幻象被消灭时，它将释放心灵冲击，对 %d 格内的敌人造成 %0.2f 暗影伤害。", "tformat", {2,1})
 t("Cacophony", "心灵尖啸", "talent name")
-t("Raise your Dark Whispers in radius %d to a deafening crescendo for %d turns, applying another stack and drowning out all thought. \n\t\t\tTargets afflicted by Dark Whispers will have 20%% higher chance to spawn hallucinations, and each time they take damage from your Dark Whispers or Sanity Warp they will take an additional %d%% damage as temporal damage.\n\t\tThe damage will improve with your Spellpower.", [[ 使 %d 格内的黑暗低语音量提升 %d 回合，达到震耳欲聋的地步，额外施加一层低语效果，同时干扰一切思考能力。
+t("Raise your Dark Whispers in radius %d to a deafening crescendo for %d turns, applying another stack and drowning out all thought. \n\t\t\tTargets afflicted by Dark Whispers will have 20%% higher chance to spawn hallucinations, and each time they take damage from your Dark Whispers or Sanity Warp they will take an additional %d%% damage as temporal damage.\n\t\tThe damage will improve with your Spellpower.", [[使 %d 格内的黑暗低语音量提升 %d 回合，达到震耳欲聋的地步，额外施加一层低语效果，同时干扰一切思考能力。
 		被黑暗低语影响的目标产生幻象的几率增加 20%%，每次受到黑暗低语或失智冲击的伤害时，会受到额外 %d%% 时空伤害。
 		伤害受法术强度加成。]], "tformat")
 
@@ -2986,14 +2986,14 @@ t([[Fire a beam of energy that rakes across the ground, dealing %0.2f darkness d
 		伤害受法术强度加成。]], "tformat")
 t("Spatial Distortion", "空间扭曲", "talent name")
 t("Select a teleport location...", "选择传送位置...", "logPlayer")
-t("The spell fizzles on %s!", "法术在 %s 上失败了!", "logSeen")
-t("#CRIMSON#%s is swallowed by a portal!", "#CRIMSON#%s被传送门吞噬!", "logSeen")
-t("%s resists the warp!", "%s抵抗了传送!", "logSeen")
+t("The spell fizzles on %s!", "法术在 %s 上失败了！", "logSeen")
+t("#CRIMSON#%s is swallowed by a portal!", "#CRIMSON#%s被传送门吞噬！", "logSeen")
+t("%s resists the warp!", "%s抵抗了传送！", "logSeen")
 t("entropic maw", "熵之胃", "_t")
 t("Tendrils lash around the mouth of this gigantic beast, seeking prey to devour.", "卷须从怪物的嘴中伸出，正在寻找猎物。", "_t")
 t([[Briefly open a radius %d rift in spacetime that teleports those within to the targeted location. Enemies will take %0.2f darkness and %0.2f temporal damage.
 		The power of this spell inflicts entropic backlash on you, causing you to take %d damage over 8 turns. This damage counts as entropy for the purpose of Entropic Gift.
-		The damage will improve with your Spellpower.]], [[ 在时空中临时打开半径 %d 的裂缝，将范围内目标传送至指定位置。
+		The damage will improve with your Spellpower.]], [[在时空中临时打开半径 %d 的裂缝，将范围内目标传送至指定位置。
 		敌人将受到 %0.2f 暗影 %0.2f 时空伤害。
 		该法术会对你产生熵能反冲，在 8 回合内造成 %d 伤害。此伤害对熵之礼物而言视为熵。
 		伤害受法术强度加成。]], "tformat")
@@ -3114,7 +3114,7 @@ The stats of your Void Skitterers will scale with your Magic stat and level.]], 
 #PURPLE#维度之门 :#LAST# 每回合有 50%% 概率召唤一个虚空造物，持续 %d 回合 , 是一个能传送的高速近战攻击者
 你的虚空造物属性随你的等级和魔法属性提高而提高。]], "tformat")
 t("Dimensional Skitter", "维度迅击", "talent name")
-t("%s's Dimensional Skitter fizzles!", "%s的维度迅击失败了!", "logSeen")
+t("%s's Dimensional Skitter fizzles!", "%s的维度迅击失败了！", "logSeen")
 t("Teleport to a target within range 10 and strike them with your fangs dealing %d%% weapon damage.", "传送到范围 10 内的一个敌人处，并用你的尖牙攻击它，造成 %d%% 武器伤害。", "tformat")
 t("Zero Point Energy", "零点能量", "talent name")
 t([[You draw power from the depths of the void causing your Reality Fracture to enhance any existing rifts.
@@ -3173,7 +3173,7 @@ t([[The pain you inflict to the victim you are digesting is so intense something
 		At talent level 5 you can choose which talent to use.
 		You may not steal a talent which you already know.
 		The stolen talent will not use any resources to activate.
-		]], [[ 正在被你消化的目标承受着极大的痛苦，内部器官不断破损，让你能趁机侵入它的思维。
+		]], [[正在被你消化的目标承受着极大的痛苦，内部器官不断破损，让你能趁机侵入它的思维。
 		你可以窃取并使用它的一个随机技能（技能等级 %d ）。
 		技能等级 5 时，你可以指定窃取的技能。
 		你不能窃取你已知的技能。
@@ -3234,7 +3234,7 @@ t([[You plant your tentacle hand in the ground where it splits up and extends to
 		#YELLOW_GREEN# 当触手处于缠绕状态 :#WHITE# 触手对缠绕对象连续突击，造成 %d%% 触手伤害。如果你与被缠绕对象相邻，则进行一次额外的主手打击。技能冷却时间缩短为 10 回合。]], "tformat")
 t("Constrict", "缠绕", "talent name")
 t("You require a mutated hand!", "你需要异变之手！", "logPlayer")
-t("%s's tentacle fails to move %s!", "%s的触手无法移动%s!", "tformat")
+t("%s's tentacle fails to move %s!", "%s的触手无法移动%s！", "tformat")
 t("Your constrict target has disappeared!", "你缠绕的目标消失了！", "logPlayer")
 t("This target can not be moved!", "无法移动目标！", "logPlayer")
 t([[You extend your tentacle to grab a distant target, pulling it to you.
@@ -3263,7 +3263,7 @@ t([[You freeze yourself in time for %d turns, preventing you from taking any act
 				Negative effects and cooldowns will decrease in duration, while beneficial effects will remain at their current duration.]], [[你在时间中凝固 %d 回合，无法行动但也无法被伤害。
 		负面效果持续时间和技能冷却时间会正常扣减，正面效果持续时间不变。]], "tformat")
 t("Split", "分裂", "talent name")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("You can't clone summons!", "你不能克隆召唤物", "logPlayer")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
 t("#LIGHT_STEEL_BLUE#%s's Temporal Clone#LAST#", "#LIGHT_STEEL_BLUE#%s的时空克隆#LAST#", "tformat")
@@ -3301,7 +3301,7 @@ t([[Consuming a void star, you use it to summon a void monolith at the targeted 
 			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合对 %d 码范围内敌人施加眩晕2回合 ( 基于本体法术强度 ).
 			基于你的魔法属性，巨石获得 %d 生命成长和 %d%% 全体抗性。]], "tformat")
 t("Essence Reave", "精华收割", "talent name")
-t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空之星!", "logSeen")
+t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空之星！", "logSeen")
 t([[You rend the very essence of the target, drawing on their life and converting it to void stars. The target takes %0.2f darkness and %0.2f temporal damage, and you gain %d void star(s).
 		The damage will increase with your Spellpower.]], [[撕开目标的核心部位，汲取生命转化为虚空之星。目标受到 %0.2f 黑暗和 %0.2f 时空伤害，你获得 %d 虚空之星。
 		伤害随法术强度升高。]], "tformat")
@@ -3403,7 +3403,7 @@ t("golem", "傀儡", "talent category")
 t("glass", "玻璃", "talent type")
 t("Glass Golem basic capacity.", "玻璃傀儡的基础能力。", "_t")
 t("Glass Splinters", "玻璃碎片", "talent name")
-t("%s resists the splinters!", "%s 抵抗了玻璃碎片!", "logSeen")
+t("%s resists the splinters!", "%s 抵抗了玻璃碎片！", "logSeen")
 t([[Smash your target with a splintering glass attack doing %d%% arcane weapon damage.
 		If this attack hits the target will have glass splinters for 6 turns.
 		Each turn the target will bleed for 8%% of the attack damage. The splinters are very painful and if the target moves it will instantly take %d%% of the attack damage.
@@ -3414,7 +3414,7 @@ t([[Smash your target with a splintering glass attack doing %d%% arcane weapon d
 		技能等级 5 后，目标有 15%% 几率使用技能失败。]], "tformat")
 t("Throw Pebble", "投掷鹅卵石", "talent name")
 t("something", "某物", "_t")
-t("#Source# expertly hurls a pebble at #target#!", "#Source#朝#target#投掷鹅卵石!", "logCombat")
+t("#Source# expertly hurls a pebble at #target#!", "#Source#朝#target#投掷鹅卵石！", "logCombat")
 t([[Throw a pebble at your target, dealing %0.2f physical damage.
 		The damage will increase with your Strength.]], [[朝目标扔石头，造成 %0.2f 物理伤害。
 		伤害受力量加成。]], "tformat")
@@ -3443,7 +3443,7 @@ t("Spikeskin", "尖刺皮肤", "talent name")
 t([[Your skin grows small spikes coated in dark blight.
 		When you are hit in melee the attacker starts bleeding black blood for 5 turns that deals %0.2f darkness damage each turn. This effect may only happen once per turn.
 		You are empowered by the sight of the black blood, for each bleeding creature in radius 2 you gain 5%% all resistances, limited to %d creatures.
-		The damage will scale with your Magic stat.]], [[ 你的皮肤生长出被黑暗和枯萎力量覆盖的尖刺。
+		The damage will scale with your Magic stat.]], [[你的皮肤生长出被黑暗和枯萎力量覆盖的尖刺。
 		当你被近战攻击命中时，攻击者开始流出黑血，持续 5 回合，每回合造成 %0.2f 暗影伤害。该效果每回合只能触发一次。
 		同时，目睹黑血会使你受到强化：2 格范围内每个可见的流着黑血的生物，都使你获得 5%% 全部抗性，最多计 %d 个生物。
 		伤害随魔法属性提升。]], "tformat")
@@ -3452,13 +3452,13 @@ t([[Your faceless visage is puzzling and emotionless, allowing you to more easil
 		You gain %d mental save, %d%% confusion immunity.]], [[你无面孔的脸没有情感，令人困惑。这让你更容易抵抗精神冲击。
 		你获得 %d 精神豁免， %d%% 混乱免疫。]], "tformat")
 t("From Below It Devours", "自深渊吞噬万物", "talent name")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("hungering mouth", "饥饿巨口", "_t")
 t("\"From below, it devours.\"", "\"来自深渊，吞噬一切\"", "_t")
 t([[Your affinity with things that dwell deep beneath the surface allows you to summon a hungering mouth.
 		The mouth has %d bonus life, lasts for %d turns, and deals no damage.
 		Each turn the mouth will draw all enemies in radius 10 2 spaces towards itself.
-		Its bonus life depends on your Constitution stat and talent level.  Many other stats will scale with level.]], [[ 你同地下深处某物的联系让你能召唤一只饥饿巨口。
+		Its bonus life depends on your Constitution stat and talent level.  Many other stats will scale with level.]], [[你同地下深处某物的联系让你能召唤一只饥饿巨口。
 		每回合它将周围 10 码内所有敌人朝自身拉近 2 码。
 		它有 %d 额外生命，存在 %d 回合，不造成伤害。
 		它的额外生命取决于你的体质和技能等级。许多其他属性受等级影响。]], "tformat")
@@ -3510,25 +3510,25 @@ t("Drakeblood Strike", "龙血打击", "talent name")
 t([[You were created by ziguranth for one purpose only, to wage war on magic!
 			Strike your target dealing %d%% %s weapon damage and silencing them for %d turns.
 			The damage type will change with your drake aspect.
-			The chance to silence will increase with the highest of your physical or mind power.]], [[ 你被伊格制造的唯一理由：对魔法作战！
+			The chance to silence will increase with the highest of your physical or mind power.]], [[你被伊格制造的唯一理由：对魔法作战！
 		打击你的敌人，造成 %d%% %s 武器伤害，并沉默它们 %d 回合。
 		伤害类型根据龙血的类型而决定。
 		沉默的几率受物理强度或精神强度的最高值加成。]], "tformat")
 t("parasite", "寄生", "talent type")
 t("The various racial bonuses a character can have.. when its head is cut off and replaced with a parasite.", "一个角色可以学习的各种种族技能……当它的头被寄生兽取代的时候。", "_t")
 t("Take a Bite", "咬一口", "talent name")
-t("#Source# tries to bite #target#!", "#Source#试图咬#target#!", "logCombat")
+t("#Source# tries to bite #target#!", "#Source#试图咬#target#！", "logCombat")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
 t([[You try to bite off your foe with your #{italic}#head#{normal}# for %d%% blight weapon damage.
 		If the target falls under 20%% life you have %d%% chances to outright kill it (bosses are immune).
 		Whenever you succesfully bite a foe you regenerate %0.1f life per turn for 5 turns.
-		Instant kill chances and regeneration increase with your Constitution stat and weapon damage increases with the highest of your Strength, Dexterity or Magic stat.]], [[ 你尝试用 #{italic}#头#{normal}# 咬你的敌人造成 %d%% 枯萎武器伤害。
+		Instant kill chances and regeneration increase with your Constitution stat and weapon damage increases with the highest of your Strength, Dexterity or Magic stat.]], [[你尝试用 #{italic}#头#{normal}# 咬你的敌人造成 %d%% 枯萎武器伤害。
 		如果目标被咬后生命不足 20%%，你有 %d%% 几率直接杀死它（对 boss 无效）。
 		你咬中以后 5 回合内每回合回复 %0.1f 生命。
 		秒杀几率和生命回复受体质加成，武器伤害受力量敏捷魔法中最高值影响。]], "tformat")
 t("Ultra Instinct", "终极本能", "talent name")
 t([[Without the distraction of #{bold}#thoughts#{normal}# or #{bold}#self#{normal}# your body reacts faster and better to aggressions.
-		Increases global speed by %d%%.]], [[ 没有 #{bold}#思维#{normal}# 和 #{bold}#自我#{normal}# 的干扰，你的身体全凭本能行动，反应速度更快。
+		Increases global speed by %d%%.]], [[没有 #{bold}#思维#{normal}# 和 #{bold}#自我#{normal}# 的干扰，你的身体全凭本能行动，反应速度更快。
 		整体速度增加 %d%%。]], "tformat")
 t("Corrupting Influence", "堕落影响", "talent name")
 t([[The parasite corruption seeps into your body, strengthening it.
@@ -3600,7 +3600,7 @@ t("#Target# links closer to his ally!", "#Target#与盟友联结！", "_t")
 t("#Target# no longer seems to be in sync with his ally.", "#Target#不再和盟友同步。", "_t")
 t("Terrible Sight", "恐怖景象", "_t")
 t("Terrified of the horror duo attacking them reducing defense and spell save by %d.", "因两只恐魔的现身而惊恐，闪避和法术豁免降低 %d 。", "tformat")
-t("#Target# is terrified of the horrors attacking him!", "#Target#因攻击他的恐魔惊恐。", "_t")
+t("#Target# is terrified of the horrors attacking him!", "#Target#因攻击他的恐魔惊恐！", "_t")
 t("#Target# is no longer afraid of the horrors attacking him.", "#Target#不再因恐魔而惊恐。", "_t")
 t("chaos", "混沌", "effect subtype")
 t("damage", "伤害", "effect subtype")
@@ -3730,7 +3730,7 @@ This effect will fade in 2 turns if the source is not in line of sight.]], [[目
 若效果来源不在视野内，则该效果会在 2 回合后消失。]], "tformat")
 t("#Target# is wreathed in entropy.", "#Target#被熵覆盖。", "_t")
 t("#Target# is free of the entropy.", "#Target#脱离熵影响。", "_t")
-t("#LIGHT_RED#A void annihilator manifests from %s!", "#LIGHT_RED#一个虚空歼灭者从%s的身上出现了!", "logSeen")
+t("#LIGHT_RED#A void annihilator manifests from %s!", "#LIGHT_RED#一个虚空歼灭者从%s的身上出现了！", "logSeen")
 t("Atrophy", "衰亡", "_t")
 t([[The target's mind and body is wasting away, reducing all stats by %d.
 This effect will fade in 2 turns if the source is not in line of sight.]], [[目标的身体和精神迅速老化、凋零，所有属性降低 %d。
@@ -3862,7 +3862,7 @@ t("#Target# is evolved and acting faster!", "#Target#进化了，速度更快了
 t("#Target# is no longer evolved to move faster.", "#Target#解除了进化，速度减慢了。", "_t")
 t("Twisted Evolution: Form", "扭曲进化：形体", "_t")
 t("The target is evolved increasing all its stats by %d.", "目标进化了，全属性增加%d。", "tformat")
-t("#Target#'s body is evolved!", "#Target#的身体进化了!", "_t")
+t("#Target#'s body is evolved!", "#Target#的身体进化了！", "_t")
 t("#Target#'s body' is no longer evolved.", "#Target#的身体解除进化。", "_t")
 t("Twisted Evolution: Power", "扭曲进化：力量", "_t")
 t("The target is evolved increasing its damage by %d%%.", "目标进化了，全伤害增加 %d%%。", "tformat")
@@ -3872,12 +3872,12 @@ t("Shoes of Moving Slowly", "缓步之靴", "_t")
 t("Stay put, increasing your armour and defense by %d.", "原地不动，增加 %d 护甲和防御。", "tformat")
 t("Entropic Feedback", "熵能反馈", "_t")
 t("The target healing is distorted by entropy for %d%% of the healing done over 8 turns.", "目标的 %d%% 治疗将被熵扭曲，并在 8 回合内造成等量伤害。", "tformat")
-t("#Target# is enveloped with entropic forces!", "#Target#被熵能覆盖!", "_t")
+t("#Target# is enveloped with entropic forces!", "#Target#被熵能覆盖！", "_t")
 t("#Target# is no longer enveloped by entropic forces.", "#Target#不再被熵能覆盖。", "_t")
 t("armor", "护甲", "effect subtype")
 t("Horrific Fortress", "恐怖堡垒", "_t")
 t("All damages except physical reduced by %d as long as %s is alive.", "只要%s还存活，受到的所有非物理伤害降低 %d 点。", "tformat", {2,1})
-t("#Target# is bolstered at the sight of the horror!", "#Target#在恐魔的视线中被强化了!", "_t")
+t("#Target# is bolstered at the sight of the horror!", "#Target#在恐魔的视线中被强化了！", "_t")
 t("#Target# is less armoured.", "#Target#的护甲降低了。", "_t")
 -- untranslated text
 --[==[
@@ -4023,7 +4023,7 @@ t("cave", "山洞", "entity subtype")
 t("dead creature", "死亡的生物", "entity name")
 t("book", "书", "entity type")
 t("book of binding", "绑定之书", "entity name")
-t("#YELLOW#You hear a terrible shriek.", "#YELLOW#你听到了一声可怕的尖叫!", "say")
+t("#YELLOW#You hear a terrible shriek.", "#YELLOW#你听到了一声可怕的尖叫！", "say")
 t("#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and papers.", "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。", "say")
 
 ------------------------------------------------
@@ -4032,7 +4032,7 @@ section "tome-cults/data/zones/ft-haze-cave/npcs.lua"
 t([[You can not comprehend what you're seeing.
 #{bold}##CRIMSON#These beings would squash you like a bug if you even tried to interfere in their combat.#{normal}#]], [[你无法理解你看到了什么。
 #{bold}##CRIMSON#你知道，如果你试图干涉他们的战斗，这些东西会如同对待虫子一样轻松把你捏碎。#{normal}#]], "_t")
-t("Grung made great being angry!", "格朗格激怒了伟大的存在!", "saySimple")
+t("Grung made great being angry!", "格朗格激怒了伟大的存在！", "saySimple")
 t("Great Tentacly Being", "伟大的触手怪物", "entity name")
 t("shertul", "夏·图尔", "entity subtype")
 t("vermin", "害虫", "entity type")
@@ -4191,7 +4191,7 @@ t("floor", "地板", "entity subtype")
 t("locked chest", "上锁的箱子", "entity name")
 t("Locked Chest", "锁上的箱子", "_t")
 t("Open the chest now that the guardian golem is no more?", "守卫的傀儡已经不在了，打开这个宝箱？", "_t")
-t("#GOLD#An object rolls from the chest!", "#GOLD#一件物品从宝箱中掉了出来!", "logSeen")
+t("#GOLD#An object rolls from the chest!", "#GOLD#一件物品从宝箱中掉了出来！", "logSeen")
 t("chest (opened)", "打开的箱子", "_t")
 t("Open", "打开", "_t")
 t("Leave", "离开", "_t")
@@ -4294,7 +4294,7 @@ t("Not Invented Here", "非我发明", "_t")
 t("Illusory Castle", "虚幻城堡", "_t")
 t("Illusory Castle - %s", "虚幻城堡 - %s", "tformat")
 t("illusory beam endpoint", "虚幻光束端点", "_t")
-t("#%s#Welcome to chapter \"%s\"!", "#%s#欢迎来到章节 \"%s\"!", "log")
+t("#%s#Welcome to chapter \"%s\"!", "#%s#欢迎来到章节 \"%s\"！", "log")
 t("Strange, it seems the book only serves as an entry to an actual physical zone... somewhere.", "奇怪的是，这本书似乎只是作为一个真正的物理区域的入口……在某个地方。", "_t")
 
 ------------------------------------------------
@@ -4305,7 +4305,7 @@ t("underground", "地下", "entity subtype")
 t("exit to reality", "返回现实", "entity name")
 t("book", "书", "entity type")
 t("book of binding", "绑定之书", "entity name")
-t("#YELLOW#You hear a terrible shriek.", "#YELLOW#你听到了一声可怕的尖叫!", "say")
+t("#YELLOW#You hear a terrible shriek.", "#YELLOW#你听到了一声可怕的尖叫！", "say")
 t("#CRIMSON#You hear a terrible shriek, followed by the rustling of pen and papers.", "#CRIMSON#你听到一声可怕的尖叫，接着是钢笔和纸的沙沙声。", "say")
 
 ------------------------------------------------
@@ -4357,7 +4357,7 @@ section "tome-cults/data/zones/godfeaster/zone.lua"
 
 t("The Godfeaster", "噬神者", "_t")
 t("The Godfeaster (Alcove)", "噬神者（凹室）", "_t")
-t("#OLIVE_DRAB#You can feel tremors in the worm.. A gastric wave is coming! Dodge to an alcove!", "#OLIVE_DRAB#你能感觉到虫子在颤抖……一波胃液来了！躲进凹室!", "say")
+t("#OLIVE_DRAB#You can feel tremors in the worm.. A gastric wave is coming! Dodge to an alcove!", "#OLIVE_DRAB#你能感觉到虫子在颤抖……一波胃液来了！躲进凹室！", "say")
 t("#OLIVE_DRAB#The gastric wave is upon you!", "#OLIVE_DRAB#胃液冲向了你！", "say")
 t("digestive sack", "消化袋", "_t")
 
@@ -4511,7 +4511,7 @@ section "tome-cults/data/zones/town-kroshkkur/npcs.lua"
 
 t("horror", "恐魔", "entity type")
 t("eldritch", "骇异", "entity subtype")
-t("Destroy @himher@!", "摧毁@himher@!", "_t")
+t("Destroy @himher@!", "摧毁@himher@！", "_t")
 t("drem cultist", "德瑞姆邪教徒", "entity name")
 t("A drem cultist.", "一位德瑞姆邪教徒", "_t")
 t("drem seeker of knowledge", "德瑞姆知识探求者", "entity name")
@@ -4592,8 +4592,8 @@ t("#GREY##{italic}#The staff shudders.#{normal}##LAST# Pathetic.", "#GREY##{ital
 t([[#GREY##{italic}#The staff vibrates with great intensity.#{normal}##LAST# POWER! YES!
 ALL SHALL BOW BEFORE MY MIGH... your might.]], [[#GREY##{italic}#法杖剧烈地颤动着#{normal}##LAST# 力量！是的！
 所有人都将屈服于我的…啊不，你的力量。]], "_t")
-t("Great!", "太棒了!", "_t")
-t("#GREY##{italic}#The staff stays calm.#{normal}##LAST# Stupid useless pathetic excuse of a #{italic}#\"necromancer\"#{normal}#! Why refuse to use true power?!", "#GREY##{italic}#法杖平静了下来。#{normal}##LAST#像你这样的#{italic}#\"死灵法师\"#{normal}#竟然会用这样蹩脚的借口! 为什么要拒绝使用真正的力量?!", "_t")
+t("Great!", "太棒了！", "_t")
+t("#GREY##{italic}#The staff stays calm.#{normal}##LAST# Stupid useless pathetic excuse of a #{italic}#\"necromancer\"#{normal}#! Why refuse to use true power?!", "#GREY##{italic}#法杖平静了下来。#{normal}##LAST#像你这样的#{italic}#\"死灵法师\"#{normal}#竟然会用这样蹩脚的借口! 为什么要拒绝使用真正的力量?！", "_t")
 t("I have my reasons!", "我有我的理由！", "_t")
 
 ------------------------------------------------
