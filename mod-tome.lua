@@ -583,7 +583,7 @@ t([[#LIGHT_RED#EXTERMINATE THIS FOE#LAST#
 %s]], [[#LIGHT_RED#歼灭这个敌人#LAST#
 %s]], "tformat")
 t("Rush Hour (%d)", "决胜时刻 (%d)", "tformat")
-t("Proceed directly to the next Infinite Dungeon level in less than %d turns (an exit is revealed on your map).", "在%d回合内到达无尽地下城的下一层。(出口已标记在地图上)。", "tformat")
+t("Proceed directly to the next Infinite Dungeon level in less than %d turns (an exit is revealed on your map).", "在%d回合内到达无尽地下城的下一层(出口已标记在地图上)。", "tformat")
 t("Turns left: #LIGHT_GREEN#%d", "剩余回合：#LIGHT_GREEN#%d", "tformat")
 t("\
 #ORCHID# Rush Hour: %s turns left!\
@@ -12920,7 +12920,7 @@ t("afflicts the target with a poison dealing 20 damage per turn and causing acti
 t("Umbraphage", "安布瑞吉·暗影吞噬者", "entity name")
 t("deep black lantern", "深黑色的灯笼", "_t")
 t("This lantern of pale white crystal holds a sphere of darkness, that yet emanates light. Everywhere it shines, darkness vanishes entirely.", "这个灰白色水晶制成的灯笼周围笼罩着一片黑暗，但是它仍放射着光芒。光之所在，黑暗尽除。", "_t")
-t("Absorbs all darkness (power %d, based on Willpower and Cunning) within its light radius, increasing its own brightness. (current charge %d).", "在光照范围内吸收所有黑暗(强度 %d,基于意志和灵巧) 并增加亮度。(当前增幅：%d)。", "tformat")
+t("Absorbs all darkness (power %d, based on Willpower and Cunning) within its light radius, increasing its own brightness. (current charge %d).", "在光照范围内吸收所有黑暗(强度 %d,基于意志和灵巧) 并增加亮度(当前增幅：%d)。", "tformat")
 t("#ORCHID#Umbraphage is fully powered!", "#ORCHID#暗影吞噬者充分获得了能量！", "logPlayer")
 t("release absorbed darkness in a %d radius cone with a %d%% chance to blind (based on lite radius), dealing %0.2f darkness damage (based on Mindpower and charge)", "在%d码的锥形范围内释放吸收的黑暗，有 %d%% 几率致盲（基于光照半径）, 并造成 %0.2f 暗影伤害 ( 基于精神强度和吸收量)", "tformat")
 t("%s unshutters %s %s, unleashing a torrent of shadows!", "%s打开了%s%s，释放出一股暗影洪流！", "logSeen")
@@ -24234,7 +24234,7 @@ t("Deflection (%d)", "念力折射 (%d)", "tformat")
 t("You have deflected %d incoming damage!", "你偏转了%d所受伤害！", "logPlayer")
 t([[Create a barrier that siphons hate from you at the rate of 0.2 a turn. The barrier will deflect 50%% of incoming damage with the force of your will, up to %d damage. The barrier charges at a rate of 1/%d of its maximum charge per turn.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
-		The maximum damage deflected increases with your Mindpower.]], [[用你的意志力折射 50%% 的伤害。你可以折射最多 %d 点伤害，护盾值每回合回复最大值的 1/%d。（技能激活时-0.2仇恨值回复）。
+		The maximum damage deflected increases with your Mindpower.]], [[用你的意志力折射 50%% 的伤害。你可以折射最多 %d 点伤害，护盾值每回合回复最大值的 1/%d（技能激活时-0.2仇恨值回复）。
 		你灌注力量的能力使你增加 %d%% 所有暴击伤害。（当前：%d%% ）
 		最大伤害折射值受精神强度加成。]], "tformat")
 t("Blast", "怒火爆炸", "talent name")
@@ -28080,7 +28080,7 @@ t([[Activate to increase your critical strike damage by %d%% for 10 turns.  Whil
 t("Deep Trance", "深度入定", "talent name")
 t([[When you wield or wear an item infused by psionic, nature, or arcane-disrupting forces you improve all values under its 'when wielded/worn' field %d%%.
 		Note this doesn't change the item itself, but rather the effects it has on your person (the item description will not reflect the improved values).]], [[当你穿戴由灵能、自然或反魔力量灌注的装备时，你增加 %d%% "当使用或装备时："的增益属性。
-		注意此技能不会改变装备属性，它的效果只作用于你自身。（此技能的增益也不会在装备描述上反映出来）。]], "tformat")
+		注意此技能不会改变装备属性，它的效果只作用于你自身（此技能的增益也不会在装备描述上反映出来）。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/psionic/voracity.lua"
@@ -36208,7 +36208,7 @@ t("-Rampage", "-暴走", "_t")
 t("%s has shrugged off %d damage and is ready for more.", "%s 无视了 %d 伤害，似乎仍意犹未尽。", "logSeen")
 t("#F53CBE#Your rampage is invigorated by the intense onslaught! (+1 duration)", "#F53CBE#你的猛攻强化了你的暴走！（+1持续时间）。", "logPlayer")
 t("#RED#(%d rampage shugs off#LAST#)", "#RED#(%d 暴走摆脱伤害#LAST#)", "tformat")
-t("#F53CBE#You feel your rampage slowing down. (-1 duration)", "#F53CBE#你感受到你的暴走开始减速。（-1持续时间）。", "logPlayer")
+t("#F53CBE#You feel your rampage slowing down. (-1 duration)", "#F53CBE#你感受到你的暴走开始减速。（-1持续时间）", "logPlayer")
 t("Orcish Fury", "兽人狂暴", "_t")
 t("The target enters a destructive fury, increasing all damage done by %d%%.", "目标进入具有破坏力的愤怒状态，提升 %d%% 伤害。", "tformat")
 t("#Target# enters a state of bloodlust.", "#Target#获得嗜血状态。", "_t")
@@ -36506,7 +36506,7 @@ t("#Target# stops taking damage received in the past.", "#Target#不再受到过
 t("-Smeared", "-转化", "_t")
 t("was smeared across all space and time", "被涂抹到所有时空之中", "_t")
 t("See the Threads", "命运螺旋", "_t")
-t("You walk three different timelines, choosing the one you prefer at the end (current timeline: %d).", "你可以从三条时间线中选择一条进入。( 当前时间线：%d)。", "tformat")
+t("You walk three different timelines, choosing the one you prefer at the end (current timeline: %d).", "你可以从三条时间线中选择一条进入( 当前时间线：%d)。", "tformat")
 t("#LIGHT_RED#The see the threads spell fizzles and cancels, leaving you in this timeline.", "#LIGHT_RED#命运螺旋法术失败了，你停留在了当前时间线。", "logSeen")
 t("#LIGHT_BLUE#You unfold the space time continuum to the start of the time threads!", "#LIGHT_BLUE#你展开了时空连续体，回到了时间线的起点！", "logPlayer")
 t("Imminent Paradox Clone", "悖论分身将至", "_t")
@@ -36589,7 +36589,7 @@ t([[A shroud of darkness seems to fall across your path.
 #CRIMSON# 强度 3+：%s 穿越屏障：你的身形在移动时消失，移动后 1 回合减少 %d%% 所受伤害。
 #CRIMSON# 强度 4+：%s 死亡屏障：每一次杀死目标可以让你笼罩在一个屏障内，减少 %d%% 所受伤害持续 3 回合。]], "tformat")
 t("Shroud of Weakness", "虚弱屏障", "_t")
-t("The target is enveloped in a shroud that seems to hang upon it like a heavy burden. (Reduces damage dealt by %d%%).", "目标笼罩在一个虚弱屏障内。( 减少造成伤害 %d%%)。", "tformat")
+t("The target is enveloped in a shroud that seems to hang upon it like a heavy burden. (Reduces damage dealt by %d%%).", "目标笼罩在一个虚弱屏障内( 减少造成伤害 %d%%)。", "tformat")
 t("Shroud of Passing", "消逝之纱", "_t")
 t("The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all).", "笼罩在一个屏障内使目标身形逐渐消失（+%d%% 全体抗性）。", "tformat")
 t("Shroud of Death", "死亡屏障", "_t")
