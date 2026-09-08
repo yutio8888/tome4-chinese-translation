@@ -1108,7 +1108,7 @@ t([[For every donations you've ever made you have earned voratun coins. These ca
 #GOLD##{italic}#Thanks for your support, every little bit helps the game survive for years on!#{normal}#]], [[你历次所做的每一笔捐赠，都为你赚取了沃瑞钽硬币，可以用于购买扩展DLC或者在线商店的商品。这是你当前可用的硬币，如果购买价格在这以下，你可以立刻获得商品，否则你需要进行更多的捐赠。
 #GOLD##{italic}#感谢你的支持，每一分钱都让这游戏更加持久！#{normal}#]], "_t")
 t("%s #GOLD#Online Store#LAST#", "%s #GOLD#在线商店#LAST#", "tformat")
-t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器…--", "_t")
+t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器… --", "_t")
 t("Purchase", "购买", "_t")
 t("Name", "名称", "_t")
 t("Price", "价格", "_t")
@@ -1170,7 +1170,7 @@ t("#{bold}##GOLD#Vault Space#WHITE##{normal}#: Once purchased your vault space i
 section "engine/engine/dialogs/microtxn/UsePurchased.lua"
 
 t("%s #GOLD#Purchased Options#LAST#", "%s #GOLD#已购买的选项#LAST#", "tformat")
-t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器…--", "_t")
+t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器… --", "_t")
 t("Name", "名称", "_t")
 t("Available", "可用", "_t")
 t("Please use purchased options when not on the worldmap.", "请不要在世界地图上使用已购买的选项。", "_t")
