@@ -1177,9 +1177,9 @@ t("This option may only be used once per character to prevent wasting it.", "这
 t([[This option requires you to accept to receive events from the server.
 Either you have the option currently disabled or you are playing a campaign that can not support these kind of events (mainly the Arena).
 Make sure you have #GOLD##{bold}#Allow online events#WHITE##{normal}# in the #GOLD##{bold}#Online#WHITE##{normal}# section of the game options set to "all". You can set it back to your own setting once you have received the event.
-]], [[这一选项需要你的角色支持接收服务器发来的事件。
-如果你关闭了这一选项，或者正在游玩不支持这一功能的战役(如竞技场)，你将无法接收到事件。
-请确保在游戏设置的#GOLD##{bold}#在线#WHITE##{normal}#选项中将#GOLD##{bold}#允许在线事件#WHITE##{normal}# 设置为“全部”。在事件接收完成后，你可以重新关闭这一选项。
+]], [[这一选项需要你同意接收服务器发来的事件。
+可能是你当前关闭了这一选项，或者正在游玩不支持这类事件的战役（主要是竞技场）。
+请确保在游戏设置的#GOLD##{bold}#在线#WHITE##{normal}#选项中将#GOLD##{bold}#允许在线事件#WHITE##{normal}# 设置为“全部”。收到事件之后，你可以把它改回你原本的设置。
 ]], "_t")
 t("This pack is already installed and in use for your character.", "这个包已经安装，并且正在你的角色上使用中。", "_t")
 t("You are about to use a charge of this option. You currently have %d charges remaining.", "你准备使用这个选项，消耗一次使用次数。你还有 %d 次使用次数。", "tformat")
@@ -1579,7 +1579,7 @@ section "engine/modules/boot/data/general/npcs/canine.lua"
 t("animal", "动物", "entity type")
 t("canine", "犬类", "entity subtype")
 t("wolf", "狼", "entity name")
-t("Lean, mean, and shaggy, it stares at you with hungry eyes.", "一头瘦弱的、狡猾的皮毛蓬松的饿狼，它正用贪婪的眼神看着你。", "_t")
+t("Lean, mean, and shaggy, it stares at you with hungry eyes.", "它精瘦、凶悍、皮毛蓬松，正用饥饿的眼神盯着你。", "_t")
 t("white wolf", "白狼", "entity name")
 t("A large and muscled wolf from the northern wastes. Its breath is cold and icy and its fur coated in frost.", "一头来自北部荒野的狼，体型庞大、肌肉结实。它的呼吸冰冷刺骨，皮毛上结满了冰霜。", "_t")
 t("warg", "座狼", "entity name")
@@ -1619,7 +1619,7 @@ t("misc", "杂项", "talent category")
 t("Kick", "踢", "talent name")
 t("Acid Spray", "酸液喷吐", "talent name")
 t("Manathrust", "奥术射线", "talent name")
-t("Flame", "火球术", "talent name")
+t("Flame", "火焰", "talent name")
 t("Fireflash", "爆裂火球", "talent name")
 t("Lightning", "闪电术", "talent name")
 t("Sunshield", "太阳护盾", "talent name")
@@ -1670,7 +1670,7 @@ t("Project Lead", "首席制作人", "_t")
 t("Lead Coder", "领衔程序设计", "_t")
 t("World Builders", "世界构建", "_t")
 t("Graphic Artists", "视觉艺术", "_t")
-t("Expert Shaders Design", "特效设计", "_t")
+t("Expert Shaders Design", "着色器设计专家", "_t")
 t("Soundtracks", "游戏音乐", "_t")
 t("Sound Designer", "音效设计", "_t")
 t("Lore Creation and Writing", "剧情撰写", "_t")

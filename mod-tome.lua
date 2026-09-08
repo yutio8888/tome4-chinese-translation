@@ -8050,7 +8050,7 @@ section "mod-tome/data/general/npcs/canine.lua"
 t("animal", "动物", "entity type")
 t("canine", "犬类", "entity subtype")
 t("wolf", "狼", "entity name")
-t("Lean, mean, and shaggy, it stares at you with hungry eyes.", "一头瘦弱的、狡猾的皮毛蓬松的饿狼，它正用贪婪的眼神看着你。", "_t")
+t("Lean, mean, and shaggy, it stares at you with hungry eyes.", "它精瘦、凶悍、皮毛蓬松，正用饥饿的眼神盯着你。", "_t")
 t("great wolf", "巨狼", "entity name")
 t("Larger than a normal wolf, it prowls and snaps at you.", "它比普通的狼更大，在你面前徘徊咆哮。", "_t")
 t("dire wolf", "狂狼", "entity name")
@@ -28862,7 +28862,7 @@ t([[Turn your body into pure flame, increasing your fire resistance by %d%%, bur
 ------------------------------------------------
 section "mod-tome/data/talents/spells/fire.lua"
 
-t("Flame", "火球术", "talent name")
+t("Flame", "火焰", "talent name")
 t([[Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.
 		At level 5, it will create a beam of flames.
 		The damage will increase with your Spellpower.]], [[制造一个火球，使目标进入灼烧状态并在 3 回合内造成 %0.2f 火焰伤害。
