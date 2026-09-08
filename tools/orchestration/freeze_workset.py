@@ -13,6 +13,8 @@
      `-- old translated text` 标注保留，固定源码已无对应代码字面量）
 另注：engine.lua 的 section 也可能是 DLC 路径（如 tome-cults/...），此时按 section 前缀
 解析到 DLC 根，而不是按 normalized_path。
+  6. 动态 tag 的兄弟文件表键 dynamic_tag_sibling_key_verification（_t(<expr>, "<tag>") 的
+     运行时取值来自同目录兄弟文件里的表键，字面量不在条目所属文件内）
 详见 docs/baseline-batch-runbook-2026-09-06.md。
 """
 import json, hashlib, os, re, subprocess, sys
@@ -35,6 +37,9 @@ DLC_MAP = {
     'tome-cults.lua':        ('cults',        'cults'),
     'tome-ashes-urhrok.lua': ('ashes-urhrok', 'ashes-urhrok'),
 }
+
+STANDARD_TAGS = {'_t', 'tformat', 'log', 'logPlayer', 'logSeen', 'logCombat',
+                 'entity name', 'talent name', 'entity desc', 'talent desc'}
 
 def unescape_variants(s):
     out = [s]
@@ -172,6 +177,33 @@ def main():
                     'status': 'confirmed',
                 }
                 hits = amlines
+        sibling_key = None
+        if not hits and snap['source_tag'] not in STANDARD_TAGS:
+            # 动态 _t(<expr>, "<自定义 tag>")：运行时值来自同目录兄弟文件里的表键，
+            # 条目所在文件只出现该 tag 的调用点，字面量本身不在该文件。
+            tag = snap['source_tag']
+            taglines = [i for i, ln in enumerate(lines, 1)
+                        if '_t(' in ln and f'"{tag}"' in ln]
+            if taglines:
+                keyre = re.compile(r'[{,]\s*' + re.escape(src) + r'\s*=')
+                for sib in sorted(abspath.parent.glob('*.lua')):
+                    if sib == abspath:
+                        continue
+                    sl = sib.read_bytes().decode('utf-8').split('\n')
+                    klines = [i for i, ln in enumerate(sl, 1) if keyre.search(ln)]
+                    if klines:
+                        sibling_key = {
+                            'algorithm': 'dynamic-tag-sibling-key-attribution/1',
+                            'dynamic_call_lines': taglines,
+                            'key_file_sha256': hashlib.sha256(sib.read_bytes()).hexdigest(),
+                            'key_lines': klines,
+                            'key_public_source_path': str(sib.relative_to(DLC_ROOT)) if str(sib).startswith(str(DLC_ROOT)) else str(sib.relative_to(ENGINE_ROOT)),
+                            'rule': ('entry is a runtime value of a dynamic _t(<expr>, "<tag>") call; '
+                                     'the literal is a table key defined in a sibling file of the same directory'),
+                            'source_key': src,
+                            'status': 'confirmed',
+                        }
+                        break
         legacy = None
         if not hits and pinned and snap['normalized_path'] == 'engine.lua':
             # 上游 locale 把当前源码已无字面量的历史条目留在对应 section 下，
@@ -228,6 +260,11 @@ def main():
         if always_merge is not None:
             row['always_merge_locale_verification'] = always_merge
             row['verification_status'] = 'confirmed'
+        if sibling_key is not None:
+            row['dynamic_tag_sibling_key_verification'] = sibling_key
+            row['literal_source_match'] = False
+            row['matching_literal_lines'] = None
+            row['verification_status'] = 'confirmed'
         if hostgen is not None:
             row['host_generated_key_verification'] = hostgen
             row['matching_literal_lines'] = None
@@ -242,7 +279,8 @@ def main():
     miss = [v for v in verifs if not v['literal_source_match']
             and 'host_generated_key_verification' not in v
             and 'interface_mixin_verification' not in v
-            and 'legacy_locale_entry_verification' not in v]
+            and 'legacy_locale_entry_verification' not in v
+            and 'dynamic_tag_sibling_key_verification' not in v]
     out = {
         'base_commit': cp['base_commit'],
         'batch_id': batch,
