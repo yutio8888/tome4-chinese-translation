@@ -712,3 +712,86 @@ run 成员数 == 1 即 full 模式、== 4 即 lane 模式；并断言各 run ent
 
 `Kryl-Feijan`／`Twilit Echoes`／`delving` 三项未变；本轮新增两项跨批次**排版/术语**议题
 （键位提示大小写、`detection`→「侦测」的用词统一），均记在 advisory 结论里，不阻塞推进。
+
+---
+
+## 25. 第 43-50 批完成记录（含两次全库规范化与一次工具链修复）
+
+| 批次 | evidence | repair merge | 裁决 |
+| --- | --- | --- | --- |
+| 43 `batch-3e4971d4…` | `0c7eb87` | `7a6b4b5` | confirmed 4、refuted 1、advisory 2 |
+| 44 `batch-a43dd031…` | `c860f1f` | `99763bc` | confirmed 1、refuted 1 |
+| 45 `batch-ce7b903d…` | `c95b97d` | 无 | 零 ISSUE（surface-only 路径） |
+| 46 `batch-0963c598…` | `1b43086` | 无 | advisory 4 |
+| 47 `batch-c5377b56…` | `dd9fdc2` | `c1dbe52` | confirmed 4、refuted 1、advisory 1 |
+| 48 `batch-fbe69128…` | `44f08a8` | 无 | refuted 1、advisory 6 |
+| 49 `batch-861b374d…` | `8aa0eae` | `1bad3fe`（并入清理） | confirmed 2、refuted 2、advisory 3 |
+| 50 `batch-a76760d3…` | 见本批 | 无 | advisory 2 |
+
+另有两次维护者授权的全库改动：
+- `0a82c8a` 专名改名：`Kryl-Feijan`→「克里尔·费扬」（23 处）、`Twilit Echoes`→「暮光回响」
+  （6 处 + `terminology/talents.tsv` 的 preferred 条目）。**术语库条目必须同步，否则挂 08/09 门禁。**
+- `1bad3fe` 标点/空白清理（P1–P4c，1003 个 revision）与 `_lua_string` 修复。
+
+### 本段新增的形态与教训
+
+- **`surface-import` 要的是「全部 lane 一次性提交」的 index.json**，不是逐个 raw 文件。
+  CLI 只接受一个 `--input`，内容是 `{"<ref 序号>": "<raw 路径>"}`；序号必须覆盖 checkpoint
+  `surface` refs 的全部下标。逐 lane 调用会报
+  `surface result keys must be exact strings with no missing or extra keys`。
+  混合来源批次（多 run）时 ref 顺序与 `raw-lane-*`／`raw-full-*` 文件名不一一对应，
+  **要按 `candidate_identity` 建映射**，不要按 run/lane 编号猜。
+- **`freeze_workset.py` 第六种归属形态 `dynamic_tag_sibling_key_verification`**：
+  `_t(<expr>, "<自定义 tag>")` 的运行时取值来自**同目录兄弟文件**的表键。第 47 批的
+  `tome-cults` 幻境城堡分支名 `left` 即此形态——调用点 `generatorMap.lua:106`，
+  字面量是 `zone.lua:142` 的 `local paths = { left=…, right=…, main=… }`。
+  判据：条目所属文件里存在带该 tag 的 `_t(` 调用行 + 兄弟文件里有同名表键，两处都记行号与 SHA-256。
+- **同一 runtime key 可能在同一文件里登记两次**。`Physical/Spell/Mental save: ` 在
+  `mod-tome.lua` 的 854-856 与 42059/42065/42066 各有一份，只改一半必挂
+  `06-runtime-collision-scan`。修复前对 key 做 `grep -c` 是必须动作，不能只看 catalog 的一行。
+- **`mod-example.lua` / `mod-example_realtime.lua` 不在 catalog 内，但 06 门禁会读**。
+  全库替换类改动必须把它们算进去（本轮 `Kill!`、`LOW HEALTH!` 两个 key 因此同步）。
+- **`_lua_string` 的长括号层级缺陷（已修）**：`tools/i18nlib/build.py:18` 原来只检查闭合串是否
+  出现在内容**里**，未考虑内容以 `]` 结尾——`value + "]]"` 会拼出 `]]]`，Lua 在倒数第二个
+  字符处提前闭合。此前无译文同时「含换行」且「以 `]` 结尾」，故长期潜伏；P4b 去掉一条以
+  `[/b]` 结尾的多行文案的尾随换行后首次触发，表现为 `03-toolchain-unit-tests` 与 addon
+  publish 预写校验失败。回归用例已加进 `tests/i18n/test_toolchain_locale_extract.py`。
+  **自己写任何 Lua 字面量改写器时都要复现这条判据。**
+- **改写多行 `[[ ]]` 字面量会让块内既有的行尾空白变成「新增行」**，从而触发
+  `11-worktree-whitespace`。这是把 P4c（行尾空白）并进清理的直接原因。
+- **多模型会诊对事实性前提有效**。给 gemini-3.8-flash / gpt-6-astra / fable-5.1 的简报里，
+  我把键串字段序写成了 `sym:<键>:<shift>:<ctrl>:…`；gpt-6 与 fable 都独立查 `KeyBind.lua:146`
+  的 `makeKeyString(sym, ctrl, shift, alt, meta)` 纠正为 **ctrl 在 shift 前**（已复核属实），
+  gemini 未发现。**给外部顾问的简报里的「事实依据」必须标注可核验位置，并预期被推翻。**
+
+### 新增的 advisory 判例（可直接引用，勿重复深挖）
+
+| 报告内容 | 判定依据 |
+| --- | --- |
+| `Community Managers`→「社区经理」 | 中文业界通行译法，源文无区分「经理/管理员」的信息 → refuted |
+| `Text Editors`→「文本编辑」 | `Credits.lua:156` title=1 后接三个人名，与 `Chinese Translators` 同构，是**职衔标题**不是软件名 → refuted |
+| `try online at te4.org`→「在网站上注册」 | 同 else 姊妹分支（`Game.lua:649`）原文即 "you may also register on https://te4.org/" → refuted。**两轮都判 ISSUE 也不改变结论**，两轮均未查姊妹分支 |
+| `"Online profile "` 尾随空格丢失 | `ProfileLogin.lua:30` 拼接后中文为「在线账户登录」，英文分词空格中文不需要 → refuted |
+| `Manathrust`→「奥术射线」 | `spells/arcane.lua` is_beam_spell、3 级变 beam、ARCANE 伤害，机制相符；术语库 existing → advisory（丢了 mana 一层，属术语裁定） |
+| `mountain troll thunderer`→「闪电山岭巨魔」 | 中心语前置/后置的命名风格，指称无歧义，本库对「X + 变体后缀」无统一判据 → advisory |
+
+### 仍待维护者裁定的 pending
+
+1. `delving`→「挖掘/挖掘之」——用户已裁定「保持 pending，既不改也不回退」。
+2. **P2 的镜像规则**：源文句末为 `.`、译文却升格为「！」「？」，全库 63 条。
+   提案只写了 P2（`!`/`?` 的语气必须保留），未写反向；本轮 P3 把这类的半角叹号
+   规范成了全角，语气不符被保留了下来（第 50 批 `d329bba1` 即此例）。
+3. **源文以 `.` 结尾、译文无句末标点**，全库 315 条。需先设计缩写守卫
+   （`Enc.`、`Crit.` 这类补「。」是错的）才能机械处理。
+4. **`without a two-handed weapon` 族的技能名泛化**：`mod-tome.lua` 9 条里 8 条把技能名
+   压成「这个技能」，只有 `Crush`（26389）正确译出「压碎」。本批只有 Death Dance 进 workset，
+   其余 7 条待授权或待各自 revision 进批。
+5. `Birther` 的 `确定`/`接受`（源文两处均为 accept，`Birther.lua:146` 确认同一动作）、
+   `ShowPurchasable` 的 `Bonus perk:`→「额外特效」（源文指附赠便携反射之镜这一福利）。
+   两条证据链均完整、修复方案明确，但只有单轮提出，按 §23 记 advisory 未升级。
+
+### 已知但未触及的同型缺陷（等各自 revision 进 workset）
+
+`degenerated skeleton archer`（mod-tome.lua:8734）、`degenerated ogric mass`（38150）、
+shining plate armour（38525）、orcs primal-forest lore 的 herbal infusions、`dreamer's`、
+`" of daylight"`，以及上述第 4 项的 7 条。
