@@ -864,3 +864,62 @@ lore 上下文里 infusion 与 mindstar 并列，是 `terminology/talents.tsv:9`
 ### 待立项的残留（见 GitHub Issue）
 
 半角省略号规范化、行中半角句点（26 条真候选）、ASCII 引号（约 88 条）。
+
+## 27. 全库清理的强制检查表（一次事故换来的）
+
+§26 记的「清扫集合是六组件 + 全部 addon 组件 + example」这一条，我在紧接着的
+Issue #1 清理里**又犯了一次**——脚本写成 `for p in sorted(by)`（by 来自 catalog），
+`mod-example*.lua` 的 `Saving game...` 没跟着改，被 `06-runtime-collision-scan` 拦下。
+光把规律写进文档不够，下面这份检查表必须逐项执行。
+
+### 事故：证据链在门禁全绿的情况下损坏
+
+`1f849ff`（S 系列）提交时：为修 gate 06 补扫了 `tome-possessors.lua` 等 addon 组件
+→ 重建 catalog → **只 diff 了 `entries.jsonl` 就认为 migration 不受影响** →
+用新 catalog 覆盖了 `exclusions.jsonl` / `manifest.json`。
+
+结果：`entries.jsonl` 确实逐行未变，但 addon 组件的改动会改变
+`exclusions.jsonl` 里的 occurrence identity，`catalog_id` 随之改变，而 migration
+记录里的 `new_catalog_id` 仍指向重建前的值。
+
+**17 项门禁全部通过，问题完全没被发现**——`ci-gates.sh` 不校验 migration 与 catalog
+的绑定关系，只有 `queue rebuild` 会走 `_validated_migration_edges`，报
+`migration publication catalog identity drift`。等到下一次要做 migration 时才炸。
+
+更麻烦的是**这个错误无法用后续提交修复**：校验读的是
+`_migration_publication_commit` 找到的那个提交当时的 catalog，不是 HEAD 的。
+最后只能改写历史——把正确的 migration 记录 amend 进 `f5373e4`、重放 merge 与后续提交、
+`push --force-with-lease`（`1f849ff`+`1d3e328` → `ad7ee4e`+`520752c`）。
+
+### 强制检查表
+
+1. **改动源文件时，集合 = 六组件 + `mod-example*.lua` + `tome-possessors.lua` +
+   `tome-items-vault.lua` + `tome-addon-dev.lua`。**
+   权威目录只有六个组件，但 gate 06 读
+   `production_review_v2_lite_batch.py:199` 列的全部 11 个。
+   脚本里**不要**写 `for p in catalog_paths`，要写
+   `for p in sorted(CATALOG | EXTRA)`。
+2. **catalog 必须在所有源文件改完之后才构建。**先构建再补改文件 = 必然不一致。
+3. **`migration apply` 之后、`git commit` 之前，逐项比对四个值**：
+   `new_catalog_id` / `new_entries_sha256` / `new_exclusions_sha256` /
+   `new_manifest_sha256` 对上 `catalog/manifest.json` 与其文件 SHA-256。
+   只比 `entries.jsonl` 不够——这正是本次事故的成因。
+4. **合入 develop 后立刻跑一次 `queue rebuild`。**它是唯一会校验证据链绑定的环节，
+   通过了才算这批真正落地。失败必须当场处理，不要推进到下一批。
+5. 若中途发现 catalog 需要重建（例如补扫了目录外组件），
+   **必须整轮重做 plan/apply**：`git stash` → `queue rebuild`（回滚 meta）→
+   `git stash pop` → 用最终 catalog 重新 plan/check/apply。
+   直接覆盖 catalog 文件而保留旧 migration 记录，就是本次事故。
+
+### 本轮其他可复用的判据
+
+- **Issue #2 的分类法**：行中半角句点看似高风险，按**前一个字符**归类后
+  1550 处可机械排除（数字→版本号/格式符、字母→URL、`%`→`%.1f`、`.*`→正则），
+  真候选只剩 26 处，零假阳性。**先按上下文特征分类，再谈假阳性率。**
+- **省略号不是一族**：UI/进度提示类 28:3:0 用「…」，是**真约定**；叙事类
+  497:86 用「……」。同一符号在不同语境下有不同正确形态，
+  统计前先按 `section` 分层，否则会把约定当成不一致抹平。
+- **引号不配对要逐条对照源文，不能靠计数补齐**：`“` 多于 `”` 与反之两种都有，
+  成因是极性写反（该写 `”` 写成了 `“`）或多插一个开引号，位置各不相同。
+  另有 1 条 refuted——`mod-tome/data/lore/misc.lua` 的诗节源文自身就只有一个
+  未闭合的 `"`，译文是忠实镜像。**源文自身的引号缺陷不算译文缺陷。**
