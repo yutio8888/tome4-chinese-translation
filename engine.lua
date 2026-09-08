@@ -422,7 +422,7 @@ t("Beta Addons Disabled", "Beta版插件已禁用", "_t")
 t([[This beta version is meant to be tested without addons, as such the following ones are currently disabled:
 #GREY#]], [[本Beta版本设计上用于纯原版测试环境，因此，以下插件被自动禁用:
 #GREY#]], "_t")
-t("#{italic}##PINK#Addons developers can still test their addons by enabling developer mode.#{normal}#", "#{italic}##PINK#插件开发者可以通过开启调试模式继续测试他们的插件。#{normal}#", "_t")
+t("#{italic}##PINK#Addons developers can still test their addons by enabling developer mode.#{normal}#", "#{italic}##PINK#插件开发者可以通过开启开发者模式继续测试他们的插件。#{normal}#", "_t")
 t([[Total playtime of all registered players:%s
 ]], [[注册玩家总游玩时间:%s
 ]], "tformat")
@@ -539,7 +539,7 @@ Your Item Vault has #TEAL#%d slots#WHITE#.
 
 Again, thank you, and enjoy Eyal!
 
-#{italic}#Your malevolent local god of darkness, #GOLD#DarkGod#{normal}#]], [[#{bold}#感谢#{normal}# 你的捐赠，你的捐助将会让这个游戏变得更好。
+#{italic}#Your malevolent local god of darkness, #GOLD#DarkGod#{normal}#]], [[#{bold}#感谢#{normal}# 你的捐赠，你的支持对本游戏的持续运营意义重大。
 
 你的捐款总额为#LIGHT_GREEN#%0.2f 欧元#WHITE# 相当于 #ROYAL_BLUE#%d 个沃瑞钽币#WHITE#，可以在 te4.org 上消费。
 你的共享仓库有 #TEAL#%d 个槽位#WHITE#.
@@ -1241,7 +1241,7 @@ t("is not %s", "不是%s", "tformat")
 t("unknown talent type", "未知的技能类型", "_t")
 t("not enough talents of this type known", "技能树中已学习技能不足", "_t")
 t("- Talent category known", "- 技能树已学会", "_t")
-t("- Lower talents of the same category: %d", "- 技能树中已学技能数：%d", "tformat")
+t("- Lower talents of the same category: %d", "- 同系低阶技能数：%d", "tformat")
 t("- Level %d", "- 等级 %d", "tformat")
 t("- Talent %s (not known)", "- 技能%s(未学习)", "tformat")
 t("- Talent %s (%d)", "- 技能%s(%d)", "tformat")
@@ -1269,7 +1269,7 @@ section "engine/engine/interface/ObjectActivable.lua"
 t("It can be used to %s, with %d charges out of %d.", "可以用于 %s，剩余 %d 次充能，共 %d 次。", "tformat")
 t("It can be used to %s, costing %d power out of %d/%d.", "可以用于 %s，消耗 %d 点能量（当前 %d/%d）。", "tformat")
 t("It can be used to activate talent: %s (level %d).", "可以用于激活技能： %s (等级 %d)。", "tformat")
-t("It can be used to activate talent: %s (level %d), costing %d power out of %d/%d.", "可以用于激活技能：%s（等级 %d），消耗 %d 能量，共 %d/%d。", "tformat")
+t("It can be used to activate talent: %s (level %d), costing %d power out of %d/%d.", "可以用于激活技能：%s（等级 %d），消耗 %d 点能量（当前 %d/%d）。", "tformat")
 t("%s is still recharging.", "%s 还在充能。", "logPlayer")
 t("%s can not be used anymore.", "%s 无法再继续使用了。", "logPlayer")
 
