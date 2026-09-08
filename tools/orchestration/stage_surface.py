@@ -28,9 +28,14 @@ def main():
         run = pathlib.Path(r['input_path']).name.split('-')[1]
         runs[run].append((i, r))
 
+    # task_id 规则必须与 production_review_v2_lite_batch.py:379 完全一致：
+    # 单 run 批次的 surface task 就是 batch id 本身，多 run 才带 -surface-NNN 后缀。
+    # 写错目录名会让 group manifest 的 task_id 绑定失败（runbook §30）。
+    batch_task = batch.replace('_', '-')
+
     plan = {}
     for run, items in sorted(runs.items()):
-        task = f'{batch}-surface-{run}'
+        task = batch_task if len(runs) == 1 else f'{batch_task}-surface-{run}'
         d = ROOT / '.ai/task' / task
         d.mkdir(parents=True, exist_ok=True)
         items.sort(key=lambda x: x[0])
@@ -57,8 +62,10 @@ def main():
                           'review_kind': 'full' if full else 'lane'})
             if r.get('group_manifest_path'):
                 g = json.loads(pathlib.Path(r['group_manifest_path']).read_text())
+                assert g['payload']['task_id'] == task, (g['payload']['task_id'], task)
                 gp = d / f"SURFACE-SCREEN-GROUP-{g['payload']['group_id']}.json"
                 gp.write_bytes(canon(g))
+                lanes[-1]['group_manifest_path'] = str(gp)
 
         draft = dict(head)
         draft['entries'] = entries

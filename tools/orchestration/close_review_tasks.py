@@ -116,8 +116,8 @@ def main():
                       'input_path': l['input_path'], 'agent_id': kids[(task, l['dispatch_id'])],
                       'review_kind': l['review_kind']}
                 if l['review_kind'] == 'lane':
-                    run = task.split('-')[-1]
-                    gp = f'.ai/task/{task}/SURFACE-SCREEN-GROUP-group-{run}.json'
+                    # 路径以 plan 里记录的为准，绝不从 task 名反推（单 run 批次 task==batch id）
+                    gp = l['group_manifest_path']
                     g = json.loads(pathlib.Path(gp).read_text())
                     b = [x for x in g['payload']['lane_boundaries'] if x['index'] == l['index']][0]
                     it['lane'] = {'count': g['payload']['lane_count'],
