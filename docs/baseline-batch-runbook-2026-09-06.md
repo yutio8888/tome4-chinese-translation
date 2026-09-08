@@ -911,6 +911,28 @@ Issue #1 清理里**又犯了一次**——脚本写成 `for p in sorted(by)`（
    `git stash pop` → 用最终 catalog 重新 plan/check/apply。
    直接覆盖 catalog 文件而保留旧 migration 记录，就是本次事故。
 
+### 空格折叠的第三条守卫（第 51 批抓出的回归）
+
+§26/§27 已记的守卫是「只折叠单个半角空格」（防列对齐被破坏）。**这不够。**
+第 51 批筛查轮报出 `#YELLOW#-- 正在连接到服务器…--` 格式破坏，追查是
+`f363485`（Issue #1 省略号归一）的折叠规则
+
+    (…+)( )(?=[^ \t])
+
+造成的回归：它只要求后继是**非空白字符**，没区分「后继是正文」与
+「后继是格式性分隔符」。源文 `-- connecting to server... --` 的 `-- X --`
+是对称包围格式，收尾 `--` 前的空格属格式本身——同目录 `ko_KR.lua:1191`
+与上游 `zh_hans.lua:1113/1176` 都保留了它。
+
+**守卫补充：后继为 `-` `=` `*` `_` `|` `~` 等分隔／包围类符号时不得折叠空格。**
+更保险的写法是白名单：只在后继为中日韩字符、`#`（色彩／样式标签）或
+`%`／`@`（占位符）时才折叠。
+
+审计口径：全角标点后直接跟上述符号、**且源文同位置有空格**。全库真候选
+只有这一个 runtime key 的 2 处，影响面封闭。注意 `，-2 敏捷` 这类
+负数前的逗号是正常中文排版，不能算进来——审计正则若不加「源文有空格」
+这个条件会产出数百条噪声。
+
 ### 本轮其他可复用的判据
 
 - **Issue #2 的分类法**：行中半角句点看似高风险，按**前一个字符**归类后
@@ -923,3 +945,50 @@ Issue #1 清理里**又犯了一次**——脚本写成 `for p in sorted(by)`（
   成因是极性写反（该写 `”` 写成了 `“`）或多插一个开引号，位置各不相同。
   另有 1 条 refuted——`mod-tome/data/lore/misc.lua` 的诗节源文自身就只有一个
   未闭合的 `"`，译文是忠实镜像。**源文自身的引号缺陷不算译文缺陷。**
+
+## 28. 第 51 批完成记录
+
+批次 `batch-00bf6c036c8fa5651b16`，base `7f0f6a5`，80 条
+（tome 67 / engine 5 / orcs 4 / cults 2 / boot 2），源码工作集 80/80 命中 0 缺口。
+3 run：surface-000 四 lane 74 条、surface-001 full 2 条、surface-002 四 lane 4 条。
+evidence `c477a45`，repair merge `d5fc49c`。
+
+裁决：**confirmed 1、refuted 1、advisory 4**（surface 报 6，交叉复核 0 复现）。
+
+- confirmed：`-- connecting to server... --` 的收尾空格丢失（见上节守卫）。
+  这是**审核流程抓到主编排者自己引入的回归**，来源是同一天的 Issue #1 提交。
+- refuted：`You have %d charges.`→「叠加次数：%d。」。筛查轮主张应作「充能次数」；
+  固定源码 `tome-orcs/data/timed_effects/physical.lua:530` 与 `magical.lua:409`
+  的实参是 `eff.stacks`——所指就是叠加层数，译法成立；上游 `zh_hant.lua:1646`
+  同样作「疊加次數」。
+- advisory ×4：`The rift leads... somewhere.`→「裂缝通向…某个地方。」的单省略号。
+  属 Issue #1 裁定中**明确暂不统一**的叙事类既有 86 条，不是本批新缺陷。
+  5 处同源串彼此一致，无 runtime 冲突。
+
+### 本批踩到的操作细节
+
+- **`.artifacts/.../surface/` 下会残留上一批的 `run-NNN-*` 文件。**
+  本批 run-001 只有 1 个 ref 且 `group_manifest_path` 为 null（full stage），
+  但目录里存在上一批留下的 `run-001-group.json` 与 `run-001-lane-01..03.json`。
+  **run 的构成必须以 checkpoint 的 `surface` refs 为准，不能 ls 目录推断**，
+  否则会把 full stage 误当四 lane 组，`ai_state_check` 报
+  `surface lane stage must contain exactly members 1..4`。
+- **`surface_evidence_binding.artifact_sha256` 必须是精确集合**：
+  `surface_screen_input_path` + 每条 record 的 `input_path` 与 `raw_output_path`，
+  多一个（如 group manifest）少一个都报
+  `surface tasks must bind an exact surface_evidence_binding object`。
+  键集固定为 `{algorithm, artifact_sha256, task_id, terminal}`，`task_id` 不可省。
+- **lane 元数据取自 group manifest 的 `lane_boundaries`，不要自己算 offset**；
+  同时 `child_dispatches[i]` 必须带 `lane_group_identity` 与 `lane_index`，
+  否则报 `lane N record/dispatch/manifest binding mismatch`。
+- **`SURFACE-SCREEN-INPUT-DRAFT.json` 是 envelope payload 的形状**
+  （顶层 `contract`/`entries`/`fixed_source_identity`/`rendered_briefing`/
+  `rules_version`/`terminology_snapshot`），`entries` 是该 run 全部 lane 按
+  lane 序拼接的结果，canonical compact 无尾随换行。
+- **`adjudicate --input` 的精确 schema**：顶层 `{batch_id, decisions}`；每条决议
+  的键集恰为 `{entry_revision_identity, observation_contract, observation_identity,
+  observation_sha256, disposition, evidence_path, evidence_commit,
+  evidence_snapshot, conclusion, repair_required}`——**没有 `schema_version`**。
+  `observation_sha256` 是 `sha256(observation 文本的 UTF-8 字节)`，
+  不是整条 observation 对象的哈希。决议必须一一覆盖
+  `_accepted_observations(checkpoint)`（只含 ISSUE，交叉复核判 OK 不产生 observation）。
