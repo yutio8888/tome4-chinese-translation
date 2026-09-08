@@ -41,14 +41,14 @@ t("Their most important stats are: Strength and Magic", "他们最重要的属�
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +3 力量，+0 敏捷，+3 体质", "_t")
 t("#LIGHT_BLUE# * +3 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +3 魔法，+0 意志，+0 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +3", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD# 每等级生命加值：#LIGHT_BLUE# +3", "_t")
 t("Cultist of Entropy", "熵教徒", "birth descriptor name")
 t("Everything ends eventually. Harness this inevitability.", "万物终将消亡。这一点可以被利用。", "_t")
 t("Cultists of Entropy are doomed beings which have unlocked the secrets of using entropy as a weapon. Their spells cause their bodies to wither away from entropic backlash, but they have learned how to resist this backlash and even pass it onto their foes.", "熵教徒是被诅咒的存在，他们能使用熵作为武器。他们的法术产生熵能反冲伤害自身，但他们学会如何抵抗反冲甚至将其转移至敌人身上。", "_t")
 t("Their most important stats are: Magic and Cunning", "他们最重要的属性是：魔法和灵巧。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +6 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +6 魔法，+0 意志，+3 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# -4", "#GOLD# 每等级生命加值： #LIGHT_BLUE# -4", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# -4", "#GOLD# 每等级生命加值：#LIGHT_BLUE# -4", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/birth/drem.lua"
@@ -65,8 +65,8 @@ t("They possess the #GOLD#Frenzy#WHITE# talent which allows them to ignore coold
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +3 力量，+1 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, -1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +2 魔法，-1 意志，+0 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# 12", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 12", "_t")
-t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚： #LIGHT_BLUE# 12%", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# 12", "#GOLD# 每等级生命加值：#LIGHT_BLUE# 12", "_t")
+t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚：#LIGHT_BLUE# 12%", "_t")
 t("Skin Color 1", "皮肤颜色1", "_t")
 t("Skin Color 2", "皮肤颜色2", "_t")
 t("Skin Color 3", "皮肤颜色3", "_t")
@@ -110,8 +110,8 @@ t("They possess the #GOLD#Wrath of the Wilds#WHITE# talent which allows them to 
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量，-1 敏捷，+2 体质", "_t")
 t("#LIGHT_BLUE# * -2 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔法，+2 意志，+0 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# 13", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 13", "_t")
-t("#GOLD#Experience penalty:#LIGHT_BLUE# 15%", "#GOLD#经验惩罚： #LIGHT_BLUE# 15%", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# 13", "#GOLD# 每等级生命加值：#LIGHT_BLUE# 13", "_t")
+t("#GOLD#Experience penalty:#LIGHT_BLUE# 15%", "#GOLD#经验惩罚：#LIGHT_BLUE# 15%", "_t")
 t("Skin Color 1", "皮肤颜色1", "_t")
 t("Skin Color 2", "皮肤颜色2", "_t")
 t("Skin Color 3", "皮肤颜色3", "_t")
@@ -935,7 +935,7 @@ t("The exploration of the cavity has been interesting, to say the least. At its 
 
 我们徘徊到那些还有更多管子的房间里面。令我惊讶的是，管子里是完全成形的生命体。一个留着长胡须的矮人漂浮在管内。他的身体轻轻抽动，仿佛正在梦中。我们越走越远，发现更多矮人睡在管子中，也同时注意到，随着我们继续前进，那些矮人也变得越来越畸形。最终，我们到达了最后一个管子，我们发现里面有一个无脸的矮人——换句话说，一个德瑞姆。
 
-这个巨蛋就是我们的起源。 这台机器是为了创造矮人而建造的。我并不了解这个制造的详细过程，但我已经明白了结果。我们德瑞姆一族，是一种异常，是这台年久失修的机器功能失调的副产品。原生的德瑞姆一定是从这个巨蛋中出生的。他们离开创造自己的巨蛋独自生活，冒险进入地下，开始繁衍生息。 这些突变的胎儿，一定是这台机器因为年久失修而进一步退化的结果，正如我们在这些机器上看到的，吞噬着这些机器的黑色怪物一样。
+这个巨蛋就是我们的起源。这台机器是为了创造矮人而建造的。我并不了解这个制造的详细过程，但我已经明白了结果。我们德瑞姆一族，是一种异常，是这台年久失修的机器功能失调的副产品。原生的德瑞姆一定是从这个巨蛋中出生的。他们离开创造自己的巨蛋独自生活，冒险进入地下，开始繁衍生息。这些突变的胎儿，一定是这台机器因为年久失修而进一步退化的结果，正如我们在这些机器上看到的，吞噬着这些机器的黑色怪物一样。
 
 所以，我现在知道了一切。即使我们的发现也许会永远留在这个房间里，我也可以死得其所。虽然我们是这台机器的故障的产物，但是我还是很高兴，有机会亲眼见证这一刻。如果你找到这些笔记，请把它们带回给我的德瑞姆同胞。我相信他们会很乐意知道真相。]], "_t")
 t("strange picture", "奇怪的图片", "_t")
@@ -1246,7 +1246,7 @@ Cautiously I asked in as angry of a voice as I could muster, "Spellblaze, is tha
 
 Obviously the messenger was likely part of whatever group the shalore general had feared. I could tell that the messenger most definitely was in whatever schemes were being orchestrated too, and possibly ones that required secrecy as confirmed from the cloaked man from before. I considered going to his little gathering of friends, but I wasn't really interested in participating in whatever scheme they were going to partake in, and I could sense a feeling of danger as well. "I thank you for the offer, but I must decline" I finally said. To this I got a raised eyebrow as he quickly stated back, "Really, I would think a thalore such as yourself would jump at a chance to exact retribution against any who defile nature as has been done?"
 
-His words made me think for a moment, but I simply got up and left. I remember him calling out that should I change my mind, that I would be 'welcomed as a new initiate for sure'. The sun had begun to set in the sky as I left the building. Figuring I should look for a place to stay for the night I found an inn and purchased a room. I figured that in the morning I would go to the market and buy some food and supplies for my journey home. I slept soundly until early in the morning before the sun had begun to rise when the sounds of screaming filled my ears. Wondering what was going on I looked out the window of my room to see fire and smoke rising from a large building in the distance.]], [[[i]你知道吗，了解一个人真的很难。我很快就发现那个信使就是一个很好的例子。我原来以为他是一个因为遭受了魔法大爆炸而心怀不满的人。实际上，他不仅仅是内心不满，我极大程度上相信他还是那个煽动魔法狩猎的组织的成员。我很确信，他，以及其他追随那个穿着深色斗篷的人类的家伙，因为卷入一场我事后知道的邪恶的阴谋而死。但他是自愿死去的吗？这是我现在真正想知道的关于他的问题。 [/i]
+His words made me think for a moment, but I simply got up and left. I remember him calling out that should I change my mind, that I would be 'welcomed as a new initiate for sure'. The sun had begun to set in the sky as I left the building. Figuring I should look for a place to stay for the night I found an inn and purchased a room. I figured that in the morning I would go to the market and buy some food and supplies for my journey home. I slept soundly until early in the morning before the sun had begun to rise when the sounds of screaming filled my ears. Wondering what was going on I looked out the window of my room to see fire and smoke rising from a large building in the distance.]], [[[i]你知道吗，了解一个人真的很难。我很快就发现那个信使就是一个很好的例子。我原来以为他是一个因为遭受了魔法大爆炸而心怀不满的人。实际上，他不仅仅是内心不满，我极大程度上相信他还是那个煽动魔法狩猎的组织的成员。我很确信，他，以及其他追随那个穿着深色斗篷的人类的家伙，因为卷入一场我事后知道的邪恶的阴谋而死。但他是自愿死去的吗？这是我现在真正想知道的关于他的问题。[/i]
 
 吃完了饭，我决定向这个信使打探消息。在他结束最后的激情演说之后，我问道：“那么事情进展如何了？” 他叹了口气，说：“现在纳格尔人似乎控制了一切。他们正在设法为所有涌进城内的难民们搞到足够的食物，甚至为矮人们设法搞到一些酒水。不得不说，看到他们这样做，我有点惊讶。我不知道除了钢铁王座之外，他们在大陆的其他地方是否还有家园。然而，要想真正了解矮人们的隐秘程度是很难的。”
 
@@ -2137,7 +2137,7 @@ We will bide our time down here in the dark and turn this place into a beacon of
 
 我们最初发现克诺什库尔时，里面住满了恐魔。我们杀了它们，并试图修复这里奇怪的奥术机械，但它损坏严重，我们只能将其部分修复。但仅仅是它所具有的这一小部分力量，也足以给我们带来安宁。之后，更多流浪者追随着我们来到了这里，以在充满敌意的地下寻求一处庇护。他们当中有在别处无处容身的智慧生物、有寻求着禁忌知识的先知，还有目睹了太多凡人的目光所不能承受之物的人。
 
-之后我们便开始学习。我们领悟了世界的秘密，潜入了地表居民看都不敢看，恐惧着被其中不知是什么的东西凝望的无尽深渊。我们并没有这种恐惧，因为我们正是在其中凝视着他们的那些存在。 在这些地方，我们找到了许多真相，发现了能够改变埃亚尔历史进程的禁忌魔法。
+之后我们便开始学习。我们领悟了世界的秘密，潜入了地表居民看都不敢看，恐惧着被其中不知是什么的东西凝望的无尽深渊。我们并没有这种恐惧，因为我们正是在其中凝视着他们的那些存在。在这些地方，我们找到了许多真相，发现了能够改变埃亚尔历史进程的禁忌魔法。
 
 我们会在这片黑暗之中等待着时机，将这里变成一座知识的灯塔。如果这个世界不给我们容身之处，我们就自己去夺取它。当时机正确之时，我们就将让地表知道我们的存在，告诉他们，我们并不只是一群被他们当做害虫一样轻轻扫开的，毫无心智的乌合之众。]], "_t")
 t("the history of Kroshkkur (2)", "克诺什库尔的历史(2)", "_t")
@@ -2624,13 +2624,13 @@ section "tome-cults/data/talents/demented/calamity.lua"
 
 t("Jinxed Touch", "厄运之触", "talent name")
 t([[Your touch carries an entropic curse, marking your victims for a terrible fate. Each time you deal damage to a target, they are Jinxed for 5 turns. This stacks up to 10 times, reducing saves and defense by %0.2f and critical strike chance by %0.2f%%.
-			This can only be applied once per target per turn and will fade entirely if you break line of sight with your target for more than 2 turns.]], [[你的触碰伴随着熵之诅咒，为目标带来悲惨的命运。每当你对目标造成伤害时，目标将被厄运诅咒 5 回合。厄运可以叠加 10 层，每层减少 %0.2f 豁免和闪避， %0.2f%% 暴击率。
+			This can only be applied once per target per turn and will fade entirely if you break line of sight with your target for more than 2 turns.]], [[你的触碰伴随着熵之诅咒，为目标带来悲惨的命运。每当你对目标造成伤害时，目标将被厄运诅咒 5 回合。厄运可以叠加 10 层，每层减少 %0.2f 豁免和闪避，%0.2f%% 暴击率。
 		每个目标每回合只能受到一层诅咒。如果在过去 2 回合里目标消失在你的视线中，所有诅咒都会消退。]], "tformat")
 t("Preordain", "命中注定", "talent name")
 t("You subtly alter the course of events to cause your foes further misfortune. Each stack of Jinx beyond 6 will cause enemies to also suffer a %d%% chance to fail talent usage.", "你微妙地影响因果，让你的敌人更加不幸。六层以上的每层厄运诅咒将使敌人获得 %d%% 技能失败率。", "tformat")
 t("Luckdrinker", "幸运汲取", "talent name")
 t([[Each time you apply Jinx to an enemy, you have a %d%% chance to siphon some of their luck for yourself for 5 turns. This stacks up to 10 times, increasing saves and defense by %0.2f and critical strike chance by %0.2f%%.
-		If you know Preordain, stacks beyond 6 also grant a %d%% chance for you to entirely avoid damage taken.]], [[每当你向敌人施加厄运诅咒，有 %d%% 几率吸取敌人的运气为你所用，持续 5 回合。这个效果最多叠加 10 层，每层增加 %0.2f 豁免和闪避， %0.2f%% 暴击率。
+		If you know Preordain, stacks beyond 6 also grant a %d%% chance for you to entirely avoid damage taken.]], [[每当你向敌人施加厄运诅咒，有 %d%% 几率吸取敌人的运气为你所用，持续 5 回合。这个效果最多叠加 10 层，每层增加 %0.2f 豁免和闪避，%0.2f%% 暴击率。
 		如果你同时学会了命中注定，六层以上的每层幸运使你获得 %d%% 几率完全避免受到的伤害。]], "tformat")
 t("Fatebreaker", "打破宿命", "talent name")
 t([[You form a link between yourself and the chosen target for %d turns, tying your fates together. If during this time you receive fatal damage, you reflexively warp reality, ending the effect and attempting to force them to die in your place.
@@ -2645,7 +2645,7 @@ section "tome-cults/data/talents/demented/chronophage.lua"
 t("Atrophy", "衰亡", "talent name")
 t("%s has been cut from the timeline!", "%s被从时间线中切除", "logSeen")
 t([[You are surrounded by a vortex of entropic energy that feeds on the timelines of others. Each time you cast a spell random targets in radius 10 begin rapidly aging and decaying, reducing all stats by %d for 8 turns, stacking up to %d times.
-			Up to %d stacks total will be applied to enemies each cast with a max of 2 stacks on the same target.]], [[吸收他人时间的熵能漩涡围绕着你。当你释放法术时，半径 10 格内的随机目标将迅速老化、凋零，所有属性降低 %d ，持续 8 回合，效果可叠加 %d 层。
+			Up to %d stacks total will be applied to enemies each cast with a max of 2 stacks on the same target.]], [[吸收他人时间的熵能漩涡围绕着你。当你释放法术时，半径 10 格内的随机目标将迅速老化、凋零，所有属性降低 %d，持续 8 回合，效果可叠加 %d 层。
 			每次施法可以释放最多 %d 层加速衰老，但同一目标一次最多增加 2 层效果。]], "tformat")
 t("Severed Threads", "断绝", "talent name")
 t("On applying atrophy to a target below %d%% of their maximum life you will sever their lifeline, slaying them instantly. You will then feast on the remnants of their timeline for %d turns, increasing your life regeneration by %0.1f and causing talents without fixed cooldowns to refresh twice as fast.", "当对不足 %d%% 最大生命值的目标释放衰亡时，你将尝试切断目标的生命线，立刻杀死目标。在接下来的 %d 回合中，你将会享用目标残余的生命线，增加你的生命回复 %0.1f 并使没有固定冷却时间的技能冷却速度加倍。", "tformat")
@@ -2672,7 +2672,7 @@ The decaying horrors cannot move and will attack all hostile creatures around th
 All its primary stats will be set to %d (based on your Magic stat), life rating increased by %d, and all talent levels set to %d.  Many other stats will scale with level.
 Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你利用和恐魔的联系召唤三个持续 %d 轮的腐败的吞噬者。
 		腐败的吞噬者不能移动，能攻击周围所有敌对生物。它们拥有浴血奋战、咬牙切齿和狂乱撕咬技能。
-		它们的所有主属性将设为 %d (基于你的魔法属性 )，生命成长增加 %d ，所有技能等级设为 %d 。许多其他属性与技能等级相关。
+		它们的所有主属性将设为 %d (基于你的魔法属性 )，生命成长增加 %d，所有技能等级设为 %d。许多其他属性与技能等级相关。
 		它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。]], "tformat")
 t("Decayed Bloated Horror", "腐败的浮肿恐魔", "talent name")
 t("bloated horror", "浮肿恐魔", "_t")
@@ -2683,7 +2683,7 @@ All its primary stats will be set to %d (based on your Magic stat), life rating 
 Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.
 		]], [[你利用和恐魔的联系召唤一个持续 %d 回合的腐败的浮肿恐魔。
 		腐败的恐魔不能移动，能攻击范围内的所有敌对生物。它拥有精神干扰和精神光束技能。
-		它们的所有主属性将设为 %d (基于你的魔法属性 )，生命成长增加 %d ，所有技能等级设为 %d 。许多其他属性与技能等级相关。
+		它们的所有主属性将设为 %d (基于你的魔法属性 )，生命成长增加 %d，所有技能等级设为 %d。许多其他属性与技能等级相关。
 		它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。
 		]], "tformat")
 t("Horrific Display", "恐魔具现化", "talent name")
@@ -2692,7 +2692,7 @@ t([[You forcefully try to turn a creature into an horror.
 If the target fails a magical save against your Spellpower, its appearance turns into that of a horror for %d turns, making all other creatures hostile to it.
 Enemies near the target will have their target cleared on application.
 This spell does not work on horrors.]], [[你强行让一个生物变化为恐魔。
-		如果目标生物未能通过魔法豁免， %d 回合内它的相貌将转变为恐魔，令周围其他生物与之敌对。
+		如果目标生物未能通过魔法豁免，%d 回合内它的相貌将转变为恐魔，令周围其他生物与之敌对。
 		目标生物周围的敌人将重新考虑其攻击目标。
 		该法术对恐魔无效。]], "tformat")
 t("Call of Amakthel", "阿马克泰尔的呼唤", "talent name")
@@ -2828,7 +2828,7 @@ t("Weave your chosen prophecy into your speech, dooming your foe twice over. The
 		当前预言 : %s]], "tformat")
 t("Revelation", "天启", "talent name")
 t("As you speak the chosen prophecy whispers from the void guide you in how to bring about the downfall of your foe. The chosen prophecy will grant one of the following effects.\n\t\tProphecy of Madness. Each time the target uses a talent one of your talents on cooldown has its cooldown reduced by %d turns.\n\t\tProphecy of Ruin. Each time the target takes damage you are healed for %d%% of the damage dealt.\n\t\tProphecy of Treason: %d%% of all damage you take is redirected to a random target affected by Prophecy of Treason.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\n\t\tCurrent prophecy: %s", [[当你宣读预言时，来自虚空的回响将指引你带来敌人的末日。你选择的预言将提供以下三种加成之一。
-		疯狂预言：每次目标使用技能时，你的一个技能的冷却时间将减少 %d 。
+		疯狂预言：每次目标使用技能时，你的一个技能的冷却时间将减少 %d。
 		毁灭预言：每次目标受到伤害时，你回复 %d%% 伤害值。
 		背叛预言：你受到的 %d%% 伤害将转移至周围随机受背叛预言影响的目标。
 
@@ -2856,8 +2856,8 @@ t([[Your knowledge of entropy allows you to defy the laws of physics, allowing y
 		你可以主动开启该技能，瞬间移除当前的熵。]], "tformat")
 t("Black Hole", "黑洞", "talent name")
 t([[On casting Entropic Gift, a radius 1 rift in spacetime will be opened underneath the target for %d turns, increasing in radius by 1 each turn to a maximum of %d.
-		All caught within the rift are pulled towards the center and take %0.2f darkness and %0.2f temporal damage, plus %d%% of your total entropy each turn (currently %d).]], [[每次释放熵之礼物，会在目标处产生一个持续 %d 回合的一格小型黑洞，每回合半径增加 1 直到 %d 。
-		所有范围内的生物每回合将被拉向黑洞中心并受到 %0.2f 暗影、 %0.2f 时空伤害以及你当前熵的 %d%% 的伤害（当前 %d ）。]], "tformat")
+		All caught within the rift are pulled towards the center and take %0.2f darkness and %0.2f temporal damage, plus %d%% of your total entropy each turn (currently %d).]], [[每次释放熵之礼物，会在目标处产生一个持续 %d 回合的一格小型黑洞，每回合半径增加 1 直到 %d。
+		所有范围内的生物每回合将被拉向黑洞中心并受到 %0.2f 暗影、%0.2f 时空伤害以及你当前熵的 %d%% 的伤害（当前 %d ）。]], "tformat")
 t("Power Overwhelming", "能量过载", "talent name")
 t("You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.", [[你用危险的熵能大幅强化你的法术，增加 %d%% 黑暗和时空伤害与 %d%% 抗性穿透。
 			作为代价，每个非瞬间法术会带来 %0.2f 熵能反冲。]], "tformat")
@@ -2893,11 +2893,11 @@ t([[You invoke a long standing pact with a fellow horror, a Worm that Walks, to 
 		你可以完全控制、升级、更换它的装备和技能。
 		使用该法术将复活已死亡的单位，使其获得 %d%% 生命。
 		原始技能等级提升将带来更多装备格：
-		等级 1 ：主手 /副手武器
-		等级 2 ：躯体
-		等级 3 ：腰带
-		等级 4 ：戒指 /戒指
-		等级 5 ：戒指 /戒指/ 饰品
+		等级 1：主手 /副手武器
+		等级 2：躯体
+		等级 3：腰带
+		等级 4：戒指 /戒指
+		等级 5：戒指 /戒指/ 饰品
 
 		试图改变其装备时，先将装备交给它，再切换控制。]], "tformat")
 t("Foul Convergence", "污秽夹击", "talent name")
@@ -2905,13 +2905,13 @@ t("Your friendly horror is dead.", "你的恐魔伙伴死了。", "logPlayer")
 t("%s's teleport fizzles!", "%s的传送失败了！", "logSeen")
 t([[You and your Worm that Walks both teleport to an enemy in range %d and make a melee attack for %d%% damage.
 			Your Worm that Walks' Blindside talent cooldown is reduced by %d.]], [[你和蠕虫合体同时传送至 %d 内的目标处，造成 %d%% 近战伤害。
-		你的蠕虫合体的闪电突袭技能冷却时间减少 %d 。]], "tformat")
+		你的蠕虫合体的闪电突袭技能冷却时间减少 %d。]], "tformat")
 t("Shared Insanity", "共享疯狂", "talent name")
 t([[You establish a powerful mental link with your Worm that Walks.
 		As long as you remain within radius 3 of your worm that walks each of you gains %d%% all resistance for 5 turns.
 		Additionally, your Worm that Walks permanently gains an inscription slot every 2 raw talent levels (%d).]], [[你和蠕虫合体建立强大的精神链接。
 		只要你和它的距离不超过 3 格，你们均获得持续 5 回合的 %d%% 全体抗性。
-		该技能每增加两级原始等级，你的蠕虫合体获得一个纹身位（当前： %d ）。]], "tformat")
+		该技能每增加两级原始等级，你的蠕虫合体获得一个纹身位（当前：%d ）。]], "tformat")
 t("Terrible Sight", "恐怖景象", "talent name")
 t("You require your worm that walk to be alive and closeby.", "你需要有一个存活的蠕虫合体伙伴在周围。", "logPlayer")
 t([[While within range 3 of your Worm that Walks you can project an aura of terror.
@@ -2954,7 +2954,7 @@ section "tome-cults/data/talents/demented/madness.lua"
 t("Dark Whispers", "黑暗低语", "talent name")
 t([[Terrible visions and maddening voices fill the minds of enemies within a radius %d area, inflicting %0.2f darkness damage each turn for 5 turns. In addition, this distraction will reduce physical, spell and mindpower of those affected by %d.
 The power loss caused by this spell can stack, to a maximum of %d powers.
-		The effect will increase with your Spellpower.]], [[令半径 %d 格内的敌人的心灵里充满可怕的幻觉和疯狂的低语， 5 回合内每回合受到 %0.2f 暗影伤害。同时，该效果将使其物理强度、法术强度和精神强度各降低 %d 点，该效果可叠加至最多 %d 点。
+		The effect will increase with your Spellpower.]], [[令半径 %d 格内的敌人的心灵里充满可怕的幻觉和疯狂的低语，5 回合内每回合受到 %0.2f 暗影伤害。同时，该效果将使其物理强度、法术强度和精神强度各降低 %d 点，该效果可叠加至最多 %d 点。
 		技能效果受法术强度加成。]], "tformat")
 t("Hideous Visions", "惊骇幻象", "talent name")
 t("hallucination", "幻象", "_t")
@@ -2980,7 +2980,7 @@ t("Rift Cutter", "裂缝切割", "talent name")
 t([[Fire a beam of energy that rakes across the ground, dealing %0.2f darkness damage to enemies within and leaving behind an unstable rift. After 3 turns the rift detonates, dealing %0.2f temporal damage to adjacent enemies.
 		Targets cannot be struck by more than a single rift explosion at once.
 		The power of this spell inflicts entropic backlash on you, causing you to take %d damage over 8 turns. This damage counts as entropy for the purpose of Entropic Gift.
-		The damage will increase with your Spellpower.]], [[发射一束扫射大地的能量，造成 %0.2f 暗影伤害，并产生不稳定的裂缝。 3 回合后裂缝湮灭并对周围敌人造成 %0.2f 时空伤害。
+		The damage will increase with your Spellpower.]], [[发射一束扫射大地的能量，造成 %0.2f 暗影伤害，并产生不稳定的裂缝。3 回合后裂缝湮灭并对周围敌人造成 %0.2f 时空伤害。
 		一次湮灭不能多次伤害同一目标。
 		该法术会对你产生熵能反冲，在 8 回合内造成 %d 伤害。此伤害对熵之礼物而言视为熵。
 		伤害受法术强度加成。]], "tformat")
@@ -3005,7 +3005,7 @@ t([[Each time you cast a non-instant Demented spell, a nether spark begins orbit
 The damage will increase with your Spellpower.  Entropic Maw stats will increase with level and your Magic stat.]], [[每次你施放非瞬发的疯狂法术时，一朵彼世火花将环绕在你周围 10 回合，上限为 5 朵。
 		每个火花增加你 %d%% 暴击率。当你拥有 5 个火花时，你的下一次虚空法术将消耗所有火花来获得强化效果。
 #PURPLE#彼世冲击：#LAST# 成为穿透性虚空能量，并在 5 回合内造成额外 %d%% 伤害。
-#PURPLE#裂缝切割：#LAST# 裂缝内的敌人将定身 %d 回合，每回合受到 %0.2f 时空伤害。裂缝湮灭时爆炸半径增加 %d 。
+#PURPLE#裂缝切割：#LAST# 裂缝内的敌人将定身 %d 回合，每回合受到 %0.2f 时空伤害。裂缝湮灭时爆炸半径增加 %d。
 #PURPLE#空间扭曲：#LAST# 裂缝出口处产生一个持续 %d 回合的熵之胃，能用触须拉近并嘲讽附近的目标。
 伤害受法术强度加成。
 熵之胃的属性受等级和魔法属性加成。]], "tformat")
@@ -3206,7 +3206,7 @@ t([[Your left hand mutates into a disgusting mass of tentacles.
 		Your tentacle hand currently has these stats%s:
 		%s]], [[你的左手异变成为一坨恶心的触手。
 		副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标同侧的其他单位。
-		物理强度提高 %d ，触手武器伤害提高 %d%%。
+		物理强度提高 %d，触手武器伤害提高 %d%%。
 		每次触手攻击时，获得 %d 疯狂值。
 		附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的心灵护盾，避免被他们发现你的恐魔形态。
 		你的触手当前属性为 %s :
@@ -3257,7 +3257,7 @@ Any actions other than movement will cancel the effect.]], [[扭曲周围时空�
 		你使用偷取的速度强化自身，使自己获得一回合神速状态，移动速度提高 %d%%，每减速一个敌人，额外提高 %d%%，最大个数 4 个。
 		移动外的任何行动将终止加速效果。]], "tformat")
 t("Switch", "偷换", "talent name")
-t("Release a surge of entropy, cleansing yourself of afflictions while draining the energy from others. All enemies in range 10 will have the duration of %d beneficial effects reduced by %d turns, while you will have an equal number of detrimental effects reduced by the same duration.", "释放熵的浪潮，清除自己的灾祸，同时吸取他人的能量。 10 码内所有敌人的 %d 项有益效果持续时间缩短 %d 回合。自身同等数量的有害效果持续时间缩短同等回合。", "tformat")
+t("Release a surge of entropy, cleansing yourself of afflictions while draining the energy from others. All enemies in range 10 will have the duration of %d beneficial effects reduced by %d turns, while you will have an equal number of detrimental effects reduced by the same duration.", "释放熵的浪潮，清除自己的灾祸，同时吸取他人的能量。10 码内所有敌人的 %d 项有益效果持续时间缩短 %d 回合。自身同等数量的有害效果持续时间缩短同等回合。", "tformat")
 t("Suspend", "暂停", "talent name")
 t([[You freeze yourself in time for %d turns, preventing you from taking any action but preventing any damage taken.
 				Negative effects and cooldowns will decrease in duration, while beneficial effects will remain at their current duration.]], [[你在时间中凝固 %d 回合，无法行动但也无法被伤害。
@@ -3289,7 +3289,7 @@ t([[Conjure void stars that orbit you, defending you from incoming attacks. Each
 		此技能只有装备轻甲时生效。]], "tformat")
 t("Nullmail", "虚空装甲", "talent name")
 t([[Reinforce your armor with countless tiny void stars, increasing armor by %d.
-Each time your void stars are fully depleted, you gain a shield absorbing the next %d damage taken within %d turns. This shield cannot trigger again until your void stars are fully restored.]], [[用无数微小的虚空之星强化护甲，护甲值提高 %d 。
+Each time your void stars are fully depleted, you gain a shield absorbing the next %d damage taken within %d turns. This shield cannot trigger again until your void stars are fully restored.]], [[用无数微小的虚空之星强化护甲，护甲值提高 %d。
 每次虚空之星完全消耗后，生成一个吸收 %d 伤害的护盾持续 %d 回合。在虚空之星完全恢复前无法再次生成护盾。]], "tformat")
 t("Black Monolith", "黑色巨石", "talent name")
 t("You must have at least 1 void star to summon a monolith.", "你必须有一颗虚空之星才能召唤巨石。", "logPlayer")
@@ -3450,7 +3450,7 @@ t([[Your skin grows small spikes coated in dark blight.
 t("Faceless", "无面", "talent name")
 t([[Your faceless visage is puzzling and emotionless, allowing you to more easily resist mind tricks.
 		You gain %d mental save, %d%% confusion immunity.]], [[你无面孔的脸没有情感，令人困惑。这让你更容易抵抗精神冲击。
-		你获得 %d 精神豁免， %d%% 混乱免疫。]], "tformat")
+		你获得 %d 精神豁免，%d%% 混乱免疫。]], "tformat")
 t("From Below It Devours", "自深渊吞噬万物", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("hungering mouth", "饥饿巨口", "_t")
@@ -3495,7 +3495,7 @@ t([[Since ziguranth removed those filthy magic runes from your body you have nee
 		Changing your aspect requires combat experience, you may only do so after slaying 100 enemies (current %d).
 
 		When you learn this talent you become so strong you can wield any type of one handed weapon in your offhand.]], [[伊格兰斯除去了你身体内部肮脏的魔法符文，此后你需要另一种力量来维持你的身体。多亏了龙血，你找到了这种力量。
-		龙血强化了你，使你获得 %d%% 震慑抗性， %d%% %s 伤害抗性， %d %s 近战附加伤害。
+		龙血强化了你，使你获得 %d%% 震慑抗性，%d%% %s 伤害抗性，%d %s 近战附加伤害。
 		你可以主动开启该技能来改变龙血类型，进而改变相应元素。
 		抗性和附加伤害受意志值加成。
 
@@ -3599,7 +3599,7 @@ t("Linked to their horror ally gaining %d%% all damage resistance.", "和恐魔�
 t("#Target# links closer to his ally!", "#Target#与盟友联结！", "_t")
 t("#Target# no longer seems to be in sync with his ally.", "#Target#不再和盟友同步。", "_t")
 t("Terrible Sight", "恐怖景象", "_t")
-t("Terrified of the horror duo attacking them reducing defense and spell save by %d.", "因两只恐魔的现身而惊恐，闪避和法术豁免降低 %d 。", "tformat")
+t("Terrified of the horror duo attacking them reducing defense and spell save by %d.", "因两只恐魔的现身而惊恐，闪避和法术豁免降低 %d。", "tformat")
 t("#Target# is terrified of the horrors attacking him!", "#Target#因攻击他的恐魔惊恐！", "_t")
 t("#Target# is no longer afraid of the horrors attacking him.", "#Target#不再因恐魔而惊恐。", "_t")
 t("chaos", "混沌", "effect subtype")
@@ -3641,7 +3641,7 @@ t("#Target# is covered in gore.", "#Target#被血肉覆盖。", "_t")
 t("#Target# is no longer covered in gore.", "#Target#不再被血肉覆盖。", "_t")
 t("fear", "恐惧", "effect subtype")
 t("Glimpse of True Horror", "一瞥真惧", "_t")
-t("Target briefly saw what True Horror means, deeply scaring it. %d%% chances to fail using a talent.", "目标被真正的恐惧吓倒， %d%% 几率使用技能失败。", "tformat")
+t("Target briefly saw what True Horror means, deeply scaring it. %d%% chances to fail using a talent.", "目标被真正的恐惧吓倒，%d%% 几率使用技能失败。", "tformat")
 t("#Target# saw true horror.", "#Target#看到了真正的恐怖。", "_t")
 t("#Target# is less afraid.", "#Target#不再那么恐惧了。", "_t")
 t("Empowered by the fear of its foes, darkness and blight damage penetration increased by %d%%.", "被敌人的恐惧强化，获得 %d%% 暗影和枯萎抗性穿透。", "tformat")
@@ -3704,7 +3704,7 @@ t("#Target# is free from the prophecy.", "#Target#脱离预言的影响。", "_t
 t("-Prophecy of Madness", "-疯狂预言", "_t")
 t("%s talent '%s%s' is energized by the revelation!", "启示使%s技能'%s%s'的冷却时间缩短了！", "logSeen")
 t("Prophecy of Ruin", "毁灭预言", "_t")
-t("The target is doomed to ruin.  On falling below 75%%, 50%% or 25%% life all enemies in radius %d will take %0.2f darkness damage", "目标被诅咒进入毁灭状态。当生命值降低至 75%%, 50%% 或 25%% 时， %d 格内敌人将受到 %0.2f 暗影伤害。", "tformat")
+t("The target is doomed to ruin.  On falling below 75%%, 50%% or 25%% life all enemies in radius %d will take %0.2f darkness damage", "目标被诅咒进入毁灭状态。当生命值降低至 75%%, 50%% 或 25%% 时，%d 格内敌人将受到 %0.2f 暗影伤害。", "tformat")
 t("#Target# is doomed to ruin!", "#Target#被预言毁灭！", "_t")
 t("+Prophecy of Ruin", "+毁灭预言", "_t")
 t("-Prophecy of Ruin", "-毁灭预言", "_t")
@@ -3767,13 +3767,13 @@ This effect will fade in 2 turns if the source is not in line of sight.]], [[目
 t("%d Jinx", "%d 不幸", "tformat")
 t("Fortune", "幸运", "_t")
 t("The target has %d increased saves and defense, and %d%% increased critical chance.", "目标豁免和闪避增加 %d（仅 1 层时实际降低，2 层起才如数增加），暴击率增加 %d%%（始终增加）。", "_t")
-t("The target has %d increased saves and defense, %d%% increased critical chance, and %d%% chance to avoid all damage.", "目标豁免和闪避增加 %d ，暴击率增加 %d%%，有 %d%% 几率闪避所有伤害。", "_t")
+t("The target has %d increased saves and defense, %d%% increased critical chance, and %d%% chance to avoid all damage.", "目标豁免和闪避增加 %d，暴击率增加 %d%%，有 %d%% 几率闪避所有伤害。", "_t")
 t("Unravelling", "解构", "_t")
 t("The target is being erased from reality. Each time a magical effect is applied, they will take %0.2f darkness damage and %0.2f temporal damage. If 5 effects are applied, a powerful void horror will appear.", "目标正被从现实中抹去。每当一个负面魔法效果施加到目标身上，它就会受到 %0.2f 暗影和 %0.2f 时空伤害。当施加了 5 个负面魔法效果后，强大的虚空恐魔将出现。", "tformat")
 t("#Target# is being erased from reality!", "#Target#被从现实中移除！", "_t")
 t("#Target# has survived the unraveling.", "#Target#从解构效果中存活。", "_t")
 t("Fatebreaker", "打破宿命", "_t")
-t("The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.", "目标将自身的命运和另一个人相连，当它死亡时，选择的目标将代替它死亡。 此时，自身的幸运层数和所选目标身上的不幸层数会被消耗；若所选目标有不幸，则按其层数治疗，否则按自身的幸运层数治疗，每层恢复 %d 点生命。", "tformat")
+t("The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.", "目标将自身的命运和另一个人相连，当它死亡时，选择的目标将代替它死亡。此时，自身的幸运层数和所选目标身上的不幸层数会被消耗；若所选目标有不幸，则按其层数治疗，否则按自身的幸运层数治疗，每层恢复 %d 点生命。", "tformat")
 t("#Target# intertwines it's fate!", "#Target#的命运被联结！", "_t")
 t("#Target#'s fate is no longer linked to another.", "#Target#的命运不再被联结。", "_t")
 t("Redirecting all damage as temporal and darkness to %s.", "所有伤害转为时空和暗影类型，转移至 %s。", "tformat")
@@ -4711,7 +4711,7 @@ Race features:#YELLOW#
 
 你已经了解了德瑞姆的起源，你现在可以创造新的#LIGHT_GREEN#德瑞姆#WHITE#角色！
 
-种族特色： #YELLOW#
+种族特色：#YELLOW#
 - 进入狂热状态，使技能不进入冷却
 - 让黑血溅到攻击你的人身上
 - 可以学会召唤一个恐魔！
@@ -4755,7 +4755,7 @@ Race features:#YELLOW#
 ------------------------------------------------
 section "tome-cults/overload/data/texts/unlock-wyrmic_scourge.lua"
 
-t("New Talent Category: #LIGHT_GREEN#Scourge Drake", "新技能树： #LIGHT_GREEN#天谴之龙", "_t")
+t("New Talent Category: #LIGHT_GREEN#Scourge Drake", "新技能树：#LIGHT_GREEN#天谴之龙", "_t")
 t("Drakes are forces of Nature, the ultimate apex predators. But even they can be corrupted beyond hope.\nYou have encountered the horror that came out of Kroltar, the mightiest wyrm, and vanquished it.\n\nYou can now master Scourge Drake magic and create new Wyrmic characters that can learn the #LIGHT_GREEN#Scourge Drake talents#WHITE#.\n\nTalents:\n- #YELLOW#Tentacled Wings: #WHITE#Project slimy tentacles to pull your foes to you\n- #YELLOW#Decaying Grounds: #WHITE#Cover the ground in blighted energies, increasing cooldowns\n- #YELLOW#Augment Despair: #WHITE#Hit where it hurts, doing more damage based on detrimental effects\n- #YELLOW#Maggot Breath: #WHITE#Breath maggots to slow down your foes\n", [[龙是自然力量的化身，是究极的捕食者。然而，就连他们也能够被绝望所腐化。
 你遇到了从最强大的巨龙库洛塔身上产生的恐魔，并击败了它。
 你现在可以掌握天谴龙的魔法，你创建的新龙战士角色可以使用新的#LIGHT_GREEN#天谴之龙#WHITE#系技能
@@ -4775,7 +4775,7 @@ t([[Your mental insanity.  The higher it is the more random your damage and cool
 
 Damage and cooldowns have a chance to increase or decrease by up to chaotic%.
 
-Both the chance and size of effects will increase with insanity.]], [[你的精神的疯狂程度。 这一数值越高，你的技能的冷却时间和所造成的伤害随机性就越大。
+Both the chance and size of effects will increase with insanity.]], [[你的精神的疯狂程度。这一数值越高，你的技能的冷却时间和所造成的伤害随机性就越大。
 
 伤害和冷却时间将会在 混沌度% 的范围内上下浮动。
 

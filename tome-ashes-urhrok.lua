@@ -33,7 +33,7 @@ t("Their most important stats are: Strength and Magic", "他们最重要的属�
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +4 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +4 力量，+0 敏捷，+2 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, +0 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔法，+0 意志，+1 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +3", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD# 每等级生命加值：#LIGHT_BLUE# +3", "_t")
 t("Demonologist", "恶魔使者", "birth descriptor name")
 t("Most simply run, but I understand: a distant planet, ravaged and damned. Burnt creations seek righteous vengeance, Urh'Rok's ashes, now destruction's engines. Harness their power! Capture and tame! I call on you, demons - UNLEASH THE FLAMES!", "人们常畏惧，但我了解真实：遥远的星球，被厄运所折磨；燃烧的造物们，如今渴望复仇；乌鲁洛克之烬，驱动战争机器。捕获并征服！驾驭他们的力量！在此召唤——恶魔们，释放你们的烈焰！", "_t")
 t("Contrary to popular beliefs Demonologists are not the pawns of demons, they enact pacts with them but always very carefully.", "不同于众人所相信的，恶魔使者并非恶魔的走卒。他们只是小心谨慎地与恶魔签订契约。", "_t")
@@ -41,7 +41,7 @@ t("They use those demonic powers for their own purpose, often evil but a few hav
 t("Demonologists are melee fighters, bashing their foes skulls with their shields while calling down rains of fire and darkness.", "恶魔使者是近身格斗的战士，用盾牌击碎敌人的头颅，同时能呼唤黑暗与火焰之力。", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量，+0 敏捷，+2 体质", "_t")
 t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+0 意志，+0 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +2", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD# 每等级生命加值：#LIGHT_BLUE# +2", "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/birth/doomelf.lua"
@@ -64,8 +64,8 @@ t("They possess the #GOLD#Haste of the Doomed#WHITE# talent which allows them to
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -2 力量，+1 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +3 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +3 魔法，+2 意志，+0 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# 9", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 9", "_t")
-t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚： #LIGHT_BLUE# 12%", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# 9", "#GOLD# 每等级生命加值：#LIGHT_BLUE# 9", "_t")
+t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚：#LIGHT_BLUE# 12%", "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/birth/races_cosmetic.lua"
@@ -303,7 +303,7 @@ We asked #{italic}##FIREBRICK#[Father]#{normal}##LAST# what #{italic}##FIREBRICK
 
 （你触碰下一页上的面板。一个生物从一座巨大的堡垒中走出来，出现在你面前——它有着蛋形的身体，四肢则像四根#{italic}##FIREBRICK#[藤蔓杂草]#{normal}##LAST#。你打心底憎恨这东西，尽管你知道自己当时并不憎恨它。他们说想要#{italic}##FIREBRICK#[父亲]#{normal}##LAST#死，并愿以强大的魔法和技术作为回报；你厌恶得不愿考虑这个提议，可他们的堡垒和武器让你不禁怀疑，这提议是否真能拒绝。你考虑唤醒#{italic}##FIREBRICK#[父亲]#{normal}##LAST#向他求助，却又担心即便是他，也无法抵挡#{italic}##FIREBRICK#[蛋形杂草]#{normal}##LAST#；最终，你决定将他封在沉睡中，让他无力反抗却不受伤害，保持昏迷，直至将来有人介入。#{italic}##FIREBRICK#[蛋形杂草]#{normal}##LAST#勉强接受了这个解决办法，并履行了交易中他们应尽的一方。他们送给你们奇异而强大的神器，又在你们的世界建起传送门，让你们得以前往陌生的世界；那些世界远比你所能想象的更加不可思议、更加美丽，其中还有其他获赠这些礼物、希望进行贸易的种族。你品尝新食物，学习新魔法，聆听新音乐，发现了整个文明史上前所未见的美。若不是心中阵阵愧疚，生活简直不可能更美好。直到你移开手、影像开始从脑海消退，才认出这些“蛋形杂草”就是夏·图尔。）
 
-随后响起了巨大的#{italic}##FIREBRICK#[噪声]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。 声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。 声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。 声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。最后，那声音变得#{italic}##FIREBRICK#[震耳膜裂]#{normal}##LAST#。
+随后响起了巨大的#{italic}##FIREBRICK#[噪声]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。声音变得#{italic}##FIREBRICK#[更响]#{normal}##LAST#。最后，那声音变得#{italic}##FIREBRICK#[震耳膜裂]#{normal}##LAST#。
 
 （这里还有一块面板。你不敢触碰，可就在你伸手准备把石板收起来时，一根手指从上面轻轻擦过。饥饿、灼烧、窒息、悲惨、狂怒和纯粹的剧痛在你脑中肆虐；你知道这只持续了十分之一秒，感觉却像足足半分钟。走向下一个方格时，你的耳朵仍嗡嗡作响。）
 
@@ -499,7 +499,7 @@ Operation to secure <?=player.name?> failure.  Primary defense force routed by t
 
 #{bold}#紧急事项：#{normal}#
 
-对 <?=player.name?> 的保全监禁计划失败。主要防御力量被他的霸气侧漏吓退，应急部队推定已经死亡（报告的声音被吉他独奏的喧哗声盖住了）。虽然计划完全失败，但是这辈子值了。正在对 <?=player.name?> 启动最高优先级措施，为 <?=player:him_her()?> 建造一个体育场，让观众买票入场观看其霸气侧漏的情景。  关闭所有链接传送门，将所属的平台从大陆上分离， 准备焰火，启动闪光灯和音响系统并——
+对 <?=player.name?> 的保全监禁计划失败。主要防御力量被他的霸气侧漏吓退，应急部队推定已经死亡（报告的声音被吉他独奏的喧哗声盖住了）。虽然计划完全失败，但是这辈子值了。正在对 <?=player.name?> 启动最高优先级措施，为 <?=player:him_her()?> 建造一个体育场，让观众买票入场观看其霸气侧漏的情景。  关闭所有链接传送门，将所属的平台从大陆上分离，准备焰火，启动闪光灯和音响系统并——
 
 #{italic}#最后一个字歪歪扭扭，一条墨水细线向下划去直到页面的底部，那是笔从手上滑落留下的痕迹。下方是一幅关于你的涂鸦，手里拿着武士刀，正在和“忍者王阿塔玛森”对战。看起来，你的霸气侧漏把这个恶魔吓尿了。#{normal}#
 ]], "_t")
@@ -680,7 +680,7 @@ You are being taken by your handler to the torture-pits to help them figure out 
 As you recover, and your platform of searing earth splits from the main continent, your old memories flood your mind and you come to your senses - the demons are out to destroy your home!  You must escape... but not without destroying the crystal they've used to keep track of you.
 ]], [[你已经不太记得来到这片漂浮在虚空中的燃烧大陆之前的记忆了。你曾经帮助过恶魔，欢欣着参与他们的实验，以打破某种阻止恶魔降临大举复仇入侵埃亚尔的无形屏障。
 
-你被你的 ' 主人 ' 带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的 ' 主人 ' ，同时你也被冲击波击飞。
+你被你的 ' 主人 ' 带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的 ' 主人 '，同时你也被冲击波击飞。
 
 当你醒来后，你发现你身处一个和主大陆分离的平台，而你旧时的记忆渐渐涌来。你立刻惊醒——恶魔们要毁灭你的故乡！你必须逃离……同时别忘了摧毁他们用以追踪你的水晶体。
 ]], "_t")
@@ -882,11 +882,11 @@ t([[Whenever you take blight damage you bask in the sweet pain for 2 turns, incr
 		这一效果最多每 %d 回合触发一次。]], "tformat")
 t("Hexed Shield", "邪术护盾", "talent name")
 t([[Whenever you block an attack with your shield, you randomly hex the attacker with one of the hexes: Pacification, Domination, Burning or Empathic as if cast at talent level %d.
-		This may only happen once per turn.]], [[当你使用盾牌格挡一次攻击，你会朝攻击者释放一个随机邪术： 宁神邪术、支配邪术、燃烧邪术或是转移邪术，技能等级为 %d 。
+		This may only happen once per turn.]], [[当你使用盾牌格挡一次攻击，你会朝攻击者释放一个随机邪术：宁神邪术、支配邪术、燃烧邪术或是转移邪术，技能等级为 %d。
 		这一效果最多每回合触发一次。]], "tformat")
 t("Cursed Arm", "诅咒之手", "talent name")
 t([[Whenever make a melee attack, you have a %d%% chance to randomly curse the target with one of the curses: Defenselessness, Impotence, Death or Vulnerability as if cast at talent level %d.
-		This may only happen once per turn.]], [[每当你进行一次近战攻击，你有 %d%% 几率随机对目标释放一次诅咒：衰竭诅咒、虚弱诅咒、死亡诅咒或弱点诅咒，技能等级为 %d 。
+		This may only happen once per turn.]], [[每当你进行一次近战攻击，你有 %d%% 几率随机对目标释放一次诅咒：衰竭诅咒、虚弱诅咒、死亡诅咒或弱点诅咒，技能等级为 %d。
 		这一效果最多每回合触发一次。]], "tformat")
 t("Doom Storm", "毁灭风暴", "talent name")
 t("firestorm", "火焰风暴", "_t")
@@ -940,7 +940,7 @@ t([[Whenever you take direct damage, there is a %d%% chance that your your disea
 		Each turn the disease deals %0.2f blight damage and reduce one random attribute (strength, dexterity, constitution) by %d.
 		This may only happen once per turn.
 		The damage increases with your spellpower.]], [[每当你受到直接伤害时，你充满疫病的躯体有 %d%% 几率爆发出枯萎能量，使攻击者感染随机疾病，持续 %d 回合。
-		疾病每回合造成 %0.2f 枯萎伤害，并会降低随机一项属性（力量、敏捷或体质） %d 。
+		疾病每回合造成 %0.2f 枯萎伤害，并会降低随机一项属性（力量、敏捷或体质）%d。
 		这一效果最多每回合触发一次。
 		伤害受法术强度加成。]], "tformat")
 t("Volcanic Skin", "火山皮肤", "talent name")
@@ -974,7 +974,7 @@ t("alive (%d%% life)", "存活 (%d%% 生命值)", "tformat")
 t("dead (can not be summoned)", "死亡 (无法召唤)", "_t")
 t("#CRIMSON#You extract a %s and add it to your inventory.", "#CRIMSON#你提取了一个%s并将其收入物品栏。", "logPlayer")
 t("#CRIMSON#You extract a %s and bind it to your %s.", "#CRIMSON#你提取了一个%s并将其附着于你的%s。", "logPlayer")
-t("#CRIMSON#You feed vim into your %s, increasing its level to %d and healing it.", "#CRIMSON#你将活力注入你的 %s ，将其等级提升到 %d ，并治疗了它。", "logPlayer")
+t("#CRIMSON#You feed vim into your %s, increasing its level to %d and healing it.", "#CRIMSON#你将活力注入你的 %s，将其等级提升到 %d，并治疗了它。", "logPlayer")
 t("Demon Seed", "恶魔之种", "talent name")
 t("You require a weapon and a shield to use this talent.", "你需要一把武器一个盾牌来施展这个技能。", "logPlayer")
 t([[Strike a blow with your weapon for %d%% blight damage.
@@ -1038,7 +1038,7 @@ t([[Teleports you randomly within a small range of up to %d grids with %d precis
 		In the spot you left you will summon a random demon from your seeds for %d turns.
 		If the target area is not in line of sight, there is a chance the spell will fizzle.
 		This spell requires an unsummoned, alive, demon seed equiped in a worn equipment to work.
-		The range will increase with your Spellpower.]], [[传到 %d 码外的一个位置，误差 %d 。
+		The range will increase with your Spellpower.]], [[传到 %d 码外的一个位置，误差 %d。
 		在离开的位置，你将随机召唤一个恶魔，持续 %d 回合。
 		如果目标地点不在视线内，有一定几率失败。
 		该技能需要你的装备上附着有至少一个未召唤的存活的恶魔种子。
@@ -1078,7 +1078,7 @@ t([[Demonic Blood flows through your veins, increasing your spellpower by %d and
 t("Abyssal Shield", "深渊护盾", "talent name")
 t([[Surround yourself with a defensive aura, increasing armor by %d, and inflicting %0.2f fire and %0.2f blight damage to all attacking foes.
 Additionally, your vim will enhance your defences, reducing all damage by %d%% of your current vim (currently %d), but never reducing by more than half of the original damage. This will cost vim equal to 5%% of the damage blocked.
-The damage will scale with your Spellpower.]], [[深渊气息围绕着你，增加 %d 点护甲，增加 %0.2f 点火焰、 %0.2f 点枯萎近战反击伤害。
+The damage will scale with your Spellpower.]], [[深渊气息围绕着你，增加 %d 点护甲，增加 %0.2f 点火焰、%0.2f 点枯萎近战反击伤害。
 	同时你的活力会增强你的防御，减少相当于当前活力 %d%% 的伤害（目前为 %d 点），但不会减少超过原伤害的一半。此效果会消耗等同于 5%% 减少伤害值的活力。
 	伤害值受法术强度加成。]], "tformat")
 
@@ -1111,7 +1111,7 @@ t([[You learn to use death around you to an even greater advantage.
 		技能等级 3 或以上时，当你处于黑暗支配状态下，每一层状态使你获得 -%d 生命底限。]], "tformat")
 t("Blood Pact", "鲜血契约", "talent name")
 t([[Pay %d%% of your current life and gain 100%% darkness damage conversion for 1 turns.
-			If Dark Reign is active you also gain %d stamina and %d vim per stack.]], [[支付 %d%% 当前生命值， 1 回合内你造成的所有伤害转化为黑暗伤害。
+			If Dark Reign is active you also gain %d stamina and %d vim per stack.]], [[支付 %d%% 当前生命值，1 回合内你造成的所有伤害转化为黑暗伤害。
 		如果黑暗支配开启，每有一层，你获得 %d 体力与 %d 活力。]], "tformat")
 t("Erupting Darkness", "黑暗爆发", "talent name")
 t("raging volcano", "喷发中的火山", "_t")
@@ -1143,7 +1143,7 @@ t([[You infuse your shield with the energies of Urh'Rok, bringing about a magica
 t("Hardened Core", "硬化之核", "talent name")
 t([[Taking example from Mal'Rok, the demon's homeworld you harden yourself.
 		Increases total armour by %d%% + 10 and spellpower by %d.]], [[从恶魔家乡玛·洛克中学习，强化自身。
-		增加 10 + %d%% 总护甲值 ，获得 %d 法术强度。]], "tformat")
+		增加 10 + %d%% 总护甲值，获得 %d 法术强度。]], "tformat")
 t("Demonic Madness", "疯狂旋转", "talent name")
 t([[You spin around madly with your shield, bashing all those around you for %d%% shield damage as darkness, confusing your foes for %d turns.
 		At level 4 you also automatically block at the end.]], [[你疯狂旋转你的盾牌，攻击周围生物，造成 %d%% 暗影盾牌伤害并使其混乱 %d 回合。
@@ -1151,7 +1151,7 @@ t([[You spin around madly with your shield, bashing all those around you for %d%
 t("Blighted Shield", "枯萎之盾", "talent name")
 t([[Your shield is infused with a powerful blight. Anytime you block and apply a counterstrike effect the target is also afflicted by a curse of impotence.
 		Cursed creatures have all their damage decreased by %d%% for 5 turns.
-		The effects will improve with your Spellpower.]], [[你的盾牌充满强大的枯萎能量。每次你格挡并附加反击状态时，目标将被虚弱诅咒感染， 5 回合内降低 %d%% 伤害。
+		The effects will improve with your Spellpower.]], [[你的盾牌充满强大的枯萎能量。每次你格挡并附加反击状态时，目标将被虚弱诅咒感染，5 回合内降低 %d%% 伤害。
 		效果受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -1233,7 +1233,7 @@ t("Select the victim:", "选择受害者：", "logPlayer")
 t([[Using demonic forces you create a link of pain from a source creature to a victim for %d turns.
 		Each time the source creature takes damage the victim takes %d%% of the damage.
 		If the victim dies from the effect you gain a burst of energy, reducing all remaining cooldowns by 1.]], [[使用恶魔之力，你在源生物与牺牲生物间构造痛苦链接，持续 %d 回合。
-		每次源生物受到伤害时， %d%% 伤害由牺牲生物承受。
+		每次源生物受到伤害时，%d%% 伤害由牺牲生物承受。
 		当牺牲生物因此效果死亡时，你将获得能量，减少所有技能冷却时间 1 回合。]], "tformat")
 t("Demon Horns", "恶魔之角", "talent name")
 t("You require a weapon and a shield to use this talent.", "你需要一把武器一个盾牌来施展这个技能。", "logPlayer")
@@ -1389,16 +1389,16 @@ t([[Your body overflows with the power of the Fearscape, turning you into a powe
 		-Incinerating Blows: Increases chance of bonus damage to %d%%.
 		-Fearfeast: Gain %0.1f vim per stack.
 		-Maw of Urh'rok: Increases cone width by %d degrees.]], [[恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。
-	变身期间，体力恢复和物理强度增加 %d ，缴械和震慑抗性增加 %d%%。
+	变身期间，体力恢复和物理强度增加 %d，缴械和震慑抗性增加 %d%%。
 	物理强度、体力恢复和状态抗性加值受法术强度加成。
 	变身期间，其他技能也受到强化：
-	汲魂痛击：冷却时间减少 %d 。
+	汲魂痛击：冷却时间减少 %d。
 	舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。
-	歼灭挥斩：增加半径 %d 。
+	歼灭挥斩：增加半径 %d。
 	锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。
 	焚尽强击：增加额外伤害几率至 %d%%。
 	恐惧盛宴：每汲取一层叠加的恐惧，获得 %0.1f 点活力。
-	乌鲁洛克之口：角度增加 %d 。]], "tformat")
+	乌鲁洛克之口：角度增加 %d。]], "tformat")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/talents/misc/races.lua"
@@ -1411,7 +1411,7 @@ t("You must have an empty space to teleport to.", "你必须寻找一片空地�
 t([[Hasten yourself out of phase, teleporting you to a specific location up to %d spaces away.
 		You can activate this talent up to twice within the same turn, but the second activation will not be instant.
 		Afterwards you stay out of phase for 5 turns. In this state your defense is increased by %d and all your resistances by %d%%.
-		The bonus will increase with your Willpower.]], [[加速自身，以至于脱离空间，传送半径 %d 。
+		The bonus will increase with your Willpower.]], [[加速自身，以至于脱离空间，传送半径 %d。
 		你在同一回合内至多连用两次该技能，且第二次使用会消耗时间。
 		之后，你停留在相位外 5 回合，闪避增加 %d , 全体抗性增加 %d%%。
 		效果受意志加成。]], "tformat")
@@ -1622,7 +1622,7 @@ t("The darkness within #target# subsides.", "#target#体内的黑暗消退了。
 t("-Blood Pact", "-鲜血契约", "_t")
 t("cold", "寒冷", "effect subtype")
 t("Blackice", "黑冰", "_t")
-t("You have %d charges.", "叠加次数：%d 。", "tformat")
+t("You have %d charges.", "叠加次数：%d。", "tformat")
 t("Fire and physical resistance reduced by %d%%.", "火焰和物理抗性下降%d%%。", "tformat")
 t("Fire Haven", "火焰庇护", "_t")
 t("The target is surrounded by a fire haven, granting 40% fire damage affinity but -15% to blight resistance.", "目标被火焰庇护围绕，获得 40% 火焰伤害吸收，但减少 15% 枯萎抗性。", "_t")
@@ -1833,7 +1833,7 @@ As you recover, and your platform of searing earth splits from the main continen
 ]], [[你好，#LIGHT_GREEN#@name@#WHITE#。
 你已经不太记得来到这片漂浮在虚空中的燃烧大陆之前的记忆了。你曾经帮助过恶魔，欢欣着参与他们的实验，以打破某种阻止恶魔正义复仇的无形屏障。
 
-你被你的 ' 主人 ' 带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的 ' 主人 ' ，同时你也被冲击波击飞。
+你被你的 ' 主人 ' 带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的 ' 主人 '，同时你也被冲击波击飞。
 
 当你醒来后，你发现你身处一处和主大陆分离的焦土，而你旧时的记忆渐渐涌来。你立时惊醒——恶魔们要毁灭你的故乡！
 
@@ -1865,7 +1865,7 @@ Vim is the life force of all beings. It does not regenerate, and can only be sto
 
 也有一些人成功逃脱了恶魔的控制，选择追随自己的渴望与意志。
 
-你打败了无数的恶魔，掌握了他们本质的运作，见证了如何束缚恶魔为你所用，现在在你创建人物时可以选择新的职业 #LIGHT_GREEN#恶魔使者#WHITE# 。
+你打败了无数的恶魔，掌握了他们本质的运作，见证了如何束缚恶魔为你所用，现在在你创建人物时可以选择新的职业 #LIGHT_GREEN#恶魔使者#WHITE#。
 
 堕落系是施法职业，能使用魔法攻击敌人。
 职业特点：#YELLOW#
@@ -1919,7 +1919,7 @@ Race features:#YELLOW#
 ]], [[魔化精灵并不是一个真正的种族，他们曾是永恒精灵，而被恶魔抓去，变为末日的使者。
 恶魔空间的烈火和严格训练磨砺了他们抵御痛苦、施展痛苦的强大能力。
 
-你已经终结了从恶魔家乡玛·洛克来的仅有的那三位探险者。现在，恶魔们将无法了解到有关埃亚尔大陆的真相， #LIGHT_GREEN#魔化精灵#WHITE# 应运而生。
+你已经终结了从恶魔家乡玛·洛克来的仅有的那三位探险者。现在，恶魔们将无法了解到有关埃亚尔大陆的真相，#LIGHT_GREEN#魔化精灵#WHITE# 应运而生。
 
 种族特点 :#YELLOW#
 - 使用加速技能，瞬间穿梭空间

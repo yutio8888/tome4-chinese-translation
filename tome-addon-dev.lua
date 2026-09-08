@@ -27,10 +27,10 @@ Current occurance: %s (from section %s)
 t("Success", "成功", "_t")
 t([[Translation text checked.
 Logs written to %s]], [[已检查翻译文件。
-日志目录： %s]], "tformat")
+日志目录：%s]], "tformat")
 t([[Translation text rearranged.
 Logs written to %s]], [[翻译文件编排完成。
-日志目录： %s]], "tformat")
+日志目录：%s]], "tformat")
 -- untranslated text
 --[==[
 t("\
@@ -92,7 +92,7 @@ t([[Addon archive created:
 %s
 ]], "_t")
 t("Registering new addon", "正在注册新插件", "_t")
-t("Addon init.lua must contain a tags table, i.e: tags={'foo', 'bar'}", "插件init.lua必须包含tags表字段，例： tags={'foo', 'bar'}", "_t")
+t("Addon init.lua must contain a tags table, i.e: tags={'foo', 'bar'}", "插件init.lua必须包含tags表字段，例：tags={'foo', 'bar'}", "_t")
 t("Addon init.lua must contain a description field", "插件init.lua必须包含description字段", "_t")
 t("Addon: %s", "插件: %s", "tformat")
 t("Addon #LIGHT_GREEN#%s#LAST# registered. You may now upload a version for it.", "插件 #LIGHT_GREEN#%s#LAST#已注册。你可以开始上传了。", "tformat")
@@ -184,8 +184,7 @@ Newly created addon is stored in %s]], [[插件 %s 创建成功
 插件存储位置 %s]], "tformat")
 t("Success", "成功", "_t")
 t("\
-ToME4 is about to relaunch and change locale to %s, proceed?", "\
-ToME4 即将重启并切换语言到 %s ，确定？", "tformat")
+ToME4 is about to relaunch and change locale to %s, proceed?", "\nToME4 即将重启并切换语言到 %s，确定？", "tformat")
 -- untranslated text
 --[==[
 t("", "", "_t")
