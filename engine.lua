@@ -780,8 +780,8 @@ t("", "", "_t")
 section "engine/engine/dialogs/ShowErrorStack.lua"
 
 t("Lua Error", "Lua脚本错误", "_t")
-t("If you already reported that error, you do not have to do it again (unless you feel the situation is different).", "如果你已经汇报过了这个错误，你不需要再次进行汇报。(除非你认为这一情况和之前有所不同)。", "_t")
-t("You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different).", "你 #LIGHT_GREEN#已经汇报过了#WHITE# 这个错误，你不需要再次进行汇报。(除非你认为这一情况和之前有所不同)。", "_t")
+t("If you already reported that error, you do not have to do it again (unless you feel the situation is different).", "如果你已经汇报过了这个错误，你不需要再次进行汇报(除非你认为这一情况和之前有所不同)。", "_t")
+t("You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different).", "你 #LIGHT_GREEN#已经汇报过了#WHITE# 这个错误，你不需要再次进行汇报(除非你认为这一情况和之前有所不同)。", "_t")
 t("You have already got this error but #LIGHT_RED#never reported#WHITE# it, please do.", "你以前遇到过这个错误，但你#LIGHT_RED#还没有汇报过#WHITE#这个错误，请汇报这个错误。", "_t")
 t("You have #LIGHT_RED#never seen#WHITE# that error, please report it.", "你之前#LIGHT_RED#从未遇到过#WHITE#这个错误，请汇报这个错误。", "_t")
 t([[#{bold}#Oh my! It seems there was an error!
@@ -905,7 +905,7 @@ t("Use Talents: ", "使用技能：", "tformat")
 t([[You can bind a talent to a hotkey be pressing the corresponding hotkey while selecting a talent.
 Check out the keybinding screen in the game menu to bind hotkeys to a key (default is 1-0 plus control or shift).
 ]], [[你可以把技能绑定到一个快捷键。方法是选择一个技能，然后按下对应的快捷键。
-请确认游戏菜单中的快捷键绑定界面，将快捷键绑定到键盘按键。(默认绑定位置是1-0+Ctrl/Shift键)。
+请确认游戏菜单中的快捷键绑定界面，将快捷键绑定到键盘按键(默认绑定位置是1-0+Ctrl/Shift键)。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("Status", "状态", "_t")
@@ -1834,7 +1834,7 @@ t([[#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#
 #LIGHT_UMBER#A ton#WHITE# of artifacts, lore, events... 
 
 ]], [[#{bold}##GOLD#禁忌邪教 - 游戏扩展包#LAST##{normal}#
-#{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，进入了疯狂之中，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#
+#{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，神智也部分失常，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#新职业：#WHITE# 扭动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
@@ -1842,8 +1842,8 @@ t([[#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#
 #LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
 #LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
 #LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路(不要问我你是怎么*进来*的)，探索神秘的出口，以及更多奇异的，充满触手的地图！
-#LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢灼眼恐魔吗？你一定会喜欢上灼热恐魔的！还有虚空蠕虫，还有熵之碎片，还有其他更多怪物！
-#LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个悠闲的寄生兽吧！
+#LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢光芒恐魔吗？你一定会喜欢上灼光恐魔的！还有彼世之门，还有熵之碎片，还有其他更多怪物！
+#LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个舒适惬意的恐魔吧！
 #LIGHT_UMBER#大量#WHITE# 全新神器、手札、事件……
 
 ]], "_t")
