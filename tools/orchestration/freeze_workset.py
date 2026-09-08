@@ -9,6 +9,8 @@
   3. interface 混入归属 interface_mixin_verification（extractor 把 interface 字面量记到引入方）
   4. `.always_merge` 跨模块键 always_merge_locale_verification（上游 zh_hans locale 定义的
      跨模块专名/术语；catalog 记 normalized_path=engine.lua、section=".always_merge"）
+  5. 上游 locale 的历史遗留条目 legacy_locale_entry_verification（locale 在该 section 下以
+     `-- old translated text` 标注保留，固定源码已无对应代码字面量）
 另注：engine.lua 的 section 也可能是 DLC 路径（如 tome-cults/...），此时按 section 前缀
 解析到 DLC 根，而不是按 normalized_path。
 详见 docs/baseline-batch-runbook-2026-09-06.md。
@@ -170,6 +172,35 @@ def main():
                     'status': 'confirmed',
                 }
                 hits = amlines
+        legacy = None
+        if not hits and pinned and snap['normalized_path'] == 'engine.lua':
+            # 上游 locale 把当前源码已无字面量的历史条目留在对应 section 下，
+            # 并以 `-- old translated text` 标注。按该标注归属，不算未命中。
+            lpath = ENGINE_ROOT / ALWAYS_MERGE_LOCALE
+            llines = lpath.read_bytes().decode('utf-8').split('\n')
+            want_section = f'section "{snap["section"]}"'
+            in_section, marker = False, None
+            for i, ln in enumerate(llines, 1):
+                if ln.startswith('section "'):
+                    in_section = (ln.strip() == want_section)
+                    marker = None
+                    continue
+                if not in_section:
+                    continue
+                if ln.strip() == '-- old translated text':
+                    marker = i
+                if ln.startswith(f't("{src}",') and marker is not None:
+                    legacy = {
+                        'algorithm': 'legacy-locale-entry-attribution/1',
+                        'locale_marker_line': marker,
+                        'locale_public_source_path': ALWAYS_MERGE_LOCALE,
+                        'locale_section': snap['section'],
+                        'locale_sha256': hashlib.sha256(lpath.read_bytes()).hexdigest(),
+                        'rule': 'upstream locale keeps the entry under "-- old translated text"; the fixed source no longer contains the literal',
+                        'source_lines': [i],
+                        'status': 'confirmed',
+                    }
+                    break
         row = {
             'args_order': snap.get('risk', {}).get('args_order'),
             'component': comp,
@@ -189,6 +220,11 @@ def main():
             row['interface_mixin_verification'] = mixin
             row['matching_literal_lines'] = None
             row['verification_status'] = 'confirmed'
+        if legacy is not None:
+            row['legacy_locale_entry_verification'] = legacy
+            row['literal_source_match'] = False
+            row['matching_literal_lines'] = None
+            row['verification_status'] = 'confirmed'
         if always_merge is not None:
             row['always_merge_locale_verification'] = always_merge
             row['verification_status'] = 'confirmed'
@@ -205,7 +241,8 @@ def main():
         entries.append(snap)
     miss = [v for v in verifs if not v['literal_source_match']
             and 'host_generated_key_verification' not in v
-            and 'interface_mixin_verification' not in v]
+            and 'interface_mixin_verification' not in v
+            and 'legacy_locale_entry_verification' not in v]
     out = {
         'base_commit': cp['base_commit'],
         'batch_id': batch,
