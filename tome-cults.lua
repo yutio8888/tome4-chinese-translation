@@ -577,7 +577,7 @@ t("The relentless hunter. It never gives up, never surrenders.", "不息的狩�
 section "tome-cults/data/general/npcs/horror.lua"
 
 t("searing horror", "灼光恐魔", "entity name")
-t("And you thought radiant horrors were bad.", "听说你觉得光芒恐魔还不够厉害？", "_t")
+t("And you thought radiant horrors were bad.", "你还以为光芒恐魔就够糟了呢。", "_t")
 t("#GOLD#The Searing Horror adds a reflective shield to its allies!#LAST#", "#GOLD#灼光恐魔为它的盟友施加了反射护盾！#LAST#", "say")
 t("ravaging entropic rip", "肆虐的熵之裂口", "entity name")
 t("A strange crystal/tear in the fabric of reality. You dare not think how it came to be.", "现实之幔上的一道奇异水晶裂隙。你不敢去想它是如何形成的。", "_t")

@@ -338,8 +338,9 @@ t("Name", "名称", "_t")
 t("Character Creation: %s", "创建角色：%s", "tformat")
 t([[Keyboard: #00FF00#up key/down key#FFFFFF# to select an option; #00FF00#Enter#FFFFFF# to accept; #00FF00#Backspace#FFFFFF# to go back.
 Mouse: #00FF00#Left click#FFFFFF# to accept; #00FF00#right click#FFFFFF# to go back.
-]], [[键盘：#00FF00#上/下键#FFFFFF#选择选项，#00FF00#回车#FFFFFF#键确定;#00FF00#退格#FFFFFF#键返回。
-鼠标：#00FF00#左键#FFFFFF#接受，#00FF00#右键#FFFFFF#返回。]], "_t")
+]], [[键盘：#00FF00#上/下键#FFFFFF#选择选项，#00FF00#回车#FFFFFF#键确定，#00FF00#退格#FFFFFF#键返回。
+鼠标：#00FF00#左键#FFFFFF#确定，#00FF00#右键#FFFFFF#返回。
+]], "_t")
 t("Random", "随机", "_t")
 t("Quick Birth", "快速角色生成", "_t")
 t("Do you want to recreate the same character?", "你想要以同一角色重新生成吗？", "_t")
@@ -1161,7 +1162,7 @@ t("#{bold}##GOLD#Non Immediate#WHITE##{normal}#: This events adds new content th
 t("#{bold}##GOLD#Once per Character#WHITE##{normal}#: This event can only be received #{bold}#once per character#{normal}#. Usualy because it adds a new zone or effect to the game that would not make sense to duplicate.", "#{bold}##GOLD#每角色限一次#WHITE##{normal}#：这个事件 #{bold}#每名角色只能接收一次#{normal}#. 通常是因为它添加了新地城或者其他游戏内不能重复添加的效果。", "_t")
 t([[#{bold}##GOLD#Shimmer Pack#WHITE##{normal}#: Once purchased the game will automatically install the shimmer pack to your game and enable it for your current character too (you will still need to use the Mirror of Reflection to switch them on).
 #LIGHT_GREEN#Bonus perk:#LAST# purchasing any shimmer pack will also give your characters a portable Mirror of Reflection to be able to change your appearance anywhere, anytime!]], [[#{bold}##GOLD#时装包#WHITE##{normal}#：购买后游戏会自动安装时装包，同时为当前角色自动开启。仍然需要使用反射之镜来切换。
-#LIGHT_GREEN#额外特效:#LAST# 购买任何时装包后，你的角色自动获得便携式反射之镜，可以随时随地切换时装！]], "_t")
+#LIGHT_GREEN#额外福利：#LAST# 购买任何时装包后，你的角色自动获得便携式反射之镜，可以随时随地切换时装！]], "_t")
 t("#{bold}##GOLD#UI Pack#WHITE##{normal}#: Once purchased the game will automatically install the UI pack to your game.", "#{bold}##GOLD#UI 组合包#WHITE##{normal}#： 购买后游戏会自动安装UI组合包。", "_t")
 t("#{bold}##GOLD#Vault Space#WHITE##{normal}#: Once purchased your vault space is permanently increased.", "#{bold}##GOLD#仓库空间#WHITE##{normal}#：购买后，你的共享仓库大小会永久增加。", "_t")
 
