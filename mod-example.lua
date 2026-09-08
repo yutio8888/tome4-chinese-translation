@@ -27,7 +27,7 @@ t("NB: %d", "NB: %d", "log")
 section "mod-example/class/Player.lua"
 
 t("taken damage", "受到伤害", "_t")
-t("LOW HEALTH!", "生命值低!", "_t")
+t("LOW HEALTH!", "生命值低！", "_t")
 t("#00ff00#Talent %s is ready to use.", "#00ff00#技能%s已经可以使用了。", "log")
 t("LEVEL UP!", "升级了！", "_t")
 -- untranslated text
@@ -46,7 +46,7 @@ t("Acid-maniac", "狂酸使", "birth descriptor name")
 ------------------------------------------------
 section "mod-example/data/damage_types.lua"
 
-t("Kill!", "击杀!", "_t")
+t("Kill!", "击杀！", "_t")
 -- untranslated text
 --[==[
 t("%s hits %s for %s%0.2f %s damage#LAST#.", "%s hits %s for %s%0.2f %s damage#LAST#.", "logSeen")

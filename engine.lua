@@ -392,7 +392,7 @@ t("Missing!", "不见了！", "_t")
 ------------------------------------------------
 section "engine/engine/HotkeysIconsDisplay.lua"
 
-t("Unknown!", "未知!", "_t")
+t("Unknown!", "未知！", "_t")
 t("Missing!", "不见了！", "_t")
 
 ------------------------------------------------
@@ -1128,7 +1128,7 @@ t("Cart is empty!", "购物车是空的！", "_t")
 t([[In-game browser is inoperant or disabled, impossible to auto-install shimmer pack.
 Please go to https://te4.org/ to download it manually.]], [[无法启动游戏内浏览器，因此无法自动安装时装包。
 请前往 https://te4.org/ 手动下载。]], "_t")
-t("Shimmer pack installed!", "时装包安装成功!", "_t")
+t("Shimmer pack installed!", "时装包安装成功！", "_t")
 t([[Could not dynamically link addon to current character, maybe the installation weng wrong.
 You can fix that by manually downloading the addon from https://te4.org/ and placing it in game/addons/ folder.]], [[无法自动将插件链接至当前角色，可能安装失败了。
 你可以在 https://te4.org/ 手动下载该插件并放置于 game/addons/ 目录下来解决这个问题。]], "_t")
@@ -1161,7 +1161,7 @@ t("#{bold}##GOLD#Non Immediate#WHITE##{normal}#: This events adds new content th
 t("#{bold}##GOLD#Once per Character#WHITE##{normal}#: This event can only be received #{bold}#once per character#{normal}#. Usualy because it adds a new zone or effect to the game that would not make sense to duplicate.", "#{bold}##GOLD#每角色限一次#WHITE##{normal}#：这个事件 #{bold}#每名角色只能接收一次#{normal}#. 通常是因为它添加了新地城或者其他游戏内不能重复添加的效果。", "_t")
 t([[#{bold}##GOLD#Shimmer Pack#WHITE##{normal}#: Once purchased the game will automatically install the shimmer pack to your game and enable it for your current character too (you will still need to use the Mirror of Reflection to switch them on).
 #LIGHT_GREEN#Bonus perk:#LAST# purchasing any shimmer pack will also give your characters a portable Mirror of Reflection to be able to change your appearance anywhere, anytime!]], [[#{bold}##GOLD#时装包#WHITE##{normal}#：购买后游戏会自动安装时装包，同时为当前角色自动开启。仍然需要使用反射之镜来切换。
-#LIGHT_GREEN#额外特效:#LAST# 购买任何时装包后，你的角色自动获得便携式反射之镜，可以随时随地切换时装!]], "_t")
+#LIGHT_GREEN#额外特效:#LAST# 购买任何时装包后，你的角色自动获得便携式反射之镜，可以随时随地切换时装！]], "_t")
 t("#{bold}##GOLD#UI Pack#WHITE##{normal}#: Once purchased the game will automatically install the UI pack to your game.", "#{bold}##GOLD#UI 组合包#WHITE##{normal}#： 购买后游戏会自动安装UI组合包。", "_t")
 t("#{bold}##GOLD#Vault Space#WHITE##{normal}#: Once purchased your vault space is permanently increased.", "#{bold}##GOLD#仓库空间#WHITE##{normal}#：购买后，你的共享仓库大小会永久增加。", "_t")
 
@@ -1226,7 +1226,7 @@ section "engine/engine/interface/ActorTalents.lua"
 
 t("%s is still on cooldown for %d turns.", "%s仍在冷却中，还需%d回合。", "logPlayer")
 t("Talent Use Confirmation", "技能使用确认", "_t")
-t("Use %s?", "使用%s?", "tformat")
+t("Use %s?", "使用%s？", "tformat")
 t("Cancel", "取消", "_t")
 t("Continue", "继续", "_t")
 t("unknown", "未知", "entity name")
@@ -1321,9 +1321,9 @@ t("Ran for %d turns (stop reason: %s).", "奔跑了%d回合（中断原因：%s�
 ------------------------------------------------
 section "engine/engine/interface/WorldAchievements.lua"
 
-t("#%s#Personal New Achievement: %s!", "#%s#个人新成就：%s!", "log")
+t("#%s#Personal New Achievement: %s!", "#%s#个人新成就：%s！", "log")
 t("Personal New Achievement: #%s#%s", "个人新成就： #%s#%s", "tformat")
-t("#%s#New Achievement: %s!", "#%s#新成就：%s!", "log")
+t("#%s#New Achievement: %s!", "#%s#新成就：%s！", "log")
 t("New Achievement: #%s#%s", "新成就： #%s#%s", "tformat")
 t("New Achievement", "新成就", "_t")
 
@@ -1389,7 +1389,7 @@ t("Confirm module install/update", "确认模组安装/更新", "_t")
 t("Are you sure you want to install this module: #LIGHT_GREEN##{bold}#%s#{normal}##LAST#?", "你确认要安装这个模组吗： #LIGHT_GREEN##{bold}#%s#{normal}##LAST# ？", "tformat")
 t("Addon installed!", "插件安装完成！", "_t")
 t("Addon installation successful. New addons are only active for new characters.", "插件安装成功。新的插件只会在新的游戏角色生效。", "_t")
-t("Game installed!", "游戏安装完成!", "_t")
+t("Game installed!", "游戏安装完成！", "_t")
 t("Game installation successful. Have fun!", "游戏安装完成。玩的开心！", "_t")
 
 ------------------------------------------------
@@ -1495,8 +1495,8 @@ This is all optional, you are not forced to use this feature at all, but the dev
 马基·埃亚尔的传说是一个#{bold}#单人游戏#{normal}#，但也提供了丰富的在线功能，可以增强你的游戏体验，并让你和游戏社区建立联系：
 * 在多台电脑上游玩，而不需要复制游戏解锁和成就。
 * 与其他玩家在游戏内聊天，寻求建议，分享难忘的时刻…
-* 记录你的击杀数量，死亡次数，以及最喜欢的职业…
-* 统计你的游戏数据，来记录你的游戏风格
+* 记录你的击杀数量，死亡次数，以及玩得最多的职业…
+* 用有趣的统计数据帮你打磨自己的游戏风格
 * 在游戏里直接安装官方扩展包和第三方插件，免去手动安装的麻烦
 * 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/赞助者独享权益
 * 帮助游戏开发者调整游戏平衡，让这个游戏变得更好。
@@ -1534,7 +1534,7 @@ t("Acid-maniac", "狂酸使", "birth descriptor name")
 ------------------------------------------------
 section "engine/modules/boot/data/damage_types.lua"
 
-t("Kill!", "击杀!", "_t")
+t("Kill!", "击杀！", "_t")
 
 ------------------------------------------------
 section "engine/modules/boot/data/general/grids/basic.lua"
@@ -1758,7 +1758,7 @@ t("Really delete #{bold}##GOLD#%s#WHITE##{normal}#", "真的要删除#{bold}##GO
 t("Old game data", "旧版游戏数据", "_t")
 t("No data available for this game version.", "没有当前游戏版本的数据。", "_t")
 t("Downloading old game data: #LIGHT_GREEN#", "正在下载旧版游戏数据： #LIGHT_GREEN#", "_t")
-t("Old game data for %s correctly installed. You can now play.", " %s 的旧版游戏数据已经安装成功了。你可以现在游玩了。", "tformat")
+t("Old game data for %s correctly installed. You can now play.", "%s 的旧版游戏数据已经安装成功了。你可以现在游玩了。", "tformat")
 t("Failed to install.", "安装失败。", "_t")
 
 ------------------------------------------------
@@ -1995,7 +1995,7 @@ section "engine/modules/boot/init.lua"
 
 t("Tales of Maj'Eyal Main Menu", "马基·埃亚尔的传说 主菜单", "init.lua long_name")
 t([[Bootmenu!
-]], [[启动菜单!
+]], [[启动菜单！
 ]], "init.lua description")
 
 ------------------------------------------------

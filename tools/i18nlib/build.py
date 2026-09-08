@@ -18,7 +18,9 @@ from .semantics import runtime_semantic_signature
 def _lua_string(value: str) -> str:
     if "\n" in value and not value.startswith("\n"):
         equals = ""
-        while f"]{equals}]" in value:
+        # 闭合串既不能出现在内容里，也不能与内容结尾拼接出更早的闭合点：
+        # 内容以 "]" 结尾时 "value]]" 会让 Lua 在倒数第二个字符处提前闭合。
+        while f"]{equals}]" in value or value.endswith(f"]{equals}"):
             equals += "="
         return f"[{equals}[{value}]{equals}]"
     escaped: list[str] = ['"']

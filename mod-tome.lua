@@ -133,7 +133,7 @@ t("male", "男性", "_t")
 t("Rank: ", "层级：", "_t")
 t("Level: unknown", "等级：未知", "_t")
 t("Level: %d", "等级：%d", "tformat")
-t("INVULNERABLE!", "无敌!", "_t")
+t("INVULNERABLE!", "无敌！", "_t")
 t("HP: %d (%d%%) #GREEN#+%0.2f#LAST#", "生命值：%d (%d%%) #GREEN#+%0.2f#LAST#", "tformat")
 t("\
 Mana:  %s%d / %d#LAST#", "\
@@ -180,8 +180,8 @@ t("#LIGHT_GREEN#%d healing#LAST#", "#LIGHT_GREEN#%d 治疗#LAST#", "tformat")
 t("#STEEL_BLUE#(%d shifted)#LAST#", "#STEEL_BLUE#(%d 相位切换减伤)#LAST#", "tformat")
 t("#SLATE#(%d absorbed)#LAST#", "#SLATE#(%d 护盾吸收)#LAST#", "tformat")
 t("%s unleashes the stored damage in retribution!", "%s释放累积的伤害进行报复性攻击！", "logSeen")
-t("#DARK_GREEN##Source# shares damage with %s oozes!", "#DARK_GREEN##Source#和%s软泥怪平分伤害!", "delayedLogMessage")
-t("#CRIMSON##Source# teleports some damage to #Target#!", "#CRIMSON##Source#将部分伤害转移给#Target#!", "delayedLogMessage")
+t("#DARK_GREEN##Source# shares damage with %s oozes!", "#DARK_GREEN##Source#和%s软泥怪平分伤害！", "delayedLogMessage")
+t("#CRIMSON##Source# teleports some damage to #Target#!", "#CRIMSON##Source#将部分伤害转移给#Target#！", "delayedLogMessage")
 t("#CRIMSON#(%d teleported)#LAST#", "#CRIMSON#(%d 被传送)#LAST#", "tformat")
 t("#CRIMSON#%d teleported#LAST#", "#CRIMSON#%d 被传送#LAST#", "tformat")
 t("#STEEL_BLUE#(%d to time)#LAST#", "#STEEL_BLUE#(%d 时间盾吸收)#LAST#", "tformat")
@@ -207,7 +207,7 @@ t("to psi", "到灵能值", "_t")
 t("#YELLOW#%s has been healed by a blast of positive energy!#LAST#", "#YELLOW#%s被一股正能量治疗！#LAST#", "logSeen")
 t("%s fades for a moment and then reforms whole again!", "%s消失了一阵之后又完好无损地出现了！", "logSeen")
 t("#CRIMSON##Source# leeches life from #Target#!", "#CRIMSON##Source#从#Target#身上吸取生命！", "delayedLogMessage")
-t("#CRIMSON##Source# steals life from #Target#!", "#CRIMSON##Source#从#Target#处偷取生命!", "delayedLogMessage")
+t("#CRIMSON##Source# steals life from #Target#!", "#CRIMSON##Source#从#Target#处偷取生命！", "delayedLogMessage")
 t("#SLATE#(%d to stone)#LAST#", "#SLATE#(%d 转化为石头)#LAST#", "tformat")
 t("#OLIVE_DRAB##Source# redirects damage from #Target# to %s!#LAST#", "#OLIVE_DRAB##Source#将来自#Target#的伤害转移到%s！#LAST#", "delayedLogMessage")
 t("#OLIVE_DRAB#(%d redirected)#LAST#", "#OLIVE_DRAB#(%d 伤害转移)#LAST#", "tformat")
@@ -215,7 +215,7 @@ t("#OLIVE_DRAB#%d redirected#LAST#", "#OLIVE_DRAB#%d 伤害转移#LAST#", "tform
 t("#CRIMSON##Source# leeches energies from #Target#!", "#CRIMSON##Source#从#Target#身上吸取能量！", "delayedLogMessage")
 t("#RED#(%d refused)#LAST#", "#RED#(%d 伤害无视)#LAST#", "tformat")
 t("#RED##Source# is unstoppable!", "#RED##Source#势不可挡！", "delayedLogMessage")
-t("RESURRECT!", "复活!", "_t")
+t("RESURRECT!", "复活！", "_t")
 t("You feel a surge of power as a powerful creature falls nearby.", "你感受到一股力量的涌动，附近有个强大的生物倒下。", "logPlayer")
 t("%s feeds you hate from its latest victim. (+%d hate)", "%s 从它最近的受害者身上为你提供仇恨。（+%d 仇恨）", "logPlayer")
 t("#LIGHT_RED#The cease to exist spell fizzles and cancels, leaving the timeline intact.", "#LIGHT_RED#存在抹杀技能失败并取消，时间线保持不变。", "logPlayer")
@@ -245,9 +245,9 @@ t("%s has %s to spend. %s", "%s有 %s可以使用。%s", "log")
 t("#AQUAMARINE#You have gained one more life (%d remaining).", "#AQUAMARINE#你额外获得了一条命（剩余生命数：%d）", "logPlayer")
 t("#FF0000#You carry too much--you are encumbered!", "#FF0000#你拿了太多东西——超重了！", "logPlayer")
 t("#FF0000#Drop some of your items.", "#FF0000#丢弃一些东西。", "logPlayer")
-t("+ENCUMBERED!", "+超重!", "_t")
+t("+ENCUMBERED!", "+超重！", "_t")
 t("#00FF00#You are no longer encumbered.", "#00FF00#你不再超重。", "logPlayer")
-t("-ENCUMBERED!", "-超重!", "_t")
+t("-ENCUMBERED!", "-超重！", "_t")
 t("You cannot switch equipment while sleeping!", "你不能在睡眠中切换装备！", "logPlayer")
 t("unarmed", "徒手", "_t")
 t("%s warps space-time to equip: %s.", "%s扭曲空间，切换武器至：%s 。", "logSeen")
@@ -259,7 +259,7 @@ t("#STEEL_BLUE#Casting %s.", "#STEEL_BLUE#释放%s。", "logPlayer")
 t("#STEEL_BLUE#Targeting %s", "#STEEL_BLUE#瞄准%s", "saySimple")
 t("#STEEL_BLUE#You've moved to another time thread.", "#STEEL_BLUE#你移动到了另一条时间线", "logPlayer")
 t("#LIGHT_RED#You lose control and unleash an anomaly!", "#LIGHT_RED#你失去控制产生了异常！", "logPlayer")
-t("#LIGHT_RED#You feel the edges of spacetime begin to ripple and bend!", "#LIGHT_RED#你感到时空的边际开始弯曲振荡。", "logPlayer")
+t("#LIGHT_RED#You feel the edges of spacetime begin to ripple and bend!", "#LIGHT_RED#你感到时空的边际开始弯曲振荡！", "logPlayer")
 t("#LIGHT_BLUE#Spacetime feels more stable.", "#LIGHT_BLUE#时空变得更加稳定。", "logPlayer")
 t("#LIGHT_RED#Spacetime fights against your control!", "#LIGHT_RED#时空在抗拒你的控制！", "logPlayer")
 t("#LIGHT_BLUE#Spacetime has calmed...  somewhat.", "#LIGHT_BLUE#时空稍微稳定了些...", "logPlayer")
@@ -285,7 +285,7 @@ t("%s's %s has been disrupted by #ORCHID#anti-nature forces#LAST#!", "%s的%s被
 t("%s's %s has been disrupted by #ORCHID#anti-psionic forces#LAST#!", "%s的%s被#ORCHID#反灵能力量#LAST#打断了！", "logSeen")
 t("%s is confused and fails to use %s.", "%s陷入混乱使用%s时失败。", "logSeen")
 t("%s fails to use %s.", "%s使用%s时失败。", "logSeen")
-t("%s fumbles and fails to use %s, injuring %s!", "%s使用%s失败,还弄伤了%s!", "logSeen")
+t("%s fumbles and fails to use %s, injuring %s!", "%s使用%s失败，还弄伤了%s！", "logSeen")
 t("%s's %s is interrupted by the shot!", "%s的%s被射击打断！", "logSeen")
 t("%s %s #{bold}##ORANGE#%s#LAST#.#{normal}#", "%s%s#{bold}##ORANGE#%s#LAST#。#{normal}#", "logSeen")
 t("deactivates", "关闭了", "_t")
@@ -354,8 +354,8 @@ t("#ORANGE#%s shrugs off %s '%s'!", "#ORANGE#%s豁免了%s“%s”！", "logComb
 t("#Target#'s", "#Target#的", "_t")
 t("the effect", "效果", "_t")
 t("#LIGHT_UMBER#%s resists %s '%s'!", "#LIGHT_UMBER#%s抵抗了%s“%s”！", "logCombat")
-t("but fumbles!", "但是失败了!", "_t")
-t("to the %s!", "到%s!", "tformat")
+t("but fumbles!", "但是失败了！", "_t")
+t("to the %s!", "到%s！", "tformat")
 t("#Source# deflects the projectile from #Target# %s", "#Source#偏移来自#Target#的抛射物%s", "logCombat")
 t("%s reflects the spell!", "%s反射了法术！", "logSeen")
 t("%s ignores the spell!", "%s无视了法术！", "logSeen")
@@ -369,8 +369,8 @@ t("You can not destroy %s.", "你不能摧毁%s。", "logPlayer")
 t("Cancel", "取消", "_t")
 t("Destroy", "摧毁", "_t")
 t("%s drops on the floor: %s.", "%s把%s丢在了地上。", "logSeen")
-t("You cannot change your equipment while sleeping!", "你不能在睡眠中切换装备!", "logPlayer")
-t("You cannot change your equipment!", "你不能切换装备!", "logPlayer")
+t("You cannot change your equipment while sleeping!", "你不能在睡眠中切换装备！", "logPlayer")
+t("You cannot change your equipment!", "你不能切换装备！", "logPlayer")
 t("You had to drop %s due to lack of space.", "由于空间不足，你必须丢下%s。", "logPlayer")
 t("%s - %sEncumbrance %d/%d", "%s-%s负重 %d/%d", "tformat")
 t("You extract %s from %s", "你从%s中提炼了%s。", "logPlayer", {2,1})
@@ -470,9 +470,9 @@ Campaign: %s]], [[%s，%s %s。
 难度：%s / %s
 战役：%s]], "tformat")
 t("#LIGHT_RED#You may not change level so soon after a kill (%d game turns left to wait)!", "#LIGHT_RED#在完成一次杀戮后，你现在不能离开该层！（等待%d回合）", "logPlayer")
-t("#LIGHT_RED#You may not change level without your own body!", "#LIGHT_RED#你只能用自己的身体离开地图!", "logPlayer")
-t("#LIGHT_RED#You may not leave the zone with this character!", "#LIGHT_RED#你不能用这个角色离开地图!", "logPlayer")
-t("#LIGHT_RED#You cannot escape your fate by leaving the level!", "#LIGHT_RED#你不能离开地图以求逃避命运!", "logPlayer")
+t("#LIGHT_RED#You may not change level without your own body!", "#LIGHT_RED#你只能用自己的身体离开地图！", "logPlayer")
+t("#LIGHT_RED#You may not leave the zone with this character!", "#LIGHT_RED#你不能用这个角色离开地图！", "logPlayer")
+t("#LIGHT_RED#You cannot escape your fate by leaving the level!", "#LIGHT_RED#你不能离开地图以求逃避命运！", "logPlayer")
 t("Stay: level %s of %s", "待在：第%s层，%s地图", "tformat")
 t("Keep Trying: level %s of %s", "继续尝试：第%s层，%s地图", "tformat")
 t("Log the problem, Stay: level %s of %s", "记录问题，待在：第%s层，%s地图", "tformat")
@@ -502,7 +502,7 @@ t(" #LIGHT_GREEN#[%0.0f healing]#LAST#", " #LIGHT_GREEN#[%0.0f 治疗]#LAST#", "
 t("#Source# hits #Target# for %s damage.", "#Source#击中#Target#造成%s伤害。", "logMessage")
 t("#Source# receives %s.", "#Source#受到%s。", "logMessage")
 t("#Target# receives %s from #Source#.", "#Target#受到来自#Source#的%s。", "logMessage")
-t("Kill (%d)!", "杀死 (%d)!", "tformat")
+t("Kill (%d)!", "杀死 (%d)！", "tformat")
 t("#{bold}##Source# killed #Target#!#{normal}#", "#{bold}##Source#击杀了#Target#!#{normal}#", "_t")
 t("Showing big healthbars and tactical borders.", "显示大血条+边框", "log")
 t("Showing healthbars only.", "只显示血条信息", "log")
@@ -511,7 +511,7 @@ t("Showing small healthbars and tactical borders.", "显示小血条+边框", "l
 t("You cannot do that on the world map.", "你在世界地图上不能这样做。", "logPlayer")
 t("Run in which direction?", "朝哪个方向跑？", "log")
 t("You may not auto-explore this level.", "你不能自动探索这一层。", "log")
-t("You may not auto-explore with enemies in sight (%s to the %s%s)!", "当有敌人在视野里时，你不能自动探索！ (%s 在 %s方%s)!", "log")
+t("You may not auto-explore with enemies in sight (%s to the %s%s)!", "当有敌人在视野里时，你不能自动探索！ (%s 在 %s方%s)！", "log")
 t("There is nowhere left to explore.", "这一层没有地方可以探索了。", "log")
 t("Hotkey page %d is now displayed.", "当前显示快捷键第%d页。", "log")
 t("You cannot currently leave the level.", "你现在不能离开本层。", "log")
@@ -592,7 +592,7 @@ t("Turns left: #LIGHT_GREEN#%d", "剩余回合: #LIGHT_GREEN#%d", "tformat")
 t("\
 #ORCHID# Rush Hour: %s turns left!\
 ", "\
-#ORCHID#决胜时刻:剩余%s回合!\
+#ORCHID#决胜时刻：剩余%s回合！\
 ", "log")
 t("Proceed to the next Infinite Dungeon level! An exit has been marked on your map.", "前往无尽地下城的下一层！出口已被标记在地图上。", "_t")
 t("Dream Hunter", "梦境猎手", "_t")
@@ -1059,7 +1059,7 @@ t("%s will stay near %s.", "%s 将会待在 %s 身边。", "logPlayer")
 t("%s targets #Target#.", "%s将#Target#设为目标。", "logCombat")
 t("Change name of: %s", "改变名字：%s", "tformat")
 t("Name", "名称", "_t")
-t("%s is dismissed!", "%s 被遣散了!", "log")
+t("%s is dismissed!", "%s 被遣散了！", "log")
 t("#LIGHT_GREEN#You pet your hound! It happily wags its tail back and forth in time!", "#LIGHT_GREEN#你拍了拍你的猎犬！它开心地将尾巴来回摇摆！", "log")
 t("No, we must hurry!", "不行，我们必须得抓紧时间！", "_t")
 t("Ok, but not for long.", "好吧，但时间不要太长。", "_t")
@@ -1080,14 +1080,14 @@ section "mod-tome/class/Player.lua"
 
 t("There is an item here: %s", "发现物品：%s。", "logSeen")
 t("#YELLOW_GREEN#There is %s here (press '<', '>' or right click to use).", "#YELLOW_GREEN#这里有%s(按 '<', '>' 或右键使用)。", "logPlayer")
-t("Level change (%s)!", "地图切换 (%s)!", "tformat")
+t("Level change (%s)!", "地图切换 (%s)！", "tformat")
 t("#FF0000#You carry too much--you are encumbered!", "#FF0000#你拿了太多东西——超重了！", "logPlayer")
 t("#FF0000#Drop some of your items.", "#FF0000#丢弃一些东西。", "logPlayer")
 t("#PINK#Your summoned %s disappears.", "#PINK#你召唤的%s消失了。", "logPlayer")
 t("#LIGHT_RED#LIFE LOST WARNING!", "#LIGHT_RED#生命流失警告！", "say")
 t("Game Turn %d", "游戏回合 %d", "log")
 t("taken damage", "受到伤害", "_t")
-t("LOW HEALTH!", "生命值低!", "_t")
+t("LOW HEALTH!", "生命值低！", "_t")
 t("detrimental status effect", "负面状态效果", "_t")
 t("died", "死亡", "_t")
 t("suffocating", "窒息", "_t")
@@ -1098,8 +1098,8 @@ t("Automatic use of talent %s #DARK_RED#skipped#LAST#: cooldown too low (%d).", 
 t("dialog is displayed", "有开启的对话框", "_t")
 t("hostile spotted to the %s (%s%s)", "在%s有敌对目标(%s%s)", "tformat")
 t(" - offscreen", " - 屏幕外", "_t")
-t("losing breath!", "窒息!", "_t")
-t("losing health!", "生命值下降!", "_t")
+t("losing breath!", "窒息！", "_t")
+t("losing health!", "生命值下降！", "_t")
 t("all resources and life at maximum", "所有资源和生命值已恢复满", "_t")
 t("talent prevented", "有技能阻止你这么做", "_t")
 t("object seen", "看到物品", "_t")
@@ -1134,15 +1134,15 @@ t("", "", "log")
 
 -- old translated text
 t("#LIGHT_GREEN#Accepted quest '%s'!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#接受了任务“%s”！#WHITE#（按 J 键查看任务日志）", "logPlayer")
-t("#LIGHT_GREEN#Accepted quest '%s'!", "#LIGHT_GREEN#接受了任务“%s”!", "saySimple")
+t("#LIGHT_GREEN#Accepted quest '%s'!", "#LIGHT_GREEN#接受了任务“%s”！", "saySimple")
 t("#LIGHT_GREEN#Quest '%s' status updated!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”状态已经更新！#WHITE#（按 J 键查看任务日志）", "logPlayer")
-t("#LIGHT_GREEN#Quest '%s' updated!", "#LIGHT_GREEN#任务“%s”已更新!", "saySimple")
+t("#LIGHT_GREEN#Quest '%s' updated!", "#LIGHT_GREEN#任务“%s”已更新！", "saySimple")
 t("#LIGHT_GREEN#Quest '%s' completed!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按 J 键查看任务日志）", "logPlayer")
-t("#LIGHT_GREEN#Quest '%s' completed!", "#LIGHT_GREEN#任务“%s”已完成!", "saySimple")
+t("#LIGHT_GREEN#Quest '%s' completed!", "#LIGHT_GREEN#任务“%s”已完成！", "saySimple")
 t("#LIGHT_GREEN#Quest '%s' is done!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按 J 键查看任务日志）", "logPlayer")
-t("#LIGHT_GREEN#Quest '%s' done!", "#LIGHT_GREEN#任务“%s”已完成!", "saySimple")
+t("#LIGHT_GREEN#Quest '%s' done!", "#LIGHT_GREEN#任务“%s”已完成！", "saySimple")
 t("#LIGHT_RED#Quest '%s' is failed!#WHITE#(Press 'j' to see the quest log)", "#LIGHT_RED#任务“%s”失败！#WHITE#（按 J 键查看任务日志）", "logPlayer")
-t("#LIGHT_RED#Quest '%s' failed!", "#LIGHT_RED#任务“%s”失败了!", "saySimple")
+t("#LIGHT_RED#Quest '%s' failed!", "#LIGHT_RED#任务“%s”失败了！", "saySimple")
 
 ------------------------------------------------
 section "mod-tome/class/Projectile.lua"
@@ -1216,7 +1216,7 @@ t([[As you begin disarming the trap, you think you may be able to learn how it w
 %s
 ]], "tformat")
 t("not resting", "没有休息", "_t")
-t("You set off the trap!", "你触发了陷阱!", "_t")
+t("You set off the trap!", "你触发了陷阱！", "_t")
 t("You successfully dismantled the trap.", "你成功地拆除了这个陷阱。", "_t")
 t("You were interrupted.", "你被打扰了。", "_t")
 t("Dismantle Carefully", "小心地拆除", "_t")
@@ -1277,28 +1277,28 @@ t("Multi-hued Wyrmic", "七彩龙战士", "_t")
 t("Reaver", "收割者", "_t")
 t("Headless horror", "无头恐魔", "_t")
 t("Ryal the Towering", "高大的瑞尔", "_t")
-t("Boss fight!", "Boss战!", "_t")
-t("Victory!!", "胜利!!", "_t")
+t("Boss fight!", "Boss战！", "_t")
+t("Victory!!", "胜利!！", "_t")
 t("Fryjia the Hailstorm", "冰雹弗里嘉", "_t")
 t("Riala the Crimson", "绯红里娅拉", "_t")
 t("Valfren the Rampage", "狂暴的瓦弗伦", "_t")
 t("%s the %s", "%s %s", "tformat", {2,1})
-t(" appear!!", " 出现了!!", "_t")
-t(" appears!!", " 出现了!!", "_t")
-t("#LIGHT_RED#WARNING! %s appears!!!", "#LIGHT_RED#警告! %s 出现了!!!", "log")
+t(" appear!!", " 出现了!！", "_t")
+t(" appears!!", " 出现了!！", "_t")
+t("#LIGHT_RED#WARNING! %s appears!!!", "#LIGHT_RED#警告! %s 出现了!!！", "log")
 t("The final fight!", "最后一战！", "_t")
 t("Congratulations!", "恭喜", "_t")
 t("Rej the Master of Arena", "竞技场主宰瑞吉", "_t")
-t("#LIGHT_RED#WARNING! Rej Arkatis, the master of the arena, appears!!!", "#LIGHT_RED#警告!竞技场主宰瑞吉·阿卡提斯，出现了!!!", "log")
+t("#LIGHT_RED#WARNING! Rej Arkatis, the master of the arena, appears!!!", "#LIGHT_RED#警告!竞技场主宰瑞吉·阿卡提斯，出现了!!！", "log")
 t("%s the Master of Arena", "竞技场主宰%s", "tformat")
-t("#LIGHT_RED#WARNING! %s, the master of the arena, appears!!!", "#LIGHT_RED#警告! 竞技场主宰%s，出现了!!!", "log")
+t("#LIGHT_RED#WARNING! %s, the master of the arena, appears!!!", "#LIGHT_RED#警告! 竞技场主宰%s，出现了!!！", "log")
 t("OVERKILL", "超杀", "_t")
 t("#LIGHT_GREEN#Your powerful attack completely obliterates #WHITE#%s#LIGHT_GREEN#!", "#LIGHT_GREEN#你强力的攻击将#WHITE#%s#LIGHT_GREEN#完全毁灭！", "log")
-t("#LIGHT_GREEN#The audience cheers!", "#LIGHT_GREEN#观众发出欢呼!", "log")
+t("#LIGHT_GREEN#The audience cheers!", "#LIGHT_GREEN#观众发出欢呼！", "log")
 t("#LIGHT_GREEN#You destroy #WHITE#%s#LIGHT_GREEN# in a single blow!", "#LIGHT_GREEN#你一击秒杀了#WHITE#%s#LIGHT_GREEN#！", "log")
-t("#LIGHT_GREEN#Your score multiplier increases by #WHITE#%d#LIGHT_GREEN#!", "#LIGHT_GREEN#你的分数加成增加了#WHITE#%d#LIGHT_GREEN#!", "log")
-t("#LIGHT_GREEN#Your score multiplier increases by #WHITE#0.1#LIGHT_GREEN#!", "#LIGHT_GREEN#你的分数加成增加了#WHITE#0.1#LIGHT_GREEN#!", "log")
-t("#YELLOW#You defeat an experienced enemy!", "#YELLOW#你杀死了一名老练的敌人!", "log")
+t("#LIGHT_GREEN#Your score multiplier increases by #WHITE#%d#LIGHT_GREEN#!", "#LIGHT_GREEN#你的分数加成增加了#WHITE#%d#LIGHT_GREEN#！", "log")
+t("#LIGHT_GREEN#Your score multiplier increases by #WHITE#0.1#LIGHT_GREEN#!", "#LIGHT_GREEN#你的分数加成增加了#WHITE#0.1#LIGHT_GREEN#！", "log")
+t("#YELLOW#You defeat an experienced enemy!", "#YELLOW#你杀死了一名老练的敌人！", "log")
 -- untranslated text
 --[==[
 t("#LIGHT_RED#%s%s", "#LIGHT_RED#%s%s", "log")
@@ -1344,7 +1344,7 @@ section "mod-tome/class/interface/ActorObjectUse.lua"
 
 t("Activate an object", "使用物品", "_t")
 t("Activate: %s", "使用：%s", "tformat")
-t("%s activates %s %s!", "%s激活了%s%s!", "logSeen")
+t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t("Activate an object.", "使用物品。", "_t")
 t("(unknown object)", "(未知物品)", "_t")
 t([[Use %s:
@@ -1363,7 +1363,7 @@ t("%s", "%s", "logSeen")
 ------------------------------------------------
 section "mod-tome/class/interface/Archery.lua"
 
-t("You need a missile launcher (%s)!", "你需要一件远程投射武器(%s)!", "logPlayer")
+t("You need a missile launcher (%s)!", "你需要一件远程投射武器(%s)！", "logPlayer")
 t("You do not have enough ammo left!", "你没有足够的弹药！", "logPlayer")
 t("#ORCHID#Your %s CANNOT SHOOT (Resource: %s%s#LAST#).", "#ORCHID#你的%s无法射击(资源：%s%s#LAST#).", "logPlayer")
 t("#ORCHID#Target out of range.  Hold <ctrl> to force all weapons to fire at targets out of ranges (%d - %d).", "#ORCHID#目标超出范围。按住<ctrl>来强制所有武器射击超出范围(%d-%d)的目标。", "logPlayer")
@@ -1374,7 +1374,7 @@ t("#{bold}##Source# performs a ranged critical strike against #Target#!#{normal}
 t("#Source# misses #target#.", "#Source#没有命中#target#.", "logCombat")
 t("The siege arrow creates a shockwave!", "攻城矢引发了冲击波！", "logSeen")
 t("You are disarmed!", "你被缴械了！", "logPlayer")
-t("You must wield a ranged weapon (%s)!", "你必须装备一件远程武器(%s)!", "logPlayer")
+t("You must wield a ranged weapon (%s)!", "你必须装备一件远程武器(%s)！", "logPlayer")
 
 ------------------------------------------------
 section "mod-tome/class/interface/Combat.lua"
@@ -1397,7 +1397,7 @@ t("#F53CBE#Your rampage is invigorated by your fierce attack! (+1 duration)", "#
 t("#Source# counter attacks #Target# with %s shield shards!", "#Source#用%s枚盾牌碎片反击了#Target#！", "logCombat")
 t("#{bold}#%s's spell attains critical power!#{normal}#", "#{bold}#%s的法术造成了致命一击！#{normal}#", "logSeen")
 t("#{bold}#%s's mind surges with critical power!#{normal}#", "#{bold}#%s的精神攻击造成了致命一击！#{normal}#", "logSeen")
-t("#Source#'s grapple fails because #Target# is too big!", "#Source#的抓取失败了，因为#Target#体型过大!", "logCombat")
+t("#Source#'s grapple fails because #Target# is too big!", "#Source#的抓取失败了，因为#Target#体型过大！", "logCombat")
 t("%s resists the grapple!", "%s抵抗了抓取！", "logSeen")
 
 ------------------------------------------------
@@ -1457,15 +1457,15 @@ t("the path is blocked", "路被挡住了", "_t")
 section "mod-tome/class/interface/PlayerQuestPopup.lua"
 
 t("#LIGHT_GREEN#Accepted quest '%s'! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#接受了任务“%s”！#WHITE#（按 J 键查看任务日志）", "logPlayer")
-t("#LIGHT_GREEN#Accepted quest '%s'!", "#LIGHT_GREEN#接受了任务“%s”!", "saySimple")
+t("#LIGHT_GREEN#Accepted quest '%s'!", "#LIGHT_GREEN#接受了任务“%s”！", "saySimple")
 t("#LIGHT_GREEN#Quest '%s' status updated! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”状态已经更新！#WHITE#（按 J 键查看任务日志）", "logPlayer")
-t("#LIGHT_GREEN#Quest '%s' updated!", "#LIGHT_GREEN#任务“%s”已更新!", "saySimple")
+t("#LIGHT_GREEN#Quest '%s' updated!", "#LIGHT_GREEN#任务“%s”已更新！", "saySimple")
 t("#LIGHT_GREEN#Quest '%s' completed! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按 J 键查看任务日志）", "logPlayer")
-t("#LIGHT_GREEN#Quest '%s' completed!", "#LIGHT_GREEN#任务“%s”已完成!", "saySimple")
+t("#LIGHT_GREEN#Quest '%s' completed!", "#LIGHT_GREEN#任务“%s”已完成！", "saySimple")
 t("#LIGHT_GREEN#Quest '%s' is done! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_GREEN#任务“%s”完成！#WHITE#（按 J 键查看任务日志）", "logPlayer")
-t("#LIGHT_GREEN#Quest '%s' done!", "#LIGHT_GREEN#任务“%s”已完成!", "saySimple")
+t("#LIGHT_GREEN#Quest '%s' done!", "#LIGHT_GREEN#任务“%s”已完成！", "saySimple")
 t("#LIGHT_RED#Quest '%s' is failed! #WHITE#(Press 'j' to see the quest log)", "#LIGHT_RED#任务“%s”失败！#WHITE#（按 J 键查看任务日志）", "logPlayer")
-t("#LIGHT_RED#Quest '%s' failed!", "#LIGHT_RED#任务“%s”失败了!", "saySimple")
+t("#LIGHT_RED#Quest '%s' failed!", "#LIGHT_RED#任务“%s”失败了！", "saySimple")
 
 ------------------------------------------------
 section "mod-tome/class/interface/TooltipsData.lua"
@@ -2503,7 +2503,7 @@ t("Tales of Maj'Eyal Lore", "马基·埃亚尔的传说手札", "_t")
 t("Left mouse to show main menu", "左键点击显示主菜单", "_t")
 t("Unlock all interface elements so they can be moved and resized.", "解锁所有界面元素，使其可以移动和改变大小。", "_t")
 t("Lock all interface elements so they can not be moved nor resized.", "锁定所有界面元素，使其无法移动和改变大小。", "_t")
-t("Clicking will open#LIGHT_BLUE##{italic}#%s#WHITE##{normal}# in your browser", "点击将会在你的默认浏览器中打开#LIGHT_BLUE##{italic}#%s#WHITE##{normal}# ", "_t")
+t("Clicking will open#LIGHT_BLUE##{italic}#%s#WHITE##{normal}# in your browser", "点击将会在你的默认浏览器中打开#LIGHT_BLUE##{italic}#%s#WHITE##{normal}#", "_t")
 t("Donator", "捐赠者", "_t")
 t("Developer", "开发者", "_t")
 t("Moderator / Helper", "管理员/协助者", "_t")
@@ -2736,7 +2736,7 @@ t("Killed a boss while already dead.", "在已死亡的状态下杀死一个BOSS
 t("Look at me, I'm playing a roguelike!", "看！我正在玩Roguelike！", "achievement name")
 t("Linked yourself in the in-game chat.", "将自己的数据链接到聊天框。", "_t")
 t("Fear me not!", "恐惧无法挡我！", "achievement name")
-t("Survived the Fearscape!", "在恶魔空间幸存下来。", "_t")
+t("Survived the Fearscape!", "在恶魔空间幸存下来！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/achievements/quests.lua"
@@ -3873,7 +3873,7 @@ t("You are a male of the species.", "你是一位男性角色。", "_t")
 ------------------------------------------------
 section "mod-tome/data/birth/worlds.lua"
 
-t("Maj'Eyal: The Age of Ascendancy", "马基·埃亚尔:卓越纪", "_t")
+t("Maj'Eyal: The Age of Ascendancy", "马基·埃亚尔：卓越纪", "_t")
 t("The people of Maj'Eyal: Humans, Halflings, Elves and Dwarves.", "马基·埃亚尔生活着人类、半身人、精灵和矮人。", "_t")
 t("The known world has been at relative peace for over one hundred years, and people are prospering again.", "世界已经保持了超过一百年的和平，各大种族再次繁荣起来。", "_t")
 t("You are an adventurer, setting out to find lost treasure and glory.", "你是一位冒险者，出发去寻找失落的宝藏和荣耀。", "_t")
@@ -5212,7 +5212,7 @@ t("Let me see your wares.", "让我看看你的商品吧。", "_t")
 t("I am looking for special jewelry.", "我在找一些特殊的珠宝。", "_t")
 t("So you can infuse amulets in this place?", "据说你可以给项链附魔？", "_t")
 t("I have found this tome; it looked important.", "我找到了这本手册，看上去好像很重要。", "_t")
-t("Sorry I have to go!", "抱歉，我必须得走了。", "_t")
+t("Sorry I have to go!", "抱歉，我必须得走了！", "_t")
 t([[Then you are at the right place, for I am an expert jeweler.
 If you bring me a gem and a ring, I can create a new ring imbued with the properties of the gem.  The original traits of the ring will be lost in the process but new ones of similar quality will be generated.
 There is a small fee dependent on the level of the ring, and you need a quality ring to use a quality gem.]], [[你算找对地方了，我可是一个珠宝专家。
@@ -5526,10 +5526,10 @@ Good day to you, fellow traveler!]], [[#LIGHT_GREEN#*在你面前站着一个年
 t("What brings an apprentice mage out into the wilds?", "你一个法师学徒，怎么会跑到荒野里来？", "_t")
 t("I found this artefact; it looks powerful and arcane infused. Maybe it would be enough?", "我发现了这件充满奥术能量的神器，看上去很强大，应该够了吧？", "_t")
 t("So you have enough magical items now?", "这么说，你现在已经有足够的魔法物品了？", "_t")
-t("Sorry I have to go!", "抱歉，我必须得走了。", "_t")
+t("Sorry I have to go!", "抱歉，我必须得走了！", "_t")
 t("Ahh, my story is a sad one... I should not trouble you with it, my friend.", "啊，我的故事说来让人伤心……算了，我不应该打扰你的，我的朋友。", "_t")
 t("It is no trouble at all! Please tell me!", "没关系的，告诉我吧！", "_t")
-t("Ok, bye then!", "好的，那么再见。", "_t")
+t("Ok, bye then!", "好的，那么再见！", "_t")
 t([[Well, if you insist...
 I am a novice mage, as you might have noticed, and my goal is to be accepted by the people of Angolwen and be taught the secrets of the arcane.]], [[好吧，假如你坚持的话……
 我是个法师学徒，你可能已经看出来了。我的目标是得到安格利文人的接纳，向他们学习奥术的秘密。]], "_t")
@@ -5982,8 +5982,8 @@ However, I will need to use 25 energy to do this.]], [[啊，是的，你似乎�
 不过，我需要消耗 25 点能量来完成改造。]], "_t")
 t("Maybe sometime later.", "以后再说。", "_t")
 t("I can alter the Fortress holographic projection matrix to accomodate your racial tastes. This will require 60 energy, however.", "我可以调整堡垒的全息投影矩阵，使我的外形符合你的种族审美。不过，这需要消耗 60 点能量。", "_t")
-t("Can you try for a human female appearance please?", "请试着变成人类女性的外形。", "_t")
-t("Can you try for a human male appearance please?", "请试着变成人类男性的外形。", "_t")
+t("Can you try for a human female appearance please?", "请试着变成人类女性的外形？", "_t")
+t("Can you try for a human male appearance please?", "请试着变成人类男性的外形？", "_t")
 t("Please revert to your default appearance.", "请变回原来默认的样子。", "_t")
 t("Well, you do not look so bad actually. Let it be for now.", "好吧，其实你看上去没那么糟，就保持这个样子吧。", "_t")
 t([[Yes Master. I can use 10 energy to infuse your cloak. When you take it off the effect should still persist.
@@ -6793,7 +6793,7 @@ DIE !]], [[传送门在爆炸前把我们随机传送到了某个地方。
 section "mod-tome/data/damage_types.lua"
 
 t("%s(%d warded)#LAST#", "%s(%d 被守护)#LAST#", "tformat")
-t("#Source# strikes #Target# in the darkness (%+d%%%%%%%% damage).", "#Source#在黑暗中打击了#Target#(%+d%%%%%%%% 伤害)!", "delayedLogMessage")
+t("#Source# strikes #Target# in the darkness (%+d%%%%%%%% damage).", "#Source#在黑暗中打击了#Target#(%+d%%%%%%%% 伤害)！", "delayedLogMessage")
 t("Something", "某物", "_t")
 t("%s forces the iceblock to shatter.", "%s 将冰块打破。", "logSeen")
 t("%s(%d to psi shield)#LAST#", "%s(%d 灵能盾)#LAST#", "tformat")
@@ -6804,7 +6804,7 @@ t("%s(%d flat reduction)#LAST#", "%s(%d 固定减伤)#LAST#", "tformat")
 t("You end your target with a crushing blow!", "你的毁灭一击终结了对手！", "logPlayer")
 t("#LIGHT_GREY#(%d resilience)#LAST#", "#LIGHT_GREY#(%d 弹性体质)#LAST#", "tformat")
 t("#CRIMSON##Source# damages %s through Martyrdom!", "#CRIMSON##Source#通过殉难伤害了%s！", "delayedLogMessage")
-t("#CRIMSON##Source# reflects damage back to #Target#!", "#CRIMSON##Source#将伤害反射回 #Target#!", "delayedLogMessage")
+t("#CRIMSON##Source# reflects damage back to #Target#!", "#CRIMSON##Source#将伤害反射回 #Target#！", "delayedLogMessage")
 t("#Source##LIGHT_GREEN# HEALS#LAST# from %s %s #LAST# damage!", "#Source#因%s%s#LAST#伤害受到了#LIGHT_GREEN#治疗#LAST#！", "tformat")
 t("cosmetic", "外观", "damage type")
 t("cosmeticed", "外观", "_t")
@@ -6940,15 +6940,15 @@ t("ice storm", "冰风暴", "damage type")
 t("glacial vapour", "极寒冰雾", "damage type")
 t("pinning cold", "定身寒冷", "damage type")
 t("freeze", "冰冻", "damage type")
-t("Frozen!", "冻结!", "_t")
-t("Resist!", "抵抗!", "_t")
+t("Frozen!", "冻结！", "_t")
+t("Resist!", "抵抗！", "_t")
 t("sticky smoke", "粘性烟雾", "damage type")
 t("acid blind", "酸性致盲", "damage type")
 t("blinding darkness", "致盲暗影", "damage type")
 t("blinding light", "致盲之光", "damage type")
 t("dazing lightning", "闪电眩晕", "damage type")
 t("cold repulsion", "寒冷排斥", "damage type")
-t("%s is knocked back!", "%s 被击退。", "logSeen")
+t("%s is knocked back!", "%s 被击退！", "logSeen")
 t("%s resists the wave!", "%s抵抗了冲击！", "logSeen")
 t("bloodspring", "血如泉涌", "damage type")
 t("%s resists the bloody wave!", "%s抵抗了血浪！", "logSeen")
@@ -6959,7 +6959,7 @@ t("darkness repulsion", "暗影击退", "damage type")
 t("physical repulsion", "物理排斥", "damage type")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t("fear repulsion", "恐惧击退", "damage type")
-t("%s resists the frightening sight!", "%s抵抗了恐惧。", "logSeen")
+t("%s resists the frightening sight!", "%s抵抗了恐惧！", "logSeen")
 t("poison", "毒素", "damage type")
 t("cleansing fire", "火焰净化", "damage type")
 t("spydric poison", "蜘蛛毒素", "damage type")
@@ -6983,7 +6983,7 @@ t("item expose", "物品暴露", "damage type")
 t("* #LIGHT_GREEN#%d%%#LAST# chance to reduce all saves and defense by #YELLOW#%d#LAST#%s", "* #LIGHT_GREEN#%d%%#LAST#几率降低#YELLOW#%d#LAST#闪避和豁免%s", "tformat")
 t("item temporal energize", "物品时空充能", "damage type")
 t("* #LIGHT_GREEN#%d%%#LAST# chance to gain 10%% of a turn (3/turn limit)%s", "* #LIGHT_GREEN#%d%%#LAST#几率获得10%%回合（每回合限3次）%s", "tformat")
-t("#LIGHT_STEEL_BLUE#%s can't gain any more energy this turn! ", "#LIGHT_STEEL_BLUE#%s在本回合内无法得到更多能量! ", "logSeen")
+t("#LIGHT_STEEL_BLUE#%s can't gain any more energy this turn! ", "#LIGHT_STEEL_BLUE#%s在本回合内无法得到更多能量！ ", "logSeen")
 t("item acid corrode", "物品腐蚀护甲", "damage type")
 t("* #LIGHT_GREEN#%d%%#LAST# chance to reduce armor by #VIOLET#%d%%#LAST#%s", "* #LIGHT_GREEN#%d%%#LAST#几率降低#VIOLET#%d%%#LAST#护甲%s", "tformat")
 t("item blight disease", "物品枯萎疾病", "damage type")
@@ -7051,7 +7051,7 @@ t("%s has not been stopped!", "%s没有被阻止！", "logSeen")
 t("debilitating temporal", "时空虚弱", "damage type")
 t("%s resists the blindness!", "%s抵抗了致盲！", "logSeen")
 t("draining physical", "生命汲取", "damage type")
-t("#Source# consumes %d life from #Target#!", "#Source#从#Target#身上吸取了%d生命!", "logCombat")
+t("#Source# consumes %d life from #Target#!", "#Source#从#Target#身上吸取了%d生命！", "logCombat")
 t("temporal slow", "时空减速", "damage type")
 t("molten rock", "熔岩", "damage type")
 t("entangle", "纠缠", "damage type")
@@ -7087,7 +7087,7 @@ t("bouncing slime", "弹跳史莱姆", "damage type")
 t("caustic mire", "酸池", "damage type")
 t("sun path", "阳光大道", "damage type")
 t("telekinetic shove", "念力推挤", "damage type")
-t("%s resists pinning!", "%s抵抗了定身!", "logSeen")
+t("%s resists pinning!", "%s抵抗了定身！", "logSeen")
 t("%s resists the shove!", "%s抵抗了推挤！", "logSeen")
 t("dimensional anchor", "时空锚", "damage type")
 t("phase pulse", "相位脉动", "damage type")
@@ -7281,11 +7281,11 @@ t("ladder back to %s", "返回%s的楼梯", "_t")
 section "mod-tome/data/general/events/fearscape-portal.lua"
 
 t("portal back to %s", "返回%s的传送门", "tformat")
-t("#VIOLET# You escape the Fearscape!", "#VIOLET# 你逃脱了恶魔空间!", "log")
+t("#VIOLET# You escape the Fearscape!", "#VIOLET# 你逃脱了恶魔空间！", "log")
 t("orbital fearscape platform", "恶魔空间平台", "_t")
 t("#rng# the Invader", "入侵者#rng#", "_t")
 t("fearscape invasion portal", "恶魔空间入侵传送门", "_t")
-t("#VIOLET#The portal is broken!", "#VIOLET#传送门被破坏了!", "log")
+t("#VIOLET#The portal is broken!", "#VIOLET#传送门被破坏了！", "log")
 t("broken fearscape invasion portal", "被破坏的恶魔空间入侵传送门", "_t")
 t("#VIOLET#The portal is already broken!", "#VIOLET#传送门已经被破坏！", "log")
 t("Fearscape Portal", "恶魔空间传送门", "_t")
@@ -7294,7 +7294,7 @@ t("Quit", "退出", "dialog_portal")
 t("#VIOLET#Ignoring the portal...", "#VIOLET#你忽略了传送门...", "log")
 t("Destroy", "摧毁", "_t")
 t("Enter", "进入", "_t")
-t("#VIOLET#A demon steps out of the %s!", "#VIOLET#一个恶魔走出了%s!", "logSeen")
+t("#VIOLET#A demon steps out of the %s!", "#VIOLET#一个恶魔走出了%s！", "logSeen")
 
 ------------------------------------------------
 section "mod-tome/data/general/events/fell-aura.lua"
@@ -7312,7 +7312,7 @@ section "mod-tome/data/general/events/glimmerstone.lua"
 
 t("glimmerstone", "闪光石", "_t")
 t("It shimmers and changes the light all around. This is dazling!", "闪光石闪耀着，改变了周围的光线。真是令人目眩！", "_t")
-t("%s is affected by the glimmerstone!", "%s 受到了闪光石的影响。", "logSeen")
+t("%s is affected by the glimmerstone!", "%s 受到了闪光石的影响！", "logSeen")
 
 ------------------------------------------------
 section "mod-tome/data/general/events/glowing-chest.lua"
@@ -7320,8 +7320,8 @@ section "mod-tome/data/general/events/glowing-chest.lua"
 t("glowing chest", "发光的宝箱", "_t")
 t("Glowing Chest", "发光的宝箱", "_t")
 t("Open the chest?", "打开箱子吗？", "_t")
-t("#GOLD#An object rolls from the chest!", "#GOLD#一件物品从宝箱中掉了出来!", "logSeen")
-t("#GOLD#But the chest was guarded!", "#GOLD#但是这个宝箱有怪物守护!", "logSeen")
+t("#GOLD#An object rolls from the chest!", "#GOLD#一件物品从宝箱中掉了出来！", "logSeen")
+t("#GOLD#But the chest was guarded!", "#GOLD#但是这个宝箱有怪物守护！", "logSeen")
 t("glowing chest (opened)", "发光的宝箱（已打开）", "_t")
 t("Open", "打开", "_t")
 t("Leave", "离开", "_t")
@@ -7340,7 +7340,7 @@ t("portal back to %s", "返回%s的传送门", "tformat")
 t("water cavern", "水下溶洞", "_t")
 t("#rng# the Tidebender", "踏浪者#rng#", "_t")
 t("naga invasion coral portal", "娜迦入侵珊瑚传送门", "_t")
-t("#VIOLET#The portal is broken!", "#VIOLET#传送门被破坏了!", "log")
+t("#VIOLET#The portal is broken!", "#VIOLET#传送门被破坏了！", "log")
 t("broken naga invasion coral portal", "被破坏的娜迦入侵珊瑚传送门", "_t")
 t("#VIOLET#The portal is already broken!", "#VIOLET#传送门已经被破坏！", "log")
 t("Coral Portal", "珊瑚传送门", "_t")
@@ -7349,7 +7349,7 @@ t("Quit", "退出", "dialog_portal")
 t("#VIOLET#Ignoring the portal...", "#VIOLET#你忽略了传送门...", "log")
 t("Destroy", "摧毁", "_t")
 t("Enter", "进入", "_t")
-t("#VIOLET#A naga steps out of the %s!", "#VIOLET#一只娜迦从%s里走出!", "logSeen")
+t("#VIOLET#A naga steps out of the %s!", "#VIOLET#一只娜迦从%s里走出！", "logSeen")
 
 ------------------------------------------------
 section "mod-tome/data/general/events/necrotic-air.lua"
@@ -7396,7 +7396,7 @@ t("This ancient skull is all that remains of the Rat Lich. Some fragments of its
 t("raise one or two undead rats to fight beside you", "召唤1-2个亡灵鼠为你作战", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("%s raises %s %s, and a red light flashes from it's eye sockets!", "%s 令 %s %s站了起来, 一道红光从它眼中闪过！", "logSeen")
-t("From the dust of decay a %s forms!", "从灰烬中诞生了一只%s!", "logSeen")
+t("From the dust of decay a %s forms!", "从灰烬中诞生了一只%s！", "logSeen")
 t("Forsaken Crypt", "废弃地穴", "_t")
 t("stairway leading downwards", "向下的楼梯", "_t")
 t("Stairs seem to lead into some kind of crypt.", "通往某个地穴的楼梯。", "_t")
@@ -7715,7 +7715,7 @@ section "mod-tome/data/general/grids/lava.lua"
 t("floor", "地板", "entity type")
 t("lava", "岩浆", "entity subtype")
 t("lava floor", "熔岩平地", "entity name")
-t("#Source# burns #Target#!", "#Source#灼烧了#Target#!", "logCombat")
+t("#Source# burns #Target#!", "#Source#灼烧了#Target#！", "logCombat")
 t("wall", "墙壁", "entity type")
 t("lava wall", "熔岩墙壁", "entity name")
 t("molten_lava", "融化岩浆", "entity subtype")
@@ -7936,7 +7936,7 @@ t("#LIGHT_BLUE#Replenishes air level when standing inside.#LAST#", "#LIGHT_BLUE#
 t("#AQUAMARINE#The air bubbles are depleted!", "#AQUAMARINE#气泡被耗尽了！", "logSeen")
 t("deep water", "深水", "entity name")
 t("poisoned deep water", "有毒的深水", "entity name")
-t("#Source# poisons #Target#!", "#Source#让#Target#中毒!", "logCombat")
+t("#Source# poisons #Target#!", "#Source#让#Target#中毒！", "logCombat")
 t("exit to the worldmap", "通往世界地图的出口", "entity name")
 t("previous level", "前往上一层", "entity name")
 t("next level", "前往下一层", "entity name")
@@ -8029,7 +8029,7 @@ t("bird", "飞禽", "entity subtype")
 t("Phoenix", "不死鸟", "entity name")
 t("Ever burning, ever dying, ever reviving, the Phoenix swoops down upon you, seeking to share its fiery fate with you.", "燃烧，死亡，重生。这只不死鸟试图将它燃烧的命运带给你。", "_t")
 t("#LIGHT_RED#%s raises from the dead!", "#LIGHT_RED#%s 从尸体中站了起来！", "logSeen")
-t("RESURRECT!", "复活!", "_t")
+t("RESURRECT!", "复活！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/bone-giant.lua"
@@ -8260,14 +8260,14 @@ t("eldritch", "骇异", "entity subtype")
 t("worm that walks", "蠕虫合体", "entity name")
 t([[A bulging rotten robe seems to tear at the seams, with masses of bloated worms spilling out all around the moving form.  Two arm-like appendages, each made up of overlapping mucous-drenched maggots, grasp tightly around the handles of bile-coated waraxes.
 Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]], "一件鼓鼓囊囊的腐烂长袍，长袍的缝隙里不断蠕动着浮肿的蠕虫。它有着两只臂膀一样的附属物，每只都由沾满黏液的蛆重叠而成，各握着一柄覆有胆汁的斧子。每一次挥舞都会向前溅出脓液，每一滴脓液在空中扭动翻滚，然后啪嗒一声落在地上。", "_t")
-t("#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", "#LIGHT_RED#一团腐肉虫从%s的伤口孵化了出来。", "logSeen")
+t("#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", "#LIGHT_RED#一团腐肉虫从%s的伤口孵化了出来！", "logSeen")
 t("bloated horror", "浮肿恐魔", "entity name")
 t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "一个臃肿的人形生物漂浮在这里。它的光头像个孩子，与身体相比大得不成比例，皮肤上布满痘坑，长着狰狞的红色脓疮。", "_t")
 t("nightmare horror", "梦魇恐魔", "entity name")
 t("A shifting form of darkest night that seems to reflect your deepest fears.", "在漆黑的深夜中不断变幻的存在，映照出你内心深处的恐惧。", "_t")
 t("headless horror", "无头恐魔", "entity name")
 t("A headless, gangly humanoid with a large distended stomach.", "一个无头、四肢细长的人形怪物，腹部巨大而鼓胀。", "_t")
-t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上。", "logSeen")
+t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上！", "logSeen")
 t("eldritch eye", "艾尔德里奇之眼", "entity name")
 t("A small bloodshot eye floats here.", "一只带血的小眼睛漂浮在这里。", "_t")
 t("#AQUAMARINE#As #Source# falls #Target# seems to weaken!", "#AQUAMARINE#当#Source#倒下时，#Target#似乎被削弱了！", "logCombat")
@@ -8310,14 +8310,14 @@ You can discern a huge round mouth covered in razor-sharp teeth.]], "这是来�
 t("Grgglck's Tentacle", "格尔格勒克的触须", "entity name")
 t("This is one of Grgglck's tentacles. It looks more vulnerable than the main body.", "这是格尔格勒克的一条触须。它看起来比主体更加脆弱。", "_t")
 t("#AQUAMARINE#With Grgglck's death its tentacle also falls lifeless on the ground!", "#AQUAMARINE#随着格尔格勒克的死去它的那些触手也毫无生机地倒在了地上！", "logSeen")
-t("#AQUAMARINE#As #Source# falls you notice that #Target# seems to shudder in pain!", "#AQUAMARINE#当#Source#倒下时，你发现#Target#似乎因为痛苦而颤抖!", "logCombat")
+t("#AQUAMARINE#As #Source# falls you notice that #Target# seems to shudder in pain!", "#AQUAMARINE#当#Source#倒下时，你发现#Target#似乎因为痛苦而颤抖！", "logCombat")
 t("Ak'Gishil", "阿克·吉希尔", "entity name")
 t("This Blade Horror has been infused with intense temporal magic, causing its power to increase dramatically. Rifts in space open around it constantly, summoning and banishing blades before vanishing as quickly as they appear.", "这只刀锋恐魔被强烈的时空魔法灌注，力量急剧提升。空间裂隙在它周围不断开启，召唤与放逐着刀刃，随后又像出现时一样迅速消失。", "_t")
 t("construct", "构装体", "entity type")
 t("weapon", "武器", "entity subtype")
 t("Animated Sword", "次元之刃", "entity name")
 t("Time seems to warp and bend around this floating weapon.", "时空在其周围扭曲。", "_t")
-t("#AQUAMARINE#A rift opens and a free floating blade emerges!", "#AQUAMARINE#时空裂缝打开了，里面出现了一把浮空的刀刃!", "logSeen")
+t("#AQUAMARINE#A rift opens and a free floating blade emerges!", "#AQUAMARINE#时空裂缝打开了，里面出现了一把浮空的刀刃！", "logSeen")
 t("#AQUAMARINE#The %s no longer seems to be controlled and clatters to the ground before vanishing into a rift.", "#AQUAMARINE#%s 似乎失去了控制，坠落在地面，消失在时空裂隙中。", "logSeen")
 t("Distorted Animated Sword", "极·次元之刃", "entity name")
 t("This floating weapon shifts and shimmers, time and space warping and bending as it moves. It appears to vibrate, as if it may explode at any moment.", "这件漂浮的武器不断晃动闪烁，移动时连时空也随之扭曲弯折。它似乎在震颤，仿佛随时都会爆炸。", "_t")
@@ -8328,7 +8328,7 @@ section "mod-tome/data/general/npcs/horror_aquatic.lua"
 
 t("horror", "恐魔", "entity type")
 t("aquatic", "水栖生物", "entity subtype")
-t("#LIGHT_BLUE#%s explodes into a huge bubble of air!", "#LIGHT_BLUE#%s爆炸，成为了一个巨大的气泡!", "logSeen")
+t("#LIGHT_BLUE#%s explodes into a huge bubble of air!", "#LIGHT_BLUE#%s爆炸，成为了一个巨大的气泡！", "logSeen")
 t("entrenched horror", "巨石恐魔", "entity name")
 t("This massive stony structure shifts and pulsates, its many long, thin tentacles probing the nearby water for food.", "这个巨大的石状生物震动起伏着，它许多细长的触手在附近的水中探测食物。", "_t")
 t("swarming horror", "群生恐魔", "entity name")
@@ -8517,7 +8517,7 @@ section "mod-tome/data/general/npcs/naga.lua"
 t("humanoid", "人形生物", "entity type")
 t("naga", "娜迦", "entity subtype")
 t("naga myrmidon", "娜迦侍从", "entity name")
-t("Before you stands a tall figure -- a very tall figure, propped high by a thick serpent's tail in place of where his legs should rightly be. His torso is human-like, with bulging muscles beneath fitted armour, and large hands gripping a fiercely sharp trident. He glares at you with dark intensity, like a wolf about to pounce on unsuspecting prey.", "在你面前站着一个高大的人影——一个非常高的人形怪物，在腿部长着巨大的蛇尾巴，他以此来支撑他的身体。他的上半身是人形,护甲下面隐约可见发达的肌肉，两只巨大的双手紧握着锋利的三叉戟。他带着阴沉的锐利目光盯着你，像一头随时准备扑向毫无防备猎物的狼。", "_t")
+t("Before you stands a tall figure -- a very tall figure, propped high by a thick serpent's tail in place of where his legs should rightly be. His torso is human-like, with bulging muscles beneath fitted armour, and large hands gripping a fiercely sharp trident. He glares at you with dark intensity, like a wolf about to pounce on unsuspecting prey.", "在你面前站着一个高大的人影——一个非常高的人形怪物，在腿部长着巨大的蛇尾巴，他以此来支撑他的身体。他的上半身是人形，护甲下面隐约可见发达的肌肉，两只巨大的双手紧握着锋利的三叉戟。他带着阴沉的锐利目光盯着你，像一头随时准备扑向毫无防备猎物的狼。", "_t")
 t("naga tide huntress", "娜迦潮汐女猎手", "entity name")
 t("Though the sharp point of an arrow pointed steadily at your head is of concern, more unnerving is the creature that wields it: a slim and lithe woman from the waist up, but a terrifying giant serpent beneath, her tail stretching for several feet behind her. Her eyes turn cold and ice seems to magically condense on the tip of her barbed arrow. Suddenly it is of concern again.", "尽管一支利箭稳稳地指着你的脑袋令人担忧，但更让人不安的是握着它的生物：上半身是一个纤细柔美的女人，下半身却是可怕的巨蛇，尾巴在身后延伸数英尺。她的眼神变得冰冷，冰似乎神奇地凝结在她带刺箭矢的尖端。突然间，那箭矢又令你心生恐惧了。", "_t")
 t("naga psyren", "娜迦海妖", "entity name")
@@ -8529,7 +8529,7 @@ section "mod-tome/data/general/npcs/ogre.lua"
 t("giant", "巨人", "entity type")
 t("ogre", "食人魔", "entity subtype")
 t("ogre guard", "食人魔守卫", "entity name")
-t("A maul-wield ogre. Ready to CRUSH!", "一个手里拿着重锤的食人魔，随时准备将你一锤击碎。", "_t")
+t("A maul-wield ogre. Ready to CRUSH!", "一个手里拿着重锤的食人魔，随时准备将你一锤击碎！", "_t")
 t("ogre warmaster", "食人魔战争领主", "entity name")
 t("A master of combat, she is impatient to test her newfound skills.", "一个精于战斗技巧的食人魔，她已经等不及在你身上试试自己的新技能了。", "_t")
 t("ogre mauler", "食人魔重击者", "entity name")
@@ -8857,7 +8857,7 @@ t("A giant buzzing wasp, its stinger dripping venom.", "一只巨大的黄蜂，
 section "mod-tome/data/general/npcs/telugoroth.lua"
 
 t("Reality has shifted.", "现实世界发生了变化。", "logSeen")
-t("The spell fizzles!", "法术失败了!", "logSeen")
+t("The spell fizzles!", "法术失败了！", "logSeen")
 t("%s resists the swap!", "%s抵抗了时空交换！", "logSeen")
 t("elemental", "元素生物", "entity type")
 t("temporal", "时空", "entity subtype")
@@ -9189,7 +9189,7 @@ t("Frozen Shroud", "冰霜斗篷", "entity name")
 t("chilling cloak", "冰冷的斗篷", "_t")
 t("All that remains of the Glacial Legion. This cloak seems to exude an icy cold vapor that freezes all it touches.", "冰川军团仅存的遗物。这件斗篷仿佛散发着冰冷的寒气，冻结一切触及之物。", "_t")
 t("release a radius %d chilling blast, instantly dealing %0.2f cold damage and condensing the air into freezing vapors that deal %0.2f cold damage (based on Magic) each turn for %d turns", "在半径 %d 范围内吹出冰风，立刻造成 %0.2f 寒冷伤害，并将空气冻结成寒霜冰雾，每回合造成 %0.2f 寒冷伤害（基于魔法），持续 %d 回合。", "tformat")
-t("%s releases an icy blast from %s %s!", "%s从%s%s中释放出冰风!", "logSeen")
+t("%s releases an icy blast from %s %s!", "%s从%s%s中释放出冰风！", "logSeen")
 t("icy vapors", "冰霜雾气", "_t")
 t("Blighted Maul", "枯萎之锤", "entity name")
 t("rotten stone limb", "腐烂的石化肢体", "_t")
@@ -9197,7 +9197,7 @@ t("The massive stone limb of the Rotting Titan, a mass of stone and rotting fles
 t("Blasts creatures in a radius 1 shockwave around your target for %0.2f to %0.2f physical damage (based on Strength).", "在目标周围制造半径 1 的冲击波，轰击范围内的生物，造成 %0.2f 到 %0.2f 物理伤害（基于力量）。", "tformat")
 t("%s's %s shakes the ground with its impact!", "%s的%s震动了大地！", "logSeen")
 t("knock away other creatures within radius %d), dealing %0.2f to %0.2f physical damage (based on Strength) to each", "击退半径 %d 的生物，造成 %0.2f 到 %0.2f 物理伤害(基于力量)。", "tformat")
-t("%s slams %s %s into the ground, sending out a shockwave!", "%s将%s%s砸入地面，释放冲击波!", "logSeen")
+t("%s slams %s %s into the ground, sending out a shockwave!", "%s将%s%s砸入地面，释放冲击波！", "logSeen")
 t("Molten Skin", "炽热皮肤", "entity name")
 t("melting bony armour", "炙热的骨甲", "_t")
 t("This mass of fused molten bone from the Heavy Sentinel radiates intense power. It still glows red with the heat of the Sentinel's core, and yet seems to do you no harm.", "这团来自重型哨兵的融合熔融骨骼散发着强大的力量。它仍因哨兵核心的热量而发红发亮，不过似乎不会伤害到你。", "_t")
@@ -9261,7 +9261,7 @@ t("crystalline tree branch", "水晶般的树枝", "_t")
 t("This crystalline tree branch is remarkably rigid, and refracts light in myriad colors. Gazing at it entrances you, and you worry where its power may have come from.", "这根水晶树枝异常坚硬，折射出万千色彩的光芒。凝视着它会让你入迷，同时你会担心它的力量究竟来自何处。", "_t")
 t("create 2 living shards of crystal to serve you for 10 turns", "制造两片活的水晶体来为你服务10回合。", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
-t("Crystals splinter off of %s's %s and animate!", "%s的%s上的水晶碎片活动了起来!", "logSeen")
+t("Crystals splinter off of %s's %s and animate!", "%s的%s上的水晶碎片活动了起来！", "logSeen")
 t("Malediction", "诅咒", "entity name")
 t("pestilent waraxe", "散发着瘟疫气息的斧头", "_t")
 t("The land withers and crumbles wherever this cursed axe rests.", "无论这把斧头在哪里，大地都会枯萎和凋零。", "_t")
@@ -9278,8 +9278,8 @@ t("Choker of Dread", "噩灵护符", "entity name")
 t("dark amulet", "黑暗的护符", "_t")
 t("The evilness of undeath radiates from this amulet.", "这件护符散发着不死生物的邪恶气息。", "_t")
 t("summon an elder vampire with Taunt to your side for 15 turns", "召唤一个会使用嘲讽的吸血鬼长老为你服务15回合。", "_t")
-t("You need an enemy nearby to summon!", "需要旁边有一个敌人才能召唤!", "logPlayer")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("You need an enemy nearby to summon!", "需要旁边有一个敌人才能召唤！", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("%s taps %s %s, summoning a vampire thrall!", "%s启动了%s%s，召唤出一个吸血鬼随从！", "logSeen")
 t("elder vampire", "吸血鬼长老", "_t")
 t("A terrible robed undead figure, this creature has existed in its unlife for many centuries by stealing the life of others. It can summon the very shades of its victims from beyond the grave to come enslaved to its aid.", "这个身披长袍的可怕不死生物，靠窃取他人的生命在亡者之身中存在了数百年。它能从坟墓彼端召唤受害者的阴影，使其臣服前来协助自己。", "_t")
@@ -9324,7 +9324,7 @@ t("Rod of Annulment", "废除之杖", "entity name")
 t("dark rod", "黑暗的法杖", "_t")
 t("You can feel magic draining out around this rod. Even nature itself seems affected.", "你可以感受到这根法杖周围的魔力流失，甚至自然本身也似乎受到了影响。", "_t")
 t("put up to 3 of the target's runes, infusions or talents on cooldown for 3-5 turns (range %d)", "将一个目标至多3个符文、纹身或技能打入3-5回合的冷却（范围 %d）。", "tformat")
-t("#Source# aims %s %s at #target#!", "#Source#用%s%s瞄准了#target#!", "logCombat")
+t("#Source# aims %s %s at #target#!", "#Source#用%s%s瞄准了#target#！", "logCombat")
 t("%s's %s is disrupted!", "%s的%s被打断了！", "logSeen")
 t("Skullcleaver", "碎颅战斧", "entity name")
 t("crimson waraxe", "深红色的战斧", "_t")
@@ -9370,7 +9370,7 @@ t("Psionic Fury", "灵能之怒", "entity name")
 t("vibrating mindstar", "震动的灵晶", "_t")
 t("This mindstar constantly shakes and vibrates, as if a powerful force is desperately trying to escape.", "这颗灵晶在不停的震动，仿佛其中有一股强大的力量试图从中逃脱。", "_t")
 t("release a wave of psionic power, dealing %0.2f mind damage (based on Willpower) to all within radius %d", "释放灵能冲击波，造成%0.2f精神伤害（基于意志），伤害半径%d。", "tformat")
-t("%s's %s sends out a blast of psionic energy!", "%s的%s释放出灵能冲击波!", "logSeen")
+t("%s's %s sends out a blast of psionic energy!", "%s的%s释放出灵能冲击波！", "logSeen")
 t("Storm Bringer's Gauntlets", "风暴使者臂铠", "entity name")
 t("fine-mesh gauntlets", "细孔臂铠", "_t")
 t("This pair of fine mesh voratun gauntlets is covered with glyphs of power that spark with azure energy.  The metal is supple and light so as not to interfere with spell-casting.  When and where these gauntlets were forged is a mystery, but odds are the crafter knew a thing or two about magic.", "这副细孔沃瑞钽臂铠被闪烁着蓝色能量的雕文所覆盖。这种金属柔软且轻盈，不会对施法造成阻碍。制造这副手套的时间和地点都是一个谜，但是可以确认的是，制造者对于魔法技术有一定的了解。", "_t")
@@ -9629,7 +9629,7 @@ t("#LIGHT_GREEN#20%%#LAST# chance to create an air burst in radius 3 knocking en
 t(" of grasping", "抓握之", "entity name")
 t("grasping", "抓握", "entity keyword")
 t("#LIGHT_GREEN#20%%#LAST# chance to create vines that bind the target to the ground dealing #YELLOW#%d#LAST# nature damage and pinning them for 3 turns", "#LIGHT_GREEN#20%%#LAST#几率产生藤蔓束缚目标并造成#YELLOW#%d#LAST#自然伤害，定身目标3回合。", "tformat")
-t("%s resists the grasping vines!", "%s抵抗了抓取藤蔓!", "logSeen")
+t("%s resists the grasping vines!", "%s抵抗了抓取藤蔓！", "logSeen")
 t("manaburning ", "法力燃烧之", "entity name")
 t("manaburning", "法力燃烧", "entity keyword")
 t("slimey ", "史莱姆的", "entity name")
@@ -9639,7 +9639,7 @@ t("persecution", "迫害", "entity keyword")
 t("inquisitor's ", "审判者的", "entity name")
 t("inquisitors", "审判者", "entity keyword")
 t("Deals #YELLOW#%d#LAST# Manaburn damage and puts 1 random spell talent on cooldown for #YELLOW#%d#LAST# turns (checks Confusion immunity)", "造成#YELLOW#%d#LAST#法力燃烧伤害，并将1个随机法术技能置入冷却#YELLOW#%d#LAST#回合（须通过混乱免疫）", "tformat")
-t("#YELLOW#%s has their %s spell disrupted for for %d turns!", "#YELLOW#%s的%s法术被干扰%d回合!", "logSeen")
+t("#YELLOW#%s has their %s spell disrupted for for %d turns!", "#YELLOW#%s的%s法术被干扰%d回合！", "logSeen")
 t(" of disruption", "干扰之", "entity name")
 t("disruption", "干扰", "entity keyword")
 t("Cause the target to have a 10%% chance to fail spellcasting and 10%% chance to lose a magical sustain each turn, stacking up to 50%%", "使目标每回合有10%%几率施放法术失败，并有10%%失去一项魔法持续技能，最高叠加到50%%", "tformat")
@@ -9653,7 +9653,7 @@ t("#LIGHT_GREEN#20%%#LAST# chance to knock the target back 3 spaces and deal #YE
 t(" of amnesia", "健忘之", "entity name")
 t("amnesia", "健忘", "entity keyword")
 t("#LIGHT_GREEN#50%%#LAST# chance to put 1 talent on cooldown for #YELLOW#%d#LAST# turns (checks Confusion immunity)", "#LIGHT_GREEN#50%%#LAST#几率将一个技能打入#YELLOW#%d#LAST#回合冷却（需通过混乱免疫）", "tformat")
-t("#YELLOW#%s has temporarily forgotten %s for %d turns!", "#YELLOW#%s暂时遗忘了%s，持续%d回合!", "logSeen")
+t("#YELLOW#%s has temporarily forgotten %s for %d turns!", "#YELLOW#%s暂时遗忘了%s，持续%d回合！", "logSeen")
 t(" of torment", "折磨之", "entity name")
 t("torment", "折磨", "entity keyword")
 t("#LIGHT_GREEN#20%#LAST# chance to stun, blind, pin, confuse, or silence the target for 3 turns", "#LIGHT_GREEN#20%#LAST#几率震慑、混乱、沉默、定身或致盲目标3回合", "_t")
@@ -10219,7 +10219,7 @@ t("volcanic", "火山", "entity keyword")
 t(" of the void", "虚空之", "entity name")
 t("void", "虚空", "entity keyword")
 t("blink to a nearby random location (rad %d)", "随机传送至附近的某个位置（半径 %d）", "_t")
-t("%s uses %s %s!", "%s使用了%s%s!", "logSeen")
+t("%s uses %s %s!", "%s使用了%s%s！", "logSeen")
 t(" of Toknor", "图库纳之", "entity name")
 t("toknor", "图库纳", "entity keyword")
 t(" of the wind", "轻风之", "entity name")
@@ -10340,7 +10340,7 @@ t("manaburning", "法力燃烧", "entity keyword")
 t("inquisitor's ", "审判者的", "entity name")
 t("inquisitors", "审判者", "entity keyword")
 t("Deals #YELLOW#%d#LAST# Manaburn damage and puts 1 random spell talent on cooldown for #YELLOW#%d#LAST# turns (checks Confusion immunity)", "造成#YELLOW#%d#LAST#法力燃烧伤害，并将1个随机法术技能置入冷却#YELLOW#%d#LAST#回合（须通过混乱免疫）", "tformat")
-t("#YELLOW#%s has their %s spell disrupted for for %d turns!", "#YELLOW#%s的%s法术被干扰%d回合!", "logSeen")
+t("#YELLOW#%s has their %s spell disrupted for for %d turns!", "#YELLOW#%s的%s法术被干扰%d回合！", "logSeen")
 t("protector's ", "保护者的", "entity name")
 t("protectors", "保护者", "entity keyword")
 t(" of disruption", "干扰之", "entity name")
@@ -10367,7 +10367,7 @@ t("honing", "研磨", "entity keyword")
 t("hungering ", "饥渴的", "entity name")
 t("hungering", "饥渴", "entity keyword")
 t("inflict %0.2f mind damage (range 10), gaining psi and hate equal to 10%%%% of the damage done", "造成%0.2f精神伤害（距离10），获得相当于造成伤害10%%%%的灵能值和仇恨值", "tformat")
-t("%s feeds %s %s with psychic energy from %s!", "%s用%s%s吸收%s的精神力量!", "logSeen")
+t("%s feeds %s %s with psychic energy from %s!", "%s用%s%s吸收%s的精神力量！", "logSeen")
 t("%s resists the mind attack!", "%s抵抗了精神攻击！", "logSeen")
 t("projecting ", "投射的", "entity name")
 t("projecting", "投射", "entity keyword")
@@ -10418,7 +10418,7 @@ t("recursion", "循环", "entity keyword")
 t("fungal ", "真菌的", "entity name")
 t("fungal", "真菌", "entity keyword")
 t("regenerate %d life over 5 turns", "在5回合内回复 %d 生命值", "_t")
-t("%s uses %s %s!", "%s使用了%s%s!", "logSeen")
+t("%s uses %s %s!", "%s使用了%s%s！", "logSeen")
 t("blazebringer's ", "烈焰行者的", "entity name")
 t("blaze", "炽焰", "entity keyword")
 t("caustic ", "腐蚀的", "entity name")
@@ -10720,7 +10720,7 @@ t("breaching", "破袭", "entity keyword")
 t(" of channeling", "传导之", "entity name")
 t("channeling", "传导", "entity keyword")
 t("channel mana (increasing mana regeneration by 2000%% for 5 turns)", "法力回复（提升法力回复2000%% 持续5回合）", "_t")
-t("%s channels mana through %s %s!", "%s在%s%s中传导魔力!", "logSeen")
+t("%s channels mana through %s %s!", "%s在%s%s中传导魔力！", "logSeen")
 t("Your negative mana regeneration rate is unaffected by the staff.", "你法力值的负回复率不受法杖影响。", "logPlayer")
 t("Another mana surge is currently active.", "另外一种法力恢复效果已激活。", "logPlayer")
 t("Your nonexistant mana regeneration rate is unaffected by the staff.", "你没有法力恢复效果，不受法杖影响。", "logPlayer")
@@ -10729,7 +10729,7 @@ t("g. warding", "超级守护", "entity keyword")
 t(" of invocation", "祈祷之", "entity name")
 t("invocation", "祈祷", "entity keyword")
 t("conjure elemental energy in a radius %d cone, dealing %0.2f to %0.2f %s damage", "在半径 %d 的锥形范围内召唤元素能量，造成 %0.2f 到 %0.2f %s 伤害。", "tformat")
-t("%s channels a cone of %s%s#LAST# energy through %s %s!", "%s从%s%s中传导出一股呈锥形的%s%s#LAST# 能量!", "logSeen", {1,4,5,2,3})
+t("%s channels a cone of %s%s#LAST# energy through %s %s!", "%s从%s%s中传导出一股呈锥形的%s%s#LAST# 能量！", "logSeen", {1,4,5,2,3})
 t(" of protection", "保护之", "entity name")
 t("protection", "保护", "entity keyword")
 t(" of wizardry", "巫术之", "entity name")
@@ -10764,11 +10764,11 @@ t("remove 1 confusion or silence effect and prevent the application of %d detrim
 t(" of gale force", "强风之", "entity name")
 t("galeforce", "强风", "entity keyword")
 t("project a gust of wind in a cone knocking all creatures back %d spaces and dealing %d physical damage", "在扇形区域呼出一阵强风，击退所有生物%d格，并造成%d物理伤害", "tformat")
-t("%s uses %s %s!", "%s使用了%s%s!", "logSeen")
+t("%s uses %s %s!", "%s使用了%s%s！", "logSeen")
 t(" of mindblast", "心灵爆炸之", "entity name")
 t("mindblast", "心灵爆炸", "entity keyword")
 t("blast the opponent's mind dealing %d mind damage and silencing them for 4 turns", "冲击敌人精神，造成 %d 精神伤害并沉默4回合", "tformat")
-t("%s activates %s %s!", "%s激活了%s%s!", "logSeen")
+t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 
 ------------------------------------------------
 section "mod-tome/data/general/objects/egos/totems-powers.lua"
@@ -10776,7 +10776,7 @@ section "mod-tome/data/general/objects/egos/totems-powers.lua"
 t(" of healing", "治疗之", "entity name")
 t("healing", "治疗", "entity keyword")
 t("heal yourself and all friendly characters within 10 spaces for %d", "治疗你自己和周围10格内的所有友方生物%d点生命值", "tformat")
-t("%s activates %s %s!", "%s激活了%s%s!", "logSeen")
+t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t(" of stinging", "毒刺之", "entity name")
 t("stinging", "毒刺", "entity keyword")
 t("sting an enemy dealing %d nature damage over 7 turns and reducing their healing by 50%%%%", "毒刺攻击一个敌人，在7回合内造成%d自然伤害，并使目标治疗系数降低50%%%%", "tformat")
@@ -10800,10 +10800,10 @@ t([[summon a resilient tentacle up to %d spaces away for %d turns.  Each turn th
 
 %s]], "tformat")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("Lashing Tentacle", "鞭挞触手", "_t")
 t("A lashing tentacle.", "一条猛烈抽打的触手。", "_t")
-t("#Source# points %s %s at #target#, releasing a writhing tentacle!", "#Source#将%s%s指向#target#, 释放出扭曲的触手!", "logCombat")
+t("#Source# points %s %s at #target#, releasing a writhing tentacle!", "#Source#将%s%s指向#target#, 释放出扭曲的触手！", "logCombat")
 t("a spot nearby", "周围的地点", "_t")
 t("Summon", "召唤", "_t")
 
@@ -10813,15 +10813,15 @@ section "mod-tome/data/general/objects/egos/wands-powers.lua"
 t(" of clairvoyance", "通彻之", "entity name")
 t("clairvoyance", "通彻", "entity keyword")
 t("reveal the area around you, dispelling darkness (radius %d, power %d based on Magic), and detect the presence of nearby creatures for 10 turns", "揭示周围区域，驱散黑暗（范围%d，强度%d基于魔法），并在10回合内侦察周围生物", "tformat")
-t("%s uses %s %s!", "%s使用了%s%s!", "logSeen")
+t("%s uses %s %s!", "%s使用了%s%s！", "logSeen")
 t(" of lightning storm", "闪电风暴之", "entity name")
 t("lightning storm", "闪电风暴", "entity keyword")
 t("create a radius %d storm for %d turns. Each turn, creatures within take %d lightning damage and will be dazed for 1 turn (%d total damage)", "制造一场半径%d的风暴，持续 %d 回合。每回合将对卷入其中的生物造成 %d 闪电伤害，并眩晕1回合。（总伤害%d）", "tformat")
-t("%s conjures a lightning storm from %s %s!", "%s从%s%s中召唤出闪电风暴!", "logSeen")
+t("%s conjures a lightning storm from %s %s!", "%s从%s%s中召唤出闪电风暴！", "logSeen")
 t(" of conjuration", "咒语之", "entity name")
 t("conjure", "咒语", "entity keyword")
 t("fire a magical bolt dealing %d %s damage", "发射魔法箭，造成%d %s伤害", "tformat")
-t("%s activates %s %s!", "%s激活了%s%s!", "logSeen")
+t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t(" of shielding", "护盾之", "entity name")
 t("shielding", "护盾", "entity keyword")
 t("create a shield absorbing up to %d damage on yourself and all friendly characters within 10 spaces for %d turns", "在你和周围10格内所有友方生物的身上制造护盾，吸收%d伤害，持续%d回合", "tformat")
@@ -10909,7 +10909,7 @@ t("persecution", "迫害", "entity keyword")
 t("inquisitor's ", "审判者的", "entity name")
 t("inquisitors", "审判者", "entity keyword")
 t("Deals #YELLOW#%d#LAST# Manaburn damage and puts 1 random spell talent on cooldown for #YELLOW#%d#LAST# turns (checks Confusion immunity)", "造成#YELLOW#%d#LAST#法力燃烧伤害，并将1个随机法术技能置入冷却#YELLOW#%d#LAST#回合（须通过混乱免疫）", "tformat")
-t("#YELLOW#%s has their %s spell disrupted for for %d turns!", "#YELLOW#%s的%s法术被干扰%d回合!", "logSeen")
+t("#YELLOW#%s has their %s spell disrupted for for %d turns!", "#YELLOW#%s的%s法术被干扰%d回合！", "logSeen")
 t(" of disruption", "干扰之", "entity name")
 t("disruption", "干扰", "entity keyword")
 t("Cause the target to have a 10%% chance to fail spellcasting and 10%% chance to lose a magical sustain each turn, stacking up to 50%%", "使目标每回合有10%%几率施放法术失败，并有10%%失去一项魔法持续技能，最高叠加到50%%", "tformat")
@@ -10925,7 +10925,7 @@ t("thought", "思维", "entity keyword")
 t(" of amnesia", "健忘之", "entity name")
 t("amnesia", "健忘", "entity keyword")
 t("#LIGHT_GREEN#50%%#LAST# chance to put 1 talent on cooldown for #YELLOW#%d#LAST# turns (checks Confusion immunity)", "#LIGHT_GREEN#50%%#LAST#几率将一个技能打入#YELLOW#%d#LAST#回合冷却（需通过混乱免疫）", "tformat")
-t("#YELLOW#%s has temporarily forgotten %s for %d turns!", "#YELLOW#%s暂时遗忘了%s，持续%d回合!", "logSeen")
+t("#YELLOW#%s has temporarily forgotten %s for %d turns!", "#YELLOW#%s暂时遗忘了%s，持续%d回合！", "logSeen")
 t(" of torment", "折磨之", "entity name")
 t("torment", "折磨", "entity keyword")
 t("#LIGHT_GREEN#20%#LAST# chance to stun, blind, pin, confuse, or silence the target for 3 turns", "#LIGHT_GREEN#20%#LAST#几率震慑、混乱、沉默、定身或致盲目标3回合", "_t")
@@ -11440,7 +11440,7 @@ t("A poem written by a... Necromancer?", "一首由……死灵法师？所写�
 t("rogues do it from behind", "盗贼在你身后", "entity name")
 t("A poem written for a rogue?", "一首写给某个盗贼的诗歌？", "_t")
 t("how to become a necromancer, part %d", "如何成为死灵法师，第%d章", "tformat")
-t("How to become a powerful Necromancer!", "如何成为强大的死灵法师!", "_t")
+t("How to become a powerful Necromancer!", "如何成为强大的死灵法师！", "_t")
 t("\"Dust to Dust\", an undead hunter's guide, by Aslabor Borys", "“尘归尘”，不死猎人指南，作者：阿斯拉伯·波利斯", "entity name")
 t("An undead hunter's guide, by Aslabor Borys.", "不死猎人指南，作者：阿斯拉伯·波利斯", "_t")
 t("Rolf", "罗尔夫", "_t")
@@ -12293,7 +12293,7 @@ t("15% chance to animate a bleeding foe's blood", "15%几率活化流血敌人�
 t("animated blood", "活化血液", "_t")
 t("A haze of blood, vibrant and pulsing through the air, possessed by a warped and cracked soul. Every now and then a scream or wail of agony garbles through it, telling of the mindless suffering undergone by its possessor.", [[一团血雾在空气中鲜艳地搏动翻涌，被一个扭曲破碎的灵魂所占据。时不时有痛苦的尖叫或哀嚎从雾中传出，诉说着其占据者所遭受的无意识苦难。]], "_t")
 t("Summon", "召唤", "_t")
-t("#GOLD#As the blade touches %s's spilt blood, the blood rises, animated!", "#GOLD#饮血剑接触到%s喷出的血液，血液开始活化，动了起来!", "logSeen")
+t("#GOLD#As the blade touches %s's spilt blood, the blood rises, animated!", "#GOLD#饮血剑接触到%s喷出的血液，血液开始活化，动了起来！", "logSeen")
 t("#GOLD#%s draws power from the spilt blood!", "#GOLD#%s从洒出的血液中汲取能量！", "logSeen")
 t("Dawn's Blade", "黎明之刃", "entity name")
 t("shining longsword", "闪光的长剑", "_t")
@@ -12388,7 +12388,7 @@ t("Gwai's Burninator", "戈瓦的焚烧者", "entity name")
 t("glowing rod", "炽热的魔杖", "_t")
 t("Gwai, a Pyromanceress that lived during the Spellhunt, was cornered by group of mage hunters. She fought to her last breath and is said to have killed at least ten people with this wand before she fell.", "戈瓦，一个生活在魔法狩猎时的火焰术士，她被一群猎魔人逼入了绝境。她战斗至最后一刻，据说在她流尽最后一滴血之前她用这把魔杖干掉了至少十人。", "_t")
 t("shoot a cone of flames (radius %d) for %0.2f fire damage (based on Magic)", "发射长度 %d 的锥形火焰，造成 %0.2f 火焰伤害（基于魔法）。", "tformat")
-t("%s activates %s %s!", "%s激活了%s%s!", "logSeen")
+t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t("Drake's Bane", "屠龙", "entity name")
 t("viciously sharp battle axe", "凶猛的锋利战斧", "_t")
 t("The killing of Kroltar, mightiest of wyrms, took seven months and the lives of 20,000 dwarven warriors.  Finally the beast was worn down and mastersmith Gruxim, standing atop the bodies of his fallen comrades, was able slit its throat with this axe crafted purely for the purpose of penetrating the wyrm's hide.", "对最强大的巨龙库洛塔的猎杀持续了七个月，并夺走了两万名矮人战士的生命。最终这头巨兽被消磨殆尽，工匠大师格鲁克西姆站在倒下战友的尸体之上，用这把专为穿透龙皮而锻造的战斧割开了它的喉咙。", "_t")
@@ -12419,7 +12419,7 @@ t("Neira's Memory", "尼耶拉的记忆", "entity name")
 t("crackling belt", "噼啪作响的腰带", "_t")
 t("Ages ago this belt was worn by Linaniil herself in her youth, using its power she shielded herself from the Spellblaze rain of fire, but naught could she do for her sister Neira.", "许多年前这根腰带是年轻时的莱娜尼尔穿戴的，在魔法大爆炸的火焰之中它的力量保护了她，但却保护不了她的姐妹尼耶拉。", "_t")
 t("surround yourself with a magical shield (strength %d, based on Magic) for %d turns", "制造一层魔法护盾（强度%d，基于魔法），持续%d回合。", "tformat")
-t("%s invokes the memory of Neira!", "%s呼唤了尼耶拉的记忆!", "logSeen")
+t("%s invokes the memory of Neira!", "%s呼唤了尼耶拉的记忆！", "logSeen")
 t("Nature's Blessing", "自然之赐", "entity name")
 t("supple leather armour entwined with willow bark", "与柳树皮交织的柔韧皮甲", "_t")
 t("Worn by Protector Ardon, who first formed the Ziguranth during the mage wars between the Humans and the Halflings.  This armour is infused with the powers of nature, and protected against the disruptive forces of magic.", "曾被守护者阿尔登穿着，他在魔法战争中首次于人类和半身人之间建立了伊格兰斯。这件护甲灌注了大自然的力量，能够抵御魔法的破坏之力。", "_t")
@@ -12485,7 +12485,7 @@ t("sea-blue ring", "海蓝色的戒指", "_t")
 t("This azure ring seems to be always moist to the touch.", "这个海蓝色的戒指看上去总是水汪汪的。", "_t")
 t("summon a radius %d tidal wave that expands slowly over %d turns, dealing %0.2f cold and %0.2f physical damage (based on Willpower) each turn, knocking opponents back, and lowering their stun resistance", "召唤缓慢扩张的半径 %d 的潮汐，持续 %d 回合，每回合造成 %0.2f 寒冷和 %0.2f 物理伤害，击退敌人，并降低他们的震慑抗性。", "tformat")
 t("tidal wave", "潮汐", "_t")
-t("%s brandishes %s, calling forth the might of the oceans!", "%s挥舞着%s，召唤了海洋的力量!", "logSeen")
+t("%s brandishes %s, calling forth the might of the oceans!", "%s挥舞着%s，召唤了海洋的力量！", "logSeen")
 t("Ring of the Dead", "亡者之戒", "entity name")
 t("dull black ring", "黯淡的黑色戒指", "_t")
 t("This ring is imbued with powers from beyond the grave. It is said that those who wear it may find a new path when all other roads turn dim.", "这枚戒指充溢着坟墓的气息。据说佩戴它的人会在走投无路时发现新的道路。", "_t")
@@ -12546,15 +12546,15 @@ t("Black Mesh", "黑暗之网", "entity name")
 t("pile of tendrils", "一堆卷须", "_t")
 t("Black, interwoven tendrils form this mesh that can be used as a shield. It reacts visibly to your touch, clinging to your arm and engulfing it in a warm, black mass.", "盾牌由许多黑色的触须交织而成。当你触摸它时，你可以感受它非常明显的反应，它缠绕住你的手臂并将其包裹在一团黑色而温暖的物质中。", "_t")
 t("Up to once per turn, pull an attacker up to 15 spaces away into melee range, pinning and asphyxiating it", "每回合一次，将15格内一名攻击者拉到身边，定身并使其窒息。", "_t")
-t("#ORCHID#Black tendrils from #Source# grab #Target#!", "#ORCHID#黑暗触须从#Source#处伸出，抓住了#Target#!", "logCombat")
-t("#ORCHID##Source#'s tendrils pull #Target# in!", "#ORCHID##Source#的触须将#Target#拉近自己!", "logCombat")
-t("#ORCHID#%s resists the tendrils' pull!", "#ORCHID#%s抵抗了触须的抓取!", "logSeen")
+t("#ORCHID#Black tendrils from #Source# grab #Target#!", "#ORCHID#黑暗触须从#Source#处伸出，抓住了#Target#！", "logCombat")
+t("#ORCHID##Source#'s tendrils pull #Target# in!", "#ORCHID##Source#的触须将#Target#拉近自己！", "logCombat")
+t("#ORCHID#%s resists the tendrils' pull!", "#ORCHID#%s抵抗了触须的抓取！", "logSeen")
 t("Rogue Plight", "刺客契约", "entity name")
 t("blackened leather armour", "熏黑的皮甲", "_t")
 t("No rogue blades shall incapacitate the wearer of this armour.", "盗贼之刃将不能加于装备者之身。", "_t")
 t("Transfers a bleed, poison, or wound to its source or a nearby enemy every 4 turns.", "每4回合将一项流血、毒素或伤口效果转移给效果来源或者附近的敌人", "_t")
-t("#CRIMSON#Rogue Plight transfers an effect to its source!", "#CRIMSON#刺客契约将一项效果转移给其来源!", "logPlayer")
-t("#CRIMSON#Rogue Plight transfers an effect to a nearby enemy!", "#CRIMSON#刺客契约将一项效果转移给周围敌人!", "logPlayer")
+t("#CRIMSON#Rogue Plight transfers an effect to its source!", "#CRIMSON#刺客契约将一项效果转移给其来源！", "logPlayer")
+t("#CRIMSON#Rogue Plight transfers an effect to a nearby enemy!", "#CRIMSON#刺客契约将一项效果转移给周围敌人！", "logPlayer")
 t("misc", "杂项", "entity type")
 t("egg", "蛋", "entity subtype")
 t("Mummified Egg-sac of Ungolë", "温格勒的僵化卵囊", "entity name")
@@ -12694,7 +12694,7 @@ t("a strangely colored bone", "染的稀奇古怪的骨头", "_t")
 t("A shortened femur of the mighty prismatic dragon Ureslak, this erratic club still resonates with his volatile nature.", "强大的棱晶龙乌尔斯拉克被截断的腿骨，这根奇怪的棍子仍然流动着乌尔斯拉克的天性。", "_t")
 t("10% chance to shimmer to a different hue and gain powers", "10% 几率变换不同颜色并且增加强度", "_t")
 t("Ureslak's %s Femur", "乌尔斯拉克的%s股骨", "tformat")
-t("#GOLD#Ureslak's Femur glows and shimmers!", "#GOLD#乌尔斯拉克的股骨发出闪光!", "logSeen")
+t("#GOLD#Ureslak's Femur glows and shimmers!", "#GOLD#乌尔斯拉克的股骨发出闪光！", "logSeen")
 t("Flaming", "火焰", "_t")
 t("Frozen", "冰冻", "_t")
 t("Crackling", "噼啪", "_t")
@@ -12706,8 +12706,8 @@ t("Ureslak's Molted Scales", "乌尔斯拉克的蜕鳞", "entity name")
 t("scaly multi-hued cloak", "多彩鳞片斗篷", "_t")
 t("This cloak is fashioned from the scales of some large reptilian creature.  It appears to reflect every color of the rainbow.", "这件斗篷用某些大型爬行动物的鳞片制成。它看上去可以反射出彩虹的每种颜色。", "_t")
 t("energize the scales for 16 turns, increasing resistance to %s damage by 15%% just before you are damaged. (This effect lasts 5 turns and only works on one type of damage.)", "为鳞片充能16回合，让你在受 %s 伤害前增加相应抗性15%%，持续5回合，只对一种伤害生效。", "tformat")
-t(", or ", " 或 ", "_t")
-t("%s empowers %s %s!", "%s充能了%s%s!", "logSeen")
+t(", or ", "或 ", "_t")
+t("%s empowers %s %s!", "%s充能了%s%s！", "logSeen")
 t("It would go well with another part of Ureslak.", "另一件乌尔斯拉克的遗物会增强它的能力。", "_t")
 t("#YELLOW_GREEN#An ironic harmony surrounds Ureslak's remains as they reunite.", "#YELLOW_GREEN#乌尔斯拉克的遗物重聚时，一种讽刺的和谐笼罩四周。", "logSeen")
 t("#YELLOW_GREEN#Ureslak's remains seem more unsettled.", "#YELLOW_GREEN#乌尔斯拉克的遗物似乎更加不安定了。", "logSeen")
@@ -12750,7 +12750,7 @@ t("vine coated shield", "藤蔓覆盖的盾牌", "_t")
 t("This voratun shield, coated with thick vines, was imbued with nature's power long ago by the Halfling General Almadar Riul, who used it to stave off the magic and diseases of orcish corruptors during the peak of the Pyre Wars.", "这块沃瑞钽盾牌表面被厚实的藤蔓所缠绕，其中注入了许多年前的半身人将军阿尔曼达·鲁伊尔的自然力量，他在烈火战争中用这个盾牌驱散了兽人堕落者的魔法与疾病。", "_t")
 t("purge up to %d diseases (based on Willpower) and gain disease immunity, %d%% blight resistance, and %d spell save for 5 turns", "除去至多 %d 项疾病（基于意志），并获得疾病免疫、%d%% 枯萎抗性和 %d 法术豁免，持续 5 回合。", "tformat")
 t("%s holds %s %s close, cleansing %s of corruption!", "%s将%s %s紧贴自身，净化%s身上的腐化！", "logSeen")
-t("%s is purged of diseases!", "%s 除去了疾病!", "logSeen")
+t("%s is purged of diseases!", "%s 除去了疾病！", "logSeen")
 t("#DARK_GREEN#You feel nature's power protecting you!", "#DARK_GREEN#你感到自然之力庇护着你！", "logPlayer")
 t("Star Shot", "星辰弹", "entity name")
 t("blazing shot", "闪光的弹药", "_t")
@@ -12810,7 +12810,7 @@ t("Stormlash", "风暴之鞭", "entity name")
 t("electrified whip", "缠绕着电弧的鞭子", "_t")
 t("This steel plated whip arcs with intense electricity. The force feels uncontrollable, explosive, powerful.", "这根钢质的鞭子缠绕着许多电弧。你可以感受这根鞭子上散发出的力量强大且不可控制。", "_t")
 t("Focus the lightning forces on an enemy", "将雷霆的力量释放在敌人身上", "_t")
-t("The storm is on your side !", "风暴协助了你!", "logPlayer")
+t("The storm is on your side !", "风暴协助了你！", "logPlayer")
 t("The storm betrayed you...", "风暴背叛了你…", "logPlayer")
 t("strike an enemy within range %d (for 100%% weapon damage as lightning) and release a radius %d burst of electricity dealing %0.2f to %0.2f lightning damage (based on Magic and Dexterity)", "攻击距离 %d 内的敌人，造成 100%% 闪电武器伤害并在半径 %d 内释放电弧，造成 %0.2f 到 %0.2f 点闪电伤害 (基于魔法和敏捷)", "tformat")
 t("#Source# strikes #Target# with %s %s, sending out an arc of lightning!", "#Source#用%s%s攻击了#Target#，触发一阵电弧！", "logCombat")
@@ -12820,17 +12820,17 @@ t("A small mindstar rests at top of this handle. As you touch it, a translucent 
 t("Try to fry your enemies brain (25% chance to brainlock)", "试图封锁敌人的大脑（25%几率思维封锁）", "_t")
 t("strike all targets in a line (for 100%% weapon damage as mind) out to range 4", [[打击一条长度为4码的直线上的所有目标，
 造成相当于100%%武器伤害的精神伤害。]], "_t")
-t("#Source# manifests a psychic assult with %s %s!", "#Source#使用%s%s发动心灵攻击!", "logCombat")
+t("#Source# manifests a psychic assult with %s %s!", "#Source#使用%s%s发动心灵攻击！", "logCombat")
 t("Latafayn", "焱剑·拉塔法", "entity name")
 t("flame covered greatsword", "附着火焰的大剑", "_t")
 t("This massive, flame-coated greatsword was stolen by the adventurer Kestin Highfin, during the Age of Dusk. It originally belonged to a demon named Frond'Ral the Red.  It roars with vile flames and its very existence seems to be a blight upon the lands.", "这把巨大、覆满火焰的大剑在黄昏纪被冒险者科斯汀·赫菲因偷走。它原本属于一个名叫赤红之弗朗拉尔的恶魔。它燃烧着邪恶的火焰，它的存在本身似乎就是这片土地的灾祸。", "_t")
 t("accelerate burning effects on all creatures in a radius %d ball within range %d, consuming them to instantly inflict 125%% of all remaining burn damage", "加速射程 %d 内半径 %d 球体中所有生物身上的燃烧效果，消耗它们，立即造成剩余燃烧伤害的125%%。", "tformat")
-t("%s's %s lashes out in a flaming arc, intensifying the burning of %s enemies!", "%s的%s划出一条烈焰的弧线，加速了%s个敌人身上的燃烧!", "logSeen")
+t("%s's %s lashes out in a flaming arc, intensifying the burning of %s enemies!", "%s的%s划出一条烈焰的弧线，加速了%s个敌人身上的燃烧！", "logSeen")
 t("Robe of Force", "灵能长袍", "entity name")
 t("rippling cloth robe", "无风自动的长袍", "_t")
 t("This thin cloth robe is surrounded by a pulsating shroud of telekinetic force.", "这件薄薄的长袍被一团神秘的精神力量所包围。", "_t")
 t("send out a range %d beam of kinetic energy, dealing %0.2f to %0.2f physical damage (based on Willpower and Cunning) with knockback", "发射长度 %d 的动能射线，造成 %0.2f 到 %0.2f 点物理击退伤害（基于意志和灵巧）", "tformat")
-t("%s focuses a beam of force from %s %s!", "%s从%s%s中发出动能射线!", "logSeen")
+t("%s focuses a beam of force from %s %s!", "%s从%s%s中发出动能射线！", "logSeen")
 t("Serpent's Glare", "蛇灵怒视", "entity name")
 t("venomous gemstone", "剧毒宝石", "_t")
 t("A thick venom drips from this mindstar.", "凝厚的毒液不断地从这个灵晶上滴落。", "_t")
@@ -12857,13 +12857,13 @@ t("This heavy, ridged blade emanates magical power, yet as you grasp the handle 
 t("deal %0.2f arcane and %0.2f darkness damage (based on Magic) in a radius 1 around the target", "在目标周围1码范围内，造成%0.2f奥术和%0.2f暗影伤害（基于魔法）", "tformat")
 t("swallows the victim's soul, gaining a new power", "吞噬目标的灵魂，获得新的能力。", "_t")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
-t("@Source@ taps the #SALMON#trapped soul#LAST# of %s, xmanifesting %s!", "@Source@放出了%s#SALMON#被束缚的灵魂#LAST#，模仿了%s!", "tformat")
+t("@Source@ taps the #SALMON#trapped soul#LAST# of %s, xmanifesting %s!", "@Source@放出了%s#SALMON#被束缚的灵魂#LAST#，模仿了%s！", "tformat")
 t("%s's %s #SALMON#CONSUMES THE SOUL#LAST# of %s, gaining the power of %s!", "%s的%s #SALMON#吞噬了%s的灵魂#LAST#，获得了%s的能力！", "logSeen")
 t("Hydra's Bite", "三头龙之牙", "entity name")
 t("triple headed flail", "有三个头的连枷", "_t")
 t("This three-headed stralite flail strikes with the power of a hydra. With each attack it lashes out, hitting everyone around you.", "这把三头的斯莱特连枷，使用的是一只三头龙的力量。它的攻击可以伤害到周围的所有敌人。", "_t")
 t("hit up to two adjacent enemies", "攻击目标相邻的2个单位", "_t")
-t("#Source#'s three headed flail lashes at #Target#%s!", "#Source#使用三头连枷打击#Target#%s!", "logCombat")
+t("#Source#'s three headed flail lashes at #Target#%s!", "#Source#使用三头连枷打击#Target#%s！", "logCombat")
 t(" and %s", "和 %s", "tformat")
 t("#Source#'s three headed flail lashes at #Target#!", "#Source#的三头连枷扫过了 #Target# ！", "logCombat")
 t("Spellhunt Remnants", "魔法狩猎遗物", "entity name")
@@ -12880,11 +12880,11 @@ t("These voratun gauntlets shine brightly beneath a thin layer of wear. Original
 t("gleaming voratun gauntlets", "闪耀的沃瑞钽臂铠", "_t")
 t("These brilliant voratun gauntlets shine with an almost otherworldly glow. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence. Pride in the fulfillment of this ancient duty practically radiates from them.", "这件沃瑞钽臂铠闪耀着夺目的光芒。它起源于魔法狩猎时期，用于摧毁奥术类装备，以惩罚法师们对这个世界的暴行。", "_t")
 t("attempt to destroy all magic effects and sustains on creatures in a radius %d cone (unnatural creatures are additionally dealt %0.2f arcane damage and stunned)", "在半径%d码弧形区域摧毁生物身上的所有魔法效果和魔法持续技能（非自然生物还会额外受到%0.2f奥术伤害并被震慑）", "tformat")
-t("%s unleashes antimagic forces from %s %s!", "%s从%s%s中放出反魔法力量!", "logSeen")
-t("%s's animating magic is disrupted by the burst of power!", "%s的魔法被强大的反魔法力量干扰了!", "logSeen")
+t("%s unleashes antimagic forces from %s %s!", "%s从%s%s中放出反魔法力量！", "logSeen")
+t("%s's animating magic is disrupted by the burst of power!", "%s的魔法被强大的反魔法力量干扰了！", "logSeen")
 t("destroy an arcane item (of a higher tier than the gauntlets)", "摧毁一件奥术装备（比臂铠材质级别高）", "_t")
 t("#LIGHT_RED#You can not do that with a tinker attached. Remove it first.", "#LIGHT_RED#当有配件附着时，你不能这么做。先移除配件。", "log")
-t("Destroy which item?", "摧毁哪一件物品?", "_t")
+t("Destroy which item?", "摧毁哪一件物品？", "_t")
 t("You crush the %s, and the gloves take on an illustrious shine!", "你摧毁了%s,手套开始发光！", "logPlayer")
 t("Merkul's Second Eye", "米库尔的第二只眼", "entity name")
 t("sleek stringed bow", "丝弦光滑的弓", "_t")
@@ -12894,7 +12894,7 @@ t("shining gold shield", "闪光的金色盾牌", "_t")
 t("A bright light shines from the center of this shield. Holding it clears your mind.", "从这面盾牌的中心放射出耀眼的光芒，当你紧握这面盾牌时，你的思维变得清晰。", "_t")
 t("releases a burst of light", "发出一股光芒", "_t")
 t("send out a range %d beam, lighting its path and dealing %0.2f to %0.2f light damage (based on Willpower and Cunning)", "发射长度 %d 的射线，照亮路径，并造成 %0.2f 到 %0.2f 点光系伤害(基于意志和灵巧)", "tformat")
-t("%s's %s flashes!", "%s的%s 闪光了!", "logSeen")
+t("%s's %s flashes!", "%s的%s 闪光了！", "logSeen")
 t("Wanderer's Rest", "旅者的休憩", "entity name")
 t("weightless boots", "没有重量的靴子", "_t")
 t("These boots feel nearly completely weightless. Touching them, you feel an enormous burden lifted from you.", "这双靴子几乎没有重量，触摸它，你觉得身上的重担一下子减轻了许多。", "_t")
@@ -12930,15 +12930,15 @@ t("This lantern of pale white crystal holds a sphere of darkness, that yet emana
 t("Absorbs all darkness (power %d, based on Willpower and Cunning) within its light radius, increasing its own brightness. (current charge %d).", "在光照范围内吸收所有黑暗(强度 %d,基于意志和灵巧) 并增加亮度。(当前增幅： %d)。", "tformat")
 t("#ORCHID#Umbraphage is fully powered!", "#ORCHID#暗影吞噬者充分获得了能量！", "logPlayer")
 t("release absorbed darkness in a %d radius cone with a %d%% chance to blind (based on lite radius), dealing %0.2f darkness damage (based on Mindpower and charge)", "在%d码的锥形范围内释放吸收的黑暗，有 %d%% 几率致盲（基于光照半径） , 并造成 %0.2f 暗影伤害 ( 基于精神强度和吸收量)", "tformat")
-t("%s unshutters %s %s, unleashing a torrent of shadows!", "%s打开了%s%s，释放出一股暗影洪流!", "logSeen")
+t("%s unshutters %s %s, unleashing a torrent of shadows!", "%s打开了%s%s，释放出一股暗影洪流！", "logSeen")
 t("Spectral Cage", "幽灵牢笼", "entity name")
 t("ethereal blue lantern", "天蓝色的灯笼", "_t")
 t("This ancient, weathered lantern glows with a pale blue light emanating from several ghostly forms trapped within.  The metal is icy cold to the touch.", "这个古老、风化的灯笼放射出淡蓝色的光芒，光芒来自被困在其中的几个幽灵形体。它的金属表面摸上去像冰一样冷。", "_t")
 t("release a will o' the wisp that will explode against your foes for %d cold damage (based on your Magic)", "放出鬼火，可以对你的敌人自爆，造成%d寒冷伤害（基于魔法）", "tformat")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("will o' the wisp", "鬼火", "_t")
 t("A chilling, ghostly form that floats in the air.", "空中悬浮的寒冷鬼火。", "_t")
-t("#Source# releases an icy whisp from %s %s!", "#Source#从%s%s中放出寒冷鬼火!", "logCombat")
+t("#Source# releases an icy whisp from %s %s!", "#Source#从%s%s中放出寒冷鬼火！", "logCombat")
 t("Summon", "召唤", "_t")
 t("charm", "护符", "entity type")
 t("totem", "图腾", "entity subtype")
@@ -12949,15 +12949,15 @@ t("call forth an immobile antimagic pillar for 10 turns.  (It spits slime, pulls
 t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
 t("Stone Guardian", "石制守护者", "_t")
 t("This massive stone pillar drips with a viscous slime. Nature's power flows through it, obliterating magic all around it...", "这根巨大的石柱滴落着粘稠的粘液。自然之力在其中奔涌，湮灭周围的一切魔法……", "_t")
-t("#Source# uses %s to summon a natural guardian!", "#Source#使用%s召唤自然守卫者!", "logCombat")
-t("Cloth of Dreams", "梦幻披风 ", "entity name")
+t("#Source# uses %s to summon a natural guardian!", "#Source#使用%s召唤自然守卫者！", "logCombat")
+t("Cloth of Dreams", "梦幻披风", "entity name")
 t("Touching this cloak of otherworldly fabric makes you feel both drowsy yet completely aware.", "当你触摸这件超脱尘俗的披风时你既觉得昏昏欲睡又十分清醒。", "_t")
 t("wand", "魔杖", "entity subtype")
 t("Void Shard", "虚空碎片", "entity name")
 t("strange jagged shape", "奇怪的锯齿状碎片", "_t")
 t("This jagged shape looks like a hole in space, yet it is solid, though light in weight.", "这个锯齿状的影像看上去像是时空中的黑洞，但它又是固态的，尽管重量非常的轻。", "_t")
 t("release a radius %d burst of void energy at up to range %d, dealing %0.2f temporal and %0.2f darkness damage (based on Magic)", "在 %d 码范围内释放虚空能量，至多距离 %d。造成 %0.2f 时空和 %0.2f 暗影伤害。(基于魔法)", "tformat")
-t("%s siphons space and time into %s %s!", "%s将时空吸收入%s%s!", "logSeen")
+t("%s siphons space and time into %s %s!", "%s将时空吸收入%s%s！", "logSeen")
 t("Coral Spray", "云雾珊瑚", "entity name")
 t("thick coral plate", "厚重的珊瑚板甲", "_t")
 t("A chunk of jagged coral, dredged from the ocean.", "用大块的珊瑚制成，源自大海深处。", "_t")
@@ -13004,7 +13004,7 @@ t("This small tree-shaped totem is imbued with powerful healing energies.", "你
 t("Heals all nearby living creatures by 5 points each turn.", "治疗周围的生物，每回合恢复5点。", "_t")
 t("#CRIMSON# A powerful healing aura appears around you as you equip the %s.", "#CRIMSON#当你装备%s后，强大的治疗光环在你身边出现。", "logPlayer")
 t("take root increasing health by 300, armor by 20, and armor hardiness by 20%% but rooting you in place for 4 turns", "扎根，增加300点生命、20点护甲和20%%护甲强度，但不能移动，持续4回合。", "_t")
-t("%s merges with %s %s!", "%s与%s%s合并!", "logSeen")
+t("%s merges with %s %s!", "%s与%s%s合并！", "logSeen")
 t("Ring of Growth", "生命之戒", "entity name")
 t("This small wooden ring has a single green stem wrapped around it. Thin leaves still seem to be growing from it.", "这枚小巧的戒指上缠绕着一根藤蔓，藤蔓似乎仍然在不断的吐出新叶。", "_t")
 t("vine encircled ring", "藤蔓缠绕的戒指", "_t")
@@ -13150,7 +13150,7 @@ t("This cloak waves and bends with shimmering light, reflecting the depths of sp
 t("Damage shields have +1 duration and +15% power", "伤害护盾增加一回合持续时间和15%强度", "_t")
 t("Boots of the Hunter", "猎人之靴", "entity name")
 t("well-worn boots", "用旧了的靴子", "_t")
-t("These cracked boots are caked with a thick layer of mud. It isn't clear who they previously belonged to, but they've clearly seen extensive use.", "这对有裂缝的靴子涂着厚厚的一层泥浆。目前还不清楚它以前属于谁,但显然,它曾被很多人使用过。", "_t")
+t("These cracked boots are caked with a thick layer of mud. It isn't clear who they previously belonged to, but they've clearly seen extensive use.", "这对有裂缝的靴子涂着厚厚的一层泥浆。目前还不清楚它以前属于谁，但显然，它曾被很多人使用过。", "_t")
 t("boost movement speed by 300% for up to 5 turns (or until you perform a non-movement action)", "增加移动速度300%五回合。（任何非移动行动会打断这个效果）", "_t")
 t("%s digs in %s %s.", "%s使用了%s%s。", "logSeen")
 t("Sludgegrip", "泥泞之握", "entity name")
@@ -13168,14 +13168,14 @@ t("This gold-tipped wand shines with an unnatural sheen.", "这根金头魔棒�
 t("summon a stationary shining orb within range %d for 15 turns that will illuminate its area and deal %d light damage (based on your Magic and Strength) to your foes within radius %d each turn", "在 %d 码范围内召唤一个静止的发光球体，持续15回合，照亮其周围区域，并每回合对半径 %d 内的敌人造成 %d 光系伤害（基于魔法和力量）", "tformat", {1,3,2})
 t("Lightbringer", "光明使者", "_t")
 t("A shining orb.", "一颗发光的球体。", "_t")
-t("#Source# points %s %s at #target#, releasing a brilliant orb of light!", "#Source#将%s%s指向#target#, 放出一个光辉的光球!", "logCombat")
+t("#Source# points %s %s at #target#, releasing a brilliant orb of light!", "#Source#将%s%s指向#target#, 放出一个光辉的光球！", "logCombat")
 t("a spot nearby", "周围的地点", "_t")
 t("Temporal Rift", "时空裂隙", "entity name")
 t("handled hole in space", "带手柄的空间之洞", "_t")
 t("Some mad Chronomancer appears to have affixed a handle to this hole in spacetime. It looks highly effective, in its own strange way.", "某个疯狂的时空法师似乎给这个时空洞装上了手柄。以它自己奇怪的方式来看，这东西似乎非常高效。", "_t")
 t("Arkul's Siege Arrows", "阿库尔的攻城矢", "entity name")
 t("gigantic spiral arrows", "巨大的螺旋箭", "_t")
-t("These titanic double-helical arrows seem to have been designed more for knocking down towers than for use in regular combat. They'll no doubt make short work of most foes.", "巨大的双螺旋箭，似乎是为推倒高塔而非常规战斗设计。毫无疑问,它们会迅速干掉敌人。", "_t")
+t("These titanic double-helical arrows seem to have been designed more for knocking down towers than for use in regular combat. They'll no doubt make short work of most foes.", "巨大的双螺旋箭，似乎是为推倒高塔而非常规战斗设计。毫无疑问，它们会迅速干掉敌人。", "_t")
 t("25% of all damage splashes in a radius of 1 around the target.", "你造成的伤害的25%溅射在目标周围1格", "_t")
 t("Punae's Blade", "普纳之刃", "entity name")
 t("thin blade", "很薄的剑", "_t")
@@ -13188,10 +13188,10 @@ t("#RED#You feel yourself lost in the aura of the robe.", "#RED#你觉得你在�
 t("#RED#The robe drapes comfortably over your doomed body.", "#RED#长袍舒服地披在你被诅咒的身躯上。", "logPlayer")
 t("Exiler", "放逐", "entity name")
 t([[The chronomancer known as Solith was renowned across all of Eyal. He always seemed to catch his enemies alone.
-In the case of opponents who weren't alone, he had to improvise.]], "时空法师索利斯在马基·埃亚尔的世界中十分有名。他总是抓住了他的敌人落单之时。即使对手不是独自一人,他也能临场发挥。", "_t")
+In the case of opponents who weren't alone, he had to improvise.]], "时空法师索利斯在马基·埃亚尔的世界中十分有名。他总是抓住了他的敌人落单之时。即使对手不是独自一人，他也能临场发挥。", "_t")
 t("insignia ring", "荣誉之戒", "_t")
 t("attempt to inflict %0.2f temporal damage (based on Spellpower and Paradox, if any) on foes in a radius %d ball out to range %d (chance depends on rank, summons are always affected), removing any that survive from time for up to %d turn(s)", "尝试对半径 %d 内的所有敌人造成 %0.2f 时空伤害（射程 %d，基于法术强度和紊乱，若有的话；成功率取决于等级，召唤物必定受影响），存活者将被移出时间线最多 %d 回合。", "tformat", {2,1,3,4})
-t("%s focuses time flows through %s %s!", "%s将时间线集中在%s%s!", "logSeen")
+t("%s focuses time flows through %s %s!", "%s将时间线集中在%s%s！", "logSeen")
 t("Piercing Gaze", "锐利目光", "entity name")
 t("stone-eyed shield", "刻有岩石眼的盾牌", "_t")
 t("This gigantic shield has a stone eye embedded in it.", "这个巨大的盾牌上嵌有一个石质的眼睛", "_t")
@@ -13200,7 +13200,7 @@ t("The eye locks onto %s, freezing it in place!", "眼睛凝视着%s，将其石
 t("Shantiz the Stormblade", "风暴之刃", "entity name")
 t("thin stormy blade", "细长的风暴之刃", "_t")
 t("This surreal dagger crackles with the intensity of a vicious storm.", "这柄超现实的匕首周围环绕有强大的风暴", "_t")
-t("Causes lightning to strike and destroy any projectiles in a radius of 10, dealing damage and dazing enemies in a radius of 5 around them.", "触发闪电,击落半径10内所有抛射物，抛射物半径5以内的敌人受到伤害并被眩晕。", "_t")
+t("Causes lightning to strike and destroy any projectiles in a radius of 10, dealing damage and dazing enemies in a radius of 5 around them.", "触发闪电，击落半径10内所有抛射物，抛射物半径5以内的敌人受到伤害并被眩晕。", "_t")
 t("#GREEN#Shantiz strikes down a projectile!", "#GREEN#风暴之刃击落了抛射物！", "logPlayer")
 t("Swordbreaker", "破剑匕", "entity name")
 t("hooked blade", "带锯齿的匕首", "_t")
@@ -13210,13 +13210,13 @@ t("Breaks enemy weapon.", "破坏对方武器", "_t")
 t("Shieldsmaiden", "女武神之心", "entity name")
 t("icy shield", "冰冻的盾", "_t")
 t("Myths tell of shieldsmaidens, a tribe of warrior women from the northern wastes of Maj'Eyal. Their martial prowess and beauty drew the fascination of swaths of admirers, yet all unrequited. So began the saying, that a shieldsmaiden's heart is as cold and unbreakable as her shield.", "传说中的女武神，来自马基·埃亚尔世界的北方荒地。她的美貌和力量吸引了众多爱慕者前去，然而所有人都空手而归。因此，有这样一句谚语：女武神的心同她的盾一样冰冷而不可打破。", "_t")
-t("Granted talent can block up to 1 instance of damage each 10 turns.", "提供技能:每十回合能抵挡一次攻击。", "_t")
+t("Granted talent can block up to 1 instance of damage each 10 turns.", "提供技能：每十回合能抵挡一次攻击。", "_t")
 t("Tirakai's Maul", "提瑞卡之锤", "entity name")
 t("This massive hammer is formed from a thick mass of strange crystalline growths. In the side of the hammer itself you see an empty slot; it looks like a gem of your own could easily fit inside it.", "这柄巨型锤子是用一种厚厚的古怪结晶体制成的，锤子里面能看到一个空槽，似乎很容易就能将宝石放进去。", "_t")
 t("None", "无", "_t")
 t("No gem", "没有宝石", "_t")
 t("%s: %s", "%s：%s", "tformat")
-t("Write a description for this gem's properties!", "写下宝石属性的说明!", "_t")
+t("Write a description for this gem's properties!", "写下宝石属性的说明！", "_t")
 t("Demonic", "恶魔", "_t")
 t("imbue the hammer with a gem of your choice", "把你喜欢的宝石镶嵌到锤子里。", "_t")
 t("Use which gem?", "使用哪颗宝石？", "_t")
@@ -13254,14 +13254,14 @@ t("Yaldan Baoth", "雅尔丹宝石", "entity name")
 t("obscuring helm", "昏暗的头盔", "_t")
 t("The golden bascinet crown, affiliated with Veluca of Yaldan. King of the mythical city of Yaldan, that was struck from the face of Eyal by the arrogance of its people. Lone survivor of his kin, he spent his last years wandering the early world, teaching man to stand against the darkness. With his dying words, \"Fear no evil\", the crown was passed onto his successor.", "这顶金色的颅盔王冠与雅尔丹的维卢卡息息相关。他是传说之城雅尔丹的国王，那座城因子民的傲慢而被从埃亚尔大陆上抹去。作为亲族中唯一的幸存者，他在生命最后的岁月里游历早期的世界，教导人类反抗黑暗。临终之际，王冠连同他的遗言——勿惧邪恶——一同传给了他的继任者。", "_t")
 t("lower the helmet's visor, blinding yourself (and protecting from other blinds) for 6 turns. If the helmet is taken off, the effect will end early.", "放下头盔的面甲，使你致盲6回合（同时免疫其他致盲效果）。如果脱下这件装备，效果会提前结束。", "tformat")
-t("%s forgoes their vision!", "%s 挡住了视野!", "logSeen")
+t("%s forgoes their vision!", "%s 挡住了视野！", "logSeen")
 t("Champion's Will", "冠军意志", "entity name")
 t("blindingly bright sword", "一把发出炫目光芒的剑", "_t")
 t("This impressive looking sword features a golden engraving of a sun in its hilt. Etched into its blade are a series of runes claiming that only one who has mastered both their body and mind may wield this sword effectively.", "初看这把外形令人印象深刻的长剑，最先吸引你目光的是雕刻在剑柄之中的金色太阳。而蚀刻在剑刃之上的复杂的符文仿佛在告诉你，只有真正掌握自己肉体和精神力量之人才能发挥出这把武器的最大威力。", "_t")
 t("Increases the damage of Sun Beam by 15%.", "增加15%阳光烈焰伤害", "_t")
 t("releases a burst of light, dealing %d light damage (based on Spellpower) in a radius 3 cone.", "放出光系爆炸，在3码扇形区域内造成%d光系伤害（基于法术强度）", "tformat")
 t("attack everything in a line out to range %d, dealing 100%% weapon damage (as light), and healing for 50%% of the damage dealt", "攻击长度为 %d 的直线上所有目标 , 造成 100%% 光系武器伤  害,  并将 50%% 伤害转化为治疗。", "tformat")
-t("#Source# strikes out at #target# with %s %s!", "#Source#用%s%s打击#target#!", "logCombat")
+t("#Source# strikes out at #target# with %s %s!", "#Source#用%s%s打击#target#！", "logCombat")
 t("something", "某物", "_t")
 t("Tarrasca", "泰拉斯奎巨铠", "entity name")
 t("absurdly large armor", "一件荒诞般巨大的铠甲", "_t")
@@ -13283,7 +13283,7 @@ t("Cuirass of the Dark Lord", "黑暗领主胸甲", "entity name")
 t("black, spiked armor", "一件黑色的尖刺铠甲", "_t")
 t("Worn by a villain long forgotten, this armor was powered by the blood of thousands of innocents. Decrepit and old, the dark lord died in solitude, his dominion crumbled, his subjects gone. Only this cuirass remained, dying to finally taste fresh blood again.", "这件胸甲属于一个早已被人遗忘的暴君，成千上万无辜死者的鲜血强化了这件铠甲。黑暗领主最终在衰老与虚弱中孤独的死去，他的统治分崩离析，他的人民四散而去。只有这件胸甲被保留了下来，渴望着再次品尝鲜血的味道。", "_t")
 t("drain blood from all creatures within range 5, causing them to bleed for %0.2f physical damage over 4 turns (based on your Physicalpower). For each creature drained (up to 10), the armor gains strength, which fades over 10 turns if it is not fed", "吸收半径 5 内所有生物的血液，令其在 4 回合内受到 %0.2f 点物理伤害（基于你的物理强度）。每吸收一个生物（至多10个），护甲的属性便会增强；若不再喂食，增益会在 10 回合后消退。", "tformat")
-t("%s revels in the bloodlust of %s %s!", "%s激发了%s%s的嗜血渴望!", "logSeen")
+t("%s revels in the bloodlust of %s %s!", "%s激发了%s%s的嗜血渴望！", "logSeen")
 t("Blood Charges: %d", "鲜血充能：%d", "tformat")
 t("Decayed Visage", "腐朽面容", "entity name")
 t("mask of mummified skin", "木乃伊皮面罩", "_t")
@@ -13297,7 +13297,7 @@ t("This hat's broad brim protects you from biting colds and sudden storms.", "�
 t("A small storm cloud follows you, dealing 15 lightning damage to all enemies in a radius of 3 each turn.", "一团小小的风暴包围着你，每回合对周围3码内的敌人造成15闪电伤害。", "_t")
 t("The Jolt", "震撼", "entity name")
 t("tingling torque", "刺痛项圈", "_t")
-t("This torque feels tingly to the touch, but seems to enhance your thinking.", "这项圈摸起来让人觉得刺痛,但似乎增强了你的思考.", "_t")
+t("This torque feels tingly to the touch, but seems to enhance your thinking.", "这项圈摸起来让人觉得刺痛，但似乎增强了你的思考.", "_t")
 t([[Your mind is attuned to electricity.
 Any lightning damage you do that is more than 10% of the victim's maximum life will attempt to brainlock the target.
 Upon taking lightning damage >10% of your max life, your mind fires back, dealing 30% of the original damage as mind and trying to brainlock the target.
@@ -13309,17 +13309,17 @@ This item can have up to 2 charges, with each charge having 4 turn cooldown.]], 
 这个物品可以存储两次充能，每次充能冷却时间4回合。]], "_t")
 t("Stormfront", "风暴前线", "entity name")
 t("damp steel battle axe", "潮湿的钢铁战斧", "_t")
-t("The blade glows faintly blue, and reflects a sky full of stormy clouds.", "剑身泛着淡淡的蓝色,反射出了满天的乌云.", "_t")
+t("The blade glows faintly blue, and reflects a sky full of stormy clouds.", "剑身泛着淡淡的蓝色，反射出了满天的乌云.", "_t")
 t("inflicts either shocked or wet, chosen at random", "随机造成震撼或浸湿效果。", "_t")
 t("Eye of Summer", "夏日之眼", "entity name")
 t("warm mindstar", "温暖的灵晶", "_t")
-t("This mindstar glows with a bright warm light, but seems somehow incomplete.", "这个灵晶散发着温暖的微光,但似乎有点残缺.", "_t")
+t("This mindstar glows with a bright warm light, but seems somehow incomplete.", "这个灵晶散发着温暖的微光，但似乎有点残缺.", "_t")
 t("Nature requires balance in these matters.", "自然在这些事上需要平衡。", "_t")
 t("#GREEN#You feel the seasons in perfect balance.", "#GREEN#你感受到四季进入了完美的平衡。", "logSeen")
 t("#GREEN#The seasons no longer feel balanced.", "#GREEN#四季不再平衡", "logPlayer")
 t("Eye of Winter", "冬日之眼", "entity name")
 t("cold mindstar", "寒冰的灵晶", "_t")
-t("This mindstar glows with a dim cool light, but seems somehow incomplete.", "这个灵晶散发着寒冷的微光,但似乎有点残缺.", "_t")
+t("This mindstar glows with a dim cool light, but seems somehow incomplete.", "这个灵晶散发着寒冷的微光，但似乎有点残缺.", "_t")
 t("Ruthless Grip", "无情之握", "entity name")
 t("sinister gauntlets", "邪恶的手套", "_t")
 t("Crafted for a warlord who wanted to keep his subjects under a stralite grip. Dark thoughts went into the making of these gauntlets, literally.", "一位军阀为将臣民牢牢掌控于斯莱特之掌中而打造了这副手套。制作过程中确实注入了黑暗的思想。", "_t")
@@ -13336,8 +13336,8 @@ t("Thunderfall", "落雷", "entity name")
 t("large echoing mace", "巨型发声狼牙棒", "_t")
 t("Tremendous power is concentrated in this heavy mace. Just dropping it can knock down nearby walls.", "巨大的力量集中在这沉重的狼牙棒中。仅仅将它掉落在地就能震塌附近的墙壁。", "_t")
 t("perform a melee strike against a target at up to range %d for an automatic critical hit as lightning damage", "对至多 %d 格内的一个目标发动近战攻击，必定造成闪电暴击。", "tformat")
-t("#Source# hurls %s %s at #target#!", "#Source#把%s%s掷向#target#!", "logCombat")
-t("%s's weapon returns to %s!", "%s的武器回到了%s手中!", "logSeen")
+t("#Source# hurls %s %s at #target#!", "#Source#把%s%s掷向#target#！", "logCombat")
+t("%s's weapon returns to %s!", "%s的武器回到了%s手中！", "logSeen")
 t("Kinetic Focus", "动能之核", "entity name")
 t("Kinetic energies are focussed in the core of this mindstar.", "动能集中在这个灵晶的核心里.", "_t")
 t("You feel two unconnected psionic channels on this item.", "在这个物品里你感受到了两种不相关的能量。", "_t")
@@ -13475,7 +13475,7 @@ t("poison trap", "毒液陷阱", "entity name")
 t("A stream of poison gushes onto @target@!", "一股毒液击中了@target@！", "_t")
 t("acid blast trap", "酸液爆炸陷阱", "entity name")
 t("fire blast trap", "火焰爆炸陷阱", "entity name")
-t("A bolt of fire fires onto @target@!", "一团火焰炸向@target@!", "_t")
+t("A bolt of fire fires onto @target@!", "一团火焰炸向@target@！", "_t")
 t("ice blast trap", "冰霜爆炸陷阱", "entity name")
 t("lightning blast trap", "闪电爆炸陷阱", "entity name")
 t("arcing spot", "被电击的地点", "_t")
@@ -13486,7 +13486,7 @@ t("@Target@ is blasted with anti-magic forces!", "@Target@遭到反魔能量轰�
 t("dull area", "沉默区域", "_t")
 t("Deals up to %d manaburn damage, draining mana, vim, and positive and negative energies within radius %d.", "在%d码范围内最多造成%d点法力燃烧伤害，并吸取法力值、活力值以及正负能量。", "tformat", {2,1})
 t("dragon fire trap", "龙火陷阱", "entity name")
-t("A powerful blast of fire impacts @target@!", "一团大火球炸向@target@!", "_t")
+t("A powerful blast of fire impacts @target@!", "一团大火球炸向@target@！", "_t")
 t("burned area", "被烧灼的地点", "_t")
 t("All within radius %d are dealt %d fire damage, set on fire for %d more fire damage over 3 turns, and may be stunned.", "%d码范围内的所有目标受到%d火焰伤害，在3回合内额外受到%d燃烧伤害，并有几率被震慑。", "tformat")
 
@@ -13523,7 +13523,7 @@ t("Teleports the victim away.  How does anyone get close enough to disarm this t
 t("@Target@ shimmers briefly.", "@Target@短暂地闪烁。", "_t")
 t("shimmering floor switch", "闪烁的地板开关", "_t")
 t("%s is teleported away!", "%s被传送走了！", "logSeen")
-t("%s resists being teleported!", "%s 抵抗传送!", "logSeen")
+t("%s resists being teleported!", "%s 抵抗传送！", "logSeen")
 
 ------------------------------------------------
 section "mod-tome/data/general/traps/temporal.lua"
@@ -13634,49 +13634,49 @@ t("An ugly, ripped-out chunk of giant spider. Bits of silk protrude from an orif
 t("The spiders in your barn won't do. You'll know a giant spider when you see one, though they're rare in Maj'Eyal.", "你家仓库里的蜘蛛是不行的。当你看到一只时，你就会明白什么是巨型蜘蛛，尽管在马基·埃亚尔这种蜘蛛很稀少。", "_t")
 t("honey tree root", "蜂蜜树的根", "entity name")
 t("The severed end of one of a honey tree's roots. It wriggles around occasionally, seemingly unwilling to admit that it's dead... and a *plant*.", "从蜂蜜树的一根树根上切下来的断端。它偶尔会蠕动下，似乎不承认它已经死了，而且还是个“植物”。", "_t")
-t("Keep a firm grip on it. These things will dig themselves right back into the ground if you drop them.", " 牢牢的抓住它，如果你不小心把它掉在地上，它会立刻挖地逃走。", "_t")
+t("Keep a firm grip on it. These things will dig themselves right back into the ground if you drop them.", "牢牢的抓住它，如果你不小心把它掉在地上，它会立刻挖地逃走。", "_t")
 t("bloated horror heart", "浮肿的恐魔心脏", "entity name")
 t("Diseased-looking and reeking. It seems to be decaying as you watch.", "病变且散发着恶臭的心脏，在你注视它时似乎仍在腐烂。", "_t")
 t("Don't worry if it dissolves. Just don't get any on you.", "别担心它会溶解，只要别让它沾到你身上。", "_t")
 t("electric eel tail", "电鳗尾巴", "entity name")
 t("Slimy, wriggling, and crackling with electricity.", "黏滑、蠕动的尾巴，还闪着噼啪作响的电火花。", "_t")
-t("I know, I know. Where does the eel stop and the tail start? It doesn't much matter. The last ten inches or so should do nicely.", " 我知道，我知道。你想问电鳗的尾巴是哪一段？没有确切的答案。最后 10 英寸或许是最合适的。", "_t")
+t("I know, I know. Where does the eel stop and the tail start? It doesn't much matter. The last ten inches or so should do nicely.", "我知道，我知道。你想问电鳗的尾巴是哪一段？没有确切的答案。最后 10 英寸或许是最合适的。", "_t")
 t("vial of squid ink", "一瓶乌贼墨汁", "entity name")
 t("Thick, black and opaque.", "粘稠、黑色且不透明。", "_t")
 t("However annoying this will be for you to gather, I promise that the reek it produces in my lab will prove even more annoying.", "不管采集它会让你多么恼火，我保证它在我实验室里散发的恶臭会更令人受不了。", "_t")
 t("bear paw", "熊爪", "entity name")
 t("Large and hairy with flesh-rending claws. It smells slightly of fish.", "体型巨大、浑身长毛，还有能撕裂血肉的利爪。它闻起来略带鱼腥味。", "_t")
-t("You'd think I could get one of these from a local hunter, but they've had no luck. Don't get eaten.", " 你认为我可以从本地的猎户手上取得它吗？甭想了，他们没那个运气。不要被吃掉了。", "_t")
+t("You'd think I could get one of these from a local hunter, but they've had no luck. Don't get eaten.", "你认为我可以从本地的猎户手上取得它吗？甭想了，他们没那个运气。不要被吃掉了。", "_t")
 t("ice wyrm tooth", "冰霜巨龙的牙齿", "entity name")
 t("This tooth has been blunted with age, but still looks more than capable of doing its job.", "这颗牙齿饱受岁月的侵蚀，但是仍然能胜任它的工作。", "_t")
-t("Ice Wyrms lose teeth fairly often, so you might get lucky and not have to do battle with one. But dress warm just in case.", " 冰龙每隔一段时间会换齿，所以你幸运的话，可以捡到几颗而不需要和它战斗。保险起见穿的暖和点…… ", "_t")
+t("Ice Wyrms lose teeth fairly often, so you might get lucky and not have to do battle with one. But dress warm just in case.", "冰龙每隔一段时间会换齿，所以你幸运的话，可以捡到几颗而不需要和它战斗。保险起见穿的暖和点……", "_t")
 t("red crystal shard", "红色水晶碎片", "entity name")
 t("Tiny flames still dance ethereally inside this transparent crystal, though its heat seems to have faded... you hope.", "小巧的火焰依然在这颗透明的水晶里轻盈舞动，尽管它的热量似乎已经消退……你希望如此。", "_t")
-t("I hear these can be found in a cave near Elvala. I also hear that they can cause you to spontaneously combust, so no need to explain if you come back hideously scarred.", " 我听说这些小家伙可以在埃尔瓦拉附近的洞穴里找到。我还听说它们会使你自燃，所以当你高度烧伤回来的话，不要向我诉苦。", "_t")
+t("I hear these can be found in a cave near Elvala. I also hear that they can cause you to spontaneously combust, so no need to explain if you come back hideously scarred.", "我听说这些小家伙可以在埃尔瓦拉附近的洞穴里找到。我还听说它们会使你自燃，所以当你高度烧伤回来的话，不要向我诉苦。", "_t")
 t("vial of fire wyrm saliva", "一瓶火龙涎", "entity name")
 t("Clear and slightly thicker than water. It froths when shaken.", "龙涎比水更加粘稠，和水一样清澈，当你摇晃它时会有泡沫产生。", "_t")
-t("Keep this stuff well away from your campfire unless you want me to have to find a new, more alive adventurer.", " 把这个瓶子离你的篝火远一些，我可不想明天重新找一个活的冒险家。", "_t")
+t("Keep this stuff well away from your campfire unless you want me to have to find a new, more alive adventurer.", "把这个瓶子离你的篝火远一些，我可不想明天重新找一个活的冒险家。", "_t")
 t("chunk of ghoul flesh", "腐烂的食尸鬼肉块", "entity name")
 t("Rotten and reeking. It still twitches occasionally.", "这块肉腐烂且散发着恶臭，偶尔还会抽搐。", "_t")
-t("Unfortunately for you, the chunks that regularly fall off ghouls won't do. I need one freshly carved off.", " 告诉你一个不幸的消息，平时从食尸鬼身上掉下来的肉是不行的。我需要新鲜的，刚切下来的肉。", "_t")
+t("Unfortunately for you, the chunks that regularly fall off ghouls won't do. I need one freshly carved off.", "告诉你一个不幸的消息，平时从食尸鬼身上掉下来的肉是不行的。我需要新鲜的，刚切下来的肉。", "_t")
 t("mummified bone", "木乃伊骨头", "entity name")
 t("Bits of dry flesh still cling to this ancient bone.", "在这个古代的骨头上仍残留着一点肉块。", "_t")
-t("That is, a bone from a corpse that's undergone mummification. Actually, any bit of the body would do, but the bones are the only parts you're certain to find when you kick a mummy apart. I recommend finding one that doesn't apply curses.", " 那就是，经过木乃伊化的尸体身上的骨头。实际上，身体的任何部位都可以，只是从它们身上只能找到骨头了。我推荐你去找一根没有被诅咒的骨头。", "_t")
+t("That is, a bone from a corpse that's undergone mummification. Actually, any bit of the body would do, but the bones are the only parts you're certain to find when you kick a mummy apart. I recommend finding one that doesn't apply curses.", "那就是，经过木乃伊化的尸体身上的骨头。实际上，身体的任何部位都可以，只是从它们身上只能找到骨头了。我推荐你去找一根没有被诅咒的骨头。", "_t")
 t("sandworm tooth", "沙虫之牙", "entity name")
 t("Tiny, dark grey, and wickedly sharp. It looks more like rock than bone.", "它小巧、暗灰且锋利得吓人。它看起来更像石头而不是骨头。", "_t")
-t("Yes, sandworms have teeth. They're just very small and well back from where you're ever likely to see them and live.", " 是的，沙虫也有牙齿。它们只是很小，藏得很好，如果你把头伸进去找它你就没法活着回来了。", "_t")
+t("Yes, sandworms have teeth. They're just very small and well back from where you're ever likely to see them and live.", "是的，沙虫也有牙齿。它们只是很小，藏得很好，如果你把头伸进去找它你就没法活着回来了。", "_t")
 t("black mamba head", "黑曼巴头", "entity name")
 t("Unlike the rest of the black mamba, the severed head isn't moving.", "不像黑曼巴的其余部分，这颗被斩下的头一动不动。", "_t")
 t("If you get bitten, I can save your life if you still manage to bring back the head... and if it happens within about a minute from my door. Good luck.", "如果你被咬了，只要还能把头带回来，而且遇袭地点离我门口只有大约一分钟路程，我就能救你。祝你好运。", "_t")
 t("snow giant kidney", "雪巨人的肾脏", "entity name")
 t("As unpleasant-looking as any exposed organ.", "和任何外露的器官一样难看。", "_t")
-t("I suggest not killing the snow giant by impaling it through the kidneys. You'll just have to find another.", " 我建议你不要从雪巨人的肾脏部位刺死它，否则你不得不寻找另外一个。", "_t")
+t("I suggest not killing the snow giant by impaling it through the kidneys. You'll just have to find another.", "我建议你不要从雪巨人的肾脏部位刺死它，否则你不得不寻找另外一个。", "_t")
 t("storm wyrm claw", "风暴之龙的爪子", "entity name")
 t("Bluish and wickedly sharp. It makes your arm hair stand on end.", "这只爪子泛着蓝色光泽并且锋利的吓人，它使你汗毛竖立。", "_t")
 t("I recommend severing one of their dewclaws. They're smaller and easier to remove, but they've never been blunted by use, so be careful you don't poke yourself. Oh yes, and don't get eaten.", "我建议切下它们的一个悬爪。悬爪更小、更容易切下，但从未因使用而磨钝，所以小心别扎到自己。哦，对了，也别被吃掉。", "_t")
 t("green worm", "翡翠蠕虫", "entity name")
 t("A dead green worm, painstakingly separated from its tangle of companions.", "一只死掉的绿色虫子，需要非常仔细才能把它从蠕虫团中挑拣出来。", "_t")
-t("Try to get any knots out before returning. Wear gloves.", " 在回来之前把打结在上面的其他蠕虫统统清理掉。戴上手套。", "_t")
+t("Try to get any knots out before returning. Wear gloves.", "在回来之前把打结在上面的其他蠕虫统统清理掉。戴上手套。", "_t")
 t("vial of wight ectoplasm", "一瓶尸妖灵质", "entity name")
 t("Cloudy and thick. Only by bottling it can you prevent it from evaporating within minutes.", "浑浊且粘稠的液体。只有把它装进瓶子里，才能防止它在几分钟内蒸发。", "_t")
 t("If you ingest any of this, never mind coming back here. Please.", "如果你吞下了任何一点，就别再回来了。拜托。", "_t")
@@ -15745,8 +15745,7 @@ You may have noticed that no instruction has been given on how to deal with the 
 
 对于这种恶魔干涉，各家意见再次出现分歧。死灵法术正是如此美妙而多姿多彩的艺术，不是吗？崔恩流派认为，死灵法师被外来力量腐化绝非好事。该派修习者常设法把超自然力量的注意引向别处，例如制作护符充当精神“导体”，或居住在憎恶他们的社区附近，借芸芸众生的生命精华掩盖死灵法师散发的黑暗气息。另一方面，贝纳格雷德流派欣然接纳来自恶魔领域的诅咒低语，相信它们能使心智臻于完整。他们声称，唯有精神受到“腐化”（贝纳格雷德修习者对这个词嗤之以鼻），人们才会认清自己真正的野心。至于这些“真正的野心”为何总是彻底毁灭世间一切生命，并从外层位面召来难以想象的恐怖之物，至今无人探究。
 
-你或许已经注意到，本书没有说明如何应付普通人的关注。真正的死灵法师根本不需要这种指导。那些人不过是害虫，只配被碾碎。
-]], "_t")
+你或许已经注意到，本书没有说明如何应付普通人的关注。真正的死灵法师根本不需要这种指导。那些人不过是害虫，只配被碾碎。]], "_t")
 t("how to be a necromancer, part 4", "怎样成为死灵法师　第四章", "_t")
 t([[#{italic}#4. Necromancers Of Maj'Eyal#{normal}#
 
@@ -16121,7 +16120,7 @@ t([[I awoke early this morning to see the love of my life altering the unique fa
 Argoniel, my love, you have brought me so much joy and given me much to live for.  I have sworn to hold your hand and walk beside you, no matter where you choose to go.  If that means joining you down the road to a second Spellblaze...  so be it.  
 
 Forgive me, Eyal.]], [[今晨我早早醒来，看见挚爱正在改动我们共同建造的那座独一无二的远行传送门。到那一刻为止，一切都按计划进行：吸能法杖已整合进传送门，会在盖里克被召唤的瞬间吸干他的力量；兽人忙着互相猜忌，根本无暇调查我们……然后我发现，她破坏了传送门。现在这扇门召来盖里克时反而会为他#{italic}#增#{normal}#力——他在虚空中漂泊了如此漫长的岁月，孤独必然已令他疯狂。无论如何，即便是一个神智清醒的神，也足以摧毁我们所熟悉的生命世界。
-    
+
 ……我狠不下心阻止她。
 
 艾格尼尔，我的爱人，你带给我如此多的欢乐，让我有了许多活下去的理由。我发誓会牵着你的手，与你并肩前行，无论你选择去往何方。哪怕这意味着陪你走上通往第二次魔法大爆炸的道路……那就这样吧。
@@ -17107,7 +17106,7 @@ Here lies Golan of Derth
 May your memories
 Always bring joy and love
 #{normal}#]], [[#{bold}#
-这里躺着德斯镇的格兰 
+这里躺着德斯镇的格兰
 #{normal}#65 - 113#{italic}#
 愿关于你的回忆
 永远带来爱与欢乐
@@ -17630,7 +17629,7 @@ Rolf]], [[亲爱的威斯曼，
 
 哈哈，你上次的来信真是带给我不少笑料！你这家伙到底要用这些挥舞木剑、纠缠没牙野狗的故事骚扰我到几时？就让我来演示一下你那封信件的正确读法：有一天，我没能杀死一只狗。这真是充满勇气！
 
-你的“英雄事迹”在我近日克服的可怕梦魇面前根本不值一提。数天前我徒步穿越了远古丛林(这可是在德斯镇之外的地域，威斯曼！你可是要被吓的腿软了吧！) 在那里，我不幸的遭遇了世上最可怕、最犀利、最凶猛的生物！ 
+你的“英雄事迹”在我近日克服的可怕梦魇面前根本不值一提。数天前我徒步穿越了远古丛林(这可是在德斯镇之外的地域，威斯曼！你可是要被吓的腿软了吧！) 在那里，我不幸的遭遇了世上最可怕、最犀利、最凶猛的生物！
 
 满地的史前巨型白蚁，它们在可怕的蚁王指挥下蜂拥而出，试图用那巨大的前颚将我碎尸万段！
 
@@ -17731,7 +17730,7 @@ t([[Last Will and Testament of Rolf Two-Axes
 
 I have failed. Oh by the great wyrm's maw, I have failed! The beast Weisman set out to slay was dead already by another's hand, but its corruption remained still. When I arrived in its chamber, Weisman was already half-gone; he was hacking away at foes only he could see. When I tried to stop him, he turned his axe on me... I am beaten and broken, hiding in some crevasse away from... from my own friend, who through the corruption in this place has been perverted into a monstrosity my axes were unable to fell. I hold no doubt that this is the last time I shall put quill to parchment, as even now I can hear my old friend's perverted voice.. calling to me. I bequeathe my belongings to any who slay ...
 #{italic}#(the ink blotch seems to indicate Weisman had caught up to his old friend, one-half of that abomination)#{normal}#]], [[双斧罗尔夫的遗嘱
-	
+
 我失败了，以巨龙之战的名义，我承认我失败了！当我赶到这片领地时，原先的怪物已经被杀死了，但这个地方仍然存留着堕落的诅咒。威斯曼已经被整的半死不活，但他仍执着地朝着空气乱砍一气。我想要阻止他，可是那伙计对我举起了他的斧子，我被痛扁了一顿，只能抖抖索索的躲进周围的低洼地中，背弃了我的朋友，眼睁睁的看着他慢慢被这片领域腐化成我的战斧无法打败的骇人怪物。这也许是我最后一次提笔了，我听到老友阵阵疯狂的吼叫……他在呼唤着我……我之财物将赠予任何能杀死…
 #{italic}#（这点点污渍似乎叙说着威斯曼最终抓住了他的老朋友，他们以这种怪物的形式永远地团聚在了一起）#{normal}#]], "_t")
 t("myths of creation", "创世神话", "newLore category")
@@ -18353,7 +18352,7 @@ t([[Dear graverobber,
 Try to be a little faster next time.
 
 Love, #{italic}#Eden#{normal}#]], [[亲爱的盗墓贼,
-	
+
 下次记得快一点。
 
 你钟爱的#{italic}#艾登#{normal}#]], "_t")
@@ -18462,7 +18461,7 @@ Welcome to Point Zero, agent. Enclosed are timespace coordinates to what is, qui
 [i]-Galsamae[/i]
 
 PS: You might encounter a... benefactor of sorts in your travels. You'll know it when you see it, ham-fistedly yanking its puppets back from the brink of death; if you see it for yourself, we regret to inform you that you've taken a one-way trip off prime Timeline-E4-RL territory for a doomed offshoot unless "he" feels like weaving you back in - and it tends to only do that to people who narrowly avert its engineered apocalypses through incredible power or luck. If you have been chosen by its schemes, play along and you might get brought back from the temporal graveyard that is the Timeline-E4-EXPADV subnetwork. We do not know what it is - a runaway creation of our own, a competing culture's weapon, or something far above ourselves - but if it has hostile intent, it has already won. So far it's been... mostly cooperative. Just make a point not to remind it that we're its competition.]], [[女士们先生们，恭喜你。无论是你受到了时空的邀请，是你自己发现了这一切的秘密，还是作为我们曾经的眼中钉，觉得比起对付还是招揽你更好，总之，你已经获得了时空魔法的奥秘。我们掌握有关时间的终极力量——能够在你失败时不断重试，能够通过预知结果来节约时间，甚至在调查发生前就看到结果。尽管我们的能力被限制在于魔法大爆炸后的埃亚尔，只要你有足够的耐心，我们将可以无所不知，无所不能。
-	
+
 不过，相信我——“足够的耐心”已经是足够令人讨厌的限制了。如果你曾经花费整整一周的时间，试图拆解黄昏纪暴君你方唱罢我登场的政治游戏，既不意外导致矮人的灭绝，也没有因为突然爆发的瘟疫毁掉你满盘的计划，尝试了六次也没能得出结果的话——很快你也会丧失耐心的。
 
 看。这就是问题的关键。那些任务说明和邀请之所以不是由一线人员撰写的，是有原因的——你也有同样的幸运，我们知道在你的工作中需要的“灵活性”远比理想主义更重要。我们的小队知道要保持理智，我们也知道“每过一秒就有一秒钟的时间流过”也只是我们要打破的众多规律之一。如果你能够预见到一个有罪判决，在时空中不经审判处理掉一个潜在的罪犯也不是什么大事——只要你的调查可以被证明是确凿可信的（而且总有一天你要亲自做这件事，否则你只能看到自己不停拖延）而且，如果你只是想要一个不被监视的地方，你知道，在黄昏纪的一些时代被我和其他几个小队当做了“公平竞赛”的区域——无论你想要做什么样的实验，或者想要给其他人带来怎样的恐怖，只要你到那些有关无尽的被遗忘的邪恶的时间段去做，这不会对事情的大局产生任何影响。相信我，我们已经确认了——这段时间发生的一切事情都无足轻重，除非你真有本事引发第二次魔法大爆炸。
@@ -19370,7 +19369,7 @@ t([[In this picture a huge god with glowing eyes towers above the land, and in h
 There is some text underneath ]], [[在这幅画上有一位铁塔一样的巨神，他目光如炬，右手高举着太阳。众神逃离他，害怕他手中的光芒。
 下面有一行文字]], "_t")
 t("which you do not understand: #{italic}#'Fa AMAKTHEL tabak, ik koru bazan tro yu, ik ranaheli tobol don schek ruun. Ik blana dem Soli as banafel ik goriz uf Eyal ik blod, \"Tro fasa goru domus asam, ik goru domit tro Eyal.\"'#{normal}#", "不明意义的文字：#{italic}#'Fa AMAKTHEL tabak, ik koru bazan tro yu, ik ranaheli tobol don schek ruun. Ik blana dem Soli as banafel ik goriz uf Eyal ik blod, \"Tro fasa goru domus asam, ik goru domit tro Eyal.\"'#{normal}#", "_t")
-t("#{italic}#'But AMAKTHEL came, and his might surpassed all else, and the petty gods fled before his glory. And he made the Sun from his breath and held it above the world and said, \"All that this light touches shall be mine, and this light shall touch all the world.'#{normal}#", "#{italic}#但阿马克泰尔来了,他的勇武震慑了众人,伪神们慑服于他的荣耀。他深呼吸后把太阳高举到了世界之上，说：“阳光所至，即我所至，这光芒将照亮全世界。”#{normal}#", "_t")
+t("#{italic}#'But AMAKTHEL came, and his might surpassed all else, and the petty gods fled before his glory. And he made the Sun from his breath and held it above the world and said, \"All that this light touches shall be mine, and this light shall touch all the world.'#{normal}#", "#{italic}#但阿马克泰尔来了，他的勇武震慑了众人，伪神们慑服于他的荣耀。他深呼吸后把太阳高举到了世界之上，说：“阳光所至，即我所至，这光芒将照亮全世界。”#{normal}#", "_t")
 t("third mural painting", "第三幅壁画", "_t")
 t([[This picture shows the huge god holding some smaller figures in his hands and pointing out at the lands beyond. You imagine these figures must be the Sher'Tul.
 There is some text beneath ]], [[这幅画显示巨神手中托着一些小小的身影，并指向远方的大陆。你猜这些身影一定就是夏·图尔人。
@@ -19410,7 +19409,7 @@ t("ninth mural painting", "第九幅壁画", "_t")
 t("This final mural has been ruined, with deep scores and scratches etched across its surface. All you can see of the original appears to be flames.", "最后的这块壁画似乎损坏的很严重，上面有深深的划痕和腐蚀的痕迹。你所能看到的似乎是火焰的画面。", "_t")
 t("Yiilkgur raising toward the sky", "伊克格，飞向天空", "_t")
 t("Yiilkgur, the Sher'Tul Fortress is re-activated and raises from the depths of Nur toward the sky.", "伊克格——夏·图尔要塞——被重新激活，从纳尔湖深处升向天空。", "_t")
-t("a living Sher'Tul?!", "活着的夏·图尔人?!", "_t")
+t("a living Sher'Tul?!", "活着的夏·图尔人?！", "_t")
 t("You somehow got teleported to an other Sher'Tul Fortress, in a very alien location. There you saw a living Sher'Tul.", "不管怎样，你传送到了另一个异次元的夏·图尔要塞。在那里，你看到了一位活着的夏·图尔人。", "_t")
 t("lost farportal", "失落的传送门", "_t")
 t("%s boldly entering a Sher'Tul farportal.", "%s勇敢地进入了一个夏·图尔传送门。", "tformat")
@@ -20116,7 +20115,7 @@ t("His plans however do not stop there.", "他的野心绝不止步于此。", "
 section "mod-tome/data/quests/antimagic.lua"
 
 t("The Curse of Magic", "魔法的诅咒", "_t")
-t("You have been invited to join a group called the Ziguranth, dedicated to opposing magic.", " 你被邀请参加一个叫做伊格兰斯的组织，致力于对抗魔法。", "_t")
+t("You have been invited to join a group called the Ziguranth, dedicated to opposing magic.", "你被邀请参加一个叫做伊格兰斯的组织，致力于对抗魔法。", "_t")
 t("Grim-looking fighter", "面目狰狞的斗士", "_t")
 t("#VIOLET#A foe is summoned to the arena!", "#VIOLET#一个对手被召唤进了竞技场！", "logSeen")
 t("#VIOLET#Another foe is summoned to the arena!", "#VIOLET#又一个对手被召唤进了竞技场！", "logSeen")
@@ -20125,18 +20124,18 @@ t("#VIOLET#Another foe is summoned to the arena!", "#VIOLET#又一个对手被�
 section "mod-tome/data/quests/arena-unlock.lua"
 
 t("The agent of the arena", "竞技场代理人", "_t")
-t("You were asked to prove your worth as a fighter by a rogue, in order to participate in the arena", " 你被一个盗贼邀请，证明你作为一个斗士的能力，以获得进入竞技场的资格。", "_t")
+t("You were asked to prove your worth as a fighter by a rogue, in order to participate in the arena", "你被一个盗贼邀请，证明你作为一个斗士的能力，以获得进入竞技场的资格。", "_t")
 t("You succesfully defeated your adversaries and gained access to the arena!", "你成功战胜了对手，现在可以进入竞技场了！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/quests/arena.lua"
 
 t("The Arena", "竞技场", "_t")
-t("Seeking wealth, glory, and a great fight, you challenge the Arena!", " 寻找财富、荣耀和强大的对手，去挑战竞技场吧！ ", "_t")
+t("Seeking wealth, glory, and a great fight, you challenge the Arena!", "寻找财富、荣耀和强大的对手，去挑战竞技场吧！", "_t")
 t("Can you defeat your foes and become Master of Arena?", "你能打败对手，成为竞技场主宰吗？", "_t")
 t("Winner", "游戏胜利", "_t")
 t("#GOLD#Well done! You have won the Arena: Challenge of the Master#WHITE#", "#GOLD#干得好！你赢得了竞技场：领主的挑战#WHITE#", "_t")
-t("You valiantly fought every creature the arena could throw at you and you emerged victorious!", " 你勇敢地战胜了竞技场里的所有生物并赢得了最终胜利！ ", "_t")
+t("You valiantly fought every creature the arena could throw at you and you emerged victorious!", "你勇敢地战胜了竞技场里的所有生物并赢得了最终胜利！", "_t")
 t("Glory to you, you are now the new master and your future characters will challenge you.", "荣耀属于你！你已成为新的竞技场主宰，未来的角色将向你发起挑战。", "_t")
 -- untranslated text
 --[==[
@@ -20160,31 +20159,31 @@ t("#LIGHT_GREEN#  * You've found the needed %s.#WHITE#", "#LIGHT_GREEN# * 你找
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
 t("#VIOLET#You can check the ingredients you possess by pressing Escape and selecting 'Show ingredients'.", "#VIOLET#你现在可以按 Esc 键调出游戏菜单，选择“查看材料”检查自己所拥有的材料。", "log")
 t("You receive: %s", "你收到：%s 。", "logPlayer")
-t("elixir of the fox", " 狡诈药剂 ", "_t")
-t("elixir of avoidance", " 闪避药剂 ", "_t")
-t("elixir of precision", " 精准药剂 ", "_t")
-t("elixir of mysticism", " 神秘药剂 ", "_t")
-t("elixir of the savior", " 守护药剂 ", "_t")
-t("elixir of mastery", " 掌握药剂 ", "_t")
-t("elixir of explosive force", " 爆炸药剂 ", "_t")
-t("elixir of serendipity", " 幸运药剂 ", "_t")
-t("elixir of focus", " 专注药剂 ", "_t")
-t("elixir of brawn", " 蛮牛药剂 ", "_t")
-t("elixir of stoneskin", " 石肤药剂 ", "_t")
-t("elixir of foundations", " 领悟药剂 ", "_t")
+t("elixir of the fox", "狡诈药剂", "_t")
+t("elixir of avoidance", "闪避药剂", "_t")
+t("elixir of precision", "精准药剂", "_t")
+t("elixir of mysticism", "神秘药剂", "_t")
+t("elixir of the savior", "守护药剂", "_t")
+t("elixir of mastery", "掌握药剂", "_t")
+t("elixir of explosive force", "爆炸药剂", "_t")
+t("elixir of serendipity", "幸运药剂", "_t")
+t("elixir of focus", "专注药剂", "_t")
+t("elixir of brawn", "蛮牛药剂", "_t")
+t("elixir of stoneskin", "石肤药剂", "_t")
+t("elixir of foundations", "领悟药剂", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/quests/charred-scar.lua"
 
 t("The Doom of the World!", "世界末日！", "_t")
 t("You were sent to the Charred Scar at the heart of which lies a huge volcano. In the Age of Pyre it destroyed the old Sher'Tul ruins that stood there, absorbing much of their latent magic.", "你被送到了灼烧之痕，其中心是一座巨大的火山——烈火纪元时，喷发的火山摧毁了当时矗立于此的古老夏·图尔遗址，并吸收了其中潜藏的大量魔法。", "_t")
-t("This place is still full of that power and the orcs intend to absorb this power using the Staff of Absorption!", " 这里仍然充满了那种能量，兽人打算用吸能法杖的力量来吸收这里的能量。", "_t")
-t("Whatever their plan may be, they must be stopped at all cost.", " 不管他们的目的是要干什么，必须不惜一切代价阻止他们。", "_t")
-t("The volcano is attacked by orcs. A few Sun Paladins made it there with you. They will hold the line at the cost of their lives to buy you some time.", " 火山受到了兽人的攻击，一些太阳骑士正顶在最前线用他们的生命来帮助你争取一些时间。", "_t")
-t("Honor their sacrifice; do not let the orcs finish their work!", " 向他们的献身精神致敬！不要让兽人们达成所愿。", "_t")
-t("You arrived too late. The place has been drained of its power and the sorcerers have left.", " 你来的太晚了，这里的能量已经被吸干，而那些法师已经离开了。", "_t")
-t("Use the portal to go back to the Far East. You *MUST* stop them, no matter the cost.", " 使用传送门到达远东大陆，你必须阻止他们，不惜一切代价！ ", "_t")
-t("You arrived in time and interrupted the ritual. The sorcerers have departed.", " 你终于及时赶来阻止了仪式，法师们被驱散了。", "_t")
+t("This place is still full of that power and the orcs intend to absorb this power using the Staff of Absorption!", "这里仍然充满了那种能量，兽人打算用吸能法杖的力量来吸收这里的能量！", "_t")
+t("Whatever their plan may be, they must be stopped at all cost.", "不管他们的目的是要干什么，必须不惜一切代价阻止他们。", "_t")
+t("The volcano is attacked by orcs. A few Sun Paladins made it there with you. They will hold the line at the cost of their lives to buy you some time.", "火山受到了兽人的攻击，一些太阳骑士正顶在最前线用他们的生命来帮助你争取一些时间。", "_t")
+t("Honor their sacrifice; do not let the orcs finish their work!", "向他们的献身精神致敬！不要让兽人们达成所愿！", "_t")
+t("You arrived too late. The place has been drained of its power and the sorcerers have left.", "你来的太晚了，这里的能量已经被吸干，而那些法师已经离开了。", "_t")
+t("Use the portal to go back to the Far East. You *MUST* stop them, no matter the cost.", "使用传送门到达远东大陆，你必须阻止他们，不惜一切代价！", "_t")
+t("You arrived in time and interrupted the ritual. The sorcerers have departed.", "你终于及时赶来阻止了仪式，法师们被驱散了。", "_t")
 t("#VIOLET#A portal activates in the distance. You hear the orcs shout, 'The Sorcerers have departed! Follow them!'", "#VIOLET#远处一个传送门被激活，你听到兽人们吼道：“恶魔法师已经离开！跟上他们！”", "logPlayer")
 t("#VIOLET#The Sorcerers flee through a portal. As you prepare to follow them, a huge faeros appears to block the way.", "#VIOLET#恶魔法师从传送门逃跑了，当你准备跟随他们时，一个巨大的法罗挡住了去路。", "logPlayer")
 -- untranslated text
@@ -20197,35 +20196,35 @@ t("", "", "_t")
 section "mod-tome/data/quests/deep-bellow.lua"
 
 t("From bellow, it devours", "地下吞噬者", "_t")
-t("Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold.", " 你从瑞库纳逃了出来，你觉得你的心脏狂跳不止，你对财富和力量的渴望增加了十倍～ ", "_t")
-t("Maybe it is time for you to start an adventurer's career. Deep below the Iron Throne mountains lies the Deep Bellow.", " 也许是你开始冒险生涯的时候了，在钢铁王座山脉的深处有个无尽深渊地下城。", "_t")
-t("It has been long sealed away but still, from time to time adventurers go there looking for wealth.", " 那里已被尘封已久，但是还是不断有冒险者前去寻找财宝。", "_t")
-t("None that you know of has come back yet, but you did survive Reknor. You are great.", " 据你所知没有一个人能活着回来，不过你从瑞库纳幸存了下来，你比较牛 X。", "_t")
+t("Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold.", "你从瑞库纳逃了出来，你觉得你的心脏狂跳不止，你对财富和力量的渴望增加了十倍～", "_t")
+t("Maybe it is time for you to start an adventurer's career. Deep below the Iron Throne mountains lies the Deep Bellow.", "也许是你开始冒险生涯的时候了，在钢铁王座山脉的深处有个无尽深渊地下城。", "_t")
+t("It has been long sealed away but still, from time to time adventurers go there looking for wealth.", "那里已被尘封已久，但是还是不断有冒险者前去寻找财宝。", "_t")
+t("None that you know of has come back yet, but you did survive Reknor. You are great.", "据你所知没有一个人能活着回来，不过你从瑞库纳幸存了下来，你比较牛 X。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/quests/dreadfell.lua"
 
 t("The Island of Dread", "恐怖之岛", "_t")
-t("You have heard that near the Charred Scar, to the south, lies a ruined tower known as the Dreadfell.", " 你听说在灼烧之痕南部有一个叫做恐惧王座的荒塔废墟。", "_t")
-t("There are disturbing rumors of greater undead, and nobody who reached it ever returned.", " 传说那里有强大的亡灵生物，凡是到达那里的人都有去无回。", "_t")
-t("Perhaps you should explore it and find the truth, and the treasures, for yourself!", " 也许你应该去那里一探究竟，顺便可以找到埋藏在那里的财宝。", "_t")
+t("You have heard that near the Charred Scar, to the south, lies a ruined tower known as the Dreadfell.", "你听说在灼烧之痕南部有一个叫做恐惧王座的荒塔废墟。", "_t")
+t("There are disturbing rumors of greater undead, and nobody who reached it ever returned.", "传说那里有强大的亡灵生物，凡是到达那里的人都有去无回。", "_t")
+t("Perhaps you should explore it and find the truth, and the treasures, for yourself!", "也许你应该去那里一探究竟，顺便可以找到埋藏在那里的财宝！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/quests/east-portal.lua"
 
 t("Back and there again", "归而复往", "_t")
-t("You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back.", " 你创造了一个回到马基·埃亚尔的传送门，你应该试试找最后的希望的某个人谈谈关于这件事。", "_t")
-t("You talked to the Elder in Last Hope who in turn told you to talk to Tannen, who lives in the north of the city.", " 你和最后的希望的长者交谈，得知要去找城市北边的泰恩 ", "_t")
+t("You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back.", "你创造了一个回到马基·埃亚尔的传送门，你应该试试找最后的希望的某个人谈谈关于这件事。", "_t")
+t("You talked to the Elder in Last Hope who in turn told you to talk to Tannen, who lives in the north of the city.", "你和最后的希望的长者交谈，得知要去找城市北边的泰恩", "_t")
 t("You gave the Orb of Many Ways to Tannen to study while you look for the athame and diamond in Reknor.", "你把多元水晶球交给泰恩研究，自己则去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
 t("You kept the Orb of Many Ways despite Tannen's request to study it. You must now look for the athame and diamond in Reknor.", "尽管泰恩想要研究多元水晶球，你还是把它留在了自己手中。现在你必须去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
 t("You brought back the diamond and athame to Tannen who asked you to check the tower of Telmur, looking for a text of portals, although he is not sure it is even there. He told you to come back in a few days.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你去泰尔玛之塔寻找一本有关传送门的典籍，尽管他也不确定那里是否真有。他让你过几天再回来。", "_t")
 t("You brought back the diamond and athame to Tannen who asked you to contact Zemekkys to ask some delicate questions.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你联系伊莫克斯，询问一些敏感问题。", "_t")
 t("You brought back the diamond and athame to Tannen who asked you to come back in a few days.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你过几天再回来。", "_t")
-t("Tannen has tricked you! He swapped the orb for a false one that brought you to a demonic plane. Find the exit, and get revenge!", " 泰恩把你耍了！他换了个错的水晶球给你，把你传送到了恶魔的空间，找到出口回去找他算账！ ", "_t")
-t("Tannen revealed himself as the vile scum he really is and trapped you in his tower.", " 泰恩暴露出了他的确是个卑鄙的人渣，他把你囚禁在他的塔牢里。", "_t")
+t("Tannen has tricked you! He swapped the orb for a false one that brought you to a demonic plane. Find the exit, and get revenge!", "泰恩把你耍了！他换了个错的水晶球给你，把你传送到了恶魔的空间，找到出口回去找他算账！", "_t")
+t("Tannen revealed himself as the vile scum he really is and trapped you in his tower.", "泰恩暴露出了他的确是个卑鄙的人渣，他把你囚禁在他的塔牢里。", "_t")
 t("#LIGHT_GREEN#* The portal to the Far East is now functional and can be used to go back.#WHITE#", "#LIGHT_GREEN#* 通向远东的传送门开始运作了，你可以用它来回去。#WHITE#", "_t")
 t("Tannen points to the location of Telmur on your map.", "泰恩在你的地图上指出了泰尔玛的位置。", "logPlayer")
-t("A portal appears in the center of the tower!", "在塔的中间出现了一个传送门!", "_t")
+t("A portal appears in the center of the tower!", "在塔的中间出现了一个传送门！", "_t")
 t("Meranas, Herald of Angolwen", "安格利文传令官 梅拉纳斯", "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you are back in Last Hope.", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已经回到了最后的希望。", "logPlayer")
 -- untranslated text
@@ -20260,20 +20259,20 @@ section "mod-tome/data/quests/grave-necromancer.lua"
 t("And now for a grave", "绝望的坟墓", "_t")
 t("Ungrol of Last Hope asked you to look for his wife's friend Celia, who has been reported missing. She frequently visits her late husband's mausoleum, in the graveyard near Last Hope.", "最后的希望城的温格洛请你寻找他妻子的朋友赛利亚；据说她失踪了。赛利亚常去最后的希望附近墓地中她亡夫的陵墓。", "_t")
 t("You searched for Celia in the graveyard near Last Hope, and found a note. In it, Celia reveals that she has been conducting experiments in the dark arts, in an attempt to extend her life... also, she is pregnant.", "你在最后的希望附近的墓地寻找赛利亚，并发现了一张字条。字条中，赛利亚透露自己一直在研究黑暗法术，试图延长寿命……而且她怀孕了。", "_t")
-t("You have tracked Celia to her husband's mausoleum in the graveyard near Last Hope. It seems she has taken some liberties with the corpses there.", " 你跟踪赛利亚到了她亡夫在最后的希望附近墓地的陵墓里，似乎她在那里复活了一些尸体。", "_t")
-t("You have laid Celia to rest, putting an end to her gruesome experiments.", " 你埋葬了赛利亚，终结了她阴森恐怖的实验。", "_t")
-t("You have laid Celia to rest, putting an end to her failed experiments. You have taken her heart, for your own experiments. You do not plan to fail as she did.", " 你埋葬了赛利亚，终结了她失败的实验，你拿走了她的心脏为自己的实验做准备，你相信你不会重蹈她的覆辙。", "_t")
+t("You have tracked Celia to her husband's mausoleum in the graveyard near Last Hope. It seems she has taken some liberties with the corpses there.", "你跟踪赛利亚到了她亡夫在最后的希望附近墓地的陵墓里，似乎她在那里复活了一些尸体。", "_t")
+t("You have laid Celia to rest, putting an end to her gruesome experiments.", "你埋葬了赛利亚，终结了她阴森恐怖的实验。", "_t")
+t("You have laid Celia to rest, putting an end to her failed experiments. You have taken her heart, for your own experiments. You do not plan to fail as she did.", "你埋葬了赛利亚，终结了她失败的实验，你拿走了她的心脏为自己的实验做准备，你相信你不会重蹈她的覆辙。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/quests/high-peak.lua"
 
 t("Falling Toward Apotheosis", "坠向神化", "_t")
-t("You have vanquished the masters of the Orc Pride. Now you must venture inside the most dangerous place of this world: the High Peak.", " 你征服了兽人军团的最高领袖，现在你必须向这个世界最危险的地方挺进：巅峰。", "_t")
-t("Seek the Sorcerers and stop them before they bend the world to their will.", " 找到那些妄图扭曲这个世界的法师并阻止他们。", "_t")
-t("To enter, you will need the four orbs of command to remove the shield over the peak.", " 想要进去的话，你必须找到那四个指令水晶来移除塔顶的防护罩。", "_t")
+t("You have vanquished the masters of the Orc Pride. Now you must venture inside the most dangerous place of this world: the High Peak.", "你征服了兽人军团的最高领袖，现在你必须向这个世界最危险的地方挺进：巅峰。", "_t")
+t("Seek the Sorcerers and stop them before they bend the world to their will.", "找到那些妄图扭曲这个世界的法师并阻止他们。", "_t")
+t("To enter, you will need the four orbs of command to remove the shield over the peak.", "想要进去的话，你必须找到那四个指令水晶来移除塔顶的防护罩。", "_t")
 t("The entrance to the peak passes through a place called 'the slime tunnels', probably located inside or near Grushnak Pride.", "通往巅峰的入口要经过一个名为“史莱姆通道”的地方，它大概位于格鲁希纳克部落内部或附近。", "_t")
 t("You have reached the summit of the High Peak, entered the sanctum of the Sorcerers and destroyed them, freeing the world from the threat of evil.", "你已登上巅峰之巅，进入法师们的圣所并消灭了他们，将世界从邪恶的威胁中解放出来。", "_t")
-t("You have won the game!", " 你通关了！ ", "_t")
+t("You have won the game!", "你通关了！", "_t")
 t("#LIGHT_GREEN#* You encountered Sun Paladin Aeryn who blamed you for the loss of the Sunwall. You were forced to kill her.#LAST#", "#LIGHT_GREEN#* 你遇到了太阳骑士艾琳；她将太阳堡垒的陷落归咎于你，你不得不杀了她。#LAST#", "_t")
 t("#LIGHT_GREEN#* You encountered Sun Paladin Aeryn who blamed you for the loss of the Sunwall, but you spared her.#LAST#", "#LIGHT_GREEN#* 你遭遇了太阳骑士艾琳，她把太阳堡垒陷落的责任归咎在你的头上，但是你饶恕了她。#LAST#", "_t")
 t("#LIGHT_GREEN#* You defeated the Sorcerers before the Void portal could open.#LAST#", "#LIGHT_GREEN#* 你在虚空传送门打开之前击败了那些法师。#LAST#", "_t")
@@ -20426,12 +20425,12 @@ t("#LIGHT_BLUE#The merchant thanks you for saving his life. He gives you 8 gold 
 section "mod-tome/data/quests/love-melinda.lua"
 
 t("Melinda, lucky girl", "幸运女孩梅琳达", "_t")
-t("After rescuing Melinda from Kryl-Feijan and the cultists you met her again in Last Hope.", " 在你从克里尔·费扬邪教手中解救了梅琳达之后，你在最后的希望又碰到了她。", "_t")
+t("After rescuing Melinda from Kryl-Feijan and the cultists you met her again in Last Hope.", "在你从克里尔·费扬邪教手中解救了梅琳达之后，你在最后的希望又碰到了她。", "_t")
 t("Melinda was saved from the brink of death at the beach, by a strange wave of blight.", "在海滩上，一股奇异的枯萎能量将梅琳达从死亡边缘救了回来。", "_t")
 t("Melinda died to a Yaech raiding party at the beach.", "梅琳达被沙滩上的夺魂魔杀死了。", "_t")
-t("The Fortress Shadow said she could be cured.", " 堡垒之影说她会得到治疗。", "_t")
-t("Melinda decided to come live with you in your Fortress.", " 梅琳达决定和你一起在堡垒里生活。", "_t")
-t("The Fortress Shadow has established a portal for her so she can come and go freely.", " 堡垒之影为她建造了一个传送门，他让她能够自由来去。", "_t")
+t("The Fortress Shadow said she could be cured.", "堡垒之影说她会得到治疗。", "_t")
+t("Melinda decided to come live with you in your Fortress.", "梅琳达决定和你一起在堡垒里生活。", "_t")
+t("The Fortress Shadow has established a portal for her so she can come and go freely.", "堡垒之影为她建造了一个传送门，他让她能够自由来去。", "_t")
 t("After your victory you came back to Last Hope and reunited with Melinda, who after many years remains free of demonic corruption.", "在你的胜利之后，你回到了最后的希望，并与梅琳达重聚，梅琳达在许多年后没有再受到恶魔腐化的影响。", "_t")
 t("You lived together and led a happy life. Melinda even learned a few adventurer's tricks and you both traveled Eyal, making new legends.", "你们住在一起，过着幸福的生活。梅琳达甚至学会了一些冒险家的技能，你们俩一起去旅行，创造了新的传奇。", "_t")
 t("Melinda", "梅琳达", "_t")
@@ -20441,7 +20440,7 @@ t("You saved her from the depth of a cultists' lair and fell in love with her. S
 section "mod-tome/data/quests/lumberjack-cursed.lua"
 
 t("The beast within", "心中的野兽", "_t")
-t("You met a half-mad lumberjack fleeing a small village, rambling about an untold horror lurking there, slaughtering people.", " 你遇到了一个吓得魂飞魄散的伐木工人从一个小村庄里跑出来，大声喊着有个没见过的吓人的东西在里面杀人。", "_t")
+t("You met a half-mad lumberjack fleeing a small village, rambling about an untold horror lurking there, slaughtering people.", "你遇到了一个吓得魂飞魄散的伐木工人从一个小村庄里跑出来，大声喊着有个没见过的吓人的东西在里面杀人。", "_t")
 t("%d lumberjacks have died.", "%d 个伐木工人死了。", "tformat")
 t("Small lumberjack village", "伐木工人的小村庄", "_t")
 t("He points in the direction of the Riljek forest to the north.", "他指着北方的里尔约克森林。", "logPlayer")
@@ -20456,7 +20455,7 @@ t("#LIGHT_RED#A lumberjack falls to the ground, dead.", "#LIGHT_RED#一个伐木
 section "mod-tome/data/quests/mage-apprentice.lua"
 
 t("An apprentice task", "学徒的任务", "_t")
-t("You met a novice mage who was tasked to collect an arcane powered artifact.", " 你碰到了一个法师学徒，他被指派去搜集一件充满奥术力量的神器。", "_t")
+t("You met a novice mage who was tasked to collect an arcane powered artifact.", "你碰到了一个法师学徒，他被指派去搜集一件充满奥术力量的神器。", "_t")
 t("He asked for your help, should you collect some that you do not need.", "如果你收集到自己不需要的奥术物品，他希望你能交给他。", "_t")
 t("#SLATE#* Collect an artifact arcane powered item.#WHITE#", "#SLATE#* 收集一件强力的奥术神器。#WHITE#", "_t")
 t("Offer which item?", "交出什么物品？", "_t")
@@ -20468,8 +20467,8 @@ t("You receive: %s", "你收到：%s 。", "logPlayer")
 section "mod-tome/data/quests/master-jeweler.lua"
 
 t("Lost Knowledge", "遗失的知识", "_t")
-t("You found an ancient tome about gems.", " 你发现一本关于珠宝的旧书。", "_t")
-t("You should bring it to the jeweler in the Gates of Morning.", " 你应该把这本书带给晨曦之门的珠宝匠看看。", "_t")
+t("You found an ancient tome about gems.", "你发现一本关于珠宝的旧书。", "_t")
+t("You should bring it to the jeweler in the Gates of Morning.", "你应该把这本书带给晨曦之门的珠宝匠看看。", "_t")
 t("Limmir told you to look for the Valley of the Moon in the southern mountains.", "利米尔让你去南部山脉寻找新月峡谷。", "_t")
 t("#VIOLET#This tome seems to be about the power of gems. Maybe you should bring it to the jeweler in the Gates of Morning.", "#VIOLET#这本册子似乎描述了关于宝石的力量。也许应该带给晨曦之门的珠宝匠看看。", "logPlayer")
 t("Limmir points to the entrance to a cave on your map. This is supposed to be the way to the valley.", "利米尔在你的地图上指出了山洞的入口。这是一条通往山谷的路。", "logPlayer")
@@ -20482,8 +20481,8 @@ t("Limmir the Master Jeweler", "珠宝匠人利米尔", "_t")
 section "mod-tome/data/quests/orb-command.lua"
 
 t("The Orbs of Command", "指令水晶", "_t")
-t("You have found an orb of command that seems to be used to open the shield protecting the High Peak.", " 你找到了一个指令水晶球，似乎是用来开启巅峰护盾的钥匙。", "_t")
-t("There seems to be a total of four of them. The more you have the weaker the shield will be.", " 似乎一共有四个水晶球，你得到的越多，护盾的防御力越弱。", "_t")
+t("You have found an orb of command that seems to be used to open the shield protecting the High Peak.", "你找到了一个指令水晶球，似乎是用来开启巅峰护盾的钥匙。", "_t")
+t("There seems to be a total of four of them. The more you have the weaker the shield will be.", "似乎一共有四个水晶球，你得到的越多，护盾的防御力越弱。", "_t")
 t("#LIGHT_BLUE#There is a loud crack. The way is open.", "#LIGHT_BLUE#随着一声巨响，道路被打开了。", "logPlayer")
 
 ------------------------------------------------
@@ -20502,15 +20501,15 @@ section "mod-tome/data/quests/orc-hunt.lua"
 
 t("Let's hunt some Orc", "狩猎兽人", "_t")
 t("The elder in Last Hope sent you to the old Dwarven kingdom of Reknor, deep under the Iron Throne, to investigate the orc presence.", "最后的希望城的长者派你前往钢铁王座地下深处的古老矮人王国瑞库纳，调查兽人的踪迹。", "_t")
-t("Find out if they are in any way linked to the lost staff.", " 查清楚他们是不是和遗失的法杖有关。", "_t")
-t("But be careful -- even the Dwarves have not ventured in these old halls for many years.", " 小心，矮人们已经很多年没有进过那些古老的大厅了。", "_t")
+t("Find out if they are in any way linked to the lost staff.", "查清楚他们是不是和遗失的法杖有关。", "_t")
+t("But be careful -- even the Dwarves have not ventured in these old halls for many years.", "小心，矮人们已经很多年没有进过那些古老的大厅了。", "_t")
 t("The elder points to Reknor on your map, to the north on the western side of the Iron Throne.", "长老在你的地图上指出了瑞库纳的位置，在钢铁王座西部边境的北部。", "logPlayer")
 
 ------------------------------------------------
 section "mod-tome/data/quests/orc-pride.lua"
 
 t("The many Prides of the Orcs", "兽人部落", "_t")
-t("Investigate the bastions of the Pride.", " 调查兽人部落的基地。", "_t")
+t("Investigate the bastions of the Pride.", "调查兽人部落的基地。", "_t")
 t("#LIGHT_GREEN#* You have destroyed Rak'shor.#WHITE#", "#LIGHT_GREEN#* 你击败了拉克·肖部落。#WHITE#", "_t")
 t("#SLATE#* Rak'shor Pride, in the west of the southern desert.#WHITE#", "#SLATE#* 拉克·肖部落，位于南部沙漠西部。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have destroyed Vor.#WHITE#", "#LIGHT_GREEN#* 你击败了沃尔部落。#WHITE#", "_t")
@@ -20556,7 +20555,7 @@ section "mod-tome/data/quests/pre-charred-scar.lua"
 
 t("Important news", "重要的消息", "_t")
 t("Orcs were spotted with the staff you seek in an arid waste in the southern desert.", "有人看到兽人带着你所寻找的法杖，出现在南部沙漠的一片干旱荒地中。", "_t")
-t("You should go investigate what is happening there.", " 你得去调查一下那里发生了什么事。", "_t")
+t("You should go investigate what is happening there.", "你得去调查一下那里发生了什么事。", "_t")
 t("High Sun Paladin Aeryn", "高阶太阳骑士艾琳", "_t")
 t("Aeryn explained where the orcs were spotted.", "艾琳告诉你哪里发现了兽人的踪迹。", "logPlayer")
 
@@ -20592,8 +20591,8 @@ t("", "", "_t")
 section "mod-tome/data/quests/shertul-fortress.lua"
 
 t("Sher'Tul Fortress", "夏·图尔堡垒", "_t")
-t("You found notes from an explorer inside the Old Forest. He spoke about Sher'Tul ruins sunken below the surface of the lake of Nur, at the forest's center.", " 在古老森林里找到了一个探险者的笔记，里面提到在森林中心的纳尔湖底下有一个沉没的夏·图尔遗迹。", "_t")
-t("With one of the notes there was a small gem that looks like a key.", " 和笔记在一起被发现的还有个小小的宝石，样子看上去像一把钥匙。", "_t")
+t("You found notes from an explorer inside the Old Forest. He spoke about Sher'Tul ruins sunken below the surface of the lake of Nur, at the forest's center.", "在古老森林里找到了一个探险者的笔记，里面提到在森林中心的纳尔湖底下有一个沉没的夏·图尔遗迹。", "_t")
+t("With one of the notes there was a small gem that looks like a key.", "和笔记在一起被发现的还有个小小的宝石，样子看上去像一把钥匙。", "_t")
 t("#LIGHT_GREEN#* You used the key inside the ruins of Nur and found a way into the fortress of old.#WHITE#", "#LIGHT_GREEN#* 你在纳尔湖的底部使用这把钥匙，进入了一个古老的堡垒。#WHITE#", "_t")
 t("#LIGHT_GREEN#* The Weirdling Beast is dead, freeing the way into the fortress itself.#WHITE#", "#LIGHT_GREEN#* 异形触手死了，进入堡垒的道路被打开了。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have activated what seems to be a ... butler? with your rod of recall.#WHITE#", "#LIGHT_GREEN#* 你用回归之杖激活了一个……管家？#WHITE#", "_t")
@@ -20619,14 +20618,14 @@ t("The energy is too low. It needs to be at least 15.", "能量过低，至少�
 t("#VIOLET#Your rod of recall glows brightly for a moment.", "#VIOLET#你的回归之杖短暂地闪耀起来。", "log")
 t("The energy is too low. It needs to be at least 25.", "能量过低，至少需要25点能量。", "_t")
 t("#VIOLET#Your transmogrification chest glows brightly for a moment.", "#VIOLET#你的转化之盒闪了一下光。", "log")
-t("The fortress is not found!", "找不到堡垒!", "log")
+t("The fortress is not found!", "找不到堡垒！", "log")
 
 ------------------------------------------------
 section "mod-tome/data/quests/spydric-infestation.lua"
 
 t("Eight legs of wonder", "八脚怪物", "_t")
-t("Enter the caverns of Ardhungol and look for Sun Paladin Rashim.", " 进入阿尔德胡格山洞寻找太阳骑士拉希姆。", "_t")
-t("But be careful; those are not small spiders...", " 当心，那里的蜘蛛个头可不小……", "_t")
+t("Enter the caverns of Ardhungol and look for Sun Paladin Rashim.", "进入阿尔德胡格山洞寻找太阳骑士拉希姆。", "_t")
+t("But be careful; those are not small spiders...", "当心，那里的蜘蛛个头可不小……", "_t")
 t("#LIGHT_GREEN#You have killed Ungolë in Ardhungol and saved the Sun Paladin.", "#LIGHT_GREEN#你杀死了阿尔德胡格里的温格勒并救了太阳骑士。", "_t")
 t("She marks the location of Ardhungol on your map.", "她在你的地图上指出阿尔德胡格的位置。", "logPlayer")
 t("Portal back to the Gates of Morning", "返回晨曦之门的传送门", "_t")
@@ -20636,14 +20635,14 @@ t("A portal appears right under you, and Rashim rushes through.", "一道传送�
 section "mod-tome/data/quests/staff-absorption.lua"
 
 t("A mysterious staff", "奇怪的法杖", "_t")
-t("Deep in the Dreadfell you fought and destroyed the Master, a powerful vampire.", " 在恐惧王座深处你和一个强大的吸血鬼大法师战斗并杀死了他。", "_t")
-t("On your way out of the Dreadfell you were ambushed by a band of orcs.", " 当你走出恐惧王座的时候你受到了一队兽人小队的偷袭。", "_t")
+t("Deep in the Dreadfell you fought and destroyed the Master, a powerful vampire.", "在恐惧王座深处你和一个强大的吸血鬼大法师战斗并杀死了他。", "_t")
+t("On your way out of the Dreadfell you were ambushed by a band of orcs.", "当你走出恐惧王座的时候你受到了一队兽人小队的偷袭。", "_t")
 t("They asked about the staff.", "他们问起了法杖的事。", "_t")
 t("On your way out of the Dreadfell you were ambushed by a band of orcs and left for dead.", "当你走出恐惧王座时，你遭到一队兽人伏击，并被他们丢下等死。", "_t")
-t("They asked about the staff and stole it from you.", " 他们从你那里得知了法杖的消息，把法杖抢走了。", "_t")
+t("They asked about the staff and stole it from you.", "他们从你那里得知了法杖的消息，把法杖抢走了。", "_t")
 t("#LIGHT_GREEN#Go at once to Last Hope to report those events!", "#LIGHT_GREEN#立刻到最后的希望汇报所发生的情况！", "_t")
 t("You told them nothing and vanquished them.", "你什么也没告诉他们，并把他们全都消灭了。", "_t")
-t("In its remains, you found a strange staff. It radiates power and danger and you dare not use it yourself.", " 在他的尸体上，你发现了一根奇怪的法杖，它辐射出的力量和危险使你不敢使用它。", "_t")
+t("In its remains, you found a strange staff. It radiates power and danger and you dare not use it yourself.", "在他的尸体上，你发现了一根奇怪的法杖，它辐射出的力量和危险使你不敢使用它。", "_t")
 t("You should bring it to the elders of Last Hope in the southeast.", "你应该把它带给位于东南方的最后的希望长老们。", "_t")
 t("#00FFFF#You can feel the power of this staff just by carrying it. This is both ancient and dangerous.", "#00FFFF#你拿着法杖就可以感受到它的力量。它既古老又危险。", "logPlayer")
 t("#00FFFF#It should be shown to the wise elders in Last Hope!", "#00FFFF#应该把它交给最后的希望的智慧长老看看！", "logPlayer")
@@ -20697,16 +20696,16 @@ t("Reknor is lost!", "瑞库纳沦陷了！", "_t")
 t("You were part of a group of dwarves sent to investigate the situation of the kingdom of Reknor.", "你是被指派到瑞库纳王国去调查情况的一个矮人小分队的一员。", "_t")
 t("When you arrived there you found nothing but orcs, well organized and very powerful.", "当你到达那里时，你只发现了组织严密且非常强大的兽人。", "_t")
 t("Most of your team was killed there and now you and Norgan (the sole survivor besides you) must hurry back to the Iron Council to bring the news.", "你队伍中大多数人被杀死，现在你和诺尔甘 ( 除你以外的唯一幸存者 ) 必须赶紧回到钢铁议会去汇报这里的情况。", "_t")
-t("Let nothing stop you.", " 不惜一切代价冲出去。", "_t")
-t("Both Norgan and you made it home.", " 你和诺尔甘都回到了家。", "_t")
+t("Let nothing stop you.", "不惜一切代价冲出去。", "_t")
+t("Both Norgan and you made it home.", "你和诺尔甘都回到了家。", "_t")
 t("Norgan", "诺尔甘", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/quests/start-point-zero.lua"
 
 t("Future Echoes", "未来的回音", "_t")
-t("The unhallowed morass is the name of the 'zone' surrounding Point Zero.", " 混沌之沼是零点圣域周围区域的名字。", "_t")
-t("The temporal spiders that inhabit it are growing restless and started attacking at random. You need to investigate what is going on.", " 栖息在那里的时空蜘蛛开始变得有攻击性，你得去调查一下到底发生了什么事。", "_t")
+t("The unhallowed morass is the name of the 'zone' surrounding Point Zero.", "混沌之沼是零点圣域周围区域的名字。", "_t")
+t("The temporal spiders that inhabit it are growing restless and started attacking at random. You need to investigate what is going on.", "栖息在那里的时空蜘蛛开始变得有攻击性，你得去调查一下到底发生了什么事。", "_t")
 t("#LIGHT_GREEN#* You have explored the morass and destroyed the weaver queen, finding strange traces on it.#WHITE#", "#LIGHT_GREEN#* 你探索了混沌之沼并杀死了织网蛛后，发现了奇怪的痕迹。#WHITE#", "_t")
 t("#SLATE#* You must explore the morass.#WHITE#", "#SLATE#* 你必须探索混沌之沼。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have helped defend Point Zero.#WHITE#", "#LIGHT_GREEN#* 你成功守卫了零点圣域。#WHITE#", "_t")
@@ -20759,9 +20758,9 @@ t("#SLATE#* You must explore the Heart of the Gloom.#WHITE#", "#SLATE#* 你必�
 section "mod-tome/data/quests/start-undead.lua"
 
 t("The rotting stench of the dead", "死者腐烂的恶臭", "_t")
-t("You have been resurrected as an undead by some dark powers.", " 你被黑暗力量复活了。", "_t")
-t("However, the ritual failed in some way and you retain your own mind. You need to get out of this dark place and try to carve a place for yourself in the world.", " 不过，复活仪式似乎出了点问题，你保留了自己的意识，你必须离开这个黑暗地方并找到属于自己的栖息地。", "_t")
-t("You have found a very special cloak that will help you walk among the living without trouble.", " 你发现了一个非常神奇的斗篷，可以使你在活人之中自由生活而不会陷入麻烦。", "_t")
+t("You have been resurrected as an undead by some dark powers.", "你被黑暗力量复活了。", "_t")
+t("However, the ritual failed in some way and you retain your own mind. You need to get out of this dark place and try to carve a place for yourself in the world.", "不过，复活仪式似乎出了点问题，你保留了自己的意识，你必须离开这个黑暗地方并找到属于自己的栖息地。", "_t")
+t("You have found a very special cloak that will help you walk among the living without trouble.", "你发现了一个非常神奇的斗篷，可以使你在活人之中自由生活而不会陷入麻烦。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/quests/start-yeek.lua"
@@ -20784,11 +20783,11 @@ t("You should head to the tunnel to Maj'Eyal and explore the world. For the Way.
 section "mod-tome/data/quests/starter-zones.lua"
 
 t("Into the darkness", "进入黑暗", "_t")
-t("It is time to explore some new places -- dark, forgotten and dangerous ones.", " 是时候去一些新的地方探索一下了——那些黑暗、被遗忘和危险的地方。", "_t")
-t("The Old Forest is just south-east of the town of Derth.", " 在德斯镇东南方向是古老森林。", "_t")
-t("The Maze is west of Derth.", " 在德斯镇西面是迷宫。", "_t")
-t("The Sandworm Lair is to the far west of Derth, near the sea.", " 在德斯镇远一点的西面，靠近海岸的地方是沙虫巢穴。", "_t")
-t("The Daikara is on the eastern borders of the Thaloren forest.", " 在自然精灵树林的东部边境那里是岱卡拉。", "_t")
+t("It is time to explore some new places -- dark, forgotten and dangerous ones.", "是时候去一些新的地方探索一下了——那些黑暗、被遗忘和危险的地方。", "_t")
+t("The Old Forest is just south-east of the town of Derth.", "在德斯镇东南方向是古老森林。", "_t")
+t("The Maze is west of Derth.", "在德斯镇西面是迷宫。", "_t")
+t("The Sandworm Lair is to the far west of Derth, near the sea.", "在德斯镇远一点的西面，靠近海岸的地方是沙虫巢穴。", "_t")
+t("The Daikara is on the eastern borders of the Thaloren forest.", "在自然精灵树林的东部边境那里是岱卡拉。", "_t")
 t("#LIGHT_GREEN#* You have explored the Old Forest and vanquished Shardskin.#WHITE#", "#LIGHT_GREEN#* 你已经探索了古老森林并杀死了水晶树精。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the Old Forest and vanquished Wrathroot.#WHITE#", "#LIGHT_GREEN#* 你已经探索了古老森林并杀死了狂怒树精。#WHITE#", "_t")
 t("#SLATE#* You must explore the Old Forest and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你应当探索古老森林，查清那里潜伏的危险，并获得那里的宝藏！#WHITE#", "_t")
@@ -20805,12 +20804,12 @@ t("#SLATE#* You must explore the Daikara and find out what lurks there and what 
 section "mod-tome/data/quests/strange-new-world.lua"
 
 t("Strange new world", "陌生的新世界", "_t")
-t("You arrived through the farportal in a cave, probably in the Far East.", " 你穿过了山洞的远行传送门，可能会到达远东大陆。", "_t")
-t("Upon arrival you met an Elf and an orc fighting.", " 你碰到了一个精灵在和一个兽人战斗。", "_t")
+t("You arrived through the farportal in a cave, probably in the Far East.", "你穿过了山洞的远行传送门，可能会到达远东大陆。", "_t")
+t("Upon arrival you met an Elf and an orc fighting.", "你碰到了一个精灵在和一个兽人战斗。", "_t")
 t("You decided to side with the Elven lady.", "你决定帮助那位精灵女士。", "_t")
 t("You decided to side with the orc.", "你决定帮助那个兽人。", "_t")
-t("Fillarel told you to go to the southeast and meet with High Sun Paladin Aeryn.", " 菲拉瑞尔告诉你去东南方会见高阶太阳骑士艾琳。", "_t")
-t("Krogar told you to go to the west and look for the Kruk Pride.", " 克洛加尔告诉你去西面寻找克鲁克部落。", "_t")
+t("Fillarel told you to go to the southeast and meet with High Sun Paladin Aeryn.", "菲拉瑞尔告诉你去东南方会见高阶太阳骑士艾琳。", "_t")
+t("Krogar told you to go to the west and look for the Kruk Pride.", "克洛加尔告诉你去西面寻找克鲁克部落。", "_t")
 t("%s go to the west, and find Kruk Pride!", "%s，去西边，寻找克鲁克部落！", "tformat")
 t("%s go to the southeast, and tell Aeryn what happened to me!", "%s，去东南方，告诉艾琳我的遭遇！", "tformat")
 
@@ -20818,8 +20817,8 @@ t("%s go to the southeast, and tell Aeryn what happened to me!", "%s，去东南
 section "mod-tome/data/quests/temple-of-creation.lua"
 
 t("The Temple of Creation", "造物者神庙", "_t")
-t("Ukllmswwik asked you to take his portal to the Temple of Creation and kill Slasul who has turned mad.", " 乌克勒姆斯维奇请求你穿过他的传送门到造物者神庙去杀死发疯了的萨拉苏尔。", "_t")
-t("Slasul told you his side of the story. Now you must decide: which of them is corrupt?", " 萨拉苏尔告诉了你关于他的故事，你现在必须决定：到底谁才是真正的堕落者。", "_t")
+t("Ukllmswwik asked you to take his portal to the Temple of Creation and kill Slasul who has turned mad.", "乌克勒姆斯维奇请求你穿过他的传送门到造物者神庙去杀死发疯了的萨拉苏尔。", "_t")
+t("Slasul told you his side of the story. Now you must decide: which of them is corrupt?", "萨拉苏尔告诉了你关于他的故事，你现在必须决定：到底谁才是真正的堕落者？", "_t")
 t("Slasul bound his lifeforce to yours and gave your a powerful trident in return.", "萨拉苏尔将自己的生命力与你的生命力绑定，并以一把强大的三叉戟作为回报。", "_t")
 t("#LIGHT_GREEN#* You have killed both Ukllmswwik and Slasul, betraying them both.#WHITE#", "#LIGHT_GREEN#* 你把乌克勒姆斯维奇和萨拉苏尔都杀掉了，同时背叛了他们两个。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have sided with Ukllmswwik and killed Slasul.#WHITE#", "#LIGHT_GREEN#* 你选择相信乌克勒姆斯维奇并杀死了萨拉苏尔。#WHITE#", "_t")
@@ -20842,9 +20841,9 @@ t("Temporal Warden", "时空守卫", "_t")
 section "mod-tome/data/quests/trollmire-treasure.lua"
 
 t("Hidden treasure", "隐藏的财宝", "_t")
-t("You have found all the clues leading to the hidden treasure. There should be a way on the third level of the Trollmire.", " 你已经找到了所有有关秘密财宝的线索，在食人魔沼泽第三层应该能找到一条通往那里的路。", "_t")
-t("It looks extremely dangerous, however - beware.", " 注意：看样子那里非常危险。", "_t")
-t("You have slain Bill. His treasure is yours for the taking.", " 你已经干掉了比尔，他的财宝现在归你了。", "_t")
+t("You have found all the clues leading to the hidden treasure. There should be a way on the third level of the Trollmire.", "你已经找到了所有有关秘密财宝的线索，在食人魔沼泽第三层应该能找到一条通往那里的路。", "_t")
+t("It looks extremely dangerous, however - beware.", "注意：看样子那里非常危险。", "_t")
+t("You have slain Bill. His treasure is yours for the taking.", "你已经干掉了比尔，他的财宝现在归你了。", "_t")
 t("way to the hidden trollmire treasure", "通往巨魔沼泽隐藏宝藏的路", "_t")
 t("Beware!", "小心！", "_t")
 t("Danger...", "小心……", "_t")
@@ -20863,7 +20862,7 @@ t("Tutorial Finished", "教程已完成", "_t")
 section "mod-tome/data/quests/tutorial.lua"
 
 t("Tutorial", "教程", "_t")
-t("You must venture in the heart of the forest and kill the Lone Wolf, who randomly attacks villagers.", " 你必须进入森林的中心地带并杀死孤狼——那个肆意屠杀村民的凶手。", "_t")
+t("You must venture in the heart of the forest and kill the Lone Wolf, who randomly attacks villagers.", "你必须进入森林的中心地带并杀死孤狼——那个肆意屠杀村民的凶手。", "_t")
 t("Tutorial: Movement", "教程：移动", "_t")
 
 ------------------------------------------------
@@ -20900,7 +20899,7 @@ t("", "", "_t")
 section "mod-tome/data/quests/wild-wild-east.lua"
 
 t("The wild wild east", "遥远的东方", "_t")
-t("There must be a way to go into the far east from the lair of Golbug. Find it and explore the unknown far east, looking for clues.", " 在高尔布格巢穴内肯定有一条通往远东大陆的路，去寻找线索并找到它，然后探索那未知而遥远的东方。", "_t")
+t("There must be a way to go into the far east from the lair of Golbug. Find it and explore the unknown far east, looking for clues.", "在高尔布格巢穴内肯定有一条通往远东大陆的路，去寻找线索并找到它，然后探索那未知而遥远的东方。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/resources.lua"
@@ -21041,9 +21040,9 @@ t([[Your skill at Chanting now extends the cloak of light, increasing your light
 		Chant of Fortress cures physical effects.
 		Chant of Resistance cures magical effects.]], [[咏唱赞歌的娴熟技艺让光明得以扩散，增加 %d 光照半径。
 		每次你咏唱新的赞歌时，你将解除自身的越层效果（失去平衡、法术冲击和思维封锁），并额外解除 %d 项相应类型的负面状态。
-		坚韧赞歌：解除精神负面状态 
+		坚韧赞歌：解除精神负面状态
 		堡垒赞歌：解除物理负面状态
-		元素赞歌：解除魔法负面状态 ]], "tformat")
+		元素赞歌：解除魔法负面状态]], "tformat")
 t("Chant Radiant", "辉耀绽放", "talent name")
 t([[Your passion for singing the praises of the Sun reaches its zenith.
 		Your Chanting now increases your light and fire damage by %d%% and, up to %d times per turn when you are hit by a weapon attack, you will gain %0.1f Positive Energy.
@@ -21101,11 +21100,11 @@ t([[In a pure display of power, you project a ranged melee attack, doing %d%% we
 t("Weapon of Wrath", "愤怒之刃", "talent name")
 t([[Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP as additional Fire damage (up to %d, Current:  %d).
 		Targets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.
-		The bonus damage can only occur once per turn.]], [[你使用武器攻击时，造成相当于 %d%% 你已损失的生命值的火焰伤害 , 至多 %d 点,当前 %d 点 
+		The bonus damage can only occur once per turn.]], [[你使用武器攻击时，造成相当于 %d%% 你已损失的生命值的火焰伤害 , 至多 %d 点，当前 %d 点
 		然后令目标进入殉难状态，受到 %d%% 自己造成的伤害，持续 4 回合。
 		每回合最多触发一次额外伤害。]], "tformat")
 t("Second Life", "第二生命", "talent name")
-t("Any attack that would drop you below 1 hit point instead triggers Second Life, deactivating the talent, setting your hit points to 1, then healing you for %d.", "任何使你生命值降到 1 点以下的攻击都会激活第二生命，自动中断此技能并将你的生命值恢复到 1 点,然后受到 %d 点治疗。", "tformat")
+t("Any attack that would drop you below 1 hit point instead triggers Second Life, deactivating the talent, setting your hit points to 1, then healing you for %d.", "任何使你生命值降到 1 点以下的攻击都会激活第二生命，自动中断此技能并将你的生命值恢复到 1 点，然后受到 %d 点治疗。", "tformat")
 
 ------------------------------------------------
 t([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.
@@ -21119,21 +21118,21 @@ section "mod-tome/data/talents/celestial/crusader.lua"
 t("Absorption Strike", "吸能一击", "talent name")
 t("You require a two handed weapon to use this talent.", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
 t([[You strike your foe with your two handed weapon, dealing %d%% weapon damage.
-		If the attack hits, all foes in radius 2 will have their light resistance reduced by %d%% and their damage reduced by %d%% for 5 turns.]], [[ 你用双手武器攻击敌人，造成 %d%% 武器伤害。
+		If the attack hits, all foes in radius 2 will have their light resistance reduced by %d%% and their damage reduced by %d%% for 5 turns.]], [[你用双手武器攻击敌人，造成 %d%% 武器伤害。
 		如果攻击命中，半径 2 以内的敌人光系抗性下降 %d%%，伤害下降 %d%% , 持续 5 回合。]], "tformat")
 t("Mark of Light", "光之印记", "talent name")
 t("You mark a target with light for 3 turns, causing all melee hits you deal to it to heal you for %d%% of the damage done.", "你用光标记目标 3 回合，你对它近战攻击时，将受到相当于 %d%% 伤害的治疗。", "tformat")
 t("Righteous Strength", "光明之力", "talent name")
 t([[While wielding a two handed weapon, your critical strike chance is increased by %d%%, and your melee criticals instill you with righteous strength, increasing all physical and light damage you deal by %d%%, stacking up to 3 times.
 		In addition, your melee critical strikes leave a lasting lightburn on the target, dealing %0.2f light damage over 5 turns and reducing opponents armour by %d.
-		The damage increases with your Spellpower.]], [[ 当装备双手武器时，你的暴击率增加 %d%% , 同时你的近战暴击会引发光明之力，增加 %d%% 物理和光系伤害加成，最多叠加 3 次。
+		The damage increases with your Spellpower.]], [[当装备双手武器时，你的暴击率增加 %d%% , 同时你的近战暴击会引发光明之力，增加 %d%% 物理和光系伤害加成，最多叠加 3 次。
 		同时，你的近战暴击会在目标身上留下灼烧痕迹， 5 回合内造成 %0.2f 光系伤害，同时减少 %d 护甲。
 		伤害受法强加成。]], "tformat")
 t("Flash of the Blade", "闪光之刃", "talent name")
 t([[Infuse your two handed weapon with light while spinning around.
 		All creatures in radius one take %d%% weapon damage.
 		In addition while spinning your weapon shines so much it deals %d%% light weapon damage to all foes in radius 2.
-		At level 4 your spinning blade creates a shield that blocks all damage for 1 turn.]], [[ 旋转一周，同时将光明之力充满武器。
+		At level 4 your spinning blade creates a shield that blocks all damage for 1 turn.]], [[旋转一周，同时将光明之力充满武器。
 		半径 1 以内的敌人将受到 %d%% 武器伤害，同时半径 2 以内的敌人将受到 %d%% 光系武器伤害。
 		技能等级 4 或以上时，在旋转时你会制造一层护盾，吸收 1 回合内的所有攻击。]], "tformat")
 
@@ -21184,8 +21183,8 @@ You gain a bonus to Mindpower equal to %d%% of your Magic.
 
 #{italic}#你里面有些不对劲。你的太阳法术被遮蔽了，但你血腥的行径使得事物依然如同白昼一样清晰。#{normal}#]], "tformat")
 t("Flee the Sun", "阴走", "talent name")
-t("%s's teleportation fizzles!", "%s 的传送失败了!", "logSeen")
-t("%s emerges from the darkness!", "%s从黑暗中现身了!", "logSeen")
+t("%s's teleportation fizzles!", "%s 的传送失败了！", "logSeen")
+t("%s emerges from the darkness!", "%s从黑暗中现身了！", "logSeen")
 t([[Fade into the darkness and reappear elsewhere within range %d.  When you emerge from the shadows, you are accompanied by a bright flash, dealing %0.2f light damage to enemies in radius 1.
 						 The damage will increase with your Spellpower.]], [[匿迹于黑暗之中并在距离 %d 码范围内的另一处重现。一道闪光会伴随着你从阴影中现身，对半径1码范围内的敌人造成 %0.2f 光系伤害。
 						 伤害受法术强度加成。]], "tformat")
@@ -21298,7 +21297,7 @@ t([[When one of your spells goes critical, you bind glyphs in radius 1 centered 
 		圣印只会在周围没有圣印的敌人周围产生。
 		每 %d 游戏回合最多触发一次该效果。
 		圣印效果受法术强度加成。
-		
+
 		有以下几种可用的圣印：
 		#ffd700#日光圣印#LAST#——将阳光注入圣印。当其触发时，将会释放出明亮耀眼的光芒，造成 %0.2f 光系伤害，并恢复你 %d 生命值。
 		#7f7f7f#月光圣印#LAST#——将月光注入圣印。当其触发时，将会释放出疲惫困倦的黑暗，造成 %0.2f 暗影伤害，并使目标所造成的伤害减少 %d%%，持续 %d 回合。
@@ -21351,7 +21350,7 @@ t([[Retribution negates half of all damage you take while it is active. Once Ret
 		伤害吸收值受法术强度加成。
 		%s]], "tformat")
 t("Crusade", "十字军打击", "talent name")
-t("You cannot use Crusade without a shield!", "使用十字军打击必须使用盾牌!", "logPlayer")
+t("You cannot use Crusade without a shield!", "使用十字军打击必须使用盾牌！", "logPlayer")
 t([[You demonstrate your dedication to the light with a measured attack striking once with your weapon for %d%% Light damage and once with your shield for %d%% Light damage.
 			If the first strike connects %d random talent cooldowns are reduced by 1.
 			If the second strike connects you are cleansed of %d debuffs.]], [[你用武器攻击造成 %d%% 光系伤害，再用盾牌攻击造成 %d%% 光系伤害。
@@ -21544,13 +21543,13 @@ section "mod-tome/data/talents/celestial/sun.lua"
 t("Sun Ray", "阳光烈焰", "talent name")
 t([[Calls forth a ray of light from the Sun, doing %0.1f Light damage to the target.
 		At level 3 the ray will be so intense it will also blind the target and everyone in a radius 2 around it for %d turns.
-		The damage dealt will increase with your Spellpower.]], [[ 召唤太阳之力，形成一道射线，造成 %0.1f 点光系伤害。
+		The damage dealt will increase with your Spellpower.]], [[召唤太阳之力，形成一道射线，造成 %0.1f 点光系伤害。
 		等级 3 时射线变得如此强烈，半径 2 以内的敌人将被致盲 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Path of the Sun", "阳光大道", "talent name")
 t([[A path of sunlight appears in front of you for 5 turns. All foes standing inside take %0.1f Light damage per turn.
 		While standing in the path, your movement takes no time and can not trigger traps.
-		The damage done will increase with your Spellpower.]], [[ 在你面前出现一条阳光大道，持续 5 回合。任何站在上面的敌人每回合受到 %0.1f 点光系伤害。
+		The damage done will increase with your Spellpower.]], [[在你面前出现一条阳光大道，持续 5 回合。任何站在上面的敌人每回合受到 %0.1f 点光系伤害。
 		你站在上面行走不消耗时间, 也不会触发陷阱。
 		伤害受法术强度加成。]], "tformat")
 t("Sun's Vengeance", "阳光之怒", "talent name")
@@ -21566,7 +21565,7 @@ t([[Infuse yourself with the raging fury of the Sun, increasing your physical an
 t("Suncloak", "阳光护体", "talent name")
 t([[You wrap yourself in a cloak of sunlight that empowers your magic and protects you for 6 turns.
 		While the cloak is active, your spell casting speed is increased by %d%%, your spell cooldowns are reduced by %d%%, and you cannot take more than %d%% of your maximum life from a single blow.
-		The effects will increase with your Spellpower.]], [[ 你将自己包裹在阳光中，保护你 6 回合。
+		The effects will increase with your Spellpower.]], [[你将自己包裹在阳光中，保护你 6 回合。
 		你的施法速度增加 %d%%，法术冷却减少 %d%%，同时一次攻击不能对你造成超过 %d%% 最大生命的伤害。
 		效果受法术强度加成。]], "tformat")
 
@@ -21618,7 +21617,7 @@ t([[Let out a mental cry that shatters the will of your targets within radius %d
 		The damage will improve with your spellpower and the duration will improve with your Cunning.]], [[在 %d 码半径范围内释放一股精神冲击，摧毁目标的意志，对其造成 %0.2f 暗影伤害，并使其混乱 ( %d%% 几率随机行动），持续 %d 回合。
 		伤害受法术强度加成，持续时间受灵巧加成。]], "tformat")
 t("Shadow Simulacrum", "阴影幻象", "talent name")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("You can't target summons!", "你不能选择召唤物为目标！", "logSeen")
 t("You can't target allies!", "你不能选择盟友为目标！", "logSeen")
 t("%s's shadow simulacrum", "%s的阴影幻象", "tformat")
@@ -21663,7 +21662,7 @@ t("@Source@ shifts reality.", "@Source@改变了现实。", "_t")
 t("Teleports up to five targets in a radius of %d up to %d tiles away.", "将半径 %d 范围内最多五个单位传送到 %d 格外。", "tformat")
 t("Anomaly Swap", "异常：换位", "talent name")
 t("@Source@ swaps places with a nearby target.", "@Source@和附近一名目标交换了位置。", "_t")
-t("The spell fizzles!", "法术失败了!", "logSeen")
+t("The spell fizzles!", "法术失败了！", "logSeen")
 t("You swap locations with a random target.", "你和一个随机目标交换位置", "tformat")
 t("Anomaly Displacement Shield", "异常：偏转护盾", "talent name")
 t("@Source@ transfers damage to a nearby target.", "@Source@将伤害转移至附近一名目标。", "_t")
@@ -21687,7 +21686,7 @@ t("@Source@ makes several targets blink uncontrollably.", "@Source@让数名目�
 t("Up to five targets in a radius of %d are teleporting %d tiles every turn.", "让半径 %d 范围内最多五个单位每回合在 %d 格内传送。", "tformat")
 t("Anomaly Summon Townsfolk", "异常：召唤村民", "talent name")
 t("Some innocent bystanders have been teleported into the fight.", "一些无辜的旁观者被传送到战斗中。", "_t")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("human farmer", "人类农民", "_t")
 t("A weather-worn Human farmer, looking at a loss as to what's going on.", "一个饱经风霜的人类农民，他茫然不知所措。", "_t")
 t("halfling gardener", "半身人园丁", "_t")
@@ -21801,10 +21800,10 @@ t("You require two weapons to use this talent.", "你只有在双持状态下才
 t([[Attack with your melee weapons for %d%% weapon damage as physical and temporal (warp) damage. If either attack hits you may stun, blind, pin, or confuse the target for %d turns.
 		
 		Blade Threading talents will freely swap to your dual-weapons when activated if you have them in your secondary slots.  Additionally you may use the Attack talent in a similar manner.]], [[使用近战武器攻击目标，造成 %d%% 物理和时空（扭曲）属性的武器伤害。如果任意一次攻击命中，你可以使目标震慑、致盲、定身或混乱 %d 回合。
-		
+
 		激活螺旋灵刃系技能时，如果副武器栏位中有双持武器，便会自动切换至它们。普通攻击技能也能以同样方式切换。]], "tformat")
 t("Blink Blade", "闪烁灵刃", "talent name")
-t("The spell fizzles!", "法术失败了!", "logSeen")
+t("The spell fizzles!", "法术失败了！", "logSeen")
 t([[Teleport to the target and attack with your melee weapons for %d%% damage.  Then teleport next to a second random enemy, attacking for %d%% damage.
 		Blink Blade can hit the same target multiple times.]], [[传送到目标面前，并使用你的近战武器攻击目标，造成 %d%% 伤害。然后随机传送到第二个目标面前，攻击并造成 %d%% 伤害。
 		闪烁灵刃可以命中同一个目标多次。]], "tformat")
@@ -21828,7 +21827,7 @@ t([[Fire an arrow for %d%% weapon damage and call up to 2 wardens, depending on 
 		
 		Bow Threading talents will freely swap to your bow when activated if you have one in your secondary slot. You may use the Shoot talent in a similar manner.]], [[发射一支灵矢造成 %d%% 武器伤害，并且根据可用空间，召唤最多两个守卫，各自发射一枚灵矢然后回到他们自己的时间线中。
 		守卫处在现实位面之外，灵矢的伤害减少 %d%%，但能够穿过友好目标。同时，你发射的所有来自射击或者其他技能的箭矢，都可以穿透友军并且不会造成伤害。
-		
+
 		激活螺旋灵弓技能可以自由切换到你的弓（必须装备在副武器栏位上）。此外，当你使用远程攻击时也会触发这个效果。]], "tformat")
 t("Singularity Arrow", "奇点之矢", "talent name")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
@@ -21915,11 +21914,11 @@ t("Foresight", "深谋远虑", "talent name")
 t([[Gain %d defense and %d%% chance to shrug off critical hits.
 		If you have Precognition or See the Threads active these bonuses will be added to those effects, granting additional defense and chance to shrug off critical hits.
 		These bonuses scale with your Magic stat.]], [[获得 %d 闪避  和 %d%% 暴击减免。
-		如果你激活了预知未来或者命运螺旋，那么这些技能也会拥有同样的加成，使你获得额外的闪避和暴击减免。		
+		如果你激活了预知未来或者命运螺旋，那么这些技能也会拥有同样的加成，使你获得额外的闪避和暴击减免。
 		增益效果受魔力值加成。]], "tformat")
 t("Contingency", "意外术", "talent name")
-t("#LIGHT_RED#Your Contingency has failed to cast %s!", "#LIGHT_RED#你的意外术没能触发%s!", "logPlayer")
-t("#STEEL_BLUE#Your Contingency triggered %s!", "#STEEL_BLUE#你的意外术触发了%s!", "logPlayer")
+t("#LIGHT_RED#Your Contingency has failed to cast %s!", "#LIGHT_RED#你的意外术没能触发%s！", "logPlayer")
+t("#STEEL_BLUE#Your Contingency triggered %s!", "#STEEL_BLUE#你的意外术触发了%s！", "logPlayer")
 t("None", "无", "_t")
 t([[Choose an activatable spell that affects only you, does not require a target, and does not have a fixed cooldown.  When you take damage that reduces your life below %d%% the spell will automatically cast.
 		This spell will cast even if it is currently on cooldown, will not consume a turn or resources, and uses the talent level of Contingency or its own, whichever is lower.
@@ -21928,7 +21927,7 @@ t([[Choose an activatable spell that affects only you, does not require a target
 		Current Contingency Spell: %s]], [[选择一个只会影响你并且不需要选中目标的非固定冷却时间主动法术。当你受到伤害并使生命值降低到 %d%% 以下时，自动释放这个技能。
 		即使选择的技能处于冷却状态也可以释放  ，并且不消耗回合或资源，技能等级为该技能和指定技能当中较低的一方。		这个效果每 %d 回合只能触发一次，并且在伤害结算之后生效。
 
-		当前选择技能： %s ]], "tformat")
+		当前选择技能： %s]], "tformat")
 t("See the Threads", "命运螺旋", "talent name")
 t("The timeline is too fractured to do this now.", "目前的时间线过于破碎，你现在无法这么做。", "logPlayer")
 t("You've seen as much as you can here.", "你在这里已经看完了能看到的一切。", "logPlayer")
@@ -21994,7 +21993,7 @@ t([[Create an anomaly, reducing your Paradox by %d.  This spell will never produ
 		然而，当学会扭曲命运后，你可以选中引导异常作为目标。
 		紊乱值减少效果受法术强度加成。]], "tformat")
 t("Reality Smearing", "弥散现实", "talent name")
-t("#LIGHT_BLUE##Source# converts damage to paradox!", "#LIGHT_BLUE##Source#将伤害转化为紊乱值!", "delayedLogMessage")
+t("#LIGHT_BLUE##Source# converts damage to paradox!", "#LIGHT_BLUE##Source#将伤害转化为紊乱值！", "delayedLogMessage")
 t("#LIGHT_BLUE#(%d converted)#LAST#", "#LIGHT_BLUE#(%d 转化)#LAST#", "tformat")
 t([[While active 30%% of all damage you take is converted into %0.2f Paradox per point.
 		The Paradox is gained over three turns.]], [[当激活这个技能时，你受到伤害的 30%% 被转化为 %0.2f 的紊乱值。
@@ -22020,9 +22019,9 @@ t([[If Twist Fate is not on cooldown minor anomalies will be held for %d turns, 
 		%s]], [[若扭曲命运不在冷却中，微小异变会被延后 %d 回合，使你的法术得以正常施放。异变被延后期间，你可以施放扭曲命运来触发该异变，并选择其目标区域。
 		如果已有一个异变被延后时又发生第二个异变，或延后效果到期，第一个异变会立即触发，并打断你当前的回合或行动。
 		被延后异变带来的紊乱值降低会在其触发时结算。
-				
+
 		当前异变：%s
-		
+
 		%s]], "tformat")
 
 ------------------------------------------------
@@ -22030,7 +22029,7 @@ section "mod-tome/data/talents/chronomancy/gravity.lua"
 
 t("Repulsion Blast", "排斥冲击", "talent name")
 t("%s slams into something solid!", "%s撞到了某个坚实的物体！", "logSeen")
-t("%s is knocked back!", "%s 被击退。", "logSeen")
+t("%s is knocked back!", "%s 被击退！", "logSeen")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t([[Sends out a blast wave of gravity in a radius %d cone, dealing %0.2f base physical (gravity) damage and knocking back targets caught in the area.
 		Targets knocked into walls or other targets take 25%% additional damage and deal 25%% damage to targets they're knocked into.
@@ -22067,7 +22066,7 @@ t([[Increases weapon damage by %d%% and physical power by 30 when using swords, 
 t("Guardian Unity", "守卫联合", "talent name")
 t("#STEEL_BLUE#(%d shared)#LAST#", "#STEEL_BLUE#(%d 伤害共享)#LAST#", "tformat")
 t("Guardian", "守卫", "_t")
-t("#STEEL_BLUE##Source# shares damage with %s guardian!", "#STEEL_BLUE##Source#和%s的守卫共享伤害!", "delayedLogMessage")
+t("#STEEL_BLUE##Source# shares damage with %s guardian!", "#STEEL_BLUE##Source#和%s的守卫共享伤害！", "delayedLogMessage")
 t("Not enough space to summon warden!", "没有足够的空间召唤守卫！", "logPlayer")
 t([[When a single hit deals more than %d%% of your maximum life another you appears and takes %d%% of the damage as well as %d%% of all damage you take for the next %d turns.
 		The clone is out of phase with this reality and deals 50%% less damage but its arrows will pass through friendly targets.
@@ -22084,7 +22083,7 @@ t("You require a weapon to use this talent.", "你需要武器来施展这个技
 t("You must pick a focus target.", "你必须选择一个集中目标", "logPlayer")
 t([[Attack the target with either your ranged or melee weapons for %d%% weapon damage.  For the next %d turns random targeting, such as from Blink Blade and Warden's Call, will focus on this target.
 		Attacks against this target gain %d%% critical chance and critical strike power while you take %d%% less damage from all enemies whose rank is lower then that of your focus target.]], [[使用你的远程或者近战武器对目标造成 %d%% 武器伤害。  在接下来的 %d 回合中，你的随机目标技能，比如闪烁灵刃和守卫召唤将会集中命中目标。
-		对这个目标的攻击获得 %d%% 额外的暴击几率和暴击加成，同时其他分级低于目标的单位对你造成的伤害减少 %d%% ]], "tformat")
+		对这个目标的攻击获得 %d%% 额外的暴击几率和暴击加成，同时其他分级低于目标的单位对你造成的伤害减少 %d%%]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/chronomancy/induced-phenomena.lua"
@@ -22211,7 +22210,7 @@ t([[You partially remove yourself from the timeline for 10 turns.
 		抵抗加成、状态减少值和伤害惩罚会随法术持续时间的增加而逐渐减少。
 		效果受法术强度加成。]], "tformat")
 t("Paradox Clone", "悖论分身", "talent name")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("%s's Paradox Clone", "%s的悖论分身", "tformat")
 t("The real %s... or so %s says.", "真正的%s... 或者%s这样说。", "tformat")
 t("Paradox Clone", "悖论分身", "_t")
@@ -22219,7 +22218,7 @@ t([[You summon your future self to fight alongside you for %d turns.  At some po
 		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.]], [[你召唤未来的自己和你一起战斗，持续 %d 回合。当技能结束后，在未来的某个时间点，你会被拉回到过去，协助你自己战斗。
 		这个法术会使时间线分裂，所以其他同样能使时间线分裂的技能在此期间不能成功释放。]], "tformat")
 t("Displace Damage", "伤害转移", "talent name")
-t("#PINK##Source# displaces some damage onto #Target#!", "#PINK##Source#将部分伤害转移至#Target#!", "delayedLogMessage")
+t("#PINK##Source# displaces some damage onto #Target#!", "#PINK##Source#将部分伤害转移至#Target#！", "delayedLogMessage")
 t([[You bend space around you, displacing %d%% of any damage you receive onto a random enemy within range.
 		]], [[空间在你身边折叠，转移 %d%% 伤害到范围内随机 1 个敌人身上。
 		]], "tformat")
@@ -22244,7 +22243,7 @@ t([[You convert %d%% of all non-temporal damage you receive into temporal damage
 t("Phase Shift", "相位切换", "talent name")
 t("Phase shift yourself for %d turns; any damage greater than 10%% of your maximum life will teleport you to an adjacent tile and be reduced by 50%% (can only happen once per turn).", "切换你的相位 %d 回合；任何将会对你造成超过你最大生命值 10%% 伤害的攻击会把你传送到一个相邻的格子里，并且这次伤害减少50%%（每回合只能发生一次）。", "tformat")
 t("Swap", "时空交换", "talent name")
-t("The spell fizzles!", "法术失败了!", "logSeen")
+t("The spell fizzles!", "法术失败了！", "logSeen")
 t("%s resists the swap!", "%s抵抗了时空交换！", "logSeen")
 t([[You manipulate the spacetime continuum in such a way that you switch places with another creature with in a range of %d.  The targeted creature will be confused (power %d%%) for %d turns.
 		The spell's hit chance will increase with your Spellpower.]], [[你控制时间的流动来使你和 %d 码范围内的某个怪物交换位置。目标会混乱（ %d%% 强度） %d 回合。
@@ -22286,7 +22285,7 @@ t("toward", "接近", "_t")
 t("away", "远离", "_t")
 t("trap", "陷阱", "_t")
 t("The teleport fizzles!", "传送失败了！", "logSeen")
-t("%s resists the teleport!", "%s抵抗了传送!", "logSeen")
+t("%s resists the teleport!", "%s抵抗了传送！", "logSeen")
 t("Warp Mine Toward", "时空地雷：接近", "talent name")
 t([[Lay Warp Mines in a radius of 1 that teleport enemies to you and inflict %0.2f physical and %0.2f temporal (warp) damage.
 		The mines are hidden traps (%d detection and %d disarm power based on your Magic) and last for %d turns.
@@ -22321,8 +22320,8 @@ t([[Tether the target to the location for %d turns.
 		每回合，目标每远离系绳 1 格，就有 %d%% 几率被传送回去，并对所有敌人造成 %0.2f 物理伤害和 %0.2f 时空（扭曲）伤害；传送入口和出口处半径 %d 内均会受到伤害。
 		伤害随法术强度提高。]], "tformat")
 t("Banish", "放逐", "talent name")
-t("The spell fizzles on %s!", "法术在 %s 上失败了!", "logSeen")
-t("#CRIMSON#%s has been banished!", "#CRIMSON#%s 被放逐了!", "logSeen")
+t("The spell fizzles on %s!", "法术在 %s 上失败了！", "logSeen")
+t("#CRIMSON#%s has been banished!", "#CRIMSON#%s 被放逐了！", "logSeen")
 t("%s resists the banishment!", "%s抵抗了放逐！", "logSeen")
 t([[Randomly teleports all enemies within a radius of three.  Enemies will be teleported between %d and %d tiles from you and may be stunned, blinded, confused, or pinned for %d turns.
 		The chance of teleportion will scale with your Spellpower.]], [[将半径 3 以内的敌人随机传送。
@@ -22340,9 +22339,9 @@ section "mod-tome/data/talents/chronomancy/spacetime-weaving.lua"
 
 t("Dimensional Step", "空间跳跃", "talent name")
 t("You do not have line of sight.", "你没有视线", "logPlayer")
-t("#Source# folds space with with #target#!", "#Source#折叠了与#target#之间的空间!", "logCombat")
+t("#Source# folds space with with #target#!", "#Source#折叠了与#target#之间的空间！", "logCombat")
 t("#Source#'s space-time folding with #target# fizzles!", "#Source#和#target#的时空折叠失败了！", "logCombat")
-t("#Source# resists #target#'s space-time folding!", "#Source#抵抗了#target#的时空折叠!", "logCombat")
+t("#Source# resists #target#'s space-time folding!", "#Source#抵抗了#target#的时空折叠！", "logCombat")
 t("%s's space-time folding fizzles!", "%s的时空折叠失败了！", "logSeen")
 t("%s emerges from a space-time rift!", "%s从时空裂隙中出现！", "logSeen")
 t([[Teleports you to up to %d tiles away, to a targeted location in line of sight.
@@ -22362,7 +22361,7 @@ t("Reality asserts itself and forces the wormhole shut.", "现实世界进行自
 t("%s folds the space between two points.", "%s折叠了两点之间的空间。", "logSeen")
 t([[You fold the space between yourself and a second point within a range of %d, creating a pair of wormholes.  Any creature stepping on either wormhole will be teleported near the other (radius %d accuracy).  
 		The wormholes will last %d turns and must be placed at least two tiles apart.
-		The chance of teleporting enemies will scale with your Spellpower.]], [[你创造一对虫洞，使你所在之处和 %d 码范围内一点的空间重叠。  任何踏入虫洞的生物会被传送至另一个虫洞附近 (精度半径 %d )。  
+		The chance of teleporting enemies will scale with your Spellpower.]], [[你创造一对虫洞，使你所在之处和 %d 码范围内一点的空间重叠。  任何踏入虫洞的生物会被传送至另一个虫洞附近 (精度半径 %d )。
 		虫洞持续 %d 回合并且至少相距两码。
 		传送敌人的几率受法术强度加成。]], "tformat")
 t("Phase Pulse", "相位脉冲", "talent name")
@@ -22394,8 +22393,8 @@ t([[Empowers the selected chronomancy spell, increasing spellpower when casting 
 		Each spell can only be spellbound in one way at a time.
 		
 		Current Empowered Spell: %s]], [[强化指定的时空系法术，施放指定技能时法术强度增加 %d%%。
-		每个技能只能附加一种时空增效系效果。		
-		当前强化法术： %s ]], "tformat")
+		每个技能只能附加一种时空增效系效果。
+		当前强化法术： %s]], "tformat")
 t("Extension", "法术延展", "talent name")
 t([[Extends the duration of the selected chronomancy spell by %d%%.
 		Each spell can only be spellbound in one way at a time.
@@ -22409,7 +22408,7 @@ t([[Reduces the cooldown of the selected chronomancy spell by %d%%.
 		Each spell can only be spellbound in one way at a time.
 		
 		Current Matrix Spell: %s]], [[强化指定的时空系法术，减少指定法术的冷却时间 %d%%。
-		每个技能只能附加一种时空增效系效果。	
+		每个技能只能附加一种时空增效系效果。
 		当前强化法术： %s]], "tformat")
 t("Quicken", "迅捷施法", "talent name")
 t([[Reduces the casting speed of the selected chronomancy spell by %d%%.
@@ -22417,8 +22416,8 @@ t([[Reduces the casting speed of the selected chronomancy spell by %d%%.
 		
 		Current Quickened Spell: %s]], [[强化指定的时空系法术，减少施放指定法术需要的时间 %d%%。
 		每个技能只能附加一种时空增效系效果。
-		
-		当前强化法术： %s ]], "tformat")
+
+		当前强化法术： %s]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/chronomancy/stasis.lua"
@@ -22530,7 +22529,7 @@ t([[Upon activation summon a Temporal Hound.  Every %d turns another hound will 
 t("Command Hounds: Blink", "闪烁命令", "talent name")
 t("Temporal Hounds must be sustained to cast this spell.", "必须开启时空猎犬来使用该技能。", "logPlayer")
 t("You do not have line of sight.", "你没有视线", "logPlayer")
-t("The spell fizzles!", "法术失败了!", "logSeen")
+t("The spell fizzles!", "法术失败了！", "logSeen")
 t([[Command your Temporal Hounds to teleport to the targeted location.  If you target an enemy your hounds will set that enemy as their target.
 		When you learn this talent, your hounds gain %d defense and %d%% resist all after any teleport.
 		At talent level five, if you're not at your maximum number of hounds when you cast this spell a new one will be summoned.
@@ -22560,7 +22559,7 @@ section "mod-tome/data/talents/chronomancy/threaded-combat.lua"
 
 t("Thread Walk", "空间行走", "talent name")
 t("You require a weapon to use this talent.", "你需要武器来施展这个技能。", "logPlayer")
-t("The spell fizzles!", "法术失败了!", "logSeen")
+t("The spell fizzles!", "法术失败了！", "logSeen")
 t("range %d", "范围 %d", "logPlayer")
 t("You cannot use Thread Walk without an appropriate weapon!", "你需要装备合适的武器来使用该技能", "logPlayer")
 t([[Attack with your bow or dual-weapons for %d%% damage.  If you shoot an arrow you'll teleport near the target location.  If you use your dual-weapons you'll teleport up to your bow's range away.
@@ -22603,7 +22602,7 @@ t("Temporal Fugue", "时间复制", "talent name")
 t("%s's Fugue Clone", "%s 的时间复制体", "tformat")
 t("The real %s... or so %s says.", "真正的%s... 或者%s这样说。", "tformat")
 t("Fugue Clone", "时间复制", "_t")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t([[For the next %d turns two alternate versions of you enter your timeline.  While the effect is active all damage done by you or your copies is reduced by two thirds and all damage received is split between the three of you.
 		Temporal Fugue does not normally cooldown while active.  You may take direct control of your clones, give them orders, and set their talent usage.
 		Damage you deal to Fugue Clones or that they deal to you or each other is reduced to zero.]], [[接下来 %d 回合， 2 个你的镜像进入你的时间线。
@@ -22639,7 +22638,7 @@ t([[Pull a bolt of temporal energy back through time.  The bolt will home in on 
 		能量箭每移动一格，伤害提高 5%%；伤害受法术强度加成。
 		技能等级达到 5 时，每次缩短 2 回合。]], "tformat")
 t("Time Skip", "时间跳跃", "talent name")
-t("%s is immune!", "%s 免疫了!", "logSeen")
+t("%s is immune!", "%s 免疫了！", "logSeen")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
 t("Something has prevented the timetravel.", "某物阻止了时空旅行", "logPlayer")
 t("temporal instability", "时间不稳定性", "_t")
@@ -22727,7 +22726,7 @@ section "mod-tome/data/talents/corruptions/bone.lua"
 
 t("Bone Spear", "白骨之矛", "talent name")
 t([[Conjures up a spear of bones, doing %0.2f physical damage to all targets in a line.  Each target takes an additional %d%% damage for each magical debuff they are afflicted with up to a max of %d%% (%d).
-		The damage will increase with your Spellpower.]], [[ 释放一根骨矛，对一条线上的目标造成 %0.2f 物理伤害。这些目标每具有一个魔法负面效果，就额外受到 %d%% 的伤害，最多达到 %d%%（ %d ）。
+		The damage will increase with your Spellpower.]], [[释放一根骨矛，对一条线上的目标造成 %0.2f 物理伤害。这些目标每具有一个魔法负面效果，就额外受到 %d%% 的伤害，最多达到 %d%%（ %d ）。
 		伤害受法术强度加成。]], "tformat")
 t("Bone Grab", "白骨之握", "talent name")
 t("%s resists the pin!", "%s抵抗了定身！", "logSeen")
@@ -22756,31 +22755,31 @@ section "mod-tome/data/talents/corruptions/corruptions.lua"
 
 t("corruption", "堕落", "talent category")
 t("sanguisuge", "水蛭", "talent type")
-t("Manipulate life force to feed your own dark powers.", " 操纵生命之力来提高你自身的黑暗力量。", "_t")
+t("Manipulate life force to feed your own dark powers.", "操纵生命之力来提高你自身的黑暗力量。", "_t")
 t("torment", "折磨", "talent type")
-t("All the tools to torment your foes.", " 用尽一切办法折磨你的敌人。", "_t")
+t("All the tools to torment your foes.", "用尽一切办法折磨你的敌人。", "_t")
 t("vim", "活力", "talent type")
 t("Touch the very essence of your victims.", "触及受害者的生命本质。", "_t")
 t("bone", "骨", "talent type")
-t("Harness the power of bones.", " 控制白骨的力量。", "_t")
+t("Harness the power of bones.", "控制白骨的力量。", "_t")
 t("hexes", "邪术", "talent type")
-t("Hex your foes, hindering and crippling them.", " 控制你的目标，阻碍并削弱他们的力量。", "_t")
+t("Hex your foes, hindering and crippling them.", "控制你的目标，阻碍并削弱他们的力量。", "_t")
 t("curses", "诅咒", "talent type")
-t("Curse your foes, hindering and crippling them.", " 诅咒你的目标，阻碍并削弱他们的力量。", "_t")
+t("Curse your foes, hindering and crippling them.", "诅咒你的目标，阻碍并削弱他们的力量。", "_t")
 t("vile life", "邪恶生命", "talent type")
 t("Manipulate life for your vile needs.", "为了你的邪恶目的而操纵生命。", "_t")
 t("plague", "瘟疫", "talent type")
-t("Spread diseases to your foes.", " 在你的目标中传播疾病。", "_t")
+t("Spread diseases to your foes.", "在你的目标中传播疾病。", "_t")
 t("scourge", "鞭笞", "talent type")
-t("Bring pain and destruction to the world.", " 给这个世界带来痛苦和毁灭。", "_t")
+t("Bring pain and destruction to the world.", "给这个世界带来痛苦和毁灭。", "_t")
 t("reaving combat", "掠夺格斗", "talent type")
-t("Enhanced melee combat through the dark arts.", " 利用黑暗力量来增强你的近战格斗。", "_t")
+t("Enhanced melee combat through the dark arts.", "利用黑暗力量来增强你的近战格斗。", "_t")
 t("blood", "血", "talent type")
-t("Harness the power of blood, both your own and your foes'.", " 操纵你和你目标鲜血的力量。", "_t")
+t("Harness the power of blood, both your own and your foes'.", "操纵你和你目标鲜血的力量。", "_t")
 t("blight", "枯萎", "talent type")
-t("Bring corruption and decay to all who oppose you.", " 使任何敌对你的目标腐败和衰弱。", "_t")
+t("Bring corruption and decay to all who oppose you.", "使任何敌对你的目标腐败和衰弱。", "_t")
 t("Shadowflame", "暗影烈焰", "talent type")
-t("Harness the power of the demonic shadowflame.", " 学习驾驭恶魔暗影之火的力量。", "_t")
+t("Harness the power of the demonic shadowflame.", "学习驾驭恶魔暗影之火的力量。", "_t")
 t("rot", "腐烂", "talent type")
 t("Become one with rot and decay.", "与腐烂和衰败融为一体。", "_t")
 
@@ -22845,7 +22844,7 @@ t([[Make your target's diseases burst, doing %0.2f blight damage for each diseas
 		同时会向 %d 码半径范围内任意敌人散播衰老、虚弱、腐烂或传染性疾病，疾病的持续时间最少为6回合。
 		伤害受法术强度加成。]], "tformat")
 t("Catalepsy", "僵硬瘟疫", "talent name")
-t("Diseases #DARK_GREEN#BURN THROUGH#LAST# %s!", "疾病在 %s 身上 #DARK_GREEN#燃烧#LAST# !", "logSeen")
+t("Diseases #DARK_GREEN#BURN THROUGH#LAST# %s!", "疾病在 %s 身上 #DARK_GREEN#燃烧#LAST# ！", "logSeen")
 t("%s resists the stun!", "%s抵抗了震慑！", "logSeen")
 t("All your foes within a radius %d ball infected with a disease enter a cataleptic state, stunning them for %d turns and dealing %d%% of all remaining disease damage instantly.", "所有 %d 码球形范围内感染疾病的目标进入僵硬状态，震慑它们 %d 回合并立即爆发 %d%% 剩余所有疾病伤害。", "tformat")
 t("Epidemic", "传染病", "talent name")
@@ -22907,12 +22906,12 @@ t([[Your body has become a mass of living corruption, increasing your blight and
 On taking damage greater than 15%% of your maximum health, the damage will be reduced by %d%% and a carrion worm mass will burst forth onto a nearby tile, attacking your foes for 5 turns.
 You can never have more than 5 worms active from any source at a time.
 When a carrion worm dies it will explode into a radius 2 pool of blight for 5 turns, dealing %0.2f blight damage each turn and healing you for 33%% of that amount.]], [[你的身体已经腐败 ,增加 %d%% 枯萎和酸性抗性 , %d%% 枯萎伤害吸收。
-		每次生命值损失大于 15%% 时,伤害将减少 %d%%，同时在相邻的格子生成蠕虫, 攻击你的敌人 5 回合。
+		每次生命值损失大于 15%% 时，伤害将减少 %d%%，同时在相邻的格子生成蠕虫, 攻击你的敌人 5 回合。
 		你同时只能拥有 5 只蠕虫。
 		蠕虫死亡时将爆炸，产生半径 2 的枯萎毒池，持续 5 回合，造成 %0.2f 枯萎伤害并治疗你 33%% 伤害量。]], "tformat")
 t("Worm Walk", "蠕虫行走", "talent name")
 t("You do not have line of sight to this location.", "你没有这个位置的视野。", "logPlayer")
-t("The worm walk fizzles!", "蠕虫行走失败了!", "logSeen")
+t("The worm walk fizzles!", "蠕虫行走失败了！", "logSeen")
 t([[You disperse into a mass of carrion worms, reforming near the target location (%d teleport accuracy).
 If used on a worm mass, you merge with it, moving to it's location, healing you for %d, restoring %d vim, and destroying the mass.]], [[你分散成一群腐肉虫，并在目标位置附近重组（传送精确度 %d）。
 若对腐肉虫群使用，你会与其融合，移动到其位置，恢复 %d 点生命值和 %d 点活力，并摧毁该虫群。]], "tformat")
@@ -23076,7 +23075,7 @@ t([[You manipulate the vim of enemies in radius %d to temporarily invert all hea
 		在 5 回合内，他们受到的一切治疗将会被转化为相当于治疗量 %d%% 的枯萎伤害。
 		效果受法术强度加成。]], "tformat")
 t("Vile Transplant", "邪恶移植", "talent name")
-t("#CRIMSON##Source# transfers an effect (%s) to #Target#!", "#CRIMSON##Source#将一项效果(%s)转移至#Target#!", "tformat")
+t("#CRIMSON##Source# transfers an effect (%s) to #Target#!", "#CRIMSON##Source#将一项效果(%s)转移至#Target#！", "tformat")
 t([[You transfer up to %d physical or magical detrimental effects currently affecting you to a nearby creature at a cost of %d vim per effect.
 		Specific effect immunities will not prevent the transfer.
 		The chance to transfer each effect increases with your Spellpower.]], [[你将至多 %d 个物理与魔法负面状态转移给附近的一个生物，每转移一个状态消耗 %d 活力值。
@@ -23116,7 +23115,7 @@ t([[Your Soothing Darkness talent effect now grants 25%% all damage resistance o
 		此外，当你的生命值降低到 50%% 以下时，你在 %d 回合内免疫负面状态，并获得 %d 闪避和 %d 法术强度，持续 %d 回合。]], "tformat")
 t("Shadow Grasp", "影之抓握", "talent name")
 t("%s resists the silence!", "%s抵抗了沉默！", "logSeen")
-t("%s resists the disarm!", "%s抵抗了缴械!", "logSeen")
+t("%s resists the disarm!", "%s抵抗了缴械！", "logSeen")
 t([[You reach out with the shadows silencing and disarming your target for %d turns.
 		The shadows will deal %d darkness damage to the target and pull it to you.
 		The chance to apply debuffs improves with your Accuracy and the damage with your Spellpower.]], [[你向目标伸出影之抓握，将其缴械并沉默 %d 回合。
@@ -23200,7 +23199,7 @@ Mastering a new tool places it (and its special effects, as appropriate) on cool
 效果取决于技能等级。
 强化工具将使其进入冷却。]], "tformat")
 t("Hidden Blades", "隐匿刀锋", "talent name")
-t("#Source# strikes #target# with hidden blades!", "#Source#使用隐藏的刀片击中了#target#!", "logCombat")
+t("#Source# strikes #target# with hidden blades!", "#Source#使用隐藏的刀片击中了#target#！", "logCombat")
 t("Melee criticals trigger an extra unarmed attack, inflicting %d%% damage. 4 turn cooldown.", "近战暴击触发额外 %d%% 伤害徒手攻击， 4 回合冷却。", "tformat")
 t("not prepared", "没有准备", "_t")
 t([[You conceal spring loaded blades within your equipment. On scoring a critical strike, you follow up with your blades for %d%% damage (as an unarmed attack).
@@ -23210,7 +23209,7 @@ This talent has a cooldown.
 #YELLOW#已装填：%s#LAST#]], "tformat")
 t("Assassinate", "暗杀", "talent name")
 t("You must have Hidden Blades prepared to use this talent.", "你必须准备好隐藏刀片来使用该技能。", "logPlayer")
-t("#Source# strikes at a vital spot on #target#!", "#Source#攻向#target#的要害!", "logCombat")
+t("#Source# strikes at a vital spot on #target#!", "#Source#攻向#target#的要害！", "logCombat")
 t("You prime your Hidden Blades to cause bleeding and facilitate the Assassinate ability, which allows you to strike twice for %d%% unarmed damage, hitting automatically while ignoring armor and resistance.", "你的隐匿刀锋会触发流血效果，并启用暗杀技能；暗杀会以 %d%% 徒手伤害攻击两次，必定命中且无视护甲和抗性。", "tformat")
 t([[You strike your target with your Hidden Blades twice in a vital spot for %d%% unarmed (physical) damage.  You must be able to see your target to use this attack, but it always hits and ignores all armor and physical resistance.
 In addition, your hidden blades now inflict a further %d%% of all damage dealt as bleeding over 5 turns.]], [[你用隐匿刀锋攻击目标要害两次，每次造成 %d%% 徒手物理伤害。你必须能看见目标才能使用该攻击；攻击必定命中，并无视所有护甲和物理抗性。
@@ -23235,7 +23234,7 @@ t("Smokescreen Mastery", "强化烟雾弹", "talent name")
 t("Your Smokescreen is infused with chokedust. Enemies in the smoke take %0.2f nature damage and may be silenced.", "你的烟雾弹中加入了窒息粉尘。每回合烟雾中的敌人将受到 %0.2f 自然伤害并有几率被沉默。", "tformat")
 t("You infuse your smoke bomb with chokedust. Each turn, enemies in the smoke take %0.2f nature damage and are 50%% likely to be silenced.", "你的烟雾弹中加入了窒息粉尘。每回合烟雾中的敌人将受到 %0.2f 自然伤害并有 50%% 几率被沉默。", "tformat")
 t("Dart Launcher", "飞镖发射器", "talent name")
-t("%s resists the sedation!", "%s抵抗了睡眠!", "logSeen")
+t("%s resists the sedation!", "%s抵抗了睡眠！", "logSeen")
 t("Fire a poisoned dart dealing %0.2f physical damage that puts the target to sleep for 4 turns. 10 turn cooldown.", "发射毒镖，造成 %0.2f 物理伤害，沉睡 4 回合。10 回合冷却时间。", "tformat")
 t([[Fire a poisoned dart from a silent, concealed launcher on your person that deals %0.2f physical damage and puts the target (living only) to sleep for 4 turns, rendering them unable to act. Every %d points of damage the target takes brings it closer to waking by 1 turn.
 This can be used without breaking stealth.
@@ -23247,14 +23246,14 @@ t("Your darts ignore poison and sleep immunity and waking targets are slowed by 
 t("The sleeping poison of your Dart Launcher becomes potent enough to ignore immunity, and upon waking the target is slowed by %d%% for 4 turns.", "睡眠毒素无视免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
 t("Grappling Hook", "钩爪", "talent name")
 t("You are too close to your target to swing your hook effectively!", "你距离目标太近了，不方便使用钩爪！", "logPlayer")
-t("You cannot move!", "你无法移动!", "logPlayer")
-t("#Source# throws a grappling hook at #target#!", "#Source#朝#target#扔出钩爪!", "logCombat")
-t("#Source#'s grappling hook latches onto #target#!", "#Source#的钩爪命中了#target#!", "logCombat")
-t("#Source# is dragged towards #target#!", "#Source#被拉向#target#!", "logCombat")
-t("#Target# is dragged towards #source#!", "#Target#被拉向#source#!", "logCombat")
+t("You cannot move!", "你无法移动！", "logPlayer")
+t("#Source# throws a grappling hook at #target#!", "#Source#朝#target#扔出钩爪！", "logCombat")
+t("#Source#'s grappling hook latches onto #target#!", "#Source#的钩爪命中了#target#！", "logCombat")
+t("#Source# is dragged towards #target#!", "#Source#被拉向#target#！", "logCombat")
+t("#Target# is dragged towards #source#!", "#Target#被拉向#source#！", "logCombat")
 t("%s resists the pin!", "%s抵抗了定身！", "logSeen")
 t("You need more room to swing your hook effectively.", "你需要更多空间来使用钩爪。", "logPlayer")
-t("%s uses a grappling hook to pull %s %s!", "%s使用钩爪来拉动%s向%s!", "logSeen")
+t("%s uses a grappling hook to pull %s %s!", "%s使用钩爪来拉动%s向%s！", "logSeen")
 t("You must anchor the hook to something solid.", "你需要将钩爪固定在某个坚固的物体上", "logPlayer")
 t("Throw a grappling hook up to range %d that drags you towards the target or the target towards you. 8 turn cooldown.", "向最远 %d 格处发射钩爪，将你拉向目标，或将目标拉向你。冷却 8 回合。", "tformat")
 t([[Toss out a grappling hook to a target within range %d.  If this strikes either a wall or a creature that is immovable or larger than you, you will pull yourself towards it, otherwise, you will drag the target towards you.  Creatures struck by the hook will be pinned for 2 turns.
@@ -23296,7 +23295,7 @@ t([[Employ a specialized sniping shot at a target.
 		在零距离，伤害加成（惩罚）为 %d%%，在最大射程（ %d 格），伤害加成为 %d%%。
 		这个射击将会穿过你和目标间的其他敌人。]], "tformat")
 t("Noggin Knocker", "爆头连射", "talent name")
-t("%s resists the stunning shot!", "%s抵抗了震慑。", "logSeen")
+t("%s resists the stunning shot!", "%s抵抗了震慑！", "logSeen")
 t([[Fire three shots in quick succession at a vulnerable point on the target (usually the head).
 		Each shot deals %d%% Ranged damage and will try to stun or increase the target's stun duration by 1.
 		These shots will bypass other enemies between you and your target.
@@ -23314,30 +23313,30 @@ section "mod-tome/data/talents/cunning/cunning.lua"
 
 t("cunning", "灵巧", "talent category")
 t("stealth", "潜行", "talent type")
-t("Allows the user to enter stealth.", " 使你的角色进入潜行。", "_t")
+t("Allows the user to enter stealth.", "使你的角色进入潜行。", "_t")
 t("trapping", "陷阱制作", "talent type")
-t("The knowledge of trap laying and assorted trickeries.", " 学习装配陷阱的技术。", "_t")
+t("The knowledge of trap laying and assorted trickeries.", "学习装配陷阱的技术。", "_t")
 t("traps", "陷阱", "talent type")
-t("Collection of known traps.", " 学会制造各种功能的陷阱。", "_t")
+t("Collection of known traps.", "学会制造各种功能的陷阱。", "_t")
 t("poisons", "毒素", "talent type")
-t("The knowledge of poisons and how to apply them to 'good' effects.", " 关于毒物的知识，并使毒素效果更有效。", "_t")
-t("Collection of known poisons.", " 制造各种不同毒素。", "_t")
+t("The knowledge of poisons and how to apply them to 'good' effects.", "关于毒物的知识，并使毒素效果更有效。", "_t")
+t("Collection of known poisons.", "制造各种不同毒素。", "_t")
 t("dirty fighting", "卑劣攻击", "talent type")
-t("Teaches various talents to cripple your foes.", " 使你学会令你目标致残的技能。", "_t")
+t("Teaches various talents to cripple your foes.", "使你学会令你目标致残的技能。", "_t")
 t("lethality", "致命攻击", "talent type")
-t("How to make your foes feel the pain.", " 让你的对手尝尝什么是真正的痛苦…… ", "_t")
+t("How to make your foes feel the pain.", "让你的对手尝尝什么是真正的痛苦……", "_t")
 t("shadow magic", "影之秘法", "talent type")
-t("Blending magic and shadows.", " 隐秘在阴影之中使用的秘密法术。", "_t")
+t("Blending magic and shadows.", "隐秘在阴影之中使用的秘密法术。", "_t")
 t("ambush", "伏击", "talent type")
 t("Using darkness and a bit of magic, you manipulate the shadows.", "使用黑暗和魔法，操控阴影的力量。", "_t")
 t("survival", "生存", "talent type")
-t("The knowledge of the dangers of the world, and how to best avoid them.", " 让你认识到世界中的各种危险，并学会如何有效避免它们。", "_t")
+t("The knowledge of the dangers of the world, and how to best avoid them.", "让你认识到世界中的各种危险，并学会如何有效避免它们。", "_t")
 t("tactical", "战术", "talent type")
-t("Tactical combat abilities.", " 战斗中使用的策略技巧。", "_t")
+t("Tactical combat abilities.", "战斗中使用的策略技巧。", "_t")
 t("scoundrel", "街头格斗", "talent type")
-t("The use of ungentlemanly techniques.", " 街头格斗中使用的卑劣技巧。", "_t")
+t("The use of ungentlemanly techniques.", "街头格斗中使用的卑劣技巧。", "_t")
 t("artifice", "诡计", "talent type")
-t("Create and use cunning tools.", " 制造并使用工具。", "_t")
+t("Create and use cunning tools.", "制造并使用工具。", "_t")
 t("tools", "工具", "talent type")
 t("Artificer's tools.", "诡计大师的工具。", "_t")
 t("Called Shots", "精准射击", "_t")
@@ -23395,7 +23394,7 @@ t("Your quick wits allow you to reset the cooldown of up to %d of your combat ta
 section "mod-tome/data/talents/cunning/poisons.lua"
 
 t("Apply Poison", "涂毒", "talent name")
-t("%s resists the vile poison!", "%s抵抗了邪恶毒素!", "logSeen")
+t("%s resists the vile poison!", "%s抵抗了邪恶毒素！", "logSeen")
 t([[Learn how to coat your melee weapons, throwing knives, sling and bow ammo with poison, giving your attacks a %d%% chance to poison the target for %d nature damage per turn for %d turns. Every application of the poison stacks, up to a maximum of %d nature damage per turn.
 		The damage scales with your Cunning.]], [[学会如何在近战武器、飞刀、弹药上涂毒，命中后有 %d%% 几率使目标中毒，每回合受到 %d 自然伤害，持续 %d 回合。毒素效果可以叠加至 %d 伤害每回合。
 		伤害受灵巧加成。]], "tformat")
@@ -23440,7 +23439,7 @@ t([[You strike your target with your melee or ranged weapon, doing %d%% weapon d
 		%s
 		Learning this talent in addition to the Throwing Knives talent allows you to learn the Venomous Throw talent, which can be used to throw poisoned daggers at your foes, but is put on cooldown when this talent is used.
 		]], [[使用近战或远程武器攻击目标，造成相当于 %d%% 武器伤害的自然伤害，并根据你当前激活的邪恶毒素附加额外效果：
-		
+
 		%s
 		同时学会本技能和飞刀投掷技能后，你可以学会剧毒飞刀技能，用淬毒匕首攻击敌人；使用本技能时，剧毒飞刀也会进入冷却。
 		]], "tformat")
@@ -23512,7 +23511,7 @@ t("Shadowstep", "暗影突袭", "talent name")
 t("You require to be able to move to use this talent.", "你无法移动，不能使用这一技能。", "logPlayer")
 t("You cannot do that currently.", "你现在不能使用该技能。", "logPlayer")
 t("You do not have line of sight.", "你没有视线", "logSeen")
-t("The spell fizzles!", "法术失败了!", "logSeen")
+t("The spell fizzles!", "法术失败了！", "logSeen")
 t("%s is not dazed!", "%s 未眩晕！", "logSeen")
 t([[Step through the shadows to your target, dazing it for %d turns and hitting it with all your weapons for %d%% darkness weapon damage.
 		Dazed targets are significantly impaired, but any damage will free them.
@@ -23674,7 +23673,7 @@ t([[This talent allows you to prepare up to %d different trap(s) of tier %d or l
 		大多数陷阱未触发时持续 %d 回合；到期时返还 80%% 的体力消耗。
 		解除陷阱或向世界各地的特殊导师学习，可以发现更多设计。]], "tformat")
 t("Lure", "诱饵", "talent name")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("lure", "诱饵", "_t")
 t("A noisy lure.", "一个吵闹的诱饵。", "_t")
 t([[Deploy a noisy lure that attracts all creatures within radius %d to it for %d turns.
@@ -23808,7 +23807,7 @@ t([[Lay a trap that releases a burst of antimagic energies (radius 2), draining 
 		The draining effect scales with your Willpower, and you must have 25 Willpower to prepare this trap.
 		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个陷阱，触发后释放半径 2 的反魔能量波，吸取至多 %d 法力 , %d 活力 , %d 正能量和 %d 负能量 , 并造成至多 %0.2f 奥术伤害（基于吸取能量），沉默 %d 回合，并解除至多 %d 项正面魔法状态或者维持技能。
 		吸取效果受意志加成，你需要 25 点意志来使用该技能。
-		该陷阱可以被设置为直接激活，也可以被诱饵激活。 %s ]], "tformat")
+		该陷阱可以被设置为直接激活，也可以被诱饵激活。 %s]], "tformat")
 t("Explosion Trap", "爆炸陷阱", "talent name")
 t("You have learned how to create Explosion traps!", "你学会了如何制作爆炸陷阱！", "_t")
 t("explosion trap", "爆炸陷阱", "_t")
@@ -23820,8 +23819,8 @@ t("Catapult Trap", "弹射陷阱", "talent name")
 t("You have learned how to create Catapult traps!", "你学会了如何制作弹射陷阱！", "_t")
 t("catapult trap", "弹射陷阱", "_t")
 t("Target knocked back up to %d grids%s and dazed.", "目标被击退最多 %d 格%s，并眩晕。", "tformat")
-t("%s knocks %s back!", "%s 将 %s 击退!", "logSeen")
-t("%s fails to knock %s back!", "%s 未能将 %s 击退!", "logSeen")
+t("%s knocks %s back!", "%s 将 %s 击退！", "logSeen")
+t("%s fails to knock %s back!", "%s 未能将 %s 击退！", "logSeen")
 t("#LIGHT_BLUE#Aim the catapult", "#LIGHT_BLUE#请瞄准弹射陷阱", "logPlayer")
 t("Target knocked back %d grids and dazed.", "目标被击退 %d 格并眩晕。", "tformat")
 t([[Deploy a hidden spring-loaded catapult that will trigger (by pressure) for any creature passing over it.  Victims will be knocked back towards a target location up to %d grids away and be dazed for 5 turns.
@@ -24040,27 +24039,27 @@ section "mod-tome/data/talents/cursed/cursed.lua"
 
 t("cursed", "诅咒", "talent category")
 t("slaughter", "杀戮", "talent type")
-t("Your weapon yearns for its next victim.", " 你的武器渴望着下一个牺牲者。", "_t")
+t("Your weapon yearns for its next victim.", "你的武器渴望着下一个牺牲者。", "_t")
 t("endless hunt", "无尽狩猎", "talent type")
-t("Each day, you lift your weary body and begin the unending hunt.", " 你不知疲倦无时无刻狩猎你的下一个目标。", "_t")
+t("Each day, you lift your weary body and begin the unending hunt.", "你不知疲倦无时无刻狩猎你的下一个目标。", "_t")
 t("strife", "冲突", "talent type")
-t("The battlefield is your home; death and confusion, your comfort.", " 战场就是你的最终归宿，死亡和混乱是你仅有的慰藉。", "_t")
+t("The battlefield is your home; death and confusion, your comfort.", "战场就是你的最终归宿，死亡和混乱是你仅有的慰藉。", "_t")
 t("gloom", "黑暗光环", "talent type")
-t("All those in your sight must share your despair.", " 强迫你视线内的生物替你分担你心中的绝望。", "_t")
+t("All those in your sight must share your despair.", "强迫你视线内的生物替你分担你心中的绝望。", "_t")
 t("rampage", "暴走", "talent type")
-t("Let loose the hate that has grown within.", " 释放你内心激增的愤怒。", "_t")
+t("Let loose the hate that has grown within.", "释放你内心激增的愤怒。", "_t")
 t("predator", "猎杀", "talent type")
-t("Track and kill your prey with single-minded focus.", " 你集中精神追猎并杀死你的猎物。", "_t")
+t("Track and kill your prey with single-minded focus.", "你集中精神追猎并杀死你的猎物。", "_t")
 t("dark sustenance", "黑暗生存", "talent type")
 t("The powers of your foes feed your dark will.", "敌人的力量使你的黑暗意志得到增强。", "_t")
 t("force of will", "意志之力", "talent type")
-t("Invoke the powerful force of your will.", " 呼唤你意志的力量。", "_t")
+t("Invoke the powerful force of your will.", "呼唤你意志的力量。", "_t")
 t("darkness", "暗影", "talent type")
-t("Harness the power of darkness to envelop your foes.", " 操纵黑暗之力包围你的敌人。", "_t")
+t("Harness the power of darkness to envelop your foes.", "操纵黑暗之力包围你的敌人。", "_t")
 t("shadows", "阴影", "talent type")
-t("Summon shadows from the darkness to aid you.", " 从黑暗中召唤阴影来协助你战斗。", "_t")
+t("Summon shadows from the darkness to aid you.", "从黑暗中召唤阴影来协助你战斗。", "_t")
 t("punishments", "惩罚", "talent type")
-t("Your hate becomes punishment in the minds of your foes.", " 你的仇恨转变为对你敌人的精神惩罚。", "_t")
+t("Your hate becomes punishment in the minds of your foes.", "你的仇恨转变为对你敌人的精神惩罚。", "_t")
 t("one with shadows", "同化阴影", "talent type")
 t("Harness your shadows to their full potential.", "最大程度利用你的阴影。", "_t")
 t("advanced shadowmancy", "阴影进阶", "talent type")
@@ -24137,7 +24136,7 @@ t("Dark Vision", "黑暗视觉", "talent name")
 t([[Your eyes penetrate the darkness to find anyone that may be hiding there. This allows you to see through creeping darkness out to a radius of %d. You can also find your way through the darkness with greater speed (+%d%% movement into creeping darkness).
 		You do +%d%% damage to anything that has entered your creeping dark.]], [[你的眼睛穿过黑暗并发现隐藏在黑暗里的敌人。
 		你的视线同样可以穿过黑暗之雾看到 %d 的半径范围。同时黑暗之雾极大的提高你的步伐。
-		（在黑暗之雾中增加你 +%d%% 移动速度） 
+		（在黑暗之雾中增加你 +%d%% 移动速度）
 		你对任何进入黑暗之雾的人造成 +%d%% 点伤害。]], "tformat")
 t("Dark Torrent", "黑暗迸发", "talent name")
 t([[Sends a torrent of searing darkness through your foes, doing %d darkness damage. There is a 25%% chance the rushing darkness will blind them for 3 turns and cause them to lose track of their target.
@@ -24172,7 +24171,7 @@ t("#F53CBE#%s's %s is disrupted!", "#F53CBE#%s的%s中断了！", "logSeen")
 t([[Harass your stalked victim with two quick attacks for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage each. Each attack that scores a hit disrupts one talent, rune or infusion for %d turns. Your opponent will be unnerved by the attacks, reducing the damage they deal by %d%% for %d turns.
 
 		This talent will also attack with your shield, if you have one equipped.]], [[用两次快速的攻击折磨你追踪的目标，每次攻击造成 %d%% （0仇恨）～ %d%% （100+仇恨）的伤害。并且每次攻击都将干扰目标某项技能、纹身或符文，持续 %d 回合。目标会因为你的攻击而气馁，它的伤害降低 %d%%，持续 %d 回合。
-		
+
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat")
 t("Beckon", "引诱思维", "talent name")
 t([[The connection between predator and prey allows you to speak to the mind of your target and beckon them closer. For %d turns, they will try to come to you, even pushing others aside to do so. They will move towards you instead of acting %d%% of the time, but can save verses Mindpower to slow the effect. If they take significant damage, the beckoning may be overcome altogether. The effect makes concentration difficult for your target, reducing Spellpower and Mindpower by %d until they reach you.
@@ -24205,7 +24204,7 @@ t([[Instill fear in your foes within %d radius of a target location dealing %0.2
 		]], [[将恐惧注入目标 %d 半径范围内的敌人中，造成 %0.2f 精神和 %0.2f 暗影伤害，并随机造成 4 种可能的恐惧效果之一，持续 %d 回合。
 		目标可以与你的精神强度对抗，以抵抗恐惧效果。
 		恐惧效果受精神强度加成。
-		
+
 		可能的恐惧效果如下所示：
 		#ORANGE#妄想症:#LAST# 目标有 %d%% 几率使用物理攻击附近的生物，不管它是敌对还是友方生物。如果击中了目标，目标也会感染妄想症。
 		#ORANGE#绝望:#LAST# 精神伤害抗性，精神豁免，护甲值和闪避各降低 %d。
@@ -24229,22 +24228,22 @@ section "mod-tome/data/talents/cursed/force-of-will.lua"
 
 t("Willful Strike", "偏执打击", "talent name")
 t("#Source# was blasted %d spaces into #Target#!", "#Source# 被推送%d格进入#Target#！", "logCombat")
-t("#Source# was blasted into #Target#!", "#Source#撞向#Target#!", "logCombat")
+t("#Source# was blasted into #Target#!", "#Source#撞向#Target#！", "logCombat")
 t("%s was smashed back %d spaces!", "%s被击退%d格！", "logSeen")
 t("%s was smashed!", "%s被粉碎！", "logSeen")
 t("%s was blasted back %d spaces!", "%s被击退%d格！", "logSeen")
 t([[Focusing your hate, you strike your foe with unseen force for %d damage and %d knockback.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
 		Damage increases with your Mindpower.]], [[专注你的仇恨，你用无形的力量打击敌人造成 %d 点伤害和 %d 码击退效果。
-		此外，你灌注力量的能力使你增加 %d%% 所有暴击伤害。（当前： %d%% ） 
+		此外，你灌注力量的能力使你增加 %d%% 所有暴击伤害。（当前： %d%% ）
 		伤害受精神强度加成。]], "tformat")
 t("Deflection", "念力折射", "talent name")
 t("Deflection (%d)", "念力折射 (%d)", "tformat")
-t("You have deflected %d incoming damage!", "你偏转了%d所受伤害。", "logPlayer")
+t("You have deflected %d incoming damage!", "你偏转了%d所受伤害！", "logPlayer")
 t([[Create a barrier that siphons hate from you at the rate of 0.2 a turn. The barrier will deflect 50%% of incoming damage with the force of your will, up to %d damage. The barrier charges at a rate of 1/%d of its maximum charge per turn.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
 		The maximum damage deflected increases with your Mindpower.]], [[用你的意志力折射 50%% 的伤害。你可以折射最多 %d 点伤害，护盾值每回合回复最大值的 1/%d。（技能激活时-0.2仇恨值回复）。
-		你灌注力量的能力使你增加 %d%% 所有暴击伤害。（当前： %d%% ） 
+		你灌注力量的能力使你增加 %d%% 所有暴击伤害。（当前： %d%% ）
 		最大伤害折射值受精神强度加成。]], "tformat")
 t("Blast", "怒火爆炸", "talent name")
 t([[You rage coalesces at a single point, and then explodes outward, blasting enemies within a radius of %d in all directions. The blast causes %d damage and %d knockback at the center, that decreases with distance. Anyone caught in the explosion will also be dazed for 3 turns.
@@ -24256,7 +24255,7 @@ t("Unseen Force", "无形之力", "talent name")
 t([[Your fury becomes an unseen force that randomly lashes out at foes around you. For %d turns you strike %d (%d%% chance for %d) nearby target(s) within range %d doing %d damage and %d knockback. The number of extra strikes increases at higher talent levels.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
 		Damage increases with your Mindpower.]], [[你的愤怒变成一股无形之力，猛烈鞭笞你附近的随机敌人。在 %d 回合内，你将攻击 %d （ %d%% 概率攻击 %d ）个半径 %d 以内的敌人，造成 %d 点伤害并击退 %d 码。额外攻击的数目随技能等级增长。
-		你灌注力量的能力使你增加 %d%% 所有暴击伤害。（当前： %d%% ） 
+		你灌注力量的能力使你增加 %d%% 所有暴击伤害。（当前： %d%% ）
 		伤害受精神强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -24284,7 +24283,7 @@ t([[Enhance your mental attacks with a single gesture. You gain +%d mindpower an
 		Requires two free or mindstar-equipped hands; does not require Gesture of Pain to be sustained.]], [[以一个手势强化你的精神攻击。你的精神强度提高 %d 点，精神类攻击的暴击几率提高 %d%%（当前为 %d%%）。
 		要求两只手都可用于手势（每只手须为空手或装备灵晶）；无需维持痛苦手势。]], "tformat")
 t("Gesture of Guarding", "守护手势", "talent name")
-t("#F53CBE##Source# lashes back at #Target#!", "#F53CBE##Source#反击#Target#!", "logCombat")
+t("#F53CBE##Source# lashes back at #Target#!", "#F53CBE##Source#反击#Target#！", "logCombat")
 t([[You guard against melee damage with a sweep of your hand. So long as you can use Gestures (Requires two free or mindstar-equipped hands), you deflect up to %d damage (%0.1f%% of your best free hand melee damage) from up to %0.1f melee attack(s) each turn (based on your cunning). Deflected attacks cannot be crits.
 		If Gesture of Pain is active, you also have a %0.1f%% chance to counterattack.]], [[你通过手势来防御近战伤害。只要你能使用手势（要求两只手都可用于手势，每只手须为空手或装备灵晶），你最多偏移 %d 点伤害（你的单手最大伤害的 %0.1f%% ），每回合最多触发 %0.1f 次（基于你的灵巧）。成功防御的攻击不会暴击。
 		如果痛苦手势被激活，你将有 %0.1f%% 的概率发动反击。]], "tformat")
@@ -24325,7 +24324,7 @@ section "mod-tome/data/talents/cursed/one-with-shadows.lua"
 
 t("Shadow Senses", "阴影感知", "talent name")
 t([[Your awareness extends to your shadows.
-		You always know exactly where your shadows are and can perceive any foe within %d tiles of their vision.]], [[ 你的意识延伸到阴影上。
+		You always know exactly where your shadows are and can perceive any foe within %d tiles of their vision.]], [[你的意识延伸到阴影上。
 		你能清晰的感知到阴影的位置，同时还能感知到阴影视野 %d 码范围内的敌人。]], "tformat")
 t("Shadows Empathy", "阴影链接", "talent name")
 t([[You empathy with your shadows causes the line between you and your shadows to blur.
@@ -24334,7 +24333,7 @@ t([[You empathy with your shadows causes the line between you and your shadows t
 t("Shadow Transposition", "阴影换位", "talent name")
 t([[Observers find it difficult to tell you and your shadows apart.
 		You can target a shadow in radius %d and instantly trade places with it.
-		%d random negative physical or magical effects are transferred from you to the chosen shadow in the process.]], [[ 现在，其他人很难分清你和阴影。
+		%d random negative physical or magical effects are transferred from you to the chosen shadow in the process.]], [[现在，其他人很难分清你和阴影。
 		 你能选择半径 %d 范围内的一个阴影并和它交换位置。
 		同时至多 %d 个随机负面物理或魔法效果会被转移至选择的阴影身上。]], "tformat")
 t("Shadow Decoy", "阴影诱饵", "talent name")
@@ -24520,7 +24519,7 @@ t([[Bathes the target in flames doing %0.2f damage
 t("Reform", "重组", "talent name")
 t("When a shadow is hit and killed, there is a %d%% chance it will reform unhurt.", "当阴影遭受攻击而死亡时，有 %d%% 几率毫发无伤地重组。", "tformat")
 t("Call Shadows", "召唤阴影", "talent name")
-t("Your hate is too low to call another shadow!", "你的仇恨值不足，无法召唤阴影。", "logPlayer")
+t("Your hate is too low to call another shadow!", "你的仇恨值不足，无法召唤阴影！", "logPlayer")
 t("Summon", "召唤", "_t")
 t([[While this ability is active, you will continually call up to %d level %d shadows to aid you in battle. Each shadow costs 5 hate to summon. Shadows are weak combatants that can: Use Arcane Reconstruction to heal themselves (level %d), Blindside their opponents (level %d), and Phase Door from place to place.
 		Shadows ignore %d%% of the damage dealt to them by their master.]], [[当此技能激活时，你可以召唤 %d 个等级 %d 的阴影帮助你战斗。每个阴影需消耗 5 点仇恨值召唤。
@@ -24620,7 +24619,7 @@ t([[Rather than hide from the onslaught, you face down every threat. While activ
 		当技能激活时，你有 %d%% 概率抵挡一次近程攻击。不顾一切的防御会带给你厄运（-3幸运）。
 		分裂攻击，杀意涌动和无所畏惧不能同时开启，并且激活其中一个也会使另外两个进入冷却。
 		抵挡概率受力量加成。
-		装备盾牌时，抵挡概率增加 20%% ]], "tformat")
+		装备盾牌时，抵挡概率增加 20%%]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/traveler.lua"
@@ -24659,7 +24658,7 @@ t([[Let out a burst of sound that silences for %d turns all those affected in a 
 		接下来 %d 回合内，受影响区域中的所有生物每回合受到 %0.2f 法力燃烧伤害。
 		每沉默一个生物，你的失衡值降低 %d，最多触发 5 次。
 		伤害和效果强度受精神强度与物理强度中较高者加成。
-		
+
 		学会这个技能，也会让你的自然伤害加成和伤害穿透属性，对所有法力燃烧伤害生效，不管这一伤害的来源是什么。]], "tformat")
 t("Antimagic Shield", "反魔法护盾", "talent name")
 t("#GREEN#The antimagic shield of %s crumbles.", "#GREEN#%s的反魔法护盾消失了。", "logSeen")
@@ -24737,7 +24736,7 @@ t([[Summons an icy wall of %d length for %d turns. Ice walls are transparent, bu
 		冰墙还会散发刺骨寒气，每格冰墙都会对半径 %d 内的敌人造成 %0.2f 点寒冷伤害，并各有 25%% 几率将其冻结。寒气不会伤害技能使用者或其盟友。
 		冰龙系技能每投入一点，还会使你的寒冷抗性提高 1%%。]], "tformat", {1, 2, 4, 3})
 t("Ice Breath", "冰息术", "talent name")
-t("@Source@ breathes ice!", "@Source@呼出寒冰!", "_t")
+t("@Source@ breathes ice!", "@Source@呼出寒冰！", "_t")
 t("%s resists the freeze!", "%s抵抗了冻结！", "logSeen")
 t([[You breathe ice in a frontal cone of radius %d. Any target caught in the area will take %0.2f cold damage and be frozen for 3 turns.
 		The damage will increase with your Strength, the critical chance is based on your Mental crit rate, and the Freeze apply power is based on your Mindpower.
@@ -24750,7 +24749,7 @@ section "mod-tome/data/talents/gifts/corrosive-blades.lua"
 
 t("Acidbeam", "酸性射线", "talent name")
 t([[Channel acid through your psiblades, extending their reach to create a beam doing %0.1f Acid damage (which can disarm them).
-		The damage increases with your Mindpower.]], [[ 在你的心灵利刃里充填酸性能量，延展攻击范围, 形成一道射线，造成 %0.1f 点酸性缴械伤害。
+		The damage increases with your Mindpower.]], [[在你的心灵利刃里充填酸性能量，延展攻击范围, 形成一道射线，造成 %0.1f 点酸性缴械伤害。
 		伤害受精神强度加成。]], "tformat")
 t("Corrosive Nature", "自然腐蚀", "talent name")
 t([[You gain %d%% Acid resistance.
@@ -24766,14 +24765,14 @@ t("You somehow fail to set the corrosive seed.", "你没能设置腐蚀之种。
 t([[You focus on a target zone of radius 2 to make up to %d corrosive seeds appear.
 		The first seed will appear at the center of the target zone, while others will appear at random spots.
 		Each seed lasts %d turns and will explode when a hostile creature walks over it, knocking the creature back and dealing %0.1f Acid damage within radius 1.
-		The damage will increase with your Mindpower.]], [[ 你集中精神于某块半径 2 的区域，制造出 %d 个腐蚀之种。
+		The damage will increase with your Mindpower.]], [[你集中精神于某块半径 2 的区域，制造出 %d 个腐蚀之种。
 		第一个种子会产生于中心处，其他的会随机出现。
      每个种子持续 %d 回合，
 		当一个生物走过腐蚀之种时，会在半径 1 的区域内引发一场爆炸，击退对方并造成 %0.1f 点酸性伤害。
 		伤害受精神强度加成。]], "tformat")
 t("Acidic Soil", "酸化大地", "talent name")
 t([[Surround yourself with natural forces, ignoring %d%% acid resistance of your targets.
-		In addition, the acid will nourish your bloated oozes, giving them an additional %0.1f life regeneration per turn.]], [[ 你的周围充满了自然力量，忽略目标 %d%% 的酸性伤害抗性。
+		In addition, the acid will nourish your bloated oozes, giving them an additional %0.1f life regeneration per turn.]], [[你的周围充满了自然力量，忽略目标 %d%% 的酸性伤害抗性。
 		同时酸性能量会治疗你的浮肿软泥怪，增加他们每回合 %0.1f 的生命回复。]], "tformat")
 
 ------------------------------------------------
@@ -24898,14 +24897,14 @@ section "mod-tome/data/talents/gifts/eyals-fury.lua"
 t("Reclaim", "沙化", "talent name")
 t([[You focus the inexorable pull of nature against a single creature, eroding it and allowing it to be reclaimed by the cycle of life.
 		This deals %0.1f Nature and %0.1f Acid damage to the target, and is particularly devastating against undead and constructs, dealing %d%% more damage to them.
-		The damage increases with your Mindpower.]], [[ 你将自然无情的力量集中于某个目标上，腐蚀他并让他重归生命轮回。
+		The damage increases with your Mindpower.]], [[你将自然无情的力量集中于某个目标上，腐蚀他并让他重归生命轮回。
 		造成 %0.1f 点自然伤害， %0.1f 点酸性伤害，对不死族和构装生物有 %d%% 伤害加成。
 		伤害受精神强度加成。]], "tformat")
 t("Nature's Defiance", "自然的反抗", "talent name")
 t([[Your devotion to nature has made your body more attuned to the natural world and resistant to unnatural energies.
 		You gain %d Spell save, %0.1f%% Arcane resistance, and %0.1f%% Nature damage affinity.
 		You defy arcane forces, so that any time you take damage from a spell, you restore %0.1f Equilibrium each turn for %d turns.
-		The effects increase with your Mindpower.]], [[ 你对自然的贡献让你的身体更亲近自然世界，对非自然力量也更具抵抗力。
+		The effects increase with your Mindpower.]], [[你对自然的贡献让你的身体更亲近自然世界，对非自然力量也更具抵抗力。
 		你获得 %d 点法术豁免， %0.1f%% 奥术抗性，同时将受到的 %0.1f%% 的自然伤害转化为治疗。
 		由于你和奥术力量对抗，每次你受到法术伤害时，你回复 %0.1f 点失衡值，持续 %d 回合。
 		效果受精神强度加成。]], "tformat")
@@ -24913,7 +24912,7 @@ t("Acidfire", "酸火", "talent name")
 t("Acidfire cloud", "酸火毒云", "_t")
 t([[You call upon the earth to create a blinding, corrosive cloud in an area of radius %d for %d turns.
 		Each turn, this cloud deals %0.1f acid damage to each foe with a 25%% chance to blind and a %d%% chance of burning away one magical sustain or beneficial magical effect.
-		The damage increases with your Mindpower.]], [[ 你召唤酸云覆盖半径 %d 的地面，持续 %d 回合。酸云具有腐蚀性，能致盲敌人。
+		The damage increases with your Mindpower.]], [[你召唤酸云覆盖半径 %d 的地面，持续 %d 回合。酸云具有腐蚀性，能致盲敌人。
 		每回合，酸云对每个敌人造成 %0.1f 点酸性伤害，25%% 几率致盲，同时有 %d%% 几率除去一个有益的魔法效果或魔法持续技能。
 		伤害受精神强度加成。]], "tformat")
 t("Eyal's Wrath", "埃亚尔之怒", "talent name")
@@ -24922,7 +24921,7 @@ t("Eyal's Wrath", "埃亚尔之怒", "_t")
 t([[You draw deeply from your connection with nature to create a radius %d storm of natural forces around you for %d turns.
 		This storm moves with you and deals %0.1f Nature damage each turn to all foes it hits.
 		In addtion, it will drain up to %d Mana, %d Vim, %d Positive, and %d Negative energy from each enemy within it's area every turn, while you restore Equilibrium equal to 10%% of the amount drained.
-		The damage and drain increase with your Mindpower.]], [[ 你在自己周围半径 %d 的范围内制造自然力量风暴，持续 %d 回合。
+		The damage and drain increase with your Mindpower.]], [[你在自己周围半径 %d 的范围内制造自然力量风暴，持续 %d 回合。
 		风暴会跟随你移动，每回合对每个敌人造成 %0.1f 点自然伤害。
 		此外，它并抽取 %d 点法力， %d 点活力， %d 点正能量和 %d 点负能量，同时你的失衡值会回复你抽取能量的 10%%。
 		伤害和吸取量受精神强度加成。]], "tformat")
@@ -24940,7 +24939,7 @@ t([[You summon a powerful gust of wind, knocking back your foes within a radius 
 		每点火龙系的技能可以使你增加火焰抗性 1%%。
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat")
 t("Bellowing Roar", "怒意咆哮", "talent name")
-t("@Source@ roars!", "@Source@发出咆哮!", "_t")
+t("@Source@ roars!", "@Source@发出咆哮！", "_t")
 t([[You let out a powerful roar that sends your foes in radius %d into utter confusion (power: %d%%) for 3 turns.
 		The sound wave is so strong, your foes also take %0.2f physical damage.
 		The damage improves with your Strength.
@@ -24957,7 +24956,7 @@ t([[Spit a cloud of flames, doing %0.2f fire damage in a radius of %d each turn 
 		伤害受精神强度加成。技能可暴击。
 		每点火龙系的技能可以使你增加火焰抗性 1%%。]], "tformat")
 t("Fire Breath", "火焰吐息", "talent name")
-t("@Source@ breathes fire!", "@Source@喷出火焰!", "_t")
+t("@Source@ breathes fire!", "@Source@喷出火焰！", "_t")
 t([[You breathe fire in a frontal cone of radius %d. Any target caught in the area will take %0.2f fire damage over 3 turns.
 		The damage will increase with your Strength and the critical chance is based on your Mental crit rate.
 		Each point in fire drake talents also increases your fire resistance by 1%%.]], [[你在前方 %d 码锥形范围内喷出火焰。此范围内的目标会在 3 回合内受到 %0.2f 火焰伤害。
@@ -24999,57 +24998,57 @@ t("wild-gift", "自然", "talent category")
 t("call of the wild", "自然召唤", "talent type")
 t("Be at one with nature.", "与大自然融为一体。", "_t")
 t("harmony", "自然协调", "talent type")
-t("Nature heals and cleans you.", " 利用大自然的力量治疗你受到的创伤、清洁你的身体。", "_t")
+t("Nature heals and cleans you.", "利用大自然的力量治疗你受到的创伤、清洁你的身体。", "_t")
 t("antimagic", "反魔法", "talent type")
-t("The way to combat magic, or even nullify it.", " 你选择终生与魔法对抗并试图永远终结它。", "_t")
+t("The way to combat magic, or even nullify it.", "你选择终生与魔法对抗并试图永远终结它。", "_t")
 t("summoning (melee)", "召唤(近战)", "talent type")
-t("The art of calling creatures adept in melee combat to your aid.", " 召唤近战生物来协助你战斗的艺术。", "_t")
+t("The art of calling creatures adept in melee combat to your aid.", "召唤近战生物来协助你战斗的艺术。", "_t")
 t("summoning (distance)", "召唤(远程)", "talent type")
-t("The art of calling creatures adept in elemental destruction to your aid.", " 召唤远程元素攻击类生物来协助你战斗的艺术。", "_t")
+t("The art of calling creatures adept in elemental destruction to your aid.", "召唤远程元素攻击类生物来协助你战斗的艺术。", "_t")
 t("summoning (utility)", "召唤(通用)", "talent type")
 t("The art of calling versatile creatures to your aid.", "召唤多种多样的生物来协助你战斗的艺术。", "_t")
 t("summoning (augmentation)", "召唤(增益)", "talent type")
-t("The art of manipulating the lifespan and location of your summons.", " 操纵召唤物寿命和位置的战斗艺术。", "_t")
+t("The art of manipulating the lifespan and location of your summons.", "操纵召唤物寿命和位置的战斗艺术。", "_t")
 t("summoning (advanced)", "高级召唤", "talent type")
-t("The art of improving the quality of your summons.", " 增强召唤物的战斗艺术。", "_t")
+t("The art of improving the quality of your summons.", "增强召唤物的战斗艺术。", "_t")
 t("slime", "史莱姆", "talent type")
 t("Through dedicated consumption of slime mold juice, you have gained an affinity with slime molds.", "通过坚持饮用史莱姆汁液，你获得了对史莱姆的亲和力。", "_t")
 t("fungus", "真菌", "talent type")
-t("By covering yourself in fungus, you better your healing.", " 利用真菌环绕周身，增强你的治疗能力。", "_t")
+t("By covering yourself in fungus, you better your healing.", "利用真菌环绕周身，增强你的治疗能力。", "_t")
 t("sand drake aspect", "土龙形态", "talent type")
-t("Take on the defining aspects of a Sand Drake.", " 化身成为土龙形态使你能使用土龙技能。", "_t")
+t("Take on the defining aspects of a Sand Drake.", "化身成为土龙形态使你能使用土龙技能。", "_t")
 t("fire drake aspect", "火龙形态", "talent type")
-t("Take on the defining aspects of a Fire Drake.", " 化身成为火龙形态使你能使用火龙技能。", "_t")
+t("Take on the defining aspects of a Fire Drake.", "化身成为火龙形态使你能使用火龙技能。", "_t")
 t("cold drake aspect", "冰龙形态", "talent type")
-t("Take on the defining aspects of a Cold Drake.", " 化身成为冰龙形态使你能使用冰龙技能。", "_t")
+t("Take on the defining aspects of a Cold Drake.", "化身成为冰龙形态使你能使用冰龙技能。", "_t")
 t("storm drake aspect", "雷龙形态", "talent type")
-t("Take on the defining aspects of a Storm Drake.", " 化身成为雷龙形态使你能使用雷龙技能。", "_t")
+t("Take on the defining aspects of a Storm Drake.", "化身成为雷龙形态使你能使用雷龙技能。", "_t")
 t("venom drake aspect", "毒龙形态", "talent type")
-t("Take on the defining aspects of a Venom Drake.", " 化身成为毒龙形态使你能使用毒龙技能。", "_t")
+t("Take on the defining aspects of a Venom Drake.", "化身成为毒龙形态使你能使用毒龙技能。", "_t")
 t("higher draconic abilities", "高等龙族", "talent type")
-t("Take on the aspects of aged and powerful dragons.", " 继承远古真龙的力量使你能使用强大的龙族技能。", "_t")
+t("Take on the aspects of aged and powerful dragons.", "继承远古真龙的力量使你能使用强大的龙族技能。", "_t")
 t("mindstar mastery", "灵晶掌握", "talent type")
-t("Learn to channel your mental power through mindstars, forming powerful psionic blades.", " 学会将你的精神能量灌注于灵晶中，产生心灵利刃。", "_t")
+t("Learn to channel your mental power through mindstars, forming powerful psionic blades.", "学会将你的精神能量灌注于灵晶中，产生心灵利刃。", "_t")
 t("mucus", "粘液", "talent type")
-t("Cover the floor with natural mucus.", " 用粘液覆盖地面。", "_t")
+t("Cover the floor with natural mucus.", "用粘液覆盖地面。", "_t")
 t("ooze", "软泥", "talent type")
 t("Your body and internal organs are becoming more ooze-like in nature, allowing you to spawn more of you.", "你的身体和内脏正变得越来越像软泥怪，使你能够分裂出更多的自己。", "_t")
 t("moss", "苔藓", "talent type")
-t("You learn to control moss, making it grow at will to help you on the battlefield.", " 你学会控制苔藓生长，帮助战斗。", "_t")
+t("You learn to control moss, making it grow at will to help you on the battlefield.", "你学会控制苔藓生长，帮助战斗。", "_t")
 t("malleable body", "可塑形体", "talent type")
 t("Your body's anatomy is starting to blur.", "你身体的解剖结构开始模糊。", "_t")
 t("oozing blades", "软泥利刃", "talent type")
-t("You channel ooze through your psiblades.", " 你向心灵利刃里灌注软泥能量。", "_t")
+t("You channel ooze through your psiblades.", "你向心灵利刃里灌注软泥能量。", "_t")
 t("corrosive blades", "腐蚀利刃", "talent type")
-t("You channel acid through your psiblades.", " 你向心灵利刃里灌注酸性能量。", "_t")
+t("You channel acid through your psiblades.", "你向心灵利刃里灌注酸性能量。", "_t")
 t("eyal's fury", "埃亚尔之怒", "talent type")
-t("Unleash nature's fury against foes around you.", " 向敌人释放自然的愤怒。", "_t")
+t("Unleash nature's fury against foes around you.", "向敌人释放自然的愤怒。", "_t")
 t("earthen power", "大地力量", "talent type")
 t("Dwarves have learned to imbue their shields with the power of stone itself.", "矮人学会将岩石力量赋予给盾牌。", "_t")
 t("earthen vines", "岩石藤蔓", "talent type")
-t("Control the stone itself and bring it alive in the form of dreadful vines.", " 掌握岩石并赋予其生命，形成恐怖的藤蔓。", "_t")
+t("Control the stone itself and bring it alive in the form of dreadful vines.", "掌握岩石并赋予其生命，形成恐怖的藤蔓。", "_t")
 t("dwarven nature", "矮人之自然力量", "talent type")
-t("Learn to harness the innate power of your race.", " 学会强化自身的种族能力。", "_t")
+t("Learn to harness the innate power of your race.", "学会强化自身的种族能力。", "_t")
 t("#PINK#You can manage a maximum of %d summons at any time. You need %d Cunning to increase your limit.", "#PINK#你能同时拥有最多 %d 名召唤物。你需要 %d 灵巧来提升上限。", "logPlayer")
 t("Summon", "召唤", "_t")
 
@@ -25102,7 +25101,7 @@ t([[Unleash raw, chaotic elemental damage upon your enemy.
 		五灵挥击还会使你的物理和精神攻击速度提升 %d%%。
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat", {1,3,2,4})
 t("Venomous Breath", "剧毒吐息", "talent name")
-t("@Source@ breathes venom!", "@Source@呼出毒液!", "_t")
+t("@Source@ breathes venom!", "@Source@呼出毒液！", "_t")
 t([[You breathe crippling poison in a frontal cone of radius %d. Any target caught in the area will take %0.2f nature damage each turn for 6 turns.
 		The poison also gives enemies a %d%% chance to fail actions more complicated than basic attacks and movement, while it is in effect.
 		The damage will increase with your Strength, and the critical chance is based on your Mental crit rate.
@@ -25213,7 +25212,7 @@ t([[Instantly grow a moss circle of radius %d at your feet.
 		This moss has vampiric properties and heals the user for %d%% of the damage done.
 		The moss lasts %d turns.
 		Moss talents are instant but place all other moss talents on cooldown for 3 turns.
-		The damage will increase with your Mindpower.]], [[ 在你的脚下，半径 %d 的范围内生长出苔藓。
+		The damage will increase with your Mindpower.]], [[在你的脚下，半径 %d 的范围内生长出苔藓。
 		每回合苔藓对半径内的敌人会造成 %0.2f 点自然伤害。
 		这种苔藓具有吸血功能，会治疗使用者，数值等于造成伤害的 %d%%。
 		苔藓持续 %d 个回合。
@@ -25225,7 +25224,7 @@ t([[Instantly grow a moss circle of radius %d at your feet.
 		This moss is very slippery and causes affected foes to have a %d%% chance of failing to perform complex actions.
 		The moss lasts %d turns.
 		Moss talents are instant but place all other moss talents on cooldown for 3 turns.
-		The damage and the chance to apply the slippery effect increase with your Mindpower.]], [[ 在你的脚下，半径 %d 的范围内生长出苔藓。
+		The damage and the chance to apply the slippery effect increase with your Mindpower.]], [[在你的脚下，半径 %d 的范围内生长出苔藓。
 		每回合苔藓对半径内的敌人会造成 %0.2f 点自然伤害。
 		这种苔藓十分光滑，会使所有受影响的敌人有 %d%% 概率不能做出复杂行动。
 		苔藓持续 %d 个回合。
@@ -25237,7 +25236,7 @@ t([[Instantly grow a moss circle of radius %d at your feet.
 		This moss is coated with strange fluids and has a %d%% chance to confuse (power %d%%) foes passing through it for 2 turns.
 		The moss lasts %d turns.
 		Moss talents are instant but place all other moss talents on cooldown for 3 turns.
-		The damage will increase with your Mindpower.]], [[ 在你的脚下，半径 %d 的范围内生长出苔藓。
+		The damage will increase with your Mindpower.]], [[在你的脚下，半径 %d 的范围内生长出苔藓。
 		每回合苔藓对半径内的敌人会造成 %0.2f 点自然伤害。
 		这种苔藓上沾满了奇怪的液体，有 %d%% 概率让对方混乱（ %d%% 强度） 2 个回合。
 		苔藓持续 %d 个回合。
@@ -25332,7 +25331,7 @@ t([[Instantly call all of your bloated oozes to your aid.
 t("Indiscernible Anatomy", "奇异骨骼", "talent name")
 t([[Your body's internal organs are indistinct, disguising your vital areas.
 		You have a %d%% chance to shrug off all direct critical hits (physical, mental, spell).
-		In addition you gain %d%% resistance to disease, poison, wounds and blindness.]], [[ 你身体里的内脏全都融化在一起，隐藏了你的要害部位。
+		In addition you gain %d%% resistance to disease, poison, wounds and blindness.]], [[你身体里的内脏全都融化在一起，隐藏了你的要害部位。
 		你有 %d%% 几率摆脱任何（物理，精神，法术）暴击。
 		你将额外获得 %d%% 的疾病、毒素、切割和目盲免疫。]], "tformat")
 
@@ -25341,13 +25340,13 @@ section "mod-tome/data/talents/gifts/oozing-blades.lua"
 
 t("Oozebeam", "软泥射线", "talent name")
 t([[Channel slime through your psiblades, extending their reach to create a beam doing %0.1f Slime damage.
-		The damage increases with your Mindpower.]], [[ 在你的心灵利刃里充填史莱姆能量，延展攻击范围, 形成一道射线，造成 %0.1f 点史莱姆伤害。
+		The damage increases with your Mindpower.]], [[在你的心灵利刃里充填史莱姆能量，延展攻击范围, 形成一道射线，造成 %0.1f 点史莱姆伤害。
 		伤害受精神强度加成。]], "tformat")
 t("Natural Acid", "自然酸化", "talent name")
 t([[You gain %d%% Nature resistance.
 		When you deal Acid damage to a creature, you gain a %0.1f%% bonus to Nature damage for %d turns. 
 		This damage bonus will improve up to 4 times (no more than once each turn) with later Acid damage you do, up to a maximum of %0.1f%%.
-		The resistance and damage increase improve with your Mindpower.]], [[ 你的自然抗性增加 %d%%。
+		The resistance and damage increase improve with your Mindpower.]], [[你的自然抗性增加 %d%%。
 		当你造成酸性伤害时，你的自然伤害增加 %0.1f%%，持续 %d 回合。
 		伤害加成能够积累到最多4倍（1回合至多触发1次），最大值 %0.1f%%。
 		抗性和伤害加成受精神强度加成。]], "tformat")
@@ -25415,7 +25414,7 @@ t([[Allows you to burrow into earthen walls for %d turns.
      在技能等级 5 时，这个技能变成瞬间。冷却时间随技能等级升高而降低。
 		每点土龙系的天赋可以使你增加物理抗性 0.5%%。]], "tformat")
 t("Sand Breath", "沙瀑吐息", "talent name")
-t("@Source@ breathes sand!", "@Source@呼出流沙!", "_t")
+t("@Source@ breathes sand!", "@Source@呼出流沙！", "_t")
 t([[You breathe sand in a frontal cone of radius %d. Any target caught in the area will take %0.2f physical damage, and will be blinded for %d turns.
 		The damage will increase with your Strength, the critical chance is based on your Mental crit rate, and the Blind apply power is based on your Mindpower.
 		Each point in sand drake talents also increases your physical resistance by 0.5%%.]], [[你在前方 %d 码锥形范围内喷出流沙。此范围内的目标会受到 %0.2f 物理伤害并被致盲 %d 回合。
@@ -25478,7 +25477,7 @@ t([[Generate an electrical field around you in a radius of %d. Any creature caug
 		每投入 1 点雷龙系技能，还会使你的闪电伤害抗性提高 1%%。]], "tformat")
 t("Tornado", "龙卷风", "talent name")
 t("Tornado", "龙卷风", "_t")
-t("%s is knocked back!", "%s 被击退。", "logSeen")
+t("%s is knocked back!", "%s 被击退！", "logSeen")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t([[Summon a tornado that moves very slowly towards the target, following it if it changes position.
 		Each time it moves every foes within radius 2 takes %0.2f lightning damage and is knocked back 2 spaces.
@@ -25488,7 +25487,7 @@ t([[Summon a tornado that moves very slowly towards the target, following it if 
 		Each point in storm drake talents also increases your lightning resistance by 1%%.]], [[召唤一个龙卷风，它会向着目标极为缓慢地移动，并在目标移动时跟随目标，最多移动20次。
 		每当它移动时，半径2范围内的所有敌人会受到 %0.2f 闪电伤害，并被击退2格。
 		当它碰到目标的时候，会在 %d 码范围内引发爆炸，击退目标，并造成 %0.2f 闪电和 %0.2f 物理伤害。
-		伤害受精神强度加成 
+		伤害受精神强度加成
 		每点雷龙系的天赋可以使你增加闪电抗性 1%%。]], "tformat")
 t("Lightning Breath", "闪电吐息", "talent name")
 t("@Source@ breathes lightning!", "@Source@呼出闪电！", "_t")
@@ -25517,15 +25516,15 @@ t([[While Master Summoner is active, when a creature you summon appears in the w
 		- Turtle: Heals all friendly targets in the radius %d HP
 		- Spider: Pins all foes in the radius
 		Radius for effects is %d, and the duration of each lasting effect is %d turns.
-		The effects improve with your mindpower.]], [[当召唤精通激活时，每个召唤兽出现在世界上时，它会触发 1 个野性效果： 
+		The effects improve with your mindpower.]], [[当召唤精通激活时，每个召唤兽出现在世界上时，它会触发 1 个野性效果：
 		- 火焰里奇：减少范围内所有敌人的火焰抗性 %d%%
 		- 三头蛇：生成一片持续的毒雾，范围内所有敌人每回合受到 %0.1f 自然伤害（可叠加）
 		- 雾凇：减少范围内所有敌人的寒冷抗性 %d%%
-		- 火龙：出现 %d 只小火龙 
+		- 火龙：出现 %d 只小火龙
 		- 战争猎犬：减少范围内所有敌人的物理抗性 %d%%
 		- 果冻怪：减少范围内所有敌人的自然抗性 %d%%
 		- 米诺陶：减少范围内所有敌人的移动速度 %0.1f%%
-		- 岩石傀儡：眩晕范围内所有敌人 
+		- 岩石傀儡：眩晕范围内所有敌人
 		- 乌龟：治疗范围内所有友军单位 %d 生命值
 		- 蜘蛛：定身范围内所有敌人。
 		效果范围 %d ，每个持续效果维持 %d 回合。
@@ -25551,17 +25550,17 @@ t([[For %d turn(s), you have 100%% chance that your summons appear as a wild ver
 		This talent requires Master Summoner to be active to be used.
 		Effects scale with levels in summon talents.]], [[你在 %d 回合内 100%% 召唤出一只野性模式的召唤兽。
 		此概率每回合递减。
-		野性召唤兽增加 1 个新的天赋： 
+		野性召唤兽增加 1 个新的天赋：
 		- 火焰里奇：可以在空中飞行，吐火不会被路径上的生物所阻挡。
 		- 三头蛇：如果发现友军会被击中，则将吐息改为单体攻击。
 		- 雾凇：可以抓取敌人，将它们拉进自己的冰风暴范围。
-		- 火龙：可以用怒吼来沉默敌人 
-		- 战争猎犬：可以狂暴，增加它的暴击率和护甲穿透值 
+		- 火龙：可以用怒吼来沉默敌人
+		- 战争猎犬：可以狂暴，增加它的暴击率和护甲穿透值
 		- 果冻怪：可以在被攻击造成较大伤害的时候，分裂出一个果冻怪（分裂出的果冻怪不会占用你的召唤物上限）
-		- 米诺陶：可以向目标冲锋 
+		- 米诺陶：可以向目标冲锋
 		- 岩石傀儡：可以缴械敌人。
-		- 乌龟：可以嘲讽范围内敌人进入近战状态 
-		- 蜘蛛：可以向目标吐出剧毒，减少它们的治疗效果 
+		- 乌龟：可以嘲讽范围内敌人进入近战状态
+		- 蜘蛛：可以向目标吐出剧毒，减少它们的治疗效果
 		此技能只有在召唤精通激活时才能使用。
 		技能效果受召唤物技能等级加成。]], "tformat")
 
@@ -25660,9 +25659,9 @@ t([[Grab a target and pull it next to you, covering it with frost while reducing
 		寒冰还会对其造成 %0.2f 寒冷伤害。
 		伤害和减速几率受精神强度加成。]], "tformat")
 t("Ritch Flamespitter", "契约：火焰里奇", "talent name")
-t("@Source@ summons a Ritch Flamespitter!", "@Source@召唤了一只火焰里奇!", "_t")
+t("@Source@ summons a Ritch Flamespitter!", "@Source@召唤了一只火焰里奇！", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("%s (wild summon)", "%s (野性召唤)", "tformat")
 t([[Summon a Ritch Flamespitter for %d turns to burn your foes to death. Flamespitters are weak in melee and die easily, but they can burn your foes from afar.
 		It will get %d Willpower, %d Cunning and %d Constitution.
@@ -25672,7 +25671,7 @@ t([[Summon a Ritch Flamespitter for %d turns to burn your foes to death. Flamesp
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		火焰里奇的意志和灵巧受精神强度加成。]], "tformat")
 t("Hydra", "契约：三头蛇", "talent name")
-t("@Source@ summons a 3-headed hydra!", "@Source@召唤了一只三头蛇!", "_t")
+t("@Source@ summons a 3-headed hydra!", "@Source@召唤了一只三头蛇！", "_t")
 t("A strange reptilian creature with three smouldering heads.", "拥有三个头的奇怪爬行动物。", "_t")
 t([[Summon a 3-headed Hydra for %d turns to destroy your foes. 3-headed hydras are able to breathe poison, acid and lightning.
 		It will get %d Willpower, %d Constitution and 18 Strength.
@@ -25683,7 +25682,7 @@ t([[Summon a 3-headed Hydra for %d turns to destroy your foes. 3-headed hydras a
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		三头蛇的意志受精神强度加成。]], "tformat")
 t("Rimebark", "契约：雾凇", "talent name")
-t("@Source@ summons a Rimebark!", "@Source@召唤了一只雾凇!", "_t")
+t("@Source@ summons a Rimebark!", "@Source@召唤了一只雾凇！", "_t")
 t("This huge treant-like being is embedded with the fury of winter itself.", "这个巨大的树精样生物被寒冬之怒覆盖。", "_t")
 t([[Summon a Rimebark for %d turns to harass your foes. Rimebarks cannot move, but they have a permanent ice storm around them, damaging and freezing anything coming close in a radius of 3.
 		It will get %d Willpower, %d Cunning and %d Constitution.
@@ -25694,7 +25693,7 @@ t([[Summon a Rimebark for %d turns to harass your foes. Rimebarks cannot move, b
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		雾凇的意志和灵巧受精神强度加成。]], "tformat")
 t("Fire Drake", "契约：火龙", "talent name")
-t("@Source@ summons a Fire Drake!", "@Source@召唤了一只火龙!", "_t")
+t("@Source@ summons a Fire Drake!", "@Source@召唤了一只火龙！", "_t")
 t("A mighty fire drake.", "一只强力火龙。", "_t")
 t([[Summon a Fire Drake for %d turns to burn and crush your foes to death. Fire Drakes are behemoths that can burn foes from afar with their fiery breath.
 		It will get %d Strength, %d Constitution and 38 Willpower.
@@ -25714,14 +25713,14 @@ t("", "", "_t")
 section "mod-tome/data/talents/gifts/summon-melee.lua"
 
 t("Jelly Spread", "果冻散布", "talent name")
-t("@source@ oozes over the ground!!", "@source@在地上散布!!", "_t")
+t("@source@ oozes over the ground!!", "@source@在地上散布!！", "_t")
 t("Ooze over the floor, spreading caustic jelly in a radius of 1 lasting %d turns and dealing %d nature damage per turn to hostile creatures caught within.", "在 1 码范围内的地板上散布腐蚀性的粘液，持续 %d 回合，每回合对范围内所有敌对生物造成 %d 自然伤害。", "tformat")
 t("Mitotic Split", "有丝分裂", "talent name")
 t("%d%% chance to split upon taking a single hit dealing at least %d%% of your maximum life.", "有 %d%% 的几率在受到至少相当于最大生命值 %d%% 的单次伤害时分裂。", "tformat")
 t("War Hound", "契约：战争猎犬", "talent name")
-t("@Source@ summons a War Hound!", "@Source@召唤了一只战争猎犬!", "_t")
+t("@Source@ summons a War Hound!", "@Source@召唤了一只战争猎犬！", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("%s (wild summon)", "%s (野性召唤)", "tformat")
 t([[Summon a War Hound for %d turns to attack your foes. War hounds are good basic melee attackers.
 		It will get %d Strength, %d Dexterity and %d Constitution.
@@ -25732,7 +25731,7 @@ t([[Summon a War Hound for %d turns to attack your foes. War hounds are good bas
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		猎犬的力量和敏捷受精神强度加成。]], "tformat")
 t("Jelly", "契约：果冻怪", "talent name")
-t("@Source@ summons a Jelly!", "@Source@召唤了一只果冻怪!", "_t")
+t("@Source@ summons a Jelly!", "@Source@召唤了一只果冻怪！", "_t")
 t("A strange blob on the dungeon floor.", "地板上的一团奇怪胶状物体。", "_t")
 t("#GREEN##Target# absorbs some damage. #Source# is closer to nature.", "#GREEN##Target#吸收了伤害， #Source#更贴近自然了。", "delayedLogMessage")
 t([[Summon a Jelly for %d turns to attack your foes. Jellies do not move, but your equilibrium will be reduced by 10%% of all damage received by the jelly.
@@ -25745,7 +25744,7 @@ t([[Summon a Jelly for %d turns to attack your foes. Jellies do not move, but yo
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		果冻怪的体质受精神强度加成。]], "tformat")
 t("Minotaur", "契约：米诺陶", "talent name")
-t("@Source@ summons a Minotaur!", "@Source@召唤了一只米诺陶!", "_t")
+t("@Source@ summons a Minotaur!", "@Source@召唤了一只米诺陶！", "_t")
 t("It is a cross between a human and a bull.", "它拥有人类和牛的特征。", "_t")
 t([[Summon a Minotaur for %d turns to attack your foes. Minotaurs cannot stay summoned for long, but they deal high damage.
 		It will get %d Strength, %d Constitution and %d Dexterity.
@@ -25755,7 +25754,7 @@ t([[Summon a Minotaur for %d turns to attack your foes. Minotaurs cannot stay su
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		米诺陶的力量和敏捷受精神强度加成。]], "tformat")
 t("Stone Golem", "契约：岩石傀儡", "talent name")
-t("@Source@ summons a Stone Golem!", "@Source@召唤了一只岩石傀儡!", "_t")
+t("@Source@ summons a Stone Golem!", "@Source@召唤了一只岩石傀儡！", "_t")
 t("It is a massive animated statue.", "一座巨型活化傀儡。", "_t")
 t([[Summon a Stone Golem for %d turns to attack your foes. Stone golems are formidable foes that can become unstoppable.
 		It will get %d Strength, %d Constitution and %d Dexterity.
@@ -25780,9 +25779,9 @@ t("Under the cover of your shell, gain %d%% all resistance for %d turns", "隐�
 t("Web", "蜘蛛之网", "talent name")
 t("Spread a web and throw it toward your target. If caught, it won't be able to move for %d turns.", "朝你的目标投掷一个网，若目标被击中则被困在原地 %d 回合。", "tformat")
 t("Turtle", "契约：乌龟", "talent name")
-t("@Source@ summons a Turtle!", "@Source@召唤了一只乌龟!", "_t")
+t("@Source@ summons a Turtle!", "@Source@召唤了一只乌龟！", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("%s (wild summon)", "%s (野性召唤)", "tformat")
 t([[Summon a Turtle for %d turns to distract your foes. Turtles are resilient, but not very powerful. However, they will periodically force any foes to attack them, and can protect themselves with their shell.
 		It will get %d Constitution, %d Dexterity and 18 willpower.
@@ -25794,7 +25793,7 @@ t([[Summon a Turtle for %d turns to distract your foes. Turtles are resilient, b
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		乌龟的体质受精神强度加成。]], "tformat")
 t("Spider", "契约：蜘蛛", "talent name")
-t("@Source@ summons a Spider!", "@Source@召唤了一只蜘蛛!", "_t")
+t("@Source@ summons a Spider!", "@Source@召唤了一只蜘蛛！", "_t")
 t([[Summon a Spider for %d turns to harass your foes. Spiders can poison your foes and throw webs to pin them to the ground.
 		It will get %d Dexterity, %d Strength, 18 Willpower and %d Constitution.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
@@ -25890,7 +25889,7 @@ t("The scent of blood sends the %ss into a frenzy!", "鲜血的气味使得%s们
 t("%s resists the cut!", "%s抵抗了流血！", "logSeen")
 t([[Bites the target for %d%% weapon damage, potentially causing it to bleed for %d%% weapon damage over five turns.
 		If the target is affected by the bleed it will send the devourer into a frenzy for %d turns (which in turn will frenzy other nearby devourers).
-		The frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.]], [[ 咬伤目标，造成 %d%% 武器伤害，可能让目标进入流血状态，在五回合内造成 %d%% 武器伤害。
+		The frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.]], [[咬伤目标，造成 %d%% 武器伤害，可能让目标进入流血状态，在五回合内造成 %d%% 武器伤害。
 		如果目标进入流血状态，吞噬者会进入狂热状态 %d 回合（也会让周围的其他吞噬者进入狂热状态）。
 		狂热状态会增加全局速度 %d%% , 物理暴击率 %d%% , 同时降至 -%d%% 生命时才会死去。]], "tformat")
 t("Abyssal Shroud", "堕入深渊", "talent name")
@@ -25900,13 +25899,13 @@ t("@Source@ shows @Target@ the madness of the void.", "@Source@向 @Target@ 展�
 t("Shows the target the madness of the void.  Each turn for 6 turns the target must make a mental save or suffer %0.2f mind damage as well as resource damage (based off the mind damage and nature of the resource).", "向目标展示虚空的疯狂。在接下来的 6 回合中，目标每回合都必须进行一次精神豁免，否则将受到 %0.2f 点精神伤害，并损失一定资源值；资源损失量取决于精神伤害和资源类型。", "tformat")
 t("Void Shards", "虚空碎片", "talent name")
 t("@Source@ summons void shards.", "@Source@召唤出虚空碎片。", "_t")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("void shard", "虚空碎片", "_t")
 t("It looks like a small hole in the fabric of spacetime.", "看起来像空间中的一小块破洞。", "_t")
 t("Summons %d void shards.  The void shards come into being destabilized and will suffer %0.2f temporal damage each turn for five turns.  If they die while destabilized they'll explode for %0.2f temporal and %0.2f physical damage in a radius of 4.", "召唤 %d 个虚空碎片。碎片生成时处于不稳定状态，持续 5 回合，每回合受到 %0.2f 时空伤害。若它们在不稳定状态下死亡，会爆炸并对半径 4 格内造成 %0.2f 时空伤害和 %0.2f 物理伤害。", "tformat")
 t("Knife Storm", "刀刃风暴", "talent name")
 t([[Summon a storm of swirling blades to slice your foes, inflicting %d physical damage and bleeding to anyone who approaches for %d turns.
-		The damage and duration will increase with your Mindpower.]], [[ 召唤旋转剑刃风暴将敌人切成碎片，对进入风暴的敌人造成 %d 点物理伤害并令其流血 %d 回合。
+		The damage and duration will increase with your Mindpower.]], [[召唤旋转剑刃风暴将敌人切成碎片，对进入风暴的敌人造成 %d 点物理伤害并令其流血 %d 回合。
 		伤害和流血持续时间受精神强度加成。]], "tformat")
 t("Psionic Pull", "念力牵引", "talent name")
 t("%s is pulled in!", "%s 被拉了进去！", "logSeen")
@@ -26030,7 +26029,7 @@ t([[Activate the rune to unleash a manasurge upon yourself, increasing mana rege
 			同时，在你休息时法力值每回合回复 0.5。]], "tformat")
 t("regen %d%% over %d turns; mana %d; cd %d", "回复 %d%% 持续 %d 回合 ; %d 法力瞬回; 冷却 %d", "tformat")
 t("Rune of the Rift", "符文：时空裂隙", "talent name")
-t("%s is immune!", "%s 免疫了!", "logSeen")
+t("%s is immune!", "%s 免疫了！", "logSeen")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
 t("Something has prevented the timetravel.", "某物阻止了时空旅行", "logPlayer")
 t("temporal instability", "时间不稳定性", "_t")
@@ -26172,7 +26171,7 @@ t("Infusions are not class abilities, you must find them or learn them from othe
 t("runes", "符文", "talent type")
 t("Runes are not class abilities, you must find them or learn them from other people.", "符文不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
 t("taints", "污印", "talent type")
-t("Taints are not class abilities, you must find them or learn them from other people.", " 污印不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
+t("Taints are not class abilities, you must find them or learn them from other people.", "污印不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
 t("Attack", "攻击", "talent name")
 t("#Source# attacks empty space.", "#Source#打到了空地。", "logCombat")
 t("Hack and slash, baby!", "尽情砍杀吧，宝贝！", "tformat")
@@ -26292,8 +26291,8 @@ t("@Source@ bites poison into @target@.", "@Source@撕咬@target@使其中毒。
 t("Bites the target (an unarmed attack), doing %d%% damage and injecting it with poison.", "撕咬目标，造成 %d%% 徒手伤害并使其中毒。", "tformat")
 t("Summon", "召唤", "talent name")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
-t("#Source# summons #Target#!", "#Source#召唤了#Target#!", "logCombat")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
+t("#Source# summons #Target#!", "#Source#召唤了#Target#！", "logCombat")
 t("Summon allies.", "召唤盟友。", "tformat")
 t("Rotting Disease", "腐烂疫病", "talent name")
 t("@Source@ performs a diseased attack against @target@.", "@Source@向@target@发动了一次疫病攻击。", "_t")
@@ -26356,7 +26355,7 @@ t([[Spit blight at your target doing %0.2f blight damage.
 		The damage will increase with your Magic.]], [[喷吐目标造成 %0.2f 枯萎伤害。
 		伤害受魔力值加成。]], "tformat")
 t("Rushing Claws", "冲锋抓击", "talent name")
-t("@Source@ rushes out, claws sharp and ready!", "@Source@冲了出去，用尖利的爪子攻击!", "_t")
+t("@Source@ rushes out, claws sharp and ready!", "@Source@冲了出去，用尖利的爪子攻击！", "_t")
 t("You cannot do that currently.", "你现在不能使用该技能。", "logPlayer")
 t([[Rushes toward your target with incredible speed. If the target is reached, you use your claws to pin it to the ground for 5 turns.
 		You must rush from at least 2 tiles away.]], [[快速向目标冲锋，并使用爪子将目标定身 5 回合。
@@ -26376,7 +26375,7 @@ t("Darkness", "黑暗", "talent name")
 t("Weave darkness (power %d) in a radius of %d, blocking all light but the most powerful and teleporting you a short range.", "织就强度为 %d、半径为 %d 格的黑暗，遮蔽除最强光线之外的所有光线，并将你短距离传送。", "tformat")
 t("Throw Boulder", "投掷巨石", "talent name")
 t("something", "某物", "_t")
-t("#Source# hurls a huge boulder at #target#!", "#Source#朝#target#投掷巨石!", "logCombat")
+t("#Source# hurls a huge boulder at #target#!", "#Source#朝#target#投掷巨石！", "logCombat")
 t([[Throw a huge boulder, dealing %0.2f physical damage and knocking targets back %d tiles within radius %d.
 		The damage will increase with your Strength.]], [[向目标投掷一块巨石，造成 %0.2f 物理伤害并将其击退 %d 格；作用半径为 %d 格。
 		伤害受力量加成。]], "tformat")
@@ -26414,7 +26413,7 @@ t("Will o' the Wisp Explode", "鬼火自爆", "talent name")
 t("@Source@ explodes! @target@ is enveloped in frost.", "@Source@爆炸了! @target@被冰霜覆盖了.", "_t")
 t("Explode against one target for %0.2f cold damage.", "自爆对单个目标造成 %0.2f 寒冷伤害。", "tformat")
 t("Elemental Bolt", "元素弹", "talent name")
-t("@Source@ casts Elemental Bolt!", "@Source@释放了元素弹!", "_t")
+t("@Source@ casts Elemental Bolt!", "@Source@释放了元素弹！", "_t")
 t("Fire a slow bolt of a random element for %d damage. Damage increases with the magic stat.", "发射一枚随机元素属性的魔法飞弹缓慢飞行攻击目标造成 %d 伤害，伤害受魔力值加成。", "tformat")
 t("Volcano", "火山爆发", "talent name")
 t("A volcano erupts!", "一座火山开始喷发！", "_t")
@@ -26492,18 +26491,18 @@ t("%s resists the body shot!", "%s抵抗了崩拳！", "logSeen")
 t([[A punch to the body that deals %d%% damage, drains %d of the target's stamina per combo point, and dazes the target for %d to %d turns, depending on the amount of combo points you've accumulated.
 		The daze chance will increase with your Physical Power.
 		Using this talent removes your combo points.]], [[对目标的身体发出强烈的一击，造成 %d%% 伤害，每点连击点消耗 %d 目标体力并眩晕目标 %d 到 %d 回合（由你的连击点数决定）。
-		眩晕概率受物理强度加成 
+		眩晕概率受物理强度加成
 		使用此技能会消耗当前所有连击点。]], "tformat")
 t("Combo String", "强化连击", "talent name")
 t([[When gaining a combo point, you have a %d%% chance to gain an extra combo point.  Additionally, your combo points will last %d turns longer before expiring.
-		The chance of building a second combo point will improve with your Cunning.]], [[当获得 1 个连击点时有 %d%% 概率 
+		The chance of building a second combo point will improve with your Cunning.]], [[当获得 1 个连击点时有 %d%% 概率
 		额外获得 1 个连击点。
 		此外你的连击点持续时间会延长 %d 回合。
 		额外连击点获得概率受灵巧加成。]], "tformat")
 t("Steady Mind", "冷静思维", "talent name")
 t([[Superior cunning and training allows you to outthink and outwit your opponents' physical and mental assaults.  Increases Defense by %d and Mental Save by %d.
 		The Defense bonus will scale with your Dexterity, and the save bonus with your Cunning.]], [[大量的训练使你能保持清醒的头脑，增加 %d 近身闪避和 %d 精神豁免。
-		受敏捷影响，闪避按比例加成； 
+		受敏捷影响，闪避按比例加成；
 		受灵巧影响，精神豁免按比例加成。]], "tformat")
 t("Maim", "伤残", "talent name")
 t([[Grapples the target and inflicts %0.2f physical damage. If the target is already grappled, the target will be maimed as well, reducing damage by %d and global speed by 30%% for %d turns.
@@ -26551,7 +26550,7 @@ t([[Quickly reload your ammo by %d (depends on masteries and object bonuses).
 		装填弹药不会打破潜行。]], "tformat")
 t("Sweep", "拔刀斩", "talent name")
 t("You require two weapons to use this talent.", "你只有在双持状态下才能使用这个技能。", "logPlayer")
-t("You cannot use Sweep without dual wielding!", "你只有在双持状态下才能使用这个技能。", "logPlayer")
+t("You cannot use Sweep without dual wielding!", "你只有在双持状态下才能使用这个技能！", "logPlayer")
 t([[Attack your foes in a frontal arc, doing %d%% weapon damage and making your targets bleed for %d each turn for %d turns.
 		The bleed damage increases with your main hand weapon damage and Dexterity.]], [[对你正前方锥形范围的敌人造成 %d%% 武器伤害并使目标进入流血状态，每回合造成 %d 点伤害，持续 %d 回合。
 		流血伤害受主手武器伤害和敏捷加成。]], "tformat")
@@ -26585,7 +26584,7 @@ t([[You hit your target, doing %d%% damage. If your attack connects, the target 
 		The chance to land the status improves with Accuracy, and the status power improves with Cunning.]], [[你打击你的目标，造成 %d%% 伤害。如果你击中了目标，目标会被残废 %d 回合，降低 %d%% 战斗，法术和精神速度。
 		附加异常状态的几率受命中值提升，异常状态效果受灵巧值提升。]], "tformat")
 t("Nimble Movements", "灵巧移动", "talent name")
-t("@Source@ dashes quickly!", "@Source@快速移动!", "_t")
+t("@Source@ dashes quickly!", "@Source@快速移动！", "_t")
 t("You can not do that currently.", "目前你不能这样做。", "logPlayer")
 t("You cannot dash through that!", "你不能穿过去！", "logPlayer")
 t("Quickly and quietly dash your way to the target square, if it is not blocked by enemies or obstacles. This talent will not break Stealth.", "如果没有敌人或障碍物的阻挡，你可以快速而安静地冲向目标位置。这个技能不会打破潜行。", "tformat")
@@ -26627,7 +26626,7 @@ t([[You look at your surroundings with more intensity than most people, allowing
 		提升侦测潜行等级 %d 并提升侦测隐形等级 %d。
 		你的侦查强度受灵巧加成。]], "tformat")
 t("Precision", "弱点打击", "talent name")
-t("You cannot use Precision without dual wielding!", "你只有在双持状态下才能使用这个技能。", "logPlayer")
+t("You cannot use Precision without dual wielding!", "你只有在双持状态下才能使用这个技能！", "logPlayer")
 t([[You have learned to hit the right spot, increasing your armor penetration by %d when dual wielding.
 		The Armour penetration bonus will increase with your Dexterity.]], [[你已经学会打击弱点位置，双持时增加你 %d 点护甲穿透。
 		护甲穿透受敏捷值加成。]], "tformat")
@@ -26648,7 +26647,7 @@ t([[Attack your foes in a frontal arc with a roundhouse kick, which deals %0.2f 
 		伤害受物理强度加成。]], "tformat")
 t("Bone Nova", "白骨新星", "talent name")
 t([[Fire bone spears in all directions, hitting all foes within radius %d for %0.2f physical damage, and inflicting bleeding for another %0.2f damage over 5 turns.
-		The damage will increase with your Spellpower.]], [[向所有方向射出骨矛，对 %d 码范围内所有敌人造成 %0.2f 物理伤害,同时在 5 回合内造成 %0.2f 流血伤害。
+		The damage will increase with your Spellpower.]], [[向所有方向射出骨矛，对 %d 码范围内所有敌人造成 %0.2f 物理伤害，同时在 5 回合内造成 %0.2f 流血伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Shadow Ambush", "暗影伏击", "talent name")
 t("%s resists the shadow!", "%s抵抗了阴影！", "logSeen")
@@ -26656,7 +26655,7 @@ t([[You reach out with shadowy vines toward your target, pulling it to you and s
 		The chance to hit improves with your Accuracy.]], [[你向目标伸出暗影藤蔓，将其拉到身边，沉默 %d 回合并眩晕 2 回合。
 		命中概率随命中提高。]], "tformat")
 t("Ambuscade", "影分身", "talent name")
-t("Not enough space to invoke your shadow!", "没有足够的空间召唤阴影。", "logPlayer")
+t("Not enough space to invoke your shadow!", "没有足够的空间召唤阴影！", "logPlayer")
 t("Shadow of %s", "%s的影子", "tformat")
 t("A dark shadowy form in the shape of %s.", "一团黑暗的形体模仿了%s的形态。", "tformat")
 t([[You take full control of your own shadow for %d turns.
@@ -26755,7 +26754,7 @@ t([[Raise your shield into blocking position for 2 turns reducing all non-Mind d
 		每次格挡通常只能反击一个敌人。
 		如果有任何伤害被成功格挡，此效果将在回合开始时移除。
 		如果盾牌对格挡伤害类型有伤害抗性，则格挡值增加50%%。
-		
+
 		当前加成：%s%s%s%s]], "tformat")
 t("Bloom Heal", "夏花之愈", "talent name")
 t([[Call upon the power of nature to regenerate your body for %d life every turn for 6 turns.
@@ -26790,7 +26789,7 @@ t("Mental Refresh", "振作精神", "talent name")
 t("Reset up to 3 wild gift, psionic or cursed talents.", "刷新至多 3 个自然，灵能或诅咒系技能。", "tformat")
 t("Dagger Block", "匕首格挡", "talent name")
 t([[Raise your dagger into blocking position for one turn, reducing the damage of all physical melee attacks against you by %d. If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal attack will instead deal 200%% damage) for one turn and be left disarmed for 3 turns.
-		The blocking value will increase with your Dexterity and Cunning.]], [[ 举起你的匕首来格挡攻击一回合，减少所有物理伤害 %d 点。如果你完全格挡了一次攻击的伤害，攻击者将进入致命的被反击状态（对其进行的下一次武器攻击伤害增加到 200%% ）一回合并被缴械三回合。
+		The blocking value will increase with your Dexterity and Cunning.]], [[举起你的匕首来格挡攻击一回合，减少所有物理伤害 %d 点。如果你完全格挡了一次攻击的伤害，攻击者将进入致命的被反击状态（对其进行的下一次武器攻击伤害增加到 200%% ）一回合并被缴械三回合。
 		格挡值受敏捷值和灵巧值加成。]], "tformat")
 t("Shieldsmaiden Aura", "女武神之守护", "talent name")
 t("#CRIMSON#%s's shield deflects the blow!", "#CRIMSON#%s的盾牌让攻击发生了偏斜！", "logSeen")
@@ -26861,7 +26860,7 @@ t([[Thaloren are part of the wood; it shields them from corruption.
 		Increase disease immunity by %d%%, blight resistance by %0.1f%%, and all resistances by %0.1f%%.]], [[自然精灵是森林的一部分；森林保护他们免受腐化。
 		疾病免疫提高 %d%%，枯萎抗性提高 %0.1f%%，所有抗性提高 %0.1f%%。]], "tformat")
 t("Nature's Pride", "自然的骄傲", "talent name")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("treant", "树人", "_t")
 t("A very strong near-sentient tree.", "一棵非常强大、近乎拥有意识的树。", "_t")
 t([[Nature is with the Thaloren; they can always feel the call of the woods.
@@ -27079,7 +27078,7 @@ t([[Surround yourself with a forcefield, reducing all incoming damage by %d%%.
 		Such a shield is very expensive to maintain, draining 5%% of your maximum psi per turn initially plus an addition 5%% for each turn it has been maintained. For example, on turn 2 it will drain 10%%.
 		Current drain rate: %0.1f psi/turn]], [[用力场环绕自己，减少受到的所有伤害 %d%%
 		维持这样的护盾代价非常昂贵，开启的第一回合会消耗你 5%% 的灵能值，之后每维持一回合就会多消耗 5%% 的灵能值。例如，第二回合会消耗 10%% 的灵能值。
-		目前的灵能值消耗：每回合 %0.1f 灵能值 ]], "tformat")
+		目前的灵能值消耗：每回合 %0.1f 灵能值]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/psionic/augmented-mobility.lua"
@@ -27117,7 +27116,7 @@ t("%s resists the pin!", "%s抵抗了定身！", "logSeen")
 t([[Focus kinetic energy and strike an enemy for %d%% weapon damage as physical.
 		They will be pinned to the ground for %d turns by the force of this attack.
 		Any frozen creature hit by this attack will take an extra %0.2f physical damage.
-		The extra damage will scale with your Mindpower.]], [[聚焦动能打击敌人造成 %d%% 武器伤害 
+		The extra damage will scale with your Mindpower.]], [[聚焦动能打击敌人造成 %d%% 武器伤害
 		敌人将被这次攻击的力量定身 %d 回合。
 		任何处于冻结状态的目标受到额外 %0.2f 物理伤害。
 		额外伤害受精神强度加成。]], "tformat")
@@ -27197,7 +27196,7 @@ t([[Unleash your subconscious on the world around you.  While active, you fire u
 		This effect is a psionic channel, increasing the range of Mind Sear, Psychic Lobotomy, and Sunder Mind to 10 but will break if you move.
 		The damage will scale with your Mindpower.]], [[用你的潜意识渗透周围的环境。当此技能激活时，每回合你会射出 %d 个灵能值球造成 %0.2f 精神伤害（每个敌方单位只承受一次灵能值球攻击）。每个灵能值球消耗 5 点反馈值。
 		当获得的反馈值超出最大值时，你会产生额外的灵能值球（每超出 %d 反馈值产生 1 个灵能值球），但是每回合产生的额外灵能值球数量不会超过 %d。
-		此技能运用了灵能通道，所以当你移动时会中断此技能。		
+		此技能运用了灵能通道，所以当你移动时会中断此技能。
 		特别地，当你开启此技能时，心灵灼烧、心灵脑叶切除和碾碎心灵的攻击范围将变为10格。
 		受精神强度影响，伤害按比例加成。]], "tformat")
 t("Feedback Loop", "反馈循环", "talent name")
@@ -27258,7 +27257,7 @@ t([[Ravages the target with distortion, inflicting %0.2f physical damage each tu
 		受精神强度影响，伤害按比例加成。]], "tformat")
 t("Maelstrom", "灵能漩涡", "talent name")
 t("%s's maelstrom", "%s的灵能漩涡", "tformat")
-t("#Source# pulls #Target# in!", "#Source#将#Target#拉了进来!", "logCombat")
+t("#Source# pulls #Target# in!", "#Source#将#Target#拉了进来！", "logCombat")
 t([[Create a powerful maelstorm for %d turns.  Each turn, the maelstrom will pull in targets within a radius of %d, and inflict %0.2f physical damage.
 		This damage will distort affected targets, decreasing physical resistance by %d%% and rendering them vulnerable to distortion effects for two turns.
 		Investing in this talent will increase the physical resistance reduction from all of your distortion effects.
@@ -27271,8 +27270,8 @@ t([[Create a powerful maelstorm for %d turns.  Each turn, the maelstrom will pul
 section "mod-tome/data/talents/psionic/dream-forge.lua"
 
 t("Forge Shield", "熔炉屏障", "talent name")
-t("#ORANGE#%s forges a dream shield to block the attack!", "#ORANGE#%s 产生了一个梦境屏障来格挡攻击!", "logSeen")
-t("#ORANGE#%s's dream shield has been strengthened by the attack!", "#ORANGE#%s 的梦境屏障被攻击强化了!", "logSeen")
+t("#ORANGE#%s forges a dream shield to block the attack!", "#ORANGE#%s 产生了一个梦境屏障来格挡攻击！", "logSeen")
+t("#ORANGE#%s's dream shield has been strengthened by the attack!", "#ORANGE#%s 的梦境屏障被攻击强化了！", "logSeen")
 t([[When an attack would deal 15%% or more of your effective total health, you forge the Dream Shield to protect yourself, reducing the damage of all attacks of that type by %0.2f for the next %d turn(s).
 		You may block multiple damage types at one time, but the base damage threshold increases by 15%% per damage type the shield is already blocking.
 		If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal melee or ranged attack will instead deal 200%% damage) for one turn.
@@ -27304,7 +27303,7 @@ t([[The pounding forge of thought in your mind is released upon your surrounding
 		The damage and dream breaking effect will scale with your Mindpower.]], [[你将脑海里锻造的冲击波向四周释放。
 		每回合当你保持静止，你将会锤击梦之熔炉，对周围敌人造成精神和燃烧伤害。
 		此效果将递增 5 个回合，直至 %d 码最大范围， %0.2f 最大精神伤害和 %0.2f 最大燃烧伤害。
-		此刻，你将会打破那些听到熔炉声的敌人梦境，减少它们 %d 精神豁免，并且由于敲击熔炉的 
+		此刻，你将会打破那些听到熔炉声的敌人梦境，减少它们 %d 精神豁免，并且由于敲击熔炉的
 		巨大回声，它们将获得一个 %d%% 的法术失败率，持续 %d 回合。
 		梦境破碎有 %d%% 几率对你的敌人产生思维封锁效果。
 		受精神强度影响，伤害和梦境打破效果按比例加成。]], "tformat")
@@ -27334,7 +27333,7 @@ t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
 t([[Crush your enemy with your Dream Hammer, inflicting %d%% weapon damage.  If the attack hits, the target is stunned for %d turns.
 		Stun chance improves with your Mindpower.  Learning this talent increases your Physical Power for Dream Hammer damage calculations by %d and all damage with Dream Hammer attacks by %d%%.
 		]], [[用你的梦之巨锤碾碎敌人，造成 %d%% 武器伤害。如果攻击命中，则目标会被震慑 %d 回合。
-		震慑几率受精神强度加成 
+		震慑几率受精神强度加成
 		学习此技能会增加 %d 点你使用梦之巨锤时的物理强度，同时使梦之巨锤造成的所有伤害提升 %d%%。]], "tformat")
 t("Forge Echoes", "回音击", "talent name")
 t([[Strike an adjacent target with a mighty blow from the forge, inflicting %d%% weapon damage.  If the attack hits, the echo of the attack will lash out at all enemies in a %d radius of the impact.
@@ -27420,12 +27419,12 @@ t([[Matter is energy, as any good Mindslayer knows. Unfortunately, the various b
 		This talent consumes one gem and grants %d psi per turn for between 5 and 13 turns, depending on the quality of the gem used.
 		This process also creates a resonance field that provides the (imbued) effects of the gem to you while this effect lasts.]], [[任何优秀的心灵杀手都知道，物质就是能量。遗憾的是，大多数物质由于分子成分的复杂性无法转换。然而，宝石有序的晶体结构使得部分物质转化为能量成为可能。
 		这个技能消耗一个宝石，在 5~13 回合内，每回合获得 %d 灵能值，持续回合取决于所用的宝石品质。
-		在持续时间内同时获得一个共振领域提供宝石的效果 ]], "tformat")
+		在持续时间内同时获得一个共振领域提供宝石的效果]], "tformat")
 t("Resonant Focus", "共振聚焦", "talent name")
 t([[By carefully synchronizing your mind to the resonant frequencies of your psionic focus, you strengthen its effects.
 		For conventional weapons, this increases the percentage of your willpower and cunning that is used in place of strength and dexterity for all weapon attacks, from 60%% to %d%%.
 		For mindstars, this increases the chance to pull enemies to you by +%d%%.
-		For gems, this increases the bonus stats by %d.]], [[通过小心的同步你的精神和灵能聚焦的共振频率，强化灵能聚焦的效果 
+		For gems, this increases the bonus stats by %d.]], [[通过小心的同步你的精神和灵能聚焦的共振频率，强化灵能聚焦的效果
 		对于武器，提升你的意志和灵巧来代替力量和敏捷的百分比，从 60%% 到 %d%%.
 		对于灵晶，提升 %d%% 将敌人抓取过来的几率 .
 		对于宝石，提升 %d 额外全属性。]], "tformat")
@@ -27504,10 +27503,10 @@ t([[Build telekinetic power and dump it into an adjacent creature or yourself.
 
 		When used on yourself, you will launch in a straight line, knocking enemies flying and doing %0.1f Physical damage to each.
 		You can break through %d walls while doing this.
-		The damage and range increases with Mindpower.]], [[		使用你的念动力增强你的力量，使你能够举起一个相邻的敌人或者你自己并投掷到半径 %d 范围的任意位置。
+		The damage and range increases with Mindpower.]], [[使用你的念动力增强你的力量，使你能够举起一个相邻的敌人或者你自己并投掷到半径 %d 范围的任意位置。
 		敌人落地时受到 %0.1f 物理伤害，并被震慑 %d 回合。落点周边半径 2 格内的所有其他单位受到 %0.1f 物理伤害，并被击退至远离你的位置。
 		这个技能无视被投掷目标 %d%% 的击退抵抗，如果目标抵抗击退，只受到一半伤害。
-		
+
 		对你自己使用时，击退线路上所有目标并造成 %0.1f 物理伤害。
 		同时能破坏至多 %d 面墙壁。
 		伤害和投掷距离受精神强度加成。]], "tformat")
@@ -27620,8 +27619,8 @@ t([[Telekinetically grasp a weapon or gem using mentally-directed forces, holdin
 		Note: The normal restrictions on worn equipment do not apply to this item.]], [[使用你的精神力量，用念动力举起一件武器或宝石悬浮在空中，使它能够承受你的精神力量。
 		请注意：通常装备物品的一些限制不适用于这样装备的物品。]], "tformat")
 t("Beyond the Flesh", "超越肉体", "talent name")
-t("#Source#'s mindstar telekinetically grabs #target#!", "#Source#的灵晶念力抓取了#target#!", "logCombat")
-t("%s telekinetically grabs %s!", "%s念力抓取了%s!", "logSeen")
+t("#Source#'s mindstar telekinetically grabs #target#!", "#Source#的灵晶念力抓取了#target#！", "logCombat")
+t("%s telekinetically grabs %s!", "%s念力抓取了%s！", "logSeen")
 t("You require a telekinetically wielded weapon or gem for your psionic focus.", "你需要念力武器或者宝石来使用灵能聚焦", "logPlayer")
 t("%s's %s", "%s的%s", "tformat")
 t([[Allows you to wield a physical melee or ranged weapon, a mindstar or a gem telekinetically, gaining a special effect for each.
@@ -27636,7 +27635,7 @@ t([[Allows you to wield a physical melee or ranged weapon, a mindstar or a gem t
 		灵晶：一级材质时有 10% 几率抓取 3 格内的远处敌人；材质等级每提高一级，范围增加 1 格、几率增加 5%，并将其拉入近战范围。
 		物理近战武器：作为半独立实体，每回合自动攻击相邻敌人；远程武器：每当你发动远程攻击时，自动射击你的目标。
 		激活时，所有近战和远程攻击在计算命中与伤害时，分别以 60% 灵巧替代敏捷、以 60% 意志替代力量。
-		
+
 
 		]], "_t")
 t("The telekinetically-wielded gem grants you +%d stats.", "念动宝石增加你 %d 属性。", "tformat")
@@ -27649,7 +27648,7 @@ t([[The telekinetically-wielded ranged weapon uses Willpower in place of Strengt
 			APR: %d
 			Crit: %0.1f%%
 			Speed: %0.1f%%]], [[念动武器使用意志和灵巧来分别代替力量和敏捷以决定武器的攻击。
-			战斗属性： 
+			战斗属性：
 			范围： %d
 			命中： %d
 			伤害： %d
@@ -27663,7 +27662,7 @@ t([[The telekinetically-wielded weapon uses Willpower in place of Strength, and 
 			APR: %d
 			Crit: %0.2f
 			Speed: %0.2f]], [[念动武器使用意志和灵巧来分别代替力量和敏捷以决定武器的攻击。
-			战斗属性： 
+			战斗属性：
 			命中： %d
 			伤害： %d
 			护甲穿透： %d
@@ -27788,7 +27787,7 @@ t([[Assume a defensive mental state.
 		这个技能需要一把念动武器。]], "tformat")
 t("Impale", "灵能突刺", "talent name")
 t("You cannot do that without a weapon in your telekinetic slot.", "你不能在没有念力武器时这么做。", "logPlayer")
-t("#CRIMSON#%s shatters %s shield!", "#CRIMSON#%s粉碎了%s的护盾!", "logSeen")
+t("#CRIMSON#%s shatters %s shield!", "#CRIMSON#%s粉碎了%s的护盾！", "logSeen")
 t([[Focus your will into a powerful thrust of your telekinetically-wielded weapon to impale your target and then viciously rip it free.
 		This deals %d%% weapon damage and then causes the victim to bleed for %0.1f Physical damage over four turns.
 		At level 3 the thrust is so powerful that it has %d%% chance to shatter a random temporary magical or psionic damage absorbing shield if one exists.
@@ -27802,11 +27801,11 @@ section "mod-tome/data/talents/psionic/psionic.lua"
 
 t("psionic", "灵能", "talent category")
 t("absorption", "吸收", "talent type")
-t("Absorb damage and gain energy.", " 吸收伤害并获得能量。", "_t")
+t("Absorb damage and gain energy.", "吸收伤害并获得能量。", "_t")
 t("projection", "投射", "talent type")
-t("Project energy to damage foes.", " 使用能量摧毁目标。", "_t")
+t("Project energy to damage foes.", "使用能量摧毁目标。", "_t")
 t("psi-fighting", "灵能格斗", "talent type")
-t("Wield melee weapons with mentally-manipulated forces.", " 用意志力来控制近战武器。", "_t")
+t("Wield melee weapons with mentally-manipulated forces.", "用意志力来控制近战武器。", "_t")
 t("focus", "聚焦", "talent type")
 t("Use gems to focus your energies.", "利用宝石来集中能量。", "_t")
 t("augmented mobility", "强化移动", "talent type")
@@ -27814,11 +27813,11 @@ t("Use energy to move yourself and others.", "使用能量来移动你自己和�
 t("augmented striking", "强化打击", "talent type")
 t("Augment melee attacks with psionic enegies.", "使用灵能强化近战攻击。", "_t")
 t("voracity", "贪婪", "talent type")
-t("Pull energy from your surroundings.", " 从你周围吸收能量。", "_t")
+t("Pull energy from your surroundings.", "从你周围吸收能量。", "_t")
 t("finer energy manipulations", "能量操控", "talent type")
 t("Subtle applications of the psionic arts.", "灵能的精妙运用。", "_t")
 t("other", "其他", "talent type")
-t("Various psionic talents.", " 多种灵能技能。", "_t")
+t("Various psionic talents.", "多种灵能技能。", "_t")
 t("kinetic mastery", "动能掌握", "talent type")
 t("Mastery of telekinetic forces.", "掌握动能力量。", "_t")
 t("thermal mastery", "热能掌握", "talent type")
@@ -27828,25 +27827,25 @@ t("Mastery of electrokinetic forces.", "掌握电能力量。", "_t")
 t("discharge", "脉冲", "talent type")
 t("Project feedback on the world around you.", "向周围世界投射反馈能量。", "_t")
 t("distortion", "扭曲", "talent type")
-t("Distort reality with your mental energy.", " 使用你的精神力量扭曲现实。", "_t")
+t("Distort reality with your mental energy.", "使用你的精神力量扭曲现实。", "_t")
 t("Dream Smith", "梦境锻造", "talent type")
-t("Call the dream-forge hammer to smite your foes.", " 召唤梦之巨锤碾碎你的敌人。", "_t")
+t("Call the dream-forge hammer to smite your foes.", "召唤梦之巨锤碾碎你的敌人。", "_t")
 t("nightmare", "梦魇", "talent type")
-t("Manifest your enemies nightmares.", " 使你的敌人陷入噩梦。", "_t")
+t("Manifest your enemies nightmares.", "使你的敌人陷入噩梦。", "_t")
 t("Psychic Assault", "心灵突袭", "talent type")
-t("Directly attack your opponents minds.", " 直接攻击敌人的心灵。", "_t")
+t("Directly attack your opponents minds.", "直接攻击敌人的心灵。", "_t")
 t("slumber", "沉睡", "talent type")
-t("Force enemies into a deep sleep.", " 使敌人进入昏睡。", "_t")
+t("Force enemies into a deep sleep.", "使敌人进入昏睡。", "_t")
 t("solipsism", "唯我主义", "talent type")
-t("Nothing exists outside the minds ability to perceive it.", " 没有任何事物能逃脱精神力量的感知。", "_t")
+t("Nothing exists outside the minds ability to perceive it.", "没有任何事物能逃脱精神力量的感知。", "_t")
 t("Thought-Forms", "思维形态", "talent type")
-t("Manifest your thoughts as psionic summons.", " 使你的思维具象化形成灵能召唤术。", "_t")
+t("Manifest your thoughts as psionic summons.", "使你的思维具象化形成灵能召唤术。", "_t")
 t("Dream Forge", "梦之熔炉", "talent type")
 t("Master the dream forge to create powerful armor and effects.", "掌握梦之熔炉，创造强大的护甲和效果。", "_t")
 t("dreaming", "梦境", "talent type")
-t("Manipulate the sleep cycles of yourself and your enemies.", " 操纵你自己和敌人的睡眠。", "_t")
+t("Manipulate the sleep cycles of yourself and your enemies.", "操纵你自己和敌人的睡眠。", "_t")
 t("mentalism", "心灵术", "talent type")
-t("Various mind based effects.", " 许多精神系技能效果。", "_t")
+t("Various mind based effects.", "许多精神系技能效果。", "_t")
 t("feedback", "反馈", "talent type")
 t("Store feedback as you get damaged and use it to protect and heal your body.", "受伤时储存反馈值，并用它保护和治疗你的身体。", "_t")
 t("trance", "入定", "talent type")
@@ -27926,7 +27925,7 @@ t([[You believe that your mind is the center of everything.  Permanently increas
 		The first talent point also increases your solipsism threshold by 20%% (currently %d%%), reducing your global speed by 1%% for each percentage your current Psi falls below this threshold.]], [[你相信你的心灵是世间万物的中心。
 		每级永久性增加你 5 点灵能值，并减少你 50%% 的生命成长（影响升级时的生命增益，但只在学习此技能时永久影响一次）
 		同时你学会用心灵来承受伤害，转化 %d%% 生命削减为灵能值削减，并且 %d%% 的治疗值和回复值会转化为灵能值的增长。
-		转化成的灵能值削减将进一步被减少 %0.1f%% （ %0.1f%% 来自于人物等级， %0.1f%% 来自于技能等级。） 
+		转化成的灵能值削减将进一步被减少 %0.1f%% （ %0.1f%% 来自于人物等级， %0.1f%% 来自于技能等级。）
 		学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。
 		学习此技能时，你的唯我临界点会增加 20 %%（当前 %d%% ），你的灵能值每低于这个临界点 1 %%，你的所有速度减少 1 %%。]], "tformat")
 t("Balance", "唯我论：均衡", "talent name")
@@ -27940,7 +27939,7 @@ t([[For every percent that your Psi pool exceeds %d%%, you gain 1%% global speed
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25 and will increase your solipsism threshold by 10%% (currently %d%%).]], [[当你的灵能值超过 %d%% 时，每超过 1%% 你增加 1%% 全局速度（最大值 %+d%% ）。
 		学习此技能时，每点意志使灵能值上限额外增加 0.5 点，每点体质使生命上限减少 0.25 点，并增加 10%% 唯我临界点（当前 %d%% ）。]], "tformat")
 t("Dismissal", "唯我论：豁免", "talent name")
-t("#TAN##Source# mentally dismisses some damage!", "#TAN##Source#精神上豁免了部分伤害!", "delayedLogMessage")
+t("#TAN##Source# mentally dismisses some damage!", "#TAN##Source#精神上豁免了部分伤害！", "delayedLogMessage")
 t("#TAN#(%d dismissed)#LAST#", "#TAN#（豁免 %d 点伤害）#LAST#", "tformat")
 t([[Each time you take damage, you roll %d%% of your mental save against it.  A successful saving throw can crit and will reduce the damage by at least 50%%.
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.
@@ -28010,7 +28009,7 @@ section "mod-tome/data/talents/psionic/thought-forms.lua"
 
 t("thought-form", "精神体", "_t")
 t("Thought-Form: Bowman", "思维形态：弓箭手", "talent name")
-t("Not enough space to summon!", "没有足够的空间召唤。", "logPlayer")
+t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("thought-forged bowman", "精神体弓箭手", "_t")
 t("A thought-forged bowman.  It appears ready for battle.", "一位身穿皮甲的精神体弓箭手。他时刻准备着战斗。", "_t")
 t([[Forge a bowman, clad in leather armor, from your thoughts.  The bowman learns Bow Mastery, Combat Accuracy, Steady Shot, Crippling Shot, and Rapid Shot as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
@@ -28040,8 +28039,8 @@ t([[Forge a guardian from your thoughts alone.  Your guardian's primary stat wil
 		Thought forms can only be maintained up to a range of %d, and will rematerialize next to you if this range is exceeded.
 		Only one thought-form may be active at a time, and the stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位强大的守护者。
 		你的守护者主属性会增加 %d ，他的两项副属性会增加 %d ，同时他的魔力、灵巧和意志属性等同于你的属性值。
-		在等级 1 时，你会召唤出身着皮甲的弓箭手大师； 
-		在等级 3 时，你会召唤出手持双手武器的精英狂战士； 
+		在等级 1 时，你会召唤出身着皮甲的弓箭手大师；
+		在等级 3 时，你会召唤出手持双手武器的精英狂战士；
 		在等级 5 时，你会召唤出手持剑盾的精英盾战士。
 		精神体只能存在于 %d 码范围内，若超出此范围，则精神体会回到你身边。
 		同一时间只能维持一种思维形态。
@@ -28142,7 +28141,7 @@ t([[While Acid Infusion is active, your bombs coat your golem in acid for %d tur
 t("Caustic Mire", "腐蚀之地", "talent name")
 t([[A radius %d pool of acid spawns at the target location, doing %0.1f Acid damage each turn for %d turns.
 		All creatures caught in the mire will also suffer a %d%% slowness effect.
-		The damage will increase with your Spellpower.]], [[ 一小块酸液覆盖了目标地面，散落在半径 %d 的范围内，每回合造成 %0.1f 点酸性伤害，持续 %d 回合。
+		The damage will increase with your Spellpower.]], [[一小块酸液覆盖了目标地面，散落在半径 %d 的范围内，每回合造成 %0.1f 点酸性伤害，持续 %d 回合。
 		受影响的生物同时会减速 %d%%。
 		伤害受法术强度加成。]], "tformat")
 t("Dissolving Acid", "酸液溶解", "talent name")
@@ -28342,7 +28341,7 @@ t([[Each time you or your undead minions deal damage to a creature you apply Sou
 		%s- 史诗：最多每 %d 回合偷取一个灵魂
 		%s- Boss：最多每 %d 回合偷取一个灵魂
 		%s- 精英Boss：最多每 %d 回合偷取一个灵魂#WHITE#
-		
+
 		此外，增加你的最大灵魂储量 %d。
 		]], "tformat")
 t("Consume Soul", "消耗灵魂", "talent name")
@@ -28417,9 +28416,9 @@ section "mod-tome/data/talents/spells/conveyance.lua"
 
 t("Phase Door", "相位之门", "talent name")
 t("Select a target to teleport...", "选择目标传送...", "logPlayer")
-t("The spell fizzles!", "法术失败了!", "logSeen")
+t("The spell fizzles!", "法术失败了！", "logSeen")
 t("Select a teleport location...", "选择传送位置...", "logPlayer")
-t("The targeted phase door fizzles and works randomly!", "相位之门定位失败了，变为随机传送!", "logPlayer")
+t("The targeted phase door fizzles and works randomly!", "相位之门定位失败了，变为随机传送！", "logPlayer")
 t([[Teleports you randomly within a small range of up to %d grids.
 		At level 4, it allows you to specify which creature to teleport.
 		At level 5, it allows you to choose the target area (radius %d).
@@ -28430,7 +28429,7 @@ t([[Teleports you randomly within a small range of up to %d grids.
 		如果目标位置不在你的视线里，则法术有可能失败，变为随机传送。
 		影响范围受法术强度加成。]], "tformat")
 t("Teleport", "传送", "talent name")
-t("The targetted teleport fizzles and works randomly!", "传送定位失败了，变为随机传送!", "logPlayer")
+t("The targetted teleport fizzles and works randomly!", "传送定位失败了，变为随机传送！", "logPlayer")
 t([[Teleports you randomly within a large range (%d).
 		At level 4, it allows you to specify which creature to teleport.
 		At level 5, it allows you to choose the target area (radius %d).
@@ -28641,7 +28640,7 @@ t([[Entomb yourself in a wall of stone for %d turns.
 section "mod-tome/data/talents/spells/eldritch-shield.lua"
 
 t("Eldritch Blow", "奥术盾击", "talent name")
-t("You cannot use Eldritch Blow without a shield!", "没有盾牌，无法使用奥术盾击!", "logPlayer")
+t("You cannot use Eldritch Blow without a shield!", "没有盾牌，无法使用奥术盾击！", "logPlayer")
 t("%s resists the stun!", "%s抵抗了震慑！", "logSeen")
 t([[Channel eldritch forces into a melee attack, hitting the target with your weapon and shield for %d%% arcane damage.
 		If either attack hits, the target will be stunned for %d turns and you automatically Block.
@@ -28661,7 +28660,7 @@ t([[Imbues your shields with arcane power, dealing %0.2f arcane damage with each
 		伤害受法术强度加成。]], "tformat")
 t("Eldritch Fury", "奥术连击", "talent name")
 t("You cannot use Eldricth Fury without a shield!", "必须装备一面盾牌！", "logPlayer")
-t("%s resists the dazing blows!", "%s抵抗了眩晕打击!", "logSeen")
+t("%s resists the dazing blows!", "%s抵抗了眩晕打击！", "logSeen")
 t([[Channel eldritch forces into a ferocious melee attack, hitting the target three times with your shields doing %d%% Nature damage.
 		If any of the attacks hit, the target will be dazed for %d turns and your Block cooldown is reset.
 		The chance for the attack to daze increases with you Physical Power, but it is considered a magical attack and thus is resisted with spell save, rather than physical save.]], [[调用奥术能量，激发近战攻击，用盾牌攻击目标三次，造成 %d%% 自然武器伤害。
@@ -28681,7 +28680,7 @@ t([[Slam your shield on the ground creating a shockwave.
 section "mod-tome/data/talents/spells/eldritch-stone.lua"
 
 t("Stone Spikes", "岩石尖刺", "talent name")
-t("poisoned for %0.1f Nature damage over 6 turns (%d%% healing reduction)", "中毒 6 回合受到合计 %0.1f 点自然伤害（同时减少 %d%% 治疗效果） ", "tformat")
+t("poisoned for %0.1f Nature damage over 6 turns (%d%% healing reduction)", "中毒 6 回合受到合计 %0.1f 点自然伤害（同时减少 %d%% 治疗效果）", "tformat")
 t(", blasted for %0.1f Arcane damage (and silenced for %d turns),", ", 受到 %0.1f 点奥术伤害（同时沉默 %d 回合）,", "tformat")
 t(" impaled for %0.1f Physical damage (and disarmed for %d turns),", " 受到 %0.1f 点物理伤害（同时缴械 %d 回合）,", "tformat")
 t([[Stony spikes erupt from the ground in a radius %d cone.
@@ -28713,15 +28712,15 @@ t([[When you throw your alchemist bombs, you infuse them with lightning damage t
 		此外，你造成的所有闪电伤害提高 %d%%。
 		同一时间只能激活一种炼金充能持续技能。]], "tformat")
 t("Dynamic Recharge", "动态充能", "talent name")
-t("%s is energized by the attack, reducing some talent cooldowns!", "%s被这次攻击充能，减少了部分技能冷却时间。", "logSeen")
+t("%s is energized by the attack, reducing some talent cooldowns!", "%s被这次攻击充能，减少了部分技能冷却时间！", "logSeen")
 t([[While Lightning Infusion is active, your bombs energize your golem.
-		All talents on cooldown on your golem have %d%% chance to be reduced by %d.]], [[ 当闪电充能开启时，你的炸弹会给傀儡充能。
+		All talents on cooldown on your golem have %d%% chance to be reduced by %d.]], [[当闪电充能开启时，你的炸弹会给傀儡充能。
 		你的傀儡的所有冷却中技能有 %d%% 概率减少 %d 回合冷却时间。]], "tformat")
 t("Thunderclap", "闪电霹雳", "talent name")
 t("You need to ready alchemist gems in your quiver.", "你需要在箭袋中装填炼金宝石。", "logPlayer")
 t([[By crushing an alchemist gem you generate a thunderclap in a cone of radius %d dealing %0.2f physical damage and %0.2f lightning damage.
 		All creatures caught inside are knocked back and disarmed for %d turns.
-		The duration and damage will increase with your Spellpower.]], [[ 粉碎一颗炼金宝石，制造一次闪电霹雳，在半径 %d 的锥形区域内造成 %0.2f 点物理伤害和 %0.2f 点闪电伤害。
+		The duration and damage will increase with your Spellpower.]], [[粉碎一颗炼金宝石，制造一次闪电霹雳，在半径 %d 的锥形区域内造成 %0.2f 点物理伤害和 %0.2f 点闪电伤害。
 		范围内的生物将会被击退并被缴械 %d 回合。
 		伤害和持续时间受法术强度加成。]], "tformat")
 t("Living Lightning", "闪电之体", "talent name")
@@ -28731,7 +28730,7 @@ t([[Infuse your body with lightning energy, bolstering your movement speed by +%
 		Each turn, a foe within range %d will be struck by lightning and be dealt %0.1f Lightning damage.
 		In addition, damage to your health will energize you.
 		At the start of each turn in which you have lost at least %d life (20%% of your maximum life) since your last turn, you will gain %d%% of a turn.
-		The effects increase with your Spellpower.]], [[ 将闪电能量填充到身体中，增加 %d%% 移动速度。
+		The effects increase with your Spellpower.]], [[将闪电能量填充到身体中，增加 %d%% 移动速度。
 		每回合半径 %d 内的一个生物将会被闪电击中，造成 %0.1f 点闪电伤害。
 		另外，对你的伤害会激活你。
 		每次你的回合开始时，如果自从上个回合结束你受到至少 %d 点伤害（20%% 最大生命值），你将获得 %d%% 个额外回合。
@@ -28900,13 +28899,13 @@ t([[While Frost Infusion is active, your bombs deposit a layer of ice on your go
 t("Flash Freeze", "极速冻结", "talent name")
 t([[Invoke a blast of cold all around you with a radius of %d, doing %0.1f Cold damage and freezing creatures to the ground for %d turns.
 		Affected creatures can still act, but cannot move.
-		The duration will increase with your Spellpower.]], [[ 在半径 %d 的范围内激发寒冰能量，造成 %0.1f 点寒冷伤害，同时将周围的生物冻结在地面上 %d 个回合。
+		The duration will increase with your Spellpower.]], [[在半径 %d 的范围内激发寒冰能量，造成 %0.1f 点寒冷伤害，同时将周围的生物冻结在地面上 %d 个回合。
 		受影响的生物能够行动，但不能移动。
 		持续时间受法术强度加成。]], "tformat")
 t("Ice Core", "冰霜之躯", "talent name")
 t([[Turn your body into pure ice, increasing your Cold damage affinity by %d%% and your physical resistance by %d%%.
 		You have a %d%% chance to shrug off all direct critical hits (physical, mental, spell).
-		The effects increase with your Spellpower.]], [[ 将你的身体转化为纯净的寒冰体，你受到的寒冰伤害的 %d%% 会治疗你，同时你的物理抗性增加 %d%%。
+		The effects increase with your Spellpower.]], [[将你的身体转化为纯净的寒冰体，你受到的寒冰伤害的 %d%% 会治疗你，同时你的物理抗性增加 %d%%。
 		你有 %d%% 几率摆脱暴击伤害（物理，精神，法术）。
 		效果受法术强度加成。]], "tformat")
 
@@ -28990,7 +28989,7 @@ t([[Your golem's skin shimmers with eldritch energies.
 		傀儡仍然受到全部伤害。
 		伤害反射值受傀儡的法术强度加成。]], "tformat")
 t("Arcane Pull", "奥术牵引", "talent name")
-t("#Target# is pulled toward #Source#!", "#Target#被拉向#Source#!", "logCombat")
+t("#Target# is pulled toward #Source#!", "#Target#被拉向#Source#！", "logCombat")
 t("Your golem pulls all foes within radius %d toward itself while dealing %0.2f arcane damage.", "你的傀儡将 %d 码范围内的敌人牵引至身边，并造成 %0.2f 奥术伤害。", "tformat")
 t("Molten Skin", "炽热皮肤", "talent name")
 t([[Turns the golem's skin into molten rock. The heat generated sets ablaze everything inside a radius of 3, doing %0.2f fire damage in 3 turns for %d turns.
@@ -29015,7 +29014,7 @@ t([[The golem automatically reconfigures heavy mail and massive armours designed
 t("Poison Breath", "毒性吐息", "talent name")
 t("@Source@ breathes poison!", "@Source@呼出毒素！", "_t")
 t([[Breathe poison on your foes, doing %d damage over a few turns.
-		The damage will increase with your Magic.]], " 对你的敌人喷吐毒雾，在几个回合内造成 %d 点伤害。伤害受魔力值加成。", "tformat")
+		The damage will increase with your Magic.]], "对你的敌人喷吐毒雾，在几个回合内造成 %d 点伤害。伤害受魔力值加成。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/golemancy.lua"
@@ -29093,7 +29092,7 @@ t([[You summon a corpselight that radiates cold for 7 turns in radius %d.
 		如果在生命值为 1 以下时使用技能，鬼火初始强度为 3 层。
 		伤害受法术强度加成。]], "tformat")
 t("Grave Mistake", "墓光之灾", "talent name")
-t("#STEEL_BLUE#The corpselight implodes!", "#STEEL_BLUE#鬼火爆炸了!", "logSeen")
+t("#STEEL_BLUE#The corpselight implodes!", "#STEEL_BLUE#鬼火爆炸了！", "logSeen")
 t([[Upon expiring the corpselight implodes, pulling in all foes towards its center and dealing %0.2f cold damage.
 		The damage is increased by +10%% per stack.
 		The damage will increase with your Spellpower.
@@ -29431,7 +29430,7 @@ section "mod-tome/data/talents/spells/phantasm.lua"
 t("Illuminate", "照明术", "talent name")
 t([[Creates a globe of pure light within a radius of %d that illuminates the area and deals %0.2f damage to all creatures.
 		At level 3, it also blinds all who see it (except the caster) for %d turns.]], [[制造一个发光的球体，照亮 %d 码半径范围区域，并对所有生物造成 %0.2f 点光系伤害。
-		在等级 3 时，它同时可以致盲看到它的人（施法者除外） %d 回合。 ]], "tformat")
+		在等级 3 时，它同时可以致盲看到它的人（施法者除外） %d 回合。]], "tformat")
 t("Phantasmal Shield", "幻象护盾", "talent name")
 t("#YELLOW#(%d ignored)#LAST#", "#YELLOW#(%d 无视)#LAST#", "tformat")
 t([[Surround yourself with a phantasmal shield of pure light.
@@ -29513,7 +29512,7 @@ section "mod-tome/data/talents/spells/spectre.lua"
 
 t("Ghost Walk", "游魂行走", "talent name")
 t("You do not have line of sight.", "你没有视线", "logPlayer")
-t("%s's ghost walk fizzles!", "%s的游魂行走失败了!", "logSeen")
+t("%s's ghost walk fizzles!", "%s的游魂行走失败了！", "logSeen")
 t([[Taking on a spectral form, you teleport to the target tile within range %d. 
 		For 3 turns after using this spell, you gain the ability to instantly teleport back to your original tile as long as you are within range of it.]], [[你进入游魂形态，传送到半径 %d 码内的目标位置。
 		在使用这一法术后的 3 回合内，只要你还在法术的适用范围内，你可以随时瞬间传送回原地点。]], "tformat")
@@ -29533,52 +29532,52 @@ section "mod-tome/data/talents/spells/spells.lua"
 
 t("spell", "法术", "talent category")
 t("arcane", "奥术", "talent type")
-t("Arcane studies manipulate the raw magic energies to shape them into both offensive and defensive spells.", " 用奥术操控魔法源能量，使你能用此能量进行攻击和防御。", "_t")
+t("Arcane studies manipulate the raw magic energies to shape them into both offensive and defensive spells.", "用奥术操控魔法源能量，使你能用此能量进行攻击和防御。", "_t")
 t("aether", "以太", "talent type")
-t("Tap on the core arcane forces of the aether, unleashing devastating effects on your foes.", " 释放以太的核心力量，将敌人毁灭。", "_t")
+t("Tap on the core arcane forces of the aether, unleashing devastating effects on your foes.", "释放以太的核心力量，将敌人毁灭。", "_t")
 t("fire", "火焰", "talent type")
-t("Harness the power of fire to burn your foes to ashes.", " 使用火的威力将你的目标烧成灰烬。", "_t")
+t("Harness the power of fire to burn your foes to ashes.", "使用火的威力将你的目标烧成灰烬。", "_t")
 t("wildfire", "焱", "talent type")
-t("Harness the power of wildfire to burn your foes to ashes.", " 使用野火的威力将你的目标烧成灰烬。", "_t")
+t("Harness the power of wildfire to burn your foes to ashes.", "使用野火的威力将你的目标烧成灰烬。", "_t")
 t("earth", "土", "talent type")
-t("Harness the power of the earth to protect and destroy.", " 使用土的力量进行攻击和防御。", "_t")
+t("Harness the power of the earth to protect and destroy.", "使用土的力量进行攻击和防御。", "_t")
 t("stone", "石", "talent type")
-t("Harness the power of the stone to protect and destroy.", " 使用石的力量进行攻击和防御。", "_t")
+t("Harness the power of the stone to protect and destroy.", "使用石的力量进行攻击和防御。", "_t")
 t("water", "水", "talent type")
-t("Harness the power of water to drown your foes.", " 使用水的力量淹死目标。", "_t")
+t("Harness the power of water to drown your foes.", "使用水的力量淹死目标。", "_t")
 t("ice", "寒冰", "talent type")
-t("Harness the power of ice to freeze and shatter your foes.", " 使用冰的力量冰冻并粉碎你的目标。", "_t")
+t("Harness the power of ice to freeze and shatter your foes.", "使用冰的力量冰冻并粉碎你的目标。", "_t")
 t("air", "大气", "talent type")
-t("Harness the power of the air to fry your foes.", " 操纵大气的力量轰击你的目标。", "_t")
+t("Harness the power of the air to fry your foes.", "操纵大气的力量轰击你的目标。", "_t")
 t("storm", "风暴", "talent type")
-t("Harness the power of the storm to incinerate your foes.", " 使用风暴的力量打击你的目标。", "_t")
+t("Harness the power of the storm to incinerate your foes.", "使用风暴的力量打击你的目标。", "_t")
 t("meta", "超魔", "talent type")
-t("Meta spells alter the working of magic itself.", " 超魔系法术能改变魔法的效能。", "_t")
+t("Meta spells alter the working of magic itself.", "超魔系法术能改变魔法的效能。", "_t")
 t("temporal", "时空", "talent type")
-t("The school of time manipulation.", " 学习操控时间。", "_t")
+t("The school of time manipulation.", "学习操控时间。", "_t")
 t("phantasm", "幻术", "talent type")
-t("Control the power of tricks and illusions.", " 制造错觉来混乱敌人的战术。", "_t")
+t("Control the power of tricks and illusions.", "制造错觉来混乱敌人的战术。", "_t")
 t("enhancement", "附魔", "talent type")
-t("Magical enhancement of your body.", " 用魔法强化你的身体。", "_t")
+t("Magical enhancement of your body.", "用魔法强化你的身体。", "_t")
 t("thaumaturgy", "奇术", "talent type")
 t("The pinacle of spellcasting.", "施放法术的巅峰", "_t")
 t("conveyance", "传送", "talent type")
-t("Conveyance is the school of travel. It allows you to travel faster and to track others.", " 学习传送，使你能更快的旅行或者追踪目标。", "_t")
+t("Conveyance is the school of travel. It allows you to travel faster and to track others.", "学习传送，使你能更快的旅行或者追踪目标。", "_t")
 t("divination", "侦查", "talent type")
-t("Divination allows the caster to sense its surroundings, and find hidden things.", " 侦查技能可以使施放者能侦查周围环境，搜寻隐藏的东西。", "_t")
+t("Divination allows the caster to sense its surroundings, and find hidden things.", "侦查技能可以使施放者能侦查周围环境，搜寻隐藏的东西。", "_t")
 t("aegis", "防护", "talent type")
-t("Command the arcane forces into healing and protection.", " 使用奥术力量进行治疗和防御。", "_t")
+t("Command the arcane forces into healing and protection.", "使用奥术力量进行治疗和防御。", "_t")
 t("explosive admixtures", "爆炸", "talent type")
-t("Manipulate gems to turn them into explosive magical bombs.", " 用宝石制造各种魔法炸弹。", "_t")
+t("Manipulate gems to turn them into explosive magical bombs.", "用宝石制造各种魔法炸弹。", "_t")
 t("infusion", "充能", "talent type")
 t("Infusion your gem bombs with the powers of the elements.", "使用元素的力量强化你的炼金炸弹。", "_t")
 t("golemancy", "傀儡", "talent type")
-t("Learn to craft and upgrade your golem.", " 学习制造并提升你的傀儡。", "_t")
+t("Learn to craft and upgrade your golem.", "学习制造并提升你的傀儡。", "_t")
 t("advanced-golemancy", "高级傀儡", "talent type")
-t("Advanced golem operations.", " 高级傀儡操纵技巧。", "_t")
+t("Advanced golem operations.", "高级傀儡操纵技巧。", "_t")
 t("fire alchemy", "火焰炼金", "talent type")
 t("Alchemical spells designed to wage war.", "用于战争的炼金术。", "_t")
-t("Alchemical control over fire.", " 操控火焰的炼金法术。", "_t")
+t("Alchemical control over fire.", "操控火焰的炼金法术。", "_t")
 t("acid alchemy", "酸性炼金", "talent type")
 t("Alchemical control over acid.", "操控酸液的炼金法术。", "_t")
 t("frost alchemy", "冰霜炼金", "talent type")
@@ -29652,12 +29651,12 @@ t("Increases weapon damage by %d%% and physical power by 30 when using staves.",
 t("Defensive Posture", "闪避姿态", "talent name")
 t("Adopt a defensive posture, increasing your Defense and Armour by %d.", "采取闪避姿态，增加你 %d 点闪避和护甲值。", "tformat")
 t("Blunt Thrust", "钝器挥击", "talent name")
-t("You cannot use Blunt Thrust without a staff weapon!", "你需要一把法杖来施展该技能。", "logPlayer")
+t("You cannot use Blunt Thrust without a staff weapon!", "你需要一把法杖来施展该技能！", "logPlayer")
 t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
 t([[Hit a target for %d%% melee damage and stun it for %d turns.
 		Stun chance will improve with Spellpower.
 		At level 5, this attack cannot miss.]], [[挥动法杖对目标造成 %d%% 近程伤害并震慑目标 %d 回合。
-		震慑概率受法术强度加成 
+		震慑概率受法术强度加成
 		在等级 5 时，此攻击必中。]], "tformat")
 
 ------------------------------------------------
@@ -29716,7 +29715,7 @@ t([[You root yourself into the earth, and transform your flesh into stone.  Whil
 		* Grants %d%% Fire Resistance, %d%% Lightning Resistance, %d%% Acid Resistance, and %d%% Stun Resistance.
 		Resistances scale with your Spellpower.]], [[你将自己扎根于土壤并使你的肉体融入石头。
 		当此技能被激活时你不能移动并且任何移动会打断此技能效果。
-		当此技能激活时，受你的石化形态和土壤相关影响，会产生以下效果： 
+		当此技能激活时，受你的石化形态和土壤相关影响，会产生以下效果：
 		* 减少岩石飞弹、粉碎钻击、地震和山崩地裂冷却时间回合数： %d%%
 		* 获得 %d%% 火焰抗性， %d%% 闪电抗性， %d%% 酸性抗性和 %d%% 震慑抵抗。
 		受法术强度影响，抗性按比例加成。]], "tformat")
@@ -29763,14 +29762,14 @@ t([[This intricate spell instantly erects a time shield around the caster, preve
 		Once either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal restoration field over time (5 turns).
 		Each turn the restoration field is active, you get healed for 10%% of the absorbed damage (Aegis Shielding talent affects the percentage).
 		The shield's max absorption will increase with your Spellpower.]], [[这个复杂的法术在施法者周围立刻制造一个时间屏障，吸收你受到的伤害。
-		一旦达到最大伤害吸收值（ %d ）或持续时间（ %d 回合）结束，存储的能量会治疗你，持续 5 回合，每回合回复总吸收伤害的 10%% ( 强化护盾技能会影响该系数 )。  
+		一旦达到最大伤害吸收值（ %d ）或持续时间（ %d 回合）结束，存储的能量会治疗你，持续 5 回合，每回合回复总吸收伤害的 10%% ( 强化护盾技能会影响该系数 )。
 		最大吸收值受法术强度加成。]], "tformat")
 t("Time Prison", "时光牢笼", "talent name")
 t([[Removes the target from the flow of time for %d turns. In this state, the target can neither act nor be harmed.
 		Time does not pass at all for the target, no talents will cooldown, no resources will regen, and so forth.
 		The duration will increase with your Spellpower.]], [[将目标从时光的流动中移出，持续 %d 回合。
 		在此状态下，目标不能动作也不能被伤害。
-		对于目标来说，时间是静止的，技能无法冷却，也没有能量回复…… 
+		对于目标来说，时间是静止的，技能无法冷却，也没有能量回复……
 		持续时间受法术强度加成。]], "tformat")
 t("Essence of Speed", "时间加速", "talent name")
 t("Increases the caster's global speed by %d%%.", "使施法者的全局速度提高 %d%%。", "tformat")
@@ -29859,7 +29858,7 @@ t([[Glacial fumes rise from the ground, doing %0.2f cold damage in a radius of 3
 		处于湿润状态的生物承受额外 30%% 伤害，并有 15%% 几率被冻结。
 		伤害受法术强度加成。]], "tformat")
 t("Tidal Wave", "潮汐", "talent name")
-t("A #LIGHT_BLUE#wave of icy water#LAST# erupts from the ground!", "一股 #LIGHT_BLUE#冰冷的水流#LAST# 从地面上涌现!", "logSeen")
+t("A #LIGHT_BLUE#wave of icy water#LAST# erupts from the ground!", "一股 #LIGHT_BLUE#冰冷的水流#LAST# 从地面上涌现！", "logSeen")
 t([[A wall of water rushes out from the caster with an initial radius of 1, increasing by 1 per turn to a maximum radius of %d, doing %0.2f cold damage and %0.2f physical damage to all inside, as well as knocking back targets each turn.
 		The tidal wave lasts for %d turns.
 		All creatures hit gain the wet effect, which reduces their stun/freeze immunity by half and interacts with other cold spells.
@@ -29926,7 +29925,7 @@ t("Fearless Cleave", "无畏跳斩", "talent name")
 t("You must be able to move to use this talent.", "你必须处于可以移动的状态才能使用该技能。", "logPlayer")
 t("Take a step toward your foes then use the momentum to cleave all creatures adjacent to you for %d%% weapon damage.", "向前跳一步，用这股力量对周围的目标造成 %d%% 武器伤害。", "tformat")
 t("Death Dance", "死亡之舞", "talent name")
-t("You cannot use Death Dance without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
+t("You cannot use Death Dance without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能！", "logPlayer")
 t([[Spin around, extending your weapon in radius %d and damaging all targets around you for %d%% weapon damage.
 		At level 3 all damage done will also make the targets bleed for an additional %d%% damage over 5 turns]], [[原地旋转，伸展你的武器，伤害你周围半径 %d 范围内的所有目标，造成 %d%% 武器伤害。
 		等级 3 时，所造成的伤害会引发额外 %d%% 流血伤害，持续 5 回合。]], "tformat")
@@ -29943,23 +29942,23 @@ section "mod-tome/data/talents/techniques/2hweapon.lua"
 
 t("Death Dance", "死亡之舞", "talent name")
 t("You require a two handed weapon to use this talent.", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
-t("You cannot use Death Dance without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
+t("You cannot use Death Dance without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能！", "logPlayer")
 t("Spin around, extending your weapon and damaging all targets around you for %d%% weapon damage.", "原地旋转，伸展你的武器，伤害你周围所有的目标，造成 %d%% 武器伤害。", "tformat")
 t("Berserker", "狂战士", "talent name")
-t("You cannot use Berserker without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
+t("You cannot use Berserker without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能！", "logPlayer")
 t([[You enter an aggressive battle stance, increasing Accuracy by %d and Physical Power by %d, at the cost of -10 Defense and -10 Armour.
 		While berserking, you are nearly unstoppable, granting you %d%% stun and pinning resistance.
 		The Accuracy bonus increases with your Dexterity, and the Physical Power bonus with your Strength.]], [[进入狂暴的战斗状态，以减少 10 点闪避和 10 点护甲的代价增加 %d 点命中和 %d 点物理强度。
 		开启狂暴时你无人能挡，增加 %d%% 震慑和定身抵抗。
-		命中受敏捷值加成； 
+		命中受敏捷值加成；
 		物理强度受力量值加成。]], "tformat")
 t("Warshout", "战争怒吼", "talent name")
 t("@Source@ uses Warsqueak.", "@Source@发出吱吱的战吼.", "_t")
 t("@Source@ uses Warshout.", "@Source@发出战吼.", "_t")
-t("You cannot use Warshout without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
+t("You cannot use Warshout without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能！", "logPlayer")
 t("Shout your warcry in a frontal cone of radius %d. Any targets caught inside will be confused (power %d%%) for %d turns.", "向前方半径 %d 格的锥形区域发出战吼。范围内的所有目标将陷入混乱（强度 %d%%），持续 %d 回合。", "tformat")
 t("Death Blow", "致命打击", "talent name")
-t("You cannot use Death Blow without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
+t("You cannot use Death Blow without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能！", "logPlayer")
 t("%s feels the pain of the death blow!", "%s 感受到了死亡一击的疼痛！", "logSeen")
 t("%s resists the death blow!", "%s抵抗了死亡一击！", "logSeen")
 t([[Tries to perform a killing blow, doing %d%% weapon damage and dealing an automatic critical hit. If the target ends up with low enough life (<20%%), it might be instantly killed.
@@ -29969,26 +29968,26 @@ t([[Tries to perform a killing blow, doing %d%% weapon damage and dealing an aut
 		在等级 4 时会消耗剩余的耐力值的一半并增加 100%% 所消耗耐力值的伤害。
 		目标即死的概率受物理强度加成。]], "tformat")
 t("Stunning Blow", "震慑打击", "talent name")
-t("You cannot use Stunning Blow without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
+t("You cannot use Stunning Blow without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能！", "logPlayer")
 t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
 t([[Hits the target with your weapon, doing %d%% damage. If the attack hits, the target is stunned for %d turns.
 		The stun chance increases with your Physical Power.]], [[用你的武器攻击目标并造成 %d%% 伤害。如果此次攻击命中，则目标会震慑 %d 回合。
 		震慑概率受物理强度加成。]], "tformat")
 t("Sunder Armour", "破甲", "talent name")
-t("You cannot use Sunder Armour without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
-t("#CRIMSON#%s shatters %s shield!", "#CRIMSON#%s粉碎了%s的护盾!", "logSeen")
+t("You cannot use Sunder Armour without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能！", "logPlayer")
+t("#CRIMSON#%s shatters %s shield!", "#CRIMSON#%s粉碎了%s的护盾！", "logSeen")
 t([[Hits the target with your weapon, doing %d%% damage. If the attack hits, the target's armour and saves are reduced by %d for %d turns.
 		Also if the target is protected by any temporary magical or psionic damage absorbing shields there is %d%% chance to shatter one random shield.
 		Armor reduction chance increases with your Physical Power.]], [[用武器攻击目标，造成 %d%% 伤害。若攻击命中，目标的护甲和所有豁免降低 %d 点，持续 %d 回合。
 		如果目标受到临时的魔法或灵能伤害吸收护盾保护，还有 %d%% 几率随机击碎其中一个护盾。
 		护甲削减的成功几率受物理强度加成。]], "tformat")
 t("Sunder Arms", "破刃", "talent name")
-t("You cannot use Sunder Arms without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
+t("You cannot use Sunder Arms without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能！", "logPlayer")
 t([[Hits the target with your weapon, doing %d%% damage. If the attack hits, the target's Accuracy is reduced by %d for %d turns.
 		Accuracy reduction chance increases with your Physical Power.]], [[用武器攻击目标，造成 %d%% 伤害。若攻击命中，目标的命中降低 %d 点，持续 %d 回合。
 		命中削减的成功几率受物理强度加成。]], "tformat")
 t("Blood Frenzy", "血之狂暴", "talent name")
-t("You cannot use Blood Frenzy without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
+t("You cannot use Blood Frenzy without a two-handed weapon!", "你需要装备一把双手武器来施展这个技能！", "logPlayer")
 t([[Enter a blood frenzy, draining stamina quickly (-2 stamina/turn). Each time you kill a foe while in the blood frenzy, you gain a cumulative bonus to Physical Power of %d.
 		Each turn, this bonus decreases by 2.]], [[进入血之狂暴状态，每回合迅速消耗 2 点体力。血之狂暴期间，每杀死一个敌人，你便获得可叠加的 %d 点物理强度加成。
 		每回合该加成减少 2 点。]], "tformat")
@@ -29997,10 +29996,10 @@ t([[Enter a blood frenzy, draining stamina quickly (-2 stamina/turn). Each time 
 section "mod-tome/data/talents/techniques/acrobatics.lua"
 
 t("Vault", "撑杆跳", "talent name")
-t("You cannot move!", "你无法移动!", "logPlayer")
+t("You cannot move!", "你无法移动！", "logPlayer")
 t("You cannot land in that space.", "你不能在这个位置落地。", "logPlayer")
 t("You must vault over someone adjacent to you.", "你只能用撑杆跳跳过某个邻近的目标。", "logPlayer")
-t("#Source# #YELLOW#vaults#LAST# over #target#!", "#Source##YELLOW#撑杆跳过#LAST# #target#!", "logCombat")
+t("#Source# #YELLOW#vaults#LAST# over #target#!", "#Source##YELLOW#撑杆跳过#LAST# #target#！", "logCombat")
 t([[Use an adjacent friend or foe as a springboard, vaulting over them to another tile within range.
 		This maneuver grants you a burst of speed from your momentum, allowing you run %d%% faster (movement speed bonus) in the same direction you vaulted for 3 turns.
 		The increased speed ends if you change directions or stop moving.
@@ -30038,7 +30037,7 @@ While you have a shield equip and your Block talent is not on cooldown, you have
 当你装备盾牌，且格挡技能未进入冷却时，有 %d%% 几率抵挡攻击，减免 50%% 格挡值的伤害。]], "tformat")
 t("Vault", "撑杆跳", "talent name")
 t("You require a shield to use this talent.", "你需要一面盾牌来施展这个技能。", "logPlayer")
-t("%s resists the daze!", "%s抵抗了眩晕!", "logSeen")
+t("%s resists the daze!", "%s抵抗了眩晕！", "logSeen")
 t([[Leap onto an adjacent target with your shield, striking them for %d%% damage and dazing them for 2 turns, then using them as a springboard to leap to a tile within range %d.
 The shield bash will use Dexterity instead of Strength for the shield's bonus damage.
 At talent level 5, you will immediately enter a blocking stance on landing.]], [[用盾牌踩在临近目标上，造成 %d%% 伤害并眩晕 2 回合，之后将其做为跳板跃向 %d 格内的空地。
@@ -30054,7 +30053,7 @@ t([[You rush toward your foe, readying your shot. If you reach the enemy, you re
 		每次你移动时，该技能的冷却时间减少 1 回合。
 		该技能需要投石索。]], "tformat")
 t("Rapid Shot", "速射姿态", "talent name")
-t("You cannot use Rapid Fire without a bow or sling!", "你需要一把弓或者投石索来施放这个技能。", "logPlayer")
+t("You cannot use Rapid Fire without a bow or sling!", "你需要一把弓或者投石索来施放这个技能！", "logPlayer")
 t([[Enter a fluid, mobile shooting stance that excels at close combat. Your ranged attack speed is increased by %d%% and each time you shoot you gain %d%% increased movement speed for 2 turns.
 Ranged attacks against targets will also grant you up to %d%% of a turn. This is 100%% effective against targets within 3 tiles, and decreases by 20%% for each tile beyond that (to 0%% at 8 tiles). This cannot occur more than once per turn.
 Requires a sling to use.]], [[进入流畅而灵活的射击姿势，更适用于近战。你的远程攻击速度增加 %d%%，每次射击令你在两回合内移动速度增加 %d%%。
@@ -30065,7 +30064,7 @@ Requires a sling to use.]], [[进入流畅而灵活的射击姿势，更适用�
 section "mod-tome/data/talents/techniques/archery.lua"
 
 t("Shoot", "射击", "talent name")
-t("@Source@ shoots!", "@Source@射击!", "_t")
+t("@Source@ shoots!", "@Source@射击！", "_t")
 t("Shoot your bow, sling or other missile launcher!", "使用弓箭，投石索或者导弹发射器射击！", "tformat")
 t("Steady Shot", "稳固射击", "talent name")
 t([[Fire a steady shot, doing %d%% damage with a %d%% chance to mark the target.
@@ -30085,7 +30084,7 @@ t([[Fires a shot that explodes into a radius %d ball of razor sharp fragments on
 		每个被击中的目标有 %d%% 几率被标记。
 		致残几率受命中加成。]], "tformat")
 t("Scatter Shot", "分散射击", "talent name")
-t("%s resists the scattershot!", "%s抵抗了分散射击!", "logSeen")
+t("%s resists the scattershot!", "%s抵抗了分散射击！", "logSeen")
 t([[Fires a wave of projectiles in a radius %d cone, dealing %d%% weapon damage. All targets struck by this will be knocked back to the maximum range of the cone and stunned for %d turns.
 		Each target struck has a %d%% chance to be marked.
 		The chance to knockback and stun increases with your Accuracy.]], [[射出一波弹药，形成半径 %d 的锥形冲击，造成 %d%% 武器伤害。所有命中目标都会被击退至锥形范围的最远端，并被震慑 %d 回合。
@@ -30102,8 +30101,8 @@ If the primary target is marked, you consume the mark to fire a second volley of
 如果中心目标被标记，你将消耗其标记，不消耗弹药发射额外齐射一轮，造成 %d%% 伤害。]], "tformat")
 t("Called Shots", "精准射击", "talent name")
 t("%s resists the silence!", "%s抵抗了沉默！", "logSeen")
-t("%s resists the disarm!", "%s抵抗了缴械!", "logSeen")
-t("%s resists the slow!", "%s抵抗了减速!", "logSeen")
+t("%s resists the disarm!", "%s抵抗了缴械！", "logSeen")
+t("%s resists the slow!", "%s抵抗了减速！", "logSeen")
 t([[You fire a disabling shot at a target's throat (or equivalent), dealing %d%% weapon damage and silencing them for %d turns.
 If the target is marked, you consume the mark to fire two secondary shots at their arms and legs (or other appendages) dealing %d%% damage, reducing their movement speed by 50%% and disarming them for the duration.
 The status chance increases with your Accuracy.]], [[你朝目标的喉咙（或者类似部位）射击，造成 %d%% 武器伤害并沉默 %d 回合。
@@ -30130,8 +30129,8 @@ section "mod-tome/data/talents/techniques/assassination.lua"
 
 t("Coup de Grace", "致命一击！", "talent name")
 t("You require two weapons to use this talent.", "你只有在双持状态下才能使用这个技能。", "logPlayer")
-t("You cannot use Coup de Grace without dual wielding!", "你需要双持武器来施展这个技能。", "logPlayer")
-t("#Source# delivers a Coup de Grace against #Target#!", "#Source#对#Target#发起致命一击!", "logCombat")
+t("You cannot use Coup de Grace without dual wielding!", "你需要双持武器来施展这个技能！", "logPlayer")
+t("#Source# delivers a Coup de Grace against #Target#!", "#Source#对#Target#发起致命一击！", "logCombat")
 t("%s resists the Coup de Grace!", "%s抵抗了致命一击！", "logSeen")
 t("#GREY#%s slips into shadow.", "#GREY#%s 潜入阴影。", "logSeen")
 t([[Attempt to finish off a wounded enemy, striking them with both weapons for %d%% increased by 50%% if their life is below 30%%.  A target brought below 20%% of its maximum life must make a physical save against your Accuracy or be instantly slain.
@@ -30144,7 +30143,7 @@ t([[When you exit stealth, you reveal yourself dramatically, intimidating foes a
 		%d 范围内看到你脱离潜行状态的敌人将陷入恐惧，随机触发震慑、减速(40%%)、或者混乱 (50%%) 状态，持续 %d 回合。
 		恐惧几率受命中加成。]], "tformat")
 t("Garrote", "绞杀", "talent name")
-t("#Target# avoids a garrote from #Source#!", "#Target#避免了被#Source#勒住喉咙!", "logCombat")
+t("#Target# avoids a garrote from #Source#!", "#Target#避免了被#Source#勒住喉咙！", "logCombat")
 t([[When attacking from stealth, you slip a garrote over the target’s neck (or other vulnerable part).  This strangles for %d turns and silences for %d turns.  Strangled targets are pinned and suffer an automatic unarmed attack for %d%% damage each turn. 
 		Your chance to apply the garrote increases with your Accuracy and you must stay adjacent to your target to maintain it.
 		This talent has a cooldown.]], [[每次在潜行状态下发起进攻时，你尝试绞杀目标。目标将被勒住 %d 回合，沉默 %d 回合。被勒住的目标不能移动，每回合受到一次 %d%% 伤害的徒手攻击。
@@ -30177,7 +30176,7 @@ t([[After killing a foe, you have a %d%% chance to gain a 1000%% movement speed 
 t("Bleeding Edge", "撕裂鞭笞", "talent name")
 t([[Lashes at the target, doing %d%% weapon damage.
 		If the attack hits, the target will bleed for %d%% weapon damage over 7 turns, and all healing will be reduced by %d%%.]], [[割裂目标并造成 %d%% 武器伤害。
-		如果攻击命中目标，则目标会持续流血 7 回合， 
+		如果攻击命中目标，则目标会持续流血 7 回合，
 		造成总计 %d%% 武器伤害。在此过程中，任何对目标的治疗效果减少 %d%%。]], "tformat")
 t("True Grit", "刚毅", "talent name")
 t([[Take a defensive stance to resist the onslaught of your foes.
@@ -30269,7 +30268,7 @@ t([[Any time you block an attack with Buckler Expertise or Buckler Mastery you i
 section "mod-tome/data/talents/techniques/combat-techniques.lua"
 
 t("Rush", "冲锋", "talent name")
-t("@Source@ rushes out!", "@Source@冲了出去!", "_t")
+t("@Source@ rushes out!", "@Source@冲了出去！", "_t")
 t("You can only rush to a creature.", "你只能冲向生物。", "logPlayer")
 t("You are too close to build up momentum!", "距离目标太近，无法蓄势！", "logPlayer")
 t([[Rush toward a target enemy with incredible speed and perform a melee attack for 120%% weapon damage that can daze the target for 3 turns if it hits.
@@ -30308,9 +30307,9 @@ t([[You become better at using your armour to deflect blows and protect your vit
 		At level 1, it allows you to wear heavy mail armour, gauntlets, helms, and heavy boots.
 		At level 2, it allows you to wear shields.
 		At level 3, it allows you to wear massive plate armour.
-		%s]], [[ 你使用防具来偏转攻击和保护重要部位的能力加强了。
+		%s]], [[你使用防具来偏转攻击和保护重要部位的能力加强了。
 		根据现有防具，提高 %d 护甲值和 %d%% 护甲强度，并减少 %d%% 被暴击几率。
-		( 这项技能只对重甲或板甲提供加成。 ) 
+		( 这项技能只对重甲或板甲提供加成。 )
 		在等级 1 时，能使你装备锁甲、金属手套、头盔和重靴。
 		在等级 2 时，能使你装备盾牌。
 		在等级 3 时，能使你装备板甲。
@@ -30384,7 +30383,7 @@ t([[You have learned to block incoming blows with your offhand weapon.
 		闪避与招架几率随敏捷提高，招架次数随灵巧提高。]], "tformat")
 t("Close Combat Management", "近战训练", "talent name")
 t("You must dual wield to use this talent.", "你只有在双持状态下才能使用这个技能。", "logPlayer")
-t("You must dual wield to manage contact with your target!", "你只有在双持状态下才能使用这个技能。", "logPlayer")
+t("You must dual wield to manage contact with your target!", "你只有在双持状态下才能使用这个技能！", "logPlayer")
 t([[You have learned how to carefully manage contact between you and your opponent.
 		When striking in melee with your dual wielded weapons, you automatically avoid up to %d damage dealt to you from each of your target's on hit effects.  This improves with your Dexterity, but is not possible with mindstars.
 		In addition, while this talent is active, you redirect %d%% of the damage you avoid this way back to your target.]], [[你已学会谨慎掌控自己与对手之间的接触。
@@ -30392,7 +30391,7 @@ t([[You have learned how to carefully manage contact between you and your oppone
 		此外，该技能开启时，你会将以此方式减免伤害的 %d%% 反弹给目标。]], "tformat")
 t("Offhand Jab", "副手猛击", "talent name")
 t("You require two weapons to use this talent.", "你只有在双持状态下才能使用这个技能。", "logPlayer")
-t("You must dual wield to perform an Offhand Jab!", "你只有在双持状态下才能使用这个技能。", "logPlayer")
+t("You must dual wield to perform an Offhand Jab!", "你只有在双持状态下才能使用这个技能！", "logPlayer")
 t("%s resists the surprise strike!", "%s抵抗了这次打击！", "logSeen")
 t([[With a quick shift of your momentum, you execute a surprise unarmed strike in place of your normal offhand attack.
 		This allows you to attack with your mainhand weapon for %d%% damage and unarmed for %d%% damage.  If the unarmed attack hits, the target is confused (%d%% power) for %d turns.
@@ -30401,14 +30400,14 @@ t([[With a quick shift of your momentum, you execute a surprise unarmed strike i
 		若徒手攻击命中，敌人将被混乱（ %d%% 强度） %d 回合。
 		混乱几率受命中加成。]], "tformat")
 t("Dual Strike", "双持打击", "talent name")
-t("You cannot use Dual Strike without dual wielding!", "你只有在双持状态下才能使用这个技能。", "logPlayer")
+t("You cannot use Dual Strike without dual wielding!", "你只有在双持状态下才能使用这个技能！", "logPlayer")
 t("%s resists the stunning strike!", "%s抵抗了震慑打击！", "logSeen")
 t([[Attack with your offhand weapon for %d%% damage. If the attack hits, the target is stunned for %d turns, and you hit it with your mainhand weapon doing %d%% damage.
 		The stun chance increases with your Accuracy.]], [[用副手武器造成 %d%% 伤害。
 		如果攻击命中，目标将会被震慑 %d 回合并且你会使用主武器对目标造成 %d%% 伤害。
 		震慑概率受命中加成。]], "tformat")
 t("Flurry", "疾风连刺", "talent name")
-t("You cannot use Flurry without dual wielding!", "你只有在双持状态下才能使用这个技能。", "logPlayer")
+t("You cannot use Flurry without dual wielding!", "你只有在双持状态下才能使用这个技能！", "logPlayer")
 t("Lashes out with a flurry of blows, hitting your target three times with each weapon for %d%% damage.", "对目标进行快速的连刺，每把武器进行 3 次打击，每次打击造成 %d%% 的伤害。", "tformat")
 t("Heartseeker", "追心刺", "talent name")
 t("Swiftly leap to your target and strike at their vital points with both weapons, dealing %d%% weapon damage. This attack deals %d%% increased critical strike damage.", "迅速跃向目标，用两把武器发动一次强力的突刺攻击，造成 %d%% 武器伤害，该次攻击暴击伤害系数增加 %d%%。", "tformat")
@@ -30426,8 +30425,7 @@ t([[Your offhand weapon damage penalty is reduced to %d%%.
 		Up to %0.1f times a turn, you have a %d%% chance to parry up to %d damage (based on your offhand weapon damage) from a melee or ranged attack.  The number of parries increases with your Cunning.  (A fractional parry has a reduced chance to succeed.)
 		A successful parry reduces damage like armour (before any attack multipliers) and prevents critical strikes.  It is difficult to parry attacks from unseen attackers and you cannot parry with a mindstar.]], [[你的副手武器伤害惩罚降低至 %d%%。
 		每回合至多 %0.1f 次，你有 %d%% 几率抵挡一次近战或远程攻击的至多 %d 点伤害（基于副手武器伤害）。抵挡次数随灵巧提高；若次数为小数，小数部分对应的抵挡成功率会降低。
-		成功抵挡会像护甲一样在攻击倍率生效前减免伤害，并阻止这次攻击暴击。来自未发现攻击者的攻击很难抵挡，且你无法使用灵晶抵挡。
-		]], "tformat")
+		成功抵挡会像护甲一样在攻击倍率生效前减免伤害，并阻止这次攻击暴击。来自未发现攻击者的攻击很难抵挡，且你无法使用灵晶抵挡。]], "tformat")
 t("Tempo", "节奏", "talent name")
 t([[The flow of battle invigorates you, allowing you to press your advantage as the fight progresses.
 		Up to once each per turn, while dual wielding, you may:
@@ -30447,7 +30445,7 @@ t([[Make a cunning feint that tricks your target into swapping places with you. 
 		定身与眩晕几率受命中加成。]], "tformat")
 t("Lunge", "刺击", "talent name")
 t("You require two weapons to use this talent.", "你只有在双持状态下才能使用这个技能。", "logPlayer")
-t("You cannot use Lunge without dual wielding!", "你需要双持武器来施展这个技能。", "logPlayer")
+t("You cannot use Lunge without dual wielding!", "你需要双持武器来施展这个技能！", "logPlayer")
 t("%s resists the blow!", "%s抵抗了攻击！", "logSeen")
 t([[Exploiting a gap in your target's defenses, you make a lethal strike with your offhand weapon for %d%% damage that causes them to drop their weapon, disarming them for %d turns.
 		Tempo will reduce the cooldown of this talent by 1 turn each time it is triggered defensively.
@@ -30461,22 +30459,22 @@ section "mod-tome/data/talents/techniques/excellence.lua"
 t("Shoot Down", "强制击落", "talent name")
 t("#Source# shoots down '#Target#'!", "#Source#击落了'#Target#'！", "logCombat")
 t([[Your reflexes are lightning-fast, if you spot a projectile (arrow, shot, spell, ...) you can instantly shoot at it without taking a turn to take it down.
-		You can shoot down up to %d projectiles.]], [[ 你的反射神经像闪电一样快。当你瞄准抛射物（箭矢、弹药、法术等）时，你能马上击落它而不消耗时间。
+		You can shoot down up to %d projectiles.]], [[你的反射神经像闪电一样快。当你瞄准抛射物（箭矢、弹药、法术等）时，你能马上击落它而不消耗时间。
 		你最多能击落 %d 个目标。]], "tformat")
 t("Bull Shot", "冲锋射击", "talent name")
 t("You are too close to build up momentum!", "距离目标太近，无法蓄势！", "logPlayer")
 t([[You rush toward your foe, readying your shot. If you reach the enemy, you release the shot, imbuing it with great power.
-		The shot does %d%% weapon damage and knocks back your target by %d.]], " 你冲向你的敌人，并准备好射击。如果你接触到敌人，你将射出你准备好的箭矢/ 弹药，给予其强劲的力量。射击造成 %d%% 伤害并击退对手 %d 码。", "tformat")
+		The shot does %d%% weapon damage and knocks back your target by %d.]], "你冲向你的敌人，并准备好射击。如果你接触到敌人，你将射出你准备好的箭矢/ 弹药，给予其强劲的力量。射击造成 %d%% 伤害并击退对手 %d 码。", "tformat")
 t("Intuitive Shots", "直觉射击", "talent name")
 t("%s %s the attack!", "%s %s攻击", "logSeen")
 t("intercepts", "拦截了", "_t")
 t("fails to intercept", "未能拦截", "_t")
 t([[Activating this talent enhances your reflexes to incredible levels.  Each time you are attacked in melee, you have a %d%% chance get a defensive shot off in time to intercept the attack, fully disrupting it (including extra blows from certain talents), dealing %d%% archery damage, and knocking the attacker back %d tiles.
-		Activating this talent will not interrupt reloading.]], " 激活该技能会大幅强化你的反射神经。每次你受到近战攻击，你有 %d%% 的几率进行一次防御性射击来中止对方这次攻击，并造成 %d%% 伤害，同时击退对方 %d 码。激活这项技能不会中断装填弹药。", "tformat")
+		Activating this talent will not interrupt reloading.]], "激活该技能会大幅强化你的反射神经。每次你受到近战攻击，你有 %d%% 的几率进行一次防御性射击来中止对方这次攻击，并造成 %d%% 伤害，同时击退对方 %d 码。激活这项技能不会中断装填弹药。", "tformat")
 t("Strangling Shot", "沉默射击", "talent name")
 t("%s resists the strangling shot!", "%s抵抗了沉默射击！", "logSeen")
 t([[You fire a shot at your target's throat, mouth, or equivalent body part, doing %d%% damage and silencing it for %d turns.
-		The silence chance increases with your Accuracy.]], " 你瞄准目标的喉咙、嘴巴或相关部位，造成 %d%% 伤害，并沉默对方 %d 个回合。沉默几率随命中增长。", "tformat")
+		The silence chance increases with your Accuracy.]], "你瞄准目标的喉咙、嘴巴或相关部位，造成 %d%% 伤害，并沉默对方 %d 个回合。沉默几率随命中增长。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/field-control.lua"
@@ -30515,7 +30513,7 @@ t([[You spin into a flying leap and deliver a powerful kick dealing %d%% weapon 
 		每一点连击点增加 1 点攻击范围和 10%% 伤害。
 		使用该技能会消耗所有连击点，并且至少需要 1 点连击点才能使用。]], "tformat")
 t("Haymaker", "致命重拳", "talent name")
-t("@Source@ throws a wild haymaker!", "@Source@打出狂暴的重拳!", "_t")
+t("@Source@ throws a wild haymaker!", "@Source@打出狂暴的重拳！", "_t")
 t("%s feels the pain of the death blow!", "%s 感受到了死亡一击的疼痛！", "logSeen")
 t("%s resists the death blow!", "%s抵抗了死亡一击！", "logSeen")
 t([[A vicious finishing strike that deals %d%% damage increased by 20%% per combo point you have up to a max of %d%%. If the target ends up with low enough life (<20%%), it might be instantly killed.
@@ -30535,7 +30533,7 @@ t([[Increases your Physical Save by %d and your Physical Power by %d.
 t("Clinch", "关节技：锁钳", "talent name")
 t([[Make a melee attack for %d%% damage and then attempt to grapple a target up to one size category larger than yourself for %d turns. A grappled opponent will be unable to move, take %d damage each turn, and %d%% of the damage you receive from any source will be redirected to them as physical damage.
 		Any movement from the target or you will break the grapple. Maintaining a grapple drains %d stamina per turn.
-		You may only grapple a single target at a time, and using any targeted unarmed talent on a target that you're not grappling will break the grapple.]], [[对目标造成 %d%% 武器伤害并抓取目标（可抓取目标的身材最多比你大 1 级）持续 %d 回合。 1 个被钳住的对手将无法移动,每回合受到 %d 伤害，同时你受到的伤害的 %d%% 将转移至它身上。
+		You may only grapple a single target at a time, and using any targeted unarmed talent on a target that you're not grappling will break the grapple.]], [[对目标造成 %d%% 武器伤害并抓取目标（可抓取目标的身材最多比你大 1 级）持续 %d 回合。 1 个被钳住的对手将无法移动，每回合受到 %d 伤害，同时你受到的伤害的 %d%% 将转移至它身上。
 		任何目标或你的移动将会打破抓取。维持抓取每回合消耗 %d 体力。
 		同时你只能抓取 1 个目标，并且对任意 1 个你没有抓取的目标使用非抓取徒手技能均会打破抓取。]], "tformat")
 t("Crushing Hold", "碾压擒抱", "talent name")
@@ -30544,10 +30542,10 @@ t([[Enhances your grapples with additional effects. All additional effects will 
 		Talent Level 3:  Silences
 		Talent Level 5:  Reduces global action speed by %d%%]], [[增强你的抓取，获得额外效果，所有效果不需通过其他豁免或抵抗鉴定。
 		#RED# 等级 1 ：减少 %d 物理强度
-		等级 3 ：沉默 
-		等级 5 ：目标减速 %d%% ]], "tformat")
+		等级 3 ：沉默
+		等级 5 ：目标减速 %d%%]], "tformat")
 t("Take Down", "关节技：抱摔", "talent name")
-t("You cannot move!", "你无法移动!", "logPlayer")
+t("You cannot move!", "你无法移动！", "logPlayer")
 t([[Rushes forward and attempts to take the target to the ground, making a melee attack for %d%% damage then attempting to grapple them. If you're already grappling the target you'll instead slam them into the ground creating a radius 5 shockwave for %d physical damage and breaking your grapple.
 		The grapple effects and duration will be based off your grapple talent, if you have it, and the damage will scale with your Physical Power.]], [[冲向目标，试图将他掀翻在地，造成 %d%% 伤害然后抓取之。如果已经抓取，则将他掀翻，制造冲击波，在半径 5 的范围内造成 %d 物理伤害并解除抓取。
 		抓取效果和持续时间基于抓取技能。伤害受物理强度加成。]], "tformat")
@@ -30566,10 +30564,12 @@ section "mod-tome/data/talents/techniques/magical-combat.lua"
 
 t("Arcane Combat", "奥术武器", "talent name")
 t([[				
-				Currently selected spell: %s]], [[				
+				Currently selected spell: %s]], [[
+
 				目前选择的法术: %s]], "tformat")
 t([[				
-				Currently selected spell: Random]], [[				
+				Currently selected spell: Random]], [[
+
 				目前选择的法术：随机]], "_t")
 t([[Allows you to use melee weapons to focus your spells, granting a %d%% chance per melee attack to cast an offensive spell as a free action on the target.
 		Delivering the spell this way will not trigger a spell cooldown.
@@ -30625,7 +30625,7 @@ t("Enter a state of heightened focus for %d turns. While in this state your rang
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/mobility.lua"
 
-t("You must be able to move to use %s!", "要使用 %s ，你必须能够移动!", "logPlayer")
+t("You must be able to move to use %s!", "要使用 %s ，你必须能够移动！", "logPlayer")
 t("%s is not usable while wearing heavy armour.", "%s 在身着重甲时无法使用", "logPlayer")
 t("Disengage", "后跳", "talent name")
 t("You must disengage directly away from your target in a straight line.", "你必须沿直线直接后跳，远离目标。", "logPlayer")
@@ -30779,7 +30779,7 @@ This shot is instant, cannot miss, and puts %d other talents on cooldown for %d 
 该攻击为瞬间击中, 必中, 并使其它 %d 个技能进入冷却 %d 回合.]], "tformat")
 t("Escape", "逃脱", "talent name")
 t([[You put all your focus into escaping combat for 4 turns. While under this effect you gain %d%% increased resistance to all damage, %0.1f increased stamina regeneration, immunity to stun, pin, daze and slowing effects and %d%% increased movement speed. 
-Any action other than movement will cancel this effect.]], [[你专注逃跑 4 回合. 处于此状态时增加 %d%% 所有伤害抗性, %0.1f 体力恢复, 免疫震慑, 定身, 眩晕和减速效果并增加 %d%% 移动速度. 
+Any action other than movement will cancel this effect.]], [[你专注逃跑 4 回合. 处于此状态时增加 %d%% 所有伤害抗性, %0.1f 体力恢复, 免疫震慑, 定身, 眩晕和减速效果并增加 %d%% 移动速度.
 除移动外的任何行动将终止该效果。]], "tformat")
 
 ------------------------------------------------
@@ -30813,7 +30813,7 @@ t([[You fire a shot into your target's eyes, blinding it for %d turns and doing 
 		The blind chance increases with your Accuracy.]], [[你对目标的眼睛射出一发子弹，致盲目标 %d 回合并造成 %d%% 伤害。
 		致盲概率受命中加成。]], "tformat")
 t("Inertial Shot", "惯性射击", "talent name")
-t("%s is knocked back!", "%s 被击退。", "logSeen")
+t("%s is knocked back!", "%s 被击退！", "logSeen")
 t("%s stands firm!", "%s 稳稳站在原地！", "logSeen")
 t([[You fire a mighty shot at your target, doing %d%% damage and knocking it back.
 		The knockback chance increases with your Accuracy.]], [[你射出一发强力的子弹，对目标造成 %d%% 伤害并击退目标。
@@ -30825,7 +30825,7 @@ t("You fire an average of %0.1f shots at your target, doing %d%% damage with eac
 section "mod-tome/data/talents/techniques/sniper.lua"
 
 t("Concealment", "隐匿", "talent name")
-t("You are being observed too closely to enter Concealment!", "你被近距离观察，不能进入 隐匿 状态。", "logPlayer")
+t("You are being observed too closely to enter Concealment!", "你被近距离观察，不能进入 隐匿 状态！", "logPlayer")
 t([[Enter a concealed sniping stance, increasing your weapon's attack range and vision range by %d, giving all incoming damage a %d%% chance to miss you, and causing your Headshot, Volley and Called Shots to behave as if the target was marked.
 Any non-instant, non-movement action will break concealment, but the increased range and vision and damage avoidance will persist for 3 turns, with the damage avoidance decreasing in power by 33%% each turn.
 This requires a bow to use, and cannot be used if there are foes in sight within range %d.]], [[进入隐匿的狙击状态, 增加武器攻击范围和视野 %d 格, 所有攻击有 %d%% 几率无法命中你, 爆头、齐射和精巧射击视为目标已被标记。
@@ -30868,10 +30868,10 @@ t([[You enter an aggressive battle rage, increasing Accuracy by %d and Physical 
 		The Accuracy bonus increases with your Dexterity, and the Physical Power bonus with your Strength.]], [[进入狂暴的战斗状态，增加 %d 点命中和 %d 点物理强度，增加 %d%% 震慑和定身抵抗。
 		同时狂暴的力量会支配你的身体，每回合损失 2%% 生命。同时，你每失去 1%% 生命，增加 0.5%% 暴击率。
 		该技能只在视野内有敌人时生效。
-		命中受敏捷值加成； 
+		命中受敏捷值加成；
 		物理强度受力量值加成。]], "tformat")
 t("Shattering Blow", "破碎震击", "talent name")
-t("#CRIMSON#%s shatters %s shield!", "#CRIMSON#%s粉碎了%s的护盾!", "logSeen")
+t("#CRIMSON#%s shatters %s shield!", "#CRIMSON#%s粉碎了%s的护盾！", "logSeen")
 t([[Hits the target with your weapon, doing %d%% damage. If the attack hits, the target's armour and saves are reduced by %d for %d turns.
 		Also if the target is protected by any temporary magical or psionic damage absorbing shields there is %d%% chance to shatter a random shield.
 		Armor reduction chance increases with your Physical Power.]], [[用武器攻击目标，造成 %d%% 伤害。若攻击命中，目标的护甲和所有豁免降低 %d 点，持续 %d 回合。
@@ -30913,48 +30913,48 @@ section "mod-tome/data/talents/techniques/techniques.lua"
 
 t("technique", "格斗", "talent category")
 t("two-handed assault", "双手战技", "talent type")
-t("Specialized two-handed techniques.", " 使你精通于使用双手武器战斗技能。", "_t")
+t("Specialized two-handed techniques.", "使你精通于使用双手武器战斗技能。", "_t")
 t("berserker's strength", "狂暴之力", "talent type")
 t("Fear nothing!", "勇往直前，毫无畏惧！", "_t")
 t("two-handed weapons", "双手武器", "talent type")
 t("two-handed maiming", "双手重创", "talent type")
 t("shield offense", "盾牌攻击", "talent type")
-t("Specialized weapon and shield techniques.", " 使你精通于使用单手武器加盾牌的战斗技能。", "_t")
+t("Specialized weapon and shield techniques.", "使你精通于使用单手武器加盾牌的战斗技能。", "_t")
 t("shield defense", "盾牌防御", "talent type")
 t("dual weapons", "双持武器", "talent type")
-t("Specialized dual wielding techniques.", " 使你精通于同时使用两把单手武器的战斗技能。", "_t")
+t("Specialized dual wielding techniques.", "使你精通于同时使用两把单手武器的战斗技能。", "_t")
 t("dual techniques", "双持战技", "talent type")
 t("archery - base", "基础射击", "talent type")
-t("Ability to shoot.", " 基础射击技能。", "_t")
+t("Ability to shoot.", "基础射击技能。", "_t")
 t("archery - bows", "弓", "talent type")
-t("Specialized bow techniques.", " 提升使用弓的攻击效果。", "_t")
+t("Specialized bow techniques.", "提升使用弓的攻击效果。", "_t")
 t("archery - slings", "投石索", "talent type")
-t("Specialized sling techniques.", " 提升使用投石索的攻击效果。", "_t")
+t("Specialized sling techniques.", "提升使用投石索的攻击效果。", "_t")
 t("archery training", "箭术训练", "talent type")
-t("Generic archery techniques.", " 通用射击技巧。", "_t")
+t("Generic archery techniques.", "通用射击技巧。", "_t")
 t("archery prowess", "强化箭", "talent type")
 t("Specialized archery techniques to maim your targets.", "专精于重创目标的箭术技巧。", "_t")
 t("archery excellence", "高等箭术", "talent type")
-t("Specialized archery techniques that result from honed training.", " 经过千锤百炼的箭术技巧。", "_t")
+t("Specialized archery techniques that result from honed training.", "经过千锤百炼的箭术技巧。", "_t")
 t("superiority", "战术优化", "talent type")
-t("Advanced combat techniques.", " 高阶战斗技巧。", "_t")
+t("Advanced combat techniques.", "高阶战斗技巧。", "_t")
 t("battle tactics", "战争策略", "talent type")
-t("Advanced combat tactics.", " 高阶战斗策略。", "_t")
+t("Advanced combat tactics.", "高阶战斗策略。", "_t")
 t("warcries", "战吼", "talent type")
-t("Master the warcries to improve yourself and weaken others.", " 提升战吼效果，强化你自身的能力或削弱敌人。", "_t")
+t("Master the warcries to improve yourself and weaken others.", "提升战吼效果，强化你自身的能力或削弱敌人。", "_t")
 t("bloodthirst", "嗜血", "talent type")
-t("Delight in the act of battle and the spilling of blood.", " 你渴望鲜血并沉浸在战斗的狂热中。", "_t")
+t("Delight in the act of battle and the spilling of blood.", "你渴望鲜血并沉浸在战斗的狂热中。", "_t")
 t("field control", "阵地控制", "talent type")
-t("Control the battlefield using various techniques.", " 你时刻注意控制战场的状况，提升你的格斗效果。", "_t")
+t("Control the battlefield using various techniques.", "你时刻注意控制战场的状况，提升你的格斗效果。", "_t")
 t("combat techniques", "战斗技巧", "talent type")
-t("Generic combat oriented techniques.", " 通用格斗技巧。", "_t")
+t("Generic combat oriented techniques.", "通用格斗技巧。", "_t")
 t("combat veteran", "战斗经验", "talent type")
 t("combat training", "战斗训练", "talent type")
-t("Teaches to use various armours, weapons and improves health.", " 使你学会使用不同的护甲和武器，并提升血量。", "_t")
+t("Teaches to use various armours, weapons and improves health.", "使你学会使用不同的护甲和武器，并提升血量。", "_t")
 t("magical combat", "魔法格斗", "talent type")
-t("The blending together of magic and melee prowess.", " 结合魔法和近身格斗的技巧。", "_t")
+t("The blending together of magic and melee prowess.", "结合魔法和近身格斗的技巧。", "_t")
 t("mobility", "移动", "talent type")
-t("Training and techniques to improve mobility and evade your enemies.  On the battlefield, positioning is paramount.", " 强化闪避和移动能力，确保你始终处于战斗的上风。", "_t")
+t("Training and techniques to improve mobility and evade your enemies.  On the battlefield, positioning is paramount.", "强化闪避和移动能力，确保你始终处于战斗的上风。", "_t")
 t("thuggery", "暴徒手段", "talent type")
 t("Whatever wins the day, wins the day.", "只要能赢，什么手段都行。", "_t")
 t("assassination", "暗杀", "talent type")
@@ -30982,19 +30982,19 @@ t("Slings! Pow Pow!", "投石索！投石！", "_t")
 t("Tireless Combatant", "不倦战斗", "talent type")
 t("Your will carries you through the most difficult struggles, allowing you to fight on when others would have collapsed from exhaustion.", "你的意志支撑你熬过最艰难的苦战，让你在别人早已因精疲力竭而倒下时仍能继续战斗。", "_t")
 t("pugilism", "拳术", "talent type")
-t("Unarmed Boxing techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", " 徒手拳击格斗技术，你不能装备板甲、武器和盾牌。", "_t")
+t("Unarmed Boxing techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", "徒手拳击格斗技术，你不能装备板甲、武器和盾牌。", "_t")
 t("finishing moves", "终结技", "talent type")
-t("Finishing moves that use combo points and may not be practiced in massive armor or while a weapon or shield is equipped.", " 使用你累积的连击点数发动致命的终结一击，你不能装备板甲、武器和盾牌。", "_t")
+t("Finishing moves that use combo points and may not be practiced in massive armor or while a weapon or shield is equipped.", "使用你累积的连击点数发动致命的终结一击，你不能装备板甲、武器和盾牌。", "_t")
 t("grappling", "关节技", "talent type")
-t("Grappling techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", " 抓取敌人的技巧，你不能装备板甲、武器和盾牌。", "_t")
+t("Grappling techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", "抓取敌人的技巧，你不能装备板甲、武器和盾牌。", "_t")
 t("unarmed discipline", "徒手格斗", "talent type")
 t("Advanced unarmed techniques including kicks and blocks that may not be practiced in massive armor or while a weapon or shield is equipped.", "高级徒手格斗技巧，包括踢技和格挡；身穿板甲或装备武器、盾牌时无法施展。", "_t")
 t("unarmed training", "徒手训练", "talent type")
-t("Teaches various martial arts techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", " 高级徒手格斗技能，不能装备板甲、武器和盾牌。", "_t")
+t("Teaches various martial arts techniques that may not be practiced in massive armor or while a weapon or shield is equipped.", "高级徒手格斗技能，不能装备板甲、武器和盾牌。", "_t")
 t("conditioning", "体质强化", "talent type")
-t("Physical conditioning.", " 强化你的体质。", "_t")
+t("Physical conditioning.", "强化你的体质。", "_t")
 t("unarmed other", "其他格斗技能", "talent type")
-t("Base martial arts attack and stances.", " 基础武学和姿态。", "_t")
+t("Base martial arts attack and stances.", "基础武学和姿态。", "_t")
 t("You are currently disarmed and cannot use this talent.", "你当前被缴械，不能使用该技能。", "_t")
 t("You require a %s to use this talent.", "你需要装备 %s 才能使用这一技能。", "tformat")
 t("missile launcher", "导弹发射器", "_t")
@@ -31040,16 +31040,16 @@ t([[Equip a bandolier holding up to %d throwing knives, allowing you to attack f
 t("Fan of Knives", "刀扇", "talent name")
 t("Fan of Knives", "刀扇", "_t")
 t([[You keep a special stash of %d throwing knives in your bandolier, which you can throw all at once at enemies within a radius %d cone, for %d%% damage each.
-		Each target can be hit up to 5 times, if the number of knives exceeds the number of enemies.  Creatures block knives from hitting targets behind them.]], [[额外存储 %d 把飞刀,可以一次性扔出，每把飞刀对 %d 格锥形范围内的敌人造成 %d%% 伤害 .
+		Each target can be hit up to 5 times, if the number of knives exceeds the number of enemies.  Creatures block knives from hitting targets behind them.]], [[额外存储 %d 把飞刀，可以一次性扔出，每把飞刀对 %d 格锥形范围内的敌人造成 %d%% 伤害 .
 		如果飞刀数量多于敌人, 每个目标最多被同时击中 5 次. 飞刀无法穿透生物.]], "tformat")
 t("Precise Aim", "精确瞄准", "talent name")
 t([[You are able to target your throwing knives with pinpoint accuracy, increasing their critical strike chance by %d%% and critical strike damage by %d%%. 
-In addition, your critical strikes with throwing knives have a %d%% chance to randomly disable your target, possibly disarming, silencing or pinning them for 2 turns.]], [[精准地投掷飞刀, 增加 %d%% 暴击几率、 %d%% 暴击伤害. 
+In addition, your critical strikes with throwing knives have a %d%% chance to randomly disable your target, possibly disarming, silencing or pinning them for 2 turns.]], [[精准地投掷飞刀, 增加 %d%% 暴击几率、 %d%% 暴击伤害.
 此外, 飞刀暴击时还有 %d%% 几率缴械沉默或者定身敌人持续 2 回合.]], "tformat")
 t("Quickdraw", "快速投掷", "talent name")
 t("Quickdraw Knife", "快速投掷飞刀", "_t")
 t([[You can throw knives with lightning speed, increasing your attack speed with them by %d%% and giving you a %d%% chance when striking a target in melee to throw a knife at a random foe within 7 tiles for 100%% damage. 
-		This bonus attack can only trigger once per turn, and does not trigger from throwing knife attacks.]], [[你可以闪电般地投掷你的飞刀. 增加 %d%% 攻击速度, 近战攻击时有 %d%% 几率投掷一把飞刀随机对 7 格范围内的一名敌人造成 100%% 伤害. 
+		This bonus attack can only trigger once per turn, and does not trigger from throwing knife attacks.]], [[你可以闪电般地投掷你的飞刀. 增加 %d%% 攻击速度, 近战攻击时有 %d%% 几率投掷一把飞刀随机对 7 格范围内的一名敌人造成 100%% 伤害.
 		每回合仅触发 1 次, 不会被投掷飞刀触发.]], "tformat")
 t("Venomous Throw", "剧毒飞刀", "talent name")
 t("Venomous Throw", "剧毒飞刀", "_t")
@@ -31057,7 +31057,7 @@ t([[Throw a knife coated with venom, doing %d%% damage as nature and inflicting 
 		
 		%s
 		Using this talent puts your Venomous Strike talent on cooldown.]], [[投掷一把剧毒飞刀, 造成 %d%% 自然伤害并根据你当前生效的毒素造成中毒效果（和毒素爆发相同）:
-		
+
 		%s
 		使用这技能将使毒素爆发进入冷却.]], "tformat")
 
@@ -31069,7 +31069,7 @@ t("%s resists the headblow!", "%s抵抗了铁头功！", "logSeen")
 t([[You smack your forehead against your enemy's head (or whatever sensitive part you can find), causing %0.1f Physical damage.
 		If the attack hits, the target is confused (%d%% effect) for %d turns.
 		Damage done increases with the quality of your headgear, your Strength, and your physical damage bonuses.
-		Confusion power increases with your Dexterity, and chance increases with Accuracy.]], [[你用前额猛击敌人头部（或者任意你能找到的有效位置），造成 %0.1f 物理伤害。如果 
+		Confusion power increases with your Dexterity, and chance increases with Accuracy.]], [[你用前额猛击敌人头部（或者任意你能找到的有效位置），造成 %0.1f 物理伤害。如果
 		此次攻击命中，则目标会混乱( %d%% 强度) %d 回合。
 		伤害受头盔品质、力量和物理伤害加成。
 		混乱强度受敏捷加成，几率受命中加成。]], "tformat")
@@ -31131,7 +31131,7 @@ t([[Toughen your body blocking up to %d damage per combo point (Max %d) across 2
 			伤害吸收受物理强度加成。]], "tformat")
 t("Touch of Death", "点穴术", "talent name")
 t("@Source@ strikes a deadly pressure point on the target.", "@Source@击中了目标的致命穴道。", "_t")
-t("#Source# strikes at a vital spot on #target#!", "#Source#攻向#target#的要害!", "logCombat")
+t("#Source# strikes at a vital spot on #target#!", "#Source#攻向#target#的要害！", "logCombat")
 t([[Using your deep knowledge of anatomy, you strike a target in a vital pressure point for %d%% weapon damage, bypassing their defense and evasion.
 		This strike inflicts terrible wounds inside the target's body, causing them to take physical damage equal to 100%% of any damage dealt during the attack each turn for 4 turns, increasing by %d%% each turn (so after 4 turns, they would have taken a total of %d%% damage).
 		If the target dies while under or from this effect their body will explode in a radius %d shower of bone and gore, inflicting physical damage equal to the current tick to all enemies and granting you 4 combo points.]], [[使用你深刻的解剖学知识，击中敌人的穴道造成 %d%% 武器伤害, 无视闪避和躲闪效果。
@@ -31290,8 +31290,8 @@ t([[Thanks to your newfound knowledge of corruption, you've learned some tricks 
 section "mod-tome/data/talents/uber/cun.lua"
 
 t("Fast As Lightning", "迅如雷电", "talent name")
-t("#LIGHT_BLUE#%s slows from critical velocity!", "#LIGHT_BLUE#%s 从临界速度减慢!", "logSeen")
-t("#LIGHT_BLUE#%s reaches critical velocity!", "#LIGHT_BLUE#%s 达到了临界速度!", "logSeen")
+t("#LIGHT_BLUE#%s slows from critical velocity!", "#LIGHT_BLUE#%s 从临界速度减慢！", "logSeen")
+t("#LIGHT_BLUE#%s reaches critical velocity!", "#LIGHT_BLUE#%s 达到了临界速度！", "logSeen")
 t([[When moving over 800%% speed for at least 3 steps in the same direction, you become so fast you can blink through obstacles as if they were not there.
 		While moving this fast you have 50%% chances to fully ignore an attack by displacing yourself (this may only happen once per turn).
 		Changing direction will break the effect.]], [[沿同一方向以超过 800%% 的速度连续移动至少 3 步后，你可以无视障碍物移动。
@@ -31304,12 +31304,12 @@ t([[You are full of tricks and surprises; your Antimagic Shield can absorb %d%% 
 		受灵巧影响，效果按比例加成。]], "tformat")
 t("Endless Woes", "无尽灾厄", "talent name")
 t("Have dealt over 10000 acid, blight, darkness, mind or temporal damage", "曾造成超过 10000 点酸性、枯萎、暗影、精神或时空伤害", "_t")
-t("You unleash a blast of #LIGHT_STEEL_BLUE#temporal#LAST# energy!", "你释放出#LIGHT_STEEL_BLUE#时空#LAST#能量的爆炸!", "logSeen")
-t("You unleash a blast of #DARK_GREEN#virulent blight!#LAST#!", "你释放出 #DARK_GREEN#枯萎疾病#LAST#爆炸!", "logSeen")
-t("You unleash a blast of #GREEN#acid#LAST#!", "你释放出#GREEN#酸液#LAST#爆炸!", "logSeen")
-t("You unleash a blast of numbing #GREY#darkness#LAST#!", "你释放出麻痹#GREY#暗影#LAST#爆炸!", "logSeen")
-t("You unleash a confusing blast of #YELLOW#mental#LAST# energy!", "你释放出#YELLOW#精神#LAST#混乱爆炸!", "logSeen")
-t("You unleash a crippling blast of earthen energy!", "你释放出大地致残爆炸!", "logSeen")
+t("You unleash a blast of #LIGHT_STEEL_BLUE#temporal#LAST# energy!", "你释放出#LIGHT_STEEL_BLUE#时空#LAST#能量的爆炸！", "logSeen")
+t("You unleash a blast of #DARK_GREEN#virulent blight!#LAST#!", "你释放出 #DARK_GREEN#枯萎疾病#LAST#爆炸！", "logSeen")
+t("You unleash a blast of #GREEN#acid#LAST#!", "你释放出#GREEN#酸液#LAST#爆炸！", "logSeen")
+t("You unleash a blast of numbing #GREY#darkness#LAST#!", "你释放出麻痹#GREY#暗影#LAST#爆炸！", "logSeen")
+t("You unleash a confusing blast of #YELLOW#mental#LAST# energy!", "你释放出#YELLOW#精神#LAST#混乱爆炸！", "logSeen")
+t("You unleash a crippling blast of earthen energy!", "你释放出大地致残爆炸！", "logSeen")
 t("(Cooldowns)", "(冷却时间)", "_t")
 t([[Surround yourself with a malevolent aura that stores damage you deal.
 		Whenever you have stored %d damage of one type you unleash a powerful blast at a random enemy dealing %d damage of that type in radius %d and applying one of the following effects:
@@ -31336,17 +31336,17 @@ t([[Surround yourself with a malevolent aura that stores damage you deal.
 		%s]], "tformat")
 t("Secrets of Telos", "泰勒斯之秘", "talent name")
 t("Possess Telos Top Half, Telos Bottom Half, and Telos Staff Crystal", "找到泰勒斯法杖的上半部，下半部和宝石。", "_t")
-t("#VIOLET#%s assembles %s!", "#VIOLET#%s 重组为 %s!", "logSeen")
+t("#VIOLET#%s assembles %s!", "#VIOLET#%s 重组为 %s！", "logSeen")
 t("You have obtained the three parts of the Staff of Telos and studied them carefully. You believe that you can merge them back into a single highly potent staff.", "你已获得泰勒斯法杖的三个部件并仔细研究过。你相信自己能将它们重新合成为一根威力强大的法杖。", "tformat")
 t("Elemental Surge", "元素狂潮", "talent name")
 t("Have dealt over 10000 arcane, fire, cold, lightning, light or nature damage", "曾造成超过 10000 点奥术、火焰、冰冷、闪电、光系或自然伤害", "_t")
-t("%s surges with earthen power!", "%s涌起大地能量的狂潮!", "logSeen")
-t("%s surges with #PURPLE#arcane#LAST# power!", "%s涌起#PURPLE#奥术#LAST#能量的狂潮!", "logSeen")
-t("%s surges with #LIGHT_RED#fiery#LAST# power!", "%s涌起#LIGHT_RED#火焰#LAST#能量的狂潮!", "logSeen")
-t("%s surges with #1133F3#icy#LAST# power!", "%s涌起#1133F3#冰霜#LAST#能量的狂潮!", "logSeen")
-t("%s surges with #ROYAL_BLUE#lightning#LAST# power!", "%s涌起#ROYAL_BLUE#闪电#LAST#能量的狂潮!", "logSeen")
-t("%s surges with #YELLOW#light#LAST# power!", "%s涌起#YELLOW#光系#LAST#能量的狂潮!", "logSeen")
-t("%s surges with #LIGHT_GREEN#natural#LAST# power!", "%s涌起#LIGHT_GREEN#自然#LAST#能量的狂潮!", "logSeen")
+t("%s surges with earthen power!", "%s涌起大地能量的狂潮！", "logSeen")
+t("%s surges with #PURPLE#arcane#LAST# power!", "%s涌起#PURPLE#奥术#LAST#能量的狂潮！", "logSeen")
+t("%s surges with #LIGHT_RED#fiery#LAST# power!", "%s涌起#LIGHT_RED#火焰#LAST#能量的狂潮！", "logSeen")
+t("%s surges with #1133F3#icy#LAST# power!", "%s涌起#1133F3#冰霜#LAST#能量的狂潮！", "logSeen")
+t("%s surges with #ROYAL_BLUE#lightning#LAST# power!", "%s涌起#ROYAL_BLUE#闪电#LAST#能量的狂潮！", "logSeen")
+t("%s surges with #YELLOW#light#LAST# power!", "%s涌起#YELLOW#光系#LAST#能量的狂潮！", "logSeen")
+t("%s surges with #LIGHT_GREEN#natural#LAST# power!", "%s涌起#LIGHT_GREEN#自然#LAST#能量的狂潮！", "logSeen")
 t([[Surround yourself with an elemental aura that stores damage you deal.
 		Whenever you have stored %d damage of one type you unleash a powerful blast at a random enemy dealing %d damage of that type in radius %d and granting you one of the following effects:
 
@@ -31366,7 +31366,7 @@ t([[Surround yourself with an elemental aura that stores damage you deal.
 		物理 ：清除 1 个物理负面特效并给予 2 回合物理负面特效豁免。
 		#PURPLE#奥术 :#LAST# 增加你的精神和施法速度 30%%，持续 3 回合。
 		#LIGHT_RED#火焰 :#LAST# 增加你所造成的所有伤害 %d%%，持续 3 回合。
-		#1133F3#寒冷 :#LAST# 将你的皮肤变成冰，增加护甲 %d ，对攻击者造成 %d 冰冻伤害，持续 3 回合 
+		#1133F3#寒冷 :#LAST# 将你的皮肤变成冰，增加护甲 %d ，对攻击者造成 %d 冰冻伤害，持续 3 回合
 		#ROYAL_BLUE#闪电 :#LAST# 你的移动速度提升 %d%%，持续 2 回合。
 		#YELLOW#光系 :#LAST# 技能冷却时间减少 20%%，持续 3 回合。
 		#LIGHT_GREEN#自然 :#LAST# 清除 1 个魔法负面特效并给予 2 回合魔法负面特效豁免。
@@ -31498,7 +31498,7 @@ t([[Your study of arcane forces has let you develop a new way of applying your a
 		Your Lure talent cooldown is reduced by 5.
 
 		You learn the following talents:
-%s]], [[通过对奥术之力的研究，你开发出了新的陷阱和毒药（由学习此进阶时掌握的技能决定） 
+%s]], [[通过对奥术之力的研究，你开发出了新的陷阱和毒药（由学习此进阶时掌握的技能决定）
 
 你在灵巧/毒药系和灵巧/陷阱系技能树上获得 1.0 系数。
 		你的毒素爆发技能冷却时间减少 3。
@@ -31795,7 +31795,7 @@ t([[Your will is so strong that you simply ignore mental effects used against yo
 		这一技能每 5 回合最多触发一次。]], "tformat")
 t("Spell Feedback", "反魔干扰", "talent name")
 t("Antimagic", "反魔法", "_t")
-t("#LIGHT_BLUE##Source# punishes #Target# for casting a spell!", "#LIGHT_BLUE##Source#惩罚了#Target#的施法!", "logCombat")
+t("#LIGHT_BLUE##Source# punishes #Target# for casting a spell!", "#LIGHT_BLUE##Source#惩罚了#Target#的施法！", "logCombat")
 t([[Your will is a shield against assaults from crazed arcane users.
 		Each time that you take damage from a spell, you punish the spellcaster with %0.2f mind damage.
 		Also, they will suffer a 35%% spell failure chance (with duration equal to the cooldown of the spell they used on you).
@@ -31869,7 +31869,7 @@ t([[Leap toward your target.
 		When you land your global speed is increased by %d%% for 4 turns.]], [[跳向你的目标。
 		落地后你的全局速度增加 %d%%，持续 4 回合。]], "tformat")
 t("Retch", "腐秽呕吐", "talent name")
-t("%s #YELLOW_GREEN#VOMITS#LAST# on the ground!", "%s在地上#YELLOW_GREEN#呕吐#LAST#!", "logSeen")
+t("%s #YELLOW_GREEN#VOMITS#LAST# on the ground!", "%s在地上#YELLOW_GREEN#呕吐#LAST#！", "logSeen")
 t([[Vomit on the ground around you, healing any undead in the area and damaging anyone else.
 		Lasts %d turns and deals %d blight damage or heals %d life.
 		Creatures standing in the retch also have %d%% chance to remove a physical effect each turn; undeads will be stripped from a detrimental effect while others will be stripped from a beneficial effect.
@@ -31954,15 +31954,15 @@ section "mod-tome/data/talents/undeads/undeads.lua"
 
 t("undead", "亡灵", "talent category")
 t("base", "基础", "talent type")
-t("Undead's innate abilities.", " 不死族的天赋。", "_t")
+t("Undead's innate abilities.", "不死族的天赋。", "_t")
 t("ghoul", "食尸鬼", "talent type")
-t("Ghoul's innate abilities.", " 食尸鬼的天赋。", "_t")
+t("Ghoul's innate abilities.", "食尸鬼的天赋。", "_t")
 t("skeleton", "骷髅", "talent type")
-t("Skeleton's innate abilities.", " 骷髅的天赋。", "_t")
+t("Skeleton's innate abilities.", "骷髅的天赋。", "_t")
 t("vampire", "吸血鬼", "talent type")
-t("Vampire's innate abilities.", " 吸血鬼的天赋。", "_t")
+t("Vampire's innate abilities.", "吸血鬼的天赋。", "_t")
 t("lich", "巫妖", "talent type")
-t("Liches innate abilities.", " 巫妖的天赋。", "_t")
+t("Liches innate abilities.", "巫妖的天赋。", "_t")
 t("Knowledge of the Past", "逝去的知识", "talent name")
 t("You concentrate for a moment to recall some of your memories as a living being and look for knowledge to identify rare objects.", "你集中精神回想你生前时的知识，来辨识一些稀有物品。", "tformat")
 
@@ -32387,7 +32387,7 @@ This calls for urgency; should you find this Golbug or the portal, please invest
 他提到了高尔布格，貌似是瑞库纳的一位战争领主，带领一场袭击，以便将一个“包裹”送过传送门。
 
 事情非常紧急；如果你找到这个高尔布格或那个传送门，请务必调查。
-			   
+
 			   #GOLD#-- 托拉克，联合王国国王。]], "_t")
 t([[@playername@, this message is of utmost importance.
 
@@ -32413,7 +32413,7 @@ This calls for urgency; should you find this Golbug or the portal, please invest
 裹”送过传送门。
 
 事情非常紧急；如果你找到这个高尔布格或那个传送门，请务必调查。
-			   
+
 			   #GOLD#-- 托拉克，联合王国国王。]], "_t")
 
 ------------------------------------------------
@@ -33209,7 +33209,7 @@ t([[Did you accurately predict that +6 to a #FFFFFF#tier 2#WHITE# #GOLD#combat s
 Let's try again in the next room. What do you suppose will happen when you put on an item that grants you +6 #LIGHT_GREEN#Mental save#WHITE#?
 ]], [[你是否准确预测到，#FFFFFF#层级 2#WHITE#的#GOLD#战斗属性#WHITE#提高 +6 后，数值只会增加 3？
 
-我们到下一个房间再测试一下。请你再猜一次一个 +6 #LIGHT_GREEN#精神豁免#WHITE# 的装备你穿上后会有什么变化。
+我们到下一个房间再测试一下。请你再猜一次一个 +6 #LIGHT_GREEN#精神豁免#WHITE# 的装备你穿上后会有什么变化？
 ]], "_t")
 
 ------------------------------------------------
@@ -33302,7 +33302,7 @@ Feel free to go batter those spiders some more if you need further experimentati
 
 2) 那些 #GOLD#战斗属性#WHITE# 又是哪一个层级的呢？
 
-你可以随便攻击这些蜘蛛，来做进一步的测试。
+你可以随便攻击这些蜘蛛，来做进一步的测试！
 ]], "_t")
 
 ------------------------------------------------
@@ -34072,7 +34072,7 @@ Madness features:#YELLOW#
 - 玩家成为了猎物！随机地，一定半径内的所有敌人都会感知到你所在的位置
 - 如果同时在永久死亡模式或冒险模式下游玩，玩家可以获得绝望难度版本的成就
 
-#WHITE# 祝你玩的愉快，死的开心 !
+#WHITE# 祝你玩的愉快，死的开心 ！
 ]], "_t")
 
 ------------------------------------------------
@@ -34959,7 +34959,7 @@ t("stone", "石", "effect subtype")
 t("stun", "震慑", "effect subtype")
 t("Stoned", "石化", "_t")
 t("The target has been turned to stone: it is rooted in place, unable to act, and may be shattered by a single blow dealing more than 30% of its maximum life.  It's new form makes it immune to being poisoned or cut, and grants improved physical(+20%), fire(+80%) and lightning(+50%) resistances.", "目标已被石化：定身在原地且无法行动，受到一次超过其最大生命值 30% 的打击时可能被击碎。新的形态使其免疫中毒和流血，并提高物理（+20%）、火焰（+80%）与闪电（+50%）抗性。", "_t")
-t("#Target# turns to #GREY#STONE#LAST#!", "#Target#变成了#GREY#石头#LAST#!", "_t")
+t("#Target# turns to #GREY#STONE#LAST#!", "#Target#变成了#GREY#石头#LAST#！", "_t")
 t("+Stoned", "+石化", "_t")
 t("#Target# is no longer a #GREY#statue#LAST#.", "#Target#不再是#GREY#雕像#LAST#了。", "_t")
 t("-Stoned", "-石化", "_t")
@@ -35004,7 +35004,7 @@ t("lightning", "闪电", "effect subtype")
 t("shield", "护盾", "effect subtype")
 t("Stormshield", "风暴之盾", "_t")
 t("The target is protected a raging storm deflecting up to %d instances of damage over %d.", "目标受到狂暴风暴的保护，可以偏转至多 %d 次伤害，持续 %d 回合。", "tformat")
-t("#Target# summons a storm to protect them!", "#Target#召唤风暴来保护自己!", "_t")
+t("#Target# summons a storm to protect them!", "#Target#召唤风暴来保护自己！", "_t")
 t("+Stormshield", "+风暴之盾", "_t")
 t("#Target#'s storm dissipates.", "#Target#的风暴消失了。", "_t")
 t("-Stormshield", "-风暴之盾", "_t")
@@ -35151,7 +35151,7 @@ t("You are yanked out of this time!", "你突然被拽离了当前时间！", "l
 t("Time restabilizes around you.", "你周围的时间稳定了下来。", "logPlayer")
 t("Premonition Shield", "感应护盾", "_t")
 t("Reduces %s damage received by %d%%.", "降低受到的 %s 伤害 %d%%。", "tformat")
-t("#Target# casts a protective shield just in time!", "#Target#及时召唤出了一个保护护盾。", "_t")
+t("#Target# casts a protective shield just in time!", "#Target#及时召唤出了一个保护护盾！", "_t")
 t("+Premonition Shield", "+感应护盾", "_t")
 t("The protective shield of #Target# disappears.", "#Target#的保护护盾消失了。", "_t")
 t("-Premonition Shield", "-感应护盾", "_t")
@@ -35355,8 +35355,8 @@ t("#LIGHT_RED#A carrion worm mass bursts out of %s!", "#LIGHT_RED#腐肉虫群�
 t("Ghoul Rot", "尸鬼腐蚀", "_t")
 t("  If the target dies while ghoul rot is active it will rise as a ghoul.", "  如果目标在尸鬼腐蚀期间死亡，它将作为食尸鬼复活。", "_t")
 t("The target is infected by a disease doing %0.2f blight damage per turn.%s", "目标感染疾病，每回合造成 %0.2f 点枯萎伤害。 %s", "tformat")
-t("#Target# is afflicted by ghoul rot!", "#Target#被食尸鬼的疾病感染!", "_t")
-t("#Target# is free from the ghoul rot.", "#Target#摆脱了食尸鬼的疾病!", "_t")
+t("#Target# is afflicted by ghoul rot!", "#Target#被食尸鬼的疾病感染！", "_t")
+t("#Target# is free from the ghoul rot.", "#Target#摆脱了食尸鬼的疾病！", "_t")
 t("Bloodcasting", "血祭施法", "_t")
 t("Corruptions consume health instead of vim.", "堕落者消耗生命值来取代活力值。", "_t")
 t("Sanguine Infusion", "鲜血充能", "_t")
@@ -35371,7 +35371,7 @@ t("Ward", "守护", "_t")
 t("Fully absorbs %d %s %s.", "完全吸收 %d次%s%s。", "tformat")
 t("attacks", "攻击", "_t")
 t("attack", "攻击", "_t")
-t("#Target# warded against %s!", "#Target#吸收了%s的攻击!", "tformat")
+t("#Target# warded against %s!", "#Target#吸收了%s的攻击！", "tformat")
 t("+Ward", "+守护", "_t")
 t("#Target#'s %s ward fades", "#Target#不再守护自己免受%s伤害。", "tformat")
 t("-Ward", "-守护", "_t")
@@ -35403,13 +35403,13 @@ t("+Congeal Time", "+时间凝固", "_t")
 t("-Congeal Time", "-时间凝固", "_t")
 t("Arcane Vortex", "奥术漩涡", "_t")
 t("An arcane vortex follows the target. Each turn a manathrust fires from it to a random foe in sight doing %0.2f arcane damage to all. If no foes are found the main target takes 50%% more arcane damage this turn. If the target dies the remaining damage is dealt as a radius 2 ball of arcane.", "一个奥术漩涡跟随着目标。每回合一发奥术射线从它身上释放出来，随机对附近视野内的目标造成 %0.2f 奥术伤害。如果视野内没有任何其他目标，则该回合会对初始目标附加额外的 50%%奥术伤害。如果目标死亡，残余伤害引发半径为 2 的奥术爆炸。", "tformat")
-t("#Target# is focused by an arcane vortex!", "#Target#被奥术漩涡围绕。", "_t")
+t("#Target# is focused by an arcane vortex!", "#Target#被奥术漩涡围绕！", "_t")
 t("+Arcane Vortex", "+奥术漩涡", "_t")
 t("#Target# is free from the arcane vortex.", "#Target#摆脱了奥术漩涡。", "_t")
 t("-Arcane Vortex", "-奥术漩涡", "_t")
 t("Aether Breach", "以太裂隙", "_t")
 t("Fires an arcane explosion each turn doing %0.2f arcane damage in radius 2.", "每回合触发一个奥术爆炸， 在 2 码范围内造成 %0.2f 奥术伤害。", "tformat")
-t("#Target# begins channeling arcane through a breach in reality!", "#Target#从现实的裂口中传导奥术能量!", "_t")
+t("#Target# begins channeling arcane through a breach in reality!", "#Target#从现实的裂口中传导奥术能量！", "_t")
 t("+Aether Breach", "+以太裂隙", "_t")
 t("The aetheric breach around #Target# seals itself.", "#Target#周围的以太裂隙自动关闭了。", "_t")
 t("-Aether Breach", "-以太裂隙", "_t")
@@ -35419,7 +35419,7 @@ t("poison", "毒素", "effect subtype")
 t("Vulnerability Poison", "脆弱毒素", "_t")
 t("The target is afflicted with a magical poison and is suffering %0.2f arcane damage per turn.  All resistances are reduced by 10%%%s.", "目标被魔法毒素感染，每回合受到 %0.2f 奥术伤害，所有伤害抗性下降 10%% %s.", "tformat")
 t(" and poison resistance is reduced by %s%%", " 毒素免疫下降 %s%%", "tformat")
-t("#Target# is magically poisoned!", "#Target#被魔法毒素感染!", "_t")
+t("#Target# is magically poisoned!", "#Target#被魔法毒素感染！", "_t")
 t("+Vulnerability Poison", "+脆弱毒素", "_t")
 t("#Target# is no longer magically poisoned.", "#Target#不再受魔法毒素影响。", "_t")
 t("-Vulnerability Poison", "-脆弱毒素", "_t")
@@ -35440,13 +35440,13 @@ t("#Target# can move freely once more.", "#Target#可以自由移动了。", "_t
 t("-Weight of the Sun", "-太阳引力", "_t")
 t("Temporal Form", "时空形态", "_t")
 t("The target assumes the form of a telugoroth.", "目标呈现出泰鲁戈洛斯形态。", "tformat")
-t("#Target# threads time as a shell!", "#Target#扭曲了时间。", "_t")
+t("#Target# threads time as a shell!", "#Target#扭曲了时间！", "_t")
 t("+Temporal Form", "+时空形态", "_t")
 t("#Target# is no longer embeded in time.", "#Target#不再嵌于时间之中。", "_t")
 t("-Temporal Form", "-时空形态", "_t")
 t("Corrupted Losgoroth Form", "堕落的罗斯戈洛斯形态", "_t")
 t("The target has assumed the form of a corrupted losgoroth, gaining immunity to poison, disease, bleeding, and confusion.  It does not need to breathe, and converts half of all damage to life draining blight.", "目标呈现出堕落的罗斯戈洛斯形态。获得毒素、疾病、流血和混乱免疫。不需要呼吸，将所造成的一半伤害转化为枯萎吸血伤害。", "tformat")
-t("#Target# turns into a losgoroth!", "#Target#变成了罗斯戈洛斯。", "_t")
+t("#Target# turns into a losgoroth!", "#Target#变成了罗斯戈洛斯！", "_t")
 t("+Corrupted Losgoroth Form", "+堕落的罗斯戈洛斯形态", "_t")
 t("#Target# is no longer transformed.", "#Target#恢复了原本的形态。", "_t")
 t("-Corrupted Losgoroth Form", "-堕落的罗斯戈洛斯形态", "_t")
@@ -35485,12 +35485,12 @@ t("#Target#'s solar fury subsides.", "#Target#的阳光之怒消退了。", "_t"
 t("-Sun's Vengeance", "-阳光之怒", "_t")
 t("Suncloak", "阳光护体", "_t")
 t("The target is protected by the sun, increasing their spell casting speed by %d%%, reducing spell cooldowns by %d%%, and preventing damage over %d%% of your maximum life from a single hit.", "目标受到太阳庇护，施法速度提高 %d%%，法术冷却时间缩短 %d%%，且单次攻击造成的伤害不会超过其最大生命的 %d%%。", "tformat")
-t("#Target# is energized and protected by the Sun!", "#Target#被阳光保护并充能。", "_t")
+t("#Target# is energized and protected by the Sun!", "#Target#被阳光保护并充能！", "_t")
 t("+Suncloak", "+阳光护体", "_t")
 t("-Suncloak", "-阳光护体", "_t")
 t("Mark of Light", "光之印记", "_t")
 t("The creature that marked the target with light will be healed for all melee attacks against it by %d%%.", "目标被光之印记标记，标记方对它进行近战攻击将获得相当于 %d%% 伤害的治疗。", "tformat")
-t("#Target# is marked by light!", "#Target#被光之印记标记。", "_t")
+t("#Target# is marked by light!", "#Target#被光之印记标记！", "_t")
 t("+Mark of Light", "+光之印记", "_t")
 t("#Target#'s mark disappears.", "#Target#身上的光之印记消失了。", "_t")
 t("-Mark of Light", "-光之印记", "_t")
@@ -35579,8 +35579,8 @@ t("Unravel", "解体", "_t")
 t("The target is immune to further damage but is dealing %d%% less damage.", "目标免疫伤害，但造成的伤害减少 %d%%。", "tformat")
 t("#Target# has started to unravel.", "#Target#开始解体。", "_t")
 t("+Unraveling", "+解体", "_t")
-t("Unravels!", "解体!", "_t")
-t("%s has unraveled!", "%s 被解体了!", "logSeen")
+t("Unravels!", "解体！", "_t")
+t("%s has unraveled!", "%s 被解体了！", "logSeen")
 t("Entropy", "熵", "_t")
 t("The target is losing one sustain per turn.", "每回合失去一项维持技能。", "_t")
 t("#Target# is caught in an entropic field!", "#Target#被熵领域覆盖！", "_t")
@@ -35599,7 +35599,7 @@ t("#Target# is being being removed from the timeline!", "#Target#被从时间线
 t("+Attenuate", "+湮灭洪流", "_t")
 t("#Target# survived the attenuation.", "#Target#从时间线中存活了。", "_t")
 t("-Attenuate", "-湮灭洪流", "_t")
-t("%s has been removed from the timeline!", "%s 被移出时间线!", "logSeen")
+t("%s has been removed from the timeline!", "%s 被移出时间线！", "logSeen")
 t("The target is being grounded in the timeline and is healing %0.2f life per turn.", "目标正被锚定在时间线中，每回合恢复 %0.2f 点生命。", "tformat")
 t("#Target# is being being grounded in the timeline!", "#Target#被锚定在时间线中！", "_t")
 t("#Target# is no longer being grounded.", "#Target#不再被锚定在时间线中。", "_t")
@@ -35651,25 +35651,25 @@ t("#Target# is no longer tethered.", "#Target#不再被时空系绳固定。", "
 t("-Tether", "-系绳", "_t")
 t("Blight Poison", "枯萎毒素", "_t")
 t("The target is poisoned, taking %0.2f blight damage per turn.", "目标中毒，每回合受到 %0.2f 枯萎伤害。", "tformat")
-t("#Target# is poisoned with blight!", "#Target#中了枯萎毒素!", "_t")
+t("#Target# is poisoned with blight!", "#Target#中了枯萎毒素！", "_t")
 t("+Blight Poison", "+枯萎毒素", "_t")
 t("#Target# is free from the blighted poison.", "#Target#的枯萎毒素解除了。", "_t")
 t("-Blight Poison", "-枯萎毒素", "_t")
 t("Insidious Blight", "阴险枯萎毒素", "_t")
 t("The target is poisoned, taking %0.2f blight damage per turn and decreasing all heals received by %d%%.", "目标中毒，每回合受到 %0.2f 枯萎伤害并降低所有治疗效果 %d%%。", "tformat")
-t("#Target# is poisoned with insidious blight!!", "#Target#中了阴险枯萎毒素!!", "_t")
+t("#Target# is poisoned with insidious blight!!", "#Target#中了阴险枯萎毒素!！", "_t")
 t("+Insidious Blight", "+阴险枯萎毒素", "_t")
 t("#Target# is free from the insidious blight.", "#Target#的阴险枯萎毒素解除了。", "_t")
 t("-Insidious Blight", "-阴险枯萎毒素", "_t")
 t("Crippling Blight", "致残枯萎毒素", "_t")
 t("The target is poisoned and sick, doing %0.2f blight damage per turn. Each time it tries to use a talent there is %d%% chance of failure.", "目标中毒，每回合受到 %0.2f 枯萎伤害，每次使用技能时有 %d%% 概率失败。", "tformat")
-t("#Target# is poisoned with crippling blight!", "#Target#中了致残枯萎毒素!", "_t")
+t("#Target# is poisoned with crippling blight!", "#Target#中了致残枯萎毒素！", "_t")
 t("+Crippling Blight", "+致残枯萎毒素", "_t")
 t("#Target# is free from the crippling blight.", "#Target#的致残枯萎毒素解除了。", "_t")
 t("-Crippling Blight", "-致残枯萎毒素", "_t")
 t("Numbing Blight", "麻痹枯萎毒素", "_t")
 t("The target is poisoned and sick, doing %0.2f blight damage per turn. All damage it does is reduced by %d%%.", "目标中毒且患病，每回合受到 %0.2f 枯萎伤害并减少其造成的伤害 %d%%。", "tformat")
-t("#Target# is poisoned numbing blight!", "#Target#中了麻痹枯萎毒素!", "_t")
+t("#Target# is poisoned numbing blight!", "#Target#中了麻痹枯萎毒素！", "_t")
 t("+Numbing Blight", "+麻痹枯萎毒素", "_t")
 t("#Target# is free from the numbing blight.", "#Target#的麻痹枯萎毒素解除了。", "_t")
 t("-Numbing Blight", "-麻痹枯萎毒素", "_t")
@@ -35693,11 +35693,11 @@ t("-Deeprock Form", "-深岩形态", "_t")
 t("celestial", "天空", "effect subtype")
 t("Bathe in Light", "光之洗礼", "_t")
 t("Fire and Light damage increased by %d%%.", "火焰和光系伤害增加 %d%%.", "tformat")
-t("#Target# glows intensely!", "#Target#发出强光!", "_t")
+t("#Target# glows intensely!", "#Target#发出强光！", "_t")
 t("#Target# is no longer glowing .", "#Target#不再发光。", "_t")
 t("higher", "高等人类", "effect subtype")
 t("Overseer of Nations", "远见卓识", "_t")
-t("Detects creatures of type %s/%s in radius 15.", "在15格范围内感知以下种族： %s/%s ", "tformat")
+t("Detects creatures of type %s/%s in radius 15.", "在15格范围内感知以下种族： %s/%s", "tformat")
 t("hex", "邪术", "effect subtype")
 t("dominate", "支配", "effect subtype")
 t("Pacification Hex", "宁神邪术", "_t")
@@ -35804,7 +35804,7 @@ t("Black Ice", "寒霜黑冰", "_t")
 t("Damage from necrotic minions increased by %d%%.", "来自死灵随从的伤害增加 %d%%。", "tformat")
 t("Corpselight", "阴燃鬼火", "_t")
 t("Sustains a corpselight of radius %d that deals %0.2f cold damage per turn.", "维持一个半径 %d 格的鬼火，每回合造成 %0.2f 寒冷伤害。", "tformat")
-t("#Target# summons a corpselight!", "#Target#召唤阴燃鬼火!", "_t")
+t("#Target# summons a corpselight!", "#Target#召唤阴燃鬼火！", "_t")
 t("Crepuscule", "黄昏降临", "_t")
 t("Bring the night!", "黑夜降临了！", "_t")
 t("#Target# calls the night!", "#Target# 召唤了黑暗！", "_t")
@@ -35886,7 +35886,7 @@ section "mod-tome/data/timed_effects/mental.lua"
 
 t("Exposed", "暴露", "_t")
 t("Mind and body exposed to effects and attacks, reducing all saves and defense by %d.", "精神和身体暴露于攻击和效果中，闪避和豁免减少 %d。", "tformat")
-t("#Target#'s is vulnerable to attacks and effects!", "#Target#易受攻击和效果的影响!", "_t")
+t("#Target#'s is vulnerable to attacks and effects!", "#Target#易受攻击和效果的影响！", "_t")
 t("#Target# is less vulnerable.", "#Target#不再易受攻击。", "_t")
 t("darkness", "暗影", "effect subtype")
 t("Numbing Darkness", "黑暗麻痹", "_t")
@@ -35946,23 +35946,23 @@ t("#F53CBE##Target# is no longer weakened.", "#F53CBE##Target#不再被削弱。
 t("slow", "减速", "effect subtype")
 t("Slowed by the gloom", "黑暗减速", "_t")
 t("The gloom reduces the target's global speed by %d%%.", "降低目标全局速度 %d%%。", "tformat")
-t("#F53CBE##Target# moves reluctantly!", "#F53CBE##Target#移动受黑暗影响。", "_t")
+t("#F53CBE##Target# moves reluctantly!", "#F53CBE##Target#移动受黑暗影响！", "_t")
 t("+Slow", "+减速", "_t")
 t("#Target# overcomes the gloom.", "#Target#战胜了黑暗。", "_t")
 t("-Slow", "-减速", "_t")
 t("stun", "震慑", "effect subtype")
 t("Stunned by the gloom", "黑暗震慑", "_t")
 t("The gloom has stunned the target, reducing damage by 50%%, putting 4 random talents on cooldown and reducing movement speed by 50%%.  While stunned talents cooldown twice as slow.", "目标被黑暗光环震慑，伤害降低 50 %%，随机 4 个技能进入 CD，移动速度降低 50%%。在震慑时技能冷却速度变慢一倍。", "tformat")
-t("#F53CBE##Target# is stunned with fear!", "#F53CBE##Target#被恐惧所震慑。", "_t")
+t("#F53CBE##Target# is stunned with fear!", "#F53CBE##Target#被恐惧所震慑！", "_t")
 t("+Stunned", "+震慑", "_t")
 t("#Target# overcomes the gloom", "#Target#克服了黑暗光环的影响。", "_t")
 t("-Stunned", "-震慑", "_t")
 t("Confused by the gloom", "黑暗混乱", "_t")
 t("The gloom has confused the target, making it act randomly (%d%% chance) and unable to perform complex actions.", "目标因黑暗光环陷入混乱，使其随机行动（ %d%% 概率）且不能完成复杂动作。", "tformat")
-t("#F53CBE##Target# is lost in despair!", "#F53CBE##Target#在绝望中迷失。", "_t")
+t("#F53CBE##Target# is lost in despair!", "#F53CBE##Target#在绝望中迷失！", "_t")
 t("Dismayed", "惊慌失措", "_t")
 t("The target is dismayed. The next melee attack against the target will be a guaranteed critical hit.", "目标惊慌失措，下一次对该目标的近战攻击会造成暴击。", "_t")
-t("#F53CBE##Target# is dismayed!", "#F53CBE##Target#陷入惊慌失措。", "_t")
+t("#F53CBE##Target# is dismayed!", "#F53CBE##Target#陷入惊慌失措！", "_t")
 t("+Dismayed", "+惊慌失措", "_t")
 t("#Target# overcomes the dismay", "#Target#恢复了理智。", "_t")
 t("-Dismayed", "-惊慌失措", "_t")
@@ -35979,7 +35979,7 @@ t("Being stalked by %s. Stalker bonus level %d: +%d accuracy, +%d%% melee damage
 t(" Prey damage modifier: %d%%.", " 猎捕伤害加成： %d%%。", "tformat")
 t("Beckoned", "受召", "_t")
 t("The target has been beckoned by %s and is heeding the call. There is a %d%% chance of moving towards the beckoner each turn.", "目标受到 %s 的召唤并响应其呼唤，每回合有 %d%% 概率向召唤者移动。", "tformat")
-t(" (spellpower: %d, mindpower: %d", " (法术强度： %d ，精神强度： %d ", "tformat")
+t(" (spellpower: %d, mindpower: %d", " (法术强度： %d ，精神强度： %d", "tformat")
 t("#Target# has been beckoned.", "#Target#受到召唤。", "_t")
 t("+Beckoned", "+受召", "_t")
 t("#Target# is no longer beckoned.", "#Target#不再受召唤。", "_t")
@@ -36028,7 +36028,7 @@ t("#Target# no longer hears the hateful whisper.", "#Target#不再听到憎恨�
 t("-Hateful Whisper", "-憎恨私语", "_t")
 t("Slowed by madness", "疯狂减速", "_t")
 t("Madness reduces the target's global speed by %d%% and lowers mind resistance by %d%%.", "疯狂使目标的全局速度降低 %d%%，精神抗性降低 %d%%。", "tformat")
-t("#F53CBE##Target# slows in the grip of madness!", "#F53CBE##Target#陷入疯狂之中速度减缓了。", "_t")
+t("#F53CBE##Target# slows in the grip of madness!", "#F53CBE##Target#陷入疯狂之中速度减缓了！", "_t")
 t("#Target# overcomes the madness.", "#Target#摆脱了疯狂。", "_t")
 t("Stunned by madness", "疯狂震慑", "_t")
 t("Madness has stunned the target, reducing damage by 50%%, lowering mind resistance by %d%%, putting 4 random talents on cooldown and reducing movement speed by 50%%.  While stunned talents cooldown twice as slow.", "目标因疯狂而被震慑，造成的伤害降低 50%%，精神抗性降低 %d%%，4 个随机技能进入冷却，移动速度降低 50%%。震慑期间，技能冷却速度减半。", "tformat")
@@ -36157,7 +36157,7 @@ t("-Night Terrors", "-梦魇恐怖", "_t")
 t("#F53CBE#%s succumbs to the nightmare!", "#F53CBE#%s受噩梦控制！", "logSeen")
 t("Inner Demons", "心魔", "_t")
 t("The target is plagued by inner demons and each turn there's a %d%% chance that one will appear.  If the caster is killed or the target resists setting his demons loose the effect will end early.", "目标被内心恶魔困扰，每回合有 %d%% 的几率出现一个恶魔。如果施法者被杀死，或目标抵抗而不释放自己的心魔，效果将提前结束。", "tformat")
-t("#F53CBE##Target# is plagued by inner demons!", "#F53CBE##Target#受心魔困扰。", "_t")
+t("#F53CBE##Target# is plagued by inner demons!", "#F53CBE##Target#受心魔困扰！", "_t")
 t("+Inner Demons", "+心魔", "_t")
 t("#Target# is freed from the demons.", "#Target#摆脱了心魔。", "_t")
 t("-Inner Demons", "-心魔", "_t")
@@ -36182,7 +36182,7 @@ Additionally the target will continue to fight until its Life reaches -%d%%.]], 
 此外，目标会继续战斗，直到生命值降至 -%d%%。]], "tformat")
 t("#Target# goes into a killing frenzy.", "#Target#陷入杀戮狂热。", "_t")
 t("#Target# calms down.", "#Target#冷静了下来。", "_t")
-t("Falls dead!", "死亡!", "_t")
+t("Falls dead!", "死亡！", "_t")
 t("%s dies when its frenzy ends!", "%s在狂热结束时死亡！", "logSeen")
 t("heal", "治疗", "effect subtype")
 t("regeneration", "回复", "effect subtype")
@@ -36529,7 +36529,7 @@ t("Militant Mind", "好斗精神", "_t")
 t("Increases physical power, physical save, spellpower, spell save, mindpower, and mental save by %d.", "提高你 %d 点物理强度、物理豁免、法术强度、法术豁免、精神强度和精神豁免。", "tformat")
 t("Sever Lifeline", "生命离断", "_t")
 t("The target's lifeline is being cut. When the effect ends %d temporal damage will hit the target.", "目标的生命线被切断，效果结束时对目标造成 %d 时空伤害。", "tformat")
-t("#Target#'s lifeline is being severed!", "#Target#的生命线被收割了!", "_t")
+t("#Target#'s lifeline is being severed!", "#Target#的生命线被收割了！", "_t")
 t("+Sever Lifeline", "+生命离断", "_t")
 t("Fade From Time", "时光凋零", "_t")
 t("The target is partially removed from the timeline, reducing all damage dealt by %d%%, all damage received by %d%%, and the duration of all detrimental effects by %d%%.", "目标暂时被从时间线中移除，造成的伤害减少 %d%%，减少受到伤害 %d%%，并减少 %d%% 回合所有不良效果持续时间。", "tformat")
@@ -36617,7 +36617,7 @@ t([[Horrible visions fill your mind.
 #CRIMSON# 强度 2+：%s%+d 幸运， %+d 意志
 #CRIMSON# 强度 3+：%s 折磨 ：当敌人试图对你造成负面效果时，你的折磨光环会对 10 范围内的一个随机敌人进行报复，造成 %d 精神和 %d 暗影伤害。
 #CRIMSON# 强度 4+：%s 噩梦：每次受到目标攻击有概率 (当前 %d%%) 触发一个范围为 %d 码的噩梦（有减速、召唤梦魇和直接造成%d精神、%d暗影伤害的效果）持续 8 回合。  触发几率  在每次你受到打击时提高，同时随时间下降。]], "tformat")
-t("#F53CBE#%s harrows %s!", "#F53CBE#%s惊扰%s!", "logSeen")
+t("#F53CBE#%s harrows %s!", "#F53CBE#%s惊扰%s！", "logSeen")
 t("A formless terror that seems to cut through the air, and its victims, like a knife.", "这只形态模糊的恐魔，将敌人连同周围的空气一起切成两半。", "_t")
 t("Nightmare", "梦魇", "_t")
 t("#F53CBE#The air around %s grows cold and terrifying shapes begin to coalesce. A nightmare has begun.", "#F53CBE#%s周围的空气开始变得冰冷并形成了一种令人恐怖的形状，噩梦开始了。", "logSeen")
@@ -36764,10 +36764,10 @@ t("Time Stop", "时间停止", "_t")
 t("The target has stopped time and is dealing %d%% less damage.", "目标停止了时间，期间造成的伤害减少 %d%%。", "tformat")
 t("Temporal Reprieve", "时空避难所", "_t")
 t("This target has retreated to a safe place.", "目标被传送至安全位置。", "tformat")
-t("#STEEL_BLUE#You are brought back from your repreive!", "#STEEL_BLUE#被从避难所带了回去!", "logPlayer")
+t("#STEEL_BLUE#You are brought back from your repreive!", "#STEEL_BLUE#被从避难所带了回去！", "logPlayer")
 t("Temporal Fugue", "时间复制", "_t")
 t("This target is splitting all damage with its fugue clones.", "目标将伤害和时空复制体共享。", "_t")
-t("#STEEL_BLUE##Source# shares damage with %s fugue clones!", "#STEEL_BLUE##Source#和%s时空克隆共享伤害!", "delayedLogMessage")
+t("#STEEL_BLUE##Source# shares damage with %s fugue clones!", "#STEEL_BLUE##Source#和%s时空克隆共享伤害！", "delayedLogMessage")
 t("#STEEL_BLUE#(%d shared)#LAST#", "#STEEL_BLUE#(%d 伤害共享)#LAST#", "tformat")
 t("Draconic Will", "龙族意志", "_t")
 t("The target is immune to all detrimental effects.", "目标免疫所有异常状态。", "_t")
@@ -36847,13 +36847,13 @@ t("The target is suffering from distracting wounds, and has a %d%% chance to fai
 t("Touch of Death", "点穴术", "_t")
 t("The target is taking %0.2f physical damage each turn. If they die while under this effect, they will explode!", "目标每回合受到 %0.2f 物理伤害。在这个状态下死亡时，会发生爆炸！", "tformat")
 t("#Target# is mortally wounded!", "#Target#受到致命伤！", "_t")
-t("+Touch of Death!", "+点穴术!", "_t")
+t("+Touch of Death!", "+点穴术！", "_t")
 t("#Target# overcomes the touch of death.", "#Target#摆脱了点穴。", "_t")
 t("-Touch of Death", "-点穴术", "_t")
-t("#LIGHT_RED#%s explodes into a shower of gore!", "#LIGHT_RED#%s爆炸成一团碎肉!", "logSeen")
+t("#LIGHT_RED#%s explodes into a shower of gore!", "#LIGHT_RED#%s爆炸成一团碎肉！", "logSeen")
 t("Marked", "标记", "_t")
 t("Target is marked, leaving them vulnerable to marked shots.", "目标被标记了，某些攻击会更加有效。", "tformat")
-t("+Marked!", "+标记!", "_t")
+t("+Marked!", "+标记！", "_t")
 t("-Marked", "-标记", "_t")
 t("Flare", "闪光弹", "_t")
 t("The target is lit up by a flare, reducing its stealth and invisibility power by %d, defense by %d and removing all evasion bonus from being unseen.", "目标被照明弹照亮，潜行和隐身强度减少 %d, 闪避减少 %d 并失去不可见状态带来的闪避加成。", "tformat")
@@ -36870,13 +36870,13 @@ t("God Mode", "天神模式", "_t")
 t("GODMODE: Target is invulnerable to damage, immune to bad status effects, deals +10000%% damage (100%% penetration), does not need to breathe, and has full ESP.", "天神模式：目标不会受到伤害，不会受到负面状态的影响，造成 +10000%% 伤害（100%% 抗性穿透），不需要呼吸，感应所有生物。", "tformat")
 t("Slippery Ground", "地面光滑", "_t")
 t("The target is having trouble keeping their balance. Each time it tries to use a talent there is %d%% chance of failure.", "目标很难保持平衡。每次它尝试使用一个技能，都有 %d%% 的失败几率。", "tformat")
-t("#Target# is struggling to keep his footing!", "#Target#很难保持平衡!", "_t")
+t("#Target# is struggling to keep his footing!", "#Target#很难保持平衡！", "_t")
 t("+Slippery Ground", "+地面光滑", "_t")
 t("#Target# regains their balance.", "#Target#恢复了平衡。", "_t")
 t("-Slippery Ground", "-地面光滑", "_t")
 t("Frozen Ground", "冻结大地", "_t")
 t("The target is energized by the cold while wearing the Frost Treads, gaining 20%% increased cold damage.", "目标穿着踏雪时受到寒冷的激励，增加 20%% 的寒冷伤害。", "tformat")
-t("#Target# is energized by the cold!", "#Target#被寒冷强化!", "_t")
+t("#Target# is energized by the cold!", "#Target#被寒冷强化！", "_t")
 t("+Frozen Ground", "+冻结大地", "_t")
 t("#Target# regains balance.", "#Target#重新恢复了平衡.", "_t")
 t("-Frozen Ground", "-冻结大地", "_t")
@@ -37079,7 +37079,7 @@ t("#Target# is not dazed anymore.", "#Target#从眩晕中恢复。", "_t")
 t("-Dazed", "-眩晕", "_t")
 t("evade", "闪避", "effect subtype")
 t("Evasion", "躲闪", "_t")
-t("The target has %d%% chance to evade melee and ranged attacks", "目标有 %d%% 概率躲闪近战和远程攻击 ", "tformat")
+t("The target has %d%% chance to evade melee and ranged attacks", "目标有 %d%% 概率躲闪近战和远程攻击", "tformat")
 t(" and gains %d defense", " 并增加 %d 点闪避值。", "tformat")
 t("#Target# tries to evade attacks.", "#Target#尝试躲闪攻击。", "_t")
 t("+Evasion", "+躲闪", "_t")
@@ -37217,7 +37217,7 @@ t("+Wild Speed", "+狂暴加速", "_t")
 t("-Wild Speed", "-狂暴加速", "_t")
 t("Hunter", "猎手", "_t")
 t("Movement is %d%% faster.  Any action other than movement will end this effect.", "移动速度提高 %d%%。任何非移动动作都会结束此效果。", "tformat")
-t("#Target# prepares %s!", "#Target#准备了%s!", "tformat")
+t("#Target# prepares %s!", "#Target#准备了%s！", "tformat")
 t("to escape", "逃跑", "_t")
 t("for the next kill", "为下一次击杀", "_t")
 t("+Hunter", "+猎手", "_t")
@@ -37225,7 +37225,7 @@ t("-Hunter", "-猎手", "_t")
 t("tactic", "战术", "effect subtype")
 t("Step Up", "步步为营", "_t")
 t("Movement is %d%% faster.", "移动速度提高 %d%%。", "tformat")
-t("#Target# prepares for the next kill!", "#Target#为下一次杀戮做好了准备!", "_t")
+t("#Target# prepares for the next kill!", "#Target#为下一次杀戮做好了准备！", "_t")
 t("+Step Up", "+步步为营", "_t")
 t("-Step Up", "-步步为营", "_t")
 t("lightning", "闪电", "effect subtype")
@@ -37299,7 +37299,7 @@ t("%d Combo", "%d连击", "tformat")
 t("The target is in the middle of a combo chain and has earned %d combo points.", "目标正在连击中，并获得了 %d 连击点数。", "tformat")
 t("Defensive Maneuver", "闪避姿态", "_t")
 t("The target's defense is increased by %d.", "目标闪避值增加 %d。", "tformat")
-t("#Target# is moving defensively!", "#Target#获得防御步法。", "_t")
+t("#Target# is moving defensively!", "#Target#获得防御步法！", "_t")
 t("+Defensive Maneuver", "+闪避姿态", "_t")
 t("#Target# isn't moving as defensively anymore.", "#Target#的防御步法消失。", "_t")
 t("-Defensive Maneuver", "-闪避姿态", "_t")
@@ -37312,7 +37312,7 @@ t("-Set Up", "-故卖破绽", "_t")
 t("heal", "治疗", "effect subtype")
 t("Recovery", "恢复", "_t")
 t("The target has %d increased life regeneration.", "目标增加 %d 生命回复。", "tformat")
-t("#Target# is recovering from the damage!", "#Target#从伤害中恢复。", "_t")
+t("#Target# is recovering from the damage!", "#Target#从伤害中恢复！", "_t")
 t("+Recovery", "+恢复", "_t")
 t("#Target# has finished recovering.", "#Target#停止了复原。", "_t")
 t("-Recovery", "-恢复", "_t")
@@ -37331,14 +37331,14 @@ t("Increases life regen by %0.2f.", "增加生命回复 %0.2f 。", "tformat")
 t("Increases all resists by %d%%.", "增加全体伤害抗性 %d%%。", "tformat")
 t("Healing Nexus Redirection", "治疗被转移", "_t")
 t("All direct healing done to the target fails, and is instead redirected to %s at %d%% effectiveness.", "目标受到的直接治疗将被转移至 %s ( %d%% 效率).", "tformat")
-t("#YELLOW_GREEN##Source# steals healing from #Target#!", "#YELLOW_GREEN##Source#从#Target#偷取了治疗!", "delayedLogMessage")
+t("#YELLOW_GREEN##Source# steals healing from #Target#!", "#YELLOW_GREEN##Source#从#Target#偷取了治疗！", "delayedLogMessage")
 t("Healing Nexus", "治疗转移", "_t")
 t("All direct healing done to the target is increased by %d%% and each heal restores %0.1f equilibrium.", "目标所有受到的治疗增加 %d%%，每次治疗恢复 %0.1f 失衡值。", "tformat")
-t("#YELLOW_GREEN##Source#'s healing is amplified!", "#YELLOW_GREEN##Source#的治疗被增幅了!", "delayedLogMessage")
+t("#YELLOW_GREEN##Source#'s healing is amplified!", "#YELLOW_GREEN##Source#的治疗被增幅了！", "delayedLogMessage")
 t("telekinesis", "念力", "effect subtype")
 t("Immobilized", "固定", "_t")
 t("Immobilized by telekinetic forces.", "被念力困住。", "_t")
-t("#F53CBE##Target# is bound by telekinetic forces!", "#F53CBE##Target#被念力困住。", "_t")
+t("#F53CBE##Target# is bound by telekinetic forces!", "#F53CBE##Target#被念力困住！", "_t")
 t("+Paralyzed", "+麻痹", "_t")
 t("#Target# shakes free of the telekinetic binding", "#Target#从念力约束中逃脱。", "_t")
 t("-Paralyzed", "-麻痹", "_t")
@@ -37404,11 +37404,11 @@ t("#Target# is less vulnerable to physical.", "#Target#恢复了物理抗性。"
 t("-Low. physical resist", "-物理抗性下降", "_t")
 t("Cursed Wound", "诅咒创伤", "_t")
 t("The target's has a cursed wound, reducing healing by %d%%.", "目标受到被诅咒的创伤，降低治疗效果 %d%%。", "tformat")
-t("#Target# has a cursed wound!", "#Target#遭受了被诅咒的创伤。", "_t")
+t("#Target# has a cursed wound!", "#Target#遭受了被诅咒的创伤！", "_t")
 t("+Cursed Wound", "+诅咒创伤", "_t")
 t("#Target# no longer has a cursed wound.", "#Target#的诅咒创伤消失。", "_t")
 t("-Cursed Wound", "-诅咒创伤", "_t")
-t("%s has re-opened a cursed wound!", "%s再次遭受被诅咒的创伤。", "logSeen")
+t("%s has re-opened a cursed wound!", "%s再次遭受被诅咒的创伤！", "logSeen")
 t("light", "光系", "effect subtype")
 t("Luminescence ", "冷光", "_t")
 t("The target has been revealed, reducing its stealth power by %d.", "目标被显形，降低潜行等级 %d。", "tformat")
@@ -37440,14 +37440,14 @@ t("Parrying melee%s attacks: Has a %d%% chance to deflect up to %d damage from t
 t(" and ranged", "和远程", "_t")
 t("Blocking", "格挡", "_t")
 t("Reduces all damage taken by %d.", "减少受到的所有伤害 %d 点。", "tformat")
-t("#CRIMSON##Source# heals from blocking with %s shield!", "#CRIMSON##Source#用%s盾牌格挡，获得了治疗!", "delayedLogMessage")
+t("#CRIMSON##Source# heals from blocking with %s shield!", "#CRIMSON##Source#用%s盾牌格挡，获得了治疗！", "delayedLogMessage")
 t("%s resists the disarming attempt!", "%s抵抗了缴械！", "logSeen")
 t("Counterstrike", "反击", "_t")
 t("Vulnerable to deadly counterstrikes. Next melee attack will inflict double damage.", "容易受到致命的反击。下一次近战攻击将造成双倍伤害。", "_t")
 t("+Counter", "+反击", "_t")
 t("-Counter", "-反击", "_t")
 t("Counter Attacking", "反击攻击", "_t")
-t("Countering melee attacks: Has a %d%% chance to get an automatic counter attack when avoiding a melee attack. (%0.1f counters remaining)", " 反击近战攻击：有 %d%% 几率在闪避近战攻击后反击对方。（剩余次数 %0.1f ） ", "tformat")
+t("Countering melee attacks: Has a %d%% chance to get an automatic counter attack when avoiding a melee attack. (%0.1f counters remaining)", "反击近战攻击：有 %d%% 几率在闪避近战攻击后反击对方。（剩余次数 %0.1f ）", "tformat")
 t("Open Palm Block", "空手格挡", "_t")
 t("Blocking up to %d total damage.", "格挡至多%d伤害。", "tformat")
 t("#STEEL_BLUE#(%d blocked)#LAST#", "#STEEL_BLUE#(%d 格挡)#LAST#", "tformat")
@@ -37462,7 +37462,7 @@ t("The target is being ravaged by distortion, taking %0.2f physical damage %s", 
 t("+Ravage", "+疯狂扭曲", "_t")
 t("#Target# is no longer being ravaged.", "#Target#不再被疯狂扭曲。", "_t")
 t("-Ravage", "-疯狂扭曲", "_t")
-t("#LIGHT_RED#%s is being ravaged by distortion!", "#LIGHT_RED#%s被疯狂扭曲了。", "logSeen")
+t("#LIGHT_RED#%s is being ravaged by distortion!", "#LIGHT_RED#%s被疯狂扭曲了！", "logSeen")
 t("Distortion", "扭曲", "_t")
 t("The target has recently taken distortion damage, is vulnerable to distortion effects, and has its physical resistance decreased by %d%%.", "目标最近承受了扭曲伤害，对扭曲效果更敏感，同时物理抗性下降 %d%%。", "tformat")
 t("+Distortion", "+扭曲", "_t")
@@ -37539,7 +37539,7 @@ t("#Target#'s skin returns to normal.", "#Target#的皮肤恢复了正常状态�
 t("-Juggernaut", "-战场主宰", "_t")
 t("Natural Replenishment", "自然充能", "_t")
 t("The target has been directly exposed to arcane energies and has responded by reasserting it's connection to nature, restoring %0.1f Equilibrium per turn.", "目标被奥术力量伤害，重新联系自然，每回合回复 %0.1f 失衡值。", "tformat")
-t("#Target# defiantly reasserts %s connection to nature!", "#Target#重新和自然建立%s联系!", "tformat")
+t("#Target# defiantly reasserts %s connection to nature!", "#Target#重新和自然建立%s联系！", "tformat")
 t("+Nature Replenishment", "+自然充能", "_t")
 t("#Target# stops restoring Equilibrium.", "#Target#不再回复失衡值。", "_t")
 t("-Nature Replenishment", "-自然充能", "_t")
@@ -37562,7 +37562,7 @@ t("Tactical Position", "策略走位", "_t")
 t("The target has relocated to a favorable position, giving them +%d%% physical critical chance.", "目标移动到了一个有利的位置，物理暴击率提高 %d%%。", "tformat")
 t("#Target# is poised to strike!", "#Target#准备作战！", "_t")
 t("Defensive Roll", "防御滚动", "_t")
-t("#Target# assumes an extreme defensive posture, avoiding some damage!", "#Target#进入了极端防守姿态，躲避伤害!", "_t")
+t("#Target# assumes an extreme defensive posture, avoiding some damage!", "#Target#进入了极端防守姿态，躲避伤害！", "_t")
 t("The target is in an extreme defensive posture, avoiding %d%% of all incoming damage.", "目标处于极端防守姿态，闪避 %d%% 的所有来袭伤害。", "tformat")
 t("cooldown", "冷却", "effect subtype")
 t("Trained Reactions Cooldown", "受训反应冷却", "_t")
@@ -37581,23 +37581,23 @@ t("parasite", "寄生", "effect subtype")
 t("Parasitic Leeches", "寄生虫", "_t")
 t("Parasitic Leeches: %d masses", "寄生虫：%d堆", "tformat")
 t("The target is being fed upon by %d masses of parasitic leeches for %0.2f physical and %0.2f acid damage each turn.  After a %d turn feeding period, one mass will drop off and multiply.", "目标被 %d 堆寄生虫寄生，每回合受到 %0.2f 物理和 %0.2f 酸性伤害。每隔 %d 回合，一堆寄生虫将脱落并繁殖。", "tformat")
-t("#Target# is #GREEN#INFESTED#LAST# with parasitic leeches!", "#Target#被寄生虫#GREEN#寄生#LAST#了！ ", "_t")
+t("#Target# is #GREEN#INFESTED#LAST# with parasitic leeches!", "#Target#被寄生虫#GREEN#寄生#LAST#了！", "_t")
 t("+Parasitic Leeches", "+寄生虫", "_t")
-t("Some leeches drop off %s!", "寄生虫从%s处脱落！ ", "logSeen")
+t("Some leeches drop off %s!", "寄生虫从%s处脱落！", "logSeen")
 t("Garrote", "绞杀", "_t")
 t("  It is silenced for the next %d turn(s), preventing it from casting spells and using some vocal talents.", "  目标还会被沉默 %d 回合，无法施放法术或使用部分发声类技能。", "tformat")
 t("The target is being garrotted by %s, rendering it unable to move and subject to an automatic unarmed attack (at %d%% damage) each turn.%s", "目标被 %s 绞杀，无法移动，每回合会受到一次自动的徒手打击（造成 %d%% 武器伤害）。%s", "tformat")
 t("something", "某物", "_t")
-t("%s has garroted #Target#!", "%s 绞杀 #Target#!", "tformat")
+t("%s has garroted #Target#!", "%s 绞杀 #Target#！", "tformat")
 t("Something", "某物", "_t")
 t("+Garrote", "+绞杀", "_t")
 t("#Target# is free from %s's garrote.", "#Target#从%s的绞杀中脱离", "tformat")
 t("-Garrote", "-绞杀", "_t")
-t("#Source# #LIGHT_RED#strangles#LAST# #Target#!", "#Source##LIGHT_RED#绞杀#LAST##Target#!", "logCombat")
+t("#Source# #LIGHT_RED#strangles#LAST# #Target#!", "#Source##LIGHT_RED#绞杀#LAST##Target#！", "logCombat")
 t("Marked for Death", "死亡标记", "_t")
 t("The target takes %d%% increased damage from all sources.  If this effect runs its full course, the target will take an additional %0.1f physical damage (increased by %d%% of all damage taken while this effect is active).", "目标承受额外 %d%% 伤害。效果结束时，目标将受到 %0.1f 物理伤害(已追加标记期间受到总伤害的 %d%%)。", "tformat")
-t("#Target# is marked for death!", "#Target#被死亡标记!", "_t")
-t("+Marked for Death!", "+死亡标记!", "_t")
+t("#Target# is marked for death!", "#Target#被死亡标记！", "_t")
+t("+Marked for Death!", "+死亡标记！", "_t")
 t("#Target# is free from the deathmark.", "#Target#脱离死亡标记。", "_t")
 t("-Marked for Death", "-死亡标记", "_t")
 t("Deadly Poison", "致命毒素", "_t")
@@ -37612,7 +37612,7 @@ t("-Deadly Poison", "-致命毒素", "_t")
 t("physical", "物理", "effect subtype")
 t("Razorwire", "刀片切割", "_t")
 t("The target's equipment has been shredded by razorwire, reducing its accuracy by %d, armour by %d, and defense by %d.", "目标的装备被刀片切割，命中减少 %d, 护甲减少 %d, 闪避减少 %d。", "tformat")
-t("#Target# is entangled in razorwire!", "#Target#被刀片切割!", "_t")
+t("#Target# is entangled in razorwire!", "#Target#被刀片切割！", "_t")
 t("#Target# has shook off the razorwire.", "#Target#脱离了刀片。", "_t")
 t("Dirty Fighting", "卑劣攻击", "_t")
 t("The target is reeling in pain. Stun, pin, blindness, and confusion immunity are halved and physical save is reduced by %d.", "目标在痛苦中挣扎，震慑、定身、目盲、混乱免疫减半，物理豁免减少 %d。", "tformat")
@@ -37685,11 +37685,11 @@ t("Increases attack speed by %d%%, grants infinite ammo, and causes all marking 
 t("Escape", "逃脱", "_t")
 t("Focusing on defense and mobility, reducing all damage taken by %d%%, stamina regeneration by %0.1f and movement speed by %d%%. Melee and ranged attacks will break this effect.", "集中精力移动闪避，减少受到的伤害 %d%%, 体力回复增加 %0.1f，移动速度增加 %d%%。近战或远程攻击会终止该效果。", "tformat")
 t("#Target# enters an evasive stance!", "#Target#进入闪避姿态！", "_t")
-t("+Escape!", "+逃脱!", "_t")
+t("+Escape!", "+逃脱！", "_t")
 t("-Escape", "-逃脱", "_t")
 t("Sentinel", "哨兵", "_t")
 t("Target is watched, causing the next talent used to fail and trigger a counterattack.", "目标被警戒，下一次使用技能将被打断，并触发被反击。", "tformat")
-t("+Sentinel!", "+哨兵!", "_t")
+t("+Sentinel!", "+哨兵！", "_t")
 t("-Sentinel", "-哨兵", "_t")
 t("Rapid Movement", "高速移动", "_t")
 t("Increases movement speed by %d%%.", "增加移动速度 %d%%。", "tformat")
@@ -37701,8 +37701,8 @@ t("#Target# is free from the pitch.", "#Target#脱离了沥青覆盖。", "_t")
 t("-Pitch", "-沥青", "_t")
 t("Punctured Armour", "护甲贯通", "_t")
 t("Armour has been punctured, increasing all damage taken by %d%%.", "目标的护甲被刺穿了，受到的所有伤害增加 %d%%。", "tformat")
-t("#Target#'s armour is punctured!", "#Target#的护甲被刺穿了!", "_t")
-t("+Punctured Armour!", "+护甲贯通!", "_t")
+t("#Target#'s armour is punctured!", "#Target#的护甲被刺穿了！", "_t")
+t("+Punctured Armour!", "+护甲贯通！", "_t")
 t("-Punctured Armour", "-护甲贯通", "_t")
 t("Leeching Poison", "吸血毒素", "_t")
 t("The target is poisoned, doing %0.2f nature damage per turn and restoring life to the attacker equal to the damage dealt.", "目标中毒，每回合受到 %0.2f 自然伤害，并为施毒者提供等量治疗。", "tformat")
@@ -37710,7 +37710,7 @@ t("+Leeching Poison", "+吸血毒素", "_t")
 t("-Leeching Poison", "-吸血毒素", "_t")
 t("Maim", "伤残", "_t")
 t("The target is maimed, doing %0.2f physical damage per turn. All damage it does is reduced by %d%%.", "目标身受重伤，每回合受到 %0.2f 物理伤害，造成的伤害减少 %d%%。", "tformat")
-t("#Target# is maimed!", "#Target#伤残了!", "_t")
+t("#Target# is maimed!", "#Target#伤残了！", "_t")
 t("+Maim", "+伤残", "_t")
 t("#Target# is no longer maimed.", "#Target#不再伤残。", "_t")
 t("-Maim", "-伤残", "_t")
@@ -37736,8 +37736,8 @@ t("#Target##OLIVE_DRAB# shimmers in multiple hues.", "#Target##OLIVE_DRAB# 发�
 t("#Target#'s#OLIVE_DRAB# multi-hued shimmer fades.", "#Target##OLIVE_DRAB# 的多彩闪光消退了。", "_t")
 t("Chromatic Resistance", "多彩抵抗", "_t")
 t("%sresistance increased by %d%%.", "%s抗性增加 %d%%。", "tformat")
-t("#Target##OLIVE_DRAB# resonates with %s%s#LAST# damage!", "#Target##OLIVE_DRAB#和%s%s#LAST#伤害共鸣!", "tformat")
-t("#Target##OLIVE_DRAB# no longer resonates with %s%s#LAST# damage!", "#Target##OLIVE_DRAB# 不再和%s%s#LAST#伤害共鸣!", "tformat")
+t("#Target##OLIVE_DRAB# resonates with %s%s#LAST# damage!", "#Target##OLIVE_DRAB#和%s%s#LAST#伤害共鸣！", "tformat")
+t("#Target##OLIVE_DRAB# no longer resonates with %s%s#LAST# damage!", "#Target##OLIVE_DRAB# 不再和%s%s#LAST#伤害共鸣！", "tformat")
 t("Swift Shot", "快速射击", "_t")
 t("Crooked", "扭曲", "_t")
 t("The target becomes more and more primitive, reducing accuracy and powers by %d", "目标变得越来越原始，命中和强度减少%d", "tformat")
@@ -37760,7 +37760,7 @@ t("%d%% chance to fully evade any damaging actions or negative effects.", "%d%%�
 t("#LIGHT_BLUE#%s evades the effect '%s'!", "#LIGHT_BLUE#%s躲闪了效果“%s”！", "logSeen")
 t("Brutalized", "暴行", "_t")
 t("The target is brutalized, reducing bleed resist by 50%%.", "目标承受了暴行，流血免疫减少 50%%。", "tformat")
-t("#Target# is brutalized!", "#Target#承受了暴行!", "_t")
+t("#Target# is brutalized!", "#Target#承受了暴行！", "_t")
 t("+Brutalized", "+暴行", "_t")
 t("#Target# is not brutalized anymore.", "#Target# 不再承受暴行。", "_t")
 t("-Brutalized", "-暴行", "_t")
@@ -37854,8 +37854,8 @@ t("Elven Ruins", "精灵废墟", "_t")
 section "mod-tome/data/zones/ardhungol/grids.lua"
 
 t("unstable wormhole", "不稳定的虫洞", "entity name")
-t("#VIOLET#The wormhole absorbs the energy of the spell and teleports %s away!", "#VIOLET#虫洞吸收了法术的能量，将%s传送走了!", "logSeen")
-t("#VIOLET#The wormhole absorbs the energy of the spell and explodes in a burst of nullmagic!", "#VIOLET#虫洞吸收了法术的能量，爆炸出一股虚无魔法的能量!", "logSeen")
+t("#VIOLET#The wormhole absorbs the energy of the spell and teleports %s away!", "#VIOLET#虫洞吸收了法术的能量，将%s传送走了！", "logSeen")
+t("#VIOLET#The wormhole absorbs the energy of the spell and explodes in a burst of nullmagic!", "#VIOLET#虫洞吸收了法术的能量，爆炸出一股虚无魔法的能量！", "logSeen")
 
 ------------------------------------------------
 section "mod-tome/data/zones/ardhungol/npcs.lua"
@@ -37882,7 +37882,7 @@ t("Rod of Spydric Poison", "蜘蛛毒枝", "entity name")
 t("poison dripping wand", "滴着毒液的枝条", "_t")
 t("This rod carved out of a giant spider fang continuously drips venom.", "这根法杖由巨大蜘蛛的毒牙雕刻而成，它往下不断的滴落毒液。", "_t")
 t("shoot a bolt of spydric poison out to range %d, dealing %0.2f nature damage (based on Magic) over %d turns while rendering the target unable to move", "发射蜘蛛毒素, 对%d码内的敌人造成%0.2f点自然伤害(基于魔法), 并使其在%d回合内无法移动", "tformat")
-t("%s activates %s %s!", "%s激活了%s%s!", "logSeen")
+t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 
 ------------------------------------------------
 section "mod-tome/data/zones/ardhungol/zone.lua"
@@ -37923,7 +37923,7 @@ t("reaver", "收割者", "entity name")
 t("A warrior of death.", "侍奉死亡的战士。", "_t")
 t("headless horror", "无头恐魔", "entity name")
 t("A headless gangly humanoid with a large distended stomach. Was captured and tamed by the first master of the arena.", "一只高高瘦瘦的无头人形怪物，它有着巨大而鼓胀的腹部。它被竞技场的第一任主人捕获并驯服。", "_t")
-t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上。", "logSeen")
+t("#AQUAMARINE#As %s falls all its eyes fall to the ground!", "#AQUAMARINE#当%s倒下时它的眼睛掉落在了地上！", "logSeen")
 t("Ryal", "瑞尔", "entity name")
 t("A gargantuan bone giant resembling a wingless wyrm. He is fully sentient and surprisingly fast.", "一只巨大的骨巨人，形似无翼巨龙。他完全具有自我意识，而且快得惊人。", "_t")
 t("Fryjia Loren", "弗里嘉·劳伦", "entity name")
@@ -37962,7 +37962,7 @@ t("martyr", "殉教者", "entity name")
 t("A devout soldier.", "一位虔诚的战士。", "_t")
 t("anorithil", "星月术士", "entity name")
 t("elf", "精灵", "entity subtype")
-t("Warriors from afar. They use the power of light and darkness against you!", "来自远方的战士。他们使用光暗魔法攻击你。", "_t")
+t("Warriors from afar. They use the power of light and darkness against you!", "来自远方的战士。他们使用光暗魔法攻击你！", "_t")
 t("sun paladin", "太阳骑士", "entity name")
 t("Warriors from afar. They wield the power of light, and a mean sword.", "来自远方的战士。他们擅长光魔法和华丽的剑技。", "_t")
 t("star crusader", "星辰骑士", "entity name")
@@ -37993,19 +37993,19 @@ t("#VIOLET#Boss round starts!!!", "#VIOLET#BOSS回合开始！！！", "log")
 t("#LIGHT_RED#Final round starts!!!!", "#LIGHT_RED#最后回合开始！！！！", "log")
 t("#YELLOW#The gates open!", "#YELLOW#大门打开了！", "log")
 t("#LIGHT_RED#The gates close!", "#LIGHT_RED#门关上了！", "log")
-t("RANK UP!!", "阶级提升!!", "_t")
-t("#LIGHT_GREEN#The public is pleased by your performance! You now have the rank of #WHITE#%s#LIGHT_GREEN#!", "#LIGHT_GREEN#观众为你精彩的表现所折服！你获得了新级别#WHITE#%s#LIGHT_GREEN#!", "log")
-t("%d kills!", "%d连杀!", "tformat")
+t("RANK UP!!", "阶级提升!！", "_t")
+t("#LIGHT_GREEN#The public is pleased by your performance! You now have the rank of #WHITE#%s#LIGHT_GREEN#!", "#LIGHT_GREEN#观众为你精彩的表现所折服！你获得了新级别#WHITE#%s#LIGHT_GREEN#！", "log")
+t("%d kills!", "%d连杀！", "tformat")
 t("#YELLOW#You killed %d enemies in a single turn! The public is excited!", "#YELLOW#你在一回合内干掉了%d个敌人！观众们很兴奋！", "log")
 t("#YELLOW#Items lying around will disappear in #WHITE#%d#YELLOW# turns!#LAST#", "#YELLOW#地上的物品将会在#WHITE#%d#YELLOW#回合内消失!#LAST#", "log")
-t("#VIOLET#Boss round!!!", "#VIOLET#Boss轮!!!", "log")
-t("#GOLD#Miniboss round!", "#GOLD#小Boss轮!", "log")
-t("#LIGHT_RED#Final round!!!", "#LIGHT_RED#最终轮!!!", "log")
-t("Round Clear! +%s EXP!", "全清! +%s 经验!", "tformat")
-t("%sWave clear!", "%s波次已全清!", "log")
-t("%sClear bonus: %s%s%s! Score bonus: %s%s%s! Danger bonus: %s%s%s! Rank bonus: %s%s%s!", "%s全清奖励：%s%s%s! 分数奖励：%s%s%s! 危险度奖励：%s%s%s! 级别奖励：%s%s%s!", "log")
-t("%sYour experience increases by %s%d%s!", "%s你的经验值增加了%s%d%s!", "log")
-t("%sYou earn %s gold for your victory!", "%s你胜利了，你赢得了%s金币!", "log")
+t("#VIOLET#Boss round!!!", "#VIOLET#Boss轮!!！", "log")
+t("#GOLD#Miniboss round!", "#GOLD#小Boss轮！", "log")
+t("#LIGHT_RED#Final round!!!", "#LIGHT_RED#最终轮!!！", "log")
+t("Round Clear! +%s EXP!", "全清! +%s 经验！", "tformat")
+t("%sWave clear!", "%s波次已全清！", "log")
+t("%sClear bonus: %s%s%s! Score bonus: %s%s%s! Danger bonus: %s%s%s! Rank bonus: %s%s%s!", "%s全清奖励：%s%s%s! 分数奖励：%s%s%s! 危险度奖励：%s%s%s! 级别奖励：%s%s%s！", "log")
+t("%sYour experience increases by %s%d%s!", "%s你的经验值增加了%s%d%s！", "log")
+t("%sYou earn %s gold for your victory!", "%s你胜利了，你赢得了%s金币！", "log")
 t("Arena mode", "竞技场模式", "_t")
 
 ------------------------------------------------
@@ -38108,14 +38108,14 @@ t("human", "人类", "entity subtype")
 t("human sun-paladin", "人类太阳骑士", "entity name")
 t("A Human in shiny plate armour.", "一位穿着闪耀板甲的人类。", "_t")
 t("High Sun-Paladin Rodmour", "高阶太阳骑士罗德莫", "entity name")
-t("Go %s! We will hold the line!", "去吧%s!我们会坚守防线!", "tformat")
+t("Go %s! We will hold the line!", "去吧%s!我们会坚守防线！", "tformat")
 t("orc", "兽人", "entity subtype")
 t("orc warrior", "兽人战士", "entity name")
 t("A fierce soldier-orc.", "一个勇猛的兽人士兵。", "_t")
 t("shalore", "永恒精灵", "entity subtype")
 t("Elandar", "埃兰达", "entity name")
 t("Renegade mages from Angolwen, the Sorcerers have set up in the Far East, slowly growing corrupt. Now they must be stopped.", "来自安格利文的叛逃法师——巫师们已在远东立足，并逐渐腐化堕落。现在必须阻止他们。", "_t")
-t("Damn you, you only postpone your death! Fyrk!", "该死，你只是在拖延你的死亡而已! 弗莱克!", "_t")
+t("Damn you, you only postpone your death! Fyrk!", "该死，你只是在拖延你的死亡而已! 弗莱克！", "_t")
 t("Argoniel", "艾格尼尔", "entity name")
 t("Fyrk, Faeros High Guard", "炎魔守卫弗莱克", "entity name")
 t([[Faeros are highly intelligent fire elementals, rarely seen outside volcanoes. They are probably not native to this world.
@@ -38253,7 +38253,7 @@ t("Rune of the Rift", "符文：时空裂隙", "entity name")
 section "mod-tome/data/zones/daikara/zone.lua"
 
 t("Daikara", "岱卡拉", "_t")
-t("BOOM!", "火山喷发!", "_t")
+t("BOOM!", "火山喷发！", "_t")
 t([[As you walk toward the Daikara you can not fail to notice the huge volcano that erupts in the center of it, right where the path is taking you.
 You see pyroclasts ejected from the heart of the volcano, they look relatively harmless but very impressive.]], [[当你走向岱卡拉时，你不可能注意不到岱卡拉中心的巨大火山正在喷发，那正是小路通向的地方。
 你看到火山口喷出火山碎屑，看起来相对无害，却令人印象深刻。]], "_t")
@@ -38276,7 +38276,7 @@ t([[This disgusting... thing crawls on the floor toward you with great speed.
 It seems to come from the digestive system of the mouth.]], [[这只恶心的……东西在地板上迅速的向你爬来。
 它似乎是从“大嘴怪”的消化系统中出来的。]], "_t")
 t("#AQUAMARINE#With the Mouth's death its crawler also falls lifeless on the ground!", "#AQUAMARINE#当大嘴怪死去时，它的爬虫也毫无生机的倒在了地上！", "logSeen")
-t("#AQUAMARINE#As #Source# falls you notice that #Target# seems to shudder in pain!", "#AQUAMARINE#当#Source#倒下时，你发现#Target#似乎因为痛苦而颤抖!", "logCombat")
+t("#AQUAMARINE#As #Source# falls you notice that #Target# seems to shudder in pain!", "#AQUAMARINE#当#Source#倒下时，你发现#Target#似乎因为痛苦而颤抖！", "logCombat")
 t("The Abomination", "憎恶", "entity name")
 t("A horrid mass of pustulent flesh, sinew, and bone; this creature seems to constantly be in pain. Two heads glare malevolently at you, an intruder in its domain.", "一只由无数碎肉、肌腱和骨头组成的恐怖混合体，它看起来痛苦万分。它的双头恶毒的看着你，因为你闯入了它的地盘。", "_t")
 t("A parchment falls to the floor near The Abomination.", "一张羊皮纸掉落在了憎恶的身边。", "logSeen")
@@ -38323,7 +38323,7 @@ t("Shifting Boots", "闪现靴", "entity name")
 t("pair of shifting boots", "一双可以闪现的靴子", "_t")
 t("Those leather boots can make anybody as annoying as their former possessor, Draebor.", "这双靴子可以使任何人像它以前的主人小恶魔德瑞宝一样淘气。", "_t")
 t("blink to a nearby random location within range %d (based on Magic)", "随机传送到%d码范围内的位置(基于魔法)", "tformat")
-t("%s taps %s %s together!", "%s将%s %s拼在一起。", "logSeen")
+t("%s taps %s %s together!", "%s将%s %s拼在一起！", "logSeen")
 
 ------------------------------------------------
 section "mod-tome/data/zones/demon-plane/zone.lua"
@@ -38333,8 +38333,8 @@ t("Fearscape", "恶魔空间", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/demon-plane-spell/grids.lua"
 
-t("#Source# burns #Target#!", "#Source#灼烧了#Target#!", "logCombat")
-t("#Source# heals #Target#!", "#Source#治疗了#Target#!", "logCombat")
+t("#Source# burns #Target#!", "#Source#灼烧了#Target#！", "logCombat")
+t("#Source# heals #Target#!", "#Source#治疗了#Target#！", "logCombat")
 
 ------------------------------------------------
 section "mod-tome/data/zones/demon-plane-spell/zone.lua"
@@ -38414,7 +38414,7 @@ t("grass", "草地", "entity subtype")
 t("Dream Portal", "梦境传送门", "entity name")
 t("wall", "墙壁", "entity type")
 t("mouse hole", "老鼠洞", "entity name")
-t("A hole small enough that only you can go through.", " 一个只有你能通过的小洞。", "_t")
+t("A hole small enough that only you can go through.", "一个只有你能通过的小洞。", "_t")
 t("Dreamstone", "梦境之石", "entity name")
 t("You touch the dreamstone and it disappears. You feel better.", "你触碰了梦境之石，它消失了。你感觉好多了。", "logPlayer")
 t("bamboo hut", "竹子小屋", "entity subtype")
@@ -38447,7 +38447,7 @@ section "mod-tome/data/zones/dreams/zone.lua"
 t("Dreams", "梦境", "_t")
 t("Dream of vulnerability", "脆弱之梦", "_t")
 t("Dream of loss", "迷失之梦", "_t")
-t("Dream ???", "梦境 ???", "_t")
+t("Dream ???", "梦境 ??？", "_t")
 t("frail mouse", "脆弱的老鼠", "_t")
 t([[The noxious fumes have invaded all your body, you suddenty fall into a deep slumber...
 ... you feel weak ...
@@ -38513,7 +38513,7 @@ section "mod-tome/data/zones/eruan/grids.lua"
 t("Farportal: Charred Scar", "远距传送门：灼烧之痕", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to the west, to Charred Scar. A fiery volcano that can only spell death...]], [[传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。
-这道门似乎通向西方，通向灼烧之痕——一个能带来死亡的活火山…… ]], "_t")
+这道门似乎通向西方，通向灼烧之痕——一个能带来死亡的活火山……]], "_t")
 t("#VIOLET#You enter the swirling portal while it fades away and in the blink of an eye you set foot on hellish land, the heart of a volcano...", "#VIOLET#你进入了正在消逝的传送漩涡，转瞬间便踏上了地狱般的土地——一座火山的腹地……", "_t")
 
 ------------------------------------------------
@@ -38578,15 +38578,15 @@ section "mod-tome/data/zones/golem-graveyard/npcs.lua"
 
 t("Atamathon the Giant Golem", "巨型傀儡阿塔玛森", "entity name")
 t("This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer. Someone foolish has tried to reconstruct it, but has lost control of it, and now it rampages in search of its original creators, who are long dead. Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. At over 40 feet tall, it towers above you, and its crimson orbs seem to glow with rage.", "这只巨大的傀儡是半身人在烈火战争期间为对抗兽人而建造的，但被吞噬者加库尔击倒。某个愚蠢的家伙试图重建它，却已失去对它的控制，如今它横冲直撞，寻找早已死去的制造者们。它的躯体由大理石制成，关节由坚固的沃瑞钽制成，眼睛则由最纯净的红宝石构成。它足有四十多英尺高，像铁塔般耸立在你面前，猩红的眼眸似乎闪烁着怒火。", "_t")
-t("DESTROY!", "毁灭一切!", "_t")
-t("LIFE-ENDING SYSTEMS ACTIVATED!", "屠杀系统已启动!", "_t")
-t("GLORY TO THE HALFLINGS!", "半身人万岁!", "_t")
+t("DESTROY!", "毁灭一切！", "_t")
+t("LIFE-ENDING SYSTEMS ACTIVATED!", "屠杀系统已启动！", "_t")
+t("GLORY TO THE HALFLINGS!", "半身人万岁！", "_t")
 t("YOUR DEATH IS NECESSARY", "你的死亡必不可少", "_t")
-t("ACTIVATING PAIN GIVING SUBMODULES!", "启动痛苦强化模组!", "_t")
-t("YOUR LIFE WILL END, PLEASE DO NOT RESIST!", "你的生命即将终结，不要试图抵抗!", "_t")
-t("RESISTANCE IS FUTILE, YOUR WILL BE EXTERMINATED!", "抵抗无用，你将被彻底毁灭!", "_t")
-t("PLEASE STAY STEADY AS YOU ARE ERASED FROM THE WORLD!", "请你坐稳扶好，等待被移除出这个世界!", "_t")
-t("EXECUTE PHASE COMMENCING!", "执行程序已启动!", "_t")
+t("ACTIVATING PAIN GIVING SUBMODULES!", "启动痛苦强化模组！", "_t")
+t("YOUR LIFE WILL END, PLEASE DO NOT RESIST!", "你的生命即将终结，不要试图抵抗！", "_t")
+t("RESISTANCE IS FUTILE, YOUR WILL BE EXTERMINATED!", "抵抗无用，你将被彻底毁灭！", "_t")
+t("PLEASE STAY STEADY AS YOU ARE ERASED FROM THE WORLD!", "请你坐稳扶好，等待被移除出这个世界！", "_t")
+t("EXECUTE PHASE COMMENCING!", "执行程序已启动！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/golem-graveyard/objects.lua"
@@ -38708,7 +38708,7 @@ t("Yeek-fur Robe", "夺心魔皮袍", "entity name")
 t("sleek fur robe", "光滑的毛皮袍子", "_t")
 t("A beautifully soft robe of fine white fur. It looks designed for a halfling noble, with glorious sapphires sewn across the hems. But entrancing as it is, you can't help but feel a little queasy wearing it.", "美丽、柔软、洁白，这显然是为半身人贵族设计的衣物，褶边上还缀着几颗明亮的蓝宝石。尽管它是如此迷人，当你披上它时却忍不住有些恶心。", "_t")
 t("#RED#You feel disgusted touching this thing!", "#RED#当你触摸到这件物品时，你感到一阵恶心！", "logPlayer")
-t("#LIGHT_BLUE#You feel this robe was made for you!", "#LIGHT_BLUE#你感觉这件袍子就是为你制作的!", "logPlayer")
+t("#LIGHT_BLUE#You feel this robe was made for you!", "#LIGHT_BLUE#你感觉这件袍子就是为你制作的！", "logPlayer")
 
 ------------------------------------------------
 section "mod-tome/data/zones/halfling-ruins/zone.lua"
@@ -38811,7 +38811,7 @@ The Sorcerers seem to have awakened its power.
 #{italic}#“于是，他们来到阿马克泰尔本人面前。数千人在进攻他的王座时丧生，三名弑神者被碾碎在他脚下。然而，法利恩在临终之际用冰剑阿奇尔刺中了伟大神祇的膝盖。弑神者首领凯尔帝勒抓住机会，手持吸能法杖上前，对阿马克泰尔发动了骇人的一击。众神中最强大的存在就这样倒在自己的儿女手中，脸也被压进尘土。”#{normal}#]], "_t")
 t("absorb the essence (ignoring resistance and bypassing most defenses) of a target in range %d, draining 30%% of its life and increasing your own damage by 30%% for %d turns", "吸收%d码范围内某个目标生物的精华（无视抗性和大部分防御技能），直接吸收30%%生命值，并增加自身伤害加成30%%，持续%d回合", "tformat")
 t("was absorbed by the %s held by %s", "被%s（由%s持有）吸能致死", "tformat")
-t("#Source# brandishes %s %s, absorbing the essence of #target#!", "#Source#挥舞着%s%s, 吸收了#target#的精华!", "logCombat")
+t("#Source# brandishes %s %s, absorbing the essence of #target#!", "#Source#挥舞着%s%s, 吸收了#target#的精华！", "logCombat")
 t("#ORCHID# %d essence drain#LAST#", "#ORCHID# %d 吸收精华#LAST#", "tformat")
 t("gem", "珠宝", "entity type")
 t("white", "白宝石", "entity subtype")
@@ -39091,7 +39091,7 @@ Adding to your unease is a rising feeling of dread, overwhelming fear in fact. A
 You hear the sound of a woman sobbing, and every now and then it turns into a fit of pained moans and screams. They echo round the dark chamber and through the darkest parts of your mind, reminding you of every black deed and vile sin you have ever committed. Guilt, horror and terror flood through your thoughts, each competing for stronger control of your psyche. Your only clear thought is of escape, by whatever means you can find.]], [[当你蹑手蹑脚地走下楼梯时，一块巨大的石板在你身后滑入原位，堵住了所有退路。空气凝滞而闷热，在这狭小的空间里，你感觉自己仿佛被活埋进了棺材。
 
 更令你不安的是不断攀升的恐惧感，事实上是压倒性的恐惧。前方是一排门厅，每扇门后你都能感觉到巨大的恶意和不洁的恐怖。走廊尽头，一扇巨大的黑色门下透出微弱的灯光，你隐约感到其他门都臣服于这扇门——顺从、恭顺，静静等待……
-    
+
 你听到一个女人的哭泣，时不时还夹杂着一声痛苦的哀嚎和尖叫。声音在密室里回荡并且通过黑暗传入了你的大脑，提醒你所犯的每一项罪过。内疚、恐怖和害怕如潮水般袭来，它们每个都紧紧抓住了你的灵魂。你唯一的想法便是逃离此地，不择一切手段。]], "_t")
 
 ------------------------------------------------
@@ -39362,7 +39362,7 @@ t("An old orc, wearing black robes. He commands his undead armies to destroy you
 t("and raised as a malformed servant", "并复活作为一个畸形的仆从", "_t")
 t("Rotting Titan", "腐烂泰坦", "entity name")
 t("This gigantic mass of flesh and stone moves slowly, the ground rumbling with each step it takes. Its body seems to constantly pulsate and reform. Massive stones at the end of each limb form massive blunt weapons.", "这只行动缓慢的巨大石化怪物每走一步都会使大地为之震颤。它的身体看起来似乎在不断的颤动和重塑。厚重的石化指尖成为了它强大的钝器。", "_t")
-t("The ground shakes as %s steps!", "当 %s前进时，大地在震动!", "logSeen")
+t("The ground shakes as %s steps!", "当 %s前进时，大地在震动！", "logSeen")
 t("Glacial Legion", "冰川军团", "entity name")
 t("A massive, shifting, ethereal form floats in the air around an orb of frozen blood.  The air around it condenses into freezing pools on the floor beneath it.", "一个巨大的、变幻不定的灵体漂浮在半空，环绕着一颗冰封的血球。它周围的空气凝结成它脚下地板上的一滩滩寒冰。", "_t")
 t("Heavy Sentinel", "笨重的森提内尔", "entity name")
@@ -39653,7 +39653,7 @@ t("The sandworms are gone, devoured by this shrieking, warped horror.", "沙虫�
 section "mod-tome/data/zones/sandworm-lair/objects.lua"
 
 t("Song of the Sands", "流沙之歌", "entity name")
-t("Some people get the weirdest ideas!", "有些人有最奇怪的想法!", "_t")
+t("Some people get the weirdest ideas!", "有些人有最奇怪的想法！", "_t")
 t("corpse", "尸体", "entity type")
 t("heart", "心脏", "entity subtype")
 t("Heart of the Sandworm Queen", "沙虫女皇之心", "entity name")
@@ -39662,7 +39662,7 @@ t([[The heart of the Sandworm Queen, ripped from her dead body.
 You could ... consume it, should you feel mad enough or you could try to corrupt it somewhere.]], [[从沙虫女皇尸体上割下的心脏。
 你可以……吃了它，如果你足够疯的话，你还可以在别的地方腐化它。]], "_t")
 t("consume the heart", "吃下心脏", "_t")
-t("#00FFFF#You consume the heart and feel the knowledge of this very old creature fill you!", "#00FFFF#你吃下了心脏，你感觉被这个古老生物的知识充满。", "logPlayer")
+t("#00FFFF#You consume the heart and feel the knowledge of this very old creature fill you!", "#00FFFF#你吃下了心脏，你感觉被这个古老生物的知识充满！", "logPlayer")
 t("You have %d stat point(s) to spend. Press p to use them.", "你有 %d 属性点数，按 P 键使用。", "logPlayer")
 t("You have %d class talent point(s) to spend. Press p to use them.", "你有 %d 职业技能点数，按 P 键使用。", "logPlayer")
 t("You have %d generic talent point(s) to spend. Press p to use them.", "你有 %d 通用技能点数，按 P 键使用。", "logPlayer")
@@ -39950,7 +39950,7 @@ section "mod-tome/data/zones/sludgenest/zone.lua"
 
 t("Sludgenest", "淤泥巢穴", "_t")
 t("It seems the slimes coming from the walls become stronger with time.", "看来从墙壁中出现的软泥怪正在变得越来越强。", "_t")
-t("#YELLOW_GREEN#One of the wall shakes for a moment and then turns into %s!", "#YELLOW_GREEN#一面墙壁颤抖了一会，变成了 %s!", "logSeen")
+t("#YELLOW_GREEN#One of the wall shakes for a moment and then turns into %s!", "#YELLOW_GREEN#一面墙壁颤抖了一会，变成了 %s！", "logSeen")
 
 ------------------------------------------------
 section "mod-tome/data/zones/south-beach/grids.lua"
@@ -39971,7 +39971,7 @@ t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Enjoying a lovely day at the beach.", "在海滩上度过美好的一天。", "_t")
 t("What..! Please lets run!", "什么…！快跑！", "_t")
-t("#DARK_GREEN#As Melinda is about to die a powerful wave of blight emanates from her!", "#DARK_GREEN#在梅琳达临死的时候，一股枯萎能量从她的体内喷出。", "say")
+t("#DARK_GREEN#As Melinda is about to die a powerful wave of blight emanates from her!", "#DARK_GREEN#在梅琳达临死的时候，一股枯萎能量从她的体内喷出！", "say")
 
 ------------------------------------------------
 section "mod-tome/data/zones/south-beach/objects.lua"
@@ -39983,7 +39983,7 @@ section "mod-tome/data/zones/south-beach/zone.lua"
 
 t("Southern Beach", "南方海滩", "_t")
 t("Look over there!", "快看那里！", "_t")
-t("#DARK_GREEN#Melinda begins to glow with an eerie aura!", "#DARK_GREEN#梅琳达身边散发出诡异的光环。", "say")
+t("#DARK_GREEN#Melinda begins to glow with an eerie aura!", "#DARK_GREEN#梅琳达身边散发出诡异的光环！", "say")
 
 ------------------------------------------------
 section "mod-tome/data/zones/stellar-system-shandral/grids.lua"
@@ -40229,12 +40229,12 @@ t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Linaniil, Supreme Archmage of Angolwen", "安格利文超阶魔导师·莱娜尼尔", "entity name")
 t("A tall, pale woman dressed in a revealing silk robe. Her gaze is so intense it seems to burn.", "一位穿着暴露丝绸长袍、身材高挑、肌肤白皙的女性。她的目光炽烈得仿佛能灼烧一切。", "_t")
-t("Remove @himher@!", "干掉@himher@!", "_t")
+t("Remove @himher@!", "干掉@himher@！", "_t")
 t("#GOLD#Linaniil concentrates her formidable will to restore her body!", "#GOLD#莱娜尼尔集中了她强大的意志，复原了她的身体！", "saySimple")
 t("shalore", "永恒精灵", "entity subtype")
 t("Archmage Tarelion", "大法师泰尔兰", "entity name")
 t("A tall Shalore in a flowing robe, he looks calm and at peace, but you can feel his tremendous power.", "一位穿着飘逸长袍的高大永恒精灵，他看起来平静安详，但你能感受到他体内蕴含的强大力量。", "_t")
-t("Catch @himher@!", "抓住@himher@!", "_t")
+t("Catch @himher@!", "抓住@himher@！", "_t")
 t("apprentice mage", "法师学徒", "entity name")
 t("An apprentice, learning the ways of the arcane arts.", "一位学徒，正在学习法术的奥秘。", "_t")
 t("pyromancer", "烈焰术士", "entity name")
@@ -40281,7 +40281,7 @@ section "mod-tome/data/zones/town-derth/npcs.lua"
 
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("Catch @himher@!", "抓住@himher@!", "_t")
+t("Catch @himher@!", "抓住@himher@！", "_t")
 t("derth guard", "德斯守卫", "entity name")
 t("A stern-looking guard, he will not let you disturb the town.", "一名严肃的守卫，他不会允许任何人打扰镇子的宁静。", "_t")
 t("halfling slinger", "半身人投石者", "entity name")
@@ -40317,7 +40317,7 @@ section "mod-tome/data/zones/town-elvala/npcs.lua"
 
 t("humanoid", "人形生物", "entity type")
 t("shalore", "永恒精灵", "entity subtype")
-t("Catch @himher@!", "抓住@himher@!", "_t")
+t("Catch @himher@!", "抓住@himher@！", "_t")
 t("elvala guard", "埃尔瓦拉守卫", "entity name")
 t("A stern-looking guard, he will not let you disturb the town.", "一名严肃的守卫，他不会允许任何人打扰镇子的宁静。", "_t")
 t("shalore rune master", "永恒精灵符文大师", "entity name")
@@ -40404,7 +40404,7 @@ section "mod-tome/data/zones/town-irkkk/npcs.lua"
 
 t("humanoid", "人形生物", "entity type")
 t("yeek", "夺心魔", "entity subtype")
-t("Catch @himher@!", "抓住@himher@!", "_t")
+t("Catch @himher@!", "抓住@himher@！", "_t")
 t("yeek mindslayer", "夺心魔心灵杀手", "entity name")
 t("A mindslayer in training.", "一名正在训练中的心灵杀手。", "_t")
 t("yeek psionic", "夺心魔灵能力者", "entity name")
@@ -40455,7 +40455,7 @@ section "mod-tome/data/zones/town-iron-council/npcs.lua"
 
 t("humanoid", "人形生物", "entity type")
 t("dwarf", "矮人", "entity subtype")
-t("Catch @himher@!", "抓住@himher@!", "_t")
+t("Catch @himher@!", "抓住@himher@！", "_t")
 t("dwarven guard", "矮人守卫", "entity name")
 t("A stocky dwarf, he looks angry.", "一名敦实的矮人，他看起来很生气。", "_t")
 t("dwarven earthwarden", "矮人岩石守卫", "entity name")
@@ -40495,7 +40495,7 @@ section "mod-tome/data/zones/town-last-hope/npcs.lua"
 
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("Catch @himher@!", "抓住@himher@!", "_t")
+t("Catch @himher@!", "抓住@himher@！", "_t")
 t("last hope guard", "最后的希望守卫", "entity name")
 t("A stern-looking guard, he will not let you disturb the town.", "一名严肃的守卫，他不会允许任何人打扰镇子的宁静。", "_t")
 t("halfling guard", "半身人守卫", "entity name")
@@ -40581,7 +40581,7 @@ section "mod-tome/data/zones/town-point-zero/npcs.lua"
 
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("Catch @himher@!", "抓住@himher@!", "_t")
+t("Catch @himher@!", "抓住@himher@！", "_t")
 t("guardian of reality", "现实守卫", "entity name")
 t("A stern-looking guardian, ever vigilant against the threats of the paradox.", "一名神情严肃的守卫，时刻警惕着悖论的威胁。", "_t")
 t("elemental", "元素生物", "entity type")
@@ -40631,7 +40631,7 @@ section "mod-tome/data/zones/town-shatur/npcs.lua"
 
 t("humanoid", "人形生物", "entity type")
 t("thalore", "自然精灵", "entity subtype")
-t("Catch @himher@!", "抓住@himher@!", "_t")
+t("Catch @himher@!", "抓住@himher@！", "_t")
 t("thalore hunter", "自然精灵猎人", "entity name")
 t("A stern-looking guard, he will not let you disturb the town.", "一名严肃的守卫，他不会允许任何人打扰镇子的宁静。", "_t")
 t("thalore wilder", "精灵自然师", "entity name")
@@ -40788,7 +40788,7 @@ t("Tutorial", "教程", "_t")
 section "mod-tome/data/zones/tutorial-combat-stats/grids.lua"
 
 t("Lobby Portal", "前厅传送门", "entity name")
-t("This portal will bring you back to the Tutorial Lobby.", " 这道传送门将把你带回教程大厅。", "_t")
+t("This portal will bring you back to the Tutorial Lobby.", "这道传送门将把你带回教程大厅。", "_t")
 t("Tutorial Lobby Portal", "传送至大厅", "_t")
 t("Enter the portal back to the lobby?", "你要进入传送门返回大厅吗？", "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you are back in the lobby.", "#VIOLET#你进入了传送漩涡，一眨眼功夫你回到了大厅。", "logPlayer")
@@ -40798,16 +40798,16 @@ t("floor", "地板", "entity type")
 t("grass", "草地", "entity subtype")
 t("grass", "草地", "entity name")
 t("Sign", "标志", "entity name")
-t("Contains a snippet of ToME wisdom.", " 包含了 ToME 智慧的残片 ", "_t")
+t("Contains a snippet of ToME wisdom.", "包含了 ToME 智慧的残片", "_t")
 t("Rune of Enlightenment: Summer Vacation", "启蒙符文：暑假", "entity name")
-t("Causes the player's brain to jettison all recently-acquired knowledge.", " 可以净化玩家的大脑，使玩家遗忘所有最近所学的技能。", "_t")
+t("Causes the player's brain to jettison all recently-acquired knowledge.", "可以净化玩家的大脑，使玩家遗忘所有最近所学的技能。", "_t")
 t("#VIOLET#You feel unenlightened.", "#VIOLET#你感到很无知。", "logPlayer")
 t("Rune of Enlightenment: Shove", "启蒙符文：冲撞", "entity name")
-t("Teaches the player 'Shove'.", " 可习得技能“推挤” ", "_t")
+t("Teaches the player 'Shove'.", "可习得技能“推挤”", "_t")
 t("#VIOLET#You have learned the talent Shove.", "#VIOLET#你学会了技能推挤。", "logPlayer")
 t("#VIOLET#The sound of an ancient door grinding open echoes down the tunnel!", "#VIOLET#推开古老大门产生的吱呀声音回荡在通道里！", "logPlayer")
 t("Rune of Enlightenment: Mana Gale", "启蒙符文：法力风暴", "entity name")
-t("Teaches the player 'Mana Gale'.", " 可习得技能“法力风暴” ", "_t")
+t("Teaches the player 'Mana Gale'.", "可习得技能“法力风暴”", "_t")
 t("#VIOLET#You have learned the talent Mana Gale.", "#VIOLET#你学会了技能法力风暴。", "logPlayer")
 t("Rune of Enlightenment: Telekinetic Punt", "启蒙符文：念力推送", "entity name")
 t("Teaches the player 'Telekinetic Punt'.", "可习得技能“念力推送”", "_t")
@@ -40816,13 +40816,13 @@ t("Rune of Enlightenment: Blink", "启蒙符文：闪现", "entity name")
 t("Teaches the player 'Blink'.", "可习得技能“闪现”", "_t")
 t("#VIOLET#You have learned the talent Blink.", "#VIOLET#你学会了技能闪现。", "logPlayer")
 t("Rune of Enlightenment: Fear", "启蒙符文：恐惧", "entity name")
-t("Teaches the player 'Fear'.", " 可习得技能“恐惧” ", "_t")
+t("Teaches the player 'Fear'.", "可习得技能“恐惧”", "_t")
 t("#VIOLET#You have learned the talent Fear.", "#VIOLET#你学会了技能恐惧。", "logPlayer")
 t("Rune of Enlightenment: Bleed", "启蒙符文：流血", "entity name")
-t("Teaches the player 'Bleed'.", " 可习得技能“流血” ", "_t")
+t("Teaches the player 'Bleed'.", "可习得技能“流血”", "_t")
 t("#VIOLET#You have learned the talent Bleed.", "#VIOLET#你学会了技能流血。", "logPlayer")
 t("Rune of Enlightenment: Confusion", "启蒙符文：混乱", "entity name")
-t("Teaches the player 'Confusion'.", " 可习得技能“混乱” ", "_t")
+t("Teaches the player 'Confusion'.", "可习得技能“混乱”", "_t")
 t("#VIOLET#You have learned the talent Confusion.", "#VIOLET#你学会了技能混乱。", "logPlayer")
 t("wall", "墙壁", "entity type")
 t("floor", "地板", "entity subtype")
@@ -40936,7 +40936,7 @@ t("The rift leads to another part of the morass.", "裂隙通往混沌之沼的�
 t("Point Zero", "零点圣域", "_t")
 t([[The rift has brought you back to Point Zero, and the source of the disturbances.
 A temporal defiler is attacking the town, all the Keepers in range are attacking it!]], [[这个裂隙将你带回到了零点圣域，你看到了这些混乱的源头。
-一只时空污秽魔正在攻击圣域，附近所有的守卫都在攻击它。]], "_t")
+一只时空污秽魔正在攻击圣域，附近所有的守卫都在攻击它！]], "_t")
 t("wall", "墙壁", "entity type")
 t("rift", "裂隙", "entity subtype")
 t("crack in spacetime", "时空裂隙", "entity name")
@@ -41158,13 +41158,13 @@ t("sand", "沙", "entity subtype")
 t("desert", "沙漠", "entity name")
 t("oasis", "绿洲", "entity name")
 t("Derth (Town)", "德斯镇（城镇）", "entity name")
-t("A quiet town at the crossroads of the north", " 一个位于北方十字要道的宁静村庄。", "_t")
+t("A quiet town at the crossroads of the north", "一个位于北方十字要道的宁静村庄。", "_t")
 t("Last Hope (Town)", "最后的希望（城镇）", "entity name")
-t("Capital city of the Allied Kingdoms ruled by King Tolak", " 联合王国首都（托拉克统治） ", "_t")
+t("Capital city of the Allied Kingdoms ruled by King Tolak", "联合王国首都（托拉克统治）", "_t")
 t("Angolwen, the hidden city of magic", "安格利文，隐藏的魔法之城", "entity name")
 t([[Secret place of magic, set apart from the world to protect it.
-Lead by the Supreme Archmage Linaniil.]], [[ 魔法的隐藏圣地，隔绝于世。
-（魔导师莱娜尼尔守护） ]], "_t")
+Lead by the Supreme Archmage Linaniil.]], [[魔法的隐藏圣地，隔绝于世。
+（魔导师莱娜尼尔守护）]], "_t")
 t("Hidden teleportation portal to Angolwen, the hidden city of magic", "隐藏的安格利文魔法城传送点", "entity name")
 t("The portal fizzles.", "传送门失败了。", "log")
 t("Shatur (Town)", "夏特尔（城镇）", "entity name")
@@ -41176,11 +41176,11 @@ t("A massive hole in the Sunwall.", "太阳堡垒上有一个巨大的孔洞。"
 t("Irkkk (Town)", "伊尔克（城镇）", "entity name")
 t("Yeek Wayist main village", "夺心魔维网信徒主村", "_t")
 t("Zigur (Town)", "伊格（城镇）", "entity name")
-t("Ziguranth main training ground", " 伊格兰斯的主要训练基地 ", "_t")
+t("Ziguranth main training ground", "伊格兰斯的主要训练基地", "_t")
 t("Zigur", "伊格", "_t")
 t("Somehow as magic user you feel this place is not safe for you.", "不知为何，作为一个魔法使用者，你觉得这个地方对你来说很危险。", "_t")
 t("Iron Council (Town)", "钢铁议会（城镇）", "entity name")
-t("Heart of the dwarven Empire", " 矮人王国的心脏 ", "_t")
+t("Heart of the dwarven Empire", "矮人王国的心脏", "_t")
 t("A gate into the Maze", "进入迷宫的门", "entity name")
 t("Passageway into the Trollmire", "通往巨魔沼泽的路", "entity name")
 t("A path into the Old Forest", "通往远古森林的路", "entity name")
@@ -41237,8 +41237,8 @@ t("unknown", "未知", "_t")
 section "mod-tome/dialogs/Birther.lua"
 
 t("Character Creation", "角色创建", "_t")
-t("     Play!     ", "     游玩!     ", "_t")
-t("Random!", "随机!", "_t")
+t("     Play!     ", "     游玩！     ", "_t")
+t("Random!", "随机！", "_t")
 t("Load premade", "读取预存角色", "_t")
 t("Custom tile", "自定义贴图", "_t")
 t("Cancel", "取消", "_t")
@@ -41267,7 +41267,7 @@ t("\
 \
 #GOLD#This is a locked birth option. Performing certain actions and completing certain quests will make locked campaigns, races and classes permanently available.", "\
 \
-#GOLD#本选项被锁定,完成特定的任务或条件可以永久解锁这个战役,种族,职业。", "_t")
+#GOLD#本选项被锁定，完成特定的任务或条件可以永久解锁这个战役，种族，职业。", "_t")
 t("-- locked --", "-- 需解锁 --", "_t")
 t([[#CRIMSON#Playing this class with the race you selected does not make much sense lore-wise. You can still do it but might miss on some special quests/...#WHITE#
 ]], [[#CRIMSON#使用这个种族来游玩这个职业不符合剧情。你仍然可以这么做，但可能会错过一些特殊任务/...#WHITE#
@@ -41297,7 +41297,7 @@ Donators will also gain access to the custom tiles for their characters.]], [[�
 
 捐赠者也可以使用自定义贴图来DIY他们的角色。]], "_t")
 t("Later", "以后再说", "_t")
-t("Donate!", "捐赠!", "_t")
+t("Donate!", "捐赠！", "_t")
 t("Custom tiles", "自定义角色贴图", "_t")
 t([[Custom Tiles have been added as a thank you to everyone that has donated to ToME.
 They are a fun cosmetic feature that allows you to choose a tile for your character from a list of nearly 180 (with more to be added over time), ranging from special humanoid tiles to downright wonky ones!
@@ -41559,7 +41559,7 @@ t("A malevolent aura begins to form around you. Choose your curse:", "你的身�
 ------------------------------------------------
 section "mod-tome/dialogs/DeathDialog.lua"
 
-t("You have #LIGHT_RED#died#LAST#!", "你已经#LIGHT_RED#死了#LAST#!", "_t")
+t("You have #LIGHT_RED#died#LAST#!", "你已经#LIGHT_RED#死了#LAST#！", "_t")
 t([[Death in #{bold}#Tales of Maj'Eyal#{normal}# is usually permanent, but if you have a means of resurrection it will be proposed in the menu below.
 You can dump your character data to a file to remember her/him forever, or you can exit and try once again to survive in the wilds!
 ]], [[在 #{bold}#马基·埃亚尔的传说#{normal}# 里，死亡通常是永久的。但是，如果你有某种复活的方法，它会在下方的菜单上显示出来。
@@ -41737,7 +41737,7 @@ t([[Toggles between various tactical information display:
 - No tactical information at all
 
 #{italic}#You can also change this directly ingame by pressing shift+T.#{normal}##WHITE#]], [[切换血条显示模式:
-- 生命值条+小框架 
+- 生命值条+小框架
 - 生命值条+大框架
 - 只显示生命值条
 - 不显示
@@ -41886,7 +41886,7 @@ A full exit and restart of the game is neccessary to apply this setting.#{normal
 注意这个设置只影响游戏本身。如果你使用游戏启动器，它的唯一目的就是确保游戏是最新的，因此它仍然会连接网络。
 如果你不想这样，直接运行游戏即可。启动器#{bold}#只#{normal}#是用来更新游戏的。
 
- 
+
 #{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已, 推荐你不要打开它, 这会让你失去很多好用的功能和一些游戏体验。
 应用这个选项必须退出重新进入游戏。#{normal}#]], "_t")
 t("#GOLD##{bold}#Disable all connectivity#WHITE##{normal}#", "#GOLD##{bold}#禁用全部网络连接#WHITE##{normal}#", "_t")
@@ -42031,8 +42031,8 @@ t([[Talent category points allow you to either:
 - learn a new inscription slot (up to a maximum of 5, learning it is automatic when using an inscription)
 
 You gain a new point at level 10, 20 and 34.
-Some races or items may increase them as well.]], [[技能树解锁点有以下作用： 
-- 解锁职业或通用技能树 
+Some races or items may increase them as well.]], [[技能树解锁点有以下作用：
+- 解锁职业或通用技能树
 - 提升一个技能树所有技能等级，每点提升 0.2
 - 解锁新的刻印位（最多 5 个，你使用刻印时会自动消耗点数解锁）
 你会在人物等级达到 10、 20 和 34 级时各获得 1 个点数。
@@ -42162,7 +42162,7 @@ t(" #YELLOW#[NO ROOM]#LAST#", " #YELLOW#[没有空间]#LAST#", "_t")
 ------------------------------------------------
 section "mod-tome/dialogs/QuestPopup.lua"
 
-t("#LIGHT_GREEN#New#LAST# Quest!", "#LIGHT_GREEN#新#LAST# 任务!", "_t")
+t("#LIGHT_GREEN#New#LAST# Quest!", "#LIGHT_GREEN#新#LAST# 任务！", "_t")
 t("Quest #AQUAMARINE#Updated!", "任务 #AQUAMARINE#更新了！", "_t")
 t("Quest #LIGHT_GREEN#Completed!", "任务 #LIGHT_GREEN#已完成！", "_t")
 t("Quest #LIGHT_GREEN#Done!", "任务 #LIGHT_GREEN#完成！", "_t")
