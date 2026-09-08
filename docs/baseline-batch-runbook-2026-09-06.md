@@ -992,3 +992,58 @@ evidence `c477a45`，repair merge `d5fc49c`。
   `observation_sha256` 是 `sha256(observation 文本的 UTF-8 字节)`，
   不是整条 observation 对象的哈希。决议必须一一覆盖
   `_accepted_observations(checkpoint)`（只含 ISSUE，交叉复核判 OK 不产生 observation）。
+
+## 29. 第 52 批完成记录与编排工具化
+
+批次 `batch-d738009724950b3fe20d`，base `e84b164`，80 条，源码工作集 80/80 命中 0 缺口。
+3 run（lane 74 / full 2 / lane 4）。evidence `9f9ad7f`，repair merge `e377b95`。
+裁决：**confirmed 9、refuted 2、advisory 1**，7 条 revision 修复、50 条 revision 变更。
+
+### 派发 prompt 引用了不存在的契约文件（一直存在的缺陷）
+
+contextual 派发 prompt 里写的是 `docs/paseo-translation-contextual-v2-contract.md`，
+**该文件不存在**——真实文件名是 `docs/paseo-translation-context-review-v2-contract.md`
+（`context-review`，不是 `contextual`）。后果是交叉复核 REVIEWER 从来读不到契约第六节。
+第 51 批两个 run 恰好都吐出了合法形状所以没暴露；第 52 批 full-001 自创了
+`{"results":[{"decision":"rejected",...}]}` 的 schema，`contextual-import` 会拒收。
+
+此外我此前的「任务」行是自拟措辞（"独立复核筛查轮的主张…不得复述筛查轮理由"），
+与契约第六节的官方模板（"仅报有证据的实质语义、机制、术语、关系或跨条一致性问题"）不符。
+**派发模板必须逐字取自契约第六节**，不要自己改写。
+
+修正后重新派发（旧 child 归档、产物删除、不作为证据），实例 755 bytes。
+
+### 本批固化的编排工具（`tools/orchestration/`）
+
+前两批的失误多数出在手工步骤上，已逐个工具化并内置硬断言：
+
+| 工具 | 作用与内置断言 |
+| --- | --- |
+| `stage_surface.py` | **run 构成只以 checkpoint refs 为准**（不 ls `.artifacts`，那里有上批残留）；自动识别 full stage（单 ref 且无 group manifest）；lane 元数据取自 group manifest 的 `lane_boundaries`；生成正确形状的 INPUT-DRAFT；断言总 entry 数 == selected |
+| `dispatch_surface.py` | **派发时即记录 agent_id**（`paseo run --json` 的键是 `agentId`，不是 `agent_id`/`id`）；断言 identity 64 位、input_path 非空、prompt ≤800 字节 |
+| `dispatch_contextual.py` | 用契约第六节官方模板；import 时 `assert` 契约文件存在 |
+| `harvest_reviews.py` | 取最后一个合法 JSON；校验 identity 回显；任一 child 失败即 exit 1 |
+| `build_import_index.py` | **按 candidate_identity 建映射**，不按 run/lane 编号猜 |
+| `close_review_tasks.py` | 写 review record、归档 child、填 STATE、逐 run 跑 `ai_state_check --target DONE` |
+
+第 52 批用这套工具后，5 个 run 的 `DONE_VERIFIED` 一次通过（第 51 批手工做时失败了 5 轮）。
+
+### 本批的裁决判据
+
+- **`profile name`→「Steam用户名」**（confirmed，两轮同因）：`ProfileSteamRegister.lua:44`
+  该字段是 `c_login` Textbox（`title=_t"Username: "`、`max_len=20`、`login_filter` 只收
+  小写字母数字），其值经 `okclick` 传给 `profile:performloginSteam`，**与 Steam ticket 分开传递**。
+  即用户在此新建的 te4.org 账号名；Steam 用户名反而可能被过滤器拒绝。
+- **`Online profile disabled`**（confirmed，主编排者核验）：`Module.lua:1156` 注释即
+  `-- Disable the profile if ungood`。库内既有译法是「在线账户」「在线用户档案」，
+  而「存档」在本库对应 savefile。**同一词在库内已有主导译法时，孤例即缺陷。**
+- **`#GOLD#Life per level:` 前导空格**（confirmed，主编排者核验，交叉复核判 OK）：
+  `chronomancer.lua:66-71` 显示它与 `#GOLD#Stat modifiers:` 是同一描述列表的并列行；
+  本库兄弟行「#GOLD#属性修正：」「#GOLD#经验惩罚：」都无前导空格，唯此行有，三行并排时缩进不齐。
+  **47 处横跨五个组件**（mod-tome 34 / orcs 5 / cults 4 / ashes-urhrok 3 / possessors 1）。
+- **`charges`→「叠加次数」**（refuted，**两轮同因但均与源码不符**）：
+  `magical.lua:406-441` 的 DEATH_MOMENTUM 里 `charges = function(self, eff) return eff.stacks end`，
+  `setCharges` 按 `eff.stacks` 线性叠加 `movement_speed`/`flat_damage_armor`/`inc_damage`，
+  `on_merge` 用 `util.bound(stacks+1, 1, max_stacks)` 递增，**全定义无任何消耗路径**。
+  是叠加层数不是可消耗资源；「充能次数」反而误导。
+  **两轮一致也不等于正确——§23 的两轮判据是升级门槛，不是免检通行证。**
