@@ -56,7 +56,7 @@ Check out the following folder on your computer:
 %s
 %s
 ]], "_t")
-t("Updating addon: #LIGHT_GREEN#%s", "正在更新插件: #LIGHT_GREEN#%s", "tformat")
+t("Updating addon: #LIGHT_GREEN#%s", "正在更新插件：#LIGHT_GREEN#%s", "tformat")
 t("Quit", "退出", "_t")
 t("Really exit T-Engine/ToME?", "真的要退出 T-Engine/马基·埃亚尔的传说吗？", "_t")
 t("Continue", "继续", "_t")
@@ -100,7 +100,7 @@ t("Registering on https://te4.org/, please wait...", "正在 https://te4.org/ �
 t("Logged in!", "登录成功！", "_t")
 t("Profile created!", "账户创建成功！", "_t")
 t("Profile creation failed!", "账户创建失败！", "_t")
-t("Creation failed: %s (you may also register on https://te4.org/)", "创建失败: %s（你也可以在 https://te4.org/ 网站上注册）", "tformat")
+t("Creation failed: %s (you may also register on https://te4.org/)", "创建失败：%s（你也可以在 https://te4.org/ 网站上注册）", "tformat")
 t("Try again in in a few moments, or try online at https://te4.org/", "请过几分钟后再试，或在 https://te4.org/ 网站上注册", "_t")
 
 ------------------------------------------------
@@ -294,7 +294,7 @@ This includes, but is not limited to:
 #{bold}##CRIMSON#This is an extremely restrictive setting. It is recommended you only activate it if you have no other choice as it will remove many fun and acclaimed features.#{normal}#
 
 If you disable this option you can always re-activate it in the Online category of the Game Options menu later on.]], [[即将禁止所有网络请求
-包括但不仅限于:
+包括但不仅限于：
 - 用户信息：不能登录或者注册。
 - 角色备份：不能在te4.org上保存你的角色信息(用来给其他人分享你的炫酷角色)。
 - 物品仓库：不能访问你的在线物品仓库(包括存入和取回)。
@@ -305,7 +305,7 @@ If you disable this option you can always re-activate it in the Online category 
 - Discord：如果你是 Discord 用户，此设置也会禁用 Rich Presence 集成。
 - 游戏内新闻：主菜单将不再显示游戏更新信息。
 
-#{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已, 推荐你不要打开它, 这会让你失去很多好用的功能和一些游戏体验。#{normal}#
+#{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已，推荐你不要打开它，这会让你失去很多好用的功能和一些游戏体验。#{normal}#
 
 关闭后，可以通过游戏设置菜单的在线选项卡打开。]], "_t")
 t("Cancel", "取消", "_t")
@@ -552,7 +552,7 @@ t("Game: #{bold}##GOLD#", "游戏：#{bold}##GOLD#", "_t")
 t("Engine: #{italic}##LIGHT_BLUE#", "游戏引擎：#{italic}##LIGHT_BLUE#", "_t")
 t("Error!", "错误！", "_t")
 t([[There was an error while downloading:
-]], [[下载时发生错误:
+]], [[下载时发生错误：
 ]], "_t")
 t("Downloading: ", "正在下载：", "_t")
 t("Update", "更新", "_t")

@@ -421,11 +421,11 @@ section "engine/engine/Module.lua"
 
 t("Beta Addons Disabled", "Beta版插件已禁用", "_t")
 t([[This beta version is meant to be tested without addons, as such the following ones are currently disabled:
-#GREY#]], [[本Beta版本设计上用于纯原版测试环境，因此，以下插件被自动禁用:
+#GREY#]], [[本Beta版本设计上用于纯原版测试环境，因此，以下插件被自动禁用：
 #GREY#]], "_t")
 t("#{italic}##PINK#Addons developers can still test their addons by enabling developer mode.#{normal}#", "#{italic}##PINK#插件开发者可以通过开启开发者模式继续测试他们的插件。#{normal}#", "_t")
 t([[Total playtime of all registered players:%s
-]], [[注册玩家总游玩时间:%s
+]], [[注册玩家总游玩时间：%s
 ]], "tformat")
 t("#LIGHT_BLUE#%s#WHITE# is one of the top five played races", "#LIGHT_BLUE#%s#WHITE#是玩得最多的五大种族之一", "tformat")
 t("#LIGHT_BLUE#%s#WHITE# is one of the top five played classes", "#LIGHT_BLUE#%s#WHITE#是玩得最多的五大职业之一", "tformat")
@@ -623,7 +623,7 @@ t("Fullscreen", "全屏", "_t")
 t("Borderless", "无边框", "_t")
 t("Windowed", "窗口模式", "_t")
 t("Engine Restart Required", "需要重启游戏引擎", "_t")
-t("Continue? %s", "继续吗? %s", "tformat")
+t("Continue? %s", "继续吗？%s", "tformat")
 t(" (progress will be saved)", " (游戏进度会被保存)", "_t")
 t("Reset Window Position?", "重设窗口位置？", "_t")
 t("Simply restart or restart+reset window position?", "你要仅重启，还是重启并重设窗口位置？", "_t")
@@ -736,11 +736,11 @@ t([[#GOLD#Also achieved by your current character#LAST#
 t([[#GOLD#Achieved on:#LAST# %s
 #GOLD#Achieved by:#LAST# %s
 %s
-#GOLD#Description:#LAST# %s]], [[#GOLD#成就达成时间:#LAST# %s
-#GOLD#成就获得者:#LAST# %s
+#GOLD#Description:#LAST# %s]], [[#GOLD#成就达成时间：#LAST# %s
+#GOLD#成就获得者：#LAST# %s
 %s
-#GOLD#介绍:#LAST# %s]], "tformat")
-t("Progress: ", "进度: ", "_t")
+#GOLD#介绍：#LAST# %s]], "tformat")
+t("Progress: ", "进度： ", "_t")
 t("-- Unknown --", "-- 未知 --", "_t")
 -- untranslated text
 --[==[
@@ -921,10 +921,10 @@ t("", "", "_t")
 section "engine/engine/dialogs/UserInfo.lua"
 
 t("User: %s", "用户：%s", "tformat")
-t("Currently playing: ", "正在玩: ", "_t")
+t("Currently playing: ", "正在玩： ", "_t")
 t("unknown", "未知", "_t")
 t("Game: ", "游戏：", "_t")
-t("Validation: ", "认证状态: ", "_t")
+t("Validation: ", "认证状态： ", "_t")
 t("Game has been validated by the server", "游戏被服务器认证", "_t")
 t("Game is not validated by the server", "游戏不被服务器认证", "_t")
 t("Go to online profile", "前往在线用户档案", "_t")
@@ -1087,7 +1087,7 @@ Thanks, and have fun!]], [[欢迎！
 
 那么，为什么要加入内购呢？ 马基·埃亚尔的传说是一款便宜/免费的游戏，也不需要会员订阅。它就像我的孩子一样；我非常爱它，并计划为之长久工作（从2009年开始我就一直这么干了！）。 但是，为了生存，我仍然需要在现实世界中取得必要的收入。
 
-目前，我提供了以下几种内购项:
+目前，我提供了以下几种内购项：
 - #GOLD#时装#LAST#：在目前游戏内已有的种族、物品时装外，你可以获得更多时装效果，让你看起来更靓！
 - #GOLD#氪金速死#LAST#：已经不想玩这个角色了吗？用这个选项来迎接一个帅气的终结吧！
 - #GOLD#额外共享装备格#LAST#：对于捐赠者而言，可以把那些“无用”的捐赠换成更多在线共享装备格。
@@ -1106,7 +1106,7 @@ t([[For every purchase of #{italic}##GREY#%s#LAST##{normal}# you gain a permanen
 t("#{italic}##UMBER#Voratun Coins available from your donations: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#可用沃瑞钽硬币数：#ROYAL_BLUE#%d#{normal}#", "_t")
 t([[For every donations you've ever made you have earned voratun coins. These can be spent purchasing expansions or options on the online store. This is the amount you have left, if your purchase total is below this number you'll instantly get your purchase validated, if not you'll need to donate some more first.
 #GOLD##{italic}#Thanks for your support, every little bit helps the game survive for years on!#{normal}#]], [[你历次所做的每一笔捐赠，都为你赚取了沃瑞钽硬币，可以用于购买扩展DLC或者在线商店的商品。这是你当前可用的硬币，如果购买价格在这以下，你可以立刻获得商品，否则你需要进行更多的捐赠。
-#GOLD##{italic}#感谢你的支持，每一分钱都让这游戏更加持久!#{normal}#]], "_t")
+#GOLD##{italic}#感谢你的支持，每一分钱都让这游戏更加持久！#{normal}#]], "_t")
 t("%s #GOLD#Online Store#LAST#", "%s #GOLD#在线商店#LAST#", "tformat")
 t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器... --", "_t")
 t("Purchase", "购买", "_t")
@@ -1116,14 +1116,14 @@ t("Qty", "数量", "_t")
 t("Online Store", "在线商城", "_t")
 t("You need to be logged in before using the store. Please go back to the main menu and login.", "需要登录游戏账号才能使用商店，请退回主菜单登录。", "_t")
 t("Steam users need to link their profiles to their steam account. This is very easy in just a few clicks. Once this is done, simply restart the game.", "Steam用户需要将游戏账号和Steam账号绑定。这非常简单，只需要数次点击，完成后重启游戏即可。", "_t")
-t("Let's do it! (Opens in your browser)", "开始吧! (在浏览器中打开)", "_t")
+t("Let's do it! (Opens in your browser)", "开始吧！(在浏览器中打开)", "_t")
 t("Not now", "还是不了", "_t")
 t("The Online Store (and expansions) are only purchasable by players that bought the game. Plaese go have a look at the donation page for more explanations.", "在线商店（和扩展包）只对购买过游戏本体的玩家开放。详情请查看捐赠页面。", "_t")
 t("Let's go! (Opens in your browser)", "去吧！（在浏览器中打开）", "_t")
 t("%0.2f %s", "%0.2f%s", "tformat")
 t("%d coins", "%d币", "tformat")
 t("#{bold}#TOTAL#{normal}#", "#{bold}#总量#{normal}#", "_t")
-t("  (%d items in cart, %s)", "  (购物车中有%d件物品, %s)", "tformat")
+t("  (%d items in cart, %s)", "  (购物车中有%d件物品，%s)", "tformat")
 t("Cart", "购物车", "_t")
 t("Cart is empty!", "购物车是空的！", "_t")
 t([[In-game browser is inoperant or disabled, impossible to auto-install shimmer pack.
@@ -1220,7 +1220,7 @@ section "engine/engine/interface/ActorLife.lua"
 
 t("#{bold}#%s killed %s!#{normal}#", "#{bold}#%s杀死了%s!#{normal}#", "logSeen")
 t("something", "某物", "_t")
-t("%s attacks %s.", "%s攻击了%s.", "logSeen")
+t("%s attacks %s.", "%s攻击了%s。", "logSeen")
 
 ------------------------------------------------
 section "engine/engine/interface/ActorTalents.lua"
@@ -1235,7 +1235,7 @@ t("%s %s %s.", "%s%s%s。", "logSeen")
 t("deactivates", "关闭了", "_t")
 t("activates", "启用了", "_t")
 t("%s uses %s.", "%s使用了%s。", "logSeen")
-t("not enough stat: %s", "属性点不足: %s", "tformat")
+t("not enough stat: %s", "属性点不足：%s", "tformat")
 t("not enough levels", "等级不足", "_t")
 t("missing dependency", "未满足前置条件", "_t")
 t("is not %s", "不是%s", "tformat")
@@ -1471,7 +1471,7 @@ Check out the following folder on your computer:
 %s
 %s
 ]], "_t")
-t("Updating addon: #LIGHT_GREEN#%s", "正在更新插件: #LIGHT_GREEN#%s", "tformat")
+t("Updating addon: #LIGHT_GREEN#%s", "正在更新插件：#LIGHT_GREEN#%s", "tformat")
 t("Quit", "退出", "_t")
 t("Really exit T-Engine/ToME?", "真的要退出 T-Engine/马基·埃亚尔的传说吗？", "_t")
 t("Continue", "继续", "_t")
@@ -1515,7 +1515,7 @@ t("Registering on https://te4.org/, please wait...", "正在 https://te4.org/ �
 t("Logged in!", "登录成功！", "_t")
 t("Profile created!", "账户创建成功！", "_t")
 t("Profile creation failed!", "账户创建失败！", "_t")
-t("Creation failed: %s (you may also register on https://te4.org/)", "创建失败: %s（你也可以在 https://te4.org/ 网站上注册）", "tformat")
+t("Creation failed: %s (you may also register on https://te4.org/)", "创建失败：%s（你也可以在 https://te4.org/ 网站上注册）", "tformat")
 t("Try again in in a few moments, or try online at https://te4.org/", "请过几分钟后再试，或在 https://te4.org/ 网站上注册", "_t")
 
 ------------------------------------------------
@@ -1709,7 +1709,7 @@ This includes, but is not limited to:
 #{bold}##CRIMSON#This is an extremely restrictive setting. It is recommended you only activate it if you have no other choice as it will remove many fun and acclaimed features.#{normal}#
 
 If you disable this option you can always re-activate it in the Online category of the Game Options menu later on.]], [[即将禁止所有网络请求
-包括但不仅限于:
+包括但不仅限于：
 - 用户信息：不能登录或者注册。
 - 角色备份：不能在te4.org上保存你的角色信息(用来给其他人分享你的炫酷角色)。
 - 物品仓库：不能访问你的在线物品仓库(包括存入和取回)。
@@ -1720,7 +1720,7 @@ If you disable this option you can always re-activate it in the Online category 
 - Discord：如果你是 Discord 用户，此设置也会禁用 Rich Presence 集成。
 - 游戏内新闻：主菜单将不再显示游戏更新信息。
 
-#{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已, 推荐你不要打开它, 这会让你失去很多好用的功能和一些游戏体验。#{normal}#
+#{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已，推荐你不要打开它，这会让你失去很多好用的功能和一些游戏体验。#{normal}#
 
 关闭后，可以通过游戏设置菜单的在线选项卡打开。]], "_t")
 t("Cancel", "取消", "_t")
@@ -1967,7 +1967,7 @@ t("Game: #{bold}##GOLD#", "游戏：#{bold}##GOLD#", "_t")
 t("Engine: #{italic}##LIGHT_BLUE#", "游戏引擎：#{italic}##LIGHT_BLUE#", "_t")
 t("Error!", "错误！", "_t")
 t([[There was an error while downloading:
-]], [[下载时发生错误:
+]], [[下载时发生错误：
 ]], "_t")
 t("Downloading: ", "正在下载：", "_t")
 t("Update", "更新", "_t")

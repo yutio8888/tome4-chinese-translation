@@ -31,15 +31,15 @@ t("Doombringers are engines of war, cleaving and burning their way through entir
 t("The most powerful Doombringers can harness the full power of their demonic ties and transform themselves into a gigantic demon.", "最强大的毁灭使者可以全面激发恶魔血脉，变身成为巨大的恶魔。", "_t")
 t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
-t("#LIGHT_BLUE# * +4 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +4 力量, +0 敏捷, +2 体质", "_t")
-t("#LIGHT_BLUE# * +2 Magic, +0 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔法, +0 意志, +1 灵巧", "_t")
+t("#LIGHT_BLUE# * +4 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +4 力量，+0 敏捷，+2 体质", "_t")
+t("#LIGHT_BLUE# * +2 Magic, +0 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔法，+0 意志，+1 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +3", "_t")
 t("Demonologist", "恶魔使者", "birth descriptor name")
 t("Most simply run, but I understand: a distant planet, ravaged and damned. Burnt creations seek righteous vengeance, Urh'Rok's ashes, now destruction's engines. Harness their power! Capture and tame! I call on you, demons - UNLEASH THE FLAMES!", "人们常畏惧，但我了解真实：遥远的星球，被厄运所折磨；燃烧的造物们，如今渴望复仇；乌鲁洛克之烬，驱动战争机器。捕获并征服！驾驭他们的力量！在此召唤——恶魔们，释放你们的烈焰！", "_t")
 t("Contrary to popular beliefs Demonologists are not the pawns of demons, they enact pacts with them but always very carefully.", "不同于众人所相信的，恶魔使者并非恶魔的走卒。他们只是小心谨慎地与恶魔签订契约。", "_t")
 t("They use those demonic powers for their own purpose, often evil but a few have been known to use demonic powers to fight demons.", "他们利用恶魔之力达成所愿，无论善恶，亦有少数人以此反击恶魔。", "_t")
 t("Demonologists are melee fighters, bashing their foes skulls with their shields while calling down rains of fire and darkness.", "恶魔使者是近身格斗的战士，用盾牌击碎敌人的头颅，同时能呼唤黑暗与火焰之力。", "_t")
-t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量, +0 敏捷, +2 体质", "_t")
+t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量，+0 敏捷，+2 体质", "_t")
 t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +2", "_t")
 
@@ -62,8 +62,8 @@ t("Doomelves are not a real race, they are Shaloren that have been taken by demo
 t("They enjoy unleashing torments and suffering on their victims.", "他们对折磨敌人感到享受。", "_t")
 t("They possess the #GOLD#Haste of the Doomed#WHITE# talent which allows them to phase away once in a while.", "他们拥有#GOLD#末日加速#WHITE#技能，可以不时脱离相位并传送。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
-t("#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -2 力量, +1 敏捷, +1 体质", "_t")
-t("#LIGHT_BLUE# * +3 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +3 魔法, +2 意志, +0 灵巧", "_t")
+t("#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -2 力量，+1 敏捷，+1 体质", "_t")
+t("#LIGHT_BLUE# * +3 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +3 魔法，+2 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 9", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 9", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚： #LIGHT_BLUE# 12%", "_t")
 
@@ -403,10 +403,10 @@ t([[#{italic}#More memories rush into your mind...#{normal}#
 
 That crystal.  That crystal is how they're keeping track of you, and it has most of what you helped them discover trapped within it.  If you break it, you'll be able to escape their notice for the first time since you arrived here, allowing you to get away without them finding you again, and as an added bonus you'll undo most of what you helped them accomplish.  You need to destroy it, then flee for your life!]], [[#{italic}#更多记忆涌入了你的脑海……#{normal}#
 
-“记住，这是你的幸运日，<?=player.name?>，”你的“主人”带着你到一块巨大的闪耀水晶面前，“你非常合作，因此你将从一般实验中解放。现在你被提升为研究助理！”闻言，你欣喜若狂！“好了，现在我们需要先做一些事情。火焰防护在这，忠诚强化在那，标准化思维修改，呃，不过主要还是将你的意识链接到这里，”他一边说，一边指着水晶体,“有了这个，你看到的、听到的、嗅到的、尝到的、感觉到的全都能体现在这块美丽精巧的水晶里。不仅如此，不管你去哪，不管你想什么，都能记录下来，以供研究。”你突然发现自己能帮助他们研究如此之多！“站在那里别动，举起胳膊，这样我就能把它放好……”
+“记住，这是你的幸运日，<?=player.name?>，”你的“主人”带着你到一块巨大的闪耀水晶面前，“你非常合作，因此你将从一般实验中解放。现在你被提升为研究助理！”闻言，你欣喜若狂！“好了，现在我们需要先做一些事情。火焰防护在这，忠诚强化在那，标准化思维修改，呃，不过主要还是将你的意识链接到这里，”他一边说，一边指着水晶体，“有了这个，你看到的、听到的、嗅到的、尝到的、感觉到的全都能体现在这块美丽精巧的水晶里。不仅如此，不管你去哪，不管你想什么，都能记录下来，以供研究。”你突然发现自己能帮助他们研究如此之多！“站在那里别动，举起胳膊，这样我就能把它放好……”
 
 那块水晶，对，那就是他们追踪你的方式，同时也封存着你帮助他们取得的大部分发现。如果你摧毁了它，你就能避开他们的注意，逃出这里，不被他们发现，并抵消你帮助他们完成的大部分成果。你必须要摧毁它，然后逃跑！]], "_t")
-t("orbital base: battle plan (doombringer)", "轨道基地: 战斗计划（毁灭使者）", "_t")
+t("orbital base: battle plan (doombringer)", "轨道基地：战斗计划（毁灭使者）", "_t")
 t([[Engagement Briefing on <?=player.name?>:
 
 This slippery little <?=_t(player.descriptor.subrace, "birth descriptor name")?> has proven to be a thorn in our side so far.  We've reinforced our wards to better protect against the sort of fluke meteor impact that enabled <?=player:his_her()?> escape, but the crystal <?=player:he_she()?> smashed on <?=player:his_her()?> way out prevented us from keeping track of <?=player:his_her()?> location directly.  No matter - the brands and marks we've imbued <?=player:him_her()?> with have nonetheless allowed us to monitor magical energy signals affecting <?=player:him_her()?>, and our scryers have noted that there appears to be a particular pattern that teleports <?=player:him_her()?>, possibly of Sher'Tul origin.  We've sent out a signal of our own to intercept this, and redirect it to our platform, where <?=player:he_she()?> will be safely secured, punished for <?=player:his_her()?> disobedience, then once again exposed to a Tablet of Enlightenment to regain <?=player:his_her()?> servitude.
@@ -422,7 +422,7 @@ Above all else, remember: despite <?=player:his_her()?> brute strength, this is 
 
 最重要的是：请记住，尽管<?=player:his_her()?>有一身蛮力，<?=player:he_she()?>只是一个可怜的，下等的埃亚尔人，只是出于幸运才有机会窃取了我们恶魔的强大力量。<?=player:he_she()?>并不真正了解如何正确使用自己的能力，也不像我们那样有着长期丰富的作战经验。我们有数量优势、有团结精神、有战术协作、还有乌鲁洛克大人的祝福。像对待演习一样对待这场战斗，只要保持审慎和专注，我们不会受到什么损失。
 ]], "_t")
-t("orbital base: battle plan (demonologist)", "轨道基地: 战斗计划（恶魔使者）", "_t")
+t("orbital base: battle plan (demonologist)", "轨道基地：战斗计划（恶魔使者）", "_t")
 t([[Engagement Briefing on <?=player.name?>:
 
 This slippery little <?=_t(player.descriptor.subrace, "birth descriptor name")?> has proven to be a thorn in our side so far.  We've reinforced our wards to better protect against the sort of fluke meteor impact that enabled <?=player:his_her()?> escape, but the crystal <?=player:he_she()?> smashed on <?=player:his_her()?> way out prevented us from keeping track of <?=player:his_her()?> location directly.  No matter - the brands and marks we've imbued <?=player:him_her()?> with have nonetheless allowed us to monitor magical energy signals affecting <?=player:him_her()?>, and our scryers have noted that there appears to be a particular pattern that teleports <?=player:him_her()?>, possibly of Sher'Tul origin.  We've sent out a signal of our own to intercept this, and redirect it to our platform, where <?=player:he_she()?> will be safely secured, punished for <?=player:his_her()?> disobedience, then once again exposed to a Tablet of Enlightenment to regain <?=player:his_her()?> servitude.
@@ -450,7 +450,7 @@ Above all else, remember: despite <?=player:his_her()?> enthralled minions, this
 
 最重要的是：请记住，尽管<?=player:his_her()?>不知怎么奴役了我们的一些同类，<?=player:he_she()?>只是一个可怜的，下等的埃亚尔人，只是出于幸运才有机会窃取了我们恶魔的强大力量。<?=player:he_she()?>并不真正了解如何正确使用自己的能力，也不像我们那样有着长期丰富的作战经验。我们有数量优势、有团结精神、有战术协作、还有乌鲁洛克大人的祝福。像对待演习一样对待这场战斗，只要保持审慎和专注，我们不会受到什么损失。
 ]], "_t")
-t("orbital base: battle plan (doomelf)", "轨道基地: 战斗计划（魔化精灵）", "_t")
+t("orbital base: battle plan (doomelf)", "轨道基地：战斗计划（魔化精灵）", "_t")
 t([[Engagement Briefing on <?=player.name?>:
 
 This slippery little elf has proven to be a thorn in our side so far.  We've reinforced our wards to better protect against the sort of fluke meteor impact that enabled <?=player:his_her()?> escape, but the crystal <?=player:he_she()?> smashed on <?=player:his_her()?> way out prevented us from keeping track of <?=player:his_her()?> location directly.  No matter - the brands and marks we've imbued <?=player:him_her()?> with have nonetheless allowed us to monitor magical energy signals affecting <?=player:him_her()?>, and our scryers have noted that there appears to be a particular pattern that teleports <?=player:him_her()?>, possibly of Sher'Tul origin.  We've sent out a signal of our own to intercept this, and redirect it to our platform, where <?=player:he_she()?> will be safely secured, punished for <?=player:his_her()?> disobedience, then once again exposed to a Tablet of Enlightenment to regain <?=player:his_her()?> servitude.
@@ -471,7 +471,7 @@ Above all else, remember: despite <?=player:his_her()?> enhancements, this is a 
 
 最重要的是：请记住，尽管<?=player:his_her()?>获得了一些强化，<?=player:he_she()?>只是一个可怜的，下等的埃亚尔人，只是出于幸运才有机会窃取了我们恶魔的强大力量。<?=player:he_she()?>并不真正了解如何正确使用自己的能力，也不像我们那样有着长期丰富的作战经验。我们有数量优势、有团结精神、有战术协作、还有乌鲁洛克大人的祝福。像对待演习一样对待这场战斗，只要保持审慎和专注，我们不会受到什么损失。
 ]], "_t")
-t("orbital base: battle info", "轨道基地: 战斗情报", "_t")
+t("orbital base: battle info", "轨道基地：战斗情报", "_t")
 t([[#{italic}#This note is splattered with the blood of the demon who was carrying it.#{normal}#
 
 #{bold}#URGENT:#{normal}#
@@ -581,7 +581,7 @@ Cute.  I'll let it stay.
 
 真可爱。我准备留下这些文字。
 
-—S.
+—S。
 ]], "_t")
 t("demon statue: Walrog", "恶魔雕像：乌尔罗格", "_t")
 t([[#{italic}#The message at the base of this statue has been scratched out, and a new one has been carved in its place.#{normal}#
@@ -590,7 +590,7 @@ Walrog, if you're reading this: We're still alive, but keep up the good work.
 -S.]], [[#{italic}#这座雕像底座上原有的文字已经被刮掉，一行新的留言取代了它的位置。#{normal}#
 
 乌尔罗格，如果你看到这个：我们还活着，继续好好干。
-—S.]], "_t")
+—S。]], "_t")
 t("demon statue: Kryl-Feijan", "恶魔雕像：克里尔·费扬", "_t")
 t([[#{italic}#The text at the base of this statue has been scratched out.  A note is attached in its place.#{normal}#
 
@@ -632,7 +632,7 @@ Eyal is doomed to perish in screaming agony.  Wouldn't you at least like a good-
 
 埃亚尔注定在痛苦的尖叫中灭亡。你们不想先来个告别之吻吗？
 
-—S.]], "_t")
+—S。]], "_t")
 t("demon statue: Khulmanar, General of Urh'Rok", "恶魔雕像：库马纳，乌鲁洛克将军", "_t")
 t("Our tournaments, run ever since our salvation from the dust mages under the command and inspiration of Urh'Rok, are not simply tests of direct combat, as many may think.  We have those, yes, but we also have competitions for scholarly work, attentiveness, physical endurance, philosophy, and countless other fields.  Perhaps the most prestigious of these, though, is the Divine Tournament of Tactics, by which our military leaders are selected.  Through a series of trials, we are compared in our abilities to assess a combat scenario and swiftly handle it, rated on speed, casualties, deployment efficiency, and a variety of other factors.  Khulmanar, a child of onyx, is the reigning champion of these, and has been for most of the time that we've spent waiting for our continent to reach Eyal.  Chosen by our process as the wisest tactical mind among our people, he was selected to meet with Urh'Rok himself to gain his approval to lead our forces in the invasion.  Urh'Rok was so impressed by Khulmanar that he used a significant portion of the little energy he's not using to hold our world together to build Khulmanar a new body, one strong enough to let him direct battles from the front-line without fear.  With a form and weapons granted by our Father, and a mind given his direct, enthusiastic approval, Khulmanar is considered to be the avatar of Urh'Rok, and his commands in battle are to be treated with the same reverence we would give to the words of Father himself.", [[自从我们被从尘埃法师的控制之下解放后，在乌尔洛克的命令和鼓动下，我们开始举办锦标赛。这个比赛，不像很多人想的那样，仅仅是为了测试直接的战斗。除此之外我们还有学术工作、专注、物理耐受、哲学等诸多其他领域的竞赛。或许，这其中最著名的当属神圣战术竞标赛，我们的军事领导人正是通过这个赛事选拔出来的。比赛包括一系列试炼，评估我们对战况进行分析和处理的能力，包括速度、伤亡、部署效率以及一些其他的因素。库马纳，缟玛瑙之子，是这些项目的冠军，并且在等待我们的大陆到达埃亚尔的大部分时间里，他都维持了统治地位。通过我们竞赛所筛选出的最杰出的战略大师，库马纳被乌鲁洛克亲自召见以获准统御我们的入侵部队。库马纳给乌鲁洛克留下了很深的印象，于是后者从他维持我们世界的力量以外的部分中抽取了很大一部分，为库马纳创造了一个全新的肉身，让他能够在前线无所畏惧的指引战斗。拥有我们的父所赐予的武器与躯壳，精神受到父的指引，库马纳被视作乌鲁洛克的化身，他在战场上的指令受到如同父一般的尊敬。]], "_t")
 t("demon statue: Lithfengel", "恶魔雕像：里斯丰格", "_t")
@@ -798,7 +798,7 @@ t([[You spawn a pool of acid in radius 4 around you for %d turns, dealing %0.2f 
 		伤害受法术强度加成。]], "tformat")
 t("Blighted Path", "枯萎之路", "talent name")
 t("Blighted Path", "枯萎之路", "_t")
-t("Select a use for the %s charge(s):", "选择%s次充能的用途:", "tformat")
+t("Select a use for the %s charge(s):", "选择%s次充能的用途：", "tformat")
 t("Shield for %d damage (50%% reflect).", "产生护盾，抵挡%d伤害 (50%% 反射)。", "tformat")
 t("Attack for #DARK_GREEN#%0.2f blight damage", "攻击造成#DARK_GREEN#%0.2f枯萎伤害", "tformat")
 t("Restore #904010#%0.2f vim", "恢复#904010#%0.2f活力值", "tformat")
@@ -966,10 +966,10 @@ section "tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua"
 t("13%% chance to trigger a Blood Spray cast of level %d", "13%%几率触发等级%d的鲜血喷射", "tformat")
 t("Reduces duration of detrimental effects by 40%", "降低负面效果的持续时间40%", "_t")
 t("+2 to all Demon Seeds, Spellblaze and Demonic Pact talents", "所有恶魔种子，魔法大爆炸系和恶魔契约系技能等级+2", "_t")
-t("%s (%d/%d life, level %d)", "%s (%d/%d 生命值, 等级 %d)", "tformat")
+t("%s (%d/%d life, level %d)", "%s (%d/%d 生命值，等级 %d)", "tformat")
 t("demon seed", "恶魔种子", "_t")
 t("The seed of a demon.", "恶魔的种子。", "_t")
-t("Demon status: %s.", "恶魔状态: %s。", "tformat")
+t("Demon status: %s.", "恶魔状态：%s。", "tformat")
 t("alive (%d%% life)", "存活 (%d%% 生命值)", "tformat")
 t("dead (can not be summoned)", "死亡 (无法召唤)", "_t")
 t("#CRIMSON#You extract a %s and add it to your inventory.", "#CRIMSON#你提取了一个%s并将其收入物品栏。", "logPlayer")
@@ -1228,8 +1228,8 @@ t([[Imbue your weapon with fire for 5 turns. During this time all your melee hit
 		这个效果每回合只能触发一次。
 		伤害受法术强度加成。]], "tformat")
 t("Link of Pain", "苦痛链接", "talent name")
-t("Select the source:", "选择源生物:", "logPlayer")
-t("Select the victim:", "选择受害者:", "logPlayer")
+t("Select the source:", "选择源生物：", "logPlayer")
+t("Select the victim:", "选择受害者：", "logPlayer")
 t([[Using demonic forces you create a link of pain from a source creature to a victim for %d turns.
 		Each time the source creature takes damage the victim takes %d%% of the damage.
 		If the victim dies from the effect you gain a burst of energy, reducing all remaining cooldowns by 1.]], [[使用恶魔之力，你在源生物与牺牲生物间构造痛苦链接，持续 %d 回合。
@@ -1594,7 +1594,7 @@ t("#Target# is linked through pain.", "#Target#建立了苦痛链接。", "_t")
 t("+Link of Pain", "+苦痛链接", "_t")
 t("#Target# link of pain disappears.", "#Target#的苦痛链接解除了。", "_t")
 t("-Link of Pain", "-苦痛链接", "_t")
-t("#ORANGE##Source# shares some pain with #target#!#LAST#", "#ORANGE##Source#与#target#共享痛苦!#LAST#", "delayedLogMessage")
+t("#ORANGE##Source# shares some pain with #target#!#LAST#", "#ORANGE##Source#与#target#共享痛苦！#LAST#", "delayedLogMessage")
 t("#CRIMSON#(%d linked)#LAST#", "#CRIMSON#(%d 伤害链接)#LAST#", "tformat")
 t("Only Ashes Left", "唯余灰烬", "_t")
 t("The target burns with darkness, taking %0.2f damage each turn until it dies or runs away.", "目标被黑暗灼烧，每回合受到 %0.2f 伤害直到死亡或离开。", "tformat")
@@ -1764,9 +1764,9 @@ Features:
 * 7 new achievements!  Conquer the worst Urh'Rok's forces can throw at you, and hang their metaphorical skulls from your profile page!
 ]], [[在马基埃亚尔，很多人都曾听闻“恶魔”的大名，作为仿佛凭空出现的暴虐生物，他们无论走到哪里都会留下痛苦和毁灭。他们的恐惧空间高浮于天幕之上，并非闲置，而是一直在观察等待；他们的探员搜寻这片土地，他们的军团不断积蓄力量，他们的学者开发出全新的策略和法术。隔绝两端世界的屏障，在他们的破坏下开始破碎；无助的埃亚尔居民悄然消失，被掠走成为他们的奴隶和玩物。恶魔用魔法力量改造了受害者，使其能够在恶魔的拷问中存活 —— 你，能使用自己刚刚觉醒的新力量，逃脱玛·洛克的恶魔军团吗？
 
-游戏特性:
-* 使用全新职业开局，毁灭使者! 他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。他们释放火海削弱敌群，随后吸收周围的火焰和痛苦，将任何敌人迅速化为灰烬。
-* 解锁全新职业，恶魔使者, 拥有全新的物品强化机制！这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！你是否曾经看着巨大的恶魔牛头人，希望它能为你作战？现在，你确实可以召唤出来，你在远处释放法术的同时，他可以将敌人捣成浆糊。你也可以召唤火焰恶魔将敌人烧成灰烬，同时看着敌人在你铁壁般的防御面前无可奈何!恶魔具有更持久的生命值，比死灵法师易碎的骷髅或者自然召唤师的召唤兽更加珍贵，但仍然可以从死亡中复活。
+游戏特性：
+* 使用全新职业开局，毁灭使者！他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。他们释放火海削弱敌群，随后吸收周围的火焰和痛苦，将任何敌人迅速化为灰烬。
+* 解锁全新职业，恶魔使者，拥有全新的物品强化机制！这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！你是否曾经看着巨大的恶魔牛头人，希望它能为你作战？现在，你确实可以召唤出来，你在远处释放法术的同时，他可以将敌人捣成浆糊。你也可以召唤火焰恶魔将敌人烧成灰烬，同时看着敌人在你铁壁般的防御面前无可奈何！恶魔具有更持久的生命值，比死灵法师易碎的骷髅或者自然召唤师的召唤兽更加珍贵，但仍然可以从死亡中复活。
 * 两个新地区，具有全新的艺术，敌人和Boss！你以前曾经看过恶魔空间的平原，现在则可以看到恶魔自己的巢穴和总部！
 * 超过一万字的全新手札！恶魔曾经是开明的和平种族，来自遥远的行星玛·洛克。了解是什么驱使他们策划给予埃亚尔永恒的折磨！探索恶魔物种和著名人物的纪念碑，展示每个人在其中的荣誉地位！瞥见这些嗜虐侵略者及其洗脑奴隶的文化和日常生活！
 * 解锁一个新种族，魔化精灵：那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。闪烁至安全处；变身为多瑟顿形态，在阴影中隐藏或给予敌人黑暗打击；坚韧缓和了负面状态和暴击伤害；在战斗中攻击敌人的精神，使他们难以为继！
@@ -1843,7 +1843,7 @@ As you recover, and your platform of searing earth splits from the main continen
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/data/texts/unlock-corrupter_demonologist.lua"
 
-t("New Class: #LIGHT_GREEN#Corruptor (Demonologist)", "新职业: #LIGHT_GREEN#堕落系(恶魔使者)", "_t")
+t("New Class: #LIGHT_GREEN#Corruptor (Demonologist)", "新职业：#LIGHT_GREEN#堕落系(恶魔使者)", "_t")
 t([[Demons in their invasion of Eyal have abducted natives of the planet and mindwiped them to serve as double agents.
 Trained in the use of the demon's own forces they have created many dark cults to spread fear and terror.
 Some have managed to escape their programming and chose to follow their own desires instead.
@@ -1905,7 +1905,7 @@ You can now create new characters with a demonic red skin.
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/data/texts/unlock-race_doomelf.lua"
 
-t("New Race: #LIGHT_GREEN#Doomelf", "新种族: #LIGHT_GREEN#魔化精灵", "_t")
+t("New Race: #LIGHT_GREEN#Doomelf", "新种族：#LIGHT_GREEN#魔化精灵", "_t")
 t([[Doomelves are not a real race, they are Shaloren that have been taken by demons and transformed into harbingers of doom.
 Their skills in inflicting and resisting pain have been honed by their rigorous training on the Fearscape.
 
@@ -1931,7 +1931,7 @@ Race features:#YELLOW#
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/mod/class/DemonologistsDLC.lua"
 
-t("Shadow Power: ", "阴影强度: ", "_t")
+t("Shadow Power: ", "阴影强度： ", "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/superload/mod/class/Actor.lua"

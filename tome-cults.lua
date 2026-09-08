@@ -39,8 +39,8 @@ t("Most of them forgo an entire arm to turn it into a deadly tentacle.", "他们
 t("Some are even known to never leave their sanctuary without their own worm that walks friend.", "某些人甚至拒绝在没有蠕虫合体的陪同下离开避难所。", "_t")
 t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
-t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +3 力量, +0 敏捷, +3 体质", "_t")
-t("#LIGHT_BLUE# * +3 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +3 魔法, +0 意志, +0 灵巧", "_t")
+t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +3 力量，+0 敏捷，+3 体质", "_t")
+t("#LIGHT_BLUE# * +3 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +3 魔法，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD# 每等级生命加值： #LIGHT_BLUE# +3", "_t")
 t("Cultist of Entropy", "熵教徒", "birth descriptor name")
 t("Everything ends eventually. Harness this inevitability.", "万物终将消亡。这一点可以被利用。", "_t")
@@ -63,8 +63,8 @@ t("Faceless, but not mindless.", "没有面孔，但并非无脑。", "_t")
 t("Drem are mindless mutants who live deep in the earth. It is only recently that thinking Drem have appeared among them. They still remain deep below Eyal's surface, believing that they would not be welcomed among the surface races.", "德瑞姆是生存于地底深处的异变种，直到最近才发现具有思维能力的个体。他们仍生存于地底，认为他们不会被地上种族欢迎。", "_t")
 t("They possess the #GOLD#Frenzy#WHITE# talent which allows them to ignore cooldowns once in a while.", "他们拥有 #GOLD#狂热#WHITE# 技能，让他们偶尔能无视冷却时间。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
-t("#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +3 力量, +1 敏捷, +1 体质", "_t")
-t("#LIGHT_BLUE# * +2 Magic, -1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +2 魔法, -1 意志, +0 灵巧", "_t")
+t("#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +3 力量，+1 敏捷，+1 体质", "_t")
+t("#LIGHT_BLUE# * +2 Magic, -1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +2 魔法，-1 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 12", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 12", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚： #LIGHT_BLUE# 12%", "_t")
 t("Skin Color 1", "皮肤颜色1", "_t")
@@ -108,8 +108,8 @@ t("Once an abomination, now a weapon.", "曾为憎恶，现为兵器。", "_t")
 t("Krogs were formerly Ogres, that have been radically changed. Stripped of the runes from their bodies, the Ziguranth have managed to prevent the Krog from dying by injecting them with a concoction of natural infusions and drake blood. The Krog are entirely devoted to the anti-magic cause and seemingly know of nothing else in their lives.", "克罗格由食人魔彻底转变而来。伊格兰斯去除他们身上的符文，并为他们注射纹身与龙血的混合物以防止他们死亡。克罗格完全献身于反魔事业，生活中似乎对其他事物一无所知。", "_t")
 t("They possess the #GOLD#Wrath of the Wilds#WHITE# talent which allows them to stun/daze their foes.", "他们拥有 #GOLD#自然之怒#WHITE# 技能，让他们能震慑/眩晕敌人。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
-t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量, -1 敏捷, +2 体质", "_t")
-t("#LIGHT_BLUE# * -2 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔法, +2 意志, +0 灵巧", "_t")
+t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量，-1 敏捷，+2 体质", "_t")
+t("#LIGHT_BLUE# * -2 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔法，+2 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 13", "#GOLD# 每等级生命加值： #LIGHT_BLUE# 13", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 15%", "#GOLD#经验惩罚： #LIGHT_BLUE# 15%", "_t")
 t("Skin Color 1", "皮肤颜色1", "_t")
@@ -582,7 +582,7 @@ t("#GOLD#The Searing Horror adds a reflective shield to its allies!#LAST#", "#GO
 t("ravaging entropic rip", "肆虐的熵之裂口", "entity name")
 t("A strange crystal/tear in the fabric of reality. You dare not think how it came to be.", "现实之幔上的一道奇异水晶裂隙。你不敢去想它是如何形成的。", "_t")
 t("bursting entropic shard", "爆裂的熵之碎片", "entity name")
-t("A strange tall crystal pusling with nether energies. It's broken. Tentacles come out of it to get you! #{bold}#RUN!#{normal}#", "一团发射出虚空能量的高大水晶。它的破裂处伸出触手抓向你。#{bold}#快跑!#{normal}#", "_t")
+t("A strange tall crystal pusling with nether energies. It's broken. Tentacles come out of it to get you! #{bold}#RUN!#{normal}#", "一团发射出虚空能量的高大水晶。它的破裂处伸出触手抓向你。#{bold}#快跑！#{normal}#", "_t")
 t("nethergate", "彼世之门", "entity name")
 t("A strange portal of nether energies, it somehow feels alive itself.", "散发着彼世能量的奇妙传送门，好像它本身是活着的。", "_t")
 t("It looks inactive and dormant for now. Maybe try to not wake it up.", "它看起来处于不活跃的休眠状态。最好不要唤醒它。", "_t")
@@ -822,7 +822,7 @@ t("A wonder of footwear! You can set a shoe to stay in place while the other one
 t([[Each turn you spend not moving gain a buff for 2 defense and armour. Stacks up to 12 times.
 You move 3 spaces at once.]], [[每个你没有移动的回合都能得到2点防御和护甲值增益。最多叠加12次。
 一次走3格。]], "_t")
-t("As you combine the two pair of shoes you make something marvelous: %s", "当你将这两件鞋子结合时，你制造出了神奇的道具: %s", "logPlayer")
+t("As you combine the two pair of shoes you make something marvelous: %s", "当你将这两件鞋子结合时，你制造出了神奇的道具：%s", "logPlayer")
 t("Rod of Entropy", "熵之魔杖", "entity name")
 t("light sucking rod", "吸收光的魔杖", "_t")
 t("This rod seems to make light die around it. You feel tired just looking at it.", "这根魔杖似乎能够熄灭周围的光。光是看着它你就觉得很累了。", "_t")
@@ -945,7 +945,7 @@ t("At the center of the strange contraption you see a picture. You are not quite
 section "tome-cults/data/lore/fay-willows.lua"
 
 t("Forbidden Cults", "禁忌邪教", "newLore category")
-t("Escapades of Fay Willows [Book 1, Chapter 1] - Devastation of the Spellblaze", "菲·维莉欧斯的冒险 [第1卷, 第1章] - 魔法大爆炸的破坏", "_t")
+t("Escapades of Fay Willows [Book 1, Chapter 1] - Devastation of the Spellblaze", "菲·维莉欧斯的冒险 [第1卷，第1章] - 魔法大爆炸的破坏", "_t")
 t([[[i]I remember the devastation when I first made my journey to Elvala. Not a soul escaped the touch of the Spellblaze and no one could feel the pain and sorrow of the lands more than a thalore. I know that those back home still seethe with rage and anger as even now I still sometimes feel my emotions from that moment. It was a terrible day I wish I could forget but never will.[/i]
 
 If I were to describe my years growing up in my birthplace, it would be summed up pretty easily as 'boring, uneventful, and repetitive'. I grew up in forests that no longer exist, collecting wood from fallen and dead trees while planting and cultivating new trees to grow. The wood I collected was stored in a large stockpile behind my house and used to fashion staves or bows by other skilled thaloren who lived nearby for sale abroad. The proceeds from our exports were used to buy items we couldn't readily find in our forests or in the lands of the humans or halflings nearby.
@@ -995,7 +995,7 @@ A bit perplexed by this I sat there looking confused. For a moment we stared at 
 其他的狼注意到两只狼逃跑了，很快也夹着尾巴逃跑了。我坐下来，检查我受的伤势。尽管伤口看起来十分严重，但我记得那时的我几乎感觉不到疼痛。我很快拿出随身携带的纹身，开始治疗这只狼的尖牙留下的伤口。做这件事的时候，我听到身后传来一个声音，我意识到那个永恒精灵还在这里。当他走近我，朝我的脸望去时，我转过身来盯着他，永恒精灵立刻停了下来，露出茫然的表情。
 
 与他的困惑相同，我同样用困惑的表情看着他。我们沉默地盯着对方看了一会儿，终于，那个永恒精灵喊了一声：“你是自然精灵。”我眨了几下眼睛，回答说，我是的。他似乎十分震惊，停顿了片刻，然后终于恢复了他的表情，询问我来这里做什么。听到这个问题，我不知道该怎么回答。然后，我意识到，我已经不再知道我为什么要来这里，因为曾经驱使我来这里的愤怒已经慢慢消散了。过了一会儿，我终于回答了：“我是来寻找这一切的原因的。”]], "_t")
-t("Escapades of Fay Willows [Book 1, Chapter 2] - Infusion Avoidance", "菲·维莉欧斯的冒险 [第1卷, 第2章] - 对纹身的排斥", "_t")
+t("Escapades of Fay Willows [Book 1, Chapter 2] - Infusion Avoidance", "菲·维莉欧斯的冒险 [第1卷，第2章] - 对纹身的排斥", "_t")
 t([[[i]I've never really understood why people so readily gave their names. Among the thaloren I scarcely knew the names of anyone, save for that of family or those considered as such. I remember a dwarf merchant that once visited my homeplace. He seemed to think that whatever title he held meant something. Really names mean nothing, and I could deal with a human or halfling merchant the same as that dwarf. I don't need to know your name to deal with you.[/i]
 
 For another brief moment there was silence. In his mind he seemed to mull over the meaning of what he said, but seemingly understood what I was after. As he took a moment to think as I glanced him over. Both the shalore's face and clothing was quite rugged and I noticed a quiver along with a dagger at his side. I would have figured him for a hunter but the way he spoke seemed too disciplined for it. He probably was of a military background, most likely a scout for the shaloren military. I also noticed the blood streaming down his arm from an untreated wound.
@@ -1037,7 +1037,7 @@ Reaching into my pack to pull out some more infusions to finish my job I heard t
 我被这样冷漠的语气惊到了，但听着那位受伤的永恒精灵的咳嗽声，我没有多说什么。我知道，现在最应该做的就是治疗受伤的永恒精灵，于是我径直走向简陋棚屋。我迅速拆掉了绷带，使用纹身治疗他们的伤口，他们皮肤上的创口很快就闭合了。当我的纹身用完之后，尽管他们还没有完全痊愈，但是比起先前已经好了很多。
 
 我把手伸进包里，想要拿出更多的纹身来完成治疗，但领袖的声音传来：“够了。”我惊讶地猛然回头，再也按捺不住说道：“难道你不想让我治好他们吗？”我收到了圆滑的答复：“他们看起来已经没有生命危险了，不是吗？你的纹身是有限的资源，也许你应该把它们留给那些更濒临死亡的人。”我冷静下来，想弄清永恒精灵的意图，于是问道：“你这是什么意思，要把它们留给谁？”]], "_t")
-t("Escapades of Fay Willows [Book 1, Chapter 3] - Shaloren Suffering", "菲·维莉欧斯的冒险 [第1卷, 第3章] - 痛苦中的永恒精灵", "_t")
+t("Escapades of Fay Willows [Book 1, Chapter 3] - Shaloren Suffering", "菲·维莉欧斯的冒险 [第1卷，第3章] - 痛苦中的永恒精灵", "_t")
 t([[[i]While the shaloren are no longer as lost as they seemingly were when I first entered Elvala, I can still see the searching expressions on their faces even now as I write this. It is as if they feel a similar loss to whatever it is they are connected to in the same way the thalore feel the devastation of nature. I do not know what connection the arcane and nature have, but I know it is shared relationship, and strain on one will result in strain on the other. [/i]
 
 Aware of the suffering of the other shaloren, it was soon explained to me that there were other groups of rangers relocating refugees from the other settlements to their capital. I can't say I had any interest in helping the other shaloren, and personally felt that I was simply being dissuaded from using my infusions anymore than I had to on the casualties I had just treated. However, the scout being aware of my intentions helped to broker a deal - if I help the rangers in their duties of rescuing as many of the shaloren as possible, they would help me get the answers I sought.
@@ -1075,7 +1075,7 @@ As the healer finished writing he handed the paper to me "The shalore and thalor
 我们很快穿过泥泞的平地，绕开四处搭建的难民帐篷。最终我们来到一座高大建筑前，里面有许多负伤的永恒精灵躺在床上，甚至躺在地上。走到建筑后方，我们进入了我推测是医官诊室的地方。“你碰巧懂得调配纹身的基本原理吗？”他很快询问道。“我懂得调配基础的麻木纹身和再生纹身，”我答道。治疗师点头会意，抽出一张纸开始书写。
 
 写完后，他把纸递给我：“在纹身方面，永恒精灵和自然精灵的生理机制几乎完全一致，因此任何能用在你身上的纹身，对永恒精灵同样有效。这是我们现有的纹身材料清单。我带你去工坊，你可以在那里开工制作。”治疗师站起身，从架子上取下一把钥匙。我跟着他走向门口，被带到位于地下的纹身工坊。治疗师打开门，把钥匙递给我，引我走了进去。]], "_t")
-t("Escapades of Fay Willows [Book 1, Chapter 4] - Medical Treatment", "菲·维莉欧斯的冒险 [第1卷, 第4章] - 医疗", "_t")
+t("Escapades of Fay Willows [Book 1, Chapter 4] - Medical Treatment", "菲·维莉欧斯的冒险 [第1卷，第4章] - 医疗", "_t")
 t([[[i]It still strikes me how adverse the shaloren are to infusions. Seemingly they would rather tempt fate and avoid using them. One of the purposes of infusions is to restore one to good health after suffering an injury, but for a shalore it was more a means of last resort to avoid dying. What's more, they seem to fail to understand that holding off on infusion use simply results in them using infusions more in the long run, as beyond just mending their flesh they will have to stave off infection from their open wounds as well.[/i]
 
 Over the next few days I mixed and created several infusions for use by the shaloren. The workshop contained all the amenities for sleeping, and the healer would often bring basic food staples and drink to me. Well, I should say to the shalore it may have been basic food and drink, but by thalore standards I was treated pretty lavishly. I mean, I know the dwarves treat alcohol as a staple good for consumption but apparently so did the shaloren with the amount of wine I was given. Anyhow, how I was treated was quite better then I would have expected to be sure.
@@ -1117,7 +1117,7 @@ The soldier led me to the center of the city where a grand building lay. After m
 过了一段时间，受伤的士兵开始减少，因为他们中的大多数人在痊愈后不需要休息。当痊愈士兵的数量开始达到一定程度时，主治医师代表永恒精灵来感谢我的努力。我突然想起我来这里的全部原因，意识到我已经完成了我的交易。当一名士兵走近时，主治医师向我点头，看着我，回答说：“中尉会护送你去见将军。”我对此感到有些吃惊，但我认为这位将军对所发生的事件有了答案。
 
 士兵把我带到市中心，那里有一座宏伟的建筑物。在会见了几个身穿闪亮装甲从头武装到脚的警卫后，我们被允许进入。我们在大楼的大厅里走了几分钟，似乎走到了大楼的尽头。最后，我来到了一个豪华的房间，墙壁上有着斯莱特和黄金做成的装饰，并展示了一些我认为是永恒精灵历史上重要人物的画像。在这里，中尉让我等着，然后走进附近的一个房间。]], "_t")
-t("Escapades of Fay Willows [Book 1, Chapter 5] - General Aranion Gawaeil", "菲·维莉欧斯的冒险 [第1卷, 第5章] - 艾伦尼恩·加威尔将军", "_t")
+t("Escapades of Fay Willows [Book 1, Chapter 5] - General Aranion Gawaeil", "菲·维莉欧斯的冒险 [第1卷，第5章] - 艾伦尼恩·加威尔将军", "_t")
 t([[[i]General Aranion Gaweil, leader of the Grand Council of Elvala. This was perhaps the first name I ever learned from someone outside my family. While Aranion never gave his name to me personally, the rest of the shaloren certainly banter it around enough to the point that I eventually remembered it. While perhaps there is little to acknowledge from one who readily gives their name, I can perhaps respect Aranion whose name I learned from those around him, and the idolization and fondness that they seemed to speak it with.[/i]
 
 Before long the soldier reappeared and I was ushered into a much more plain room. A desk sat in the middle of the room and a row of windows that viewed the forest to the north behind it. On the side of the room sat what appeared to be an impressive display of armor, and a fierce looking weapon laying in the center. Making my way into the office, I saw who I assumed to be the general, viewing some papers near a table in the corner of the room. He seemed to exude an aura of brilliance that made the other shaloren look dull, though I could sense a weight of something seemingly hang around him.
@@ -1151,7 +1151,7 @@ The discomfort within my mind was obviously made clear across the desk, but the 
 我静静地听着对方告诉我的一切，直到他把一切的故事都转达给我。当他给我讲完魔法大爆炸的故事时，我对如何判断永恒精灵的行为感到心情复杂。一方面，魔法大爆炸的破坏在世界各地蔓延开来，留下了永远无法愈合的伤疤，但我明白，他们的行动阻止了他认为是前所未有的威胁。由于他们的行为，我知道所有的永恒精灵现在都在承受着极其巨大的困难，我想，这样的惩罚对于它们已经足够了。
 
 我心里的不安很明显在桌子的另一边清楚地表现出来，但是将军什么也没说。也许，这是因为他在魔法大爆炸中所扮演的角色带来的潜在的内疚感，或者，这仅仅是因为他不能说任何有助于我理顺思路的话。我们沉默地坐了一会儿，不久他就站起来朝窗户走去。他背对着我，我看不出他的表情，但我可以看出他正在对事态的发展深思熟虑。[i]艾伦尼恩，如果你现在正在读这本书的话，请知道，起码现在我已经原谅了你。[/i] ]], "_t")
-t("Escapades of Fay Willows [Book 1, Chapter 6] - Leaving Elvala", "菲·维莉欧斯的冒险 [第1卷, 第6章] - 离开埃尔瓦拉", "_t")
+t("Escapades of Fay Willows [Book 1, Chapter 6] - Leaving Elvala", "菲·维莉欧斯的冒险 [第1卷，第6章] - 离开埃尔瓦拉", "_t")
 t([[[i]At the time I had thought Aranion to be quite paranoid, but his ability to perceive the thoughts of others and the activities taking place in the world can be described as unnaturally accurate. While the group that instigates the Spellhunt remains unknown while I write this, they were out there and I would witness their activities firsthand.[/i]
 
 After a time the shalore finally asked "What are planning to do now?" Good question I thought. "I haven't really thought of that yet,” I replied. Though his back was still turned, I could feel the smirk through the back of his head. Turning towards me he seemingly asked "I suppose that you will likely be heading back to your forest, but perhaps on the way you could do something to help us shaloren out. Would you be interested in running some aid supplies for us?" Looks like I'm going to be made use of again I thought, though I then wondered a little bit about the request.
@@ -1193,7 +1193,7 @@ Putting the chest in my pack, I began to make my way towards the road leading to
 我感谢将军，然后被护送到一个画有符文图案的小圆圈中。法师们开始吟诵，连接起他们的手。我周围的环境开始起舞，视野中也变得一片模糊。在模糊中，我看到死去的树木和附近一条黑色的河流，随着埃尔瓦拉的形象逐渐从我的视野中消失。当我的视力恢复时，我听到了完全不同的声音，意识到自己到了一个全新的地方。我走出去，走进一片空地，下面是一片被炸毁的山坡。当我环顾四周寻找方向时，我可以看到许多矮人、人类和半身人朝着一座大城市的破败城门流去，看来这座城市就是纳格尔王国的首都。
 
 我把箱子放进背包里，开始朝通往大门的路走去。我原以为这只是我回到家乡森林的路途中的短暂停留，却不知道这预示着我又一次冒险的开始。我在纳格尔王国的领地里发现了一场暴行的开始，这场暴行的规模，也只有魔法大爆炸造成的破坏能够盖过。这就是被称为魔法狩猎的事件的早期过程，这一事件最终蔓延到了整个马基·埃亚尔，并将所有的种族带到了更加接近毁灭的边缘。]], "_t")
-t("Escapades of Fay Willows [Book 2, Chapter 1] - At The Gates", "菲·维莉欧斯的冒险 [第2卷, 第1章] - 大门口", "_t")
+t("Escapades of Fay Willows [Book 2, Chapter 1] - At The Gates", "菲·维莉欧斯的冒险 [第2卷，第1章] - 大门口", "_t")
 t([[[i]While on the surface the Nargols appeared to be in total control of the situation, underneath it all this was very much not the case. In order to attempt to mitigate trouble they actively attempted to confiscate any and all magical items they could find from the refugees entering the city, and hide their leaders from being assassinated for their parts in the Spellblaze. Spellcasters in their army were sent underground, mindful of the danger they were in, but also not wishing to incite angry citizens further.[/i]
 
 I descended slowly and carefully down the blasted hillside, and crossed over the river where some stones emerged that I could step on. Making my way over burned grass I joined with the procession of refugees making their way towards the city gates. I had to wait a long while as the guards slowly inspected wagons and asked questions of those passing through. While it seemed no one was being turned away, drawing closer I saw one dwarf begin to holler as a guard confiscated an item from him. The dwarf was still hollering when he was allowed entry, a torrent of profanity coming from the dwarf for every step he took inside.
@@ -1227,7 +1227,7 @@ Soon smiling at me, the messenger began to gesture towards a nearby seat. I wasn
 我微微咬紧牙关，在想我是不是会遇到麻烦。然而，那个人类又做了一个简短的补充，“别担心，我觉得你不会找到任何一个反对你做过的事情的人，如果我是你，我也会这么做的。他最终一定会因为他说过的话而被人干掉。迟早会有人让他闭嘴的。”对于信使的话我很好奇，我谨慎的回应他说：“你是什么意思？” 信使挑了一下眉，说：“什么？你觉得这里的那些士兵能够阻止像那个半身人那样的人被杀吗？这样的事情现在已经很常见了。”
 
 随后，信使微笑的看着我，对着附近的座位打手势。我不是很想和他聊天，但是考虑到他或许能够告诉我一些情报，我决定接受他的邀请。我走过来坐下，点了一些吃的充饥。信使开始闲聊起来，特别提到了魔法大爆炸造成的破坏，他的每一句话都恶毒的攻击“法师们”，然后又表现出失去朋友的悲伤。我一边吃饭，一边让他一直说，持续了整整一段时间。奇怪的是，这位信使并没有告诉我他的名字，也没有问我的，或许他至少在这方面对自然精灵的风俗有一定的了解。一开始我并没有意识到这一点，后来发生的事情中我才知道。]], "_t")
-t("Escapades of Fay Willows [Book 2, Chapter 2] - Exchange of Information", "菲·维莉欧斯的冒险 [第2卷, 第2章] - 交换情报", "_t")
+t("Escapades of Fay Willows [Book 2, Chapter 2] - Exchange of Information", "菲·维莉欧斯的冒险 [第2卷，第2章] - 交换情报", "_t")
 t([[[i]You know, it is really hard to know someone. The messenger was a good example of this, as I would soon find out. I had pegged him for being a disgruntled human that had suffered greatly because of the Spellblaze. In reality he was much more than just disgruntled, and I believe he may have been a member of the group instigating the Spellhunt. I'm sure he and the others who had left after with that human in the dark cloak died taking part in a nefarious plot that I would learn the day after. But did he die willingly? That's the real question I think about now in regards to him.[/i]
 
 Finishing my meal, I decided to probe the messenger for information. Upon the completion of his last tirade I asked, "So how are things faring here?" A sigh escaped the man as he answered, "Well, the Nargols appear to have everything under control. They are managing to get enough food for all the refugees streaming in; even managed to procure some alcohol for those dwarves. I have to say it was quite a surprise to see them out here. I wonder if they happen to have anymore homes elsewhere on the continent outside of the Iron Throne. Hard to really know with how secretive the dwarves are though."
@@ -1265,7 +1265,7 @@ His words made me think for a moment, but I simply got up and left. I remember h
 很显然，这个信使很可能就是永恒精灵的将军所担心的那个组织的一员。我觉得那个信使一定参与了他们所说的那个计划，不管那个计划是什么。并且，从他与之前来过的穿斗篷的人的对话的反应来看，他们进行的计划还需要保密。我本来考虑去参加他的朋友聚会，但是我又对参与他们精心设计的计划不感兴趣，而且我能嗅到一丝危险的气息。“感谢你的邀请，但是我必须拒绝。”我最终说道。听到这个回答，信使挑了下眉，然后快速回答我：“说真的，像你这样的自然精灵，难道不想抓住任何机会，对玷污自然的人进行报复吗？”
 
 他的话让我想了一会儿，但是我最终站起来，然后离开了。我记得他大声说道，如果我能改变主意，我会被“作为新成员而受到欢迎”。当我离开酒馆时，太阳已经开始落山了。考虑到我应该找一个地方过夜，我找到一个旅店然后开了一个房间。我打算早上的时候去市场买一些食物和补给为回家做准备。我睡得很沉，直到在清晨，太阳还没有升起的时候，我的耳朵里充满了尖叫声。我想知道发生了什么事情，打开了房间的窗户，发现远处的大楼燃起了大火，冒着浓烟。]], "_t")
-t("Escapades of Fay Willows [Book 2, Chapter 3] - Blazing Madness", "菲·维莉欧斯的冒险 [第2卷, 第3章] - 燃烧的疯狂", "_t")
+t("Escapades of Fay Willows [Book 2, Chapter 3] - Blazing Madness", "菲·维莉欧斯的冒险 [第2卷，第3章] - 燃烧的疯狂", "_t")
 t([[[i]In the market I purchased several items to help me for when I forged my way back towards Thaloren lands. I bought about three weeks worth of rations for myself as I had planned to perhaps 'explore' a little bit before finally arriving home. I also procured a fine steel utility knife and a steel hatchet. I wasn't sure I would really need this much for my journey, I could likely have explored the entirety of Maj'Eyal with it, but I never imagined what role everything I bought in that market would soon come to play in the future.[/i]
 
 Out of my window I saw many residents of the city run to help deal with the fire. They quickly got to work in cordoning off the area and preventing it from further spreading, but despite their efforts, many homes were enveloped in flames before the fire was fully contained. Before long many soldiers arrived and pushed back everyone, including those residents helping to put out the fire. For a small while the fire was left to burn, though it soon began to diminish. I don't know how they did it, but soon after the fires began to die down. Maybe perhaps some mages had come out of hiding and they used water magic in secret to drown it out? It is hard to think of any other explanation.
@@ -1295,7 +1295,7 @@ Moving away from the market I wondered what other scenes of chaos I might see if
 在这种情况持续了几分钟后，第一批赶到的警卫终于恢复了秩序。卫兵们花了几分钟才集合起来，难民们继续在里面捣毁大量的市场。当警卫们最终搬进来清理时，许多难民四散，到处都是瓦砾、受伤的商人和顾客。当现场的秩序终于恢复时，一些卫兵来询问我是否没事，紧接着，其中一个卫兵把我拉到一边审问，问我发生了什么事。我把我所看到的事情都告诉了警卫。在我说完我的情况后，他们示意我离开这个地区。
 
 离开市场后，我难以想象，如果我继续留在纳格尔王国，我还会看到怎样混乱的景象。虽然我侥幸躲过了危险，但下一次在那个市场上被践踏和撞倒的可能就是我了。我决定从城市大门离开这里返回。当我朝大门走去的时候，我注意到前面聚集着一群难民，甚至还有一些市民。我本该从他们身边走过，但在他们身后，我听到一个声音在上面响起。“现在就是采取行动的时候了，我们必须把矛头指向那些幕后黑手的源头，”听到这些话时我停下脚步，转过头。似乎有某种东西在迫使我留下来，听那个人所说的话。我被那声音吸引，开始向人群的边缘走去。]], "_t")
-t("Escapades of Fay Willows [Book 2, Chapter 4] - Despicable Atrocities", "菲·维莉欧斯的冒险 [第2卷, 第4章] - 卑鄙的暴行", "_t")
+t("Escapades of Fay Willows [Book 2, Chapter 4] - Despicable Atrocities", "菲·维莉欧斯的冒险 [第2卷，第4章] - 卑鄙的暴行", "_t")
 t([[[i]Was it anger against magic that drove people to the acts of violence against mages in the aftermath of the Spellblaze or was it perhaps something else? While I can't say I am an expert on the humans, halflings, or dwarves; the depravity I would witness on the street leading out of the Nargol Kingdom would go beyond what I would expect to have been possible for any sentient being to do.[/i]
 
 As I peered in the voice rang out again. "Aimlessly your anger is directed against those who do not deserve it, I say direct it against the source of all the tragedies that have been inflicted" I began to push my way through the crowd, wondering who was speaking or what they were speaking about. The voice continued, "Wherever magic is found, it will eventually fail and bring calamity. The fire from this morning was an example of this, as a bunch of refugees broke into the warehouse where their confiscated magical items were stored to retrieve them. In their hubris they burned down the building with the arcane powers found within the items therein."
@@ -1337,7 +1337,7 @@ A group of the Nargol Guards would eventual appear and they began to gather them
 这种可怕的行为确实让我感到无比恶心，但更让我感到恐惧的是接下来的声音。“你们都做得很好，但要使我们的世界安全，我们还需要更多的努力，”那个声音说道：“如果你愿意，你可以和我一起为自然而战，我们可以确保，像刚才那些给我们带来痛苦的奥术力量使用者，永远不会再次威胁世界。加入我们，成为我们拯救埃亚尔的事业的新兵吧！”我看到许多蒙面人在此时消失在人群中，他们的目标实现了。我很快就会明白，这些话对我面前的暴徒也会产生多大的影响。
 
 一群纳格尔王国的卫兵最终出现了，他们开始聚集起来驱散人群，恢复秩序。人群对冲锋而来的卫兵几乎没有抵抗力，许多人逃到建筑物的黑暗小巷或难民的帐篷里。卫兵控制了这一地区，他们的注意力转向了熊熊燃烧的大火和烧焦的尸体。那些看上去是被杀者的亲人和朋友的人，发出了痛苦的哭声。此时此刻，我再也无法忍受眼前发生的一切，我转身离开了这片区域，离开了那场发生在我面前的火热的大屠杀。然而，当我经过一个帐篷时，一只手伸出帐篷的开口，把我抓了进去。]], "_t")
-t("Escapades of Fay Willows [Book 2, Chapter 5] - Psionic Trickery", "菲·维莉欧斯的冒险 [第2卷, 第5章] - 灵能诡计", "_t")
+t("Escapades of Fay Willows [Book 2, Chapter 5] - Psionic Trickery", "菲·维莉欧斯的冒险 [第2卷，第5章] - 灵能诡计", "_t")
 t([[[i]I'm told that what I likely witnessed in the tent was the result of a psionic slaver. Using my own psyche against me, a manifested image of my own thoughts emerged for which the slaver could use against me. I had been lucky as I had managed to free myself from the slaver's hold, dispelling the image. Had I not done so, it was entirely possible that I could have become enthralled to the slavers will and made to do their bidding unquestioningly.[/i]
 
 I hit the ground hard as I landed towards the back of the tent. Dazed I began to stand to look up at who had thrown me, coming face to face with one of the masked individuals, who I assumed helped take part in the event I had just seen. Slowly a hand reach up to remove the mask, revealing the face of the human messenger. He began to laugh before finally speaking and saying, "Fancy meeting you here, I knew I saw something in you when we conversed in the inn." The messenger laughed some more while I got up. I must have been in a bit of shock from the impact as my vision seemed fuzzy and hazy, while the things in the tent seemingly blurred together. Demandingly I responded to the messenger, “What to you want, why have you thrown me in here?"
@@ -1371,7 +1371,7 @@ I jostled around attempting to break free of the halfling’s hold, yet somehow 
 我被压在地上，动弹不得，也说不出话来。我试着看看上面的东西，在我身上压着一个半身人，很可能就是和那个人类站在一起蛊惑群众的那个半身人。那个人类停止了移动，调查了一小会儿情况，然后走到我的身边，说道：“这真是出乎意料，你一定有某种令人印象深刻的意志力来抵抗我，自然精灵。但我担心，如果我不能让你服从我的意愿，我就不得不杀了你。”当说完这句话后，那个人类一只手伸进斗篷，拔出一把小匕首，我想是用来杀我的。
 
 我推推搡搡着试图挣脱半身人的束缚，但不知怎么的，尽管半身人比我自己的体型小，我还是无法挣脱，而他只用一只胳膊就固定住了我。那个人类拿着匕首向后，接着向前刺去，准备把我杀掉。我确信自己很快就要丧命了，但在接下来的一瞬间，我发现匕首弹飞出去，在空中翻滚。困惑许久，我才意识到，那个压着我的半身人阻止了人类杀死我。人类不相信地看着半身人，似乎和我一样困惑。终于，他恢复了镇定，醒悟过来，问了我们两个心里共同的问题。“你在干什么？”]], "_t")
-t("Escapades of Fay Willows [Book 2, Chapter 6] - Spared", "菲·维莉欧斯的冒险 [第2卷, 第6章] - 死里逃生", "_t")
+t("Escapades of Fay Willows [Book 2, Chapter 6] - Spared", "菲·维莉欧斯的冒险 [第2卷，第6章] - 死里逃生", "_t")
 t([[[i]Over time the Nargol Kingdom apparently caught the ones behind those twisted incidents I had witnessed, and more that followed after I left. They publicly executed those who they believed to be the culprits and planted their heads on stakes within the walls of the city. Despite this though, burning events and other depraved actions would begin to be taken up by the citizenry itself. The messengers may have been killed, but the message they spread persisted.[/i]
 
 Abruptly before giving the halfling even a moment to respond, the human seemingly began raving at the halfling saying, "You don't seriously mean to spare her? She's in league with the Shaloren, she's in league with magic!" The humans tone progressively got more emotional as the tirade continued, "Have you forgotten our mission and what we are charged to do. This THALORE has turned HER BACK on NATURE! She Must Di-" The human stopped talking as the halfling raised a hand up in a motion to stop and in a deeper tone than what I would expect from someone of such a small size, calmly replied back, "Enough." The human’s body shrank back at this, and though masked I could sense the disbelief and dismay from the body language.
@@ -1409,7 +1409,7 @@ With this the halfling turned to leave the tent. The anger within me had not sub
 我不知道是什么让我在那一点上更生气，是半身人冷酷无情的本性，还是他对我干脆回家的建议。我只知道我脸色发青。似乎半身人注意到了这一点，并试图调整自己的姿势。为了转移我的怒气，半身人很快地说：“当然，你看起来比其他人都要更加顽固。向南岸线走，然后向东拐。“你会找到一条通向我们基地的路。”我把这些话记在脑子里，想了一会儿，然后问，“我为什么要这么做？”半身人毫不迟疑地回答道：“你想知道为什么，不是吗？如果你真的想知道我们是谁，就去和我们的导师谈谈。”
 
 说完，半身人转身离开帐篷。我内心的愤怒并没有平息太多，但我没有进一步尝试去面对那个半身人。我遍体鳞伤，倒在地上休息了一会儿。我拿出一只市场上买的纹身，开始治疗伤口。当感觉到自己的身体状况好了一些时，我又站起来离开了帐篷。抬头一看，我看到了夜晚的天空，决定在纳格尔王国再住一晚。我回到旅店，在那里我直睡到第二天。当我离开时，我直奔城门出去。在那里，我考虑了一下下一步的目的地，最后决定向南走。]], "_t")
-t("Escapades of Fay Willows [Book 3, Chapter 1] - Blackened Shoreline", "菲·维莉欧斯的冒险 [第3卷, 第1章] - 黑暗的海岸", "_t")
+t("Escapades of Fay Willows [Book 3, Chapter 1] - Blackened Shoreline", "菲·维莉欧斯的冒险 [第3卷，第1章] - 黑暗的海岸", "_t")
 t([[[i]Truly there was no place showing more damage in all of Eyal than its southern shoreline. Though I have not traveled to the eastern side of the continent, I can't imagine it potentially being destroyed to the extent that it has been here. These lands will never fully heal, but I do hope it will serve as a reminder the to Shaloren, to never brashly use magic in such a way again.[/i]
 
 Following the travel instructions that I had received from the halfling, I proceeded south. I did not know why I didn't just travel north back home, something about the anger burning within me fueled me to find the instructors of these masked fanatics. As I traveled south the sky would begin to turn a shade of colors from blue to purple and then a blackish red, and before long I couldn't even see the sun anymore. There was no sign that any of the lands around me escaped the destructive energies of the Spellblaze here. Eventually after a full day of travel, I set up camp near some burnt out trees. There was little to forage for in the destroyed wilderness, but I was able to find some edible berries and mushrooms to feed myself with and save on my provisions.
@@ -1443,7 +1443,7 @@ At this point tears began to stream down the ogres face. Continuing to speak bet
 “你和那些狂热份子不是一伙的，对吗？我为我们可能给你带来的任何痛苦表示歉意。”听到他们的话，我摇了摇头，然后问他们是谁，发生了什么事。“看来你以前从没见过食人魔？我们是，或者说我们曾经是一个游牧部落，作为小贩在这片土地上游荡。我们主要卖符文和纹身，但我们也卖其他各种小饰品。突然间，魔法从天而降，大地裂开，摧毁了一切，杀死了许多人。我们立即前去帮助附近一个人类城市的人们。”
 
 这时，泪水开始顺着食人魔的脸流下来。食人魔继续啜泣着说，“我不知道为什么，但是一只小队袭击了我们。”这时食人魔开始哭到说不出话来，另一个食人魔继续说，“我们被他们用铁链拷住，被带到了一个小定居点，就在这条路的另一边。在那里，他们在我们的身上进行了疯狂的实验，他们声称这是要“净化我们”。我们目睹了很多食人魔以怪异和可怕的方式死去。意识到我们会遇到类似的命运，我们挣脱了束缚，从笼子里逃了出来。“食人魔停了一会儿，看着我身后那片被毁坏的土地，然后说，“尽管，我们也不知道我们还能跑到哪里去。”]], "_t")
-t("Escapades of Fay Willows [Book 3, Chapter 2] - The Fleeing Ogres", "菲·维莉欧斯的冒险 [第3卷, 第2章] - 逃跑的食人魔", "_t")
+t("Escapades of Fay Willows [Book 3, Chapter 2] - The Fleeing Ogres", "菲·维莉欧斯的冒险 [第3卷，第2章] - 逃跑的食人魔", "_t")
 t([[[i]There is so little that is known of the ogres, and seemingly they know little of themselves either. This may have to do with my seclusion from the outside world, but I wonder if this race only recently came to Maj'Eyal? Viewing the Shaloren archives there is little mention of the ogres, and I don't believe even among the Thaloren we know much of them either. I wonder where the ogres truly come from?[/i]
 
 I could feel the stares of the entire group looking past me, at the uninviting landscape. They did not know where they could run to, only to run. Looking to establish if it was indeed the masked fanatics they were running from I asked, "Did the zealots you speak of wear masks on their faces?" The ogres immediately locked their stares back on me, the tense fear in their eyes telling me that the zealots they spoke of and the masked fanatics I had encountered were one and the same. I immediately remembered the anger within me that I felt, knowing that these ogres were now facing the same sinister fanatics that had initiated those atrocities in the Nargol Kingdom that I had recently witnessed.
@@ -1481,7 +1481,7 @@ Asking him what was wrong the dark blue glow went away from the ogres eyes and I
 “给你一个简短的答案，他的视野符文给了他一种力量，让他看到追捕我们的人的大致位置。实际情况更加复杂，但是他可以看清楚那些跟随我们的狂热者在哪里，他们与我们的位置有多接近，这对我们就足够了。”食人魔可以做到这一点令我印象深刻，我想知道符文还能让食人魔做些什么。我想，在我们相对安全的时候，也许我应该多问一下食人魔他们的符文是什么。突然，我听到一声咒骂，转过身来，看到那只深蓝色发光的食人魔的眼睛，现在似乎在我们前面窥视着别的东西。
 
 当我问他出了什么问题时，深蓝的光芒从食人魔的眼睛里消失了，我静静地得到了严肃的回答：“我们面前有一打群人，他们当中肯定也有狂热者。”这时，其他食人魔的脸都转过头来，露出了完全沮丧的表情。我能听到身后的喊声。有人说，“我们现在该怎么办？”，另一个人说，“我不想回去！”。绝望的话语不断从每个食人魔嘴里喷涌而出，直到这群人在恐惧中爆发。有那么一瞬间，我以为这个沮丧的表演一直持续到最后，直到那只抓住我手臂的食人魔放开了我，对其他人喊道：“你们哭够了！”其他的食人魔迅速沉默了下来，抬起头来，好像在等待该做什么的指示。]], "_t")
-t("Escapades of Fay Willows [Book 3, Chapter 3] - Battle Preparations", "菲·维莉欧斯的冒险 [第3卷, 第3章] - 准备战斗", "_t")
+t("Escapades of Fay Willows [Book 3, Chapter 3] - Battle Preparations", "菲·维莉欧斯的冒险 [第3卷，第3章] - 准备战斗", "_t")
 t([[[i]I had never seen a battle before in my life, let alone been a part of one. However I do not believe this is necessarily the case for the ogres. They say that they lived as nomadic peddlers but I wonder if perhaps that was just a cover story for themselves. Maybe they hired themselves out as mercenaries or other such adventures of combat? It is hard to know what lies within their past.[/i]
 
 Realizing the situation at hand, the ogre who had moments ago been holding my arm this entire time now took up the task of preparing the other ogres for the fight at hand. Stepping forward to address the others he quickly broke into a speech. "The enemy is on both sides of us, but we aren't trapped yet. Those behind us have to travel through the treacherous ground we had to pass through here ourselves and those ahead of us are still some distance away. We have time to form a plan and prepare for battle before either group arrives." As the ogre finished, one of the others soon piped up, "What will you have us do commander!" The newly minted commander grunted before replying, "First, we need a plan of attack."
@@ -1515,7 +1515,7 @@ The commander didn't give much more time for the other ogres to get themselves r
 这些话刺痛了我，使我很生气。我冲着指挥官喊道：“不，我会和你一起战斗。”我不确定是不是我内心的愤怒让我说出了这些话，但我知道我不会让食人魔独自战斗。我可能会在战斗中死去，但我不会逃避。指挥官和其他食人魔很快朝我的方向瞥了一眼，虽然惊讶，但还是很高兴。一个食人魔欢快地喊了一声“加入战斗！”其他的食人魔很快也叫了“加入战斗”。指挥官微笑着举起手来示意其他食人魔保持沉默，然后向我微微点头并对我说“加入战斗！”
 
 指挥官没有给其他食人魔更多的时间让他们做好准备，很可能因为是注意到了我们后面来的追兵。他命令食人魔聚集起来，把他们分成几个小组。我被告知要加入离海最近的小组，而指挥官在中间的一个小组中就任。在食人魔集合后，他下令前进，我们很快就开始在这片土地上前进。大地上的灾害使每一组人无法完全跟上彼此的步伐，但每一组人的行动都相当有纪律。我躲开熔岩，不平坦的地面，燃烧的树叶，滚烫的波浪，试图跟上我的团队。我们就这样继续前进，直到我们看到面前一群狂热者映入我们的眼帘。]], "_t")
-t("Escapades of Fay Willows [Book 3, Chapter 4] - To Battle!", "菲·维莉欧斯的冒险 [第3卷, 第4章] - 加入战斗！", "_t")
+t("Escapades of Fay Willows [Book 3, Chapter 4] - To Battle!", "菲·维莉欧斯的冒险 [第3卷，第4章] - 加入战斗！", "_t")
 t([[[i]Due to the darkness of the sky and the scorched lands of the battlefield it was hard to see anything, but I still remember the sounds of battle in great detail. The bubbling sounds of the lava and boiling water, the warcries that filled the air, the magical discharges from the ogres runes, the sounds of weapons clashing against each other, and so forth. Of course, none of those sounds compared to the death cries of both the zealots and ogres when their lives ceased to be.[/i]
 
 As we closed in I could make out the image of the individual fanatical warriors in the opposing force arrayed against us. Their battle line consisted of a couple of rows, with fighters in the front and archers in back. Considerably out numbered it looked as if they had the upper hand over us, though I wondered if this was entirely the case. Many weren't wearing masks, and their tattered clothing reminded me of the refugees in the Nargol Kingdom. Perhaps they were new initiates, swayed to join by the words of the masked zealots who stood with them. All the initiates wielded weapons but even I could tell that they had little idea of how to hold them properly.
@@ -1553,7 +1553,7 @@ The other ogre soon moved to attack the halfling, but with a sidestep the halfli
 食人魔一个接一个地发出痛苦的哀嚎，仿佛有什么东西附着在它们身上。透过阴影，我可以看到一个东西在战场上四处奔腾。当这个东西停在熔岩湖边时，我注意到那是一个戴着皮甲的蒙面半身人。他在熔岩附近抓住一只不慎靠近熔岩的食人魔，不知用什么手段把食人魔打翻了，然后将食人魔扔进了灼热的死亡池。黑暗中又出现了几个食人魔，其中一个试图用猛烈的攻击击打半身人。半身人轻松地蹲下躲开了，迅速地戳向食人魔的腹部，然后跳起来向食人魔的头部踢去毁灭性的一脚。
 
 其他食人魔迅速开始攻击半身人，但是半身人又侧着身子躲开了，然后消失在黑暗中。食人魔紧随其后，但从咕哝和叫喊看来，食人魔的战斗似乎很不顺利。半身人一次又一次地出现，轻松地击倒食人魔，然后逃离反击。黑暗中的食人魔被不断攻击，发出痛苦地叫喊，而那些走得太近的人很快就会发现自己被卷进了这片土地的死亡陷阱。一刹那间，这场战争的天平一下子倒向了狂热分子那边，恐慌和恐惧开始席卷食人魔。]], "_t")
-t("Escapades of Fay Willows [Book 3, Chapter 5] - Dark Resolve", "菲·维莉欧斯的冒险 [第3卷, 第5章] - 黑暗的决心", "_t")
+t("Escapades of Fay Willows [Book 3, Chapter 5] - Dark Resolve", "菲·维莉欧斯的冒险 [第3卷，第5章] - 黑暗的决心", "_t")
 t([[[i]It is hard to describe the sensation that came over me. It was still me, but I didn't feel in control. That other me, it seemed to thrive on the violence I inflicted or received, and wanted nothing more than to endlessly kill. It caused me sadness as I inflicted misery and terror on those in front of me as they died screaming in agony and pain. It is someone I hope to never become again.[/i]
 
 All around me, I could see the ogres near to me beginning to lose any will to fight. What's worse is that some of the initiates that had fled had now returned. They began to batter their shields once more, hollering and posturing as they cheered on the halfling. From one of them I heard the phrase "hooray for nature's champion!" They would yell other phrases as well such as "nature's might shall prevail" or "the ogre's magical taint on Eyal ends!" The sheer display of strength from the halfling and the cries of the initiates further unnerved the ogres, so much so that some began to shake in fear and turn into cowards yet again. In front of me an ogre even dropped her weapons and fell to the ground, having lost all hope.
@@ -1599,7 +1599,7 @@ I could hear the screams of terror of others around me and noticed that the soun
 这个人的持剑的手从他身上断裂下来，他哭了出来，倒在地上他胳膊的地方。他的剑仍然紧握在断裂的手上，血从他断臂的伤口中喷涌而出。人类试图爬走，然后我注意到附近可爱的熔岩池。我笑了笑，一脚踢向他的身体，他的身躯盘旋着跌入了岩浆之中。他在我面前活生生地燃烧着，我感到一种奇怪的喜悦，但同时也对我刚才所做的感到不屑。当那个人最终死去时，我感觉到另一股能量涌向我，让我更强烈地想杀人。我在想，已经到这一步了，我还可以阻止自己，或者说，还有人能阻止我吗？
 
 我能听到周围其他人恐惧的尖叫声，注意到这些声音也不是来自那些戴着面具的人——这些弱者是满足我杀人的欲望的合适目标。听着他们绝望的喊叫声，我开始接近他们，强烈的仇恨灌注着我的脚步。突然间，我感觉到手臂上有一股强大的拉力，阻止了我向前移动。我想看看是什么东西抓住了我，发现是那个戴着面具的半身人抓着我的胳膊。仇恨涌上心头，我所能想到的就是我该如何偿还这个半身人从前在帐篷里对我所做的一切。我忘记了其他弱者，把所有的注意力都集中在我的新猎物上。]], "_t")
-t("Escapades of Fay Willows [Book 3, Chapter 6] - Hateful Wrath", "菲·维莉欧斯的冒险 [第3卷, 第6章] - 仇恨愤怒", "_t")
+t("Escapades of Fay Willows [Book 3, Chapter 6] - Hateful Wrath", "菲·维莉欧斯的冒险 [第3卷，第6章] - 仇恨愤怒", "_t")
 t([[[i]I'm not sure how big the fanatics’ group was when we battled them, though out of them only about twenty or so wore masks. What I do know is that when I first saw the ogres that they numbered over fifty. After the battle there was only nine of them with me when we made our escape. This isn't to say that all the other ogres were killed though and I wonder what cruel end they met at the hands of those fanatics we had left them in.[/i]
 
 Unlike the other zealots, I could remember some of the words that came from the halfling on that battlefield. 'I should have killed you', 'a mistake to spare me', and so forth. All of a sudden though the halfling stopped talking as I felt something deep within me come out, and overwhelming hatred that I seemed to channel into the halfling's body. While this happened, I took my other arm and raised the axe high, bringing down its backside on the halflings shoulder in an effort to escape his grip. I could feel the power of the blow as it connected, the force of the impact reverberating through both of our bodies. I could hear the halfling clench its teeth, feeling the pain from the blow, before I was quickly thrown to the ground.
@@ -1633,7 +1633,7 @@ Making my way over to the ogre I was quick to treat her wounds. The ogre command
 许多食人魔在战斗中倒下，其中大部分死在那个半身人的手中。有些食人魔仍然留在战场上，活着，但受了重伤，无法跟上；有些人则士气低落，就像我亲眼看到的那个女食人魔倒在地上，被那些狂热者所蹂躏。我们没有办法救回他们，另一伙狂热者已经追上了我们，开始了他们对我们的追击，并在很长一段时间内不停地追着我们。即使他们不见了，我们也继续跑了很长一段时间。直到又有一只食人魔在最近的战斗中受伤倒下后，我们才停了下来。
 
 我走到食人魔跟前，很快就治好了她的伤口。食人魔指挥官在战斗中幸存了下来，尽管他身上到处都是可见的伤痕，他很快也过来接受治疗。食人魔战略家很快就从那一刻开始，接管了旅程中的一切，告诉我只能用足够的纹身来封闭伤口，这样我们才能再次行动。最后，当我们再次停下来喘口气时，我尽我所能用剩下的纹身继续治疗。然后我们跑了一段距离，停下来休息，再跑了几次。直到太阳再次出现在天空中，我们才停止奔跑。]], "_t")
-t("Escapades of Fay Willows [Book 4, Chapter 1] - Exhaustive Travel", "菲·维莉欧斯的冒险 [第4卷, 第1章] - 穷途末路", "_t")
+t("Escapades of Fay Willows [Book 4, Chapter 1] - Exhaustive Travel", "菲·维莉欧斯的冒险 [第4卷，第1章] - 穷途末路", "_t")
 t([[[i]The endurance of an ogre is quite astonishing. While I had collapsed from exhaustion, the ogres had persevered and managed to stay awake until we made it to an abandoned settlement. In particular, while many of the ogres had managed to acquire some sleep along with me, the commander and strategist would manage to make the entire journey to Elvala before they would finally collapse from exhaustion. I honestly don't believe any other race could possibly stay awake, let alone active, for that long.[/i]
 
 I don't know how long I had spent within that hellish shoreline; perhaps days or even a week. It was good to see some semblance of greenery and living nature again as we proceeded to head into the area just south of the Nargol lands. I basked a little in the natural sunlight from the sky, before feeling the rumbling in my stomach, and the heavy weight of exhaustion from so much running. The ogres for their part did not seem the least bit tired or hungry, but after such a long travel I wondered if this was truly the case. Reaching for my pack I pulled out my provisions and laid them on the ground. Almost immediately I noticed the hungry stares from the ogres.
@@ -1667,7 +1667,7 @@ I relayed to them the location of the cellar which I had found and its contents.
 在附近的建筑物里搜寻了一会儿后，我注意到一个锁生锈了的活板门。我打破了它，从梯子上下来，发现了一个地窖，自原先的永恒精灵居民居住于此以来一直未被触动。我发现了几瓶酒，还有一些老蔬菜和干果。我从旁边的椅子和桌子上擦去一些蜘蛛网，吃掉了它们，然后把一捆蔬菜和水果带回食人魔营地。指挥官已经在集合其他的食人魔了，我可以看到一些最近被杀死的动物尸体挂在他们的肩膀上。司令官和战略家看见我提着食物，就过来帮忙拿东西，问我在哪里找到的。
 
 我把找到的地窖的位置和里面的东西转告他们。指挥官虽然对获得食物感兴趣，但对它位于永恒精灵地窖一事却相当不感兴趣。考虑到要花多长时间才能把它提出来，他注意到，一个食人魔没法轻易地穿过这里的任何一扇门，更不用说一个地窖的活板门了。不过，这位战略家注意到我能够通过那扇门，坚持要我们带上食物，以确保剩下的旅程有足够的食物吃。司令官迟疑不肯再留下来，但最终还是同意了。又过了一个小时，我把所有的食物都端上来，然后我们继续朝埃尔瓦拉走去。]], "_t")
-t("Escapades of Fay Willows [Book 4, Chapter 2] - Seeking Sanctuary", "菲·维莉欧斯的冒险 [第4卷, 第2章] - 寻求庇护", "_t")
+t("Escapades of Fay Willows [Book 4, Chapter 2] - Seeking Sanctuary", "菲·维莉欧斯的冒险 [第4卷，第2章] - 寻求庇护", "_t")
 t([[[i]I want to emphasize that I come from a society where there is little if any practiced magic, let alone any products of it such as runes. While there were thalore who could use magic, their knowledge was self-taught and done in secret; not to mention that thaloren users of magic were generally ostracized from the rest of the community, if not exiled from Thaloren lands. Even now I still don't know much about the inner workings of the Rune of Return that is grafted to me, though I am working to learn the basics of runes and the greater subject of the arcane forces behind them.[/i]
 
 We continued deeper into Shaloren territory, the fanatics’ scouts continuing to follow us but always careful to stay back and never stray too close. It would be a couple more days before we reached the edge of the Shroud. Navigating to where I had first crossed through the misty wall to get into the city, I reached into my pack to retrieve the Rune of Return that I had received so long ago. With an outstretched hand I presented it to the ogre commander. I had expected him to take it but he simply nodded his head and noted, "A Rune of Return." For the next brief moment I stood there with my hand held out, the commander seemingly as puzzled as I was to our interaction. It wasn't clear until the strategist finally chimed in, "You have no clue how that rune you're holding works do you?"
@@ -1701,7 +1701,7 @@ Approaching the guards to communicate something, their bewildered faces quickly 
 从我身后传来一个声音：“关于食人魔的什么？”我转过身去，看到一个年轻的女永恒精灵，我认出她是从埃尔瓦拉送我出去的法师之一。看到我，她似乎有点奇怪地冷静，对我说：“哦，你就是那个自然精灵。我们从来没有见过面，但不久前我帮你传送出埃尔瓦拉过。欢迎回到埃尔瓦拉。”我屏住呼吸，解释了外面的食人魔，狂热者追逐他们的情况，以及他们是如何寻求在埃尔瓦拉避难的。我说完，年轻的永恒精灵说：“从你告诉我的情况来看，最好尽快把那些食人魔带进来。”
 
 那个女永恒精灵，走近卫兵并和他们交流，他们困惑的脸似乎因为她的言行变得有点痛苦。我不知道法师说了些什么，但似乎卫兵们几乎是在向年轻的永恒精灵女人求情。最后，她叫我跟着她，并开始向我使用返回符文进入城市的方向移动。我猜想，这个永恒精灵似乎有一些计划，一个允许食人魔进入城市的计划。在转身跟在她后面之前，我注意到两个卫兵互相默默无语，在我们走开之后，其中一个冲进楼内，另一个似乎在担忧地看着我和法师的方向。]], "_t")
-t("Escapades of Fay Willows [Book 4, Chapter 3] - The Enchantress", "菲·维莉欧斯的冒险 [第4卷, 第3章] - 女巫", "_t")
+t("Escapades of Fay Willows [Book 4, Chapter 3] - The Enchantress", "菲·维莉欧斯的冒险 [第4卷，第3章] - 女巫", "_t")
 t([[[i]Alreiwen Taeil the foolhardy enchantress. Easily the worst conversationalist I have ever met, and among all the shaloren I know of none that has a greater ego than hers. Still, I respect her sense of justice as well as her gifted abilities in the arcane. Who knows what fate may have happened to the ogres had she not been present when I made the request for their entry.[/i]
 
 Along the way the young mage probed me with varying questions relating to my travels and the events that I had witnessed or been a part of. Of those questions asked though, the ones involving the treatment of the ogres have stuck out in my mind the most. "So the ogres, I've heard a little bit about them. While they never really traveled here to Elvala, I've heard stories of their altruism and heroics. But, from what you told me about those crazed lunatics, it seems rather odd that they wouldn't have killed the ogres outright. I mean they have obviously managed to merge their bodies with arcane runes, what more reason is there for someone who hates magic to just kill them then and there. For what purpose do you think they would be kept alive?"
@@ -1739,7 +1739,7 @@ Eventually when I woke up, and after the healers had checked me over, I was told
 我已经不太记得发生过的事情，我甚至记不起我之前受到的那些创伤有什么痛苦，尽管治疗师们很快意识到这些伤害有多严重。我被迅速带到其中一张空床上，给了我几次麻醉剂注射，结果我昏倒了。后来我才知道，治疗师们对我的真实伤势已经感到无比震惊，但当他们发现自己使用的再生纹身似乎没有产生多大效果，无论使用多少的时候，他们的惊讶程度就更大了。我的身体需要几个月才能恢复，更不用说使用了无数次的纹身了。即使到今天，我也被告知要小心受伤，因为我需要更多时间才能痊愈。
 
 最后，当我醒来，在医生检查了我之后，我被告知要稍等一下，因为有人想来看我。过了一段时间，女巫又来迎接我了。“我看你恢复得不错，你确实很坚强。不用担心那些食人魔，艾伦尼恩已经按照要求批准了他们在这里避难。”她骄傲地说，虽然我能感觉到她的声音中有一丝失望的味道。“现在，你终于醒了，但艾伦尼恩想让我问问你，有关你离开纳格尔王国回到埃尔瓦拉的路途中，到底发生了什么样的故事。或许，你也可以解释一下，为什么你也要花这么长时间才能痊愈？”]], "_t")
-t("Escapades of Fay Willows [Book 4, Chapter 4] - Terrifying Interview", "菲·维莉欧斯的冒险 [第4卷, 第4章] - 可怕的访谈", "_t")
+t("Escapades of Fay Willows [Book 4, Chapter 4] - Terrifying Interview", "菲·维莉欧斯的冒险 [第4卷，第4章] - 可怕的访谈", "_t")
 t([[[i]I do not know if Alreiwen has forgiven me, for the terror I had inflicted on her, or the hatred within me she must have felt. While it was but a mere moment, I could tell that all my rage had been channeled into her very being, the same rage that I had filled those fanatics with from before. At that moment I could tell she knew how potentially dangerous I was. Rei, if you are reading this then know how truly sorry I am for what happened.[/i]
 
 For the next two hours, the enchantress proceeded to grill me as to what had happened after I had left Elvala. In great detail I informed her of my experiences within the Nargol Kingdom, and my subsequent travel along the southern shoreline of Maj'Eyal. Every so often the inquisitive shalore would ask me questions about the fanatics I had witnessed and the events I had seen them carry out or suspected them of having a part in. To be honest I couldn't tell if it was for her own satisfaction or perhaps if Aranion had indeed asked her in hopes of learning more about the fanatics. Eventually as our conversation came to a close, that was perhaps when the more eventful part of our discussion came up.
@@ -1773,7 +1773,7 @@ Eventually as I recovered enough to move around a bit I was finally released fro
 我立刻把我所有的力量都从女巫身上拉开。她立刻从椅子上跳下来，从我身边跑了出去，大声喘着气，从我施加的压力中逃离。她现在睁大了眼睛，看到了那个黑暗的我的真相，只想主动躲起来。我唯一能做的只有呢喃着“对不起”。她看着我的样子，似乎刹那间变得比以前老了许多。她摇摇晃晃地走到门口，离开房间，离开我，到了安全的地方。她走后不久，一个警卫开始驻扎在我的房间外面。我敢肯定，在女巫来之前，那里没有这样的警卫。
 
 最后，当我恢复到可以走动的程度时，我终于从治疗师的照顾中解脱出来。我被安排在埃尔瓦拉一个僻静的地方居住，两个卫兵一直驻扎在外面。虽然我从来没有问过，但我确信他们是来把我和埃尔瓦拉的其他市民隔离开来的。我没有责怪永恒精灵，因为即使是现在，我也能感觉到有什么东西在驱使我，影响我的思想，想大发雷霆。没有人知道我会在这样力量的驱使下采取什么样的行动，也不知道我是否会对永恒精灵进行疯狂的杀戮；讽刺的是，这是我很久以前离开自然精灵土地的最初原因。]], "_t")
-t("Escapades of Fay Willows [Book 4, Chapter 5] - Festival of Happiness", "菲·维莉欧斯的冒险 [第4卷, 第5章] - 快乐节", "_t")
+t("Escapades of Fay Willows [Book 4, Chapter 5] - Festival of Happiness", "菲·维莉欧斯的冒险 [第4卷，第5章] - 快乐节", "_t")
 t([[[i]It is worth noting that there were many ogres in Elvala after my long period of seclusion, hundreds of them even. Apparently the ogres I had rescued had petitioned the Grand Council to seek out as many of their fellow ogres as they could and help them before they were all killed. Agreeing to the request, contact was made with the Nargol Kingdom as well as some Human Kingdoms in the Northwest of Maj'Eyal to secretly help relocate as many of the ogres that could be found to the shrouded Shaloren lands.[/i]
 
 As I finished fully recovering from my injuries, that was truly when I felt I was at the lowest point in my life. Having all the time in the world to think, I could not stop myself from remembering the events that had happened since that day when the Spellblaze occurred up to the present moment. Every waking minute felt as if I was dreaming, whether I was asleep or awake, yet this nightmare was real and deep within I could feel the urges that I had felt afflicting me when I fought against the fanatics trying to claw their way to the surface now. I was in a state of indescribable agony, seemingly hating more and more about my life, yet having no clue how to free myself from either my emotions or the cage I had been put in.
@@ -1811,7 +1811,7 @@ Making my way back to my dwelling I felt in control of myself and my actions. Wh
 当食人魔们完成了他们的舞蹈后，一对永恒精灵夫妇决定向前一步，用音乐给大家带来欢乐。一个开始唱悦耳的和弦，然后停下来，然后另一个开始唱同一个和弦，但频率较低。第二个和弦结束后，两个永恒精灵同时唱起他们的和弦，使之和谐起来，产生了一个优美的旋律，在人群中荡漾。刹那间，在我内心深处，我仿佛能够听到自己内心伸出的想法。随着表演的继续，我感觉自己好像在找回曾经失去的自我。毫无疑问，折磨着我的痛苦仍然存在，但每一刻都感觉不那么重要。很长一段时间以来，我第一次感到幸福，即使节日结束了，我仍然感到幸福。
 
 回到我的住处，我感觉自己和我的行为都在控制之中。无论我内心的谜团是什么，它没有，也不会主宰我。当走到警卫面前时，我微笑着做了一个友好的手势。当我回去的时候，我相信自己明天会再次离开这所房子。虽然食人魔在谈论过去的事情时谈起我救了他们，但实际上我相信，他们才是真正救了我的人。食人魔们很快就把这当作是一种谦虚，但自从我参加那个节日以来，我一直在努力完全控制自己，重新掌控自己的生活。为此我向他们表示感谢。]], "_t")
-t("Escapades of Fay Willows [Book 4, Chapter 6] - Rebuilding Anew", "菲·维莉欧斯的冒险 [第4卷, 第6章] - 焕然一新", "_t")
+t("Escapades of Fay Willows [Book 4, Chapter 6] - Rebuilding Anew", "菲·维莉欧斯的冒险 [第4卷，第6章] - 焕然一新", "_t")
 t([[[i]As time passed, both ogre and shalore slowly adapted to their secluded lives from the outside world.[/i] The shaloren slowly gathered themselves and their belongings in secret from the abandoned settlements in the north, and then quickly worked to create permanent implements that would ensure that the Shroud concealing Elvala would stay in place. They then worked to expand the Shroud to encompass all the forests surrounding Elvala and lock off the Shaloren Peninsula from the outside world. After that, many shaloren began to study the chaotic energies that had been unleashed in hopes of learning more about the damage they had caused and what effects it would leave in Eyal.
 
 [i]The ogres settled down in the southern portions of the peninsula to rebuild new lives for themselves.[/i] They helped to grow and harvest food to feed everyone and took up more laborious occupations that the shaloren were ill-suited to perform. Many gave birth to children, resulting in a great many young ogres helping to bolster their limited numbers. Some of the ogres also took up occupations working with inscriptions, and while my knowledge of runes is still quite limited, I could tell from their workmanship that their knowledge and skills with infusions were as good as many of the thaloren I knew back home. Despite some disagreements the ogres had, they managed to create a thriving relationship with the shaloren, one that I hope will last for a long time to come.
@@ -1849,7 +1849,7 @@ When I look back at the many events the occurred after the Spellblaze, I wonder 
 我也在军队里学到很多控制情绪的方法。我参加了一个为那些有独特能力的人而设的项目，慢慢地开始更多地了解影响我身体的黑暗状况，以及如何让这种力量为我所用。我学习了如何影响我的周围环境，包括无生命的和有生命的，在某些情况下，我甚至会被允许练习用我内心的黑暗思想来对付别人。我不能说我已经完全控制了我内心的混乱能量，但通过集中注意力，我将学会如何至少把它从别人身边引开，防止它影响到我周围的人。
 
 当我回顾魔法大爆炸之后发生的许多事情时，我不知道如果我没有像以前那样离开家乡去旅行，我的生活会怎样。从我最初的旅程到现在，已经过去了很多时间，但我想，未来我将会有机会离开埃尔瓦拉去探索遥远的土地，看看世界上的一切都变成了什么样。我想知道埃亚尔的其他人是怎么生活的，这些土地是否显示出任何治愈的迹象，也想知道我在家乡的其他自然精灵的身上发生了什么。不管将来会发生什么，我知道我已经准备好了。当那个时候到来的时候，我将会继续我的冒险！]], "_t")
-t("Escapades of Fay Willows [Book 5, Chapter 1] - Dead On Arrival", "菲·维莉欧斯的冒险 [第5卷, 第1章] - 死亡到来", "_t")
+t("Escapades of Fay Willows [Book 5, Chapter 1] - Dead On Arrival", "菲·维莉欧斯的冒险 [第5卷，第1章] - 死亡到来", "_t")
 t([[[i]Truly there is nothing more horrid than the experience of encountering ghouls. You will likely smell them as they emit a horrible stench, else if you are lucky you'll just hear them as they groan in a low painful sounding tone. Casting your eyes upon them you will be presented with a truly horrible display as you witness rows of hanging flesh and dripping puss surrounding a vaguely humanoid figure. The worst of it though is the touch and feel of ghouls. I bet any ordinary individual would feel grossly unsettled just poking them with a stick, let alone engaging up close to them in combat as I did.[/i]
 
 As I walked along the treeline I recounted the events that had led me to these daily patrols. Thirty-three long years passed after the cataclysm of the Spellblaze, the moment still burning within my mind, as well as my body. I survived the destruction and the events that followed, and had come to find myself in Elvala among the shaloren, whom I had come to care for and be in the care of. I had fallen in love with one of the soldiers whom I had trained with and had come to know him as family. Yet I wondered how the rest outside of Elvala suffered, how those thaloren at home fared, and if I should leave to explore the world again as I had once desired to.
@@ -1883,7 +1883,7 @@ I turned towards the soldier who nodded in the direction of the main battlement 
 意识到它们正在前往埃尔瓦拉的这一危险，我很快启动了食人魔印刻在我脖子上的返回符文，一瞬间，我再次出现在在城墙内。我还没来得及认清自己的方位的时候，一个永恒精灵士兵就走近我，把我打倒在地。士兵很快站起身来，说了声“我我很抱歉”，然后在我的左肩下伸出一只手来扶我起来。注意到我手臂上的溃烂的咬痕，士兵的眼睛很快严肃起来，继续说道：“司令部希望你立即报告你遇到的不死生物。你在侦察的时候，我们又在帷幕里碰到了几只。”
 
 我转向士兵，他面向埃尔瓦拉的北部森林，朝着主城垛的方向点了一下头。我点了点头，继续向大门上方的塔楼走去，守望队长应该就在那里。我很快穿过墙下聚集的士兵，和那些正在爬楼梯的法师和弓箭手们一起爬上去。当我走上前去时，守望队长注意到我，朝我的方向叫了一声，我急忙跑到他的位置，把发生的事转告他。当我把报告交给队长时，他绷紧了脸，把头转向帷幕外，发出了一句咒骂。]], "_t")
-t("Escapades of Fay Willows [Book 5, Chapter 2] - Elvala Under Attack", "菲·维莉欧斯的冒险 [第5卷, 第2章] - 被攻击的埃尔瓦拉", "_t")
+t("Escapades of Fay Willows [Book 5, Chapter 2] - Elvala Under Attack", "菲·维莉欧斯的冒险 [第5卷，第2章] - 被攻击的埃尔瓦拉", "_t")
 t([[[i]Looking past the gruesome nature of the undead, I can somewhat appreciate the brilliance of the tactics and strategy that they employed. Everything seemed to have been meticulously planned out beforehand and being undead they were able to act perfectly in a preordained manner. This allowed the necromancer controlling them to stay safely out of harms way and away for the duration of the battle.[/i]
 
 Suddenly I noticed the captain's eyes narrow and lock onto something within the smoke and turning to look myself I noticed the quivering distortions. Suddenly, with a loud call to "FIRE" coming from the watch captain, the many archers and mages began to loose arrows and cast spells, causing the disturbance to turn into a whirling maelstrom as projectiles and magic slammed into it. Despite the barrage a glistening phalanx of moving bones and tattered armor emerged, revealing several rows of skeletons in a defensive formation. Holding their shields high above them, they moved within lockstep of each other, and slowly made their approach towards the wall.
@@ -1917,7 +1917,7 @@ As the front lines drew closer, we would be caught off guard when the ghouls mad
 食尸鬼的喉音开始弥漫在空气中，与这些食尸鬼一同行进的还有另外几支骷髅军团。然而，正是在他们身后，一个真正可怕的不死族开始移动，那是和耸立在埃尔瓦拉的许多建筑物一样高的高耸的骨巨人。最后一排骷髅也出现了，但与其他骷髅不同的是，这些骷髅似乎配备了法杖和弓箭。很快，不死族开始组织自己，然后朝着我们的方向移动。我们的法师试图准备另一套法术，但很快发现我们很难对抗不死族的箭雨和法术的弹幕。意识到我们必须与不死族充分交战，我们举起盾牌，继续向前迈进。
 
 随着前线越来越近，食尸鬼从我们的队伍上方跳过，让我们会措手不及。我们很快发现自己被包围了起来，食尸鬼在后面抓我们，而剩下的不死力量从前面撞向我们。我们后面的永恒精灵弓箭手和法师几乎没有任何回旋的余地，他们被砍倒了，而前面的士兵只能把盾牌放在前面阻挡攻击。惊慌失措之时，那些可以传送的人脱离了防线，留下我们其他人来抵御入侵的不死部落。我们发现自己被不死生物困住了，一切都乱成一团，情况看起来相当惨淡。]], "_t")
-t("Escapades of Fay Willows [Book 5, Chapter 3] - Leadership From The Front", "菲·维莉欧斯的冒险 [第5卷, 第3章] - 前线的领袖", "_t")
+t("Escapades of Fay Willows [Book 5, Chapter 3] - Leadership From The Front", "菲·维莉欧斯的冒险 [第5卷，第3章] - 前线的领袖", "_t")
 t([[[i]As an experienced commander would tell me long after the battle with the undead "the winner of a battle is not necessarily dictated by the amount of enemies slain but rather by which side breaks first." While the quality of an armies ability to fight is important it means nothing should its soldiers lose the will to fight. We had been lucky in the defense of Elvala with the aid from the ogres and eventually rallying leadership of Aranion.  Without them all hope of victory would have surely been lost.[/i]
 
 The hatred within me began to build as enemies attacked from in front and behind. However, I had my own problems to deal with as one of the bone giants, as I would call them, stepped up to clobber me. Managing to somehow avoid the first attack I focused the chaotic energies within me and unleashed a powerful strike that destroyed a good portion of its lower body. This seemed to be to no avail though as the bone giant reorganizeed and shifted the bones of its body around to form a protective barrier before seemingly beginning to rebuild itself. The bone giant then proceeded to unleash another strike against me that left me stunned and temporarily unable to react. Put on my back foot, matters only got worse when a ghoul approached me from behind and bit deeply into my shoulder.
@@ -1951,7 +1951,7 @@ After sending bones flying, I nodded to the ogre, and we continued on towards th
 看到这一幕，我立刻恢复了战斗的意志，按照命令向前冲去。然而，在我接触到不死族的远程部队之前，一对带盾牌的装甲骷髅走上前迎接我。为了突破他们，我向前迈了一大步，但是我的进攻偏斜了，双脚失去了平衡。看到机会，其中一具骷髅放下盾牌，准备对我发起反击。在它的攻击还没来得及集中我面前，一记重击从我的头顶飞过，把它的头骨划开了。从我身后，另一个食人魔走上前去，我们同时干掉了另一个骷髅。
 
 在击飞了那具骨架之后，我向食人魔点了点头，继续向前方的弓箭手和法师那里杀去。我们与其他食人魔和永恒精灵一起深入敌阵，挥舞着武器切开它们未设防的战线。也许意识到他们没有获胜的希望，骷髅们转过身，开始离开，似乎准备开始撤退。我们准备追捕他们，却被跳进我们的路上的残存的食尸鬼和尚未被干掉的残存的骨巨人拦住了。尽管这些亡灵被削弱到不再是我们的威胁，他们为骷髅弓箭手和法师们赢得足够的时间逃离大门，进入帷幕之中。]], "_t")
-t("Escapades of Fay Willows [Book 5, Chapter 4] - Confrontation", "菲·维莉欧斯的冒险 [第5卷, 第4章] - 对峙", "_t")
+t("Escapades of Fay Willows [Book 5, Chapter 4] - Confrontation", "菲·维莉欧斯的冒险 [第5卷，第4章] - 对峙", "_t")
 t([[[i]I was oddly able to get back on my feet quite easily after receiving the initial healing spell cast on me, perhaps even quicker than what was normally possibly. This would hold true to the additional healing I would receive moments after. There is something about the chaotic energies within me that interacts with my body and allows it to mend quicker with the more hate I feel. This isn't something I can easily take advantage of however and should the hatred within me dissipate before I receive any medical attention it will result in a long and arduous recovery time.[/i]
 
 It was at that point in the battle that I knew we had won. The bone giants that remained still proved to be quite a threat, but with enough overwhelming force we eventually got through their defenses and defeated them. As the last of the undead were felled the defenders began to break into another victory cheer. I was about to join them but I noticed the bright glow of another healing spell enveloping me once more. Turning around I noticed that the spell was being cast by one of the healers this time. "Get Fay healed as quickly as possibly doctor, I want her back in peak form as fast as possible." Hearing my name I wondered just who this shalore was as few in Elvala knew my name.
@@ -1985,7 +1985,7 @@ When they raised their weapons in my general direction I knew I needed to act qu
 我不完全确定发生了什么，但我知道的是，在艾伦尼恩和死灵法师之间爆发了能量爆炸，产生了冲击波，撕裂了定居点的残余。我发现自己摔倒在一栋楼里，跌跌撞撞地站了起来，试图重新调整自己的方向。当我重新站起来的时候，我走出了那个被我砸穿的墙洞，想要调查外面发生了什么。环顾四周，我看到的是一片废墟，残破的土地，残破的建筑物，空气中仍然弥漫着烧焦的气息。从大楼里走出，我的脚碾碎了一块散落在战场上的碎骨头。不幸的是，在爆炸中幸存下来的几具骷髅注意到了这一点。
 
 当他们向我的方向举起武器时，我知道，必须迅速采取行动。我走近两个离我比较近的骷髅，灵巧地击中了他们的要害，将他们击碎。我正要冲向其他地方，但我注意到有几具骷髅朝我的方向举起了法杖。我迅速地躲在附近一座建筑的瓦砾后面，躲开了命中我刚才所处地方的魔法。我站起身来，紧紧握住武器，听到他们朝我的位置走去。我做好了准备，等待骷髅走近，并观察它们何时会出现在拐角处。]], "_t")
-t("Escapades of Fay Willows [Book 5, Chapter 5] - Staff of Bones", "菲·维莉欧斯的冒险 [第5卷, 第5章] - 白骨法杖", "_t")
+t("Escapades of Fay Willows [Book 5, Chapter 5] - Staff of Bones", "菲·维莉欧斯的冒险 [第5卷，第5章] - 白骨法杖", "_t")
 t([[[i]First rule of combat, always have a plan of escape ready in case you get into trouble. Second rule of combat, understand when escape is not an option. Third rule of combat, don't put yourself in a position where you will get flanked on multiple sides. Fourth rule of combat, don't exhaust yourselves before the conclusion of a fight. Fifth rule of combat, don't die.[/i]
 
 Unfortunately not as mindless as I thought they would be, the skeletons were smart enough to keep their distance as they rounded the corner. Cursing, I began to run as fast as I could in an attempt to close the gap as fast as possible as the skeletons sent forth a volley of spells. My anger exploding at this point I felt a chaotic rush of energy fill me and in the next moment I was cleaving my weapon through the body of one of the mages from the side. Not missing a beat at my movement, the other skeleton promptly turned to face the new direction and unleashed a searing ray of arcane energies that clipped through my shoulder. I was about to converge on the other skeleton, but an arrow would then pierce through my foot and pin me to the ground.
@@ -2019,7 +2019,7 @@ The bone giant quickly began to falter and become clumsy, my chaotic energies in
 不过，就像以前在埃尔瓦拉一样，在我攻击它的时候，这个骨巨人也会移动它的骨骼来强化自己，设法抵消我攻击的伤害。在接下来的一瞬间，它突然伸出一只手，刺穿了我的胳膊。而我什么也做不了，因为尖刺和锋利的关节撕裂了我肩膀上的盔甲，造成了巨大的疼痛。为了还击，我又向前推了一把，但由于受伤的疼痛，我无法集中全力。当我被沉重的打击击倒的时候，仇恨开始在我心中沸腾，最后我把我混乱的能量释放到这个骨巨人身上，试图阻止它的动作。
 
 骨巨人很快开始动摇，变得笨拙，我混乱的能量干扰了它的移动能力。骨巨人在我仇恨的压力下试图攻击我，但它的攻击变得缓慢，我成功的躲开了它们。看到自己处于攻势，我猛砍这个生物，试图压倒它。它再一次形成了一道骨头屏障来保护它，但我丝毫没有气馁，坚持不懈地继续进攻，最终击碎了它。它无法忍受我连续不断的凶猛打击，直到我从前到后撕开它，它的骨头向四面八方飞去。现在，我站在死灵法师面前，听到身后的骨巨人又一次倒下成一堆骨头。]], "_t")
-t("Escapades of Fay Willows [Book 5, Chapter 6] - Evil Malice", "菲·维莉欧斯的冒险 [第5卷, 第6章] - 恶毒", "_t")
+t("Escapades of Fay Willows [Book 5, Chapter 6] - Evil Malice", "菲·维莉欧斯的冒险 [第5卷，第6章] - 恶毒", "_t")
 t([[[i]There is truly no other way to describe the necromancer that I met but completely evil. One might consider the magic hating fanatics I had written about in my earlier books as evil, but even from them I could sense that they were attempting to bring about a better world, despite how twisted their actions might have been. This fiend of undeath though, I could sense no goodwill from, and the actions undertaken seemed to be only for the purpose of personal amusement. Judging from emotions that I could feel from the magic as well, I don't think that necromancy could ever be used by anyone other than those of an evil nature.[/i]
 
 As I felled the bone giant I could hear the necromancer clapping once more. "Very good, well done, quite the display. Your bones will truly be worth adding to my staff,” the necromancer stated in sinister tone. Turning my head towards necromancer I stated boldly, "It will take more than your mere bone giant to kill me." Seemingly caught in thought to my statement the necromancer replied, "Hmmm, bone giant, quite the name. Yes, I think that will do nicely as a name. Of course, you seem to be misunderstanding something. The bone giant, as you call it, is not quite dead yet." Registering the words, I didn't have much time to react before I could feel a hard blow swat me from the side.
@@ -2057,7 +2057,7 @@ The necromancer continued to talk aloud for several moments as he circled around
 死灵法师从我的前面，慢慢绕到我的右边，继续发出“嗯，嗯”的声音。终于，死灵法师停了下来，又一次说道：“很惊讶看到你能使用符文。你该不会是个被从森林里放逐出来的罪犯吧？等等，你刻的第二个符文是什么？”尽管我看不见死灵法师，我能感觉到它凝视着刻在我脖子后面的返回符文。一句话从后面响起，“啊，有趣。一个永恒精灵的设计，但从标记来看，如果我没有记错的话，铭刻这个符文似乎是食人魔的工艺。很有趣。”
 
 死灵法师在我周围一圈又一圈地转来转去，他继续大声地说了几句话，这对我来说是一个好机会。我能感觉到我的热能射线符文重新聚集着奥术能量，只要再等一会儿，我就可以重新激活它，把自己从冰冷的监牢中释放出来。或许感受到了我的意图，死灵法师很快瞥了我一眼，然后说：“你真是个怪人，不是吗？不过，你不太健谈，所以我没什么理由让你活着。我可以很容易地研究你的尸体，而不需要让你活着，”我可以感觉到死灵法师的一只手开始积聚魔法，他最后说，“永别了，自然精灵。”]], "_t")
-t("Escapades of Fay Willows [Book 5, Chapter 7] - Powers of Undeath", "菲·维莉欧斯的冒险 [第5卷, 第7章] - 不死的力量", "_t")
+t("Escapades of Fay Willows [Book 5, Chapter 7] - Powers of Undeath", "菲·维莉欧斯的冒险 [第5卷，第7章] - 不死的力量", "_t")
 t([[[i]Something that I have always wondered about is why people give names to inanimate objects. Aranion would lose hold of his weapon at some point during the fight with the Necromancer, though I'm not specifically sure at what time in the fight this would be. Even now as I write this, Aranion frets over his lost sword as if he had lost a loved one. While I can understand how one can get accustomed to a weapon, surely he can find another to use instead?[/i]
 
 Sensing that I needed to act now, I activated the heat beam rune, melting the ice around and me and sending a surging blast of fire towards the necromancer. As the necromancer stumbled back in flames as I took the moment to heave my weapon forward with all the force I could muster, only to pierce through nothing as the necromancer disappeared. Before I had a chance to see where the necromancer had teleported to, a burst of hot flames enveloped me from behind. Turning around I could see the necromancer, singed yet no longer on fire. I had been read completely and now I danced around in searing pain as every inch of my body burned. The necromancer cackled as I noticed the heat beam rune inscribed on the bottom of his outstretched arm.
@@ -2091,7 +2091,7 @@ Once more I called out saying his name "Awain". As he roused from his sleep and 
 我只能模糊的记得，当我终于恢复之后，我躺在埃尔瓦拉的一张病床上睁开了眼睛。在旁边的椅子上，我看见我的丈夫在睡觉，他在等着我。我试着说话，但却只能发出一声尖叫。我丈夫叫人来医治我，因为我受了太多的伤，身体各处都疼得要命。之后，我睡了很长一段时间，不知道睡了多久，但下次醒来时，我发现在家中自己的房间里。再次环顾四周，我发现那是晚上了，我丈夫又坐在椅子上睡着了，他还在等着我。我不知道他等了多久。
 
 我再一次喊出他的名字：“艾尔温”。当他从睡梦中醒来看着我时，他的脸上流下了无尽的泪水。我听见他用嘶哑的声音说：“你醒了，你还活着。”他急忙走到我跟前，用手抱起我，紧紧和我相拥，开始不可控制地抽泣起来。就在那一刻，我和他一起哭了起来，觉得我不该再去打听我是怎么回到埃尔瓦拉，回到他身边的。我不知道自己昏迷了多久，但我能感觉到他一直在等我，等我回到他身边的那一刻。当我们再次团聚的时候，我也拥抱着他哭泣着。]], "_t")
-t("Escapades of Fay Willows [Book 5, Chapter 8] - From the Brink of Death", "菲·维莉欧斯的冒险 [第5卷, 第8章] - 自死亡的边缘", "_t")
+t("Escapades of Fay Willows [Book 5, Chapter 8] - From the Brink of Death", "菲·维莉欧斯的冒险 [第5卷，第8章] - 自死亡的边缘", "_t")
 t([[Eventually when I got the story from my husband, I found out what had happened after the battle in detail. The necromancer had apparently fled or perhaps had allowed for Aranion to retreat with me back to Elvala. I was very close to death, but the healers worked tirelessly to stabilize my condition, although having difficulties doing so due to my Spellblaze Affliction and terrible injuries that had been wrought on my body by the necromancer's spells. For many days I remained within the medical facilities, as the healers worked to save my life, before eventually being relocated to my own home under the care of my husband.
 
 At this point a sombre expression took hold of my husbands face, his eyes looking in the direction of my body. Lifting the covers up I soon understood why, seeing the blacken scars engraved into my body, a result of my recent battle. Meekly he told me that while the healers were sure I would live, the wounds inflicted on my body would leave deformed scars that would never heal. For a moment I sat still, as I contemplated what to say. Then smiling any without hesitation I looked up, pulling off the covers and made to stand. Pain surged through me as I did so but I stood in front of my husband nonetheless.
@@ -3005,8 +3005,8 @@ t([[Each time you cast a non-instant Demented spell, a nether spark begins orbit
 The damage will increase with your Spellpower.  Entropic Maw stats will increase with level and your Magic stat.]], [[每次你施放非瞬发的疯狂法术时，一朵彼世火花将环绕在你周围 10 回合，上限为 5 朵。
 		每个火花增加你 %d%% 暴击率。当你拥有 5 个火花时，你的下一次虚空法术将消耗所有火花来获得强化效果。
 #PURPLE#彼世冲击：#LAST# 成为穿透性虚空能量，并在 5 回合内造成额外 %d%% 伤害。
-#PURPLE#裂缝切割:#LAST# 裂缝内的敌人将定身 %d 回合，每回合受到 %0.2f 时空伤害。裂缝湮灭时爆炸半径增加 %d 。
-#PURPLE#空间扭曲:#LAST# 裂缝出口处产生一个持续 %d 回合的熵之胃，能用触须拉近并嘲讽附近的目标。
+#PURPLE#裂缝切割：#LAST# 裂缝内的敌人将定身 %d 回合，每回合受到 %0.2f 时空伤害。裂缝湮灭时爆炸半径增加 %d 。
+#PURPLE#空间扭曲：#LAST# 裂缝出口处产生一个持续 %d 回合的熵之胃，能用触须拉近并嘲讽附近的目标。
 伤害受法术强度加成。
 熵之胃的属性受等级和魔法属性加成。]], "tformat")
 t("Grasping Tendrils", "触须抓取", "talent name")
@@ -3159,7 +3159,7 @@ section "tome-cults/data/talents/demented/slow-death.lua"
 t("Digest", "消化", "talent name")
 t("%s has no usable talents.", "%s没有可用的技能。", "logPlayer")
 t("Painful Agony", "催心剖肝", "_t")
-t("Choose a talent to use:", "选择一个技能使用:", "_t")
+t("Choose a talent to use:", "选择一个技能使用：", "_t")
 t([[Make a melee attack dealing %d%% weapon damage and attempt to snatch a foe that has %d%% life or less left and swallow it whole.
 		While you digest it you gain %d insanity per turn.
 		The digestion lasts for 50 turns for an elite and 25 turns for others.
@@ -3279,11 +3279,11 @@ section "tome-cults/data/talents/demented/void.lua"
 t("Void Stars", "虚空之星", "talent name")
 t("You must be wearing light armor for this talent.", "你必须穿着轻甲才能使用这一技能。", "logPlayer")
 t("A void star appears around %s.", "一颗虚空之星在%s周围出现。", "logSeen")
-t("#FIREBRICK##Target#'s void star absorbs the damage from #Source#, converting it into entropy!#LAST#", "#FIREBRICK##Target#的虚空之星吸收了来自#Source#的伤害，将其转化为熵!#LAST#", "logCombat")
+t("#FIREBRICK##Target#'s void star absorbs the damage from #Source#, converting it into entropy!#LAST#", "#FIREBRICK##Target#的虚空之星吸收了来自#Source#的伤害，将其转化为熵！#LAST#", "logCombat")
 t("%s(%d to entropy)", "%s（%d 熵）", "tformat")
 t([[Conjure void stars that orbit you, defending you from incoming attacks. Each time an attack deals more than 10%% of your maximum life, a star will be consumed to reduce the damage taken by %d%%, of which 40%% will be dealt to you as entropic backlash.
 		You regenerate 1 star every %d turns, stacking up to 4 times.
-		This talent will only function in light armor.]], [[形成围绕你旋转, 为你抵御伤害的虚空之星。
+		This talent will only function in light armor.]], [[形成围绕你旋转，为你抵御伤害的虚空之星。
 		每当受到超过 10%% 最大生命的伤害时，消耗一颗虚空之星，使受到的伤害减少 %d%%，自己受到等同于减免伤害 40%% 的熵能反冲。
 		虚空之星每经过 %d 回合自动恢复一颗。
 		此技能只有装备轻甲时生效。]], "tformat")
@@ -3370,7 +3370,7 @@ section "tome-cults/data/talents/misc/misc.lua"
 t("glass golem", "玻璃傀儡", "_t")
 t("Self-destruction", "自爆", "talent name")
 t("Self destruct in a glorious explosion of gore dealing %0.2f blight damage to all enemies in %d radius.  Your summoner must be dead to use this talent.", "自爆成一团光荣的血肉，对半径 %d 格范围内的所有敌人造成 %0.2f 枯萎伤害。这个技能只有主人死亡时能够使用。", "tformat", {2,1})
-t("Teleport: Kroshkkur", "传送: 克诺什库尔", "talent name")
+t("Teleport: Kroshkkur", "传送：克诺什库尔", "talent name")
 t("#CRIMSON#Kroshkkur is destroyed, there is nothing to teleport to.", "#CRIMSON#克诺什库尔被摧毁了，无法传送到那里。", "logPlayer")
 t("The spell fizzles...", "法术失败了...", "logPlayer")
 t("There are creatures that could be watching you; you cannot take the risk.", "有生物可以看见你，你不能冒这个险。", "log")
@@ -3396,9 +3396,9 @@ t([[Evolve %d allies within radius 10 in random ways for 5 turns.
 		#ORCHID#Speed:#LAST# Increases global speed by %d%%.
 		#ORCHID#Form:#LAST# Increases all stats by %d.
 		#ORCHID#Power:#LAST# Increases all damage by %d%%.]], [[以随机方式进化 10 格范围内至多 %d 名友方单位，持续 5 回合。
-		#ORCHID#速度:#LAST# 增加 %d%% 整体速度。
-		#ORCHID#形态:#LAST# 增加 %d 全属性。
-		#ORCHID#力量:#LAST# 增加 %d%% 伤害。]], "tformat")
+		#ORCHID#速度：#LAST# 增加 %d%% 整体速度。
+		#ORCHID#形态：#LAST# 增加 %d 全属性。
+		#ORCHID#力量：#LAST# 增加 %d%% 伤害。]], "tformat")
 t("golem", "傀儡", "talent category")
 t("glass", "玻璃", "talent type")
 t("Glass Golem basic capacity.", "玻璃傀儡的基础能力。", "_t")
@@ -3606,7 +3606,7 @@ t("chaos", "混沌", "effect subtype")
 t("damage", "伤害", "effect subtype")
 t("insanity", "疯狂", "effect subtype")
 t("Chaos Orbs", "混沌之球", "_t")
-t("%d stacks, +%d%% to all damage dealt.", "%d 层, +%d%% 所有造成的伤害。", "tformat")
+t("%d stacks, +%d%% to all damage dealt.", "%d 层，+%d%% 所有造成的伤害。", "tformat")
 t("horror", "恐怖", "effect subtype")
 t("blight", "枯萎", "effect subtype")
 t("Putrescent Pustule", "腐败脓包", "_t")
@@ -3722,7 +3722,7 @@ t("#Target# is linked through the prophecy.", "#Target#被预言联结。", "_t"
 t("+Mark of Treason", "+背叛印记", "_t")
 t("#Target# prophetic link disappears.", "#Target#的预言联结消失了。", "_t")
 t("-Mark of Treason", "-背叛印记", "_t")
-t("#ORANGE#The wounds of #Source# appear on #target#!#LAST#", "#ORANGE##Source#身上的创伤出现在#target#身上!#LAST#", "delayedLogMessage")
+t("#ORANGE#The wounds of #Source# appear on #target#!#LAST#", "#ORANGE##Source#身上的创伤出现在#target#身上！#LAST#", "delayedLogMessage")
 t("#CRIMSON#(%d linked)#LAST#", "#CRIMSON#(%d 伤害链接)#LAST#", "tformat")
 t("Nihil", "空无", "_t")
 t([[The target is engulfed in entropy, reducing the duration of new beneficial effects and increasing the duration of new negative effects by %d%%.
@@ -3791,7 +3791,7 @@ t("Covered in defiled blood, healing the source for %d%% of all damage done.", "
 t("#Target# is covered in black blood!", "#Target#被黑血覆盖！", "_t")
 t("#Target# is clear from the black blood.", "#Target#脱离黑血影响。", "_t")
 t("teleport", "传送", "effect subtype")
-t("Teleport: Kroshkkur", "传送: 克诺什库尔", "_t")
+t("Teleport: Kroshkkur", "传送：克诺什库尔", "_t")
 t("The target is waiting to be recalled back to Kroshkkur.", "目标在等待传送至克诺什库尔。", "_t")
 t("#CRIMSON#Kroshkkur is destroyed, there is nothing to teleport to.", "#CRIMSON#克诺什库尔被摧毁了，无法传送到那里。", "log")
 t("There are creatures that could be watching you; you cannot take the risk of teleporting to Kroshkkur.", "周围有敌对生物能看到你，你不能冒险在这个时候传送至克诺什库尔。", "log")
@@ -3842,7 +3842,7 @@ t("-Blind", "-致盲", "_t")
 t("confusion", "混乱", "effect subtype")
 t("madness", "疯狂", "effect subtype")
 t("Lost in a weird place", "迷失在奇怪的地方", "_t")
-t("The target is starting to get mad (%d stacks), reducing mind damage resistance by %d%%, mental save by %d, confusion resistance by %d%%, generating %0.1f insanity per turn.", "目标开始疯狂 (%d 层), 降低 %d%% 精神伤害抗性 , %d 精神豁免,%d%% 混乱免疫，每回合获得 %0.1f 疯狂值。", "tformat")
+t("The target is starting to get mad (%d stacks), reducing mind damage resistance by %d%%, mental save by %d, confusion resistance by %d%%, generating %0.1f insanity per turn.", "目标开始疯狂 (%d 层), 降低 %d%% 精神伤害抗性 , %d 精神豁免，%d%% 混乱免疫，每回合获得 %0.1f 疯狂值。", "tformat")
 t("wound", "创伤", "effect subtype")
 t("cut", "流血", "effect subtype")
 t("fail", "失败", "effect subtype")
@@ -4085,7 +4085,7 @@ t("The lights nearly blind you as cascades of swirling colours explode in the da
 t("Terrified by the carnage around it, the rabbit has become easy prey.", "兔子被周围的大屠杀吓坏了，成了容易被捕食的猎物。", "_t")
 t("A good little meal, but you will need more than this.", "一顿美餐，但你还需要更多。", "_t")
 t("Meat has been a rare treat as of late.", "在这种时候，肉是一种罕见的食物。", "_t")
-t("#ANTIQUE_WHITE#Grung: %s", "#ANTIQUE_WHITE#格朗格: %s", "log")
+t("#ANTIQUE_WHITE#Grung: %s", "#ANTIQUE_WHITE#格朗格：%s", "log")
 
 ------------------------------------------------
 section "tome-cults/data/zones/ft-home/grids.lua"
@@ -4556,7 +4556,7 @@ t("The Maggot", "巨大蛆虫", "_t")
 ------------------------------------------------
 section "tome-cults/hooks/bonestaff.lua"
 
-t("#GREY##{italic}#You feel the bones of the staff creeking and vibrating in your hand.#{normal}##LAST# Yes... #{italic}#\"master\"#{normal}#.", "#GREY##{italic}#你感受到手中的骨杖在你的手上颤动：#{normal}##LAST# 是的……#{italic}#“主人”#{normal}#.", "_t")
+t("#GREY##{italic}#You feel the bones of the staff creeking and vibrating in your hand.#{normal}##LAST# Yes... #{italic}#\"master\"#{normal}#.", "#GREY##{italic}#你感受到手中的骨杖在你的手上颤动：#{normal}##LAST# 是的……#{italic}#“主人”#{normal}#。", "_t")
 t("#GREY##{italic}#The vibrations feel like a shrug.#{normal}##LAST# By magic #{bold}#obviously#{normal}#. What kind of necromancer might you be to ask such #{bold}#stupid#{normal}# questions?", "#GREY##{italic}#骨杖发出了像是耸肩的颤动#{normal}##LAST# #{bold}#当然是#{normal}#被死灵魔法变成这样的。什么样的死灵法师会问出这样#{bold}#愚蠢#{normal}#的问题？", "_t")
 t("#GREY##{italic}#The vibrations intensify.#{normal}##LAST# As long as this means more deaths and bones, I will agree to change aspect. Which do you choose?", "#GREY##{italic}#颤动加强了。#{normal}##LAST#只要这意味着更多的死亡和骨头，我会同意改变类型。你选哪一个？", "_t")
 t("Is there anything else you can do?", "你还能做什么吗？", "_t")
@@ -4593,7 +4593,7 @@ t([[#GREY##{italic}#The staff vibrates with great intensity.#{normal}##LAST# POW
 ALL SHALL BOW BEFORE MY MIGH... your might.]], [[#GREY##{italic}#法杖剧烈地颤动着#{normal}##LAST# 力量！是的！
 所有人都将屈服于我的…啊不，你的力量。]], "_t")
 t("Great!", "太棒了！", "_t")
-t("#GREY##{italic}#The staff stays calm.#{normal}##LAST# Stupid useless pathetic excuse of a #{italic}#\"necromancer\"#{normal}#! Why refuse to use true power?!", "#GREY##{italic}#法杖平静了下来。#{normal}##LAST#像你这样的#{italic}#\"死灵法师\"#{normal}#竟然会用这样蹩脚的借口! 为什么要拒绝使用真正的力量?！", "_t")
+t("#GREY##{italic}#The staff stays calm.#{normal}##LAST# Stupid useless pathetic excuse of a #{italic}#\"necromancer\"#{normal}#! Why refuse to use true power?!", "#GREY##{italic}#法杖平静了下来。#{normal}##LAST#像你这样的#{italic}#\"死灵法师\"#{normal}#竟然会用这样蹩脚的借口！为什么要拒绝使用真正的力量？！", "_t")
 t("I have my reasons!", "我有我的理由！", "_t")
 
 ------------------------------------------------
@@ -4721,7 +4721,7 @@ Race features:#YELLOW#
 ------------------------------------------------
 section "tome-cults/overload/data/texts/unlock-race_krog.lua"
 
-t("New Race: #LIGHT_GREEN#Krog", "新种族: #LIGHT_GREEN#克罗格", "_t")
+t("New Race: #LIGHT_GREEN#Krog", "新种族：#LIGHT_GREEN#克罗格", "_t")
 t([[Ogres were created long ago by terrible ways as elite fighters in the allure wars. Imbued from birth with runes their bodies can not survive without the arcane forces powering them.
 
 But while they are magic users Ziguranth took pity on them for they had not chosen their fate, it was forced upon them.
@@ -4742,9 +4742,9 @@ Race features:#YELLOW#
 在经过无数痛苦但不可避免的实验后，伊格兰斯终于创造出食人魔的一个亚种。他们用龙血和自然之力替代了食人魔体内的符文和奥术力量。
 在那之后，被称为克罗格的食人魔们就成为了自然的坚盾和伊格的坚实保护者。这些精英战士能够双持挥舞任何单手武器，摧毁所有自然的敌人
 
-你从不死生物的魔爪中救下了一群克罗格，你现在可以创造新的#LIGHT_GREEN#克罗格#WHITE# 角色!
+你从不死生物的魔爪中救下了一群克罗格，你现在可以创造新的#LIGHT_GREEN#克罗格#WHITE# 角色！
 
-种族特点: #YELLOW#
+种族特点：#YELLOW#
 - 他们的愤怒如此恐怖，任何攻击都能够震慑对手。
 - 他们龙血灌注的身体可以抵抗元素魔法伤害。
 - 他们是自然纹身的大师。
@@ -4760,11 +4760,11 @@ t("Drakes are forces of Nature, the ultimate apex predators. But even they can b
 你遇到了从最强大的巨龙库洛塔身上产生的恐魔，并击败了它。
 你现在可以掌握天谴龙的魔法，你创建的新龙战士角色可以使用新的#LIGHT_GREEN#天谴之龙#WHITE#系技能
 
-技能列表:
-- #YELLOW#触手之翼:#WHITE# 伸出黏滑的触手，将敌人拉向你
-- #YELLOW#腐朽之地:#WHITE# 在地面中灌注枯萎能量，增加技能冷却时间
-- #YELLOW#扩大绝望:#WHITE# 击打对手受伤的地方，对方负面效果越多伤害越高。
-- #YELLOW#蛆虫吐息:#WHITE# 喷吐蛆虫，让你的敌人减速
+技能列表：
+- #YELLOW#触手之翼：#WHITE# 伸出黏滑的触手，将敌人拉向你
+- #YELLOW#腐朽之地：#WHITE# 在地面中灌注枯萎能量，增加技能冷却时间
+- #YELLOW#扩大绝望：#WHITE# 击打对手受伤的地方，对方负面效果越多伤害越高。
+- #YELLOW#蛆虫吐息：#WHITE# 喷吐蛆虫，让你的敌人减速
 ]], "_t")
 
 ------------------------------------------------
@@ -4787,9 +4787,9 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 t("#CRIMSON#This was a very satisfying meal, 'you' feel strengthened. (+1 generic talent point)", "#CRIMSON#这份餐营养丰富，“你”觉得自己变强了（+1通用技能点）", "log")
 t("#CRIMSON#[The parasite loves death and pain and gives no choice but to shoot down the airship]", "#CRIMSON#[寄生兽喜欢杀戮和痛苦，直接帮你按下了击落飞船的按钮。]", "_t")
-t("#CRIMSON#[The parasite is hungry and promptly swallows and eat Melinda].", "#CRIMSON#[寄生兽很饿，吃下了梅琳达].", "_t")
-t("#CRIMSON#[The parasite is hungry and promptly swallows and eat Aeryn].", "#CRIMSON#[寄生兽很饿，吃下了艾琳].", "_t")
-t("#CRIMSON#[The parasite is hungry and attacks Slasul].", "#CRIMSON#[寄生兽很饿，攻击了萨拉苏尔].", "_t")
+t("#CRIMSON#[The parasite is hungry and promptly swallows and eat Melinda].", "#CRIMSON#[寄生兽很饿，吃下了梅琳达]。", "_t")
+t("#CRIMSON#[The parasite is hungry and promptly swallows and eat Aeryn].", "#CRIMSON#[寄生兽很饿，吃下了艾琳]。", "_t")
+t("#CRIMSON#[The parasite is hungry and attacks Slasul].", "#CRIMSON#[寄生兽很饿，攻击了萨拉苏尔]。", "_t")
 t("#CRIMSON#[The parasite is hungry and promptly swallows and eat %s].", "#CRIMSON#[寄生兽很饿，吃下了%s]。", "tformat")
 t("#CRIMSON#[The parasite is hungry and takes over the conversation.]#LAST# I smelled a weakling here and wanted a nice meal. [point your finger at the captured merchant]", "#CRIMSON#[寄生兽很饿，接管了你们的对话。]#LAST#我闻到这里有股弱者的味道，我想要一顿美餐。[把你的手指指向被抓住的商人]", "_t")
 t("Ah I see, you are a ...thing... of special tastes. Very well, I'd rather have you as a friend so have your meal and someday we may have some more business to do together.", "啊，我明白了，你是一个…品味独特的…家伙。很好，我希望你是我的朋友，所以吃吧，总有一天我们会有更多的生意要做。", "_t")
@@ -4941,7 +4941,7 @@ All our other elite fighting forces are currently abroad, you are their only hop
 Please, go there at once, free them and show the necromancers filth the True Wrath of the Ziguranth!
 
 #{italic}#Protector Myssil#{normal}#
-]], [[当你进入最后的希望时, 一个信使找到你并给你一份来自守护者米歇尔的信:
+]], [[当你进入最后的希望时，一个信使找到你并给你一份来自守护者米歇尔的信：
 
 %s，当你在外面打击肮脏的奥术势力时，我收到了一个令人震惊的消息。
 一群克罗格遭到伏击并被带到伊格附近的萨希海东海岸隐藏的废墟中。
