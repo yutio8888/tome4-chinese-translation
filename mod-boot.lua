@@ -50,7 +50,7 @@ Check out the following folder on your computer:
 ]], [[糟糕！好像你安装了多份同一个插件/DLC。
 这种情况不被支持的，会引发很多BUG。请你移除掉多余的文件。
 
-插件名称： #YELLOW#%s#LAST#
+插件名称：#YELLOW#%s#LAST#
 
 请你检查你电脑里的以下文件夹：
 %s
@@ -230,7 +230,7 @@ t("Forest", "森林", "_t")
 section "mod-boot/dialogs/Addons.lua"
 
 t("Configure Addons", "设置插件", "_t")
-t("You can get new addons at #LIGHT_BLUE##{underline}#Te4.org Addons#{normal}#", "在以下位置可以获得新的插件： #LIGHT_BLUE##{underline}#Te4.org 插件页面#{normal}#", "_t")
+t("You can get new addons at #LIGHT_BLUE##{underline}#Te4.org Addons#{normal}#", "在以下位置可以获得新的插件：#LIGHT_BLUE##{underline}#Te4.org 插件页面#{normal}#", "_t")
 t(" and #LIGHT_BLUE##{underline}#Te4.org DLCs#{normal}#", " 和 #LIGHT_BLUE##{underline}#Te4.org DLC页面#{normal}#", "_t")
 t("You can get new addons on #LIGHT_BLUE##{underline}#Steam Workshop#{normal}#", "在以下位置可以获得新的插件：#LIGHT_BLUE##{underline}#Steam 创意工坊#{normal}#", "_t")
 t(", #LIGHT_BLUE##{underline}#Te4.org Addons#{normal}#", ", #LIGHT_BLUE##{underline}#Te4.org 插件页面#{normal}#", "_t")
@@ -324,8 +324,8 @@ Game version: %d.%d.%d
 Requires addons: %s
 
 %s]], [[#{bold}##GOLD#%s：%s#WHITE##{normal}#
-游戏版本： %d.%d.%d
-需要的插件： %s
+游戏版本：%d.%d.%d
+需要的插件：%s
 
 %s]], "tformat")
 t("You can simply grab an older version of the game from where you downloaded it.", "你可以在下载这个游戏的地方，下载到这个游戏的旧版本。", "_t")
@@ -337,13 +337,13 @@ t([[This savefile was created with game version %s. You can try loading it with 
 t("Cancel", "取消", "_t")
 t("Run with newer version", "运行新版本", "_t")
 t("Developer Mode", "开发者模式", "_t")
-t("#LIGHT_RED#WARNING: #LAST#Loading a savefile while in developer mode will permanently invalidate it. Proceed?", "#LIGHT_RED#警告： #LAST#在开发者模式下读取一个存档将会不可逆地将其标记为作弊存档。确定吗？", "_t")
+t("#LIGHT_RED#WARNING: #LAST#Loading a savefile while in developer mode will permanently invalidate it. Proceed?", "#LIGHT_RED#警告：#LAST#在开发者模式下读取一个存档将会不可逆地将其标记为作弊存档。确定吗？", "_t")
 t("Load anyway", "仍然读档", "_t")
 t("Delete savefile", "删除存档", "_t")
 t("Really delete #{bold}##GOLD#%s#WHITE##{normal}#", "真的要删除#{bold}##GOLD#%s#WHITE##{normal}#吗", "tformat")
 t("Old game data", "旧版游戏数据", "_t")
 t("No data available for this game version.", "没有当前游戏版本的数据。", "_t")
-t("Downloading old game data: #LIGHT_GREEN#", "正在下载旧版游戏数据： #LIGHT_GREEN#", "_t")
+t("Downloading old game data: #LIGHT_GREEN#", "正在下载旧版游戏数据：#LIGHT_GREEN#", "_t")
 t("Old game data for %s correctly installed. You can now play.", "%s 的旧版游戏数据已经安装成功了。你可以现在游玩了。", "tformat")
 t("Failed to install.", "安装失败。", "_t")
 
@@ -374,9 +374,9 @@ t([[#{bold}##GOLD#Ashes of Urh'Rok - Expansion#LAST##{normal}#
 #{italic}##ANTIQUE_WHITE#很多马基埃亚尔的居民都曾经听说过“恶魔”的名字，它们是一群似乎凭空出现的暴虐生物，无论走到哪里都会带来痛苦和毁灭。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
-#LIGHT_UMBER#新职业：#WHITE# 毁灭使者。 他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。
-#LIGHT_UMBER#新职业：#WHITE# 恶魔使者。 这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！
-#LIGHT_UMBER#新种族：#WHITE# 魔化精灵。 那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。
+#LIGHT_UMBER#新职业：#WHITE# 毁灭使者。他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。
+#LIGHT_UMBER#新职业：#WHITE# 恶魔使者。这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！
+#LIGHT_UMBER#新种族：#WHITE# 魔化精灵。那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。
 #LIGHT_UMBER#更多新神器、新手札、新地图、新事件……#WHITE# 体验恶魔的欢愉吧！
 
 ]], "_t")
@@ -422,10 +422,10 @@ t([[#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#
 #{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，进入了疯狂之中，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
-#LIGHT_UMBER#新职业：#WHITE# 扭动者。 屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
-#LIGHT_UMBER#新职业：#WHITE# 熵教徒。 这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
-#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。 他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
-#LIGHT_UMBER#新种族：#WHITE# 克罗格。 他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
+#LIGHT_UMBER#新职业：#WHITE# 扭动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
+#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
+#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
+#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
 #LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路(不要问我你是怎么*进来*的)，探索神秘的出口，以及更多奇异的，充满触手的地图！
 #LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢灼眼恐魔吗？你一定会喜欢上灼热恐魔的！还有虚空蠕虫，还有熵之碎片，还有其他更多怪物！
 #LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个悠闲的寄生兽吧！

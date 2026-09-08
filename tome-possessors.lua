@@ -12,14 +12,14 @@ t("Kill High Paladin Aeryn with the body of Sun Paladin John.", "使用太阳骑
 section "tome-possessors/data/birth/psionic.lua"
 
 t("Possessor", "占据者", "birth descriptor name")
-t("#CRIMSON#BEWARE: This class is very #{italic}#strange#{normal}# and may be confusing to play for beginners.#LAST#", "#CRIMSON#注意: 该职业机制相当 #{italic}#奇怪#{normal}# ，可能不适合新手使用。#LAST#", "_t")
+t("#CRIMSON#BEWARE: This class is very #{italic}#strange#{normal}# and may be confusing to play for beginners.#LAST#", "#CRIMSON#注意: 该职业机制相当 #{italic}#奇怪#{normal}#，可能不适合新手使用。#LAST#", "_t")
 t("Possessors are a rare breed of psionics. Some call them body snatchers. Some call them nightmarish.", "占据者是一类极其稀有的灵能力者。有些人称其为身体掠夺者，有些人视其为噩梦。", "_t")
 t("They are adept at stealing their foes corpses for their own use. Discarding their own bodies for a while to use other's.", "他们擅长偷取敌人死亡后的身体，能暂时抛弃自己的躯体，使用其他身体。", "_t")
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +2 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +2 力量 , +2 敏捷 , +0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +3 Willpower, +2 Cunning", "#LIGHT_BLUE# * +0 魔法 , +3 意志 , +2 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# -4", "#GOLD# 每等级生命加值： #LIGHT_BLUE# -4", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# -4", "#GOLD# 每等级生命加值：#LIGHT_BLUE# -4", "_t")
 
 ------------------------------------------------
 section "tome-possessors/data/talents/psionic/battle-psionics.lua"
@@ -32,7 +32,7 @@ t([[You imbue your offhand mindstar with wild psionic forces.
 		Each time you make a melee attack you also add a stack of Psionic Disruption to your target.
 		Each stack lasts for %d turns and deals %0.2f mind damage over the duration (max %d stacks).
 		If you do not have a one handed weapon and a mindstar equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[向副手灵晶灌注狂暴的灵能力量。
-		生效时，灵晶的精神强度和精神暴击几率增加 %d%% 。
+		生效时，灵晶的精神强度和精神暴击几率增加 %d%%。
 		每次近战攻击，都会给目标附加 1 层灵能瓦解效果。
 		每层效果持续 %d 回合造成 %0.2f 精神伤害 (最多 %d 层).
 		如果你没有装备单手武器和灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
@@ -91,7 +91,7 @@ t([[When you assume a form you may cannibalize a body in your reserve to repleni
 		The healing effect is more psionic in nature than a real heal. As such may things that prevent healing will not prevent cannibalize from working.
 		Cannibalize is the only possible way to heal a body.
 		]], [[吞噬一具储备的身体，用来补充现在的身体。
-		你只能吞噬同阶级或更高阶级的身体，且每次治疗后该身体的治疗效果降低 33%% 。
+		你只能吞噬同阶级或更高阶级的身体，且每次治疗后该身体的治疗效果降低 33%%。
 		当前身体恢复被吞噬身体最大生命值 %d%% 的生命，同时恢复该数值 50%% 的灵能。
 		该治疗在本质上比真正的治疗更接近灵能，因此阻止治疗的效果无法阻止吞噬生效。吞噬是治疗身体的唯一方法。
 		]], "tformat")
@@ -110,7 +110,7 @@ t([[Your mere presence is a blight in your foes minds. Using this link you are a
 		The stolen talent will not use any resources to activate.
 		At level 5 you are able to choose which talent to steal.
 		The talent stolen will be limited to at most level %d.]], [[链接目标，偷取目标一个技能。
-		持续 %d 回合，你获得目标一个随机主动技能 (非被动，非持续) ，目标会失去该技能。
+		持续 %d 回合，你获得目标一个随机主动技能 (非被动，非持续)，目标会失去该技能。
 		你不会偷取一个已有的技能。
 		偷取的技能不消耗任何能量。
 		在等级 5 时，可选择偷取的技能。
@@ -216,7 +216,7 @@ t([[You cast a psionic web at a target that lasts for %d turns. Each turn it dea
 		你可能只会偷走以下类型的生物的尸体 : #LIGHT_BLUE#%s#LAST#
 		当你尝试附身不同类型的生物时，你可以永久学习此类型，你还可以执行 %d 次。]], "tformat")
 t("Self Persistence", "自我坚持", "talent name")
-t("When you assume the form of an other body you can still keep %d%% of the values (defences, crits, powers, save, ...) of your own body.", "当你附身时，你还可以保留自己身体的属性 %d%% 。 (闪避, 暴击, 强度, 豁免, ……)", "tformat")
+t("When you assume the form of an other body you can still keep %d%% of the values (defences, crits, powers, save, ...) of your own body.", "当你附身时，你还可以保留自己身体的属性 %d%%。(闪避, 暴击, 强度, 豁免,……)", "tformat")
 t("Improved Form", "身体改进", "talent name")
 t([[When you assume the form of another body you gain %d%% of the values (defences, crits, powers, save, ...) of the body.
 		In addition talents gained from bodies are limited to level %0.1f.]], [[当你附身时，你获得身体 %d%% 的数值 (闪避, 暴击, 强度, 豁免, ...)。
@@ -273,7 +273,7 @@ t([[You point your ghastly finger at a foe affected by Ghastly Wail and send a p
 		If the target dies from the Finger and is of a type you can already absorb it is directly absorbed into your bodies reserve.
 		If you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[用手指对受到恐怖嚎叫效果影响的敌人射出一道冲击波。
 		目标将受到相当于其已损失生命值 %d%% 的精神伤害。
-		对 boss 或者更高阶级的目标伤害最高为 %d 。
+		对 boss 或者更高阶级的目标伤害最高为 %d。
 		如果目标死于死亡一指，且其类型是你已经可以吸收的，则直接吸收到你的身体储备中。
 		如果你没有双持灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 
@@ -341,7 +341,7 @@ section "tome-possessors/data/talents/psionic/ravenous-mind.lua"
 
 t("Sadist", "虐待狂", "talent name")
 t([[You feed on the pain of all foes in sight. For each one of them with life under 80%% you gain a stack of Sadist effect that increases your raw mindpower by %d.
-		]], [[你从视野内所有敌人的痛苦中得到养分。每一个生命值低于 80%% 的敌人将让你获得一层虐待狂效果，每层增加你的原始精神强度 %d 。
+		]], [[你从视野内所有敌人的痛苦中得到养分。每一个生命值低于 80%% 的敌人将让你获得一层虐待狂效果，每层增加你的原始精神强度 %d。
 		]], "tformat")
 t("Channel Pain", "痛苦连接", "talent name")
 t("#ORANGE#%s channels pain to %s!", "#ORANGE#%s连接痛苦到%s！", "logSeen")
@@ -355,7 +355,7 @@ t("Radiate Agony", "痛苦辐射", "talent name")
 t("You need a Sadist stack to use this talent.", "你需要有一层虐待狂效果才能使用这一技能。", "logPlayer")
 t([[As long as you have at least a stack of Sadist you can radiate agony to all those you see in radius %d with 80%% or lower life left.
 		For 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you.]], [[当你至少有一层虐待狂效果时,你可以将自己的痛苦分享给半径 %d 内所有可见的、生命值 80%% 或更低的敌人。
-		持续 5 回合，他们的头脑将如此专注于自己的痛苦，对你的伤害减少 %d%% 。]], "tformat")
+		持续 5 回合，他们的头脑将如此专注于自己的痛苦，对你的伤害减少 %d%%。]], "tformat")
 t("Torture Mind", "精神拷打", "talent name")
 t([[As long as you have at least a stack of Sadist you can mentally lash out at a target, sending horrible images to its mind.
 		The target will reel from the effect for %d turns, rendering %d random talents unusable for the duration.]], [[当你至少有一层虐待狂效果时，你可以精神鞭打一个目标，发送恐怖的图像到目标的脑海中。
@@ -497,4 +497,4 @@ section "tome-possessors/overload/mod/dialogs/AssumeFormSelectTalents.lua"
 t("Assume Form: Select Talents (max talent level %0.1f)", "附身: 选择技能 (最大技能等级 %0.1f)", "tformat")
 t("Possess Body", "附身", "_t")
 t("Cancel", "取消", "_t")
-t("#SLATE##{italic}#Your level of #LIGHT_BLUE#Full Control talent#LAST# is not high enough to use all the talents of this body. Select which to keep, your choice will be permanent for this body and its clones.", "#SLATE##{italic}#你的 #LIGHT_BLUE#完全控制#LAST# 技能 等级 不足，无法使用该身体的所有技能，选择需要保留的技能。 你的选择对该身体及其克隆永久生效。", "_t")
+t("#SLATE##{italic}#Your level of #LIGHT_BLUE#Full Control talent#LAST# is not high enough to use all the talents of this body. Select which to keep, your choice will be permanent for this body and its clones.", "#SLATE##{italic}#你的 #LIGHT_BLUE#完全控制#LAST# 技能 等级 不足，无法使用该身体的所有技能，选择需要保留的技能。你的选择对该身体及其克隆永久生效。", "_t")

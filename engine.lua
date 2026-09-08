@@ -435,7 +435,7 @@ t("There are currently %d people playing online", "现在有%d人正在在线游
 t("The character's vault has registered a total of #RED#%d#WHITE# character's deaths", "官网角色库中记录了#RED#%d#WHITE#个角色的死亡", "tformat")
 t("The character's vault has registered a total of #LIGHT_BLUE#%d#WHITE# winners for the current version", "官网角色库中共有#LIGHT_BLUE#%d#WHITE#个赢得当前版本的游戏的角色", "tformat")
 t("The latest donator is #LIGHT_GREEN#%s#WHITE#. Many thanks to all donators, you are keeping this game alive!", "最近的捐赠者是#LIGHT_GREEN#%s#WHITE#。感谢所有捐赠者，是你们延续了这个游戏的生命！", "tformat")
-t("#LIGHT_RED#Online profile disabled(switching to offline profile) due to %s.", "#LIGHT_RED#由于 %s ，在线存档无法运行（切换至离线存档）", "log")
+t("#LIGHT_RED#Online profile disabled(switching to offline profile) due to %s.", "#LIGHT_RED#由于 %s，在线存档无法运行（切换至离线存档）", "log")
 
 ------------------------------------------------
 section "engine/engine/Mouse.lua"
@@ -547,7 +547,7 @@ Again, thank you, and enjoy Eyal!
 
 再次感谢你，祝你在埃亚尔玩的开心！
 
-#{italic}#你的邪恶的黑暗之神， #GOLD#DarkGod#{normal}#]], "tformat")
+#{italic}#你的邪恶的黑暗之神，#GOLD#DarkGod#{normal}#]], "tformat")
 t("Thank you!", "谢谢你！", "_t")
 t("#{italic}#Joined channel#{normal}#", "#{italic}#已加入频道#{normal}#", "_t")
 t("#{italic}#Left channel#{normal}#", "#{italic}#已退出频道#{normal}#", "_t")
@@ -1036,7 +1036,7 @@ Note: This value will automatically revert after ten seconds if not confirmed by
 这个点表示窗口左上角所在的位置。
 这一选项用于在使用无边框窗口或者多显示器的场合。
 
-默认原点： (0,0).
+默认原点：(0,0).
 
 注意：如果用户在十秒后不进行确认，这一数值将会自动恢复原值#WHITE#]], "_t")
 t("#GOLD##{bold}#Requested Window Position#WHITE##{normal}#", "#GOLD##{bold}#设置窗口位置#WHITE##{normal}#", "_t")
@@ -1083,9 +1083,9 @@ Thanks, and have fun!]], [[欢迎！
 
 我是游戏的制造者 #{italic}##ANTIQUE_WHITE#DarkGod#LAST##{normal}#。在愉快的探险开始之前，我希望占用短暂的时间向你解释游戏内购的存在意义。
 
-请不要听到“内购”就惊慌逃跑，听完我的解释再做选择： 我本人 #{bold}# 坚决 #CRIMSON#反对#LAST# 氪金胜利 #{normal}# ，因此我保证绝不会做这种事情。
+请不要听到“内购”就惊慌逃跑，听完我的解释再做选择：我本人 #{bold}# 坚决 #CRIMSON#反对#LAST# 氪金胜利 #{normal}#，因此我保证绝不会做这种事情。
 
-那么，为什么要加入内购呢？ 马基·埃亚尔的传说是一款便宜/免费的游戏，也不需要会员订阅。它就像我的孩子一样；我非常爱它，并计划为之长久工作（从2009年开始我就一直这么干了！）。 但是，为了生存，我仍然需要在现实世界中取得必要的收入。
+那么，为什么要加入内购呢？马基·埃亚尔的传说是一款便宜/免费的游戏，也不需要会员订阅。它就像我的孩子一样；我非常爱它，并计划为之长久工作（从2009年开始我就一直这么干了！）。但是，为了生存，我仍然需要在现实世界中取得必要的收入。
 
 目前，我提供了以下几种内购项：
 - #GOLD#时装#LAST#：在目前游戏内已有的种族、物品时装外，你可以获得更多时装效果，让你看起来更靓！
@@ -1093,13 +1093,13 @@ Thanks, and have fun!]], [[欢迎！
 - #GOLD#额外共享装备格#LAST#：对于捐赠者而言，可以把那些“无用”的捐赠换成更多在线共享装备格。
 - #GOLD#社区事件#LAST#：服务器会自动触发部分在线事件，而你可以强制让服务器触发特定事件。当然，当前在线的所有玩家都会收到该事件！
 
-我希望这些能说服你，我并没有什么邪恶的想法（虽然我名为DarkGod）。 我不得不说，内购这种事情让我感觉很龌龊，即使上面这些选项都不影响游戏内容，但为了游戏的未来，我必须想尽办法。
+我希望这些能说服你，我并没有什么邪恶的想法（虽然我名为DarkGod）。我不得不说，内购这种事情让我感觉很龌龊，即使上面这些选项都不影响游戏内容，但为了游戏的未来，我必须想尽办法。
 感谢你看到这里，去享受游戏吧！]], "_t")
 
 ------------------------------------------------
 section "engine/engine/dialogs/microtxn/ShowPurchasable.lua"
 
-t("#{italic}##UMBER#Bonus vault slots from this order: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#这项购买提供的额外在线仓库空间： #ROYAL_BLUE#%d#{normal}#", "_t")
+t("#{italic}##UMBER#Bonus vault slots from this order: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#这项购买提供的额外在线仓库空间：#ROYAL_BLUE#%d#{normal}#", "_t")
 t([[For every purchase of #{italic}##GREY#%s#LAST##{normal}# you gain a permanent additional vault slot.
 #GOLD##{italic}#Because why not!#{normal}#]], [[每次购买 #{italic}##GREY#%s#LAST##{normal}#，你都会获得额外一个在线仓库格。
 #GOLD##{italic}#为什么不呢！#{normal}#]], "_t")
@@ -1133,10 +1133,10 @@ t("Shimmer pack installed!", "时装包安装成功！", "_t")
 t([[Could not dynamically link addon to current character, maybe the installation weng wrong.
 You can fix that by manually downloading the addon from https://te4.org/ and placing it in game/addons/ folder.]], [[无法自动将插件链接至当前角色，可能安装失败了。
 你可以在 https://te4.org/ 手动下载该插件并放置于 game/addons/ 目录下来解决这个问题。]], "_t")
-t("Downloading cosmetic pack: #LIGHT_GREEN#%s", "时装包下载中： #LIGHT_GREEN#%s", "tformat")
+t("Downloading cosmetic pack: #LIGHT_GREEN#%s", "时装包下载中：#LIGHT_GREEN#%s", "tformat")
 t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: The pack should be downloading or even finished by now.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#：这个扩展包现在应该正在下载，甚至已经下载完成了。", "tformat")
-t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: You can now trigger it whenever you are ready.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#： 准备好的时候就可以触发它。", "tformat")
-t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: Your available vault space has increased.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#： 你可用的在线共享装备空间增加了。", "tformat")
+t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: You can now trigger it whenever you are ready.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#：准备好的时候就可以触发它。", "tformat")
+t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: Your available vault space has increased.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#：你可用的在线共享装备空间增加了。", "tformat")
 t("Payment", "付款", "_t")
 t([[Payment accepted.
 %s]], [[支付已确认。
@@ -1163,7 +1163,7 @@ t("#{bold}##GOLD#Once per Character#WHITE##{normal}#: This event can only be rec
 t([[#{bold}##GOLD#Shimmer Pack#WHITE##{normal}#: Once purchased the game will automatically install the shimmer pack to your game and enable it for your current character too (you will still need to use the Mirror of Reflection to switch them on).
 #LIGHT_GREEN#Bonus perk:#LAST# purchasing any shimmer pack will also give your characters a portable Mirror of Reflection to be able to change your appearance anywhere, anytime!]], [[#{bold}##GOLD#时装包#WHITE##{normal}#：购买后游戏会自动安装时装包，同时为当前角色自动开启。仍然需要使用反射之镜来切换。
 #LIGHT_GREEN#额外福利：#LAST# 购买任何时装包后，你的角色自动获得便携式反射之镜，可以随时随地切换时装！]], "_t")
-t("#{bold}##GOLD#UI Pack#WHITE##{normal}#: Once purchased the game will automatically install the UI pack to your game.", "#{bold}##GOLD#UI 组合包#WHITE##{normal}#： 购买后游戏会自动安装UI组合包。", "_t")
+t("#{bold}##GOLD#UI Pack#WHITE##{normal}#: Once purchased the game will automatically install the UI pack to your game.", "#{bold}##GOLD#UI 组合包#WHITE##{normal}#：购买后游戏会自动安装UI组合包。", "_t")
 t("#{bold}##GOLD#Vault Space#WHITE##{normal}#: Once purchased your vault space is permanently increased.", "#{bold}##GOLD#仓库空间#WHITE##{normal}#：购买后，你的共享仓库大小会永久增加。", "_t")
 
 ------------------------------------------------
@@ -1186,7 +1186,7 @@ t("This pack is already installed and in use for your character.", "这个包已
 t("You are about to use a charge of this option. You currently have %d charges remaining.", "你准备使用这个选项，消耗一次使用次数。你还有 %d 次使用次数。", "tformat")
 t("Please wait while contacting the server...", "请稍候，正在与服务器进行通信", "_t")
 t("The option has been activated.", "选项已激活。", "_t")
-t("There was an error from the server: %s", "服务器发生错误： %s", "tformat")
+t("There was an error from the server: %s", "服务器发生错误：%s", "tformat")
 t("Online Store", "在线商城", "_t")
 t("#LIGHT_GREEN#Installed", "#LIGHT_GREEN#已安装", "_t")
 t("#YELLOW#Installable", "#YELLOW#可以安装", "_t")
@@ -1210,9 +1210,9 @@ t("cannot use currently due to an other worn object", "由于目前穿戴的其�
 t("%s is not wearable.", "%s无法装备。", "logSeen")
 t("%s can not wear %s.", "%s不能装备%s。", "logSeen")
 t("%s can not wear (%s): %s (%s).", "%s无法装备（%s）：%s（%s）", "logSeen")
-t("%s wears: %s.", "%s 装备了： %s。", "logSeen")
-t("%s wears (offslot): %s.", "%s副手装备了： %s。", "logSeen")
-t("%s wears (replacing %s): %s.", "%s装备（替换%s）了： %s。", "logSeen")
+t("%s wears: %s.", "%s 装备了：%s。", "logSeen")
+t("%s wears (offslot): %s.", "%s副手装备了：%s。", "logSeen")
+t("%s wears (replacing %s): %s.", "%s装备（替换%s）了：%s。", "logSeen")
 t("%s can not wear: %s.", "%s不能装备%s。", "logSeen")
 
 ------------------------------------------------
@@ -1269,7 +1269,7 @@ section "engine/engine/interface/ObjectActivable.lua"
 
 t("It can be used to %s, with %d charges out of %d.", "可以用于 %s，剩余 %d 次充能，共 %d 次。", "tformat")
 t("It can be used to %s, costing %d power out of %d/%d.", "可以用于 %s，消耗 %d 点能量（当前 %d/%d）。", "tformat")
-t("It can be used to activate talent: %s (level %d).", "可以用于激活技能： %s (等级 %d)。", "tformat")
+t("It can be used to activate talent: %s (level %d).", "可以用于激活技能：%s (等级 %d)。", "tformat")
 t("It can be used to activate talent: %s (level %d), costing %d power out of %d/%d.", "可以用于激活技能：%s（等级 %d），消耗 %d 点能量（当前 %d/%d）。", "tformat")
 t("%s is still recharging.", "%s 还在充能。", "logPlayer")
 t("%s can not be used anymore.", "%s 无法再继续使用了。", "logPlayer")
@@ -1323,9 +1323,9 @@ t("Ran for %d turns (stop reason: %s).", "奔跑了%d回合（中断原因：%s�
 section "engine/engine/interface/WorldAchievements.lua"
 
 t("#%s#Personal New Achievement: %s!", "#%s#个人新成就：%s！", "log")
-t("Personal New Achievement: #%s#%s", "个人新成就： #%s#%s", "tformat")
+t("Personal New Achievement: #%s#%s", "个人新成就：#%s#%s", "tformat")
 t("#%s#New Achievement: %s!", "#%s#新成就：%s！", "log")
-t("New Achievement: #%s#%s", "新成就： #%s#%s", "tformat")
+t("New Achievement: #%s#%s", "新成就：#%s#%s", "tformat")
 t("New Achievement", "新成就", "_t")
 
 ------------------------------------------------
@@ -1385,9 +1385,9 @@ section "engine/engine/ui/WebView.lua"
 t("Download: ", "下载：", "tformat")
 t("Cancel", "取消", "_t")
 t("Confirm addon install/update", "确认插件安装/更新", "_t")
-t("Are you sure you want to install this addon: #LIGHT_GREEN##{bold}#%s#{normal}##LAST# ?", "你确认要安装这个插件吗： #LIGHT_GREEN##{bold}#%s#{normal}##LAST# ？", "_t")
+t("Are you sure you want to install this addon: #LIGHT_GREEN##{bold}#%s#{normal}##LAST# ?", "你确认要安装这个插件吗：#LIGHT_GREEN##{bold}#%s#{normal}##LAST#？", "_t")
 t("Confirm module install/update", "确认模组安装/更新", "_t")
-t("Are you sure you want to install this module: #LIGHT_GREEN##{bold}#%s#{normal}##LAST#?", "你确认要安装这个模组吗： #LIGHT_GREEN##{bold}#%s#{normal}##LAST# ？", "tformat")
+t("Are you sure you want to install this module: #LIGHT_GREEN##{bold}#%s#{normal}##LAST#?", "你确认要安装这个模组吗：#LIGHT_GREEN##{bold}#%s#{normal}##LAST#？", "tformat")
 t("Addon installed!", "插件安装完成！", "_t")
 t("Addon installation successful. New addons are only active for new characters.", "插件安装成功。新的插件只会在新的游戏角色生效。", "_t")
 t("Game installed!", "游戏安装完成！", "_t")
@@ -1465,7 +1465,7 @@ Check out the following folder on your computer:
 ]], [[糟糕！好像你安装了多份同一个插件/DLC。
 这种情况不被支持的，会引发很多BUG。请你移除掉多余的文件。
 
-插件名称： #YELLOW#%s#LAST#
+插件名称：#YELLOW#%s#LAST#
 
 请你检查你电脑里的以下文件夹：
 %s
@@ -1645,7 +1645,7 @@ t("Forest", "森林", "_t")
 section "engine/modules/boot/dialogs/Addons.lua"
 
 t("Configure Addons", "设置插件", "_t")
-t("You can get new addons at #LIGHT_BLUE##{underline}#Te4.org Addons#{normal}#", "在以下位置可以获得新的插件： #LIGHT_BLUE##{underline}#Te4.org 插件页面#{normal}#", "_t")
+t("You can get new addons at #LIGHT_BLUE##{underline}#Te4.org Addons#{normal}#", "在以下位置可以获得新的插件：#LIGHT_BLUE##{underline}#Te4.org 插件页面#{normal}#", "_t")
 t(" and #LIGHT_BLUE##{underline}#Te4.org DLCs#{normal}#", " 和 #LIGHT_BLUE##{underline}#Te4.org DLC页面#{normal}#", "_t")
 t("You can get new addons on #LIGHT_BLUE##{underline}#Steam Workshop#{normal}#", "在以下位置可以获得新的插件：#LIGHT_BLUE##{underline}#Steam 创意工坊#{normal}#", "_t")
 t(", #LIGHT_BLUE##{underline}#Te4.org Addons#{normal}#", ", #LIGHT_BLUE##{underline}#Te4.org 插件页面#{normal}#", "_t")
@@ -1739,8 +1739,8 @@ Game version: %d.%d.%d
 Requires addons: %s
 
 %s]], [[#{bold}##GOLD#%s：%s#WHITE##{normal}#
-游戏版本： %d.%d.%d
-需要的插件： %s
+游戏版本：%d.%d.%d
+需要的插件：%s
 
 %s]], "tformat")
 t("You can simply grab an older version of the game from where you downloaded it.", "你可以在下载这个游戏的地方，下载到这个游戏的旧版本。", "_t")
@@ -1752,13 +1752,13 @@ t([[This savefile was created with game version %s. You can try loading it with 
 t("Cancel", "取消", "_t")
 t("Run with newer version", "运行新版本", "_t")
 t("Developer Mode", "开发者模式", "_t")
-t("#LIGHT_RED#WARNING: #LAST#Loading a savefile while in developer mode will permanently invalidate it. Proceed?", "#LIGHT_RED#警告： #LAST#在开发者模式下读取一个存档将会不可逆地将其标记为作弊存档。确定吗？", "_t")
+t("#LIGHT_RED#WARNING: #LAST#Loading a savefile while in developer mode will permanently invalidate it. Proceed?", "#LIGHT_RED#警告：#LAST#在开发者模式下读取一个存档将会不可逆地将其标记为作弊存档。确定吗？", "_t")
 t("Load anyway", "仍然读档", "_t")
 t("Delete savefile", "删除存档", "_t")
 t("Really delete #{bold}##GOLD#%s#WHITE##{normal}#", "真的要删除#{bold}##GOLD#%s#WHITE##{normal}#吗", "tformat")
 t("Old game data", "旧版游戏数据", "_t")
 t("No data available for this game version.", "没有当前游戏版本的数据。", "_t")
-t("Downloading old game data: #LIGHT_GREEN#", "正在下载旧版游戏数据： #LIGHT_GREEN#", "_t")
+t("Downloading old game data: #LIGHT_GREEN#", "正在下载旧版游戏数据：#LIGHT_GREEN#", "_t")
 t("Old game data for %s correctly installed. You can now play.", "%s 的旧版游戏数据已经安装成功了。你可以现在游玩了。", "tformat")
 t("Failed to install.", "安装失败。", "_t")
 
@@ -1789,9 +1789,9 @@ t([[#{bold}##GOLD#Ashes of Urh'Rok - Expansion#LAST##{normal}#
 #{italic}##ANTIQUE_WHITE#很多马基埃亚尔的居民都曾经听说过“恶魔”的名字，它们是一群似乎凭空出现的暴虐生物，无论走到哪里都会带来痛苦和毁灭。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
-#LIGHT_UMBER#新职业：#WHITE# 毁灭使者。 他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。
-#LIGHT_UMBER#新职业：#WHITE# 恶魔使者。 这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！
-#LIGHT_UMBER#新种族：#WHITE# 魔化精灵。 那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。
+#LIGHT_UMBER#新职业：#WHITE# 毁灭使者。他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。
+#LIGHT_UMBER#新职业：#WHITE# 恶魔使者。这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！
+#LIGHT_UMBER#新种族：#WHITE# 魔化精灵。那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。
 #LIGHT_UMBER#更多新神器、新手札、新地图、新事件……#WHITE# 体验恶魔的欢愉吧！
 
 ]], "_t")
@@ -1837,10 +1837,10 @@ t([[#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#
 #{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，进入了疯狂之中，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
-#LIGHT_UMBER#新职业：#WHITE# 扭动者。 屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
-#LIGHT_UMBER#新职业：#WHITE# 熵教徒。 这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
-#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。 他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
-#LIGHT_UMBER#新种族：#WHITE# 克罗格。 他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
+#LIGHT_UMBER#新职业：#WHITE# 扭动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
+#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
+#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
+#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
 #LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路(不要问我你是怎么*进来*的)，探索神秘的出口，以及更多奇异的，充满触手的地图！
 #LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢灼眼恐魔吗？你一定会喜欢上灼热恐魔的！还有虚空蠕虫，还有熵之碎片，还有其他更多怪物！
 #LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个悠闲的寄生兽吧！
