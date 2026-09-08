@@ -33,7 +33,7 @@ t("Their most important stats are: Strength and Magic", "他们最重要的属�
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +4 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +4 力量，+0 敏捷，+2 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, +0 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔法，+0 意志，+1 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD# 每等级生命加值：#LIGHT_BLUE# +3", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD#每等级生命加值：#LIGHT_BLUE# +3", "_t")
 t("Demonologist", "恶魔使者", "birth descriptor name")
 t("Most simply run, but I understand: a distant planet, ravaged and damned. Burnt creations seek righteous vengeance, Urh'Rok's ashes, now destruction's engines. Harness their power! Capture and tame! I call on you, demons - UNLEASH THE FLAMES!", "人们常畏惧，但我了解真实：遥远的星球，被厄运所折磨；燃烧的造物们，如今渴望复仇；乌鲁洛克之烬，驱动战争机器。捕获并征服！驾驭他们的力量！在此召唤——恶魔们，释放你们的烈焰！", "_t")
 t("Contrary to popular beliefs Demonologists are not the pawns of demons, they enact pacts with them but always very carefully.", "不同于众人所相信的，恶魔使者并非恶魔的走卒。他们只是小心谨慎地与恶魔签订契约。", "_t")
@@ -41,7 +41,7 @@ t("They use those demonic powers for their own purpose, often evil but a few hav
 t("Demonologists are melee fighters, bashing their foes skulls with their shields while calling down rains of fire and darkness.", "恶魔使者是近身格斗的战士，用盾牌击碎敌人的头颅，同时能呼唤黑暗与火焰之力。", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量，+0 敏捷，+2 体质", "_t")
 t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+0 意志，+0 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD# 每等级生命加值：#LIGHT_BLUE# +2", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/birth/doomelf.lua"
@@ -64,7 +64,7 @@ t("They possess the #GOLD#Haste of the Doomed#WHITE# talent which allows them to
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -2 力量，+1 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +3 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +3 魔法，+2 意志，+0 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# 9", "#GOLD# 每等级生命加值：#LIGHT_BLUE# 9", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# 9", "#GOLD#每等级生命加值：#LIGHT_BLUE# 9", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚：#LIGHT_BLUE# 12%", "_t")
 
 ------------------------------------------------

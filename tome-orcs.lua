@@ -68,7 +68,7 @@ t("Their most important stats are: Magic and Constitution", "他们最重要的�
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+3 体质", "_t")
 t("#LIGHT_BLUE# * +6 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +6 魔法，+0 意志，+0 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD# 每等级生命加值：#LIGHT_BLUE# +0", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_BLUE# +0", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/birth/classes/tinker.lua"
@@ -91,7 +91,7 @@ t("A tinker who dual-wields steamguns to great effect.", "双持蒸汽枪的工�
 t("Their most important stats are: Cunning and Dexterity", "他们最重要的属性是：灵巧和敏捷", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +0 力量，+4 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+4 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# -1", "#GOLD# 每等级生命加值：#LIGHT_BLUE# -1", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# -1", "#GOLD#每等级生命加值：#LIGHT_BLUE# -1", "_t")
 t("Psyshot", "灵能射手", "birth descriptor name")
 t("Bend the mind, bend the tech. All around inspire dread.", "扭曲精神，扭曲科技，一切都是为了激发恐惧。", "_t")
 t("Powerful psionics are able to enter a gestalt with steam generators and technology to enhance their own mental prowess.", "强大的灵能使用者能够与蒸汽发生器和科技形成格式塔联结，以增强自身的精神力量。", "_t")
@@ -154,7 +154,7 @@ t("They possess the #GOLD#Orcish Fury#WHITE# which allows them to increase all t
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +2 力量，+1 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * -1 Magic, +1 Willpower, +1 Cunning", "#LIGHT_BLUE# * -1 魔法，+1 意志，+1 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# 12", "#GOLD# 每等级生命加值：#LIGHT_BLUE# 12", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# 12", "#GOLD#每等级生命加值：#LIGHT_BLUE# 12", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚：#LIGHT_BLUE# 12%", "_t")
 
 ------------------------------------------------
@@ -211,7 +211,7 @@ t("- special whitehoof talents: dead hide, lifeless rush, essence drain", "- 特
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量，-1 敏捷，+2 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, -3 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔法，-3 意志，+1 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# 14", "#GOLD# 每等级生命加值：#LIGHT_BLUE# 14", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# 14", "#GOLD#每等级生命加值：#LIGHT_BLUE# 14", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 15%", "#GOLD#经验惩罚：#LIGHT_BLUE# 15%", "_t")
 
 ------------------------------------------------
@@ -260,7 +260,7 @@ t("They possess the #GOLD#Algid Rage#WHITE# talent which allows them to encase t
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, -3 Dexterity, +4 Constitution", "#LIGHT_BLUE# * +5 力量，-3 敏捷，+4 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +1 Willpower, -1 Cunning", "#LIGHT_BLUE# * +0 魔法，+1 意志，-1 灵巧", "_t")
-t("#GOLD#Life per level:#LIGHT_BLUE# 13", "#GOLD# 每等级生命加值：#LIGHT_BLUE# 13", "_t")
+t("#GOLD#Life per level:#LIGHT_BLUE# 13", "#GOLD#每等级生命加值：#LIGHT_BLUE# 13", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚：#LIGHT_BLUE# 12%", "_t")
 
 ------------------------------------------------
