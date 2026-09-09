@@ -1209,7 +1209,7 @@ t("missing dependency", "未满足前置条件", "_t")
 t("cannot use currently due to an other worn object", "由于目前穿戴的其他装备，无法装备此物品", "_t")
 t("%s is not wearable.", "%s无法装备。", "logSeen")
 t("%s can not wear %s.", "%s不能装备%s。", "logSeen")
-t("%s can not wear (%s): %s (%s).", "%s无法装备（%s）：%s（%s）", "logSeen")
+t("%s can not wear (%s): %s (%s).", "%s无法装备（%s）：%s（%s）。", "logSeen")
 t("%s wears: %s.", "%s 装备了：%s。", "logSeen")
 t("%s wears (offslot): %s.", "%s副手装备了：%s。", "logSeen")
 t("%s wears (replacing %s): %s.", "%s装备（替换%s）了：%s。", "logSeen")
@@ -1931,7 +1931,7 @@ To enjoy all the features the game has to offer it is #{bold}#highly#{normal}# r
 Luckily this is very easy to do: you only require a profile name and optionally an email (we send very few email, maybe two a year at most).
 ]], [[欢迎来到#GOLD#马基·埃亚尔的传说#LAST#。
 为了享受游戏的全部功能，我们#{bold}#强烈#{normal}#推荐你注册你的Steam账户。
-幸运的是，这非常容易：你只需要提供你的用户名，也可以提供你的邮箱。（我们基本上不会给你发送邮件，每年最多发送一两份）
+幸运的是，这非常容易：你只需要提供你的用户名，也可以提供你的邮箱（我们基本上不会给你发送邮件，每年最多发送一两份）。
 ]], "_t")
 t("Username: ", "用户名：", "_t")
 t("Email: ", "邮箱：", "_t")

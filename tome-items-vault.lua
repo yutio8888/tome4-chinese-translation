@@ -54,7 +54,7 @@ t("\
 #CRIMSON#Note for Steam Players#ANCIENT_WHITE#: This feature requires you to have registered a profile & bound it to steam (automatic if you register ingame) because it needs to store things on the server.\
 Until you do so you will get an error.", "\
 #CRIMSON#对Steam玩家的提醒#ANCIENT_WHITE#: 因为这项功能需要你在服务器上存储数据，使用共享仓库需要你注册了游戏账户，并将其绑定到Steam（如果你在游戏内注册，这个过程将会自动完成）。\
-否则，你将会遇到一个错误", "_t")
+否则，你将会遇到一个错误。", "_t")
 t("[Place an item in the vault]", "[将物品放入共享仓库中]", "_t")
 t("Item's Vault", "共享仓库", "_t")
 t("You can not place an item in the vault from an un-validated game.", "你不能从未验证的游戏版本里将物品放入共享仓库。", "_t")
@@ -77,14 +77,14 @@ section "tome-items-vault/overload/mod/class/ItemsVaultDLC.lua"
 t("the #GOLD#Item's Vault#WHITE#", "#GOLD#共享仓库#WHITE#", "_t")
 t("\
 #CRIMSON#This item has been sent to the Item's Vault.", "\
-#CRIMSON#这个物品已被上传到共享仓库", "_t")
+#CRIMSON#这个物品已被上传到共享仓库。", "_t")
 t("Transfering...", "传输中…", "_t")
 t("Teleporting object to the vault, please wait...", "正在将物品传输到共享仓库，请稍候…", "_t")
 t("unknown reason", "原因不明", "_t")
 t("#LIGHT_BLUE#You transfer %s to the online item's vault.", "#LIGHT_BLUE#你将%s传输到在线共享仓库。", "logPlayer")
-t("#LIGHT_RED#Error while transfering %s to the online item's vault, please retry later.", "#LIGHT_RED#将物品%s传输到在线共享仓库时发生错误，请稍后再试", "logPlayer")
+t("#LIGHT_RED#Error while transfering %s to the online item's vault, please retry later.", "#LIGHT_RED#将物品%s传输到在线共享仓库时发生错误，请稍后再试。", "logPlayer")
 t("#CRIMSON#Server said: %s", "#CRIMSON#服务器信息: %s", "logPlayer")
-t("#LIGHT_BLUE#You transfer %s to the offline item's vault.", "#LIGHT_BLUE#你将%s传输到离线共享仓库", "logPlayer")
+t("#LIGHT_BLUE#You transfer %s to the offline item's vault.", "#LIGHT_BLUE#你将%s传输到离线共享仓库。", "logPlayer")
 t("Teleporting object from the vault, please wait...", "正在从共享仓库中接收物品，请稍候…", "_t")
 t("Transfer failed", "传输失败", "_t")
 t([[This item comes from a previous version and would not work in your current game.
@@ -108,7 +108,7 @@ t("#LIGHT_GREEN#Yes", "#LIGHT_GREEN#是", "_t")
 t("#LIGHT_RED#In less than one minute", "#LIGHT_RED#剩余小于1分钟", "_t")
 t("#LIGHT_RED#In %d minutes", "#LIGHT_RED#剩余约%d分钟", "tformat")
 t("Cooldown", "冷却时间", "_t")
-t("This item has been placed recently in the vault, you must wait a bit before removing it.", "该物品刚刚被放入共享仓库，你需要等待一段时间才能将其移除", "_t")
+t("This item has been placed recently in the vault, you must wait a bit before removing it.", "该物品刚刚被放入共享仓库，你需要等待一段时间才能将其移除。", "_t")
 t("#LIGHT_BLUE#You transfer %s from the online item's vault.", "#LIGHT_BLUE#你从在线共享仓库中取回物品%s。", "log")
 t("#LIGHT_RED#Error while transfering from the online item's vault, please retry later.", "#LIGHT_RED#从在线共享仓库中获取物品失败，请稍候再试。", "log")
 
@@ -127,7 +127,7 @@ t("#LIGHT_GREEN#Yes", "#LIGHT_GREEN#是", "_t")
 t("#LIGHT_RED#In less than one minute", "#LIGHT_RED#剩余小于1分钟", "_t")
 t("#LIGHT_RED#In %d minutes", "#LIGHT_RED#剩余约%d分钟", "tformat")
 t("Cooldown", "冷却时间", "_t")
-t("This item has been placed recently in the vault, you must wait a bit before removing it.", "该物品刚刚被放入共享仓库，你需要等待一段时间才能将其移除", "_t")
+t("This item has been placed recently in the vault, you must wait a bit before removing it.", "该物品刚刚被放入共享仓库，你需要等待一段时间才能将其移除。", "_t")
 t("#LIGHT_BLUE#You transfer %s from the offline item's vault.", "#LIGHT_BLUE#你从离线共享仓库中取回物品%s。", "log")
 t("#LIGHT_RED#Error while transfering from the offline item's vault, please retry later.", "#LIGHT_RED#从离线共享仓库中获取物品失败，请稍候再试。", "log")
 

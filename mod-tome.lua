@@ -238,7 +238,7 @@ t("%d generic talent point(s)", "%d 通用技能点", "tformat")
 t("%d category point(s)", "%d 大系点", "tformat")
 t("#VIOLET#%d prodigies point(s)#WHITE#", "#VIOLET#%d 觉醒点#WHITE#", "tformat")
 t("%s has %s to spend. %s", "%s有 %s可以使用。%s", "log")
-t("#AQUAMARINE#You have gained one more life (%d remaining).", "#AQUAMARINE#你额外获得了一条命（剩余生命数：%d）", "logPlayer")
+t("#AQUAMARINE#You have gained one more life (%d remaining).", "#AQUAMARINE#你额外获得了一条命（剩余生命数：%d）。", "logPlayer")
 t("#FF0000#You carry too much--you are encumbered!", "#FF0000#你拿了太多东西——超重了！", "logPlayer")
 t("#FF0000#Drop some of your items.", "#FF0000#丢弃一些东西。", "logPlayer")
 t("+ENCUMBERED!", "+超重！", "_t")
@@ -1905,7 +1905,7 @@ Crit reduction reduces the chance an opponent has of landing a critical strike w
 t([[#GOLD#Crits Shrug Off#LAST#
 Gives a chance to ignore the bonus critical damage from any direct damage attacks (melee, spells, ranged, mind powers, ...).
 ]], [[#GOLD#暴击摆脱#LAST#
-让你在受到直接暴击伤害时，降低暴击的额外伤害。（无论是近战，法术，远程，精神力量，还是…）
+让你在受到直接暴击伤害时，降低暴击的额外伤害（无论是近战，法术，远程，精神力量，还是…）。
 ]], "_t")
 t([[#GOLD#Defense#LAST#
 Defense represents your chance to avoid melee weapon attacks and reduces the chance you'll be knocked off-balance by an enemy's attack. It is measured against the attacker's Accuracy.
@@ -13252,7 +13252,7 @@ t("Champion's Will", "冠军意志", "entity name")
 t("blindingly bright sword", "一把发出炫目光芒的剑", "_t")
 t("This impressive looking sword features a golden engraving of a sun in its hilt. Etched into its blade are a series of runes claiming that only one who has mastered both their body and mind may wield this sword effectively.", "初看这把外形令人印象深刻的长剑，最先吸引你目光的是雕刻在剑柄之中的金色太阳。而蚀刻在剑刃之上的复杂的符文仿佛在告诉你，只有真正掌握自己肉体和精神力量之人才能发挥出这把武器的最大威力。", "_t")
 t("Increases the damage of Sun Beam by 15%.", "增加15%阳光烈焰伤害。", "_t")
-t("releases a burst of light, dealing %d light damage (based on Spellpower) in a radius 3 cone.", "放出光系爆炸，在3码扇形区域内造成%d光系伤害（基于法术强度）", "tformat")
+t("releases a burst of light, dealing %d light damage (based on Spellpower) in a radius 3 cone.", "放出光系爆炸，在3码扇形区域内造成%d光系伤害（基于法术强度）。", "tformat")
 t("attack everything in a line out to range %d, dealing 100%% weapon damage (as light), and healing for 50%% of the damage dealt", "攻击长度为 %d 的直线上所有目标，造成 100%% 光系武器伤  害，并将 50%% 伤害转化为治疗。", "tformat")
 t("#Source# strikes out at #target# with %s %s!", "#Source#用%s%s打击#target#！", "logCombat")
 t("something", "某物", "_t")
@@ -23983,7 +23983,7 @@ t("Dark Gifts", "黑暗礼物", "talent name")
 t([[Your curses bring you dark gifts. Unlocks bonus level %d effects on all of your curses, allowing you to gain that effect when the power level of your curse reaches that level. At talent level 5, the luck penalty of cursed effects is reduced to 1.
 		Talent levels above 5 add bonus power levels to your curses, increasing their effects (currently %0.1f).]], [[你的诅咒带来黑暗的礼物。解锁所有诅咒第 %d 层效果，并允许你在诅咒达到该等级时获得此效果。
 		在等级 5 时，因诅咒带来的幸运惩罚降到 1。
-		等级 5 以上时增加诅咒效果（当前增加 %0.1f ）]], "tformat")
+		等级 5 以上时增加诅咒效果（当前增加 %0.1f ）。]], "tformat")
 t("Ruined Earth", "毁灭大地", "talent name")
 t("Curse the earth around you in a radius of %d for %d turns. Any who stand upon it are weakened, reducing the damage they inflict by %d%%", [[诅咒你周围 %d 码半径范围的大地，持续 %d 回合。
 		任何站在大地上的目标将会被虚弱，减少它们 %d%% 的伤害。]], "tformat")
@@ -25298,7 +25298,7 @@ t([[Your body is more like that of an ooze.
 		You may have up to %d Bloated Oozes active at any time (limited by talent level and the summoning limit), and all damage you take will be split equally between you and them so long as this talent is active.
 		Bloated Oozes last for %d turns, are very resilient (%d%% all damage resistance to damage not coming through your shared link), and regenerate life quickly.
 		%sThe chance to split increases with your Cunning.]], [[你的身体构造变的像软泥怪一样。
-		当你受到攻击时，你有几率分裂出一个浮肿软泥怪，其生命值为你所承受的伤害值的两倍（最大 %d，基于你的精神强度和最大生命值。）。
+		当你受到攻击时，你有几率分裂出一个浮肿软泥怪，其生命值为你所承受的伤害值的两倍（最大 %d，基于你的精神强度和最大生命值）。
 		分裂几率为你损失生命百分比的 %0.2f 倍。
 		你同时最多只能拥有 %d 只浮肿软泥怪，你所承受的所有伤害会在你和浮肿软泥怪间均摊。
 		每只浮肿软泥怪存在 %d 回合，对非均摊的伤害的抗性很高（ %d%% 对全部伤害的抗性），同时生命回复快。
@@ -26898,7 +26898,7 @@ t([[Halfling's incredible luck always kicks in at just the right moment to save 
 t("Militant Mind", "好斗精神", "talent name")
 t([[Halflings have always been a very organised and methodical race; the more foes they face, the more organised they are.
 		If two or more foes are in sight your Physical Power, Physical Save, Spellpower, Spell Save, Mental Save, and Mindpower are increased by %0.1f per foe (up to 5 foes).]], [[半身人曾是一个有组织纪律的种族，敌人越多他们越团结。
-		如果有 2 个或多个敌人在你的视野里，每个敌人都会使你的所有强度和豁免提高 %0.1f。（最多 5 个敌人）]], "tformat")
+		如果有 2 个或多个敌人在你的视野里，每个敌人都会使你的所有强度和豁免提高 %0.1f（最多 5 个敌人）。]], "tformat")
 t("Indomitable", "不屈意志", "talent name")
 t([[Halflings have one of the most powerful military forces in the known world and have been at war with most other races for thousands of years.
 		Removes %d stun, daze, or pin effects and grants immunity to stuns, dazes and pins for %d turns.]], [[半身人以骁勇善战闻名于世，他们曾经在战场上对抗其他种族上千年。
@@ -31777,7 +31777,7 @@ t([[You focus your mind on the task at hand, regardless of how dire the situatio
 		For 5 turns, none of your talents use any resources.]], [[在严峻的形势面前，你集中意念进入心如止水的状态。
 		在 5 回合内，所有技能不消耗任何能量。]], "tformat")
 t("Lucky Day", "幸运日", "talent name")
-t("Be lucky already (at least +5 luck)", "拥有大运气。（至少有+5幸运属性）", "_t")
+t("Be lucky already (at least +5 luck)", "拥有大运气（至少有+5幸运属性）", "_t")
 t("Every day is your lucky day! You gain a permanent +40 luck bonus and 10%% to move out of the way of every attack.", "每天都是幸运日！幸运永久 +40，有 10%% 几率闪避所有攻击。", "tformat")
 t("Unbreakable Will", "坚定意志", "talent name")
 t("#LIGHT_BLUE#%s's unbreakable will shrugs off the effect!", "#LIGHT_BLUE#%s 的坚定意志豁免了此效果！", "logSeen")
@@ -31938,7 +31938,7 @@ t("Your undead bones are very resilient, reducing the duration of all detrimenta
 t("Re-assemble", "重组", "talent name")
 t([[Reposition some of your bones, healing yourself for %d.
 		At level 5, you will gain the ability to completely re-assemble your body should it be destroyed (can only be used once).]], [[重新组合你的骨头，治疗你 %d 点生命值。
-		在等级 5 时你将会得到重塑自我的能力，被摧毁后可以原地满血复活。（仅限 1 次）]], "tformat")
+		在等级 5 时你将会得到重塑自我的能力，被摧毁后可以原地满血复活（仅限 1 次）。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/undeads/undeads.lua"
@@ -34901,7 +34901,7 @@ t("The target is near a font of life, granting %+0.2f life regeneration, %+0.2f 
 t("Spellblaze Scar", "魔法大爆炸伤痕", "floorEffect desc")
 t("The target is near a spellblaze scar, granting +25% spell critical chance, +10% fire and blight damage but critical spells will drain arcane forces.", "目标接近魔法大爆炸伤痕，获得 25%法术暴击率，增加 10%火焰和枯萎伤害，但是法术暴击会消耗法力值。", "_t")
 t("Blighted Soil", "荒芜之地", "floorEffect desc")
-t("The target is walking on blighted soil, reducing diseases resistance by 60% and giving all attacks a 40% chance to infect the target with a random disease (can only happen once per turn).", "目标行走在荒芜之地上，减少 60%疾病抵抗并且对目标的所有攻击有 40%的几率使其感染某种疾病。（每回合只能触发一次）", "_t")
+t("The target is walking on blighted soil, reducing diseases resistance by 60% and giving all attacks a 40% chance to infect the target with a random disease (can only happen once per turn).", "目标行走在荒芜之地上，减少 60%疾病抵抗并且对目标的所有攻击有 40%的几率使其感染某种疾病（每回合只能触发一次）。", "_t")
 t("Glimmerstone", "闪光石", "floorEffect desc")
 t("The target is affected by a glimmerstone, its next attack will try to daze.", "目标被闪光石影响，它的下一次攻击可能造成眩晕。", "_t")
 t("Protective Aura", "防御光环", "floorEffect desc")
@@ -36712,7 +36712,7 @@ t("burnt to death by cauterize", "被灼烧致死", "_t")
 t("Something", "某物", "_t")
 t("eidolon", "艾德隆", "effect subtype")
 t("Protected by the Eidolon", "受艾德隆保护", "_t")
-t("The target is protected by the Eidolon, no creature may harm it (except self-harm).", "目标受到艾德隆保护，没有生物可以伤害它（自残除外……）", "_t")
+t("The target is protected by the Eidolon, no creature may harm it (except self-harm).", "目标受到艾德隆保护，没有生物可以伤害它（自残除外）。", "_t")
 t("undead", "亡灵", "effect subtype")
 t("Cloak of Deception", "欺诈斗篷", "_t")
 t("The target is under the effect of the cloak of deception, making it look human.", "目标受到欺诈斗篷的效果影响，使它看上去像活人一样。", "_t")
@@ -39113,7 +39113,7 @@ t("You have %d stat point(s) to spend. Press p to use them.", "你有 %d 属性�
 t("You have %d class talent point(s) to spend. Press p to use them.", "你有 %d 职业技能点数，按 P 键使用。", "logPlayer")
 t("You have %d generic talent point(s) to spend. Press p to use them.", "你有 %d 通用技能点数，按 P 键使用。", "logPlayer")
 t("You are transformed by the corrupted heart of the Queen!", "你被腐化的沙虫女皇之心所转化！", "logPlayer")
-t("#00FF00#You gain an affinity for blight. You can now learn new Vile Life talents (press p).", "#00FF00#你获得了与枯萎的紧密联系，现在你可以学习新的邪恶生命技能（按 P 键）", "logPlayer")
+t("#00FF00#You gain an affinity for blight. You can now learn new Vile Life talents (press p).", "#00FF00#你获得了与枯萎的紧密联系，现在你可以学习新的邪恶生命技能（按 P 键）。", "logPlayer")
 
 ------------------------------------------------
 section "mod-tome/data/zones/mark-spellblaze/zone.lua"
@@ -39655,7 +39655,7 @@ t("You have %d stat point(s) to spend. Press p to use them.", "你有 %d 属性�
 t("You have %d class talent point(s) to spend. Press p to use them.", "你有 %d 职业技能点数，按 P 键使用。", "logPlayer")
 t("You have %d generic talent point(s) to spend. Press p to use them.", "你有 %d 通用技能点数，按 P 键使用。", "logPlayer")
 t("You are transformed by the heart of the Queen!", "你被沙虫女皇之心所转化！", "logPlayer")
-t("#00FF00#You gain an affinity for nature. You can now learn new Harmony talents (press p).", "#00FF00#你获得了与自然的紧密联系，现在你可以学习新的元素和谐技能（按 P 键）", "logPlayer")
+t("#00FF00#You gain an affinity for nature. You can now learn new Harmony talents (press p).", "#00FF00#你获得了与自然的紧密联系，现在你可以学习新的元素和谐技能（按 P 键）。", "logPlayer")
 t("blood", "血", "entity subtype")
 t("Wyrm Bile", "巨龙胆汁", "entity name")
 t("putrescent potion", "腐烂的液体", "_t")
@@ -40791,26 +40791,26 @@ t("Rune of Enlightenment: Summer Vacation", "启蒙符文：暑假", "entity nam
 t("Causes the player's brain to jettison all recently-acquired knowledge.", "可以净化玩家的大脑，使玩家遗忘所有最近所学的技能。", "_t")
 t("#VIOLET#You feel unenlightened.", "#VIOLET#你感到很无知。", "logPlayer")
 t("Rune of Enlightenment: Shove", "启蒙符文：冲撞", "entity name")
-t("Teaches the player 'Shove'.", "可习得技能“推挤”", "_t")
+t("Teaches the player 'Shove'.", "可习得技能“推挤”。", "_t")
 t("#VIOLET#You have learned the talent Shove.", "#VIOLET#你学会了技能推挤。", "logPlayer")
 t("#VIOLET#The sound of an ancient door grinding open echoes down the tunnel!", "#VIOLET#推开古老大门产生的吱呀声音回荡在通道里！", "logPlayer")
 t("Rune of Enlightenment: Mana Gale", "启蒙符文：法力风暴", "entity name")
-t("Teaches the player 'Mana Gale'.", "可习得技能“法力风暴”", "_t")
+t("Teaches the player 'Mana Gale'.", "可习得技能“法力风暴”。", "_t")
 t("#VIOLET#You have learned the talent Mana Gale.", "#VIOLET#你学会了技能法力风暴。", "logPlayer")
 t("Rune of Enlightenment: Telekinetic Punt", "启蒙符文：念力推送", "entity name")
-t("Teaches the player 'Telekinetic Punt'.", "可习得技能“念力推送”", "_t")
+t("Teaches the player 'Telekinetic Punt'.", "可习得技能“念力推送”。", "_t")
 t("#VIOLET#You have learned the talent Telekinetic Punt.", "#VIOLET#你学会了技能念力推送。", "logPlayer")
 t("Rune of Enlightenment: Blink", "启蒙符文：闪现", "entity name")
-t("Teaches the player 'Blink'.", "可习得技能“闪现”", "_t")
+t("Teaches the player 'Blink'.", "可习得技能“闪现”。", "_t")
 t("#VIOLET#You have learned the talent Blink.", "#VIOLET#你学会了技能闪现。", "logPlayer")
 t("Rune of Enlightenment: Fear", "启蒙符文：恐惧", "entity name")
-t("Teaches the player 'Fear'.", "可习得技能“恐惧”", "_t")
+t("Teaches the player 'Fear'.", "可习得技能“恐惧”。", "_t")
 t("#VIOLET#You have learned the talent Fear.", "#VIOLET#你学会了技能恐惧。", "logPlayer")
 t("Rune of Enlightenment: Bleed", "启蒙符文：流血", "entity name")
-t("Teaches the player 'Bleed'.", "可习得技能“流血”", "_t")
+t("Teaches the player 'Bleed'.", "可习得技能“流血”。", "_t")
 t("#VIOLET#You have learned the talent Bleed.", "#VIOLET#你学会了技能流血。", "logPlayer")
 t("Rune of Enlightenment: Confusion", "启蒙符文：混乱", "entity name")
-t("Teaches the player 'Confusion'.", "可习得技能“混乱”", "_t")
+t("Teaches the player 'Confusion'.", "可习得技能“混乱”。", "_t")
 t("#VIOLET#You have learned the talent Confusion.", "#VIOLET#你学会了技能混乱。", "logPlayer")
 t("wall", "墙壁", "entity type")
 t("floor", "地板", "entity subtype")
@@ -41152,7 +41152,7 @@ t("Capital city of the Allied Kingdoms ruled by King Tolak", "联合王国首都
 t("Angolwen, the hidden city of magic", "安格利文，隐藏的魔法之城", "entity name")
 t([[Secret place of magic, set apart from the world to protect it.
 Lead by the Supreme Archmage Linaniil.]], [[魔法的隐藏圣地，隔绝于世。
-（魔导师莱娜尼尔守护）]], "_t")
+由超阶魔导师莱娜尼尔统领。]], "_t")
 t("Hidden teleportation portal to Angolwen, the hidden city of magic", "隐藏的安格利文魔法城传送点", "entity name")
 t("The portal fizzles.", "传送门失败了。", "log")
 t("Shatur (Town)", "夏特尔（城镇）", "entity name")
@@ -42701,7 +42701,7 @@ t("#LIGHT_BLUE# Reset base filter", "#LIGHT_BLUE# 重设基础筛选器", "log")
 t("Clear", "清除", "_t")
 t("#LIGHT_BLUE# Clear base actor: %s", "#LIGHT_BLUE# 清除基础角色：%s", "log")
 t("#LIGHT_BLUE#Base Filter:#LAST# ", "#LIGHT_BLUE#基础筛选器：#LAST# ", "_t")
-t("The #ORANGE#Boss Data#LAST# is used to transform the base actor into a random boss (which will use a random actor if needed).", "#ORANGE#Boss 数据#LAST#用于将基础角色转换成一个随机boss（如果需要的话，也可以用随机角色作为基础）", "_t")
+t("The #ORANGE#Boss Data#LAST# is used to transform the base actor into a random boss (which will use a random actor if needed).", "#ORANGE#Boss 数据#LAST#用于将基础角色转换成一个随机boss（如果需要的话，也可以用随机角色作为基础）。", "_t")
 t("Current Boss Actor: %s", "目前Boss角色：%s", "tformat")
 t("Default Data", "默认数据", "_t")
 t("#LIGHT_BLUE# Reset Randboss Data", "#LIGHT_BLUE# 重置Boss数据", "log")
