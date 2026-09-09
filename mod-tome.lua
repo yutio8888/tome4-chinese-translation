@@ -9828,8 +9828,8 @@ t("noble", "贵族", "entity keyword")
 ------------------------------------------------
 section "mod-tome/data/general/objects/egos/boots.lua"
 
-t(" of tirelessness", "坚韧之", "entity name")
-t("tireless", "坚韧", "entity keyword")
+t(" of tirelessness", "不倦之", "entity name")
+t("tireless", "不倦", "entity keyword")
 t("traveler's ", "旅行者的", "entity name")
 t("traveler", "旅行者", "entity keyword")
 t("scholar's ", "学者的", "entity name")
@@ -12461,7 +12461,7 @@ t("#DARK_GREEN#The armor molds comfortably to one of its caretakers.", "#DARK_GR
 ------------------------------------------------
 section "mod-tome/data/general/objects/world-artifacts.lua"
 
-t("Windborne Azurite", "风之铜蓝", "entity name")
+t("Windborne Azurite", "风之蓝铜矿", "entity name")
 t("blue", "蓝色", "entity subtype")
 t("windy gem", "微风环绕的宝石", "_t")
 t("Air currents swirl around this bright blue jewel.", "空气在这块亮蓝色宝石周围旋转。", "_t")
