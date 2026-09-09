@@ -33,7 +33,7 @@ Safe Mode disabled all graphical options and sets a low FPS. It is not advisable
 
 Please go to the Video Options and try enabling/disabling options and then restarting until you do not get this message.
 A usual problem is shaders and thus should be your first target to disable.]], [[糟糕！如果你不是手动开启了安全模式的话，那么说明，游戏检测到上一次启动时发生错误，目前游戏已进入#LIGHT_GREEN#安全模式#WHITE#。
-在安全模式下，所有图形选项都被关闭，FPS被设置为很低。不建议在这种情况下进行游戏(游戏画面会变得很难看)。
+在安全模式下，所有图形选项都被关闭，FPS被设置为很低。不建议在这种情况下进行游戏（游戏画面会变得很难看）。
 
 请你进入游戏视频选项，尝试启用或禁用各项选项并重启游戏，直到不再弹出此消息。
 常见的问题一般是由着色器引发的，你可以先尝试关闭这些选项。]], "_t")
@@ -296,8 +296,8 @@ This includes, but is not limited to:
 If you disable this option you can always re-activate it in the Online category of the Game Options menu later on.]], [[即将禁止所有网络请求
 包括但不仅限于：
 - 用户信息：不能登录或者注册。
-- 角色备份：不能在te4.org上保存你的角色信息(用来给其他人分享你的炫酷角色)。
-- 物品仓库：不能访问你的在线物品仓库(包括存入和取回)。
+- 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。
+- 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。
 - 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
 - 购买者/捐助者福利：基础游戏免费，公平发放捐助者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
 - 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。
@@ -493,10 +493,10 @@ t("Login", "登录", "_t")
 t("Cancel", "取消", "_t")
 t("Password again: ", "重复密码：", "_t")
 t("Email: ", "邮箱：", "_t")
-t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)。", "_t")
+t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件（每年最多只会有几封）。", "_t")
 t("You at least 16 years old, or have parental authorization to play the game.", "游玩此游戏时你已年满16岁，或已得到了家长的许可。", "_t")
 t("Create", "创建", "_t")
-t("Privacy Policy (opens in browser)", "隐私政策(用浏览器打开)", "_t")
+t("Privacy Policy (opens in browser)", "隐私政策（用浏览器打开）", "_t")
 t("Password", "密码", "_t")
 t("Password mismatch!", "密码不匹配！", "_t")
 t("Username", "用户名", "_t")
@@ -520,11 +520,11 @@ Luckily this is very easy to do: you only require a profile name and optionally 
 ]], "_t")
 t("Username: ", "用户名：", "_t")
 t("Email: ", "邮箱：", "_t")
-t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)。", "_t")
+t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件（每年最多只会有几封）。", "_t")
 t("You at least 16 years old, or have parental authorization to play the game.", "游玩此游戏时你已年满16岁，或已得到了家长的许可。", "_t")
 t("Register", "注册", "_t")
 t("Cancel", "取消", "_t")
-t("Privacy Policy (opens in browser)", "隐私政策(用浏览器打开)", "_t")
+t("Privacy Policy (opens in browser)", "隐私政策（用浏览器打开）", "_t")
 t("Username", "用户名", "_t")
 t("Your username is too short", "你的用户名过短", "_t")
 t("Email", "邮箱", "_t")

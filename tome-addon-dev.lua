@@ -120,7 +120,7 @@ t("Addon update succesfully uploaded to the Workshop.", "插件更新成功上�
 t("Choose an addon for MD5", "选择需要计算MD5的插件", "_t")
 t("MD5 for %s", "%s的MD5", "tformat")
 t([[Addon MD5: #LIGHT_BLUE#%s#LAST# (this was copied to your clipboard).
-However you should'nt need that anymore, you can upload your addon directly from here.]], [[插件 MD5: #LIGHT_BLUE#%s#LAST# (已复制到剪贴板)。
+However you should'nt need that anymore, you can upload your addon directly from here.]], [[插件 MD5: #LIGHT_BLUE#%s#LAST#（已复制到剪贴板）。
 不过你应该不需要它了，你可以直接在这里上传。]], "tformat")
 t("Choose an addon to archive", "选择需要压缩的插件", "_t")
 t("Choose an addon to register", "选择需要注册的插件", "_t")

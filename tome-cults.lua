@@ -381,11 +381,11 @@ t("Do you want to touch it?", "你想要触碰它吗？", "_t")
 t("No", "否", "_t")
 t("Yes", "是", "_t")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
-t("#PURPLE#The %s glows as you touch it. Your knowledge grows (+1 prodigy point).", "#PURPLE#当你触摸%s的时候，它闪烁了一下。你的知识增长了 (+1 觉醒点)。", "log")
-t("#VIOLET#The %s glows as you touch it. Your knowledge grows (+1 category point).", "#VIOLET#当你触摸%s的时候，它闪烁了一下。你的知识增长了 (+1 技能树解锁点)。", "log")
-t("#YELLOW#The %s glows as you touch it. Your knowledge grows (+1 class talent point).", "#YELLOW#当你触摸%s的时候，它闪烁了一下。你的知识增长了 (+1 职业技能点)。", "log")
-t("#ORANGE#The %s glows as you touch it. Your knowledge grows (+1 generic talent point).", "#ORANGE#当你触摸%s的时候，它闪烁了一下。你的知识增长了 (+1 通用技能点)。", "log")
-t("#AQUAMARINE#The %s glows as you touch it. Your knowledge grows (+3 stat points).", "#AQUAMARINE#当你触摸%s的时候，它闪烁了一下。你的知识增长了 (+3 属性点)。", "log")
+t("#PURPLE#The %s glows as you touch it. Your knowledge grows (+1 prodigy point).", "#PURPLE#当你触摸%s的时候，它闪烁了一下。你的知识增长了（+1 觉醒点）。", "log")
+t("#VIOLET#The %s glows as you touch it. Your knowledge grows (+1 category point).", "#VIOLET#当你触摸%s的时候，它闪烁了一下。你的知识增长了（+1 技能树解锁点）。", "log")
+t("#YELLOW#The %s glows as you touch it. Your knowledge grows (+1 class talent point).", "#YELLOW#当你触摸%s的时候，它闪烁了一下。你的知识增长了（+1 职业技能点）。", "log")
+t("#ORANGE#The %s glows as you touch it. Your knowledge grows (+1 generic talent point).", "#ORANGE#当你触摸%s的时候，它闪烁了一下。你的知识增长了（+1 通用技能点）。", "log")
+t("#AQUAMARINE#The %s glows as you touch it. Your knowledge grows (+3 stat points).", "#AQUAMARINE#当你触摸%s的时候，它闪烁了一下。你的知识增长了（+3 属性点）。", "log")
 t("cave", "山洞", "entity subtype")
 t("font of sacrifice", "牺牲之泉", "entity name")
 
@@ -724,10 +724,10 @@ t("In the Age of Pyre, it seemed that the world was ending to many of Eyal's inh
 t("Hithre died. Somehow this is not what should have happened.", "希瑟尔死了。啊，好像故事本来不应该是这样的。", "_t")
 t("Hithre", "希瑟尔", "_t")
 t("Main protagonist", "主角", "_t")
-t("The importance of power (+3% spell critical chance)", "威力的重要性(+3% 法术暴击率)", "_t")
-t("The importance of thought (+10 spell save)", "思考的重要性(+10 法术豁免)", "_t")
-t("The importance of magic (+5 magic)", "魔法的重要性(+5 魔力)", "_t")
-t("The importance of wisdom (+5 willpower)", "智慧的重要性(+5 意志)", "_t")
+t("The importance of power (+3% spell critical chance)", "威力的重要性（+3% 法术暴击率）", "_t")
+t("The importance of thought (+10 spell save)", "思考的重要性（+10 法术豁免）", "_t")
+t("The importance of magic (+5 magic)", "魔法的重要性（+5 魔力）", "_t")
+t("The importance of wisdom (+5 willpower)", "智慧的重要性（+5 意志）", "_t")
 t("The Day It Came", "到来之日", "_t")
 t("This chapter has taught your some important lesson. What did you learn?", "这一章教会了你重要的一课。你学到了什么？", "_t")
 t("Forbidden Tome: \"A View From The Gallery\"", "禁忌之书：《画廊一瞥》", "entity name")
@@ -735,10 +735,10 @@ t("The story of Grung, a halfling separated from his tribe that is just trying t
 t("It's a cold night and you did not find anything to eat during the day. Your fur pelt doesn't do much to keep the cold out either. You're about to go out to hunt, but everyone else has warned you that you must not do that. The night is dangerous and there appears to be strange lights in the sky. An ill omen, to say the least. Food has been hard to come by lately, so everyone is just as famished as you are.", "今天晚上很冷，白天你没有找到吃的东西，身上的皮衣此时也起不到什么御寒的作用。你正准备出去打猎，但其他人都警告你千万不要这样做。夜晚很危险，天空中似乎有奇怪的光线。至少，可以说是一个不好的预兆。但是，最近食物难得，所以大家和你一样饥肠辘辘。", "_t")
 t("Poor Grung. All he wanted was food, but what he found instead was death.", "可怜的格朗格。他只想要得到食物，但是他得到的却是死亡。", "_t")
 t("Grung", "格朗格", "_t")
-t("The importance of evading blows (+10 defense)", "闪避攻击的重要性 (+10 闪避)", "_t")
-t("The importance of speed (+10% movement speed)", "速度的重要性 (+10% 移动速度)", "_t")
-t("The importance of reflexes (+5 dexterity)", "反应力的重要性 (+5 敏捷)", "_t")
-t("The importance of a honed mind (+5 cunning)", "磨砺心智的重要性 (+5 灵巧)", "_t")
+t("The importance of evading blows (+10 defense)", "闪避攻击的重要性（+10 闪避）", "_t")
+t("The importance of speed (+10% movement speed)", "速度的重要性（+10% 移动速度）", "_t")
+t("The importance of reflexes (+5 dexterity)", "反应力的重要性（+5 敏捷）", "_t")
+t("The importance of a honed mind (+5 cunning)", "磨砺心智的重要性（+5 灵巧）", "_t")
 t("A View From The Gallery", "画廊一瞥", "_t")
 t("This chapter has taught your some survival tips. What did you learn?", "这一章教会你一些生存技巧。你学到了什么？", "_t")
 t("Forbidden Tome: \"The Illusory Castle\"", "禁忌之书：《虚幻城堡》", "entity name")
@@ -877,7 +877,7 @@ t("splattered remains of an adventurer", "一名冒险家被击碎的血肉残�
 t("log entry", "日志条目", "_t")
 t("A paper scrap.", "一张碎纸片。", "_t")
 t("#PURPLE#An item appears on the egress!", "#PURPLE#一个物品在出口里出现了！", "_t")
-t("#PURPLE#For an instant you feel as if time slowed down over the world! #{italic}#(worldmap patrols permanently slowed down)#{normal}#", "#PURPLE#在一瞬间，你感觉到整个世界的时间好像变慢了！#{italic}#(世界地图巡逻队的速度永久减缓了。)#{normal}#", "_t")
+t("#PURPLE#For an instant you feel as if time slowed down over the world! #{italic}#(worldmap patrols permanently slowed down)#{normal}#", "#PURPLE#在一瞬间，你感觉到整个世界的时间好像变慢了！#{italic}#（世界地图巡逻队的速度永久减缓了。）#{normal}#", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/glyph_sequences/orcs.lua"
@@ -2442,7 +2442,7 @@ t([[The whispers... Even as I'm running away, the whispers don't stop. It echoes
 
 It wants me to go back. It wants me to return so it can finish what it started. No, no, no. I must write this report. Tell the Ziguranth. I must send this away, I... I... I must go back it wants me to go back I-I-I [i](Nothing but a series of erratic and completely incoherent scribblings follow. Judging by where you found this letter, he did not make it back to Zigur.)[/i] ]], [[那些低语……我想要逃跑，可这些低语丝毫没有停止。它在我的脑海中不断回响。我能感受到我心灵的壁垒摇摇欲坠。它想要我回去。我绝不会回去，不管发生了什么都不会。他们都死了。融解，吞噬，破损，撕裂……扭动的肉块，无穷无尽的憎恶……还有，高耸于那些恐怖存在之上的一条巨龙。它朝我发出耳语，就像之前出现在我梦中的情景一样……它没有眼睛，但它仿佛已经看穿了我。我作为凡人的思维、情感，还有那份挥之不去的噩梦，都赤裸地展现在那种怪物丑陋的面貌面前……它发出了笑声。它发出了恐怖，癫狂的尖笑。
 
-它要我回去。它要我回去，完成它的任务。不，不，不。我必须写完这份报告。我必须把这份报告交给伊格兰斯。我…我…我…我必须回去。它希望我回去。我—我—我 [i](接下来的内容里，已经看不到任何成型的文字，只剩下一团混乱疯狂的杂碎笔迹。从你找到这封信的位置来看，恐怕，他并没能把这个消息带回伊格。)[/i] ]], "_t")
+它要我回去。它要我回去，完成它的任务。不，不，不。我必须写完这份报告。我必须把这份报告交给伊格兰斯。我…我…我…我必须回去。它希望我回去。我—我—我 [i]（接下来的内容里，已经看不到任何成型的文字，只剩下一团混乱疯狂的杂碎笔迹。从你找到这封信的位置来看，恐怕，他并没能把这个消息带回伊格。）[/i] ]], "_t")
 t("entropic void", "熵之虚空", "_t")
 t([[It's cold. Terribly cold. The unreality around you seems to be draining you slowly, making your body lock up and your limbs go stiff. There is entropy at work here, but you can see small patches of light defiantly standing out against the darkness. The warm glow infuses you with vigour, driving away the terrible cold. There must be an antropic force at work here, the only thing which can defeat entropy. You can plainly see that it is fighting a losing battle.
 
@@ -2497,7 +2497,7 @@ So, my approach has been to just keep trying different combinations until someth
 
 所以，我唯一的办法就是不停尝试不同的组合，直到奏效为止。我在日志上记录下那些组合，然后给那些组合打钩或者打叉。这样我就知道哪些组合是有用的，而哪些不是。真是种该死的工作，希望最后能给我弄点好点的奖励……
 
-#{italic}#(这个列表上列举着的几乎所有的组合都打着叉，除了最后一行以外。令人奇怪的是，这个组合既没有打钩也没有打叉。也许，他已经没有机会去试试这个组合到底好不好了？)#{normal}#
+#{italic}#（这个列表上列举着的几乎所有的组合都打着叉，除了最后一行以外。令人奇怪的是，这个组合既没有打钩也没有打叉。也许，他已经没有机会去试试这个组合到底好不好了？）#{normal}#
 %s]], "tformat")
 t("the egress (2)", "出口 (2)", "_t")
 t("Some puzzle this is! I finally enter the right combination and it dumps me in some forsaken corner of the world! I don't even know what to make of my surroundings, they're utterly bizarre! Why did this have to happen to me? I was supposed to be the one who got in first and got the treasure... Now look at me! I've wandered all over this place, but I can't find any exit! It's like this entire place is conspiring to keep me trapped here!", "这是什么鬼谜题！我终于输入了正确的组合，结果它把我扔到了世界遗忘的角落！我甚至不知道该如何理解周围的环境，真见鬼！为什么我要倒这种霉！我本来以为我是第一个到这里的，终于可以有机会搜刮财宝了…现在呢？我在这里到处游荡，结果连出口都找不到！这个地方简直就是为了困死我而设计出来的！", "_t")
@@ -2672,7 +2672,7 @@ The decaying horrors cannot move and will attack all hostile creatures around th
 All its primary stats will be set to %d (based on your Magic stat), life rating increased by %d, and all talent levels set to %d.  Many other stats will scale with level.
 Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你利用和恐魔的联系召唤三个持续 %d 轮的腐败的吞噬者。
 		腐败的吞噬者不能移动，能攻击周围所有敌对生物。它们拥有浴血奋战、咬牙切齿和狂乱撕咬技能。
-		它们的所有主属性将设为 %d (基于你的魔法属性 )，生命成长增加 %d，所有技能等级设为 %d。许多其他属性与技能等级相关。
+		它们的所有主属性将设为 %d（基于你的魔法属性 ），生命成长增加 %d，所有技能等级设为 %d。许多其他属性与技能等级相关。
 		它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。]], "tformat")
 t("Decayed Bloated Horror", "腐败的浮肿恐魔", "talent name")
 t("bloated horror", "浮肿恐魔", "_t")
@@ -2683,7 +2683,7 @@ All its primary stats will be set to %d (based on your Magic stat), life rating 
 Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.
 		]], [[你利用和恐魔的联系召唤一个持续 %d 回合的腐败的浮肿恐魔。
 		腐败的恐魔不能移动，能攻击范围内的所有敌对生物。它拥有精神干扰和精神光束技能。
-		它们的所有主属性将设为 %d (基于你的魔法属性 )，生命成长增加 %d，所有技能等级设为 %d。许多其他属性与技能等级相关。
+		它们的所有主属性将设为 %d（基于你的魔法属性 ），生命成长增加 %d，所有技能等级设为 %d。许多其他属性与技能等级相关。
 		它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。
 		]], "tformat")
 t("Horrific Display", "恐魔具现化", "talent name")
@@ -3017,7 +3017,7 @@ section "tome-cults/data/talents/demented/oblivion.lua"
 
 t("Nihil", "空无", "talent name")
 t("Your entropy bleeds into the world around you. On having entropic backlash applied or increased to you, %d random enemies you can see within radius 10 will be shrouded in entropic forces for 8 turns. This increases the duration of new negative effects and reduces the duration of new beneficial effects applied to the target by %d%%.", [[将你身体上的熵能向周围辐射。每当你受到熵能反冲时，在你半径 10 码内随机的 %d 个可见敌人都将被熵能侵蚀 8 回合。
-		增加 ( 减少 ) 它们受到的新的负面 ( 正面 ) 效果 %d%% 的持续时间。]], "tformat")
+		增加（ 减少 ）它们受到的新的负面（ 正面 ）效果 %d%% 的持续时间。]], "tformat")
 t("Unravel Existence", "解构存在", "talent name")
 t("herald of oblivion", "破灭之兆", "_t")
 t("Space warps and blurs around this titanic being, as if reality itself was struggling against it.", "时空在这个巨大的生物的周围扭曲模糊，仿佛现实本身正在和它斗争。", "_t")
@@ -3081,7 +3081,7 @@ section "tome-cults/data/talents/demented/rift.lua"
 
 t("Reality Fracture", "实境撕裂", "talent name")
 t("void rift", "虚空裂隙", "_t")
-t("%s (empowered)", "%s (强化)", "tformat")
+t("%s (empowered)", "%s（强化）", "tformat")
 t([[The sheer power of your entropy tears holes through spacetime, opening this world to the void.
 On casting a Demented spell you have a 30%% chance of creating a void rift lasting %d turns in a nearby tile, which will launch void blasts each turn at a random enemy in range 7, dealing %0.2f darkness and %0.2f temporal damage.
 
@@ -3298,7 +3298,7 @@ t("void monolith", "虚无巨石", "_t")
 t("This bizarre oblong shape floats in the air, defying gravity. Its form seems to subtly shift, and you feel an intense desire to move towards it.", "这个奇异的长方体无视重力漂浮在空气中。它的形态似乎正在微妙地转换着，你感受到向着它走去的强烈愿望。", "_t")
 t("Summon", "召唤", "_t")
 t([[Consuming a void star, you use it to summon a void monolith at the targeted location for %d turns. The monolith is very durable, and while immobile it will attempt to daze enemies within radius %d for 2 turns every half a turn using your spellpower.
-			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合对 %d 码范围内敌人施加眩晕2回合 ( 基于本体法术强度 )。
+			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合对 %d 码范围内敌人施加眩晕2回合（ 基于本体法术强度 ）。
 			基于你的魔法属性，巨石获得 %d 生命成长和 %d%% 全体抗性。]], "tformat")
 t("Essence Reave", "精华收割", "talent name")
 t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空之星！", "logSeen")
@@ -3484,7 +3484,7 @@ t("Sand Drake / Physical Resistance (1/3rd values)", "沙龙 / 物理抗性（1/
 t("Wild Drake / Nature Resistance", "自然龙 / 自然抗性", "_t")
 t("Acid Drake / Acid Resistance", "酸龙 / 酸性抗性", "_t")
 t("Never mind", "算了。", "_t")
-t("#LAST# #{italic}#(current)#{normal}#", "#LAST# #{italic}#(当前)#{normal}#", "_t")
+t("#LAST# #{italic}#(current)#{normal}#", "#LAST# #{italic}#（当前）#{normal}#", "_t")
 t("Drake Aspect", "龙血类型", "_t")
 t("Choose an aspect to bring forth:", "选择你使用的龙血类型：", "_t")
 t([[Since ziguranth removed those filthy magic runes from your body you have needed an alternative form of power to sustain your body. Thanks to drake blood you have found that power.
@@ -4657,7 +4657,7 @@ Glass Golems look awesome and can eventually learn Glass Splinter talent to disr
 ------------------------------------------------
 section "tome-cults/overload/data/texts/unlock-demented_cultist_entropy.lua"
 
-t("New Class: #LIGHT_GREEN#Cultist of Entropy (Demented)", "新职业 : #LIGHT_GREEN#熵教徒 (疯狂系)", "_t")
+t("New Class: #LIGHT_GREEN#Cultist of Entropy (Demented)", "新职业 : #LIGHT_GREEN#熵教徒（疯狂系）", "_t")
 t([[Entropy is a force of chaos, always striving to create more disorder in the universe.
 Most say it is impossible to harness and use it, but they are wrong.
 A long time ago a creature came to Eyal and took pity on a group of refugees, teaching them powers to manipulate entropy itself.
@@ -4862,7 +4862,7 @@ t("Not enough money", "金钱不足", "_t")
 t("You need at least #GOLD#%s gold#LAST# to reroll this item.", "你需要至少#GOLD#%s 金币#LAST#才能重置这个物品。", "tformat")
 t("Confirm", "确认", "_t")
 t("So you want to spend #GOLD#%s gold#LAST# to reroll this set of properties?", "你想要花费#GOLD#%s 金币#LAST#重置这条物品属性吗？", "tformat")
-t(" (Greater)", " (高级词缀)", "_t")
+t(" (Greater)", " （高级词缀）", "_t")
 t("Type: %s / %s", "类型：%s/%s", "tformat")
 t([[Powered by #VIOLET#arcane forces#LAST#
 ]], [[装备力量来源 #VIOLET#奥术力量#LAST#

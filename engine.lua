@@ -602,8 +602,8 @@ t("Chat filters", "聊天过滤器", "_t")
 t("Public chat", "公开聊天", "_t")
 t("Private whispers", "私人聊天", "_t")
 t("Join/part messages", "加入/退出频道信息", "_t")
-t("First time achievements (recommended to keep them on)", "第一次取得成就(建议开启)", "_t")
-t("Important achievements (recommended to keep them on)", "重要成就(建议开启)", "_t")
+t("First time achievements (recommended to keep them on)", "第一次取得成就（建议开启）", "_t")
+t("Important achievements (recommended to keep them on)", "重要成就（建议开启）", "_t")
 t("Other achievements", "其他成就", "_t")
 t("Select which types of chat events to see or not.", "选择你想要观看或屏蔽的聊天内容。", "_t")
 
@@ -624,7 +624,7 @@ t("Borderless", "无边框", "_t")
 t("Windowed", "窗口模式", "_t")
 t("Engine Restart Required", "需要重启游戏引擎", "_t")
 t("Continue? %s", "继续吗？%s", "tformat")
-t(" (progress will be saved)", " (游戏进度会被保存)", "_t")
+t(" (progress will be saved)", " （游戏进度会被保存）", "_t")
 t("Reset Window Position?", "重设窗口位置？", "_t")
 t("Simply restart or restart+reset window position?", "你要仅重启，还是重启并重设窗口位置？", "_t")
 t("Restart", "重启", "_t")
@@ -711,7 +711,7 @@ t("Key bindings", "键位绑定", "_t")
 t("      Press a key (escape to cancel, backspace to remove) for: %s", "      请按键（Esc 键取消，退格键删除）以绑定 %s 的键位", "tformat")
 t("Bind key", "绑定键位", "_t")
 t("Bind alternate key", "绑定替代键位", "_t")
-t("Make gesture (using right mouse button) or type it (or escape) for: %s", "请输入鼠标手势 (使用鼠标右键) 或者按键 (或按ESC取消) 以绑定 %s 的键位", "tformat")
+t("Make gesture (using right mouse button) or type it (or escape) for: %s", "请输入鼠标手势（使用鼠标右键）或者按键 (或按ESC取消) 以绑定 %s 的键位", "tformat")
 t("Gesture", "鼠标手势", "_t")
 
 ------------------------------------------------
@@ -780,8 +780,8 @@ t("", "", "_t")
 section "engine/engine/dialogs/ShowErrorStack.lua"
 
 t("Lua Error", "Lua脚本错误", "_t")
-t("If you already reported that error, you do not have to do it again (unless you feel the situation is different).", "如果你已经汇报过了这个错误，你不需要再次进行汇报(除非你认为这一情况和之前有所不同)。", "_t")
-t("You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different).", "你 #LIGHT_GREEN#已经汇报过了#WHITE# 这个错误，你不需要再次进行汇报(除非你认为这一情况和之前有所不同)。", "_t")
+t("If you already reported that error, you do not have to do it again (unless you feel the situation is different).", "如果你已经汇报过了这个错误，你不需要再次进行汇报（除非你认为这一情况和之前有所不同）。", "_t")
+t("You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different).", "你 #LIGHT_GREEN#已经汇报过了#WHITE# 这个错误，你不需要再次进行汇报（除非你认为这一情况和之前有所不同）。", "_t")
 t("You have already got this error but #LIGHT_RED#never reported#WHITE# it, please do.", "你以前遇到过这个错误，但你#LIGHT_RED#还没有汇报过#WHITE#这个错误，请汇报这个错误。", "_t")
 t("You have #LIGHT_RED#never seen#WHITE# that error, please report it.", "你之前#LIGHT_RED#从未遇到过#WHITE#这个错误，请汇报这个错误。", "_t")
 t([[#{bold}#Oh my! It seems there was an error!
@@ -797,7 +797,7 @@ t("What happened?: ", "发生了什么？：", "_t")
 t("Send", "发送", "_t")
 t("Close", "关闭", "_t")
 t("Close All", "全部关闭", "_t")
-t("Log saved to file (click to copy to clipboard):#LIGHT_BLUE#%s", "游戏日志已保存到文件(点击复制到剪贴板):#LIGHT_BLUE#%s", "tformat")
+t("Log saved to file (click to copy to clipboard):#LIGHT_BLUE#%s", "游戏日志已保存到文件（点击复制到剪贴板）:#LIGHT_BLUE#%s", "tformat")
 t("File location copied to clipboard.", "文件位置已复制到剪贴板。", "log")
 t("#YELLOW#Error report sent, thank you.", "#YELLOW#错误报告已发送，谢谢。", "log")
 -- untranslated text
@@ -871,7 +871,7 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 t([[Purge all Steam Cloud saves.
 This will remove all saves from the cloud cloud (but not your local copy). Only use if you somehow encounter storage problems on it (which should not happen, the game automatically manages it for you).#WHITE#]], [[删除所有Steam云存档。
-这会在Steam云中删除所有的云存档，但不会删除你的本地存档。只有在你遇到存储问题的时候才使用这一功能。(一般情况下这不会发生，游戏会自动管理云存档)#WHITE#]], "_t")
+这会在Steam云中删除所有的云存档，但不会删除你的本地存档。只有在你遇到存储问题的时候才使用这一功能。（一般情况下这不会发生，游戏会自动管理云存档）#WHITE#]], "_t")
 t("#GOLD##{bold}#Purge Cloud Saves#WHITE##{normal}#", "#GOLD##{bold}#清除云存档#WHITE##{normal}#", "_t")
 t("Steam Cloud Purge", "清除Steam云存档", "_t")
 t("Confirm purge?", "确认删除？", "_t")
@@ -992,7 +992,7 @@ t([[Activates advanced shaders.
 This option allows for advanced effects (like water surfaces, ...). Disabling it can improve performance.
 
 #LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[开启高级着色器效果。
-这个选项可以激活一些高级的视频效果(例如水面效果……)。关闭它可以提升运行速度。
+这个选项可以激活一些高级的视频效果（例如水面效果……）。关闭它可以提升运行速度。
 
 #LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#]], "_t")
 t("#GOLD##{bold}#OpenGL Shaders: Advanced#WHITE##{normal}#", "#GOLD##{bold}#OpenGL着色器：高级#WHITE##{normal}#", "_t")
@@ -1000,7 +1000,7 @@ t([[Activates distorting shaders.
 This option allows for distortion effects (like spell effects doing a visual distortion, ...). Disabling it can improve performance.
 
 #LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[开启扭曲着色器效果，
-这个选项可以激活一些扭曲视频特效(例如会造成视觉扭曲的法术)
+这个选项可以激活一些扭曲视频特效（例如会造成视觉扭曲的法术）
 关闭它可以提升运行速度。
 
 #LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#]], "_t")
@@ -1009,7 +1009,7 @@ t([[Activates volumetric shaders.
 This option allows for volumetricion effects (like deep starfields). Enabling it will severely reduce performance when shaders are displayed.
 
 #LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[开启体积着色器效果。
-这个选项可以激活一些特殊的视频效果(例如星空特效)。开启它会显著降低运行速度。
+这个选项可以激活一些特殊的视频效果（例如星空特效）。开启它会显著降低运行速度。
 
 #LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#]], "_t")
 t("#GOLD##{bold}#OpenGL Shaders: Volumetric#WHITE##{normal}#", "#GOLD##{bold}#OpenGL 着色器：体积着色器#WHITE##{normal}#", "_t")
@@ -1116,7 +1116,7 @@ t("Qty", "数量", "_t")
 t("Online Store", "在线商城", "_t")
 t("You need to be logged in before using the store. Please go back to the main menu and login.", "需要登录游戏账号才能使用商店，请退回主菜单登录。", "_t")
 t("Steam users need to link their profiles to their steam account. This is very easy in just a few clicks. Once this is done, simply restart the game.", "Steam用户需要将游戏账号和Steam账号绑定。这非常简单，只需要数次点击，完成后重启游戏即可。", "_t")
-t("Let's do it! (Opens in your browser)", "开始吧！(在浏览器中打开)", "_t")
+t("Let's do it! (Opens in your browser)", "开始吧！（在浏览器中打开）", "_t")
 t("Not now", "还是不了", "_t")
 t("The Online Store (and expansions) are only purchasable by players that bought the game. Plaese go have a look at the donation page for more explanations.", "在线商店（和扩展包）只对购买过游戏本体的玩家开放。详情请查看捐赠页面。", "_t")
 t("Let's go! (Opens in your browser)", "去吧！（在浏览器中打开）", "_t")
@@ -1244,7 +1244,7 @@ t("not enough talents of this type known", "技能树中已学习技能不足", 
 t("- Talent category known", "- 技能树已学会", "_t")
 t("- Lower talents of the same category: %d", "- 同系低阶技能数：%d", "tformat")
 t("- Level %d", "- 等级 %d", "tformat")
-t("- Talent %s (not known)", "- 技能%s(未学习)", "tformat")
+t("- Talent %s (not known)", "- 技能%s（未学习）", "tformat")
 t("- Talent %s (%d)", "- 技能%s(%d)", "tformat")
 t("- Talent %s", "- 技能%s", "tformat")
 t("- Is %s", "- 是%s", "tformat")
@@ -1448,7 +1448,7 @@ Safe Mode disabled all graphical options and sets a low FPS. It is not advisable
 
 Please go to the Video Options and try enabling/disabling options and then restarting until you do not get this message.
 A usual problem is shaders and thus should be your first target to disable.]], [[糟糕！如果你不是手动开启了安全模式的话，那么说明，游戏检测到上一次启动时发生错误，目前游戏已进入#LIGHT_GREEN#安全模式#WHITE#。
-在安全模式下，所有图形选项都被关闭，FPS被设置为很低。不建议在这种情况下进行游戏(游戏画面会变得很难看)。
+在安全模式下，所有图形选项都被关闭，FPS被设置为很低。不建议在这种情况下进行游戏（游戏画面会变得很难看）。
 
 请你进入游戏视频选项，尝试启用或禁用各项选项并重启游戏，直到不再弹出此消息。
 常见的问题一般是由着色器引发的，你可以先尝试关闭这些选项。]], "_t")
@@ -1711,8 +1711,8 @@ This includes, but is not limited to:
 If you disable this option you can always re-activate it in the Online category of the Game Options menu later on.]], [[即将禁止所有网络请求
 包括但不仅限于：
 - 用户信息：不能登录或者注册。
-- 角色备份：不能在te4.org上保存你的角色信息(用来给其他人分享你的炫酷角色)。
-- 物品仓库：不能访问你的在线物品仓库(包括存入和取回)。
+- 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。
+- 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。
 - 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
 - 购买者/捐助者福利：基础游戏免费，公平发放捐助者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
 - 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。
@@ -1908,10 +1908,10 @@ t("Login", "登录", "_t")
 t("Cancel", "取消", "_t")
 t("Password again: ", "重复密码：", "_t")
 t("Email: ", "邮箱：", "_t")
-t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)。", "_t")
+t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件（每年最多只会有几封）。", "_t")
 t("You at least 16 years old, or have parental authorization to play the game.", "游玩此游戏时你已年满16岁，或已得到了家长的许可。", "_t")
 t("Create", "创建", "_t")
-t("Privacy Policy (opens in browser)", "隐私政策(用浏览器打开)", "_t")
+t("Privacy Policy (opens in browser)", "隐私政策（用浏览器打开）", "_t")
 t("Password", "密码", "_t")
 t("Password mismatch!", "密码不匹配！", "_t")
 t("Username", "用户名", "_t")
@@ -1935,11 +1935,11 @@ Luckily this is very easy to do: you only require a profile name and optionally 
 ]], "_t")
 t("Username: ", "用户名：", "_t")
 t("Email: ", "邮箱：", "_t")
-t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件(每年最多只会有几封)。", "_t")
+t("Accept to receive #{bold}#very infrequent#{normal}# (a few per year) mails about important game events from us.", "允许我们#{bold}#偶尔#{normal}#向你发送有关游戏重要新闻的邮件（每年最多只会有几封）。", "_t")
 t("You at least 16 years old, or have parental authorization to play the game.", "游玩此游戏时你已年满16岁，或已得到了家长的许可。", "_t")
 t("Register", "注册", "_t")
 t("Cancel", "取消", "_t")
-t("Privacy Policy (opens in browser)", "隐私政策(用浏览器打开)", "_t")
+t("Privacy Policy (opens in browser)", "隐私政策（用浏览器打开）", "_t")
 t("Username", "用户名", "_t")
 t("Your username is too short", "你的用户名过短", "_t")
 t("Email", "邮箱", "_t")
