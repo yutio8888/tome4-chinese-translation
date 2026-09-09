@@ -1047,3 +1047,64 @@ contextual 派发 prompt 里写的是 `docs/paseo-translation-contextual-v2-cont
   `on_merge` 用 `util.bound(stacks+1, 1, max_stacks)` 递增，**全定义无任何消耗路径**。
   是叠加层数不是可消耗资源；「充能次数」反而误导。
   **两轮一致也不等于正确——§23 的两轮判据是升级门槛，不是免检通行证。**
+
+## §30 第 53–54 批记录：surface task_id 规则与两轮分歧的处理
+
+### 30.1 单 run 批次的 surface task_id 等于 batch id 本身
+
+`production_review_v2_lite_batch.py:379`：
+
+```python
+batch_task_id = checkpoint["batch_id"].replace("_", "-")
+task_id = (batch_task_id if len(runs) == 1 else
+           f"{batch_task_id}-surface-{run['run_index']:03d}")
+```
+
+group manifest 的 `payload.task_id` 由此决定，而 `ai_state_check` 要求
+manifest 落在 `.ai/task/<payload.task_id>/SURFACE-SCREEN-GROUP-<group_id>.json`，
+且 `manifest_payload["task_id"] == state["task_id"]`。
+
+`tools/orchestration/stage_surface.py` 原先无条件写 `<batch>-surface-NNN`，
+单 run 批次就会报 **`surface lane manifest is invalid: manifest path does not bind task_id/group_id`**。
+第 51、52 批都是多 run，所以这个缺陷一直到第 53 批才暴露。
+
+已修：`stage_surface.py` 按上游同一规则算 task 名，并对
+`g['payload']['task_id'] == task` 做硬断言；group manifest 路径改由 plan 的
+lane 项携带（`group_manifest_path`），`close_review_tasks.py` 不再用
+`task.split('-')[-1]` 反推——单 run 批次的 task 名末段是 batch id 的十六进制尾巴，反推必错。
+
+**教训**：凡是上游工具已经算好的标识（task_id、group_id、路径），
+编排脚本一律**读取**，不要**重算**。重算在多数情况下碰巧相等，只在边界情况炸。
+
+### 30.2 P8 补句号规则的第二次回归：双句号
+
+第 53 批表层报 `engine.lua` 的
+`'……你不需要再次进行汇报。(除非你认为这一情况和之前有所不同)。'`
+两个句号。`git log -S` 直接命中：全库同型 10 处，其中 3 处由本人的 `12da190` 引入。
+
+P8「译文缺句末句号则补」的规则缺一条前置判断：**目标已有句中句号且尾随括号补充时不得再补**。
+统一修复口径：**句中句号删除、句末保留**；源文本无句末句号的（如
+`"You feel your rampage slowing down. (-1 duration)"`）反过来删末尾句号，保持镜像。
+
+检出正则：`grep -Hn '。([^)]*)。\|。（[^）]*）。' *.lua`。
+
+### 30.3 两轮报不同问题时的处理
+
+第 53 批 `c36c46a4`（Cults 简介）：表层报实体名误译，交叉复核报专名丢失 + 程度限定丢失。
+按 §23 这不是「两轮一致」，两条都只能算 advisory——但 advisory ≠ 不查。
+逐条独立取证后：
+
+- **成立**：`Nethergames`（源码唯一一处，是 `nethergate` 的笔误）「虚空蠕虫」与
+  `t("nethergate","彼世之门")` 及 `nether`→「彼」的既定译法冲突；
+  `horror` 作「寄生兽」与本库 `parasite` 的既定译法撞车；
+  `partly insane` 的程度限定丢失。
+- **驳回**：`Occult Egress`→「神秘的出口」是本库既定专名译法（`entity name` 共 5 处），
+  不是「泛称化」；`Scourge Pits` 在 Cults 源码中根本没有同名区域。
+
+第 54 批同理：表层报 `infusions`→「纹身」误译，**驳回**——「纹身」是本库
+`infusion` 的既定译法（`runes and infusions`→「符文和纹身」、
+`Infusion of Wild Growth`→「纹身：野性生长」、`Facial Infusions 1`→「脸部纹身1」），
+且与维护者对挂起项 7 的裁定一致。
+
+**教训**：审核方报「与游戏概念不符」时，先查**本库自己的既定译法**再查源码。
+本库译法一致 ≠ 正确，但**孤立地改一条**必然造成不一致，代价大于收益。
