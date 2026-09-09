@@ -1413,7 +1413,7 @@ t([[Hasten yourself out of phase, teleporting you to a specific location up to %
 		Afterwards you stay out of phase for 5 turns. In this state your defense is increased by %d and all your resistances by %d%%.
 		The bonus will increase with your Willpower.]], [[加速自身，以至于脱离空间，传送半径 %d。
 		你在同一回合内至多连用两次该技能，且第二次使用会消耗时间。
-		之后，你停留在相位外 5 回合，闪避增加 %d , 全体抗性增加 %d%%。
+		之后，你停留在相位外 5 回合，闪避增加 %d，全体抗性增加 %d%%。
 		效果受意志加成。]], "tformat")
 t("Resilience of the Doomed", "强韧", "talent name")
 t([[The tortures you had to endure on the Fearscape have increased your resilience.
