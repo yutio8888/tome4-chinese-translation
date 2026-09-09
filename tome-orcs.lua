@@ -788,7 +788,7 @@ t("corrupted cave floor", "被污染的山洞地板", "entity name")
 t("wall", "墙壁", "entity type")
 t("corrupted cave walls", "被污染的山洞墙", "entity name")
 t("corrupted cave door", "被污染的山洞门", "entity name")
-t("corrupted cave door (open)", "被污染的山洞门(已打开)", "entity name")
+t("corrupted cave door (open)", "被污染的山洞门（已打开）", "entity name")
 t("ladder to the next level", "通往下一层的梯子", "entity name")
 t("ladder to the previous level", "通往上一层的梯子", "entity name")
 t("ladder to worldmap", "通往世界地图的梯子", "entity name")
@@ -1067,7 +1067,7 @@ t("It's said that Talosis never lost an argument. Now you know why.", "据说泰
 t("The Twisted Blade", "扭曲之刃", "entity name")
 t("vile, twisted steamsaw", "邪恶、扭曲的蒸汽锯", "_t")
 t("You see flecks of gold in this vile mass of twisted steel, implying a once great origin. Whatever glory it once had is long gone, replaced by something far more sinister...", "你在这块邪恶、扭曲的铁块上发现金色的斑点，暗示着它不同寻常的来历。然而曾经的辉煌，都已经成为了过去，如今已被更加邪恶的东西取代", "_t")
-t("Fully heal yourself. (15 turn cooldown)", "完全治疗(15回合冷却)", "_t")
+t("Fully heal yourself. (15 turn cooldown)", "完全治疗（15回合冷却）", "_t")
 t("Sunstone", "太阳石", "entity name")
 t("warm stone", "温暖的石头", "_t")
 t("This strange stone shines with the heat of the Sun. Perhaps it could be used to generate more steam?", "这块奇怪的石头发出太阳的光和热。或许它可以用来产生更多的蒸汽？", "_t")
@@ -1461,7 +1461,7 @@ t([[You cannot bleed.
 When you take damage, if your life is under 20%%, heal for 30%% of your max life. %s]], [[你免疫流血伤害。
 当你受到伤害的时候，如果你的生命值低于20%%，将会恢复30%%的最大生命值。%s]], "tformat")
 t("(%d turns until ready)", "(%d 回合冷却完毕)", "tformat")
-t("(15 turn cooldown)", "(15回合冷却时间)", "_t")
+t("(15 turn cooldown)", "（15回合冷却时间）", "_t")
 t("BODY", "躯体", "entity on slot")
 t("%s second skin", "%s 第二皮肤", "tformat")
 t("HEAD", "头部", "entity on slot")
@@ -1496,7 +1496,7 @@ If you're very careful.]], [[这套鞋子似乎是被一位具有……创造力
 看上去这套鞋子能用，大概。
 确实有可能。
 只要你非常非常小心。]], "_t")
-t("These boots have a %d%% chance to fail to operate properly (reduced by Cunning).", "火箭靴有%d%%几率失败(随灵巧降低)。", "tformat")
+t("These boots have a %d%% chance to fail to operate properly (reduced by Cunning).", "火箭靴有%d%%几率失败（随灵巧降低）。", "tformat")
 t("jump to a nearby location within range %d, blasting everything within radius 2 (%d burning fire damage, 2 tile knockback) of the jump point and within radius 3 (%d burning fire damage, 3 tile knockback) of the landing point (damage based on Cunning)", "跳向半径%d码范围内的地点，轰炸起跳点附近半径2码范围内的所有敌人 (%d 火焰燃烧伤害，击退2格)以及落地点附近半径3码范围的所有敌人 (%d 火焰燃烧伤害，击退3格)（伤害随灵巧值提升）", "tformat")
 t("#LIGHT_RED#You see no place to land near there.", "#LIGHT_RED#附近没有可以着陆的地点。", "logPlayer")
 t("#Source# ignites %s %s, creating a #LIGHT_RED#blast of fire#LAST# that %s!", "#Source#点燃了%s%s，创造出一股#LIGHT_RED#火焰爆炸#LAST#%s！", "logCombat")
@@ -1716,7 +1716,7 @@ t("Fashioned from magical ice, and perfect for carving ice - especially ice with
 t("The Lumberator", "播种机", "entity name")
 t("vined coated steamsaw", "爬满藤蔓的蒸汽链锯", "_t")
 t("\"Spread the wonders of nature even quicker than ever with this seed injecting steamsaw! Your former enemies will be freshly grown trees before you even know it!\"", "这台能够注射种子的蒸汽锯可以更快的传播自然的奇迹。在你意识到之前，你的敌人体内将会长出一棵树！", "_t")
-t("summon a treant (5 turn cooldown)", "召唤一个树人 (5回合冷却)", "_t")
+t("summon a treant (5 turn cooldown)", "召唤一个树人（5回合冷却）", "_t")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
 t("treant", "树人", "_t")
@@ -1725,7 +1725,7 @@ t("Summon", "召唤", "_t")
 t("Grinder", "绞肉机", "entity name")
 t("bloody steamsaw", "染血的蒸汽锯", "_t")
 t("Originally a kitchen implement used by the giants to saw through tough, frozen carcasses. Something is especially sinister about this example though.", "起初这个锯子只是被巨人们用来切割坚硬、冰冻的尸体。不过这个例子似乎有一些非常邪恶的暗示。", "_t")
-t("On Taking Damage: Blindside the attacker (range 6).", "受伤触发：闪电突袭 (范围 6)。", "_t")
+t("On Taking Damage: Blindside the attacker (range 6).", "受伤触发：闪电突袭（范围 6）。", "_t")
 t("Overclocked Radius", "超频半径", "entity name")
 t("distorted steamsaw", "扭曲的蒸汽锯", "_t")
 t([[Faced with the petty quandaries of 'conventional physics', some mad tinker must have coated this sawblade with a fine sheathe of dilated time to maximize its speed.
@@ -1832,11 +1832,11 @@ t("lump of dwarven steel", "矮人钢块", "ingredient name")
 t("lump of stralite", "斯莱特块", "ingredient name")
 t("lump of voratun", "沃瑞钽块", "ingredient name")
 t("herbs", "草药", "ingredient type")
-t("stack of herbs (viperweed)", "一束植物 (蛇草)", "ingredient name")
-t("stack of herbs (sessali)", "一束植物 (延龄草)", "ingredient name")
-t("stack of herbs (bilberry)", "一束植物 (越桔)", "ingredient name")
-t("stack of herbs (burdock)", "一束植物 (牛蒡)", "ingredient name")
-t("stack of herbs (goldleaf)", "一束植物 (金叶)", "ingredient name")
+t("stack of herbs (viperweed)", "一束植物（蛇草）", "ingredient name")
+t("stack of herbs (sessali)", "一束植物（延龄草）", "ingredient name")
+t("stack of herbs (bilberry)", "一束植物（越桔）", "ingredient name")
+t("stack of herbs (burdock)", "一束植物（牛蒡）", "ingredient name")
+t("stack of herbs (goldleaf)", "一束植物（金叶）", "ingredient name")
 t("misc", "杂项", "ingredient type")
 t("brain in a jar", "瓶中脑", "ingredient name")
 t("mechanical core", "机械核", "ingredient name")
@@ -1853,12 +1853,12 @@ t("A lump of stralite.", "一块斯莱特。", "_t")
 t("lump of voratun", "沃瑞钽块", "entity name")
 t("A lump of voratun.", "一块沃瑞钽。", "_t")
 t("herbs", "草药", "entity type")
-t("stack of herbs (viperweed)", "一束植物 (蛇草)", "entity name")
+t("stack of herbs (viperweed)", "一束植物（蛇草）", "entity name")
 t("A stack of herbs.", "一束草药。", "_t")
-t("stack of herbs (sessali)", "一束植物 (延龄草)", "entity name")
-t("stack of herbs (bilberry)", "一束植物 (越桔)", "entity name")
-t("stack of herbs (burdock)", "一束植物 (牛蒡)", "entity name")
-t("stack of herbs (goldleaf)", "一束植物 (金叶)", "entity name")
+t("stack of herbs (sessali)", "一束植物（延龄草）", "entity name")
+t("stack of herbs (bilberry)", "一束植物（越桔）", "entity name")
+t("stack of herbs (burdock)", "一束植物（牛蒡）", "entity name")
+t("stack of herbs (goldleaf)", "一束植物（金叶）", "entity name")
 t("misc", "杂项", "entity type")
 t("brain in a jar", "瓶中脑", "entity name")
 t("A still living brain of a powerful psionic creature.", "强大灵能生物的大脑，依然存活着。", "_t")
@@ -2148,11 +2148,11 @@ t([["...thing on? Okay, good. This is Haze Commander Parmor of the Geothermal Ex
 
 "...Yeah, Councillor Tantalos is getting his tea as soon as he can un-kick the hornet's nest that got us into this chaos.  Moving on...  departure was on time, projected journey to the Loyalist's last known position is underway, making a tunnel there from right under the palace.  All systems functioning, except for the tea-maker, and I can't give a slag about that.  End log."]], [[“……什么事？好，好的。这里是地热探测鼹鼠GEM，阴霾指挥官帕默，我们正在执行的任务是…”她叹了一口气“上面写着，‘寻找忠诚者，将我们安全地运送到他的避难所，并向他提供我们之前在协议中许诺的东西。’如果不用官腔的话，就是‘在恐惧中逃跑，逃向唯一能够把我们从这篇混乱中解救出来的家伙那里，别忘了把“眼睛”带走。’从个人角度，我可不想把我们的命运，交到某个生活在地底下的狂人手里，而且…”含糊不清的抱怨“…这根本他妈的不是我的工作，我可不是某些政治家的仆人——”
 
-#{italic}#(你听到了开门的声音，有另一个人的声音响起)#{normal}#
+#{italic}#（你听到了开门的声音，有另一个人的声音响起）#{normal}#
 
 “船长，沏茶机坏了！快叫人来处理，马上！”
 
-#{italic}#(关门声)#{normal}#
+#{italic}#（关门声）#{normal}#
 
 “……是的，坦塔洛斯议员还他妈的想喝茶，要不是他刚刚给我们捅了个大马蜂窝，把我们搞的一团糟。继续……我们的出发时间很准时，正在准备前往忠诚者的上一个位置，我们将会从宫殿下方挖一条隧道过去。所有系统工作正常，除了沏茶机，去你妈的沏茶机。日志结束。”]], "_t")
 t("strange black disk (2)", "奇怪的黑色碟片 (2)", "_t")
@@ -2189,12 +2189,12 @@ t([["...for posterity!  Let's make sure future generations can hear the moments 
 
 “这是阿马克泰尔在亲自奖励你对他的服侍，是你所应得的荣耀。”更多的撞击声。“这是神给你的祝福。一具更美好的全新的身躯。一个更美好的全新心智。你的人民都可以得到这份…”
 
-#{italic}#(你听到了帕默的声音。)#{normal}#  “操，大家快跑！带上所有东西，快——” (纪录终止了)
+#{italic}#（你听到了帕默的声音。）#{normal}#  “操，大家快跑！带上所有东西，快——”（纪录终止了）
 ]], "_t")
 t("strange black disk (3)", "奇怪的黑色碟片 (3)", "_t")
 t([[#{italic}#(You hear loud, mechanical rumbling; in the distance, you hear sounds of struggling and bludgeoning, swords slicing through flesh, steamguns being fired, and shouts of pain from giant and horror alike.  Parmor sounds panicked.)#{normal}#
 
-"Mayday, mayday, we are bailing out!  Tantalos is gone, and we are NOT going back for him!  Scrap the tunnel to the Palace of Fumes, scrap the entire damn council, we're getting as far away from here as we can--"  Loud hissing.  "MOTHER OF--!"  Grunts, squishing, slashing.  "Flooring it all the way to the damn Sunwall, we're taking the first farportal off this continent whether those tinies like it or not!  Guess this technically counts as treason, mutiny, whatever, but if the Council's hearing this, BLOW IT OUT YOUR STEAM-HOLES, WE'D RATHER LIVE!  Altitude rising, surface approaching, this is H.C. Parmor signing off--"]], [[#{italic}#(你听到了巨大的，机械的轰鸣声。在远处，你听到挣扎和殴打的声音，听到利刃刺破血肉，蒸汽枪的枪声，以及巨人和恐魔发出的痛苦怒吼。帕默的声音听起来惊慌失措。)#{normal}#
+"Mayday, mayday, we are bailing out!  Tantalos is gone, and we are NOT going back for him!  Scrap the tunnel to the Palace of Fumes, scrap the entire damn council, we're getting as far away from here as we can--"  Loud hissing.  "MOTHER OF--!"  Grunts, squishing, slashing.  "Flooring it all the way to the damn Sunwall, we're taking the first farportal off this continent whether those tinies like it or not!  Guess this technically counts as treason, mutiny, whatever, but if the Council's hearing this, BLOW IT OUT YOUR STEAM-HOLES, WE'D RATHER LIVE!  Altitude rising, surface approaching, this is H.C. Parmor signing off--"]], [[#{italic}#（你听到了巨大的，机械的轰鸣声。在远处，你听到挣扎和殴打的声音，听到利刃刺破血肉，蒸汽枪的枪声，以及巨人和恐魔发出的痛苦怒吼。帕默的声音听起来惊慌失措。）#{normal}#
 
 “求救，求救，我们在撤离！坦塔洛斯完蛋了，我们绝对不会再回去救他的！去你妈的烟雾宫殿的隧道，去你妈的天杀的议会，我们必须赶紧跑，越远越好——”巨大的嘶嘶声。“狗娘——！”撞击声，挤压声，破碎声。“给我朝太阳堡垒前进，我们要使用这个大陆上的第一个远行传送门，不管你们这些家伙喜不喜欢！我可不管这是不是什么叛国、谋反，去他妈的，如果你们议会在听着的话，放你娘的蒸汽孔，老子只想活下去！海拔上升，准备接近地面，这里是 H.C. 帕默，播报完毕——”]], "_t")
 t("erratic scribblings", "潦草的字迹", "_t")
@@ -2528,7 +2528,7 @@ And regarding the First Duathedlen - quit your murmuring right now.  I've seen h
 
 还有，有关第一位多瑟顿的事情——你现在就别抱怨这些了。我看到过他的记录，我知道你们大部分人也都看过，这就是为什么我可以放心的说，尽管他的…本性如此，但他的忠诚是[b]无可挑剔[/b]的——我们可以假定，他的突然失联是他进行的调查的一个重要组成部分，而并不是他叛逃了。如果你看到了他，请告诉我们他的位置，但千万不要干涉他的行动。
 
-[i](这封信是用一个难以辨认，但看起来很正式的恶魔印章签署的。)[/i] ]], "_t")
+[i]（这封信是用一个难以辨认，但看起来很正式的恶魔印章签署的。）[/i] ]], "_t")
 t("bootlegger's complaint letter", "私酒贩的抱怨信", "_t")
 t([[Look, I know the whole point of this market was to make a place for ANY sort of open trade, without the Allied Kingdoms' scryers breathing down our necks, and I know it's not exactly feasible to set up another portal off the continent...  but do you have any idea how bad it is for business to have the slavers using this with us?  Nobody's going to want to have a nice mug of unregulated-strength ale or pick up a shiny new stolen necklace when, not ten yards away, some helpless person is being led away in chains and wailing in misery.
 
@@ -2554,7 +2554,7 @@ Say the word, and I'll send over the temporary rune design so you can set the ne
 
 只要你一句话，我就把这个临时的符文设计发给你，你设置好水晶就能用了。我不收你的钱——只要你愿意用，这笔投入很快就能回本。
 
-[i](你猜想，下面画着的这个精心设计的，闪闪发光的图案，在食人魔文化里有着和签名一样的用途。)[/i] ]], "_t")
+[i]（你猜想，下面画着的这个精心设计的，闪闪发光的图案，在食人魔文化里有着和签名一样的用途。）[/i] ]], "_t")
 t("STOP BLOWING OUR COVER", "别再暴露我们的身份了！", "_t")
 t([[We get it: it's our fault the farportal mailing system isn't perfect.  Our people are still working on undoing that jury-rigged configuration that keeps your portal from transporting anything that isn't living - and if we get it wrong, that means people start getting teleported into walls again.  It's already a damn miracle you can get through the portal without coming out naked on the other side, let alone still carrying your backpacks and all their contents.
 
@@ -2585,7 +2585,7 @@ Well, I guess that's what made him a [i]mad[/i] alchemist, and not some rich pot
 Anyway...  Korbek, if you're reading this, it means those crotch-heights screwed up again.  Send them back the orb, and hopefully it'll tell them what they need (well, as far as I'm concerned, [i]hopefully[/i] it'll blow them apart).  You got the calibration right on your end, and your poorly-disguised thugs are doing just fine (and stop with the illusions, it's just insulting, we don't care who or what you are as long as your gold glitters).  We just need to get the signal lock straight on our side, and we'll be able to fill the order you sent over, and then some.
 
 Seriously, though, I'm writing this note so even if I get killed from this, I'm doing you a favor.  If I'm dead, I'd appreciate you showing your gratitude by making sure that ankle-biting son-of-a-ritch has played his last game of musical straws.
-]], [[[i](你看到了一只被黑色皮手套包裹的腐烂的人手，手腕被切断了。它的手里拿着一个破碎的神器，样子就像是多元水晶球，水晶球和它的手掌之间夹着一张纸条。)[/i]
+]], [[[i]（你看到了一只被黑色皮手套包裹的腐烂的人手，手腕被切断了。它的手里拿着一个破碎的神器，样子就像是多元水晶球，水晶球和它的手掌之间夹着一张纸条。）[/i]
 
 “抽到签的人负责矫正传送门”[i]我的屁股[/i]。大家都知道，那个作弊的家伙肯定使用了换位魔法。如果说我有什么怀念伊格兰斯的地方的话，那就是如果他们还在，你只要能看穿那些家伙的手上功夫，戴上一顶抗精神攻击的帽子，就不会被人狠宰一通。
 
@@ -2644,7 +2644,7 @@ Alas, I was not able to study them for long enough to learn more than this.  Kas
 
 唉，我没有机会研究他们足够长的时间，所以我的发现只有这些了。卡西罗斯告诉我，他不能再陪我了，因为他和马基·埃亚尔的英雄之间已经安排好了一场聚会——好像是有关使用探险远行传送门来进行垃圾清理？不管怎样，尽管我们大部分人和气之部族之间唯一的沟通的渠道，就是从飞艇上掉下来的装置，我们很快就会获得和更多他们面对面接触的机会。也许，未来还会有除了我之外的来访者，被许可亲自访问他们美丽的城市。他们在粉碎克鲁克叛乱，以及阻止他们的领袖强占[b]撼天动地，无耻的天空肆虐者[/b]中所作出的贡献，已经向我们证明，他们将会是我们未来一段时间中当之无愧的盟友。]], "_t")
 t("Scholar Graynot's Assessment of the Species, Chapter 83: Wei...", "博学者格雷诺特关于人种的调查——第八十三章——Wei……", "_t")
-t("(This note had already caught fire when the paradox anomaly pulled it in from another timeline.  You only had time to read part of the title before it burned away completely.)", "(当时空异常从另一条世界线拉入这条纸条的时候，这张纸条突然着火了。你还没来得及看完标题，这张纸条已经被烧得一干二净。)", "_t")
+t("(This note had already caught fire when the paradox anomaly pulled it in from another timeline.  You only had time to read part of the title before it burned away completely.)", "（当时空异常从另一条世界线拉入这条纸条的时候，这张纸条突然着火了。你还没来得及看完标题，这张纸条已经被烧得一干二净。）", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/lore/orcs.lua"
@@ -3168,7 +3168,7 @@ So maybe the old guard's been overrun with Thaloren, youths, and others who care
 
 Perhaps most meaningfully of all, there are [i]far[/i] more Menders now than there were Ziguranth in the last century.  These allies will help us support Nature to an incredible degree, and we've started offering volunteer courses in classical anti-magic training, allowing them to further refine our techniques for dealing with rogue mages.  If and when arcane magic causes another catastrophe, these allies will rally behind us as we defend Nature from those who threaten it...  And, who knows, maybe we actually CAN teach mages to show a sane level of restraint without wiping them all out.  I'm keeping my eyes open for ways to make that happen, no matter how unlikely they may be.
 
-In the meantime, paying off Stone Warden trainers and buying enough mindstars and herbal infusions for our initiates isn't cheap.  I'm not proud of what I'm doing to pay the bills, and am fully aware of what it'd do to the organization if someone saw me, but this is the fastest and easiest money I've ever made.  Ten minutes of concentration, a few hours to re-establish my equilibrium, and I can grow enough cheerblossom to cover our expenses for a week.]], [[[i](你看到了一本被书页包裹的笔记；当你打开它的时候，它就开始慢慢枯萎、碎裂。你努力撕下了一页，它仍然在慢慢分解，但是分解的速度慢到你能够读完，才最终化成了尘土。)[/i]
+In the meantime, paying off Stone Warden trainers and buying enough mindstars and herbal infusions for our initiates isn't cheap.  I'm not proud of what I'm doing to pay the bills, and am fully aware of what it'd do to the organization if someone saw me, but this is the fastest and easiest money I've ever made.  Ten minutes of concentration, a few hours to re-establish my equilibrium, and I can grow enough cheerblossom to cover our expenses for a week.]], [[[i]（你看到了一本被书页包裹的笔记；当你打开它的时候，它就开始慢慢枯萎、碎裂。你努力撕下了一页，它仍然在慢慢分解，但是分解的速度慢到你能够读完，才最终化成了尘土。）[/i]
 
 又有一张海报被他们毁坏了。他们称我们为叛徒、通敌者，宣称自己才是真正的伊格兰斯。他们这群傻瓜。
 
@@ -5481,7 +5481,7 @@ t([[Throw a cone of flame with radius %d
 		伤害受蒸汽强度加成。]], "tformat")
 t("Mass Repair", "大规模修复", "talent name")
 t([[Throw a cone of healing with radius %d, healing other mechanical creatures (steam spiders) for %d.
-		The healing will increase with your Steampower.]], [[释放一片锥形半径 %d 码的修理器，修复机械生物 (蒸汽蜘蛛 ) %d 生命值。
+		The healing will increase with your Steampower.]], [[释放一片锥形半径 %d 码的修理器，修复机械生物（蒸汽蜘蛛 ）%d 生命值。
 　　治疗量受蒸汽强度加成。]], "tformat")
 t("Arcane Disruption Wave", "奥术干扰波", "talent name")
 t([[Let out a technopsionic wave that silences for %d turns all those affected in a radius of %d, including the user.
@@ -5835,7 +5835,7 @@ t("Unleash toxic steamtech weaponry on your enemies.", "对你的敌人释放剧
 t("#VIOLET#EUREKA!", "#VIOLET#我发现了！", "log")
 t("#VIOLET#EUREKA!#WHITE# Schematic learnt: #LIGHT_BLUE#%s", "#VIOLET#我发现了！#WHITE# 已学习配方：#LIGHT_BLUE#%s", "saySimple")
 t("This talent is required for the following tinkers (you still need to learn/find the schematics):", "该技能是制造下列附着物的必要条件（你仍然需要找到/学会相应配方）：", "_t")
-t(" #LIGHT_BLUE#(known)#LAST#", " #LIGHT_BLUE#(已学会)#LAST#", "_t")
+t(" #LIGHT_BLUE#(known)#LAST#", " #LIGHT_BLUE#（已学会）#LAST#", "_t")
 t("#{italic}#* ...perhaps more to discover...#{normal}#", "#{italic}#* ……可能还可以找到更多……#{normal}#", "_t")
 
 ------------------------------------------------
@@ -5968,8 +5968,8 @@ t([[#GREY#Applying you cunning plans, you escape death by turning to undeath in 
 t("Cosmetic Options", "外观设置", "_t")
 t("Customize Appearance", "自定义外形", "_t")
 t("Use Default", "使用默认", "_t")
-t("Rak'Shor's Cunning (Skeleton)", "拉克·肖的狡诈 (骷髅)", "_t")
-t("Rak'Shor's Cunning (Ghoul)", "拉克·肖的狡诈 (食尸鬼)", "_t")
+t("Rak'Shor's Cunning (Skeleton)", "拉克·肖的狡诈（骷髅）", "_t")
+t("Rak'Shor's Cunning (Ghoul)", "拉克·肖的狡诈（食尸鬼）", "_t")
 t([[Set up some cunning contingency plans in case of death.
 		If you die you will have the option to raise back from the dead once, by becoming a ghoul or a skeleton (you can choose which).
 		When rising this way you will keep access to your racial tree and gain access to the ghoul or skeleton racial tree with 2 levels of each talents already learnt.
@@ -6050,7 +6050,7 @@ section "tome-orcs/data/talents/uber/str.lua"
 
 t("Pain Enhancement System", "痛苦强化系统", "talent name")
 t("Earned the achievement 'Size Matters' on this character.", "当前角色解锁了“伤害很重要”成就。", "_t")
-t("When you deal a critical hit your embedded system activates, increasing all your primary stats except Strength by 50%% of your Strength for 6 turns.", "系统将会在你暴击时启动，在 6 回合内你的全属性( 力量除外 ) 将会增加等同于你 50%% 力量的值。", "tformat")
+t("When you deal a critical hit your embedded system activates, increasing all your primary stats except Strength by 50%% of your Strength for 6 turns.", "系统将会在你暴击时启动，在 6 回合内你的全属性（ 力量除外 ）将会增加等同于你 50%% 力量的值。", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/uber/wil.lua"
@@ -6382,7 +6382,7 @@ t("You have %d%% chances to encase your foes in iceblocks.", "你造成伤害时
 t("disease", "疾病", "effect subtype")
 t("Larvae Infestation", "里奇幼虫寄生", "_t")
 t("The target has been impregnated with %d developing ritch larvae which are feeding on it%s.  After a %d turn gestation period, each will burst out violently, dealing %0.2f physical and %0.2f fire damage to its host.", "目标被 %d 个里奇幼虫寄生%s。在%d回合的发育期结束后，每个幼虫都会从寄主体内猛烈破体而出，对宿主造成 %0.2f 物理和 %0.2f 火焰伤害；即使效果提前解除，幼虫仍可能以较低强度破体而出并生成幼虫。", "tformat")
-t(" for %0.2f physical damage (increasing) each turn", " ，每回合受到 %0.2f 物理伤害( 随回合递增)", "tformat")
+t(" for %0.2f physical damage (increasing) each turn", " ，每回合受到 %0.2f 物理伤害（ 随回合递增）", "tformat")
 t("#Target# is #ORANGE#INFESTED#LAST# with ritch larvae!", "#Target# 被里奇幼虫#ORANGE#寄生#LAST#！", "_t")
 t("+Larvae Infestation", "+里奇幼虫寄生", "_t")
 t("developing ", "正在生长的", "_t")
@@ -7452,8 +7452,8 @@ t([["#{italic}#When Amakthel arrived, he created the Sun and brought life to thi
 You carry a piece of His Sun with you now. Do not forget who gave it to you, lest you become like those wretched fools who would forsake Him.#{normal}#"]], [["#{italic}#阿马克泰尔降临，他创造了太阳，为世界带来生命。
 现在，你带着他的一片太阳。不要忘了是谁将它给予你，以免让你变成和那些抛弃他的可怜虫一样。#{normal}#"]], "_t")
 t("When worn, gives you an additional prodigy point.", "装备时，获得一点觉醒技能点。", "_t")
-t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#神的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。(+1觉醒点)", "logPlayer")
-t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#神的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。(+1觉醒点)", "saySimple")
+t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#神的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。（+1觉醒点）", "logPlayer")
+t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#神的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。（+1觉醒点）", "saySimple")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/slumbering-caves/zone.lua"
@@ -7897,7 +7897,7 @@ This has no effect on gameplay at all but it is fun!
 ------------------------------------------------
 section "tome-orcs/overload/data/texts/unlock-mage_technomancer.lua"
 
-t("New Class Evolution: #LIGHT_GREEN#Technomancer (Archmage)", "新职业进阶：#LIGHT_GREEN#科技法师 (元素法师)", "_t")
+t("New Class Evolution: #LIGHT_GREEN#Technomancer (Archmage)", "新职业进阶：#LIGHT_GREEN#科技法师（元素法师）", "_t")
 t([[#{bold}##GOLD#EUREKA!#LAST##{normal}#
 
 As an archmage you are trained into the intricacies of the arcane forces, but as a tinker you know how to build and create. And suddently it hit you!
@@ -8039,7 +8039,7 @@ Race features:#YELLOW#
 ------------------------------------------------
 section "tome-orcs/overload/data/texts/unlock-tinker_annihilator.lua"
 
-t("New Class: #LIGHT_GREEN#Annihilator (Tinker)", "新职业：#LIGHT_GREEN#歼灭者 (工匠系)", "_t")
+t("New Class: #LIGHT_GREEN#Annihilator (Tinker)", "新职业：#LIGHT_GREEN#歼灭者（工匠系）", "_t")
 t([[After researching the remains of many foes you found new ways to bring the literal heat of battle to your foes!
 You can now create new characters with the #LIGHT_GREEN#Annihilator class#WHITE#.
 

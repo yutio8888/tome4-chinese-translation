@@ -799,7 +799,7 @@ t([[You spawn a pool of acid in radius 4 around you for %d turns, dealing %0.2f 
 t("Blighted Path", "枯萎之路", "talent name")
 t("Blighted Path", "枯萎之路", "_t")
 t("Select a use for the %s charge(s):", "选择%s次充能的用途：", "tformat")
-t("Shield for %d damage (50%% reflect).", "产生护盾，抵挡%d伤害 (50%% 反射)。", "tformat")
+t("Shield for %d damage (50%% reflect).", "产生护盾，抵挡%d伤害（50%% 反射）。", "tformat")
 t("Attack for #DARK_GREEN#%0.2f blight damage", "攻击造成#DARK_GREEN#%0.2f枯萎伤害", "tformat")
 t("Restore #904010#%0.2f vim", "恢复#904010#%0.2f活力值", "tformat")
 t([[Each time you walk or move you gain a blight charge. You can store up to %d charges.
@@ -971,7 +971,7 @@ t("demon seed", "恶魔种子", "_t")
 t("The seed of a demon.", "恶魔的种子。", "_t")
 t("Demon status: %s.", "恶魔状态：%s。", "tformat")
 t("alive (%d%% life)", "存活 (%d%% 生命值)", "tformat")
-t("dead (can not be summoned)", "死亡 (无法召唤)", "_t")
+t("dead (can not be summoned)", "死亡（无法召唤）", "_t")
 t("#CRIMSON#You extract a %s and add it to your inventory.", "#CRIMSON#你提取了一个%s并将其收入物品栏。", "logPlayer")
 t("#CRIMSON#You extract a %s and bind it to your %s.", "#CRIMSON#你提取了一个%s并将其附着于你的%s。", "logPlayer")
 t("#CRIMSON#You feed vim into your %s, increasing its level to %d and healing it.", "#CRIMSON#你将活力注入你的 %s，将其等级提升到 %d，并治疗了它。", "logPlayer")
@@ -1244,7 +1244,7 @@ t([[Demon horns temporarily grow on your shield as you bash a foe with it for %d
 		The healing power increases with your spellpower.]], [[你的盾牌上长出临时的恶魔之角。
 		你盾击敌人造成 %d%% 伤害。
 		如果攻击命中，目标将被恶魔角刺穿，流血 5 回合，合计受到额外 50%% 黑暗伤害。
-		每次你攻击被恶魔角刺穿的目标时，你回复 %d 生命 (每回合至多 1 次 )。
+		每次你攻击被恶魔角刺穿的目标时，你回复 %d 生命（每回合至多 1 次 ）。
 		治疗效果受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -1253,7 +1253,7 @@ section "tome-ashes-urhrok/data/talents/corruptions/npcs.lua"
 t("Soul Eater", "灵魂吞噬者", "talent name")
 t("#CRIMSON#%s is bound to %s will.", "#CRIMSON#%s被绑定到%s的意志。", "logSeen")
 t("#PURPLE#As %s falls down you see %s reach to it, devour its essence and raise it back as a demonic husk.", "#PURPLE#当%s倒下时，你看到%s靠向它，吞噬了它的精华，并将其复活为恶魔躯壳。", "logSeen")
-t("%s (demonic husk)", "%s (恶魔尸傀)", "tformat")
+t("%s (demonic husk)", "%s（恶魔尸傀）", "tformat")
 t([[Any nearby allied creature that is not a summon will be bound to your will.
 		Each time a creature bound to your will dies it is resurrected as a demonic husk.
 		Demonic husks have:
@@ -1843,7 +1843,7 @@ As you recover, and your platform of searing earth splits from the main continen
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/data/texts/unlock-corrupter_demonologist.lua"
 
-t("New Class: #LIGHT_GREEN#Corruptor (Demonologist)", "新职业：#LIGHT_GREEN#堕落系(恶魔使者)", "_t")
+t("New Class: #LIGHT_GREEN#Corruptor (Demonologist)", "新职业：#LIGHT_GREEN#堕落系（恶魔使者）", "_t")
 t([[Demons in their invasion of Eyal have abducted natives of the planet and mindwiped them to serve as double agents.
 Trained in the use of the demon's own forces they have created many dark cults to spread fear and terror.
 Some have managed to escape their programming and chose to follow their own desires instead.

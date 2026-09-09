@@ -58,7 +58,7 @@ t([[You concentrate to create a psionic block field all around you for 5 turns.
 		When damage is cancelled you instinctively make a retaliation mind strike against the source, dealing %0.2f mind damage. (The retaliation may only happen 2 times per turn.)
 		]], [[创造一个持续 5 回合的灵能盾牌围绕你。
 		技能生效时有 %d%% 几率会无视伤害。
-		如果伤害被无视，你会对目标进行反击，造成 %0.2f 精神伤害。(每回合最多 2 次 )
+		如果伤害被无视，你会对目标进行反击，造成 %0.2f 精神伤害。（每回合最多 2 次 ）
 		]], "tformat")
 
 ------------------------------------------------
@@ -70,7 +70,7 @@ t([[Your mind is so powerful it can bend reality, providing you with an extra-na
 		你最多可以储存 %d 具身体。]], "tformat")
 t("Psionic Minion", "灵能仆从", "talent name")
 t("Not enough space to invoke your minion!", "没有足够空间召唤随从！", "logPlayer")
-t("%s (Psionic Minion)", "%s (灵能仆从)", "tformat")
+t("%s (Psionic Minion)", "%s（灵能仆从）", "tformat")
 t([[You imbue a part of your own mind into a body without actually taking its form.
 		The body will work as your minion for %d turns.
 		Psionic minions can not heal in any way.
@@ -81,7 +81,7 @@ t([[You imbue a part of your own mind into a body without actually taking its fo
 t("Psionic Duplication", "灵能复制", "talent name")
 t([[When you store a body you also store %d more identical copies of it that you can use later.
 		When you store a rare/unique/boss or higher rank creature you only get a third of the uses (but never less than one).]], [[当你获得一个身体时复制 %d 个克隆体.
-		当你获得稀有/史诗/Boss 或者更高阶级的身体时，复制的数量除以 3 (至少一个)。]], "tformat")
+		当你获得稀有/史诗/Boss 或者更高阶级的身体时，复制的数量除以 3（至少一个）。]], "tformat")
 t("Cannibalize", "吞噬", "talent name")
 t("You require need to assume a form first.", "你需要先占据一个身体。", "logPlayer")
 t("Rank of body too low.", "这个身体的阶级太低。", "logPlayer")
@@ -110,7 +110,7 @@ t([[Your mere presence is a blight in your foes minds. Using this link you are a
 		The stolen talent will not use any resources to activate.
 		At level 5 you are able to choose which talent to steal.
 		The talent stolen will be limited to at most level %d.]], [[链接目标，偷取目标一个技能。
-		持续 %d 回合，你获得目标一个随机主动技能 (非被动，非持续)，目标会失去该技能。
+		持续 %d 回合，你获得目标一个随机主动技能（非被动，非持续），目标会失去该技能。
 		你不会偷取一个已有的技能。
 		偷取的技能不消耗任何能量。
 		在等级 5 时，可选择偷取的技能。
@@ -219,7 +219,7 @@ t("Self Persistence", "自我坚持", "talent name")
 t("When you assume the form of an other body you can still keep %d%% of the values (defences, crits, powers, save, ...) of your own body.", "当你附身时，你还可以保留自己身体的属性 %d%%（闪避，暴击，强度，豁免……）。", "tformat")
 t("Improved Form", "身体改进", "talent name")
 t([[When you assume the form of another body you gain %d%% of the values (defences, crits, powers, save, ...) of the body.
-		In addition talents gained from bodies are limited to level %0.1f.]], [[当你附身时，你获得身体 %d%% 的数值 (闪避，暴击，强度，豁免, ...)。
+		In addition talents gained from bodies are limited to level %0.1f.]], [[当你附身时，你获得身体 %d%% 的数值（闪避，暴击，强度，豁免……）。
 		此外，从身体获得的技能等级最高为 %0.1f。]], "tformat")
 t("Full Control", "完全控制", "talent name")
 t([[When you assume the form of an other body you gain more control over the body:
@@ -234,7 +234,7 @@ t([[When you assume the form of an other body you gain more control over the bod
 		- 在等级 2 时，可额外获得一个技能位
 		- 在等级 3 时，可获得抗性和固定减伤
 		- 在等级 4 时，可额外获得一个技能位
-		- 在等级 5 时，可获得所有速度(只有当他们优于你时)
+		- 在等级 5 时，可获得所有速度（只有当他们优于你时）
 		- 在等级 6 以上时，可额外获得一个技能位
 		]], "tformat")
 
@@ -317,7 +317,7 @@ t("Force Shield", "力场盾", "talent name")
 t([[You create a psionic shield from your weapon that prevents you from ever taking blows that deal more than %d%% of your maximum life and gives you %d%% evasion.
 		In addition, each time you take a melee hit the attacker automatically takes revenge strike that deals %d%% weapon damage as mind damage. (This effect can only happen once per turn)
 		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你通过武器创造灵能力场盾，每次受到伤害时，伤害不会超过最大生命值 %d%%，并有 %d%% 的几率闪避攻击。
-		此外，每次受到近战攻击时，攻击者会受到 %d%% 武器精神伤害的反击，(每回合一次)
+		此外，每次受到近战攻击时，攻击者会受到 %d%% 武器精神伤害的反击，（每回合一次）
 		如果你没有装备双手武器，但在备用武器组里装备了它，你会立刻自动切换到那组武器。]], "tformat")
 t("Unleashed Mind", "心灵释放", "talent name")
 t([[You concentrate your powerful psionic powers on your weapon and briefly unleash your fury.
@@ -424,7 +424,7 @@ t("#Target# is protected by a psionic block!", "#Target#被灵能格挡保护！
 t("#Target# no longer protected by the psionic block.", "#Target#不再被灵能格挡保护。", "_t")
 t("#ROYAL_BLUE#The attack against %s is cancelled by a psionic block!", "#ROYAL_BLUE#对%s的攻击被灵能格挡！", "logSeen")
 t("Sadist", "虐待狂", "_t")
-t("Mindpower (raw) increased by %d.", "精神强度 ( 原始值 ) 增加 %d。", "tformat")
+t("Mindpower (raw) increased by %d.", "精神强度（ 原始值 ）增加 %d。", "tformat")
 t("#Target# is empowered by the suffering of others!", "#Target#被其他人的痛苦强化！", "_t")
 t("#Target# is no longer empowered.", "#Target#不再被强化。", "_t")
 t("Radiate Agony", "痛苦辐射", "_t")
