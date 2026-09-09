@@ -1558,3 +1558,43 @@ surface 用 `entry_revision_identity`，contextual 用 `revision_key`，两种�
   哪怕 17 项 check 全部 `exit_code=0`，`success` 仍然是 false。
   日志里只有末尾一行 `GATES FAILED`，没有任何 `FAIL` 行，很容易误判成偶发。
   失败时先看 `.artifacts/i18n/ci-gates/run.*/results.json` 的 `error` 字段。
+
+## §37 历史重放：先测量，再优化（2.5 倍，输出逐字段不变）
+
+### §37.1 测量结果
+在 96 个批次、49 个迁移的规模上跑一次 `_projection`（`queue status/check/rebuild`
+以及 `migration plan/check/apply` 每次都要跑）：
+
+| 函数 | 次数 | 秒 | 占比 |
+| --- | --- | --- | --- |
+| `_catalog_from_tree` | 196 | 223.0 | 68.9% |
+| └ `validate_catalog_files` | 196 | **216.8** | **67.0%** |
+| `_validated_migration_edges` | 1 | 136.0 | 42.0%（与上行嵌套重叠） |
+| `_git` | 4409 | 35.4 | 10.9% |
+| `_batch_rows` | 96 | 29.1 | 9.0% |
+
+git 子命令里 `log` 2147 次占 26.5s，`cat-file` 1839 次占 7.9s。
+
+关键比值：**97 个批次 base_commit 只对应 43 份不同的目录内容**（有一份被 29 个提交共用）。
+原先 `git_evidence_reader` 只缓存 Git 原始字节，**解析与校验每次都重做**——
+同一份字节被验了 196 遍。
+
+### §37.2 改动
+`validate_catalog_files(files: dict[str, bytes])` 只吃字节、不读 root/commit，是纯函数；
+队列与迁移两个模块都不改动它返回的 `manifest`/`entries`（已逐个调用点核过）。
+因此按**不可变内容标识**（三份目录文件的 blob id 三元组）在同一次 projection 内记忆其结果。
+
+刻意保留的东西：每个受跟踪文件仍然逐个 `_ordinary_blob` 读取并校验 mode/kind，
+目录子树集合检查照旧，迁移发布边界校验、事务前候选重读、17 项门禁全部不动。
+**只省掉「对同一份字节重复做同一个纯函数」**。
+
+### §37.3 验证方式
+不能只看变快了。改动前后各跑一次完整重放，比对 8 个字段：
+`head`/`catalog_id`/`entries_n`/`overrides_n`/`reconciliation_n` 与
+`overrides`/`reconciliation`/`entries` 三个内容摘要——**全部一致**。
+随后 `queue rebuild` + `queue check` 成功（reconciliation 29828、surface_covered 6365），
+17 项门禁全绿。
+
+耗时 **314.8s → 125.4s（2.5 倍，省 189s）**。`rebuild + check` 两次投影合计 4m14s。
+剩下的大头是 `git log`（2147 次）与 `_batch_rows`，暂不动——
+优化过的地方必须有测量支撑，没量过的不要顺手改。

@@ -188,7 +188,15 @@ def _catalog_from_tree(root: Path, treeish: str) -> tuple[dict[str, Any], list[d
             f"catalog_extra={sorted(catalog_paths-expected_catalog_paths)}, "
             f"quality_extra={sorted(quality_paths-expected_quality_paths)})")
     files = {path: _ordinary_blob(root, tree, path) for path in catalog.CANDIDATE_FILES}
-    manifest, entries, _exclusions = catalog.validate_catalog_files(files)
+    # Every tracked file is still read and checked above.  Only the pure
+    # validation of those exact bytes is reused: validate_catalog_files takes
+    # nothing but the bytes, so identical blob IDs cannot validate differently.
+    # A replay covers ~200 catalog reads over ~43 distinct catalog contents.
+    identity = hashlib.sha256(b"\0".join(
+        path.encode("utf-8") + b":" + tree[path][2].encode("ascii")
+        for path in sorted(catalog.CANDIDATE_FILES))).hexdigest()
+    manifest, entries, _exclusions = git_evidence_reader.derive(
+        root, "catalog", identity, lambda: catalog.validate_catalog_files(files))
     return manifest, entries, files
 
 
