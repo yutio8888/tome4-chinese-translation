@@ -1450,7 +1450,7 @@ Please go to the Video Options and try enabling/disabling options and then resta
 A usual problem is shaders and thus should be your first target to disable.]], [[糟糕！如果你不是手动开启了安全模式的话，那么说明，游戏检测到上一次启动时发生错误，目前游戏已进入#LIGHT_GREEN#安全模式#WHITE#。
 在安全模式下，所有图形选项都被关闭，FPS被设置为很低。不建议在这种情况下进行游戏(游戏画面会变得很难看)。
 
-请你进入游戏视频选项，尝试调整游戏选项，直到你不再弹出此消息。
+请你进入游戏视频选项，尝试启用或禁用各项选项并重启游戏，直到不再弹出此消息。
 常见的问题一般是由着色器引发的，你可以先尝试关闭这些选项。]], "_t")
 t("Message", "消息", "_t")
 t("Duplicate Addon", "重复的插件", "_t")
