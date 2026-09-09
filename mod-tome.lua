@@ -4150,7 +4150,7 @@ Tastes like Urh'Rok's own piss, but it gets the job done.]], [[#LIGHT_GREEN#*那
 t("Thank you. I'll be off.", "谢谢，我走了。", "_t")
 t([[#LIGHT_GREEN#*The dwarf finally returns with a vial and a small pouch.*#WHITE#
 I put a bit of the good stuff in this one, though it won't do you any favors tomorrow morning. And careful with that Taint of Purging, especially if the wife answers the door the next time you knock. Har!]], [[#LIGHT_GREEN#*那个矮人终于回来了，手里拿着一个药瓶和一个小袋子。*#WHITE#
-这里面我给你带来个好东西，尽管也许明天早上对你没什么用。小心使用这个“清除印记”,如果下次你敲门的时候，是我老婆开门的话，你可要小心点，哈！]], "_t")
+这里面我给你带来个好东西，尽管也许明天早上对你没什么用。小心使用这个“清除印记”，如果下次你敲门的时候，是我老婆开门的话，你可要小心点，哈！]], "_t")
 t("Bless you adventurers. Which will it be?", "祝福你我的冒险家，你选择哪一个？", "_t")
 t("Here's a list of the creature bits I need. Good luck with the murdering!", "这里有材料清单，祝你好运！", "_t")
 t([[Here's a list of the creature bits I need. Good luck with the murdering!
@@ -8829,7 +8829,7 @@ t("elf", "精灵", "entity subtype")
 t("human sun-paladin", "人类太阳骑士", "entity name")
 t("A human in shiny plate armour.", "一位穿着闪耀板甲的人类。", "_t")
 t("elven sun-mage", "精灵太阳法师", "entity name")
-t("An elf dressed in glowing robes.", "一位穿着鲜艳长袍的精灵。", "_t")
+t("An elf dressed in glowing robes.", "一位穿着荧光长袍的精灵。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/swarm.lua"
@@ -12925,7 +12925,7 @@ t("#ORCHID#Umbraphage is fully powered!", "#ORCHID#暗影吞噬者充分获得�
 t("release absorbed darkness in a %d radius cone with a %d%% chance to blind (based on lite radius), dealing %0.2f darkness damage (based on Mindpower and charge)", "在%d码的锥形范围内释放吸收的黑暗，有 %d%% 几率致盲（基于光照半径）, 并造成 %0.2f 暗影伤害（ 基于精神强度和吸收量）", "tformat")
 t("%s unshutters %s %s, unleashing a torrent of shadows!", "%s打开了%s%s，释放出一股暗影洪流！", "logSeen")
 t("Spectral Cage", "幽灵牢笼", "entity name")
-t("ethereal blue lantern", "天蓝色的灯笼", "_t")
+t("ethereal blue lantern", "飘渺的蓝色灯笼", "_t")
 t("This ancient, weathered lantern glows with a pale blue light emanating from several ghostly forms trapped within.  The metal is icy cold to the touch.", "这个古老、风化的灯笼放射出淡蓝色的光芒，光芒来自被困在其中的几个幽灵形体。它的金属表面摸上去像冰一样冷。", "_t")
 t("release a will o' the wisp that will explode against your foes for %d cold damage (based on your Magic)", "放出鬼火，可以对你的敌人自爆，造成%d寒冷伤害（基于魔法）", "tformat")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
@@ -24129,18 +24129,18 @@ t([[Your eyes penetrate the darkness to find anyone that may be hiding there. Th
 		You do +%d%% damage to anything that has entered your creeping dark.]], [[你的眼睛穿过黑暗并发现隐藏在黑暗里的敌人。
 		你的视线同样可以穿过黑暗之雾看到 %d 的半径范围。同时黑暗之雾极大的提高你的步伐。
 		（在黑暗之雾中增加你 +%d%% 移动速度）
-		你对任何进入黑暗之雾的人造成 +%d%% 点伤害。]], "tformat")
+		你对任何进入黑暗之雾的人造成 +%d%% 伤害。]], "tformat")
 t("Dark Torrent", "黑暗迸发", "talent name")
 t([[Sends a torrent of searing darkness through your foes, doing %d darkness damage. There is a 25%% chance the rushing darkness will blind them for 3 turns and cause them to lose track of their target.
 		If you know the Creeping Darkness talent, a short-lived trail of darkness is left in the beam's wake. Its damage is identical to that of Creeping Darkness's.
-		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]], [[向敌人发射一股灼热的黑暗能量，造成 %d 点伤害。黑暗能量有 25%% 概率致盲目标 3 回合并使它们丢失当前目标。
+		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]], [[向敌人发射一股灼热的黑暗能量，造成 %d 点黑暗伤害。黑暗能量有 25%% 概率致盲目标 3 回合并使它们丢失当前目标。
 			如果你掌握黑暗之雾技能，会在射线范围内留下短暂的黑暗尾迹，其伤害等同于黑暗之雾的伤害。
-			伤害受精神强度加成。你对任何进入黑暗之雾的人造成 +%d%% 点伤害。]], "tformat")
+			伤害受精神强度加成。你对任何进入黑暗之雾的人造成 +%d%% 伤害。]], "tformat")
 t("Dark Tendrils", "黑暗触手", "talent name")
 t([[Spawn tendrils of darkness to pursue a single target for up to 12 turns, leaving behind a trail of creeping darkness as they move. Targets seized by the tendrils are pinned for %d turns and shrouded in darkness. The darkness deals %0.2f damage per turn to those within.
 		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]], [[召唤黑暗触手攻击某个敌人，持续12回合。当黑暗触手移动时，黑暗之雾会跟随蔓延。
 			被触手抓住的敌人会被定身 %d 回合并被黑暗笼罩，每回合黑暗会造成 %0.2f 点伤害。
-			伤害受精神强度加成。你对任何进入黑暗之雾的人造成 +%d%% 点伤害。]], "tformat")
+			伤害受精神强度加成。你对任何进入黑暗之雾的人造成 +%d%% 伤害。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/endless-hunt.lua"
@@ -25746,7 +25746,7 @@ t([[Summon a Minotaur for %d turns to attack your foes. Minotaurs cannot stay su
 		米诺陶的力量和敏捷受精神强度加成。]], "tformat")
 t("Stone Golem", "契约：岩石傀儡", "talent name")
 t("@Source@ summons a Stone Golem!", "@Source@召唤了一只岩石傀儡！", "_t")
-t("It is a massive animated statue.", "一座巨型活化傀儡。", "_t")
+t("It is a massive animated statue.", "一座巨型的活化雕像。", "_t")
 t([[Summon a Stone Golem for %d turns to attack your foes. Stone golems are formidable foes that can become unstoppable.
 		It will get %d Strength, %d Constitution and %d Dexterity.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
