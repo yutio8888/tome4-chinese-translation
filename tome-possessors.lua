@@ -66,7 +66,7 @@ section "tome-possessors/data/talents/psionic/body-snatcher.lua"
 
 t("Bodies Reserve", "躯体储备", "talent name")
 t([[Your mind is so powerful it can bend reality, providing you with an extra-natural #{italic}#storage#{normal}# for bodies you snatch.
-		You can store up to %d bodies.]], [[你的头脑是如此强大,它可以扭曲现实,为你提供一个超自然的 #{italic}#仓库#{normal}# 来储存你抢夺的身体。
+		You can store up to %d bodies.]], [[你的头脑是如此强大，它可以扭曲现实，为你提供一个超自然的 #{italic}#仓库#{normal}# 来储存你抢夺的身体。
 		你最多可以储存 %d 具身体。]], "tformat")
 t("Psionic Minion", "灵能仆从", "talent name")
 t("Not enough space to invoke your minion!", "没有足够空间召唤随从！", "logPlayer")
@@ -216,10 +216,10 @@ t([[You cast a psionic web at a target that lasts for %d turns. Each turn it dea
 		你可能只会偷走以下类型的生物的尸体 : #LIGHT_BLUE#%s#LAST#
 		当你尝试附身不同类型的生物时，你可以永久学习此类型，你还可以执行 %d 次。]], "tformat")
 t("Self Persistence", "自我坚持", "talent name")
-t("When you assume the form of an other body you can still keep %d%% of the values (defences, crits, powers, save, ...) of your own body.", "当你附身时，你还可以保留自己身体的属性 %d%%。(闪避, 暴击, 强度, 豁免,……)", "tformat")
+t("When you assume the form of an other body you can still keep %d%% of the values (defences, crits, powers, save, ...) of your own body.", "当你附身时，你还可以保留自己身体的属性 %d%%。(闪避，暴击，强度，豁免,……)", "tformat")
 t("Improved Form", "身体改进", "talent name")
 t([[When you assume the form of another body you gain %d%% of the values (defences, crits, powers, save, ...) of the body.
-		In addition talents gained from bodies are limited to level %0.1f.]], [[当你附身时，你获得身体 %d%% 的数值 (闪避, 暴击, 强度, 豁免, ...)。
+		In addition talents gained from bodies are limited to level %0.1f.]], [[当你附身时，你获得身体 %d%% 的数值 (闪避，暴击，强度，豁免, ...)。
 		此外，从身体获得的技能等级最高为 %0.1f。]], "tformat")
 t("Full Control", "完全控制", "talent name")
 t([[When you assume the form of an other body you gain more control over the body:
@@ -234,7 +234,7 @@ t([[When you assume the form of an other body you gain more control over the bod
 		- 在等级 2 时，可额外获得一个技能位
 		- 在等级 3 时，可获得抗性和固定减伤
 		- 在等级 4 时，可额外获得一个技能位
-		- 在等级 5 时,可获得所有速度(只有当他们优于你时)
+		- 在等级 5 时，可获得所有速度(只有当他们优于你时)
 		- 在等级 6 以上时，可额外获得一个技能位
 		]], "tformat")
 
@@ -323,7 +323,7 @@ t("Unleashed Mind", "心灵释放", "talent name")
 t([[You concentrate your powerful psionic powers on your weapon and briefly unleash your fury.
 		All foes in radius %d will take a melee attack dealing %d%% weapon damage as mind damage.
 		Any psionic clones in the radius will have its remaining time extended by %d turns.
-		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你将强大的灵能力集中在你的武器上,并短暂地释放你的愤怒。
+		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你将强大的灵能力集中在你的武器上，并短暂地释放你的愤怒。
 		半径 %d 内的敌人受到近战攻击造成 %d%% 武器精神伤害。
 		范围内所有灵能克隆体的剩余持续时间延长 %d 回合。
 		如果你没有装备双手武器，但在备用武器组里装备了它，你会立刻自动切换到那组武器。]], "tformat")
@@ -354,7 +354,7 @@ t([[As long as you have at least a stack of Sadist whenever you take damage you 
 t("Radiate Agony", "痛苦辐射", "talent name")
 t("You need a Sadist stack to use this talent.", "你需要有一层虐待狂效果才能使用这一技能。", "logPlayer")
 t([[As long as you have at least a stack of Sadist you can radiate agony to all those you see in radius %d with 80%% or lower life left.
-		For 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you.]], [[当你至少有一层虐待狂效果时,你可以将自己的痛苦分享给半径 %d 内所有可见的、生命值 80%% 或更低的敌人。
+		For 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you.]], [[当你至少有一层虐待狂效果时，你可以将自己的痛苦分享给半径 %d 内所有可见的、生命值 80%% 或更低的敌人。
 		持续 5 回合，他们的头脑将如此专注于自己的痛苦，对你的伤害减少 %d%%。]], "tformat")
 t("Torture Mind", "精神拷打", "talent name")
 t([[As long as you have at least a stack of Sadist you can mentally lash out at a target, sending horrible images to its mind.

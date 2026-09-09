@@ -722,7 +722,7 @@ section "tome-ashes-urhrok/data/talents/corruptions/brutality.lua"
 
 t("Draining Assault", "汲魂痛击", "talent name")
 t("You require a two handed weapon to use this talent.", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
-t("Hits the target twice, doing %d%% weapon damage each hit. You gain life equal to %d%% of the damage dealt, and you gain %d vim for each attack that hits.", "对目标攻击两次，每次造成 %d%% 武器伤害 , 吸取 %d%% 的伤害回复生命，同时每次击中均回复 %d 活力。", "tformat")
+t("Hits the target twice, doing %d%% weapon damage each hit. You gain life equal to %d%% of the damage dealt, and you gain %d vim for each attack that hits.", "对目标攻击两次，每次造成 %d%% 武器伤害，吸取 %d%% 的伤害回复生命，同时每次击中均回复 %d 活力。", "tformat")
 t("Fiery Grasp", "炙炎之牢", "talent name")
 t("%s resists the silence!", "%s抵抗了沉默！", "logSeen")
 t("%s resists the grasp!", "%s 抵抗了抓取！", "logSeen")
@@ -863,7 +863,7 @@ t([[When you deal a critical strike in melee, you send out a cone of acid, deali
 		伤害受法术强度加成。]], "tformat")
 t("Armoured Leviathan", "重装上阵", "talent name")
 t([[You enchant your shield to grant you power for %d turns.
-		While the effect last your Strength and Magic stats are increased by 10%% of your shield block value.]], "你利用盾牌来强化自身，力量和魔法增加 10%% 格挡值 ,持续 %d 回合。", "tformat")
+		While the effect last your Strength and Magic stats are increased by 10%% of your shield block value.]], "你利用盾牌来强化自身，力量和魔法增加 10%% 格挡值，持续 %d 回合。", "tformat")
 t("Flash Block", "瞬间格挡", "talent name")
 t("In a fiery display of speed you raise your shield to block instantly.", "在闪电般的速度中，你瞬间举起盾牌格挡。", "tformat")
 t("Blackice", "黑冰", "talent name")
@@ -1344,7 +1344,7 @@ t("Fiery Torment", "灼魂之罚", "talent name")
 t([[Hits the target with your weapon doing %d%% weapon damage. If the attack hits, the target is afflicted with Fiery Torment for %d turns, reducing their fire resistance by %d%%.
 		When Fiery Torment ends the victim will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment.
 		The damage dealt by the effect will increase with spellpower.
-		Demons under fiery torment will be burned by the flames of the Fearscape.]], [[用武器攻击敌人，造成 %d%% 武器伤害。如果命中，目标受到灼魂之罚的影响，持续 %d 回合 , 火焰抗性降低 %d%%。
+		Demons under fiery torment will be burned by the flames of the Fearscape.]], [[用武器攻击敌人，造成 %d%% 武器伤害。如果命中，目标受到灼魂之罚的影响，持续 %d 回合，火焰抗性降低 %d%%。
 	当灼魂之罚结束，敌人会受到 %d 点火焰伤害。
 	在灼魂之罚持续时间内目标受到的所有伤害，有 %d%% 会加成到火焰伤害中。
 	效果的伤害会随法术强度提升。

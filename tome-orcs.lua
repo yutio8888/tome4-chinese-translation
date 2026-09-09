@@ -4690,7 +4690,7 @@ t([[Firmly plant your steamsaws in the ground, using them to propel yourself ver
 		When this effect is broken or cancelled the sudden change in motion deals %d%% weapon damage to all foes around you. To do full damage you need to have moved at least 5 times, otherwise damage is lower (or null for no movement).
 		#{italic}#The wheels of death! Amazing!#{normal}#]], [[把链锯深深插入地面，作为履带，增强自己的行动能力（移动速度增加 %d%% ）。
 		在你移动路线两侧的敌人被链锯割断，被击退 3 码。
-		攻击或者使用其他技能的动作都会中断效果 , 同时冲击力对周围的敌人造成 %d%% 武器伤害。你需要至少移动五次来达到最高伤害，否则伤害会降低。若不移动则没有伤害。
+		攻击或者使用其他技能的动作都会中断效果，同时冲击力对周围的敌人造成 %d%% 武器伤害。你需要至少移动五次来达到最高伤害，否则伤害会降低。若不移动则没有伤害。
 		#{italic}#冲锋！死亡之轮！！#{normal}#]], "tformat")
 t("Grinding Shield", "利齿护盾", "talent name")
 t([[Spin your saws wildly around you to create a wall of steamy sawteeth.
@@ -4794,7 +4794,7 @@ t([[Continuously swing your steamsaws around you, dealing %d%% weapon damage to 
 		#{italic}#感受金属之怒吧！！#{normal}#]], "tformat")
 t("Overcharge Saws", "链锯过载", "talent name")
 t([[You temporarily overcharge the saw motors, increasing the effective talent level of all saw talents by %d%% for %d turns.
-		#{italic}#The pain shall never stop!#{normal}#]], [[链锯引擎临时进入过载模式，增加 %d%% 的链锯相关技能有效等级 , 持续 %d 回合。
+		#{italic}#The pain shall never stop!#{normal}#]], [[链锯引擎临时进入过载模式，增加 %d%% 的链锯相关技能有效等级，持续 %d 回合。
 		#{italic}#无尽地痛苦#{normal}#]], "tformat")
 
 ------------------------------------------------
@@ -5105,7 +5105,7 @@ t("#Source# fires a retaliatory shot at #Target#!", "#Source#朝#Target#发射�
 t("Evasive Shots", "闪避射击", "talent name")
 t([[Using small engines to augment your reflexes you are able to automatically fire retaliatory shots at your foes doing %d%% weapon damage.
 		Retaliation shots are fired when you evade/are missed by a melee or ranged attack.
-		This can only happen once per turn and uses shots as normal.]], [[开启引擎强化反射神经，你能进行反击射击 , 造成 %d%% 武器伤害。
+		This can only happen once per turn and uses shots as normal.]], [[开启引擎强化反射神经，你能进行反击射击，造成 %d%% 武器伤害。
 		反击射击是当你闪避或躲闪近战、远程攻击时触发的自动射击。
 		反击射击一回合只能触发一次，且照常消耗弹药。]], "tformat")
 t("Trick Shot", "魔术射击", "talent name")
@@ -5481,7 +5481,7 @@ t([[Throw a cone of flame with radius %d
 		伤害受蒸汽强度加成。]], "tformat")
 t("Mass Repair", "大规模修复", "talent name")
 t([[Throw a cone of healing with radius %d, healing other mechanical creatures (steam spiders) for %d.
-		The healing will increase with your Steampower.]], [[释放一片锥形半径 %d 码的修理器 ,修复机械生物 (蒸汽蜘蛛 ) %d 生命值。
+		The healing will increase with your Steampower.]], [[释放一片锥形半径 %d 码的修理器，修复机械生物 (蒸汽蜘蛛 ) %d 生命值。
 　　治疗量受蒸汽强度加成。]], "tformat")
 t("Arcane Disruption Wave", "奥术干扰波", "talent name")
 t([[Let out a technopsionic wave that silences for %d turns all those affected in a radius of %d, including the user.
@@ -5492,8 +5492,8 @@ t("%s resists the mental assault!", "%s抵抗了精神攻击！", "logSeen")
 t([[Shatters the mind of your victim, giving you full control over its actions for 6 turns.
 		When the effect ends, you pull out your mind and the victim's body collapses, dead.
 		This effect does not work on rares, bosses, or undead.
-		.]], [[粉碎你的受害者的内心 ,给你完全控制其行为 6 回合。
-　　当效果结束时 ,你抽出了自己的思维，受害者的身体会崩溃 , 死亡。
+		.]], [[粉碎你的受害者的内心，给你完全控制其行为 6 回合。
+　　当效果结束时，你抽出了自己的思维，受害者的身体会崩溃，死亡。
 　　稀有怪、boss、亡灵不受控制。]], "tformat")
 t("Shocking Touch", "电击之触", "talent name")
 t([[Touch a creature to release a nasty electrical charge into them, doing %0.2f lightning damage.
@@ -5507,7 +5507,7 @@ t("Flash Powder", "闪光粉", "talent name")
 t("%s resists the blinding light!", "%s抵抗了致盲！", "logSeen")
 t([[Throw a handful of dust that rapidly oxidises, releasing a blinding light.
 		Creatures in a cone of radius %d are blinded for %d turns.
-		The blindness effect is applied with your Steampower.]], [[扔一把尘土 ,迅速氧化 ,释放出眩目的光芒。
+		The blindness effect is applied with your Steampower.]], [[扔一把尘土，迅速氧化，释放出眩目的光芒。
 　　致盲锥形半径 %d 码内的生物 %d 回合。
    致盲强度受蒸汽强度加成。]], "tformat")
 t("Itching Powder", "痒痒粉", "talent name")
@@ -5515,13 +5515,13 @@ t("%s resists the itching powder!", "%s 抵抗了痒痒粉！", "logSeen")
 t([[Throw a handful of dust that is very itchy to touch.
 		Creatures in a cone of radius %d are itchy for %d turns, causing them to fail talents %d%% of the time.
 		The itchiness effect is applied with your Steampower.]], [[释放一把痒痒粉。
-　　锥形半径 %d 码内的生物 %d 回合内很痒 ,导致它们释放技能 %d%% 几率失败。
+　　锥形半径 %d 码内的生物 %d 回合内很痒，导致它们释放技能 %d%% 几率失败。
    致痒强度受蒸汽强度加成。]], "tformat")
 t("Thunder Grenade", "闪电榴弹", "talent name")
 t("%s resists the explosion!", "%s 抵抗了爆炸！", "logSeen")
 t([[Throw a grenade at your foes, dealing %0.2f physical damage in radius %d.
 		Creatures hit will also be stunned for %d turns.
-		The stun effect is applied with your Steampower.]], [[向你的敌人投掷手榴弹 ,造成 %0.2f 物理伤害，半径 %d 码。
+		The stun effect is applied with your Steampower.]], [[向你的敌人投掷手榴弹，造成 %0.2f 物理伤害，半径 %d 码。
 　　目标也会震慑 %d 回合。
 　　震慑强度受蒸汽强度加成。]], "tformat")
 t("Project Saw", "发射链锯", "talent name")
@@ -5552,7 +5552,7 @@ t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使�
 t([[You fire a special explosive shot with your steamgun(s) at a spot within range.
 		When each shot reaches its target, it does normal steamgun damage and explodes within radius %d, which does %0.2f physical damage.
 		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪在射程内制造一场特殊的爆炸。
-　　当每一个弹片击中它的目标 ,造成正常蒸汽枪伤害和半径 %d 码内的爆炸，造成 %0.2f 的物理伤害 ,
+　　当每一个弹片击中它的目标，造成正常蒸汽枪伤害和半径 %d 码内的爆炸，造成 %0.2f 的物理伤害 ,
 　　这个技能不使用弹药。]], "tformat")
 t("Flare Shell", "闪光弹", "talent name")
 t([[You fire a special explosive shot with your steamgun(s) at a spot within range.
@@ -5994,12 +5994,12 @@ t([[A small automatic detection system is always looking for incoming projectile
 section "tome-orcs/data/talents/uber/mag.lua"
 
 t("Arcane Amplification Drone Effect", "奥术增幅装置效果", "talent name")
-t("Spell damage done to it ripples in radius 4 doing 130% arcane damage.", "其受到的法术伤害转化为波纹 , 对半径 4 内的所有目标造成等同于该伤害 130% 的奥术伤害。", "_t")
+t("Spell damage done to it ripples in radius 4 doing 130% arcane damage.", "其受到的法术伤害转化为波纹，对半径 4 内的所有目标造成等同于该伤害 130% 的奥术伤害。", "_t")
 t("Arcane Amplification Drone", "奥术增幅装置", "talent name")
 t("Have gained the #{italic}#Tales of the Spellblaze#{normal}# achievement with this or any previous character for the current difficulty & permadeath settings.", "当前或之前的角色在当前难度与模式下解锁过 #{italic}#大灾变的故事#{normal}# 这个成就。", "_t")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("arcane amplification drone", "奥术增幅装置", "_t")
-t("Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.", "其受到的法术伤害转化为波纹 , 对半径 4 内的所有目标造成等同于该伤害 160% 的奥术伤害。", "_t")
+t("Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.", "其受到的法术伤害转化为波纹，对半径 4 内的所有目标造成等同于该伤害 160% 的奥术伤害。", "_t")
 t([[You create an Arcane Amplification Drone at the selected location for 3 turns.
 		When you cast a spell that damages the drone it will ripple the damage as 130%% arcane damage of the initial hit in radius 4.]], [[你在目标地点放置一个持续 3 回合的奥术增幅装置。
 		每当你释放的法术对其造成伤害时，增幅装置把伤害转化为波纹对半径 4 内的所有目标造成等同于该伤害 130%% 的奥术伤害。]], "tformat")
@@ -6313,7 +6313,7 @@ t("Bullets shot are overheated:  When striking their target, they set it on fire
 t("#Target# tweaks some of %s bullets.", "#Target#调整了%s弹药。", "tformat")
 t("+Bullet Mastery", "+子弹掌握", "_t")
 t("Bullet Mastery: Supercharged", "子弹掌握：超速", "_t")
-t("Bullets shot are supercharged:  They can pass through multiple targets and have %d additional armour penetration.", "子弹处于超速状态：能够穿透多个目标 , 同时提高护甲穿透 %d 点。", "tformat")
+t("Bullets shot are supercharged:  They can pass through multiple targets and have %d additional armour penetration.", "子弹处于超速状态：能够穿透多个目标，同时提高护甲穿透 %d 点。", "tformat")
 t("Bullet Mastery: Percussive", "子弹掌握：冲击", "_t")
 t("Bullets shot are percussive:  When striking, they have a %d%% chance to knock back and a %d%% chance to stun.", "子弹处于冲击状态：%d%% 概率击退，%d%% 概率震慑。", "tformat")
 t("Bullet Mastery: Combustive", "子弹掌握：爆炸", "_t")
