@@ -5508,15 +5508,15 @@ t("%s resists the blinding light!", "%s抵抗了致盲！", "logSeen")
 t([[Throw a handful of dust that rapidly oxidises, releasing a blinding light.
 		Creatures in a cone of radius %d are blinded for %d turns.
 		The blindness effect is applied with your Steampower.]], [[扔一把尘土，迅速氧化，释放出眩目的光芒。
-　　致盲锥形半径 %d 码内的生物 %d 回合。
-   致盲强度受蒸汽强度加成。]], "tformat")
+		致盲锥形半径 %d 码内的生物 %d 回合。
+		致盲强度受蒸汽强度加成。]], "tformat")
 t("Itching Powder", "痒痒粉", "talent name")
 t("%s resists the itching powder!", "%s 抵抗了痒痒粉！", "logSeen")
 t([[Throw a handful of dust that is very itchy to touch.
 		Creatures in a cone of radius %d are itchy for %d turns, causing them to fail talents %d%% of the time.
 		The itchiness effect is applied with your Steampower.]], [[释放一把痒痒粉。
-　　锥形半径 %d 码内的生物 %d 回合内很痒，导致它们释放技能 %d%% 几率失败。
-   致痒强度受蒸汽强度加成。]], "tformat")
+		锥形半径 %d 码内的生物 %d 回合内很痒，导致它们释放技能 %d%% 几率失败。
+		致痒强度受蒸汽强度加成。]], "tformat")
 t("Thunder Grenade", "闪电榴弹", "talent name")
 t("%s resists the explosion!", "%s 抵抗了爆炸！", "logSeen")
 t([[Throw a grenade at your foes, dealing %0.2f physical damage in radius %d.

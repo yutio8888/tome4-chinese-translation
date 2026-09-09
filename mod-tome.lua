@@ -2929,7 +2929,7 @@ t("Most draw their powers from the Sun and the Moons.", "大部分都是从太�
 t("Sun Paladin", "太阳骑士", "birth descriptor name")
 t("The sun rises in the east in full glory, but you must look for it first amidst the darkest places.", "东方升起的太阳充满荣耀，但你首先得从黑暗之地寻找到它。", "_t")
 t("Sun Paladins hail from the Gates of Morning, the last bastion of the free people in the Far East.", "太阳骑士出生于晨曦之门，那是遥远东方自由生活的人们的最后堡垒。", "_t")
-t("Their way of life is well represented by their motto 'The Sun is our giver, our purity, our essence. We carry the light into dark places, and against our strength none shall pass.'", "他们的事业受人尊敬，他们的座右铭是：太阳赐予我们力量、圣洁和精华。我们为黑暗带去光明，任何反抗我们的力量都休想通过。", "_t")
+t("Their way of life is well represented by their motto 'The Sun is our giver, our purity, our essence. We carry the light into dark places, and against our strength none shall pass.'", "他们的生活方式集中体现在他们的座右铭中：太阳是我们的赐予者、我们的纯洁、我们的本质。我们为黑暗带去光明，任何反抗我们的力量都休想通过。", "_t")
 t("They can channel the power of the Sun to smite all who seek to destroy the Sunwall.", "他们能施展太阳之力将任何试图破坏太阳堡垒的力量击退。", "_t")
 t("Competent in both weapon and shield combat and magic, they usually burn their foes from afar before bashing them in melee.", "他们同时精通武器和盾战术并熟悉魔法，在近身猛击对手之前他们通常在远处就可以灼烧敌人。", "_t")
 t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
@@ -2940,7 +2940,7 @@ t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_
 t("Anorithil", "星月术士", "birth descriptor name")
 t("The balance of the heavens' powers is a daunting task. Mighty are those that stand in the twilight places, wielding both light and darkness in their mind.", "平衡天空的力量是一件令人望而生畏的任务。他们站在黎明深处同时掌控着黑暗与光明的力量。", "_t")
 t("Anorithils hail from the Gates of Morning, the last bastion of the free people in the Far East.", "星月术士出生于晨曦之门，那是遥远东方自由生活的人们的最后堡垒。", "_t")
-t("Their way of life is well represented by their motto 'We stand betwixt the Sun and Moon, where light and darkness meet. In the grey twilight we seek our destiny.'", "他们的事业受人尊敬，他们的座右铭是：我们站在太阳与月亮之间，光暗交替之界。在灰色的黎明中寻找我们的使命。", "_t")
+t("Their way of life is well represented by their motto 'We stand betwixt the Sun and Moon, where light and darkness meet. In the grey twilight we seek our destiny.'", "他们的生活方式集中体现在他们的座右铭中：我们站在太阳与月亮之间，光暗交替之界。在灰色的黎明中寻找我们的使命。", "_t")
 t("They can channel the power of the Sun and the Moons to burn and tear apart all who seek to destroy the Sunwall.", "他们可以施展太阳、月亮的法术将任何试图破坏太阳堡垒的人消灭。", "_t")
 t("Masters of Sun and Moon magic, they usually burn their foes with Sun rays before calling the fury of the stars.", "他们掌握日月魔法，可以使用灼热的太阳射线和群星的愤怒毁灭对手。", "_t")
 t("Their most important stats are: Magic and Cunning", "他们最重要的属性是：魔法和灵巧。", "_t")
@@ -12808,7 +12808,7 @@ t("The storm betrayed you...", "风暴背叛了你…", "logPlayer")
 t("strike an enemy within range %d (for 100%% weapon damage as lightning) and release a radius %d burst of electricity dealing %0.2f to %0.2f lightning damage (based on Magic and Dexterity)", "攻击距离 %d 内的敌人，造成 100%% 闪电武器伤害并在半径 %d 内释放电弧，造成 %0.2f 到 %0.2f 点闪电伤害（基于魔法和敏捷）", "tformat")
 t("#Source# strikes #Target# with %s %s, sending out an arc of lightning!", "#Source#用%s%s攻击了#Target#，触发一阵电弧！", "logCombat")
 t("Focus Whip", "聚灵鞭", "entity name")
-t("gemmed whip handle", "镶有宝石的柄", "_t")
+t("gemmed whip handle", "镶有宝石的鞭柄", "_t")
 t("A small mindstar rests at top of this handle. As you touch it, a translucent cord appears, flicking with your will.", "这只手柄上镶有一颗小小的灵晶。当你触摸它时，一根半透明的绳子浮现在你面前，并随着你的意志闪烁。", "_t")
 t("Try to fry your enemies brain (25% chance to brainlock)", "试图封锁敌人的大脑（25%几率思维封锁）", "_t")
 t("strike all targets in a line (for 100%% weapon damage as mind) out to range 4", [[打击一条长度为4码的直线上的所有目标，
@@ -13232,9 +13232,9 @@ t([[Stolen flesh,
 	Stolen pain,
 	To give it up,
 	Is to live again.]], [[窃取血肉，
-    窃取苦痛，
-    舍弃本我，
-    秽尸复苏。]], "_t")
+	窃取苦痛，
+	舍弃本我，
+	秽尸复苏。]], "_t")
 t([[Reduces all damage by %d%% of current vim or 50%% of the damage, whichever is lower; but at the cost of vim equal to 5%% of the damage blocked. 
 Current Bonus: %d]], [[降低所有伤害相当于%d%%当前活力值的数值，但不超过伤害值的50%%;降低伤害时，消耗相当于5%%伤害量的活力值。
 当前加成：%d]], "tformat")
@@ -20586,7 +20586,7 @@ section "mod-tome/data/quests/shertul-fortress.lua"
 t("Sher'Tul Fortress", "夏·图尔堡垒", "_t")
 t("You found notes from an explorer inside the Old Forest. He spoke about Sher'Tul ruins sunken below the surface of the lake of Nur, at the forest's center.", "在古老森林里找到了一个探险者的笔记，里面提到在森林中心的纳尔湖底下有一个沉没的夏·图尔遗迹。", "_t")
 t("With one of the notes there was a small gem that looks like a key.", "和笔记在一起被发现的还有个小小的宝石，样子看上去像一把钥匙。", "_t")
-t("#LIGHT_GREEN#* You used the key inside the ruins of Nur and found a way into the fortress of old.#WHITE#", "#LIGHT_GREEN#* 你在纳尔湖的底部使用这把钥匙，进入了一个古老的堡垒。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You used the key inside the ruins of Nur and found a way into the fortress of old.#WHITE#", "#LIGHT_GREEN#* 你在纳尔遗迹中使用这把钥匙，找到了通往古老堡垒的入口。#WHITE#", "_t")
 t("#LIGHT_GREEN#* The Weirdling Beast is dead, freeing the way into the fortress itself.#WHITE#", "#LIGHT_GREEN#* 异形触手死了，进入堡垒的道路被打开了。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have activated what seems to be a ... butler? with your rod of recall.#WHITE#", "#LIGHT_GREEN#* 你用回归之杖激活了一个……管家？#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have bound the transmogrification chest to the Fortress power system.#WHITE#", "#LIGHT_GREEN#* 你把转化之盒连接到了堡垒的能量系统#WHITE#", "_t")
@@ -25924,7 +25924,7 @@ t([[Spit slime at your target doing %0.2f nature damage and slowing it down by 3
 		伤害受敏捷值加成。]], "tformat")
 t("Slime Roots", "史莱姆根须", "talent name")
 t("You extend slimy roots into the ground, follow them, and re-appear somewhere else in a range of %d with error margin of %d.", "你将史莱姆根须伸入地下，沿着根须移动，并在最远 %d 格外重新现身，位置误差为 %d 格。", "tformat")
-t("Animate Blade", "虚空利刃", "talent name")
+t("Animate Blade", "活化利刃", "talent name")
 t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
 t("Open a hole in space, summoning an animated blade for 10 turns.", "在空间中打开一个孔洞，召唤一个次元之刃 10 回合。", "tformat")
 t("Drench", "浸湿", "talent name")
@@ -28786,7 +28786,7 @@ t([[Your target's doom draws near. Its healing factor is reduced by 80%%, and it
 t("Eternal Night", "永恒之夜", "talent name")
 t([[Surround yourself with Frostdusk, increasing all your darkness and cold damage by %0.1f%%, and ignoring %d%% of the darkness and cold resistance of your targets.
 		At the end of each turn if you are under 1 life you are healed for %d%% of all damage you dealt.]], [[使用霜暮的力量覆盖全身，增加 %0.1f%% 暗影和寒冷伤害，并无视目标 %d%% 的暗影和寒冷抗性。
-        此外，若你生命值少于1点，你造成的伤害会在回合结束时以 %d%% 比例治疗自身。]], "tformat")
+		此外，若你生命值少于1点，你造成的伤害会在回合结束时以 %d%% 比例治疗自身。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/explosives.lua"
