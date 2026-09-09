@@ -1471,3 +1471,53 @@ MIXED = r'[A-Za-z*#]|%[-+0-9.]*[a-zA-Z]'   # 命中即 pending
 新增 `concatenated_entity_name_verification`：记前缀、解析出的实参、拼接处行号、实参行号。
 匹配限定 `source_tag == 'entity name'` 且要求 `source.startswith(前缀)` 后剩余部分
 恰好等于某次具名调用实参的小写形式——不满足就仍然报 MISS，不放宽。
+
+## §35 编排脚本加固：让"恢复"和"完成"两个状态可信
+
+起因：编排记录只在流程顺利时才正确，一旦中途失败，留下的记录既不足以恢复、
+也不足以证明当时做过什么。三条都不是假设，是脚本里真实存在的写法。
+
+### §35.1 派发记录必须即时落盘，不能攒到最后
+`dispatch_surface.py` / `dispatch_contextual.py` 原先把 `kids` 攒在内存里、
+循环结束才 `json.dump`。中途任何一次失败，**已经建出来的 agent 就失去了记录**，
+只能事后翻日志反推——而这正是这两个脚本的文档里说要避免的事。
+
+现在：调 paseo **之前**先写一条 `status=dispatching` 的意图记录，
+拿到 id **之后**立刻改写成 `dispatched`，两次都是原子写。于是：
+
+| children.json 里的状态 | 含义 | 重跑行为 |
+| --- | --- | --- |
+| 无记录 | 没派发过 | 正常派发 |
+| `dispatching` | 正好中断在建 agent 的瞬间，**可能已经有 agent 在跑** | 停下，要求按 `dispatch_id` 标签核对 |
+| `dispatched` + agent_id | 已派发 | 跳过，不重复建 |
+
+「可能已经有」这一档是关键：盲目重跑会建出重复 agent（§33 就踩过一次）。
+
+### §35.2 收割必须当场校验，`if not o.get('candidate_identity')` 等于没查
+原 `harvest_reviews.py` 只检查 identity **非空**。identity 写错、少答、多答、
+顺序错位，全都能过。现在逐条对着**冻结输入信封**查三件事，任一不符即整批失败：
+identity 必须**相等**；逐条 revision 必须与冻结顺序**完全一致**（顺序即覆盖，
+多答少答错序一起管）；每条必须有 verdict。
+surface 用 `entry_revision_identity`，contextual 用 `revision_key`，两种都认。
+
+用真实产物做过故障注入，四类都能抓到：身份写错／少答一条／顺序错位／verdict 缺失。
+
+### §35.3 归档要回读确认，返回码不是权威信号
+`close_review_tasks.py` 原先 `subprocess.run(...archive..., capture_output=True)`
+连返回码都不看，紧接着无条件写 `archive_confirmed: True`——归档失败时，
+证据链上留下的是一句假话，而 `ai_state_check` 只认字面 `true`，正好被蒙混过去。
+
+要注意 **`paseo agent archive` 对已归档的 agent 返回 rc=1**（"already archived"），
+所以简单地"查返回码"反而会让幂等重跑失败。权威信号是回读：
+先尽力归档并记下错误，再 `paseo agent inspect` 看 `Archived` 是否为 `true`，
+同时核对 `ParentAgentId` 与本编排一致才写 `lineage_verified`。
+确认不了就直接失败，**不降级写 false 蒙混**。`archived_at` 用服务端返回的 `ArchivedAt`。
+
+### §35.4 顺带清掉的同类问题
+- 编排脚本里不再有任何字面 agent/workspace id：`PASEO_AGENT_ID` 由 Paseo 注入，
+  workspace 按 cwd 匹配 `paseo workspace ls --json`（README 早就这么要求，脚本没照做）。
+- 所有 paseo 调用统一走 `_orch.paseo/paseo_json`，非零返回码立即失败——
+  原先失败会静默变成"无输出"继续往下走。
+- `harvest_contextual.py` 原先只打印 `bad: [...]` 就正常返回 **0**，
+  编排者按退出码判断成功时会把失败当成功；现在有 bad 即非零退出。
+- 落盘一律「同目录临时文件 + rename」，中途崩溃不留半个文件。

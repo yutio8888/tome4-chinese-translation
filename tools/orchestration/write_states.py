@@ -13,10 +13,14 @@
   - 零 ISSUE 批次没有 contextual run，ctx 文件不存在属正常
 """
 import json, hashlib, datetime, os, subprocess, sys
+import pathlib as _pl, sys as _sys
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+import _orch
+
 
 def _workspace_id():
     cwd=str(Path(__file__).resolve().parents[2])
-    out=subprocess.run(['paseo','workspace','ls','--json'],capture_output=True,text=True).stdout
+    out=_orch.paseo(['workspace','ls','--json'])
     d=json.loads(out) if out.strip() else []
     # CLI 返回裸数组；MCP 返回 {"workspaces":[...]}。两种都兼容。
     ws=d.get('workspaces', []) if isinstance(d, dict) else d

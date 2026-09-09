@@ -8,6 +8,10 @@ run 的构成**只**以 checkpoint refs 为准，绝不 ls .artifacts 目录推�
 用法：python3 -B tools/orchestration/stage_surface.py <batch-id> [--out /tmp/plan.json]
 """
 import json, sys, pathlib, datetime, collections
+import pathlib as _pl, sys as _sys
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+import _orch
+
 
 ROOT = pathlib.Path('.')
 CKPT = ROOT / '.artifacts/i18n/production-review-v2-lite/active-batch.json'
@@ -80,7 +84,7 @@ def main():
             'child_dispatches': [], 'review_records': [], 'senior_review_records': [],
             'deferred_findings': [], 'open_accepted_findings': [],
             'baseline': {'commit': cp['base_commit']}, 'orchestration_transport': 'cli',
-            'workspace_id': 'wks_420314270844170b', 'final_validation_passed': False,
+            'workspace_id': _orch.workspace_id(), 'final_validation_passed': False,
             'last_error': None, 'wait': None, 'updated_at': now,
             'change_class': 'translation_workflow', 'candidate_author_agent_id': None,
             'orchestrator_agent_id': None,

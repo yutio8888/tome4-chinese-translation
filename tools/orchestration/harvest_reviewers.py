@@ -6,6 +6,10 @@ validator 拒绝的输出**不落盘**、计入 bad 列表；按契约须归档�
 （旧 attempt 不补写 completion record）。收割后务必 `git status --short` 确认 reviewer 未写入任何文件。
 """
 import json, subprocess, sys
+import pathlib as _pl, sys as _sys
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+import _orch
+
 from pathlib import Path
 sys.path.insert(0,'tools')
 from surface_screen_result_check import validate_result_bytes
@@ -13,7 +17,7 @@ B=sys.argv[1]
 plan=json.load(open(f'/tmp/dispatch-plan-{B}.json'))
 agents=json.load(open(f'/tmp/lane_agents_{B}.json'))
 def fetch(aid):
-    out=subprocess.run(['paseo','logs',aid],capture_output=True,text=True).stdout
+    out=_orch.paseo(['logs',aid])
     for line in reversed(out.splitlines()):
         s=line.strip()
         if s.startswith('{') and s.endswith('}'):

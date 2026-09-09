@@ -12,21 +12,17 @@
 必须显式传 --mode：claude 默认 Always Ask 会让 child 卡在权限弹窗上。
 """
 import json, os, subprocess, sys
+import pathlib as _pl, sys as _sys
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+import _orch
+
 from pathlib import Path
 
 PROVIDER, THINKING, MODE = 'claude/claude-opus-5', 'medium', 'bypassPermissions'
 CWD = str(Path(__file__).resolve().parents[2])
 
 def workspace_id():
-    out = subprocess.run(['paseo', 'workspace', 'ls', '--json'],
-                         capture_output=True, text=True).stdout
-    d = json.loads(out) if out.strip() else []
-    # CLI 返回裸数组；MCP 返回 {"workspaces":[...]}。两种都兼容。
-    rows = d.get('workspaces', []) if isinstance(d, dict) else d
-    for w in rows:
-        if w.get('cwd') == CWD:
-            return w['workspaceId']
-    raise SystemExit(f'找不到 cwd={CWD} 的 workspace')
+    return _orch.workspace_id()
 
 def main():
     batch = sys.argv[1]
@@ -55,10 +51,11 @@ def main():
             if e['group']:
                 cmd += ['--label', f"lane_group_identity={e['group']}"]
             cmd += ['--json', prompt]
-            aid = json.loads(subprocess.run(cmd, capture_output=True, text=True).stdout)['agentId']
+            aid = _orch.paseo_json(cmd[1:])['agentId']
             agents.setdefault(task, {})[did] = aid
             print(task, did, aid)
-    json.dump(agents, open(f'/tmp/lane_agents_{batch}.json', 'w'), indent=1)
+            # 每派发一个立刻落盘：攒到最后再写，中途失败就会丢掉已建 agent 的记录
+            _orch.write_atomic(f'/tmp/lane_agents_{batch}.json', json.dumps(agents, indent=1))
     print('dispatched', sum(len(v) for v in agents.values()))
 
 main()

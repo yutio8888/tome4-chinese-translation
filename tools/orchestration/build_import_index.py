@@ -5,6 +5,10 @@
 用法：python3 -B tools/orchestration/build_import_index.py <surface|contextual> <rawdir> <out.json>
 """
 import json, sys, glob, pathlib
+import pathlib as _pl, sys as _sys
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+import _orch
+
 
 CKPT = '.artifacts/i18n/production-review-v2-lite/active-batch.json'
 
@@ -23,7 +27,7 @@ def main():
         assert ci in raw, (f'ref {i} 的 candidate_identity 无对应 raw', ci[:12])
         idx[str(i)] = raw[ci]
     assert len(idx) == len(cp[kind]), (len(idx), len(cp[kind]))
-    json.dump(idx, open(out, 'w'), indent=1)
+    _orch.write_atomic(out, json.dumps(idx, indent=1))
     for k, v in idx.items():
         print(' ', k, v.split('/')[-1])
     print(f'{kind} index {len(idx)} 项')

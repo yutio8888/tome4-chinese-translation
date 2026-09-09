@@ -7,22 +7,32 @@
 
 ## 脚本
 
+当前流程（surface + 交叉复核两轮）：
+
 | 脚本 | 作用 |
 | --- | --- |
-| `freeze_workset.py <batch>` | 冻结公开源码工作集，逐条核验；必须 80/80 命中 |
+| `_orch.py` | 共用件：身份运行时发现、带返回码检查的 paseo 调用、原子写 |
+| `freeze_workset.py <batch>` | 冻结公开源码工作集，逐条核验；必须 80/80 命中。批次已 finalize 时从受跟踪证据确定性重建（runbook §34.0） |
 | `stage_surface.py <batch>` | 把 surface-export 产物落成 `.ai/task/<task>/` 布局并写 dispatch-plan |
-| `dispatch_reviewers.py <batch>` | 每 lane/full 成员派发一个 REVIEWER child |
-| `harvest_reviewers.py <batch>` | 收割输出，逐个过 consumer validator 后落盘 |
-| `dispatch_contextual.py <batch>` | 按 checkpoint 的 contextual refs 落成 `.ai/task` 布局并派发交叉复核 child |
-| `harvest_contextual.py <batch>` | 收割交叉复核输出，过 validator、读回 runtime metadata 后归档 child |
-| `write_states.py <batch> <base>` | 写 STATE 与 review record，使其满足 DONE 谓词 |
+| `dispatch_surface.py <plan> <children>` | 逐 lane 派发 surface REVIEWER；派发前后各落一次盘，可幂等重跑 |
+| `harvest_reviews.py <children> <outdir> [--key results\|verdicts]` | 收割输出，**当场**校验 identity 相等与覆盖/顺序完全一致 |
+| `build_import_index.py <kind> <rawdir> <out>` | 按 candidate_identity（不是 lane 编号）建 import index |
+| `stage_contextual.py <batch>` | 按 checkpoint 的 contextual refs 建 `.ai/task/<batch>-contextual-NNN/` |
+| `dispatch_contextual.py <ctx> <children>` | 派发交叉复核 child，同样的崩溃安全与幂等语义 |
+| `close_review_tasks.py <kind> <spec> <children> <rawdir>` | 写 review record、**确认式**归档 child、填 STATE 并校验 DONE_VERIFIED |
+
+上一代脚本，保留供对照，新批次不要再用：
+`dispatch_reviewers.py`、`harvest_reviewers.py`、`harvest_contextual.py`、`write_states.py`
+（它们的职责已分别并入 `dispatch_surface.py`、`harvest_reviews.py`、`close_review_tasks.py`）。
 
 ## 身份与路径：一律运行时发现，不得硬编码
 
+统一由 `_orch.py` 提供，脚本里不再出现任何字面 id：
+
 - `PASEO_AGENT_ID` —— 当前 ORCHESTRATOR 自己，用作 child 的 `paseo.parent-agent-id`。
-  **抄用别的 agent 的 id 会写错 lineage，`ai_state_check.py --target DONE` 会失败。**
+  Paseo 会自动注入。**抄用别的 agent 的 id 会写错 lineage，`ai_state_check.py --target DONE` 会失败。**
 - workspace id —— 按 cwd 匹配 `paseo workspace ls --json`（CLI 返回裸数组，MCP 返回
-  `{"workspaces":[...]}`，脚本两种都兼容）。
+  `{"workspaces":[...]}`，两种都兼容）；必要时用 `TOME_PASEO_WORKSPACE` 覆盖。
 - `TOME_ENGINE_ROOT` / `TOME_DLC_ROOT` —— 公开源码根，由 Paseo 环境提供。
 
 ## 每批流程
@@ -31,23 +41,27 @@
 python3 -B tools/i18n production queue rebuild && python3 -B tools/i18n production queue check
 python3 -B tools/i18n production batch start --limit 80
 B=$(python3 -c "import json;print(json.load(open('.artifacts/i18n/production-review-v2-lite/active-batch.json'))['batch_id'])")
-python3 -B tools/orchestration/freeze_workset.py $B          # 必须 80/80
+TOME_ENGINE_ROOT=/workspace/t-engine4 TOME_DLC_ROOT=/workspace/tome4-dlcs \
+  python3 -B tools/orchestration/freeze_workset.py $B          # 必须 80/80
 python3 -B tools/i18n production batch surface-export
-python3 -B tools/orchestration/stage_surface.py $B
+python3 -B tools/orchestration/stage_surface.py $B --out /tmp/plan-$B.json
 python3 -B tools/surface_screen_manifest.py check <每个 group manifest>   # MANIFEST_VERIFIED
-python3 -B tools/orchestration/dispatch_reviewers.py $B
+python3 -B tools/orchestration/dispatch_surface.py /tmp/plan-$B.json /tmp/kids-$B.json
 # …等 child 全部结束…
-python3 -B tools/orchestration/harvest_reviewers.py $B
+python3 -B tools/orchestration/harvest_reviews.py /tmp/kids-$B.json /tmp/raw-$B
 git status --short                                            # 证明 reviewer 未写入任何文件
-python3 -B tools/i18n production batch surface-import --input <index.json>
-# 有 ISSUE 才需要（注意顺序：import 前必须先 write_states 拿到 DONE_VERIFIED）：
+python3 -B tools/orchestration/close_review_tasks.py surface /tmp/plan-$B.json /tmp/kids-$B.json /tmp/raw-$B
+python3 -B tools/orchestration/build_import_index.py surface /tmp/raw-$B /tmp/idx-$B.json
+python3 -B tools/i18n production batch surface-import --input /tmp/idx-$B.json
+# 有 ISSUE 才需要（注意顺序：contextual-import 前对应 task 必须已 DONE_VERIFIED）：
 python3 -B tools/i18n production batch contextual-export
-python3 -B tools/orchestration/dispatch_contextual.py $B
+python3 -B tools/orchestration/stage_contextual.py $B --out /tmp/ctx-$B.json
+python3 -B tools/orchestration/dispatch_contextual.py /tmp/ctx-$B.json /tmp/ctxkids-$B.json
 # …等 child 结束…
-python3 -B tools/orchestration/harvest_contextual.py $B
-paseo archive <每个 child>
-python3 -B tools/orchestration/write_states.py $B <base_commit>
-python3 -B tools/ai_state_check.py .ai/task/<task>/STATE.json --target DONE   # 每个 task 都要 DONE_VERIFIED
+python3 -B tools/orchestration/harvest_reviews.py /tmp/ctxkids-$B.json /tmp/ctxraw-$B --key verdicts
+python3 -B tools/orchestration/close_review_tasks.py contextual /tmp/ctx-$B.json /tmp/ctxkids-$B.json /tmp/ctxraw-$B
+python3 -B tools/orchestration/build_import_index.py contextual /tmp/ctxraw-$B /tmp/ctxidx-$B.json
+python3 -B tools/i18n production batch contextual-import --input /tmp/ctxidx-$B.json
 python3 -B tools/i18n production batch adjudicate --input <decisions.json>
 python3 -B tools/i18n production batch prepare-evidence       # 内含 17 项门禁
 cp -r .artifacts/.../prospective/.../batches/$B evidence/production-review-v2-lite/batches/
@@ -70,3 +84,6 @@ git push origin develop
    `contextual task is not current DONE_VERIFIED bound to exact task/candidate/input/output`。
 4. **派发必须显式传 `--mode`**。claude 默认 Always Ask 会让 child 卡在权限弹窗上，
    编排者只看到 status 长期不变。
+5. **派发记录即时落盘**。`dispatch_*.py` 在调 paseo 之前先写 `status=dispatching`，
+   拿到 id 后立刻改写为 `dispatched`。重跑会跳过已派发的 lane；若看到 `dispatching` 残留，
+   说明上次正好中断在建 agent 的瞬间，**先按 `dispatch_id` 标签核对再处理，不要盲目重跑**。

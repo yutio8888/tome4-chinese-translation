@@ -5,6 +5,10 @@
 用法：python3 -B tools/orchestration/stage_contextual.py <batch-id> [--out /tmp/ctx.json]
 """
 import json, sys, pathlib, datetime
+import pathlib as _pl, sys as _sys
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+import _orch
+
 
 CKPT = pathlib.Path('.artifacts/i18n/production-review-v2-lite/active-batch.json')
 
@@ -37,7 +41,7 @@ def main():
             'child_dispatches': [], 'review_records': [], 'senior_review_records': [],
             'deferred_findings': [], 'open_accepted_findings': [],
             'baseline': {'commit': cp['base_commit']}, 'orchestration_transport': 'cli',
-            'workspace_id': 'wks_420314270844170b', 'final_validation_passed': False,
+            'workspace_id': _orch.workspace_id(), 'final_validation_passed': False,
             'last_error': None, 'wait': None, 'updated_at': now, 'change_class': 'standard',
             'candidate_author_agent_id': None, 'orchestrator_agent_id': None,
         }, ensure_ascii=False, indent=1, sort_keys=True))
