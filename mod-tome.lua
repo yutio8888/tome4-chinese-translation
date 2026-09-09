@@ -7419,7 +7419,7 @@ t("As you walk into the area you notice a huge snowstorm over your head. Beware!
 ------------------------------------------------
 section "mod-tome/data/general/events/spellblaze-scar.lua"
 
-t("spellblaze scar", "奥术之痕", "_t")
+t("spellblaze scar", "魔法大爆炸伤痕", "_t")
 t("%s (spellblaze aura)", "%s (魔法大爆炸光环)", "tformat")
 
 ------------------------------------------------
@@ -13136,7 +13136,7 @@ t("Be it corruption, madness or eccentric boredom, the halfling butcher by the n
 t("Enter Rampage if health falls below 20%%%s", "当生命值降低到20%%%s时，进入暴走。", "tformat")
 t(" (cooling down: %d turns)", " (冷却时间：%d 回合)", "tformat")
 t("Attempt to devour a low HP enemy, striking again and possibly killing it instantly.", "试图吞噬一个低生命的敌人，再次攻击并有几率秒杀目标。", "_t")
-t("Enter a Rampage (Shared cooldown).", "进入暴走（共享冷却时间）", "_t")
+t("Enter a Rampage (Shared cooldown).", "进入暴走（共享冷却时间）。", "_t")
 t("Ethereal Embrace", "以太之拥", "entity name")
 t("wispy purple cloak", "脆弱的紫色斗篷", "_t")
 t("This cloak waves and bends with shimmering light, reflecting the depths of space and the heart of the Aether.", "这件斗篷漂浮弯曲，发出闪耀的光芒，折射出空间深处、以太核心。", "_t")
@@ -13253,7 +13253,7 @@ t("blindingly bright sword", "一把发出炫目光芒的剑", "_t")
 t("This impressive looking sword features a golden engraving of a sun in its hilt. Etched into its blade are a series of runes claiming that only one who has mastered both their body and mind may wield this sword effectively.", "初看这把外形令人印象深刻的长剑，最先吸引你目光的是雕刻在剑柄之中的金色太阳。而蚀刻在剑刃之上的复杂的符文仿佛在告诉你，只有真正掌握自己肉体和精神力量之人才能发挥出这把武器的最大威力。", "_t")
 t("Increases the damage of Sun Beam by 15%.", "增加15%阳光烈焰伤害。", "_t")
 t("releases a burst of light, dealing %d light damage (based on Spellpower) in a radius 3 cone.", "放出光系爆炸，在3码扇形区域内造成%d光系伤害（基于法术强度）", "tformat")
-t("attack everything in a line out to range %d, dealing 100%% weapon damage (as light), and healing for 50%% of the damage dealt", "攻击长度为 %d 的直线上所有目标 , 造成 100%% 光系武器伤  害，并将 50%% 伤害转化为治疗。", "tformat")
+t("attack everything in a line out to range %d, dealing 100%% weapon damage (as light), and healing for 50%% of the damage dealt", "攻击长度为 %d 的直线上所有目标，造成 100%% 光系武器伤  害，并将 50%% 伤害转化为治疗。", "tformat")
 t("#Source# strikes out at #target# with %s %s!", "#Source#用%s%s打击#target#！", "logCombat")
 t("something", "某物", "_t")
 t("Tarrasca", "泰拉斯奎巨铠", "entity name")
@@ -21092,7 +21092,7 @@ t([[In a pure display of power, you project a ranged melee attack, doing %d%% we
 t("Weapon of Wrath", "愤怒之刃", "talent name")
 t([[Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP as additional Fire damage (up to %d, Current:  %d).
 		Targets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.
-		The bonus damage can only occur once per turn.]], [[你使用武器攻击时，造成相当于 %d%% 你已损失的生命值的火焰伤害 , 至多 %d 点，当前 %d 点
+		The bonus damage can only occur once per turn.]], [[你使用武器攻击时，造成相当于 %d%% 你已损失的生命值的火焰伤害，至多 %d 点，当前 %d 点
 		然后令目标进入殉难状态，受到 %d%% 自己造成的伤害，持续 4 回合。
 		每回合最多触发一次额外伤害。]], "tformat")
 t("Second Life", "第二生命", "talent name")
@@ -21436,7 +21436,7 @@ t([[A magical zone of Sunlight appears around you, healing and shielding all wit
 		Existing damage shields will be added to instead of overwritten and have their duration set to 2 if it isn't higher.
 		If the same shield is refreshed 20 times it will become unstable and explode, removing it.
 		It also lights up the affected area.
-		The amount healed will increase with the Magic stat]], [[阳光倾泻在你周围 %d 码范围内，每回合治疗所有单位 %0.2f 生命值，给予其等量的护盾 , 并增加此范围内所有人 %d%% 治疗效果。此效果持续 %d 回合。
+		The amount healed will increase with the Magic stat]], [[阳光倾泻在你周围 %d 码范围内，每回合治疗所有单位 %0.2f 生命值，给予其等量的护盾，并增加此范围内所有人 %d%% 治疗效果。此效果持续 %d 回合。
 		如果已经存在护盾，则护盾将会增加等量数值，如果护盾持续时间不足 2 回合，会延长至 2 回合。
 		当同一个护盾被刷新 20 次后，将会因为不稳定而破碎。
 		它同时会照亮此区域。
@@ -21557,7 +21557,7 @@ t([[Infuse yourself with the raging fury of the Sun, increasing your physical an
 t("Suncloak", "阳光护体", "talent name")
 t([[You wrap yourself in a cloak of sunlight that empowers your magic and protects you for 6 turns.
 		While the cloak is active, your spell casting speed is increased by %d%%, your spell cooldowns are reduced by %d%%, and you cannot take more than %d%% of your maximum life from a single blow.
-		The effects will increase with your Spellpower.]], [[你将自己包裹在阳光中，保护你 6 回合。
+		The effects will increase with your Spellpower.]], [[你将自己包裹在阳光中，增强你的魔法并保护你 6 回合。
 		你的施法速度增加 %d%%，法术冷却减少 %d%%，同时一次攻击不能对你造成超过 %d%% 最大生命的伤害。
 		效果受法术强度加成。]], "tformat")
 
@@ -21939,7 +21939,7 @@ section "mod-tome/data/talents/chronomancy/energy.lua"
 t("Energy Decomposition", "能量分解", "talent name")
 t("%s(%d dissipated)#LAST#", "%s(%d 耗散)#LAST#", "tformat")
 t([[Partially dissipates all incoming damage, reducing it by 30%%, up to a maximum of %d.
-		The maximum damage reduction will scale with your Spellpower.]], [[分解一部分受到的伤害。减少 30%% 伤害 , 最多减少 %d。
+		The maximum damage reduction will scale with your Spellpower.]], [[分解一部分受到的伤害。减少 30%% 伤害，最多减少 %d。
 		减少伤害的最大值受法术强度加成。]], "tformat")
 t("Energy Absorption", "能量吸收", "talent name")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
@@ -22265,7 +22265,7 @@ t("%s has been pulled apart at a molecular level!", "%s 被分崩离析！", "lo
 t("%s resists the quantum spike!", "%s抵抗了量子钉刺！", "logSeen")
 t([[Attempts to pull the target apart at a molecular level, inflicting %0.2f temporal damage and %0.2f physical damage.  If the target ends up with low enough life (<20%%), it might be instantly killed.
 		Quantum Spike deals 50%% additional damage to targets affected by temporal destabilization and/or continuum destabilization.
-		The damage will scale with your Spellpower.]], [[试图将目标分离为分子状态，造成 %0.2f 时空伤害和 %0.2f 物理伤害 , 技能结束后若目标生命值不足 20%% 则可能会被立刻杀死。
+		The damage will scale with your Spellpower.]], [[试图将目标分离为分子状态，造成 %0.2f 时空伤害和 %0.2f 物理伤害，技能结束后若目标生命值不足 20%% 则可能会被立刻杀死。
 		量子钉刺对受时空紊乱和/或连续紊乱的目标会多造成 50%%的伤害。
 		伤害受法术强度加成。]], "tformat")
 
@@ -22897,7 +22897,7 @@ t("Infestation", "侵扰", "talent name")
 t([[Your body has become a mass of living corruption, increasing your blight and acid resistance by %d%% and blight affinity by %d%%.
 On taking damage greater than 15%% of your maximum health, the damage will be reduced by %d%% and a carrion worm mass will burst forth onto a nearby tile, attacking your foes for 5 turns.
 You can never have more than 5 worms active from any source at a time.
-When a carrion worm dies it will explode into a radius 2 pool of blight for 5 turns, dealing %0.2f blight damage each turn and healing you for 33%% of that amount.]], [[你的身体已经腐败 ,增加 %d%% 枯萎和酸性抗性 , %d%% 枯萎伤害吸收。
+When a carrion worm dies it will explode into a radius 2 pool of blight for 5 turns, dealing %0.2f blight damage each turn and healing you for 33%% of that amount.]], [[你的身体已经腐败，增加 %d%% 枯萎和酸性抗性 , %d%% 枯萎伤害吸收。
 		每次生命值损失大于 15%% 时，伤害将减少 %d%%，同时在相邻的格子生成蠕虫，攻击你的敌人 5 回合。
 		你同时只能拥有 5 只蠕虫。
 		蠕虫死亡时将爆炸，产生半径 2 的枯萎毒池，持续 5 回合，造成 %0.2f 枯萎伤害并治疗你 33%% 伤害量。]], "tformat")
@@ -23254,7 +23254,7 @@ t([[Toss out a grappling hook to a target within range %d.  If this strikes eith
 		钩爪至少要发射到两格外。
 #YELLOW#已装填：%s#LAST#]], "tformat")
 t("Grappling Hook Mastery", "钩爪强化", "talent name")
-t("Your grappling hook deals %d%% unarmed damage when it hits, plus a further %0.2f physical and %0.2f nature damage over 4 turns.", "被钩爪击中的生物受到 %d%% 徒手伤害 ,在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。", "tformat")
+t("Your grappling hook deals %d%% unarmed damage when it hits, plus a further %0.2f physical and %0.2f nature damage over 4 turns.", "被钩爪击中的生物受到 %d%% 徒手伤害，在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。", "tformat")
 t("Your grappling hook is tipped with vicious, venomous barbs. Creatures struck by it will be hit for %d%% unarmed damage, bleed for %0.2f physical damage and be poisoned for %0.2f nature damage over 4 turns.", "你的钩爪上涂有毒素且装有尖刺，被击中的生物受到 %d%% 徒手伤害，在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。", "tformat")
 -- untranslated text
 --[==[
@@ -23703,7 +23703,7 @@ t("\
 #YELLOW#Triggers immediately when placed.#LAST#", "\
 #YELLOW#放置后立即触发。#LAST#", "_t")
 t([[Lay a pressure triggered trap that explodes into a radius 2 wave of razor sharp wire, doing %0.2f physical damage. Those struck by the wire may be shredded, reducing accuracy, armor and defence by %d.
-		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置压力感应陷阱，触发后爆炸形成半径 2 格的刀片风暴 ,造成 %0.2f 物理伤害。被击中的目标的命中、护甲和闪避下降 %d。
+		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置压力感应陷阱，触发后爆炸形成半径 2 格的刀片风暴，造成 %0.2f 物理伤害。被击中的目标的命中、护甲和闪避下降 %d。
 		该陷阱可以被设置为直接激活，也可以被诱饵激活。%s]], "tformat")
 t("Bear Trap", "捕熊陷阱", "talent name")
 t("bear trap", "捕熊陷阱", "_t")
@@ -23741,7 +23741,7 @@ t("beam trap", "射线陷阱", "_t")
 t("Fires a beam (range 5) at a foe each turn for %0.2f arcane damage.  Lasts %d turns.", "每回合发射(射程5)的射线，造成 %0.2f 奥术伤害。持续 %d 回合。", "tformat")
 t([[Lay a magical trap that fires a beam of arcane energy at a random foe (within range 5) each turn for %d turns, inflicting %0.2f arcane damage.
 This trap requires 20 Magic to prepare and does not refund stamina when it expires.
-#YELLOW#Activates immediately when placed.#LAST#]], [[放置魔法陷阱，每回合朝 5 格内的随机敌人射出奥术射线，持续 %d 回合 , 造成 %0.2f 奥术伤害。
+#YELLOW#Activates immediately when placed.#LAST#]], [[放置魔法陷阱，每回合朝 5 格内的随机敌人射出奥术射线，持续 %d 回合，造成 %0.2f 奥术伤害。
 该陷阱需要 20 魔法才能准备，消失时不返还体力。
 #YELLOW#放置后立刻激活。#LAST#]], "tformat")
 t("Poison Gas Trap", "毒气陷阱", "talent name")
@@ -23766,7 +23766,7 @@ t("dragonsfire trap", "龙火陷阱", "_t")
 t("Explodes (radius 2): stuns and combusts for %0.2f fire damage per turn for 3 turns.  Area deflagrates (%0.2f fire damage) for 5 turns.", "爆炸 (范围 2)：震慑并在3回合内每回合造成 %0.2f 火焰伤害。范围火焰 ( %0.2f 火焰伤害) 持续5 回合。", "tformat")
 t([[Lay a pressure triggered trap that explodes in a radius 2 cloud of searing flames when triggered, stunning foes with the blast (%0.2f fire damage per turn) for 3 turns.
 		The deflagration persists in the area for 5 turns, burning foes for %0.2f fire damage each turn.
-		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个压力感应陷阱，激活后产生半径 2 的火云 ,震慑敌人 (每回合 %0.2f 火焰伤害 ) 3 回合。
+		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个压力感应陷阱，激活后产生半径 2 的火云，震慑敌人 (每回合 %0.2f 火焰伤害 ) 3 回合。
 		火焰持续 5 回合，每回合燃烧造成 %0.2f 火焰伤害。
 		该陷阱可以被设置为直接激活，也可以被诱饵激活。%s]], "tformat")
 t("Gravitic Trap", "引力陷阱", "talent name")
@@ -23797,7 +23797,7 @@ t("purging trap", "净化陷阱", "_t")
 t("Radius 2 antimagic: Drains up to %d mana, %d vim, %d positive/negative, deals up to %0.2f arcane damage.  Removes %d magical effects and silences for %d turns.", "半径 2 反魔：吸收至多 %d 法力，%d 活力，%d 正负能量，造成至多 %0.2f 奥术伤害。解除 %d 项魔法效果，沉默 %d 回合。", "tformat")
 t([[Lay a trap that releases a burst of antimagic energies (radius 2), draining up to %d mana, %d vim, %d positive and %d negative energies from affected targets, while inflicting up to %0.2f arcane damage based on the resources drained, silencing for %d turns, and removing up to %d beneficial magical effects or sustains.
 		The draining effect scales with your Willpower, and you must have 25 Willpower to prepare this trap.
-		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个陷阱，触发后释放半径 2 的反魔能量波，吸取至多 %d 法力 , %d 活力 , %d 正能量和 %d 负能量 , 并造成至多 %0.2f 奥术伤害（基于吸取能量），沉默 %d 回合，并解除至多 %d 项正面魔法状态或者维持技能。
+		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个陷阱，触发后释放半径 2 的反魔能量波，吸取至多 %d 法力 , %d 活力 , %d 正能量和 %d 负能量，并造成至多 %0.2f 奥术伤害（基于吸取能量），沉默 %d 回合，并解除至多 %d 项正面魔法状态或者维持技能。
 		吸取效果受意志加成，你需要 25 点意志来使用该技能。
 		该陷阱可以被设置为直接激活，也可以被诱饵激活。%s]], "tformat")
 t("Explosion Trap", "爆炸陷阱", "talent name")
@@ -24173,7 +24173,7 @@ t("Surge", "杀意涌动", "talent name")
 t([[Let hate fuel your movements. While active, you gain %d%% movement speed. The recklessness of your movement brings you bad luck (Luck -3).
 		Cleave, Repel and Surge cannot be active simultaneously, and activating one will place the others in cooldown.
 		Sustaining Surge while Dual Wielding grants %d additional Defense.
-		Movement speed and dual-wielding Defense both increase with the Willpower stat.]], [[让杀意激发你敏捷的身手 , 提高你 %d%% 移动速度。不顾一切的移动会带给你厄运 (-3 幸运 )。
+		Movement speed and dual-wielding Defense both increase with the Willpower stat.]], [[让杀意激发你敏捷的身手，提高你 %d%% 移动速度。不顾一切的移动会带给你厄运 (-3 幸运 )。
 		分裂攻击、杀意涌动和无所畏惧不能同时开启，并且激活其中一个也会使另外两个进入冷却。
 		双持武器时，杀意涌动还会提高你 %d 的闪避。
 		移动速度和双持时的闪避增益受意志加成。]], "tformat")
@@ -25642,7 +25642,7 @@ t([[A furious ice storm rages around the user doing %0.2f cold damage in a radiu
 		It has 25%% chance to freeze damaged targets.
 		The damage and duration will increase with your Willpower.]], [[一阵激烈的冰风暴环绕施法者造成每回合 %0.2f 冰冷伤害，有效范围 3 码，持续 %d 回合。
 		有 25%% 几率使受伤害目标被冰冻。
-		受意志影响 , 伤害和持续时间有额外加成。]], "tformat")
+		受意志影响，伤害和持续时间有额外加成。]], "tformat")
 t("Winter's Grasp", "严冬抓握", "talent name")
 t([[Grab a target and pull it next to you, covering it with frost while reducing its movement speed by 50%% for %d turns.
 		The ice will also deal %0.2f cold damage.
@@ -26774,7 +26774,7 @@ t("You are already a Shivgoroth!", "你已经是西弗格罗斯了！", "logPlay
 t([[You absorb latent cold around you, turning into an ice elemental - a shivgoroth - for %d turns.
 		While transformed, you do not need to breathe, gain access to the Ice Storm talent at level %d, gain %d%% resistance to cuts and stuns, gain %d%% cold resistance, and all cold damage heals you for %d%% of the damage done.
 		The power will increase with your Spellpower.]], [[你吸收周围的寒冰围绕你，将自己转变为纯粹的冰元素——西弗格罗斯，持续 %d 回合。
-		转化成元素后，你不需要呼吸并获得等级 %d 的冰雪风暴，获得 %d%% 切割和震慑抵抗，%d%% 寒冰抗性 ,所有冰冷伤害可对你产生治疗，治疗量基于伤害值的 %d%%。
+		转化成元素后，你不需要呼吸并获得等级 %d 的冰雪风暴，获得 %d%% 切割和震慑抵抗，%d%% 寒冰抗性，所有冰冷伤害可对你产生治疗，治疗量基于伤害值的 %d%%。
 		效果受法术强度加成。]], "tformat")
 t("Mental Refresh", "振作精神", "talent name")
 t("Reset up to 3 wild gift, psionic or cursed talents.", "刷新至多 3 个自然，灵能或诅咒系技能。", "tformat")
@@ -26806,7 +26806,7 @@ t([[While Highers are not meant to rule other humans - and show no particular wi
 		Increase blindness immunity by %d%%, maximum sight range by %d, and increases existing infravision, and heightened senses range by %d.
 		At talent level 5, each time you hit a target you gain telepathy to all similar creatures in radius 15 for 5 turns.]], [[虽然高等人类的高贵血统并不意味着统治他人——他们也没有特别的意愿去那样做——但是他们经常承担更高的义务。
 		他们的本能使得他们比别人有更强的直觉。
-		增加 %d%% 目盲免疫 , 提高 %d 点最大视野范围并提高 %d 夜视及感应范围。
+		增加 %d%% 目盲免疫，提高 %d 点最大视野范围并提高 %d 夜视及感应范围。
 		技能等级 5 时，每次你命中目标，你将获得 15 格范围内同类型生物感知能力，持续 5 回合。]], "tformat")
 t("Born into Magic", "魔法亲和", "talent name")
 t([[Highers were originally created during the Age of Allure by the human Conclave. They are imbued with magic at the very core of their being.
@@ -29001,7 +29001,7 @@ t("Increases", "增加", "_t")
 t("Decreases", "降低", "_t")
 t([[The golem automatically reconfigures heavy mail and massive armours designed for living creatures to protect its own vital areas.
 	%s armour value by %d, armour hardiness by %d%%, and provides %d%% critical hit reduction when wearing heavy mail or massive armour.]], [[傀儡学会重新组装重甲和板甲，以便更加适用于傀儡。
-	当装备重甲或板甲时，%s护甲 %d 点 , 护甲强度 %d%%，并且减少 %d%% 被暴击率。]], "tformat")
+	当装备重甲或板甲时，%s护甲 %d 点，护甲强度 %d%%，并且减少 %d%% 被暴击率。]], "tformat")
 t("Poison Breath", "毒性吐息", "talent name")
 t("@Source@ breathes poison!", "@Source@呼出毒素！", "_t")
 t([[Breathe poison on your foes, doing %d damage over a few turns.
@@ -30097,7 +30097,7 @@ t("%s resists the slow!", "%s抵抗了减速！", "logSeen")
 t([[You fire a disabling shot at a target's throat (or equivalent), dealing %d%% weapon damage and silencing them for %d turns.
 If the target is marked, you consume the mark to fire two secondary shots at their arms and legs (or other appendages) dealing %d%% damage, reducing their movement speed by 50%% and disarming them for the duration.
 The status chance increases with your Accuracy.]], [[你朝目标的喉咙（或者类似部位）射击，造成 %d%% 武器伤害并沉默 %d 回合。
-如果目标被标记，则消耗标记并额外向目标的手臂与大腿（或者类似部位）射击两次，造成 %d%% 伤害 , 降低其 50 %% 移动速度，同时使其不能使用武器。
+如果目标被标记，则消耗标记并额外向目标的手臂与大腿（或者类似部位）射击两次，造成 %d%% 伤害，降低其 50 %% 移动速度，同时使其不能使用武器。
 状态效果几率受命中加成。]], "tformat")
 t("Bullseye", "靶心", "talent name")
 t("Each time you consume a mark, you gain %d%% increased attack speed for 2 turns and the cooldown of %d random techniques are reduced by %d turns.", "每次消耗标记时，获得 %d%% 攻击速度 2 回合，并减少 %d 个战斗技巧系技能冷却时间 %d 回合。", "tformat")
@@ -30112,7 +30112,7 @@ t([[You fire a crippling shot, doing %d%% damage and reducing your target's spee
 t("Pinning Shot", "定身射击", "talent name")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
 t([[You fire a pinning shot, doing %d%% damage and pinning your target to the ground for %d turns.
-		The pinning chance increases with your Dexterity.]], [[你射出定身一箭 , 造成 %d%% 伤害，并定身目标 %d 回合。
+		The pinning chance increases with your Dexterity.]], [[你射出定身一箭，造成 %d%% 伤害，并定身目标 %d 回合。
 		定身几率受敏捷加成。]], "tformat")
 
 ------------------------------------------------
@@ -30666,7 +30666,7 @@ Piercing - Shots reduce armor and saves by %d for 3 turns, and your physical pen
 You can only have 1 type of ammunition loaded at a time.
 The poison damage dealt, armor penetration and save reduction will increase with your Physical Power.]], [[你学会了制造和装备专门的弹药：
 燃烧弹- 命中后，对目标附近的敌人造成 %d%% 火焰武器伤害，范围最大为 %d，每回合最多一次。
-剧毒弹- 命中后，对目标造成 %0.2f 自然伤害并感染麻痹毒素 , 在 5 回合内造成 %0.2f 自然伤害并削弱其 %d%% 的伤害。
+剧毒弹- 命中后，对目标造成 %0.2f 自然伤害并感染麻痹毒素，在 5 回合内造成 %0.2f 自然伤害并削弱其 %d%% 的伤害。
 穿甲弹- 命中后，使目标的护甲和豁免减少 %d，持续 3 回合，你的物理穿透增加 %d%%。
 同时只能装备一种弹药。
 毒素伤害、护甲和豁免削减受物理强度加成。]], "tformat")
@@ -30703,7 +30703,7 @@ Piercing - Punctures the target’s armor, increasing all damage they take by %d
 You only have a limited amount of this ammo, causing this talent to have a cooldown.
 The damage dealt will increase with your Physical Power, and status chance increases with your Accuracy.]], [[你制造出强化版弹药，获得额外效果：
 燃烧弹- 爆炸范围增加 1, 点燃地面每回合额外造成 %0.2f 火焰伤害持续 3 回合。
-剧毒弹- 感染吸血毒素，3 回合内造成 %0.2f 毒素伤害 , 毒素造成的 100%% 伤害会治疗你。
+剧毒弹- 感染吸血毒素，3 回合内造成 %0.2f 毒素伤害，毒素造成的 100%% 伤害会治疗你。
 穿甲弹- 击穿目标护甲，目标受到的所有伤害增加 %d%% 持续 3 回合。
 你的强化版弹药有限，所以技能有冷却时间。
 伤害受物理强度加成，状态触发几率受命中加成。]], "tformat")
@@ -31126,7 +31126,7 @@ t("#Source# strikes at a vital spot on #target#!", "#Source#攻向#target#的要
 t([[Using your deep knowledge of anatomy, you strike a target in a vital pressure point for %d%% weapon damage, bypassing their defense and evasion.
 		This strike inflicts terrible wounds inside the target's body, causing them to take physical damage equal to 100%% of any damage dealt during the attack each turn for 4 turns, increasing by %d%% each turn (so after 4 turns, they would have taken a total of %d%% damage).
 		If the target dies while under or from this effect their body will explode in a radius %d shower of bone and gore, inflicting physical damage equal to the current tick to all enemies and granting you 4 combo points.]], [[使用你深刻的解剖学知识，击中敌人的穴道造成 %d%% 武器伤害，无视闪避和躲闪效果。
-		这次攻击在敌人身上造成可怕的内伤，在四回合内造成相当于攻击伤害的 100%% 的物理伤害 , 每回合增加 %d%% (4 回合后，总共造成 %d%% 伤害)。
+		这次攻击在敌人身上造成可怕的内伤，在四回合内造成相当于攻击伤害的 100%% 的物理伤害，每回合增加 %d%% (4 回合后，总共造成 %d%% 伤害)。
 		如果目标死在该效果下，他们身体会爆炸，并让半径 %d 内的敌人受到等于他们当前回合的点穴伤害的物理伤害，并给你 4 点连击点。]], "tformat")
 
 ------------------------------------------------
@@ -31515,7 +31515,7 @@ t([[You can wrap temporal threads around you, assuming the form of a telugoroth 
 		在这种形态中，你对定身、流血、致盲、震慑免疫，获得 30%% 时空抗性和 20%% 的时空抗性穿透。
 		你造成的伤害的 50%% 转化为时空伤害。
 		同时，你的时空伤害增益等于你所有类型的伤害增益中的最大值，此外，还增加 30%% 额外时空伤害增益。
-		你在时空形态下能释放以下异常：异常：重排，异常：时空风暴 , 异常：不完美设计 , 异常：重力井和异常：虫洞。]], "tformat")
+		你在时空形态下能释放以下异常：异常：重排，异常：时空风暴，异常：不完美设计，异常：重力井和异常：虫洞。]], "tformat")
 t("Blighted Summoning", "枯萎召唤", "talent name")
 t("Have summoned at least 100 creatures. More permanent summons may count as more than 1.", "曾召唤了 100 个以上的召唤生物。各种永久召唤物算作超过 1 个单位。", "_t")
 t([[You infuse blighted energies into all of your summons, granting them Bone Shield (level 3) and a bonus to Spellpower equal to your Magic.
@@ -34898,8 +34898,8 @@ t("Icy Floor", "冰面", "floorEffect desc")
 t("The target is walking on an icy floor. Increasing movement speed by 20%, providing +20% cold damage piercing and -30% stun immunity.", "目标行走在冰面上。增加 20%移动速度，提供 20%的冰冷伤害穿透，同时减少 30%的震慑免疫。", "_t")
 t("Font of Life", "生命之泉", "floorEffect desc")
 t("The target is near a font of life, granting %+0.2f life regeneration, %+0.2f equilibrium regeneration, %+0.2f stamina regeneration and %+0.2f psi regeneration.  (Only living creatures benefit.)", "目标靠近生命之泉，增加 %+0.2f 生命回复，%+0.2f 失衡值回复，%+0.2f 体力回复和 %+0.2f 灵能回复。不死族无法获得此效果。", "tformat")
-t("Spellblaze Scar", "奥术之痕", "floorEffect desc")
-t("The target is near a spellblaze scar, granting +25% spell critical chance, +10% fire and blight damage but critical spells will drain arcane forces.", "目标接近奥术之痕，获得 25%法术暴击率，增加 10%火焰和枯萎伤害，但是法术暴击会消耗法力值。", "_t")
+t("Spellblaze Scar", "魔法大爆炸伤痕", "floorEffect desc")
+t("The target is near a spellblaze scar, granting +25% spell critical chance, +10% fire and blight damage but critical spells will drain arcane forces.", "目标接近魔法大爆炸伤痕，获得 25%法术暴击率，增加 10%火焰和枯萎伤害，但是法术暴击会消耗法力值。", "_t")
 t("Blighted Soil", "荒芜之地", "floorEffect desc")
 t("The target is walking on blighted soil, reducing diseases resistance by 60% and giving all attacks a 40% chance to infect the target with a random disease (can only happen once per turn).", "目标行走在荒芜之地上，减少 60%疾病抵抗并且对目标的所有攻击有 40%的几率使其感染某种疾病。（每回合只能触发一次）", "_t")
 t("Glimmerstone", "闪光石", "floorEffect desc")
@@ -36406,7 +36406,7 @@ t("Immune to detrimental magical effects", "对魔法负面状态免疫", "_t")
 t("Elemental Surge: Fire", "元素狂潮：火焰", "_t")
 t("All damage increased by %d%%", "所有伤害增加 %d%%。", "tformat")
 t("Elemental Surge: Cold", "元素狂潮：寒冷", "_t")
-t("Armor increased by %d, deals %d ice damage when hit in melee.", "护甲增加 %d, 获得 %d 冰系近战反伤。", "tformat")
+t("Armor increased by %d, deals %d ice damage when hit in melee.", "护甲增加 %d，获得 %d 冰系近战反伤。", "tformat")
 t("Elemental Surge: Lightning", "元素狂潮：闪电", "_t")
 t("Movement speed increased by %d%%.", "移动速度增加 %d%%。", "tformat")
 t("Elemental Surge: Light", "元素狂潮：光明", "_t")
@@ -37134,7 +37134,7 @@ t("+Pain Suppression", "+痛苦压制", "_t")
 t("#Target# feels pain again.", "#Target#重新感受到疼痛。", "_t")
 t("-Pain Suppression", "-痛苦压制", "_t")
 t("Primal Attunement", "自然协调", "_t")
-t("The target is attuned to the wild, increasing all damage affinity by %d%% and reducing a random debuff duration by %d each turn.", "目标和自然协调 , 增加全体伤害吸收 %d%%，每回合随机减少一个负面状态 %d 回合持续时间。", "tformat")
+t("The target is attuned to the wild, increasing all damage affinity by %d%% and reducing a random debuff duration by %d each turn.", "目标和自然协调，增加全体伤害吸收 %d%%，每回合随机减少一个负面状态 %d 回合持续时间。", "tformat")
 t("#Target# attunes to the wild.", "#Target#和自然相和谐。", "_t")
 t("+Primal", "+原初", "_t")
 t("#Target# is no longer one with nature.", "#Target#不再与自然合一。", "_t")
@@ -37334,9 +37334,9 @@ t("#Target# shakes free of the telekinetic binding", "#Target#从念力约束中
 t("-Paralyzed", "-麻痹", "_t")
 t("Imploding (slow)", "碎骨压制（减速）", "_t")
 t("Slowed by 50%% and taking %d crushing damage per turn.", "全局速度下降 50%%，每回合受到 %d 点碾压伤害。", "tformat")
-t("+Imploding", "+压制", "_t")
+t("+Imploding", "+碎骨压制", "_t")
 t("#Target# shakes off the crushing forces.", "#Target#脱离压碎效果。", "_t")
-t("-Imploding", "-压制", "_t")
+t("-Imploding", "-碎骨压制", "_t")
 t("Free Action", "自由行动", "_t")
 t("The target gains %d%% stun, daze and pinning immunity.", "目标获得 %d%% 震慑、眩晕、定身免疫。", "tformat")
 t("#Target# is moving freely.", "#Target#可以自由移动。", "_t")
@@ -41765,7 +41765,7 @@ t("Sharpen Visuals, set to 0 to disable.#WHITE#", "锐化视觉，设为0关闭#
 t("#GOLD##{bold}#Sharpen Visuals#WHITE##{normal}#", "#GOLD##{bold}#锐化视觉#WHITE##{normal}#", "_t")
 t("Enter Sharpen Power", "输入锐化强度", "_t")
 t("From 0(disable) to 10", "从 0(关闭) 到 10", "_t")
-t("Defines the distance from the screen edge at which scrolling will start. If set high enough the game will always center on the player.#WHITE#", "定义屏幕边缘到人物的距离。设置得足够高的话，人物会保持正中央。#WHITE#", "_t")
+t("Defines the distance from the screen edge at which scrolling will start. If set high enough the game will always center on the player.#WHITE#", "定义人物距屏幕边缘多远时开始滚屏。设置得足够高的话，画面会始终以人物为中心。#WHITE#", "_t")
 t("#GOLD##{bold}#Scroll distance#WHITE##{normal}#", "#GOLD##{bold}#滚动距离#WHITE##{normal}#", "_t")
 t("Scroll distance", "滚动距离", "_t")
 t("From 1 to 50", "从 1 到 50", "_t")
