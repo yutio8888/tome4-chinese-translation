@@ -36553,7 +36553,7 @@ t([[An aura of death surrounds you.
 #CRIMSON# 强度 1+：%s 死亡力量：%+d%% 对亡灵的伤害加成。
 #CRIMSON# 强度 2+：%s%+d 幸运 , %+d 力量 , %+d 魔法
 #CRIMSON# 强度 3+：%s 活死人之躯：腐秽呕吐能治疗你。每 %d 回合一次，当你生命值降至 %d%% 以下时，释放一次等级 %d 的腐秽呕吐。
-#CRIMSON# 强度 4+：%s 死缓：你杀死的人形生物有 %d%% 几率变成食尸鬼并替你作战持续 6 回合。]], "tformat")
+#CRIMSON# 强度 4+：%s 死缓：你杀死的人形生物有 %d%% 几率变成食尸鬼并替你作战持续 6 回合。]], "tformat", {1,2,3,4,5,6,7,8,9,11,10,12,13})
 t("walking corpse", "行尸", "_t")
 t("This corpse was recently alive but moves as though it is just learning to use its body.", "这具尸体刚刚被复活，它活动起来就像刚刚学会使用自己的身体一样。", "_t")
 t("Summon", "召唤", "_t")
