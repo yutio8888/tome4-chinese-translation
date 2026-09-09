@@ -1,14 +1,53 @@
-# 80 条基线批次审核运行手册（2026-09-06）
+# 80 条基线批次审核运行手册（2026-09-06 起）
 
-> 供主编排者（ORCHESTRATOR）后续阅读并继续开展 80 条基线批次审核工作。
-> **新接手的 agent 请先读 §22（交接：当前状态、模型分工、待决事项）与 §23（缺陷类型学），
-> 操作脚本见 [`tools/orchestration/`](../tools/orchestration/README.md)。**
-> 本手册记录截至 2026-09-06 已完成的第 6、7、8 个 fill-80 基线批次
-> （`batch-cab1369cd860e4cef670`、`batch-1d8c83650b49f5b4b3ac`、`batch-762830cafd3ebe687678`）
-> 的完整可复现操作链，以及下一批的推进规则。正式约束以
-> [`AGENTS.md`](../AGENTS.md)、[工作流](agent-workflow.md)、
-> [WP2-Lite 正式方案](translation-production-review-v2-lite-plan.md) 与
-> [当前交接](production-review-handoff-2026-09-05.md) 为准；本文只是操作说明，不放宽任何契约。
+> **新接手请只读本页前两节。** 下面的 §1–§38 是按时间累积的事故与裁决记录，
+> 供 `git log -S` 与关键词检索，不必通读。
+> 正式约束以 [`AGENTS.md`](../AGENTS.md)、[工作流](agent-workflow.md)、
+> [WP2-Lite 方案](translation-production-review-v2-lite-plan.md) 为准；本文不放宽任何契约。
+
+## 当前操作入口
+
+**每批的完整命令链见 [`tools/orchestration/README.md`](../tools/orchestration/README.md)**，
+那里的流程与脚本签名是唯一现行版本（本文正文里的旧命令多已过时，只作历史记录）。
+
+| 要做的事 | 用什么 |
+| --- | --- |
+| 跑一批 80 条 | `tools/orchestration/README.md` 的「每批流程」 |
+| 冻结源码工作集 | `freeze_workset.py <batch>`，必须 80/80；已 finalize 的批次会从受跟踪证据重建（§34.0） |
+| 给审核者备料 | `build_evidence_pack.py <batch>`——只放客观事实，**不放上一轮结论**（§39） |
+| 看净进展与返工 | `batch_progress.py`（§36） |
+| 全库清扫 | **只用** `sweep.py plan\|apply <rules.json>`，且要单独排维护窗口（§38） |
+| 查门禁失败 | 先看 `.artifacts/i18n/ci-gates/run.*/results.json` 的 `error`；**别用 `\| tail` 判退出码**（§36.3） |
+
+四条硬约束（详见 README「四条硬约束」）：批次进行期间不得向 develop 提交任何东西；
+修复前先全仓库 grep（同一 runtime key 可能横跨 11 个组件）；`contextual-import`
+要求对应 task 已 `DONE_VERIFIED`；派发必须显式传 `--mode`。
+
+## 生效裁决表
+
+维护者已裁定、当前**持续生效**的口径。判 confirmed 前先对照本表。
+
+| 事项 | 裁决 | 出处 |
+| --- | --- | --- |
+| `delving` | 维持「挖掘之」，不改也不回退 | §19、§26 |
+| orcs-lore `herbal infusions` | 维持「草本纹身」（与萨拉店招那条 confirmed 不同：店招是药剂店上下文） | §26 |
+| 换行结构 | **不按源文镜像统一**；378 条一律判 `advisory`，不得 confirmed | §30.4 |
+| 顶层单引号 | 一律改 `“ ”`；**嵌套在 `“ ”` 内的 `‘ ’` 保留**（按层深自动分流） | §30.6 |
+| UI 选项名 | 不按引文处理，保留 ASCII 引号 | §30.6 |
+| 半角括号 | 纯中文内容转全角；**混排（含拉丁字母/`%s`/`#TAG#`/按键名）记 pending** | §33.5 |
+| `Arcane Combat` | 「奥术格斗」 | §33.4 |
+| 伤害格式 | `%d%%` = 基于武器基础伤害的**百分比**；`%0.2f` = **点数**。译文里的「武器」是必要区分，不是冗余 | §33.1 |
+| `zone` / `level` | 「地图」/「楼层」 | §32 |
+| 批次规模与模型 | 维持每批 80 条与现有模型配置，先减少重复计算与返工，连跑几批同配置再评估 | 2026-09-09 |
+
+判据提醒（§23）：**两轮各自独立复现同一主张才算 `confirmed`**；理由不同则降为
+`advisory`。机械性客观事实（标点、缺句号、空格、占位符错绑）单轮亦可 confirmed，
+语义与风格判断不行。`disposition` 取值只有
+`confirmed` / `pending` / `advisory` / `refuted` 四个。
+
+---
+
+# 以下为累积记录（§1–§38）
 
 ## 1. 背景与授权状态
 
@@ -1637,3 +1676,35 @@ git 子命令里 `log` 2147 次占 26.5s，`cat-file` 1839 次占 7.9s。
 
 **手写一次性脚本做清扫的做法到此为止。** 之前每一次都踩到上面某一条：
 §27 删掉拼接空格、§30.6 改到被注释掉的条目、§31.3 断言失败后半个文件已经写出去。
+
+## §39 审核者冻结证据包：只放客观事实
+
+`tools/orchestration/build_evidence_pack.py <batch>` 产出
+`evidence/quality/production-batches/<batch>-evidence-pack.json`，逐条包含：
+
+- 固定源码版本与归属；DLC 未固定来源**显式声明**，只以文件 SHA-256 绑定
+- 调用点原文片段（带行号与上下文）与文件 SHA-256
+- 占位符清单，附伤害格式的领域约定（§33.1）
+- 命中的术语表词条：`category`/`domain`/`source_tag`/`status`/`scope` 与**已批准译法**
+- 同术语在库内其它条目的现有写法，标注为**「现状」而非标准**
+- 运行期拼接、宿主生成键等非字面量归属关系（§34.2）
+
+**刻意不放的东西，这是要点不是疏漏**：上一轮 finding、裁决结论、期待答案、
+任何 `.ai/reviews` 或 `adjudications` 内容。把上一轮结论塞进上下文，
+两轮就不再是独立观察，§23 的「两轮各自复现同一主张才算 confirmed」也就失去意义。
+裁决索引由编排者在自己的上下文里维护，**不下发**。
+
+### §39.1 副产物：全库占位符审计
+写占位符解析时顺手对全库做了一次审计。旧写法的正则把字面 `%%` 当占位符，
+标志类里还含空格，会误配出 `"%.  W"` 这种东西。按 printf 语法重写后（`_CONV` 见
+`build_evidence_pack.py`），29828 条里源译占位符序列不同的有 47 条：
+
+- **45 条**正确声明了 `args_order` 且映射无误——库里这套纪律是可靠的；
+- **1 条**真的错绑实参：`timed_effects/other.lua` 的「活死人之躯」，
+  译文按中文语序对调了第 2、3 个占位符却没声明 `args_order`，
+  运行时生命值阈值与呕吐等级两个数字互换。已修（commit `2827dbe`）；
+- **1 条**是 `animus.lua` 的 `%d` → `%d%%`，只多了字面百分号、不改变实参绑定，
+  属语义判断，按惯例不单轮擅改，另记。
+
+`args_order` 的语义：`args_order[i]` = 译文第 i 个占位符取源文第几个实参。
+声明方式是 `t(源, 译, tag, {3,1,2})`。
