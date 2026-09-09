@@ -671,8 +671,8 @@ t("%s", "%s", "logSeen")
 ------------------------------------------------
 section "mod-tome/class/MapEffects.lua"
 
-t(" area effect", "地图效果", "_t")
-t("area effect", "地图效果", "_t")
+t(" area effect", "范围效果", "_t")
+t("area effect", "范围效果", "_t")
 t("%s's %s", "%s的%s", "tformat")
 
 ------------------------------------------------
@@ -8787,7 +8787,7 @@ t("A huge arachnid, it sprays venom at its prey.", "一只巨大的蛛形纲动�
 t("chitinous spider", "硬壳蜘蛛", "entity name")
 t("A huge arachnid with a massive exoskeleton.", "一只巨大的蛛形纲动物，它有着厚重的外壳。", "_t")
 t("gaeramarth", "盖瑞麦斯", "entity name")
-t("These cunning spiders terrorize those who enter the ever-growing borders of their lairs.  Those who encounter them rarely return.", "这些狡猾的蜘蛛威胁着进入它们地盘的生物。没有人能从它们这生还。", "_t")
+t("These cunning spiders terrorize those who enter the ever-growing borders of their lairs.  Those who encounter them rarely return.", "这些狡猾的蜘蛛威胁着踏入其巢穴那不断扩张的边界的生物。遭遇它们的人鲜有生还。", "_t")
 t("ninurlhing", "林尔荷", "entity name")
 t("The air reeks with noxious fumes and the ground around it decays.", "在它周围，毒雾散播，大地枯萎。", "_t")
 t("faerlhing", "费尔荷", "entity name")
