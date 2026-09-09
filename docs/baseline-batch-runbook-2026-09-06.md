@@ -38,6 +38,8 @@
 | `Arcane Combat` | 「奥术格斗」 | §33.4 |
 | 伤害格式 | `%d%%` = 基于武器基础伤害的**百分比**；`%0.2f` = **点数**。译文里的「武器」是必要区分，不是冗余 | §33.1 |
 | `zone` / `level` | 「地图」/「楼层」 | §32 |
+| 抗性类 `%d` -> `%d%%` | **保留百分比**。多出的是字面百分号、不改变实参绑定，ToME 抗性本就是百分比。同类不再作为缺陷报告 | 2026-09-09 |
+| 返工排期 | **不单独处理**，混在正常批次内消化；不为待重审的条目另排专门批次。每批仍分开报「净新增 / 返工」，但不因返工占比高而调整排期 | 2026-09-09 |
 | 批次规模与模型 | 维持每批 80 条与现有模型配置，先减少重复计算与返工，连跑几批同配置再评估 | 2026-09-09 |
 
 判据提醒（§23）：**两轮各自独立复现同一主张才算 `confirmed`**；理由不同则降为
@@ -1708,3 +1710,40 @@ git 子命令里 `log` 2147 次占 26.5s，`cat-file` 1839 次占 7.9s。
 
 `args_order` 的语义：`args_order[i]` = 译文第 i 个占位符取源文第几个实参。
 声明方式是 `t(源, 译, tag, {3,1,2})`。
+
+## §40 第 59 批：加固后的编排脚本首次全程实跑
+
+`batch-75717c9c705064396797`，80 条：净新增覆盖 45 条、返工重审 35 条。
+表层报 2 处 ISSUE，交叉复核两条均判 OK **未复现**，按 §23 双双记 advisory，
+`repair_required 0`，无修复轮。
+
+两条都直接命中「生效裁决表」，不需要重新论证：
+
+- VideoOptions.lua 换行结构不符 → §30.4 已裁定不作镜像归一，一律 advisory。
+- `You cannot use Eldritch Slam without a shield!` 省略技能名 → 主张属实
+  （术语表有既有译名「奥术猛击」），但同型 40 条里约 12 条同样省略、约 14 条保留，
+  同一 Eldritch 系内部也不统一（Blow 保留、Slam/Fury 省略）。
+  **单条改动只会改变不一致的分布，不会消除它**，需维护者先定哪一组是标准。
+
+### §40.1 加固脚本的实跑结果
+派发即时落盘、收割当场校验身份与覆盖、归档回读确认，四个 lane 全部一次通过；
+`close_review_tasks` 的 `DONE_VERIFIED` 与 `paseo agent archive` 对已归档 agent
+返回 rc=1 的幂等处理都按预期工作。
+
+### §40.2 `adjudicate --input` 的精确键集合
+决策对象的键集合是**精确**的十个：`entry_revision_identity`、`observation_contract`、
+`observation_identity`、`observation_sha256`、`disposition`、`evidence_path`、
+`evidence_commit`、`evidence_snapshot`、`conclusion`、`repair_required`
+（`production_review_v2_lite_batch.py:1314`）。
+
+多带一个 `schema_version` 就报 `adjudication 0 exact schema mismatch`——
+落盘的 adjudications.jsonl 里那个 `schema_version` 是流水线加的，不是输入项。
+决策数量还必须与 `_accepted_observations` **完全相等**：只有 `ISSUE` 才算观察，
+交叉复核判 OK 的不产生观察项。identity 用 `_observation_identity(contract, revision,
+verdict, observation)` 现算，`observation_sha256` 是观察文本本身的 SHA-256。
+
+### §40.3 证据包的占位符顺序判定必须认 args_order
+初版 `placeholder_order_matches` 直接比较源译占位符序列，把**合法重排**也报成不一致
+（第 58、59 批各命中 2 条，其中一条正是刚补过 `args_order` 的「活死人之躯」）。
+已改为：声明了 `args_order` 就按 `src[args_order[i]-1] == tgt[i]` 校验，
+未声明时才要求逐一相等。两批重算后均为 0。

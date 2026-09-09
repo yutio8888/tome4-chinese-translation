@@ -57,6 +57,19 @@ def load_terminology():
     return rows
 
 
+def order_ok(src_specs, tgt_specs, args_order):
+    """占位符顺序是否成立——必须考虑 args_order，否则合法重排会被报成不一致。
+
+    args_order[i] = 译文第 i 个占位符取源文第几个实参（1 起）。
+    未声明时才要求两边序列逐一相等。
+    """
+    if not args_order:
+        return src_specs == tgt_specs
+    if len(args_order) != len(tgt_specs) or sorted(args_order) != list(range(1, len(src_specs) + 1)):
+        return False
+    return [src_specs[i - 1] for i in args_order] == tgt_specs
+
+
 def snippet(path, lines, want, context):
     """返回带行号的原文片段。行号是 1 起，与编辑器一致。"""
     if not want:
@@ -164,7 +177,7 @@ def main():
             'fixed_source_commit': ver.get('fixed_source_commit'),
             'call_site': call,
             'placeholders': placeholders,
-            'placeholder_order_matches': src_specs == tgt_specs,
+            'placeholder_order_matches': order_ok(src_specs, tgt_specs, ver.get('args_order')),
             'placeholders_in_target': tgt_specs,
             'args_order': ver.get('args_order'),
             'terminology': hits,
