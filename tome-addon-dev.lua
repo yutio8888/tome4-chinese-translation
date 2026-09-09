@@ -106,7 +106,7 @@ t("Steam Workshop: %s", "Steam创意工坊: %s", "tformat")
 t("Update error: %s", "更新错误: %s", "tformat")
 t("unknown", "未知", "_t")
 t("Uploading addon to Steam Workshop", "正在将插件上传到Steam创意工坊", "_t")
-t("There was an error uploading the addon.", "上传插件时发生错误", "_t")
+t("There was an error uploading the addon.", "上传插件时发生错误。", "_t")
 t([[Addon succesfully uploaded to the Workshop.
 You need to accept Steam Workshop Agreement in your Steam Client before the addon is visible to the community.]], [[插件已经上传到Steam创意工坊。
 你需要先在Steam客户端中接受Steam创意工坊许可协议，才能让其他用户看到你的插件。]], "_t")
@@ -115,8 +115,8 @@ t("Later", "以后再说", "_t")
 t("Addon succesfully uploaded to the Workshop.", "插件已经上传到Steam创意工坊。", "_t")
 t("Uploading addon preview to Steam Workshop", "正在上传插件预览图到Steam创意工坊。", "_t")
 t("There was an error uploading the addon preview.", "上传插件预览图时发生错误。", "_t")
-t("Addon update & preview succesfully uploaded to the Workshop.", "插件更新和预览图成功上传到Steam创意工坊", "_t")
-t("Addon update succesfully uploaded to the Workshop.", "插件更新成功上传到Steam创意工坊", "_t")
+t("Addon update & preview succesfully uploaded to the Workshop.", "插件更新和预览图成功上传到Steam创意工坊。", "_t")
+t("Addon update succesfully uploaded to the Workshop.", "插件更新成功上传到Steam创意工坊。", "_t")
 t("Choose an addon for MD5", "选择需要计算MD5的插件", "_t")
 t("MD5 for %s", "%s的MD5", "tformat")
 t([[Addon MD5: #LIGHT_BLUE#%s#LAST# (this was copied to your clipboard).
@@ -195,7 +195,7 @@ t("", "", "_t")
 section "tome-addon-dev/superload/mod/dialogs/debug/ReleaseTranslation.lua"
 
 t("Choose addon", "选择插件", "_t")
-t("Choose the addon you want to copy translation file to.", "选择你想要将翻译文件拷贝去的插件", "_t")
+t("Choose the addon you want to copy translation file to.", "选择你想要将翻译文件拷贝去的插件。", "_t")
 t("Failure", "失败", "_t")
 t([[Fail when copying file to %s:
 %s]], [[未能拷贝文件到 %s:

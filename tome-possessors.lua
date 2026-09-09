@@ -2,11 +2,11 @@
 section "tome-possessors/data/achievements/possessors.lua"
 
 t("Bill Kill!", "比尔杀死！", "achievement name")
-t("Kill your own Doomed Shade in the body of Bill.", "使用比尔的身体杀死你自己的被诅咒的影子", "_t")
+t("Kill your own Doomed Shade in the body of Bill.", "使用比尔的身体杀死你自己的被诅咒的影子。", "_t")
 t("Unneshasshhary Kryl'ty", "相爱相杀", "achievement name")
 t("Kill Kryl'Feijan with the body of Shasshhiy'Kaish, or vice-versa.", "使用克里尔·费扬的身体杀死莎西·凯希，或者使用莎西·凯希的身体杀死克里尔·费扬。", "_t")
 t("Unneshasshhary Kryl'ty (Redux)", "相爱相杀（重复）", "achievement name")
-t("Kill High Paladin Aeryn with the body of Sun Paladin John.", "使用太阳骑士约翰的身体杀死高阶太阳骑士艾琳", "_t")
+t("Kill High Paladin Aeryn with the body of Sun Paladin John.", "使用太阳骑士约翰的身体杀死高阶太阳骑士艾琳。", "_t")
 
 ------------------------------------------------
 section "tome-possessors/data/birth/psionic.lua"
@@ -25,7 +25,7 @@ t("#GOLD#Life per level:#LIGHT_BLUE# -4", "#GOLD#每等级生命加值：#LIGHT_
 section "tome-possessors/data/talents/psionic/battle-psionics.lua"
 
 t("You are disarmed.", "你被缴械了。", "logPlayer")
-t("You require a mainhand weapon and an offhand mindstar to use this talent.", "你需要主手武器副手灵晶才能使用这一技能", "logPlayer")
+t("You require a mainhand weapon and an offhand mindstar to use this talent.", "你需要主手武器副手灵晶才能使用这一技能。", "logPlayer")
 t("Psionic Disruption", "灵能瓦解", "talent name")
 t([[You imbue your offhand mindstar with wild psionic forces.
 		While active you gain %d%% more of your mindstar's mindpower and mind critical chance.
@@ -130,7 +130,7 @@ t([[Your physical form is but a mere extension of your mind, you can bend it at 
 		激活时，你最多可以移除 %d 个物理或者精神效果。
 		]], "tformat")
 t("Ominous Form", "不祥躯体", "talent name")
-t("You are already assuming a form.", "你已经占据了一个躯体", "logPlayer")
+t("You are already assuming a form.", "你已经占据了一个躯体。", "logPlayer")
 t("%s resists your attack!", "%s抵抗了你的攻击！", "logPlayer")
 t([[Your psionic powers have no limits. You are now able to assault a target and clone its body without killing it.
 		The form is only temporary, lasting %d turns and subject to the same restrictions as your normal powers.
@@ -184,7 +184,7 @@ t("You do not have enough room in your bodies storage.", "你的身体存储空�
 t("This creature is immune to possession.", "这个生物免疫附身。", "logPlayer")
 t("You may not possess a creature which you summoned.", "你不能附身你自己召唤的生物。", "logPlayer")
 t("You may not possess a creature which has an expiration time or a master.", "你不能附身有时间限制或者主人的生物。", "logPlayer")
-t("You may not possess a creature of this rank (%s%s#LAST#).", "你不能附身这个阶级的生物(%s%s#LAST#).", "logPlayer")
+t("You may not possess a creature of this rank (%s%s#LAST#).", "你不能附身这个阶级的生物（%s%s#LAST#）。", "logPlayer")
 t("Possess", "附身", "_t")
 t("Permanently learn to possess creatures of type #LIGHT_BLUE#%s#LAST# (you may only do that a few times, based on talent level) ?", "确认要永久性地学习占据#LIGHT_BLUE#%s#LAST#身体的能力吗（你只能学习有限次，基于技能等级）？", "tformat")
 t("No", "否", "_t")
@@ -216,7 +216,7 @@ t([[You cast a psionic web at a target that lasts for %d turns. Each turn it dea
 		你可能只会偷走以下类型的生物的尸体 : #LIGHT_BLUE#%s#LAST#
 		当你尝试附身不同类型的生物时，你可以永久学习此类型，你还可以执行 %d 次。]], "tformat")
 t("Self Persistence", "自我坚持", "talent name")
-t("When you assume the form of an other body you can still keep %d%% of the values (defences, crits, powers, save, ...) of your own body.", "当你附身时，你还可以保留自己身体的属性 %d%%。(闪避，暴击，强度，豁免,……)", "tformat")
+t("When you assume the form of an other body you can still keep %d%% of the values (defences, crits, powers, save, ...) of your own body.", "当你附身时，你还可以保留自己身体的属性 %d%%（闪避，暴击，强度，豁免……）。", "tformat")
 t("Improved Form", "身体改进", "talent name")
 t([[When you assume the form of another body you gain %d%% of the values (defences, crits, powers, save, ...) of the body.
 		In addition talents gained from bodies are limited to level %0.1f.]], [[当你附身时，你获得身体 %d%% 的数值 (闪避，暴击，强度，豁免, ...)。

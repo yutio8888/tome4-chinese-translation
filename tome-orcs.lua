@@ -40,7 +40,7 @@ t("Completely deplete an AAA's stock.", "清空一个AAA的库存。", "_t")
 t("The Good, The Bad, and The Yeti", "好人、坏人和雪人", "achievement name")
 t("Use mind-controlled yetis to kill 30 foes.", "使用被精神控制的雪人，击杀30名敌人。", "_t")
 t("Total Annihilation: Redundancy", "完全歼灭：多此一举", "achievement name")
-t("Wield the Annihilator as an Annihilator.", "作为歼灭者（职业），装备歼灭者（武器）", "_t")
+t("Wield the Annihilator as an Annihilator.", "作为歼灭者（职业），装备歼灭者（武器）。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/achievements/story.lua"
@@ -1113,7 +1113,7 @@ t("This vial of corrupted blood reeks of death and decay. Yet somehow you feel d
 t("quaff the Blood of Undeath to prepare your body for undeath", "喝下不死之血，让自己的身体为不死做好准备", "_t")
 t("%s quaffs the %s!", "%s 大口喝下 %s！", "logSeen")
 t("#CRIMSON#You feel the Blood of Undeath rushing through your veins. Your can feel your life wither away a little (-50 maximum life, -120 minimum life).", "#CRIMSON#你感受到不死之血在你的血管里流淌。你的生命渐渐流逝了（-50最大生命值，-120生命值下限）。", "logPlayer")
-t("#CRIMSON#The Blood of Undeath strengthens your undead body (-60 maximum life, -140 minimum life).", "#CRIMSON#不死之血强化了你的不死之躯（-60最大生命值，-140生命值下限）", "logPlayer")
+t("#CRIMSON#The Blood of Undeath strengthens your undead body (-60 maximum life, -140 minimum life).", "#CRIMSON#不死之血强化了你的不死之躯（-60最大生命值，-140生命值下限）。", "logPlayer")
 
 ------------------------------------------------
 section "tome-orcs/data/general/objects/inscriptions.lua"
