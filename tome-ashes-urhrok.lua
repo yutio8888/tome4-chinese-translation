@@ -680,7 +680,7 @@ You are being taken by your handler to the torture-pits to help them figure out 
 As you recover, and your platform of searing earth splits from the main continent, your old memories flood your mind and you come to your senses - the demons are out to destroy your home!  You must escape... but not without destroying the crystal they've used to keep track of you.
 ]], [[你已经不太记得来到这片漂浮在虚空中的燃烧大陆之前的记忆了。你曾经帮助过恶魔，欢欣着参与他们的实验，以打破某种阻止恶魔降临大举复仇入侵埃亚尔的无形屏障。
 
-你被你的 ' 主人 ' 带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的 ' 主人 '，同时你也被冲击波击飞。
+你被你的“主人”带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的“主人”，同时你也被冲击波击飞。
 
 当你醒来后，你发现你身处一个和主大陆分离的平台，而你旧时的记忆渐渐涌来。你立刻惊醒——恶魔们要毁灭你的故乡！你必须逃离……同时别忘了摧毁他们用以追踪你的水晶体。
 ]], "_t")
@@ -1833,7 +1833,7 @@ As you recover, and your platform of searing earth splits from the main continen
 ]], [[你好，#LIGHT_GREEN#@name@#WHITE#。
 你已经不太记得来到这片漂浮在虚空中的燃烧大陆之前的记忆了。你曾经帮助过恶魔，欢欣着参与他们的实验，以打破某种阻止恶魔正义复仇的无形屏障。
 
-你被你的 ' 主人 ' 带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的 ' 主人 '，同时你也被冲击波击飞。
+你被你的“主人”带到折磨场以帮助研究如何对埃亚尔大陆的生灵造成更大的痛苦，突然一阵轰鸣从天上传来，你抬头，看见一颗燃烧着的陨石正在坠落。恶魔试图用法术改变其轨迹，但没有成功！它落在你身边，砸死了你的“主人”，同时你也被冲击波击飞。
 
 当你醒来后，你发现你身处一处和主大陆分离的焦土，而你旧时的记忆渐渐涌来。你立时惊醒——恶魔们要毁灭你的故乡！
 

@@ -161,7 +161,7 @@ t([[Discard a body from your psionic reserve.
 		%s]], "tformat")
 t("Assume Form", "附身", "talent name")
 t("You have no stored bodies to use.", "你没有可以用于附身的身体。", "logPlayer")
-t("#CRIMSON#A strange feeling comes over you as two words imprint themselves on your mind: '#{italic}#Not yet.#{normal}#'", "#CRIMSON#一种奇怪的感觉油然而生，两个词印入你的脑海：'#{italic}#还不是时候。#{normal}#'", "logPlayer")
+t("#CRIMSON#A strange feeling comes over you as two words imprint themselves on your mind: '#{italic}#Not yet.#{normal}#'", "#CRIMSON#一种奇怪的感觉油然而生，两个词印入你的脑海：“#{italic}#还不是时候。#{normal}#”", "logPlayer")
 t([[You call upon one of your reserve bodies, assuming its form.
 		A body used this way may not be healed in any way.
 		You can choose to exit the body at any moment by using this talent again, returning it to your reserve as it is.

@@ -316,7 +316,7 @@ section "tome-orcs/data/chats/destructicus-lead.lua"
 
 t([[#LIGHT_GREEN#*Several loyal Orcs are eagerly waiting outside the palace to meet you; one steps forward, handing you a set of keys.  The word 'DESTRUCTICUS' is etched into one.*#WHITE#
 Chief @playername@!  The Giants are fleeing, and we intercepted a scout carrying this!  We believe they can be used with...  well, you should see for yourself!  Please, come with us to the mountains just south of Kruk Pride!
-#LIGHT_GREEN#*This sounds important.  You should probably head there right away!*#WHITE#]], [[#LIGHT_GREEN#*数名忠诚的兽人在宫殿外焦急地等待着你；其中一名兽人走上前，交给你一串钥匙，上面写着'毁灭号'。*#WHITE#
+#LIGHT_GREEN#*This sounds important.  You should probably head there right away!*#WHITE#]], [[#LIGHT_GREEN#*数名忠诚的兽人在宫殿外焦急地等待着你；其中一名兽人走上前，交给你一串钥匙，上面写着“毁灭号”。*#WHITE#
 @playername@首领！巨人们在逃跑，我们抓住了一名侦查兵，他身上带着这个！我们认为它是用于……算了，您应该亲自来看看！请跟我们来克鲁克部落南边的山脉！
 #LIGHT_GREEN#*这听起来非常重要，你应该马上过去*#WHITE#]], "_t")
 t("Lead the way.", "带路吧。", "_t")
@@ -1528,7 +1528,7 @@ The design is somewhat rudimentary, but it seems to work.]], [[这把枪使用�
 设计尚未成熟，但似乎还算能用。]], "_t")
 t("Flashpoint", "燃点", "entity name")
 t("overheated gun", "过热的枪", "_t")
-t("\"Have you ever looked at some guys and thought 'you know, I really wish they were on fire right now', but you didn't feel like walking all the way over there? Well, there's now a better way!\"", "你是否曾经看到一些人并且想：'你知道吗，我真的想要烧死这些人'，但是你又不想大费周章，现在有了一个更加方便的方法！", "_t")
+t("\"Have you ever looked at some guys and thought 'you know, I really wish they were on fire right now', but you didn't feel like walking all the way over there? Well, there's now a better way!\"", "你是否曾经看到一些人并且想：“你知道吗，我真的想要烧死这些人”，但是你又不想大费周章，现在有了一个更加方便的方法！", "_t")
 t("S.H. Spear", "S.H.长矛", "entity name")
 t("engraved steamgun", "被雕刻的蒸汽枪", "_t")
 t([[This gun is engraved with a strange material which focuses mental powers.
@@ -1596,7 +1596,7 @@ It also seems to have been carefully balanced to work like a dual gun set.]], [[
 t("When fired, shoots up to 4 extra shots at random foes with a radius 4 cone centered on the target.", "发射时，在半径4的锥形范围内随机射出至多额外4发子弹。", "_t")
 t("Cloak of Daggers", "匕首披风", "entity name")
 t("bladed cloak", "布满刀刃的披风", "_t")
-t("This cloak seems to incorporate a series of blades attached to various spring mechanisms.  Apparently the designer believed that the best defense was an active one.", "这件披风上布满了刀刃和机关。显然制作者认为'最好的防御就是进攻'。", "_t")
+t("This cloak seems to incorporate a series of blades attached to various spring mechanisms.  Apparently the designer believed that the best defense was an active one.", "这件披风上布满了刀刃和机关。显然制作者认为“最好的防御就是进攻”。", "_t")
 t("Has a 50%% chance each turn to slash an adjacent enemy for %d physical damage (based on Cunning), making them bleed.", "每回合有50%%几率打击邻近的敌人，造成%d物理伤害（基于灵巧），并造成目标流血。", "tformat")
 t("#Source#'s %s #GOLD#lashes out#LAST#, cutting #Target#!", "#Source#的%s#GOLD#向外割去#LAST#，切开了#Target#！", "logCombat")
 t("Jetpack", "飞行背包", "entity name")
@@ -6049,7 +6049,7 @@ t([[Technomancers are Archmages that dabble in steam technology to enhance their
 section "tome-orcs/data/talents/uber/str.lua"
 
 t("Pain Enhancement System", "痛苦强化系统", "talent name")
-t("Earned the achievement 'Size Matters' on this character.", "当前角色解锁了‘伤害很重要’成就。", "_t")
+t("Earned the achievement 'Size Matters' on this character.", "当前角色解锁了“伤害很重要”成就。", "_t")
 t("When you deal a critical hit your embedded system activates, increasing all your primary stats except Strength by 50%% of your Strength for 6 turns.", "系统将会在你暴击时启动，在 6 回合内你的全属性( 力量除外 ) 将会增加等同于你 50%% 力量的值。", "tformat")
 
 ------------------------------------------------
@@ -7427,8 +7427,8 @@ But there it is, half alive, half dead but you can feel his thoughts in your hea
 神话说，夏·图尔人杀死了阿马克泰尔，他们已经消逝在神话中。
 但是他就在这里，处于生死交接的沉眠中。你可以在脑海中感受到他的思维，没有错：#{bold}#已死之神就在这里！#{normal}#]], "_t")
 t("Amakthel's Mouth", "阿马克泰尔的嘴", "entity name")
-t("#PURPLE#%s shouts: 'YOU DO NOT GET AWAY!'", "#PURPLE#%s叫着：'你逃不掉的！'", "saySimple")
-t("#PURPLE#%s shouts: 'YOU DO NOT GET AWAY!'", "#PURPLE#%s叫着：'你逃不掉的！'", "log")
+t("#PURPLE#%s shouts: 'YOU DO NOT GET AWAY!'", "#PURPLE#%s叫着：“你逃不掉的！”", "saySimple")
+t("#PURPLE#%s shouts: 'YOU DO NOT GET AWAY!'", "#PURPLE#%s叫着：“你逃不掉的！”", "log")
 t("Amakthel's Eye", "阿马克泰尔的眼睛", "entity name")
 t("spiked tentacle", "尖刺触手", "entity name")
 t("A huge tentacle, ready to crush you with its many spikes.", "一个巨大的触手，准备用它的许多尖刺粉碎你。", "_t")

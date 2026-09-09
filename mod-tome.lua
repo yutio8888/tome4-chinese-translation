@@ -3970,7 +3970,7 @@ t("Hrmph.", "哼。", "_t")
 section "mod-tome/data/chats/alchemist-elvala.lua"
 
 t("Too late! Argh, too late. %s has already finished. I'll make the elixir and reward you as promised, but only because the Brotherhood breaks the fingers of non-member alchemists who rook people. Members, on the other hand...", "太迟了！啊，太迟了！%s已经完成了。我会按承诺配制药剂并给你奖励，但这纯粹是因为兄弟会会折断那些坑蒙拐骗的非会员炼金术士的手指。至于会员嘛，可就另当别论了……", "tformat")
-t("Give them here. You took long enough; %s cooked up a %s in your absence. Be quicker about the next one lest I make a 'mistake' in brewing your reward.", "拿来吧。你可真够磨蹭的；趁你不在的时候，%s已经捣鼓出了一瓶%s。下一次手脚麻利点，免得我在酿造你的奖励时‘不小心出错’。", "tformat")
+t("Give them here. You took long enough; %s cooked up a %s in your absence. Be quicker about the next one lest I make a 'mistake' in brewing your reward.", "拿来吧。你可真够磨蹭的；趁你不在的时候，%s已经捣鼓出了一瓶%s。下一次手脚麻利点，免得我在酿造你的奖励时“不小心出错”。", "tformat")
 t([[#LIGHT_GREEN#*A shabbily-dressed elf opens the door, scratching his head in apparent puzzlement.*#WHITE#
 Another adventurer? Or have we met? I can't tell people apart unless they wear brightly-colored headbands. You need to help me.]], [[#LIGHT_GREEN#*一名衣衫褴褛的精灵打开了门，抓着头，显得十分困惑。*#WHITE#
 又一个冒险者？还是我们见过？除非头上戴着色彩鲜艳的发带，否则我根本分不清谁是谁。你得帮帮我。]], "_t")
@@ -3984,7 +3984,7 @@ t([[#LIGHT_GREEN#*He raises his voice and gestures exaggeratedly, seemingly taki
 Me need pieces of scary monsters for happy-making drink. You get me pieces. You probably get eaten by monsters, me have this conversation yet again with other bonehead.]], [[#LIGHT_GREEN#*他提高了嗓门，夸张地比画着手势，似乎把你当成了白痴。*#WHITE#
 我要可怕怪物的碎块做快乐药水。你，去帮我拿碎块。你八成会被怪物吃掉，然后我又得跟别的蠢蛋把这些话再讲一遍。]], "_t")
 t("I've been known to kill the occasional monster. Is there a reward in it for me?", "我偶尔也会杀杀怪物。这对我有什么报酬？", "_t")
-t("It finally understands! You get a dose of every elixir you help me make. And if your help gets me into the Brotherhood, I've got half an Elixir of Invulnerability lying around that I'll give you. Don't try anything; I've already downed the other half.", "‘它’总算听懂了！你每帮我制作一种药剂，就能分得一份剂量。要是你的协助能让我入选兄弟会，我这儿碰巧还留着半瓶无敌药剂可以送给你。别想动什么歪脑筋，另外半瓶早就被我喝光了。", "_t")
+t("It finally understands! You get a dose of every elixir you help me make. And if your help gets me into the Brotherhood, I've got half an Elixir of Invulnerability lying around that I'll give you. Don't try anything; I've already downed the other half.", "“它”总算听懂了！你每帮我制作一种药剂，就能分得一份剂量。要是你的协助能让我入选兄弟会，我这儿碰巧还留着半瓶无敌药剂可以送给你。别想动什么歪脑筋，另外半瓶早就被我喝光了。", "_t")
 t("I accept.", "我接受了。", "_t")
 t("I cannot aid you at this time.", "我现在没空帮你。", "_t")
 t("Three elixirs I need. I'll show you the ingredients to one at a time. Are you interested in the Elixir of Mysticism, the Elixir of the Savior, or the Elixir of Mastery?", "我需要三种药剂。我每次只告诉你一种药剂所需的原料。你对神秘药剂、守护药剂，还是掌握药剂感兴趣？", "_t")
@@ -4037,7 +4037,7 @@ t("How is it that you speak?", "你怎么会开口说话？", "_t")
 t("I want to change your appearance (one-time only).", "我想修改你的外观（仅限一次）。", "_t")
 t("Nothing, let's go.", "没事，我们走吧。", "_t")
 t("What's the good of immortality if you can't even speak? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. And, by the way, your energy manipulation techniques are on the same level as those of my average pair of shoes. Though I guess you are making up for it with your golem crafting skills.", "要是连话都说不了，永生还有什么用？任何一个称职的大法师在谋划某种不道德的死后复生方案时，都绝不可能不包含表达自己见解的能力。顺带一提，你操纵能量的技术水平跟我随便一双鞋子差不多。不过我猜，你在傀儡制作手艺上弥补了这一点。", "_t")
-t("Change my name? I'm quite happy being 'Telos' thankyou. Though I wouldn't mind being 'Telos the Great and Powerful'. Do that actually. Yes!", "修改我的名字？叫‘泰勒斯’我就挺满意的了，谢谢。不过我倒也不介意被称为‘伟大而强大的泰勒斯’。实际上，就这么改吧。对！", "_t")
+t("Change my name? I'm quite happy being 'Telos' thankyou. Though I wouldn't mind being 'Telos the Great and Powerful'. Do that actually. Yes!", "修改我的名字？叫“泰勒斯”我就挺满意的了，谢谢。不过我倒也不介意被称为“伟大而强大的泰勒斯”。实际上，就这么改吧。对！", "_t")
 t([[I'm a golem. How droll!
 Oh, did you want something?]], [[我是个傀儡。多滑稽啊！
 噢，你有什么事吗？]], "_t")
@@ -16419,7 +16419,7 @@ t([[#{italic}#You find a folded up piece of paper with some notes on it...#{norm
 
 * 泰里克曾经提到过，那一年商队十分顺利，赚取丰厚利润的同时，也没遭到过小偷和强盗的骚扰，难道是有什么把他们吓跑了？
 
-* 在死去的人中，有的身上有'正常'创伤，而有的就是'毫无生气'或者'脸色苍白'。贾克被发现时也是如此，那还要比这次事件早两个月。
+* 在死去的人中，有的身上有“正常”创伤，而有的就是“毫无生气”或者“脸色苍白”。贾克被发现时也是如此，那还要比这次事件早两个月。
 
 * 袭击者都是灵魂或者黑暗鬼火。就我所知，每个人都遭遇过攻击，尽管一些人活下来了。我需要查证一下他们的说法。
 
@@ -19355,8 +19355,8 @@ t("first mural painting", "第一幅壁画", "_t")
 t([[You see here a mural showing a dark and tortured world. Large, god-like figures with powerful auras fight each other, and the earth is torn beneath their feet.
 There is some text underneath ]], [[你能在这壁画上看到一个黑暗和痛苦的世界。有着强大领域的上古巨神们在互相厮杀，大地在他们脚下龟裂。
 下面有一行文字]], "_t")
-t("which you do not understand: #{italic}#'Sho ch'zun Eyal mor donuth, ik ranaheli donoth trun ze.'#{normal}#", "不明意义的文字：#{italic}#'Sho ch'zun Eyal mor donuth, ik ranaheli donoth trun ze.'#{normal}#", "_t")
-t("#{italic}#'In the beginning the world was dark, and the petty gods fought over their broken lands.'#{normal}#", "#{italic}#'世界之初一片黑暗，伪神们为支离破碎的土地争斗不休。'#{normal}#", "_t")
+t("which you do not understand: #{italic}#'Sho ch'zun Eyal mor donuth, ik ranaheli donoth trun ze.'#{normal}#", "不明意义的文字：#{italic}#“Sho ch'zun Eyal mor donuth, ik ranaheli donoth trun ze.”#{normal}#", "_t")
+t("#{italic}#'In the beginning the world was dark, and the petty gods fought over their broken lands.'#{normal}#", "#{italic}#“世界之初一片黑暗，伪神们为支离破碎的土地争斗不休。”#{normal}#", "_t")
 t("second mural painting", "第二幅壁画", "_t")
 t([[In this picture a huge god with glowing eyes towers above the land, and in his right hand he holds high the sun. The other gods are running from him, wincing from the light.
 There is some text underneath ]], [[在这幅画上有一位铁塔一样的巨神，他目光如炬，右手高举着太阳。众神逃离他，害怕他手中的光芒。
@@ -19367,7 +19367,7 @@ t("third mural painting", "第三幅壁画", "_t")
 t([[This picture shows the huge god holding some smaller figures in his hands and pointing out at the lands beyond. You imagine these figures must be the Sher'Tul.
 There is some text beneath ]], [[这幅画显示巨神手中托着一些小小的身影，并指向远方的大陆。你猜这些身影一定就是夏·图尔人。
 下面有一行文字]], "_t")
-t("which you do not understand: #{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"'#{normal}#", "不明意义的文字：#{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"'#{normal}#", "_t")
+t("which you do not understand: #{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"'#{normal}#", "不明意义的文字：#{italic}#“Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"”#{normal}#", "_t")
 t("#{italic}#'And AMAKTHEL made the SHER'TUL, and gave unto us the powers to achieve all that we set our will to, and said to us \"Go forth to where the light touches and take all for your own.\"'#{normal}#", "#{italic}#并且阿马克泰尔制造了夏·图尔，给予我们完成自我意志的力量，他对我们说：“走向世界，为自己取得一切。”#{normal}#", "_t")
 t("fourth mural painting", "第四幅壁画", "_t")
 t([[You see a mural showing a huge metropolis made of crystal, with small islands of stone floating in the air behind it. In the foreground is sitting a Sher'Tul, with a hand stretched up to the sky.
@@ -26987,7 +26987,7 @@ t([[An ogre's body is acclimated to spells and inscriptions.
 		When using a two handed weapon this way you suffer a 20%% accuracy, physical power, spellpower and mindpower penalty, decreasing by 5%% per size category above #{italic}#big#{normal}#; further, all damage procs from your weapons are reduced by 50%%.]], [[食人魔的身体对法术和刻印的亲和力很强。
 		增加 %d 法术豁免，增加刻印的属性加成效果 %d%%。
 		技能等级 5 时，你的身体变得如此强壮，能在主手持有双手武器的同时，副手持有其他副手武器。
-		这样做的话，你的命中、物理、法术、精神强度会下降 20%%，体型超过#{italic}#'较大'#{normal}#时，每增加一体型，惩罚减少 5%%。同时你的武器附加伤害减少 50%%。]], "tformat")
+		这样做的话，你的命中、物理、法术、精神强度会下降 20%%，体型超过#{italic}#“较大”#{normal}#时，每增加一体型，惩罚减少 5%%。同时你的武器附加伤害减少 50%%。]], "tformat")
 t("Scar-Scripted Flesh", "血肉伤痕", "talent name")
 t([[When you crit you have a %d%% chance to reduce by 1 the remaining cooldown of one of your inscriptions and of any saturations effects.
 		This effect can only happen once per turn.]], [[每次暴击时有 %d%% 几率减少随机一个刻印 1 回合冷却时间，并减少符文紊乱或纹身紊乱 1 回合持续时间。
