@@ -15,6 +15,8 @@
 解析到 DLC 根，而不是按 normalized_path。
   6. 动态 tag 的兄弟文件表键 dynamic_tag_sibling_key_verification（_t(<expr>, "<tag>") 的
      运行时取值来自同目录兄弟文件里的表键，字面量不在条目所属文件内）
+  7. 运行期拼接实体名 concatenated_entity_name_verification（`"<前缀>"..name:lower()`
+     与具名调用实参在源码里分处两地，两半都不是完整字面量）
 详见 docs/baseline-batch-runbook-2026-09-06.md。
 """
 import json, hashlib, os, re, subprocess, sys
@@ -77,10 +79,91 @@ def resolve(snap):
     rel = section.split('/', 1)[1]
     return comp, pub, DLC_ROOT / dlc / f'tome-{dlc}' / rel, False
 
+def _lib():
+    """按需引入生产库，复用其正典字节/哈希实现，绝不自己另写一套。"""
+    sys.path.insert(0, str(ROOT / 'tools'))
+    from i18nlib import production_review_v2_lite_batch as B
+    from i18nlib import production_review_v2_lite as C
+    return B, C
+
+
+def _proven_selection_mode(B, man):
+    """selection_mode 不在 manifest 里，但 batch_id = sha(mode|selected|attempt)。
+
+    对两个合法取值各算一遍，只有一个能复现 manifest 里的 batch_id。
+    这是证明不是猜测：命中唯一即确定，命中 0 或 2 个一律拒绝。
+    """
+    hits = [m for m in ('queued', 'retry_blocked')
+            if B._batch_id(m, man['ordered_revisions'], man['attempt']) == man['batch_id']]
+    if len(hits) != 1:
+        raise SystemExit(f'无法由 batch_id 唯一反推 selection_mode：命中 {hits}')
+    return hits[0]
+
+
+def load_checkpoint(batch):
+    """优先用 active checkpoint；批次已 finalize 时从受跟踪证据确定性重建。
+
+    重建来源全部是已提交的证据，不依赖任何运行时残留：
+      manifest.json -> ordered_revisions + attempt + base_commit + catalog_id + 两个摘要
+      git show <base_commit>:evidence/.../catalog/entries.jsonl -> 每条的完整目录行
+    checkpoint 比目录行多两个队列运行期字段，都不是猜的：
+      row_sha256           = sha256(canonical_bytes(目录行))，与 batch.py:795 同一函数
+      prior_effective_state= 由 batch.py:794 的规则套用反推出的 selection_mode
+    重建完成后用 manifest 记录的 ordered_revisions_sha256 与 entry_snapshots_sha256
+    逐一比对；两个摘要都命中，才说明重建结果与当时的 checkpoint 逐字节一致。
+    """
+    live = ROOT / '.artifacts/i18n/production-review-v2-lite/active-batch.json'
+    if live.is_file():
+        cp = json.loads(live.read_text())
+        if cp.get('batch_id') == batch:
+            return cp, 'active_checkpoint'
+
+    man_path = ROOT / 'evidence/production-review-v2-lite/batches' / batch / 'manifest.json'
+    if not man_path.is_file():
+        raise SystemExit(f'既无 active checkpoint 也无受跟踪证据：{man_path}')
+    man = json.loads(man_path.read_text())
+    assert man['batch_id'] == batch, man['batch_id']
+
+    B, C = _lib()
+    canon, sha = B.wp1.canonical_bytes, B._sha
+    keys = sorted(C.ENTRY_KEYS)
+    mode = _proven_selection_mode(B, man)
+
+    raw = subprocess.run(
+        ['git', 'show', f"{man['base_commit']}:evidence/production-review-v2-lite/catalog/entries.jsonl"],
+        cwd=ROOT, capture_output=True, text=True, check=True).stdout
+    by_rev = {}
+    for line in raw.splitlines():
+        if line.strip():
+            e = json.loads(line)
+            by_rev[e['entry_revision_identity']] = e
+
+    snaps, rows = [], []
+    for rev in man['ordered_revisions']:
+        e = by_rev.get(rev)
+        if e is None:
+            raise SystemExit(f'base_commit 处目录缺少 revision {rev}')
+        row = {k: e[k] for k in keys}
+        snap = dict(row)
+        snap['prior_effective_state'] = 'blocked' if mode == 'retry_blocked' else 'queued'
+        snap['row_sha256'] = sha(canon(row))
+        rows.append(row)
+        snaps.append(snap)
+
+    if sha(canon(man['ordered_revisions'])) != man['ordered_revisions_sha256']:
+        raise SystemExit('ordered_revisions 摘要不符，证据自身不自洽')
+    if sha(canon(rows)) != man['entry_snapshots_sha256']:
+        raise SystemExit('重建的 entry_snapshots 与 manifest 摘要不符，拒绝写出')
+
+    return {'batch_id': batch, 'base_commit': man['base_commit'],
+            'catalog_id': man['catalog_id'], 'selection_mode': mode,
+            'entry_snapshots': snaps}, 'rebuilt_from_evidence'
+
+
 def main():
     batch = sys.argv[1]
-    cp = json.loads((ROOT / '.artifacts/i18n/production-review-v2-lite/active-batch.json').read_text())
-    assert cp['batch_id'] == batch, cp['batch_id']
+    cp, provenance = load_checkpoint(batch)
+    print(f'[freeze_workset] {batch} 来源={provenance}', file=sys.stderr)
     snaps = cp['entry_snapshots']
     entries, verifs = [], []
     filecache = {}
@@ -88,8 +171,14 @@ def main():
         comp, pub, abspath, pinned = resolve(snap)
         if abspath not in filecache:
             data = abspath.read_bytes()
-            filecache[abspath] = (hashlib.sha256(data).hexdigest(), data.decode('utf-8').split('\n'))
-        fsha, lines = filecache[abspath]
+            text = data.decode('utf-8')
+            # 上游有 16 个 .lua 是 CRLF。目录抽取时行尾已规范为 LF，
+            # 这里若保留 \r，跨行字面量必然假性未命中（runbook §34.1）。
+            # 只规范用于匹配的文本；source_file_sha256 仍是磁盘原始字节的摘要。
+            crlf = '\r\n' in text
+            filecache[abspath] = (hashlib.sha256(data).hexdigest(),
+                                  text.replace('\r\n', '\n').split('\n'), crlf)
+        fsha, lines, crlf = filecache[abspath]
         src = snap['source']
         variants = unescape_variants(src)
         hits = []
@@ -204,6 +293,32 @@ def main():
                             'status': 'confirmed',
                         }
                         break
+        concat = None
+        if not hits and snap['source_tag'] == 'entity name':
+            # `name = "alchemist "..name:lower()`：条目是运行期拼接值，
+            # 前缀在拼接处，剩余部分是同文件某次具名调用的字面量实参。
+            whole = '\n'.join(lines)
+            for m in re.finditer(r'"([^"\\]*)"\s*\.\.\s*name:lower\(\)', whole):
+                prefix = m.group(1)
+                if not src.startswith(prefix):
+                    continue
+                rest = src[len(prefix):]
+                arglines = [i for i, ln in enumerate(lines, 1)
+                            for a in re.findall(r'\(\s*"([^"\\]*)"\s*,', ln)
+                            if a.lower() == rest]
+                if not arglines:
+                    continue
+                concat = {
+                    'algorithm': 'concatenated-entity-name-attribution/1',
+                    'argument_lines': arglines,
+                    'concat_lines': [whole.count('\n', 0, m.start()) + 1],
+                    'literal_prefix': prefix,
+                    'resolved_argument': rest,
+                    'rule': ('entity name is built at runtime by concatenating a literal prefix '
+                             'with a lowercased call argument; neither half is a whole literal'),
+                    'status': 'confirmed',
+                }
+                break
         legacy = None
         if not hits and pinned and snap['normalized_path'] == 'engine.lua':
             # 上游 locale 把当前源码已无字面量的历史条目留在对应 section 下，
@@ -246,6 +361,7 @@ def main():
             'source_file_sha256': fsha,
             'source_pinning': 'pinned' if pinned else 'unpinned',
             'source_tag': snap['source_tag'],
+            'line_ending_normalization': 'crlf_to_lf' if crlf else None,
             'verification_status': 'confirmed' if pinned else None,
         }
         if mixin is not None:
@@ -265,6 +381,11 @@ def main():
             row['literal_source_match'] = False
             row['matching_literal_lines'] = None
             row['verification_status'] = 'confirmed'
+        if concat is not None:
+            row['concatenated_entity_name_verification'] = concat
+            row['literal_source_match'] = False
+            row['matching_literal_lines'] = None
+            row['verification_status'] = 'confirmed'
         if hostgen is not None:
             row['host_generated_key_verification'] = hostgen
             row['matching_literal_lines'] = None
@@ -280,7 +401,8 @@ def main():
             and 'host_generated_key_verification' not in v
             and 'interface_mixin_verification' not in v
             and 'legacy_locale_entry_verification' not in v
-            and 'dynamic_tag_sibling_key_verification' not in v]
+            and 'dynamic_tag_sibling_key_verification' not in v
+            and 'concatenated_entity_name_verification' not in v]
     out = {
         'base_commit': cp['base_commit'],
         'batch_id': batch,

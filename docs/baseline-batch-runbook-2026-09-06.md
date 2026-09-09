@@ -1433,3 +1433,41 @@ new = re.sub(r'） (?=[^\s"\]\n])', '）', new)
 PURE  = r'^[一-鿿，。、；：！？…—～·《》“”‘’0-9%/+.\-\s]+$'
 MIXED = r'[A-Za-z*#]|%[-+0-9.]*[a-zA-Z]'   # 命中即 pending
 ```
+
+## §34 源码工作集补齐（第 54–58 批）与 freeze_workset 两处缺陷
+
+### §34.0 已 finalize 的批次可以从受跟踪证据确定性重建工作集
+`freeze_workset.py` 原先只认 `.artifacts/.../active-batch.json`，而该文件在 finalize 后即消失，
+于是第 54–58 批没有留下逐条源码工作集。新增 `rebuilt_from_evidence` 路径，来源全部是已提交证据：
+
+| 需要的东西 | 来源 |
+| --- | --- |
+| 80 个 revision 与顺序 | `manifest.json:ordered_revisions` |
+| 每条目录行 | `git show <base_commit>:evidence/.../catalog/entries.jsonl` |
+| `row_sha256` | `sha256(canonical_bytes(目录行))`，与 `batch.py:795` 同一函数 |
+| `prior_effective_state` | 由 `batch.py:794` 的规则套用反推出的 `selection_mode` |
+
+`selection_mode` 不在 manifest 里，但 `batch_id = sha(mode|selected|attempt)`（`batch.py:71`），
+合法取值只有 `queued`/`retry_blocked` 两个，**各算一遍看哪个复现 batch_id 即为证明**；
+命中 0 个或 2 个一律拒绝，不许猜。重建完成后再用 manifest 的
+`ordered_revisions_sha256` 与 `entry_snapshots_sha256` 双重比对才允许写出。
+
+验证方式：用新路径重算第 53 批（唯一同时有原件的批次），与受跟踪原件**逐字节一致**。
+这条回归必须保留——它是「重建 == 当时的 checkpoint」的唯一证明。
+
+### §34.1 CRLF 文件让跨行字面量假性未命中
+上游 tome 模块有 16 个 `.lua` 是 CRLF。目录抽取时行尾已规范为 LF，
+而 `freeze_workset` 按字节 `split('\n')`，`\r` 留在行尾：
+单行字面量因为是子串仍能命中，**跨行字面量则永远匹配不上**。
+第 57 批 `higher-draconic.lua` 的 `You breathe crippling poison...` 就是这样被误报 MISS 的。
+
+规矩：匹配用的文本按 `\r\n -> \n` 规范化；`source_file_sha256` 仍取磁盘**原始字节**摘要
+（文件身份不能因规范化而改变）；规范化必须留痕，逐条写 `line_ending_normalization`。
+**未命中先怀疑匹配器，再怀疑证据**——本次两个 MISS 没有一个是真的缺证据。
+
+### §34.2 第七类归属：运行期拼接的实体名
+`gem.lua:83` `name = "alchemist "..name:lower()`，实参在 `gem.lua:107` `newGem("Fire Opal", ...)`，
+运行期拼出 `alchemist fire opal`。两半都不是完整字面量，逐行/整文匹配都必然落空。
+新增 `concatenated_entity_name_verification`：记前缀、解析出的实参、拼接处行号、实参行号。
+匹配限定 `source_tag == 'entity name'` 且要求 `source.startswith(前缀)` 后剩余部分
+恰好等于某次具名调用实参的小写形式——不满足就仍然报 MISS，不放宽。
